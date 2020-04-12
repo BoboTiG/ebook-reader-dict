@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+arch=$(uname -m)
+dir=$(dirname $0)
+
+if [ "$arch" == "x86_64" ]; then
+    $dir/kindlegen64 $@
+else
+    $dir/kindlegen32 $@
+fi
+
