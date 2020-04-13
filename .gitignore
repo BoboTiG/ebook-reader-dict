@@ -1,3 +1,7 @@
+# Project stuff
+*.bz2
+*.xml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

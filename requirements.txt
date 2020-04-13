@@ -1,0 +1,4 @@
+setuptools>=36.2.1
+mediawiki_dump==0.6.7
+wikitextparser==0.34.0
+xmltodict==0.12.0
