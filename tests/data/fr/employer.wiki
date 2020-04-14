@@ -1,0 +1,97 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|la|fr|mot=implico|dif=implicāre|sens=impliquer}}.
+
+=== {{S|verbe|fr}} ===
+'''employer''' {{pron|ɑ̃.plwa.je|fr}} {{t|fr}} {{conj|grp=1|fr}} {{lien pronominal|'}}
+# [[utiliser|Utiliser]] ; [[user]] ; se [[servir]] de.
+#* ''Le sucre était connu des anciens qui ne l’'''employaient''' qu'en très-petite quantité et comme médicament ; il y a 200 ans à peine, il se vendait seulement chez les pharmaciens, à un prix très-élevé.'' {{source|{{Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|119}}}}
+#* ''On sait que l’emploi du fer fut inconnu de toute l’Amérique avant l’arrivée de Colomb. […]. Parfois cependant le fer météorique '''est employé''' accidentellement.'' {{source|{{w|René Thévenin}} & {{w|Paul Coze}}, ''Mœurs et Histoire des Indiens Peaux-Rouges'', Payot, 1929, 2{{e}} éd., p.18}}
+#* ''Tant qu’il n’était pas appelé au loin par la guerre contre les Saxons, les Bretons, ou les Goths de la Septimanie, Chlother '''employait''' son temps à se promener d’un domaine à l’autre.'' {{source|{{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', 1{{er}} récit : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833–1837}}
+#* ''Ces cartouches sont destinées à remplacer les fortes charges de poudre-éclair qu'il serait nécessaire d’'''employer''' pour l’éclairage intensif d'intérieurs, de grottes, de mines, etc., […].'' {{source|''Agenda Lumière 1930'', Paris : Société Lumière & librairie Gauthier-Villars, page 413}}
+#* ''La Sandaraque impure des marchés arabes provient du Thuya et de divers Juniperus. On l’'''emploie''' en poudre pour arrêter les petites hémorragies de l’épistaxis.'' {{source|''Bulletin des sciences pharmacologiques'', 1921, vol. 28, page 23}}
+# {{spéc}} {{grammaire|fr}} S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.
+#* '''''Employer''' les termes propres, les tours les plus élégants.''
+# [[pourvoir|Pourvoir]] d’une [[occupation]] ou d’un [[travail]] pour son [[usage]] ou pour son [[profit]].
+#* ''Une seule usine, '''employant''' une vingtaine d'ouvriers, existe à Vatan et la main-d’œuvre masculine, hormis celle du bâtiment, se voit contrainte d'aller travailler dans les villes voisines.'' {{source|Marc Michon, ''Petite histoire de Vatan'', impr. Lecante, 1971, page 57}}
+#* ''On l’a employé dans de grandes affaires, à de grandes négociations.''
+#* ''C’est un homme qui mérite d’être employé.''
+#* ''Il est employé dans les bureaux de tel ministère.''
+
+==== {{S|apparentés}} ====
+{{(}}
+* [[désemployer]]
+* [[emploi]]
+* [[employé]]
+* [[employeur]]
+* [[réemploi]]
+* [[remploi]]
+* [[réemployer]]
+* [[s’employer]]
+* [[sous-employer]]
+* [[suremployer]]
+{{)}}
+
+==== {{S|traductions}} ====
+{{trad-début|Utiliser}}
+* {{T|af}} : {{trad+|af|gebruik}}, {{trad-|af|benut}}, {{trad-|af|benuttig}}
+* {{T|de}} : {{trad+|de|benutzen}}, {{trad+|de|anwenden}}, {{trad+|de|brauchen}}, <br />{{trad+|de|gebrauchen}}, {{trad+|de|verwenden}}, {{trad+|de|verwerten}}
+* {{T|en}} : {{trad+|en|employ}}, {{trad+|en|use}}, {{trad+|en|make use of}}, {{trad-|en|turn to account}}
+* {{T|ca}} : {{trad+|ca|emprar}}
+* {{T|co}} : {{trad-|co|impiicà}}, {{trad+|co|usà}}, {{trad-|co|servesi}}
+* {{T|da}} : {{trad+|da|benytte}}, {{trad+|da|bruge}}, {{trad-|da|tilbringe}}
+* {{T|es}} : {{trad+|es|usar}}, {{trad+|es|emplear}}
+* {{T|eo}} : {{trad+|eo|uzi}}
+* {{T|fo}} : {{trad-|fo|nýta}}
+* {{T|fi}} : {{trad+|fi|käyttää}}
+* {{T|fy}} : {{trad+|fy|brûke}}
+* {{T|gallo}} : {{trad--|gallo|alouer}}
+* {{T|hu}} : {{trad+|hu|alkalmaz}}, {{trad+|hu|használ}}
+* {{T|io}} : {{trad+|io|uzar}}, {{trad+|io|employar}}
+* {{T|is}} : {{trad-|is|brúka}}, {{trad+|is|nota}}
+* {{T|it}} : {{trad+|it|impiegare}}, {{trad+|it|usare}}
+* {{T|la}} : {{trad-|la|uti}}
+* {{T|ms}} : {{trad-|ms|gunakan}}, {{trad-|ms|menggunakan}}
+* {{T|nl}} : {{trad+|nl|aanwenden}}, {{trad+|nl|benutten}}, {{trad+|nl|gebruiken}}
+* {{T|oc}} : {{trad+|oc|emplegar}}
+* {{T|pap}} : {{trad--|pap|usa}}, {{trad--|pap|uza}}
+* {{T|pl}} : {{trad+|pl|używać}}
+* {{T|pt}} : {{trad+|pt|empregar}}, {{trad-|pt|servir-se de}}, {{trad+|pt|usar}}, {{trad+|pt|despender}}
+* {{T|ro}} : {{trad+|ro|folosi}}
+* {{T|ru}} : {{trad+|ru|использовать}}
+* {{T|sv}} : {{trad+|sv|använda}}, {{trad+|sv|begagna}}, {{trad+|sv|bruka}}
+* {{T|tl}} : {{trad-|tl|gamítin}}
+* {{T|cs}} : {{trad-|cs|zaměstnat}}
+* {{T|tr}} : {{trad+|tr|kullanmak}}
+* {{T|vi}} : {{trad+|vi|dùng}}
+* {{T|wa}} : {{trad+|wa|eployî}}
+* {{T|zu}} : {{trad-|zu|-sebenzisa}}
+{{trad-fin}}
+
+{{trad-début|Donner un métier}}
+* {{T|de}} : {{trad+|de|anstellen}}, {{trad+|de|einstellen}}
+* {{T|gallo}} : {{trad--|gallo|alouer}}
+* {{T|nl}} : {{trad+|nl|tewerkstellen}}
+* {{T|no}} : {{trad-|no|ansette}}, {{trad-|no|tilsette}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{pron|ɑ̃.plwa.je|fr}}
+* {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|ɑ̃.plwa.je|audio=Fr-employer.ogg}}
+* {{écouter|lang=fr|France (Toulouse)||audio=LL-Q150 (fra)-Lepticed7-employer.wav}}
+
+== {{langue|en}} ==
+=== {{S|étymologie}} ===
+: {{composé de|m=1|employ|-er|lang=en}}.
+
+=== {{S|nom|en}} ===
+{{en-nom-rég}}
+'''employer''' {{pron|ɛm.ˈplɔ.jər|en}}
+# [[employeur|Employeur]].
+
+==== {{S|antonymes}} ====
+* {{lien|employee|en}}
+
+=== {{S|voir aussi}} ===
+* {{WP|lang=en}}
+

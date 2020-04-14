@@ -1,5 +1,6 @@
 # Project stuff
 *.bz2
+*.json
 *.xml
 
 # Byte-compiled / optimized / DLL files

@@ -1,0 +1,118 @@
+{{voir|Accueil}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{siècle|XII}} {{déverbal de|accueillir|lang=fr}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|a.kœj}}
+'''accueil''' {{pron|a.kœj|fr}} {{m}}
+# [[cérémonie|Cérémonie]] ou [[prestation]] réservée à un nouvel [[arrivant]], consistant généralement à lui [[souhaiter]] la [[bienvenue]] et à l’aider dans son [[intégration]] ou ses [[démarche]]s.
+#* ''Nous réservâmes aux nouveaux venus un '''accueil''' qui fut cordial et empressé, mais le temps n’était pas aux effusions et d’un commun avis, il fallait agir vite.'' {{source|{{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
+#* ''Partout elle avait trouvé bon '''accueil''', prompt assentiment, mais elle se propose d’aller plus outre.'' {{source|{{Citation/Jean Rogissart/Passantes d’Octobre/1958|}}}}
+#* ''Notre hôte, absent au moment de notre arrivée, ne tarde pas à paraître et me fait l’'''accueil''' auquel je m'attendais de sa part.'' {{source|{{w|Frédéric {{smcp|Weisgerber}}}}, ''Trois mois de campagne au Maroc : étude géographique de la région parcourue'', Paris : Ernest Leroux, 1904, p. 38}}
+# [[lieu|Lieu]] où sont accueillies les [[personne]]s.
+#* ''À l’'''accueil''', ils t’expliqueront comment aller à son bureau.''
+# {{vieilli|fr}} Fait d’[[accueillir]] ou [[héberger]].
+#* ''Le Maire rappelle au conseil municipal que l’'''accueil''' périscolaire aura lieu à la rentrée de septembre 2008–2009 dans la salle de réunions et le petit local attenant.'' {{source|[[Le Chesne]], Conseil municipal du 27 juin 2008}}
+# [[page|Page]] d’[[accès]] ou d’accueil (lieu ci-dessus) à un site [[web]].
+# Manière dont une [[œuvre]] a été acceptée lors de sa sortie par le [[public]] et les [[critique]]s.
+
+==== {{S|dérivés}} ====
+{{(}}
+* [[accueil de loisirs]]
+* [[émission d’accueil]]
+* [[faire bon accueil]]
+* [[faire mauvais accueil]]
+* [[famille d’accueil]]
+* [[plage d’accueil]]
+* [[station d’accueil]]
+{{)}}
+
+==== {{S|apparentés}} ====
+* [[accueillir]]
+* [[accueillant]]
+
+==== {{S|synonymes}} ====
+* [[home]] ''site [[web]]'' {{angl|nocat=1}}
+* [[main page]] ''site [[web]]'' {{angl|nocat=1}}
+* [[page d’accueil]] ''site [[web]]''
+
+==== {{S|traductions}} ====
+{{trad-début|Cérémonie|1}}
+* {{T|de}} : {{trad+|de|Aufnahme|f}}, {{trad+|de|Empfang|m}}
+* {{T|en}} : {{trad+|en|welcome}} {{vieilli|nocat=1}}, {{trad+|en|reception}}, {{trad+|en|acceptance}}
+* {{T|ary}} : {{trad--|ary|إستقبال}}
+* {{T|it}} : {{trad+|it|accoglienza|f}}
+* {{T|avk}} : {{trad--|avk|emudera}}
+* {{T|mg}} : {{trad+|mg|fandraisana}}
+* {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|ontvangst|f}}
+* {{T|pt}} : {{trad+|pt|recepção|f}}, {{trad+|pt|acolhida|f}}
+* {{T|ro}} : {{trad+|ro|primire|f}}, {{trad-|ro|întampinare}}
+* {{T|sc}} : {{trad--|sc|accoglientzia|f}}
+* {{T|sv}} : {{trad+|sv|mottagande}}
+* {{T|ta}} : {{trad+|ta|வரவேற்பு|R=varavēṟpu}}
+{{trad-fin}}
+{{trad-début|Lieu|2}}
+* {{T|af}} : {{trad+|af|tuiste}}
+* {{T|de}} : {{trad+|de|Empfang|m}}, {{trad+|de|Rezeption|f}}
+* {{T|en}} : {{trad+|en|reception}} (''desk'' = d’une société), {{trad+|en|courtesy}} (''counter, booth, desk'') {{États-Unis|nocat=1}}, {{trad+|en|customer service}} (''desk, booth, center'') {{États-Unis|nocat=1}}
+* {{T|da}} : {{trad+|da|reception|c}}
+* {{T|es}} : {{trad+|es|recepción}}
+* {{T|avk}} : {{trad--|avk|emudexo}}
+* {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|balie|f}}, {{trad+|nl|receptie|f}}
+* {{T|pt}} : {{trad+|pt|recepção}}
+* {{T|ru}} : {{trad+|ru|приём}}
+* {{T|sv}} : {{trad+|sv|mottagande}}
+{{trad-fin}}
+{{trad-début|Fait d’accueillir|3}}
+* {{T|de}} : {{trad+|de|Aufnahme|f}}, {{trad+|de|Unterbringung|f}}, {{trad-|de|Beherbergung|f}}
+* {{T|en}} : {{trad+|en|reception}}
+* {{T|az}} : {{trad+|az|qəbul}}
+* {{T|it}} : {{trad+|it|accoglienza|f}}
+* {{T|avk}} : {{trad--|avk|emudera}}
+* {{T|pt}} : {{trad+|pt|recepção}}
+* {{T|ro}} : {{trad-|ro|a întampina}}, {{trad-|ro|a primi}}
+* {{T|cs}} : {{trad-|cs|hoštění}}, {{trad+|cs|pohoštění}}
+{{cf|accueillir}}
+{{trad-fin}}
+
+===== {{S|traductions à trier}} =====
+{{trad-début}}
+* {{T|af|trier}} : {{trad-|af|ontvangs}}, {{trad-|af|tuis}}
+* {{T|de|trier}} : {{trad+|de|Empfang}} {{m}}, {{trad+|de|Annahme}}, {{trad+|de|Aufnahme}}, {{trad+|de|Zusage}}, {{trad-|de|Entgegennahme}}, {{trad+|de|Akzept}}
+* {{T|ar|trier}} : {{trad-|ar|istikbale}}
+* {{T|ca|trier}} : {{trad-|ca|acollença}}, {{trad+|ca|acollida}}, {{trad+|ca|acolliment}}, {{trad+|ca|acull}}
+* {{T|es|trier}} : {{trad+|es|acogida}}, {{trad+|es|aceptación}}, {{trad+|es|admisión}}
+* {{T|eo|trier}} : {{trad-|eo|bonvenon}}, {{trad-|eo|akcepto}}
+* {{T|fi|trier}} : {{trad+|fi|hyväksyminen}}
+* {{T|fy|trier}} : {{trad-|fy|oanfurdigjen}}
+* {{T|ht|trier}} : {{trad--|ht|bèlantre}}
+* {{T|hu|trier}} : {{trad+|hu|elfogadás}}
+* {{T|id|trier}} : {{trad+|id|sambutan}}, {{trad+|id|rumah}}
+* {{T|it|trier}} : {{trad+|it|accoglienza}}, {{trad+|it|accoglimento}}
+* {{T|la|trier}} : {{trad-|la|acceptatio}}
+* {{T|ms|trier}} : {{trad-|ms|penerimaan}}
+* {{T|mg}} : {{trad+|mg|fandraisana}}
+* {{T|nl|trier}} : {{trad+|nl|ontvangst}}, {{trad+|nl|acceptatie}}, {{trad+|nl|aanneming}}, {{trad+|nl|aanvaarding}}
+* {{T|oc|trier}} : {{trad-|oc|acuèlh}}
+* {{T|pcd|trier}} : {{trad--|pcd|aceùy}}
+* {{T|pt|trier}} : {{trad+|pt|bem-vindo}}, {{trad+|pt|aceitação}}, {{trad+|pt|acolhida}}, {{trad+|pt|acolhimento}}, {{trad+|pt|admissão}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{pron|a.kœj|fr}}
+** {{écouter|lang=fr|France (Paris)|titre=un accueil|ɛ̃.n‿akœj|audio=Fr-accueil.ogg}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-accueil.wav}}
+
+=== {{S|anagrammes}} ===
+* [[acicule]]
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
+=== {{S|références}} ===
+* {{R:TLFi}}
+* {{Import:DAF8}}
+* Petit Robert 1, dictionnaire de la langue française,1990.
+

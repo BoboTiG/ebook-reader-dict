@@ -1,0 +1,68 @@
+{{voir|-aux}}
+
+== {{langue|conv}} ==
+=== {{S|symbole|conv}} ===
+'''aux'''
+# {{linguistique|conv}} Code {{w|ISO 639-3}} de l’[[aurá]].
+
+=== {{S|références}} ===
+* {{Lien 639-3|aux}}
+
+== {{langue|fr}} ==
+=== {{S|article défini|fr|flexion}} ===
+{{fr-accord-mixte| ms=au| mp=aux| fs=à la| fp=aux| pms=o| pmp=o| pfs=a.la| pfp=o}}
+'''aux''' {{pron|o|fr}} {{mf}} {{p}}
+# ''Contraction obligatoire de la [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]''.''
+#* ''Garantier contemplait, à travers la baie vitrée, les mouettes qui se débattaient au-dessus de la mer ; il s’efforçait d’oublier que c’étaient des choses vivantes et de n’y voir que des signes géométriques vivants, blancs et gris, assez comparables '''aux''' mobiles de Calder.'' {{source|Romain Gary, ''Les Couleurs du jour'', Gallimard, 1952, chapitre 8}}
+
+==== {{S|vocabulaire}} ====
+{{contractions/fr}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|shy}} : {{trad--|shy|ayetbab}}
+* {{T|es}} : {{trad-|es|a los}} {{m}}, {{trad-|es|a las}} {{f}}
+* {{T|it}} : {{trad+|it|agli}}, {{trad+|it|alle}}
+* {{T|oc}} : {{trad-|oc|als}}, {{trad+|oc|aus}}
+* {{T|pt}} : {{trad+|pt|aos}} {{m}}, {{trad+|pt|às}} {{f}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{pron|o|fr}}
+* {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|o|audio=Fr-aux.ogg}}
+
+==== {{S|homophones|fr}} ====
+{{(}}
+* [[au]]
+* [[aulx]]
+* [[eau]], [[eaux]]
+
+* [[haut]], [[hauts]]
+* [[o]]
+* [[ô]]
+
+* [[oh]]
+* [[os]] (pluriel)
+{{)}}
+
+=== {{S|voir aussi}} ===
+* {{Wikipédia|AUX}}
+[[Catégorie:Contractions en français]]
+
+== {{langue|angevin}} ==
+=== {{S|préposition|angevin|flexion}} ===
+'''aux''' {{pron||angevin}}
+# ''Pluriel de la préposition'' {{lien|au|angevin|sens=par}}.
+
+=== {{S|références}} ===
+* {{R:VerrierOnillon|p=2|vue=42}}
+
+== {{langue|eo}} ==
+=== {{S|variante typographique|eo}} ===
+'''aux''' {{pron|aw|eo}}
+# {{eo-sys-x|aŭ}}.
+
+==== {{S|écriture}} ====
+* {{lien|aŭ|eo}}
+* {{lien|au|eo}}
+

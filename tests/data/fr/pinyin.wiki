@@ -1,0 +1,61 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: ''([[#fr-nom-1|Nom 1]])'' (Vers 1950) Du {{étyl|zh|fr|mot=拼音|tr=pīnyīn}}, formé de [[拼]] ''pīn'' (« [[épeler]] ») et de [[音]] ''yīn'' (« [[son]] »), donc « épeler les sons ».
+: ''([[#fr-nom-2|Nom 2]])'' {{ébauche-étym|fr}}
+
+=== {{S|nom|fr|num=1}} ===
+[[Image:Pinyin accents.svg|thumb|Le '''pinyin''' utilise l’alphabet romain ainsi que le [[macron]], l’accent grave, le [[caron]] et l’accent aigu pour indiquer lequel des 4 tons doit être prononcé.]]
+'''pinyin''' {{pron|pin.jin|fr}} {{m}} {{invar}}
+# [[système|Système]] de [[transcription]] de la langue chinoise, permettant de [[romanisation|romaniser]] les sons des [[sinogramme]]s, et d’indiquer le ton utilisé lors de la prononciation.
+#* ''Shanghaï s’écrit ''上海'' en sinogrammes, et ''Shànghǎi'' en '''pinyin'''.''
+#* ''Le '''pinyin''' fut développé en République populaire de Chine.''
+
+==== {{S|variantes orthographiques}} ====
+* [[pin yin]]
+
+==== {{S|vocabulaire}} ====
+* [[bopomofo]]
+* [[caron]]
+* [[macron]]
+* [[tonème]]
+* [[zhuyin]]
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|en}} : {{trad+|en|pinyin}}
+* {{T|ar}} : {{trad-|ar|بينيين|R=bynyyn}}
+* {{T|bg}} : {{trad-|bg|пинин|R=pinin}}
+* {{T|zh}} : {{trad+|zh|拼音|R=pīnyīn}}
+* {{T|ko}} : {{trad-|ko|병음|R=byeongeum}}
+* {{T|da}} : {{trad+|da|pinyin}}
+* {{T|es}} : {{trad-|es|pinyin}}
+* {{T|eo}} : {{trad+|eo|pinjino}}
+* {{T|he}} : {{trad-|he|פין-יין|R=pyn-yyn}}
+* {{T|hu}} : {{trad+|hu|pinjin}}
+* {{T|is}} : {{trad-|is|pinyin}}
+* {{T|it}} : {{trad+|it|pinyin}}
+* {{T|ja}} : {{trad-|ja|拼音|R=pin’in}}, {{trad+|ja|ピンイン|tr=pin’in}}
+* {{T|oc}} : {{trad-|oc|pinyin}}
+* {{T|fa}} : {{trad-|fa|پینیین|R=pynyyn}}
+* {{T|ru}} : {{trad+|ru|пиньинь}}
+{{trad-fin}}
+
+=== {{S|nom|fr|num=2}} ===
+'''pinyin''' {{pron||fr}} {{m}} {{au singulier uniquement|fr}}
+# [[langue#fr|Langue]] [[bantoïde]] parlée dans la [[Région du Nord-Ouest]] au [[Cameroun]].
+
+==== {{S|notes}} ====
+: {{note code langue}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|en}} : {{trad+|en|Pinyin}}
+* {{T|ja}} : {{trad-|ja|ピニン語|tr=Piningo}}
+* {{T|oc}} : {{trad-|oc|pinyin}}
+{{trad-fin}}
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+* {{WP|Pinyin (langue)}}
+* {{catégorie langue|spéc1=du Cameroun}}
+

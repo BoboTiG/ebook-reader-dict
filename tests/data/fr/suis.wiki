@@ -1,0 +1,69 @@
+{{voir|ŝuis}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: ''(Forme de verbe 1)'' De l’{{étyl|fro|fr|suis}} (forme du verbe ''{{lien|estre|fro}}''), lui-même issu du {{étyl|la|fr|sum}} (forme du verbe ''{{lien|esse|la}}'').
+
+=== {{S|verbe|fr|flexion|num=1}} ===
+{{fr-verbe-flexion|être|grp=3|ind.p.1s=oui}}
+'''suis''' {{pron|sɥi|fr}}
+# ''Première personne du singulier de l’indicatif présent de'' [[être]].
+#* ''Malgré mon nom qui a été « thaïlandisé », je '''suis''' vietnamien d’origine.'' {{source|Jean-Claude Darrigaud, ''Les enfants du Mékong'', 1989}}
+
+==== {{S|abréviations}} ====
+* [[ss]]
+
+==== {{S|dérivés}} ====
+* [[chuis]]
+
+=== {{S|verbe|fr|flexion|num=2}} ===
+{{fr-verbe-flexion|suivre|grp=3|ind.p.1s=oui|ind.p.2s=oui|imp.p.2s=oui}}
+'''suis''' {{pron|sɥi|fr}}
+# ''Première personne du singulier de l’indicatif présent de'' [[suivre]].
+#* ''Héhéhé plein d’indices pour éviter les erreurs de parents / darons… c’est pour ça que je te '''suis''' à 44 ans, avec l’impression de sous-mariner dans un monde qui m’échappe et me touche… merci !'' {{source|Livio Bernardo, ''La Vie moderne'', 2019, page 52}}
+# ''Deuxième personne du singulier de l’indicatif présent de'' [[suivre]].
+# ''Deuxième personne du singulier de l’impératif présent de'' [[suivre]].
+
+=== {{S|prononciation}} ===
+''Forme de verbe 1'' :
+*  {{pron|sɥi|fr}}
+** {{écouter|lang=fr|France (Brétigny-sur-Orge)|sɥi|audio=LL-Q150 (fra)-Pamputt-suis.wav}}
+** {{écouter|France (Lyon)|sɥi|lang=fr|audio=LL-Q150 (fra)-Lyokoï-suis.wav}}
+Avec le pronom personnel ''{{lien|je|fr}}'' :
+* {{standard|nocat=1}} {{pron|ʒə sɥi|fr}} ''(je suis)''
+{{informel|nocat=1}}
+* {{pron|ʃɥi|fr}}
+* {{Canada|nocat=1}} {{pron|ʃy|fr}}
+==== {{S|homophones|fr}} ====
+* [[suie]]
+
+=== {{S|anagrammes}} ===
+* [[issu]] {{cf|issir}}
+
+== {{langue|ca}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|ca}}
+
+=== {{S|nom|ca}} ===
+'''suis''' {{pron||ca}}
+# [[Suisse]] (habitant de la Suisse).
+
+[[Catégorie:Gentilés en catalan]]
+
+== {{langue|la}} ==
+=== {{S|adjectif possessif|la|flexion}} ===
+'''suis''' {{pron||la}}
+# ''Datif pluriel de'' [[suus#la-adj-pos|suus]].
+# ''Ablatif pluriel de'' [[suus#la-adj-pos|suus]].
+
+== {{langue|nl}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|nl}}
+
+=== {{S|verbe|nl|flexion}} ===
+'''suis''' {{pron||nl}}
+# ''Première personne du singulier de l’indicatif présent du verbe'' [[suizen]] (« frémir, murmurer, chanter »).
+
+=== {{S|prononciation}} ===
+* {{écouter|||lang=nl|audio=Nl-suis.ogg}}
+

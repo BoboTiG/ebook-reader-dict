@@ -1,0 +1,93 @@
+{{voir/ich}}
+
+== {{langue|conv}} ==
+=== {{S|symbole|conv}} ===
+'''ich'''
+# {{linguistique|conv}} Code {{w|ISO 639-3}} de l’[[etkywan]].
+
+=== {{S|voir aussi}} ===
+{{Autres projets
+|w=ICH}}
+
+=== {{S|références}} ===
+* {{Lien 639-3|ich}}
+
+== {{langue|de}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|gmh|de|ich}}, du {{étyl|goh|de|mot=ih}}, du {{étyl|proto-germanique|de}} {{recons|[[Reconstruction:proto-germanique/*ek|ek]]}}, de l’indo-européen {{recons|éǵh₂}}.
+
+=== {{S|pronom personnel|de}} ===
+'''ich''' {{pron|ɪç|de}} {{nominatif|de}}
+# [[je|Je]] : première personne du singulier au nominatif.
+#*''Wenn '''ich''' spreche, hörst du mich an.''
+#*:Quand je parle, tu m'écoutes.
+# [[moi|Moi]].
+#* ''Wer will mit mir spielen? '''Ich'''!''
+#*:Qui veut jouer avec moi ? Moi !
+
+==== {{S|vocabulaire}} ====
+{{pronoms personnels/de}}
+
+=== {{S|prononciation}} ===
+* {{pron|ɪç|de}}
+* {{écouter|lang=de|Autriche|ɪç|audio=De-at-ich.ogg}}
+* {{écouter|lang=de|Allemagne|ɪç|audio=De-ich.ogg}}
+* {{écouter|lang=de|Allemagne (Berlin)|ɪç|audio=LL-Q188 (deu)-Lucas Werkmeister-ich.wav}}
+* {{écouter|lang=de|Suisse (Genève)|ɪç|audio=LL-Q188 (deu)-Nattes à chat-ich.wav}}
+* {{écouter|lang=de||ɪç|audio=LL-Q188 (deu)-teste (Pamputt)-ich.wav}}
+* {{écouter|lang=de|Allemagne (Berlin)|ɪç|audio=LL-Q188 (deu)-Sebastian Wallroth-ich.wav}}
+* {{écouter|lang=de|||audio=LL-Q188 (deu)-Student16 de-ich.wav}}
+
+== {{langue|lim}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|lim}}
+
+=== {{S|pronom personnel|lim}} ===
+'''ich''' {{pron||lim}}
+# [[je|Je]].
+
+=== {{S|références}} ===
+* {{ouvrage|auteur=Mathilde Jansen, Nicoline van der Sijs, Fieke van der Gucht, Johan De Caluwe|titre=Atlas van de Nederlandse Taal|éditeur=Lannoo|date=2017|passage=133}}
+
+== {{langue|yua}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|yua}}
+
+=== {{S|nom|yua}} ===
+'''ich''' {{pron||yua}}
+# [[face|Face]], [[figure]], [[visage]].
+# {{anatomie|yua}} [[œil|Œil]].
+
+=== {{S|préposition|yua}} ===
+'''ich''' {{pron||yua}}
+# Au [[milieu]] de, [[dans]], en, [[parmi]], à.
+
+==== {{S|synonymes}} ====
+* [[ichil]]
+
+== {{langue|pl}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|pl}}
+
+=== {{S|adjectif possessif|pl}} ===
+'''ich''' {{pron|ix|pl}}
+# [[leur|Leur]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=pl||audio=Pl-ich.ogg}}
+
+== {{langue|sk}} ==
+=== {{S|adjectif possessif|sk}} ===
+'''ich''' {{pron|ɪx|sk}} {{invar}}
+# [[leur|Leur]], [[leurs]] (possesseur à la troisième personne du pluriel).
+
+=== {{S|pronom personnel|sk|flexion}} ===
+'''ich''' {{pron|ɪx|sk}}
+# ''Accusatif de'' [[oni#sk|oni]].
+# ''Génitif de'' [[oni#sk|oni]].
+# ''Accusatif de'' [[ony#sk|ony]].
+# ''Génitif de'' [[ony#sk|ony]].
+
+==== {{S|notes}} ====
+Après une [[préposition]], on emploie la forme ''[[nich#sk|nich]]'' (pour ''oni'') ou ''[[ne#sk|ne]]'' (pour ''ony'').
+

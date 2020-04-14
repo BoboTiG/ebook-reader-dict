@@ -1,0 +1,50 @@
+{{voir|barbe-à-papa}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{composé de|m=1|barbe|papa|lang=fr}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|s=barbe|inv=à papa|baʁ.b‿a pa.pa}}
+'''barbe à papa''' {{pron|baʁ.b‿a pa.pa|fr}} {{f}}
+# {{confiserie|fr}} [[confiserie|Confiserie]] que l’on trouve en général dans les [[fête foraine|fêtes foraines]], composée de [[sucre]] [[chauffé]] et [[étiré]] jusqu’à former des fils, enroulés ensuite autour d’une baguette.
+#* ''Manèges à sensations, chenille, tir à la carabine, et autres pêches aux canards se côtoient pour le plus grand bonheur de milliers de visiteurs venus en masse participer à cette fabuleuse fête où les cris de joie et de peur se mêlent aux odeurs alléchantes des '''barbes à papa''' et pommes d'amour.'' {{source|{{w|Petit Futé}} [[Bourgogne]] 2010, p.324}}
+
+==== {{S|variantes orthographiques}} ====
+* [[barbe-à-papa]]
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|de}} : {{trad+|de|Zuckerwatte}} {{f}}
+* {{T|en}} : {{trad+|en|fairy floss}} (Australie), {{trad+|en|cotton candy}} (États-Unis), {{trad+|en|candy floss}} (Royaume-Uni)
+* {{T|ar}} : {{trad-|ar|غزل البنات}}
+* {{T|br}} : {{trad-|br|koumoul-sukr}}
+* {{T|ca}} : {{trad-|ca|cotó fluix de sucre}} {{m}}
+* {{T|zh}} : {{trad+|zh|棉花糖|R=miánhuatáng}}
+* {{T|ko}} : {{trad-|ko|솜사탕|R=somsatang}}
+* {{T|da}} : {{trad-|da|candyfloss}}
+* {{T|es}} : {{trad-|es|algodón de azúcar}} {{m}}
+* {{T|eo}} : {{trad-|eo|sukerŝpinaĵo}}
+* {{T|et}} : {{trad-|et|suhkruvatt}}
+* {{T|fi}} : {{trad+|fi|hattara}}
+* {{T|el}} : {{trad-|el|μαλλί της γριάς|R=mallí tis griás}} {{n}}
+* {{T|he}} : {{trad-|he|שערות סבתא|R=se'arot sav'ta}}
+* {{T|hu}} : {{trad+|hu|vattacukor}}
+* {{T|it}} : {{trad-|it|zucchero filato}} {{m}}
+* {{T|ja}} : {{trad-|ja|綿菓子|R=watagashi}}, {{trad-|ja|綿あめ|tr=wataame}}
+* {{T|lb}} : {{trad+|lb|Zockerwatt}} {{f}}
+* {{T|nl}} : {{trad+|nl|suikerspin}} {{f}}
+* {{T|fa}} : {{trad+|fa|پشمک}}
+* {{T|pl}} : {{trad+|pl|wata cukrowa}}
+* {{T|pt}} : {{trad+|pt|algodão-doce}}
+* {{T|ru}} : {{trad+|ru|сахарная вата|R=sakharnaia vata}}
+* {{T|sl}} : {{trad-|sl|sladkorna pena}}
+* {{T|sv}} : {{trad-|sv|spunnet socker}}, {{trad+|sv|sockervadd}}
+* {{T|cs}} : {{trad+|cs|cukrová vata}}
+* {{T|tr}} : {{trad-|tr|pamuk şekeri}}
+* {{T|vo}} : {{trad-|vo|juegavod}}
+{{trad-fin}}
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
