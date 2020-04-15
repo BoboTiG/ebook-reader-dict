@@ -20,7 +20,7 @@ WIKI = f"{LOCALE}wiktionary"
 BASE_URL = f"https://dumps.wikimedia.org/{WIKI}"
 
 # Local stuff
-SNAPSHOT = Path("data") / LOCALE
+SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
 SNAPSHOT_FILE = SNAPSHOT / "SNAPSHOT"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
 SNAPSHOT.mkdir(exist_ok=True, parents=True)
@@ -90,10 +90,10 @@ def clean(content: str) -> str:
 def decompress(file: Path) -> Path:
     """Decompress a BZ2 file."""
     output = file.with_suffix(file.suffix.replace(".bz2", ""))
-
     if output.is_file():
         return output
 
+    print(f">>> Decompressing {output.name} ... ", flush=True)
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
         for data in iter(partial(fi.read, 1024), b""):
@@ -114,13 +114,13 @@ def fetch_pages(date: str) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
-    url = f"{BASE_URL}/{date}/{WIKI}-{date}-pages-meta-current.xml.bz2"
     output = SNAPSHOT / f"pages-{date}.xml.bz2"
-
     if output.is_file():
         return output
 
+    print(f">>> Fetching {output.name} ... ", flush=True)
     with output.open(mode="wb") as fh:
+        url = f"{BASE_URL}/{date}/{WIKI}-{date}-pages-meta-current.xml.bz2"
         fh.write(requests.get(url).content)
     return output
 
@@ -157,25 +157,20 @@ def guess_snapshot() -> str:
     Return an empty string if there is nothing to do,
     e.g. when the current snapshot is up-to-date.
     """
-    # TODO: remove when no more testing
-    return "20200401"
-
     # Get the current snapshot, if any
     try:
         current = SNAPSHOT_FILE.read_text().strip()
     except FileNotFoundError:
-        current = ""
+        return ""
 
     # Get the latest available snapshot
     snapshot = max(fetch_snapshots())
-
-    if not less_than(current, snapshot):
-        return ""
-
-    return snapshot
+    return snapshot if less_than(current, snapshot) else ""
 
 
-def handle_page(_: Attribs, page: Item, cache: Words = RESULT, old_words: Words = OBSOLETE_WORDS) -> bool:
+def handle_page(
+    _: Attribs, page: Item, cache: Words = RESULT, old_words: Set[str] = OBSOLETE_WORDS
+) -> bool:
     """
     Callback passed to xmltodict.parse() in process().
     The function must return True or the parser will raise ParsingInterrupted
@@ -272,18 +267,16 @@ def process(file: Path) -> None:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
 
     # Remove obsolete words between 2 snapshots
-    if OBSOLETE_WORDS:
-        for word in sorted(OBSOLETE_WORDS):
-            RESULT.pop(word, None)
-            print(f" -- Removed {word}", flush=True)
-        print(f" == Removed {len(OBSOLETE_WORDS)} obsolete words")
+    for word in sorted(OBSOLETE_WORDS):
+        RESULT.pop(word, None)
+        print(f" -- Removed {word}", flush=True)
 
 
 def save(snapshot: str) -> None:
     """Persist data."""
     with SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
         json.dump(RESULT, fh, sort_keys=True)
-    print(f">>> Saved {len(RESULT):,} words into {SNAPSHOT_DATA}")
+    print(f">>> Saved {len(RESULT):,} words into {SNAPSHOT_DATA}", flush=True)
 
     SNAPSHOT_FILE.write_text(snapshot)
 

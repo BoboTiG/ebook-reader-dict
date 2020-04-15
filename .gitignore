@@ -1,7 +1,11 @@
 # Project stuff
-*.bz2
-*.json
-*.xml
+data/*/*.bz2
+data/*/*.json
+data/*/*.xml
+data/*/tmp
+tests/data/*/tmp
+tests/data/*/COUNT
+tests/data/*/dicthtml-*.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
