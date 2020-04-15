@@ -29,6 +29,7 @@ SNAPSHOT.mkdir(exist_ok=True, parents=True)
 PRONUNCIATION = re.compile(r"{{pron\|([^}]+)\|(lang=)?%s}}" % LOCALE, flags=re.UNICODE)
 GENRE = re.compile(r"{{([fmsingp]+)}}")
 EXTRA_SPACES = re.compile(r"\s{2,}")
+EXTRA_SPACES_DOT = re.compile(r"\s{1,}\.")
 
 # Marker for sections of the current locale
 LANG = {
@@ -82,6 +83,7 @@ def clean(content: str) -> str:
     text: str = sanitize(content)
     text = text.replace("''", "")
     text = re.sub(EXTRA_SPACES, " ", text)
+    text = re.sub(EXTRA_SPACES_DOT, ".", text)
     return text
 
 

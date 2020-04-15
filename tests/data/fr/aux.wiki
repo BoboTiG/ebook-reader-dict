@@ -12,7 +12,7 @@
 === {{S|article défini|fr|flexion}} ===
 {{fr-accord-mixte| ms=au| mp=aux| fs=à la| fp=aux| pms=o| pmp=o| pfs=a.la| pfp=o}}
 '''aux''' {{pron|o|fr}} {{mf}} {{p}}
-# ''Contraction obligatoire de la [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]''.''
+# ''Contraction obligatoire de la [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''
 #* ''Garantier contemplait, à travers la baie vitrée, les mouettes qui se débattaient au-dessus de la mer ; il s’efforçait d’oublier que c’étaient des choses vivantes et de n’y voir que des signes géométriques vivants, blancs et gris, assez comparables '''aux''' mobiles de Calder.'' {{source|Romain Gary, ''Les Couleurs du jour'', Gallimard, 1952, chapitre 8}}
 
 ==== {{S|vocabulaire}} ====
