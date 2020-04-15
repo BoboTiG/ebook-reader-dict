@@ -173,7 +173,7 @@ def guess_snapshot() -> str:
     return snapshot
 
 
-def handle_page(_: Attribs, page: Item, cache: Words = RESULT) -> bool:
+def handle_page(_: Attribs, page: Item, cache: Words = RESULT, old_words: Words = OBSOLETE_WORDS) -> bool:
     """
     Callback passed to xmltodict.parse() in process().
     The function must return True or the parser will raise ParsingInterrupted
@@ -187,6 +187,7 @@ def handle_page(_: Attribs, page: Item, cache: Words = RESULT) -> bool:
         3: list of definitions
     )
     """
+
     try:
         word = page["title"]
     except KeyError:
@@ -199,6 +200,9 @@ def handle_page(_: Attribs, page: Item, cache: Words = RESULT) -> bool:
     if ":" in word:
         return True
 
+    if is_ignored(word):
+        return True
+
     rev = page["revision"]["id"]
 
     # Handle word with no changes
@@ -206,8 +210,8 @@ def handle_page(_: Attribs, page: Item, cache: Words = RESULT) -> bool:
     if not FIRST_PASS:
         cached_word = cache.get(word)
         if cached_word:
-            # Remove the word from that object to detect obsolete word at the end
-            OBSOLETE_WORDS.remove(word)
+            # Remove the word from that object to detect obsolete ones at the end
+            old_words.discard(word)
 
             if cached_word[0] == rev:
                 # Same revision, skip early
@@ -247,6 +251,12 @@ def handle_page(_: Attribs, page: Item, cache: Words = RESULT) -> bool:
     return True
 
 
+def is_ignored(word: str) -> bool:
+    """Helper to filter out words from the final dictionary."""
+    # Filter out "small" words and numbers
+    return len(word) < 3 or word.isnumeric()
+
+
 def less_than(old: str, new: str) -> bool:
     """Compare 2 snapshot dates."""
     return len(old) != 8 or old < new
@@ -260,9 +270,11 @@ def process(file: Path) -> None:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
 
     # Remove obsolete words between 2 snapshots
-    for word in sorted(OBSOLETE_WORDS):
-        del RESULT[word]
-        print(f" -- Removed {word}", flush=True)
+    if OBSOLETE_WORDS:
+        for word in sorted(OBSOLETE_WORDS):
+            RESULT.pop(word, None)
+            print(f" -- Removed {word}", flush=True)
+        print(f" == Removed {len(OBSOLETE_WORDS)} obsolete words")
 
 
 def save(snapshot: str) -> None:
