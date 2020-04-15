@@ -6,7 +6,7 @@ Finally descent dictionaries based on Wiktionary for your lovely eBook reader.
 
 Latest versions can be downloaded just here:
 
-- [Français](fr/dicthtml-fr.zip)
+- [Français](data/fr/dicthtml-fr.zip)
 
 ## Updating Dictionaries
 

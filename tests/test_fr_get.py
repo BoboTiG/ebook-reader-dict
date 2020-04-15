@@ -2,8 +2,7 @@ import os
 
 import pytest
 
-
-os.environ["WIKI_LOCALE"] = "fr"
+os.environ["WIKI_LOCALE"] = "test_fr"
 
 
 @pytest.mark.parametrize(
@@ -20,6 +19,7 @@ os.environ["WIKI_LOCALE"] = "fr"
     ],
 )
 def test_find_pronunciation(word, pron, page):
+    """Test the pronunciation finder."""
     from get import find_pronunciation
 
     data = page(word)
@@ -38,6 +38,7 @@ def test_find_pronunciation(word, pron, page):
     ],
 )
 def test_find_genre(word, genre, page):
+    """Test the genre finder."""
     from get import find_genre
 
     data = page(word)
@@ -107,9 +108,7 @@ def test_find_genre(word, genre, page):
     ],
 )
 def test_find_sections_and_definitions(word, defs, page):
-    import get
-
-    get.DEBUG = True
+    """Test the sections finder definitions getter."""
     from get import find_definitions, find_sections
 
     data = page(word)
