@@ -23,10 +23,7 @@ BASE_URL = f"https://dumps.wikimedia.org/{WIKI}"
 SNAPSHOT = Path("data") / LOCALE
 SNAPSHOT_FILE = SNAPSHOT / "SNAPSHOT"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
-SNAPSHOT.mkdir(exist_ok=True)
-
-# Ugly, but needed while testing to prevent loading local data ...
-LOCALE = LOCALE.replace("test_", "")
+SNAPSHOT.mkdir(exist_ok=True, parents=True)
 
 # Regexps
 PRONUNCIATION = re.compile(r"{{pron\|([^}]+)\|(lang=)?%s}}" % LOCALE, flags=re.UNICODE)
@@ -72,7 +69,7 @@ RESULT: Words = {}
 OBSOLETE_WORDS: Set[str] = set()
 FIRST_PASS = True
 
-if SNAPSHOT_DATA.is_file():
+if os.getenv("CI", "0") != "1" and SNAPSHOT_DATA.is_file():
     with SNAPSHOT_DATA.open(encoding="utf-8") as fh:
         RESULT = json.load(fh)
     OBSOLETE_WORDS = set(RESULT.keys())

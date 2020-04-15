@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-os.environ["WIKI_LOCALE"] = "test_fr"
+os.environ["WIKI_LOCALE"] = "fr"
 
 
 @pytest.mark.parametrize(

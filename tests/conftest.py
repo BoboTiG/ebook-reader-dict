@@ -3,6 +3,8 @@ from pathlib import Path
 
 import pytest
 
+os.environ["CI"] = "1"
+
 
 @pytest.fixture
 def page():
