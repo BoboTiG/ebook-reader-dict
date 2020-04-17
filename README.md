@@ -1,12 +1,14 @@
 # eBook Reader Dictionaries
 
-Finally descent dictionaries based on Wiktionary for your lovely eBook reader.
+Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your lovely Kobo.
 
 ## Dictionaries
 
+Note: small words (with less than 3 characters) and numbers are not included.
+
 Latest versions can be downloaded just here:
 
-- [Français](data/fr/dicthtml-fr.zip)
+- [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
 
 ## Updating Dictionaries
 
