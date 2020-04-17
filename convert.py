@@ -16,8 +16,10 @@ LOCALE = os.getenv("WIKI_LOCALE", "fr")
 
 # Local stuff
 SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
+SNAPSHOT_COUNT = SNAPSHOT / "words.count"
+SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
+SNAPSHOT_LIST = SNAPSHOT / "words.list"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
-SNAPSHOT_COUNT = SNAPSHOT / "COUNT"
 WORKING_DIR = SNAPSHOT / "tmp"
 DICTHTML = SNAPSHOT / f"dicthtml-{LOCALE}.zip"
 
@@ -91,15 +93,16 @@ def save(groups: Groups) -> None:
     # Then create the special "words" file
     to_compress.append(craft_index(sorted(wordlist)))
 
+    # Add unrealted files, just for history
+    to_compress.append(SNAPSHOT_COUNT)
+    to_compress.append(SNAPSHOT_FILE)
+
     # Finally, create the ZIP
     with ZipFile(DICTHTML, mode="w", compression=ZIP_DEFLATED) as fh:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
     print(f">>> Generated {DICTHTML} ({DICTHTML.stat().st_size:,} bytes)")
-
-    # Save the words count
-    SNAPSHOT_COUNT.write_text(str(len(wordlist)))
 
 
 def save_html(name: str, words: Words) -> Path:

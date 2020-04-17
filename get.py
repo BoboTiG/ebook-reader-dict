@@ -21,8 +21,10 @@ BASE_URL = f"https://dumps.wikimedia.org/{WIKI}"
 
 # Local stuff
 SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
-SNAPSHOT_FILE = SNAPSHOT / "SNAPSHOT"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
+SNAPSHOT_COUNT = SNAPSHOT / "words.count"
+SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
+SNAPSHOT_LIST = SNAPSHOT / "words.list"
 SNAPSHOT.mkdir(exist_ok=True, parents=True)
 
 # Regexps
@@ -70,12 +72,14 @@ RESULT: Words = {}
 OBSOLETE_WORDS: Set[str] = set()
 FIRST_PASS = True
 
-if os.getenv("CI", "0") != "1" and SNAPSHOT_DATA.is_file():
-    with SNAPSHOT_DATA.open(encoding="utf-8") as fh:
-        RESULT = json.load(fh)
+if os.getenv("CI", "0") != "1" and SNAPSHOT_LIST.is_file():
+    with SNAPSHOT_LIST.open(encoding="utf-8") as fh:
+        for line in fh.splitlines():
+            word, rev = line.split("|")
+            RESULT[word] = rev.rstrip("\n")
     OBSOLETE_WORDS = set(RESULT.keys())
     FIRST_PASS = False
-    print(f">>> Loaded {len(RESULT):,} words from {SNAPSHOT_DATA}")
+    print(f">>> Loaded {len(RESULT):,} words from {SNAPSHOT_LIST}")
 
 
 def clean(content: str) -> str:
@@ -161,7 +165,7 @@ def guess_snapshot() -> str:
     try:
         current = SNAPSHOT_FILE.read_text().strip()
     except FileNotFoundError:
-        return ""
+        current = ""
 
     # Get the latest available snapshot
     snapshot = max(fetch_snapshots())
@@ -274,11 +278,22 @@ def process(file: Path) -> None:
 
 def save(snapshot: str) -> None:
     """Persist data."""
+    # This file is needed by convert.py
     with SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
         json.dump(RESULT, fh, sort_keys=True)
-    print(f">>> Saved {len(RESULT):,} words into {SNAPSHOT_DATA}", flush=True)
 
+    SNAPSHOT_COUNT.write_text(str(len(RESULT)))
     SNAPSHOT_FILE.write_text(snapshot)
+
+    # Save the list of "word|revision" for later runs
+    with SNAPSHOT_LIST.open("w", encoding="utf-8") as fh:
+        for word, (rev, *_) in RESULT.items():
+            fh.write(word)
+            fh.write("|")
+            fh.write(rev)
+            fh.write("\n")
+
+    print(f">>> Saved {len(RESULT):,} words into {SNAPSHOT_DATA}", flush=True)
 
 
 def main() -> int:
@@ -287,7 +302,7 @@ def main() -> int:
     # Get the snapshot to handle
     snapshot = guess_snapshot()
     if not snapshot:
-        return 0
+        return 1
 
     # Fetch and uncompress the snapshot file
     file = fetch_pages(snapshot)
