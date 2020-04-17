@@ -52,7 +52,6 @@ def craft_data():
     return _data
 
 
-
 @pytest.fixture
 def data():
     def _data(file):

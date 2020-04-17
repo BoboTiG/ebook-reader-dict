@@ -6,7 +6,7 @@ import re
 import sys
 from functools import partial
 from pathlib import Path
-from typing import Any, Dict, List, Set, Tuple
+from typing import Any, Dict, List, Tuple
 
 import requests
 
@@ -69,17 +69,23 @@ Words = Dict[str, Word]
 
 # Internal use
 RESULT: Words = {}
-OBSOLETE_WORDS: Set[str] = set()
+WORDLIST: Dict[str, str] = {}
 FIRST_PASS = True
 
-if os.getenv("CI", "0") != "1" and SNAPSHOT_LIST.is_file():
-    with SNAPSHOT_LIST.open(encoding="utf-8") as fh:
-        for line in fh.splitlines():
-            word, rev = line.split("|")
-            RESULT[word] = rev.rstrip("\n")
-    OBSOLETE_WORDS = set(RESULT.keys())
+if os.getenv("CI", "0") != "1" and SNAPSHOT_DATA.is_file():
+    # Load the whole list
+    with SNAPSHOT_DATA.open(encoding="utf-8") as fh:
+        RESULT = json.load(fh)
+
+    # Load the word|revision list to detect changes
+    words = SNAPSHOT_LIST.read_text(encoding="utf-8")
+    for line in words.splitlines():
+        word, rev = line.split("|")
+        WORDLIST[word] = rev.rstrip("\n")
+    del words
+
     FIRST_PASS = False
-    print(f">>> Loaded {len(RESULT):,} words from {SNAPSHOT_LIST}")
+    print(f">>> Loaded {len(RESULT):,} words from {SNAPSHOT_DATA}")
 
 
 def clean(content: str) -> str:
@@ -173,7 +179,7 @@ def guess_snapshot() -> str:
 
 
 def handle_page(
-    _: Attribs, page: Item, cache: Words = RESULT, old_words: Set[str] = OBSOLETE_WORDS
+    _: Attribs, page: Item, cache: Words = RESULT, wordlist: Dict[str, str] = WORDLIST
 ) -> bool:
     """
     Callback passed to xmltodict.parse() in process().
@@ -207,16 +213,11 @@ def handle_page(
     rev = page["revision"]["id"]
 
     # Handle word with no changes
-    cached_word = None
     if not FIRST_PASS:
-        cached_word = cache.get(word)
-        if cached_word:
-            # Remove the word from that object to detect obsolete ones at the end
-            old_words.discard(word)
-
-            if cached_word[0] == rev:
-                # Same revision, skip early
-                return True
+        word_rev = wordlist.pop(word, None)
+        if word_rev and word_rev == rev:
+            # Same revision, skip early
+            return True
 
     # The entire content of the global definition
     sections = find_sections(page["revision"]["text"]["#text"])
@@ -246,7 +247,7 @@ def handle_page(
 
     cache[word] = (rev, pronunciation, genre, definitions)
     if not FIRST_PASS:
-        action = "Updated" if cached_word else "Added"
+        action = "Updated" if word_rev else "Added"
         print(f" ++ {action} {word!r}", flush=True)
 
     return True
@@ -271,7 +272,7 @@ def process(file: Path) -> None:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
 
     # Remove obsolete words between 2 snapshots
-    for word in sorted(OBSOLETE_WORDS):
+    for word in sorted(WORDLIST):
         RESULT.pop(word, None)
         print(f" -- Removed {word}", flush=True)
 
@@ -302,7 +303,8 @@ def main() -> int:
     # Get the snapshot to handle
     snapshot = guess_snapshot()
     if not snapshot:
-        return 1
+        print(">>> Snapshot up-to-date!", flush=True)
+        return 0
 
     # Fetch and uncompress the snapshot file
     file = fetch_pages(snapshot)
