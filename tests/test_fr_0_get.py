@@ -235,8 +235,14 @@ def test_main_1(craft_data, capsys):
     # Run against the new snapshot
     assert get.main() == 0
 
+    # Files should be created
     assert pages_xml.is_file()
     assert pages_bz2.is_file()
+
+    # Trigger manual calls for coverage
+    file = get.fetch_pages(date)
+    get.decompress(file)
+
     captured = capsys.readouterr()
     assert "++ Updated 'aux'" in captured.out
     assert "++ Added 'mot el'" in captured.out
@@ -244,7 +250,7 @@ def test_main_1(craft_data, capsys):
     assert "-- Removed 'suis'" in captured.out
 
     # Check the words list has been updated
-    # Here we do -3 because of:
+    # Here we do -4 because of:
     #   - "Bogotanais.wiki" (no definition found)
     #   - "en.wiki" (ignored)
     #   - "no section.wiki"
@@ -252,7 +258,7 @@ def test_main_1(craft_data, capsys):
     # And we do +2 because of:
     #   - "mot el" dynamically added
     #   - "mot us" dynamically added
-    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 3 + 1
+    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 4 + 2
     words = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
     assert len(words) == expected_count
     for line in words:

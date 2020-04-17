@@ -5,7 +5,7 @@ import re
 import sys
 from functools import partial
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import List, Tuple
 
 import requests
 
@@ -13,60 +13,17 @@ import wikitextparser as wtp
 import xmltodict
 from mediawiki_dump.tokenizer import clean as sanitize
 
+from .lang import language
 from . import constants as C
-
-# Local stuff
-C.SNAPSHOT.mkdir(exist_ok=True, parents=True)
-
-# Regexps
-PRONUNCIATION = re.compile(
-    r"{{pron\|([^}]+)\|(lang=)?%s}}" % C.LOCALE, flags=re.UNICODE
-)
-GENRE = re.compile(r"{{([fmsingp]+)}}")
-EXTRA_SPACES = re.compile(r"\s{2,}")
-EXTRA_SPACES_DOT = re.compile(r"\s{1,}\.")
-
-# Marker for sections of the current locale
-LANG = {
-    "fr": (
-        "{{S|adjectif|fr}",
-        "{{S|adjectif|fr|",
-        "{{S|adverbe|fr}",
-        "{{S|adverbe|fr|",
-        "{{S|article défini|fr}",
-        "{{S|article défini|fr|",
-        "{{S|lettre|fr}",
-        "{{S|lettre|fr|",
-        "{{S|nom|fr}",
-        "{{S|nom|fr|",
-        "{{S|nom propre|fr}",
-        "{{S|nom propre|fr|",
-        "{{S|numéral|conv}",
-        "{{S|préposition|fr}",
-        "{{S|préposition|fr|",
-        "{{S|pronom indéfini|fr}",
-        "{{S|pronom indéfini|fr|",
-        "{{S|pronom personnel|fr}",
-        "{{S|pronom personnel|fr|",
-        "{{S|symbole|conv}",
-        "{{S|verbe|fr}",
-        "{{S|verbe|fr|",
-    ),
-}
-
-# Types
-Attribs = List[Tuple[str, Any]]
-Item = Dict[str, Any]
-Word = Tuple[str, str, str, List[str]]
-Words = Dict[str, Word]
+from . import types as T
 
 
 def clean(content: str) -> str:
     """Clean-up WikiText."""
     text: str = sanitize(content)
     text = text.replace("''", "")
-    text = re.sub(EXTRA_SPACES, " ", text)
-    text = re.sub(EXTRA_SPACES_DOT, ".", text)
+    text = re.sub(C.EXTRA_SPACES, " ", text)
+    text = re.sub(C.EXTRA_SPACES_DOT, ".", text)
     return text
 
 
@@ -120,20 +77,20 @@ def find_definitions(section: wtp.Section) -> List[str]:
 
 def find_genre(content: str) -> str:
     """Find the genre."""
-    match = re.search(GENRE, content)
+    match = re.search(C.GENRE, content)
     return match.group(1) if match else ""
 
 
 def find_pronunciation(content: str) -> str:
     """Find the pronunciation."""
-    match = re.search(PRONUNCIATION, content)
+    match = re.search(C.PRONUNCIATION, content)
     return match.group(1) if match else ""
 
 
 def find_sections(content: str) -> List[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
     sections = wtp.parse(content).get_sections(include_subsections=False)
-    return [s for s in sections if s.title.strip().startswith(LANG[C.LOCALE])]
+    return [s for s in sections if s.title.strip().startswith(language[C.LOCALE])]
 
 
 def guess_snapshot() -> str:
@@ -163,12 +120,12 @@ def less_than(old: str, new: str) -> bool:
     return len(old) != 8 or old < new
 
 
-def load() -> Tuple[Words, Dict[str, str], bool]:
+def load() -> Tuple[T.Words, T.WordList, bool]:
     """Load the big JSON file containing all words and their details,
     also load the words list to catch obsoletes words and updates.
     """
-    cache: Words = {}
-    wordlist: Dict[str, str] = {}
+    cache: T.Words = {}
+    wordlist: T.WordList = {}
     first_pass = True
 
     if C.SNAPSHOT_DATA.is_file():
@@ -190,21 +147,21 @@ def load() -> Tuple[Words, Dict[str, str], bool]:
 
 
 def process(
-    file: Path, cache: Words, wordlist: Dict[str, str], first_pass: bool
-) -> Words:
+    file: Path, cache: T.Words, wordlist: T.WordList, first_pass: bool
+) -> T.Words:
     """Process the big XML file and retain only information we are interested in.
     Results are stored into the global *RESULT* dict, see handle_page() for details.
     """
 
     def handle_page(
-        _: Attribs,
-        page: Item,
-        cache: Words = cache,
-        wordlist: Dict[str, str] = wordlist,
+        _: T.Attribs,
+        page: T.Item,
+        cache: T.Words = cache,
+        wordlist: T.WordList = wordlist,
         first_pass: bool = first_pass,
     ) -> bool:
         """
-        Callback passed to xmltodict.parse() in process().
+        Callback passed to xmltodict.parse().
         The function must return True or the parser will raise ParsingInterrupted
         (https://github.com/martinblech/xmltodict/blob/d6a8377/xmltodict.py#L227-L230).
 
@@ -285,7 +242,7 @@ def process(
     return cache
 
 
-def save(snapshot: str, cache: Words) -> None:
+def save(snapshot: str, cache: T.Words) -> None:
     """Persist data."""
     # This file is needed by convert.py
     with C.SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
@@ -307,6 +264,9 @@ def save(snapshot: str, cache: Words) -> None:
 
 def main() -> int:
     """Extry point."""
+
+    # Ensure the folder exists
+    C.SNAPSHOT.mkdir(exist_ok=True, parents=True)
 
     # Get the snapshot to handle
     snapshot = guess_snapshot()
@@ -330,5 +290,5 @@ def main() -> int:
     return 0
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: nocover
     sys.exit(main())

@@ -6,22 +6,13 @@ from collections import defaultdict
 from contextlib import suppress
 from pathlib import Path
 from shutil import rmtree
-from typing import Dict, List, Tuple
+from typing import List
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
 from . import constants as C
-
-# Local stuff
-with suppress(FileNotFoundError):
-    rmtree(C.WORKING_DIR)
-C.WORKING_DIR.mkdir()
-
-# Types
-Word = Tuple[str, str, str, List[str]]
-Words = Dict[str, Word]
-Groups = Dict[str, Words]
+from . import types as T
 
 
 def craft_index(wordlist: List[str]) -> Path:
@@ -32,11 +23,11 @@ def craft_index(wordlist: List[str]) -> Path:
     return output
 
 
-def make_groups(words: Words) -> Groups:
+def make_groups(words: T.Words) -> T.Groups:
     """Group word by "index" ({letter1}{letter2}) for later HTML creation,
     see save().
     """
-    groups: Groups = defaultdict(dict)
+    groups: T.Groups = defaultdict(dict)
 
     for word, data in words.items():
         char_1, char_2 = word[0].lower(), word[1].lower()
@@ -46,15 +37,15 @@ def make_groups(words: Words) -> Groups:
     return groups
 
 
-def load() -> Words:
+def load() -> T.Words:
     """Load the big JSON file containing all words and their details."""
     with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
-        words: Words = json.load(fh)
+        words: T.Words = json.load(fh)
     print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}")
     return words
 
 
-def save(groups: Groups) -> None:
+def save(groups: T.Groups) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -93,7 +84,7 @@ def save(groups: Groups) -> None:
     print(f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)")
 
 
-def save_html(name: str, words: Words) -> Path:
+def save_html(name: str, words: T.Words) -> Path:
     """Generate individual HTML files.
 
     Content of the HTML file:
@@ -161,6 +152,11 @@ def save_html(name: str, words: Words) -> Path:
 def main() -> int:
     """Extry point."""
 
+    # Clean-up before starting
+    with suppress(FileNotFoundError):
+        rmtree(C.WORKING_DIR)
+    C.WORKING_DIR.mkdir()
+
     # Retrieve all words
     words = load()
 
@@ -174,5 +170,5 @@ def main() -> int:
     return 0
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: nocover
     sys.exit(main())
