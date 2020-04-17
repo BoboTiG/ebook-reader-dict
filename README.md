@@ -14,3 +14,5 @@ Latest versions can be downloaded just here:
 
 If you do not fin a word or if a translation is not good for you, there is nothing to do here.
 Everything should be changed on [Wiktionary](https://www.wiktionary.org/) directly.
+
+All dictionaries are automatically re-generated every Sunday and the `dicthml-LOCALE.zip` file is updated inplace, so that the download link never changes.
