@@ -1,0 +1,89 @@
+name: Update dictionaries
+
+on:
+  schedule:
+    # At 00:00 on Sunday
+    # - cron:  '0 0 * * 0'
+    - cron:  '*/15 * * * *'
+
+jobs:
+  dicthtml:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        locale:
+          - fr
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    #- name: Set up Python
+    #  uses: actions/setup-python@v1
+    #  with:
+    #    python-version: 3.8
+
+    # - uses: actions/cache@v1
+    #   with:
+    #     path: ~/.cache/pip
+    #     key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+    #     restore-keys: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+
+    # - name: Install requirements
+      # run: python -m pip install -r requirements.txt
+
+    # That step is meant to fail if there is no changes
+    #- name: Fetch the new snapshot and update the dictionary
+      # env:
+      #   WIKI_LOCALE: ${{ matrix.locale }}
+    #  run: python -m scripts
+
+    # - name: Upload the dictionary
+    #   uses: svenstaro/upload-release-action@v1-release
+    #   with:
+    #     repo_token: ${{ secrets.TOKEN }}
+    #     file: data/fr/dicthtml-${{ matrix.locale }}.zip
+    #     asset_name: dicthtml-${{ matrix.locale }}.zip
+    #     tag: ${{ matrix.locale }}
+    #     overwrite: true
+
+    - name: Craft files
+      run: |
+        echo "1326547" >> data/fr/words.count
+        echo "2020027" >> data/fr/words.snapshot
+        echo "mot|1uuuu6775\nmot2|31654" >> data/fr/words.list
+
+    - name: Get current count
+      id: current_count
+      run: echo "::set-output name=count::$(printf "%'d" "$(cat data/${{ matrix.locale }}/words.count)")"
+
+    - name: Push to built branch
+      uses: Automattic/action-commit-to-branch@master
+      with:
+        branch: master-test
+        commit_message: Updated dicthtml-${{ matrix.locale }} (${{ steps.current_count.outputs.count }} words)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # - name: Commit and push changes
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     COMMIT_MSG: |
+    #       Updated dicthtml-${{ matrix.locale }} (${{ steps.current_count.outputs.count }} words)
+    #       skip-checks: true
+    #   run: |
+    #     # Hard-code user configuration
+    #     git config user.email "${{ github.actor }}@users.noreply.github.com"
+    #     git config user.name "${{ github.actor }}"
+    #     # Update origin with token
+    #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+    #     # Checkout the branch so we can push back to it
+    #     git stash
+    #     git fetch --all
+    #     git checkout master-tests
+    #     rm data/${{ matrix.locale }}/words.*
+    #     git stash pop
+    #     git add .
+    #     # Only commit and push if we have changes
+    #     git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git diff master ; git push --dry-run origin master-tests)
