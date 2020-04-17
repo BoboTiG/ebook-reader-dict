@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import pytest
 
@@ -138,3 +139,17 @@ def test_is_ignored(word, ignored):
     from get import is_ignored
 
     assert is_ignored(word) is ignored
+
+
+def test_main(data):
+    """Test the whole script. It will generate data for test_fr_1_convert.py."""
+    from get import main
+
+    # Start the whole process
+    main()
+
+    # Check for generated files
+    data_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    assert (data_dir / "words.count").is_file()
+    assert (data_dir / "words.list").is_file()
+    assert (data_dir / "words.snapshot").is_file()
