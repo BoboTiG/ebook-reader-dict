@@ -2,8 +2,8 @@
 *.bz2
 *.json
 *.xml
+*.zip
 data/*/tmp
-tests/data/*/dicthtml-*.zip
 tests/data/*/tmp
 tests/data/*/words.*
 
