@@ -1,4 +1,5 @@
 import os
+from contextlib import suppress
 from pathlib import Path
 from unittest.mock import patch
 
@@ -124,7 +125,7 @@ def test_is_ignored(word, ignored):
 
 
 @patch("get.fetch_snapshots")
-def test_main(mocked_fetch_snapshots, craft_data):
+def test_main(mocked_fetch_snapshots, craft_data, capsys):
     """Test the whole script. It will generate data for test_fr_1_convert.py."""
 
     # Fake
@@ -140,7 +141,8 @@ def test_main(mocked_fetch_snapshots, craft_data):
 
     # Clean-up before we start
     for file in (data, count, snapshot, wordlist, pages_xml, pages_bz2):
-        file.unlink()
+        with suppress(FileNotFoundError):
+            file.unlink()
 
     # fetch_snapshots() should return the specific date to prevent downloading anything
     mocked_fetch_snapshots.return_value = [date]
@@ -165,4 +167,6 @@ def test_main(mocked_fetch_snapshots, craft_data):
         assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
-    assert get.main() == 1
+    assert get.main() == 0
+    captured = capsys.readouterr()
+    assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"
