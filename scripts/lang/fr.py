@@ -23,3 +23,4 @@ patterns = (
     "{{S|verbe|fr}",
     "{{S|verbe|fr|",
 )
+size_min = 1024 * 1024 * 30  # 30 MiB

@@ -11,8 +11,17 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
+from .lang import size_min
+from . import annotations as T
 from . import constants as C
-from . import types as T
+
+
+def check(size: int) -> None:
+    """Small check on the dictionary size againt *size* to prevent data loss."""
+    if C.DICTHTML.stat().st_size < size:
+        raise ValueError(
+            "The dictionary seems too small. Aborting to prevent content loss."
+        )
 
 
 def craft_index(wordlist: List[str]) -> Path:
@@ -41,7 +50,7 @@ def load() -> T.Words:
     """Load the big JSON file containing all words and their details."""
     with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
         words: T.Words = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}")
+    print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}", flush=True)
     return words
 
 
@@ -67,7 +76,7 @@ def save(groups: T.Groups) -> None:
         to_compress.append(save_html(group, words))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
-    print()
+    print("", flush=True)
 
     # Then create the special "words" file
     to_compress.append(craft_index(sorted(wordlist)))
@@ -81,7 +90,9 @@ def save(groups: T.Groups) -> None:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
-    print(f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)")
+    print(
+        f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)", flush=True
+    )
 
 
 def save_html(name: str, words: T.Words) -> Path:
@@ -166,7 +177,11 @@ def main() -> int:
     # Save to HTML pages and the fial ZIP
     save(groups)
 
-    print(">>> Conversion done!")
+    print(">>> Conversion done!", flush=True)
+
+    # Check the file size to prevent data loss
+    check(size_min[C.LOCALE])
+
     return 0
 
 

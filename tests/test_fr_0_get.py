@@ -195,7 +195,7 @@ def test_main_0(craft_data, capsys):
         assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
-    assert get.main() == 0
+    assert get.main() == 1
     captured = capsys.readouterr()
     assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"
 
@@ -265,6 +265,6 @@ def test_main_1(craft_data, capsys):
         assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
-    assert get.main() == 0
+    assert get.main() == 1
     captured = capsys.readouterr()
     assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"

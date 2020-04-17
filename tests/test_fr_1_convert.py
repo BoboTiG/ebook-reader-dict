@@ -1,18 +1,29 @@
 import os
-from pathlib import Path
+from unittest.mock import patch
 from zipfile import ZipFile
+
+import pytest
 
 os.environ["WIKI_LOCALE"] = "fr"
 
 # Must be imported after *WIKI_LOCALE* is set
 from scripts import constants as C  # noqa
 from scripts import convert  # noqa
+from scripts.lang import size_min  # noqa
 
 
 def test_main(data):
     """Test the JSON -> HTML conversion."""
+
     # Start the whole process
-    assert convert.main() == 0
+
+    # Patch the minimum dict size
+    with patch.dict(size_min, {"fr": 1024}):
+        assert convert.main() == 0
+
+    # This must fail as the dict generated in tests is way too small
+    with pytest.raises(ValueError):
+        assert convert.main() == 0
 
     # Check for the final ZIP file
     dicthtml = C.SNAPSHOT / f"dicthtml-fr.zip"

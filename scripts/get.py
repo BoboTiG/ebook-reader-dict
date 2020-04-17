@@ -14,8 +14,8 @@ import xmltodict
 from mediawiki_dump.tokenizer import clean as sanitize
 
 from .lang import language
+from . import annotations as T
 from . import constants as C
-from . import types as T
 
 
 def clean(content: str) -> str:
@@ -33,11 +33,14 @@ def decompress(file: Path) -> Path:
     if output.is_file():
         return output
 
-    print(f">>> Decompressing {output.name} ... ", flush=True)
+    print(f">>> Decompressing {output.name} ", end="", flush=True)
+
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
-        for data in iter(partial(fi.read, 1024), b""):
+        for data in iter(partial(fi.read, 1024 * 1024), b""):
             fo.write(comp.decompress(data))
+            print(".", end="", flush=True)
+    print("", flush=True)
 
     return output
 
@@ -46,8 +49,9 @@ def fetch_snapshots() -> List[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """
-    content = requests.get(C.BASE_URL).text
-    return sorted(re.findall(r'href="(\d+)/"', content))
+    with requests.get(C.BASE_URL) as req:
+        req.raise_for_status()
+        return sorted(re.findall(r'href="(\d+)/"', req.text))
 
 
 def fetch_pages(date: str) -> Path:
@@ -56,13 +60,20 @@ def fetch_pages(date: str) -> Path:
     """
     output_xml = C.SNAPSHOT / f"pages-{date}.xml"
     output = C.SNAPSHOT / f"pages-{date}.xml.bz2"
-    if output_xml.is_file():
+    if output.is_file() or output_xml.is_file():
         return output
 
-    print(f">>> Fetching {output.name} ... ", flush=True)
-    with output.open(mode="wb") as fh:
-        url = f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2"
-        fh.write(requests.get(url).content)
+    print(f">>> Fetching {output.name} ", end="", flush=True)
+    url = f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2"
+
+    with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
+        req.raise_for_status()
+        for chunk in req.iter_content(chunk_size=1024 * 1024):
+            if chunk:
+                fh.write(chunk)
+                print(".", end="", flush=True)
+        print("", flush=True)
+
     return output
 
 
@@ -134,14 +145,15 @@ def load() -> Tuple[T.Words, T.WordList, bool]:
             cache = json.load(fh)
 
         # Load the word|revision list to detect changes
-        words = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
-        for line in words.splitlines():
-            word, rev = line.split("|")
-            wordlist[word] = rev.rstrip("\n")
-        del words
+        if C.SNAPSHOT_LIST.is_file():
+            words = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
+            for line in words.splitlines():
+                word, rev = line.split("|")
+                wordlist[word] = rev.rstrip("\n")
+            del words
 
         first_pass = False
-        print(f">>> Loaded {len(cache):,} words from {C.SNAPSHOT_DATA}")
+        print(f">>> Loaded {len(cache):,} words from {C.SNAPSHOT_DATA}", flush=True)
 
     return cache, wordlist, first_pass
 
@@ -272,7 +284,8 @@ def main() -> int:
     snapshot = guess_snapshot()
     if not snapshot:
         print(">>> Snapshot up-to-date!", flush=True)
-        return 0
+        # Return 1 to break the script and so the GitHub workflow
+        return 1
 
     # Load all data
     cache, wordlist, first_pass = load()
@@ -287,6 +300,7 @@ def main() -> int:
     # Save data for next runs
     save(snapshot, cache)
 
+    print(">>> Retrieval done!", flush=True)
     return 0
 
 
