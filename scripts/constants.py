@@ -1,5 +1,6 @@
 """Shared constants."""
 import os
+import re
 from pathlib import Path
 
 # Wiktionary stuff
@@ -19,3 +20,9 @@ WORKING_DIR = SNAPSHOT / "tmp"
 
 # The final ZIP
 DICTHTML = SNAPSHOT / f"dicthtml-{LOCALE}.zip"
+
+# Regexps
+PRONUNCIATION = re.compile(r"{{pron\|([^}]+)\|(lang=)?%s}}" % LOCALE, flags=re.UNICODE)
+GENRE = re.compile(r"{{([fmsingp]+)}}")
+EXTRA_SPACES = re.compile(r"\s{2,}")
+EXTRA_SPACES_DOT = re.compile(r"\s{1,}\.")

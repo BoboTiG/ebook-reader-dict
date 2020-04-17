@@ -15,7 +15,7 @@ def test_main(data):
     # Check for individual HTML files
     data_dir = Path(os.environ["CWD"]) / "data" / "fr"
     data_tmp = data_dir / "tmp"
-    for group in ("ac", "au", "ba", "em", "ic", "l’", "œc", "pi", "qu", "sl", "su"):
+    for group in ("ac", "au", "ba", "em", "ic", "l’", "œc", "pi", "qu", "sl"):
         assert (data_tmp / f"{group}.raw.html").is_file()
         assert (data_tmp / f"{group}.html").is_file()
 
@@ -24,3 +24,6 @@ def test_main(data):
 
     # Check for the final ZIP file
     assert (data_dir / f"dicthtml-fr.zip").is_file()
+
+    # Check ZIP content
+    # TODO
