@@ -4,7 +4,7 @@ from pathlib import Path
 os.environ["WIKI_LOCALE"] = "fr"
 
 # Must be imported after *WIKI_LOCALE* is set
-import convert  # noqa
+from scripts import convert  # noqa
 
 
 def test_main(data):

@@ -1,9 +1,9 @@
 """Convert words from JSON data to eBook format (ZIP)."""
 import gzip
 import json
-import os
 import sys
 from collections import defaultdict
+from contextlib import suppress
 from pathlib import Path
 from shutil import rmtree
 from typing import Dict, List, Tuple
@@ -11,24 +11,12 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-# Wiktionary stuff
-LOCALE = os.getenv("WIKI_LOCALE", "fr")
+from . import constants as C
 
 # Local stuff
-SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
-SNAPSHOT_COUNT = SNAPSHOT / "words.count"
-SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
-SNAPSHOT_LIST = SNAPSHOT / "words.list"
-SNAPSHOT_DATA = SNAPSHOT / "data.json"
-WORKING_DIR = SNAPSHOT / "tmp"
-DICTHTML = SNAPSHOT / f"dicthtml-{LOCALE}.zip"
-
-SNAPSHOT.mkdir(exist_ok=True, parents=True)
-try:
-    rmtree(WORKING_DIR)
-except FileNotFoundError:
-    pass
-WORKING_DIR.mkdir()
+with suppress(FileNotFoundError):
+    rmtree(C.WORKING_DIR)
+C.WORKING_DIR.mkdir()
 
 # Types
 Word = Tuple[str, str, str, List[str]]
@@ -38,7 +26,7 @@ Groups = Dict[str, Words]
 
 def craft_index(wordlist: List[str]) -> Path:
     """Generate the special file "words" that is an index of all words."""
-    output = WORKING_DIR / "words"
+    output = C.WORKING_DIR / "words"
     trie = Trie(wordlist)
     trie.save(output)
     return output
@@ -60,9 +48,9 @@ def make_groups(words: Words) -> Groups:
 
 def load() -> Words:
     """Load the big JSON file containing all words and their details."""
-    with SNAPSHOT_DATA.open(encoding="utf-8") as fh:
+    with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
         words: Words = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {SNAPSHOT_DATA}")
+    print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}")
     return words
 
 
@@ -94,15 +82,15 @@ def save(groups: Groups) -> None:
     to_compress.append(craft_index(sorted(wordlist)))
 
     # Add unrealted files, just for history
-    to_compress.append(SNAPSHOT_COUNT)
-    to_compress.append(SNAPSHOT_FILE)
+    to_compress.append(C.SNAPSHOT_COUNT)
+    to_compress.append(C.SNAPSHOT_FILE)
 
     # Finally, create the ZIP
-    with ZipFile(DICTHTML, mode="w", compression=ZIP_DEFLATED) as fh:
+    with ZipFile(C.DICTHTML, mode="w", compression=ZIP_DEFLATED) as fh:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
-    print(f">>> Generated {DICTHTML} ({DICTHTML.stat().st_size:,} bytes)")
+    print(f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)")
 
 
 def save_html(name: str, words: Words) -> Path:
@@ -140,7 +128,7 @@ def save_html(name: str, words: Words) -> Path:
     )
 
     # Save to uncompressed HTML
-    raw_output = WORKING_DIR / f"{name}.raw.html"
+    raw_output = C.WORKING_DIR / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="utf-8"?>')
 
@@ -163,7 +151,7 @@ def save_html(name: str, words: Words) -> Path:
         fh.write("</html>\n")
 
     # Compress the HTML with gzip
-    output = WORKING_DIR / f"{name}.html"
+    output = C.WORKING_DIR / f"{name}.html"
     with raw_output.open(mode="rb") as fi, gzip.open(output, mode="wb") as fo:
         fo.writelines(fi)
 
