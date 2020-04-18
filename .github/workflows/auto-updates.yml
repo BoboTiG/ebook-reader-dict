@@ -3,8 +3,7 @@ name: Update dictionaries
 on:
   schedule:
     # At 00:00 on Sunday
-    # - cron:  '0 0 * * 0'
-    - cron:  '30 * * * *'
+    - cron:  '0 0 * * 0'
 
 jobs:
   dicthtml:
