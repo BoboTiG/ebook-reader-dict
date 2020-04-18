@@ -27,6 +27,7 @@ patterns = (
 
 release_tr = {
     "date": "Date :",
+    "download": "Téléchargement :",
     "thousands_separator": " ",
     "words_count": "Nombre de mots :",
 }

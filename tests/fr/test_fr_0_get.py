@@ -72,7 +72,10 @@ def test_find_genre(word, genre, page):
         (
             "accueil",
             [
-                "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",
+                (
+                    "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la"
+                    " bienvenue et à l’aider dans son intégration ou ses démarches."
+                ),
                 "Lieu où sont accueillies les personnes.",
                 "Fait d’accueillir ou héberger.",
                 "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
@@ -99,7 +102,10 @@ def test_find_genre(word, genre, page):
         (
             "pinyin",
             [
-                "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",
+                (
+                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes,"
+                    " et d’indiquer le ton utilisé lors de la prononciation."
+                ),
                 "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
             ],
         ),
@@ -145,9 +151,9 @@ def test_main_0(craft_data, capsys):
         with suppress(FileNotFoundError):
             file.unlink()
 
-    # List of requests.get() responses to falsify:
-    #   - fetch_snapshots() -> https://dumps.wikimedia.org/frwiktionary/
-    #   - fetch_pages() -> https://dumps.wikimedia.org/frwiktionary/{date}/frwiktionary-{date}-pages-meta-current.xml.bz2
+    # List of requests responses to falsify:
+    #   - fetch_snapshots()
+    #   - fetch_pages()
     responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
     responses.add(
         responses.GET,
@@ -195,9 +201,9 @@ def test_main_1(craft_data, capsys):
         with suppress(FileNotFoundError):
             file.unlink()
 
-    # List of requests.get() responses to falsify:
-    #   - fetch_snapshots() -> https://dumps.wikimedia.org/frwiktionary/
-    #   - fetch_pages() -> https://dumps.wikimedia.org/frwiktionary/{date}/frwiktionary-{date}-pages-meta-current.xml.bz2
+    # List of requests responses to falsify:
+    #   - fetch_snapshots()
+    #   - fetch_pages()
     responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
     responses.add(
         responses.GET,

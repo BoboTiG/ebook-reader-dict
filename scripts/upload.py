@@ -38,7 +38,16 @@ def format_description() -> str:
     # Format th snapshot's date
     date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
 
-    return f"{count_tr} {count}\n{date_tr} {date}"
+    # Get the download link
+    download = tr["download"]
+
+    return "\n".join(
+        (
+            f"{count_tr} {count}",
+            f"{date_tr} {date}",
+            f"\n:arrow_right: {download} [dicthtml-{C.LOCALE}.zip]({C.DOWNLOAD_URL})",
+        )
+    )
 
 
 def update_release(url: str) -> None:

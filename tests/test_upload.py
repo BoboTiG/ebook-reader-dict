@@ -19,8 +19,11 @@ def test_fetch_release_url():
 
 def test_format_description():
     text = upload.format_description()
-    reg = r"^Nombre de mots : \d+\nDate : \d{4}-\d{2}-\d{2}$"
+    reg = r"^Nombre de mots : \d+\nDate : \d{4}-\d{2}-\d{2}"
     assert re.match(reg, text)
+    assert text.endswith(
+        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})"
+    )
 
 
 @responses.activate

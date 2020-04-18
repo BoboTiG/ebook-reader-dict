@@ -21,6 +21,6 @@ jobs:
     - name: Style
       run: python -m black --check --diff scripts tests
     - name: Lint
-      run: python -m flake8 scripts
+      run: python -m flake8 scripts tests
     - name: Types
       run: python -m mypy scripts

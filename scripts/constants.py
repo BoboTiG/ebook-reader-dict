@@ -28,6 +28,8 @@ EXTRA_SPACES = re.compile(r"\s{2,}")
 EXTRA_SPACES_DOT = re.compile(r"\s{1,}\.")
 
 # GitHub stuff
-RELEASE_URL = (
-    f"https://api.github.com/repos/BoboTiG/ebook-reader-dict/releases/tags/{LOCALE}"
+REPOS = "BoboTiG/ebook-reader-dict"
+RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{LOCALE}"
+DOWNLOAD_URL = (
+    f"https://github.com/{REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
 )
