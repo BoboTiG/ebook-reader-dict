@@ -53,6 +53,12 @@ jobs:
         asset_name: dicthtml-${{ matrix.locale }}.zip
         tag: ${{ matrix.locale }}
         overwrite: true
+  
+    - name: Update the release description
+      run: python -m scripts --update-release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WIKI_LOCALE: ${{ matrix.locale }}
 
     - name: Get current count
       id: current_count

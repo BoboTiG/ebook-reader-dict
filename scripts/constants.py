@@ -26,3 +26,8 @@ PRONUNCIATION = re.compile(r"{{pron\|([^}]+)\|(lang=)?%s}}" % LOCALE, flags=re.U
 GENRE = re.compile(r"{{([fmsingp]+)}}")
 EXTRA_SPACES = re.compile(r"\s{2,}")
 EXTRA_SPACES_DOT = re.compile(r"\s{1,}\.")
+
+# GitHub stuff
+RELEASE_URL = (
+    f"https://api.github.com/repos/BoboTiG/ebook-reader-dict/releases/tags/{LOCALE}"
+)
