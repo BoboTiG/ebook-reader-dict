@@ -19,3 +19,8 @@ Everything should be changed on [Wiktionary](https://www.wiktionary.org/) direct
 
 All dictionaries are automatically re-generated every Sunday at midnight.
 The `dicthml-LOCALE.zip` file is updated inplace so that the download link never changes.
+
+## Adding a new Dictionary
+
+[Pull requests](pulls) are very welcome.
+In theory, you just have to add your language in [lang/](scripts/lang/) and it should work out-of-the-box!
