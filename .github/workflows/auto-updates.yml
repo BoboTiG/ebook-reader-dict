@@ -61,7 +61,7 @@ jobs:
     - name: Push to built branch
       uses: Automattic/action-commit-to-branch@master
       with:
-        branch: master-test
+        branch: master
         commit_message: Updated dicthtml-${{ matrix.locale }} (${{ steps.current_count.outputs.count }} words)
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
