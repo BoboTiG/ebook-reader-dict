@@ -6,11 +6,9 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)
 
-Note: small words (with less than 3 characters) and numbers are not included.
-
-Latest versions can be downloaded just here:
-
 - [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
+
+Note: small words (with less than 3 characters) and numbers are not included.
 
 ## Updating Dictionaries
 
