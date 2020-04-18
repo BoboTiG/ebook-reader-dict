@@ -45,7 +45,7 @@ def format_description() -> str:
         (
             f"{count_tr} {count}",
             f"{date_tr} {date}",
-            f"\n:arrow_right: {download} [dicthtml-{C.LOCALE}.zip]({C.DOWNLOAD_URL})",
+            f"\n {download} [{C.DICTHTML.name}]({C.DOWNLOAD_URL})",
         )
     )
 
