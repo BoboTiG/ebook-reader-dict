@@ -43,3 +43,12 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 5. Optional, but highly advisable: add [tests](tests/).
 
 That's it! Thanks a lot for your contribution :heart:
+
+---
+
+When done, a maintainer will:
+
+- Test on his/her side.
+- Create a new release with the tag `$LOCALE`. This is where the dictionary will be uploaded.
+- Update that [README](#) to include the new locale in the [Dictionaries](#Dictionaries) section.
+  Keep it alphabetically sorted please, and use the original locale for the language name, not english.
