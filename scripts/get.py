@@ -14,6 +14,7 @@ import xmltodict
 from mediawiki_dump.tokenizer import clean as sanitize
 
 from .lang import language
+from .utils import is_ignored
 from . import annotations as T
 from . import constants as C
 
@@ -118,12 +119,6 @@ def guess_snapshot() -> str:
     # Get the latest available snapshot
     snapshot = max(fetch_snapshots())
     return snapshot if less_than(current, snapshot) else ""
-
-
-def is_ignored(word: str) -> bool:
-    """Helper to filter out words from the final dictionary."""
-    # Filter out "small" words and numbers
-    return len(word) < 3 or word.isnumeric()
 
 
 def less_than(old: str, new: str) -> bool:

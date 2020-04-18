@@ -125,24 +125,6 @@ def test_find_sections_and_definitions(word, defs, page):
     assert res == defs
 
 
-@pytest.mark.parametrize(
-    "word, ignored",
-    [
-        ("accueil", False),
-        ("2", True),
-        ("22", True),
-        ("222", True),
-        ("222" * 12, True),
-        ("en", True),
-        ("", True),
-        (" ", True),
-    ],
-)
-def test_is_ignored(word, ignored):
-    """Test words filtering."""
-    assert get.is_ignored(word) is ignored
-
-
 @responses.activate
 def test_main_0(craft_data, capsys):
     """Test the whole script. It will generate data for test_fr_1_convert.py."""
