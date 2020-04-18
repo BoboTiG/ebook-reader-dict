@@ -11,7 +11,7 @@ jobs:
 
     # List of locales to generate
     # Note: as of now there is only one locale so it is OK,
-    #       but there will be issues when using 2 or more 
+    #       but there will be issues when using 2 or more
     #       because there will be history difference.
     #       A possible fix would be to do a "git pull" before
     #       adding and pusing changes but this is currently

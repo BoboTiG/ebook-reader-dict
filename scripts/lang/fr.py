@@ -1,4 +1,5 @@
-"""French language detection."""
+"""French language."""
+
 patterns = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|",
@@ -23,4 +24,11 @@ patterns = (
     "{{S|verbe|fr}",
     "{{S|verbe|fr|",
 )
+
+release_tr = {
+    "date": "Date :",
+    "thousands_separator": " ",
+    "words_count": "Nombre de mots :",
+}
+
 size_min = 1024 * 1024 * 30  # 30 MiB
