@@ -134,21 +134,25 @@ def load() -> Tuple[T.Words, T.WordList, bool]:
     wordlist: T.WordList = {}
     first_pass = True
 
+    # Load the whole list
     if C.SNAPSHOT_DATA.is_file():
-        # Load the whole list
         with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
             cache = json.load(fh)
-
-        # Load the word|revision list to detect changes
-        if C.SNAPSHOT_LIST.is_file():
-            words = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
-            for line in words.splitlines():
-                word, rev = line.split("|")
-                wordlist[word] = rev.rstrip("\n")
-            del words
-
-        first_pass = False
         print(f">>> Loaded {len(cache):,} words from {C.SNAPSHOT_DATA}", flush=True)
+        first_pass = False
+
+    # Load the word|revision list to detect changes
+    if C.SNAPSHOT_LIST.is_file():
+        words = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
+        for line in words.splitlines():
+            word, rev = line.split("|")
+            wordlist[word] = rev.rstrip("\n")
+        del words
+        print(
+            f">>> Loaded {len(cache):,} revisions from {C.SNAPSHOT_DATA}",
+            flush=True,
+        )
+        first_pass = False
 
     return cache, wordlist, first_pass
 
@@ -160,13 +164,7 @@ def process(
     Results are stored into the global *RESULT* dict, see handle_page() for details.
     """
 
-    def handle_page(
-        _: T.Attribs,
-        page: T.Item,
-        cache: T.Words = cache,
-        wordlist: T.WordList = wordlist,
-        first_pass: bool = first_pass,
-    ) -> bool:
+    def handle_page(_: T.Attribs, page: T.Item) -> bool:
         """
         Callback passed to xmltodict.parse().
         The function must return True or the parser will raise ParsingInterrupted
@@ -199,7 +197,8 @@ def process(
         rev = page["revision"]["id"]
 
         # Handle word with no changes
-        if not first_pass:
+        word_rev = None
+        if word in cache:
             word_rev = wordlist.pop(word, None)
             if word_rev and word_rev == rev:
                 # Same revision, skip early
@@ -238,6 +237,7 @@ def process(
 
         return True
 
+    print(f">>> Processing {file} ...", flush=True)
     with file.open("rb") as fh:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
 
