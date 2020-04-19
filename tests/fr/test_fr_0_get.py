@@ -211,10 +211,7 @@ def test_main_1(craft_data, capsys):
         body=craft_data(
             date,
             "fr",
-            to_add=(
-                {"word": "mot el", "revision": "42"},
-                {"word": "mot us", "revision": "42"},
-            ),
+            to_add=(("mot el", "42"), ("mot us", "42")),
             to_alter=("aux",),
             to_remove=("suis",),
         ),

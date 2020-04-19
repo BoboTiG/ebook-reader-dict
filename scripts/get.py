@@ -20,7 +20,7 @@ from . import constants as C
 
 
 def clean(content: str) -> str:
-    """Clean-up WikiText."""
+    """Clean-up wikicode."""
     text: str = sanitize(content)
     text = text.replace("''", "")
     text = re.sub(C.EXTRA_SPACES, " ", text)
@@ -34,7 +34,7 @@ def decompress(file: Path) -> Path:
     if output.is_file():
         return output
 
-    print(f">>> Decompressing {output.name} ", end="", flush=True)
+    print(f">>> Decompressing {file.name} ", end="", flush=True)
 
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:

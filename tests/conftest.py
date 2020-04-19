@@ -95,10 +95,10 @@ def craft_data():
         # Possibility to add new words
         if to_add:
             skeleton = (data_dir / "page.skeleton").read_text(encoding="utf-8")
-            for addition in to_add:
-                print(f"[fixture] Added word {addition['word']!r}")
-                addition["text"] = escape(skeleton.replace("WORD", addition["word"]))
-                content += PAGE_XML.format(**addition)
+            for word, rev in to_add:
+                print(f"[fixture] Added word {word!r}")
+                text = escape(skeleton.replace("WORD", word))
+                content += PAGE_XML.format(word=word, revision=rev, text=text)
 
         content += "</mediawiki>"
         return bz2.compress(content.encode("utf-8"))
