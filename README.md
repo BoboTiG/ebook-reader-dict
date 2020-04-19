@@ -6,9 +6,11 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)
 
-- [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
-
-Note: small words (with less than 3 characters) and numbers are not included.
+- [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr), caractéristiques :
+   - Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
+   - Les mots comportant moins de 3 caractères ne sont pas inclus.
+   - Les noms propres ne sont pas inclus.
+   - Les nombres ne sont pas inclus.
 
 ## Updating Dictionaries
 
