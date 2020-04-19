@@ -130,35 +130,33 @@ def load() -> Tuple[T.Words, T.WordList, bool]:
     """Load the big JSON file containing all words and their details,
     also load the words list to catch obsoletes words and updates.
     """
-    cache: T.Words = {}
+    words: T.Words = {}
     wordlist: T.WordList = {}
     first_pass = True
 
     # Load the whole list
     if C.SNAPSHOT_DATA.is_file():
         with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
-            cache = json.load(fh)
-        print(f">>> Loaded {len(cache):,} words from {C.SNAPSHOT_DATA}", flush=True)
+            words = json.load(fh)
+        print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}", flush=True)
         first_pass = False
 
     # Load the word|revision list to detect changes
     if C.SNAPSHOT_LIST.is_file():
-        words = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
-        for line in words.splitlines():
+        content = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
+        for line in content.splitlines():
             word, rev = line.split("|")
             wordlist[word] = rev.rstrip("\n")
-        del words
         print(
-            f">>> Loaded {len(cache):,} revisions from {C.SNAPSHOT_DATA}",
-            flush=True,
+            f">>> Loaded {len(words):,} revisions from {C.SNAPSHOT_DATA}", flush=True,
         )
         first_pass = False
 
-    return cache, wordlist, first_pass
+    return words, wordlist, first_pass
 
 
 def process(
-    file: Path, cache: T.Words, wordlist: T.WordList, first_pass: bool
+    file: Path, words: T.Words, wordlist: T.WordList, first_pass: bool
 ) -> T.Words:
     """Process the big XML file and retain only information we are interested in.
     Results are stored into the global *RESULT* dict, see handle_page() for details.
@@ -198,7 +196,7 @@ def process(
 
         # Handle word with no changes
         word_rev = None
-        if word in cache:
+        if word in words:
             word_rev = wordlist.pop(word, None)
             if word_rev and word_rev == rev:
                 # Same revision, skip early
@@ -230,7 +228,7 @@ def process(
             print(f" !! No definition found for {word!r}", flush=True)
             return True
 
-        cache[word] = (rev, pronunciation, genre, definitions)
+        words[word] = (rev, pronunciation, genre, definitions)
         if not first_pass:
             action = "Updated" if word_rev else "Added"
             print(f" ++ {action} {word!r}", flush=True)
@@ -243,30 +241,30 @@ def process(
 
     # Remove obsolete words between 2 snapshots
     for word in sorted(wordlist.keys()):
-        cache.pop(word, None)
+        words.pop(word, None)
         print(f" -- Removed {word!r}", flush=True)
 
-    return cache
+    return words
 
 
-def save(snapshot: str, cache: T.Words) -> None:
+def save(snapshot: str, words: T.Words) -> None:
     """Persist data."""
     # This file is needed by convert.py
     with C.SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
-        json.dump(cache, fh, sort_keys=True)
+        json.dump(words, fh, sort_keys=True)
 
-    C.SNAPSHOT_COUNT.write_text(str(len(cache)))
+    C.SNAPSHOT_COUNT.write_text(str(len(words)))
     C.SNAPSHOT_FILE.write_text(snapshot)
 
     # Save the list of "word|revision" for later runs
     with C.SNAPSHOT_LIST.open("w", encoding="utf-8") as fh:
-        for word, (rev, *_) in sorted(cache.items()):
+        for word, (rev, *_) in sorted(words.items()):
             fh.write(word)
             fh.write("|")
             fh.write(rev)
             fh.write("\n")
 
-    print(f">>> Saved {len(cache):,} words into {C.SNAPSHOT_DATA}", flush=True)
+    print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
 
 
 def main() -> int:
@@ -283,17 +281,17 @@ def main() -> int:
         return 1
 
     # Load all data
-    cache, wordlist, first_pass = load()
+    words, wordlist, first_pass = load()
 
     # Fetch and uncompress the snapshot file
     file = fetch_pages(snapshot)
     file = decompress(file)
 
     # Process the big XML to retain only primary information
-    cache = process(file, cache, wordlist, first_pass)
+    words = process(file, words, wordlist, first_pass)
 
     # Save data for next runs
-    save(snapshot, cache)
+    save(snapshot, words)
 
     print(">>> Retrieval done!", flush=True)
     return 0
