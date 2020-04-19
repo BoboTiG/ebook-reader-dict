@@ -5,7 +5,7 @@ import re
 import sys
 from functools import partial
 from pathlib import Path
-from typing import List, Tuple
+from typing import List
 
 import requests
 
@@ -126,20 +126,10 @@ def less_than(old: str, new: str) -> bool:
     return len(old) != 8 or old < new
 
 
-def load() -> Tuple[T.Words, T.WordList, bool]:
-    """Load the big JSON file containing all words and their details,
-    also load the words list to catch obsoletes words and updates.
+def load() -> T.WordList:
+    """Load the words list to catch obsoletes words and updates.
     """
-    words: T.Words = {}
     wordlist: T.WordList = {}
-    first_pass = True
-
-    # Load the whole list
-    if C.SNAPSHOT_DATA.is_file():
-        with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
-            words = json.load(fh)
-        print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}", flush=True)
-        first_pass = False
 
     # Load the word|revision list to detect changes
     if C.SNAPSHOT_LIST.is_file():
@@ -148,19 +138,21 @@ def load() -> Tuple[T.Words, T.WordList, bool]:
             word, rev = line.split("|")
             wordlist[word] = rev.rstrip("\n")
         print(
-            f">>> Loaded {len(words):,} revisions from {C.SNAPSHOT_DATA}", flush=True,
+            f">>> Loaded {len(wordlist):,} revisions from {C.SNAPSHOT_LIST}",
+            flush=True,
         )
-        first_pass = False
 
-    return words, wordlist, first_pass
+    return wordlist
 
 
-def process(
-    file: Path, words: T.Words, wordlist: T.WordList, first_pass: bool
-) -> T.Words:
+def process(file: Path, wordlist: T.WordList) -> T.Words:
     """Process the big XML file and retain only information we are interested in.
     Results are stored into the global *RESULT* dict, see handle_page() for details.
     """
+    words: T.Words = {}
+    first_pass = not bool(wordlist)
+
+    print(f">>> Processing {file} ...", flush=True)
 
     def handle_page(_: T.Attribs, page: T.Item) -> bool:
         """
@@ -192,16 +184,6 @@ def process(
         if is_ignored(word):
             return True
 
-        rev = page["revision"]["id"]
-
-        # Handle word with no changes
-        word_rev = None
-        if word in words:
-            word_rev = wordlist.pop(word, None)
-            if word_rev and word_rev == rev:
-                # Same revision, skip early
-                return True
-
         # The entire content of the global definition
         sections = find_sections(page["revision"]["text"]["#text"])
         if not sections:
@@ -228,14 +210,21 @@ def process(
             print(f" !! No definition found for {word!r}", flush=True)
             return True
 
-        words[word] = (rev, pronunciation, genre, definitions)
-        if not first_pass:
-            action = "Updated" if word_rev else "Added"
+        rev = page["revision"]["id"]
+        word_rev = wordlist.pop(word, None)
+
+        # Log the appropriate action to ease tracking changes
+        action = ""
+        if word_rev and word_rev != rev:
+            action = "Updated"
+        elif not (word_rev or first_pass):
+            action = "Added"
+        if action:
             print(f" ++ {action} {word!r}", flush=True)
 
+        words[word] = (rev, pronunciation, genre, definitions)
         return True
 
-    print(f">>> Processing {file} ...", flush=True)
     with file.open("rb") as fh:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
 
@@ -280,15 +269,15 @@ def main() -> int:
         # Return 1 to break the script and so the GitHub workflow
         return 1
 
-    # Load all data
-    words, wordlist, first_pass = load()
-
     # Fetch and uncompress the snapshot file
     file = fetch_pages(snapshot)
     file = decompress(file)
 
+    # Load all data
+    wordlist = load()
+
     # Process the big XML to retain only primary information
-    words = process(file, words, wordlist, first_pass)
+    words = process(file, wordlist)
 
     # Save data for next runs
     save(snapshot, words)

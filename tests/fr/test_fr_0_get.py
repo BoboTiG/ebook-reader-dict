@@ -166,6 +166,7 @@ def test_main_0(craft_data, capsys):
         assert get.main() == 0
     assert pages_xml.is_file()
     assert pages_bz2.is_file()
+    assert C.SNAPSHOT_DATA.is_file()
 
     # Check for generated files
 
@@ -190,7 +191,7 @@ def test_main_0(craft_data, capsys):
 
 @responses.activate
 def test_main_1(craft_data, capsys):
-    """Test the whole script. It will generate data for test_fr_1_convert.py."""
+    """Test the whole script again. There should be updates."""
 
     date = "20200418"
     pages_xml = C.SNAPSHOT / f"pages-{date}.xml"
@@ -217,12 +218,17 @@ def test_main_1(craft_data, capsys):
         ),
     )
 
+    # There is no data.json but the wordlist containing revisions
+    assert C.SNAPSHOT_LIST.is_file()
+    C.SNAPSHOT_DATA.unlink()
+
     # Run against the new snapshot
     assert get.main() == 0
 
     # Files should be created
     assert pages_xml.is_file()
     assert pages_bz2.is_file()
+    assert C.SNAPSHOT_DATA.is_file()
 
     # Trigger manual calls for coverage
     file = get.fetch_pages(date)
