@@ -17,7 +17,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 If you do not fin a word or if a translation is not good for you, there is nothing to do here.
 Everything should be changed on [Wiktionary](https://www.wiktionary.org/) directly.
 
-All dictionaries are automatically re-generated every Sunday at midnight.
+All dictionaries are automatically re-generated **every day** at midnight.
 The `dicthml-LOCALE.zip` file is updated inplace so that the download link never changes.
 
 ## Adding a new Dictionary
