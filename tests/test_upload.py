@@ -1,5 +1,4 @@
 import os
-import re
 
 import responses
 
@@ -18,12 +17,17 @@ def test_fetch_release_url():
 
 
 def test_format_description():
-    text = upload.format_description()
-    reg = r"^Nombre de mots : \d+\nDate : \d{4}-\d{2}-\d{2}"
-    assert re.match(reg, text)
-    assert text.endswith(
-        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})"
+    C.SNAPSHOT_COUNT.write_text("123456789")
+    C.SNAPSHOT_FILE.write_text("20200220")
+    expected = (
+        "Nombre de mots : 123 456 789\nDate : 2020-02-20\n\n :arrow_right:"
+        f" Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})"
     )
+    try:
+        assert upload.format_description() == expected
+    finally:
+        C.SNAPSHOT_COUNT.unlink()
+        C.SNAPSHOT_FILE.unlink()
 
 
 @responses.activate
@@ -37,7 +41,13 @@ def test_main(capsys):
 
     # Start the whole process
     os.environ["GITHUB_TOKEN"] = "token"
-    assert upload.main() == 0
+    C.SNAPSHOT_COUNT.write_text("123456789")
+    C.SNAPSHOT_FILE.write_text("20200220")
+    try:
+        assert upload.main() == 0
+    finally:
+        C.SNAPSHOT_COUNT.unlink()
+        C.SNAPSHOT_FILE.unlink()
     captured = capsys.readouterr()
     assert captured.out.splitlines()[-1] == ">>> Release updated!"
 
