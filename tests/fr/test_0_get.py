@@ -1,3 +1,4 @@
+import json
 import os
 from contextlib import suppress
 
@@ -164,11 +165,13 @@ def test_main_0(craft_data, capsys):
     # Start the whole process
     with capsys.disabled():
         assert get.main() == 0
+
+    # Check for generated files
+
+    # Check that files are created
     assert pages_xml.is_file()
     assert pages_bz2.is_file()
     assert C.SNAPSHOT_DATA.is_file()
-
-    # Check for generated files
 
     # Here we do -3 because of:
     #   - "Bogotanais.wiki" (no definition found)
@@ -176,6 +179,11 @@ def test_main_0(craft_data, capsys):
     #   - "no section.wiki"
     expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 3
 
+    # Check the words data
+    words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))
+    assert len(words.keys()) == expected_count
+
+    # Check other files
     assert int(C.SNAPSHOT_COUNT.read_text()) == expected_count
     assert C.SNAPSHOT_FILE.read_text() == "20200417"
     words = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
@@ -250,9 +258,15 @@ def test_main_1(craft_data, capsys):
     #   - "mot el" dynamically added
     #   - "mot us" dynamically added
     expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 4 + 2
-    words = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
-    assert len(words) == expected_count
-    for line in words:
+
+    # Check the words data
+    words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))
+    assert len(words.keys()) == expected_count
+
+    # Check other files
+    wordlist = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
+    assert len(wordlist) == expected_count
+    for line in wordlist:
         assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
