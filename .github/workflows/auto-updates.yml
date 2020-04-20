@@ -51,7 +51,7 @@ jobs:
         WIKI_LOCALE: ${{ matrix.locale }}
 
     - name: Upload the dictionary
-      if: fetch_and_convert.outcome == 'success'
+      if: steps.fetch_and_convert.outcome == 'success'
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.TOKEN }}
@@ -61,19 +61,19 @@ jobs:
         overwrite: true
   
     - name: Update the release description
-      if: fetch_and_convert.outcome == 'success'
+      if: steps.fetch_and_convert.outcome == 'success'
       run: python -m scripts --update-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WIKI_LOCALE: ${{ matrix.locale }}
 
     - name: Get current count
-      if: fetch_and_convert.outcome == 'success'
+      if: steps.fetch_and_convert.outcome == 'success'
       id: current_count
       run: echo "::set-output name=count::$(printf "%'d" "$(cat data/${{ matrix.locale }}/words.count)")"
 
     - name: Push to built branch
-      if: fetch_and_convert.outcome == 'success'
+      if: steps.fetch_and_convert.outcome == 'success'
       uses: Automattic/action-commit-to-branch@master
       with:
         branch: master
