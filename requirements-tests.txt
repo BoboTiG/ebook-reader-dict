@@ -3,4 +3,4 @@ flake8==3.7.9
 mypy==0.770
 pytest==5.4.1
 pytest-cov==2.8.1 
-responses==0.10.12
+responses==0.10.14
