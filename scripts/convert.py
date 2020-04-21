@@ -76,7 +76,7 @@ def save(groups: T.Groups) -> None:
         to_compress.append(save_html(group, words))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
-    print("", flush=True)
+    print(f" [{len(groups.keys()):,}]", flush=True)
 
     # Then create the special "words" file
     to_compress.append(craft_index(sorted(wordlist)))
