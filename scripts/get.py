@@ -110,6 +110,7 @@ def guess_snapshot() -> str:
     Return an empty string if there is nothing to do,
     e.g. when the current snapshot is up-to-date.
     """
+    return ""
     # Get the current snapshot, if any
     try:
         current = C.SNAPSHOT_FILE.read_text().strip()

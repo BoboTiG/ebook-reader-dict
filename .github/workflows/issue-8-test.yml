@@ -1,0 +1,51 @@
+name: Issue 8 test
+
+on: pull_request
+
+jobs:
+  dicthtml:
+    runs-on: ubuntu-latest
+
+    # List of locales to generate
+    # Note: as of now there is only one locale so it is OK,
+    #       but there will be issues when using 2 or more
+    #       because there will be history difference.
+    #       A possible fix would be to do a "git pull" before
+    #       adding and pusing changes but this is currently
+    #       not implemented.
+    strategy:
+      matrix:
+        locale:
+          - fr
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Install requirements
+      run: python -m pip install -r requirements.txt
+
+    - name: Fetch and update the dictionary
+      id: fetch_and_convert
+      continue-on-error: true
+      run: |
+        $output=(python -m scripts)
+        Write-Output "::set-output name=result::$output"
+      env:
+        WIKI_LOCALE: ${{ matrix.locale }}
+
+    - name: Check the status
+      if: always()
+      run: echo "${{ steps.fetch_and_convert.outputs.result }}"
+
+    - name: Check the status
+      if: contains(steps.fetch_and_convert.outputs.output, 'Retrieval done') == false && contains(steps.fetch_and_convert.outputs.output, 'Snapshot up-to-date') == false && contains(steps.fetch_and_convert.outputs.output, 'Snapshot dump is ongoing') == false
+      run: exit 1
+
+    - name: Upload the dictionary
+      run: echo "a"
