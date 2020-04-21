@@ -33,3 +33,19 @@ RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{LOCALE}"
 DOWNLOAD_URL = (
     f"https://github.com/{REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
 )
+
+# HTML formatting for each word:
+#   <p>
+#       <a name="word"/>
+#       <b>word</b> \pronunciation\ <i>genre</i>
+#       <br/>
+#       <br/>
+#       <ol>
+#           <li>definition 1</li>
+#           <li>definition 2</li>
+#       </ol>
+#   </p>
+WORD_FORMAT = (
+    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}'
+    "<br/><br/><ol>{definitions}</ol></p></w>"
+)

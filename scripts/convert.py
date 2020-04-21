@@ -107,27 +107,8 @@ def save_html(name: str, words: T.Words) -> Path:
             ...
         </html>
 
-    Syntax of each WORD:
-
-        <w>
-            <p>
-                <a name="word"/>
-                <b>word</b> [pronunciation] <i>genre</i>
-                <br/>
-                <br/>
-                <ol>
-                    <li>definition 1</li>
-                    <li>definition 2</li>
-                </ol>
-            </p>
-        </w>
+    Syntax of each WORD is define in the *WORD_FORMAT* constant.
     """
-
-    # Word format
-    fmt = (
-        '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}'
-        "<br/><br/><ol>{definitions}</ol></p></w>"
-    )
 
     # Save to uncompressed HTML
     raw_output = C.WORKING_DIR / f"{name}.raw.html"
@@ -142,7 +123,7 @@ def save_html(name: str, words: T.Words) -> Path:
                 genre = f" <i>{genre}.</i>"
 
             fh.write(
-                fmt.format(
+                C.WORD_FORMAT.format(
                     word=word,
                     pronunciation=pronunciation,
                     genre=genre,
