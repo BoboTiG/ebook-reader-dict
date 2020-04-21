@@ -41,7 +41,7 @@ def decompress(file: Path) -> Path:
         for data in iter(partial(fi.read, 1024 * 1024), b""):
             fo.write(comp.decompress(data))
             print(".", end="", flush=True)
-    print("", flush=True)
+    print(f" [{output.stat().st_size:,} bytes]", flush=True)
 
     return output
 
@@ -73,7 +73,7 @@ def fetch_pages(date: str) -> Path:
             if chunk:
                 fh.write(chunk)
                 print(".", end="", flush=True)
-        print("", flush=True)
+    print(f" [{output.stat().st_size:,} bytes]", flush=True)
 
     return output
 
