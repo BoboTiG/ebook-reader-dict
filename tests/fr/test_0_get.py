@@ -4,6 +4,7 @@ from contextlib import suppress
 
 import pytest
 import responses
+from requests.exceptions import HTTPError
 
 os.environ["WIKI_LOCALE"] = "fr"
 
@@ -273,3 +274,37 @@ def test_main_1(craft_data, capsys):
     assert get.main() == 1
     captured = capsys.readouterr()
     assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"
+
+
+@pytest.mark.parametrize("err_code", [404, 500])
+@responses.activate
+def test_main_2(err_code, capsys):
+    """Test the whole script when the dump is not finishd on the Wiktionary side."""
+
+    date = "20200419"
+    pages_xml = C.SNAPSHOT / f"pages-{date}.xml"
+    pages_bz2 = C.SNAPSHOT / f"pages-{date}.xml.bz2"
+
+    # Clean-up before we start
+    for file in (pages_xml, pages_bz2):
+        with suppress(FileNotFoundError):
+            file.unlink()
+
+    # List of requests responses to falsify:
+    #   - fetch_snapshots()
+    #   - fetch_pages()
+    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
+    responses.add(
+        responses.GET,
+        f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2",
+        status=err_code,
+    )
+
+    # Start the whole process
+    if err_code != 404:
+        with pytest.raises(HTTPError):
+            assert get.main() == 1
+    else:
+        assert get.main() == 1
+        captured = capsys.readouterr()
+        assert captured.out.splitlines()[-1] == ">>> Wiktionary dump is ongoing ... "

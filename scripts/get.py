@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import List
 
 import requests
+from requests import codes
+from requests.exceptions import HTTPError
 
 import wikitextparser as wtp
 import xmltodict
@@ -270,7 +272,16 @@ def main() -> int:
         return 1
 
     # Fetch and uncompress the snapshot file
-    file = fetch_pages(snapshot)
+    try:
+        file = fetch_pages(snapshot)
+    except HTTPError as exc:
+        print("", flush=True)
+        if exc.response.status_code != codes.NOT_FOUND:
+            raise
+        print(">>> Wiktionary dump is ongoing ... ", flush=True)
+        # Return 1 to break the script and so the GitHub workflow
+        return 1
+
     file = decompress(file)
 
     # Load all data
