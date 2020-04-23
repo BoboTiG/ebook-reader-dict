@@ -80,6 +80,8 @@ def test_find_genre(word, genre, page):
                 ),
                 "Lieu où sont accueillies les personnes.",
                 "Fait d’accueillir ou héberger.",
+                # TODO
+                # "(Vieilli) Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
                 "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
                 "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
             ],

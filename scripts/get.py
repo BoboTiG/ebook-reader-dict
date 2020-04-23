@@ -13,21 +13,11 @@ from requests.exceptions import HTTPError
 
 import wikitextparser as wtp
 import xmltodict
-from mediawiki_dump.tokenizer import clean as sanitize
 
 from .lang import language
-from .utils import is_ignored
+from .utils import is_ignored, clean
 from . import annotations as T
 from . import constants as C
-
-
-def clean(content: str) -> str:
-    """Clean-up wikicode."""
-    text: str = sanitize(content)
-    text = text.replace("''", "")
-    text = re.sub(C.EXTRA_SPACES, " ", text)
-    text = re.sub(C.EXTRA_SPACES_DOT, ".", text)
-    return text
 
 
 def decompress(file: Path) -> Path:
