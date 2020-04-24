@@ -26,14 +26,18 @@ def decompress(file: Path) -> Path:
     if output.is_file():
         return output
 
-    print(f">>> Decompressing {file.name} ", end="", flush=True)
+    msg = f">>> Uncompressing into {output.name}:"
+    print(msg, end="", flush=True)
 
+    total = 0
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
         for data in iter(partial(fi.read, 1024 * 1024), b""):
-            fo.write(comp.decompress(data))
-            print(".", end="", flush=True)
-    print(f" [{output.stat().st_size:,} bytes]", flush=True)
+            uncompressed = comp.decompress(data)
+            fo.write(uncompressed)
+            total += len(uncompressed)
+            print(f"\r{msg} {total:,} bytes", end="", flush=True)
+    print(f"\r{msg} OK [{output.stat().st_size:,} bytes]", flush=True)
 
     return output
 
@@ -56,16 +60,19 @@ def fetch_pages(date: str) -> Path:
     if output.is_file() or output_xml.is_file():
         return output
 
-    print(f">>> Fetching {output.name} ", end="", flush=True)
-    url = f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2"
+    msg = f">>> Fetching {C.WIKI}-{date}-pages-meta-current.xml.bz2:"
+    print(msg, end="", flush=True)
 
+    url = f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2"
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
+        total = 0
         for chunk in req.iter_content(chunk_size=1024 * 1024):
             if chunk:
                 fh.write(chunk)
-                print(".", end="", flush=True)
-    print(f" [{output.stat().st_size:,} bytes]", flush=True)
+                total += len(chunk)
+                print(f"\r{msg} {total:,} bytes", end="", flush=True)
+    print(f"\r{msg} OK [{output.stat().st_size:,} bytes]", flush=True)
 
     return output
 
