@@ -15,13 +15,14 @@ def clean(text: str) -> str:
     text = sub(r"'''?([^']+)'''?", "\\1", text)
 
     # Templates
-    # {{foo}}
-    # TODO {{foo|fr}}
-    # {{foo|{{test}}|123}}
+    # {{foo}} -> ''
+    # {{foo|bar}} -> foo, or bar if foo == w
+    # {{foo|{{test}}|123}} -> ''
     while "{{" in text:
         start = text.find("{{")
         level = 1
         pos = start + 2
+        subtext = ""
 
         while pos < len(text):
             # print(f"> {text[pos:pos+2]} <")
@@ -34,18 +35,38 @@ def clean(text: str) -> str:
                 # Nested template - leave this level
                 pos += 1
                 level -= 1
+            else:
+                subtext += text[pos]
 
             # The template is now completed
             if level == 0:
-                # print(text, start, pos, text[start : pos + 1])
-                text = f"{text[:start]} {text[pos + 1 :]}"
+                # print(repr(text), start, pos, repr(text[start : pos + 1]))
+
+                # Handle he data inside the template
+                if "|" in subtext:
+                    parts = subtext.split("|")
+                    if parts[0] == "w":
+                        # Ex: {{w|ISO 639-3}} -> ISO 639-3
+                        subtext = parts[1]
+                    elif len(parts) == 2:
+                        # Ex: {{grammaire|fr}} -> (Grammaire)
+                        subtext = f"({parts[0].title()})"
+                    else:
+                        # Ex: {{trad+|af|gebruik}} -> ''
+                        # Ex: {{conj|grp=1|fr}} -> ''
+                        subtext = ""
+                else:
+                    # Ex: {{spéc}} -> ''
+                    subtext = ""
+
+                text = f"{text[:start]} {subtext} {text[pos + 1 :]}"
                 break
 
             # Check the next character
             pos += 1
 
         # The template is not well balanced, leave the endless loop
-        if level != 0:
+        if level != 0:  # pragma: nocover
             break
 
     # Tables
@@ -78,7 +99,7 @@ def clean(text: str) -> str:
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
 
     # Parser hooks
-    text = sub(r"<[^>]+>[^<]+</[^>]+>", " ", text)  # <ref>foo</ref>
+    text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''
 
     # HTML
     text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />

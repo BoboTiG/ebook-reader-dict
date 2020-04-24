@@ -79,9 +79,7 @@ def test_find_genre(word, genre, page):
                     " bienvenue et à l’aider dans son intégration ou ses démarches."
                 ),
                 "Lieu où sont accueillies les personnes.",
-                "Fait d’accueillir ou héberger.",
-                # TODO
-                # "(Vieilli) Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
+                "(Vieilli) Fait d’accueillir ou héberger.",
                 "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
                 "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
             ],
@@ -89,7 +87,7 @@ def test_find_genre(word, genre, page):
         (
             "aux",
             [
-                "Code de l’aurá.",
+                "(Linguistique) Code ISO 639-3 de l’aurá.",
                 "Contraction obligatoire de la préposition à et de l'article défini les.",
             ],
         ),
@@ -98,11 +96,11 @@ def test_find_genre(word, genre, page):
             "employer",
             [
                 "Utiliser ; user ; se servir de.",
-                "S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",
+                "(Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",
                 "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
             ],
         ),
-        ("ich", ["Code de l’etkywan."]),
+        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
         (
             "pinyin",
             [
