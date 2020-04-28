@@ -26,10 +26,11 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 0. Keep everything alphabetically sorted please.
 1. Copy the reference file [lang/fr.py](scripts/lang/fr.py) into `lang/$LOCALE.py`. And apply changes to fit the new locale.
 2. Update [lang/\_\_init__.py](scripts/lang/__init__.py) accordingly.
-3. Create **empty** files:
-   - `data/$LOCALE/words.count`
-   - `data/$LOCALE/words.list`
-   - `data/$LOCALE/words.snapshot`
+3. Create those files:
+   - `data/$LOCALE/download.count` (`0`)
+   - `data/$LOCALE/words.count` (empty)
+   - `data/$LOCALE/words.list` (empty)
+   - `data/$LOCALE/words.snapshot` (empty)
 4. Test it:
    ```shell
    # Install dependencies

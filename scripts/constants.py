@@ -14,6 +14,7 @@ SNAPSHOT_COUNT = SNAPSHOT / "words.count"
 SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
 SNAPSHOT_LIST = SNAPSHOT / "words.list"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
+SNAPSHOT_DOWNLOADS = SNAPSHOT / "download.count"
 
 # Temp folder where to generate temp files
 WORKING_DIR = SNAPSHOT / "tmp"

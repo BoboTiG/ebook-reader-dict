@@ -5,6 +5,7 @@
 *.zip
 data/*/tmp
 tests/data/*/tmp
+tests/data/*/download.count
 tests/data/*/words.*
 
 # Byte-compiled / optimized / DLL files

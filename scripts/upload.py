@@ -16,9 +16,10 @@ def fetch_release_url() -> str:
         req.raise_for_status()
         data = req.json()
         try:
-            print(f"Download count is {data['assets'][0]['download_count']:,}")
+            count = data["assets"][0]["download_count"]
+            update_download_count(count)
         except (KeyError, IndexError):
-            print("Download count is 0")
+            pass
         url = data["url"]
     return url
 
@@ -53,6 +54,17 @@ def format_description() -> str:
             f"\n {download} [{C.DICTHTML.name}]({C.DOWNLOAD_URL})",
         )
     )
+
+
+def update_download_count(new_count: int) -> None:
+    """Save the total download count. Simple curiosity."""
+    try:
+        old_count = int(C.SNAPSHOT_DOWNLOADS.read_text().strip())
+    except FileNotFoundError:
+        old_count = 0
+    count = old_count + new_count
+    C.SNAPSHOT_DOWNLOADS.write_text(str(count))
+    print(f">>> Download count is {count:,}")
 
 
 def update_release(url: str) -> None:
