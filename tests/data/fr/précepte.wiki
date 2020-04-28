@@ -1,0 +1,41 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+:Emprunté au {{étyl|la|fr|mot=praeceptum|sens=précepte, [[leçon]], [[règle]]}}, dérivé de ''[[praecipio|praecipere]]'' signifiant « prendre avant, prendre le premier » ou encore « [[recommander]] », « [[conseiller]] », « [[prescrire]] »{{réf|1}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|pʁe.sɛpt}}
+'''précepte''' {{pron|pʁe.sɛpt|fr}} {{m}}
+# [[règle|Règle]] ; [[leçon]] ; [[enseignement]].
+#* ''Le maître de danse lui fit observer, avec toute la politesse possible, qu'on devait dire le coude-pied, parce que , disait-il , en joignant l'exemple au '''précepte''', le pied fait le coude en cet endroit.'' {{source|{{w|Alexandre Boniface}}, ''Manuel des amateurs de la langue française'', 1{{re}} année, 1813, Paris : chez l'auteur, chez Pillet, chez Le Normant, chez Périsse & Compère, chez Alex. Johanneau, de l'Imprimerie Pillet, 1814, p. 151}}
+#* ''Le gracieuse négligence, la hardiesse naïve de la Fontaine furent inappréciées par le grand roi ; mais le froid et correct Boileau donna à la poésie des '''préceptes''' tels que Louis les auraient donnés lui-même'' {{source|{{w|Théophile Lavallée}}, Histoire des Français depuis le temps des Gaulois jusqu'en 1830'', Paris, Charpentier, 1858, 20{{e}} éd., t.3, chap.4, p.283}}
+#*''« Ils sont partis par-là.<br>— Selon les '''préceptes''' du commodore Holmes : « Si un criminel part dans une direction, cherchez-le dans la direction opposée. » »'' {{source|''{{w|Les Nouvelles Aventures de Lucky Luke}}'', 2001, épisode 3}}
+# {{philosophie|fr}} Ce qui ne peut pas ne pas être [[autrement]].{{refnec|lang=fr}}
+# {{religion|fr}} [[commandement|Commandement]] et, surtout, commandement de [[Dieu]], ou commandement de l’[[Église]], etc.
+#* ''Il en est résulté une conviction profonde que le salut dépendait de l’accomplissement rigoureux du '''précepte''', et que ce '''précepte''' lui-même avait été établi par Dieu, […].'' {{source|Anonyme, ''[[s:Le Clergé en Espagne|Le Clergé en Espagne]]'', Revue des Deux Mondes, 1829, tome 1}}
+#* ''Pour l’essentiel, les Gâtineaux se situent dans la norme catholique en observant et respectant massivement les grands '''préceptes''' de l’Église de la Contre-Réforme.'' {{source|Jacques Peret, ''Les paysans de Gâtine poitevine au XVIII{{e}} siècle'', Geste éditions, 1998, p. 238}}
+#* ''Pour Almaengien, le Grand Maître de la secte adamite dont Bosch n'a fait que suivre les '''préceptes''', la notion du péché originel n'existe pas.'' {{source|Jérôme Peignot, ''Les jeux de l'amour et du langage'', page 134, 2009}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|de}} : {{trad+|de|Prinzip|n}}, {{trad+|de|Grundsatz|m}}, {{trad+|de|Gebot|n}}, {{trad+|de|Regel|f}}, {{trad+|de|Weisung}}, {{trad+|de|Vorschrift}}
+* {{T|en}} : {{trad+|en|precept}} (1, 2)
+* {{T|ar}} : {{trad-|ar|مبدأ}}
+* {{T|es}} : {{trad+|es|precepto|m}}
+* {{T|eo}} : {{trad-|eo|precepto}}
+* {{T|el}} : {{trad+|el|διδαχή|R=dhidhakhí}} {{f}}
+* {{T|ru}} : {{trad+|ru|завет}}
+{{trad-fin}}
+
+{{trad-début|Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc. |2}}
+* {{T|de}} : {{trad+|de|Gebot|n}}
+* {{T|en}} : {{trad+|en|precept}}
+* {{T|zdj}} : {{trad--|zdj|amri}}
+{{trad-fin}}
+
+=== {{S|références}} ===
+* {{Import:DAF8}}
+* {{RÉF|1}} : {{R:TLFi}}
+
+
+[[Catégorie:Lexique en français de la philosophie]]
+

@@ -41,6 +41,7 @@ def test_main(data):
             "ic.html",
             "mo.html",
             "pi.html",
+            "pr.html",
             "ép.html",
             "œc.html",
             "words",

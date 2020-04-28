@@ -59,6 +59,10 @@ def clean(text: str) -> str:
                     # Ex: {{spéc}} -> ''
                     subtext = ""
 
+                # Skip "refnec"
+                if subtext == "(Refnec)":
+                    subtext = ""
+
                 text = f"{text[:start]} {subtext} {text[pos + 1 :]}"
                 break
 

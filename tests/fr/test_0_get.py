@@ -135,6 +135,14 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "précepte",
+            [
+                "Règle ; leçon ; enseignement.",
+                "(Philosophie) Ce qui ne peut pas ne pas être autrement.",
+                "(Religion) Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
+            ],
+        ),
+        (
             "suis",
             [
                 "Première personne du singulier de l’indicatif présent de être.",
