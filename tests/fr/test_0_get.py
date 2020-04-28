@@ -113,6 +113,7 @@ def test_find_genre(word, genre, page):
                 "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
             ],
         ),
+        ("encyclopædie", []),
         (
             "éperon",
             [
@@ -195,8 +196,9 @@ def test_main_0(craft_data, capsys):
     # Here we do -3 because of:
     #   - "Bogotanais.wiki" (no definition found)
     #   - "en.wiki" (ignored)
+    #   - "encyclopædie.wiki" (no definition found)
     #   - "no section.wiki"
-    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 3
+    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 4
 
     # Check the words data
     words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))
@@ -271,12 +273,13 @@ def test_main_1(craft_data, capsys):
     # Here we do -4 because of:
     #   - "Bogotanais.wiki" (no definition found)
     #   - "en.wiki" (ignored)
+    #   - "encyclopædie.wiki" (no definition found)
     #   - "no section.wiki"
     #   - "suis" dynamically removed
     # And we do +2 because of:
     #   - "mot el" dynamically added
     #   - "mot us" dynamically added
-    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 4 + 2
+    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 5 + 2
 
     # Check the words data
     words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))

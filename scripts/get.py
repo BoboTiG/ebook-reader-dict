@@ -96,11 +96,14 @@ def find_section_definitions(section: wtp.Section) -> List[str]:
         return []
     else:
         # Remove empty definitions (or definitions using a sublist, it is not yet handled)
+        # Note: fixed #16 (skip obsolete forms) bu adding "}}." in the endswith().
         return list(
             filter(
                 None,
                 [
-                    None if d.startswith("{{") and d.endswith("}}") else clean(d)
+                    None
+                    if d.startswith("{{") and d.endswith(("}}", "}}."))
+                    else clean(d)
                     for d in definitions
                 ],
             )
