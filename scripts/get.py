@@ -90,10 +90,21 @@ def find_definitions(sections: List[wtp.Section]) -> List[str]:
 def find_section_definitions(section: wtp.Section) -> List[str]:
     """Find definitions from the given *section*, without eventual subtext."""
     try:
-        return [clean(d) for d in section.get_lists()[0].items]
+        definitions = [d.strip() for d in section.get_lists()[0].items]
     except IndexError:
         # Section not finished or incomplete?
         return []
+    else:
+        # Remove empty definitions (or definitions using a sublist, it is not yet handled)
+        return list(
+            filter(
+                None,
+                [
+                    None if d.startswith("{{") and d.endswith("}}") else clean(d)
+                    for d in definitions
+                ],
+            )
+        )
 
 
 def find_genre(content: str) -> str:

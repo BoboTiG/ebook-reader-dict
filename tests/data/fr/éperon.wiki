@@ -1,0 +1,99 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: De l’{{étyl|fro|fr|mot=esperon}}, du {{étyl|frk|fr}} {{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|e.pʁɔ̃}}
+[[Fichier:Medieval spurs.JPG|250px|vignette|'''Éperon''' d’équitation médiéval (1)]]
+[[Fichier:Linaria pelisseriana (Matthieu Gauvain).JPG|vignette|180px|'''Éperons''' sur les fleurs de ''Linaria pelisseriana'' (2)]]
+[[Fichier:Zamek Bąkowiec w Morsku - ZJ001.jpg|vignette|180px|Construction sur un '''éperon''' rocheux (5)]]
+[[Fichier:Blason de la ville de Lécluse (59) Nord-France.svg|vignette|120px|Armoiries avec 3 '''éperons''' ''(sens héraldique)'']]
+'''éperon''' {{pron|e.pʁɔ̃|fr}} {{m}}
+# {{équitation|fr}} [[pièce|Pièce]] de [[métal]] à deux [[branche]]s, qui s’[[adapte]] au [[talon]] du [[cavalier]] et [[dont]] l’[[extrémité]] [[pointue]] ou [[porter|portant]] une [[molette]] [[sert]] à [[piquer]] les [[flanc]]s du [[cheval]] pour le [[stimuler]].
+#* ''En effet, […], le cheval releva la tête et hennit comme pour annoncer son arrivée, et, cette fois, sans que son maître eût besoin de l’exciter ni de la parole ni de l’'''éperon''', il redoubla d’ardeur, ….'' {{source|{{w|Alexandre Dumas}}, ''[[s:Othon l’archer|Othon l’archer]]'', 1839}}
+#* ''Et, enfonçant les '''éperons''' dans les flancs de sa monture qui hennit de douleur, il partit à fond de train.'' {{source|{{Citation/Gustave Aimard/Les Trappeurs de l’Arkansas/1858}}}}
+#* ''Toute proportion gardée, je pourrais comparer ce mouvement à celui du cheval qui vient de prendre, tout-à-coup, un violent coup d’'''éperon''' près de la sous-ventrière.'' {{source|{{w|Dieudonné Costes}} & {{w|Maurice Bellonte}}, ''Paris-New-York'', 1930}}
+# {{botanique|fr}} Prolongement en forme de [[tube]] de la [[corolle]] ou du [[calice]] (ne concerne parfois qu’un [[pétale]] ou [[sépale]] particulier).
+# {{marine|fr}} Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.
+#* ''L’'''éperon''' supportait la figure qui donnait son nom au vaisseau.''
+#* ''L’'''éperon''' des galères antiques était armé de fer.''
+# {{maçonnerie|fr}}
+## Sorte de [[fortification]] en angle saillant qu’on élève au milieu des [[courtine]]s, ou devant des portes, pour les [[défendre]].
+## Ouvrage en pointe qui sert à rompre le cours de l’eau, devant les piles des ponts, ou sur les bords des rivières.
+## Tout [[pilier]] qu’on construit extérieurement d’un mur de [[terrasse]] de distance en distance, et qui se lie avec le corps du mur pour tenir la poussée des terres ([[contrefort|Contrefort]], anciennement [[contre-fort]]).
+# {{géographie|fr}} Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.
+# {{meubles héraldiques|fr}} [[meuble|Meuble]] représentant l’objet du même nom dans les [[armoiries]]. Il est composé d’une branche en métal en U avec une tige au bout de laquelle se trouve une [[molette]] à six rais mais le nombre peut varier d'un illustrateur à l’autre. Il est représenté [[en pal]], la molette vers le [[chef]] (haut). Dans les représentations anciennes, il est parfois muni d’une sangle en cuir. À rapprocher de [[molette d’éperon]].
+#* ''D’azur, à trois '''éperons''' d’or, qui est de la commune de Lécluse du Nord'' {{cf|lang=fr}} illustration « armoiries avec 3 éperons »
+
+==== {{S|dérivés}} ====
+* [[éperon barré]] (éperon rocheux fortifié)
+* [[éperonner]]
+* [[éperonneur]]
+* [[éperonnier]]
+* [[gagner ses éperons]] (faire ses premières armes avec distinction. Cela se dit, au propre, des anciens chevaliers ; et on le dit au figuré de quelqu’un qui a bien mérité, qui justifie d’une manière brillante les avantages, les récompenses qu’il obtient)
+* [[gymnadénie à long éperon]] ''(Sorte de plante)''
+* [[molette d’éperon]]
+* [[n’avoir ni bouche ni éperon]] (au sens propre, se dit d’un cheval qui ne réagit ni à la bride ni aux coups d’éperons et au sens figuré se dit d’une personne inerte qu’aucun moyen ne saurait animer)
+* [[porte-éperon]]
+* [[sous l'éperon de]]
+
+==== {{S|vocabulaire}} ====
+* [[piquer des deux]] ''(faire sentir les deux '''éperons''' à un cheval afin d’accélérer sa marche)''
+
+==== {{S|phrases}} ====
+* [[à méchant cheval bon éperon]]
+
+==== {{S|traductions}} ====
+{{trad-début|Crochet de talon|1}}
+* {{T|de}} : {{trad+|de|Sporn|m}}
+* {{T|en}} : {{trad+|en|spur}} (1:''équitation'';4''maçonnerie'';5:''géographie'') ; {{trad+|en|ram|dif=(naval) ram}} (3:''partie de la proue'')
+* {{T|ar}} : {{trad-|ar|مهماز . منخس|tr=minkhas . mihmèz}}
+* {{T|bm}} : {{trad--|bm|sɛbɛrɛn}}
+* {{T|ca}} : {{trad-|ca|esperó}}
+* {{T|zh}} : {{trad+|zh|距|R=jù}}
+* {{T|co}} : {{trad+|co|spronu}}
+* {{T|dak}} : {{trad--|dak|siínataŋ}}
+* {{T|es}} : {{trad+|es|espuela}} {{f}}
+* {{T|eo}} : {{trad-|eo|sprono}}
+* {{T|fi}} : {{trad+|fi|kannus}}
+* {{T|io}} : {{trad+|io|sprono}}
+* {{T|it}} : {{trad+|it|sperone}}
+* {{T|lkt}} : {{trad--|lkt|siínataŋ}}
+* {{T|nl}} : {{trad+|nl|spoor}} {{c}}
+* {{T|oc}} : {{trad+|oc|esperon}}
+* {{T|pl}} : {{trad+|pl|ostroga}}
+* {{T|pt}} : {{trad+|pt|espora}}
+* {{T|ro}} : {{trad-|ro|pintene}}
+* {{T|ru}} : {{trad+|ru|шпора|f|R=špora}}
+* {{T|ses}} : {{trad--|ses|miimi}}
+* {{T|sv}} : {{trad+|sv|sporre}}
+* {{T|cs}} : {{trad+|cs|ostruha}} {{f}}
+{{trad-fin}}
+
+{{trad-début|Prolongement en forme de tube de la corolle ou du calice|2}}
+* {{T|it}} : {{trad+|it|sperone}}
+{{trad-fin}}
+
+{{trad-début|Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.|3}}
+* {{T|it}} : {{trad+|it|sperone}}, {{trad+|it|rostro|m}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Toulouse)||audio=LL-Q150 (fra)-Lepticed7-éperon.wav}}
+
+=== {{S|anagrammes}} ===
+* [[énoper]]
+* [[renopé]]
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+* {{thésaurus|fr|héraldique}}
+* {{WP|Liste des meubles héraldiques}}
+* {{Commons|Category:Spurs in heraldry|Éperons en héraldique}}
+
+=== {{S|références}} ===
+* {{Import:DAF8}}
+* {{R:Morisot1814}}
+
+[[Catégorie:Lexique en français de la botanique]]
+

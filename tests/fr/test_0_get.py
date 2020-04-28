@@ -114,6 +114,26 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "éperon",
+            [
+                "(Équitation) Pièce de métal à deux branches, qui s’adapte au talon du "
+                "cavalier et dont l’extrémité pointue ou portant une molette sert à piquer "
+                "les flancs du cheval pour le stimuler.",
+                "(Botanique) Prolongement en forme de tube de la corolle ou du calice (ne "
+                "concerne parfois qu’un pétale ou sépale particulier).",
+                "(Marine) Partie de la proue d’un bâtiment qui se termine en pointe et qui a "
+                "plus ou moins de saillie en avant.",
+                "(Géographie) Partie d’un contrefort, d’une chaîne de collines ou de "
+                "montagnes qui se termine en pointe.",
+                "(Meubles Héraldiques) Meuble représentant l’objet du même nom dans les "
+                "armoiries. Il est composé d’une branche en métal en U avec une tige au bout "
+                "de laquelle se trouve une molette à six rais mais le nombre peut varier d'un "
+                "illustrateur à l’autre. Il est représenté en pal, la molette vers le chef "
+                "(haut). Dans les représentations anciennes, il est parfois muni d’une sangle "
+                "en cuir. À rapprocher de molette d’éperon.",
+            ],
+        ),
+        (
             "suis",
             [
                 "Première personne du singulier de l’indicatif présent de être.",
