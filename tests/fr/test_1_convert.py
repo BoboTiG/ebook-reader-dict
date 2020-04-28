@@ -36,6 +36,7 @@ def test_main(data):
             "ac.html",
             "au.html",
             "ba.html",
+            "co.html",
             "em.html",
             "ic.html",
             "mo.html",

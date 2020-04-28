@@ -4,6 +4,7 @@ import json
 import re
 import sys
 from functools import partial
+from itertools import chain
 from pathlib import Path
 from typing import List
 
@@ -29,9 +30,9 @@ def decompress(file: Path) -> Path:
     msg = f">>> Uncompressing into {output.name}:"
     print(msg, end="", flush=True)
 
-    total = 0
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
+        total = 0
         for data in iter(partial(fi.read, 1024 * 1024), b""):
             uncompressed = comp.decompress(data)
             fo.write(uncompressed)
@@ -77,12 +78,21 @@ def fetch_pages(date: str) -> Path:
     return output
 
 
-def find_definitions(section: wtp.Section) -> List[str]:
+def find_definitions(sections: List[wtp.Section]) -> List[str]:
     """Find all definitions, without eventual subtext."""
+    definitions = list(
+        chain.from_iterable(find_section_definitions(section) for section in sections)
+    )
+    # Remove duplicates
+    return sorted(set(definitions), key=definitions.index)
+
+
+def find_section_definitions(section: wtp.Section) -> List[str]:
+    """Find definitions from the given *section*, without eventual subtext."""
     try:
         return [clean(d) for d in section.get_lists()[0].items]
     except IndexError:
-        # Page not finished or incomplete?
+        # Section not finished or incomplete?
         return []
 
 
@@ -191,7 +201,13 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
 
         pronunciation = ""
         genre = ""
-        definitions = []
+
+        # All definitions, without eventual subtext
+        definitions = find_definitions(sections)
+
+        if not definitions:
+            print(f" !! No definition found for {word!r}", flush=True)
+            return True
 
         for section in sections:
             # Find the pronunciation
@@ -201,13 +217,6 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
             # Find the genre, if any
             if not genre:
                 genre = find_genre(str(section))
-
-            # All definitions, without eventual subtext
-            definitions.extend(find_definitions(section))
-
-        if not definitions:
-            print(f" !! No definition found for {word!r}", flush=True)
-            return True
 
         rev = page["revision"]["id"]
         word_rev = wordlist.pop(word, None)

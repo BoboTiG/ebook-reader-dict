@@ -1,0 +1,18 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{cf|corollaire}}.
+
+=== {{S|nom|fr|flexion}} ===
+{{fr-rég|kɔ.ʁɔ.lɛʁ|s=corollaire|mf=oui}}
+'''corollaires''' {{pron|kɔ.ʁɔ.lɛʁ|fr}}
+# ''Pluriel de'' [[corollaire#fr-nom|corollaire]].
+{{Clr}}
+
+=== {{S|adjectif|fr|flexion}} ===
+{{fr-rég|kɔ.ʁɔ.lɛʁ|s=corollaire|mf=oui}}
+'''corollaires''' {{pron|kɔ.ʁɔ.lɛʁ|fr}} {{mf}}
+# ''Pluriel de'' [[corollaire#fr-adj|corollaire]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Île-de-France)|kɔ.ʁɔ.lɛʁ|audio=Fr-Paris--corolaire.ogg}}
+

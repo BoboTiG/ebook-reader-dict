@@ -96,10 +96,12 @@ def test_find_genre(word, genre, page):
             "employer",
             [
                 "Utiliser ; user ; se servir de.",
-                "(Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",
+                "(Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
+                "d'un mot ou d'une locution.",
                 "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
             ],
         ),
+        ("corollaires", ["Pluriel de corollaire."]),
         ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
         (
             "pinyin",
@@ -123,14 +125,10 @@ def test_find_genre(word, genre, page):
     ],
 )
 def test_find_sections_and_definitions(word, defs, page):
-    """Test the sections finder definitions getter."""
+    """Test the sections finder and definitions getter."""
     data = page(word)
     sections = get.find_sections(data["revision"]["text"]["#text"])
-
-    res = []
-    for section in sections:
-        res.extend(get.find_definitions(section))
-    assert res == defs
+    assert get.find_definitions(sections) == defs
 
 
 @responses.activate
