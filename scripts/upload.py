@@ -14,7 +14,12 @@ def fetch_release_url() -> str:
     url = ""
     with requests.get(C.RELEASE_URL) as req:
         req.raise_for_status()
-        url = req.json()["url"]
+        data = req.json()
+        try:
+            print(f"Download count is {data['assets'][0]['download_count']:,}")
+        except (KeyError, IndexError):
+            print("Download count is 0")
+        url = data["url"]
     return url
 
 
