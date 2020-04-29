@@ -7,6 +7,11 @@ language = {
     "fr": fr.patterns,
 }
 
+# Templates to skip in the wikicode -> text conversion
+ignored_templates = {
+    "fr": fr.ignored_templates,
+}
+
 # Release description sentences
 release_tr = {
     "fr": fr.release_tr,

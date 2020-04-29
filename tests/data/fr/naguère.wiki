@@ -1,0 +1,34 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: De ''il [[ne#fr|n’]][[il y a|y a]] [[guère]]'' (de temps). Voir aussi ''[[na#fr|na]]''.
+
+=== {{S|adverbe|fr}} ===
+'''naguère''' {{pron|na.ɡɛʁ|fr}} ''adverbe de temps''
+# [[récemment#fr|Récemment]] ; il y a peu.
+#* ''A ce spectacle, tous les assistans attendris, émus, électrisés , quoique tous de différens cultes , volèrent dans les bras les uns des autres , et des larmes fraternelles coulèrent où '''naguère''' le fanatisme enflammoit tous les esprits et divisoit tous les cœurs.'' {{source|« ''Progrès de la tolérance'' », dans ''La Feuille villageoise'', n° 32, du jeudi 3 mai 1792, Paris : Imprimerie Desenne, p. 133}}
+#*''Le long de la route, notre conducteur nous dit avoir '''naguère''' rencontré un ours, le matin, dans la vallée d'Ossau.'' {{source|Michelet, ''Journal'', 1835, p.191}}
+# [[il y a|Il y a]] [[longtemps]]. {{note}} contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.
+#* ''Cette gamine vicieuse et prétentieuse est la fille d'une grosse commère qui tenait, '''naguère''', une fruiterie dans les environs du Barbès.'' {{source|{{Citation/Victor Méric/Les Compagnons de l’Escopette/1930|198}}}}
+#* '''''Naguère''', la masse populaire, résignée à sa vie primitive, obscure, souvent sordide, n’avait point conscience d’être malheureuse.'' {{source|{{Citation/Ludovic Naudeau/La France se regarde/1931}}}}
+#* ''En rentrant dans le giron de la nation française, Bordeaux, '''naguère''' capitale continentale du royaume d'Angleterre, subissait un dommage considérable.'' {{source|{{w|Léon Berman}}, ''Histoire des Juifs de France des origines à nos jours'', 1937}}
+#* ''Un des slogans des ''économies autarciques'' (on disait '''naguère''' ''économies fermées'') est :'' Ne rien perdre. {{source|Maurice Lecerf, ''Le Fer dans le monde'', Payot, 1942}}
+
+==== {{S|variantes orthographiques}} ====
+* [[naguères]]
+
+==== {{S|synonymes}} ====
+* {{lien|autrefois|fr}}
+* {{lien|jadis|fr}}
+
+==== {{S|traductions}} ====
+{{cf|lang=fr|récemment|autrefois}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Toulouse)|audio=LL-Q150 (fra)-Lepticed7-naguère.wav}}
+
+=== {{S|références}} ===
+*{{R:TLFi}}
+*{{Import:DAF8}}
+
+[[Catégorie:Adverbes de temps en français]]
+

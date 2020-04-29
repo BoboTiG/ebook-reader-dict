@@ -1,6 +1,9 @@
 """Utilities."""
 import re
 
+from .lang import ignored_templates
+from . import constants as C
+
 
 def clean(text: str) -> str:
     """Cleans up the provided wikicode.
@@ -15,7 +18,7 @@ def clean(text: str) -> str:
     text = sub(r"'''?([^']+)'''?", "\\1", text)
 
     # Templates
-    # {{foo}} -> ''
+    # {{foo}} -> 'foo'
     # {{foo|bar}} -> foo, or bar if foo == w
     # {{foo|{{test}}|123}} -> ''
     while "{{" in text:
@@ -55,12 +58,12 @@ def clean(text: str) -> str:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
                         subtext = ""
+                    if subtext.lower() in ignored_templates[C.LOCALE]:
+                        subtext = ""
+                elif subtext.lower() not in ignored_templates[C.LOCALE]:
+                    # Ex: {{note}} -> '[Note]'
+                    subtext = f"[{subtext.title()}]"
                 else:
-                    # Ex: {{spéc}} -> ''
-                    subtext = ""
-
-                # Skip "refnec"
-                if subtext == "(Refnec)":
                     subtext = ""
 
                 text = f"{text[:start]} {subtext} {text[pos + 1 :]}"

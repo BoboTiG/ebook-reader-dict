@@ -135,6 +135,15 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "naguère",
+            [
+                "Récemment ; il y a peu.",
+                "Il y a longtemps. [Note] contrairement à l’étymologie qui implique un temps "
+                "passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, "
+                "révolu.",
+            ],
+        ),
+        (
             "précepte",
             [
                 "Règle ; leçon ; enseignement.",

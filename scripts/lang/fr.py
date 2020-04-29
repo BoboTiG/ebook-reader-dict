@@ -1,5 +1,10 @@
 """French language."""
 
+ignored_templates = (
+    "(refnec)",
+    "spéc",
+)
+
 patterns = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|",
