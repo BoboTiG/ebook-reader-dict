@@ -2,6 +2,7 @@
 import json
 import os
 import sys
+from contextlib import suppress
 
 import requests
 
@@ -58,10 +59,9 @@ def format_description() -> str:
 
 def update_download_count(new_count: int) -> None:
     """Save the total download count. Simple curiosity."""
-    try:
+    old_count = 0
+    with suppress(FileNotFoundError):
         old_count = int(C.SNAPSHOT_DOWNLOADS.read_text().strip())
-    except FileNotFoundError:
-        old_count = 0
     count = old_count + new_count
     C.SNAPSHOT_DOWNLOADS.write_text(str(count))
     print(f">>> Download count is {count:,}")
