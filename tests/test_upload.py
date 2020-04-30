@@ -20,7 +20,7 @@ def test_format_description():
     C.SNAPSHOT_COUNT.write_text("123456789")
     C.SNAPSHOT_FILE.write_text("20200220")
     expected = (
-        "Nombre de mots : 123 456 789\nDate : 2020-02-20\n\n :arrow_right:"
+        "Nombre de mots : 123 456 789\nDate : 2020-02-20\n\n:arrow_right:"
         f" Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})"
     )
     try:

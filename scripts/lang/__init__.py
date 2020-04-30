@@ -12,9 +12,9 @@ ignored_templates = {
     "fr": fr.ignored_templates,
 }
 
-# Release description sentences
-release_tr = {
-    "fr": fr.release_tr,
+# Translations
+translations = {
+    "fr": fr.translations,
 }
 
 # Minimum dictionary size
