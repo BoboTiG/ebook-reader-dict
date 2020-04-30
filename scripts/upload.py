@@ -42,11 +42,19 @@ def format_description() -> str:
     date = C.SNAPSHOT_FILE.read_text().strip()
     date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
 
+    # Format the download count
+    download_count = C.SNAPSHOT_DOWNLOADS.read_text().strip()
+    download_count = f"{int(download_count):,}".replace(",", thousands_sep)
+
     # The current date, UTC
     now = datetime.utcnow().isoformat()
 
     return tr["release_desc"].format(
-        words_count=count, dump_date=date, creation_date=now, url=C.DOWNLOAD_URL
+        creation_date=now,
+        download_count=download_count,
+        dump_date=date,
+        url=C.DOWNLOAD_URL,
+        words_count=count,
     )
 
 

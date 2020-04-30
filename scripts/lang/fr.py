@@ -37,8 +37,9 @@ translations = {
     "release_desc": """Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
-<sub>Date de création du fichier : {creation_date}</sub>""",
+:arrow_right: Téléchargement : [dicthtml-fr.zip]({url}) ({download_count})
+<sub>Date de création du fichier : {creation_date}</sub>
+""",
     "thousands_separator": " ",
 }
 

@@ -19,11 +19,12 @@ def test_fetch_release_url():
 def test_format_description():
     C.SNAPSHOT_COUNT.write_text("123456789")
     C.SNAPSHOT_FILE.write_text("20200220")
+    C.SNAPSHOT_DOWNLOADS.write_text("4200")
     expected = [
         "Nombre de mots : 123 456 789",
         "Export Wiktionnaire : 2020-02-20",
         "",
-        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})",
+        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL}) (4 200)",
     ]
     try:
         desc = upload.format_description().strip().splitlines()
