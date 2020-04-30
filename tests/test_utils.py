@@ -24,6 +24,7 @@ def test_is_ignored(word, ignored):
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{méton|fr}}", ""),
         ("{{pronl|fr}}", ""),
         ("{{région}}", "")
     ],
