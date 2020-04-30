@@ -1,0 +1,44 @@
+=={{langue|fr}}==
+=== {{S|étymologie}} ===
+: {{dénominal|de=mutin|lang=fr|m=1}}.
+
+=== {{S|verbe|fr}} ===
+'''mutiner''' {{pron|my.ti.ne|fr}} {{prnl|nocat}} {{conj|grp=1|fr}} {{lien pronominal||fr|exclusivement=oui}}
+# Se [[porter]] à la [[sédition]], à la [[révolte]].
+#* ''Des troupes '''mutinées'''.''
+#* {{absolument|fr}} ''Le peuple se '''mutinait'''.''
+#* ''Cet ordre rigoureux fit '''mutiner''' le peuple.''
+# [[enfant|Enfant]] qui se [[dépiter|dépite]] et [[manque]] à l’[[obéissance]].
+#* ''Cet enfant se '''mutine''' à chaque instant.''
+# {{poétique|fr}} …
+#* ''Les flots, les vents '''mutinés''','' Les flots agités, les vents impétueux.
+
+==== {{S|apparentés}} ====
+* [[mutinerie]]
+
+==== {{S|vocabulaire}} ====
+* [[désobéir]]
+* [[se rebeller]]
+
+==== {{S|traductions}} ====
+{{trad-début|Se porter à la sédition, à la révolte}}
+* {{T|en}} : {{trad+|en|mutiny}}
+* {{T|ca}} : {{trad+|ca|amotinar}}, {{trad+|ca|avalotar}}
+* {{T|es}} : {{trad+|es|amotinar}}
+* {{T|nl}} : {{trad+|nl|muiten}}
+{{trad-fin}}
+
+{{trad-début|Enfant qui se dépite et manque à l’obéissance}}
+* {{T|nl}} : {{trad+|nl|rebelleren}}
+{{trad-fin}}
+
+{{trad-début|Les flots, les vents mutinés}}
+* {{T|nl}} : {{trad+|nl|beuken}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-Lyokoï-mutiner.wav}}
+
+=== {{S|références}} ===
+*{{Import:DAF8}}
+

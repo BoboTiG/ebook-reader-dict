@@ -95,12 +95,15 @@ def find_section_definitions(section: wtp.Section) -> List[str]:
         # Section not finished or incomplete?
         return []
     else:
-        # Remove empty definitions (or definitions using a sublist, it is not yet handled)
+        # - Remove empty definitions like "(Maçonnerie) (Reliquat)"
+        # - Remove almost-empty definitions, like "(Poésie) …"
+        #  (or definitions using a sublist, it is not yet handled)
         return list(
             filter(
                 None,
                 [
-                    None if re.match(r"^(\([\w ]+\)\.? ?)*$", d) else d
+                    None if re.match(r"^(\([\w ]+\)\.? ?)*$", d) or re.match(r"^\([\w ]+\) …$", d)
+                    else d
                     for d in definitions
                 ],
             )

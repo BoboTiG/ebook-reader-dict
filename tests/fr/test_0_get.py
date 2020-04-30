@@ -135,6 +135,13 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "mutiner",
+            [
+                "Se porter à la sédition, à la révolte.",
+                "Enfant qui se dépite et manque à l’obéissance.",
+            ],
+        ),
+        (
             "naguère",
             [
                 "Récemment ; il y a peu.",
