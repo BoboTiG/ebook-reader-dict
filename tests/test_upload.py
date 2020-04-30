@@ -19,12 +19,17 @@ def test_fetch_release_url():
 def test_format_description():
     C.SNAPSHOT_COUNT.write_text("123456789")
     C.SNAPSHOT_FILE.write_text("20200220")
-    expected = (
-        "Nombre de mots : 123 456 789\nDate : 2020-02-20\n\n:arrow_right:"
-        f" Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})"
-    )
+    expected = [
+        "Nombre de mots : 123 456 789",
+        "Export Wiktionnaire : 2020-02-20",
+        "",
+        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})",
+    ]
     try:
-        assert upload.format_description() == expected
+        desc = upload.format_description().strip().splitlines()
+        assert desc[:-1] == expected
+        assert desc[-1].startswith("<sub>Date de création du fichier : 202")
+        assert desc[-1].endswith("</sub>")
     finally:
         C.SNAPSHOT_COUNT.unlink()
         C.SNAPSHOT_FILE.unlink()

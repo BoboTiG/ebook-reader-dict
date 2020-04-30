@@ -3,6 +3,7 @@ import json
 import os
 import sys
 from contextlib import suppress
+from datetime import datetime
 
 import requests
 
@@ -41,7 +42,12 @@ def format_description() -> str:
     date = C.SNAPSHOT_FILE.read_text().strip()
     date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
 
-    return tr["release_desc"].format(count=count, date=date, url=C.DOWNLOAD_URL)
+    # The current date, UTC
+    now = datetime.utcnow().isoformat()
+
+    return tr["release_desc"].format(
+        words_count=count, dump_date=date, creation_date=now, url=C.DOWNLOAD_URL
+    )
 
 
 def update_download_count(new_count: int) -> None:

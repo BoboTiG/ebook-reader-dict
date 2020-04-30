@@ -23,11 +23,7 @@ def test_is_ignored(word, ignored):
 
 @pytest.mark.parametrize(
     "wikicode, expected",
-    [
-        ("{{méton|fr}}", ""),
-        ("{{pronl|fr}}", ""),
-        ("{{région}}", "")
-    ],
+    [("{{méton|fr}}", ""), ("{{pronl|fr}}", ""), ("{{région}}", "")],
 )
 def test_clean_template_delete(wikicode, expected):
     assert utils.clean(wikicode) == expected

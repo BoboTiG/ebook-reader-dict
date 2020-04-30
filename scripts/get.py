@@ -102,7 +102,9 @@ def find_section_definitions(section: wtp.Section) -> List[str]:
             filter(
                 None,
                 [
-                    None if re.match(r"^(\([\w ]+\)\.? ?)*$", d) or re.match(r"^\([\w ]+\) …$", d)
+                    None
+                    if re.match(r"^(\([\w ]+\)\.? ?)*$", d)
+                    or re.match(r"^\([\w ]+\) …$", d)
                     else d
                     for d in definitions
                 ],

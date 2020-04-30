@@ -34,10 +34,11 @@ patterns = (
 )
 
 translations = {
-    "release_desc": """Nombre de mots : {count}
-Date : {date}
+    "release_desc": """Nombre de mots : {words_count}
+Export Wiktionnaire : {dump_date}
 
-:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})""",
+:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
+<sub>Date de création du fichier : {creation_date}</sub>""",
     "thousands_separator": " ",
 }
 
