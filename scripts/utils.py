@@ -51,6 +51,9 @@ def clean(text: str) -> str:
                     if parts[0] == "w":
                         # Ex: {{w|ISO 639-3}} -> ISO 639-3
                         subtext = parts[1]
+                    elif parts[0] in "term":
+                        # Ex: {{term|ne … guère que}} -> (Ne … guère que)
+                        subtext = f"({parts[1].capitalize()})"
                     elif len(parts) == 2:
                         # Ex: {{grammaire|fr}} -> (Grammaire)
                         subtext = f"({parts[0].title()})"
