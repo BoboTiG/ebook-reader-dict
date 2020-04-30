@@ -24,11 +24,15 @@ def test_format_description():
         "Nombre de mots : 123 456 789",
         "Export Wiktionnaire : 2020-02-20",
         "",
-        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL}) (4 200)",
+        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})",
+        "",
+        "---",
+        "",
     ]
     try:
         desc = upload.format_description().strip().splitlines()
-        assert desc[:-1] == expected
+        assert desc[:-2] == expected
+        assert desc[-2] == "<sub>Nombre total de téléchargements : 4 200</sub>"
         assert desc[-1].startswith("<sub>Date de création du fichier : 202")
         assert desc[-1].endswith("</sub>")
     finally:

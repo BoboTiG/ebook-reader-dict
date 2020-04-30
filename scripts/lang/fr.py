@@ -37,7 +37,11 @@ translations = {
     "release_desc": """Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-:arrow_right: Téléchargement : [dicthtml-fr.zip]({url}) ({download_count})
+:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
+
+---
+
+<sub>Nombre total de téléchargements : {download_count}</sub>
 <sub>Date de création du fichier : {creation_date}</sub>
 """,
     "thousands_separator": " ",
