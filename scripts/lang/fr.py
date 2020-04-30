@@ -1,6 +1,7 @@
 """French language."""
 
 ignored_templates = (
+    "(pronl)",
     "(refnec)",
     "spéc",
 )

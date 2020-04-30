@@ -19,3 +19,13 @@ from scripts import utils
 def test_is_ignored(word, ignored):
     """Test words filtering."""
     assert utils.is_ignored(word) is ignored
+
+
+@pytest.mark.parametrize(
+    "wikicode, expected",
+    [
+        ("{{pronl|fr}}", ""),
+    ],
+)
+def test_clean(wikicode, expected):
+    assert utils.clean(wikicode) == expected
