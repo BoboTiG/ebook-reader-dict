@@ -1,6 +1,7 @@
 """Retrieve and purge Wiktionary data."""
 import bz2
 import json
+import os
 import re
 import sys
 from functools import partial
@@ -135,6 +136,15 @@ def guess_snapshot() -> str:
     Return an empty string if there is nothing to do,
     e.g. when the current snapshot is up-to-date.
     """
+    # Check if we want to force the use of a specific snapshot
+    from_env = os.getenv("WIKI_DUMP", "")
+    if from_env:
+        print(
+            f">>> WIKI_DUMP is set to {from_env}, regenerating dictionaries ...",
+            flush=True,
+        )
+        return from_env
+
     # Get the current snapshot, if any
     try:
         current = C.SNAPSHOT_FILE.read_text().strip()
@@ -152,12 +162,12 @@ def less_than(old: str, new: str) -> bool:
 
 
 def load() -> T.WordList:
-    """Load the words list to catch obsoletes words and updates.
-    """
+    """Load the words list to catch obsoletes words and updates."""
     wordlist: T.WordList = {}
 
-    # Load the word|revision list to detect changes
-    if C.SNAPSHOT_LIST.is_file():
+    # Load the word|revision list to detect changes.
+    # But if the envar is set, we do not want to load old data.
+    if "WIKI_DUMP" not in os.environ and C.SNAPSHOT_LIST.is_file():
         content = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
         for line in content.splitlines():
             word, rev = line.split("|")
@@ -222,7 +232,6 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
         definitions = find_definitions(sections)
 
         if not definitions:
-            print(f" !! No definition found for {word!r}", flush=True)
             return True
 
         for section in sections:

@@ -326,7 +326,7 @@ def test_main_1(craft_data, capsys):
 def test_main_2(err_code, capsys):
     """Test the whole script when the dump is not finishd on the Wiktionary side."""
 
-    date = "20200419"
+    os.environ["WIKI_DUMP"] = date = "20200419"
     pages_xml = C.SNAPSHOT / f"pages-{date}.xml"
     pages_bz2 = C.SNAPSHOT / f"pages-{date}.xml.bz2"
 
