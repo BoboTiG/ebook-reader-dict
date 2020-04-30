@@ -3,6 +3,7 @@
 ignored_templates = (
     "(pronl)",
     "(refnec)",
+    "région",
     "spéc",
 )
 

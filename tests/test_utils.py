@@ -25,6 +25,7 @@ def test_is_ignored(word, ignored):
     "wikicode, expected",
     [
         ("{{pronl|fr}}", ""),
+        ("{{région}}", "")
     ],
 )
 def test_clean(wikicode, expected):
