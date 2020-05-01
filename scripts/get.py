@@ -7,7 +7,7 @@ import sys
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import List
+from typing import List, Optional, Tuple
 
 import requests
 from requests import codes
@@ -131,6 +131,23 @@ def find_sections(content: str) -> List[str]:
     return [s for s in sections if s.title.strip().startswith(language[C.LOCALE])]
 
 
+def get_and_parse_word(word: str) -> None:
+    """Get a *word* wikicode and parse it."""
+    with requests.get(C.WORD_URL.format(word)) as req:
+        code = req.text
+
+    pronunciation, genre, defs = parse_word(code)
+
+    # Pretty print the definition list
+    glue = "\n" + " " * 12
+    definitions = glue.join(f"<li>{d}</li>" for d in defs)
+
+    html = C.WORD_FORMAT_PRETTY.format(
+        word=word, pronunciation=pronunciation, genre=genre, definitions=definitions,
+    )
+    print(html)
+
+
 def guess_snapshot() -> str:
     """Guess the next snapshot to process.
     Return an empty string if there is nothing to do,
@@ -180,6 +197,25 @@ def load() -> T.WordList:
     return wordlist
 
 
+def parse_word(data: str) -> Tuple[str, str, List[str]]:
+    """"""
+    sections = find_sections(data)
+    pronunciation = ""
+    genre = ""
+    definitions = find_definitions(sections)
+
+    for section in sections:
+        # Find the pronunciation
+        if not pronunciation:
+            pronunciation = find_pronunciation(str(section))
+
+        # Find the genre, if any
+        if not genre:
+            genre = find_genre(str(section))
+
+    return pronunciation, genre, definitions
+
+
 def process(file: Path, wordlist: T.WordList) -> T.Words:
     """Process the big XML file and retain only information we are interested in.
     Results are stored into the global *RESULT* dict, see handle_page() for details.
@@ -219,29 +255,11 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
         if is_ignored(word):
             return True
 
-        # The entire content of the global definition
-        sections = find_sections(page["revision"]["text"]["#text"])
-        if not sections:
-            # Maybe an unfinished tanslation, skip it
-            return True
-
-        pronunciation = ""
-        genre = ""
-
-        # All definitions, without eventual subtext
-        definitions = find_definitions(sections)
-
+        pronunciation, genre, definitions = parse_word(
+            page["revision"]["text"]["#text"]
+        )
         if not definitions:
             return True
-
-        for section in sections:
-            # Find the pronunciation
-            if not pronunciation:
-                pronunciation = find_pronunciation(str(section))
-
-            # Find the genre, if any
-            if not genre:
-                genre = find_genre(str(section))
 
         rev = page["revision"]["id"]
         word_rev = wordlist.pop(word, None)
@@ -289,8 +307,13 @@ def save(snapshot: str, words: T.Words) -> None:
     print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
 
 
-def main() -> int:
+def main(word: Optional[str] = "") -> int:
     """Extry point."""
+
+    # Fetch one word and parse it, used for testing mainly
+    if word:
+        get_and_parse_word(word)
+        return 0
 
     # Ensure the folder exists
     C.SNAPSHOT.mkdir(exist_ok=True, parents=True)

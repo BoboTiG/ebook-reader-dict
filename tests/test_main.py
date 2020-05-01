@@ -49,3 +49,11 @@ def test_main_args(
     assert mocked_get.called is called_get
     assert mocked_convert.called is called_convert
     assert mocked_upload.called is called_upload
+
+
+def test_get_word(capsys):
+    # The word exists
+    assert entry_point.main(["--get-word", "mutiner"]) == 0
+
+    # The word does not exist
+    assert entry_point.main(["--get-word", "mutinerssssssss"]) == 0

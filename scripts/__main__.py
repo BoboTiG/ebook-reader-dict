@@ -24,6 +24,9 @@ def main(argv: List[str]) -> int:
         help="download definitions and do the clean-up",
     )
     parser.add_argument(
+        "--get-word", dest="get_word", help="download and parse the word Wikicode",
+    )
+    parser.add_argument(
         "--update-release",
         dest="update_release",
         action="store_true",
@@ -35,6 +38,8 @@ def main(argv: List[str]) -> int:
 
     if args.update_release:
         return upload.main()
+    elif args.get_word:
+        return get.main(args.get_word)
     elif args.fetch_only:
         return get.main()
     elif args.convert_only:

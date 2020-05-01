@@ -7,6 +7,7 @@ from pathlib import Path
 LOCALE = os.getenv("WIKI_LOCALE", "fr")
 WIKI = f"{LOCALE}wiktionary"
 BASE_URL = f"https://dumps.wikimedia.org/{WIKI}"
+WORD_URL = f"https://{LOCALE}.wiktionary.org/w/index.php?title={{}}&action=raw"
 
 # Snapshot stuff
 SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
@@ -33,17 +34,20 @@ DOWNLOAD_URL = (
     f"https://github.com/{REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
 )
 
-# HTML formatting for each word:
-#   <p>
-#       <a name="word"/>
-#       <b>word</b> \pronunciation\ <i>genre</i>
-#       <br/>
-#       <br/>
-#       <ol>
-#           <li>definition 1</li>
-#           <li>definition 2</li>
-#       </ol>
-#   </p>
+# HTML formatting for each word
+WORD_FORMAT_PRETTY = """\
+<w>
+    <p>
+        <a name="{word}"/>
+        <b>{word}</b> \\{pronunciation}\\ <i>{genre}.</i>
+        <br/>
+        <br/>
+        <ol>
+            {definitions}
+        </ol>
+    </p>
+</w>
+"""
 WORD_FORMAT = (
     '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}'
     "<br/><br/><ol>{definitions}</ol></p></w>"
