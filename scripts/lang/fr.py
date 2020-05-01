@@ -1,13 +1,5 @@
 """French language."""
 
-ignored_templates = (
-    "(méton)",
-    "(pronl)",
-    "(refnec)",
-    "région",
-    "spéc",
-)
-
 patterns = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|",
@@ -33,6 +25,18 @@ patterns = (
     "{{S|verbe|fr|",
 )
 
+size_min = 1024 * 1024 * 30  # 30 MiB
+
+templates = {
+    "e": "<sup>ème</sup>",
+    "méton|fr": "(Par métonymie)",
+    "note": "Note :",
+    "par ext": "(Par extension)",
+    "pronl|fr": "(Pronominal)",
+    "région": "(Régionalisme)",
+    "spéc": "(Spécialement)",
+}
+
 translations = {
     "release_desc": """Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
@@ -46,5 +50,3 @@ Export Wiktionnaire : {dump_date}
 """,
     "thousands_separator": " ",
 }
-
-size_min = 1024 * 1024 * 30  # 30 MiB

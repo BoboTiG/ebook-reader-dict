@@ -96,7 +96,7 @@ def test_find_genre(word, genre, page):
             "employer",
             [
                 "Utiliser ; user ; se servir de.",
-                "(Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
+                "(Spécialement) (Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
                 "d'un mot ou d'une locution.",
                 "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
             ],
@@ -145,7 +145,7 @@ def test_find_genre(word, genre, page):
             "naguère",
             [
                 "Récemment ; il y a peu.",
-                "Il y a longtemps. [Note] contrairement à l’étymologie qui implique un temps "
+                "Il y a longtemps. Note : contrairement à l’étymologie qui implique un temps "
                 "passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, "
                 "révolu.",
             ],

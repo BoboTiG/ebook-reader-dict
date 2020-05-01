@@ -7,17 +7,17 @@ language = {
     "fr": fr.patterns,
 }
 
-# Templates to skip in the wikicode -> text conversion
-ignored_templates = {
-    "fr": fr.ignored_templates,
+# Minimum dictionary size
+size_min = {
+    "fr": fr.size_min,
+}
+
+# Templates replacements: wikicode -> text conversion
+templates = {
+    "fr": fr.templates,
 }
 
 # Translations
 translations = {
     "fr": fr.translations,
-}
-
-# Minimum dictionary size
-size_min = {
-    "fr": fr.size_min,
 }

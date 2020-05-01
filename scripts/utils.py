@@ -1,8 +1,12 @@
 """Utilities."""
 import re
 
-from .lang import ignored_templates
+from .lang import templates
 from . import constants as C
+
+
+# Templates to ignore
+ignored_templates = ("refnec",)
 
 
 def clean(text: str) -> str:
@@ -51,23 +55,28 @@ def clean(text: str) -> str:
                     if parts[0] == "w":
                         # Ex: {{w|ISO 639-3}} -> ISO 639-3
                         subtext = parts[1]
-                    elif parts[0] in "term":
+                    elif parts[0] == "term":
                         # Ex: {{term|ne … guère que}} -> (Ne … guère que)
                         subtext = f"({parts[1].capitalize()})"
+                    elif parts[0] in ignored_templates:
+                        subtext = ""
                     elif len(parts) == 2:
-                        # Ex: {{grammaire|fr}} -> (Grammaire)
-                        subtext = f"({parts[0].title()})"
+                        if subtext in templates[C.LOCALE]:
+                            subtext = templates[C.LOCALE][subtext]
+                        else:
+                            # Ex: {{grammaire|fr}} -> (Grammaire)
+                            subtext = f"({parts[0].title()})"
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
                         subtext = ""
-                    if subtext.lower() in ignored_templates[C.LOCALE]:
-                        subtext = ""
-                elif subtext.lower() not in ignored_templates[C.LOCALE]:
-                    # Ex: {{note}} -> '[Note]'
-                    subtext = f"[{subtext.title()}]"
+                # elif subtext in ignored_templates:
+                #     subtext = ""
+                elif subtext in templates[C.LOCALE]:
+                    subtext = templates[C.LOCALE][subtext]
                 else:
-                    subtext = ""
+                    # Need custom handling in lang/$LOCALE.py
+                    subtext = f"[{subtext.capitalize()}]"
 
                 text = f"{text[:start]} {subtext} {text[pos + 1 :]}"
                 break

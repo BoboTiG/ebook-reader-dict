@@ -23,18 +23,11 @@ def test_is_ignored(word, ignored):
 
 @pytest.mark.parametrize(
     "wikicode, expected",
-    [("{{méton|fr}}", ""), ("{{pronl|fr}}", ""), ("{{région}}", "")],
-)
-def test_clean_template_delete(wikicode, expected):
-    assert utils.clean(wikicode) == expected
-
-
-@pytest.mark.parametrize(
-    "wikicode, expected",
     [
         ("{{term|ne … guère que}}", "(Ne … guère que)"),
         ("{{term|Avec un mot négatif}} Presque.", "(Avec un mot négatif) Presque."),
+        ("{{unknown}}", "[Unknown]"),
     ],
 )
-def test_clean_template_term(wikicode, expected):
+def test_clean_template(wikicode, expected):
     assert utils.clean(wikicode) == expected
