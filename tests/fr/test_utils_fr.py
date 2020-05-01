@@ -6,6 +6,7 @@ from scripts import utils
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("du XX{{e}} siècle", "du XXème siècle"),
         ("{{méton|fr}}", "(Par métonymie)"),
         ("{{par ext}} ou {{figuré|fr}}", "(Par extension) ou (Figuré)"),
         ("{{pronl|fr}}", "(Pronominal)"),

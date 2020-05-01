@@ -28,7 +28,7 @@ patterns = (
 size_min = 1024 * 1024 * 30  # 30 MiB
 
 templates = {
-    "e": "<sup>ème</sup>",
+    "e": "ème",
     "méton|fr": "(Par métonymie)",
     "note": "Note :",
     "par ext": "(Par extension)",
@@ -38,6 +38,9 @@ templates = {
 }
 
 templates_multi = {
+    # {{forme pronominale|mutiner}}
+    "forme pronominale": "{tpl} de {parts[1]}",
+    # {{variante de|ranche|fr}}
     "variante de": "{tpl} {parts[1]}",
 }
 

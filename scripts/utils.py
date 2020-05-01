@@ -52,25 +52,25 @@ def clean(text: str) -> str:
                 # Handle he data inside the template
                 if "|" in subtext:
                     parts = subtext.split("|")
-                    if parts[0] == "w":
+                    tpl = parts[0]
+                    if tpl == "w":
                         # Ex: {{w|ISO 639-3}} -> ISO 639-3
                         subtext = parts[1]
-                    elif parts[0] == "term":
+                    elif tpl == "term":
                         # Ex: {{term|ne … guère que}} -> (Ne … guère que)
                         subtext = f"({parts[1].capitalize()})"
-                    elif parts[0] in ignored_templates:
+                    elif tpl in ignored_templates:
                         subtext = ""
+                    elif tpl in templates_multi[C.LOCALE]:
+                        subtext = templates_multi[C.LOCALE][tpl].format(
+                            tpl=tpl.capitalize(), parts=parts,
+                        )
                     elif len(parts) == 2:
                         if subtext in templates[C.LOCALE]:
                             subtext = templates[C.LOCALE][subtext]
                         else:
                             # Ex: {{grammaire|fr}} -> (Grammaire)
-                            subtext = f"({parts[0].title()})"
-                    elif parts[0] in templates_multi[C.LOCALE]:
-                        # Ex: {{variante de|ranche|fr}} -> tpl="Variante de", parts=["variante de", "ranche", "fr"]
-                        subtext = templates_multi[C.LOCALE][parts[0]].format(
-                            tpl=parts[0].capitalize(), parts=parts,
-                        )
+                            subtext = f"({tpl.title()})"
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
@@ -83,7 +83,7 @@ def clean(text: str) -> str:
                     # Need custom handling in lang/$LOCALE.py
                     subtext = f"[{subtext.capitalize()}]"
 
-                text = f"{text[:start]} {subtext} {text[pos + 1 :]}"
+                text = f"{text[:start]}{subtext} {text[pos + 1 :]}"
                 break
 
             # Check the next character
