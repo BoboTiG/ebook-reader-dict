@@ -65,12 +65,11 @@ def clean(text: str) -> str:
                         subtext = templates_multi[C.LOCALE][tpl].format(
                             tpl=tpl.capitalize(), parts=parts,
                         )
+                    elif tpl in templates[C.LOCALE]:
+                        subtext = templates[C.LOCALE][tpl]
                     elif len(parts) == 2:
-                        if subtext in templates[C.LOCALE]:
-                            subtext = templates[C.LOCALE][subtext]
-                        else:
-                            # Ex: {{grammaire|fr}} -> (Grammaire)
-                            subtext = f"({tpl.title()})"
+                        # Ex: {{grammaire|fr}} -> (Grammaire)
+                        subtext = f"({tpl.title()})"
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
@@ -80,8 +79,8 @@ def clean(text: str) -> str:
                 elif subtext in templates[C.LOCALE]:
                     subtext = templates[C.LOCALE][subtext]
                 else:
-                    # Need custom handling in lang/$LOCALE.py
-                    subtext = f"[{subtext.capitalize()}]"
+                    # May need custom handling in lang/$LOCALE.py
+                    subtext = f"({subtext.capitalize()})"
 
                 text = f"{text[:start]}{subtext} {text[pos + 1 :]}"
                 break

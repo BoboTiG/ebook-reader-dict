@@ -26,7 +26,8 @@ def test_is_ignored(word, ignored):
     [
         ("{{term|ne … guère que}}", "(Ne … guère que)"),
         ("{{term|Avec un mot négatif}} Presque.", "(Avec un mot négatif) Presque."),
-        ("{{unknown}}", "[Unknown]"),
+        ("{{term|Souvent en [[apposition]]}}", "(Souvent en apposition)"),
+        ("{{unknown}}", "(Unknown)"),
     ],
 )
 def test_clean_template(wikicode, expected):

@@ -28,11 +28,25 @@ patterns = (
 size_min = 1024 * 1024 * 30  # 30 MiB
 
 templates = {
+    "absol": "(Absolument)",
+    "BE": "(Belgique)",
+    "bioch": "(Biochimie)",
     "e": "ème",
-    "méton|fr": "(Par métonymie)",
+    "élec": "(Électricité)",
+    "finan": "(Finance)",
+    "FR": "(France)",
+    "géom": "(Géométrie)",
+    "juri": "(Droit)",
+    "ling": "(Linguistique)",
+    "math": "(Mathématiques)",
+    "méton": "(Par métonymie)",
+    "métrol": "(Métrologie)",
+    "néol": "(Néologisme)",
     "note": "Note :",
     "par ext": "(Par extension)",
-    "pronl|fr": "(Pronominal)",
+    "part": "(En particulier)",
+    "pronl": "(Pronominal)",
+    "QC": "(Québec)",
     "région": "(Régionalisme)",
     "spéc": "(Spécialement)",
 }
