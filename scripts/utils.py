@@ -58,9 +58,7 @@ def clean(text: str) -> str:
                     elif tpl in templates_ignored[C.LOCALE]:
                         subtext = ""
                     elif tpl in templates_multi[C.LOCALE]:
-                        subtext = templates_multi[C.LOCALE][tpl].format(
-                            tpl=tpl.capitalize(), parts=parts,
-                        )
+                        subtext = eval(templates_multi[C.LOCALE][tpl])
                     elif tpl in templates[C.LOCALE]:
                         subtext = templates[C.LOCALE][tpl]
                     elif len(parts) == 2:

@@ -11,6 +11,7 @@ from scripts import utils
         ("{{agri|fr}}", "(Agriculture)"),
         ("{{antiq|fr}}", "(Antiquité)"),
         ("{{ancre|sens_sexe}}", ""),
+        ("{{emploi|au passif}}", "(Au passif)"),
         ("{{au pluriel}}", "(Au pluriel)"),
         ("{{au singulier}}", "(Au singulier)"),
         ("{{BE|fr}}", "(Belgique)"),

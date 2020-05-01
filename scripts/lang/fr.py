@@ -62,12 +62,14 @@ templates = {
 templates_ignored = ("ancre", "ébauche-déf", "refnec")
 
 templates_multi = {
+    # {{emploi|au passif}}
+    "emploi": 'f"({parts[1].capitalize()})"',
     # {{forme pronominale|mutiner}}
-    "forme pronominale": "{tpl} de {parts[1]}",
+    "forme pronominale": 'f"{tpl.capitalize()} de {parts[1]}"',
     # {{siècle2|XIX}}
-    "siècle2": "{parts[1]}ème",
+    "siècle2": 'f"{parts[1]}ème"',
     # {{variante de|ranche|fr}}
-    "variante de": "{tpl} {parts[1]}",
+    "variante de": 'f"{tpl.capitalize()} {parts[1]}"',
 }
 
 translations = {
