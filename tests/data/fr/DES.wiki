@@ -1,0 +1,102 @@
+{{voir/des}}
+== {{langue|conv}} ==
+=== {{S|étymologie}} ===
+: {{term|Commerce international}} ''(1936)'' Terme créé par la [[w:Chambre de commerce internationale|Chambre de commerce internationale]]. Sigle de l’anglais ''delivered ex ship''; « [[rendu]] par navire ».
+
+=== {{S|symbole|conv}} ===
+'''DES'''
+# {{aviation|conv}} Code [[AITA]] de l’[[aéroport]] de [[Desroches]], aux [[Seychelles]].
+
+=== {{S|adverbe|conv}} ===
+'''DES'''
+# {{term|Commerce international}} [[Incoterm]] qui [[signifier|signifie]] que le [[vendeur]] a [[dûment]] [[livrer|livré]] sa [[marchandise]] [[dès lors]] que [[celle-ci]], [[dédouaner|dédouanée]] à l’[[exportation]] et non à l’[[importation]], [[mettre à disposition|est mise à disposition]] de l’[[acheteur]] [[à bord]] du [[navire]], au [[port]] de [[destination]] [[convenu]]. Les [[frais]] de [[déchargement]] sont à la [[charge]] de l’acheteur.
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: ''([[#fr-nom|Nom commun 1]])'' Sigle pour '''d'''i'''é'''thyl'''s'''tilbestrol.
+: ''([[#fr-nom|Nom commun 2]])'' Sigle.
+
+=== {{S|nom|fr|num=1}} ===
+'''DES''' {{m}}, {{sigle|fr}}
+# {{bioch|nocat}} [[diéthylstilbestrol|Diéthylstilbestrol]], un [[œstrogène]] de [[synthèse]], [[source]] de [[grave]]s [[complication]]s chez les [[fille]]s de ses [[utilisateur|utilisatrices]].
+
+=== {{S|nom|fr|num=2}} ===
+'''DES''' {{m}} {{sigle|fr}}
+# {{QC|fr}} [[diplôme|Diplôme]] d’[[étude]]s [[secondaire]]s, un diplôme [[obtenir|obtenu]] [[après]] [[cinq]] [[année]]s d’études secondaires au [[Québec]] ; anciennement ''Certificat d’études secondaires'' (CES ou CÉS).
+# {{FR|fr}} Diplôme d’études [[spécialisé]]es, un diplôme de [[troisième]] [[cycle]] [[médical]], [[pharmaceutique]], [[vétérinaire]] ou [[odontologique]] en [[France]], d’une [[durée]] de 3 à 5 [[an]]s [[correspondre|correspondant]] à l’[[Internat]].
+# {{BE|fr}} Diplôme d’études spécialisées, un diplôme de troisième cycle [[universitaire]] en [[Belgique]].
+# {{FR|fr}} Diplôme d’études [[supérieur]]es, un diplôme [[français]].
+# {{math|fr}} [[décomposition|Décomposition]] en [[élément]]s [[simple]]s, une [[méthode]] de [[calcul]] [[mathématique]].
+
+==== {{S|variantes orthographiques}} ====
+: ''Diplômes'' :
+* [[DÉS]]
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-DES.wav}}
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
+== {{langue|de}} ==
+=== {{S|étymologie}} ===
+: {{sigle|de}} Sigle.
+
+=== {{S|nom|de}} ===
+'''DES''' {{genre|de}}
+# {{bioch|nocat}} [[diethylsulfat|Diethylsulfat]] ([[sulfate]] de [[diéthyl]]), de [[formule]] [[brut]]e {{fchim|(C|2|H|5|)|2|SO|4}}, [[liquide]] [[incolore]] d’[[odeur]] [[mentholé]]e, [[très]] [[toxique]], utilisé dans l’[[éthylation]] des [[phénol]]s, [[amine]]s et [[thiol]]s.
+
+== {{langue|en}} ==
+=== {{S|étymologie}} ===
+: Sigle.
+
+=== {{S|nom|en|num=1}} ===
+'''DES''' {{sigle|en}}
+# {{bioch|nocat}} [[diethylstilbestrol|Diethylstilbestrol]] ([[diéthylstilbestrol]]).
+# {{bioch|nocat}} [[desmin|Desmin]] ([[desmine]]), une [[protéine]] [[humain]]e.
+
+=== {{S|nom|en|num=2}} ===
+'''DES''' {{sigle|en}}
+# {{admin|en}} [[department|Department]] of [[education|Education]] and [[science|Science]] (« [[ministère|Ministère]] de l’[[éducation]] et de la science », 1964–1992), un ministère [[britannique]].
+# {{astron|en}} [[deep|Deep]] [[ecliptic|Ecliptic]] [[survey|Survey]] (« [[relevé|Relevé]] de l’[[écliptique]] [[profond]] »), un [[programme]] [[astronomique]] de [[recherche]] d’[[objet]]s dans la [[ceinture de Kuiper]].
+# {{chim|en}} Deep [[eutectic|Eutectic]] [[solvent|Solvent]] (« [[solvant|Solvant]] [[eutectique]] profond »), un solvant [[ionique]].
+# {{info|en}} [[data|Data]] [[encryption|Encryption]] [[standard|Standard]] (« [[norme|Norme]] de [[chiffrement]] des [[donnée]]s »), un [[algorithme]] de chiffrement [[symétrique]].
+# {{info|en}} [[detached|Detached]] [[eddy|Eddy]] [[simulation|Simulation]] (« Simulation par [[courant]]s [[tourbillonnaire]]s [[détaché]]s »), un [[modèle]] de [[calcul]] [[utiliser|utilisé]] en [[dynamique]] des [[fluide]]s.
+# {{info|en}} [[DirectShow]] [[editing|Editing]] [[service|Services]] (« Services de [[modification]] DirectShow »), une [[interface]] de [[programmation]].
+# {{info|en}} [[discrete|Discrete]] [[event|Event]] Simulation (« Simulation à [[événement]]s [[discret]]s »), un [[type]] de simulation [[scientifique]].
+# {{méde|en}} [[diffuse|Diffuse]] [[esophageal|Esophageal]] [[spasm|Spasm]] (« [[spasme|Spasme]] [[œsophagique]] [[diffus]] »), un [[syndrome]] de l’[[œsophage]].
+# {{méde|en}} [[drug|Drug]]-[[eluting|Eluting]] [[stent|Stent]] (« Stent [[médicamenteux]] »), un [[appareil]] [[médical]].
+# {{méde|en}} [[dysequilibrium|DysEquilibrium]] Syndrome (« Syndrome du [[déséquilibre]] »), une [[maladie]] [[congénital]]e du [[système]] [[nerveux]].
+# {{psychol|en}} [[dissociative|Dissociative]] [[experience|Experiences]] [[scale|Scale]] (« [[échelle|Échelle]] d’[[expériences]] dissociatives »), un [[questionnaire]] d’[[auto-évaluation]] de la [[dissociation]].
+
+== {{langue|it}} ==
+=== {{S|étymologie}} ===
+: {{sigle|it}} Sigle.
+
+=== {{S|nom|it}} ===
+'''DES'''
+# [[discipline#Italien|Discipline]] [[economiche]] e [[sociali]] {{ébauche-déf|it}}
+# [[distretto|Distretto]] di [[economia]] [[solidale]] {{ébauche-déf|it}}
+
+== {{langue|nl}} ==
+=== {{S|étymologie}} ===
+: {{sigle|nl}} Sigle.
+
+=== {{S|nom|nl}} ===
+'''DES'''
+# {{bioch|nocat}} [[diéthylstilbestrol|Diéthylstilbestrol]].
+
+=== {{S|prononciation}} ===
+* {{écouter|||lang=nl|audio=Nl-DES.ogg}}
+
+== {{langue|sk}} ==
+=== {{S|étymologie}} ===
+: {{sigle|sk}} Sigle.
+
+=== {{S|nom|sk}} ===
+'''DES'''
+# {{bioch|nocat}} [[dietylstilbestrol|Dietylstilbestrol]] ([[diéthylstilbestrol]]).
+

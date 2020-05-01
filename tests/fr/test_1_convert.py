@@ -32,6 +32,7 @@ def test_main(data):
     # Check the ZIP content
     with ZipFile(dicthtml) as fh:
         expected = [
+            "de.html",
             "sl.html",
             "ac.html",
             "au.html",

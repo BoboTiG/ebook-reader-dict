@@ -102,6 +102,30 @@ def test_find_genre(word, genre, page):
             ],
         ),
         ("corollaires", ["Pluriel de corollaire."]),
+        (
+            "DES",
+            [
+                "(Aviation) Code AITA de l’aéroport de Desroches, aux Seychelles.",
+                "(Commerce international) Incoterm qui signifie que le vendeur a dûment livré "
+                "sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à "
+                "l’importation, est mise à disposition de l’acheteur à bord du navire, au "
+                "port de destination convenu. Les frais de déchargement sont à la charge de "
+                "l’acheteur.",
+                "(Biochimie) Diéthylstilbestrol, un œstrogène de synthèse, source de graves "
+                "complications chez les filles de ses utilisatrices.",
+                "(Québec) Diplôme d’études secondaires, un diplôme obtenu après cinq années "
+                "d’études secondaires au Québec ; anciennement Certificat d’études "
+                "secondaires (CES ou CÉS).",
+                "(France) Diplôme d’études spécialisées, un diplôme de troisième cycle "
+                "médical, pharmaceutique, vétérinaire ou odontologique en France, d’une durée "
+                "de 3 à 5 ans correspondant à l’Internat.",
+                "(Belgique) Diplôme d’études spécialisées, un diplôme de troisième cycle "
+                "universitaire en Belgique.",
+                "(France) Diplôme d’études supérieures, un diplôme français.",
+                "(Mathématiques) Décomposition en éléments simples, une méthode de calcul "
+                "mathématique.",
+            ],
+        ),
         ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
         (
             "pinyin",

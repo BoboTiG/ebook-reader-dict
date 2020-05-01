@@ -5,6 +5,7 @@ patterns = (
     "{{S|adjectif|fr|",
     "{{S|adverbe|fr}",
     "{{S|adverbe|fr|",
+    "{{S|adverbe|conv}",
     "{{S|article défini|fr}",
     "{{S|article défini|fr|",
     # "{{S|lettre|fr}",
