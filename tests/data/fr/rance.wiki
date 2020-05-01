@@ -1,0 +1,78 @@
+{{voir|Rancé|rancé|Rance}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|la|fr|mot=rancidus}} par l’intermédiaire de l’{{étyl|pro|fr}}.
+
+=== {{S|adjectif|fr}} ===
+{{fr-rég|mf=oui|ʁɑ̃s}}
+'''rance''' {{pron|ʁɑ̃s|fr}} {{mf}}
+# Se dit des [[corps gras]] qui, laissés au [[contact]] de l’air, ont [[prendre|pris]] une [[odeur]] [[fort]]e et un [[goût]] [[désagréable]].
+#* ''Ce lard est '''rance'''.''
+#* ''Cette huile, ce beurre est '''rance'''.''
+#* ''Il faut que mademoiselle Préfère se soit imaginée que j’ai pour le beurre des goûts de Sarmate, car celui qu’elle m’offrit, préparé en fines coquilles, était '''rance''' à l’excès.'' {{source|{{w|Anatole France}}, ''Le crime de Sylvestre Bonnard'', Calmann-Lévy ; éd. Le Livre de Poche, 1967, p. 197.}}
+
+==== {{S|dérivés}} ====
+* [[rancir]], [[rancidité]], [[rancissure]], [[rancissement]]
+
+==== {{S|vocabulaire}} ====
+* {{voir thésaurus|fr|beurre}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|de}} : {{trad+|de|ranzig}}
+* {{T|en}} : {{trad+|en|rancid}}
+* {{T|pni}} : {{trad--|pni|parat}}
+* {{T|co}} : {{trad-|co|ràncicu}}
+* {{T|da}} : {{trad-|da|harsk}}
+* {{T|es}} : {{trad+|es|rancio}}
+* {{T|gallo}} : {{trad--|gallo|âre}}
+* {{T|hu}} : {{trad+|hu|avas}}
+* {{T|io}} : {{trad+|io|ranca}}
+* {{T|id}} : {{trad+|id|anyir}}
+* {{T|no}} : {{trad-|no|harsk}}
+* {{T|pt}} : {{trad+|pt|rançoso}}
+* {{T|wa}} : {{trad+|wa|rance|mf}}
+{{trad-fin}}
+
+=== {{S|nom|fr|num=1}} ===
+{{fr-rég|ʁɑ̃s}}
+'''rance''' {{pron|ʁɑ̃s|fr}} {{m}}
+# S’emploie quelquefois comme nom masculin.
+#* ''Ce lard, cette huile sent le '''rance'''.''
+
+==== {{S|vocabulaire}} ====
+* [[rancœur]]
+
+=== {{S|nom|fr|num=2}} ===
+{{fr-rég|ʁɑ̃s}}
+'''rance''' {{pron|ʁɑ̃s|fr}} {{m}}
+#{{variante de|ranche|fr}}.
+
+==== {{S|dérivés}} ====
+* [[rancer]]
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|ind.p.1s=oui|ind.p.3s=oui|sub.p.1s=oui|sub.p.3s=oui|imp.p.2s=oui|rancer}}
+'''rance''' {{pron|ʁɑ̃s|fr}}
+# ''Première personne du singulier de l’indicatif présent de'' [[rancer]].
+# ''Troisième personne du singulier de l’indicatif présent de'' [[rancer]].
+# ''Première personne du singulier du subjonctif présent de'' [[rancer]].
+# ''Troisième personne du singulier du subjonctif présent de'' [[rancer]].
+# ''Deuxième personne du singulier de l’impératif présent de'' [[rancer]].
+
+==== {{S|homophones|fr}} ====
+* [[rancent]], [[rances]]
+
+==== {{S|paronymes}} ====
+* [[lance]], [[rente]]
+
+=== {{S|anagrammes}} ===
+* [[ancre]], [[ancré]], [[caner]], [[carne]], [[carné]], [[cerna]], [[crane]], [[crané]], [[crâne]], [[crâné]], [[créna]], [[écran]], [[encra]], [[Nacer]], [[nacre]], [[nacré]], [[narce]]
+
+=== {{S|voir aussi}} ===
+{{Autres projets|w=Rance}}
+
+=== {{S|références}} ===
+* {{Import:DAF8}}
+

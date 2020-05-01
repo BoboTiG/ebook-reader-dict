@@ -159,6 +159,20 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "rance",
+            [
+                "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur "
+                "forte et un goût désagréable.",
+                "S’emploie quelquefois comme nom masculin.",
+                "Variante de ranche.",
+                "Première personne du singulier de l’indicatif présent de rancer.",
+                "Troisième personne du singulier de l’indicatif présent de rancer.",
+                "Première personne du singulier du subjonctif présent de rancer.",
+                "Troisième personne du singulier du subjonctif présent de rancer.",
+                "Deuxième personne du singulier de l’impératif présent de rancer.",
+            ],
+        ),
+        (
             "suis",
             [
                 "Première personne du singulier de l’indicatif présent de être.",

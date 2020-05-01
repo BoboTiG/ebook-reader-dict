@@ -37,6 +37,10 @@ templates = {
     "spéc": "(Spécialement)",
 }
 
+templates_multi = {
+    "variante de": "{tpl} {parts[1]}",
+}
+
 translations = {
     "release_desc": """Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}

@@ -1,7 +1,7 @@
 """Utilities."""
 import re
 
-from .lang import templates
+from .lang import templates, templates_multi
 from . import constants as C
 
 
@@ -66,6 +66,11 @@ def clean(text: str) -> str:
                         else:
                             # Ex: {{grammaire|fr}} -> (Grammaire)
                             subtext = f"({parts[0].title()})"
+                    elif parts[0] in templates_multi[C.LOCALE]:
+                        # Ex: {{variante de|ranche|fr}} -> tpl="Variante de", parts=["variante de", "ranche", "fr"]
+                        subtext = templates_multi[C.LOCALE][parts[0]].format(
+                            tpl=parts[0].capitalize(), parts=parts,
+                        )
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''

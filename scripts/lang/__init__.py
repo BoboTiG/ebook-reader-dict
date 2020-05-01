@@ -16,6 +16,9 @@ size_min = {
 templates = {
     "fr": fr.templates,
 }
+templates_multi = {
+    "fr": fr.templates_multi,
+}
 
 # Translations
 translations = {
