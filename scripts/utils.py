@@ -1,12 +1,8 @@
 """Utilities."""
 import re
 
-from .lang import templates, templates_multi
+from .lang import templates, templates_ignored, templates_multi
 from . import constants as C
-
-
-# Templates to ignore
-ignored_templates = ("refnec",)
 
 
 def clean(text: str) -> str:
@@ -59,7 +55,7 @@ def clean(text: str) -> str:
                     elif tpl == "term":
                         # Ex: {{term|ne … guère que}} -> (Ne … guère que)
                         subtext = f"({parts[1].capitalize()})"
-                    elif tpl in ignored_templates:
+                    elif tpl in templates_ignored[C.LOCALE]:
                         subtext = ""
                     elif tpl in templates_multi[C.LOCALE]:
                         subtext = templates_multi[C.LOCALE][tpl].format(
@@ -69,12 +65,12 @@ def clean(text: str) -> str:
                         subtext = templates[C.LOCALE][tpl]
                     elif len(parts) == 2:
                         # Ex: {{grammaire|fr}} -> (Grammaire)
-                        subtext = f"({tpl.title()})"
+                        subtext = f"({tpl.capitalize()})"
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
                         subtext = ""
-                # elif subtext in ignored_templates:
+                # elif subtext in templates_ignored[C.LOCALE]:
                 #     subtext = ""
                 elif subtext in templates[C.LOCALE]:
                     subtext = templates[C.LOCALE][subtext]

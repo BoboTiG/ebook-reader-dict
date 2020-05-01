@@ -20,6 +20,11 @@ templates_multi = {
     "fr": fr.templates_multi,
 }
 
+# Templates to ignore
+templates_ignored = {
+    "fr": fr.templates_ignored,
+}
+
 # Translations
 translations = {
     "fr": fr.translations,

@@ -52,6 +52,8 @@ templates = {
     "spéc": "(Spécialement)",
 }
 
+templates_ignored = ("ébauche-déf", "refnec")
+
 templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": "{tpl} de {parts[1]}",

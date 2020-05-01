@@ -150,7 +150,7 @@ def test_find_genre(word, genre, page):
                 "plus ou moins de saillie en avant.",
                 "(Géographie) Partie d’un contrefort, d’une chaîne de collines ou de "
                 "montagnes qui se termine en pointe.",
-                "(Meubles Héraldiques) Meuble représentant l’objet du même nom dans les "
+                "(Meubles héraldiques) Meuble représentant l’objet du même nom dans les "
                 "armoiries. Il est composé d’une branche en métal en U avec une tige au bout "
                 "de laquelle se trouve une molette à six rais mais le nombre peut varier d'un "
                 "illustrateur à l’autre. Il est représenté en pal, la molette vers le chef "
