@@ -33,8 +33,13 @@ jobs:
     - name: Install requirements
       run: python -m pip install -r requirements.txt
 
-    - name: Fetch and update the dictionary
-      run: python -m scripts
+    - name: Fetch the latest Wiktionary dump
+      run: python -m scripts --fetch-only
+      env:
+        WIKI_LOCALE: ${{ matrix.locale }}
+
+    - name: Update the dictionary
+      run: python -m scripts --convert-only
       env:
         WIKI_LOCALE: ${{ matrix.locale }}
 
