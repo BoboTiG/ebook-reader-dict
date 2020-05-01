@@ -2,8 +2,6 @@ import sys
 from argparse import ArgumentParser
 from typing import List
 
-from . import convert, get, upload
-
 
 def main(argv: List[str]) -> int:
     """Main entry point."""
@@ -37,14 +35,24 @@ def main(argv: List[str]) -> int:
     args = parser.parse_args(args=argv)
 
     if args.update_release:
+        from . import upload
+
         return upload.main()
     elif args.get_word:
+        from . import get
+
         return get.main(args.get_word)
     elif args.fetch_only:
+        from . import get
+
         return get.main()
     elif args.convert_only:
+        from . import convert
+
         return convert.main()
     else:
+        from . import convert, get
+
         if get.main() == 1:
             return 1
         return convert.main()

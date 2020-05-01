@@ -14,7 +14,6 @@ from requests import codes
 from requests.exceptions import HTTPError
 
 import wikitextparser as wtp
-import xmltodict
 
 from .lang import language
 from .utils import is_ignored, clean
@@ -270,6 +269,8 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
 
         words[word] = (rev, pronunciation, genre, definitions)
         return True
+
+    import xmltodict
 
     with file.open("rb") as fh:
         xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
