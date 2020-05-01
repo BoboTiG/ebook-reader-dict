@@ -39,6 +39,7 @@ templates = {
     "finan": "(Finance)",
     "FR": "(France)",
     "géom": "(Géométrie)",
+    "graphe": "(Théorie des graphes)",
     "improprement": "(Usage critiqué)",
     "info": "(Informatique)",
     "juri": "(Droit)",
@@ -55,6 +56,7 @@ templates = {
     "QC": "(Québec)",
     "région": "(Régionalisme)",
     "spéc": "(Spécialement)",
+    "unités": "(Métrologie)",
 }
 
 templates_ignored = ("ancre", "ébauche-déf", "refnec")

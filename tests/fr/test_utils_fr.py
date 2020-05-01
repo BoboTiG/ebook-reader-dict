@@ -20,6 +20,7 @@ from scripts import utils
         ("{{finan|fr}}", "(Finance)"),
         ("{{FR|fr}}", "(France)"),
         ("{{géom|fr}}", "(Géométrie)"),
+        ("{{graphe|fr}}", "(Théorie des graphes)"),
         ("{{improprement|fr}}", "(Usage critiqué)"),
         ("{{info|fr}}", "(Informatique)"),
         ("{{juri|fr}}", "(Droit)"),
@@ -36,6 +37,7 @@ from scripts import utils
         ("{{QC|fr}}", "(Québec)"),
         ("{{région}}", "(Régionalisme)"),
         ("{{siècle2|XIX}}", "XIXème"),
+        ("{{unités|fr}}", "(Métrologie)"),
     ],
 )
 def test_clean_template(wikicode, expected):

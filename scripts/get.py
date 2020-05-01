@@ -138,14 +138,9 @@ def get_and_parse_word(word: str) -> None:
 
     pronunciation, genre, defs = parse_word(code)
 
-    # Pretty print the definition list
-    glue = "\n" + " " * 12
-    definitions = glue.join(f"<li>{d}</li>" for d in defs)
-
-    html = C.WORD_FORMAT_PRETTY.format(
-        word=word, pronunciation=pronunciation, genre=genre, definitions=definitions,
-    )
-    print(html)
+    print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
+    for i, definition in enumerate(defs, start=1):
+        print(str(i).rjust(4), definition)
 
 
 def guess_snapshot() -> str:
@@ -198,7 +193,7 @@ def load() -> T.WordList:
 
 
 def parse_word(data: str) -> Tuple[str, str, List[str]]:
-    """"""
+    """Parse *data* to find word details."""
     sections = find_sections(data)
     pronunciation = ""
     genre = ""
