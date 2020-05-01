@@ -30,6 +30,8 @@ size_min = 1024 * 1024 * 30  # 30 MiB
 
 templates = {
     "absol": "(Absolument)",
+    "agri": "(Agriculture)",
+    "antiq": "(Antiquité)",
     "BE": "(Belgique)",
     "bioch": "(Biochimie)",
     "e": "ème",
@@ -37,9 +39,12 @@ templates = {
     "finan": "(Finance)",
     "FR": "(France)",
     "géom": "(Géométrie)",
+    "improprement": "(Usage critiqué)",
+    "info": "(Informatique)",
     "juri": "(Droit)",
     "ling": "(Linguistique)",
     "math": "(Mathématiques)",
+    "mélio": "(Mélioratif)",
     "méton": "(Par métonymie)",
     "métrol": "(Métrologie)",
     "néol": "(Néologisme)",
@@ -52,11 +57,13 @@ templates = {
     "spéc": "(Spécialement)",
 }
 
-templates_ignored = ("ébauche-déf", "refnec")
+templates_ignored = ("ancre", "ébauche-déf", "refnec")
 
 templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": "{tpl} de {parts[1]}",
+    # {{siècle2|XIX}}
+    "siècle2": "{parts[1]}ème",
     # {{variante de|ranche|fr}}
     "variante de": "{tpl} {parts[1]}",
 }

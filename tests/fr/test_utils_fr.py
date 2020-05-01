@@ -8,6 +8,9 @@ from scripts import utils
     [
         ("", ""),
         ("{{absol}}", "(Absolument)"),
+        ("{{agri|fr}}", "(Agriculture)"),
+        ("{{antiq|fr}}", "(Antiquité)"),
+        ("{{ancre|sens_sexe}}", ""),
         ("{{au pluriel}}", "(Au pluriel)"),
         ("{{au singulier}}", "(Au singulier)"),
         ("{{BE|fr}}", "(Belgique)"),
@@ -17,9 +20,12 @@ from scripts import utils
         ("{{finan|fr}}", "(Finance)"),
         ("{{FR|fr}}", "(France)"),
         ("{{géom|fr}}", "(Géométrie)"),
+        ("{{improprement|fr}}", "(Usage critiqué)"),
+        ("{{info|fr}}", "(Informatique)"),
         ("{{juri|fr}}", "(Droit)"),
         ("{{ling|fr}}", "(Linguistique)"),
         ("{{math|fr}}", "(Mathématiques)"),
+        ("{{mélio|fr}}", "(Mélioratif)"),
         ("{{méton|fr}}", "(Par métonymie)"),
         ("{{métrol|nocat=1}}", "(Métrologie)"),
         ("{{moderne}}", "(Moderne)"),
@@ -29,6 +35,7 @@ from scripts import utils
         ("{{pronl|fr}}", "(Pronominal)"),
         ("{{QC|fr}}", "(Québec)"),
         ("{{région}}", "(Régionalisme)"),
+        ("{{siècle2|XIX}}", "XIXème"),
     ],
 )
 def test_clean_template(wikicode, expected):

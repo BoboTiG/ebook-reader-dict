@@ -78,7 +78,7 @@ def clean(text: str) -> str:
                     # May need custom handling in lang/$LOCALE.py
                     subtext = f"({subtext.capitalize()})"
 
-                text = f"{text[:start]}{subtext} {text[pos + 1 :]}"
+                text = f"{text[:start]}{subtext}{text[pos + 1 :]}"
                 break
 
             # Check the next character
