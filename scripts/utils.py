@@ -5,6 +5,11 @@ from .lang import templates, templates_ignored, templates_multi
 from . import constants as C
 
 
+def capitalize(text: str) -> str:
+    """Capitalize the first letter only."""
+    return f"{text[0].capitalize()}{text[1:]}"
+
+
 def clean(text: str) -> str:
     """Cleans up the provided wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
@@ -54,7 +59,7 @@ def clean(text: str) -> str:
                         subtext = parts[1]
                     elif tpl == "term":
                         # Ex: {{term|ne … guère que}} -> (Ne … guère que)
-                        subtext = f"({parts[1].capitalize()})"
+                        subtext = f"({capitalize(parts[1])})"
                     elif tpl in templates_ignored[C.LOCALE]:
                         subtext = ""
                     elif tpl in templates_multi[C.LOCALE]:
@@ -63,7 +68,7 @@ def clean(text: str) -> str:
                         subtext = templates[C.LOCALE][tpl]
                     elif len(parts) == 2:
                         # Ex: {{grammaire|fr}} -> (Grammaire)
-                        subtext = f"({tpl.capitalize()})"
+                        subtext = f"({capitalize(tpl)})"
                     else:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
@@ -74,7 +79,7 @@ def clean(text: str) -> str:
                     subtext = templates[C.LOCALE][subtext]
                 else:
                     # May need custom handling in lang/$LOCALE.py
-                    subtext = f"({subtext.capitalize()})"
+                    subtext = f"({capitalize(subtext)})"
 
                 text = f"{text[:start]}{subtext}{text[pos + 1 :]}"
                 break
