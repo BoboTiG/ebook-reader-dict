@@ -118,6 +118,8 @@ templates_ignored = (
 )
 
 templates_multi = {
+    # {{couleur|#B0F2B6}}
+    "couleur": 'f"(Code RGB {parts[1]})"',
     # {{emploi|au passif}}
     "emploi": 'f"({capitalize(parts[1])})"',
     # {{forme pronominale|mutiner}}
