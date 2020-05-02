@@ -140,7 +140,7 @@ def get_and_parse_word(word: str) -> None:
     print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
     for i, definition in enumerate(defs, start=1):
         # Strip HTML tags
-        print(str(i).rjust(4), re.sub(r"<[^>]+/?>", "", definition))
+        print(f"{i}.".rjust(4), re.sub(r"<[^>]+/?>", "", definition))
 
 
 def guess_snapshot() -> str:
