@@ -16,6 +16,24 @@ def fmt_chimy(composition: List[str]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
+def int_to_roman(number: int) -> str:
+    """
+    Convert an integer to a Roman numeral.
+    Source: https://www.oreilly.com/library/view/python-cookbook/0596001673/ch03s24.html
+    """
+
+    # if not 0 < number < 4000:
+    #     raise ValueError("Argument must be between 1 and 3999")
+    ints = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
+    nums = ("M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I")
+    result = []
+    for i in range(len(ints)):
+        count = int(number / ints[i])
+        result.append(nums[i] * count)
+        number -= ints[i] * count
+    return "".join(result)
+
+
 def clean(text: str) -> str:
     """Cleans up the provided wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.

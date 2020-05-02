@@ -34,6 +34,8 @@ from scripts import utils
         ("{{métrol|nocat=1}}", "(Métrologie)"),
         ("{{moderne}}", "(Moderne)"),
         ("{{néol|fr}}", "(Néologisme)"),
+        ("{{nombre romain|12}}", "XII"),
+        ("{{nombre romain|19}}", "XIX"),
         ("{{par ext}} ou {{figuré|fr}}", "(Par extension) ou (Figuré)"),
         ("{{part}}", "(En particulier)"),
         ("{{pronl|fr}}", "(Pronominal)"),

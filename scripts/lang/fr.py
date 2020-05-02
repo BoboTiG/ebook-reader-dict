@@ -124,6 +124,8 @@ templates_multi = {
     "emploi": 'f"({capitalize(parts[1])})"',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
+    # {{nombre romain|12}}
+    "nombre romain": 'f"{int_to_roman(int(parts[1]))}"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{variante de|ranche|fr}}
