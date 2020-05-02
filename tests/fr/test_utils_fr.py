@@ -16,7 +16,7 @@ from scripts import utils
         ("{{au singulier}}", "(Au singulier)"),
         ("{{BE|fr}}", "(Belgique)"),
         ("{{bioch|nocat}}", "(Biochimie)"),
-        ("du XX{{e}} siècle", "du XXème siècle"),
+        ("du XX{{e}} siècle", "du XX<sup>ème</sup> siècle"),
         ("{{élec|fr}}", "(Électricité)"),
         ("{{finan|fr}}", "(Finance)"),
         ("{{FR|fr}}", "(France)"),

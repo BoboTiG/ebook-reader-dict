@@ -1,5 +1,6 @@
 """Utilities."""
 import re
+from typing import List
 
 from .lang import templates, templates_ignored, templates_multi
 from . import constants as C
@@ -8,6 +9,11 @@ from . import constants as C
 def capitalize(text: str) -> str:
     """Capitalize the first letter only."""
     return f"{text[0].capitalize()}{text[1:]}"
+
+
+def fmt_chimy(composition: List[str]) -> str:
+    """Format chimy notations."""
+    return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
 def clean(text: str) -> str:
@@ -21,6 +27,13 @@ def clean(text: str) -> str:
 
     # basic formatting
     text = sub(r"'''?([^']+)'''?", "\\1", text)
+
+    # Parser hooks
+    text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''
+
+    # HTML
+    text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />
+    text = text.replace("&nbsp;", " ")
 
     # Templates
     # {{foo}} -> 'foo'
@@ -57,6 +70,9 @@ def clean(text: str) -> str:
                     if tpl == "w":
                         # Ex: {{w|ISO 639-3}} -> ISO 639-3
                         subtext = parts[1]
+                    elif tpl == "fchim":
+                        # Ex: {{fchim|H|2|O}} -> H2O
+                        subtext = fmt_chimy(parts[1:])
                     elif tpl == "term":
                         # Ex: {{term|ne … guère que}} -> (Ne … guère que)
                         subtext = f"({capitalize(parts[1])})"
@@ -73,8 +89,8 @@ def clean(text: str) -> str:
                         # Ex: {{trad+|af|gebruik}} -> ''
                         # Ex: {{conj|grp=1|fr}} -> ''
                         subtext = ""
-                # elif subtext in templates_ignored[C.LOCALE]:
-                #     subtext = ""
+                elif subtext in templates_ignored[C.LOCALE]:
+                    subtext = ""
                 elif subtext in templates[C.LOCALE]:
                     subtext = templates[C.LOCALE][subtext]
                 else:
@@ -119,13 +135,6 @@ def clean(text: str) -> str:
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
-
-    # Parser hooks
-    text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''
-
-    # HTML
-    text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />
-    text = text.replace("&nbsp;", " ")
 
     # Magic words
     text = sub(r"__\w+__", "", text)  # __TOC__
