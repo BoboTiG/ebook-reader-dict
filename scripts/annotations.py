@@ -1,10 +1,7 @@
 """Internal type for type annotations."""
-from typing import Any, Dict, List, Tuple
+from typing import Dict, Generator, List, Tuple
 
-# For xmltodict.parse() callback
-Attribs = List[Tuple[str, Any]]
-Item = Dict[str, Any]
-
+Sections = Generator[str, None, None]
 Word = Tuple[str, str, str, List[str]]
 Words = Dict[str, Word]
 WordList = Dict[str, str]

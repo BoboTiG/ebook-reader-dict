@@ -2,4 +2,3 @@ setuptools>=36.2.1
 marisa_trie==0.7.5
 requests==2.23.0
 wikitextparser==0.34.0
-xmltodict==0.12.0

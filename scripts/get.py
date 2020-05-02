@@ -7,7 +7,7 @@ import sys
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
 
 import requests
 from requests import codes
@@ -19,6 +19,9 @@ from .lang import language
 from .utils import is_ignored, clean
 from . import annotations as T
 from . import constants as C
+
+if TYPE_CHECKING:
+    from xml.etree.ElementTree import Element  # noqa
 
 
 def decompress(file: Path) -> Path:
@@ -78,56 +81,53 @@ def fetch_pages(date: str) -> Path:
     return output
 
 
-def find_definitions(sections: List[wtp.Section]) -> List[str]:
+def find_definitions(sections: T.Sections) -> List[str]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(find_section_definitions(section) for section in sections)
     )
+    if not definitions:
+        return []
     # Remove duplicates
     return sorted(set(definitions), key=definitions.index)
 
 
-def find_section_definitions(section: wtp.Section) -> List[str]:
-    """Find definitions from the given *section*, without eventual subtext."""
+def find_section_definitions(
+    section: wtp.Section,
+    pattern: Pattern[str] = re.compile(r"^((\([\w ]+\)\.? ?)*|\([\w ]+\) …)$"),
+) -> Generator[str, None, None]:
+    """Find definitions from the given *section*, without eventual subtext.
+
+    The *pattern* will be used to filter out:
+        - empty definitions like "(Maçonnerie) (Reliquat)"
+        - almost-empty definitions, like "(Poésie) …"
+        (or definitions using a sublist, it is not yet handled)
+    """
     try:
         definitions = [clean(d.strip()) for d in section.get_lists()[0].items]
     except IndexError:
         # Section not finished or incomplete?
-        return []
-    else:
-        # - Remove empty definitions like "(Maçonnerie) (Reliquat)"
-        # - Remove almost-empty definitions, like "(Poésie) …"
-        #  (or definitions using a sublist, it is not yet handled)
-        return list(
-            filter(
-                None,
-                [
-                    None
-                    if re.match(r"^(\([\w ]+\)\.? ?)*$", d)
-                    or re.match(r"^\([\w ]+\) …$", d)
-                    else d
-                    for d in definitions
-                ],
-            )
-        )
+        definitions = []
+
+    yield from (d for d in definitions if not pattern.match(d))
 
 
-def find_genre(content: str) -> str:
+def find_genre(code: str, pattern: Pattern[str] = C.GENRE) -> str:
     """Find the genre."""
-    match = re.search(C.GENRE, content)
+    match = pattern.search(code)
     return match.group(1) if match else ""
 
 
-def find_pronunciation(content: str) -> str:
+def find_pronunciation(code: str, pattern: Pattern[str] = C.PRONUNCIATION) -> str:
     """Find the pronunciation."""
-    match = re.search(C.PRONUNCIATION, content)
+    match = pattern.search(code)
     return match.group(1) if match else ""
 
 
-def find_sections(content: str) -> List[str]:
+def find_sections(code: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    sections = wtp.parse(content).get_sections(include_subsections=False)
-    return [s for s in sections if s.title.strip().startswith(language[C.LOCALE])]
+    sections = wtp.parse(code).get_sections(include_subsections=False)
+    yield from (s for s in sections if s.title.lstrip().startswith(language[C.LOCALE]))
 
 
 def get_and_parse_word(word: str) -> None:
@@ -135,7 +135,7 @@ def get_and_parse_word(word: str) -> None:
     with requests.get(C.WORD_URL.format(word)) as req:
         code = req.text
 
-    pronunciation, genre, defs = parse_word(code)
+    pronunciation, genre, defs = parse_word(code, force=True)
 
     print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
     for i, definition in enumerate(defs, start=1):
@@ -192,74 +192,43 @@ def load() -> T.WordList:
     return wordlist
 
 
-def parse_word(data: str) -> Tuple[str, str, List[str]]:
-    """Parse *data* to find word details."""
-    sections = find_sections(data)
+def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
+    """Parse *code* Wikicode to find word details.
+    *force* can be set to True to force the pronunciation and genre guessing.
+    It is disabled by default t spee-up the overall process, but enabled when
+    called from get_and_parse_word().
+    """
+    sections = find_sections(code)
     pronunciation = ""
     genre = ""
     definitions = find_definitions(sections)
 
-    for section in sections:
-        # Find the pronunciation
-        if not pronunciation:
-            pronunciation = find_pronunciation(str(section))
-
-        # Find the genre, if any
-        if not genre:
-            genre = find_genre(str(section))
+    if definitions or force:
+        pronunciation = find_pronunciation(code)
+        genre = find_genre(code)
 
     return pronunciation, genre, definitions
 
 
 def process(file: Path, wordlist: T.WordList) -> T.Words:
-    """Process the big XML file and retain only information we are interested in.
-    Results are stored into the global *RESULT* dict, see handle_page() for details.
-    """
+    """Process the big XML file and retain only information we are interested in."""
+
     words: T.Words = {}
     first_pass = not bool(wordlist)
 
     print(f">>> Processing {file} ...", flush=True)
 
-    def handle_page(_: T.Attribs, page: T.Item) -> bool:
-        """
-        Callback passed to xmltodict.parse().
-        The function must return True or the parser will raise ParsingInterrupted
-        (https://github.com/martinblech/xmltodict/blob/d6a8377/xmltodict.py#L227-L230).
+    for element in xml_iter_parse(str(file)):
+        word, rev, code = xml_parse_element(element)
+        if not word or ":" in word or is_ignored(word):
+            continue
 
-        Details are stored into the *RESULT* dict where the word the key.
-        Each entry in the dict is a tuple(
-            0: the revision number
-            1: its pronunciation (defaults to empty string)
-            2: its genre (defaults to empty string)
-            3: list of definitions
-        )
-        """
-
-        try:
-            word = page["title"]
-        except KeyError:
-            return True
-
-        # Skip uninteresting pages such as:
-        #   - Discussion utilisateur:...
-        #   - MediaWiki:...
-        #   - Utilisateur:...
-        if ":" in word:
-            return True
-
-        if is_ignored(word):
-            return True
-
-        pronunciation, genre, definitions = parse_word(
-            page["revision"]["text"]["#text"]
-        )
+        pronunciation, genre, definitions = parse_word(code)
         if not definitions:
-            return True
-
-        rev = page["revision"]["id"]
-        word_rev = wordlist.pop(word, None)
+            continue
 
         # Log the appropriate action to ease tracking changes
+        word_rev = wordlist.pop(word, None)
         action = ""
         if word_rev and word_rev != rev:
             action = "Updated"
@@ -268,13 +237,7 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
         if action:
             print(f" ++ {action} {word!r}", flush=True)
 
-        words[word] = (rev, pronunciation, genre, definitions)
-        return True
-
-    import xmltodict
-
-    with file.open("rb") as fh:
-        xmltodict.parse(fh, encoding="utf-8", item_depth=2, item_callback=handle_page)
+        words[word] = rev, pronunciation, genre, definitions
 
     # Remove obsolete words between 2 snapshots
     for word in sorted(wordlist.keys()):
@@ -302,6 +265,50 @@ def save(snapshot: str, words: T.Words) -> None:
             fh.write("\n")
 
     print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
+
+
+def xml_iter_parse(file: str) -> Generator["Element", None, None]:
+    """Efficient XML parsing for big files.
+    Elements are yielded when they meet the "page" tag.
+    """
+    import xml.etree.ElementTree as etree
+
+    doc = etree.iterparse(file, events=("start", "end"))
+    _, root = next(doc)
+
+    start_tag = None
+
+    for event, element in doc:
+        if event == "start" and start_tag is None and element.tag.endswith("}page"):
+            start_tag = element.tag
+        elif event == "end" and element.tag == start_tag:
+            yield element
+            start_tag = None
+
+            # Keep memory low
+            root.clear()
+
+
+def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
+    """Parse the *element* to retrieve the word, its definitions and the current revision."""
+    word = rev = code = ""
+
+    for info in element:
+        if info.tag.endswith("}title") and info.text:
+            word = info.text
+        elif info.tag.endswith("}revision"):
+            for subinfo in info:
+                if not subinfo.text:
+                    continue
+                elif subinfo.tag.endswith("}id"):
+                    rev = subinfo.text
+                elif subinfo.tag.endswith("}text"):
+                    code = subinfo.text
+        elif word and rev and code:
+            # Small optimization
+            break
+
+    return word, rev, code
 
 
 def main(word: Optional[str] = "") -> int:

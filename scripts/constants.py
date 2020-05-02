@@ -24,8 +24,8 @@ WORKING_DIR = SNAPSHOT / "tmp"
 DICTHTML = SNAPSHOT / f"dicthtml-{LOCALE}.zip"
 
 # Regexps
-PRONUNCIATION = re.compile(r"{{pron\|([^}]+)\|(lang=)?%s}}" % LOCALE, flags=re.UNICODE)
-GENRE = re.compile(r"{{([fmsingp]+)}}")
+PRONUNCIATION = re.compile(r"{pron\|([^}\|]+)")
+GENRE = re.compile(r"{([fmsingp]+)}")
 
 # GitHub stuff
 REPOS = "BoboTiG/ebook-reader-dict"
