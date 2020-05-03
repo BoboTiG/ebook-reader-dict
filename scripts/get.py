@@ -279,9 +279,9 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
     start_tag = None
 
     for event, element in doc:
-        if event == "start" and start_tag is None and element.tag.endswith("}page"):
+        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page":
             start_tag = element.tag
-        elif event == "end" and element.tag == start_tag:
+        elif start_tag is not None and event == "end" and element.tag == start_tag:
             yield element
             start_tag = None
 
@@ -290,24 +290,23 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
 
 
 def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
-    """Parse the *element* to retrieve the word, its definitions and the current revision."""
-    word = rev = code = ""
+    """Parse the *element* to retrieve the word,the current revision and definitions."""
+    revision = element[3]
+    if not revision:
+        # This is a "redirect" page, not interesting.
+        return "", "", ""
 
-    for info in element:
-        if info.tag.endswith("}title") and info.text:
-            word = info.text
-        elif info.tag.endswith("}revision"):
-            for subinfo in info:
-                if not subinfo.text:
-                    continue
-                elif subinfo.tag.endswith("}id"):
-                    rev = subinfo.text
-                elif subinfo.tag.endswith("}text"):
-                    code = subinfo.text
-        elif word and rev and code:
-            # Small optimization
+    # The Wikicode can be at different indexes, but not ones lower than 6
+    for info in revision[6:]:
+        if info.tag == "{http://www.mediawiki.org/xml/export-0.10/}text":
+            code = info.text or ""
             break
+    else:
+        # No Wikicode, maybe an unfinished page.
+        return "", "", ""
 
+    word = element[0].text or ""  # title
+    rev = revision[0].text or ""  # id
     return word, rev, code
 
 
