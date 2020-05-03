@@ -35,20 +35,17 @@ DOWNLOAD_URL = (
 )
 
 # HTML formatting for each word
-WORD_FORMAT_PRETTY = """\
-<w>
-    <p>
-        <a name="{word}"/>
-        <b>{word}</b> \\{pronunciation}\\ <i>{genre}.</i>
-        <br/>
-        <br/>
-        <ol>
-            {definitions}
-        </ol>
-    </p>
-</w>
-"""
 WORD_FORMAT = (
-    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}'
-    "<br/><br/><ol>{definitions}</ol></p></w>"
+    # Word formatting
+    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol></p>'
+
+    # The source
+    '<i class="s"><br/>{source}</i>'
+
+    # This is a hell of a hack to hide the harcoded source
+    # See https://github.com/BoboTiG/ebook-reader-dict/issues/33
+    '<span class="e"><style>.e,w+*:not(w),.e+*:not(w){{display:none!important;}}</style></span>'
+
+    # Do not forget the closing tag
+    "</w>"
 )

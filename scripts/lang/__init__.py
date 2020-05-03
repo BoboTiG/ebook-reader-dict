@@ -29,3 +29,8 @@ templates_ignored = {
 translations = {
     "fr": fr.translations,
 }
+
+# Wiktionary name, for the source
+wiktionary = {
+    "fr": "Wiktionnaire, Le dictionnaire libre et gratuit (ɔ) {year}",
+}

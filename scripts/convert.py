@@ -4,6 +4,7 @@ import json
 import sys
 from collections import defaultdict
 from contextlib import suppress
+from datetime import date
 from pathlib import Path
 from shutil import rmtree
 from typing import List
@@ -11,7 +12,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-from .lang import size_min
+from .lang import size_min, wiktionary
 from . import annotations as T
 from . import constants as C
 
@@ -100,7 +101,6 @@ def save_html(name: str, words: T.Words) -> Path:
 
     Content of the HTML file:
 
-        <?xml version="1.0" encoding="utf-8"?>
         <html>
             word 1
             word 2
@@ -110,11 +110,12 @@ def save_html(name: str, words: T.Words) -> Path:
     Syntax of each WORD is define in the *WORD_FORMAT* constant.
     """
 
+    # Prettry print the source
+    source = wiktionary[C.LOCALE].format(year=date.today().year)
+
     # Save to uncompressed HTML
     raw_output = C.WORKING_DIR / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
-        fh.write('<?xml version="1.0" encoding="utf-8"?>')
-
         for word, (_, pronunciation, genre, defs) in words.items():
             definitions = "".join(f"<li>{d}</li>" for d in defs)
             if pronunciation:
@@ -128,6 +129,7 @@ def save_html(name: str, words: T.Words) -> Path:
                     pronunciation=pronunciation,
                     genre=genre,
                     definitions=definitions,
+                    source=source,
                 )
             )
 
