@@ -20,7 +20,7 @@ from .utils import is_ignored, clean
 from . import annotations as T
 from . import constants as C
 
-if TYPE_CHECKING:
+if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element  # noqa
 
 

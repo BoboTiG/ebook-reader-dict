@@ -9,7 +9,7 @@ import pytest
 os.environ["CWD"] = str(Path(__file__).parent)
 
 
-XML = """<mediawiki xml:lang="{locale}">
+XML = """<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="{locale}">
 <siteinfo>
     <sitename>Wiktionnaire</sitename>
     <dbname>frwiktionary</dbname>
@@ -42,6 +42,34 @@ XML = """<mediawiki xml:lang="{locale}">
         <text bytes="46" xml:space="preserve">Wiktionnaire : dictionnaire libre et universel</text>
         <sha1>40helna9646ffk0utvwm8bkdlzi1eck</sha1>
     </revision>
+</page>
+
+<!-- To cover word without definitions -->
+<page>
+    <title>MediaWiki:Sitetitle</title>
+    <ns>8</ns>
+    <id>12</id>
+    <revision>
+        <id>403956</id>
+        <parentid>33016</parentid>
+        <timestamp>2006-02-13T09:08:31Z</timestamp>
+        <contributor>
+        <username>Bob</username>
+        <id>-42</id>
+        </contributor>
+        <comment>changement de titre pour meilleur référencement dans les moteurs de recherche</comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <sha1>40helna9646ffk0utvwm8bkdlzi1eck</sha1>
+    </revision>
+</page>
+
+<!-- To cover word redirected -->
+<page>
+    <title>MediaWiki:Sitetitle</title>
+    <ns>8</ns>
+    <id>12</id>
+    <redirect></redirect>
 </page>
 
 """
