@@ -86,6 +86,7 @@ templates = {
     "QC": "(Québec)",
     "réfl": "(Réfléchi)",
     "région": "(Régionalisme)",
+    "sexe": "(Sexualité)",
     "spéc": "(Spécialement)",
     "unités": "(Métrologie)",
     "usage": "Note d'usage :",

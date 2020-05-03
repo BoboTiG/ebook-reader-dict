@@ -389,3 +389,157 @@ def test_main_2(err_code, capsys):
         assert get.main() == 1
         captured = capsys.readouterr()
         assert captured.out.splitlines()[-1] == ">>> Wiktionary dump is ongoing ... "
+
+
+def test_xml_parse_word_with_colons(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text("""\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>MediaWiki:Sitetitle</title>
+    <ns>8</ns>
+    <id>12</id>
+    <revision>
+        <id>403956</id>
+        <parentid>33016</parentid>
+        <timestamp>2006-02-13T09:08:31Z</timestamp>
+        <contributor>
+        <username>Bob</username>
+        <id>-42</id>
+        </contributor>
+        <comment>changement de titre pour meilleur référencement dans les moteurs de recherche</comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <text bytes="46" xml:space="preserve">Wiktionnaire : dictionnaire libre et universel</text>
+        <sha1>40helna9646ffk0utvwm8bkdlzi1eck</sha1>
+    </revision>
+</page>
+</mediawiki>
+""")
+
+    page = list(get.xml_iter_parse(str(file)))
+    assert len(page) == 1
+    word, rev, definitions = get.xml_parse_element(page[0])
+    assert word == "MediaWiki:Sitetitle"
+    assert rev == "403956"
+    assert definitions == "Wiktionnaire : dictionnaire libre et universel"
+
+
+def test_xml_parse_not_word(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text("""\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<siteinfo>
+    <sitename>Wiktionnaire</sitename>
+    <dbname>frwiktionary</dbname>
+    <base>https://fr.wiktionary.org/wiki/Wiktionnaire:Page_d%E2%80%99accueil</base>
+    <generator>MediaWiki 1.35.0-wmf.25</generator>
+    <case>case-sensitive</case>
+    <namespaces>
+        <namespace key="-2" case="case-sensitive">Média</namespace>
+        <namespace key="-1" case="first-letter">Spécial</namespace>
+        <namespace key="0" case="case-sensitive" />
+    </namespaces>
+</siteinfo>
+</mediawiki>
+""")
+
+    page = list(get.xml_iter_parse(str(file)))
+    assert len(page) == 0
+
+
+def test_xml_parse_redirected_word(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text("""\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>MediaWiki:Sitetitle</title>
+    <ns>8</ns>
+    <id>12</id>
+    <redirect></redirect>
+</page>
+</mediawiki>
+""")
+
+    page = list(get.xml_iter_parse(str(file)))
+    assert len(page) == 1
+    word, rev, definitions = get.xml_parse_element(page[0])
+    assert word == ""
+    assert rev == ""
+    assert definitions == ""
+
+
+def test_xml_parse_restricted_word(tmp_path):
+    """For instance, "cunnilingus" was filtered out. Ensure no regressions."""
+
+    file = tmp_path / "page.xml"
+    file.write_text("""\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>cunnilingus</title>
+    <ns>0</ns>
+    <id>27758</id>
+    <restrictions>edit=autoconfirmed:move=autoconfirmed</restrictions>
+    <revision>
+        <id>27636792</id>
+        <parentid>27249625</parentid>
+        <timestamp>2020-04-05T23:27:40Z</timestamp>
+        <contributor>
+            <username>Alice</username>
+            <id>-42</id>
+        </contributor>
+        <minor />
+        <comment></comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <text bytes="292" xml:space="preserve">{{voir|Cunnilingus}}
+=== {{S|nom|fr}} ===
+{{fr-inv|ky.ni.lɛ̃.gys|sp=1}}
+[[Fichier:Édouard-Henri Avril (23).jpg|thumb|Un '''cunnilingus''']]
+'''cunnilingus''' {{pron|ky.ni.lɛ̃.ɡys|fr}} {{m}}, {{sp}}
+# {{sexe|fr}} [[excitation|Excitation]] [[buccal]]e des [[organe]]s [[génitaux]] [[féminins]].</text>
+        <sha1>aimljsg0qagdsp5yyz38fgv3rh0ksm1</sha1>
+    </revision>
+</page>
+</mediawiki>
+""")
+
+    page = list(get.xml_iter_parse(str(file)))
+    assert len(page) == 1
+    word, rev, definitions = get.xml_parse_element(page[0])
+    assert word == "cunnilingus"
+    assert rev == "27636792"
+    assert len(definitions) == 292
+
+
+def test_xml_parse_word_without_definitions(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text("""\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>MediaWiki:Sitetitle</title>
+    <ns>8</ns>
+    <id>12</id>
+    <revision>
+        <id>403956</id>
+        <parentid>33016</parentid>
+        <timestamp>2006-02-13T09:08:31Z</timestamp>
+        <contributor>
+        <username>Bob</username>
+            <id>-42</id>
+            </contributor>
+        <comment>changement de titre pour meilleur référencement dans les moteurs de recherche</comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <sha1>40helna9646ffk0utvwm8bkdlzi1eck</sha1>
+    </revision>
+</page>
+</mediawiki>
+""")
+
+    page = list(get.xml_iter_parse(str(file)))
+    assert len(page) == 1
+    word, rev, definitions = get.xml_parse_element(page[0])
+    assert word == ""
+    assert rev == ""
+    assert definitions == ""

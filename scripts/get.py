@@ -292,7 +292,10 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
 def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
     """Parse the *element* to retrieve the word,the current revision and definitions."""
     revision = element[3]
-    if not revision:
+    if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
+        # When a word is "restricted", then the revision comes just after
+        revision = element[4]
+    elif not revision:
         # This is a "redirect" page, not interesting.
         return "", "", ""
 
