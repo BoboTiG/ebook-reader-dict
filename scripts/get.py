@@ -299,8 +299,8 @@ def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
         # This is a "redirect" page, not interesting.
         return "", "", ""
 
-    # The Wikicode can be at different indexes, but not ones lower than 6
-    for info in revision[6:]:
+    # The Wikicode can be at different indexes, but not ones lower than 5
+    for info in revision[5:]:
         if info.tag == "{http://www.mediawiki.org/xml/export-0.10/}text":
             code = info.text or ""
             break
