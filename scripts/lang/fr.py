@@ -145,6 +145,8 @@ templates_multi = {
     "lien": 'f"{parts[1]}"',
     # {{nombre romain|12}}
     "nombre romain": 'f"{int_to_roman(int(parts[1]))}"',
+    # {{pron|plys|fr}}
+    "pron": r'f"\\{parts[1]}\\"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{variante de|ranche|fr}}
