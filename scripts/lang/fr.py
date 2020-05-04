@@ -80,6 +80,7 @@ templates = {
     "métaphore": "(Figuré)",
     "méton": "(Par métonymie)",
     "métrol": "(Métrologie)",
+    "mythol": "(Mythologie)",
     "néol": "(Néologisme)",
     "note": "<b>Note :</b>",
     "par ext": "(Par extension)",
