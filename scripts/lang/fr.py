@@ -59,6 +59,7 @@ templates = {
     "finan": "(Finance)",
     "FR": "(France)",
     "formel": "(Soutenu)",
+    "géog": "(Géographie)",
     "géom": "(Géométrie)",
     "graphe": "(Théorie des graphes)",
     "hérald": "(Héraldique)",
