@@ -132,6 +132,8 @@ templates_multi = {
     "adj-indéf-avec-de": '"(Avec de)"',
     # {{cf|tour d’échelle}}
     "cf": 'f"→ voir {parts[1]}"',
+    # {{comparatif de|bien|fr|adv}}
+    "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
     "couleur": 'f"(Code RGB {parts[1]})"',
     # {{emploi|au passif}}
