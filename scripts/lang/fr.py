@@ -68,6 +68,7 @@ templates = {
     "idiomatique": "(Figuré)",
     "improprement": "(Usage critiqué)",
     "indén": "(Indénombrable)",
+    "indus": "(Industrie)",
     "info": "(Informatique)",
     "injur": "(Injurieux)",
     "juri": "(Droit)",
