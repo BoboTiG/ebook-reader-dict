@@ -81,7 +81,7 @@ templates = {
     "méton": "(Par métonymie)",
     "métrol": "(Métrologie)",
     "néol": "(Néologisme)",
-    "note": "Note :",
+    "note": "<b>Note :</b>",
     "par ext": "(Par extension)",
     "part": "(En particulier)",
     "partic": "(En particulier)",
@@ -99,7 +99,7 @@ templates = {
     "spéc": "(Spécialement)",
     "télécom": "(Télécommunications)",
     "unités": "(Métrologie)",
-    "usage": "Note d'usage :",
+    "usage": "<b>Note d'usage :</b>",
 }
 
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
