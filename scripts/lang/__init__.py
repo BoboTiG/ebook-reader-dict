@@ -32,5 +32,5 @@ translations = {
 
 # Wiktionary name, for the source
 wiktionary = {
-    "fr": "Wiktionnaire, Le dictionnaire libre et gratuit (ɔ) {year}",
+    "fr": "Wiktionnaire (ɔ) {year}",
 }
