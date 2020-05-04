@@ -1,0 +1,36 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+:Déformation de ''[[sacristi]]'', afin de ne pas blasphémer ouvertement.
+
+=== {{S|interjection|fr}} ===
+'''sapristi'''
+# Pour [[marquer]] l’[[étonnement]].
+#* '''''Sapristi''' !... '''Sapristi''' !... gémissait le pauvre homme qui ne cessait de chasser, avec sa main, quelque chose d'invisible et qui bourdonnait autour de lui, comme une mouche. '''Sapristi''' ! On ne dit pas ces choses-là à d'honnêtes gens !'' {{source|Chantal Meyer-Plantureux, ''Un siècle de critique dramatique: de Francisque Sarcey à Bertrand Poirot-Delpech'', Editions Complexe, 2003, p.44}}
+#* '''''Sapristi'''! s'exclama Stiple comme mentionné au début de ce récit, au comble de son délire, à la fois fascinée et mortifiée par toute la décadence mentale qui était là à l'œuvre.'' {{source|Francis Thievicz, ''Suicide Club et autres curiosités'', heresie.com, 2013, p.52}}
+#* ''Mais '''sapristi''' vous ne vous doutez donc pas du nombre de crimes qui vous sont reprochés ?'' {{source|{{nom w pc|Pierre|Souvestre}} et {{nom w pc| Marcel|Allain}}, ''{{w|Fantômas|Fantômas, La Guêpe rouge}}'', 1912, {{w|Éditions Robert Laffont}}, Bouquins, tome 5, page 642}}
+==== {{S|notes}} ====
+: En [[apposition]], cette locution est parfois utilisée comme [[intensitif|intensitive]] :
+:* ''[...] tu ne peux même pas me laisser dîner en paix. Il faut que tu me montres tout un tas de '''sapristi''' de planches en couleurs qui représentent soi-disant, d'après je ne sais quel imbécile, l'intérieur du corps humain.'' {{source|{{w|William Faulkner}}, ''{{w|Sartoris}}'', trad. René-Noël Raimbault & Henri Delgove, éd. Gallimard, 1937, rééd. Folio, p. 299}}
+
+==== {{S|synonymes}} ====
+{{cf|sacrebleu#Synonymes}}
+
+=== {{S|prononciation}} ===
+* {{pron|sa.pʁis.ti|fr}}
+
+[[Catégorie:Interjections en français basées sur la religion catholique]]
+
+== {{langue|cs}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|fr|cs|mot=sapristi}}.
+
+=== {{S|interjection|cs}} ===
+'''sapristi''' {{pron||cs}}
+# [[sapristi#fr|Sapristi]].
+
+==== {{S|synonymes}} ====
+* [[saprlot#cs|saprlot]]
+
+=== {{S|références}} ===
+*{{R:DÉT}}
+

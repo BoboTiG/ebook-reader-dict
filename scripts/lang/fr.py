@@ -8,6 +8,8 @@ patterns = (
     "{{S|adverbe|conv}",
     "{{S|article défini|fr}",
     "{{S|article défini|fr|",
+    "{{S|interjection|fr}",
+    "{{S|interjection|fr|",
     # "{{S|lettre|fr}",
     # "{{S|lettre|fr|",
     "{{S|nom|fr}",

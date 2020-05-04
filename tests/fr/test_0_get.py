@@ -40,6 +40,7 @@ WIKTIONARY_INDEX = """<html>
         ("barbe à papa", "baʁ.b‿a pa.pa"),
         ("Bogotanais", "bɔ.ɡɔ.ta.nɛ"),
         ("pinyin", "pin.jin"),
+        ("sapristi", "sa.pʁis.ti"),
         ("suis", "sɥi"),
         ("Slovène", "slɔ.vɛn"),
     ],
@@ -126,17 +127,6 @@ def test_find_genre(word, genre, page):
                 "mathématique.",
             ],
         ),
-        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
-        (
-            "pinyin",
-            [
-                (
-                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes,"
-                    " et d’indiquer le ton utilisé lors de la prononciation."
-                ),
-                "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
-            ],
-        ),
         ("encyclopædie", ["(Archaïque) Variante orthographique de encyclopédie."]),
         (
             "éperon",
@@ -156,6 +146,17 @@ def test_find_genre(word, genre, page):
                 "illustrateur à l’autre. Il est représenté en pal, la molette vers le chef "
                 "(haut). Dans les représentations anciennes, il est parfois muni d’une sangle "
                 "en cuir. À rapprocher de molette d’éperon.",
+            ],
+        ),
+        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
+        (
+            "pinyin",
+            [
+                (
+                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes,"
+                    " et d’indiquer le ton utilisé lors de la prononciation."
+                ),
+                "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
             ],
         ),
         (
@@ -196,6 +197,7 @@ def test_find_genre(word, genre, page):
                 "Deuxième personne du singulier de l’impératif présent de rancer.",
             ],
         ),
+        ("sapristi", ["Pour marquer l’étonnement."]),
         (
             "suis",
             [
