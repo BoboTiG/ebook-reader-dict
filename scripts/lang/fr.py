@@ -85,6 +85,7 @@ templates = {
     "particulier": "(En particulier)",
     "peu attesté": "/!\\ Ce terme est très peu attesté.",
     "péj": "(Péjoratif)",
+    "philo": "(Philosophie)",
     "popu": "(Populaire)",
     "pronl": "(Pronominal)",
     "propre": "(Sens propre)",
