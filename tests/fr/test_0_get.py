@@ -93,15 +93,6 @@ def test_find_genre(word, genre, page):
             ],
         ),
         ("Bogotanais", []),
-        (
-            "employer",
-            [
-                "Utiliser ; user ; se servir de.",
-                "(Spécialement) (Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
-                "d'un mot ou d'une locution.",
-                "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
-            ],
-        ),
         ("corollaires", ["Pluriel de corollaire."]),
         (
             "DES",
@@ -127,6 +118,15 @@ def test_find_genre(word, genre, page):
                 "mathématique.",
             ],
         ),
+        (
+            "employer",
+            [
+                "Utiliser ; user ; se servir de.",
+                "(Spécialement) (Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
+                "d'un mot ou d'une locution.",
+                "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
+            ],
+        ),
         ("encyclopædie", ["(Archaïque) Variante orthographique de encyclopédie."]),
         (
             "éperon",
@@ -148,17 +148,16 @@ def test_find_genre(word, genre, page):
                 "en cuir. À rapprocher de molette d’éperon.",
             ],
         ),
-        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
         (
-            "pinyin",
+            "greffier",
             [
-                (
-                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes,"
-                    " et d’indiquer le ton utilisé lors de la prononciation."
-                ),
-                "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
+                "(Droit) Officier public préposé au greffe.",
+                "(Figuré) Celui qui prend note et tient le registre de ses notes.",
+                "(Populaire) Chat.",
+                "Poisson-chat commun (poisson).",
             ],
         ),
+        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
         (
             "mutiner",
             [
@@ -173,6 +172,16 @@ def test_find_genre(word, genre, page):
                 "Il y a longtemps. Note : contrairement à l’étymologie qui implique un temps "
                 "passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, "
                 "révolu.",
+            ],
+        ),
+        (
+            "pinyin",
+            [
+                (
+                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes,"
+                    " et d’indiquer le ton utilisé lors de la prononciation."
+                ),
+                "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
             ],
         ),
         (

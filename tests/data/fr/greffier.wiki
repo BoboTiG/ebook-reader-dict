@@ -1,0 +1,60 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: (''[[#fr-nom-1|Nom commun 1]]'') {{date|lang=fr}} Du {{étyl|la|fr|mot=graphiarius|sens=d’écriture, de style, de poinçon}} ou {{composé de|greffe|-ier|lang=fr}}.
+: (''[[#fr-nom-2|Nom commun 2]]'') {{date|lang=fr}} Sans doute par jeu de mot avec ''[[griffe]]s'' {{cf|chat-fourré|lang=fr}}.
+
+=== {{S|nom|fr|num=1}} ===
+{{fr-rég|ɡʁɛ.fje|pron2=ɡʁe.fje}}
+'''greffier''' {{pron|ɡʁɛ.fje|fr}} <small>ou</small> {{pron|ɡʁe.fje|fr}} {{m}} {{équiv-pour|une femme|greffière|lang=fr}}
+# {{droit|fr}} [[officier|Officier]] [[public]] [[préposer|préposé]] au [[greffe]].
+#* ''Le '''greffier''' d’une juridiction qui rend une décision impliquant l’obligation pour une personne de s’immatriculer doit notifier cette décision au '''greffier''' du tribunal de commerce dans le ressort duquel l’intéressé a son siège ou son établissement principal.'' {{source|Article L123-3, Code de commerce français}}
+#* ''Le '''greffier''' est la personne responsable des services administratifs d'un tribunal. À ce titre, il remplit principalement des fonctions administratives qui vont de la préparation des audiences à la planification des agendas de la cour, la transcription des témoignages et la formation des jurés.'' {{source|André {{petites capitales|Émond}} et Lucie {{petites capitales|Lauzière}}, ''Introduction à l'étude du droit'', éditions Wilson & Lafleur, Montréal, 2005, p. 198}}
+# {{figuré|fr}} Celui qui [[prendre note|prend note]] et tient le [[registre]] de ses notes.
+#* ''L’Académie […] était partagée intellectuellement, comme elle l’a toujours été, entre la pensée de n’être que le '''greffier''' de l’usage, qui est sa pensée maîtresse, et un certain désir sourd d’en être un peu le guide, ce qui est, à mon avis, parfaitement légitime.'' {{source|{{nom w pc|Émile|Faguet}}, ''[[s:Simplification simple de l’orthographe|Simplification simple de l’orthographe]], 1905}}
+
+==== {{S|traductions}} ====
+{{trad-début|Officier public|1}}
+* {{T|de}} : ''(Allemagne, Autriche)'' {{trad-|de|Rechtspfleger|m}}, {{trad-|de|Urkundsbeamter|m}}, ''(Suisse)'' {{trad-|de|Gerichtsscheiber|m}}
+* {{T|en}} : {{trad+|en|registrar}}, {{trad-|en|clerk of court}}
+* {{T|ca}} : {{trad-|ca|secretari judicial|m}}
+* {{T|da}} : {{trad-|da|kantorleder}}
+* {{T|es}} : {{trad-|es|secretario judicial|m}}
+* {{T|eo}} : {{trad-|eo|aktisto}}
+* {{T|io}} : {{trad+|io|aktisto}}
+* {{T|is}} : {{trad-|is|tryggingafræðingur}}
+* {{T|it}} : {{trad+|it|cancelliere|m}}
+* {{T|la}} : {{trad-|la|exceptor}}, {{trad-|la|commentariensis}}
+* {{T|nl}} : {{trad+|nl|griffier|m}}
+* {{T|oc}} : {{trad+|oc|grafièr|m}}
+* {{T|pt}} : {{trad-|pt|escriturário judicial|m}}, {{trad-|pt|técnico de justiça|m}}
+* {{T|ru}} : {{trad+|ru|клерк}}
+{{trad-fin}}
+
+=== {{S|nom|fr|num=2}} ===
+{{fr-rég|ɡʁɛ.fje|pron2=ɡʁe.fje}}
+'''greffier''' {{pron|ɡʁɛ.fje|fr}} <small>ou</small> {{pron|ɡʁe.fje|fr}}
+# {{populaire|fr}} [[chat|Chat]].
+#* ''Et là, c’est juste la grimace<br
+/>D’un matou sénile et pelé<br
+/>Mais ses yeux sont tellement zarbis<br
+/>Et son agonie si tranquille<br
+/>Que même les '''greffiers''', par ici,<br
+/>Donnent l’impression d’être en exil.'' {{source|{{nom w pc|Hubert-Félix|Thiéfaine}}, ''Villes natales et frenchitude'', 1990}}
+# [[poisson-chat commun|Poisson-chat commun]] (poisson).
+#* {{ébauche-exe|fr}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Vosges)|ɡʁɛ.fje|audio=LL-Q150 (fra)-Poslovitch-greffier.wav}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-greffier.wav}}
+
+=== {{S|voir aussi}} ===
+* {{Wikipédia}}
+
+=== {{S|références}} ===
+* {{Import:DAF8}}
+
+[[Catégorie:Noms alternatifs des animaux en français]]
+[[Catégorie:Chats en français]]
+[[Catégorie:Poissons en français]]
+[[Catégorie:Métiers du droit en français]]
+

@@ -40,6 +40,7 @@ def test_main(data):
             "co.html",
             "em.html",
             "en.html",
+            "gr.html",
             "ic.html",
             "mo.html",
             "mu.html",
