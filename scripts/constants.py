@@ -39,7 +39,7 @@ WORD_FORMAT = (
     # Word formatting
     '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol>'
     # The source
-    "<br/><i>{source}</i>"
+    "<br/><i>{source}</i><br/>"
     # Close the paragraph
     "</p>"
     # This is a hell of a hack to hide the harcoded dict name (!)
