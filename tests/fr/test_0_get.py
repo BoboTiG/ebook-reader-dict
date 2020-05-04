@@ -393,7 +393,8 @@ def test_main_2(err_code, capsys):
 
 def test_xml_parse_word_with_colons(tmp_path):
     file = tmp_path / "page.xml"
-    file.write_text("""\
+    file.write_text(
+        """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <page>
     <title>MediaWiki:Sitetitle</title>
@@ -415,7 +416,8 @@ def test_xml_parse_word_with_colons(tmp_path):
     </revision>
 </page>
 </mediawiki>
-""")
+"""
+    )
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
@@ -427,7 +429,8 @@ def test_xml_parse_word_with_colons(tmp_path):
 
 def test_xml_parse_not_word(tmp_path):
     file = tmp_path / "page.xml"
-    file.write_text("""\
+    file.write_text(
+        """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <siteinfo>
     <sitename>Wiktionnaire</sitename>
@@ -442,7 +445,8 @@ def test_xml_parse_not_word(tmp_path):
     </namespaces>
 </siteinfo>
 </mediawiki>
-""")
+"""
+    )
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 0
@@ -450,7 +454,8 @@ def test_xml_parse_not_word(tmp_path):
 
 def test_xml_parse_redirected_word(tmp_path):
     file = tmp_path / "page.xml"
-    file.write_text("""\
+    file.write_text(
+        """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <page>
     <title>MediaWiki:Sitetitle</title>
@@ -459,7 +464,8 @@ def test_xml_parse_redirected_word(tmp_path):
     <redirect></redirect>
 </page>
 </mediawiki>
-""")
+"""
+    )
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
@@ -473,7 +479,8 @@ def test_xml_parse_restricted_word(tmp_path):
     """For instance, "cunnilingus" was filtered out. Ensure no regressions."""
 
     file = tmp_path / "page.xml"
-    file.write_text("""\
+    file.write_text(
+        """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <page>
     <title>cunnilingus</title>
@@ -502,7 +509,8 @@ def test_xml_parse_restricted_word(tmp_path):
     </revision>
 </page>
 </mediawiki>
-""")
+"""
+    )
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
@@ -514,7 +522,8 @@ def test_xml_parse_restricted_word(tmp_path):
 
 def test_xml_parse_word_without_definitions(tmp_path):
     file = tmp_path / "page.xml"
-    file.write_text("""\
+    file.write_text(
+        """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <page>
     <title>MediaWiki:Sitetitle</title>
@@ -535,7 +544,8 @@ def test_xml_parse_word_without_definitions(tmp_path):
     </revision>
 </page>
 </mediawiki>
-""")
+"""
+    )
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1

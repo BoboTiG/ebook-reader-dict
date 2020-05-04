@@ -279,7 +279,11 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
     start_tag = None
 
     for event, element in doc:
-        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page":
+        if (
+            start_tag is None
+            and event == "start"
+            and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page"
+        ):
             start_tag = element.tag
         elif start_tag is not None and event == "end" and element.tag == start_tag:
             yield element

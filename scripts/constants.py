@@ -38,14 +38,11 @@ DOWNLOAD_URL = (
 WORD_FORMAT = (
     # Word formatting
     '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol></p>'
-
     # The source
     '<i class="s"><br/>{source}</i>'
-
     # This is a hell of a hack to hide the harcoded source
     # See https://github.com/BoboTiG/ebook-reader-dict/issues/33
     '<span class="e"><style>.e,w+*:not(w),.e+*:not(w){{display:none!important;}}</style></span>'
-
     # Do not forget the closing tag
     "</w>"
 )
