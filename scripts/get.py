@@ -127,7 +127,11 @@ def find_pronunciation(code: str, pattern: Pattern[str] = C.PRONUNCIATION) -> st
 def find_sections(code: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
     sections = wtp.parse(code).get_sections(include_subsections=False)
-    yield from (s for s in sections if s.title.lstrip().startswith(language[C.LOCALE]))
+    yield from (
+        section
+        for section in sections
+        if section.title and section.title.lstrip().startswith(language[C.LOCALE])
+    )
 
 
 def get_and_parse_word(word: str) -> None:
