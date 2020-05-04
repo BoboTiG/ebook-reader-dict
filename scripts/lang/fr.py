@@ -83,6 +83,7 @@ templates = {
     "partic": "(En particulier)",
     "particulier": "(En particulier)",
     "peu attesté": "/!\\ Ce terme est très peu attesté.",
+    "popu": "(Populaire)",
     "pronl": "(Pronominal)",
     "propre": "(Sens propre)",
     "QC": "(Québec)",
