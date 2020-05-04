@@ -61,6 +61,7 @@ templates = {
     "formel": "(Soutenu)",
     "géom": "(Géométrie)",
     "graphe": "(Théorie des graphes)",
+    "hérald": "(Héraldique)",
     "hyperb": "(Par hyperbole)",
     "hyperbole": "(Par hyperbole)",
     "idiomatique": "(Figuré)",
