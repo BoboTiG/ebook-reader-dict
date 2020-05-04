@@ -111,6 +111,8 @@ def clean(text: str) -> str:
                     subtext = ""
                 elif subtext in templates[C.LOCALE]:
                     subtext = templates[C.LOCALE][subtext]
+                elif subtext in templates_multi[C.LOCALE]:
+                    subtext = eval(templates_multi[C.LOCALE][subtext])
                 else:
                     # May need custom handling in lang/$LOCALE.py
                     subtext = f"({capitalize(subtext)})"

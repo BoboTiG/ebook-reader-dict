@@ -125,6 +125,8 @@ templates_ignored = (
 )
 
 templates_multi = {
+    # {{adj-indéf-avec-de}}
+    "adj-indéf-avec-de": '"(Avec de)"',
     # {{couleur|#B0F2B6}}
     "couleur": 'f"(Code RGB {parts[1]})"',
     # {{emploi|au passif}}
