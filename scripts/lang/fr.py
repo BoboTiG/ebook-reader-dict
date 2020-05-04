@@ -71,6 +71,7 @@ templates = {
     "indus": "(Industrie)",
     "info": "(Informatique)",
     "injur": "(Injurieux)",
+    "intrans": "(Intransitif)",
     "juri": "(Droit)",
     "ling": "(Linguistique)",
     "math": "(Mathématiques)",
