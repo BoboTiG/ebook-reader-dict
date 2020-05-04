@@ -27,6 +27,7 @@ from scripts import utils
         ("{{info|fr}}", "(Informatique)"),
         ("{{juri|fr}}", "(Droit)"),
         ("{{langage SMS}} ", "(Langage SMS)"),
+        ("{{lien|étrange|fr}}", "étrange"),
         ("{{ling|fr}}", "(Linguistique)"),
         ("{{math|fr}}", "(Mathématiques)"),
         ("{{mélio|fr}}", "(Mélioratif)"),
