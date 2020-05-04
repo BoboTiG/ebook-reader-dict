@@ -53,6 +53,12 @@ def clean(text: str) -> str:
     text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />
     text = text.replace("&nbsp;", " ")
 
+    # Local links
+    text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
+    text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b
+
+    text = text.replace("[[", "").replace("]]", "")
+
     # Templates
     # {{foo}} -> 'foo'
     # {{foo|bar}} -> foo, or bar if foo == w
@@ -140,12 +146,6 @@ def clean(text: str) -> str:
 
     # Files and other links with namespaces
     text = sub(r"\[\[[^:\]]+:[^\]]+\]\]", "", text)  # [[foo:b]] -> ''
-
-    # Local links
-    text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
-    text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b
-
-    text = text.replace("[[", "").replace("]]", "")
 
     # External links
     text = sub(

@@ -11,6 +11,11 @@ from scripts import utils
         ("{{agri|fr}}", "(Agriculture)"),
         ("{{antiq|fr}}", "(Antiquité)"),
         ("{{ancre|sens_sexe}}", ""),
+        ("{{term|Avec ''[[le#fr-art-déf|le]]''}}", "(Avec le)"),
+        (
+            "{{term|Avec un [[déterminant]] défini comme ''[[le#fr-art-déf|le]]'', ''[[mon#fr-adj-pos|mon]]'', etc., et avec un adjectif ou un adverbe}}",
+            "(Avec un déterminant défini comme le, mon, etc., et avec un adjectif ou un adverbe)",
+        ),
         ("{{emploi|au passif}}", "(Au passif)"),
         ("{{au pluriel}}", "(Au pluriel)"),
         ("{{au singulier}}", "(Au singulier)"),
