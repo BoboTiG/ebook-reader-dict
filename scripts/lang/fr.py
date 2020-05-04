@@ -91,6 +91,7 @@ templates = {
     "région": "(Régionalisme)",
     "sexe": "(Sexualité)",
     "spéc": "(Spécialement)",
+    "télécom": "(Télécommunications)",
     "unités": "(Métrologie)",
     "usage": "Note d'usage :",
 }
