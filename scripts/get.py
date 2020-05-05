@@ -103,14 +103,10 @@ def find_section_definitions(
         - almost-empty definitions, like "(Poésie) …"
         (or definitions using a sublist, it is not yet handled)
     """
-    try:
-        definitions = [clean(d.strip()) for d in section.get_lists()[0].items]
-    except IndexError:
-        # Section not finished or incomplete?
-        return []
-
-    definitions = [clean(d.strip()) for d in section.get_lists()[0].items]
-    yield from (d for d in definitions if not pattern.match(d))
+    lists = section.get_lists()
+    if lists:
+        definitions = (clean(d) for d in lists[0].items)
+        yield from (d for d in definitions if not pattern.match(d))
 
 
 def find_genre(code: str, pattern: Pattern[str] = C.GENRE) -> str:
