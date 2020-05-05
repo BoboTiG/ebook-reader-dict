@@ -110,6 +110,7 @@ templates = {
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
     "ancre",
+    "cf",
     "créer-séparément",
     "désabrévier",
     "ébauche",
@@ -136,8 +137,6 @@ templates_ignored = (
 templates_multi = {
     # {{adj-indéf-avec-de}}
     "adj-indéf-avec-de": '"(Avec de)"',
-    # {{cf|tour d’échelle}}
-    "cf": 'f"→ voir {parts[1]}"',
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
