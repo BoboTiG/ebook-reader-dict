@@ -39,6 +39,7 @@ templates = {
     "antiq": "<i>(Antiquité)</i>",
     "apposition": "<i>(En apposition)</i>",
     "archi": "<i>(Architecture)</i>",
+    "admin": "<i>(Administration)</i>",
     "argot internet": "<i>(Argot Internet)</i>",
     "argot typographes": "<i>(Argot des typographes)</i>",
     "argot voleurs": "<i>(Argot des voleurs)</i>",
