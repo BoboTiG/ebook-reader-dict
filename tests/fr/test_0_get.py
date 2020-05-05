@@ -80,7 +80,7 @@ def test_find_genre(word, genre, page):
                     " bienvenue et à l’aider dans son intégration ou ses démarches."
                 ),
                 "Lieu où sont accueillies les personnes.",
-                "(Vieilli) Fait d’accueillir ou héberger.",
+                "<i>(Vieilli)</i> Fait d’accueillir ou héberger.",
                 "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
                 "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
             ],
@@ -88,7 +88,7 @@ def test_find_genre(word, genre, page):
         (
             "aux",
             [
-                "(Linguistique) Code ISO 639-3 de l’aurá.",
+                "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
                 "Contraction obligatoire de la préposition à et de l'article défini les.",
             ],
         ),
@@ -97,24 +97,24 @@ def test_find_genre(word, genre, page):
         (
             "DES",
             [
-                "(Aviation) Code AITA de l’aéroport de Desroches, aux Seychelles.",
-                "(Commerce international) Incoterm qui signifie que le vendeur a dûment livré "
+                "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",
+                "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré "
                 "sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à "
                 "l’importation, est mise à disposition de l’acheteur à bord du navire, au "
                 "port de destination convenu. Les frais de déchargement sont à la charge de "
                 "l’acheteur.",
-                "(Biochimie) Diéthylstilbestrol, un œstrogène de synthèse, source de graves "
+                "<i>(Biochimie)</i> Diéthylstilbestrol, un œstrogène de synthèse, source de graves "
                 "complications chez les filles de ses utilisatrices.",
-                "(Québec) Diplôme d’études secondaires, un diplôme obtenu après cinq années "
+                "<i>(Québec)</i> Diplôme d’études secondaires, un diplôme obtenu après cinq années "
                 "d’études secondaires au Québec ; anciennement Certificat d’études "
                 "secondaires (CES ou CÉS).",
-                "(France) Diplôme d’études spécialisées, un diplôme de troisième cycle "
+                "<i>(France)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle "
                 "médical, pharmaceutique, vétérinaire ou odontologique en France, d’une durée "
                 "de 3 à 5 ans correspondant à l’Internat.",
-                "(Belgique) Diplôme d’études spécialisées, un diplôme de troisième cycle "
+                "<i>(Belgique)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle "
                 "universitaire en Belgique.",
-                "(France) Diplôme d’études supérieures, un diplôme français.",
-                "(Mathématiques) Décomposition en éléments simples, une méthode de calcul "
+                "<i>(France)</i> Diplôme d’études supérieures, un diplôme français.",
+                "<i>(Mathématiques)</i> Décomposition en éléments simples, une méthode de calcul "
                 "mathématique.",
             ],
         ),
@@ -122,25 +122,25 @@ def test_find_genre(word, genre, page):
             "employer",
             [
                 "Utiliser ; user ; se servir de.",
-                "(Spécialement) (Grammaire) S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
+                "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, "
                 "d'un mot ou d'une locution.",
                 "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
             ],
         ),
-        ("encyclopædie", ["(Archaïque) Variante orthographique de encyclopédie."]),
+        ("encyclopædie", ["<i>(Archaïque)</i> Variante orthographique de encyclopédie."]),
         (
             "éperon",
             [
-                "(Équitation) Pièce de métal à deux branches, qui s’adapte au talon du "
+                "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du "
                 "cavalier et dont l’extrémité pointue ou portant une molette sert à piquer "
                 "les flancs du cheval pour le stimuler.",
-                "(Botanique) Prolongement en forme de tube de la corolle ou du calice (ne "
+                "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne "
                 "concerne parfois qu’un pétale ou sépale particulier).",
-                "(Marine) Partie de la proue d’un bâtiment qui se termine en pointe et qui a "
+                "<i>(Marine)</i> Partie de la proue d’un bâtiment qui se termine en pointe et qui a "
                 "plus ou moins de saillie en avant.",
-                "(Géographie) Partie d’un contrefort, d’une chaîne de collines ou de "
+                "<i>(Géographie)</i> Partie d’un contrefort, d’une chaîne de collines ou de "
                 "montagnes qui se termine en pointe.",
-                "(Meubles héraldiques) Meuble représentant l’objet du même nom dans les "
+                "<i>(Meubles héraldiques)</i> Meuble représentant l’objet du même nom dans les "
                 "armoiries. Il est composé d’une branche en métal en U avec une tige au bout "
                 "de laquelle se trouve une molette à six rais mais le nombre peut varier d'un "
                 "illustrateur à l’autre. Il est représenté en pal, la molette vers le chef "
@@ -151,13 +151,13 @@ def test_find_genre(word, genre, page):
         (
             "greffier",
             [
-                "(Droit) Officier public préposé au greffe.",
-                "(Figuré) Celui qui prend note et tient le registre de ses notes.",
-                "(Populaire) Chat.",
+                "<i>(Droit)</i> Officier public préposé au greffe.",
+                "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
+                "<i>(Populaire)</i> Chat.",
                 "Poisson-chat commun (poisson).",
             ],
         ),
-        ("ich", ["(Linguistique) Code ISO 639-3 de l’etkywan."]),
+        ("ich", ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."]),
         (
             "mutiner",
             [
@@ -188,8 +188,8 @@ def test_find_genre(word, genre, page):
             "précepte",
             [
                 "Règle ; leçon ; enseignement.",
-                "(Philosophie) Ce qui ne peut pas ne pas être autrement.",
-                "(Religion) Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
+                "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
+                "<i>(Religion)</i> Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
             ],
         ),
         (

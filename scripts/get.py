@@ -94,7 +94,9 @@ def find_definitions(sections: T.Sections) -> List[str]:
 
 def find_section_definitions(
     section: wtp.Section,
-    pattern: Pattern[str] = re.compile(r"^((\([\w ]+\)\.? ?)*|\([\w ]+\) …)$"),
+    pattern: Pattern[str] = re.compile(
+        r"^((<i>\([\w ]+\)</i>\.? ?)*|<i>\([\w ]+\)</i> …)$"
+    ),
 ) -> Generator[str, None, None]:
     """Find definitions from the given *section*, without eventual subtext.
 

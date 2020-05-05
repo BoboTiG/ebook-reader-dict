@@ -146,7 +146,7 @@ def transform(text: str) -> str:
             subtext = fmt_chimy(parts[1:])
         elif tpl == "term":
             # Ex: {{term|ne … guère que}} -> (Ne … guère que)
-            subtext = f"({capitalize(parts[1])})"
+            subtext = f"<i>({capitalize(parts[1])})</i>"
         elif tpl in templates_ignored[C.LOCALE]:
             pass
         elif tpl in templates_multi[C.LOCALE]:
@@ -155,7 +155,7 @@ def transform(text: str) -> str:
             subtext = templates[C.LOCALE][tpl]
         elif len(parts) == 2:
             # Ex: {{grammaire|fr}} -> (Grammaire)
-            subtext = f"({capitalize(tpl)})"
+            subtext = f"<i>({capitalize(tpl)})</i>"
         else:
             # Ex: {{trad+|af|gebruik}} -> ''
             # Ex: {{conj|grp=1|fr}} -> ''
@@ -168,7 +168,7 @@ def transform(text: str) -> str:
         subtext = eval(templates_multi[C.LOCALE][text])
     else:
         # May need custom handling in lang/$LOCALE.py
-        subtext = f"({capitalize(text)})"
+        subtext = f"<i>({capitalize(text)})</i>"
 
     return subtext
 
