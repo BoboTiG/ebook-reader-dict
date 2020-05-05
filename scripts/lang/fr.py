@@ -1,5 +1,6 @@
 """French language."""
 
+# Titre des sections qui sont intéressantes à analyser.
 patterns = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|",
@@ -28,102 +29,10 @@ patterns = (
     "{{S|verbe|fr|",
 )
 
-size_min = 1024 * 1024 * 30  # 30 MiB
+# Poids minimum du dictionnaire généré (dicthtml-fr.zip), en octets.
+size_min = 1024 * 1024 * 30  # 30 Mio
 
-# https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_modèles
-templates = {
-    "absol": "<i>(Absolument)</i>",
-    "aéro": "<i>(Aéronautique)</i>",
-    "agri": "<i>(Agriculture)</i>",
-    "analogie": "<i>(Par analogie)</i>",
-    "angl": "<i>(Anglicisme)</i>",
-    "antiq": "<i>(Antiquité)</i>",
-    "apposition": "<i>(En apposition)</i>",
-    "archi": "<i>(Architecture)</i>",
-    "admin": "<i>(Administration)</i>",
-    "argot internet": "<i>(Argot Internet)</i>",
-    "argot typographes": "<i>(Argot des typographes)</i>",
-    "argot voleurs": "<i>(Argot des voleurs)</i>",
-    "Argadz": "<i>(Argot des Gadz’Arts)</i>",
-    "astron": "<i>(Astronomie)</i>",
-    "automo": "<i>(Automobile)</i>",
-    "au figuré": "<i>(Figuré)</i>",
-    "bdd": "<i>(Bases de données)</i>",
-    "BE": "<i>(Belgique)</i>",
-    "bioch": "<i>(Biochimie)</i>",
-    "biol": "<i>(Biologie)</i>",
-    "ciné": "<i>(Cinéma)</i>",
-    "cuis": "<i>(Cuisine)</i>",
-    "comm": "<i>(Commerce)</i>",
-    "e": "<sup>e</sup>",
-    "élec": "<i>(Électricité)</i>",
-    "ellipse": "<i>(Par ellipse)</i>",
-    "enclit": "<i>(Enclitique)</i>",
-    "enfantin": "<i>(Langage enfantin)</i>",
-    "euph": "<i>(Par euphémisme)</i>",
-    "euphém": "<i>(Par euphémisme)</i>",
-    "euphémisme": "<i>(Par euphémisme)</i>",
-    "exag": "<i>(Par hyperbole)</i>",
-    "exagération": "<i>(Par hyperbole)</i>",
-    "épithète": "<i>(Employé comme épithète) ",
-    "finan": "<i>(Finance)</i>",
-    "FR": "<i>(France)</i>",
-    "formel": "<i>(Soutenu)</i>",
-    "géog": "<i>(Géographie)</i>",
-    "géom": "<i>(Géométrie)</i>",
-    "graphe": "<i>(Théorie des graphes)</i>",
-    "hérald": "<i>(Héraldique)</i>",
-    "hist": "<i>(Histoire)</i>",
-    "hyperb": "<i>(Par hyperbole)</i>",
-    "hyperbole": "<i>(Par hyperbole)</i>",
-    "idiomatique": "<i>(Figuré)</i>",
-    "impr": "<i>(Imprimerie)</i>",
-    "improprement": "<i>(Usage critiqué)</i>",
-    "indén": "<i>(Indénombrable)</i>",
-    "indus": "<i>(Industrie)</i>",
-    "info": "<i>(Informatique)</i>",
-    "injur": "<i>(Injurieux)</i>",
-    "intrans": "<i>(Intransitif)</i>",
-    "juri": "<i>(Droit)</i>",
-    "ling": "<i>(Linguistique)</i>",
-    "math": "<i>(Mathématiques)</i>",
-    "médecine non conv": "<i>(Médecine non conventionnelle)</i>",
-    "mélio": "<i>(Mélioratif)</i>",
-    "métaph": "<i>(Figuré)</i>",
-    "métaphore": "<i>(Figuré)</i>",
-    "méton": "<i>(Par métonymie)</i>",
-    "métrol": "<i>(Métrologie)</i>",
-    "mythol": "<i>(Mythologie)</i>",
-    "néol": "<i>(Néologisme)</i>",
-    "note": "<b>Note :</b>",
-    "ornithol": "<i>(Ornithologie)</i>",
-    "p": "<i>pluriel</i>",
-    "par ext": "<i>(Par extension)</i>",
-    "part": "<i>(En particulier)</i>",
-    "partic": "<i>(En particulier)</i>",
-    "particulier": "<i>(En particulier)</i>",
-    "peu attesté": "/!\\ Ce terme est très peu attesté.",
-    "péj": "<i>(Péjoratif)</i>",
-    "philo": "<i>(Philosophie)</i>",
-    "popu": "<i>(Populaire)</i>",
-    "prog": "<i>(Programmation informatique)</i>",
-    "pronl": "<i>(Pronominal)</i>",
-    "propre": "<i>(Sens propre)</i>",
-    "QC": "<i>(Québec)</i>",
-    "reli": "<i>(Religion)</i>",
-    "réfl": "<i>(Réfléchi)</i>",
-    "région": "<i>(Régionalisme)</i>",
-    "sexe": "<i>(Sexualité)</i>",
-    "spéc": "<i>(Spécialement)</i>",
-    "technol": "<i>(Technologie)</i>",
-    "télécom": "<i>(Télécommunications)</i>",
-    "tradit": "<i>(Orthographe traditionnelle)</i>",
-    "typo": "<i>(Typographie)</i>",
-    "unités": "<i>(Métrologie)</i>",
-    "usage": "<b>Note d'usage :</b>",
-    "zool": "<i>(Zoologie)</i>",
-}
-
+# Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
     "ancre",
@@ -155,9 +64,113 @@ templates_ignored = (
     "trier",
 )
 
+# Modèles qui seront remplacés par du texte italique.
+# Ex : {{absol}} -> <i>(Absolument)</i>
+# Ex : {{absol|fr}} -> <i>(Absolument)</i>
+# Ex : {{absol|fr|...}} -> <i>(Absolument)</i>
+templates_italic = {
+    "absol": "Absolument",
+    "adj-indéf-avec-de": "Avec de",
+    "admin": "Administration",
+    "aéro": "Aéronautique",
+    "agri": "Agriculture",
+    "analogie": "Par analogie",
+    "angl": "Anglicisme",
+    "antiq": "Antiquité",
+    "apposition": "En apposition",
+    "archi": "Architecture",
+    "Argadz": "Argot des Gadz’Arts",
+    "argot internet": "Argot Internet",
+    "argot typographes": "Argot des typographes",
+    "argot voleurs": "Argot des voleurs",
+    "astron": "Astronomie",
+    "automo": "Automobile",
+    "au figuré": "Figuré",
+    "bdd": "Bases de données",
+    "BE": "Belgique",
+    "bioch": "Biochimie",
+    "biol": "Biologie",
+    "ciné": "Cinéma",
+    "cuis": "Cuisine",
+    "comm": "Commerce",
+    "élec": "Électricité",
+    "ellipse": "Par ellipse",
+    "enclit": "Enclitique",
+    "enfantin": "Langage enfantin",
+    "euph": "Par euphémisme",
+    "euphém": "Par euphémisme",
+    "euphémisme": "Par euphémisme",
+    "exag": "Par hyperbole",
+    "exagération": "Par hyperbole",
+    "épithète": "Employé comme épithète) ",
+    "finan": "Finance",
+    "FR": "France",
+    "formel": "Soutenu",
+    "géog": "Géographie",
+    "géom": "Géométrie",
+    "graphe": "Théorie des graphes",
+    "hérald": "Héraldique",
+    "hist": "Histoire",
+    "hyperb": "Par hyperbole",
+    "hyperbole": "Par hyperbole",
+    "idiomatique": "Figuré",
+    "impr": "Imprimerie",
+    "improprement": "Usage critiqué",
+    "indén": "Indénombrable",
+    "indus": "Industrie",
+    "info": "Informatique",
+    "injur": "Injurieux",
+    "intrans": "Intransitif",
+    "juri": "Droit",
+    "ling": "Linguistique",
+    "math": "Mathématiques",
+    "médecine non conv": "Médecine non conventionnelle",
+    "mélio": "Mélioratif",
+    "métaph": "Figuré",
+    "métaphore": "Figuré",
+    "méton": "Par métonymie",
+    "métrol": "Métrologie",
+    "mythol": "Mythologie",
+    "néol": "Néologisme",
+    "ornithol": "Ornithologie",
+    "par ext": "Par extension",
+    "part": "En particulier",
+    "partic": "En particulier",
+    "particulier": "En particulier",
+    "péj": "Péjoratif",
+    "philo": "Philosophie",
+    "popu": "Populaire",
+    "prog": "Programmation informatique",
+    "pronl": "Pronominal",
+    "propre": "Sens propre",
+    "QC": "Québec",
+    "reli": "Religion",
+    "réfl": "Réfléchi",
+    "région": "Régionalisme",
+    "sexe": "Sexualité",
+    "spéc": "Spécialement",
+    "technol": "Technologie",
+    "télécom": "Télécommunications",
+    "tradit": "Orthographe traditionnelle",
+    "typo": "Typographie",
+    "unités": "Métrologie",
+    "zool": "Zoologie",
+}
+
+# Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
+# Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
+# n'importe quelle fonction Python et celles définies dans utils.py.
+#
+# # Les arguments disponibles sont :
+#   - *tpl* (texte) qui contient le nom du modèle.
+#   - *parts* (liste de textes) qui contient les autres parties du modèle.
+#
+# Exemple avec le modèle complet "{{comparatif de|bien|fr|adv}}" :
+#   - *tpl* contiendra le texte "comparatif de".
+#   - *parts* contiendra la liste ["bien", "fr", "adv"].
+#
+# L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
-    # {{adj-indéf-avec-de}}
-    "adj-indéf-avec-de": '"<i>(Avec de)</i>"',
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
@@ -176,14 +189,32 @@ templates_multi = {
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "f\"<i>({'Sport' if len(parts) == 2 else ' ' + parts[2]})</i>\"",
+    "sport": 'f"{handle_sport(tpl, parts)}"',
     # {{variante de|ranche|fr}}
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
 }
 
+# Modèles qui seront remplacés par du texte personnalisé.
+templates_other = {
+    # XIX{{e}}
+    "e": "<sup>e</sup>",
+    # Bla bla bla. {{note}} Bla bla bla
+    # Bla bla bla. {{note|fr}} Bla bla bla
+    "note": "<b>Note :</b>",
+    "peu attesté": "/!\\ Ce terme est très peu attesté.",
+    # {{p}}
+    "p": "<i>pluriel</i>",
+    # Bla bla bla. {{usage}} Bla bla bla
+    # Bla bla bla. {{usage|fr}} Bla bla bla
+    "usage": "<b>Note d'usage :</b>",
+}
+
+# Traductions diverses
 translations = {
+    # Contenu de la release telle qu'elle sera générée sur
+    # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
     "release_desc": """Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
@@ -194,5 +225,9 @@ Export Wiktionnaire : {dump_date}
 <sub>Nombre total de téléchargements : {download_count}</sub>
 <sub>Date de création du fichier : {creation_date}</sub>
 """,
+    # Séparateur des milliers
     "thousands_separator": " ",
 }
+
+# Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
+wiktionary = "Wiktionnaire (ɔ) {year}"

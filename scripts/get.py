@@ -15,7 +15,7 @@ from requests.exceptions import HTTPError
 
 import wikitextparser as wtp
 
-from .lang import language
+from .lang import patterns
 from .utils import is_ignored, clean
 from . import annotations as T
 from . import constants as C
@@ -105,7 +105,7 @@ def find_section_definitions(
     """
     lists = section.get_lists()
     if lists:
-        definitions = (clean(d) for d in lists[0].items)
+        definitions = (clean(d.strip()) for d in lists[0].items)
         yield from (d for d in definitions if not pattern.match(d))
 
 
@@ -127,7 +127,7 @@ def find_sections(code: str) -> Generator[str, None, None]:
     yield from (
         section
         for section in sections
-        if section.title and section.title.lstrip().startswith(language[C.LOCALE])
+        if section.title and section.title.lstrip().startswith(patterns[C.LOCALE])
     )
 
 

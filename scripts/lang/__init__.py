@@ -2,27 +2,52 @@
 
 from . import fr
 
-# Markers for sections of the current locale
-language = {
+# Markers for sections that contain interesting text to analyse.
+patterns = {
     "fr": fr.patterns,
 }
 
-# Minimum dictionary size
+# Minimum size of the dictionary  ZIP (dicthtml-$LOCALE.zip), in bytes.
 size_min = {
     "fr": fr.size_min,
 }
 
 # Templates replacements: wikicode -> text conversion
-templates = {
-    "fr": fr.templates,
+
+# Templates to ignore: the text will be deleted.
+templates_ignored = {
+    "fr": fr.templates_ignored,
 }
+
+# Templates that will be completed/replaced using italic style.
+# Ex: {{absol}} -> <i>(Absolument)</i>
+# Ex: {{absol|fr}} -> <i>(Absolument)</i>
+# Ex: {{absol|fr|123}} -> <i>(Absolument)</i>
+# Ex: {{absol|fr|123|...}} -> <i>(Absolument)</i>
+templates_italic = {
+    "fr": fr.templates_italic,
+}
+
+# Templates more complex to manage. More work is needed.
+# The code on the right will be passed to a function that will execute it.
+# It is possible to use any Python fonction and ones defined in utils.py.
+#
+# Available arguments:
+#   - *tpl* (string) containg the template name.
+#   - *parts* (list of strings) containing the other parts of the template.
+#
+# Example with the complete template "{{comparatif de|bien|fr|adv}}":
+#   - *tpl* will contain the string "comparatif de".
+#   - *parts* will contain the list ["bien", "fr", "adv"].
+#
+# You can access to *tpl* and *parts* to apply changes and get the result wanted.
 templates_multi = {
     "fr": fr.templates_multi,
 }
 
-# Templates to ignore
-templates_ignored = {
-    "fr": fr.templates_ignored,
+# Templates that will be completed/replaced using custom style.
+templates_other = {
+    "fr": fr.templates_other,
 }
 
 # Translations
@@ -30,7 +55,7 @@ translations = {
     "fr": fr.translations,
 }
 
-# Wiktionary name, for the source
+# Dictionary name that will be printed below each definition
 wiktionary = {
-    "fr": "Wiktionnaire (ɔ) {year}",
+    "fr": fr.wiktionary,
 }

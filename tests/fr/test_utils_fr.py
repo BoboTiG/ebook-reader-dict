@@ -46,6 +46,8 @@ from scripts import utils
         ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{réf}}", ""),
         ("{{siècle2|XIX}}", "XIXème"),
+        ("{{sport|fr}}", "<i>(Sport)</i>"),
+        ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         (
             "{{term|Du {{nombre romain|12}}{{e}} au {{nombre romain|19}}{{e}} siècle}} Béni.",
             "<i>(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)</i> Béni.",

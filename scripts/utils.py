@@ -2,7 +2,7 @@
 import re
 from typing import List
 
-from .lang import templates, templates_ignored, templates_multi
+from .lang import templates_italic, templates_ignored, templates_multi, templates_other
 from . import constants as C
 
 
@@ -14,6 +14,16 @@ def capitalize(text: str) -> str:
 def fmt_chimy(composition: List[str]) -> str:
     """Format chimy notations."""
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
+
+
+def handle_sport(tpl: str, parts: List[str]) -> str:
+    """Handle the 'sport' template."""
+    res = f"<i>({capitalize(tpl)}"
+    if len(parts) >= 3:
+        # {{sport|fr|collectif}}
+        res += f" {parts[2]}"
+    res += ")</i>"
+    return res
 
 
 def int_to_roman(number: int) -> str:
@@ -135,46 +145,48 @@ def clean(text: str) -> str:
     return text.strip()
 
 
-def transform(text: str) -> str:
+def transform(tpl: str) -> str:
     """Handle the data inside the *text* template."""
-    subtext = ""
-
-    if "|" in text:
-        parts = text.split("|")
+    if "|" in tpl:
+        parts = tpl.split("|")
         tpl = parts[0]
-        if tpl == "w":
-            # Ex: {{w|ISO 639-3}} -> ISO 639-3
-            subtext = parts[1]
-        elif tpl == "fchim":
-            # Ex: {{fchim|H|2|O}} -> H2O
-            subtext = fmt_chimy(parts[1:])
-        elif tpl == "term":
-            # Ex: {{term|ne … guère que}} -> (Ne … guère que)
-            subtext = f"<i>({capitalize(parts[1])})</i>"
-        elif tpl in templates_ignored[C.LOCALE]:
-            pass
-        elif tpl in templates_multi[C.LOCALE]:
-            subtext = eval(templates_multi[C.LOCALE][tpl])
-        elif tpl in templates[C.LOCALE]:
-            subtext = templates[C.LOCALE][tpl]
-        elif len(parts) == 2:
-            # Ex: {{grammaire|fr}} -> (Grammaire)
-            subtext = f"<i>({capitalize(tpl)})</i>"
-        else:
-            # Ex: {{trad+|af|gebruik}} -> ''
-            # Ex: {{conj|grp=1|fr}} -> ''
-            pass
-    elif text in templates_ignored[C.LOCALE]:
-        pass
-    elif text in templates[C.LOCALE]:
-        subtext = templates[C.LOCALE][text]
-    elif text in templates_multi[C.LOCALE]:
-        subtext = eval(templates_multi[C.LOCALE][text])
     else:
-        # May need custom handling in lang/$LOCALE.py
-        subtext = f"<i>({capitalize(text)})</i>"
+        parts = []
 
-    return subtext
+    if tpl in templates_ignored[C.LOCALE]:
+        return ""
+
+    # {{w|ISO 639-3}} -> ISO 639-3
+    if tpl == "w":
+        return parts[1]
+
+    # {{fchim|H|2|O}} -> H2O
+    if tpl == "fchim":
+        return fmt_chimy(parts[1:])
+
+    # {{term|ne … guère que}} -> (Ne … guère que)
+    if tpl == "term":
+        return f"<i>({capitalize(parts[1])})</i>"
+
+    if tpl in templates_multi[C.LOCALE]:
+        return eval(templates_multi[C.LOCALE][tpl])
+
+    if tpl in templates_italic[C.LOCALE]:
+        return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"
+
+    if tpl in templates_other[C.LOCALE]:
+        return templates_other[C.LOCALE][tpl]
+
+    # {{grammaire|fr}} -> (Grammaire)
+    if len(parts) == 2:
+        return f"<i>({capitalize(tpl)})</i>"
+
+    # {{conj|grp=1|fr}} -> ''
+    if len(parts) > 2:
+        return ""
+
+    # May need custom handling in lang/$LOCALE.py
+    return f"<i>({capitalize(tpl)})</i>"
 
 
 def is_ignored(word: str) -> bool:
