@@ -111,7 +111,7 @@ templates = {
     "sexe": "<i>(Sexualité)</i>",
     "spéc": "<i>(Spécialement)</i>",
     "télécom": "<i>(Télécommunications)</i>",
-    "tradit": "<i>(orthographe traditionnelle)</i>",
+    "tradit": "<i>(Orthographe traditionnelle)</i>",
     "typo": "<i>(Typographie)</i>",
     "unités": "<i>(Métrologie)</i>",
     "usage": "<b>Note d'usage :</b>",
