@@ -29,10 +29,9 @@ GENRE = re.compile(r"{([fmsingp]+)}")
 
 # GitHub stuff
 REPOS = "BoboTiG/ebook-reader-dict"
+GH_REPOS = f"https://github.com/{REPOS}"
 RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{LOCALE}"
-DOWNLOAD_URL = (
-    f"https://github.com/{REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
-)
+DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
 
 # HTML formatting for each word
 WORD_FORMAT = (
