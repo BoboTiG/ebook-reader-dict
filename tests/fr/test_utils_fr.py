@@ -47,8 +47,8 @@ from scripts import utils
         ("{{réf}}", ""),
         ("{{siècle2|XIX}}", "XIXème"),
         (
-            "{{term|Du {{nombre romain|12}}{{e}} au {{nombre romain|19}}{{e}} siècle}}",
-            "(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)",
+            "{{term|Du {{nombre romain|12}}{{e}} au {{nombre romain|19}}{{e}} siècle}} Béni.",
+            "(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle) Béni.",
         ),
         (
             "{{term|Du XII{{e}} au XIX{{e}} siècle}}",

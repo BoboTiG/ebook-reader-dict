@@ -89,44 +89,40 @@ def clean(text: str) -> str:
     # Magic words
     text = sub(r"__\w+__", "", text)  # __TOC__
 
+    # Remove extra quotes left
+    text = text.replace("''", "")
+
     # Templates
     # {{foo}}
     # {{foo|bar}}
     # {{foo|{{bar}}|123}}
     # {{foo|{{bar|baz}}|123}}
+
+    # Simplify the parsing logic: this line will return a list of nested templates.
+    for tpl in set(re.findall(r"({{[^{}]*}})", text)):
+        # Transform the nested template.
+        # This will remove any nested templates from the original text.
+        text = text.replace(tpl, transform(tpl[2:-2]))
+
+    # Now that all nested templates are done, we can process top-level ones
     while "{{" in text:
         start = text.find("{{")
-        level = 1
         pos = start + 2
         subtext = ""
 
         while pos < len(text):
-            if text[pos : pos + 2] == "{{":
-                # Nested template - enter next level
-                level += 1
+            if text[pos : pos + 2] == "}}":
+                # We hit the end of the template
                 pos += 1
-            elif text[pos : pos + 2] == "}}":
-                # Nested template - leave this level
-                pos += 1
-                level -= 1
-            else:
-                subtext += text[pos]
-
-            # The template is now completed
-            if level == 0:
-                transformed = transform(subtext)
-                text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
                 break
 
-            # Check the next character
+            # Save the template contents
+            subtext += text[pos]
             pos += 1
 
-        # The template is not well balanced, leave the endless loop
-        if level != 0:  # pragma: nocover
-            break
-
-    # Remove extra quotes left
-    text = text.replace("''", "")
+        # The template is now completed
+        transformed = transform(subtext)
+        text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
