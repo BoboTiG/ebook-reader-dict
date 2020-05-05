@@ -134,6 +134,8 @@ templates_ignored = (
     "ébauche2-exe",
     "préciser",
     "refnec",
+    "réfnéc",
+    "réfnec",
     "référence nécessaire",
     "réf",
     "source",
