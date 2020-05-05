@@ -1,0 +1,72 @@
+{{voir|siliconé}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=fr|1863}} De l’{{étyl|de|fr|mot=Silikon}}, mot créé par {{w|Friedrich Wöhler}} {{source|''Sur les combinaisons du silicium avec l’oxygène et l’hydrogène'' ds ''Ann. chim. et phys.'', t. 69, page 224}} et, pour les équivalents français du mot allemand, {{composé de|silicium|-one|lang=fr}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|si.li.kon}}
+'''silicone''' {{pron|si.li.kon|fr}} {{f}} (composé de silicium de formule R2SiO) {{m}} (polymère).
+# {{chimie|fr}} [[composé|Composé]] [[inorganique]] formés d’une chaine [[silicium]]-[[oxygène]] {{}} (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
+#* ''[Les] '''silicones''', polymères de complexité variable […] possèdent des propriétés particulièrement surprenantes. Ces substances s’emploient industriellement dans la fabrication des huiles, des vernis et des plastiques.'' {{source|''Histoire générale des sciences'', t. 3 , vol. 2, 1964, page 429}}
+#* ''Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.'' {{source|{{nom w pc|Kyra|Davis|lang=en}}, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
+#* ''Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »'' {{source|Alain {{petites capitales|Babanini}}, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
+
+==== {{S|dérivés}} ====
+* {{lien|siliconer|fr}}
+** {{lien|siliconage|fr}}
+** {{lien|siliconé|fr}}
+
+==== {{S|traductions}} ====
+{{trad-début|Composé inorganique|1}}
+* {{T|de}} : {{trad+|de|Silikon|n}}
+* {{T|en}} : {{trad+|en|silicone}}
+* {{T|it}} : {{trad+|it|silicone|m}}
+* {{T|ja}} : {{trad-|ja|シリコーン|tr=shirikōn}}, {{trad+|ja|シリコン|tr=shirikon}}
+* {{T|cs}} : {{trad-|cs|silikon|m}}
+{{trad-fin}}
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|siliconer|ind.p.1s=oui|ind.p.3s=oui|sub.p.1s=oui|sub.p.3s=oui|imp.p.2s=oui}}
+'''silicone''' {{pron|si.li.kon|fr}}
+# ''Première personne du singulier de l’indicatif présent de'' [[siliconer]].
+# ''Troisième personne du singulier de l’indicatif présent de'' [[siliconer]].
+# ''Première personne du singulier du subjonctif présent de'' [[siliconer]].
+# ''Troisième personne du singulier du subjonctif présent de'' [[siliconer]].
+# ''Deuxième personne du singulier de l’impératif de'' [[siliconer]].
+
+=== {{S|voir aussi}} ===
+* {{Wikipédia}}
+
+=== {{S|références}} ===
+* {{R:TLFi}}
+
+== {{langue|en}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=en}} De l’{{étyl|de|en|mot=Silikon}}.
+
+=== {{S|nom|en}} ===
+{{en-nom-rég|ˈsɪl.ɪ.ˌkəʊn}}
+'''silicone''' {{pron|ˈsɪl.ɪ.ˌkəʊn|en}}
+# [[silicone#fr|Silicone]].
+#* {{ébauche-exe|en}}
+
+==== {{S|notes}} ====
+: Ne pas confondre '''''silicone''''' avec ''{{lien|silicon|en}}'' (« {{lien|silicium}} »).
+
+=== {{S|voir aussi}} ===
+* {{Wikipédia|lang=en}}
+
+== {{langue|it}} ==
+
+=== {{S|étymologie}} ===
+: {{ébauche-étym|it}}
+
+=== {{S|adjectif|it}} ===
+{{it-flexion|si.li.ˈko.n}}
+'''silicone''' {{pron|si.li.ˈko.ne|it}} {{m}}
+# {{chimie|it}} [[#fr|Silicone]], composés inorganiques formés d’une chaîne silicium-oxygène {{}} (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
+
+=== {{S|voir aussi}} ===
+* {{WP|lang=it}}
+

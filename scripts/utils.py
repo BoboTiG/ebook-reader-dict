@@ -168,10 +168,13 @@ def transform(tpl: str) -> str:
     if tpl == "term":
         if parts[1].startswith("<i>("):
             return parts[1]
+        elif not parts[1]:
+            return ""
         return f"<i>({capitalize(parts[1])})</i>"
 
     if tpl in templates_multi[C.LOCALE]:
-        return eval(templates_multi[C.LOCALE][tpl])
+        res: str = eval(templates_multi[C.LOCALE][tpl])
+        return res
 
     if tpl in templates_italic[C.LOCALE]:
         return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"
@@ -188,7 +191,7 @@ def transform(tpl: str) -> str:
         return ""
 
     # May need custom handling in lang/$LOCALE.py
-    return f"<i>({capitalize(tpl)})</i>"
+    return f"<i>({capitalize(tpl)})</i>" if tpl else ""
 
 
 def is_ignored(word: str) -> bool:

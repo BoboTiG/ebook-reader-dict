@@ -124,6 +124,13 @@ def test_find_genre(word, genre, page):
             ],
         ),
         ("Bogotanais", []),
+        (
+            "corps portant",
+            [
+                "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",  # noqa
+                "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",  # noqa
+            ],
+        ),
         ("corollaires", ["Pluriel de corollaire."]),
         (
             "DES",
@@ -213,6 +220,17 @@ def test_find_genre(word, genre, page):
             ],
         ),
         ("sapristi", ["Pour marquer l’étonnement."]),
+        (
+            "silicone",
+            [
+                "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
+                "Première personne du singulier de l’indicatif présent de siliconer.",
+                "Troisième personne du singulier de l’indicatif présent de siliconer.",
+                "Première personne du singulier du subjonctif présent de siliconer.",
+                "Troisième personne du singulier du subjonctif présent de siliconer.",
+                "Deuxième personne du singulier de l’impératif de siliconer.",
+            ],
+        ),
         (
             "suis",
             [

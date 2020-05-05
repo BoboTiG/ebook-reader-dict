@@ -1,0 +1,28 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Locution {{composé de|lang=fr|corps|portant|f=1}}.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|kɔʁ pɔʁ.tɑ̃}}
+'''corps portant''' {{pron|kɔʁ pɔʁ.tɑ̃|fr}} {{m}}
+[[Image:X24.jpg|thumb|upright=1.2|Martin Marietta X-24A construit pour un projet militaire américain expérimental de 1963 à 1975.]]
+# {{astronautique|fr}} {{term|}} [[aéronef|Aéronef]] à fuselage porteur, sur lequel la [[portance]] est produite par le [[fuselage]], destiné aux usages [[spatiaux]] ou [[hypersonique]]s, afin de limiter l'[[effet de traînée]] ou la [[surface de friction]].
+# {{astronautique|fr}} {{term|aérodynamique}} Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.
+
+==== {{S|vocabulaire}} ====
+* [[corps émoussé]] 
+* [[rentrée atmosphérique]] 
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|en}} : {{trad+|en|lifting body}}
+{{trad-fin}}
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
+=== {{S|références}} ===
+* {{R:FranceTerme}}
+
+[[Catégorie:Néologismes recommandés en français]]
+

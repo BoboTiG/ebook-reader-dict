@@ -181,7 +181,7 @@ templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{lien|étrange|fr}}
-    "lien": 'f"{parts[1]}"',
+    "lien": "parts[1]",
     # {{nombre romain|12}}
     "nombre romain": 'f"{int_to_roman(int(parts[1]))}"',
     # {{pron|plys|fr}}

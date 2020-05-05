@@ -49,6 +49,7 @@ def test_main(data):
             "pr.html",
             "ra.html",
             "sa.html",
+            "si.html",
             "ép.html",
             "œc.html",
             "words",
