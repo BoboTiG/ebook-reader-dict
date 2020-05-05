@@ -37,6 +37,7 @@ templates = {
     "analogie": "(Par analogie)",
     "antiq": "(Antiquité)",
     "apposition": "(En apposition)",
+    "archi": "(Architecture)",
     "argot internet": "(Argot Internet)",
     "argot typographes": "(Argot des typographes)",
     "argot voleurs": "(Argot des voleurs)",
