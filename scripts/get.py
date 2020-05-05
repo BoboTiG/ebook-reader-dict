@@ -107,8 +107,9 @@ def find_section_definitions(
         definitions = [clean(d.strip()) for d in section.get_lists()[0].items]
     except IndexError:
         # Section not finished or incomplete?
-        definitions = []
+        return []
 
+    definitions = [clean(d.strip()) for d in section.get_lists()[0].items]
     yield from (d for d in definitions if not pattern.match(d))
 
 
