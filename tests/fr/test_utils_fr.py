@@ -8,14 +8,10 @@ from scripts import utils
     [
         ("", ""),
         ("{{absol}}", "(Absolument)"),
+        ("{{adj-indéf-avec-de}}", "(Avec de)"),
         ("{{agri|fr}}", "(Agriculture)"),
         ("{{antiq|fr}}", "(Antiquité)"),
         ("{{ancre|sens_sexe}}", ""),
-        ("{{term|Avec ''[[le#fr-art-déf|le]]''}}", "(Avec le)"),
-        (
-            "{{term|Avec un [[déterminant]] défini comme ''[[le#fr-art-déf|le]]'', ''[[mon#fr-adj-pos|mon]]'', etc., et avec un adjectif ou un adverbe}}",
-            "(Avec un déterminant défini comme le, mon, etc., et avec un adjectif ou un adverbe)",
-        ),
         ("{{emploi|au passif}}", "(Au passif)"),
         ("{{au pluriel}}", "(Au pluriel)"),
         ("{{au singulier}}", "(Au singulier)"),
@@ -33,6 +29,7 @@ from scripts import utils
         ("{{juri|fr}}", "(Droit)"),
         ("{{langage SMS}} ", "(Langage SMS)"),
         ("{{lien|étrange|fr}}", "étrange"),
+        ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "(Linguistique)"),
         ("{{math|fr}}", "(Mathématiques)"),
         ("{{mélio|fr}}", "(Mélioratif)"),
@@ -49,6 +46,8 @@ from scripts import utils
         ("{{région}}", "(Régionalisme)"),
         ("{{réf}}", ""),
         ("{{siècle2|XIX}}", "XIXème"),
+        ("{{term|Du {{nombre romain|12}}{{e}} au {{nombre romain|19}}{{e}} siècle}}", "(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)"),
+        ("{{term|Du XII{{e}} au XIX{{e}} siècle}}", "(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)"),
         ("{{unités|fr}}", "(Métrologie)"),
     ],
 )

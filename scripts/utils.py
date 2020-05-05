@@ -59,80 +59,6 @@ def clean(text: str) -> str:
 
     text = text.replace("[[", "").replace("]]", "")
 
-    # Templates
-    # {{foo}} -> 'foo'
-    # {{foo|bar}} -> foo, or bar if foo == w
-    # {{foo|{{test}}|123}} -> ''
-    while "{{" in text:
-        start = text.find("{{")
-        level = 1
-        pos = start + 2
-        subtext = ""
-
-        while pos < len(text):
-            # print(f"> {text[pos:pos+2]} <")
-
-            if text[pos : pos + 2] == "{{":
-                # Nested template - enter next level
-                level += 1
-                pos += 1
-            elif text[pos : pos + 2] == "}}":
-                # Nested template - leave this level
-                pos += 1
-                level -= 1
-            else:
-                subtext += text[pos]
-
-            # The template is now completed
-            if level == 0:
-                # print(repr(text), start, pos, repr(text[start : pos + 1]))
-
-                # Handle he data inside the template
-                if "|" in subtext:
-                    parts = subtext.split("|")
-                    tpl = parts[0]
-                    if tpl == "w":
-                        # Ex: {{w|ISO 639-3}} -> ISO 639-3
-                        subtext = parts[1]
-                    elif tpl == "fchim":
-                        # Ex: {{fchim|H|2|O}} -> H2O
-                        subtext = fmt_chimy(parts[1:])
-                    elif tpl == "term":
-                        # Ex: {{term|ne … guère que}} -> (Ne … guère que)
-                        subtext = f"({capitalize(parts[1])})"
-                    elif tpl in templates_ignored[C.LOCALE]:
-                        subtext = ""
-                    elif tpl in templates_multi[C.LOCALE]:
-                        subtext = eval(templates_multi[C.LOCALE][tpl])
-                    elif tpl in templates[C.LOCALE]:
-                        subtext = templates[C.LOCALE][tpl]
-                    elif len(parts) == 2:
-                        # Ex: {{grammaire|fr}} -> (Grammaire)
-                        subtext = f"({capitalize(tpl)})"
-                    else:
-                        # Ex: {{trad+|af|gebruik}} -> ''
-                        # Ex: {{conj|grp=1|fr}} -> ''
-                        subtext = ""
-                elif subtext in templates_ignored[C.LOCALE]:
-                    subtext = ""
-                elif subtext in templates[C.LOCALE]:
-                    subtext = templates[C.LOCALE][subtext]
-                elif subtext in templates_multi[C.LOCALE]:
-                    subtext = eval(templates_multi[C.LOCALE][subtext])
-                else:
-                    # May need custom handling in lang/$LOCALE.py
-                    subtext = f"({capitalize(subtext)})"
-
-                text = f"{text[:start]}{subtext}{text[pos + 1 :]}"
-                break
-
-            # Check the next character
-            pos += 1
-
-        # The template is not well balanced, leave the endless loop
-        if level != 0:  # pragma: nocover
-            break
-
     # Tables
     text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
 
@@ -159,14 +85,92 @@ def clean(text: str) -> str:
     # Magic words
     text = sub(r"__\w+__", "", text)  # __TOC__
 
+    # Templates
+    # {{foo}}
+    # {{foo|bar}}
+    # {{foo|{{bar}}|123}}
+    # {{foo|{{bar|baz}}|123}}
+    while "{{" in text:
+        start = text.find("{{")
+        level = 1
+        pos = start + 2
+        subtext = ""
+
+        while pos < len(text):
+            if text[pos : pos + 2] == "{{":
+                # Nested template - enter next level
+                level += 1
+                pos += 1
+            elif text[pos : pos + 2] == "}}":
+                # Nested template - leave this level
+                pos += 1
+                level -= 1
+            else:
+                subtext += text[pos]
+
+            # The template is now completed
+            if level == 0:
+                transformed = transform(subtext)
+                text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
+                break
+
+            # Check the next character
+            pos += 1
+
+        # The template is not well balanced, leave the endless loop
+        if level != 0:  # pragma: nocover
+            break
+    
     # Remove extra quotes left
     text = text.replace("''", "")
 
     # Remove extra spaces
-    text = re.sub(r"\s{2,}", " ", text)
-    text = re.sub(r"\s{1,}\.", ".", text)
+    text = sub(r"\s{2,}", " ", text)
+    text = sub(r"\s{1,}\.", ".", text)
 
     return text.strip()
+
+
+def transform(text: str) -> str:
+    """Handle the data inside the *text* template."""
+    subtext = ""
+
+    if "|" in text:
+        parts = text.split("|")
+        tpl = parts[0]
+        if tpl == "w":
+            # Ex: {{w|ISO 639-3}} -> ISO 639-3
+            subtext = parts[1]
+        elif tpl == "fchim":
+            # Ex: {{fchim|H|2|O}} -> H2O
+            subtext = fmt_chimy(parts[1:])
+        elif tpl == "term":
+            # Ex: {{term|ne … guère que}} -> (Ne … guère que)
+            subtext = f"({capitalize(parts[1])})"
+        elif tpl in templates_ignored[C.LOCALE]:
+            pass
+        elif tpl in templates_multi[C.LOCALE]:
+            subtext = eval(templates_multi[C.LOCALE][tpl])
+        elif tpl in templates[C.LOCALE]:
+            subtext = templates[C.LOCALE][tpl]
+        elif len(parts) == 2:
+            # Ex: {{grammaire|fr}} -> (Grammaire)
+            subtext = f"({capitalize(tpl)})"
+        else:
+            # Ex: {{trad+|af|gebruik}} -> ''
+            # Ex: {{conj|grp=1|fr}} -> ''
+            pass
+    elif text in templates_ignored[C.LOCALE]:
+        pass
+    elif text in templates[C.LOCALE]:
+        subtext = templates[C.LOCALE][text]
+    elif text in templates_multi[C.LOCALE]:
+        subtext = eval(templates_multi[C.LOCALE][text])
+    else:
+        # May need custom handling in lang/$LOCALE.py
+        subtext = f"({capitalize(text)})"
+
+    return subtext
 
 
 def is_ignored(word: str) -> bool:
