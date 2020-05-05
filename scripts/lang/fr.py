@@ -65,6 +65,7 @@ templates = {
     "géom": "<i>(Géométrie)</i>",
     "graphe": "<i>(Théorie des graphes)</i>",
     "hérald": "<i>(Héraldique)</i>",
+    "hist": "<i>(Histoire)</i>",
     "hyperb": "<i>(Par hyperbole)</i>",
     "hyperbole": "<i>(Par hyperbole)</i>",
     "idiomatique": "<i>(Figuré)</i>",
