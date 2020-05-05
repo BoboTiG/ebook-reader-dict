@@ -166,6 +166,8 @@ def transform(tpl: str) -> str:
 
     # {{term|ne … guère que}} -> (Ne … guère que)
     if tpl == "term":
+        if parts[1].startswith("<i>("):
+            return parts[1]
         return f"<i>({capitalize(parts[1])})</i>"
 
     if tpl in templates_multi[C.LOCALE]:

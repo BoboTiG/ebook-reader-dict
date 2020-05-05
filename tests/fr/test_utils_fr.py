@@ -56,6 +56,7 @@ from scripts import utils
             "{{term|Du XII{{e}} au XIX{{e}} siècle}}",
             "<i>(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)</i>",
         ),
+        ("{{term|{{antonomase|fr|m=1}}}}", "<i>(Antonomase)</i>"),
         ("{{unités|fr}}", "<i>(Métrologie)</i>"),
     ],
 )

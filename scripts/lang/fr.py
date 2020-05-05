@@ -85,6 +85,7 @@ templates_italic = {
     "argot voleurs": "Argot des voleurs",
     "astron": "Astronomie",
     "automo": "Automobile",
+    "antonomase": "Antonomase",
     "au figuré": "Figuré",
     "bdd": "Bases de données",
     "BE": "Belgique",
