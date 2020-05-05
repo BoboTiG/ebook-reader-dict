@@ -115,6 +115,7 @@ templates = {
     "région": "<i>(Régionalisme)</i>",
     "sexe": "<i>(Sexualité)</i>",
     "spéc": "<i>(Spécialement)</i>",
+    "technol": "<i>(Technologie)</i>",
     "télécom": "<i>(Télécommunications)</i>",
     "tradit": "<i>(Orthographe traditionnelle)</i>",
     "typo": "<i>(Typographie)</i>",
