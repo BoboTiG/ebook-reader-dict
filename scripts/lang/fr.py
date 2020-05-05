@@ -75,6 +75,7 @@ templates = {
     "hyperb": "<i>(Par hyperbole)</i>",
     "hyperbole": "<i>(Par hyperbole)</i>",
     "idiomatique": "<i>(Figuré)</i>",
+    "impr": "<i>(Imprimerie)</i>",
     "improprement": "<i>(Usage critiqué)</i>",
     "indén": "<i>(Indénombrable)</i>",
     "indus": "<i>(Industrie)</i>",
