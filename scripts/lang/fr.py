@@ -93,6 +93,7 @@ templates = {
     "péj": "(Péjoratif)",
     "philo": "(Philosophie)",
     "popu": "(Populaire)",
+    "prog": "(Programmation informatique)",
     "pronl": "(Pronominal)",
     "propre": "(Sens propre)",
     "QC": "(Québec)",
