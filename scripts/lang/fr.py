@@ -33,6 +33,7 @@ size_min = 1024 * 1024 * 30  # 30 MiB
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_modèles
 templates = {
     "absol": "<i>(Absolument)</i>",
+    "aéro": "<i>(Aéronautique)</i>",
     "agri": "<i>(Agriculture)</i>",
     "analogie": "<i>(Par analogie)</i>",
     "antiq": "<i>(Antiquité)</i>",
