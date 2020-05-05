@@ -43,8 +43,12 @@ def clean(text: str) -> str:
     # Speed-up lookup
     sub = re.sub
 
-    # basic formatting
+    # Basic formatting
     text = sub(r"'''?([^']+)'''?", "\\1", text)
+
+    # Clean some HTML tags: we want to keep the data for some of them
+    # Ex: <span style="color:black">[[foo]]</span> -> '[[foo]]'
+    text = sub(r"<span[^>]+>([^<]+)</span>", "\\1", text)
 
     # Parser hooks
     text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''

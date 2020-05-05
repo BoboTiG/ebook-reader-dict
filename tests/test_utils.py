@@ -34,6 +34,7 @@ def test_is_ignored(word, ignored):
         ),
         ("{{term|ne … guère que}}", "(Ne … guère que)"),
         ("{{term|Souvent en [[apposition]]}}", "(Souvent en apposition)"),
+        ('<span style="color:black">[[♣]]</span>', "♣"),
         ("{{unknown}}", "(Unknown)"),
     ],
 )
