@@ -172,8 +172,9 @@ templates_multi = {
     "pron": r'f"\\{parts[1]}\\"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
+    # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": 'f"<i>(Sport {parts[2]})</i>"',
+    "sport": "f\"<i>({'Sport' if len(parts) == 2 else ' ' + parts[2]})</i>\"",
     # {{variante de|ranche|fr}}
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}

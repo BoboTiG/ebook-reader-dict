@@ -83,6 +83,15 @@ def test_find_genre(word, genre, page):
             ],
         ),
         (
+            "acrologie",
+            [
+                "<i>(Linguistique)</i> <i>(Rare)</i> Système graphique qui consiste à peindre, pour représenter les idées, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le langage ordinaire.",  # noqa
+                "<i>(Linguistique)</i> <i>(Par extension)</i> <i>(Rare)</i> Se dit lorsque deux termes commencent par la même lettre et qu’ils sont apparentés par le sens.",  # noqa
+                "<i>(Philosophie)</i> <i>(Très rare)</i> Recherche ou exposition des principes suprêmes, ou du mieux absolu.",
+                "<i>(Sport)</i> Étude ou pratique de l’acrobatie.",
+            ],
+        ),
+        (
             "aux",
             [
                 "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
