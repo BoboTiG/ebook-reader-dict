@@ -48,6 +48,7 @@ templates = {
     "astron": "<i>(Astronomie)</i>",
     "automo": "<i>(Automobile)</i>",
     "au figuré": "<i>(Figuré)</i>",
+    "bdd": "<i>(Bases de données)</i>",
     "BE": "<i>(Belgique)</i>",
     "bioch": "<i>(Biochimie)</i>",
     "biol": "<i>(Biologie)</i>",
