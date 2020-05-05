@@ -224,7 +224,11 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
         if not word or ":" in word or is_ignored(word):
             continue
 
-        pronunciation, genre, definitions = parse_word(code)
+        try:
+            pronunciation, genre, definitions = parse_word(code)
+        except Exception:
+            print(f"ERROR with {word!r}")
+            continue
         if not definitions:
             continue
 
