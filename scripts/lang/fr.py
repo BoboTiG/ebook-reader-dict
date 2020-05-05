@@ -99,6 +99,7 @@ templates = {
     "sexe": "(Sexualité)",
     "spéc": "(Spécialement)",
     "télécom": "(Télécommunications)",
+    "tradit": "(orthographe traditionnelle)",
     "unités": "(Métrologie)",
     "usage": "<b>Note d'usage :</b>",
 }
