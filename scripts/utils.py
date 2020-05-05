@@ -57,6 +57,10 @@ def clean(text: str) -> str:
     text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />
     text = text.replace("&nbsp;", " ")
 
+    # Files
+    # [[File:picture.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] -> ''
+    text = sub(r"\[\[[^|\]]+(?:\|[^\]]+){2,}\]\]", "", text)
+
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
     text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b

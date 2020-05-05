@@ -1,0 +1,405 @@
+{{voir|Base|basé}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=fr}} Du {{étyl|la|fr|basis|sens=id.}}, du {{étyl|grc|fr|mot=βάσις|tr=básis|sens=marche}}<ref>{{R:TLFi}}</ref>.
+
+=== {{S|nom|fr}} ===
+{{fr-rég|bɑz}}
+[[Fichier:Alexandrie 112004 09.jpg|vignette|120px|Une '''base''' de colonne]]
+'''base''' {{pron|bɑz|fr}} {{f}}
+# [[partie|Partie]] [[inférieur]]e d’un [[corps]] [[quelconque]] qui lui [[servir|sert]] de [[soutien]].
+#* ''Si un édifice se renverse, n’essayez pas de le maintenir debout en jetant sur les murs une couche de ciment, mais empêchez-le de s’écrouler en renforçant la '''base'''.'' {{source|Jean {{pc|Déhès}}, ''{{ws|Essai sur l’amélioration des races chevalines de la France}}'', École impériale vétérinaire de Toulouse, Thèse de médecine vétérinaire, 1868}}
+#* ''Les '''bases''' des tours visigothes sont carrées ou ont été grossièrement arrondies pour recevoir les défenses du V{{e}} siècle.'' {{source|{{nom w pc|Eugène|Viollet-le-Duc}}, ''{{ws|La Cité de Carcassonne/éd. 1888/Histoire|La Cité de Carcassonne}}, 1888''}}
+#* ''Rarement un édifice plus laid fut élevé sur une place publique. […]. Il avait trop peu de '''base''' et trop de couronnement.'' {{source|{{nom w pc|Pierre|Louÿs}}, ''La Ville plus belle que le monument'', dans ''Archipel'', 1932}}
+# {{particulier}} {{architecture|fr}} Ce qui [[soutenir|soutient]] le [[fût]] de la [[colonne]].
+#* '''''Base''' dorique.''
+#* '''''Base''' ionique.''
+#* '''''Base''' corinthienne.''
+#* ''Poser une colonne sur sa '''base'''.''
+#* ''La '''base''' d’un piédestal,'' La partie qui soutient le dé d’un piédestal.
+# [[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] {{héraldique|fr}} Désigne le [[piédestal]] d’une [[colonne]] surtout quand il est d’un [[émail]] différent de la colonne.
+#* ''De gueules flanqué en pal à dextre d’argent, à la rivière d’azur mouvant de la pointe brochant sur laquelle est posé un pont de trois arches mouvant du flanc dextre, ne laissant ainsi apparaître que les deux arches senestres, prolongé jusqu’au flanc senestre d’un empierrement, le tout d’or maçonné de sable, sommé d’une colonne aussi d’argent, la '''base''' et le chapiteau aussi d’or, le pont surmonté, sur le champ de gueules, de trois lionceaux d’or armés, lampassés et couronnés d’azur, qui est de Petit-Bersac'' {{cf|lang=fr}} illustration « base d'or »
+# {{mathématiques|fr}}
+##{{géom|fr}} [[surface|Surface]] sur laquelle on [[concevoir|conçoit]] que [[certain]]s [[corps]] [[solide]]s sont [[appuyer|appuyés]].
+##* ''La '''base''' d’une pyramide, d’un cylindre, d’un cône.''
+### {{par ext}} [[côté|Côté]] du [[triangle]] [[opposé]] à l’[[angle]] qui est [[regarder|regardé]] comme le [[sommet]].
+###* ''La '''base''' du triangle.''
+### [[côté|Côté]] d’une [[figure]] géométrique naturellement choisi comme côté principal.
+###* ''Pour trouver l’aire d’un parallélogramme, on multiplie sa '''base''' par sa hauteur.'' {{source|1=[http://www.mathgoodies.com/francais/volume1/area_parallelogram_fr.html aire d’un parallélogramme]}}
+## {{algèbre|fr|linéaire}} [[famille|Famille]] [[libre]] de [[vecteurs]], [[génératrice]] d’un [[espace vectoriel]].
+##* ''On appelle '''base''' d’un espace vectoriel E, toute famille de vecteurs libre et génératrice de E'' : [http://uel.unisciel.fr/physique/outils_nancy/outils_nancy_ch11/co/apprendre_ch11_03.html définition]
+##* ''La démonstration de l’existence d’une '''base''' pour un espace vectoriel de dimension infinie nécessite l’utilisation de l’axiome de choix.''
+## {{term|analyse réelle}} [[nombre|Nombre]] réel élevé à une [[puissance]] variable.
+##* ''Fonction exponentielle de x, dans la '''base''' a'' {{source|1=[http://uel.unisciel.fr/physique/outils_nancy/outils_nancy_ch05/co/apprendre_02_04.html unisciel]}}
+## {{arithmétique|fr}} [[nombre|Nombre]] de [[chiffre]]s utilisé pour [[dénombrer]].
+##* ''Donnez la méthode pour passer de la '''base''' décimale à la '''base''' hexadécimale. {{source|1=[http://www.apprendre-en-ligne.net/crypto/images/bases.html changement de base]}}
+# {{analogie|fr}} {{botanique|fr}} {{anatomie|fr}} Côté opposé à la [[partie]] la plus [[pointu]]e d’un [[organe]].
+#* ''La '''base''' du cœur, des poumons, etc.,''
+#* ''La '''base''' d’une feuille, d’un pétale, etc.''
+# {{term|géodésie}} [[côté|Côté]] [[initial]] [[mesuré]] [[directement]] sur le [[terrain]].
+#* ''Les '''bases''' qui ont servi à la triangulation de la France sont de douze kilomètres environ.''
+# {{militaire|fr}} [[ensemble|Ensemble]] des [[point]]s de [[ravitaillement]] [[avec]] lesquels une [[armée]] en [[campagne]] se [[tenir|tient]] en [[relation]]s [[constant]]es.
+#* '''''base''' d’opérations.''
+#* ''Couper une armée de ses '''bases'''.''
+# {{marine|fr}} [[port|Port]] de ravitaillement ou de [[refuge]] des [[navire]]s en [[temps]] de [[guerre]].
+#* ''Faire des essais sur la '''base''', courir sur la '''base''','' se dit d’un Bâtiment qui doit parcourir dans un temps donné une distance déterminée à l’avance.
+# {{chimie|fr}} Toute [[matière]] qui a la [[propriété]] de [[réagir]] aux [[acide]]s et de les [[neutraliser]], du moins en [[partie]]. [[solution#Nom_commun_2|Solution]] ayant un [[pH]] supérieur à 7.
+#* ''La plupart des '''bases''' ne sont que des oxydes métalliques.''
+#* ''La potasse la soude sont les deux '''bases''' les plus énergiques.''
+#* ''La '''base''' d’un sel.''
+# {{médecine|fr}} Ce qui entre comme [[ingrédient]] [[principal]] dans un [[mélange]].
+#* ''La '''base''' d’un médicament, d’une composition.''
+#* ''La '''base''' de ces pilules est l’aloès.''
+# {{télécommunications|fr}} Appareil relié à une [[ligne fixe]] permettant le fonctionnement de [[téléphone]]s sans fil à usage domestique.
+#* ''Les '''bases''' des téléphones sans fil offrent une couverture radio assez restreinte.''
+# {{électronique|fr}} Nom d’une des [[électrode]]s d’un [[transistor]] [[bipolaire]].
+#* {{ébauche-exe|fr}}
+# {{baseball|fr}} Une des trois zones où le coureur peut rester sans être mis hors jeu.
+#* {{ébauche-exe|fr}}
+# {{hippisme|fr}} Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.
+#* ''A 170 euros du recul, elle constitue une '''base''' incontournable.'' {{source|[https://www.canalturf.com/pronostics-PMU/2008-11-27/paris-vincennes/35670_prix-paris-turf-prix-des-landes.html ''Le pronostic du Quinté PRIX PARIS TURF (PRIX DES LANDES)''], canalturf.com, 27/11/2008}}
+#*''Gagnez vos paris sur le Quinté avec nos '''bases''' de 2 chevaux et notre synthèse de 6 chevaux.'' {{source|1=[http://www.lesleaders.com/index.php?page=3 lesleaders.com]}}
+# {{politique|fr}} Ensemble des électeurs, des soutiens d’un politique ou d’un parti.
+#* ''Ainsi Trump parlait-il à sa '''base''' quand il a joué la carte du « retour au boulot pour Pâques ». Tout comme il essayait de convaincre Wall Street et les grandes entreprises que le « business as usual » n’était pas loin.'' {{source|{{Lien web |auteur=Douglas Kennedy |url=https://www.lemonde.fr/idees/article/2020/04/01/douglas-kennedy-le-capitalisme-americain-s-effondrera-t-il-comme-un-chateau-de-cartes-quand-le-covid-19-sera-dompte_6035109_3232.html |titre=Douglas Kennedy : « Le capitalisme américain s’effondrera-t-il comme un château de cartes quand le Covid-19 sera dompté ? » |éditeur=''Le Monde'' |en ligne le=1{{er}} avril 2020}}}}
+# {{figuré|fr}} Ce qui est le [[principe]], la [[donnée]] [[fondamental]]e d’une [[chose]] ou ce sur quoi elle [[reposer|repose]].
+#* ''Ray, Montius, Scheuchzer, Micheli se sont les premiers occupés de l’''Agrostographie''. Tous ont à peu près suivi le même plan, et travaillé d’après les mêmes principes et sur les mêmes '''bases'''.'' {{source|Ambrose-Marie-François-Joseph {{smcp|Palisot de Beauvois}}, ''Essai d’une nouvelle agrostographie ou Nouveaux genres des graminées;'', 1812, page LI}}
+#* ''Toute l’histoire classique est dominée par la guerre conçue héroï­quement ; les institutions des républiques grecques eurent, à l’origine, pour '''base''' l’organisation d’armées de citoyens ; […].'' {{source|{{nom w pc|Georges|Sorel}}, ''Réflexions sur la violence'', Chap. V, ''La grève générale politique'', 1908, page 231}}
+#* ''La vaseline est la '''base''' la plus courante des pommades : on la rend plus adhésive en l’additionnant de lanoline […] qui absorbe plusieurs fois son poids d’eau.'' {{source|Marcel {{smcp|Hégelbacher}}, ''La Parfumerie et la Savonnerie'', 1924, page 134}}
+#* ''En tant que concept politique, l’État-nation se caractérise par une autorité à '''base''' territoriale, et non par des conceptions universalistes, extra-territoriales.'' {{source|Panayiotis Jerasimof {{pc|Vatikiotis}}, ''L’Islam et l’État'', 1987, traduction d’Odette {{pc|Guitard}}, 1992, 1992}}
+#* ''Quelques mois plus tard, […], ce mémorandum fut complété par un travail plus exhaustif qui pouvait servir de '''base''' à l’analyse gouvernementale de l’ensemble des relations entre le Chili et les USA.'' {{source|{{nom w pc|Armando|Uribe}}, ''Le Livre noir de l’intervention américaine au Chili'', traduction de Karine {{smcp|Berriot}} & Françoise {{smcp|Campo}}, Seuil, 1974}}
+#* ''Nous insistons sur les possibilités multi-plateformes de Python et présentons les '''bases''' pour étendre Python et l’intégrer dans d’autres applications en utilisant C ou Java.'' {{source|Alex {{smcp|Martelli}}, ''Python en concentré'', traduit par Éric {{smcp|Jacoboni}}, Paris : éditions O’Reilly, janvier 2004, page XI}}
+
+==== {{S|synonymes}} ====
+* [[support]], [[soutien]], [[appui]]
+''Philosophie :''
+* [[principe]], [[fondement]]
+''Fiscalité :''
+* [[assiette]]
+''Architecture :''
+* [[dé]]
+''Médecine :''
+* [[ingrédient]]
+''Mathématiques :''
+* [[numération]]
+
+==== {{S|antonymes}} ====
+''Chimie :''
+* [[acide]]
+
+==== {{S|dérivés}} ====
+{{(}}
+* [[à base de]]
+* [[base canonique]]
+* [[base de connaissances]]
+* [[base de données]]
+* [[base de Lewis]]
+* [[base dure]]
+* [[base fondamentale de cycles]] {{graphe|nocat=1}}
+* [[base molle]]
+* [[baser]]
+* [[basique]]
+* [[basisme]]
+* [[basiste]]
+* [[certificat d’études de base]] ([[CEB]]) {{Belgique|nocat=1}}
+* [[embase]]
+* [[station de base]]
+* [[unité de base]]
+{{)}}
+
+==== {{S|apparentés}} ====
+* [[basique]]
+
+==== {{S|traductions}} ====
+{{trad-début|socle}}
+* {{T|de}} : {{trad+|de|Grundlage}}, {{trad+|de|Basis|f}}, {{trad+|de|Ansatz|m}}
+* {{T|en}} : {{trad+|en|base}}, {{trad+|en|basis}}
+* {{T|ca}} : {{trad+|ca|base}}, {{trad-|ca|fonament}}
+* {{T|hr}} : {{trad+|hr|osnova}}, {{trad+|hr|temelj}}, {{trad+|hr|baza}}
+* {{T|es}} : {{trad+|es|base}}, {{trad+|es|fundamento}}
+* {{T|fi}} : {{trad+|fi|perusta}}
+* {{T|el}} : {{trad+|el|βάση|f|tr=vasi}}
+* {{T|it}} : {{trad+|it|base}}
+* {{T|ja}} : {{trad+|ja|基本|tr=kihon}}
+* {{T|oc}} : {{trad-|oc|basa}}, {{trad-|oc|fondament}}
+* {{T|fa}} : {{trad+|fa|پایه}}, {{trad+|fa|اساس}}, {{trad+|fa|پایگاه}}
+* {{T|pl}} : {{trad+|pl|podstawa|f}}, {{trad+|pl|fundament|m}}
+* {{T|ro}} : {{trad+|ro|bază}}
+* {{T|ru}} : {{trad+|ru|база}}
+* {{T|se}} : {{trad--|se|vuođđu}}, {{trad--|se|vuoláš}}
+* {{T|tg}} : {{trad-|tg|поя}}, {{trad-|tg|асос}}, {{trad-|tg|пойгоҳ}}
+* {{T|cs}} : {{trad+|cs|základ}}
+{{trad-fin}}
+
+{{trad-début|solution ayant un pH supérieur à 7}}
+* {{T|de}} : {{trad+|de|Base}}, {{trad+|de|Lauge|f}}, {{trad+|de|Hydroxid|n}}
+* {{T|en}} : {{trad+|en|base}}
+* {{T|ca}} : {{trad+|ca|base}}
+* {{T|es}} : {{trad+|es|base}}
+* {{T|kk}} : {{trad-|kk|сілті|tr=silti}}
+* {{T|nl}} : {{trad+|nl|basis}}
+* {{T|pl}} : {{trad+|pl|zasada|f}}
+* {{T|vi}} : {{trad-|vi|bazơ}}
+{{trad-fin}}
+
+==== {{S|hyponymes}} ====
+* {{chimie|nocat=1}} [[base faible]], [[base forte]]
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|baser|ind.p.1s=oui|ind.p.3s=oui|sub.p.1s=oui|sub.p.3s=oui|imp.p.2s=oui}}
+'''base''' {{pron|bɑz|fr}}
+# ''Première personne du singulier de l’indicatif présent de'' [[baser]].
+# ''Troisième personne du singulier de l’indicatif présent de'' [[baser]].
+# ''Première personne du singulier du subjonctif présent de'' [[baser]].
+# ''Troisième personne du singulier du subjonctif présent de'' [[baser]].
+# ''Deuxième personne du singulier de l’impératif de'' [[baser]].
+
+=== {{S|prononciation}} ===
+* {{pron|baz|fr}}, {{term|Accents avec distinction /a/~/ɑ/}} {{pron|bɑz|fr}}<ref>{{Lien web|site=Français de nos régions|auteur=André Thibault|titre=Une histoire d’A|url=https://francaisdenosregions.com/2018/07/05/une-histoire-da/|date=5 juillet 2018|consulté le=30 septembre 2019}}</ref>
+* Français méridionale : {{pron|ˈba.zə|fr}}
+* Canada : {{pron|bɑz|fr}}, {{phon|bɑɔ̯z|fr}}
+* {{écouter|France (Paris)|baz|audio=Fr-base.ogg|lang=fr}}
+* {{écouter|France (Paris)|la baz|audio=Fr-la base.ogg|titre=la base|lang=fr}}
+* {{écouter||baz|lang=fr|audio=LL-Q150 (fra)-0x010C-base.wav}}
+* {{écouter|lang=fr|France (Paris)|baz|audio=LL-Q150 (fra)-GrandCelinien-base.wav}}
+* {{écouter|lang=fr|France (Vosges)|baz|audio=LL-Q150 (fra)-Poslovitch-base.wav}}
+* {{écouter|lang=fr|France (Toulouse)|baz|audio=LL-Q150 (fra)-Lepticed7-base.wav}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-base.wav}}
+
+
+
+==== {{S|homophones|fr}} ====
+* [[basent]], [[bases]]
+
+=== {{S|anagrammes}} ===
+* [[baes]]
+* [[béas]]
+
+=== {{S|voir aussi}} ===
+* {{Wikipédia}}
+
+=== {{S|références}} ===
+{{Références}}
+* {{Import:DAF8}}
+
+[[Catégorie:Vie domestique en français]]
+
+== {{langue|en}} ==
+
+=== {{S|étymologie}} ===
+:''([[#en-adj-1|Adjectif]])'' De l’{{étyl|fro|en|bas}}.
+:''([[#en-nom-1|Nom]])'' Du {{étyl|la|en|basis|sens=base}}.
+
+=== {{S|adjectif|en}} ===
+{{en-adj-er-e|bas|pron=beɪs}}
+'''base''' {{pron|beɪs|en}}
+# [[indigne|Indigne]], [[ignoble]], [[abject]].
+#* ''He has '''base''' motives, and is unworthy of membership.''
+#*: Il a des motifs abjects, et est indigne d’être membre.
+#* ''Many suffer from '''base''' poverty, which continues to grind them down.''
+#*: Beaucoup souffrent d’une pauvreté indigne, qui continue à les broyer.
+# [[de base|De base]], [[basique]].
+#* ''The '''base''' principles are quite clear.''
+#*: Les principes de base sont tout à fait clairs.
+#* ''The '''base''' camp was used to prepare for the climb up Mount Everest.''
+#*: Le camp de base servait à se préparer pour escalader le mont Everest.
+
+=== {{S|nom|en}} ===
+{{en-nom-rég|beɪs|pp=ˈbeɪ.sɪz}}
+'''base''' {{pron|beɪs|en}}
+# [[#fr|Base]].
+#* ''The port served as a '''base''' of operations.''
+#*: Le port servit de base d’opérations.
+#* ''The '''base''' of the column is out of proportion to the rest.''
+#*: La base de la colonne est disproportionnée par rapport au reste.
+#* ''The army '''base''' is off limits to civilians.''
+#*: La base militaire est interdite aux civils.
+# {{politique|en}} {{term|political base|en}} [[support|Support]] (aide, appui).
+#* ''She can rely on a respectable vote in the election if her '''base''' turns out on election day.''
+# {{baseball|en}} [[#fr|Base]].
+# {{chimie|en}} [[basique|Basique]].
+# {{héraldique|en}} [[champagne|Champagne]].
+# {{propulsion|en}} [[culot d’ergol#fr|Culot d’ergol]].
+
+==== {{S|dérivés}} ====
+* {{lien|basic|en}}
+* {{lien|basal|en}}
+
+=== {{S|verbe|en}} ===
+{{en-conj-rég-e|bas|inf.pron=beɪs|p3s.pron=ˈbeɪ.sɪz|pp.psuf=t|ppr.pron=ˈbeɪ.sɪŋ}}
+'''base''' {{pron|beɪs|en}} {{t|en}}
+# [[baser|Baser]].
+#* ''His whole life is '''based''' on a lie.''
+#*: Sa vie entière est basée sur un mensonge.
+
+=== {{S|prononciation}} ===
+* {{écouter|États-Unis (Californie)|beɪs|audio=En-us-base.ogg|lang=en}}
+* {{écouter|lang=en|Suisse (Genève)|audio=LL-Q1860 (eng)-Nattes à chat-base.wav}}
+* {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-base.wav}}
+
+=== {{S|voir aussi}} ===
+* {{WP|3=en}}
+
+== {{langue|es}} ==
+
+=== {{S|étymologie}} ===
+: Du {{étyl|la|es|basis|sens=base}}.
+
+=== {{S|nom|es}} ===
+{{es-rég-voy|ˈba.se}}
+'''base''' {{pron|ˈba.se|es}} {{f}}
+# {{architecture|es}} [[#fr|Base]].
+#* ''No notó que no ganaba camino alguno con sus esfuerzos; pues no tenía, por decirlo así, ningún apoyo, ninguna '''base''' sobre que hacer fuerzas y en que poder emplearlas para poner el entendimiento en movimiento.''
+# {{géométrie|es}} [[#fr|Base]].
+#* ''Ahora bien, si no podía llegar a la cima de la montaña, y si por otra parte no se podía dar la vuelta a la '''base''' del cono, sería imposible examinar la parte occidental del país, y el objeto de la ascensión no se conseguiría.''
+# {{algèbre|es|linéaire}} [[#fr|Base]].
+# {{chimie|es}} [[#fr|Base]].
+
+==== {{S|apparentés}} ====
+* [[básico]]
+* [[basal]]
+* [[basar]]
+
+==== {{S|dérivés}} ====
+* [[a base de]]
+* [[a base de bien]]
+* [[base nitrogenada]]
+* [[de base]]
+* [[base de datos]]
+
+=== {{S|verbe|es|flexion}} ===
+{{es-verbe-flexion|basar|sub.p.1s=oui|sub.p.3s=oui|imp.p.3s=oui}}
+'''base''' {{pron|ˈba.se|es}}
+# ''Première personne du singulier du présent du subjonctif de ''[[basar#es|basar]]''.''
+# ''Troisième personne du singulier du présent du subjonctif de ''[[basar#es|basar]]''.''
+# ''Troisième personne du singulier de l’impératif de ''[[basar#es|basar]]''.''
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=es|{{AM|nocat=1}}|audio=Es-am-lat-base.ogg}}
+
+=== {{S|anagrammes}} ===
+* {{lien|sabe|es}}
+
+=== {{S|voir aussi}} ===
+* {{WP|3=es}}
+
+=== {{S|références}} ===
+* {{Source-wikt|es|base|449912}}
+
+== {{langue|it}} ==
+
+=== {{S|étymologie}} ===
+: Du {{étyl|la|it|mot=basis}}.
+
+=== {{S|nom|it}} ===
+{{it-flexion|ˈba.z}}
+'''base''' {{pron|ˈba.ze|it}} {{f}}
+# [[base#fr-nom|Base]], partie inférieure d’un corps quelconque qui lui sert de soutien.
+# {{architecture|it}} [[base#architecture|Base]], base d’une colonne.
+#* '''''base''' corinzia.''
+#*:base corinthienne.
+# {{mathématiques|it}} [[base#fr-mathématiques|Base]].
+#* '''''base''' di una piramide, un triangolo.''
+#*: bade d’une pyramide, d’un triangle.
+#* ''sistema numerico in '''base''' 10.''
+#*:système numérique en base 10.
+#* ''logaritmo di '''base''' b.''
+#*:logarithme de base b.
+# {{chimie|it}} [[base#chimie|Base]].
+#* ''reazione acido '''base'''.''
+#*:réaction acide base.
+#* '''''base''' azotata.''
+#*:base azotée.
+# {{informatique|it}} [[base#fr-nom|Base]].
+#*'''''base''' di dati.''
+#*:base de données.
+# {{militaire|it}} [[base#fr-nom|Base]].
+#* '''''base''' aerea, '''base''' navale.''
+#*:base aérienne, base navale.
+# [[base#fr-nom|Base]], ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.
+#* '''''base''' teorica di un partito politico.''
+#*: base théorique d’un parti politique.
+#* '''''base''' di conoscenza.''
+#*: base de connaissance.
+#* '''''base''' giuridica.''
+#*:base juridique.
+# {{électronique|it}} [[électrode|Électrode]] de commande d’un transistor.
+#* '''''base''' del transistor a giunzione bipolare.''
+#*:base du transistor à jonction bipolaire.
+# {{économie|it}} [[base#fr-nom|Base]], monnaie qui a été créée directement par la banque centrale.
+#* '''''base''' monetaria''.
+#*:base monétaire.
+
+==== {{S|composés}} ====
+* {{lien|base di conoscenza|it|sens=base de connaissances}}
+
+==== {{S|dérivés}} ====
+* [[basale#it|basale]]
+* [[basare#it|basare]]
+* [[basico#it|basico]]
+* [[di base#it|di base]]
+* [[imbasare#it|imbasare]]
+* [[in base a#it|in base a]]
+* [[isobase#it|isobase]]
+* [[kilobase#it|kilobase]]
+* [[reobase#it|reobase]]
+
+=== {{S|voir aussi}} ===
+*{{WP|lang=it}}
+
+== {{langue|la}} ==
+=== {{S|nom|la|flexion}} ===
+'''base''' {{pron||la}}
+# ''Ablatif singulier de'' [[basis#la|basis]].
+
+== {{langue|nl}} ==
+
+=== {{S|étymologie}} ===
+: Du {{étyl|la|nl|mot=basis|sens=base}}.
+
+=== {{S|nom|nl}} ===
+'''base''' {{pron|ˈbɑ.sə|nl}}
+# [[#fr|Base]].
+
+=== {{S|taux de reconnaissance}} ===
+{{nl-taux|86,6|85,5|pourB=86|pourNL=87}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=nl||audio=Nl-base.ogg}}
+
+=== {{S|Références}} ===
+{{Références}}
+
+
+== {{langue|pt}} ==
+
+=== {{S|étymologie}} ===
+: Du {{étyl|la|pt|basis|sens=base}}.
+
+=== {{S|nom|pt}} ===
+{{pt-rég|}}
+'''base''' {{pron|ˈba.se|pt}} {{f}}
+# [[#fr|Base]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=pt|Portugal (Porto)||audio=LL-Q5146 (por)-Santamarcanda-base.wav}}
+
+== {{langue|se}} ==
+=== {{S|verbe|se|flexion}} ===
+'''base''' {{phono|ˈbɑse|se}}
+# ''Thème négatif au présent de l’indicatif de'' [[bassit#se|bassit]].
+# ''Deuxième personne du singulier du présent de l’impératif de'' [[bassit#se|bassit]].
+# ''Thème négatif au présent de l’impératif de'' [[bassit#se|bassit]].
+
+=== {{S|nom|se|flexion}} ===
+'''base''' {{phono|ˈbɑse|se}}
+# ''Génitif singulier de'' {{lien|bassi|se}}.
+
+== {{langue|sl}} ==
+=== {{S|nom|sl|flexion}} ===
+'''base''' {{pron||sl}} {{m|i}}
+# ''Accusatif pluriel de'' [[bas#sl|bas]].
+
+=== {{S|anagrammes}} ===
+* {{lien|besa|sl}}
+

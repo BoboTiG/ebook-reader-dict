@@ -89,6 +89,31 @@ def test_find_genre(word, genre, page):
                 "Contraction obligatoire de la préposition à et de l'article défini les.",
             ],
         ),
+        (
+            "base",
+            [
+                "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
+                "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
+                "<i>(Héraldique)</i> Désigne le piédestal d’une colonne surtout quand il est d’un émail différent de la colonne.",  # noqa
+                "<i>(Par analogie)</i> <i>(Botanique)</i> <i>(Anatomie)</i> Côté opposé à la partie la plus pointue d’un organe.",  # noqa
+                "<i>(Géodésie)</i> Côté initial mesuré directement sur le terrain.",
+                "<i>(Militaire)</i> Ensemble des points de ravitaillement avec lesquels une armée en campagne se tient en relations constantes.",  # noqa
+                "<i>(Marine)</i> Port de ravitaillement ou de refuge des navires en temps de guerre.",  # noqa
+                "<i>(Chimie)</i> Toute matière qui a la propriété de réagir aux acides et de les neutraliser, du moins en partie. Solution ayant un pH supérieur à 7.",  # noqa
+                "<i>(Médecine)</i> Ce qui entre comme ingrédient principal dans un mélange.",
+                "<i>(Télécommunications)</i> Appareil relié à une ligne fixe permettant le fonctionnement de téléphones sans fil à usage domestique.",  # noqa
+                "<i>(Électronique)</i> Nom d’une des électrodes d’un transistor bipolaire.",
+                "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",  # noqa
+                "<i>(Hippisme)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",  # noqa
+                "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
+                "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
+                "Première personne du singulier de l’indicatif présent de baser.",
+                "Troisième personne du singulier de l’indicatif présent de baser.",
+                "Première personne du singulier du subjonctif présent de baser.",
+                "Troisième personne du singulier du subjonctif présent de baser.",
+                "Deuxième personne du singulier de l’impératif de baser.",
+            ],
+        ),
         ("Bogotanais", []),
         ("corollaires", ["Pluriel de corollaire."]),
         (
