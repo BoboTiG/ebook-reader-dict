@@ -1,0 +1,193 @@
+{{wikipedia}}
+
+==Svenska==
+===Substantiv===
+{{sv-subst-n-oräkn|fog=|betydelser=1.|förled=svensk}}
+{{sv-subst-n-or|betydelser=2.}}
+'''svenska'''
+#{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i [[Finland]])
+#{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
+
+====Översättningar====
+{{ö-topp|språk}}
+*afrikaans: {{ö+|af|Sweeds}}
+*albanska: {{ö+|sq|gjuha suedeze}}
+*alemanniska: {{ö|als|Schwedisch}}
+*amhariska: {{ö|am|ስዊድንኛ}}
+*arabiska: {{ö|ar|اَلسُّوِيدِيَّة|f|tr=as-suwīdiyya}}, {{ö|ar|سُوِيدِيّ|m|tr=suwīdiyy}}, {{ö|ar|اَللُّغَة اَلسُّوِيدِيَّة|f|tr=al-luḡa s-suwīdiyya}}
+*aragonska: {{ö+|an|sueco}}
+*arameiska: {{ö|arc|ܠܫܢܐ ܣܘܝܕܝܐ}}
+*armeniska: {{ö+|hy|շվեդերեն}} (shvederen)
+*asturiska: {{ö+|ast|suecu|m}}
+*azerbajdzjanska: {{ö+|az|İsveç dili}}
+*basjkiriska: {{ö|ba|швед теле}}
+*baskiska: {{ö+|eu|suediera}}
+*bayerska: {{ö|bar|Schwedisch}}
+*bengali: {{ö|bn|সুয়েডীয় ভাষা}}
+*bokmål: {{ö+|no|svensk|m}}
+*bosniska: {{ö+|bs|švedski|m}}
+*bretonska: {{ö|br|svedeg}}
+*bulgariska: {{ö|bg|шведски език}}, {{ö|bg|шведски}}
+*burjatiska: {{ö|bxr|швед хэлэн}}
+*cherokesiska: {{ö|chr|ᎠᏂᏍᏫᏗ}}
+*danska: {{ö+|da|svensk}}
+*divehi: {{ö+|dv|ސުވެޑިޝް|tr=suveḍiš}}
+*engelska: {{ö+|en|Swedish}}
+*esperanto: {{ö|eo|sveda lingvo}}
+*estniska: {{ö|et|rootsi keel}}
+*ewe: {{ö|ee|Swedgbe}}
+*finska: {{ö+|fi|ruotsi}}, {{ö|fi|ruotsin kieli}}
+*fornengelska: {{ö|ang|Swēonisc sprǣc}}, {{ö|ang|Swēonisc}}
+*fornkyrkoslaviska: {{ö|cu|свє́ньскъ ѩꙁꙑ́къ}}
+*frankoprovensalska: {{ö|frp|suèdouès}}
+*franska: {{ö+|fr|suédois|m}}
+*frisiska: {{ö+|fy|Sweedsk}}
+*färöiska: {{ö|fo|svenskt}}
+*galiciska: {{ö+|gl|sueco|m}}
+*georgiska: {{ö+|ka|შვედური|tr=šveduri}}, {{ö|ka|შვედური ენა|tr=šveduri ena}}
+*grekiska: {{ö+|el|σουηδικά|n|p|tr=souidiká}}
+*grönländska: {{ö|kl|svenskisut}}
+*gujarati: {{ö+|gu|સ્વીડિશ}}
+*hawaiiska: {{ö|haw|Kuekene}}
+*hebreiska: {{ö+|he|שבדית|f|tr=švedít}}
+*hindi: {{ö+|hi|स्वीडिश|tr=svīḍiś}}
+*högsorbiska: {{ö+|hsb|šwedšćina}}
+*ido: {{ö+|io|Suediana}}
+*ilokano: {{ö|ilo|Sueko}}, {{ö|ilo|pagsasao a Sueko}}
+*indonesiska: {{ö+|id|bahasa Swedia}}
+*interlingua: {{ö|ia|lingua svedese}}
+*inuktitut: {{ö|iu|ᔅᕗᓐᔅᑭᑐᑦ}}
+*iriska: {{ö|ga|Sualainnis|f}}
+*isländska: {{ö+|is|sænska}}
+*italienska: {{ö+|it|svedese|m}}
+*japanska: {{ö+|ja|スウェーデン語}} ({{ö|ja|スウェーデンご}}, ''suweedengo'')
+*javanesiska: {{ö|jv|basa Swédia}}
+*jiddisch: {{ö+|yi|שוועדיש|tr=shvedish}}
+*kabardinska: {{ö|kbd|шуэцэбзэ}}
+*kannada: {{ö+|kn|ಸ್ವೀಡಿಶ್}}
+*kapampangan: {{ö|pam|Amanung Sweku}}
+*karelska: {{ö|krl|ruočči}}
+*katalanska: {{ö+|ca|suec|m}}
+*kazakiska: {{ö|kk|швед тілі}}
+*kinesiska: {{ö+|zh|瑞典语}},  {{ö|zh|瑞典語|tr=Ruìdiǎn'yǔ}}
+*kirgiziska: {{ö|ky|швед тили}}
+*koreanska: {{ö+|ko|스웨덴어}} (seuweden-eo)
+*korniska: {{ö|kw|Swedek}}
+*korsikanska: {{ö|co|lingua svedese}}
+*kroatiska: {{ö|hr|švedski jezik}}, {{ö+|hr|švedski}}
+*kurdiska: {{ö+|ku|swêdî}}
+*kvänska: {{ö|fkv|ruottii}}
+*kymriska: {{ö+|cy|Swedeg}}
+*lak: {{ö|lbe|швед маз}}
+*lao: {{ö+|lo|ພາສາສະວີເດັນ}} (phā sā sa vī den)
+*latin: {{ö|la|lingua Suecica|f}}
+*lettiska: {{ö|lv|zviedru valoda|f}}, {{ö|lv|zviedru}}
+*liguriska: {{ö|lij|svedeise}}
+*limburgiska: {{ö+|li|Zwieëdsj}}, {{ö+|li|Zwèdsj|n|n}}
+*litauiska: {{ö+|lt|švedų kalba}}
+*lulesamiska: {{ö|smj|svierigadárro}}
+*luxemburgiska: {{ö+|lb|Schwedesch}}
+*lågskotska: {{ö|sco|swaddish}}
+*lågsorbiska: {{ö|dsb|šwedšćina}}
+*lågtyska: {{ö+|nds|Zweeds}}
+*makedonska: {{ö|mk|шведски јазик}}, {{ö|mk|шведски}}
+*malagassiska: {{ö|mg|soedoa}}
+*malajiska: {{ö|ms|bahasa Sweden}}
+*malayalam: {{ö|ml|സ്വീഡിഷ് ഭാഷ}}
+*maltesiska: {{ö|mt|Żvediż}}
+*manx: {{ö|gv|Soolynnish}}
+*maori: {{ö|mi|reo Huitene}}
+*marathi: {{ö|mr|स्वीडिश भाषा}}
+*minangkabau: {{ö|min|bahaso Swedia}}
+*moksja: {{ö|mdf|шведонь кяль}}, {{ö|mdf|шведокс}}
+*mongoliska: {{ö|mn|Швед хэл}}
+*nahuatl: {{ö|nah|Sueciatlahtōlli}}
+*nederländska: {{ö+|nl|Zweeds|n}}
+*nordfrisiska: {{ö|frr|Sweedsk}}
+*nordsamiska: {{ö|se|ruoŧagiella}}, {{ö|se|ruoŧŧa}}
+*normandiska: {{ö|nrm|Suédouais}}
+*nynorska: {{ö+|nn|svensk|m}}
+*occitanska: {{ö+|oc|suedés}}
+*ossetiska: {{ö|os|шведаг ӕвзаг}}
+*papiamento: {{ö|pap|Sueko}}
+*persiska: {{ö|fa|زبان سوئدی}}
+*piedmontesiska: {{ö|pms|svedèis}}
+*polska: {{ö+|pl|szwedzki}}
+*portugisiska: {{ö+|pt|sueco|m}}, {{ö|pt|língua sueca|f}}
+*punjabi: {{ö|pa|ਸਵੀਡਿਸ਼ ਭਾਸ਼ਾ}}
+*quechua: {{ö|qu|suwiri simi}}
+*rumänska: {{ö+|ro|suedeză}}, {{ö|ro|limba suedeză|f}}
+*ryska: {{ö+|ru|шведский язык|m}}
+*rätoromanska: {{ö|rm|svedaisa}}
+*samoanska: {{ö|sm|fa'asuetena}}
+*sardiska: {{ö|sc|isvedesu}}
+*saterfrisiska: {{ö|stq|Swedisk}}
+*schlesiska: {{ö|szl|szwedzko}}, {{ö|szl|szwedzko godka}}
+*serbiska: {{ö+|sr|шведски}}, {{ö|sr|шведски језик}}
+*sicilianska: {{ö+|scn|svidisi}}
+*sindhi: {{ö|sd|سويڊش ٻولي}}
+*skotsk gäliska: {{ö|gd|Suainis|f}}
+*slovakiska: {{ö+|sk|švédčina|f}}
+*slovenska: {{ö|sl|švédščina|f}}
+*somaliska: {{ö|so|Af-Iswiidhan}}
+*sorani: {{ö|ckb|زمانی سوێدی}}
+*spanska: {{ö+|es|sueco|m}}
+*sundanesiska: {{ö|su|basa Swédia}}
+*swahili: {{ö|sw|kiswidi}}, {{ö|sw|Kiswidi}}
+*sydsamiska: {{ö|sma|ruoŧagiella}}
+*tadzjikiska: {{ö|tg|забони шведӣ}}, {{ö+|tg|шведӣ}}
+*tagalog: {{ö+|tl|Suweko}}, {{ö|tl|wikang Suweko}}
+*tamil: {{ö|ta|சுவீடிய மொழி}}
+*tatariska: {{ö+|tt|швед теле}}
+*thai: {{ö+|th|ภาษาสวีเดน}}
+*tjeckiska: {{ö+|cs|švédština|f}}
+*tjetjenska: {{ö|ce|шведийн мотт}}
+*tjuvasjiska: {{ö|cv|швед чӗлхи}}
+*turkiska: {{ö+|tr|İsveççe}}
+*tyska: {{ö+|de|Schwedisch|n}}
+*udmurtiska: {{ö|udm|швед}}, {{ö|udm|швед кыл}}
+*uiguriska: {{ö|ug|شۋېتسىيە تىلى}}
+*ukrainska: {{ö|uk|шведська мова|f}}
+*ungerska: {{ö+|hu|svéd}}
+*urdu: {{ö|ur|سونسکا}}
+*uzbekiska: {{ö|uz|shved tili}}
+*vallonska: {{ö+|wa|suwedwès}}
+*venetianska: {{ö+|vec|svedexe|m}}
+*vepsiska: {{ö|vep|ročin kel'}}
+*vietnamesiska: {{ö+|vi|tiếng Thụy Điển}}, {{ö|vi|Thụy-Điển}}
+*vitryska: {{ö|be|шве́дская мо́ва|f|tr=švjédskaja móva}}, {{ö|be|шве́дская|f|tr=švjédskaja}}
+*volapük: {{ö+|vo|Svedänapük}}
+*västpanjabi: {{ö+|pnb|سونسکا}}
+*waray-waray: {{ö|war|Suweko}}
+*yoruba: {{ö|yo|Èdè Sweden}}
+*zazaiska: {{ö|diq|Swêdki}}
+*zulu: {{ö|zu|IsiSwidishi}}
+*östmariska: {{ö|mhr|швед йылме}}
+{{ö-botten}}
+
+{{ö-topp|svensk kvinna}}
+*bokmål: {{ö+|no|svenske|m}}, {{ö|no|svensk kvinne}}
+*engelska: {{ö+|en|Swede}}, {{ö|en|Swedish woman}}
+*finska: {{ö|fi|ruotsalainen nainen}}
+*franska: {{ö+|fr|Suédoise|f}}
+*grekiska: {{ö+|el|Σουηδή}}, {{ö+|el|Σουηδέζα}}
+*isländska: {{ö|is|Svii|m}}
+*italienska: {{ö+|it|svedese|f}}
+*katalanska: {{ö+|ca|sueca|f}}
+*nederländska: {{ö+|nl|Zweedse|f}}
+*nynorska: {{ö+|nn|svenske|m}}, {{ö|nn|svensk kvinne|f}}
+*polska: {{ö+|pl|Szwedka}}
+*ryska: {{ö+|ru|шведка|f}}
+*slovakiska: {{ö|sk|Švédka}}
+*spanska: {{ö+|es|sueca|f}}
+*tjeckiska: {{ö+|cs|Švédka|f}}
+*tyska: {{ö+|de|Schwedin|f}}
+*ukrainska: {{ö|uk|шведка|f}}
+*ungerska: {{ö+|hu|svéd}}
+*volapük: (''man/kvinna'') {{ö+|vo|Svedänan}}, (''kvinna'') {{ö|vo|ji-Svedänan}}, {{ö|vo|vom Svedänik}}
+{{ö-botten}}
+
+===Adjektiv===
+'''svenska'''
+#{{böjning|sv|adj|svensk}}
+

@@ -86,6 +86,8 @@ templates_multi = {
 templates_warning_skip = tuple()  # type: ignore
 
 release_description = """\
+:warning: Contributors need for that locale.
+
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 

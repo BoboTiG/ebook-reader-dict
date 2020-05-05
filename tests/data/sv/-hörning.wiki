@@ -1,0 +1,22 @@
+==Svenska==
+===Efterled===
+{{efterled|sv}}
+'''-hörning''' (''suffix'')
+#{{tagg|geometri|vardagligt}} ''suffix för [[månghörning]]ar''
+#:{{etymologi|Av ''[[hörn]]'' och ''[[-ing]]''.}}
+#:''fem'''hörning''''', ''sex'''hörning''''' osv.
+#:{{synonymer|[[-gon]]}}
+#''suffix i ord som har med [[djur]]s [[horn]] att göra''
+#:{{etymologi|Av ''[[horn]]'' och ''[[-ing]]'' med omljud.}}
+#:''en'''hörning'''''
+#:''nos'''hörning'''''
+
+====Användning====
+Mer formellt talar man om [[polygon]]er i stället för [[månghörningar]], och då används suffixet [[-gon]], fast då med de likaså mer formella icke-svenska förleden: ''pentagon'', ''hexagon'' osv.
+
+====Översättningar====
+{{ö-topp|suffix för månghörningar}}
+*finska: {{ö+|fi|-kulmio}}
+*nederländska: {{ö|nl|-hoek}}
+{{ö-botten}}
+

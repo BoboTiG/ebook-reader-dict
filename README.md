@@ -8,6 +8,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
 - [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
+- [Svenska](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
 ## Updating Dictionaries
 
