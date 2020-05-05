@@ -1,0 +1,48 @@
+{{se även|Auto|autó}}
+
+==Svenska==
+===Affix===
+{{affix|sv}}
+'''auto-''' ''(prefix)''
+#[[automatisk]]; [[självgående]]
+
+====Besläktade ord====
+*[[autoläge]]
+
+===Substantiv===
+{{subst|sv}}
+'''auto'''
+#[[automatisk]]t läge
+#[[autostart]]
+
+====Besläktade ord====
+*[[automatisk]]
+
+==Finska==
+===Substantiv===
+{{fi-subst-valo|aut}}
+'''auto'''
+#{{tagg|kat=fordon|språk=finska}} [[bil]]
+#:{{sammansättningar|[[autotehdas]], [[autourheilu]], [[henkilöauto]], [[hybridiauto]], [[jäätelöauto]], [[kirjastoauto]], [[maastoauto]], [[maitoauto]], [[pakettiauto]], [[poliisiauto]], [[sähköauto]]}}
+
+==Nederländska==
+===Substantiv===
+{{nl-subst|auto|auto's}}
+'''auto''' {{m}}
+#{{tagg|kat=fordon|språk=nederländska}} [[bil]]
+#:{{sammansättningar|[[auto-ongeval]], [[auto-ongeluk]]}}
+
+==Polska==
+===Substantiv===
+{{subst|pl}}
+'''auto'''
+#{{tagg|kat=fordon|språk=polska}} [[bil]]
+
+==Spanska==
+===Substantiv===
+{{subst|es}}
+'''auto''' {{m}}
+#{{tagg|kat=fordon|språk=spanska}} [[bil]]
+#:{{etymologi|Avkortning av ''[[automóvil]]'', av {{härledning-|språk=es|grc|αὐτός|själv}}.}}
+#:{{synonymer|[[automóvil]], [[carro]] ''(Latinamerika)'', [[coche]]}}
+

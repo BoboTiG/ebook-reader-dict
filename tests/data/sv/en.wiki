@@ -1,0 +1,234 @@
+{{se även|-en|én}}
+{{wikipedia|En|en (växt)}}
+
+==Tvärspråkligt==
+===Kod===
+{{kod|språkkoder}}
+'''en'''
+#{{tagg|text=ISO 639-1}} kod för språket [[engelska]]
+
+==Svenska==
+===Räkneord===
+{{räkn|sv}}
+'''en'''
+*{{uttal|sv|ipa=eːn/, /ɛn/, /en}} (vissa dialekter)
+#talet [[1]], bland annat vid räkning
+#:'''''En''', två, tre...''
+#:''Jag har gjort fyra uppgifter, så nu återstår bara '''en'''.''
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{synonymer|[[ett#Svenska|ett]]}}
+:{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
+:{{sammansättningar|[[tjugoen#Svenska|tjugoen]], [[trettioen#Svenska|trettioen]], [[fyrtioen#Svenska|fyrtioen]] osv.}}
+:{{seäven|[[första]]}}
+
+====Översättningar====
+{{ö-se|ett}}
+
+===Adverb===
+{{adv|sv}}
+'''en'''
+#[[ungefär#Svenska|ungefär]]; [[omkring#Svenska|omkring]]
+#:''Jag kommer hem om '''en''' 20 minuter.''
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
+
+===Artikel===
+{{sv-artikel}}
+'''en'''
+#obestämd artikel singular utrum
+#:'''''En''' mus.''
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
+:{{jämför|[[ett#Svenska|ett]]}}
+
+====Översättningar====
+{{ö-topp|artikel}}
+*bokmål: {{ö+|no|en|m}}, {{ö+|no|ei|f}}, {{ö+|no|et|n}}
+*bretonska: {{ö+|br|ul}}, {{ö+|br|un}}, {{ö+|br|ur}}
+*engelska: {{ö+|en|a}}, {{ö+|en|an}}
+*esperanto: ''obestämd artikel saknas på esperanto''
+*finska: ''artikel saknas helt på finska''
+*franska: {{ö+|fr|un|m}}, {{ö+|fr|une|f}}, {{ö+|fr|des|p}} {{ö+|fr|de|f}} (''oräknebart''), {{ö+|fr|du|m}} (''oräknebart'')
+*grekiska: {{ö+|el|ένας|m}}, {{ö+|el|μία|fr}}, {{ö+|el|μια|f}}, {{ö+|el|ένα|n}}
+*isländska: ''obestämd artikel saknas på isländska''
+*katalanska: {{ö+|ca|un|m}}, {{ö+|ca|una|f}}
+*litauiska: ''artikel saknas helt på litauiska''
+*nederländska: {{ö+|nl|een}}
+*nynorska: {{ö+|nn|ein}}, {{ö+|nn|ei}}, {{ö|nn|eit}}
+*spanska: {{ö+|es|un|m}}, {{ö+|es|una|f}}
+*tyska: {{ö+|de|ein|m|n}}, {{ö+|de|eine|f}}, {{ö+|de|einen}}, {{ö+|de|einem}}, {{ö+|de|einer}}, {{ö+|de|eines}}
+*ungerska: {{ö+|hu|egy}}
+*älvdalska: {{ö|ovd|ien|m}}, {{ö|ovd|įe|f}}, {{ö|ovd|iett|n}}
+{{ö-botten}}
+
+===Pronomen===
+{{sv-pron-pers}}
+'''en'''
+#objektsform av ''[[man#Svenska|man]]''
+#:''Det man inte vet skadar '''en''' inte.''
+#{{tagg|vardagligt|dialektalt}} [[man#Svenska|man]]
+#:''Vad kan '''en''' göra åt det?''
+#:{{citat|år=1896|titel=[http://runeberg.org/stanflik/05.html "Fredlös", ur "Stänk och flikar"]|förf=[[w:Gustaf Fröding|Gustaf Fröding]]|[...] det kan '''en''' väl önska, men djävlar anamma, <br/>det gör väl detsamma, <br/>'''en''' föds och föröds, tills '''en''' dör.}}
+#:{{citat |år=1963 |förf=[[w:Astrid Lindgren|Astrid Lindgren]] |titel=[[w:Emil i Lönneberga|Emil i Lönneberga]] |publ=[[w:Rabén & Sjögren|Rabén & Sjögren]] |”Annars vet man inte att det är soppa”, sa Emil, det vill säga egentligen sa han så här: ”Anners vet '''en''' inte att dä ä söppe.”}}
+#{{tagg|dialektalt|kat=småländska |kat2=västgötska |kat3=östgötska}} [[honom]], 'an
+#:''Har'u sett''''en''' idag?''
+#:{{varianter|[['n#Svenska|'n]]}}
+#:{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
+#:{{användning|Till skillnad från ''[[na#Svenska|na]]'' ''(henne)'' finns här risk för att ordet i skrift förväxlas om det står självt, varvid man brukar föredra att dra samman det med föregående ord}}
+#syftar tillbaka på det tidigare nämnda substantivet
+#:''Jag ville ha en gul godis så vad är det här för någon röd '''en'''?''
+#:''Jag vill hellst ha en fin '''en'''.''
+#:{{användning|Om substantivet är i neutrum används [[ett#Svenska|ett]]}}
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+
+===Substantiv===
+{{sv-subst-n-ar}}
+{{media|Lüneburger Heide 029.jpg|en (''Juniperus communis'')}}
+'''en'''
+#{{tagg|träd}} en vintergrön [[barrväxt#Svenska|barrväxt]], en [[buske#Svenska|buske]] eller ett [[träd#Svenska|träd]] med tätt [[grenverk#Svenska|grenverk]] och vassa [[barr#Svenska|barr]], av arten ''Juniperus communis'' inom släktet [[enar#Svenska|enar]] (''[[Juniperus#Latin|Juniperus]]'') och familjen [[cypressväxter#Svenska|cypressväxter]] ([[Cupressaceae#Latin|Cupressaceae]])
+#:''Ibland hör man också talas om '''enen''' som nordens cypress''
+#:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[æiniʀ#Fornnordiska|*æiniʀ]]|språk=sv}}, av {{härledning-|gem-ugm|[[jainjaz#Urgermanska|*jainjaz]]|språk=sv}}}}
+#:{{besläktade ord|[[ene#Svenska|ene]]}}
+#:{{sammansättningar|[[enbacke#Svenska|enbacke]], [[enbuske#Svenska|enbuske]], [[enbär#Svenska|enbär]], [[enbärsbrännvin#Svenska|enbärsbrännvin]], [[enris#Svenska|enris]], [[enruska#Svenska|enruska]], [[ensläktet#Svenska|ensläktet]]}}
+
+====Översättningar====
+{{ö-topp|vintergrön barrväxt}}
+*bokmål: {{ö|no|einer|m}}
+*bulgariska: {{ö+|bg|хвойна|f|tr=hvójna}}
+*danska: {{ö+|da|ene|u}}, {{ö|da|almindelig ene|u}}
+*engelska: {{ö|en|common juniper}}, {{ö+|en|juniper}}
+*finska: {{ö+|fi|kataja}}
+*franska: {{ö+|fr|genévrier commun|m}}, {{ö+|fr|genévrier|m}}, {{ö+|fr|genièvre}}
+*isländska: {{ö|is|einer|m}}, {{ö+|is|einir|m}}
+*italienska: {{ö+|it|ginepro|m}}
+*kymriska: {{ö|cy|merywen}}
+*latin: {{ö|la|juniperus|f}}, {{ö|la|juniperus communis|f}}
+*litauiska: {{ö|lt|kadagys|m}}
+*nederländska: {{ö|nl|jeneverbes}}
+*nordsamiska: {{ö|se|reatká}}, {{ö|se|gaskas}}
+*nynorska: {{ö|nn|einer|m}}
+*polska: {{ö+|pl|jałowiec|m}}
+*ryska: {{ö+|ru|можжевельник|m}}
+*spanska: {{ö+|es|enebro|m}}, {{ö|es|enebro común|m}}, {{ö|es|esqueno}}, {{ö|es|sabino}}, {{ö+|es|sabina|f}}
+*turkiska: {{ö+|tr|ardıç}}
+*tyska: {{ö+|de|Heide-Wacholder|m}}
+*ukrainska: {{ö+|uk|яловець|m|tr=jalovéc}}, {{ö+|uk|ялівець|m|tr=jalivécʹ}}
+*ungerska: {{ö+|hu|boróka}}
+*vepsiska: {{ö|vep|kadag}}
+*vitryska: {{ö+|be|ядловец|m|tr=jadlóvjec}}
+{{ö-botten}}
+
+==Afrikaans==
+===Konjunktion===
+{{konj|af}}
+'''en'''
+#[[och]]
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|nl|[[en#Nederländska|en]]|språk=af}}, av {{härledning-|dum|[[ende#Medelnederländska|ende]]|språk=af}}, av {{härledning-|odt|[[ande#Fornlågfrankiska|ande]]|språk=af}}, av {{härledning-|gem-ugm|[[andi#Urgermanska|*andi]]|språk=af}}, av {{härledning-|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]|språk=af}}}}
+
+==Bokmål==
+===Artikel===
+{{no-artikel}}
+'''en'''
+#[[#Svenska|en]], [[ett]] (obestämd artikel maskulin)
+
+==Danska==
+===Artikel===
+{{da-artikel}}
+'''en'''
+#[[#Svenska|en]] (obestämd artikel utrum)
+
+===Räkneord===
+{{räkn|da}}
+'''en''' {{u}} (neutrum [[et#Danska|et]])
+#[[en#Svenska|en]]
+
+:{{avgränsare}}
+:{{varianter|[[én#Danska|én]]}}
+:{{etymologi|Av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=da}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=da}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=da}}}}
+:{{användning|Tryckstarkt en skrivs [[én#Danska|én]]; varianten [[een#Danska|een]] avskaffades 1955.}}
+
+==Esperanto==
+===Preposition===
+{{prep|eo}}
+'''en'''
+#[[i]]
+
+==Finska==
+===Verb===
+{{fi-verb-ei}}
+'''en'''
+#första-person singular av det negativa verbet; [[inte]]; uttrycker nekande
+#:''–Mennäänkö kahville? –Ei, '''en''' pääse vielä töistä.''
+#::''–Ska vi fika? –Nej, jag slipper '''inte''' från jobbet än.''
+#:{{seäven|[[enkä]]}}
+#:{{grammatik|Det negativa verbet saknar grundform. Jämför engelska [[don't#Engelska|don't]] och [[doesn't#Engelska|doesn't]].}}
+
+==Fornnordiska==
+===Konjunktion===
+{{konj|non}}
+'''en'''
+#[[men]]
+
+==Franska==
+===Preposition===
+{{prep|fr}}
+'''en'''
+*{{uttal|fr|ipa=ɑ̃}}
+#[[i]]
+#[[in i]]; anger förändring av läge
+#[[till]]; anger förändring av läge
+#:''Cet été, nous allons aller '''en''' Norvège.''
+#:: ''I sommar ska vi åka '''till''' Norge.''
+#[[på]]; anger användning av språk
+#:''Vous pouvez dire ça '''en''' allemand ?''
+#:: ''Kan du säga det där '''på''' tyska?''
+
+===Pronomen===
+{{fr-pron-pers}}
+'''en'''
+#''genitiv av ''[[il]]/[[elle]]/[[ils]]/[[elles]]
+#:''J’'''en''' rêve.''
+#:: ''Jag drömmer '''om det'''.''
+#:{{användning|''en'' används i stället för ''de'' + ''il(s)''/''elle(s)'' som prepositionsobjekt. Ordföljden blir du subjekt, objekt, verb.}}
+
+==Ido==
+===Preposition===
+{{prep|io}}
+'''en'''
+#[[i]]
+
+==Isländska==
+===Konjunktion===
+{{konj|is}}
+'''en'''
+#[[men]]
+
+==Nederländska==
+===Konjunktion===
+{{konj|nl}}
+'''en'''
+#[[och]]
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|dum|[[ende#Medelnederländska|ende]]|språk=nl}}, av {{härledning-|odt|[[ande#Fornlågfrankiska|ande]]|språk=nl}}, av {{härledning-|gem-ugm|[[andi#Urgermanska|*andi]]|språk=nl}}, av {{härledning-|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]|språk=nl}}}}
+
+
+==Spanska==
+===Preposition===
+{{prep|es}}
+'''en'''
+#[[i]]
+#[[på]]
+
+==Källor==
+<references />

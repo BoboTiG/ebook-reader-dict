@@ -1,0 +1,85 @@
+{{se även|òg|óg}}
+
+==Bokmål==
+===Konjunktion===
+{{konj|no}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+#:{{citat|år=1996|titel=Naiv. Super.|förf=[[w:Erlend Loe|Erlend Loe]]|Han løp rundt '''og''' badet seg '''og''' kastet pinner '''og''' andre ting i vannet.|Han sprang omkring '''och''' badade sig '''och''' kastade pinnar '''och''' andra saker i vattnet.}}
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=no}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=no}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=no}}}}
+
+==Bottniska==
+===Konjunktion===
+{{konj|gmq-bot}}
+'''og'''
+*{{uttal|gmq-bot|ipa=ɔː(ɣ)/, /ɔ/, /ɒ}}
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=gmq-bot}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=gmq-bot}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=gmq-bot}}}}
+
+===Adverb===
+{{adv|gmq-bot}}
+'''og'''
+#[[också]], [[även]]
+#:''Ho var 'n fager stiint, å hä tykt a själv '''åg''', sä a no gjernom villt vahl firä å ong-kära.''
+#[[visst]]
+#:''Han vȧr '''å''' tahttu sȯm to hodna.''
+#::''Han var '''visst''' nödträngd, som tog den där (nämligen till hustru).''
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=gmq-bot}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=gmq-bot}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=gmq-bot}}}}
+
+==Danska==
+===Konjunktion===
+{{konj|da}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=da}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=da}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=da}}}}
+
+==Färöiska==
+===Konjunktion===
+{{konj|fo}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+#:{{citat|år=1961|titel=Bibeln|Í fyrstuni skapaði Guð himmalin '''og''' jørðina.|I begynnelsen skapade Gud himmel '''och''' jord.}}
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=fo}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=fo}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=fo}}}}
+
+==Isländska==
+===Konjunktion===
+{{konj|is}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=is}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=is}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=is}}}}
+
+==Nynorska==
+===Konjunktion===
+{{konj|nn}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=nn}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=nn}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=nn}}}}
+
+==Älvdalska==
+===Adjektiv===
+{{adj|ovd}}
+'''og'''
+#[[hög]]
+
+===Konjunktion===
+{{konj|ovd}}
+'''og'''
+#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
+
+:{{avgränsare}}
+:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=ovd}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=ovd}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=ovd}}}}
+

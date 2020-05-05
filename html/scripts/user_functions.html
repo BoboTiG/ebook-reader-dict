@@ -390,6 +390,35 @@ def superscript(text: str) -&gt; str:
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;
 
 
+def tag(parts: Tuple[str, ...]) -&gt; str:
+    &#34;&#34;&#34;
+    Get only interesting values from *parts*.
+
+    - values without `=`
+    - values starting with `text=`
+
+    Source: https://sv.wiktionary.org/wiki/Mall:tagg
+
+        &gt;&gt;&gt; tag([&#34;historia&#34;])
+        &#39;historia&#39;
+        &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
+        &#39;biologi, allmänt&#39;
+        &gt;&gt;&gt; tag(&#34;politik|formellt|språk=tyska&#34;.split(&#34;|&#34;))
+        &#39;politik, formellt&#39;
+        &gt;&gt;&gt; tag(&#34;kat=nedsättande|text=något nedsättande&#34;.split(&#34;|&#34;))
+        &#39;något nedsättande&#39;
+    &#34;&#34;&#34;
+    words = []
+
+    for part in parts:
+        if &#34;=&#34; not in part:
+            words.append(part)
+        elif part.startswith(&#34;text=&#34;):
+            words.append(part.split(&#34;=&#34;)[1])
+
+    return &#34;, &#34;.join(words)
+
+
 def term(text: str) -&gt; str:
     &#34;&#34;&#34;
     Format a &#34;term&#34;, e.g. return the *text* in italic and surrounded by parenthesis.
@@ -430,6 +459,7 @@ __all__ = (
     &#34;strong&#34;,
     &#34;subscript&#34;,
     &#34;superscript&#34;,
+    &#34;tag&#34;,
     &#34;term&#34;,
 )</code></pre>
 </details>
@@ -1092,6 +1122,58 @@ and is sometimes rendered in a smaller font.</p>
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;</code></pre>
 </details>
 </dd>
+<dt id="scripts.user_functions.tag"><code class="name flex">
+<span>def <span class="ident">tag</span></span>(<span>parts: Tuple[str, ...]) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get only interesting values from <em>parts</em>.</p>
+<ul>
+<li>values without <code>=</code></li>
+<li>values starting with <code>text=</code></li>
+</ul>
+<p>Source: <a href="https://sv.wiktionary.org/wiki/Mall:tagg">https://sv.wiktionary.org/wiki/Mall:tagg</a></p>
+<pre><code>&gt;&gt;&gt; tag(["historia"])
+'historia'
+&gt;&gt;&gt; tag(["biologi", "allmänt"])
+'biologi, allmänt'
+&gt;&gt;&gt; tag("politik|formellt|språk=tyska".split("|"))
+'politik, formellt'
+&gt;&gt;&gt; tag("kat=nedsättande|text=något nedsättande".split("|"))
+'något nedsättande'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tag(parts: Tuple[str, ...]) -&gt; str:
+    &#34;&#34;&#34;
+    Get only interesting values from *parts*.
+
+    - values without `=`
+    - values starting with `text=`
+
+    Source: https://sv.wiktionary.org/wiki/Mall:tagg
+
+        &gt;&gt;&gt; tag([&#34;historia&#34;])
+        &#39;historia&#39;
+        &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
+        &#39;biologi, allmänt&#39;
+        &gt;&gt;&gt; tag(&#34;politik|formellt|språk=tyska&#34;.split(&#34;|&#34;))
+        &#39;politik, formellt&#39;
+        &gt;&gt;&gt; tag(&#34;kat=nedsättande|text=något nedsättande&#34;.split(&#34;|&#34;))
+        &#39;något nedsättande&#39;
+    &#34;&#34;&#34;
+    words = []
+
+    for part in parts:
+        if &#34;=&#34; not in part:
+            words.append(part)
+        elif part.startswith(&#34;text=&#34;):
+            words.append(part.split(&#34;=&#34;)[1])
+
+    return &#34;, &#34;.join(words)</code></pre>
+</details>
+</dd>
 <dt id="scripts.user_functions.term"><code class="name flex">
 <span>def <span class="ident">term</span></span>(<span>text: str) -> str</span>
 </code></dt>
@@ -1163,6 +1245,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.strong" href="#scripts.user_functions.strong">strong</a></code></li>
 <li><code><a title="scripts.user_functions.subscript" href="#scripts.user_functions.subscript">subscript</a></code></li>
 <li><code><a title="scripts.user_functions.superscript" href="#scripts.user_functions.superscript">superscript</a></code></li>
+<li><code><a title="scripts.user_functions.tag" href="#scripts.user_functions.tag">tag</a></code></li>
 <li><code><a title="scripts.user_functions.term" href="#scripts.user_functions.term">term</a></code></li>
 </ul>
 </li>
