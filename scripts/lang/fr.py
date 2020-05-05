@@ -112,6 +112,7 @@ templates = {
     "spéc": "<i>(Spécialement)</i>",
     "télécom": "<i>(Télécommunications)</i>",
     "tradit": "<i>(orthographe traditionnelle)</i>",
+    "typo": "<i>(Typographie)</i>",
     "unités": "<i>(Métrologie)</i>",
     "usage": "<b>Note d'usage :</b>",
 }
