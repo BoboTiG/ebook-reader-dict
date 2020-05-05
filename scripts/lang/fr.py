@@ -52,6 +52,7 @@ templates = {
     "bioch": "<i>(Biochimie)</i>",
     "biol": "<i>(Biologie)</i>",
     "ciné": "<i>(Cinéma)</i>",
+    "cuis": "<i>(Cuisine)</i>",
     "comm": "<i>(Commerce)</i>",
     "e": "<sup>e</sup>",
     "élec": "<i>(Électricité)</i>",
