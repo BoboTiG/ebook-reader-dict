@@ -119,6 +119,7 @@ templates = {
     "typo": "<i>(Typographie)</i>",
     "unités": "<i>(Métrologie)</i>",
     "usage": "<b>Note d'usage :</b>",
+    "zool": "<i>(Zoologie)</i>",
 }
 
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
