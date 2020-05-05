@@ -36,6 +36,7 @@ templates = {
     "aéro": "<i>(Aéronautique)</i>",
     "agri": "<i>(Agriculture)</i>",
     "analogie": "<i>(Par analogie)</i>",
+    "angl": "<i>(Anglicisme)</i>",
     "antiq": "<i>(Antiquité)</i>",
     "apposition": "<i>(En apposition)</i>",
     "archi": "<i>(Architecture)</i>",
