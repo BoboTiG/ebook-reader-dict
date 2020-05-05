@@ -48,6 +48,7 @@ templates = {
     "au figuré": "<i>(Figuré)</i>",
     "BE": "<i>(Belgique)</i>",
     "bioch": "<i>(Biochimie)</i>",
+    "ciné": "<i>(Cinéma)</i>",
     "e": "<sup>e</sup>",
     "élec": "<i>(Électricité)</i>",
     "ellipse": "<i>(Par ellipse)</i>",
