@@ -94,6 +94,7 @@ templates = {
     "pronl": "(Pronominal)",
     "propre": "(Sens propre)",
     "QC": "(Québec)",
+    "reli": "(Religion)",
     "réfl": "(Réfléchi)",
     "région": "(Régionalisme)",
     "sexe": "(Sexualité)",
