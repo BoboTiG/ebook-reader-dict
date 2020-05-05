@@ -133,6 +133,7 @@ templates_ignored = (
     "refnec",
     "référence nécessaire",
     "réf",
+    "source",
     "trad-exe",
     "trier",
 )
