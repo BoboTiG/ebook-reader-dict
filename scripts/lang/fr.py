@@ -86,6 +86,7 @@ templates = {
     "juri": "<i>(Droit)</i>",
     "ling": "<i>(Linguistique)</i>",
     "math": "<i>(Mathématiques)</i>",
+    "médecine non conv": "<i>(Médecine non conventionnelle)</i>",
     "mélio": "<i>(Mélioratif)</i>",
     "métaph": "<i>(Figuré)</i>",
     "métaphore": "<i>(Figuré)</i>",
