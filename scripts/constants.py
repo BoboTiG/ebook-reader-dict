@@ -39,9 +39,11 @@ WORD_FORMAT = (
     # Word formatting
     '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol>'
     # The source
-    "<br/><i>{source}</i><br/>"
+    "<br/><i>{source}</i>"
     # Close the paragraph
     "</p>"
+    # And add a line break for when there is more that one word displayed
+    "<br/>"
     # This is a hell of a hack to hide the harcoded dict name (!)
     # See https://github.com/BoboTiG/ebook-reader-dict/issues/33
     "<span><style>span,span+*{{display:none}}</style></span>"
