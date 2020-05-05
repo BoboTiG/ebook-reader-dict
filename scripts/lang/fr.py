@@ -86,6 +86,7 @@ templates = {
     "néol": "(Néologisme)",
     "note": "<b>Note :</b>",
     "ornithol": "(Ornithologie)",
+    "p": "<i>pluriel</i>",
     "par ext": "(Par extension)",
     "part": "(En particulier)",
     "partic": "(En particulier)",
