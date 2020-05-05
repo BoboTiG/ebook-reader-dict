@@ -42,6 +42,7 @@ templates = {
     "argot voleurs": "(Argot des voleurs)",
     "Argadz": "(Argot des Gadz’Arts)",
     "astron": "(Astronomie)",
+    "automo": "(Automobile)",
     "au figuré": "(Figuré)",
     "BE": "(Belgique)",
     "bioch": "(Biochimie)",
