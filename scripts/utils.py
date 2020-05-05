@@ -124,7 +124,7 @@ def clean(text: str) -> str:
         # The template is not well balanced, leave the endless loop
         if level != 0:  # pragma: nocover
             break
-    
+
     # Remove extra quotes left
     text = text.replace("''", "")
 
