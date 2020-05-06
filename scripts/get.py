@@ -4,10 +4,19 @@ import json
 import os
 import re
 import sys
+import xml.sax
+import xml.sax.handler
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
+from typing import (
+    Callable,
+    Dict,
+    Generator,
+    List,
+    Optional,
+    Pattern,
+)
 
 import requests
 from requests import codes
@@ -16,12 +25,95 @@ from requests.exceptions import HTTPError
 import wikitextparser as wtp
 
 from .lang import patterns
-from .utils import is_ignored, clean
+from .utils import clean
 from . import annotations as T
 from . import constants as C
 
-if TYPE_CHECKING:  # pragma: nocover
-    from xml.etree.ElementTree import Element  # noqa
+
+def parse_word(code: str, force: bool = False) -> T.Word:
+    """Parse *code* Wikicode to find word details.
+    *force* can be set to True to force the pronunciation and genre guessing.
+    It is disabled by default t spee-up the overall process, but enabled when
+    called from get_and_parse_word().
+    """
+    sections = find_sections(code)
+    pronunciation = ""
+    genre = ""
+    definitions = find_definitions(sections)
+
+    if definitions or force:
+        pronunciation = find_pronunciation(code)
+        genre = find_genre(code)
+
+    return pronunciation, genre, definitions
+
+
+class PageHandler(xml.sax.handler.ContentHandler):
+    """XML content handler passed to the SAX parser."""
+
+    __slots__ = ("_current_tag", "_is_page", "code", "word", "words")
+
+    def __init__(self) -> None:
+        # Will contain the Wikicode
+        self.code = ""
+        # Will contain the word
+        self.word = ""
+        # Will contain all words and their data
+        self.words: T.Words = {}
+
+        self._current_tag = ""
+        self._is_page = False
+
+    def reset(self) -> None:
+        """Reset attributes."""
+        self.code = ""
+        self.word = ""
+        self._is_page = False
+
+    def startElement(self, tag: str, attributes: Dict[str, str]) -> None:
+        """Signals the start of an element."""
+        if tag == "page":
+            self._is_page = True
+        elif tag in ("title", "text"):
+            self._current_tag = tag
+
+    def endElement(self, tag: str) -> None:
+        """Signals the end of an element."""
+        if self._current_tag == "text":
+            if self.word:
+                # The parsing is complete!
+                self.process()
+            self.reset()
+        self._current_tag = ""
+
+    def process(self, parse_word: Callable[[str], T.Word] = parse_word) -> None:
+        """Process a word: find its metadata and definitions.
+        On success, the *.words* attribute is populated with the data.
+        """
+        try:
+            pronunciation, genre, definitions = parse_word(self.code)
+        except Exception:
+            # Do not break the whole thing, just report the issue
+            # and finger crossed for someone to have a look :)
+            print(f"ERROR with {self.word!r}")
+        else:
+            if definitions:
+                self.words[self.word] = pronunciation, genre, definitions
+
+    def characters(self, content: str) -> None:
+        """Receive notification of character data."""
+        if not self._is_page:
+            # We are not traiting a <page> element, not interesting
+            pass
+        elif self._current_tag == "title":
+            if ":" in content or len(content) < 3 or content.isnumeric():
+                # Skip words with colons, small words and numbers
+                self.reset()
+            else:
+                self.word = content
+        elif self._current_tag == "text":
+            # Aggregate all the Wikicode
+            self.code += content
 
 
 def decompress(file: Path) -> Path:
@@ -95,6 +187,7 @@ def find_definitions(sections: T.Sections) -> List[str]:
 def find_section_definitions(
     section: wtp.Section,
     pattern: Pattern[str] = re.compile(r"^(<i>\([\w ]+\)</i>\.? ?\??…?)*$"),
+    clean: Callable[[str], str] = clean,
 ) -> Generator[str, None, None]:
     """Find definitions from the given *section*, without eventual subtext.
 
@@ -174,82 +267,22 @@ def less_than(old: str, new: str) -> bool:
     return len(old) != 8 or old < new
 
 
-def load() -> T.WordList:
-    """Load the words list to catch obsoletes words and updates."""
-    wordlist: T.WordList = {}
-
-    # Load the word|revision list to detect changes.
-    # But if the envar is set, we do not want to load old data.
-    if "WIKI_DUMP" not in os.environ and C.SNAPSHOT_LIST.is_file():
-        content = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
-        for line in content.splitlines():
-            word, rev = line.split("|")
-            wordlist[word] = rev.rstrip("\n")
-        print(
-            f">>> Loaded {len(wordlist):,} revisions from {C.SNAPSHOT_LIST}",
-            flush=True,
-        )
-
-    return wordlist
-
-
-def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
-    """Parse *code* Wikicode to find word details.
-    *force* can be set to True to force the pronunciation and genre guessing.
-    It is disabled by default t spee-up the overall process, but enabled when
-    called from get_and_parse_word().
-    """
-    sections = find_sections(code)
-    pronunciation = ""
-    genre = ""
-    definitions = find_definitions(sections)
-
-    if definitions or force:
-        pronunciation = find_pronunciation(code)
-        genre = find_genre(code)
-
-    return pronunciation, genre, definitions
-
-
-def process(file: Path, wordlist: T.WordList) -> T.Words:
+def process(file: Path) -> T.Words:
     """Process the big XML file and retain only information we are interested in."""
-
-    words: T.Words = {}
-    first_pass = not bool(wordlist)
 
     print(f">>> Processing {file} ...", flush=True)
 
-    for element in xml_iter_parse(str(file)):
-        word, rev, code = xml_parse_element(element)
-        if not word or ":" in word or is_ignored(word):
-            continue
+    parser = xml.sax.make_parser()
 
-        try:
-            pronunciation, genre, definitions = parse_word(code)
-        except Exception:
-            print(f"ERROR with {word!r}")
-            continue
-        if not definitions:
-            continue
+    # All element names, prefixes, attribute names, Namespace URIs, and local names
+    # are interned using the built-in intern function.
+    parser.setFeature(xml.sax.handler.feature_string_interning, 1)  # type: ignore
 
-        # Log the appropriate action to ease tracking changes
-        word_rev = wordlist.pop(word, None)
-        action = ""
-        if word_rev and word_rev != rev:
-            action = "Updated"
-        elif not (word_rev or first_pass):
-            action = "Added"
-        if action:
-            print(f" ++ {action} {word!r}", flush=True)
+    handler = PageHandler()
+    parser.setContentHandler(handler)  # type: ignore
+    parser.parse(str(file))  # type: ignore
 
-        words[word] = rev, pronunciation, genre, definitions
-
-    # Remove obsolete words between 2 snapshots
-    for word in sorted(wordlist.keys()):
-        words.pop(word, None)
-        print(f" -- Removed {word!r}", flush=True)
-
-    return words
+    return handler.words
 
 
 def save(snapshot: str, words: T.Words) -> None:
@@ -261,65 +294,13 @@ def save(snapshot: str, words: T.Words) -> None:
     C.SNAPSHOT_COUNT.write_text(str(len(words)))
     C.SNAPSHOT_FILE.write_text(snapshot)
 
-    # Save the list of "word|revision" for later runs
+    # Save the word list for later runs
     with C.SNAPSHOT_LIST.open("w", encoding="utf-8") as fh:
-        for word, (rev, *_) in sorted(words.items()):
+        for word in sorted(words.keys()):
             fh.write(word)
-            fh.write("|")
-            fh.write(rev)
             fh.write("\n")
 
     print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
-
-
-def xml_iter_parse(file: str) -> Generator["Element", None, None]:
-    """Efficient XML parsing for big files.
-    Elements are yielded when they meet the "page" tag.
-    """
-    import xml.etree.ElementTree as etree
-
-    doc = etree.iterparse(file, events=("start", "end"))
-    _, root = next(doc)
-
-    start_tag = None
-
-    for event, element in doc:
-        if (
-            start_tag is None
-            and event == "start"
-            and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page"
-        ):
-            start_tag = element.tag
-        elif start_tag is not None and event == "end" and element.tag == start_tag:
-            yield element
-            start_tag = None
-
-            # Keep memory low
-            root.clear()
-
-
-def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
-    """Parse the *element* to retrieve the word,the current revision and definitions."""
-    revision = element[3]
-    if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
-        # When a word is "restricted", then the revision comes just after
-        revision = element[4]
-    elif not revision:
-        # This is a "redirect" page, not interesting.
-        return "", "", ""
-
-    # The Wikicode can be at different indexes, but not ones lower than 5
-    for info in revision[5:]:
-        if info.tag == "{http://www.mediawiki.org/xml/export-0.10/}text":
-            code = info.text or ""
-            break
-    else:
-        # No Wikicode, maybe an unfinished page.
-        return "", "", ""
-
-    word = element[0].text or ""  # title
-    rev = revision[0].text or ""  # id
-    return word, rev, code
 
 
 def main(word: Optional[str] = "") -> int:
@@ -353,11 +334,8 @@ def main(word: Optional[str] = "") -> int:
 
     file = decompress(file)
 
-    # Load all data
-    wordlist = load()
-
-    # Process the big XML to retain only primary information
-    words = process(file, wordlist)
+    # Process the XML to retain only primary information
+    words = process(file)
 
     # Save data for next runs
     save(snapshot, words)

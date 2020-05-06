@@ -305,8 +305,6 @@ def test_main_0(craft_data, capsys):
     assert C.SNAPSHOT_FILE.read_text() == "20200417"
     words = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
     assert len(words) == expected_count
-    for line in words:
-        assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
     assert get.main() == 1
@@ -359,12 +357,6 @@ def test_main_1(craft_data, capsys):
     file = get.fetch_pages(date)
     get.decompress(file)
 
-    captured = capsys.readouterr()
-    assert "++ Updated 'aux'" in captured.out
-    assert "++ Added 'mot el'" in captured.out
-    assert "++ Added 'mot us'" in captured.out
-    assert "-- Removed 'suis'" in captured.out
-
     # Check the words list has been updated
     # Here we do -4 because of:
     #   - "Bogotanais.wiki" (no definition found)
@@ -383,8 +375,6 @@ def test_main_1(craft_data, capsys):
     # Check other files
     wordlist = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
     assert len(wordlist) == expected_count
-    for line in wordlist:
-        assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
     assert get.main() == 1
@@ -454,12 +444,8 @@ def test_xml_parse_word_with_colons(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
-    assert word == "MediaWiki:Sitetitle"
-    assert rev == "403956"
-    assert definitions == "Wiktionnaire : dictionnaire libre et universel"
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_not_word(tmp_path):
@@ -483,8 +469,8 @@ def test_xml_parse_not_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 0
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_redirected_word(tmp_path):
@@ -502,12 +488,8 @@ def test_xml_parse_redirected_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
-    assert word == ""
-    assert rev == ""
-    assert definitions == ""
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_restricted_word(tmp_path):
@@ -547,12 +529,14 @@ def test_xml_parse_restricted_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
+    words = get.process(file)
+    assert len(words) == 1
+    word, (pron, genre, definitions) = list(words.items())[0]
     assert word == "cunnilingus"
-    assert rev == "27636792"
-    assert len(definitions) == 292
+    assert pron == "ky.ni.lɛ̃.ɡys"
+    assert genre == "m"
+    assert len(definitions) == 1
+    assert len(definitions[0]) == 68
 
 
 def test_xml_parse_word_without_definitions(tmp_path):
@@ -582,9 +566,5 @@ def test_xml_parse_word_without_definitions(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
-    assert word == ""
-    assert rev == ""
-    assert definitions == ""
+    words = get.process(file)
+    assert not words
