@@ -94,6 +94,7 @@ templates_italic = {
     "ciné": "Cinéma",
     "cuis": "Cuisine",
     "comm": "Commerce",
+    "didact": "Didactique",
     "élec": "Électricité",
     "ellipse": "Par ellipse",
     "enclit": "Enclitique",
