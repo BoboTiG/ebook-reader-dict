@@ -262,7 +262,6 @@ def test_main_0(craft_data, capsys):
         C.SNAPSHOT_DATA,
         C.SNAPSHOT_COUNT,
         C.SNAPSHOT_FILE,
-        C.SNAPSHOT_LIST,
         pages_xml,
         pages_bz2,
     ):
@@ -303,10 +302,6 @@ def test_main_0(craft_data, capsys):
     # Check other files
     assert int(C.SNAPSHOT_COUNT.read_text()) == expected_count
     assert C.SNAPSHOT_FILE.read_text() == "20200417"
-    words = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
-    assert len(words) == expected_count
-    for line in words:
-        assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
     assert get.main() == 1
@@ -343,10 +338,6 @@ def test_main_1(craft_data, capsys):
         ),
     )
 
-    # There is no data.json but the wordlist containing revisions
-    assert C.SNAPSHOT_LIST.is_file()
-    C.SNAPSHOT_DATA.unlink()
-
     # Run against the new snapshot
     assert get.main() == 0
 
@@ -358,12 +349,6 @@ def test_main_1(craft_data, capsys):
     # Trigger manual calls for coverage
     file = get.fetch_pages(date)
     get.decompress(file)
-
-    captured = capsys.readouterr()
-    assert "++ Updated 'aux'" in captured.out
-    assert "++ Added 'mot el'" in captured.out
-    assert "++ Added 'mot us'" in captured.out
-    assert "-- Removed 'suis'" in captured.out
 
     # Check the words list has been updated
     # Here we do -4 because of:
@@ -379,12 +364,6 @@ def test_main_1(craft_data, capsys):
     # Check the words data
     words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))
     assert len(words.keys()) == expected_count
-
-    # Check other files
-    wordlist = C.SNAPSHOT_LIST.read_text(encoding="utf-8").splitlines()
-    assert len(wordlist) == expected_count
-    for line in wordlist:
-        assert len(line.split("|")) == 2
 
     # Call it again and no new action should be made
     assert get.main() == 1

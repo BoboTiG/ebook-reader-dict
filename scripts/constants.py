@@ -13,7 +13,6 @@ WORD_URL = f"https://{LOCALE}.wiktionary.org/w/index.php?title={{}}&action=raw"
 SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
 SNAPSHOT_COUNT = SNAPSHOT / "words.count"
 SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
-SNAPSHOT_LIST = SNAPSHOT / "words.list"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
 SNAPSHOT_DOWNLOADS = SNAPSHOT / "download.count"
 

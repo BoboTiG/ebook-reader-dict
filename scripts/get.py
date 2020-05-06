@@ -174,25 +174,6 @@ def less_than(old: str, new: str) -> bool:
     return len(old) != 8 or old < new
 
 
-def load() -> T.WordList:
-    """Load the words list to catch obsoletes words and updates."""
-    wordlist: T.WordList = {}
-
-    # Load the word|revision list to detect changes.
-    # But if the envar is set, we do not want to load old data.
-    if "WIKI_DUMP" not in os.environ and C.SNAPSHOT_LIST.is_file():
-        content = C.SNAPSHOT_LIST.read_text(encoding="utf-8")
-        for line in content.splitlines():
-            word, rev = line.split("|")
-            wordlist[word] = rev.rstrip("\n")
-        print(
-            f">>> Loaded {len(wordlist):,} revisions from {C.SNAPSHOT_LIST}",
-            flush=True,
-        )
-
-    return wordlist
-
-
 def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
@@ -211,11 +192,10 @@ def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
     return pronunciation, genre, definitions
 
 
-def process(file: Path, wordlist: T.WordList) -> T.Words:
+def process(file: Path) -> T.Words:
     """Process the big XML file and retain only information we are interested in."""
 
     words: T.Words = {}
-    first_pass = not bool(wordlist)
 
     print(f">>> Processing {file} ...", flush=True)
 
@@ -228,26 +208,9 @@ def process(file: Path, wordlist: T.WordList) -> T.Words:
             pronunciation, genre, definitions = parse_word(code)
         except Exception:
             print(f"ERROR with {word!r}")
-            continue
-        if not definitions:
-            continue
-
-        # Log the appropriate action to ease tracking changes
-        word_rev = wordlist.pop(word, None)
-        action = ""
-        if word_rev and word_rev != rev:
-            action = "Updated"
-        elif not (word_rev or first_pass):
-            action = "Added"
-        if action:
-            print(f" ++ {action} {word!r}", flush=True)
-
-        words[word] = rev, pronunciation, genre, definitions
-
-    # Remove obsolete words between 2 snapshots
-    for word in sorted(wordlist.keys()):
-        words.pop(word, None)
-        print(f" -- Removed {word!r}", flush=True)
+        else:
+            if definitions:
+                words[word] = rev, pronunciation, genre, definitions
 
     return words
 
@@ -260,14 +223,6 @@ def save(snapshot: str, words: T.Words) -> None:
 
     C.SNAPSHOT_COUNT.write_text(str(len(words)))
     C.SNAPSHOT_FILE.write_text(snapshot)
-
-    # Save the list of "word|revision" for later runs
-    with C.SNAPSHOT_LIST.open("w", encoding="utf-8") as fh:
-        for word, (rev, *_) in sorted(words.items()):
-            fh.write(word)
-            fh.write("|")
-            fh.write(rev)
-            fh.write("\n")
 
     print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
 
@@ -353,11 +308,8 @@ def main(word: Optional[str] = "") -> int:
 
     file = decompress(file)
 
-    # Load all data
-    wordlist = load()
-
-    # Process the big XML to retain only primary information
-    words = process(file, wordlist)
+    # Process the XML to retain only primary information
+    words = process(file)
 
     # Save data for next runs
     save(snapshot, words)

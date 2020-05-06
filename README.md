@@ -29,7 +29,6 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 3. Create those files:
    - `data/$LOCALE/download.count` (`0`)
    - `data/$LOCALE/words.count` (empty)
-   - `data/$LOCALE/words.list` (empty)
    - `data/$LOCALE/words.snapshot` (empty)
 4. Test it:
    ```shell
