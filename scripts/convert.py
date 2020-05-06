@@ -118,7 +118,7 @@ def save_html(name: str, words: T.Words) -> Path:
     # Save to uncompressed HTML
     raw_output = C.WORKING_DIR / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
-        for word, (_, pronunciation, genre, defs) in words.items():
+        for word, (pronunciation, genre, defs) in words.items():
             definitions = "".join(f"<li>{d}</li>" for d in defs)
             if pronunciation:
                 pronunciation = f" \\{pronunciation}\\"

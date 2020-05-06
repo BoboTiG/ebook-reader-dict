@@ -435,9 +435,8 @@ def test_xml_parse_word_with_colons(tmp_path):
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
+    word, definitions = get.xml_parse_element(page[0])
     assert word == "MediaWiki:Sitetitle"
-    assert rev == "403956"
     assert definitions == "Wiktionnaire : dictionnaire libre et universel"
 
 
@@ -483,9 +482,8 @@ def test_xml_parse_redirected_word(tmp_path):
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
+    word, definitions = get.xml_parse_element(page[0])
     assert word == ""
-    assert rev == ""
     assert definitions == ""
 
 
@@ -528,9 +526,8 @@ def test_xml_parse_restricted_word(tmp_path):
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
+    word, definitions = get.xml_parse_element(page[0])
     assert word == "cunnilingus"
-    assert rev == "27636792"
     assert len(definitions) == 292
 
 
@@ -563,7 +560,6 @@ def test_xml_parse_word_without_definitions(tmp_path):
 
     page = list(get.xml_iter_parse(str(file)))
     assert len(page) == 1
-    word, rev, definitions = get.xml_parse_element(page[0])
+    word, definitions = get.xml_parse_element(page[0])
     assert word == ""
-    assert rev == ""
     assert definitions == ""

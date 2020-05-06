@@ -91,7 +91,7 @@ def find_definitions(sections: T.Sections) -> List[str]:
 
     # Remove duplicates
     seen = set()
-    return [d for d in definitions if not (d in seen or seen.add(d))]
+    return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore
 
 
 def find_section_definitions(
@@ -202,7 +202,7 @@ def process(file: Path) -> T.Words:
     print(f">>> Processing {file} ...", flush=True)
 
     for element in xml_iter_parse(str(file)):
-        word, rev, code = xml_parse_element(element)
+        word, code = xml_parse_element(element)
         if not word or ":" in word or is_ignored(word):
             continue
 
@@ -212,7 +212,7 @@ def process(file: Path) -> T.Words:
             print(f"ERROR with {word!r}")
         else:
             if definitions:
-                words[word] = rev, pronunciation, genre, definitions
+                words[word] = pronunciation, genre, definitions
 
     return words
 
@@ -255,15 +255,15 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
             root.clear()
 
 
-def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
-    """Parse the *element* to retrieve the word,the current revision and definitions."""
+def xml_parse_element(element: "Element") -> Tuple[str, str]:
+    """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
     if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
         # When a word is "restricted", then the revision comes just after
         revision = element[4]
     elif not revision:
         # This is a "redirect" page, not interesting.
-        return "", "", ""
+        return "", ""
 
     # The Wikicode can be at different indexes, but not ones lower than 5
     for info in revision[5:]:
@@ -272,11 +272,10 @@ def xml_parse_element(element: "Element") -> Tuple[str, str, str]:
             break
     else:
         # No Wikicode, maybe an unfinished page.
-        return "", "", ""
+        return "", ""
 
     word = element[0].text or ""  # title
-    rev = revision[0].text or ""  # id
-    return word, rev, code
+    return word, code
 
 
 def main(word: Optional[str] = "") -> int:
