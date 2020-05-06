@@ -132,6 +132,7 @@ templates_italic = {
     "mélio": "Mélioratif",
     "métaph": "Figuré",
     "métaphore": "Figuré",
+    "météo": "Météorologie",
     "méton": "Par métonymie",
     "métrol": "Métrologie",
     "mythol": "Mythologie",
