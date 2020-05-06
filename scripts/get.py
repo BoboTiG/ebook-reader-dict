@@ -88,8 +88,10 @@ def find_definitions(sections: T.Sections) -> List[str]:
     )
     if not definitions:
         return []
+
     # Remove duplicates
-    return sorted(set(definitions), key=definitions.index)
+    seen = set()
+    return [d for d in definitions if not (d in seen or seen.add(d))]
 
 
 def find_section_definitions(
