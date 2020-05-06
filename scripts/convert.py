@@ -73,7 +73,7 @@ def save(groups: T.Groups) -> None:
     # First, create individual HTML files
     wordlist: List[str] = []
     print(">>> Generating HTML files ", end="", flush=True)
-    for count, (group, words) in enumerate(groups.items(), start=1):
+    for group, words in groups.items():
         to_compress.append(save_html(group, words))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
