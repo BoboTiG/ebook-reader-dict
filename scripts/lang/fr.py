@@ -141,6 +141,7 @@ templates_italic = {
     "particulier": "En particulier",
     "péj": "Péjoratif",
     "philo": "Philosophie",
+    "poés": "Poésie",
     "popu": "Populaire",
     "prog": "Programmation informatique",
     "pronl": "Pronominal",
