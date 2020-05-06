@@ -59,6 +59,7 @@ templates_ignored = (
     "réfnec",
     "référence nécessaire",
     "réf",
+    "réf?",
     "source",
     "trad-exe",
     "trier",
