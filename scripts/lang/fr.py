@@ -141,6 +141,7 @@ templates_italic = {
     "part": "En particulier",
     "partic": "En particulier",
     "particulier": "En particulier",
+    "pêch": "Pêche",
     "péj": "Péjoratif",
     "philo": "Philosophie",
     "poés": "Poésie",
