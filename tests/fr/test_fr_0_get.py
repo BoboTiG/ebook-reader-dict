@@ -433,11 +433,8 @@ def test_xml_parse_word_with_colons(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, definitions = get.xml_parse_element(page[0])
-    assert word == "MediaWiki:Sitetitle"
-    assert definitions == "Wiktionnaire : dictionnaire libre et universel"
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_not_word(tmp_path):
@@ -461,8 +458,8 @@ def test_xml_parse_not_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 0
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_redirected_word(tmp_path):
@@ -480,11 +477,8 @@ def test_xml_parse_redirected_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, definitions = get.xml_parse_element(page[0])
-    assert word == ""
-    assert definitions == ""
+    words = get.process(file)
+    assert not words
 
 
 def test_xml_parse_restricted_word(tmp_path):
@@ -524,11 +518,18 @@ def test_xml_parse_restricted_word(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, definitions = get.xml_parse_element(page[0])
+    words = get.process(file)
+    assert len(words) == 1
+
+    word, details = list(words.items())[0]
     assert word == "cunnilingus"
-    assert len(definitions) == 292
+    assert len(details) == 3
+
+    pronunciation, genre, definitions = details
+    assert pronunciation == "ky.ni.lɛ̃.ɡys"
+    assert genre == "m"
+    assert len(definitions) == 1
+    assert len(definitions[0]) == 68
 
 
 def test_xml_parse_word_without_definitions(tmp_path):
@@ -558,8 +559,5 @@ def test_xml_parse_word_without_definitions(tmp_path):
 """
     )
 
-    page = list(get.xml_iter_parse(str(file)))
-    assert len(page) == 1
-    word, definitions = get.xml_parse_element(page[0])
-    assert word == ""
-    assert definitions == ""
+    words = get.process(file)
+    assert not words
