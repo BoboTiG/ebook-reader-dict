@@ -132,6 +132,7 @@ templates_italic = {
     "juri": "Droit",
     "jurisprudence": "Droit",
     "ling": "Linguistique",
+    "logi": "Logique",
     "math": "Mathématiques",
     "médecine non conv": "Médecine non conventionnelle",
     "mélio": "Mélioratif",
