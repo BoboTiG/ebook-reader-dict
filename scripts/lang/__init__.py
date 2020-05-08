@@ -7,11 +7,6 @@ patterns = {
     "fr": fr.patterns,
 }
 
-# Minimum size of the dictionary  ZIP (dicthtml-$LOCALE.zip), in bytes.
-size_min = {
-    "fr": fr.size_min,
-}
-
 # Templates replacements: wikicode -> text conversion
 
 # Templates to ignore: the text will be deleted.

@@ -34,9 +34,6 @@ patterns = (
     # "{{S|verbe|fr|",
 )
 
-# Poids minimum du dictionnaire généré (dicthtml-fr.zip), en octets.
-size_min = 1024 * 1024 * 30  # 30 Mio
-
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (

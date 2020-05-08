@@ -12,17 +12,9 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-from .lang import size_min, wiktionary
+from .lang import wiktionary
 from . import annotations as T
 from . import constants as C
-
-
-def check(size: int) -> None:
-    """Small check on the dictionary size againt *size* to prevent data loss."""
-    if C.DICTHTML.stat().st_size < size:
-        raise ValueError(
-            "The dictionary seems too small. Aborting to prevent content loss."
-        )
 
 
 def craft_index(wordlist: List[str]) -> Path:
@@ -163,9 +155,6 @@ def main() -> int:
     save(groups)
 
     print(">>> Conversion done!", flush=True)
-
-    # Check the file size to prevent data loss
-    check(size_min[C.LOCALE])
 
     return 0
 
