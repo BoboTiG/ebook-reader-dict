@@ -36,7 +36,6 @@ size_min = 1024 * 1024 * 30  # 30 Mio
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
     "ancre",
-    "cf",
     "créer-séparément",
     "désabrévier",
     "ébauche",
@@ -192,6 +191,8 @@ templates_italic = {
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
+    # {{cf|tour d’échelle}}
+    "cf": 'f"→ voir {parts[1]}"',
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
