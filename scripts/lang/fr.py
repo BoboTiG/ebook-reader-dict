@@ -134,6 +134,7 @@ templates_italic = {
     "math": "Mathématiques",
     "médecine non conv": "Médecine non conventionnelle",
     "mélio": "Mélioratif",
+    "menu": "Menuiserie",
     "métaph": "Figuré",
     "métaphore": "Figuré",
     "météo": "Météorologie",
