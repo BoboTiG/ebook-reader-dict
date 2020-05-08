@@ -240,6 +240,8 @@ templates_multi = {
 templates_other = {
     # XIX{{e}}
     "e": "<sup>e</sup>",
+    # {{term|au {{f}}}}
+    "f": "féminin",
     # Bla bla bla. {{note}} Bla bla bla
     # Bla bla bla. {{note|fr}} Bla bla bla
     "note": "<b>Note :</b>",

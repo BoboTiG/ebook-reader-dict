@@ -53,6 +53,7 @@ from scripts import utils
         ("{{siècle2|XIX}}", "XIXème"),
         ("{{sport|fr}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
+        ("{{term|au {{f}}}}", "<i>(Au féminin)</i>"),
         (
             "{{term|Avec un mot négatif}} Presque.",
             "<i>(Avec un mot négatif)</i> Presque.",
