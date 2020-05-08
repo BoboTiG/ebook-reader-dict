@@ -158,6 +158,7 @@ templates_italic = {
     "région": "Régionalisme",
     "sexe": "Sexualité",
     "spéc": "Spécialement",
+    "tech": "Technique",
     "technol": "Technologie",
     "télécom": "Télécommunications",
     "tradit": "Orthographe traditionnelle",
