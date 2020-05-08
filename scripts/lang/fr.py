@@ -128,6 +128,7 @@ templates_italic = {
     "intrans": "Intransitif",
     "jardi": "Jardinage",
     "juri": "Droit",
+    "jurisprudence": "Droit",
     "ling": "Linguistique",
     "math": "Mathématiques",
     "médecine non conv": "Médecine non conventionnelle",
