@@ -146,6 +146,7 @@ templates_italic = {
     "péj": "Péjoratif",
     "philo": "Philosophie",
     "poés": "Poésie",
+    "POO": "Programmation orientée objet",
     "popu": "Populaire",
     "prog": "Programmation informatique",
     "pronl": "Pronominal",
