@@ -216,11 +216,7 @@ def test_find_genre(word, genre, page):
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
             ],
         ),
-        (
-            "suis",
-            [
-            ],
-        ),
+        ("suis", []),
     ],
 )
 def test_find_sections_and_definitions(word, defs, page):

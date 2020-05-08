@@ -202,7 +202,7 @@ templates_italic = {
 templates_multi = {
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|faire}}
-    "cf": 'f"→ voir {parts[len(parts) - 1] if len(parts) > 1 else \'\'}"',
+    "cf": "f\"→ voir {parts[len(parts) - 1] if len(parts) > 1 else ''}\"",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}

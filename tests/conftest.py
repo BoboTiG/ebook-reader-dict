@@ -87,7 +87,7 @@ def page():
         file = data / f"{word}.wiki"
         return {
             "title": file.stem,
-            "revision": {"id": "test", "text": {"#text": file.read_text()}},
+            "revision": {"text": {"#text": file.read_text()}},
         }
 
     return _page

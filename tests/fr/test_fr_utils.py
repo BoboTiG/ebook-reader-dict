@@ -39,7 +39,10 @@ from scripts import utils
         ("{{mélio|fr}}", "<i>(Mélioratif)</i>"),
         ("{{méton|fr}}", "<i>(Par métonymie)</i>"),
         ("{{métrol|nocat=1}}", "<i>(Métrologie)</i>"),
-        ("{{nom w pc|Aldous|Huxley}}", "Aldous <span style='font-variant:small-caps'>Huxley</span>"),
+        (
+            "{{nom w pc|Aldous|Huxley}}",
+            "Aldous <span style='font-variant:small-caps'>Huxley</span>",
+        ),
         ("{{nom w pc|L. L. Zamenhof}}", "L. L. Zamenhof"),
         ("{{moderne}}", "<i>(Moderne)</i>"),
         ("{{néol|fr}}", "<i>(Néologisme)</i>"),
