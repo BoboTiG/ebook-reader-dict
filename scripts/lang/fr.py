@@ -111,6 +111,7 @@ templates_italic = {
     "finan": "Finance",
     "FR": "France",
     "formel": "Soutenu",
+    "fortification": "Architecture",
     "géog": "Géographie",
     "géom": "Géométrie",
     "graphe": "Théorie des graphes",
