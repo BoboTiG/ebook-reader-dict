@@ -18,6 +18,7 @@ from scripts import utils
         ("{{BE|fr}}", "<i>(Belgique)</i>"),
         ("{{bioch|nocat}}", "<i>(Biochimie)</i>"),
         ("{{couleur|#B0F2B6}}", "(Code RGB #B0F2B6)"),
+        ("{{couleur | #B0F2B6}}", "(Code RGB #B0F2B6)"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("{{élec|fr}}", "<i>(Électricité)</i>"),
         ("{{finan|fr}}", "<i>(Finance)</i>"),

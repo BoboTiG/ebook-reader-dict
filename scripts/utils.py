@@ -153,6 +153,8 @@ def transform(tpl: str) -> str:
     else:
         parts = []
 
+    tpl = tpl.strip()
+
     if tpl in templates_ignored[C.LOCALE]:
         return ""
 
