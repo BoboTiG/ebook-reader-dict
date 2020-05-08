@@ -51,6 +51,17 @@ from scripts import utils
         ("{{sport|fr}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         (
+            "{{term|Avec un mot négatif}} Presque.",
+            "<i>(Avec un mot négatif)</i> Presque.",
+        ),
+        ("{{term|Avec ''[[le#fr-art-déf|le]]''}}", "<i>(Avec le)</i>"),
+        (
+            "{{term|Avec un [[déterminant]] défini comme ''[[le#fr-art-déf|le]]'', ''[[mon#fr-adj-pos|mon]]'', etc., et avec un adjectif ou un adverbe}}",  # noqa
+            "<i>(Avec un déterminant défini comme le, mon, etc., et avec un adjectif ou un adverbe)</i>",
+        ),
+        ("{{term|ne … guère que}}", "<i>(Ne … guère que)</i>"),
+        ("{{term|Souvent en [[apposition]]}}", "<i>(Souvent en apposition)</i>"),
+        (
             "{{term|Du {{nombre romain|12}}{{e}} au {{nombre romain|19}}{{e}} siècle}} Béni.",
             "<i>(Du XII<sup>e</sup> au XIX<sup>e</sup> siècle)</i> Béni.",
         ),

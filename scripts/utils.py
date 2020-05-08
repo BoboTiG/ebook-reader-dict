@@ -11,7 +11,7 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}"
 
 
-def fmt_chimy(composition: List[str]) -> str:
+def format_chimy(composition: List[str]) -> str:
     """Format chimy notations."""
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
@@ -164,7 +164,7 @@ def transform(tpl: str) -> str:
 
     # {{fchim|H|2|O}} -> H2O
     if tpl == "fchim":
-        return fmt_chimy(parts[1:])
+        return format_chimy(parts[1:])
 
     # {{term|ne … guère que}} -> (Ne … guère que)
     if tpl == "term":
