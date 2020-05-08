@@ -172,6 +172,7 @@ templates_italic = {
     "télécom": "Télécommunications",
     "tradit": "Orthographe traditionnelle",
     "typo": "Typographie",
+    "typog": "Typographie",
     "unités": "Métrologie",
     "vête": "Habillement",
     "vieux": "Vieilli",
