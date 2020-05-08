@@ -7,17 +7,46 @@ from . import constants as C
 
 
 def capitalize(text: str) -> str:
-    """Capitalize the first letter only."""
+    """Capitalize the first letter only.
+
+        >>> capitalize("alice")
+        'Alice'
+        >>> capitalize("BOB")
+        'BOB'
+        >>> capitalize("alice and bob")
+        'Alice and bob'
+    """
     return f"{text[0].capitalize()}{text[1:]}"
 
 
 def format_chimy(composition: List[str]) -> str:
-    """Format chimy notations."""
+    """Format chimy notations.
+
+        >>> format_chimy(["H", "2", "O"])
+        'H<sub>2</sub>O'
+        >>> format_chimy(["FeCO", "3", ""])
+        'FeCO<sub>3</sub>'
+    """
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
+def handle_name(parts: List[str]) -> str:
+    """Handle the 'name' template to display writers/authors or any full name person.
+
+        >>> handle_name(["nom w pc", "Aldous", "Huxley"])
+        "Aldous <span style='font-variant:small-caps'>Huxley</span>"
+    """
+    return f"{parts[1]} <span style='font-variant:small-caps'>{parts[2]}</span>"
+
+
 def handle_sport(tpl: str, parts: List[str]) -> str:
-    """Handle the 'sport' template."""
+    """Handle the 'sport' template.
+
+        >>> handle_sport("sport", [""])
+        '<i>(Sport)</i>'
+        >>> handle_sport("sport", ["sport", "fr", "collectif"])
+        '<i>(Sport collectif)</i>'
+    """
     res = f"<i>({capitalize(tpl)}"
     if len(parts) >= 3:
         # {{sport|fr|collectif}}
@@ -26,10 +55,36 @@ def handle_sport(tpl: str, parts: List[str]) -> str:
     return res
 
 
+def handle_term(text: str) -> str:
+    """Format a term.
+
+        >>> handle_term("")
+        ''
+        >>> handle_term("foo")
+        '<i>(Foo)</i>'
+        >>> handle_term("Foo")
+        '<i>(Foo)</i>'
+        >>> handle_term("<i>(Foo)</i>")
+        '<i>(Foo)</i>'
+    """
+    if text.startswith("<i>("):
+        return text
+    elif not text:
+        return ""
+    return f"<i>({capitalize(text)})</i>"
+
+
 def int_to_roman(number: int) -> str:
     """
     Convert an integer to a Roman numeral.
     Source: https://www.oreilly.com/library/view/python-cookbook/0596001673/ch03s24.html
+
+        >>> int_to_roman(12)
+        'XII'
+        >>> int_to_roman(19)
+        'XIX'
+        >>> int_to_roman(2020)
+        'MMXX'
     """
 
     # if not 0 < number < 4000:
@@ -44,12 +99,48 @@ def int_to_roman(number: int) -> str:
     return "".join(result)
 
 
+#
+# Internal use only!
+#
+
+
+def is_ignored(word: str) -> bool:
+    """Helper to filter out words from the final dictionary.
+
+        >>> is_ignored("accueil")
+        False
+        >>> is_ignored("2")
+        True
+        >>> is_ignored("22")
+        True
+        >>> is_ignored("222")
+        True
+        >>> is_ignored("222" * 12)
+        True
+        >>> is_ignored("")
+        True
+        >>> is_ignored(" ")
+        True
+    """
+
+    # Filter out "small" words and numbers
+    return len(word) < 3 or word.isnumeric()
+
+
 def clean(text: str) -> str:
-    """Cleans up the provided wikicode.
+    """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
+
+        >>> clean("{{unknown}}")
+        '<i>(Unknown)</i>'
+        >>> clean("<span style='color:black'>[[♣]]</span>")
+        '♣'
+        >>> clean("{{foo|{{bar}}|123}}")
+        ''
     """
+
     # Speed-up lookup
     sub = re.sub
 
@@ -146,14 +237,23 @@ def clean(text: str) -> str:
 
 
 def transform(tpl: str) -> str:
-    """Handle the data inside the *text* template."""
+    """Handle the data inside the *text* template.
+
+        >>> transform("w|ISO 639-3")
+        'ISO 639-3'
+        >>> transform("w | ISO 639-3")
+        'ISO 639-3'
+        >>> transform("grammaire|fr")
+        '<i>(Grammaire)</i>'
+        >>> transform("conj|grp=1|fr")
+        ''
+    """
+
     if "|" in tpl:
-        parts = tpl.split("|")
+        parts = [p.strip() for p in tpl.split("|")]
         tpl = parts[0]
     else:
         parts = []
-
-    tpl = tpl.strip()
 
     if tpl in templates_ignored[C.LOCALE]:
         return ""
@@ -161,18 +261,6 @@ def transform(tpl: str) -> str:
     # {{w|ISO 639-3}} -> ISO 639-3
     if tpl == "w":
         return parts[1]
-
-    # {{fchim|H|2|O}} -> H2O
-    if tpl == "fchim":
-        return format_chimy(parts[1:])
-
-    # {{term|ne … guère que}} -> (Ne … guère que)
-    if tpl == "term":
-        if parts[1].startswith("<i>("):
-            return parts[1]
-        elif not parts[1]:
-            return ""
-        return f"<i>({capitalize(parts[1])})</i>"
 
     if tpl in templates_multi[C.LOCALE]:
         res: str = eval(templates_multi[C.LOCALE][tpl])
@@ -194,9 +282,3 @@ def transform(tpl: str) -> str:
 
     # May need custom handling in lang/$LOCALE.py
     return f"<i>({capitalize(tpl)})</i>" if tpl else ""
-
-
-def is_ignored(word: str) -> bool:
-    """Helper to filter out words from the final dictionary."""
-    # Filter out "small" words and numbers
-    return len(word) < 3 or word.isnumeric()

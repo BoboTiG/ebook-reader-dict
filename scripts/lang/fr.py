@@ -198,12 +198,16 @@ templates_multi = {
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
     "couleur": 'f"(Code RGB {parts[1]})"',
+    # {{fchim|H|2|O}}
+    "fchim": 'f"{format_chimy(parts[1:])}"',
     # {{emploi|au passif}}
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
+    # {{nom w pc|Aldous|Huxley}}
+    "nom w pc": 'f"{handle_name(parts)}"',
     # {{nombre romain|12}}
     "nombre romain": 'f"{int_to_roman(int(parts[1]))}"',
     # {{pron|plys|fr}}
@@ -213,6 +217,8 @@ templates_multi = {
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": 'f"{handle_sport(tpl, parts)}"',
+    # {{term|ne … guère que}}
+    "term": 'f"{handle_term(parts[1])}"',
     # {{variante de|ranche|fr}}
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}
