@@ -171,6 +171,7 @@ templates_italic = {
     "tradit": "Orthographe traditionnelle",
     "typo": "Typographie",
     "unités": "Métrologie",
+    "vête": "Habillement",
     "vieux": "Vieilli",
     "zool": "Zoologie",
     "zootechnie": "Zoologie",
