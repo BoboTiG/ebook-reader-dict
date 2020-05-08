@@ -140,6 +140,7 @@ templates_italic = {
     "métaphore": "Figuré",
     "météo": "Météorologie",
     "méton": "Par métonymie",
+    "métonymie": "Par métonymie",
     "métrol": "Métrologie",
     "mili": "Militaire",
     "mythol": "Mythologie",
