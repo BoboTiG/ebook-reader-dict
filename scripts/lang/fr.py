@@ -105,7 +105,7 @@ templates_italic = {
     "euphémisme": "Par euphémisme",
     "exag": "Par hyperbole",
     "exagération": "Par hyperbole",
-    "épithète": "Employé comme épithète) ",
+    "épithète": "Employé comme épithète",
     "finan": "Finance",
     "FR": "France",
     "formel": "Soutenu",
