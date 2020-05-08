@@ -168,6 +168,7 @@ templates_italic = {
     "typo": "Typographie",
     "unités": "Métrologie",
     "zool": "Zoologie",
+    "zootechnie": "Zoologie",
 }
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
