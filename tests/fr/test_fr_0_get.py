@@ -116,11 +116,6 @@ def test_find_genre(word, genre, page):
                 "<i>(Hippisme)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",  # noqa
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
                 "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
-                "Première personne du singulier de l’indicatif présent de baser.",
-                "Troisième personne du singulier de l’indicatif présent de baser.",
-                "Première personne du singulier du subjonctif présent de baser.",
-                "Troisième personne du singulier du subjonctif présent de baser.",
-                "Deuxième personne du singulier de l’impératif de baser.",
             ],
         ),
         ("Bogotanais", []),
@@ -212,11 +207,6 @@ def test_find_genre(word, genre, page):
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
                 "S’emploie quelquefois comme nom masculin.",
                 "Variante de ranche.",
-                "Première personne du singulier de l’indicatif présent de rancer.",
-                "Troisième personne du singulier de l’indicatif présent de rancer.",
-                "Première personne du singulier du subjonctif présent de rancer.",
-                "Troisième personne du singulier du subjonctif présent de rancer.",
-                "Deuxième personne du singulier de l’impératif présent de rancer.",
             ],
         ),
         ("sapristi", ["Pour marquer l’étonnement."]),
@@ -224,20 +214,11 @@ def test_find_genre(word, genre, page):
             "silicone",
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
-                "Première personne du singulier de l’indicatif présent de siliconer.",
-                "Troisième personne du singulier de l’indicatif présent de siliconer.",
-                "Première personne du singulier du subjonctif présent de siliconer.",
-                "Troisième personne du singulier du subjonctif présent de siliconer.",
-                "Deuxième personne du singulier de l’impératif de siliconer.",
             ],
         ),
         (
             "suis",
             [
-                "Première personne du singulier de l’indicatif présent de être.",
-                "Première personne du singulier de l’indicatif présent de suivre.",
-                "Deuxième personne du singulier de l’indicatif présent de suivre.",
-                "Deuxième personne du singulier de l’impératif présent de suivre.",
             ],
         ),
     ],
@@ -293,7 +274,8 @@ def test_main_0(craft_data, capsys):
     #   - "Bogotanais.wiki" (no definition found)
     #   - "en.wiki" (ignored)
     #   - "no section.wiki"
-    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 3
+    #   - "suis.wiki" (conjugated verb)
+    expected_count = len(list(C.SNAPSHOT.glob("*.wiki"))) - 4
 
     # Check the words data
     words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))

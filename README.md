@@ -9,6 +9,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
    - Les mots comportant moins de 3 caractères ne sont pas inclus.
    - Les noms propres ne sont pas inclus.
    - Les nombres ne sont pas inclus.
+   - Les conjugaisons ne sont pas incluses.
 
 ## Updating Dictionaries
 

@@ -30,7 +30,8 @@ patterns = (
     # "{{S|pronom personnel|fr|",
     "{{S|symbole|conv}",
     "{{S|verbe|fr}",
-    "{{S|verbe|fr|",
+    # Pas besoin des conjugaisons
+    # "{{S|verbe|fr|",
 )
 
 # Poids minimum du dictionnaire généré (dicthtml-fr.zip), en octets.
