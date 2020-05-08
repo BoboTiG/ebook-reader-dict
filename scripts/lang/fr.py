@@ -196,7 +196,8 @@ templates_italic = {
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
     # {{cf|tour d’échelle}}
-    "cf": 'f"→ voir {parts[1]}"',
+    # {{cf|lang=fr|faire}}
+    "cf": 'f"→ voir {parts[2] if len(parts) > 2 else parts[1]}"',
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
