@@ -126,6 +126,7 @@ templates_italic = {
     "info": "Informatique",
     "injur": "Injurieux",
     "intrans": "Intransitif",
+    "iron": "Ironique",
     "jardi": "Jardinage",
     "juri": "Droit",
     "jurisprudence": "Droit",
