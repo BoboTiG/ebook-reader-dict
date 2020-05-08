@@ -162,6 +162,7 @@ templates_italic = {
     "reli": "Religion",
     "réfl": "Réfléchi",
     "région": "Régionalisme",
+    "scol": "Éducation",
     "sexe": "Sexualité",
     "spéc": "Spécialement",
     "tech": "Technique",
