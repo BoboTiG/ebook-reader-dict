@@ -38,6 +38,7 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
+    "doute",
     "ébauche",
     "ébauche-déc",
     "ébauche-déf",
