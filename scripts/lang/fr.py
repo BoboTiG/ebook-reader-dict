@@ -142,6 +142,7 @@ templates_italic = {
     "métonymie": "Par métonymie",
     "métrol": "Métrologie",
     "mili": "Militaire",
+    "musi": "Musique",
     "mythol": "Mythologie",
     "néol": "Néologisme",
     "ornithol": "Ornithologie",
