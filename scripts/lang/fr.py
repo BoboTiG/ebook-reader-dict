@@ -105,6 +105,7 @@ templates_italic = {
     "euphémisme": "Par euphémisme",
     "exag": "Par hyperbole",
     "exagération": "Par hyperbole",
+    "éduc": "Éducation",
     "épithète": "Employé comme épithète",
     "ferro": "Chemin de fer",
     "finan": "Finance",
