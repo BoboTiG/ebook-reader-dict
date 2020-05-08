@@ -136,6 +136,7 @@ templates_italic = {
     "météo": "Météorologie",
     "méton": "Par métonymie",
     "métrol": "Métrologie",
+    "mili": "Militaire",
     "mythol": "Mythologie",
     "néol": "Néologisme",
     "ornithol": "Ornithologie",
