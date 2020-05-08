@@ -35,8 +35,13 @@ def handle_name(parts: List[str]) -> str:
 
         >>> handle_name(["nom w pc", "Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
+        >>> handle_name(["nom w pc", "L. L. Zamenhof"])
+        'L. L. Zamenhof'
     """
-    return f"{parts[1]} <span style='font-variant:small-caps'>{parts[2]}</span>"
+    res = parts[1]
+    if len(parts) > 2:
+        res += f" <span style='font-variant:small-caps'>{parts[2]}</span>"
+    return res
 
 
 def handle_sport(tpl: str, parts: List[str]) -> str:
