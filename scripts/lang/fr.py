@@ -106,6 +106,7 @@ templates_italic = {
     "exag": "Par hyperbole",
     "exagération": "Par hyperbole",
     "épithète": "Employé comme épithète",
+    "ferro": "Chemin de fer",
     "finan": "Finance",
     "FR": "France",
     "formel": "Soutenu",
