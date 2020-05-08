@@ -208,7 +208,7 @@ def process(file: Path) -> T.Words:
 
         try:
             pronunciation, genre, definitions = parse_word(code)
-        except Exception:
+        except Exception:  # pragma: nocover
             print(f"ERROR with {word!r}")
         else:
             if definitions:

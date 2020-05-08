@@ -236,7 +236,7 @@ def clean(text: str) -> str:
     return text.strip()
 
 
-def transform(tpl: str) -> str:
+def transform(template: str) -> str:
     """Handle the data inside the *text* template.
 
         >>> transform("w|ISO 639-3")
@@ -249,11 +249,8 @@ def transform(tpl: str) -> str:
         ''
     """
 
-    if "|" in tpl:
-        parts = [p.strip() for p in tpl.split("|")]
-        tpl = parts[0]
-    else:
-        parts = []
+    parts = [p.strip() for p in template.split("|")]
+    tpl = parts[0]
 
     if tpl in templates_ignored[C.LOCALE]:
         return ""
@@ -263,8 +260,13 @@ def transform(tpl: str) -> str:
         return parts[1]
 
     if tpl in templates_multi[C.LOCALE]:
-        res: str = eval(templates_multi[C.LOCALE][tpl])
-        return res
+        try:
+            res: str = eval(templates_multi[C.LOCALE][tpl])
+        except Exception:  # pragma: nocover
+            print(f"  !! Template {tpl!r} (parts={parts})")
+            raise
+        else:
+            return res
 
     if tpl in templates_italic[C.LOCALE]:
         return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"
