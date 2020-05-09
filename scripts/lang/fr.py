@@ -267,6 +267,8 @@ templates_other = {
     "peu attesté": "/!\\ Ce terme est très peu attesté.",
     # {{p}}
     "p": "<i>pluriel</i>",
+    # '{{réciproque|fr|m=1}}
+    "réciproque": "réciproque",
     # Bla bla bla. {{usage}} Bla bla bla
     # Bla bla bla. {{usage|fr}} Bla bla bla
     "usage": "<b>Note d'usage :</b>",
