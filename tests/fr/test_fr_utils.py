@@ -80,6 +80,7 @@ from scripts import utils
         ("{{unités|fr}}", "<i>(Métrologie)</i>"),
         ("{{unité|92|%}}", "92%"),
         ("{{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}", "Livre de Daniel"),
+        ("{{wsp|Panthera pardus|''Panthera pardus''}}", "Panthera pardus"),
     ],
 )
 def test_clean_template(wikicode, expected):

@@ -244,6 +244,8 @@ templates_multi = {
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
     "ws": 'f"{parts[2]}"',
+    # {{wsp|Panthera pardus|''Panthera pardus''}}
+    "wsp": 'f"{parts[2]}"',
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.
