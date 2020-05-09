@@ -233,6 +233,8 @@ templates_multi = {
     "sport": 'f"{handle_sport(tpl, parts)}"',
     # {{term|ne … guère que}}
     "term": 'f"{handle_term(parts[1])}"',
+    # {{unité|92|%}}
+    "unité": 'f"{handle_unit(parts[1:])}"',
     # {{variante de|ranche|fr}}
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}

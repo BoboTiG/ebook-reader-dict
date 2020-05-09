@@ -77,6 +77,7 @@ from scripts import utils
         ),
         ("{{term|{{antonomase|fr|m=1}}}}", "<i>(Antonomase)</i>"),
         ("{{unités|fr}}", "<i>(Métrologie)</i>"),
+        ("{{unité|92|%}}", "92%"),
         ("{{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}", "Livre de Daniel"),
     ],
 )

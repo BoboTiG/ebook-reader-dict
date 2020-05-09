@@ -74,6 +74,15 @@ def handle_term(text: str) -> str:
     return f"<i>({capitalize(text)})</i>"
 
 
+def handle_unit(parts: List[str]) -> str:
+    """Pretty format a 'unit'.
+
+        >>> handle_unit(["92", "%"])
+        '92%'
+    """
+    return "".join(parts)
+
+
 def int_to_roman(number: int) -> str:
     """
     Convert an integer to a Roman numeral.
