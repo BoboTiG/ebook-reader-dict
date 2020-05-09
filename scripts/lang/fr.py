@@ -241,6 +241,8 @@ templates_other = {
     "e": "<sup>e</sup>",
     # {{term|au {{f}}}}
     "f": "féminin",
+    # {{fplur}}
+    "fplur": "<i>féminin pluriel</i>",
     # Bla bla bla. {{note}} Bla bla bla
     # Bla bla bla. {{note|fr}} Bla bla bla
     "note": "<b>Note :</b>",
