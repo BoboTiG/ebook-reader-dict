@@ -12,8 +12,8 @@ from typing import Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
 import requests
 from requests import codes
 from requests.exceptions import HTTPError
-
 import wikitextparser as wtp
+import wikitextparser._spans
 
 from .lang import patterns
 from .utils import is_ignored, clean
@@ -22,6 +22,16 @@ from . import constants as C
 
 if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element  # noqa
+
+
+# As stated in wikitextparser._spans.parse_pm_pf_tl():
+#   If the byte_array passed to parse_to_spans contains n WikiLinks, then
+#   this function will be called n + 1 times. One time for the whole byte_array
+#   and n times for each of the n WikiLinks.
+#
+# We do not care about links, let's speed-up the all process by skipping the n times call.
+# Doing that is a ~30% optimization.
+wikitextparser._spans.WIKILINK_FINDITER = lambda *_: ()
 
 
 def decompress(file: Path) -> Path:
