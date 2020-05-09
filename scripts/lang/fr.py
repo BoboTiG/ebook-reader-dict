@@ -89,6 +89,7 @@ templates_italic = {
     "astron": "Astronomie",
     "auto": "Automobile",
     "automo": "Automobile",
+    "animaux": "Zoologie",
     "antonomase": "Antonomase",
     "au figuré": "Figuré",
     "bdd": "Bases de données",
