@@ -164,6 +164,7 @@ templates_italic = {
     "pêch": "Pêche",
     "péj": "Péjoratif",
     "philo": "Philosophie",
+    "photo": "Photographie",
     "poés": "Poésie",
     "POO": "Programmation orientée objet",
     "popu": "Populaire",
