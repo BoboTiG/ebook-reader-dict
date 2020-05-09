@@ -133,6 +133,7 @@ templates_italic = {
     "indus": "Industrie",
     "info": "Informatique",
     "injur": "Injurieux",
+    "insectes": "Entomologie",
     "intrans": "Intransitif",
     "iron": "Ironique",
     "jardi": "Jardinage",
