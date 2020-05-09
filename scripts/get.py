@@ -321,6 +321,8 @@ def main(word: Optional[str] = "") -> int:
 
     # Process the XML to retain only primary information
     words = process(file)
+    if not words:  # pragma: nocover
+        raise ValueError("Empty dictionary?!")
 
     # Save data for next runs
     save(snapshot, words)
