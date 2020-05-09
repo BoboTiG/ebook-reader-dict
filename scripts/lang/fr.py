@@ -237,6 +237,8 @@ templates_multi = {
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
+    # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
+    "ws": 'f"{parts[2]}"',
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.
