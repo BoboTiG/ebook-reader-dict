@@ -35,13 +35,8 @@ def handle_name(parts: List[str]) -> str:
 
         >>> handle_name(["nom w pc", "Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
-        >>> handle_name(["nom w pc", "L. L. Zamenhof"])
-        'L. L. Zamenhof'
     """
-    res = parts[1]
-    if len(parts) > 2:
-        res += f" <span style='font-variant:small-caps'>{parts[2]}</span>"
-    return res
+    return f"{parts[1]} <span style='font-variant:small-caps'>{parts[2]}</span>"
 
 
 def handle_sport(tpl: str, parts: List[str]) -> str:
@@ -246,15 +241,16 @@ def transform(template: str) -> str:
 
         >>> transform("w|ISO 639-3")
         'ISO 639-3'
-        >>> transform("w | ISO 639-3")
-        'ISO 639-3'
         >>> transform("grammaire|fr")
         '<i>(Grammaire)</i>'
         >>> transform("conj|grp=1|fr")
         ''
     """
 
-    parts = [p.strip() for p in template.split("|")]
+    # We used to strip eveything in the template, but it was silencing formatting errors.
+    # So we do not strip it and the good fix is to apply changes in Wiktionary directly.
+    # parts = [p.strip() for p in template.split("|")]
+    parts = template.split("|")
     tpl = parts[0]
 
     if tpl in templates_ignored[C.LOCALE]:
