@@ -252,6 +252,9 @@ templates_multi = {
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
+    # {{apocope|m=1|fr}}
+    # => https://fr.wiktionary.org/wiki/répète
+    "apocope": "Apocope",
     # XIX{{e}}
     "e": "<sup>e</sup>",
     # {{term|au {{f}}}}
