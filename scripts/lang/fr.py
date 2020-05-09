@@ -153,6 +153,7 @@ templates_italic = {
     "méton": "Par métonymie",
     "métonymie": "Par métonymie",
     "métrol": "Métrologie",
+    "meubles héraldiques": "Héraldique",
     "mili": "Militaire",
     "minér": "Minéralogie",
     "musi": "Musique",
