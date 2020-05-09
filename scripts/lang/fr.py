@@ -95,6 +95,7 @@ templates_italic = {
     "BE": "Belgique",
     "bioch": "Biochimie",
     "biol": "Biologie",
+    "chim": "Chimie",
     "chir": "Chirurgie",
     "ciné": "Cinéma",
     "cuis": "Cuisine",
