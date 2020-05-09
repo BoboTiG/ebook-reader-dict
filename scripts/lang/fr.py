@@ -101,6 +101,7 @@ templates_italic = {
     "cuis": "Cuisine",
     "comm": "Commerce",
     "cout": "Couture",
+    "dermatol": "Dermatologie",
     "didact": "Didactique",
     "élec": "Électricité",
     "ellipse": "Par ellipse",
