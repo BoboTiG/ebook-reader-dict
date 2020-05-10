@@ -164,6 +164,7 @@ templates_italic = {
     "musi": "Musique",
     "mythol": "Mythologie",
     "néol": "Néologisme",
+    "oenol": "Œnologie",
     "ornithol": "Ornithologie",
     "par ext": "Par extension",
     "part": "En particulier",
