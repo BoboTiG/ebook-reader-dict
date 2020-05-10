@@ -150,7 +150,7 @@ def test_find_genre(word, genre, page):
         ),
         (
             "encyclopædie",
-            ["<i>(Archaïque)</i> Variante orthographique de encyclopédie."],
+            ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
         ),
         (
             "éperon",

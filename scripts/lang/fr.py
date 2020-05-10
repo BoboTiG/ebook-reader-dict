@@ -240,14 +240,14 @@ templates_multi = {
     "pron": r'f"\\{parts[1]}\\"',
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "région": 'f"<i>({parts[1] if len(parts) > 1 else \'Régionalisme\'})</i>"',
+    "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": "handle_sport(tpl, parts)",
     # {{superlatif de|petit|fr}}
-    "superlatif de": 'f"{capitalize(tpl)} de {parts[1]}"',
+    "superlatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{term|ne … guère que}}
     "term": "handle_term(parts[1])",
     # {{trad+|conv|Sitophilus granarius}}

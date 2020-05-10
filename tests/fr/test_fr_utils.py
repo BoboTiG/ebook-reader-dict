@@ -58,6 +58,7 @@ from scripts import utils
         ("{{siècle2|XIX}}", "XIXème"),
         ("{{sport|fr}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
+        ("{{superlatif de|petit|fr}}", "Superlatif de petit"),
         ("{{term|au {{f}}}}", "<i>(Au féminin)</i>"),
         (
             "{{term|Avec un mot négatif}} Presque.",
