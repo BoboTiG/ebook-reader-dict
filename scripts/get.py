@@ -91,10 +91,12 @@ def fetch_pages(date: str) -> Path:
     return output
 
 
-def find_definitions(sections: T.Sections) -> List[str]:
+def find_definitions(word: str, sections: T.Sections) -> List[str]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
-        chain.from_iterable(find_section_definitions(section) for section in sections)
+        chain.from_iterable(
+            find_section_definitions(word, section) for section in sections
+        )
     )
     if not definitions:
         return []
@@ -105,6 +107,7 @@ def find_definitions(sections: T.Sections) -> List[str]:
 
 
 def find_section_definitions(
+    word: str,
     section: wtp.Section,
     pattern: Pattern[str] = re.compile(r"^(<i>\([\w ]+\)</i>\.? ?\??…?)*$"),
 ) -> Generator[str, None, None]:
@@ -117,7 +120,7 @@ def find_section_definitions(
     """
     lists = section.get_lists()
     if lists:
-        definitions = (clean(d.strip()) for d in lists[0].items)
+        definitions = (clean(word, d.strip()) for d in lists[0].items)
         yield from (d for d in definitions if not pattern.match(d))
 
 
@@ -148,7 +151,7 @@ def get_and_parse_word(word: str) -> None:
     with requests.get(C.WORD_URL.format(word)) as req:
         code = req.text
 
-    pronunciation, genre, defs = parse_word(code, force=True)
+    pronunciation, genre, defs = parse_word(word, code, force=True)
 
     print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
     for i, definition in enumerate(defs, start=1):
@@ -186,7 +189,7 @@ def less_than(old: str, new: str) -> bool:
     return len(old) != 8 or old < new
 
 
-def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
+def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, List[str]]:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
     It is disabled by default t spee-up the overall process, but enabled when
@@ -195,7 +198,7 @@ def parse_word(code: str, force: bool = False) -> Tuple[str, str, List[str]]:
     sections = find_sections(code)
     pronunciation = ""
     genre = ""
-    definitions = find_definitions(sections)
+    definitions = find_definitions(word, sections)
 
     if definitions or force:
         pronunciation = find_pronunciation(code)
@@ -217,7 +220,7 @@ def process(file: Path) -> T.Words:
             continue
 
         try:
-            pronunciation, genre, definitions = parse_word(code)
+            pronunciation, genre, definitions = parse_word(word, code)
         except Exception:  # pragma: nocover
             print(f"ERROR with {word!r}")
         else:

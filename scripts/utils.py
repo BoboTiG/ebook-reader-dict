@@ -1,8 +1,15 @@
 """Utilities."""
 import re
 from typing import List
+from warnings import warn
 
-from .lang import templates_italic, templates_ignored, templates_multi, templates_other
+from .lang import (
+    templates_italic,
+    templates_ignored,
+    templates_multi,
+    templates_other,
+    template_warning_skip,
+)
 from . import constants as C
 
 
@@ -30,13 +37,20 @@ def format_chimy(composition: List[str]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
-def handle_name(parts: List[str]) -> str:
+def handle_name(word: str, parts: List[str]) -> str:
     """Handle the 'name' template to display writers/authors or any full name person.
 
-        >>> handle_name(["nom w pc", "Aldous", "Huxley"])
+        >>> handle_name("foo", ["nom w pc", "Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
+        >>> handle_name("foo", ["nom w pc", "L. L. Zamenhof"])
+        'L. L. Zamenhof'
     """
-    return f"{parts[1]} <span style='font-variant:small-caps'>{parts[2]}</span>"
+    res = parts[1]
+    if len(parts) > 2:
+        res += f" <span style='font-variant:small-caps'>{parts[2]}</span>"
+    else:
+        warn(f"Malformed template in the Wikicode of {word!r} (parts={parts})")
+    return res
 
 
 def handle_sport(tpl: str, parts: List[str]) -> str:
@@ -136,17 +150,17 @@ def is_ignored(word: str) -> bool:
     return len(word) < 3 or word.isnumeric()
 
 
-def clean(text: str) -> str:
+def clean(word: str, text: str) -> str:
     """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
-        >>> clean("{{unknown}}")
+        >>> clean("foo", "{{unknown}}")
         '<i>(Unknown)</i>'
-        >>> clean("<span style='color:black'>[[♣]]</span>")
+        >>> clean("foo", "<span style='color:black'>[[♣]]</span>")
         '♣'
-        >>> clean("{{foo|{{bar}}|123}}")
+        >>> clean("foo", "{{foo|{{bar}}|123}}")
         ''
     """
 
@@ -164,7 +178,7 @@ def clean(text: str) -> str:
     text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''
 
     # HTML
-    text = sub(r"<[^>]+/?>", " ", text)  # <br> / <br />
+    text = sub(r"<[^>]+/?>", "", text)  # <br> / <br />
     text = text.replace("&nbsp;", " ")
 
     # Files
@@ -216,7 +230,7 @@ def clean(text: str) -> str:
     for tpl in set(re.findall(r"({{[^{}]*}})", text)):
         # Transform the nested template.
         # This will remove any nested templates from the original text.
-        text = text.replace(tpl, transform(tpl[2:-2]))
+        text = text.replace(tpl, transform(word, tpl[2:-2]))
 
     # Now that all nested templates are done, we can process top-level ones
     while "{{" in text:
@@ -235,7 +249,7 @@ def clean(text: str) -> str:
             pos += 1
 
         # The template is now completed
-        transformed = transform(subtext)
+        transformed = transform(word, subtext)
         text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
 
     # Remove extra spaces
@@ -245,22 +259,26 @@ def clean(text: str) -> str:
     return text.strip()
 
 
-def transform(template: str) -> str:
+def transform(word: str, template: str) -> str:
     """Handle the data inside the *text* template.
 
-        >>> transform("w|ISO 639-3")
+        >>> transform("foo", "w|ISO 639-3")
         'ISO 639-3'
-        >>> transform("grammaire|fr")
+        >>> transform("foo", "grammaire|fr")
         '<i>(Grammaire)</i>'
-        >>> transform("conj|grp=1|fr")
+        >>> transform("foo", "conj|grp=1|fr")
         ''
+        >>> transform("test", "w | ISO 639-3")
+        'ISO 639-3'
     """
 
-    # We used to strip eveything in the template, but it was silencing formatting errors.
-    # So we do not strip it and the good fix is to apply changes in Wiktionary directly.
-    # parts = [p.strip() for p in template.split("|")]
-    parts = template.split("|")
+    parts_raw = template.split("|")
+    parts = [p.strip() for p in parts_raw]
     tpl = parts[0]
+
+    # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
+    if parts != parts_raw and tpl not in template_warning_skip[C.LOCALE]:
+        warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
 
     if tpl in templates_ignored[C.LOCALE]:
         return ""
@@ -270,13 +288,8 @@ def transform(template: str) -> str:
         return parts[1]
 
     if tpl in templates_multi[C.LOCALE]:
-        try:
-            res: str = eval(templates_multi[C.LOCALE][tpl])
-        except Exception:  # pragma: nocover
-            print(f"  !! Template {tpl!r} (parts={parts})")
-            raise
-        else:
-            return res
+        res: str = eval(templates_multi[C.LOCALE][tpl])
+        return res
 
     if tpl in templates_italic[C.LOCALE]:
         return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"

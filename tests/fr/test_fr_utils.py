@@ -21,6 +21,7 @@ from scripts import utils
         ("{{cf|immortelle}}", "→ voir immortelle"),
         ("{{cf|lang=fr|faire}}", "→ voir faire"),
         ("{{couleur|#B0F2B6}}", "(Code RGB #B0F2B6)"),
+        ("{{couleur | #B0F2B6}}", "(Code RGB #B0F2B6)"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("{{élec|fr}}", "<i>(Électricité)</i>"),
         ("{{finan|fr}}", "<i>(Finance)</i>"),
@@ -42,6 +43,7 @@ from scripts import utils
             "{{nom w pc|Aldous|Huxley}}",
             "Aldous <span style='font-variant:small-caps'>Huxley</span>",
         ),
+        ("{{nom w pc|L. L. Zamenhof}}", "L. L. Zamenhof"),
         ("{{moderne}}", "<i>(Moderne)</i>"),
         ("{{néol|fr}}", "<i>(Néologisme)</i>"),
         ("{{nombre romain|12}}", "XII"),
@@ -80,8 +82,13 @@ from scripts import utils
         ("{{unités|fr}}", "<i>(Métrologie)</i>"),
         ("{{unité|92|%}}", "92%"),
         ("{{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}", "Livre de Daniel"),
+        (
+            "{{ws|Les Grenouilles qui demandent un Roi}}",
+            "Les Grenouilles qui demandent un Roi",
+        ),
         ("{{wsp|Panthera pardus|''Panthera pardus''}}", "Panthera pardus"),
+        ("{{wsp|Brassicaceae}}", "Brassicaceae"),
     ],
 )
 def test_clean_template(wikicode, expected):
-    assert utils.clean(wikicode) == expected
+    assert utils.clean("foo", wikicode) == expected

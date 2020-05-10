@@ -216,7 +216,7 @@ templates_multi = {
     # {{couleur|#B0F2B6}}
     "couleur": 'f"(Code RGB {parts[1]})"',
     # {{fchim|H|2|O}}
-    "fchim": 'f"{format_chimy(parts[1:])}"',
+    "fchim": "format_chimy(parts[1:])",
     # {{emploi|au passif}}
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{forme pronominale|mutiner}}
@@ -224,30 +224,32 @@ templates_multi = {
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
-    "nom w pc": 'f"{handle_name(parts)}"',
+    "nom w pc": "handle_name(word, parts)",
     # {{nombre romain|12}}
-    "nombre romain": 'f"{int_to_roman(int(parts[1]))}"',
+    "nombre romain": "int_to_roman(int(parts[1]))",
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": 'f"{handle_sport(tpl, parts)}"',
+    "sport": "handle_sport(tpl, parts)",
     # {{term|ne … guère que}}
-    "term": 'f"{handle_term(parts[1])}"',
+    "term": "handle_term(parts[1])",
     # {{trad+|conv|Sitophilus granarius}}
-    "trad+": 'f"{parts[2]}"',
+    "trad+": "parts[2]",
     # {{unité|92|%}}
-    "unité": 'f"{handle_unit(parts[1:])}"',
+    "unité": "handle_unit(parts[1:])",
     # {{variante de|ranche|fr}}
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
-    "ws": 'f"{parts[2]}"',
+    # {{ws|Les Grenouilles qui demandent un Roi}}
+    "ws": "parts[2] if len(parts) > 2 else parts[1]",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
-    "wsp": 'f"{parts[2]}"',
+    # {{wsp|Brassicaceae}}
+    "wsp": "parts[2] if len(parts) > 2 else parts[1]",
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.
@@ -273,6 +275,10 @@ templates_other = {
     # Bla bla bla. {{usage|fr}} Bla bla bla
     "usage": "<b>Note d'usage :</b>",
 }
+
+# Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
+# sauf pour ceux listés ci-dessous :
+template_warning_skip = ("fchim", "source")
 
 # Traductions diverses
 translations = {

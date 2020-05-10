@@ -45,6 +45,12 @@ templates_other = {
     "fr": fr.templates_other,
 }
 
+# A warning will be printed when a template contains superfuous spaces,
+# except for those listed bellow:
+template_warning_skip = {
+    "fr": fr.template_warning_skip,
+}
+
 # Translations
 translations = {
     "fr": fr.translations,
