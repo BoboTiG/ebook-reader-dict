@@ -37,6 +37,17 @@ def format_chimy(composition: List[str]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
+def handle_century(word: str, parts: List[str], century: str) -> str:
+    """Handle different century templates.
+
+        >>> handle_century("foo", ["siècle", "XVI"], "siècle")
+        'XVI<sup>e</sup> siècle'
+        >>> handle_century("foo", ["siècle", "XVIII", "XIX"], "century")
+        'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
+    """
+    return " - ".join(f"{p}<sup>e</sup> {century}" for p in parts[1:])
+
+
 def handle_name(word: str, parts: List[str]) -> str:
     """Handle the 'name' template to display writers/authors or any full name person.
 

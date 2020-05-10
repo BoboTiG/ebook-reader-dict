@@ -57,6 +57,8 @@ from scripts import utils
         ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
+        ("{{siècle|XVI}}", "<i>(XVI<sup>e</sup> siècle)</i>"),
+        ("{{siècle|XVIII|XIX}}", "<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>"),
         ("{{siècle2|XIX}}", "XIXème"),
         ("{{sport|fr}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),

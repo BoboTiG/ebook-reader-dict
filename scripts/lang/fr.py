@@ -246,6 +246,9 @@ templates_multi = {
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
     "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
+    # {{siècle|XVI}}
+    # {{siècle|XVIII|XIX}}
+    "siècle": 'f"<i>({handle_century(word, parts, \'siècle\')})</i>"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}
