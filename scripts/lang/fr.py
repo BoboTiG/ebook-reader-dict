@@ -77,6 +77,7 @@ templates_italic = {
     "admin": "Administration",
     "aéro": "Aéronautique",
     "agri": "Agriculture",
+    "alcaloïdes": "Chimie",
     "analogie": "Par analogie",
     "angl": "Anglicisme",
     "antiq": "Antiquité",
