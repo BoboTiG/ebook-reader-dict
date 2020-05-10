@@ -185,6 +185,7 @@ templates_italic = {
     "QC": "Québec",
     "reli": "Religion",
     "réfl": "Réfléchi",
+    "réseaux": "Réseaux informatiques",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "sexe": "Sexualité",
