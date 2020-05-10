@@ -242,6 +242,8 @@ templates_multi = {
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": "handle_sport(tpl, parts)",
+    # {{superlatif de|petit|fr}}
+    "superlatif de": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{term|ne … guère que}}
     "term": "handle_term(parts[1])",
     # {{trad+|conv|Sitophilus granarius}}
