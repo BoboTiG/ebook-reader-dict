@@ -264,6 +264,8 @@ def transform(word: str, template: str) -> str:
 
         >>> transform("foo", "w|ISO 639-3")
         'ISO 639-3'
+        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca")
+        'Lathyrus aphaca'
         >>> transform("foo", "grammaire|fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr")
@@ -284,8 +286,9 @@ def transform(word: str, template: str) -> str:
         return ""
 
     # {{w|ISO 639-3}} -> ISO 639-3
+    # {{w|Gesse aphaca|Lathyrus aphaca}} -> Lathyrus aphaca
     if tpl == "w":
-        return parts[1]
+        return parts[-1]
 
     if tpl in templates_multi[C.LOCALE]:
         res: str = eval(templates_multi[C.LOCALE][tpl])
