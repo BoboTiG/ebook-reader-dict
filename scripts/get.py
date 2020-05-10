@@ -146,7 +146,7 @@ def find_sections(code: str) -> Generator[str, None, None]:
     )
 
 
-def get_and_parse_word(word: str) -> None:
+def get_and_parse_word(word: str, raw: bool = False) -> None:
     """Get a *word* wikicode and parse it."""
     with requests.get(C.WORD_URL.format(word)) as req:
         code = req.text
@@ -155,8 +155,10 @@ def get_and_parse_word(word: str) -> None:
 
     print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
     for i, definition in enumerate(defs, start=1):
-        # Strip HTML tags
-        print(f"{i}.".rjust(4), re.sub(r"<[^>]+/?>", "", definition))
+        if not raw:
+            # Strip HTML tags
+            definition = re.sub(r"<[^>]+/?>", "", definition)
+        print(f"{i}.".rjust(4), definition)
 
 
 def guess_snapshot() -> str:
@@ -291,12 +293,12 @@ def xml_parse_element(element: "Element") -> Tuple[str, str]:
     return word, code
 
 
-def main(word: Optional[str] = "") -> int:
+def main(word: Optional[str] = "", raw: bool = False) -> int:
     """Extry point."""
 
     # Fetch one word and parse it, used for testing mainly
     if word:
-        get_and_parse_word(word)
+        get_and_parse_word(word, raw=raw)
         return 0
 
     # Ensure the folder exists

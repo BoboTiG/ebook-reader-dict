@@ -159,7 +159,7 @@ def clean(word: str, text: str) -> str:
         >>> clean("foo", "{{unknown}}")
         '<i>(Unknown)</i>'
         >>> clean("foo", "<span style='color:black'>[[♣]]</span>")
-        '♣'
+        "<span style='color:black'>♣</span>"
         >>> clean("foo", "{{foo|{{bar}}|123}}")
         ''
     """
@@ -170,20 +170,16 @@ def clean(word: str, text: str) -> str:
     # Basic formatting
     text = sub(r"'''?([^']+)'''?", "\\1", text)
 
-    # Clean some HTML tags: we want to keep the data for some of them
-    # Ex: <span style="color:black">[[foo]]</span> -> '[[foo]]'
-    text = sub(r"<span[^>]+>([^<]+)</span>", "\\1", text)
-
     # Parser hooks
-    text = sub(r"<[^>]+>[^<]+</[^>]+>", "", text)  # <ref>foo</ref> -> ''
+    text = sub(r"<ref[^>]+>[^<]+</ref[^>]+>", "", text)  # <ref>foo</ref> -> ''
 
     # HTML
-    text = sub(r"<[^>]+/?>", "", text)  # <br> / <br />
+    text = sub(r"<br[^>]+/?>", "", text)  # <br> / <br />
     text = text.replace("&nbsp;", " ")
 
     # Files
     # [[File:picture.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] -> ''
-    text = sub(r"\[\[[^|\]]+(?:\|[^\]]+){2,}\]\]", "", text)
+    text = sub(r"\[\[.+:[^|\]]+(?:\|[^\]]+){2,}\]\]", "", text)
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
