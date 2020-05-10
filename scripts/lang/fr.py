@@ -98,6 +98,7 @@ templates_italic = {
     "bioch": "Biochimie",
     "biol": "Biologie",
     "boissons": "Boisson",
+    "CA": "Canada",
     "chim": "Chimie",
     "chir": "Chirurgie",
     "ciné": "Cinéma",
