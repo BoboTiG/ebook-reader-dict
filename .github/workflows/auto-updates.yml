@@ -34,12 +34,12 @@ jobs:
       run: python -m pip install -r requirements.txt
 
     - name: Fetch the latest Wiktionary dump
-      run: python -m scripts --fetch-only
+      run: python -Wd -m scripts --fetch-only
       env:
         WIKI_LOCALE: ${{ matrix.locale }}
 
     - name: Update the dictionary
-      run: python -m scripts --convert-only
+      run: python -Wd -m scripts --convert-only
       env:
         WIKI_LOCALE: ${{ matrix.locale }}
 
@@ -53,7 +53,7 @@ jobs:
         overwrite: true
   
     - name: Update the release description
-      run: python -m scripts --update-release
+      run: python -Wd -m scripts --update-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WIKI_LOCALE: ${{ matrix.locale }}
