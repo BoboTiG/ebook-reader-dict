@@ -54,6 +54,7 @@ templates_ignored = (
     "ébauche-trad-exe",
     "ébauche-trans",
     "ébauche2-exe",
+    "graphie",
     "préciser",
     "R",
     "refnec",
