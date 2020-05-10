@@ -294,7 +294,7 @@ templates_other = {
 
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
 # sauf pour ceux listés ci-dessous :
-template_warning_skip = ("fchim", "source")
+template_warning_skip = ("fchim", "graphie", "lien web", "source")
 
 # Traductions diverses
 translations = {
