@@ -179,7 +179,6 @@ templates_italic = {
     "QC": "Québec",
     "reli": "Religion",
     "réfl": "Réfléchi",
-    "région": "Régionalisme",
     "scol": "Éducation",
     "sexe": "Sexualité",
     "spéc": "Spécialement",
@@ -231,6 +230,9 @@ templates_multi = {
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
+    # {{région}}
+    # {{région|Lorraine et Dauphiné}}
+    "région": 'f"<i>({parts[1] if len(parts) > 1 else \'Régionalisme\'})</i>"',
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}

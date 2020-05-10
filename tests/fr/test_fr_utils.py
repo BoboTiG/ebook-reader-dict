@@ -53,6 +53,7 @@ from scripts import utils
         ("{{pronl|fr}}", "<i>(Pronominal)</i>"),
         ("{{QC|fr}}", "<i>(Québec)</i>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
+        ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
         ("{{siècle2|XIX}}", "XIXème"),
         ("{{sport|fr}}", "<i>(Sport)</i>"),
