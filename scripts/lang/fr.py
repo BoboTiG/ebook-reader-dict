@@ -143,6 +143,7 @@ templates_italic = {
     "jardi": "Jardinage",
     "juri": "Droit",
     "jurisprudence": "Droit",
+    "just": "Justice",
     "ling": "Linguistique",
     "litt": "Littéraire",
     "logi": "Logique",
