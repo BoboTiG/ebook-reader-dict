@@ -314,8 +314,8 @@ Export Wiktionnaire : {dump_date}
 
 ---
 
-<sub>Nombre total de téléchargements : {download_count}</sub>
-<sub>Date de création du fichier : {creation_date}</sub>
+<sub>Mis à jour le {creation_date}</sub>
+<sub>{download_count} téléchargements</sub>
 """,
     # Séparateur des milliers
     "thousands_separator": " ",

@@ -32,9 +32,9 @@ def test_format_description():
     try:
         desc = upload.format_description().strip().splitlines()
         assert desc[:-2] == expected
-        assert desc[-2] == "<sub>Nombre total de téléchargements : 4 200</sub>"
-        assert desc[-1].startswith("<sub>Date de création du fichier : 202")
-        assert desc[-1].endswith("</sub>")
+        assert desc[-2].startswith("<sub>Mis à jour le 202")
+        assert desc[-2].endswith("</sub>")
+        assert desc[-1] == "<sub>4 200 téléchargements</sub>"
     finally:
         C.SNAPSHOT_COUNT.unlink()
         C.SNAPSHOT_FILE.unlink()
