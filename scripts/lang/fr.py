@@ -127,6 +127,7 @@ templates_italic = {
     "géog": "Géographie",
     "géom": "Géométrie",
     "graphe": "Théorie des graphes",
+    "habil": "Habillement",
     "hérald": "Héraldique",
     "hist": "Histoire",
     "hyperb": "Par hyperbole",
