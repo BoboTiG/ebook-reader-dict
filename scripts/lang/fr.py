@@ -82,6 +82,7 @@ templates_italic = {
     "angl": "Anglicisme",
     "antiq": "Antiquité",
     "apposition": "En apposition",
+    "archaïque": "Archaïsme",
     "archi": "Architecture",
     "Argadz": "Argot des Gadz’Arts",
     "argot internet": "Argot Internet",
