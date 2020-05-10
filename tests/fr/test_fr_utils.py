@@ -35,6 +35,7 @@ from scripts import utils
         ("{{lien|étrange|fr}}", "étrange"),
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "<i>(Linguistique)</i>"),
+        ("{{in|5}}", "<sub>5</sub>"),
         ("{{math|fr}}", "<i>(Mathématiques)</i>"),
         ("{{mélio|fr}}", "<i>(Mélioratif)</i>"),
         ("{{méton|fr}}", "<i>(Par métonymie)</i>"),

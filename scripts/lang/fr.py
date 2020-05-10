@@ -230,6 +230,8 @@ templates_multi = {
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
+    # {{in|5}}
+    "in": 'f"<sub>{parts[1]}</sub>"',
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
