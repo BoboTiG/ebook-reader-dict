@@ -175,6 +175,7 @@ templates_italic = {
     "prog": "Programmation informatique",
     "pronl": "Pronominal",
     "propre": "Sens propre",
+    "propulsion": "Propulsion spatiale",
     "QC": "Québec",
     "reli": "Religion",
     "réfl": "Réfléchi",
