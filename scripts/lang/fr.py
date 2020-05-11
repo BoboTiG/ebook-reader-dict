@@ -180,6 +180,7 @@ templates_italic = {
     "POO": "Programmation orientée objet",
     "popu": "Populaire",
     "prog": "Programmation informatique",
+    "programmation": "Programmation informatique",
     "pronl": "Pronominal",
     "propre": "Sens propre",
     "propulsion": "Propulsion spatiale",
