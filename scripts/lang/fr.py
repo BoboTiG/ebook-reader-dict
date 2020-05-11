@@ -183,6 +183,7 @@ templates_italic = {
     "pronl": "Pronominal",
     "propre": "Sens propre",
     "propulsion": "Propulsion spatiale",
+    "psychol": "Psychologie",
     "QC": "Québec",
     "reli": "Religion",
     "réfl": "Réfléchi",
