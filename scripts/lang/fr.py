@@ -163,6 +163,7 @@ templates_italic = {
     "meubles héraldiques": "Héraldique",
     "mili": "Militaire",
     "minér": "Minéralogie",
+    "muscles": "Anatomie",
     "musi": "Musique",
     "mythol": "Mythologie",
     "néol": "Néologisme",
