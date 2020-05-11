@@ -168,6 +168,7 @@ templates_italic = {
     "mythol": "Mythologie",
     "néol": "Néologisme",
     "oenol": "Œnologie",
+    "opti": "Optique",
     "ornithol": "Ornithologie",
     "par ext": "Par extension",
     "part": "En particulier",
