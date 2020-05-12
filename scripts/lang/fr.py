@@ -193,7 +193,6 @@ templates_italic = {
     "psychol": "Psychologie",
     "QC": "Québec",
     "reli": "Religion",
-    "réfl": "Réfléchi",
     "réseaux": "Réseaux informatiques",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
@@ -300,6 +299,8 @@ templates_other = {
     "p": "<i>pluriel</i>",
     # {{s}}
     "s": "<i>singulier</i>",
+    # {{réfl|fr}}
+    "réfl": "réfléchi",
     # '{{réciproque|fr|m=1}}
     "réciproque": "réciproque",
     # Bla bla bla. {{usage}} Bla bla bla
