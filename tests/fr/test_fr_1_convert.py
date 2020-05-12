@@ -15,7 +15,7 @@ def test_main(data):
     assert convert.main() == 0
 
     # Check for the final ZIP file
-    dicthtml = C.SNAPSHOT / f"dicthtml-fr.zip"
+    dicthtml = C.SNAPSHOT / "dicthtml-fr.zip"
     assert dicthtml.is_file()
 
     # Check the ZIP content
