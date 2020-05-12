@@ -181,6 +181,7 @@ templates_italic = {
     "philo": "Philosophie",
     "photo": "Photographie",
     "poés": "Poésie",
+    "poissons": "Ichtyologie",
     "POO": "Programmation orientée objet",
     "popu": "Populaire",
     "prog": "Programmation informatique",
