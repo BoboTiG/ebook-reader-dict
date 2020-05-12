@@ -175,6 +175,10 @@ def clean(word: str, text: str) -> str:
         ''
         >>> clean("foo", "<ref>{{Import:CFC}}</ref>")
         ''
+        >>> clean("foo", '<ref name="CFC" />')
+        ''
+        >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>')
+        ''
     """
 
     # Speed-up lookup
@@ -184,7 +188,10 @@ def clean(word: str, text: str) -> str:
     text = sub(r"'''?([^']+)'''?", "\\1", text)
 
     # Parser hooks
-    text = sub(r"<ref>.+</ref>", "", text)  # <ref>foo</ref> -> ''
+    # <ref>foo</ref> -> ''
+    # <ref name="CFC"/> -> ''
+    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
+    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
     # HTML
     text = sub(r"<br[^>]+/?>", "", text)  # <br> / <br />
