@@ -187,12 +187,6 @@ def clean(word: str, text: str) -> str:
     # Basic formatting
     text = sub(r"'''?([^']+)'''?", "\\1", text)
 
-    # Parser hooks
-    # <ref>foo</ref> -> ''
-    # <ref name="CFC"/> -> ''
-    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
-
     # HTML
     text = sub(r"<br[^>]+/?>", "", text)  # <br> / <br />
     text = text.replace("&nbsp;", " ")
@@ -226,6 +220,12 @@ def clean(word: str, text: str) -> str:
         r"\[http[^\s]+ ([^\]]+)\]", "\\1", text
     )  # [[http://example.com foo]] -> foo
     text = sub(r"https?://[^\s]+", "", text)  # remove http://example.com
+
+    # Parser hooks
+    # <ref>foo</ref> -> ''
+    # <ref name="CFC"/> -> ''
+    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
+    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
