@@ -101,6 +101,7 @@ templates_italic = {
     "biol": "Biologie",
     "boissons": "Boisson",
     "CA": "Canada",
+    "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
     "chim": "Chimie",
     "chir": "Chirurgie",
