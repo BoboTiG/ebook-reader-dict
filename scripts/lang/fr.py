@@ -303,6 +303,8 @@ templates_other = {
     "réfl": "réfléchi",
     # '{{réciproque|fr|m=1}}
     "réciproque": "réciproque",
+    # {{tr-dir|fr}}
+    "tr-dir": "transitif direct",
     # {{tr-indir|fr}}
     "tr-indir": "transitif indirect",
     # Bla bla bla. {{usage}} Bla bla bla
