@@ -117,15 +117,7 @@ def save_html(name: str, words: T.Words) -> Path:
             if genre:
                 genre = f" <i>{genre}.</i>"
 
-            fh.write(
-                C.WORD_FORMAT.format(
-                    word=word,
-                    pronunciation=pronunciation,
-                    genre=genre,
-                    definitions=definitions,
-                    source=source,
-                )
-            )
+            fh.write(C.WORD_FORMAT.format(**locals()))
 
         fh.write("</html>\n")
 
