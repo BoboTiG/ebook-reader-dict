@@ -205,6 +205,7 @@ templates_italic = {
     "spéc": "Spécialement",
     "tech": "Technique",
     "technol": "Technologie",
+    "text": "Textile",
     "télécom": "Télécommunications",
     "tradit": "Orthographe traditionnelle",
     "typo": "Typographie",
