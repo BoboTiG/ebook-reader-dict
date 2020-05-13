@@ -108,6 +108,7 @@ templates_italic = {
     "ciné": "Cinéma",
     "cuis": "Cuisine",
     "comm": "Commerce",
+    "cour": "Courant",
     "cout": "Couture",
     "danses": "Danse",
     "dermatol": "Dermatologie",
