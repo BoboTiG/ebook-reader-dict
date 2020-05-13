@@ -30,8 +30,7 @@ patterns = (
     "{{S|pronom personnel|fr|",
     "{{S|symbole|conv}",
     "{{S|verbe|fr}",
-    # Pas besoin des conjugaisons
-    # "{{S|verbe|fr|",
+    "{{S|verbe|fr|num=",
 )
 
 # Modèle à ignorer : le texte sera supprimé.
