@@ -35,11 +35,9 @@ DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
 # HTML formatting for each word
 WORD_FORMAT = (
     # Word formatting
-    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol>'
+    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol></p>'
     # The source
-    "<br/><i>{source}</i>"
-    # Close the paragraph
-    "</p>"
+    '<p style="text-align:right"><i>{source}</i></p>'
     # And add a line break for when there is more that one word displayed
     "<br/>"
     # This is a hell of a hack to hide the harcoded dict name (!)
