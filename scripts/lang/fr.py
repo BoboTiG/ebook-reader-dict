@@ -155,6 +155,7 @@ templates_italic = {
     "ling": "Linguistique",
     "litt": "Littéraire",
     "logi": "Logique",
+    "maladie": "Nosologie",
     "math": "Mathématiques",
     "médecine non conv": "Médecine non conventionnelle",
     "mélio": "Mélioratif",
