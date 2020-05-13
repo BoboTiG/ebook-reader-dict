@@ -192,6 +192,7 @@ templates_italic = {
     "programmation": "Programmation informatique",
     "pronl": "Pronominal",
     "propre": "Sens propre",
+    "propriété": "Droit",
     "propulsion": "Propulsion spatiale",
     "psychol": "Psychologie",
     "QC": "Québec",
