@@ -179,17 +179,24 @@ def clean(word: str, text: str) -> str:
         ''
         >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>')
         ''
+        >>> clean("foo", "''italic''")
+        '<i>italic</i>'
+        >>> clean("foo", "'''strong'''")
+        '<b>strong</b>'
+        >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''")
+        "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
     """
 
     # Speed-up lookup
     sub = re.sub
 
-    # Basic formatting
-    text = sub(r"'''?([^']+)'''?", "\\1", text)
-
     # HTML
-    text = sub(r"<br[^>]+/?>", "", text)  # <br> / <br />
-    text = text.replace("&nbsp;", " ")
+    # '''foo''' -> <b>foo></b>
+    text = sub(r"'''([^(?:''')]+)'''", "<b>\\1</b>", text)
+    # ''foo'' -> <i>foo></i> (source: https://stackoverflow.com/a/54388869/1117028)
+    text = sub(r"''([^']*(?:'[^']+)*)''", "<i>\\1</i>", text)
+    # <br> / <br /> -> ''
+    text = sub(r"<br[^>]+/?>", "", text)
 
     # Files
     # [[File:picture.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] -> ''

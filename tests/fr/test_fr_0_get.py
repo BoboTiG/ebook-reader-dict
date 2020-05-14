@@ -95,7 +95,7 @@ def test_find_genre(word, genre, page):
             "aux",
             [
                 "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
-                "Contraction obligatoire de la préposition à et de l'article défini les.",
+                "<i>Contraction obligatoire de la préposition </i>à<i> et de l'article défini </i>les<i>.</i>",
             ],
         ),
         (
@@ -126,14 +126,14 @@ def test_find_genre(word, genre, page):
                 "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",  # noqa
             ],
         ),
-        ("corollaires", ["Pluriel de corollaire."]),
+        ("corollaires", ["<i>Pluriel de</i> corollaire."]),
         (
             "DES",
             [
                 "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",
                 "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à l’importation, est mise à disposition de l’acheteur à bord du navire, au port de destination convenu. Les frais de déchargement sont à la charge de l’acheteur.",  # noqa
                 "<i>(Biochimie)</i> Diéthylstilbestrol, un œstrogène de synthèse, source de graves complications chez les filles de ses utilisatrices.",  # noqa
-                "<i>(Québec)</i> Diplôme d’études secondaires, un diplôme obtenu après cinq années d’études secondaires au Québec ; anciennement Certificat d’études secondaires (CES ou CÉS).",  # noqa
+                "<i>(Québec)</i> Diplôme d’études secondaires, un diplôme obtenu après cinq années d’études secondaires au Québec ; anciennement <i>Certificat d’études secondaires</i> (CES ou CÉS).",  # noqa
                 "<i>(France)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle médical, pharmaceutique, vétérinaire ou odontologique en France, d’une durée de 3 à 5 ans correspondant à l’Internat.",  # noqa
                 "<i>(Belgique)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle universitaire en Belgique.",  # noqa
                 "<i>(France)</i> Diplôme d’études supérieures, un diplôme français.",

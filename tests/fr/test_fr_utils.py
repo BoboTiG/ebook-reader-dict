@@ -23,7 +23,7 @@ from scripts import utils
         ("{{couleur|#B0F2B6}}", "(Code RGB #B0F2B6)"),
         ("{{couleur | #B0F2B6}}", "(Code RGB #B0F2B6)"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
-        ("[[J·K-1|'''J·K{{e|-1}}''']]", "J·K<sup>-1</sup>"),
+        ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{élec|fr}}", "<i>(Électricité)</i>"),
         ("{{finan|fr}}", "<i>(Finance)</i>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
@@ -71,10 +71,10 @@ from scripts import utils
             "{{term|Avec un mot négatif}} Presque.",
             "<i>(Avec un mot négatif)</i> Presque.",
         ),
-        ("{{term|Avec ''[[le#fr-art-déf|le]]''}}", "<i>(Avec le)</i>"),
+        ("{{term|Avec ''[[le#fr-art-déf|le]]''}}", "<i>(Avec <i>le</i>)</i>"),
         (
             "{{term|Avec un [[déterminant]] défini comme ''[[le#fr-art-déf|le]]'', ''[[mon#fr-adj-pos|mon]]'', etc., et avec un adjectif ou un adverbe}}",  # noqa
-            "<i>(Avec un déterminant défini comme le, mon, etc., et avec un adjectif ou un adverbe)</i>",
+            "<i>(Avec un déterminant défini comme <i>le</i>, <i>mon</i>, etc., et avec un adjectif ou un adverbe)</i>",
         ),
         ("{{term|ne … guère que}}", "<i>(Ne … guère que)</i>"),
         ("{{term|Souvent en [[apposition]]}}", "<i>(Souvent en apposition)</i>"),
@@ -95,7 +95,7 @@ from scripts import utils
             "{{ws|Les Grenouilles qui demandent un Roi}}",
             "Les Grenouilles qui demandent un Roi",
         ),
-        ("{{wsp|Panthera pardus|''Panthera pardus''}}", "Panthera pardus"),
+        ("{{wsp|Panthera pardus|''Panthera pardus''}}", "<i>Panthera pardus</i>"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
     ],
 )
