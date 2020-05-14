@@ -2,7 +2,6 @@
 import json
 import os
 import sys
-from contextlib import suppress
 from datetime import datetime
 
 import requests
@@ -17,11 +16,6 @@ def fetch_release_url() -> str:
     with requests.get(C.RELEASE_URL) as req:
         req.raise_for_status()
         data = req.json()
-        try:
-            count = data["assets"][0]["download_count"]
-            update_download_count(count)
-        except (KeyError, IndexError):
-            pass
         url = data["url"]
     return url
 
@@ -42,30 +36,12 @@ def format_description() -> str:
     date = C.SNAPSHOT_FILE.read_text().strip()
     date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
 
-    # Format the download count
-    download_count = C.SNAPSHOT_DOWNLOADS.read_text().strip()
-    download_count = f"{int(download_count):,}".replace(",", thousands_sep)
-
     # The current date, UTC
     now = datetime.utcnow().isoformat()
 
     return tr["release_desc"].format(
-        creation_date=now,
-        download_count=download_count,
-        dump_date=date,
-        url=C.DOWNLOAD_URL,
-        words_count=count,
+        creation_date=now, dump_date=date, url=C.DOWNLOAD_URL, words_count=count,
     )
-
-
-def update_download_count(new_count: int) -> None:
-    """Save the total download count. Simple curiosity."""
-    old_count = 0
-    with suppress(FileNotFoundError):
-        old_count = int(C.SNAPSHOT_DOWNLOADS.read_text().strip())
-    count = old_count + new_count
-    C.SNAPSHOT_DOWNLOADS.write_text(str(count))
-    print(f">>> Download count is {count:,}")
 
 
 def update_release(url: str) -> None:

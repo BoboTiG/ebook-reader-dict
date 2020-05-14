@@ -348,7 +348,6 @@ Export Wiktionnaire : {dump_date}
 ---
 
 <sub>Mis à jour le {creation_date}</sub>
-<sub>{download_count} téléchargements</sub>
 """,
     # Séparateur des milliers
     "thousands_separator": " ",

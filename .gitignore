@@ -3,8 +3,7 @@
 *.json
 *.xml
 *.zip
-data/*/tmp
-tests/data/*/tmp
+data
 tests/data/*/download.count
 tests/data/*/words.*
 

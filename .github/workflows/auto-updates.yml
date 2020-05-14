@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     # List of locales to generate
-    # Note: as of now there is only one locale so it is OK,
-    #       but there will be issues when using 2 or more
-    #       because there will be history difference.
-    #       A possible fix would be to do a "git pull" before
-    #       adding and pusing changes but this is currently
-    #       not implemented.
     strategy:
       matrix:
         locale:
@@ -57,15 +51,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WIKI_LOCALE: ${{ matrix.locale }}
-
-    - name: Get current count
-      id: current_count
-      run: echo "::set-output name=count::$(printf "%'d" "$(cat data/${{ matrix.locale }}/words.count)")"
-
-    - name: Push to built branch
-      uses: Automattic/action-commit-to-branch@master
-      with:
-        branch: master
-        commit_message: Updated dicthtml-${{ matrix.locale }} (${{ steps.current_count.outputs.count }} words)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

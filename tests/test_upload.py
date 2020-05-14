@@ -19,7 +19,6 @@ def test_fetch_release_url():
 def test_format_description():
     C.SNAPSHOT_COUNT.write_text("123456789")
     C.SNAPSHOT_FILE.write_text("20200220")
-    C.SNAPSHOT_DOWNLOADS.write_text("4200")
     expected = [
         "Nombre de mots : 123 456 789",
         "Export Wiktionnaire : 2020-02-20",
@@ -31,10 +30,9 @@ def test_format_description():
     ]
     try:
         desc = upload.format_description().strip().splitlines()
-        assert desc[:-2] == expected
-        assert desc[-2].startswith("<sub>Mis à jour le 202")
-        assert desc[-2].endswith("</sub>")
-        assert desc[-1] == "<sub>4 200 téléchargements</sub>"
+        assert desc[:-1] == expected
+        assert desc[-1].startswith("<sub>Mis à jour le 202")
+        assert desc[-1].endswith("</sub>")
     finally:
         C.SNAPSHOT_COUNT.unlink()
         C.SNAPSHOT_FILE.unlink()

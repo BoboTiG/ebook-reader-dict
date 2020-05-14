@@ -14,7 +14,6 @@ SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
 SNAPSHOT_COUNT = SNAPSHOT / "words.count"
 SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
 SNAPSHOT_DATA = SNAPSHOT / "data.json"
-SNAPSHOT_DOWNLOADS = SNAPSHOT / "download.count"
 
 # Temp folder where to generate temp files
 WORKING_DIR = SNAPSHOT / "tmp"
