@@ -216,6 +216,7 @@ templates_italic = {
     "sexe": "Sexualité",
     "sout": "Soutenu",
     "spéc": "Spécialement",
+    "sports": "Sport",
     "tech": "Technique",
     "technol": "Technologie",
     "text": "Textile",
