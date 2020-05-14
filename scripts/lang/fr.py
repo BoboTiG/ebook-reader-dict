@@ -213,6 +213,7 @@ templates_italic = {
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "sexe": "Sexualité",
+    "sout": "Soutenu",
     "spéc": "Spécialement",
     "tech": "Technique",
     "technol": "Technologie",
