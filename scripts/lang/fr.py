@@ -23,6 +23,7 @@ patterns = (
     # "{{S|lettre|fr|",
     "{{S|nom|fr}",
     "{{S|nom|fr|",
+    "{{S|nom|conv}",
     # "{{S|nom propre|fr}",
     # "{{S|nom propre|fr|",
     "{{S|numéral|conv}",
