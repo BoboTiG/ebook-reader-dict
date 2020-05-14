@@ -337,38 +337,40 @@ def test_main_1(craft_data, capsys):
     assert len(words.keys()) == expected_count
 
 
-@pytest.mark.parametrize("err_code", [404, 500])
 @responses.activate
-def test_main_2(err_code, capsys):
-    """Test the whole script when the dump is not finishd on the Wiktionary side."""
-
-    os.environ["WIKI_DUMP"] = date = "20200419"
-    pages_xml = C.SNAPSHOT / f"pages-{date}.xml"
-    pages_bz2 = C.SNAPSHOT / f"pages-{date}.xml.bz2"
+def test_main_2(craft_data, capsys):
+    """Test the whole script when the dump is not finished on the Wiktionary side."""
 
     # Clean-up before we start
-    for file in (pages_xml, pages_bz2):
+    for date in ("20200301", "20200514"):
         with suppress(FileNotFoundError):
-            file.unlink()
+            (C.SNAPSHOT / f"pages-{date}.xml").unlink()
+        with suppress(FileNotFoundError):
+            (C.SNAPSHOT / f"pages-{date}.xml.bz2").unlink()
 
     # List of requests responses to falsify:
     #   - fetch_snapshots()
     #   - fetch_pages()
-    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
+    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date="20200514"))
     responses.add(
         responses.GET,
-        f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2",
-        status=err_code,
+        f"{C.BASE_URL}/20200514/{C.WIKI}-20200514-pages-meta-current.xml.bz2",
+        status=404,
+    )
+    responses.add(
+        responses.GET,
+        f"{C.BASE_URL}/20200301/{C.WIKI}-20200301-pages-meta-current.xml.bz2",
+        body=craft_data(
+            date,
+            "fr",
+            to_add=(("mot el", "42"), ("mot us", "42")),
+            to_alter=("aux",),
+            to_remove=("suis",),
+        ),
     )
 
     # Start the whole process
-    if err_code != 404:
-        with pytest.raises(HTTPError):
-            assert get.main() == 1
-    else:
-        assert get.main() == 1
-        captured = capsys.readouterr()
-        assert captured.out.splitlines()[-1] == ">>> Wiktionary dump is ongoing ... "
+    assert get.main() == 0
 
 
 def test_xml_parse_word_with_colons(tmp_path):

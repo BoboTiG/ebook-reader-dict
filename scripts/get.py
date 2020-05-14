@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
 
 import requests
-from requests import codes
 from requests.exceptions import HTTPError
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -161,22 +160,19 @@ def get_and_parse_word(word: str, raw: bool = False) -> None:
         print(f"{i}.".rjust(4), definition)
 
 
-def guess_snapshot() -> str:
-    """Guess the next snapshot to process.
-    Return an empty string if there is nothing to do,
-    e.g. when the current snapshot is up-to-date.
-    """
+def guess_snapshots() -> List[str]:
+    """Retrieve available snapshots."""
     # Check if we want to force the use of a specific snapshot
     from_env = os.getenv("WIKI_DUMP", "")
-    if from_env:
+    if from_env:  # pragma: nocover
         print(
             f">>> WIKI_DUMP is set to {from_env}, regenerating dictionaries ...",
             flush=True,
         )
-        return from_env
+        return [from_env]
 
     # Get the latest available snapshot
-    return max(fetch_snapshots())
+    return sorted(fetch_snapshots())
 
 
 def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, List[str]]:
@@ -293,18 +289,18 @@ def main(word: Optional[str] = "", raw: bool = False) -> int:
     C.SNAPSHOT.mkdir(exist_ok=True, parents=True)
 
     # Get the snapshot to handle
-    snapshot = guess_snapshot()
+    snapshots = guess_snapshots()
+    snapshot = snapshots[-1]
 
     # Fetch and uncompress the snapshot file
     try:
         file = fetch_pages(snapshot)
-    except HTTPError as exc:
-        print("", flush=True)
-        if exc.response.status_code != codes.NOT_FOUND:
-            raise
+    except HTTPError:
+        print(" FAIL", flush=True)
         print(">>> Wiktionary dump is ongoing ... ", flush=True)
-        # Return 1 to break the script and so the GitHub workflow
-        return 1
+        print(">>> Will use the previous one.", flush=True)
+        snapshot = snapshots[-2]
+        file = fetch_pages(snapshot)
 
     file = decompress(file)
 
