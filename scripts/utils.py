@@ -138,29 +138,6 @@ def int_to_roman(number: int) -> str:
 #
 
 
-def is_ignored(word: str) -> bool:
-    """Helper to filter out words from the final dictionary.
-
-        >>> is_ignored("accueil")
-        False
-        >>> is_ignored("2")
-        True
-        >>> is_ignored("22")
-        True
-        >>> is_ignored("222")
-        True
-        >>> is_ignored("222" * 12)
-        True
-        >>> is_ignored("")
-        True
-        >>> is_ignored(" ")
-        True
-    """
-
-    # Filter out "small" words and numbers
-    return len(word) < 3 or word.isnumeric()
-
-
 def clean(word: str, text: str) -> str:
     """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.

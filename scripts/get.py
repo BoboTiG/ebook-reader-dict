@@ -16,7 +16,7 @@ import wikitextparser as wtp
 import wikitextparser._spans
 
 from .lang import patterns
-from .utils import is_ignored, clean
+from .utils import clean
 from . import annotations as T
 from . import constants as C
 
@@ -206,7 +206,7 @@ def process(file: Path) -> T.Words:
 
     for element in xml_iter_parse(str(file)):
         word, code = xml_parse_element(element)
-        if not word or ":" in word or is_ignored(word):
+        if len(word) < 2 or ":" in word:
             continue
 
         try:
