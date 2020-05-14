@@ -22,6 +22,8 @@ patterns = (
     "{{S|numéral|conv}",
     "{{S|préposition|fr}",
     "{{S|préposition|fr|",
+    "{{S|pronom démonstratif|fr}",
+    "{{S|pronom démonstratif|fr|",
     "{{S|pronom indéfini|fr}",
     "{{S|pronom indéfini|fr|",
     "{{S|pronom interrogatif|fr}",
