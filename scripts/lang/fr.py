@@ -4,6 +4,10 @@
 patterns = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|",
+    "{{S|adjectif exclamatif|fr}",
+    "{{S|adjectif exclamatif|fr|",
+    "{{S|adjectif interrogatif|fr}",
+    "{{S|adjectif interrogatif|fr|",
     "{{S|adverbe|fr}",
     "{{S|adverbe|fr|",
     "{{S|adverbe|conv}",
