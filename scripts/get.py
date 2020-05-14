@@ -175,20 +175,8 @@ def guess_snapshot() -> str:
         )
         return from_env
 
-    # Get the current snapshot, if any
-    try:
-        current = C.SNAPSHOT_FILE.read_text().strip()
-    except FileNotFoundError:
-        current = ""
-
     # Get the latest available snapshot
-    snapshot = max(fetch_snapshots())
-    return snapshot if less_than(current, snapshot) else ""
-
-
-def less_than(old: str, new: str) -> bool:
-    """Compare 2 snapshot dates."""
-    return len(old) != 8 or old < new
+    return max(fetch_snapshots())
 
 
 def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, List[str]]:
@@ -306,10 +294,6 @@ def main(word: Optional[str] = "", raw: bool = False) -> int:
 
     # Get the snapshot to handle
     snapshot = guess_snapshot()
-    if not snapshot:
-        print(">>> Snapshot up-to-date!", flush=True)
-        # Return 1 to break the script and so the GitHub workflow
-        return 1
 
     # Fetch and uncompress the snapshot file
     try:

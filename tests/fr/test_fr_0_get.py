@@ -281,11 +281,6 @@ def test_main_0(craft_data, capsys):
     assert int(C.SNAPSHOT_COUNT.read_text()) == expected_count
     assert C.SNAPSHOT_FILE.read_text() == "20200417"
 
-    # Call it again and no new action should be made
-    assert get.main() == 1
-    captured = capsys.readouterr()
-    assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"
-
 
 @responses.activate
 def test_main_1(craft_data, capsys):
@@ -342,11 +337,6 @@ def test_main_1(craft_data, capsys):
     # Check the words data
     words = json.loads(C.SNAPSHOT_DATA.read_text(encoding="utf-8"))
     assert len(words.keys()) == expected_count
-
-    # Call it again and no new action should be made
-    assert get.main() == 1
-    captured = capsys.readouterr()
-    assert captured.out.splitlines()[-1] == ">>> Snapshot up-to-date!"
 
 
 @pytest.mark.parametrize("err_code", [404, 500])
