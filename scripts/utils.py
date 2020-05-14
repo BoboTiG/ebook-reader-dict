@@ -138,6 +138,77 @@ def int_to_roman(number: int) -> str:
 #
 
 
+def guess_prefix(word: str) -> str:
+    """Determine the word prefix for the given *word*.
+
+    Inspiration: https://github.com/pettarin/penelope/blob/master/penelope/prefix_kobo.py#L16
+    Inspiration: https://pgaskin.net/dictutil/dicthtml/prefixes.html
+    Inspiration: me ᕦ(ò_óˇ)ᕤ
+
+    Note: for words like "°GL", the Kobo will first check "11.html" and then "gl.html",
+          so to speed-up the lookup, let's store such words into "11.html".
+
+        >>> guess_prefix("test")
+        'te'
+        >>> guess_prefix("a")
+        'aa'
+        >>> guess_prefix("aa")
+        'aa'
+        >>> guess_prefix("aaa")
+        'aa'
+        >>> guess_prefix("Èe")
+        'èe'
+        >>> guess_prefix("multiple words")
+        'mu'
+        >>> guess_prefix("àççèñts")
+        'àç'
+        >>> guess_prefix("à")
+        'àa'
+        >>> guess_prefix("ç")
+        'ça'
+        >>> guess_prefix("")
+        '11'
+        >>> guess_prefix(" ")
+        '11'
+        >>> guess_prefix(" x")
+        'xa'
+        >>> guess_prefix(" 123")
+        '11'
+        >>> guess_prefix("42")
+        '11'
+        >>> guess_prefix("x 23")
+        'xa'
+        >>> guess_prefix("дaд")
+        'дa'
+        >>> guess_prefix("未未")
+        '11'
+        >>> guess_prefix("未")
+        '11'
+        >>> guess_prefix(" 未")
+        '11'
+        >>> guess_prefix(".vi")
+        '11'
+        >>> guess_prefix("/aba")
+        '11'
+        >>> guess_prefix("a/b")
+        '11'
+        >>> guess_prefix("’alif")
+        '11'
+        >>> guess_prefix("°GL")
+        '11'
+        >>> guess_prefix("وهيبة")
+        '11'
+    """
+    prefix = word.strip()[:2].lower().strip()
+    if not prefix or prefix[0].isnumeric():
+        return "11"
+    return (
+        prefix.ljust(2, "a")
+        if all(c.isalpha() and c.islower() for c in prefix)
+        else "11"
+    )
+
+
 def clean(word: str, text: str) -> str:
     """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.

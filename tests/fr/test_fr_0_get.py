@@ -73,6 +73,16 @@ def test_find_genre(word, genre, page):
     "word, defs",
     [
         (
+            "42",
+            [
+                "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",  # noqa
+                "<i>(Par ellipse)</i> <i>(Dans la plupart des langues)</i> Une année qui se termine par <b>42</b>.",
+                "Quarante-deux.",
+                "<i>(Par ellipse)</i> Une année qui se termine par <b>42</b>.",
+                "<i>(France)</i> <i>(Familier)</i> Habitant du département de la Loire.",
+            ],
+        ),
+        (
             "accueil",
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
@@ -351,7 +361,9 @@ def test_main_2(craft_data, capsys):
     # List of requests responses to falsify:
     #   - fetch_snapshots()
     #   - fetch_pages()
-    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date="20200514"))
+    responses.add(
+        responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date="20200514")
+    )
     responses.add(
         responses.GET,
         f"{C.BASE_URL}/20200514/{C.WIKI}-20200514-pages-meta-current.xml.bz2",

@@ -15,6 +15,7 @@ from marisa_trie import Trie
 from .lang import wiktionary
 from . import annotations as T
 from . import constants as C
+from .utils import guess_prefix
 
 
 def craft_index(wordlist: List[str]) -> Path:
@@ -26,16 +27,10 @@ def craft_index(wordlist: List[str]) -> Path:
 
 
 def make_groups(words: T.Words) -> T.Groups:
-    """Group word by "index" ({letter1}{letter2}) for later HTML creation,
-    see save().
-    """
+    """Group word by prefix for later HTML creation, see save()."""
     groups: T.Groups = defaultdict(dict)
-
     for word, data in words.items():
-        char_1, char_2 = word[0].lower(), word[1].lower()
-        group = "11" if char_1 < "a" or char_2 < "a" else word[:2].lower()
-        groups[group][word] = data
-
+        groups[guess_prefix(word)][word] = data
     return groups
 
 
@@ -65,8 +60,8 @@ def save(groups: T.Groups) -> None:
     # First, create individual HTML files
     wordlist: List[str] = []
     print(">>> Generating HTML files ", end="", flush=True)
-    for group, words in groups.items():
-        to_compress.append(save_html(group, words))
+    for prefix, words in groups.items():
+        to_compress.append(save_html(prefix, words))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
     print(f" [{len(groups.keys()):,}]", flush=True)

@@ -21,12 +21,12 @@ def test_main(data):
     # Check the ZIP content
     with ZipFile(dicthtml) as fh:
         expected = [
-            "de.html",
-            "sl.html",
+            "11.html",
             "ac.html",
             "au.html",
             "ba.html",
             "co.html",
+            "de.html",
             "em.html",
             "en.html",
             "gr.html",
@@ -39,10 +39,11 @@ def test_main(data):
             "ra.html",
             "sa.html",
             "si.html",
-            "ép.html",
-            "œc.html",
+            "sl.html",
             "words",
             "words.count",
             "words.snapshot",
+            "ép.html",
+            "œc.html",
         ]
-        assert fh.namelist() == expected
+        assert sorted(fh.namelist()) == expected
