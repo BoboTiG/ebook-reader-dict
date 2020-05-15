@@ -372,9 +372,9 @@ templates_multi = {
     # {{petites capitales|Dupont}}
     # {{pc|Dupont}}
     # {{smcp|Dupont}}
-    "petites capitales": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
-    "pc": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
-    "smcp": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
+    "petites capitales": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
+    "pc": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
+    "smcp": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
     # {{région}}
