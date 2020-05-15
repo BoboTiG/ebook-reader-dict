@@ -77,7 +77,7 @@ from scripts import utils
         ("{{sport|fr}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         ("{{superlatif de|petit|fr}}", "Superlatif de petit"),
-        ("{{term|au {{f}}}}", "<i>(Au féminin)</i>"),
+        ("{{term|au {{f}}}}", "<i>(Au <i>féminin</i>)</i>"),
         (
             "{{term|Avec un mot négatif}} Presque.",
             "<i>(Avec un mot négatif)</i> Presque.",
