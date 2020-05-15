@@ -1,5 +1,5 @@
 """Functions that can be used in *templates_multi*."""
-from typing import List
+from typing import Tuple
 from warnings import warn
 
 
@@ -16,7 +16,7 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}"
 
 
-def format_chimy(composition: List[str]) -> str:
+def format_chimy(composition: Tuple[str, ...]) -> str:
     """Format chimy notations.
 
         >>> format_chimy(["H", "2", "O"])
@@ -27,34 +27,34 @@ def format_chimy(composition: List[str]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
-def handle_century(word: str, parts: List[str], century: str) -> str:
+def handle_century(parts: Tuple[str, ...], century: str) -> str:
     """Handle different century templates.
 
-        >>> handle_century("foo", ["siècle", "XVI"], "siècle")
+        >>> handle_century(["siècle", "XVI"], "siècle")
         'XVI<sup>e</sup> siècle'
-        >>> handle_century("foo", ["siècle", "XVIII", "XIX"], "century")
+        >>> handle_century(["siècle", "XVIII", "XIX"], "century")
         'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
     """
     return " - ".join(f"{p}<sup>e</sup> {century}" for p in parts[1:])
 
 
-def handle_name(word: str, parts: List[str]) -> str:
+def handle_name(parts: Tuple[str, ...]) -> str:
     """Handle the 'name' template to display writers/authors or any full name person.
 
-        >>> handle_name("foo", ["nom w pc", "Aldous", "Huxley"])
+        >>> handle_name(["nom w pc", "Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
-        >>> handle_name("foo", ["nom w pc", "L. L. Zamenhof"])
+        >>> handle_name(["nom w pc", "L. L. Zamenhof"])
         'L. L. Zamenhof'
     """
     res = parts[1]
     if len(parts) > 2:
         res += f" <span style='font-variant:small-caps'>{parts[2]}</span>"
     else:
-        warn(f"Malformed template in the Wikicode of {word!r} (parts={parts})")
+        warn(f"Malformed template in the Wikicode (parts={parts})")
     return res
 
 
-def handle_sport(tpl: str, parts: List[str]) -> str:
+def handle_sport(tpl: str, parts: Tuple[str, ...]) -> str:
     """Handle the 'sport' template.
 
         >>> handle_sport("sport", [""])
@@ -89,7 +89,7 @@ def handle_term(text: str) -> str:
     return f"<i>({capitalize(text)})</i>"
 
 
-def handle_unit(parts: List[str]) -> str:
+def handle_unit(parts: Tuple[str, ...]) -> str:
     """Pretty format a 'unit'.
 
         >>> handle_unit(["92", "%"])

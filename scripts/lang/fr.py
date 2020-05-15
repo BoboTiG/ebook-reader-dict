@@ -266,7 +266,7 @@ templates_multi = {
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
-    "nom w pc": "handle_name(word, parts)",
+    "nom w pc": "handle_name(parts)",
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{pron|plys|fr}}
@@ -276,7 +276,7 @@ templates_multi = {
     "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
     # {{siècle|XVI}}
     # {{siècle|XVIII|XIX}}
-    "siècle": "f\"<i>({handle_century(word, parts, 'siècle')})</i>\"",
+    "siècle": "f\"<i>({handle_century(parts, 'siècle')})</i>\"",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{sport|fr}}

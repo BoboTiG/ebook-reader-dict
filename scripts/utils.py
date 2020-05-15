@@ -1,6 +1,7 @@
 """Utilities for internal use."""
 import re
-from typing import List
+from functools import lru_cache
+from typing import Tuple
 from warnings import warn
 
 from .lang import (
@@ -226,10 +227,13 @@ def transform(word: str, template: str) -> str:
     if parts != parts_raw and tpl not in template_warning_skip[C.LOCALE]:
         warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
 
-    return transform_apply(tpl, parts)
+    # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
+    # with the LRU cache.
+    return transform_apply(tpl, tuple(parts))
 
 
-def transform_apply(tpl: str, parts: List[str]) -> str:
+@lru_cache(maxsize=None)
+def transform_apply(tpl: str, parts: Tuple[str, ...]) -> str:
     """Convert the data from the *template" template.
 
         >>> transform("foo", "w|ISO 639-3")
