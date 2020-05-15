@@ -7,6 +7,7 @@ from scripts import utils
     "wikicode, expected",
     [
         ("", ""),
+        ("{{}}", ""),
         ("{{absol}}", "<i>(Absolument)</i>"),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{agri|fr}}", "<i>(Agriculture)</i>"),
@@ -25,6 +26,12 @@ from scripts import utils
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{élec|fr}}", "<i>(Électricité)</i>"),
+        ("{{étyl|grc|fr}}", "grec ancien"),
+        ("{{étyl|no|fr|mot=ski}}", "norvégien <i>ski</i>"),
+        (
+            "{{étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1}}",
+            "grec ancien λόγος, <i>lógos</i> (« étude »)",
+        ),
         ("{{finan|fr}}", "<i>(Finance)</i>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{géom|fr}}", "<i>(Géométrie)</i>"),
@@ -46,7 +53,10 @@ from scripts import utils
             "Aldous <span style='font-variant:small-caps'>Huxley</span>",
         ),
         ("{{nom w pc|L. L. Zamenhof}}", "L. L. Zamenhof"),
-        ("{{nom w pc|Théodore Agrippa d’|Aubigné|'=oui}}", "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"),
+        (
+            "{{nom w pc|Théodore Agrippa d’|Aubigné|'=oui}}",
+            "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>",
+        ),
         ("{{moderne}}", "<i>(Moderne)</i>"),
         ("{{néol|fr}}", "<i>(Néologisme)</i>"),
         ("{{nombre romain|12}}", "XII"),

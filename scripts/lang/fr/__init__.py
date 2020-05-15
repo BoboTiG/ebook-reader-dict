@@ -357,6 +357,8 @@ templates_multi = {
     "e": "f\"<sup>{parts[1] if len(parts) > 1 else 'e'}</sup>\"",
     # {{emploi|au passif}}
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
+    # {{étyl|la|fro|mot=invito|type=verb}}
+    "étyl": "handle_etyl(parts)",
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{in|5}}
@@ -370,9 +372,9 @@ templates_multi = {
     # {{petites capitales|Dupont}}
     # {{pc|Dupont}}
     # {{smcp|Dupont}}
-    "petites capitales": 'f"<span style=\"font-variant:small-caps\">{parts[1]}<span>"',
-    "pc": 'f"<span style=\"font-variant:small-caps\">{parts[1]}<span>"',
-    "smcp": 'f"<span style=\"font-variant:small-caps\">{parts[1]}<span>"',
+    "petites capitales": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
+    "pc": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
+    "smcp": 'f"<span style="font-variant:small-caps">{parts[1]}<span>"',
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
     # {{région}}

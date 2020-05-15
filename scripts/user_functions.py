@@ -2,6 +2,12 @@
 from typing import Tuple
 from warnings import warn
 
+from .lang.fr.langs import langs as FR
+
+all_langs = {
+    "fr": FR,
+}
+
 
 def capitalize(text: str) -> str:
     """Capitalize the first letter only.
@@ -36,6 +42,49 @@ def handle_century(parts: Tuple[str, ...], century: str) -> str:
         'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
     """
     return " - ".join(f"{p}<sup>e</sup> {century}" for p in parts[1:])
+
+
+def handle_etyl(parts: Tuple[str, ...]) -> str:
+    """Handle the 'etyl' (etymological language) template.
+    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl
+
+        >>> handle_etyl("étyl|grc|fr".split("|"))
+        'grec ancien'
+        >>> handle_etyl("étyl|no|fr|mot=ski".split("|"))
+        'norvégien <i>ski</i>'
+        >>> handle_etyl("étyl|la|fr|mot=invito|type=verb".split("|"))
+        'latin <i>invito</i>'
+        >>> handle_etyl("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"))
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        >>> handle_etyl("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"))
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+    """
+    l10n_src = parts[1]
+    l10n_dst = parts[2]
+    res = all_langs[l10n_dst][l10n_src]
+    if len(parts) == 3:
+        return res
+
+    data = {}
+    for part in parts[3:]:
+        if "=" in part:
+            key, value = part.split("=")
+            data[key] = value
+        elif "mot" not in data:
+            data["mot"] = part
+        elif "tr" not in data:
+            data["tr"] = part
+        elif "sens" not in data:
+            data["sens"] = part
+
+    if "tr" in data:
+        res += f" {data['mot']}, <i>{data['tr']}</i>"
+    else:
+        res += f" <i>{data['mot']}</i>"
+    if "sens" in data:
+        res += f" (« {data['sens']} »)"
+
+    return res
 
 
 def handle_name(parts: Tuple[str, ...]) -> str:
@@ -134,6 +183,7 @@ __all__ = (
     "capitalize",
     "format_chimy",
     "handle_century",
+    "handle_etyl",
     "handle_name",
     "handle_sport",
     "handle_term",
