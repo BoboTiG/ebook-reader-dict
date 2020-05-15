@@ -402,6 +402,8 @@ templates_multi = {
     "smcp": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
+    # {{pron-API|/j/}}
+    "pron-API": "parts[1]",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
     "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
