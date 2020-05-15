@@ -46,6 +46,7 @@ from scripts import utils
             "Aldous <span style='font-variant:small-caps'>Huxley</span>",
         ),
         ("{{nom w pc|L. L. Zamenhof}}", "L. L. Zamenhof"),
+        ("{{nom w pc|Théodore Agrippa d’|Aubigné|'=oui}}", "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"),
         ("{{moderne}}", "<i>(Moderne)</i>"),
         ("{{néol|fr}}", "<i>(Néologisme)</i>"),
         ("{{nombre romain|12}}", "XII"),

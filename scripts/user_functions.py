@@ -40,15 +40,22 @@ def handle_century(parts: Tuple[str, ...], century: str) -> str:
 
 def handle_name(parts: Tuple[str, ...]) -> str:
     """Handle the 'name' template to display writers/authors or any full name person.
+    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
 
         >>> handle_name(["nom w pc", "Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
         >>> handle_name(["nom w pc", "L. L. Zamenhof"])
         'L. L. Zamenhof'
+        >>> handle_name(["nom w pc", "Théodore Agrippa d’", "Aubigné"])
+        "Théodore Agrippa d’ <span style='font-variant:small-caps'>Aubigné</span>"
+        >>> handle_name(["nom w pc", "Théodore Agrippa d’", "Aubigné", "'=oui"])
+        "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
     """
     res = parts[1]
     if len(parts) > 2:
-        res += f" <span style='font-variant:small-caps'>{parts[2]}</span>"
+        if parts[-1] != "'=oui":
+            res += " "
+        res += f"<span style='font-variant:small-caps'>{parts[2]}</span>"
     else:
         warn(f"Malformed template in the Wikicode (parts={parts})")
     return res

@@ -23,7 +23,6 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 
 [Pull requests](https://github.com/BoboTiG/ebook-reader-dict/pulls) are very welcome. It is quite straithforward to add a new locale:
 
-0. Keep everything alphabetically sorted please.
 1. Copy the reference file [lang/fr.py](scripts/lang/fr.py) into `lang/$LOCALE.py`. And apply changes to fit the new locale.
 2. Update [lang/\_\_init__.py](scripts/lang/__init__.py) accordingly.
 3. Test it:
