@@ -171,8 +171,8 @@ def guess_snapshots() -> List[str]:
         )
         return [from_env]
 
-    # Get the latest available snapshot
-    return sorted(fetch_snapshots())
+    # Get all available snapshots
+    return fetch_snapshots()
 
 
 def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, List[str]]:
