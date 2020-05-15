@@ -196,6 +196,7 @@ templates_italic = {
     "péj": "Péjoratif",
     "philo": "Philosophie",
     "photo": "Photographie",
+    "phys": "Physique",
     "poés": "Poésie",
     "poissons": "Ichtyologie",
     "POO": "Programmation orientée objet",
