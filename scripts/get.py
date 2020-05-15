@@ -309,7 +309,7 @@ def main(word: Optional[str] = "", raw: bool = False) -> int:
     if not words:  # pragma: nocover
         raise ValueError("Empty dictionary?!")
 
-    # Save data for next runs
+    # Save data for the next step
     save(snapshot, words)
 
     print(">>> Retrieval done!", flush=True)

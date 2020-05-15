@@ -142,7 +142,6 @@ def main() -> int:
     save(groups)
 
     print(">>> Conversion done!", flush=True)
-
     return 0
 
 

@@ -4,7 +4,6 @@ from contextlib import suppress
 
 import pytest
 import responses
-from requests.exceptions import HTTPError
 
 os.environ["WIKI_LOCALE"] = "fr"
 
