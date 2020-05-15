@@ -233,15 +233,17 @@ def clean(word: str, text: str) -> str:
         '<b>strong</b>'
         >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''")
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
+        >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
+        "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
     """
 
     # Speed-up lookup
     sub = re.sub
 
     # HTML
-    # '''foo''' -> <b>foo></b>
-    text = sub(r"'''([^(?:''')]+)'''", "<b>\\1</b>", text)
-    # ''foo'' -> <i>foo></i> (source: https://stackoverflow.com/a/54388869/1117028)
+    # '''foo''' -> <b>foo></b> (source: https://stackoverflow.com/a/54388869/1117028)
+    text = sub(r"'''([^']*(?:'[^']+)*)'''", "<b>\\1</b>", text)
+    # ''foo'' -> <i>foo></i>
     text = sub(r"''([^']*(?:'[^']+)*)''", "<i>\\1</i>", text)
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
