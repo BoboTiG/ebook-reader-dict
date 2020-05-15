@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 import re
+from typing import List
 from warnings import warn
 
 from .lang import (
@@ -208,17 +209,12 @@ def clean(word: str, text: str) -> str:
 
 
 def transform(word: str, template: str) -> str:
-    """Handle the data inside the *text* template.
+    """Convert the data from the *template" template.
+    This function also checks for template style.
 
         >>> transform("foo", "w|ISO 639-3")
         'ISO 639-3'
-        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca")
-        'Lathyrus aphaca'
-        >>> transform("foo", "grammaire|fr")
-        '<i>(Grammaire)</i>'
-        >>> transform("foo", "conj|grp=1|fr")
-        ''
-        >>> transform("test", "w | ISO 639-3")
+        >>> transform("foo spaces", "w | ISO 639-3")
         'ISO 639-3'
     """
 
@@ -230,6 +226,21 @@ def transform(word: str, template: str) -> str:
     if parts != parts_raw and tpl not in template_warning_skip[C.LOCALE]:
         warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
 
+    return transform_apply(tpl, parts)
+
+
+def transform_apply(tpl: str, parts: List[str]) -> str:
+    """Convert the data from the *template" template.
+
+        >>> transform("foo", "w|ISO 639-3")
+        'ISO 639-3'
+        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca")
+        'Lathyrus aphaca'
+        >>> transform("foo", "grammaire|fr")
+        '<i>(Grammaire)</i>'
+        >>> transform("foo", "conj|grp=1|fr")
+        ''
+    """
     if tpl in templates_ignored[C.LOCALE]:
         return ""
 
@@ -250,11 +261,11 @@ def transform(word: str, template: str) -> str:
 
     # {{grammaire|fr}} -> (Grammaire)
     if len(parts) == 2:
-        return f"<i>({capitalize(tpl)})</i>"
+        return f"<i>({capitalize(tpl)})</i>"  # noqa
 
     # {{conj|grp=1|fr}} -> ''
     if len(parts) > 2:
         return ""
 
     # May need custom handling in lang/$LOCALE.py
-    return f"<i>({capitalize(tpl)})</i>" if tpl else ""
+    return f"<i>({capitalize(tpl)})</i>" if tpl else ""  # noqa
