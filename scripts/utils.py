@@ -25,6 +25,20 @@ def guess_prefix(word: str) -> str:
     Note: for words like "°GL", the Kobo will first check "11.html" and then "gl.html",
           so to speed-up the lookup, let's store such words into "11.html".
 
+    Here are some debug logs to help understand what Kobo does:
+
+        (dictionary.debug) got alternative search terms: "°GL", "°gl", "GL" for word "°GL"
+        (ui.debug) static QByteArray Unzipper::extractFile() "/mnt/onboard/.kobo/dict/dicthtml-fr.zip", "11.html")
+
+        (dictionary.debug) got alternative search terms: "X temps", "x temps", "X TEMPS", "Xtemps" for word "X temps"
+        (ui.debug) static QByteArray Unzipper::extractFile("/mnt/onboard/.kobo/dict/dicthtml-fr.zip", "xa.html")
+
+        (dictionary.debug) got alternative search terms: "A/cm2", "a/cm2", "A/CM2", "Acm2" for word "A/cm2"
+        (ui.debug) static QByteArray Unzipper::extractFile("/mnt/onboard/.kobo/dict/dicthtml-fr.zip", "11.html")
+
+        (dictionary.debug) got alternative search terms: ".vi", ".VI", "vi" for word ".vi"
+        (ui.debug) static QByteArray Unzipper::extractFile("/mnt/onboard/.kobo/dict/dicthtml-fr.zip", "11.html")
+
         >>> guess_prefix("test")
         'te'
         >>> guess_prefix("a")
