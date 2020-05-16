@@ -41,7 +41,7 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.TOKEN }}
-        file: data/fr/dicthtml-${{ matrix.locale }}.zip
+        file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}.zip
         asset_name: dicthtml-${{ matrix.locale }}.zip
         tag: ${{ matrix.locale }}
         overwrite: true
@@ -51,3 +51,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WIKI_LOCALE: ${{ matrix.locale }}
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: dicthtml-${{ matrix.locale }}.zip
+        path: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}.zip
