@@ -19,6 +19,15 @@ from scripts import utils
         ("{{au singulier}}", "<i>(Au singulier)</i>"),
         ("{{BE|fr}}", "<i>(Belgique)</i>"),
         ("{{bioch|nocat}}", "<i>(Biochimie)</i>"),
+        ("{{calque|la|fr}}", "latin"),
+        (
+            "{{calque|en|fr|mot=to date|sens=à ce jour}}",
+            "anglais <i>to date</i> (« à ce jour »)",
+        ),
+        (
+            "{{calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant}}",
+            "sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)",
+        ),
         ("{{cf|immortelle}}", "→ voir immortelle"),
         ("{{cf|lang=fr|faire}}", "→ voir faire"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),

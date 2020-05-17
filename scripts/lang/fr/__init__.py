@@ -379,6 +379,8 @@ templates_italic = {
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
+    # {{calque|en|fr|mot=at the end of the day|nocat=1}}
+    "calque": "handle_calc(parts)",
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|faire}}
     "cf": "f\"→ voir {parts[len(parts) - 1] if len(parts) > 1 else ''}\"",

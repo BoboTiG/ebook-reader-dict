@@ -33,6 +33,38 @@ def format_chimy(composition: Tuple[str, ...]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
+def handle_calc(parts: Tuple[str, ...]) -> str:
+    """Handle the 'calque' template.
+    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:calque
+
+        >>> handle_calc("calque|la|fr".split("|"))
+        'latin'
+        >>> handle_calc("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
+        'anglais <i>to date</i> (« à ce jour »)'
+        >>> handle_calc("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"))
+        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
+    """
+    l10n_src = parts[1]
+    l10n_dst = parts[2]
+    res = all_langs[l10n_dst][l10n_src]
+    if len(parts) == 3:
+        return res
+
+    data = {}
+    for part in parts[3:]:
+        key, value = part.split("=")
+        data[key] = value
+
+    if "tr" in data:
+        res += f" {data['mot']}, <i>{data['tr']}</i>"
+    else:
+        res += f" <i>{data['mot']}</i>"
+    if "sens" in data:
+        res += f" (« {data['sens']} »)"
+
+    return res
+
+
 def handle_century(parts: Tuple[str, ...], century: str) -> str:
     """Handle different century templates.
 
@@ -182,6 +214,7 @@ def int_to_roman(number: int) -> str:
 __all__ = (
     "capitalize",
     "format_chimy",
+    "handle_calc",
     "handle_century",
     "handle_etyl",
     "handle_name",
