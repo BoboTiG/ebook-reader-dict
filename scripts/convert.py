@@ -4,7 +4,7 @@ import json
 import sys
 from collections import defaultdict
 from contextlib import suppress
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from shutil import rmtree
 from typing import List
@@ -77,8 +77,10 @@ def save(groups: T.Groups) -> None:
     with ZipFile(C.DICTHTML, mode="w", compression=ZIP_DEFLATED) as fh:
         for file in to_compress:
             fh.write(file, arcname=file.name)
+
         # Add the source in the comment
-        fh.comment = f"Source: {C.GH_REPOS}".encode()
+        now = datetime.utcnow().isoformat()
+        fh.comment = f"Source: {C.GH_REPOS}\n{now}".encode()
 
     print(
         f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)", flush=True
