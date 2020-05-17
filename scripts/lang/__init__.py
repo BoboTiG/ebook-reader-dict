@@ -7,6 +7,10 @@ patterns = {
     "fr": fr.patterns,
 }
 
+# The template name dealing with files in the Wikicode.
+# Ex: (fr) [[Fichier:...|...|...|...]]
+pattern_file = ("Fichier",)
+
 # Templates replacements: wikicode -> text conversion
 
 # Templates to ignore: the text will be deleted.

@@ -5,6 +5,7 @@ from typing import Tuple
 from warnings import warn
 
 from .lang import (
+    pattern_file,
     templates_italic,
     templates_ignored,
     templates_multi,
@@ -128,6 +129,10 @@ def clean(word: str, text: str) -> str:
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
         >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
+        >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
+        '10<sup>-6</sup> gray'
+        >>> clean("base", "[[Fichier:Blason ville .svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")
+        ''
     """
 
     # Speed-up lookup
@@ -144,8 +149,9 @@ def clean(word: str, text: str) -> str:
     text = text.replace("&minus;", "-")
 
     # Files
-    # [[File:picture.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] -> ''
-    text = sub(r"\[\[.+:[^|\]]+(?:\|[^\]]+){2,}\]\]", "", text)
+    # (see https://stackoverflow.com/a/10591106/1117028 for benchmark)
+    file = "|".join("(?:%s)" % p for p in pattern_file)
+    text = sub(fr"\[\[{file}:[^\]]+\]\]", "", text)
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
