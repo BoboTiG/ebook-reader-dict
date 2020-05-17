@@ -246,6 +246,7 @@ templates_italic = {
     "formel": "Soutenu",
     "fortification": "Architecture",
     "fromages": "Fromage",
+    "gastronomie": "Cuisine",
     "genres musicaux": "Musique",
     "graphe": "Théorie des graphes",
     "gâteaux": "Cuisine",
