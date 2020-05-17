@@ -406,6 +406,8 @@ templates_multi = {
     "pron": r'f"\\{parts[1]}\\"',
     # {{pron-API|/j/}}
     "pron-API": "parts[1]",
+    # {{RFC|5322}}
+    "RFC": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
     "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
