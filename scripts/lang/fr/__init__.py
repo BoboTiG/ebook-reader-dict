@@ -328,6 +328,7 @@ templates_italic = {
     "propre": "Sens propre",
     "propriété": "Droit",
     "propulsion": "Propulsion spatiale",
+    "prov": "Proverbial",
     "psychol": "Psychologie",
     "QC": "Québec",
     "reli": "Religion",
