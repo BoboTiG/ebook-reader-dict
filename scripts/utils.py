@@ -122,6 +122,8 @@ def clean(word: str, text: str) -> str:
         '<i>italic</i>'
         >>> clean("foo", "'''strong'''")
         '<b>strong</b>'
+        >>> clean("foo", "''italic and '''strong'''''")
+        '<i>italic and <b>strong</b></i>'
         >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''")
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
         >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
