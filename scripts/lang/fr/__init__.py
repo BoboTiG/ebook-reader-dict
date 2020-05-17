@@ -341,6 +341,7 @@ templates_italic = {
     "sout": "Soutenu",
     "spéc": "Spécialement",
     "sports": "Sport",
+    "stat": "Statistiques",
     "TAAF": "Vocabulaire des TAAF",
     "tech": "Technique",
     "technol": "Technologie",
