@@ -377,7 +377,7 @@ templates_multi = {
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
-    "couleur": 'f"(Code RGB {parts[1]})"',
+    "couleur": 'f"[RGB <code>{parts[1]}</code>]"',
     # {{fchim|H|2|O}}
     "fchim": "format_chimy(parts[1:])",
     # XIX{{e}}
