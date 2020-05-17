@@ -322,6 +322,7 @@ templates_italic = {
     "philo": "Philosophie",
     "photo": "Photographie",
     "phys": "Physique",
+    "pl-rare": "Plus rare",
     "plais": "Par plaisanterie",
     "plantes": "Botanique",
     "pléonasmes": "Pléonasme",
