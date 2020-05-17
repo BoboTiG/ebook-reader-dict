@@ -344,6 +344,7 @@ templates_italic = {
     "théol": "Théologie",
     "télécom": "Télécommunications",
     "trans": "Transitif",
+    "transit": "Transitif",
     "tradit": "Orthographe traditionnelle",
     "typo": "Typographie",
     "typog": "Typographie",
