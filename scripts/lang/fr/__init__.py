@@ -234,6 +234,7 @@ templates_italic = {
     "euphémisme": "Par euphémisme",
     "exag": "Par hyperbole",
     "exagération": "Par hyperbole",
+    "écon": "Économie",
     "éduc": "Éducation",
     "éléments": "Chimie",
     "énergie": "Industrie de l’énergie",
