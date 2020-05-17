@@ -431,6 +431,8 @@ templates_multi = {
     "superlatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{term|ne … guère que}}
     "term": "handle_term(parts[1])",
+    # {{terme|Astrophysique}}
+    "terme": "f\"<i>({parts[1] if len(parts) > 1 else 'Terme'})</i>\"",
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     # {{unité|92|%}}
