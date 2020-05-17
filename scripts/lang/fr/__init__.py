@@ -324,6 +324,7 @@ templates_italic = {
     "phys": "Physique",
     "plais": "Par plaisanterie",
     "plantes": "Botanique",
+    "pléonasmes": "Pléonasme",
     "poés": "Poésie",
     "poissons": "Ichtyologie",
     "popu": "Populaire",
