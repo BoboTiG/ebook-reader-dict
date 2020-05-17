@@ -348,7 +348,7 @@ templates_italic = {
     "télécom": "Télécommunications",
     "trans": "Transitif",
     "transit": "Transitif",
-    "tradit": "Orthographe traditionnelle",
+    "tradit": "orthographe traditionnelle",
     "typo": "Typographie",
     "typog": "Typographie",
     "unités": "Métrologie",
