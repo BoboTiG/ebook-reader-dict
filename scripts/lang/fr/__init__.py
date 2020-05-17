@@ -216,6 +216,7 @@ templates_italic = {
     "comm": "Commerce",
     "commerces": "Commerce",
     "composants": "Électronique",
+    "compta": "Comptabilité",
     "cour": "Courant",
     "cout": "Couture",
     "couvre-chefs": "Habillement",
