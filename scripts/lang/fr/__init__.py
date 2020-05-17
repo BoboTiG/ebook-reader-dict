@@ -234,6 +234,7 @@ templates_italic = {
     "exagération": "Par hyperbole",
     "éduc": "Éducation",
     "éléments": "Chimie",
+    "énergie": "Industrie de l’énergie",
     "épithète": "Employé comme épithète",
     "FR": "France",
     "ferro": "Chemin de fer",
