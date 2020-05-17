@@ -249,6 +249,7 @@ templates_italic = {
     "graphe": "Théorie des graphes",
     "gâteaux": "Cuisine",
     "géog": "Géographie",
+    "géol": "Géologie",
     "géom": "Géométrie",
     "habil": "Habillement",
     "hérald": "Héraldique",
