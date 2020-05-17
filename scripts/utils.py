@@ -140,6 +140,8 @@ def clean(word: str, text: str) -> str:
     text = sub(r"''([^']*(?:'[^']+)*)''", "<i>\\1</i>", text)
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
+    # HTML characters
+    text = text.replace("&minus;", "-")
 
     # Files
     # [[File:picture.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']] -> ''
