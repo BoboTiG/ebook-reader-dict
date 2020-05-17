@@ -255,6 +255,7 @@ templates_italic = {
     "géom": "Géométrie",
     "habil": "Habillement",
     "hérald": "Héraldique",
+    "hippisme": "Sports hippiques",
     "hist": "Histoire",
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
