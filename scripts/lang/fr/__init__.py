@@ -185,6 +185,7 @@ templates_italic = {
     "antonomase": "Antonomase",
     "antiq": "Antiquité",
     "apposition": "En apposition",
+    "arbres": "Botanique",
     "arch": "Archaïsme",
     "archaïque": "Archaïsme",
     "archi": "Architecture",
