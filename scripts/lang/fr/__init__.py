@@ -341,6 +341,7 @@ templates_italic = {
     "tech": "Technique",
     "technol": "Technologie",
     "text": "Textile",
+    "théol": "Théologie",
     "télécom": "Télécommunications",
     "trans": "Transitif",
     "tradit": "Orthographe traditionnelle",
