@@ -383,6 +383,8 @@ templates_multi = {
     # XIX{{e}}
     # {{e|-1}}
     "e": "f\"<sup>{parts[1] if len(parts) > 1 else 'e'}</sup>\"",
+    # {{er}}
+    "er": "'<sup>er</sup>'",
     # {{emploi|au passif}}
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{étyl|la|fro|mot=invito|type=verb}}
