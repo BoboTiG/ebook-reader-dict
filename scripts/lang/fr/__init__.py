@@ -200,6 +200,7 @@ templates_italic = {
     "avant 1835": "Archaïque, orthographe d’avant 1835",
     "BDD": "Bases de données",
     "BE": "Belgique",
+    "bateaux": "Navigation",
     "bdd": "Bases de données",
     "bioch": "Biochimie",
     "biol": "Biologie",
