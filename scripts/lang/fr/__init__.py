@@ -255,6 +255,7 @@ templates_italic = {
     "familles de plantes": "Botanique",
     "ferro": "Chemin de fer",
     "ferroviaire": "Chemin de fer",
+    "figure": "Rhétorique",
     "finan": "Finance",
     "finances": "Finance",
     "fonderie": "Métallurgie",
