@@ -14,8 +14,9 @@ patterns = {
 }
 
 # The template name dealing with files in the Wikicode.
-# Ex: (fr) [[Fichier:...|...|...|...]]
-pattern_file = ("Fichier",)
+# (fr) [[Fichier:...|...|...|...]]
+# (fr) [[Image:...|...|...]]
+pattern_file = ("Fichier", "Image")
 
 # Templates replacements: wikicode -> text conversion
 
