@@ -346,6 +346,7 @@ templates_italic = {
     "prov": "Proverbial",
     "psychol": "Psychologie",
     "QC": "Québec",
+    "RDCongo": "Congo-Kinshasa",
     "reli": "Religion",
     "reptiles": "Herpétologie",
     "roches": "Pétrographie",
