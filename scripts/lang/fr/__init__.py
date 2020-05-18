@@ -136,6 +136,9 @@ patterns = (
     "{{S|verbe|fr|num=",
 )
 
+# Séparateur des milliers
+thousands_separator = " "
+
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
@@ -409,6 +412,8 @@ templates_multi = {
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{étyl|la|fro|mot=invito|type=verb}}
     "étyl": "handle_etyl(parts)",
+    # {{formatnum:-1000000}}
+    "formatnum": f"format_num(parts[1], \"{thousands_separator}\")",
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{in|5}}
@@ -531,8 +536,6 @@ Caractéristiques :
 
 <sub>Mis à jour le {creation_date}</sub>
 """,
-    # Séparateur des milliers
-    "thousands_separator": " ",
 }
 
 # Le nom du dictionnaire qui sera affiché en-dessous de chaque définition

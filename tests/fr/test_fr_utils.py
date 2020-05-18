@@ -42,6 +42,10 @@ from scripts import utils
             "grec ancien λόγος, <i>lógos</i> (« étude »)",
         ),
         ("{{finan|fr}}", "<i>(Finance)</i>"),
+        (
+            "''({{formatnum:-1000000}} à {{formatnum:-300000}} environ avant J.-C.)''",
+            "<i>(-1 000 000 à -300 000 environ avant J.-C.)</i>",
+        ),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{géom|fr}}", "<i>(Géométrie)</i>"),
         ("{{graphe|fr}}", "<i>(Théorie des graphes)</i>"),

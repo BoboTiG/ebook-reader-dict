@@ -55,6 +55,11 @@ template_warning_skip = {
     "fr": fr.template_warning_skip,
 }
 
+# Thousads separator
+thousands_separator = {
+    "fr": fr.thousands_separator,
+}
+
 # Translations
 translations = {
     "fr": fr.translations,

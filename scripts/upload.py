@@ -6,7 +6,7 @@ from datetime import datetime
 
 import requests
 
-from .lang import translations
+from .lang import thousands_separator, translations
 from . import constants as C
 
 
@@ -29,7 +29,7 @@ def format_description() -> str:
     count = C.SNAPSHOT_COUNT.read_text().strip()
 
     # Format the words count
-    thousands_sep = tr["thousands_separator"]
+    thousands_sep = thousands_separator[C.LOCALE]
     count = f"{int(count):,}".replace(",", thousands_sep)
 
     # Format th snapshot's date

@@ -247,6 +247,12 @@ def transform(word: str, template: str) -> str:
     parts = [p.strip() for p in parts_raw]
     tpl = parts[0]
 
+    # {{formatnum:-1000000}}
+    if ":" in tpl:
+        parts_raw = template.split(":")
+        parts = [p.strip() for p in parts_raw]
+        tpl = parts[0]
+
     # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
     if parts != parts_raw and tpl not in template_warning_skip[C.LOCALE]:
         warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")

@@ -33,6 +33,25 @@ def format_chimy(composition: Tuple[str, ...]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
+def format_num(number: str, sep: str) -> str:
+    """Format a number using the provided thousands separator.
+
+        >>> format_num("1000000", " ")
+        '1 000 000'
+        >>> format_num("1000000", "")
+        '1000000'
+        >>> format_num("1000000", ",")
+        '1,000,000'
+        >>> format_num("-1000000", " ")
+        '-1 000 000'
+        >>> format_num("-1000000", "")
+        '-1000000'
+        >>> format_num("-1000000", ",")
+        '-1,000,000'
+    """
+    return f"{int(number):,}".replace(",", sep)
+
+
 def handle_calc(parts: Tuple[str, ...]) -> str:
     """Handle the 'calque' template.
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:calque
@@ -214,6 +233,7 @@ def int_to_roman(number: int) -> str:
 __all__ = (
     "capitalize",
     "format_chimy",
+    "format_num",
     "handle_calc",
     "handle_century",
     "handle_etyl",
