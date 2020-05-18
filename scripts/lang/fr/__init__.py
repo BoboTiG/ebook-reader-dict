@@ -219,6 +219,7 @@ templates_italic = {
     "chim": "Chimie",
     "chir": "Chirurgie",
     "ciné": "Cinéma",
+    "cnidaires": "Zoologie",
     "cuis": "Cuisine",
     "comm": "Commerce",
     "commerces": "Commerce",
