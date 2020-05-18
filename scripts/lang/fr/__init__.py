@@ -422,6 +422,7 @@ templates_italic = {
     "typo": "Typographie",
     "typog": "Typographie",
     "télé": "Audiovisuel",
+    "USA": "États-Unis",
     "unités": "Métrologie",
     "usines": "Industrie",
     "vents": "Météorologie",
