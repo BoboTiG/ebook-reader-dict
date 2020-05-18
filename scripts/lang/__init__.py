@@ -1,6 +1,12 @@
 """Internationalization stuff."""
 
 from . import fr
+from .fr.langs import langs as FR
+
+# A list of all languages translated into different locales
+all_langs = {
+    "fr": FR,
+}
 
 # Markers for sections that contain interesting text to analyse.
 patterns = {

@@ -2,11 +2,7 @@
 from typing import Tuple
 from warnings import warn
 
-from .lang.fr.langs import langs as FR
-
-all_langs = {
-    "fr": FR,
-}
+from .lang import all_langs
 
 
 def capitalize(text: str) -> str:
