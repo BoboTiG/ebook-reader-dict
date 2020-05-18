@@ -535,6 +535,7 @@ templates_multi = {
 templates_other = {
     "absolu": "<i>absolu</i>",
     "antonomase": "<i>antonomase</i>",
+    "aphérèse": "<i>aphérèse</i>",
     "apocope": "Apocope",
     "au singulier uniquement": "<i>au singulier uniquement</i>",
     "au pluriel uniquement": "<i>au pluriel uniquement</i>",
