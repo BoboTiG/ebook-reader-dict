@@ -191,7 +191,6 @@ templates_italic = {
     "angl": "Anglicisme",
     "animaux": "Zoologie",
     "anat": "Anatomie",
-    "antonomase": "Antonomase",
     "antiq": "Antiquité",
     "apposition": "En apposition",
     "arbres": "Botanique",
@@ -534,6 +533,7 @@ templates_multi = {
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
     "absolu": "<i>absolu</i>",
+    "antonomase": "<i>antonomase</i>",
     "apocope": "Apocope",
     "au singulier uniquement": "<i>au singulier uniquement</i>",
     "au pluriel uniquement": "<i>au pluriel uniquement</i>",
