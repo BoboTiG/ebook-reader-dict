@@ -1,4 +1,5 @@
 """Functions that can be used in *templates_multi*."""
+import re
 from typing import Tuple
 from warnings import warn
 
@@ -21,9 +22,22 @@ def capitalize(text: str) -> str:
 def eval_expr(expr: str) -> str:
     """Eval the given *expr*.
 
+        >>> eval_expr("cat /etc/passwd")  # doctest: +ELLIPSIS
+        Traceback (most recent call last):
+          File ".../doctest.py", line 1329, in __run
+            compileflags, 1), test.globs)
+          File "<doctest scripts.user_functions.eval_expr[0]>", line 1, in <module>
+          File ".../user_functions.py", line 33, in eval_expr
+            raise ValueError(f"Dangerous characters in the expr {expr!r}")
+        ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         >>> eval_expr("2 ^ 30")
         '1073741824'
     """
+    # Prevent horrors
+    # digits, space and operators (+-*^)
+    if re.search(r"[^\d\s\*\-\+\^\.\,]+", expr):
+        raise ValueError(f"Dangerous characters in the expr {expr!r}")
+
     # Replace signs
     expr = expr.replace("^", "**")
 

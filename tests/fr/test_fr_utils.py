@@ -132,3 +132,8 @@ from scripts import utils
 )
 def test_clean_template(wikicode, expected):
     assert utils.clean("foo", wikicode) == expected
+
+
+def test_clean_template_bad_expr_value():
+    with pytest.raises(ValueError):
+        utils.clean("foo", "{{#expr|cat /etc/passwd}}")
