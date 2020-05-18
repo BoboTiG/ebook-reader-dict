@@ -350,6 +350,7 @@ templates_italic = {
     "QC": "Québec",
     "RDCongo": "Congo-Kinshasa",
     "reli": "Religion",
+    "religieux": "Religion",
     "reptiles": "Herpétologie",
     "roches": "Pétrographie",
     "réseaux": "Réseaux informatiques",
