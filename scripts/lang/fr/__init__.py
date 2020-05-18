@@ -189,6 +189,7 @@ templates_italic = {
     "analogie": "Par analogie",
     "angl": "Anglicisme",
     "animaux": "Zoologie",
+    "anat": "Anatomie",
     "antonomase": "Antonomase",
     "antiq": "Antiquité",
     "apposition": "En apposition",
