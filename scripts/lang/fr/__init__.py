@@ -248,6 +248,7 @@ templates_italic = {
     "diacritiques": "Grammaire",
     "dinosaures": "Paléontologie",
     "diplo": "Diplomatie",
+    "EU": "Europe",
     "élec": "Électricité",
     "ellipse": "Par ellipse",
     "enclit": "Enclitique",
