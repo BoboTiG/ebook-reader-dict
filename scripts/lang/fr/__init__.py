@@ -459,6 +459,8 @@ templates_multi = {
     # {{wsp|Panthera pardus|''Panthera pardus''}}
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
+    # {{WSP|Panthera leo}}
+    "WSP": "f\"<i>({parts[1]})</i>\"",
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.
