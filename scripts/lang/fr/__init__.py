@@ -163,6 +163,7 @@ templates_ignored = (
     "ébauche-trans",
     "ébauche2-exe",
     "graphie",
+    "Import",
     "préciser",
     "R",
     "refnec",
