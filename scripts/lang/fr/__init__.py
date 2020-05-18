@@ -370,6 +370,7 @@ templates_italic = {
     "salles": "Construction",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
+    "scolaire": "Éducation",
     "sexe": "Sexualité",
     "soldats": "Militaire",
     "sout": "Soutenu",
