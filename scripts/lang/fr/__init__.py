@@ -373,6 +373,7 @@ templates_italic = {
     "spéc": "Spécialement",
     "sports": "Sport",
     "stat": "Statistiques",
+    "sylv": "Sylviculture",
     "TAAF": "Vocabulaire des TAAF",
     "tech": "Technique",
     "technol": "Technologie",
