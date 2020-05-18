@@ -119,6 +119,8 @@ def clean(word: str, text: str) -> str:
         ''
         >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>')
         ''
+        >>> clean("voyeuse", "<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
+        ''
         >>> clean("foo", "''italic''")
         '<i>italic</i>'
         >>> clean("foo", "'''strong'''")
@@ -137,6 +139,12 @@ def clean(word: str, text: str) -> str:
 
     # Speed-up lookup
     sub = re.sub
+
+    # Parser hooks
+    # <ref>foo</ref> -> ''
+    # <ref name="CFC"/> -> ''
+    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
+    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
     # HTML
     # '''foo''' -> <b>foo></b> (source: https://stackoverflow.com/a/54388869/1117028)
@@ -178,12 +186,6 @@ def clean(word: str, text: str) -> str:
         r"\[http[^\s]+ ([^\]]+)\]", "\\1", text
     )  # [[http://example.com foo]] -> foo
     text = sub(r"https?://[^\s]+", "", text)  # remove http://example.com
-
-    # Parser hooks
-    # <ref>foo</ref> -> ''
-    # <ref name="CFC"/> -> ''
-    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
