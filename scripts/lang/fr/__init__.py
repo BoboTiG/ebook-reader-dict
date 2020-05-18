@@ -211,6 +211,7 @@ templates_italic = {
     "bovins": "Zoologie",
     "CA": "Canada",
     "CH": "Suisse",
+    "CI": "Côte d’Ivoire",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
     "chaussures": "Vêtement",
