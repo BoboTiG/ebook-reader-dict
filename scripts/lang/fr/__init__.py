@@ -380,6 +380,7 @@ templates_italic = {
     "scolaire": "Éducation",
     "sexe": "Sexualité",
     "sigle": "Sigle",
+    "sociol": "Sociologie",
     "soldats": "Militaire",
     "sout": "Soutenu",
     "spéc": "Spécialement",
