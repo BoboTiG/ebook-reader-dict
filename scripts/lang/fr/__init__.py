@@ -365,6 +365,7 @@ templates_italic = {
     "propriété": "Droit",
     "propulsion": "Propulsion spatiale",
     "prov": "Proverbial",
+    "psychia": "Psychiatrie",
     "psychol": "Psychologie",
     "QC": "Québec",
     "RDCongo": "Congo-Kinshasa",
