@@ -286,6 +286,7 @@ templates_italic = {
     "géog": "Géographie",
     "géol": "Géologie",
     "géom": "Géométrie",
+    "géoph": "Géophysique",
     "habil": "Habillement",
     "hérald": "Héraldique",
     "hippisme": "Sports hippiques",
