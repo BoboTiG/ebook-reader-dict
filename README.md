@@ -4,11 +4,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ## Dictionaries
 
-- [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr), caractéristiques :
-   - Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
-   - Les mots comportant moins de 2 caractères ne sont pas inclus.
-   - Les noms propres ne sont pas inclus.
-   - Les conjugaisons ne sont pas incluses.
+- [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
 
 ## Updating Dictionaries
 
