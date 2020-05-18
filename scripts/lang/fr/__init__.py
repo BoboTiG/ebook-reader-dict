@@ -341,6 +341,7 @@ templates_italic = {
     "psychol": "Psychologie",
     "QC": "Québec",
     "reli": "Religion",
+    "reptiles": "Herpétologie",
     "roches": "Pétrographie",
     "réseaux": "Réseaux informatiques",
     "salles": "Construction",
