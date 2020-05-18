@@ -238,6 +238,7 @@ templates_italic = {
     "danses": "Danse",
     "dermatol": "Dermatologie",
     "didact": "Didactique",
+    "diacritiques": "Grammaire",
     "dinosaures": "Paléontologie",
     "diplo": "Diplomatie",
     "élec": "Électricité",
