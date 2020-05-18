@@ -357,6 +357,7 @@ templates_italic = {
     "pléonasmes": "Pléonasme",
     "poés": "Poésie",
     "poissons": "Ichtyologie",
+    "polit": "Politique",
     "popu": "Populaire",
     "prog": "Programmation informatique",
     "programmation": "Programmation informatique",
