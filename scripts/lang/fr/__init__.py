@@ -294,6 +294,7 @@ templates_italic = {
     "ling": "Linguistique",
     "litt": "Littéraire",
     "logi": "Logique",
+    "légis": "Droit",
     "légumes": "Botanique",
     "maladie": "Nosologie",
     "maladies": "Nosologie",
