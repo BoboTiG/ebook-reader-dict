@@ -398,6 +398,7 @@ templates_italic = {
     "tradit": "orthographe traditionnelle",
     "typo": "Typographie",
     "typog": "Typographie",
+    "télé": "Audiovisuel",
     "unités": "Métrologie",
     "usines": "Industrie",
     "vents": "Météorologie",
