@@ -205,6 +205,7 @@ templates_italic = {
     "auto": "Automobile",
     "automo": "Automobile",
     "avant 1835": "Archaïque, orthographe d’avant 1835",
+    "BD": "Bande dessinée",
     "BDD": "Bases de données",
     "BE": "Belgique",
     "bactéries": "Bactériologie",
