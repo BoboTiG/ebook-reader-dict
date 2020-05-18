@@ -565,6 +565,7 @@ templates_other = {
     "palind": "<i>palindrome</i>",
     "prnl": "<i>pronominal</i>",
     "s": "<i>singulier</i>",
+    "smo": "samoan",
     "sp": "<i>singulier et pluriel identiques</i>",
     "sp ?": "<i>singulier et pluriel identiques ou différenciés (l’usage hésite)</i>",
     "réfl": "<i>réfléchi</i>",
