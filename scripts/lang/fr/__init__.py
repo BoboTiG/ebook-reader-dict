@@ -385,6 +385,7 @@ templates_italic = {
     "spéc": "Spécialement",
     "sports": "Sport",
     "stat": "Statistiques",
+    "substances": "Chimie",
     "sylv": "Sylviculture",
     "TAAF": "Vocabulaire des TAAF",
     "tech": "Technique",
