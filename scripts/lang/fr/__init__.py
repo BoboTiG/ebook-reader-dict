@@ -201,6 +201,7 @@ templates_italic = {
     "argot typographes": "Argot des typographes",
     "argot voleurs": "Argot des voleurs",
     "astron": "Astronomie",
+    "atomes": "Chimie",
     "au figuré": "Figuré",
     "audiovi": "Audiovisuel",
     "auto": "Automobile",
