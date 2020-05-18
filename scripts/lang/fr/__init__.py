@@ -244,6 +244,7 @@ templates_italic = {
     "énergie": "Industrie de l’énergie",
     "épithète": "Employé comme épithète",
     "FR": "France",
+    "familles de plantes": "Botanique",
     "ferro": "Chemin de fer",
     "ferroviaire": "Chemin de fer",
     "finan": "Finance",
