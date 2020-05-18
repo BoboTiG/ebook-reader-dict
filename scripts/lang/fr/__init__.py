@@ -320,6 +320,7 @@ templates_italic = {
     "mili": "Militaire",
     "minér": "Minéralogie",
     "minéraux": "Minéralogie",
+    "mollusques": "Malacologie",
     "monnaies": "Numismatique",
     "muscles": "Anatomie",
     "musi": "Musique",
