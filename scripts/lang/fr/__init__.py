@@ -329,6 +329,7 @@ templates_italic = {
     "minér": "Minéralogie",
     "minéraux": "Minéralogie",
     "mollusques": "Malacologie",
+    "montagnes": "Géographie",
     "monnaies": "Numismatique",
     "muscles": "Anatomie",
     "musi": "Musique",
