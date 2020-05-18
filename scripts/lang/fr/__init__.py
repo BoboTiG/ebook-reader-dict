@@ -340,6 +340,7 @@ templates_italic = {
     "psychol": "Psychologie",
     "QC": "Québec",
     "reli": "Religion",
+    "roches": "Pétrographie",
     "réseaux": "Réseaux informatiques",
     "salles": "Construction",
     "sci-fi": "Science-fiction",
