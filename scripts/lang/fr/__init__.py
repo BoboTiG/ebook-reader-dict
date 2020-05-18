@@ -365,6 +365,7 @@ templates_italic = {
     "phys": "Physique",
     "pl-rare": "Plus rare",
     "plais": "Par plaisanterie",
+    "planètes": "Astronomie",
     "plantes": "Botanique",
     "pléonasmes": "Pléonasme",
     "poés": "Poésie",
