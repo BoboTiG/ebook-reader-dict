@@ -376,6 +376,7 @@ templates_italic = {
     "scol": "Éducation",
     "scolaire": "Éducation",
     "sexe": "Sexualité",
+    "sigle": "Sigle",
     "soldats": "Militaire",
     "sout": "Soutenu",
     "spéc": "Spécialement",
