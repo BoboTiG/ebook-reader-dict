@@ -331,6 +331,7 @@ templates_italic = {
     "météorol": "Météorologie",
     "méton": "Par métonymie",
     "métonymie": "Par métonymie",
+    "nuages": "Météorologie",
     "numis": "Numismatique",
     "néol": "Néologisme",
     "oenol": "Œnologie",
