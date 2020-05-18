@@ -212,6 +212,7 @@ templates_italic = {
     "CH": "Suisse",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
+    "chaussures": "Vêtement",
     "chiens": "Zoologie",
     "chim": "Chimie",
     "chir": "Chirurgie",
