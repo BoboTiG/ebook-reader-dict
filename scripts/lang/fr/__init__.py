@@ -378,6 +378,7 @@ templates_italic = {
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "scolaire": "Éducation",
+    "serpents": "Herpétologie",
     "sexe": "Sexualité",
     "sigle": "Sigle",
     "sociol": "Sociologie",
