@@ -284,6 +284,7 @@ templates_italic = {
     "légumes": "Botanique",
     "maladie": "Nosologie",
     "maladies": "Nosologie",
+    "mammifères": "Zoologie",
     "manège": "Équitation",
     "marque": "Marque commerciale",
     "math": "Mathématiques",
