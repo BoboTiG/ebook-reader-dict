@@ -179,6 +179,7 @@ templates_ignored = (
 # Modèles qui seront remplacés par du texte italique.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
 templates_italic = {
+    "abréviation": "Abréviation",
     "absol": "Absolument",
     "adj-indéf-avec-de": "Avec de",
     "admin": "Administration",
