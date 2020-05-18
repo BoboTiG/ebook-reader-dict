@@ -395,6 +395,7 @@ templates_italic = {
     "réseaux": "Réseaux informatiques",
     "salades": "Cuisine",
     "salles": "Construction",
+    "saules": "Botanique",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "scolaire": "Éducation",
