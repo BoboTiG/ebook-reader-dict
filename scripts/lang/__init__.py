@@ -61,6 +61,11 @@ template_warning_skip = {
     "fr": fr.template_warning_skip,
 }
 
+# Float number separator
+float_separator = {
+    "fr": fr.float_separator,
+}
+
 # Thousads separator
 thousands_separator = {
     "fr": fr.thousands_separator,

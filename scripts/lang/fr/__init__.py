@@ -136,6 +136,9 @@ patterns = (
     "{{S|verbe|fr|num=",
 )
 
+# Séparateur des nombres à virgule
+float_separator = ","
+
 # Séparateur des milliers
 thousands_separator = " "
 
@@ -436,8 +439,10 @@ templates_multi = {
     "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
     # {{étyl|la|fro|mot=invito|type=verb}}
     "étyl": "handle_etyl(parts)",
+    # {{#expr: 2 ^ 30}}
+    "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
-    "formatnum": f"format_num(parts[1], \"{thousands_separator}\")",
+    "formatnum": f'format_num(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{in|5}}
@@ -493,7 +498,7 @@ templates_multi = {
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
-    "WSP": "f\"<i>({parts[1]})</i>\"",
+    "WSP": 'f"<i>({parts[1]})</i>"',
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.

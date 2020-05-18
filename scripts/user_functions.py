@@ -18,6 +18,18 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}"
 
 
+def eval_expr(expr: str) -> str:
+    """Eval the given *expr*.
+
+        >>> eval_expr("2 ^ 30")
+        '1073741824'
+    """
+    # Replace signs
+    expr = expr.replace("^", "**")
+
+    return f"{eval(expr)}"
+
+
 def format_chimy(composition: Tuple[str, ...]) -> str:
     """Format chimy notations.
 
@@ -29,23 +41,39 @@ def format_chimy(composition: Tuple[str, ...]) -> str:
     return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
 
 
-def format_num(number: str, sep: str) -> str:
-    """Format a number using the provided thousands separator.
+def format_num(number: str, fsep: str, tsep: str) -> str:
+    """Format a number using the provided float and thousands separator.
 
-        >>> format_num("1000000", " ")
+        >>> format_num("1 000 000 000 000", ",", " ")
+        '1 000 000 000 000'
+        >>> format_num("1000000", ",", " ")
         '1 000 000'
-        >>> format_num("1000000", "")
+        >>> format_num("1000000", ".", "")
         '1000000'
-        >>> format_num("1000000", ",")
+        >>> format_num("1000000", ".", ",")
         '1,000,000'
-        >>> format_num("-1000000", " ")
+        >>> format_num("-1000000", ",", " ")
         '-1 000 000'
-        >>> format_num("-1000000", "")
+        >>> format_num("-1000000", "", "")
         '-1000000'
-        >>> format_num("-1000000", ",")
+        >>> format_num("-1000000", ".", ",")
         '-1,000,000'
+        >>> format_num("4.54609", "," , " ")
+        '4,54609'
+        >>> format_num("4.54609", "." , ",")
+        '4.54609'
     """
-    return f"{int(number):,}".replace(",", sep)
+    # Remove superfluous spaces
+    number = number.replace(" ", "")
+
+    try:
+        # Integer
+        res = f"{int(number):,}"
+    except ValueError:
+        # Float
+        res = f"{float(number):,}"
+
+    return res.replace(",", tsep).replace(".", fsep)
 
 
 def handle_calc(parts: Tuple[str, ...]) -> str:
@@ -228,6 +256,7 @@ def int_to_roman(number: int) -> str:
 
 __all__ = (
     "capitalize",
+    "eval_expr",
     "format_chimy",
     "format_num",
     "handle_calc",
