@@ -345,6 +345,7 @@ templates_italic = {
     "métonymie": "Par métonymie",
     "nom-coll": "Nom collectif",
     "nuages": "Météorologie",
+    "nucl": "Nucléaire",
     "numis": "Numismatique",
     "néol": "Néologisme",
     "oenol": "Œnologie",
