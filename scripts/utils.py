@@ -5,6 +5,7 @@ from typing import Tuple
 from warnings import warn
 
 from .lang import (
+    all_langs,
     pattern_file,
     templates_italic,
     templates_ignored,
@@ -133,7 +134,7 @@ def clean(word: str, text: str) -> str:
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
         >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
         '10<sup>-6</sup> gray'
-        >>> clean("base", "[[Fichier:Blason ville .svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")
+        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")
         ''
         >>> clean("sco", "<!-- {{sco}} -->")
         ''
@@ -150,6 +151,10 @@ def clean(word: str, text: str) -> str:
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
     text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
+    # Files
+    pattern = "|".join(p for p in pattern_file)
+    text = sub(fr"\[\[(?:{pattern}):[^\]]+\]\]", "", text)
+
     # HTML
     # <-- foo --> -> ''
     text = sub(r"<!--(?:.+-->)?", "", text)
@@ -161,11 +166,6 @@ def clean(word: str, text: str) -> str:
     text = sub(r"<br[^>]+/?>", "", text)
     # HTML characters
     text = text.replace("&minus;", "-")
-
-    # Files
-    # (see https://stackoverflow.com/a/10591106/1117028 for benchmark)
-    file = "|".join("(?:%s)" % p for p in pattern_file)
-    text = sub(fr"\[\[{file}:[^\]]+\]\]", "", text)
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
@@ -300,6 +300,10 @@ def transform_apply(tpl: str, parts: Tuple[str, ...]) -> str:
 
     if tpl in templates_other[C.LOCALE]:
         return templates_other[C.LOCALE][tpl]
+
+    # This is a country in the current locale
+    if tpl in all_langs[C.LOCALE]:
+        return all_langs[C.LOCALE][tpl]
 
     # {{grammaire|fr}} -> (Grammaire)
     if len(parts) == 2:
