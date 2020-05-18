@@ -237,6 +237,7 @@ templates_italic = {
     "ellipse": "Par ellipse",
     "enclit": "Enclitique",
     "enfantin": "Langage enfantin",
+    "entomol": "Entomologie",
     "euph": "Par euphémisme",
     "euphém": "Par euphémisme",
     "euphémisme": "Par euphémisme",
