@@ -135,6 +135,10 @@ def clean(word: str, text: str) -> str:
         '10<sup>-6</sup> gray'
         >>> clean("base", "[[Fichier:Blason ville .svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")
         ''
+        >>> clean("sco", "<!-- {{sco}} -->")
+        ''
+        >>> clean("sco", "<!-- <i>sco</i> -->")
+        ''
     """
 
     # Speed-up lookup
@@ -147,6 +151,8 @@ def clean(word: str, text: str) -> str:
     text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
 
     # HTML
+    # <-- foo --> -> ''
+    text = sub(r"<!--(?:.+-->)?", "", text)
     # '''foo''' -> <b>foo></b> (source: https://stackoverflow.com/a/54388869/1117028)
     text = sub(r"'''([^']*(?:'[^']+)*)'''", "<b>\\1</b>", text)
     # ''foo'' -> <i>foo></i>
