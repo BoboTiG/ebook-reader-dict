@@ -314,6 +314,7 @@ templates_italic = {
     "médecine non conv": "Médecine non conventionnelle",
     "mélio": "Mélioratif",
     "menu": "Menuiserie",
+    "mercatique": "Marketing",
     "métrol": "Métrologie",
     "meubles": "Mobilier",
     "meubles héraldiques": "Héraldique",
