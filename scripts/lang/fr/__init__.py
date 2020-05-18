@@ -249,6 +249,7 @@ templates_italic = {
     "écolo": "Écologie",
     "écon": "Économie",
     "éduc": "Éducation",
+    "électoraux": "Systèmes électoraux",
     "éléments": "Chimie",
     "énergie": "Industrie de l’énergie",
     "épithète": "Employé comme épithète",
