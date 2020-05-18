@@ -348,6 +348,7 @@ templates_italic = {
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "sexe": "Sexualité",
+    "soldats": "Militaire",
     "sout": "Soutenu",
     "spéc": "Spécialement",
     "sports": "Sport",
