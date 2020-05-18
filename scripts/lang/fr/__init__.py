@@ -392,6 +392,7 @@ templates_italic = {
     "roches": "Pétrographie",
     "régional": "Régionalisme",
     "réseaux": "Réseaux informatiques",
+    "salades": "Cuisine",
     "salles": "Construction",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
