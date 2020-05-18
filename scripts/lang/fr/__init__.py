@@ -208,6 +208,7 @@ templates_italic = {
     "bioch": "Biochimie",
     "biol": "Biologie",
     "boissons": "Boisson",
+    "botan": "Botanique",
     "bovins": "Zoologie",
     "CA": "Canada",
     "CH": "Suisse",
