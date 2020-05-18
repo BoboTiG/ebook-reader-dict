@@ -581,6 +581,7 @@ templates_other = {
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
     "usage": "<b>Note d'usage :</b>",
+    "WP": "sur l'encyclopédie Wikipedia",
 }
 
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
