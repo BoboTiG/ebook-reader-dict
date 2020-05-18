@@ -240,6 +240,7 @@ templates_italic = {
     "euph": "Par euphémisme",
     "euphém": "Par euphémisme",
     "euphémisme": "Par euphémisme",
+    "ex-rare": "Extrêmement rare",
     "exag": "Par hyperbole",
     "exagération": "Par hyperbole",
     "écolo": "Écologie",
