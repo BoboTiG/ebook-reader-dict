@@ -220,6 +220,7 @@ templates_italic = {
     "CI": "Côte d’Ivoire",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
+    "champignons": "Mycologie",
     "chaussures": "Vêtement",
     "chiens": "Zoologie",
     "chim": "Chimie",
