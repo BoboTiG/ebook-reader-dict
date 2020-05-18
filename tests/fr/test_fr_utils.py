@@ -116,6 +116,7 @@ from scripts import utils
         ),
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
         ("{{term|{{antonomase|fr|m=1}}}}", "<i>(Antonomase)</i>"),
+        ("{{term|<i>(Foo)</i>}}", "<i>(Foo)</i>"),
         ("{{unités|fr}}", "<i>(Métrologie)</i>"),
         ("{{unité|92|%}}", "92%"),
         ("{{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}", "Livre de Daniel"),

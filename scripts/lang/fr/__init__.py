@@ -536,7 +536,7 @@ templates_multi = {
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
     "absolu": "<i>absolu</i>",
-    "antonomase": "<i>antonomase</i>",
+    "antonomase": "antonomase",
     "aphérèse": "<i>aphérèse</i>",
     "apocope": "Apocope",
     "au singulier uniquement": "<i>au singulier uniquement</i>",
