@@ -326,6 +326,7 @@ templates_italic = {
     "mythol": "Mythologie",
     "méca": "Mécanique",
     "méde": "Médecine",
+    "métal": "Métallurgie",
     "métaph": "Figuré",
     "métaphore": "Figuré",
     "métaplasmes": "Linguistique",
