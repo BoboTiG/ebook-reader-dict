@@ -365,6 +365,7 @@ templates_italic = {
     "propriété": "Droit",
     "propulsion": "Propulsion spatiale",
     "prov": "Proverbial",
+    "préparations": "Cuisine",
     "psychia": "Psychiatrie",
     "psychol": "Psychologie",
     "QC": "Québec",
