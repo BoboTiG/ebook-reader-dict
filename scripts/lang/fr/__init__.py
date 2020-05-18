@@ -255,6 +255,7 @@ templates_italic = {
     "fromages": "Fromage",
     "gastronomie": "Cuisine",
     "genres musicaux": "Musique",
+    "gentilés": "Géographie",
     "graphe": "Théorie des graphes",
     "gâteaux": "Cuisine",
     "géog": "Géographie",
