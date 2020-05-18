@@ -364,6 +364,7 @@ templates_italic = {
     "propre": "Sens propre",
     "propriété": "Droit",
     "propulsion": "Propulsion spatiale",
+    "protéines": "Biochimie",
     "prov": "Proverbial",
     "préparations": "Cuisine",
     "psychia": "Psychiatrie",
