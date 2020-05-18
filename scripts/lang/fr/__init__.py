@@ -360,6 +360,7 @@ templates_italic = {
     "religieux": "Religion",
     "reptiles": "Herpétologie",
     "roches": "Pétrographie",
+    "régional": "Régionalisme",
     "réseaux": "Réseaux informatiques",
     "salles": "Construction",
     "sci-fi": "Science-fiction",
