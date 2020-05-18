@@ -303,6 +303,7 @@ templates_italic = {
     "mili": "Militaire",
     "minér": "Minéralogie",
     "minéraux": "Minéralogie",
+    "monnaies": "Numismatique",
     "muscles": "Anatomie",
     "musi": "Musique",
     "mythol": "Mythologie",
