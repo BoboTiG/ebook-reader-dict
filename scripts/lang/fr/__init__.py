@@ -202,6 +202,7 @@ templates_italic = {
     "argot voleurs": "Argot des voleurs",
     "astron": "Astronomie",
     "au figuré": "Figuré",
+    "audiovi": "Audiovisuel",
     "auto": "Automobile",
     "automo": "Automobile",
     "avant 1835": "Archaïque, orthographe d’avant 1835",
