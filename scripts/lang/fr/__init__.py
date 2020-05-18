@@ -417,6 +417,7 @@ templates_italic = {
     "technol": "Technologie",
     "text": "Textile",
     "textiles": "Textile",
+    "théât": "Théâtre",
     "théol": "Théologie",
     "thérapies": "Médecine",
     "télécom": "Télécommunications",
