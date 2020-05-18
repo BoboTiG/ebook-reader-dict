@@ -451,6 +451,7 @@ templates_multi = {
     "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
+    "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
     # {{ws|Les Grenouilles qui demandent un Roi}}
     "ws": "parts[2] if len(parts) > 2 else parts[1]",
