@@ -13,6 +13,8 @@ from scripts import utils
         ("{{agri|fr}}", "<i>(Agriculture)</i>"),
         ("{{antiq|fr}}", "<i>(Antiquité)</i>"),
         ("{{ancre|sens_sexe}}", ""),
+        ("{{date|1957}}", "<i>(1957)</i>"),
+        ("{{date|1957-2057}}", "<i>(1957-2057)</i>"),
         ("{{fchim|H|2|O}}", "H<sub>2</sub>O"),
         ("{{emploi|au passif}}", "<i>(Au passif)</i>"),
         ("{{au pluriel}}", "<i>(Au pluriel)</i>"),

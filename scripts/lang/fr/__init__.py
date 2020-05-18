@@ -419,6 +419,8 @@ templates_multi = {
     "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
     # {{couleur|#B0F2B6}}
     "couleur": 'f"[RGB {parts[1]}]"',
+    # {{date|1850}}
+    "date": 'f"<i>({parts[1]})</i>"',
     # {{fchim|H|2|O}}
     "fchim": "format_chimy(parts[1:])",
     # XIX{{e}}
