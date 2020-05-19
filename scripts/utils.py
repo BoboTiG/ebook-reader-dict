@@ -136,6 +136,8 @@ def clean(word: str, text: str) -> str:
         '10<sup>-6</sup> gray'
         >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
         ''
+        >>> clean("coccigrole", "[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
+        ''
         >>> clean("sco", "<!-- {{sco}} -->")
         ''
         >>> clean("sco", "<!-- <i>sco</i> -->")
