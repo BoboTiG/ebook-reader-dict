@@ -414,6 +414,7 @@ templates_italic = {
     "psychia": "Psychiatrie",
     "psychol": "Psychologie",
     "QC": "Québec",
+    "RDC": "Congo-Kinshasa",
     "RDCongo": "Congo-Kinshasa",
     "raies": "Ichtyologie",
     "reli": "Religion",
