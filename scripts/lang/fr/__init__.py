@@ -401,6 +401,7 @@ templates_italic = {
     "polit": "Politique",
     "popu": "Populaire",
     "poules": "Élevage",
+    "presse": "Journalisme",
     "primates": "Zoologie",
     "procédure": "Justice",
     "prog": "Programmation informatique",
