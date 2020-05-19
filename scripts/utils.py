@@ -134,7 +134,7 @@ def clean(word: str, text: str) -> str:
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
         >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
         '10<sup>-6</sup> gray'
-        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")
+        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
         ''
         >>> clean("sco", "<!-- {{sco}} -->")
         ''
