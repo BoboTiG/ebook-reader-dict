@@ -239,6 +239,7 @@ templates_italic = {
     "composants": "Électronique",
     "compta": "Comptabilité",
     "constr": "Construction",
+    "coquillages": "Coquillage",
     "cour": "Courant",
     "cout": "Couture",
     "couvre-chefs": "Habillement",
