@@ -389,6 +389,7 @@ templates_italic = {
     "partic": "En particulier",
     "particulier": "En particulier",
     "pathologie": "Nosologie",
+    "pâtes": "Cuisine",
     "peupliers": "Botanique",
     "pêch": "Pêche",
     "péj": "Péjoratif",
