@@ -245,6 +245,7 @@ templates_italic = {
     "cour": "Courant",
     "cout": "Couture",
     "couvre-chefs": "Habillement",
+    "cycl": "Cyclisme",
     "danses": "Danse",
     "dermatol": "Dermatologie",
     "didact": "Didactique",
