@@ -1,5 +1,11 @@
 """Liste des langues.
 Source : https://fr.wiktionary.org/wiki/Module:langues/data
+Version courante :
+    2020-05-16T15:54:53
+    https://fr.wiktionary.org/w/index.php?title=Module:langues/data&oldid=27946612
+
+Historique des langues ajoutées car non prises en charge dans la liste initiale:
+    2020-05-19: added 'deu'
 """
 
 # Langues
@@ -1243,6 +1249,7 @@ langs = {
     "dep": "pidgin du Delaware",
     "der": "deuri",
     "des": "desano",
+    "deu": "allemagne",
     "dev": "domung",
     "dez": "bondengese",
     "dga": "dagaree du Sud",
