@@ -304,6 +304,7 @@ templates_italic = {
     "info": "Informatique",
     "injur": "Injurieux",
     "insectes": "Entomologie",
+    "insultes": "Insulte",
     "intrans": "Intransitif",
     "iron": "Ironique",
     "jardi": "Jardinage",
