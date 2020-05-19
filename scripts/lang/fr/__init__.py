@@ -293,6 +293,7 @@ templates_italic = {
     "genres musicaux": "Musique",
     "gentilés": "Géographie",
     "germ": "Germanisme",
+    "giraffidés": "Zoologie",
     "grades": "Militaire",
     "graphe": "Théorie des graphes",
     "gâteaux": "Cuisine",
