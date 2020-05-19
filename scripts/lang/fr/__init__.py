@@ -329,6 +329,7 @@ templates_italic = {
     "manège": "Équitation",
     "marque": "Marque commerciale",
     "math": "Mathématiques",
+    "méc": "Mécanique",
     "médecine non conv": "Médecine non conventionnelle",
     "mélio": "Mélioratif",
     "menu": "Menuiserie",
