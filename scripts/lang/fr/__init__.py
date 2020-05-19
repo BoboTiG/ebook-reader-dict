@@ -226,6 +226,7 @@ templates_italic = {
     "CH": "Suisse",
     "CI": "Côte d’Ivoire",
     "canards": "Ornithologie",
+    "caprins": "Zoologie",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
     "champignons": "Mycologie",
