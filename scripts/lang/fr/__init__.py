@@ -486,6 +486,8 @@ templates_multi = {
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{in|5}}
     "in": 'f"<sub>{parts[1]}</sub>"',
+    # {{indice|n}}
+    "indice": 'f"<sub>{parts[1]}</sub>"',
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
