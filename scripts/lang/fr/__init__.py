@@ -301,6 +301,7 @@ templates_italic = {
     "hérald": "Héraldique",
     "hippisme": "Sports hippiques",
     "hist": "Histoire",
+    "horlog": "Horlogerie",
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
     "IDLMadeleine": "Îles-de-la-Madeleine",
