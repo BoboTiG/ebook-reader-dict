@@ -364,6 +364,7 @@ templates_italic = {
     "méton": "Par métonymie",
     "métonymie": "Par métonymie",
     "muscle": "Anatomie",
+    "neurol": "Neurologie",
     "nom-coll": "Nom collectif",
     "nuages": "Météorologie",
     "nucl": "Nucléaire",
