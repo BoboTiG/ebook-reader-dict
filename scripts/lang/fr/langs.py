@@ -8,6 +8,7 @@ Historique des langues ajoutées car non prises en charge dans la liste initiale
 (à supprimer lorsqu'elles sont ajoutées sur le Wiktionnaire)
 
     2020-05-19 : ajout de 'deu'
+    2020-05-19 : ajout de 'eus'
     2020-05-19 : ajout de 'ind'
 """
 
@@ -1534,6 +1535,7 @@ langs = {
     "eudeve": "eudeve",
     "euq": "langues basques",
     "eur": "europanto",
+    "eus": "basque",
     "eve": "évène",
     "evn": "evenki",
     "ewo": "éwondo",
