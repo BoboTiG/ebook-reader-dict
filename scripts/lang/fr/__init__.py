@@ -363,6 +363,7 @@ templates_italic = {
     "météorol": "Météorologie",
     "méton": "Par métonymie",
     "métonymie": "Par métonymie",
+    "muscle": "Anatomie",
     "nom-coll": "Nom collectif",
     "nuages": "Météorologie",
     "nucl": "Nucléaire",
