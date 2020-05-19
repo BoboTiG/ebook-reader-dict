@@ -459,6 +459,7 @@ templates_italic = {
     "usines": "Industrie",
     "vents": "Météorologie",
     "vieux": "Vieilli",
+    "vélo": "Cyclisme",
     "vête": "Habillement",
     "vêtements": "Habillement",
     "zool": "Zoologie",
