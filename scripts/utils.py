@@ -140,6 +140,8 @@ def clean(word: str, text: str) -> str:
         ''
         >>> clean("sco", "<!-- <i>sco</i> -->")
         ''
+        >>> clean("lia", "&nbsp;&nbsp;&nbsp;&nbsp;")
+        ''
     """
 
     # Speed-up lookup
@@ -165,6 +167,7 @@ def clean(word: str, text: str) -> str:
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
     # HTML characters
+    text = text.replace("&nbsp;", " ")
     text = text.replace("&minus;", "-")
 
     # Local links
