@@ -5,7 +5,10 @@ Version courante :
     https://fr.wiktionary.org/w/index.php?title=Module:langues/data&oldid=27946612
 
 Historique des langues ajoutées car non prises en charge dans la liste initiale:
-    2020-05-19: added 'deu'
+(à supprimer lorsqu'elles sont ajoutées sur le Wiktionnaire)
+
+    2020-05-19 : ajout de 'deu'
+    2020-05-19 : ajout de 'ind'
 """
 
 # Langues
@@ -2098,6 +2101,7 @@ langs = {
     "imy": "milyen",
     "inb": "inga",
     "inc": "langues indo-aryennes",
+    "ind": "indonésien",
     "indanga": "indanga",
     "ine": "langues indo-européennes",
     "ing": "deg hit’an",
