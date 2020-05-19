@@ -560,6 +560,8 @@ templates_multi = {
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
+    # {{wp|Sarcoscypha coccinea}}
+    "wp": 'f"<i>{parts[1]} sur l\'encyclopédie Wikipedia</i>"',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
     # {{ws|Les Grenouilles qui demandent un Roi}}
     "ws": "parts[2] if len(parts) > 2 else parts[1]",
