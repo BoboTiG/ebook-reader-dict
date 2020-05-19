@@ -362,6 +362,7 @@ templates_italic = {
     "ornithol": "Ornithologie",
     "ortho1990": "Orthographe rectifiée de 1990",
     "POO": "Programmation orientée objet",
+    "p us": "Peu usité",
     "par ext": "Par extension",
     "part": "En particulier",
     "partic": "En particulier",
