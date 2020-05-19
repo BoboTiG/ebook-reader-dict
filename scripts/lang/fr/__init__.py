@@ -378,6 +378,7 @@ templates_italic = {
     "poissons": "Ichtyologie",
     "polit": "Politique",
     "popu": "Populaire",
+    "poules": "Élevage",
     "procédure": "Justice",
     "prog": "Programmation informatique",
     "programmation": "Programmation informatique",
