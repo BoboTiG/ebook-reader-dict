@@ -464,6 +464,7 @@ templates_italic = {
     "typo": "Typographie",
     "typog": "Typographie",
     "télé": "Audiovisuel",
+    "US": "États-Unis",
     "USA": "États-Unis",
     "unités": "Métrologie",
     "usines": "Industrie",
