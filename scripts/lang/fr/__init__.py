@@ -401,6 +401,7 @@ templates_italic = {
     "psychol": "Psychologie",
     "QC": "Québec",
     "RDCongo": "Congo-Kinshasa",
+    "raies": "Ichtyologie",
     "reli": "Religion",
     "religieux": "Religion",
     "reptiles": "Herpétologie",
