@@ -246,6 +246,7 @@ templates_italic = {
     "cout": "Couture",
     "couvre-chefs": "Habillement",
     "cycl": "Cyclisme",
+    "cétacés": "Mammalogie",
     "danses": "Danse",
     "dermatol": "Dermatologie",
     "didact": "Didactique",
