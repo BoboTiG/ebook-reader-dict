@@ -420,6 +420,7 @@ templates_italic = {
     "TAAF": "Vocabulaire des TAAF",
     "tech": "Technique",
     "technol": "Technologie",
+    "temps": "Chronologie",
     "text": "Textile",
     "textiles": "Textile",
     "théât": "Théâtre",
