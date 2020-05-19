@@ -417,6 +417,7 @@ templates_italic = {
     "serpents": "Herpétologie",
     "sexe": "Sexualité",
     "sigle": "Sigle",
+    "singes": "Zoologie",
     "sociol": "Sociologie",
     "soldats": "Militaire",
     "sout": "Soutenu",
