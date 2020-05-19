@@ -404,6 +404,7 @@ templates_italic = {
     "poés": "Poésie",
     "poissons": "Ichtyologie",
     "polit": "Politique",
+    "pommes": "Botanique",
     "popu": "Populaire",
     "poules": "Élevage",
     "presse": "Journalisme",
