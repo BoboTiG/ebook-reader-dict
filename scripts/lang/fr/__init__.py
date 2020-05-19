@@ -336,6 +336,7 @@ templates_italic = {
     "mollusques": "Malacologie",
     "montagnes": "Géographie",
     "monnaies": "Numismatique",
+    "mouches": "Entomologie",
     "muscles": "Anatomie",
     "musi": "Musique",
     "mythol": "Mythologie",
