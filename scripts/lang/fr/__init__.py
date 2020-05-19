@@ -567,6 +567,7 @@ templates_other = {
     "mf": "<i>masculin et féminin identiques</i>",
     "mf ?": "<i>masculin ou féminin (l’usage hésite)</i>",
     "minus": "<i>minuscule</i>",
+    "mot-valise": "mot-valise",
     "msing": "<i>masculing singulier</i>",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note :</b>",
