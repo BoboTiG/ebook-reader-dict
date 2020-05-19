@@ -1,0 +1,46 @@
+== {{langue|conv}} ==
+=== {{S|numéral|conv}} ===
+'''42'''
+# Numéral en [[chiffre arabe|chiffres arabes]] du nombre [[quarante-deux]], en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation [[hexadécimal]]e, par exemple, ce numéral représente le nombre [[soixante-six]] ; en [[octal]], le nombre [[trente-quatre]].
+# {{ellipse|conv}} ''(Dans la plupart des langues)'' Une année qui se termine par '''42'''.
+
+==== {{S|transcriptions}} ====
+{{numéral}}
+
+==== {{S|variantes orthographiques}} ====
+: ''(Ellipse d’une année)'' :
+* [[’42]]
+
+== {{langue|fr}} ==
+=== {{S|nom|fr}} ===
+{{fr-inv|ka.ʁɑ̃t.dø}}
+'''42''' {{pron|ka.ʁɑ̃t.dø|fr}} {{invar}}
+# [[quarante-deux|Quarante-deux]].
+#* ''Le numéro gagnant est le '''42'''.''
+# {{ellipse|fr}} Une année qui se termine par '''42'''.
+#* ''Elle a eu son bac en '''42''' (sous-entendu en 1942).''
+# {{FR|fr}} {{familier|fr}} [[habitant|Habitant]] du [[département]] de la [[Loire]].
+#* ''Les '''42''' de l’année dernière sont arrivés au camping et ont repris le même emplacement.''
+
+==== {{S|dérivés}} ====
+* [[42e|42{{e}}]]
+
+=== {{S|nom propre|fr}} ===
+{{fr-inv|ka.ʁɑ̃t.dø|inv_titre={{msing}}}}
+'''42''' {{msing}}
+# {{France|fr}} [[département|Département]] de la [[Loire]].
+#* ''J’habite dans le '''42'''.''
+
+==== {{S|synonymes}} ====
+* [[quatre deux]] {{familier|nocat=1}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-Poslovitch-42.wav}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-42.wav}}
+* {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-42.wav}}
+
+=== {{S|voir aussi}} ===
+* {{WP|42 (nombre)}}
+
+[[Catégorie:Numéros de départements de France en français]]
+

@@ -3,9 +3,10 @@
 *.json
 *.xml
 *.zip
-data
-tests/data/*/download.count
+data/*/words.*
+data/*/tmp
 tests/data/*/words.*
+tests/data/*/tmp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
