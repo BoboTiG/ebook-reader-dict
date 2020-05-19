@@ -437,6 +437,7 @@ templates_italic = {
     "théol": "Théologie",
     "thérapies": "Médecine",
     "télécom": "Télécommunications",
+    "tr-fam": "Très familier",
     "trans": "Transitif",
     "transit": "Transitif",
     "transports": "Transport",
