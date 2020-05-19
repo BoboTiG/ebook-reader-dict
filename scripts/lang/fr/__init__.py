@@ -299,6 +299,7 @@ templates_italic = {
     "hist": "Histoire",
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
+    "IDLMadeleine": "Îles-de-la-Madeleine",
     "idiomatique": "Figuré",
     "impr": "Imprimerie",
     "improprement": "Usage critiqué",
