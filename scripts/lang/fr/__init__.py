@@ -329,6 +329,7 @@ templates_italic = {
     "logi": "Logique",
     "légis": "Droit",
     "légumes": "Botanique",
+    "maçon": "Maçonnerie",
     "maladie": "Nosologie",
     "maladies": "Nosologie",
     "mammifères": "Zoologie",
