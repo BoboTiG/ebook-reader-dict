@@ -405,6 +405,7 @@ templates_italic = {
     "propulsion": "Propulsion spatiale",
     "protéines": "Biochimie",
     "prov": "Proverbial",
+    "prunes": "Botanique",
     "préparations": "Cuisine",
     "psychia": "Psychiatrie",
     "psychol": "Psychologie",
