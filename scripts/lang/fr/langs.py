@@ -7,9 +7,10 @@ Version courante :
 Historique des langues ajoutées car non prises en charge dans la liste initiale:
 (à supprimer lorsqu'elles sont ajoutées sur le Wiktionnaire)
 
-    2020-05-19 : ajout de 'deu'
-    2020-05-19 : ajout de 'eus'
-    2020-05-19 : ajout de 'ind'
+    - 'deu' 2020-05-19
+    - 'ell' 2020-05-19
+    - 'eus' 2020-05-19
+    - 'ind' 2020-05-19
 """
 
 # Langues
@@ -1464,6 +1465,7 @@ langs = {
     "ele": "elepi",
     "eli": "nding",
     "elk": "elkei",
+    "ell": "grec",
     "elm": "eleme",
     "elo": "elmolo",
     "elu": "elu",
