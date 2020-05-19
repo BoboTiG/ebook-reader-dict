@@ -137,7 +137,7 @@ def find_pronunciation(code: str, pattern: Pattern[str] = C.PRONUNCIATION) -> st
 
 def find_sections(code: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    sections = wtp.parse(code).get_sections(include_subsections=False)
+    sections = wtp.parse(code).get_sections(include_subsections=False, level=3)
     yield from (
         section
         for section in sections
