@@ -314,6 +314,7 @@ templates_italic = {
     "jurisprudence": "Droit",
     "just": "Justice",
     "langues": "Linguistique",
+    "lapins": "Zoologie",
     "lianes": "Botanique",
     "ling": "Linguistique",
     "litt": "Littéraire",
