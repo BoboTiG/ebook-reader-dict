@@ -287,6 +287,7 @@ templates_italic = {
     "gastronomie": "Cuisine",
     "genres musicaux": "Musique",
     "gentilés": "Géographie",
+    "germ": "Germanisme",
     "graphe": "Théorie des graphes",
     "gâteaux": "Cuisine",
     "géog": "Géographie",
