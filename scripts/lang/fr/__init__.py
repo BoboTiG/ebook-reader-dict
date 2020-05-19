@@ -218,6 +218,7 @@ templates_italic = {
     "bdd": "Bases de données",
     "bioch": "Biochimie",
     "biol": "Biologie",
+    "b-m-cour": "Beaucoup moins courant",
     "boissons": "Boisson",
     "botan": "Botanique",
     "bot.": "Botanique",
