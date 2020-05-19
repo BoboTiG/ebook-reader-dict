@@ -238,6 +238,7 @@ templates_italic = {
     "chir": "Chirurgie",
     "ciné": "Cinéma",
     "cnidaires": "Zoologie",
+    "cours d’eau": "Géographie",
     "cuis": "Cuisine",
     "comm": "Commerce",
     "commerces": "Commerce",
