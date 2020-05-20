@@ -38,7 +38,7 @@ def century(parts: Tuple[str, ...], century: str) -> str:
 
 def chimy(composition: Tuple[str, ...]) -> str:
     """
-    Format chimy notations.
+    Forma t chimy notations.
 
         >>> chimy(["H", "2", "O"])
         'H<sub>2</sub>O'
