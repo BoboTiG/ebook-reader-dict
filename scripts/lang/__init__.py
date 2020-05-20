@@ -37,17 +37,20 @@ templates_italic = {
 
 # Templates more complex to manage. More work is needed.
 # The code on the right will be passed to a function that will execute it.
-# It is possible to use any Python fonction and ones defined in utils.py.
+# It is possible to use any Python fonction and ones defined in user_functions.py.
 #
 # Available arguments:
 #   - *tpl* (string) containg the template name.
-#   - *parts* (list of strings) containing the other parts of the template.
+#   - *parts* (list of strings) containing the all parts of the template.
 #
 # Example with the complete template "{{comparatif de|bien|fr|adv}}":
 #   - *tpl* will contain the string "comparatif de".
-#   - *parts* will contain the list ["bien", "fr", "adv"].
+#   - *parts* will contain the list ["comparatif de", "bien", "fr", "adv"].
 #
 # You can access to *tpl* and *parts* to apply changes and get the result wanted.
+#
+# Available functions are documented into that HTML file:
+#   html/scripts/user_functions.html
 templates_multi = {
     "fr": fr.templates_multi,
 }

@@ -108,6 +108,10 @@ def clean(word: str, text: str) -> str:
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
+        >>> clean("foo", "")
+        ''
+        >>> clean("foo", "{{}}")
+        ''
         >>> clean("foo", "{{unknown}}")
         '<i>(Unknown)</i>'
         >>> clean("foo", "<span style='color:black'>[[♣]]</span>")
@@ -254,6 +258,8 @@ def transform(word: str, template: str) -> str:
         'ISO 639-3'
         >>> transform("foo spaces", "w | ISO 639-3")
         'ISO 639-3'
+        >>> transform("foo", "formatnum:123")
+        '123'
     """
 
     parts_raw = template.split("|")

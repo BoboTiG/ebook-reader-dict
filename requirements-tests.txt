@@ -1,6 +1,8 @@
 black==19.10b0
 flake8==3.8.1
 mypy==0.770
+pdoc==0.8.1
+pydocstyle==5.0.2
 pytest==5.4.2
 pytest-cov==2.8.1 
 responses==0.10.14

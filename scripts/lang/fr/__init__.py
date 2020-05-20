@@ -484,96 +484,99 @@ templates_italic = {
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
 # Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
-# n'importe quelle fonction Python et celles définies dans utils.py.
+# n'importe quelle fonction Python et celles définies dans user_functions.py.
 #
 # # Les arguments disponibles sont :
 #   - *tpl* (texte) qui contient le nom du modèle.
-#   - *parts* (liste de textes) qui contient les autres parties du modèle.
+#   - *parts* (liste de textes) qui contient les toutes parties du modèle.
 #
 # Exemple avec le modèle complet "{{comparatif de|bien|fr|adv}}" :
 #   - *tpl* contiendra le texte "comparatif de".
-#   - *parts* contiendra la liste ["bien", "fr", "adv"].
+#   - *parts* contiendra la liste ["comparatif de", "bien", "fr", "adv"].
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
+#
+# Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
+#   html/scripts/user_functions.html
 templates_multi = {
     # {{calque|en|fr|mot=at the end of the day|nocat=1}}
-    "calque": "handle_calc(parts)",
+    "calque": "etymology(parts)",
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|faire}}
     "cf": "f\"→ voir {parts[len(parts) - 1] if len(parts) > 1 else ''}\"",
     # {{comparatif de|bien|fr|adv}}
-    "comparatif de": 'f"{capitalize(tpl)} {parts[1]}"',
+    "comparatif de": "sentence(parts)",
     # {{couleur|#B0F2B6}}
     "couleur": 'f"[RGB {parts[1]}]"',
     # {{date|1850}}
-    "date": 'f"<i>({parts[1]})</i>"',
+    "date": "term(parts[1])",
     # {{fchim|H|2|O}}
-    "fchim": "format_chimy(parts[1:])",
+    "fchim": "chimy(parts[1:])",
     # XIX{{e}}
     # {{e|-1}}
-    "e": "f\"<sup>{parts[1] if len(parts) > 1 else 'e'}</sup>\"",
+    "e": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{er}}
-    "er": "'<sup>er</sup>'",
+    "er": "superscript('er')",
     # {{emploi|au passif}}
-    "emploi": 'f"<i>({capitalize(parts[1])})</i>"',
+    "emploi": "term(parts[1])",
     # {{étyl|la|fro|mot=invito|type=verb}}
-    "étyl": "handle_etyl(parts)",
+    "étyl": "etymology(parts)",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
-    "formatnum": f'format_num(parts[1], "{float_separator}", "{thousands_separator}")',
+    "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{in|5}}
-    "in": 'f"<sub>{parts[1]}</sub>"',
+    "in": "subscript(parts[1])",
     # {{indice|n}}
-    "indice": 'f"<sub>{parts[1]}</sub>"',
+    "indice": "subscript(parts[1])",
     # {{lien|étrange|fr}}
     "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
-    "nom w pc": "handle_name(parts)",
+    "nom w pc": "person(parts[1:])",
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{petites capitales|Dupont}}
+    "petites capitales": "small_caps(parts[1])",
     # {{pc|Dupont}}
-    # {{smcp|Dupont}}
-    "petites capitales": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
-    "pc": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
-    "smcp": "f\"<span style='font-variant:small-caps'>{parts[1]}<span>\"",
+    "pc": "small_caps(parts[1])",
     # {{pron|plys|fr}}
-    "pron": r'f"\\{parts[1]}\\"',
+    "pron": "parts[1]",
     # {{pron-API|/j/}}
     "pron-API": "parts[1]",
     # {{RFC|5322}}
-    "RFC": 'f"{capitalize(tpl)} {parts[1]}"',
+    "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "région": "f\"<i>({parts[1] if len(parts) > 1 else 'Régionalisme'})</i>\"",
+    "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     # {{siècle|XVI}}
     # {{siècle|XVIII|XIX}}
-    "siècle": "f\"<i>({handle_century(parts, 'siècle')})</i>\"",
+    "siècle": "term(century(parts, 'siècle'))",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
+    # {{smcp|Dupont}}
+    "smcp": "small_caps(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "handle_sport(tpl, parts)",
+    "sport": "sport(parts)",
     # {{superlatif de|petit|fr}}
-    "superlatif de": 'f"{capitalize(tpl)} {parts[1]}"',
+    "superlatif de": "sentence(parts)",
     # {{term|ne … guère que}}
-    "term": "handle_term(parts[1])",
+    "term": "term(parts[1])",
     # {{terme|Astrophysique}}
-    "terme": "f\"<i>({parts[1] if len(parts) > 1 else 'Terme'})</i>\"",
+    "terme": "term(parts[1])",
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     # {{unité|92|%}}
-    "unité": "handle_unit(parts[1:])",
+    "unité": "concat(parts[1:])",
     # {{variante de|ranche|fr}}
-    "variante de": 'f"{capitalize(tpl)} {parts[1]}"',
+    "variante de": "sentence(parts)",
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
     # {{wp|Sarcoscypha coccinea}}
-    "wp": 'f"<i>{parts[1]} sur l\'encyclopédie Wikipedia</i>"',
+    "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
     # {{ws|Les Grenouilles qui demandent un Roi}}
     "ws": "parts[2] if len(parts) > 2 else parts[1]",
@@ -581,7 +584,7 @@ templates_multi = {
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
-    "WSP": 'f"<i>({parts[1]})</i>"',
+    "WSP": "term(parts[1])",
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.

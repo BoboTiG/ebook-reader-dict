@@ -1,4 +1,8 @@
-"""Functions that can be used in *templates_multi*."""
+"""
+Functions that can be used in *templates_multi* of any locale.
+
+Check the "html/scripts/user_functions.html" file for a user-friendly version.
+"""
 import re
 from typing import Tuple
 from warnings import warn
@@ -7,7 +11,8 @@ from .lang import all_langs
 
 
 def capitalize(text: str) -> str:
-    """Capitalize the first letter only.
+    """
+    Capitalize the first letter only.
 
         >>> capitalize("alice")
         'Alice'
@@ -19,134 +24,66 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}"
 
 
-def eval_expr(expr: str) -> str:
-    """Eval the given *expr*.
-
-        >>> eval_expr("cat /etc/passwd")  # doctest: +ELLIPSIS
-        Traceback (most recent call last):
-          File ".../doctest.py", line 1329, in __run
-            compileflags, 1), test.globs)
-          File "<doctest scripts.user_functions.eval_expr[0]>", line 1, in <module>
-          File ".../user_functions.py", line 33, in eval_expr
-            raise ValueError(f"Dangerous characters in the expr {expr!r}")
-        ValueError: Dangerous characters in the expr 'cat /etc/passwd'
-        >>> eval_expr("2 ^ 30")
-        '1073741824'
+def century(parts: Tuple[str, ...], century: str) -> str:
     """
-    # Prevent horrors
-    # digits, space and operators (+-*^)
-    if re.search(r"[^\d\s\*\-\+\^\.\,]+", expr):
-        raise ValueError(f"Dangerous characters in the expr {expr!r}")
+    Format centuries.
 
-    # Replace signs
-    expr = expr.replace("^", "**")
-
-    return f"{eval(expr)}"
-
-
-def format_chimy(composition: Tuple[str, ...]) -> str:
-    """Format chimy notations.
-
-        >>> format_chimy(["H", "2", "O"])
-        'H<sub>2</sub>O'
-        >>> format_chimy(["FeCO", "3", ""])
-        'FeCO<sub>3</sub>'
-    """
-    return "".join(f"<sub>{c}</sub>" if c.isdigit() else c for c in composition)
-
-
-def format_num(number: str, fsep: str, tsep: str) -> str:
-    """Format a number using the provided float and thousands separator.
-
-        >>> format_num("1 000 000 000 000", ",", " ")
-        '1 000 000 000 000'
-        >>> format_num("1000000", ",", " ")
-        '1 000 000'
-        >>> format_num("1000000", ".", "")
-        '1000000'
-        >>> format_num("1000000", ".", ",")
-        '1,000,000'
-        >>> format_num("-1000000", ",", " ")
-        '-1 000 000'
-        >>> format_num("-1000000", "", "")
-        '-1000000'
-        >>> format_num("-1000000", ".", ",")
-        '-1,000,000'
-        >>> format_num("4.54609", "," , " ")
-        '4,54609'
-        >>> format_num("4.54609", "." , ",")
-        '4.54609'
-    """
-    # Remove superfluous spaces
-    number = number.replace(" ", "")
-
-    try:
-        # Integer
-        res = f"{int(number):,}"
-    except ValueError:
-        # Float
-        res = f"{float(number):,}"
-
-    return res.replace(",", tsep).replace(".", fsep)
-
-
-def handle_calc(parts: Tuple[str, ...]) -> str:
-    """Handle the 'calque' template.
-    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:calque
-
-        >>> handle_calc("calque|la|fr".split("|"))
-        'latin'
-        >>> handle_calc("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
-        'anglais <i>to date</i> (« à ce jour »)'
-        >>> handle_calc("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"))
-        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
-    """
-    l10n_src = parts[1]
-    l10n_dst = parts[2]
-    res = all_langs[l10n_dst][l10n_src]
-    if len(parts) == 3:
-        return res
-
-    data = {}
-    for part in parts[3:]:
-        key, value = part.split("=")
-        data[key] = value
-
-    if "tr" in data:
-        res += f" {data['mot']}, <i>{data['tr']}</i>"
-    else:
-        res += f" <i>{data['mot']}</i>"
-    if "sens" in data:
-        res += f" (« {data['sens']} »)"
-
-    return res
-
-
-def handle_century(parts: Tuple[str, ...], century: str) -> str:
-    """Handle different century templates.
-
-        >>> handle_century(["siècle", "XVI"], "siècle")
+        >>> century(["siècle", "XVI"], "siècle")
         'XVI<sup>e</sup> siècle'
-        >>> handle_century(["siècle", "XVIII", "XIX"], "century")
+        >>> century(["siècle", "XVIII", "XIX"], "century")
         'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
     """
-    return " - ".join(f"{p}<sup>e</sup> {century}" for p in parts[1:])
+    return " - ".join(f"{p}{superscript('e')} {century}" for p in parts[1:])
 
 
-def handle_etyl(parts: Tuple[str, ...]) -> str:
-    """Handle the 'etyl' (etymological language) template.
+def chimy(composition: Tuple[str, ...]) -> str:
+    """
+    Format chimy notations.
+
+        >>> chimy(["H", "2", "O"])
+        'H<sub>2</sub>O'
+        >>> chimy(["FeCO", "3", ""])
+        'FeCO<sub>3</sub>'
+    """
+    return "".join(subscript(c) if c.isdigit() else c for c in composition)
+
+
+def concat(parts: Tuple[str, ...], sep: str = "") -> str:
+    """
+    Simply concat all *parts* using the *sep* character as glue.
+
+        >>> concat(["92", "%"])
+        '92%'
+        >>> concat(["O", "M", "G"], sep="!")
+        'O!M!G'
+    """
+    return sep.join(parts)
+
+
+def etymology(parts: Tuple[str, ...]) -> str:
+    """
+    Display cross-language etymology.
+
+        >>> etymology("étyl|grc|fr".split("|"))
+        'grec ancien'
+        >>> etymology("étyl|no|fr|mot=ski".split("|"))
+        'norvégien <i>ski</i>'
+        >>> etymology("étyl|la|fr|mot=invito|type=verb".split("|"))
+        'latin <i>invito</i>'
+        >>> etymology("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"))
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        >>> etymology("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"))
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        >>> etymology("calque|la|fr".split("|"))
+        'latin'
+        >>> etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
+        'anglais <i>to date</i> (« à ce jour »)'
+        >>> etymology("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"))
+        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
+
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl
 
-        >>> handle_etyl("étyl|grc|fr".split("|"))
-        'grec ancien'
-        >>> handle_etyl("étyl|no|fr|mot=ski".split("|"))
-        'norvégien <i>ski</i>'
-        >>> handle_etyl("étyl|la|fr|mot=invito|type=verb".split("|"))
-        'latin <i>invito</i>'
-        >>> handle_etyl("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"))
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
-        >>> handle_etyl("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"))
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:calque
     """
     l10n_src = parts[1]
     l10n_dst = parts[2]
@@ -176,86 +113,48 @@ def handle_etyl(parts: Tuple[str, ...]) -> str:
     return res
 
 
-def handle_name(parts: Tuple[str, ...]) -> str:
-    """Handle the 'name' template to display writers/authors or any full name person.
-    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
-
-        >>> handle_name(["nom w pc", "Aldous", "Huxley"])
-        "Aldous <span style='font-variant:small-caps'>Huxley</span>"
-        >>> handle_name(["nom w pc", "L. L. Zamenhof"])
-        'L. L. Zamenhof'
-        >>> handle_name(["nom w pc", "Théodore Agrippa d’", "Aubigné"])
-        "Théodore Agrippa d’ <span style='font-variant:small-caps'>Aubigné</span>"
-        >>> handle_name(["nom w pc", "Théodore Agrippa d’", "Aubigné", "'=oui"])
-        "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
+def eval_expr(expr: str) -> str:
     """
-    res = parts[1]
-    if len(parts) > 2:
-        if parts[-1] != "'=oui":
-            res += " "
-        res += f"<span style='font-variant:small-caps'>{parts[2]}</span>"
-    else:
-        warn(f"Malformed template in the Wikicode (parts={parts})")
-    return res
+    Compute and return the result of *expr*.
 
+        >>> eval_expr("2 ^ 30")
+        '1073741824'
 
-def handle_sport(tpl: str, parts: Tuple[str, ...]) -> str:
-    """Handle the 'sport' template.
+    *expr* is sanitized and only a small range of characters are allowed:
 
-        >>> handle_sport("sport", [""])
-        '<i>(Sport)</i>'
-        >>> handle_sport("sport", ["sport", "fr", "collectif"])
-        '<i>(Sport collectif)</i>'
+        >>> eval_expr("cat /etc/passwd")  # doctest: +ELLIPSIS
+        Traceback (most recent call last):
+          File ".../doctest.py", line 1329, in __run
+            compileflags, 1), test.globs)
+          File "<doctest scripts.user_functions.eval_expr[0]>", line 1, in <module>
+          File ".../user_functions.py", line 33, in eval_expr
+            raise ValueError(f"Dangerous characters in the expr {expr!r}")
+        ValueError: Dangerous characters in the expr 'cat /etc/passwd'
+
+    Allowed characters are digits (0-9), spaces and operators (+-*^).
     """
-    res = f"<i>({capitalize(tpl)}"
-    if len(parts) >= 3:
-        # {{sport|fr|collectif}}
-        res += f" {parts[2]}"
-    res += ")</i>"
-    return res
+    # Prevent horrors
+    # digits, space and operators (+-*^)
+    if re.search(r"[^\d\s\*\-\+\^\.]+", expr):
+        raise ValueError(f"Dangerous characters in the expr {expr!r}")
 
+    # Replace signs
+    expr = expr.replace("^", "**")
 
-def handle_term(text: str) -> str:
-    """Format a term.
-
-        >>> handle_term("")
-        ''
-        >>> handle_term("foo")
-        '<i>(Foo)</i>'
-        >>> handle_term("Foo")
-        '<i>(Foo)</i>'
-        >>> handle_term("<i>(Foo)</i>")
-        '<i>(Foo)</i>'
-    """
-    if text.startswith("<i>("):
-        return text
-    elif not text:
-        return ""
-    return f"<i>({capitalize(text)})</i>"
-
-
-def handle_unit(parts: Tuple[str, ...]) -> str:
-    """Pretty format a 'unit'.
-
-        >>> handle_unit(["92", "%"])
-        '92%'
-    """
-    return "".join(parts)
+    return f"{eval(expr)}"
 
 
 def int_to_roman(number: int) -> str:
     """
     Convert an integer to a Roman numeral.
-    Source: https://www.oreilly.com/library/view/python-cookbook/0596001673/ch03s24.html
 
         >>> int_to_roman(12)
         'XII'
-        >>> int_to_roman(19)
-        'XIX'
         >>> int_to_roman(2020)
         'MMXX'
-    """
 
+    Source: https://www.oreilly.com/library/view/python-cookbook/0596001673/ch03s24.html
+    """
     # if not 0 < number < 4000:
     #     raise ValueError("Argument must be between 1 and 3999")
     ints = (1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1)
@@ -268,17 +167,186 @@ def int_to_roman(number: int) -> str:
     return "".join(result)
 
 
+def italic(text: str) -> str:
+    """
+    Return the *text* surounded by italic HTML tags.
+
+        >>> italic("foo")
+        '<i>foo</i>'
+    """
+    return f"<i>{text}</i>"
+
+
+def number(number: str, fsep: str, tsep: str) -> str:
+    """
+    Format a number using the provided float and thousands separators.
+
+        >>> number("1 000 000 000 000", ",", " ")
+        '1 000 000 000 000'
+        >>> number("1000000", ",", " ")
+        '1 000 000'
+        >>> number("1000000", ".", "")
+        '1000000'
+        >>> number("1000000", ".", ",")
+        '1,000,000'
+        >>> number("-1000000", ",", " ")
+        '-1 000 000'
+        >>> number("-1000000", "", "")
+        '-1000000'
+        >>> number("-1000000", ".", ",")
+        '-1,000,000'
+        >>> number("4.54609", "," , " ")
+        '4,54609'
+        >>> number("4.54609", "." , ",")
+        '4.54609'
+    """
+    # Remove superfluous spaces
+    number = number.replace(" ", "")
+
+    try:
+        # Integer
+        res = f"{int(number):,}"
+    except ValueError:
+        # Float
+        res = f"{float(number):,}"
+
+    return res.replace(",", tsep).replace(".", fsep)
+
+
+def person(parts: Tuple[str, ...]) -> str:
+    """
+    Format a person name.
+
+        >>> person(["Aldous", "Huxley"])
+        "Aldous <span style='font-variant:small-caps'>Huxley</span>"
+        >>> person(["Théodore Agrippa d’", "Aubigné"])
+        "Théodore Agrippa d’ <span style='font-variant:small-caps'>Aubigné</span>"
+        >>> person(["Théodore Agrippa d’", "Aubigné", "'=oui"])
+        "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
+        >>> person(["L. L. Zamenhof"])
+        'L. L. Zamenhof'
+
+    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
+    """
+    res = parts[0]
+    if len(parts) > 1:
+        if parts[-1] != "'=oui":
+            res += " "
+        res += small_caps(parts[1])
+    else:
+        warn(f"Malformed template in the Wikicode (parts={parts})")
+    return res
+
+
+def sentence(parts: Tuple[str, ...]) -> str:
+    """
+    Capitalize the first item in *parts* and concat with the second one.
+
+        >>> sentence("superlatif de|petit|fr".split("|"))
+        'Superlatif de petit'
+        >>> sentence("variante de|ranche|fr".split("|"))
+        'Variante de ranche'
+        >>> sentence("RFC|5322".split("|"))
+        'RFC 5322'
+        >>> sentence("comparatif de|bien|fr|adv".split("|"))
+        'Comparatif de bien'
+    """
+    return f"{capitalize(parts[0])} {parts[1]}"
+
+
+def small_caps(text: str) -> str:
+    """
+    Return the *text* surounded by the CSS style to use small capitals.
+
+    Small-caps glyphs typically use the form of uppercase letters but are reduced
+    to the size of lowercase letters.
+
+        >>> small_caps("Dupont")
+        "<span style='font-variant:small-caps'>Dupont</span>"
+    """
+    return f"<span style='font-variant:small-caps'>{text}</span>"
+
+
+def sport(parts: Tuple[str, ...]) -> str:
+    """
+    Format the "sport" template.
+
+        >>> sport(["sport"])
+        '<i>(Sport)</i>'
+        >>> sport(["sport", "fr", "collectif"])
+        '<i>(Sport collectif)</i>'
+    """
+    text = parts[0]
+    if len(parts) >= 3:
+        # {{sport|fr|collectif}}
+        text += f" {parts[2]}"
+    return term(text)
+
+
+def subscript(text: str) -> str:
+    """
+    Return the *text* surounded by subscript HTML tags.
+
+    Subscript text appears half a character below the normal line,
+    and is sometimes rendered in a smaller font.
+    Subscript text can be used for chemical formulas.
+
+        >>> subscript("foo")
+        '<sub>foo</sub>'
+    """
+    return f"<sub>{text}</sub>"
+
+
+def superscript(text: str) -> str:
+    """
+    Return the *text* surounded by superscript HTML tags.
+
+    Superscript text appears half a character above the normal line,
+    and is sometimes rendered in a smaller font.
+
+        >>> superscript("foo")
+        '<sup>foo</sup>'
+    """
+    return f"<sup>{text}</sup>"
+
+
+def term(text: str) -> str:
+    """
+    Format a "term", e.g. return the *text* in italic and surounded by parenthesis.
+
+    If the *text* is already in such style, it will not be processed again.
+
+        >>> term("")
+        ''
+        >>> term("foo")
+        '<i>(Foo)</i>'
+        >>> term("Foo")
+        '<i>(Foo)</i>'
+        >>> term("<i>(Foo)</i>")
+        '<i>(Foo)</i>'
+    """
+    if not text:
+        return ""
+    elif text.startswith("<i>("):
+        return text
+    return italic(f"({capitalize(text)})")
+
+
 __all__ = (
     "capitalize",
+    "century",
+    "chimy",
+    "concat",
+    "etymology",
     "eval_expr",
-    "format_chimy",
-    "format_num",
-    "handle_calc",
-    "handle_century",
-    "handle_etyl",
-    "handle_name",
-    "handle_sport",
-    "handle_term",
-    "handle_unit",
     "int_to_roman",
+    "italic",
+    "number",
+    "person",
+    "sentence",
+    "small_caps",
+    "sport",
+    "subscript",
+    "superscript",
+    "term",
 )

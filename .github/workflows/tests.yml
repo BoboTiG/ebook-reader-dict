@@ -20,7 +20,10 @@ jobs:
       run: |
         python -m pip install -r requirements.txt
         python -m pip install -r requirements-tests.txt
-    - name: Doctest
-      run: python -Wd -m pytest -vv --doctest-modules scripts
-    - name: Unit tests (common + fr)
-      run: python -Wd -m pytest -vv tests/*.py tests/fr
+    - name: Unit tests (doctests + common + fr)
+      run: python -Wd -m pytest -vv tests/*.py tests/fr --doctest-modules scripts
+    - name: Test the user functions documentation
+      run: |
+        pydocstyle scripts/user_functions.py
+        pdoc --html scripts.user_functions
+        pdoc scripts.user_functions
