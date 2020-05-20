@@ -27,3 +27,9 @@ jobs:
         pydocstyle scripts/user_functions.py
         pdoc --html --force scripts.user_functions
         pdoc scripts.user_functions
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: user_functions.html
+        path: html/scripts/user_functions.html
