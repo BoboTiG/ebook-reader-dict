@@ -25,5 +25,5 @@ jobs:
     - name: Test the user functions documentation
       run: |
         pydocstyle scripts/user_functions.py
-        pdoc --html scripts.user_functions
+        pdoc --html --force scripts.user_functions
         pdoc scripts.user_functions
