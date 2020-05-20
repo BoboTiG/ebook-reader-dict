@@ -1,4 +1,5 @@
 """Internationalization stuff."""
+import re
 
 from . import fr
 from .fr.langs import langs as FR
@@ -6,6 +7,16 @@ from .fr.langs import langs as FR
 # A list of all languages translated into different locales
 all_langs = {
     "fr": FR,
+}
+
+# Regex to find the pronunciation
+pronunciation = {
+    "fr": re.compile(fr.pronunciation),
+}
+
+# Regex to find the genre
+genre = {
+    "fr": re.compile(fr.genre),
 }
 
 # Markers for sections that contain interesting text to analyse.

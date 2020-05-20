@@ -14,7 +14,7 @@ from requests.exceptions import HTTPError
 import wikitextparser as wtp
 import wikitextparser._spans
 
-from .lang import patterns
+from .lang import genre, pronunciation, patterns
 from .utils import clean
 from . import annotations as T
 from . import constants as C
@@ -59,7 +59,8 @@ def fetch_snapshots() -> List[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """
-    with requests.get(C.BASE_URL) as req:
+    url = C.BASE_URL.format(C.LOCALE)
+    with requests.get(url) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
@@ -73,10 +74,10 @@ def fetch_pages(date: str) -> Path:
     if output.is_file() or output_xml.is_file():
         return output
 
-    msg = f">>> Fetching {C.WIKI}-{date}-pages-meta-current.xml.bz2:"
+    url = C.DUMP_URL.format(C.LOCALE, date)
+    msg = f">>> Fetching {url}:"
     print(msg, end="", flush=True)
 
-    url = f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2"
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
         total = 0
@@ -123,13 +124,13 @@ def find_section_definitions(
         yield from (d for d in definitions if not pattern.match(d))
 
 
-def find_genre(code: str, pattern: Pattern[str] = C.GENRE) -> str:
+def find_genre(code: str, pattern: Pattern[str]) -> str:
     """Find the genre."""
     match = pattern.search(code)
     return match.group(1) if match else ""
 
 
-def find_pronunciation(code: str, pattern: Pattern[str] = C.PRONUNCIATION) -> str:
+def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     """Find the pronunciation."""
     match = pattern.search(code)
     return match.group(1) if match else ""
@@ -147,12 +148,13 @@ def find_sections(code: str) -> Generator[str, None, None]:
 
 def get_and_parse_word(word: str, raw: bool = False) -> None:
     """Get a *word* wikicode and parse it."""
-    with requests.get(C.WORD_URL.format(word)) as req:
+    url = f"https://{C.LOCALE}.wiktionary.org/w/index.php?title={word}&action=raw"
+    with requests.get(url) as req:
         code = req.text
 
-    pronunciation, genre, defs = parse_word(word, code, force=True)
+    pron, nature, defs = parse_word(word, code, force=True)
 
-    print(word, f"\\{pronunciation}\\", f"({genre}.)", "\n")
+    print(word, f"\\{pron}\\", f"({nature}.)", "\n")
     for i, definition in enumerate(defs, start=1):
         if not raw:
             # Strip HTML tags
@@ -182,15 +184,15 @@ def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, Lis
     called from get_and_parse_word().
     """
     sections = find_sections(code)
-    pronunciation = ""
-    genre = ""
+    pron = ""
+    nature = ""
     definitions = find_definitions(word, sections)
 
     if definitions or force:
-        pronunciation = find_pronunciation(code)
-        genre = find_genre(code)
+        pron = find_pronunciation(code, pronunciation[C.LOCALE])
+        nature = find_genre(code, genre[C.LOCALE])
 
-    return pronunciation, genre, definitions
+    return pron, nature, definitions
 
 
 def process(file: Path) -> T.Words:

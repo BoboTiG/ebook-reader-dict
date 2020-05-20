@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 import re
+from contextlib import suppress
 from functools import lru_cache
 from typing import Tuple
 from warnings import warn
@@ -302,18 +303,18 @@ def transform_apply(tpl: str, parts: Tuple[str, ...]) -> str:
     if tpl == "w":
         return parts[-1]
 
-    if tpl in templates_multi[C.LOCALE]:
+    with suppress(KeyError):
         res: str = eval(templates_multi[C.LOCALE][tpl])
         return res
 
-    if tpl in templates_italic[C.LOCALE]:
+    with suppress(KeyError):
         return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"
 
-    if tpl in templates_other[C.LOCALE]:
+    with suppress(KeyError):
         return templates_other[C.LOCALE][tpl]
 
     # This is a country in the current locale
-    if tpl in all_langs[C.LOCALE]:
+    with suppress(KeyError):
         return all_langs[C.LOCALE][tpl]
 
     # {{grammaire|fr}} -> (Grammaire)

@@ -13,7 +13,7 @@ from . import constants as C
 def fetch_release_url() -> str:
     """Retrieve the *url* of the release of the current *LOCALE*."""
     url = ""
-    with requests.get(C.RELEASE_URL) as req:
+    with requests.get(C.RELEASE_URL.format(C.LOCALE)) as req:
         req.raise_for_status()
         data = req.json()
         url = data["url"]

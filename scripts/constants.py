@@ -1,35 +1,21 @@
 """Shared constants."""
 import os
-import re
 from pathlib import Path
 
-# Wiktionary stuff
 LOCALE = os.getenv("WIKI_LOCALE", "fr")
-WIKI = f"{LOCALE}wiktionary"
-BASE_URL = f"https://dumps.wikimedia.org/{WIKI}"
-WORD_URL = f"https://{LOCALE}.wiktionary.org/w/index.php?title={{}}&action=raw"
 
-# Snapshot stuff
-SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
-SNAPSHOT_COUNT = SNAPSHOT / "words.count"
-SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
-SNAPSHOT_DATA = SNAPSHOT / "data.json"
-
-# Temp folder where to generate temp files
-WORKING_DIR = SNAPSHOT / "tmp"
-
-# The final ZIP
-DICTHTML = SNAPSHOT / f"dicthtml-{LOCALE}.zip"
-
-# Regexps
-PRONUNCIATION = re.compile(r"{pron\|([^}\|]+)")
-GENRE = re.compile(r"{([fmsingp]+)}")
+# Wiktionary dump URL
+# {0}: current locale
+# {1}: dump date
+BASE_URL = f"https://dumps.wikimedia.org/{{0}}wiktionary"
+DUMP_URL = f"{BASE_URL}/{{1}}/{{0}}wiktionary-{{1}}-pages-meta-current.xml.bz2"
 
 # GitHub stuff
+# {0}: current locale
 REPOS = "BoboTiG/ebook-reader-dict"
 GH_REPOS = f"https://github.com/{REPOS}"
-RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{LOCALE}"
-DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{LOCALE}/dicthtml-{LOCALE}.zip"
+RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{{0}}"
+DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
 
 # HTML formatting for each word
 WORD_FORMAT = (
@@ -45,3 +31,9 @@ WORD_FORMAT = (
     # Do not forget to close tag
     "</w>"
 )
+
+# Snapshot stuff
+SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
+SNAPSHOT_COUNT = SNAPSHOT / "words.count"
+SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
+SNAPSHOT_DATA = SNAPSHOT / "data.json"

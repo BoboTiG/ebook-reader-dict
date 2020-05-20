@@ -1,5 +1,11 @@
 """French language."""
 
+# Regex pour trouver la prononciation
+pronunciation = r"{pron\|([^}\|]+)"
+
+# Regexp pour trouver le genre
+genre = r"{([fmsingp]+)}"
+
 # Titre des sections qui sont intéressantes à analyser.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_sections_de_types_de_mots
 patterns = (

@@ -32,43 +32,6 @@ WIKTIONARY_INDEX = """<html>
 
 
 @pytest.mark.parametrize(
-    "word, pron",
-    [
-        ("accueil", "a.kœj"),
-        ("aux", "o"),
-        ("barbe à papa", "baʁ.b‿a pa.pa"),
-        ("Bogotanais", "bɔ.ɡɔ.ta.nɛ"),
-        ("pinyin", "pin.jin"),
-        ("sapristi", "sa.pʁis.ti"),
-        ("suis", "sɥi"),
-        ("Slovène", "slɔ.vɛn"),
-    ],
-)
-def test_find_pronunciation(word, pron, page):
-    """Test the pronunciation finder."""
-    data = page(word)
-    text = get.find_pronunciation(data["revision"]["text"]["#text"])
-    assert text == pron
-
-
-@pytest.mark.parametrize(
-    "word, genre",
-    [
-        ("accueil", "m"),
-        ("aux", "mf"),
-        ("barbe à papa", "f"),
-        ("pinyin", "m"),
-        ("suis", ""),
-    ],
-)
-def test_find_genre(word, genre, page):
-    """Test the genre finder."""
-    data = page(word)
-    text = get.find_genre(data["revision"]["text"]["#text"])
-    assert text == genre
-
-
-@pytest.mark.parametrize(
     "word, defs",
     [
         (
@@ -256,11 +219,13 @@ def test_main_0(craft_data, capsys):
     # List of requests responses to falsify:
     #   - fetch_snapshots()
     #   - fetch_pages()
-    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
     responses.add(
         responses.GET,
-        f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2",
-        body=craft_data(date, "fr"),
+        C.BASE_URL.format(C.LOCALE),
+        body=WIKTIONARY_INDEX.format(date=date),
+    )
+    responses.add(
+        responses.GET, C.DUMP_URL.format(C.LOCALE, date), body=craft_data(date, "fr"),
     )
 
     # Start the whole process
@@ -306,10 +271,14 @@ def test_main_1(craft_data, capsys):
     # List of requests responses to falsify:
     #   - fetch_snapshots()
     #   - fetch_pages()
-    responses.add(responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date=date))
     responses.add(
         responses.GET,
-        f"{C.BASE_URL}/{date}/{C.WIKI}-{date}-pages-meta-current.xml.bz2",
+        C.BASE_URL.format(C.LOCALE),
+        body=WIKTIONARY_INDEX.format(date=date),
+    )
+    responses.add(
+        responses.GET,
+        C.DUMP_URL.format(C.LOCALE, date),
         body=craft_data(
             date,
             "fr",
@@ -362,16 +331,16 @@ def test_main_2(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, C.BASE_URL, body=WIKTIONARY_INDEX.format(date="20200514")
+        responses.GET,
+        C.BASE_URL.format(C.LOCALE),
+        body=WIKTIONARY_INDEX.format(date="20200514"),
+    )
+    responses.add(
+        responses.GET, C.DUMP_URL.format(C.LOCALE, "20200514"), status=404,
     )
     responses.add(
         responses.GET,
-        f"{C.BASE_URL}/20200514/{C.WIKI}-20200514-pages-meta-current.xml.bz2",
-        status=404,
-    )
-    responses.add(
-        responses.GET,
-        f"{C.BASE_URL}/20200301/{C.WIKI}-20200301-pages-meta-current.xml.bz2",
+        C.DUMP_URL.format(C.LOCALE, "20200301"),
         body=craft_data(
             date,
             "fr",

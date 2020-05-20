@@ -51,8 +51,9 @@ def test_main(capsys):
     # List of requests responses to falsify:
     #   - fetch_release_url() -> GET $RELEASE_URL
     #   - update_release() -> POST https://api.github.com/repos/.../releses/$UID
-    responses.add(responses.GET, C.RELEASE_URL, json={"url": C.RELEASE_URL})
-    responses.add(responses.PATCH, C.RELEASE_URL, json={"url": C.RELEASE_URL})
+    release_url = C.RELEASE_URL.format(C.LOCALE)
+    responses.add(responses.GET, release_url, json={"url": release_url})
+    responses.add(responses.PATCH, release_url, json={"url": release_url})
 
     # Start the whole process
     os.environ["GITHUB_TOKEN"] = "token"
@@ -70,7 +71,8 @@ def test_main(capsys):
 @responses.activate
 def test_main_bad_url(capsys):
     # Test a bad release URL, fetch_release_url() will return an empty URL
-    responses.add(responses.GET, C.RELEASE_URL, json={"url": ""})
+    release_url = C.RELEASE_URL.format(C.LOCALE)
+    responses.add(responses.GET, release_url, json={"url": ""})
 
     assert upload.main() == 1
     captured = capsys.readouterr()

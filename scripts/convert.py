@@ -18,9 +18,9 @@ from . import constants as C
 from .utils import guess_prefix
 
 
-def craft_index(wordlist: List[str]) -> Path:
+def craft_index(wordlist: List[str], output_dir: Path) -> Path:
     """Generate the special file "words" that is an index of all words."""
-    output = C.WORKING_DIR / "words"
+    output = output_dir / "words"
     trie = Trie(wordlist)
     trie.save(output)
     return output
@@ -42,7 +42,7 @@ def load() -> T.Words:
     return words
 
 
-def save(groups: T.Groups) -> None:
+def save(groups: T.Groups, output_dir: Path) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -61,20 +61,21 @@ def save(groups: T.Groups) -> None:
     wordlist: List[str] = []
     print(">>> Generating HTML files ", end="", flush=True)
     for prefix, words in groups.items():
-        to_compress.append(save_html(prefix, words))
+        to_compress.append(save_html(prefix, words, output_dir))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
     print(f" [{len(groups.keys()):,}]", flush=True)
 
     # Then create the special "words" file
-    to_compress.append(craft_index(sorted(wordlist)))
+    to_compress.append(craft_index(sorted(wordlist), output_dir))
 
     # Add unrealted files, just for history
     to_compress.append(C.SNAPSHOT_COUNT)
     to_compress.append(C.SNAPSHOT_FILE)
 
     # Finally, create the ZIP
-    with ZipFile(C.DICTHTML, mode="w", compression=ZIP_DEFLATED) as fh:
+    dicthtml = C.SNAPSHOT / f"dicthtml-{C.LOCALE}.zip"
+    with ZipFile(dicthtml, mode="w", compression=ZIP_DEFLATED) as fh:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
@@ -82,12 +83,10 @@ def save(groups: T.Groups) -> None:
         now = datetime.utcnow().isoformat()
         fh.comment = f"Source: {C.GH_REPOS}\n{now}".encode()
 
-    print(
-        f">>> Generated {C.DICTHTML} ({C.DICTHTML.stat().st_size:,} bytes)", flush=True
-    )
+    print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
 
-def save_html(name: str, words: T.Words) -> Path:
+def save_html(name: str, words: T.Words, output_dir: Path) -> Path:
     """Generate individual HTML files.
 
     Content of the HTML file:
@@ -105,7 +104,7 @@ def save_html(name: str, words: T.Words) -> Path:
     source = wiktionary[C.LOCALE].format(year=date.today().year)
 
     # Save to uncompressed HTML
-    raw_output = C.WORKING_DIR / f"{name}.raw.html"
+    raw_output = output_dir / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
         for word, (pronunciation, genre, defs) in words.items():
             definitions = "".join(f"<li>{d}</li>" for d in defs)
@@ -119,7 +118,7 @@ def save_html(name: str, words: T.Words) -> Path:
         fh.write("</html>\n")
 
     # Compress the HTML with gzip
-    output = C.WORKING_DIR / f"{name}.html"
+    output = output_dir / f"{name}.html"
     with raw_output.open(mode="rb") as fi, gzip.open(output, mode="wb") as fo:
         fo.writelines(fi)
 
@@ -129,10 +128,11 @@ def save_html(name: str, words: T.Words) -> Path:
 def main() -> int:
     """Extry point."""
 
-    # Clean-up before starting
+    # Temp folder where to generate temp files
+    output_dir = C.SNAPSHOT / "tmp"
     with suppress(FileNotFoundError):
-        rmtree(C.WORKING_DIR)
-    C.WORKING_DIR.mkdir()
+        rmtree(output_dir)
+    output_dir.mkdir()
 
     # Retrieve all words
     words = load()
@@ -141,7 +141,7 @@ def main() -> int:
     groups = make_groups(words)
 
     # Save to HTML pages and the fial ZIP
-    save(groups)
+    save(groups, output_dir)
 
     print(">>> Conversion done!", flush=True)
     return 0
