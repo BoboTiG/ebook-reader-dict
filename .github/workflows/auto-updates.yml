@@ -52,8 +52,17 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WIKI_LOCALE: ${{ matrix.locale }}
 
-    - name: Archive artifacts
+    - name: Archive the dictionary
       uses: actions/upload-artifact@v1
       with:
         name: dicthtml-${{ matrix.locale }}.zip
         path: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}.zip
+
+    - name: Compress raw data
+      run: gzip --best data/${{ matrix.locale }}/data.json
+
+    - name: Archive raw data
+      uses: actions/upload-artifact@v1
+      with:
+        name: data-${{ matrix.locale }}.json.gz
+        path: data/${{ matrix.locale }}/data.json.gz
