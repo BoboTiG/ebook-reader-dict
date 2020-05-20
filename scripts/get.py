@@ -220,7 +220,7 @@ def save(snapshot: str, words: T.Words) -> None:
     """Persist data."""
     # This file is needed by convert.py
     with C.SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
-        json.dump(words, fh, sort_keys=True)
+        json.dump(words, fh, indent=4, sort_keys=True)
 
     C.SNAPSHOT_COUNT.write_text(str(len(words)))
     C.SNAPSHOT_FILE.write_text(snapshot)
