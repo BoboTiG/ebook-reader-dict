@@ -1,8 +1,4 @@
 """Shared constants."""
-import os
-from pathlib import Path
-
-LOCALE = os.getenv("WIKI_LOCALE", "fr")
 
 # Wiktionary dump URL
 # {0}: current locale
@@ -31,17 +27,3 @@ WORD_FORMAT = (
     # Do not forget to close tag
     "</w>"
 )
-
-# Snapshot stuff
-SNAPSHOT = SNAPSHOT_COUNT = SNAPSHOT_FILE = SNAPSHOT_DATA = Path()
-
-
-def reload(locale: str) -> None:
-    """Reload constants based on the locale using *locale*."""
-    global LOCALE, SNAPSHOT, SNAPSHOT_COUNT, SNAPSHOT_FILE, SNAPSHOT_DATA
-
-    LOCALE = locale
-    SNAPSHOT = Path(os.getenv("CWD", "")) / "data" / LOCALE
-    SNAPSHOT_COUNT = SNAPSHOT / "words.count"
-    SNAPSHOT_FILE = SNAPSHOT / "words.snapshot"
-    SNAPSHOT_DATA = SNAPSHOT / "data.json"

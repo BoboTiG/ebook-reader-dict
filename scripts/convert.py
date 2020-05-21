@@ -1,7 +1,7 @@
 """Convert words from JSON data to eBook format (ZIP)."""
 import gzip
 import json
-import sys
+import os
 from collections import defaultdict
 from contextlib import suppress
 from datetime import date, datetime
@@ -34,15 +34,16 @@ def make_groups(words: T.Words) -> T.Groups:
     return groups
 
 
-def load() -> T.Words:
+def load(output_dir: Path) -> T.Words:
     """Load the big JSON file containing all words and their details."""
-    with C.SNAPSHOT_DATA.open(encoding="utf-8") as fh:
+    raw_data = output_dir / "data.json"
+    with raw_data.open(encoding="utf-8") as fh:
         words: T.Words = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {C.SNAPSHOT_DATA}", flush=True)
+    print(f">>> Loaded {len(words):,} words from {raw_data}", flush=True)
     return words
 
 
-def save(groups: T.Groups, output_dir: Path) -> None:
+def save(groups: T.Groups, output_dir: Path, locale: str) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -54,6 +55,11 @@ def save(groups: T.Groups, output_dir: Path) -> None:
     Each word must be stored into the file {letter1}{letter2}.html (gzip content).
     """
 
+    # Clean-up before we start
+    with suppress(FileNotFoundError):
+        rmtree(output_dir / "tmp")
+    (output_dir / "tmp").mkdir()
+
     # Files to add to the final archive
     to_compress = []
 
@@ -61,20 +67,20 @@ def save(groups: T.Groups, output_dir: Path) -> None:
     wordlist: List[str] = []
     print(">>> Generating HTML files ", end="", flush=True)
     for prefix, words in groups.items():
-        to_compress.append(save_html(prefix, words, output_dir))
+        to_compress.append(save_html(prefix, words, output_dir / "tmp", locale))
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
     print(f" [{len(groups.keys()):,}]", flush=True)
 
     # Then create the special "words" file
-    to_compress.append(craft_index(sorted(wordlist), output_dir))
+    to_compress.append(craft_index(sorted(wordlist), output_dir / "tmp"))
 
     # Add unrealted files, just for history
-    to_compress.append(C.SNAPSHOT_COUNT)
-    to_compress.append(C.SNAPSHOT_FILE)
+    to_compress.append(output_dir / "words.count")
+    to_compress.append(output_dir / "words.snapshot")
 
     # Finally, create the ZIP
-    dicthtml = C.SNAPSHOT / f"dicthtml-{C.LOCALE}.zip"
+    dicthtml = output_dir / f"dicthtml-{locale}.zip"
     with ZipFile(dicthtml, mode="w", compression=ZIP_DEFLATED) as fh:
         for file in to_compress:
             fh.write(file, arcname=file.name)
@@ -86,7 +92,7 @@ def save(groups: T.Groups, output_dir: Path) -> None:
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
 
-def save_html(name: str, words: T.Words, output_dir: Path) -> Path:
+def save_html(name: str, words: T.Words, output_dir: Path, locale: str) -> Path:
     """Generate individual HTML files.
 
     Content of the HTML file:
@@ -101,7 +107,7 @@ def save_html(name: str, words: T.Words, output_dir: Path) -> Path:
     """
 
     # Prettry print the source
-    source = wiktionary[C.LOCALE].format(year=date.today().year)
+    source = wiktionary[locale].format(year=date.today().year)
 
     # Save to uncompressed HTML
     raw_output = output_dir / f"{name}.raw.html"
@@ -125,27 +131,19 @@ def save_html(name: str, words: T.Words, output_dir: Path) -> Path:
     return output
 
 
-def main() -> int:
+def main(locale: str) -> int:
     """Extry point."""
 
-    # Temp folder where to generate temp files
-    output_dir = C.SNAPSHOT / "tmp"
-    with suppress(FileNotFoundError):
-        rmtree(output_dir)
-    output_dir.mkdir()
+    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
 
     # Retrieve all words
-    words = load()
+    words = load(output_dir)
 
     # Create groups of words
     groups = make_groups(words)
 
     # Save to HTML pages and the fial ZIP
-    save(groups, output_dir)
+    save(groups, output_dir, locale)
 
     print(">>> Conversion done!", flush=True)
     return 0
-
-
-if __name__ == "__main__":  # pragma: nocover
-    sys.exit(main())

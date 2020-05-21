@@ -2,7 +2,7 @@ name: Update dictionaries
 
 on:
   schedule:
-    # At 00:00 every day
+    # At 00:00 (UTC) every day
     - cron:  '0 0 * * *'
 
 jobs:

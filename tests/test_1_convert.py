@@ -1,20 +1,18 @@
+import os
+from pathlib import Path
 from zipfile import ZipFile
 
-from scripts import constants as C  # noqa
-from scripts import convert  # noqa
-
-# Set the locale
-C.reload("fr")
+from scripts.convert import main
 
 
-def test_main(data):
+def test_main():
     """Test the JSON -> HTML conversion."""
 
     # Start the whole process
-    assert convert.main() == 0
+    assert main("fr") == 0
 
     # Check for the final ZIP file
-    dicthtml = C.SNAPSHOT / "dicthtml-fr.zip"
+    dicthtml = Path(os.environ["CWD"]) / "data" / "fr" / "dicthtml-fr.zip"
     assert dicthtml.is_file()
 
     # Check the ZIP content

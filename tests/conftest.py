@@ -1,5 +1,4 @@
 import bz2
-import json
 import os
 from pathlib import Path
 from xml.sax.saxutils import escape
@@ -35,7 +34,7 @@ PAGE_XML = """<page>
 
 @pytest.fixture(scope="session")
 def craft_data():
-    def _craft_data(date, locale, to_add=None, to_remove=None, to_alter=None):
+    def _craft_data(date: str, locale: str, to_add=None, to_remove=None, to_alter=None):
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
         for file in data_dir.glob("*.wiki"):
@@ -70,24 +69,13 @@ def craft_data():
     return _craft_data
 
 
-@pytest.fixture
-def data():
-    def _data(file):
-        data_dir = Path(os.environ["CWD"]) / "data" / os.environ["WIKI_LOCALE"]
-        with (data_dir / file).open(encoding="utf-8") as fh:
-            return json.load(fh)
-
-    return _data
-
-
-@pytest.fixture
+@pytest.fixture(scope="session")
 def page():
-    def _page(word):
-        data = Path(os.environ["CWD"]) / "data" / os.environ["WIKI_LOCALE"]
+    """Return the Wikicode of a word stored into "data/$LOCALE/word.wiki"."""
+
+    def _page(word: str, locale: str) -> str:
+        data = Path(os.environ["CWD"]) / "data" / locale
         file = data / f"{word}.wiki"
-        return {
-            "title": file.stem,
-            "revision": {"text": {"#text": file.read_text()}},
-        }
+        return file.read_text(encoding="utf-8")
 
     return _page

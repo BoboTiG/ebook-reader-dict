@@ -1,8 +1,8 @@
 """Update the description of a release."""
 import json
 import os
-import sys
 from datetime import datetime
+from pathlib import Path
 
 import requests
 
@@ -10,70 +10,68 @@ from .lang import thousands_separator, translations
 from . import constants as C
 
 
-def fetch_release_url() -> str:
-    """Retrieve the *url* of the release of the current *LOCALE*."""
+def fetch_release_url(locale: str) -> str:
+    """Retrieve the *url* of the release of the current *locale*."""
     url = ""
-    with requests.get(C.RELEASE_URL.format(C.LOCALE)) as req:
+    with requests.get(C.RELEASE_URL.format(locale)) as req:
         req.raise_for_status()
         data = req.json()
         url = data["url"]
     return url
 
 
-def format_description() -> str:
+def format_description(locale: str, output_dir: Path) -> str:
     """Generate the release description."""
 
-    tr = translations[C.LOCALE]
+    tr = translations[locale]
 
     # Get the words count
-    count = C.SNAPSHOT_COUNT.read_text().strip()
+    count = (output_dir / "words.count").read_text().strip()
 
     # Format the words count
-    thousands_sep = thousands_separator[C.LOCALE]
+    thousands_sep = thousands_separator[locale]
     count = f"{int(count):,}".replace(",", thousands_sep)
 
-    # Format th snapshot's date
-    date = C.SNAPSHOT_FILE.read_text().strip()
+    # Format the snapshot's date
+    date = (output_dir / "words.snapshot").read_text().strip()
     date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
 
     # The current date, UTC
     now = datetime.utcnow().isoformat()
 
     # The download link
-    url = C.DOWNLOAD_URL.format(C.LOCALE)
+    url = C.DOWNLOAD_URL.format(locale)
 
     return tr["release_desc"].format(
         creation_date=now, dump_date=date, url=url, words_count=count,
     )
 
 
-def update_release(url: str) -> None:
-    """Update the release description of the current *LOCALE*."""
+def update_release(url: str, locale: str, output_dir: Path) -> None:
+    """Update the release description."""
     headers = {
         "Accept": "application/vnd.github.v3+json",
         "Authorization": f"token {os.environ['GITHUB_TOKEN']}",
     }
-    data = json.dumps({"body": format_description()})
+    data = json.dumps({"body": format_description(locale, output_dir)})
     print(f">>> Updating release at {url} ...", flush=True)
     with requests.patch(url, data=data, headers=headers) as req:
         req.raise_for_status()
 
 
-def main() -> int:
+def main(locale: str) -> int:
     """Entry point."""
 
+    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+
     # Get the release URL
-    url = fetch_release_url()
+    url = fetch_release_url(locale)
     if not url:
         print(" !! Cannot retrieve the release URL.")
         return 1
 
     # Update the release description
-    update_release(url)
+    update_release(url, locale, output_dir)
 
     print(">>> Release updated!")
     return 0
-
-
-if __name__ == "__main__":  # pragma: nocover
-    sys.exit(main())

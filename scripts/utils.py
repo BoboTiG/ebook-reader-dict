@@ -14,7 +14,6 @@ from .lang import (
     templates_other,
     template_warning_skip,
 )
-from . import constants as C
 from .user_functions import *  # noqa
 
 
@@ -103,51 +102,51 @@ def guess_prefix(word: str) -> str:
     )
 
 
-def clean(word: str, text: str) -> str:
+def clean(word: str, text: str, locale: str) -> str:
     """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
-        >>> clean("foo", "")
+        >>> clean("foo", "", "fr")
         ''
-        >>> clean("foo", "{{}}")
+        >>> clean("foo", "{{}}", "fr")
         ''
-        >>> clean("foo", "{{unknown}}")
+        >>> clean("foo", "{{unknown}}", "fr")
         '<i>(Unknown)</i>'
-        >>> clean("foo", "<span style='color:black'>[[♣]]</span>")
+        >>> clean("foo", "<span style='color:black'>[[♣]]</span>", "fr")
         "<span style='color:black'>♣</span>"
-        >>> clean("foo", "{{foo|{{bar}}|123}}")
+        >>> clean("foo", "{{foo|{{bar}}|123}}", "fr")
         ''
-        >>> clean("foo", "<ref>{{Import:CFC}}</ref>")
+        >>> clean("foo", "<ref>{{Import:CFC}}</ref>", "fr")
         ''
-        >>> clean("foo", '<ref name="CFC" />')
+        >>> clean("foo", '<ref name="CFC" />', "fr")
         ''
-        >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>')
+        >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>', "fr")
         ''
-        >>> clean("voyeuse", "<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
+        >>> clean("voyeuse", "<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>", "fr")
         ''
-        >>> clean("foo", "''italic''")
+        >>> clean("foo", "''italic''", "fr")
         '<i>italic</i>'
-        >>> clean("foo", "'''strong'''")
+        >>> clean("foo", "'''strong'''", "fr")
         '<b>strong</b>'
-        >>> clean("foo", "''italic and '''strong'''''")
+        >>> clean("foo", "''italic and '''strong'''''", "fr")
         '<i>italic and <b>strong</b></i>'
-        >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''")
+        >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''", "fr")
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
-        >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
+        >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''", "fr")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
-        >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
+        >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", "fr")
         '10<sup>-6</sup> gray'
-        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
+        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", "fr")  # noqa
         ''
-        >>> clean("coccigrole", "[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
+        >>> clean("coccigrole", "[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", "fr")
         ''
-        >>> clean("sco", "<!-- {{sco}} -->")
+        >>> clean("sco", "<!-- {{sco}} -->", "fr")
         ''
-        >>> clean("sco", "<!-- <i>sco</i> -->")
+        >>> clean("sco", "<!-- <i>sco</i> -->", "fr")
         ''
-        >>> clean("lia", "&nbsp;&nbsp;&nbsp;&nbsp;")
+        >>> clean("lia", "&nbsp;&nbsp;&nbsp;&nbsp;", "fr")
         ''
     """
 
@@ -222,7 +221,7 @@ def clean(word: str, text: str) -> str:
     for tpl in set(re.findall(r"({{[^{}]*}})", text)):
         # Transform the nested template.
         # This will remove any nested templates from the original text.
-        text = text.replace(tpl, transform(word, tpl[2:-2]))
+        text = text.replace(tpl, transform(word, tpl[2:-2], locale))
 
     # Now that all nested templates are done, we can process top-level ones
     while "{{" in text:
@@ -241,7 +240,7 @@ def clean(word: str, text: str) -> str:
             pos += 1
 
         # The template is now completed
-        transformed = transform(word, subtext)
+        transformed = transform(word, subtext, locale)
         text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
 
     # Remove extra spaces
@@ -251,15 +250,15 @@ def clean(word: str, text: str) -> str:
     return text.strip()
 
 
-def transform(word: str, template: str) -> str:
+def transform(word: str, template: str, locale: str) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
-        >>> transform("foo", "w|ISO 639-3")
+        >>> transform("foo", "w|ISO 639-3", "fr")
         'ISO 639-3'
-        >>> transform("foo spaces", "w | ISO 639-3")
+        >>> transform("foo spaces", "w | ISO 639-3", "fr")
         'ISO 639-3'
-        >>> transform("foo", "formatnum:123")
+        >>> transform("foo", "formatnum:123", "fr")
         '123'
     """
 
@@ -274,28 +273,28 @@ def transform(word: str, template: str) -> str:
         tpl = parts[0]
 
     # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
-    if parts != parts_raw and tpl not in template_warning_skip[C.LOCALE]:
+    if parts != parts_raw and tpl not in template_warning_skip[locale]:
         warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
-    return transform_apply(tpl, tuple(parts))
+    return transform_apply(tpl, tuple(parts), locale)
 
 
 @lru_cache(maxsize=None)
-def transform_apply(tpl: str, parts: Tuple[str, ...]) -> str:
+def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     """Convert the data from the *template" template.
 
-        >>> transform("foo", "w|ISO 639-3")
+        >>> transform("foo", "w|ISO 639-3", "fr")
         'ISO 639-3'
-        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca")
+        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca", "fr")
         'Lathyrus aphaca'
-        >>> transform("foo", "grammaire|fr")
+        >>> transform("foo", "grammaire|fr", "fr")
         '<i>(Grammaire)</i>'
-        >>> transform("foo", "conj|grp=1|fr")
+        >>> transform("foo", "conj|grp=1|fr", "fr")
         ''
     """
-    if tpl in templates_ignored[C.LOCALE]:
+    if tpl in templates_ignored[locale]:
         return ""
 
     # {{w|ISO 639-3}} -> ISO 639-3
@@ -304,18 +303,18 @@ def transform_apply(tpl: str, parts: Tuple[str, ...]) -> str:
         return parts[-1]
 
     with suppress(KeyError):
-        res: str = eval(templates_multi[C.LOCALE][tpl])
+        res: str = eval(templates_multi[locale][tpl])
         return res
 
     with suppress(KeyError):
-        return f"<i>({templates_italic[C.LOCALE][tpl]})</i>"
+        return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
-        return templates_other[C.LOCALE][tpl]
+        return templates_other[locale][tpl]
 
     # This is a country in the current locale
     with suppress(KeyError):
-        return all_langs[C.LOCALE][tpl]
+        return all_langs[locale][tpl]
 
     # {{grammaire|fr}} -> (Grammaire)
     if len(parts) == 2:

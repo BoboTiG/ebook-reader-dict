@@ -1,12 +1,8 @@
-import os
 from unittest.mock import patch
 
 import pytest
 
-os.environ["WIKI_LOCALE"] = "fr"
-
-# Must be imported after *WIKI_LOCALE* is set
-from scripts import __main__ as entry_point  # noqa
+from scripts import __main__ as entry_point
 
 
 @patch("scripts.convert.main")
@@ -15,7 +11,7 @@ def test_main_snapshot_up_to_date(mocked_get, mocked_convert):
     # https://docs.python.org/3/library/unittest.mock.html#nesting-patch-decorators
     mocked_get.return_value = 1
     mocked_convert.side_effect = RuntimeError  # To be sure this is not called
-    assert entry_point.main([]) == 1
+    assert entry_point.main(["--locale", "fr"]) == 1
     assert mocked_get.called
     assert not mocked_convert.called
 
@@ -26,10 +22,10 @@ def test_main_snapshot_up_to_date(mocked_get, mocked_convert):
 @pytest.mark.parametrize(
     "args, called_get, called_convert, called_upload",
     [
-        ([], True, True, False),
-        (["--fetch-only"], True, False, False),
-        (["--convert-only"], False, True, False),
-        (["--update-release"], False, False, True),
+        (["--locale", "fr"], True, True, False),
+        (["--locale", "fr", "--fetch-only"], True, False, False),
+        (["--locale", "fr", "--convert-only"], False, True, False),
+        (["--locale", "fr", "--update-release"], False, False, True),
     ],
 )
 def test_main_args(
@@ -53,7 +49,7 @@ def test_main_args(
 
 def test_get_word(capsys):
     # The word exists
-    assert entry_point.main(["--get-word", "mutiner"]) == 0
+    assert entry_point.main(["--locale", "fr", "--get-word", "mutiner"]) == 0
 
     # The word does not exist
-    assert entry_point.main(["--get-word", "mutinerssssssss"]) == 0
+    assert entry_point.main(["--locale", "fr", "--get-word", "mutinerssssssss"]) == 0

@@ -3,7 +3,6 @@ import bz2
 import json
 import os
 import re
-import sys
 from functools import partial
 from itertools import chain
 from pathlib import Path
@@ -20,7 +19,7 @@ from . import annotations as T
 from . import constants as C
 
 if TYPE_CHECKING:  # pragma: nocover
-    from xml.etree.ElementTree import Element  # noqa
+    from xml.etree.ElementTree import Element
 
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
@@ -55,26 +54,26 @@ def decompress(file: Path) -> Path:
     return output
 
 
-def fetch_snapshots() -> List[str]:
+def fetch_snapshots(locale: str) -> List[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """
-    url = C.BASE_URL.format(C.LOCALE)
+    url = C.BASE_URL.format(locale)
     with requests.get(url) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
 
-def fetch_pages(date: str) -> Path:
+def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
-    output_xml = C.SNAPSHOT / f"pages-{date}.xml"
-    output = C.SNAPSHOT / f"pages-{date}.xml.bz2"
+    output_xml = output_dir / f"pages-{date}.xml"
+    output = output_dir / f"pages-{date}.xml.bz2"
     if output.is_file() or output_xml.is_file():
         return output
 
-    url = C.DUMP_URL.format(C.LOCALE, date)
+    url = C.DUMP_URL.format(locale, date)
     msg = f">>> Fetching {url}:"
     print(msg, end="", flush=True)
 
@@ -91,11 +90,11 @@ def fetch_pages(date: str) -> Path:
     return output
 
 
-def find_definitions(word: str, sections: T.Sections) -> List[str]:
+def find_definitions(word: str, sections: T.Sections, locale: str) -> List[str]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
-            find_section_definitions(word, section) for section in sections
+            find_section_definitions(word, section, locale) for section in sections
         )
     )
     if not definitions:
@@ -109,6 +108,7 @@ def find_definitions(word: str, sections: T.Sections) -> List[str]:
 def find_section_definitions(
     word: str,
     section: wtp.Section,
+    locale: str,
     pattern: Pattern[str] = re.compile(r"^((?:<i>)?\([\w ]+\)(?:</i>)?\.? ?\??…?,?)*$"),
 ) -> Generator[str, None, None]:
     """Find definitions from the given *section*, without eventual subtext.
@@ -120,7 +120,7 @@ def find_section_definitions(
     """
     lists = section.get_lists()
     if lists:
-        definitions = (clean(word, d.strip()) for d in lists[0].items)
+        definitions = (clean(word, d.strip(), locale) for d in lists[0].items)
         yield from (d for d in definitions if not pattern.match(d))
 
 
@@ -136,23 +136,23 @@ def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     return match.group(1) if match else ""
 
 
-def find_sections(code: str) -> Generator[str, None, None]:
+def find_sections(code: str, locale: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
     sections = wtp.parse(code).get_sections(include_subsections=False, level=3)
     yield from (
         section
         for section in sections
-        if section.title and section.title.lstrip().startswith(patterns[C.LOCALE])
+        if section.title and section.title.lstrip().startswith(patterns[locale])
     )
 
 
-def get_and_parse_word(word: str, raw: bool = False) -> None:
+def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     """Get a *word* wikicode and parse it."""
-    url = f"https://{C.LOCALE}.wiktionary.org/w/index.php?title={word}&action=raw"
+    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
 
-    pron, nature, defs = parse_word(word, code, force=True)
+    pron, nature, defs = parse_word(word, code, locale, force=True)
 
     print(word, f"\\{pron}\\", f"({nature}.)", "\n")
     for i, definition in enumerate(defs, start=1):
@@ -162,7 +162,7 @@ def get_and_parse_word(word: str, raw: bool = False) -> None:
         print(f"{i}.".rjust(4), definition)
 
 
-def guess_snapshots() -> List[str]:
+def guess_snapshots(locale: str) -> List[str]:
     """Retrieve available snapshots."""
     # Check if we want to force the use of a specific snapshot
     from_env = os.getenv("WIKI_DUMP", "")
@@ -174,28 +174,30 @@ def guess_snapshots() -> List[str]:
         return [from_env]
 
     # Get all available snapshots
-    return fetch_snapshots()
+    return fetch_snapshots(locale)
 
 
-def parse_word(word: str, code: str, force: bool = False) -> Tuple[str, str, List[str]]:
+def parse_word(
+    word: str, code: str, locale: str, force: bool = False
+) -> Tuple[str, str, List[str]]:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
     It is disabled by default t spee-up the overall process, but enabled when
     called from get_and_parse_word().
     """
-    sections = find_sections(code)
+    sections = find_sections(code, locale)
     pron = ""
     nature = ""
-    definitions = find_definitions(word, sections)
+    definitions = find_definitions(word, sections, locale)
 
     if definitions or force:
-        pron = find_pronunciation(code, pronunciation[C.LOCALE])
-        nature = find_genre(code, genre[C.LOCALE])
+        pron = find_pronunciation(code, pronunciation[locale])
+        nature = find_genre(code, genre[locale])
 
     return pron, nature, definitions
 
 
-def process(file: Path) -> T.Words:
+def process(file: Path, locale: str) -> T.Words:
     """Process the big XML file and retain only information we are interested in."""
 
     words: T.Words = {}
@@ -208,7 +210,7 @@ def process(file: Path) -> T.Words:
             continue
 
         try:
-            pronunciation, genre, definitions = parse_word(word, code)
+            pronunciation, genre, definitions = parse_word(word, code, locale)
         except Exception:  # pragma: nocover
             print(f"ERROR with {word!r}")
         else:
@@ -218,16 +220,17 @@ def process(file: Path) -> T.Words:
     return words
 
 
-def save(snapshot: str, words: T.Words) -> None:
+def save(snapshot: str, words: T.Words, output_dir: Path) -> None:
     """Persist data."""
     # This file is needed by convert.py
-    with C.SNAPSHOT_DATA.open(mode="w", encoding="utf-8") as fh:
+    raw_data = output_dir / "data.json"
+    with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    C.SNAPSHOT_COUNT.write_text(str(len(words)))
-    C.SNAPSHOT_FILE.write_text(snapshot)
+    (output_dir / "words.count").write_text(str(len(words)))
+    (output_dir / "words.snapshot").write_text(snapshot)
 
-    print(f">>> Saved {len(words):,} words into {C.SNAPSHOT_DATA}", flush=True)
+    print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
 
 
 def xml_iter_parse(file: str) -> Generator["Element", None, None]:
@@ -279,44 +282,41 @@ def xml_parse_element(element: "Element") -> Tuple[str, str]:
     return word, code
 
 
-def main(word: Optional[str] = "", raw: bool = False) -> int:
+def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
     """Extry point."""
 
     # Fetch one word and parse it, used for testing mainly
     if word:
-        get_and_parse_word(word, raw=raw)
+        get_and_parse_word(word, locale, raw=raw)
         return 0
 
     # Ensure the folder exists
-    C.SNAPSHOT.mkdir(exist_ok=True, parents=True)
+    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+    output_dir.mkdir(exist_ok=True, parents=True)
 
     # Get the snapshot to handle
-    snapshots = guess_snapshots()
+    snapshots = guess_snapshots(locale)
     snapshot = snapshots[-1]
 
     # Fetch and uncompress the snapshot file
     try:
-        file = fetch_pages(snapshot)
+        file = fetch_pages(snapshot, locale, output_dir)
     except HTTPError:
         print(" FAIL", flush=True)
         print(">>> Wiktionary dump is ongoing ... ", flush=True)
         print(">>> Will use the previous one.", flush=True)
         snapshot = snapshots[-2]
-        file = fetch_pages(snapshot)
+        file = fetch_pages(snapshot, locale, output_dir)
 
     file = decompress(file)
 
     # Process the XML to retain only primary information
-    words = process(file)
+    words = process(file, locale)
     if not words:  # pragma: nocover
         raise ValueError("Empty dictionary?!")
 
     # Save data for the next step
-    save(snapshot, words)
+    save(snapshot, words, output_dir)
 
     print(">>> Retrieval done!", flush=True)
     return 0
-
-
-if __name__ == "__main__":  # pragma: nocover
-    sys.exit(main())
