@@ -1,15 +1,15 @@
 import json
-import os
 from contextlib import suppress
 
 import pytest
 import responses
 
-os.environ["WIKI_LOCALE"] = "fr"
-
-# Must be imported after *WIKI_LOCALE* is set
 from scripts import constants as C  # noqa
 from scripts import get  # noqa
+
+
+# Set the locale
+C.reload("fr")
 
 
 WIKTIONARY_INDEX = """<html>

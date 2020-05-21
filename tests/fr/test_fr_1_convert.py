@@ -1,11 +1,10 @@
-import os
 from zipfile import ZipFile
 
-os.environ["WIKI_LOCALE"] = "fr"
-
-# Must be imported after *WIKI_LOCALE* is set
 from scripts import constants as C  # noqa
 from scripts import convert  # noqa
+
+# Set the locale
+C.reload("fr")
 
 
 def test_main(data):

@@ -1,6 +1,11 @@
 import pytest
 
+from scripts import constants as C  # noqa
 from scripts import utils
+
+
+# Set the locale
+C.reload("fr")
 
 
 @pytest.mark.parametrize(
