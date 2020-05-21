@@ -39,8 +39,11 @@ def format_description() -> str:
     # The current date, UTC
     now = datetime.utcnow().isoformat()
 
+    # The download link
+    url = C.DOWNLOAD_URL.format(C.LOCALE)
+
     return tr["release_desc"].format(
-        creation_date=now, dump_date=date, url=C.DOWNLOAD_URL, words_count=count,
+        creation_date=now, dump_date=date, url=url, words_count=count,
     )
 
 

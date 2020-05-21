@@ -19,11 +19,12 @@ def test_fetch_release_url():
 def test_format_description():
     C.SNAPSHOT_COUNT.write_text("123456789")
     C.SNAPSHOT_FILE.write_text("20200220")
+    url = C.DOWNLOAD_URL.format(C.LOCALE)
     expected = [
         "Nombre de mots : 123 456 789",
         "Export Wiktionnaire : 2020-02-20",
         "",
-        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({C.DOWNLOAD_URL})",
+        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({url})",
         "",
         "---",
         "",
@@ -36,10 +37,12 @@ def test_format_description():
         "",
     ]
     try:
-        desc = upload.format_description().strip().splitlines()
-        assert desc[:-1] == expected
-        assert desc[-1].startswith("<sub>Mis à jour le 202")
-        assert desc[-1].endswith("</sub>")
+        desc = upload.format_description().strip()
+        lines = desc.splitlines()
+        assert lines[:-1] == expected
+        assert lines[-1].startswith("<sub>Mis à jour le 202")
+        assert lines[-1].endswith("</sub>")
+        assert desc.count("dicthtml-fr.zip") == 2
     finally:
         C.SNAPSHOT_COUNT.unlink()
         C.SNAPSHOT_FILE.unlink()
