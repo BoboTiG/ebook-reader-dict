@@ -637,11 +637,10 @@ templates_other = {
 # sauf pour ceux listés ci-dessous :
 template_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
 
-# Contenu de la release sur GitHub
-release_description = {
-    # Contenu de la release telle qu'elle sera générée sur
-    # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
-    "release_desc": """Nombre de mots : {words_count}
+# Contenu de la release sur GitHub :
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
+release_description = """\
+Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
 :arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
@@ -663,8 +662,7 @@ Caractéristiques :
 - Les conjugaisons ne sont pas incluses.
 
 <sub>Mis à jour le {creation_date}</sub>
-""",
-}
+"""
 
 # Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
 wiktionary = "Wiktionnaire (ɔ) {year}"

@@ -30,6 +30,16 @@ patterns = {
 # [[Image:...|...|...]] (fr)
 pattern_file = ("Fichier", "File", "Image")
 
+# Float number separator
+float_separator = {
+    "fr": fr.float_separator,
+}
+
+# Thousads separator
+thousands_separator = {
+    "fr": fr.thousands_separator,
+}
+
 # Templates replacements: wikicode -> text conversion
 
 # Templates to ignore: the text will be deleted.
@@ -77,17 +87,8 @@ template_warning_skip = {
     "fr": fr.template_warning_skip,
 }
 
-# Float number separator
-float_separator = {
-    "fr": fr.float_separator,
-}
-
-# Thousads separator
-thousands_separator = {
-    "fr": fr.thousands_separator,
-}
-
-# Release content on gitHub
+# The full release description on GitHub:
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description = {
     "fr": fr.release_description,
 }

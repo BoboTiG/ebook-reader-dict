@@ -23,8 +23,6 @@ def fetch_release_url(locale: str) -> str:
 def format_description(locale: str, output_dir: Path) -> str:
     """Generate the release description."""
 
-    tr = release_description[locale]
-
     # Get the words count
     count = (output_dir / "words.count").read_text().strip()
 
@@ -42,7 +40,7 @@ def format_description(locale: str, output_dir: Path) -> str:
     # The download link
     url = DOWNLOAD_URL.format(locale)
 
-    return tr["release_desc"].format(
+    return release_description[locale].format(
         creation_date=now, dump_date=date, url=url, words_count=count,
     )
 
