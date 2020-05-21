@@ -6,14 +6,14 @@ from pathlib import Path
 
 import requests
 
-from .lang import thousands_separator, translations
-from . import constants as C
+from .constants import DOWNLOAD_URL, RELEASE_URL
+from .lang import release_description, thousands_separator
 
 
 def fetch_release_url(locale: str) -> str:
     """Retrieve the *url* of the release of the current *locale*."""
     url = ""
-    with requests.get(C.RELEASE_URL.format(locale)) as req:
+    with requests.get(RELEASE_URL.format(locale)) as req:
         req.raise_for_status()
         data = req.json()
         url = data["url"]
@@ -23,7 +23,7 @@ def fetch_release_url(locale: str) -> str:
 def format_description(locale: str, output_dir: Path) -> str:
     """Generate the release description."""
 
-    tr = translations[locale]
+    tr = release_description[locale]
 
     # Get the words count
     count = (output_dir / "words.count").read_text().strip()
@@ -40,7 +40,7 @@ def format_description(locale: str, output_dir: Path) -> str:
     now = datetime.utcnow().isoformat()
 
     # The download link
-    url = C.DOWNLOAD_URL.format(locale)
+    url = DOWNLOAD_URL.format(locale)
 
     return tr["release_desc"].format(
         creation_date=now, dump_date=date, url=url, words_count=count,

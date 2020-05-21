@@ -12,9 +12,9 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
+from .constants import GH_REPOS, WORD_FORMAT
 from .lang import wiktionary
 from . import annotations as T
-from . import constants as C
 from .utils import guess_prefix
 
 
@@ -87,7 +87,7 @@ def save(groups: T.Groups, output_dir: Path, locale: str) -> None:
 
         # Add the source in the comment
         now = datetime.utcnow().isoformat()
-        fh.comment = f"Source: {C.GH_REPOS}\n{now}".encode()
+        fh.comment = f"Source: {GH_REPOS}\n{now}".encode()
 
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
@@ -119,7 +119,7 @@ def save_html(name: str, words: T.Words, output_dir: Path, locale: str) -> Path:
             if genre:
                 genre = f" <i>{genre}.</i>"
 
-            fh.write(C.WORD_FORMAT.format(**locals()))
+            fh.write(WORD_FORMAT.format(**locals()))
 
         fh.write("</html>\n")
 

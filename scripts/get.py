@@ -13,10 +13,10 @@ from requests.exceptions import HTTPError
 import wikitextparser as wtp
 import wikitextparser._spans
 
+from .constants import BASE_URL, DUMP_URL
 from .lang import genre, pronunciation, patterns
 from .utils import clean
 from . import annotations as T
-from . import constants as C
 
 if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element
@@ -58,7 +58,7 @@ def fetch_snapshots(locale: str) -> List[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """
-    url = C.BASE_URL.format(locale)
+    url = BASE_URL.format(locale)
     with requests.get(url) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
@@ -73,7 +73,7 @@ def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
     if output.is_file() or output_xml.is_file():
         return output
 
-    url = C.DUMP_URL.format(locale, date)
+    url = DUMP_URL.format(locale, date)
     msg = f">>> Fetching {url}:"
     print(msg, end="", flush=True)
 

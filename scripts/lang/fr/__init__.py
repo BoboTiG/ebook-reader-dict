@@ -637,8 +637,8 @@ templates_other = {
 # sauf pour ceux listés ci-dessous :
 template_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
 
-# Traductions diverses
-translations = {
+# Contenu de la release sur GitHub
+release_description = {
     # Contenu de la release telle qu'elle sera générée sur
     # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
     "release_desc": """Nombre de mots : {words_count}

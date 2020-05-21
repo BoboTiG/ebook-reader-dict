@@ -5,7 +5,7 @@ from pathlib import Path
 
 import responses
 
-from scripts import constants as C
+from scripts.constants import BASE_URL, DUMP_URL
 from scripts import get
 
 
@@ -53,10 +53,10 @@ def test_main_0(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, C.BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
-        responses.GET, C.DUMP_URL.format("fr", date), body=craft_data(date, "fr"),
+        responses.GET, DUMP_URL.format("fr", date), body=craft_data(date, "fr"),
     )
 
     # Start the whole process
@@ -105,11 +105,11 @@ def test_main_1(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, C.BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
         responses.GET,
-        C.DUMP_URL.format("fr", date),
+        DUMP_URL.format("fr", date),
         body=craft_data(
             date,
             "fr",
@@ -165,15 +165,15 @@ def test_main_2(craft_data, capsys):
     #   - fetch_pages()
     responses.add(
         responses.GET,
-        C.BASE_URL.format("fr"),
+        BASE_URL.format("fr"),
         body=WIKTIONARY_INDEX.format(date="20200514"),
     )
     responses.add(
-        responses.GET, C.DUMP_URL.format("fr", "20200514"), status=404,
+        responses.GET, DUMP_URL.format("fr", "20200514"), status=404,
     )
     responses.add(
         responses.GET,
-        C.DUMP_URL.format("fr", "20200301"),
+        DUMP_URL.format("fr", "20200301"),
         body=craft_data(
             date,
             "fr",

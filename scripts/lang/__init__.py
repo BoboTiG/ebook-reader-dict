@@ -87,9 +87,9 @@ thousands_separator = {
     "fr": fr.thousands_separator,
 }
 
-# Translations
-translations = {
-    "fr": fr.translations,
+# Release content on gitHub
+release_description = {
+    "fr": fr.release_description,
 }
 
 # Dictionary name that will be printed below each definition

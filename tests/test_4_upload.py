@@ -3,7 +3,7 @@ from pathlib import Path
 
 import responses
 
-from scripts import constants as C
+from scripts.constants import DOWNLOAD_URL, RELEASE_URL
 from scripts import upload
 
 
@@ -18,7 +18,7 @@ def test_format_description():
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     (output_dir / "words.count").write_text("123456789")
     (output_dir / "words.snapshot").write_text("20200220")
-    url = C.DOWNLOAD_URL.format("fr")
+    url = DOWNLOAD_URL.format("fr")
     expected = [
         "Nombre de mots : 123 456 789",
         "Export Wiktionnaire : 2020-02-20",
@@ -53,7 +53,7 @@ def test_main(capsys):
     # List of requests responses to falsify:
     #   - fetch_release_url() -> GET $RELEASE_URL
     #   - update_release() -> POST https://api.github.com/repos/.../releses/$UID
-    release_url = C.RELEASE_URL.format("fr")
+    release_url = RELEASE_URL.format("fr")
     responses.add(responses.GET, release_url, json={"url": release_url})
     responses.add(responses.PATCH, release_url, json={"url": release_url})
 
@@ -74,7 +74,7 @@ def test_main(capsys):
 @responses.activate
 def test_main_bad_url(capsys):
     # Test a bad release URL, fetch_release_url() will return an empty URL
-    release_url = C.RELEASE_URL.format("fr")
+    release_url = RELEASE_URL.format("fr")
     responses.add(responses.GET, release_url, json={"url": ""})
 
     assert upload.main("fr") == 1
