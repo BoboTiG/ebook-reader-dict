@@ -198,7 +198,7 @@ from scripts.utils import clean
     ],
 )
 def test_parse_word(word, pronunciation, genre, definitions, page):
-    """Test the pronunciation, genre and definitions finder."""
+    """Test the pronunciation, genre and definitions getters."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
     assert pronunciation == details[0]
@@ -254,4 +254,5 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
     ],
 )
 def test_clean_template(wikicode, expected):
+    """Test templates handling."""
     assert clean("foo", wikicode, "fr") == expected

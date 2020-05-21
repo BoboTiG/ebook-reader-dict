@@ -19,29 +19,41 @@ def test_format_description():
     (output_dir / "words.count").write_text("123456789")
     (output_dir / "words.snapshot").write_text("20200220")
     url = DOWNLOAD_URL.format("fr")
-    expected = [
-        "Nombre de mots : 123 456 789",
-        "Export Wiktionnaire : 2020-02-20",
-        "",
-        f":arrow_right: Téléchargement : [dicthtml-fr.zip]({url})",
-        "",
-        "---",
-        "",
-        "Caractéristiques :",
-        "",
-        "- Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.",
-        "- Les mots comportant moins de 2 caractères ne sont pas inclus.",
-        "- Les noms propres ne sont pas inclus.",
-        "- Les conjugaisons ne sont pas incluses.",
-        "",
-    ]
+    expected = f"""\
+Nombre de mots : 123 456 789
+Export Wiktionnaire : 2020-02-20
+
+:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
+
+---
+
+Installation :
+
+1. Copier le fichier `dicthtml-fr.zip` dans le dossier `.kobo/dict/` de la liseuse.
+2. Redémarrer la liseuse.
+
+---
+
+Caractéristiques :
+
+- Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
+- Les mots comportant moins de 2 caractères ne sont pas inclus.
+- Les noms propres ne sont pas inclus.
+- Les conjugaisons ne sont pas incluses.
+"""
+
     try:
         desc = upload.format_description("fr", output_dir).strip()
-        lines = desc.splitlines()
-        assert lines[:-1] == expected
-        assert lines[-1].startswith("<sub>Mis à jour le 202")
-        assert lines[-1].endswith("</sub>")
-        assert desc.count("dicthtml-fr.zip") == 2
+        assert desc.startswith(expected)
+
+        # 1: URL name
+        # 2: URL link
+        # 3: installation process
+        assert desc.count("dicthtml-fr.zip") == 3
+
+        last_line = desc.splitlines()[-1]
+        assert last_line.startswith("<sub>Mis à jour le 202")
+        assert last_line.endswith("</sub>")
     finally:
         (output_dir / "words.count").unlink()
         (output_dir / "words.snapshot").unlink()

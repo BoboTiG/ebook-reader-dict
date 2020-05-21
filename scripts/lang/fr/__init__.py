@@ -648,6 +648,13 @@ Export Wiktionnaire : {dump_date}
 
 ---
 
+Installation :
+
+1. Copier le fichier `dicthtml-fr.zip` dans le dossier `.kobo/dict/` de la liseuse.
+2. Redémarrer la liseuse.
+
+---
+
 Caractéristiques :
 
 - Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
