@@ -6,7 +6,7 @@ import re
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
+from typing import Callable, Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
 
 import requests
 from requests.exceptions import HTTPError
@@ -35,13 +35,28 @@ wikitextparser._spans.WIKILINK_FINDITER = lambda *_: ()
 Sections = Generator[str, None, None]
 
 
-def decompress(file: Path) -> Path:
+def callback_progress(text: str, total: int, last: bool) -> None:
+    """Progression callback. USed when fetching the Wiktionary dump and when extracting it."""
+    msg = f"{text}OK [{total:,} bytes]\n" if last else f"{text}{total:,} bytes"
+    print(f"\r{msg}", end="", flush=True)
+
+
+def callback_progress_ci(text: str, total: int, last: bool) -> None:
+    """
+    Progression callback. USed when fetching the Wiktionary dump and when extracting it.
+    This version is targeting the CI, it prints less lines and it is easier to follow.
+    """
+    msg = ". OK\n" if last else "."
+    print(msg, end="", flush=True)
+
+
+def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     """Decompress a BZ2 file."""
     output = file.with_suffix(file.suffix.replace(".bz2", ""))
     if output.is_file():
         return output
 
-    msg = f">>> Uncompressing into {output.name}:"
+    msg = f">>> Uncompressing into {output.name}: "
     print(msg, end="", flush=True)
 
     comp = bz2.BZ2Decompressor()
@@ -51,8 +66,9 @@ def decompress(file: Path) -> Path:
             uncompressed = comp.decompress(data)
             fo.write(uncompressed)
             total += len(uncompressed)
-            print(f"\r{msg} {total:,} bytes", end="", flush=True)
-    print(f"\r{msg} OK [{output.stat().st_size:,} bytes]", flush=True)
+            callback(msg, total, False)
+
+    callback(msg, output.stat().st_size, True)
 
     return output
 
@@ -67,7 +83,9 @@ def fetch_snapshots(locale: str) -> List[str]:
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
 
-def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
+def fetch_pages(
+    date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool], None]
+) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
@@ -77,7 +95,7 @@ def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
         return output
 
     url = DUMP_URL.format(locale, date)
-    msg = f">>> Fetching {url}:"
+    msg = f">>> Fetching {url}: "
     print(msg, end="", flush=True)
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
@@ -87,8 +105,9 @@ def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
             if chunk:
                 fh.write(chunk)
                 total += len(chunk)
-                print(f"\r{msg} {total:,} bytes", end="", flush=True)
-    print(f"\r{msg} OK [{output.stat().st_size:,} bytes]", flush=True)
+                callback(msg, total, False)
+
+    callback(msg, output.stat().st_size, True)
 
     return output
 
@@ -301,17 +320,20 @@ def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
     snapshots = guess_snapshots(locale)
     snapshot = snapshots[-1]
 
+    # The output style is different if run from a workflow
+    cb = callback_progress_ci if "CI" in os.environ else callback_progress
+
     # Fetch and uncompress the snapshot file
     try:
-        file = fetch_pages(snapshot, locale, output_dir)
+        file = fetch_pages(snapshot, locale, output_dir, cb)
     except HTTPError:
         print(" FAIL", flush=True)
         print(">>> Wiktionary dump is ongoing ... ", flush=True)
         print(">>> Will use the previous one.", flush=True)
         snapshot = snapshots[-2]
-        file = fetch_pages(snapshot, locale, output_dir)
+        file = fetch_pages(snapshot, locale, output_dir, cb)
 
-    file = decompress(file)
+    file = decompress(file, cb)
 
     # Process the XML to retain only primary information
     words = process(file, locale)

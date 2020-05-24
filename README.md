@@ -25,13 +25,11 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
    ```shell
    # Install dependencies
    python -m pip install -r requirements.txt
-
-   # Export the locale you want to test
-   export WIKI_LOCALE=$LOCALE
+   python -m pip install -r requirements-tests.txt
 
    # Run the command that will fetch the data and convert it into dicthtml-$LOCALE.zip
    # /!\ This command will take some time (from 15 to 45 minutes)
-   python -m scripts
+   python -m scripts --locale $LOCALE
 4. Optional, but highly advisable: add [tests](tests/).
 
 That's it! Thanks a lot for your contribution :heart:

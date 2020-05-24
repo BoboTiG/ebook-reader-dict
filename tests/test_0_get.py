@@ -128,8 +128,8 @@ def test_main_1(craft_data, capsys):
     assert (output_dir / "data.json").is_file()
 
     # Trigger manual calls for coverage
-    file = get.fetch_pages(date, "fr", output_dir)
-    get.decompress(file)
+    file = get.fetch_pages(date, "fr", output_dir, get.callback_progress_ci)
+    get.decompress(file, get.callback_progress_ci)
 
     # Check the words list has been updated
     # Here we do -4 because of:
