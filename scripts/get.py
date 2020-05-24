@@ -15,8 +15,8 @@ import wikitextparser._spans
 
 from .constants import BASE_URL, DUMP_URL
 from .lang import genre, pronunciation, patterns
+from .stubs import Words
 from .utils import clean
-from . import annotations as T
 
 if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element
@@ -30,6 +30,9 @@ if TYPE_CHECKING:  # pragma: nocover
 # We do not care about links, let's speed-up the all process by skipping the n times call.
 # Doing that is a ~30% optimization.
 wikitextparser._spans.WIKILINK_FINDITER = lambda *_: ()
+
+
+Sections = Generator[str, None, None]
 
 
 def decompress(file: Path) -> Path:
@@ -90,7 +93,7 @@ def fetch_pages(date: str, locale: str, output_dir: Path) -> Path:
     return output
 
 
-def find_definitions(word: str, sections: T.Sections, locale: str) -> List[str]:
+def find_definitions(word: str, sections: Sections, locale: str) -> List[str]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
@@ -197,10 +200,10 @@ def parse_word(
     return pron, nature, definitions
 
 
-def process(file: Path, locale: str) -> T.Words:
+def process(file: Path, locale: str) -> Words:
     """Process the big XML file and retain only information we are interested in."""
 
-    words: T.Words = {}
+    words: Words = {}
 
     print(f">>> Processing {file} ...", flush=True)
 
@@ -220,7 +223,7 @@ def process(file: Path, locale: str) -> T.Words:
     return words
 
 
-def save(snapshot: str, words: T.Words, output_dir: Path) -> None:
+def save(snapshot: str, words: Words, output_dir: Path) -> None:
     """Persist data."""
     # This file is needed by convert.py
     raw_data = output_dir / "data.json"

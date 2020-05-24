@@ -30,7 +30,7 @@ WIKTIONARY_INDEX = """<html>
 
 @responses.activate
 def test_main_0(craft_data, capsys):
-    """Test the whole script. It will generate data for test_fr_1_convert.py."""
+    """Test the whole script. It will generate data for test_1_convert.py."""
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
 

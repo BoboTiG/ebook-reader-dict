@@ -7,15 +7,18 @@ from contextlib import suppress
 from datetime import date, datetime
 from pathlib import Path
 from shutil import rmtree
-from typing import List
+from typing import Dict, List
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
 from .constants import GH_REPOS, WORD_FORMAT
 from .lang import wiktionary
-from . import annotations as T
+from .stubs import Words
 from .utils import guess_prefix
+
+
+Groups = Dict[str, Words]
 
 
 def craft_index(wordlist: List[str], output_dir: Path) -> Path:
@@ -26,24 +29,24 @@ def craft_index(wordlist: List[str], output_dir: Path) -> Path:
     return output
 
 
-def make_groups(words: T.Words) -> T.Groups:
+def make_groups(words: Words) -> Groups:
     """Group word by prefix for later HTML creation, see save()."""
-    groups: T.Groups = defaultdict(dict)
+    groups: Groups = defaultdict(dict)
     for word, data in words.items():
         groups[guess_prefix(word)][word] = data
     return groups
 
 
-def load(output_dir: Path) -> T.Words:
+def load(output_dir: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
     raw_data = output_dir / "data.json"
     with raw_data.open(encoding="utf-8") as fh:
-        words: T.Words = json.load(fh)
+        words: Words = json.load(fh)
     print(f">>> Loaded {len(words):,} words from {raw_data}", flush=True)
     return words
 
 
-def save(groups: T.Groups, output_dir: Path, locale: str) -> None:
+def save(groups: Groups, output_dir: Path, locale: str) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -92,7 +95,7 @@ def save(groups: T.Groups, output_dir: Path, locale: str) -> None:
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
 
-def save_html(name: str, words: T.Words, output_dir: Path, locale: str) -> Path:
+def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
     """Generate individual HTML files.
 
     Content of the HTML file:
