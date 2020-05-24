@@ -149,6 +149,36 @@ def test_main_1(craft_data, capsys):
 
 @responses.activate
 def test_main_2(craft_data, capsys):
+    """Test the whole script when the DEBUG envar is set."""
+
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+
+    date = "20200514"
+    with suppress(FileNotFoundError):
+        (output_dir / f"pages-{date}.xml").unlink()
+    with suppress(FileNotFoundError):
+        (output_dir / f"pages-{date}.xml.bz2").unlink()
+
+    # List of requests responses to falsify:
+    #   - fetch_snapshots()
+    #   - fetch_pages()
+    responses.add(
+        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+    )
+    responses.add(
+        responses.GET, DUMP_URL.format("fr", date), body=craft_data(date, "fr"),
+    )
+
+    # Start the whole process
+    os.environ["DEBUG"] = "1"
+    try:
+        assert get.main("fr") == 0
+    finally:
+        del os.environ["DEBUG"]
+
+
+@responses.activate
+def test_main_3(craft_data, capsys):
     """Test the whole script when the dump is not finished on the Wiktionary side."""
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"

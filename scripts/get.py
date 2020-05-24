@@ -3,6 +3,7 @@ import bz2
 import json
 import os
 import re
+from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
@@ -158,13 +159,24 @@ def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     return match.group(1) if match else ""
 
 
+def find_all_sections(code: str) -> Generator[str, None, None]:
+    """Find all sections holding definitions."""
+    yield from wtp.parse(code).get_sections(include_subsections=False, level=3)
+
+
 def find_sections(code: str, locale: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    sections = wtp.parse(code).get_sections(include_subsections=False, level=3)
     yield from (
         section
-        for section in sections
-        if section.title and section.title.lstrip().startswith(patterns[locale])
+        for section in find_all_sections(code)
+        if section.title and section.title.lstrip().startswith(patterns[locale])  # type: ignore
+    )
+
+
+def find_titles(code: str) -> Generator[str, None, None]:
+    """Find the correct section(s) holding the current locale definition(s)."""
+    yield from (
+        section.title.strip() for section in find_all_sections(code) if section.title  # type: ignore
     )
 
 
@@ -219,16 +231,24 @@ def parse_word(
     return pron, nature, definitions
 
 
-def process(file: Path, locale: str) -> Words:
+def process(file: Path, locale: str, debug: bool = False) -> Words:
     """Process the big XML file and retain only information we are interested in."""
 
     words: Words = {}
 
+    if debug:
+        sections = defaultdict(list)
+
     print(f">>> Processing {file} ...", flush=True)
 
-    for element in xml_iter_parse(str(file)):
+    for total, element in enumerate(xml_iter_parse(str(file)), 1):
         word, code = xml_parse_element(element)
         if len(word) < 2 or ":" in word:
+            continue
+
+        if debug:
+            for title in find_titles(code):
+                sections[title].append(word)
             continue
 
         try:
@@ -238,6 +258,16 @@ def process(file: Path, locale: str) -> Words:
         else:
             if definitions:
                 words[word] = pronunciation, genre, definitions
+
+    if debug:
+        print(" === Sections ===", flush=True)
+        for title, entries in sorted(sections.items()):
+            print(f"  {title!r} ({len(entries):,})", flush=True)
+            if len(entries) < 10:
+                # Most likely errors/mispellings
+                for entry in entries:
+                    print(f"    - {entry!r}", flush=True)
+        print(f"=== Total number of words: {total:,} ===", flush=True)
 
     return words
 
@@ -336,8 +366,9 @@ def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
     file = decompress(file, cb)
 
     # Process the XML to retain only primary information
-    words = process(file, locale)
-    if not words:  # pragma: nocover
+    debug = "DEBUG" in os.environ
+    words = process(file, locale, debug=debug)
+    if not (words or debug):  # pragma: nocover
         raise ValueError("Empty dictionary?!")
 
     # Save data for the next step
