@@ -557,7 +557,7 @@ templates_multi = {
     "smcp": "small_caps(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "sport(parts)",
+    "sport": "term(concat(parts, sep=' ', indexes=[0, 2]))",
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
     # {{term|ne … guère que}}

@@ -230,6 +230,8 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
         ("{{smo}}", "samoan"),
+        ("{{sport}}", "<i>(Sport)</i>"),
+        ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
         (
             "{{variante ortho de|acupuncture|fr}}",

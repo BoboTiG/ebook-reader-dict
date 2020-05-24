@@ -4,7 +4,7 @@ Functions that can be used in *templates_multi* of any locale.
 Check the "html/scripts/user_functions.html" file for a user-friendly version.
 """
 import re
-from typing import Tuple
+from typing import List, Optional, Tuple
 from warnings import warn
 
 from .lang import all_langs
@@ -48,16 +48,29 @@ def chimy(composition: Tuple[str, ...]) -> str:
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def concat(parts: Tuple[str, ...], sep: str = "") -> str:
+def concat(
+    parts: Tuple[str, ...], sep: str = "", indexes: Optional[List[int]] = None
+) -> str:
     """
     Simply concat all *parts* using the *sep* character as glue.
+
+    If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    It alowes to filter out some parts while keeping others.
 
         >>> concat(["92", "%"])
         '92%'
         >>> concat(["O", "M", "G"], sep="!")
         'O!M!G'
+        >>> concat(["sport"], sep=" ", indexes=[0, 2])
+        'sport'
+        >>> concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
+        'sport collectif'
     """
-    return sep.join(parts)
+    return sep.join(
+        part
+        for index, part in enumerate(parts)
+        if not indexes or (indexes and index in indexes)
+    )
 
 
 def etymology(parts: Tuple[str, ...]) -> str:
@@ -267,22 +280,6 @@ def small_caps(text: str) -> str:
     return f"<span style='font-variant:small-caps'>{text}</span>"
 
 
-def sport(parts: Tuple[str, ...]) -> str:
-    """
-    Format the "sport" template.
-
-        >>> sport(["sport"])
-        '<i>(Sport)</i>'
-        >>> sport(["sport", "fr", "collectif"])
-        '<i>(Sport collectif)</i>'
-    """
-    text = parts[0]
-    if len(parts) >= 3:
-        # {{sport|fr|collectif}}
-        text += f" {parts[2]}"
-    return term(text)
-
-
 def subscript(text: str) -> str:
     """
     Return the *text* surounded by subscript HTML tags.
@@ -345,7 +342,6 @@ __all__ = (
     "person",
     "sentence",
     "small_caps",
-    "sport",
     "subscript",
     "superscript",
     "term",

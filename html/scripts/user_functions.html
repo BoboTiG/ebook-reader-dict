@@ -32,7 +32,7 @@ Functions that can be used in *templates_multi* of any locale.
 Check the &#34;html/scripts/user_functions.html&#34; file for a user-friendly version.
 &#34;&#34;&#34;
 import re
-from typing import Tuple
+from typing import List, Optional, Tuple
 from warnings import warn
 
 from .lang import all_langs
@@ -76,16 +76,29 @@ def chimy(composition: Tuple[str, ...]) -&gt; str:
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def concat(parts: Tuple[str, ...], sep: str = &#34;&#34;) -&gt; str:
+def concat(
+    parts: Tuple[str, ...], sep: str = &#34;&#34;, indexes: Optional[List[int]] = None
+) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
+
+    If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    It alowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
         &#39;92%&#39;
         &gt;&gt;&gt; concat([&#34;O&#34;, &#34;M&#34;, &#34;G&#34;], sep=&#34;!&#34;)
         &#39;O!M!G&#39;
+        &gt;&gt;&gt; concat([&#34;sport&#34;], sep=&#34; &#34;, indexes=[0, 2])
+        &#39;sport&#39;
+        &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
+        &#39;sport collectif&#39;
     &#34;&#34;&#34;
-    return sep.join(parts)
+    return sep.join(
+        part
+        for index, part in enumerate(parts)
+        if not indexes or (indexes and index in indexes)
+    )
 
 
 def etymology(parts: Tuple[str, ...]) -&gt; str:
@@ -295,22 +308,6 @@ def small_caps(text: str) -&gt; str:
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;
 
 
-def sport(parts: Tuple[str, ...]) -&gt; str:
-    &#34;&#34;&#34;
-    Format the &#34;sport&#34; template.
-
-        &gt;&gt;&gt; sport([&#34;sport&#34;])
-        &#39;&lt;i&gt;(Sport)&lt;/i&gt;&#39;
-        &gt;&gt;&gt; sport([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;])
-        &#39;&lt;i&gt;(Sport collectif)&lt;/i&gt;&#39;
-    &#34;&#34;&#34;
-    text = parts[0]
-    if len(parts) &gt;= 3:
-        # {{sport|fr|collectif}}
-        text += f&#34; {parts[2]}&#34;
-    return term(text)
-
-
 def subscript(text: str) -&gt; str:
     &#34;&#34;&#34;
     Return the *text* surounded by subscript HTML tags.
@@ -373,7 +370,6 @@ __all__ = (
     &#34;person&#34;,
     &#34;sentence&#34;,
     &#34;small_caps&#34;,
-    &#34;sport&#34;,
     &#34;subscript&#34;,
     &#34;superscript&#34;,
     &#34;term&#34;,
@@ -470,29 +466,48 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '') -> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None) -> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
+<p>If <em>indexes</em> is set, it must be a list of integers where each of one is the part number to keep.
+It alowes to filter out some parts while keeping others.</p>
 <pre><code>&gt;&gt;&gt; concat(["92", "%"])
 '92%'
 &gt;&gt;&gt; concat(["O", "M", "G"], sep="!")
 'O!M!G'
+&gt;&gt;&gt; concat(["sport"], sep=" ", indexes=[0, 2])
+'sport'
+&gt;&gt;&gt; concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
+'sport collectif'
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def concat(parts: Tuple[str, ...], sep: str = &#34;&#34;) -&gt; str:
+<pre><code class="python">def concat(
+    parts: Tuple[str, ...], sep: str = &#34;&#34;, indexes: Optional[List[int]] = None
+) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
+
+    If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    It alowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
         &#39;92%&#39;
         &gt;&gt;&gt; concat([&#34;O&#34;, &#34;M&#34;, &#34;G&#34;], sep=&#34;!&#34;)
         &#39;O!M!G&#39;
+        &gt;&gt;&gt; concat([&#34;sport&#34;], sep=&#34; &#34;, indexes=[0, 2])
+        &#39;sport&#39;
+        &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
+        &#39;sport collectif&#39;
     &#34;&#34;&#34;
-    return sep.join(parts)</code></pre>
+    return sep.join(
+        part
+        for index, part in enumerate(parts)
+        if not indexes or (indexes and index in indexes)
+    )</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">
@@ -859,36 +874,6 @@ to the size of lowercase letters.</p>
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.sport"><code class="name flex">
-<span>def <span class="ident">sport</span></span>(<span>parts: Tuple[str, ...]) -> str</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Format the "sport" template.</p>
-<pre><code>&gt;&gt;&gt; sport(["sport"])
-'&lt;i&gt;(Sport)&lt;/i&gt;'
-&gt;&gt;&gt; sport(["sport", "fr", "collectif"])
-'&lt;i&gt;(Sport collectif)&lt;/i&gt;'
-</code></pre></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def sport(parts: Tuple[str, ...]) -&gt; str:
-    &#34;&#34;&#34;
-    Format the &#34;sport&#34; template.
-
-        &gt;&gt;&gt; sport([&#34;sport&#34;])
-        &#39;&lt;i&gt;(Sport)&lt;/i&gt;&#39;
-        &gt;&gt;&gt; sport([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;])
-        &#39;&lt;i&gt;(Sport collectif)&lt;/i&gt;&#39;
-    &#34;&#34;&#34;
-    text = parts[0]
-    if len(parts) &gt;= 3:
-        # {{sport|fr|collectif}}
-        text += f&#34; {parts[2]}&#34;
-    return term(text)</code></pre>
-</details>
-</dd>
 <dt id="scripts.user_functions.subscript"><code class="name flex">
 <span>def <span class="ident">subscript</span></span>(<span>text: str) -> str</span>
 </code></dt>
@@ -1011,7 +996,6 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
 <li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
 <li><code><a title="scripts.user_functions.small_caps" href="#scripts.user_functions.small_caps">small_caps</a></code></li>
-<li><code><a title="scripts.user_functions.sport" href="#scripts.user_functions.sport">sport</a></code></li>
 <li><code><a title="scripts.user_functions.subscript" href="#scripts.user_functions.subscript">subscript</a></code></li>
 <li><code><a title="scripts.user_functions.superscript" href="#scripts.user_functions.superscript">superscript</a></code></li>
 <li><code><a title="scripts.user_functions.term" href="#scripts.user_functions.term">term</a></code></li>
