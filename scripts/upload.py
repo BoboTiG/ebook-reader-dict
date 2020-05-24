@@ -1,13 +1,12 @@
 """Update the description of a release."""
 import json
 import os
-from datetime import datetime
 from pathlib import Path
 
 import requests
 
-from .constants import DOWNLOAD_URL, RELEASE_URL
-from .lang import release_description, thousands_separator
+from .constants import RELEASE_URL
+from .utils import format_description
 
 
 def fetch_release_url(locale: str) -> str:
@@ -18,31 +17,6 @@ def fetch_release_url(locale: str) -> str:
         data = req.json()
         url = data["url"]
     return url
-
-
-def format_description(locale: str, output_dir: Path) -> str:
-    """Generate the release description."""
-
-    # Get the words count
-    count = (output_dir / "words.count").read_text().strip()
-
-    # Format the words count
-    thousands_sep = thousands_separator[locale]
-    count = f"{int(count):,}".replace(",", thousands_sep)
-
-    # Format the snapshot's date
-    date = (output_dir / "words.snapshot").read_text().strip()
-    date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
-
-    # The current date, UTC
-    now = datetime.utcnow().isoformat()
-
-    # The download link
-    url = DOWNLOAD_URL.format(locale)
-
-    return release_description[locale].format(
-        creation_date=now, dump_date=date, url=url, words_count=count,
-    )
 
 
 def update_release(url: str, locale: str, output_dir: Path) -> None:

@@ -4,7 +4,7 @@ import json
 import os
 from collections import defaultdict
 from contextlib import suppress
-from datetime import date, datetime
+from datetime import date
 from pathlib import Path
 from shutil import rmtree
 from typing import Dict, List
@@ -12,10 +12,10 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-from .constants import GH_REPOS, WORD_FORMAT
+from .constants import WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Words
-from .utils import guess_prefix
+from .utils import format_description, guess_prefix
 
 
 Groups = Dict[str, Words]
@@ -88,9 +88,20 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
-        # Add the source in the comment
-        now = datetime.utcnow().isoformat()
-        fh.comment = f"Source: {GH_REPOS}\n{now}".encode()
+        # Add the release description in the comment
+        release = format_description(locale, output_dir)
+        # Sanitize the comment
+        release = release.replace(":arrow_right:", "->")
+        release = release.replace(f"[dicthtml-{locale}.zip](", "")
+        release = release.replace(")", "")
+        release = release.replace("`", '"')
+        release = release.replace("<sub>", "")
+        release = release.replace("</sub>", "")
+        # Actually add the comment
+        fh.comment = release.encode()
+
+        # Check the ZIP validity
+        assert fh.testzip()
 
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 

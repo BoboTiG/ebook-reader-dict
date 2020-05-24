@@ -1,20 +1,50 @@
 """Utilities for internal use."""
 import re
 from contextlib import suppress
+from datetime import datetime
 from functools import lru_cache
+from pathlib import Path
 from typing import Tuple
 from warnings import warn
 
+from .constants import DOWNLOAD_URL
 from .lang import (
     all_langs,
     pattern_file,
+    release_description,
     templates_italic,
     templates_ignored,
     templates_multi,
     templates_other,
     template_warning_skip,
+    thousands_separator,
 )
 from .user_functions import *  # noqa
+
+
+def format_description(locale: str, output_dir: Path) -> str:
+    """Generate the release description."""
+
+    # Get the words count
+    count = (output_dir / "words.count").read_text().strip()
+
+    # Format the words count
+    thousands_sep = thousands_separator[locale]
+    count = f"{int(count):,}".replace(",", thousands_sep)
+
+    # Format the snapshot's date
+    date = (output_dir / "words.snapshot").read_text().strip()
+    date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
+
+    # The current date, UTC
+    now = datetime.utcnow().isoformat()
+
+    # The download link
+    url = DOWNLOAD_URL.format(locale)
+
+    return release_description[locale].format(
+        creation_date=now, dump_date=date, url=url, words_count=count,
+    )
 
 
 def guess_prefix(word: str) -> str:
