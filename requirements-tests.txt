@@ -1,5 +1,5 @@
 black==19.10b0
-flake8==3.8.1
+flake8==3.8.2
 mypy==0.770
 pdoc3==0.8.1
 pydocstyle==5.0.2
