@@ -5,9 +5,8 @@ from pathlib import Path
 
 import responses
 
-from scripts.constants import BASE_URL, DUMP_URL
 from scripts import get
-
+from scripts.constants import BASE_URL, DUMP_URL
 
 WIKTIONARY_INDEX = """<html>
 <head><title>Index of /frwiktionary/</title></head>

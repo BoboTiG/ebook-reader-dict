@@ -7,15 +7,15 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Generator, List, Optional, Pattern, Tuple, TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable, Generator, List, Optional, Pattern, Tuple
 
 import requests
-from requests.exceptions import HTTPError
 import wikitextparser as wtp
 import wikitextparser._spans
+from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
-from .lang import genre, pronunciation, patterns
+from .lang import genre, patterns, pronunciation
 from .stubs import Words
 from .utils import clean
 

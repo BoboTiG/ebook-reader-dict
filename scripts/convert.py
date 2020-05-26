@@ -17,7 +17,6 @@ from .lang import wiktionary
 from .stubs import Words
 from .utils import format_description, guess_prefix
 
-
 Groups = Dict[str, Words]
 
 
