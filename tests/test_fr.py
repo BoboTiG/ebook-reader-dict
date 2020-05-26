@@ -227,6 +227,7 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
+        ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
         ("{{smo}}", "samoan"),

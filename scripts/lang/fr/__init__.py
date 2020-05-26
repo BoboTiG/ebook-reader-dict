@@ -535,7 +535,7 @@ templates_multi = {
     # {{pc|Dupont}}
     "pc": "small_caps(parts[1])",
     # {{pron|plys|fr}}
-    "pron": "parts[1]",
+    "pron": r'f"\\{parts[1]}\\"',
     # {{pron-API|/j/}}
     "pron-API": "parts[1]",
     # {{RFC|5322}}
