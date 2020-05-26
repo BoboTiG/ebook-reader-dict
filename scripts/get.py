@@ -148,7 +148,7 @@ def find_section_definitions(
         for code in lists[0].items:
             # Ignore some patterns
             if word not in words_to_keep[locale] and any(
-                ignore_me in code for ignore_me in definitions_to_ignore[locale]
+                ignore_me in code.lower() for ignore_me in definitions_to_ignore[locale]
             ):
                 continue
 

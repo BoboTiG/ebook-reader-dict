@@ -106,13 +106,14 @@ thousands_separator = " "
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
-    "Pluriel d",
-    "Masculin pluriel d",
-    "Féminin pluriel",
-    "Masculin et féminin pluriel d",
-    "Féminin singulier d",
-    "Pluriel habituel d",
-    "Pluriel inhabituel d",
+    "pluriel d",
+    "masculin pluriel d",
+    "féminin pluriel",
+    "féminin singulier d",
+    "masculin et féminin pluriel d",
+    "masculin ou féminin pluriel d",
+    "pluriel habituel d",
+    "pluriel inhabituel d",
 )
 
 # Malgré tout, même si une définition est sur le point d'être ignorée (via definitions_to_ignore),
