@@ -83,8 +83,8 @@ templates_other = {
 
 # A warning will be printed when a template contains superfuous spaces,
 # except for those listed bellow:
-template_warning_skip = {
-    "fr": fr.template_warning_skip,
+templates_warning_skip = {
+    "fr": fr.templates_warning_skip,
 }
 
 # The full release description on GitHub:

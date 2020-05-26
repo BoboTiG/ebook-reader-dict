@@ -635,7 +635,7 @@ templates_other = {
 
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
 # sauf pour ceux listés ci-dessous :
-template_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
+templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
 
 # Contenu de la release sur GitHub :
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr

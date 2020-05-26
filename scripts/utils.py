@@ -16,7 +16,7 @@ from .lang import (
     templates_ignored,
     templates_multi,
     templates_other,
-    template_warning_skip,
+    templates_warning_skip,
     thousands_separator,
 )
 from .user_functions import *  # noqa
@@ -303,7 +303,7 @@ def transform(word: str, template: str, locale: str) -> str:
         tpl = parts[0]
 
     # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
-    if parts != parts_raw and tpl not in template_warning_skip[locale]:
+    if parts != parts_raw and tpl not in templates_warning_skip[locale]:
         warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
