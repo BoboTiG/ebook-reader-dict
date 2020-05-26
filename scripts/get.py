@@ -47,7 +47,7 @@ def callback_progress_ci(text: str, total: int, last: bool) -> None:
     Progression callback. USed when fetching the Wiktionary dump and when extracting it.
     This version is targeting the CI, it prints less lines and it is easier to follow.
     """
-    msg = ". OK\n" if last else "."
+    msg = f". OK [{total:,} bytes]\n" if last else "."
     print(msg, end="", flush=True)
 
 
@@ -351,13 +351,15 @@ def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
     snapshot = snapshots[-1]
 
     # The output style is different if run from a workflow
+    # Note: "CI"is automatically set in every GitHub workflow
+    # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables
     cb = callback_progress_ci if "CI" in os.environ else callback_progress
 
     # Fetch and uncompress the snapshot file
     try:
         file = fetch_pages(snapshot, locale, output_dir, cb)
     except HTTPError:
-        print(" FAIL", flush=True)
+        print("FAIL", flush=True)
         print(">>> Wiktionary dump is ongoing ... ", flush=True)
         print(">>> Will use the previous one.", flush=True)
         snapshot = snapshots[-2]
