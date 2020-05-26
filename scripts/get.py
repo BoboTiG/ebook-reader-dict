@@ -15,7 +15,7 @@ import wikitextparser._spans
 from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
-from .lang import genre, patterns, pronunciation
+from .lang import definitions_to_ignore, genre, patterns, pronunciation, words_to_keep
 from .stubs import Words
 from .utils import clean
 
@@ -143,8 +143,26 @@ def find_section_definitions(
     """
     lists = section.get_lists()
     if lists:
-        definitions = (clean(word, d.strip(), locale) for d in lists[0].items)
-        yield from (d for d in definitions if not pattern.match(d))
+        definitions = []
+
+        for code in lists[0].items:
+            # Ignore some patterns
+            if word not in words_to_keep[locale] and any(
+                ignore_me in code for ignore_me in definitions_to_ignore[locale]
+            ):
+                continue
+
+            # Transform and clean the Wikicode
+            definition = clean(word, code, locale)
+
+            # Skip almost empty definitions
+            if pattern.match(definition):
+                continue
+
+            # We got one!
+            definitions.append(definition)
+
+        yield from definitions
 
 
 def find_genre(code: str, pattern: Pattern[str]) -> str:

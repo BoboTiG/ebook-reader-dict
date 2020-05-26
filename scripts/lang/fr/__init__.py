@@ -104,6 +104,37 @@ float_separator = ","
 # Séparateur des milliers
 thousands_separator = " "
 
+# Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
+definitions_to_ignore = (
+    "'Pluriel de",  # Note: la simple quote est importante
+    "Masculin pluriel",
+    "Féminin pluriel",
+    "Féminin singulier",
+    "Pluriel habituel",
+    "Pluriel inhabituel",
+)
+
+# Malgré tout, même si une définition est sur le point d'être ignorée (via definitions_to_ignore),
+# alors ces mots seront tout de même conservés.
+# https://fr.wikipedia.org/wiki/Pluriels_irr%C3%A9guliers_en_fran%C3%A7ais
+words_to_keep = (
+    "aspiraux",  # pluriel irrégulier
+    "aulx",  # pluriel irrégulier
+    "baux",  # pluriel irrégulier
+    "cieux",  # pluriel irrégulier
+    "cris",  # "Cris" aura la priorité sinon
+    "coraux",  # pluriel irrégulier
+    "émaux",  # pluriel irrégulier
+    "fermaux",  # pluriel irrégulier
+    "gemmaux",  # pluriel irrégulier
+    "soupiraux",  # pluriel irrégulier
+    "travaux",  # pluriel irrégulier
+    "vantaux",  # pluriel irrégulier
+    "ventaux",  # pluriel irrégulier
+    "vitraux",  # pluriel irrégulier
+    "yeux",  # pluriel irrégulier
+)
+
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (

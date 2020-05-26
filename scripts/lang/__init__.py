@@ -9,6 +9,16 @@ all_langs = {
     "fr": FR,
 }
 
+# Some definitions are not good to keep (plural, genre, ... )
+definitions_to_ignore = {
+    "fr": fr.definitions_to_ignore,
+}
+
+# But some words need to be kept even if they would have been skipped by definitions_to_ignore
+words_to_keep = {
+    "fr": fr.words_to_keep,
+}
+
 # Regex to find the pronunciation
 pronunciation = {
     "fr": re.compile(fr.pronunciation),
