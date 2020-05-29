@@ -263,7 +263,7 @@ def sentence(parts: Tuple[str, ...]) -> str:
         >>> sentence("comparatif de|bien|fr|adv".split("|"))
         'Comparatif de bien'
     """
-    return f"{capitalize(parts[0])} {parts[1]}"
+    return capitalize(concat(parts, sep=" ", indexes=[0, 1]))
 
 
 def small_caps(text: str) -> str:
