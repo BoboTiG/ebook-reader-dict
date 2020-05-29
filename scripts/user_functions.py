@@ -55,7 +55,7 @@ def concat(
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
-    It alowes to filter out some parts while keeping others.
+    It allowes to filter out some parts while keeping others.
 
         >>> concat(["92", "%"])
         '92%'
@@ -66,11 +66,10 @@ def concat(
         >>> concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
         'sport collectif'
     """
-    return sep.join(
-        part
-        for index, part in enumerate(parts)
-        if not indexes or (indexes and index in indexes)
-    )
+    if not indexes:
+        return sep.join(parts)
+
+    return sep.join(part for index, part in enumerate(parts) if index in indexes)
 
 
 def etymology(parts: Tuple[str, ...]) -> str:

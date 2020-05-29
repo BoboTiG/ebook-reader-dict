@@ -83,7 +83,7 @@ def concat(
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
-    It alowes to filter out some parts while keeping others.
+    It allowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
         &#39;92%&#39;
@@ -94,11 +94,10 @@ def concat(
         &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
         &#39;sport collectif&#39;
     &#34;&#34;&#34;
-    return sep.join(
-        part
-        for index, part in enumerate(parts)
-        if not indexes or (indexes and index in indexes)
-    )
+    if not indexes:
+        return sep.join(parts)
+
+    return sep.join(part for index, part in enumerate(parts) if index in indexes)
 
 
 def etymology(parts: Tuple[str, ...]) -&gt; str:
@@ -471,7 +470,7 @@ __all__ = (
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
 <p>If <em>indexes</em> is set, it must be a list of integers where each of one is the part number to keep.
-It alowes to filter out some parts while keeping others.</p>
+It allowes to filter out some parts while keeping others.</p>
 <pre><code>&gt;&gt;&gt; concat(["92", "%"])
 '92%'
 &gt;&gt;&gt; concat(["O", "M", "G"], sep="!")
@@ -492,7 +491,7 @@ It alowes to filter out some parts while keeping others.</p>
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
-    It alowes to filter out some parts while keeping others.
+    It allowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
         &#39;92%&#39;
@@ -503,11 +502,10 @@ It alowes to filter out some parts while keeping others.</p>
         &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
         &#39;sport collectif&#39;
     &#34;&#34;&#34;
-    return sep.join(
-        part
-        for index, part in enumerate(parts)
-        if not indexes or (indexes and index in indexes)
-    )</code></pre>
+    if not indexes:
+        return sep.join(parts)
+
+    return sep.join(part for index, part in enumerate(parts) if index in indexes)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">
