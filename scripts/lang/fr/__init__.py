@@ -107,6 +107,7 @@ thousands_separator = " "
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
     "pluriel d",
+    "habitante",
     "masculin pluriel d",
     "féminin pluriel",
     "féminin singulier d",
