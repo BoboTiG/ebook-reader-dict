@@ -80,8 +80,6 @@ patterns = (
     "{{S|préfixe|conv",
     "{{S|préfixe|fr|",
     "{{S|préfixe|fr}",
-    "{{S|prénom|fr|",
-    "{{S|prénom|fr}",
     "{{S|préposition|fr|",
     "{{S|préposition|fr}",
     "{{S|substantif|fr}",
