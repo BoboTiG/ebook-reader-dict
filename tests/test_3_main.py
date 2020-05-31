@@ -49,7 +49,7 @@ def test_main_args(
 
 def test_get_word(capsys):
     # The word exists
-    assert entry_point.main(["--locale", "fr", "--get-word", "mutiner"]) == 0
+    assert entry_point.main(["--locale", "fr", "--get-word", "languide"]) == 0
 
     # The word does not exist
     assert entry_point.main(["--locale", "fr", "--get-word", "mutinerssssssss"]) == 0

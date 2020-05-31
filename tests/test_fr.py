@@ -59,6 +59,13 @@ from scripts.utils import clean
                 "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
                 "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
                 "<i>(Héraldique)</i> Désigne le piédestal d’une colonne surtout quand il est d’un émail différent de la colonne.",  # noqa
+                "<i>(Mathématiques)</i>",
+                (
+                    "<i>(Géométrie)</i> Surface sur laquelle on conçoit que certains corps solides sont appuyés.",
+                    "Famille libre de vecteurs, génératrice d’un espace vectoriel.",
+                    "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
+                    "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",
+                ),
                 "<i>(Par analogie)</i> <i>(Botanique)</i> <i>(Anatomie)</i> Côté opposé à la partie la plus pointue d’un organe.",  # noqa
                 "<i>(Géodésie)</i> Côté initial mesuré directement sur le terrain.",
                 "<i>(Militaire)</i> Ensemble des points de ravitaillement avec lesquels une armée en campagne se tient en relations constantes.",  # noqa
@@ -122,6 +129,12 @@ from scripts.utils import clean
                 "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",  # noqa
                 "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",  # noqa
                 "<i>(Marine)</i> Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.",  # noqa
+                "<i>(Maçonnerie)</i>",
+                (
+                    "Sorte de fortification en angle saillant qu’on élève au milieu des courtines, ou devant des portes, pour les défendre.",  # noqa
+                    "Ouvrage en pointe qui sert à rompre le cours de l’eau, devant les piles des ponts, ou sur les bords des rivières.",  # noqa
+                    "Tout pilier qu’on construit extérieurement d’un mur de terrasse de distance en distance, et qui se lie avec le corps du mur pour tenir la poussée des terres (Contrefort, anciennement contre-fort).",  # noqa
+                ),
                 "<i>(Géographie)</i> Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.",  # noqa
                 "<i>(Héraldique)</i> Meuble représentant l’objet du même nom dans les armoiries. Il est composé d’une branche en métal en U avec une tige au bout de laquelle se trouve une molette à six rais mais le nombre peut varier d'un illustrateur à l’autre. Il est représenté en pal, la molette vers le chef (haut). Dans les représentations anciennes, il est parfois muni d’une sangle en cuir. À rapprocher de molette d’éperon.",  # noqa
             ],
@@ -145,6 +158,7 @@ from scripts.utils import clean
             [
                 "Se porter à la sédition, à la révolte.",
                 "Enfant qui se dépite et manque à l’obéissance.",
+                "<i>(Poétique)</i> …",
             ],
         ),
         (

@@ -16,7 +16,7 @@ from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
 from .lang import definitions_to_ignore, genre, patterns, pronunciation, words_to_keep
-from .stubs import Words
+from .stubs import Definitions, Words
 from .utils import clean
 
 if TYPE_CHECKING:  # pragma: nocover
@@ -113,7 +113,7 @@ def fetch_pages(
     return output
 
 
-def find_definitions(word: str, sections: Sections, locale: str) -> List[str]:
+def find_definitions(word: str, sections: Sections, locale: str) -> List[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
@@ -132,20 +132,13 @@ def find_section_definitions(
     word: str,
     section: wtp.Section,
     locale: str,
-    pattern: Pattern[str] = re.compile(r"^((?:<i>)?\([\w ]+\)(?:</i>)?\.? ?\??…?,?)*$"),
-) -> Generator[str, None, None]:
-    """Find definitions from the given *section*, without eventual subtext.
-
-    The *pattern* will be used to filter out:
-        - empty definitions like "(Maçonnerie) (Reliquat)"
-        - almost-empty definitions, like "(Poésie) …"
-        (or definitions using a sublist, it is not yet handled)
-    """
+) -> Generator[Definitions, None, None]:
+    """Find definitions from the given *section*, with eventual sub-definitions."""
     lists = section.get_lists()
     if lists:
-        definitions = []
+        definitions: List[Definitions] = []
 
-        for code in lists[0].items:
+        for idx, code in enumerate(lists[0].items):
             # Ignore some patterns
             if word not in words_to_keep[locale] and any(
                 ignore_me in code.lower() for ignore_me in definitions_to_ignore[locale]
@@ -155,12 +148,16 @@ def find_section_definitions(
             # Transform and clean the Wikicode
             definition = clean(word, code, locale)
 
-            # Skip almost empty definitions
-            if pattern.match(definition):
-                continue
-
-            # We got one!
+            # Keep the definition ...
             definitions.append(definition)
+
+            # ... And its eventual sub-definitions
+            subdefinitions: List[str] = []
+            for sublist in lists[0].sublists(i=idx, pattern="#"):
+                for subcode in sublist.items:
+                    subdefinitions.append(clean(word, subcode, locale))
+            if subdefinitions:
+                definitions.append(tuple(subdefinitions))
 
         yield from definitions
 
@@ -208,10 +205,17 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 
     print(word, f"\\{pron}\\", f"({nature}.)", "\n")
     for i, definition in enumerate(defs, start=1):
-        if not raw:
-            # Strip HTML tags
-            definition = re.sub(r"<[^>]+/?>", "", definition)
-        print(f"{i}.".rjust(4), definition)
+        if isinstance(definition, tuple):
+            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                if not raw:
+                    # Strip HTML tags
+                    subdef = re.sub(r"<[^>]+/?>", "", subdef)
+                print(f"{a}.".rjust(8), subdef)
+        else:
+            if not raw:
+                # Strip HTML tags
+                definition = re.sub(r"<[^>]+/?>", "", definition)
+            print(f"{i}.".rjust(4), definition)
 
 
 def guess_snapshots(locale: str) -> List[str]:
@@ -231,7 +235,7 @@ def guess_snapshots(locale: str) -> List[str]:
 
 def parse_word(
     word: str, code: str, locale: str, force: bool = False
-) -> Tuple[str, str, List[str]]:
+) -> Tuple[str, str, List[Definitions]]:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
     It is disabled by default t spee-up the overall process, but enabled when

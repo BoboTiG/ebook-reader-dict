@@ -126,7 +126,15 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
     raw_output = output_dir / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
         for word, (pronunciation, genre, defs) in words.items():
-            definitions = "".join(f"<li>{d}</li>" for d in defs)
+            definitions = ""
+            for definition in defs:
+                if isinstance(definition, str):
+                    definitions += f"<li>{definition}</li>"
+                else:
+                    definitions += '<ol style="list-style-type:lower-alpha">'
+                    definitions += "".join(f"<li>{d}</li>" for d in definition)
+                    definitions += "</ol>"
+
             if pronunciation:
                 pronunciation = f" \\{pronunciation}\\"
             if genre:

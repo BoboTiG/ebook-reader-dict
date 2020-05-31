@@ -1,5 +1,6 @@
 """Type annotations."""
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Union
 
-Word = Tuple[str, str, List[str]]
+Definitions = Union[str, Tuple[str, ...]]
+Word = Tuple[str, str, List[Definitions]]
 Words = Dict[str, Word]
