@@ -153,7 +153,7 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
 
 
 def main(locale: str) -> int:
-    """Extry point."""
+    """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
 

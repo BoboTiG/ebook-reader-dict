@@ -71,7 +71,7 @@ templates_italic = {
 # It is possible to use any Python fonction and ones defined in user_functions.py.
 #
 # Available arguments:
-#   - *tpl* (string) containg the template name.
+#   - *tpl* (string) containing the template name.
 #   - *parts* (list of strings) containing the all parts of the template.
 #
 # Example with the complete template "{{comparatif de|bien|fr|adv}}":

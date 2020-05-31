@@ -181,7 +181,7 @@ def int_to_roman(number: int) -> str:
 
 def italic(text: str) -> str:
     """
-    Return the *text* surounded by italic HTML tags.
+    Return the *text* surrounded by italic HTML tags.
 
         >>> italic("foo")
         '<i>foo</i>'
@@ -268,7 +268,7 @@ def sentence(parts: Tuple[str, ...]) -> str:
 
 def small_caps(text: str) -> str:
     """
-    Return the *text* surounded by the CSS style to use small capitals.
+    Return the *text* surrounded by the CSS style to use small capitals.
 
     Small-caps glyphs typically use the form of uppercase letters but are reduced
     to the size of lowercase letters.
@@ -281,7 +281,7 @@ def small_caps(text: str) -> str:
 
 def subscript(text: str) -> str:
     """
-    Return the *text* surounded by subscript HTML tags.
+    Return the *text* surrounded by subscript HTML tags.
 
     Subscript text appears half a character below the normal line,
     and is sometimes rendered in a smaller font.
@@ -295,7 +295,7 @@ def subscript(text: str) -> str:
 
 def superscript(text: str) -> str:
     """
-    Return the *text* surounded by superscript HTML tags.
+    Return the *text* surrounded by superscript HTML tags.
 
     Superscript text appears half a character above the normal line,
     and is sometimes rendered in a smaller font.
@@ -308,7 +308,7 @@ def superscript(text: str) -> str:
 
 def term(text: str) -> str:
     """
-    Format a "term", e.g. return the *text* in italic and surounded by parenthesis.
+    Format a "term", e.g. return the *text* in italic and surrounded by parenthesis.
 
     If the *text* is already in such style, it will not be processed again.
 

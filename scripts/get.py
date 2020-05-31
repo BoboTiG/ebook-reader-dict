@@ -357,7 +357,7 @@ def xml_parse_element(element: "Element") -> Tuple[str, str]:
 
 
 def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
-    """Extry point."""
+    """Entry point."""
 
     # Fetch one word and parse it, used for testing mainly
     if word:
