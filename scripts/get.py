@@ -7,7 +7,16 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import TYPE_CHECKING, Callable, Generator, List, Optional, Pattern, Tuple
+from typing import (
+    TYPE_CHECKING,
+    Callable,
+    Dict,
+    Generator,
+    List,
+    Optional,
+    Pattern,
+    Tuple,
+)
 
 import requests
 import wikitextparser as wtp
@@ -129,9 +138,7 @@ def find_definitions(word: str, sections: Sections, locale: str) -> List[Definit
 
 
 def find_section_definitions(
-    word: str,
-    section: wtp.Section,
-    locale: str,
+    word: str, section: wtp.Section, locale: str,
 ) -> Generator[Definitions, None, None]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     lists = section.get_lists()
@@ -260,6 +267,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
 
     if debug:
         sections = defaultdict(list)
+        templates: Dict[str, str] = {}
 
     print(f">>> Processing {file} ...", flush=True)
 
@@ -271,6 +279,10 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
         if debug:
             for title in find_titles(code):
                 sections[title].append(word)
+            for template in re.findall(r"({{[^{}]*}})", code):
+                template = template.split("|")[0].lstrip("{").rstirp("}").strip()
+                if template not in templates:
+                    templates[template] = word
             continue
 
         try:
@@ -289,7 +301,12 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
                 # Most likely errors/mispellings
                 for entry in entries:
                     print(f"    - {entry!r}", flush=True)
-        print(f"=== Total number of words: {total:,} ===", flush=True)
+
+        print("\n === Templates ===", flush=True)
+        for template, entry in sorted(templates.items()):
+            print(f"  {template!r} => {entry!r}", flush=True)
+
+        print(f"\n=== Total number of words: {total:,} ===", flush=True)
 
     return words
 
