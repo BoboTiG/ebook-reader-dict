@@ -71,7 +71,7 @@ templates_multi = {
     "IPAchar": "parts[-1]",
     # {{marca|ca|fruits}}
     # {{marca|ca|interrogatiu|condicional}}
-    "marca": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
+    "marca": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5], skip='_'), 'ca'))",
     # {{marca-nocat|ca|balear}}
     # {{marca-nocat|ca|occidental|balear}}
     "marca-nocat": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
