@@ -6,6 +6,12 @@ pronunciation = r"{uttal\|sv\|(?:.+/([^/,]+)/.+|ipa=([^}]+))}"
 # Regex to find the genre
 genre = ""
 
+# Float number separator
+float_separator = ","
+
+# Thousads separator
+thousands_separator = " "
+
 # Markers for sections that contain interesting text to analyse.
 # https://sv.wiktionary.org/wiki/Wiktionary:Stilguide#Ordklassrubriken
 head_sections = ("Svenska",)
@@ -35,12 +41,6 @@ definitions_to_ignore = tuple()  # type: ignore
 # But some words need to be kept even if they would have been skipped by definitions_to_ignore
 words_to_keep = tuple()  # type: ignore
 
-# Float number separator
-float_separator = ","
-
-# Thousads separator
-thousands_separator = " "
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = tuple()  # type: ignore
 
@@ -63,11 +63,13 @@ templates_other = {}  # type: ignore
 
 # A warning will be printed when a template contains superfuous spaces,
 # except for those listed bellow:
-templates_warning_skip = ()
+templates_warning_skip = tuple()  # type: ignore
 
-# Release content on gitHub
+# Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
 release_description = """\
+:warning: Contributors needed for that locale.
+
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 

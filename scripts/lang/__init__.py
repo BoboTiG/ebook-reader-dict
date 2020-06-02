@@ -9,20 +9,6 @@ all_langs = {
     "fr": FR,
 }
 
-# Some definitions are not good to keep (plural, genre, ... )
-definitions_to_ignore = {
-    "ca": ca.definitions_to_ignore,
-    "fr": fr.definitions_to_ignore,
-    "sv": sv.definitions_to_ignore,
-}
-
-# But some words need to be kept even if they would have been skipped by definitions_to_ignore
-words_to_keep = {
-    "ca": ca.words_to_keep,
-    "fr": fr.words_to_keep,
-    "sv": sv.words_to_keep,
-}
-
 # Regex to find the pronunciation
 pronunciation = {
     "ca": re.compile(ca.pronunciation),
@@ -37,25 +23,6 @@ genre = {
     "sv": re.compile(sv.genre),
 }
 
-# Markers for sections that contain interesting text to analyse.
-head_sections = {
-    "ca": ca.head_sections,
-    "fr": fr.head_sections,
-    "sv": sv.head_sections,
-}
-sections = {
-    "ca": ca.sections,
-    "fr": fr.sections,
-    "sv": sv.sections,
-}
-
-# The template name dealing with files in the Wikicode.
-# [[Fichier:...|...|...|...]] (fr)
-# [[File:...|...|...|...]] (fr)
-# [[Fitxer:...|...|...]] (ca)
-# [[Image:...|...|...]] (fr)
-pattern_file = ("Fichier", "File", "Fitxer", "Image")
-
 # Float number separator
 float_separator = {
     "ca": ca.float_separator,
@@ -69,6 +36,39 @@ thousands_separator = {
     "fr": fr.thousands_separator,
     "sv": sv.thousands_separator,
 }
+
+# Markers for sections that contain interesting text to analyse.
+head_sections = {
+    "ca": ca.head_sections,
+    "fr": fr.head_sections,
+    "sv": sv.head_sections,
+}
+sections = {
+    "ca": ca.sections,
+    "fr": fr.sections,
+    "sv": sv.sections,
+}
+
+# Some definitions are not good to keep (plural, genre, ... )
+definitions_to_ignore = {
+    "ca": ca.definitions_to_ignore,
+    "fr": fr.definitions_to_ignore,
+    "sv": sv.definitions_to_ignore,
+}
+
+# But some words need to be kept even if they would have been skipped by definitions_to_ignore
+words_to_keep = {
+    "ca": ca.words_to_keep,
+    "fr": fr.words_to_keep,
+    "sv": sv.words_to_keep,
+}
+
+# The template name dealing with files in the Wikicode.
+# [[Fichier:...|...|...|...]] (fr)
+# [[File:...|...|...|...]] (fr)
+# [[Fitxer:...|...|...]] (ca)
+# [[Image:...|...|...]] (fr)
+pattern_file = ("Fichier", "File", "Fitxer", "Image")
 
 # Templates replacements: wikicode -> text conversion
 

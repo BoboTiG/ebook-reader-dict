@@ -6,6 +6,12 @@ pronunciation = r"{pron\|([^}\|]+)"
 # Regexp pour trouver le genre
 genre = r"{([fmsingp]+)}"
 
+# Séparateur des nombres à virgule
+float_separator = ","
+
+# Séparateur des milliers
+thousands_separator = " "
+
 # Titre des sections qui sont intéressantes à analyser.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_sections_de_types_de_mots
 # Pour récupérer la liste complète des sections :
@@ -96,12 +102,6 @@ sections = (
     "{{S|verbe|fr|num",
     "{{S|verbe|fr}",
 )
-
-# Séparateur des nombres à virgule
-float_separator = ","
-
-# Séparateur des milliers
-thousands_separator = " "
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (

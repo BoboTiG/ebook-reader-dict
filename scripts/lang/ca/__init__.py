@@ -1,11 +1,18 @@
 """Catalan language."""
 
+# Regex to find the pronunciation
 pronunciation = r"{{ca-pron\|(?:or=)?/([^/\|]+)"
+
+# Regex to find the genre
 genre = r"{{ca-\w+\|([fm]+)"
 
+# Float number separator
 float_separator = ","
+
+# Thousads separator
 thousands_separator = "."
 
+# Markers for sections that contain interesting text to analyse.
 head_sections = ("{-ca-}", "{-mul-}")
 sections = (
     "Abreviatura",
@@ -28,6 +35,7 @@ sections = (
     "Verb",
 )
 
+# Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = (
     # Ignore conjuged verbs
     "ca-forma-conj",
@@ -39,17 +47,17 @@ definitions_to_ignore = (
     # Ignore plurals
     "forma-p",
 )
+
+# But some words need to be kept even if they would have been skipped by definitions_to_ignore
 words_to_keep = tuple()  # type: ignore
 
+# Templates to ignore: the text will be deleted.
 templates_ignored = (
     "manquen accepcions",
     "sense accepcions",
 )
 
-templates_other = {
-    "m": "m.",
-}
-
+# Templates that will be completed/replaced using italic style.
 templates_italic = {
     "alguerès-verb": "alguerès",
     "arcaic": "arcaisme",
@@ -58,6 +66,7 @@ templates_italic = {
     "valencià-verb": "valencià",
 }
 
+# Templates more complex to manage.
 templates_multi = {
     # {{color|#E01010}}
     "color": "color(parts[1])",
@@ -83,10 +92,19 @@ templates_multi = {
     "terme": "parts[-1]",
 }
 
+# Templates that will be completed/replaced using custom style.
+templates_other = {
+    "m": "m.",
+}
+
+# A warning will be printed when a template contains superfuous spaces,
+# except for those listed bellow:
 templates_warning_skip = tuple()  # type: ignore
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca
 release_description = """\
-:warning: Contributors need for that locale.
+:warning: Contributors needed for that locale.
 
 Words count: {words_count}
 Wiktionary dump: {dump_date}
@@ -112,4 +130,5 @@ Caractéristics :
 <sub>Updated on {creation_date}</sub>
 """
 
+# Dictionary name that will be printed below each definition
 wiktionary = "Viccionari (ɔ) {year}"
