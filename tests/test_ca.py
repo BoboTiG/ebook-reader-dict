@@ -182,6 +182,7 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{marca|ca|fruits}}", "<i>(botànica)</i>"),
         ("{{marca|ca|plantes}}", "<i>(botànica)</i>"),
         ("{{marca|ca|interrogatiu|condicional}}", "<i>(interrogatiu, condicional)</i>"),
+        ("{{marca|ca|valencià-verb}}", "<i>(valencià)</i>"),
         ("{{marca-nocat|ca|balear}}", "<i>(balear)</i>"),
         ("{{marca-nocat|ca|occidental|balear}}", "<i>(occidental, balear)</i>"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),

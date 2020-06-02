@@ -53,6 +53,7 @@ templates_italic = {
     "arcaic": "arcaisme",
     "fruits": "botànica",
     "plantes": "botànica",
+    "valencià-verb": "valencià",
 }
 
 templates_multi = {
