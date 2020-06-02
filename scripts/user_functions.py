@@ -72,7 +72,7 @@ def concat(
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
-    If *skip* is set, it must be a string. If a part is equal to *skip" then is it skipped and the
+    If *skip* is set, it must be a string. If a part is equal to *skip* then is it skipped and the
     *sep* become a single space.
     It allowes to filter out some parts while keeping others.
 
@@ -86,7 +86,7 @@ def concat(
         'sport collectif'
         >>> concat(["marca", "ca", "antigament", "_", "en plural"], sep=" ", indexes=[2, 3, 4, 5], skip="_")
         'antigament en plural'
-        >>> concat(["antigament", "_", "en plural"], sep=" ", skip="_")
+        >>> concat(["antigament", "_", "en plural"], sep=",", skip="_")
         'antigament en plural'
     """
     if indexes:

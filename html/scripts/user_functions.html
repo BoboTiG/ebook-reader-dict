@@ -91,12 +91,17 @@ def color(rgb: str) -&gt; str:
 
 
 def concat(
-    parts: Tuple[str, ...], sep: str = &#34;&#34;, indexes: Optional[List[int]] = None
+    parts: Tuple[str, ...],
+    sep: str = &#34;&#34;,
+    indexes: Optional[List[int]] = None,
+    skip: Optional[str] = None,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    If *skip* is set, it must be a string. If a part is equal to *skip* then is it skipped and the
+    *sep* become a single space.
     It allowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
@@ -107,11 +112,22 @@ def concat(
         &#39;sport&#39;
         &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
         &#39;sport collectif&#39;
+        &gt;&gt;&gt; concat([&#34;marca&#34;, &#34;ca&#34;, &#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34; &#34;, indexes=[2, 3, 4, 5], skip=&#34;_&#34;)
+        &#39;antigament en plural&#39;
+        &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
+        &#39;antigament en plural&#39;
     &#34;&#34;&#34;
-    if not indexes:
-        return sep.join(parts)
+    if indexes:
+        result = [part for index, part in enumerate(parts) if index in indexes]
+    else:
+        result = list(parts)
 
-    return sep.join(part for index, part in enumerate(parts) if index in indexes)
+    if skip:
+        result = [part for part in result if part != skip]
+        if parts.count(skip):
+            sep = &#34; &#34;
+
+    return sep.join(result)
 
 
 def etymology(parts: Tuple[str, ...]) -&gt; str:
@@ -536,11 +552,13 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None) -> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) -> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
 <p>If <em>indexes</em> is set, it must be a list of integers where each of one is the part number to keep.
+If <em>skip</em> is set, it must be a string. If a part is equal to <em>skip</em> then is it skipped and the
+<em>sep</em> become a single space.
 It allowes to filter out some parts while keeping others.</p>
 <pre><code>&gt;&gt;&gt; concat(["92", "%"])
 '92%'
@@ -550,18 +568,27 @@ It allowes to filter out some parts while keeping others.</p>
 'sport'
 &gt;&gt;&gt; concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
 'sport collectif'
+&gt;&gt;&gt; concat(["marca", "ca", "antigament", "_", "en plural"], sep=" ", indexes=[2, 3, 4, 5], skip="_")
+'antigament en plural'
+&gt;&gt;&gt; concat(["antigament", "_", "en plural"], sep=",", skip="_")
+'antigament en plural'
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def concat(
-    parts: Tuple[str, ...], sep: str = &#34;&#34;, indexes: Optional[List[int]] = None
+    parts: Tuple[str, ...],
+    sep: str = &#34;&#34;,
+    indexes: Optional[List[int]] = None,
+    skip: Optional[str] = None,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    If *skip* is set, it must be a string. If a part is equal to *skip* then is it skipped and the
+    *sep* become a single space.
     It allowes to filter out some parts while keeping others.
 
         &gt;&gt;&gt; concat([&#34;92&#34;, &#34;%&#34;])
@@ -572,11 +599,22 @@ It allowes to filter out some parts while keeping others.</p>
         &#39;sport&#39;
         &gt;&gt;&gt; concat([&#34;sport&#34;, &#34;fr&#34;, &#34;collectif&#34;], sep=&#34; &#34;, indexes=[0, 2])
         &#39;sport collectif&#39;
+        &gt;&gt;&gt; concat([&#34;marca&#34;, &#34;ca&#34;, &#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34; &#34;, indexes=[2, 3, 4, 5], skip=&#34;_&#34;)
+        &#39;antigament en plural&#39;
+        &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
+        &#39;antigament en plural&#39;
     &#34;&#34;&#34;
-    if not indexes:
-        return sep.join(parts)
+    if indexes:
+        result = [part for index, part in enumerate(parts) if index in indexes]
+    else:
+        result = list(parts)
 
-    return sep.join(part for index, part in enumerate(parts) if index in indexes)</code></pre>
+    if skip:
+        result = [part for part in result if part != skip]
+        if parts.count(skip):
+            sep = &#34; &#34;
+
+    return sep.join(result)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">
