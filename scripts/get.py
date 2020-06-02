@@ -271,7 +271,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
 
     print(f">>> Processing {file} ...", flush=True)
 
-    for total, element in enumerate(xml_iter_parse(str(file)), 1):
+    for element in xml_iter_parse(str(file)):
         word, code = xml_parse_element(element)
         if len(word) < 2 or ":" in word:
             continue
@@ -280,7 +280,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
             for title in find_titles(code):
                 sections[title].append(word)
             for template in re.findall(r"({{[^{}]*}})", code):
-                template = template.split("|")[0].lstrip("{").rstirp("}").strip()
+                template = template.split("|")[0].lstrip("{").rstrip("}").strip()
                 if template not in templates:
                     templates[template] = word
             continue
@@ -294,19 +294,17 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
                 words[word] = pronunciation, genre, definitions
 
     if debug:
-        print(" === Sections ===", flush=True)
-        for title, entries in sorted(sections.items()):
-            print(f"  {title!r} ({len(entries):,})", flush=True)
-            if len(entries) < 10:
-                # Most likely errors/mispellings
-                for entry in entries:
-                    print(f"    - {entry!r}", flush=True)
+        with open("sections.txt", "w") as f:
+            for title, entries in sorted(sections.items()):
+                f.write(f"{title!r} ({len(entries):,})\n")
+                if len(entries) < 10:
+                    # Most likely errors/mispellings
+                    for entry in entries:
+                        f.write(f"    - {entry!r}\n")
 
-        print("\n === Templates ===", flush=True)
-        for template, entry in sorted(templates.items()):
-            print(f"  {template!r} => {entry!r}", flush=True)
-
-        print(f"\n=== Total number of words: {total:,} ===", flush=True)
+        with open("templates.txt", "w") as f:
+            for template, entry in sorted(templates.items()):
+                f.write(f"{entry!r} => {template!r}\n")
 
     return words
 
