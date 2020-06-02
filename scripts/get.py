@@ -154,6 +154,8 @@ def find_section_definitions(
 
             # Transform and clean the Wikicode
             definition = clean(word, code, locale)
+            if not definition:
+                continue
 
             # Keep the definition ...
             definitions.append(definition)
