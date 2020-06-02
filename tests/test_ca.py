@@ -178,6 +178,7 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{forma-a|ca|Beget}}", "<i>forma alternativa de</i> <b>Beget</b>"),
         ("{{forma-pron|ca|estimar}}", "<i>forma pronominal de</i> <b>estimar</b>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
+        ("{{marca|ca|alguerès-verb}}", "<i>(alguerès)</i>"),
         ("{{marca|ca|fruits}}", "<i>(botànica)</i>"),
         ("{{marca|ca|plantes}}", "<i>(botànica)</i>"),
         ("{{marca|ca|interrogatiu|condicional}}", "<i>(interrogatiu, condicional)</i>"),

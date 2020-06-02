@@ -49,6 +49,7 @@ templates_other = {
 }
 
 templates_italic = {
+    "alguerès-verb": "alguerès",
     "arcaic": "arcaisme",
     "fruits": "botànica",
     "plantes": "botànica",
