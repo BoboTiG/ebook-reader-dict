@@ -1,0 +1,144 @@
+{{vegeu|bio}}
+
+== {{-ca-}} ==
+
+=== Prefix ===
+{{lema|ca|prefix}}
+
+# Element que entra en la composició de paraules amb el sentit de "[[vida]]".
+
+==== Derivats ====
+{{rel-top}}
+* [[bioactiu]]
+* [[bioacumulació]]
+**[[bioacumulable]]
+* [[bioacústica]]
+* [[bioalcohol]]
+* [[bioalimentació]]
+* [[biobalística]]
+* [[biobibliografia]]
+**[[biobibliogràfic]]
+* [[biocenologia]]
+* [[biocibernètica]]
+* [[biocida]]
+* [[biocinètica]]
+* [[biocircuit]]
+* [[bioclimatologia]]
+**[[bioclimatòleg]]
+**[[bioclimatòloga]]
+* [[bioclínica]] {{f}}
+**[[bioclínic]]
+**[[bioclínica]] {{adj}} {{f}}
+* [[biocompatible]]
+**[[biocompatibilitat]]
+* [[biocuina]]
+* [[biodegradar]]
+**[[biodegradable]]
+**[[biodegradació]]
+* [[bioderma]]
+* [[biodeterioració]]
+* [[biodinàmica]]
+* [[biodisc]]
+* [[biodisponibilitat]]
+* [[bioecologia]]
+* [[bioelectricitat]]
+* [[bioenergètica]]
+* [[bioenergia]]
+* [[bioenginyeria]]
+**[[bioenginyer]]
+**[[bioenginyera]]
+* [[bioètica]]
+* [[bioevolutiu]]
+**[[bioevolutiva]]
+* [[biofàgia]]
+**[[biòfag]]
+**[[biòfaga]]
+* [[biofarmacologia]]
+* [[biofísica]]
+* [[biofotogènesi]]
+* [[biogènia]]
+* [[biògen]]
+* [[biogenèsia]]
+**[[biogenètic]]
+* [[biogeogenosi]]
+* [[biogeografia]]
+**[[biogeogràfic]]
+**[[biogeogràfica]]
+* [[biogeoquímica]] {{f}}
+**[[biogeoquímic]]
+**biogeoquímica {{adj}} {{f}}
+* [[bioindicador]]
+* [[bioindústria]]
+* [[bioinformàtica]]
+* [[bioinsecticida]]
+* [[biòlisi]]
+**[[biolític]]
+{{rel-mid}}
+* '''[[biologia]]''' (vegeu-hi més compostos)
+**[[biòleg]]
+**[[biolòloga]]
+* [[bioluminiscent]]
+**[[bioluminiscència]]
+* [[biomagnetisme]]
+* [[biomaterial]]
+* [[biomecànica]]
+* [[biomedicina]]
+**[[biomèdic]]
+**biomèdica
+* [[biomembrana]]
+* [[biometal·lurgia]]
+* [[biometeorologia]]
+* [[biometria]]
+**[[biòmetra]]
+***[[biomètric]]
+***biomètrica
+* [[biomimètica]] {{f}}
+**[[biomimètic]]
+**biomimètica {{adj}} {{f}}
+* [[bionòmic]]
+* [[bionutrient]]
+* [[biopoesi]]
+* [[biopolítica]] {{f}}
+* [[bioproteïna]]
+* [[bioquímica]]
+* [[bioreactor]]
+* [[bioreologia]]
+* [[bioregulador]]
+* [[bioretroacció]]
+* [[bioritme]]
+**[[bioritmologia]]
+* [[biosensor]]
+* [[biosfera]]
+* [[biosíntesi]]
+**[[biosintetitzar]]
+* [[biosistemàtica]]
+* [[biosociologia]]
+* [[biosoma]]
+* [[biospeleologia]]
+* [[biostadística]]
+* [[biostàsia]]
+* [[biostàtica]]
+* [[biostatigrafia]]
+**[[biostatígrafic]]
+**biostatigràfica
+* [[biotàxia]]
+* [[biotecnologia]]
+* [[biotelemetria]]
+* [[bioteràpia]]
+* [[biotip]]
+* [[biòtop]]
+* [[biotractament]]
+* [[bitransistor]]
+* [[bioxip]]
+{{rel-bottom}}
+
+{{-sin-}}
+* Sufix: [[-bi]]
+
+== {{-fr-}} ==
+
+=== Prefix ===
+{{lema|fr|prefix}}
+
+# [[#ca|bio-]]
+
