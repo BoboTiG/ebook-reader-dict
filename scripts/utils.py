@@ -43,7 +43,7 @@ def format_description(locale: str, output_dir: Path) -> str:
     url = DOWNLOAD_URL.format(locale)
 
     return release_description[locale].format(
-        creation_date=now, dump_date=date, url=url, words_count=count,
+        creation_date=now, dump_date=date, locale=locale, url=url, words_count=count,
     )
 
 

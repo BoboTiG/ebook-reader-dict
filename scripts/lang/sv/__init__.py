@@ -73,13 +73,13 @@ release_description = """\
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 
-:arrow_right: Download: [dicthtml-ca.zip]({url})
+:arrow_right: Download: [dicthtml-{locale}.zip]({url})
 
 ---
 
 Installation:
 
-1. Copy the `dicthtml-ca.zip` file into the `.kobo/dict/` folder of the reader.
+1. Copy the `dicthtml-{locale}.zip` file into the `.kobo/dict/` folder of the reader.
 2. Restart the reader.
 
 ---

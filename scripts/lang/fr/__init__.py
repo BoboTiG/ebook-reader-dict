@@ -641,13 +641,13 @@ release_description = """\
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
+:arrow_right: Téléchargement : [dicthtml-{locale}.zip]({url})
 
 ---
 
 Installation :
 
-1. Copier le fichier `dicthtml-fr.zip` dans le dossier `.kobo/dict/` de la liseuse.
+1. Copier le fichier `dicthtml-{locale}.zip` dans le dossier `.kobo/dict/` de la liseuse.
 2. Redémarrer la liseuse.
 
 ---
