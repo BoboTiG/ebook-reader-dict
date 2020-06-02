@@ -7,7 +7,7 @@ import re
 from typing import List, Optional, Tuple
 from warnings import warn
 
-from .lang import all_langs
+from .lang import all_langs, templates_italic
 
 
 def capitalize(text: str) -> str:
@@ -193,6 +193,22 @@ def italic(text: str) -> str:
     return f"<i>{text}</i>"
 
 
+def lookup_italic(word: str, locale: str) -> str:
+    """
+    Find the *word* from the *templates_italic* table of the given *locale*.
+
+    If the *word* is not found, it is returned as-is.
+
+        >>> lookup_italic("", "fr")
+        ''
+        >>> lookup_italic("absol", "fr")
+        'Absolument'
+        >>> lookup_italic("inexistant", "fr")
+        'inexistant'
+    """
+    return templates_italic[locale].get(word, word)
+
+
 def number(number: str, fsep: str, tsep: str) -> str:
     """
     Format a number using the provided float and thousands separators.
@@ -351,6 +367,7 @@ __all__ = (
     "eval_expr",
     "int_to_roman",
     "italic",
+    "lookup_italic",
     "number",
     "person",
     "sentence",
