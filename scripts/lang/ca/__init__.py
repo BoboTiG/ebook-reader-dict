@@ -31,6 +31,7 @@ sections = (
 definitions_to_ignore = (
     # Ignore conjuged verbs
     "ca-forma-conj",
+    "sense accepcions",
     # Proper nouns
     "cognom",
     "prenom",
