@@ -514,7 +514,7 @@ templates_multi = {
     # {{er}}
     "er": "superscript('er')",
     # {{emploi|au passif}}
-    "emploi": "term(parts[1])",
+    "emploi": "term(capitalize(parts[1]))",
     # {{étyl|la|fro|mot=invito|type=verb}}
     "étyl": "etymology(parts)",
     # {{#expr: 2 ^ 30}}
@@ -545,7 +545,7 @@ templates_multi = {
     "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    "région": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
     # {{siècle|XVI}}
     # {{siècle|XVIII|XIX}}
     "siècle": "term(century(parts, 'siècle'))",
@@ -555,13 +555,13 @@ templates_multi = {
     "smcp": "small_caps(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "term(concat(parts, sep=' ', indexes=[0, 2]))",
+    "sport": "term(capitalize(concat(parts, sep=' ', indexes=[0, 2])))",
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
     # {{term|ne … guère que}}
-    "term": "term(parts[1])",
+    "term": "term(capitalize(parts[1]))",
     # {{terme|Astrophysique}}
-    "terme": "term(parts[1])",
+    "terme": "term(capitalize(parts[1]))",
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     # {{unité|92|%}}

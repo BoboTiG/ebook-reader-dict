@@ -14,6 +14,8 @@ def capitalize(text: str) -> str:
     """
     Capitalize the first letter only.
 
+        >>> capitalize("")
+        ''
         >>> capitalize("alice")
         'Alice'
         >>> capitalize("BOB")
@@ -21,6 +23,8 @@ def capitalize(text: str) -> str:
         >>> capitalize("alice and bob")
         'Alice and bob'
     """
+    if not text:
+        return ""
     return f"{text[0].capitalize()}{text[1:]}"
 
 
@@ -279,6 +283,16 @@ def small_caps(text: str) -> str:
     return f"<span style='font-variant:small-caps'>{text}</span>"
 
 
+def strong(text: str) -> str:
+    """
+    Return the *text* surrounded by strong HTML tags.
+
+        >>> strong("foo")
+        '<b>foo</b>'
+    """
+    return f"<b>{text}</b>"
+
+
 def subscript(text: str) -> str:
     """
     Return the *text* surrounded by subscript HTML tags.
@@ -315,7 +329,7 @@ def term(text: str) -> str:
         >>> term("")
         ''
         >>> term("foo")
-        '<i>(Foo)</i>'
+        '<i>(foo)</i>'
         >>> term("Foo")
         '<i>(Foo)</i>'
         >>> term("<i>(Foo)</i>")
@@ -325,7 +339,7 @@ def term(text: str) -> str:
         return ""
     elif text.startswith("<i>("):
         return text
-    return italic(f"({capitalize(text)})")
+    return italic(f"({text})")
 
 
 __all__ = (
@@ -341,6 +355,7 @@ __all__ = (
     "person",
     "sentence",
     "small_caps",
+    "strong",
     "subscript",
     "superscript",
     "term",

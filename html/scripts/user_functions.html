@@ -42,6 +42,8 @@ def capitalize(text: str) -&gt; str:
     &#34;&#34;&#34;
     Capitalize the first letter only.
 
+        &gt;&gt;&gt; capitalize(&#34;&#34;)
+        &#39;&#39;
         &gt;&gt;&gt; capitalize(&#34;alice&#34;)
         &#39;Alice&#39;
         &gt;&gt;&gt; capitalize(&#34;BOB&#34;)
@@ -49,6 +51,8 @@ def capitalize(text: str) -&gt; str:
         &gt;&gt;&gt; capitalize(&#34;alice and bob&#34;)
         &#39;Alice and bob&#39;
     &#34;&#34;&#34;
+    if not text:
+        return &#34;&#34;
     return f&#34;{text[0].capitalize()}{text[1:]}&#34;
 
 
@@ -307,6 +311,16 @@ def small_caps(text: str) -&gt; str:
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;
 
 
+def strong(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by strong HTML tags.
+
+        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &#39;&lt;b&gt;foo&lt;/b&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;b&gt;{text}&lt;/b&gt;&#34;
+
+
 def subscript(text: str) -&gt; str:
     &#34;&#34;&#34;
     Return the *text* surrounded by subscript HTML tags.
@@ -343,7 +357,7 @@ def term(text: str) -&gt; str:
         &gt;&gt;&gt; term(&#34;&#34;)
         &#39;&#39;
         &gt;&gt;&gt; term(&#34;foo&#34;)
-        &#39;&lt;i&gt;(Foo)&lt;/i&gt;&#39;
+        &#39;&lt;i&gt;(foo)&lt;/i&gt;&#39;
         &gt;&gt;&gt; term(&#34;Foo&#34;)
         &#39;&lt;i&gt;(Foo)&lt;/i&gt;&#39;
         &gt;&gt;&gt; term(&#34;&lt;i&gt;(Foo)&lt;/i&gt;&#34;)
@@ -353,7 +367,7 @@ def term(text: str) -&gt; str:
         return &#34;&#34;
     elif text.startswith(&#34;&lt;i&gt;(&#34;):
         return text
-    return italic(f&#34;({capitalize(text)})&#34;)
+    return italic(f&#34;({text})&#34;)
 
 
 __all__ = (
@@ -369,6 +383,7 @@ __all__ = (
     &#34;person&#34;,
     &#34;sentence&#34;,
     &#34;small_caps&#34;,
+    &#34;strong&#34;,
     &#34;subscript&#34;,
     &#34;superscript&#34;,
     &#34;term&#34;,
@@ -387,7 +402,9 @@ __all__ = (
 </code></dt>
 <dd>
 <div class="desc"><p>Capitalize the first letter only.</p>
-<pre><code>&gt;&gt;&gt; capitalize("alice")
+<pre><code>&gt;&gt;&gt; capitalize("")
+''
+&gt;&gt;&gt; capitalize("alice")
 'Alice'
 &gt;&gt;&gt; capitalize("BOB")
 'BOB'
@@ -402,6 +419,8 @@ __all__ = (
     &#34;&#34;&#34;
     Capitalize the first letter only.
 
+        &gt;&gt;&gt; capitalize(&#34;&#34;)
+        &#39;&#39;
         &gt;&gt;&gt; capitalize(&#34;alice&#34;)
         &#39;Alice&#39;
         &gt;&gt;&gt; capitalize(&#34;BOB&#34;)
@@ -409,6 +428,8 @@ __all__ = (
         &gt;&gt;&gt; capitalize(&#34;alice and bob&#34;)
         &#39;Alice and bob&#39;
     &#34;&#34;&#34;
+    if not text:
+        return &#34;&#34;
     return f&#34;{text[0].capitalize()}{text[1:]}&#34;</code></pre>
 </details>
 </dd>
@@ -872,6 +893,28 @@ to the size of lowercase letters.</p>
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;</code></pre>
 </details>
 </dd>
+<dt id="scripts.user_functions.strong"><code class="name flex">
+<span>def <span class="ident">strong</span></span>(<span>text: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the <em>text</em> surrounded by strong HTML tags.</p>
+<pre><code>&gt;&gt;&gt; strong("foo")
+'&lt;b&gt;foo&lt;/b&gt;'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def strong(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by strong HTML tags.
+
+        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &#39;&lt;b&gt;foo&lt;/b&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;b&gt;{text}&lt;/b&gt;&#34;</code></pre>
+</details>
+</dd>
 <dt id="scripts.user_functions.subscript"><code class="name flex">
 <span>def <span class="ident">subscript</span></span>(<span>text: str) -> str</span>
 </code></dt>
@@ -937,7 +980,7 @@ and is sometimes rendered in a smaller font.</p>
 <pre><code>&gt;&gt;&gt; term("")
 ''
 &gt;&gt;&gt; term("foo")
-'&lt;i&gt;(Foo)&lt;/i&gt;'
+'&lt;i&gt;(foo)&lt;/i&gt;'
 &gt;&gt;&gt; term("Foo")
 '&lt;i&gt;(Foo)&lt;/i&gt;'
 &gt;&gt;&gt; term("&lt;i&gt;(Foo)&lt;/i&gt;")
@@ -956,7 +999,7 @@ and is sometimes rendered in a smaller font.</p>
         &gt;&gt;&gt; term(&#34;&#34;)
         &#39;&#39;
         &gt;&gt;&gt; term(&#34;foo&#34;)
-        &#39;&lt;i&gt;(Foo)&lt;/i&gt;&#39;
+        &#39;&lt;i&gt;(foo)&lt;/i&gt;&#39;
         &gt;&gt;&gt; term(&#34;Foo&#34;)
         &#39;&lt;i&gt;(Foo)&lt;/i&gt;&#39;
         &gt;&gt;&gt; term(&#34;&lt;i&gt;(Foo)&lt;/i&gt;&#34;)
@@ -966,7 +1009,7 @@ and is sometimes rendered in a smaller font.</p>
         return &#34;&#34;
     elif text.startswith(&#34;&lt;i&gt;(&#34;):
         return text
-    return italic(f&#34;({capitalize(text)})&#34;)</code></pre>
+    return italic(f&#34;({text})&#34;)</code></pre>
 </details>
 </dd>
 </dl>
@@ -994,6 +1037,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
 <li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
 <li><code><a title="scripts.user_functions.small_caps" href="#scripts.user_functions.small_caps">small_caps</a></code></li>
+<li><code><a title="scripts.user_functions.strong" href="#scripts.user_functions.strong">strong</a></code></li>
 <li><code><a title="scripts.user_functions.subscript" href="#scripts.user_functions.subscript">subscript</a></code></li>
 <li><code><a title="scripts.user_functions.superscript" href="#scripts.user_functions.superscript">superscript</a></code></li>
 <li><code><a title="scripts.user_functions.term" href="#scripts.user_functions.term">term</a></code></li>
