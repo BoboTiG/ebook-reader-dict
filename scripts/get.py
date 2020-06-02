@@ -24,7 +24,14 @@ import wikitextparser._spans
 from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
-from .lang import definitions_to_ignore, genre, patterns, pronunciation, words_to_keep
+from .lang import (
+    definitions_to_ignore,
+    genre,
+    head_sections,
+    pronunciation,
+    sections,
+    words_to_keep,
+)
 from .stubs import Definitions, Words
 from .utils import clean
 
@@ -122,11 +129,14 @@ def fetch_pages(
     return output
 
 
-def find_definitions(word: str, sections: Sections, locale: str) -> List[Definitions]:
+def find_definitions(
+    word: str, parsed_sections: Sections, locale: str
+) -> List[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
-            find_section_definitions(word, section, locale) for section in sections
+            find_section_definitions(word, section, locale)
+            for section in parsed_sections
         )
     )
     if not definitions:
@@ -193,24 +203,31 @@ def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or ""
 
 
-def find_all_sections(code: str) -> Generator[str, None, None]:
+def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
     """Find all sections holding definitions."""
-    yield from wtp.parse(code).get_sections(include_subsections=False, level=3)
+    parsed = wtp.parse(code)
+
+    # Filter on interesting sections
+    for section in parsed.get_sections(include_subsections=True, level=2):
+        for head in head_sections[locale]:
+            if head in section:
+                yield from section.get_sections(include_subsections=False, level=3)
+                break
 
 
 def find_sections(code: str, locale: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
     yield from (
         section
-        for section in find_all_sections(code)
-        if section.title and section.title.lstrip().startswith(patterns[locale])  # type: ignore
+        for section in find_all_sections(code, locale)
+        if section.title and section.title.lstrip().startswith(sections[locale])  # type: ignore
     )
 
 
-def find_titles(code: str) -> Generator[str, None, None]:
+def find_titles(code: str, locale: str) -> Generator[str, None, None]:
     """Find the correct section(s) holding the current locale definition(s)."""
     yield from (
-        section.title.strip() for section in find_all_sections(code) if section.title  # type: ignore
+        section.title.strip() for section in find_all_sections(code, locale) if section.title  # type: ignore
     )
 
 
@@ -289,7 +306,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
             continue
 
         if debug:
-            for title in find_titles(code):
+            for title in find_titles(code, locale):
                 sections[title].append(word)
             for template in re.findall(r"({{[^{}]*}})", code):
                 template = template.split("|")[0].lstrip("{").rstrip("}").strip()

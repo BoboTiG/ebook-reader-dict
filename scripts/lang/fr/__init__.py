@@ -11,7 +11,8 @@ genre = r"{([fmsingp]+)}"
 # Pour récupérer la liste complète des sections :
 #     DEBUG=1 WIKI_DUMP=20200501 python -m scripts --locale fr --get-only
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
-patterns = (
+head_sections = ("{langue|fr}", "{langue|conv}")
+sections = (
     "{{S|abréviations}",
     "{{S|adjectif démonstratif|fr|",
     "{{S|adjectif démonstratif|fr}",

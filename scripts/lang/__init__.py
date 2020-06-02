@@ -30,8 +30,11 @@ genre = {
 }
 
 # Markers for sections that contain interesting text to analyse.
-patterns = {
-    "fr": fr.patterns,
+head_sections = {
+    "fr": fr.head_sections,
+}
+sections = {
+    "fr": fr.sections,
 }
 
 # The template name dealing with files in the Wikicode.

@@ -317,6 +317,8 @@ def test_xml_parse_restricted_word(tmp_path):
         <model>wikitext</model>
         <format>text/x-wiki</format>
         <text bytes="292" xml:space="preserve">{{voir|Cunnilingus}}
+
+== {{langue|fr}} ==
 === {{S|nom|fr}} ===
 {{fr-inv|ky.ni.lɛ̃.gys|sp=1}}
 [[Fichier:Édouard-Henri Avril (23).jpg|thumb|Un '''cunnilingus''']]
