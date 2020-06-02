@@ -31,7 +31,6 @@ sections = (
 definitions_to_ignore = (
     # Ignore conjuged verbs
     "ca-forma-conj",
-    "sense accepcions",
     # Proper nouns
     "cognom",
     "prenom",
@@ -42,7 +41,10 @@ definitions_to_ignore = (
 )
 words_to_keep = tuple()  # type: ignore
 
-templates_ignored = tuple()  # type: ignore
+templates_ignored = (
+    "manquen accepcions",
+    "sense accepcions",
+)
 
 templates_other = {
     "m": "m.",
