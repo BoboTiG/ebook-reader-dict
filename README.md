@@ -4,7 +4,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ## Dictionaries
 
-![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)
+[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22)
 
 - [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
 
