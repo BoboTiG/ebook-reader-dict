@@ -174,13 +174,23 @@ def find_section_definitions(
 def find_genre(code: str, pattern: Pattern[str]) -> str:
     """Find the genre."""
     match = pattern.search(code)
-    return match.group(1) if match else ""
+    if not match:
+        return ""
+    groups = match.groups()
+    if not groups:
+        return ""
+    return groups[0] or ""
 
 
 def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     """Find the pronunciation."""
     match = pattern.search(code)
-    return match.group(1) if match else ""
+    if not match:
+        return ""
+    groups = match.groups()
+    if not groups:
+        return ""
+    return groups[0] or ""
 
 
 def find_all_sections(code: str) -> Generator[str, None, None]:
