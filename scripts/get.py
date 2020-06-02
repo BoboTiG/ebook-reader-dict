@@ -277,10 +277,10 @@ def parse_word(
     It is disabled by default t spee-up the overall process, but enabled when
     called from get_and_parse_word().
     """
-    sections = find_sections(code, locale)
+    parsed_sections = find_sections(code, locale)
     pron = ""
     nature = ""
-    definitions = find_definitions(word, sections, locale)
+    definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
         pron = find_pronunciation(code, pronunciation[locale])
@@ -308,7 +308,10 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
         if debug:
             for title in find_titles(code, locale):
                 sections[title].append(word)
-            for template in re.findall(r"({{[^{}]*}})", code):
+
+            parsed_sections = find_sections(code, locale)
+            defs = "\n".join(str(s) for s in parsed_sections)
+            for template in re.findall(r"({{[^{}]*}})", defs):
                 template = template.split("|")[0].lstrip("{").rstrip("}").strip()
                 if template not in templates:
                     templates[template] = word
@@ -330,6 +333,8 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
                     # Most likely errors/mispellings
                     for entry in entries:
                         f.write(f"    - {entry!r}\n")
+                else:
+                    f.write(f"    - {entries[0]!r}\n")
 
         with open("templates.txt", "w") as f:
             for template, entry in sorted(templates.items()):
