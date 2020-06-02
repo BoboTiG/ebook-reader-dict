@@ -503,7 +503,7 @@ templates_multi = {
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{couleur|#B0F2B6}}
-    "couleur": 'f"[RGB {parts[1]}]"',
+    "couleur": "color(parts[1])",
     # {{date|1850}}
     "date": "term(parts[1])",
     # {{fchim|H|2|O}}

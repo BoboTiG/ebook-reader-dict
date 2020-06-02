@@ -52,6 +52,16 @@ def chimy(composition: Tuple[str, ...]) -> str:
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
 
 
+def color(rgb: str) -> str:
+    """
+    Format a RGB hexadecimal color.
+
+        >>> color("#B0F2B6")
+        '[RGB #B0F2B6]'
+    """
+    return f"[RGB {rgb}]"
+
+
 def concat(
     parts: Tuple[str, ...], sep: str = "", indexes: Optional[List[int]] = None
 ) -> str:
@@ -362,6 +372,7 @@ __all__ = (
     "capitalize",
     "century",
     "chimy",
+    "color",
     "concat",
     "etymology",
     "eval_expr",

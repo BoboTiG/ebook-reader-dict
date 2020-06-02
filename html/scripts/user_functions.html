@@ -35,7 +35,7 @@ import re
 from typing import List, Optional, Tuple
 from warnings import warn
 
-from .lang import all_langs
+from .lang import all_langs, templates_italic
 
 
 def capitalize(text: str) -&gt; str:
@@ -78,6 +78,16 @@ def chimy(composition: Tuple[str, ...]) -&gt; str:
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
+
+
+def color(rgb: str) -&gt; str:
+    &#34;&#34;&#34;
+    Format a RGB hexadecimal color.
+
+        &gt;&gt;&gt; color(&#34;#B0F2B6&#34;)
+        &#39;[RGB #B0F2B6]&#39;
+    &#34;&#34;&#34;
+    return f&#34;[RGB {rgb}]&#34;
 
 
 def concat(
@@ -219,6 +229,22 @@ def italic(text: str) -&gt; str:
         &#39;&lt;i&gt;foo&lt;/i&gt;&#39;
     &#34;&#34;&#34;
     return f&#34;&lt;i&gt;{text}&lt;/i&gt;&#34;
+
+
+def lookup_italic(word: str, locale: str) -&gt; str:
+    &#34;&#34;&#34;
+    Find the *word* from the *templates_italic* table of the given *locale*.
+
+    If the *word* is not found, it is returned as-is.
+
+        &gt;&gt;&gt; lookup_italic(&#34;&#34;, &#34;fr&#34;)
+        &#39;&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;absol&#34;, &#34;fr&#34;)
+        &#39;Absolument&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
+        &#39;inexistant&#39;
+    &#34;&#34;&#34;
+    return templates_italic[locale].get(word, word)
 
 
 def number(number: str, fsep: str, tsep: str) -&gt; str:
@@ -374,11 +400,13 @@ __all__ = (
     &#34;capitalize&#34;,
     &#34;century&#34;,
     &#34;chimy&#34;,
+    &#34;color&#34;,
     &#34;concat&#34;,
     &#34;etymology&#34;,
     &#34;eval_expr&#34;,
     &#34;int_to_roman&#34;,
     &#34;italic&#34;,
+    &#34;lookup_italic&#34;,
     &#34;number&#34;,
     &#34;person&#34;,
     &#34;sentence&#34;,
@@ -483,6 +511,28 @@ __all__ = (
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)</code></pre>
+</details>
+</dd>
+<dt id="scripts.user_functions.color"><code class="name flex">
+<span>def <span class="ident">color</span></span>(<span>rgb: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Format a RGB hexadecimal color.</p>
+<pre><code>&gt;&gt;&gt; color("#B0F2B6")
+'[RGB #B0F2B6]'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def color(rgb: str) -&gt; str:
+    &#34;&#34;&#34;
+    Format a RGB hexadecimal color.
+
+        &gt;&gt;&gt; color(&#34;#B0F2B6&#34;)
+        &#39;[RGB #B0F2B6]&#39;
+    &#34;&#34;&#34;
+    return f&#34;[RGB {rgb}]&#34;</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
@@ -722,6 +772,39 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         &#39;&lt;i&gt;foo&lt;/i&gt;&#39;
     &#34;&#34;&#34;
     return f&#34;&lt;i&gt;{text}&lt;/i&gt;&#34;</code></pre>
+</details>
+</dd>
+<dt id="scripts.user_functions.lookup_italic"><code class="name flex">
+<span>def <span class="ident">lookup_italic</span></span>(<span>word: str, locale: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find the <em>word</em> from the <em>templates_italic</em> table of the given <em>locale</em>.</p>
+<p>If the <em>word</em> is not found, it is returned as-is.</p>
+<pre><code>&gt;&gt;&gt; lookup_italic("", "fr")
+''
+&gt;&gt;&gt; lookup_italic("absol", "fr")
+'Absolument'
+&gt;&gt;&gt; lookup_italic("inexistant", "fr")
+'inexistant'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def lookup_italic(word: str, locale: str) -&gt; str:
+    &#34;&#34;&#34;
+    Find the *word* from the *templates_italic* table of the given *locale*.
+
+    If the *word* is not found, it is returned as-is.
+
+        &gt;&gt;&gt; lookup_italic(&#34;&#34;, &#34;fr&#34;)
+        &#39;&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;absol&#34;, &#34;fr&#34;)
+        &#39;Absolument&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
+        &#39;inexistant&#39;
+    &#34;&#34;&#34;
+    return templates_italic[locale].get(word, word)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.number"><code class="name flex">
@@ -1028,11 +1111,13 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.capitalize" href="#scripts.user_functions.capitalize">capitalize</a></code></li>
 <li><code><a title="scripts.user_functions.century" href="#scripts.user_functions.century">century</a></code></li>
 <li><code><a title="scripts.user_functions.chimy" href="#scripts.user_functions.chimy">chimy</a></code></li>
+<li><code><a title="scripts.user_functions.color" href="#scripts.user_functions.color">color</a></code></li>
 <li><code><a title="scripts.user_functions.concat" href="#scripts.user_functions.concat">concat</a></code></li>
 <li><code><a title="scripts.user_functions.etymology" href="#scripts.user_functions.etymology">etymology</a></code></li>
 <li><code><a title="scripts.user_functions.eval_expr" href="#scripts.user_functions.eval_expr">eval_expr</a></code></li>
 <li><code><a title="scripts.user_functions.int_to_roman" href="#scripts.user_functions.int_to_roman">int_to_roman</a></code></li>
 <li><code><a title="scripts.user_functions.italic" href="#scripts.user_functions.italic">italic</a></code></li>
+<li><code><a title="scripts.user_functions.lookup_italic" href="#scripts.user_functions.lookup_italic">lookup_italic</a></code></li>
 <li><code><a title="scripts.user_functions.number" href="#scripts.user_functions.number">number</a></code></li>
 <li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
 <li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
