@@ -61,6 +61,8 @@ templates_multi = {
     "color": "color(parts[1])",
     # {{e|la|lupus}}
     "e": "parts[2]",
+    # {{forma-|abreujada|ca|bicicleta}}
+    "forma-": "f\"{italic('forma ' + parts[1] + ' de')} {strong(parts[-1])}\"",
     # {{forma-a|ca|Beget}}
     "forma-a": "f\"{italic('forma alternativa de')} {strong(parts[2])}\"",
     # {{forma-pron|ca|estimar}}

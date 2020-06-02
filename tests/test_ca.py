@@ -175,6 +175,7 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
     [
         ("{{color|#E01010}}", "[RGB #E01010]"),
         ("{{e|la|lupus}}", "lupus"),
+        ("{{forma-|abreujada|ca|bicicleta}}", "<i>forma abreujada de</i> <b>bicicleta</b>"),
         ("{{forma-a|ca|Beget}}", "<i>forma alternativa de</i> <b>Beget</b>"),
         ("{{forma-pron|ca|estimar}}", "<i>forma pronominal de</i> <b>estimar</b>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
