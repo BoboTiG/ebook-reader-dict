@@ -63,12 +63,17 @@ def color(rgb: str) -> str:
 
 
 def concat(
-    parts: Tuple[str, ...], sep: str = "", indexes: Optional[List[int]] = None
+    parts: Tuple[str, ...],
+    sep: str = "",
+    indexes: Optional[List[int]] = None,
+    skip: Optional[str] = None,
 ) -> str:
     """
     Simply concat all *parts* using the *sep* character as glue.
 
     If *indexes* is set, it must be a list of integers where each of one is the part number to keep.
+    If *skip* is set, it must be a string. If a part is equal to *skip" then is it skipped and the
+    *sep* become a single space.
     It allowes to filter out some parts while keeping others.
 
         >>> concat(["92", "%"])
@@ -79,11 +84,22 @@ def concat(
         'sport'
         >>> concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
         'sport collectif'
+        >>> concat(["marca", "ca", "antigament", "_", "en plural"], sep=" ", indexes=[2, 3, 4, 5], skip="_")
+        'antigament en plural'
+        >>> concat(["antigament", "_", "en plural"], sep=" ", skip="_")
+        'antigament en plural'
     """
-    if not indexes:
-        return sep.join(parts)
+    if indexes:
+        result = [part for index, part in enumerate(parts) if index in indexes]
+    else:
+        result = list(parts)
 
-    return sep.join(part for index, part in enumerate(parts) if index in indexes)
+    if skip:
+        result = [part for part in result if part != skip]
+        if parts.count(skip):
+            sep = " "
+
+    return sep.join(result)
 
 
 def etymology(parts: Tuple[str, ...]) -> str:
