@@ -1,0 +1,140 @@
+{{vegeu|sí|Si|SI|sì|SÍ}}
+
+== {{-mul-}} ==
+
+=== Símbol ===
+{{lema|mul|símbol}}
+
+# Codi de llengua [[w:ISO 639-1|ISO 639-1]] del [[singalès]].
+
+[[Categoria:Codis de llengua]]
+
+== {{-ca-}} ==
+{{ca-pron|/si/}}
+{{-etimologia-|la|ca}}
+:*: Conjunció: del llatí {{terme|la|sī}}, {{etim-s|ca|XII}}
+:*: Nom: del llatí {{terme|la|sĭnus}}, segle XIII
+:*: Nota musical: de les inicials llatines {{terme|la|sancte|Sancte}} {{terme|la|Ioannes}} de l'himne ''Ut queant laxis'' de [[w:Pau el Diaca|Pau el Diaca]] d'on es va extraure l'escala muscical.
+{{anagrames|lang=ca|is}}
+
+=== Conjunció ===
+{{lema|ca|conjunció}}
+
+# Nexe condicional que introdueix un supòsit, una premissa
+
+{{-trad-}}
+{{inici|Conjunció}}
+* {{de}}: {{trad|de|wenn}}, {{trad|de|falls}}
+* {{en}}: {{trad|en|if}}, {{trad|en|whether}}
+* {{es}}: {{trad|es|si}}
+* {{sl}}: {{trad|sl|če}}
+{{mig}}
+* {{fr}}: {{trad|fr|si}}
+* {{hi}}: {{trad|hi|अगर}}, {{trad|hi|यदि}}
+* {{nl}}: {{trad|nl|indien}}, {{trad|nl|als}}
+* {{ru}}: {{trad|ru|если}}
+{{final}}
+
+=== Nom ===
+{{ca-nom|m|p=sins}}
+
+# Cavitat interna del cos
+# (''per extensió'') Part interna d'una cosa
+
+{{-sin-}}
+* [[bust]], [[pit]], [[sina]], [[tòrax]].
+* [[mare]], [[matriu]].
+
+{{-trad-}}
+{{inici|Cavitat interna}}
+* {{en}}: {{trad|en|cavity}}, {{trad|en|womb}}
+* {{es}}: {{trad|es|seno}}
+{{mig}}
+* {{fr}}: {{trad|fr|sinus}}
+* {{it}}: {{trad|it|seno}}
+{{final}}
+
+{{inici|Part interna}}
+* {{en}}: {{trad|en|heart}}
+* {{es}}: {{trad|es|seno}}
+{{mig}}
+* {{fr}}: {{trad|fr|sein}}
+* {{it}}: {{trad|it|seno}}
+{{final}}
+
+=== Nom ===
+{{ca-nom|m}}
+
+# Setena [[nota]] musical de l'escala
+
+{{-trad-}}
+{{inici|Nota musical}}
+* {{en}}: {{trad|en|B}}
+* {{es}}: {{trad|es|si}}
+{{mig}}
+* {{fr}}: {{trad|fr|si}}
+* {{it}}: {{trad|it|si}}
+{{final}}
+
+=== Pronom ===
+{{lema|ca|pronom}}
+
+# Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.
+
+{{-rel-}}
+{{ca-pronoms personals}}
+
+=== Vegeu també ===
+* {{ca-dicc|diec|gdlc|optimot}}
+
+== {{-es-}} ==
+{{-pronafi-}} {{pron|es|/si/}}
+
+=== Conjunció ===
+{{lema|es|conj}}
+
+# [[si#ca|si]] (nexe condicional).
+
+=== Nom ===
+{{es-nom|m}}
+
+# {{e|ca|si}} (nota musical)
+
+== {{-fr-}} ==
+{{-pronafi-}} {{pron|fr|/si/}}
+
+=== Conjunció ===
+{{lema|fr|conj}}
+
+# [[si#ca|si]] (nexe condicional).
+
+=== Adverbi ===
+{{lema|fr|adv}}
+
+# [[tan]]
+# [[sí]] (''expressant desacord a una sentència o pregunta negativa'')
+
+{{-rel-}}
+* {{e|fr|oui}}
+
+=== Nom ===
+{{fr-nom|m-i}}
+
+# {{e|ca|si}} (nota musical)
+
+== {{-la-}} ==
+{{la-pron|sī}}
+
+=== Conjunció ===
+{{lema|la|conj}}
+
+# [[si#ca|si]] (nexe condicional).
+#: ''{{lleng|la|'''Si''' versus horum duorum poetarum neglegetis, magna parte litterarum carebitis.‎}}'' — (traducció: «Si ignores els versos d'aquests dos poetes mancarà una gran part de la literatura.»)
+
+== {{-scn-}} ==
+
+=== Pronom ===
+{{lema|scn|pronom|reflexiu}}
+
+# [[es]]
+

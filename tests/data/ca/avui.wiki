@@ -1,0 +1,111 @@
+{{vegeu|AVUI}}
+
+== {{-ca-}} ==
+{{ca-pron}}
+{{etim-comp|ca|a-|pos1=adverbial|vui|lang2=roa-oca}}, de {{terme|roa-oca|hui}}, del llatí vulgar {{terme|la|*oie}}, del clàssic {{terme|la|hǒdǐe}}, {{etim-s|ca|XIII}}.
+{{anagrames|lang=ca|viau|aviu}}
+
+=== Adverbi ===
+{{lema|ca|adv}}
+
+# En el [[dia]] actual.
+# Metafòricament, en el [[present]].
+
+{{-sin-}}
+* [1] [[hui]].
+* [2] [[hui]], [[a hores d'ara]], [[actualment]], [[ara]], [[ara com ara]], [[ara per ara]], [[ja]].
+
+{{-comp-}}
+* [[avui per demà]]
+* [[d'avui a demà]]
+* [[d'avui endavant]]
+* [[en tal dia com avui]]
+* [[avui dia]]
+* [[d'avui en vuit]], [[d'avui en quinze]]
+
+{{-rel-}}
+{{ca-avui}}
+
+{{-trad-}}
+{{inici|En el dia actual}}
+* {{af}}: {{trad|af|vandag}}
+* {{ay}}: {{trad|ay|jichhüru}}
+* {{de}}: {{trad|de|heute}}
+* {{en}}: {{trad|en|today}}
+* {{an}}: {{trad|an|hue}}
+* {{ast}}: {{trad|ast|güei}}
+* {{eu}}: {{trad|eu|gaur}}
+* {{bn}}: {{trad|bn|আজ}}
+* {{bg}}: {{trad|bg|днес}}
+* {{es}}: {{trad|es|hoy}}
+* {{da}}: {{trad|da|i dag}}
+* {{sk}}: {{trad|sk|dnes}}
+* {{sl}}: {{trad|sl|danes}}
+* {{eo}}: {{trad|eo|hodiaŭ}}
+* {{et}}: {{trad|et|täna}}
+* {{fo}}: {{trad|fo|í dag}}
+* {{fi}}: {{trad|fi|tänään}}
+* {{fr}}: {{trad|fr|aujourd'hui}}
+* {{fur}}: {{trad|fur|vuê}}
+* {{gl}}: {{trad|gl|hoxe}}
+* {{cy}}: {{trad|cy|heddiw}}
+* {{el}}: {{trad|el|σήμερα}}
+* {{grc}}: {{trad|grc|σήμερον}}
+* {{gn}}: {{trad|gn|ange}}
+* {{gu}}: {{trad|gu|આજે}}
+* {{he}}: {{trad|he|הַיּוֹם‎}}
+* {{hi}}: {{trad|hi|आज}}
+* {{hu}}: {{trad|hu|ma}}
+* {{io}}: {{trad|io|hodie}}, {{trad|io|cadie}}
+* {{ga}}: {{trad|ga|inniu}}
+* {{is}}: {{trad|is|í dag}}
+* {{it}}: {{trad|it|oggi}}
+* {{ja}}: {{trad|ja|今日}}
+* {{yi}}: {{trad|yi|הײַנט‎}}
+{{mig}}
+* {{kk}}: {{trad|kk|бүгін}}
+* {{ky}}: {{trad|ky|бүгүн}}
+* {{lv}}: {{trad|lv|šodien}}
+* {{lt}}: {{trad|lt|šiandien}}
+* {{la}}: {{trad|la|hodie}}
+* {{csc}}: {{trad|csc|AVUI}}
+* {{lb}}: {{trad|lb|haut}}
+* {{nv}}: {{trad|nv|díí jį́}}
+* {{nl}}: {{trad|nl|vandaag}}
+* {{oc}}: {{trad|oc|uèi}}
+* {{fa}}: {{trad|fa|امروز‎}}
+* {{pt}}: {{trad|pt|hoje}}
+* {{rm}}: {{trad|rm|oz}}
+* {{ro}}: {{trad|ro|astăzi}}, {{trad|ro|azi}}
+* {{ru}}: {{trad|ru|сегодня}}
+* {{sc}}: {{trad|sc|oi}}
+* {{sh}}: {{trad|sh|данас}}, {{trad|sh|danas}}
+* {{scn}}: {{trad|scn|oi}}, {{trad|scn|oggi}}
+* {{sv}}: {{trad|sv|idag}}
+* {{tg}}: {{trad|tg|имрӯз}}
+* {{tl}}: {{trad|tl|ngayon}}
+* {{ty}}: i teie nei {{trad|ty|mahana}}
+* {{tt}}: {{trad|tt|бүген}}
+* {{tr}}: {{trad|tr|bugün}}
+* {{cs}}: {{trad|cs|dnes}}
+* {{uk}}: {{trad|uk|сього́дні}}
+* {{ur}}: {{trad|ur|آج‎}}
+* {{uz}}: {{trad|uz|bugun}}
+* {{wa}}: {{trad|wa|ouy}}
+* {{vec}}: {{trad|vec|ancùo}}
+* {{vi}}: {{trad|vi|hôm nay}}
+* {{vo}}: {{trad|vo|adelo}}
+* {{wo}}: {{trad|wo|tey}}
+* {{zh}}: {{trad|zh|今天}}
+{{final}}
+
+{{inici|En el present}}
+* {{en}}: {{trad|en|today}}
+* {{es}}: {{trad|es|hoy}}
+{{mig}}
+* {{csc}}: {{trad|csc|ARA}}
+{{final}}
+
+=== Vegeu també ===
+* {{ca-dicc|diec|gdlc|optimot}}
+

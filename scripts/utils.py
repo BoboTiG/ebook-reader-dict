@@ -345,7 +345,8 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
         return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
-        return templates_other[locale][tpl]
+        result: str = templates_other[locale][tpl]
+        return result
 
     # This is a country in the current locale
     with suppress(KeyError):

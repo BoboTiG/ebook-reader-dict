@@ -1,0 +1,40 @@
+{{vegeu|CH}}
+
+== {{-mul-}} ==
+
+=== Símbol ===
+{{lema|mul|símbol}}
+
+# Codi de llengua [[w:ISO 639-1|ISO 639-1]] del [[chamorro]].
+
+[[Categoria:Codis de llengua]]
+
+== {{-ca-}} ==
+
+=== Lletra ===
+{{lema|ca|lletra}}
+
+# {{marca|ca|arcaic}} Especialment a final de mot, dígraf amb una consonant muda per remarcar la grafia d’una oclusiva velar sorda {{IPAchar|[k]}} i no pas una de sonora {{IPAchar|[ɡ]}}.
+
+==== Notes ====
+* Per exemple, ''antic'' se sonoritza en femení ''antiga'', però ''antic/antich abat'' no se sonoritza.
+* En la [[:w:Normes ortogràfiques|reforma ortogràfica del 1913]] es va suprimir aquesta ''h'' no etimològica. Prèviament el seu ús ja era discutit i variable segons els autors.
+* Es manté fossilitzat en diversos cognoms i durant un temps es va mantenir fossilitzat en castellà per alguns topònims catalans.
+
+=== Vegeu també ===
+* {{Viquipèdia}}
+
+== {{-es-}} ==
+
+=== Lletra ===
+{{lema|es|lletra}}
+
+# Dígraf ''{{e|es|c}}''+''{{e|es|h}}''.
+
+==== Notes ====
+* Abans de l’any 2010 formava part de l’alfabet castellà ordenat separadament després de la ce.
+* Representa el so africat postalveolar sord {{IPAchar|[tʃ]}} equivalent al dígraf català ''tx''.
+
+{{-rel-}}
+{{alfabet/es}}
+

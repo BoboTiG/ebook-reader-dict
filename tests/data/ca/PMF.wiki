@@ -1,0 +1,25 @@
+== {{-ca-}} ==
+{{ca-pron|or=/ˌpeˈe.məˌe.fə/|occ=/ˌpeˈe.maˌe.fa/}}
+
+=== Sigles ===
+{{lema|ca|sigles|g=f}}
+
+# [[preguntes|Preguntes]] [[més|Més]] [[freqüents|Freqüents]].
+
+{{-trad-}}
+{{inici}}
+* {{en}} : {{trad|en|FAQ}}
+* {{es}} : {{trad|es|PMF|f}}
+{{mig}}
+* {{fi}} : {{trad|fi|UKK}}
+* {{fr}} : {{trad|fr|FAQ|f}}
+{{final}}
+
+== {{-es-}} ==
+{{pronafi|es|/ˌpeˈe.meˌe.fe/}}
+
+=== Sigles ===
+{{lema|es|sigles|g=f}}
+
+# [[preguntas|Preguntas]] [[más|Más]] [[frecuentes|Frecuentes]], és a dir, [[PMF]].
+

@@ -1,0 +1,58 @@
+{{vegeu|DISSET}}
+
+== {{-ca-}} ==
+{{ca-pron|è}}
+{{-etimologia-|la|ca}} Del llatí {{terme|la|decem}} {{terme|la|et}} {{terme|la|septem|trad=deu i set}}.
+{{anagrames|lang=ca|distès|distés}}
+
+=== Numeral ===
+{{numeral|ca|16|17|18|setze|divuit|card=disset|ord=dissetè|pref=heptadeca-|llista=Viccionari:Llista de nombres en català }}
+{{ca-num}}
+
+# {{marca|ca|cardinal}} [[nombre|Nombre]] enter situat entre el [[setze]] i el [[divuit]].
+#: ''Té disset anys''
+# {{marca|ca|valor ordinal}} [[dissetè|Dissetè]], [[dissetena]].
+#: ''La pàgina disset''
+#: ''El dia disset de maig''
+
+{{-sin-}}
+* [[desset]], en balear i alguerès.
+* [[dèsset]], en valencià.
+* [[desasset]], en septentrional.
+
+{{-trad-}}
+{{inici}}
+* {{de}}: {{trad|de|siebzehn}}
+* {{en}}: {{trad|en|seventeen}}
+* {{eu}}: {{trad|eu|hamazazpi}}
+* {{es}}: {{trad|es|diecisiete}}
+* {{eo}}: {{trad|eo|dek sep}}
+* {{fr}}: {{trad|fr|dix-sept}}
+* {{gl}}: {{trad|gl|dezasete}}
+* {{it}}: {{trad|it|diciassette}}
+{{mig}}
+* {{csc}}: {{trad|csc|DISSET}}
+* {{oc}}: {{trad|oc|dètz-e-sèt}}
+* {{pt}}: {{trad|pt|dezassete}}, {{trad|pt|dezessete}}
+* {{ro}}: {{trad|ro|şaptesprezece}}
+* {{ru}}: {{trad|ru|семна́дцать}}
+* {{sc}}: {{trad|sc|deghessette }}
+* {{sv}}: {{trad|sv|sjutton}}
+* {{ty}}: hō'ē {{trad|ty|'ahuru}} ma hitu
+{{final}}
+
+=== Nom ===
+{{ca-nom|m}}
+
+# [[xifra|Xifra]] i [[nombre]] [[17]].
+
+=== Nom ===
+{{ca-nom|fp}}
+
+# Dissetena [[hora]].
+#: ''L'autobús surt a les disset (les cinc de la tarda)''
+
+=== Vegeu també ===
+* {{Viquipèdia}}
+* {{ca-dicc|diec|gdlc|optimot}}
+

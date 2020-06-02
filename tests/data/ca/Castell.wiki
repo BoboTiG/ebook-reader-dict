@@ -1,0 +1,34 @@
+{{vegeu|castell}}
+
+== {{-ca-}} ==
+{{ca-pron|é}}
+{{-etimologia-}} De {{terme|ca|castell}}.
+{{anagrames|lang=ca|llescat}}
+
+=== Nom propi ===
+{{lema|ca|nom propi}}
+
+# Diversos topònims, especialment:
+## {{w|Es Castell}}, municipi de Menorca.
+## {{w|Castell de l'Areny}}, municipi del Berguedà.
+## {{w|Castell de Cabres}}, municipi del Baix Maestrat.
+## {{w|Castell de Castells}}, municipi de la Marina Alta.
+## {{w|El Castell de Guadalest}}, municipi de la Marina Baixa.
+## {{w|Castell de Mur}}, municipi del Pallars Jussà.
+## {{w|Castell i Platja d'Aro}}, municipi del Baix Empordà.
+## {{w|Castell de Vernet}}, municipi del Conflent.
+## {{w|El Castell de Vilamalefa}}, municipi de l’Alt Millars.
+# {{cognom|ca|d’habitatge}}
+
+{{-der-}}
+* [[Castells]]
+* {{q|gentilicis}} [[castellenc]], [[castellarenc]], [[casteller]]
+
+{{-rel-}}
+* [[Castelló]]
+
+=== Vegeu també ===
+* {{Viquipèdia|Castell (desambiguació)|Castell}}
+* {{ca-dicc|dcvb}}
+* [http://www.idescat.cat/cognoms/?q=Castell Cognoms de la població], Idescat
+

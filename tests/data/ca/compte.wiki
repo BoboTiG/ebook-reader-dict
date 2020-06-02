@@ -1,0 +1,110 @@
+== {{-ca-}} ==
+{{ca-pron|ó}}
+{{homòfons|lang=ca|compta|comte}}
+{{parònims|lang=ca|conte}}
+{{etim-lang|la|ca|compŭtus}}, {{etim-s|ca|XIII}}.
+
+=== Nom ===
+{{ca-nom|m}}
+
+# Acte de [[comptar]].
+# Cura, [[atenció]].
+# Suma de la quantitat a pagar.
+# {{marca|ca|beisbol}} Acció i efecte de l'àrbitre principal de determinar el nombre de boles i strikes d'un batedor en un temps de bat.
+
+{{-comp-}}
+* sortir de comptes = estar a punt per al [[part]]
+* saber de comptes = ser bo en matemàtiques o [[economia]]
+* no quadrar els comptes = faltar [[diners]]
+* treure (un problema pel compte de la vella) = no utilitzar més que les matemàtiques bàsiques i la lògica
+* compte corrent = dipòsit bancari
+* més del compte = en excés, [[massa]]
+* sortir a compte = [[compensar]]
+
+{{-sin-}}
+* [[advertiment]], [[alerta]], [[atenció]], [[cura]], [[ei]], [[ep]], [[precaució]]
+* [[atenció]], [[consideració]], [[cura]], [[esment]]
+* [[càlcul]], [[còmput]]
+* [[comptabilitat]]
+* [[explicació]], [[report]]
+* [[factura]], [[nota]]
+
+{{-trad-}}
+{{inici|Acte de comptar}}
+* {{de}}: {{trad|de|Zählen|n}}
+* {{en}}: {{trad|en|count}}
+* {{es}}: {{trad|es|cuenta}}
+{{mig}}
+* {{fr}}: {{trad|fr|compte}}
+* {{oc}}: {{trad|oc|compte}}
+{{final}}
+
+{{inici|Cura, atenció}}
+* {{en}}: {{trad|en|care}}
+* {{es}}: {{trad|es|cuidado}}
+{{mig}}
+* {{fr}}: {{trad|fr|attention}}
+{{final}}
+
+{{inici|Suma de la quantitat a pagar}}
+* {{en}}: {{trad|en|account}}, {{trad|en|bill}}
+* {{es}}: {{trad|es|cuenta}}
+{{mig}}
+* {{fr}}: {{trad|fr|addition}}
+{{final}}
+
+{{inici|Beisbol: nombre de boles i strikes d'un batedor}}
+* {{en}}: {{trad|en|count}}
+* {{es}}: {{trad|es|cuenta}}
+{{mig}}
+* {{fr}}: {{trad|fr|compte}}
+{{final}}
+
+=== Interjecció ===
+{{lema|ca|interj}}
+
+# [[atenció]]
+
+{{-trad-}}
+{{inici|Compte!}}
+* {{de}}: {{trad|de|pass auf}}
+* {{en}}: {{trad|en|look out}}, {{trad|en|take care}}
+{{mig}}
+* {{es}}: {{trad|es|cuidado}}
+* {{hi}}: {{trad|hi|हैं हैं}}
+{{final}}
+
+=== Verb ===
+{{ca-verb-forma}}
+
+# {{marca-nocat|ca|valencià}} {{ca-forma-conj|comptar|1|pres|ind}}
+# {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|1|pres|subj}}
+# {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|3|pres|subj}}
+# {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|3|imp}}
+
+=== Vegeu també ===
+* {{Viquipèdia}}
+* {{ca-dicc|diec|gdlc|optimot}}
+* {{Amical-Termcat|esport}}
+* {{tesaure}}
+
+== {{-fr-}} ==
+{{-pronafi-}} {{pron|fr|/kɔ̃t/}}
+
+=== Nom ===
+{{fr-nom|m}}
+
+# {{e|ca|compte}}
+
+== {{-oc-}} ==
+{{pronafi|oc|/ˈkun.te/}} {{àudio simple|lang=oc|LL-Q14185 (oci)-Davidgrosclaude-compte.wav|àudio Bearn (França)}}
+{{etim-lang|la|oc|computus}}.
+
+=== Nom ===
+{{oc-nom|m}}
+
+# {{e|ca|compte}}
+
+{{-var-}}
+* {{e|oc|compde}} {{q|aranès}}
+
