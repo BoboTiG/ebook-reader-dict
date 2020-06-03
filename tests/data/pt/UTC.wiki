@@ -1,0 +1,25 @@
+={{-pt-}}=
+==Sigla==
+'''''UTC'''''
+# {{escopo|pt|estrangeirismo}} ver [[TUC]]
+
+
+[[Categoria:Sigla (Português)]]
+
+
+={{-en-}}=
+==Sigla==
+'''UTC'''
+# ''Universal Time Coordinated'': [[TUC]] (Tempo Universal Coordenado)
+
+=={{etimologia|en}}==
+: Formado a partir de ''Universal Time'', pela adição do modificador ''Coordinated''.
+
+==Ver também==
+===Na Wikipédia===
+* [[w:UTC|Artigo sobre UTC na Wikipédia]]
+* [http://www.zenite.nu/menu02/hora.shtml Breves comentários sobre UTC e fusos horários]
+
+[[Categoria:Sigla]]
+[[Categoria:Tempo (Inglês)]]
+

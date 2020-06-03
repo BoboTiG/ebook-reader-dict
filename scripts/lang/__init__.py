@@ -1,7 +1,7 @@
 """Internationalization stuff."""
 import re
 
-from . import ca, fr, sv
+from . import ca, fr, pt, sv
 from .fr.langs import langs as FR
 
 # A list of all languages translated into different locales
@@ -13,6 +13,7 @@ all_langs = {
 pronunciation = {
     "ca": re.compile(ca.pronunciation),
     "fr": re.compile(fr.pronunciation),
+    "pt": re.compile(pt.pronunciation),
     "sv": re.compile(sv.pronunciation),
 }
 
@@ -20,6 +21,7 @@ pronunciation = {
 genre = {
     "ca": re.compile(ca.genre),
     "fr": re.compile(fr.genre),
+    "pt": re.compile(pt.genre),
     "sv": re.compile(sv.genre),
 }
 
@@ -27,6 +29,7 @@ genre = {
 float_separator = {
     "ca": ca.float_separator,
     "fr": fr.float_separator,
+    "pt": pt.float_separator,
     "sv": sv.float_separator,
 }
 
@@ -34,6 +37,7 @@ float_separator = {
 thousands_separator = {
     "ca": ca.thousands_separator,
     "fr": fr.thousands_separator,
+    "pt": pt.thousands_separator,
     "sv": sv.thousands_separator,
 }
 
@@ -41,16 +45,19 @@ thousands_separator = {
 section_level = {
     "ca": ca.section_level,
     "fr": fr.section_level,
+    "pt": pt.section_level,
     "sv": sv.section_level,
 }
 head_sections = {
     "ca": ca.head_sections,
     "fr": fr.head_sections,
+    "pt": pt.head_sections,
     "sv": sv.head_sections,
 }
 sections = {
     "ca": ca.sections,
     "fr": fr.sections,
+    "pt": pt.sections,
     "sv": sv.sections,
 }
 
@@ -58,6 +65,7 @@ sections = {
 definitions_to_ignore = {
     "ca": ca.definitions_to_ignore,
     "fr": fr.definitions_to_ignore,
+    "pt": pt.definitions_to_ignore,
     "sv": sv.definitions_to_ignore,
 }
 
@@ -65,6 +73,7 @@ definitions_to_ignore = {
 words_to_keep = {
     "ca": ca.words_to_keep,
     "fr": fr.words_to_keep,
+    "pt": pt.words_to_keep,
     "sv": sv.words_to_keep,
 }
 
@@ -81,6 +90,7 @@ pattern_file = ("Fichier", "File", "Fitxer", "Image")
 templates_ignored = {
     "ca": ca.templates_ignored,
     "fr": fr.templates_ignored,
+    "pt": pt.templates_ignored,
     "sv": sv.templates_ignored,
 }
 
@@ -92,6 +102,7 @@ templates_ignored = {
 templates_italic = {
     "ca": ca.templates_italic,
     "fr": fr.templates_italic,
+    "pt": pt.templates_italic,
     "sv": sv.templates_italic,
 }
 
@@ -114,6 +125,7 @@ templates_italic = {
 templates_multi = {
     "ca": ca.templates_multi,
     "fr": fr.templates_multi,
+    "pt": pt.templates_multi,
     "sv": sv.templates_multi,
 }
 
@@ -121,6 +133,7 @@ templates_multi = {
 templates_other = {
     "ca": ca.templates_other,
     "fr": fr.templates_other,
+    "pt": pt.templates_other,
     "sv": sv.templates_other,
 }
 
@@ -129,6 +142,7 @@ templates_other = {
 templates_warning_skip = {
     "ca": ca.templates_warning_skip,
     "fr": fr.templates_warning_skip,
+    "pt": pt.templates_warning_skip,
     "sv": sv.templates_warning_skip,
 }
 
@@ -137,6 +151,7 @@ templates_warning_skip = {
 release_description = {
     "ca": ca.release_description,
     "fr": fr.release_description,
+    "pt": pt.release_description,
     "sv": sv.release_description,
 }
 
@@ -144,5 +159,6 @@ release_description = {
 wiktionary = {
     "ca": ca.wiktionary,
     "fr": fr.wiktionary,
+    "pt": pt.wiktionary,
     "sv": sv.wiktionary,
 }

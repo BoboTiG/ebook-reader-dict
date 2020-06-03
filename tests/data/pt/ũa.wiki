@@ -1,0 +1,46 @@
+={{-pt-}}=
+==Artigo==
+{{flex.pt|ms=ũu|mp=ũus|fs=ũa|fp=ũas}}
+'''ũa''' ''indefinido''
+# ortografia antiga de [[uma]]
+
+=={{etimologia|pt}}==
+: Do Latim ''una-'': ''una-'' deu '''ũa''' por queda do '''n''' com a nasalação do '''ũ'''.
+
+==Ver também==
+===No Wikcionário===
+* [[uã]]
+
+[[Categoria:Artigo (Português)]]
+[[Categoria:Entrada com etimologia (Português)]]
+[[Categoria:Entrada de étimo latino (Português)]]
+
+
+={{-roa-gpm-}}=
+==Artigo==
+{{flex.roa-gpm|ms=ũu|mp=ũus|fs=ũa|fp=ũas}}
+'''ũa''', ''indefinido''
+# [[uma]]
+
+=={{etimologia|roa-gpm}}==
+{{llietimo|la|una|roa-gpm}}
+
+[[Categoria:Artigo (Galego-Português Medieval)]]
+
+
+={{-mwl-}}=
+==Artigo==
+'''ũa''' ''indefinido''
+# [[uma]]
+# feminino da forma [[un]] ''(um)''
+
+=={{etimologia|mwl}}==
+: Do Latim ''una-'': ''una-'' deu '''ũa''' por queda do '''n''' com a nasalação do '''ũ'''.
+
+[[Categoria:Artigo (Mirandês)]]
+[[Categoria:Entrada com etimologia (Mirandês)]]
+[[Categoria:Entrada de étimo latino (Mirandês)]]
+
+[[en:ũa]]
+[[fr:ũa]]
+

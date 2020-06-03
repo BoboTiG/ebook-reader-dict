@@ -1,0 +1,120 @@
+={{-pt-}}=
+==Preposição==
+{{paroxítona|pa|ra}}
+# exprime [[fim]], [[destino]], [[lugar]], [[tempo]], [[direção]] etc
+
+===Tradução===
+{{tradini}}
+* {{trad|ast|pa}}
+* {{trad|es|para}}
+* {{trad|en|to|for|toward|towards|at}}
+* {{trad|ms|agar}}
+{{tradmeio}}
+* {{trad|mwl|para|pa}}
+* {{trad|fa|به}}
+* {{trad|tet|atu|hodi}}
+{{tradfim}}
+
+==={{etimologia|pt}}===
+: Do {{etm|la|pt}} {{etimo|la|per}} {{etimo|la|ad}}.
+
+==Forma verbal==
+{{paroxítona|pa|ra}}
+# terceira pessoa do singular do presente do indicativo do verbo [[parar]]
+# segunda pessoa do singular do imperativo do verbo [[parar]]
+
+{{avi-for-fle|parar}}
+
+==={{-varort-}}===
+* {{escopo2|Anterior ao AO 199}} [[pára]]
+
+=={{pronúncia|pt}}==
+: [[AFI]]: ['pɐɾɐ]
+
+[[Categoria:Preposição (Português)]]
+[[Categoria:Forma verbal (Português)]]
+[[Categoria:Tempo (Português)]]
+
+={{-gl-}}=
+==Preposição==
+{{paroxítona|pa|ra|lang=gl}}
+# [[para#{{pt}}|para]]
+
+==Substantivo<sup>1</sup>==
+{{flex.gl|fs=para|fp=paras}}
+{{paroxítona|pa|ra|lang=gl}}, {{g|f|lang=gl}}
+# casca, pele exterior tirada de um fruto, ou tubérculo, casca do [[queijo]]
+# [[apara]] da madeira
+# [[pasta]] entre as [[mó]]s do moinho, que faz o grão novo ao ser moído para farinha, por estar ainda com umidade
+
+===Sinónimo===
+* De '''1''' (casca): [[prana#{{gl}}|prana]]
+
+==={{etimologia|gl}}===
+: Confronte-se com o húngaro {{etimo|hu|para}} "[[cortiça]], casca de árvore".
+
+==Substantivo<sup>2</sup>==
+{{flex.gl|fs=para|fp=paras}}
+{{paroxítona|pa|ra|lang=gl}}, {{g|f|lang=gl}}
+# [[placenta]] no momento do parto
+
+===Sinónimos===
+* [[libertação#{{gl}}|libertação]], [[livras#{{gl}}|livras]], [[párias#{{gl}}|párias]], [[quitas#{{gl}}|quitas]]
+
+==Forma verbal==
+{{paroxítona|pa|ra|lang=gl}}
+# terceira pessoa do singular do presente do indicativo do verbo [[parar#{{gl}}|parar]]
+# segunda pessoa do singular do imperativo do verbo [[parar#{{gl}}|parar]]
+
+{{avi-for-fle|parar}}
+
+==={{etimologia|gl}}===
+: De ''[[parir#{{gl}}|parir]]''.
+
+[[Categoria:Preposição (Galego)]]
+[[Categoria:Substantivo (Galego)]]
+[[Categoria:Forma verbal (Galego)]]
+
+
+={{-mwl-}}=
+==Preposição==
+{{paroxítona|pa|ra|língua=mwl}}
+# [[para#Português|para]]
+
+===Nota===
+*: Utilizado em todas as situações excepto antes de artigos definidos. Nessa situação utilizar ''[[pa#Mirandês|pa]]''.
+:: Aqueilho ye [[para#Mirandês|para]] [[nós#Mirandês|nós]]. - <small>Aquilo é para nós.</small>
+:: [[aqueilho|Aqueilho]] ye '''pa''' [[l]] [[perro#Mirandês|perro]]. - <small>Aquilo é para o cão.</small>
+
+{{flex.mwl.contr.definidos}}
+
+[[Categoria:Preposição (Mirandês)]]
+
+
+={{-pap-}}=
+==Substantivo==
+'''para'''
+# [[pássaro]]
+
+[[Categoria:Substantivo (Papiamento)]]
+[[Categoria:Ave (Papiamento)]]
+[[Categoria:Falso cognato (Papiamento)]]
+
+
+={{-tet-}}=
+==Verbo==
+'''para'''
+# [[parar]]
+
+[[Categoria:Verbo (Tétum)]]
+
+
+={{-tr-}}=
+==Substantivo==
+'''para'''
+# [[dinheiro]]
+
+[[Categoria:Substantivo (Turco)]]
+[[Categoria:Economia (Turco)]]
+[[Categoria:Falso cognato (Turco)]]
+

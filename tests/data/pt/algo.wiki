@@ -1,0 +1,38 @@
+={{-pt-}}=
+==Advérbio==
+{{paroxítona|al|go}}, {{datação|897}}
+# um [[pouco]], de [[certo]] [[modo]]
+#* ''Isto me parece '''algo''' estranho.''
+
+==Pronome==
+{{paroxítona|al|go}}, ''pronome indefinido substantivo''
+# [[objeto]] (não-identificado) de que se fala
+#* '''''Algo''' assim eu nunca vi.''
+
+===Tradução===
+{{tradini}}
+* {{trad|de|ein wenig|etwas}}
+* {{trad|fr|quelque}}
+* {{trad|en|something|somewhat}}
+{{tradmeio}}
+* {{trad|sv|något}}
+* {{trad|ur|کچھ}}
+{{tradfim}}
+
+===Verbetes derivados===
+* [[nalgo]]
+
+=={{pronúncia|pt}}==
+===Brasil===
+====Paulistana e Caipira====
+* [[AFI]]: /ˈaw.gu/
+* [[SAMPA]]: /"aw.gu/
+
+==Anagramas==
+# [[galo]]
+# [[gola]]
+# [[lago]]
+
+[[Categoria:Advérbio (Português)]]
+[[Categoria:Pronome (Português)]]
+

@@ -15,6 +15,7 @@ jobs:
         locale:
           - ca
           - fr
+          - pt
           - sv
 
     steps:

@@ -1,0 +1,49 @@
+={{-pt-}}=
+==Adjetivo==
+{{flex.pt|s=cabrum|p=cabruns}}
+{{oxítona|ca|brum}}, {{mf}}
+# {{escopo|Pecuária}} de [[cabra]]s:
+#* ''o gado '''cabrum''' adapta-se facilmente às regiões montanhosas...''
+# {{escopo|Regionalismo, Brasil}} [[marido]] de [[mulher]] [[adúltero|adúltera]]
+
+===Sinônimos===
+De '''1''' (de cabras):
+{{verTambém.Ini}}
+* [[caprídeo]]
+{{verTambém.NovaColuna}}
+* [[caprino]]
+{{verTambém.Fim}}
+
+===Tradução===
+{{tradini|De 1 (de cabra)}}
+* {{trad|es|caprino}}
+* {{trad|eo|kapra}}
+* {{trad|fr|chevrier}}
+{{tradmeio}}
+* {{trad|en|goatish|goatlike}}
+* {{trad|it|caprino}}
+* {{trad|pl|kozi}}
+{{tradfim}}
+
+==Interjeição==
+{{oxítona|ca|brum}}
+# indica [[estrondo]]
+
+=={{etimologia|pt}}==
+{{llietimo|la|caprunu|pt||cabra}}
+
+==Ver também==
+===No Wikcionário===
+{{verTambém.Ini}}
+* {{verTambém.Ligações|cabr-}}
+* {{verTambém.Ligações|capr(i)-}}
+* {{verTambém.Ligações|-capr(i)-}}
+* [[cabra]]
+{{verTambém.Fim}}
+
+[[Categoria:Adjetivo (Português)]]
+[[Categoria:Interjeição (Português)]]
+[[Categoria:Zoologia (Português)]]
+[[Categoria:Pecuária (Português)]]
+[[Categoria:Regionalismo (Português)]]
+

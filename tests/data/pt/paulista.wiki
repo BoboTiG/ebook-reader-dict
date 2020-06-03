@@ -1,0 +1,31 @@
+{{confundir|paulistano}}
+
+={{-pt-}}=
+==Adjetivo==
+{{flex.pt|s=paulista|p=paulistas}}
+{{paroxítona|pau|lis|ta}}, {{c2g}}
+# diz-se de [[pessoa]] de origem do Estado de São Paulo, Brasil
+# diz-se de artigo ou objeto do Estado de São Paulo
+
+==Substantivo==
+{{paroxítona|pau|lis|ta}}, {{c2g}}
+# [[pessoa]] de origem do Estado de São Paulo, Brasil
+# artigo ou objeto do Estado de São Paulo
+
+=={{pronúncia|pt}}==
+===Brasil===
+====Paulistana e Caipira====
+* [[AFI]]: {{IPA|/paw.ˈlis.tə/|lang=pt}} 
+* [[SAMPA]]: /paw."lis.ta/
+
+==Ver também==
+===No Wikcionário===
+* [[paulistano]]
+
+===Na Wikipédia===
+* [[w:São Paulo|São Paulo]]
+
+[[Categoria:Adjetivo (Português)]]
+[[Categoria:Substantivo (Português)]]
+[[Categoria:Gentílico (Português)]]
+
