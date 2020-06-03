@@ -38,6 +38,11 @@ thousands_separator = {
 }
 
 # Markers for sections that contain interesting text to analyse.
+section_level = {
+    "ca": ca.section_level,
+    "fr": fr.section_level,
+    "sv": sv.section_level,
+}
 head_sections = {
     "ca": ca.head_sections,
     "fr": fr.head_sections,

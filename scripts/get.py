@@ -29,6 +29,7 @@ from .lang import (
     genre,
     head_sections,
     pronunciation,
+    section_level,
     sections,
     words_to_keep,
 )
@@ -208,11 +209,14 @@ def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
     parsed = wtp.parse(code)
 
     # Filter on interesting sections
-    for section in parsed.get_sections(include_subsections=True, level=2):
+    level = section_level[locale]
+    for section in parsed.get_sections(include_subsections=True, level=level):
         title = section.title
         for head in head_sections[locale]:
             if head in title:
-                yield from section.get_sections(include_subsections=False, level=3)
+                yield from section.get_sections(
+                    include_subsections=False, level=level + 1
+                )
                 break
 
 
