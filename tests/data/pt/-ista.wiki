@@ -1,0 +1,74 @@
+={{-pt-}}=
+==Sufixo==
+'''-<u>is</u>.ta''', ''nominal''
+# que [[seguir|segue]] um [[princípio]]
+#* ''Bud'''ista'''.''
+# que é [[estudioso]] ou [[profissional]] de um assunto
+#* ''[[latinista]], [[cientista]]''
+# que [[usar|usa]] algo
+#* ''Flaut'''ista'''.''
+# que tem uma [[visão]] [[preconceituoso|preconceituosa]]
+#* ''Rac'''ista''', sex'''ista'''.''
+
+===Tradução===
+{{tradini}}
+* {{trad|es|-ista}}
+* {{trad|eo|-isto}}
+* {{trad|fr|-iste}}
+{{tradmeio}}
+* {{trad|en|-ist|-ista}}
+* {{trad|it|-ista}}
+* {{trad|pl|-ista|-istka}}
+{{tradfim}}
+
+=={{etimologia|pt}}==
+: Do [[grego antigo]] ''[[-ιστεσ]]'' (''-istes'') através do [[latim]] ''[[-ista#Latim|-ista]]'' através do [[francês antigo]] ''[[-iste]]''.
+
+[[Categoria:Sufixo (Português)]]
+
+
+={{-es-}}=
+==Sufixo==
+'''-ista''' ''nominal''
+# [[-ista#Português|-ista]]
+
+=={{etimologia|es}}==
+: Do [[grego antigo]] ''[[-ιστεσ]]'' (''-istes'') através do [[latim]] ''[[-ista#Latim|-ista]]'' através do [[francês antigo]] ''[[-iste]]''.
+
+[[Categoria:Sufixo (Espanhol)]]
+
+
+={{-en-}}=
+==Sufixo==
+'''-ista''' ''nominal''
+# [[-ista#Português|-ista]]<sup>1</sup>
+
+::'''Nota''': ''As palavras com este sufixo têm, geralmente, uma conotação mais pejorativa do que com ''[[-ist]]''.
+
+=={{etimologia|en}}==
+: Do [[latim]] ''[[-ista#Latim|-ista]]'' através do [[português]] ''[[-ista#Português|-ista]]''.
+
+[[Categoria:Sufixo (Inglês)]]
+
+
+={{-it-}}=
+==Sufixo==
+'''-ista''' ''nominal''
+# [[-ista#Português|-ista]]
+
+=={{etimologia|it}}==
+: Do [[grego antigo]] ''[[-ιστεσ]]'' (''-istes'') através do [[latim]] ''[[-ista#Latim|-ista]]'' através do [[francês antigo]] ''[[-iste]]''.
+
+[[Categoria:Sufixo (Italiano)]]
+
+
+={{-pl-}}=
+==Sufixo==
+'''-ista''' ''nominal masculino'' (''feminino: [[-istka]]'')
+# [[-ista#Português|-ista]]
+
+=={{etimologia|pl}}==
+: Do [[grego antigo]] ''[[-ιστεσ]]'' (''-istes'') através do [[latim]] ''[[-ista#Latim|-ista]]'' através do [[francês antigo]] ''[[-iste]]''.
+
+[[Categoria:Sufixo (Polonês)]]
+

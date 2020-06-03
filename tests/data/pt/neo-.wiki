@@ -1,0 +1,25 @@
+={{-pt-}}=
+==Prefixo==
+'''neo-'''
+# exprime a ideia de ''[[novo]]''
+{{verTambém.Ini}}
+* '''Nota:''' Liga-se por hífen ao morfema seguinte quando este começa por '''vogal''', '''h''', '''r''' ou '''s'''.
+*: '''[[e.g.]]:'''   [[neo-árico]], [[neo-helénico]], [[neo-impressionismo]], [[neo-realismo]], [[neófito]], [[neófobo]], etc
+{{verTambém.Fim}}
+
+===Sinônimo===
+* [[novi-]]
+
+=={{etimologia|pt}}==
+{{llietimo|grc|νέος|pt}}
+
+==Ver também==
+===No Wikcionário===
+{{verTambém.Ini}}
+* [[nuper-]]
+{{verTambém.NovaColuna}}
+* [[recém-]]
+{{verTambém.Fim}}
+
+[[Categoria:Prefixo (Português)]]
+

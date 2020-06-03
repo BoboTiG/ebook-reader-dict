@@ -1,0 +1,22 @@
+={{-pt-}}=
+==Verbo==
+{{oxítona|a|ba|ba|lhar}}, ''transitivo direto''
+# {{escopo|pt|Popular}} [[babar]]; [[conspurcar]]
+===Conjugação===
+{{conj/pt|ababalh|ar}}
+=={{etimologia|pt}}==
+: De [[baba]].
+=={{pronúncia|pt}}==
+===Brasil===
+====Paulistana====
+* AFI: /a.ba.ba.ˈʎa''ɾ''/
+* SAMPA: /a.ba.ba."Lar/
+====Carioca====
+* AFI: /a.ba.ba.ˈʎax/
+* SAMPA: /a.ba.ba."Lax/
+==Ver também==
+===No Wikcionário===
+* [[ababalho]]
+
+[[Categoria:Verbo (Português)]]
+
