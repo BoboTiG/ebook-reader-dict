@@ -10,7 +10,7 @@ from scripts.utils import clean
         ("auto", "", "", ["automatisk; självgående", "automatiskt läge", "autostart"]),
         (
             "en",
-            "ɛn",
+            "eːn/, /ɛn/, /en",
             "",
             [
                 "ungefär; omkring",
@@ -33,7 +33,19 @@ from scripts.utils import clean
                 "<i>suffix i ord som har med djurs horn att göra</i>",
             ],
         ),
+        (
+            "min",
+            "mɪn",
+            "",
+            [
+                "<b>uttal:</b> /mɪn/",
+                "<b>uttal:</b> /miːn/",
+                "<i>förkortning för</i> minut",
+                "<i>förkortning för</i> minimum",
+            ],
+        ),
         ("og", "", "", []),
+        ("sand", "sand", "", ["<b>uttal:</b> /sand/"]),
         (
             "svenska",
             "",

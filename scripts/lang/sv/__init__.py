@@ -1,7 +1,7 @@
 """Swedish language."""
 
 # Regex to find the pronunciation
-pronunciation = r"{uttal\|sv\|(?:.+/([^/,]+)/.+|ipa=([^}]+))}"
+pronunciation = r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"
 
 # Regex to find the genre
 genre = ""

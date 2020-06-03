@@ -1,0 +1,109 @@
+{{se även|mín|min.|Min}}
+
+==Svenska==
+===Pronomen===
+{{sv-pron-pers}}
+'''min''' (''förenade [[possessiva pronomen]]'')
+*{{uttal|sv|ipa=mɪn}}
+#{{tagg|kat=possessiva pronomen}}[[possessivt pronomen]] som indikerar [[ägande]] av eller [[tillhörighet]] till den [[talande]] ([[jag]]) om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; possessivt pronomen i [[första person]] [[singular]] med [[huvudord]]et i singular [[utrum]]
+#:'''''Min''' [[bologna]] smakar gott.''
+#ovanstående i självständig form
+#:''Du kan få skärmen, men datorn förblir '''min'''.''
+'''min''' (''[[reflexiva possessiva pronomen]]'')
+#[[reflexivt possessivt pronomen]] som syftar tillbaka på och indikerar [[ägande]] av eller [[tillhörighet]] till [[subjekt]]et om subjektet är i första person singular ([[jag]]) och om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; reflexivt possessivt pronomen i första person singular med huvudordet i singular utrum
+#ovanstående i självständig form
+:{{avgränsare}}
+:{{besläktade ord|[[mitt]], [[mina]]}}
+:{{etymologi|Fornnordiska ''[[mínn]]'', av urgermanska *''mīnaz'' (varav även engelska ''[[mine]]'', tyska ''[[mein]]'', etc.), av urindoeuropeiska *''meino''-, från *''mei'' (lokativ av *''me''-, "mig") och *-''no''- (adjektivsuffix).}}
+
+====Översättningar====
+{{ö-topp}}
+*bokmål: {{ö+|no|min}}
+*bretonska: {{ö+|br|ma}}
+*bulgariska: {{ö+|bg|мой}}
+*danska: {{ö+|da|min}}
+*engelska: {{ö+|en|my}} (1, 3), {{ö+|en|mine}} (2, 4)
+*esperanto: {{ö+|eo|mia}}
+*finska: {{ö+|fi|minun}} (från ordet {{ö+|fi|minä}})
+*franska: {{ö+|fr|mon|m}} {{ö+|fr|ma|f}} (1, 3), le {{ö+|fr|mien|m}} la {{ö+|fr|mienne|f}} (2, 4)
+*italienska: {{ö+|it|mio}}
+*japanska: {{ö+|ja|私}}の ({{ö+|ja|わたし}}の, ''watashi no'' eller {{ö+|ja|わたくし}}の, ''watakushi no''), {{ö+|ja|僕}}の ({{ö+|ja|ぼく}}の, ''boku no''), {{ö+|ja|わし}}の (''washi no''), {{ö+|ja|俺}}の ({{ö|ja|おれ}}の, ''ore no'')
+*kroatiska: {{ö+|hr|moj|m}}, {{ö|hr|moja|f}}
+*lettiska: {{ö|lv|mans}}, {{ö|lv|manējs}}
+*litauiska: {{ö+|lt|mano}}
+*makedonska: {{ö|mk|мој}}
+*nederländska: {{ö+|nl|mijn}}
+*polska: {{ö+|pl|mój}}
+*portugisiska: {{ö+|pt|meu}}, {{ö+|pt|minha}}
+*ryska: {{ö+|ru|мой}}
+*serbiska: {{ö+|sr|мој}}
+*slovakiska: {{ö+|sk|môj}}
+*slovenska: {{ö+|sl|moj}}
+*spanska: {{ö+|es|mío}}, {{ö+|es|mi}}
+*tjeckiska: {{ö+|cs|můj}}
+*turkiska: {{ö+|tr|benim}}
+*tyska: {{ö+|de|mein}}, {{ö+|de|meine}}, {{ö+|de|meinen}}, {{ö+|de|meiner}}
+*ukrainska: {{ö+|uk|мій}}
+*ungerska: {{ö|hu|-m}}
+*vitryska: {{ö|be|мой}}
+*älvdalska: {{ö|ovd|menn|m}}, {{ö|ovd|mąi|f}}, {{ö|ovd|mett|n}}
+{{ö-botten}}
+
+===Substantiv===
+{{sv-subst-n-er}}
+'''min'''
+*{{uttal|sv|ipa=miːn}}
+#känslouttryck i ansiktet
+#:{{etymologi|I svenskan sedan 1631, från franska ''[[mine]]'' (varav även tyska ''[[Miene]]'', engelska ''[[mien]]''), av bretonskans ''min'', "mun", "näbb", "nos"}}
+#:{{sammansättningar|[[kännarmin]], [[minspel]]}}
+#:{{fraser|[[hålla god min]]}}
+#:{{seäven|[[grimas]]}}
+
+====Översättningar====
+{{ö-topp|känslouttryck i ansiktet}}
+*bokmål: {{ö+|no|mine|mf}}
+*engelska: {{ö+|en|facial expression}}
+*nederländska: {{ö|nl|gelaatsuitdrukking|f}}
+*portugisiska: {{ö|pt|expressão facial}}
+*tyska: {{ö+|de|Miene|f}}, {{ö+|de|Gesichtsausdruck|m}}
+{{ö-botten}}
+
+===Förkortning===
+{{förkortning|sv}}
+'''min'''
+#''förkortning för'' [[minut]]
+#''förkortning för'' [[minimum]]
+
+==Bokmål==
+===Pronomen===
+{{no-pron-pers}}
+'''min'''
+#[[#Svenska|min]]
+
+==Danska==
+===Pronomen===
+{{da-pron-pers}}
+'''min'''
+#[[#Svenska|min]]
+
+==Esperanto==
+===Pronomen===
+{{pron|eo}}
+'''min'''
+#[[mig]]
+#:''Vi ĝenas '''min'''.''
+#::''Du stör '''mig'''.''
+#:{{besläktade ord|[[mi]]}}
+
+==Nynorska==
+===Pronomen===
+{{nn-pron-pers}}
+'''min'''
+#[[#Svenska|min]]
+
+==Älvdalska==
+===Preposition===
+{{prep|ovd}}
+'''min'''
+#[[med]]
+
