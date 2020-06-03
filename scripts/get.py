@@ -209,8 +209,9 @@ def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
 
     # Filter on interesting sections
     for section in parsed.get_sections(include_subsections=True, level=2):
+        title = section.title
         for head in head_sections[locale]:
-            if head in section:
+            if head in title:
                 yield from section.get_sections(include_subsections=False, level=3)
                 break
 
@@ -220,7 +221,7 @@ def find_sections(code: str, locale: str) -> Generator[str, None, None]:
     yield from (
         section
         for section in find_all_sections(code, locale)
-        if section.title and section.title.lstrip().startswith(sections[locale])  # type: ignore
+        if section.title.lstrip().startswith(sections[locale])  # type: ignore
     )
 
 

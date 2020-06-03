@@ -22,8 +22,6 @@ from scripts.utils import clean
                 "<i>(träd)</i> en vintergrön barrväxt, en buske eller ett träd med tätt "
                 "grenverk och vassa barr, av arten <i>Juniperus communis</i> inom släktet "
                 "enar (<i>Juniperus</i>) och familjen cypressväxter (Cupressaceae)",
-                "en, ett (obestämd artikel maskulin)",
-                "en (obestämd artikel utrum)",
             ],
         ),
         (
@@ -35,18 +33,7 @@ from scripts.utils import clean
                 "<i>suffix i ord som har med djurs horn att göra</i>",
             ],
         ),
-        (
-            "og",
-            "",
-            "",
-            [
-                "och, ock (åldrigt)",
-                "<b>uttal:</b> /ɔː(ɣ)/, /ɔ/, /ɒ/",
-                "också, även",
-                "visst",
-                "hög",
-            ],
-        ),
+        ("og", "", "", []),
         (
             "svenska",
             "",
