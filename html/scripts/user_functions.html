@@ -116,6 +116,8 @@ def concat(
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
         &#39;antigament en plural&#39;
+        &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
+        &#39;Arte&#39;
     &#34;&#34;&#34;
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -127,7 +129,7 @@ def concat(
         if parts.count(skip):
             sep = &#34; &#34;
 
-    return sep.join(result)
+    return sep.join(p for p in result if p)
 
 
 def etymology(parts: Tuple[str, ...]) -&gt; str:
@@ -602,6 +604,8 @@ It allowes to filter out some parts while keeping others.</p>
 'antigament en plural'
 &gt;&gt;&gt; concat(["antigament", "_", "en plural"], sep=",", skip="_")
 'antigament en plural'
+&gt;&gt;&gt; concat(["Arte", "", ""], sep=" e ")
+'Arte'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -633,6 +637,8 @@ It allowes to filter out some parts while keeping others.</p>
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
         &#39;antigament en plural&#39;
+        &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
+        &#39;Arte&#39;
     &#34;&#34;&#34;
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -644,7 +650,7 @@ It allowes to filter out some parts while keeping others.</p>
         if parts.count(skip):
             sep = &#34; &#34;
 
-    return sep.join(result)</code></pre>
+    return sep.join(p for p in result if p)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">

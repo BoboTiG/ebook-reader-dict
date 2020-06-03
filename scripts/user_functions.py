@@ -88,6 +88,8 @@ def concat(
         'antigament en plural'
         >>> concat(["antigament", "_", "en plural"], sep=",", skip="_")
         'antigament en plural'
+        >>> concat(["Arte", "", ""], sep=" e ")
+        'Arte'
     """
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -99,7 +101,7 @@ def concat(
         if parts.count(skip):
             sep = " "
 
-    return sep.join(result)
+    return sep.join(p for p in result if p)
 
 
 def etymology(parts: Tuple[str, ...]) -> str:
