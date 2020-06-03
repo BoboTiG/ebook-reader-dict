@@ -38,14 +38,24 @@ from scripts.utils import clean
             "mɪn",
             "",
             [
-                "<b>uttal:</b> /mɪn/",
-                "<b>uttal:</b> /miːn/",
+                "possessivt pronomen som indikerar ägande av eller tillhörighet till den talande (jag) om det ägda eller tillhörande är i ental och har n-genus; possessivt pronomen i första person singular med huvudordet i singular utrum",  # noqa
+                "ovanstående i självständig form",
+                "reflexivt possessivt pronomen som syftar tillbaka på och indikerar ägande av eller tillhörighet till subjektet om subjektet är i första person singular (jag) och om det ägda eller tillhörande är i ental och har n-genus; reflexivt possessivt pronomen i första person singular med huvudordet i singular utrum",  # noqa
+                "känslouttryck i ansiktet",
                 "<i>förkortning för</i> minut",
                 "<i>förkortning för</i> minimum",
             ],
         ),
         ("og", "", "", []),
-        ("sand", "sand", "", ["<b>uttal:</b> /sand/"]),
+        (
+            "sand",
+            "sand",
+            "",
+            [
+                "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
+                "<i>(geologi)</i> jordart med kornstorlek mellan 0,06 och 2 mm",
+            ],
+        ),
         (
             "svenska",
             "",

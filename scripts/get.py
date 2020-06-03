@@ -152,32 +152,34 @@ def find_section_definitions(
     word: str, section: wtp.Section, locale: str,
 ) -> Generator[Definitions, None, None]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
-    lists = section.get_lists()
+    lists = section.get_lists(pattern=r"\#")
     if lists:
         definitions: List[Definitions] = []
 
-        for idx, code in enumerate(lists[0].items):
-            # Ignore some patterns
-            if word not in words_to_keep[locale] and any(
-                ignore_me in code.lower() for ignore_me in definitions_to_ignore[locale]
-            ):
-                continue
+        for a_list in lists:
+            for idx, code in enumerate(a_list.items):
+                # Ignore some patterns
+                if word not in words_to_keep[locale] and any(
+                    ignore_me in code.lower()
+                    for ignore_me in definitions_to_ignore[locale]
+                ):
+                    continue
 
-            # Transform and clean the Wikicode
-            definition = clean(word, code, locale)
-            if not definition:
-                continue
+                # Transform and clean the Wikicode
+                definition = clean(word, code, locale)
+                if not definition:
+                    continue
 
-            # Keep the definition ...
-            definitions.append(definition)
+                # Keep the definition ...
+                definitions.append(definition)
 
-            # ... And its eventual sub-definitions
-            subdefinitions: List[str] = []
-            for sublist in lists[0].sublists(i=idx, pattern="#"):
-                for subcode in sublist.items:
-                    subdefinitions.append(clean(word, subcode, locale))
-            if subdefinitions:
-                definitions.append(tuple(subdefinitions))
+                # ... And its eventual sub-definitions
+                subdefinitions: List[str] = []
+                for sublist in a_list.sublists(i=idx, pattern=r"\#"):
+                    for subcode in sublist.items:
+                        subdefinitions.append(clean(word, subcode, locale))
+                if subdefinitions:
+                    definitions.append(tuple(subdefinitions))
 
         yield from definitions
 
