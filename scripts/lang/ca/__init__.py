@@ -1,10 +1,10 @@
 """Catalan language."""
 
 # Regex to find the pronunciation
-pronunciation = r"{{ca-pron\|(?:or=)?/([^/\|]+)"
+pronunciation = r"{ca-pron\|(?:or=)?/([^/\|]+)"
 
 # Regex to find the genre
-genre = r"{{ca-\w+\|([fm]+)"
+genre = r"{ca-\w+\|([fm]+)"
 
 # Float number separator
 float_separator = ","
