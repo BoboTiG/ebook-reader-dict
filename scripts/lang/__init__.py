@@ -42,6 +42,12 @@ thousands_separator = {
 }
 
 # Markers for sections that contain interesting text to analyse.
+section_patterns = {
+    "ca": ca.section_patterns,
+    "fr": fr.section_patterns,
+    "pt": pt.section_patterns,
+    "sv": sv.section_patterns,
+}
 section_level = {
     "ca": ca.section_level,
     "fr": fr.section_level,

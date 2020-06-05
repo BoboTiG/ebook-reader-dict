@@ -14,6 +14,7 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 # https://sv.wiktionary.org/wiki/Wiktionary:Stilguide#Ordklassrubriken
+section_patterns = (r"\#",)
 section_level = 2
 head_sections = ("Svenska",)
 sections = (

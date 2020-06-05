@@ -30,6 +30,7 @@ from .lang import (
     head_sections,
     pronunciation,
     section_level,
+    section_patterns,
     sections,
     words_to_keep,
 )
@@ -152,7 +153,7 @@ def find_section_definitions(
     word: str, section: wtp.Section, locale: str,
 ) -> Generator[Definitions, None, None]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
-    lists = section.get_lists(pattern=r"\#")
+    lists = section.get_lists(pattern=section_patterns[locale])
     if lists:
         definitions: List[Definitions] = []
 
@@ -175,7 +176,7 @@ def find_section_definitions(
 
                 # ... And its eventual sub-definitions
                 subdefinitions: List[str] = []
-                for sublist in a_list.sublists(i=idx, pattern=r"\#"):
+                for sublist in a_list.sublists(i=idx, pattern=(r"\#",)):
                     for subcode in sublist.items:
                         subdefinitions.append(clean(word, subcode, locale))
                 if subdefinitions:

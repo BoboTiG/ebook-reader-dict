@@ -70,7 +70,7 @@ from scripts.utils import clean
             "",
             [
                 "exprime a ideia de <i>novo</i>",
-                # "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
+                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
             ],
         ),
         ("para", "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
