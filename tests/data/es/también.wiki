@@ -1,0 +1,47 @@
+== {{lengua|es}} ==
+{{pron-graf|fone=tamˈbjen}}
+
+=== Etimología ===
+{{etimología|compuesto|tan|bien}}
+
+=== {{adverbio de afirmación|es}} ===
+
+;1: {{impropia|Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada}}.
+{{sinónimos|igualmente|asimismo|de igual modo}}.
+
+;2: {{impropia|Usado para [[añadir]] algo a lo anteriormente mencionado}}.
+{{sinónimos|además|en añadidura}}.
+
+{{clear}}
+
+=== Traducciones ===
+{{trad-arriba}}
+{{t+|de|auch}}
+{{t+|bg|също|,|също така|,|също и}}
+{{t+|da|også}}
+{{t+|sl|1|tudi}}
+{{t+|eo|ankaŭ}}
+{{t+|eu|ere}}
+{{t+|fi|myös|,|-kin}}
+{{t+|fr|1-2|aussi}}
+{{t+|fy|ek}}
+{{t+|hu|is}}
+{{t+|el|και}}
+{{trad-centro}}
+{{t+|yua|la’tene}}
+{{t+|id|juga|,|pula}}
+{{t+|en|1|too|,|1-2|also}}
+{{t+|it|1|anche}}
+{{t+|nl|ook}}
+{{t+|no|også}}
+{{t+|pap|tambe}}
+{{t+|pt|também}}
+{{t+|sa|अपि}}
+{{t+|su|ogé}}
+{{t+|sv|också}}
+{{t+|wa|eto}}
+{{trad-abajo}}
+
+== Referencias y notas ==
+<references />
+

@@ -1,0 +1,21 @@
+== {{lengua|es}} ==
+{{pron-graf}}
+
+=== Etimología ===
+{{etimología}}.
+
+=== {{abreviatura|es}} ===
+
+;1: ''Abreviatura lexicográfica convencional de la palabra'' [[música]]
+
+{{clear}}
+
+=== Traducciones ===
+{{trad-arriba}}
+<!-- formato: {{t+|idioma|<acepción#>|palabra|género}} p. ej. {{t+|fr|1|chose|f}} -->
+{{trad-centro}}
+{{trad-abajo}}
+
+== Referencias y notas ==
+<references />
+

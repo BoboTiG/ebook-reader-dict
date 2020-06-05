@@ -1,0 +1,29 @@
+== {{lengua|es}} ==
+{{pron-graf|fone=ˈu.ni|p=unir|palt=uní}}
+
+=== Etimología ===
+{{etimología|la|uni-}}, de {{l+|la|unus|glosa=uno}}
+
+=== {{prefijo|es}} ===
+
+;1: {{impropia|{{plm|elemento compositivo}} que significa}} uno. un [[único]], relativo a [[uno]] [[solo]].
+:*'''Ejemplos:''' [[unifamiliar]], [[unidimensional]], [[uniforme]]
+{{sinónimo|mono-|nota1=griego}}
+{{antónimo|multi-|pluri-|poli-|nota3=griego}}
+{{relacionado|bi-|di-|tri-|cuatri-|cuadri-|tetra-|quinque-|penta-|hexa-|hepta-|octa-|octo-|nona-|deca-}} (prefijos de número o cantidad)
+
+=== Véase también ===
+* [[:Categoría:ES:Palabras con el prefijo uni-|Palabras con el prefijo ''uni-'' en ''Wikcionario'']]
+{{w|Prefijos del español}}
+
+=== Traducciones ===
+{{trad afijo|pre}}
+{{trad-arriba}}
+{{t+|en|1|uni-}}
+{{trad-centro}}
+{{t+|it|1|uni-}}
+{{trad-abajo}}
+
+== Referencias y notas ==
+<references />
+

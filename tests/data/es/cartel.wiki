@@ -1,0 +1,26 @@
+{{desambiguación|cártel}}
+
+== {{lengua|es}} ==
+{{pron-graf}}
+
+=== Etimología ===
+{{etimología|oc|cartel}}.
+
+=== {{sustantivo masculino|es}} ===
+{{inflect.es.sust.reg-cons}}
+
+;1: Lámina que se expone para dar información mediante palabras o imágenes.
+;2: Prestigio.
+
+{{clear}}
+
+=== Traducciones ===
+{{trad-arriba}}
+{{t+|eo|1|afiŝo}}
+{{trad-centro}}
+{{t+|sv|1|affisch|c|,|1|skylt |c}}
+{{trad-abajo}}
+
+== Referencias y notas ==
+<references />
+

@@ -1,0 +1,21 @@
+== {{lengua|es}} ==
+{{pron-graf|fone=eks.teˈnwa.ðo}}
+
+=== Adjetivo ===
+{{inflect.es.adj.reg|extenuad}}
+
+;1: {{plm|cansado}}, [[debilitado]].
+:*'''Ejemplo:'''
+::* "La naturaleza parecía suspirar y rendirse ''extenuada''". {{cita libro|nombre=María Luisa|apellidos=Bombal|título=La Última Niebla|capítulo=La Historia de María Griselda|fecha=1987|editorial=Revista VEA|páginas=81}}
+
+;2: Se dice de un individuo: sin energía, debido a un gran esfuerzo físico o mental.
+:*'''Ejemplo:'''
+::* "—Ana María, más vale no seguir el viaje. Los caballos están ''extenuados''. El coche no tiene faroles. Esperemos que amanezca.". {{cita libro|nombre=María Luisa|apellidos=Bombal|título=La Última Niebla/La Amortajada|capítulo=La Amortajada|fecha=2012|editorial=Planeta|páginas=145}}
+
+=== Forma verbal ===
+
+;3: {{participio|extenuar}} (debilitar o debilitarse).
+
+== Referencias y notas ==
+<references />
+

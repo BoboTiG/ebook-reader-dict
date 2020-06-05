@@ -1,0 +1,205 @@
+{{desambiguación|Hasta}}
+
+== {{lengua|es}} ==
+{{pron-graf|fone=ˈas.ta|h=asta|g=asta|gnota=obsoleta}}
+
+=== Etimología ===
+{{etimología|osp|fasta}}, del más antiguo {{l+|osp|hata}}, {{l+|osp|fata}}, quizá préstamo del árabe {{l+|ar|حتى|tr=ḥatta}}<ref name="DRAE">{{DRAE}}</ref>, o del latín {{l+|la|ad|glosa=a}} {{l+|la|ista|glosa=esta}}, o de ambos.
+
+=== {{preposición|es}} ===
+;1: Preposición que indica el [[fin]] o [[término]] de una actividad, sea en sentido [[locativo]], [[cronológico]] o [[cuantitativo]].
+{{sinónimo|a}}.
+:*'''Ejemplos:'''"Papeleras: un intendente uruguayo fue ''hasta'' el corte de ruta para dialogar con los manifestantes" [http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm Diario ''Clarín''], 20 de enero de 2006. "Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas ''hasta'' entonces desconocidas." [http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html ''Pa´gina/12''], 3 de octubre de 2006
+
+;2: Seguida de ''[[cuando]]'' o de un [[gerundio]], preposición que indica valor [[inclusivo]].
+:*'''Ejemplos:''' Es un fumador empedernido, fuma ''hasta'' cuando se ducha. Es un fumador empedernido, fuma ''hasta'' duchándose.
+
+;3: Seguida de ''[[que]]'', preposición que indica valor [[exclusivo]].
+{{ejemplo}} Conversan ''hasta'' que llega el profesor.
+
+=== {{adverbio|es}} ===
+;4: Indica que pese a las circunstancias ocurre el hecho.
+{{sinónimo|aun|inclusive|incluso}}.
+{{ejemplo}} Su salud es delicada, se resfría ''hasta'' en verano.
+
+;5: Indica que una situación eventual o hipotética no impide que ocurra el hecho.
+{{ejemplo}} ''Hasta'' en medio de un funeral, encuentra motivos para reírse.
+
+;6: Indica el comienzo de una acción o cuando ocurrirá.
+{{ámbito|México|América Central|Ecuador|Chiloé}}.
+{{sinónimo|desde}}, no [[antes]] de, [[recién]]
+{{ejemplo}} Nos vemos ''hasta'' el lunes.
+
+=== {{sustantivo femenino|es}} ===
+{{inflect.es.sust.reg}}
+
+;7: {{grafía obsoleta|asta}}.
+{{ejemplo}} arrojábanles un dardo, que es una '''hasta''' larga, á cuya extremidad hay asegurado un hueso grande y afilado que penetra como una espada.
+
+=== Locuciones ===
+* [[hasta atrás]]
+* ¿[[hasta cuándo]]?
+* [[hasta la coronilla]]
+* [[hasta el eje]]
+* [[hasta las chanclas]]: pasado de tragos (México)
+* [[hasta las pelotas]] o [[hasta los huevos]]
+* [[hasta los tequeteques]]: saturado, demasiado lleno (Venezuela, coloquial)
+* [[hasta la vista]]
+
+=== Véase también ===
+* [[desde]], que indica origen o inicio
+<!-- marcusbeli.urbenalia.com/AdminWHF/trasfond/trasarme.htm no menciona esta arma -->
+<!--
+{{ES}}
+{{Lema||2}}
+
+==={{sustantivo femenino|es}}===
+;1:Especie de [[lanza]] o [[venablo]] usada por los antiguos romanos.
+
+ (faltan referencias)
+
+-->
+
+{{clear}}
+
+=== Traducciones ===
+{{trad-arriba}}
+{{t+|ain|1|エン|エㇴ|ウン|ウㇴ|エネ|エコタ|オルン|オルㇴ}}
+{{t+|br|beket|,|betek}}
+{{t+|ca|fins}}
+{{trad-centro}}
+{{t+|eo|ĝis}}
+{{t+|en|until|,|up to|,|even}}
+{{trad-abajo}}
+
+== {{lengua|ast}} ==
+{{pron-graf|leng=ast}}
+
+=== Etimología ===
+{{etimología|leng=ast|roa-ole|ffasta||roa-ole|fasta}}.
+
+=== {{preposición|ast}} ===
+;1: {{plm}}.
+
+{{clear}}
+
+=== Locuciones ===
+{{rel-arriba}}
+*{{l+|ast|hasta arriba}}<ref name="DALA">{{DALA}}</ref>
+*{{l+|ast|hasta cantar el gochu}}<ref name="DALA" />
+*{{l+|ast|hasta cantar la gocha}}<ref name="DALA" />
+*{{l+|ast|hasta dempués}}<ref name="DALA" />
+*{{l+|ast|hasta la muerte}}<ref name="DALA" />
+*{{l+|ast|hasta les armeñes}}<ref name="DALA" />
+*{{l+|ast|hasta les narices}}<ref name="DALA" />
+{{rel-centro}}
+*{{l+|ast|hasta llueu}}<ref name="DALA" />
+*{{l+|ast|hasta los coyones}}<ref name="DALA" />
+*{{l+|ast|hasta los güevos}}<ref name="DALA" />
+*{{l+|ast|hasta l'odre}}<ref name="DALA" />
+*{{l+|ast|hasta mañana}}<ref name="DALA" />
+*{{l+|ast|hasta más tarde}}<ref name="DALA" />
+*{{l+|ast|hasta nunca}}<ref name="DALA" />
+{{rel-abajo}}
+
+== {{lengua|fax}} ==
+{{pron-graf|leng=fax}}
+
+=== Etimología ===
+{{etimología|leng=fax|es|hasta}}.
+
+=== {{preposición|fax}} ===
+;1: {{plm}} (un número).
+
+;2: {{plm}} (un tiempo).
+
+== {{lengua|gl}} ==
+{{pron-graf|leng=gl}}
+
+=== Etimología ===
+{{etimología|leng=gl|la|hasta|alt=hastam|asta}}.
+
+=== {{sustantivo femenino|gl}} ===
+{{inflect.gl.sust.reg}}
+
+;1 {{armas|leng=gl}}: {{plm|asta}}.
+{{sinónimo|leng=gl|mastro}}.<ref name="DRAG">{{DRAG}}</ref>
+
+;2 {{zoología|leng=gl}}: {{plm|cuerno}}.
+
+=== Véase también ===
+{{w|leng=gl}}.
+
+== {{lengua|it}} ==
+{{pron-graf|leng=it}}
+
+=== {{sustantivo femenino|it}} ===
+{{inflect.it.sust.reg|hast|a}}
+
+;1: {{grafía obsoleta|leng=it|asta}}.
+
+== {{lengua|la}} ==
+{{pron-graf|ˈhas.ta|leng=la|audio=la-cls-hasta.ogg}}
+
+=== Etimología ===
+{{etimología|leng=la}}
+
+=== {{sustantivo femenino|la}} ===
+{{inflect.la.sust.1|hast}}
+
+;1 {{armas|leng=la}}: {{plm|asta}}.
+{{hipónimo|leng=la|pilum}}.
+{{ejemplo}} Petere aliquem '''hasta'''. (Asaltar alguien con asta.)
+
+{{clear}}
+
+=== Información adicional ===
+{{rel-arriba|Cognados latinos}}
+*{{l+|la|hastarius|hastārius}}
+*{{l+|la|hastatus|hastātus}}
+{{rel-centro}}
+*{{l+|la|hastile|hastīle}}
+{{rel-abajo}}
+
+{{derivados|des=x}}
+{{desc|sq|heshtë}}
+{{desc|es|asta}}
+{{centro}}
+{{desc|fro|haste}}
+{{desc|it|asta}}
+{{desc|pt|hasta|haste}}
+{{abajo}}
+
+== {{lengua|nov}} ==
+{{pron-graf|leng=nov}}
+
+=== Etimología ===
+{{etimología|leng=nov}}
+
+=== {{verbo|nov}} ===
+;1: {{plm|adelantear}}.
+
+== {{lengua|pt}} ==
+{{pron-graf|ˈas.ta|leng=pt|pron=Brasil|2fone=ˈaʃ.tɐ|2pron=Portugal}}
+
+=== Etimología ===
+{{etimología|leng=pt|la|hasta|alt=hastam|asta}}.
+
+=== {{sustantivo femenino|pt}} ===
+{{inflect.pt.sust.reg}}
+
+;1 {{armas|leng=pt}}: {{plm|asta}}.
+{{hipónimo|leng=pt|chuço|dardo||javalina|pilo}}.
+
+;2: {{plm|almoneda}}, {{l|es|aucción}}, {{l|es|remate}}, {{l|es|subasta}}
+{{sinónimo|leng=pt|leilão}}.
+
+=== Información adicional ===
+{{derivad|leng=pt|haste|hastear}}.
+
+=== Véase también ===
+{{w|leng=pt}}.
+
+== Referencias y notas ==
+<references />
+

@@ -104,6 +104,16 @@ def concat(
     return sep.join(p for p in result if p)
 
 
+def coord(values: Tuple[str, ...]) -> str:
+    """
+    Format lon/lat coordinates.
+
+        >>> coord(["04", "39", "N", "74", "03", "O", "type:country"])
+        '04°39′N 74°03′O'
+    """
+    return "{0}°{1}′{2} {3}°{4}′{5}".format(*values)
+
+
 def etymology(parts: Tuple[str, ...]) -> str:
     """
     Display cross-language etymology.
@@ -427,6 +437,7 @@ __all__ = (
     "chimy",
     "color",
     "concat",
+    "coord",
     "etymology",
     "eval_expr",
     "int_to_roman",
