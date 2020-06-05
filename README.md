@@ -29,7 +29,6 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 3. Test it:
    ```shell
    # Install dependencies
-   python -m pip install -r requirements.txt
    python -m pip install -r requirements-tests.txt
 
    # Run the command that will fetch the data and convert it into dicthtml-$LOCALE.zip
