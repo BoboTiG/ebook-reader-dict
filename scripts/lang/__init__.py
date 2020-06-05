@@ -1,7 +1,7 @@
 """Internationalization stuff."""
 import re
 
-from . import ca, defaults, fr, pt, sv
+from . import ca, defaults, es, fr, pt, sv
 from .fr.langs import langs as FR
 
 # A list of all languages translated into different locales
@@ -12,6 +12,7 @@ all_langs = {
 # Regex to find the pronunciation
 pronunciation = {
     "ca": re.compile(ca.pronunciation),
+    "es": re.compile(es.pronunciation),
     "fr": re.compile(fr.pronunciation),
     "pt": re.compile(pt.pronunciation),
     "sv": re.compile(sv.pronunciation),
@@ -20,6 +21,7 @@ pronunciation = {
 # Regex to find the genre
 genre = {
     "ca": re.compile(ca.genre),
+    "es": re.compile(defaults.genre),
     "fr": re.compile(fr.genre),
     "pt": re.compile(pt.genre),
     "sv": re.compile(defaults.genre),
@@ -28,6 +30,7 @@ genre = {
 # Float number separator
 float_separator = {
     "ca": ca.float_separator,
+    "es": es.float_separator,
     "fr": fr.float_separator,
     "pt": pt.float_separator,
     "sv": sv.float_separator,
@@ -36,6 +39,7 @@ float_separator = {
 # Thousads separator
 thousands_separator = {
     "ca": ca.thousands_separator,
+    "es": es.thousands_separator,
     "fr": fr.thousands_separator,
     "pt": pt.thousands_separator,
     "sv": sv.thousands_separator,
@@ -44,30 +48,35 @@ thousands_separator = {
 # Markers for sections that contain interesting text to analyse.
 section_patterns = {
     "ca": defaults.section_patterns,
+    "es": es.section_patterns,
     "fr": defaults.section_patterns,
     "pt": pt.section_patterns,
     "sv": defaults.section_patterns,
 }
 sublist_patterns = {
     "ca": defaults.sublist_patterns,
+    "es": es.sublist_patterns,
     "fr": defaults.sublist_patterns,
     "pt": defaults.sublist_patterns,
     "sv": defaults.sublist_patterns,
 }
 section_level = {
     "ca": defaults.section_level,
+    "es": defaults.section_level,
     "fr": defaults.section_level,
     "pt": pt.section_level,
     "sv": defaults.section_level,
 }
 head_sections = {
     "ca": ca.head_sections,
+    "es": es.head_sections,
     "fr": fr.head_sections,
     "pt": pt.head_sections,
     "sv": sv.head_sections,
 }
 sections = {
     "ca": ca.sections,
+    "es": es.sections,
     "fr": fr.sections,
     "pt": pt.sections,
     "sv": sv.sections,
@@ -76,6 +85,7 @@ sections = {
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = {
     "ca": ca.definitions_to_ignore,
+    "es": es.definitions_to_ignore,
     "fr": fr.definitions_to_ignore,
     "pt": pt.definitions_to_ignore,
     "sv": defaults.definitions_to_ignore,
@@ -84,6 +94,7 @@ definitions_to_ignore = {
 # But some words need to be kept even if they would have been skipped by definitions_to_ignore
 words_to_keep = {
     "ca": defaults.words_to_keep,
+    "es": defaults.words_to_keep,
     "fr": fr.words_to_keep,
     "pt": defaults.words_to_keep,
     "sv": defaults.words_to_keep,
@@ -101,6 +112,7 @@ pattern_file = ("Fichier", "File", "Fitxer", "Image")
 # Templates to ignore: the text will be deleted.
 templates_ignored = {
     "ca": ca.templates_ignored,
+    "es": es.templates_ignored,
     "fr": fr.templates_ignored,
     "pt": pt.templates_ignored,
     "sv": defaults.templates_ignored,
@@ -113,6 +125,7 @@ templates_ignored = {
 # Ex: {{absol|fr|123|...}} -> <i>(Absolument)</i>
 templates_italic = {
     "ca": ca.templates_italic,
+    "es": es.templates_italic,
     "fr": fr.templates_italic,
     "pt": pt.templates_italic,
     "sv": defaults.templates_italic,
@@ -136,6 +149,7 @@ templates_italic = {
 #   html/scripts/user_functions.html
 templates_multi = {
     "ca": ca.templates_multi,
+    "es": es.templates_multi,
     "fr": fr.templates_multi,
     "pt": pt.templates_multi,
     "sv": sv.templates_multi,
@@ -144,6 +158,7 @@ templates_multi = {
 # Templates that will be completed/replaced using custom style.
 templates_other = {
     "ca": ca.templates_other,
+    "es": defaults.templates_other,
     "fr": fr.templates_other,
     "pt": defaults.templates_other,
     "sv": defaults.templates_other,
@@ -153,6 +168,7 @@ templates_other = {
 # except for those listed bellow:
 templates_warning_skip = {
     "ca": defaults.templates_warning_skip,
+    "es": defaults.templates_warning_skip,
     "fr": fr.templates_warning_skip,
     "pt": defaults.templates_warning_skip,
     "sv": defaults.templates_warning_skip,
@@ -162,6 +178,7 @@ templates_warning_skip = {
 # this method will be called with *parts* as argument.
 last_template_handler = {
     "ca": defaults.last_template_handler,
+    "es": es.last_template_handler,
     "fr": defaults.last_template_handler,
     "pt": defaults.last_template_handler,
     "sv": defaults.last_template_handler,
@@ -171,6 +188,7 @@ last_template_handler = {
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description = {
     "ca": defaults.release_description,
+    "es": defaults.release_description,
     "fr": fr.release_description,
     "pt": defaults.release_description,
     "sv": defaults.release_description,
@@ -179,6 +197,7 @@ release_description = {
 # Dictionary name that will be printed below each definition
 wiktionary = {
     "ca": ca.wiktionary,
+    "es": es.wiktionary,
     "fr": fr.wiktionary,
     "pt": pt.wiktionary,
     "sv": sv.wiktionary,

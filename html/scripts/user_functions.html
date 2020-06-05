@@ -132,6 +132,16 @@ def concat(
     return sep.join(p for p in result if p)
 
 
+def coord(values: Tuple[str, ...]) -&gt; str:
+    &#34;&#34;&#34;
+    Format lon/lat coordinates.
+
+        &gt;&gt;&gt; coord([&#34;04&#34;, &#34;39&#34;, &#34;N&#34;, &#34;74&#34;, &#34;03&#34;, &#34;O&#34;, &#34;type:country&#34;])
+        &#39;04°39′N 74°03′O&#39;
+    &#34;&#34;&#34;
+    return &#34;{0}°{1}′{2} {3}°{4}′{5}&#34;.format(*values)
+
+
 def etymology(parts: Tuple[str, ...]) -&gt; str:
     &#34;&#34;&#34;
     Display cross-language etymology.
@@ -287,6 +297,8 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
         &#39;4,54609&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;.&#34; , &#34;,&#34;)
         &#39;4.54609&#39;
+        &gt;&gt;&gt; number(&#34;22905&#34;, &#34;,&#34; , &#34;.&#34;)
+        &#39;22.905&#39;
     &#34;&#34;&#34;
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
@@ -298,7 +310,11 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
         # Float
         res = f&#34;{float(number):,}&#34;
 
-    return res.replace(&#34;,&#34;, tsep).replace(&#34;.&#34;, fsep)
+    # Replace the current thousands separator with &#34;|&#34;;
+    # then replace the dot with the float separator;
+    # and lastly replace the &#34;|&#34; with the deisred thousands separator.
+    # This 3-steps-replacement is needed for when separators are replacing each other.
+    return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
 
 
 def person(parts: Tuple[str, ...]) -&gt; str:
@@ -449,6 +465,7 @@ __all__ = (
     &#34;chimy&#34;,
     &#34;color&#34;,
     &#34;concat&#34;,
+    &#34;coord&#34;,
     &#34;etymology&#34;,
     &#34;eval_expr&#34;,
     &#34;int_to_roman&#34;,
@@ -651,6 +668,28 @@ It allowes to filter out some parts while keeping others.</p>
             sep = &#34; &#34;
 
     return sep.join(p for p in result if p)</code></pre>
+</details>
+</dd>
+<dt id="scripts.user_functions.coord"><code class="name flex">
+<span>def <span class="ident">coord</span></span>(<span>values: Tuple[str, ...]) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Format lon/lat coordinates.</p>
+<pre><code>&gt;&gt;&gt; coord(["04", "39", "N", "74", "03", "O", "type:country"])
+'04°39′N 74°03′O'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def coord(values: Tuple[str, ...]) -&gt; str:
+    &#34;&#34;&#34;
+    Format lon/lat coordinates.
+
+        &gt;&gt;&gt; coord([&#34;04&#34;, &#34;39&#34;, &#34;N&#34;, &#34;74&#34;, &#34;03&#34;, &#34;O&#34;, &#34;type:country&#34;])
+        &#39;04°39′N 74°03′O&#39;
+    &#34;&#34;&#34;
+    return &#34;{0}°{1}′{2} {3}°{4}′{5}&#34;.format(*values)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">
@@ -904,6 +943,8 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 '4,54609'
 &gt;&gt;&gt; number("4.54609", "." , ",")
 '4.54609'
+&gt;&gt;&gt; number("22905", "," , ".")
+'22.905'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -931,6 +972,8 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         &#39;4,54609&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;.&#34; , &#34;,&#34;)
         &#39;4.54609&#39;
+        &gt;&gt;&gt; number(&#34;22905&#34;, &#34;,&#34; , &#34;.&#34;)
+        &#39;22.905&#39;
     &#34;&#34;&#34;
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
@@ -942,7 +985,11 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         # Float
         res = f&#34;{float(number):,}&#34;
 
-    return res.replace(&#34;,&#34;, tsep).replace(&#34;.&#34;, fsep)</code></pre>
+    # Replace the current thousands separator with &#34;|&#34;;
+    # then replace the dot with the float separator;
+    # and lastly replace the &#34;|&#34; with the deisred thousands separator.
+    # This 3-steps-replacement is needed for when separators are replacing each other.
+    return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.person"><code class="name flex">
@@ -1239,6 +1286,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.chimy" href="#scripts.user_functions.chimy">chimy</a></code></li>
 <li><code><a title="scripts.user_functions.color" href="#scripts.user_functions.color">color</a></code></li>
 <li><code><a title="scripts.user_functions.concat" href="#scripts.user_functions.concat">concat</a></code></li>
+<li><code><a title="scripts.user_functions.coord" href="#scripts.user_functions.coord">coord</a></code></li>
 <li><code><a title="scripts.user_functions.etymology" href="#scripts.user_functions.etymology">etymology</a></code></li>
 <li><code><a title="scripts.user_functions.eval_expr" href="#scripts.user_functions.eval_expr">eval_expr</a></code></li>
 <li><code><a title="scripts.user_functions.int_to_roman" href="#scripts.user_functions.int_to_roman">int_to_roman</a></code></li>
