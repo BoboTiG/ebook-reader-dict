@@ -302,6 +302,7 @@ def transform(word: str, template: str, locale: str) -> str:
 
     parts_raw = template.split("|")
     parts = [p.strip() for p in parts_raw]
+    parts = [p.strip("\u200e") for p in parts]  # Left-to-right mark
     tpl = parts[0]
 
     # {{formatnum:-1000000}}
@@ -312,7 +313,7 @@ def transform(word: str, template: str, locale: str) -> str:
 
     # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
     if parts != parts_raw and tpl not in templates_warning_skip[locale]:
-        warn(f"Extra spaces found in the Wikicode of {word!r} (parts={parts_raw})")
+        warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
