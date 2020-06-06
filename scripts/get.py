@@ -32,6 +32,7 @@ from .lang import (
     section_level,
     section_patterns,
     sections,
+    sublist_patterns,
     words_to_keep,
 )
 from .stubs import Definitions, Words
@@ -176,7 +177,7 @@ def find_section_definitions(
 
                 # ... And its eventual sub-definitions
                 subdefinitions: List[str] = []
-                for sublist in a_list.sublists(i=idx, pattern=(r"\#",)):
+                for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for subcode in sublist.items:
                         subdefinitions.append(clean(word, subcode, locale))
                 if subdefinitions:

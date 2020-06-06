@@ -43,16 +43,22 @@ thousands_separator = {
 
 # Markers for sections that contain interesting text to analyse.
 section_patterns = {
-    "ca": ca.section_patterns,
-    "fr": fr.section_patterns,
+    "ca": defaults.section_patterns,
+    "fr": defaults.section_patterns,
     "pt": pt.section_patterns,
-    "sv": sv.section_patterns,
+    "sv": defaults.section_patterns,
+}
+sublist_patterns = {
+    "ca": defaults.sublist_patterns,
+    "fr": defaults.sublist_patterns,
+    "pt": defaults.sublist_patterns,
+    "sv": defaults.sublist_patterns,
 }
 section_level = {
-    "ca": ca.section_level,
-    "fr": fr.section_level,
+    "ca": defaults.section_level,
+    "fr": defaults.section_level,
     "pt": pt.section_level,
-    "sv": sv.section_level,
+    "sv": defaults.section_level,
 }
 head_sections = {
     "ca": ca.head_sections,
