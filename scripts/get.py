@@ -344,9 +344,10 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
                 else:
                     f.write(f"    - {entries[0]!r}\n")
 
-        with open("templates.txt", "w") as f:
-            for template, entry in sorted(templates.items()):
-                f.write(f"{entry!r} => {template!r}\n")
+        if templates:
+            with open("templates.txt", "w") as f:
+                for template, entry in sorted(templates.items()):
+                    f.write(f"{entry!r} => {template!r}\n")
 
     return words
 
