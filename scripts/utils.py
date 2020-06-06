@@ -151,6 +151,8 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("foo", "<ref>{{Import:CFC}}</ref>", "fr")
         ''
+        >>> clean("foo", "<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>", "fr")
+        'bla bla bla'
         >>> clean("foo", '<ref name="CFC" />', "fr")
         ''
         >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>', "fr")
@@ -193,7 +195,7 @@ def clean(word: str, text: str, locale: str) -> str:
     # <ref>foo</ref> -> ''
     # <ref name="CFC"/> -> ''
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    text = sub(r"<ref[^>]*/?>(?:.+</ref>)?", "", text)
+    text = sub(r"<ref[^>]*/?>(?:[^<]+</ref>)?", "", text)
 
     # Files
     pattern = "|".join(p for p in pattern_file)
