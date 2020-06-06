@@ -262,6 +262,8 @@ def number(number: str, fsep: str, tsep: str) -> str:
         '4,54609'
         >>> number("4.54609", "." , ",")
         '4.54609'
+        >>> number("22905", "," , ".")
+        '22.905'
     """
     # Remove superfluous spaces
     number = number.replace(" ", "")
@@ -273,7 +275,11 @@ def number(number: str, fsep: str, tsep: str) -> str:
         # Float
         res = f"{float(number):,}"
 
-    return res.replace(",", tsep).replace(".", fsep)
+    # Replace the current thousands separator with "|";
+    # then replace the dot with the float separator;
+    # and lastly replace the "|" with the deisred thousands separator.
+    # This 3-steps-replacement is needed for when separators are replacing each other.
+    return res.replace(",", "|").replace(".", fsep).replace("|", tsep)
 
 
 def person(parts: Tuple[str, ...]) -> str:
