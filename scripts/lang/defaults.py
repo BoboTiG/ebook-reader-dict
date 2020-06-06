@@ -25,22 +25,20 @@ templates_other: Dict[str, str] = {}
 templates_warning_skip: Tuple[str, ...] = tuple()
 
 
-def last_template_handler(parts: Tuple[str, ...]) -> str:
-    """
-    Will be call in utils.py::transform() when all template handlers
-    will not be used.
-    """
-    from ..user_functions import capitalize
+def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+    """Will be call in utils.py::transform() when all template handlers were not used."""
+    from ..user_functions import capitalize, lookup_italic, term
 
-    # {{grammaire|fr}} -> (Grammaire)
+    # {{tpl|item}} -> <i>(Template)</i>
     if len(parts) == 2:
-        return f"<i>({capitalize(parts[0])})</i>"
+        return term(capitalize(lookup_italic(parts[0], locale)))
 
-    # {{conj|grp=1|fr}} -> ''
+    # {{tpl|item1|item2|...}} -> ''
     if len(parts) > 2:
         return ""
 
-    return f"<i>({capitalize(parts[0])})</i>" if parts[0] else ""
+    # <i>(Template)</i>
+    return term(capitalize(lookup_italic(parts[0], locale))) if parts[0] else ""
 
 
 # Release content on GitHub

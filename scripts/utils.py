@@ -341,8 +341,9 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore
 
-    with suppress(KeyError):
-        return f"<i>({templates_italic[locale][tpl]})</i>"
+    if len(parts) == 1:
+        with suppress(KeyError):
+            return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
         result: str = templates_other[locale][tpl]
@@ -352,4 +353,4 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     with suppress(KeyError):
         return all_langs[locale][tpl]
 
-    return last_template_handler[locale](parts)
+    return last_template_handler[locale](parts, locale)
