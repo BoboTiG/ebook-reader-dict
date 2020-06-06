@@ -1,7 +1,7 @@
 """Internationalization stuff."""
 import re
 
-from . import ca, fr, pt, sv
+from . import ca, defaults, fr, pt, sv
 from .fr.langs import langs as FR
 
 # A list of all languages translated into different locales
@@ -22,7 +22,7 @@ genre = {
     "ca": re.compile(ca.genre),
     "fr": re.compile(fr.genre),
     "pt": re.compile(pt.genre),
-    "sv": re.compile(sv.genre),
+    "sv": re.compile(defaults.genre),
 }
 
 # Float number separator
@@ -72,15 +72,15 @@ definitions_to_ignore = {
     "ca": ca.definitions_to_ignore,
     "fr": fr.definitions_to_ignore,
     "pt": pt.definitions_to_ignore,
-    "sv": sv.definitions_to_ignore,
+    "sv": defaults.definitions_to_ignore,
 }
 
 # But some words need to be kept even if they would have been skipped by definitions_to_ignore
 words_to_keep = {
-    "ca": ca.words_to_keep,
+    "ca": defaults.words_to_keep,
     "fr": fr.words_to_keep,
-    "pt": pt.words_to_keep,
-    "sv": sv.words_to_keep,
+    "pt": defaults.words_to_keep,
+    "sv": defaults.words_to_keep,
 }
 
 # The template name dealing with files in the Wikicode.
@@ -97,7 +97,7 @@ templates_ignored = {
     "ca": ca.templates_ignored,
     "fr": fr.templates_ignored,
     "pt": pt.templates_ignored,
-    "sv": sv.templates_ignored,
+    "sv": defaults.templates_ignored,
 }
 
 # Templates that will be completed/replaced using italic style.
@@ -109,7 +109,7 @@ templates_italic = {
     "ca": ca.templates_italic,
     "fr": fr.templates_italic,
     "pt": pt.templates_italic,
-    "sv": sv.templates_italic,
+    "sv": defaults.templates_italic,
 }
 
 # Templates more complex to manage. More work is needed.
@@ -139,26 +139,35 @@ templates_multi = {
 templates_other = {
     "ca": ca.templates_other,
     "fr": fr.templates_other,
-    "pt": pt.templates_other,
-    "sv": sv.templates_other,
+    "pt": defaults.templates_other,
+    "sv": defaults.templates_other,
 }
 
 # A warning will be printed when a template contains superfuous spaces,
 # except for those listed bellow:
 templates_warning_skip = {
-    "ca": ca.templates_warning_skip,
+    "ca": defaults.templates_warning_skip,
     "fr": fr.templates_warning_skip,
-    "pt": pt.templates_warning_skip,
-    "sv": sv.templates_warning_skip,
+    "pt": defaults.templates_warning_skip,
+    "sv": defaults.templates_warning_skip,
+}
+
+# When a template is not handled by any previous template handlers,
+# this method will be called with *parts* as argument.
+last_template_handler = {
+    "ca": defaults.last_template_handler,
+    "fr": defaults.last_template_handler,
+    "pt": defaults.last_template_handler,
+    "sv": defaults.last_template_handler,
 }
 
 # The full release description on GitHub:
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description = {
-    "ca": ca.release_description,
+    "ca": defaults.release_description,
     "fr": fr.release_description,
-    "pt": pt.release_description,
-    "sv": sv.release_description,
+    "pt": defaults.release_description,
+    "sv": defaults.release_description,
 }
 
 # Dictionary name that will be printed below each definition

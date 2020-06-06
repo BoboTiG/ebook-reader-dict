@@ -38,9 +38,6 @@ sections = (
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = ("peçodef",)
 
-# But some words need to be kept even if they would have been skipped by definitions_to_ignore
-words_to_keep = tuple()  # type: ignore
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = ("cont",)
 
@@ -91,41 +88,9 @@ templates_multi = {
     "varort": 'f"variante ortográfica de {strong(parts[1])}"',
 }
 
-# Templates that will be completed/replaced using custom style.
-templates_other = {}  # type: ignore
-
-# A warning will be printed when a template contains superfuous spaces,
-# except for those listed bellow:
-templates_warning_skip = tuple()  # type: ignore
-
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
-release_description = """\
-:warning: Contributors needed for that locale.
-
-Words count: {words_count}
-Wiktionary dump: {dump_date}
-
-:arrow_right: Download: [dicthtml-{locale}.zip]({url})
-
----
-
-Installation:
-
-1. Copy the `dicthtml-{locale}.zip` file into the `.kobo/dict/` folder of the reader.
-2. Restart the reader.
-
----
-
-Caractéristics :
-
-- Only definitions are included: there is no quote nor ethymology.
-- 1-character words are not included.
-- Proper nouns are not included.
-- Conjuged verbs are not included.
-
-<sub>Updated on {creation_date}</sub>
-"""
+# release_description = TODO
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionário (ɔ) {year}"

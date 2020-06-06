@@ -2,5 +2,6 @@
 from typing import Dict, List, Tuple, Union
 
 Definitions = Union[str, Tuple[str, ...]]
+Parts = Tuple[str, ...]
 Word = Tuple[str, str, List[Definitions]]
 Words = Dict[str, Word]

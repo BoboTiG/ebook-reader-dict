@@ -10,6 +10,7 @@ from warnings import warn
 from .constants import DOWNLOAD_URL
 from .lang import (
     all_langs,
+    last_template_handler,
     pattern_file,
     release_description,
     templates_ignored,
@@ -338,8 +339,7 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
         return parts[-1]
 
     with suppress(KeyError):
-        res: str = eval(templates_multi[locale][tpl])
-        return res
+        return eval(templates_multi[locale][tpl])  # type: ignore
 
     with suppress(KeyError):
         return f"<i>({templates_italic[locale][tpl]})</i>"
@@ -352,13 +352,4 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     with suppress(KeyError):
         return all_langs[locale][tpl]
 
-    # {{grammaire|fr}} -> (Grammaire)
-    if len(parts) == 2:
-        return f"<i>({capitalize(tpl)})</i>"  # noqa
-
-    # {{conj|grp=1|fr}} -> ''
-    if len(parts) > 2:
-        return ""
-
-    # May need custom handling in lang/$LOCALE.py
-    return f"<i>({capitalize(tpl)})</i>" if tpl else ""  # noqa
+    return last_template_handler[locale](parts)
