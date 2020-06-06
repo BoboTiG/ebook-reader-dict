@@ -67,7 +67,6 @@ def concat(
     sep: str = "",
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
-    sep_if_skip: str = " ",
 ) -> str:
     """
     Simply concat all *parts* using the *sep* character as glue.
@@ -89,8 +88,6 @@ def concat(
         'antigament en plural'
         >>> concat(["antigament", "_", "en plural"], sep=",", skip="_")
         'antigament en plural'
-        >>> concat(["antigament", "_", "en plural"], sep=",", skip="_", sep_if_skip="|")
-        'antigament|en plural'
         >>> concat(["Arte", "", ""], sep=" e ")
         'Arte'
     """
@@ -102,7 +99,7 @@ def concat(
     if skip:
         result = [part for part in result if part != skip]
         if parts.count(skip):
-            sep = sep_if_skip
+            sep = " "
 
     return sep.join(p for p in result if p)
 

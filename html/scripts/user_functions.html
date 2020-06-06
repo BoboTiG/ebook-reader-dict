@@ -95,7 +95,6 @@ def concat(
     sep: str = &#34;&#34;,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
-    sep_if_skip: str = &#34; &#34;,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
@@ -117,8 +116,6 @@ def concat(
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
         &#39;antigament en plural&#39;
-        &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;, sep_if_skip=&#34;|&#34;)
-        &#39;antigament|en plural&#39;
         &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
         &#39;Arte&#39;
     &#34;&#34;&#34;
@@ -130,7 +127,7 @@ def concat(
     if skip:
         result = [part for part in result if part != skip]
         if parts.count(skip):
-            sep = sep_if_skip
+            sep = &#34; &#34;
 
     return sep.join(p for p in result if p)
 
@@ -587,7 +584,7 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None, sep_if_skip: str = ' ') -> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) -> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
@@ -607,8 +604,6 @@ It allowes to filter out some parts while keeping others.</p>
 'antigament en plural'
 &gt;&gt;&gt; concat(["antigament", "_", "en plural"], sep=",", skip="_")
 'antigament en plural'
-&gt;&gt;&gt; concat(["antigament", "_", "en plural"], sep=",", skip="_", sep_if_skip="|")
-'antigament|en plural'
 &gt;&gt;&gt; concat(["Arte", "", ""], sep=" e ")
 'Arte'
 </code></pre></div>
@@ -621,7 +616,6 @@ It allowes to filter out some parts while keeping others.</p>
     sep: str = &#34;&#34;,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
-    sep_if_skip: str = &#34; &#34;,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
@@ -643,8 +637,6 @@ It allowes to filter out some parts while keeping others.</p>
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;)
         &#39;antigament en plural&#39;
-        &gt;&gt;&gt; concat([&#34;antigament&#34;, &#34;_&#34;, &#34;en plural&#34;], sep=&#34;,&#34;, skip=&#34;_&#34;, sep_if_skip=&#34;|&#34;)
-        &#39;antigament|en plural&#39;
         &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
         &#39;Arte&#39;
     &#34;&#34;&#34;
@@ -656,7 +648,7 @@ It allowes to filter out some parts while keeping others.</p>
     if skip:
         result = [part for part in result if part != skip]
         if parts.count(skip):
-            sep = sep_if_skip
+            sep = &#34; &#34;
 
     return sep.join(p for p in result if p)</code></pre>
 </details>
