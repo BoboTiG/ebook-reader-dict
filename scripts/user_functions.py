@@ -370,7 +370,7 @@ def superscript(text: str) -> str:
     return f"<sup>{text}</sup>"
 
 
-def tag(parts: Tuple[str, ...], patterns: Tuple[str, ...] = ("text=",)) -> str:
+def tag(parts: Tuple[str, ...]) -> str:
     """
     Get only interesting values from *parts*.
 
@@ -393,7 +393,7 @@ def tag(parts: Tuple[str, ...], patterns: Tuple[str, ...] = ("text=",)) -> str:
     for part in parts:
         if "=" not in part:
             words.append(part)
-        elif part.startswith(patterns):
+        elif part.startswith("text="):
             words.append(part.split("=")[1])
 
     return ", ".join(words)

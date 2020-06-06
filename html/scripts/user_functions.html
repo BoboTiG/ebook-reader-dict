@@ -392,7 +392,7 @@ def superscript(text: str) -&gt; str:
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;
 
 
-def tag(parts: Tuple[str, ...], patterns: Tuple[str, ...] = (&#34;text=&#34;,)) -&gt; str:
+def tag(parts: Tuple[str, ...]) -&gt; str:
     &#34;&#34;&#34;
     Get only interesting values from *parts*.
 
@@ -415,7 +415,7 @@ def tag(parts: Tuple[str, ...], patterns: Tuple[str, ...] = (&#34;text=&#34;,)) 
     for part in parts:
         if &#34;=&#34; not in part:
             words.append(part)
-        elif part.startswith(patterns):
+        elif part.startswith(&#34;text=&#34;):
             words.append(part.split(&#34;=&#34;)[1])
 
     return &#34;, &#34;.join(words)
@@ -1129,7 +1129,7 @@ and is sometimes rendered in a smaller font.</p>
 </details>
 </dd>
 <dt id="scripts.user_functions.tag"><code class="name flex">
-<span>def <span class="ident">tag</span></span>(<span>parts: Tuple[str, ...], patterns: Tuple[str, ...] = ('text=',)) -> str</span>
+<span>def <span class="ident">tag</span></span>(<span>parts: Tuple[str, ...]) -> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Get only interesting values from <em>parts</em>.</p>
@@ -1151,7 +1151,7 @@ and is sometimes rendered in a smaller font.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def tag(parts: Tuple[str, ...], patterns: Tuple[str, ...] = (&#34;text=&#34;,)) -&gt; str:
+<pre><code class="python">def tag(parts: Tuple[str, ...]) -&gt; str:
     &#34;&#34;&#34;
     Get only interesting values from *parts*.
 
@@ -1174,7 +1174,7 @@ and is sometimes rendered in a smaller font.</p>
     for part in parts:
         if &#34;=&#34; not in part:
             words.append(part)
-        elif part.startswith(patterns):
+        elif part.startswith(&#34;text=&#34;):
             words.append(part.split(&#34;=&#34;)[1])
 
     return &#34;, &#34;.join(words)</code></pre>
