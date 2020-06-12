@@ -1,0 +1,89 @@
+{{also|its|ITS|its'|'its}}
+==English==
+
+===Alternative forms===
+* {{l|en|i's}} {{qualifier|eye dialect}}
+
+===Pronunciation===
+* {{IPA|en|/ɪts/}}
+* {{audio|en|en-us-it's.ogg|Audio (US)}}
+* {{rhymes|en|ɪts}}
+* {{homophones|en|its}}
+
+===Etymology 1===
+[[contraction|Contraction]] of ‘[[it]] [[is]]’ or ‘it [[has]]’.
+
+====Contraction====
+{{en-cont|head=it’s}}
+
+# It [[is]].
+#* {{quote-book|en|year=1743|author=Martin Marley|title=The Good Confessor|page=307|passage=[...], guided not by his own Will, but by the Medick Science, which dictates, that '''it's''' recessary, beneficial, and convenient to alter, mix, and temper this medicine, and fit it to the Disposition, and Constitution of the Patient[.]}}
+#* {{quote-journal|en|date=2013-06-21|author={{w|Oliver Burkeman}}
+|volume=189|issue=2|page=48|magazine={{w|The Guardian Weekly}}
+|title=[http://www.theguardian.com/technology/2013/may/10/conscious-computing-twitter-facebook-google The tao of tech]
+|passage=The dirty secret of the internet is that all this distraction and interruption is immensely profitable. Web companies like to boast about{{...}}and so on. But the real way to build a successful online business is to be better than your rivals at undermining people's control of their own attention. Partly, this is a result of how online advertising has traditionally worked: advertisers pay for clicks, and a click is a click, however '''it's''' obtained.}}
+#: {{ux|en|'''it’s''' too expensive;&nbsp; '''it’s''' coming right for us!}}
+# It [[has]].
+#: {{ux|en|'''It’s''' been a long time since I’ve had cheesecake.}}
+# {{lb|en|colloquial}}<!--I think AAV/ebonixx--> [[there's|There's]], [[there is]]; [[there're]], [[there are]].
+#: {{ux|en|'''it's''' a fine line between love and hate;&nbsp; '''it's''' a package for you by the door}}
+
+=====Usage notes=====
+* See [[its#Usage notes|Usage under “its”]]
+
+=====Synonyms=====
+* {{sense|it is}} {{l|en|’tis}}
+
+=====Translations=====
+{{trans-top|it is}}
+* Arabic: {{t|ar|اِنَّه|m}}, {{t|ar|اِنَّهَا|f}}
+* Bengali: {{t|bn|ইহা হয়|sc=Beng}}
+* Catalan: {{t+|ca|[[ell]] [[és]]}}
+* Dutch: {{t+|nl|[[’t]] [[is]]}}
+* Finnish: {{t|fi|[[se]] [[on]]}}, {{t+|fi|on}}
+* French: {{t+|fr|c'est}}
+* German: {{t+|de|es}} {{t+|de|ist}}
+* Greek: {{t+|el|είναι}}
+* Hindi: {{t|hi|यह है|sc=Deva}}, {{t|hi|यहे है}}
+{{trans-mid}}
+* Italian: {{t+|it|è}}
+* Japanese: {{t|ja|です|tr=desu}}
+* Latin: {{t+|la|est}}
+* Latvian: {{t|lv|[[tas]] [[ir]]}}, {{t|lv|[[tā]] [[ir]]}}
+* Lithuanian: {{t+|lt|[[tai]] [[yra]]}}
+* Portuguese: {{t+|pt|é}}
+* Russian: {{t+|ru|э́то}}, {{t+|ru|есть}}
+* Spanish: {{t+|es|es}}
+* Swedish: {{t+|sv|[[det]] [[är]]}}, {{t+|sv|[[den]] [[är]]}}
+{{trans-bottom}}
+
+{{trans-top|it has}}
+* Catalan: {{t+|ca|[[ell]] [[té]]}}
+* Dutch: {{t+|nl|[[’t]] [[heeft]]}}, {{t+|nl|[[’t]] [[is]]}}
+* Finnish: {{t+|fi|on}}
+* Greek: {{t+|el|έχει}}
+* Italian: {{t+|it|ha}}
+{{trans-mid}}
+* Latin: {{t+|la|habet}}
+* Portuguese: {{t+|pt|tem}}
+* Russian: {{t+|ru|иметь|alt=име́ет}}, {{t+|ru|есть}}
+* Spanish: {{t+|es|ha}}
+* Swedish: {{t+|sv|[[det]] [[har]]}}, {{t|sv|[[den]] [[har]]}}
+{{trans-bottom}}
+
+===Etymology 2===
+From {{compound|en|it|'s|alt2=’s|gloss2=possessive marker}}.
+
+====Determiner====
+{{head|en|determiner|cat2=possessive determiners}}
+
+# {{lb|en|now|_|nonstandard}} {{alternative form of|en|its}}
+#* {{RQ:Florio Montaigne Essayes|chapter=43|book=I|passage=The manner wherewith our Lawes assay to moderate the foolish and vaine expences of table-cheare and apparell, seemeth contrarie to '''it’s''' end.}}
+#* '''1787''', {{w|United States Constitution}}, {{w|Article One of the United States Constitution|Article I}}:
+#*: No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing '''it's''' inspection Laws[.]
+#* '''1803''', President Thomas Jefferson, ''Instructions to Captain Meriwether Lewis'':
+#*: The object of your mission is to explore the Missouri river, & such principal stream of it, as, by '''it’s''' course & communication with the waters of the Pacific Ocean.
+
+===Anagrams===
+* {{anagrams|en|a=ist|'tis|-ist|IST|Ist|SIT|STI|Sit|TIS|TIs|is't|ist|sit|tis}}
+

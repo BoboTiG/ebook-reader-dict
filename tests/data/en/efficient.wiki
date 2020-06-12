@@ -1,0 +1,181 @@
+{{also|efficiënt}}
+==English==
+
+===Etymology===
+{{PIE root|en|dʰeh₁}}
+1398, “making,” from {{der|en|fro|-}}, from {{der|en|la|efficientem}}, nominative {{m|la|efficiēns}}, participle of {{m|la|efficere|t=work out, accomplish}} (see {{m|en|effect}}). Meaning “productive, skilled” is from 1787. ''[[efficiency|Efficiency]] apartment'' is first recorded [[wikipedia:1930|1930]], [[American English]]. <ref>{{R:Etymonline}}</ref>
+
+===Pronunciation===
+* {{a|RP}} {{IPA|en|/ɪˈfɪʃənt/}}
+* {{a|US|CA}} {{IPA|en|/əˈfɪʃənt/}}
+* {{audio|en|en-us-efficient.ogg|Audio (US)}}
+* {{rhymes|en|ɪʃənt}}
+
+===Adjective===
+{{en-adj}}
+
+# making good, [[thorough]], or careful use of [[resources]]; not [[consuming]] extra. Especially, making good use of [[time]] or [[energy]]
+#* {{quote-journal|en|title=A better waterworks|date=2013-06-01|volume=407|issue=8838
+|page=5 (Technology Quarterly)|magazine={{w|The Economist}}
+|url=http://www.economist.com/news/technology-quarterly/21578526-medical-technology-artificial-kidneys-are-getting-closer-becoming-clinical
+|passage=An artificial kidney these days still means a refrigerator-sized dialysis machine. Such devices mimic{{...}}real kidneys{{...}}. But they are nothing like as '''efficient''', and can cause bleeding, clotting and infection—not to mention inconvenience for patients, who typically need to be hooked up to one three times a week for hours at a time.}}
+#: {{ux|en|An '''efficient''' process would automate all the routine work.}}
+#: {{ux|en|Our cleaners are almost too '''efficient''': they throw away anything left out on a desk.}}
+# expressing the [[proportion]] of [[consumed]] [[energy]] that was successfully used in a process; the ratio of useful output to total input
+#: {{ux|en|The motor is only 20% '''efficient''' at that temperature.}}
+# causing effects, producing results; bringing into being; initiating [[change]] (rare except in philosophical and legal expression ''[[efficient cause]]'' = [[causative]] [[factor]] or [[agent]])
+#* {{rfdatek|en|Sir Walter Raleigh}}
+#*: It was well said of Plotinus, that the stars were significant, but not '''efficient'''.
+#: {{ux|en|Ownership, maintenance, or use of the automobile need not be the direct and '''efficient''' cause of the injury sustained}}
+# {{lb|en|proscribed|old use}} [[effective]]
+#* '''1801''', {{w|Robert Southey}}, ''{{w|Thalaba the Destroyer}}'':
+#*: Ye wake no more to anguish;‥ ye have borne<br>The Chosen, the Destroyer!‥ soon his hand<br>Shall strike the '''efficient''' blow;<br>Soon shaking off your penal forms, shall ye,<br>With songs of joy, amid the Eden groves,<br>Hymn the Deliverer’s praise!
+#* {{rfdatek|en|Wilson}}
+#*: The '''efficient''' cause is the working cause.
+
+=====Usage notes=====
+Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}} and {{m|en|effective}} as synonyms, but all major dictionaries now show that these words now only have different meanings in careful use. Use of both for the other meaning is however widespread enough that Longman's Exam Dictionary, for example, finds it necessary to proscribe the use of one for the other with several examples at each entry and provides the following summary:
+* {{m|en|efficient||working quickly and without waste}}
+* {{m|en|effective||having the desired effect}}
+
+====Antonyms====
+* {{l|en|inefficient}}
+
+====Derived terms====
+{{der2|en
+|efficient cause
+|subefficient}}
+
+====Related terms====
+{{rel4|en
+|effect
+|effective
+|effectiveness
+|effectivity
+|effector
+|effectual
+|effectuate
+|efficacious
+|efficacity
+|efficacy
+|efficiency
+|subefficiency}}
+
+====Translations====
+{{trans-top|making good use of resources}}
+* Belarusian: {{t|be|эфекты́ўны}}
+* Bulgarian: {{t+|bg|ефекти́вен}}, {{t+|bg|резултатен}}
+* Catalan: {{t|ca|eficient}}
+* Chinese:
+*: Mandarin: {{t|cmn|[[高]][[效率]]|tr=gāo xiàolǜ}}
+* Czech: {{t+|cs|efektivní}}
+* Dutch: {{t+|nl|efficiënt}}
+* Finnish: {{t+|fi|tehokas}}, {{t|fi|[[säästäväinen]] ja [[tehokas]]}}, {{t|fi|[[taloudellinen]] ja [[tehokas]]}}
+* French: {{t+|fr|efficace}}
+* German: {{t+|de|effizient}}
+* Greek:
+*: Ancient: {{t|grc|δραστικός}}
+* Hebrew: {{t+|he|יעיל|tr=yaeel}}
+* Hungarian: {{t+|hu|gazdaságos}}, {{t+|hu|hatékony}}
+{{trans-mid}}
+* Icelandic: {{t|is|skilvirkur|m}}, {{t|is|nýtinn|m}}
+* Ido: {{t+|io|efikiva}}
+* Italian: {{t+|it|efficiente}}
+* Korean: {{t|ko|[[효율적]][[이다|인]]}}
+* Latin: {{t|la|efficiens}}
+* Malay: {{t|ms|cekap}}, {{t|ms|efisien}}
+* Portuguese: {{t+|pt|eficiente}}
+* Romanian: {{t+|ro|eficient}}
+* Russian: {{t+|ru|эффекти́вный}}
+* Scottish Gaelic: {{t|gd|èifeachdach}}
+* Spanish: {{t+|es|eficiente}}, {{t+|es|eficaz}}
+* Tagalog: {{t|tl|matalab}}
+* Ukrainian: {{t|uk|ефекти́вний}}
+{{trans-bottom}}
+
+{{trans-top|using a particular proportion of available energy}}
+* Bulgarian: {{t+|bg|ефикасен|m}}
+* Catalan: {{t|ca|eficient}}
+* Czech: {{t+|cs|účinný|m}}
+* Dutch: {{t+|nl|efficiënt}}
+* Finnish: {{t+|fi|hyötysuhde}} {{q|noun}}
+{{trans-mid}}
+* French: {{t+|fr|efficace}}
+* Hungarian: {{t+|hu|gazdaságos}}, {{t+|hu|hatékony}}
+* Portuguese: {{t+|pt|eficaz}}
+* Scottish Gaelic: {{t|gd|èifeachdach}}
+* Tagalog: {{t|tl|matalab}}
+{{trans-bottom}}
+
+{{trans-top|causing effects; producing results}}
+* Finnish: {{t+|fi|tehokas}}
+* Portuguese: {{t+|pt|eficaz}}
+{{trans-mid}}
+* Sanskrit: {{t+|sa|साधन}}
+* Spanish: {{t+|es|eficaz}}
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|obsolete}} a [[cause]]; something that causes an effect
+#*'''1643''', {{w|Thomas Browne}}, ''Religio Medici'', I.14:
+#*:Some are without '''efficient''', as God; others without matter, as Angels […].
+#* {{rfdatek|en|Jonathan Edwards}}
+#*: This implies, that something happens without a cause. If it should be said, that motive in this case is not the '''efficient''' of the action or doing — this is granted; but at the same time, for reasons already given, it is denied, that the man himself is the efficient cause of it.
+
+===References===
+<references />
+
+[[Category:English words not following the I before E except after C rule]]
+
+----
+
+==Danish==
+
+===Adjective===
+{{da-adj}}
+
+# {{rfdef|da}}
+
+====Inflection====
+{{da-infl-adj}}
+
+===Further reading===
+* {{R:DDO}}
+
+----
+
+==French==
+
+===Etymology===
+From {{der|fr|la|efficiēns}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{homophones|fr|efficients}}
+
+===Adjective===
+{{fr-adj}}
+
+# {{l|en|efficient}}
+# [[effective]]
+
+====Related terms====
+* {{l|fr|efficience}}
+
+===Further reading===
+* {{R:TLFi}}
+
+----
+
+==Latin==
+
+===Pronunciation===
+* {{la-IPA}}
+
+===Verb===
+{{la-verb-form|efficient}}
+
+# {{inflection of|la|efficiō||3|p|futr|actv|ind}}
+
