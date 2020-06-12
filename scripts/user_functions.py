@@ -330,6 +330,16 @@ def sentence(parts: Tuple[str, ...]) -> str:
     return capitalize(concat(parts, sep=" ", indexes=[0, 1]))
 
 
+def small(text: str) -> str:
+    """
+    Return the *text* surrounded by small HTML tags.
+
+        >>> strong("foo")
+        '<small>foo</small>'
+    """
+    return f"<small>{text}</small>"
+
+
 def small_caps(text: str) -> str:
     """
     Return the *text* surrounded by the CSS style to use small capitals.
@@ -446,6 +456,7 @@ __all__ = (
     "number",
     "person",
     "sentence",
+    "small",
     "small_caps",
     "strong",
     "subscript",

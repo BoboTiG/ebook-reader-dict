@@ -358,6 +358,16 @@ def sentence(parts: Tuple[str, ...]) -&gt; str:
     return capitalize(concat(parts, sep=&#34; &#34;, indexes=[0, 1]))
 
 
+def small(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by small HTML tags.
+
+        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &#39;&lt;small&gt;foo&lt;/small&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;small&gt;{text}&lt;/small&gt;&#34;
+
+
 def small_caps(text: str) -&gt; str:
     &#34;&#34;&#34;
     Return the *text* surrounded by the CSS style to use small capitals.
@@ -474,6 +484,7 @@ __all__ = (
     &#34;number&#34;,
     &#34;person&#34;,
     &#34;sentence&#34;,
+    &#34;small&#34;,
     &#34;small_caps&#34;,
     &#34;strong&#34;,
     &#34;subscript&#34;,
@@ -1070,6 +1081,28 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
     return capitalize(concat(parts, sep=&#34; &#34;, indexes=[0, 1]))</code></pre>
 </details>
 </dd>
+<dt id="scripts.user_functions.small"><code class="name flex">
+<span>def <span class="ident">small</span></span>(<span>text: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the <em>text</em> surrounded by small HTML tags.</p>
+<pre><code>&gt;&gt;&gt; strong("foo")
+'&lt;small&gt;foo&lt;/small&gt;'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def small(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by small HTML tags.
+
+        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &#39;&lt;small&gt;foo&lt;/small&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;small&gt;{text}&lt;/small&gt;&#34;</code></pre>
+</details>
+</dd>
 <dt id="scripts.user_functions.small_caps"><code class="name flex">
 <span>def <span class="ident">small_caps</span></span>(<span>text: str) -> str</span>
 </code></dt>
@@ -1295,6 +1328,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.number" href="#scripts.user_functions.number">number</a></code></li>
 <li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
 <li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
+<li><code><a title="scripts.user_functions.small" href="#scripts.user_functions.small">small</a></code></li>
 <li><code><a title="scripts.user_functions.small_caps" href="#scripts.user_functions.small_caps">small_caps</a></code></li>
 <li><code><a title="scripts.user_functions.strong" href="#scripts.user_functions.strong">strong</a></code></li>
 <li><code><a title="scripts.user_functions.subscript" href="#scripts.user_functions.subscript">subscript</a></code></li>
