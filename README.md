@@ -7,6 +7,7 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 [![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22)
 
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
+- [English](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en)
 - [Español](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es)
 - [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
 - [Português](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)

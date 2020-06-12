@@ -1,0 +1,624 @@
+{{also|Um|UM|.um|-um-|'um|um-|-um|Appendix:Variations of "um"}}
+==English==
+{{wikipedia|Speech disfluency}}
+
+===Etymology 1===
+{{onomatopoeic|en}}.
+
+====Alternative forms====
+* {{l|en|umm}}, {{l|en|hum}}
+
+====Pronunciation====
+* {{audio|en|en-us-um.ogg|Audio (US)}}
+* {{rhymes|en|ʌm}} (when stressed, or as a verb)
+Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
+
+====Interjection====
+{{en-interj}}
+
+# {{non-gloss definition|[[expression|Expression]] of [[hesitation]], [[uncertainty]] or space [[filler]] in [[conversation]]}}. See [[uh]].
+#: '''''Um''', I don’t know.''
+#: ''Let’s see... '''um'''... how about this?''
+#* '''2002''', ''Newsweek'' (volume 140, page lxxx)
+#*: It's a great test of the claims of open-source gurus, who say that a self-motivated community can outcode any team working for a single employer—like, '''um''', Microsoft.
+# {{lb|en|chiefly|American}} {{dated spelling of|en|mmm}}
+#* '''1963''', {{w|Kurt Vonnegut}}, ''Cat's Cradle'', Dell Publishing Co., Inc., page 65:
+#*: "About the same, wherever you go," he agreed.
+#*: "'''Um'''," I said.
+
+====Verb====
+{{en-verb|umm}}
+
+# {{lb|en|intransitive}} To make the ''um'' sound to express uncertainty or hesitancy.
+#* {{quote-book|en|2007|Michael Erard|Um... Slips, Stumbles, and Verbal Blunders, and What They Mean||136|Meanwhile, in the popular mind '''umming''' was simply a bad habit, akin to spitting or picking one’s nose.}}
+
+===Etymology 2===
+From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, from {{der|en|gem-pro|*umbi|t=around}}, from {{der|en|ine-pro|*h₂m̥bʰi|t=round about, around}}. Cognate with {{cog|ang|ymbe|t=around}}, {{cog|fy|om||around}}, {{cog|nl|om||around}}, {{cog|de|um||around}}. More at {{l|en|umbe}}.
+
+====Preposition====
+{{en-prep}}
+
+# {{alternative form of|en|umbe}}
+
+=====Alternative forms=====
+* {{l|en|umb}}, {{l|en|umbe}}
+
+===Etymology 3===
+A Latin-script rendering of ''[[µm]]''.
+
+====Pronunciation====
+* Pronounced as ''[[micrometer]]''.
+
+====Noun====
+{{en-noun|um}}
+
+# {{alternative spelling of|en|µm}}
+
+===Etymology 4===
+
+====Particle====
+{{en-part}}
+
+# {{lb|en|dated|sometimes|humorous|often|offensive}} {{n-g|An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.}}
+#: ''He '''um''' Growling Bear. He '''um''' heap big chief.''
+#* {{quote-journal|en|1871||Grand camp meeting on Bear River|The Keepapitchinin||3|“me heap brave—me talk to '''um''' white man so{{...}} me good injun, like '''um''' white man, ''mebbe so'', ugh!”|url=https://books.google.com/books?id=GEFOAAAAYAAJ&pg=PP3|volume=III}}
+
+===Anagrams===
+* {{anagrams|en|a=mu|-mu-|MU|Mu|mu}}
+
+[[Category:English two-letter words]]
+
+----
+
+==Czech==
+
+===Pronunciation===
+* {{cs-IPA}}
+* {{rhymes|cs|um}}
+
+===Noun===
+{{cs-noun|g=m}}
+
+# [[skill]], [[art]]
+
+===See also===
+* {{l|cs|schopnost}}
+* {{l|cs|dovednost}}
+* {{l|cs|umění}}
+
+===Further reading===
+* {{R:PSJC}}
+* {{R:SSJC}}
+
+----
+
+==East Makian==
+
+===Noun===
+{{head|mky|noun}}
+
+# [[house]]
+
+===References===
+* C. L. Voorhoeve, ''The Makian Languages and Their Neighbours'' (1982)
+
+----
+
+==Elfdalian==
+
+===Etymology===
+From {{inh|ovd|non|um}}, from {{inh|ovd|gem-pro|*umbi}}. Cognate with {{cog|sv|om}}.
+
+===Conjunction===
+{{ovd-con}}
+
+# [[if]]
+
+===Preposition===
+{{head|ovd|preposition}}
+
+# [[around]]
+# [[about]] {{gloss|a subject}}
+
+----
+
+==Faroese==
+
+===Etymology===
+From {{inh|fo|non|umb}}, from {{inh|fo|gem-pro|*umbi}}, from {{inh|fo|ine-pro|*h₂m̥bʰi|t=round about, around}}.
+
+===Pronunciation===
+* {{IPA|fo|/ʊmː/}}
+
+===Preposition===
+{{fo-prep}}
+
+# {{qualifier|with accusative}} [[around]]
+# {{qualifier|with accusative}} [[about]]
+# {{qualifier|with accusative}} [[during]]
+# {{qualifier|with accusative}} [[through]]
+# {{qualifier|with accusative}} [[over]]
+
+===Conjunction===
+{{head|fo|conjunction}}
+
+# [[whether]], [[if]]
+
+----
+
+==German==
+
+===Alternative forms===
+* {{l|de|umb}}, {{l|de|ümb}}, {{l|de|üm}} {{qual|all obsolete}}
+
+===Etymology===
+From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|de|gem-pro|*umbi}}, from {{inh|de|ine-pro|*h₂m̥bʰi|t=round about, around}}. [[Central German]] dialects show regular umlaut; the standard form is from [[Upper German]], where umlaut of ''-u-'' was often blocked before labials. Cognate with {{cog|lb|ëm}}, {{cog|nl|om}}, {{cog|en|umbe}}.
+
+===Pronunciation===
+* {{IPA|de|/ʊm/}}
+* {{audio|de|De-um.ogg|audio (Germany)}}
+* {{audio|de|De-at-um.ogg|audio (Austria)}}
+* {{rhymes|de|ʊm}}
+
+===Preposition===
+{{head|de|preposition}} {{tlb|de|with accusative}}
+
+# [[about]]
+#: {{ux|de|Es geht '''um''' den Kuchen.|inline=1|It's about the pie.}}
+# [[around]]
+#: {{ux|de|'''Um''' die Ecke|around the corner}}
+# [[at]], [[by]] {{qual|when relating to time}}
+#: {{ux|de|'''Um''' acht Uhr reisen wir ab|At eight o’clock we depart}}
+# [[by]] {{qual|percentage difference}}
+#: {{ux|de|Die Verkaufsmengen gingen '''um''' 6% zurück.|inline=1|Sales in volume has decreased by 6%.}}
+
+====Derived terms====
+* ('''''um''' + das'') {{l|de|ums}}
+
+===Conjunction===
+{{head|de|conjunction}} {{tlb|de|introduces a ''zu''-clause}}
+
+# [[in order to]], [[so as to]]
+#: {{ux|de|Wir sind gekommen, '''um''' zu helfen.|We’ve come ('''in order''') '''to''' help.}}
+
+===Adjective===
+{{de-adj|-}}
+
+# {{lb|de|predicative|not attributive}} up, in the sense of finished
+#: ''Werden dich in kurzem binden/ [[w:Erdgeist|Erdgeist]], deine Zeit ist '''um''''' (Friedrich von Hardenberg, ''Novalis'')
+#:: We will shortly bind you/ Erdgeist, your time is up
+
+===Adverb===
+{{head|de|adverb}}
+
+# [[around]], [[about]]
+# turned over, [[changed]], from one state to another
+
+----
+
+==Icelandic==
+
+===Alternative forms===
+* {{l|is|umb}}
+
+===Etymology===
+From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
+
+===Adverb===
+{{head|is|adverb}}
+
+# {{non-gloss definition|used in set phrases}}
+#: {{ux|is|Það er '''um''' að gera að sofa vel.|The important thing to do is to sleep well.}}
+#: {{ux|is|Hvað er '''um''' að vera?|What's going on?}}
+#: {{ux|is|Eins og '''um''' var talað.|As was agreed.}}
+
+====Derived terms====
+* {{l|is|vera um og ó}}
+
+===Preposition===
+{{head|is|preposition}}
+
+# {{qualifier|with accusative}} [[about]], [[concerning]]
+#: {{ux|is|'''Um''' hvað ertu að tala?|What are you talking '''about'''?}}
+#: {{ux|is|Spurning '''um''' líf og dauða.|A question '''of''' life and death.}}
+# {{qualifier|with accusative}} [[through]], [[around]], [[across]]
+#: {{ux|is|Áin rennur '''um''' dalinn.|The river runs '''through''' the valley.}}
+#: {{ux|is|Að fara út '''um''' gluggann.|To go out '''through''' the window.}}
+#: {{ux|is|Vestur '''um''' haf.|West '''across''' the sea.}}
+# {{qualifier|with accusative}} [[throughout]], [[over]], [[around]]
+#: {{ux|is|Við förum '''um''' alla sveitina.|We'll go '''throughout''' the district.}}
+#: {{ux|is|Hann var breiður '''um''' herðar.|He was broad '''across''' the shoulders.}}
+#: {{ux|is|Hún hafði klút '''um''' hálsinn.|She had a scarf '''around''' her neck.}}
+# {{qualifier|with accusative}} [[during]], [[for]], [[in]], [[at]]
+#: {{ux|is|Hvenær gerðist þetta?'' - ''Þetta gerðist '''um''' sumarið.|When did this happen? - It happened '''during''' the summer.}}
+#: {{ux|is|Ég fór '''um''' nóttina.|I went '''during''' the night.}}
+# {{qualifier|with accusative}} [[approximately]], [[about]], [[around]]
+#: {{ux|is|Pokinn er '''um''' fjórir kíló.|The bag '''around''' four kilos.}}
+
+====Usage notes====
+* Often used with phrases such as "''[[brjóta heilann]] '''um'''''".
+*: {{ux|is|Ég er búinn að [[brjóta heilann]] '''um''' þetta alla nótt!|I've been racking my brain '''about''' this all night!}}
+
+====Derived terms====
+{{der4|is|búa um rúmið
+|deila um keisarans skegg
+|eins og um var talað
+|{{l|is|ganga um gólf|t=to walk up and down the floor, to pace the floor}}
+|{{l|is|hér um bil|t=[[approximately]]}}
+|{{l|is|hver um sig|t=each one of them, each in turn, each one on his/her own}}
+|hælast um af
+|{{l|is|klukkan um morgunninn|klukkan ~ um morguninn|t=at ~ in the morning}}
+|{{l|is|láta sem vind um eyru þjóta}}/{{l|is|láta eins og vind um eyru þjóta}}
+|{{l|is|láta um það|láta e-h um það|t=to leave it to s-b}}
+|líta um öxl
+|togast á um
+|{{l|is|um daginn|t=the other day}}
+|{{l|is|um leið og|t=as soon as, at the same time as}}
+|{{l|is|um leið|t=straight away}}
+|{{l|is|um morguninn|t=in the [[morning]], in the course of the morning}}
+|{{l|is|um nóttina|t=during the [[night]]}}
+|{{l|is|um of|t=too much}}
+|{{l|is|um tíma}}/{{l|is|um stundarsakir|t=for a [[while]]}}
+|um það bil
+|{{l|is|um það leyti|t=at about that time}}
+|vefja um fingur sér
+|vera um megn
+|{{l|is|víða um land|t=all over the country}}
+}}
+
+----
+
+==Indo-Portuguese==
+
+===Etymology===
+From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnus}}, from {{der|idb|ine-pro|*óynos}}.
+
+===Article===
+{{head|idb|article}}
+
+# {{l|en|a}} {{gloss|the indefinite article}}
+#* '''1883''', Hugo Schuchardt, ''Kreolische Studien'', volume 3:
+#*: '''Um''' homm tinh doiz filh:
+#*:: '''A''' man had two sons:
+
+----
+
+==Irish==
+
+===Alternative forms===
+* {{alter|ga|im}}
+
+===Etymology===
+From {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
+
+===Pronunciation===
+* {{IPA|ga|/ʊmˠ/}}
+
+===Preposition===
+{{ga-prep|d|l|desc=except of ''b'', ''m'', and ''p''<nowiki/>}}
+
+# [[about]]
+# [[at]]
+
+====Inflection====
+{{ga-prep-infl
+|1sg=umam
+|2sg=umat
+|3sgm=uime
+|3sgmem=uimesean
+|3sgf=uimpi
+|1pl=umainn
+|2pl=umaibh
+|3pl=umpu
+}}
+
+===Further reading===
+* {{R:ga:Ó Dónaill}}
+
+----
+
+==Khasi==
+
+===Etymology===
+Probably cognate to {{cog|uuu|ʔóm}}.
+
+===Noun===
+{{head|kha|noun}}
+
+# [[water]]
+
+===References===
+* H. Roberts, ''A Grammar of the Khasi Language''
+
+----
+
+==Livonian==
+
+===Pronunciation===
+* {{liv-IPA|um|1}}
+
+===Verb===
+{{head|liv|verb form|head=u'm}}
+
+# {{liv-conjugation of|1st|sg|pr|vȱlda}}
+# {{liv-conjugation of|3rd|sg|pr|vȱlda}}
+
+----
+
+==Lote==
+
+===Noun===
+{{head|uvl|noun}}
+
+# [[stone]]
+
+===References===
+* Greg Pearson, René van den Berg, ''[https://web.archive.org/web/20180625141638/http://www-01.sil.org/pacific/png/pubs/928474523806/Lote_grammar_sketch.pdf#page=87 Lote Grammar Sketch]'' (2008)
+
+----
+
+==Luxembourgish==
+
+===Contraction===
+{{head|lb|contraction}}
+
+# contraction of {{l|lb|op}} + {{l|lb|dem}}; on the, at the, to the
+# contraction of {{l|lb|un}} + {{l|lb|dem}}
+
+----
+
+==Mòcheno==
+
+===Etymology===
+{{PIE root|mhn|h₂ent}}
+From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{inh|mhn|gmw-pro|*umbi}}, from {{inh|mhn|gem-pro|*umbi||around, about}}. Cognate with {{cog|de|um}}, {{cog|en|umbe}}.
+
+===Noun===
+{{head|mhn|preposition}} {{tlb|mhn|+ accusative}}
+
+# [[about]], [[around]]
+# {{lb|mhn|time}} [[at]]
+#: {{uxi|mhn|'''Um''' biavle ist s?|What time is it?|lit=How many is it '''at'''?}}
+
+===References===
+* {{R:CLM}}
+
+----
+
+==Norwegian Nynorsk==
+
+===Preposition===
+{{head|nn|preposition}}
+
+# {{nn-former|om|1938}}
+
+----
+
+==Old Norse==
+
+===Alternative forms===
+* {{l|non|umb}}
+
+===Etymology===
+{{PIE root|non|h₂ent}}
+From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {{cog|ofs|umbe}}, {{m|ofs|ombe}}, {{cog|osx|umbi}}, {{cog|goh|umbi}}.
+
+===Preposition===
+{{head|non|preposition}}
+
+# {{qualifier|with accusative}} [[about]], [[concerning]]
+# {{qualifier|with accusative}} [[round]], [[past]], [[beyond]]
+# {{qualifier|with accusative}} [[over]], [[across]], [[along]]
+# {{qualifier|with accusative}} [[during]], [[at]] a point in time
+# {{qualifier|with accusative}} [[because]] [[of]], [[for]]
+
+====Descendants====
+{{top2}}
+* {{desc|da|om}}
+* {{desc|ovd|um}}
+* {{desc|fo|um}}
+{{mid2}}
+* {{desc|is|um}}
+* {{desc|no|om}}
+* {{desc|sv|om}}
+{{bottom}}
+
+===References===
+* {{R:Zoega}}
+
+----
+
+==Pennsylvania German==
+
+===Etymology===
+Compare {{cog|de|um}}, {{cog|nl|om}}, {{cog|ang|ymb}}.
+
+===Preposition===
+{{head|pdc|preposition}}
+
+# [[around]]
+
+----
+
+==Portuguese==
+{{cardinalbox|pt|0|1|2|zero|dois|ord=primeiro|wplink=Um}}
+
+===Alternative forms===
+* {{l|pt|hum}} {{qualifier|obsolete}}
+
+===Etymology===
+From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*óynos|t=one}}.
+
+===Pronunciation===
+* {{a|Portugal|Brazil}} {{IPA|pt|/ũ/}}
+* {{hyphenation|pt|um}}
+* {{rhymes|pt|ũ}}
+
+===Numeral===
+{{pt-cardinal|f=uma}}
+
+# {{senseid|pt|numeral}} {{l|en|one}}
+#: {{ux|pt|'''Uma''' xícara de café|'''One''' cup of coffee|inline=1}}
+
+====Quotations====
+{{seeCites|pt}}
+
+====Descendants====
+* {{desc|idb|um}}
+* {{desc|kea|un}}
+
+===Article===
+{{pt-article}}
+
+# {{senseid|pt|article}} {{lb|pt|indefinite}} {{l|en|a}}, {{l|en|an}}
+#: {{ux|pt|'''Um''' carro, '''uma''' casa.|'''A''' car, '''a''' house.|inline=1}}
+#* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=186|text=Tenho '''um''' recado para você.|t=I have a message for you.}}
+#* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=361|text={{...}} disse o professor com '''um''' sorrisinho {{...}}|t={{...}} the teacher said with a little smile {{...}}}}
+## {{senseid|pt|plural article}} {{lb|pt|in the plural}} {{l|en|some}}; {{l|en|a few}} {{gloss|a small number of}}
+##: {{ux|pt|'''Uns''' carros, '''umas''' casas.|'''A few''' cars, '''a few''' houses.|inline=1}}
+##: {{syn|pt|alguns}}
+## {{senseid|pt|a bit of}} {{lb|pt|with uncountable nouns}} {{l|en|a bit|a bit of}}
+##: {{ux|pt|Comi '''uma''' pipoca antes de dormir.|I ate '''a bit of''' popcorn before going to sleep.}}
+##: {{syn|pt|um pouco de}}
+## {{senseid|pt|quite a}} {{lb|pt|usually in the feminine|pronounced slowly, emphatically and with a high intonation}} {{n-g|indicates that what follows is exceptional}}; {{l|en|quite|quite a}}; {{l|en|quite|quite the}}
+##: {{ux|pt|Ontem de noite caiu '''''uma''''' chuva.|We had '''quite a''' rain last night.}}
+##: {{ux|pt|Estamos comendo '''''um''''' churrasco.|We are having '''''the''''' barbecue.}}
+##: {{syn|pt|aquele}}
+
+====Quotations====
+{{seeCites|pt}}
+
+====See also====
+{{pt-articles}}
+
+===Noun===
+{{pt-noun|m|uns}}
+
+# {{senseid|pt|the digit 1}} The figure or digit "1": {{l|en|one}}.
+#: {{ux|pt|O '''um''' parece o sete sem gravata no pescoço.|inline=1|The one looks like the seven with no tie at its neck.}}
+
+====Quotations====
+{{seeCites|pt}}
+
+===Pronoun===
+{{head|pt|pronoun}}
+
+# {{senseid|pt|someone}} a person; {{l|en|one}}; {{l|en|someone}}
+#: {{ux|pt|Chegou-me '''um''' e disse: "Olá!"|inline=1|One came to me and said: "Hello!"}}
+# {{senseid|pt|previously mentioned element}} Element(s) of a previously mentioned class: [[one]]; [[some]] (in plural).
+#: {{ux|pt|Comprei '''uns''' e me decepcionei.|inline=1|I bought some and got disappointed.}}
+
+====Quotations====
+{{seeCites|pt}}
+
+[[Category:Portuguese basic words]]
+
+----
+
+==Romansch==
+
+===Etymology===
+From {{inh|rm|la|homō}}, ultimately from {{inh|rm|ine-pro|*ǵʰmṓ|t=earthling}}
+
+===Noun===
+{{head|rm|noun|g=m|plural|umens}}
+
+# [[man]]
+# [[husband]]
+
+====Coordinate terms====
+* {{l|rm|dunna}}
+
+[[Category:rm:Family]]
+[[Category:rm:People]]
+
+----
+
+==Sawai==
+
+===Pronunciation===
+* {{IPA|szw|/um/}}
+
+===Noun===
+{{head|szw|noun}}
+
+# [[house]]
+
+===Further reading===
+* Donald A. Burquest, Wyn D. Laidig, ''Phonological Studies in Four Languages of Maluku'' (1992)
+
+----
+
+==Scots==
+
+===Pronunciation===
+* {{IPA|sco|/ʌm/|/əm/}}
+
+===Pronoun===
+{{sco-pron}}
+
+# {{lb|sco|South Scots|personal}} [[him]]
+
+====See also====
+* {{l|sco|hei}}
+
+----
+
+==Serbo-Croatian==
+
+===Etymology===
+From {{inh|sh|sla-pro|*umъ}}.
+
+===Pronunciation===
+* {{IPA|sh|/ûːm/}}
+
+===Noun===
+{{sh-noun|g=m|head=ȗm}}
+
+# [[mind]]
+# [[intellect]]
+# [[wit]]
+
+====Declension====
+{{sh-decl-noun
+|ȗm|úmovi
+|uma|umova
+|umu|umovima
+|um|umove
+|ume|umovi
+|umu|umovima
+|umom|umovima
+}}
+
+----
+
+==Slovak==
+
+===Etymology===
+From {{inh|sk|sla-pro|*umъ}}.
+
+===Pronunciation===
+* {{IPA|sk|/ˈum/}}
+
+===Noun===
+{{sk-noun|g=m|gen=umu|pl=umy|genpl=umov|decl=dub}}
+
+# [[mind]]
+# [[intellect]]
+# [[wit]]
+
+====Declension====
+{{sk-decl-noun|um|umu|umu|um|ume|umom|umy|umov|umom|umy|umoch|umami}}
+
+====Synonyms====
+* {{l|sk|rozum|g=m}}
+* {{l|sk|hlava|g=f}}
+* {{l|sk|zmysel|g=m}}
+
+====Derived terms====
+* {{l|sk|umový}}
+* {{l|sk|umček}}
+
+===References===
+* {{R:SDK}}
+

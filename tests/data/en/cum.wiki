@@ -1,0 +1,497 @@
+{{also|CUM|cùm|-cum}}
+==English==
+
+===Pronunciation===
+* {{a|UK}} {{IPA|en|/kʌm/|[kʰʌm]}}, {{enPR|kŭm}}
+* {{a|US}} {{IPA|en|/kʌm/|[kʰʌm]}}, {{enPR|kŭm}}
+* {{audio|en|en-uk-cum.ogg|Audio (UK)}}
+* {{rhymes|en|ʌm}}
+* {{homophones|en|come}}
+
+===Etymology 1===
+From {{der|en|la|cum||[[with]]}}.
+
+====Preposition====
+{{en-prep}}
+
+# {{non-gloss definition|Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.}}
+#: {{ux|en|He built a bus-'''cum'''-greenhouse that made a bold statement, but the plants in it didn't live very long.}}
+#* {{quote-book|en|year=1926-1950|author=[[w:George Bernard Shaw|George Bernard Shaw]]|title=Collected Letters: 1926-1950|url=http://books.google.com/books?id=UF08AAAAIAAJ|publisher=University of California/Viking|year_published=1985|page=31|passage=He is too good an actor to need that sort of tomfoolery: the effect will be far better if he is a credible mining camp elder-'''cum'''-publican.}}
+#* {{quote-journal|en|year=2001|month=Nov/Dec|author=David Sachs|title=LET THEM EAT BITS|journal=American Spectator|volume=34|issue=8|page=78|passage=The banner shows a yellowed silhouette of a boy (possibly Calvin, of Calvin & Hobbes) urinating on an EU flag. Sites such as this show the full power of the Internet as a propaganda medium '''cum''' travel service '''cum''' organizing tool. Oh, and nightlife directory.}}
+
+====Conjunction====
+{{en-con}}
+
+# {{non-gloss definition|1=Used in indicating a thing with two or more roles, functions, or natures, or a thing that has changed from one to another.}}
+#: {{ux|en|But instead of being a salesperson '''cum''' barista '''cum''' waitress merely serving the wordsmiths, I'm one of them, reading her latest baby out loud.}}
+
+=====Quotations=====
+* {{seeCites|en}}
+
+=====Translations=====
+{{trans-top}}
+* Chinese:
+*: Mandarin: {{t+|cmn|兼|tr=jiān}}
+* French: {{t+|fr|soit}}
+* Italian: {{t+|it|trattino|m}}
+{{trans-mid}}
+* Japanese: {{t+|ja|兼|tr=けん, ken}}
+* Korean: {{t+|ko|겸}}
+{{trans-bottom}}
+
+===Etymology 2===
+Variant of {{m|en|come}}.
+
+====Noun====
+{{en-noun|-}}
+
+# {{lb|en|slang|vulgar}} [[semen|Semen]].
+# {{lb|en|slang|vulgar}} Female ejaculatory discharge.
+# {{lb|en|slang|vulgar}} An [[ejaculation]].
+
+=====Synonyms=====
+* {{sense|[[semen|Semen]]}} {{l|en|spunk}} {{qualifier|chiefly UK}}, [[spooge]] {{qualifier|US}}, [[jiz]], [[jizz]], [[jizzum]], [[jism]], [[gism]], [[nut]], [[junk]]
+* See also [[Thesaurus:semen]]
+
+=====Derived terms=====
+* {{l|en|precum}}
+* {{l|en|cumslut}}, {{l|en|cumwhore}}, {{l|en|cumdump}}, {{l|en|cumguzzler}}, {{l|en|cumrag}}, {{l|en|cumhole}}, {{l|en|cumdumpster}}
+* {{l|en|cumshot}}, {{l|en|cumload}}, {{l|en|cumwad}}
+* {{l|en|cumskin}}
+
+=====Translations=====
+{{trans-top|slang: semen}}
+* Armenian: {{t+|hy|թոխում}}
+* Bengali: {{t|bn|মাল}}
+* Catalan: {{t+|ca|llet|f}}, {{t|ca|lleterada|f}}, {{t|ca|escorreguda|f}}, {{t+|ca|semen|m}}, {{t+|ca|sement|f}}
+* Chinese:
+*: Mandarin: {{t+|cmn|精液|tr=jīngyè|sc=Hani}}
+* Czech: {{t+|cs|mrdka|f}}
+* Danish: {{t|da|sperm|c}}, {{t+|da|sæd|c}}
+* Dutch: {{t+|nl|kwakje}}
+* Esperanto: {{t|eo|ĉuro}}
+* Estonian: {{t+|et|jobi}}, {{t+|et|pauk}}, {{t+|et|sperma}}
+* Faroese: {{t|fo|spin|n}}
+* Finnish: {{t+|fi|mälli}}, {{t|fi|flode}}
+* French: {{t+|fr|foutre|m}}, {{t+|fr|jute|f}}, {{t+|fr|sirop de cordum|m}}
+* German: {{t+|de|Sperma|n}}, {{t+|de|Wichse|f}}
+* Greek: {{t+|el|χύσι|n}} {{qualifier|informal}}, {{t+|el|χύσιμο|n}} {{qualifier|informal}}
+* Hebrew: {{t|he|שפיך|m|tr=shpich}}
+* Hungarian: {{t+|hu|sperma}}, {{t+|hu|geci}}
+* Icelandic: {{t|is|brundur|m}}
+* Indonesian: {{t|id|peju}} {{qualifier|vulgar}}
+{{trans-mid}}
+* Italian: {{t+|it|sborra|f}}
+* Japanese: {{t+|ja|精子|tr=せいし, seishi}}
+* Latin: {{t+|la|serum|n}} <!-- Latin slang?? -->
+* Macedonian: {{t|mk|сперма|f}}, {{t|mk|семе|n}}, {{t|mk|свршка|f}} {{qualifier|slang}}, {{t|mk|дрканица|f}}
+* Malagasy: {{t+|mg|ranon-tsirilahy}}
+* Neapolitan: {{t|nap|sfaccimma}}
+* Norwegian: {{t|no|sperm|m}}, {{t|no|sæd|m}}
+* Polish: {{t+|pl|sperma|f}}, {{t+|pl|nasienie|n}}
+* Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}
+* Romanian: {{t+|ro|sloboz|m}}
+* Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча|f}}
+* Spanish: {{t+|es|lefa|f}}, {{t+|es|corrida|f}} {{q|Spain}}, {{t+|es|acabada|f}}, {{t+|es|leche|f}}, {{t+|es|semen|m}}, {{t+|es|mecos|m-p}}
+* Swedish: {{t+|sv|sagge|c}}
+* Turkish: {{t+|tr|döl}}, {{t+|tr|atmık}}
+* Vietnamese: {{t+|vi|tinh dịch}}
+{{trans-bottom}}
+
+{{trans-top|slang: female ejaculatory discharge}}
+* Catalan: {{t|ca|escorreguda|f}}
+* Chinese:
+*: Mandarin: {{t+|cmn|潮吹|tr=cháochuī|sc=Hani}}, {{t+|cmn|淫水|tr=yǐnshuǐ|sc=Hani}}, {{qualifier|slang}} {{t+|cmn|出水|tr=chūshuǐ|sc=Hani}}
+* Finnish: {{t|fi|pilluneste}}, {{t|fi|pillumehu}}
+{{trans-mid}}
+* Japanese: {{t|ja|潮吹き|tr=しおふき, shiofuki}}
+* Portuguese: {{t+|pt|gozo|m}}
+* Turkish: {{t|tr|zevk suyu}}
+{{trans-bottom}}
+
+{{checktrans-top|translations to be checked}}
+* Arabic: {{t-check|ar|مَنْي}}
+{{trans-mid}}
+* Persian: {{t+check|fa|منی|tr=mani}}
+{{trans-bottom}}
+
+====Verb====
+{{en-verb|cums|cumming|came|past2=cummed|came|past_ptc2=cum|past_ptc3=cummed|past_ptc3_qual=nonstandard}}
+
+# {{lb|en|slang}} To have an [[orgasm]], to feel the sensation of an [[orgasm]].
+# {{lb|en|slang}} To [[ejaculate]].
+#* {{quote-av|en|date=1997-07-14|title=Visits, Conjugal, and Otherwise|series=[[w:Oz (TV series)|Oz]]|season=1|number=2|people=Harold Perrineau|role=Augustus Hill|passage=I got no sensation down there, so I don't know when I'm hard, I don't know when I '''cum'''. My wife's gotta tell me.}}
+
+=====Synonyms=====
+{{sense|have an orgasm}} [[climax]]
+* See also [[Thesaurus:ejaculate]]
+
+=====Translations=====
+{{trans-top|slang: have an orgasm; ejaculate}}
+* Arabic: {{t|ar|قَذْف الْمَنْي}}
+* Armenian: {{t+|hy|թափել}}
+* Bengali: {{t|bn|মাল ফেলা}}
+* Catalan: {{t+|ca|escórrer-se}}, {{t+|ca|ejacular}}
+* Chinese:
+*: Mandarin: {{t+|cmn|射|tr=shè|sc=Hani}}, {{t+|cmn|射精|tr=shèjīng|sc=Hani}}, {{qualifier|slang}} {{t+|cmn|出水|tr=chūshuǐ|sc=Hani}}
+* Czech: {{t+|cs|stříkat}}, {{t+|cs|udělat se}}
+* Danish: {{t|da|ejakulere}}
+* Dutch: {{t+|nl|klaarkomen}}, {{t+|nl|komen}}
+* Esperanto: {{t|eo|orgasmi}}
+* Estonian: {{t|et|orgasmi saama}}, {{t|et|pauku lahti saama}}, {{t|et|lahti saama}}, {{t|et|jobistama}}, {{t+|et|tulema}}
+* Faroese: {{t+|fo|koma}}
+* Finnish: {{t+|fi|saada}}, {{t+|fi|tulla}}, {{t+|fi|laueta}}
+* French: {{t+|fr|venir}}, {{t+|fr|juter}}, {{t+|fr|éjaculer}}, {{t+|fr|jouir}}, {{t+|fr|balancer la purée}}
+* German: {{t+|de|abspritzen}}, {{t+|de|kommen}} {{qualifier|informal}}
+* Greek: {{t+|el|χύνω}}
+* Hebrew: {{t+|he|גָּמַר|tr=gamár}} {{qualifier|slang}}
+* Hungarian: {{t|hu|elélvez}}, {{t+|hu|elmegy}}, {{t+|hu|elsül}}
+{{trans-mid}}
+* Icelandic: {{t|is|fá það}}
+* Italian: {{t+|it|venire}}, {{t+|it|eiaculare}}, {{t+|it|sborrare}}
+* Japanese: {{t|ja|イく|tr=iku}}, {{t|ja|射精する|tr=shasei suru}}
+* Latin: {{t|la|eiaculare}}
+* Macedonian: {{t|mk|свршува}}, {{t|mk|ејакули́ра}}
+* Malagasy: {{t|mg|mitsitsitra}}, {{t+|mg|mitsitra}}
+* Norwegian: {{t|no|ejakulere}}, {{t|no|sæde}}
+* Polish: {{t|pl|wytryskiwać}}
+* Portuguese: {{t+|pt|ejacular}}, {{t+|pt|gozar}}, {{t+|pt|esporrar}}
+* Romanian: {{t+|ro|slobozi|alt=a slobozi}}
+* Russian: {{t+|ru|конча́ть}}, {{t+|ru|эякули́ровать}}
+* Serbo-Croatian: {{t+|sh|svršiti}}
+* Spanish: {{t+|es|venir}}, {{t+|es|irse}}, {{t+|es|venirse}}, {{t+|es|eyacular}},{{t+|es|correrse}},{{t+|es|acabar}},{{t+|es|terminar}}
+* Swedish: {{t+|sv|komma}}
+* Thai: {{t+|th|แตก}}, {{t|th|น้ำแตก}}
+* Turkish: {{t+|tr|boşalmak}}, {{t+|tr|gelmek}} {{qualifier|informal}}, {{t+|tr|attırmak}} {{qualifier|slang}}
+* Vietnamese: {{t|vi|xuất tinh}}
+{{trans-bottom}}
+
+====Usage notes====
+Many style guides and editors recommend the spelling ''[[come]]'' for verb uses (''to orgasm''/''to ejaculate'') while strictly allowing the spelling ''cum'' for the noun (''semen''/''female ejaculatory discharge''). Both spellings are sometimes found in either the noun or verb sense, however. Others prefer to distinguish in formality, using ''come'' for any formal usage and ''cum'' only in slang, erotic or pornographic contexts.<ref>[http://www.glossophilia.org/?p=4925 Glossophilia]</ref>
+
+===References===
+<references/>
+
+===Anagrams===
+* {{anagrams|en|a=cmu|CMU|MCU|MUC|UMC}}
+
+[[Category:English coordinating conjunctions]]
+[[Category:English terms with multiple etymologies]]
+[[Category:English three-letter words]]
+[[Category:English verbs with base form identical to past participle]]
+[[Category:en:Sex]]
+
+----
+
+==Aromanian==
+
+===Alternative forms===
+* {{l|rup|cumu}}
+
+===Etymology===
+From {{inh|rup|VL.|*quomo}}, from {{inh|rup|la|quōmodo}}.
+
+===Adverb===
+{{head|rup|adverb}}
+
+# [[how]]
+
+===Conjunction===
+{{head|rup|conjunction}}
+
+# [[how]]
+
+----
+
+==Irish==
+
+===Etymology===
+From {{inh|ga|sga|cummaid|t=fashions, shapes, composes, determines; makes, creates, devises}}, from {{m|sga|cummae|t=act of cutting, carving, hacking, destroying, butchering; act of shaping, fashioning, composing; shape, form, appearance}} (compare modern {{m|ga|cuma}}).
+
+===Pronunciation===
+* {{a|Munster|Galway}} {{IPA|ga|/kuːmˠ/}}
+* {{a|Mayo|Ulster}} {{IPA|ga|/kʊmˠ/}}
+
+===Verb===
+{{ga-verb|pres=~ann|fut=~faidh|vn=~adh|pp=~tha}} {{lb|ga|ambitransitive}}
+
+# [[form]], [[shape]]
+# [[compose]]
+# [[devise]]
+# [[invent]]
+# {{lb|ga|textiles}} [[make up]]; {{q|with {{m|ga|le}}}} [[fit]]
+#
+## [[limit]]
+## [[ration]]
+
+====Inflection====
+{{ga-conj-1a|c|u|m|broad}}
+
+===Mutation===
+{{ga-mut}}
+
+===Further reading===
+* {{R:ga:Ó Dónaill}}
+* {{R:DIL|13853|head=cummaid}}
+* {{R:ga:EID}}
+* {{R:ga:NEID}}
+
+----
+
+==Latin==
+
+===Alternative forms===
+* {{alter|la|cũ||med|ren|eml}}
+
+===Pronunciation===
+* {{la-IPA|eccl=yes|vul=yes}}
+* {{audio|la|la-cls-cum.ogg|Audio (Classical)}}
+
+===Etymology 1===
+From Old Latin {{m|la|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}, {{cog|gem-pro|*hansō}}. More at '''[[hanse]]'''.
+
+====Preposition====
+{{la-prep|ablative}}
+
+# [[with]]
+#: {{ux|la|Titus '''cum''' familiā habitat.|inline=1|t=Titus lives '''with''' his family.}}
+#: {{ux|la|magnā '''cum''' laude|inline=1|t='''with''' great praise}}
+
+=====Derived terms=====
+{{der3|la|co-
+|col-
+|com-
+|con-
+|contrā
+|cor-
+|cum laude
+|donec
+|egregia cum laude
+|magna cum laude
+|maxima cum laude
+|summa cum laude
+|tecum
+|vobiscum}}
+
+=====Descendants=====
+{{top2}}
+* {{desc|an|con}}
+* {{desc|rup|cu}}
+* {{desc|ast|con}}, {{l|ast|cun}}, {{l|ast|co}}
+* {{desc|co|cù}}, {{l|co|cun}}
+* {{desc|dlm|con}}
+* {{desc|egl|con}}
+* {{desc|en|cum}} {{q|borrowing}}
+* {{desc|fax|con}}
+* {{desc|fur|cun}}, {{l|fur|cu}}
+* {{desc|gl|con}}
+* {{desc|pov|ku}}
+* {{desc|ist|cun}}, {{l|ist|cu'}}
+* {{desc|it|con}}
+* {{desc|kea|ku}}
+* {{desc|lld|con}}, {{l|lld|co}}, {{l|lld|cun}}
+* {{desc|lij|con}}
+* {{desc|lmo|con}}
+* {{desc|ruq|cu}}
+* {{desc|mwl|cun}}
+* {{desc|nap|cu}}
+* {{desc|roa-opt|con}}
+* {{desc|pap|ku}}
+* {{desc|pms|cun}}
+* {{desc|pt|com}}
+* {{desc|rgn|cun}}
+* {{desc|ro|cu}}
+* {{desc|roa-leo|cun}}
+* {{desc|rm|cun}}
+* {{desc|sc|chin}}, {{l|sc|cun}}
+* {{desc|scn|cu}}
+* {{desc|es|con}}
+* {{desc|vec|co}}
+{{bottom}}
+
+===Etymology 2===
+From Old Latin {{m|la|quom}}, from {{der|la|ine-pro|*kʷóm}}, accusative of {{m|ine-pro|*kʷos}}, {{m|ine-pro|*kʷis}}. Compare its feminine form {{m|la|quam}} (as in {{m|la|tum}}-{{m|la|tam}}).
+
+====Alternative forms====
+* {{l|la|quum}}
+* {{qualifier|Old Latin}} {{l|la|quom}}{{attention|itc-ola}}
+
+====Conjunction====
+{{head|la|conjunction|+ subjunctive}}
+
+# [[when]]
+# [[because]]
+# [[although]]
+
+=====Usage notes=====
+* In the sense of [[when]], if there is no causal link between the verb in the dependent clause and the verb in the main clause (sometimes called an inverted cum-clause, as the 'main action' of the sentence occurs in the dependent clause), the indicative is used rather than the subjunctive.
+*: ''per viam ambulābāmus cum pugnam vīdimus.'' [not ''*vīderīmus''] — "We were walking through the street when we happened to witness a fight."
+
+=====Coordinate terms=====
+* {{l|la|tum}}
+
+=====Derived terms=====
+* {{l|la|quomque}}/ {{l|la|cumque}}
+* {{l|la|quondam}}
+* {{l|la|quoniam}}
+* {{l|la|umquam}}
+
+===References===
+* {{qualifier|preposition}} {{R:L&S|cum|cum1}}
+* {{qualifier|conjunction}} {{R:L&S|cum|cum2}}
+* {{R:Elementary Lewis}}
+* {{R:du Cange}}
+* {{R:Gaffiot}}
+* {{R:M&A}}
+
+----
+
+==Manx==
+
+===Etymology 1===
+From {{inh|gv|sga|con·gaib}}. Cognate with {{cog|ga|coinnigh}} and {{cog|gd|cum}}.
+
+====Verb====
+{{head|gv|verb|verbal noun|cummal}}
+
+# [[grip]], [[hold]]
+# [[keep]], [[arrest]], [[retain]]
+# [[contain]]
+# [[live]], [[inhabit]]
+# [[celebrate]]
+
+===Etymology 2===
+From {{inh|gv|mga|cummaid}}, a denominative verb from {{m|mga|cumma}}, itself from {{der|gv|sga|cummae|t=shape, form, appearance}}.
+
+====Verb====
+{{head|gv|verb|verbal noun|cummey}}
+
+# [[plan]], [[devise]]
+# [[fabricate]], [[shape]], [[mould]]
+# [[indite]]
+
+===Mutation===
+{{gv-mut-cons|c|um}}
+
+----
+
+==Old French==
+
+===Conjunction===
+{{head|fro|conjunction}}
+
+# {{alternative form of|fro|conme}}
+
+----
+
+==Old Irish==
+
+===Alternative forms===
+* {{l|sga|·cumai}}
+
+===Verb===
+{{head|sga|verb form|head=·cum}}
+
+# {{inflection of|sga|con·icc||3|s|pres|subj|prototonic}}
+
+====Related terms====
+* {{l|sga|con·í}}, {{l|sga|con·ístar}} {{qualifier|deuterotonic}}
+
+===Mutation===
+{{sga-mutation|c|um|p=·}}
+
+----
+
+==Portuguese==
+
+===Preposition===
+{{head|pt|preposition}}
+
+# {{lb|pt|internet slang}} {{eye dialect of|pt|com}}
+
+====Quotations====
+{{seeCites|pt}}
+
+----
+
+==Rohingya==
+
+===Etymology===
+From {{inh|rhg|sa|चुम्ब}}.
+
+===Noun===
+{{head|rhg|noun}}
+
+# [[kiss]]
+
+----
+
+==Romanian==
+
+===Etymology===
+From {{inh|ro|VL.|*quomo}}, from {{inh|ro|la|quōmodo}}.
+
+===Pronunciation===
+* {{IPA|ro|[kum]}}
+
+===Adverb===
+{{ro-adv}}
+
+# [[how]]
+#: {{ux|ro|'''Cum''' ți-ar plăcea cafeaua?|inline=1|t=How would you like your coffee?}}
+
+===Conjunction===
+{{head|ro|conjunction}}
+
+# [[how]]
+# [[as]], [[since]], [[because]]
+
+----
+
+==Scots==
+
+===Pronunciation===
+* {{IPA|sco|/kʌm/}}
+
+===Verb===
+{{head|sco|verb}}
+
+# to [[come]]
+
+----
+
+==Scottish Gaelic==
+
+===Alternative forms===
+* {{alter|gd|cùm}}
+
+===Pronunciation===
+* {{IPA|gd|/kʰuːm/}}
+
+===Etymology 1===
+From {{inh|gd|sga|con·gaib}}. Cognate with {{cog|ga|coinnigh}} and {{cog|gv|cum}}.
+
+====Verb====
+{{gd-verb|past=chum|fut=cumaidh|vn=cumail|pp=cumta}}
+
+# [[keep]], [[hold]]
+#: {{ux|gd|'''Cùm''' seo dhomhsa gu Dihaoine.|inline=1|'''Keep''' this for me till Friday.}}
+#: {{ux|gd|'''Chùm''' i an taigh glan.|inline=1|She '''kept''' the house clean.}}
+#: {{ux|gd|Cha do '''chùm''' e ris a’ bhargan.|inline=1|He didn’t '''keep''' [his part of] the bargain.}}
+# [[keep]], [[continue]]
+
+=====Derived terms=====
+* {{l|gd|cum ri}}
+* {{l|gd|cum suas ri}}
+
+===Etymology 2===
+From {{inh|gd|sga|cummaid|t=to fashion, makes}}, from {{m|sga|cummae|t=act of cutting, shaping}}, verbal noun of {{m|sga|con·ben}}.
+
+====Verb====
+{{gd-verb|past=chum|fut=cumaidh|vn=cumadh|pp=cumta}}
+
+# [[shape]], [[form]]
+
+===Mutation===
+{{gd-mut-cons|c|um}}
+

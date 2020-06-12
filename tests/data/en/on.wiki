@@ -1,0 +1,1787 @@
+{{also|Appendix:Variations of "on"}}
+==English==
+
+===Pronunciation===
+* {{a|British Isles|Eastern New England}} {{enPR|ŏn}}, {{IPA|en|/ɒn/}}
+* {{a|Northern US|cot-caught}} {{enPR|än}}, {{IPA|en|/ɑn/}}
+* {{a|Southern US}} [https://en.wikipedia.org/wiki/Midland_American_English Midland American English] {{IPA|en|/ɔn/}}
+* {{audio|en|en-us-on.ogg|Audio (US)}}
+* {{audio|en|en-au-on.ogg|Audio (AU)}}
+* {{audio|en|LL-Q1860 (eng)-Back ache-on.wav|Audio (UK)}}
+* {{rhymes|en|ɒn}}
+* {{homophone|en|awn}} {{qualifier|in accents with the cot-caught merger}}
+
+===Etymology 1===
+From {{inh|en|enm|on}}, from {{inh|en|ang|on}}, {{m|ang|an||on, upon, onto, in, into}}, from {{inh|en|gem-pro|*ana||on, at}}, from {{inh|en|ine-pro|*h₂en-}}. Cognate with {{cog|frr|a||on, in}}, {{cog|stq|an||on, at}}, {{cog|fy|oan||on, at}}, {{cog|nl|aan||on, at, to}}, {{cog|nds|an||on, at}}, {{cog|de|an||to, at, on}}, {{cog|sv|å||on, at, in}}, {{cog|fo|á||on, onto, in, at}}, {{cog|is|á||on, in}}, {{cog|got|𐌰𐌽𐌰}}, {{cog|grc|ἀνά||up, upon}}, {{cog|sq|në||in}}; and from {{der|en|non|upp á}}: {{cog|da|på}}, {{cog|sv|på}}, {{cog|no|på}}, see {{m|en|upon}}.
+
+====Adjective====
+{{en-adj|-}}
+
+# In the state of being [[active]], [[function]]ing or [[operate|operating]].
+# [[perform|Performing]] according to [[schedule]]; taking place.
+#: {{ux|en|Are we still '''on''' for tonight?}}
+#: {{ux|en|Is the show still '''on'''?}}
+#: {{ux|en|We had to ration our food because there was a war '''on'''.}}
+# {{lb|en|chiefly|UK|informal|usually negative}} Acceptable, appropriate.
+#: {{ux|en|You can't do that; it's just not '''on'''.}}
+#* '''1998''' May 22, "Phoenix Gamma", ''If I was owned Nintendo...'', <tt>alt.games.video.nintendo-64</tt>:
+#*: This kind of over-packaging of goods is completely not '''on'''.
+#* '''2003''' August 12, "DAB sounds worse than FM", ''Gerg Dyke's Speech at Radio Festival'', <tt>alt.radio.digital</tt>:
+#*: so Simon Nelson saying on Feedback "we'd prefer it if everybody listened to digital radio via DAB" is completely not '''on''' at all.
+# {{lb|en|informal}} [[destined|Destined]], normally in the context of a [[challenge]] being accepted; [[involved]], [[doomed]].
+#: {{ux|en|"Five bucks says the Cavs win tonight." ―"You're '''on'''!"}}
+#: {{ux|en|Mike just threw coffee onto Paul's lap. It's '''on''' now.}}
+# {{lb|en|baseball|informal}} Having reached a [[base]] as a [[runner]] and being positioned there, awaiting further action from a subsequent batter.
+#* {{quote-web|en|date=2019-02-24|author=Chris Kennedy|title=Aggies Earn Series Win Over Yale in Sunday Finale|site=New Mexico State University Athletics|url=https://nmstatesports.com/news/2019/2/24/baseball-aggies-earn-series-win-over-yale-in-sunday-finale.aspx|text=With one out and no men '''on''', Tristen Carranza belted a ball to the opposite field for a solo home run to put the NM State deficit at just 2-1.}}
+#* {{quote-web|en|date=2019-04-06|author=Daniel Martinez-Krams|title=Baseball Falls Short in Game 2 of UCLA Series|site=The Stanford Daily|url=https://www.stanforddaily.com/2019/04/06/baseball-falls-short-in-game-2-of-ucla-series/|text=Although Stanford was outhit 15-6, the Cardinal stranded eight runners to UCLA's three, hitting just 3-15 with runners '''on''' compared to the Bruin's 9-22.}}
+# {{lb|en|euphemistic}} [[menstruating|Menstruating]].
+#* {{quote-book|en|year=2011|author=Netmums, Hollie Smith|title=You and Your Tween: Managing the years from 9 to 13|publisher=Hachette|ISBN=9780755361137
+|passage=It still gets in the way of her doing things like swimming, and she avoids sleepovers when she&#39;s &#39;'''on'''&#39;.}}
+
+=====Synonyms=====
+* {{sense|baseball: positioned at a base}} {{l|en||on}} [[base]] {{qualifier|not informal}}
+
+=====Translations=====
+{{trans-top|in the state of being active, functioning or operating}}
+* Albanian: {{t-needed|sq}}
+* Armenian: {{t|hy|միացրած}}
+* Asturian: {{t-simple|ast|langname=Asturian|encendíu}}
+* Czech: {{t-simple|cs|langname=Czech|zapnuto}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|aan}}, {{t--simple|interwiki=1|nl|langname=Dutch|op}}, {{t-simple|interwiki=1|nl|langname=Dutch|actief}}
+* Estonian: {{t-simple|interwiki=1|et|langname=Estonian|sees}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|päällä}}, {{t-simple|interwiki=1|fi|langname=Finnish|-lla}}, {{t-simple|interwiki=1|fi|langname=Finnish|-llä}} {{qualifier|adessive case}}
+* French: {{t+|fr|allumé}}
+* Galician: {{t-simple|gl|langname=Galician|acendido|m}}
+* German: {{t+|de|an}}, {{t+|de|ein}}
+* Greek: {{t+|el|ανοικτό|n}}
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t|hu|bekapcsolva}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|acceso}}
+* Ladin: {{t-needed|lld}}
+{{trans-mid}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t-needed|lla}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Persian: {{t+|fa|روشن|tr=rowšan}}, {{t+|fa|فعال|tr=faʿʿâl}}
+* Polish: {{t|pl|włączony}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|ligado}}
+* Russian: {{t+|ru|вклю́чить|alt=вклю́ченный}}, {{t|ru|вкл.}} {{qualifier|abbreviation}}
+* Slovak: {{t|sk|zapnutý|alt=zapnuté}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|encendido}}, {{t-simple|interwiki=1|es|langname=Spanish|conectado}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}, {{t+|sv|igång}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|destined}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t+|da|på}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{no equivalent translation|fi}} {{t|fi|[[olla]] [[meno]]a}}
+* French: {{t+|fr|parti}}
+* German: {{t-needed|de}}
+* Greek: ''periphrastically''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|dentro}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t-needed|lla}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|för}}, {{t+|sv|på}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+====Adverb====
+{{en-adv|-}}
+
+# To an [[operate|operating]] [[state]].
+#: {{ux|en|turn the [[television]] '''on'''}}
+# Along, forwards (continuing an action).
+#: {{ux|en|drive '''on''', rock '''on'''}}
+#* {{quote-journal
+|en
+|date=May 5, 2012
+|author=Phil McNulty
+|title=Chelsea 2-1 Liverpool
+|work=BBC Sport
+|url=http://www.bbc.co.uk/sport/0/football/17878435
+|page=
+|passage=He met Luis Suarez's cross at the far post, only for Chelsea keeper Petr Cech to show brilliant reflexes to deflect his header on to the bar. Carroll turned away to lead Liverpool's insistent protests that the ball had crossed the line but referee Phil Dowd and assistant referee Andrew Garratt waved play '''on''', with even a succession of replays proving inconclusive.}}
+# In continuation, at length.
+#: {{ux|en|and so '''on'''.}}
+#: {{ux|en|He rambled '''on''' and '''on'''.}}
+# {{lb|en|cricket}} In, or towards the [[half]] of the [[field]] on the same side as the [[batsman]]'s [[leg]]s; the [[left]] side for a [[right-handed]] batsman; [[leg]]. {{rfex|en}}
+# {{lb|en|obsolete in the US}} [[later|Later]].
+#: {{ux|en|Ten years '''on''', nothing had changed in the village.}}
+# {{n-g|Of betting odds, denoting a better than even chance.}} ''See also '''[[odds-on]]'''''.
+#: ''That horse is at twenty-to-one '''on''', so you need to stake twenty pounds just to win one pound.''
+
+=====Antonyms=====
+* {{sense|active, functioning, operating}} {{l|en|off}}
+* {{sense|to an operating state}} {{l|en|off}}
+* {{sense|later}} {{l|en|after}}, {{l|en|afterward}}/[[afterwards]], [[later]], [[subsequently]], [[thence]]
+
+=====Translations=====
+{{trans-top|to an operating state}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|aan}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|päälle}}
+* French: {{t-needed|fr}}
+* German: {{t+|de|an}}, {{t+|de|ein}}
+* Greek: ''periphrastically''
+* Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: ''not used in Italian''
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t-needed|la}}
+{{trans-mid}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t+|nb|på}}
+*: Norwegian Nynorsk: {{t|nn|på}}
+* Persian: {{t+|fa|روشن|tr=rowšan}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|continuing an action}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|edelleen}}
+* French: {{t+|fr|encore}}
+* German: {{t+|de|weiter}}
+* Greek: ''periphrastically''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: ''not used in Italian''
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t-needed|lla}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t|sk|ďalej}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}, {{t+|sv|vidare}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|along, forwards (continuing an action)}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|edelleen}}
+* French: {{t+|fr|encore}}
+* German: {{t+|de|an}}
+* Greek: ''periphrastically''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|ancora}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t-needed|lla}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t|sk|ďalej}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|vidare}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|cricket: in, or towards the half of the field on the same side as the batsman's legs}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t|fi|''on''-[[puoli|puolella]]}}
+* French: {{t-needed|fr}}
+* German: {{t-needed|de}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-needed|it}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t-needed|lla}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|halv}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+====Preposition====
+[[File:Encima.png|thumb|A green pepper '''on''' (positioned on the upper surface of) a box]]
+{{en-prep}}
+
+# Positioned at the [[upper]] surface of, [[touch]]ing from [[above]].
+#: {{ux|en|'''on''' the table;&nbsp; '''on''' the couch}}
+#: ''The parrot was sitting '''on''' Jim's shoulder.''
+#* {{rfdatek|en|Longfellow}}
+#*: I stood '''on''' the bridge at midnight.
+# At or near; adjacent to.
+#: {{ux|en|Soon we'll pass a statue '''on''' the left.}}
+#: {{ux|en|The fleet is '''on''' the American coast.}}
+#: {{ux|en|[[wikipedia:Croton-on-Hudson|Croton'''-on-'''Hudson]], [[wikipedia:Rostov-on-Don|Rostov'''-on-'''Don]], [[wikipedia:Southend-on-Sea|Southend'''-on-'''Sea]]}}
+# [[covering|Covering]].
+#: {{ux|en|He wore old shoes '''on''' his feet.}}
+# At the [[date]] of.
+#: {{ux|en|Born '''on''' the 4th of July.}}
+# Some time during the [[day]] of.
+#: {{ux|en|I'll see you '''on''' Monday.&emsp; The bus leaves '''on''' Friday.&emsp; Can I see you '''on''' a different day? '''On''' Sunday I'm busy.}}
+# [[deal|Dealing]] with the [[subject]] of, about, or concerning something.
+#: {{ux|en|A book '''on''' history.&emsp; The World Summit '''on''' the Information Society.}}
+#* {{RQ:Trollope He Knew|volume=I|chapter=Lady Milborough as Ambassador|page=85|passage=[...] I received a note from that gentleman '''on''' a most trivial matter. I answered it as trivially.}}
+# [[touch|Touching]]; [[hang]]ing from.
+#: {{ux|en|The fruit ripened '''on''' the trees.&emsp; The painting hangs '''on''' the wall.}}
+# {{lb|en|informal}} In the possession of.
+#: {{ux|en|I haven't got any money '''on''' me.}}
+# Because of, or due to.
+#: {{ux|en|To arrest someone '''on''' suspicion of bribery.&emsp; To contact someone '''on''' a hunch.}}
+# [[upon|Upon]]; at the time of (and often because of).
+#: {{ux|en|'''On''' Jack's entry, William got up to leave.}}
+#: {{ux|en|'''On''' the addition of ammonia, a chemical reaction begins.}}
+# Paid for by.
+#: {{ux|en|The drinks are '''on''' me tonight, boys.&emsp; The meal is '''on''' the house.&emsp; I paid for the airfare and meals for my family, but the hotel room was '''on''' the company.}}
+# {{non-gloss definition|Used to indicate a means or medium.}}
+#: {{ux|en|I saw it '''on''' television.&emsp; Can't you see I'm '''on''' the phone?&emsp; My favorite shows are '''on''' BBC America.&emsp; The Beatles appearance '''on''' the ''Ed Sullivan Show'' is '''on''' YouTube.&emsp; The film was released '''on''' DVD.}}
+# {{non-gloss definition|Indicating a means of subsistence.}}
+#: {{ux|en|They lived '''on''' ten dollars a week.&emsp; The dog survived three weeks '''on''' rainwater.}}
+# Away or occupied with (e.g. a scheduled activity).
+#: {{ux|en|He's '''on''' his lunch break.&emsp; '''on''' vacation;&nbsp; '''on''' holiday}}
+# Denoting performance or action by contact with the surface, upper part, or outside of anything; hence, by means of; with.
+#: {{ux|en|to play '''on''' a violin or piano}}
+#: {{ux|en|Her words made a lasting impression '''on''' my mind.}}
+# {{senseid|en|a drug}} Regularly taking (a drug).
+#: {{ux|en|You've been '''on''' these antidepressants far too long.&emsp; He's acting so strangely, I think he must be '''on''' something.}}
+# {{senseid|en|influenced by a drug}} Under the influence of (a drug).
+#: {{ux|en|He's acting crazy because he's '''on''' crack right now.}}
+# {{lb|en|mathematics}} Having identical [[domain]] and [[codomain]].
+#: {{ux|en|a function '''on'''}}
+# {{lb|en|mathematics}} Having <math>V^n</math> as [[domain]] and ''V'' as [[codomain]], for some set ''V'' and integer ''n''.
+#: {{ux|en|an operator '''on'''}}
+# {{lb|en|mathematics}} [[generate|Generated]] by.
+#: {{ux|en|the free group '''on''' four letters}}
+# [[support|Supported]] by (the specified part of itself).
+#: {{ux|en|A table can't stand '''on''' two legs.&emsp; After resting '''on''' his elbows, he stood '''on''' his toes, then walked '''on''' his heels.}}
+# At a given time after the start of something; [[at#Preposition|at]].
+#* {{quote-journal|en|date=September 24, 2011|author=Aled Williams|work=BBC Sport
+|title=[http://news.bbc.co.uk/sport2/hi/football/eng_prem/14957961.stm Chelsea 4-1 Swansea]
+|passage=The Spain striker had given Chelsea the lead '''on''' 29 minutes but was shown a straight red card 10 minutes later for a rash challenge on Mark Gower.}}
+# In addition to; besides; indicating multiplication or succession in a series.
+#: {{ux|en|heaps '''on''' heaps of food}}
+#: {{ux|en|mischief '''on''' mischief; loss '''on''' loss}}
+# {{lb|en|obsolete|regional}} [[of]]
+#* {{RQ:Shakespeare Julius Caesar|act=I|scene=ii|passage=Be not jealous '''on''' me.}}
+#* {{RQ:Shakespeare Macbeth|act=I|scene=iii|passage=Or have we eaten '''on''' the insane root / That takes the reason prisoner?}}
+# Indicating dependence or reliance; with confidence in.
+#: {{ux|en|I depended '''on''' them for assistance.}}
+#: {{ux|en|He will promise '''on''' certain conditions.}}
+#: {{ux|en|Do you ever bet '''on''' horses?}}
+# Toward; for; indicating the object of an emotion.
+#: {{ux|en|Have pity or compassion '''on''' him.}}
+# {{lb|en|obsolete}} At the peril of, or for the safety of.
+#* {{rfdatek|en|Dryden}}
+#*: Hence, '''on''' thy life.
+# In the service of; connected with; of the number of.
+#: {{ux|en|He is '''on''' a newspaper; I am '''on''' the committee.}}
+# By virtue of; with the pledge of.
+#: {{ux|en|He affirmed or promised '''on''' his word, or '''on''' his honour.}}
+# To the account or detriment of; denoting imprecation or invocation, or coming to, falling, or resting upon.
+#: {{ux|en|'''On''' us be all the blame.}}
+#: {{ux|en|A curse '''on''' him!}}
+#: {{ux|en|Please don't tell '''on''' her and get her in trouble.}}
+#: {{ux|en|He turned '''on''' her and has been her enemy ever since.}}
+#: {{ux|en|He went all honest '''on''' me, making me listen to his confession.}}
+#* {{RQ:KJV|Matthew|27|25||His blood be '''on''' vs, and '''on''' our children.}}
+# {{lb|en|especially when numbers of combatants or competitors are specified}} Against; in opposition to.
+#: ''The fight was three '''on''' one, and he never stood a chance.''
+
+=====Synonyms=====
+* {{sense|dealing with the subject of}} {{l|en|about}}, {{l|en|apropos}}, {{l|en|as for}}; See also [[Thesaurus:about]]
+* {{sense|because of}} {{l|en|by dint of}}, {{l|en|due to}}; See also [[Thesaurus:because of]]
+
+=====Derived terms=====
+{{der3|en
+|follow-on|hands-on|[[on call]], [[on-call]]|on-campus|on-prem|[[on time]], [[on-time]]
+|on-trade|on-train|painted-on}}
+
+=====Related terms=====
+* {{l|en|depend}} (on)
+* {{l|en|put on airs}}
+* {{l|en|Special:prefixindex/on the|''phrases starting with "on the"''}}
+
+=====Translations=====
+{{trans-top|positioned at the upper surface of}}
+* Albanian: {{t-simple|interwiki=1|sq|langname=Albanian|mbi}} {{qualifier|+ acc.}}
+* Arabic: {{t+|ar|عَلَى}}
+*: Egyptian Arabic: {{t|arz|على|tr=ʕala}}
+* Aragonese: {{t-needed|an}}
+* Armenian: {{t+|hy|վրա}}
+* Asturian: {{t-simple|ast|langname=Asturian|sobre}}
+* Azerbaijani: {{t|az|üzərində}}, {{t|az|üstündə}}
+* Bakhtiari: {{t|bqi|سر|tr=sar}}
+* Bashkir: {{t|ba|тураһында}}
+* Belarusian: {{t|be|на}}
+* Bengali: {{t|bn|উপর}}
+* Breton: {{t-simple|interwiki=1|br|langname=Breton|war}}
+* Bulgarian: {{t+|bg|на}}
+* Burmese: {{t+|my|မှာ}}, {{t+|my|၌}}, {{t+|my|အပေါ်}}
+* Catalan: {{t-simple|interwiki=1|ca|langname=Catalan|sobre}}
+* Chinese:
+*: Mandarin: {{t+|cmn|上|alt=……上|tr=... shàng}}
+* Chuukese: {{t|chk|won}}
+* Cornish: {{t|kw|war}}
+* Czech: {{t-simple|interwiki=1|cs|langname=Czech|na}}
+* Dalmatian: {{t|dlm|saupra}}
+* Danish: {{t+|da|på}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|op}}
+* Esperanto: {{t+|eo|sur}}
+* Estonian: {{t-simple|interwiki=1|et|langname=Estonian|peal}} {{q|or adessive case}}
+* Extremaduran: {{t-needed|ext}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|päällä}}
+* French: {{t+|fr|sur}}
+* Galician: {{t-simple|gl|langname=Galician|sobre}}
+* Ge'ez: {{t|gez|ላዕለ}}
+* Georgian: {{t|ka|-ზე}}
+* German: {{t+|de|auf}}
+* Gothic: {{t|got|𐌰𐌽𐌰}}
+* Greek: {{t+|el|πάνω}}, {{t+|el|σε}}
+*: Ancient Greek: {{t|grc|ἐπί}}, {{t|grc|ἐν}}
+* Gujarati: {{t-needed|gu}}
+* Hebrew: {{t+|he|עַל|tr=al}}, {{t|he|על פני}}
+* Hindi: {{t+|hi|पर|alt=... पर}}
+* Hungarian: {{t|hu|-n}}, {{t+|hu|-on}}, {{t+|hu|-en}}, {{t+|hu|-ön}} {{qualifier|superessive case}}
+* Icelandic: {{t+|is|á}}
+* Ido: {{t+|io|sur}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t+|id|di atas}}, {{t+|id|atas}}
+* Interlingua: {{t+|ia|super}}, {{t+|ia|sur}}
+* Interlingue: {{t|ie|sur}}
+* Irish: {{t|ga|ar}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|su}}, {{t-simple|interwiki=1|it|langname=Italian|sopra}}
+* Japanese: {{t+|ja|上|alt=…の上に|tr=… no ue ni}}
+* Kazakh: {{t+|kk|үстінде}}
+* Khmer: {{t|km|នៅលើ|tr=nɨv lǝǝ}}
+* Korean: {{t|ko|위에|alt=...위에}}
+* Kurdish: {{t+|ku|ser}}
+*: Central Kurdish: {{t|ckb|لەسەر|tr=leser}}, {{t|ckb|لە سەر|tr=le ser}}
+* Kyrgyz: {{t|ky|үстүнө}}, {{t+|ky|үстүндө}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Lao: {{t|lo|ເທິງ}}, {{t|lo|ບົນ}}
+* Latin: {{t+|la|in}}, {{t+|la|super}}, {{t+|la|suprā}}, {{t+|la|ab}}, {{t+|la|a}}
+{{trans-mid}}
+* Latvian: {{t+|lv|uz}}
+* Ligurian: {{t|lij|in sce}}
+* Lithuanian: {{t+|lt|ant}}
+* Macedonian: {{t|mk|на}}
+* Malay: {{t+|ms|atas}}, {{t|ms|di atas}}
+* Maltese: {{t|mt|fuq}}
+* Mirandese: {{t|mwl|subre}}
+* Mongolian: {{t+|mn|дээр}}
+* Neapolitan: {{t|nap|ngoppe}}
+* Norwegian: {{t+|no|på}}
+*: Norwegian Bokmål: {{t+|nb|på}}
+*: Norwegian Nynorsk: {{t|nn|på}}
+* Novial: {{t|nov|sur}}
+* Occitan: {{t-needed|oc}}
+* Old Church Slavonic:
+*: Cyrillic: {{t|cu|на}}
+* Old East Slavic: {{t|orv|на}}
+* Old Occitan: {{t|pro|sobre}}
+* Oriya: {{t-needed|or}}
+* Pashto: {{t+|ps|پر|tr=për}}, {{t+|ps|باندې|tr=bânde}}
+* Persian: {{t+|fa|روی|tr=ru-ye}}, {{t+|fa|بر|tr=bar}}
+* Polish: {{t+|pl|na}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|na}}, {{t-simple|interwiki=1|pt|langname=Portuguese|no}}, {{t-simple|interwiki=1|pt|langname=Portuguese|sobre}}
+* Romanian: {{t+|ro|deasupra}}, {{t+|ro|pe}}
+* Russian: {{t+|ru|на}}
+* Scottish Gaelic: {{t|gd|air}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|на}}
+*: Roman: {{t+|sh|na}}
+* Sicilian: {{t+|scn|supra}}, {{t+|scn|sùpira}}
+* Sindhi: {{t-needed|sd}}
+* Slovak: {{t+|sk|na}}
+* Slovene: {{t+|sl|na}}
+* Somali: {{t-needed|so}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|na}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|en}}, {{t-simple|interwiki=1|es|langname=Spanish|sobre}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}, {{t+|sv|ovanpå}}, {{t+|sv|å}}, {{t|sv|upp å}}
+* Tajik: {{t+|tg|ба}}, {{t|tg|рӯи}}, {{t+|tg|бар}}
+* Thai: {{t+|th|บน}}
+* Tibetan: {{t|bo|སྒང་ལ}}
+* Turkish: {{t+|tr|üstünde}}
+* Turkmen: {{t|tk|üstünde}}
+* Ukrainian: {{t+|uk|на}}
+* Urdu: {{t|ur|پر|alt=... پر|tr=... par}}
+* Uyghur: {{t|ug|ئۈستىدە}}
+* Uzbek: {{t+|uz|ustiga}}
+* Veps: {{t-needed|vep}}
+* Vietnamese: {{t+|vi|trên}}
+* Volapük: {{t+|vo|su}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+* Walloon: {{t+|wa|so}}, {{t+|wa|dissu}}
+* Welsh: {{t+|cy|ar}}
+* Wolof: {{t-needed|wo}}
+* Xhosa: {{t-needed|xh}}
+* Yiddish: {{t|yi|אויף}}
+* Yoruba: {{t-needed|yo}}
+* Zulu: {{t-needed|zu}}
+{{trans-bottom}}
+
+{{trans-top|covering}}
+* Albanian: {{t-needed|sq}}
+* Arabic: {{t+|ar|عَلَى}}
+* Armenian: {{t+|hy|վրա}}
+* Burmese: {{t+|my|မှာ}}, {{t+|my|၌}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|over}}
+* Esperanto: {{t+|eo|sur}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|päällä}}, {{t-simple|interwiki=1|fi|langname=Finnish|yllä}}
+* French: {{t+|fr|sur}}, {{t+|fr|au-dessus}}
+* German: {{t+|de|über}}
+* Greek: {{t+|el|πάνω}}
+*: Ancient Greek: {{t-needed|grc}}
+* Hebrew: {{t+|he|מכסה}}
+* Hungarian: {{t|hu|-n}}, {{t+|hu|-on}}, {{t+|hu|-en}}, {{t+|hu|-ön}} {{qualifier|superessive case}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|su}}, {{t-simple|interwiki=1|it|langname=Italian|a}}
+* Ladin: {{t-needed|lld}}
+{{trans-mid}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|in}}, {{t+|la|super}}, {{t+|la|suprā}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Novial: {{t|nov|sur}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|روی|tr=ru-ye}}
+* Polish: {{t+|pl|na}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|em}}
+* Russian: {{t+|ru|на}}
+* Slovak: {{t+|sk|na}}
+* Slovene: {{t+|sl|na}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|en}}, {{t-simple|interwiki=1|es|langname=Spanish|sobre}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|at the date of}}
+* Albanian: {{t-needed|sq}}
+* Ancient Greek: {{qualifier|dative case of noun}}, {{t|grc|ἐν}} {{qualifier|+ dative}}
+* Arabic: {{t+|ar|فِي}}
+* Armenian: {{t|hy|[[-ի]][[-ն|ն]]}}
+* Burmese: {{t+|my|မှာ}}, {{t+|my|၌}}
+* Czech: {{t-simple|interwiki=1|cs|langname=Czech|dne}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|op}}
+* Esperanto: {{t+|eo|je}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-na}}, {{t-simple|fi|langname=Finnish|-nä}} {{qualifier|essive case}}
+* French: ''not used in French''
+* German: {{t+|de|an}}
+* Greek: ''articles'', {{t+|el|σε}} + ''articles''
+* Hebrew: {{t|he|בתאריך}}
+* Hungarian: {{t|hu|-n}}, {{t+|hu|-on}}, {{t+|hu|-en}}, {{t+|hu|-ön}} {{qualifier|superessive case}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: ''not used in Italian''
+* Japanese: {{t+|ja|に|alt=…に|tr=…-ni}}
+* Ladin: {{t-needed|lld}}
+{{trans-mid}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|in}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Malay: {{t|ms|pada}}
+* Maltese: {{t|mt|fi}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Novial: {{t|nov|pri}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|در|tr=dar}}
+* Polish: {{qualifier|genitive case of noun}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|na}}, {{t-simple|interwiki=1|pt|langname=Portuguese|no}}
+* Russian: {{t+|ru|в}}, {{t+|ru|-го|tr=-vo}} {{qualifier|genitive numeral suffix}}
+* Slovak: {{t+|sk|dňa}}
+* Slovene: {{t+|sl|na}}
+* Spanish: {{q|the definite article is used before the time period}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}} {{qualifier|not always used}}, {{t+|sv|under}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|some time during the day of}}
+* Albanian: {{t-needed|sq}}
+* Arabic: {{t+|ar|فِي}}
+* Burmese: {{t+|my|မှာ}}, {{t+|my|၌}}
+* Chinese:
+*: Mandarin: {{t-needed|cmn}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-na}}, {{t-simple|fi|langname=Finnish|-nä}} {{qualifier|essive case}}
+* French: ''not used in French''
+* German: {{t-needed|de}}
+* Greek: ''articles''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t+|is|á}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|di}} {{qualifier|used only with nouns of the week days: "'''di''' lunedì" - "'''on''' Monday", "'''di''' martedì" - "'''on''' Tuesday", ...; not always used}}, {{t-simple|interwiki=1|it|langname=Italian|in}} {{qualifier|used only with generic days, as in "'''in''' un giorno differente" - "'''on''' a different day"; not always used}}
+* Khmer: {{t+|km|នៅ}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Lao: {{t|lo|ໃນ}}
+* Latin: {{t-needed|lla}}
+{{trans-mid}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Ngazidja Comorian: ''not used in Ngazigja Comorian''
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|در|tr=dar}}
+* Polish: {{qualifier|genitive case of noun}}, {{t+|pl|w}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t+|sk|počas}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{q|the definite article is used before the time period}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}, {{t+|sv|under}}
+* Thai: {{t+|th|ใน}}
+* Tibetan: {{t|bo|ལ}}
+* Veps: {{t-needed|vep}}
+* Vietnamese: {{t+|vi|vào}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|dealing with the subject of}}
+* Albanian: {{t-needed|sq}}
+* Arabic: {{t+|ar|فِي}}
+* Armenian: {{t+|hy|մասին}}, {{t+|hy|վերաբերյալ}}
+* Asturian: {{t-simple|ast|langname=Asturian|sobre}}
+* Catalan: {{t-simple|interwiki=1|ca|langname=Catalan|sobre}}
+* Czech: {{t-simple|interwiki=1|cs|langname=Czech|o}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|over}}
+* Esperanto: {{t+|eo|pri}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-sta}}, {{t-simple|interwiki=1|fi|langname=Finnish|-stä}} {{qualifier|elative case}}
+* French: {{t+|fr|sur}}, {{t+|fr|à propos de}}, {{t+|fr|au sujet de}}
+* Galician: {{t-simple|gl|langname=Galician|sobre}}, {{t-simple|gl|langname=Galician|acerca de}}
+* German: {{t+|de|über}}
+* Greek: {{t+|el|πάνω}}
+*: Ancient Greek: {{t|grc|περί}} {{qualifier|+ genitive}}
+* Hebrew: {{t|he|בנושא}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|su}}, {{t-simple|interwiki=1|it|langname=Italian|di}}
+{{trans-mid}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|de}}, {{t+|la|super}}, {{t+|la|supra}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Novial: {{t|nov|sur}}, {{t|nov|kun}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|در|tr=dar}}, {{t+|fa|اندر|tr=andar}}
+* Polish: {{t+|pl|o}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|na}}, {{t-simple|interwiki=1|pt|langname=Portuguese|no}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t+|sk|o}}
+* Slovene: {{t+|sl|na}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|sobre}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|om}}, {{t+|sv|angående}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|touching; hanging from}}
+* Albanian: {{t-needed|sq}}
+* Arabic: {{t+|ar|عَلَى}}
+* Armenian: {{t+|hy|վրա}}
+* Czech: {{t-simple|interwiki=1|cs|langname=Czech|na}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|bij}} {{gloss|on me}}, {{t-simple|interwiki=1|nl|langname=Dutch|aan}} {{gloss|on a tree}}
+* Esperanto: {{t+|eo|sur}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-lla}}, {{t-simple|interwiki=1|fi|langname=Finnish|-llä}} {{qualifier|adessive case}}
+* French: {{t+|fr|sur}}
+* German: {{t+|de|an}}, {{t+|de|bei}}
+* Greek: {{t+|el|πάνω}}
+*: Ancient Greek: {{t-needed|grc}}
+* Hebrew: {{t|he|נוגע}}, {{t|he|תלוי על}}
+* Hungarian: {{t|hu|-n}}, {{t+|hu|-on}}, {{t+|hu|-en}}, {{t+|hu|-ön}} {{qualifier|superessive case}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|su}}, {{t-simple|interwiki=1|it|langname=Italian|a}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|in}}, {{t+|la|super}}, {{t+|la|supra}}
+{{trans-mid}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Novial: {{t|nov|sur}}
+* Pashto: {{t+|ps|پورې|tr=pore}}
+* Persian: {{t+|fa|روی|tr=ru-ye}}
+* Polish: {{t+|pl|na}}
+* Portuguese: {{t-simple|interwiki=1|pt|langname=Portuguese|na}}, {{t-simple|interwiki=1|pt|langname=Portuguese|no}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t+|sk|na}}
+* Slovene: {{t+|sl|na}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|en}}, {{t-simple|interwiki=1|es|langname=Spanish|sobre}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}
+* Tibetan: {{t|bo|ལྡེབས་ལ}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+* West Frisian: {{t|fy|oan}}, {{t+|fy|by}}
+{{trans-bottom}}
+
+{{trans-top|math:having ''V'' as both domain and codomain}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-lle}} {{qualifier|allative case}}; {{t-simple|interwiki=1|fi|langname=Finnish|-lla}}, {{t-simple|interwiki=1|fi|langname=Finnish|-llä}} {{qualifier|adessive case}}
+* French: {{t-needed|fr}}
+* German: {{t-needed|de}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|in}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t+|la|in}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t+|pl|przy}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|av}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|math:having ''V''<sup>n</sup> as domain and ''V'' as codomain}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|-lle}} {{qualifier|allative case}}; {{t-simple|interwiki=1|fi|langname=Finnish|-lla}}, {{t-simple|interwiki=1|fi|langname=Finnish|-llä}} {{qualifier|adessive case}}
+* French: {{t-needed|fr}}
+* German: {{t-needed|de}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|in}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t+|la|in}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Polish: {{t+|pl|na}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|av}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|because of, or due to something}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-simple|interwiki=1|nl|langname=Dutch|wegens}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{t-simple|interwiki=1|fi|langname=Finnish|takia}}, {{t-simple|interwiki=1|fi|langname=Finnish|vuoksi}}, {{t-simple|interwiki=1|fi|langname=Finnish|-sta}}, {{t-simple|interwiki=1|fi|langname=Finnish|-stä}} {{qualifier|elative case}}, {{t-simple|interwiki=1|fi|langname=Finnishi|perusteella}}, {{t-simple|interwiki=1|fi|langname=Finnish|johdosta}}, {{t-simple|fi|langname=Finnish|seurauksena}}
+* French: {{t+|fr|pour}}, {{t+|fr|à propos de}}
+* German: {{t+|de|wegen}}, {{t+|de|aufgrund}}
+* Greek: ''periphrastically''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|con}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+{{trans-mid}}
+* Latin: {{t+|la|in}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t|sk|pre}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på grund av}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|paid for by}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{qualifier|not applicable; different structures used}}
+* French: {{t-needed|fr}}
+* German: {{t+|de|auf}}
+* Greek: ''periphrastically''
+* Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-needed|it}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|in}}
+{{trans-mid}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|با|tr=bâ}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t+|ru|с}} {{q|с меня, с тебя...}}, {{t+|ru|за счёт}}
+* Slovak: {{t+|sk|na}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-needed|es}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t|sv|är på}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{trans-top|used to indicate means or medium}}
+* Albanian: {{t-needed|sq}}
+* Czech: {{t-needed|cs}}
+* Danish: {{t-needed|da}}
+* Dutch: {{t-needed|nl}}
+* Estonian: {{t-needed|et}}
+* Faroese: {{t-needed|fo}}
+* Finnish: {{qualifier|use the inessive and adessive cases}}
+* French: {{t+|fr|avec}}, {{t+|fr|grâce à}}
+* German: {{t+|de|in}}, {{t+|de|an}}
+* Greek: ''periphrastically''
+*: Ancient Greek: {{t-needed|grc}}
+* Hungarian: {{t-needed|hu}}
+* Icelandic: {{t-needed|is}}
+* Igbo: {{t-needed|ig}}
+* Indonesian: {{t-needed|id}}
+* Irish: {{t-needed|ga}}
+* Italian: {{t-simple|interwiki=1|it|langname=Italian|in}}, {{t-simple|interwiki=1|it|langname=Italian|a}}
+* Ladin: {{t-needed|lld}}
+* Ladino: {{t-needed|lad}}
+* Latin: {{t+|la|in}}
+{{trans-mid}}
+* Latvian: {{t-needed|lv}}
+* Lithuanian: {{t-needed|lt}}
+* Maltese: {{t-needed|mt}}
+* Norwegian:
+*: Norwegian Bokmål: {{t-needed|nb}}
+*: Norwegian Nynorsk: {{t-needed|nn}}
+* Pashto: {{t+|ps|په|tr=pë}}
+* Persian: {{t+|fa|در|tr=dar}}
+* Polish: {{t-needed|pl}}
+* Portuguese: {{t-needed|pt}}
+* Russian: {{t-needed|ru}}
+* Slovak: {{t-needed|sk}}
+* Slovene: {{t-needed|sl}}
+* Spanish: {{t-simple|interwiki=1|es|langname=Spanish|en}}
+* Swahili: {{t-needed|sw}}
+* Swedish: {{t+|sv|på}}
+* Veps: {{t-needed|vep}}
+* Volapük: {{t-needed|vo}}
+* Votic: {{t-needed|vot}}
+* Võro: {{t-needed|vro}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* {{ttbc|nl}}: {{t+check|nl|van}}
+* {{ttbc|fr}}: {{t+check|fr|de}}
+* {{ttbc|he}}: {{t-check|he|תלוי ב}}, {{t-check|he|ב-}}
+{{trans-mid}}
+* {{ttbc|hu}}: {{t+check|hu|-tól}}/{{t+check|hu|-től}}
+* {{ttbc|no}}: {{t+check|no|av}} (7)
+* {{ttbc|sv}}: {{t+check|sv|på}}, {{t+check|sv|av}}, {{t+check|sv|på grund av}}
+{{trans-bottom}}
+
+====Verb====
+{{en-verb}}
+
+# {{lb|en|transitive|Singapore|Philippines}} to [[switch]] on
+#: {{ux|en|Can you '''on''' the light?}}
+#: {{syn|en|turn on}}
+
+===References===
+* {{R:OneLook}}
+
+===Etymology 2===
+From {{der|en|non|ón}}, {{m|non|án||without}}, from {{der|en|gem-pro|*ēnu}}, {{m|gem-pro|*ēno}}, {{m|gem-pro|*ino||without}}, from {{der|en|ine-pro|*anew}}, {{m|ine-pro|*enew||without}}. Cognate with {{cog|frr|on||without}}, {{cog|dum|an}}, {{m|dum|on||without}}, {{cog|gml|āne||without}}, {{cog|de|ohne||without}}, {{cog|got|𐌹𐌽𐌿||without, except}}, {{cog|grc|ἄνευ||without}}.
+
+====Alternative forms====
+* {{alter|en|ohn}}
+
+====Preposition====
+{{en-prep}}
+
+# {{lb|en|UK|_|dialectal|Scotland}} [[without|Without]].
+
+=====Usage notes=====
+* Usually followed by a present participle, as ''being'', ''having'', etc.
+
+===Etymology 3===
+From {{der|en|ja|音読み|tr=on'yomi|lit=sound reading}}.
+
+====Noun====
+{{en-noun|?}}
+
+# In the Japanese language, a pronunciation, or reading, of a [[kanji]] character that was originally based on the character's pronunciation in Chinese, contrasted with [[kun]].
+#: {{ux|en|Most kanji have two kinds of reading, called "on" and "kun".}}
+
+=====Related terms=====
+
+* {{l|en|kun}}
+
+===Anagrams===
+* {{anagrams|en|a=no|N.O.|NO|No|No.|no|no.}}
+
+[[Category:English basic words]]
+[[Category:English locatives]]
+[[Category:English two-letter words]]
+
+----
+
+==Azerbaijani==
+{{az-variant|c=он|r=on|a=}}
+{{cardinalbox|az|9|10|11|doqquz|on bir|ord=onuncu}}
+
+===Etymology===
+From {{etyl|trk-pro|az}} {{m|trk-pro|*ōn||ten}}.<ref>{{R:trk-pro:SDM|*ōn|699}}</ref> Cognate with {{cog|otk||ts=on|t=ten}}.
+
+===Numeral===
+{{head|az|numeral}}
+
+# {{cln|az|cardinal numbers}} {{l|en|ten}}
+
+===References===
+<references/>
+
+----
+
+==Basque==
+
+===Etymology===
+From {{inh|eu|euq-pro|*boń}}.
+
+===Pronunciation===
+*{{IPA|eu|/on/}}
+
+===Adjective===
+{{head|eu|adjective|head=on|comparative|hobe|superlative|onen|or|hoberen|excessive|onegi}}
+
+# [[good]]
+# [[useful]], [[convenient]]
+
+====Declension====
+{{eu-decl-adj|form=both|ending=C}}
+
+===Further reading===
+* {{R:EH}}
+* {{R:OEH}}
+
+----
+
+==Catalan==
+
+===Alternative forms===
+* {{alter|ca|ahont|hon|hont||archaic}}
+
+===Etymology===
+From {{inh|ca|pro|}} (compare {{cog|oc|ont}}), from {{inh|ca|la|unde}} (compare {{cog|fr|dont}}).
+
+===Pronunciation===
+* {{ca-IPA|ó}}
+
+===Adverb===
+{{ca-adv}}
+
+# [[where]]
+
+===Further reading===
+* {{R:IEC2}}
+* {{R:GDLC}}
+* {{R:DNV}}
+* {{R:DCVB}}
+
+[[Category:Catalan interrogative adverbs]]
+
+----
+
+==Central Franconian==
+
+===Alternative forms===
+* {{l|gmw-cfr|un}} {{qualifier|widely in free variation}}
+* {{l|gmw-cfr|en}} {{qualifier|some western dialects}}
+
+===Etymology===
+The native form in most dialects was {{inh|gmw-cfr|goh|indi}}, whence the variant {{m|gmw-cfr||en}}. In parts of the Eifel, this {{m|goh||indi}} regularly becomes {{m|gmw-cfr||on}} (compare {{cog|lb|an}}). In southern and eastern dialects, on the other hand, {{m|gmw-cfr||on}} may have been inherited from the Old High German variant {{m|goh|unde}} ({{m|goh|unti}}). From these two groups of dialects, the form will have spread, without doubt under influence of {{der|gmw-cfr|de|und}}.
+
+===Pronunciation===
+* {{IPA|gmw-cfr|/on/}}
+
+===Conjunction===
+{{head|gmw-cfr|conjunction}}
+
+# [[and]]
+#: ''Salz '''on''' Päfer''
+#:: salt '''and''' pepper
+
+----
+
+==Classical Nahuatl==
+
+===Pronoun===
+{{head|nci|pronoun|head=on, ōn}}
+
+# {{lb|nci|demonstrative}} [[that]]; [[those]]
+
+====Related terms====
+* {{l|nci|in}}
+
+===References===
+* {{cite-book|author=Michel Launey|coauthors=Christopher Mackay|year=2011|title=An Introduction to Classical Nahuatl|location=Amazon Kindle|publisher=Cambridge University Press|pages=Loc 1408}}
+
+----
+
+==Cornish==
+
+===Alternative forms===
+* {{l|kw|ôn}}
+
+===Etymology===
+From {{inh|kw|cel-pro|*ognos}}, from {{inh|kw|ine-pro|*h₂egʷnós||lamb}}.
+
+===Pronunciation===
+* {{a|Revived Middle Cornish}} {{IPA|kw|[ɔːn]}}
+* {{a|Revived Late Cornish}} {{IPA|kw|[oːn]}}
+
+===Noun===
+{{kw-noun|m|en}}
+
+# [[lamb]]
+
+{{topics|kw|Baby animals|Sheep}}
+
+----
+
+==Crimean Tatar==
+
+===Numeral===
+{{head|crh|noun}}
+
+# {{cln|crh|cardinal numbers}} [[ten]]
+
+----
+
+==Czech==
+
+===Etymology===
+From {{inh|cs|sla-pro|*onъ}}, from {{inh|cs|ine-pro|*h₂eno-}}
+
+===Pronunciation===
+* {{IPA|cs|/on/}}
+* {{audio|cs|Cs-on.ogg|audio}}
+* {{rhymes|cs|on}}
+
+===Pronoun===
+{{cs-pron|g=m}}
+
+# [[he]] {{gloss|third person personal singular}}
+
+====Declension====
+{{cs-decl-noun
+|on
+|[[ho]] (clitic)<br>[[jej]]/[[něj]]<br>[[jeho]]/[[něho]]
+|[[jemu]]/[[němu]]<br>[[mu]] (clitic)
+|[[jeho]]/[[něho]]<br>[[ho]] (clitic)<br>[[jej]]/[[něj]]
+|—
+|[[něm]]
+|[[jím]]/[[ním]] (clitic)
+|[[oni]] (animate)<br>[[ony]] (inanimate)
+|[[jich]]/[[nich]]
+|[[jim]]/[[nim]]
+|[[je]]/[[ně]]
+|—
+|nich
+|[[jimi]]/[[nimi]]}}
+
+====Related terms====
+* {{l|cs|ona}}, {{l|cs|ono}}
+* {{l|cs|oni}}, {{l|cs|ony}}
+
+===See also===
+* {{l|cs|já}}
+* {{l|cs|ty}}
+* {{l|cs|my}}
+* {{l|cs|vy}}
+
+===Further reading===
+* {{R:PSJC}}
+* {{R:SSJC}}
+
+----
+
+==Dutch==
+
+===Adverb===
+{{nl-adv}}
+
+# rarely used as shorthand for [[oneven]] ([[odd]]), the prefix [[on-]] means ''not'' (corresponds to English [[un-]])
+
+{{attention|nl|is this two things?}}
+
+----
+
+==Estonian==
+
+===Pronunciation===
+* {{et-IPA|`on}}
+
+===Verb===
+{{head|et|verb form}}
+
+# {{inflection of|et|olema||3|s|pres|indc}}
+# {{inflection of|et|olema||3|p|pres|indc}}
+
+----
+
+==Finnish==
+
+===Pronunciation===
+{{fi-pronunciation}}
+
+===Verb===
+{{head|fi|verb form}}
+
+# {{infl of|fi|olla||3s|ind|pres}}
+#: {{ux|fi|[[se|Se]] '''on''' [[tuolla]].|t=It '''is''' [[there]].}}
+#: {{ux|fi|Se '''on''' [[ollut]] [[tuolla]].|t=It '''has''' been there.}}
+
+===Anagrams===
+* {{anagrams|fi|a=no|no}}
+
+----
+
+==French==
+
+===Alternative forms===
+* {{l|fr|l'on}} {{qualifier|formal}}
+
+===Etymology===
+From {{inh|fr|fro|hom}}, {{m|fro|om}} (nominative form), from {{inh|fr|la|homō||human being}} (compare {{m|fr|homme}} from the Old French oblique form {{m|fro|home}}, from the Latin accusative form {{m|la|hominem}}). Its pronominal use is of {{cog|gem}} origin. Compare {{cog|ang|man||one, they, people}}, reduced form of {{cog|ang|mann||man, person}}; {{cog|ca|hom}}; {{cog|de|man||one, they, people}}; {{cog|nl|men||one, they, people}}.
+
+===Pronunciation===
+* {{fr-IPA}}
+* {{audio|fr|Fr-on.ogg|audio}}
+* {{homophones|fr|ont}}
+
+===Pronoun===
+{{fr-pron}}
+
+# {{lb|fr|indefinite}} [[one]], [[people]], [[you]], [[someone]] {{gloss|an unspecified individual}}
+#: {{syn|fr|[[quelqu'un]] {{q|in some contexts}}|[[l'on]] {{q|formal}}}}
+#* '''2003''', Natasha St. Pier, ''L’instant d’après'' (album), ''Quand on cherche l’amour'' (song)
+#*: Quand '''on''' cherche l'amour...
+#*:: When '''one''' searches for love...
+#: {{ux|fr|'''On''' ne peut pas pêcher ici|'''You''' can’t fish here|inline=1}}
+# {{lb|fr|personal|informal}} [[we]]
+#: {{syn|fr|[[nous]] {{q|in some contexts}}}}
+#: {{ux|fr|'''On''' s’est amusés.|'''We''' had fun.|inline=1}}
+
+====Usage notes====
+* In informal French, {{m|fr|on}} has almost completely replaced the pronoun {{m|fr|nous||we}} to indicate the first person plural.
+* The variant {{m|fr|l'on}} is used in more formal or literary contexts.
+
+====Related terms====
+{{French personal pronouns}}
+
+====Descendants====
+* {{desc|bor=1|eo|oni}}
+* {{desc|bor=1|io|on}}
+* {{desc|bor=1|ie|on}}
+
+===Further reading===
+* {{R:TLFi}}
+
+===Anagrams===
+* {{l|fr|NO}}, {{l|fr|nô}}
+
+----
+
+==German Low German==
+
+===Conjunction===
+{{head|nds-de|conjunction}}
+
+# {{lb|nds-de|in several dialects, including|_|Low Prussian}} {{alternative form of|nds-de|un|nodot=1}} {{gloss|and}}
+#: {{ux|nds-de|Melk '''on''' Brot|t=milk '''and''' bread}}
+
+----
+
+==Ido==
+
+===Pronunciation===
+* {{IPA|io|/on/|/ɔn/}}
+
+===Pronoun===
+{{head|io|pronoun}}
+
+# {{apocopic form of|io|onu}}; [[one]], [[someone]], [[they]] {{gloss|indefinite personal pronoun}}
+
+===See also===
+{{io-pers-pron}}
+
+----
+
+==Ingrian==
+
+===Verb===
+{{head|izh|verb form}}
+
+# ''Third-person singular indicative present form of'' '''[[olla]]'''.
+
+----
+
+==Interlingua==
+
+===Pronoun===
+{{head|ia|pronoun}}
+
+# {{l|en|one}} {{gloss|indefinite personal pronoun}}
+
+----
+
+==Japanese==
+
+===Romanization===
+{{ja-romaji}}
+
+# {{ja-romanization of|おん}}
+
+----
+
+==Karelian==
+
+===Verb===
+{{head|krl|verb}}
+
+# (there) [[is]]
+
+----
+
+==Middle English==
+
+===Etymology 1===
+From {{inh|enm|ang|on}}, from {{inh|en|gem-pro|*ana||on, at}}.
+
+====Preposition====
+{{head|enm|preposition}}
+
+# [[#English|on]], [[in]]
+
+====Adverb====
+{{enm-adv}}
+
+# [[#English|on]]
+
+====Alternative forms====
+* {{sense|preposition}} {{alter|enm|one|onne|hon|ane}}; {{alter|enm|an||before initial h or vowel}}; {{alter|enm|æn||early}}
+* {{sense|adverb}} {{alter|enm|one|onne|an}}
+
+====Descendants====
+* {{desc|en|on}}
+* {{desc|sco|an}}, {{l|sco|on}}
+
+====References====
+* {{R:MED Online|on|prep|MED30550}}
+* {{R:MED Online|on|adv.(1)|MED30548}}
+
+===Etymology 2===
+
+====Numeral====
+{{head|enm|numeral}}
+
+# {{alt form|enm|oon}}
+
+====Pronoun====
+{{head|enm|pronoun}}
+
+# {{alt form|enm|oon}}
+
+====Adverb====
+{{enm-adv}}
+
+# {{alt form|enm|oon}}
+
+====Determiner====
+{{head|enm|determiner}}
+
+# {{lb|enm|Early ME}} {{alt form|enm|a|pos=indefinite article}}
+
+===Etymology 3===
+
+====Verb====
+{{head|enm|verb form}}
+
+# {{lb|enm|Early ME}} {{infl of|enm|unnen||1//3|s|pres}}
+
+===Etymology 4===
+
+====Noun====
+{{enm-noun|-}}
+
+# {{alt form|enm|wone||course}}
+
+===Etymology 5===
+
+====Noun====
+{{enm-noun|-}}
+
+# {{alt form|enm|oven}}
+
+----
+
+==Northern Sami==
+
+===Etymology===
+{{rfe|se}}
+
+===Pronunciation===
+* {{se-IPA|ōn}}
+
+===Adverb===
+{{se-adv|head=ōn}}
+
+# [[again]]
+
+====Further reading====
+* {{R:Álgu|}}
+
+----
+
+==Old English==
+
+===Alternative forms===
+* {{alter|ang|an}}
+
+===Etymology===
+From {{inh|ang|gem-pro|*ana}}
+
+===Pronunciation===
+* {{ang-IPA|on}}
+
+===Preposition===
+{{ang-prep}} {{lb|ang|West Saxon}}
+
+# [[#English|on]], [[in]], [[at]], [[among]] {{+obj|ang|dat|or|ins}}
+
+===Adverb===
+{{ang-adv}} {{lb|ang|West Saxon}}
+
+# {{lb|ang|with verbs of taking or depriving}} [[from]]
+
+===Descendants===
+* {{desc|enm|an}}, {{desctree|enm|on|notext=1}}
+
+----
+
+==Old French==
+
+===Alternative forms===
+* {{l|fro|hon}}
+
+===Etymology===
+See {{m|fro|hom}}, {{m|fro|om}}.
+
+===Pronoun===
+{{head|fro|pronoun}}
+
+# [[one]] (gender-neutral third-person singular pronoun)
+
+====Descendants====
+* {{desc|fr|on}}
+
+----
+
+==Old Irish==
+
+===Pronoun===
+{{head|sga|pronoun}}
+
+# {{alt sp|sga|ón}}
+
+===Article===
+{{head|sga|article form}}
+
+# {{alt sp|sga|ón}}
+
+----
+
+==Polish==
+
+===Etymology===
+From {{inh|pl|sla-pro|*onъ}}, from {{inh|pl|ine-pro|*h₂eno-}}.
+
+===Pronunciation===
+* {{pl-IPA}}
+* {{audio|pl|pl-on.ogg|audio}}
+
+===Pronoun===
+{{head|pl|pronoun|plural: masculine personal|oni|all others|one}}
+
+# [[he]] {{qualifier|for [[animate]] nouns}}, [[it]] {{qualifier|for [[inanimate]] nouns}}
+
+====Declension====
+{{pl-decl-noun-sing
+|on
+|[[jego]]/[[go]]/[[niego]]
+|[[jemu]]/[[mu]]/[[niemu]]
+|[[jego]]/[[go]]/[[niego]]
+|[[nim]]
+|[[nim]]
+|-
+}}
+
+====Related terms====
+* {{l|pl|ona}}, {{l|pl|ono}}
+* {{l|pl|oni}}, {{l|pl|one}}
+
+===Pronoun===
+{{head|pl|pronoun|g=m}}
+
+# {{lb|pl|obsolete}} [[this]] {{qualifier|demonstrative}}
+
+====Declension====
+{{pl-decl-adj|on|ona|ono|oni|one|onego|onej|onych|onemu|onym|oną|onym|onymi}}
+
+===See also===
+* {{l|pl|ja}}
+* {{l|pl|ty}}
+* {{l|pl|my}}
+* {{l|pl|wy}}
+* {{l|pl|Appendix:Polish pronouns}}
+
+===Further reading===
+* {{R:PWN}}
+
+----
+
+==Romansch==
+
+===Alternative forms===
+* {{qualifier|Rumantsch Grischun|Sursilvan|Surmiran}} {{l|rm|onn}}
+* {{qualifier|Puter}} {{l|rm|an}}
+
+===Etymology===
+From {{inh|rm|la|annus}}.
+
+===Noun===
+{{rm-noun|m}}
+
+# {{lb|rm|Sutsilvan|Vallader}} [[year]]
+
+[[Category:rm:Time]]
+
+----
+
+==Serbo-Croatian==
+
+===Etymology===
+From {{inh|sh|sla-pro|*onъ}}, from {{inh|sh|ine-pro|*h₂eno-}}
+
+===Pronunciation===
+* {{IPA|sh|/ôːn/}}
+
+===Pronoun===
+{{sh-pronoun|head=ȏn}}
+
+# [[he]]
+
+====Declension====
+{{sh-3ps-pronoun}}
+
+====See also====
+* {{l|sh|njezin}}
+* {{l|sh|njegov}}
+
+[[Category:Serbo-Croatian personal pronouns]]
+
+----
+
+==Slovak==
+
+===Etymology===
+From {{inh|sk|sla-pro|*onъ}}, from {{inh|sk|ine-pro|*h₂eno-}}; inflected forms from {{inh|sk|sla-pro|*jь}}, from {{inh|sk|ine-pro|*éy}}.
+
+===Pronunciation===
+* {{IPA|sk|/ɔn/}}
+
+===Pronoun===
+{{head|sk|pronoun}}
+
+# [[he]] {{gloss|third-person personal masculine singular pronoun}}
+
+====Declension====
+{{sk-decl-noun|on|[[ho]], [[jeho]], [[neho]]|[[mu]], [[jemu]], [[nemu]]|[[ho]], [[jeho]], [[neho]]|ňom|nim|[[oni]], [[ony]]|[[ich]], [[nich]]|[[im]], [[nim]]|[[ich]], [[nich]], [[ne]]|nich|nimi}}
+
+===Further reading===
+* {{R:SDK}}
+
+----
+
+==Slovene==
+
+===Etymology===
+From {{inh|sl|sla-pro|*onъ}}, from {{inh|sl|ine-pro|*h₂eno-}}
+
+===Pronunciation===
+* {{sl-IPA|ȍn}}
+
+===Pronoun===
+{{sl-pron|ȍn}}
+
+# [[he]]
+
+====Inflection====
+{{sl-decl-pron-on}}
+
+===See also===
+{{sl-personal pronouns}}
+
+{{catlangname|sl|personal pronouns}}
+
+----
+
+==Southeastern Tepehuan==
+
+===Etymology===
+From {{inh|stp|azc-pro|*ona}}.
+
+===Noun===
+{{head|stp|noun}}
+
+# {{l|en|salt}}
+
+===References===
+* {{Willett et al. 2016|page=140}}
+
+----
+
+==Swedish==
+
+===Noun===
+{{head|sv|noun form}}
+
+# {{sv-noun-form-indef-pl|o}}
+
+===Anagrams===
+* {{anagrams|sv|a=no|NO|no.}}
+
+----
+
+==Turkish==
+{{cardinalbox|tr|9|10|11|dokuz|on bir|ord=onuncu|dis=onar|wplink=10 (sayı)}}
+
+===Etymology===
+From {{der|tr|otk|𐰆𐰣|ts=on||ten}}, from {{inh|tr|trk-pro|*ōn||ten}}.
+
+===Numeral===
+{{head|tr|numeral}}
+
+# {{cln|tr|cardinal numbers}} [[ten]]
+
+====Declension====
+{{tr-infl-noun-c|o}}
+
+----
+
+==Turkmen==
+
+===Etymology===
+From {{der|tk|otk|𐰆𐰣|ts=on||ten}}, from {{inh|tk|trk-pro|*ōn||ten}}.
+
+===Numeral===
+{{head|tk|numeral}}
+
+# {{cln|tk|cardinal numbers}} [[ten]]
+
+----
+
+==Venetian==
+
+===Article===
+{{head|vec|article|g=m-s}}
+
+# [[a]], [[an]]
+
+====Usage notes====
+* Variant of {{m|vec|un}}
+
+----
+
+==Volapük==
+
+===Etymology===
+Borrowed from {{bor|vo|fr|on}}.
+
+===Pronoun===
+{{head|vo|pronoun}}
+
+# [[it]]
+# {{lb|vo|obsolete|indefinite personal pronoun}} [[one]]
+
+====Declension====
+{{vo-decl-pronoun}}
+
+----
+
+==Walloon==
+
+===Alternative forms===
+* {{l|wa|onk}}
+
+===Etymology===
+{{rfe|wa}}
+
+===Numeral===
+{{head|wa|numeral}}
+
+# {{cln|wa|cardinal numbers}} [[one]]
+

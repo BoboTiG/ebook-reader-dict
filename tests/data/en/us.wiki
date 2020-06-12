@@ -1,0 +1,361 @@
+{{also|Appendix:Variations of "us"}}
+==English==
+{{wikipedia}}
+
+===Etymology 1===
+From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative personal pronoun|us}}, from {{etyl|gem-pro|en}} {{m|gem-pro|*uns||us}}, from {{etyl|ine-pro|en}} {{m|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}. Cognate with {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
+
+====Pronunciation====
+* {{qualifier|stressed}} {{enPR|ŭs}}, {{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}
+* {{qualifier|unstressed}} {{a|US}} {{IPA|en|/əs/}}, {{a|UK}} {{IPA|en|/əs/|/əz/}}
+* {{audio|en|en-us-us.ogg|Audio (US)}}
+* {{rhymes|en|ʌs}}
+
+====Pronoun====
+{{en-pron}}
+
+# {{lb|en|personal}} [[me|Me]] and at least one other person; the objective case of '''[[we]]'''.
+#* '''1611''', [[w:King James Version of the Bible|King James Version of the Bible]], ''[[s:Bible (King James)/Luke|Luke]] 1:1'':
+#*: Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...
+# {{lb|en|colloquial}} [[me|Me]].
+#: ''Give '''us''' a look at your paper.''
+#: ''Give '''us''' your wallet!''
+# {{lb|en|Northern England}} [[our|Our]].
+#: ''We'll have to throw '''us''' food out.''
+
+=====Alternative forms=====
+* {{l|en|-'s}} {{q|contracted form, as in {{m|en|let's}}}}
+
+=====Translations=====
+{{trans-top|objective case of "we"}}
+* American Sign Language: {{t|ase|1^o-f@IpsiChest-FingerBack RoundHoriz 1^o-f@ContraChest-FingerBack}}
+* Arabic: {{t|ar|ـنَا}}, {{t|ar|إِيَّانَا}}
+*: Egyptian Arabic: {{t|arz|نا|alt=ـنا|tr=-nā|sc=Arab}}
+* Armenian: {{l|hy|մեզ}}
+*: Old Armenian: {{l|xcl|մեզ}}
+* Bengali: {{t|bn|আমাদের}}
+* Bislama: [[yumi]], [[yumitupela]] (''dual inclusive''); [[yumitripela]] (''trial inclusive''); [[yumipela]] (''plural inclusive''); [[mitupela]] (''dual exclusive''); [[mitripela]] (''trial exclusive''); [[mipela]] (''plural exclusive'')
+* Burmese: {{t|my|ကျုပ်တို့}}, {{t+|my|တို့}}
+* Chamicuro: {{t|ccc|a'ti}}
+* Chinese:
+*: Cantonese: {{t|yue|我哋|tr=ngo5 dei6|sc=Hani}}
+*: Mandarin: {{t+|cmn|我們|sc=Hani}}, {{t+|cmn|我们|tr=wǒmen|sc=Hani}}
+*: Min Nan: {{t+|nan|阮|tr=góan, gún|sc=Hans}}, {{t+|nan|咱|tr=lán|sc=Hans}}, {{t+|nan|咱人|tr=lán-lâng|sc=Hans}}
+* Czech: {{t+|cs|nás}}, {{t+|cs|nám}}
+* Dalmatian: {{t|dlm|noi}}
+* Dutch: {{t+|nl|ons}}
+* Eshtehardi: {{t|esh|چَما|tr=ĉamā}}
+* Esperanto: {{t+|eo|nin}}
+* Ewe: {{t|ee|míawo}}
+* Finnish: {{t+|fi|meidät}}, {{t+|fi|meitä}}
+* French: {{t+|fr|nous}}, à nous
+* Georgian: {{t|ka|ჩვენს}}
+* German: {{t+|de|uns}}
+* Greek: {{t+|el|μας}}
+* Hopi: {{t|hop|itamuy}}
+* Hungarian: {{t+|hu|minket}}, {{t|hu|bennünket}}
+* Ido: {{t+|io|ni}}
+* Interlingua: {{t+|ia|nos}}
+* Irish: {{t|ga|sinn|p}}
+*: Old Irish: {{t|sga|n-}}, {{t|sga|don-}}, {{t|sga|-unn}}
+* Italian: {{t+|it|noi}}, a noi, {{t+|it|ci}}
+* Japanese: wata (私達) ''[[or]]'' tachi (私達)
+* Kabuverdianu: {{t|kea|nu}}
+* Kazakh: {{t+|kk|бізді}}
+{{trans-mid}}
+* Korean: {{t+|ko|우리}}
+* Kurdish:
+*: Sorani: {{t+|ku|ئێمە}}
+* Latin: {{qualifier|accusative}} {{t+|la|nos}}, {{qualifier|dative}} {{t+|la|nobis}}, {{qualifier|ablative}} {{t+|la|nobis}}
+* Macedonian: {{t|mk|ни}}, {{t|mk|нас}}, {{t|mk|нам}}
+* Malay:
+*: ''exclusive: '' {{t+|ms|kami|p}}
+*: ''inclusive: '' {{t+|ms|kita|p}}
+* Maori: {{t|mi|māua}} {{qualifier|exclusive referring to two people}}, {{t|mi|tāua}} {{qualifier|inclusive referring to two people}}, {{t|mi|mātau/mātou}} {{qualifier|exclusive referring to three or more people}}, {{t|mi|tātau/tātou}} {{qualifier|inclusive referring to three or more people}}
+* Ngarrindjeri: {{t|nay|ngatjagha}}
+* Ngazidja Comorian: {{t|zdj|sisi}}
+* Norn: {{t|nrn|vus}}
+* Norwegian:
+*: Bokmål: {{t+|nb|oss}}
+*: Nynorsk: {{t|nn|oss}}
+* Old English: {{t+|ang|ūs}}
+* Persian: {{t+|fa|ما|tr=mâ|sc=fa-Arab}}
+* Pipil: {{t|ppl|tech-}}
+* Polish: {{t+|pl|nas}}, {{t+|pl|nam}}, {{t|pl|nami}}
+* Portuguese: {{t+|pt|nos}}
+* Romanian: {{t|ro|ne}} {{qualifier|unstressed dative and accusative}}, {{t+|ro|nouă}} {{qualifier|stressed dative}}, ([[pe]]) [[noi]] {{qualifier|stressed accusative}}
+* Russian: {{t+|ru|нас|p}}, {{t+|ru|нам|p}}, {{t+|ru|на́ми|p}}
+* Serbo-Croatian: {{t+|sh|nas}}
+* Slovene: {{t+|sl|midva}} (‘us two’), {{t|sl|midve}} (‘us two women’), {{t+|sl|mi}} (three or more), {{t|sl|me}} (three or more women)
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|naju|d}}, {{t|dsb|nas|p}}
+* Spanish: {{t+|es|nos}}, {{t+|es|nosotros}}, {{t+|es|nosotras}}
+* Svan: {{t-needed|sva}}
+* Swedish: {{t+|sv|oss}}
+* Ukrainian: {{t+|uk|нас}}, {{t|uk|нам}}
+* Volapük: {{t|vo|obis}}
+* Welsh: {{t|cy|ni}}
+* West Frisian: {{t+|fy|ús}}
+* Wolof: {{t|wo|nu}}
+* Zulu: {{t|zu|thina}}
+{{trans-bottom}}
+
+<!--Add COLLOQUIAL translations here, where these exist-->
+{{trans-top|colloquial: me}}
+* German: {{t+|de|uns}}
+{{trans-mid}}
+{{trans-bottom}}
+
+=====See also=====
+* {{l|en|we}}
+* {{l|en|our}}
+* {{l|en|ours}}
+
+====Determiner====
+{{en-det}}
+
+# The speakers/writers, or the speaker/writer and at least one other person.
+#: ''It's not good enough for '''us''' teachers.''
+
+=====See also=====
+* {{l|en|we}}
+
+===Etymology 2===
+Derived from the similarity between the letter [[u]] and the Greek letter [[µ]].
+====Symbol====
+{{head|en|symbol}}
+
+# {{alternative spelling of|en|µs}}: [[microsecond]]
+#*'''2002''', Peter Spasov, ''Microcontroller Technology, the 68HC11'', p. 489:
+#*:<nowiki>;</nowiki>wait 500 '''us'''
+#*'''2012''', Peter Feiler and David Gluch, ''Model-Based Engineering with AADL'':
+#*:The standard units are ns (nanoseconds), '''us''' (microseconds), ms (milliseconds), sec (seconds), min (minutes), and hr (hours).
+#*'''2014''', Michael Corey, ‎Jeff Szastak, ‎and Michael Webster, ''Virtualizing SQL Server with VMware: Doing IT Right'', p. 198:
+#*:Because the flash devices are local to the server, the latencies can be microseconds ('''us''') instead of milliseconds (ms) and eliminate some traffic that would normally have gone over the storage network.
+
+===Etymology 3===
+
+====Noun====
+{{head|en|noun form}}
+
+# {{plural of|en|u}}
+
+=====Usage notes=====
+{{U:en:plurals of letters}}
+
+[[Category:Symbols for SI units]]
+
+===Anagrams===
+* {{anagrams|en|a=su|SU|Su}}
+
+[[Category:English basic words]]
+[[Category:English first person pronouns]]
+[[Category:English personal pronouns]]
+[[Category:English plural pronouns]]
+[[Category:English two-letter words]]
+
+----
+
+==Catalan==
+
+===Etymology===
+From {{inh|ca|pro|us}}, from {{inh|ca|la|ūsus}}.
+
+===Pronunciation===
+* {{ca-IPA}}
+* {{homophones|ca|ús}}
+
+===Pronoun===
+{{ca-ppron|type=procl+encl_con|encl=vos}}
+
+# [[you]] (plural, direct or indirect object)
+# {{contraction of|ca|vos}}
+
+====Declension====
+{{ca-decl-ppron}}
+
+----
+
+==French==
+
+===Etymology===
+From {{inh|fr|fro|us}}, from {{inh|fr|la|ūsus}}.
+
+===Pronunciation===
+* {{fr-IPA|uss}}
+* {{audio|fr|LL-Q150 (fra)-Exilexi-us.wav|Audio}}
+* {{rhymes|fr|ys}}
+
+===Noun===
+{{fr-noun|m-p}}
+
+# {{lb|fr|plurale tantum}} [[mores]]; [[traditional]] [[practice]]s or [[manner]]s
+
+====Usage notes====
+Only used in Modern French as {{m|fr|[[us]] [[et]] [[coutumes]]||[[mores]] and [[custom]]s}}. Also see the etymologically related {{m|fr|usage}}.
+
+===Further reading===
+* {{R:TLFi}}
+
+===Anagrams===
+* {{l|fr|su}}
+
+----
+
+==Gothic==
+
+===Romanization===
+{{got-rom}}
+
+# {{romanization of|got|𐌿𐍃}}
+
+----
+
+==Middle English==
+
+===Alternative forms===
+* {{alter|enm|ous|os|hus|usse|hous}}
+
+===Etymology===
+From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro|*uns||us}}, from {{inh|enm|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}.
+
+===Pronoun===
+{{head|enm|pronoun|nominative|we}}
+
+# {{n-g|First-person plural accusative pronoun:}} [[us]].
+# {{lb|enm|reflexive}} [[ourselves]].
+# {{lb|enm|reciprocal}} [[each other]].
+
+====Synonyms====
+* {{l|enm|we}}
+
+====Descendants====
+* {{desc|en|us}}
+* {{desc|sco|us}}, {{l|sco|hus}}
+
+===References===
+* {{R:MED Online|entry= us (pron.)  |id=MED50620 |accessdate=11 May 2018}}
+
+----
+
+==Middle Low German==
+
+===Pronunciation===
+* {{IPA|gml|/ʊs/|/uːs/}}
+
+===Pronoun===
+{{head|gml|pronoun|head=ûs|head2=us}}
+
+# {{lb|gml|personal pronoun|dative|accusative}} {{alternative form of|gml|uns}}.
+# {{lb|gml|possesive pronoun}} {{alternative form of|gml|uns}}.
+
+====Declension====
+Possesive pronoun:
+{{gml-decl-adj||û|s}}
+
+----
+
+==Norman==
+
+===Etymology===
+From {{inh|nrf|fro|uis}}, from {{inh|nrf|la|ostium}}.
+
+===Noun===
+{{nrf-noun|m|pl=us}}
+
+# [[door]]
+
+----
+
+==Old English==
+
+===Etymology===
+From {{inh|ang|gem-pro|*uns}}, from {{inh|ang|ine-pro|*n̥s}}, {{m|ine-pro|*nes}}. Cognates include {{cog|ofs|ūs}} ({{cog|fy|us|ús}}), {{cog|osx|ūs}} ({{cog|nds|os}}, {{m|nds|ons}}), {{cog|nl|ons}}, {{cog|goh|uns}} ({{cog|de|uns}}), {{cog|non|oss}} ({{cog|sv|oss}}), {{cog|got|𐌿𐌽𐍃}}. The Indo-European root is also the source of {{cog|la|nos}}.
+
+===Pronunciation===
+* {{IPA|ang|/uːs/}}
+
+===Pronoun===
+{{head|ang|pronoun form|head=ūs}}
+
+# {{inflection of|ang|wē||acc//dat}}: (to) [[us]]
+
+====Descendants====
+* {{desctree|enm|us}}
+
+----
+
+==Old French==
+
+===Etymology===
+From {{inh|fro|la|ūsus}}.
+
+===Noun===
+{{fro-noun|m}}
+
+# [[tradition]] or [[custom]]
+
+====Descendants====
+* {{desc|fr|us}}
+
+----
+
+==Old Frisian==
+
+===Etymology===
+From {{inh|ofs|gem-pro|*uns}}, {{m|gem-pro|*unsiz}}.
+
+===Pronoun===
+{{head|ofs|pronoun|head=ūs}}
+
+# {{noun form of|ofs|wī||acc//dat}}
+
+====Inflection====
+{{ofs-decl-ppron}}
+
+====Descendants====
+* {{desc|frr|üüs}}
+* {{desc|stq|uus}}
+* {{desc|fy|ús}}
+
+----
+
+==Turkish==
+
+===Noun===
+{{tr-noun|usa|lar}}
+
+# {{synonym of|tr|akıl}}
+
+====Derived terms====
+* {{l|tr|usa vurma metodu}}
+
+----
+
+==Tz'utujil==
+
+===Noun===
+{{head|tzj|noun}}
+
+# [[fly]] {{gloss|insect}}
+
+{{topics|tzj|Dipterans}}
+
+----
+
+==Volapük==
+
+===Adverb===
+{{head|vo|adverb}}
+
+# [[there]]
+
+----
+
+==West Frisian==
+
+===Pronoun===
+{{head|fy|pronoun form}}
+
+# {{inflection of|fy|wy||obj}}
+

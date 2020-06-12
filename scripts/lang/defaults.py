@@ -49,8 +49,6 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description = """\
-:warning: Contributors needed for that locale.
-
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 

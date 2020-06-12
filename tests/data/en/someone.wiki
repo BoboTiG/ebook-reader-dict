@@ -1,0 +1,138 @@
+==English==
+
+===Etymology===
+{{m|en|some}} + {{m|en|one}}
+
+===Pronunciation===
+* {{a|RP|GA}} {{IPA|en|/ˈsʌmwʌn/}}
+* {{audio|en|en-us-someone.ogg|Audio (GA)}}
+* {{audio|en|LL-Q1860 (eng)-Nattes à chat-someone.wav|Audio}}
+* {{hyphenation|en|some|one}}
+
+===Pronoun===
+{{en-pron}}
+
+# [[some|Some]] person.
+#: ''Can '''someone''' help me, please?''
+
+====Usage notes====
+* Logically related to {{m|en|anyone}}, {{m|en|everyone}}, and {{m|en|no one}}. Becomes {{m|en|no one}} via [[negation]].
+*: ''Did '''anyone''' help with the clean-up effort?''
+*: ''Yes, '''someone''' helped yesterday, but '''no one''' did today because '''everyone''' was too busy.''
+
+====Synonyms====
+* {{l|en|anybody}}, {{l|en|anyone}}, {{l|en|somebody}}
+
+====Abbreviations====
+Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en|so}} for {{m|en|someone}}.
+
+====Translations====
+{{trans-top|some person}}
+* American Sign Language: {{t|ase|1@InsideNeckhigh-FingerUpPalmBack CirclesHoriz}}
+* Arabic: {{t+|ar|أَحَد}}
+* Armenian: {{t+|hy|մեկ|alt=մեկը}}
+* Asturian: {{t+|ast|daquién}}
+* Azerbaijani: {{t+|az|kimsə}}, {{t+|az|kim isə}}
+* Belarusian: {{t|be|хто́сьці|sc=Cyrl}}, {{t|be|хтось|sc=Cyrl}}, {{t|be|не́хта|sc=Cyrl}}
+* Bengali: {{t|bn|কেউ একটা|sc=Beng}}
+* Bulgarian: {{t|bg|някой}}
+* Catalan: {{t+|ca|algú}}, {{t+|ca|qualcú}}
+* Chamicuro: {{t|ccc|ana'shanaye}}
+* Chinese:
+*: Cantonese: {{t|yue|有人|tr=jau5 jan4|sc=Hani}}
+*: Mandarin: {{t+|cmn|有人|tr=yǒurén|sc=Hani}}, {{t+|cmn|某人|tr=mǒurén|sc=Hani}}, {{t+|cmn|誰|sc=Hani}}, {{t+|cmn|谁|tr=shéi, shuí|sc=Hani}}
+* Czech: {{t+|cs|někdo}}
+* Danish: {{t+|da|nogen}}, {{t|da|en eller anden|c}}
+* Dutch: {{t+|nl|iemand}}
+* Esperanto: {{t+|eo|iu}}
+* Estonian: {{t+|et|keegi}}
+* Finnish: {{t+|fi|joku}}
+* French: {{t+|fr|quelqu'un}}
+* Galician: {{t+|gl|alguén}}
+* German: {{t+|de|jemand}}, {{t+|de|einer}}
+*: Alemannic German: {{t|gsw|epper}}, {{t|gsw|ebber}}
+* Greek: {{t+|el|κάποιος}}
+*: Ancient: {{t|grc|τις}}
+* Hebrew: {{t|he|מִישֶׁהוּ|tr=míshehu}}
+* Hindi: {{t+|hi|कोई|sc=Deva}}
+* Hungarian: {{t+|hu|valaki}}
+* Icelandic: {{t+|is|einhver}}
+* Ido: {{t+|io|ulu}}
+* Indonesian: {{t+|id|seseorang}}
+* Interlingua: {{t|ia|alicuno}}, {{t|ia|alcuno}}
+* Italian: {{t+|it|qualcuno}}
+* Japanese: {{t|ja|誰か|tr=だれか, dareka}}, {{t|ja|[[或る]][[人]]|tr=あるひと, aru hito}}
+* Kazakh: {{t|kk|біреу|sc=Cyrl}}
+* Korean: {{t|ko|누군가}}, {{t|ko|[[어떤]] [[사람]]}}
+* Kurdish:
+*: Sorani: {{t+|ku|یەکێک}}, {{t+|ku|کەسێک}}
+{{trans-mid}}
+* Latgalian: {{t|ltg|kaids}}
+* Latin: {{t+|la|aliquis|m|f}}, {{t|la|aliquid|n}}, {{t+|la|quidam|m|f}}, {{t+|la|quidam|n}}, {{t|la|quiddam|n}}, {{t|la|quaedam|f}}
+* Latvian: {{t+|lv|kāds}}
+* Macedonian: {{t|mk|некој}}
+* Malay: {{t|ms|seseorang}}
+* Mirandese: {{t|mwl|alguien}}
+* Norman: {{t|nrf|tchitch'un}}
+* Norwegian:
+*: Bokmål: {{t+|nb|noen}}
+*: Nynorsk: {{t|nn|nokon}}, {{t|nn|einkvan}}
+* Occitan: {{t+|oc|qualqu'un}}
+* Old English: {{t|ang|sum mann}}, {{t|ang|sum}}
+* Old Prussian: {{t-simple|prg|aīnunts}}
+* Pennsylvania German: {{t|pdc|ebber}}
+* Persian: {{t+|fa|کسی|tr=kasi}}
+* Plautdietsch: {{t|pdt|wäa}}
+* Polish: {{t+|pl|ktoś}}
+* Portuguese: {{t+|pt|alguém}}
+* Romani: {{t|rom|varekon}}
+* Romanian: {{t+|ro|cineva}}
+* Russian: {{t+|ru|кто́-то}}, {{t+|ru|кто-нибу́дь}}, {{t+|ru|не́кто}}, {{t+|ru|кто́-либо}}, {{t+|ru|кое-кто́}}
+* Scottish Gaelic: {{t|gd|cuideigin}}, {{qualifier|male}} {{t|gd|duin'-eigin}}, {{qualifier|male}} {{t|gd|feareigin}}, {{qualifier|female}} {{t|gd|tè-eigin}}
+* Serbo-Croatian:
+*: Cyrillic: {{qualifier|Bosnian, Serbian}} {{t|sh|неко|m|sc=Cyrl}}, {{qualifier|Croatian}} {{t|sh|нетко|m|sc=Cyrl}}
+*: Roman: {{qualifier|Bosnian, Serbian}} {{t+|sh|neko|m}}, {{qualifier|Croatian}} {{t|sh|netko|m}}
+* Slovak: {{t+|sk|niekto}}, {{t|sk|dakto}}, {{t|sk|voľakto}}
+* Slovene: {{t+|sl|nekdó}}
+* Spanish: {{t+|es|alguien}}, {{t+|es|alguno}}
+* Swedish: {{t+|sv|någon}}
+* Talysh: {{t|tly|ای نفری|tr=i nafari|sc=fa-Arab}}
+* Telugu: {{t|te|ఎవరో}}
+* Thai: {{t|th|บางคน}}
+* Turkish: {{t+|tr|biri}}
+* Ukrainian: {{t+|uk|хтось}}, {{t+|uk|хто-не́будь}}
+* Vietnamese: {{t|vi|ai đó}}
+* Volapük: {{t+|vo|ek}}
+* Welsh: {{t+|cy|rhywun|m}}
+* Yiddish: {{t|yi|עמעצער}}
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# A partially specified but unnamed person.
+#: ''Do you need a gift for that special '''someone'''?''
+#* '''2013''', James Crosswhite, ''Deep Rhetoric: Philosophy, Reason, Violence, Justice, Wisdom'', University of Chicago Press {{ISBN|9780226016344}}, page 213
+#*: His ultimate concern is with being and beings, with saying something about something and not with the '''someones''' who say it and hear it—and not even with the '''someones''' whose beings are in conflict about beings in their being.
+#* year unknown, T A Smallwood, ''Reflections Of A Murder'', Lulu.com {{ISBN|9781445209425}}, page 2
+#*: It had never happened, it wasn&#39;t that there hadn&#39;t been any &#39;'''someones'''&#39;, there had actually been numerous &#39;'''someones'''&#39;, but not one that had gotten between him and his work.
+#* '''2010''', Michael E Kanell, Michael E. Kanell, Mike Kimel, ''Presimetrics: What the Facts Tell Us About How the Presidents Measure Up On the Issues We Care About'', Hachette UK {{ISBN|9781603762175}}
+#*: Or rather, to someone. Many '''someones''', in fact. But which '''someones'''? Well, the '''someones''' that benefited while wage controls were in place had to be people for whom salary was not the primary form of income.
+# {{senseid|en|important}} an important person
+#: {{ux|en|He thinks he has become '''someone'''.}}
+
+===Related terms===
+* {{l|en|no one}}
+* {{l|en|everyone}}
+* {{l|en|anyone}}
+* {{l|en|somewhere}}
+* {{l|en|something}}
+
+===Anagrams===
+* {{anagrams|en|a=eemnoos|neosome|onesome}}
+
+[[Category:English basic words]]
+[[Category:English compound determinatives]]
+[[Category:English indefinite pronouns]]
+[[Category:English third person pronouns]]
+
