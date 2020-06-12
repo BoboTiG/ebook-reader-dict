@@ -30,6 +30,7 @@ from .lang import (
     head_sections,
     pronunciation,
     section_level,
+    section_sublevel,
     section_patterns,
     sections,
     sublist_patterns,
@@ -214,12 +215,13 @@ def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
 
     # Filter on interesting sections
     level = section_level[locale]
+    sublevel = section_sublevel[locale]
     for section in parsed.get_sections(include_subsections=True, level=level):
         title = section.title
         for head in head_sections[locale]:
             if head in title:
                 yield from section.get_sections(
-                    include_subsections=False, level=level + 1
+                    include_subsections=False, level=sublevel
                 )
                 break
 
