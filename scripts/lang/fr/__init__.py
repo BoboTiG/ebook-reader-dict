@@ -17,7 +17,7 @@ thousands_separator = " "
 # Pour récupérer la liste complète des sections :
 #     DEBUG=1 WIKI_DUMP=20200501 python -m scripts --locale fr --get-only
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
-head_sections = ("{langue|fr}", "{langue|conv}")
+head_sections = ("{{langue|fr}}", "{{langue|conv}}")
 sections = (
     "{{S|abréviations}",
     "{{S|adjectif démonstratif|fr|",

@@ -15,7 +15,8 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 section_patterns = (r"\#", r"\*")
 section_level = 1
-head_sections = ("{-pt-}",)
+section_sublevels = (2,)
+head_sections = ("{{-pt-}}",)
 sections = (
     "Abreviatura",
     "Acrônimo",

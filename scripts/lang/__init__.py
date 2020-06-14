@@ -67,12 +67,12 @@ section_level = {
     "pt": pt.section_level,
     "sv": defaults.section_level,
 }
-section_sublevel = {
-    "ca": defaults.section_sublevel,
-    "es": defaults.section_sublevel,
-    "fr": defaults.section_sublevel,
-    "pt": defaults.section_sublevel,
-    "sv": defaults.section_sublevel,
+section_sublevels = {
+    "ca": defaults.section_sublevels,
+    "es": defaults.section_sublevels,
+    "fr": defaults.section_sublevels,
+    "pt": pt.section_sublevels,
+    "sv": defaults.section_sublevels,
 }
 head_sections = {
     "ca": ca.head_sections,

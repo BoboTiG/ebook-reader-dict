@@ -13,7 +13,7 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{-ca-}", "{-mul-}")
+head_sections = ("{{-ca-}}", "{{-mul-}}")
 sections = (
     "Abreviatura",
     "Acrònim",

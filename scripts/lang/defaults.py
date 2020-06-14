@@ -8,7 +8,7 @@ genre = r""
 section_patterns = (r"\#",)
 sublist_patterns = (r"\#",)
 section_level = 2
-section_sublevel = 3
+section_sublevels = (3,)
 
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore: Tuple[str, ...] = tuple()
