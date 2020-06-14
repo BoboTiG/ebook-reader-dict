@@ -289,6 +289,16 @@ def number(number: str, fsep: str, tsep: str) -> str:
     return res.replace(",", "|").replace(".", fsep).replace("|", tsep)
 
 
+def parenthesis(text: str) -> str:
+    """
+    Return the *text* surrounded by parenthesis.
+
+        >>> parenthesis("foo")
+        '(foo)'
+    """
+    return f"({text})"
+
+
 def person(parts: Tuple[str, ...]) -> str:
     """
     Format a person name.
@@ -438,7 +448,7 @@ def term(text: str) -> str:
         return ""
     elif text.startswith("<i>("):
         return text
-    return italic(f"({text})")
+    return italic(parenthesis(text))
 
 
 __all__ = (
@@ -454,6 +464,7 @@ __all__ = (
     "italic",
     "lookup_italic",
     "number",
+    "parenthesis",
     "person",
     "sentence",
     "small",

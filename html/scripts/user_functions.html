@@ -317,6 +317,16 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
     return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
 
 
+def parenthesis(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by parenthesis.
+
+        &gt;&gt;&gt; parenthesis(&#34;foo&#34;)
+        &#39;(foo)&#39;
+    &#34;&#34;&#34;
+    return f&#34;({text})&#34;
+
+
 def person(parts: Tuple[str, ...]) -&gt; str:
     &#34;&#34;&#34;
     Format a person name.
@@ -466,7 +476,7 @@ def term(text: str) -&gt; str:
         return &#34;&#34;
     elif text.startswith(&#34;&lt;i&gt;(&#34;):
         return text
-    return italic(f&#34;({text})&#34;)
+    return italic(parenthesis(text))
 
 
 __all__ = (
@@ -482,6 +492,7 @@ __all__ = (
     &#34;italic&#34;,
     &#34;lookup_italic&#34;,
     &#34;number&#34;,
+    &#34;parenthesis&#34;,
     &#34;person&#34;,
     &#34;sentence&#34;,
     &#34;small&#34;,
@@ -1003,6 +1014,28 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
     return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)</code></pre>
 </details>
 </dd>
+<dt id="scripts.user_functions.parenthesis"><code class="name flex">
+<span>def <span class="ident">parenthesis</span></span>(<span>text: str) -> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the <em>text</em> surrounded by parenthesis.</p>
+<pre><code>&gt;&gt;&gt; parenthesis("foo")
+'(foo)'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parenthesis(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by parenthesis.
+
+        &gt;&gt;&gt; parenthesis(&#34;foo&#34;)
+        &#39;(foo)&#39;
+    &#34;&#34;&#34;
+    return f&#34;({text})&#34;</code></pre>
+</details>
+</dd>
 <dt id="scripts.user_functions.person"><code class="name flex">
 <span>def <span class="ident">person</span></span>(<span>parts: Tuple[str, ...]) -> str</span>
 </code></dt>
@@ -1298,7 +1331,7 @@ and is sometimes rendered in a smaller font.</p>
         return &#34;&#34;
     elif text.startswith(&#34;&lt;i&gt;(&#34;):
         return text
-    return italic(f&#34;({text})&#34;)</code></pre>
+    return italic(parenthesis(text))</code></pre>
 </details>
 </dd>
 </dl>
@@ -1326,6 +1359,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="scripts.user_functions.italic" href="#scripts.user_functions.italic">italic</a></code></li>
 <li><code><a title="scripts.user_functions.lookup_italic" href="#scripts.user_functions.lookup_italic">lookup_italic</a></code></li>
 <li><code><a title="scripts.user_functions.number" href="#scripts.user_functions.number">number</a></code></li>
+<li><code><a title="scripts.user_functions.parenthesis" href="#scripts.user_functions.parenthesis">parenthesis</a></code></li>
 <li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
 <li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
 <li><code><a title="scripts.user_functions.small" href="#scripts.user_functions.small">small</a></code></li>
