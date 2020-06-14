@@ -362,7 +362,7 @@ def small(text: str) -&gt; str:
     &#34;&#34;&#34;
     Return the *text* surrounded by small HTML tags.
 
-        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &gt;&gt;&gt; small(&#34;foo&#34;)
         &#39;&lt;small&gt;foo&lt;/small&gt;&#39;
     &#34;&#34;&#34;
     return f&#34;&lt;small&gt;{text}&lt;/small&gt;&#34;
@@ -1086,7 +1086,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 </code></dt>
 <dd>
 <div class="desc"><p>Return the <em>text</em> surrounded by small HTML tags.</p>
-<pre><code>&gt;&gt;&gt; strong("foo")
+<pre><code>&gt;&gt;&gt; small("foo")
 '&lt;small&gt;foo&lt;/small&gt;'
 </code></pre></div>
 <details class="source">
@@ -1097,7 +1097,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
     &#34;&#34;&#34;
     Return the *text* surrounded by small HTML tags.
 
-        &gt;&gt;&gt; strong(&#34;foo&#34;)
+        &gt;&gt;&gt; small(&#34;foo&#34;)
         &#39;&lt;small&gt;foo&lt;/small&gt;&#39;
     &#34;&#34;&#34;
     return f&#34;&lt;small&gt;{text}&lt;/small&gt;&#34;</code></pre>

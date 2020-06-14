@@ -334,7 +334,7 @@ def small(text: str) -> str:
     """
     Return the *text* surrounded by small HTML tags.
 
-        >>> strong("foo")
+        >>> small("foo")
         '<small>foo</small>'
     """
     return f"<small>{text}</small>"
