@@ -5,5 +5,5 @@ mypy==0.780
 pdoc3==0.8.1
 pydocstyle==5.0.2
 pytest==5.4.3
-pytest-cov==2.9.0 
+pytest-cov==2.10.0 
 responses==0.10.15
