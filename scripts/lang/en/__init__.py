@@ -119,6 +119,8 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '<i>Alternative form of</i> <b>worth</b> (“to become”)'
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
+        >>> last_template_handler(["surname", "en", "A=An", "English", "from=nicknames", "nodot=1"], "en")
+        '<i>An English surname</i>'
     """
     from itertools import zip_longest
 
@@ -168,6 +170,18 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
             else:
                 res += f" ({last})"
         return res
+
+    # Handle the {{lb}} template
+    if parts[0] == "surname":
+        first = parts[2]
+        second = parts[3]
+        third = parts[0]
+        if "=" in first:
+            if second[0].lower() in "aeiouy":
+                first = first.split("=")[1]
+            else:
+                first = first.split("=")[0]
+        return italic(f"{first} {second} {third}")
 
     return term(parts[0])
 

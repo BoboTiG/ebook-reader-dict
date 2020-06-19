@@ -319,6 +319,10 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
             "(<i>Used only in the plural in the UK</i>)",
         ),
         (
+            "{{surname|en|A=An|[[English]]|from=nicknames|nodot=1}}",
+            "<i>An English surname</i>",
+        ),
+        (
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
             "<i>Gadus macrocephalus</i>",
         ),
