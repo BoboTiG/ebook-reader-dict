@@ -273,6 +273,7 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         ("{{alt form|enm|theen}}", "<i>Alternative form of</i> <b>theen</b>"),
         (

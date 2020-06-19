@@ -54,6 +54,8 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{abbr of|en|abortion}}
+    "abbr of": "italic('Abbreviation of') + ' ' + strong(parts[-1])",
     # {{abbreviation of|en|abortion}}
     "abbreviation of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
     # {{alternative spelling of|en|µs}}
