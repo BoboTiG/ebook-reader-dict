@@ -185,6 +185,8 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("cornstalk", '<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
         ''
+        >>> clean("built like a brick shithouse", '<nowiki/>', "en")
+        ''
     """
 
     # Speed-up lookup
@@ -200,6 +202,9 @@ def clean(word: str, text: str, locale: str) -> str:
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
     # <ref name="CFC"/> -> ''
     text = sub(r"<ref[^>]*/>", "", text)
+
+    # <nowiki/> -> ''
+    text = text.replace("<nowiki/>", "")
 
     # Files
     pattern = "|".join(p for p in pattern_file)
