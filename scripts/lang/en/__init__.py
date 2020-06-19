@@ -78,6 +78,8 @@ templates_multi = {
     "m": "strong(parts[-1])",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
+    # {{ngd|Definite grammatical ...}}
+    "ngd": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss definition|Definite grammatical ...}}
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{qual|Used only ...}}
