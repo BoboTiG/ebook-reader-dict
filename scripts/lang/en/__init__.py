@@ -56,12 +56,6 @@ templates_italic = {
 templates_multi = {
     # {{abbr of|en|abortion}}
     "abbr of": "italic('Abbreviation of') + ' ' + strong(parts[-1])",
-    # {{abbreviation of|en|abortion}}
-    "abbreviation of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
-    # {{alternative spelling of|en|µs}}
-    "alternative spelling of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
-    # {{clipping of|en|yuppie}}
-    "clipping of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
     # {{eye dialect of|en|is}}
@@ -70,8 +64,6 @@ templates_multi = {
     "form of": "italic(parts[2] + ' of') + ' ' + strong(parts[-1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
-    # {{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}
-    "initialism of": "italic(capitalize(parts[0])) + ' ' + strong(parts[2])",
     # {{IPAchar|[tʃ]|lang=en}})
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
@@ -130,7 +122,7 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     """
     from itertools import zip_longest
 
-    from ...user_functions import italic, lookup_italic, strong, term
+    from ...user_functions import capitalize, italic, lookup_italic, strong, term
 
     # from .langs import langs
 
@@ -189,7 +181,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
                 first = first.split("=")[0]
         return italic(f"{first} {second} {third}")
 
-    return term(parts[0])
+    try:
+        return f"{italic(capitalize(parts[0]))} {strong(parts[2])}"
+    except IndexError:
+        return term(parts[0])
 
 
 # Dictionary name that will be printed below each definition

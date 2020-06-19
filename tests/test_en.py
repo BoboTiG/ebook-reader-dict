@@ -162,7 +162,7 @@ from scripts.utils import clean
             "",
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
-                "<i>(chiefly, US)</i> <i>(dated spelling of)</i>",
+                "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
                 "<i>Alternative form of</i> <b>umbe</b>",
                 "<i>Alternative spelling of</i> <b>µm</b>",
@@ -295,7 +295,10 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),
-        ("{{form of|en|obsolete emphatic|ye}}", "<i>obsolete emphatic of</i> <b>ye</b>"),
+        (
+            "{{form of|en|obsolete emphatic|ye}}",
+            "<i>obsolete emphatic of</i> <b>ye</b>",
+        ),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
         (
             "{{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}",
@@ -328,6 +331,7 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
             "{{surname|en|A=An|[[English]]|from=nicknames|nodot=1}}",
             "<i>An English surname</i>",
         ),
+        ("{{synonym of|en|drip tip}}", "<i>Synonym of</i> <b>drip tip</b>"),
         (
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
             "<i>Gadus macrocephalus</i>",
