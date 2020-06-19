@@ -183,6 +183,8 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("lia", "&nbsp;&nbsp;&nbsp;&nbsp;", "fr")
         ''
+        >>> clean("cornstalk", '<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
+        ''
     """
 
     # Speed-up lookup
@@ -193,9 +195,11 @@ def clean(word: str, text: str, locale: str) -> str:
 
     # Parser hooks
     # <ref>foo</ref> -> ''
-    # <ref name="CFC"/> -> ''
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    text = sub(r"<ref[^>]*/?>(?:[^<]+</ref>)?", "", text)
+    # <ref name="CFC"><tag>...</tag></ref> -> ''
+    text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
+    # <ref name="CFC"/> -> ''
+    text = sub(r"<ref[^>]*/>", "", text)
 
     # Files
     pattern = "|".join(p for p in pattern_file)
