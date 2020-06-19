@@ -66,6 +66,8 @@ templates_multi = {
     "eye dialect of": "italic('Eye dialect spelling of') + ' ' + strong(parts[-1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
+    # {{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}
+    "initialism of": "italic(capitalize(parts[0])) + ' ' + strong(parts[2])",
     # {{IPAchar|[tʃ]|lang=en}})
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
