@@ -58,6 +58,8 @@ templates_multi = {
     "abbreviation of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
     # {{alternative spelling of|en|µs}}
     "alternative spelling of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
+    # {{clipping of|en|yuppie}}
+    "clipping of": "italic(capitalize(parts[0])) + ' ' + strong(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
     # {{eye dialect of|en|is}}
