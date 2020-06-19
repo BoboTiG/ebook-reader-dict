@@ -66,6 +66,8 @@ templates_multi = {
     "defdate": "small('[' + parts[1] + ']')",
     # {{eye dialect of|en|is}}
     "eye dialect of": "italic('Eye dialect spelling of') + ' ' + strong(parts[-1])",
+    # {{form of|en|obsolete emphatic|ye}}
+    "form of": "italic(parts[2] + ' of') + ' ' + strong(parts[-1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}

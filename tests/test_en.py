@@ -295,6 +295,7 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),
+        ("{{form of|en|obsolete emphatic|ye}}", "<i>obsolete emphatic of</i> <b>ye</b>"),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
         (
             "{{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}",
