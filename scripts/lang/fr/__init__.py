@@ -114,6 +114,7 @@ definitions_to_ignore = (
     "masculin ou féminin pluriel d",
     "pluriel habituel d",
     "pluriel inhabituel d",
+    "''pluriel''",
     # Modèles spéciaux
     "doute",
     "ébauche",
