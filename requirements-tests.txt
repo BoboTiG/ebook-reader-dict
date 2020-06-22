@@ -1,7 +1,7 @@
 -r requirements.txt
 black==19.10b0
 flake8==3.8.3
-mypy==0.780
+mypy==0.781
 pdoc3==0.8.1
 pydocstyle==5.0.2
 pytest==5.4.3
