@@ -56,6 +56,8 @@ templates_italic = {
 templates_multi = {
     # {{abbr of|en|abortion}}
     "abbr of": "italic('Abbreviation of') + ' ' + strong(parts[-1])",
+    # {{alt case|en|angstrom}}
+    "alt case": "italic('Alternative letter-case form of') + ' ' + strong(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
     # {{eye dialect of|en|is}}

@@ -275,6 +275,7 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
     [
         ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
+        ("{{alt case|en|angstrom}}", "<i>Alternative letter-case form of</i> <b>angstrom</b>"),
         ("{{alt form|enm|theen}}", "<i>Alternative form of</i> <b>theen</b>"),
         (
             "{{alt form|enm|a|pos=indefinite article}}",
