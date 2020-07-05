@@ -124,7 +124,9 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["surname", "en"], "en")
         '<i>A surname.</i>'
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
-        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>'
+        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
+        >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
+        '<i>Standard spelling of</i> <b>enroll</b>.'
     """
     from itertools import zip_longest
 
@@ -188,13 +190,18 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
                 first = first.split("=")[1]
             else:
                 first = first.split("=")[0]
-        return italic(f"{first} {second} {third}")
+        return italic(f"{first} {second} {third}.")
 
     # Handle the {{standard spelling of}} template
     if parts[0] == "standard spelling of":
-        first = parts[2].replace("from=", "")
-        phrase = italic(f"{first} {parts[0]}")
-        return f"{phrase} {strong(parts[3])}"
+        if "from=" in parts[2]:
+            first = parts[2].replace("from=", "")
+            phrase = italic(f"{first} {parts[0]}")
+            idx = 3
+        else:
+            phrase = italic("Standard spelling of")
+            idx = 2
+        return f"{phrase} {strong(parts[idx])}."
 
     try:
         return f"{italic(capitalize(parts[0]))} {strong(parts[2])}"

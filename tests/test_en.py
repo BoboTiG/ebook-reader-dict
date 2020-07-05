@@ -329,8 +329,12 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
             "(<i>Used only in the plural in the UK</i>)",
         ),
         (
+            "{{standard spelling of|en|enroll}}",
+            "<i>Standard spelling of</i> <b>enroll</b>.",
+        ),
+        (
             "{{standard spelling of|en|from=Irish English|Irish Traveller}}",
-            "<i>Irish English standard spelling of</i> <b>Irish Traveller</b>",
+            "<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.",
         ),
         (
             "{{surname|en}}",
