@@ -120,7 +120,9 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
         >>> last_template_handler(["surname", "en", "A=An", "English", "from=nicknames", "nodot=1"], "en")
-        '<i>An English surname</i>'
+        '<i>An English surname.</i>'
+        >>> last_template_handler(["surname", "en"], "en")
+        '<i>A surname.</i>'
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>'
     """
@@ -175,6 +177,9 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{surname}} template
     if parts[0] == "surname":
+        if len(parts) == 2:
+            return italic("A surname.")
+
         first = parts[2]
         second = parts[3]
         third = parts[0]

@@ -333,8 +333,12 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
             "<i>Irish English standard spelling of</i> <b>Irish Traveller</b>",
         ),
         (
+            "{{surname|en}}",
+            "<i>A surname.</i>",
+        ),
+        (
             "{{surname|en|A=An|[[English]]|from=nicknames|nodot=1}}",
-            "<i>An English surname</i>",
+            "<i>An English surname.</i>",
         ),
         ("{{synonym of|en|drip tip}}", "<i>Synonym of</i> <b>drip tip</b>"),
         (
