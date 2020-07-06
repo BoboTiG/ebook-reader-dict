@@ -109,6 +109,7 @@ definitions_to_ignore = (
     "habitante",
     "masculin pluriel",
     "féminin pluriel",
+    "''féminin de''",
     "féminin singulier",
     "masculin et féminin pluriel",
     "masculin ou féminin pluriel",
