@@ -506,8 +506,6 @@ templates_multi = {
     "comparatif de": "sentence(parts)",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
-    # {{date|1850}}
-    "date": "term(parts[1])",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}
@@ -650,9 +648,15 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '→ voir <i>faire</i>'
         >>> last_template_handler(["cf", "triner", "lang=fr"], "fr")
         '→ voir <i>triner</i>'
+        >>> last_template_handler(["date", "lang=fr"], "fr")
+        '<i>(Date à préciser)</i>'
+        >>> last_template_handler(["date", "1957-2057"], "fr")
+        '<i>(1957-2057)</i>'
+        >>> last_template_handler(["date", "lang=fr", "1265"], "fr")
+        '<i>(1265)</i>'
     """
     from ..defaults import last_template_handler as default
-    from ...user_functions import italic
+    from ...user_functions import italic, term
 
     # Handle the {{cf}} template
     if parts[0] == "cf":
@@ -664,6 +668,13 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         if words:
             phrase += f" {italic(words[0])}"
         return phrase
+
+    # Handle the {{date}} template
+    if parts[0] == "date":
+        dates = list(filter(lambda t: t != "lang=fr", parts[1:]))
+        if dates:
+            return term(dates[0])
+        return term("Date à préciser")
 
     return default(parts, locale)
 

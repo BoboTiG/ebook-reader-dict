@@ -225,8 +225,6 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
     [
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
-        ("{{date|1957}}", "<i>(1957)</i>"),
-        ("{{date|1957-2057}}", "<i>(1957-2057)</i>"),
         ("{{emploi|au passif}}", "<i>(Au passif)</i>"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
