@@ -501,7 +501,8 @@ templates_multi = {
     "calque": "etymology(parts)",
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|faire}}
-    "cf": "f\"→ voir {parts[len(parts) - 1] if len(parts) > 1 else ''}\"",
+    # {{cf|triner|lang=fr}}
+    "cf": "f\"→ voir {italic(list(filter(lambda t: t != 'lang=fr', parts[1:]))[0])}\"",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{couleur|#B0F2B6}}
