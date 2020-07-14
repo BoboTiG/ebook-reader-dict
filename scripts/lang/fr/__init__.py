@@ -1,5 +1,8 @@
 """French language."""
 
+from typing import Tuple
+
+
 # Regex pour trouver la prononciation
 pronunciation = r"{pron\|([^}\|]+)"
 
@@ -499,10 +502,6 @@ templates_italic = {
 templates_multi = {
     # {{calque|en|fr|mot=at the end of the day|nocat=1}}
     "calque": "etymology(parts)",
-    # {{cf|tour d’échelle}}
-    # {{cf|lang=fr|faire}}
-    # {{cf|triner|lang=fr}}
-    "cf": "f\"→ voir {italic(list(filter(lambda t: t != 'lang=fr', parts[1:]))[0])}\"",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{couleur|#B0F2B6}}
@@ -637,6 +636,37 @@ templates_other = {
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
 # sauf pour ceux listés ci-dessous :
 templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
+
+
+def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+    """
+    Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["cf", "lang=fr"], "fr")
+        '→ voir'
+        >>> last_template_handler(["cf", "immortelle"], "fr")
+        '→ voir <i>immortelle</i>'
+        >>> last_template_handler(["cf", "lang=fr", "faire"], "fr")
+        '→ voir <i>faire</i>'
+        >>> last_template_handler(["cf", "triner", "lang=fr"], "fr")
+        '→ voir <i>triner</i>'
+    """
+    from ..defaults import last_template_handler as default
+    from ...user_functions import italic
+
+    # Handle the {{cf}} template
+    if parts[0] == "cf":
+        # {{cf|tour d’échelle}}
+        # {{cf|lang=fr|faire}}
+        # {{cf|triner|lang=fr}}
+        phrase = "→ voir"
+        words = list(filter(lambda t: t != "lang=fr", parts[1:]))
+        if words:
+            phrase += f" {italic(words[0])}"
+        return phrase
+
+    return default(parts, locale)
+
 
 # Contenu de la release sur GitHub :
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
