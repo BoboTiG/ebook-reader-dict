@@ -34,10 +34,13 @@ def century(parts: Tuple[str, ...], century: str) -> str:
 
         >>> century(["siècle", "XVI"], "siècle")
         'XVI<sup>e</sup> siècle'
+        >>> century(["siècle", "lang=fr", "XVI"], "siècle")
+        'XVI<sup>e</sup> siècle'
         >>> century(["siècle", "XVIII", "XIX"], "century")
         'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
     """
-    return " - ".join(f"{p}{superscript('e')} {century}" for p in parts[1:])
+    centuries = list(filter(lambda t: not t.startswith("lang="), parts[1:]))
+    return " - ".join(f"{p}{superscript('e')} {century}" for p in centuries)
 
 
 def chimy(composition: Tuple[str, ...]) -> str:
