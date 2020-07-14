@@ -1,7 +1,8 @@
 """Type annotations."""
-from typing import Dict, List, Tuple, Union
+from collections import namedtuple
+from typing import Dict, Tuple, Union
 
 Definitions = Union[str, Tuple[str, ...]]
 Parts = Tuple[str, ...]
-Word = Tuple[str, str, List[Definitions]]
+Word = namedtuple("Word", "pronunciation, genre, etymology, definitions")
 Words = Dict[str, Word]

@@ -14,7 +14,7 @@ from marisa_trie import Trie
 
 from .constants import WORD_FORMAT
 from .lang import wiktionary
-from .stubs import Words
+from .stubs import Word, Words
 from .utils import format_description, guess_prefix
 
 Groups = Dict[str, Words]
@@ -125,9 +125,15 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
     # Save to uncompressed HTML
     raw_output = output_dir / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
-        for word, (pronunciation, genre, defs) in words.items():
+        for word, details in words.items():
+
+            details = Word(*details)
+            pronunciation = ""
+            genre = ""
+            etymology = ""
             definitions = ""
-            for definition in defs:
+
+            for definition in details.definitions:
                 if isinstance(definition, str):
                     definitions += f"<li>{definition}</li>"
                 else:
@@ -135,10 +141,12 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
                     definitions += "".join(f"<li>{d}</li>" for d in definition)
                     definitions += "</ol>"
 
-            if pronunciation:
-                pronunciation = f" \\{pronunciation}\\"
-            if genre:
-                genre = f" <i>{genre}.</i>"
+            if details.pronunciation:
+                pronunciation = f" \\{details.pronunciation}\\"
+            if details.genre:
+                genre = f" <i>{details.genre}.</i>"
+            if details.etymology:
+                etymology = f"<br/>{details.etymology}<br/>"
 
             fh.write(WORD_FORMAT.format(**locals()))
 

@@ -165,9 +165,9 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
     """Test the pronunciation, genre and definitions getters."""
     code = page(word, "ca")
     details = parse_word(word, code, "ca", force=True)
-    assert pronunciation == details[0]
-    assert genre == details[1]
-    assert definitions == details[2]
+    assert pronunciation == details.pronunciation
+    assert genre == details.genre
+    assert definitions == details.definitions
 
 
 @pytest.mark.parametrize(

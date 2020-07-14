@@ -5,12 +5,13 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, definitions",
+    "word, pronunciation, genre, etymology, definitions",
     [
         (
             "42",
             "ka.ʁɑ̃t.dø",
             "msing",
+            "",
             [
                 "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",  # noqa
                 "<i>(Par ellipse)</i> <i>(Dans la plupart des langues)</i> Une année qui se termine par <b>42</b>.",
@@ -23,6 +24,7 @@ from scripts.utils import clean
             "accueil",
             "a.kœj",
             "m",
+            "",
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
                 "Lieu où sont accueillies les personnes.",
@@ -35,6 +37,7 @@ from scripts.utils import clean
             "acrologie",
             "a.kʁɔ.lɔ.ʒi",
             "f",
+            "Du grec ancien ἄκρος, <i>akros</i> (« extrémité »), voir <i>acro-</i>, avec le suffixe <i>-logie</i>.",
             [
                 "<i>(Linguistique)</i> <i>(Rare)</i> Système graphique qui consiste à peindre, pour représenter les idées, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le langage ordinaire.",  # noqa
                 "<i>(Linguistique)</i> <i>(Par extension)</i> <i>(Rare)</i> Se dit lorsque deux termes commencent par la même lettre et qu’ils sont apparentés par le sens.",  # noqa
@@ -46,6 +49,7 @@ from scripts.utils import clean
             "aux",
             "o",
             "mf",
+            "",
             [
                 "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
                 "<i>Contraction obligatoire de la préposition </i>à<i> et de l'article défini </i>les<i>.</i>",
@@ -55,6 +59,7 @@ from scripts.utils import clean
             "base",
             "bɑz",
             "f",
+            "<i>(Date à préciser)</i> Du latin <i>basis</i> (« id. »), du grec ancien βάσις, <i>básis</i> (« marche »).",  # noqa
             [
                 "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
                 "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
@@ -80,11 +85,12 @@ from scripts.utils import clean
                 "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
             ],
         ),
-        ("Bogotanais", "bɔ.ɡɔ.ta.nɛ", "m", []),
+        ("Bogotanais", "bɔ.ɡɔ.ta.nɛ", "m", "", []),
         (
             "corps portant",
             "kɔʁ pɔʁ.tɑ̃",
             "m",
+            "",
             [
                 "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",  # noqa
                 "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",  # noqa
@@ -94,6 +100,7 @@ from scripts.utils import clean
             "DES",
             "",
             "m",
+            "",
             [
                 "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",
                 "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à l’importation, est mise à disposition de l’acheteur à bord du navire, au port de destination convenu. Les frais de déchargement sont à la charge de l’acheteur.",  # noqa
@@ -109,6 +116,7 @@ from scripts.utils import clean
             "employer",
             "ɑ̃.plwa.je",
             "",
+            "Du latin <i>implico</i> (« impliquer »).",
             [
                 "Utiliser ; user ; se servir de.",
                 "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",  # noqa
@@ -119,12 +127,14 @@ from scripts.utils import clean
             "encyclopædie",
             "ɑ̃.si.klɔ.pe.di",
             "f",
+            "",
             ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
         ),
         (
             "éperon",
             "e.pʁɔ̃",
             "m",
+            "De l’ancien français <i>esperon</i>, du vieux-francique.",
             [
                 "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",  # noqa
                 "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",  # noqa
@@ -143,6 +153,7 @@ from scripts.utils import clean
             "greffier",
             "ɡʁɛ.fje",
             "m",
+            "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> (« d’écriture, de style, de poinçon ») ou.",  # noqa
             [
                 "<i>(Droit)</i> Officier public préposé au greffe.",
                 "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
@@ -150,11 +161,12 @@ from scripts.utils import clean
                 "Poisson-chat commun (poisson).",
             ],
         ),
-        ("ich", "ɪç", "", ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."]),
+        ("ich", "ɪç", "", "", ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."]),
         (
             "koro",
             "kɔʁo",
             "m",
+            "",
             [
                 "Langue tibéto-birmane parlée dans l’Arunachal Pradesh (Inde)",
                 "Langue malayo-polynésienne parlée dans les îles de l'Amirauté (Papouasie-Nouvelle-Guinée)",
@@ -164,6 +176,7 @@ from scripts.utils import clean
         (
             "mutiner",
             "my.ti.ne",
+            "",
             "",
             [
                 "Se porter à la sédition, à la révolte.",
@@ -175,6 +188,7 @@ from scripts.utils import clean
             "naguère",
             "na.ɡɛʁ",
             "",
+            "",
             [
                 "Récemment ; il y a peu.",
                 "Il y a longtemps. <b>Note :</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
@@ -184,6 +198,7 @@ from scripts.utils import clean
             "pinyin",
             "pin.jin",
             "m",
+            "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc « épeler les sons ».",  # noqa
             [
                 "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
                 "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
@@ -193,6 +208,7 @@ from scripts.utils import clean
             "précepte",
             "pʁe.sɛpt",
             "m",
+            "Emprunté au latin <i>praeceptum</i> (« précepte, leçon, règle »), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire ».",  # noqa
             [
                 "Règle ; leçon ; enseignement.",
                 "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
@@ -203,31 +219,40 @@ from scripts.utils import clean
             "rance",
             "ʁɑ̃s",
             "mf",
+            "Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan.",
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
                 "S’emploie quelquefois comme nom masculin.",
                 "Variante de ranche.",
             ],
         ),
-        ("sapristi", "sa.pʁis.ti", "", ["Pour marquer l’étonnement."]),
+        ("sapristi", "sa.pʁis.ti", "", "", ["Pour marquer l’étonnement."],),
         (
             "silicone",
             "si.li.kon",
             "f",
+            "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand,.",  # noqa
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
             ],
         ),
-        ("suis", "sɥi", "", []),
+        (
+            "suis",
+            "sɥi",
+            "",
+            "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>).",  # noqa
+            [],
+        ),
     ],
 )
-def test_parse_word(word, pronunciation, genre, definitions, page):
+def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
     """Test the pronunciation, genre and definitions getters."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
-    assert pronunciation == details[0]
-    assert genre == details[1]
-    assert definitions == details[2]
+    assert pronunciation == details.pronunciation
+    assert genre == details.genre
+    assert definitions == details.definitions
+    assert etymology == details.etymology
 
 
 @pytest.mark.parametrize(
@@ -245,6 +270,10 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{date|1957}}", "<i>(1957)</i>"),
         ("{{date|1957-2057}}", "<i>(1957-2057)</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
+        (
+            "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
+            "grec ancien ἄκρος, <i>akros</i> (« extrémité »)",
+        ),
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{lien|étrange|fr}}", "étrange"),

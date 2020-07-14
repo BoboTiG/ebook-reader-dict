@@ -18,6 +18,7 @@ thousands_separator = " "
 #     DEBUG=1 WIKI_DUMP=20200501 python -m scripts --locale fr --get-only
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
 head_sections = ("{{langue|fr}}", "{{langue|conv}}")
+etyl_section = "{{S|étymologie}}"
 sections = (
     "{{S|abréviations}",
     "{{S|adjectif démonstratif|fr|",
@@ -54,6 +55,7 @@ sections = (
     "{{S|conjonction|fr}",
     "{{S|erreur|fr|",
     "{{S|erreur|fr}",
+    "{{S|étymologie}",
     "{{S|interfixe|fr}",
     "{{S|interjection|fr|",
     "{{S|interjection|fr}",
@@ -102,6 +104,9 @@ sections = (
     "{{S|verbe|fr|num",
     "{{S|verbe|fr}",
 )
+
+# Mot-clefs permettant de sélectionner la bonne éthymologie
+etyl_keywords = ("étyl",)
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
@@ -660,7 +665,6 @@ Installation :
 
 Caractéristiques :
 
-- Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
 - Les mots comportant moins de 2 caractères ne sont pas inclus.
 - Les noms propres ne sont pas inclus.
 - Les conjugaisons ne sont pas incluses.

@@ -92,6 +92,14 @@ head_sections = {
     "pt": pt.head_sections,
     "sv": sv.head_sections,
 }
+etyl_section = {
+    "ca": "",
+    "en": "",
+    "es": "",
+    "fr": fr.etyl_section,
+    "pt": "",
+    "sv": "",
+}
 sections = {
     "ca": ca.sections,
     "en": en.sections,
@@ -99,6 +107,16 @@ sections = {
     "fr": fr.sections,
     "pt": pt.sections,
     "sv": sv.sections,
+}
+
+# Keyword(s) to find in ethymology to keep it
+etyl_keywords = {
+    "ca": "",
+    "en": "",
+    "es": "",
+    "fr": fr.etyl_keywords,
+    "pt": "",
+    "sv": "",
 }
 
 # Some definitions are not good to keep (plural, genre, ... )

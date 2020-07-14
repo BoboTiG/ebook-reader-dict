@@ -27,6 +27,8 @@ from .constants import BASE_URL, DUMP_URL
 from .lang import (
     definitions_to_ignore,
     genre,
+    etyl_keywords,
+    etyl_section,
     head_sections,
     pronunciation,
     section_level,
@@ -36,7 +38,7 @@ from .lang import (
     sublist_patterns,
     words_to_keep,
 )
-from .stubs import Definitions, Words
+from .stubs import Definitions, Word, Words
 from .utils import clean
 
 if TYPE_CHECKING:  # pragma: nocover
@@ -53,7 +55,7 @@ if TYPE_CHECKING:  # pragma: nocover
 wikitextparser._spans.WIKILINK_FINDITER = lambda *_: ()
 
 
-Sections = Generator[str, None, None]
+Sections = Dict[str, wtp.Section]
 
 
 def callback_progress(text: str, total: int, last: bool) -> None:
@@ -140,7 +142,8 @@ def find_definitions(
     definitions = list(
         chain.from_iterable(
             find_section_definitions(word, section, locale)
-            for section in parsed_sections
+            for sections in parsed_sections.values()
+            for section in sections
         )
     )
     if not definitions:
@@ -152,13 +155,13 @@ def find_definitions(
 
 
 def find_section_definitions(
-    word: str, section: wtp.Section, locale: str,
-) -> Generator[Definitions, None, None]:
+    word: str, section: wtp.Section, locale: str
+) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
+    definitions: List[Definitions] = []
+
     lists = section.get_lists(pattern=section_patterns[locale])
     if lists:
-        definitions: List[Definitions] = []
-
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
@@ -184,7 +187,25 @@ def find_section_definitions(
                 if subdefinitions:
                     definitions.append(tuple(subdefinitions))
 
-        yield from definitions
+    return definitions
+
+
+def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
+    """Find the etymology."""
+    etymologies = chain.from_iterable(
+        section.items for section in parsed_section.get_lists()
+    )
+    for etymology in etymologies:
+        if any(
+            ignore_me in etymology.lower()
+            for ignore_me in definitions_to_ignore[locale]
+        ):
+            continue
+        if any(keyword in etymology for keyword in etyl_keywords[locale]):
+            etyl = clean(word, etymology, locale)
+            if etyl:
+                return etyl
+    return ""
 
 
 def find_genre(code: str, pattern: Pattern[str]) -> str:
@@ -209,9 +230,10 @@ def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or ""
 
 
-def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
+def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
+    sections = []
 
     # Filter on interesting sections
     level = section_level[locale]
@@ -221,23 +243,31 @@ def find_all_sections(code: str, locale: str) -> Generator[str, None, None]:
             continue
 
         for sublevel in section_sublevels[locale]:
-            yield from section.get_sections(include_subsections=False, level=sublevel)
+            sections.extend(
+                section.get_sections(include_subsections=False, level=sublevel)
+            )
+
+    return sections
 
 
-def find_sections(code: str, locale: str) -> Generator[str, None, None]:
+def find_sections(code: str, locale: str) -> Sections:
     """Find the correct section(s) holding the current locale definition(s)."""
-    yield from (
-        section
+    ret = defaultdict(list)
+    for section in find_all_sections(code, locale):
+        title = section.title.strip()
+        if not title.startswith(sections[locale]):
+            continue
+        ret[title].append(section)
+    return ret
+
+
+def find_titles(code: str, locale: str) -> List[str]:
+    """Find the correct section(s) holding the current locale definition(s)."""
+    return [
+        section.title.strip()
         for section in find_all_sections(code, locale)
-        if section.title.lstrip().startswith(sections[locale])  # type: ignore
-    )
-
-
-def find_titles(code: str, locale: str) -> Generator[str, None, None]:
-    """Find the correct section(s) holding the current locale definition(s)."""
-    yield from (
-        section.title.strip() for section in find_all_sections(code, locale) if section.title  # type: ignore
-    )
+        if section.title
+    ]
 
 
 def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
@@ -246,21 +276,25 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     with requests.get(url) as req:
         code = req.text
 
-    pron, nature, defs = parse_word(word, code, locale, force=True)
+    details = parse_word(word, code, locale, force=True)
 
-    print(word, f"\\{pron}\\", f"({nature}.)", "\n")
-    for i, definition in enumerate(defs, start=1):
+    print(word, f"\\{details.pronunciation}\\", f"({details.genre}.)", "\n")
+
+    def strip_html(text: str) -> str:
+        """Stip HTRML chars."""
+        if raw:
+            return text
+        return re.sub(r"<[^>]+/?>", "", text)
+
+    if details.etymology:
+        print(strip_html(details.etymology), "\n")
+
+    for i, definition in enumerate(details.definitions, start=1):
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                if not raw:
-                    # Strip HTML tags
-                    subdef = re.sub(r"<[^>]+/?>", "", subdef)
-                print(f"{a}.".rjust(8), subdef)
+                print(f"{a}.".rjust(8), strip_html(subdef))
         else:
-            if not raw:
-                # Strip HTML tags
-                definition = re.sub(r"<[^>]+/?>", "", definition)
-            print(f"{i}.".rjust(4), definition)
+            print(f"{i}.".rjust(4), strip_html(definition))
 
 
 def guess_snapshots(locale: str) -> List[str]:
@@ -278,9 +312,7 @@ def guess_snapshots(locale: str) -> List[str]:
     return fetch_snapshots(locale)
 
 
-def parse_word(
-    word: str, code: str, locale: str, force: bool = False
-) -> Tuple[str, str, List[Definitions]]:
+def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
     It is disabled by default t spee-up the overall process, but enabled when
@@ -289,13 +321,19 @@ def parse_word(
     parsed_sections = find_sections(code, locale)
     pron = ""
     nature = ""
+    etymology = ""
+
+    etyl_data = parsed_sections.pop(etyl_section[locale], [])
+    if etyl_data:
+        etymology = find_etymology(word, locale, etyl_data[0])
+
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
         pron = find_pronunciation(code, pronunciation[locale])
         nature = find_genre(code, genre[locale])
 
-    return pron, nature, definitions
+    return Word(pron, nature, etymology, definitions)
 
 
 def process(file: Path, locale: str, debug: bool = False) -> Words:
@@ -319,7 +357,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
                 sections[title].append(word)
 
             parsed_sections = find_sections(code, locale)
-            defs = "\n".join(str(s) for s in parsed_sections)
+            defs = "\n".join(str(s) for s in parsed_sections.values())
             for template in re.findall(r"({{[^{}]*}})", defs):
                 template = template.split("|")[0].lstrip("{").rstrip("}").strip()
                 if template not in templates:
@@ -327,12 +365,12 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
             continue
 
         try:
-            pronunciation, genre, definitions = parse_word(word, code, locale)
+            details = parse_word(word, code, locale)
         except Exception:  # pragma: nocover
             print(f"ERROR with {word!r}")
         else:
-            if definitions:
-                words[word] = pronunciation, genre, definitions
+            if details.definitions:
+                words[word] = details
 
     if debug:
         with open("sections.txt", "w") as f:

@@ -14,11 +14,11 @@ from scripts.utils import clean
             [
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
+                "<i>Abbreviation of</i> <b>abortion</b>",
+                "<i>(US)</i> The early stages of; the beginning process; the start.",
                 "<i>(climbing, informal)</i> To abseil.",
                 "<i>Abbreviation of</i> <b>abort</b>",
-                "<i>Abbreviation of</i> <b>abortion</b>",
                 "<i>Abbreviation of</i> <b>about</b>",
-                "<i>(US)</i> The early stages of; the beginning process; the start.",
             ],
         ),
         (
@@ -108,8 +108,8 @@ from scripts.utils import clean
                 "By virtue of; with the pledge of.",
                 "To the account or detriment of; denoting imprecation or invocation, or coming to, falling, or resting upon.",  # noqa
                 "<i>(especially when numbers of combatants or competitors are specified)</i> Against; in opposition to.",  # noqa
-                "<i>(transitive, Singapore, Philippines)</i> to switch on",
                 "<i>(UK dialectal, Scotland)</i> Without.",
+                "<i>(transitive, Singapore, Philippines)</i> to switch on",
                 "In the Japanese language, a pronunciation, or reading, of a kanji character that was originally based on the character's pronunciation in Chinese, contrasted with kun.",  # noqa
             ],
         ),
@@ -121,8 +121,8 @@ from scripts.utils import clean
                 "A large travelling case usually made of leather, and opening into two equal sections.",
                 "<i>(Australia, dated)</i> A schoolbag.",
                 "<i>(archaic)</i> A hook on which to hang clothing.",
-                "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
                 "<i>(linguistics)</i> A portmanteau word.",
+                "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
                 "To make a portmanteau word.",
             ],
         ),
@@ -254,9 +254,9 @@ from scripts.utils import clean
                 "<i>(transitive)</i> To ply or overpower with words.",
                 "<i>(transitive, rare)</i> To conjure with a word.",
                 "<i>(intransitive, archaic)</i> To speak, to use words; to converse, to discourse.",
+                "<i>Alternative form of</i> <b>worth</b> (“to become”).",
                 '<i>(slang, African-American Vernacular)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
                 "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <b>word up</b>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
-                "<i>Alternative form of</i> <b>worth</b> (“to become”).",
             ],
         ),
     ],
@@ -265,9 +265,9 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
-    assert pronunciation == details[0]
-    assert genre == details[1]
-    assert definitions == details[2]
+    assert pronunciation == details.pronunciation
+    assert genre == details.genre
+    assert definitions == details.definitions
 
 
 @pytest.mark.parametrize(

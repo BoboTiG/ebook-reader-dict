@@ -28,6 +28,7 @@ def test_main():
             "en.html",
             "gr.html",
             "ic.html",
+            "ko.html",
             "mo.html",
             "mu.html",
             "na.html",

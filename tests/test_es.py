@@ -137,9 +137,9 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
     """Test the sections finder and definitions getter."""
     code = page(word, "es")
     details = parse_word(word, code, "es", force=True)
-    assert pronunciation == details[0]
-    assert genre == details[1]
-    assert definitions == details[2]
+    assert pronunciation == details.pronunciation
+    assert genre == details.genre
+    assert definitions == details.definitions
 
 
 @pytest.mark.parametrize(
