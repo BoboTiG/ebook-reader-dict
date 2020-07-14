@@ -337,6 +337,8 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
         'ISO 639-3'
         >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca", "fr")
         'Lathyrus aphaca'
+        >>> transform("test", "w|Langenstriegis|lang=de", "fr")
+        'Langenstriegis'
         >>> transform("foo", "grammaire|fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
@@ -347,8 +349,10 @@ def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
 
     # {{w|ISO 639-3}} -> ISO 639-3
     # {{w|Gesse aphaca|Lathyrus aphaca}} -> Lathyrus aphaca
+    # {{w|Langenstriegis|lang=de}} -> Langenstriegis
     if tpl == "w":
-        return parts[-1]
+        words = list(filter(lambda t: not t.startswith("lang="), parts[1:]))
+        return words[-1]
 
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore
