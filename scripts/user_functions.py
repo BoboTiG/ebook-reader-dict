@@ -314,14 +314,17 @@ def person(parts: Tuple[str, ...]) -> str:
         "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
         >>> person(["L. L. Zamenhof"])
         'L. L. Zamenhof'
+        >>> person(["lang=en", "Friedrich August", "Flückiger"])
+        "Friedrich August <span style='font-variant:small-caps'>Flückiger</span>"
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     """
-    res = parts[0]
-    if len(parts) > 1:
-        if parts[-1] != "'=oui":
+    names = list(filter(lambda t: not t.startswith("lang="), parts))
+    res = names[0]
+    if len(names) > 1:
+        if names[-1] != "'=oui":
             res += " "
-        res += small_caps(parts[1])
+        res += small_caps(names[1])
     else:
         warn(f"Malformed template in the Wikicode (parts={parts})")
     return res
