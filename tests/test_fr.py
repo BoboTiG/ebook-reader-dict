@@ -152,6 +152,16 @@ from scripts.utils import clean
         ),
         ("ich", "ɪç", "", ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."]),
         (
+            "koro",
+            "kɔʁo",
+            "m",
+            [
+                "Langue tibéto-birmane parlée dans l’Arunachal Pradesh (Inde)",
+                "Langue malayo-polynésienne parlée dans les îles de l'Amirauté (Papouasie-Nouvelle-Guinée)",
+                "Forme d'hystérie de nature sexuelle propre aux humains mâles.",
+            ],
+        ),
+        (
             "mutiner",
             "my.ti.ne",
             "",

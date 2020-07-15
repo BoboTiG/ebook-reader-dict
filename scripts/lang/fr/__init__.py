@@ -1,7 +1,7 @@
 """French language."""
 
 # Regex pour trouver la prononciation
-pronunciation = r"{pron\|([^}\|]+)"
+pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
 
 # Regexp pour trouver le genre
 genre = r"{([fmsingp]+)}"

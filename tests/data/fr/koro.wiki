@@ -1,0 +1,160 @@
+{{voir|kɔrɔ}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|fr}}
+
+=== {{S|nom|fr|num=1}} ===
+'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+# [[langue|Langue]] [[tibéto-birman|tibéto-birmane]] parlée dans l’Arunachal Pradesh ([[Inde]])
+
+=== {{S|nom|fr|num=2}} ===
+'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+# [[langue|Langue]] [[malayo-polynésien|malayo-polynésienne]] parlée dans les îles de l'Amirauté ([[Papouasie-Nouvelle-Guinée]])
+
+==== {{S|traductions}} ====
+{{trad-début}}
+{{trad-fin}}
+
+=== {{S|nom|fr|num=3}} ===
+'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+# Forme d'[[hystérie]] de nature sexuelle propre aux humains mâles.
+#* ''Elles présentent la particularité de toucher exclusivement un sexe : l’amok ne touche que les hommes, et le latah que les femmes. Quant au '''koro''', il est aussi réservé aux hommes, pour une raison évidente cette fois : il se définit par des troubles de la perception du pénis.'' {{source|{{w|La Recherche}}, vol. 5, Société d'éditions scientifiques, 1974, p. 1058}}
+#* ''A Singapour, en 1967, au moment même où la chute de la fécondité atteint sa vitesse maximale, se déclenche une épidemie de '''''Koro''''', manifestation hystérique spécifiquement masculine. Les individus touchés craignent et perçoivent une rétraction de leur pénis, qui menace, disent-ils, de disparaître dans l'abdomen.'' {{source|{{w|Emmanuel Todd}}, ''Le Fou et le Prolétaire'', 1979, réédition revue et augmentée, Paris : Le Livre de Poche, 1980, page 22}}
+#* ''Érigé en syndrome psychiatrique, le '''''koro''''' rassemble une nébuleuse de troubles que l'on retrouve très largement en Asie du Sud sous différentes variantes. […]. En Asie du Sud-Est, le '''''koro''''' donne lieu à de véritables épidémies collectives qui sévissent de manière périodique en Thaïlande, en Indonésie ou encore à Singapour.'' {{source|Julien Bonhomme, ''Les voleurs de sexe: anthropologie d'une rumeur africaine'', éd. du Seuil, 2009, chap.1, page 25}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+{{trad-fin}}
+
+=== {{S|anagrammes}} ===
+* [[orok]]
+
+=== {{S|voir aussi}} ===
+* {{WP}}
+
+== {{langue|bm}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|bm}}
+
+=== {{S|nom|bm}} ===
+'''koro''' {{pron||bm}}
+# [[bol-tasse|Bol-tasse]], [[bol]] pour [[boire]].
+
+[[Catégorie:Vie domestique en bambara]]
+
+== {{langue|br}} ==
+=== {{S|verbe|br|flexion}} ===
+{{br-forme-mut|goro|forme=Infinitif}}
+'''koro''' {{pron|ˈkoːro|br}}
+# {{mutation de|goro|d|br}}.
+
+== {{langue|cst-cho}} ==
+=== {{S|étymologie}} ===
+:Du {{étyl|proto-costanoan|cst-cho}} {{recons|lang-mot-vedette=cst-cho|[[Reconstruction:proto-costanoan/*kolo|kolo]]}}{{réf|1}}.
+
+=== {{S|nom|cst-cho}} ===
+'''koro''' {{pron|koro|cst-cho}}
+# {{anatomie|cst-cho}} [[pied#fr|Pied]].
+
+=== {{S|références}} ===
+*{{RÉF|1}} {{R:swadesh utian}}
+== {{langue|eo}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|fr|eo}} « [[cœur]] », du {{étyl|la|eo|mot=cor}}.
+
+=== {{S|nom|eo}} ===
+{{eo-rég|'ko.ro}}
+[[Fichier:Love Heart SVG.svg|thumb|right|'''koro''' (3)]]
+'''koro''' {{pron|ˈko.ro|eo}} {{eo-motrac|racn=2284|t=oF|der=1}}
+# {{anatomie|eo}} [[cœur|Cœur]].
+#* ''La sango alfluas al la '''koro'''.''
+#*:Le sang afflue au cœur.
+# [[cœur|Cœur]] (siège des [[sentiment]]s).
+#* ''For de l’ okuloj, for de la '''koro'''.''
+#*:Loin des yeux, loin du cœur.
+# [[cœur|Cœur]] (forme géométrique).
+# [[cœur|Cœur]], [[noyau]], [[centre]].
+#* ''Li loĝas ĉe la '''koro''' de la urbo.''
+#*:Il habite au cœur de la ville.
+
+==== {{S|synonymes}} ====
+* {{lien|kerno|eo}} (4)
+
+==== {{S|dérivés}} ====
+{{(}}
+* {{lien|bonkora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|kora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|koramikino|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|koramiko|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|kore|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|korfavori|eo}} {{eo-ak|cl=dU}} {{eo-ss|PR=1}} : {{lien|avoir pitié|fr}} de, {{lien|prendre en pitié|fr}}
+* {{lien|kortuŝi|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|senkora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|tutkore|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+{{)}}
+
+==== {{S|paronymes}} ====
+* {{lien|kero|eo}} {{eo-motrac|racn=2048|par=1}} {{eo-ss|PR=1}} : {{lien|cœur|fr}} (jeu de cartes)
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=eo|Pays-Bas (partie continentale) (Wijchen)|audio=LL-Q143 (epo)-Robin van der Vliet-koro.wav}}
+* {{écouter|lang=eo|Brésil|audio=LL-Q143 (epo)-NMaia-koro.wav}}
+* {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-koro.wav}}
+
+=== {{S|voir aussi}} ===
+* {{WP|koro|lang=eo}}
+
+=== {{S|références}} ===
+Vocabulaire:
+* {{R:PV}}
+* {{R:PIV}}
+* {{R:Retavort|rac=kor}}
+* {{R:AkadUniVort|rac1="kor-"|rac2="-o"|UVn1=2284|cat=UV}}
+
+
+== {{langue|io}} ==
+=== {{S|étymologie}} ===
+: Composé de ''[[kor-]]'' et ''[[-o]]'' « substantif ».
+
+=== {{S|nom|io}} ===
+{{io-rég|kor|ˈkɔ.r}}
+'''koro''' {{pron|ˈkɔ.rɔ|lang=io}}
+# [[chœur|Chœur]] (de [[chanteur]]s).
+
+=== {{S|anagrammes}} ===
+* {{lien|okro|io}}
+
+== {{langue|css-mut}} ==
+=== {{S|étymologie}} ===
+:Du {{étyl|proto-costanoan|css-mut}} {{recons|lang-mot-vedette=css-mut|[[Reconstruction:proto-costanoan/*kolo|kolo]]}}{{réf|1}}.
+
+=== {{S|nom|css-mut}} ===
+'''koro''' {{pron|koro|css-mut}}
+# {{anatomie|css-mut}} [[pied#fr|Pied]].
+
+=== {{S|références}} ===
+*{{RÉF|1}} {{R:swadesh utian}}
+
+== {{langue|ngh}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|ngh}}
+
+=== {{S|nom|ngh}} ===
+'''koro ''' {{pron||ngh}} {{ngh-pl|singulier=koro|pluriel=ka koroke}}
+# {{animaux|ngh}} [[chacal à chabraque|Chacal à chabraque]].
+
+=== {{S|références}} ===
+* {{Ouvrage|prénom1=Ouma|nom1=Geelmeid|titre=Ouma Geelmeid ke kx'u ǁxaǁxa Nǀuu|url=http://open.uct.ac.za/bitstream/handle/11427/17432/Shah_N%c7%80uu%20_CALDi_2016.pdf?sequence=5|année=2016|éditeur=Centre for African Language Diversity|passage=88}}
+
+== {{langue|srn}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|srn}}
+
+=== {{S|nom|srn}} ===
+'''koro''' {{pron||srn}}
+# [[chou|Chou]].
+
+[[Catégorie:Aliments en sranan]]
+[[Catégorie:Racines de l’espéranto]]
+
