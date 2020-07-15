@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.8.3" />
+<meta name="generator" content="pdoc 0.8.4" />
 <title>scripts.user_functions API documentation</title>
 <meta name="description" content="Functions that can be used in *templates_multi* of any locale …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
@@ -64,13 +64,10 @@ def century(parts: Tuple[str, ...], century: str) -&gt; str:
 
         &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
         &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;lang=fr&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
-        &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
         &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
         &#39;XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century&#39;
     &#34;&#34;&#34;
-    centuries = list(filter(lambda t: not t.startswith(&#34;lang=&#34;), parts[1:]))
-    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in centuries)
+    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts[1:])
 
 
 def chimy(composition: Tuple[str, ...]) -&gt; str:
@@ -344,17 +341,14 @@ def person(parts: Tuple[str, ...]) -&gt; str:
         &#34;Théodore Agrippa d’&lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
         &gt;&gt;&gt; person([&#34;L. L. Zamenhof&#34;])
         &#39;L. L. Zamenhof&#39;
-        &gt;&gt;&gt; person([&#34;lang=en&#34;, &#34;Friedrich August&#34;, &#34;Flückiger&#34;])
-        &#34;Friedrich August &lt;span style=&#39;font-variant:small-caps&#39;&gt;Flückiger&lt;/span&gt;&#34;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     &#34;&#34;&#34;
-    names = list(filter(lambda t: not t.startswith(&#34;lang=&#34;), parts))
-    res = names[0]
-    if len(names) &gt; 1:
-        if names[-1] != &#34;&#39;=oui&#34;:
+    res = parts[0]
+    if len(parts) &gt; 1:
+        if parts[-1] != &#34;&#39;=oui&#34;:
             res += &#34; &#34;
-        res += small_caps(names[1])
+        res += small_caps(parts[1])
     else:
         warn(f&#34;Malformed template in the Wikicode (parts={parts})&#34;)
     return res
@@ -563,8 +557,6 @@ __all__ = (
 <div class="desc"><p>Format centuries.</p>
 <pre><code>&gt;&gt;&gt; century(["siècle", "XVI"], "siècle")
 'XVI&lt;sup&gt;e&lt;/sup&gt; siècle'
-&gt;&gt;&gt; century(["siècle", "lang=fr", "XVI"], "siècle")
-'XVI&lt;sup&gt;e&lt;/sup&gt; siècle'
 &gt;&gt;&gt; century(["siècle", "XVIII", "XIX"], "century")
 'XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century'
 </code></pre></div>
@@ -578,13 +570,10 @@ __all__ = (
 
         &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
         &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;lang=fr&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
-        &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
         &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
         &#39;XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century&#39;
     &#34;&#34;&#34;
-    centuries = list(filter(lambda t: not t.startswith(&#34;lang=&#34;), parts[1:]))
-    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in centuries)</code></pre>
+    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts[1:])</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.chimy"><code class="name flex">
@@ -1062,8 +1051,6 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 "Théodore Agrippa d’&lt;span style='font-variant:small-caps'&gt;Aubigné&lt;/span&gt;"
 &gt;&gt;&gt; person(["L. L. Zamenhof"])
 'L. L. Zamenhof'
-&gt;&gt;&gt; person(["lang=en", "Friedrich August", "Flückiger"])
-"Friedrich August &lt;span style='font-variant:small-caps'&gt;Flückiger&lt;/span&gt;"
 </code></pre>
 <p>Source: <a href="https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc">https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc</a></p></div>
 <details class="source">
@@ -1082,17 +1069,14 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         &#34;Théodore Agrippa d’&lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
         &gt;&gt;&gt; person([&#34;L. L. Zamenhof&#34;])
         &#39;L. L. Zamenhof&#39;
-        &gt;&gt;&gt; person([&#34;lang=en&#34;, &#34;Friedrich August&#34;, &#34;Flückiger&#34;])
-        &#34;Friedrich August &lt;span style=&#39;font-variant:small-caps&#39;&gt;Flückiger&lt;/span&gt;&#34;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     &#34;&#34;&#34;
-    names = list(filter(lambda t: not t.startswith(&#34;lang=&#34;), parts))
-    res = names[0]
-    if len(names) &gt; 1:
-        if names[-1] != &#34;&#39;=oui&#34;:
+    res = parts[0]
+    if len(parts) &gt; 1:
+        if parts[-1] != &#34;&#39;=oui&#34;:
             res += &#34; &#34;
-        res += small_caps(names[1])
+        res += small_caps(parts[1])
     else:
         warn(f&#34;Malformed template in the Wikicode (parts={parts})&#34;)
     return res</code></pre>
@@ -1393,7 +1377,7 @@ and is sometimes rendered in a smaller font.</p>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.3</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.4</a>.</p>
 </footer>
 </body>
 </html>

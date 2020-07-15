@@ -1,8 +1,5 @@
 """French language."""
 
-from typing import Tuple
-
-
 # Regex pour trouver la prononciation
 pronunciation = r"{pron\|([^}\|]+)"
 
@@ -504,8 +501,15 @@ templates_multi = {
     "calque": "etymology(parts)",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
+    # {{cf}}
+    # {{cf|tour d’échelle}}
+    # {{cf|lang=fr|triner}}
+    "cf": "f\"→ voir{' ' + italic(parts[1]) if len(parts) > 1 else ''}\"",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
+    # {{date}}
+    # {{date|1850}}
+    "date": "term(parts[1] if len(parts) > 1 else 'Date à préciser')",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}
@@ -634,49 +638,6 @@ templates_other = {
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
 # sauf pour ceux listés ci-dessous :
 templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
-
-
-def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
-    """
-    Will be call in utils.py::transform() when all template handlers were not used.
-
-        >>> last_template_handler(["cf", "lang=fr"], "fr")
-        '→ voir'
-        >>> last_template_handler(["cf", "immortelle"], "fr")
-        '→ voir <i>immortelle</i>'
-        >>> last_template_handler(["cf", "lang=fr", "faire"], "fr")
-        '→ voir <i>faire</i>'
-        >>> last_template_handler(["cf", "triner", "lang=fr"], "fr")
-        '→ voir <i>triner</i>'
-        >>> last_template_handler(["date", "lang=fr"], "fr")
-        '<i>(Date à préciser)</i>'
-        >>> last_template_handler(["date", "1957-2057"], "fr")
-        '<i>(1957-2057)</i>'
-        >>> last_template_handler(["date", "lang=fr", "1265"], "fr")
-        '<i>(1265)</i>'
-    """
-    from ..defaults import last_template_handler as default
-    from ...user_functions import italic, term
-
-    # Handle the {{cf}} template
-    if parts[0] == "cf":
-        # {{cf|tour d’échelle}}
-        # {{cf|lang=fr|faire}}
-        # {{cf|triner|lang=fr}}
-        phrase = "→ voir"
-        words = list(filter(lambda t: t != "lang=fr", parts[1:]))
-        if words:
-            phrase += f" {italic(words[0])}"
-        return phrase
-
-    # Handle the {{date}} template
-    if parts[0] == "date":
-        dates = list(filter(lambda t: t != "lang=fr", parts[1:]))
-        if dates:
-            return term(dates[0])
-        return term("Date à préciser")
-
-    return default(parts, locale)
 
 
 # Contenu de la release sur GitHub :

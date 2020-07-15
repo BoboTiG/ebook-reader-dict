@@ -307,9 +307,17 @@ def transform(word: str, template: str, locale: str) -> str:
         'ISO 639-3'
         >>> transform("foo", "formatnum:123", "fr")
         '123'
+        >>> transform("test", "w|Langenstriegis|lang=de", "fr")
+        'Langenstriegis'
+        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca", "fr")
+        'Lathyrus aphaca'
+        >>> transform("foo", "grammaire|fr", "fr")
+        '<i>(Grammaire)</i>'
+        >>> transform("foo", "conj|grp=1|fr", "fr")
+        ''
     """
 
-    parts_raw = template.split("|")
+    parts_raw = [p for p in template.split("|") if not p.startswith("lang=")]
     parts = [p.strip() for p in parts_raw]
     parts = [p.strip("\u200e") for p in parts]  # Left-to-right mark
     tpl = parts[0]
@@ -331,28 +339,14 @@ def transform(word: str, template: str, locale: str) -> str:
 
 @lru_cache(maxsize=None)
 def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
-    """Convert the data from the *template" template.
-
-        >>> transform("foo", "w|ISO 639-3", "fr")
-        'ISO 639-3'
-        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca", "fr")
-        'Lathyrus aphaca'
-        >>> transform("test", "w|Langenstriegis|lang=de", "fr")
-        'Langenstriegis'
-        >>> transform("foo", "grammaire|fr", "fr")
-        '<i>(Grammaire)</i>'
-        >>> transform("foo", "conj|grp=1|fr", "fr")
-        ''
-    """
+    """Convert the data from the *tpl* template."""
     if tpl in templates_ignored[locale]:
         return ""
 
     # {{w|ISO 639-3}} -> ISO 639-3
     # {{w|Gesse aphaca|Lathyrus aphaca}} -> Lathyrus aphaca
-    # {{w|Langenstriegis|lang=de}} -> Langenstriegis
     if tpl == "w":
-        words = list(filter(lambda t: not t.startswith("lang="), parts[1:]))
-        return words[-1]
+        return parts[-1]
 
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore

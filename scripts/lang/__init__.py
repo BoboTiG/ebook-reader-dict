@@ -206,7 +206,7 @@ last_template_handler = {
     "ca": defaults.last_template_handler,
     "en": en.last_template_handler,
     "es": es.last_template_handler,
-    "fr": fr.last_template_handler,
+    "fr": defaults.last_template_handler,
     "pt": defaults.last_template_handler,
     "sv": defaults.last_template_handler,
 }
