@@ -160,6 +160,7 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
+    "exemple",
     "graphie",
     "Import",
     "Modèle",
