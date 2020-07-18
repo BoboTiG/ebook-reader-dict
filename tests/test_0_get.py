@@ -372,3 +372,8 @@ def test_xml_parse_word_without_definitions(tmp_path):
 
     words = get.process(file, "fr")
     assert not words
+
+
+def test_get_and_parse_word():
+    get.get_and_parse_word("fondation", "fr")
+    get.get_and_parse_word("fondation", "fr", raw=True)
