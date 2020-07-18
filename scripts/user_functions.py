@@ -132,6 +132,8 @@ def etymology(parts: Tuple[str, ...]) -> str:
         'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
         >>> etymology("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"))
         'latin <i>subgrunda</i> (« même sens »)'
+        >>> etymology("étyl|grc|fr|mot=".split("|"))
+        'grec ancien'
         >>> etymology("calque|la|fr".split("|"))
         'latin'
         >>> etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
@@ -163,7 +165,7 @@ def etymology(parts: Tuple[str, ...]) -> str:
 
     if "tr" in data and data["tr"]:
         res += f" {data['mot']}, <i>{data['tr']}</i>"
-    else:
+    elif data["mot"]:
         res += f" <i>{data['mot']}</i>"
     if "sens" in data:
         res += f" (« {data['sens']} »)"
