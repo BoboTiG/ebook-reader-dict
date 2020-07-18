@@ -16,7 +16,7 @@ DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
 # HTML formatting for each word
 WORD_FORMAT = (
     # Word formatting
-    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}{etymology}<br/><br/><ol>{definitions}</ol></p>'
+    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/><ol>{definitions}</ol>{etymology}</p>'
     # The source
     '<p style="text-align:right"><i>{source}</i></p>'
     # And add a line break for when there is more that one word displayed
