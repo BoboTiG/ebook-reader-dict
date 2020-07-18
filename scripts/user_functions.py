@@ -130,6 +130,8 @@ def etymology(parts: Tuple[str, ...]) -> str:
         'grec ancien λόγος, <i>lógos</i> (« étude »)'
         >>> etymology("étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge".split("|"))
         'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
+        >>> etymology("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"))
+        'latin <i>subgrunda</i> (« même sens »)'
         >>> etymology("calque|la|fr".split("|"))
         'latin'
         >>> etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
@@ -159,7 +161,7 @@ def etymology(parts: Tuple[str, ...]) -> str:
         elif "sens" not in data:
             data["sens"] = part
 
-    if "tr" in data:
+    if "tr" in data and data["tr"]:
         res += f" {data['mot']}, <i>{data['tr']}</i>"
     else:
         res += f" <i>{data['mot']}</i>"
