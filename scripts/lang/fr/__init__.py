@@ -531,6 +531,8 @@ templates_multi = {
     "emploi": "term(capitalize(parts[1]))",
     # {{étyl|la|fro|mot=invito|type=verb}}
     "étyl": "etymology(parts)",
+    # {{étylp|la|fr|mot=Ladon}}
+    "étylp": "etymology(parts)",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
