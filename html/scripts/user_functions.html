@@ -144,25 +144,33 @@ def coord(values: Tuple[str, ...]) -&gt; str:
     return &#34;{0}°{1}′{2} {3}°{4}′{5}&#34;.format(*values)
 
 
-def etymology(parts: Tuple[str, ...]) -&gt; str:
+def etymology(parts: Tuple[str, ...], locale: str) -&gt; str:
     &#34;&#34;&#34;
     Display cross-language etymology.
 
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|no|fr|mot=ski&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|dithyrambicus&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;dithyrambicus&lt;/i&gt;&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|no|fr|mot=ski&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;norvégien &lt;i&gt;ski&lt;/i&gt;&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=invito|type=verb&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=invito|type=verb&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;latin &lt;i&gt;invito&lt;/i&gt;&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|la|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;jugulum&lt;/i&gt; (« endroit où le cou se joint aux épaules = la gorge »)&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=subgrunda|tr=|sens=même sens&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;subgrunda&lt;/i&gt; (« même sens »)&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;grec ancien&#39;
+        &gt;&gt;&gt; etymology(&#34;calque|la|fr&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;latin&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|en|fr|mot=to date|sens=à ce jour&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;calque|en|fr|mot=to date|sens=à ce jour&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;anglais &lt;i&gt;to date&lt;/i&gt; (« à ce jour »)&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;sanskrit वज्रयान, &lt;i&gt;vajrayāna&lt;/i&gt; (« véhicule du diamant »)&#39;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl
@@ -171,14 +179,15 @@ def etymology(parts: Tuple[str, ...]) -&gt; str:
     &#34;&#34;&#34;
     l10n_src = parts[1]
     l10n_dst = parts[2]
-    res = all_langs[l10n_dst][l10n_src]
+    lang = all_langs.get(l10n_dst, {}) or all_langs[locale]
+    res = lang[l10n_src]
     if len(parts) == 3:
         return res
 
     data = {}
     for part in parts[3:]:
         if &#34;=&#34; in part:
-            key, value = part.split(&#34;=&#34;)
+            key, value = part.split(&#34;=&#34;, 1)
             data[key] = value
         elif &#34;mot&#34; not in data:
             data[&#34;mot&#34;] = part
@@ -187,9 +196,9 @@ def etymology(parts: Tuple[str, ...]) -&gt; str:
         elif &#34;sens&#34; not in data:
             data[&#34;sens&#34;] = part
 
-    if &#34;tr&#34; in data:
+    if &#34;tr&#34; in data and data[&#34;tr&#34;]:
         res += f&#34; {data[&#39;mot&#39;]}, &lt;i&gt;{data[&#39;tr&#39;]}&lt;/i&gt;&#34;
-    else:
+    elif data[&#34;mot&#34;]:
         res += f&#34; &lt;i&gt;{data[&#39;mot&#39;]}&lt;/i&gt;&#34;
     if &#34;sens&#34; in data:
         res += f&#34; (« {data[&#39;sens&#39;]} »)&#34;
@@ -717,25 +726,33 @@ It allowes to filter out some parts while keeping others.</p>
 </details>
 </dd>
 <dt id="scripts.user_functions.etymology"><code class="name flex">
-<span>def <span class="ident">etymology</span></span>(<span>parts: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">etymology</span></span>(<span>parts: Tuple[str, ...], locale: str) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Display cross-language etymology.</p>
-<pre><code>&gt;&gt;&gt; etymology("étyl|grc|fr".split("|"))
+<pre><code>&gt;&gt;&gt; etymology("étyl|grc|fr".split("|"), "fr")
 'grec ancien'
-&gt;&gt;&gt; etymology("étyl|no|fr|mot=ski".split("|"))
+&gt;&gt;&gt; etymology("étyl|la|fr|dithyrambicus".split("|"), "fr")
+'latin &lt;i&gt;dithyrambicus&lt;/i&gt;'
+&gt;&gt;&gt; etymology("étyl|no|fr|mot=ski".split("|"), "fr")
 'norvégien &lt;i&gt;ski&lt;/i&gt;'
-&gt;&gt;&gt; etymology("étyl|la|fr|mot=invito|type=verb".split("|"))
+&gt;&gt;&gt; etymology("étyl|la|fr|mot=invito|type=verb".split("|"), "fr")
 'latin &lt;i&gt;invito&lt;/i&gt;'
-&gt;&gt;&gt; etymology("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"))
+&gt;&gt;&gt; etymology("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"), "fr")
 'grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)'
-&gt;&gt;&gt; etymology("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"))
+&gt;&gt;&gt; etymology("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"), "fr")
 'grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)'
-&gt;&gt;&gt; etymology("calque|la|fr".split("|"))
+&gt;&gt;&gt; etymology("étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge".split("|"), "fr")
+'latin &lt;i&gt;jugulum&lt;/i&gt; (« endroit où le cou se joint aux épaules = la gorge »)'
+&gt;&gt;&gt; etymology("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"), "fr")
+'latin &lt;i&gt;subgrunda&lt;/i&gt; (« même sens »)'
+&gt;&gt;&gt; etymology("étyl|grc|fr|mot=".split("|"), "fr")
+'grec ancien'
+&gt;&gt;&gt; etymology("calque|la|fr".split("|"), "fr")
 'latin'
-&gt;&gt;&gt; etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"))
+&gt;&gt;&gt; etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"), "fr")
 'anglais &lt;i&gt;to date&lt;/i&gt; (« à ce jour »)'
-&gt;&gt;&gt; etymology("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"))
+&gt;&gt;&gt; etymology("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"), "fr")
 'sanskrit वज्रयान, &lt;i&gt;vajrayāna&lt;/i&gt; (« véhicule du diamant »)'
 </code></pre>
 <p>Source: <a href="https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl">https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl</a></p>
@@ -744,25 +761,33 @@ It allowes to filter out some parts while keeping others.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def etymology(parts: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def etymology(parts: Tuple[str, ...], locale: str) -&gt; str:
     &#34;&#34;&#34;
     Display cross-language etymology.
 
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|no|fr|mot=ski&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|dithyrambicus&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;dithyrambicus&lt;/i&gt;&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|no|fr|mot=ski&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;norvégien &lt;i&gt;ski&lt;/i&gt;&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=invito|type=verb&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=invito|type=verb&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;latin &lt;i&gt;invito&lt;/i&gt;&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)&#39;
-        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;grec ancien λόγος, &lt;i&gt;lógos&lt;/i&gt; (« étude »)&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|la|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;jugulum&lt;/i&gt; (« endroit où le cou se joint aux épaules = la gorge »)&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|la|fr|mot=subgrunda|tr=|sens=même sens&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;latin &lt;i&gt;subgrunda&lt;/i&gt; (« même sens »)&#39;
+        &gt;&gt;&gt; etymology(&#34;étyl|grc|fr|mot=&#34;.split(&#34;|&#34;), &#34;fr&#34;)
+        &#39;grec ancien&#39;
+        &gt;&gt;&gt; etymology(&#34;calque|la|fr&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;latin&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|en|fr|mot=to date|sens=à ce jour&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;calque|en|fr|mot=to date|sens=à ce jour&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;anglais &lt;i&gt;to date&lt;/i&gt; (« à ce jour »)&#39;
-        &gt;&gt;&gt; etymology(&#34;calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; etymology(&#34;calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant&#34;.split(&#34;|&#34;), &#34;fr&#34;)
         &#39;sanskrit वज्रयान, &lt;i&gt;vajrayāna&lt;/i&gt; (« véhicule du diamant »)&#39;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl
@@ -771,14 +796,15 @@ It allowes to filter out some parts while keeping others.</p>
     &#34;&#34;&#34;
     l10n_src = parts[1]
     l10n_dst = parts[2]
-    res = all_langs[l10n_dst][l10n_src]
+    lang = all_langs.get(l10n_dst, {}) or all_langs[locale]
+    res = lang[l10n_src]
     if len(parts) == 3:
         return res
 
     data = {}
     for part in parts[3:]:
         if &#34;=&#34; in part:
-            key, value = part.split(&#34;=&#34;)
+            key, value = part.split(&#34;=&#34;, 1)
             data[key] = value
         elif &#34;mot&#34; not in data:
             data[&#34;mot&#34;] = part
@@ -787,9 +813,9 @@ It allowes to filter out some parts while keeping others.</p>
         elif &#34;sens&#34; not in data:
             data[&#34;sens&#34;] = part
 
-    if &#34;tr&#34; in data:
+    if &#34;tr&#34; in data and data[&#34;tr&#34;]:
         res += f&#34; {data[&#39;mot&#39;]}, &lt;i&gt;{data[&#39;tr&#39;]}&lt;/i&gt;&#34;
-    else:
+    elif data[&#34;mot&#34;]:
         res += f&#34; &lt;i&gt;{data[&#39;mot&#39;]}&lt;/i&gt;&#34;
     if &#34;sens&#34; in data:
         res += f&#34; (« {data[&#39;sens&#39;]} »)&#34;
