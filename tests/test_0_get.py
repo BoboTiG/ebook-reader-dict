@@ -336,14 +336,11 @@ def test_xml_parse_restricted_word(tmp_path):
 
     word, details = list(words.items())[0]
     assert word == "cunnilingus"
-    assert len(details) == 4
-
-    pronunciation, genre, etymology, definitions = details
-    assert pronunciation == "ky.ni.lɛ̃.ɡys"
-    assert genre == "m"
-    assert len(etymology) == 0
-    assert len(definitions) == 1
-    assert len(definitions[0]) == 68
+    assert details.pronunciation == "ky.ni.lɛ̃.ɡys"
+    assert details.genre == "m"
+    assert not details.etymology
+    assert len(details.definitions) == 1
+    assert len(details.definitions[0]) == 68
 
 
 def test_xml_parse_word_without_definitions(tmp_path):
