@@ -507,7 +507,7 @@ templates_italic = {
 #   html/scripts/user_functions.html
 templates_multi = {
     # {{calque|en|fr|mot=at the end of the day|nocat=1}}
-    "calque": "etymology(parts)",
+    "calque": "etymology(parts, 'fr')",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{cf}}
@@ -531,9 +531,9 @@ templates_multi = {
     # {{emploi|au passif}}
     "emploi": "term(capitalize(parts[1]))",
     # {{étyl|la|fro|mot=invito|type=verb}}
-    "étyl": "etymology(parts)",
+    "étyl": "etymology(parts, 'fr')",
     # {{étylp|la|fr|mot=Ladon}}
-    "étylp": "etymology(parts)",
+    "étylp": "etymology(parts, 'fr')",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
