@@ -8,6 +8,11 @@ data/*/tmp
 tests/data/*/words.*
 tests/data/*/tmp
 
+# Project stuff - update-bot.py
+apicache-py3
+pywikibot.lwp
+throttle.ctrl
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
