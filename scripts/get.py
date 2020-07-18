@@ -281,7 +281,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     print(word, f"\\{details.pronunciation}\\", f"({details.genre}.)", "\n")
 
     def strip_html(text: str) -> str:
-        """Stip HTRML chars."""
+        """Stip HTML chars."""
         if raw:
             return text
         return re.sub(r"<[^>]+/?>", "", text)

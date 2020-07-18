@@ -107,7 +107,21 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
 
 def convert_etymology(etyl_word: str, etymology: str) -> str:
     """Return the HTML code to include for the etymology of a word."""
-    return f"<dl><dt><u>{etyl_word}</u></dt><dd>{etymology}</dd></dl>"
+    return (
+        f"<dl><dt><u>{etyl_word}</u></dt><dd>{etymology}</dd></dl>"
+        if etyl_word and etymology
+        else ""
+    )
+
+
+def convert_genre(genre: str) -> str:
+    """Return the HTML code to include for the genre of a word."""
+    return f" <i>{genre}.</i>" if genre else ""
+
+
+def convert_pronunciation(pronunciation: str) -> str:
+    """Return the HTML code to include for the etymology of a word."""
+    return f" \\{pronunciation}\\" if pronunciation else ""
 
 
 def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
@@ -133,9 +147,6 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
         for word, details in words.items():
 
             details = Word(*details)
-            pronunciation = ""
-            genre = ""
-            etymology = ""
             definitions = ""
 
             for definition in details.definitions:
@@ -146,12 +157,9 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
                     definitions += "".join(f"<li>{d}</li>" for d in definition)
                     definitions += "</ol>"
 
-            if details.pronunciation:
-                pronunciation = f" \\{details.pronunciation}\\"
-            if details.genre:
-                genre = f" <i>{details.genre}.</i>"
-            if details.etymology:
-                etymology = convert_etymology(etyl_word[locale], details.etymology)
+            pronunciation = convert_pronunciation(details.pronunciation)
+            genre = convert_genre(details.genre)
+            etymology = convert_etymology(etyl_word[locale], details.etymology)
 
             fh.write(WORD_FORMAT.format(**locals()))
 
