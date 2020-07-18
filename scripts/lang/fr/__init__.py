@@ -544,8 +544,6 @@ templates_multi = {
     "in": "subscript(parts[1])",
     # {{indice|n}}
     "indice": "subscript(parts[1])",
-    # {{lien|étrange|fr}}
-    "lien": "parts[1]",
     # {{nom w pc|Aldous|Huxley}}
     "nom w pc": "person(parts[1:])",
     # {{nombre romain|12}}
@@ -669,6 +667,12 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         'μηρóς, <i>mêrós</i> (« cuisse »)'
         >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
         'φόβος, <i>phóbos</i> (« effroi, peur »)'
+        >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
+        '渦'
+        >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
+        'フランス (« France »)'
+        >>> last_template_handler(["lien", "フランス", "ja", "tr=Furansu", "sens=France"], "fr")
+        'フランス, <i>Furansu</i> (« France »)'
     """
     from ..defaults import last_template_handler as default
     from ...user_functions import italic
@@ -693,6 +697,16 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
             phrase += f", {italic(parts[2].replace('tr=', ''))}"
         if len(parts) > 3:
             phrase += f" (« {parts[3].replace('sens=', '')} »)"
+        return phrase
+
+    # Handle the {{lien}} template
+    if parts[0] == "lien":
+        phrase = parts[1]
+        for part in parts[3:]:
+            if part.startswith("tr="):
+                phrase += f", {italic(part.split('tr=', 1)[1])}"
+            elif part.startswith("sens="):
+                phrase += f" (« {part.split('sens=', 1)[1]} »)"
         return phrase
 
     return default(parts, locale)
