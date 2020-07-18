@@ -665,6 +665,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '*<i>maruos</i> (« mort »)'
         >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
         '*<i>sporo</i>'
+        >>> last_template_handler(["polytonique", "μηρóς", "mêrós", "cuisse"], "fr")
+        'μηρóς, <i>mêrós</i> (« cuisse »)'
+        >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
+        'φόβος, <i>phóbos</i> (« effroi, peur »)'
     """
     from ..defaults import last_template_handler as default
     from ...user_functions import italic
@@ -681,6 +685,15 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
             elif not phrase:
                 phrase = italic(part)
         return f"*{phrase}{extension}"
+
+    # Handle the {{polytonique}} template
+    if parts[0] == "polytonique":
+        phrase = parts[1]
+        if len(parts) > 2:
+            phrase += f", {italic(parts[2].replace('tr=', ''))}"
+        if len(parts) > 3:
+            phrase += f" (« {parts[3].replace('sens=', '')} »)"
+        return phrase
 
     return default(parts, locale)
 
