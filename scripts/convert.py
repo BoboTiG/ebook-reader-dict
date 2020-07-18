@@ -146,7 +146,7 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
             if details.genre:
                 genre = f" <i>{details.genre}.</i>"
             if details.etymology:
-                etymology = f"<br/>{details.etymology}<br/>"
+                etymology = f"<br/>{details.etymology}"
 
             fh.write(WORD_FORMAT.format(**locals()))
 
