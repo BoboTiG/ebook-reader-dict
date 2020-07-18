@@ -564,7 +564,7 @@ templates_multi = {
     "région": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
     # {{siècle|XVI}}
     # {{siècle|XVIII|XIX}}
-    "siècle": "term(century(parts, 'siècle'))",
+    "siècle": "term(century(parts, 'siècle') if parts[1] != '?' else 'Siècle à préciser')",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{smcp|Dupont}}
