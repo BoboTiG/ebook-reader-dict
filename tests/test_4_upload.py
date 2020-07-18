@@ -36,7 +36,6 @@ Installation :
 
 Caractéristiques :
 
-- Seules les définitions sont incluses : il n'y a ni les citations ni l'éthymologie.
 - Les mots comportant moins de 2 caractères ne sont pas inclus.
 - Les noms propres ne sont pas inclus.
 - Les conjugaisons ne sont pas incluses.
