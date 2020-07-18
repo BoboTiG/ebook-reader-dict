@@ -512,6 +512,8 @@ templates_multi = {
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|triner}}
     "cf": "f\"→ voir{' ' + italic(parts[1]) if len(parts) > 1 else ''}\"",
+    # {{circa|1150}}
+    "circa": "term('c. ' + parts[1])",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
     # {{date}}

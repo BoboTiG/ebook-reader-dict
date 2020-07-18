@@ -265,6 +265,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ("{{cf|immortelle}}", "→ voir <i>immortelle</i>"),
         ("{{cf|lang=fr|faire}}", "→ voir <i>faire</i>"),
         ("{{cf|triner|lang=fr}}", "→ voir <i>triner</i>"),
+        ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),
         ("{{date|lang=fr}}", "<i>(Date à préciser)</i>"),
         ("{{date|1957}}", "<i>(1957)</i>"),
