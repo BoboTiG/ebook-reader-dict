@@ -173,6 +173,7 @@ templates_ignored = (
     "Modèle",
     "préciser",
     "R",
+    "RÉF",
     "refnec",
     "réfnéc",
     "réfnec",
