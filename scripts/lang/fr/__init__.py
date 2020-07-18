@@ -122,6 +122,7 @@ definitions_to_ignore = (
     "pluriel habituel",
     "pluriel inhabituel",
     "''pluriel''",
+    "{exemple|",
     # Modèles spéciaux
     "doute",
     "ébauche",
@@ -166,7 +167,6 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
-    "exemple",
     "graphie",
     "Import",
     "Modèle",
