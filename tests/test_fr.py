@@ -134,7 +134,7 @@ from scripts.utils import clean
             "éperon",
             "e.pʁɔ̃",
             "m",
-            "De l’ancien français <i>esperon</i>, du vieux-francique.",
+            "De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>.",
             [
                 "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",  # noqa
                 "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",  # noqa
@@ -285,6 +285,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
+        ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
         ("{{smo}}", "samoan"),

@@ -1,4 +1,5 @@
 """French language."""
+from typing import Tuple
 
 # Regex pour trouver la prononciation
 pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
@@ -644,6 +645,38 @@ templates_other = {
 # Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
 # sauf pour ceux listés ci-dessous :
 templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
+
+
+def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["recons", "maruos"], "fr")
+        '*<i>maruos</i>'
+        >>> last_template_handler(["recons", "maruos", "gaul"], "fr")
+        '*<i>maruos</i>'
+        >>> last_template_handler(["recons", "maruos", "gaul", "sens=mort"], "fr")
+        '*<i>maruos</i> (« mort »)'
+        >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
+        '*<i>sporo</i>'
+    """
+    from ..defaults import last_template_handler as default
+    from ...user_functions import italic
+
+    # Handle the {{recons}} template
+    if parts[0] in ("recons", "forme reconstruite"):
+        phrase = ""
+        extension = ""
+        for part in parts[1:]:
+            if part.startswith("sens="):
+                extension = f" (« {part.split('=', 1)[1]} »)"
+            elif "=" in part:
+                continue
+            elif not phrase:
+                phrase = italic(part)
+        return f"*{phrase}{extension}"
+
+    return default(parts, locale)
 
 
 # Contenu de la release sur GitHub :
