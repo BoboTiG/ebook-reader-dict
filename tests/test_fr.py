@@ -290,6 +290,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{réf}}", ""),
         ("{{siècle|lang=fr|?}}", "<i>(Siècle à préciser)</i>"),
+        ("{{siècle}}", "<i>(Siècle à préciser)</i>"),
         ("{{smo}}", "samoan"),
         ("{{sport}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
