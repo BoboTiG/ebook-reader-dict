@@ -7,10 +7,12 @@ Version courante :
 Historique des langues ajoutées car non prises en charge dans la liste initiale:
 (à supprimer lorsqu'elles sont ajoutées sur le Wiktionnaire)
 
+    - 'bas latin' 2020-07-19
     - 'deu' 2020-05-19
     - 'ell' 2020-05-19
     - 'eus' 2020-05-19
     - 'ind' 2020-05-19
+    - 'latin classique' 2020-07-19
 """
 
 # Langues
@@ -472,6 +474,7 @@ langs = {
     "barngala": "barngala",
     "barranbinya": "barranbinya",
     "bas": "bassa (Cameroun)",
+    "bas latin": "bas latin",
     "bat": "langues baltes",
     "bav": "babungo",
     "baw": "bambili-bambui",
@@ -2721,6 +2724,7 @@ langs = {
     "laq": "qabiao",
     "lar": "larteh",
     "las": "lama (Togo)",
+    "latin classique": "latin classique",
     "lau": "laba",
     "lauhut": "lauhut",
     "law": "lauje",

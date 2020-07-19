@@ -165,6 +165,7 @@ words_to_keep = (
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
+    ",",
     "ancre",
     "créer-séparément",
     "désabrévier",
@@ -506,8 +507,6 @@ templates_italic = {
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
 #   html/scripts/user_functions.html
 templates_multi = {
-    # {{calque|en|fr|mot=at the end of the day|nocat=1}}
-    "calque": "etymology(parts, 'fr')",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{cf}}
@@ -530,10 +529,6 @@ templates_multi = {
     "er": "superscript('er')",
     # {{emploi|au passif}}
     "emploi": "term(capitalize(parts[1]))",
-    # {{étyl|la|fro|mot=invito|type=verb}}
-    "étyl": "etymology(parts, 'fr')",
-    # {{étylp|la|fr|mot=Ladon}}
-    "étylp": "etymology(parts, 'fr')",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
@@ -663,19 +658,81 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '*<i>maruos</i> (« mort »)'
         >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
         '*<i>sporo</i>'
+
         >>> last_template_handler(["polytonique", "μηρóς", "mêrós", "cuisse"], "fr")
         'μηρóς, <i>mêrós</i> (« cuisse »)'
         >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
         'φόβος, <i>phóbos</i> (« effroi, peur »)'
+
         >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
         '渦'
         >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
         'フランス (« France »)'
         >>> last_template_handler(["lien", "フランス", "ja", "tr=Furansu", "sens=France"], "fr")
         'フランス, <i>Furansu</i> (« France »)'
+        >>> last_template_handler(["lien", "camara", "sens=voute, plafond vouté", "la"], "fr")
+        'camara (« voute, plafond vouté »)'
+
+        >>> last_template_handler("étyl|grc|fr".split("|"), "fr")
+        'grec ancien'
+        >>> last_template_handler("étyl|la|fr|dithyrambicus".split("|"), "fr")
+        'latin <i>dithyrambicus</i>'
+        >>> last_template_handler("étyl|no|fr|mot=ski".split("|"), "fr")
+        'norvégien <i>ski</i>'
+        >>> last_template_handler("étyl|la|fr|mot=invito|type=verb".split("|"), "fr")
+        'latin <i>invito</i>'
+        >>> last_template_handler("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"), "fr")
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        >>> last_template_handler("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"), "fr")
+        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        >>> last_template_handler("étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge".split("|"), "fr")  # noqa
+        'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
+        >>> last_template_handler("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"), "fr")
+        'latin <i>subgrunda</i> (« même sens »)'
+        >>> last_template_handler("étyl|grc|fr|mot=".split("|"), "fr")
+        'grec ancien'
+
+        >>> last_template_handler("étylp|la|fr|mot=Ladon".split("|"), "fr")
+        'latin <i>Ladon</i>'
+
+        >>> last_template_handler("calque|la|fr".split("|"), "fr")
+        'latin'
+        >>> last_template_handler("calque|en|fr|mot=to date|sens=à ce jour".split("|"), "fr")
+        'anglais <i>to date</i> (« à ce jour »)'
+        >>> last_template_handler("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"), "fr")
+        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
     """
+    from .langs import langs
     from ..defaults import last_template_handler as default
     from ...user_functions import italic
+
+    # Handle {{étyl}}, {{étylp}} and {{calque}} templates
+    if parts[0] in ("étyl", "étylp", "calque"):
+        l10n_src = parts[1]
+        res = langs[l10n_src]
+        if len(parts) == 3:
+            return res
+
+        data = {}
+        for part in parts[3:]:
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+            elif "mot" not in data:
+                data["mot"] = part
+            elif "tr" not in data:
+                data["tr"] = part
+            elif "sens" not in data:
+                data["sens"] = part
+
+        if "tr" in data and data["tr"]:
+            res += f" {data['mot']}, <i>{data['tr']}</i>"
+        elif data["mot"]:
+            res += f" <i>{data['mot']}</i>"
+        if "sens" in data:
+            res += f" (« {data['sens']} »)"
+
+        return res
 
     # Handle the {{recons}} template
     if parts[0] in ("recons", "forme reconstruite"):
@@ -702,7 +759,7 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     # Handle the {{lien}} template
     if parts[0] == "lien":
         phrase = parts[1]
-        for part in parts[3:]:
+        for part in parts[2:]:
             if part.startswith("tr="):
                 phrase += f", {italic(part.split('tr=', 1)[1])}"
             elif part.startswith("sens="):

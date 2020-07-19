@@ -7,7 +7,7 @@ import re
 from typing import List, Optional, Tuple
 from warnings import warn
 
-from .lang import all_langs, templates_italic
+from .lang import templates_italic
 
 
 def capitalize(text: str) -> str:
@@ -112,68 +112,6 @@ def coord(values: Tuple[str, ...]) -> str:
         '04°39′N 74°03′O'
     """
     return "{0}°{1}′{2} {3}°{4}′{5}".format(*values)
-
-
-def etymology(parts: Tuple[str, ...], locale: str) -> str:
-    """
-    Display cross-language etymology.
-
-        >>> etymology("étyl|grc|fr".split("|"), "fr")
-        'grec ancien'
-        >>> etymology("étyl|la|fr|dithyrambicus".split("|"), "fr")
-        'latin <i>dithyrambicus</i>'
-        >>> etymology("étyl|no|fr|mot=ski".split("|"), "fr")
-        'norvégien <i>ski</i>'
-        >>> etymology("étyl|la|fr|mot=invito|type=verb".split("|"), "fr")
-        'latin <i>invito</i>'
-        >>> etymology("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"), "fr")
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
-        >>> etymology("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"), "fr")
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
-        >>> etymology("étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge".split("|"), "fr")
-        'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
-        >>> etymology("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"), "fr")
-        'latin <i>subgrunda</i> (« même sens »)'
-        >>> etymology("étyl|grc|fr|mot=".split("|"), "fr")
-        'grec ancien'
-        >>> etymology("calque|la|fr".split("|"), "fr")
-        'latin'
-        >>> etymology("calque|en|fr|mot=to date|sens=à ce jour".split("|"), "fr")
-        'anglais <i>to date</i> (« à ce jour »)'
-        >>> etymology("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"), "fr")
-        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
-
-    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:%C3%A9tyl
-
-    Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:calque
-    """
-    l10n_src = parts[1]
-    l10n_dst = parts[2]
-    lang = all_langs.get(l10n_dst, {}) or all_langs[locale]
-    res = lang[l10n_src]
-    if len(parts) == 3:
-        return res
-
-    data = {}
-    for part in parts[3:]:
-        if "=" in part:
-            key, value = part.split("=", 1)
-            data[key] = value
-        elif "mot" not in data:
-            data["mot"] = part
-        elif "tr" not in data:
-            data["tr"] = part
-        elif "sens" not in data:
-            data["sens"] = part
-
-    if "tr" in data and data["tr"]:
-        res += f" {data['mot']}, <i>{data['tr']}</i>"
-    elif data["mot"]:
-        res += f" <i>{data['mot']}</i>"
-    if "sens" in data:
-        res += f" (« {data['sens']} »)"
-
-    return res
 
 
 def eval_expr(expr: str) -> str:
@@ -467,7 +405,6 @@ __all__ = (
     "color",
     "concat",
     "coord",
-    "etymology",
     "eval_expr",
     "int_to_roman",
     "italic",
