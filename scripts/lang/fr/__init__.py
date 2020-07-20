@@ -673,23 +673,23 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["lien", "camara", "sens=voute, plafond vouté", "la"], "fr")
         'camara (« voute, plafond vouté »)'
 
-        >>> last_template_handler("étyl|grc|fr".split("|"), "fr")
+        >>> last_template_handler(["étyl", "grc", "fr"], "fr")
         'grec ancien'
-        >>> last_template_handler("étyl|la|fr|dithyrambicus".split("|"), "fr")
+        >>> last_template_handler(["étyl", "la", "fr", "dithyrambicus"], "fr")
         'latin <i>dithyrambicus</i>'
-        >>> last_template_handler("étyl|no|fr|mot=ski".split("|"), "fr")
+        >>> last_template_handler(["étyl", "no", "fr", "mot=ski"], "fr")
         'norvégien <i>ski</i>'
-        >>> last_template_handler("étyl|la|fr|mot=invito|type=verb".split("|"), "fr")
+        >>> last_template_handler(["étyl", "la", "fr", "mot=invito", "type=verb"], "fr")
         'latin <i>invito</i>'
-        >>> last_template_handler("étyl|grc|fr|mot=λόγος|tr=lógos|type=nom|sens=étude".split("|"), "fr")
+        >>> last_template_handler(["étyl", "grc", "fr", "mot=λόγος", "tr=lógos", "type=nom", "sens=étude"], "fr")
         'grec ancien λόγος, <i>lógos</i> (« étude »)'
-        >>> last_template_handler("étyl|grc|fr|λόγος|lógos|étude|type=nom|lien=1".split("|"), "fr")
+        >>> last_template_handler(["étyl", "grc", "fr", "λόγος", "lógos", "étude", "type=nom", "lien=1"], "fr")
         'grec ancien λόγος, <i>lógos</i> (« étude »)'
-        >>> last_template_handler("étyl|la|fr|mot=jugulum|sens=endroit où le cou se joint aux épaules = la gorge".split("|"), "fr")  # noqa
+        >>> last_template_handler(["étyl", "la", "fr", "mot=jugulum", "sens=endroit où le cou se joint aux épaules = la gorge"], "fr")  # noqa
         'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
-        >>> last_template_handler("étyl|la|fr|mot=subgrunda|tr=|sens=même sens".split("|"), "fr")
+        >>> last_template_handler(["étyl", "la", "fr", "mot=subgrunda", "tr", "sens=même sens"], "fr")
         'latin <i>subgrunda</i> (« même sens »)'
-        >>> last_template_handler("étyl|grc|fr|mot=".split("|"), "fr")
+        >>> last_template_handler(["étyl", "grc", "fr", "mot="], "fr")
         'grec ancien'
         >>> last_template_handler(['étyl', 'grc', 'mot=ὑπόθεσις', 'tr=hupóthesis', 'sens=action de mettre dessous', 'nocat=1'], "fr")
         'grec ancien ὑπόθεσις, <i>hupóthesis</i> (« action de mettre dessous »)'
@@ -698,14 +698,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
         'grec ancien νακτός, <i>naktós</i> (« dense »)'
 
-        >>> last_template_handler("étylp|la|fr|mot=Ladon".split("|"), "fr")
+        >>> last_template_handler(["étylp", "la", "fr", "mot=Ladon"], "fr")
         'latin <i>Ladon</i>'
 
-        >>> last_template_handler("calque|la|fr".split("|"), "fr")
+        >>> last_template_handler(["calque", "la", "fr"], "fr")
         'latin'
-        >>> last_template_handler("calque|en|fr|mot=to date|sens=à ce jour".split("|"), "fr")
+        >>> last_template_handler(["calque", "en", "fr", "mot=to date", "sens=à ce jour"], "fr")
         'anglais <i>to date</i> (« à ce jour »)'
-        >>> last_template_handler("calque|sa|fr|mot=वज्रयान|tr=vajrayāna|sens=véhicule du diamant".split("|"), "fr")
+        >>> last_template_handler(["calque", "sa", "fr", "mot=वज्रयान", "tr=vajrayāna", "sens=véhicule du diamant"], "fr")
         'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
     """
     from .langs import langs
