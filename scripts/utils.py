@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Tuple
 from warnings import warn
 
+import regex
+
 from .constants import DOWNLOAD_URL
 from .lang import (
     all_langs,
@@ -167,6 +169,10 @@ def clean(word: str, text: str, locale: str) -> str:
         '<b>strong</b>'
         >>> clean("foo", "''italic and '''strong'''''", "fr")
         '<i>italic and <b>strong</b></i>'
+        >>> clean("foo", "'''strong and ''italic'''''", "fr")
+        '<b>strong and <i>italic</b></i>'
+        >>> clean("foo", "'''''Parer à'''''", "fr")
+        '<i><b>Parer à</b></i>'
         >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''", "fr")
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
         >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''", "fr")
@@ -191,6 +197,7 @@ def clean(word: str, text: str, locale: str) -> str:
 
     # Speed-up lookup
     sub = re.sub
+    sub2 = regex.sub
 
     # Remove line breaks
     text = text.replace("\n", "")
@@ -213,10 +220,10 @@ def clean(word: str, text: str, locale: str) -> str:
     # HTML
     # <-- foo --> -> ''
     text = sub(r"<!--(?:.+-->)?", "", text)
-    # '''foo''' -> <b>foo></b> (source: https://stackoverflow.com/a/54388869/1117028)
-    text = sub(r"'''([^']*(?:'[^']+)*)'''", "<b>\\1</b>", text)
+    # Source: https://github.com/5j9/wikitextparser/blob/b24033b/wikitextparser/_wikitext.py#L83
+    text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
     # ''foo'' -> <i>foo></i>
-    text = sub(r"''([^']*(?:'[^']+)*)''", "<i>\\1</i>", text)
+    text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
     # HTML characters
