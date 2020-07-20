@@ -8,11 +8,25 @@ Historique des langues ajoutées car non prises en charge dans la liste initiale
 (à supprimer lorsqu'elles sont ajoutées sur le Wiktionnaire)
 
     - 'bas latin' 2020-07-19
+    - 'cel-pro' 2020-05-20
     - 'deu' 2020-05-19
     - 'ell' 2020-05-19
     - 'eus' 2020-05-19
+    - 'gem-pro' 2020-05-20
     - 'ind' 2020-05-19
+    - 'indo-européen commun' 2020-05-20
+    - 'ine-pie' 2020-05-20
     - 'latin classique' 2020-07-19
+    - 'latin ecclésiastique' 2020-07-20
+    - 'latin impérial' 2020-07-20
+    - 'latin médiéval' 2020-07-20
+    - 'latin populaire' 2020-07-20
+    - 'latin tardif' 2020-07-20
+    - 'latin vulgaire' 2020-07-20
+    - 'proto-celtique' 2020-07-20
+    - 'proto-germanique' 2020-07-20
+    - 'proto-italique' 2020-07-20
+    - 'proto-sémitique' 2020-07-20
 """
 
 # Langues
@@ -984,6 +998,7 @@ langs = {
     "ceb": "cebuano",
     "ceg": "chamacoco",
     "cel": "langues celtiques",
+    "cel-pro": "proto-celtique",
     "celtique asturien": "celtique asturien",
     "cet": "jalaa",
     "cfa": "dijim-bwilim",
@@ -1718,6 +1733,7 @@ langs = {
     "gelao vert de Sanchong": "gelao vert de Sanchong",
     "gelao vert de Zhenfeng": "gelao vert de Zhenfeng",
     "gem": "langues germaniques",
+    "gem-pro": "proto-germanique",
     "gépide": "gépide",
     "ges": "geser-gorom",
     "gète": "gète",
@@ -2110,7 +2126,9 @@ langs = {
     "inc": "langues indo-aryennes",
     "ind": "indonésien",
     "indanga": "indanga",
+    "indo-européen commun": "indo-européen commun",
     "ine": "langues indo-européennes",
+    "ine-pie": "indo-européen commun",
     "ing": "deg hit’an",
     "inh": "ingouche",
     "inj": "inga de la jungle",
@@ -2725,6 +2743,12 @@ langs = {
     "lar": "larteh",
     "las": "lama (Togo)",
     "latin classique": "latin classique",
+    "latin ecclésiastique": "latin ecclésiastique",
+    "latin impérial": "latin impérial",
+    "latin médiéval": "latin médiéval",
+    "latin populaire": "latin populaire",
+    "latin tardif": "latin tardif",
+    "latin vulgaire": "latin vulgaire",
     "lau": "laba",
     "lauhut": "lauhut",
     "law": "lauje",
@@ -4193,6 +4217,10 @@ langs = {
     "prk": "parauk",
     "prm": "porome",
     "pro": "ancien occitan",
+    "proto-celtique": "proto-celtique",
+    "proto-germanique": "proto-germanique",
+    "proto-italique": "proto-italique",
+    "proto-sémitique": "proto-sémitique",
     "prq": "perené",
     "prs": "dari",
     "prt": "phai",
