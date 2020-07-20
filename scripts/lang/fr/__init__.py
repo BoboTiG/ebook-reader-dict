@@ -646,7 +646,7 @@ templates_other = {
 templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
 
 
-def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -691,6 +691,12 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         'latin <i>subgrunda</i> (« même sens »)'
         >>> last_template_handler("étyl|grc|fr|mot=".split("|"), "fr")
         'grec ancien'
+        >>> last_template_handler(['étyl', 'grc', 'mot=ὑπόθεσις', 'tr=hupóthesis', 'sens=action de mettre dessous', 'nocat=1'], "fr")
+        'grec ancien ὑπόθεσις, <i>hupóthesis</i> (« action de mettre dessous »)'
+        >>> last_template_handler(["étyl", "grc", "fr", "tr=leipein", "sens=abandonner"], "fr")
+        'grec ancien <i>leipein</i> (« abandonner »)'
+        >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
+        'grec ancien νακτός, <i>naktós</i> (« dense »)'
 
         >>> last_template_handler("étylp|la|fr|mot=Ladon".split("|"), "fr")
         'latin <i>Ladon</i>'
@@ -706,39 +712,49 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     from ..defaults import last_template_handler as default
     from ...user_functions import italic
 
-    # Handle {{étyl}}, {{étylp}} and {{calque}} templates
-    if parts[0] in ("étyl", "étylp", "calque"):
-        l10n_src = parts[1]
-        res = langs[l10n_src]
-        if len(parts) == 3:
-            return res
+    tpl = template[0]
+    parts = list(template[1:])
 
-        data = {}
-        for part in parts[3:]:
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-            elif "mot" not in data:
+    # Handle {{étyl}}, {{étylp}} and {{calque}} templates
+    if tpl in ("étyl", "étylp", "calque"):
+        parts = [p.replace("1=", "").replace("2=", "") for p in parts]
+        kw_parts = [p for p in parts if "=" in p]
+        simple_parts = [p for p in parts if "=" not in p]
+
+        # The lang name
+        phrase = langs[simple_parts.pop(0)]
+
+        data = {"mot": "", "sens": "", "tr": ""}
+        for part in kw_parts:
+            key, value = part.split("=", 1)
+            data[key] = value
+
+        for part in simple_parts:
+            if part in langs:
+                continue
+            if not data["mot"]:
                 data["mot"] = part
-            elif "tr" not in data:
+            elif not data["tr"]:
                 data["tr"] = part
-            elif "sens" not in data:
+            elif not data["sens"]:
                 data["sens"] = part
 
-        if "tr" in data and data["tr"]:
-            res += f" {data['mot']}, <i>{data['tr']}</i>"
+        if data["tr"]:
+            if data["mot"]:
+                phrase += f" {data['mot']},"
+            phrase += f" {italic(data['tr'])}"
         elif data["mot"]:
-            res += f" <i>{data['mot']}</i>"
-        if "sens" in data:
-            res += f" (« {data['sens']} »)"
+            phrase += f" {italic(data['mot'])}"
+        if data["sens"]:
+            phrase += f" (« {data['sens']} »)"
 
-        return res
+        return phrase
 
     # Handle the {{recons}} template
-    if parts[0] in ("recons", "forme reconstruite"):
+    if tpl in ("recons", "forme reconstruite"):
         phrase = ""
         extension = ""
-        for part in parts[1:]:
+        for part in parts:
             if part.startswith("sens="):
                 extension = f" (« {part.split('=', 1)[1]} »)"
             elif "=" in part:
@@ -748,25 +764,25 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         return f"*{phrase}{extension}"
 
     # Handle the {{polytonique}} template
-    if parts[0] == "polytonique":
-        phrase = parts[1]
+    if tpl == "polytonique":
+        phrase = parts[0]
+        if len(parts) > 1:
+            phrase += f", {italic(parts[1].replace('tr=', ''))}"
         if len(parts) > 2:
-            phrase += f", {italic(parts[2].replace('tr=', ''))}"
-        if len(parts) > 3:
-            phrase += f" (« {parts[3].replace('sens=', '')} »)"
+            phrase += f" (« {parts[2].replace('sens=', '')} »)"
         return phrase
 
     # Handle the {{lien}} template
-    if parts[0] == "lien":
-        phrase = parts[1]
-        for part in parts[2:]:
+    if tpl == "lien":
+        phrase = parts[0]
+        for part in parts[1:]:
             if part.startswith("tr="):
                 phrase += f", {italic(part.split('tr=', 1)[1])}"
             elif part.startswith("sens="):
                 phrase += f" (« {part.split('sens=', 1)[1]} »)"
         return phrase
 
-    return default(parts, locale)
+    return default(template, locale)
 
 
 # Contenu de la release sur GitHub :
