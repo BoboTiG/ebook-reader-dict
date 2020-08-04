@@ -109,15 +109,6 @@ sections = {
     "sv": sv.sections,
 }
 
-# Keyword(s) to find in ethymology to keep it
-etyl_word = {
-    "ca": "",
-    "en": "",
-    "es": "",
-    "fr": fr.etyl_word,
-    "pt": "",
-    "sv": "",
-}
 etyl_keywords = {
     "ca": "",
     "en": "",

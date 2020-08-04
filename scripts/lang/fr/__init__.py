@@ -108,7 +108,6 @@ sections = (
 
 # Mot-clefs permettant de sélectionner la bonne étymologie
 etyl_keywords = ("étyl",)
-etyl_word = "Étymologie :"
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (

@@ -13,7 +13,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 from marisa_trie import Trie
 
 from .constants import WORD_FORMAT
-from .lang import etyl_word, wiktionary
+from .lang import wiktionary
 from .stubs import Word, Words
 from .utils import format_description, guess_prefix
 
@@ -105,13 +105,9 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
 
-def convert_etymology(etyl_word: str, etymology: str) -> str:
+def convert_etymology(etymology: str) -> str:
     """Return the HTML code to include for the etymology of a word."""
-    return (
-        f"<dl><dt><u>{etyl_word}</u></dt><dd>{etymology}</dd></dl>"
-        if etyl_word and etymology
-        else ""
-    )
+    return f"<p>{etymology}</p><br/>" if etymology else ""
 
 
 def convert_genre(genre: str) -> str:
@@ -159,7 +155,7 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
 
             pronunciation = convert_pronunciation(details.pronunciation)
             genre = convert_genre(details.genre)
-            etymology = convert_etymology(etyl_word[locale], details.etymology)
+            etymology = convert_etymology(details.etymology)
 
             fh.write(WORD_FORMAT.format(**locals()))
 
