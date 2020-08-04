@@ -100,7 +100,8 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
         fh.comment = release.encode()
 
         # Check the ZIP validity
-        assert fh.testzip()
+        # testfile returns the name of the first corrupt file, or None
+        assert fh.testzip() is None, fh.testzip()
 
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 

@@ -45,3 +45,7 @@ def test_main():
             "œc.html",
         ]
         assert sorted(fh.namelist()) == expected
+
+        # testfile returns the name of the first corrupt file, or None
+        errors = fh.testzip()
+        assert errors is None
