@@ -19,6 +19,7 @@ def test_main():
     with ZipFile(dicthtml) as fh:
         expected = [
             "11.html",
+            "aa.html",
             "ac.html",
             "au.html",
             "ba.html",
@@ -43,6 +44,7 @@ def test_main():
             "words.snapshot",
             "ép.html",
             "œc.html",
+            "πa.html",
         ]
         assert sorted(fh.namelist()) == expected
 

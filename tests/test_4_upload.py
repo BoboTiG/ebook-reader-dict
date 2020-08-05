@@ -36,7 +36,6 @@ Installation :
 
 Caractéristiques :
 
-- Les mots comportant moins de 2 caractères ne sont pas inclus.
 - Les noms propres ne sont pas inclus.
 - Les conjugaisons ne sont pas incluses.
 """

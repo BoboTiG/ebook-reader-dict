@@ -65,8 +65,7 @@ Installation:
 
 Caracteristics :
 
-- Only definitions are included: there is no quote nor ethymology.
-- 1-character words are not included.
+- Only definitions are included: there are no quote nor ethymology.
 - Proper nouns are not included.
 - Conjuged verbs are not included.
 

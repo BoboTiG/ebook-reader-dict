@@ -349,7 +349,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
 
     for element in xml_iter_parse(str(file)):
         word, code = xml_parse_element(element)
-        if len(word) < 2 or ":" in word:
+        if ":" in word:
             continue
 
         if debug:

@@ -8,6 +8,32 @@ from scripts.utils import clean
     "word, pronunciation, genre, etymology, definitions",
     [
         (
+            "a",
+            "ɑ",
+            "m",
+            "",
+            [
+                "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie.",  # noqa
+                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>-18</sup>).",  # noqa
+                "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
+                "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
+                "Première lettre et première voyelle de l’alphabet français.",
+                r"Le son \a\ ou \ɑ\ de cette lettre. <b>Note :</b> Le français parisien a perdu la distinction entre les deux.",  # noqa
+                "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",  # noqa
+                "<i>(Québec)</i> <i>(Familier)</i> Elle.",
+            ],
+        ),
+        (
+            "π",
+            "p",
+            "",
+            "",
+            [
+                "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",  # noqa
+                "<i>(Bases de données)</i> Symbole de la projection.",
+            ],
+        ),
+        (
             "42",
             "ka.ʁɑ̃t.dø",
             "msing",

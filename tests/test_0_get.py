@@ -374,6 +374,99 @@ def test_xml_parse_word_without_definitions(tmp_path):
     assert not words
 
 
+def test_xml_parse_word_with_only_one_character(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text(
+        """\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>a</title>
+    <ns>0</ns>
+    <id>27758</id>
+    <restrictions>edit=autoconfirmed:move=autoconfirmed</restrictions>
+    <revision>
+        <id>27636792</id>
+        <parentid>27249625</parentid>
+        <timestamp>2020-04-05T23:27:40Z</timestamp>
+        <contributor>
+            <username>Alice</username>
+            <id>-42</id>
+        </contributor>
+        <minor />
+        <comment></comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+      <text bytes="85" xml:space="preserve">{{voir autre alphabet|latin|a|cyrillique|а}}
+
+== {{langue|conv}} ==
+=== {{S|symbole|conv}} ===
+'''a'''
+# {{linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle.</text>
+        <sha1>aimljsg0qagdsp5yyz38fgv3rh0ksm1</sha1>
+    </revision>
+</page>
+</mediawiki>
+"""
+    )
+
+    words = get.process(file, "fr")
+    assert len(words) == 1
+
+    word, details = list(words.items())[0]
+    assert word == "a"
+    assert details.pronunciation == ""
+    assert details.genre == ""
+    assert not details.etymology
+    assert len(details.definitions) == 1
+    assert len(details.definitions[0]) == 85
+
+
+def test_xml_parse_word_special_character(tmp_path):
+    file = tmp_path / "page.xml"
+    file.write_text(
+        """\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<page>
+    <title>π</title>
+    <ns>0</ns>
+    <id>27758</id>
+    <restrictions>edit=autoconfirmed:move=autoconfirmed</restrictions>
+    <revision>
+        <id>27636792</id>
+        <parentid>27249625</parentid>
+        <timestamp>2020-04-05T23:27:40Z</timestamp>
+        <contributor>
+            <username>Alice</username>
+            <id>-42</id>
+        </contributor>
+        <minor />
+        <comment></comment>
+        <model>wikitext</model>
+        <format>text/x-wiki</format>
+        <text bytes="51" xml:space="preserve">{{voir autre alphabet/π}}
+== {{langue|conv}} ==
+=== {{S|symbole|conv}} ===
+'''π'''
+# {{BDD|conv}} Symbole de la [[projection]].</text>
+        <sha1>aimljsg0qagdsp5yyz38fgv3rh0ksm1</sha1>
+    </revision>
+</page>
+</mediawiki>
+"""
+    )
+
+    words = get.process(file, "fr")
+    assert len(words) == 1
+
+    word, details = list(words.items())[0]
+    assert word == "π"
+    assert details.pronunciation == ""
+    assert details.genre == ""
+    assert not details.etymology
+    assert len(details.definitions) == 1
+    assert len(details.definitions[0]) == 51
+
+
 def test_get_and_parse_word():
     get.get_and_parse_word("fondation", "fr")
     get.get_and_parse_word("fondation", "fr", raw=True)
