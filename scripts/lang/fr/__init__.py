@@ -538,6 +538,8 @@ templates_multi = {
     "in": "subscript(parts[1])",
     # {{indice|n}}
     "indice": "subscript(parts[1])",
+    # {{nobr|1 000 000 000 000}}
+    "nobr": "parts[-1].replace(' ', '&nbsp;')",
     # {{nom w pc|Aldous|Huxley}}
     "nom w pc": "person(parts[1:])",
     # {{nombre romain|12}}

@@ -284,7 +284,9 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         """Stip HTML chars."""
         if raw:
             return text
-        return re.sub(r"<[^>]+/?>", "", text)
+        text = re.sub(r"<[^>]+/?>", "", text)
+        text = text.replace("&nbsp;", " ")
+        return text
 
     if details.etymology:
         print(strip_html(details.etymology), "\n")

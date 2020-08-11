@@ -307,6 +307,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "<i>(Linguistique)</i>"),
         ("{{in|5}}", "<sub>5</sub>"),
+        ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
