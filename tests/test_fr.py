@@ -303,6 +303,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ),
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
+        ("{{lang|en|other rank}}", "other rank"),
         ("{{lien|étrange|fr}}", "étrange"),
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "<i>(Linguistique)</i>"),

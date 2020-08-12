@@ -34,6 +34,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     """Will be call in utils.py::transform() when all template handlers were not used."""
     from ..user_functions import capitalize, lookup_italic, term
 
+    # Handle the {{lang}} template when it comes with unknown locale
+    if parts[0] == "lang":
+        return parts[-1]
+
     # {{tpl|item}} -> <i>(Template)</i>
     if len(parts) == 2:
         return term(capitalize(lookup_italic(parts[0], locale)))
