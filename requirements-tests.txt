@@ -6,4 +6,4 @@ pdoc3==0.8.4
 pydocstyle==5.0.2
 pytest==6.0.1
 pytest-cov==2.10.0 
-responses==0.10.15
+responses==0.10.16
