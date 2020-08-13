@@ -539,7 +539,7 @@ templates_multi = {
     # {{indice|n}}
     "indice": "subscript(parts[1])",
     # {{nobr|1 000 000 000 000}}
-    "nobr": "parts[-1].replace(' ', '&nbsp;')",
+    "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}
     "nom w pc": "person(parts[1:])",
     # {{nombre romain|12}}
@@ -596,6 +596,8 @@ templates_multi = {
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
+    "!": "!",
+    "=": "=",
     "absolu": "<i>absolu</i>",
     "antonomase": "antonomase",
     "aphérèse": "<i>aphérèse</i>",
