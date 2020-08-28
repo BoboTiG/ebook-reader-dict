@@ -52,10 +52,14 @@ def test_main_0(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+        responses.GET,
+        BASE_URL.format("fr"),
+        body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
-        responses.GET, DUMP_URL.format("fr", date), body=craft_data(date, "fr"),
+        responses.GET,
+        DUMP_URL.format("fr", date),
+        body=craft_data(date, "fr"),
     )
 
     # Start the whole process
@@ -104,7 +108,9 @@ def test_main_1(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+        responses.GET,
+        BASE_URL.format("fr"),
+        body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
         responses.GET,
@@ -162,10 +168,14 @@ def test_main_2(craft_data, capsys):
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(
-        responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX.format(date=date),
+        responses.GET,
+        BASE_URL.format("fr"),
+        body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
-        responses.GET, DUMP_URL.format("fr", date), body=craft_data(date, "fr"),
+        responses.GET,
+        DUMP_URL.format("fr", date),
+        body=craft_data(date, "fr"),
     )
 
     # Start the whole process
@@ -198,7 +208,9 @@ def test_main_3(craft_data, capsys):
         body=WIKTIONARY_INDEX.format(date="20200514"),
     )
     responses.add(
-        responses.GET, DUMP_URL.format("fr", "20200514"), status=404,
+        responses.GET,
+        DUMP_URL.format("fr", "20200514"),
+        status=404,
     )
     responses.add(
         responses.GET,

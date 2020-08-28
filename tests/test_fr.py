@@ -252,7 +252,13 @@ from scripts.utils import clean
                 "Variante de ranche.",
             ],
         ),
-        ("sapristi", "sa.pʁis.ti", "", "", ["Pour marquer l’étonnement."],),
+        (
+            "sapristi",
+            "sa.pʁis.ti",
+            "",
+            "",
+            ["Pour marquer l’étonnement."],
+        ),
         (
             "silicone",
             "si.li.kon",

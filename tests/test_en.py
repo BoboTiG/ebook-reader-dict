@@ -314,8 +314,14 @@ def test_find_sections_and_definitions(word, pronunciation, genre, definitions, 
         ("{{ll|en|cod}}", "cod"),
         ("{{link|en|water vapour}}", "water vapour"),
         ("{{m|en|more}}", "<b>more</b>"),
-        ("{{n-g|Definite grammatical}}", "<i>Definite grammatical</i>",),
-        ("{{ngd|Definite grammatical}}", "<i>Definite grammatical</i>",),
+        (
+            "{{n-g|Definite grammatical}}",
+            "<i>Definite grammatical</i>",
+        ),
+        (
+            "{{ngd|Definite grammatical}}",
+            "<i>Definite grammatical</i>",
+        ),
         (
             "{{non-gloss definition|Definite grammatical}}",
             "<i>Definite grammatical</i>",

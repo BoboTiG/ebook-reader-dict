@@ -8,7 +8,9 @@ def main(argv: List[str]) -> int:
 
     parser = ArgumentParser(description="eBook Reader Dictionaries")
     parser.add_argument(
-        "--locale", required=True, help="the target locale",
+        "--locale",
+        required=True,
+        help="the target locale",
     )
     parser.add_argument(
         "--convert-only",
@@ -32,7 +34,9 @@ def main(argv: List[str]) -> int:
         help="update the release description",
     )
     parser.add_argument(
-        "--get-word", dest="get_word", help="download and parse the word Wikicode",
+        "--get-word",
+        dest="get_word",
+        help="download and parse the word Wikicode",
     )
     parser.add_argument(
         "--raw",
