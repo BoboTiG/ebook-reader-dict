@@ -180,6 +180,7 @@ templates_ignored = (
     "référence nécessaire",
     "réf",
     "réf?",
+    "réf ?",
     "source",
     "source?",
     "trad-exe",
