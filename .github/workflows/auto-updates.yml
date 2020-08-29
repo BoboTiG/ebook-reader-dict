@@ -5,6 +5,9 @@ on:
     # At 00:00 (UTC) every day
     - cron:  '0 0 * * *'
 
+  # Allow to call the workflow manually
+  workflow_dispatch:
+
 jobs:
   dicthtml:
     runs-on: ubuntu-latest
