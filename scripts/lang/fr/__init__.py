@@ -539,6 +539,9 @@ templates_multi = {
     "in": "subscript(parts[1])",
     # {{indice|n}}
     "indice": "subscript(parts[1])",
+    # {{info lex|boulangerie}}
+    # {{info lex|équitation|sport}}
+    "info lex": "term(', '.join(parts[1:]))",
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}
