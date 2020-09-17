@@ -5,7 +5,7 @@ from typing import Tuple
 pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
 
 # Regexp pour trouver le genre
-genre = r"{([fmsingp]+)}"
+genre = r"{([fmsingp]+)(?: \?\|fr)*}"
 
 # Séparateur des nombres à virgule
 float_separator = ","

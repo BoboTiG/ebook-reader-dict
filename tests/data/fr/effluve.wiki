@@ -1,0 +1,41 @@
+{{voir|effluvé}}
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|la|fr|mot=effluvium}}, du préfixe ''[[ex-#la|ex-]]'' indiquant la séparation et de ''[[fluxus]]'' (« écoulement »).
+
+=== {{S|nom|fr}} ===
+{{fr-rég|e.flyv}}
+'''effluve''' {{pron|e.flyv|fr}} {{mf ?|fr}} 
+# {{lexique|médecine|fr}} {{vieilli|fr}} Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, [[rémittente]]s et continues.
+# [[émanation|Émanation]] qui se [[dégager|dégage]] d’un [[corps]] [[quelconque]].
+#* ''Il ne reste qu’un tableau de Lebrun représentant la Pentecôte d’une façon qui étonnerait l’auteur des ''Actes des apôtres''. La Vierge y est au centre et reçoit pour son compte tout l’'''effluve''' du Saint-Esprit, qui, d’elle, se répand sur les apôtres.'' {{source|{{w|Ernest Renan}}, ''Souvenirs d’enfance et de jeunesse'', 1883, collection Folio, page 153.}}
+#* ''On entendait partout des chants d’oiseaux. Alors ma compagne se mit à courir en [[gambader|gambadant]], enivrée d’air et d’'''effluves''' champêtres. Et moi je courais derrière en sautant comme elle. Est-on bête, monsieur, par moments !'' {{source|{{nom w pc|Guy de Maupassant}}, ''Au printemps'', dans ''La maison Tellier'', 1891, collection Le Livre de Poche, page 213.}}
+#* ''Elle pourrait demeurer ici, l’assaillir d’invites, de chatteries, toute la nuit provoquer son désir, répandre ses '''effluves'''.'' {{source|{{Citation/Jean Rogissart/Passantes d’Octobre/1958|}}}}
+#* ''Lors des manifestations au foyer rural, il traînait toujours dans les environs de la salle, les '''effluves''' festives l'ayant averti qu'il se tramait quelque chose d'intéressant et, aussitôt les gens ou les invités partis, il entrait prêter ses mains noires pour aider à débarrasser.'' {{source|José Herbert, ''La vie privée de Joint de Culasse'', dans ''L'instituteur impertinent: récits'', Atria Témoignages/Primento, 2014}}
+#*''De chaque côté de la place, il y avait des tilleuls, qui pleuraient au printemps en nous arrosant de leurs '''effluves''' apaisants.''{{source| José Herbert, ''L’instituteur impertinent: Récit de vie'', 2016}}
+==== {{S|notes}} ====
+:L'emploi du féminin est académiquement considéré comme un barbarisme par les grammairiens orthodoxes, sans que cette orthodoxie perturbe les écrivains parmi les plus grands, qui féminisent le genre du mot.
+:* ''Ce bon air de Paris qui semble contenir des '''effluves''' amoureus'''es'''.'' {{source|{{w|Gustave Flaubert}}, ''L’Éducation sentimentale''}}
+:* ''Les '''effluves''' du sombre et du profond, mêlé'''e'''s à vos effusions.'' {{source|{{w|Victor Hugo}}, ''Les Contemplations''}}
+
+==== {{S|dérivés}} ====
+* [[effluves magnétiques]] ''(effluves attribués par les partisans du magnétisme animal à un prétendu fluide magnétique)''
+
+==== {{S|traductions}} ====
+{{trad-début|Émanation qui se dégage d’un corps quelconque.|2}}
+* {{T|en}} : {{trad+|en|effluvium}} {{soutenu|nocat=1}}
+{{trad-fin}}
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|effluver|ind.p.1s=oui|ind.p.3s=oui|sub.p.1s=oui|sub.p.3s=oui|imp.p.2s=oui|'=oui}}
+'''effluve''' {{pron|e.flyv|fr}}
+# ''Première personne du singulier de l’indicatif présent du verbe'' [[effluver]].
+# ''Troisième personne du singulier de l’indicatif présent du verbe'' [[effluver]].
+# ''Première personne du singulier du subjonctif présent du verbe'' [[effluver]].
+# ''Troisième personne du singulier du subjonctif présent du verbe'' [[effluver]].
+# ''Deuxième personne du singulier de l’impératif du verbe'' [[effluver]].
+
+=== {{S|références}} ===
+* {{Import:Littré|effluve}}
+* {{Import:DAF8}}
+

@@ -139,6 +139,16 @@ from scripts.utils import clean
             ],
         ),
         (
+            "effluve",
+            "e.flyv",
+            "mf",
+            "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »).",  # noqa
+            [
+                "<i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",  # noqa
+                "Émanation qui se dégage d’un corps quelconque.",
+            ],
+        ),
+        (
             "employer",
             "ɑ̃.plwa.je",
             "",
