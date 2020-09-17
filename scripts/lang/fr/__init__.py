@@ -124,7 +124,7 @@ definitions_to_ignore = (
     "''pluriel''",
     "{exemple|",
     # Modèles spéciaux
-    "doute",
+    # "doute",
     "ébauche",
     "ébauche-déc",
     "ébauche-déf",

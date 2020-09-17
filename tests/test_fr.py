@@ -139,6 +139,16 @@ from scripts.utils import clean
             ],
         ),
         (
+            "dubitatif",
+            "",
+            "",
+            "Du latin <i>dubitativus</i>.",
+            [
+                "Qui sert à exprimer le doute.",
+                "Qui éprouve un doute.",
+            ],
+        ),
+        (
             "effluve",
             "e.flyv",
             "mf",

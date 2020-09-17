@@ -1,0 +1,33 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|la|fr|mot=dubitativus}}.
+
+=== {{S|adjectif|fr}} ===
+{{fr-accord-f|dubitati|dy.bi.ta.ti}}
+'''dubitatif'''
+# Qui sert à [[exprimer]] le [[doute]].
+#* '' M. Cavard se réserve en donnant à sa phrase une forme '''dubitative''' qui ne trompe pas son auditeur.'' {{source|{{w|Joseph Caillaux}}, ''Mes Mémoires, I, Ma jeunesse orgueilleuse'', 1942}}
+#* ''Gui, se détournant à peine, entrevit les sourires de Berry et de Bourgogne, la lippe '''dubitative''' d'Orléans - qu'on n'avait guère vu car la rumeur courait qu'il fréquentait les bordeaux de la ville -, les lèvres pincées d'Olivier de Clisson.'' {{source|{{w|Pierre Naudin}}, ''Les fureurs de l'été'', éd. Aubéron, 1999, p. 328}}
+# Qui éprouve un doute.
+#* ''A Acy-Romance (Ardennes), la découverte de trois corps momifiés, inhumés en position dite de Boudha dans des petites fosses profondes de 80 cm laissent les archéologues '''dubitatifs'''.'' {{source|Bernard Rio, ''L'arbre philosophal'', L’Age d’Homme, 2001, p. 267}}
+#* ''Si je partage, pour une large part, le tableau de notre situation actuelle qui est présentée dans cet essai, je demeure en revanche plus circonspect, voire franchement '''dubitatif''', devant certaines solutions proposées au problèmes de l'injustice.'' {{source|Daniel D. Jacques, « Justice et liberté », in ''[[w:Argument (revue)|Argument]]'', vol. 19, n° 1, automne-hiver 2017, p. 138}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|en}} : {{trad+|en|dubious}}, {{trad+|en|sceptical}} {{Grande-Bretagne|nocat=1}} ou {{trad+|en|skeptical}} {{États-Unis|nocat=1}}
+* {{T|es}} : {{trad+|es|dubitativo}}
+* {{T|el}} : {{trad+|el|διστακτικός|tr=dhistaktikós}}
+* {{T|io}} : {{trad-|io|dubitala}}
+* {{T|it}} : {{trad-|it|dubitativo}}
+* {{T|nl}} : {{trad+|nl|twijfelend}}, {{trad+|nl|sceptisch}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|Suisse (canton du Valais)|audio=LL-Q150 (fra)-DSwissK-dubitatif.wav}}
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
+=== {{S|références}} ===
+* {{Import:DAF8}}
+
