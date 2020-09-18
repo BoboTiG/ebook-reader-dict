@@ -154,7 +154,7 @@ from scripts.utils import clean
             "mf",
             "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »).",  # noqa
             [
-                "<i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",  # noqa
+                "<i>(Médecine)</i> <i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",  # noqa
                 "Émanation qui se dégage d’un corps quelconque.",
             ],
         ),
@@ -332,6 +332,8 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{lang|en|other rank}}", "other rank"),
+        ("{{lexique|philosophie|fr}}", "<i>(Philosophie)</i>"),
+        ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
         ("{{lien|étrange|fr}}", "étrange"),
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "<i>(Linguistique)</i>"),
