@@ -14,7 +14,7 @@ from scripts.utils import clean
             "",
             [
                 "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie.",  # noqa
-                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>-18</sup>).",  # noqa
+                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>&minus;18</sup>).",  # noqa
                 "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
                 "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
                 "Première lettre et première voyelle de l’alphabet français.",

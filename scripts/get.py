@@ -285,7 +285,9 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         if raw:
             return text
         text = re.sub(r"<[^>]+/?>", "", text)
+        text = text.replace("&minus;", "-")
         text = text.replace("&nbsp;", " ")
+        text = text.replace("&times;", "×")
         return text
 
     if details.etymology:

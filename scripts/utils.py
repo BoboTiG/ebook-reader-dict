@@ -182,7 +182,7 @@ def clean(word: str, text: str, locale: str) -> str:
         >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''", "fr")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
         >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", "fr")
-        '10<sup>-6</sup> gray'
+        '10<sup>&minus;6</sup> gray'
         >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", "fr")  # noqa
         ''
         >>> clean("coccigrole", "[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", "fr")
@@ -190,8 +190,6 @@ def clean(word: str, text: str, locale: str) -> str:
         >>> clean("sco", "<!-- {{sco}} -->", "fr")
         ''
         >>> clean("sco", "<!-- <i>sco</i> -->", "fr")
-        ''
-        >>> clean("lia", "&nbsp;&nbsp;&nbsp;&nbsp;", "fr")
         ''
         >>> clean("cornstalk", '<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
         ''
@@ -230,9 +228,6 @@ def clean(word: str, text: str, locale: str) -> str:
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
-    # HTML characters
-    text = text.replace("&nbsp;", " ")
-    text = text.replace("&minus;", "-")
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
