@@ -199,7 +199,7 @@ from scripts.utils import clean
             "greffier",
             "ɡʁɛ.fje",
             "m",
-            "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> (« d’écriture, de style, de poinçon ») ou.",  # noqa
+            "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> (« d’écriture, de style, de poinçon ») ou dérivé de <i>greffe</i> avec le suffixe <i>-ier</i>.",  # noqa
             [
                 "<i>(Droit)</i> Officier public préposé au greffe.",
                 "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
@@ -283,7 +283,7 @@ from scripts.utils import clean
             "silicone",
             "si.li.kon",
             "f",
-            "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand,.",  # noqa
+            "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i> avec le suffixe <i>-one</i>.",  # noqa
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
             ],

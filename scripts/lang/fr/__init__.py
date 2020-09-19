@@ -717,7 +717,28 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'anglais <i>to date</i> (« à ce jour »)'
         >>> last_template_handler(["calque", "sa", "fr", "mot=वज्रयान", "tr=vajrayāna", "sens=véhicule du diamant"], "fr")
         'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
+
+        >>> last_template_handler(["composé de", "longus", "aevum", "lang=la"], "fr")
+        'composé de <i>longus</i> et de <i>aevum</i>'
+        >>> last_template_handler(["composé de", "longus", "aevum", "lang=la", "f=1"], "fr")
+        'composée de <i>longus</i> et de <i>aevum</i>'
+        >>> last_template_handler(["composé de", "longus", "sens1=long", "aevum", "sens2=temps", "lang=la", "m=1"], "fr")
+        'Composé de <i>longus</i> (« long ») et de <i>aevum</i> (« temps »)'
+        >>> last_template_handler(["composé de", "longus", "aevum", "sens=long temps", "lang=la"], "fr")
+        'composé de <i>longus</i> et de <i>aevum</i>, littéralement « long temps »'
+        >>> last_template_handler(["composé de", "δῆμος", "tr1=dêmos", "sens1=peuple", "ἀγωγός", "tr2=agōgós", "sens2=guide", "sens=celui qui guide le peuple", "lang=grc", "m=1"], "fr")
+        'Composé de δῆμος, <i>dêmos</i> (« peuple ») et de ἀγωγός, <i>agōgós</i> (« guide »), littéralement « celui qui guide le peuple »'
+        >>> last_template_handler(["composé de", "anti-", "quark", "lang=en"], "fr")
+        'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
+        >>> last_template_handler(["composé de", "anti-", "quark", "lang=en", "m=1", "f=1"], "fr")
+        'Dérivée de <i>quark</i> avec le préfixe <i>anti-</i>'
+        >>> last_template_handler(["composé de", "clear", "-ly", "lang=en", "m=1"], "fr")
+        'Dérivé de <i>clear</i> avec le suffixe <i>-ly</i>'
+        >>> last_template_handler(["composé de", "느낌", "tr1=neukkim", "sens1=sensation", "표", "tr2=-pyo", "sens2=symbole", "lang=ko", "m=1"], "fr")
+        'Dérivé de 느낌, <i>neukkim</i> (« sensation ») avec le suffixe 표, <i>-pyo</i> (« symbole »)'
     """
+    from collections import defaultdict
+
     from .langs import langs
     from ..defaults import last_template_handler as default
     from ...user_functions import italic
@@ -757,6 +778,81 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase += f" {italic(data['mot'])}"
         if data["sens"]:
             phrase += f" (« {data['sens']} »)"
+
+        return phrase
+
+    # Handle {{composé de}} template
+    if tpl == "composé de":
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+
+        is_derived = any(part.startswith("-") or part.endswith("-") for part in parts)
+        is_derived |= any(
+            part.startswith("-") or part.endswith("-") for part in data.values()
+        )
+
+        if is_derived:
+            # Dérivé
+            phrase = "D" if "m" in data else "d"
+            phrase += "érivée de " if "f" in data else "érivé de "
+
+            parts = sorted(parts, key=lambda part: "-" in part)
+
+            multiple = len(parts) > 2
+            for number, part in enumerate(parts, 1):
+                is_prefix = part.endswith("-") or data.get(f"tr{number}", "").endswith(
+                    "-"
+                )
+                is_suffix = part.startswith("-") or data.get(
+                    f"tr{number}", ""
+                ).startswith("-")
+                phrase += "préfixe " if is_prefix else "suffixe " if is_suffix else ""
+
+                phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
+                if f"tr{number}" in data:
+                    idx = f"tr{number}"
+                    phrase += f", {italic(data[idx])}"
+                if f"sens{number}" in data:
+                    idx = f"sens{number}"
+                    phrase += f" (« {data[idx]} »)"
+
+                phrase += (
+                    " avec le "
+                    if number == len(parts) - 1
+                    else ", "
+                    if multiple
+                    else ""
+                )
+
+            if "sens" in data:
+                phrase += f", littéralement « {data['sens']} »"
+
+            return phrase
+
+        # Composé
+        phrase = "C" if "m" in data else "c"
+        phrase += "omposée de " if "f" in data else "omposé de "
+
+        multiple = len(parts) > 2
+        for number, part in enumerate(parts, 1):
+            phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
+            if f"tr{number}" in data:
+                idx = f"tr{number}"
+                phrase += f", {italic(data[idx])}"
+            if f"sens{number}" in data:
+                idx = f"sens{number}"
+                phrase += f" (« {data[idx]} »)"
+
+            phrase += (
+                " et de " if number == len(parts) - 1 else ", " if multiple else ""
+            )
+
+        if "sens" in data:
+            phrase += f", littéralement « {data['sens']} »"
 
         return phrase
 
