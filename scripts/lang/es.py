@@ -274,7 +274,28 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es
-# release_description = TODO
+release_description = """\
+Número de palabras: {words_count}
+exportación Wikcionario: {dump_date}
+
+:arrow_right: Descargar: [dicthtml-{locale}.zip]({url})
+
+---
+
+Instalacións:
+
+1. Copia el archivo `dicthtml-{locale}.zip` en el directorio `.kobo/dict/` del lector.
+2. Reinicie la luz de lectura.
+
+---
+
+Características:
+
+- No se incluyen los nombres propios.
+- Las conjugaciones no están incluidas.
+
+<sub>Actualizado el {creation_date}</sub>
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionario (ɔ) {year}"

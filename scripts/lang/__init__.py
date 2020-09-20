@@ -233,7 +233,7 @@ last_template_handler = {
 release_description = {
     "ca": defaults.release_description,
     "en": defaults.release_description,
-    "es": defaults.release_description,
+    "es": es.release_description,
     "fr": fr.release_description,
     "pt": defaults.release_description,
     "sv": defaults.release_description,
