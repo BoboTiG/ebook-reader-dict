@@ -2,11 +2,12 @@
 import re
 from contextlib import suppress
 from datetime import datetime
-from functools import lru_cache
 from pathlib import Path
 from typing import Tuple
 from warnings import warn
 
+from cachetools import cached
+from cachetools.keys import hashkey
 import regex
 
 from .constants import DOWNLOAD_URL
@@ -340,12 +341,13 @@ def transform(word: str, template: str, locale: str) -> str:
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
-    return transform_apply(tpl, tuple(parts), locale)
+    result: str = transform_apply(word, tpl, tuple(parts), locale)
+    return result
 
 
-@lru_cache(maxsize=None)
-def transform_apply(tpl: str, parts: Tuple[str, ...], locale: str) -> str:
-    """Convert the data from the *tpl* template."""
+@cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
+def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) -> str:
+    """Convert the data from the *tpl* template of the *word* using the *locale*."""
     if tpl in templates_ignored[locale]:
         return ""
 

@@ -200,8 +200,9 @@ templates_multi = {
     "l+": "italic(parts[-1])",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
+    # {{plm}}
     # {{plm|cansado}}
-    "plm": "capitalize(parts[1])",
+    "plm": "capitalize(parts[1] if len(parts) > 1 else word)",
     # {{redirección suave|protocelta}}
     "redirección suave": "f\"{italic('Véase')} {parts[1]}\"",
     # {{-sub|4}}

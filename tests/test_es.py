@@ -92,6 +92,19 @@ from scripts.utils import clean
             ],
         ),
         (
+            "hocico",
+            "",
+            "",
+            [
+                "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
+                "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
+                "Cara.",
+                "Gesto que denota enojo o enfado.",
+                "Forma despectiva para referirse a la boca de alguien.",
+                "Boca de una persona, especialmente de la que dice malas palabras",
+            ],
+        ),
+        (
             "los",
             "",
             "",

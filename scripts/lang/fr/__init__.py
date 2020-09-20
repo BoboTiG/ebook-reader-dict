@@ -548,7 +548,7 @@ templates_multi = {
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}
-    "nom w pc": "person(parts[1:])",
+    "nom w pc": "person(word, parts[1:])",
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{petites capitales|Dupont}}

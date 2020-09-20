@@ -1,0 +1,73 @@
+== {{lengua|es}} ==
+{{pron-graf}}
+
+=== Etimología ===
+{{etimología2|de [[hocicar]]}}
+
+=== {{sustantivo masculino|es}} ===
+{{inflect.es.sust.reg}}
+
+;1 {{zootomía}}: Parte más o menos [[prolongar|prolongada]] de la [[cabeza]] de algunos [[animal]]es en que están la [[boca]] y las [[nariz|narices]].
+
+;2 {{anatomía}}: {{plm}} de una persona cuando tiene muy [[abultado]]s los [[labio]]s.
+
+;3: {{plm|cara}}.
+{{uso|familiar}}.
+:*'''Ejemplo''' Félix tiene buen ''hocico''.
+
+;4: {{plm|gesto}} que [[denotar|denota]] [[enojo]] o [[enfado]].
+
+;5: Forma despectiva para referirse a la boca de alguien.
+{{ámbito|Chile}}.
+{{uso|despectivo|malsonante}}
+:*'''Ejemplo 1:''' Te voy a dar un [[combo]] en l'''hocico''.
+:*'''Ejemplo 2:''' Tení' el ''hocico'' [[hediondo]].
+:*'''Ejemplo 3:''' Tengo el ''hocico'' p'a la cag'á.
+:*'''Ejemplo 4:''' ¿Querí que te de una patá en el ''hocico''?
+
+;6: Boca de una persona, especialmente de la que dice malas palabras
+{{uso|coloquial}}.
+{{ámbito|México}}.
+
+{{clear}}
+
+=== Locuciones ===
+{{rel-arriba|Locuciones con «hocico»}}
+* [[pimiento de hocico]]: Variedad del [[pimiento]], que se diferencia en ser más grueso que el de otras castas.
+* [[caer de hocicos]]: Dar con la cara, o cayendo en ella en otra parte.
+* [[de hocicos]]: De bruces, cabeza abajo.
+* echar, decir o restregar una cosa por los hocicos: Decirle a uno a la cara lo que le repugna oir.
+{{rel-centro}}
+* [[meter el hocico en todo]]: Ser entrometido.
+* [[meter el hocico]] en algo: Entrometerse en algo.
+* [[quitar a uno el hocico]]: Ponerle de buen humor.
+{{rel-abajo}}
+
+=== Información adicional ===
+{{derivad|hocicón|hocicudo|hocico|hocicar}}
+
+=== Véase también ===
+{{Wikipedia}}
+* [[morro]]
+* [[malhablado]]
+
+{{clear}}
+
+=== Traducciones ===
+{{trad-arriba}}
+{{t+|de|Schnauze}}
+{{t+|ca|morro}}
+{{t+|fr|museau}}
+{{t+|eo|muzelo}}
+{{t+|cy|1|trwyn}}
+{{t+|en|snout}}
+{{trad-centro}}
+{{t+|nv|1|áchį́į́h}}
+{{t+|nl|snuit}}
+{{t+|pt|focinho}}
+{{t+|sv|nos}}
+{{trad-abajo}}
+
+== Referencias y notas ==
+<references />
+

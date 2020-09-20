@@ -246,17 +246,17 @@ def parenthesis(text: str) -> str:
     return f"({text})"
 
 
-def person(parts: Tuple[str, ...]) -> str:
+def person(word: str, parts: Tuple[str, ...]) -> str:
     """
     Format a person name.
 
-        >>> person(["Aldous", "Huxley"])
+        >>> person("foo", ["Aldous", "Huxley"])
         "Aldous <span style='font-variant:small-caps'>Huxley</span>"
-        >>> person(["Théodore Agrippa d’", "Aubigné"])
+        >>> person("foo", ["Théodore Agrippa d’", "Aubigné"])
         "Théodore Agrippa d’ <span style='font-variant:small-caps'>Aubigné</span>"
-        >>> person(["Théodore Agrippa d’", "Aubigné", "'=oui"])
+        >>> person("foo", ["Théodore Agrippa d’", "Aubigné", "'=oui"])
         "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
-        >>> person(["L. L. Zamenhof"])
+        >>> person("foo", ["L. L. Zamenhof"])
         'L. L. Zamenhof'
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
@@ -267,7 +267,7 @@ def person(parts: Tuple[str, ...]) -> str:
             res += " "
         res += small_caps(parts[1])
     else:
-        warn(f"Malformed template in the Wikicode (parts={parts})")
+        warn(f"Malformed template in the Wikicode of {word!r} (parts={parts})")
     return res
 
 
