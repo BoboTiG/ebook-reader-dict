@@ -14,6 +14,7 @@ thousands_separator = "."
 section_patterns = (r";\d+[:\s\.]",)  # ;1: ...
 sublist_patterns = (r":;\w",)  # :;a: ...
 head_sections = ("{{lengua|es}}",)
+etyl_section = "Etimología"
 sections = (
     "Abreviaturas",
     "Adjetivo",
@@ -22,6 +23,7 @@ sections = (
     "{{adverbio",
     "{{artículo",
     "{{conjunción",
+    "Etimología",
     "{{interjección",
     "{{onomatopeya",
     "{{prefijo",
@@ -173,6 +175,8 @@ templates_multi = {
     "coord": "coord(parts[1:])",
     #  {{diminutivo|historia}}
     "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
+    # {{etimología2|de [[hocicar]]}}
+    "etimología2": "capitalize(parts[1])",
     # {{forma diminutivo|leng=es|cuchara}}
     "forma diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{formatnum:22905}}
@@ -225,7 +229,7 @@ templates_multi = {
 }
 
 
-def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -247,21 +251,100 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '<i>Variante de</i> atiesar'
         >>> last_template_handler(["variante", "diezmo", "texto=Variante anticuada de"], "es")
         '<i>Variante anticuada de</i> diezmo'
+
+        >>> last_template_handler(["etimología", "compuesto", "sacar", "punta"], "es")
+        'Compuesto de <i>sacar</i> y <i>punta</i>'
+        >>> last_template_handler(["etimología", "compuesto", "-ónimo", "-iae", "e=e"], "es")
+        'Compuesto de <i>-ónimo</i> e <i>-iae</i>'
+        >>> last_template_handler(["etimología", "confijo", "anglo", "filo", "tilde=sí"], "es")
+        'Del prefijo <i>anglo-</i> y el sufijo <i>-́filo</i>'
+        >>> last_template_handler(["etimología", "confijo", "des", "garra", "ar"], "es")
+        'Del prefijo <i>des-</i>, <i>garra</i> y el sufijo <i>-ar</i>'
+        >>> last_template_handler(["etimología", "femenino", "topógrafo"], "es")
+        'De <i>topógrafo</i> y el sufijo flexivo <i>-a</i> para el femenino'
+        >>> last_template_handler(["etimología", "fonética", "empeller"], "es")
+        'Por alteración fonética de <i>empeller</i>'
+        >>> last_template_handler(["etimología", "la", "incertus"], "es")
+        'Del latín <i>incertus</i>'
+        >>> last_template_handler(["etimología", "la", "-aceus", "alt=-acĕus"], "es")
+        'Del latín <i>-acĕus</i>'
+        >>> last_template_handler(["etimología", "la", "-aceus", "alt=-acĕus"], "es")
+        'Del latín <i>-acĕus</i>'
+        >>> last_template_handler(["etimología", "la", "illos", "diacrítico=illōs", "sig=no"], "es")
+        'Del latín <i>illōs</i>'
+        >>> last_template_handler(["etimología", "osp", "fasta"], "es")
+        'Del castellano antiguo <i>fasta</i>'
+        >>> last_template_handler(["etimología", "plural", "vista"], "es")
+        'De <i>vista</i> y el sufijo flexivo <i>-s</i>'
+        >>> last_template_handler(["etimología", "plural", "vacación", "-es"], "es")
+        'De <i>vacación</i> y el sufijo flexivo <i>-es</i>'
+        >>> last_template_handler(["etimología", "pronominal", "agrupar"], "es")
+        'De <i>agrupar</i>, con el pronombre reflexivo átono'
+        >>> last_template_handler(["etimología", "sufijo", "átomo", "ico", "tilde=sí"], "es")
+        'De <i>átomo</i> y el sufijo <i>-́ico</i>'
+        >>> last_template_handler(["etimología", "sufijo", "átomo", "ico"], "es")
+        'De <i>átomo</i> y el sufijo <i>-ico</i>'
     """
+    from collections import defaultdict
     from itertools import zip_longest
 
     from ..user_functions import capitalize, italic, lookup_italic, term
 
+    tpl = template[0]
+    parts = list(template[1:])
+
     # Handle the {{variante}} template
-    if parts[0] == "variante":
+    if tpl == "variante":
         try:
-            sentence = parts[2].split("=")[1]
+            sentence = parts[1].split("=")[1]
         except IndexError:
             sentence = "variante de"
-        return f"{italic(capitalize(sentence))} {parts[1]}"
+        return f"{italic(capitalize(sentence))} {parts[0]}"
+
+    # Handle {{etimología}} template
+    if tpl == "etimología":
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+
+        glue = data.get("e", "y")
+        suffix = "-́" if data.get("tilde", "") == "sí" else "-"
+        word = data.get("alt", data.get("diacrítico", parts[-1]))
+
+        cat = parts.pop(0)
+        if cat == "compuesto":
+            phrase = "Compuesto de "
+            phrase += f" {glue} ".join(map(italic, parts))
+        elif cat == "confijo":
+            phrase = f"Del prefijo {italic(parts.pop(0) + '-')}"
+            for part in parts[:-1].copy():
+                phrase += f", {italic(parts.pop(0))}"
+            phrase += f" y el sufijo {italic(suffix + parts[0])}"
+        elif cat == "femenino":
+            phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic('-a')} para el femenino"
+        elif cat == "fonética":
+            phrase = f"Por alteración fonética de {italic(parts[0])}"
+        elif cat == "la":
+            phrase = f"Del latín {italic(word)}"
+        elif cat == "oc":
+            phrase = f"Del occitano {italic(word)}"
+        elif cat == "osp":
+            phrase = f"Del castellano antiguo {italic(word)}"
+        elif cat == "plural":
+            plural = "-s" if len(parts) == 1 else parts[-1]
+            phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic(plural)}"
+        elif cat == "pronominal":
+            phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
+        elif cat == "sufijo":
+            phrase = f"De {italic(parts[0])} y el sufijo {italic(suffix + parts[1])}"
+
+        return phrase
 
     res = ""
-    for word1, word2 in zip_longest(parts, parts[1:]):
+    for word1, word2 in zip_longest(template, parts):
         # Filter out "leng=" parts
         if "leng=" in word1 or word1 in ("y", ","):
             continue

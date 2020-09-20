@@ -192,6 +192,12 @@ def find_section_definitions(
 
 def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
     """Find the etymology."""
+    if locale == "es":
+        etyl: str = parsed_section.get_lists(pattern=("",))[0].items[1]
+        if etyl == "{{etimología}}.":
+            return ""
+        return clean(word, etyl, locale)
+
     etymologies = chain.from_iterable(
         section.items for section in parsed_section.get_lists()
     )
