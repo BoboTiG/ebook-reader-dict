@@ -196,6 +196,8 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("built like a brick shithouse", '<nowiki/>', "en")
         ''
+        >>> clean("ferrojar", "foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah", "es")
+        'foo|anticuado por cerrojo e influido por fierro|yeah'
     """
 
     # Speed-up lookup
@@ -251,10 +253,10 @@ def clean(word: str, text: str, locale: str) -> str:
     text = sub(r"\[\[[^:\]]+:[^\]]+\]\]", "", text)  # [[foo:b]] -> ''
 
     # External links
-    text = sub(
-        r"\[http[^\s]+ ([^\]]+)\]", "\\1", text
-    )  # [[http://example.com foo]] -> foo
-    text = sub(r"https?://[^\s]+", "", text)  # remove http://example.com
+    # [[http://example.com foo]] -> foo
+    text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
+    # http://example.com -> ''
+    text = sub(r"https?://[^\s\]]+", "", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
@@ -264,6 +266,9 @@ def clean(word: str, text: str, locale: str) -> str:
 
     # Remove extra quotes left
     text = text.replace("''", "")
+
+    # Remove extra brackets left
+    text = text.replace(" []", "")
 
     # Templates
     # {{foo}}

@@ -362,7 +362,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         elif cat == "sufijo":
             sens = data.get("tr", "")
             more = f" ({italic(sens)})" if sens else ""
-            print(parts)
             phrase = (
                 f"De {italic(parts[0])}{more} y el sufijo {italic(suffix + parts[1])}"
             )
