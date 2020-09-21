@@ -200,8 +200,6 @@ templates_multi = {
     "impropia": "italic(parts[1])",
     # {{l|es|tamo}}
     "l": "parts[-1]",
-    # {{l+|pt|freguesia}}
-    "l+": "italic(parts[-1])",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
@@ -284,6 +282,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'De <i>átomo</i> y el sufijo <i>-́ico</i>'
         >>> last_template_handler(["etimología", "sufijo", "átomo", "ico"], "es")
         'De <i>átomo</i> y el sufijo <i>-ico</i>'
+
+        >>> last_template_handler(["l+", "la", "impello", "impellō, impellere", "glosa=empujar"], "es")
+        '<i>impellō, impellere</i> ("empujar")'
+        >>> last_template_handler(["l+", "grc", "ἀράχνη", "tr=aráchnē", "glosa=araña"], "es")
+        'ἀράχνη (<i>aráchnē</i>, "araña")'
+        >>> last_template_handler(["l+", "ar", "حتى", "tr=ḥatta"], "es")
+        'حتى (<i>ḥatta</i>)'
     """
     from collections import defaultdict
     from itertools import zip_longest
@@ -340,6 +345,30 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
         elif cat == "sufijo":
             phrase = f"De {italic(parts[0])} y el sufijo {italic(suffix + parts[1])}"
+
+        return phrase
+
+    # Handle the {{l+}} template
+    if tpl == "l+":
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+
+        trans = data.get("tr", "")
+        glosa = data.get("glosa", "")
+        phrase = parts[-1] if trans else italic(parts[-1])
+        if trans or glosa:
+            phrase += " ("
+            if trans:
+                phrase += f"{italic(trans)}"
+            if glosa:
+                if trans:
+                    phrase += ", "
+                phrase += f'"{glosa}"'
+            phrase += ")"
 
         return phrase
 
