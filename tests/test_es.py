@@ -116,7 +116,7 @@ from scripts.utils import clean
         (
             "Mús.",
             "",
-            "",
+            ".",
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
         ),
         (
@@ -139,7 +139,7 @@ from scripts.utils import clean
         (
             "zzz",
             "",
-            "",
+            ".",
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
             ],
@@ -175,6 +175,7 @@ def test_find_sections_and_definitions(
         ("{{contracción|de|ellas|leng=es}}", "<i>Contracción de</i> de <i>y</i> ellas"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
+        ("{{etimología2}}", ""),
         ("{{física}}", "<i>(Física)</i>"),
         ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),

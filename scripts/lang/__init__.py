@@ -3,11 +3,13 @@ import re
 
 from . import ca, defaults, en, es, fr, pt, sv
 from .en.langs import langs as EN
+from .es.langs import langs as ES
 from .fr.langs import langs as FR
 
 # A list of all languages translated into different locales
 all_langs = {
     "en": EN,
+    "es": ES,
     "fr": FR,
 }
 

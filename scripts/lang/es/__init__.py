@@ -176,7 +176,7 @@ templates_multi = {
     #  {{diminutivo|historia}}
     "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{etimología2|de [[hocicar]]}}
-    "etimología2": "capitalize(parts[1])",
+    "etimología2": "capitalize(parts[1]) if len(parts) > 1 else ''",
     # {{forma diminutivo|leng=es|cuchara}}
     "forma diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{formatnum:22905}}
@@ -250,6 +250,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["variante", "diezmo", "texto=Variante anticuada de"], "es")
         '<i>Variante anticuada de</i> diezmo'
 
+        >>> last_template_handler(["etimología"], "es")
+        ''
+        >>> last_template_handler(["etimología", ""], "es")
+        ''
         >>> last_template_handler(["etimología", "compuesto", "sacar", "punta"], "es")
         'Compuesto de <i>sacar</i> y <i>punta</i>'
         >>> last_template_handler(["etimología", "compuesto", "-ónimo", "-iae", "e=e"], "es")
@@ -258,14 +262,18 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Del prefijo <i>anglo-</i> y el sufijo <i>-́filo</i>'
         >>> last_template_handler(["etimología", "confijo", "des", "garra", "ar"], "es")
         'Del prefijo <i>des-</i>, <i>garra</i> y el sufijo <i>-ar</i>'
+        >>> last_template_handler(["etimología", "epónimo"], "es")
+        'Epónimo'
+        >>> last_template_handler(["etimología", "epónimo", "de Adelita, protagonista de un corrido mexicano"], "es")
+        'Epónimo de Adelita, protagonista de un corrido mexicano'
         >>> last_template_handler(["etimología", "femenino", "topógrafo"], "es")
         'De <i>topógrafo</i> y el sufijo flexivo <i>-a</i> para el femenino'
         >>> last_template_handler(["etimología", "fonética", "empeller"], "es")
         'Por alteración fonética de <i>empeller</i>'
+        >>> last_template_handler(["etimología", "japonés", "片仮名", "transcripción=カタカナ, katakana"], "es")
+        'Del japonés <i>片仮名</i> (<i>カタカナ, katakana</i>)'
         >>> last_template_handler(["etimología", "la", "incertus"], "es")
         'Del latín <i>incertus</i>'
-        >>> last_template_handler(["etimología", "la", "-aceus", "alt=-acĕus"], "es")
-        'Del latín <i>-acĕus</i>'
         >>> last_template_handler(["etimología", "la", "-aceus", "alt=-acĕus"], "es")
         'Del latín <i>-acĕus</i>'
         >>> last_template_handler(["etimología", "la", "illos", "diacrítico=illōs", "sig=no"], "es")
@@ -278,10 +286,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'De <i>vacación</i> y el sufijo flexivo <i>-es</i>'
         >>> last_template_handler(["etimología", "pronominal", "agrupar"], "es")
         'De <i>agrupar</i>, con el pronombre reflexivo átono'
-        >>> last_template_handler(["etimología", "sufijo", "átomo", "ico", "tilde=sí"], "es")
-        'De <i>átomo</i> y el sufijo <i>-́ico</i>'
+        >>> last_template_handler(["etimología", "sánscrito", "गुरू", "maestro", "transcripción=gūru"], "es")
+        'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
         >>> last_template_handler(["etimología", "sufijo", "átomo", "ico"], "es")
         'De <i>átomo</i> y el sufijo <i>-ico</i>'
+        >>> last_template_handler(["etimología", "sufijo", "átomo", "ico"], "es")
+        'De <i>átomo</i> y el sufijo <i>-ico</i>'
+        >>> last_template_handler(["etimología", "sufijo", "ferrojo", "tr=anticuado por cerrojo e influido por fierro", "ar"], "es")  # noqa
+        'De <i>ferrojo</i> (<i>anticuado por cerrojo e influido por fierro</i>) y el sufijo <i>-ar</i>'
 
         >>> last_template_handler(["l+", "la", "impello", "impellō, impellere", "glosa=empujar"], "es")
         '<i>impellō, impellere</i> ("empujar")'
@@ -293,10 +305,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     from collections import defaultdict
     from itertools import zip_longest
 
-    from ..user_functions import capitalize, italic, lookup_italic, term
+    from .langs import langs
+    from ...user_functions import capitalize, italic, lookup_italic, term
 
     tpl = template[0]
-    parts = list(template[1:])
+    parts = [part for part in template[1:] if part.strip()]
 
     # Handle the {{variante}} template
     if tpl == "variante":
@@ -315,9 +328,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 data[key] = value
                 parts.pop(parts.index(part))
 
+        if not parts:
+            return ""
+
         glue = data.get("e", "y")
         suffix = "-́" if data.get("tilde", "") == "sí" else "-"
-        word = data.get("alt", data.get("diacrítico", parts[-1]))
+        word = data.get(
+            "alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1])
+        )
 
         cat = parts.pop(0)
         if cat == "compuesto":
@@ -328,23 +346,37 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             for part in parts[:-1].copy():
                 phrase += f", {italic(parts.pop(0))}"
             phrase += f" y el sufijo {italic(suffix + parts[0])}"
+        elif cat == "epónimo":
+            phrase = "Epónimo"
+            if parts:
+                phrase += f" {parts[-1]}"
         elif cat == "femenino":
             phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic('-a')} para el femenino"
         elif cat == "fonética":
             phrase = f"Por alteración fonética de {italic(parts[0])}"
-        elif cat == "la":
-            phrase = f"Del latín {italic(word)}"
-        elif cat == "oc":
-            phrase = f"Del occitano {italic(word)}"
-        elif cat == "osp":
-            phrase = f"Del castellano antiguo {italic(word)}"
         elif cat == "plural":
             plural = "-s" if len(parts) == 1 else parts[-1]
             phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic(plural)}"
         elif cat == "pronominal":
             phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
         elif cat == "sufijo":
-            phrase = f"De {italic(parts[0])} y el sufijo {italic(suffix + parts[1])}"
+            sens = data.get("tr", "")
+            more = f" ({italic(sens)})" if sens else ""
+            print(parts)
+            phrase = (
+                f"De {italic(parts[0])}{more} y el sufijo {italic(suffix + parts[1])}"
+            )
+        elif cat in langs:
+            phrase = f"Del {langs[cat]} {italic(word)}"
+        else:
+            phrase = f"Del {cat} {italic(word)}"
+
+            sens = data.get("transcripción", "")
+            if sens or len(parts) > 1:
+                phrase += f" ({italic(sens)}"
+                if len(parts) > 1:
+                    phrase += f', "{parts[1]}"'
+                phrase += ")"
 
         return phrase
 

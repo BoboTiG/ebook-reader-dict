@@ -194,8 +194,6 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
     """Find the etymology."""
     if locale == "es":
         etyl: str = parsed_section.get_lists(pattern=("",))[0].items[1]
-        if etyl == "{{etimología}}.":
-            return ""
         return clean(word, etyl, locale)
 
     etymologies = chain.from_iterable(
@@ -377,7 +375,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
         try:
             details = parse_word(word, code, locale)
         except Exception:  # pragma: nocover
-            print(f"ERROR with {word!r}")
+            print(f"ERROR with {word!r}", flush=True)
         else:
             if details.definitions:
                 words[word] = details
