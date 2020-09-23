@@ -91,7 +91,29 @@ templates_multi = {
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
-# release_description = TODO
+release_description = """\
+As palavras contam: {words_count}
+Exportação Wikcionário: {dump_date}
+
+:arrow_right: Descarregar: [dicthtml-{locale}.zip]({url})
+
+---
+
+Instalação:
+
+1. Copiar o ficheiro `dicthtml-{locale}.zip` para a pasta `.kobo/dict/` do leitor.
+2. Reiniciar o leitor.
+
+---
+
+Características:
+
+- Não há etimologia.
+- Os nomes próprios não estão incluídos.
+- Os verbos conjugados não estão incluídos.
+
+<sub>Actualizado em {creation_date}</sub>
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionário (ɔ) {year}"

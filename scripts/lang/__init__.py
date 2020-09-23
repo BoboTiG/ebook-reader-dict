@@ -237,7 +237,7 @@ release_description = {
     "en": defaults.release_description,
     "es": es.release_description,
     "fr": fr.release_description,
-    "pt": defaults.release_description,
+    "pt": pt.release_description,
     "sv": defaults.release_description,
 }
 
