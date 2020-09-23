@@ -96,7 +96,29 @@ templates_other = {
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca
-# release_description = TODO
+release_description = """\
+Les paraules compten: {words_count}
+Abocador Viccionari: {dump_date}
+
+:arrow_right: Descarregar: [dicthtml-{locale}.zip]({url})
+
+---
+
+Instal·lació:
+
+1. Copieu el fitxer `dicthtml-{locale}.zip` a la carpeta `.kobo/dict/` del lector.
+2. Reinicieu el lector.
+
+---
+
+Característiques:
+
+- No hi ha etimologia.
+- Els noms propis no s’inclouen.
+- No s’inclouen els verbs conjugats.
+
+<sub>Actualitzat el {creation_date}</sub>
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Viccionari (ɔ) {year}"
