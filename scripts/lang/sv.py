@@ -45,7 +45,29 @@ templates_multi = {
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
-# release_description = TODO
+release_description = """\
+Ord räknas: {words_count}
+Dumpa Wiktionary: {dump_date}
+
+:arrow_right: Ladda ner: [dicthtml-{locale}.zip]({url})
+
+---
+
+Installation:
+
+1. Kopiera filen `dicthtml- {locale} .zip` till läsaren `.kobo/dict/` mappen på läsaren.
+2. Starta om läsaren.
+
+---
+
+Egenskaper:
+
+- Det finns ingen etymologi.
+- Egna substantiv ingår inte.
+- Konjugerade verb ingår inte.
+
+<sub>Uppdaterad på {creation_date}</sub>
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"

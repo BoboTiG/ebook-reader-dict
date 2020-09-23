@@ -238,7 +238,7 @@ release_description = {
     "es": es.release_description,
     "fr": fr.release_description,
     "pt": pt.release_description,
-    "sv": defaults.release_description,
+    "sv": sv.release_description,
 }
 
 # Dictionary name that will be printed below each definition
