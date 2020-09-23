@@ -69,7 +69,7 @@ Installation:
 
 Caracteristics:
 
-- Only definitions are included: there are no quote nor ethymology.
+- There are no ethymology.
 - Proper nouns are not included.
 - Conjuged verbs are not included.
 
