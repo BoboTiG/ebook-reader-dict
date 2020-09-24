@@ -5,12 +5,19 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, definitions",
+    "word, pronunciation, genre, etymology, definitions",
     [
-        ("ababalhar", "", "", ["<i>(coloquial)</i> babar; conspurcar"]),
-        ("alguém", "aw.ˈgẽj", "", ["pessoa não identificada"]),
+        ("ababalhar", "", "", "De baba.", ["<i>(coloquial)</i> babar; conspurcar"]),
+        (
+            "alguém",
+            "aw.ˈgẽj",
+            "",
+            "Do latim <i>alĭquem</i>.",
+            ["pessoa não identificada"],
+        ),
         (
             "algo",
+            "",
             "",
             "",
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
@@ -19,6 +26,7 @@ from scripts.utils import clean
             "cabrum",
             "",
             "mf",
+            'Do latim <i>caprunu</i> "cabra".',
             [
                 "<i>(Pecuária)</i> de cabras:",
                 "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
@@ -29,6 +37,7 @@ from scripts.utils import clean
             "COPOM",
             "",
             "m",
+            "",
             [
                 "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
                 "<i>(Brasil)</i> <b>Co</b>mitê de <b>Po</b>lítica <b>M</b>onetária",
@@ -38,6 +47,7 @@ from scripts.utils import clean
             "dezassete",
             "",
             "",
+            "Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>.",
             [
                 "o número dezassete (17, XVII)",
                 "nota correspondente a dezassete valores",
@@ -49,6 +59,7 @@ from scripts.utils import clean
             "etc",
             "",
             "",
+            "",
             [
                 'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',  # noqa
             ],
@@ -57,6 +68,7 @@ from scripts.utils import clean
             "-ista",
             "",
             "",
+            "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>.",  # noqa
             [
                 "que segue um princípio",
                 "que é estudioso ou profissional de um assunto",
@@ -68,14 +80,16 @@ from scripts.utils import clean
             "neo-",
             "",
             "",
+            "Do grego antigo <i>νέος</i>.",
             [
                 "exprime a ideia de <i>novo</i>",
                 "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
             ],
         ),
-        ("para", "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
+        ("para", "", "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
         (
             "paulista",
+            "",
             "",
             "",
             [
@@ -85,9 +99,10 @@ from scripts.utils import clean
                 "artigo ou objeto do Estado de São Paulo",
             ],
         ),
-        ("tenui-", "", "", ["variante ortográfica de <b>tenu-</b>"]),
+        ("tenui-", "", "", "", ["variante ortográfica de <b>tenu-</b>"]),
         (
             "to",
+            "",
             "",
             "",
             [
@@ -95,16 +110,25 @@ from scripts.utils import clean
                 "<i>(coloquial e brasil)</i> forma aferética (muito comum na linguagem falada) de estou",
             ],
         ),
-        ("ũa", "", "", ["ortografia antiga de uma"]),
-        ("UTC", "", "", ["<i>(estrangeirismo)</i> ver TUC"]),
+        (
+            "ũa",
+            "",
+            "",
+            "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>.",
+            ["ortografia antiga de uma"],
+        ),
+        ("UTC", "", "", "", ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
-def test_find_sections_and_definitions(word, pronunciation, genre, definitions, page):
+def test_find_sections_and_definitions(
+    word, pronunciation, genre, etymology, definitions, page
+):
     """Test the sections finder and definitions getter."""
     code = page(word, "pt")
     details = parse_word(word, code, "pt", force=True)
     assert pronunciation == details.pronunciation
     assert genre == details.genre
+    assert etymology == details.etymology
     assert definitions == details.definitions
 
 

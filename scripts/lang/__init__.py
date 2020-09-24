@@ -5,12 +5,14 @@ from . import ca, defaults, en, es, fr, pt, sv
 from .en.langs import langs as EN
 from .es.langs import langs as ES
 from .fr.langs import langs as FR
+from .pt.langs import langs as PT
 
 # A list of all languages translated into different locales
 all_langs = {
     "en": EN,
     "es": ES,
     "fr": FR,
+    "pt": PT,
 }
 
 # Regex to find the pronunciation
@@ -99,7 +101,7 @@ etyl_section = {
     "en": "",
     "es": es.etyl_section,
     "fr": fr.etyl_section,
-    "pt": "",
+    "pt": pt.etyl_section,
     "sv": "",
 }
 sections = {
@@ -226,7 +228,7 @@ last_template_handler = {
     "en": en.last_template_handler,
     "es": es.last_template_handler,
     "fr": fr.last_template_handler,
-    "pt": defaults.last_template_handler,
+    "pt": pt.last_template_handler,
     "sv": defaults.last_template_handler,
 }
 
