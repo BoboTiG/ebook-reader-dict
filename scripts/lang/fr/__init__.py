@@ -906,6 +906,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         phrase = century(parts, "siècle") if parts else "Siècle à préciser"
         return term(phrase)
 
+    # This is a country in the current locale
+    if tpl in langs:
+        return langs[tpl]
+
     return default(template, locale)
 
 

@@ -95,16 +95,15 @@ templates_multi = {
 }
 
 
-def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["lb", "en" , "Australia"], "en")
-        '<i>(Australia)</i>'
-        >>> last_template_handler(["lbl", "en" , "transitive"], "en")
-        '<i>(transitive)</i>'
         >>> last_template_handler(["label", "en" , "Australia", "slang"], "en")
         '<i>(Australia, slang)</i>'
+
+        >>> last_template_handler(["lb", "en" , "Australia"], "en")
+        '<i>(Australia)</i>'
         >>> last_template_handler(["lb", "en" , "Australia", "or", "foobar"], "en")
         '<i>(Australia or foobar)</i>'
         >>> last_template_handler(["lb", "en" , "foobar", "and", "Australia", "or", "foobar"], "en")
@@ -113,6 +112,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '<i>(foobar Australia, foobar)</i>'
         >>> # last_template_handler(["lb", "en" , "roa-lor"], "en")
         >>> # '<i>(Lorrain)</i>'
+
+        >>> last_template_handler(["lbl", "en" , "transitive"], "en")
+        '<i>(transitive)</i>'
+
         >>> last_template_handler(["alt form", "enm" , "theen"], "en")
         '<i>Alternative form of</i> <b>theen</b>'
         >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
@@ -121,10 +124,12 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
         '<i>Alternative form of</i> <b>worth</b> (“to become”)'
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
+
         >>> last_template_handler(["surname", "en", "A=An", "English", "from=nicknames", "nodot=1"], "en")
         '<i>An English surname.</i>'
         >>> last_template_handler(["surname", "en"], "en")
         '<i>A surname.</i>'
+
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
@@ -134,22 +139,37 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 
     from ...user_functions import capitalize, italic, lookup_italic, strong, term
 
-    # from .langs import langs
+    tpl = template[0]
+    parts = list(template[1:])
+
+    # Handle the {{alt form}} template
+    if tpl in ("alt form", "alternative form of"):
+        res = italic("Alternative form of")
+        res += f" {strong(parts[1])}"
+        if len(parts) > 2:
+            last = parts[-1]
+            if "=" in last:
+                cat, detail = last.split("=", 1)
+                if cat == "t":
+                    res += f" (“{detail}”)"
+                elif cat != "nodot":
+                    res += f" ({detail})"
+            else:
+                res += f" ({last})"
+        return res
 
     # Handle the {{lb}} template
-    if parts[0] in ("lb", "lbl", "label"):
-        if len(parts) == 3:
-            # return term(langs.get(parts[2], parts[2]))
-            return term(parts[2])
+    if tpl in ("lb", "lbl", "label"):
+        if len(parts) == 2:
+            return term(parts[1])
 
         res = ""
-        for word1, word2 in zip_longest(parts[2:], parts[3:]):
+        for word1, word2 in zip_longest(parts[1:], parts[2:]):
             if word1 in ("_", "and", "or"):
                 continue
             if word1.startswith(("nocat=", "sort=")):
                 continue
 
-            # res += langs.get(word1, lookup_italic(word1, locale))
             res += lookup_italic(word1, locale)
 
             if word2 == "_":
@@ -163,30 +183,25 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 
         return term(res.rstrip(", "))
 
-    # Handle the {{alt form}} template
-    if parts[0] in ("alt form", "alternative form of"):
-        res = italic("Alternative form of")
-        res += f" {strong(parts[2])}"
-        if len(parts) > 3:
-            last = parts[-1]
-            if "=" in last:
-                cat, detail = last.split("=", 1)
-                if cat == "t":
-                    res += f" (“{detail}”)"
-                elif cat != "nodot":
-                    res += f" ({detail})"
-            else:
-                res += f" ({last})"
-        return res
+    # Handle the {{standard spelling of}} template
+    if tpl == "standard spelling of":
+        if "from=" in parts[1]:
+            first = parts[1].replace("from=", "")
+            phrase = italic(f"{first} {tpl}")
+            idx = 2
+        else:
+            phrase = italic("Standard spelling of")
+            idx = 1
+        return f"{phrase} {strong(parts[idx])}."
 
     # Handle the {{surname}} template
-    if parts[0] == "surname":
-        if len(parts) == 2:
+    if tpl == "surname":
+        if len(parts) == 1:
             return italic("A surname.")
 
-        first = parts[2]
-        second = parts[3]
-        third = parts[0]
+        first = parts[1]
+        second = parts[2]
+        third = tpl
         if "=" in first:
             if second[0].lower() in "aeiouy":
                 first = first.split("=")[1]
@@ -194,21 +209,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
                 first = first.split("=")[0]
         return italic(f"{first} {second} {third}.")
 
-    # Handle the {{standard spelling of}} template
-    if parts[0] == "standard spelling of":
-        if "from=" in parts[2]:
-            first = parts[2].replace("from=", "")
-            phrase = italic(f"{first} {parts[0]}")
-            idx = 3
-        else:
-            phrase = italic("Standard spelling of")
-            idx = 2
-        return f"{phrase} {strong(parts[idx])}."
-
     try:
-        return f"{italic(capitalize(parts[0]))} {strong(parts[2])}"
+        return f"{italic(capitalize(tpl))} {strong(parts[1])}"
     except IndexError:
-        return term(parts[0])
+        return term(tpl)
 
 
 # Dictionary name that will be printed below each definition

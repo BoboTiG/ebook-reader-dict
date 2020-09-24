@@ -12,7 +12,6 @@ import regex
 
 from .constants import DOWNLOAD_URL
 from .lang import (
-    all_langs,
     last_template_handler,
     pattern_file,
     release_description,
@@ -371,9 +370,5 @@ def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) ->
     with suppress(KeyError):
         result: str = templates_other[locale][tpl]
         return result
-
-    # This is a country in the current locale
-    with suppress(KeyError):
-        return all_langs[locale][tpl]
 
     return last_template_handler[locale](parts, locale)
