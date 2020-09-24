@@ -564,9 +564,6 @@ templates_multi = {
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
     "région": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
-    # {{siècle|XVI}}
-    # {{siècle|XVIII|XIX}}
-    "siècle": "term(century(parts, 'siècle') if len(parts) > 1 and parts[1] != '?' else 'Siècle à préciser')",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{smcp|Dupont}}
@@ -736,12 +733,25 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Dérivé de <i>clear</i> avec le suffixe <i>-ly</i>'
         >>> last_template_handler(["composé de", "느낌", "tr1=neukkim", "sens1=sensation", "표", "tr2=-pyo", "sens2=symbole", "lang=ko", "m=1"], "fr")
         'Dérivé de 느낌, <i>neukkim</i> (« sensation ») avec le suffixe 표, <i>-pyo</i> (« symbole »)'
+
+        >>> last_template_handler(["siècle"], "fr")
+        '<i>(Siècle à préciser)</i>'
+        >>> last_template_handler(["siècle", "lang=fr", "?"], "fr")
+        '<i>(Siècle à préciser)</i>'
+        >>> last_template_handler(["siècle", "", "lang=fr"], "fr")
+        '<i>(Siècle à préciser)</i>'
+        >>> last_template_handler(["siècle", "XVIII"], "fr")
+        '<i>(XVIII<sup>e</sup> siècle)</i>'
+        >>> last_template_handler(["siècle", "lang=fr", "XVIII"], "fr")
+        '<i>(XVIII<sup>e</sup> siècle)</i>'
+        >>> last_template_handler(["siècle", "XVIII", "XIX"], "fr")
+        '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
     """
     from collections import defaultdict
 
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import italic
+    from ...user_functions import century, italic, term
 
     tpl = template[0]
     parts = list(template[1:])
@@ -887,6 +897,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             elif part.startswith("sens="):
                 phrase += f" (« {part.split('sens=', 1)[1]} »)"
         return phrase
+
+    # Handle the {{siècle}} template
+    if tpl == "siècle":
+        parts = [
+            part for part in parts if part.strip() and part not in ("lang=fr", "?")
+        ]
+        phrase = century(parts, "siècle") if parts else "Siècle à préciser"
+        return term(phrase)
 
     return default(template, locale)
 

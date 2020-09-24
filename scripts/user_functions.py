@@ -4,7 +4,7 @@ Functions that can be used in *templates_multi* of any locale.
 Check the "html/scripts/user_functions.html" file for a user-friendly version.
 """
 import re
-from typing import List, Optional, Tuple
+from typing import List, Optional
 from warnings import warn
 
 from .lang import templates_italic
@@ -28,19 +28,19 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}"
 
 
-def century(parts: Tuple[str, ...], century: str) -> str:
+def century(parts: List[str], century: str) -> str:
     """
     Format centuries.
 
-        >>> century(["siècle", "XVI"], "siècle")
+        >>> century(["XVI"], "siècle")
         'XVI<sup>e</sup> siècle'
-        >>> century(["siècle", "XVIII", "XIX"], "century")
+        >>> century(["XVIII", "XIX"], "century")
         'XVIII<sup>e</sup> century - XIX<sup>e</sup> century'
     """
-    return " - ".join(f"{p}{superscript('e')} {century}" for p in parts[1:])
+    return " - ".join(f"{p}{superscript('e')} {century}" for p in parts)
 
 
-def chimy(composition: Tuple[str, ...]) -> str:
+def chimy(composition: List[str]) -> str:
     """
     Format chimy notations.
 
@@ -63,7 +63,7 @@ def color(rgb: str) -> str:
 
 
 def concat(
-    parts: Tuple[str, ...],
+    parts: List[str],
     sep: str = "",
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
@@ -104,7 +104,7 @@ def concat(
     return sep.join(p for p in result if p)
 
 
-def coord(values: Tuple[str, ...]) -> str:
+def coord(values: List[str]) -> str:
     """
     Format lon/lat coordinates.
 
@@ -246,7 +246,7 @@ def parenthesis(text: str) -> str:
     return f"({text})"
 
 
-def person(word: str, parts: Tuple[str, ...]) -> str:
+def person(word: str, parts: List[str]) -> str:
     """
     Format a person name.
 
@@ -271,17 +271,17 @@ def person(word: str, parts: Tuple[str, ...]) -> str:
     return res
 
 
-def sentence(parts: Tuple[str, ...]) -> str:
+def sentence(parts: List[str]) -> str:
     """
     Capitalize the first item in *parts* and concat with the second one.
 
-        >>> sentence("superlatif de|petit|fr".split("|"))
+        >>> sentence(["superlatif de", "petit", "fr"])
         'Superlatif de petit'
-        >>> sentence("variante de|ranche|fr".split("|"))
+        >>> sentence(["variante de", "ranche", "fr"])
         'Variante de ranche'
-        >>> sentence("RFC|5322".split("|"))
+        >>> sentence(["RFC", "5322"])
         'RFC 5322'
-        >>> sentence("comparatif de|bien|fr|adv".split("|"))
+        >>> sentence(["comparatif de", "bien", "fr", "adv"])
         'Comparatif de bien'
     """
     return capitalize(concat(parts, sep=" ", indexes=[0, 1]))
@@ -347,7 +347,7 @@ def superscript(text: str) -> str:
     return f"<sup>{text}</sup>"
 
 
-def tag(parts: Tuple[str, ...]) -> str:
+def tag(parts: List[str]) -> str:
     """
     Get only interesting values from *parts*.
 
@@ -360,9 +360,9 @@ def tag(parts: Tuple[str, ...]) -> str:
         'historia'
         >>> tag(["biologi", "allmänt"])
         'biologi, allmänt'
-        >>> tag("politik|formellt|språk=tyska".split("|"))
+        >>> tag(["politik", "formellt", "språk=tyska"])
         'politik, formellt'
-        >>> tag("kat=nedsättande|text=något nedsättande".split("|"))
+        >>> tag(["kat=nedsättande", "text=något nedsättande"])
         'något nedsättande'
     """
     words = []

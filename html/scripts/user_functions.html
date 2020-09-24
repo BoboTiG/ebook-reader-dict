@@ -34,7 +34,7 @@ Functions that can be used in *templates_multi* of any locale.
 Check the &#34;html/scripts/user_functions.html&#34; file for a user-friendly version.
 &#34;&#34;&#34;
 import re
-from typing import List, Optional, Tuple
+from typing import List, Optional
 from warnings import warn
 
 from .lang import templates_italic
@@ -58,19 +58,19 @@ def capitalize(text: str) -&gt; str:
     return f&#34;{text[0].capitalize()}{text[1:]}&#34;
 
 
-def century(parts: Tuple[str, ...], century: str) -&gt; str:
+def century(parts: List[str], century: str) -&gt; str:
     &#34;&#34;&#34;
     Format centuries.
 
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
+        &gt;&gt;&gt; century([&#34;XVI&#34;], &#34;siècle&#34;)
         &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
+        &gt;&gt;&gt; century([&#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
         &#39;XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century&#39;
     &#34;&#34;&#34;
-    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts[1:])
+    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts)
 
 
-def chimy(composition: Tuple[str, ...]) -&gt; str:
+def chimy(composition: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format chimy notations.
 
@@ -93,7 +93,7 @@ def color(rgb: str) -&gt; str:
 
 
 def concat(
-    parts: Tuple[str, ...],
+    parts: List[str],
     sep: str = &#34;&#34;,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
@@ -134,7 +134,7 @@ def concat(
     return sep.join(p for p in result if p)
 
 
-def coord(values: Tuple[str, ...]) -&gt; str:
+def coord(values: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format lon/lat coordinates.
 
@@ -276,7 +276,7 @@ def parenthesis(text: str) -&gt; str:
     return f&#34;({text})&#34;
 
 
-def person(word: str, parts: Tuple[str, ...]) -&gt; str:
+def person(word: str, parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format a person name.
 
@@ -301,17 +301,17 @@ def person(word: str, parts: Tuple[str, ...]) -&gt; str:
     return res
 
 
-def sentence(parts: Tuple[str, ...]) -&gt; str:
+def sentence(parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Capitalize the first item in *parts* and concat with the second one.
 
-        &gt;&gt;&gt; sentence(&#34;superlatif de|petit|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;superlatif de&#34;, &#34;petit&#34;, &#34;fr&#34;])
         &#39;Superlatif de petit&#39;
-        &gt;&gt;&gt; sentence(&#34;variante de|ranche|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;variante de&#34;, &#34;ranche&#34;, &#34;fr&#34;])
         &#39;Variante de ranche&#39;
-        &gt;&gt;&gt; sentence(&#34;RFC|5322&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;RFC&#34;, &#34;5322&#34;])
         &#39;RFC 5322&#39;
-        &gt;&gt;&gt; sentence(&#34;comparatif de|bien|fr|adv&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;comparatif de&#34;, &#34;bien&#34;, &#34;fr&#34;, &#34;adv&#34;])
         &#39;Comparatif de bien&#39;
     &#34;&#34;&#34;
     return capitalize(concat(parts, sep=&#34; &#34;, indexes=[0, 1]))
@@ -377,7 +377,7 @@ def superscript(text: str) -&gt; str:
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;
 
 
-def tag(parts: Tuple[str, ...]) -&gt; str:
+def tag(parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Get only interesting values from *parts*.
 
@@ -390,9 +390,9 @@ def tag(parts: Tuple[str, ...]) -&gt; str:
         &#39;historia&#39;
         &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
         &#39;biologi, allmänt&#39;
-        &gt;&gt;&gt; tag(&#34;politik|formellt|språk=tyska&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; tag([&#34;politik&#34;, &#34;formellt&#34;, &#34;språk=tyska&#34;])
         &#39;politik, formellt&#39;
-        &gt;&gt;&gt; tag(&#34;kat=nedsättande|text=något nedsättande&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; tag([&#34;kat=nedsättande&#34;, &#34;text=något nedsättande&#34;])
         &#39;något nedsättande&#39;
     &#34;&#34;&#34;
     words = []
@@ -497,33 +497,33 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.century"><code class="name flex">
-<span>def <span class="ident">century</span></span>(<span>parts: Tuple[str, ...], century: str) ‑> str</span>
+<span>def <span class="ident">century</span></span>(<span>parts: List[str], century: str) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Format centuries.</p>
-<pre><code>&gt;&gt;&gt; century(["siècle", "XVI"], "siècle")
+<pre><code>&gt;&gt;&gt; century(["XVI"], "siècle")
 'XVI&lt;sup&gt;e&lt;/sup&gt; siècle'
-&gt;&gt;&gt; century(["siècle", "XVIII", "XIX"], "century")
+&gt;&gt;&gt; century(["XVIII", "XIX"], "century")
 'XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century'
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def century(parts: Tuple[str, ...], century: str) -&gt; str:
+<pre><code class="python">def century(parts: List[str], century: str) -&gt; str:
     &#34;&#34;&#34;
     Format centuries.
 
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVI&#34;], &#34;siècle&#34;)
+        &gt;&gt;&gt; century([&#34;XVI&#34;], &#34;siècle&#34;)
         &#39;XVI&lt;sup&gt;e&lt;/sup&gt; siècle&#39;
-        &gt;&gt;&gt; century([&#34;siècle&#34;, &#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
+        &gt;&gt;&gt; century([&#34;XVIII&#34;, &#34;XIX&#34;], &#34;century&#34;)
         &#39;XVIII&lt;sup&gt;e&lt;/sup&gt; century - XIX&lt;sup&gt;e&lt;/sup&gt; century&#39;
     &#34;&#34;&#34;
-    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts[1:])</code></pre>
+    return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.chimy"><code class="name flex">
-<span>def <span class="ident">chimy</span></span>(<span>composition: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">chimy</span></span>(<span>composition: List[str]) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Format chimy notations.</p>
@@ -536,7 +536,7 @@ __all__ = (
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def chimy(composition: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def chimy(composition: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format chimy notations.
 
@@ -571,7 +571,7 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: Tuple[str, ...], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
@@ -599,7 +599,7 @@ It allowes to filter out some parts while keeping others.</p>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def concat(
-    parts: Tuple[str, ...],
+    parts: List[str],
     sep: str = &#34;&#34;,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
@@ -641,7 +641,7 @@ It allowes to filter out some parts while keeping others.</p>
 </details>
 </dd>
 <dt id="scripts.user_functions.coord"><code class="name flex">
-<span>def <span class="ident">coord</span></span>(<span>values: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">coord</span></span>(<span>values: List[str]) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Format lon/lat coordinates.</p>
@@ -652,7 +652,7 @@ It allowes to filter out some parts while keeping others.</p>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def coord(values: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def coord(values: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format lon/lat coordinates.
 
@@ -904,7 +904,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 </details>
 </dd>
 <dt id="scripts.user_functions.person"><code class="name flex">
-<span>def <span class="ident">person</span></span>(<span>word: str, parts: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">person</span></span>(<span>word: str, parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Format a person name.</p>
@@ -922,7 +922,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def person(word: str, parts: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def person(word: str, parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Format a person name.
 
@@ -948,34 +948,34 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 </details>
 </dd>
 <dt id="scripts.user_functions.sentence"><code class="name flex">
-<span>def <span class="ident">sentence</span></span>(<span>parts: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">sentence</span></span>(<span>parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Capitalize the first item in <em>parts</em> and concat with the second one.</p>
-<pre><code>&gt;&gt;&gt; sentence("superlatif de|petit|fr".split("|"))
+<pre><code>&gt;&gt;&gt; sentence(["superlatif de", "petit", "fr"])
 'Superlatif de petit'
-&gt;&gt;&gt; sentence("variante de|ranche|fr".split("|"))
+&gt;&gt;&gt; sentence(["variante de", "ranche", "fr"])
 'Variante de ranche'
-&gt;&gt;&gt; sentence("RFC|5322".split("|"))
+&gt;&gt;&gt; sentence(["RFC", "5322"])
 'RFC 5322'
-&gt;&gt;&gt; sentence("comparatif de|bien|fr|adv".split("|"))
+&gt;&gt;&gt; sentence(["comparatif de", "bien", "fr", "adv"])
 'Comparatif de bien'
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def sentence(parts: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def sentence(parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Capitalize the first item in *parts* and concat with the second one.
 
-        &gt;&gt;&gt; sentence(&#34;superlatif de|petit|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;superlatif de&#34;, &#34;petit&#34;, &#34;fr&#34;])
         &#39;Superlatif de petit&#39;
-        &gt;&gt;&gt; sentence(&#34;variante de|ranche|fr&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;variante de&#34;, &#34;ranche&#34;, &#34;fr&#34;])
         &#39;Variante de ranche&#39;
-        &gt;&gt;&gt; sentence(&#34;RFC|5322&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;RFC&#34;, &#34;5322&#34;])
         &#39;RFC 5322&#39;
-        &gt;&gt;&gt; sentence(&#34;comparatif de|bien|fr|adv&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; sentence([&#34;comparatif de&#34;, &#34;bien&#34;, &#34;fr&#34;, &#34;adv&#34;])
         &#39;Comparatif de bien&#39;
     &#34;&#34;&#34;
     return capitalize(concat(parts, sep=&#34; &#34;, indexes=[0, 1]))</code></pre>
@@ -1109,7 +1109,7 @@ and is sometimes rendered in a smaller font.</p>
 </details>
 </dd>
 <dt id="scripts.user_functions.tag"><code class="name flex">
-<span>def <span class="ident">tag</span></span>(<span>parts: Tuple[str, ...]) ‑> str</span>
+<span>def <span class="ident">tag</span></span>(<span>parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Get only interesting values from <em>parts</em>.</p>
@@ -1122,16 +1122,16 @@ and is sometimes rendered in a smaller font.</p>
 'historia'
 &gt;&gt;&gt; tag(["biologi", "allmänt"])
 'biologi, allmänt'
-&gt;&gt;&gt; tag("politik|formellt|språk=tyska".split("|"))
+&gt;&gt;&gt; tag(["politik", "formellt", "språk=tyska"])
 'politik, formellt'
-&gt;&gt;&gt; tag("kat=nedsättande|text=något nedsättande".split("|"))
+&gt;&gt;&gt; tag(["kat=nedsättande", "text=något nedsättande"])
 'något nedsättande'
 </code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def tag(parts: Tuple[str, ...]) -&gt; str:
+<pre><code class="python">def tag(parts: List[str]) -&gt; str:
     &#34;&#34;&#34;
     Get only interesting values from *parts*.
 
@@ -1144,9 +1144,9 @@ and is sometimes rendered in a smaller font.</p>
         &#39;historia&#39;
         &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
         &#39;biologi, allmänt&#39;
-        &gt;&gt;&gt; tag(&#34;politik|formellt|språk=tyska&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; tag([&#34;politik&#34;, &#34;formellt&#34;, &#34;språk=tyska&#34;])
         &#39;politik, formellt&#39;
-        &gt;&gt;&gt; tag(&#34;kat=nedsättande|text=något nedsättande&#34;.split(&#34;|&#34;))
+        &gt;&gt;&gt; tag([&#34;kat=nedsättande&#34;, &#34;text=något nedsättande&#34;])
         &#39;något nedsättande&#39;
     &#34;&#34;&#34;
     words = []
