@@ -205,7 +205,6 @@ Instalação:
 
 Características:
 
-- Não há etimologia.
 - Os nomes próprios não estão incluídos.
 - Os verbos conjugados não estão incluídos.
 
