@@ -19,6 +19,7 @@ def test_main():
     with ZipFile(dicthtml) as fh:
         expected = [
             "11.html",
+            "INSTALL.txt",
             "aa.html",
             "ac.html",
             "au.html",

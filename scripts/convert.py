@@ -15,9 +15,26 @@ from marisa_trie import Trie
 from .constants import WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Word, Words
-from .utils import guess_prefix
+from .utils import format_description, guess_prefix
 
 Groups = Dict[str, Words]
+
+
+def create_install(locale: str, output_dir: Path) -> Path:
+    """Generate the INSTALL.txt file."""
+    release = format_description(locale, output_dir)
+
+    # Sanitization
+    release = release.replace(":arrow_right:", "->")
+    release = release.replace(f"[dicthtml-{locale}.zip](", "")
+    release = release.replace(")", "")
+    release = release.replace("`", '"')
+    release = release.replace("<sub>", "")
+    release = release.replace("</sub>", "")
+
+    file = output_dir / "INSTALL.txt"
+    file.write_text(release)
+    return file
 
 
 def craft_index(wordlist: List[str], output_dir: Path) -> Path:
@@ -77,7 +94,8 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
     # Then create the special "words" file
     to_compress.append(craft_index(sorted(wordlist), output_dir / "tmp"))
 
-    # Add unrealted files, just for history
+    # Add unrelated files, just for history
+    to_compress.append(create_install(locale, output_dir))
     to_compress.append(output_dir / "words.count")
     to_compress.append(output_dir / "words.snapshot")
 
