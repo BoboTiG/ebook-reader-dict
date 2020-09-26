@@ -15,7 +15,7 @@ from marisa_trie import Trie
 from .constants import WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Word, Words
-from .utils import format_description, guess_prefix
+from .utils import guess_prefix
 
 Groups = Dict[str, Words]
 
@@ -87,20 +87,8 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
-        # Add the release description in the comment
-        release = format_description(locale, output_dir)
-        # Sanitize the comment
-        release = release.replace(":arrow_right:", "->")
-        release = release.replace(f"[dicthtml-{locale}.zip](", "")
-        release = release.replace(")", "")
-        release = release.replace("`", '"')
-        release = release.replace("<sub>", "")
-        release = release.replace("</sub>", "")
-        # Actually add the comment
-        fh.comment = release.encode()
-
         # Check the ZIP validity
-        # testfile returns the name of the first corrupt file, or None
+        # testzip() returns the name of the first corrupt file, or None
         assert fh.testzip() is None, fh.testzip()
 
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
