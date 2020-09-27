@@ -23,7 +23,7 @@ sections = (
     "{{adverbio",
     "{{artículo",
     "{{conjunción",
-    "Etimología",
+    etyl_section,
     "{{interjección",
     "{{onomatopeya",
     "{{prefijo",

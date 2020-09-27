@@ -61,6 +61,18 @@ from scripts.utils import clean
             ],
         ),
         (
+            "Mars",
+            "ˈmɑːz",
+            "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 BC) <b>Māvors</b>. <b>𐌌𐌀𐌌𐌄𐌓𐌔</b> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris.",  # noqa
+            [
+                "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
+                "<i>(Roman god)</i> The Roman god of war.",
+                "<i>(poetic)</i> War; a personification of war.",
+                "The Mars Bar, a brand of chocolate bar with caramel and nougat filling.",
+                "<i>Alternative form of</i> <b>Mas</b>",
+            ],
+        ),
+        (
             "on",
             "ɒn",
             "From Middle English <i>on</i>, from Old English <i>on</i>, <b>an</b> (“on, upon, onto, in, into”), from Proto-Germanic <i>*ana</i> (“on, at”), from Proto-Indo-European <i>*h₂en-</i>. Cognate with North Frisian <i>a</i> (“on, in”), Saterland Frisian <i>an</i> (“on, at”), West Frisian <i>oan</i> (“on, at”), Dutch <i>aan</i> (“on, at, to”), Low German <i>an</i> (“on, at”), German <i>an</i> (“to, at, on”), Swedish <i>å</i> (“on, at, in”), Faroese <i>á</i> (“on, onto, in, at”), Icelandic <i>á</i> (“on, in”), Gothic <i>𐌰𐌽𐌰</i>, Ancient Greek <i>ἀνά</i> (“up, upon”), Albanian <i>në</i> (“in”); and from Old Norse <i>upp á</i>: Danish <i>på</i>, Swedish <i>på</i>, Norwegian <i>på</i>, see <b>upon</b>.",  # noqa

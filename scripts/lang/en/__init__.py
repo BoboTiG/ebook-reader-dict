@@ -29,6 +29,7 @@ sections = (
     "Prefix",
     "Preposition",
     "Pronoun",
+    "Proper noun",
     "Suffix",
     "Symbol",
     "Verb",

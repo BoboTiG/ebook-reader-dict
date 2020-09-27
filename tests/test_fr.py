@@ -44,6 +44,7 @@ from scripts.utils import clean
                 "Quarante-deux.",
                 "<i>(Par ellipse)</i> Une année qui se termine par <b>42</b>.",
                 "<i>(France)</i> <i>(Familier)</i> Habitant du département de la Loire.",
+                "<i>(France)</i> Département de la Loire.",
             ],
         ),
         (
