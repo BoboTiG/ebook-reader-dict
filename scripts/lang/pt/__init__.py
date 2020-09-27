@@ -201,13 +201,6 @@ Instalação:
 1. Copiar o ficheiro `dicthtml-{locale}.zip` para a pasta `.kobo/dict/` do leitor.
 2. Reiniciar o leitor.
 
----
-
-Características:
-
-- Os nomes próprios não estão incluídos.
-- Os verbos conjugados não estão incluídos.
-
 <sub>Actualizado em {creation_date}</sub>
 """
 

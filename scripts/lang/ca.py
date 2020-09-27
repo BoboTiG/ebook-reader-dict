@@ -109,14 +109,6 @@ Instal·lació:
 1. Copieu el fitxer `dicthtml-{locale}.zip` a la carpeta `.kobo/dict/` del lector.
 2. Reinicieu el lector.
 
----
-
-Característiques:
-
-- No hi ha etimologia.
-- Els noms propis no s’inclouen.
-- No s’inclouen els verbs conjugats.
-
 <sub>Actualitzat el {creation_date}</sub>
 """
 

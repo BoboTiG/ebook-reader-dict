@@ -930,13 +930,6 @@ Installation :
 1. Copier le fichier `dicthtml-{locale}.zip` dans le dossier `.kobo/dict/` de la liseuse.
 2. Redémarrer la liseuse.
 
----
-
-Caractéristiques :
-
-- Les noms propres ne sont pas inclus.
-- Les conjugaisons ne sont pas incluses.
-
 <sub>Mis à jour le {creation_date}</sub>
 """
 

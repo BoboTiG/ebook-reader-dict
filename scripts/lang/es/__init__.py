@@ -430,13 +430,6 @@ Instalacións:
 1. Copia el archivo `dicthtml-{locale}.zip` en el directorio `.kobo/dict/` del lector.
 2. Reinicie la luz de lectura.
 
----
-
-Características:
-
-- No se incluyen los nombres propios.
-- Las conjugaciones no están incluidas.
-
 <sub>Actualizado el {creation_date}</sub>
 """
 

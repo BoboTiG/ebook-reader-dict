@@ -48,30 +48,3 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
 
     # <i>(Template)</i>
     return term(capitalize(lookup_italic(parts[0], locale))) if parts[0] else ""
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
-release_description = """\
-Words count: {words_count}
-Wiktionary dump: {dump_date}
-
-:arrow_right: Download: [dicthtml-{locale}.zip]({url})
-
----
-
-Installation:
-
-1. Copy the `dicthtml-{locale}.zip` file into the `.kobo/dict/` folder of the reader.
-2. Restart the reader.
-
----
-
-Caracteristics:
-
-- There are no ethymology.
-- Proper nouns are not included.
-- Conjuged verbs are not included.
-
-<sub>Updated on {creation_date}</sub>
-"""

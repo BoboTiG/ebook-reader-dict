@@ -281,5 +281,23 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return capitalize(tpl)
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en
+release_description = """\
+Words count: {words_count}
+Wiktionary dump: {dump_date}
+
+:arrow_right: Download: [dicthtml-{locale}.zip]({url})
+
+---
+
+Installation:
+
+1. Copy the `dicthtml-{locale}.zip` file into the `.kobo/dict/` folder of the reader.
+2. Restart the reader.
+
+<sub>Updated on {creation_date}</sub>
+"""
+
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"

@@ -236,7 +236,7 @@ last_template_handler = {
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description = {
     "ca": ca.release_description,
-    "en": defaults.release_description,
+    "en": en.release_description,
     "es": es.release_description,
     "fr": fr.release_description,
     "pt": pt.release_description,
