@@ -706,6 +706,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'grec ancien <i>leipein</i> (« abandonner »)'
         >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
         'grec ancien νακτός, <i>naktós</i> (« dense »)'
+        >>> last_template_handler(["étyl", "proto-indo-européen", "fr"], "fr")
+        'indo-européen commun'
 
         >>> last_template_handler(["étylp", "la", "fr", "mot=Ladon"], "fr")
         'latin <i>Ladon</i>'
