@@ -352,19 +352,6 @@ def test_find_sections_and_definitions(
             "{{qualifier|Used only in the plural in the UK}}",
             "(<i>Used only in the plural in the UK</i>)",
         ),
-        (
-            "{{standard spelling of|en|enroll}}",
-            "<i>Standard spelling of</i> <b>enroll</b>.",
-        ),
-        (
-            "{{standard spelling of|en|from=Irish English|Irish Traveller}}",
-            "<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.",
-        ),
-        ("{{surname|en}}", "<i>A surname.</i>"),
-        (
-            "{{surname|en|A=An|[[English]]|from=nicknames|nodot=1}}",
-            "<i>An English surname.</i>",
-        ),
         ("{{synonym of|en|drip tip}}", "<i>Synonym of</i> <b>drip tip</b>"),
         (
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",

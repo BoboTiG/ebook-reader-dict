@@ -126,10 +126,16 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
 
-        >>> last_template_handler(["surname", "en", "A=An", "English", "from=nicknames", "nodot=1"], "en")
-        '<i>An English surname.</i>'
         >>> last_template_handler(["surname", "en"], "en")
         '<i>A surname.</i>'
+        >>> last_template_handler(["surname", "en", "nodot=1"], "en")
+        '<i>A surname</i>'
+        >>> last_template_handler(["surname", "en", "rare"], "en")
+        '<i>A rare surname.</i>'
+        >>> last_template_handler(["surname", "en", "A=An", "occupational"], "en")
+        '<i>An occupational surname.</i>'
+        >>> last_template_handler(["surname", "en", "from=Latin", "dot=,"], "en")
+        '<i>A surname,</i>'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
@@ -262,18 +268,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{surname}} template
     if tpl == "surname":
-        if len(parts) == 1:
-            return italic("A surname.")
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
 
-        first = parts[1]
-        second = parts[2]
-        third = tpl
-        if "=" in first:
-            if second[0].lower() in "aeiouy":
-                first = first.split("=")[1]
-            else:
-                first = first.split("=")[0]
-        return italic(f"{first} {second} {third}.")
+        parts.pop(0)  # Remove the lang
+
+        art = data.get("A", "A")
+        dot = data.get("dot", "" if "nodot" in data else ".")
+        if not parts:
+            return italic(f"{art} {tpl}{dot}")
+        return italic(f"{art} {parts[0]} {tpl}{dot}")
 
     try:
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"
