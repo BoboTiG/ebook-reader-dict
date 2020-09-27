@@ -98,7 +98,7 @@ head_sections = {
 }
 etyl_section = {
     "ca": "",
-    "en": "",
+    "en": en.etyl_section,
     "es": es.etyl_section,
     "fr": fr.etyl_section,
     "pt": pt.etyl_section,

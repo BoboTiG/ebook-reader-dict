@@ -13,6 +13,7 @@ thousands_separator = ","
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("english",)
 section_sublevels = (4, 3)
+etyl_section = ["Etymology", "Etymology 1"]
 sections = (
     "Adjective",
     "Adverb",
@@ -20,6 +21,7 @@ sections = (
     "Conjunction",
     "Contraction",
     "Determiner",
+    *etyl_section,
     "Interjection",
     "Noun",
     "Numeral",
@@ -43,7 +45,7 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("cln", "+obj", "rfex", "senseid")
+templates_ignored = ("cln", "+obj", "rel-bottom", "rel-top", "rfex", "senseid")
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
@@ -76,8 +78,6 @@ templates_multi = {
     "ll": "parts[-1]",
     # {{link|en|water vapour}}
     "link": "parts[-1]",
-    # {{m|en|more}}
-    "m": "strong(parts[-1])",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
@@ -134,9 +134,31 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
+
+        >>> last_template_handler(["der", "en", "fro", "-"], "en")
+        'Old French'
+
+        >>> last_template_handler(["etyl", "enm", "en"], "en")
+        'Middle English'
+
+        >>> last_template_handler(["inh", "en", "enm", "water"], "en")
+        'Middle English <i>water</i>'
+        >>> last_template_handler(["inh", "en", "ang", "wæter", "", "water"], "en")
+        'Old English <i>wæter</i> (“water”)'
+        >>> last_template_handler(["inh", "en", "ang", "etan", "t=to eat"], "en")
+        'Old English <i>etan</i> (“to eat”)'
+        >>> last_template_handler(["inh", "en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], "en")
+        'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
+
+        >>> last_template_handler(["m", "en", "more"], "en")
+        '<b>more</b>'
+        >>> last_template_handler(["m", "ine-pro", "*h₁ed-", "t=to eat"], "en")
+        '<i>*h₁ed-</i> (“to eat”)'
     """
+    from collections import defaultdict
     from itertools import zip_longest
 
+    from .langs import langs
     from ...user_functions import capitalize, italic, lookup_italic, strong, term
 
     tpl = template[0]
@@ -183,6 +205,49 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         return term(res.rstrip(", "))
 
+    # Handle the {{inh}} template
+    if tpl in ("bor", "cog", "der", "etyl", "inh", "m"):
+        if tpl not in ("cog", "etyl", "m"):
+            parts.pop(0)  # Remove the destination language
+
+        if tpl == "etyl":
+            parts.pop(1)
+
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+
+        lang = langs.get(parts.pop(0), "")
+        phrase = f"{lang}" if tpl != "m" else ""
+
+        if not parts:
+            return phrase
+
+        word = parts.pop(0)
+        if word == "-":
+            return phrase
+
+        word = data.get("alt", word)
+        gloss = data.get("t", data.get("gloss", ""))
+
+        if parts:
+            word = parts.pop(0) or word  # 4, alt=
+
+        if tpl == "m":
+            phrase += strong(word) if "t" not in data else italic(word)
+        else:
+            phrase += f" {italic(word)}"
+
+        if parts:
+            gloss = parts.pop(0)  # 5, t=, gloss=
+        if gloss:
+            phrase += f" (“{gloss}”)"
+
+        return phrase
+
     # Handle the {{standard spelling of}} template
     if tpl == "standard spelling of":
         if "from=" in parts[1]:
@@ -212,7 +277,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     try:
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"
     except IndexError:
-        return term(tpl)
+        return capitalize(tpl)
 
 
 # Dictionary name that will be printed below each definition

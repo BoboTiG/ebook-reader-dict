@@ -5,12 +5,12 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, definitions",
+    "word, pronunciation, etymology, definitions",
     [
         (
             "ab",
             "æb",
-            "",
+            "Abbreviation of <b>abdominal</b> <b>muscles</b>.",
             [
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
@@ -24,7 +24,7 @@ from scripts.utils import clean
         (
             "cum",
             "kʌm",
-            "",
+            "From Latin <i>cum</i> (“with”).",
             [
                 "<i>Used in indicating a thing with two roles, functions, or natures, or a "
                 "thing that has changed from one to another.</i>",
@@ -40,7 +40,7 @@ from scripts.utils import clean
         (
             "efficient",
             "ɪˈfɪʃənt",
-            "",
+            "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <b>efficiēns</b>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English.",  # noqa
             [
                 "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",  # noqa
                 "expressing the proportion of consumed energy that was successfully used in a process; the ratio of useful output to total input",  # noqa
@@ -52,7 +52,7 @@ from scripts.utils import clean
         (
             "it's",
             "ɪts",
-            "",
+            "Contraction of ‘it is’ or ‘it has’.",
             [
                 "It is.",
                 "It has.",
@@ -63,7 +63,7 @@ from scripts.utils import clean
         (
             "on",
             "ɒn",
-            "",
+            "From Middle English <i>on</i>, from Old English <i>on</i>, <b>an</b> (“on, upon, onto, in, into”), from Proto-Germanic <i>*ana</i> (“on, at”), from Proto-Indo-European <i>*h₂en-</i>. Cognate with North Frisian <i>a</i> (“on, in”), Saterland Frisian <i>an</i> (“on, at”), West Frisian <i>oan</i> (“on, at”), Dutch <i>aan</i> (“on, at, to”), Low German <i>an</i> (“on, at”), German <i>an</i> (“to, at, on”), Swedish <i>å</i> (“on, at, in”), Faroese <i>á</i> (“on, onto, in, at”), Icelandic <i>á</i> (“on, in”), Gothic <i>𐌰𐌽𐌰</i>, Ancient Greek <i>ἀνά</i> (“up, upon”), Albanian <i>në</i> (“in”); and from Old Norse <i>upp á</i>: Danish <i>på</i>, Swedish <i>på</i>, Norwegian <i>på</i>, see <b>upon</b>.",  # noqa
             [
                 "In the state of being active, functioning or operating.",
                 "Performing according to schedule; taking place.",
@@ -116,7 +116,7 @@ from scripts.utils import clean
         (
             "portmanteau",
             "pɔːtˈmæn.təʊ",
-            "",
+            "French <i>portemanteau</i> (“coat stand”), from <b>porte</b> (“carry”) + <b>manteau</b> (“coat”).",
             [
                 "A large travelling case usually made of leather, and opening into two equal sections.",
                 "<i>(Australia, dated)</i> A schoolbag.",
@@ -129,7 +129,7 @@ from scripts.utils import clean
         (
             "someone",
             "ˈsʌmwʌn",
-            "",
+            "<b>some</b> + <b>one</b>",
             [
                 "Some person.",
                 "A partially specified but unnamed person.",
@@ -139,7 +139,7 @@ from scripts.utils import clean
         (
             "the",
             "ˈðiː",
-            "",
+            "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”), a late variant of <b>sē</b>. Originally masculine nominative, in Middle English it superseded all previous Old English forms (<b>sē</b>, <b>sēo</b>, <b>þæt</b>, <b>þā</b>), from Proto-Germanic <i>*sa</i>, from Proto-Indo-European <i>*só</i>. Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“the”).",  # noqa
             [
                 "<i>Definite grammatical article that implies necessarily that an entity it articulates is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
                 "<i>Used before a noun modified by a restrictive relative clause, indicating that the noun refers to a single referent defined by the relative clause.</i>",  # noqa
@@ -159,7 +159,7 @@ from scripts.utils import clean
         (
             "um",
             "",
-            "",
+            "Onomatopoeic.",
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
                 "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>",
@@ -172,7 +172,7 @@ from scripts.utils import clean
         (
             "us",
             "ʌs",
-            "",
+            "From Middle English <b>us</b>, from Old English <b>ūs</b> (“us”), from Proto-Germanic <b>*uns</b> (“us”), from Proto-Indo-European <b>*ne-</b>, <b>*nō-</b>, <b>*n-ge-</b>, <b>*n-sme-</b> (“us”). Cognate with West Frisian <i>us</i>, <b>ús</b> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",  # noqa
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
                 "<i>(colloquial)</i> Me.",
@@ -184,7 +184,7 @@ from scripts.utils import clean
         (
             "water",
             "ˈwɔːtə",
-            "",
+            "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
             [
                 "<i>(uncountable)</i> A substance (of molecular formula H₂O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",  # noqa
                 (
@@ -222,7 +222,7 @@ from scripts.utils import clean
         (
             "word",
             "wɜːd",
-            "",
+            "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. <i>Doublet</i> <b>verb</b>.",  # noqa
             [
                 "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",  # noqa
                 (
@@ -261,12 +261,14 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_find_sections_and_definitions(word, pronunciation, genre, definitions, page):
+def test_find_sections_and_definitions(
+    word, pronunciation, etymology, definitions, page
+):
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
     assert pronunciation == details.pronunciation
-    assert genre == details.genre
+    assert etymology == details.etymology
     assert definitions == details.definitions
 
 

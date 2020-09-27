@@ -192,10 +192,25 @@ def find_section_definitions(
 
 def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
     """Find the etymology."""
+
+    etyl: str
+
+    if locale == "en":
+        items = [
+            item
+            for item in parsed_section.get_lists(pattern=("",))[0].items
+            if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
+        ]
+        for item in items:
+            etyl = clean(word, item, locale)
+            if etyl:
+                return etyl
+
     if locale == "es":
-        etyl: str = parsed_section.get_lists(pattern=("",))[0].items[1]
+        etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         return clean(word, etyl, locale)
-    elif locale == "pt":
+
+    if locale == "pt":
         section_title = parsed_section.title.strip()
         if section_title == "{{etimologia|pt}}":
             try:

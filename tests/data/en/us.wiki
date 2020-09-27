@@ -358,4 +358,3 @@ From {{inh|ofs|gem-pro|*uns}}, {{m|gem-pro|*unsiz}}.
 {{head|fy|pronoun form}}
 
 # {{inflection of|fy|wy||obj}}
-
