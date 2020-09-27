@@ -8,14 +8,6 @@ Current version:
     https://pt.wiktionary.org/w/index.php?title=Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/M-Z&oldid=2588737
 
 List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BPT%5D-Parsing-the-languages-list.
-
-Manual additions:
-
-    - 'prv' 2020-09-24
-    - 'roa-oca' 2020-09-24
-    - 'roa-gpm' 2020-09-24
-    - 'tpn' 2020-09-24
-    - 'tpw' 2020-09-24
 """
 
 langs = {
@@ -92,8 +84,8 @@ langs = {
     "aty": "anejom",
     "aua": "asumboa",
     "aud": "anuta",
-    "aus-syd": "dharuk",
     "aus": "darkinjung",
+    "aus-syd": "dharuk",
     "aut": "austral",
     "av": "avárico",
     "avk": "kotava",
@@ -143,10 +135,10 @@ langs = {
     "bgl": "bo",
     "bgt": "bugoto",
     "bgz": "bangai",
-    "bho": "bhojpuri",
     "bhb": "bhili",
     "bhc": "biga",
     "bhh": "bukhori",
+    "bho": "bhojpuri",
     "bhp": "bima",
     "bhw": "biak",
     "bi": "bislamá",
@@ -626,8 +618,8 @@ langs = {
     "na": "nauruano",
     "nag": "nagamês",
     "nah": "náuatle",
-    "nak-bi": "nakanai",
     "nak": "nakanai",
+    "nak-bi": "nakanai",
     "nan": "min nan",
     "nap": "napolitano",
     "naq": "nama",
@@ -635,8 +627,8 @@ langs = {
     "nd": "ndebele setentrional",
     "ndg": "ndengereko",
     "ndo": "ndonga",
-    "nds-nl": "baixo saxão holandês",
     "nds": "baixo saxão",
+    "nds-nl": "baixo saxão holandês",
     "ne": "nepalês",
     "nen": "nengone",
     "new": "newari",
@@ -720,7 +712,6 @@ langs = {
     "pqm": "malecite-passamaquoddy",
     "prg": "prussiano",
     "pro": "provençal antigo",
-    "prv": "provençal",
     "ps": "pashtu",
     "pse": "besemah",
     "pss": "kaulong",
@@ -743,9 +734,7 @@ langs = {
     "rn": "rundi",
     "rnw": "rungwa",
     "ro": "romeno",
-    "roa-gpm": "galego-português medieval",
     "roa-nor": "normando",
-    "roa-oca": "catalão medieval ",
     "roa-tal": "talian",
     "roa-tara": "tarantino",
     "rob": "tae'",
@@ -753,8 +742,8 @@ langs = {
     "rop": "kriol",
     "rth": "ratahan",
     "rtm": "rotumano",
-    "ru-sib": "siberiano",
     "ru": "russo",
+    "ru-sib": "siberiano",
     "ruo": "istro-romeno",
     "rup": "arromeno",
     "ruq": "megleno-romeno",
@@ -869,8 +858,6 @@ langs = {
     "tos": "totonaco da serra",
     "tox": "tobiano",
     "tpi": "tok pisin",
-    "tpn": "tupi",
-    "tpw": "tupi antigo",
     "tqu": "touo",
     "tqw": "tonkawa",
     "tr": "turco",
@@ -1000,3 +987,11 @@ langs = {
     "zu": "zulu",
     "zun": "zuni",
 }
+# 975
+
+# Missing ones (to be removed when available on the Wiktionary languages pages)
+langs["prv"] = "provençal"  # 2020-09-24
+langs["roa-oca"] = "catalão medieval"  # 2020-09-24
+langs["roa-gpm"] = "galego-português medieval"  # 2020-09-24
+langs["tpn"] = "tupi"  # 2020-09-24
+langs["tpw"] = "tupi antigo"  # 2020-09-24

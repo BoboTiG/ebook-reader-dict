@@ -2,8 +2,8 @@
 List of languages.
 Source: https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma
 Current version:
-    03:14, 21 September 2020‎
-    https://es.wiktionary.org/w/index.php?title=Ap%C3%A9ndice:C%C3%B3digos_de_idioma&oldid=4950187
+    03:14, 24 September 2020‎
+    https://es.wiktionary.org/w/index.php?title=Ap%C3%A9ndice:C%C3%B3digos_de_idioma&oldid=4951302
 
 List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BES%5D-Parsing-the-languages-list.
 """
@@ -579,6 +579,7 @@ langs = {
     "lbe": "lak",
     "len": "lenca",
     "lez": "lesguiano",
+    "lfn": "lingua franca nova",
     "lg": "luganda",
     "li": "limburgués",
     "lij": "ligur",
@@ -1172,3 +1173,4 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
 }
+# 1,163
