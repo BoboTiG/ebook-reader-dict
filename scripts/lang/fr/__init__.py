@@ -543,7 +543,7 @@ templates_multi = {
     "indice": "subscript(parts[1])",
     # {{info lex|boulangerie}}
     # {{info lex|équitation|sport}}
-    "info lex": "term(', '.join(parts[1:]))",
+    "info lex": "term(', '.join(capitalize(part) for part in parts[1:]))",
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
     "lexique": "term(', '.join(capitalize(p) for p in parts[1:-1]))",
