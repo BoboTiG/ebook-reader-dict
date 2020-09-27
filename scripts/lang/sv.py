@@ -58,14 +58,6 @@ Installation:
 1. Kopiera filen `dicthtml- {locale} .zip` till läsaren `.kobo/dict/` mappen på läsaren.
 2. Starta om läsaren.
 
----
-
-Egenskaper:
-
-- Det finns ingen etymologi.
-- Egna substantiv ingår inte.
-- Konjugerade verb ingår inte.
-
 <sub>Uppdaterad på {creation_date}</sub>
 """
 
