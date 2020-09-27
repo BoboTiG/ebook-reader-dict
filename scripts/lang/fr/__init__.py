@@ -921,17 +921,13 @@ release_description = """\
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-:arrow_right: Téléchargement : [dicthtml-{locale}.zip]({url})
-
----
-
 Installation :
 
-1. Copier le fichier `dicthtml-{locale}.zip` dans le dossier `.kobo/dict/` de la liseuse.
-2. Redémarrer la liseuse.
+1. Copier le fichier [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/dict/` de la liseuse.
+2. **Redémarrer** la liseuse.
 
 <sub>Mis à jour le {creation_date}</sub>
-"""
+"""  # noqa
 
 # Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
 wiktionary = "Wiktionnaire (ɔ) {year}"

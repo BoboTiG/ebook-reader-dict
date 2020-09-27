@@ -49,14 +49,10 @@ release_description = """\
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
-:arrow_right: Ladda ner: [dicthtml-{locale}.zip]({url})
-
----
-
 Installation:
 
-1. Kopiera filen `dicthtml- {locale} .zip` till läsaren `.kobo/dict/` mappen på läsaren.
-2. Starta om läsaren.
+1. Kopiera filen [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) till läsaren `.kobo/dict/` mappen på läsaren.
+2. **Starta** om läsaren.
 
 <sub>Uppdaterad på {creation_date}</sub>
 """

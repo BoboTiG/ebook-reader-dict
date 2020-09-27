@@ -192,14 +192,10 @@ release_description = """\
 As palavras contam: {words_count}
 Exportação Wikcionário: {dump_date}
 
-:arrow_right: Descarregar: [dicthtml-{locale}.zip]({url})
-
----
-
 Instalação:
 
-1. Copiar o ficheiro `dicthtml-{locale}.zip` para a pasta `.kobo/dict/` do leitor.
-2. Reiniciar o leitor.
+1. Copiar o ficheiro [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) para a pasta `.kobo/dict/` do leitor.
+2. **Reiniciar** o leitor.
 
 <sub>Actualizado em {creation_date}</sub>
 """

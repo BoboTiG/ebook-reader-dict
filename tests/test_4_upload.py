@@ -23,14 +23,10 @@ def test_format_description():
 Nombre de mots : 123 456 789
 Export Wiktionnaire : 2020-02-20
 
-:arrow_right: Téléchargement : [dicthtml-fr.zip]({url})
-
----
-
 Installation :
 
-1. Copier le fichier `dicthtml-fr.zip` dans le dossier `.kobo/dict/` de la liseuse.
-2. Redémarrer la liseuse.
+1. Copier le fichier [dicthtml-fr.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/dict/` de la liseuse.
+2. **Redémarrer** la liseuse.
 """
 
     try:
@@ -39,11 +35,10 @@ Installation :
 
         # 1: URL name
         # 2: URL link
-        # 3: installation process
-        assert desc.count("dicthtml-fr.zip") == 3
+        assert desc.count("dicthtml-fr.zip") == 2
 
         last_line = desc.splitlines()[-1]
-        assert last_line.startswith("<sub>Mis à jour le 202")
+        assert last_line.startswith("<sub>Mis à jour le 20")
         assert last_line.endswith("</sub>")
     finally:
         (output_dir / "words.count").unlink()

@@ -287,14 +287,10 @@ release_description = """\
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 
-:arrow_right: Download: [dicthtml-{locale}.zip]({url})
-
----
-
 Installation:
 
-1. Copy the `dicthtml-{locale}.zip` file into the `.kobo/dict/` folder of the reader.
-2. Restart the reader.
+1. Copy the [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) file into the `.kobo/dict/` folder of the reader.
+2. **Restart** the reader.
 
 <sub>Updated on {creation_date}</sub>
 """

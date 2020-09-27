@@ -100,14 +100,10 @@ release_description = """\
 Les paraules compten: {words_count}
 Abocador Viccionari: {dump_date}
 
-:arrow_right: Descarregar: [dicthtml-{locale}.zip]({url})
-
----
-
 Instal·lació:
 
-1. Copieu el fitxer `dicthtml-{locale}.zip` a la carpeta `.kobo/dict/` del lector.
-2. Reinicieu el lector.
+1. Copieu el fitxer [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) a la carpeta `.kobo/dict/` del lector.
+2. **Reinicieu** el lector.
 
 <sub>Actualitzat el {creation_date}</sub>
 """
