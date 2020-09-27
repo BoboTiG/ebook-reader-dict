@@ -5,6 +5,7 @@
 *.zip
 data/*/words.*
 data/*/tmp
+tests/data/*/INSTALL.txt
 tests/data/*/words.*
 tests/data/*/tmp
 
