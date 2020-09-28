@@ -3,6 +3,7 @@
 *.json
 *.xml
 *.zip
+data/*/INSTALL.txt
 data/*/words.*
 data/*/tmp
 tests/data/*/INSTALL.txt
