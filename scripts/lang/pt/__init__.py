@@ -123,6 +123,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Do russo <i>ко́шка</i> (<i>kóška</i>) "gato"'
         >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
         "Do tupi <i>ïsa'ub</i> (<i>formiga mestra</i>)."
+
+        >>> last_template_handler(["unknown", "test"], "pt")
+        '<i>(Unknown)</i>'
     """
     from collections import defaultdict
 

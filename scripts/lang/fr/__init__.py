@@ -731,6 +731,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Composé de δῆμος, <i>dêmos</i> (« peuple ») et de ἀγωγός, <i>agōgós</i> (« guide »), littéralement « celui qui guide le peuple »'
         >>> last_template_handler(["composé de", "anti-", "quark", "lang=en"], "fr")
         'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
+        >>> last_template_handler(["composé de", "anti-", "quark", "sens=quarks au rebut"], "fr")
+        'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>, littéralement « quarks au rebut »'
         >>> last_template_handler(["composé de", "anti-", "quark", "lang=en", "m=1", "f=1"], "fr")
         'Dérivée de <i>quark</i> avec le préfixe <i>anti-</i>'
         >>> last_template_handler(["composé de", "clear", "-ly", "lang=en", "m=1"], "fr")

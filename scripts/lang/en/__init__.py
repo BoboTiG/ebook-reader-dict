@@ -100,9 +100,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["label", "en" , "Australia", "slang"], "en")
+        >>> last_template_handler(["label", "en" , "Australia", "slang", "nocat=1"], "en")
         '<i>(Australia, slang)</i>'
-
         >>> last_template_handler(["lb", "en" , "Australia"], "en")
         '<i>(Australia)</i>'
         >>> last_template_handler(["lb", "en" , "Australia", "or", "foobar"], "en")
@@ -113,11 +112,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '<i>(foobar Australia, foobar)</i>'
         >>> # last_template_handler(["lb", "en" , "roa-lor"], "en")
         >>> # '<i>(Lorrain)</i>'
-
         >>> last_template_handler(["lbl", "en" , "transitive"], "en")
         '<i>(transitive)</i>'
 
-        >>> last_template_handler(["alt form", "enm" , "theen"], "en")
+        >>> last_template_handler(["alternative form of", "enm" , "theen"], "en")
         '<i>Alternative form of</i> <b>theen</b>'
         >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
         '<i>Alternative form of</i> <b>a</b> (indefinite article)'
@@ -183,12 +181,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                     res += f" (“{detail}”)"
                 elif cat != "nodot":
                     res += f" ({detail})"
-            else:
-                res += f" ({last})"
         return res
 
-    # Handle the {{lb}} template
-    if tpl in ("lb", "lbl", "label"):
+    # Handle the {{label}} template
+    if tpl in ("label", "lb", "lbl"):
         if len(parts) == 2:
             return term(parts[1])
 

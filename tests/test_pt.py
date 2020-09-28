@@ -23,6 +23,17 @@ from scripts.utils import clean
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
         ),
         (
+            "baiano",
+            "",
+            "",
+            "Derivado de Bahia, mais o sufixo ano, com perda do H.",
+            [
+                "do Estado da Bahia, Brasil",
+                "natural ou habitante do Estado da Bahia, Brasil",
+                "<i>(São Paulo, Brasil; popular; pejorativo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
+            ],
+        ),
+        (
             "cabrum",
             "",
             "mf",

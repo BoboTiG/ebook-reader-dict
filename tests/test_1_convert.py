@@ -26,6 +26,8 @@ def test_main():
             "ba.html",
             "co.html",
             "de.html",
+            "du.html",
+            "ef.html",
             "em.html",
             "en.html",
             "gr.html",

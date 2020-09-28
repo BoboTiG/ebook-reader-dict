@@ -1,0 +1,43 @@
+={{-pt-}}=
+==Adjetivo==
+{{flex.pt|ms=baiano|mp=baianos|fs=baiana|fp=baianas}}
+{{paroxítona|bai|a|no}}
+# do Estado da [[Bahia]], [[Brasil]]
+
+===Expressões===
+* '''[[alqueire baiano]]''': 
+
+==Substantivo==
+{{paroxítona|bai|a|no}}
+# [[natural]] ou [[habitante]] do Estado da [[Bahia]], [[Brasil]]
+# {{escopo|São Paulo, Brasil; popular; pejorativo}} [[pessoa]] que se [[vestir|veste]] de maneira incomum ou [[brega]]; fora da moda
+
+===Expressões===
+* '''[[rodar a baiana]]''': 
+
+== Etimologia ==
+Derivado de [[Bahia]], mais o sufixo ano, com perda do H.
+
+=={{pronúncia|pt}}==
+===Brasil===
+====Paulistana, Caipira e Carioca====
+* [[AFI]]: /baj.ˈjã.nu/
+* [[X-SAMPA]]: /baj."6.nu/
+
+==Ver também==
+===No Wikcionário===
+{{verTambém.Ini}}
+* [[abaianado]]
+* [[abaianar]]
+{{verTambém.NovaColuna}}
+* [[baianada]]
+* [[gelo-baiano]]
+{{verTambém.Fim}}
+
+===Na Wikipédia===
+* [[:w:Bahia|Bahia]]
+
+[[Categoria:Adjetivo (Português)]]
+[[Categoria:Substantivo (Português)]]
+[[Categoria:Gentílico (Português)]]
+
