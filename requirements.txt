@@ -2,4 +2,4 @@ setuptools>=36.2.1
 cachetools==4.1.1
 marisa_trie==0.7.5
 requests==2.24.0
-wikitextparser==0.45.1
+wikitextparser==0.45.2
