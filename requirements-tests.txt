@@ -4,6 +4,6 @@ flake8==3.8.3
 mypy==0.782
 pdoc3==0.9.1
 pydocstyle==5.1.1
-pytest==6.1.0
+pytest==6.1.1
 pytest-cov==2.10.1 
 responses==0.12.0
