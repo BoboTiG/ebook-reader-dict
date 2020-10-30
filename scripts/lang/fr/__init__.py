@@ -327,6 +327,7 @@ templates_italic = {
     "indus": "Industrie",
     "info": "Informatique",
     "injur": "Injurieux",
+    "îles": "Géographie",
     "insectes": "Entomologie",
     "insultes": "Insulte",
     "intrans": "Intransitif",
