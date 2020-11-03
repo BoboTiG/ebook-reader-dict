@@ -566,6 +566,8 @@ templates_multi = {
     "pron": r'f"\\{parts[1]}\\"',
     # {{pron-API|/j/}}
     "pron-API": "parts[1]",
+    # {{provinces|fr|d’Espagne}}
+    "provinces": "term('Géographie')",
     # {{RFC|5322}}
     "RFC": "sentence(parts)",
     # {{région}}
