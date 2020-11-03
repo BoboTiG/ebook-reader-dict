@@ -672,6 +672,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["dénominal", "lang=fr"], "fr")
+        'dénominal'
+        >>> last_template_handler(["dénominal", "de=psychoanalyze", "lang=fr", "m=1"], "fr")
+        'Dénominal de <i>psychoanalyze</i>'
+
         >>> last_template_handler(["déverbal", "lang=fr"], "fr")
         'déverbal'
         >>> last_template_handler(["déverbal", "de=peko", "lang=eo", "m=0"], "fr")
@@ -782,8 +787,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     tpl = template[0]
     parts = list(template[1:])
 
-    # Handle {{déverbal}} template
-    if tpl == "déverbal":
+    # Handle {{déverbal}} and {{dénominal}} template
+    if tpl in ("dénominal", "déverbal"):
         data = defaultdict(str)
         for part in parts.copy():
             if "=" in part:
@@ -791,7 +796,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 data[key] = value
                 parts.pop(parts.index(part))
 
-        phrase = "déverbal"
+        phrase = tpl
         if data["m"] == "1":
             phrase = phrase.capitalize()
 
