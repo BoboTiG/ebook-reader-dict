@@ -549,6 +549,8 @@ templates_multi = {
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
     "lexique": "term(', '.join(capitalize(p) for p in parts[1:-1]))",
+    # {{localités|fr|d’Espagne}}
+    "localités": "term('Géographie')",
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}
