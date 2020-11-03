@@ -6252,5 +6252,6 @@ langs["latin ecclésiastique"] = "latin ecclésiastique"  # 2020-07-20
 langs["latin impérial"] = "latin impérial"  # 2020-07-20
 langs["latin médiéval"] = "latin médiéval"  # 2020-07-20
 langs["latin populaire"] = "latin populaire"  # 2020-07-20
+langs["lat pop"] = "latin populaire"  # 2020-11-03
 langs["latin tardif"] = "latin tardif"  # 2020-07-20
 langs["latin vulgaire"] = "latin vulgaire"  # 2020-07-20
