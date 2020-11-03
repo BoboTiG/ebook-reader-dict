@@ -327,7 +327,6 @@ templates_italic = {
     "indus": "Industrie",
     "info": "Informatique",
     "injur": "Injurieux",
-    "îles": "Géographie",
     "insectes": "Entomologie",
     "insultes": "Insulte",
     "intrans": "Intransitif",
@@ -540,6 +539,9 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
+    # {{îles|fr}}
+    # {{îles|fr|des Antilles}}
+    "îles": "term('Géographie')",
     # {{in|5}}
     "in": "subscript(parts[1])",
     # {{indice|n}}
