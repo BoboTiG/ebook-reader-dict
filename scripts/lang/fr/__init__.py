@@ -519,6 +519,8 @@ templates_multi = {
     "cf": "f\"→ voir{' ' + italic(parts[1]) if len(parts) > 1 else ''}\"",
     # {{circa|1150}}
     "circa": "term('c. ' + parts[1])",
+    # {{créatures|fr|mythologiques}
+    "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
     # {{date}}
