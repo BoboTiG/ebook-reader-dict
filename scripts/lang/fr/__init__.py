@@ -672,6 +672,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["déverbal", "lang=fr"], "fr")
+        'déverbal'
+        >>> last_template_handler(["déverbal", "de=peko", "lang=eo", "m=0"], "fr")
+        'déverbal de <i>peko</i>'
+        >>> last_template_handler(["déverbal", "de=accueillir", "lang=fr", "m=1"], "fr")
+        'Déverbal de <i>accueillir</i>'
+
         >>> last_template_handler(["recons", "maruos"], "fr")
         '*<i>maruos</i>'
         >>> last_template_handler(["recons", "maruos", "gaul"], "fr")
@@ -775,6 +782,26 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     tpl = template[0]
     parts = list(template[1:])
 
+    # Handle {{déverbal}} template
+    if tpl == "déverbal":
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+
+        phrase = "déverbal"
+        if data["m"] == "1":
+            phrase = phrase.capitalize()
+
+        if data["de"]:
+            if data["nolien"] != "1":
+                phrase += f" {data['texte'] or 'de'}"
+            phrase += f" {italic(data['de'])}"
+
+        return phrase
+
     # Handle {{étyl}}, {{étylp}} and {{calque}} templates
     if tpl in ("étyl", "étylp", "calque"):
         parts = [p.replace("1=", "").replace("2=", "") for p in parts]
@@ -784,7 +811,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         # The lang name
         phrase = langs[simple_parts.pop(0)]
 
-        data = {"mot": "", "sens": "", "tr": ""}
+        data = defaultdict(str)
         for part in kw_parts:
             key, value = part.split("=", 1)
             data[key] = value
