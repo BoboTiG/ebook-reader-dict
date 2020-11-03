@@ -108,9 +108,6 @@ sections = (
     "{{S|verbe|fr}",
 )
 
-# Mot-clefs permettant de sélectionner la bonne étymologie
-etyl_keywords = ("étyl",)
-
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
     "pluriel d",

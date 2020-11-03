@@ -27,7 +27,6 @@ from .constants import BASE_URL, DUMP_URL
 from .lang import (
     definitions_to_ignore,
     genre,
-    etyl_keywords,
     etyl_section,
     head_sections,
     pronunciation,
@@ -234,10 +233,9 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             for ignore_me in definitions_to_ignore[locale]
         ):
             continue
-        if any(keyword in etymology for keyword in etyl_keywords[locale]):
-            etyl = clean(word, etymology, locale)
-            if etyl:
-                return etyl
+        etyl = clean(word, etymology, locale)
+        if etyl:
+            return etyl
     return ""
 
 

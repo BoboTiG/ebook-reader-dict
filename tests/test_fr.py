@@ -51,7 +51,7 @@ from scripts.utils import clean
             "accueil",
             "a.kœj",
             "m",
-            "",
+            "<i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.",
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
                 "Lieu où sont accueillies les personnes.",
@@ -112,12 +112,12 @@ from scripts.utils import clean
                 "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
             ],
         ),
-        ("Bogotanais", "bɔ.ɡɔ.ta.nɛ", "m", "", []),
+        ("Bogotanais", "bɔ.ɡɔ.ta.nɛ", "m", "Du nom Bogota avec le préfixe -ais.", []),
         (
             "corps portant",
             "kɔʁ pɔʁ.tɑ̃",
             "m",
-            "",
+            "Locution composée de <i>corps</i> et de <i>portant</i>.",
             [
                 "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",  # noqa
                 "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",  # noqa
@@ -127,7 +127,7 @@ from scripts.utils import clean
             "DES",
             "",
             "m",
-            "",
+            "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire ».",  # noqa
             [
                 "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",
                 "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à l’importation, est mise à disposition de l’acheteur à bord du navire, au port de destination convenu. Les frais de déchargement sont à la charge de l’acheteur.",  # noqa
@@ -174,7 +174,7 @@ from scripts.utils import clean
             "encyclopædie",
             "ɑ̃.si.klɔ.pe.di",
             "f",
-            "",
+            "→ voir <i>encyclopédie</i>",
             ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
         ),
         (
@@ -224,7 +224,7 @@ from scripts.utils import clean
             "mutiner",
             "my.ti.ne",
             "",
-            "",
+            "Dénominal de <i>mutin</i>.",
             [
                 "Se porter à la sédition, à la révolte.",
                 "Enfant qui se dépite et manque à l’obéissance.",
@@ -235,7 +235,7 @@ from scripts.utils import clean
             "naguère",
             "na.ɡɛʁ",
             "",
-            "",
+            "De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>.",
             [
                 "Récemment ; il y a peu.",
                 "Il y a longtemps. <b>Note :</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
@@ -277,7 +277,7 @@ from scripts.utils import clean
             "sapristi",
             "sa.pʁis.ti",
             "",
-            "",
+            "Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement.",
             ["Pour marquer l’étonnement."],
         ),
         (

@@ -113,15 +113,6 @@ sections = {
     "sv": sv.sections,
 }
 
-etyl_keywords = {
-    "ca": "",
-    "en": "",
-    "es": "",
-    "fr": fr.etyl_keywords,
-    "pt": "",
-    "sv": "",
-}
-
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = {
     "ca": ca.definitions_to_ignore,

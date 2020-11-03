@@ -2,7 +2,7 @@
 
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-: {{siècle|XII}} {{déverbal de|accueillir|lang=fr}}.
+: {{siècle|XII}} {{déverbal|de=accueillir|lang=fr|m=1}}.
 
 === {{S|nom|fr}} ===
 {{fr-rég|a.kœj}}
@@ -21,10 +21,12 @@
 ==== {{S|dérivés}} ====
 {{(}}
 * [[accueil de loisirs]]
+* [[agent d’accueil]]
 * [[émission d’accueil]]
 * [[faire bon accueil]]
 * [[faire mauvais accueil]]
 * [[famille d’accueil]]
+* [[page d’accueil]]
 * [[plage d’accueil]]
 * [[station d’accueil]]
 {{)}}
@@ -80,7 +82,7 @@
 ===== {{S|traductions à trier}} =====
 {{trad-début}}
 * {{T|af|trier}} : {{trad-|af|ontvangs}}, {{trad-|af|tuis}}
-* {{T|de|trier}} : {{trad+|de|Empfang}} {{m}}, {{trad+|de|Annahme}}, {{trad+|de|Aufnahme}}, {{trad+|de|Zusage}}, {{trad-|de|Entgegennahme}}, {{trad+|de|Akzept}}
+* {{T|de|trier}} : {{trad+|de|Empfang|m}}, {{trad+|de|Annahme}}, {{trad+|de|Aufnahme}}, {{trad+|de|Zusage}}, {{trad-|de|Entgegennahme}}, {{trad+|de|Akzept}}
 * {{T|ar|trier}} : {{trad-|ar|istikbale}}
 * {{T|ca|trier}} : {{trad-|ca|acollença}}, {{trad+|ca|acollida}}, {{trad+|ca|acolliment}}, {{trad+|ca|acull}}
 * {{T|es|trier}} : {{trad+|es|acogida}}, {{trad+|es|aceptación}}, {{trad+|es|admisión}}
@@ -101,9 +103,10 @@
 {{trad-fin}}
 
 === {{S|prononciation}} ===
+* {{pron-rimes|a.kœj|fr}}
 * {{pron|a.kœj|fr}}
-** {{écouter|lang=fr|France (Paris)|titre=un accueil|ɛ̃.n‿akœj|audio=Fr-accueil.ogg}}
-* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-accueil.wav}}
+** {{écouter|lang=fr|France (Paris)|titre=un accueil|ɛ̃.n‿a.kœj|audio=Fr-accueil.ogg}}
+** {{écouter|lang=fr|France (Vosges)|a.kœj|audio=LL-Q150 (fra)-LoquaxFR-accueil.wav}}
 
 === {{S|anagrammes}} ===
 * [[acicule]]
@@ -115,4 +118,3 @@
 * {{R:TLFi}}
 * {{Import:DAF8}}
 * Petit Robert 1, dictionnaire de la langue française,1990.
-
