@@ -529,6 +529,8 @@ templates_multi = {
     # XIX{{e}}
     # {{e|-1}}
     "e": "superscript(parts[1] if len(parts) > 1 else 'e')",
+    # XIV{{exp|e}}
+    "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{er}}
     "er": "superscript('er')",
     # {{emploi|au passif}}
