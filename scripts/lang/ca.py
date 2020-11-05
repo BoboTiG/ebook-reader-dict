@@ -1,4 +1,5 @@
 """Catalan language."""
+from typing import Tuple
 
 # Regex to find the pronunciation
 pronunciation = r"{ca-pron\|(?:or=)?/([^/\|]+)"
@@ -14,6 +15,7 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-ca-}}", "{{-mul-}}")
+etyl_section = "{{-etimologia-"
 sections = (
     "Abreviatura",
     "Acrònim",
@@ -33,6 +35,7 @@ sections = (
     "Sufix",
     "Símbol",
     "Verb",
+    etyl_section,
 )
 
 # Some definitions are not good to keep (plural, genre, ... )
@@ -86,13 +89,56 @@ templates_multi = {
     # {{q|tenir bona planta}}
     "q": "term(parts[-1])",
     # {{terme|it|come}}
-    "terme": "parts[-1]",
+    #"terme": "f\"{italic(parts[2])}\"",
+    "etim-s": "'Segle ' + parts[2]",
 }
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
     "m": "m.",
 }
+
+
+def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["terme", "it", "come"], "ca")
+        '<i>come</i>'
+
+    """
+    from collections import defaultdict
+
+    from .defaults import last_template_handler as default
+    from ..user_functions import century, italic, term
+
+    tpl = template[0]
+    parts = list(template[1:])
+
+    # Handle {{terme}} template
+    if tpl == "terme":
+        data = defaultdict(str)
+        for part in parts.copy():
+            if "=" in part:
+                key, value = part.split("=", 1)
+                data[key] = value
+                parts.pop(parts.index(part))
+        phrase = ""
+        if len(parts) > 2 and not "=" in parts[2]:
+            phrase = f"{italic(parts[2])}"
+        else:
+            phrase = f"{italic(parts[1])}"
+        if data['trad'] and data['trans']:
+            phrase += f" ({italic(data['trans'])}, «{data['trad']}»)"
+        elif data['trad']:
+            phrase += f" («{data['trad']}»)"
+        elif data['trans']:
+            phrase += f" ({italic(data['trans'])})"
+        if data['lit']:
+            phrase += f" (literalment «{data['lit']}»)"
+        return phrase
+
+    return default(template, locale)
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca

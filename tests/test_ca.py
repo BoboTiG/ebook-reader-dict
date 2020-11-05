@@ -192,8 +192,12 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{marca-nocat|ca|occidental|balear}}", "<i>(occidental, balear)</i>"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
-        ("{{terme|it|come}}", "come"),
-        ("{{terme|ca|seu|el seu}}", "el seu"),
+        ("{{terme|it|come}}", "<i>come</i>"),
+        ("{{terme|ca|seu|el seu}}", "<i>el seu</i>"),
+        ("{{terme|la|diēs Iovis|trad=dia de Júpiter}}", "<i>diēs Iovis</i> («dia de Júpiter»)"),
+        ("{{terme|grc|λόγος|trans=lógos}}", "<i>λόγος</i> (<i>lógos</i>)"),
+        ("{{terme|grc|λόγος|trans=lógos|trad=paraula}}", "<i>λόγος</i> (<i>lógos</i>, «paraula»)"),
+        ("{{terme|en|[[cheap]] as [[chips]]|lit=tant [[barat]] com les [[patates]]}}", "<i>cheap as chips</i> (literalment «tant barat com les patates»)")
     ],
 )
 def test_clean_template(wikicode, expected):
