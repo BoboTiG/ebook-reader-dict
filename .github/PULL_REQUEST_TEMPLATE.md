@@ -1,3 +1,4 @@
+- [ ] Fixes #
 - [ ] Tests added/updated.
 - [ ] `./check.sh` run and eventual issues fixed.
 - [ ] Updated CONTRIBUTORS.md, if not already done in the past.
