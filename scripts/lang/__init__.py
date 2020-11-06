@@ -168,7 +168,7 @@ templates_italic = {
 
 # Templates more complex to manage. More work is needed.
 # The code on the right will be passed to a function that will execute it.
-# It is possible to use any Python fonction and ones defined in user_functions.py.
+# It is possible to use any Python function and ones defined in user_functions.py.
 #
 # Available arguments:
 #   - *tpl* (string) containing the template name.

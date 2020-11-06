@@ -21,7 +21,7 @@ WORD_FORMAT = (
     '<p style="text-align:right"><i>{source}</i></p>'
     # And add a line break for when there is more that one word displayed
     "<br/>"
-    # This is a hell of a hack to hide the harcoded dict name (!)
+    # This is a hell of a hack to hide the hardcoded dict name (!)
     # See https://github.com/BoboTiG/ebook-reader-dict/issues/33
     '<span class="e"><style>.e,.e+*{{display:none}}</style></span>'
     # Do not forget to close tag

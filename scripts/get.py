@@ -58,14 +58,14 @@ Sections = Dict[str, wtp.Section]
 
 
 def callback_progress(text: str, total: int, last: bool) -> None:
-    """Progression callback. USed when fetching the Wiktionary dump and when extracting it."""
+    """Progression callback. Used when fetching the Wiktionary dump and when extracting it."""
     msg = f"{text}OK [{total:,} bytes]\n" if last else f"{text}{total:,} bytes"
     print(f"\r{msg}", end="", flush=True)
 
 
 def callback_progress_ci(text: str, total: int, last: bool) -> None:  # pragma: nocover
     """
-    Progression callback. USed when fetching the Wiktionary dump and when extracting it.
+    Progression callback. Used when fetching the Wiktionary dump and when extracting it.
     This version is targeting the CI, it prints less lines and it is easier to follow.
     """
     msg = f". OK [{total:,} bytes]\n" if last else "."
@@ -508,7 +508,7 @@ def main(locale: str, word: Optional[str] = "", raw: bool = False) -> int:
     snapshot = snapshots[-1]
 
     # The output style is different if run from a workflow
-    # Note: "CI"is automatically set in every GitHub workflow
+    # Note: "CI" is automatically set in every GitHub workflow
     # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables
     cb = callback_progress_ci if "CI" in os.environ else callback_progress
 
