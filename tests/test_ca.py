@@ -192,6 +192,7 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{marca-nocat|ca|occidental|balear}}", "<i>(occidental, balear)</i>"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
+        ("{{etim-s|ca|XIV}}", "segle XIV"),
     ],
 )
 def test_clean_template(wikicode, expected):
