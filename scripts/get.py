@@ -283,7 +283,7 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
                 etyl_data_section = etyl_l_section
                 break
     if etyl_data:
-        sections.append(wtp.Section("=== "+etyl_data_section+" ===\n" + etyl_data))
+        sections.append(wtp.Section("=== " + etyl_data_section + " ===\n" + etyl_data))
 
     # Filter on interesting sections
     for section in parsed.get_sections(include_subsections=True, level=level):

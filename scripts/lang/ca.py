@@ -15,8 +15,8 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-ca-}}", "{{-mul-}}")
-etyl_section = "{{-etimologia-"
-sections = (
+etyl_section = ["{{-etimologia-", "{{etim-lang"]
+l_sections = [
     "Abreviatura",
     "Acrònim",
     "Adjectiu",
@@ -35,8 +35,10 @@ sections = (
     "Sufix",
     "Símbol",
     "Verb",
-    etyl_section,
-)
+]
+
+l_sections.extend(etyl_section)
+sections = tuple(l_sections)
 
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = (
@@ -55,6 +57,7 @@ definitions_to_ignore = (
 templates_ignored = (
     "manquen accepcions",
     "sense accepcions",
+    "-etimologia-",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -88,8 +91,7 @@ templates_multi = {
     "marca-nocat": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
     # {{q|tenir bona planta}}
     "q": "term(parts[-1])",
-    # {{terme|it|come}}
-    #"terme": "f\"{italic(parts[2])}\"",
+    #{{etim-s|ca|XIV}}
     "etim-s": "'Segle ' + parts[2]",
 }
 
@@ -98,6 +100,53 @@ templates_other = {
     "m": "m.",
 }
 
+# Language names for etim-lang template
+# see https://ca.wiktionary.org/wiki/Categoria:Etimologia_en_catal%C3%A0
+# 50 categories at last update
+language_names = {
+    "de": "alemany",
+    "goh": "alt alemany",
+    "ber": "amazic",
+    "en": "anglès",
+    "xaa": "àrab andalusí",
+    "ar": "àrab",
+    "an": "aragonès",
+    "eu": "basc",
+    "rmq": "caló",
+    "es": "castellà",
+    "roa-oca": "català medieval",
+    "cel": "cèltic",
+    "da": "danès",
+    "fro": "francès antic",
+    "fr": "francès",
+    "gl": "gallec",
+    "gem": "germànic",
+    "got": "gòtic",
+    "grc": "grec antic",
+    "he": "hebreu",
+    "hbo": "hebreu antic",
+    "hi": "hindi",
+    "hu": "hongarès",
+    "xib": "ibèric",
+    "it": "italià",
+    "ja": "japonès",
+    "ku": "kurd",
+    "la": "llatí",
+    "mk": "macedoni",
+    "ms": "malai",
+    "nl": "neerlandès",
+    "no": "noruec",
+    "oc": "occità",
+    "pro": "occità antic",
+    "pt": "portuguès",
+    "ru": "rus",
+    "sa": "sànscrit",
+    "sc": "sard",
+    "scn": "sicilià",
+    "sv": "suec",
+    "th": "tai",
+    "zh": "xinès",
+}
 
 def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
@@ -114,7 +163,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     tpl = template[0]
     parts = list(template[1:])
-
     # Handle {{terme}} template
     if tpl == "terme":
         data = defaultdict(str)
@@ -136,6 +184,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase += f" ({italic(data['trans'])})"
         if data['lit']:
             phrase += f" (literalment «{data['lit']}»)"
+        return phrase
+    elif tpl == "etim-lang":
+        phrase = ""
+        if parts[0] in language_names:
+            if language_names[parts[0]].startswith(("a", "i", "o", "u", "h")):
+                phrase += "De l'"
+            else:
+                phrase += "Del"
+            phrase += f" {language_names[parts[0]]} {italic(parts[2])}"
         return phrase
 
     return default(template, locale)
