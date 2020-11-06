@@ -378,7 +378,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     sections = etyl_section[locale]
-    if not isinstance(etyl_section[locale], list):
+    if not isinstance(sections, list):
         sections = [sections]  # type: ignore
     for section in sections:
         etyl_data = parsed_sections.pop(section, [])

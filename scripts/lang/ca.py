@@ -1,4 +1,5 @@
 """Catalan language."""
+
 from typing import Tuple
 
 # Regex to find the pronunciation
@@ -35,9 +36,10 @@ l_sections = [
     "Sufix",
     "Símbol",
     "Verb",
+    *etyl_section,
 ]
 
-l_sections.extend(etyl_section)
+
 sections = tuple(l_sections)
 
 # Some definitions are not good to keep (plural, genre, ... )
@@ -164,7 +166,17 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     tpl = template[0]
     parts = list(template[1:])
     # Handle {{terme}} template
-    if tpl == "terme":
+    if tpl == "etim-lang":
+        phrase = ""
+        if parts[0] in language_names:
+            if language_names[parts[0]].startswith(("a", "i", "o", "u", "h")):
+                phrase += "De l'"
+            else:
+                phrase += "Del"
+            phrase += f" {language_names[parts[0]]} {italic(parts[2])}"
+        return phrase
+
+    elif tpl == "terme":
         data = defaultdict(str)
         for part in parts.copy():
             if "=" in part:
@@ -172,7 +184,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 data[key] = value
                 parts.pop(parts.index(part))
         phrase = ""
-        if len(parts) > 2 and not "=" in parts[2]:
+        if len(parts) > 2 and "=" not in parts[2]:
             phrase = f"{italic(parts[2])}"
         else:
             phrase = f"{italic(parts[1])}"
@@ -185,16 +197,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if data['lit']:
             phrase += f" (literalment «{data['lit']}»)"
         return phrase
-    elif tpl == "etim-lang":
-        phrase = ""
-        if parts[0] in language_names:
-            if language_names[parts[0]].startswith(("a", "i", "o", "u", "h")):
-                phrase += "De l'"
-            else:
-                phrase += "Del"
-            phrase += f" {language_names[parts[0]]} {italic(parts[2])}"
-        return phrase
-
     return default(template, locale)
 
 # Release content on GitHub
