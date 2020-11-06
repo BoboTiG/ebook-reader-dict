@@ -194,7 +194,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
 
     etyl: str
 
-    if locale == "en":
+    if locale == "ca":
+        print(parsed_section.contents)
+        return clean(word, parsed_section.contents, locale)
+
+    elif locale == "en":
         items = [
             item
             for item in parsed_section.get_lists(pattern=("",))[0].items
@@ -205,11 +209,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             if etyl:
                 return etyl
 
-    if locale == "es":
+    elif locale == "es":
         etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         return clean(word, etyl, locale)
 
-    if locale == "pt":
+    elif locale == "pt":
         section_title = parsed_section.title.strip()
         if section_title == "{{etimologia|pt}}":
             try:
@@ -223,10 +227,6 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             except IndexError:
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         return clean(word, etyl, locale)
-
-    if locale == "ca":
-        print(parsed_section.contents)
-        return clean(word, parsed_section.contents, locale)
 
     etymologies = chain.from_iterable(
         section.items for section in parsed_section.get_lists()
@@ -381,7 +381,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     sections = etyl_section[locale]
-    if not isinstance(etyl_section[locale], list):
+    if not isinstance(sections, list):
         sections = [sections]  # type: ignore
     for section in sections:
         etyl_data = parsed_sections.pop(section, [])
