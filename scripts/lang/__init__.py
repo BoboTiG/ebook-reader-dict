@@ -99,7 +99,7 @@ head_sections = {
     "sv": sv.head_sections,
 }
 etyl_section = {
-    "ca": "",
+    "ca": ca.etyl_section,
     "en": en.etyl_section,
     "es": es.etyl_section,
     "fr": fr.etyl_section,

@@ -5,13 +5,20 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, definitions",
+    "word, pronunciation, genre, etymology, definitions",
     [
-        ("-ass-", "as", "", ["Infix que afegeix un matís augmentatiu."]),
+        (
+            "-ass-",
+            "as",
+            "",
+            "Del sufix <i>-às</i> amb valor augmentatiu.",
+            ["Infix que afegeix un matís augmentatiu."],
+        ),
         (
             "-itzar",
             "",
             "",
+            "Del llatí <i>-izare</i>, provinent del grec antic <i>-ίζειν</i>.",
             [
                 "Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.",  # noqa
             ],
@@ -20,14 +27,16 @@ from scripts.utils import clean
             "AFI",
             "ˈa.fi",
             "",
+            "sigles",
             [
                 "(<i>m</i>) Alfabet Fonètic Internacional.",
                 "(<i>f</i>) Associació Fonètica Internacional.",
             ],
         ),
-        ("avui", "", "", ["En el dia actual.", "Metafòricament, en el present."]),
+        ("avui", "", "", "", ["En el dia actual.", "Metafòricament, en el present."]),
         (
             "bio-",
+            "",
             "",
             "",
             ['Element que entra en la composició de paraules amb el sentit de "vida".'],
@@ -36,6 +45,7 @@ from scripts.utils import clean
             "cap",
             "kap",
             "m",
+            "Del llatí <i>caput</i>.",
             [
                 "<i>(anatomia)</i> Part superior del cos d'un animal.",
                 "Cervell.",
@@ -59,6 +69,7 @@ from scripts.utils import clean
             "cas",
             "ˈkas",
             "m",
+            "Del llatí <i>casus</i>.",
             [
                 "Situació particular que es produeix entre les diverses possibles.",
                 "Objecte d'estudi d'alguna disciplina.",
@@ -71,6 +82,7 @@ from scripts.utils import clean
             "Castell",
             "",
             "",
+            "De <i>castell</i>.",
             [
                 "Diversos topònims, especialment:",
                 (
@@ -90,6 +102,7 @@ from scripts.utils import clean
             "català",
             "",
             "m",
+            "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»).",
             [
                 "Relatiu o pertanyent a Catalunya, als seus habitants o a la llengua catalana.",
                 "Relatiu o pertanyent als Països Catalans o als seus habitants.",
@@ -104,6 +117,7 @@ from scripts.utils import clean
             "ch",
             "",
             "",
+            "",
             [
                 "Codi de llengua ISO 639-1 del chamorro.",
                 "<i>(arcaisme)</i> Especialment a final de mot, dígraf amb una consonant muda per remarcar la grafia d’una oclusiva velar sorda [k] i no pas una de sonora [ɡ].",  # noqa
@@ -113,6 +127,7 @@ from scripts.utils import clean
             "compte",
             "",
             "m",
+            "del llatí <i>compŭtus</i>, segle XIII.",
             [
                 "Acte de comptar.",
                 "Cura, atenció.",
@@ -125,6 +140,7 @@ from scripts.utils import clean
             "disset",
             "",
             "m",
+            "Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»).",
             [
                 "<i>(cardinal)</i> Nombre enter situat entre el setze i el divuit.",
                 "<i>(valor ordinal)</i> Dissetè, dissetena.",
@@ -136,6 +152,7 @@ from scripts.utils import clean
             "el",
             "əɫ",
             "f",
+            "",
             [
                 "Codi de llengua ISO 639-1 del grec modern.",
                 "Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.",  # noqa
@@ -144,13 +161,14 @@ from scripts.utils import clean
                 "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
         ),
-        ("Mn.", "", "", ["mossèn com a tractament davant el nom"]),
-        ("PMF", "ˌpeˈe.məˌe.fə", "", ["Preguntes Més Freqüents."]),
-        ("pen", "", "", []),
+        ("Mn.", "", "", "", ["mossèn com a tractament davant el nom"]),
+        ("PMF", "ˌpeˈe.məˌe.fə", "", "", ["Preguntes Més Freqüents."]),
+        ("pen", "", "", "", []),
         (
             "si",
             "si",
             "m",
+            "",
             [
                 "Codi de llengua ISO 639-1 del singalès.",
                 "Cavitat interna del cos",
@@ -161,13 +179,14 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_parse_word(word, pronunciation, genre, definitions, page):
+def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
     """Test the pronunciation, genre and definitions getters."""
     code = page(word, "ca")
     details = parse_word(word, code, "ca", force=True)
     assert pronunciation == details.pronunciation
     assert genre == details.genre
     assert definitions == details.definitions
+    assert etymology == details.etymology
 
 
 @pytest.mark.parametrize(

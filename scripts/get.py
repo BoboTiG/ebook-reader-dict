@@ -194,7 +194,10 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
 
     etyl: str
 
-    if locale == "en":
+    if locale == "ca":
+        return clean(word, parsed_section.contents, locale)
+
+    elif locale == "en":
         items = [
             item
             for item in parsed_section.get_lists(pattern=("",))[0].items
@@ -205,11 +208,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             if etyl:
                 return etyl
 
-    if locale == "es":
+    elif locale == "es":
         etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         return clean(word, etyl, locale)
 
-    if locale == "pt":
+    elif locale == "pt":
         section_title = parsed_section.title.strip()
         if section_title == "{{etimologia|pt}}":
             try:
@@ -263,9 +266,28 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     sections = []
+    level = section_level[locale]
+
+    # add fake section for etymology if in the leading part
+    etyl_data = ""
+    etyl_data_section = ""
+    etyl_l_sections = etyl_section[locale]
+    leading_lines = ""
+    leading_part = parsed.get_sections(include_subsections=False, level=level)
+    if leading_part:
+        leading_lines = leading_part[0].contents.split("\n")
+    if not isinstance(etyl_l_sections, list):
+        etyl_l_sections = [etyl_l_sections]  # type: ignore
+    for etyl_l_section in etyl_l_sections:
+        for line in leading_lines:
+            if line.startswith(etyl_l_section):
+                etyl_data = line
+                etyl_data_section = etyl_l_section
+                break
+    if etyl_data:
+        sections.append(wtp.Section(f"=== {etyl_data_section} ===\n{etyl_data}"))
 
     # Filter on interesting sections
-    level = section_level[locale]
     for section in parsed.get_sections(include_subsections=True, level=level):
         title = section.title.replace(" ", "").lower()
         if title not in head_sections[locale]:
@@ -358,7 +380,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     sections = etyl_section[locale]
-    if not isinstance(etyl_section[locale], list):
+    if not isinstance(sections, list):
         sections = [sections]  # type: ignore
     for section in sections:
         etyl_data = parsed_sections.pop(section, [])
