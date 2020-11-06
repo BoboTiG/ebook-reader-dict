@@ -215,7 +215,7 @@ templates_warning_skip = {
 # When a template is not handled by any previous template handlers,
 # this method will be called with *parts* as argument.
 last_template_handler = {
-    "ca": defaults.last_template_handler,
+    "ca": ca.last_template_handler,
     "en": en.last_template_handler,
     "es": es.last_template_handler,
     "fr": fr.last_template_handler,
