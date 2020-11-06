@@ -2,6 +2,7 @@
 import re
 
 from . import ca, defaults, en, es, fr, pt, sv
+from .ca.langs import langs as CA
 from .en.langs import langs as EN
 from .es.langs import langs as ES
 from .fr.langs import langs as FR
@@ -9,6 +10,7 @@ from .pt.langs import langs as PT
 
 # A list of all languages translated into different locales
 all_langs = {
+    "ca": CA,
     "en": EN,
     "es": ES,
     "fr": FR,
