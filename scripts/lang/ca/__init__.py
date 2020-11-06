@@ -16,6 +16,7 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-ca-}}", "{{-mul-}}")
+etyl_section = ["{{-etimologia-", "{{-etim-", "{{etim-lang"]
 sections = (
     "Abreviatura",
     "Acrònim",
@@ -35,6 +36,7 @@ sections = (
     "Sufix",
     "Símbol",
     "Verb",
+    *etyl_section,
 )
 
 # Some definitions are not good to keep (plural, genre, ... )
@@ -51,10 +53,7 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = (
-    "manquen accepcions",
-    "sense accepcions",
-)
+templates_ignored = ("manquen accepcions", "sense accepcions", "-etimologia-", "-etim-")
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
