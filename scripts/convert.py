@@ -92,7 +92,7 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
     print(f" [{len(groups.keys()):,}]", flush=True)
 
     # Then create the special "words" file
-    to_compress.append(craft_index(sorted(wordlist), output_dir / "tmp"))
+    to_compress.append(craft_index(wordlist, output_dir / "tmp"))
 
     # Add unrelated files, just for history
     to_compress.append(create_install(locale, output_dir))
