@@ -192,8 +192,6 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{marca-nocat|ca|occidental|balear}}", "<i>(occidental, balear)</i>"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
-        ("{{terme|it|come}}", "come"),
-        ("{{terme|ca|seu|el seu}}", "el seu"),
     ],
 )
 def test_clean_template(wikicode, expected):
