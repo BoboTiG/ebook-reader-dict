@@ -224,6 +224,10 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         return clean(word, etyl, locale)
 
+    if locale == "ca":
+        print(parsed_section.contents)
+        return clean(word, parsed_section.contents, locale)
+
     etymologies = chain.from_iterable(
         section.items for section in parsed_section.get_lists()
     )
@@ -263,9 +267,28 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     sections = []
+    level = section_level[locale]
+
+    # add fake section for etymology if in the leading part
+    etyl_data = ""
+    etyl_data_section = ""
+    etyl_l_sections = etyl_section[locale]
+    leading_lines = ""
+    leading_part = parsed.get_sections(include_subsections=False, level=level)
+    if len(leading_part) > 0:
+        leading_lines = leading_part[0].contents.split("\n")
+    if not isinstance(etyl_l_sections, list):
+        etyl_l_sections = [etyl_l_sections]  # type: ignore
+    for etyl_l_section in etyl_l_sections:
+        for line in leading_lines:
+            if line.startswith(etyl_l_section):
+                etyl_data = line
+                etyl_data_section = etyl_l_section
+                break
+    if etyl_data:
+        sections.append(wtp.Section("=== " + etyl_data_section + " ===\n" + etyl_data))
 
     # Filter on interesting sections
-    level = section_level[locale]
     for section in parsed.get_sections(include_subsections=True, level=level):
         title = section.title.replace(" ", "").lower()
         if title not in head_sections[locale]:

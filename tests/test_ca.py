@@ -193,6 +193,8 @@ def test_parse_word(word, pronunciation, genre, definitions, page):
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
+        ("{{-etimologia-|ca|es}}", "<b>Etimologia:</b>"),
+        ("{{-etim-|ca|es}}", "<b>Etimologia:</b>"),
     ],
 )
 def test_clean_template(wikicode, expected):

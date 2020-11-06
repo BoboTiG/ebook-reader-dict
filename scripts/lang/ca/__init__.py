@@ -16,7 +16,8 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-ca-}}", "{{-mul-}}")
-sections = (
+etyl_section = ["{{-etimologia-", "{{-etim-", "{{etim-lang"]
+l_sections = [
     "Abreviatura",
     "Acrònim",
     "Adjectiu",
@@ -35,7 +36,10 @@ sections = (
     "Sufix",
     "Símbol",
     "Verb",
-)
+    *etyl_section,
+]
+
+sections = tuple(l_sections)
 
 # Some definitions are not good to keep (plural, genre, ... )
 definitions_to_ignore = (
@@ -89,6 +93,10 @@ templates_multi = {
     "q": "term(parts[-1])",
     # {{etim-s|ca|XIV}}
     "etim-s": "'segle ' + parts[2]",
+    # {{-etimologia-|ca|es}}
+    "-etimologia-": "strong('Etimologia:')",
+    # {{-etim-|ca|es}}
+    "-etim-": "strong('Etimologia:')",
 }
 
 # Templates that will be completed/replaced using custom style.
