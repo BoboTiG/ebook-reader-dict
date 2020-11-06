@@ -1,4 +1,7 @@
 # eBook Reader Dictionaries
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your lovely **Kobo**.
 
@@ -28,3 +31,22 @@ The `dicthml-LOCALE.zip` file is updated inplace so that the download link never
 ## Adding a new Dictionary
 
 [Pull requests](https://github.com/BoboTiG/ebook-reader-dict/pulls) are very welcome. It is quite straithforward to add a new locale, see [HOWTO Add a New Local](https://github.com/BoboTiG/ebook-reader-dict/wiki/HOWTO-Add-a-New-Local).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://lasconic.com"><img src="https://avatars0.githubusercontent.com/u/234271?v=4" width="100px;" alt=""/><br /><sub><b>Nicolas Froment</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=lasconic" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
