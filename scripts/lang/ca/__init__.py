@@ -113,37 +113,58 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
         >>> last_template_handler(["terme", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
+
+        >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
+        "de l'occità <i>cabèco</i>"
+        >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
+        'del llatí <i>verba</i>'
+
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
     """
     from collections import defaultdict
 
-    from .defaults import last_template_handler as default
-    from ..user_functions import italic
+    from .langs import langs
+    from ..defaults import last_template_handler as default
+    from ...user_functions import italic
 
     tpl = template[0]
     parts = list(template[1:])
 
-    if tpl == "terme":
+    def parse_other_parameters() -> str:
         data = defaultdict(str)
+        toadd = ""
         for part in parts.copy():
             if "=" in part:
                 key, value = part.split("=", 1)
                 data[key] = value
                 parts.pop(parts.index(part))
-        phrase = ""
+        if data["trad"] and data["trans"]:
+            toadd += f" ({italic(data['trans'])}, «{data['trad']}»)"
+        elif data["trad"]:
+            toadd += f" («{data['trad']}»)"
+        elif data["trans"]:
+            toadd += f" ({italic(data['trans'])})"
+        if data["lit"]:
+            toadd += f" (literalment «{data['lit']}»)"
+        return toadd
+
+    phrase = ""
+    if tpl == "etim-lang":
+        if parts[0] in langs:
+            if langs[parts[0]].startswith(("a", "i", "o", "u", "h")):
+                phrase += "de l'"
+            else:
+                phrase += "del "
+            phrase += f"{langs[parts[0]]} {italic(parts[2])}"
+        phrase += parse_other_parameters()
+        return phrase
+    elif tpl == "terme":
         if len(parts) > 2 and "=" not in parts[2]:
             phrase = f"{italic(parts[2])}"
         else:
             phrase = f"{italic(parts[1])}"
-        if data["trad"] and data["trans"]:
-            phrase += f" ({italic(data['trans'])}, «{data['trad']}»)"
-        elif data["trad"]:
-            phrase += f" («{data['trad']}»)"
-        elif data["trans"]:
-            phrase += f" ({italic(data['trans'])})"
-        if data["lit"]:
-            phrase += f" (literalment «{data['lit']}»)"
+        phrase += parse_other_parameters()
         return phrase
 
     return default(template, locale)
