@@ -87,6 +87,8 @@ templates_multi = {
     "marca-nocat": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
     # {{q|tenir bona planta}}
     "q": "term(parts[-1])",
+    # {{etim-s|ca|XIV}}
+    "etim-s": "'segle ' + parts[2]",
 }
 
 # Templates that will be completed/replaced using custom style.
