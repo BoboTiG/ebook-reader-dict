@@ -102,7 +102,7 @@ from scripts.utils import clean
             "català",
             "",
             "m",
-            "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»).",
+            "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»).",  # noqa
             [
                 "Relatiu o pertanyent a Catalunya, als seus habitants o a la llengua catalana.",
                 "Relatiu o pertanyent als Països Catalans o als seus habitants.",
