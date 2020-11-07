@@ -13,15 +13,16 @@ jobs:
     runs-on: ubuntu-latest
 
     # List of locales to generate
+    # Sorted by the number of words
     strategy:
       matrix:
         locale:
-          - ca
           - en
-          - es
           - fr
+          - es
           - pt
           - sv
+          - ca
 
     steps:
 
