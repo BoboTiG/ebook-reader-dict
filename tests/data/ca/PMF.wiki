@@ -1,5 +1,5 @@
 == {{-ca-}} ==
-{{ca-pron|or=/ˌpeˈe.məˌe.fə/|occ=/ˌpeˈe.maˌe.fa/}}
+{{ca-pron | or = /ˌpeˈe.məˌe.fə/ |occ=/ˌpeˈe.maˌe.fa/}}
 
 === Sigles ===
 {{lema|ca|sigles|g=f}}

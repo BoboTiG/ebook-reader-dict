@@ -10,7 +10,7 @@
 [[Categoria:Codis de llengua]]
 
 == {{-ca-}} ==
-{{ca-pron|or=/əɫ/|occ=/eɫ/}}
+{{ca-pron|or =/əɫ/|occ=/eɫ/}}
 
 === Article ===
 {{lema|ca|article|plural|els|femení|la}}
