@@ -114,9 +114,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
         >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
-        "de l'occità <i>cabèco</i>"
+        "De l'occità <i>cabèco</i>"
         >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
-        'del llatí <i>verba</i>'
+        'Del llatí <i>verba</i>'
+        >>> last_template_handler(["etim-lang", "en", "ca"], "ca")
+        "De l'anglès"
 
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
@@ -152,10 +154,12 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     if tpl == "etim-lang":
         if parts[0] in langs:
             if langs[parts[0]].startswith(("a", "i", "o", "u", "h")):
-                phrase += "de l'"
+                phrase += "De l'"
             else:
-                phrase += "del "
-            phrase += f"{langs[parts[0]]} {italic(parts[2])}"
+                phrase += "Del "
+            phrase += f"{langs[parts[0]]}"
+            if len(parts) > 2:
+                phrase += f" {italic(parts[2])}"
         phrase += parse_other_parameters()
         return phrase
     elif tpl == "terme":
