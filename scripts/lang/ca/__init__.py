@@ -3,7 +3,7 @@
 from typing import Tuple
 
 # Regex to find the pronunciation
-pronunciation = r"{ca-pron\|(?:or=)?/([^/\|]+)"
+pronunciation = r"{\s*ca-pron\s*\|(?:\s*or\s*=\s*)?/([^/\|]+)"
 
 # Regex to find the genre
 genre = r"{ca-\w+\|([fm]+)"
