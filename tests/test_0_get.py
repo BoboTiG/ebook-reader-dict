@@ -73,12 +73,11 @@ def test_main_0(craft_data, capsys):
     assert pages_bz2.is_file()
     assert (output_dir / "data.json").is_file()
 
-    # Here we do -4 because of:
+    # Here we do -3 because of:
     #   - "Bogotanais.wiki" (no definition found)
     #   - "corollaires.wiki" (plural)
     #   - "no section.wiki"
-    #   - "suis.wiki" (conjugated verb)
-    expected_count = len(list(output_dir.glob("*.wiki"))) - 4
+    expected_count = len(list(output_dir.glob("*.wiki"))) - 3
 
     # Check the words data
     words = json.loads((output_dir / "data.json").read_text(encoding="utf-8"))
