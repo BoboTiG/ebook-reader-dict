@@ -17,13 +17,6 @@ DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
 WORD_FORMAT = (
     # Word formatting
     '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/>{etymology}<ol>{definitions}</ol></p>{var}'
-    # The source
-    '<p style="text-align:right"><i>{source}</i></p>'
-    # And add a line break for when there is more that one word displayed
-    "<br/>"
-    # This is a hell of a hack to hide the hardcoded dict name (!)
-    # See https://github.com/BoboTiG/ebook-reader-dict/issues/33
-    '<span class="e"><style>.e,.e+*{{display:none}}</style></span>'
     # Do not forget to close tag
     "</w>"
 )

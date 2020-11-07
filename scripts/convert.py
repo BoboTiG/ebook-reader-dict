@@ -113,9 +113,13 @@ def save(groups: Groups, variants: Variants, output_dir: Path, locale: str) -> N
     to_compress.append(output_dir / "words.count")
     to_compress.append(output_dir / "words.snapshot")
 
+    # Pretty print the source
+    source = wiktionary[locale].format(year=date.today().year)
+
     # Finally, create the ZIP
     dicthtml = output_dir / f"dicthtml-{locale}.zip"
     with ZipFile(dicthtml, mode="w", compression=ZIP_DEFLATED) as fh:
+        fh.comment = bytes(source, "utf-8")
         for file in to_compress:
             fh.write(file, arcname=file.name)
 
