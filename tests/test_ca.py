@@ -127,7 +127,7 @@ from scripts.utils import clean
             "compte",
             "",
             "m",
-            "del llatí <i>compŭtus</i>, segle XIII.",
+            "Del llatí <i>compŭtus</i>, segle XIII.",
             [
                 "Acte de comptar.",
                 "Cura, atenció.",
