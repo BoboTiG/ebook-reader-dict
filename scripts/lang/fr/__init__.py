@@ -106,6 +106,7 @@ sections = (
     "{{S|verbe|fr|loc",
     "{{S|verbe|fr|num",
     "{{S|verbe|fr}",
+    "{{S|verbe|fr|flexion}}",
 )
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
@@ -608,6 +609,7 @@ templates_multi = {
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
     "WSP": "term(parts[1])",
+    "fr-verbe-flexion": "parts[1]",
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.

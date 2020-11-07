@@ -18,6 +18,7 @@ from .stubs import Word, Words
 from .utils import format_description, guess_prefix
 
 Groups = Dict[str, Words]
+Variants = Dict[str, List[str]]
 
 
 def create_install(locale: str, output_dir: Path) -> Path:
@@ -53,6 +54,16 @@ def make_groups(words: Words) -> Groups:
     return groups
 
 
+def make_variants(words: Words) -> Variants:
+    variants: Variants = defaultdict(list)
+    for word, details in words.items():
+        details = Word(*details)
+        variant = details.variant
+        if variant and guess_prefix(variant) == guess_prefix(word):
+            variants[variant].append(word)
+    return variants
+
+
 def load(output_dir: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
     raw_data = output_dir / "data.json"
@@ -62,7 +73,7 @@ def load(output_dir: Path) -> Words:
     return words
 
 
-def save(groups: Groups, output_dir: Path, locale: str) -> None:
+def save(groups: Groups, variants: Variants, output_dir: Path, locale: str) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -86,7 +97,9 @@ def save(groups: Groups, output_dir: Path, locale: str) -> None:
     wordlist: List[str] = []
     print(">>> Generating HTML files ", end="", flush=True)
     for prefix, words in groups.items():
-        to_compress.append(save_html(prefix, words, output_dir / "tmp", locale))
+        to_compress.append(
+            save_html(prefix, words, variants, output_dir / "tmp", locale)
+        )
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
     print(f" [{len(groups.keys()):,}]", flush=True)
@@ -127,7 +140,13 @@ def convert_pronunciation(pronunciation: str) -> str:
     return f" \\{pronunciation}\\" if pronunciation else ""
 
 
-def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
+def save_html(
+    name: str,
+    words: Words,
+    variants: Variants,
+    output_dir: Path,
+    locale: str,
+) -> Path:
     """Generate individual HTML files.
 
     Content of the HTML file:
@@ -141,7 +160,7 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
     Syntax of each WORD is define in the *WORD_FORMAT* constant.
     """
 
-    # Prettry print the source
+    # Pretty print the source
     source = wiktionary[locale].format(year=date.today().year)
 
     # Save to uncompressed HTML
@@ -163,6 +182,18 @@ def save_html(name: str, words: Words, output_dir: Path, locale: str) -> Path:
             pronunciation = convert_pronunciation(details.pronunciation)
             genre = convert_genre(details.genre)
             etymology = convert_etymology(details.etymology)
+
+            var = ""
+            if variants[word]:
+                var = "<var>"
+                for v in variants[word]:
+                    # no variant with different prefix
+                    if guess_prefix(v) == name:
+                        var += f'<variant name="{v}"/>'
+                var += "</var>"
+            # no empty var tag
+            if len(var) < 15:
+                var = ""
 
             fh.write(WORD_FORMAT.format(**locals()))
 
@@ -187,8 +218,11 @@ def main(locale: str) -> int:
     # Create groups of words
     groups = make_groups(words)
 
-    # Save to HTML pages and the fial ZIP
-    save(groups, output_dir, locale)
+    # Create variant dictionary
+    variants = make_variants(words)
+
+    # Save to HTML pages and the final ZIP
+    save(groups, variants, output_dir, locale)
 
     print(">>> Conversion done!", flush=True)
     return 0
