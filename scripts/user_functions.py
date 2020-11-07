@@ -4,7 +4,8 @@ Functions that can be used in *templates_multi* of any locale.
 Check the "html/scripts/user_functions.html" file for a user-friendly version.
 """
 import re
-from typing import List, Optional
+from collections import defaultdict
+from typing import Dict, List, Optional
 from warnings import warn
 
 from .lang import templates_italic
@@ -50,6 +51,37 @@ def chimy(composition: List[str]) -> str:
         'FeCO<sub>3</sub>'
     """
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
+
+
+def clean_parts(parts: List[str]) -> Dict[str, str]:
+    """
+    Given a list of strings, return a dict from all strings having an equal sign ("=").
+
+    The left part of the sign as key and the right part as value.
+    When a string has the sign, it is removed from the original list.
+
+    Note 1: the input list is modified in-place, this is desired.
+    Note 2: the return dict is a *defaultdict()* so that it is easier to check for a key.
+            Again, this is desired.
+
+        >>> clean_parts([])
+        defaultdict(<class 'str'>, {})
+        >>> clean_parts(["foo"])
+        defaultdict(<class 'str'>, {})
+        >>> clean_parts(["foo", "bar=baz"])
+        defaultdict(<class 'str'>, {'bar': 'baz'})
+        >>> clean_parts(["foo", "bar=baz=ouf"])
+        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
+        >>> clean_parts(["foo", "bar = baz=ouf"])
+        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
+    """
+    data = defaultdict(str)
+    for part in parts.copy():
+        if "=" in part:
+            key, value = part.split("=", 1)
+            data[key.strip()] = value.strip()
+            parts.pop(parts.index(part))
+    return data
 
 
 def color(rgb: str) -> str:
@@ -402,6 +434,7 @@ __all__ = (
     "capitalize",
     "century",
     "chimy",
+    "clean_parts",
     "color",
     "concat",
     "coord",

@@ -123,23 +123,16 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
     """
-    from collections import defaultdict
-
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import italic
+    from ...user_functions import clean_parts, italic
 
     tpl = template[0]
     parts = list(template[1:])
 
     def parse_other_parameters() -> str:
-        data = defaultdict(str)
+        data = clean_parts(parts)
         toadd = ""
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
         if data["trad"] and data["trans"]:
             toadd += f" ({italic(data['trans'])}, «{data['trad']}»)"
         elif data["trad"]:

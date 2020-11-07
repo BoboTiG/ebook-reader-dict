@@ -160,11 +160,17 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["m", "ine-pro", "*h₁ed-", "t=to eat"], "en")
         '<i>*h₁ed-</i> (“to eat”)'
     """
-    from collections import defaultdict
     from itertools import zip_longest
 
     from .langs import langs
-    from ...user_functions import capitalize, italic, lookup_italic, strong, term
+    from ...user_functions import (
+        capitalize,
+        clean_parts,
+        italic,
+        lookup_italic,
+        strong,
+        term,
+    )
 
     tpl = template[0]
     parts = list(template[1:])
@@ -216,13 +222,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if tpl == "etyl":
             parts.pop(1)
 
-        data = defaultdict(str)
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
-
+        data = clean_parts(parts)
         lang = langs.get(parts.pop(0), "")
         phrase = f"{lang}" if tpl != "m" else ""
 
@@ -264,13 +264,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{surname}} template
     if tpl == "surname":
-        data = defaultdict(str)
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
-
+        data = clean_parts(parts)
         parts.pop(0)  # Remove the lang
 
         art = data.get("A", "A")

@@ -302,11 +302,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["l+", "ar", "حتى", "tr=ḥatta"], "es")
         'حتى (<i>ḥatta</i>)'
     """
-    from collections import defaultdict
     from itertools import zip_longest
 
     from .langs import langs
-    from ...user_functions import capitalize, italic, lookup_italic, term
+    from ...user_functions import capitalize, clean_parts, italic, lookup_italic, term
 
     tpl = template[0]
     parts = [part for part in template[1:] if part.strip()]
@@ -321,13 +320,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle {{etimología}} template
     if tpl == "etimología":
-        data = defaultdict(str)
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
-
+        data = clean_parts(parts)
         if not parts:
             return ""
 
@@ -381,13 +374,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{l+}} template
     if tpl == "l+":
-        data = defaultdict(str)
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
-
+        data = clean_parts(parts)
         trans = data.get("tr", "")
         glosa = data.get("glosa", "")
         phrase = parts[-1] if trans else italic(parts[-1])

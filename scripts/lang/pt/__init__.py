@@ -127,11 +127,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
     """
-    from collections import defaultdict
-
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import italic
+    from ...user_functions import clean_parts, italic
 
     tpl = template[0]
     parts = list(template[1:])
@@ -154,13 +152,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle {{llietimo}} template
     if tpl == "llietimo":
-        data = defaultdict(str)
-        for part in parts.copy():
-            if "=" in part:
-                key, value = part.split("=", 1)
-                data[key] = value
-                parts.pop(parts.index(part))
-
+        data = clean_parts(parts)
         src, word, *rest = parts
         phrase = f"Do {langs[src]} {italic(word)}"
 
