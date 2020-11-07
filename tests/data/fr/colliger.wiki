@@ -1,0 +1,7 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du latin ''[[colligere]]'' (« [[recueillir]] »).
+
+=== {{S|verbe|fr}} ===
+'''colliger''' {{pron|kɔ.li.ʒe|fr}} {{t|fr}} {{conj|grp=1|fr}}
+# Réunir des [[élément]]s
