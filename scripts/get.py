@@ -160,9 +160,8 @@ def find_section_definitions(
     definitions: List[Definitions] = []
 
     # do not look for definions in french verb form section
-    if locale == "fr":
-        if section.title.strip() == "{{S|verbe|fr|flexion}}":
-            return definitions
+    if locale == "fr" and section.title.strip() == "{{S|verbe|fr|flexion}}":
+        return definitions
 
     lists = section.get_lists(pattern=section_patterns[locale])
     if lists:
@@ -402,14 +401,13 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # find if  variant and delete unwanted definitions
     variant = ""
-    if locale == "fr":
-        if not definitions:  # Pure verb form, no definition
-            for title, s in parsed_sections.items():
-                if "{{S|verbe|fr|flexion}}" == title:
-                    for t in s[0].templates:
-                        if t.__str__().startswith("{{fr-verbe-flexion"):
-                            infinitive = clean(word, t.__str__(), locale)
-                            variant = infinitive
+    if locale == "fr" and not definitions:  # Pure verb form, no definition
+        for title, s in parsed_sections.items():
+            if "{{S|verbe|fr|flexion}}" == title:
+                for t in s[0].templates:
+                    if t.__str__().startswith("{{fr-verbe-flexion"):
+                        infinitive = clean(word, t.__str__(), locale)
+                        variant = infinitive
 
     return Word(pron, nature, etymology, definitions, variant)
 
