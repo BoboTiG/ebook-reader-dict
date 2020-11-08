@@ -542,7 +542,7 @@ templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {fr-verbe-flexion|colliger|ind.i.3s=oui}}
-    "fr-verbe-flexion": "parts[1] if '=' not in parts[1] else parts[2]",
+    "fr-verbe-flexion": "[p for p in parts[1:] if '=' not in p][0]",
     # {{îles|fr}}
     # {{îles|fr|des Antilles}}
     "îles": "term('Géographie')",
