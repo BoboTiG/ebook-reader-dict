@@ -59,7 +59,8 @@ def make_variants(words: Words) -> Variants:
     variants: Variants = defaultdict(list)
     for word, details in words.items():
         details = Word(*details)
-        variant = details.variant
+        # Variant must be normalized by trimming whitespace and lowercasing it.
+        variant = details.variant.lower().strip()
         if variant and guess_prefix(variant) == guess_prefix(word):
             variants[variant].append(word)
     return variants
