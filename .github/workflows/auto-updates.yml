@@ -17,8 +17,8 @@ jobs:
     strategy:
       matrix:
         locale:
-          - en
           - fr
+          - en
           - es
           - pt
           - sv
