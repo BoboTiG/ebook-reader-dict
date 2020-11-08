@@ -165,7 +165,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     from .langs import langs
     from ...user_functions import (
         capitalize,
-        clean_parts,
+        extract_keywords_from,
         italic,
         lookup_italic,
         strong,
@@ -222,7 +222,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if tpl == "etyl":
             parts.pop(1)
 
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         lang = langs.get(parts.pop(0), "")
         phrase = f"{lang}" if tpl != "m" else ""
 
@@ -264,7 +264,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{surname}} template
     if tpl == "surname":
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         parts.pop(0)  # Remove the lang
 
         art = data.get("A", "A")

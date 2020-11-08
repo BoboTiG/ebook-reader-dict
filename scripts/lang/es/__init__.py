@@ -305,7 +305,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     from itertools import zip_longest
 
     from .langs import langs
-    from ...user_functions import capitalize, clean_parts, italic, lookup_italic, term
+    from ...user_functions import (
+        capitalize,
+        extract_keywords_from,
+        italic,
+        lookup_italic,
+        term,
+    )
 
     tpl = template[0]
     parts = [part for part in template[1:] if part.strip()]
@@ -320,7 +326,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle {{etimología}} template
     if tpl == "etimología":
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         if not parts:
             return ""
 
@@ -374,7 +380,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle the {{l+}} template
     if tpl == "l+":
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         trans = data.get("tr", "")
         glosa = data.get("glosa", "")
         phrase = parts[-1] if trans else italic(parts[-1])

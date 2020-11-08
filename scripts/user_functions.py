@@ -53,26 +53,24 @@ def chimy(composition: List[str]) -> str:
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def clean_parts(parts: List[str]) -> Dict[str, str]:
+def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
     """
-    Given a list of strings, return a dict from all strings having an equal sign ("=").
+    Given a list of strings, extract strings containing an equal sign ("=").
 
-    The left part of the sign as key and the right part as value.
-    When a string has the sign, it is removed from the original list.
+    Return a *defaultdict(str)* with key=value extracted from the original list.
 
-    Note 1: the input list is modified in-place, this is desired.
-    Note 2: the return dict is a *defaultdict()* so that it is easier to check for a key.
-            Again, this is desired.
+    The left part of the sign is used a as the dict key and the right part as the value value.
+    When a string contains the sign, it is removed from the original list.
 
-        >>> clean_parts([])
+        >>> extract_keywords_from([])
         defaultdict(<class 'str'>, {})
-        >>> clean_parts(["foo"])
+        >>> extract_keywords_from(["foo"])
         defaultdict(<class 'str'>, {})
-        >>> clean_parts(["foo", "bar=baz"])
+        >>> extract_keywords_from(["foo", "bar=baz"])
         defaultdict(<class 'str'>, {'bar': 'baz'})
-        >>> clean_parts(["foo", "bar=baz=ouf"])
+        >>> extract_keywords_from(["foo", "bar=baz=ouf"])
         defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
-        >>> clean_parts(["foo", "bar = baz=ouf"])
+        >>> extract_keywords_from(["foo", "bar = baz=ouf"])
         defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
     """
     data = defaultdict(str)
@@ -434,7 +432,7 @@ __all__ = (
     "capitalize",
     "century",
     "chimy",
-    "clean_parts",
+    "extract_keywords_from",
     "color",
     "concat",
     "coord",

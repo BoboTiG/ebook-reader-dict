@@ -780,14 +780,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import century, clean_parts, italic, term
+    from ...user_functions import century, extract_keywords_from, italic, term
 
     tpl = template[0]
     parts = list(template[1:])
 
     # Handle {{déverbal}} and {{dénominal}} template
     if tpl in ("dénominal", "déverbal"):
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         phrase = tpl
         if data["m"] == "1":
             phrase = phrase.capitalize()
@@ -802,7 +802,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     # Handle {{étyl}}, {{étylp}} and {{calque}} templates
     if tpl in ("étyl", "étylp", "calque"):
         parts = [p.replace("1=", "").replace("2=", "") for p in parts]
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
 
         # The lang name
         phrase = langs[parts.pop(0)]
@@ -830,7 +830,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     # Handle {{composé de}} template
     if tpl == "composé de":
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         is_derived = any(part.startswith("-") or part.endswith("-") for part in parts)
         is_derived |= any(
             part.startswith("-") or part.endswith("-") for part in data.values()

@@ -125,13 +125,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import clean_parts, italic
+    from ...user_functions import extract_keywords_from, italic
 
     tpl = template[0]
     parts = list(template[1:])
 
     def parse_other_parameters() -> str:
-        data = clean_parts(parts)
+        data = extract_keywords_from(parts)
         toadd = ""
         if data["trad"] and data["trans"]:
             toadd += f" ({italic(data['trans'])}, «{data['trad']}»)"

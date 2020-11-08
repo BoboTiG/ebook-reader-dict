@@ -83,26 +83,24 @@ def chimy(composition: List[str]) -&gt; str:
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def clean_parts(parts: List[str]) -&gt; Dict[str, str]:
+def extract_keywords_from(parts: List[str]) -&gt; Dict[str, str]:
     &#34;&#34;&#34;
-    Given a list of strings, return a dict from all strings having an equal sign (&#34;=&#34;).
+    Given a list of strings, extract strings containing an equal sign (&#34;=&#34;).
 
-    The left part of the sign as key and the right part as value.
-    When a string has the sign, it is removed from the original list.
+    Return a *defaultdict(str)* with key=value extracted from the original list.
 
-    Note 1: the input list is modified in-place, this is desired.
-    Note 2: the return dict is a *defaultdict()* so that it is easier to check for a key.
-            Again, this is desired.
+    The left part of the sign is used a as the dict key and the right part as the value value.
+    When a string contains the sign, it is removed from the original list.
 
-        &gt;&gt;&gt; clean_parts([])
+        &gt;&gt;&gt; extract_keywords_from([])
         defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;])
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar=baz&#34;])
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz&#39;})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
     &#34;&#34;&#34;
     data = defaultdict(str)
@@ -464,7 +462,7 @@ __all__ = (
     &#34;capitalize&#34;,
     &#34;century&#34;,
     &#34;chimy&#34;,
-    &#34;clean_parts&#34;,
+    &#34;extract_keywords_from&#34;,
     &#34;color&#34;,
     &#34;concat&#34;,
     &#34;coord&#34;,
@@ -579,62 +577,6 @@ __all__ = (
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)</code></pre>
-</details>
-</dd>
-<dt id="scripts.user_functions.clean_parts"><code class="name flex">
-<span>def <span class="ident">clean_parts</span></span>(<span>parts: List[str]) ‑> Dict[str, str]</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Given a list of strings, return a dict from all strings having an equal sign ("=").</p>
-<p>The left part of the sign as key and the right part as value.
-When a string has the sign, it is removed from the original list.</p>
-<p>Note 1: the input list is modified in-place, this is desired.
-Note 2: the return dict is a <em>defaultdict()</em> so that it is easier to check for a key.
-Again, this is desired.</p>
-<pre><code>&gt;&gt;&gt; clean_parts([])
-defaultdict(&lt;class 'str'&gt;, {})
-&gt;&gt;&gt; clean_parts(["foo"])
-defaultdict(&lt;class 'str'&gt;, {})
-&gt;&gt;&gt; clean_parts(["foo", "bar=baz"])
-defaultdict(&lt;class 'str'&gt;, {'bar': 'baz'})
-&gt;&gt;&gt; clean_parts(["foo", "bar=baz=ouf"])
-defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
-&gt;&gt;&gt; clean_parts(["foo", "bar = baz=ouf"])
-defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
-</code></pre></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def clean_parts(parts: List[str]) -&gt; Dict[str, str]:
-    &#34;&#34;&#34;
-    Given a list of strings, return a dict from all strings having an equal sign (&#34;=&#34;).
-
-    The left part of the sign as key and the right part as value.
-    When a string has the sign, it is removed from the original list.
-
-    Note 1: the input list is modified in-place, this is desired.
-    Note 2: the return dict is a *defaultdict()* so that it is easier to check for a key.
-            Again, this is desired.
-
-        &gt;&gt;&gt; clean_parts([])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar=baz&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz&#39;})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-        &gt;&gt;&gt; clean_parts([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-    &#34;&#34;&#34;
-    data = defaultdict(str)
-    for part in parts.copy():
-        if &#34;=&#34; in part:
-            key, value = part.split(&#34;=&#34;, 1)
-            data[key.strip()] = value.strip()
-            parts.pop(parts.index(part))
-    return data</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.color"><code class="name flex">
@@ -803,6 +745,58 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
     expr = expr.replace(&#34;^&#34;, &#34;**&#34;)
 
     return f&#34;{eval(expr)}&#34;</code></pre>
+</details>
+</dd>
+<dt id="scripts.user_functions.extract_keywords_from"><code class="name flex">
+<span>def <span class="ident">extract_keywords_from</span></span>(<span>parts: List[str]) ‑> Dict[str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given a list of strings, extract strings containing an equal sign ("=").</p>
+<p>Return a <em>defaultdict(str)</em> with key=value extracted from the original list.</p>
+<p>The left part of the sign is used a as the dict key and the right part as the value value.
+When a string contains the sign, it is removed from the original list.</p>
+<pre><code>&gt;&gt;&gt; extract_keywords_from([])
+defaultdict(&lt;class 'str'&gt;, {})
+&gt;&gt;&gt; extract_keywords_from(["foo"])
+defaultdict(&lt;class 'str'&gt;, {})
+&gt;&gt;&gt; extract_keywords_from(["foo", "bar=baz"])
+defaultdict(&lt;class 'str'&gt;, {'bar': 'baz'})
+&gt;&gt;&gt; extract_keywords_from(["foo", "bar=baz=ouf"])
+defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
+&gt;&gt;&gt; extract_keywords_from(["foo", "bar = baz=ouf"])
+defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_keywords_from(parts: List[str]) -&gt; Dict[str, str]:
+    &#34;&#34;&#34;
+    Given a list of strings, extract strings containing an equal sign (&#34;=&#34;).
+
+    Return a *defaultdict(str)* with key=value extracted from the original list.
+
+    The left part of the sign is used a as the dict key and the right part as the value value.
+    When a string contains the sign, it is removed from the original list.
+
+        &gt;&gt;&gt; extract_keywords_from([])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz&#39;})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
+    &#34;&#34;&#34;
+    data = defaultdict(str)
+    for part in parts.copy():
+        if &#34;=&#34; in part:
+            key, value = part.split(&#34;=&#34;, 1)
+            data[key.strip()] = value.strip()
+            parts.pop(parts.index(part))
+    return data</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.int_to_roman"><code class="name flex">
@@ -1302,15 +1296,15 @@ and is sometimes rendered in a smaller font.</p>
 </div>
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
-<ul class="two-column">
+<ul class="">
 <li><code><a title="scripts.user_functions.capitalize" href="#scripts.user_functions.capitalize">capitalize</a></code></li>
 <li><code><a title="scripts.user_functions.century" href="#scripts.user_functions.century">century</a></code></li>
 <li><code><a title="scripts.user_functions.chimy" href="#scripts.user_functions.chimy">chimy</a></code></li>
-<li><code><a title="scripts.user_functions.clean_parts" href="#scripts.user_functions.clean_parts">clean_parts</a></code></li>
 <li><code><a title="scripts.user_functions.color" href="#scripts.user_functions.color">color</a></code></li>
 <li><code><a title="scripts.user_functions.concat" href="#scripts.user_functions.concat">concat</a></code></li>
 <li><code><a title="scripts.user_functions.coord" href="#scripts.user_functions.coord">coord</a></code></li>
 <li><code><a title="scripts.user_functions.eval_expr" href="#scripts.user_functions.eval_expr">eval_expr</a></code></li>
+<li><code><a title="scripts.user_functions.extract_keywords_from" href="#scripts.user_functions.extract_keywords_from">extract_keywords_from</a></code></li>
 <li><code><a title="scripts.user_functions.int_to_roman" href="#scripts.user_functions.int_to_roman">int_to_roman</a></code></li>
 <li><code><a title="scripts.user_functions.italic" href="#scripts.user_functions.italic">italic</a></code></li>
 <li><code><a title="scripts.user_functions.lookup_italic" href="#scripts.user_functions.lookup_italic">lookup_italic</a></code></li>
