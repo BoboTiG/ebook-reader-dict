@@ -371,6 +371,8 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, variant,
         ("{{date|lang=fr}}", "<i>(Date à préciser)</i>"),
         ("{{date|1957}}", "<i>(1957)</i>"),
         ("{{date|1957-2057}}", "<i>(1957-2057)</i>"),
+        ("{{date|lang=fr|vers 980}}", "<i>(Vers 980)</i>"),
+        ("{{date|lang=fr|vers l'an V}}", "<i>(Vers l'an V)</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",

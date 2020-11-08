@@ -438,7 +438,8 @@ templates_multi = {
     "couleur": "color(parts[1])",
     # {{date}}
     # {{date|1850}}
-    "date": "term(parts[1] if len(parts) > 1 else 'Date à préciser')",
+    # {{date|lang=fr|vers 980}}
+    "date": "term(capitalize(parts[1]) if len(parts) > 1 else 'Date à préciser')",
     # {{divinités|fr|grecques}}
     "divinités": "term('Divinité')",
     # {{fchim|H|2|O}}
