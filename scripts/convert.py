@@ -165,8 +165,7 @@ def save_html(
     Syntax of each WORD is define in the *WORD_FORMAT* constant.
     """
 
-    # Pretty print the source
-    source = wiktionary[locale].format(year=date.today().year)
+    fmt = "".join(line.strip() for line in WORD_FORMAT.splitlines())
 
     # Save to uncompressed HTML
     raw_output = output_dir / f"{name}.raw.html"
@@ -201,7 +200,7 @@ def save_html(
             if len(var) < 15:
                 var = ""
 
-            fh.write(WORD_FORMAT.format(**locals()))
+            fh.write(fmt.format(**locals()))
 
         fh.write("</html>\n")
 

@@ -14,9 +14,15 @@ RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{{0}}"
 DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
 
 # HTML formatting for each word
-WORD_FORMAT = (
-    # Word formatting
-    '<w><p><a name="{word}"/><b>{word}</b>{pronunciation}{genre}<br/><br/>{etymology}<ol>{definitions}</ol></p>{var}'
-    # Do not forget to close tag
-    "</w>"
-)
+WORD_FORMAT = """
+<w>
+    <p>
+        <a name="{word}"/><b>{word}</b>{pronunciation}{genre}
+        <br/>
+        <br/>
+        {etymology}
+        <ol>{definitions}</ol>
+    </p>
+    {var}
+</w>
+"""
