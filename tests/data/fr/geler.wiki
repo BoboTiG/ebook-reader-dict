@@ -1,0 +1,147 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|la|fr|mot=gelare}}.
+
+=== {{S|verbe|fr}} ===
+'''geler''' {{pron|ʒə.le|fr}} {{t|fr}} {{conj|grp=1|fr}}
+# [[durcir|Durcir]], [[rendre]] [[solide]] par le [[froid]], [[transformer]] en [[glace]].
+#* ''Le froid '''a gelé''' l’eau du bassin. Il fait un si grand froid que l’huile se '''gèle''' dans la bouteille.''
+# [[pénétrer|Pénétrer]] par un froid [[excessif]].
+#* ''Le froid lui '''gela''' les doigts, le bout des oreilles.''
+# {{lexique|médecine|fr}} [[détériorer|Détériorer]] les [[membres]] par le [[froid]].
+#* ''Il '''a eu''' les pieds et les main '''gelées'''.''
+# {{spécialement|fr}} {{lexique|agriculture|fr}} [[endommager|Endommager]] les [[arbre]]s [[fruitier]]s, surtout lorsqu’ils sont en [[bouton]]s ou en [[fleur]]s, par le froid.
+#* ''Le froid '''a gelé''' mes vignes. Tous les poiriers '''ont été gelés'''.''
+# {{exagération|fr}} Faire [[souffrir]] du froid.
+#* ''L’air qui vient par cette porte nous '''gèle'''. Vous avez les mains si froides que vous me '''gelez'''.''
+# {{figuré|fr}} {{familier|fr}} Avoir un [[accueil]] qui est [[extrêmement]] froid.
+#* ''Cet homme '''gèle''' ceux qui l’abordent.''
+# {{figuré|fr}} [[bloquer|Bloquer]] un [[processus]].
+#* ''Il '''a gelé''' les négociations.''
+#* ''Savoir '''geler''' un projet.''
+# {{Québec|fr}} {{familier|fr}} [[être défoncé]], être [[drogué]].
+#* ''Il a tant fumé de cannabis qu'il est totalement '''gelé'''.''
+# {{intransitif|fr}} Se [[durcir]] par le [[froid]], ou [[subir]] l’[[action]] du froid.
+#* ''Un rude hiver s’est abattu sur la campagne bourguignonne : les quelques arpents de vigne qui font vivre la famille '''ont gelé'''.'' {{source|Rosa Moussaoui, ''Zéphyrin Camélinat (1840-1932) Un long chemin, de la commune au communisme'', dans {{w|L'Humanité}}, 7 septembre 2011}}
+# {{impersonnel|fr}} - faire plus froid que 0 <sup>o</sup>C.
+#* ''J’ai grimpé avec le pilote à mon poste dans les barres de perroquet ; il '''gelait''' et nous remontions vers le Nord, les voiles serrées, contre un vent coupant et froid.'' {{source|{{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
+# {{intransitif|fr}} {{exagération|fr}} {{courant|fr}} Avoir [[extrêmement]] froid, [[subir]] une [[sensation]] de froid [[intense]].
+#* ''Cette chambre est si froide qu’on y '''gèle'''.''
+
+==== {{S|synonymes}} ====
+* [[glacer]]
+
+==== {{S|antonymes}} ====
+* [[chauffer]]
+
+==== {{S|dérivés}} ====
+* [[dégeler]]
+* [[geler à pierre fendre]]
+* [[geler blanc]]
+* [[ingelable]]
+* [[regeler]]
+
+==== {{S|apparentés}} ====
+* [[gel]]
+* [[gelure]]
+
+==== {{S|traductions}} ====
+{{trad-début|Durcir, rendre solide par le froid, transformer en glace. ''(Sens général).''}}
+* {{T|af}} : {{trad-|af|vries}}
+* {{T|de}} : {{trad+|de|frieren}}, {{trad+|de|einfrieren}}
+* {{T|en}} : to {{trad+|en|freeze}}
+* {{T|ang}} : {{trad-|ang|freosan}}
+* {{T|az}} : {{trad+|az|dondurmaq}}
+* {{T|be}} : {{trad-|be|марозіць|R=marozits’}}
+* {{T|ht}} : {{trad--|ht|fè glas}}
+* {{T|da}} : {{trad+|da|fryse}}
+* {{T|es}} : {{trad+|es|congelar}} ; {{trad+|es|helar}}
+* {{T|eo}} : {{trad-|eo|frosti}}
+* {{T|fo}} : {{trad-|fo|frysta}}
+* {{T|fi}} : {{trad+|fi|pakastaa}}
+* {{T|fy}} : {{trad-|fy|frieze}}
+* {{T|gallo}} : {{trad--|gallo|guerouer}}
+* {{T|el}} : {{trad+|el|παγώνω|R=pagóno}}
+* {{T|io}} : {{trad+|io|frostar}}
+* {{T|it}} : {{trad+|it|congelare}}
+* {{T|nl}} : {{trad+|nl|bevriezen}}
+* {{T|oc}} : {{trad+|oc|gelar}}
+* {{T|pl}} : {{trad+|pl|mrozić}}
+* {{T|pt}} : {{trad+|pt|gelar}}, {{trad+|pt|congelar}}
+* {{T|ro}} : {{trad+|ro|îngheța}}
+* {{T|ru}} : {{trad+|ru|морозить|R=morozit’}}
+* {{T|se}} : {{trad--|se|buolaštit}}, {{trad--|se|galmmihit}}, {{trad--|se|galbmot}}
+* {{T|sr}} : {{trad+|sr|заледити}}, {{trad+|sr|смрзнути}}
+* {{T|sv}} : {{trad+|sv|frysa}}
+* {{T|uk}} : {{trad-|uk|заморожувати|R=zamorojouvaty}} ; {{trad-|uk|заморожуватися|R=zamorojouvatisia}}
+{{trad-fin}}
+
+{{trad-début|Se durcir par le froid, ou subir l’action du froid.}}
+* {{T|az}} : {{trad+|az|donmaq}}
+{{trad-fin}}
+
+{{trad-début|Faire plus froid que zéro Celsius}}
+* {{T|nl}} : {{trad+|nl|vriezen}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{pron|ʒə.le|fr}}
+* {{écouter|lang=fr|{{Québec|nocat=1}} {{populaire|nocat=1}}|ʒle}}
+* {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|ʒə.le|audio=Fr-geler.ogg}}
+* {{écouter|lang=fr|France|audio=LL-Q150 (fra)-Roll-Morton-geler.wav}}
+* {{écouter|lang=fr|France (Massy)|audio=LL-Q150 (fra)-X-Javier-geler.wav}}
+* {{écouter|lang=fr|Suisse (Genève)|audio=LL-Q150 (fra)-Nattes à chat-geler.wav}}
+* {{écouter|lang=fr|France (Toulouse)|audio=LL-Q150 (fra)-Lepticed7-geler.wav}}
+* {{écouter|lang=fr|France (Grenoble)|audio=LL-Q150 (fra)-GAllegre-geler.wav}}
+* {{écouter|lang=fr|France (Lyon)|audio=LL-Q150 (fra)-Ltrlg-geler.wav}}
+* {{écouter|lang=fr|France (Vosges)|audio=LL-Q150 (fra)-Poslovitch-geler.wav}}
+* {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-WikiLucas00-geler.wav}}
+* {{écouter|lang=fr|France (Paris)||audio=LL-Q150 (fra)-Ash Crow-geler.wav}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-geler.wav}}
+* {{écouter|lang=fr|||audio=LL-Q150 (fra)-Madehub-geler.wav}}
+* {{écouter|lang=fr|France (Hérault)||audio=LL-Q150 (fra)-T. Le Berre-geler.wav}}
+* {{écouter|lang=fr|Suisse (Lausanne)||audio=LL-Q150 (fra)-Eihel-geler.wav}}
+* {{écouter|lang=fr|||audio=LL-Q150 (fra)-Kaderousse-geler.wav}}
+* {{écouter|lang=fr|France (Metz)||audio=LL-Q150 (fra)-val (Eavq)-geler.wav}}
+* {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-geler.wav}}
+* {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-geler.wav}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==== {{S|homophones|fr}} ====
+* [[gelée]]
+
+=== {{S|anagrammes}} ===
+* [[léger]]
+* [[regel]]
+* [[règle]], [[Règle]], [[réglé]]
+
+=== {{S|références}} ===
+* {{R:DAF8}}
+
+[[Catégorie:Verbes ergatifs en français]]
+
+== {{langue|nl}} ==
+=== {{S|adjectif|nl|flexion}} ===
+{{nl-adj|on.s=geel|on.v=geler|on.o=geelst|v.s=gele|v.v=gelere|v.o=geelste|pt.s=geels|pt.v=gelers}}
+'''geler''' {{pron||nl}}
+# Le comparatif, forme indéclinée, de {{lien|geel|nl}}.
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=nl|audio=nl-geler.ogg}}

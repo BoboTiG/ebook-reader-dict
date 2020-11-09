@@ -1,0 +1,9 @@
+== {{langue|fr}} ==
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|geler|impers=oui|ind.p.3p=oui|sub.p.3p=oui}}
+'''gèlent''' {{pron|ʒɛl|fr}}
+# ''Troisième personne du pluriel du présent de l’indicatif de'' [[geler]].
+# ''Troisième personne du pluriel du présent du subjonctif de'' [[geler]].
+
+==== {{S|homophones|fr}} ====
+* [[gel]]
