@@ -61,8 +61,9 @@ def make_variants(words: Words) -> Variants:
         details = Word(*details)
         # Variant must be normalized by trimming whitespace and lowercasing it.
         variant = details.variant.lower().strip()
-        if variant and guess_prefix(variant) == guess_prefix(word):
+        if variant:
             variants[variant].append(word)
+
     return variants
 
 
@@ -75,7 +76,9 @@ def load(output_dir: Path) -> Words:
     return words
 
 
-def save(groups: Groups, variants: Variants, output_dir: Path, locale: str) -> None:
+def save(
+    groups: Groups, variants: Variants, all_words: Words, output_dir: Path, locale: str
+) -> None:
     """
     Format of resulting dicthtml-LOCALE.zip:
 
@@ -100,7 +103,7 @@ def save(groups: Groups, variants: Variants, output_dir: Path, locale: str) -> N
     print(">>> Generating HTML files ", end="", flush=True)
     for prefix, words in groups.items():
         to_compress.append(
-            save_html(prefix, words, variants, output_dir / "tmp", locale)
+            save_html(prefix, words, variants, all_words, output_dir / "tmp", locale)
         )
         wordlist.extend(words.keys())
         print(".", end="", flush=True)
@@ -150,6 +153,7 @@ def save_html(
     name: str,
     words: Words,
     variants: Variants,
+    all_words: Words,
     output_dir: Path,
     locale: str,
 ) -> Path:
@@ -174,10 +178,16 @@ def save_html(
         for word, details in words.items():
 
             details = Word(*details)
-            if not details.definitions:
+            current_details = details
+            if details.variant and guess_prefix(details.variant) != name:
+                variant_details = all_words.get(details.variant, "")
+                if variant_details:
+                    current_details = Word(*variant_details)
+
+            if not current_details.definitions:
                 continue
             definitions = ""
-            for definition in details.definitions:
+            for definition in current_details.definitions:
                 if isinstance(definition, str):
                     definitions += f"<li>{definition}</li>"
                 else:
@@ -185,9 +195,9 @@ def save_html(
                     definitions += "".join(f"<li>{d}</li>" for d in definition)
                     definitions += "</ol>"
 
-            pronunciation = convert_pronunciation(details.pronunciation)
-            genre = convert_genre(details.genre)
-            etymology = convert_etymology(details.etymology)
+            pronunciation = convert_pronunciation(current_details.pronunciation)
+            genre = convert_genre(current_details.genre)
+            etymology = convert_etymology(current_details.etymology)
 
             var = ""
             if variants[word]:
@@ -228,7 +238,7 @@ def main(locale: str) -> int:
     variants = make_variants(words)
 
     # Save to HTML pages and the final ZIP
-    save(groups, variants, output_dir, locale)
+    save(groups, variants, words, output_dir, locale)
 
     print(">>> Conversion done!", flush=True)
     return 0
