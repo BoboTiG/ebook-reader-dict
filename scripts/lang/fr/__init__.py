@@ -459,8 +459,6 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
-    # {fr-verbe-flexion|colliger|ind.i.3s=oui}}
-    "fr-verbe-flexion": "[p for p in parts[1:] if '=' not in p][0]",
     # {{îles|fr}}
     # {{îles|fr|des Antilles}}
     "îles": "term('Géographie')",
@@ -695,6 +693,17 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '<i>(XVIII<sup>e</sup> siècle)</i>'
         >>> last_template_handler(["siècle", "XVIII", "XIX"], "fr")
         '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
+
+        >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
+        'colliger'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
+        'couvrir'
+        >>> last_template_handler(["fr-verbe-flexion", "impers=oui", "revenir", "ind.i.3s=oui"], "fr")
+        'revenir'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "'=oui", "ind.i.1s=oui", "ind.i.2s=oui", "avoir"], "fr")
+        'avoir'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
+        'dire'
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -854,6 +863,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         ]
         phrase = century(parts, "siècle") if parts else "Siècle à préciser"
         return term(phrase)
+
+    # Handle the {{fr-verbe-flexion}} template
+    if tpl == "fr-verbe-flexion":
+        data = extract_keywords_from(parts)
+        return data.get("1", parts[0] if parts else "")
 
     # This is a country in the current locale
     if tpl in langs:
