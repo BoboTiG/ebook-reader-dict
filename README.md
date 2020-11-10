@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your lovely **Kobo**.
+Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved **Kobo**.
 
 ## Dictionaries
 
@@ -18,14 +18,14 @@ Finally descent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ## Updating Dictionaries
 
-All dictionaries are automatically re-generated **every day** at midnight. The proccess is using the latest Wiktionary dump available at that time.
-The `dicthml-LOCALE.zip` file is updated inplace so that the download link never changes.
+All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
+The `dicthml-LOCALE.zip` files are updated in place so that the download link never changes.
 
 - You should open an [issue](https://github.com/BoboTiG/ebook-reader-dict/issues) if:
    - you do not find a word;
    - a definition is not similar to the one on Wiktionary;
    - a definition is missing.
-- If a definition is not good for you, changes are to be done on [Wiktionary](https://www.wiktionary.org/) directly.
+- If a definition is not good for you, changes must be done on [Wiktionary](https://www.wiktionary.org/) directly.
   Your changes will likely be included in the next Wiktionary dump, so when it will come, at most 24h later the new dictionary will contain your stuff :)
 
 ## Adding a new Dictionary
