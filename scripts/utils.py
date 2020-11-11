@@ -235,7 +235,7 @@ def clean(word: str, text: str, locale: str) -> str:
     text = text.replace("<nowiki/>", "")
 
     # Files
-    pattern = "|".join(p for p in pattern_file)
+    pattern = "|".join(iter(pattern_file))
     text = sub(fr"\[\[(?:{pattern}):[^\]]+\]\]", "", text)
 
     # HTML
