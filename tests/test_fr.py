@@ -5,11 +5,11 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, etymology, definitions, variants",
+    "word, pronunciations, genre, etymology, definitions, variants",
     [
         (
             "a",
-            "ɑ",
+            ["ɑ", "a"],
             "m",
             "",
             [
@@ -26,7 +26,7 @@ from scripts.utils import clean
         ),
         (
             "π",
-            "p",
+            ["p"],
             "",
             "",
             [
@@ -37,7 +37,7 @@ from scripts.utils import clean
         ),
         (
             "42",
-            "ka.ʁɑ̃t.dø",
+            ["ka.ʁɑ̃t.dø"],
             "msing",
             "",
             [
@@ -52,7 +52,7 @@ from scripts.utils import clean
         ),
         (
             "accueil",
-            "a.kœj",
+            ["a.kœj"],
             "m",
             "<i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.",
             [
@@ -66,7 +66,7 @@ from scripts.utils import clean
         ),
         (
             "acrologie",
-            "a.kʁɔ.lɔ.ʒi",
+            ["a.kʁɔ.lɔ.ʒi"],
             "f",
             "Du grec ancien ἄκρος, <i>akros</i> (« extrémité »), voir <i>acro-</i>, avec le suffixe <i>-logie</i>.",
             [
@@ -79,7 +79,7 @@ from scripts.utils import clean
         ),
         (
             "aux",
-            "o",
+            ["o"],
             "mf",
             "",
             [
@@ -90,7 +90,7 @@ from scripts.utils import clean
         ),
         (
             "base",
-            "bɑz",
+            ["bɑz"],
             "f",
             "<i>(Date à préciser)</i> Du latin <i>basis</i> (« id. »), du grec ancien βάσις, <i>básis</i> (« marche »).",  # noqa
             [
@@ -121,7 +121,7 @@ from scripts.utils import clean
         ),
         (
             "Bogotanais",
-            "bɔ.ɡɔ.ta.nɛ",
+            ["bɔ.ɡɔ.ta.nɛ"],
             "m",
             "Du nom Bogota avec le préfixe -ais.",
             [],
@@ -129,7 +129,7 @@ from scripts.utils import clean
         ),
         (
             "colligeait",
-            "kɔ.li.ʒɛ",
+            ["kɔ.li.ʒɛ"],
             "",
             "",
             [],
@@ -137,7 +137,7 @@ from scripts.utils import clean
         ),
         (
             "corps portant",
-            "kɔʁ pɔʁ.tɑ̃",
+            ["kɔʁ pɔʁ.tɑ̃"],
             "m",
             "Locution composée de <i>corps</i> et de <i>portant</i>.",
             [
@@ -148,7 +148,7 @@ from scripts.utils import clean
         ),
         (
             "DES",
-            "",
+            [],
             "m",
             "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire ».",  # noqa
             [
@@ -165,7 +165,7 @@ from scripts.utils import clean
         ),
         (
             "dubitatif",
-            "",
+            [],
             "",
             "Du latin <i>dubitativus</i>.",
             [
@@ -176,7 +176,7 @@ from scripts.utils import clean
         ),
         (
             "effluve",
-            "e.flyv",
+            ["e.flyv"],
             "mf",
             "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »).",  # noqa
             [
@@ -187,7 +187,7 @@ from scripts.utils import clean
         ),
         (
             "employer",
-            "ɑ̃.plwa.je",
+            ["ɑ̃.plwa.je"],
             "",
             "Du latin <i>implico</i> (« impliquer »).",
             [
@@ -199,7 +199,7 @@ from scripts.utils import clean
         ),
         (
             "encyclopædie",
-            "ɑ̃.si.klɔ.pe.di",
+            ["ɑ̃.si.klɔ.pe.di"],
             "f",
             "→ voir <i>encyclopédie</i>",
             ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
@@ -207,7 +207,7 @@ from scripts.utils import clean
         ),
         (
             "éperon",
-            "e.pʁɔ̃",
+            ["e.pʁɔ̃"],
             "m",
             "De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>.",
             [
@@ -227,7 +227,7 @@ from scripts.utils import clean
         ),
         (
             "greffier",
-            "ɡʁɛ.fje",
+            ["ɡʁɛ.fje", "ɡʁe.fje"],
             "m",
             "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> (« d’écriture, de style, de poinçon ») ou dérivé de <i>greffe</i> avec le suffixe <i>-ier</i>.",  # noqa
             [
@@ -240,7 +240,7 @@ from scripts.utils import clean
         ),
         (
             "ich",
-            "ɪç",
+            ["ɪç"],
             "",
             "",
             ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."],
@@ -248,7 +248,7 @@ from scripts.utils import clean
         ),
         (
             "koro",
-            "kɔʁo",
+            ["kɔʁo"],
             "m",
             "",
             [
@@ -260,7 +260,7 @@ from scripts.utils import clean
         ),
         (
             "mutiner",
-            "my.ti.ne",
+            ["my.ti.ne"],
             "",
             "Dénominal de <i>mutin</i>.",
             [
@@ -272,7 +272,7 @@ from scripts.utils import clean
         ),
         (
             "naguère",
-            "na.ɡɛʁ",
+            ["na.ɡɛʁ"],
             "",
             "De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>.",
             [
@@ -283,7 +283,7 @@ from scripts.utils import clean
         ),
         (
             "pinyin",
-            "pin.jin",
+            ["pin.jin"],
             "m",
             "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc « épeler les sons ».",  # noqa
             [
@@ -294,7 +294,7 @@ from scripts.utils import clean
         ),
         (
             "précepte",
-            "pʁe.sɛpt",
+            ["pʁe.sɛpt"],
             "m",
             "Emprunté au latin <i>praeceptum</i> (« précepte, leçon, règle »), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire ».",  # noqa
             [
@@ -306,7 +306,7 @@ from scripts.utils import clean
         ),
         (
             "rance",
-            "ʁɑ̃s",
+            ["ʁɑ̃s"],
             "mf",
             "Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan.",
             [
@@ -318,7 +318,7 @@ from scripts.utils import clean
         ),
         (
             "sapristi",
-            "sa.pʁis.ti",
+            ["sa.pʁis.ti"],
             "",
             "Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement.",
             ["Pour marquer l’étonnement."],
@@ -326,7 +326,7 @@ from scripts.utils import clean
         ),
         (
             "silicone",
-            "si.li.kon",
+            ["si.li.kon"],
             "f",
             "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i> avec le suffixe <i>-one</i>.",  # noqa
             [
@@ -336,7 +336,7 @@ from scripts.utils import clean
         ),
         (
             "suis",
-            "sɥi",
+            ["sɥi"],
             "",
             "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>).",  # noqa
             [],
@@ -344,11 +344,13 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_parse_word(word, pronunciation, genre, etymology, definitions, variants, page):
-    """Test the pronunciation, genre, definitions, etymology and variant getters."""
+def test_parse_word(
+    word, pronunciations, genre, etymology, definitions, variants, page
+):
+    """Test the sections finder and definitions getter."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
-    assert pronunciation == details.pronunciation
+    assert pronunciations == details.pronunciations
     assert genre == details.genre
     assert definitions == details.definitions
     assert etymology == details.etymology

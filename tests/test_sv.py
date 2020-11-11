@@ -5,12 +5,12 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, definitions",
+    "word, pronunciations, genre, definitions",
     [
-        ("auto", "", "", ["automatisk; självgående", "automatiskt läge", "autostart"]),
+        ("auto", [], "", ["automatisk; självgående", "automatiskt läge", "autostart"]),
         (
             "en",
-            "eːn/, /ɛn/, /en",
+            ["eːn/, /ɛn/, /en"],
             "",
             [
                 "ungefär; omkring",
@@ -26,7 +26,7 @@ from scripts.utils import clean
         ),
         (
             "-hörning",
-            "",
+            [],
             "",
             [
                 "<i>(geometri, vardagligt)</i> <i>suffix för månghörningar</i>",
@@ -35,7 +35,7 @@ from scripts.utils import clean
         ),
         (
             "min",
-            "mɪn",
+            ["mɪn"],
             "",
             [
                 "possessivt pronomen som indikerar ägande av eller tillhörighet till den talande (jag) om det ägda eller tillhörande är i ental och har n-genus; possessivt pronomen i första person singular med huvudordet i singular utrum",  # noqa
@@ -46,10 +46,10 @@ from scripts.utils import clean
                 "<i>förkortning för</i> minimum",
             ],
         ),
-        ("og", "", "", []),
+        ("og", [], "", []),
         (
             "sand",
-            "sand",
+            ["sand"],
             "",
             [
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
@@ -58,7 +58,7 @@ from scripts.utils import clean
         ),
         (
             "svenska",
-            "",
+            [],
             "",
             [
                 "nordiskt språk som talas i Sverige och Finland (officiellt i Finland)",
@@ -67,11 +67,11 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_find_sections_and_definitions(word, pronunciation, genre, definitions, page):
+def test_parse_word(word, pronunciations, genre, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "sv")
     details = parse_word(word, code, "sv", force=True)
-    assert pronunciation == details.pronunciation
+    assert pronunciations == details.pronunciations
     assert genre == details.genre
     assert definitions == details.definitions
 

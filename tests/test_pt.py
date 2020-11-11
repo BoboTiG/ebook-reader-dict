@@ -5,26 +5,26 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, etymology, definitions",
+    "word, pronunciations, genre, etymology, definitions",
     [
-        ("ababalhar", "", "", "De baba.", ["<i>(coloquial)</i> babar; conspurcar"]),
+        ("ababalhar", [], "", "De baba.", ["<i>(coloquial)</i> babar; conspurcar"]),
         (
             "alguém",
-            "aw.ˈgẽj",
+            ["aw.ˈgẽj"],
             "",
             "Do latim <i>alĭquem</i>.",
             ["pessoa não identificada"],
         ),
         (
             "algo",
-            "",
+            [],
             "",
             "",
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
         ),
         (
             "baiano",
-            "",
+            [],
             "",
             "Derivado de Bahia, mais o sufixo ano, com perda do H.",
             [
@@ -35,7 +35,7 @@ from scripts.utils import clean
         ),
         (
             "cabrum",
-            "",
+            [],
             "mf",
             'Do latim <i>caprunu</i> "cabra".',
             [
@@ -46,7 +46,7 @@ from scripts.utils import clean
         ),
         (
             "COPOM",
-            "",
+            [],
             "m",
             "",
             [
@@ -56,7 +56,7 @@ from scripts.utils import clean
         ),
         (
             "dezassete",
-            "",
+            [],
             "",
             "Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>.",
             [
@@ -68,7 +68,7 @@ from scripts.utils import clean
         ),
         (
             "etc",
-            "",
+            [],
             "",
             "",
             [
@@ -77,7 +77,7 @@ from scripts.utils import clean
         ),
         (
             "-ista",
-            "",
+            [],
             "",
             "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>.",  # noqa
             [
@@ -89,7 +89,7 @@ from scripts.utils import clean
         ),
         (
             "neo-",
-            "",
+            [],
             "",
             "Do grego antigo <i>νέος</i>.",
             [
@@ -97,10 +97,10 @@ from scripts.utils import clean
                 "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
             ],
         ),
-        ("para", "", "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
+        ("para", [], "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
         (
             "paulista",
-            "",
+            [],
             "",
             "",
             [
@@ -110,10 +110,10 @@ from scripts.utils import clean
                 "artigo ou objeto do Estado de São Paulo",
             ],
         ),
-        ("tenui-", "", "", "", ["variante ortográfica de <b>tenu-</b>"]),
+        ("tenui-", [], "", "", ["variante ortográfica de <b>tenu-</b>"]),
         (
             "to",
-            "",
+            [],
             "",
             "",
             [
@@ -123,21 +123,19 @@ from scripts.utils import clean
         ),
         (
             "ũa",
-            "",
+            [],
             "",
             "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>.",
             ["ortografia antiga de uma"],
         ),
-        ("UTC", "", "", "", ["<i>(estrangeirismo)</i> ver TUC"]),
+        ("UTC", [], "", "", ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
-def test_find_sections_and_definitions(
-    word, pronunciation, genre, etymology, definitions, page
-):
+def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "pt")
     details = parse_word(word, code, "pt", force=True)
-    assert pronunciation == details.pronunciation
+    assert pronunciations == details.pronunciations
     assert genre == details.genre
     assert etymology == details.etymology
     assert definitions == details.definitions

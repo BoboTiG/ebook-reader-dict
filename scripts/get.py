@@ -38,7 +38,7 @@ from .lang import (
     words_to_keep,
 )
 from .stubs import Definitions, Word, Words
-from .utils import clean
+from .utils import clean, convert_pronunciation, convert_genre
 
 if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element
@@ -257,13 +257,16 @@ def find_genre(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or ""
 
 
-def find_pronunciation(code: str, pattern: Pattern[str]) -> str:
-    """Find the pronunciation."""
+def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
+    """Find pronunciations."""
     match = pattern.search(code)
     if not match:
-        return ""
-    groups = match.groups()
-    return groups[0] or ""
+        return []
+
+    # There is at least one match, we need to get whole line
+    # in order to be able to find multiple pronunciations
+    line = code[match.start() : code.find("\n", match.start())]
+    return pattern.findall(line)
 
 
 def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
@@ -335,8 +338,6 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 
     details = parse_word(word, code, locale, force=True)
 
-    print(word, f"\\{details.pronunciation}\\", f"({details.genre}.)", "\n")
-
     def strip_html(text: str) -> str:
         """Stip HTML chars."""
         if raw:
@@ -346,6 +347,13 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         text = text.replace("&nbsp;", " ")
         text = text.replace("&times;", "×")
         return text
+
+    print(
+        word,
+        convert_pronunciation(details.pronunciations),
+        strip_html(convert_genre(details.genre)),
+        "\n",
+    )
 
     if details.etymology:
         print(strip_html(details.etymology), "\n")
@@ -380,7 +388,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     called from get_and_parse_word().
     """
     parsed_sections = find_sections(code, locale)
-    pron = ""
+    prons = []
     nature = ""
     etymology = ""
 
@@ -396,7 +404,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
-        pron = find_pronunciation(code, pronunciation[locale])
+        prons = find_pronunciations(code, pronunciation[locale])
         nature = find_genre(code, genre[locale])
 
     # find if variant and delete unwanted definitions
@@ -409,7 +417,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                         infinitive = clean(word, t.__str__(), locale)
                         variants.append(infinitive)
 
-    return Word(pron, nature, etymology, definitions, variants)
+    return Word(prons, nature, etymology, definitions, variants)
 
 
 def process(file: Path, locale: str, debug: bool = False) -> Words:
