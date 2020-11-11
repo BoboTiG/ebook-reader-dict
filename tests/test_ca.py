@@ -5,18 +5,18 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, etymology, definitions",
+    "word, pronunciations, genre, etymology, definitions",
     [
         (
             "-ass-",
-            "as",
+            ["as"],
             "",
             "Del sufix <i>-às</i> amb valor augmentatiu.",
             ["Infix que afegeix un matís augmentatiu."],
         ),
         (
             "-itzar",
-            "",
+            [],
             "",
             "Del llatí <i>-izare</i>, provinent del grec antic <i>-ίζειν</i>.",
             [
@@ -25,7 +25,7 @@ from scripts.utils import clean
         ),
         (
             "AFI",
-            "ˈa.fi",
+            ["ˈa.fi"],
             "",
             "sigles",
             [
@@ -33,17 +33,17 @@ from scripts.utils import clean
                 "(<i>f</i>) Associació Fonètica Internacional.",
             ],
         ),
-        ("avui", "", "", "", ["En el dia actual.", "Metafòricament, en el present."]),
+        ("avui", [], "", "", ["En el dia actual.", "Metafòricament, en el present."]),
         (
             "bio-",
-            "",
+            [],
             "",
             "",
             ['Element que entra en la composició de paraules amb el sentit de "vida".'],
         ),
         (
             "cap",
-            "kap",
+            ["kap"],
             "m",
             "Del llatí <i>caput</i>.",
             [
@@ -67,7 +67,7 @@ from scripts.utils import clean
         ),
         (
             "cas",
-            "ˈkas",
+            ["ˈkas"],
             "m",
             "Del llatí <i>casus</i>.",
             [
@@ -80,7 +80,7 @@ from scripts.utils import clean
         ),
         (
             "Castell",
-            "",
+            [],
             "",
             "De <i>castell</i>.",
             [
@@ -100,7 +100,7 @@ from scripts.utils import clean
         ),
         (
             "català",
-            "",
+            [],
             "m",
             "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»).",  # noqa
             [
@@ -115,7 +115,7 @@ from scripts.utils import clean
         ),
         (
             "ch",
-            "",
+            [],
             "",
             "",
             [
@@ -125,7 +125,7 @@ from scripts.utils import clean
         ),
         (
             "compte",
-            "",
+            [],
             "m",
             "Del llatí <i>compŭtus</i>, segle XIII.",
             [
@@ -138,7 +138,7 @@ from scripts.utils import clean
         ),
         (
             "disset",
-            "",
+            [],
             "m",
             "Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»).",
             [
@@ -150,7 +150,7 @@ from scripts.utils import clean
         ),
         (
             "el",
-            "əɫ",
+            ["əɫ"],
             "f",
             "",
             [
@@ -161,12 +161,12 @@ from scripts.utils import clean
                 "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
         ),
-        ("Mn.", "", "", "", ["mossèn com a tractament davant el nom"]),
-        ("PMF", "ˌpeˈe.məˌe.fə", "", "", ["Preguntes Més Freqüents."]),
-        ("pen", "", "", "", []),
+        ("Mn.", [], "", "", ["mossèn com a tractament davant el nom"]),
+        ("PMF", ["ˌpeˈe.məˌe.fə"], "", "", ["Preguntes Més Freqüents."]),
+        ("pen", [], "", "", []),
         (
             "si",
-            "si",
+            ["si"],
             "m",
             "",
             [
@@ -179,11 +179,11 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_parse_word(word, pronunciation, genre, etymology, definitions, page):
-    """Test the pronunciation, genre and definitions getters."""
+def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
+    """Test the sections finder and definitions getter."""
     code = page(word, "ca")
     details = parse_word(word, code, "ca", force=True)
-    assert pronunciation == details.pronunciation
+    assert pronunciations == details.pronunciations
     assert genre == details.genre
     assert definitions == details.definitions
     assert etymology == details.etymology

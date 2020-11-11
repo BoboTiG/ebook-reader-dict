@@ -5,11 +5,11 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, etymology, definitions",
+    "word, pronunciations, etymology, definitions",
     [
         (
             "-acho",
-            "ˈa.t͡ʃo",
+            ["ˈa.t͡ʃo"],
             "Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>.",
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
@@ -17,7 +17,7 @@ from scripts.utils import clean
         ),
         (
             "cartel",
-            "",
+            [],
             "Del occitano <i>cartel</i>.",
             [
                 "Lámina que se expone para dar información mediante palabras o imágenes.",
@@ -26,7 +26,7 @@ from scripts.utils import clean
         ),
         (
             "comer",
-            "koˈmeɾ",
+            ["koˈmeɾ"],
             "Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i>, el cual es un compuesto de <i>edo</i> (comer). Este verbo se forma a partir <i>Com + edo</i>, obteniendo el siginificado de <i>devorar</i>.",  # noqa
             [
                 "Ingerir o tomar alimentos.",
@@ -42,7 +42,7 @@ from scripts.utils import clean
         ),
         (
             "es decir",
-            "es.ðeˈθiɾ",
+            ["es.ðeˈθiɾ"],
             "",
             [
                 "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
@@ -50,7 +50,7 @@ from scripts.utils import clean
         ),
         (
             "extenuado",
-            "eks.teˈnwa.ðo",
+            ["eks.teˈnwa.ðo"],
             "",
             [
                 "Cansado, debilitado.",
@@ -59,7 +59,7 @@ from scripts.utils import clean
         ),
         (
             "futuro",
-            "fuˈtu.ɾo",
+            ["fuˈtu.ɾo"],
             'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").',  # noqa
             [
                 "Que está aún por ocurrir o hacerse efectivo.",
@@ -70,7 +70,7 @@ from scripts.utils import clean
         ),
         (
             "gracias",
-            "ˈgɾa.θjas",
+            ["ˈgɾa.θjas", "ˈgɾa.sjas"],
             "",
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
@@ -79,7 +79,7 @@ from scripts.utils import clean
         ),
         (
             "hasta",
-            "ˈas.ta",
+            ["ˈas.ta"],
             'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.',  # noqa
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
@@ -93,7 +93,7 @@ from scripts.utils import clean
         ),
         (
             "hocico",
-            "",
+            [],
             "De hocicar",
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
@@ -106,7 +106,7 @@ from scripts.utils import clean
         ),
         (
             "los",
-            "",
+            [],
             'Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")',
             [
                 "<i>Artículo determinado masculino plural.</i>",
@@ -115,13 +115,13 @@ from scripts.utils import clean
         ),
         (
             "Mús.",
-            "",
+            [],
             ".",
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
         ),
         (
             "también",
-            "tamˈbjen",
+            ["tamˈbjen"],
             "Compuesto de <i>tan</i> y <i>bien</i>",
             [
                 "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
@@ -130,7 +130,7 @@ from scripts.utils import clean
         ),
         (
             "uni-",
-            "ˈu.ni",
+            ["ˈu.ni"],
             'Del latín <i>uni-</i>, de <i>unus</i> ("uno")',
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
@@ -138,7 +138,7 @@ from scripts.utils import clean
         ),
         (
             "zzz",
-            "",
+            [],
             ".",
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
@@ -146,13 +146,11 @@ from scripts.utils import clean
         ),
     ],
 )
-def test_find_sections_and_definitions(
-    word, pronunciation, etymology, definitions, page
-):
+def test_parse_word(word, pronunciations, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "es")
     details = parse_word(word, code, "es", force=True)
-    assert pronunciation == details.pronunciation
+    assert pronunciations == details.pronunciations
     assert etymology == details.etymology
     assert definitions == details.definitions
 

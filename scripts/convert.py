@@ -15,7 +15,13 @@ from marisa_trie import Trie
 from .constants import WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Word, Words
-from .utils import format_description, guess_prefix
+from .utils import (
+    convert_etymology,
+    convert_genre,
+    convert_pronunciation,
+    format_description,
+    guess_prefix,
+)
 
 Groups = Dict[str, Words]
 Variants = Dict[str, List[str]]
@@ -134,21 +140,6 @@ def save(
     print(f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True)
 
 
-def convert_etymology(etymology: str) -> str:
-    """Return the HTML code to include for the etymology of a word."""
-    return f"<p>{etymology}</p><br/>" if etymology else ""
-
-
-def convert_genre(genre: str) -> str:
-    """Return the HTML code to include for the genre of a word."""
-    return f" <i>{genre}.</i>" if genre else ""
-
-
-def convert_pronunciation(pronunciation: str) -> str:
-    """Return the HTML code to include for the etymology of a word."""
-    return f" \\{pronunciation}\\" if pronunciation else ""
-
-
 def save_html(
     name: str,
     words: Words,
@@ -195,7 +186,7 @@ def save_html(
                     definitions += "".join(f"<li>{d}</li>" for d in definition)
                     definitions += "</ol>"
 
-            pronunciation = convert_pronunciation(current_details.pronunciation)
+            pronunciation = convert_pronunciation(current_details.pronunciations)
             genre = convert_genre(current_details.genre)
             etymology = convert_etymology(current_details.etymology)
 
