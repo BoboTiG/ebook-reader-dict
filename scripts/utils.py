@@ -3,7 +3,7 @@ import re
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
-from typing import Tuple
+from typing import List, Tuple
 from warnings import warn
 
 from cachetools import cached
@@ -23,6 +23,23 @@ from .lang import (
     thousands_separator,
 )
 from .user_functions import *  # noqa
+
+
+def convert_etymology(etymology: str) -> str:
+    """Return the HTML code to include for the etymology of a word."""
+    return f"<p>{etymology}</p><br/>" if etymology else ""
+
+
+def convert_genre(genre: str) -> str:
+    """Return the HTML code to include for the genre of a word."""
+    return f" <i>{genre}.</i>" if genre else ""
+
+
+def convert_pronunciation(pronunciations: List[str]) -> str:
+    """Return the HTML code to include for the etymology of a word."""
+    if not pronunciations:
+        return ""
+    return " " + ", ".join(f"\\{p}\\" for p in pronunciations)
 
 
 def format_description(locale: str, output_dir: Path) -> str:
@@ -218,7 +235,7 @@ def clean(word: str, text: str, locale: str) -> str:
     text = text.replace("<nowiki/>", "")
 
     # Files
-    pattern = "|".join(p for p in pattern_file)
+    pattern = "|".join(iter(pattern_file))
     text = sub(fr"\[\[(?:{pattern}):[^\]]+\]\]", "", text)
 
     # HTML

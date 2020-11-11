@@ -347,7 +347,7 @@ def test_xml_parse_restricted_word(tmp_path):
 
     word, details = list(words.items())[0]
     assert word == "cunnilingus"
-    assert details.pronunciation == "ky.ni.lɛ̃.ɡys"
+    assert details.pronunciations == ["ky.ni.lɛ̃.ɡys"]
     assert details.genre == "m"
     assert not details.etymology
     assert len(details.definitions) == 1
@@ -425,7 +425,7 @@ def test_xml_parse_word_with_only_one_character(tmp_path):
 
     word, details = list(words.items())[0]
     assert word == "a"
-    assert details.pronunciation == ""
+    assert not details.pronunciations
     assert details.genre == ""
     assert not details.etymology
     assert len(details.definitions) == 1
@@ -471,7 +471,7 @@ def test_xml_parse_word_special_character(tmp_path):
 
     word, details = list(words.items())[0]
     assert word == "π"
-    assert details.pronunciation == ""
+    assert not details.pronunciations
     assert details.genre == ""
     assert not details.etymology
     assert len(details.definitions) == 1
