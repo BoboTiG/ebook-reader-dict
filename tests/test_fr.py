@@ -5,7 +5,7 @@ from scripts.utils import clean
 
 
 @pytest.mark.parametrize(
-    "word, pronunciation, genre, etymology, definitions, variant",
+    "word, pronunciation, genre, etymology, definitions, variants",
     [
         (
             "a",
@@ -22,7 +22,7 @@ from scripts.utils import clean
                 "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",  # noqa
                 "<i>(Québec)</i> <i>(Familier)</i> Elle.",
             ],
-            "",
+            [],
         ),
         (
             "π",
@@ -33,7 +33,7 @@ from scripts.utils import clean
                 "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",  # noqa
                 "<i>(Bases de données)</i> Symbole de la projection.",
             ],
-            "",
+            [],
         ),
         (
             "42",
@@ -48,7 +48,7 @@ from scripts.utils import clean
                 "<i>(France)</i> <i>(Familier)</i> Habitant du département de la Loire.",
                 "<i>(France)</i> Département de la Loire.",
             ],
-            "",
+            [],
         ),
         (
             "accueil",
@@ -62,7 +62,7 @@ from scripts.utils import clean
                 "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
                 "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
             ],
-            "",
+            [],
         ),
         (
             "acrologie",
@@ -75,7 +75,7 @@ from scripts.utils import clean
                 "<i>(Philosophie)</i> <i>(Très rare)</i> Recherche ou exposition des principes suprêmes, ou du mieux absolu.",  # noqa
                 "<i>(Sport)</i> Étude ou pratique de l’acrobatie.",
             ],
-            "",
+            [],
         ),
         (
             "aux",
@@ -86,7 +86,7 @@ from scripts.utils import clean
                 "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
                 "<i>Contraction obligatoire de la préposition </i>à<i> et de l'article défini </i>les<i>.</i>",
             ],
-            "",
+            [],
         ),
         (
             "base",
@@ -117,7 +117,7 @@ from scripts.utils import clean
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
                 "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "Bogotanais",
@@ -125,7 +125,7 @@ from scripts.utils import clean
             "m",
             "Du nom Bogota avec le préfixe -ais.",
             [],
-            "",
+            [],
         ),
         (
             "colligeait",
@@ -133,7 +133,7 @@ from scripts.utils import clean
             "",
             "",
             [],
-            "colliger",
+            ["colliger"],
         ),
         (
             "corps portant",
@@ -144,7 +144,7 @@ from scripts.utils import clean
                 "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",  # noqa
                 "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "DES",
@@ -161,7 +161,7 @@ from scripts.utils import clean
                 "<i>(France)</i> Diplôme d’études supérieures, un diplôme français.",
                 "<i>(Mathématiques)</i> Décomposition en éléments simples, une méthode de calcul mathématique.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "dubitatif",
@@ -172,7 +172,7 @@ from scripts.utils import clean
                 "Qui sert à exprimer le doute.",
                 "Qui éprouve un doute.",
             ],
-            "",
+            [],
         ),
         (
             "effluve",
@@ -183,7 +183,7 @@ from scripts.utils import clean
                 "<i>(Médecine)</i> <i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",  # noqa
                 "Émanation qui se dégage d’un corps quelconque.",
             ],
-            "",
+            [],
         ),
         (
             "employer",
@@ -195,7 +195,7 @@ from scripts.utils import clean
                 "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",  # noqa
                 "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
             ],
-            "",
+            [],
         ),
         (
             "encyclopædie",
@@ -203,7 +203,7 @@ from scripts.utils import clean
             "f",
             "→ voir <i>encyclopédie</i>",
             ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
-            "",
+            [],
         ),
         (
             "éperon",
@@ -223,7 +223,7 @@ from scripts.utils import clean
                 "<i>(Géographie)</i> Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.",  # noqa
                 "<i>(Héraldique)</i> Meuble représentant l’objet du même nom dans les armoiries. Il est composé d’une branche en métal en U avec une tige au bout de laquelle se trouve une molette à six rais mais le nombre peut varier d'un illustrateur à l’autre. Il est représenté en pal, la molette vers le chef (haut). Dans les représentations anciennes, il est parfois muni d’une sangle en cuir. À rapprocher de molette d’éperon.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "greffier",
@@ -236,7 +236,7 @@ from scripts.utils import clean
                 "<i>(Populaire)</i> Chat.",
                 "Poisson-chat commun (poisson).",
             ],
-            "",
+            [],
         ),
         (
             "ich",
@@ -244,7 +244,7 @@ from scripts.utils import clean
             "",
             "",
             ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."],
-            "",
+            [],
         ),
         (
             "koro",
@@ -256,7 +256,7 @@ from scripts.utils import clean
                 "Langue malayo-polynésienne parlée dans les îles de l'Amirauté (Papouasie-Nouvelle-Guinée)",
                 "Forme d'hystérie de nature sexuelle propre aux humains mâles.",
             ],
-            "",
+            [],
         ),
         (
             "mutiner",
@@ -268,7 +268,7 @@ from scripts.utils import clean
                 "Enfant qui se dépite et manque à l’obéissance.",
                 "<i>(Poétique)</i> …",
             ],
-            "",
+            [],
         ),
         (
             "naguère",
@@ -279,7 +279,7 @@ from scripts.utils import clean
                 "Récemment ; il y a peu.",
                 "Il y a longtemps. <b>Note :</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "pinyin",
@@ -290,7 +290,7 @@ from scripts.utils import clean
                 "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
                 "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
             ],
-            "",
+            [],
         ),
         (
             "précepte",
@@ -302,7 +302,7 @@ from scripts.utils import clean
                 "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
                 "<i>(Religion)</i> Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
             ],
-            "",
+            [],
         ),
         (
             "rance",
@@ -314,7 +314,7 @@ from scripts.utils import clean
                 "S’emploie quelquefois comme nom masculin.",
                 "Variante de ranche.",
             ],
-            "",
+            [],
         ),
         (
             "sapristi",
@@ -322,7 +322,7 @@ from scripts.utils import clean
             "",
             "Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement.",
             ["Pour marquer l’étonnement."],
-            "",
+            [],
         ),
         (
             "silicone",
@@ -332,7 +332,7 @@ from scripts.utils import clean
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
             ],
-            "",
+            [],
         ),
         (
             "suis",
@@ -340,11 +340,11 @@ from scripts.utils import clean
             "",
             "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>).",  # noqa
             [],
-            "suivre",
+            ["être", "suivre"],
         ),
     ],
 )
-def test_parse_word(word, pronunciation, genre, etymology, definitions, variant, page):
+def test_parse_word(word, pronunciation, genre, etymology, definitions, variants, page):
     """Test the pronunciation, genre, definitions, etymology and variant getters."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
@@ -352,7 +352,7 @@ def test_parse_word(word, pronunciation, genre, etymology, definitions, variant,
     assert genre == details.genre
     assert definitions == details.definitions
     assert etymology == details.etymology
-    assert variant == details.variant
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(

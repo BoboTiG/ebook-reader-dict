@@ -4,5 +4,5 @@ from typing import Dict, Tuple, Union
 
 Definitions = Union[str, Tuple[str, ...]]
 Parts = Tuple[str, ...]
-Word = namedtuple("Word", "pronunciation, genre, etymology, definitions, variant")
+Word = namedtuple("Word", "pronunciation, genre, etymology, definitions, variants")
 Words = Dict[str, Word]
