@@ -60,9 +60,9 @@ def make_variants(words: Words) -> Variants:
     for word, details in words.items():
         details = Word(*details)
         # Variant must be normalized by trimming whitespace and lowercasing it.
-        variant = details.variant.lower().strip()
-        if variant:
-            variants[variant].append(word)
+        for variant in details.variants:
+            if variant:
+                variants[variant].append(word)
 
     return variants
 
@@ -175,43 +175,63 @@ def save_html(
     # Save to uncompressed HTML
     raw_output = output_dir / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
-        for word, details in words.items():
+        for word, word_details in words.items():
 
-            details = Word(*details)
-            current_details = details
-            if details.variant and guess_prefix(details.variant) != name:
-                variant_details = all_words.get(details.variant, "")
-                if variant_details:
-                    current_details = Word(*variant_details)
+            word_details = Word(*word_details)
+            current_details = [word_details]
 
-            if not current_details.definitions:
-                continue
-            definitions = ""
-            for definition in current_details.definitions:
-                if isinstance(definition, str):
-                    definitions += f"<li>{definition}</li>"
-                else:
-                    definitions += '<ol style="list-style-type:lower-alpha">'
-                    definitions += "".join(f"<li>{d}</li>" for d in definition)
-                    definitions += "</ol>"
+            # use variant definitions for a word if one variant prefix is different
+            # "suis" listed with the definitions of "être" and "suivre"
+            if word_details.variants:
+                found_different_prefix = False
+                for variant in word_details.variants:
+                    if guess_prefix(variant) != name:
+                        root_details = all_words.get(variant, "")
+                        if root_details:
+                            foundDifferentPrefix = True
+                            break
+                # if we found one variant, then list them all
+                if found_different_prefix:
+                    variants_details = []
+                    for variant in word_details.variants:
+                        root_details = all_words.get(variant, "")
+                        if root_details:
+                            variants_details.append(Word(*root_details))
+                    if variants_details:
+                        current_details = variants_details
 
-            pronunciation = convert_pronunciation(current_details.pronunciation)
-            genre = convert_genre(current_details.genre)
-            etymology = convert_etymology(current_details.etymology)
+            # write to file
+            for details in current_details:
+                details = Word(*details)
+                if not details.definitions:
+                    continue
+                definitions = ""
+                for definition in details.definitions:
+                    if isinstance(definition, str):
+                        definitions += f"<li>{definition}</li>"
+                    else:
+                        definitions += '<ol style="list-style-type:lower-alpha">'
+                        definitions += "".join(f"<li>{d}</li>" for d in definition)
+                        definitions += "</ol>"
 
-            var = ""
-            if variants[word]:
-                var = "<var>"
-                for v in variants[word]:
-                    # no variant with different prefix
-                    if guess_prefix(v) == name:
-                        var += f'<variant name="{v}"/>'
-                var += "</var>"
-            # no empty var tag
-            if len(var) < 15:
+                pronunciation = convert_pronunciation(details.pronunciation)
+                genre = convert_genre(details.genre)
+                etymology = convert_etymology(details.etymology)
+
                 var = ""
+                if variants[word]:
+                    var = "<var>"
+                    for v in variants[word]:
+                        # no variant with different prefix
+                        v = v.lower().strip()
+                        if guess_prefix(v) == name:
+                            var += f'<variant name="{v}"/>'
+                    var += "</var>"
+                # no empty var tag
+                if len(var) < 15:
+                    var = ""
 
-            fh.write(fmt.format(**locals()))
+                fh.write(fmt.format(**locals()))
 
         fh.write("</html>\n")
 

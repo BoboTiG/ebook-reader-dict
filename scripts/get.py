@@ -400,17 +400,16 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         nature = find_genre(code, genre[locale])
 
     # find if variant and delete unwanted definitions
-    variant = ""
+    variants = []
     if locale == "fr" and not definitions:  # Pure verb form, no definition
         for title, s in parsed_sections.items():
             if title.startswith("{{S|verbe|fr|flexion"):
                 for t in s[0].templates:
                     if t.__str__().startswith("{{fr-verbe-flexion"):
                         infinitive = clean(word, t.__str__(), locale)
-                        variant = infinitive
-                        break
+                        variants.append(infinitive)
 
-    return Word(pron, nature, etymology, definitions, variant)
+    return Word(pron, nature, etymology, definitions, variants)
 
 
 def process(file: Path, locale: str, debug: bool = False) -> Words:
@@ -446,7 +445,7 @@ def process(file: Path, locale: str, debug: bool = False) -> Words:
         except Exception:  # pragma: nocover
             print(f"ERROR with {word!r}", flush=True)
         else:
-            if details.definitions or details.variant:
+            if details.definitions or details.variants:
                 words[word] = details
 
     if debug:
