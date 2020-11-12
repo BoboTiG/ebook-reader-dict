@@ -174,7 +174,7 @@ Abocador Viccionari: {dump_date}
 
 Instal·lació:
 
-1. Copieu el fitxer [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) a la carpeta `.kobo/dict/` del lector.
+1. Copieu el fitxer [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) a la carpeta `.kobo/custom-dict/` del lector.
 2. **Reinicieu** el lector.
 
 <sub>Actualitzat el {creation_date}</sub>

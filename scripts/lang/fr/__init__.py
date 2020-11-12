@@ -884,7 +884,7 @@ Export Wiktionnaire : {dump_date}
 
 Installation :
 
-1. Copier le fichier [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/dict/` de la liseuse.
+1. Copier le fichier [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/custom-dict/` de la liseuse.
 2. **Redémarrer** la liseuse.
 
 <sub>Mis à jour le {creation_date}</sub>

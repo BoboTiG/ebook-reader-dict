@@ -416,7 +416,7 @@ exportación Wikcionario: {dump_date}
 
 Instalacións:
 
-1. Copia el archivo [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) en el directorio `.kobo/dict/` del lector.
+1. Copia el archivo [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) en el directorio `.kobo/custom-dict/` del lector.
 2. **Reinicie** la luz de lectura.
 
 <sub>Actualizado el {creation_date}</sub>

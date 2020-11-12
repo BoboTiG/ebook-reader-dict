@@ -287,7 +287,7 @@ Wiktionary dump: {dump_date}
 
 Installation:
 
-1. Copy the [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) file into the `.kobo/dict/` folder of the reader.
+1. Copy the [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) file into the `.kobo/custom-dict/` folder of the reader.
 2. **Restart** the reader.
 
 <sub>Updated on {creation_date}</sub>
