@@ -27,7 +27,7 @@ Installation :
 
 1. Copier le fichier [dicthtml-fr.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/custom-dict/` de la liseuse.
 2. **Redémarrer** la liseuse.
-"""
+"""  # noqa
 
     try:
         desc = upload.format_description("fr", output_dir).strip()

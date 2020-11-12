@@ -178,7 +178,7 @@ Instal·lació:
 2. **Reinicieu** el lector.
 
 <sub>Actualitzat el {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Viccionari (ɔ) {year}"

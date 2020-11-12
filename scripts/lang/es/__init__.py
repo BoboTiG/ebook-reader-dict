@@ -420,7 +420,7 @@ Instalacións:
 2. **Reinicie** la luz de lectura.
 
 <sub>Actualizado el {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionario (ɔ) {year}"

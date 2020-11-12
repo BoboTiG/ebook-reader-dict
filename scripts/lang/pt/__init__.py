@@ -166,12 +166,12 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         if rest:
             rest.pop(0)  # Remove the destination language
+        if rest:
+            transcr = rest.pop(0)
+            if transcr:
+                phrase += f" ({italic(transcr)})"
             if rest:
-                transcr = rest.pop(0)
-                if transcr:
-                    phrase += f" ({italic(transcr)})"
-                if rest:
-                    phrase += f' "{rest.pop(0)}"'
+                phrase += f' "{rest.pop(0)}"'
 
         if data.get("ponto", "") != "não":
             phrase += "."
@@ -193,7 +193,7 @@ Instalação:
 2. **Reiniciar** o leitor.
 
 <sub>Actualizado em {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionário (ɔ) {year}"

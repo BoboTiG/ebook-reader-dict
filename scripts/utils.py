@@ -1,9 +1,12 @@
 """Utilities for internal use."""
+import base64
 import re
+import subprocess
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
+from uuid import uuid4
+from typing import List, Match, Tuple, Union
 from warnings import warn
 
 from cachetools import cached
@@ -322,7 +325,37 @@ def clean(word: str, text: str, locale: str) -> str:
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
+    # Handle <math> HTML tags
+    text = sub(r"<math>(.+)</math>", convert_math, text)
+
     return text.strip()
+
+
+def convert_math(match: Union[str, Match[str]]) -> str:
+    """Convert mathematics symbols to a base64 encoded PNG file."""
+    expr: str = match.group(1) if isinstance(match, re.Match) else match
+    output = Path(f"math-{uuid4()}.png")
+
+    cmd = [
+        "bash",
+        "tools/pnglatex.sh",
+        "-o",
+        output.name,
+        "-d",
+        "96",
+        "-f",
+        expr,
+    ]
+    subprocess.check_call(cmd)
+
+    try:
+        img = '<img src="data:image/png;base64,'
+        img += base64.encodebytes(output.read_bytes().strip()).decode()
+        img += '"/>'
+    finally:
+        output.unlink()
+
+    return img
 
 
 def transform(word: str, template: str, locale: str) -> str:
