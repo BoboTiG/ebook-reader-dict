@@ -20,7 +20,7 @@ thousands_separator = " "
 #     DEBUG=1 WIKI_DUMP=20200501 python -m scripts --locale fr --get-only
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
 head_sections = ("{{langue|fr}}", "{{langue|conv}}")
-etyl_section = "{{S|étymologie}}"
+etyl_section = ["{{S|étymologie}}"]
 sections = (
     "{{S|abréviations}",
     "{{S|adjectif démonstratif|fr|",
@@ -57,7 +57,7 @@ sections = (
     "{{S|conjonction|fr}",
     "{{S|erreur|fr|",
     "{{S|erreur|fr}",
-    etyl_section,
+    *etyl_section,
     "{{S|interfixe|fr}",
     "{{S|interjection|fr|",
     "{{S|interjection|fr}",

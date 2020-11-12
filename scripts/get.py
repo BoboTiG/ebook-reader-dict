@@ -284,8 +284,6 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
         if leading_part:
             leading_lines = leading_part[0].contents.split("\n")
 
-        if not isinstance(etyl_l_sections, list):
-            etyl_l_sections = [etyl_l_sections]  # type: ignore
         for etyl_l_section in etyl_l_sections:
             for line in leading_lines:
                 if line.startswith(etyl_l_section):

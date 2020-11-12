@@ -14,7 +14,7 @@ thousands_separator = "."
 section_patterns = (r";\d+[:\s\.]",)  # ;1: ...
 sublist_patterns = (r":;\w",)  # :;a: ...
 head_sections = ("{{lengua|es}}",)
-etyl_section = "Etimología"
+etyl_section = ["Etimología"]
 sections = (
     "Abreviaturas",
     "Adjetivo",
@@ -23,7 +23,7 @@ sections = (
     "{{adverbio",
     "{{artículo",
     "{{conjunción",
-    etyl_section,
+    *etyl_section,
     "{{interjección",
     "{{onomatopeya",
     "{{prefijo",
