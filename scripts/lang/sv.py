@@ -51,7 +51,7 @@ Dumpa Wiktionary: {dump_date}
 
 Installation:
 
-1. Kopiera filen [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) till läsaren `.kobo/dict/` mappen på läsaren.
+1. Kopiera filen [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) till läsaren `.kobo/custom-dict/` mappen på läsaren.
 2. **Starta** om läsaren.
 
 <sub>Uppdaterad på {creation_date}</sub>

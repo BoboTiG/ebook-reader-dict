@@ -189,7 +189,7 @@ Exportação Wikcionário: {dump_date}
 
 Instalação:
 
-1. Copiar o ficheiro [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) para a pasta `.kobo/dict/` do leitor.
+1. Copiar o ficheiro [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) para a pasta `.kobo/custom-dict/` do leitor.
 2. **Reiniciar** o leitor.
 
 <sub>Actualizado em {creation_date}</sub>

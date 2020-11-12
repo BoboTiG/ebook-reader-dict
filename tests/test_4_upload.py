@@ -25,7 +25,7 @@ Export Wiktionnaire : 2020-02-20
 
 Installation :
 
-1. Copier le fichier [dicthtml-fr.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/dict/` de la liseuse.
+1. Copier le fichier [dicthtml-fr.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/custom-dict/` de la liseuse.
 2. **Redémarrer** la liseuse.
 """
 

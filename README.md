@@ -16,6 +16,10 @@ Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) f
 - [Português](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
 - [Svenska](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
+### Requirements
+
+Kobo firmware >= 4.24. For older firmwares, you can find outdated dictionaries [here](https://github.com/BoboTiG/ebook-reader-dict/actions/runs/350446645).
+
 ## Updating Dictionaries
 
 All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
