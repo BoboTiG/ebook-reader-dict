@@ -350,8 +350,8 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 
     print(
         word,
-        convert_pronunciation(details.pronunciations),
-        strip_html(convert_genre(details.genre)),
+        convert_pronunciation(details.pronunciations).lstrip(),
+        strip_html(convert_genre(details.genre).lstrip()),
         "\n",
     )
 
@@ -364,6 +364,9 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
                 print(f"{a}.".rjust(8), strip_html(subdef))
         else:
             print(f"{i}.".rjust(4), strip_html(definition))
+
+    if details.variants:
+        print("[variants]", ", ".join(iter(details.variants)))
 
 
 def guess_snapshots(locale: str) -> List[str]:
