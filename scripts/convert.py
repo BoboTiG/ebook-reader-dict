@@ -167,9 +167,9 @@ def save_html(
     raw_output = output_dir / f"{name}.raw.html"
     with raw_output.open(mode="w", encoding="utf-8") as fh:
         for word, word_details in words.items():
-
+            current_words: Words = {}
             word_details = Word(*word_details)
-            current_details = [word_details]
+            current_words[word] = word_details
 
             # use variant definitions for a word if one variant prefix is different
             # "suis" listed with the definitions of "être" and "suivre"
@@ -181,18 +181,29 @@ def save_html(
                         if root_details:
                             found_different_prefix = True
                             break
+                variants_words = {}
                 # if we found one variant, then list them all
                 if found_different_prefix:
-                    variants_details = []
                     for variant in word_details.variants:
                         root_details = all_words.get(variant, "")
                         if root_details:
-                            variants_details.append(Word(*root_details))
-                    if variants_details:
-                        current_details = variants_details
+                            variants_words[variant] = Word(*root_details)
+                if word.endswith("s"):  # crude detection of plural
+                    singular = word[:-1]
+                    maybe_noun = all_words.get(singular, "")  # do we have the singular?
+                    # make sure we are not redirecting to a verb (je mange, tu manges)
+                    # verb form is also a singular noun
+                    if maybe_noun and not Word(*maybe_noun).variants:
+                        variants_words[singular] = Word(*maybe_noun)
+                        for variant in word_details.variants:
+                            maybe_verb = all_words.get(variant, "")
+                            if maybe_verb:
+                                variants_words[variant] = Word(*maybe_verb)
+                if variants_words:
+                    current_words = variants_words
 
             # write to file
-            for details in current_details:
+            for current_word, details in current_words.items():
                 details = Word(*details)
                 if not details.definitions:
                     continue

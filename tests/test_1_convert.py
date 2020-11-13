@@ -35,6 +35,7 @@ def test_main():
             "gè.html",
             "ic.html",
             "ko.html",
+            "mi.html",
             "mo.html",
             "mu.html",
             "na.html",

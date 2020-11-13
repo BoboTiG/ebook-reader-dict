@@ -1,0 +1,48 @@
+{{voir|minutés}}
+
+== {{langue|fr}} ==
+=== {{S|nom|fr|flexion}} ===
+{{fr-rég|mi.nyt|s=minute}}
+'''minutes''' {{pron|mi.nyt|fr}} {{f}}
+# ''Pluriel de'' [[minute]].
+#* ''Quelques '''minutes''' avant la fin de la première mi-temps, un joueur de Bordeaux crochète un Marseillais dans la surface de réparation. Je siffle le penalty indiscutable.'' {{source|Christophe Donner, ''Mon oncle'', Grasset, 1995}}
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|minuter|ind.p.2s=oui|sub.p.2s=oui}}
+'''minutes''' {{pron|mi.nyt|fr}}
+# ''Deuxième personne du singulier de l’indicatif présent du verbe'' [[minuter]].
+# ''Deuxième personne du singulier du subjonctif présent du verbe'' [[minuter]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Muntzenheim)|audio=LL-Q150 (fra)-0x010C-minutes.wav}}
+* {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-minutes.wav}}
+
+
+
+==== {{S|homophones|fr}} ====
+* [[minutent]] {{cf|minuter}}
+
+=== {{S|anagrammes}} ===
+* {{lien|munîtes}}
+* {{lien|mutines}}, {{lien|mutinés}}
+
+== {{langue|en}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|en}}
+
+=== {{S|nom|en}} ===
+'''minutes''' {{pron||en}} {{p}}
+# [[compte-rendu|Compte-rendu]], [[procès-verbal]].
+#* ''The elected secretary will take the '''minutes''' of the meeting.''
+
+=== {{S|nom|en|flexion}} ===
+'''minutes''' {{pron||en}}
+# ''Pluriel de'' [[minute]].
+
+=== {{S|verbe|en|flexion}} ===
+'''minutes''' {{pron||en}}
+# ''Troisième personne du singulier du présent indicatif du verbe ''[[minute]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=en|États-Unis <!-- précisez svp la ville ou la région -->||audio=En-us-minutes.ogg}}
+* {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-minutes.wav}}
