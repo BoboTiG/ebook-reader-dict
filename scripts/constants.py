@@ -17,7 +17,7 @@ DOWNLOAD_URL = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
 WORD_FORMAT = """
 <w>
     <p>
-        <a name="{word}"/><b>{word}</b>{pronunciation}{genre}
+        <a name="{word}"/><b>{current_word}</b>{pronunciation}{genre}
         <br/>
         <br/>
         {etymology}
