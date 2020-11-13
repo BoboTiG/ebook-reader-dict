@@ -179,7 +179,7 @@ def save_html(
                     if guess_prefix(variant) != name:
                         root_details = all_words.get(variant, "")
                         if root_details:
-                            foundDifferentPrefix = True
+                            found_different_prefix = True
                             break
                 # if we found one variant, then list them all
                 if found_different_prefix:
