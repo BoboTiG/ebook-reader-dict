@@ -193,7 +193,7 @@ Instalação:
 2. **Reiniciar** o leitor.
 
 <sub>Actualizado em {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionário (ɔ) {year}"

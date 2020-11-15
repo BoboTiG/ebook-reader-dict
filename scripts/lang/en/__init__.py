@@ -291,7 +291,7 @@ Installation:
 2. **Restart** the reader.
 
 <sub>Updated on {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
