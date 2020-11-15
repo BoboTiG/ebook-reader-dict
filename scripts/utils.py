@@ -3,14 +3,14 @@ import re
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Match, Tuple, Union
 from warnings import warn
 
 from cachetools import cached
 from cachetools.keys import hashkey
 import regex
 
-from .constants import DOWNLOAD_URL
+from .constants import DOWNLOAD_URL, IMG_CSS
 from .lang import (
     last_template_handler,
     pattern_file,
@@ -157,7 +157,7 @@ def guess_prefix(word: str) -> str:
 
 
 def clean(word: str, text: str, locale: str) -> str:
-    """Cleans up the provided Wikicode.
+    r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
@@ -214,6 +214,11 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("ferrojar", "foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah", "es")
         'foo|anticuado por cerrojo e influido por fierro|yeah'
+        >>> clean("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
+        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        >>> clean("", r"<math>\R^n</math>", "fr")
+        <math> ERROR with <re.Match object; span=(0, 17), match='<math>\\R^n</math>'>
+        '\\R^n'
     """
 
     # Speed-up lookup
@@ -322,7 +327,45 @@ def clean(word: str, text: str, locale: str) -> str:
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
+    # Handle <math> HTML tags
+    text = sub(r"<math>([^<]+)</math>", convert_math, text)
+
     return text.strip()
+
+
+def _convert_math(expr: str) -> str:
+    """Convert mathematics symbols to a base64 encoded GIF file."""
+    from base64 import b64encode
+    from io import BytesIO
+
+    from PIL import Image
+    from sympy import preview
+
+    dvioptions = ["-T", "tight", "-z", "0", "-D 150", "-bg", "Transparent"]
+    with BytesIO() as buf, BytesIO() as im:
+        preview(
+            f"${expr}$",
+            output="png",
+            viewer="BytesIO",
+            outputbuffer=buf,
+            dvioptions=dvioptions,
+        )
+        Image.open(buf).convert("L").save(im, format="gif", optimize=True)
+
+        im.seek(0)
+        raw = im.read()
+
+    return f'<img style="{IMG_CSS}" src="data:image/gif;base64,{b64encode(raw).decode()}"/>'
+
+
+def convert_math(match: Union[str, Match[str]]) -> str:
+    """Convert mathematics symbols to a base64 encoded GIF file."""
+    expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    try:
+        return _convert_math(expr)
+    except Exception:
+        print(f"<math> ERROR with {match}", flush=True)
+        return expr
 
 
 def transform(word: str, template: str, locale: str) -> str:

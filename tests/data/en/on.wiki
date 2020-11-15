@@ -375,8 +375,6 @@ From {{inh|en|enm|on}}, from {{inh|en|ang|on}}, {{m|ang|an||on, upon, onto, in, 
 # {{senseid|en|influenced by a drug}} Under the influence of (a drug).
 #: {{ux|en|He's acting crazy because he's '''on''' crack right now.}}
 # {{lb|en|mathematics}} Having identical [[domain]] and [[codomain]].
-#: {{ux|en|a function '''on'''}}
-# {{lb|en|mathematics}} Having <math>V^n</math> as [[domain]] and ''V'' as [[codomain]], for some set ''V'' and integer ''n''.
 #: {{ux|en|an operator '''on'''}}
 # {{lb|en|mathematics}} [[generate|Generated]] by.
 #: {{ux|en|the free group '''on''' four letters}}

@@ -14,6 +14,9 @@ jobs:
       with:
         python-version: 3.8
 
+    - name: Install LaTeX requirements
+      run: sudo apt install dvipng texlive-latex-extra
+
     - uses: actions/cache@v2.1.2
       with:
         path: ~/.cache/pip
