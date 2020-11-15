@@ -55,7 +55,7 @@ Installation:
 2. **Starta** om läsaren.
 
 <sub>Uppdaterad på {creation_date}</sub>
-"""
+"""  # noqa
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
