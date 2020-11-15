@@ -26,3 +26,15 @@ WORD_FORMAT = """
     {var}
 </w>
 """
+
+# Inline CSS for inline images handling <math> tags.
+IMG_CSS = ";".join(
+    [
+        # try to keep a height proportional to the current font height
+        "height: 100%",
+        "max-height: 0.8em",
+        "width: auto",
+        # and adjust the vertical alignment to not alter the line height
+        "vertical-align: bottom",
+    ]
+).replace(" ", "")
