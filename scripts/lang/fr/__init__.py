@@ -605,23 +605,23 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["recons", "maruos", "gaul"], "fr")
         '*<i>maruos</i>'
         >>> last_template_handler(["recons", "maruos", "gaul", "sens=mort"], "fr")
-        '*<i>maruos</i> (« mort »)'
+        '*<i>maruos</i> («&nbsp;mort&nbsp;»)'
         >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
         '*<i>sporo</i>'
 
         >>> last_template_handler(["polytonique", "μηρóς", "mêrós", "cuisse"], "fr")
-        'μηρóς, <i>mêrós</i> (« cuisse »)'
+        'μηρóς, <i>mêrós</i> («&nbsp;cuisse&nbsp;»)'
         >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
-        'φόβος, <i>phóbos</i> (« effroi, peur »)'
+        'φόβος, <i>phóbos</i> («&nbsp;effroi, peur&nbsp;»)'
 
         >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
         '渦'
         >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
-        'フランス (« France »)'
+        'フランス («&nbsp;France&nbsp;»)'
         >>> last_template_handler(["lien", "フランス", "ja", "tr=Furansu", "sens=France"], "fr")
-        'フランス, <i>Furansu</i> (« France »)'
+        'フランス, <i>Furansu</i> («&nbsp;France&nbsp;»)'
         >>> last_template_handler(["lien", "camara", "sens=voute, plafond vouté", "la"], "fr")
-        'camara (« voute, plafond vouté »)'
+        'camara («&nbsp;voute, plafond vouté&nbsp;»)'
 
         >>> last_template_handler(["étyl", "grc", "fr"], "fr")
         'grec ancien'
@@ -632,21 +632,21 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["étyl", "la", "fr", "mot=invito", "type=verb"], "fr")
         'latin <i>invito</i>'
         >>> last_template_handler(["étyl", "grc", "fr", "mot=λόγος", "tr=lógos", "type=nom", "sens=étude"], "fr")
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
         >>> last_template_handler(["étyl", "grc", "fr", "λόγος", "lógos", "étude", "type=nom", "lien=1"], "fr")
-        'grec ancien λόγος, <i>lógos</i> (« étude »)'
+        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
         >>> last_template_handler(["étyl", "la", "fr", "mot=jugulum", "sens=endroit où le cou se joint aux épaules = la gorge"], "fr")  # noqa
-        'latin <i>jugulum</i> (« endroit où le cou se joint aux épaules = la gorge »)'
+        'latin <i>jugulum</i> («&nbsp;endroit où le cou se joint aux épaules = la gorge&nbsp;»)'
         >>> last_template_handler(["étyl", "la", "fr", "mot=subgrunda", "tr", "sens=même sens"], "fr")
-        'latin <i>subgrunda</i> (« même sens »)'
+        'latin <i>subgrunda</i> («&nbsp;même sens&nbsp;»)'
         >>> last_template_handler(["étyl", "grc", "fr", "mot="], "fr")
         'grec ancien'
         >>> last_template_handler(['étyl', 'grc', 'mot=ὑπόθεσις', 'tr=hupóthesis', 'sens=action de mettre dessous', 'nocat=1'], "fr")
-        'grec ancien ὑπόθεσις, <i>hupóthesis</i> (« action de mettre dessous »)'
+        'grec ancien ὑπόθεσις, <i>hupóthesis</i> («&nbsp;action de mettre dessous&nbsp;»)'
         >>> last_template_handler(["étyl", "grc", "fr", "tr=leipein", "sens=abandonner"], "fr")
-        'grec ancien <i>leipein</i> (« abandonner »)'
+        'grec ancien <i>leipein</i> («&nbsp;abandonner&nbsp;»)'
         >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
-        'grec ancien νακτός, <i>naktós</i> (« dense »)'
+        'grec ancien νακτός, <i>naktós</i> («&nbsp;dense&nbsp;»)'
         >>> last_template_handler(["étyl", "proto-indo-européen", "fr"], "fr")
         'indo-européen commun'
 
@@ -656,30 +656,30 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["calque", "la", "fr"], "fr")
         'latin'
         >>> last_template_handler(["calque", "en", "fr", "mot=to date", "sens=à ce jour"], "fr")
-        'anglais <i>to date</i> (« à ce jour »)'
+        'anglais <i>to date</i> («&nbsp;à ce jour&nbsp;»)'
         >>> last_template_handler(["calque", "sa", "fr", "mot=वज्रयान", "tr=vajrayāna", "sens=véhicule du diamant"], "fr")
-        'sanskrit वज्रयान, <i>vajrayāna</i> (« véhicule du diamant »)'
+        'sanskrit वज्रयान, <i>vajrayāna</i> («&nbsp;véhicule du diamant&nbsp;»)'
 
         >>> last_template_handler(["composé de", "longus", "aevum", "lang=la"], "fr")
         'composé de <i>longus</i> et de <i>aevum</i>'
         >>> last_template_handler(["composé de", "longus", "aevum", "lang=la", "f=1"], "fr")
         'composée de <i>longus</i> et de <i>aevum</i>'
         >>> last_template_handler(["composé de", "longus", "sens1=long", "aevum", "sens2=temps", "lang=la", "m=1"], "fr")
-        'Composé de <i>longus</i> (« long ») et de <i>aevum</i> (« temps »)'
+        'Composé de <i>longus</i> («&nbsp;long&nbsp;») et de <i>aevum</i> («&nbsp;temps&nbsp;»)'
         >>> last_template_handler(["composé de", "longus", "aevum", "sens=long temps", "lang=la"], "fr")
-        'composé de <i>longus</i> et de <i>aevum</i>, littéralement « long temps »'
+        'composé de <i>longus</i> et de <i>aevum</i>, littéralement «&nbsp;long temps&nbsp;»'
         >>> last_template_handler(["composé de", "δῆμος", "tr1=dêmos", "sens1=peuple", "ἀγωγός", "tr2=agōgós", "sens2=guide", "sens=celui qui guide le peuple", "lang=grc", "m=1"], "fr")
-        'Composé de δῆμος, <i>dêmos</i> (« peuple ») et de ἀγωγός, <i>agōgós</i> (« guide »), littéralement « celui qui guide le peuple »'
+        'Composé de δῆμος, <i>dêmos</i> («&nbsp;peuple&nbsp;») et de ἀγωγός, <i>agōgós</i> («&nbsp;guide&nbsp;»), littéralement «&nbsp;celui qui guide le peuple&nbsp;»'
         >>> last_template_handler(["composé de", "anti-", "quark", "lang=en"], "fr")
         'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
         >>> last_template_handler(["composé de", "anti-", "quark", "sens=quarks au rebut"], "fr")
-        'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>, littéralement « quarks au rebut »'
+        'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>, littéralement «&nbsp;quarks au rebut&nbsp;»'
         >>> last_template_handler(["composé de", "anti-", "quark", "lang=en", "m=1", "f=1"], "fr")
         'Dérivée de <i>quark</i> avec le préfixe <i>anti-</i>'
         >>> last_template_handler(["composé de", "clear", "-ly", "lang=en", "m=1"], "fr")
         'Dérivé de <i>clear</i> avec le suffixe <i>-ly</i>'
         >>> last_template_handler(["composé de", "느낌", "tr1=neukkim", "sens1=sensation", "표", "tr2=-pyo", "sens2=symbole", "lang=ko", "m=1"], "fr")
-        'Dérivé de 느낌, <i>neukkim</i> (« sensation ») avec le suffixe 표, <i>-pyo</i> (« symbole »)'
+        'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;») avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
 
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
@@ -751,7 +751,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         elif data["mot"]:
             phrase += f" {italic(data['mot'])}"
         if data["sens"]:
-            phrase += f" (« {data['sens']} »)"
+            phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
 
         return phrase
 
@@ -786,7 +786,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                     phrase += f", {italic(data[idx])}"
                 if f"sens{number}" in data:
                     idx = f"sens{number}"
-                    phrase += f" (« {data[idx]} »)"
+                    phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
 
                 phrase += (
                     " avec le "
@@ -797,7 +797,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 )
 
             if "sens" in data:
-                phrase += f", littéralement « {data['sens']} »"
+                phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
 
             return phrase
 
@@ -813,14 +813,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 phrase += f", {italic(data[idx])}"
             if f"sens{number}" in data:
                 idx = f"sens{number}"
-                phrase += f" (« {data[idx]} »)"
+                phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
 
             phrase += (
                 " et de " if number == len(parts) - 1 else ", " if multiple else ""
             )
 
         if "sens" in data:
-            phrase += f", littéralement « {data['sens']} »"
+            phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
 
         return phrase
 
@@ -830,7 +830,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         extension = ""
         for part in parts:
             if part.startswith("sens="):
-                extension = f" (« {part.split('=', 1)[1]} »)"
+                extension = f" («&nbsp;{part.split('=', 1)[1]}&nbsp;»)"
             elif "=" in part:
                 continue
             elif not phrase:
@@ -843,7 +843,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if len(parts) > 1:
             phrase += f", {italic(parts[1].replace('tr=', ''))}"
         if len(parts) > 2:
-            phrase += f" (« {parts[2].replace('sens=', '')} »)"
+            phrase += f" («&nbsp;{parts[2].replace('sens=', '')}&nbsp;»)"
         return phrase
 
     # Handle the {{lien}} template
@@ -853,7 +853,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             if part.startswith("tr="):
                 phrase += f", {italic(part.split('tr=', 1)[1])}"
             elif part.startswith("sens="):
-                phrase += f" (« {part.split('sens=', 1)[1]} »)"
+                phrase += f" («&nbsp;{part.split('sens=', 1)[1]}&nbsp;»)"
         return phrase
 
     # Handle the {{siècle}} template

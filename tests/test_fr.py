@@ -68,7 +68,7 @@ from scripts.utils import clean
             "acrologie",
             ["a.kʁɔ.lɔ.ʒi"],
             "f",
-            "Du grec ancien ἄκρος, <i>akros</i> (« extrémité »), voir <i>acro-</i>, avec le suffixe <i>-logie</i>.",
+            "Du grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»), voir <i>acro-</i>, avec le suffixe <i>-logie</i>.",  # noqa
             [
                 "<i>(Linguistique)</i> <i>(Rare)</i> Système graphique qui consiste à peindre, pour représenter les idées, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le langage ordinaire.",  # noqa
                 "<i>(Linguistique)</i> <i>(Par extension)</i> <i>(Rare)</i> Se dit lorsque deux termes commencent par la même lettre et qu’ils sont apparentés par le sens.",  # noqa
@@ -92,7 +92,7 @@ from scripts.utils import clean
             "base",
             ["bɑz"],
             "f",
-            "<i>(Date à préciser)</i> Du latin <i>basis</i> (« id. »), du grec ancien βάσις, <i>básis</i> (« marche »).",  # noqa
+            "<i>(Date à préciser)</i> Du latin <i>basis</i> («&nbsp;id.&nbsp;»), du grec ancien βάσις, <i>básis</i> («&nbsp;marche&nbsp;»).",  # noqa
             [
                 "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
                 "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
@@ -189,7 +189,7 @@ from scripts.utils import clean
             "employer",
             ["ɑ̃.plwa.je"],
             "",
-            "Du latin <i>implico</i> (« impliquer »).",
+            "Du latin <i>implico</i> («&nbsp;impliquer&nbsp;»).",
             [
                 "Utiliser ; user ; se servir de.",
                 "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",  # noqa
@@ -229,7 +229,7 @@ from scripts.utils import clean
             "greffier",
             ["ɡʁɛ.fje", "ɡʁe.fje"],
             "m",
-            "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> (« d’écriture, de style, de poinçon ») ou dérivé de <i>greffe</i> avec le suffixe <i>-ier</i>.",  # noqa
+            "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i> avec le suffixe <i>-ier</i>.",  # noqa
             [
                 "<i>(Droit)</i> Officier public préposé au greffe.",
                 "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
@@ -296,7 +296,7 @@ from scripts.utils import clean
             "précepte",
             ["pʁe.sɛpt"],
             "m",
-            "Emprunté au latin <i>praeceptum</i> (« précepte, leçon, règle »), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire ».",  # noqa
+            "Emprunté au latin <i>praeceptum</i> («&nbsp;précepte, leçon, règle&nbsp;»), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire ».",  # noqa
             [
                 "Règle ; leçon ; enseignement.",
                 "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
@@ -378,7 +378,7 @@ def test_parse_word(
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
-            "grec ancien ἄκρος, <i>akros</i> (« extrémité »)",
+            "grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»)",
         ),
         ("{{divinités|fr|grecques}}", "<i>(Divinité)</i>"),
         ("{{info lex|boulangerie}}", "<i>(Boulangerie)</i>"),
@@ -433,7 +433,7 @@ def test_parse_word(
         # Complex one: the "chambre" etymology
         (
             "{{siècle|lang=fr|XI}} Du {{étyl|frm|fr|chambre}}<ref>{{R:DMF}}</ref>, de l’{{étyl|fro|fr|chambre}}, {{lien|''cambre''|fro}}, {{lien|''cambra''|fro}}<ref>{{R:DÉCT}}</ref>{{,}}{{R|TLFi}}, du {{étyl|bas latin|fr|mot=camera|sens=pièce, chambre}}{{R|TLFi}}, du {{étyl|latin classique|fr|mot=camera}}{{R|TLFi}}, {{lien|''camara''|sens=voute, plafond vouté|la}}, du {{étyl|grc|fr|mot=καμάρα|tr=kamárā|sens=voute, lieu couvert par une construction}}{{R|TLFi}}.",  # noqa
-            "<i>(XI<sup>e</sup> siècle)</i> Du moyen français <i>chambre</i>, de l’ancien français <i>chambre</i>, <i>cambre</i>, <i>cambra</i>, du bas latin <i>camera</i> (« pièce, chambre »), du latin classique <i>camera</i>, <i>camara</i> (« voute, plafond vouté »), du grec ancien καμάρα, <i>kamárā</i> (« voute, lieu couvert par une construction »).",  # noqa
+            "<i>(XI<sup>e</sup> siècle)</i> Du moyen français <i>chambre</i>, de l’ancien français <i>chambre</i>, <i>cambre</i>, <i>cambra</i>, du bas latin <i>camera</i> («&nbsp;pièce, chambre&nbsp;»), du latin classique <i>camera</i>, <i>camara</i> («&nbsp;voute, plafond vouté&nbsp;»), du grec ancien καμάρα, <i>kamárā</i> («&nbsp;voute, lieu couvert par une construction&nbsp;»).",  # noqa
         ),
     ],
 )
