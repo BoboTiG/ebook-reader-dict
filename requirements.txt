@@ -1,5 +1,7 @@
 setuptools>=36.2.1
 cachetools==4.1.1
 marisa_trie==0.7.5
+pillow==8.0.1
 requests==2.24.0
+sympy==1.6.2
 wikitextparser==0.46.0
