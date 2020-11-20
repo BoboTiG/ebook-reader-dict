@@ -851,7 +851,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return phrase
 
     # Handle the {{lien}} template
-    if tpl == "lien" or tpl == "l":
+    if tpl in ["lien", "l"]:
         phrase = parts[0]
         for part in parts[1:]:
             if part.startswith("tr="):
