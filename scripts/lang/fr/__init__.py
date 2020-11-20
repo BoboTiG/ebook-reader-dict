@@ -517,6 +517,8 @@ templates_multi = {
     # {{variante ortho de|acupuncture|fr}}
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
+    # {{W|Jacques Brandenberger}}
+    "W": "[p for p in parts if 'lang=' not in p][-1] if parts else ''",
     # {{wp|Sarcoscypha coccinea}}
     "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}

@@ -418,6 +418,9 @@ def test_parse_word(
             "{{variante orthographique de|acupuncture|fr}}",
             "Variante orthographique de acupuncture",
         ),
+        ("{{W|Jacques Brandenberger}}", "Jacques Brandenberger"),
+        ("{{w|lang=en|The Little Prince}}", "The Little Prince"),
+        ("{{w|Li Ptit Prince (roman)|Li Ptit Prince|lang=wa}}", "Li Ptit Prince"),
         (
             "{{wp|Sarcoscypha coccinea}}",
             "<i>Sarcoscypha coccinea sur l'encyclopédie Wikipedia</i>",
