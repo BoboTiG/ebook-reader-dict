@@ -100,7 +100,7 @@ from scripts.utils import clean
                 "<i>(Mathématiques)</i>",
                 (
                     "<i>(Géométrie)</i> Surface sur laquelle on conçoit que certains corps solides sont appuyés.",
-                    "Famille libre de vecteurs, génératrice d’un espace vectoriel.",
+                    "<i>(Algèbre)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
                     "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
                     "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",
                 ),
@@ -386,6 +386,7 @@ def test_parse_word(
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{lang|en|other rank}}", "other rank"),
+        ("{{langues|fr|de Chine}}", "<i>(Linguistique)</i>"),
         ("{{lexique|philosophie|fr}}", "<i>(Philosophie)</i>"),
         ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
         ("{{lien|étrange|fr}}", "étrange"),
