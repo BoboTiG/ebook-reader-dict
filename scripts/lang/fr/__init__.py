@@ -616,6 +616,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
         'φόβος, <i>phóbos</i> («&nbsp;effroi, peur&nbsp;»)'
 
+        >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
+        'dies Lunae'
         >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
         '渦'
         >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
@@ -849,7 +851,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return phrase
 
     # Handle the {{lien}} template
-    if tpl == "lien":
+    if tpl == "lien" or tpl == "l":
         phrase = parts[0]
         for part in parts[1:]:
             if part.startswith("tr="):
