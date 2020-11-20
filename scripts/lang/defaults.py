@@ -42,6 +42,10 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     if len(parts) == 2:
         return term(capitalize(lookup_italic(parts[0], locale)))
 
+    italic = lookup_italic(parts[0], locale, True)
+    if italic:
+        return term(capitalize(italic))
+
     # {{tpl|item1|item2|...}} -> ''
     if len(parts) > 2:
         return ""

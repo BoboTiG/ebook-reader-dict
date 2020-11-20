@@ -208,7 +208,7 @@ def italic(text: str) -> str:
     return f"<i>{text}</i>"
 
 
-def lookup_italic(word: str, locale: str) -> str:
+def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
     """
     Find the *word* from the *templates_italic* table of the given *locale*.
 
@@ -221,7 +221,7 @@ def lookup_italic(word: str, locale: str) -> str:
         >>> lookup_italic("inexistant", "fr")
         'inexistant'
     """
-    return templates_italic[locale].get(word, word)
+    return templates_italic[locale].get(word, "" if empty_default else word)
 
 
 def number(number: str, fsep: str, tsep: str) -> str:

@@ -440,8 +440,6 @@ templates_multi = {
     # {{date|1850}}
     # {{date|lang=fr|vers 980}}
     "date": "term(capitalize(parts[1]) if len(parts) > 1 else 'Date à préciser')",
-    # {{divinités|fr|grecques}}
-    "divinités": "term('Divinité')",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}
