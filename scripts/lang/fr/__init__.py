@@ -742,6 +742,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'avoir'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
+
+        >>> last_template_handler(["supplétion", "aller", "lang=fr"], "fr")
+        'Cette forme dénote une supplétion car son étymologie est distincte de celle de <i>aller</i>'
+        >>> last_template_handler(["supplétion", "un", "lang=fr", "mot=oui"], "fr")
+        'Ce mot dénote une supplétion car son étymologie est distincte de celle de <i>un</i>'
+        >>> last_template_handler(["supplétion", "better", "best", "lang=en", "mot=oui"], "fr")
+        'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>better</i> et de <i>best</i>'
+        >>> last_template_handler(["supplétion", "am", "are", "was", "lang=en", "mot=oui"], "fr")
+        'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>am</i>, de <i>are</i> et de <i>was</i>'
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -940,6 +949,22 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     if tpl == "fr-verbe-flexion":
         data = extract_keywords_from(parts)
         return data.get("1", parts[0] if parts else "")
+
+    if tpl == "supplétion":
+        data = extract_keywords_from(parts)
+        if data["mot"]:
+            phrase = "Ce mot dénote une supplétion car son étymologie est distincte de "
+        else:
+            phrase = (
+                "Cette forme dénote une supplétion car son étymologie est distincte de "
+            )
+        if len(parts) > 1:
+            phrase += "celles de "
+            phrase += ", de ".join(f"{italic(p)}" for p in parts[:-1])
+            phrase += f" et de {italic(parts[-1])}"
+        else:
+            phrase += f"celle de {italic(parts[0])}"
+        return phrase
 
     # This is a country in the current locale
     if tpl in langs:
