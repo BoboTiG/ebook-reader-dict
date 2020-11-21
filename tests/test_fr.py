@@ -377,6 +377,9 @@ def test_parse_word(
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("{{détroit|fr", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
+        ("{{diminutif|fr}}", "diminutif"),
+        ("{{diminutif|fr|de=balle}}", "diminutif"),
+        ("{{diminutif|fr|m=1}}", "Diminutif"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
