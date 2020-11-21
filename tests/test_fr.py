@@ -412,6 +412,8 @@ def test_parse_word(
         ("{{sport}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
+        ("{{unité|92|%}}", "92 %"),
+        ("{{Unité|60|cm}}", "60 cm"),
         (
             "{{variante ortho de|acupuncture|fr}}",
             "Variante orthographique de acupuncture",
