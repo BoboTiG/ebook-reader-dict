@@ -170,6 +170,7 @@ templates_ignored = (
     "créer-séparément",
     "désabrévier",
     "Import",
+    "lien web",
     "Modèle",
     "plans d’eau",
     "préciser",
