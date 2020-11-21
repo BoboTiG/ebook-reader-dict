@@ -613,6 +613,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'μηρóς, <i>mêrós</i> («&nbsp;cuisse&nbsp;»)'
         >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
         'φόβος, <i>phóbos</i> («&nbsp;effroi, peur&nbsp;»)'
+        >>> last_template_handler(["Polytonique", "नामन्", "nā́man"], "fr")
+        'नामन्, <i>nā́man</i>'
+        >>> last_template_handler(["Polytonique", "هند", "hend", "Inde"], "fr")
+        'هند, <i>hend</i> («&nbsp;Inde&nbsp;»)'
 
         >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
         'dies Lunae'
@@ -840,7 +844,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return f"*{phrase}{extension}"
 
     # Handle the {{polytonique}} template
-    if tpl == "polytonique":
+    if tpl.lower() == "polytonique":
         phrase = parts[0]
         if len(parts) > 1:
             phrase += f", {italic(parts[1].replace('tr=', ''))}"
@@ -849,7 +853,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return phrase
 
     # Handle the {{lien}} template
-    if tpl == "lien" or tpl == "l":
+    if tpl in ["lien", "l"]:
         phrase = parts[0]
         for part in parts[1:]:
             if part.startswith("tr="):
