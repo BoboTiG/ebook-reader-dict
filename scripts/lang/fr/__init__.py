@@ -826,6 +826,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         "syncope",
         "parataxe",
         "déglutination",
+        "reverlanisation",
     ):
         data = extract_keywords_from(parts)
         phrase = tpl
