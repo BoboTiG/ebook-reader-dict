@@ -707,6 +707,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["date", "lang=fr", "vers l'an V"], "fr")
         "<i>(Vers l'an V)</i>"
 
+        >>> last_template_handler(["phon", "tɛs.tjɔ̃", "lang=fr"], "fr")
+        '<b>[tɛs.tjɔ̃]</b>'
+        >>> last_template_handler(["phon", "na.t͡ʃe", "fr"], "fr")
+        '<b>[na.t͡ʃe]</b>'
+
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
         >>> last_template_handler(["siècle", "lang=fr", "?"], "fr")
@@ -738,6 +743,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         century,
         extract_keywords_from,
         italic,
+        strong,
         term,
     )
 
@@ -875,6 +881,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
 
         return phrase
+
+    # Handle the {{phon}} template
+    if tpl == "phon":
+        extract_keywords_from(parts)
+        return strong(f"[{parts[0]}]")
 
     # Handle the {{recons}} template
     if tpl in ("recons", "forme reconstruite"):
