@@ -435,10 +435,6 @@ templates_multi = {
     "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
-    # {{date}}
-    # {{date|1850}}
-    # {{date|lang=fr|vers 980}}
-    "date": "term(capitalize(parts[1]) if len(parts) > 1 else 'Date à préciser')",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}
@@ -688,6 +684,19 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["composé de", "느낌", "tr1=neukkim", "sens1=sensation", "표", "tr2=-pyo", "sens2=symbole", "lang=ko", "m=1"], "fr")
         'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;») avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
 
+        >>> last_template_handler(["date", "lang=fr", ""], "fr")
+        '<i>(Date à préciser)</i>'
+        >>> last_template_handler(["date", "", "lang=fr"], "fr")
+        '<i>(Date à préciser)</i>'
+        >>> last_template_handler(["date", "lang=fr"], "fr")
+        '<i>(Date à préciser)</i>'
+        >>> last_template_handler(["date", "1957"], "fr")
+        '<i>(1957)</i>'
+        >>> last_template_handler(["date", "1957"], "fr")
+        '<i>(1957)</i>'
+        >>> last_template_handler(["date", "lang=fr", "vers l'an V"], "fr")
+        "<i>(Vers l'an V)</i>"
+
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
         >>> last_template_handler(["siècle", "lang=fr", "?"], "fr")
@@ -714,10 +723,21 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import century, extract_keywords_from, italic, term
+    from ...user_functions import (
+        capitalize,
+        century,
+        extract_keywords_from,
+        italic,
+        term,
+    )
 
     tpl = template[0]
     parts = list(template[1:])
+
+    if tpl == "date":
+        extract_keywords_from(parts)
+        date = parts[-1] if parts and parts[-1] else "Date à préciser"
+        return term(capitalize(date))
 
     # Handle {{déverbal}} and {{dénominal}} template
     if tpl in ("dénominal", "déverbal"):
