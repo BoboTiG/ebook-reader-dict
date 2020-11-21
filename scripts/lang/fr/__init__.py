@@ -405,6 +405,7 @@ templates_italic = {
     "vieux": "Vieilli",
     "vélo": "Cyclisme",
     "vête": "Habillement",
+    "volley": "Volley-ball",
     "zool": "Zoologie",
     "zootechnie": "Zoologie",
 }
