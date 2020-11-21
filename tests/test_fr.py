@@ -370,11 +370,6 @@ def test_parse_word(
         ("{{cf|lang=fr|in-|extinguible}}", "→ voir <i>in-</i> et <i>extinguible</i>"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),
-        ("{{date|lang=fr}}", "<i>(Date à préciser)</i>"),
-        ("{{date|1957}}", "<i>(1957)</i>"),
-        ("{{date|1957-2057}}", "<i>(1957-2057)</i>"),
-        ("{{date|lang=fr|vers 980}}", "<i>(Vers 980)</i>"),
-        ("{{date|lang=fr|vers l'an V}}", "<i>(Vers l'an V)</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
