@@ -386,6 +386,7 @@ def test_parse_word(
         ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{lang|en|other rank}}", "other rank"),
+        ("{{Lang|la|[[Martis]] [[dies]]}}", "Martis dies"),
         ("{{langues|fr|de Chine}}", "<i>(Linguistique)</i>"),
         ("{{lexique|philosophie|fr}}", "<i>(Philosophie)</i>"),
         ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
