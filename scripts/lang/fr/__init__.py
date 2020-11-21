@@ -443,6 +443,8 @@ templates_multi = {
     "déverbal de": 'f"Déverbal de {italic(parts[1])}"',
     # {{dénominal de|affection|fr}}
     "dénominal de": 'f"Dénominal de {italic(parts[1])}"',
+    # {{diminutif|fr|m=1}}
+    "diminutif": "'Diminutif' if any(p in ('m=1', 'm=oui') for p in parts) else 'diminutif'",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}
