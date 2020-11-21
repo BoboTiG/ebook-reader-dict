@@ -19,7 +19,6 @@ from .lang import (
     templates_italic,
     templates_multi,
     templates_other,
-    templates_warning_skip,
     thousands_separator,
 )
 from .user_functions import *  # noqa
@@ -356,8 +355,12 @@ def transform(word: str, template: str, locale: str) -> str:
         parts = [p.strip() for p in parts_raw]
         tpl = parts[0]
 
-    # Help fixing formatting on Wiktionary (some templates are more complex and cannot be fixed)
-    if parts != parts_raw and tpl not in templates_warning_skip[locale]:
+    # Stop early
+    if tpl in templates_ignored[locale]:
+        return ""
+
+    # Help fixing formatting on Wiktionary
+    if parts != parts_raw:
         warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
@@ -369,9 +372,6 @@ def transform(word: str, template: str, locale: str) -> str:
 @cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
 def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     """Convert the data from the *tpl* template of the *word* using the *locale*."""
-    if tpl in templates_ignored[locale]:
-        return ""
-
     # {{w|ISO 639-3}} -> ISO 639-3
     # {{w|Gesse aphaca|Lathyrus aphaca}} -> Lathyrus aphaca
     if tpl == "w":
