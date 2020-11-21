@@ -213,7 +213,15 @@ def save_html(
                         definitions += f"<li>{definition}</li>"
                     else:
                         definitions += '<ol style="list-style-type:lower-alpha">'
-                        definitions += "".join(f"<li>{d}</li>" for d in definition)
+                        for subdef in definition:
+                            if isinstance(subdef, str):
+                                definitions += f"<li>{subdef}</li>"
+                            else:
+                                definitions += (
+                                    '<ol style="list-style-type:lower-roman">'
+                                )
+                                definitions += "".join(f"<li>{d}</li>" for d in subdef)
+                                definitions += "</ol>"
                         definitions += "</ol>"
 
                 pronunciation = convert_pronunciation(details.pronunciations)

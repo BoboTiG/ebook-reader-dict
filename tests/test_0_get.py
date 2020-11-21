@@ -480,4 +480,5 @@ def test_xml_parse_word_special_character(tmp_path):
 
 def test_get_and_parse_word():
     get.get_and_parse_word("fondation", "fr")
+    get.get_and_parse_word("base", "fr")
     get.get_and_parse_word("suis", "fr", raw=True)
