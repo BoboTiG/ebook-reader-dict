@@ -724,7 +724,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         >>> last_template_handler(["date", ""], "fr")
         '<i>(Date à préciser)</i>'
-        >>> last_template_handler(["date", ""], "fr")
+        >>> last_template_handler(["date", "?"], "fr")
         '<i>(Date à préciser)</i>'
         >>> last_template_handler(["date"], "fr")
         '<i>(Date à préciser)</i>'
@@ -811,9 +811,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         phrase = "Acronyme" if data["m"] in ("1", "oui") else "acronyme"
         return f"{phrase} de {italic(data['texte'] or data['de'])}"
 
+    # Handle {{date}} template
     if tpl == "date":
         extract_keywords_from(parts)
-        date = parts[-1] if parts and parts[-1] else "Date à préciser"
+        date = parts[-1] if parts and parts[-1] not in ("", "?") else "Date à préciser"
         return term(capitalize(date))
 
     # Handle {{déverbal}} and {{dénominal}} template
