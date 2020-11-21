@@ -758,6 +758,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>better</i> et de <i>best</i>'
         >>> last_template_handler(["supplétion", "am", "are", "was", "lang=en", "mot=oui"], "fr")
         'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>am</i>, de <i>are</i> et de <i>was</i>'
+
+        >>> last_template_handler(["zh-lien", "人", "rén"], "fr")
+        '人 (<i>rén</i>)'
+        >>> last_template_handler(["zh-lien", "马", "mǎ", "馬"], "fr")
+        '马 (馬, <i>mǎ</i>)'
+        >>> last_template_handler(["zh-lien", "骨", "gǔ", "骨"], "fr")
+        '骨 (骨, <i>gǔ</i>)'
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -973,6 +980,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         else:
             phrase += f"celle de {italic(parts[0])}"
         return phrase
+
+    # Handle the {{zh-lien}} template
+    if tpl == "zh-lien":
+        simple = parts.pop(0)
+        pinyin = italic(parts.pop(0))
+        traditional = parts[0] if parts else ""
+        if not traditional:
+            return f"{simple} ({pinyin})"
+        return f"{simple} ({traditional}, {pinyin})"
 
     # This is a country in the current locale
     if tpl in langs:
