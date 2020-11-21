@@ -35,7 +35,7 @@ def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     from ..user_functions import capitalize, lookup_italic, term
 
     # Handle the {{lang}} template when it comes with unknown locale
-    if parts[0] == "lang":
+    if parts[0].lower() == "lang":
         return parts[-1]
 
     # {{tpl|item}} -> <i>(Template)</i>
