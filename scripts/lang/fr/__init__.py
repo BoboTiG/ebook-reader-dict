@@ -243,6 +243,7 @@ templates_italic = {
     "cout": "Couture",
     "cycl": "Cyclisme",
     "dermatol": "Dermatologie",
+    "détroit": "Géographie",
     "didact": "Didactique",
     "diplo": "Diplomatie",
     "EU": "Europe",
