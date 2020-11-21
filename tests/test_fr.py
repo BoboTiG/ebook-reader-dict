@@ -100,6 +100,10 @@ from scripts.utils import clean
                 "<i>(Mathématiques)</i>",
                 (
                     "<i>(Géométrie)</i> Surface sur laquelle on conçoit que certains corps solides sont appuyés.",
+                    (
+                        "<i>(Par extension)</i> Côté du triangle opposé à l’angle qui est regardé comme le sommet.",
+                        "Côté d’une figure géométrique naturellement choisi comme côté principal.",
+                    ),
                     "<i>(Algèbre)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
                     "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
                     "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",

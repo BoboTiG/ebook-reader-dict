@@ -37,7 +37,7 @@ from .lang import (
     sublist_patterns,
     words_to_keep,
 )
-from .stubs import Definitions, Word, Words
+from .stubs import Definitions, SubDefinitions, Word, Words
 from .utils import clean, convert_pronunciation, convert_genre
 
 if TYPE_CHECKING:  # pragma: nocover
@@ -183,10 +183,21 @@ def find_section_definitions(
                 definitions.append(definition)
 
                 # ... And its eventual sub-definitions
-                subdefinitions: List[str] = []
+                subdefinitions: List[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
-                    for subcode in sublist.items:
-                        subdefinitions.append(clean(word, subcode, locale))
+                    for idx2, subcode in enumerate(sublist.items):
+                        subdefinition = clean(word, subcode, locale)
+                        subdefinitions.append(subdefinition)
+                        subsubdefinitions: List[str] = []
+                        for subsublist in sublist.sublists(
+                            i=idx2, pattern=sublist_patterns[locale]
+                        ):
+                            for subsubcode in subsublist.items:
+                                subsubdefinitions.append(
+                                    clean(word, subsubcode, locale)
+                                )
+                        if subsubdefinitions:
+                            subdefinitions.append(tuple(subsubdefinitions))
                 if subdefinitions:
                     definitions.append(tuple(subdefinitions))
 
@@ -356,12 +367,20 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     if details.etymology:
         print(strip_html(details.etymology), "\n")
 
-    for i, definition in enumerate(details.definitions, start=1):
+    index = 1
+    for definition in details.definitions:
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                print(f"{a}.".rjust(8), strip_html(subdef))
+                if isinstance(subdef, tuple):
+                    for rn, subsubdef in zip(
+                        ["i", "ii", "iii", "iv", "v", "vi", "vii"], subdef
+                    ):
+                        print(f"{rn}.".rjust(12), strip_html(subsubdef))
+                else:
+                    print(f"{a}.".rjust(8), strip_html(subdef))
         else:
-            print(f"{i}.".rjust(4), strip_html(definition))
+            print(f"{index}.".rjust(4), strip_html(definition))
+            index = index + 1
 
     if details.variants:
         print("[variants]", ", ".join(iter(details.variants)))
