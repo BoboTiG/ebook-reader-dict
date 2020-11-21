@@ -511,6 +511,7 @@ templates_multi = {
     # {{variante de|ranche|fr}}
     "variante de": "sentence(parts)",
     # {{variante ortho de|acupuncture|fr}}
+    "Variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
     # {{W|Jacques Brandenberger}}
