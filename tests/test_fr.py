@@ -417,6 +417,10 @@ def test_parse_word(
             "Variante orthographique de acupuncture",
         ),
         (
+            "{{Variante ortho de|acupuncture|fr}}",
+            "Variante orthographique de acupuncture",
+        ),
+        (
             "{{variante orthographique de|acupuncture|fr}}",
             "Variante orthographique de acupuncture",
         ),
