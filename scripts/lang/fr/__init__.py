@@ -600,6 +600,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Déverbal sans suffixe de <i>réserver</i>'
         >>> last_template_handler(["agglutination", "lang=fr", "m=1"], "fr")
         'Agglutination'
+        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "de2=armes"], "fr")
+        'Univerbation de <i>gens</i> et de <i>armes</i>'
 
         >>> last_template_handler(["recons", "maruos"], "fr")
         '*<i>maruos</i>'
@@ -744,7 +746,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return term(capitalize(date))
 
     # Handle {{déverbal}} and {{dénominal}} template
-    if tpl in ("dénominal", "déverbal", "déverbal sans suffixe", "agglutination"):
+    if tpl in (
+        "dénominal",
+        "déverbal",
+        "déverbal sans suffixe",
+        "agglutination",
+        "univerbation",
+    ):
         data = extract_keywords_from(parts)
         phrase = tpl
         if data["m"] == "1":
@@ -755,6 +763,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 phrase += f" {data['texte'] or 'de'}"
             phrase += f" {italic(data['de'])}"
 
+        if tpl == "univerbation":
+            if data["de2"]:
+                if data["nolien"] != "1":
+                    phrase += f" {data['texte2'] or 'et de'}"
+                phrase += f" {italic(data['de2'])}"
         return phrase
 
     # Handle {{étyl}}, {{étylp}} and {{calque}} templates
