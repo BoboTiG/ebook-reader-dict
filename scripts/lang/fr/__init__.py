@@ -518,6 +518,7 @@ templates_multi = {
     "Unité": "concat(parts[1:], sep=' ')",
     # {{variante de|ranche|fr}}
     "variante de": "sentence(parts)",
+    "Variante de": "sentence(parts)",
     # {{variante ortho de|acupuncture|fr}}
     "Variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',

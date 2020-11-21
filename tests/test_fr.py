@@ -417,6 +417,7 @@ def test_parse_word(
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
         ("{{unité|92|%}}", "92 %"),
         ("{{Unité|60|cm}}", "60 cm"),
+        ("{{Variante de|muezzin|fr}}", "Variante de muezzin"),
         (
             "{{variante ortho de|acupuncture|fr}}",
             "Variante orthographique de acupuncture",
