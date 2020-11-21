@@ -169,7 +169,6 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
-    "graphie",
     "Import",
     "Modèle",
     "préciser",
@@ -457,6 +456,8 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
+    # {{graphie|u}}
+    "graphie": 'f"‹&nbsp;{parts[1]}&nbsp;›"',
     # {{îles|fr}}
     # {{îles|fr|des Antilles}}
     "îles": "term('Géographie')",
