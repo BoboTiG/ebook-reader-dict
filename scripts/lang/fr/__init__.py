@@ -522,7 +522,7 @@ templates_multi = {
     "variante ortho de": 'f"Variante orthographique de {parts[1]}"',
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
     # {{W|Jacques Brandenberger}}
-    "W": "[p for p in parts if 'lang=' not in p][-1] if parts else ''",
+    "W": "parts[-1] if parts else ''",
     # {{wp|Sarcoscypha coccinea}}
     "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
@@ -590,20 +590,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["dénominal", "lang=fr"], "fr")
+        >>> last_template_handler(["dénominal"], "fr")
         'dénominal'
-        >>> last_template_handler(["dénominal", "de=psychoanalyze", "lang=fr", "m=1"], "fr")
+        >>> last_template_handler(["dénominal", "de=psychoanalyze", "m=1"], "fr")
         'Dénominal de <i>psychoanalyze</i>'
 
-        >>> last_template_handler(["déverbal", "lang=fr"], "fr")
+        >>> last_template_handler(["déverbal"], "fr")
         'déverbal'
         >>> last_template_handler(["déverbal", "de=peko", "lang=eo", "m=0"], "fr")
         'déverbal de <i>peko</i>'
-        >>> last_template_handler(["déverbal", "de=accueillir", "lang=fr", "m=1"], "fr")
+        >>> last_template_handler(["déverbal", "de=accueillir", "m=1"], "fr")
         'Déverbal de <i>accueillir</i>'
-        >>> last_template_handler(["déverbal sans suffixe", "de=réserver", "lang=fr", "m=1"], "fr")
+        >>> last_template_handler(["déverbal sans suffixe", "de=réserver", "m=1"], "fr")
         'Déverbal sans suffixe de <i>réserver</i>'
-        >>> last_template_handler(["agglutination", "lang=fr", "m=1"], "fr")
+        >>> last_template_handler(["agglutination", "m=1"], "fr")
         'Agglutination'
         >>> last_template_handler(["agglutination", "fr", "de=harbin", "texte=l'harbin", "m=1"], "fr")
         "Agglutination de <i>l'harbin</i>"
@@ -708,33 +708,33 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["composé de", "느낌", "tr1=neukkim", "sens1=sensation", "표", "tr2=-pyo", "sens2=symbole", "lang=ko", "m=1"], "fr")
         'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;») avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
 
-        >>> last_template_handler(["date", "lang=fr", ""], "fr")
+        >>> last_template_handler(["date", ""], "fr")
         '<i>(Date à préciser)</i>'
-        >>> last_template_handler(["date", "", "lang=fr"], "fr")
+        >>> last_template_handler(["date", ""], "fr")
         '<i>(Date à préciser)</i>'
-        >>> last_template_handler(["date", "lang=fr"], "fr")
+        >>> last_template_handler(["date"], "fr")
         '<i>(Date à préciser)</i>'
         >>> last_template_handler(["date", "1957"], "fr")
         '<i>(1957)</i>'
         >>> last_template_handler(["date", "1957"], "fr")
         '<i>(1957)</i>'
-        >>> last_template_handler(["date", "lang=fr", "vers l'an V"], "fr")
+        >>> last_template_handler(["date", "vers l'an V"], "fr")
         "<i>(Vers l'an V)</i>"
 
-        >>> last_template_handler(["phon", "tɛs.tjɔ̃", "lang=fr"], "fr")
+        >>> last_template_handler(["phon", "tɛs.tjɔ̃"], "fr")
         '<b>[tɛs.tjɔ̃]</b>'
         >>> last_template_handler(["phon", "na.t͡ʃe", "fr"], "fr")
         '<b>[na.t͡ʃe]</b>'
 
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
-        >>> last_template_handler(["siècle", "lang=fr", "?"], "fr")
+        >>> last_template_handler(["siècle", "?"], "fr")
         '<i>(Siècle à préciser)</i>'
-        >>> last_template_handler(["siècle", "", "lang=fr"], "fr")
+        >>> last_template_handler(["siècle", ""], "fr")
         '<i>(Siècle à préciser)</i>'
         >>> last_template_handler(["siècle", "XVIII"], "fr")
         '<i>(XVIII<sup>e</sup> siècle)</i>'
-        >>> last_template_handler(["siècle", "lang=fr", "XVIII"], "fr")
+        >>> last_template_handler(["siècle", "XVIII"], "fr")
         '<i>(XVIII<sup>e</sup> siècle)</i>'
         >>> last_template_handler(["siècle", "XVIII", "XIX"], "fr")
         '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
@@ -750,9 +750,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
 
-        >>> last_template_handler(["supplétion", "aller", "lang=fr"], "fr")
+        >>> last_template_handler(["supplétion", "aller"], "fr")
         'Cette forme dénote une supplétion car son étymologie est distincte de celle de <i>aller</i>'
-        >>> last_template_handler(["supplétion", "un", "lang=fr", "mot=oui"], "fr")
+        >>> last_template_handler(["supplétion", "un", "mot=oui"], "fr")
         'Ce mot dénote une supplétion car son étymologie est distincte de celle de <i>un</i>'
         >>> last_template_handler(["supplétion", "better", "best", "lang=en", "mot=oui"], "fr")
         'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>better</i> et de <i>best</i>'
