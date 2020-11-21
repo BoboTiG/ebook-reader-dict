@@ -595,6 +595,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["acronyme", "fr"], "fr")
+        '<i>(Acronyme)</i>'
+        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode"], "fr")
+        'Acronyme de <i>light-emitting diode</i>'
+        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode", "m=0"], "fr")
+        'acronyme de <i>light-emitting diode</i>'
+        >>> last_template_handler(["acronyme", "en", "fr", "de=light-emitting diode", "texte=Light-Emitting Diode", "m=1"], "fr")
+        'Acronyme de <i>Light-Emitting Diode</i>'
+
         >>> last_template_handler(["dénominal"], "fr")
         'dénominal'
         >>> last_template_handler(["dénominal", "de=psychoanalyze", "m=1"], "fr")
@@ -793,6 +802,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     tpl = template[0]
     parts = list(template[1:])
+
+    # Handle {{acronyme}} template
+    if tpl == "acronyme":
+        data = extract_keywords_from(parts)
+        if not data:
+            return italic("(Acronyme)")
+        phrase = "acronyme" if data["m"] in ("0", "non") else "Acronyme"
+        return f"{phrase} de {italic(data['texte'] or data['de'])}"
 
     if tpl == "date":
         extract_keywords_from(parts)
