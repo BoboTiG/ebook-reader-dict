@@ -723,6 +723,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["date", "vers l'an V"], "fr")
         "<i>(Vers l'an V)</i>"
 
+        >>> last_template_handler(["équiv-pour", "un homme", "maître"], "fr")
+        '<i>(pour un homme on dit</i>&nbsp: maître<i>)</i>'
+        >>> last_template_handler(["équiv-pour", "le mâle", "lion"], "fr")
+        '<i>(pour le mâle on dit</i>&nbsp: lion<i>)</i>'
+        >>> last_template_handler(["équiv-pour", "une femme", "autrice", "auteure", "auteuse"], "fr")
+        '<i>(pour une femme on peut dire</i>&nbsp: autrice, auteure, auteuse<i>)</i>'
+        >>> last_template_handler(["équiv-pour", "une femme", "texte=certains disent", "professeure", "professeuse", "professoresse", "professrice"], "fr")
+        '<i>(pour une femme certains disent</i>&nbsp: professeure, professeuse, professoresse, professrice<i>)</i>'
+
         >>> last_template_handler(["phon", "tɛs.tjɔ̃"], "fr")
         '<b>[tɛs.tjɔ̃]</b>'
         >>> last_template_handler(["phon", "na.t͡ʃe", "fr"], "fr")
@@ -916,6 +925,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
 
         return phrase
+
+    # Handle the {{équiv-pour}} template
+    if tpl == "équiv-pour":
+        data = extract_keywords_from(parts)
+        phrase = f"(pour {parts.pop(0)} "
+        phrase += data.get("texte", "on dit" if len(parts) == 1 else "on peut dire")
+        return f"{italic(phrase)}&nbsp: {', '.join(parts)}{italic(')')}"
 
     # Handle the {{phon}} template
     if tpl == "phon":
