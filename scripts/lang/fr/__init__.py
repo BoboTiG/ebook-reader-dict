@@ -436,6 +436,10 @@ templates_multi = {
     "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
     "couleur": "color(parts[1])",
+    # {{déverbal de|haler|fr}}
+    "déverbal de": 'f"Déverbal de {italic(parts[1])}"',
+    # {{dénominal de|affection|fr}}
+    "dénominal de": 'f"Dénominal de {italic(parts[1])}"',
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     # XIX{{e}}

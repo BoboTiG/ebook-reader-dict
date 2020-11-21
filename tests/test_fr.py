@@ -374,6 +374,8 @@ def test_parse_word(
         ("{{cf|lang=fr|in-|extinguible}}", "→ voir <i>in-</i> et <i>extinguible</i>"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),
+        ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
+        ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
