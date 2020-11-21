@@ -606,17 +606,19 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["agglutination", "lang=fr", "m=1"], "fr")
         'Agglutination'
         >>> last_template_handler(["agglutination", "fr", "de=harbin", "texte=l'harbin", "m=1"], "fr")
-        "Agglutination de l'harbin"
+        "Agglutination de <i>l'harbin</i>"
         >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "de2=armes"], "fr")
         'Univerbation de <i>gens</i> et de <i>armes</i>'
         >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "texte=les gens", "de2=armes", "texte2=les armes"], "fr")
-        'Univerbation de les gens et de les armes'
+        'Univerbation de <i>les gens</i> et de <i>les armes</i>'
         >>> last_template_handler(["syncope", "fr", "m=1"], "fr")
         'Syncope'
         >>> last_template_handler(["syncope", "fr", "de=ne voilà-t-il pas"], "fr")
         'syncope de <i>ne voilà-t-il pas</i>'
         >>> last_template_handler(["parataxe", "fr", "de=administrateur", "de2=réseau"], "fr")
         'parataxe de <i>administrateur</i> et de <i>réseau</i>'
+        >>> last_template_handler(["déglutination", "fr", "de=agriote", "texte=l’agriote", "m=1"], "fr")
+        'Déglutination de <i>l’agriote</i>'
 
 
         >>> last_template_handler(["recons", "maruos"], "fr")
@@ -785,6 +787,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         "univerbation",
         "syncope",
         "parataxe",
+        "déglutination",
     ):
         data = extract_keywords_from(parts)
         phrase = tpl
@@ -794,14 +797,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if data["de"]:
             phrase += " de "
             if data["nolien"] != "1" and data["texte"]:
-                phrase += data["texte"]
+                phrase += italic(data["texte"])
             else:
                 phrase += italic(data["de"])
 
         if tpl in ("univerbation", "parataxe") and data["de2"]:
             phrase += " et de "
             if data["nolien"] != "1" and data["texte2"]:
-                phrase += data["texte2"]
+                phrase += italic(data["texte2"])
             else:
                 phrase += italic(data["de2"])
 
