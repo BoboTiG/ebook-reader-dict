@@ -763,11 +763,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
                 phrase += f" {data['texte'] or 'de'}"
             phrase += f" {italic(data['de'])}"
 
-        if tpl == "univerbation":
-            if data["de2"]:
-                if data["nolien"] != "1":
-                    phrase += f" {data['texte2'] or 'et de'}"
-                phrase += f" {italic(data['de2'])}"
+        if tpl == "univerbation" and data["de2"]:
+            if data["nolien"] != "1":
+                phrase += f" {data['texte2'] or 'et de'}"
+            phrase += f" {italic(data['de2'])}"
         return phrase
 
     # Handle {{étyl}}, {{étylp}} and {{calque}} templates
