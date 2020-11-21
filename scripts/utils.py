@@ -1,4 +1,5 @@
 """Utilities for internal use."""
+import os
 import re
 from contextlib import suppress
 from datetime import datetime
@@ -367,7 +368,9 @@ def convert_math(match: Union[str, Match[str]]) -> str:
         return expr
 
 
-def transform(word: str, template: str, locale: str) -> str:
+def transform(
+    word: str, template: str, locale: str, debug: bool = os.getenv("DEBUG", "0") == "1"
+) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
@@ -383,7 +386,8 @@ def transform(word: str, template: str, locale: str) -> str:
         'Lathyrus aphaca'
         >>> transform("foo", "grammaire|fr", "fr")
         '<i>(Grammaire)</i>'
-        >>> transform("foo", "conj|grp=1|fr", "fr")
+        >>> transform("foo", "conj|grp=1|fr", "fr", debug=True)
+         !! Missing template support for 'conj' (word is 'foo')
         ''
     """
 
@@ -399,7 +403,7 @@ def transform(word: str, template: str, locale: str) -> str:
         tpl = parts[0]
 
     # Stop early
-    if tpl in templates_ignored[locale]:
+    if not tpl or tpl in templates_ignored[locale]:
         return ""
 
     # Help fixing formatting on Wiktionary
@@ -409,6 +413,10 @@ def transform(word: str, template: str, locale: str) -> str:
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
     result: str = transform_apply(word, tpl, tuple(parts), locale)
+    if debug and not result and not tpl.startswith("?"):
+        print(
+            f" !! Missing template support for {tpl!r} (word is {word!r})", flush=True
+        )
     return result
 
 
