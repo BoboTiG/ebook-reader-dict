@@ -25,10 +25,6 @@ templates_italic: Dict[str, str] = {}
 # Templates that will be completed/replaced using custom style.
 templates_other: Dict[str, str] = {}
 
-# A warning will be printed when a template contains superfuous spaces,
-# except for those listed bellow:
-templates_warning_skip: Tuple[str, ...] = tuple()
-
 
 def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
     """Will be call in utils.py::transform() when all template handlers were not used."""

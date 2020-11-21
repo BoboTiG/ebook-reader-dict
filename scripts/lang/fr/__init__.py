@@ -577,10 +577,6 @@ templates_other = {
     "WP": "sur l'encyclopédie Wikipedia",
 }
 
-# Le parseur affichera un avertissement quand un modèle contient des espaces superflus,
-# sauf pour ceux listés ci-dessous :
-templates_warning_skip = ("fchim", "graphie", "lien web", "ouvrage", "source")
-
 
 def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     """

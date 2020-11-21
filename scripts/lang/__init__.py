@@ -203,17 +203,6 @@ templates_other = {
     "sv": defaults.templates_other,
 }
 
-# A warning will be printed when a template contains superfuous spaces,
-# except for those listed bellow:
-templates_warning_skip = {
-    "ca": defaults.templates_warning_skip,
-    "en": defaults.templates_warning_skip,
-    "es": defaults.templates_warning_skip,
-    "fr": fr.templates_warning_skip,
-    "pt": defaults.templates_warning_skip,
-    "sv": defaults.templates_warning_skip,
-}
-
 # When a template is not handled by any previous template handlers,
 # this method will be called with *parts* as argument.
 last_template_handler = {
