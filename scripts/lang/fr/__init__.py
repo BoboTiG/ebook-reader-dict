@@ -596,6 +596,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'déverbal de <i>peko</i>'
         >>> last_template_handler(["déverbal", "de=accueillir", "lang=fr", "m=1"], "fr")
         'Déverbal de <i>accueillir</i>'
+        >>> last_template_handler(["déverbal sans suffixe", "de=réserver", "lang=fr", "m=1"], "fr")
+        'Déverbal sans suffixe de <i>réserver</i>'
 
         >>> last_template_handler(["recons", "maruos"], "fr")
         '*<i>maruos</i>'
@@ -740,11 +742,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return term(capitalize(date))
 
     # Handle {{déverbal}} and {{dénominal}} template
-    if tpl in ("dénominal", "déverbal"):
+    if tpl in ("dénominal", "déverbal", "déverbal sans suffixe"):
         data = extract_keywords_from(parts)
         phrase = tpl
         if data["m"] == "1":
-            phrase = phrase.capitalize()
+            phrase = capitalize(phrase)
 
         if data["de"]:
             if data["nolien"] != "1":
