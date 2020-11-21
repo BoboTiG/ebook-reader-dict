@@ -597,9 +597,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         >>> last_template_handler(["acronyme", "fr"], "fr")
         '<i>(Acronyme)</i>'
-        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode"], "fr")
+        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode", "m=oui"], "fr")
         'Acronyme de <i>light-emitting diode</i>'
-        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode", "m=0"], "fr")
+        >>> last_template_handler(["acronyme", "en", "de=light-emitting diode"], "fr")
         'acronyme de <i>light-emitting diode</i>'
         >>> last_template_handler(["acronyme", "en", "fr", "de=light-emitting diode", "texte=Light-Emitting Diode", "m=1"], "fr")
         'Acronyme de <i>Light-Emitting Diode</i>'
@@ -806,9 +806,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     # Handle {{acronyme}} template
     if tpl == "acronyme":
         data = extract_keywords_from(parts)
-        if not data:
+        if not data["texte"] and not data["de"]:
             return italic("(Acronyme)")
-        phrase = "acronyme" if data["m"] in ("0", "non") else "Acronyme"
+        phrase = "Acronyme" if data["m"] in ("1", "oui") else "acronyme"
         return f"{phrase} de {italic(data['texte'] or data['de'])}"
 
     if tpl == "date":
