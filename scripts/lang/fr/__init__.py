@@ -600,6 +600,12 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Déverbal sans suffixe de <i>réserver</i>'
         >>> last_template_handler(["agglutination", "lang=fr", "m=1"], "fr")
         'Agglutination'
+        >>> last_template_handler(["agglutination", "fr", "de=harbin", "texte=l'harbin", "m=1"], "fr")
+        "Agglutination de l'harbin"
+        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "de2=armes"], "fr")
+        'Univerbation de <i>gens</i> et de <i>armes</i>'
+        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "texte=les gens", "de2=armes", "texte2=les armes"], "fr")
+        'Univerbation de les gens et de les armes'
 
         >>> last_template_handler(["recons", "maruos"], "fr")
         '*<i>maruos</i>'
@@ -744,16 +750,31 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return term(capitalize(date))
 
     # Handle {{déverbal}} and {{dénominal}} template
-    if tpl in ("dénominal", "déverbal", "déverbal sans suffixe", "agglutination"):
+    if tpl in (
+        "dénominal",
+        "déverbal",
+        "déverbal sans suffixe",
+        "agglutination",
+        "univerbation",
+    ):
         data = extract_keywords_from(parts)
         phrase = tpl
         if data["m"] == "1":
             phrase = capitalize(phrase)
 
         if data["de"]:
-            if data["nolien"] != "1":
-                phrase += f" {data['texte'] or 'de'}"
-            phrase += f" {italic(data['de'])}"
+            phrase += " de "
+            if data["nolien"] != "1" and data["texte"]:
+                phrase += data["texte"]
+            else:
+                phrase += italic(data["de"])
+
+        if tpl == "univerbation" and data["de2"]:
+            phrase += " et de "
+            if data["nolien"] != "1" and data["texte2"]:
+                phrase += data["texte2"]
+            else:
+                phrase += italic(data["de2"])
 
         return phrase
 
