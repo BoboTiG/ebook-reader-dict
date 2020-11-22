@@ -508,6 +508,7 @@ templates_multi = {
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
     "région": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
+    "régionalisme": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
     # {{siècle2|XIX}}
     "siècle2": 'f"{parts[1]}ème"',
     # {{smcp|Dupont}}
