@@ -756,6 +756,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '*<i>maruos</i> («&nbsp;mort&nbsp;»)'
         >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
         '*<i>sporo</i>'
+        >>> last_template_handler(["recons", "lang-mot-vedette=fr"], "fr")
+        '*'
 
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
@@ -969,7 +971,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         return phrase
 
     if tpl in ("forme reconstruite", "recons"):
-        phrase = italic(parts.pop(0))
+        phrase = italic(parts.pop(0)) if parts else ""
         if data["sens"]:
             phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
         return f"*{phrase}"
