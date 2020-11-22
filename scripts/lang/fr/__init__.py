@@ -166,6 +166,7 @@ words_to_keep = (
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
     ",",
+    "?",
     "ancre",
     "créer-séparément",
     "désabrévier",
