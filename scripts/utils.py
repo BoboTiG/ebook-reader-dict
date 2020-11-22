@@ -170,6 +170,7 @@ def clean(word: str, text: str, locale: str) -> str:
         >>> clean("foo", "<span style='color:black'>[[♣]]</span>", "fr")
         "<span style='color:black'>♣</span>"
         >>> clean("foo", "{{foo|{{bar}}|123}}", "fr")
+         !! Missing 'foo' template support for word 'foo'
         ''
         >>> clean("foo", "<ref>{{Import:CFC}}</ref>", "fr")
         ''
@@ -383,8 +384,8 @@ def transform(word: str, template: str, locale: str) -> str:
         'Lathyrus aphaca'
         >>> transform("foo", "grammaire|fr", "fr")
         '<i>(Grammaire)</i>'
-        >>> transform("foo", "conj|grp=1|fr", "fr", debug=True)
-         !! Missing template support for 'conj' (word is 'foo')
+        >>> transform("foo", "conj|grp=1|fr", "fr")
+         !! Missing 'conj' template support for word 'foo'
         ''
     """
 
