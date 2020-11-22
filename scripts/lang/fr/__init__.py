@@ -610,7 +610,9 @@ templates_other = {
 }
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -1067,7 +1069,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
     if tpl in langs:
         return langs[tpl]
 
-    return default(template, locale)
+    return default(template, locale, word=word)
 
 
 # Contenu de la release sur GitHub :

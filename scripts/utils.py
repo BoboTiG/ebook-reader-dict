@@ -441,4 +441,4 @@ def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) ->
         result: str = templates_other[locale][tpl]
         return result
 
-    return last_template_handler[locale](parts, locale)
+    return last_template_handler[locale](parts, locale, word=word)

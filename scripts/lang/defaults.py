@@ -26,25 +26,41 @@ templates_italic: Dict[str, str] = {}
 templates_other: Dict[str, str] = {}
 
 
-def last_template_handler(parts: Tuple[str, ...], locale: str) -> str:
-    """Will be call in utils.py::transform() when all template handlers were not used."""
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["transliterator", "ar", "سم"], "fr")
+        'sm'
+        >>> last_template_handler(["transliterator", "ar"], "fr", word="زب")
+        'zb'
+    """
     from ..user_functions import capitalize, lookup_italic, term
+    from ..transliterator import transliterate
 
     # Handle the {{lang}} template when it comes with unknown locale
-    if parts[0].lower() == "lang":
-        return parts[-1]
+    if template[0].lower() == "lang":
+        return template[-1]
+
+    # Handle the specific {{transliterator}} template (which is a Wiktionary module)
+    if template[0] == "transliterator":
+        lang = template[1]
+        text = template[2] if len(template) == 3 else word
+        return transliterate(lang, text)
 
     # {{tpl|item}} -> <i>(Template)</i>
-    if len(parts) == 2:
-        return term(capitalize(lookup_italic(parts[0], locale)))
+    if len(template) == 2:
+        return term(capitalize(lookup_italic(template[0], locale)))
 
-    italic = lookup_italic(parts[0], locale, True)
+    italic = lookup_italic(template[0], locale, True)
     if italic:
         return term(capitalize(italic))
 
     # {{tpl|item1|item2|...}} -> ''
-    if len(parts) > 2:
+    if len(template) > 2:
         return ""
 
     # <i>(Template)</i>
-    return term(capitalize(lookup_italic(parts[0], locale))) if parts[0] else ""
+    return term(capitalize(lookup_italic(template[0], locale))) if template[0] else ""
