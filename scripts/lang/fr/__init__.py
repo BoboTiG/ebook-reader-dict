@@ -474,6 +474,8 @@ templates_multi = {
     "îles": "term('Géographie')",
     # {{in|5}}
     "in": "subscript(parts[1])",
+    # {{incise|tambour, timbale, etc.|fin}}
+    "incise": "f'— {parts[1]} —' if len(parts) == 2 else f'— {parts[1]}'",
     # {{indice|n}}
     "indice": "subscript(parts[1])",
     # {{info lex|boulangerie}}
