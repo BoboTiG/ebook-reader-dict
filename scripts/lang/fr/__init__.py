@@ -613,95 +613,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["acronyme", "en", "fr", "de=light-emitting diode", "texte=Light-Emitting Diode", "m=1"], "fr")
         'Acronyme de <i>Light-Emitting Diode</i>'
 
-        >>> last_template_handler(["dénominal"], "fr")
-        'dénominal'
-        >>> last_template_handler(["dénominal", "de=psychoanalyze", "m=1"], "fr")
-        'Dénominal de <i>psychoanalyze</i>'
-
-        >>> last_template_handler(["déverbal"], "fr")
-        'déverbal'
-        >>> last_template_handler(["déverbal", "de=peko", "lang=eo", "m=0"], "fr")
-        'déverbal de <i>peko</i>'
-        >>> last_template_handler(["déverbal", "de=accueillir", "m=1"], "fr")
-        'Déverbal de <i>accueillir</i>'
-        >>> last_template_handler(["déverbal sans suffixe", "de=réserver", "m=1"], "fr")
-        'Déverbal sans suffixe de <i>réserver</i>'
         >>> last_template_handler(["agglutination", "m=1"], "fr")
         'Agglutination'
         >>> last_template_handler(["agglutination", "fr", "de=harbin", "texte=l'harbin", "m=1"], "fr")
         "Agglutination de <i>l'harbin</i>"
-        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "de2=armes"], "fr")
-        'Univerbation de <i>gens</i> et de <i>armes</i>'
-        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "texte=les gens", "de2=armes", "texte2=les armes"], "fr")
-        'Univerbation de <i>les gens</i> et de <i>les armes</i>'
-        >>> last_template_handler(["syncope", "fr", "m=1"], "fr")
-        'Syncope'
-        >>> last_template_handler(["syncope", "fr", "de=ne voilà-t-il pas"], "fr")
-        'syncope de <i>ne voilà-t-il pas</i>'
-        >>> last_template_handler(["parataxe", "fr", "de=administrateur", "de2=réseau"], "fr")
-        'parataxe de <i>administrateur</i> et de <i>réseau</i>'
-        >>> last_template_handler(["déglutination", "fr", "de=agriote", "texte=l’agriote", "m=1"], "fr")
-        'Déglutination de <i>l’agriote</i>'
-
-
-        >>> last_template_handler(["recons", "maruos"], "fr")
-        '*<i>maruos</i>'
-        >>> last_template_handler(["recons", "maruos", "gaul"], "fr")
-        '*<i>maruos</i>'
-        >>> last_template_handler(["recons", "maruos", "gaul", "sens=mort"], "fr")
-        '*<i>maruos</i> («&nbsp;mort&nbsp;»)'
-        >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
-        '*<i>sporo</i>'
-
-        >>> last_template_handler(["polytonique", "μηρóς", "mêrós", "cuisse"], "fr")
-        'μηρóς, <i>mêrós</i> («&nbsp;cuisse&nbsp;»)'
-        >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
-        'φόβος, <i>phóbos</i> («&nbsp;effroi, peur&nbsp;»)'
-        >>> last_template_handler(["Polytonique", "नामन्", "nā́man"], "fr")
-        'नामन्, <i>nā́man</i>'
-        >>> last_template_handler(["Polytonique", "هند", "hend", "Inde"], "fr")
-        'هند, <i>hend</i> («&nbsp;Inde&nbsp;»)'
-
-        >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
-        'dies Lunae'
-        >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
-        '渦'
-        >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
-        'フランス («&nbsp;France&nbsp;»)'
-        >>> last_template_handler(["lien", "フランス", "ja", "tr=Furansu", "sens=France"], "fr")
-        'フランス, <i>Furansu</i> («&nbsp;France&nbsp;»)'
-        >>> last_template_handler(["lien", "camara", "sens=voute, plafond vouté", "la"], "fr")
-        'camara («&nbsp;voute, plafond vouté&nbsp;»)'
-
-        >>> last_template_handler(["étyl", "grc", "fr"], "fr")
-        'grec ancien'
-        >>> last_template_handler(["étyl", "la", "fr", "dithyrambicus"], "fr")
-        'latin <i>dithyrambicus</i>'
-        >>> last_template_handler(["étyl", "no", "fr", "mot=ski"], "fr")
-        'norvégien <i>ski</i>'
-        >>> last_template_handler(["étyl", "la", "fr", "mot=invito", "type=verb"], "fr")
-        'latin <i>invito</i>'
-        >>> last_template_handler(["étyl", "grc", "fr", "mot=λόγος", "tr=lógos", "type=nom", "sens=étude"], "fr")
-        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
-        >>> last_template_handler(["étyl", "grc", "fr", "λόγος", "lógos", "étude", "type=nom", "lien=1"], "fr")
-        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
-        >>> last_template_handler(["étyl", "la", "fr", "mot=jugulum", "sens=endroit où le cou se joint aux épaules = la gorge"], "fr")  # noqa
-        'latin <i>jugulum</i> («&nbsp;endroit où le cou se joint aux épaules = la gorge&nbsp;»)'
-        >>> last_template_handler(["étyl", "la", "fr", "mot=subgrunda", "tr", "sens=même sens"], "fr")
-        'latin <i>subgrunda</i> («&nbsp;même sens&nbsp;»)'
-        >>> last_template_handler(["étyl", "grc", "fr", "mot="], "fr")
-        'grec ancien'
-        >>> last_template_handler(['étyl', 'grc', 'mot=ὑπόθεσις', 'tr=hupóthesis', 'sens=action de mettre dessous', 'nocat=1'], "fr")
-        'grec ancien ὑπόθεσις, <i>hupóthesis</i> («&nbsp;action de mettre dessous&nbsp;»)'
-        >>> last_template_handler(["étyl", "grc", "fr", "tr=leipein", "sens=abandonner"], "fr")
-        'grec ancien <i>leipein</i> («&nbsp;abandonner&nbsp;»)'
-        >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
-        'grec ancien νακτός, <i>naktós</i> («&nbsp;dense&nbsp;»)'
-        >>> last_template_handler(["étyl", "proto-indo-européen", "fr"], "fr")
-        'indo-européen commun'
-
-        >>> last_template_handler(["étylp", "la", "fr", "mot=Ladon"], "fr")
-        'latin <i>Ladon</i>'
 
         >>> last_template_handler(["calque", "la", "fr"], "fr")
         'latin'
@@ -744,6 +659,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["date", "vers l'an V"], "fr")
         "<i>(Vers l'an V)</i>"
 
+        >>> last_template_handler(["dénominal"], "fr")
+        'dénominal'
+        >>> last_template_handler(["dénominal", "de=psychoanalyze", "m=1"], "fr")
+        'Dénominal de <i>psychoanalyze</i>'
+
+        >>> last_template_handler(["déverbal"], "fr")
+        'déverbal'
+        >>> last_template_handler(["déverbal", "de=peko", "lang=eo", "m=0"], "fr")
+        'déverbal de <i>peko</i>'
+        >>> last_template_handler(["déverbal", "de=accueillir", "m=1"], "fr")
+        'Déverbal de <i>accueillir</i>'
+        >>> last_template_handler(["déverbal sans suffixe", "de=réserver", "m=1"], "fr")
+        'Déverbal sans suffixe de <i>réserver</i>'
+
         >>> last_template_handler(["équiv-pour", "un homme", "maître"], "fr")
         '<i>(pour un homme on dit</i>&nbsp: maître<i>)</i>'
         >>> last_template_handler(["équiv-pour", "le mâle", "lion"], "fr")
@@ -753,10 +682,80 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["équiv-pour", "une femme", "texte=certains disent", "professeure", "professeuse", "professoresse", "professrice"], "fr")
         '<i>(pour une femme certains disent</i>&nbsp: professeure, professeuse, professoresse, professrice<i>)</i>'
 
+        >>> last_template_handler(["étyl", "grc", "fr"], "fr")
+        'grec ancien'
+        >>> last_template_handler(["étyl", "la", "fr", "dithyrambicus"], "fr")
+        'latin <i>dithyrambicus</i>'
+        >>> last_template_handler(["étyl", "no", "fr", "mot=ski"], "fr")
+        'norvégien <i>ski</i>'
+        >>> last_template_handler(["étyl", "la", "fr", "mot=invito", "type=verb"], "fr")
+        'latin <i>invito</i>'
+        >>> last_template_handler(["étyl", "grc", "fr", "mot=λόγος", "tr=lógos", "type=nom", "sens=étude"], "fr")
+        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
+        >>> last_template_handler(["étyl", "grc", "fr", "λόγος", "lógos", "étude", "type=nom", "lien=1"], "fr")
+        'grec ancien λόγος, <i>lógos</i> («&nbsp;étude&nbsp;»)'
+        >>> last_template_handler(["étyl", "la", "fr", "mot=jugulum", "sens=endroit où le cou se joint aux épaules = la gorge"], "fr")  # noqa
+        'latin <i>jugulum</i> («&nbsp;endroit où le cou se joint aux épaules = la gorge&nbsp;»)'
+        >>> last_template_handler(["étyl", "la", "fr", "mot=subgrunda", "tr", "sens=même sens"], "fr")
+        'latin <i>subgrunda</i> («&nbsp;même sens&nbsp;»)'
+        >>> last_template_handler(["étyl", "grc", "fr", "mot="], "fr")
+        'grec ancien'
+        >>> last_template_handler(['étyl', 'grc', 'mot=ὑπόθεσις', 'tr=hupóthesis', 'sens=action de mettre dessous', 'nocat=1'], "fr")
+        'grec ancien ὑπόθεσις, <i>hupóthesis</i> («&nbsp;action de mettre dessous&nbsp;»)'
+        >>> last_template_handler(["étyl", "grc", "fr", "tr=leipein", "sens=abandonner"], "fr")
+        'grec ancien <i>leipein</i> («&nbsp;abandonner&nbsp;»)'
+        >>> last_template_handler(["étyl", "1=grc", "2=es", "mot=νακτός", "tr=naktós", "sens=dense"], "fr")
+        'grec ancien νακτός, <i>naktós</i> («&nbsp;dense&nbsp;»)'
+        >>> last_template_handler(["étyl", "proto-indo-européen", "fr"], "fr")
+        'indo-européen commun'
+
+        >>> last_template_handler(["étylp", "la", "fr", "mot=Ladon"], "fr")
+        'latin <i>Ladon</i>'
+
+        >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
+        'colliger'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
+        'couvrir'
+        >>> last_template_handler(["fr-verbe-flexion", "impers=oui", "revenir", "ind.i.3s=oui"], "fr")
+        'revenir'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "'=oui", "ind.i.1s=oui", "ind.i.2s=oui", "avoir"], "fr")
+        'avoir'
+        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
+        'dire'
+
+        >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
+        'dies Lunae'
+        >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
+        '渦'
+        >>> last_template_handler(["lien", "フランス", "ja", "sens=France"], "fr")
+        'フランス («&nbsp;France&nbsp;»)'
+        >>> last_template_handler(["lien", "フランス", "ja", "tr=Furansu", "sens=France"], "fr")
+        'フランス, <i>Furansu</i> («&nbsp;France&nbsp;»)'
+        >>> last_template_handler(["lien", "camara", "sens=voute, plafond vouté", "la"], "fr")
+        'camara («&nbsp;voute, plafond vouté&nbsp;»)'
+
         >>> last_template_handler(["phon", "tɛs.tjɔ̃"], "fr")
         '<b>[tɛs.tjɔ̃]</b>'
         >>> last_template_handler(["phon", "na.t͡ʃe", "fr"], "fr")
         '<b>[na.t͡ʃe]</b>'
+
+        >>> last_template_handler(["polytonique", "μηρóς", "mêrós", "cuisse"], "fr")
+        'μηρóς, <i>mêrós</i> («&nbsp;cuisse&nbsp;»)'
+        >>> last_template_handler(["polytonique", "φόβος", "phóbos", "sens=effroi, peur"], "fr")
+        'φόβος, <i>phóbos</i> («&nbsp;effroi, peur&nbsp;»)'
+        >>> last_template_handler(["Polytonique", "नामन्", "nā́man"], "fr")
+        'नामन्, <i>nā́man</i>'
+        >>> last_template_handler(["Polytonique", "هند", "hend", "Inde"], "fr")
+        'هند, <i>hend</i> («&nbsp;Inde&nbsp;»)'
+
+        >>> last_template_handler(["recons", "maruos"], "fr")
+        '*<i>maruos</i>'
+        >>> last_template_handler(["recons", "maruos", "gaul"], "fr")
+        '*<i>maruos</i>'
+        >>> last_template_handler(["recons", "maruos", "gaul", "sens=mort"], "fr")
+        '*<i>maruos</i> («&nbsp;mort&nbsp;»)'
+        >>> last_template_handler(["recons", "lang-mot-vedette=fr", "sporo", "sc=Latn"], "fr")
+        '*<i>sporo</i>'
 
         >>> last_template_handler(["siècle"], "fr")
         '<i>(Siècle à préciser)</i>'
@@ -771,17 +770,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["siècle", "XVIII", "XIX"], "fr")
         '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
 
-        >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
-        'colliger'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
-        'couvrir'
-        >>> last_template_handler(["fr-verbe-flexion", "impers=oui", "revenir", "ind.i.3s=oui"], "fr")
-        'revenir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "'=oui", "ind.i.1s=oui", "ind.i.2s=oui", "avoir"], "fr")
-        'avoir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
-        'dire'
-
         >>> last_template_handler(["supplétion", "aller"], "fr")
         'Cette forme dénote une supplétion car son étymologie est distincte de celle de <i>aller</i>'
         >>> last_template_handler(["supplétion", "un", "mot=oui"], "fr")
@@ -790,6 +778,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>better</i> et de <i>best</i>'
         >>> last_template_handler(["supplétion", "am", "are", "was", "lang=en", "mot=oui"], "fr")
         'Ce mot dénote une supplétion car son étymologie est distincte de celles de <i>am</i>, de <i>are</i> et de <i>was</i>'
+
+        >>> last_template_handler(["syncope", "fr", "m=1"], "fr")
+        'Syncope'
+        >>> last_template_handler(["syncope", "fr", "de=ne voilà-t-il pas"], "fr")
+        'syncope de <i>ne voilà-t-il pas</i>'
+        >>> last_template_handler(["parataxe", "fr", "de=administrateur", "de2=réseau"], "fr")
+        'parataxe de <i>administrateur</i> et de <i>réseau</i>'
+        >>> last_template_handler(["déglutination", "fr", "de=agriote", "texte=l’agriote", "m=1"], "fr")
+        'Déglutination de <i>l’agriote</i>'
+
+        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "de2=armes"], "fr")
+        'Univerbation de <i>gens</i> et de <i>armes</i>'
+        >>> last_template_handler(["univerbation", "m=1", "fr", "de=gens", "texte=les gens", "de2=armes", "texte2=les armes"], "fr")
+        'Univerbation de <i>les gens</i> et de <i>les armes</i>'
 
         >>> last_template_handler(["zh-lien", "人", "rén"], "fr")
         '人 (<i>rén</i>)'
@@ -825,36 +827,26 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         term,
     )
 
-    tpl = template[0]
-    parts = list(template[1:])
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
 
-    # Handle {{acronyme}} template
     if tpl == "acronyme":
-        data = extract_keywords_from(parts)
         if not data["texte"] and not data["de"]:
             return italic("(Acronyme)")
         phrase = "Acronyme" if data["m"] in ("1", "oui") else "acronyme"
         return f"{phrase} de {italic(data['texte'] or data['de'])}"
 
-    # Handle {{date}} template
-    if tpl == "date":
-        extract_keywords_from(parts)
-        date = parts[-1] if parts and parts[-1] not in ("", "?") else "Date à préciser"
-        return term(capitalize(date))
-
-    # Handle {{déverbal}} and {{dénominal}} template
     if tpl in (
+        "agglutination",
+        "déglutination",
         "dénominal",
         "déverbal",
         "déverbal sans suffixe",
-        "agglutination",
-        "univerbation",
-        "syncope",
         "parataxe",
-        "déglutination",
         "reverlanisation",
+        "syncope",
+        "univerbation",
     ):
-        data = extract_keywords_from(parts)
         phrase = tpl
         if data["m"] == "1":
             phrase = capitalize(phrase)
@@ -875,38 +867,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         return phrase
 
-    # Handle {{étyl}}, {{étylp}} and {{calque}} templates
-    if tpl in ("étyl", "étylp", "calque"):
-        parts = [p.replace("1=", "").replace("2=", "") for p in parts]
-        data = extract_keywords_from(parts)
-
-        # The lang name
-        phrase = langs[parts.pop(0)]
-
-        for part in parts:
-            if part in langs:
-                continue
-            if not data["mot"]:
-                data["mot"] = part
-            elif not data["tr"]:
-                data["tr"] = part
-            elif not data["sens"]:
-                data["sens"] = part
-
-        if data["tr"]:
-            if data["mot"]:
-                phrase += f" {data['mot']},"
-            phrase += f" {italic(data['tr'])}"
-        elif data["mot"]:
-            phrase += f" {italic(data['mot'])}"
-        if data["sens"]:
-            phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
-
-        return phrase
-
-    # Handle {{composé de}} template
     if tpl == "composé de":
-        data = extract_keywords_from(parts)
         is_derived = any(part.startswith("-") or part.endswith("-") for part in parts)
         is_derived |= any(
             part.startswith("-") or part.endswith("-") for part in data.values()
@@ -973,51 +934,78 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         return phrase
 
-    # Handle the {{équiv-pour}} template
+    if tpl == "date":
+        date = parts[-1] if parts and parts[-1] not in ("", "?") else "Date à préciser"
+        return term(capitalize(date))
+
     if tpl == "équiv-pour":
-        data = extract_keywords_from(parts)
         phrase = f"(pour {parts.pop(0)} "
         phrase += data.get("texte", "on dit" if len(parts) == 1 else "on peut dire")
         return f"{italic(phrase)}&nbsp: {', '.join(parts)}{italic(')')}"
 
-    # Handle the {{phon}} template
+    if tpl in ("étyl", "étylp", "calque"):
+        # The lang name
+        phrase = langs[data["1"] or parts.pop(0)]
+
+        for part in parts:
+            if part in langs:
+                continue
+            if not data["mot"]:
+                data["mot"] = part
+            elif not data["tr"]:
+                data["tr"] = part
+            elif not data["sens"]:
+                data["sens"] = part
+
+        if data["tr"]:
+            if data["mot"]:
+                phrase += f" {data['mot']},"
+            phrase += f" {italic(data['tr'])}"
+        elif data["mot"]:
+            phrase += f" {italic(data['mot'])}"
+        if data["sens"]:
+            phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
+
+        return phrase
+
+    if tpl in ("forme reconstruite", "recons"):
+        phrase = italic(parts.pop(0))
+        if data["sens"]:
+            phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
+        return f"*{phrase}"
+
+    if tpl == "fr-verbe-flexion":
+        return data.get("1", parts[0] if parts else "")
+
+    if tpl in ("lien", "l"):
+        phrase = parts.pop(0)
+        if data["tr"]:
+            phrase += f", {italic(data['tr'])}"
+        if data["sens"]:
+            phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
+        return phrase
+
+    if tpl == "LienRouge":
+        if data["texte"]:
+            return italic(data["texte"])
+        if data["fr"]:
+            return italic(data["fr"])
+        if parts:
+            return italic(parts[0])
+        if data["trad"]:
+            return italic(data["trad"])
+
     if tpl == "phon":
-        extract_keywords_from(parts)
         return strong(f"[{parts[0]}]")
 
-    # Handle the {{recons}} template
-    if tpl in ("recons", "forme reconstruite"):
-        phrase = ""
-        extension = ""
-        for part in parts:
-            if part.startswith("sens="):
-                extension = f" («&nbsp;{part.split('=', 1)[1]}&nbsp;»)"
-            elif "=" in part:
-                continue
-            elif not phrase:
-                phrase = italic(part)
-        return f"*{phrase}{extension}"
-
-    # Handle the {{polytonique}} template
     if tpl.lower() == "polytonique":
-        phrase = parts[0]
-        if len(parts) > 1:
-            phrase += f", {italic(parts[1].replace('tr=', ''))}"
-        if len(parts) > 2:
-            phrase += f" («&nbsp;{parts[2].replace('sens=', '')}&nbsp;»)"
+        phrase = parts.pop(0)
+        if data["tr"] or parts:
+            phrase += f", {italic(data['tr'] or parts.pop(0))}"
+        if data["sens"] or parts:
+            phrase += f" («&nbsp;{data['sens'] or parts.pop(0)}&nbsp;»)"
         return phrase
 
-    # Handle the {{lien}} template
-    if tpl in ["lien", "l"]:
-        phrase = parts[0]
-        for part in parts[1:]:
-            if part.startswith("tr="):
-                phrase += f", {italic(part.split('tr=', 1)[1])}"
-            elif part.startswith("sens="):
-                phrase += f" («&nbsp;{part.split('sens=', 1)[1]}&nbsp;»)"
-        return phrase
-
-    # Handle the {{siècle}} template
     if tpl == "siècle":
         parts = [
             part for part in parts if part.strip() and part not in ("lang=fr", "?")
@@ -1025,13 +1013,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         phrase = century(parts, "siècle") if parts else "Siècle à préciser"
         return term(phrase)
 
-    # Handle the {{fr-verbe-flexion}} template
-    if tpl == "fr-verbe-flexion":
-        data = extract_keywords_from(parts)
-        return data.get("1", parts[0] if parts else "")
-
     if tpl == "supplétion":
-        data = extract_keywords_from(parts)
         if data["mot"]:
             phrase = "Ce mot dénote une supplétion car son étymologie est distincte de "
         else:
@@ -1046,7 +1028,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             phrase += f"celle de {italic(parts[0])}"
         return phrase
 
-    # Handle the {{zh-lien}} template
     if tpl == "zh-lien":
         simple = parts.pop(0)
         pinyin = italic(parts.pop(0))
@@ -1054,17 +1035,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if not traditional:
             return f"{simple} ({pinyin})"
         return f"{simple} ({traditional}, {pinyin})"
-
-    if tpl == "LienRouge":
-        data = extract_keywords_from(parts)
-        if data["texte"]:
-            return italic(data["texte"])
-        if data["fr"]:
-            return italic(data["fr"])
-        if parts:
-            return italic(parts[0])
-        if data["trad"]:
-            return italic(data["trad"])
 
     # This is a country in the current locale
     if tpl in langs:
