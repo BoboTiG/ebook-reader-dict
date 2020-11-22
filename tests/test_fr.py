@@ -374,6 +374,8 @@ def test_parse_word(
         ("{{cf|lang=fr|in-|extinguible}}", "→ voir <i>in-</i> et <i>extinguible</i>"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "[RGB #B0F2B6]"),
+        ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
+        ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("{{détroit|fr", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
