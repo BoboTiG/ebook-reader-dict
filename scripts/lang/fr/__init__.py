@@ -241,6 +241,7 @@ templates_italic = {
     "compta": "Comptabilité",
     "constr": "Construction",
     "cour": "Courant",
+    "cours d'eau": "Géographie",
     "cout": "Couture",
     "cycl": "Cyclisme",
     "dermatol": "Dermatologie",
