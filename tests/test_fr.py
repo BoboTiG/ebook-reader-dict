@@ -400,6 +400,8 @@ def test_parse_word(
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
         ("{{ling|fr}}", "<i>(Linguistique)</i>"),
         ("{{in|5}}", "<sub>5</sub>"),
+        ("{{incise|texte placé en incise}}", "— texte placé en incise —"),
+        ("{{incise|texte placé en incise|stop}}", "— texte placé en incise"),
         ("{{instruments à cordes|fr}}", "<i>(Musique)</i>"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
