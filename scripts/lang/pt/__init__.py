@@ -93,7 +93,9 @@ templates_multi = {
 }
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -178,7 +180,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
         return phrase
 
-    return default(template, locale)
+    return default(template, locale, word=word)
 
 
 # Release content on GitHub

@@ -96,7 +96,9 @@ templates_other = {
 }
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -163,7 +165,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         phrase += parse_other_parameters()
         return phrase
 
-    return default(template, locale)
+    return default(template, locale, word=word)
 
 
 # Release content on GitHub
