@@ -42,7 +42,6 @@ jobs:
     - name: Fetch the latest Wiktionary dump
       run: python -Wd -m scripts --locale ${{ matrix.locale }} --fetch-only
       env:
-        DEBUG: "1"
         WIKI_LOCALE: ${{ matrix.locale }}
 
     - name: Update the dictionary
