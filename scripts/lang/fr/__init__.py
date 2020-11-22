@@ -788,6 +788,22 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         '马 (馬, <i>mǎ</i>)'
         >>> last_template_handler(["zh-lien", "骨", "gǔ", "骨"], "fr")
         '骨 (骨, <i>gǔ</i>)'
+
+        >>> last_template_handler(["LienRouge", "fr=Comité", "trad=United Nations", "texte=COPUOS"], "fr")
+        '<i>COPUOS</i>'
+        >>> last_template_handler(["LienRouge", "Comité", "trad=Ausschuss", "texte=COPUOS"], "fr")
+        '<i>COPUOS</i>'
+        >>> last_template_handler(["LienRouge", "fr=Comité", "trad=United Nations"], "fr")
+        '<i>Comité</i>'
+        >>> last_template_handler(["LienRouge", "Comité", "trad=Ausschuss"], "fr")
+        '<i>Comité</i>'
+        >>> last_template_handler(["LienRouge", "fr=Comité"], "fr")
+        '<i>Comité</i>'
+        >>> last_template_handler(["LienRouge", "Comité"], "fr")
+        '<i>Comité</i>'
+        >>> last_template_handler(["LienRouge", "trad=United Nations"], "fr")
+        '<i>United Nations</i>'
+
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -1029,6 +1045,17 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         if not traditional:
             return f"{simple} ({pinyin})"
         return f"{simple} ({traditional}, {pinyin})"
+
+    if tpl == "LienRouge":
+        data = extract_keywords_from(parts)
+        if data["texte"]:
+            return italic(data["texte"])
+        if data["fr"]:
+            return italic(data["fr"])
+        if parts:
+            return italic(parts[0])
+        if data["trad"]:
+            return italic(data["trad"])
 
     # This is a country in the current locale
     if tpl in langs:
