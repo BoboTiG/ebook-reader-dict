@@ -740,6 +740,15 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
 
+        >>> last_template_handler(["la-verb", "amō", "amare", "amāre", "amavi", "amāvi", "amatum", "amātum"], "fr")
+        '<b>amō</b>, <i>infinitif</i> : amāre, <i>parfait</i> : amāvi, <i>supin</i> : amātum'
+        >>> last_template_handler(["la-verb", "vŏlo", "velle", "velle", "volui", "vŏlŭi", "2ps=vis", "2ps2=vīs", "pattern=irrégulier"], "fr")
+        '<b>vŏlo</b>, vīs, <i>infinitif</i> : velle, <i>parfait</i> : vŏlŭi <i>(irrégulier)</i>'
+        >>> last_template_handler(["la-verb", "horrĕo", "horrere", "horrēre", "horrui", "horrŭi", "pattern=sans passif"], "fr")
+        '<b>horrĕo</b>, <i>infinitif</i> : horrēre, <i>parfait</i> : horrŭi <i>(sans passif)</i>'
+        >>> last_template_handler(["la-verb", "sum", "es", "esse", "esse", "fui", "fui", "futurus", "futurus", "2ps=es", "2ps2=es", "pattern=irrégulier", "44=participe futur"], "fr")
+        '<b>sum</b>, es, <i>infinitif</i> : esse, <i>parfait</i> : fui, <i>participe futur</i> : futurus <i>(irrégulier)</i>'
+
         >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
         'dies Lunae'
         >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
@@ -1003,6 +1012,21 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
 
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
+
+    if tpl == "la-verb":
+        phrase = strong(parts[0]) + ","
+        if data["2ps"]:
+            phrase += f" {data.get('2ps2', data['2ps'])},"
+        phrase += f" {italic('infinitif')} : {parts[2]}"
+        if parts[3] != "-":
+            phrase += f", {italic('parfait')} : {parts[4]}"
+        if data["44"]:
+            phrase += f", {italic(data['44'])} : {parts[6]}"
+        elif len(parts) > 5:
+            phrase += f", {italic('supin')} : {parts[6]}"
+        if data["pattern"]:
+            phrase += " " + italic(f"({data['pattern']})")
+        return phrase
 
     if tpl in ("lien", "l"):
         phrase = parts.pop(0)
