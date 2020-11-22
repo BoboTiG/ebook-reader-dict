@@ -3,7 +3,7 @@ import re
 from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
-from typing import List, Match, Tuple, Union
+from typing import List, Match, Set, Tuple, Union
 from warnings import warn
 
 from cachetools import cached
@@ -22,6 +22,11 @@ from .lang import (
     thousands_separator,
 )
 from .user_functions import *  # noqa
+
+
+# Used to store not-yet-handled templates to display a warning
+# only once
+MISSING_TPL_SEEN: Set[str] = set()
 
 
 def convert_etymology(etymology: str) -> str:
@@ -411,8 +416,9 @@ def transform(word: str, template: str, locale: str) -> str:
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
     result: str = transform_apply(word, tpl, tuple(parts), locale)
-    if not result and not tpl.startswith("?"):
+    if not result and tpl not in MISSING_TPL_SEEN:
         print(f" !! Missing {tpl!r} template support for word {word!r}", flush=True)
+        MISSING_TPL_SEEN.add(tpl)
     return result
 
 
