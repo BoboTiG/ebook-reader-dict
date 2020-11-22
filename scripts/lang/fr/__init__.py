@@ -452,6 +452,7 @@ templates_multi = {
     "diminutif": "'Diminutif' if any(p in ('m=1', 'm=oui') for p in parts) else 'diminutif'",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
+    "formule chimique": "chimy(parts[1:])",
     # XIX{{e}}
     # {{e|-1}}
     "e": "superscript(parts[1] if len(parts) > 1 else 'e')",
