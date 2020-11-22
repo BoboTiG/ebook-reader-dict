@@ -174,6 +174,7 @@ templates_ignored = (
     "lien web",
     "Modèle",
     "Ouvrage",
+    "ouvrage",
     "plans d’eau",
     "préciser",
     "R",
@@ -189,6 +190,7 @@ templates_ignored = (
     "source?",
     "trad-exe",
     "trier",
+    "vérifier",
 )
 
 # Modèles qui seront remplacés par du texte italique.
@@ -348,6 +350,7 @@ templates_italic = {
     "opti": "Optique",
     "ornithol": "Ornithologie",
     "ortho1990": "Orthographe rectifiée de 1990",
+    "par analogie": "Par analogie",
     "POO": "Programmation orientée objet",
     "p us": "Peu usité",
     "paléogr": "Paléographie",
@@ -907,7 +910,7 @@ def last_template_handler(
 
         return phrase
 
-    if tpl == "composé de":
+    if tpl in ("composé de", "composé_de"):
         is_derived = any(part.startswith("-") or part.endswith("-") for part in parts)
         is_derived |= any(
             part.startswith("-") or part.endswith("-") for part in data.values()
