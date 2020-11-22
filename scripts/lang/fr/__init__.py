@@ -245,6 +245,7 @@ templates_italic = {
     "cout": "Couture",
     "cycl": "Cyclisme",
     "dermatol": "Dermatologie",
+    "dérision": "Par dérision",
     "désuet": "Désuet",
     "détroit": "Géographie",
     "didact": "Didactique",
