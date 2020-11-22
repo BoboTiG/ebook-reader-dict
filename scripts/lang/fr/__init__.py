@@ -618,6 +618,13 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
         >>> last_template_handler(["acronyme", "en", "fr", "de=light-emitting diode", "texte=Light-Emitting Diode", "m=1"], "fr")
         'Acronyme de <i>Light-Emitting Diode</i>'
 
+        >>> last_template_handler(["argot", "fr"], "fr")
+        '<i>(Argot)</i>'
+        >>> last_template_handler(["argot", "fr", "militaire"], "fr")
+        '<i>(Argot militaire)</i>'
+        >>> last_template_handler(["argot", "fr", "spéc=militaire"], "fr")
+        '<i>(Argot militaire)</i>'
+
         >>> last_template_handler(["agglutination", "m=1"], "fr")
         'Agglutination'
         >>> last_template_handler(["agglutination", "fr", "de=harbin", "texte=l'harbin", "m=1"], "fr")
@@ -842,6 +849,14 @@ def last_template_handler(template: Tuple[str, ...], locale: str) -> str:
             return italic("(Acronyme)")
         phrase = "Acronyme" if data["m"] in ("1", "oui") else "acronyme"
         return f"{phrase} de {italic(data['texte'] or data['de'])}"
+
+    if tpl == "argot":
+        phrase = "Argot"
+        if data["spéc"]:
+            phrase += f" {data['spéc']}"
+        elif len(parts) == 2:
+            phrase += f" {parts[1]}"
+        return term(phrase)
 
     if tpl in (
         "agglutination",
