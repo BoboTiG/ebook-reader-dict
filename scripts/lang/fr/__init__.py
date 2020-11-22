@@ -417,6 +417,7 @@ templates_italic = {
     "vieilli": "Vieilli",
     "vieux": "Vieilli",
     "vélo": "Cyclisme",
+    "verlan": "Verlan",
     "vête": "Habillement",
     "volley": "Volley-ball",
     "zool": "Zoologie",
