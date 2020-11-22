@@ -547,6 +547,8 @@ templates_multi = {
     "variante orthographique de": 'f"Variante orthographique de {parts[1]}"',
     # {{W|Jacques Brandenberger}}
     "W": "parts[-1] if parts else ''",
+    # {{wd|Q30092597|Frederick H. Pough}}
+    "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wp|Sarcoscypha coccinea}}
     "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
     # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
