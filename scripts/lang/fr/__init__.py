@@ -172,6 +172,7 @@ templates_ignored = (
     "Import",
     "lien web",
     "Modèle",
+    "Ouvrage",
     "plans d’eau",
     "préciser",
     "R",
