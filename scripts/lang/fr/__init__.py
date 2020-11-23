@@ -805,6 +805,11 @@ def last_template_handler(
         >>> last_template_handler(["siècle", "XVIII", "XIX"], "fr")
         '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
 
+        >>> last_template_handler(["Suisse", "fr", "précision=Fribourg, Valais, Vaud"], "fr")
+        '<i>(Suisse : Fribourg, Valais, Vaud)</i>'
+        >>> last_template_handler(["Suisse", "it"], "fr")
+        '<i>(Suisse)</i>'
+
         >>> last_template_handler(["supplétion", "aller"], "fr")
         'Cette forme dénote une supplétion car son étymologie est distincte de celle de <i>aller</i>'
         >>> last_template_handler(["supplétion", "un", "mot=oui"], "fr")
@@ -1070,6 +1075,12 @@ def last_template_handler(
         ]
         phrase = century(parts, "siècle") if parts else "Siècle à préciser"
         return term(phrase)
+
+    if tpl == "Suisse":
+        if data["précision"]:
+            return term(f"Suisse : {data['précision']}")
+        else:
+            return term("Suisse")
 
     if tpl == "supplétion":
         if data["mot"]:
