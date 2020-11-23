@@ -649,6 +649,21 @@ def last_template_handler(
         >>> last_template_handler(["calque", "sa", "fr", "mot=वज्रयान", "tr=vajrayāna", "sens=véhicule du diamant"], "fr")
         'sanskrit वज्रयान, <i>vajrayāna</i> («&nbsp;véhicule du diamant&nbsp;»)'
 
+        >>> last_template_handler(["cit_réf", "Dictionnaire quelconque", "2007"], "fr")
+        '<i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "titre=Dictionnaire quelconque", "date=2007"], "fr")
+        '<i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "Dictionnaire quelconque", "date=2007"], "fr")
+        '<i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "Dictionnaire quelconque", "2007", "Certain auteur"], "fr")
+        'Certain auteur, <i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "Dictionnaire quelconque", "2007", "Certain auteur", "Certain article"], "fr")
+        '«&nbsp;Certain article&nbsp;», dans Certain auteur, <i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "titre=Dictionnaire quelconque", "2007", "auteur=Certain auteur", "article=Certain article"], "fr")
+        '«&nbsp;Certain article&nbsp;», dans Certain auteur, <i>Dictionnaire quelconque</i>, 2007'
+        >>> last_template_handler(["cit_réf", "Nephilologus", "1934", "auteur_article=Marius", "article=Certain article", "pages=pp. 241-259"], "fr")
+        'Marius, «&nbsp;Certain article&nbsp;», dans <i>Nephilologus</i>, 1934, pp. 241-259'
+
         >>> last_template_handler(["composé de", "longus", "aevum", "lang=la"], "fr")
         'composé de <i>longus</i> et de <i>aevum</i>'
         >>> last_template_handler(["composé de", "longus", "aevum", "lang=la", "f=1"], "fr")
@@ -913,6 +928,35 @@ def last_template_handler(
             else:
                 phrase += italic(data["de2"])
 
+        return phrase
+
+    if tpl in ("cit_réf", "cit réf"):
+        i = 0
+        if data["titre"]:
+            phrase = italic(data["titre"])
+        else:
+            phrase = italic(parts[i])
+            i = i + 1
+        phrase += ", "
+        if data["date"]:
+            phrase += data["date"]
+        elif i < len(parts):
+            phrase += parts[i]
+            i = i + 1
+        if data["auteur"]:
+            phrase = data["auteur"] + ", " + phrase
+        elif i < len(parts):
+            phrase = parts[i] + ", " + phrase
+            i = i + 1
+        if data["article"]:
+            phrase = f"«&nbsp;{data['article']}&nbsp;», dans {phrase}"
+        elif i < len(parts):
+            phrase = f"«&nbsp;{parts[i]}&nbsp;», dans {phrase}"
+            i = i + 1
+        phrase += f", {data['pages']}" if data["pages"] else ""
+        phrase = (
+            f"{data['auteur_article']}, {phrase}" if data["auteur_article"] else phrase
+        )
         return phrase
 
     if tpl in ("composé de", "composé_de"):
