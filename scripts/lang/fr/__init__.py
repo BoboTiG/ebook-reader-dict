@@ -313,6 +313,7 @@ templates_italic = {
     "just": "Justice",
     "ling": "Linguistique",
     "litt": "Littéraire",
+    "locutions latines": "Latinisme",
     "logi": "Logique",
     "légis": "Droit",
     "maçon": "Maçonnerie",
