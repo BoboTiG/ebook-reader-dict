@@ -95,6 +95,7 @@ def color(rgb: str) -> str:
 def concat(
     parts: List[str],
     sep: str = "",
+    last_sep: str = None,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
 ) -> str:
@@ -120,6 +121,12 @@ def concat(
         'antigament en plural'
         >>> concat(["Arte", "", ""], sep=" e ")
         'Arte'
+        >>> concat(["Mathématique", "Physique", "Chimie"], sep=", ", last_sep=" et ")
+        'Mathématique, Physique et Chimie'
+        >>> concat(["Physique", "Chimie"], sep=", ", last_sep=" et ")
+        'Physique et Chimie'
+        >>> concat(["Physique"], sep=", ", last_sep=" et ")
+        'Physique'
     """
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -130,8 +137,11 @@ def concat(
         result = [part for part in result if part != skip]
         if parts.count(skip):
             sep = " "
-
-    return sep.join(p for p in result if p)
+    r = [p for p in result if p]
+    if last_sep is None or len(r) == 1:
+        return sep.join(r)
+    else:
+        return sep.join(r[:-1]) + last_sep + r[-1]
 
 
 def coord(values: List[str]) -> str:
