@@ -936,23 +936,23 @@ def last_template_handler(
             phrase = italic(data["titre"])
         else:
             phrase = italic(parts[i])
-            i = i + 1
+            i += 1
         phrase += ", "
         if data["date"]:
             phrase += data["date"]
         elif i < len(parts):
             phrase += parts[i]
-            i = i + 1
+            i += 1
         if data["auteur"]:
             phrase = data["auteur"] + ", " + phrase
         elif i < len(parts):
             phrase = parts[i] + ", " + phrase
-            i = i + 1
+            i += 1
         if data["article"]:
             phrase = f"«&nbsp;{data['article']}&nbsp;», dans {phrase}"
         elif i < len(parts):
             phrase = f"«&nbsp;{parts[i]}&nbsp;», dans {phrase}"
-            i = i + 1
+            i += 1
         phrase += f", {data['pages']}" if data["pages"] else ""
         phrase = (
             f"{data['auteur_article']}, {phrase}" if data["auteur_article"] else phrase
