@@ -774,6 +774,11 @@ def last_template_handler(
         >>> last_template_handler(["la-verb", "sum", "es", "esse", "esse", "fui", "fui", "futurus", "futurus", "2ps=es", "2ps2=es", "pattern=irrégulier", "44=participe futur"], "fr")
         '<b>sum</b>, es, <i>infinitif</i> : esse, <i>parfait</i> : fui, <i>participe futur</i> : futurus <i>(irrégulier)</i>'
 
+        >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45", "texte=article 230-45"], "fr")
+        'article 230-45'
+        >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45"], "fr")
+        ''
+
         >>> last_template_handler(["l", "dies Lunae", "la"], "fr")
         'dies Lunae'
         >>> last_template_handler(["lien", "渦", "zh-Hans"], "fr")
@@ -1089,6 +1094,9 @@ def last_template_handler(
         if data["pattern"]:
             phrase += " " + italic(f"({data['pattern']})")
         return phrase
+
+    if tpl == "Légifrance":
+        return data["texte"]
 
     if tpl in ("lien", "l"):
         phrase = parts.pop(0)
