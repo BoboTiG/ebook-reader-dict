@@ -659,6 +659,8 @@ def last_template_handler(
         'composé de <i>longus</i> et de <i>aevum</i>, littéralement «&nbsp;long temps&nbsp;»'
         >>> last_template_handler(["composé de", "δῆμος", "tr1=dêmos", "sens1=peuple", "ἀγωγός", "tr2=agōgós", "sens2=guide", "sens=celui qui guide le peuple", "lang=grc", "m=1"], "fr")
         'Composé de δῆμος, <i>dêmos</i> («&nbsp;peuple&nbsp;») et de ἀγωγός, <i>agōgós</i> («&nbsp;guide&nbsp;»), littéralement «&nbsp;celui qui guide le peuple&nbsp;»'
+        >>> last_template_handler(["composé de", "aux", "mains", "de", "m=1"], "fr")
+        'Composé de <i>aux</i>, <i>mains</i> et de <i>de</i>'
         >>> last_template_handler(["composé de", "anti-", "quark", "lang=en"], "fr")
         'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
         >>> last_template_handler(["composé de", "anti-", "quark", "sens=quarks au rebut"], "fr")
@@ -950,7 +952,7 @@ def last_template_handler(
                     " avec le "
                     if number == len(parts) - 1
                     else ", "
-                    if multiple
+                    if multiple and number <= len(part)
                     else ""
                 )
 
@@ -962,7 +964,6 @@ def last_template_handler(
         # Composé
         phrase = "C" if "m" in data else "c"
         phrase += "omposée de " if "f" in data else "omposé de "
-
         multiple = len(parts) > 2
         for number, part in enumerate(parts, 1):
             phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
@@ -974,7 +975,11 @@ def last_template_handler(
                 phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
 
             phrase += (
-                " et de " if number == len(parts) - 1 else ", " if multiple else ""
+                " et de "
+                if number == len(parts) - 1
+                else ", "
+                if multiple and number <= len(part)
+                else ""
             )
 
         if "sens" in data:
