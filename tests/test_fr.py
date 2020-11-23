@@ -406,6 +406,7 @@ def test_parse_word(
         ("{{incise|texte placé en incise}}", "— texte placé en incise —"),
         ("{{incise|texte placé en incise|stop}}", "— texte placé en incise"),
         ("{{instruments à cordes|fr}}", "<i>(Musique)</i>"),
+        ("{{mn-lien|далай|dalai|ᠲᠠᠯᠠᠢ}}", "далай (MNS : <i>dalai</i>)"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
         ("{{nobr|ℶ₀ {{=}} [[ℵ₀]]}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
