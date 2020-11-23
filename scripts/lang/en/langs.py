@@ -8167,3 +8167,6 @@ langs = {
     "zzj": "Zuojiang Zhuang",
 }
 # 8,156
+
+# Missing ones (to be removed when available on the Wiktionary languages pages)
+langs["afa"] = "Proto-Berber"  # 2020-11-23
