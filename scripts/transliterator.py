@@ -766,18 +766,23 @@ def transliterate(locale: str, text: str) -> str:
     """
     Return the transliterated form of *text*.
 
-    >>> transliterate("ar", "ا")
-    'ā'
-    >>> transliterate("ar", "بطيخ")
-    'bṭīḫ'
-    >>> transliterate("el", "α")
-    'a'
-    >>> transliterate("hi", "अ")
-    'a'
-    >>> transliterate("ru", "а")
-    'a'
-    >>> transliterate("ru", "дед")
-    'ded'
+        >>> transliterate("ar", "ا")
+        'ā'
+        >>> transliterate("ar", "بطيخ")
+        'bṭīḫ'
+        >>> transliterate("el", "α")
+        'a'
+        >>> transliterate("hi", "अ")
+        'a'
+        >>> transliterate("ru", "а")
+        'a'
+        >>> transliterate("ru", "дед")
+        'ded'
+        >>> transliterate("fr", "bim")
+        ''
     """
-    table = transliterations[locale]
-    return "".join(table[char] for char in text)
+    try:
+        table = transliterations[locale]
+    except KeyError:
+        return ""
+    return "".join(table.get(char, "") for char in text)

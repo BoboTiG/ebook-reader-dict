@@ -73,12 +73,6 @@ templates_multi = {
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": 'f"⟨{parts[1]}⟩"',
-    # {{l|en|water vapour}}
-    "l": "parts[-1]",
-    # {{ll|en|cod}}
-    "ll": "parts[-1]",
-    # {{link|en|water vapour}}
-    "link": "parts[-1]",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
@@ -111,12 +105,12 @@ def last_template_handler(
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
 
+        >>> last_template_handler(["bor", "en", "ar", "الْعِرَاق", "", "Iraq"], "en")
+        'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
         >>> last_template_handler(["der", "en", "fro", "-"], "en")
         'Old French'
-
         >>> last_template_handler(["etyl", "enm", "en"], "en")
         'Middle English'
-
         >>> last_template_handler(["inh", "en", "enm", "water"], "en")
         'Middle English <i>water</i>'
         >>> last_template_handler(["inh", "en", "ang", "wæter", "", "water"], "en")
@@ -125,6 +119,38 @@ def last_template_handler(
         'Old English <i>etan</i> (“to eat”)'
         >>> last_template_handler(["inh", "en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], "en")
         'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
+
+        >>> last_template_handler(["l", "cs", "háček"], "en")
+        'háček'
+        >>> last_template_handler(["l", "en", "go", "went"], "en")
+        'went'
+        >>> last_template_handler(["l", "en", "God be with you"], "en")
+        'God be with you'
+        >>> last_template_handler(["l", "la", "similis", "t=like"], "en")
+        'similis (“like”)'
+        >>> last_template_handler(["l", "la", "similis", "", "like"], "en")
+        'similis (“like”)'
+        >>> last_template_handler(["l", "mul", "☧", ""], "en")
+        '☧'
+        >>> last_template_handler(["l", "ru", "ру́сский", "", "Russian", "g=m"], "en")
+        'ру́сский <i>m</i> (<i>russkij</i>, “Russian”)'
+        >>> last_template_handler(["link", "en", "water vapour"], "en")
+        'water vapour'
+        >>> last_template_handler(["ll", "en", "cod"], "en")
+        'cod'
+
+        >>> last_template_handler(["m", "en", "more"], "en")
+        '<b>more</b>'
+        >>> last_template_handler(["m", "enm", "us"], "en")
+        '<i>us</i>'
+        >>> last_template_handler(["m", "ine-pro", "*h₁ed-", "t=to eat"], "en")
+        '<i>*h₁ed-</i> (“to eat”)'
+        >>> last_template_handler(["m", "ar", "عِرْق", "", "root"], "en")
+        '<i>عِرْق</i> (<i>ʿrq</i>, “root”)'
+        >>> last_template_handler(["m", "pal", "tr=ˀl'k'", "ts=erāg", "t=lowlands"], "en")
+        "(<i>ˀl'k'</i>, <i>/erāg/</i>, “lowlands”)"
+        >>> last_template_handler(["m", "ar", "عَرِيق", "", "deep-rooted"], "en")
+        '<i>عَرِيق</i> (<i>ʿrīq</i>, “deep-rooted”)'
 
         >>> last_template_handler(["label", "en" , "Australia", "slang", "nocat=1"], "en")
         '<i>(Australia, slang)</i>'
@@ -140,11 +166,6 @@ def last_template_handler(
         >>> # '<i>(Lorrain)</i>'
         >>> last_template_handler(["lbl", "en" , "transitive"], "en")
         '<i>(transitive)</i>'
-
-        >>> last_template_handler(["m", "en", "more"], "en")
-        '<b>more</b>'
-        >>> last_template_handler(["m", "ine-pro", "*h₁ed-", "t=to eat"], "en")
-        '<i>*h₁ed-</i> (“to eat”)'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
@@ -165,6 +186,7 @@ def last_template_handler(
     from itertools import zip_longest
 
     from .langs import langs
+    from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
         extract_keywords_from,
@@ -186,20 +208,26 @@ def last_template_handler(
             res += f" ({data['pos']})"
         return res
 
-    if tpl in ("bor", "cog", "der", "etyl", "inh", "m"):
-        if tpl not in ("cog", "etyl", "m"):
+    # Short path for the {{m|en|WORD}} template
+    if tpl == "m" and len(parts) == 2 and parts[0] == "en" and not data:
+        return strong(parts[1])
+
+    if tpl in ("bor", "cog", "der", "etyl", "inh", "l", "link", "ll", "mention", "m"):
+        mentions = ("l", "link", "ll", "mention", "m")
+        if tpl not in ("cog", "etyl", *mentions):
             parts.pop(0)  # Remove the destination language
 
+        dst_locale = parts.pop(0)
+
         if tpl == "etyl":
-            parts.pop(1)
+            parts.pop(0)
 
-        lang = langs.get(parts.pop(0), "")
-        phrase = f"{lang}" if tpl != "m" else ""
+        lang = langs.get(dst_locale, "")
+        phrase = lang if tpl not in mentions else ""
 
-        if not parts:
-            return phrase
+        if parts:
+            word = parts.pop(0)
 
-        word = parts.pop(0)
         if word == "-":
             return phrase
 
@@ -209,17 +237,35 @@ def last_template_handler(
         if parts:
             word = parts.pop(0) or word  # 4, alt=
 
-        if tpl == "m":
-            phrase += strong(word) if not data["t"] else italic(word)
-        else:
+        trans = ""
+        if tpl in ("bor", *mentions):
+            if phrase:
+                phrase += " "
+            if tpl in ("l", "link", "ll"):
+                phrase += word
+            elif word:
+                phrase += italic(word)
+            if data["g"]:
+                phrase += f" {italic(data['g'])}"
+            trans = transliterate(dst_locale, word)
+        elif word:
             phrase += f" {italic(word)}"
 
         if parts:
             gloss = parts.pop(0)  # 5, t=, gloss=
-        if gloss:
-            phrase += f" (“{gloss}”)"
+        if gloss or trans or data["tr"] or data["ts"]:
+            phrase += " ("
+            if data["tr"]:
+                phrase += f"{italic(data['tr'])}, "
+            if data["ts"]:
+                phrase += f"{italic('/' + data['ts'] + '/')}, "
+            if trans:
+                phrase += f"{italic(trans)}, "
+            if gloss:
+                phrase += f"“{gloss}”"
+            phrase += ")"
 
-        return phrase
+        return phrase.lstrip()
 
     if tpl in ("label", "lb", "lbl"):
         if len(parts) == 2:
