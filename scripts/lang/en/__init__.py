@@ -102,21 +102,6 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["label", "en" , "Australia", "slang", "nocat=1"], "en")
-        '<i>(Australia, slang)</i>'
-        >>> last_template_handler(["lb", "en" , "Australia"], "en")
-        '<i>(Australia)</i>'
-        >>> last_template_handler(["lb", "en" , "Australia", "or", "foobar"], "en")
-        '<i>(Australia or foobar)</i>'
-        >>> last_template_handler(["lb", "en" , "foobar", "and", "Australia", "or", "foobar"], "en")
-        '<i>(foobar and Australia or foobar)</i>'
-        >>> last_template_handler(["lb", "en" , "foobar", "_", "Australia", "foobar"], "en")
-        '<i>(foobar Australia, foobar)</i>'
-        >>> # last_template_handler(["lb", "en" , "roa-lor"], "en")
-        >>> # '<i>(Lorrain)</i>'
-        >>> last_template_handler(["lbl", "en" , "transitive"], "en")
-        '<i>(transitive)</i>'
-
         >>> last_template_handler(["alternative form of", "enm" , "theen"], "en")
         '<i>Alternative form of</i> <b>theen</b>'
         >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
@@ -125,22 +110,6 @@ def last_template_handler(
         '<i>Alternative form of</i> <b>worth</b> (“to become”)'
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
-
-        >>> last_template_handler(["surname", "en"], "en")
-        '<i>A surname.</i>'
-        >>> last_template_handler(["surname", "en", "nodot=1"], "en")
-        '<i>A surname</i>'
-        >>> last_template_handler(["surname", "en", "rare"], "en")
-        '<i>A rare surname.</i>'
-        >>> last_template_handler(["surname", "en", "A=An", "occupational"], "en")
-        '<i>An occupational surname.</i>'
-        >>> last_template_handler(["surname", "en", "from=Latin", "dot=,"], "en")
-        '<i>A surname,</i>'
-
-        >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
-        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
-        >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
-        '<i>Standard spelling of</i> <b>enroll</b>.'
 
         >>> last_template_handler(["der", "en", "fro", "-"], "en")
         'Old French'
@@ -157,10 +126,41 @@ def last_template_handler(
         >>> last_template_handler(["inh", "en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], "en")
         'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
 
+        >>> last_template_handler(["label", "en" , "Australia", "slang", "nocat=1"], "en")
+        '<i>(Australia, slang)</i>'
+        >>> last_template_handler(["lb", "en" , "Australia"], "en")
+        '<i>(Australia)</i>'
+        >>> last_template_handler(["lb", "en" , "Australia", "or", "foobar"], "en")
+        '<i>(Australia or foobar)</i>'
+        >>> last_template_handler(["lb", "en" , "foobar", "and", "Australia", "or", "foobar"], "en")
+        '<i>(foobar and Australia or foobar)</i>'
+        >>> last_template_handler(["lb", "en" , "foobar", "_", "Australia", "foobar"], "en")
+        '<i>(foobar Australia, foobar)</i>'
+        >>> # last_template_handler(["lb", "en" , "roa-lor"], "en")
+        >>> # '<i>(Lorrain)</i>'
+        >>> last_template_handler(["lbl", "en" , "transitive"], "en")
+        '<i>(transitive)</i>'
+
         >>> last_template_handler(["m", "en", "more"], "en")
         '<b>more</b>'
         >>> last_template_handler(["m", "ine-pro", "*h₁ed-", "t=to eat"], "en")
         '<i>*h₁ed-</i> (“to eat”)'
+
+        >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
+        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
+        >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
+        '<i>Standard spelling of</i> <b>enroll</b>.'
+
+        >>> last_template_handler(["surname", "en"], "en")
+        '<i>A surname.</i>'
+        >>> last_template_handler(["surname", "en", "nodot=1"], "en")
+        '<i>A surname</i>'
+        >>> last_template_handler(["surname", "en", "rare"], "en")
+        '<i>A rare surname.</i>'
+        >>> last_template_handler(["surname", "en", "A=An", "occupational"], "en")
+        '<i>An occupational surname.</i>'
+        >>> last_template_handler(["surname", "en", "from=Latin", "dot=,"], "en")
+        '<i>A surname,</i>'
     """
     from itertools import zip_longest
 
@@ -174,24 +174,53 @@ def last_template_handler(
         term,
     )
 
-    tpl = template[0]
-    parts = list(template[1:])
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
 
-    # Handle the {{alt form}} template
     if tpl in ("alt form", "alternative form of"):
         res = italic("Alternative form of")
         res += f" {strong(parts[1])}"
-        if len(parts) > 2:
-            last = parts[-1]
-            if "=" in last:
-                cat, detail = last.split("=", 1)
-                if cat == "t":
-                    res += f" (“{detail}”)"
-                elif cat != "nodot":
-                    res += f" ({detail})"
+        if data["t"]:
+            res += f" (“{data['t']}”)"
+        if data["pos"]:
+            res += f" ({data['pos']})"
         return res
 
-    # Handle the {{label}} template
+    if tpl in ("bor", "cog", "der", "etyl", "inh", "m"):
+        if tpl not in ("cog", "etyl", "m"):
+            parts.pop(0)  # Remove the destination language
+
+        if tpl == "etyl":
+            parts.pop(1)
+
+        lang = langs.get(parts.pop(0), "")
+        phrase = f"{lang}" if tpl != "m" else ""
+
+        if not parts:
+            return phrase
+
+        word = parts.pop(0)
+        if word == "-":
+            return phrase
+
+        word = data["alt"] or word
+        gloss = data["t"] or data["gloss"]
+
+        if parts:
+            word = parts.pop(0) or word  # 4, alt=
+
+        if tpl == "m":
+            phrase += strong(word) if not data["t"] else italic(word)
+        else:
+            phrase += f" {italic(word)}"
+
+        if parts:
+            gloss = parts.pop(0)  # 5, t=, gloss=
+        if gloss:
+            phrase += f" (“{gloss}”)"
+
+        return phrase
+
     if tpl in ("label", "lb", "lbl"):
         if len(parts) == 2:
             return term(parts[1])
@@ -199,8 +228,6 @@ def last_template_handler(
         res = ""
         for word1, word2 in zip_longest(parts[1:], parts[2:]):
             if word1 in ("_", "and", "or"):
-                continue
-            if word1.startswith(("nocat=", "sort=")):
                 continue
 
             res += lookup_italic(word1, locale)
@@ -216,61 +243,18 @@ def last_template_handler(
 
         return term(res.rstrip(", "))
 
-    # Handle the {{inh}} template
-    if tpl in ("bor", "cog", "der", "etyl", "inh", "m"):
-        if tpl not in ("cog", "etyl", "m"):
-            parts.pop(0)  # Remove the destination language
-
-        if tpl == "etyl":
-            parts.pop(1)
-
-        data = extract_keywords_from(parts)
-        lang = langs.get(parts.pop(0), "")
-        phrase = f"{lang}" if tpl != "m" else ""
-
-        if not parts:
-            return phrase
-
-        word = parts.pop(0)
-        if word == "-":
-            return phrase
-
-        word = data.get("alt", word)
-        gloss = data.get("t", data.get("gloss", ""))
-
-        if parts:
-            word = parts.pop(0) or word  # 4, alt=
-
-        if tpl == "m":
-            phrase += strong(word) if "t" not in data else italic(word)
-        else:
-            phrase += f" {italic(word)}"
-
-        if parts:
-            gloss = parts.pop(0)  # 5, t=, gloss=
-        if gloss:
-            phrase += f" (“{gloss}”)"
-
-        return phrase
-
-    # Handle the {{standard spelling of}} template
     if tpl == "standard spelling of":
-        if "from=" in parts[1]:
-            first = parts[1].replace("from=", "")
-            phrase = italic(f"{first} {tpl}")
-            idx = 2
+        if data["from"]:
+            phrase = italic(f"{data['from']} {tpl}")
         else:
             phrase = italic("Standard spelling of")
-            idx = 1
-        return f"{phrase} {strong(parts[idx])}."
+        return f"{phrase} {strong(parts[1])}."
 
-    # Handle the {{surname}} template
     if tpl == "surname":
-        data = extract_keywords_from(parts)
         parts.pop(0)  # Remove the lang
 
-        art = data.get("A", "A")
-        dot = data.get("dot", "" if "nodot" in data else ".")
+        art = data["A"] or "A"
+        dot = data["dot"] or ("" if data["nodot"] else ".")
         if not parts:
             return italic(f"{art} {tpl}{dot}")
         return italic(f"{art} {parts[0]} {tpl}{dot}")
