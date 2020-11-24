@@ -3,7 +3,7 @@
 {{wikipedia}}
 
 ===Etymology 1===
-From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative personal pronoun|us}}, from {{etyl|gem-pro|en}} {{m|gem-pro|*uns||us}}, from {{etyl|ine-pro|en}} {{m|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}. Cognate with {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
+From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|en|gem-pro|*uns||us}}, from {{der|en|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}. Cognate with {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
 
 ====Pronunciation====
 * {{qualifier|stressed}} {{enPR|ŭs}}, {{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}
@@ -17,7 +17,7 @@ From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative 
 # {{lb|en|personal}} [[me|Me]] and at least one other person; the objective case of '''[[we]]'''.
 #* '''1611''', [[w:King James Version of the Bible|King James Version of the Bible]], ''[[s:Bible (King James)/Luke|Luke]] 1:1'':
 #*: Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...
-# {{lb|en|colloquial}} [[me|Me]].
+# {{lb|en|UK|colloquial}} [[me|Me]].
 #: ''Give '''us''' a look at your paper.''
 #: ''Give '''us''' your wallet!''
 # {{lb|en|Northern England}} [[our|Our]].
@@ -59,13 +59,13 @@ From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative 
 * Irish: {{t|ga|sinn|p}}
 *: Old Irish: {{t|sga|n-}}, {{t|sga|don-}}, {{t|sga|-unn}}
 * Italian: {{t+|it|noi}}, a noi, {{t+|it|ci}}
-* Japanese: wata (私達) ''[[or]]'' tachi (私達)
+* Japanese: 私達 (watashitachi)
 * Kabuverdianu: {{t|kea|nu}}
 * Kazakh: {{t+|kk|бізді}}
 {{trans-mid}}
 * Korean: {{t+|ko|우리}}
 * Kurdish:
-*: Sorani: {{t+|ku|ئێمە}}
+*: Central Kurdish: {{t|ckb|ئێمە}}
 * Latin: {{qualifier|accusative}} {{t+|la|nos}}, {{qualifier|dative}} {{t+|la|nobis}}, {{qualifier|ablative}} {{t+|la|nobis}}
 * Macedonian: {{t|mk|ни}}, {{t|mk|нас}}, {{t|mk|нам}}
 * Malay:
@@ -111,6 +111,8 @@ From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative 
 * {{l|en|our}}
 * {{l|en|ours}}
 
+{{English personal pronouns}}
+
 ====Determiner====
 {{en-det}}
 
@@ -122,6 +124,7 @@ From {{etyl|enm|en}} {{m|enm|us}}, from {{etyl|ang|en}} {{m|ang|ūs||pos=dative 
 
 ===Etymology 2===
 Derived from the similarity between the letter [[u]] and the Greek letter [[µ]].
+
 ====Symbol====
 {{head|en|symbol}}
 
@@ -130,7 +133,7 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 #*:<nowiki>;</nowiki>wait 500 '''us'''
 #*'''2012''', Peter Feiler and David Gluch, ''Model-Based Engineering with AADL'':
 #*:The standard units are ns (nanoseconds), '''us''' (microseconds), ms (milliseconds), sec (seconds), min (minutes), and hr (hours).
-#*'''2014''', Michael Corey, ‎Jeff Szastak, ‎and Michael Webster, ''Virtualizing SQL Server with VMware: Doing IT Right'', p. 198:
+#*'''2014''', Michael Corey, Jeff Szastak, and Michael Webster, ''Virtualizing SQL Server with VMware: Doing IT Right'', p. 198:
 #*:Because the flash devices are local to the server, the latencies can be microseconds ('''us''') instead of milliseconds (ms) and eliminate some traffic that would normally have gone over the storage network.
 
 ===Etymology 3===
@@ -150,6 +153,7 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 
 [[Category:English basic words]]
 [[Category:English first person pronouns]]
+[[Category:English heteronyms]]
 [[Category:English personal pronouns]]
 [[Category:English plural pronouns]]
 [[Category:English two-letter words]]
@@ -303,7 +307,10 @@ From {{inh|fro|la|ūsus}}.
 ==Old Frisian==
 
 ===Etymology===
-From {{inh|ofs|gem-pro|*uns}}, {{m|gem-pro|*unsiz}}.
+From {{inh|ofs|gem-pro|*uns}}, {{m|gem-pro|*unsiz}}. Cognates include {{cog|ang|ūs}}, {{cog|osx|ūs}} and {{cog|odt|uns}}.
+
+===Pronunciation===
+* {{IPA|ofs|/ˈuːs/}}
 
 ===Pronoun===
 {{head|ofs|pronoun|head=ūs}}
@@ -314,9 +321,31 @@ From {{inh|ofs|gem-pro|*uns}}, {{m|gem-pro|*unsiz}}.
 {{ofs-decl-ppron}}
 
 ====Descendants====
-* {{desc|frr|üüs}}
+* {{desc|frr|-}}
+*: Most dialects: {{l|frr|üs}}
+*: Sylt: {{l|frr|üüs}}
 * {{desc|stq|uus}}
 * {{desc|fy|ús}}
+
+====References====
+* {{R:ofs:Bremmer:2009}}
+
+----
+
+==Serbo-Croatian==
+
+===Etymology===
+From {{inh|sh|sla-pro|*ǫsъ}}.
+
+===Noun===
+{{sh-noun|g=f|head=ȕs}}
+
+# [[fishbone]]
+
+===References===
+* {{R:sh:HJP|f19gWBR9}}
+
+{{c|sh|Animal body parts|Bones}}
 
 ----
 

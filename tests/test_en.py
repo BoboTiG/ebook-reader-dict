@@ -40,7 +40,7 @@ from scripts.utils import clean
         (
             "efficient",
             ["ɪˈfɪʃənt"],
-            "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <b>efficiēns</b>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English.",  # noqa
+            "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English.",  # noqa
             [
                 "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",  # noqa
                 "expressing the proportion of consumed energy that was successfully used in a process; the ratio of useful output to total input",  # noqa
@@ -63,7 +63,7 @@ from scripts.utils import clean
         (
             "Mars",
             ["ˈmɑːz"],
-            "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 BC) <b>Māvors</b>. <b>𐌌𐌀𐌌𐌄𐌓𐌔</b> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris.",  # noqa
+            "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 BC) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris.",  # noqa
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
                 "<i>(Roman god)</i> The Roman god of war.",
@@ -75,7 +75,7 @@ from scripts.utils import clean
         (
             "on",
             ["ɒn"],
-            "From Middle English <i>on</i>, from Old English <i>on</i>, <b>an</b> (“on, upon, onto, in, into”), from Proto-Germanic <i>*ana</i> (“on, at”), from Proto-Indo-European <i>*h₂en-</i>. Cognate with North Frisian <i>a</i> (“on, in”), Saterland Frisian <i>an</i> (“on, at”), West Frisian <i>oan</i> (“on, at”), Dutch <i>aan</i> (“on, at, to”), Low German <i>an</i> (“on, at”), German <i>an</i> (“to, at, on”), Swedish <i>å</i> (“on, at, in”), Faroese <i>á</i> (“on, onto, in, at”), Icelandic <i>á</i> (“on, in”), Gothic <i>𐌰𐌽𐌰</i>, Ancient Greek <i>ἀνά</i> (“up, upon”), Albanian <i>në</i> (“in”); and from Old Norse <i>upp á</i>: Danish <i>på</i>, Swedish <i>på</i>, Norwegian <i>på</i>, see <b>upon</b>.",  # noqa
+            "From Middle English <i>on</i>, from Old English <i>on</i>, <i>an</i> (“on, upon, onto, in, into”), from Proto-Germanic <i>*ana</i> (“on, at”), from Proto-Indo-European <i>*h₂en-</i>. Cognate with North Frisian <i>a</i> (“on, in”), Saterland Frisian <i>an</i> (“on, at”), West Frisian <i>oan</i> (“on, at”), Dutch <i>aan</i> (“on, at, to”), Low German <i>an</i> (“on, at”), German <i>an</i> (“to, at, on”), Swedish <i>å</i> (“on, at, in”), Faroese <i>á</i> (“on, onto, in, at”), Icelandic <i>á</i> (“on, in”), Gothic <i>𐌰𐌽𐌰</i>, Ancient Greek <i>ἀνά</i> (“up, upon”), Albanian <i>në</i> (“in”); and from Old Norse <i>upp á</i>: Danish <i>på</i>, Swedish <i>på</i>, Norwegian <i>på</i>, see <b>upon</b>.",  # noqa
             [
                 "In the state of being active, functioning or operating.",
                 "Performing according to schedule; taking place.",
@@ -127,7 +127,7 @@ from scripts.utils import clean
         (
             "portmanteau",
             ["pɔːtˈmæn.təʊ"],
-            "French <i>portemanteau</i> (“coat stand”), from <b>porte</b> (“carry”) + <b>manteau</b> (“coat”).",
+            "French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carry”) + <i>manteau</i> (“coat”).",
             [
                 "A large travelling case usually made of leather, and opening into two equal sections.",
                 "<i>(Australia, dated)</i> A schoolbag.",
@@ -150,7 +150,7 @@ from scripts.utils import clean
         (
             "the",
             ["ˈðiː"],
-            "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”), a late variant of <b>sē</b>. Originally masculine nominative, in Middle English it superseded all previous Old English forms (<b>sē</b>, <b>sēo</b>, <b>þæt</b>, <b>þā</b>), from Proto-Germanic <i>*sa</i>, from Proto-Indo-European <i>*só</i>. Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“the”).",  # noqa
+            "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”), a late variant of <i>sē</i>. Originally masculine nominative, in Middle English it superseded all previous Old English forms (<i>sē</i>, <i>sēo</i>, <i>þæt</i>, <i>þā</i>), from Proto-Germanic <i>*sa</i>, from Proto-Indo-European <i>*só</i>. Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“the”).",  # noqa
             [
                 "<i>Definite grammatical article that implies necessarily that an entity it articulates is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
                 "<i>Used before a noun modified by a restrictive relative clause, indicating that the noun refers to a single referent defined by the relative clause.</i>",  # noqa
@@ -183,10 +183,10 @@ from scripts.utils import clean
         (
             "us",
             ["ʌs", "ʌz"],
-            "From Middle English <b>us</b>, from Old English <b>ūs</b> (“us”), from Proto-Germanic <b>*uns</b> (“us”), from Proto-Indo-European <b>*ne-</b>, <b>*nō-</b>, <b>*n-ge-</b>, <b>*n-sme-</b> (“us”). Cognate with West Frisian <i>us</i>, <b>ús</b> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",  # noqa
+            "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n-sme-</i> (“us”). Cognate with West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",  # noqa
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(colloquial)</i> Me.",
+                "<i>(UK, colloquial)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
@@ -321,10 +321,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ),
         ("{{IPAchar|[tʃ]|lang=en}}", "[tʃ]"),
         ("{{IPAfont|[[ʌ]]}}", "⟨ʌ⟩"),
-        ("{{l|en|water vapour}}", "water vapour"),
-        ("{{ll|en|cod}}", "cod"),
-        ("{{link|en|water vapour}}", "water vapour"),
-        ("{{m|en|more}}", "<b>more</b>"),
         (
             "{{n-g|Definite grammatical}}",
             "<i>Definite grammatical</i>",
