@@ -170,6 +170,7 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
+    "ibid",
     "Import",
     "lien web",
     "Modèle",
