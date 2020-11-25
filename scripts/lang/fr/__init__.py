@@ -531,6 +531,10 @@ templates_multi = {
     "siècle2": 'f"{parts[1]}ème"',
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
+    # {{SIC}}
+    # {{sic !}}
+    "SIC": "f'<sup>[sic : {parts[1]}]</sup>' if len(parts) > 1 else '<sup>[sic]</sup>'",
+    "sic !": "f'<sup>[sic : {parts[1]}]</sup>' if len(parts) > 1 else '<sup>[sic]</sup>'",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": "term(capitalize(concat(parts, sep=' ', indexes=[0, 2])))",
