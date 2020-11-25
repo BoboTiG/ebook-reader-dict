@@ -232,6 +232,10 @@ def clean(word: str, text: str, locale: str) -> str:
         ''
         >>> clean("ferrojar", "foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah", "es")
         'foo|anticuado por cerrojo e influido por fierro|yeah'
+        >>> clean("Iraq", "<<country>>", "en")
+        'country'
+        >>> clean("Iraq", "<<region/Middle East>>", "en")
+        'Middle East'
         >>> clean("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
         >>> clean("", r"<math>\R^n</math>", "fr")
@@ -347,6 +351,11 @@ def clean(word: str, text: str, locale: str) -> str:
 
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", convert_math, text)
+
+    # <<bar>> -> foo
+    # <<foo/bar>> -> bar
+    text = sub(r"<<([^/>]+)>>", "\\1", text)
+    text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
     return text.strip()
 
