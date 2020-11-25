@@ -595,6 +595,7 @@ templates_other = {
     "impers": "<i>impersonnel</i>",
     "indéterminé": "indéterminé",
     "invar": "<i>invariable</i>",
+    "invariable": "<i>invariable</i>",
     "m": "<i>masculin</i>",
     "majus": "<i>majuscule</i>",
     "mf": "<i>masculin et féminin identiques</i>",
