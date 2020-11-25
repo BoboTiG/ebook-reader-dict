@@ -165,6 +165,7 @@ words_to_keep = (
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
+    "*",
     ",",
     "?",
     "Accord des couleurs",
