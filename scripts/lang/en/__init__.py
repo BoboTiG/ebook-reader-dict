@@ -133,6 +133,27 @@ def last_template_handler(
         >>> last_template_handler(["doublet", "ru" , "ру́сский", "tr1=rúkij", "t1=R", "g1=m", "pos1=n", "lit1=R"], "en")
         'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
 
+        >>> last_template_handler(["suffix", "en", "do", "ing"], "en")
+        '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
+        >>> last_template_handler(["prefix", "en", "un", "do"], "en")
+        '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
+        >>> last_template_handler(["suffix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
+        '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
+        >>> last_template_handler(["prefix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
+        '<i>alt1-</i> (<i>tr1-</i>, “t1”, pos1)&nbsp;+&nbsp;<i>lala</i>'
+        >>> last_template_handler(["suffix", "en", "toto", "lala", "t2=t2", "tr2=tr2", "alt2=alt2", "pos2=pos2" ], "en")
+        '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
+        >>> last_template_handler(["prefix", "en", "toto", "lala", "t2=t2", "tr2=tr2", "alt2=alt2", "pos2=pos2" ], "en")
+        '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
+        >>> last_template_handler(["confix", "en", "neuro", "genic"], "en")
+        '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
+        >>> last_template_handler(["confix", "en", "neuro", "gene", "tr2=genic"], "en")
+        '<i>neuro-</i>&nbsp;+&nbsp;<i>-gene</i> (<i>-genic</i>)'
+        >>> last_template_handler(["confix", "en", "be", "dew", "ed"], "en")
+        '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
+        >>> last_template_handler(["compound", "fy", "fier", "lj", "t1=far", "t2=leap", "pos1=adj", "pos2=v"], "en")
+        '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
+
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
         >>> last_template_handler(["l", "en", "go", "went"], "en")
@@ -336,6 +357,43 @@ def last_template_handler(
                 res += ", "
 
         return term(res.rstrip(", "))
+
+    if tpl in ("prefix", "suffix", "confix", "compound"):
+        lang = parts.pop(0)  # language code
+        a_phrase = []
+        i = 1
+        parts_count = len(parts)
+        while parts:
+            si = str(i)
+            chunk = parts.pop(0)
+            chunk = data["alt" + si] or chunk
+            if (tpl == "prefix" or tpl == "confix") and i == 1:
+                chunk += "-"
+            if tpl == "suffix" and i == 2:
+                chunk = "-" + chunk
+            if tpl == "confix" and i == parts_count:
+                chunk = "-" + chunk
+            chunk = italic(chunk)
+            local_phrase = []
+            if data["tr" + si]:
+                result = data["tr" + si]
+                if (tpl == "prefix" or tpl == "confix") and i == 1:
+                    result += "-"
+                if tpl == "suffix" and i == 2:
+                    result = "-" + result
+                if tpl == "confix" and i == parts_count:
+                    result = "-" + result
+                local_phrase.append(italic(result))
+            if data["t" + si]:
+                local_phrase.append(f"{'“' + data['t'+si] + '”'}")
+            if data["pos" + si]:
+                local_phrase.append(data["pos" + si])
+            if local_phrase:
+                chunk += " (" + concat(local_phrase, ", ") + ")"
+            a_phrase.append(chunk)
+            i += 1
+
+        return concat(a_phrase, "&nbsp;+&nbsp;")
 
     if tpl == "standard spelling of":
         if data["from"]:
