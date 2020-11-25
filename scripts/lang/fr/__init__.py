@@ -167,6 +167,7 @@ words_to_keep = (
 templates_ignored = (
     ",",
     "?",
+    "Accord des couleurs",
     "ancre",
     "créer-séparément",
     "désabrévier",
