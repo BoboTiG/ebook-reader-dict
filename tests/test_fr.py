@@ -18,7 +18,7 @@ from scripts.utils import clean
                 "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
                 "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
                 "Première lettre et première voyelle de l’alphabet français.",
-                r"Le son \a\ ou \ɑ\ de cette lettre. <b>Note :</b> Le français parisien a perdu la distinction entre les deux.",  # noqa
+                r"Le son \a\ ou \ɑ\ de cette lettre. <b>Note&nbsp;:</b> Le français parisien a perdu la distinction entre les deux.",  # noqa
                 "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",  # noqa
                 "<i>(Québec)</i> <i>(Familier)</i> Elle.",
             ],
@@ -281,7 +281,7 @@ from scripts.utils import clean
             "De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>.",
             [
                 "Récemment ; il y a peu.",
-                "Il y a longtemps. <b>Note :</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
+                "Il y a longtemps. <b>Note&nbsp;:</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
             ],
             [],
         ),

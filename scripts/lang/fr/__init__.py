@@ -585,6 +585,7 @@ templates_other = {
     "avJC": "av. J.-C.",
     "collectif": "<i>collectif</i>",
     "contraction": "contraction",
+    "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",  # noqa
     "dépendant": "<i>dépendant</i>",
     "déterminé": "déterminé",
     "f": "<i>féminin</i>",
@@ -606,7 +607,7 @@ templates_other = {
     "mplur": "<i>masculing pluriel</i>",
     "msing": "<i>masculing singulier</i>",
     "nombre ?": "Nombre à préciser",
-    "note": "<b>Note :</b>",
+    "note": "<b>Note&nbsp;:</b>",
     "note-majuscule-taxo": "En biologie, le nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. En français, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs au genre. Un nom vernaculaire ne prend pas de majuscule, mais on peut en mettre une quand on veut expliciter le fait que l’on ne parle pas d’individus, mais que l’on veut parler de l’espèce, du genre, de la famille, de l’ordre, etc.",  # noqa
     "note-majuscule-taxon": "En biologie, le nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. En français, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs au genre. Un nom vernaculaire ne prend pas de majuscule, mais on peut en mettre une quand on veut expliciter le fait que l’on ne parle pas d’individus, mais que l’on veut parler de l’espèce, du genre, de la famille, de l’ordre, etc.",  # noqa
     "peu attesté": "/!\\ Ce terme est très peu attesté.",
@@ -624,7 +625,7 @@ templates_other = {
     "t": "<i>transitif</i>",
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
-    "usage": "<b>Note d'usage :</b>",
+    "usage": "<b>Note d'usage&nbsp;:</b>",
     "WP": "sur l'encyclopédie Wikipedia",
 }
 
