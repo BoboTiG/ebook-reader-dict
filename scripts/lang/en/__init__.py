@@ -367,7 +367,7 @@ def last_template_handler(
             si = str(i)
             chunk = parts.pop(0)
             chunk = data["alt" + si] or chunk
-            if (tpl == "prefix" or tpl == "confix") and i == 1:
+            if tpl in ["prefix", "confix"] and i == 1:
                 chunk += "-"
             if tpl == "suffix" and i == 2:
                 chunk = "-" + chunk
@@ -377,7 +377,7 @@ def last_template_handler(
             local_phrase = []
             if data["tr" + si]:
                 result = data["tr" + si]
-                if (tpl == "prefix" or tpl == "confix") and i == 1:
+                if tpl in ["prefix", "confix"] and i == 1:
                     result += "-"
                 if tpl == "suffix" and i == 2:
                     result = "-" + result
