@@ -448,6 +448,9 @@ templates_italic = {
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
 #   html/scripts/user_functions.html
 templates_multi = {
+    # {{1er}}
+    # {{1er|mai}}
+    "1er": "f\"1{superscript('er')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{cf}}
@@ -472,10 +475,14 @@ templates_multi = {
     # XIX{{e}}
     # {{e|-1}}
     "e": "superscript(parts[1] if len(parts) > 1 else 'e')",
+    # XIX{{ème}}
+    "ème": "superscript(parts[1] if len(parts) > 1 else 'e')",
+    # {{er}}
+    "er": "superscript(parts[1] if len(parts) > 1 else 'er')",
+    # {{ère}}
+    "ère": "superscript(parts[1] if len(parts) > 1 else 'ère')",
     # XIV{{exp|e}}
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
-    # {{er}}
-    "er": "superscript('er')",
     # {{emploi|au passif}}
     "emploi": "term(capitalize(parts[1]))",
     # {{#expr: 2 ^ 30}}
@@ -511,6 +518,10 @@ templates_multi = {
     "nom w pc": "person(word, parts[1:])",
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
+    # {{numéro}}
+    "numéro": "f\"n{superscript('o')}\"",
+    # {{o}}
+    "o": "superscript('o')",
     # {{petites capitales|Dupont}}
     "petites capitales": "small_caps(parts[1])",
     # {{pc|Dupont}}
