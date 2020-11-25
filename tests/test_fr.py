@@ -364,6 +364,8 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{1er}}", "1<sup>er</sup>"),
+        ("{{1er|mai}}", "1<sup>er</sup>&nbsp;mai"),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
         ("{{emploi|au passif}}", "<i>(Au passif)</i>"),
@@ -383,6 +385,9 @@ def test_parse_word(
         ("{{diminutif|fr|de=balle}}", "diminutif"),
         ("{{diminutif|fr|m=1}}", "Diminutif"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
+        ("M{{e|me}}", "M<sup>me</sup>"),
+        ("du XX{{ème}} siècle", "du XX<sup>e</sup> siècle"),
+        ("le 1{{er}}", "le 1<sup>er</sup>"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
             "grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»)",
@@ -418,6 +423,8 @@ def test_parse_word(
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
         ("{{régionalisme|Bretagne|fr}}", "<i>(Bretagne)</i>"),
+        ("{{numéro}}", "n<sup>o</sup>"),
+        ("{{o}}", "<sup>o</sup>"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
