@@ -284,7 +284,7 @@ def last_template_handler(
     if tpl in ("doublet", "piecewise doublet"):
         lang = parts.pop(0)  # language code
         phrase = ""
-        if not data["notext"] == "1":
+        if data["notext"] != "1":
             starter = tpl + " of"
             phrase = starter if data["nocap"] else starter.capitalize()
         a_phrase = []
