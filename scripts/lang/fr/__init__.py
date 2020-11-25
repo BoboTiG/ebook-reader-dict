@@ -579,6 +579,7 @@ templates_other = {
     "aphérèse": "<i>aphérèse</i>",
     "apocope": "Apocope",
     "apJC": "apr. J.-C.",
+    "attention": "⚠",
     "au singulier uniquement": "<i>au singulier uniquement</i>",
     "au pluriel uniquement": "<i>au pluriel uniquement</i>",
     "avJC": "av. J.-C.",
