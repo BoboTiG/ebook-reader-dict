@@ -603,6 +603,8 @@ templates_other = {
     "msing": "<i>masculing singulier</i>",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note :</b>",
+    "note-majuscule-taxo": "En biologie, le nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. En français, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs au genre. Un nom vernaculaire ne prend pas de majuscule, mais on peut en mettre une quand on veut expliciter le fait que l’on ne parle pas d’individus, mais que l’on veut parler de l’espèce, du genre, de la famille, de l’ordre, etc.",  # noqa
+    "note-majuscule-taxon": "En biologie, le nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. En français, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs au genre. Un nom vernaculaire ne prend pas de majuscule, mais on peut en mettre une quand on veut expliciter le fait que l’on ne parle pas d’individus, mais que l’on veut parler de l’espèce, du genre, de la famille, de l’ordre, etc.",  # noqa
     "peu attesté": "/!\\ Ce terme est très peu attesté.",
     "p": "<i>pluriel</i>",
     "palind": "<i>palindrome</i>",
