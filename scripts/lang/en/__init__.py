@@ -120,6 +120,19 @@ def last_template_handler(
         >>> last_template_handler(["inh", "en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], "en")
         'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
 
+        >>> last_template_handler(["doublet", "en" , "fire"], "en")
+        'Doublet of <i>fire</i>'
+        >>> last_template_handler(["doublet", "es" , "directo", "notext=1"], "en")
+        '<i>directo</i>'
+        >>> last_template_handler(["doublet", "en" , "advoke", "avouch", "avow"], "en")
+        'Doublet of <i>advoke</i>, <i>avouch</i> and <i>avow</i>'
+        >>> last_template_handler(["doublet", "ja" , "tr1=Mosukō", "モスコー", "nocap=1"], "en")
+        'doublet of <i>モスコー</i> (<i>Mosukō</i>)'
+        >>> last_template_handler(["doublet", "ja" , "ヴィエンヌ", "tr1=Viennu", "t1=Vienne", "ウィーン", "tr2=Wīn"], "en")
+        'Doublet of <i>ヴィエンヌ</i> (<i>Viennu</i>, “Vienne”) and <i>ウィーン</i> (<i>Wīn</i>)'
+        >>> last_template_handler(["doublet", "ru" , "ру́сский", "tr1=rúkij", "t1=R", "g1=m", "pos1=n", "lit1=R"], "en")
+        'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
+
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
         >>> last_template_handler(["l", "en", "go", "went"], "en")
@@ -189,6 +202,7 @@ def last_template_handler(
     from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
+        concat,
         extract_keywords_from,
         italic,
         lookup_italic,
@@ -266,6 +280,40 @@ def last_template_handler(
             phrase += ")"
 
         return phrase.lstrip()
+
+    if tpl in ("doublet", "piecewise doublet"):
+        lang = parts.pop(0)  # language code
+        phrase = ""
+        if data["notext"] != "1":
+            starter = tpl + " of"
+            phrase = starter if data["nocap"] else starter.capitalize()
+        a_phrase = []
+        i = 1
+        while parts:
+            si = str(i)
+            chunk = parts.pop(0)
+            chunk = data["alt" + si] or chunk
+            chunk = italic(chunk)
+            if data["g" + si]:
+                chunk += " " + italic(data["g" + si])
+            local_phrase = []
+            if data["tr" + si]:
+                local_phrase.append(f"{italic(data['tr'+si])}")
+            if data["t" + si]:
+                local_phrase.append(f"{'“' + data['t'+si] + '”'}")
+            if data["pos" + si]:
+                local_phrase.append(data["pos" + si])
+            if data["lit" + si]:
+                local_phrase.append(f"{'literally “' + data['lit'+si] + '”'}")
+            if local_phrase:
+                chunk += " (" + concat(local_phrase, ", ") + ")"
+            a_phrase.append(chunk)
+            i += 1
+
+        if phrase:
+            phrase += " "
+        phrase += concat(a_phrase, ", ", " and ")
+        return phrase
 
     if tpl in ("label", "lb", "lbl"):
         if len(parts) == 2:

@@ -233,7 +233,7 @@ from scripts.utils import clean
         (
             "word",
             ["wɜːd"],
-            "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. <i>Doublet</i> <b>verb</b>.",  # noqa
+            "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i>.",  # noqa
             [
                 "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",  # noqa
                 (
