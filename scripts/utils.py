@@ -28,6 +28,22 @@ from .user_functions import *  # noqa
 # only once
 MISSING_TPL_SEEN: Set[str] = set()
 
+# Magic words (small part, only data/time related)
+# https://www.mediawiki.org/wiki/Help:Magic_words
+NOW = datetime.utcnow()
+MAGIC_WORDS = {
+    "CURRENTYEAR": str(NOW.year),
+    "CURRENTMONTH": NOW.strftime("%m"),
+    "CURRENTMONTH1": str(NOW.month),
+    "CURRENTDAY": str(NOW.day),
+    "CURRENTDAY2": NOW.strftime("%d"),
+    "CURRENTDOW": NOW.strftime("%w"),
+    "CURRENTTIME": NOW.strftime("%H:%M"),
+    "CURRENTHOUR": NOW.strftime("%H"),
+    "CURRENTWEEK": NOW.strftime("%V"),
+    "CURRENTTIMESTAMP": NOW.strftime("%Y%m%d%H%M%S"),
+}
+
 
 def convert_etymology(etymology: str) -> str:
     """Return the HTML code to include for the etymology of a word."""
@@ -57,18 +73,15 @@ def format_description(locale: str, output_dir: Path) -> str:
     count = f"{int(count):,}".replace(",", thousands_sep)
 
     # Format the snapshot's date
-    date = (output_dir / "words.snapshot").read_text().strip()
-    date = f"{date[:4]}-{date[4:6]}-{date[6:8]}"
-
-    # The current date, UTC
-    now = datetime.utcnow().isoformat()
+    snapshot = (output_dir / "words.snapshot").read_text().strip()
+    snapshot = f"{snapshot[:4]}-{snapshot[4:6]}-{snapshot[6:8]}"
 
     # The download link
     url = DOWNLOAD_URL.format(locale)
 
     return release_description[locale].format(
-        creation_date=now,
-        dump_date=date,
+        creation_date=NOW.isoformat(),
+        dump_date=snapshot,
         locale=locale,
         url=url,
         words_count=count,
@@ -392,6 +405,23 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "conj|grp=1|fr", "fr")
          !! Missing 'conj' template support for word 'foo'
         ''
+
+        >>> # Magic words
+        >>> transform("De_Witte", "PAGENAME", "fr")
+        'De Witte'
+
+        >>> # Magic word (date/time)
+        >>> now = datetime.utcnow()
+        >>> assert transform("foo", "CURRENTYEAR", "fr") == str(now.year)
+        >>> assert transform("foo", "CURRENTMONTH", "fr") == now.strftime("%m")
+        >>> assert transform("foo", "CURRENTMONTH1", "fr") == str(now.month)
+        >>> assert transform("foo", "CURRENTDAY", "fr") == str(now.day)
+        >>> assert transform("foo", "CURRENTDAY2", "fr") == now.strftime("%d")
+        >>> assert transform("foo", "CURRENTDOW", "fr") == now.strftime("%w")
+        >>> assert transform("foo", "CURRENTTIME", "fr") == now.strftime("%H:%M")
+        >>> assert transform("foo", "CURRENTHOUR", "fr") == now.strftime("%H")
+        >>> assert transform("foo", "CURRENTWEEK", "fr") == now.strftime("%V")
+        >>> assert transform("foo", "CURRENTTIMESTAMP", "fr").startswith(now.strftime("%Y%m%d%H%M%S")[:10])
     """
 
     parts_raw = [p for p in template.split("|") if not p.startswith("lang=")]
@@ -412,6 +442,12 @@ def transform(word: str, template: str, locale: str) -> str:
     # Help fixing formatting on Wiktionary
     if parts != parts_raw:
         warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
+
+    # Magic words
+    if tpl in MAGIC_WORDS:
+        return MAGIC_WORDS[tpl]
+    elif tpl == "PAGENAME":
+        return word.replace("_", " ")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
