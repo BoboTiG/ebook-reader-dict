@@ -338,6 +338,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "<i>Definite grammatical</i>",
         ),
         (
+            "{{q|formal|used only in the plural}}",
+            "(<i>formal</i>, <i>used only in the plural</i>)",
+        ),
+        (
             "{{qual|Used only in the plural in the UK}}",
             "(<i>Used only in the plural in the UK</i>)",
         ),

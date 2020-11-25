@@ -79,10 +79,12 @@ templates_multi = {
     "ngd": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss definition|Definite grammatical ...}}
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
+    # {{q|Used only ...}}
+    "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qual|Used only ...}}
-    "qual": "'(' + italic(parts[1]) + ')'",
+    "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
-    "qualifier": "'(' + italic(parts[1]) + ')'",
+    "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
     # {{vern|Pacific cod}}
