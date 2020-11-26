@@ -179,6 +179,9 @@ def clean(word: str, text: str, locale: str) -> str:
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
+        >>> clean("foo", "<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>", "fr")
+        'Modelled English'
+
         >>> clean("foo", "", "fr")
         ''
         >>> clean("foo", "{{}}", "fr")
@@ -251,12 +254,12 @@ def clean(word: str, text: str, locale: str) -> str:
     text = text.replace("\n", "")
 
     # Parser hooks
+    # <ref name="CFC"/> -> ''
+    text = sub(r"<ref[^>]*/>", "", text)
     # <ref>foo</ref> -> ''
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
     # <ref name="CFC"><tag>...</tag></ref> -> ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
-    # <ref name="CFC"/> -> ''
-    text = sub(r"<ref[^>]*/>", "", text)
 
     # <nowiki/> -> ''
     text = text.replace("<nowiki/>", "")
