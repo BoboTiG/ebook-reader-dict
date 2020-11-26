@@ -135,6 +135,29 @@ def last_template_handler(
         >>> last_template_handler(["doublet", "ru" , "ру́сский", "tr1=rúkij", "t1=R", "g1=m", "pos1=n", "lit1=R"], "en")
         'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
 
+        >>> last_template_handler(["suffix", "en", "do", "ing"], "en")
+        '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
+        >>> last_template_handler(["prefix", "en", "un", "do"], "en")
+        '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
+        >>> last_template_handler(["suffix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
+        '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
+        >>> last_template_handler(["prefix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
+        '<i>alt1-</i> (<i>tr1-</i>, “t1”, pos1)&nbsp;+&nbsp;<i>lala</i>'
+        >>> last_template_handler(["suffix", "en", "toto", "lala", "t2=t2", "tr2=tr2", "alt2=alt2", "pos2=pos2" ], "en")
+        '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
+        >>> last_template_handler(["prefix", "en", "toto", "lala", "t2=t2", "tr2=tr2", "alt2=alt2", "pos2=pos2" ], "en")
+        '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
+        >>> last_template_handler(["confix", "en", "neuro", "genic"], "en")
+        '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
+        >>> last_template_handler(["confix", "en", "neuro", "gene", "tr2=genic"], "en")
+        '<i>neuro-</i>&nbsp;+&nbsp;<i>-gene</i> (<i>-genic</i>)'
+        >>> last_template_handler(["confix", "en", "be", "dew", "ed"], "en")
+        '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
+        >>> last_template_handler(["compound", "fy", "fier", "lj", "t1=far", "t2=leap", "pos1=adj", "pos2=v"], "en")
+        '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
+        >>> last_template_handler(["blend", "he", "תַּשְׁבֵּץ", "tr1=tashbéts", "t1=crossword", "חֵץ", "t2=arrow", "tr2=chets"], "en")  # noqa
+        'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
+
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
         >>> last_template_handler(["l", "en", "go", "went"], "en")
@@ -283,24 +306,39 @@ def last_template_handler(
 
         return phrase.lstrip()
 
-    if tpl in ("doublet", "piecewise doublet"):
+    def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
+        if tpl in ["prefix", "confix"] and i == 1:
+            chunk += "-"
+        if tpl == "suffix" and i == 2:
+            chunk = "-" + chunk
+        if tpl == "confix" and i == parts_count:
+            chunk = "-" + chunk
+        return chunk
+
+    compound = ["prefix", "suffix", "confix", "compound", "blend"]
+    with_start_text = ["doublet", "piecewise doublet", "blend"]
+    if tpl in ["doublet", "piecewise doublet", *compound]:
         lang = parts.pop(0)  # language code
         phrase = ""
-        if data["notext"] != "1":
-            starter = tpl + " of"
+        if data["notext"] != "1" and tpl in with_start_text:
+            starter = tpl + " of "
             phrase = starter if data["nocap"] else starter.capitalize()
         a_phrase = []
         i = 1
+        parts_count = len(parts)
         while parts:
             si = str(i)
             chunk = parts.pop(0)
             chunk = data["alt" + si] or chunk
+            chunk = add_dash(tpl, i, parts_count, chunk)
             chunk = italic(chunk)
             if data["g" + si]:
                 chunk += " " + italic(data["g" + si])
             local_phrase = []
             if data["tr" + si]:
-                local_phrase.append(f"{italic(data['tr'+si])}")
+                result = data["tr" + si]
+                result = add_dash(tpl, i, parts_count, result)
+                local_phrase.append(italic(result))
             if data["t" + si]:
                 local_phrase.append(f"{'“' + data['t'+si] + '”'}")
             if data["pos" + si]:
@@ -312,9 +350,13 @@ def last_template_handler(
             a_phrase.append(chunk)
             i += 1
 
-        if phrase:
-            phrase += " "
-        phrase += concat(a_phrase, ", ", " and ")
+        sep = ", "
+        last_sep = " and "
+        if tpl in compound:
+            sep = "&nbsp;+&nbsp;"
+            last_sep = sep
+
+        phrase += concat(a_phrase, sep, last_sep)
         return phrase
 
     if tpl in ("label", "lb", "lbl"):
