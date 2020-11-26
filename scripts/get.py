@@ -373,7 +373,29 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
                     for rn, subsubdef in zip(
-                        ["i", "ii", "iii", "iv", "v", "vi", "vii"], subdef
+                        [
+                            "i",
+                            "ii",
+                            "iii",
+                            "iv",
+                            "v",
+                            "vi",
+                            "vii",
+                            "viii",
+                            "ix",
+                            "x",
+                            "xi",
+                            "xii",
+                            "xiii",
+                            "xiv",
+                            "xv",
+                            "xvi",
+                            "xvii",
+                            "xviii",
+                            "xix",
+                            "xx",
+                        ],
+                        subdef,
                     ):
                         print(f"{rn}.".rjust(12), strip_html(subsubdef))
                 else:
