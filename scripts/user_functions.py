@@ -138,10 +138,10 @@ def concat(
         if parts.count(skip):
             sep = " "
     r = [p for p in result if p]
-    if last_sep is None or len(r) == 1:
+    if last_sep is None or last_sep == sep or len(r) == 1:
         return sep.join(r)
     else:
-        return sep.join(r[:-1]) + last_sep + r[-1]
+        return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
 def coord(values: List[str]) -> str:

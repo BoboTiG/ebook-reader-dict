@@ -157,6 +157,11 @@ def last_template_handler(
         '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
         >>> last_template_handler(["blend", "he", "תַּשְׁבֵּץ", "tr1=tashbéts", "t1=crossword", "חֵץ", "t2=arrow", "tr2=chets"], "en")  # noqa
         'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
+        >>> last_template_handler(["blend", "en"], "en")
+        'Blend'
+        >>> last_template_handler(["blend", "en", "notext=1", "scratch", "t1=money", "bill", "alt2=bills", ""], "en")
+        '<i>scratch</i> (“money”)&nbsp;+&nbsp;<i>bills</i>'
+
 
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
@@ -254,7 +259,8 @@ def last_template_handler(
 
     if tpl in ("alt form", "alternative form of"):
         res = italic("Alternative form of")
-        res += f" {strong(parts[1])}"
+        word = parts[1] if len(parts) > 1 else data.get("2", "")
+        res += f" {strong(word)}"
         if data["t"]:
             res += f" (“{data['t']}”)"
         if data["pos"]:
@@ -335,7 +341,9 @@ def last_template_handler(
         lang = parts.pop(0)  # language code
         phrase = ""
         if data["notext"] != "1" and tpl in with_start_text:
-            starter = tpl + " of "
+            starter = tpl
+            if parts:
+                starter += " of "
             phrase = starter if data["nocap"] else starter.capitalize()
         a_phrase = []
         i = 1
@@ -345,6 +353,8 @@ def last_template_handler(
             chunk = parts.pop(0)
             chunk = data["alt" + si] or chunk
             chunk = add_dash(tpl, i, parts_count, chunk)
+            if not chunk:
+                continue
             chunk = italic(chunk)
             if data["g" + si]:
                 chunk += " " + italic(data["g" + si])
