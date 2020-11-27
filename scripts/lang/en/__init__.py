@@ -162,7 +162,6 @@ def last_template_handler(
         >>> last_template_handler(["blend", "en", "notext=1", "scratch", "t1=money", "bill", "alt2=bills", ""], "en")
         '<i>scratch</i> (“money”)&nbsp;+&nbsp;<i>bills</i>'
 
-
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
         >>> last_template_handler(["l", "en", "go", "went"], "en")
@@ -335,7 +334,7 @@ def last_template_handler(
             chunk = "-" + chunk
         return chunk
 
-    compound = ["prefix", "suffix", "confix", "compound", "blend"]
+    compound = ["af", "affix", "prefix", "suffix", "confix", "compound", "blend"]
     with_start_text = ["doublet", "piecewise doublet", "blend"]
     if tpl in ["doublet", "piecewise doublet", *compound]:
         lang = parts.pop(0)  # language code
