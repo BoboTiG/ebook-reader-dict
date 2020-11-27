@@ -205,6 +205,19 @@ def last_template_handler(
         >>> last_template_handler(["lbl", "en" , "transitive"], "en")
         '<i>(transitive)</i>'
 
+        >>> last_template_handler(["place", "en", "A country in the Middle East"], "en")
+        'A country in the Middle East'
+        >>> last_template_handler(["place", "en", "A country", "modern=Iraq"], "en")
+        'A country; modern Iraq'
+        >>> last_template_handler(["place", "en", "village", "co/Fulton County", "s/Illinois"], "en")
+        'a village in Fulton County, Illinois'
+        >>> last_template_handler(["place", "en", "city/county seat", "co/Lamar County", "s/Texas"], "en")
+        'a city, the county seat of Lamar County, Texas'
+        >>> last_template_handler(["place", "en", "small town/and/unincorporated community"], "en")
+        'a small town and unincorporated community'
+        >>> last_template_handler(["place", "en", "town", "s/New York", ";", "named after Paris"], "en")
+        'a town in New York; named after Paris'
+
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
@@ -224,6 +237,7 @@ def last_template_handler(
     from itertools import zip_longest
 
     from .langs import langs
+    from .places import placetypes, qualifiers
     from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
@@ -380,6 +394,58 @@ def last_template_handler(
                 res += ", "
 
         return term(res.rstrip(", "))
+
+    if tpl == "place":
+        parts.pop(0)  # Remove the language
+        phrase = ""
+        i = 1
+        parts_count = len(parts)
+        while parts:
+            si = str(i)
+            part = parts.pop(0)
+            subparts = part.split("/")
+            if i == 1:
+                no_article = False
+                for j, subpart in enumerate(subparts):
+                    if subpart == "and":
+                        phrase = phrase[:-2] + " and"
+                        no_article = True
+                        continue
+                    s = placetypes.get(subpart, {})
+                    qualifier = ""
+                    if not s:
+                        q_array = subpart.split(" ")
+                        qualifier = q_array[0]
+                        if qualifier in qualifiers:
+                            qualifier = qualifiers[qualifier]
+                            subpart = " ".join(q_array[1:])
+                        else:
+                            qualifier = ""
+                        s = placetypes.get(subpart, {})
+                    if s:
+                        phrase += "" if no_article else s["article"]
+                        phrase += f" {qualifier}" if qualifier else ""
+                        phrase += " " + s["display"]
+                        no_article = False
+                        if j == len(subparts) - 1:
+                            phrase += f" {s['preposition']} " if parts else ""
+                        else:
+                            phrase += ", "
+                    else:
+                        phrase += part
+            elif len(subparts) > 1:
+                phrase += ", " if i > 2 else ""
+                phrase += subparts[1]
+            elif part == ";":
+                phrase += "; "
+            else:
+                phrase += part
+
+            modern_key = "modern" + "" if i == 1 else si
+            if data[modern_key]:
+                phrase += "; modern " + data[modern_key]
+            i += 1
+        return phrase
 
     if tpl == "standard spelling of":
         if data["from"]:
