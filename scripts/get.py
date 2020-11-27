@@ -372,10 +372,13 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
-                    for rn, subsubdef in zip(
-                        ["i", "ii", "iii", "iv", "v", "vi", "vii"], subdef
-                    ):
-                        print(f"{rn}.".rjust(12), strip_html(subsubdef))
+                    from .user_functions import int_to_roman
+
+                    for rn, subsubdef in enumerate(subdef, 1):
+                        print(
+                            f"{int_to_roman(rn).lower()}.".rjust(12),
+                            strip_html(subsubdef),
+                        )
                 else:
                     print(f"{a}.".rjust(8), strip_html(subdef))
         else:
