@@ -46,7 +46,25 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("cln", "+obj", "rel-bottom", "rel-top", "rfex", "root", "senseid")
+templates_ignored = (
+    "c",
+    "C",
+    "cln",
+    "multiple images",
+    "+obj",
+    "picdic",
+    "picdiclabel",
+    "rel-bottom",
+    "rel-top",
+    "rfex",
+    "root",
+    "senseid",
+    "tea room",
+    "tea room sense",
+    "top",
+    "topics",
+    "was wotd",
+)
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
