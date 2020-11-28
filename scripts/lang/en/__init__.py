@@ -75,6 +75,8 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{1|interactive}}
+    "1": "capitalize(parts[-1])",
     # {{abbr of|en|abortion}}
     "abbr of": "italic('Abbreviation of') + ' ' + strong(parts[-1])",
     # {{alt case|en|angstrom}}
@@ -124,6 +126,13 @@ def last_template_handler(
         '<i>Alternative form of</i> <b>worth</b> (“to become”)'
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
+
+        >>> last_template_handler(["initialism of", "en", "optical character reader", "dot=&nbsp;(the scanning device)"], "en")
+        '<i>Initialism of</i> <b>optical character reader</b>&nbsp;(the scanning device)'
+        >>> last_template_handler(["init of", "en", "optical character reader", "tr=tr", "t=t", "ts=ts"], "en")
+        '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> <i>/ts/</i>, “t”).'
+        >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1", "nocap=1"], "en")
+        '<i>initialism of</i> <b>optical character reader</b>'
 
         >>> last_template_handler(["bor", "en", "ar", "الْعِرَاق", "", "Iraq"], "en")
         'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
@@ -303,6 +312,37 @@ def last_template_handler(
         if data["pos"]:
             res += f" ({data['pos']})"
         return res
+
+    if tpl in ("init of", "initialism of"):
+        starter = "initialism of"
+        starter = starter if data["nocap"] else starter.capitalize()
+        phrase = f"{italic(starter)} "
+        lang = data["1"] or (parts.pop(0) if parts else "")
+        wterm = data["2"] or (parts.pop(0) if parts else "")
+        text = data["3"] or (parts.pop(0) if parts else "")
+        phrase += strong(text if text else wterm)
+        gloss = data["t"] or (parts.pop(0) if parts else "")
+
+        trts = ""
+        if data["tr"]:
+            trts += f"{italic(data['tr'])}"
+        if data["ts"]:
+            if trts:
+                trts += " "
+            trts += f"{italic('/' + data['ts'] + '/')}"
+        if gloss:
+            if trts:
+                trts += ", "
+            trts += f"“{gloss}”"
+        if trts:
+            phrase += f" ({trts})"
+
+        if data["dot"]:
+            phrase += data["dot"]
+        elif data["nodot"] != "1":
+            phrase += "."
+
+        return phrase
 
     # Short path for the {{m|en|WORD}} template
     if tpl == "m" and len(parts) == 2 and parts[0] == "en" and not data:
