@@ -246,6 +246,14 @@ def last_template_handler(
         'a small town and unincorporated community'
         >>> last_template_handler(["place", "en", "town", "s/New York", ";", "named after Paris"], "en")
         'a town in New York; named after Paris'
+        >>> last_template_handler(["place", "en", "s"], "en")
+        'a state'
+        >>> last_template_handler(["place", "en", "state", "c/USA"], "en")
+        'a state of the United States'
+        >>> last_template_handler(["place", "en", "city", "c/Republic of Ireland"], "en")
+        'a city in Ireland'
+        >>> last_template_handler(["place", "en", "city", "s/Georgia", "c/United States"], "en")
+        'a city in Georgia, United States'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
@@ -266,7 +274,12 @@ def last_template_handler(
     from itertools import zip_longest
 
     from .langs import langs
-    from .places import placetypes, qualifiers
+    from .places import (
+        recognized_placetypes,
+        recognized_placenames,
+        recognized_qualifiers,
+        placetypes_aliases,
+    )
     from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
@@ -462,17 +475,19 @@ def last_template_handler(
                         phrase = phrase[:-2] + " and"
                         no_article = True
                         continue
-                    s = placetypes.get(subpart, {})
+                    subpart = placetypes_aliases.get(subpart, subpart)
+                    s = recognized_placetypes.get(subpart, {})
                     qualifier = ""
                     if not s:
                         q_array = subpart.split(" ")
                         qualifier = q_array[0]
-                        if qualifier in qualifiers:
-                            qualifier = qualifiers[qualifier]
+                        if qualifier in recognized_qualifiers:
+                            qualifier = recognized_qualifiers[qualifier]
                             subpart = " ".join(q_array[1:])
                         else:
                             qualifier = ""
-                        s = placetypes.get(subpart, {})
+                        subpart = placetypes_aliases.get(subpart, subpart)
+                        s = recognized_placetypes.get(subpart, {})
                     if s:
                         phrase += "" if no_article else s["article"]
                         phrase += f" {qualifier}" if qualifier else ""
@@ -486,7 +501,26 @@ def last_template_handler(
                         phrase += part
             elif len(subparts) > 1:
                 phrase += ", " if i > 2 else ""
-                phrase += subparts[1]
+                subpart = subparts[0]
+                subpart = placetypes_aliases.get(subpart, subpart)
+                placename_key = subpart + "/" + subparts[1]
+                placename = recognized_placenames.get(placename_key, {})
+                if (
+                    placename
+                    and placename["display"]
+                    and placename["display"] in recognized_placenames
+                ):
+                    placename_key = placename["display"]
+                    placename = recognized_placenames[placename_key]
+                if placename:
+                    if placename["article"] and i < 3:
+                        phrase += placename["article"] + " "
+                    if placename["display"]:
+                        phrase += placename["display"].split("/")[1]
+                    else:
+                        phrase += placename_key.split("/")[1]
+                else:
+                    phrase += subparts[1]
             elif part == ";":
                 phrase += "; "
             else:
