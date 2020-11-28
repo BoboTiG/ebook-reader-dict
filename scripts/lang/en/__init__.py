@@ -121,6 +121,13 @@ def last_template_handler(
         'Old English <i>etan</i> (“to eat”)'
         >>> last_template_handler(["inh", "en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], "en")
         'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
+        >>> last_template_handler(["noncog", "fro", "livret", "t=book, booklet"], "en")
+        'Old French <i>livret</i> (“book, booklet”)'
+        >>> last_template_handler(["noncog", "xta", "I̱ta Ita", "lit=flower river"], "en") #xochopa
+        'Alcozauca Mixtec <i>I̱ta Ita</i> (literally “flower river”)'
+        >>> last_template_handler(["noncog", "egy", "ḫt n ꜥnḫ", "", "grain, food", "lit=wood/stick of life"], "en")
+        'Egyptian <i>ḫt n ꜥnḫ</i> (“grain, food”, literally “wood/stick of life”)'
+
 
         >>> last_template_handler(["doublet", "en" , "fire"], "en")
         'Doublet of <i>fire</i>'
@@ -270,9 +277,21 @@ def last_template_handler(
     if tpl == "m" and len(parts) == 2 and parts[0] == "en" and not data:
         return strong(parts[1])
 
-    if tpl in ("bor", "cog", "der", "etyl", "inh", "l", "link", "ll", "mention", "m"):
+    if tpl in (
+        "bor",
+        "cog",
+        "der",
+        "etyl",
+        "inh",
+        "l",
+        "link",
+        "ll",
+        "mention",
+        "m",
+        "noncog",
+    ):
         mentions = ("l", "link", "ll", "mention", "m")
-        if tpl not in ("cog", "etyl", *mentions):
+        if tpl not in ("cog", "etyl", "noncog", *mentions):
             parts.pop(0)  # Remove the destination language
 
         dst_locale = parts.pop(0)
@@ -311,16 +330,21 @@ def last_template_handler(
 
         if parts:
             gloss = parts.pop(0)  # 5, t=, gloss=
-        if gloss or trans or data["tr"] or data["ts"]:
+
+        local_phrase = []
+        if data["tr"]:
+            local_phrase.append(f"{italic(data['tr'])}")
+        if data["ts"]:
+            local_phrase.append(f"{italic('/' + data['ts'] + '/')}")
+        if trans:
+            local_phrase.append(f"{italic(trans)}")
+        if gloss:
+            local_phrase.append(f"“{gloss}”")
+        if data["lit"]:
+            local_phrase.append(f"{'literally “' + data['lit'] + '”'}")
+        if local_phrase:
             phrase += " ("
-            if data["tr"]:
-                phrase += f"{italic(data['tr'])}, "
-            if data["ts"]:
-                phrase += f"{italic('/' + data['ts'] + '/')}, "
-            if trans:
-                phrase += f"{italic(trans)}, "
-            if gloss:
-                phrase += f"“{gloss}”"
+            phrase += concat(local_phrase, ", ")
             phrase += ")"
 
         return phrase.lstrip()
