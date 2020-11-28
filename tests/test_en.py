@@ -284,6 +284,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{1|influenza}}", "Influenza"),
         ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
         (
