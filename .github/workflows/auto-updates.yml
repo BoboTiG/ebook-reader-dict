@@ -34,7 +34,9 @@ jobs:
         python-version: 3.8
 
     - name: Install LaTeX requirements
-      run: sudo apt install dvipng texlive-latex-extra
+      run: |
+        sudo apt update
+        sudo apt install dvipng texlive-latex-extra
 
     - name: Install requirements
       run: python -m pip install -r requirements.txt
