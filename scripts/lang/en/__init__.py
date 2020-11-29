@@ -118,6 +118,15 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["&lit", "en", "foo", "bar", "nodot=1"] ,"en")
+        '<i>Used other than figuratively or idiomatically:</i> see <i>foo, bar</i>'
+        >>> last_template_handler(["&lit", "en", "foo", "bar", "qualifier=often", "dot=!"] ,"en")
+        '<i>often used other than figuratively or idiomatically:</i> see <i>foo, bar!</i>'
+        >>> last_template_handler(["&lit", "en", "foo", "bar", "toto"] ,"en")
+        '<i>Used other than figuratively or idiomatically:</i> see <i>foo, bar, toto.</i>'
+        >>> last_template_handler(["&lit", "en", "see <b>foo</b> or <b>bar</b>"] ,"en")
+        '<i>Used other than figuratively or idiomatically:</i> <i>see <b>foo</b> or <b>bar</b>.</i>'
+
         >>> last_template_handler(["alternative form of", "enm" , "theen"], "en")
         '<i>Alternative form of</i> <b>theen</b>'
         >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
@@ -302,6 +311,29 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "&lit":
+        starter = "Used other than figuratively or idiomatically"
+        if data["qualifier"]:
+            phrase = f'{data["qualifier"]} {starter.lower()}'
+        else:
+            phrase = starter
+        parts.pop(0)  # language
+        endphrase = ""
+        if parts:
+            phrase += ":"
+            phrase = italic(phrase)
+            # first is wikified ?
+            phrase += " " if "</" in parts[0] else " see "
+            endphrase += concat([p for p in parts], ", ")
+
+        if data["dot"]:
+            endphrase += data["dot"]
+        elif data["nodot"] != "1":
+            endphrase += "."
+        phrase += italic(endphrase)
+
+        return phrase
 
     if tpl in ("alt form", "alternative form of"):
         res = italic("Alternative form of")
