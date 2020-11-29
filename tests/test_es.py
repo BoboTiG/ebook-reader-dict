@@ -1,7 +1,7 @@
 import pytest
 
 from scripts.get import parse_word
-from scripts.utils import clean
+from scripts.utils import process_templates
 
 
 @pytest.mark.parametrize(
@@ -216,6 +216,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{variante obsoleta|hambre}}", "<i>Variante obsoleta de</i> hambre"),
     ],
 )
-def test_clean_template(wikicode, expected):
+def test_process_templates(wikicode, expected):
     """Test templates handling."""
-    assert clean("foo", wikicode, "es") == expected
+    assert process_templates("foo", wikicode, "es") == expected

@@ -1,7 +1,7 @@
 import pytest
 
 from scripts.get import parse_word
-from scripts.utils import clean
+from scripts.utils import process_templates
 
 
 @pytest.mark.parametrize(
@@ -395,12 +395,12 @@ def test_parse_word(
         ("{{divinités|fr|grecques}}", "<i>(Divinité)</i>"),
         ("{{info lex|boulangerie}}", "<i>(Boulangerie)</i>"),
         ("{{info lex|équitation|sport}}", "<i>(Équitation, Sport)</i>"),
-        ("[[J·K-1|'''J·K{{e|-1}}''']]", "<b>J·K<sup>-1</sup></b>"),
+        ("J·K{{e|-1}}", "J·K<sup>-1</sup>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{familier|fr|nocat=1}}", "<i>(Familier)</i>"),
         ("{{graphie|u}}", "‹&nbsp;u&nbsp;›"),
         ("{{lang|en|other rank}}", "other rank"),
-        ("{{Lang|la|[[Martis]] [[dies]]}}", "Martis dies"),
+        ("{{Lang|la|Martis dies}}", "Martis dies"),
         ("{{langues|fr|de Chine}}", "<i>(Linguistique)</i>"),
         ("{{lexique|philosophie|fr}}", "<i>(Philosophie)</i>"),
         ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
@@ -414,8 +414,8 @@ def test_parse_word(
         ("{{mn-lien|далай|dalai|ᠲᠠᠯᠠᠢ}}", "далай (MNS : <i>dalai</i>)"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
-        ("{{nobr|ℶ₀ {{=}} [[ℵ₀]]}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
-        ("{{nobr|1=ℶ₀ = [[ℵ₀]]}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
+        ("{{nobr|ℶ₀ {{=}} ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
+        ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
@@ -464,16 +464,11 @@ def test_parse_word(
             "{{ws|Les Grenouilles qui demandent un Roi}}",
             "Les Grenouilles qui demandent un Roi",
         ),
-        ("{{wsp|Panthera pardus|''Panthera pardus''}}", "<i>Panthera pardus</i>"),
+        ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
         ("{{WSP|Panthera leo}}", "<i>(Panthera leo)</i>"),
-        # Complex one: the "chambre" etymology
-        (
-            "{{siècle|lang=fr|XI}} Du {{étyl|frm|fr|chambre}}<ref>{{R:DMF}}</ref>, de l’{{étyl|fro|fr|chambre}}, {{lien|''cambre''|fro}}, {{lien|''cambra''|fro}}<ref>{{R:DÉCT}}</ref>{{,}}{{R|TLFi}}, du {{étyl|bas latin|fr|mot=camera|sens=pièce, chambre}}{{R|TLFi}}, du {{étyl|latin classique|fr|mot=camera}}{{R|TLFi}}, {{lien|''camara''|sens=voute, plafond vouté|la}}, du {{étyl|grc|fr|mot=καμάρα|tr=kamárā|sens=voute, lieu couvert par une construction}}{{R|TLFi}}.",  # noqa
-            "<i>(XI<sup>e</sup> siècle)</i> Du moyen français <i>chambre</i>, de l’ancien français <i>chambre</i>, <i>cambre</i>, <i>cambra</i>, du bas latin <i>camera</i> («&nbsp;pièce, chambre&nbsp;»), du latin classique <i>camera</i>, <i>camara</i> («&nbsp;voute, plafond vouté&nbsp;»), du grec ancien καμάρα, <i>kamárā</i> («&nbsp;voute, lieu couvert par une construction&nbsp;»).",  # noqa
-        ),
     ],
 )
-def test_clean_template(wikicode, expected):
+def test_process_templates(wikicode, expected):
     """Test templates handling."""
-    assert clean("foo", wikicode, "fr") == expected
+    assert process_templates("foo", wikicode, "fr") == expected

@@ -1,7 +1,7 @@
 import pytest
 
 from scripts.get import parse_word
-from scripts.utils import clean
+from scripts.utils import process_templates
 
 
 @pytest.mark.parametrize(
@@ -317,11 +317,11 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
         (
-            "{{initialism of|en|[[Inuit]] [[Qaujimajatuqangit]]|nodot=1}}",
+            "{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}",
             "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>",
         ),
         ("{{IPAchar|[tʃ]|lang=en}}", "[tʃ]"),
-        ("{{IPAfont|[[ʌ]]}}", "⟨ʌ⟩"),
+        ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
         (
             "{{n-g|Definite grammatical}}",
             "<i>Definite grammatical</i>",
@@ -358,6 +358,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{vern|Pacific cod}}", "Pacific cod"),
     ],
 )
-def test_clean_template(wikicode, expected):
+def test_process_templates(wikicode, expected):
     """Test templates handling."""
-    assert clean("foo", wikicode, "en") == expected
+    assert process_templates("foo", wikicode, "en") == expected

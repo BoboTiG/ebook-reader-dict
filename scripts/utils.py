@@ -173,77 +173,65 @@ def guess_prefix(word: str) -> str:
     )
 
 
-def clean(word: str, text: str, locale: str) -> str:
-    r"""Cleans up the provided Wikicode.
+def clean(text: str) -> str:
+    """Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
-        >>> clean("foo", "<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>", "fr")
+        >>> clean("<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>")
         'Modelled English'
 
-        >>> clean("foo", "", "fr")
+        >>> clean("")
         ''
-        >>> clean("foo", "{{}}", "fr")
-        ''
-        >>> clean("foo", "{{unknown}}", "fr")
-        '<i>(Unknown)</i>'
-        >>> clean("foo", "<span style='color:black'>[[♣]]</span>", "fr")
+        >>> clean("<span style='color:black'>[[♣]]</span>")
         "<span style='color:black'>♣</span>"
-        >>> clean("foo", "{{foo|{{bar}}|123}}", "fr")
-         !! Missing 'foo' template support for word 'foo'
+        >>> clean("<ref>{{Import:CFC}}</ref>")
         ''
-        >>> clean("foo", "<ref>{{Import:CFC}}</ref>", "fr")
-        ''
-        >>> clean("foo", "<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>", "fr")
+        >>> clean("<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>")
         'bla bla bla'
-        >>> clean("foo", '<ref name="CFC" />', "fr")
+        >>> clean('<ref name="CFC" />')
         ''
-        >>> clean("foo", '<ref name="CFC">{{Import:CFC}}</ref>', "fr")
+        >>> clean('<ref name="CFC">{{Import:CFC}}</ref>')
         ''
-        >>> clean("iatralipta", '<ref name="CFC">{{CFC\\n|foo}}</ref>', "ca")
+        >>> clean('<ref name="CFC">{{CFC\\n|foo}}</ref>')
         ''
-        >>> clean("voyeuse", "<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>", "fr")
+        >>> clean("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
         ''
-        >>> clean("foo", "''italic''", "fr")
+        >>> clean("''italic''")
         '<i>italic</i>'
-        >>> clean("foo", "'''strong'''", "fr")
+        >>> clean("'''strong'''")
         '<b>strong</b>'
-        >>> clean("foo", "''italic and '''strong'''''", "fr")
+        >>> clean("''italic and '''strong'''''")
         '<i>italic and <b>strong</b></i>'
-        >>> clean("foo", "'''strong and ''italic'''''", "fr")
+        >>> clean("'''strong and ''italic'''''")
         '<b>strong and <i>italic</b></i>'
-        >>> clean("foo", "'''''Parer à'''''", "fr")
+        >>> clean("'''''Parer à'''''")
         '<i><b>Parer à</b></i>'
-        >>> clean("aux", "''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''", "fr")
+        >>> clean("''Contraction de [[préposition]] ''[[à]]'' et de l'[[article]] défini ''[[les]]'' .''")
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
-        >>> clean("aux", "'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''", "fr")
+        >>> clean("'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
-        >>> clean("μGy", "[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", "fr")
-        '10<sup>&minus;6</sup> gray'
-        >>> clean("base", "[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", "fr")  # noqa
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
+        '10{{e|&minus;6}} gray'
+        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
         ''
-        >>> clean("coccigrole", "[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", "fr")
+        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
         ''
-        >>> clean("sco", "<!-- {{sco}} -->", "fr")
+        >>> clean("<!-- {{sco}} -->")
         ''
-        >>> clean("sco", "<!-- <i>sco</i> -->", "fr")
+        >>> clean("<!-- <i>sco</i> -->")
         ''
-        >>> clean("cornstalk", '<ref name="Marshall 2001"><sup>he</sup></ref>', "en")
+        >>> clean('<ref name="Marshall 2001"><sup>he</sup></ref>')
         ''
-        >>> clean("built like a brick shithouse", '<nowiki/>', "en")
+        >>> clean("<nowiki/>")
         ''
-        >>> clean("ferrojar", "foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah", "es")
+        >>> clean("foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah")
         'foo|anticuado por cerrojo e influido por fierro|yeah'
-        >>> clean("Iraq", "<<country>>", "en")
+        >>> clean("<<country>>")
         'country'
-        >>> clean("Iraq", "<<region/Middle East>>", "en")
+        >>> clean("<<region/Middle East>>")
         'Middle East'
-        >>> clean("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
-        >>> clean("", r"<math>\R^n</math>", "fr")
-        <math> ERROR with <re.Match object; span=(0, 17), match='<math>\\R^n</math>'>
-        '\\R^n'
     """
 
     # Speed-up lookup
@@ -316,7 +304,39 @@ def clean(word: str, text: str, locale: str) -> str:
     # Remove extra brackets left
     text = text.replace(" []", "")
 
-    # Templates
+    # Remove extra spaces
+    text = sub(r"\s{2,}", " ", text)
+    text = sub(r"\s{1,}\.", ".", text)
+
+    # <<bar>> -> foo
+    # <<foo/bar>> -> bar
+    text = sub(r"<<([^/>]+)>>", "\\1", text)
+    text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
+
+    return text.strip()
+
+
+def process_templates(word: str, text: str, locale: str) -> str:
+    r"""Process all templates.
+
+    It will also handle the <math> HTML tag as it is not part of the *clean()* function on purpose.
+
+        >>> process_templates("foo", "{{}}", "fr")
+        ''
+        >>> process_templates("foo", "{{unknown}}", "fr")
+        '<i>(Unknown)</i>'
+        >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
+         !! Missing 'foo' template support for word 'foo'
+        ''
+        >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
+        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        >>> process_templates("", r"<math>\R^n</math>", "fr")
+        <math> ERROR with <re.Match object; span=(0, 17), match='<math>\\R^n</math>'>
+        '\\R^n'
+    """
+
+    sub = re.sub
+
     # {{foo}}
     # {{foo|bar}}
     # {{foo|{{bar}}|123}}
@@ -348,17 +368,12 @@ def clean(word: str, text: str, locale: str) -> str:
         transformed = transform(word, subtext, locale)
         text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
 
-    # Remove extra spaces
-    text = sub(r"\s{2,}", " ", text)
-    text = sub(r"\s{1,}\.", ".", text)
-
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", convert_math, text)
 
-    # <<bar>> -> foo
-    # <<foo/bar>> -> bar
-    text = sub(r"<<([^/>]+)>>", "\\1", text)
-    text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
+    # Remove extra spaces (it happens when a template is ignored for instance)
+    text = sub(r"\s{2,}", " ", text)
+    text = sub(r"\s{1,}\.", ".", text)
 
     return text.strip()
 

@@ -53,35 +53,6 @@ def chimy(composition: List[str]) -> str:
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
-    """
-    Given a list of strings, extract strings containing an equal sign ("=").
-
-    Return a *defaultdict(str)* with key=value extracted from the original list.
-
-    The left part of the sign is used a as the dict key and the right part as the value value.
-    When a string contains the sign, it is removed from the original list.
-
-        >>> extract_keywords_from([])
-        defaultdict(<class 'str'>, {})
-        >>> extract_keywords_from(["foo"])
-        defaultdict(<class 'str'>, {})
-        >>> extract_keywords_from(["foo", "bar=baz"])
-        defaultdict(<class 'str'>, {'bar': 'baz'})
-        >>> extract_keywords_from(["foo", "bar=baz=ouf"])
-        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
-        >>> extract_keywords_from(["foo", "bar = baz=ouf"])
-        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
-    """
-    data = defaultdict(str)
-    for part in parts.copy():
-        if "=" in part:
-            key, value = part.split("=", 1)
-            data[key.strip()] = value.strip()
-            parts.pop(parts.index(part))
-    return data
-
-
 def color(rgb: str) -> str:
     """
     Format a RGB hexadecimal color.
@@ -183,6 +154,35 @@ def eval_expr(expr: str) -> str:
     expr = expr.replace("^", "**")
 
     return f"{eval(expr)}"
+
+
+def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
+    """
+    Given a list of strings, extract strings containing an equal sign ("=").
+
+    Return a *defaultdict(str)* with key=value extracted from the original list.
+
+    The left part of the sign is used as the dict key and the right part as the value.
+    When a string contains the sign, it is removed from the original list.
+
+        >>> extract_keywords_from([])
+        defaultdict(<class 'str'>, {})
+        >>> extract_keywords_from(["foo"])
+        defaultdict(<class 'str'>, {})
+        >>> extract_keywords_from(["foo", "bar=baz"])
+        defaultdict(<class 'str'>, {'bar': 'baz'})
+        >>> extract_keywords_from(["foo", "bar=baz=ouf"])
+        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
+        >>> extract_keywords_from(["foo", "bar = baz=ouf"])
+        defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
+    """
+    data = defaultdict(str)
+    for part in parts.copy():
+        if "=" in part:
+            key, value = part.split("=", 1)
+            data[key.strip()] = value.strip()
+            parts.pop(parts.index(part))
+    return data
 
 
 def int_to_roman(number: int) -> str:
