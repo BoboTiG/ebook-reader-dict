@@ -681,6 +681,15 @@ def last_template_handler(
         >>> last_template_handler(["calque", "sa", "fr", "mot=वज्रयान", "tr=vajrayāna", "sens=véhicule du diamant"], "fr")
         'sanskrit वज्रयान, <i>vajrayāna</i> («&nbsp;véhicule du diamant&nbsp;»)'
 
+        >>> last_template_handler(["Citation/François Béroalde de Verville"], "fr")
+        "François <span style='font-variant:small-caps'>Béroalde de Verville</span>"
+        >>> last_template_handler(["Citation/Amélie Nothomb/Mercure"], "fr")
+        '<i>Mercure</i>'
+        >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869"], "fr")
+        "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869"
+        >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|171"], "fr")
+        "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171"
+
         >>> last_template_handler(["cit_réf", "Dictionnaire quelconque", "2007"], "fr")
         '<i>Dictionnaire quelconque</i>, 2007'
         >>> last_template_handler(["cit_réf", "titre=Dictionnaire quelconque", "date=2007"], "fr")
@@ -917,6 +926,7 @@ def last_template_handler(
         century,
         extract_keywords_from,
         italic,
+        person,
         strong,
         term,
     )
@@ -968,6 +978,24 @@ def last_template_handler(
                 phrase += italic(data["de2"])
 
         return phrase
+
+    if tpl.startswith("Citation/"):
+        parts = tpl.split("/")[1:]
+        author = person(word, parts.pop(0).split(" ", 1))
+        book = parts.pop(0) if parts else ""
+        date = parts.pop(0) if parts else ""
+        if "|" in date:
+            date, page = date.split("|")
+        else:
+            page = ""
+
+        if not date and not book:
+            return author
+        if not date:
+            return italic(book)
+        if not page:
+            return f"{author}, {italic(book)}, {date}"
+        return f"{author}, {italic(book)}, {date}, page {page}"
 
     if tpl in ("cit_réf", "cit réf"):
         i = 0
