@@ -38,7 +38,7 @@ from .lang import (
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import clean, convert_pronunciation, convert_genre
+from .utils import clean, convert_pronunciation, convert_genre, process_templates
 
 if TYPE_CHECKING:  # pragma: nocover
     from xml.etree.ElementTree import Element
@@ -175,7 +175,7 @@ def find_section_definitions(
                     continue
 
                 # Transform and clean the Wikicode
-                definition = clean(word, code, locale)
+                definition = process_templates(word, clean(code), locale)
                 if not definition:
                     continue
 
@@ -186,7 +186,7 @@ def find_section_definitions(
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
-                        subdefinition = clean(word, subcode, locale)
+                        subdefinition = process_templates(word, clean(subcode), locale)
                         subdefinitions.append(subdefinition)
                         subsubdefinitions: List[str] = []
                         for subsublist in sublist.sublists(
@@ -194,7 +194,7 @@ def find_section_definitions(
                         ):
                             for subsubcode in subsublist.items:
                                 subsubdefinitions.append(
-                                    clean(word, subsubcode, locale)
+                                    process_templates(word, clean(subsubcode), locale)
                                 )
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
@@ -210,7 +210,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
     etyl: str
 
     if locale == "ca":
-        return clean(word, parsed_section.contents, locale)
+        return process_templates(word, clean(parsed_section.contents), locale)
 
     elif locale == "en":
         items = [
@@ -219,13 +219,13 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
         ]
         for item in items:
-            etyl = clean(word, item, locale)
+            etyl = process_templates(word, clean(item), locale)
             if etyl:
                 return etyl
 
     elif locale == "es":
         etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        return clean(word, etyl, locale)
+        return process_templates(word, clean(etyl), locale)
 
     elif locale == "pt":
         section_title = parsed_section.title.strip()
@@ -240,7 +240,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
                 etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
             except IndexError:
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        return clean(word, etyl, locale)
+        return process_templates(word, clean(etyl), locale)
 
     etymologies = chain.from_iterable(
         section.items for section in parsed_section.get_lists()
@@ -251,7 +251,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
             for ignore_me in definitions_to_ignore[locale]
         ):
             continue
-        etyl = clean(word, etymology, locale)
+        etyl = process_templates(word, clean(etymology), locale)
         if etyl:
             return etyl
     return ""
@@ -437,7 +437,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
             if title.startswith("{{S|verbe|fr|flexion"):
                 for t in s[0].templates:
                     if t.__str__().startswith("{{fr-verbe-flexion"):
-                        infinitive = clean(word, t.__str__(), locale)
+                        infinitive = process_templates(word, clean(t.__str__()), locale)
                         variants.append(infinitive)
 
     return Word(prons, nature, etymology, definitions, variants)

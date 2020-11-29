@@ -83,35 +83,6 @@ def chimy(composition: List[str]) -&gt; str:
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
 
 
-def extract_keywords_from(parts: List[str]) -&gt; Dict[str, str]:
-    &#34;&#34;&#34;
-    Given a list of strings, extract strings containing an equal sign (&#34;=&#34;).
-
-    Return a *defaultdict(str)* with key=value extracted from the original list.
-
-    The left part of the sign is used a as the dict key and the right part as the value value.
-    When a string contains the sign, it is removed from the original list.
-
-        &gt;&gt;&gt; extract_keywords_from([])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {})
-        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz&#39;})
-        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
-        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-    &#34;&#34;&#34;
-    data = defaultdict(str)
-    for part in parts.copy():
-        if &#34;=&#34; in part:
-            key, value = part.split(&#34;=&#34;, 1)
-            data[key.strip()] = value.strip()
-            parts.pop(parts.index(part))
-    return data
-
-
 def color(rgb: str) -&gt; str:
     &#34;&#34;&#34;
     Format a RGB hexadecimal color.
@@ -125,6 +96,7 @@ def color(rgb: str) -&gt; str:
 def concat(
     parts: List[str],
     sep: str = &#34;&#34;,
+    last_sep: str = None,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
 ) -&gt; str:
@@ -150,6 +122,12 @@ def concat(
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
         &#39;Arte&#39;
+        &gt;&gt;&gt; concat([&#34;Mathématique&#34;, &#34;Physique&#34;, &#34;Chimie&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Mathématique, Physique et Chimie&#39;
+        &gt;&gt;&gt; concat([&#34;Physique&#34;, &#34;Chimie&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Physique et Chimie&#39;
+        &gt;&gt;&gt; concat([&#34;Physique&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Physique&#39;
     &#34;&#34;&#34;
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -160,8 +138,11 @@ def concat(
         result = [part for part in result if part != skip]
         if parts.count(skip):
             sep = &#34; &#34;
-
-    return sep.join(p for p in result if p)
+    r = [p for p in result if p]
+    if last_sep is None or last_sep == sep or len(r) == 1:
+        return sep.join(r)
+    else:
+        return sep.join(r[:-1]) + last_sep + r[-1] if r else &#34;&#34;
 
 
 def coord(values: List[str]) -&gt; str:
@@ -205,6 +186,35 @@ def eval_expr(expr: str) -&gt; str:
     return f&#34;{eval(expr)}&#34;
 
 
+def extract_keywords_from(parts: List[str]) -&gt; Dict[str, str]:
+    &#34;&#34;&#34;
+    Given a list of strings, extract strings containing an equal sign (&#34;=&#34;).
+
+    Return a *defaultdict(str)* with key=value extracted from the original list.
+
+    The left part of the sign is used as the dict key and the right part as the value.
+    When a string contains the sign, it is removed from the original list.
+
+        &gt;&gt;&gt; extract_keywords_from([])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz&#39;})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=baz=ouf&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
+    &#34;&#34;&#34;
+    data = defaultdict(str)
+    for part in parts.copy():
+        if &#34;=&#34; in part:
+            key, value = part.split(&#34;=&#34;, 1)
+            data[key.strip()] = value.strip()
+            parts.pop(parts.index(part))
+    return data
+
+
 def int_to_roman(number: int) -&gt; str:
     &#34;&#34;&#34;
     Convert an integer to a Roman numeral.
@@ -238,7 +248,7 @@ def italic(text: str) -&gt; str:
     return f&#34;&lt;i&gt;{text}&lt;/i&gt;&#34;
 
 
-def lookup_italic(word: str, locale: str) -&gt; str:
+def lookup_italic(word: str, locale: str, empty_default: bool = False) -&gt; str:
     &#34;&#34;&#34;
     Find the *word* from the *templates_italic* table of the given *locale*.
 
@@ -251,7 +261,7 @@ def lookup_italic(word: str, locale: str) -&gt; str:
         &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
         &#39;inexistant&#39;
     &#34;&#34;&#34;
-    return templates_italic[locale].get(word, word)
+    return templates_italic[locale].get(word, &#34;&#34; if empty_default else word)
 
 
 def number(number: str, fsep: str, tsep: str) -&gt; str:
@@ -602,7 +612,7 @@ __all__ = (
 </details>
 </dd>
 <dt id="scripts.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str = None, indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
@@ -624,6 +634,12 @@ It allowes to filter out some parts while keeping others.</p>
 'antigament en plural'
 &gt;&gt;&gt; concat(["Arte", "", ""], sep=" e ")
 'Arte'
+&gt;&gt;&gt; concat(["Mathématique", "Physique", "Chimie"], sep=", ", last_sep=" et ")
+'Mathématique, Physique et Chimie'
+&gt;&gt;&gt; concat(["Physique", "Chimie"], sep=", ", last_sep=" et ")
+'Physique et Chimie'
+&gt;&gt;&gt; concat(["Physique"], sep=", ", last_sep=" et ")
+'Physique'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -632,6 +648,7 @@ It allowes to filter out some parts while keeping others.</p>
 <pre><code class="python">def concat(
     parts: List[str],
     sep: str = &#34;&#34;,
+    last_sep: str = None,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
 ) -&gt; str:
@@ -657,6 +674,12 @@ It allowes to filter out some parts while keeping others.</p>
         &#39;antigament en plural&#39;
         &gt;&gt;&gt; concat([&#34;Arte&#34;, &#34;&#34;, &#34;&#34;], sep=&#34; e &#34;)
         &#39;Arte&#39;
+        &gt;&gt;&gt; concat([&#34;Mathématique&#34;, &#34;Physique&#34;, &#34;Chimie&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Mathématique, Physique et Chimie&#39;
+        &gt;&gt;&gt; concat([&#34;Physique&#34;, &#34;Chimie&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Physique et Chimie&#39;
+        &gt;&gt;&gt; concat([&#34;Physique&#34;], sep=&#34;, &#34;, last_sep=&#34; et &#34;)
+        &#39;Physique&#39;
     &#34;&#34;&#34;
     if indexes:
         result = [part for index, part in enumerate(parts) if index in indexes]
@@ -667,8 +690,11 @@ It allowes to filter out some parts while keeping others.</p>
         result = [part for part in result if part != skip]
         if parts.count(skip):
             sep = &#34; &#34;
-
-    return sep.join(p for p in result if p)</code></pre>
+    r = [p for p in result if p]
+    if last_sep is None or last_sep == sep or len(r) == 1:
+        return sep.join(r)
+    else:
+        return sep.join(r[:-1]) + last_sep + r[-1] if r else &#34;&#34;</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.coord"><code class="name flex">
@@ -753,7 +779,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
 <dd>
 <div class="desc"><p>Given a list of strings, extract strings containing an equal sign ("=").</p>
 <p>Return a <em>defaultdict(str)</em> with key=value extracted from the original list.</p>
-<p>The left part of the sign is used a as the dict key and the right part as the value value.
+<p>The left part of the sign is used as the dict key and the right part as the value.
 When a string contains the sign, it is removed from the original list.</p>
 <pre><code>&gt;&gt;&gt; extract_keywords_from([])
 defaultdict(&lt;class 'str'&gt;, {})
@@ -776,7 +802,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 
     Return a *defaultdict(str)* with key=value extracted from the original list.
 
-    The left part of the sign is used a as the dict key and the right part as the value value.
+    The left part of the sign is used as the dict key and the right part as the value.
     When a string contains the sign, it is removed from the original list.
 
         &gt;&gt;&gt; extract_keywords_from([])
@@ -860,7 +886,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 </details>
 </dd>
 <dt id="scripts.user_functions.lookup_italic"><code class="name flex">
-<span>def <span class="ident">lookup_italic</span></span>(<span>word: str, locale: str) ‑> str</span>
+<span>def <span class="ident">lookup_italic</span></span>(<span>word: str, locale: str, empty_default: bool = False) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Find the <em>word</em> from the <em>templates_italic</em> table of the given <em>locale</em>.</p>
@@ -876,7 +902,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def lookup_italic(word: str, locale: str) -&gt; str:
+<pre><code class="python">def lookup_italic(word: str, locale: str, empty_default: bool = False) -&gt; str:
     &#34;&#34;&#34;
     Find the *word* from the *templates_italic* table of the given *locale*.
 
@@ -889,7 +915,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
         &#39;inexistant&#39;
     &#34;&#34;&#34;
-    return templates_italic[locale].get(word, word)</code></pre>
+    return templates_italic[locale].get(word, &#34;&#34; if empty_default else word)</code></pre>
 </details>
 </dd>
 <dt id="scripts.user_functions.number"><code class="name flex">
