@@ -1,5 +1,5 @@
 """English language."""
-from typing import Tuple
+from typing import Tuple, TypedDict, List
 
 # Regex to find the pronunciation
 pronunciation = r"{IPA\|en\|/([^/]+)/"
@@ -251,6 +251,35 @@ def last_template_handler(
         >>> # '<i>(Lorrain)</i>'
         >>> last_template_handler(["lbl", "en" , "transitive"], "en")
         '<i>(transitive)</i>'
+
+        >>> last_template_handler(["given name", "en" , "male"], "en")
+        '<i>A male given name</i>'
+        >>> last_template_handler(["given name", "en" , "male", "or=female", "A=A Japanese"], "en")
+        '<i>A Japanese male or female given name</i>'
+        >>> last_template_handler(["given name", "en" , "male", "from=Spanish", "from2=Portuguese", "from3=French"], "en")
+        '<i>A male given name from Spanish, Portuguese or French</i>'
+        >>> last_template_handler(["given name", "en" , "male", "from=la:Patricius", "fromt=patrician"], "en")
+        '<i>A male given name from Latin Patricius (“patrician”)</i>'
+        >>> last_template_handler(["given name", "en" , "female", "from=place names", "usage=modern", "var=Savannah"], "en")
+        '<i>A female given name transferred from the place name, of modern usage, variant of Savannah</i>'
+        >>> last_template_handler(["given name", "da" , "male", "eq=Bertram", "eq2=fr:Bertrand"], "en")
+        '<i>A male given name, equivalent to English Bertram and French Bertrand</i>'
+        >>> last_template_handler(["given name", "en" , "female", "from=Hebrew", "m=Daniel", "f=Daniela"], "en")
+        '<i>A female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
+        >>> last_template_handler(["given name", "lv" , "male", "from=Slavic languages", "eq=pl:Władysław", "eq2=cs:Vladislav", "eq3=ru:Владисла́в"], "en")
+        '<i>A male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav and Russian Владисла́в (Vladislav)</i>'
+        >>> last_template_handler(["given name", "en" , "male", "from=Germanic languages", "from2=surnames"], "en")
+        '<i>A male given name from the Germanic languages or transferred from the surname</i>'
+        >>> last_template_handler(["given name", "en", "female", "from=coinages", "var=Cheryl", "var2=Shirley"], "en")
+        '<i>A female given name originating as a coinage, variant of Cheryl or Shirley</i>'
+        >>> last_template_handler(["given name", "en", "male", "dim=Mohammed", "dim2=Moses", "dim3=Maurice"], "en")
+        '<i>A diminutive of the male given names Mohammed, Moses or Maurice</i>'
+        >>> last_template_handler(["given name", "en", "male", "dim=Mohammed"], "en")
+        '<i>A diminutive of the male given name Mohammed</i>'
+        >>> last_template_handler(["given name", "en", "female", "diminutive=Florence", "diminutive2=Flora"], "en")
+        '<i>A diminutive of the female given names Florence or Flora</i>'
+        >>> last_template_handler(["given name", "en", "male", "from=Hindi", "meaning=patience"], "en")
+        '<i>A male given name from Hindi, meaning "patience"</i>'
 
         >>> last_template_handler(["place", "en", "A country in the Middle East"], "en")
         'A country in the Middle East'
@@ -530,6 +559,122 @@ def last_template_handler(
                 res += ", "
 
         return term(res.rstrip(", "))
+
+    def join_names(
+        key: str,
+        include_langname: bool,
+        last_sep: str,
+        key_alias: str = "",
+        prefix: str = "",
+        suffix: str = "",
+    ) -> str:
+        var_a = []
+        if data[key] or data[key_alias]:
+            for i in range(1, 10):
+                var_key = f"{key}{i}" if i != 1 else key
+                var_text = data[var_key]
+                var_alias_key = ""
+                if key_alias:
+                    var_alias_key = f"{key_alias}{i}" if i != 1 else key_alias
+                if not var_text and var_alias_key:
+                    var_text = data[var_alias_key]
+                if var_text:
+                    if include_langname and ":" in var_text:
+                        data_split = var_text.split(":")
+                        text = langs[data_split[0]] + " " + data_split[1]
+                        trans = transliterate(data_split[0], data_split[1])
+                        if trans:
+                            text += f" ({trans})"
+                        var_a.append(text)
+                    else:
+                        langnametext = "English " if include_langname else ""
+                        var_a.append(langnametext + prefix + var_text + suffix)
+        if var_a:
+            return concat(var_a, ", ", last_sep)
+        return ""
+
+    if tpl == "given name":
+        parts.pop(0)  # language
+        gender = data["gender"] or (parts.pop(0) if parts else "")
+        gender += f' or {data["or"]}' if data["or"] else ""
+        art = data["A"] or "A"
+        phrase = f"{art} "
+        dimtext = join_names("dim", False, " or ", "diminutive")
+        phrase += "diminutive of the " if dimtext else ""
+        phrase += f"{gender} given name"
+        phrase += "s" if ", " in dimtext or " or " in dimtext else ""
+        phrase += f" {dimtext}" if dimtext else ""
+
+        class Seg(TypedDict, total=False):
+            prefix: str
+            suffixes: List[str]
+
+        fromsegs: List[Seg] = []
+        lastfrom_seg: Seg = {}
+        for i in range(1, 10):
+            from_key = f"from{i}" if i != 1 else "from"
+            if data[from_key]:
+                from_text = data[from_key]
+                if from_text == "surnames":
+                    prefix = "transferred from the "
+                    suffix = "surname"
+                elif from_text == "place names":
+                    prefix = "transferred from the "
+                    suffix = "place name"
+                elif from_text == "coinages":
+                    prefix = "originating as "
+                    suffix = "a coinage"
+                else:
+                    prefix = "from "
+                    if ":" in from_text:
+                        # todo fromalt
+                        from_split = from_text.split(":")
+                        suffix = langs[from_split[0]] + " " + from_split[1]
+                        fromt_key = f"fromt{i}" if i != 1 else "fromt"
+                        if data[fromt_key]:
+                            suffix += f" (“{data[fromt_key]}”)"
+                    elif from_text.endswith("languages"):
+                        suffix = "the " + from_text
+                    else:
+                        suffix = from_text
+                if lastfrom_seg and lastfrom_seg.get("prefix", "") != prefix:
+                    fromsegs.append(lastfrom_seg)
+                    lastfrom_seg = {}
+                if not lastfrom_seg:
+                    lastfrom_seg = {"prefix": prefix, "suffixes": []}
+                lastfrom_seg["suffixes"].append(suffix)
+        if lastfrom_seg:
+            fromsegs.append(lastfrom_seg)
+        localphrase = []
+        for fromseg in fromsegs:
+            localphrase.append(
+                fromseg.get("prefix", "")
+                + concat(fromseg.get("suffixes", []), ", ", " or ")
+            )
+        if localphrase:
+            phrase += " " + concat(localphrase, ", ", " or ")
+
+        meaningtext = join_names("meaning", False, " or ", prefix='"', suffix='"')
+        if meaningtext:
+            phrase += ", meaning " + meaningtext
+
+        if data["usage"]:
+            phrase += ", of " + data["usage"] + " usage"
+
+        vartext = join_names("var", False, " or ")
+        if vartext:
+            phrase += ", variant of " + vartext
+        mtext = join_names("m", False, " and ")
+        if mtext:
+            phrase += ", masculine equivalent " + mtext
+        ftext = join_names("f", False, " and ")
+        if ftext:
+            phrase += ", feminine equivalent " + ftext
+        eqext = join_names("eq", True, " and ")
+        if eqext:
+            phrase += ", equivalent to " + eqext
+
+        return italic(phrase)
 
     if tpl == "place":
         parts.pop(0)  # Remove the language
