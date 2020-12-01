@@ -182,6 +182,8 @@ def last_template_handler(
         '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
         >>> last_template_handler(["prefix", "en", "un", "do"], "en")
         '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
+        >>> last_template_handler(["pre", "en", "in", "fare#Etymology_1"], "en")
+        '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
         >>> last_template_handler(["suffix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
         '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
         >>> last_template_handler(["prefix", "en", "toto", "lala", "t1=t1", "tr1=tr1", "alt1=alt1", "pos1=pos1" ], "en")
@@ -482,16 +484,29 @@ def last_template_handler(
         return phrase.lstrip()
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
-        if tpl in ["prefix", "confix"] and i == 1:
+        if tpl in ["pre", "prefix", "con", "confix"] and i == 1:
             chunk += "-"
-        if tpl == "suffix" and i == 2:
+        if tpl in ["suf", "suffix"] and i == 2:
             chunk = "-" + chunk
-        if tpl == "confix" and i == parts_count:
+        if tpl in ["con", "confix"] and i == parts_count:
             chunk = "-" + chunk
         return chunk
 
-    compound = ["af", "affix", "prefix", "suffix", "confix", "compound", "blend"]
-    with_start_text = ["doublet", "piecewise doublet", "blend"]
+    compound = [
+        "af",
+        "affix",
+        "pre",
+        "prefix",
+        "suf",
+        "suffix",
+        "con",
+        "confix",
+        "com",
+        "compound",
+        "blend",
+        "blend of",
+    ]
+    with_start_text = ["doublet", "piecewise doublet", "blend", "blend of"]
     if tpl in ["doublet", "piecewise doublet", *compound]:
         lang = parts.pop(0)  # language code
         phrase = ""
@@ -506,6 +521,7 @@ def last_template_handler(
         while parts:
             si = str(i)
             chunk = parts.pop(0)
+            chunk = chunk.split("#")[0] if chunk else ""
             chunk = data["alt" + si] or chunk
             chunk = add_dash(tpl, i, parts_count, chunk)
             if not chunk:
