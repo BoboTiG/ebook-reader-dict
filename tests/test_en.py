@@ -14,11 +14,11 @@ from scripts.utils import process_templates
             [
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
-                "<i>Abbreviation of</i> <b>abortion</b>",
+                "<i>Abbreviation of</i> <b>abortion</b>.",
                 "<i>(US)</i> The early stages of; the beginning process; the start.",
                 "<i>(climbing, informal)</i> To abseil.",
-                "<i>Abbreviation of</i> <b>abort</b>",
-                "<i>Abbreviation of</i> <b>about</b>",
+                "<i>Abbreviation of</i> <b>abort</b>.",
+                "<i>Abbreviation of</i> <b>about</b>.",
             ],
         ),
         (
@@ -173,7 +173,7 @@ from scripts.utils import process_templates
             "Onomatopoeic.",
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
-                "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>",
+                "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
                 "<i>Alternative form of</i> <b>umbe</b>",
                 "<i>Alternative spelling of</i> <b>µm</b>",
@@ -285,8 +285,8 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
     "wikicode, expected",
     [
         ("{{1|influenza}}", "Influenza"),
-        ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
-        ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>"),
+        ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>."),
+        ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>."),
         (
             "{{alt case|en|angstrom}}",
             "<i>Alternative letter-case form of</i> <b>angstrom</b>",
@@ -308,9 +308,9 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{alternative spelling of|en|µs}}",
             "<i>Alternative spelling of</i> <b>µs</b>",
         ),
-        ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
+        ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>."),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
-        ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),
+        ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>."),
         (
             "{{form of|en|obsolete emphatic|ye}}",
             "<i>obsolete emphatic of</i> <b>ye</b>",

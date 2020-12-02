@@ -77,16 +77,8 @@ templates_italic = {
 templates_multi = {
     # {{1|interactive}}
     "1": "capitalize(parts[-1])",
-    # {{abbr of|en|abortion}}
-    "abbr of": "italic('Abbreviation of') + ' ' + strong(parts[-1])",
-    # {{alt case|en|angstrom}}
-    "alt case": "italic('Alternative letter-case form of') + ' ' + strong(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
-    # {{eye dialect of|en|is}}
-    "eye dialect of": "italic('Eye dialect spelling of') + ' ' + strong(parts[-1])",
-    # {{form of|en|obsolete emphatic|ye}}
-    "form of": "italic(parts[2] + ' of') + ' ' + strong(parts[-1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{IPAchar|[tʃ]|lang=en}})
@@ -135,11 +127,17 @@ def last_template_handler(
         '<i>Alternative form of</i> <b>worth</b> (“to become”)'
         >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
         '<i>Alternative form of</i> <b>ess</b>'
+        >>> last_template_handler(["alt form", "en" , "a", "b", "t=t", "ts=ts", "tr=tr", "pos=pos", "from=from", "from2=from2", "lit=lit"], "en")
+        '<i>From and from2 form of</i> <b>b</b> (<i>tr</i> /ts/, “t”, pos, literally “lit”)'
+        >>> last_template_handler(["eye dialect of", "en" , "ye", "t=t", "from=from", "from2=from2"], "en")
+        '<i>Eye dialect spelling of</i> <b>ye</b> (“t”)<i>, representing from and from2 English</i>.'
+        >>> last_template_handler(["alternative spelling of", "en" , "ye", "from=from", "from2=from2"], "en")
+        '<i>From and from2 spelling of</i> <b>ye</b>'
 
         >>> last_template_handler(["initialism of", "en", "optical character reader", "dot=&nbsp;(the scanning device)"], "en")
         '<i>Initialism of</i> <b>optical character reader</b>&nbsp;(the scanning device)'
         >>> last_template_handler(["init of", "en", "optical character reader", "tr=tr", "t=t", "ts=ts"], "en")
-        '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> <i>/ts/</i>, “t”).'
+        '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> /ts/, “t”).'
         >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1", "nocap=1"], "en")
         '<i>initialism of</i> <b>optical character reader</b>'
 
@@ -329,6 +327,7 @@ def last_template_handler(
         recognized_qualifiers,
         placetypes_aliases,
     )
+    from .form_of import form_of_templates
     from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
@@ -342,6 +341,39 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    def join_names(
+        key: str,
+        last_sep: str,
+        include_langname: bool = False,
+        key_alias: str = "",
+        prefix: str = "",
+        suffix: str = "",
+    ) -> str:
+        var_a = []
+        if data[key] or data[key_alias]:
+            for i in range(1, 10):
+                var_key = f"{key}{i}" if i != 1 else key
+                var_text = data[var_key]
+                var_alias_key = ""
+                if key_alias:
+                    var_alias_key = f"{key_alias}{i}" if i != 1 else key_alias
+                if not var_text and var_alias_key:
+                    var_text = data[var_alias_key]
+                if var_text:
+                    if include_langname and ":" in var_text:
+                        data_split = var_text.split(":")
+                        text = langs[data_split[0]] + " " + data_split[1]
+                        trans = transliterate(data_split[0], data_split[1])
+                        if trans:
+                            text += f" ({trans})"
+                        var_a.append(text)
+                    else:
+                        langnametext = "English " if include_langname else ""
+                        var_a.append(langnametext + prefix + var_text + suffix)
+        if var_a:
+            return concat(var_a, ", ", last_sep)
+        return ""
 
     if tpl == "&lit":
         starter = "Used other than figuratively or idiomatically"
@@ -366,45 +398,72 @@ def last_template_handler(
 
         return phrase
 
-    if tpl in ("alt form", "alternative form of"):
-        res = italic("Alternative form of")
-        word = parts[1] if len(parts) > 1 else data.get("2", "")
-        res += f" {strong(word)}"
-        if data["t"]:
-            res += f" (“{data['t']}”)"
-        if data["pos"]:
-            res += f" ({data['pos']})"
-        return res
-
-    if tpl in ("init of", "initialism of"):
-        starter = "initialism of"
-        starter = starter if data["nocap"] else starter.capitalize()
-        phrase = f"{italic(starter)} "
+    if tpl in form_of_templates:
+        template_model = form_of_templates[tpl]
+        starter = str(template_model["text"])
+        ender = ""
         lang = data["1"] or (parts.pop(0) if parts else "")
-        wterm = data["2"] or (parts.pop(0) if parts else "")
-        text = data["3"] or (parts.pop(0) if parts else "")
-        phrase += strong(text if text else wterm)
-        gloss = data["t"] or (parts.pop(0) if parts else "")
+        word = data["2"] or (parts.pop(0) if parts else "")
 
+        # form is the only one to be a bit different
+        if tpl == "form of":
+            starter = f"{word} of" if word else "form of"
+            word = data["3"] or (parts.pop(0) if parts else "")
+            text = data["4"] or (parts.pop(0) if parts else "")
+            gloss = data["t"] or data["5"] or (parts.pop(0) if parts else "")
+        else:
+            text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
+            gloss = data["t"] or data["4"] or (parts.pop(0) if parts else "")
+        word = text or word
+
+        fromtext = join_names("from", " and ")
+        if fromtext:
+            cap = starter[0].isupper()
+            from_suffix = "form of"
+            if tpl == "standard spelling of":
+                from_suffix = "standard spelling of"
+            elif tpl == "alternative spelling of":
+                from_suffix = "spelling of"
+            elif tpl in (
+                "eye dialect of",
+                "pronunciation spelling of",
+                "pronunciation variant of",
+            ):
+                ender = italic(f", representing {fromtext} {langs[lang]}")
+            if not ender:
+                starter = f"{fromtext} {from_suffix}"
+                starter = capitalize(starter) if cap else starter
+
+        starter = starter[0].lower() + starter[1:] if data["nocap"] == "1" else starter
+        phrase = italic(starter)
+        phrase += f" {strong(word)}"
+        local_phrase = []
         trts = ""
         if data["tr"]:
             trts += f"{italic(data['tr'])}"
         if data["ts"]:
             if trts:
                 trts += " "
-            trts += f"{italic('/' + data['ts'] + '/')}"
-        if gloss:
-            if trts:
-                trts += ", "
-            trts += f"“{gloss}”"
+            trts += f"{'/' + data['ts'] + '/'}"
         if trts:
-            phrase += f" ({trts})"
-
-        if data["dot"]:
-            phrase += data["dot"]
-        elif data["nodot"] != "1":
-            phrase += "."
-
+            local_phrase.append(trts)
+        if gloss:
+            local_phrase.append(f"“{gloss}”")
+        if data["pos"]:
+            local_phrase.append(f"{data['pos']}")
+        if data["lit"]:
+            local_phrase.append(f"{'literally “' + data['lit'] + '”'}")
+        if local_phrase:
+            phrase += " ("
+            phrase += concat(local_phrase, ", ")
+            phrase += ")"
+        if ender:
+            phrase += ender
+        if template_model["dot"]:
+            if data["dot"]:
+                phrase += data["dot"]
+            elif data["nodot"] != "1":
+                phrase += "."
         return phrase
 
     # Short path for the {{m|en|WORD}} template
@@ -576,46 +635,13 @@ def last_template_handler(
 
         return term(res.rstrip(", "))
 
-    def join_names(
-        key: str,
-        include_langname: bool,
-        last_sep: str,
-        key_alias: str = "",
-        prefix: str = "",
-        suffix: str = "",
-    ) -> str:
-        var_a = []
-        if data[key] or data[key_alias]:
-            for i in range(1, 10):
-                var_key = f"{key}{i}" if i != 1 else key
-                var_text = data[var_key]
-                var_alias_key = ""
-                if key_alias:
-                    var_alias_key = f"{key_alias}{i}" if i != 1 else key_alias
-                if not var_text and var_alias_key:
-                    var_text = data[var_alias_key]
-                if var_text:
-                    if include_langname and ":" in var_text:
-                        data_split = var_text.split(":")
-                        text = langs[data_split[0]] + " " + data_split[1]
-                        trans = transliterate(data_split[0], data_split[1])
-                        if trans:
-                            text += f" ({trans})"
-                        var_a.append(text)
-                    else:
-                        langnametext = "English " if include_langname else ""
-                        var_a.append(langnametext + prefix + var_text + suffix)
-        if var_a:
-            return concat(var_a, ", ", last_sep)
-        return ""
-
     if tpl == "given name":
         parts.pop(0)  # language
         gender = data["gender"] or (parts.pop(0) if parts else "")
         gender += f' or {data["or"]}' if data["or"] else ""
         art = data["A"] or "A"
         phrase = f"{art} "
-        dimtext = join_names("dim", False, " or ", "diminutive")
+        dimtext = join_names("dim", " or ", False, "diminutive")
         phrase += "diminutive of the " if dimtext else ""
         phrase += f"{gender} given name"
         phrase += "s" if ", " in dimtext or " or " in dimtext else ""
@@ -670,23 +696,23 @@ def last_template_handler(
         if localphrase:
             phrase += " " + concat(localphrase, ", ", " or ")
 
-        meaningtext = join_names("meaning", False, " or ", prefix='"', suffix='"')
+        meaningtext = join_names("meaning", " or ", False, prefix='"', suffix='"')
         if meaningtext:
             phrase += ", meaning " + meaningtext
 
         if data["usage"]:
             phrase += ", of " + data["usage"] + " usage"
 
-        vartext = join_names("var", False, " or ")
+        vartext = join_names("var", " or ")
         if vartext:
             phrase += ", variant of " + vartext
-        mtext = join_names("m", False, " and ")
+        mtext = join_names("m", " and ")
         if mtext:
             phrase += ", masculine equivalent " + mtext
-        ftext = join_names("f", False, " and ")
+        ftext = join_names("f", " and ")
         if ftext:
             phrase += ", feminine equivalent " + ftext
-        eqext = join_names("eq", True, " and ")
+        eqext = join_names("eq", " and ", True)
         if eqext:
             phrase += ", equivalent to " + eqext
 
@@ -764,13 +790,6 @@ def last_template_handler(
                 phrase += "; modern " + data[modern_key]
             i += 1
         return phrase
-
-    if tpl == "standard spelling of":
-        if data["from"]:
-            phrase = italic(f"{data['from']} {tpl}")
-        else:
-            phrase = italic("Standard spelling of")
-        return f"{phrase} {strong(parts[1])}."
 
     if tpl == "surname":
         parts.pop(0)  # Remove the lang
