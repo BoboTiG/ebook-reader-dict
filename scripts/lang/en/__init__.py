@@ -346,6 +346,17 @@ def last_template_handler(
         '<i>An occupational surname.</i>'
         >>> last_template_handler(["surname", "en", "from=Latin", "dot=,"], "en")
         '<i>A surname,</i>'
+
+        >>> last_template_handler(["unk", "en", "notext=1", "nocap=1"], "en")
+        ''
+        >>> last_template_handler(["unk", "en"], "en")
+        'Unknown'
+        >>> last_template_handler(["unk", "en", "nocap=1"], "en")
+        'unknown'
+        >>> last_template_handler(["unk", "en", "title=Uncertain"], "en")
+        'Uncertain'
+
+
     """
     from itertools import zip_longest
 
@@ -902,6 +913,16 @@ def last_template_handler(
         if not parts:
             return italic(f"{art} {tpl}{dot}")
         return italic(f"{art} {parts[0]} {tpl}{dot}")
+
+    if tpl in ("unk", "unknown"):
+        if data["notext"] == "1":
+            return ""
+        elif data["title"]:
+            return data["title"]
+        elif data["nocap"] == "1":
+            return "unknown"
+        else:
+            return "Unknown"
 
     try:
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"
