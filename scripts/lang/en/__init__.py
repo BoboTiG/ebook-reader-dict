@@ -308,6 +308,13 @@ def last_template_handler(
         >>> last_template_handler(["given name", "en", "male", "from=Hindi", "meaning=patience"], "en")
         '<i>A male given name from Hindi, meaning "patience"</i>'
 
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs"], "en")
+        'Coined by Josiah Willard Gibbs'
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs", "in=1881", "nat=American", "occ=scientist"], "en")
+        'Coined by American scientist Josiah Willard Gibbs in 1881'
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs", "alt=Josiah W. Gibbs", "nationality=American", "occupation=scientist"], "en")
+        'Coined by American scientist Josiah W. Gibbs'
+
         >>> last_template_handler(["named-after", "en", "nationality=French", "occupation=Renault engineer", "Pierre Bézier", "nocap=1"], "en")
         'named after French Renault engineer Pierre Bézier'
         >>> last_template_handler(["named-after", "en", "Bertrand Russell", "tr=tr", "died=1970", "born=1872", "nat=English", "occ=mathematician", "occ2=logician"], "en")
@@ -819,6 +826,25 @@ def last_template_handler(
             phrase += ", equivalent to " + eqext
 
         return italic(phrase)
+
+    if tpl in ("coin", "coinage"):
+        parts.pop(0)  # Remove the language
+        p = data["alt"] or parts.pop(0) or "unknown"
+        if data["notext"] != "1":
+            starter = "coined by"
+            phrase = starter if data["nocap"] else starter.capitalize()
+            if data["nationality"]:
+                phrase += f" {data['nationality']}"
+            elif data["nat"]:
+                phrase += f" {data['nat']}"
+            occ = join_names("occ", " and ", False, "occupation")
+            if occ:
+                phrase += f" {occ}"
+            phrase += " "
+        phrase += f"{p}"
+        if data["in"]:
+            phrase += f' in {data["in"]}'
+        return phrase
 
     if tpl == "named-after":
         parts.pop(0)  # Remove the language
