@@ -480,19 +480,36 @@ def last_template_handler(
 
     if tpl in (
         "bor",
+        "borrowed",
         "cog",
+        "cognate",
         "der",
+        "derived",
         "etyl",
         "inh",
+        "inherited",
         "l",
         "link",
         "ll",
         "mention",
         "m",
+        "nc",
+        "ncog",
         "noncog",
+        "noncognate",
     ):
         mentions = ("l", "link", "ll", "mention", "m")
-        if tpl not in ("cog", "etyl", "noncog", *mentions):
+        dest_lang_ignore = (
+            "cog",
+            "cognate",
+            "etyl",
+            "nc",
+            "ncog",
+            "noncog",
+            "noncognate",
+            *mentions,
+        )
+        if tpl not in dest_lang_ignore:
             parts.pop(0)  # Remove the destination language
 
         dst_locale = parts.pop(0)
@@ -516,7 +533,7 @@ def last_template_handler(
             word = parts.pop(0) or word  # 4, alt=
 
         trans = ""
-        if tpl in ("bor", *mentions):
+        if tpl in ("bor", "borrowed", *mentions):
             if phrase:
                 phrase += " "
             if tpl in ("l", "link", "ll"):
