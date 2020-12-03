@@ -55,6 +55,7 @@ templates_ignored = (
     "picdic",
     "picimg",
     "picdiclabel",
+    "refn",
     "rel-bottom",
     "rel-top",
     "rfex",
