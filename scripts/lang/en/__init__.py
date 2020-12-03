@@ -53,6 +53,7 @@ templates_ignored = (
     "multiple images",
     "+obj",
     "picdic",
+    "picimg",
     "picdiclabel",
     "rel-bottom",
     "rel-top",
@@ -280,6 +281,13 @@ def last_template_handler(
         '<i>A diminutive of the female given names Florence or Flora</i>'
         >>> last_template_handler(["given name", "en", "male", "from=Hindi", "meaning=patience"], "en")
         '<i>A male given name from Hindi, meaning "patience"</i>'
+
+        >>> last_template_handler(["named-after", "en", "nationality=French", "occupation=Renault engineer", "Pierre Bézier", "nocap=1"], "en")
+        'named after French Renault engineer Pierre Bézier'
+        >>> last_template_handler(["named-after", "en", "Bertrand Russell", "tr=tr", "died=1970", "born=1872", "nat=English", "occ=mathematician", "occ2=logician"], "en")
+        'Named after English mathematician and logician Bertrand Russell (<i>tr</i>) (1872–1970)'
+        >>> last_template_handler(["named-after", "en", "Patrick Swayze", "alt="], "en")
+        'Patrick Swayze'
 
         >>> last_template_handler(["place", "en", "A country in the Middle East"], "en")
         'A country in the Middle East'
@@ -717,6 +725,30 @@ def last_template_handler(
             phrase += ", equivalent to " + eqext
 
         return italic(phrase)
+
+    if tpl == "named-after":
+        parts.pop(0)  # Remove the language
+        p = parts.pop(0)
+        p = p or "an unknown person"
+        if "alt" in data:
+            phrase = data["alt"]
+        else:
+            starter = "named after"
+            phrase = starter if data["nocap"] else starter.capitalize()
+            if data["nationality"]:
+                phrase += f" {data['nationality']}"
+            elif data["nat"]:
+                phrase += f" {data['nat']}"
+            occ = join_names("occ", " and ", False, "occupation")
+            if occ:
+                phrase += f" {occ}"
+            phrase += " "
+        phrase += f"{p}"
+        if data["tr"]:
+            phrase += f" ({italic(data['tr'])})"
+        if data["died"] or data["born"]:
+            phrase += f" ({data['born'] or '?'}–{data['died']})"
+        return phrase
 
     if tpl == "place":
         parts.pop(0)  # Remove the language
