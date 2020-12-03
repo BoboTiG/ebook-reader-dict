@@ -182,6 +182,10 @@ def last_template_handler(
         'Phono-semantic matching of Cantonese'
         >>> last_template_handler(["translit", "en", "ar", "عَالِيَة"], "en")
         'Transliteration of Arabic <i>عَالِيَة</i> (<i>ʿālī</i>)'
+        >>> last_template_handler(["back-form", "en", "zero derivation", "nocap=1"], "en")
+        'back-formation from <i>zero derivation</i>'
+        >>> last_template_handler(["bf", "en"], "en")
+        'Back-formation'
 
         >>> last_template_handler(["doublet", "en" , "fire"], "en")
         'Doublet of <i>fire</i>'
@@ -521,6 +525,7 @@ def last_template_handler(
         "ll",
         "mention",
         "m",
+        "m+",
         "nc",
         "ncog",
         "noncog",
@@ -544,8 +549,21 @@ def last_template_handler(
         "psm",
         "transliteration",
         "translit",
+        "back-formation",
+        "back-form",
+        "bf",
     ):
-        mentions = ("l", "link", "ll", "mention", "m")
+        mentions = (
+            "back-formation",
+            "back-form",
+            "bf",
+            "l",
+            "link",
+            "ll",
+            "mention",
+            "m",
+            "m+",
+        )
         dest_lang_ignore = (
             "cog",
             "cognate",
@@ -585,6 +603,10 @@ def last_template_handler(
                 starter = "phono-semantic matching of "
             elif tpl in ("transliteration", "translit"):
                 starter = "transliteration of "
+            elif tpl in ("back-formation", "back-form", "bf"):
+                starter = "back-formation"
+                if parts:
+                    starter += " from"
             phrase = starter if data["nocap"] == "1" else starter.capitalize()
 
         lang = langs.get(dst_locale, "")
