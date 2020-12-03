@@ -1,5 +1,5 @@
 """English language."""
-from typing import Tuple, TypedDict, List
+from typing import Tuple, TypedDict, List, Dict
 
 # Regex to find the pronunciation
 pronunciation = r"{IPA\|en\|/([^/]+)/"
@@ -162,7 +162,26 @@ def last_template_handler(
         'Alcozauca Mixtec <i>I̱ta Ita</i> (literally “flower river”)'
         >>> last_template_handler(["noncog", "egy", "ḫt n ꜥnḫ", "", "grain, food", "lit=wood/stick of life"], "en")
         'Egyptian <i>ḫt n ꜥnḫ</i> (“grain, food”, literally “wood/stick of life”)'
-
+        >>> last_template_handler(["cal", "fr" , "en", "light year", "alt=alt", "tr=tr", "t=t", "g=m", "pos=pos", "lit=lit"], "en")
+        'Calque of English <i>alt</i> <i>m</i> (<i>tr</i>, “t”, pos, literally “lit”)'
+        >>> last_template_handler(["pcal", "en" , "de", "Leberwurst", "nocap=1"], "en")
+        'partial calque of German <i>Leberwurst</i>'
+        >>> last_template_handler(["sl", "en", "ru", "пле́нум", "", "plenary session", "nocap=1"], "en")
+        'semantic loan of Russian <i>пле́нум</i> (<i>plenum</i>, “plenary session”)'
+        >>> last_template_handler(["learned borrowing", "en", "la", "consanguineus"], "en")
+        'Learned borrowing from Latin <i>consanguineus</i>'
+        >>> last_template_handler(["learned borrowing", "en", "LL.", "trapezium", "notext=1"], "en")
+        'Late Latin <i>trapezium</i>'
+        >>> last_template_handler(["slbor", "en", "fr", "mauvaise foi", "nocap=1"], "en")
+        'semi-learned borrowing from French <i>mauvaise foi</i>'
+        >>> last_template_handler(["obor", "en", "ru", "СССР"], "en")
+        'Orthographic borrowing from Russian <i>СССР</i> (<i>SSSR</i>)'
+        >>> last_template_handler(["unadapted borrowing", "en", "ar", "قِيَاس", "", "measurement, analogy"], "en")
+        'Unadapted borrowing from Arabic <i>قِيَاس</i> (<i>qīās</i>, “measurement, analogy”)'
+        >>> last_template_handler(["psm", "en", "yue", "-"], "en")
+        'Phono-semantic matching of Cantonese'
+        >>> last_template_handler(["translit", "en", "ar", "عَالِيَة"], "en")
+        'Transliteration of Arabic <i>عَالِيَة</i> (<i>ʿālī</i>)'
 
         >>> last_template_handler(["doublet", "en" , "fire"], "en")
         'Doublet of <i>fire</i>'
@@ -236,7 +255,7 @@ def last_template_handler(
         >>> last_template_handler(["m", "ar", "عِرْق", "", "root"], "en")
         '<i>عِرْق</i> (<i>ʿrq</i>, “root”)'
         >>> last_template_handler(["m", "pal", "tr=ˀl'k'", "ts=erāg", "t=lowlands"], "en")
-        "(<i>ˀl'k'</i>, <i>/erāg/</i>, “lowlands”)"
+        "(<i>ˀl'k'</i> /erāg/, “lowlands”)"
         >>> last_template_handler(["m", "ar", "عَرِيق", "", "deep-rooted"], "en")
         '<i>عَرِيق</i> (<i>ʿrīq</i>, “deep-rooted”)'
 
@@ -385,6 +404,32 @@ def last_template_handler(
             return concat(var_a, ", ", last_sep)
         return ""
 
+    def gloss_tr_poss(data: Dict[str, str], gloss: str, trans: str = "") -> str:
+        local_phrase = []
+        phrase = ""
+        trts = ""
+        if data["tr"]:
+            trts += f"{italic(data['tr'])}"
+        if data["ts"]:
+            if trts:
+                trts += " "
+            trts += f"{'/' + data['ts'] + '/'}"
+        if trts:
+            local_phrase.append(trts)
+        if trans:
+            local_phrase.append(f"{italic(trans)}")
+        if gloss:
+            local_phrase.append(f"“{gloss}”")
+        if data["pos"]:
+            local_phrase.append(f"{data['pos']}")
+        if data["lit"]:
+            local_phrase.append(f"{'literally “' + data['lit'] + '”'}")
+        if local_phrase:
+            phrase += " ("
+            phrase += concat(local_phrase, ", ")
+            phrase += ")"
+        return phrase
+
     if tpl == "&lit":
         starter = "Used other than figuratively or idiomatically"
         if data["qualifier"]:
@@ -447,26 +492,7 @@ def last_template_handler(
         starter = starter[0].lower() + starter[1:] if data["nocap"] == "1" else starter
         phrase = italic(starter)
         phrase += f" {strong(word)}"
-        local_phrase = []
-        trts = ""
-        if data["tr"]:
-            trts += f"{italic(data['tr'])}"
-        if data["ts"]:
-            if trts:
-                trts += " "
-            trts += f"{'/' + data['ts'] + '/'}"
-        if trts:
-            local_phrase.append(trts)
-        if gloss:
-            local_phrase.append(f"“{gloss}”")
-        if data["pos"]:
-            local_phrase.append(f"{data['pos']}")
-        if data["lit"]:
-            local_phrase.append(f"{'literally “' + data['lit'] + '”'}")
-        if local_phrase:
-            phrase += " ("
-            phrase += concat(local_phrase, ", ")
-            phrase += ")"
+        phrase += gloss_tr_poss(data, gloss)
         if ender:
             phrase += ender
         if template_model["dot"]:
@@ -499,6 +525,25 @@ def last_template_handler(
         "ncog",
         "noncog",
         "noncognate",
+        "calque",
+        "cal",
+        "clq",
+        "partial calque",
+        "pcal",
+        "semantic loan",
+        "sl",
+        "learned borrowing",
+        "lbor",
+        "semi-learned borrowing",
+        "slbor",
+        "orthographic borrowing",
+        "obor",
+        "unadapted borrowing",
+        "ubor",
+        "phono-semantic matching",
+        "psm",
+        "transliteration",
+        "translit",
     ):
         mentions = ("l", "link", "ll", "mention", "m")
         dest_lang_ignore = (
@@ -519,8 +564,31 @@ def last_template_handler(
         if tpl == "etyl":
             parts.pop(0)
 
+        phrase = ""
+        starter = ""
+        if data["notext"] != "1":
+            if tpl in ("calque", "cal", "clq"):
+                starter = "calque of "
+            elif tpl in ("partial calque", "pcal"):
+                starter = "partial calque of "
+            elif tpl in ("semantic loan", "sl"):
+                starter = "semantic loan of "
+            elif tpl in ("learned borrowing", "lbor"):
+                starter = "learned borrowing from "
+            elif tpl in ("semi-learned borrowing", "slbor"):
+                starter = "semi-learned borrowing from "
+            elif tpl in ("orthographic borrowing", "obor"):
+                starter = "orthographic borrowing from "
+            elif tpl in ("unadapted borrowing", "ubor"):
+                starter = "unadapted borrowing from "
+            elif tpl in ("phono-semantic matching", "psm"):
+                starter = "phono-semantic matching of "
+            elif tpl in ("transliteration", "translit"):
+                starter = "transliteration of "
+            phrase = starter if data["nocap"] == "1" else starter.capitalize()
+
         lang = langs.get(dst_locale, "")
-        phrase = lang if tpl not in mentions else ""
+        phrase += lang if tpl not in mentions else ""
 
         if parts:
             word = parts.pop(0)
@@ -534,38 +602,19 @@ def last_template_handler(
         if parts:
             word = parts.pop(0) or word  # 4, alt=
 
-        trans = ""
-        if tpl in ("bor", "borrowed", *mentions):
-            if phrase:
-                phrase += " "
-            if tpl in ("l", "link", "ll"):
-                phrase += word
-            elif word:
-                phrase += italic(word)
-            if data["g"]:
-                phrase += f" {italic(data['g'])}"
-            trans = transliterate(dst_locale, word)
+        if tpl in ("l", "link", "ll"):
+            phrase += f" {word}"
         elif word:
             phrase += f" {italic(word)}"
-
+        if data["g"]:
+            phrase += f' {italic(data["g"])}'
+        trans = ""
+        if not data["tr"]:
+            trans = transliterate(dst_locale, word)
         if parts:
             gloss = parts.pop(0)  # 5, t=, gloss=
 
-        local_phrase = []
-        if data["tr"]:
-            local_phrase.append(f"{italic(data['tr'])}")
-        if data["ts"]:
-            local_phrase.append(f"{italic('/' + data['ts'] + '/')}")
-        if trans:
-            local_phrase.append(f"{italic(trans)}")
-        if gloss:
-            local_phrase.append(f"“{gloss}”")
-        if data["lit"]:
-            local_phrase.append(f"{'literally “' + data['lit'] + '”'}")
-        if local_phrase:
-            phrase += " ("
-            phrase += concat(local_phrase, ", ")
-            phrase += ")"
+        phrase += gloss_tr_poss(data, gloss, trans)
 
         return phrase.lstrip()
 
