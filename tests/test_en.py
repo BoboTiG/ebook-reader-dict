@@ -150,7 +150,7 @@ from scripts.utils import process_templates
         (
             "the",
             ["ˈðiː"],
-            "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”), a late variant of <i>sē</i>. Originally masculine nominative, in Middle English it superseded all previous Old English forms (<i>sē</i>, <i>sēo</i>, <i>þæt</i>, <i>þā</i>), from Proto-Germanic <i>*sa</i>, from Proto-Indo-European <i>*só</i>. Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“the”).",  # noqa
+            "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>. Originally masculine nominative, in Middle English it superseded all previous Old English forms (<i>sē</i>, <i>sēo</i>, <i>þæt</i>, <i>þā</i>), from Proto-Germanic <i>*sa</i>, from Proto-Indo-European <i>*só</i>. Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“the”).",  # noqa
             [
                 "<i>Definite grammatical article that implies necessarily that an entity it articulates is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
                 "<i>Used before a noun modified by a restrictive relative clause, indicating that the noun refers to a single referent defined by the relative clause.</i>",  # noqa
@@ -183,7 +183,7 @@ from scripts.utils import process_templates
         (
             "us",
             ["ʌs", "ʌz"],
-            "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n-sme-</i> (“us”). Cognate with West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",  # noqa
+            "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n-sme-</i> (“us”). Cognate with West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",  # noqa
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
                 "<i>(UK, colloquial)</i> Me.",
