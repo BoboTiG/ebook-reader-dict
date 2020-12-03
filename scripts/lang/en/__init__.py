@@ -55,6 +55,7 @@ templates_ignored = (
     "picdic",
     "picimg",
     "picdiclabel",
+    "refn",
     "rel-bottom",
     "rel-top",
     "rfex",
@@ -182,6 +183,10 @@ def last_template_handler(
         'Phono-semantic matching of Cantonese'
         >>> last_template_handler(["translit", "en", "ar", "عَالِيَة"], "en")
         'Transliteration of Arabic <i>عَالِيَة</i> (<i>ʿālī</i>)'
+        >>> last_template_handler(["back-form", "en", "zero derivation", "nocap=1"], "en")
+        'back-formation from <i>zero derivation</i>'
+        >>> last_template_handler(["bf", "en"], "en")
+        'Back-formation'
 
         >>> last_template_handler(["doublet", "en" , "fire"], "en")
         'Doublet of <i>fire</i>'
@@ -302,6 +307,13 @@ def last_template_handler(
         '<i>A diminutive of the female given names Florence or Flora</i>'
         >>> last_template_handler(["given name", "en", "male", "from=Hindi", "meaning=patience"], "en")
         '<i>A male given name from Hindi, meaning "patience"</i>'
+
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs"], "en")
+        'Coined by Josiah Willard Gibbs'
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs", "in=1881", "nat=American", "occ=scientist"], "en")
+        'Coined by American scientist Josiah Willard Gibbs in 1881'
+        >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs", "alt=Josiah W. Gibbs", "nationality=American", "occupation=scientist"], "en")
+        'Coined by American scientist Josiah W. Gibbs'
 
         >>> last_template_handler(["named-after", "en", "nationality=French", "occupation=Renault engineer", "Pierre Bézier", "nocap=1"], "en")
         'named after French Renault engineer Pierre Bézier'
@@ -532,6 +544,7 @@ def last_template_handler(
         "ll",
         "mention",
         "m",
+        "m+",
         "nc",
         "ncog",
         "noncog",
@@ -555,8 +568,21 @@ def last_template_handler(
         "psm",
         "transliteration",
         "translit",
+        "back-formation",
+        "back-form",
+        "bf",
     ):
-        mentions = ("l", "link", "ll", "mention", "m")
+        mentions = (
+            "back-formation",
+            "back-form",
+            "bf",
+            "l",
+            "link",
+            "ll",
+            "mention",
+            "m",
+            "m+",
+        )
         dest_lang_ignore = (
             "cog",
             "cognate",
@@ -596,6 +622,10 @@ def last_template_handler(
                 starter = "phono-semantic matching of "
             elif tpl in ("transliteration", "translit"):
                 starter = "transliteration of "
+            elif tpl in ("back-formation", "back-form", "bf"):
+                starter = "back-formation"
+                if parts:
+                    starter += " from"
             phrase = starter if data["nocap"] == "1" else starter.capitalize()
 
         lang = langs.get(dst_locale, "")
@@ -807,6 +837,25 @@ def last_template_handler(
             phrase += ", equivalent to " + eqext
 
         return italic(phrase)
+
+    if tpl in ("coin", "coinage"):
+        parts.pop(0)  # Remove the language
+        p = data["alt"] or parts.pop(0) or "unknown"
+        if data["notext"] != "1":
+            starter = "coined by"
+            phrase = starter if data["nocap"] else starter.capitalize()
+            if data["nationality"]:
+                phrase += f" {data['nationality']}"
+            elif data["nat"]:
+                phrase += f" {data['nat']}"
+            occ = join_names("occ", " and ", False, "occupation")
+            if occ:
+                phrase += f" {occ}"
+            phrase += " "
+        phrase += f"{p}"
+        if data["in"]:
+            phrase += f' in {data["in"]}'
+        return phrase
 
     if tpl == "named-after":
         parts.pop(0)  # Remove the language
