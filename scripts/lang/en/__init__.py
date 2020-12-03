@@ -204,6 +204,8 @@ def last_template_handler(
         'Blend'
         >>> last_template_handler(["blend", "en", "notext=1", "scratch", "t1=money", "bill", "alt2=bills", ""], "en")
         '<i>scratch</i> (“money”)&nbsp;+&nbsp;<i>bills</i>'
+        >>> last_template_handler(["blend of", "en", "extrasolar", "solar system"], "en")
+        'Blend of <i>extrasolar</i>&nbsp;+&nbsp;<i>solar system</i>'
 
         >>> last_template_handler(["l", "cs", "háček"], "en")
         'háček'
@@ -572,7 +574,10 @@ def last_template_handler(
         if data["notext"] != "1" and tpl in with_start_text:
             starter = tpl
             if parts:
-                starter += " of "
+                if not tpl.endswith(" of"):
+                    starter += " of "
+                else:
+                    starter += " "
             phrase = starter if data["nocap"] else starter.capitalize()
         a_phrase = []
         i = 1
