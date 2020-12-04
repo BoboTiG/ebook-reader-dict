@@ -112,6 +112,23 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["..."], "en")
+        ' […] '
+        >>> last_template_handler(["...", "text=etc."], "en")
+        ' [etc.] '
+        >>> last_template_handler(["...", "a"], "en")
+        ' [and the other form <i>a</i>] '
+        >>> last_template_handler(["...", "a, b, c"], "en")
+        ' [and other forms <i>a, b, c</i>] '
+        >>> last_template_handler(["nb..."], "en")
+        '&nbsp;[…]'
+        >>> last_template_handler(["nb...", "text=etc."], "en")
+        '&nbsp;[etc.]'
+        >>> last_template_handler(["nb...", "a"], "en")
+        '&nbsp;[and the other form <i>a</i>]'
+        >>> last_template_handler(["nb...", "a, b, c"], "en")
+        '&nbsp;[and other forms <i>a, b, c</i>]'
+
         >>> last_template_handler(["&lit", "en", "foo", "bar", "nodot=1"] ,"en")
         '<i>Used other than figuratively or idiomatically:</i> see <i>foo, bar</i>'
         >>> last_template_handler(["&lit", "en", "foo", "bar", "qualifier=often", "dot=!"] ,"en")
@@ -452,6 +469,16 @@ def last_template_handler(
             phrase += concat(local_phrase, ", ")
             phrase += ")"
         return phrase
+
+    if tpl in ("...", "nb..."):
+        sep = " " if tpl == "..." else "&nbsp;"
+        phrase = f"{sep}["
+        if not parts:
+            phrase += data["text"] or "…"
+        else:
+            phrase += "and other forms " if "," in parts[0] else "and the other form "
+            phrase += italic(parts[0])
+        return f"{phrase}]{sep if tpl == '...' else ''}"
 
     if tpl == "&lit":
         starter = "Used other than figuratively or idiomatically"
