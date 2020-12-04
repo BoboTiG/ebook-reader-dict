@@ -365,6 +365,17 @@ def last_template_handler(
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
 
+        >>> last_template_handler(["SI-unit", "en", "peta", "second", "time"], "en")
+        '(<i>metrology</i>) An SI unit of time equal to 10<sup>15</sup> seconds. Symbol: Ps'
+        >>> last_template_handler(["SI-unit", "en", "peta", "second"], "en")
+        '(<i>metrology</i>) An SI unit of time equal to 10<sup>15</sup> seconds. Symbol: Ps'
+        >>> last_template_handler(["SI-unit-2", "peta", "meter", "length", "metre"], "en")
+        '(<i>metrology</i>) An SI unit of length equal to 10<sup>15</sup> meters; alternative spelling of <i>petametre</i>.'
+        >>> last_template_handler(["SI-unit-abb", "femto", "mole", "amount of substance"], "en")
+        '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>-15</sup> moles'
+        >>> last_template_handler(["SI-unit-np", "en", "nano", "gauss", "magnetism"], "en")
+        '(<i>metrology</i>) An SI unit of magnetism equal to 10<sup>-9</sup> gauss.'
+
         >>> last_template_handler(["surname", "en"], "en")
         '<i>A surname.</i>'
         >>> last_template_handler(["surname", "en", "nodot=1"], "en")
@@ -384,8 +395,6 @@ def last_template_handler(
         'unknown'
         >>> last_template_handler(["unk", "en", "title=Uncertain"], "en")
         'Uncertain'
-
-
     """
     from itertools import zip_longest
 
@@ -397,6 +406,7 @@ def last_template_handler(
         placetypes_aliases,
     )
     from .form_of import form_of_templates
+    from .si_unit import unit_to_symbol, prefix_to_exp, prefix_to_symbol, unit_to_type
     from ...transliterator import transliterate
     from ...user_functions import (
         capitalize,
@@ -405,6 +415,7 @@ def last_template_handler(
         italic,
         lookup_italic,
         strong,
+        superscript,
         term,
     )
 
@@ -979,6 +990,38 @@ def last_template_handler(
             if data[modern_key]:
                 phrase += "; modern " + data[modern_key]
             i += 1
+        return phrase
+
+    if tpl in ("SI-unit", "SI-unit-np"):
+        parts.pop(0)  # language
+        prefix = data["2"] or (parts.pop(0) if parts else "")
+        unit = data["3"] or (parts.pop(0) if parts else "")
+        type = data["4"] or (parts.pop(0) if parts else "")
+        if not type:
+            type = unit_to_type.get(unit, "")
+        exp = prefix_to_exp.get(prefix, "")
+        s_end = "" if unit.endswith("z") or unit.endswith("s") else "s"
+        phrase = f"({italic('metrology')}) An SI unit of {type} equal to 10{superscript(exp)} {unit}{s_end}."
+        if unit in unit_to_symbol:
+            symbol = prefix_to_symbol.get(prefix, "") + unit_to_symbol.get(unit, "")
+            phrase += f" Symbol: {symbol}"
+        return phrase
+
+    if tpl == "SI-unit-2":
+        prefix = data["1"] or (parts.pop(0) if parts else "")
+        unit = data["2"] or (parts.pop(0) if parts else "")
+        type = data["3"] or (parts.pop(0) if parts else "")
+        alt = data["3"] or (parts.pop(0) if parts else "")
+        exp = prefix_to_exp.get(prefix, "")
+        phrase = f"({italic('metrology')}) An SI unit of {type} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."  # noqa
+        return phrase
+
+    if tpl == "SI-unit-abb":
+        prefix = data["1"] or (parts.pop(0) if parts else "")
+        unit = data["2"] or (parts.pop(0) if parts else "")
+        type = data["3"] or (parts.pop(0) if parts else "")
+        exp = prefix_to_exp.get(prefix, "")
+        phrase = f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {type} equal to 10{superscript(exp)} {unit}s"  # noqa
         return phrase
 
     if tpl == "surname":
