@@ -323,6 +323,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{IPAchar|[tʃ]|lang=en}}", "[tʃ]"),
         ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
         (
+            "{{Latn-def|en|name|O|o}}",
+            "<i>The name of the Latin-script letter</i> <b>O</b>.",
+        ),
+        (
             "{{n-g|Definite grammatical}}",
             "<i>Definite grammatical</i>",
         ),

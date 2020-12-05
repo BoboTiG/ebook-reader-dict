@@ -89,6 +89,8 @@ templates_multi = {
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": 'f"⟨{parts[1]}⟩"',
+    # {{Latn-def|en|name|O|o}}
+    "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
