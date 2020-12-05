@@ -870,6 +870,7 @@ def last_template_handler(
     if tpl in ("coin", "coinage"):
         parts.pop(0)  # Remove the language
         p = data["alt"] or parts.pop(0) or "unknown"
+        phrase = ""
         if data["notext"] != "1":
             starter = "coined by"
             phrase = starter if data["nocap"] else starter.capitalize()
