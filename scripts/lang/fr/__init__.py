@@ -359,6 +359,7 @@ templates_italic = {
     "ortho1990": "Orthographe rectifiée de 1990",
     "par analogie": "Par analogie",
     "POO": "Programmation orientée objet",
+    "p-us": "Peu usité",
     "p us": "Peu usité",
     "paléogr": "Paléographie",
     "par ext": "Par extension",
