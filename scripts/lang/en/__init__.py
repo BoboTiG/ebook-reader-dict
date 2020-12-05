@@ -334,12 +334,26 @@ def last_template_handler(
         >>> last_template_handler(["coin", "en", "Josiah Willard Gibbs", "alt=Josiah W. Gibbs", "nationality=American", "occupation=scientist"], "en")
         'Coined by American scientist Josiah W. Gibbs'
 
+        >>> last_template_handler(["frac", "39", "47", "127"], "en")
+        '39<small><sup>47</sup><big>⁄</big><sub>127</sub></small>'
+        >>> last_template_handler(["frac", "39", "47"], "en")
+        '<small><sup>39</sup><big>⁄</big><sub>47</sub></small>'
+        >>> last_template_handler(["frac", "39"], "en")
+        '<small><sup>1</sup><big>⁄</big><sub>39</sub></small>'
+
         >>> last_template_handler(["named-after", "en", "nationality=French", "occupation=Renault engineer", "Pierre Bézier", "nocap=1"], "en")
         'named after French Renault engineer Pierre Bézier'
         >>> last_template_handler(["named-after", "en", "Bertrand Russell", "tr=tr", "died=1970", "born=1872", "nat=English", "occ=mathematician", "occ2=logician"], "en")
         'Named after English mathematician and logician Bertrand Russell (<i>tr</i>) (1872–1970)'
         >>> last_template_handler(["named-after", "en", "Patrick Swayze", "alt="], "en")
         'Patrick Swayze'
+
+        >>> last_template_handler(["nuclide", "2", "1", "H"], "en")
+        '<sup>2</sup><sub style="margin-left:-1ex;">1</sub>H'
+        >>> last_template_handler(["nuclide", "222", "86", "Rn"], "en")
+        '<sup>222</sup><sub style="margin-left:-2.3ex;">86</sub>Rn'
+        >>> last_template_handler(["nuclide", "270", "108", "Hs"], "en")
+        '<sup>270</sup><sub style="margin-left:-3.5ex;">108</sub>Hs'
 
         >>> last_template_handler(["place", "en", "A country in the Middle East"], "en")
         'A country in the Middle East'
@@ -406,6 +420,7 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         lookup_italic,
+        superscript,
         strong,
         term,
     )
@@ -886,6 +901,18 @@ def last_template_handler(
             phrase += f' in {data["in"]}'
         return phrase
 
+    if tpl == "frac":
+        phrase = ""
+        if len(parts) == 3:
+            phrase = f"{parts[0]}<small><sup>{parts[1]}</sup><big>⁄</big><sub>{parts[2]}</sub></small>"
+        elif len(parts) == 2:
+            phrase = (
+                f"<small><sup>{parts[0]}</sup><big>⁄</big><sub>{parts[1]}</sub></small>"
+            )
+        elif len(parts) == 1:
+            phrase = f"<small><sup>1</sup><big>⁄</big><sub>{parts[0]}</sub></small>"
+        return phrase
+
     if tpl == "named-after":
         parts.pop(0)  # Remove the language
         p = parts.pop(0)
@@ -908,6 +935,18 @@ def last_template_handler(
             phrase += f" ({italic(data['tr'])})"
         if data["died"] or data["born"]:
             phrase += f" ({data['born'] or '?'}–{data['died']})"
+        return phrase
+
+    if tpl == "nuclide":
+        phrase = superscript(parts[0])
+        sub_n = int(parts[1])
+        if sub_n < 10:
+            phrase += f'<sub style="margin-left:-1ex;">{sub_n}</sub>'
+        elif sub_n < 100:
+            phrase += f'<sub style="margin-left:-2.3ex;">{sub_n}</sub>'
+        else:
+            phrase += f'<sub style="margin-left:-3.5ex;">{sub_n}</sub>'
+        phrase += parts[2]
         return phrase
 
     if tpl == "place":
