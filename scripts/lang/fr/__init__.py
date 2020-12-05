@@ -348,6 +348,7 @@ templates_italic = {
     "muscle": "Anatomie",
     "neurol": "Neurologie",
     "nom-coll": "Nom collectif",
+    "nom-déposé": "Marque commerciale",
     "nucl": "Nucléaire",
     "numis": "Numismatique",
     "néol": "Néologisme",
