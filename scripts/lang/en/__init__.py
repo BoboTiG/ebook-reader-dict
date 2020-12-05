@@ -83,6 +83,26 @@ templates_multi = {
     "1": "capitalize(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
+    # {{en-archaic third-person singular of|term}}
+    "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
+    # {{en-comparative of|term}}
+    "en-comparative of": "italic('comparative form of') + f' {strong(parts[1])}' + ': more ' + parts[1]",
+    # {{en-archaic second-person singular of|term}}
+    "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",  # noqa
+    # {{en-archaic second-person singular past of|term}}
+    "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",  # noqa
+    # {{en-ing form of|term}}
+    "en-ing form of": "italic('Present participle and gerund of') + f' {strong(parts[1])}'",
+    # {{en-simple past of|term}}
+    "en-simple past of": "italic('simple past tense of') + f' {strong(parts[1])}'",
+    # {{en-irregular plural of|term}}
+    "en-irregular plural of": "italic('plural of') + f' {strong(parts[1])}'",
+    # {{en-past of|term}}
+    "en-past of": "italic('simple past tense and past participle of') + f' {strong(parts[1])}'",
+    # {{en-superlative o|term}}
+    "en-superlative of": "italic('superlative form of') + f' {strong(parts[1])}' + ': most ' + parts[1]",
+    # {{en-third-person_singular_of|term}}
+    "en-third-person_singular_of": "italic('Third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{IPAchar|[tʃ]|lang=en}})
