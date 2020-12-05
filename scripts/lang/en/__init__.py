@@ -452,7 +452,6 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         lookup_italic,
-        superscript,
         strong,
         superscript,
         term,
