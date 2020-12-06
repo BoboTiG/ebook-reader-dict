@@ -173,6 +173,8 @@ templates_ignored = (
     "ancre",
     "créer-séparément",
     "désabrévier",
+    "ébauche-déf",
+    "fr-rég",
     "ibid",
     "Import",
     "lien web",
@@ -196,6 +198,7 @@ templates_ignored = (
     "trad-exe",
     "trier",
     "vérifier",
+    "voir-conj",
 )
 
 # Modèles qui seront remplacés par du texte italique.
@@ -239,6 +242,7 @@ templates_italic = {
     "CA": "Canada",
     "CH": "Suisse",
     "CI": "Côte d’Ivoire",
+    "CM": "Cameroun",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
     "chim": "Chimie",
@@ -321,6 +325,7 @@ templates_italic = {
     "locutions latines": "Latinisme",
     "logi": "Logique",
     "légis": "Droit",
+    "m-cour": "Moins courant",
     "maçon": "Maçonnerie",
     "maladie": "Nosologie",
     "manège": "Équitation",
@@ -373,6 +378,7 @@ templates_italic = {
     "philo": "Philosophie",
     "photo": "Photographie",
     "phys": "Physique",
+    "pl-cour": "Plus courant",
     "pl-rare": "Plus rare",
     "plais": "Par plaisanterie",
     "poés": "Poésie",
@@ -393,6 +399,7 @@ templates_italic = {
     "RDC": "Congo-Kinshasa",
     "RDCongo": "Congo-Kinshasa",
     "reli": "Religion",
+    "réciproque2": "Réciproque",
     "régional": "Régionalisme",
     "réseaux": "Réseaux informatiques",
     "sci-fi": "Science-fiction",
@@ -420,6 +427,7 @@ templates_italic = {
     "transit": "Transitif",
     "transports": "Transport",
     "tradit": "orthographe traditionnelle",
+    "très-rare": "Très rare",
     "typo": "Typographie",
     "typog": "Typographie",
     "télé": "Audiovisuel",
@@ -479,6 +487,7 @@ templates_multi = {
     # XIX{{e}}
     # {{e|-1}}
     "e": "superscript(parts[1] if len(parts) > 1 else 'e')",
+    "ex": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # XIX{{ème}}
     "ème": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{er}}
@@ -523,7 +532,8 @@ templates_multi = {
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{numéro}}
-    "numéro": "f\"n{superscript('o')}\"",
+    "numéro": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
+    "n°": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
     # {{petites capitales|Dupont}}
