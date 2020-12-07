@@ -388,12 +388,12 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             lastfrom_seg["suffixes"].append(suffix)
     if lastfrom_seg:
         fromsegs.append(lastfrom_seg)
-    localphrase = []
-    for fromseg in fromsegs:
-        localphrase.append(
-            fromseg.get("prefix", "")
-            + concat(fromseg.get("suffixes", []), ", ", " or ")
-        )
+    localphrase = [
+        fromseg.get("prefix", "")
+        + concat(fromseg.get("suffixes", []), ", ", " or ")
+        for fromseg in fromsegs
+    ]
+
     if localphrase:
         phrase += " " + concat(localphrase, ", ", " or ")
 
@@ -835,8 +835,7 @@ def render_si_unit_abb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     unit = data["2"] or (parts.pop(0) if parts else "")
     type = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    phrase = f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {type} equal to 10{superscript(exp)} {unit}s"  # noqa
-    return phrase
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {type} equal to 10{superscript(exp)} {unit}s"
 
 
 def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
