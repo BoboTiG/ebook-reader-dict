@@ -419,6 +419,8 @@ def test_parse_word(
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
+        ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),
+        ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
