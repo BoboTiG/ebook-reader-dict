@@ -1,5 +1,6 @@
 setuptools>=36.2.1
 cachetools==4.1.1
+docopt==0.6.2
 marisa_trie==0.7.5
 pillow==8.0.1
 requests==2.24.0
