@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved **Kobo**.
+Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
 
 ## Dictionaries
 
