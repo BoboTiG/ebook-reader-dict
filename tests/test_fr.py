@@ -469,6 +469,8 @@ def test_parse_word(
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
         ("{{WSP|Panthera leo}}", "<i>(Panthera leo)</i>"),
+        ("{{x10|9}}", "×10<sup>9</sup>"),
+        ("{{x10}}", "×10"),
     ],
 )
 def test_process_templates(wikicode, expected):

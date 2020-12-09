@@ -599,6 +599,8 @@ templates_multi = {
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
     "WSP": "term(parts[1])",
+    # 1,23{{x10|9}}
+    "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
 }
 
 # Modèles qui seront remplacés par du texte personnalisé.
