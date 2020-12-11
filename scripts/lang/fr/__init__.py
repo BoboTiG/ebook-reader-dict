@@ -1,6 +1,7 @@
 """French language."""
 from typing import Tuple
 from .domain_templates import domain_templates
+from .arabiser import arabiser
 
 # Regex pour trouver la prononciation
 pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
@@ -697,6 +698,9 @@ def last_template_handler(
         >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45"], "fr")
         ''
 
+        >>> last_template_handler(["ar-mot", "elHasan_"], "fr")
+        '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
+
     """  # noqa
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -735,6 +739,9 @@ def last_template_handler(
 
     if tpl == "Légifrance":
         return data["texte"]
+
+    if tpl in ("ar-mot", "ar-terme"):
+        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
 
     # This is a country in the current locale
     if tpl in langs:
