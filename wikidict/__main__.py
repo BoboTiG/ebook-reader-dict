@@ -7,8 +7,7 @@ Usage:
     wikidict LOCALE --parse
     wikidict LOCALE --render
     wikidict LOCALE --find-templates
-    wikidict LOCALE --get-word WORD
-    wikidict LOCALE --get-word WORD --raw
+    wikidict LOCALE --get-word WORD [--raw]
 
 """
 import sys
@@ -46,6 +45,13 @@ def main(argv: List[str]) -> int:
         from . import get_word
 
         return get_word.main(args["LOCALE"], args["WORD"], args["--raw"])
+
+    # Run the whole process by default
+    from . import download, parse, render
+
+    download.main(args["LOCALE"])
+    parse.main(args["LOCALE"])
+    render.main(args["LOCALE"])
 
     return 0
 
