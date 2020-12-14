@@ -93,8 +93,9 @@ def main(locale: str) -> int:
         print(">>> No dump found. Run with --download first ... ", flush=True)
         return 1
 
-    words = process(filename, locale)
     date = filename.split(".")[0].split("-")[1]
-    save(date, words, output_dir)
+    if not (output_dir / f"data_wikicode-{date}.json").is_file():
+        words = process(filename, locale)
+        save(date, words, output_dir)
     print(">>> Parse done!", flush=True)
     return 0
