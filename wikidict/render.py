@@ -1,3 +1,4 @@
+"""Render templates from raw data."""
 import json
 import os
 from collections import defaultdict
@@ -20,7 +21,6 @@ from scripts.lang import (
 )
 from scripts.stubs import Definitions, SubDefinitions, Word, Words
 from scripts.utils import clean, process_templates
-
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -280,7 +280,7 @@ def get_latest_json_file(locale: str, output_dir: Path) -> str:
 
 
 def load(filename: str) -> Dict[str, str]:
-    """Load the big JSON file containing all words and their details."""
+    """Load the JSON file containing all words and their details."""
     input_file = Path(filename)
     with input_file.open(encoding="utf-8") as fh:
         words: Dict[str, str] = json.load(fh)
@@ -290,7 +290,12 @@ def load(filename: str) -> Dict[str, str]:
 
 def render(in_words: Dict[str, str], locale: str) -> Words:
     words: Words = {}
+    sections = head_sections[locale]
     for in_word, code in in_words.items():
+        # Skip not interesting words early as the parsing is quite heavy
+        if not any(head_section in code for head_section in sections):
+            continue
+
         try:
             details = parse_word(in_word, code, locale)
         except Exception:  # pragma: nocover
@@ -303,7 +308,6 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
 
 def save(snapshot: str, words: Words, output_dir: Path) -> None:
     """Persist data."""
-    # This file is needed by convert.py
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
@@ -318,7 +322,7 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     filename = get_latest_json_file(locale, output_dir)
     if not filename:
-        print(">>> No data-XXXXXX.json found. Run with --parse first ... ", flush=True)
+        print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
     print(f">>> Loading {filename} ...")
@@ -327,7 +331,6 @@ def main(locale: str) -> int:
     if not words:  # pragma: nocover
         raise ValueError("Empty dictionary?!")
 
-    # Save data for the next step
     date = filename.split(".")[0].split("-")[1]
     save(date, words, output_dir)
 
