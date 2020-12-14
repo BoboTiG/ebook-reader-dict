@@ -4,6 +4,12 @@ eBook Reader Dictionaries
 Usage:
     wikidict LOCALE
     wikidict LOCALE --download
+    wikidict LOCALE --parse
+    wikidict LOCALE --render
+    wikidict LOCALE --find-templates
+    wikidict LOCALE --get-word WORD
+    wikidict LOCALE --get-word WORD --raw
+
 """
 import sys
 from typing import List
@@ -20,6 +26,26 @@ def main(argv: List[str]) -> int:
         from . import download
 
         return download.main(args["LOCALE"])
+
+    if args["--parse"]:
+        from . import parse
+
+        return parse.main(args["LOCALE"])
+
+    if args["--render"]:
+        from . import render
+
+        return render.main(args["LOCALE"])
+
+    if args["--find-templates"]:
+        from . import find_templates
+
+        return find_templates.main(args["LOCALE"])
+
+    if args["--get-word"]:
+        from . import get_word
+
+        return get_word.main(args["LOCALE"], args["WORD"], args["--raw"])
 
     return 0
 
