@@ -293,7 +293,7 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
     sections = head_sections[locale]
     for in_word, code in in_words.items():
         # Skip not interesting words early as the parsing is quite heavy
-        if not any(head_section in code for head_section in sections):
+        if all(head_section not in code for head_section in sections):
             continue
 
         try:
