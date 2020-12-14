@@ -1,27 +1,19 @@
-from pathlib import Path
-import os
+"""Parse and store raw Wiktionary data."""
 import json
+import os
 from collections import defaultdict
-from scripts.lang import head_sections
-
-from typing import (
-    TYPE_CHECKING,
-    Dict,
-    Generator,
-    Tuple,
-)
-
-if TYPE_CHECKING:  # pragma: nocover
-    from xml.etree.ElementTree import Element
+from pathlib import Path
+from typing import Dict, Generator, Tuple
+from xml.etree import ElementTree
+from xml.etree.ElementTree import Element
 
 
-def xml_iter_parse(file: str) -> Generator["Element", None, None]:
+def xml_iter_parse(file: str) -> Generator[Element, None, None]:
     """Efficient XML parsing for big files.
     Elements are yielded when they meet the "page" tag.
     """
-    import xml.etree.ElementTree as etree
 
-    doc = etree.iterparse(file, events=("start", "end"))
+    doc = ElementTree.iterparse(file, events=("start", "end"))
     _, root = next(doc)
 
     start_tag = None
@@ -41,7 +33,7 @@ def xml_iter_parse(file: str) -> Generator["Element", None, None]:
             root.clear()
 
 
-def xml_parse_element(element: "Element") -> Tuple[str, str]:
+def xml_parse_element(element: Element) -> Tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
     if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
@@ -73,16 +65,13 @@ def process(filename: str, locale: str) -> Dict[str, str]:
         word, code = xml_parse_element(element)
         if not word or not code or ":" in word:
             continue
-
-        if any(head_section in code for head_section in head_sections[locale]):
-            words[word] = code
+        words[word] = code
 
     return words
 
 
 def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
     """Persist data."""
-    # This file is needed by convert.py
     raw_data = output_dir / f"data_wikicode-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
