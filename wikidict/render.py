@@ -288,22 +288,37 @@ def load(filename: str) -> Dict[str, str]:
     return words
 
 
-def render(in_words: Dict[str, str], locale: str) -> Words:
-    words: Words = {}
-    sections = head_sections[locale]
-    for in_word, code in in_words.items():
-        # Skip not interesting words early as the parsing is quite heavy
-        if all(head_section not in code for head_section in sections):
-            continue
+def render_word(w: List[str], words: Words, locale: str) -> None:
+    in_word = w[0]
+    code = w[1]
+    try:
+        details = parse_word(in_word, code, locale)
+    except Exception:  # pragma: nocover
+        print(f"ERROR with {in_word!r}", flush=True)
+    else:
+        if details.definitions or details.variants:
+            words[in_word] = details
 
-        try:
-            details = parse_word(in_word, code, locale)
-        except Exception:  # pragma: nocover
-            print(f"ERROR with {in_word!r}", flush=True)
-        else:
-            if details.definitions or details.variants:
-                words[in_word] = details
-    return words
+
+def render_multi(in_words: Dict[str, str], locale: str) -> Words:
+    from multiprocessing import Pool, Manager, cpu_count
+    from functools import partial
+
+    # Skip not interesting words early as the parsing is quite heavy
+    sections = head_sections[locale]
+    in_words = {
+        word: code
+        for (word, code) in in_words.items()
+        if any(head_section in code for head_section in sections)
+    }
+
+    manager = Manager()
+    results: Words = manager.dict()
+    num_workers = cpu_count() - 1
+    pool = Pool(processes=num_workers)
+    pool.map(partial(render_word, words=results, locale=locale), in_words.items())
+
+    return results.copy()
 
 
 def save(snapshot: str, words: Words, output_dir: Path) -> None:
@@ -327,7 +342,7 @@ def main(locale: str) -> int:
 
     print(f">>> Loading {filename} ...")
     in_words: Dict[str, str] = load(filename)
-    words = render(in_words, locale)
+    words = render_multi(in_words, locale)
     if not words:  # pragma: nocover
         raise ValueError("Empty dictionary?!")
 
