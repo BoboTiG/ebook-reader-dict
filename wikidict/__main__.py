@@ -6,6 +6,7 @@ Usage:
     wikidict LOCALE --download
     wikidict LOCALE --parse
     wikidict LOCALE --render
+    wikidict LOCALE --convert
     wikidict LOCALE --find-templates
     wikidict LOCALE --get-word WORD [--raw]
 
@@ -35,6 +36,11 @@ def main(argv: List[str]) -> int:
         from . import render
 
         return render.main(args["LOCALE"])
+
+    if args["--convert"]:
+        from . import convert
+
+        return convert.main(args["LOCALE"])
 
     if args["--find-templates"]:
         from . import find_templates
