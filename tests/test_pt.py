@@ -1,6 +1,6 @@
 import pytest
 
-from scripts.get import parse_word
+from wikidict.render import parse_word
 from scripts.utils import process_templates
 
 
