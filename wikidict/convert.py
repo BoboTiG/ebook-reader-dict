@@ -276,7 +276,9 @@ class DFFormat(KoboBaseFormat):
                     fh.write(f"& {v}\n")
                 fh.write(f"<html>{etymology}\n")
                 fh.write(f"<ol>{definitions}</ol>\n\n")
-        print(f">>> Generated {name}.df ({raw_output.stat().st_size:,} bytes)", flush=True)
+        print(
+            f">>> Generated {name}.df ({raw_output.stat().st_size:,} bytes)", flush=True
+        )
 
 
 def get_latest_json_file(locale: str, output_dir: Path) -> str:
