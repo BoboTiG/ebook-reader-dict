@@ -3,8 +3,8 @@ from pathlib import Path
 
 import responses
 
-from scripts import upload
-from scripts.constants import DOWNLOAD_URL, RELEASE_URL
+from wikidict import upload
+from wikidict.constants import DOWNLOAD_URL, RELEASE_URL
 
 
 def test_fetch_release_url():

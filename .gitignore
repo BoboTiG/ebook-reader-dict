@@ -1,11 +1,12 @@
 # Project stuff
 *.bz2
+*.df
 *.json
 *.xml
 *.zip
-data/*/INSTALL.txt
-data/*/words.*
-data/*/tmp
+sections.txt
+templates.txt
+data/
 tests/data/*/INSTALL.txt
 tests/data/*/words.*
 tests/data/*/tmp

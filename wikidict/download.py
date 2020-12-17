@@ -20,7 +20,7 @@ def callback_progress(text: str, total: int, last: bool) -> None:
     print(f"\r{msg}", end="", flush=True)
 
 
-def callback_progress_ci(text: str, total: int, last: bool) -> None:  # pragma: nocover
+def callback_progress_ci(text: str, total: int, last: bool) -> None:
     """
     Progression callback. Used when fetching the Wiktionary dump and when extracting it.
     This version is targeting the CI, it prints less lines and it is easier to follow.

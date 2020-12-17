@@ -2,11 +2,13 @@
 import json
 import os
 from collections import defaultdict
+from functools import partial
 from itertools import chain
+from multiprocessing import Manager, Pool, cpu_count
 from pathlib import Path
-from typing import Dict, List, Pattern
+from typing import Dict, List, Optional, Pattern
 
-from scripts.lang import (
+from .lang import (
     definitions_to_ignore,
     genre,
     etyl_section,
@@ -19,8 +21,8 @@ from scripts.lang import (
     sublist_patterns,
     words_to_keep,
 )
-from scripts.stubs import Definitions, SubDefinitions, Word, Words
-from scripts.utils import clean, process_templates
+from .stubs import Definitions, SubDefinitions, Word, Words
+from .utils import clean, process_templates
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -273,37 +275,26 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     return Word(prons, nature, etymology, definitions, variants)
 
 
-def get_latest_json_file(locale: str, output_dir: Path) -> str:
-    """Get the name of the last data_wikicode-*.json file."""
-    files = list(output_dir.glob("data_wikicode-*.json"))
-    return str(sorted(files)[-1]) if files else ""
-
-
-def load(filename: str) -> Dict[str, str]:
+def load(file: Path) -> Dict[str, str]:
     """Load the JSON file containing all words and their details."""
-    input_file = Path(filename)
-    with input_file.open(encoding="utf-8") as fh:
+    with file.open(encoding="utf-8") as fh:
         words: Dict[str, str] = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {input_file}", flush=True)
+    print(f">>> Loaded {len(words):,} words from {file}", flush=True)
     return words
 
 
 def render_word(w: List[str], words: Words, locale: str) -> None:
-    in_word = w[0]
-    code = w[1]
+    word, code = w
     try:
-        details = parse_word(in_word, code, locale)
+        details = parse_word(word, code, locale)
     except Exception:  # pragma: nocover
-        print(f"ERROR with {in_word!r}", flush=True)
+        print(f"ERROR with {word!r}", flush=True)
     else:
         if details.definitions or details.variants:
-            words[in_word] = details
+            words[word] = details
 
 
-def render_multi(in_words: Dict[str, str], locale: str) -> Words:
-    from multiprocessing import Pool, Manager, cpu_count
-    from functools import partial
-
+def render(in_words: Dict[str, str], locale: str) -> Words:
     # Skip not interesting words early as the parsing is quite heavy
     sections = head_sections[locale]
     in_words = {
@@ -314,9 +305,9 @@ def render_multi(in_words: Dict[str, str], locale: str) -> Words:
 
     manager = Manager()
     results: Words = manager.dict()
-    num_workers = cpu_count() - 1
-    pool = Pool(processes=num_workers)
-    pool.map(partial(render_word, words=results, locale=locale), in_words.items())
+
+    with Pool(processes=cpu_count() - 1) as pool:
+        pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()
 
@@ -326,27 +317,31 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-
-    (output_dir / "words.count").write_text(str(len(words)))
-    (output_dir / "words.snapshot").write_text(snapshot)
-
     print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
 
 
+def get_latest_json_file(output_dir: Path) -> Optional[Path]:
+    """Get the name of the last data_wikicode-*.json file."""
+    files = list(output_dir.glob("data_wikicode-*.json"))
+    return sorted(files)[-1] if files else None
+
+
 def main(locale: str) -> int:
+    """Entry point."""
+
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    filename = get_latest_json_file(locale, output_dir)
-    if not filename:
+    file = get_latest_json_file(output_dir)
+    if not file:
         print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
-    print(f">>> Loading {filename} ...")
-    in_words: Dict[str, str] = load(filename)
-    words = render_multi(in_words, locale)
-    if not words:  # pragma: nocover
+    print(f">>> Loading {file} ...")
+    in_words: Dict[str, str] = load(file)
+    words = render(in_words, locale)
+    if not words:
         raise ValueError("Empty dictionary?!")
 
-    date = filename.split(".")[0].split("-")[1]
+    date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
     print(">>> Render done!", flush=True)

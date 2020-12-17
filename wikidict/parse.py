@@ -3,12 +3,12 @@ import json
 import os
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Generator, Tuple
+from typing import Dict, Generator, Optional, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
 
-def xml_iter_parse(file: str) -> Generator[Element, None, None]:
+def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
     """Efficient XML parsing for big files.
     Elements are yielded when they meet the "page" tag.
     """
@@ -56,12 +56,12 @@ def xml_parse_element(element: Element) -> Tuple[str, str]:
     return word, code
 
 
-def process(filename: str, locale: str) -> Dict[str, str]:
+def process(file: Path) -> Dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: Dict[str, str] = defaultdict(str)
 
-    print(f">>> Processing {filename} ...", flush=True)
-    for element in xml_iter_parse(filename):
+    print(f">>> Processing {file} ...", flush=True)
+    for element in xml_iter_parse(file):
         word, code = xml_parse_element(element)
         if not word or not code or ":" in word:
             continue
@@ -79,23 +79,24 @@ def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
     print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
 
 
-def get_latest_xml_file(locale: str, output_dir: Path) -> str:
+def get_latest_xml_file(output_dir: Path) -> Optional[Path]:
     """Get the name of the last pages-*.xml file."""
     files = list(output_dir.glob("pages-*.xml"))
-    return str(sorted(files)[-1]) if files else ""
+    return sorted(files)[-1] if files else None
 
 
 def main(locale: str) -> int:
     """Entry point."""
+
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    filename = get_latest_xml_file(locale, output_dir)
-    if not filename:
+    file = get_latest_xml_file(output_dir)
+    if not file:
         print(">>> No dump found. Run with --download first ... ", flush=True)
         return 1
 
-    date = filename.split(".")[0].split("-")[1]
+    date = file.stem.split("-")[1]
     if not (output_dir / f"data_wikicode-{date}.json").is_file():
-        words = process(filename, locale)
+        words = process(file)
         save(date, words, output_dir)
     print(">>> Parse done!", flush=True)
     return 0

@@ -12,12 +12,11 @@ Usage:
 
 """
 import sys
-from typing import List
 
 from docopt import docopt
 
 
-def main(argv: List[str]) -> int:
+def main() -> int:  # pragma: nocover
     """Main entry point."""
 
     args = docopt(__doc__)
@@ -64,4 +63,4 @@ def main(argv: List[str]) -> int:
 
 
 if __name__ == "__main__":  # pragma: nocover
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main())

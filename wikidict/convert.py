@@ -1,20 +1,23 @@
+"""Convert rendered data to working dictionaries."""
 import gzip
 import json
 import os
 from collections import defaultdict
 from contextlib import suppress
 from datetime import date
+from functools import partial
+from multiprocessing import Pool
 from pathlib import Path
 from shutil import rmtree
-from typing import Dict, List, Type
+from typing import Dict, List, Optional, Type
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-from scripts.constants import WORD_FORMAT
-from scripts.lang import wiktionary
-from scripts.stubs import Word, Words
-from scripts.utils import (
+from .constants import WORD_FORMAT
+from .lang import wiktionary
+from .stubs import Word, Words
+from .utils import (
     convert_etymology,
     convert_genre,
     convert_pronunciation,
@@ -27,26 +30,33 @@ Variants = Dict[str, List[str]]
 
 
 class BaseFormat:
+    """Base class for all dictionaries."""
 
-    __slots__ = {"locale", "output_dir", "words", "variants"}
+    __slots__ = {"locale", "output_dir", "snapshot", "words", "variants"}
 
     def __init__(
-        self, locale: str, output_dir: Path, words: Words, variants: Variants
+        self,
+        locale: str,
+        output_dir: Path,
+        words: Words,
+        variants: Variants,
+        snapshot: str,
     ) -> None:
         self.locale = locale
         self.output_dir = output_dir
         self.words = words
         self.variants = variants
+        self.snapshot = snapshot
 
-    def process(self) -> None:
-        raise NotImplementedError()
-
-    def save(self) -> None:
+    def process(self) -> None:  # pragma: nocover
         raise NotImplementedError()
 
 
 class KoboBaseFormat(BaseFormat):
-    def create_definitions(self, details: Word) -> str:
+    """Base class for Kobo-related dictionaries."""
+
+    @staticmethod
+    def create_definitions(details: Word) -> str:
         definitions = ""
         for definition in details.definitions:
             if isinstance(definition, str):
@@ -65,11 +75,14 @@ class KoboBaseFormat(BaseFormat):
 
 
 class KoboFormat(KoboBaseFormat):
+    """Save the data into a *dict-$LOCALE.zip* Kobo-specific file."""
+
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
         self.save()
 
-    def create_install(self, locale: str, output_dir: Path) -> Path:
+    @staticmethod
+    def create_install(locale: str, output_dir: Path) -> Path:
         """Generate the INSTALL.txt file."""
         release = format_description(locale, output_dir)
 
@@ -85,15 +98,17 @@ class KoboFormat(KoboBaseFormat):
         file.write_text(release)
         return file
 
-    def craft_index(self, wordlist: List[str], output_dir: Path) -> Path:
+    @staticmethod
+    def craft_index(wordlist: List[str], output_dir: Path) -> Path:
         """Generate the special file "words" that is an index of all words."""
         output = output_dir / "words"
         trie = Trie(wordlist)
         trie.save(output)
         return output
 
-    def make_groups(self, words: Words) -> Groups:
-        """Group word by prefix for later HTML creation, see save()."""
+    @staticmethod
+    def make_groups(words: Words) -> Groups:
+        """Group word by prefix."""
         groups: Groups = defaultdict(dict)
         for word, data in words.items():
             groups[guess_prefix(word)][word] = data
@@ -121,7 +136,7 @@ class KoboFormat(KoboBaseFormat):
 
         # First, create individual HTML files
         wordlist: List[str] = []
-        print(">>> Generating HTML files ", end="", flush=True)
+        print(">>> [Kobo] Generating HTML files ", end="", flush=True)
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, self.output_dir / "tmp"))
             wordlist.extend(words.keys())
@@ -132,9 +147,13 @@ class KoboFormat(KoboBaseFormat):
         to_compress.append(self.craft_index(wordlist, self.output_dir / "tmp"))
 
         # Add unrelated files, just for history
+        words_count = self.output_dir / "words.count"
+        words_snapshot = self.output_dir / "words.snapshot"
+        words_count.write_text(str(len(wordlist)))
+        words_snapshot.write_text(self.snapshot)
+        to_compress.append(words_count)
+        to_compress.append(words_snapshot)
         to_compress.append(self.create_install(self.locale, self.output_dir))
-        to_compress.append(self.output_dir / "words.count")
-        to_compress.append(self.output_dir / "words.snapshot")
 
         # Pretty print the source
         source = wiktionary[self.locale].format(year=date.today().year)
@@ -148,7 +167,7 @@ class KoboFormat(KoboBaseFormat):
 
             # Check the ZIP validity
             # testzip() returns the name of the first corrupt file, or None
-            assert fh.testzip() is None, fh.testzip()
+            # assert fh.testzip() is None, fh.testzip()
 
         print(
             f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True
@@ -253,10 +272,9 @@ class KoboFormat(KoboBaseFormat):
 
 
 class DFFormat(KoboBaseFormat):
-    def process(self) -> None:
-        self.save()
+    """Save the data into a *.df* file."""
 
-    def save(self) -> None:
+    def process(self) -> None:
         name = f"dict-{self.locale}-{self.locale}"
         raw_output = self.output_dir / f"{name}.df"
         with raw_output.open(mode="w", encoding="utf-8") as fh:
@@ -281,12 +299,6 @@ class DFFormat(KoboBaseFormat):
         )
 
 
-def get_latest_json_file(locale: str, output_dir: Path) -> str:
-    """Get the name of the last data-*.json file."""
-    files = list(output_dir.glob("data-*.json"))
-    return str(sorted(files)[-1]) if files else ""
-
-
 def get_formaters() -> List[Type[BaseFormat]]:
     return [KoboFormat, DFFormat]
 
@@ -297,23 +309,23 @@ def run_formatter(
     output_dir: Path,
     words: Words,
     variants: Variants,
+    snapshot: str,
 ) -> None:
-    formater = cls(locale, output_dir, words, variants)
+    formater = cls(locale, output_dir, words, variants, snapshot)
     formater.process()
 
 
-def load(filename: str) -> Words:
+def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
-    print(f">>> Loading {filename} ...")
-    input_file = Path(filename)
-    with input_file.open(encoding="utf-8") as fh:
+    print(f">>> Loading {file} ...")
+    with file.open(encoding="utf-8") as fh:
         words: Words = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {input_file}", flush=True)
+    print(f">>> Loaded {len(words):,} words from {file}", flush=True)
     return words
 
 
 def make_variants(words: Words) -> Variants:
-    """Group word by variant for later HTML creation, see save()."""
+    """Group word by variant."""
     variants: Variants = defaultdict(list)
     for word, details in words.items():
         details = Word(*details)
@@ -321,25 +333,32 @@ def make_variants(words: Words) -> Variants:
         for variant in details.variants:
             if variant:
                 variants[variant].append(word)
-
     return variants
 
 
+def get_latest_json_file(output_dir: Path) -> Optional[Path]:
+    """Get the name of the last data-*.json file."""
+    files = list(output_dir.glob("data-*.json"))
+    return sorted(files)[-1] if files else None
+
+
 def main(locale: str) -> int:
+    """Entry point."""
+
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    filename = get_latest_json_file(locale, output_dir)
+    file = get_latest_json_file(output_dir)
+    if not file:
+        print(">>> No dump found. Run with --render first ... ", flush=True)
+        return 1
 
     # Get all words from the database
-    words: Words = load(filename)
+    words: Words = load(file)
     variants: Variants = make_variants(words)
 
     # Get all registered formats
     formaters = get_formaters()
 
     # And distribute the workload
-    from multiprocessing import Pool
-    from functools import partial
-
     with Pool(len(formaters)) as pool:
         pool.map(
             partial(
@@ -348,6 +367,7 @@ def main(locale: str) -> int:
                 output_dir=output_dir,
                 words=words,
                 variants=variants,
+                snapshot=file.stem.split("-")[1],
             ),
             formaters,
         )
