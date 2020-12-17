@@ -131,3 +131,23 @@ def test_ongoing_dump(craft_data, capsys):
     # Check that files are not created
     assert not (output_dir / "pages-20200514.xml").is_file()
     assert not (output_dir / "pages-20200514.xml.bz2").is_file()
+
+
+def test_progress_callback_normal(capsys):
+    download.callback_progress("Some text: ", 42 * 1024, False)
+    captured = capsys.readouterr()
+    assert captured.out == "\rSome text: 43,008 bytes"
+
+    download.callback_progress("Some text: ", 42 * 1024, True)
+    captured = capsys.readouterr()
+    assert captured.out == "\rSome text: OK [43,008 bytes]\n"
+
+
+def test_progress_callback_ci(capsys):
+    download.callback_progress_ci("Some text: ", 42 * 1024, False)
+    captured = capsys.readouterr()
+    assert captured.out == "."
+
+    download.callback_progress_ci("Some text: ", 42 * 1024, True)
+    captured = capsys.readouterr()
+    assert captured.out == ". OK [43,008 bytes]\n"

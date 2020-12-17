@@ -2,6 +2,6 @@
 #
 # Small script to ensure quality checks pass before submitting a commit/PR.
 #
-python -m black wikidict scripts tests
-python -m flake8 wikidict scripts tests
-python -m mypy wikidict scripts
+python -m black wikidict tests
+python -m flake8 wikidict tests
+python -m mypy wikidict

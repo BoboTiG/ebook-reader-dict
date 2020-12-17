@@ -1,21 +1,21 @@
 import os
 from pathlib import Path
+from unittest.mock import patch
 from zipfile import ZipFile
 
-from scripts.convert import main
+from wikidict import convert
 
 
-def test_main():
-    """Test the JSON -> HTML conversion."""
+def test_simple(craft_data):
+    assert convert.main("fr") == 0
 
-    # Start the whole process
-    assert main("fr") == 0
-
-    # Check for the final ZIP file
-    dicthtml = Path(os.environ["CWD"]) / "data" / "fr" / "dicthtml-fr.zip"
+    # Check for all dictionaries
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    assert (output_dir / "dict-fr-fr.df").is_file()
+    dicthtml = output_dir / "dicthtml-fr.zip"
     assert dicthtml.is_file()
 
-    # Check the ZIP content
+    # Check the Kobo ZIP content
     with ZipFile(dicthtml) as fh:
         expected = [
             "11.html",
@@ -36,7 +36,6 @@ def test_main():
             "ic.html",
             "ko.html",
             "mi.html",
-            "mo.html",
             "mu.html",
             "na.html",
             "pi.html",
@@ -45,6 +44,7 @@ def test_main():
             "sa.html",
             "si.html",
             "sl.html",
+            "su.html",
             "words",
             "words.count",
             "words.snapshot",
@@ -57,3 +57,8 @@ def test_main():
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
         assert errors is None
+
+
+def test_no_json_file():
+    with patch.object(convert, "get_latest_json_file", return_value=None):
+        assert convert.main("fr") == 1

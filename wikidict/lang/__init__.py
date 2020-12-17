@@ -183,7 +183,7 @@ templates_italic = {
 # You can access to *tpl* and *parts* to apply changes and get the result wanted.
 #
 # Available functions are documented into that HTML file:
-#   html/scripts/user_functions.html
+#   html/wikidict/user_functions.html
 templates_multi = {
     "ca": ca.templates_multi,
     "en": en.templates_multi,

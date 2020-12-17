@@ -1,7 +1,7 @@
 import pytest
 
 from wikidict.render import parse_word
-from scripts.utils import process_templates
+from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(

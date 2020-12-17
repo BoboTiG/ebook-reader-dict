@@ -1,9 +1,11 @@
+"""DEBUG: find all templates in use."""
 import os
 import re
-from .render import get_latest_json_file, load, find_sections, find_all_sections
-from typing import Dict, List
 from collections import defaultdict
 from pathlib import Path
+from typing import Dict, List
+
+from .render import find_all_sections, find_sections, get_latest_json_file, load
 
 
 def find_titles(code: str, locale: str) -> List[str]:
@@ -46,14 +48,16 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
 
 
 def main(locale: str) -> int:
+    """Entry point."""
+
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    filename = get_latest_json_file(locale, output_dir)
-    if not filename:
-        print(">>> No data-XXXXXX.json found. Run with --parse first ... ", flush=True)
+    file = get_latest_json_file(output_dir)
+    if not file:
+        print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
-    print(f">>> Loading {filename} ...")
-    in_words: Dict[str, str] = load(filename)
+    print(f">>> Loading {file} ...")
+    in_words: Dict[str, str] = load(file)
 
     find_templates(in_words, locale)
 

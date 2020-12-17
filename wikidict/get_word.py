@@ -1,7 +1,11 @@
-import requests
+"""Get and render a word."""
 import re
+
+import requests
+
 from .render import parse_word
-from scripts.utils import convert_pronunciation, convert_genre
+from .user_functions import int_to_roman
+from .utils import convert_pronunciation, convert_genre
 
 
 def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
@@ -40,8 +44,6 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
-                    from scripts.user_functions import int_to_roman
-
                     for rn, subsubdef in enumerate(subdef, 1):
                         print(
                             f"{int_to_roman(rn).lower()}.".rjust(12),
@@ -59,5 +61,6 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 
 def main(locale: str, word: str, raw: bool = False) -> int:
     """Entry point."""
+
     get_and_parse_word(word, locale, raw)
     return 0
