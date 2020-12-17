@@ -53,11 +53,12 @@ def main(argv: List[str]) -> int:
         return get_word.main(args["LOCALE"], args["WORD"], args["--raw"])
 
     # Run the whole process by default
-    from . import download, parse, render
+    from . import convert, download, parse, render
 
     download.main(args["LOCALE"])
     parse.main(args["LOCALE"])
     render.main(args["LOCALE"])
+    convert.main(args["LOCALE"])
 
     return 0
 
