@@ -299,7 +299,7 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
     sections = head_sections[locale]
     in_words = {
         word: code
-        for (word, code) in in_words.items()
+        for word, code in in_words.items()
         if any(head_section in code for head_section in sections)
     }
 
