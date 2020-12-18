@@ -41,8 +41,17 @@ jobs:
     - name: Install requirements
       run: python -m pip install -r requirements.txt
 
-    - name: Fetch and process the latest Wiktionary dump
-      run: python -Wd -m wikidict ${{ matrix.locale }}
+    - name: Download the latest Wiktionary dump
+      run: python -Wd -m wikidict ${{ matrix.locale }} --download
+
+    - name: Parse the dump
+      run: python -Wd -m wikidict ${{ matrix.locale }} --parse
+
+    - name: Render templates
+      run: python -Wd -m wikidict ${{ matrix.locale }} --render
+
+    - name: Convert to dictionaries
+      run: python -Wd -m wikidict ${{ matrix.locale }} --convert
 
     - name: Upload the dictionary (DictFile)
       uses: svenstaro/upload-release-action@v1-release
