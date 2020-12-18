@@ -9,6 +9,7 @@ Usage:
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
     wikidict LOCALE --get-word WORD [--raw]
+    wikidict LOCALE --update-release
 
 """
 import sys
@@ -50,6 +51,11 @@ def main() -> int:  # pragma: nocover
         from . import get_word
 
         return get_word.main(args["LOCALE"], args["WORD"], args["--raw"])
+
+    if args["--update-release"]:
+        from . import upload
+
+        return upload.main(args["LOCALE"])
 
     # Run the whole process by default
     from . import convert, download, parse, render

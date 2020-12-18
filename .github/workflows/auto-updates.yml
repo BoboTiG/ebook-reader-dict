@@ -61,3 +61,8 @@ jobs:
         asset_name: dicthtml-${{ matrix.locale }}.zip
         tag: ${{ matrix.locale }}
         overwrite: true
+
+    - name: Update the release description
+      run: python -Wd -m wikidict ${{ matrix.locale }} --update-release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
