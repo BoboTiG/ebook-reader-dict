@@ -50,8 +50,13 @@ jobs:
     - name: Render templates
       run: python -Wd -m wikidict ${{ matrix.locale }} --render
 
-    - name: Convert to dictionaries
+    - name: Convert to dictionaries (DictFile and Kobo)
       run: python -Wd -m wikidict ${{ matrix.locale }} --convert
+
+    - name: Generate dictionary (StarDict)
+      run: |
+        pyglossary --read-format Dictfile --write-format Stardict --no-progress-bar --no-color data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.df ifo
+        zip dict-${{ matrix.locale }}.zip ifo.dict.dz ifo.idx ifo.ifo
 
     - name: Upload the dictionary (DictFile)
       uses: svenstaro/upload-release-action@v1-release
@@ -68,6 +73,15 @@ jobs:
         repo_token: ${{ secrets.TOKEN }}
         file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}.zip
         asset_name: dicthtml-${{ matrix.locale }}.zip
+        tag: ${{ matrix.locale }}
+        overwrite: true
+
+    - name: Upload the dictionary (StarDict)
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.TOKEN }}
+        file: dict-${{ matrix.locale }}.zip
+        asset_name: dict-${{ matrix.locale }}.zip
         tag: ${{ matrix.locale }}
         overwrite: true
 
