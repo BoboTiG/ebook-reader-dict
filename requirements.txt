@@ -2,7 +2,9 @@ setuptools>=36.2.1
 cachetools==4.1.1
 docopt==0.6.2
 marisa_trie==0.7.5
+mistune==2.0.0a5  # for DictFile reading
 pillow==8.0.1
+pyglossary==4.0.10
 requests==2.24.0
 sympy==1.6.2
 wikitextparser==0.46.0
