@@ -44,7 +44,16 @@ jobs:
     - name: Fetch the latest Wiktionary dump
       run: python -Wd -m wikidict ${{ matrix.locale }}
 
-    - name: Upload the dictionary
+    - name: Upload the dictionary (DictFile)
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.TOKEN }}
+        file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.df
+        asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.df
+        tag: ${{ matrix.locale }}
+        overwrite: true
+
+    - name: Upload the dictionary (Kobo)
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.TOKEN }}
@@ -57,10 +66,3 @@ jobs:
       run: python -Wd -m wikidict ${{ matrix.locale }} --update-release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Archive data
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ matrix.locale }}
-        # data.json and dicthtml-$LOCALE.zip
-        path: data/${{ matrix.locale }}/d*
