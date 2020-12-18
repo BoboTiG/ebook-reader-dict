@@ -275,9 +275,8 @@ class DFFormat(KoboBaseFormat):
     """Save the data into a *.df* file."""
 
     def process(self) -> None:
-        name = f"dict-{self.locale}-{self.locale}"
-        raw_output = self.output_dir / f"{name}.df"
-        with raw_output.open(mode="w", encoding="utf-8") as fh:
+        file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
+        with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
                 details = Word(*details)
                 if not details.definitions:
@@ -294,9 +293,7 @@ class DFFormat(KoboBaseFormat):
                     fh.write(f"& {v}\n")
                 fh.write(f"<html>{etymology}\n")
                 fh.write(f"<ol>{definitions}</ol>\n\n")
-        print(
-            f">>> Generated {name}.df ({raw_output.stat().st_size:,} bytes)", flush=True
-        )
+        print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
 
 
 def get_formaters() -> List[Type[BaseFormat]]:

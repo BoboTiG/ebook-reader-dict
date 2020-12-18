@@ -1,9 +1,13 @@
 import os
+from collections import defaultdict
 from pathlib import Path
 from unittest.mock import patch
 from zipfile import ZipFile
 
+import pytest
+
 from wikidict import convert
+from wikidict.stubs import Word
 
 
 def test_simple(craft_data):
@@ -62,3 +66,24 @@ def test_simple(craft_data):
 def test_no_json_file():
     with patch.object(convert, "get_latest_json_file", return_value=None):
         assert convert.main("fr") == 1
+
+
+@pytest.mark.parametrize(
+    "formatter, filename",
+    [(convert.DFFormat, "dict-fr-fr.df"), (convert.KoboFormat, "dicthtml-fr.zip")],
+)
+def test_generate_dict(formatter, filename):
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    words = {
+        "empty": Word("", "", "", [], []),
+        "foo": Word("pron", "genre", "etyl", ["def 1", ["sdef 1"]], []),
+        "foos": Word(
+            "pron", "genre", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
+        ),
+        "baz": Word("pron", "genre", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
+    }
+    variants = defaultdict(str)
+    variants["foo"] = ["foobar"]
+    convert.run_formatter(formatter, "fr", output_dir, words, variants, "20201218")
+
+    assert (output_dir / filename).is_file()
