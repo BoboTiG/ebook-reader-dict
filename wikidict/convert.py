@@ -274,7 +274,7 @@ class DFFormat(KoboBaseFormat):
     """Save the data into a *.df* file."""
 
     def process(self) -> None:
-        file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
+        file = self.output_dir / f"dict-{self.locale}.df"
         with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
                 details = Word(*details)

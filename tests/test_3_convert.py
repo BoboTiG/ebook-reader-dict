@@ -15,7 +15,7 @@ def test_simple(craft_data):
 
     # Check for all dictionaries
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    assert (output_dir / "dict-fr-fr.df").is_file()
+    assert (output_dir / "dict-fr.df").is_file()
     dicthtml = output_dir / "dicthtml-fr.zip"
     assert dicthtml.is_file()
 
@@ -70,7 +70,7 @@ def test_no_json_file():
 
 @pytest.mark.parametrize(
     "formatter, filename",
-    [(convert.DFFormat, "dict-fr-fr.df"), (convert.KoboFormat, "dicthtml-fr.zip")],
+    [(convert.DFFormat, "dict-fr.df"), (convert.KoboFormat, "dicthtml-fr.zip")],
 )
 def test_generate_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
