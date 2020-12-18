@@ -48,8 +48,12 @@ class BaseFormat:
         self.variants = variants
         self.snapshot = snapshot
 
-    def process(self) -> None:  # pragma: nocover
+    def process(self) -> None:
         raise NotImplementedError()
+
+    @staticmethod
+    def summary(file: Path) -> None:
+        print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
 
 
 class KoboBaseFormat(BaseFormat):
@@ -136,12 +140,9 @@ class KoboFormat(KoboBaseFormat):
 
         # First, create individual HTML files
         wordlist: List[str] = []
-        print(">>> [Kobo] Generating HTML files ", end="", flush=True)
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, self.output_dir / "tmp"))
             wordlist.extend(words.keys())
-            print(".", end="", flush=True)
-        print(f" [{len(self.groups.keys()):,}]", flush=True)
 
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, self.output_dir / "tmp"))
@@ -167,11 +168,9 @@ class KoboFormat(KoboBaseFormat):
 
             # Check the ZIP validity
             # testzip() returns the name of the first corrupt file, or None
-            # assert fh.testzip() is None, fh.testzip()
+            assert fh.testzip() is None, fh.testzip()
 
-        print(
-            f">>> Generated {dicthtml} ({dicthtml.stat().st_size:,} bytes)", flush=True
-        )
+        self.summary(dicthtml)
 
     def save_html(
         self,
@@ -293,7 +292,8 @@ class DFFormat(KoboBaseFormat):
                     fh.write(f"& {v}\n")
                 fh.write(f"<html>{etymology}\n")
                 fh.write(f"<ol>{definitions}</ol>\n\n")
-        print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
+
+        self.summary(file)
 
 
 def get_formaters() -> List[Type[BaseFormat]]:
