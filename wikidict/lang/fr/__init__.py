@@ -18,7 +18,7 @@ thousands_separator = " "
 # Titre des sections qui sont intéressantes à analyser.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_sections_de_types_de_mots
 # Pour récupérer la liste complète des sections :
-#     DEBUG=1 WIKI_DUMP=20200501 python -m scripts --locale fr --get-only
+#     python -m wikidict fr --find-templates
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
 head_sections = ("{{langue|fr}}", "{{langue|conv}}")
 etyl_section = ["{{S|étymologie}}"]
@@ -459,7 +459,7 @@ templates_italic = {
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 #
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
-#   html/scripts/user_functions.html
+#   html/wikidict/user_functions.html
 templates_multi = {
     # {{1er}}
     # {{1er|mai}}

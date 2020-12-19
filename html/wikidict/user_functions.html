@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.1" />
-<title>scripts.user_functions API documentation</title>
+<meta name="generator" content="pdoc 0.9.2" />
+<title>wikidict.user_functions API documentation</title>
 <meta name="description" content="Functions that can be used in *templates_multi* of any locale …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
@@ -19,11 +19,11 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>scripts.user_functions</code></h1>
+<h1 class="title">Module <code>wikidict.user_functions</code></h1>
 </header>
 <section id="section-intro">
 <p>Functions that can be used in <em>templates_multi</em> of any locale.</p>
-<p>Check the "html/scripts/user_functions.html" file for a user-friendly version.</p>
+<p>Check the "html/wikidict/user_functions.html" file for a user-friendly version.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -31,7 +31,7 @@
 <pre><code class="python">&#34;&#34;&#34;
 Functions that can be used in *templates_multi* of any locale.
 
-Check the &#34;html/scripts/user_functions.html&#34; file for a user-friendly version.
+Check the &#34;html/wikidict/user_functions.html&#34; file for a user-friendly version.
 &#34;&#34;&#34;
 import re
 from collections import defaultdict
@@ -168,7 +168,7 @@ def eval_expr(expr: str) -&gt; str:
         Traceback (most recent call last):
           File &#34;.../doctest.py&#34;, line 1329, in __run
             compileflags, 1), test.globs)
-          File &#34;&lt;doctest scripts.user_functions.eval_expr[0]&gt;&#34;, line 1, in &lt;module&gt;
+          File &#34;&lt;doctest wikidict.user_functions.eval_expr[0]&gt;&#34;, line 1, in &lt;module&gt;
           File &#34;.../user_functions.py&#34;, line 33, in eval_expr
             raise ValueError(f&#34;Dangerous characters in the expr {expr!r}&#34;)
         ValueError: Dangerous characters in the expr &#39;cat /etc/passwd&#39;
@@ -501,7 +501,7 @@ __all__ = (
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="scripts.user_functions.capitalize"><code class="name flex">
+<dt id="wikidict.user_functions.capitalize"><code class="name flex">
 <span>def <span class="ident">capitalize</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -537,7 +537,7 @@ __all__ = (
     return f&#34;{text[0].capitalize()}{text[1:]}&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.century"><code class="name flex">
+<dt id="wikidict.user_functions.century"><code class="name flex">
 <span>def <span class="ident">century</span></span>(<span>parts: List[str], century: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -563,7 +563,7 @@ __all__ = (
     return &#34; - &#34;.join(f&#34;{p}{superscript(&#39;e&#39;)} {century}&#34; for p in parts)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.chimy"><code class="name flex">
+<dt id="wikidict.user_functions.chimy"><code class="name flex">
 <span>def <span class="ident">chimy</span></span>(<span>composition: List[str]) ‑> str</span>
 </code></dt>
 <dd>
@@ -589,7 +589,7 @@ __all__ = (
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.color"><code class="name flex">
+<dt id="wikidict.user_functions.color"><code class="name flex">
 <span>def <span class="ident">color</span></span>(<span>rgb: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -611,7 +611,7 @@ __all__ = (
     return f&#34;[RGB {rgb}]&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.concat"><code class="name flex">
+<dt id="wikidict.user_functions.concat"><code class="name flex">
 <span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str = None, indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
 </code></dt>
 <dd>
@@ -697,7 +697,7 @@ It allowes to filter out some parts while keeping others.</p>
         return sep.join(r[:-1]) + last_sep + r[-1] if r else &#34;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.coord"><code class="name flex">
+<dt id="wikidict.user_functions.coord"><code class="name flex">
 <span>def <span class="ident">coord</span></span>(<span>values: List[str]) ‑> str</span>
 </code></dt>
 <dd>
@@ -719,7 +719,7 @@ It allowes to filter out some parts while keeping others.</p>
     return &#34;{0}°{1}′{2} {3}°{4}′{5}&#34;.format(*values)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.eval_expr"><code class="name flex">
+<dt id="wikidict.user_functions.eval_expr"><code class="name flex">
 <span>def <span class="ident">eval_expr</span></span>(<span>expr: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -732,7 +732,7 @@ It allowes to filter out some parts while keeping others.</p>
 Traceback (most recent call last):
   File ".../doctest.py", line 1329, in __run
     compileflags, 1), test.globs)
-  File "&lt;doctest scripts.user_functions.eval_expr[0]&gt;", line 1, in &lt;module&gt;
+  File "&lt;doctest wikidict.user_functions.eval_expr[0]&gt;", line 1, in &lt;module&gt;
   File ".../user_functions.py", line 33, in eval_expr
     raise ValueError(f"Dangerous characters in the expr {expr!r}")
 ValueError: Dangerous characters in the expr 'cat /etc/passwd'
@@ -755,7 +755,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
         Traceback (most recent call last):
           File &#34;.../doctest.py&#34;, line 1329, in __run
             compileflags, 1), test.globs)
-          File &#34;&lt;doctest scripts.user_functions.eval_expr[0]&gt;&#34;, line 1, in &lt;module&gt;
+          File &#34;&lt;doctest wikidict.user_functions.eval_expr[0]&gt;&#34;, line 1, in &lt;module&gt;
           File &#34;.../user_functions.py&#34;, line 33, in eval_expr
             raise ValueError(f&#34;Dangerous characters in the expr {expr!r}&#34;)
         ValueError: Dangerous characters in the expr &#39;cat /etc/passwd&#39;
@@ -773,7 +773,7 @@ ValueError: Dangerous characters in the expr 'cat /etc/passwd'
     return f&#34;{eval(expr)}&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.extract_keywords_from"><code class="name flex">
+<dt id="wikidict.user_functions.extract_keywords_from"><code class="name flex">
 <span>def <span class="ident">extract_keywords_from</span></span>(<span>parts: List[str]) ‑> Dict[str, str]</span>
 </code></dt>
 <dd>
@@ -825,7 +825,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return data</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.int_to_roman"><code class="name flex">
+<dt id="wikidict.user_functions.int_to_roman"><code class="name flex">
 <span>def <span class="ident">int_to_roman</span></span>(<span>number: int) ‑> str</span>
 </code></dt>
 <dd>
@@ -863,7 +863,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return &#34;&#34;.join(result)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.italic"><code class="name flex">
+<dt id="wikidict.user_functions.italic"><code class="name flex">
 <span>def <span class="ident">italic</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -885,7 +885,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return f&#34;&lt;i&gt;{text}&lt;/i&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.lookup_italic"><code class="name flex">
+<dt id="wikidict.user_functions.lookup_italic"><code class="name flex">
 <span>def <span class="ident">lookup_italic</span></span>(<span>word: str, locale: str, empty_default: bool = False) ‑> str</span>
 </code></dt>
 <dd>
@@ -918,7 +918,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return templates_italic[locale].get(word, &#34;&#34; if empty_default else word)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.number"><code class="name flex">
+<dt id="wikidict.user_functions.number"><code class="name flex">
 <span>def <span class="ident">number</span></span>(<span>number: str, fsep: str, tsep: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -990,7 +990,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.parenthesis"><code class="name flex">
+<dt id="wikidict.user_functions.parenthesis"><code class="name flex">
 <span>def <span class="ident">parenthesis</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1012,7 +1012,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return f&#34;({text})&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.person"><code class="name flex">
+<dt id="wikidict.user_functions.person"><code class="name flex">
 <span>def <span class="ident">person</span></span>(<span>word: str, parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
@@ -1056,7 +1056,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return res</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.sentence"><code class="name flex">
+<dt id="wikidict.user_functions.sentence"><code class="name flex">
 <span>def <span class="ident">sentence</span></span>(<span>parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
@@ -1090,7 +1090,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return capitalize(concat(parts, sep=&#34; &#34;, indexes=[0, 1]))</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.small"><code class="name flex">
+<dt id="wikidict.user_functions.small"><code class="name flex">
 <span>def <span class="ident">small</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1112,7 +1112,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return f&#34;&lt;small&gt;{text}&lt;/small&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.small_caps"><code class="name flex">
+<dt id="wikidict.user_functions.small_caps"><code class="name flex">
 <span>def <span class="ident">small_caps</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1139,7 +1139,7 @@ to the size of lowercase letters.</p>
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.strong"><code class="name flex">
+<dt id="wikidict.user_functions.strong"><code class="name flex">
 <span>def <span class="ident">strong</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1161,7 +1161,7 @@ to the size of lowercase letters.</p>
     return f&#34;&lt;b&gt;{text}&lt;/b&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.subscript"><code class="name flex">
+<dt id="wikidict.user_functions.subscript"><code class="name flex">
 <span>def <span class="ident">subscript</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1190,7 +1190,7 @@ Subscript text can be used for chemical formulas.</p>
     return f&#34;&lt;sub&gt;{text}&lt;/sub&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.superscript"><code class="name flex">
+<dt id="wikidict.user_functions.superscript"><code class="name flex">
 <span>def <span class="ident">superscript</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1217,7 +1217,7 @@ and is sometimes rendered in a smaller font.</p>
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.tag"><code class="name flex">
+<dt id="wikidict.user_functions.tag"><code class="name flex">
 <span>def <span class="ident">tag</span></span>(<span>parts: List[str]) ‑> str</span>
 </code></dt>
 <dd>
@@ -1269,7 +1269,7 @@ and is sometimes rendered in a smaller font.</p>
     return &#34;, &#34;.join(words)</code></pre>
 </details>
 </dd>
-<dt id="scripts.user_functions.term"><code class="name flex">
+<dt id="wikidict.user_functions.term"><code class="name flex">
 <span>def <span class="ident">term</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
 <dd>
@@ -1323,35 +1323,35 @@ and is sometimes rendered in a smaller font.</p>
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
-<li><code><a title="scripts.user_functions.capitalize" href="#scripts.user_functions.capitalize">capitalize</a></code></li>
-<li><code><a title="scripts.user_functions.century" href="#scripts.user_functions.century">century</a></code></li>
-<li><code><a title="scripts.user_functions.chimy" href="#scripts.user_functions.chimy">chimy</a></code></li>
-<li><code><a title="scripts.user_functions.color" href="#scripts.user_functions.color">color</a></code></li>
-<li><code><a title="scripts.user_functions.concat" href="#scripts.user_functions.concat">concat</a></code></li>
-<li><code><a title="scripts.user_functions.coord" href="#scripts.user_functions.coord">coord</a></code></li>
-<li><code><a title="scripts.user_functions.eval_expr" href="#scripts.user_functions.eval_expr">eval_expr</a></code></li>
-<li><code><a title="scripts.user_functions.extract_keywords_from" href="#scripts.user_functions.extract_keywords_from">extract_keywords_from</a></code></li>
-<li><code><a title="scripts.user_functions.int_to_roman" href="#scripts.user_functions.int_to_roman">int_to_roman</a></code></li>
-<li><code><a title="scripts.user_functions.italic" href="#scripts.user_functions.italic">italic</a></code></li>
-<li><code><a title="scripts.user_functions.lookup_italic" href="#scripts.user_functions.lookup_italic">lookup_italic</a></code></li>
-<li><code><a title="scripts.user_functions.number" href="#scripts.user_functions.number">number</a></code></li>
-<li><code><a title="scripts.user_functions.parenthesis" href="#scripts.user_functions.parenthesis">parenthesis</a></code></li>
-<li><code><a title="scripts.user_functions.person" href="#scripts.user_functions.person">person</a></code></li>
-<li><code><a title="scripts.user_functions.sentence" href="#scripts.user_functions.sentence">sentence</a></code></li>
-<li><code><a title="scripts.user_functions.small" href="#scripts.user_functions.small">small</a></code></li>
-<li><code><a title="scripts.user_functions.small_caps" href="#scripts.user_functions.small_caps">small_caps</a></code></li>
-<li><code><a title="scripts.user_functions.strong" href="#scripts.user_functions.strong">strong</a></code></li>
-<li><code><a title="scripts.user_functions.subscript" href="#scripts.user_functions.subscript">subscript</a></code></li>
-<li><code><a title="scripts.user_functions.superscript" href="#scripts.user_functions.superscript">superscript</a></code></li>
-<li><code><a title="scripts.user_functions.tag" href="#scripts.user_functions.tag">tag</a></code></li>
-<li><code><a title="scripts.user_functions.term" href="#scripts.user_functions.term">term</a></code></li>
+<li><code><a title="wikidict.user_functions.capitalize" href="#wikidict.user_functions.capitalize">capitalize</a></code></li>
+<li><code><a title="wikidict.user_functions.century" href="#wikidict.user_functions.century">century</a></code></li>
+<li><code><a title="wikidict.user_functions.chimy" href="#wikidict.user_functions.chimy">chimy</a></code></li>
+<li><code><a title="wikidict.user_functions.color" href="#wikidict.user_functions.color">color</a></code></li>
+<li><code><a title="wikidict.user_functions.concat" href="#wikidict.user_functions.concat">concat</a></code></li>
+<li><code><a title="wikidict.user_functions.coord" href="#wikidict.user_functions.coord">coord</a></code></li>
+<li><code><a title="wikidict.user_functions.eval_expr" href="#wikidict.user_functions.eval_expr">eval_expr</a></code></li>
+<li><code><a title="wikidict.user_functions.extract_keywords_from" href="#wikidict.user_functions.extract_keywords_from">extract_keywords_from</a></code></li>
+<li><code><a title="wikidict.user_functions.int_to_roman" href="#wikidict.user_functions.int_to_roman">int_to_roman</a></code></li>
+<li><code><a title="wikidict.user_functions.italic" href="#wikidict.user_functions.italic">italic</a></code></li>
+<li><code><a title="wikidict.user_functions.lookup_italic" href="#wikidict.user_functions.lookup_italic">lookup_italic</a></code></li>
+<li><code><a title="wikidict.user_functions.number" href="#wikidict.user_functions.number">number</a></code></li>
+<li><code><a title="wikidict.user_functions.parenthesis" href="#wikidict.user_functions.parenthesis">parenthesis</a></code></li>
+<li><code><a title="wikidict.user_functions.person" href="#wikidict.user_functions.person">person</a></code></li>
+<li><code><a title="wikidict.user_functions.sentence" href="#wikidict.user_functions.sentence">sentence</a></code></li>
+<li><code><a title="wikidict.user_functions.small" href="#wikidict.user_functions.small">small</a></code></li>
+<li><code><a title="wikidict.user_functions.small_caps" href="#wikidict.user_functions.small_caps">small_caps</a></code></li>
+<li><code><a title="wikidict.user_functions.strong" href="#wikidict.user_functions.strong">strong</a></code></li>
+<li><code><a title="wikidict.user_functions.subscript" href="#wikidict.user_functions.subscript">subscript</a></code></li>
+<li><code><a title="wikidict.user_functions.superscript" href="#wikidict.user_functions.superscript">superscript</a></code></li>
+<li><code><a title="wikidict.user_functions.tag" href="#wikidict.user_functions.tag">tag</a></code></li>
+<li><code><a title="wikidict.user_functions.term" href="#wikidict.user_functions.term">term</a></code></li>
 </ul>
 </li>
 </ul>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
 </footer>
 </body>
 </html>

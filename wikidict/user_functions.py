@@ -1,7 +1,7 @@
 """
 Functions that can be used in *templates_multi* of any locale.
 
-Check the "html/scripts/user_functions.html" file for a user-friendly version.
+Check the "html/wikidict/user_functions.html" file for a user-friendly version.
 """
 import re
 from collections import defaultdict
@@ -138,7 +138,7 @@ def eval_expr(expr: str) -> str:
         Traceback (most recent call last):
           File ".../doctest.py", line 1329, in __run
             compileflags, 1), test.globs)
-          File "<doctest scripts.user_functions.eval_expr[0]>", line 1, in <module>
+          File "<doctest wikidict.user_functions.eval_expr[0]>", line 1, in <module>
           File ".../user_functions.py", line 33, in eval_expr
             raise ValueError(f"Dangerous characters in the expr {expr!r}")
         ValueError: Dangerous characters in the expr 'cat /etc/passwd'
