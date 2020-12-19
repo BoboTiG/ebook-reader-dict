@@ -62,8 +62,8 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.TOKEN }}
-        file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.df
-        asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.df
+        file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df
+        asset_name: dict-${{ matrix.locale }}.df
         tag: ${{ matrix.locale }}
         overwrite: true
 
