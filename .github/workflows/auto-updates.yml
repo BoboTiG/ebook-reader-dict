@@ -55,8 +55,8 @@ jobs:
 
     - name: Generate dictionary (StarDict)
       run: |
-        pyglossary --read-format Dictfile --write-format Stardict --no-progress-bar --no-color data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df ifo
-        zip dict-${{ matrix.locale }}.zip ifo.dict.dz ifo.idx ifo.ifo
+        pyglossary --no-progress-bar --no-color data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df dict-data.ifo
+        zip -r dict-${{ matrix.locale }}.zip dict-data.* res
 
     - name: Upload the dictionary (DictFile)
       uses: svenstaro/upload-release-action@v1-release
