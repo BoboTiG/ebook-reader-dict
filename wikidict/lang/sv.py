@@ -49,10 +49,11 @@ release_description = """\
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
-Installation:
+Tillgängliga filer:
 
-1. Kopiera filen [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) till läsaren `.kobo/custom-dict/` mappen på läsaren.
-2. **Starta** om läsaren.
+- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}.df)
 
 <sub>Uppdaterad på {creation_date}</sub>
 """  # noqa

@@ -253,10 +253,11 @@ release_description = """\
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 
-Installation:
+Available files:
 
-1. Copy the [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) file into the `.kobo/custom-dict/` folder of the reader.
-2. **Restart** the reader.
+- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}.df)
 
 <sub>Updated on {creation_date}</sub>
 """  # noqa

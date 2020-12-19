@@ -18,12 +18,14 @@ Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) f
 
 ### Requirements
 
+#### Kobo
+
 Kobo firmware >= 4.24. For older firmwares, you can find outdated dictionaries [here](https://github.com/BoboTiG/ebook-reader-dict/actions/runs/350446645).
 
 ## Updating Dictionaries
 
 All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
-The `dicthml-LOCALE.zip` files are updated in place so that the download link never changes.
+Files are updated in place so that download links never changes.
 
 - You should open an [issue](https://github.com/BoboTiG/ebook-reader-dict/issues) if:
    - you do not find a word;

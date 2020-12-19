@@ -10,7 +10,12 @@ from cachetools import cached
 from cachetools.keys import hashkey
 import regex
 
-from .constants import DOWNLOAD_URL, IMG_CSS
+from .constants import (
+    DOWNLOAD_URL_DICTFILE,
+    DOWNLOAD_URL_KOBO,
+    DOWNLOAD_URL_STARDICT,
+    IMG_CSS,
+)
 from .lang import (
     last_template_handler,
     pattern_file,
@@ -66,26 +71,23 @@ def format_description(locale: str, output_dir: Path) -> str:
     """Generate the release description."""
 
     # Get the words count
-    count = (output_dir / "words.count").read_text().strip()
+    words_count = (output_dir / "words.count").read_text().strip()
 
     # Format the words count
     thousands_sep = thousands_separator[locale]
-    count = f"{int(count):,}".replace(",", thousands_sep)
+    words_count = f"{int(words_count):,}".replace(",", thousands_sep)
 
     # Format the snapshot's date
-    snapshot = (output_dir / "words.snapshot").read_text().strip()
-    snapshot = f"{snapshot[:4]}-{snapshot[4:6]}-{snapshot[6:8]}"
+    dump_date = (output_dir / "words.snapshot").read_text().strip()
+    dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    # The download link
-    url = DOWNLOAD_URL.format(locale)
+    # Download links
+    url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
+    url_kobo = DOWNLOAD_URL_KOBO.format(locale)
+    url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
 
-    return release_description[locale].format(
-        creation_date=NOW.isoformat(),
-        dump_date=snapshot,
-        locale=locale,
-        url=url,
-        words_count=count,
-    )
+    creation_date = NOW.isoformat()
+    return release_description[locale].format(**locals())
 
 
 def guess_prefix(word: str) -> str:

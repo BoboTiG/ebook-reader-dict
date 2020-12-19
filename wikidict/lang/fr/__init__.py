@@ -756,10 +756,11 @@ release_description = """\
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-Installation :
+Fichiers disponibles :
 
-1. Copier le fichier [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) dans le dossier `.kobo/custom-dict/` de la liseuse.
-2. **Redémarrer** la liseuse.
+- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}.df)
 
 <sub>Mis à jour le {creation_date}</sub>
 """  # noqa

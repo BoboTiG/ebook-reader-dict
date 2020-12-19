@@ -174,10 +174,11 @@ release_description = """\
 Les paraules compten: {words_count}
 Abocador Viccionari: {dump_date}
 
-Instal·lació:
+Fitxers disponibles:
 
-1. Copieu el fitxer [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) a la carpeta `.kobo/custom-dict/` del lector.
-2. **Reinicieu** el lector.
+- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}.df)
 
 <sub>Actualitzat el {creation_date}</sub>
 """  # noqa

@@ -280,10 +280,11 @@ release_description = """\
 Número de palabras: {words_count}
 exportación Wikcionario: {dump_date}
 
-Instalacións:
+Archivos disponibles:
 
-1. Copia el archivo [dicthtml-{locale}.zip <sup>:floppy_disk:</sup>]({url}) en el directorio `.kobo/custom-dict/` del lector.
-2. **Reinicie** la luz de lectura.
+- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}.df)
 
 <sub>Actualizado el {creation_date}</sub>
 """  # noqa
