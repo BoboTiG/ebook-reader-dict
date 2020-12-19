@@ -48,7 +48,7 @@ class BaseFormat:
         self.variants = variants
         self.snapshot = snapshot
 
-    def process(self) -> None:
+    def process(self) -> None:  # pragma: nocover
         raise NotImplementedError()
 
     @staticmethod
