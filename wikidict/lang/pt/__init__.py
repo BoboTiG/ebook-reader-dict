@@ -81,6 +81,8 @@ templates_multi = {
     "l": "parts[-1]",
     # {{l.s.|uso}}
     "l.s.": "parts[-1]",
+    # {{link opcional|arapytãŋa|tpn}}
+    "link opcional": "parts[1]",
     # {{link preto|ciconiforme}}
     "link preto": "parts[-1]",
     # {{ll|publicar}}
