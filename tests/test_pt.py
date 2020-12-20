@@ -155,6 +155,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{escopoUso|Coloquialismo|pt}}", "<i>(coloquial)</i>"),
         ("{{fem|heliostático}}", "feminino de <b>heliostático</b>"),
         ("{{l|pt|usar|usar}}", "usar"),
+        ("{{l.o.|jurídico|jurídica}}", "jurídica"),
         ("{{l.s.|uso}}", "uso"),
         ("{{link preto|ciconiforme}}", "ciconiforme"),
         ("{{ll|publicar}}", "publicar"),

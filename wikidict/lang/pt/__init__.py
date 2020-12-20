@@ -79,6 +79,8 @@ templates_multi = {
     "fem": 'f"feminino de {strong(parts[1])}"',
     # {{l|pt|usar|usar}}",
     "l": "parts[-1]",
+    # {{l.o.|jurídico|jurídica}}
+    "l.o.": "parts[-1]",
     # {{l.s.|uso}}
     "l.s.": "parts[-1]",
     # {{link opcional|arapytãŋa|tpn}}
