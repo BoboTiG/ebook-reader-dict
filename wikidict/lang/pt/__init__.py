@@ -81,6 +81,8 @@ templates_multi = {
     "escopoUso": "term(lookup_italic(parts[1], 'pt'))",
     # {{fem|heliostático}}
     "fem": 'f"feminino de {strong(parts[1])}"',
+    # {{fl|la|occŭlo}}
+    "fl": "parts[-1]",
     # {{l|pt|usar|usar}}",
     "l": "parts[-1]",
     # {{l.o.|jurídico|jurídica}}

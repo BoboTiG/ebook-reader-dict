@@ -156,6 +156,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{escopoUso|Portugal|pt}}", "<i>(Portugal)</i>"),
         ("{{escopoUso|Coloquialismo|pt}}", "<i>(coloquial)</i>"),
         ("{{fem|heliostático}}", "feminino de <b>heliostático</b>"),
+        ("{{fl|la|occŭlo}}", "occŭlo"),
         ("{{l|pt|usar|usar}}", "usar"),
         ("{{l.o.|jurídico|jurídica}}", "jurídica"),
         ("{{l.s.|uso}}", "uso"),
