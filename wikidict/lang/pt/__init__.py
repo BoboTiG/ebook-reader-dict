@@ -43,7 +43,7 @@ sections = (
 definitions_to_ignore = ("peçodef",)
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("cont", "ligaçãoPalavraWdic")
+templates_ignored = ("cont", "ligaçãoPalavraWdic", "#seigual")
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
