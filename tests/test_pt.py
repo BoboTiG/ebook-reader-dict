@@ -144,6 +144,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{AFI|/k/|pt}}", "/k/"),
         ("{{barra de cor|yellow|#FFFF00}}", "[RGB #FFFF00]"),
         ("{{escopo|Pecuária}}", "<i>(Pecuária)</i>"),
         ("{{escopo|pt|estrangeirismo}}", "<i>(estrangeirismo)</i>"),

@@ -62,6 +62,8 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{AFI|/k/|pt}}
+    "AFI": "parts[1]",
     # {{barra de cor|#0000FF|#0000FF}}
     "barra de cor": "color(parts[-1])",
     # {{escopo|Pecuária}}
