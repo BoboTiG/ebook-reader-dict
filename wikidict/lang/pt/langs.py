@@ -990,6 +990,7 @@ langs = {
 # 975
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
+langs["nci"] = "náuatle clássico"  # 2020-12-20
 langs["prv"] = "provençal"  # 2020-09-24
 langs["roa-oca"] = "catalão medieval"  # 2020-09-24
 langs["roa-gpm"] = "galego-português medieval"  # 2020-09-24
