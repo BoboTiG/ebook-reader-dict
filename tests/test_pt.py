@@ -162,6 +162,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{ll|publicar}}", "publicar"),
         ("{{mq|palavra}}", "o mesmo que <b>palavra</b>"),
         ("{{mq|word|en}}", "o mesmo que <i>word</i>"),
+        ("{{r|la|basium|basĭum}}", "basĭum"),
         ("{{varort|tenu-|pt}}", "variante ortográfica de <b>tenu-</b>"),
     ],
 )
