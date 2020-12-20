@@ -8,7 +8,7 @@ Usage:
     wikidict LOCALE --render
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
-    wikidict LOCALE --get-word WORD [--raw]
+    wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --update-release
 
 """
@@ -50,7 +50,7 @@ def main() -> int:  # pragma: nocover
     if args["--get-word"]:
         from . import get_word
 
-        return get_word.main(args["LOCALE"], args["WORD"], args["--raw"])
+        return get_word.main(args["LOCALE"], args["--get-word"], args["--raw"])
 
     if args["--update-release"]:
         from . import upload
