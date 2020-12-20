@@ -130,6 +130,9 @@ def last_template_handler(
 
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
+
+        >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
+        'chimica f.'
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
@@ -181,6 +184,9 @@ def last_template_handler(
             phrase += "."
 
         return phrase
+
+    if tpl == "xlatio":
+        return f"{parts[1]} {parts[2]}"
 
     return default(template, locale, word=word)
 
