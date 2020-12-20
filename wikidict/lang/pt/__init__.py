@@ -128,12 +128,19 @@ def last_template_handler(
         >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
         "Do tupi <i>ïsa'ub</i> (<i>formiga mestra</i>)."
 
+        >>> last_template_handler(["PEPB", "1=Autoridade Nacional Palestiniana", "2=Autoridade Nacional Palestina"], "pt")
+        'Autoridade Nacional Palestiniana <sup>(português europeu)</sup> ou Autoridade Nacional Palestina <sup>(português do Brasil)</sup>'
+        >>> last_template_handler(["PEPB", "autocarro", "ônibus"], "pt")
+        'autocarro <sup>(português europeu)</sup> ou ônibus <sup>(português do Brasil)</sup>'
+        >>> last_template_handler(["PEPB", "inline=1", "atómico", "atômico"], "pt")
+        'atómico/atômico'
+
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
 
         >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
         'chimica f.'
-    """
+    """  # noqa
     from .langs import langs
     from ..defaults import last_template_handler as default
     from ...user_functions import extract_keywords_from, italic
@@ -184,6 +191,14 @@ def last_template_handler(
             phrase += "."
 
         return phrase
+
+    if tpl == "PEPB":
+        data = extract_keywords_from(parts)
+        part1 = data["1"] or parts.pop(0)
+        part2 = data["2"] or parts.pop(0)
+        if data["inline"] == "1":
+            return f"{part1}/{part2}"
+        return f"{part1} <sup>(português europeu)</sup> ou {part2} <sup>(português do Brasil)</sup>"
 
     if tpl == "xlatio":
         return f"{parts[1]} {parts[2]}"
