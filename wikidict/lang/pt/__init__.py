@@ -130,6 +130,13 @@ def last_template_handler(
         >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
         "Do tupi <i>ïsa'ub</i> (<i>formiga mestra</i>)."
 
+        >>> last_template_handler(["o/a", "determinad"], "pt")
+        'determinada'
+        >>> last_template_handler(["o/a", "funç", "ões", "ão"], "pt")
+        'funções'
+        >>> last_template_handler(["o/a", "trabalha", "ndo", "r"], "pt")
+        'trabalhando'
+
         >>> last_template_handler(["PEPB", "1=Autoridade Nacional Palestiniana", "2=Autoridade Nacional Palestina"], "pt")
         'Autoridade Nacional Palestiniana <sup>(português europeu)</sup> ou Autoridade Nacional Palestina <sup>(português do Brasil)</sup>'
         >>> last_template_handler(["PEPB", "autocarro", "ônibus"], "pt")
@@ -189,6 +196,11 @@ def last_template_handler(
         if data.get("ponto", "") != "não":
             phrase += "."
 
+        return phrase
+
+    if tpl == "o/a":
+        phrase = parts.pop(0)
+        phrase += f"{parts[0]}" if parts else "a"
         return phrase
 
     if tpl in ("PEPB", "PBPE"):
