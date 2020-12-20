@@ -62,6 +62,8 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{barra de cor|#0000FF|#0000FF}}
+    "barra de cor": "color(parts[-1])",
     # {{escopo|Pecuária}}
     # {{escopo|pt|estrangeirismo}}
     # {{escopo|pt|coloquial|brasil}}
