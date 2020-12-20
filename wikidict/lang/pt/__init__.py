@@ -96,6 +96,8 @@ templates_multi = {
     "mq": 'f"o mesmo que {strong(parts[1]) if len(parts) == 2 else italic(parts[1])}"',
     # {{r|la|basium|basĭum}}
     "r": "parts[-1]",
+    # {{r.l|la|utor|ūtor}}
+    "r.l": "parts[-1]",
     # {{varort|tenu-|pt}}
     "varort": 'f"variante ortográfica de {strong(parts[1])}"',
 }
