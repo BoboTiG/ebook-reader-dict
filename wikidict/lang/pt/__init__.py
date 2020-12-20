@@ -136,6 +136,8 @@ def last_template_handler(
         'autocarro <sup>(português europeu)</sup> ou ônibus <sup>(português do Brasil)</sup>'
         >>> last_template_handler(["PEPB", "inline=1", "atómico", "atômico"], "pt")
         'atómico/atômico'
+        >>> last_template_handler(["PBPE", "estafe", "stafe"], "pt")
+        'estafe <sup>(português do Brasil)</sup> ou stafe <sup>(português europeu)</sup>'
 
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
@@ -189,12 +191,16 @@ def last_template_handler(
 
         return phrase
 
-    if tpl == "PEPB":
+    if tpl in ("PEPB", "PBPE"):
         part1 = data["1"] or parts.pop(0)
         part2 = data["2"] or parts.pop(0)
+        cmpl1 = "<sup>(português europeu)</sup>"
+        cmpl2 = "<sup>(português do Brasil)</sup>"
+        if tpl == "PBPE":
+            cmpl1, cmpl2 = cmpl2, cmpl1
         if data["inline"] == "1":
             return f"{part1}/{part2}"
-        return f"{part1} <sup>(português europeu)</sup> ou {part2} <sup>(português do Brasil)</sup>"
+        return f"{part1} {cmpl1} ou {part2} {cmpl2}"
 
     if tpl == "xlatio":
         return f"{parts[1]} {parts[2]}"
