@@ -107,6 +107,8 @@ def last_template_handler(
         '<i>canis</i> (“cão”)'
         >>> last_template_handler(["etimo", "la", "duos", "(duōs)"], "pt")
         '<i>duos</i> (duōs)'
+        >>> last_template_handler(["étimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
+        '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
 
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
@@ -148,12 +150,14 @@ def last_template_handler(
     tpl, *parts = template
     data = extract_keywords_from(parts)
 
-    if tpl == "etimo":
+    if tpl in ("etimo", "étimo"):
         parts.pop(0)  # Remove the lang
         phrase = italic(parts.pop(0))
         if parts:
             phrase += f" {parts[0]}"
-        elif data["sign"]:
+        if data["transl"]:
+            phrase += " " + italic(f"({data['transl']})")
+        if data["sign"]:
             phrase += f" (“{data['sign']}”)"
         return phrase
 
