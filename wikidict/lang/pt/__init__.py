@@ -145,36 +145,29 @@ def last_template_handler(
     from ..defaults import last_template_handler as default
     from ...user_functions import extract_keywords_from, italic
 
-    tpl = template[0]
-    parts = list(template[1:])
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
 
-    # Handle {{etimo}} template
     if tpl == "etimo":
-        phrase = italic(parts[1])
-        if len(parts) == 3:
-            word = parts[2]
-            if word.startswith("sign="):
-                word = word.split("=", 1)[1]
-                phrase += f" (“{word}”)"
-            else:
-                phrase += f" {word}"
+        parts.pop(0)  # Remove the lang
+        phrase = italic(parts.pop(0))
+        if parts:
+            phrase += f" {parts[0]}"
+        elif data["sign"]:
+            phrase += f" (“{data['sign']}”)"
         return phrase
 
-    # Handle {{etm}} template
     if tpl == "etm":
         return langs[parts[0]]
 
-    # Handle {{llietimo}} template
     if tpl == "llietimo":
-        data = extract_keywords_from(parts)
         src, word, *rest = parts
         phrase = f"Do {langs[src]} {italic(word)}"
 
-        if "transcr" in data:
-            transcr = data["transcr"]
-            phrase += f" ({italic(transcr)})"
+        if data["transcr"]:
+            phrase += f" ({italic(data['transcr'])})"
 
-        if "trad" in data:
+        if data["trad"]:
             trad = data["trad"]
             phrase += f' "{trad}"'
 
@@ -193,7 +186,6 @@ def last_template_handler(
         return phrase
 
     if tpl == "PEPB":
-        data = extract_keywords_from(parts)
         part1 = data["1"] or parts.pop(0)
         part2 = data["2"] or parts.pop(0)
         if data["inline"] == "1":
