@@ -95,6 +95,8 @@ templates_multi = {
     "link preto": "parts[-1]",
     # {{ll|publicar}}
     "ll": "parts[-1]",
+    # {m|ar|شيشة|tr=šīša}}
+    "m": "italic('masculino')",
     # {{mq|palavra}}
     # {{mq|word|en}}
     "mq": 'f"o mesmo que {strong(parts[1]) if len(parts) == 2 else italic(parts[1])}"',

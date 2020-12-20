@@ -162,6 +162,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{l.s.|uso}}", "uso"),
         ("{{link preto|ciconiforme}}", "ciconiforme"),
         ("{{ll|publicar}}", "publicar"),
+        ("{{m|ar|شيشة|tr=šīša}}", "<i>masculino</i>"),
         ("{{mq|palavra}}", "o mesmo que <b>palavra</b>"),
         ("{{mq|word|en}}", "o mesmo que <i>word</i>"),
         ("{{r|la|basium|basĭum}}", "basĭum"),
