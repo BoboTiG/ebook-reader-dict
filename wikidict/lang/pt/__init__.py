@@ -135,6 +135,25 @@ def last_template_handler(
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
 
+        >>> last_template_handler(["gramática", "m", "incont", "c", "comp", "concr"], "pt")
+        '<i>masculino</i>, <i>incontável</i>, <i>comum</i>, <i>composto</i>, <i>concreto</i>'
+        >>> last_template_handler(["gramática", "?"], "pt")
+        '<small>gênero em falta</small>'
+        >>> last_template_handler(["gramática", "mp", "card", "pr", "sim", "abstr"], "pt")
+        '<i>masculino plural</i>, <i>cardinal</i>, <i>próprio</i>, <i>simples</i>, <i>abstrato</i>'
+        >>> last_template_handler(["gramática", "m", "p", "ord"], "pt")
+        '<i>masculino</i>, <i>plural</i>, <i>ordinal</i>'
+        >>> last_template_handler(["gramática", "fp", "card"], "pt")
+        '<i>feminino plural</i>, <i>cardinal</i>'
+        >>> last_template_handler(["gramática", "m", "f", "cont"], "pt")
+        '<i>masculino</i>, <i>feminino</i>, <i>contável</i>'
+        >>> last_template_handler(["gramática", "m", "f", "p", "int"], "pt")
+        '<i>masculino</i>, <i>feminino</i>, <i>plural</i>, <i>interrogativo</i>'
+        >>> last_template_handler(["gramática", "mp", "fp", "poss"], "pt")
+        '<i>masculino plural</i>, <i>feminino plural</i>, <i>possessivo</i>'
+        >>> last_template_handler(["gramática", "n", "d", "trat"], "pt")
+        '<i>neutro</i>, <i>dual</i>, <i>de tratamento</i>'
+
         >>> last_template_handler(["llietimo", "en", "anaconda"], "pt")
         'Do inglês <i>anaconda</i>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
@@ -175,8 +194,9 @@ def last_template_handler(
         'chimica f.'
     """  # noqa
     from .langs import langs
+    from .gramatica import gramatica_short
     from ..defaults import last_template_handler as default
-    from ...user_functions import extract_keywords_from, italic
+    from ...user_functions import concat, extract_keywords_from, italic, small
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -194,6 +214,17 @@ def last_template_handler(
 
     if tpl == "etm":
         return langs[parts[0]]
+
+    if tpl in ("g", "gramática"):
+        result = []
+        for p in parts:
+            full = gramatica_short.get(p, "")
+            if full:
+                if p == "?":
+                    result.append(small(full))
+                else:
+                    result.append(italic(full))
+        return concat(result, ", ")
 
     if tpl == "llietimo":
         src, word, *rest = parts
