@@ -441,8 +441,8 @@ def transform(word: str, template: str, locale: str) -> str:
 
         >>> # Magic word (date/time formats)
         >>> assert len(transform("foo", "CURRENTYEAR", "fr")) == 4
-        >>> assert len(transform("foo", "CURRENTMONTH", "fr")) in (1, 2)
-        >>> assert len(transform("foo", "CURRENTMONTH1", "fr")) == 2
+        >>> assert len(transform("foo", "CURRENTMONTH", "fr")) == 2
+        >>> assert len(transform("foo", "CURRENTMONTH1", "fr")) in (1, 2)
         >>> assert len(transform("foo", "CURRENTDAY", "fr")) in (1, 2)
         >>> assert len(transform("foo", "CURRENTDAY2", "fr")) == 2
         >>> assert len(transform("foo", "CURRENTDOW", "fr")) == 1
