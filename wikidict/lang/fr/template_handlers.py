@@ -11,6 +11,33 @@ from ...user_functions import (
 )
 
 
+def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_abreviation("abréviation", [], defaultdict(str))
+    '<i>Abréviation</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str))
+    '<i>Abréviation</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain", "m": "1"}))
+    'Abréviation de <i>dirham marocain</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain"}))
+    'abréviation de <i>dirham marocain</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "accusatif", "texte": "'''acc'''usatif"}))
+    "abréviation de <i>'''acc'''usatif</i>"
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "accusatif", "texte": "'''acc'''usatif", "nolien": "oui"}))
+    'abréviation de <i>accusatif</i>'
+    """  # noqa
+    if not parts or not data:
+        return italic("Abréviation")
+
+    auto_cap = data["m"] in ("1", "oui")
+    phrase = ("A" if auto_cap else "a") + "bréviation de "
+    if data["texte"] and data["nolien"] not in ("1", "oui"):
+        phrase += italic(data["texte"])
+    elif data["de"]:
+        phrase += italic(data["de"])
+    return phrase
+
+
 def render_acronyme(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_acronyme("acronyme", ["fr"], defaultdict(str))
@@ -520,6 +547,7 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 template_mapping = {
+    "abréviation": render_abreviation,
     "acronyme": render_acronyme,
     "agglutination": render_agglutination,
     "argot": render_argot,
