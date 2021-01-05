@@ -1,11 +1,12 @@
 """
-List of form-of templates https://en.wiktionary.org/wiki/Category:Form-of_templates
-From: https://en.wiktionary.org/wiki/Template:place
+List of form-of templates
+Source: https://en.wiktionary.org/wiki/Category:Form-of_templates
 Current version:
-    2020-12-02T14:47:01
-    https://en.wiktionary.org/w/index.php?title=Category:Form-of_templates&oldid=60765059
-See https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BEN%5D-Parse-the-%22form-of%22-templates-documentation
-"""
+    15:53, 3 December 2020
+    https://en.wiktionary.org/w/index.php?title=Category:Form-of_templates&oldid=61241583
+
+Dict generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BEN%5D-Parse-the-%22form-of%22-templates-documentation
+"""  # noqa
 
 form_of_templates = {
     "abbreviation of": {
@@ -53,6 +54,10 @@ form_of_templates = {
         "dot": False,
     },
     "alt case": {
+        "text": "Alternative letter-case form of",
+        "dot": False,
+    },
+    "altcaps": {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
@@ -665,4 +670,4 @@ form_of_templates = {
         "dot": False,
     },
 }
-# 164
+# 165
