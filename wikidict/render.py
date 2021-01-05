@@ -306,7 +306,7 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
     manager = Manager()
     results: Words = manager.dict()
 
-    with Pool(processes=cpu_count() - 1) as pool:
+    with Pool(processes=cpu_count()) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()
