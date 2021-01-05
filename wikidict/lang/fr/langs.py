@@ -2,8 +2,8 @@
 List of languages.
 Source: https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_langues
 Current version:
-    2020-09-27T14:47:01
-    https://fr.wiktionary.org/w/index.php?title=Wiktionnaire:Liste_des_langues&oldid=28646146
+    2020-11-20T05:01:53
+    https://fr.wiktionary.org/w/index.php?title=Wiktionnaire:Liste_des_langues&oldid=28797156
 
 List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BFR%5D-Parsing-the-languages-list.
 """
@@ -783,6 +783,7 @@ langs = {
     "bry": "burui",
     "bs": "bosniaque",
     "bsc": "bassari",
+    "bse": "wushi",
     "bsg": "bashkardi",
     "bsh": "kati",
     "bsk": "bourouchaski",
@@ -1846,6 +1847,7 @@ langs = {
     "grb": "grébo",
     "grc": "grec ancien",
     "grd": "guruntum",
+    "grec cargésien": "grec cargésien",
     "grg": "madi",
     "grh": "gbiri-niragu",
     "gri": "ghari",
@@ -2409,7 +2411,9 @@ langs = {
     "kge": "komering",
     "kgf": "kube",
     "kgg": "kusunda",
+    "kgj": "kham gamale",
     "kgk": "kaiwa",
+    "kgl": "kunggari",
     "kgo": "krongo",
     "kgp": "kaingang",
     "kgq": "kamoro",
@@ -2863,6 +2867,8 @@ langs = {
     "lih": "lihir",
     "lii": "limkhim",
     "lij": "ligure",
+    "lij-MC": "monégasque",
+    "lij-mc": "monégasque",
     "lik": "lika",
     "lil": "lillooet",
     "lim": "limbourgeois",
@@ -3248,6 +3254,8 @@ langs = {
     "mlw": "moloko",
     "mlx": "naha’ai",
     "mma": "mama",
+    "mmb": "momina",
+    "mmc": "mazahua du Michoacán",
     "mmd": "maonan",
     "mme": "mae",
     "mmf": "mundat",
@@ -3294,6 +3302,8 @@ langs = {
     "moi": "mboi",
     "mok": "morori",
     "mom": "mangue",
+    "mon": "mongol",
+    "monégasque": "monégasque",
     "moo": "monom",
     "mop": "mopan",
     "mor": "moro",
@@ -3663,6 +3673,7 @@ langs = {
     "nim": "nilamba",
     "nin": "ninzo",
     "nio": "nganassan",
+    "nipissing": "nipissing",
     "niq": "nandi",
     "nir": "nimboran",
     "nis": "nimi",
@@ -5123,6 +5134,7 @@ langs = {
     "thd": "thayore",
     "the": "chitwania",
     "thf": "thangmi",
+    "thh": "tarahumara du Nord",
     "thi": "tai long",
     "thk": "tharaka",
     "thm": "thavung",
@@ -6239,7 +6251,8 @@ langs = {
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
 }
-# 6,228
+# 6,240
+
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
 langs["bas latin"] = "bas latin"  # 2020-07-19
