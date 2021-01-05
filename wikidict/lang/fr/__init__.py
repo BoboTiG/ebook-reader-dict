@@ -207,7 +207,6 @@ templates_ignored = (
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
 templates_italic = {
     **domain_templates,
-    "abréviation": "Abréviation",
     "absol": "Absolument",
     "adj-indéf-avec-de": "Avec de",
     "admin": "Administration",
