@@ -178,6 +178,7 @@ templates_ignored = (
     "fr-rég",
     "ibid",
     "Import",
+    "lien-ancre-étym",
     "lien web",
     "Modèle",
     "Ouvrage",
