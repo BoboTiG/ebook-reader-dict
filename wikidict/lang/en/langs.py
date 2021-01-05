@@ -1,5 +1,6 @@
 """
 List of languages.
+Current version: 2021-01-06
 List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BEN%5D-Parsing-the-languages-list.
 """
 
@@ -530,6 +531,7 @@ langs = {
     "ar": "Arabic",
     "arc": "Aramaic",
     "arc-bib": "Biblical Aramaic",
+    "arc-cpa": "Christian Palestinian Aramaic",
     "arc-hat": "Hatran Aramaic",
     "arc-imp": "Imperial Aramaic",
     "arc-pal": "Palmyrene Aramaic",
@@ -773,6 +775,7 @@ langs = {
     "ayy": "Tayabas Ayta",
     "ayz": "Maybrat",
     "az": "Azerbaijani",
+    "az-cls": "Classical Azerbaijani",
     "aza": "Azha",
     "azc": "Uto-Aztecan",
     "azc-caz": "Cazcan",
@@ -2391,6 +2394,7 @@ langs = {
     "ert": "Eritai",
     "erw": "Erokwanas",
     "es": "Spanish",
+    "es-AR": "Rioplatense Spanish",
     "es-MX": "Mexican Spanish",
     "es-US": "United States Spanish",
     "es-lun": "Lunfardo",
@@ -2408,9 +2412,12 @@ langs = {
     "esx": "Eskimo-Aleut",
     "esx-esk": "Eskimo",
     "esx-esk-pro": "Proto-Eskimo",
+    "esx-ink": "Inuktun",
+    "esx-inq": "Inuinnaqtun",
     "esx-inu": "Inuit",
     "esx-inu-pro": "Proto-Inuit",
     "esx-pro": "Proto-Eskimo-Aleut",
+    "esx-tut": "Tunumiisut",
     "esy": "Eskayan",
     "et": "Estonian",
     "etb": "Etebi",
@@ -2950,6 +2957,7 @@ langs = {
     "hdy": "Hadiyya",
     "he": "Hebrew",
     "he-IL": "Modern Israeli Hebrew",
+    "he-med": "Medieval Hebrew",
     "he-mis": "Mishnaic Hebrew",
     "hea": "Northern Qiandong Miao",
     "hed": "Herdé",
@@ -5976,6 +5984,7 @@ langs = {
     "okm-ear": "Early Middle Korean",
     "okn": "Oki-No-Erabu",
     "oko": "Old Korean",
+    "oko-lat": "Late Old Korean",
     "okr": "Kirike",
     "oks": "Oko-Eni-Osayen",
     "oku": "Oku",
@@ -6913,7 +6922,7 @@ langs = {
     "sai-jir": "Jirajaran",
     "sai-jiv": "Jivaroan",
     "sai-jko": "Jeikó",
-    "sai-jrj": "Jirajira",
+    "sai-jrj": "Jirajara",
     "sai-kat": "Katembri",
     "sai-ktk": "Katukinan",
     "sai-mal": "Malalí",
@@ -7140,8 +7149,7 @@ langs = {
     "sem-osa": "Old South Arabian",
     "sem-pro": "Proto-Semitic",
     "sem-saf": "Safaitic",
-    "sem-sar": "South Arabian",
-    "sem-sou": "South Semitic",
+    "sem-sar": "Modern South Arabian",
     "sem-srb": "Old South Arabian",
     "sem-tay": "Taymanitic",
     "sem-tha": "Thamudic",
@@ -7348,7 +7356,7 @@ langs = {
     "sko": "Seko Tengah",
     "skp": "Sekapan",
     "skq": "Sininkere",
-    "skr": "Seraiki",
+    "skr": "Saraiki",
     "skr-prk": "Sakari",
     "sks": "Maia",
     "skt": "Sakata",
@@ -9480,4 +9488,4 @@ langs = {
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
 }
-# 9,475
+# 9,482
