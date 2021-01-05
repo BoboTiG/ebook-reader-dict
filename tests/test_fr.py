@@ -104,11 +104,11 @@ from wikidict.utils import process_templates
                         "<i>(Par extension)</i> Côté du triangle opposé à l’angle qui est regardé comme le sommet.",
                         "Côté d’une figure géométrique naturellement choisi comme côté principal.",
                     ),
-                    "<i>(Algèbre)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
+                    "<i>(Algèbre linéaire)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
                     "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
                     "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",
                 ),
-                "<i>(Par analogie)</i> <i>(Botanique)</i> <i>(Anatomie)</i> Côté opposé à la partie la plus pointue d’un organe.",  # noqa
+                "<i>(Par analogie)</i> <i>(Anatomie, Botanique)</i> Côté opposé à la partie la plus pointue d’un organe.",  # noqa
                 "<i>(Géodésie)</i> Côté initial mesuré directement sur le terrain.",
                 "<i>(Militaire)</i> Ensemble des points de ravitaillement avec lesquels une armée en campagne se tient en relations constantes.",  # noqa
                 "<i>(Marine)</i> Port de ravitaillement ou de refuge des navires en temps de guerre.",  # noqa
