@@ -2,8 +2,8 @@
 List of languages.
 Source: https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma
 Current version:
-    03:14, 24 September 2020‎
-    https://es.wiktionary.org/w/index.php?title=Ap%C3%A9ndice:C%C3%B3digos_de_idioma&oldid=4951302
+    15:54 19 dic 2020
+    https://es.wiktionary.org/w/index.php?title=Ap%C3%A9ndice:C%C3%B3digos_de_idioma&oldid=4975371
 
 List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BES%5D-Parsing-the-languages-list.
 """
@@ -91,6 +91,7 @@ langs = {
     "av": "avar",
     "avc": "avéstico clásico",
     "avg": "avéstico gatha",
+    "avk": "kotava",
     "avs": "aushiri",
     "avv": "avá canoero",
     "awa": "awadhi",
@@ -421,6 +422,7 @@ langs = {
     "ho": "hiri motu",
     "hop": "hopi",
     "hr": "croata",
+    "hrx": "hunsrik",
     "hsb": "alto sórabo",
     "ht": "criollo haitiano",
     "hti": "hodi",
@@ -796,6 +798,7 @@ langs = {
     "pam": "pampango",
     "pap": "papiamento",
     "pau": "palauano",
+    "pbb": "paez",
     "pcd": "picardo",
     "pdc": "alemán de Pensilvania",
     "pdt": "bajo alemán menonita",
@@ -855,6 +858,7 @@ langs = {
     "quc": "quiché",
     "qug": "quechua chimboracense",
     "quh": "quechua boliviano",
+    "qup": "quechua del Pastaza",
     "qus": "quichua santiagueño",
     "quy": "quechua ayacuchano",
     "quz": "quechua cuzqueño",
@@ -916,6 +920,7 @@ langs = {
     "sd": "sindhi",
     "sdn": "gallurés",
     "se": "sami septentrional",
+    "see": "seneca",
     "sei": "seri",
     "sel": "selkup",
     "sem": "protosemítico",
@@ -1173,4 +1178,4 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
 }
-# 1,163
+# 1,168
