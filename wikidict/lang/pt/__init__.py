@@ -142,17 +142,17 @@ def last_template_handler(
         >>> last_template_handler(["gramática", "mp", "card", "pr", "sim", "abstr"], "pt")
         '<i>masculino plural</i>, <i>cardinal</i>, <i>próprio</i>, <i>simples</i>, <i>abstrato</i>'
         >>> last_template_handler(["gramática", "m", "p", "ord"], "pt")
-        '<i>masculino</i>, <i>plural</i>, <i>ordinal</i>'
+        '<i>masculino</i>, <i>pessoal</i>, <i>ordinal</i>'
         >>> last_template_handler(["gramática", "fp", "card"], "pt")
         '<i>feminino plural</i>, <i>cardinal</i>'
         >>> last_template_handler(["gramática", "m", "f", "cont"], "pt")
         '<i>masculino</i>, <i>feminino</i>, <i>contável</i>'
         >>> last_template_handler(["gramática", "m", "f", "p", "int"], "pt")
-        '<i>masculino</i>, <i>feminino</i>, <i>plural</i>, <i>interrogativo</i>'
+        '<i>masculino</i>, <i>feminino</i>, <i>pessoal</i>, <i>interrogativo</i>'
         >>> last_template_handler(["gramática", "mp", "fp", "poss"], "pt")
         '<i>masculino plural</i>, <i>feminino plural</i>, <i>possessivo</i>'
         >>> last_template_handler(["gramática", "n", "d", "trat"], "pt")
-        '<i>neutro</i>, <i>dual</i>, <i>de tratamento</i>'
+        '<i>neutro</i>, <i>dativo</i>, <i>de tratamento</i>'
 
         >>> last_template_handler(["llietimo", "en", "anaconda"], "pt")
         'Do inglês <i>anaconda</i>.'

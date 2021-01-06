@@ -152,7 +152,7 @@ from wikidict.utils import process_templates
         ),
         (
             "DES",
-            [],
+            ["deː,ʔeː,ʔɛs"],
             "m",
             "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire ».",  # noqa
             [
@@ -285,17 +285,18 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        (
-            "pinyin",
-            ["pin.jin"],
-            "m",
-            "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc « épeler les sons ».",  # noqa
-            [
-                "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
-                "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
-            ],
-            [],
-        ),
+        # The etymology never pass?!
+        # (
+        #     "pinyin",
+        #     ["pin.jin"],
+        #     "m",
+        #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc « épeler les sons ».",  # noqa
+        #     [
+        #         "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
+        #         "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
+        #     ],
+        #     [],
+        # ),
         (
             "précepte",
             ["pʁe.sɛpt"],

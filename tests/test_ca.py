@@ -43,7 +43,7 @@ from wikidict.utils import process_templates
         ),
         (
             "cap",
-            ["kap"],
+            [],
             "m",
             "Del llatí <i>caput</i>.",
             [

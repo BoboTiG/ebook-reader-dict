@@ -61,7 +61,7 @@ from wikidict.utils import process_templates
             [],
             "",
             [
-                "nordiskt språk som talas i Sverige och Finland (officiellt i Finland)",
+                "nordiskt språk som talas i Sverige och Finland (officiellt i båda länderna)",
                 "svensk kvinna",
             ],
         ),
