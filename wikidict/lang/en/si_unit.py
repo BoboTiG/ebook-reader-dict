@@ -1,5 +1,5 @@
 """
-List of SI unit, their types, prefixes and symbols
+List of SI unit, their types, prefixes and symbols.
 """
 
 unit_to_type = {

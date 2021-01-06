@@ -27,10 +27,10 @@ for tr in trs:
         placetype = tds.pop("placetype", None)
         aliases = tds.pop("aliases").split(",")
         placetypes[placetype] = tds
-        print(f'    "{placetype}": {{ ', end="")
+        print(f'    "{placetype}": {{')
         for key in tds:
-            print(f'"{key}": "{tds[key]}", ', end="")
-        print("},")
+            print(f'        "{key}": "{tds[key]}",')
+        print("    },")
         for alias in sorted(aliases):
             alias = alias.strip()
             if alias:

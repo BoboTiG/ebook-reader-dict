@@ -1,13 +1,9 @@
 """
 List of languages.
-Source: https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma
-Current version:
-    15:54 19 dic 2020
-    https://es.wiktionary.org/w/index.php?title=Ap%C3%A9ndice:C%C3%B3digos_de_idioma&oldid=4975371
-
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BES%5D-Parsing-the-languages-list.
+Auto-generated with `python -m scripts`.
 """
 
+# START
 langs = {
     "0hk": "darkinyung",
     "0hl": "dharug",
@@ -1177,5 +1173,5 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}
-# 1,168
+}  # 1,168
+# END

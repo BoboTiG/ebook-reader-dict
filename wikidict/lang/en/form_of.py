@@ -1,13 +1,9 @@
 """
-List of form-of templates
-Source: https://en.wiktionary.org/wiki/Category:Form-of_templates
-Current version:
-    15:53, 3 December 2020
-    https://en.wiktionary.org/w/index.php?title=Category:Form-of_templates&oldid=61241583
+List of form-of templates.
+Auto-generated with `python -m scripts`.
+"""
 
-Dict generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BEN%5D-Parse-the-%22form-of%22-templates-documentation
-"""  # noqa
-
+# START
 form_of_templates = {
     "abbreviation of": {
         "text": "Abbreviation of",
@@ -669,5 +665,5 @@ form_of_templates = {
         "text": "vocative singular of",
         "dot": False,
     },
-}
-# 165
+}  # 165
+# END

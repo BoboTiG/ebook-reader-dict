@@ -1,15 +1,9 @@
 """
 List of languages.
-Source: https://github.com/unicode-org/cldr/blob/master/common/main/ca.xml
-and https://ca.wiktionary.org/wiki/M%C3%B2dul:llengua/taula
-Current version:
-    22:55, 17 des 2020
-    https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:llengua/taula&oldid=1610922
-    https://github.com/unicode-org/cldr/blob/f60028dc314196a4b48697190dd9ee3401966e1e/common/main/ca.xml
-
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BCA%5D-Parsing-the-languages-list.
+Auto-generated with `python -m scripts`.
 """
 
+# START
 langs = {
     "aa": "àfar",
     "ab": "abkhaz",
@@ -584,5 +578,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}
-# 573
+}  # 573
+# END

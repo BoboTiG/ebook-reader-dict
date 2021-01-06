@@ -1,9 +1,9 @@
 """
 List of languages.
-Current version: 2021-01-06
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BEN%5D-Parsing-the-languages-list.
+Auto-generated with `python -m scripts`.
 """
 
+# START
 langs = {
     "AE.": "American English",
     "AG.": "Austrian German",
@@ -9487,5 +9487,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}
-# 9,482
+}  # 9,482
+# END

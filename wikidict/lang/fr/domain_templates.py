@@ -1,13 +1,9 @@
 """
 List of domain templates.
-Source: https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_de_th%C3%A9matique
-Current version:
-    2020-11-25T09:38:49
-    https://fr.wiktionary.org/w/index.php?title=Cat%C3%A9gorie:Mod%C3%A8les_de_th%C3%A9matique&oldid=28885229
-
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BFR%5D-Parsing-the-domain-templates-pages
+Auto-generated with `python -m scripts`.
 """
 
+# START
 domain_templates = {
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
@@ -271,5 +267,5 @@ domain_templates = {
     "voitures": "Automobile",
     "xénarthres": "Mammalogie",
     "zoologie": "Zoologie",
-}
-# 262
+}  # 262
+# END

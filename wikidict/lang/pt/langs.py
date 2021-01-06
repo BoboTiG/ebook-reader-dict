@@ -1,15 +1,9 @@
 """
 List of languages.
-Source: https://pt.wiktionary.org/wiki/Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos
-Current version:
-    23:14, 24 May 2020‎
-    https://pt.wiktionary.org/w/index.php?title=Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/A-L&oldid=2588736
-    00:22, 25 May 2020‎
-    https://pt.wiktionary.org/w/index.php?title=Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/M-Z&oldid=2588737
-
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BPT%5D-Parsing-the-languages-list.
+Auto-generated with `python -m scripts`.
 """
 
+# START
 langs = {
     "aa": "afar",
     "aaa": "ghotuo",
@@ -986,8 +980,8 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}
-# 975
+}  # 975
+# END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
 langs["nci"] = "náuatle clássico"  # 2020-12-20

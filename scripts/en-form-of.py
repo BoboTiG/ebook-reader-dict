@@ -28,7 +28,7 @@ trs = body.find_all("tr")
 trs.pop(0)  # remove header
 alias_dict = {}
 count = 0
-print("form_of_templates = {{")
+print("form_of_templates = {")
 for tr in trs:
     tds_html = tr.find_all("td")
     tds = [t.text.strip() for t in tds_html]
@@ -40,7 +40,7 @@ for tr in trs:
         print(f'    "{tds["template"]}": {{')
         print(f'        "text": "{text}",')
         print(f'        "dot": {True if tds["dot"] == "yes" else False},')
-        print("    }},")
+        print("    },")
         count += 1
         for alias in sorted(tds["aliases"].split(",")):
             alias = alias.strip()
@@ -48,7 +48,7 @@ for tr in trs:
                 print(f'    "{alias}": {{')
                 print(f'        "text": "{text}",')
                 print(f'        "dot": {True if tds["dot"] == "yes" else False},')
-                print("    }},")
+                print("    },")
                 count += 1
 
 print(f"}}  # {count:,}")

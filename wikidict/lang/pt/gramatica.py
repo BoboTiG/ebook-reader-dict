@@ -1,12 +1,9 @@
 """
-Shorcuts for gramatica.
-From https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C3%A1tica/core&action=edit
-Current version:
-    12:30, 27 Dec 2020‎
-    https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C3%A1tica/core&oldid=2522819
-Generated with https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BPT%5D-Parsing-Predefini%C3%A7%C3%A3o:gram%C3%A1tica
+Shorcuts for gramática.
+Auto-generated with `python -m scripts`.
 """
 
+# START
 gramatica_short = {
     "m": "masculino",
     "f": "feminino",
@@ -176,5 +173,5 @@ gramatica_short = {
     "cvv": "com valor de verbo",
     "mai": "maiúscula",
     "min": "minúscula",
-}
-# 168
+}  # 168
+# END

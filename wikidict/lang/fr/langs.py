@@ -1,14 +1,9 @@
 """
 List of languages.
-Source: https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_langues
-Current version:
-    2020-11-20T05:01:53
-    https://fr.wiktionary.org/w/index.php?title=Wiktionnaire:Liste_des_langues&oldid=28797156
-
-List generated using https://github.com/BoboTiG/ebook-reader-dict/wiki/%5BFR%5D-Parsing-the-languages-list.
+Auto-generated with `python -m scripts`.
 """
 
-# Langues
+# START
 langs = {
     "aa": "afar",
     "aaa": "ghotuo",
@@ -6250,9 +6245,8 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}
-# 6,240
-
+}  # 6,240
+# END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
 langs["bas latin"] = "bas latin"  # 2020-07-19
