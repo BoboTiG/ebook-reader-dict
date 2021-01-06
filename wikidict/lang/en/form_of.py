@@ -49,11 +49,11 @@ form_of_templates = {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
-    "alt case": {
+    "altcaps": {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
-    "altcaps": {
+    "alt case": {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
@@ -61,11 +61,11 @@ form_of_templates = {
         "text": "Alternative form of",
         "dot": False,
     },
-    "alt form": {
+    "altform": {
         "text": "Alternative form of",
         "dot": False,
     },
-    "altform": {
+    "alt form": {
         "text": "Alternative form of",
         "dot": False,
     },

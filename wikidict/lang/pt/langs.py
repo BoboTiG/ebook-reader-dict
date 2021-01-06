@@ -286,7 +286,7 @@ langs = {
     "for": "fore",
     "fos": "siraya",
     "fr": "francês",
-    "frk": "francônio antigo",
+    "frk": "frâncico",
     "frm": "francês médio",
     "fro": "francês antigo",
     "frp": "franco-provençal",
