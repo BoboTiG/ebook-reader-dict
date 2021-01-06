@@ -21,10 +21,12 @@ jobs:
         python-version: 3.8
 
     - name: Install requirements
-      run: python -m pip install -r requirements.txt
+      run: python -m pip install -r requirements-tests.txt
 
     - name: Update data
-      run: python -m scripts
+      run: |
+        python -m scripts
+        ./check.sh
 
     - name: Push changes
       uses: Automattic/action-commit-to-branch@master
