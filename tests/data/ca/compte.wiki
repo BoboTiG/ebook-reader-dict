@@ -1,3 +1,5 @@
+{{vegeu|Compte}}
+
 == {{-ca-}} ==
 {{ca-pron|ó}}
 {{homòfons|lang=ca|compta|comte}}
@@ -107,4 +109,3 @@
 
 {{-var-}}
 * {{e|oc|compde}} {{q|aranès}}
-

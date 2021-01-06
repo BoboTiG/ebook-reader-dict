@@ -22,7 +22,7 @@
 # {{Québec|fr}} {{familier|fr}} [[être défoncé]], être [[drogué]].
 #* ''Il a tant fumé de cannabis qu'il est totalement '''gelé'''.''
 # {{intransitif|fr}} Se [[durcir]] par le [[froid]], ou [[subir]] l’[[action]] du froid.
-#* ''Un rude hiver s’est abattu sur la campagne bourguignonne : les quelques arpents de vigne qui font vivre la famille '''ont gelé'''.'' {{source|Rosa Moussaoui, ''Zéphyrin Camélinat (1840-1932) Un long chemin, de la commune au communisme'', dans {{w|L'Humanité}}, 7 septembre 2011}}
+#* ''Un rude hiver s’est abattu sur la campagne bourguignonne : les quelques arpents de vigne qui font vivre la famille '''ont gelé'''.'' {{source|Rosa Moussaoui, ''Zéphyrin Camélinat (1840-1932) Un long chemin,  de la commune au communisme'', dans {{w|L'Humanité}}, 7 septembre 2011}}
 # {{impersonnel|fr}} - faire plus froid que 0 <sup>o</sup>C.
 #* ''J’ai grimpé avec le pilote à mon poste dans les barres de perroquet ; il '''gelait''' et nous remontions vers le Nord, les voiles serrées, contre un vent coupant et froid.'' {{source|{{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
 # {{intransitif|fr}} {{exagération|fr}} {{courant|fr}} Avoir [[extrêmement]] froid, [[subir]] une [[sensation]] de froid [[intense]].

@@ -4,4 +4,36 @@
 
 === {{S|verbe|fr}} ===
 '''colliger''' {{pron|kɔ.li.ʒe|fr}} {{t|fr}} {{conj|grp=1|fr}}
-# Réunir des [[élément]]s
+# Réunir des [[élément]]s, des [[extrait]]s de [[document]]s dans le but de réaliser une [[anthologie]], une [[synthèse]].
+#* '' Plus immédiatement, un dépouillement systématique des collections linguistiques rassemblées dans les grands centres de recherche arctique […] m’a permis de '''colliger''' une bonne partie des documents utilisés ici.'' {{source|Louis-Jacques Dorais, ''La Parole Inuit'' ; Avant-propos}}
+# Recueillir ou [[rassembler]] des [[élément]]s de même nature.
+#* ''Les louis d'or portant le millésime de l'année 1723 furent appelés mirlitons, et sont encore ainsi nommés par les numismates érudits, qui les '''colligent''' et vénèrent à cause de cette singularité.'' {{source|« ''Le Mirliton'' », dans le ''Petit courrier des dames: Journal des modes'', du 5 avril 1849, tome 56, Paris : Imprimerie Dondet-Dupré}}
+#* ''Il y avait là Godefroy Cavaignac, Coppée, Dausset, Syveton et une nuée de secrétaires, occupés à '''colliger''' les télégrammes des provinces.'' {{source|{{w|Léon Daudet}}, ''Souvenirs des milieux littéraires, politiques, artistiques et médicaux/Salons et Journaux'', Grasset, 1917, réédition Le Livre de Poche, page 266}}
+#* ''Selon les données '''colligées''' par le ministère de l’Immigration et des Communautés culturelles, les taux de présence sont en deçà de 20 % dans le cas des immigrants investisseurs venant de la Corée du Sud (12 %), de la Chine (16  %) et de l’Iran (19 %).'' {{source|Gilbert {{pc|Leduc}}, «Immigration au Québec: une porte d’entrée pour ailleurs», ''La Presse.ca'', 2 août 2013}}
+
+==== {{S|synonymes}} ====
+* [[compiler]]
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|en}} : {{trad+|en|compile}}
+* {{T|es}} : {{trad-|es|recopilar, colegir, coleccionar|f}}
+* {{T|el}} : {{trad+|el|συλλέγω|tr=silégho}}
+* {{T|io}} : {{trad+|io|kolektar}}
+* {{T|oc}} : {{trad-|oc|collegir}}
+{{trad-fin}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Lyon)|audio=LL-Q150 (fra)-Lyokoï-colliger.wav}}
+
+=== {{S|références}} ===
+*{{Import:DAF8}}
+
+== {{langue|ia}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|ia}}
+
+=== {{S|verbe|ia}} ===
+'''colliger''' {{pron|kɔl.li.ˈʒɛr|ia}} {{conjugaison|ia}}
+# [[collectionner|Collectionner]].
+# [[cueillir|Cueillir]].

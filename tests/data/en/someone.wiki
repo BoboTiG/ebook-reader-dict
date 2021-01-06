@@ -6,7 +6,6 @@
 ===Pronunciation===
 * {{a|RP|GA}} {{IPA|en|/ˈsʌmwʌn/}}
 * {{audio|en|en-us-someone.ogg|Audio (GA)}}
-* {{audio|en|LL-Q1860 (eng)-Nattes à chat-someone.wav|Audio}}
 * {{hyphenation|en|some|one}}
 
 ===Pronoun===
@@ -48,6 +47,7 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 * Estonian: {{t+|et|keegi}}
 * Finnish: {{t+|fi|joku}}
 * French: {{t+|fr|quelqu'un}}
+* Friulian: {{t|fur|ciertun}}
 * Galician: {{t+|gl|alguén}}
 * German: {{t+|de|jemand}}, {{t+|de|einer}}
 *: Alemannic German: {{t|gsw|epper}}, {{t|gsw|ebber}}
@@ -65,7 +65,7 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 * Kazakh: {{t|kk|біреу|sc=Cyrl}}
 * Korean: {{t|ko|누군가}}, {{t|ko|[[어떤]] [[사람]]}}
 * Kurdish:
-*: Sorani: {{t+|ku|یەکێک}}, {{t+|ku|کەسێک}}
+*: Central Kurdish: {{t+|ckb|یەکێک}}, {{t+|ckb|کەسێک}}
 {{trans-mid}}
 * Latgalian: {{t|ltg|kaids}}
 * Latin: {{t+|la|aliquis|m|f}}, {{t|la|aliquid|n}}, {{t+|la|quidam|m|f}}, {{t+|la|quidam|n}}, {{t|la|quiddam|n}}, {{t|la|quaedam|f}}
@@ -76,12 +76,12 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 * Norman: {{t|nrf|tchitch'un}}
 * Norwegian:
 *: Bokmål: {{t+|nb|noen}}
-*: Nynorsk: {{t|nn|nokon}}, {{t|nn|einkvan}}
+*: Nynorsk: {{t|nn|nokon}}, {{t|nn|einkvan|m}}, {{t|nn|eikor|f}}
 * Occitan: {{t+|oc|qualqu'un}}
-* Old English: {{t|ang|sum mann}}, {{t|ang|sum}}
-* Old Prussian: {{t-simple|prg|aīnunts}}
+* Old English: {{t|ang|sum mann}}
+* Old Prussian: {{t|prg|aīnunts}}
 * Pennsylvania German: {{t|pdc|ebber}}
-* Persian: {{t+|fa|کسی|tr=kasi}}
+* Persian: {{t+|fa|کسی|tr=kasi}}, {{t+|fa|یکی|tr=yeki}} {{qualifier|informal}}
 * Plautdietsch: {{t|pdt|wäa}}
 * Polish: {{t+|pl|ktoś}}
 * Portuguese: {{t+|pt|alguém}}
@@ -131,8 +131,6 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 ===Anagrams===
 * {{anagrams|en|a=eemnoos|neosome|onesome}}
 
-[[Category:English basic words]]
 [[Category:English compound determinatives]]
 [[Category:English indefinite pronouns]]
 [[Category:English third person pronouns]]
-

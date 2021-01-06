@@ -1,4 +1,4 @@
-{{voir|Rancé|rancé|Rance}}
+{{voir/rance}}
 
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
@@ -76,3 +76,10 @@
 === {{S|références}} ===
 * {{Import:DAF8}}
 
+== {{langue|pt}} ==
+=== {{S|verbe|pt|flexion}} ===
+{{pt-verbe-flexion|rançar|sub.p.1s=o|sub.p.3s=o|imp.p.3s=o}}
+'''rance''' {{pron||pt}}
+# ''Première personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.		
+# ''Troisième personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.		
+# ''Troisième personne du singulier de l’impératif de'' {{lien|rançar|pt}}.

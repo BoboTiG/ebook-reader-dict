@@ -1,4 +1,13 @@
 {{also|Um|UM|.um|-um-|'um|um-|-um|Appendix:Variations of "um"}}
+==Translingual==
+
+===Symbol===
+{{mul-symbol}}
+
+# [[micrometer]]; variant of [[μm]] used when the character [[μ]] is unavailable
+
+----
+
 ==English==
 {{wikipedia|Speech disfluency}}
 
@@ -27,7 +36,7 @@ Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 #*: "'''Um'''," I said.
 
 ====Verb====
-{{en-verb|umm}}
+{{en-verb}}
 
 # {{lb|en|intransitive}} To make the ''um'' sound to express uncertainty or hesitancy.
 #* {{quote-book|en|2007|Michael Erard|Um... Slips, Stumbles, and Verbal Blunders, and What They Mean||136|Meanwhile, in the popular mind '''umming''' was simply a bad habit, akin to spitting or picking one’s nose.}}
@@ -44,17 +53,6 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 * {{l|en|umb}}, {{l|en|umbe}}
 
 ===Etymology 3===
-A Latin-script rendering of ''[[µm]]''.
-
-====Pronunciation====
-* Pronounced as ''[[micrometer]]''.
-
-====Noun====
-{{en-noun|um}}
-
-# {{alternative spelling of|en|µm}}
-
-===Etymology 4===
 
 ====Particle====
 {{en-part}}
@@ -193,6 +191,33 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 
 # [[around]], [[about]]
 # turned over, [[changed]], from one state to another
+
+----
+
+==Hunsrik==
+
+===Pronunciation===
+* {{IPA|hrx|/um/}}
+
+===Preposition===
+{{head|hrx|preposition}} {{tlb|hrx|+ accusative}}
+
+# [[around]]
+#: {{ux|hrx|Ich hon mich en Duch '''um''' de Kopp gebunn.|I've tied a towel '''around''' my head.}}
+# [[at]], [[by]] {{qual|when relating to time}}
+#: {{ux|hrx|'''Um''' acht Uher.|'''At''' eight o'clock.}}
+
+====Derived terms====
+* ('''''um''' + das'') {{l|hrx|ums}}
+
+===Adverb===
+{{head|hrx|adverb}}
+
+# [[around]],  [[about]]
+#: {{ux|hrx|Das kost '''um''' zweu hunnerd Rëal.|This costs '''around''' two hundred reais.}}
+
+===Further reading===
+* [http://www.hunsrik.org/Lexi/SearchResult?searchStr=aan Online Hunsrik Dictionary]
 
 ----
 
@@ -370,7 +395,7 @@ Probably cognate to {{cog|uuu|ʔóm}}.
 ==Mòcheno==
 
 ===Etymology===
-{{PIE root|mhn|h₂ent}}
+{{root|mhn|ine-pro|*h₂ent-}}
 From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{inh|mhn|gmw-pro|*umbi}}, from {{inh|mhn|gem-pro|*umbi||around, about}}. Cognate with {{cog|de|um}}, {{cog|en|umbe}}.
 
 ===Noun===
@@ -397,30 +422,29 @@ From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{in
 ==Old Norse==
 
 ===Alternative forms===
-* {{l|non|umb}}
+* {{alter|non|umb}} {{q|older form}}
 
 ===Etymology===
-{{PIE root|non|h₂ent}}
+{{root|non|ine-pro|*h₂ent-}}
 From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {{cog|ofs|umbe}}, {{m|ofs|ombe}}, {{cog|osx|umbi}}, {{cog|goh|umbi}}.
 
 ===Preposition===
 {{head|non|preposition}}
 
-# {{qualifier|with accusative}} [[about]], [[concerning]]
-# {{qualifier|with accusative}} [[round]], [[past]], [[beyond]]
-# {{qualifier|with accusative}} [[over]], [[across]], [[along]]
-# {{qualifier|with accusative}} [[during]], [[at]] a point in time
-# {{qualifier|with accusative}} [[because]] [[of]], [[for]]
+# {{q|with accusative}} [[about]], [[concerning]]
+# {{q|with accusative}} [[round]], [[past]], [[beyond]]
+# {{q|with accusative}} [[over]], [[across]], [[along]]
+# {{q|with accusative}} [[during]], [[at]] a point in time
+# {{q|with accusative}} [[because]] [[of]], [[for]]
 
 ====Descendants====
 {{top2}}
-* {{desc|da|om}}
-* {{desc|ovd|um}}
-* {{desc|fo|um}}
-{{mid2}}
 * {{desc|is|um}}
-* {{desc|no|om}}
+* {{desc|fo|um}}
+* {{desc|nn|om|alts=1}}
+* {{desc|nb|om}}
 * {{desc|sv|om}}
+* {{desc|da|om}}
 {{bottom}}
 
 ===References===
@@ -440,6 +464,21 @@ Compare {{cog|de|um}}, {{cog|nl|om}}, {{cog|ang|ymb}}.
 
 ----
 
+==Pnar==
+
+===Etymology===
+From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
+
+===Pronunciation===
+* {{IPA|pbv|/ʔum/}}
+
+===Noun===
+{{head|pbv|noun}}
+
+# [[water]]
+
+----
+
 ==Portuguese==
 {{cardinalbox|pt|0|1|2|zero|dois|ord=primeiro|wplink=Um}}
 
@@ -451,7 +490,6 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 
 ===Pronunciation===
 * {{a|Portugal|Brazil}} {{IPA|pt|/ũ/}}
-* {{hyphenation|pt|um}}
 * {{rhymes|pt|ũ}}
 
 ===Numeral===
@@ -510,8 +548,6 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 
 ====Quotations====
 {{seeCites|pt}}
-
-[[Category:Portuguese basic words]]
 
 ----
 
@@ -621,4 +657,3 @@ From {{inh|sk|sla-pro|*umъ}}.
 
 ===References===
 * {{R:SDK}}
-

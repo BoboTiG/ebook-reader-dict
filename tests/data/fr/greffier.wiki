@@ -6,7 +6,7 @@
 === {{S|nom|fr|num=1}} ===
 {{fr-rég|ɡʁɛ.fje|pron2=ɡʁe.fje}}
 '''greffier''' {{pron|ɡʁɛ.fje|fr}} <small>ou</small> {{pron|ɡʁe.fje|fr}} {{m}} {{équiv-pour|une femme|greffière|lang=fr}}
-# {{droit|fr}} [[officier|Officier]] [[public]] [[préposer|préposé]] au [[greffe]].
+# {{lexique|droit|fr}} [[officier|Officier]] [[public]] [[préposer|préposé]] au [[greffe]].
 #* ''Le '''greffier''' d’une juridiction qui rend une décision impliquant l’obligation pour une personne de s’immatriculer doit notifier cette décision au '''greffier''' du tribunal de commerce dans le ressort duquel l’intéressé a son siège ou son établissement principal.'' {{source|Article L123-3, Code de commerce français}}
 #* ''Le '''greffier''' est la personne responsable des services administratifs d'un tribunal. À ce titre, il remplit principalement des fonctions administratives qui vont de la préparation des audiences à la planification des agendas de la cour, la transcription des témoignages et la formation des jurés.'' {{source|André {{petites capitales|Émond}} et Lucie {{petites capitales|Lauzière}}, ''Introduction à l'étude du droit'', éditions Wilson & Lafleur, Montréal, 2005, p. 198}}
 # {{figuré|fr}} Celui qui [[prendre note|prend note]] et tient le [[registre]] de ses notes.
@@ -52,9 +52,10 @@
 
 === {{S|références}} ===
 * {{Import:DAF8}}
+* {{R:Littré}}
+* {{R:TLFi}}
 
 [[Catégorie:Noms alternatifs des animaux en français]]
 [[Catégorie:Chats en français]]
 [[Catégorie:Poissons en français]]
 [[Catégorie:Métiers du droit en français]]
-

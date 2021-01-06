@@ -1,5 +1,5 @@
 == {{-ca-}} ==
-{{ca-pron | or = /ˌpeˈe.məˌe.fə/ |occ=/ˌpeˈe.maˌe.fa/}}
+{{ca-pron|or=/ˌpeˈe.məˌe.fə/|occ=/ˌpeˈe.maˌe.fa/}}
 
 === Sigles ===
 {{lema|ca|sigles|g=f}}
@@ -16,10 +16,9 @@
 {{final}}
 
 == {{-es-}} ==
-{{pronafi|es|/ˌpeˈe.meˌe.fe/}}
+{{es-pron|/ˌpeˈe.meˌe.fe/}}
 
 === Sigles ===
 {{lema|es|sigles|g=f}}
 
-# [[preguntas|Preguntas]] [[más|Más]] [[frecuentes|Frecuentes]], és a dir, [[PMF]].
-
+# [[preguntas|Preguntas]] [[más|Más]] [[frecuentes|Frecuentes]], és a dir, {{e|ca|PMF}}.

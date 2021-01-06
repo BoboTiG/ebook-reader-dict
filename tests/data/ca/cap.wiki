@@ -1,7 +1,7 @@
 {{vegeu|CAP|Cap|cap.}}
 
 == {{-ca-}} ==
-{{ca-pron|/kap/}}
+{{ca-pron}}
 {{homòfons|lang=ca|cab}}
 {{-etimologia-|la|ca}} Del llatí {{terme|la|caput}}.
 {{anagrames|lang=ca|pac}}
@@ -23,7 +23,7 @@
 # {{marca|ca|bàdminton}} [[base]]
 
 ==== Notes ====
-En golf, el cap està format per les cares, el coll, la punta i el taló.
+* En golf, el cap està format per les cares, el coll, la punta i el taló.
 
 {{-comp-}}
 * Tenir el cap ple de pardals = somniar truites, estar distret o ple de fantasies
@@ -46,9 +46,7 @@ En golf, el cap està format per les cares, el coll, la punta i el taló.
 * al cap de = després de
 * al cap i a la fi = nexe conclusiu
 * per cap = per persona
-* Tants caps tants barrets = Indica una repartició proporcional entre els membres d'un grup o bé una opinió o necessitat diferent per cada membre.
-*: Exemple 1: Això és fàcil de repartir, tants caps tants barrets.
-*: Exemple 2: En aquella reunió ningú coincidia, tants caps tants barrets.
+* Tants caps tants barrets = Indica una repartició proporcional entre els membres d'un grup o bé una opinió o necessitat diferent per cada membre: ''Això és fàcil de repartir, tants caps tants barrets; en aquella reunió ningú coincidia, tants caps tants barrets.''
 * [[captenir]]
 * [[cap-roig]], [[caplletra]]
 * [[capicular]]
@@ -68,29 +66,91 @@ En golf, el cap està format per les cares, el coll, la punta i el taló.
 
 {{-trad-}}
 {{inici|Part superior del cos d'un animal}}
+* {{af}}: {{trad|af|kop}}
+* {{sq}}: {{trad|sq|kokë|f}}
 * {{de}}: {{trad|de|Kopf|m}}
 * {{en}}: {{trad|en|head}}
+* {{ar}}: {{trad|ar|رَأْس‎ |m}}
+* {{hy}}: {{trad|hy|գլուխ }}
 * {{ast}}: {{trad|ast|cabeza|f}}, {{trad|ast|tiesta|f}}
 * {{eu}}: {{trad|eu|buru}}
+* {{be}}: {{trad|be|галава́ |f}}
+* {{bn}}: {{trad|bn|মাথা }}
+* {{br}}: {{trad|br|penn|m}}
 * {{es}}: {{trad|es|cabeza|f}}
+* {{ko}}: {{trad|ko|머리 }}
+* {{kw}}: {{trad|kw|penn|m}}
+* {{co}}: {{trad|co|capu}}
+* {{da}}: {{trad|da|hoved|n}}
+* {{sk}}: {{trad|sk|hlava|f}}
 * {{sl}}: {{trad|sl|glava}}
 * {{eo}}: {{trad|eo|kapo}}
+* {{fo}}: {{trad|fo|høvd |n}}
 * {{fr}}: {{trad|fr|tête|f}}
+* {{fy}}: {{trad|fy|holle}}
+* {{fur}}: {{trad|fur|cjâf|m}}
 * {{gl}}: {{trad|gl|cabeza|f}}, {{trad|gl|testa|f}}
+* {{cy}}: {{trad|cy|pen|m}}
+* {{ka}}: {{trad|ka|თავი }}
+* {{el}}: {{trad|el|κεφάλι |n}}
+* {{grc}}: {{trad|grc| κεφαλή |f}}
+* {{kl}}: {{trad|kl|niaqoq}}
+* {{gn}}: {{trad|gn|akã }}
+* {{he}}: {{trad|he| רֹאשׁ‎|m}}
 * {{hi}}: {{trad|hi|षिर|m}}, {{trad|hi|सिर|m}}
+* {{hu}}: {{trad|hu|fej}}
+* {{io}}: {{trad|io|kapo}}
 * {{id}}: {{trad|id|kepala}}
-{{mig}}
+* {{ga}}: {{trad|ga|ceann|m}}
+* {{is}}: {{trad|is|höfuð |n}}
 * {{it}}: {{trad|it|testa|f}}
+* {{ja}}: {{trad|ja|頭 }}
+* {{jv}}: {{trad|jv|sirah}}
+* {{yi}}: {{trad|yi|קאָפּ|m}}
+* {{kk}}: {{trad|kk|бас}}
+{{mig}}
+* {{ky}}: {{trad|ky|баш }}
+* {{ku}}: {{trad|ku|ser}}
+* {{lv}}: {{trad|lv|galva|f}}
+* {{li}}: {{trad|li|kop|m}}
+* {{lt}}: {{trad|lt|galva|f}}
 * {{la}}: {{trad|la|caput|n}}
 * {{csc}}: {{trad|csc|CAP}}
+* {{mk}}: {{trad|mk| глава|f}}
+* {{ms}}: {{trad|ms|kepala}}
 * {{mt}}: {{trad|mt|kap|m}}
+* {{mi}}: {{trad|mi|mahunga}}
+* {{mn}}: {{trad|mn|толгой}}
 * {{nah}}: {{trad|nah|cuaitl}}
 * {{nl}}: {{trad|nl|hoofd|n}}
+* {{no}}: {{trad|no|hode|n}}
 * {{oc}}: {{trad|oc|cap|m}}, {{trad|oc|tèsta|f}}
+* {{os}}: {{trad|os|сӕр }}
+* {{pl}}: {{trad|pl|głowa |f}}
 * {{pt}}: {{trad|pt|cabeça|f}}
+* {{qu}}: {{trad|qu|uma}}
 * {{ro}}: {{trad|ro|cap|n}}
+* {{ru}}: {{trad|ru|голова́ |f}}
+* {{sa}}: {{trad|sa|शिरस् |n}}
 * {{sc}}: {{trad|sc|conca}}
 * {{sh}}: {{trad|sh|глава }}, {{trad|sh|glava}}
+* {{scn}}: {{trad|scn|testa|f}}, {{trad|scn|capa|f}}
+* {{sw}}: {{trad|sw|kichwa }}
+* {{sv}}: {{trad|sv|huvud|n}}
+* {{tg}}: {{trad|tg|сар }}
+* {{tl}}: {{trad|tl|ulo}}
+* {{th}}: {{trad|th| หัว}}
+* {{ta}}: {{trad|ta|தலை }}
+* {{tr}}: {{trad|tr|baş }}
+* {{cs}}: {{trad|cs|hlava|f}}
+* {{uk}}: {{trad|uk|голова́ |f}}
+* {{ur}}: {{trad|ur|سر‎ |m}}
+* {{uz}}: {{trad|uz|bosh}}
+* {{wa}}: {{trad|wa|tiesse}}
+* {{vo}}: {{trad|vo|kap}}
+* {{wo}}: {{trad|wo|boopa}}
+* {{zh}}: {{trad|zh|頭 }}
+* {{xh}}: {{trad|xh|intloko}}
 {{final}}
 
 {{inici|Cervell}}
@@ -104,15 +164,30 @@ En golf, el cap està format per les cares, el coll, la punta i el taló.
 {{final}}
 
 {{inici|Persona que mana o dirigeix}}
-* {{en}}: {{trad|en|head}}
+* {{de}}: {{trad|de|Chef|m}}
+* {{en}}: {{trad|en|head}}, {{trad|en|boss}}
+* {{hy}}: {{trad|hy|վերակացու}}
+* {{be}}: {{trad|be|начальнiк|m}}
 * {{es}}: {{trad|es|jefe|m}}
+* {{ko}}: {{trad|ko|상관}}
 * {{sl}}: {{trad|sl|glava}}
-* {{mt}}: {{trad|mt|kap|m}}
+* {{eo}}: {{trad|eo|ĉefo }}
+* {{et}}: {{trad|et|ülemus}}
+* {{fi}}: {{trad|fi|pomo}}
+* {{fr}}: {{trad|fr|chef|m}}, {{trad|fr|patron|m}}
 {{mig}}
+* {{ga}}: {{trad|ga|bas|m}}
+* {{mt}}: {{trad|mt|kap|m}}
 * {{mr}}: {{trad|mr|ईश|m}}
+* {{nl}}: {{trad|nl|baas|m}}
 * {{oc}}: {{trad|oc|cap|m}}
+* {{pl}}: {{trad|pl|brygadzista |m}}
+* {{pt}}: {{trad|pt|chefe|m-f}}
 * {{sa}}: {{trad|sa|ईश|m}}
+* {{sv}}: {{trad|sv|chef|c}}
 * {{ty}}: {{trad|ty|ari'i}}
+* {{cs}}: {{trad|cs|šéf |m}}
+* {{zh}}: {{trad|zh|老闆}}
 {{final}}
 
 {{inici|Punta, extrem, final}}
@@ -280,13 +355,41 @@ En golf, el cap està format per les cares, el coll, la punta i el taló.
 {{referències}}
 
 == {{-oc-}} ==
+{{oc-pron}}
+{{àudio|LL-Q14185 (oci)-Davidgrosclaude-cap.wav|lang=oc|accent=Bearn}}
 {{-etimologia-}} Del llatí {{terme|la|caput}}.
 
 === Nom ===
 {{oc-nom|m}}
 
-# {{e|ca|cap}}
+# {{marca|oc|anatomia}} {{e|ca|cap}}
+# {{e|ca|cap}}, [[patró]] 
+# {{marca|oc|geologia}} {{e|ca|cap}}
+# {{marca|oc|geografia}} {{e|ca|cap}}
 
 {{-sin-}}
 * {{q|anatomia}} {{e|oc|tèsta}}
+* {{q|geologia}} {{e|oc|cima}}
 
+=== Adjectiu ===
+{{lema|oc|adj}}
+
+# {{e|ca|cap}}
+
+{{-var-}}
+* {{e|oc|cap de}}
+
+=== Pronom ===
+{{lema|oc|pronom}}
+
+# {{e|ca|cap}}
+
+=== Adverbi ===
+{{lema|oc|adv}}
+
+# {{marca|oc|aranès}} [[pas]]
+
+=== Verb ===
+{{lema|oc|verb-forma}}
+
+# {{forma-conj|oc|caber|3|pres|ind}}

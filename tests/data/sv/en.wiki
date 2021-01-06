@@ -75,8 +75,8 @@
 #{{tagg|vardagligt|dialektalt}} [[man#Svenska|man]]
 #:''Vad kan '''en''' göra åt det?''
 #:{{citat|år=1896|titel=[http://runeberg.org/stanflik/05.html "Fredlös", ur "Stänk och flikar"]|förf=[[w:Gustaf Fröding|Gustaf Fröding]]|[...] det kan '''en''' väl önska, men djävlar anamma, <br/>det gör väl detsamma, <br/>'''en''' föds och föröds, tills '''en''' dör.}}
-#:{{citat |år=1963 |förf=[[w:Astrid Lindgren|Astrid Lindgren]] |titel=[[w:Emil i Lönneberga|Emil i Lönneberga]] |publ=[[w:Rabén & Sjögren|Rabén & Sjögren]] |”Annars vet man inte att det är soppa”, sa Emil, det vill säga egentligen sa han så här: ”Anners vet '''en''' inte att dä ä söppe.”}}
-#{{tagg|dialektalt|kat=småländska |kat2=västgötska |kat3=östgötska}} [[honom]], 'an
+#:{{citat|år=1963|förf=[[w:Astrid Lindgren|Astrid Lindgren]]|titel=[[w:Emil i Lönneberga|Emil i Lönneberga]]|publ=[[w:Rabén & Sjögren|Rabén & Sjögren]]|”Annars vet man inte att det är soppa”, sa Emil, det vill säga egentligen sa han så här: ”Anners vet '''en''' inte att dä ä söppe.”}}
+#{{tagg|dialektalt|kat=småländska|kat2=västgötska|kat3=östgötska}} [[honom]], 'an
 #:''Har'u sett''''en''' idag?''
 #:{{varianter|[['n#Svenska|'n]]}}
 #:{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
@@ -107,6 +107,7 @@
 *engelska: {{ö|en|common juniper}}, {{ö+|en|juniper}}
 *finska: {{ö+|fi|kataja}}
 *franska: {{ö+|fr|genévrier commun|m}}, {{ö+|fr|genévrier|m}}, {{ö+|fr|genièvre}}
+*frisiska: {{ö+|fy|jeneverstrúk}}, {{ö+|fy|jeneverbeam}}
 *isländska: {{ö|is|einer|m}}, {{ö+|is|einir|m}}
 *italienska: {{ö+|it|ginepro|m}}
 *kymriska: {{ö|cy|merywen}}
@@ -117,7 +118,9 @@
 *nynorska: {{ö|nn|einer|m}}
 *polska: {{ö+|pl|jałowiec|m}}
 *ryska: {{ö+|ru|можжевельник|m}}
+*slovakiska: {{ö|sk|borievka|f}}
 *spanska: {{ö+|es|enebro|m}}, {{ö|es|enebro común|m}}, {{ö|es|esqueno}}, {{ö|es|sabino}}, {{ö+|es|sabina|f}}
+*tjeckiska: {{ö+|cs|jalovec|m}}
 *turkiska: {{ö+|tr|ardıç}}
 *tyska: {{ö+|de|Heide-Wacholder|m}}
 *ukrainska: {{ö+|uk|яловець|m|tr=jalovéc}}, {{ö+|uk|ялівець|m|tr=jalivécʹ}}
@@ -201,6 +204,13 @@
 #:: ''Jag drömmer '''om det'''.''
 #:{{användning|''en'' används i stället för ''de'' + ''il(s)''/''elle(s)'' som prepositionsobjekt. Ordföljden blir du subjekt, objekt, verb.}}
 
+==Frisiska==
+===Konjunktion===
+{{konj|fy}}
+'''en'''
+*{{uttal|fy|ipa=ɛn, ɪn}}
+#[[och]]
+
 ==Ido==
 ===Preposition===
 {{prep|io}}
@@ -229,6 +239,3 @@
 '''en'''
 #[[i]]
 #[[på]]
-
-==Källor==
-<references />

@@ -38,28 +38,28 @@
 {{trans-top|it is}}
 * Arabic: {{t|ar|اِنَّه|m}}, {{t|ar|اِنَّهَا|f}}
 * Bengali: {{t|bn|ইহা হয়|sc=Beng}}
-* Catalan: {{t+|ca|[[ell]] [[és]]}}
-* Dutch: {{t+|nl|[[’t]] [[is]]}}
+* Catalan: {{t|ca|[[ell]] [[és]]}}
+* Dutch: {{t|nl|[[’t]] [[is]]}}
 * Finnish: {{t|fi|[[se]] [[on]]}}, {{t+|fi|on}}
 * French: {{t+|fr|c'est}}
-* German: {{t+|de|es}} {{t+|de|ist}}
+* German: {{t|de|[[es]] [[ist]]}}
 * Greek: {{t+|el|είναι}}
 * Hindi: {{t|hi|यह है|sc=Deva}}, {{t|hi|यहे है}}
 {{trans-mid}}
 * Italian: {{t+|it|è}}
-* Japanese: {{t|ja|です|tr=desu}}
+* Japanese: {{t+|ja|です|tr=desu}}
 * Latin: {{t+|la|est}}
 * Latvian: {{t|lv|[[tas]] [[ir]]}}, {{t|lv|[[tā]] [[ir]]}}
-* Lithuanian: {{t+|lt|[[tai]] [[yra]]}}
+* Lithuanian: {{t|lt|[[tai]] [[yra]]}}
 * Portuguese: {{t+|pt|é}}
 * Russian: {{t+|ru|э́то}}, {{t+|ru|есть}}
 * Spanish: {{t+|es|es}}
-* Swedish: {{t+|sv|[[det]] [[är]]}}, {{t+|sv|[[den]] [[är]]}}
+* Swedish: {{t|sv|[[det]] [[är]]}}, {{t|sv|[[den]] [[är]]}}
 {{trans-bottom}}
 
 {{trans-top|it has}}
-* Catalan: {{t+|ca|[[ell]] [[té]]}}
-* Dutch: {{t+|nl|[[’t]] [[heeft]]}}, {{t+|nl|[[’t]] [[is]]}}
+* Catalan: {{t|ca|[[ell]] [[té]]}}
+* Dutch: {{t|nl|[[’t]] [[heeft]]}}, {{t|nl|[[’t]] [[is]]}}
 * Finnish: {{t+|fi|on}}
 * Greek: {{t+|el|έχει}}
 * Italian: {{t+|it|ha}}
@@ -68,7 +68,7 @@
 * Portuguese: {{t+|pt|tem}}
 * Russian: {{t+|ru|иметь|alt=име́ет}}, {{t+|ru|есть}}
 * Spanish: {{t+|es|ha}}
-* Swedish: {{t+|sv|[[det]] [[har]]}}, {{t|sv|[[den]] [[har]]}}
+* Swedish: {{t|sv|[[det]] [[har]]}}, {{t|sv|[[den]] [[har]]}}
 {{trans-bottom}}
 
 ===Etymology 2===
@@ -86,4 +86,3 @@ From {{compound|en|it|'s|alt2=’s|gloss2=possessive marker}}.
 
 ===Anagrams===
 * {{anagrams|en|a=ist|'tis|-ist|IST|Ist|SIT|STI|Sit|TIS|TIs|is't|ist|sit|tis}}
-

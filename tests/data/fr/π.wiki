@@ -1,4 +1,4 @@
-{{voir autre alphabet/π}}
+{{voir autres scripts/π}}
 {{voir/π}}
 {|width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0;margin-bottom:0.5em;background:transparent"
 |-valign="top"
@@ -23,9 +23,9 @@ __TOC__
 == {{langue|conv}} ==
 === {{S|symbole|conv}} ===
 '''π'''
-# {{mathématiques|conv}} Symbole représentant le rapport constant entre la [[circonférence]] d’un [[cercle]] et son [[diamètre]], aussi appelé en français la ''[[constante d’Archimède]]''.
+# {{lexique|mathématiques|conv}} Symbole représentant le rapport constant entre la [[circonférence]] d’un [[cercle]] et son [[diamètre]], aussi appelé en français la ''[[constante d’Archimède]]''.
 #* ''π = 3,1415926…''
-# {{BDD|conv}} Symbole de la [[projection]].
+# {{lexique|bases de données|conv}} Symbole de la [[projection]].
 
 === {{S|voir aussi}} ===
 * {{WP|Pi}}
@@ -51,4 +51,3 @@ __TOC__
 === {{S|lettre|grc}} ===
 '''π''' {{pron|p|grc}}
 # Lettre de l’[[alphabet grec ancien]].
-

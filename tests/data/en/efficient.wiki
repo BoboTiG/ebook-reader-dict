@@ -2,7 +2,7 @@
 ==English==
 
 ===Etymology===
-{{PIE root|en|dʰeh₁}}
+{{root|en|ine-pro|*dʰeh₁-}}
 1398, “making,” from {{der|en|fro|-}}, from {{der|en|la|efficientem}}, nominative {{m|la|efficiēns}}, participle of {{m|la|efficere|t=work out, accomplish}} (see {{m|en|effect}}). Meaning “productive, skilled” is from 1787. ''[[efficiency|Efficiency]] apartment'' is first recorded [[wikipedia:1930|1930]], [[American English]]. <ref>{{R:Etymonline}}</ref>
 
 ===Pronunciation===
@@ -24,14 +24,14 @@
 # expressing the [[proportion]] of [[consumed]] [[energy]] that was successfully used in a process; the ratio of useful output to total input
 #: {{ux|en|The motor is only 20% '''efficient''' at that temperature.}}
 # causing effects, producing results; bringing into being; initiating [[change]] (rare except in philosophical and legal expression ''[[efficient cause]]'' = [[causative]] [[factor]] or [[agent]])
-#* {{rfdatek|en|Sir Walter Raleigh}}
+#* {{RQ:Raleigh History}}
 #*: It was well said of Plotinus, that the stars were significant, but not '''efficient'''.
 #: {{ux|en|Ownership, maintenance, or use of the automobile need not be the direct and '''efficient''' cause of the injury sustained}}
 # {{lb|en|proscribed|old use}} [[effective]]
 #* '''1801''', {{w|Robert Southey}}, ''{{w|Thalaba the Destroyer}}'':
 #*: Ye wake no more to anguish;‥ ye have borne<br>The Chosen, the Destroyer!‥ soon his hand<br>Shall strike the '''efficient''' blow;<br>Soon shaking off your penal forms, shall ye,<br>With songs of joy, amid the Eden groves,<br>Hymn the Deliverer’s praise!
-#* {{rfdatek|en|Wilson}}
-#*: The '''efficient''' cause is the working cause.
+#* '''1856''', William Dexter Wilson, ''An Elementary Treatise on Logic''
+#*: The Efficient Cause is that from which emanates the force that produces the Effect 
 
 =====Usage notes=====
 Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}} and {{m|en|effective}} as synonyms, but all major dictionaries now show that these words now only have different meanings in careful use. Use of both for the other meaning is however widespread enough that Longman's Exam Dictionary, for example, finds it necessary to proscribe the use of one for the other with several examples at each entry and provides the following summary:
@@ -65,7 +65,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 {{trans-top|making good use of resources}}
 * Belarusian: {{t|be|эфекты́ўны}}
 * Bulgarian: {{t+|bg|ефекти́вен}}, {{t+|bg|резултатен}}
-* Catalan: {{t|ca|eficient}}
+* Catalan: {{t+|ca|eficient}}
 * Chinese:
 *: Mandarin: {{t|cmn|[[高]][[效率]]|tr=gāo xiàolǜ}}
 * Czech: {{t+|cs|efektivní}}
@@ -95,7 +95,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 
 {{trans-top|using a particular proportion of available energy}}
 * Bulgarian: {{t+|bg|ефикасен|m}}
-* Catalan: {{t|ca|eficient}}
+* Catalan: {{t+|ca|eficient}}
 * Czech: {{t+|cs|účinný|m}}
 * Dutch: {{t+|nl|efficiënt}}
 * Finnish: {{t+|fi|hyötysuhde}} {{q|noun}}
@@ -121,7 +121,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 # {{lb|en|obsolete}} a [[cause]]; something that causes an effect
 #*'''1643''', {{w|Thomas Browne}}, ''Religio Medici'', I.14:
 #*:Some are without '''efficient''', as God; others without matter, as Angels […].
-#* {{rfdatek|en|Jonathan Edwards}}
+#* '''a. 1758''', {{w|Jonathan Edwards (theologian)|Jonathan Edwards}}, ''Dissertation on Liberty and Necessity''
 #*: This implies, that something happens without a cause. If it should be said, that motive in this case is not the '''efficient''' of the action or doing — this is granted; but at the same time, for reasons already given, it is denied, that the man himself is the efficient cause of it.
 
 ===References===
@@ -178,4 +178,3 @@ From {{der|fr|la|efficiēns}}.
 {{la-verb-form|efficient}}
 
 # {{inflection of|la|efficiō||3|p|futr|actv|ind}}
-

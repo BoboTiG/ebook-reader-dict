@@ -5,7 +5,7 @@
 {{sv-subst-n-oräkn|fog=|betydelser=1.|förled=svensk}}
 {{sv-subst-n-or|betydelser=2.}}
 '''svenska'''
-#{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i [[Finland]])
+#{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
 #{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
 
 ====Översättningar====
@@ -170,6 +170,7 @@
 *engelska: {{ö+|en|Swede}}, {{ö|en|Swedish woman}}
 *finska: {{ö|fi|ruotsalainen nainen}}
 *franska: {{ö+|fr|Suédoise|f}}
+*frisiska: {{ö|fy|Sweedse|u}}
 *grekiska: {{ö+|el|Σουηδή}}, {{ö+|el|Σουηδέζα}}
 *isländska: {{ö|is|Svii|m}}
 *italienska: {{ö+|it|svedese|f}}
@@ -190,4 +191,3 @@
 ===Adjektiv===
 '''svenska'''
 #{{böjning|sv|adj|svensk}}
-

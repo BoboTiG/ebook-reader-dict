@@ -22,6 +22,7 @@
 *engelska: {{ö+|en|sand}}
 *finska: {{ö+|fi|hiekka}}
 *franska: {{ö+|fr|sable|m}}
+*frisiska: {{ö+|fy|sân|n}}
 *isländska: {{ö+|is|sandur}}
 *japanska: {{ö+|ja|砂|tr=suna}}
 *katalanska: {{ö+|ca|sorra}}
@@ -89,4 +90,3 @@
 ===Substantiv===
 '''sand'''
 #{{böjning|is|subst|sandur}}
-

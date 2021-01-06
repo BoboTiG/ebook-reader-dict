@@ -6,8 +6,8 @@
 {{fr-rég|kɔʁ pɔʁ.tɑ̃}}
 '''corps portant''' {{pron|kɔʁ pɔʁ.tɑ̃|fr}} {{m}}
 [[Image:X24.jpg|thumb|upright=1.2|Martin Marietta X-24A construit pour un projet militaire américain expérimental de 1963 à 1975.]]
-# {{astronautique|fr}} [[aéronef|Aéronef]] à fuselage porteur, sur lequel la [[portance]] est produite par le [[fuselage]], destiné aux usages [[spatiaux]] ou [[hypersonique]]s, afin de limiter l'[[effet de traînée]] ou la [[surface de friction]].
-# {{astronautique|fr}} {{term|aérodynamique}} Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.
+# {{lexique|astronautique|fr}} [[aéronef|Aéronef]] à fuselage porteur, sur lequel la [[portance]] est produite par le [[fuselage]], destiné aux usages [[spatiaux]] ou [[hypersonique]]s, afin de limiter l'[[effet de traînée]] ou la [[surface de friction]].
+# {{lexique|astronautique|fr}} {{term|aérodynamique}} Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.
 
 ==== {{S|vocabulaire}} ====
 * [[corps émoussé]] 
@@ -25,4 +25,3 @@
 * {{R:FranceTerme}}
 
 [[Catégorie:Néologismes recommandés en français]]
-

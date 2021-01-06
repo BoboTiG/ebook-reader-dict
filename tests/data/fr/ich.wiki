@@ -3,7 +3,7 @@
 == {{langue|conv}} ==
 === {{S|symbole|conv}} ===
 '''ich'''
-# {{linguistique|conv}} Code {{w|ISO 639-3}} de l’[[etkywan]].
+# {{lexique|linguistique|conv}} Code {{w|ISO 639-3}} de l’[[etkywan]].
 
 === {{S|voir aussi}} ===
 {{Autres projets
@@ -14,7 +14,7 @@
 
 == {{langue|de}} ==
 === {{S|étymologie}} ===
-: Du {{étyl|gmh|de|ich}}, du {{étyl|goh|de|mot=ih}}, du {{étyl|proto-germanique|de}} {{recons|[[Reconstruction:proto-germanique/*ek|ek]]}}, de l’indo-européen {{recons|éǵh₂}}.
+: Du {{étyl|gmh|de|ich}}, du {{étyl|goh|de|mot=ih}}, du {{étyl|proto-germanique|de}} {{recons|lang-mot-vedette=de|[[Reconstruction:proto-germanique/*ek|ek]]}}, de l’indo-européen {{recons|lang-mot-vedette=de|éǵh₂}}.
 
 === {{S|pronom personnel|de}} ===
 '''ich''' {{pron|ɪç|de}} {{nominatif|de}}
@@ -56,7 +56,7 @@
 === {{S|nom|yua}} ===
 '''ich''' {{pron||yua}}
 # [[face|Face]], [[figure]], [[visage]].
-# {{anatomie|yua}} [[œil|Œil]].
+# {{lexique|anatomie|yua}} [[œil|Œil]].
 
 === {{S|préposition|yua}} ===
 '''ich''' {{pron||yua}}
@@ -90,4 +90,3 @@
 
 ==== {{S|notes}} ====
 Après une [[préposition]], on emploie la forme ''[[nich#sk|nich]]'' (pour ''oni'') ou ''[[ne#sk|ne]]'' (pour ''ony'').
-

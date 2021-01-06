@@ -56,6 +56,7 @@
 *[[sombrero de tres picos]]:
 :: Cierto tipo de sombrero con el ala levantada y abarquillada en tres partes que forman un triángulo de tres picos en su base.
 ::Sombrero con forma de triángulo.
+*[[tirarse tres]]
 *las [[Tres Chepas]]: Asterismo en la constelación de [[Orión]]: Espada de [[Orión]].
 *[[tres en raya]]: Juego en que gana el primero que logra poner tres fichas en línea.
 *[[Tres Marías]]: Asterismo en la constelación de [[Orión]]: Cinturón de Orión.
@@ -166,6 +167,7 @@
 {{t+|tpn|1|mosapyr}}
 {{t+|tr|1|üç}}
 {{t+|uk|1|три|tr=tri}}
+{{t+|xum|1|𐌕𐌓𐌉𐌚|tr=trif}}
 {{t+|vi|1|ba}}
 {{trad-abajo}}
 
@@ -670,4 +672,3 @@
 
 == Referencias y notas ==
 <references />
-

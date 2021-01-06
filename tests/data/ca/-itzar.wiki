@@ -21,6 +21,7 @@
 * {{en}}: {{trad|en|-ize}}, {{trad|en|-yze}}, {{trad|en|-ise}}, {{trad|en|-yse}}
 * {{es}}: {{trad|es|-izar}}
 {{mig}}
+* {{eo}}: {{trad|eo|-igi}}
 * {{fr}}: {{trad|fr|-iser}}, {{trad|fr|-yser}}
 * {{it}}: {{trad|it|-izzare}}
 {{final}}
@@ -458,7 +459,6 @@
 
 === Vegeu també ===
 * [http://web.archive.org/web/20091027094446/http://www.geocities.com/golls.geo/Fitxes/Textos/Arxius/itzar-ld9.htm Fitxa de la Coordinadora de Dinamització Lingüística del País Valencià].
-* {{gdlc}}
+* {{ca-dicc|gdlc}}
 
 {{DEFAULTSORT:itzar}}
-

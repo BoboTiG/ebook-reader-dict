@@ -1,8 +1,9 @@
 {{voir/en}}
+
 == {{langue|conv}} ==
 === {{S|symbole|conv}} ===
 '''en''' {{invariable}}
-# {{linguistique|conv}} [[code|Code]] ISO 639-1 (alpha-2) de l’[[anglais]].
+# {{lexique|linguistique|conv}} [[code|Code]] ISO 639-1 (alpha-2) de l’[[anglais]].
 
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
@@ -62,26 +63,27 @@
 # Permet de préciser un [[moyen de transport]]. {{note}} Traditionnellement, on utilise ''en'' pour des moyens de transport dans lesquels on se trouve (''en voiture'', par exemple), et ''à'' pour ceux qu’on enfourche, sur le modèle de ''à cheval''. Mais il semble y avoir une tendance à la simplification, par l’utilisation de ''en'' pour tous les moyens de transport mécaniques (on dit maintenant ''en vélo'' aussi bien que ''à vélo''). Cela peut expliquer que, pour des noms récents comme ''VTT'', on emploie toujours ''en''.
 #* ''Je suis allé en Corse '''en''' avion, mais je suis revenu '''en''' bateau.''
 # Forme un [[gérondif]] qui marque le [[temps]], la [[durée]].
-#* ''Lambert hochait la tête '''en''' souriant.'' (Beauvoir, ''Mandarins'', 1954)
+#* ''Elle avait épousé un beau garçon sans fortune, mort au commencement de 1809, '''en''' lui laissant deux enfants très-jeunes avec une quantité de dettes.'' {{source|{{nom w pc|Gustave|Flaubert}}, ''{{ws|Trois Contes (Flaubert)|Trois Contes}}'', 1877}}
+#* ''Lambert hochait la tête '''en''' souriant.'' {{source|Beauvoir, ''Mandarins'', 1954}}
 #* '''''En''' allant à l’université, j’ai rencontré une belle fille.''
 # Remplace ''[[à la]]'' ou ''[[à l’]]'' du [[locatif]] du nom d’un pays ou d’un continent. Cet usage est parallèle à la [[suppression]] de l’[[article]] dans ''[[de la]]'' ou ''[[de l’]]'' de l’[[ablatif]] correspondant{{réf|1}}. Il y a d’autres noms qui suivent cette règle, comme les noms des saisons.
 :{| class="wikitable" border="1"
-! colspan="2" | !! Consonne !! Voyelle
+! colspan="2" | !! Consonne !! Voyelle<ref>Ou un « h » muet, comme [[Haïti]]</ref>
 |-
 ! rowspan="2" | Masculin !! Singulier
-| aller '''au''' Québec<br />venir '''du''' Québec || aller '''en''' Iran<br />venir '''d’'''Iran
+| aller '''au''' Québec<br />venir '''du''' Québec || aller '''en''' Iran<br />venir '''d''''Iran
 |-
 ! Pluriel
 | aller '''aux''' Pays-Bas<br />venir '''des''' Pays-Bas || aller '''aux''' États-Unis<br />venir '''des''' États-Unis
 |-
 ! rowspan="2" | Féminin !! Singulier
-| aller '''en''' France<br />venir '''de''' France || aller '''en''' Amérique<br />venir '''d’'''Amérique
+| aller '''en''' France<br />venir '''de''' France || aller '''en''' Amérique<br />venir '''d''''Amérique
 |-
 ! Pluriel
 | aller '''aux''' Philippines<br />venir '''des''' Philippines || aller '''aux''' Indes<br />venir '''des''' Indes
 |-
 ! colspan="2" | Sans article
-| aller '''à''' Cuba<br />venir '''de''' Cuba || aller '''en''' Israël<br />venir '''d’'''Israël
+| aller '''à''' Cuba<br />venir '''de''' Cuba || aller '''en''' Israël<br />venir '''d''''Israël
 |}
 
 ==== {{S|traductions}} ====
@@ -97,6 +99,7 @@
 * {{T|vls}} : {{trad--|vls|int}}
 * {{T|ia}} : {{trad+|ia|ex}}
 * {{T|avk}} : {{trad--|avk|kum}}
+* {{T|pcd}} : {{trad--|pcd|in}}
 * {{T|zdj}} : {{trad--|zdj|-a}}
 {{trad-fin}}
 
@@ -104,34 +107,42 @@
 * {{T|de}} : {{trad+|de|in}} (''~ Französisch''), {{trad+|de|im}} (''~ Schwimmen'')
 * {{T|en}} : {{trad+|en|at}}
 * {{T|vls}} : {{trad--|vls|int}}
+* {{T|pcd}} : {{trad--|pcd|in}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser une couleur}}
 * {{T|de}} : {{trad+|de|in}} (in der Regel nicht angegeben)
 * {{T|ia}} : {{trad+|ia|in}}
+* {{T|pcd}} : {{trad--|pcd|in}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser un moyen de transport}}
 * {{T|de}} : {{trad+|de|mit}} (''~ dem Auto''), {{trad+|de|im}} (''~ Auto'')
 * {{T|avk}} : {{trad--|avk|kan}}
+* {{T|pcd}} : {{trad--|pcd|in}}
 {{trad-fin}}
 
 {{trad-début|Devant une année}}
-* {{T|de}} : {{trad-|de|im Jahr}}
+* {{T|de}} : {{trad-|de|im Jahr}}, {{trad+|de|zu}}
 * {{T|en}} : {{trad+|en|in}}
 * {{T|eo}} : {{trad+|eo|en}}
 * {{T|gallo}} : {{trad--|gallo|en}}
 * {{T|avk}} : {{trad--|avk|bak}}
+* {{T|pcd}} : {{trad--|pcd|in}}
 * {{T|pdt}} : {{trad--|pdt|en}}
 * {{T|zdj}} : {{trad--|zdj|tarehi}}
 * {{T|sw}} : {{trad-|sw|tarihi}}, {{trad-|sw|tarikhi}}
 {{trad-fin}}
 
 {{trad-début|Forme un gérondif avec un participe présent}}
-* {{T|de}} : {{trad+|de|während}} (''~ des Essens''), {{trad+|de|auf}} (''~ dem Weg zu(r)...'')
+* {{T|de}} : {{trad+|de|während}} (''~ des Essens''), {{trad+|de|auf}} (''~ dem Weg zu(r)…'')
 * {{T|en}} : {{trad+|en|by}}
 * {{T|br}} : {{trad+|br|en ur}}
-* {{T|zdj}} : {{trad--|zdj|ha}} (suivi d'un infinitif)
+* {{T|zdj}} : {{trad--|zdj|ha}} (suivi d’un infinitif)
+{{trad-fin}}
+
+{{trad-début|Forme un gérondif qui marque le temps, la durée}}
+* {{T|en}} : {{trad+|en|while}}
 {{trad-fin}}
 
 {{trad-début|Remplace à la ou à l’ du locatif du nom d’un pays ou d’un continent}}
@@ -150,7 +161,7 @@
 * {{T|shy}} : {{trad--|shy|s}}
 * {{T|hr}} : {{trad+|hr|u}}, {{trad+|hr|na}}
 * {{T|da}} : {{trad+|da|af}}, {{trad+|da|om}}, {{trad+|da|over}}, {{trad+|da|til}}, {{trad-|da|vid}}, {{trad+|da|på}}, {{trad+|da|ved}}, {{trad+|da|i}}, {{trad+|da|for}}
-* {{T|es}} : {{trad+|es|en}}, {{trad-|es|en cuanto a}}, {{trad-|es|por lo tocante a}}, {{trad-|es|respecto de}}, {{trad+|es|acerca de}}, {{trad+|es|sobre}}, {{trad+|es|dentro de}}, {{trad+|es|a}}, {{trad+|es|hacia}}
+* {{T|es}} : {{trad+|es|en}}, {{trad+|es|en cuanto a}}, {{trad-|es|por lo tocante a}}, {{trad-|es|respecto de}}, {{trad+|es|acerca de}}, {{trad+|es|sobre}}, {{trad+|es|dentro de}}, {{trad+|es|a}}, {{trad+|es|hacia}}
 * {{T|eo}} : {{trad+|eo|pri}}, {{trad+|eo|je}}, {{trad+|eo|en}}, {{trad+|eo|al}}
 * {{T|fo}} : {{trad-|fo|um}}, {{trad-|fo|viðvíkjandi}}, {{trad-|fo|í}}, {{trad-|fo|til}}
 * {{T|fi}} : {{trad+|fi|-sta}}, {{trad+|fi|-ssa}}, {{trad+|fi|-lle}}
@@ -181,21 +192,21 @@
 '''en''' {{pron|ɑ̃|fr}} {{invariable}}
 # {{term|remplaçant un [[COI]] avec [[de#fr-prép|de]]}} De ça.
 #* ''L’affaire fit beaucoup de bruit. À l’heure de l’anisette, les officiers de l’état-major '''en''' discutaient !'' {{source|{{w|Bachaga Boualam}}, ''Les Harkis au service de la France'', France-Empire, 1963, p. 47}}
-#* ''Sans les digues élevées et solidement établies qui l’'''en''' garantissent, la Camargue serait submergée par le Rhône plusieurs fois durant le cours du printemps, […].'' {{source|M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l'agriculture française'', 2{{e}} série, tome 34, Paris : chez Madame Huzard, avril 1826, p. 77}}
-#* ''J’'''en''' ai été informé. — Je n’'''en''' sais rien.''
+#* ''Sans les digues élevées et solidement établies qui l''''en''' garantissent, la Camargue serait submergée par le Rhône plusieurs fois durant le cours du printemps, […].'' {{source|M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l’agriculture française'', 2{{e}} série, tome 34, Paris : chez Madame Huzard, avril 1826, p. 77}}
+#* ''J''''en''' ai été informé. — Je n''''en''' sais rien.''
 # {{term|remplaçant un nom sans [[déterminant]] ou un nom indéfini du [[COD]] ou du sujet de la [[copule]]}} Personne, chose de cette espèce, d’entre eux, d’entre elles. {{usage}} Utilisé tout seul ou avec une quantification.
-#* ''Lucien : Dis donc, Charlot, as-tu un sou ?<br />Charlot : Oui, j’'''en''' ai deux ; pour quoi faire ?'' {{source|Comtesse de Ségur, ''[[s:Comédies et proverbes/Le Forçat|Le Forçat]]'', 1869}}
-#* ''— Halte ! Avez-vous des allumettes ?<br />— Des allumettes ! Quelles allumettes ?<br />— Fumez-vous ?<br />— Ah ! oui, j’'''en''' ai ; les voilà, les voilà… Attendez.'' {{source|Fédor Dostoïevski, ''[[s:La Femme d’un autre|La Femme d’un autre]]'', traduit par Ely Halpérine-Kaminsky, 1888}}
-#* ''Lady Caroline : On m’a dit que vous n’aviez pas de manoir, en Amérique ?<br />Hester : Nous n’'''en''' avons pas beaucoup.'' {{source|Oscar Wilde, ''[[s:Une femme sans importance|Une femme sans importance]]'', traduit par Imago Visentin, 1893}}
+#* ''Lucien : Dis donc, Charlot, as-tu un sou ?<br />Charlot : Oui, j''''en''' ai deux ; pour quoi faire ?'' {{source|Comtesse de Ségur, ''[[s:Comédies et proverbes/Le Forçat|Le Forçat]]'', 1869}}
+#* ''— Halte ! Avez-vous des allumettes ?<br />— Des allumettes ! Quelles allumettes ?<br />— Fumez-vous ?<br />— Ah ! oui, j''''en''' ai ; les voilà, les voilà… Attendez.'' {{source|Fédor Dostoïevski, ''[[s:La Femme d’un autre|La Femme d’un autre]]'', traduit par Ely Halpérine-Kaminsky, 1888}}
+#* ''Lady Caroline : On m’a dit que vous n’aviez pas de manoir, en Amérique ?<br />Hester : Nous n''''en''' avons pas beaucoup.'' {{source|Oscar Wilde, ''[[s:Une femme sans importance|Une femme sans importance]]'', traduit par Imago Visentin, 1893}}
 # {{term|remplaçant un nom avec [[de#fr-prép|de]] dans le [[COD]], dans le sujet de la [[copule]] ou dans l’[[attribut]]}} De ça. {{usage}} Pour une personne, on utilise ''de lui'', ''d’elle'', etc. ou un [[adjectif possessif]].
-#* ''Ces deux enfants-là sont beaux et bien faits ; ils n’ont point de défauts sur le corps, et j’'''en''' suis content.'' {{source|George Sand, ''[[s:La Petite Fadette|La Petite Fadette]]'', 1849}}
-#* ''Cette lettre, j’'''en''' sais le contenu également.'' {{source|Alexandre Dumas, ''[[s:Joseph Balsamo|Joseph Balsamo]]'', [[s:Joseph Balsamo/Chapitre LXXXVI|Chapitre LXXXVI]], 1872}}
+#* ''Ces deux enfants-là sont beaux et bien faits ; ils n’ont point de défauts sur le corps, et j''''en''' suis content.'' {{source|George Sand, ''[[s:La Petite Fadette|La Petite Fadette]]'', 1849}}
+#* ''Cette lettre, j''''en''' sais le contenu également.'' {{source|Alexandre Dumas, ''[[s:Joseph Balsamo|Joseph Balsamo]]'', [[s:Joseph Balsamo/Chapitre LXXXVI|Chapitre LXXXVI]], 1872}}
 #* ''Le ''Contrat social'' diffère nettement de tous les autres ouvrages de Rousseau. […] Et le style '''en''' est tout nouveau : […] ; le ton, au contraire, '''en''' est grave, précis ; […]'' {{source|Georges Beaulavon, [[s:Du contrat social/Édition Beaulavon 1903/Texte entier|''Introduction du contrat social'']], 1903}}
 === {{S|adverbe|fr}} ===
 '''en''' {{pron|ɑ̃|fr}} {{adverbe de lieu|fr}}
 [[Catégorie: Adverbes de lieu en français]]
 # De ce lieu. De là. De ce [[côté]]-là
-#* ''La piscine ? J’'''en''' viens !''
+#* ''La piscine ? J''''en''' viens !''
 
 ==== {{S|variantes}} ====
 * [[z’en]]
@@ -206,6 +217,7 @@
 ==== {{S|traductions}} ====
 {{trad-début|De cela}}
 * {{T|it}} : {{trad+|it|ne}}
+* {{T|pcd}} : {{trad--|pcd|én-d}}, {{trad--|pcd|én_n}}, {{trad--|pcd|én-në}}, {{trad--|pcd|n-d}}, {{trad--|pcd|n-n}}, {{trad--|pcd|d-d}}, {{trad--|pcd|n-in}}
 * {{T|sv}} : {{trad+|sv|därför}}
 {{trad-fin}}
 
@@ -215,17 +227,22 @@
 {{trad-fin}}
 
 === {{S|prononciation}} ===
+* {{pron-rimes|ɑ̃|fr}}
 * {{pron|ɑ̃|fr}}
 * {{écouter|lang=fr|France (région parisienne)|ɑ̃|audio=Fr-en.ogg}}
 * Canada : {{phon|ã|fr}}
 {{note}} En français canadien, dépendamment de sa place dans la phrase, la voyelle peut être longue ou courte : dans « Je m’en vais/vas », la voyelle est longue car le verbe est monosyllabique : {{phon|ʒ(ə).mãː.vɛ|fr}} ou {{phon|ʒ(ə).mãː.vɑ|fr}}.{{référence nécessaire|lang=fr}}
 * {{écouter|lang=fr|France (Paris)|audio=LL-Q150 (fra)-GrandCelinien-en.wav}}
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-Poslovitch-en.wav}}
-
-
+* {{écouter|lang=fr|France (Toulouse)||audio=LL-Q150 (fra)-Lepticed7-en.wav}}
+* {{écouter|lang=fr|Suisse (canton du Valais)||audio=LL-Q150 (fra)-DSwissK-en.wav}}
+* {{écouter|lang=fr|Suisse (canton du Valais)||audio=LL-Q150 (fra)-Anonyme569 (ClasseNoes)-en.wav}}
 
 ==== {{S|homophones|fr}} ====
 * [[an]]
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{R:DAF8}}
@@ -247,6 +264,53 @@
 ==== {{S|notes}} ====
 : Pour un endroit en ancien français, on utilise ''en'' au lieu de ''{{lien|dens|fro}}''.
 
+== {{langue|pro}} ==
+=== {{S|étymologie}} ===
+: {{laé|pro|article}} Du {{étyl|la|pro|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
+:{{laé|pro|préposition}} Du {{étyl|la|pro|in}}.
+: {{laé|pro|adverbe}} Du {{étyl|la|pro|inde}}.
+
+=== {{S|article|pro}} ===
+'''en''' {{pron-recons||pro}} {{m}} ''(l'équivalent féminin est '' {{lien|na|pro}}'')''
+# [[monsieur|Monsieur]], [[seigneur]] particule [[honorifique]] que l’on place devant le nom de quelqu’un.
+
+==== {{S|variantes}} ====
+* {{lien|n’|oc}}
+
+==== {{S|notes}} ====
+: S’utilise devant le prénom ou le nom de famille.
+
+==== {{S|dérivés autres langues}} ====
+* {{L|ca}} : {{lien|en|ca}}
+* {{L|oc}} : {{lien|en|oc}}
+
+=== {{S|préposition|pro}} ===
+'''en''' {{pron-recons||pro}}
+# [[en|En]], dans, à, sur, comme, entre, parmi, pour, selon, durant, devant, vers, quant à, dorénavant.
+
+==== {{S|dérivés}} ====
+* [[en per se]], [[en per si]]
+* [[en de per se]]
+* [[de tot en tot]]
+* [[en mieg de]]
+* [[en guisa de]]
+
+=== {{S|adverbe|pro}} ===
+'''en''' {{pron-recons||pro}}
+# En, de là, d’ici.
+
+==== {{S|variantes}} ====
+* [[ent]]
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
+=== {{S|références}} ===
+* {{R:Raynouard}}
+
+=== {{S|anagrammes}} ===
+* {{lien|ne|pro}}
+
 == {{langue|angevin}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|angevin}}
@@ -254,6 +318,9 @@
 === {{S|préposition|angevin}} ===
 '''en''' {{pron||angevin}}
 # ''Variante de'' {{lien|à|angevin}} ''(pour indiquer la matière)''. {{usage}} il s’utilise principalement devant « paille » ou « ardoise ».
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{R:VerrierOnillon|p=2|vue=42}}
@@ -264,8 +331,8 @@
 
 === {{S|nom|en}} ===
 {{en-nom-rég|ɛn}}
-'''en'''
-# {{typographie|en}} [[demi-cadratin#fr|Demi-cadratin]].
+'''en''' 
+# {{lexique|typographie|en}} [[demi-cadratin#fr|Demi-cadratin]].
 
 ==== {{S|apparentés}} ====
 * [[en dash]]
@@ -283,7 +350,7 @@
 
 == {{langue|az}} ==
 === {{S|étymologie}} ===
-: Du {{étyl|trk-pro|az}} {{recons|[[Reconstruction:proto-turc/*ēn|ēn]]}}{{R|StarLing-trk-pro|*ēn|1520}}.
+: Du {{étyl|trk-pro|az}} {{recons|lang-mot-vedette=az|[[Reconstruction:proto-turc/*ēn|ēn]]}}{{R|StarLing-trk-pro|*ēn|1520}}.
 
 === {{S|nom|az}} ===
 {{az-décl-nom|e|c}}
@@ -295,6 +362,9 @@
 * [[enlilik]]
 * [[ensiz]]
 * [[ensizlik]]
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 {{références}}
@@ -312,6 +382,9 @@
 {{brabançon-nen|ms=nen|fs=en|ns=e}}
 '''en''' {{pron||brabançon}} {{f}}
 # {{Bruxelles|brabançon}} [[un|Un]], [[une]]. {{usage}} devant un substantif féminin singulier.
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{ouvrage|auteur=Freddy Michiels|titre=Klappen en zingen oep zen Aantwaarps: woordenlijst Antwerpse taal : woorden, anekdotes|éditeur=Pandora Publishers|date=2017|isbn=978-9053254172}}
@@ -335,7 +408,7 @@
 {{ébauche|ca}}
 
 === {{S|étymologie}} ===
-: 1 : {{siècle|XII}} Du {{étyl|la|ca|inde|dif=ĭnde}}.
+: 1 : {{siècle|lang=ca|XII}} Du {{étyl|la|ca|inde|dif=ĭnde}}.
 : 2 : Du {{étyl|la|ca|in|dif=ĭn}}.
 : 3 : Du {{étyl|la|ca|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
 
@@ -371,7 +444,7 @@
 === {{S|article défini|ca}} ===
 '''en''' {{pron|en|ca}} {{m}} {{équiv-pour|une femme|na|lang=ca}}
 # {{archaïsme|ca}} {{baléare|ca}} {{Alghero|ca}} [[monsieur|Monsieur]], appellation [[courtoise]] ou [[honorifique]] de quelqu’un.
-#* ''Jo penso que els valencians han de seguir l'exemple d’'''en''' Sanchis i companyia, que és marxar de la seva terra i deixar-la pels espanyols així segur milloren.'' {{source|[http://www.racocatala.cat/forums/fil/169740/vicent-sanchis-si-valencians-tornen-votar-pp-s-accepten-sucidi Racó català - Forums - Vicent Sanchis: "Si els valencians tornen a votar el PP és que accepten el suïcidi"]}}
+#* ''Jo penso que els valencians han de seguir l’exemple d''''en''' Sanchis i companyia, que és marxar de la seva terra i deixar-la pels espanyols així segur milloren.'' {{source|[http://www.racocatala.cat/forums/fil/169740/vicent-sanchis-si-valencians-tornen-votar-pp-s-accepten-sucidi Racó català - Forums - Vicent Sanchis: "Si els valencians tornen a votar el PP és que accepten el suïcidi"]}}
 [[Catégorie:catalan oriental]]
 ==== {{S|variantes}} ====
 * {{lien|n’|ca}}
@@ -449,7 +522,7 @@
 #*: Je ne connais pas ce mot en français
 #* '''''en''' todos los idiomas''
 #*: dans toutes les langues
-# (''Utilisé après certains verbes et traduits par différentes préposition en français'').
+# (''Utilisé après certains verbes et traduits par différentes prépositions en français'').
 #* ''Pienso '''en''' tí''
 #*: Je pense à toi
 # (''Utilisé dans différentes expressions'').
@@ -464,6 +537,9 @@
 === {{S|prononciation}} ===
 * {{écouter|lang=es|France|audio=LL-Q1321 (spa)-Anonymât (Kvardek du)-en.wav}}
 * {{écouter|lang=es|||audio=LL-Q1321 (spa)-Rodelar-en.wav}}
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{Source-wikt|en|en|10329604}}
@@ -480,16 +556,20 @@
 ''Voir: [[:Catégorie:Mots en espéranto utilisant l’affixe en]]''
 
 Académiques:
-* {{lien|enspezi|eo}} {{eo-comprac|racn=5205|par=1}} {{eo-ss|PR=1}} : {{lien|encaisser|fr}}, {{lien|avoir|fr}} comme {{lien|revenu|fr}}s
-* {{lien|enterigi|eo}} {{eo-comprac|racn=5226|par=1}} {{eo-ss|PR=1}} : {{lien|ensevelir|fr}}, {{lien|enterrer|fr}}
+* {{lien|enspezi|eo}} {{eo-comprac|racn=5205|par=1}} : {{lien|encaisser|fr}}, {{lien|avoir|fr}} comme {{lien|revenu|fr}}s
+* {{lien|enterigi|eo}} {{eo-comprac|racn=5226|par=1}} : {{lien|ensevelir|fr}}, {{lien|enterrer|fr}}
 
 === {{S|prononciation}} ===
 * {{écouter|lang=eo|Pays-Bas (partie continentale) (Wijchen)|audio=LL-Q143 (epo)-Robin van der Vliet-en.wav}}
 * {{écouter|lang=eo|Brésil|audio=LL-Q143 (epo)-NMaia-en.wav}}
 * {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-en.wav}}
+* {{écouter|lang=eo|France (Vosges)||audio=LL-Q143 (epo)-Poslovitch-en.wav}}
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
-Vocabulaire:
+==== {{S|bibliographie}} ====
 * {{R:PV}}
 * {{R:PIV}}
 * {{R:Retavort|rac=en}}
@@ -515,7 +595,7 @@ Vocabulaire:
 | ei || eivät
 |}
 '''en''' {{pron|en|fi}}
-# Première personne du singulier de la forme verbale [[négative]] : ne...pas.
+# Première personne du singulier de la forme verbale [[négative]] : ne…pas.
 
 ==== {{S|notes}} ====
 : Le verbe négatif n’a pas de forme infinitive. Il est le même à l’indicatif et au conditionnel. Pour la forme impérative, voir ''[[älä]]/[[älköön]]/[[älkäämme]]/[[älkää]]/[[älkööt]]'', la deuxième personne du singulier à l’impératif est ''[[ällös]]''.
@@ -546,9 +626,12 @@ Vocabulaire:
 '''en'''
 # [[un|Un]], [[une]]. {{usage}} devant une voyelle.
 
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
 === {{S|références}} ===
 * {{ouvrage|prénom=Piet|nom=Huysentruyt|titre=Piet int Westvlams|éditeur=Lannoo|date=2016|isbn=9789401429788}}
-* {{ouvrage|auteur=Hergé|titre=D'aveteurn van Kuiftsje, Et Doenker Ejland|éditeur=Casterman|date=2015|isbn=9789030327479|passage=2}}
+* {{ouvrage|auteur=Hergé|titre=D’aveteurn van Kuiftsje, Et Doenker Ejland|éditeur=Casterman|date=2015|isbn=9789030327479|passage=2}}
 
 == {{langue|nld}} ==
 === {{S|étymologie}} ===
@@ -557,6 +640,9 @@ Vocabulaire:
 === {{S|conjonction de coordination|nld}} ===
 '''en''' {{pron||nld}}
 # [[et|Et]].
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{ouvrage|auteur=Mathilde Jansen, Nicoline van der Sijs, Fieke van der Gucht, Johan De Caluwe|titre=Atlas van de Nederlandse Taal|éditeur=Lannoo|date=2017|passage=141}}
@@ -571,6 +657,9 @@ Vocabulaire:
 '''en''' {{pron||gallo}} {{gallo-graphie MOGA}}
 # [[en#fr|En]].
 
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
 === {{S|références}} ===
 * {{lien web|auteur=Chubri|url=http://www.chubri-galo.bzh/chubri-galo_actualites_archives-actualites_chubendret-communes-des-cotes-d-armor-et-de-loire-atlantique_gl.htm|site=Chubri|titre=Pourr lé cmenn dé Côtt d’Ahaot e d la Louérr Atlauntiq, ChubEndret contt bin davantaïj de non, mézë|date=31 octobre 2018}}
 
@@ -584,7 +673,7 @@ Vocabulaire:
 
 == {{langue|la}} ==
 === {{S|étymologie}} ===
-: Voyez ''[[in#la|in]]'' ; comparez avec le grec ancien {{polytonique|[[ἤν]], [[ἠνί]]|ên, êní}} ; selon certains{{réf}} c’est l’interjection {{recons|e}} avec l’enclitique ''[[-ne#la|-ne]]''.
+: Voyez ''[[in#la|in]]'' ; comparez avec le grec ancien {{polytonique|[[ἤν]], [[ἠνί]]|ên, êní}} ; selon certains{{réf}} c’est l’interjection {{recons|lang-mot-vedette=la|e}} avec l’enclitique ''[[-ne#la|-ne]]''.
 
 === {{S|interjection|la}} ===
 '''ēn''' {{pron||la}}
@@ -607,6 +696,9 @@ Vocabulaire:
 #* '''''en''' quo fretus sim ?'' Ter.
 #*: eh bien, à qui me confier ?
 
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
 === {{S|références}} ===
 * {{R:Gaffiot}}
 * {{RÉF}} {{R:L&S}}
@@ -621,6 +713,9 @@ Vocabulaire:
 === {{S|conjonction de coordination|lim}} ===
 '''en''' {{pron||lim}}
 # [[et|Et]].
+
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{ouvrage|auteur=Mathilde Jansen, Nicoline van der Sijs, Fieke van der Gucht, Johan De Caluwe|titre=Atlas van de Nederlandse Taal|éditeur=Lannoo|date=2017|passage=137}}
@@ -645,9 +740,11 @@ Vocabulaire:
 === {{S|anagrammes}} ===
 * {{lien|ne|nl}}
 
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
 === {{S|références}} ===
 {{références}}
-
 
 == {{langue|no}} ==
 === {{S|étymologie}} ===
@@ -701,7 +798,7 @@ Vocabulaire:
 {{)}}
 
 === {{S|article|oc}} ===
-'''en''' {{pron|en|oc}} {{m|équiv=na}} {{oc-norme classique}}
+'''en''' {{pron|en|oc}} {{m}} ''(l'équivalent féminin est '' {{lien|na|oc}}'')'' {{oc-norme classique}}
 # {{archaïsme|oc}} [[monsieur|Monsieur]], particule [[honorifique]] que l’on place devant le nom de quelqu’un.
 
 ==== {{S|variantes}} ====
@@ -718,52 +815,29 @@ Vocabulaire:
 === {{S|prononciation}} ===
 * {{écouter|lang=oc|France (Béarn)|audio=LL-Q14185 (oci)-Davidgrosclaude-en.wav}}
 
+=== {{S|voir aussi}} ===
+* {{Le Dico des Ados}}
+
 === {{S|références}} ===
 * {{R:Cantalausa}}
 
-== {{langue|pro}} ==
+== {{langue|pln}} ==
 === {{S|étymologie}} ===
-: 1 : Du {{étyl|la|pro|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
-: 2 : Du {{étyl|la|pro|in}}.
-: 3 : Du {{étyl|la|pro|inde}}.
+: De l’{{étyl|es|pln|mot=en}} (même sens).
 
-=== {{S|article|pro}} ===
-'''en''' {{m|équiv=na}}
-# [[monsieur|Monsieur]], [[seigneur]] particule [[honorifique]] que l’on place devant le nom de quelqu’un.
+=== {{S|préposition|pln}} ===
+'''en''' {{pron|ɛn|pln}}
+# [[en|En]], [[dans]], à l’[[intérieur]] de.
+#*''Lusy ta '''en''' el kuarto grao.''
+#*:Lucy est dans la quatrième classe
+#*''Ele a kondá-mi ke ané asé ta bibí '''en''' Benesuela aola.''
+#*: Il/Elle m’ont raconté qu’ils vivent maintenante au Venezuela.
 
-==== {{S|variantes}} ====
-* {{lien|n’|oc}}
-
-==== {{S|notes}} ====
-: S’utilise devant le prénom ou le nom de famille.
-
-==== {{S|dérivés autres langues}} ====
-* {{L|ca}} : {{lien|en|ca}}
-* {{L|oc}} : {{lien|en|oc}}
-
-=== {{S|préposition|pro}} ===
-'''en'''
-# En, dans, à, sur, comme, entre, parmi, pour, selon, durant, devant, vers, quant à, dorénavant.
-
-==== {{S|dérivés}} ====
-* [[en per se]], [[en per si]]
-* [[en de per se]]
-* [[de tot en tot]]
-* [[en mieg de]]
-* [[en guisa de]]
-
-=== {{S|adverbe|pro}} ===
-'''en'''
-# En, de là, d’ici.
-
-==== {{S|variantes}} ====
-* [[ent]]
+==== {{S|synonymes}} ====
+* [[a]] (plus "palenquero")
 
 === {{S|références}} ===
-* {{R:Raynouard}}
-
-=== {{S|anagrammes}} ===
-* {{lien|ne|pro}}
+* {{R:Schwegler}}
 
 == {{langue|sl}} ==
 === {{S|étymologie}} ===
@@ -791,7 +865,7 @@ Vocabulaire:
 
 === {{S|nom|sv}} ===
 '''en''' {{pron||sv}} {{c}}
-# {{botanique|nocat=1}} [[genévrier|Genévrier]] (''Juniperus communis'').
+# {{info lex|botanique}} [[genévrier|Genévrier]] (''Juniperus communis'').
 #* {{ébauche-exe|sv}}
 
 [[Catégorie:Plantes en suédois]]
@@ -807,3 +881,13 @@ Vocabulaire:
 === {{S|anagrammes}} ===
 * {{lien|ne|crh}}
 
+== {{langue|tokipona}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|tokipona}}
+
+=== {{S|nom|tokipona}} ===
+'''en''' {{pron||tokipona}}
+# [[et|Et]].
+
+==== {{S|vocabulaire}} ====
+* {{lien|anu|tokipona}}

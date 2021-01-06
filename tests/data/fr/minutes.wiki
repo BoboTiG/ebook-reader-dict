@@ -31,16 +31,17 @@
 : {{ébauche-étym|en}}
 
 === {{S|nom|en}} ===
-'''minutes''' {{pron||en}} {{p}}
+'''minutes''' {{pron|ˈmɪ.nɪts|en}} {{au pluriel uniquement|en}}
 # [[compte-rendu|Compte-rendu]], [[procès-verbal]].
 #* ''The elected secretary will take the '''minutes''' of the meeting.''
 
 === {{S|nom|en|flexion}} ===
-'''minutes''' {{pron||en}}
+{{en-nom-rég|sing=minute|ˈmɪ.nɪt}}
+'''minutes''' {{pron|ˈmɪ.nɪts|en}}
 # ''Pluriel de'' [[minute]].
 
 === {{S|verbe|en|flexion}} ===
-'''minutes''' {{pron||en}}
+'''minutes''' {{pron|ˈmɪ.nɪts|en}}
 # ''Troisième personne du singulier du présent indicatif du verbe ''[[minute]].
 
 === {{S|prononciation}} ===

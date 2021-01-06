@@ -1,4 +1,4 @@
-{{voir autre alphabet|latin|a|cyrillique|а}}
+{{voir autres scripts|latin|a|cyrillique|а}}
 {{voir/a}}
 {|width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0;margin-bottom:0.5em;background:transparent"
 |-valign="top"
@@ -22,17 +22,19 @@ __TOC__
 * {{R:Bloc Unicode}}
 [[Catégorie:Chiffres hexadécimaux]]
 
+
 == {{langue|conv}} ==
 === {{S|symbole|conv}} ===
 '''a'''
-# {{linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie.
-#* ''La voyelle /'''a'''/ est celle de l’article « la » dans la quasi-totalité des dialectes du français.''
-# {{métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe [[atto-#fr|atto-]] (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).
-# {{métrologie|conv}} Symbole de l’[[are#fr|are]], une [[unité de mesure|unité]] de [[surface#fr-nom|surface]] non [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
-# {{métrologie|conv}} Symbole (dérivé du système SI) de l’[[année]] (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
+# {{lexique|linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie.
+#*''La voyelle /'''a'''/ est celle de l’article « la » dans la quasi-totalité des dialectes du français.''
+# {{lexique|métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe [[atto-#fr|atto-]] (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).
+# {{lexique|métrologie|conv}} Symbole de l’[[are#fr|are]], une [[unité de mesure|unité]] de [[surface#fr-nom|surface]] non [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
+# {{lexique|métrologie|conv}} Symbole (dérivé du système SI) de l’[[année]] (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
 #* ''Cette roche a été formée il y a 4 G'''a'''.''
 
 [[Catégorie:Symboles de l’alphabet phonétique international]]
+
 
 == {{langue|fr}} ==
 === {{S|lettre|fr}} ===
@@ -90,20 +92,13 @@ __TOC__
 === {{S|pronom personnel|fr}} ===
 '''a''' {{pron|a|fr}}
 # {{familier|fr}} Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).
-#* ''Quoi qu’'''a''' dit ? – '''A''' dit rin.<br
-/>Quoi qu’'''a''' fait ? – '''A''' fait rin.<br
-/>À quoi qu’'''a''' pense ? – '''A''' pense à rin.<br
-/><br
-/>Pourquoi qu’'''a''' dit rin ?<br
-/>Pourquoi qu’'''a''' fait rin ?<br
-/>Pourquoi qu’'''a''' pense à rin ?<br
-/><br
-/>- '''A'''’xiste pas.'' {{source|Jean Tardieu, ''La Môme Néant''}}
+#*''Quoi qu’'''a''' dit ? – '''A''' dit rin.<br />Quoi qu’'''a''' fait ? – '''A''' fait rin.<br />À quoi qu’'''a''' pense ? – '''A''' pense à rin.<br /><br />Pourquoi qu’'''a''' dit rin ?<br />Pourquoi qu’'''a''' fait rin ?<br />Pourquoi qu’'''a''' pense à rin ?<br /><br />- '''A'''’xiste pas.'' {{source|Jean Tardieu, ''La Môme Néant''}}
 # {{Québec|fr}} {{familier|fr}} [[elle#fr|Elle]].
 #* ''C’était pendant l’congé d’Noël<br
 />J’voulais déjà m’marier avec elle<br
 />'''A''' m’a appelé tantôt après les nouvelles.'' {{source|Les Cowboys fringants, « Le Quai de Berthier » (chanson), 1998}}
 #*''Quand '''a''' l’ouvre la porte pis qu''''a''' sort d’la scène, '''a''' l’arrête d’exister pour toi [[pis]] tu t’en [[sacrer|sacres]], [[d’abord que]] t’as écrit des belles scènes!'' {{source|{{w|Michel Tremblay}}, ''Le Vrai Monde?'', 1987}}
+
 ==== {{S|variantes orthographiques}} ====
 * [[à]]
 
@@ -143,6 +138,7 @@ __TOC__
 
 [[Catégorie:Mots sans consonne en français]]
 
+
 == {{langue|aa}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|aa}}
@@ -150,6 +146,9 @@ __TOC__
 === {{S|adjectif démonstratif|aa}} ===
 '''a''' {{pron|a|aa}}
 # [[ce|Ce]].
+
+[[Catégorie:Mots sans consonne en afar]]
+
 
 == {{langue|de}} ==
 === {{S|lettre|de}} ===
@@ -168,11 +167,13 @@ __TOC__
 * {{Vikidia}}
 * [[ä]]
 
+[[Catégorie:Mots sans consonne en allemand]]
+
 == {{langue|fro}} ==
 === {{S|étymologie}} ===
-: (Préposition) Du {{étyl|la|fro|mot=ad|sens=à, vers}}.
-: (Forme de verbe) Du {{étyl|la|fro|mot=habet}}.
-: (Interjection) Du {{étyl|la|fro|mot=ah}}.
+: ''(Préposition)'' Du {{étyl|la|fro|mot=ad|sens=à, vers}}.
+: ''(Forme de verbe)'' Du {{étyl|la|fro|mot=habet}}.
+: ''(Interjection)'' Du {{étyl|la|fro|mot=ah}}.
 
 === {{S|préposition|fro}} ===
 '''a''' {{pron|a|fro}}
@@ -288,6 +289,7 @@ __TOC__
 * {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-a.wav}}
 * {{écouter|lang=en|France (Lyon)||audio=LL-Q1860 (eng)-Lyokoï-a.wav}}
 
+
 == {{langue|xno}} ==
 === {{S|étymologie}} ===
 : Du {{étyl|la|xno|mot=ad}}.
@@ -298,6 +300,7 @@ __TOC__
 
 ==== {{S|variantes}} ====
 * [[ad#xno|ad]]
+
 
 == {{langue|bm}} ==
 === {{S|étymologie}} ===
@@ -315,6 +318,7 @@ __TOC__
 ==== {{S|dérivés}} ====
 * [[ale]] (''emphatique'' : « Lui, il … »)
 
+
 == {{langue|bci}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|bci}}
@@ -325,6 +329,7 @@ __TOC__
 
 === {{S|prononciation}} ===
 * {{écouter|lang=bci|Côte d'Ivoire|audio=LL-Q35107 (bci)-Franckk1-a.wav}}
+
 
 == {{langue|eu}} ==
 === {{S|lettre|eu}} ===
@@ -340,6 +345,7 @@ __TOC__
 * {{Vikidia}}
 * Le suffixe [[-a#eu|-a]]
 
+
 == {{langue|bondska}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|bondska}}
@@ -353,6 +359,7 @@ __TOC__
 === {{S|références}} ===
 
 * {{lien web|url=http://pitemal.wikidot.com/wiki:a-a-hon|titre=a / ’a, hon|site=pitemal.wikidot.com}}
+
 
 == {{langue|brabançon}} ==
 === {{S|étymologie}} ===
@@ -399,6 +406,7 @@ __TOC__
 * {{R:MDeSchrijver|p=93}}
 * {{lien web|url=http://www.antwerps.be/woordenboek/A|titre=A|site=Antwerps woordenboek}}
 {{Références}}
+
 
 == {{langue|br}} ==
 === {{S|étymologie}} ===
@@ -494,7 +502,7 @@ __TOC__
 === {{S|particule|br}} ===
 '''a''' {{pron|a|br}}
 # Particule verbale. {{note}} mutation par adoucissement après la particule verbale ''a''.
-#* ''Te '''a''' skriv braw.'' {{source|[[w:Jules Gros (1890-1992)|Jules Gros]], ''Le trésor du breton parlé (Eléments de Stylistique Trégorroise) - Troisième partie - LE STYLE POPULAIRE'', 1974, page 167}}
+#*''Te '''a''' skriv braw.'' {{source|[[w:Jules Gros (1890-1992)|Jules Gros]], ''Le trésor du breton parlé (Eléments de Stylistique Trégorroise) - Troisième partie - LE STYLE POPULAIRE'', 1974, page 167}}
 #*: Tu écris bien.
 #* ''Petra '''a''' lavarit ?'' {{source|idem, page 167}}
 #*: Que dites-vous ?
@@ -506,7 +514,7 @@ __TOC__
 === {{S|interjection|br}} ===
 '''a''' {{pron|ˈɑː|br}} {{invar}}
 # {{littéraire|br}} [[ô|Ô]]. {{note}} suivi d’une mutation adoucissante.
-#* '''''A''' vor ! E teuan dit…''{{R|cita}}
+#*'''''A''' vor ! E teuan dit…''{{R|cita}}
 #*: Ô mer ! Je viens à toi…
 
 ==== {{S|variantes}} ====
@@ -526,6 +534,7 @@ __TOC__
 {{R|cita|{{cit_réf|Pirc’hirin ar Mor [Pèlerin de la mer]|Barzhonegoù, Brest, 1943<!-- écrit en 1933 -->|{{nom w pc|Roparz|Hemon}}}}}}
 </references>
 
+
 == {{langue|shy}} ==
 
 === {{S|lettre|shy}} ===
@@ -543,6 +552,7 @@ __TOC__
 [[Catégorie:Lettres en chaoui]]
 [[Catégorie:Lemmes en gaélique irlandais]]
 [[Catégorie:Lemmes en gallo]]
+
 
 == {{langue|kw}} ==
 === {{S|étymologie}} ===
@@ -592,6 +602,7 @@ __TOC__
 
 * {{R:GK|a}}
 
+
 == {{langue|co}} ==
 === {{S|étymologie}} ===
 : Du {{étyl|la|co|mot=illa}}.
@@ -610,6 +621,7 @@ __TOC__
 ==== {{S|vocabulaire}} ====
 * [[u#co|u]], [[e#co|e]]
 
+
 == {{langue|gcf}} ==
 {{ébauche|gcf}}
 === {{S|étymologie}} ===
@@ -619,6 +631,7 @@ __TOC__
 '''a''' {{pron||gcf}}
 # [[de|De]].
 #* {{ébauche-exe|gcf}}
+
 
 == {{langue|gcr}} ==
 === {{S|étymologie}} ===
@@ -643,6 +656,7 @@ __TOC__
 
 ==== {{S|notes}} ====
 * Ce verbe se place toujours en début de proposition.
+
 
 == {{langue|ht}} ==
 === {{S|étymologie}} ===
@@ -691,11 +705,13 @@ __TOC__
 === {{S|références}} ===
 * ''Haïti-Référence'', diksyonè : [https://haiti-reference.com/creole/diction/display.php?action=view&id=151&from=action=search|word=a|type=full|x=73|y=12 a]
 
+
 == {{langue|dalécarlien}} ==
 === {{S|lettre|dalécarlien}} ===
 {{lettre|nom=|lang=dalécarlien}}
 '''a''' {{pron||lang=dalécarlien}} {{minus}}
 # Première lettre de l’alphabet [[dalécarlien]].
+
 
 == {{langue|dyu}} ==
 {{ébauche|dyu}}
@@ -705,6 +721,7 @@ __TOC__
 === {{S|adverbe|dyu}} ===
 '''a''' {{pron||dyu}}
 # [[c'est|C'est]].
+
 
 == {{langue|es}} ==
 === {{S|étymologie}} ===
@@ -721,7 +738,7 @@ __TOC__
 === {{S|préposition|es}} ===
 '''a''' {{pron|a|es}}
 # [[à#fr|À]], [[au]], [[le]], [[de]], [[par]]. Indique une [[situation]], un [[lieu]], un [[mouvement]].
-#* ''¿Vamos '''a''' la playa?''
+#*''¿Vamos '''a''' la playa?''
 #*: On va à la plage ?
 #* '''''A''' la derecha.''
 #*: À droite.
@@ -754,7 +771,7 @@ __TOC__
 : Doit se placer entre deux verbes si le premier verbe est un verbe de mouvement :
 :: ''Voy '''a''' decir algo.'' — Je vais dire quelque chose.
 : On utilise toujours '''''a''''' devant un complément d’objet direct pour une personne déterminée :
-:: ''Encontré '''a''' alguien que tenía el pelo rubio'' — J’ai rencontré quelqu’un qui avait les cheveux blonds.
+::''Encontré '''a''' alguien que tenía el pelo rubio'' — J’ai rencontré quelqu’un qui avait les cheveux blonds.
 :: Mais : ''Encontré alguien.'' ou ''He encontrado alguien.'' — J’ai rencontré quelqu’un.
 
 === {{S|prononciation}} ===
@@ -762,6 +779,7 @@ __TOC__
 * {{écouter|lang=es|France|audio=LL-Q1321 (spa)-Anonymât (Kvardek du)-a.wav}}
 * {{écouter|lang=es|France (Paris)||audio=LL-Q1321 (spa)-Eavqwiki-a.wav}}
 * {{écouter|lang=es|||audio=LL-Q1321 (spa)-Rodelar-a.wav}}
+
 
 == {{langue|eo}} ==
 {{alphabet espéranto}}
@@ -781,6 +799,29 @@ __TOC__
 * {{R:PIV}}
 * {{R:Retavort|rac=a1}}
 * {{R:AkadUniVort|oar="a"|AkV1=2|cat=F|ald2=7}}
+== {{langue|et}} ==
+
+=== {{S|étymologie}} ===
+: {{ébauche-étym|et}}
+
+=== {{S|lettre|et}} ===
+{{lettre}}
+'''a''' {{pron|ˈɑː|et}}
+# Première lettre de l'alphabet estonien.
+
+=== {{S|nom|et}} ===
+{{et-decl-koi|a}}
+'''a''' {{pron|ˈɑː|et}}
+# Nom de la lettre ''{{lien|a|et}}''.
+# ''Abréviation de'' {{lien|aasta|et}}.
+# {{lexique|musique|et}} [[la|La]].
+
+=== {{S|conjonction|et}} ===
+'''a''' {{pron|ˈɑː|et}}
+# {{familier|et}} [[mais|Mais]]. {{usage}} cette forme s'emploie surtout en parlant rapidement.
+
+=== {{S|références}} ===
+* {{R:GDEF|a}}
 
 == {{langue|fi}} ==
 === {{S|lettre|fi}} ===
@@ -789,6 +830,7 @@ __TOC__
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] ; lettre unique représente le son {{pron|ɑ|fi}} et lettre double le son {{pron|ɑː|fi}}.
 #* ''Sanassa "tasamaa" on neljä a:ta.''
 #*: Le mot «&nbsp;tasamaa&nbsp;» (plaine) contient quatre a.
+
 
 == {{langue|vls}} ==
 
@@ -806,7 +848,7 @@ __TOC__
 # [[tu|Tu]], [[toi]], [[ton]], [[ta]].
 #* '''''A''' xɔ azin'' : Tu achètes des œufs <small>(''Littéralement'' : tu, acheter, œuf)</small>.
 # Marque une interrogation simple en fin de phrase.
-#* '''''A''' jlŏ dóó '''à''''' ? : Est-ce que tu y tiens absolument ? <small>(''Littéralement'' : toi, vouloir, absolument, interrogation)</small>.
+#*'''''A''' jlŏ dóó '''à''''' ? : Est-ce que tu y tiens absolument ? <small>(''Littéralement'' : toi, vouloir, absolument, interrogation)</small>.
 #* ''Asú we ɖò xwé gbé '''à''''' ? : Ton mari est-il à la maison ? <small>(''Littéralement'' : asú : ton mari, ''we … '''à''''' : est-ce que, ɖò : être, xwé : maison, gbe : ensemble)</small>.
 
 === {{S|particule|fon|num=2}} ===
@@ -822,6 +864,7 @@ __TOC__
 
 === {{S|références}} ===
 * {{R:fon}}
+
 
 == {{langue|fur}} ==
 === {{S|lettre|fur}} ===
@@ -861,8 +904,8 @@ __TOC__
 
 '''a''' {{pron||ga}}
 # Utilisé pour marquer une exclamation.
-#: '''''A''' fheabhas atá sé! ''
-#:: '''Comme''' c'est bon !
+#:'''''A''' fheabhas atá sé! ''
+#::'''Comme''' c'est bon !
 === {{S|pronom|ga}} ===
 '''a''' {{pron||ga}}
 # Introduit une préposition relative directe, prend la forme indépendante d'un verbe irrégulier.
@@ -891,6 +934,7 @@ __TOC__
 * {{R:DIL|3|head=2 a (pronom possessif)}}
 * {{R:DIL|4|head=3 a (particule devant des adjectifs numéraux)}}
 * {{R:DIL|5|head=4 a (pronom indéfini)}}
+
 
 == {{langue|gallo}} ==
 === {{S|étymologie}} ===
@@ -941,6 +985,7 @@ __TOC__
 * {{R:Orain|ortho=avoir|p=5}}
 * {{lien web|url=http://web.archive.org/web/20071020044600/http://www.maezoe.com/maezoe-fr.htm|titre=Grammaire du gallo : les adjectifs et pronoms démonstratifs|site=maezoe.com (archivé)|consulté le=29 juillet 2019}}
 
+
 == {{langue|cy}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|cy}}
@@ -963,6 +1008,7 @@ __TOC__
 ** dans l'[[Annexe:Grammaire gauloise|annexe sur la grammaire gauloise]] ;
 ** dans l'[[Annexe:Ouvrages de référence pour le gaulois|annexe listant les ouvrages de référence en gaulois]].
 
+
 == {{langue|gn}} ==
 === {{S|lettre|gn}} ===
 {{lettre|pron=a|lang=gn}}
@@ -973,6 +1019,7 @@ __TOC__
 * {{Vikidia}}
 * {{WP|Guarani_(langue)#Écriture|Écriture du guarani}}
 {{alphabet guarani}}
+
 
 == {{langue|hu}} ==
 === {{S|étymologie}} ===
@@ -988,6 +1035,7 @@ __TOC__
 === {{S|prononciation}} ===
 * {{écouter||ɒ|lang=hu|audio=Hu-a.ogg}}
 
+
 == {{langue|idi}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|idi}}
@@ -999,6 +1047,7 @@ __TOC__
 === {{S|références}} ===
 * {{ouvrage|auteur= S.A. Wurm, Murray & Joan Rule|url=http://www.sil.org/pacific/png/pubs/928474542523/Idi.pdf|titre=Idi Organised Phonology Data|pages totales=6|passage=3}}
 
+
 == {{langue|io}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|io}}
@@ -1007,6 +1056,7 @@ __TOC__
 '''a''' {{pron|a|io}}
 # [[à|À]].
 # [[vers|Vers]].
+
 
 == {{langue|ia}} ==
 === {{S|étymologie}} ===
@@ -1020,6 +1070,7 @@ __TOC__
 === {{S|préposition|ia}} ===
 '''a''' {{pron|a|ia}}
 # [[à|À]].
+
 
 == {{langue|it}} ==
 === {{S|étymologie}} ===
@@ -1045,6 +1096,7 @@ __TOC__
 === {{S|prononciation}} ===
 * {{écouter|Italie|a|audio=It-a.ogg|lang=it}}
 
+
 == {{langue|ki}} ==
 === {{S|particule|ki}} ===
 '''a'''
@@ -1053,6 +1105,7 @@ __TOC__
 === {{S|verbe|ki}} ===
 '''a'''
 # [[prêter#fr|Prêter]].
+
 
 == {{langue|avk}} ==
 === {{S|étymologie}} ===
@@ -1095,9 +1148,13 @@ __TOC__
 * [[anek]]
 
 === {{S|références}} ===
-*l'encyclopédie linguistique en kotava ''Kotapedia''([http://www.kotava.org/kotapedia/doku.php?id=a préposition],  [http://www.kotava.org/kotapedia/doku.php?id=a2 nom de lettre]).
-[[Catégorie:Lettres en kotava|kotava]]
+*l'encyclopédie linguistique en kotava ''Kotapedia''([http://www.kotava.org/kotapedia/doku.php?id=a préposition], [http://www.kotava.org/kotapedia/doku.php?id=a2 nom de lettre]).
+
+[[Catégorie:Prépositions générales en kotava]]
+[[Catégorie:Lettres en kotava]]
 [[Catégorie:Mots en kotava répertoriés sur Kotapedia]]
+[[Catégorie:Mots sans consonne en kotava]]
+
 
 == {{langue|ku}} ==
 === {{S|lettre|ku}} ===
@@ -1112,6 +1169,10 @@ __TOC__
 ==== {{S|vocabulaire}} ====
 * Alphabet kurde : {{lien|a|ku}} {{lien|b|ku}} {{lien|c|ku}} {{lien|ç|ku}} {{lien|d|ku}} {{lien|e|ku}} {{lien|ê|ku}} {{lien|f|ku}} {{lien| g|ku}} {{lien|h|ku}} {{lien|i|ku}} {{lien|î|ku}} {{lien|j|ku}} {{lien|k|ku}} {{lien|l|ku}} {{lien|m|ku}} {{lien|n|ku}} {{lien|o|ku}} {{lien|p|ku}} {{lien|q|ku}} {{lien|r|ku}} {{lien|s|ku}} {{lien|ş|ku}} {{lien|t|ku}} {{lien|u|ku}} {{lien|û|ku}} {{lien|v|ku}} {{lien|w|ku}} {{lien|x|ku}} {{lien|y|ku}} {{lien|z|ku}}
 * Les voyelles : {{lien|a|ku}} {{lien|e|ku}} {{lien|ê|ku}} {{lien|i|ku}} {{lien|î|ku}} {{lien|o|ku}} {{lien|u|ku}} {{lien|û|ku}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=ku|||audio=LL-Q36368 (kur)-Pispor-a.wav}}
+
 
 == {{langue|la}} ==
 === {{S|étymologie}} ===
@@ -1154,12 +1215,14 @@ __TOC__
 * {{R:Gaffiot|page=1}}
 * {{R:L&S}}
 
+
 == {{langue|lv}} ==
 
 === {{S|lettre|lv}} ===
 {{lettre|a|A|a|lang=lv}}
 '''a''' {{pron|a|lv}}
 # Première lettre de l'alphabet letton.
+
 
 == {{langue|lb}} ==
 === {{S|étymologie}} ===
@@ -1187,11 +1250,13 @@ __TOC__
 * {{Vikidia}}
 * {{lien|ä|lb}}
 
+
 == {{langue|ms}} ==
 === {{S|lettre|ms}} ===
 {{lettre|pron=a|lang=ms}}
 '''a''' {{pron|a|ms}}
 # Première lettre et première voyelle de l’alphabet malais.
+
 
 == {{langue|frm}} ==
 === {{S|étymologie}} ===
@@ -1215,6 +1280,27 @@ __TOC__
 ==== {{S|dérivés autres langues}} ====
 * {{L|fr}} : {{lien|a|fr}}
 
+
+== {{langue|nci}} ==
+
+=== {{S|étymologie}} ===
+: {{ébauche-étym|nci}}
+
+=== {{S|interjection|nci}} ===
+'''a''' {{pron||nci}}
+# [[oh|Oh]] !
+#* '''''a''' ca nelleh axcan ca omotoptenqueh, ca omopetlacaltenqueh in teteoh, in tlamacazqueh''
+#*: Oh ! Voici qu’en vérité, aujourd’hui, ils se sont enfermés dans leurs coffres, dans leurs caisses, les dieux pourvoyeurs.
+# [[hé|Hé]] !
+#* ''atl '''a''', xiccaqui '''a'''''
+#*: De l’eau, hé ! Écoute, hé !
+
+=== {{S|références}} ===
+* {{R:NAH-SIM}}
+
+[[Catégorie:Orthographe normalisée en nahuatl classique]]
+
+
 == {{langue|nht}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|nht}}
@@ -1222,6 +1308,7 @@ __TOC__
 === {{S|nom|nht}} ===
 '''at''' {{pron|aːt|nht}}
 # [[eau#fr|Eau]].
+
 
 == {{langue|nl}} ==
 === {{S|lettre|nl}} ===
@@ -1232,7 +1319,7 @@ __TOC__
 === {{S|nom|nl}} ===
 {{nl-nom|n.s=a|n.pl=a’s|dim.s=a’tje|dim.pl=a’tjes}}
 '''a''' {{pron|aː|nl}} {{f}} / {{m}}
-# {{linguistique|nl}} Première lettre de l’alphabet.
+# {{lexique|linguistique|nl}} Première lettre de l’alphabet.
 #* ''De '''A''' van Anna'' 
 #*: A comme Anatole.
 # Ce qui est nommé en premier, premier élément d'une liste.
@@ -1244,9 +1331,9 @@ __TOC__
 #*: Il faut avoir l’esprit de suite.
 #*: Il faut achever ce qu’on a commencé.
 #*: Raconter par le menu, en détail.
-# {{musique|nl}} Ton musical standard de 440 Hz.
-# {{musique|nl}} Dixième ton de l’échelle chromatique et sixième ton de l’échelle diatonique.
-# {{musique|nl}} [[la|La]], [[la]] [[mineur]].
+# {{lexique|musique|nl}} Ton musical standard de 440 Hz.
+# {{lexique|musique|nl}} Dixième ton de l’échelle chromatique et sixième ton de l’échelle diatonique.
+# {{lexique|musique|nl}} [[la|La]], [[la]] [[mineur]].
 #* ''De '''a''' aangeven'' 
 #*: Donner le la.
 
@@ -1261,6 +1348,7 @@ __TOC__
 * {{R:Freelang}}
 * {{R:WNT|a}}
 
+
 == {{langue|ngh}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|ngh}}
@@ -1271,6 +1359,7 @@ __TOC__
 
 === {{S|références}} ===
 * {{R:Geelmeid|p=27}}
+
 
 == {{langue|oc}} ==
 === {{S|étymologie}} ===
@@ -1313,13 +1402,27 @@ __TOC__
 * {{R:Cantalausa}}
 * {{R:Calvino|p=1|pdf=53}}
 
+
 == {{langue|oma}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|oma}}
 
 === {{S|nom|oma}} ===
 '''a''' {{pron|ˈa|oma}}
-# {{anatomie|oma}} [[bras|Bras]].
+# {{lexique|anatomie|oma}} [[bras|Bras]].
+
+== {{langue|uby|clé=a}} ==
+
+=== {{S|lettre|uby|clé=a}} ===
+'''a''' {{pron||uby}}
+# Première lettre de l'alphabet phonétique utilisé pour la notation de l'oubykh par Hans Vogt.
+
+=== {{S|interjection|uby|clé=a}} ===
+'''a''' {{pron||uby}}
+# {{sens incertain|uby}} Interjection de sens non précisé par H. Vogt.
+
+=== {{S|références}} ===
+*{{R:oubykh dict|p=158}}
 
 == {{langue|ff}} ==
 === {{S|étymologie}} ===
@@ -1338,6 +1441,7 @@ __TOC__
 * [[an#ff|an]] (''emphatique'' : « Toi, tu … »)
 * [[aɗa#ff|aɗa]] (''forme longue'')
 * [[ma#ff|ma]]
+
 
 == {{langue|pih}} ==
 
@@ -1359,6 +1463,23 @@ __TOC__
 === {{S|références}} ===
 
 * {{R:Buffett|p=1}}
+
+
+== {{langue|pln}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|pln}}
+
+=== {{S|préposition|pln}} ===
+'''a''' {{pron|a|pln}}
+# [[en|En]], [[dans]], à l'[[intérieur]] de.
+#*''Puekko ta '''a''' kusina.''
+#*:Le cochon est dans la cuisine.
+
+==== {{S|synonymes}} ====
+* [[en]] (ré-importé de l'espagnol)
+
+=== {{S|références}} ===
+* {{R:Schwegler}}
 
 == {{langue|pt}} ==
 === {{S|étymologie}} ===
@@ -1429,7 +1550,8 @@ __TOC__
 
 === {{S|nom|qua}} ===
 '''a''' {{pron|ˈa|qua}}
-# {{anatomie|qua}} [[bras|Bras]].
+# {{lexique|anatomie|qua}} [[bras|Bras]].
+
 
 == {{langue|ro}} ==
 === {{S|article défini|ro|flexion}} ===
@@ -1439,6 +1561,112 @@ __TOC__
 '''a''' {{pron|a|ro}} {{f}} {{s}}
 # Forme féminin singulier {{nominatif|ro}} et {{accusatif|ro}} de l’article génitival [[al#ro|al]].
 
+
+== {{langue|sco}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|sco}}
+: ''(Article défini)'' De l’adjectif numéral ''{{lien|ae|sco}}'', ''{{lien|a|sco}}'' (« un »).
+: ''(Prénom personnel)'' Du {{étyl|vieil écossais|sco|ic}}, ''{{lien|ik|vieil écossais}}'', ''{{lien|i|vieil écossais}}'', par diphtongaison puis perte du second élément, issu du {{étyl|ang|sco|ic}}. 
+: ''(Adjectif indéfini et adverbe)'' Du {{étyl|non|sco|allr}}.
+: ''(Particule)'' Par assimilation du ''t'' initial à la dentale précédent le ''to'' (/tə/) en {{étyl|vieil écossais|sco}} (le ''to'' est alors souvent précédé d'un participe présent finissant en ''-d'').
+: ''(Préposition n° 1)'' Du {{étyl|ang|sco|an}}.
+
+=== {{S|lettre|sco}} ===
+{{lettre|pron=|nom=|lang=sco}}
+'''a''' {{pron|ɑ|sco}}, {{pron|ɑː|sco}}, {{pron|e|sco}}, {{pron|è|sco}}
+# Première lettre de l’alphabet scots.
+
+=== {{S|article indéfini|sco}} ===
+'''a''' {{pron|ə|sco}}
+# [[un|Un]], [[une]]. {{note}} dans l’usage familier moderne, la forme ''a'' de l’article défini s’utilise devant les voyelles et les consonnes sans distinction dans la plupart des dialectes. Cela n’est toutefois pas le cas dans la littérature par influence de l’anglais ou la forme ''{{lien|an|sco}}'' est privilégiée devant les voyelles.
+
+==== {{S|synonymes}} ====
+* {{lien|an|sco}}
+
+==== {{S|notes}} ====
+: En scots standard, il est généralement combiné après ''{{lien|ilk|sco}}'' → ''{{lien|ilka|sco}}'' ; ''{{lien|mony|sco}}'' → ''{{lien|mona|sco}}'' ; ''{{lien|sic|sco}}'' → ''{{lien|siccan|sco}}''.
+: Il s’utilise aussi pour marquer l’emphase des négations.
+
+=== {{S|adjectif numéral|sco}} ===
+'''a''' {{pron|ə|sco}}
+# [[un|Un]]. {{usage}} d’usage général en scots, cette forme est moins emphatique que ''{{lien|ae|sco}}'', de même sens.
+
+==== {{S|synonymes}} ====
+* {{lien|ae|sco}}
+
+=== {{S|adjectif|sco}} ===
+'''a''' {{pron||sco}}
+# [[environ|Environ]], [[approximativement]].
+
+==== {{S|synonymes}} ====
+* {{lien|ae|sco}}
+
+=== {{S|verbe|sco}} ===
+'''a''' {{pron||sco}}
+# {{shetlandais|sco}} [[avoir|Avoir]] (auxiliaire).
+
+=== {{S|pronom personnel|sco}} ===
+'''a''' {{pron|ɑ:|sco}} ''(emphatique)'', {{pron|ɑɪ|sco}} ''(emphatique)'', {{pron|ə|sco}} ''(non accentué)''
+# [[je|Je]].
+
+==== {{S|variantes orthographiques}} ====
+* {{lien|ah|sco}}
+* {{lien|aw|sco}}
+* {{lien|aa|sco}}
+* {{lien|a’|sco}}
+
+==== {{S|synonymes}} ====
+* {{lien|I|sco}} ''(par calque de l’anglais)''
+
+=== {{S|adjectif indéfini|sco}} ===
+'''a''' {{pron|ɒ(ː)|sco}}, {{pron|ɑ(ː)|sco}}, {{pron|a(ː)|sco}} {{scots insulaire|nocat=1}}
+# [[tout|Tout]], la [[totalité]].
+# [[tout|Tout]], [[tous]], qui dure, existe depuis un certain temps.
+# [[tout|Tout]], [[tous]], qui exprime l’entièreté d'un nombre, une étendue.
+# [[tout|Tout]], [[chaque]]. {{usage}} notamment, devant ''{{lien|airt|sco}}'' (« direction) », ''{{lien|body|sco}}'', ''{{lien|gait|sco}}'', ''{{lien|kind|sco}}'', ''{{lien|kin kin|sco}}'', ''{{lien|kin kind|sco}}'', ''{{lien|sort|sco}}'', ''{{lien|thing|sco}}'' ou ''{{lien|wye|sco}}''.
+
+==== {{S|variantes orthographiques}} ====
+* {{lien|aw|sco}}
+* {{lien|aa|sco}}
+* {{lien|a’|sco}}
+* {{lien|aal|sco}}
+
+=== {{S|adverbe|sco}} ===
+'''a''' {{pron|ɒ(ː)|sco}}, {{pron|ɑ(ː)|sco}}, {{pron|a(ː)|sco}} {{scots insulaire|nocat=1}}
+# [[tout|Tout]], [[entièrement]], [[complètement]].
+
+==== {{S|variantes orthographiques}} ====
+* {{lien|aw|sco}}
+* {{lien|aa|sco}}
+* {{lien|a’|sco}}
+* {{lien|aal|sco}}
+
+=== {{S|particule|sco}} ===
+'''a''' {{pron|ə|sco}}
+# Marqueur de l’infinitif.
+
+=== {{S|préposition|sco|num=1}} ===
+'''a''' {{pron|ə|sco}}
+# [[sur|Sur]], [[à]], [[dans]]. {{usage}} s’utilise devant un verbe actif en ''-ing'' ou un passif continu après le verbe ''be'', ou devant un nom.
+
+==== {{S|variantes orthographiques}} ====
+* {{lien|a-|sco}}
+
+=== {{S|préposition|sco|num=2}} ===
+'''a''' {{pron|ə|sco}}
+# [[de|De]]. {{usage}} s’utilise devant un gérondif ou devant un nom.
+
+=== {{S|références}} ===
+* {{R:DSL|a}}
+* {{R:DSL|a_indef_art}}
+* {{R:DSL|a_v}}
+* {{R:DSL|a_pers_pron}}
+* {{R:DSL|a_adj_adv}}
+* {{R:DSL|a_prep1}}
+* {{R:DSL|a_prep2}}
+* {{R:DSL|a_prep3}}
+* {{R:Graham|1}}
+
 == {{langue|sk}} ==
 === {{S|étymologie}} ===
 : Du {{étyl|cu|sk}} {{cf|a|lang=cs}} en tchèque.
@@ -1446,6 +1674,7 @@ __TOC__
 === {{S|conjonction|sk}} ===
 '''a''' {{pron|a|sk}}
 # [[et|Et]].
+
 
 == {{langue|sl}} ==
 === {{S|étymologie}} ===
@@ -1462,7 +1691,8 @@ __TOC__
 
 === {{S|particule|sl}} ===
 '''a''' {{pron|a|sl}}
-# {{grammaire|sl}} Particule interrogative.
+# {{lexique|grammaire|sl}} Particule interrogative.
+
 
 == {{langue|ses}} ==
 === {{S|étymologie}} ===
@@ -1471,6 +1701,7 @@ __TOC__
 === {{S|pronom personnel|ses}} ===
 '''a''' {{pron||ses}}
 # Pronom de la [[troisième personne]] du [[singulier]] (sans distinction de genre ; sujet ou objet); [[il]], [[elle]]; [[le]], [[la]], [[lui]].
+
 
 == {{langue|ty}} ==
 === {{S|étymologie}} ===
@@ -1484,6 +1715,7 @@ __TOC__
 
 === {{S|références}} ===
 * {{R:AcadémieTahitienne|a}}
+
 
 == {{langue|cs}} ==
 === {{S|étymologie}} ===
@@ -1513,6 +1745,7 @@ __TOC__
 === {{S|références}} ===
 * {{R:ÚJČ}}
 
+
 == {{langue|tokipona}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|tokipona}}
@@ -1520,6 +1753,7 @@ __TOC__
 === {{S|interjection|tokipona}} ===
 '''a''' {{pron||tokipona}}
 # [[ah|Ah]], [[euh]], [[ha]], [[hi]], [[hé]],...
+
 
 == {{langue|tpw}} ==
 === {{S|étymologie}} ===
@@ -1533,6 +1767,7 @@ __TOC__
 
 === {{S|références}} ===
 * Antônio Gonçalves {{pc|Dias}}, ''Diccionario da lingua tupy : chamada lingua geral dos indigenas do Brazil'', 1858
+
 
 == {{langue|vi}} ==
 === {{S|étymologie}} ===
@@ -1550,6 +1785,7 @@ __TOC__
 
 === {{S|références}} ===
 *{{R:Génibrel}}
+
 
 == {{langue|obt}} ==
 === {{S|étymologie}} ===
@@ -1587,6 +1823,7 @@ __TOC__
 === {{S|références}} ===
 * {{R:Loth|p=28 et 29}}
 
+
 == {{langue|vo}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|vo}}
@@ -1608,4 +1845,3 @@ __TOC__
 === {{S|pronom personnel|dje}} ===
 '''a''' {{pron||ses}}
 # Pronom de la [[troisième personne]] du [[singulier]] (sans distinction de genre ; sujet ou objet); [[il]], [[elle]]; [[le]], [[la]], [[lui]].
-

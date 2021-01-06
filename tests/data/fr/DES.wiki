@@ -5,7 +5,7 @@
 
 === {{S|symbole|conv}} ===
 '''DES'''
-# {{aviation|conv}} Code [[AITA]] de l’[[aéroport]] de [[Desroches]], aux [[Seychelles]].
+# {{lexique|aviation|conv}} Code [[AITA]] de l’[[aéroport]] de [[Desroches]], aux [[Seychelles]].
 
 === {{S|adverbe|conv}} ===
 '''DES'''
@@ -21,7 +21,7 @@
 
 === {{S|nom|fr|num=1}} ===
 '''DES''' {{m}}, {{sigle|fr}}
-# {{bioch|nocat}} [[diéthylstilbestrol|Diéthylstilbestrol]], un [[œstrogène]] de [[synthèse]], [[source]] de [[grave]]s [[complication]]s chez les [[fille]]s de ses [[utilisateur|utilisatrices]].
+# {{info lex|biochimie}} [[diéthylstilbestrol|Diéthylstilbestrol]], un [[œstrogène]] de [[synthèse]], [[source]] de [[grave]]s [[complication]]s chez les [[fille]]s de ses [[utilisateur|utilisatrices]].
 
 === {{S|nom|fr|num=2}} ===
 '''DES''' {{m}} {{sigle|fr}}
@@ -29,7 +29,7 @@
 # {{FR|fr}} Diplôme d’études [[spécialisé]]es, un diplôme de [[troisième]] [[cycle]] [[médical]], [[pharmaceutique]], [[vétérinaire]] ou [[odontologique]] en [[France]], d’une [[durée]] de 3 à 5 [[an]]s [[correspondre|correspondant]] à l’[[Internat]].
 # {{BE|fr}} Diplôme d’études spécialisées, un diplôme de troisième cycle [[universitaire]] en [[Belgique]].
 # {{FR|fr}} Diplôme d’études [[supérieur]]es, un diplôme [[français]].
-# {{math|fr}} [[décomposition|Décomposition]] en [[élément]]s [[simple]]s, une [[méthode]] de [[calcul]] [[mathématique]].
+# {{lexique|mathématiques|fr}} [[décomposition|Décomposition]] en [[élément]]s [[simple]]s, une [[méthode]] de [[calcul]] [[mathématique]].
 
 ==== {{S|variantes orthographiques}} ====
 : ''Diplômes'' :
@@ -37,17 +37,20 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-DES.wav}}
+* {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-DES.wav}}
 
 === {{S|voir aussi}} ===
 * {{WP}}
 
 == {{langue|de}} ==
 === {{S|étymologie}} ===
-: {{sigle|de}} Sigle.
+: {{sigle|de}} de Diethylsulfat.
 
 === {{S|nom|de}} ===
-'''DES''' {{genre|de}}
-# {{bioch|nocat}} [[diethylsulfat|Diethylsulfat]] ([[sulfate]] de [[diéthyl]]), de [[formule]] [[brut]]e {{fchim|(C|2|H|5|)|2|SO|4}}, [[liquide]] [[incolore]] d’[[odeur]] [[mentholé]]e, [[très]] [[toxique]], utilisé dans l’[[éthylation]] des [[phénol]]s, [[amine]]s et [[thiol]]s.
+'''DES''' {{pron|deː,ʔeː,ʔɛs|de}} {{n}}
+# {{lexique|biochimie|de}} [[sulfate de diéthyle#fr|Sulfate de diéthylsulfat]] de [[formule]] [[brut]]e {{fchim|(C|2|H|5|)|2|SO|4}}, [[liquide]] [[incolore]] d’[[odeur]] [[mentholé]]e, [[très]] [[toxique]], utilisé dans l’[[éthylation]] des [[phénol]]s, [[amine]]s et [[thiol]]s.
+#* ''Das '''Diethylsulfat''' ist eine ölige Flüssigkeit mit pfefferminzartigem Geruch.''{{source|Karsten{{pc|Strey}}, ''Die Welt der Gifte'', Éditions Lehmanns, 2015}} 
+#*: Le sulfate de diéthyle est un liquide huileux qui a une odeur de menthe poivrée.
 
 == {{langue|en}} ==
 === {{S|étymologie}} ===
@@ -55,22 +58,22 @@
 
 === {{S|nom|en|num=1}} ===
 '''DES''' {{sigle|en}}
-# {{bioch|nocat}} [[diethylstilbestrol|Diethylstilbestrol]] ([[diéthylstilbestrol]]).
-# {{bioch|nocat}} [[desmin|Desmin]] ([[desmine]]), une [[protéine]] [[humain]]e.
+# {{info lex|biochimie}} [[diethylstilbestrol|Diethylstilbestrol]] ([[diéthylstilbestrol]]).
+# {{info lex|biochimie}} [[desmin|Desmin]] ([[desmine]]), une [[protéine]] [[humain]]e.
 
 === {{S|nom|en|num=2}} ===
 '''DES''' {{sigle|en}}
-# {{admin|en}} [[department|Department]] of [[education|Education]] and [[science|Science]] (« [[ministère|Ministère]] de l’[[éducation]] et de la science », 1964–1992), un ministère [[britannique]].
-# {{astron|en}} [[deep|Deep]] [[ecliptic|Ecliptic]] [[survey|Survey]] (« [[relevé|Relevé]] de l’[[écliptique]] [[profond]] »), un [[programme]] [[astronomique]] de [[recherche]] d’[[objet]]s dans la [[ceinture de Kuiper]].
-# {{chim|en}} Deep [[eutectic|Eutectic]] [[solvent|Solvent]] (« [[solvant|Solvant]] [[eutectique]] profond »), un solvant [[ionique]].
-# {{info|en}} [[data|Data]] [[encryption|Encryption]] [[standard|Standard]] (« [[norme|Norme]] de [[chiffrement]] des [[donnée]]s »), un [[algorithme]] de chiffrement [[symétrique]].
-# {{info|en}} [[detached|Detached]] [[eddy|Eddy]] [[simulation|Simulation]] (« Simulation par [[courant]]s [[tourbillonnaire]]s [[détaché]]s »), un [[modèle]] de [[calcul]] [[utiliser|utilisé]] en [[dynamique]] des [[fluide]]s.
-# {{info|en}} [[DirectShow]] [[editing|Editing]] [[service|Services]] (« Services de [[modification]] DirectShow »), une [[interface]] de [[programmation]].
-# {{info|en}} [[discrete|Discrete]] [[event|Event]] Simulation (« Simulation à [[événement]]s [[discret]]s »), un [[type]] de simulation [[scientifique]].
-# {{méde|en}} [[diffuse|Diffuse]] [[esophageal|Esophageal]] [[spasm|Spasm]] (« [[spasme|Spasme]] [[œsophagique]] [[diffus]] »), un [[syndrome]] de l’[[œsophage]].
-# {{méde|en}} [[drug|Drug]]-[[eluting|Eluting]] [[stent|Stent]] (« Stent [[médicamenteux]] »), un [[appareil]] [[médical]].
-# {{méde|en}} [[dysequilibrium|DysEquilibrium]] Syndrome (« Syndrome du [[déséquilibre]] »), une [[maladie]] [[congénital]]e du [[système]] [[nerveux]].
-# {{psychol|en}} [[dissociative|Dissociative]] [[experience|Experiences]] [[scale|Scale]] (« [[échelle|Échelle]] d’[[expériences]] dissociatives »), un [[questionnaire]] d’[[auto-évaluation]] de la [[dissociation]].
+# {{lexique|administration|en}} [[department|Department]] of [[education|Education]] and [[science|Science]] (« [[ministère|Ministère]] de l’[[éducation]] et de la science », 1964–1992), un ministère [[britannique]].
+# {{lexique|astronomie|en}} [[deep|Deep]] [[ecliptic|Ecliptic]] [[survey|Survey]] (« [[relevé|Relevé]] de l’[[écliptique]] [[profond]] »), un [[programme]] [[astronomique]] de [[recherche]] d’[[objet]]s dans la [[ceinture de Kuiper]].
+# {{lexique|chimie|en}} Deep [[eutectic|Eutectic]] [[solvent|Solvent]] (« [[solvant|Solvant]] [[eutectique]] profond »), un solvant [[ionique]].
+# {{lexique|informatique|en}} [[data|Data]] [[encryption|Encryption]] [[standard|Standard]] (« [[norme|Norme]] de [[chiffrement]] des [[donnée]]s »), un [[algorithme]] de chiffrement [[symétrique]].
+# {{lexique|informatique|en}} [[detached|Detached]] [[eddy|Eddy]] [[simulation|Simulation]] (« Simulation par [[courant]]s [[tourbillonnaire]]s [[détaché]]s »), un [[modèle]] de [[calcul]] [[utiliser|utilisé]] en [[dynamique]] des [[fluide]]s.
+# {{lexique|informatique|en}} [[DirectShow]] [[editing|Editing]] [[service|Services]] (« Services de [[modification]] DirectShow »), une [[interface]] de [[programmation]].
+# {{lexique|informatique|en}} [[discrete|Discrete]] [[event|Event]] Simulation (« Simulation à [[événement]]s [[discret]]s »), un [[type]] de simulation [[scientifique]].
+# {{lexique|médecine|en}} [[diffuse|Diffuse]] [[esophageal|Esophageal]] [[spasm|Spasm]] (« [[spasme|Spasme]] [[œsophagique]] [[diffus]] »), un [[syndrome]] de l’[[œsophage]].
+# {{lexique|médecine|en}} [[drug|Drug]]-[[eluting|Eluting]] [[stent|Stent]] (« Stent [[médicamenteux]] »), un [[appareil]] [[médical]].
+# {{lexique|médecine|en}} [[dysequilibrium|DysEquilibrium]] Syndrome (« Syndrome du [[déséquilibre]] »), une [[maladie]] [[congénital]]e du [[système]] [[nerveux]].
+# {{lexique|psychologie|en}} [[dissociative|Dissociative]] [[experience|Experiences]] [[scale|Scale]] (« [[échelle|Échelle]] d’[[expériences]] dissociatives »), un [[questionnaire]] d’[[auto-évaluation]] de la [[dissociation]].
 
 == {{langue|it}} ==
 === {{S|étymologie}} ===
@@ -87,7 +90,7 @@
 
 === {{S|nom|nl}} ===
 '''DES'''
-# {{bioch|nocat}} [[diéthylstilbestrol|Diéthylstilbestrol]].
+# {{info lex|biochimie}} [[diéthylstilbestrol|Diéthylstilbestrol]].
 
 === {{S|prononciation}} ===
 * {{écouter|||lang=nl|audio=Nl-DES.ogg}}
@@ -98,5 +101,4 @@
 
 === {{S|nom|sk}} ===
 '''DES'''
-# {{bioch|nocat}} [[dietylstilbestrol|Dietylstilbestrol]] ([[diéthylstilbestrol]]).
-
+# {{info lex|biochimie}} [[dietylstilbestrol|Dietylstilbestrol]] ([[diéthylstilbestrol]]).

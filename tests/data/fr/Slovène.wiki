@@ -15,40 +15,39 @@
 ==== {{S|traductions}} ====
 {{trad-début}}
 * {{T|af}} : {{trad-|af|Sloween}}
-* {{T|de}} : [[Slowene]], [[Windischer]] {{m}}, [[Slowenin]], [[Windische]] {{f}}
+* {{T|de}} : {{trad+|de|Slowene}}, {{trad-|de|Windischer|m}}, {{trad+|de|Slowenin}}, {{trad-|de|Windische|f}}
 * {{T|en}} : {{trad+|en|Slovene}}, {{trad+|en|Slovenian}} {{US|nocat=1}} ''(homme ou femme)''
 * {{T|bg}} : {{trad-|bg|словенец|m|tr=slovenec}}, {{trad-|bg|словенка|f|tr=slovenka}}
-* {{T|da}} : [[slovener]] {{c}}
-* {{T|es}} : [[esloveno]] {{m}}, [[eslovena]] {{f}}
+* {{T|da}} : {{trad-|da|slovener|c}}
+* {{T|es}} : {{trad+|es|esloveno|m}}, {{trad+|es|eslovena|f}}
 * {{T|eo}} : {{trad-|eo|sloveno}} ''(homme ou femme)'', {{trad-|eo|sloveniĉo}} ''(homme)'', {{trad-|eo|slovenino}} ''(femme)''
 * {{T|et}} : {{trad-|et|sloveeni}}
-* {{T|fi}} : [[sloveeni]], [[slovenialainen]]
-* {{T|ga}} : [[Slóivéanach]] {{m}}
+* {{T|fi}} : {{trad+|fi|sloveeni}}, {{trad+|fi|slovenialainen}}
+* {{T|ga}} : {{trad-|ga|Slóivéanach|m}}
 * {{T|el}} : [[Σλοβένος]] (Slovénos) {{m}}, [[Σλοβένα]] (Slovéna) {{f}}
 * {{T|hu}} : {{trad+|hu|szlovén}}
-* {{T|is}} : [[Slóveni]] {{m}}
-* {{T|it}} : {{trad+|it|sloveno}} {{m}}, {{trad+|it|slovena}} {{f}}
+* {{T|is}} : {{trad-|is|Slóveni|m}}
+* {{T|it}} : {{trad+|it|sloveno|m}}, {{trad+|it|slovena|f}}
 * {{T|ja}} : {{trad-|ja|スロヴェニア人|R=suroveniajin}}, {{trad-|ja|スロベニア人|R=surobeniajin}}
 * {{T|lv}} : {{trad-|lv|slovēnis|m}}, {{trad-|lv|slovēniete|f}}
-* {{T|lt}} : [[slovėnas]] {{m}}, [[slovėnė]] {{f}}
-* {{T|cmn}} : [[斯洛文尼亞人]], [[斯洛文尼亚人]] (Sīluòwénníyà rén)
-* {{T|nl}} : {{trad+|nl|Sloveen}}, {{trad-|nl|Sloveniër}} {{m}}, [[Sloveense]] {{f}}
+* {{T|lt}} : {{trad+|lt|slovėnas|m}}, {{trad+|lt|slovėnė|f}}
+* {{T|cmn}} : {{trad-|zh|斯洛文尼亞人}}, [[斯洛文尼亚人]] (Sīluòwénníyà rén)
+* {{T|nl}} : {{trad+|nl|Sloveen}}, {{trad-|nl|Sloveniër|m}}, {{trad+|nl|Sloveense|f}}
 * {{T|nb}} : [[slovener]] {{m}} ''(homme ou femme)''
-* {{T|nn}} : [[sloven]], [[slovenar]] {{m}} ''(homme ou femme)''
+* {{T|nn}} : {{trad-|no|sloven}}, [[slovenar]] {{m}} ''(homme ou femme)''
 * {{T|fa}} : [[اسلوونیایی]] (esluveniyâyi), [[اسلوونیائی]] (esluveniyâ’i)
-* {{T|pl}} : [[Słoweniec]] {{m}}, [[Słowenka]] {{f}}
-* {{T|pt}} : [[esloveno]] {{m}}, [[eslovena]] {{f}}
-* {{T|ro}} : [[sloven]] {{m}}, [[slovenă]] {{f}}
+* {{T|pl}} : {{trad+|pl|Słoweniec|m}}, {{trad+|pl|Słowenka|f}}
+* {{T|pt}} : {{trad+|pt|esloveno|m}}, {{trad-|pt|eslovena|f}}
+* {{T|ro}} : {{trad+|ro|sloven|m}}, {{trad+|ro|slovenă|f}}
 * {{T|ru}} : [[словенец]] (slovénec) {{m}}, [[словенка]] (slovénka) {{f}}
-* {{T|sh}} : [[Словенац]], [[Slovenac]] {{m}}, [[Словенка]], [[Slovenka]] {{f}}
-* {{T|sk}} : [[Slovinec]] {{m}}, [[Slovinka]] {{f}}
-* {{T|sl}} : {{trad-|sl|slovenec}}, [[Slovénec]] {{m}}, [[Slovénka]] {{f}}
-* {{T|sv}} : [[sloven]] {{m}}, [[slovenska]] {{f}}
-* {{T|cs}} : [[Slovinec]] {{m}}, [[Slovinka]] {{f}}
-* {{T|tr}} : [[Sloven]], [[Slovenyalı]]
+* {{T|sh}} : {{trad-|sh|Словенац}}, {{trad+|sh|Slovenac|m}}, {{trad-|sh|Словенка}}, {{trad-|sh|Slovenka|f}}
+* {{T|sk}} : {{trad-|sk|Slovinec|m}}, {{trad-|sk|Slovinka|f}}
+* {{T|sl}} : {{trad-|sl|slovenec}}, {{trad-|sl|Slovénec|m}}, {{trad-|sl|Slovénka|f}}
+* {{T|sv}} : {{trad+|sv|sloven|m}}, {{trad+|sv|slovenska|f}}
+* {{T|cs}} : {{trad+|cs|Slovinec|m}}, {{trad+|cs|Slovinka|f}}
+* {{T|tr}} : {{trad+|tr|Sloven}}, {{trad+|tr|Slovenyalı}}
 * {{T|vo}} : {{trad+|vo|Sloveniyänan}} ''(homme ou femme)'', {{trad-|vo|hi-Sloveniyänan}} ''(homme)'', {{trad-|vo|ji-Sloveniyänan}} ''(femme)''
 {{trad-fin}}
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Muntzenheim)|audio=LL-Q150 (fra)-0x010C-Slovène.wav}}
-

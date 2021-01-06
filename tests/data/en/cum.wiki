@@ -1,15 +1,14 @@
 {{also|CUM|cùm|-cum}}
 ==English==
 
-===Pronunciation===
-* {{a|UK}} {{IPA|en|/kʌm/|[kʰʌm]}}, {{enPR|kŭm}}
-* {{a|US}} {{IPA|en|/kʌm/|[kʰʌm]}}, {{enPR|kŭm}}
-* {{audio|en|en-uk-cum.ogg|Audio (UK)}}
-* {{rhymes|en|ʌm}}
-* {{homophones|en|come}}
-
 ===Etymology 1===
 From {{der|en|la|cum||[[with]]}}.
+
+====Pronunciation====
+* {{a|UK|US}} {{IPA|en|/kʌm/|/kəm/|/kʊm/|[kʰʌm]|[kʰʊm]}}, {{enPR|kŭm}}<ref>{{R:Lexico}}</ref><ref>{{R:Dictionary.com}}</ref><ref>{{R:MWO}}</ref>
+* {{audio|en|en-uk-cum.ogg|Audio (UK)}}
+* {{audio|en|en-us-cum.ogg|Audio (US)}}
+* {{rhymes|en|ʌm|ʊm}}
 
 ====Preposition====
 {{en-prep}}
@@ -37,10 +36,18 @@ From {{der|en|la|cum||[[with]]}}.
 {{trans-mid}}
 * Japanese: {{t+|ja|兼|tr=けん, ken}}
 * Korean: {{t+|ko|겸}}
+* Russian: {{t+|ru|с}}, {{t+|ru|совмещённый}}
 {{trans-bottom}}
 
 ===Etymology 2===
-Variant of {{m|en|come}}.
+Variant of {{m|en|come}}, attested (in the basic sense "come, move from further to nearer, arrive") since Old English.
+
+====Pronunciation====
+* {{a|UK|US}} {{IPA|en|/kʌm/|/kəm/|[kʰʌm]}}, {{enPR|kŭm}}<ref>{{R:Lexico}}</ref><ref>{{R:Dictionary.com}}</ref><ref>{{R:MWO}}</ref>
+* {{audio|en|en-uk-cum.ogg|Audio (UK)}}
+* {{audio|en|en-us-cum.ogg|Audio (US)}}
+* {{rhymes|en|ʌm}}
+* {{homophones|en|come}}
 
 ====Noun====
 {{en-noun|-}}
@@ -51,7 +58,7 @@ Variant of {{m|en|come}}.
 
 =====Synonyms=====
 * {{sense|[[semen|Semen]]}} {{l|en|spunk}} {{qualifier|chiefly UK}}, [[spooge]] {{qualifier|US}}, [[jiz]], [[jizz]], [[jizzum]], [[jism]], [[gism]], [[nut]], [[junk]]
-* See also [[Thesaurus:semen]]
+* ''see also'' [[Thesaurus:semen]]
 
 =====Derived terms=====
 * {{l|en|precum}}
@@ -91,7 +98,7 @@ Variant of {{m|en|come}}.
 * Polish: {{t+|pl|sperma|f}}, {{t+|pl|nasienie|n}}
 * Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}
 * Romanian: {{t+|ro|sloboz|m}}
-* Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча|f}}
+* Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча|f}}, {{t+|ru|малафья}}
 * Spanish: {{t+|es|lefa|f}}, {{t+|es|corrida|f}} {{q|Spain}}, {{t+|es|acabada|f}}, {{t+|es|leche|f}}, {{t+|es|semen|m}}, {{t+|es|mecos|m-p}}
 * Swedish: {{t+|sv|sagge|c}}
 * Turkish: {{t+|tr|döl}}, {{t+|tr|atmık}}
@@ -116,15 +123,16 @@ Variant of {{m|en|come}}.
 {{trans-bottom}}
 
 ====Verb====
-{{en-verb|cums|cumming|came|past2=cummed|came|past_ptc2=cum|past_ptc3=cummed|past_ptc3_qual=nonstandard}}
+{{en-verb|cums|cumming|came|past2=cummed|come|past_ptc2=cum|past_ptc3=cummed|past_ptc3_qual=nonstandard}}
 
 # {{lb|en|slang}} To have an [[orgasm]], to feel the sensation of an [[orgasm]].
+#: {{syn|en|climax}}
 # {{lb|en|slang}} To [[ejaculate]].
 #* {{quote-av|en|date=1997-07-14|title=Visits, Conjugal, and Otherwise|series=[[w:Oz (TV series)|Oz]]|season=1|number=2|people=Harold Perrineau|role=Augustus Hill|passage=I got no sensation down there, so I don't know when I'm hard, I don't know when I '''cum'''. My wife's gotta tell me.}}
-
-=====Synonyms=====
-{{sense|have an orgasm}} [[climax]]
-* See also [[Thesaurus:ejaculate]]
+#: {{syn|en|Thesaurus:ejaculate}}
+# {{lb|en|dialectal|or|nonstandard}} {{altform|en|come||move from further to nearer; arrive}}
+#* '''1882''', William Makepeace Thayer, ''From Log-Cabin to White House'', page 162:
+#*: “Where'd he '''cum''' from?” the bowman inquired. “That's what we'd like ter know, yer see; where he '''cum''' from, and how he happen'd to '''cum''',” responded the steersman. “But he's a jolly good feller, strong as a lion, {{...}}”
 
 =====Translations=====
 {{trans-top|slang: have an orgasm; ejaculate}}
@@ -161,13 +169,19 @@ Variant of {{m|en|come}}.
 * Serbo-Croatian: {{t+|sh|svršiti}}
 * Spanish: {{t+|es|venir}}, {{t+|es|irse}}, {{t+|es|venirse}}, {{t+|es|eyacular}},{{t+|es|correrse}},{{t+|es|acabar}},{{t+|es|terminar}}
 * Swedish: {{t+|sv|komma}}
-* Thai: {{t+|th|แตก}}, {{t|th|น้ำแตก}}
+* Thai: {{t+|th|แตก}}, {{t+|th|น้ำแตก}}
 * Turkish: {{t+|tr|boşalmak}}, {{t+|tr|gelmek}} {{qualifier|informal}}, {{t+|tr|attırmak}} {{qualifier|slang}}
 * Vietnamese: {{t|vi|xuất tinh}}
 {{trans-bottom}}
 
 ====Usage notes====
 Many style guides and editors recommend the spelling ''[[come]]'' for verb uses (''to orgasm''/''to ejaculate'') while strictly allowing the spelling ''cum'' for the noun (''semen''/''female ejaculatory discharge''). Both spellings are sometimes found in either the noun or verb sense, however. Others prefer to distinguish in formality, using ''come'' for any formal usage and ''cum'' only in slang, erotic or pornographic contexts.<ref>[http://www.glossophilia.org/?p=4925 Glossophilia]</ref>
+
+===Etymology 3===
+
+====Adjective====
+{{en-adj|-}}
+# {{clipping of|en|cumulative}}
 
 ===References===
 <references/>
@@ -179,6 +193,7 @@ Many style guides and editors recommend the spelling ''[[come]]'' for verb uses 
 [[Category:English terms with multiple etymologies]]
 [[Category:English three-letter words]]
 [[Category:English verbs with base form identical to past participle]]
+[[Category:en:Bodily fluids]]
 [[Category:en:Sex]]
 
 ----
@@ -253,10 +268,13 @@ From Old Latin {{m|la|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro
 ====Preposition====
 {{la-prep|ablative}}
 
-# [[with]]
+# [[with]], [[along with]]
 #: {{ux|la|Titus '''cum''' familiā habitat.|inline=1|t=Titus lives '''with''' his family.}}
-#: {{ux|la|magnā '''cum''' laude|inline=1|t='''with''' great praise}}
-
+#: {{uxi|la|magnā '''cum''' laude|inline=1|t='''with''' great praise}}
+# [[at]] {{gloss|denoting a point in time with which an action coincides}}
+#: {{uxi|la|Mīlitēs '''cum''' prīmā lūce vēnērunt.|The soldiers came '''at''' day-break.}}
+# [[-fold]] {{q|with ordinal number}}
+#: {{uxi|la|'''cum''' centesimo efficere|to yield a hundred'''fold'''}}
 =====Derived terms=====
 {{der3|la|co-
 |col-
@@ -320,7 +338,7 @@ From Old Latin {{m|la|quom}}, from {{der|la|ine-pro|*kʷóm}}, accusative of {{m
 {{head|la|conjunction|+ subjunctive}}
 
 # [[when]]
-# [[because]]
+# [[because]], [[since]]
 # [[although]]
 
 =====Usage notes=====
@@ -389,13 +407,13 @@ From {{inh|gv|mga|cummaid}}, a denominative verb from {{m|mga|cumma}}, itself fr
 ===Alternative forms===
 * {{l|sga|·cumai}}
 
+===Pronunciation===
+* {{IPA|sga|/kuṽ/}}
+
 ===Verb===
 {{head|sga|verb form|head=·cum}}
 
 # {{inflection of|sga|con·icc||3|s|pres|subj|prototonic}}
-
-====Related terms====
-* {{l|sga|con·í}}, {{l|sga|con·ístar}} {{qualifier|deuterotonic}}
 
 ===Mutation===
 {{sga-mutation|c|um|p=·}}
@@ -494,4 +512,3 @@ From {{inh|gd|sga|cummaid|t=to fashion, makes}}, from {{m|sga|cummae|t=act of cu
 
 ===Mutation===
 {{gd-mut-cons|c|um}}
-

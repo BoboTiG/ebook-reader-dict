@@ -3,7 +3,7 @@
 {{wikipedia|dab=word (disambiguation)|word}}
 
 ===Alternative forms===
-* {{alter|en|worde||obsolete}}
+* {{l|en|vurd}} {{i|Bermuda}}, {{alter|en|worde||obsolete}}
 
 ===Pronunciation===
 * {{a|RP}} {{IPA|en|/wɜːd/}}
@@ -13,8 +13,8 @@
 * {{homophones|en|whirred}} {{qualifier|accents with the wine-whine merger}}
 
 ===Etymology 1===
-{{PIE root|en|werh₁}}
-From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gem-pro|*wurdą}}, from {{inh|en|ine-pro|*werdʰh₁om|*wr̥dʰh₁om}}. {{doublet|en|verb}}.
+{{root|en|ine-pro|*werh₁-}}
+From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}}, from {{inh|en|gem-pro|*wurdą}}, from {{inh|en|ine-pro|*werdʰh₁om|*wr̥dʰh₁om}}. {{doublet|en|verb}}.
 
 ====Noun====
 {{en-noun|~}}
@@ -219,6 +219,7 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |root word
 |r-word
 |safeword
+|say the word
 |say word one
 |semiword
 |send word
@@ -334,289 +335,307 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 
 =====Translations=====
 {{trans-top|id=Q8171|unit of language}}
-* Abkhaz: {{t|ab|ажәа|sc=Cyrl}}
-* Adyghe: {{t|ady|гущыӏ}}
-* Afrikaans: {{t-simple|af|woord|langname=Afrikaans|interwiki=1}}
-* Albanian: {{t-simple|sq|fjalë|f|langname=Albanian|interwiki=1}}, {{t-simple|sq|llaf|m|langname=Albanian|interwiki=1}}
-* Ambonese Malay: {{t|abs|kata}}
-* Amharic: {{t|am|ቃል|sc=Ethi}}
-* Arabic: {{t+|ar|كَلِمَة|f}}
-*: Egyptian Arabic: {{t|arz|كلمة|f|tr=kilma}}
-*: Hijazi Arabic: {{t|acw|كلمة|f|tr=kilma}}
-* Aragonese: {{t-simple|an|parola|f|langname=Aragonese|interwiki=1}}
+{{multitrans|data=
+* Abkhaz: {{tt|ab|ажәа|sc=Cyrl}}
+* Adyghe: {{tt|ady|гущыӏ}}
+* Afrikaans: {{tt+|af|woord}}
+* Albanian: {{tt+|sq|fjalë|f}}, {{tt+|sq|llaf|m}}
+* Ambonese Malay: {{tt|abs|kata}}
+* Amharic: {{tt|am|ቃል|sc=Ethi}}
+* Arabic: {{tt+|ar|كَلِمَة|f}}
+*: Egyptian Arabic: {{tt|arz|كلمة|f|tr=kilma}}
+*: Hijazi Arabic: {{tt|acw|كلمة|f|tr=kilma}}
+* Aragonese: {{tt+|an|parola|f}}
 * Aramaic:
-*: Hebrew: {{t|arc|מלתא|c|tr=melthā, meltho|sc=Hebr}}
-*: Syriac: {{t|arc|ܡܠܬܐ|c|tr=melthā, meltho|sc=Syrc}}
-* Archi: {{t|aqc|чӏат}}
-* Armenian: {{t+|hy|բառ}}
-* Aromanian: {{t-simple|rup|zbor|langname=Aromanian}}, {{t-simple|rup|cuvendã|langname=Aromanian}}
-* Assamese: {{t|as|শব্দ}}
-* Asturian: {{t-simple|ast|pallabra|f|langname=Asturian|interwiki=1}}
-* Avar: {{t|av|рагӏул|sc=Cyrl}}, {{t|av|рагӏи|sc=Cyrl}}
-* Azerbaijani: {{t-simple|az|söz|langname=Azerbaijani|interwiki=1}}, {{t|az|kəlmə}}, {{t-simple|az|sözcük|langname=Azerbaijani}}
-* Balinese: {{t|ban|kruna}}
-* Bashkir: {{t|ba|һүҙ}}
-* Basque: {{t-simple|eu|hitz|langname=Basque}}, {{t-simple|eu|berba|langname=Basque}}
-* Belarusian: {{t+|be|сло́ва|n}}
-* Bengali: {{t+|bn|শব্দ}}
-* Bikol Central: {{t|bcl|kataga}}
-* Breton: {{t-simple|br|ger|m|langname=Breton|interwiki=1}}, {{t-simple|br|gerioù|p|langname=Breton|interwiki=1}}
-* Bulgarian: {{t+|bg|ду́ма|f}}, {{t+|bg|сло́во|n|sc=Cyrl}}
-* Burmese: {{t+|my|စကားလုံး|sc=Mymr}}, {{t+|my|ပုဒ်}}
-* Buryat: {{t|bua|үгэ}}
-* Catalan: {{t-simple|ca|paraula|f|langname=Catalan|interwiki=1}}, {{t-simple|ca|mot|m|langname=Catalan|interwiki=1}}
-* Chamicuro: {{t-simple|ccc|nachale|langname=Chamicuro}}
-* Chechen: {{t|ce|дош}}
-* Cherokee: {{t|chr|ᎧᏁᏨ|sc=Cher}}
-* Chichewa: {{t-simple|ny|mawu|langname=Chichewa}}
+*: Hebrew: {{tt|arc|מלתא|c|tr=melthā, meltho|sc=Hebr}}
+*: Syriac: {{tt|arc|ܡܠܬܐ|c|tr=melthā, meltho|sc=Syrc}}
+* Archi: {{tt|aqc|чӏат}}
+* Armenian: {{tt+|hy|բառ}}
+* Aromanian: {{tt|rup|zbor}}, {{tt|rup|cuvendã}}
+* Assamese: {{tt|as|শব্দ}}
+* Asturian: {{tt+|ast|pallabra|f}}
+* Avar: {{tt|av|рагӏул|sc=Cyrl}}, {{tt|av|рагӏи|sc=Cyrl}}
+* Azerbaijani: {{tt+|az|söz}}, {{tt|az|kəlmə}}, {{tt|az|sözcük}}
+* Balinese: {{tt|ban|kruna}}
+* Bashkir: {{tt|ba|һүҙ}}
+* Basque: {{tt|eu|hitz}}, {{tt|eu|berba}}
+* Belarusian: {{tt+|be|сло́ва|n}}
+* Bengali: {{tt+|bn|শব্দ}}
+* Bikol Central: {{tt|bcl|kataga}}
+* Breton: {{tt+|br|ger|m}}, {{tt+|br|gerioù|p}}
+* Bulgarian: {{tt+|bg|ду́ма|f}}, {{tt+|bg|сло́во|n|sc=Cyrl}}
+* Burmese: {{tt+|my|စကားလုံး|sc=Mymr}}, {{tt+|my|ပုဒ်}}
+* Buryat: {{tt|bua|үгэ}}
+* Catalan: {{tt+|ca|paraula|f}}, {{tt+|ca|mot|m}}
+* Chamicuro: {{tt|ccc|nachale}}
+* Chechen: {{tt|ce|дош}}
+* Cherokee: {{tt|chr|ᎧᏁᏨ|sc=Cher}}
+* Chichewa: {{tt|ny|mawu}}
+* Chickasaw: {{tt|cic|anompa}}
 * Chinese:
-*: Mandarin: {{t+|cmn|詞|tr=cí}}, {{t+|cmn|词|tr=cí}}, {{t+|cmn|單詞|tr=dāncí}}, {{t+|cmn|单词|tr=dāncí}}, {{t+|cmn|詞語}}, {{t+|cmn|词语|tr=cíyǔ}}
-* Chukchi: {{t|ckt|вэтгав|tr=vėtgav}}
-* Chuvash: {{t|cv|сӑмах}}
-* Classical Nahuatl: {{t|nci|tēntli}}, {{t|nci|tlahtōlli}}
-* Crimean Tatar: {{t-simple|crh|söz|langname=Crimean Tatar}}
-* Czech: {{t-simple|cs|slovo|n|langname=Czech|interwiki=1}}
-* Danish: {{t-simple|da|ord|n|langname=Danish|interwiki=1}}
-* Dhivehi: {{t|dv|ލަފުޒު|sc=Thaa}}
-* Dutch: {{t-simple|nl|woord|n|langname=Dutch|interwiki=1}}
-* Dzongkha: {{t|dz|ཚིག}}
-* Eastern Mari: {{t|chm|мут|sc=Cyrl}}
+*: Cantonese: {{t|yue|詞}}, {{t|yue|词|tr=ci4}}
+*: Dungan: {{t|dng|цы}}
+*: Mandarin: {{tt+|cmn|詞|tr=cí}}, {{tt+|cmn|词|tr=cí}}, {{tt+|cmn|單詞|tr=dāncí}}, {{tt+|cmn|单词|tr=dāncí}}, {{tt+|cmn|詞語}}, {{tt+|cmn|词语|tr=cíyǔ}}
+* Chukchi: {{tt|ckt|вэтгав|tr=vėtgav}}
+* Chuvash: {{tt|cv|сӑмах}}
+* Classical Nahuatl: {{tt|nci|tēntli}}, {{tt|nci|tlahtōlli}}
+* Crimean Tatar: {{tt|crh|söz}}
+* Czech: {{tt+|cs|slovo|n}}
+* Danish: {{tt+|da|ord|n}}
+* Dhivehi: {{tt|dv|ލަފުޒު|sc=Thaa}}
+* Dutch: {{tt+|nl|woord|n}}
+* Dzongkha: {{tt|dz|ཚིག}}
+* Eastern Mari: {{tt|chm|мут|sc=Cyrl}}
 * Egyptian: {{t-egy|mdt|h=S43-d:t-A2}}
-* Elfdalian: {{t-simple|ovd|uord|n|langname=Elfdalian}}
-* Erzya: {{t|myv|вал}}
-* Esperanto: {{t-simple|eo|vorto|langname=Esperanto|interwiki=1}}
-* Estonian: {{t-simple|et|sõna|langname=Estonian|interwiki=1}}
-* Even: {{t|eve|торэн}}
-* Faroese: {{t-simple|fo|orð|n|langname=Faroese|interwiki=1}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|mot|m|langname=French|interwiki=1}}
-* Friulian: {{t-simple|fur|peraule|f|langname=Friulian}}
-* Ga: {{t|gaa|wiemɔ}}
-* Galician: {{t-simple|gl|palabra|f|langname=Galician|interwiki=1}}, {{t-simple|gl|verba|f|langname=Galician|interwiki=1}}, {{t-simple|gl|pravoa|f|langname=Galician|interwiki=1}}, {{t-simple|gl|parola|f|langname=Galician|interwiki=1}}
-* Georgian: {{t+|ka|სიტყვა}}
-* German: {{t-simple|de|Wort|n|langname=German|interwiki=1}}
-* Gothic: {{t|got|𐍅𐌰𐌿𐍂𐌳|n}}
-* Greek: {{t+|el|λέξη|f}}
-*: Ancient: {{t|grc|λόγος|m}}, {{t|grc|ῥῆμα|n}}, {{t|grc|λέξις|f}}, {{qualifier|Epic}} {{t|grc|ὄψ|f}}
-* Greenlandic: {{t-simple|kl|oqaaseq|langname=Greenlandic}}
-* Guerrero Amuzgo: {{t|amu|jñ'o}}
-* Gujarati: {{t+|gu|શબ્દ|m}}
-* Haitian Creole: {{t-simple|ht|mo|langname=Haitian Creole}}
-* Hausa: {{t-simple|ha|kalma|langname=Hausa}}
-* Hawaiian: {{t|haw|huaʻōlelo}}
-* Hebrew: {{t+|he|מילה|alt=מילה \ מִלָּה|f|tr=milá}}
-* Hindi: {{t+|hi|शब्द|m}}, {{t+|hi|बात|f}}, {{t|hi|लुग़त|m}}
-* Hungarian: {{t-simple|hu|szó|langname=Hungarian|interwiki=1}}
-* Icelandic: {{t-simple|is|orð|n|langname=Icelandic|interwiki=1}}
-* Ido: {{t-simple|io|vorto|langname=Ido|interwiki=1}}
-* Ilocano: {{qualifier|literally}} {{t-simple|ilo|sao|n|langname=Ilocano}}
-* Indonesian: {{t-simple|id|kata|langname=Indonesian|interwiki=1}}
-* Ingush: {{t|inh|дош}}
-* Interlingua: {{t-simple|ia|parola|langname=Interlingua|interwiki=1}}, {{t-simple|ia|vocabulo|langname=Interlingua}}
-* Irish: {{t-simple|ga|focal|m|langname=Irish|interwiki=1}}
-* Italian: {{t-simple|it|parola|f|langname=Italian|interwiki=1}}, {{t-simple|it|vocabolo|m|langname=Italian|interwiki=1}}, {{t-simple|it|termine|m|langname=Italian|interwiki=1}}
-* Japanese: {{t+|ja|言葉|tr=ことば, kotoba}}, {{t+|ja|単語|tr=たんご, tango}}
+* Elfdalian: {{tt|ovd|uord|n}}
+* Erzya: {{tt|myv|вал}}
+* Esperanto: {{tt+|eo|vorto}}
+* Estonian: {{tt+|et|sõna}}
+* Even: {{tt|eve|торэн}}
+* Faroese: {{tt+|fo|orð|n}}
+* Finnish: {{tt+|fi|sana}}
+* French: {{tt+|fr|mot|m}}
+* Friulian: {{tt|fur|peraule|f}}
+* Ga: {{tt|gaa|wiemɔ}}
+* Galician: {{tt|gl|palabra|f}}, {{tt|gl|verba|f}}, {{tt|gl|pravoa|f}}, {{tt+|gl|parola|f}}
+* Georgian: {{tt+|ka|სიტყვა}}
+* German: {{tt+|de|Wort|n}}
+* Gothic: {{tt|got|𐍅𐌰𐌿𐍂𐌳|n}}
+* Greek: {{tt+|el|λέξη|f}}
+*: Ancient: {{tt|grc|λόγος|m}}, {{tt|grc|ῥῆμα|n}}, {{tt|grc|λέξις|f}}, {{qualifier|Epic}} {{tt|grc|ὄψ|f}}
+* Greenlandic: {{tt|kl|oqaaseq}}
+* Guerrero Amuzgo: {{tt|amu|jñ'o}}
+* Gujarati: {{tt+|gu|શબ્દ|m}}
+* Haitian Creole: {{tt|ht|mo}}
+* Hausa: {{tt|ha|kalma}}
+* Hawaiian: {{tt|haw|huaʻōlelo}}
+* Hebrew: {{tt+|he|מילה|alt=מילה \ מִלָּה|f|tr=milá}}
+* Hindi: {{tt+|hi|शब्द|m}}, {{tt+|hi|बात|f}}, {{tt|hi|लुग़त|m}}, {{t|hi|लफ़्ज़|m}}
+* Hungarian: {{tt+|hu|szó}}
+* Icelandic: {{tt+|is|orð|n}}
+* Ido: {{tt+|io|vorto}}
+* Ilocano: {{qualifier|literally}} {{tt|ilo|sao|n}}
+* Indonesian: {{tt+|id|kata}}
+* Ingush: {{tt|inh|дош}}
+* Interlingua: {{tt+|ia|parola}}, {{tt|ia|vocabulo}}
+* Irish: {{tt+|ga|focal|m}}
+* Italian: {{tt+|it|parola|f}}, {{tt+|it|vocabolo|m}}, {{tt+|it|termine|m}}
+* Japanese: {{tt+|ja|言葉|tr=ことば, kotoba}}, {{tt+|ja|単語|tr=たんご, tango}}, {{tt+|ja|語|tr=ご, go}}
 * Javanese:
-*: Carakan: {{t+|jv|ꦠꦼꦩ꧀ꦧꦸꦁ}}
-*: Roman: {{t-simple|jv|tembung|langname=Javanese}}
-* K'iche': {{t-simple|quc|tzij|langname=K'iche'}}
-* Kabardian: {{t|kbd|псалъэ}}
-* Kalmyk: {{t|xal|үг}}
-* Kannada: {{t+|kn|ಶಬ್ದ|sc=Knda}}, {{t+|kn|ಪದ|sc=Knda}}
-* Karachay-Balkar: {{t|krc|сёз|sc=Cyrl}}
-* Karelian: {{t-simple|krl|sana|langname=Karelian}}
-* Kashubian: {{t-simple|csb|słowò|n|langname=Kashubian}}
-* Kazakh: {{t+|kk|сөз}}
-* Khmer: {{t+|km|ពាក្យ}}, {{t|km|ពាក្យសំដី}}
-* Korean: {{t+|ko|말}}, {{t+|ko|낱말}}, {{t+|ko|단어}} ({{t+|ko|單語}})
+*: Carakan: {{tt+|jv|ꦠꦼꦩ꧀ꦧꦸꦁ}}
+*: Roman: {{tt|jv|tembung}}
+* K'iche': {{tt|quc|tzij}}
+* Kabardian: {{tt|kbd|псалъэ}}
+* Kalmyk: {{tt|xal|үг}}
+* Kannada: {{tt+|kn|ಶಬ್ದ|sc=Knda}}, {{tt+|kn|ಪದ|sc=Knda}}
+* Karachay-Balkar: {{tt|krc|сёз|sc=Cyrl}}
+* Karelian: {{tt|krl|sana}}
+* Kashubian: {{tt|csb|słowo|n}}
+* Kazakh: {{tt+|kk|сөз}}
+* Khmer: {{tt+|km|ពាក្យ}}, {{tt|km|ពាក្យសំដី}}
+* Korean: {{tt+|ko|말}}, {{tt+|ko|낱말}}, {{tt+|ko|단어}} ({{tt+|ko|單語}})
 * Kurdish:
-*: Kurmanji: {{t+|ku|peyv|f}}, {{t+|ku|bêje|f}}, {{t+|ku|kelîme|f}}
-*: Sorani: {{t|ckb|وشە|sc=ku-Arab}}
-* Kyrgyz: {{t+|ky|сөз}}
-* Ladin: {{t-simple|lld|parola|f|langname=Ladin}}
-* Ladino: {{t-simple|lad|palavra|f|langname=Ladino}}, {{t|lad|פﭏאבﬞרה|tr=palavra}}, {{t|lad|biervo|m}}
-* Lak: {{t|lbe|махъ}}
-* Lao: {{t+|lo|ຄຳ}}
-* Latgalian: {{t-simple|ltg|vuords|m|langname=Latgalian}}
-* Latin: {{t-simple|la|vocabulum|n|langname=Latin}}, {{t-simple|la|verbum|n|langname=Latin|interwiki=1}}, {{t-simple|la|fatus|m|langname=Latin}}
-* Latvian: {{t-simple|lv|vārds|m|langname=Latvian|interwiki=1}}
-* Laz: {{t|lzz|ნენა}}
-* Ligurian: {{t-simple|lij|paròlla|f|langname=Ligurian}}
-* Lingala: {{t-simple|ln|nkómbó|langname=Lingala}}
-* Lithuanian: {{t-simple|lt|žodis|m|langname=Lithuanian|interwiki=1}}
-* Lombard: {{t-simple|lmo|paròlla|f|langname=Lombard}}
-* Luxembourgish: {{t-simple|lb|Wuert|n|langname=Luxembourgish|interwiki=1}}
+*: Central Kurdish: {{tt+|ckb|وشە|sc=ku-Arab}}
+*: Northern Kurdish: {{tt+|kmr|peyv|f}}, {{tt+|kmr|bêje|f}}, {{tt+|kmr|kelîme|f}}
+* Kyrgyz: {{tt+|ky|сөз}}
+* Ladin: {{tt|lld|parola|f}}
+* Ladino: {{tt|lad|palavra|f}}, {{tt|lad|פﭏאבﬞרה|tr=palavra}}, {{tt|lad|biervo|m}}
+* Lak: {{tt|lbe|махъ}}
+* Lao: {{tt+|lo|ຄຳ}}
+* Latgalian: {{tt|ltg|vuords|m}}
+* Latin: {{tt+|la|verbum|n}}; {{tt|la|vocabulum|alt=vocābulum|n}}, {{tt|la|fatus|alt=fātus|m}}
+* Latvian: {{tt+|lv|vārds|m}}
+* Laz: {{tt|lzz|ნენა}}
+* Ligurian: {{tt|lij|paròlla|f}}
+* Lingala: {{tt|ln|nkómbó}}
+* Lithuanian: {{tt+|lt|žodis|m}}
+* Lombard: {{tt|lmo|paròlla|f}}
+* Luxembourgish: {{tt+|lb|Wuert|n}}
+* Lü: {{tt|khb|ᦅᧄ|sc=Talu}}
+* Macedonian: {{tt+|mk|збор|m}}, {{tt+|mk|слово|n|sc=Cyrl}} {{qualifier|archaic}}
+* Malay: {{tt+|ms|kata}}, {{tt+|ms|perkataan}}, {{tt+|ms|kalimah}}
 {{trans-mid}}
-* Lü: {{t|khb|ᦅᧄ|sc=Talu}}
-* Macedonian: {{t+|mk|збор|m}}, {{t|mk|слово|n|sc=Cyrl}} {{qualifier|archaic}}
-* Malay: {{t-simple|ms|kata|langname=Malay|interwiki=1}}, {{t-simple|ms|perkataan|langname=Malay}}, {{t-simple|ms|kalimah|langname=Malay|interwiki=1}}
-* Malayalam: {{t+|ml|വാക്ക്|sc=Mlym}}, {{t+|ml|പദം|sc=Mlym}}, {{t+|ml|ശബ്ദം|sc=Mlym}}
-* Maltese: {{t-simple|mt|kelma|f|langname=Maltese}}
-* Maori: {{t-simple|mi|kupu|langname=Maori|interwiki=1}}
-* Marathi: {{t+|mr|शब्द}}
-* Middle English: {{t|enm|word}}
+* Malayalam: {{tt+|ml|വാക്ക്|sc=Mlym}}, {{tt+|ml|പദം|sc=Mlym}}, {{tt+|ml|ശബ്ദം|sc=Mlym}}
+* Maltese: {{tt|mt|kelma|f}}
+* Maori: {{tt+|mi|kupu}}
+* Mara Chin: {{tt|mrh|bie}}
+* Marathi: {{tt+|mr|शब्द}}
+* Middle English: {{tt|enm|word}}
 * Mingrelian: {{t-needed|xmf}}
-* Moksha: {{t|mdf|вал}}
-* Mongolian: {{t+|mn|үг}}
-* Mòcheno: {{t|mhn|bourt|n}}
-* Nahuatl: {{t-simple|nah|tlahtolli|langname=Nahuatl|interwiki=1}}
-* Nauruan: {{t-simple|na|dorer|langname=Nauruan|interwiki=1}}
-* Navajo: {{t-simple|nv|saad|langname=Navajo}}
-* Nepali: {{t|ne|शब्द}}
+* Moksha: {{tt|mdf|вал}}
+* Mongolian:
+*: Cyrillic: {{tt+|mn|үг}}
+*: Uyghurjin: {{tt|mn|ᠦᠭᠡ}}
+* Moroccan Amazigh: {{tt|zgh|ⴰⵡⴰⵍ}}
+* Mòcheno: {{tt|mhn|bourt|n}}
+* Nahuatl: {{tt+|nah|tlahtolli}}
+* Nauruan: {{tt+|na|dorer}}
+* Navajo: {{tt|nv|saad}}
+* Nepali: {{tt|ne|शब्द}}
 * North Frisian:
-*: Föhr-Amrum: {{t|frr|wurd|n}}
-*: Helgoland: {{t|frr|Wür|n}}
-*: Mooring: {{t|frr|uurd|n}}
-*: Sylt: {{t|frr|Uurt|n}}
-* Northern Yukaghir: {{t|ykg|аруу}}
+*: Föhr-Amrum: {{tt|frr|wurd|n}}
+*: Helgoland: {{tt|frr|Wür|n}}
+*: Mooring: {{tt|frr|uurd|n}}
+*: Sylt: {{tt|frr|Uurt|n}}
+* Northern Sami: {{tt|se|sátni}}
+* Northern Yukaghir: {{tt|ykg|аруу}}
 * Norwegian:
-*: Bokmål: {{t+|nb|ord|n}}
-*: Nynorsk: {{t+|nn|ord|n}}
-* Novial: {{t|nov|vorde}}, {{t|nov|vokable}}
-* Occitan: {{t-simple|oc|mot|m|langname=Occitan|interwiki=1}}
-* Ojibwe: {{t-simple|oj|ikidowin|langname=Ojibwe}}
-* Okinawan: {{t|ryu|くとぅば|tr=kutuba}}
+*: Bokmål: {{tt+|nb|ord|n}}
+*: Nynorsk: {{tt+|nn|ord|n}}
+* Novial: {{tt|nov|vorde}}, {{tt|nov|vokable}}
+* Occitan: {{tt+|oc|mot|m}}, {{tt+|oc|paraula|f}}
+* Ojibwe: {{tt|oj|ikidowin}}
+* Okinawan: {{tt|ryu|くとぅば|tr=kutuba}}
 * Old Church Slavonic:
-*: Cyrillic: {{t|cu|слово|n|sc=Cyrs}}
-*: Glagolitic: {{t|cu|ⱄⰾⱁⰲⱁ|n|sc=Glag}}
-* Old East Slavic: {{t|orv|слово|n}}
-* Old Norse: {{t-simple|non|orð|n|langname=Old Norse}}
-* Oriya: {{t+|or|ଶବ୍ଦ}}
-* Ossetian: {{t|os|дзырд|sc=Cyrl}}, {{t|os|ныхас|sc=Cyrl}}
-* Papiamentu: {{t-simple|pap|palabra|f|langname=Papiamentu}}
-* Pashto: {{t+|ps|لغت|tr=luġat|sc=ps-Arab}}, {{t|ps|کلمه|tr=kalimâ|sc=ps-Arab}}
-* Persian: {{t+|fa|واژه|tr=vâže|sc=fa-Arab}}, {{t+|fa|کلمه|tr=kalame|sc=fa-Arab}}, {{t+|fa|لغت|tr=loğat}}
-* Piedmontese: {{t-simple|pms|paròla|f|langname=Piedmontese}}
-* Polabian: {{t-simple|pox|slüvǘ|n|langname=Polabian}}
-* Polish: {{t-simple|pl|słowo|n|langname=Polish|interwiki=1}}
-* Portuguese: {{t-simple|pt|palavra|f|langname=Portuguese|interwiki=1}}, {{t-simple|pt|vocábulo|m|langname=Portuguese|interwiki=1}}
-* Punjabi: {{t+|pa|ਸ਼ਬਦ|sc=Guru}}
-* Romanian: {{t-simple|ro|cuvânt|n|langname=Romanian|interwiki=1}}, {{t-simple|ro|vorbă|f|langname=Romanian|interwiki=1}}
-* Romansch: {{t-simple|rm|pled|m|langname=Romansch}}, {{t-simple|rm|plaid|m|langname=Romansch}}
-* Russian: {{t+|ru|сло́во|n}}
-* Rusyn: {{t|rue|сло́во|n}}
-* Samoan: {{t|sm|’upu}}
-* Samogitian: {{t-simple|sgs|žuodis|m|langname=Samogitian}}
-* Sanskrit: {{t+|sa|शब्द|m}}, {{t+|sa|पद|n}}
-* Santali: {{t|sat|ᱨᱳᱲ}}
-* Sardinian: {{t|sc|fueddu}}
-* Scots: {{t-simple|sco|wird|langname=Scots}}, {{t-simple|sco|wurd|langname=Scots}}
-* Scottish Gaelic: {{t-simple|gd|facal|m|langname=Scottish Gaelic}}, {{t-simple|gd|briathar|m|langname=Scottish Gaelic}}
+*: Cyrillic: {{tt|cu|слово|n|sc=Cyrs}}
+*: Glagolitic: {{tt|cu|ⱄⰾⱁⰲⱁ|n|sc=Glag}}
+* Old East Slavic: {{tt|orv|слово|n}}
+* Old English: {{tt+|ang|word|n}}
+* Old Norse: {{tt|non|orð|f=n}}
+* Oriya: {{tt+|or|ଶବ୍ଦ}}
+* Ossetian: {{tt|os|дзырд|sc=Cyrl}}, {{tt|os|ныхас|sc=Cyrl}}
+* Papiamentu: {{tt|pap|palabra|f}}
+* Pashto: {{tt+|ps|لغت|tr=luġat|sc=ps-Arab}}, {{tt|ps|کلمه|tr=kalimâ|sc=ps-Arab}}
+* Persian: {{tt+|fa|واژه|tr=vâže|sc=fa-Arab}}, {{tt+|fa|کلمه|tr=kalame|sc=fa-Arab}}, {{tt+|fa|لغت|tr=loğat}}
+* Piedmontese: {{tt|pms|paròla|f}}
+* Plautdietsch: {{tt+|pdt|Wuat|n}}
+* Polabian: {{tt|pox|slüvǘ|n}}
+* Polish: {{tt+|pl|słowo|n}}
+* Portuguese: {{tt+|pt|palavra|f}}, {{tt+|pt|vocábulo|m}}
+* Punjabi: {{tt+|pa|ਸ਼ਬਦ|sc=Guru}}
+* Romanian: {{tt+|ro|cuvânt|n}}, {{tt+|ro|vorbă|f}}
+* Romansch: {{tt|rm|pled|m}}, {{tt|rm|plaid|m}}
+* Russian: {{tt+|ru|сло́во|n}}
+* Rusyn: {{tt|rue|сло́во|n}}
+* Samoan: {{tt|sm|’upu}}
+* Samogitian: {{tt|sgs|žuodis|m}}
+* Sanskrit: {{tt+|sa|शब्द|m}}, {{tt+|sa|पद|n}}, {{t+|sa|अक्षरा|f}}
+* Santali: {{tt|sat|ᱨᱳᱲ}}
+* Sardinian: {{tt|sc|fueddu}}
+* Scots: {{tt|sco|wird}}, {{tt|sco|wurd}}
+* Scottish Gaelic: {{tt|gd|facal|m}}, {{tt|gd|briathar|m}}
 * Serbo-Croatian:
-*: Cyrillic: {{t|sh|реч|f|sc=Cyrl}}, {{t|sh|ријеч|f|sc=Cyrl}}, {{t|sh|слово|n|sc=Cyrl}} {{qualifier|obsolete}}
-*: Roman: {{t+|sh|reč|f}}, {{t+|sh|riječ|f}}, {{t+|sh|slovo|n}} {{qualifier|obsolete}}
-* Sicilian: {{t-simple|scn|palora|f|langname=Sicilian|interwiki=1}}, {{t-simple|scn|parola|f|langname=Sicilian|interwiki=1}}
-* Silesian: {{t-needed|szl}}
-* Sindhi: {{t+|sd|لفظ|tr=lafẓu|alt=لَفظُ|sc=sd-Arab}}
-* Sinhalese: {{t+|si|වචනය|sc=Sinh}}
-* Skolt Sami: {{t|sms|sääˊnn}}
-* Slovak: {{t-simple|sk|slovo|n|langname=Slovak|interwiki=1}}
-* Slovene: {{t-simple|sl|beseda|f|langname=Slovene|interwiki=1}}
-* Somali: {{t-simple|so|eray|langname=Somali|interwiki=1}}
+*: Cyrillic: {{tt|sh|реч|f|sc=Cyrl}}, {{tt|sh|ријеч|f|sc=Cyrl}}, {{tt|sh|слово|n|sc=Cyrl}} {{qualifier|obsolete}}
+*: Roman: {{tt+|sh|reč|f}}, {{tt+|sh|riječ|f}}, {{tt+|sh|slovo|n}} {{qualifier|obsolete}}
+* Sicilian: {{tt+|scn|palora|f}}, {{tt+|scn|parola|f}}
+* Silesian: {{tt|szl|suowo|n}}
+* Sindhi: {{tt+|sd|لفظ|tr=lafẓu|alt=لَفظُ|sc=sd-Arab}}
+* Sinhalese: {{tt+|si|වචනය|sc=Sinh}}
+* Skolt Sami: {{tt|sms|sääˊnn}}
+* Slovak: {{tt+|sk|slovo|n}}
+* Slovene: {{tt+|sl|beseda|f}}
+* Somali: {{tt+|so|eray}}
 * Sorbian:
-*: Lower Sorbian: {{t|dsb|słowo|n}}
-*: Upper Sorbian: {{t|hsb|słowo|n}}
-* Sotho: {{t-simple|st|lentswe|langname=Sotho}}
-* Southern Sami: {{t-simple|sma|baakoe|langname=Southern Sami}}
-* Spanish: {{t-simple|es|palabra|f|langname=Spanish|interwiki=1}}, {{t-simple|es|vocablo|m|langname=Spanish|interwiki=1}}
-* Sundanese: {{t|su|ᮊᮨᮎᮕ᮪}}
+*: Lower Sorbian: {{tt|dsb|słowo|n}}
+*: Upper Sorbian: {{tt|hsb|słowo|n}}
+* Sotho: {{tt|st|lentswe}}
+* Southern Sami: {{tt|sma|baakoe}}
+* Spanish: {{tt+|es|palabra|f}}, {{tt+|es|vocablo|m}}
+* Sundanese: {{tt|su|ᮊᮨᮎᮕ᮪}}
 * Svan: {{t-needed|sva}}
-* Swahili: {{t-simple|sw|neno|langname=Swahili|interwiki=1}}
-* Swedish: {{t-simple|sv|ord|n|langname=Swedish|interwiki=1}}
-* Tagalog: {{t-simple|tl|salita|langname=Tagalog|interwiki=1}}
-* Tahitian: {{t-simple|ty|parau|langname=Tahitian}}
-* Tajik: {{t+|tg|калима}}, {{t+|tg|вожа}}, {{t+|tg|луғат}}
-* Tamil: {{t+|ta|வார்த்தை|sc=Taml}}, {{t+|ta|சொல்|sc=Taml}}
-* Tatar: {{t+|tt|сүз}}
-* Telugu: {{t+|te|పదము|sc=Telu}}
-* Thai: {{t+|th|คำ}}
-* Tibetan: {{t|bo|ཚིག}}
-* Tigrinya: {{t+|ti|ቃል|sc=Ethi}}
-* Tofa: {{t|kim|соот|tr=soot|sc=Cyrl}}
+* Swahili: {{tt+|sw|neno}}
+* Swedish: {{tt+|sv|ord|n}}
+* Tagalog: {{tt+|tl|salita}}
+* Tahitian: {{tt|ty|parau}}
+* Tajik: {{tt+|tg|калима}}, {{tt+|tg|вожа}}, {{tt+|tg|луғат}}
+* Tamasheq: {{tt|taq|ⵜⵉⴼⵉⵔ}}
+* Tamil: {{tt+|ta|வார்த்தை|sc=Taml}}, {{tt+|ta|சொல்|sc=Taml}}
+* Tatar: {{tt+|tt|сүз}}
+* Telugu: {{tt+|te|పదము|sc=Telu}}, {{tt+|te|మాట}}
+* Thai: {{tt+|th|คำ}}
+* Tibetan: {{tt|bo|ཚིག}}
+* Tigrinya: {{tt+|ti|ቃል|sc=Ethi}}
+* Tocharian B: {{tt|txb|reki}}
+* Tofa: {{tt|kim|соот|tr=soot|sc=Cyrl}}
 * Tongan: {{t-needed|to}}
-* Tswana: {{t-simple|tn|lefoko|langname=Tswana}}
-* Turkish: {{t-simple|tr|sözcük|langname=Turkish|interwiki=1}}, {{t-simple|tr|kelime|langname=Turkish|interwiki=1}}
-* Turkmen: {{t-simple|tk|söz|langname=Turkmen}}
-* Tuvan: {{t|tyv|сөс}}
-* Udmurt: {{t|udm|кыл}}
-* Ugaritic: {{t|uga|𐎅𐎆𐎚}}
-* Ukrainian: {{t+|uk|сло́во|n}}
-* Urdu: {{t|ur|شبد|m|tr=śabd}}, {{t|ur|بات|f|tr=bāt}}, {{t+|ur|کلمہ|m}}, {{t+|ur|لغت|m|tr=luġat}}
-* Uyghur: {{t|ug|سۆز}}
-* Uzbek: {{t+|uz|soʻz}}
-* Venetian: {{t-simple|vec|paroła|f|langname=Venetian}}, {{t-simple|vec|paròła|f|langname=Venetian}}, {{t-simple|vec|paròla|f|langname=Venetian}}
-* Vietnamese: {{t-simple|vi|từ|langname=Vietnamese|interwiki=1}}, {{t-simple|vi|lời|langname=Vietnamese|interwiki=1}}, {{t-simple|vi|nhời|langname=Vietnamese|interwiki=1}}, {{t-simple|vi|tiếng|langname=Vietnamese|interwiki=1}}
-* Volapük: {{t-simple|vo|vöd|langname=Volapük|interwiki=1}}
-* Walloon: {{t-simple|wa|mot|m|langname=Walloon|interwiki=1}}
-* Welsh: {{t-simple|cy|gair|langname=Welsh|interwiki=1}}
-* West Frisian: {{t-simple|fy|wurd|n|langname=West Frisian|interwiki=1}}
-* Western Cham: {{t|cja|بۉه ڤنوۉئ}}
-* White Hmong: {{t|mww|lo lus}}
-* Wolof: {{t-simple|wo|baat|langname=Wolof|interwiki=1}}
-* Xhosa: {{t-simple|xh|igama|langname=Xhosa}}
-* Yakut: {{t|sah|тыл|sc=Cyrl}}
-* Yiddish: {{t+|yi|וואָרט|n}}
-* Yoruba: {{t|yo|ó̩ró̩gbólóhùn kan}}
-* Yup'ik: {{t-simple|esu|qanruyun|langname=Yup'ik}}
-* Zazaki: {{t-simple|zza|çeku|c|langname=Zazaki}}, {{t-simple|zza|kelime|c|langname=Zazaki}}, {{t-simple|zza|qıse|m|langname=Zazaki}}, {{t-simple|zza|qısa|f|langname=Zazaki}}
-* Zhuang: {{t-simple|za|cih|langname=Zhuang}}
-* Zulu: {{t|zu|igama|c5|c6}}, {{t|zu|uhlamvu|c11|c10}}
+* Tswana: {{tt|tn|lefoko}}
+* Turkish: {{tt+|tr|sözcük}}, {{tt+|tr|kelime}}
+* Turkmen: {{tt|tk|söz}}
+* Tuvan: {{tt|tyv|сөс}}
+* Udmurt: {{tt|udm|кыл}}
+* Ugaritic: {{tt|uga|𐎅𐎆𐎚}}
+* Ukrainian: {{tt+|uk|сло́во|n}}
+* Urdu: {{tt|ur|شبد|m|tr=śabd}}, {{tt|ur|بات|f|tr=bāt}}, {{tt+|ur|کلمہ|m}}, {{tt+|ur|لغت|m|tr=luġat}}, {{t+|ur|لفظ|m|tr=lafz}}
+* Uyghur: {{tt|ug|سۆز}}
+* Uzbek: {{tt+|uz|soʻz}}
+* Venetian: {{tt|vec|paroła|f}}, {{tt|vec|paròła|f}}, {{tt|vec|paròla|f}}
+* Vietnamese: {{tt+|vi|từ}}, {{tt+|vi|lời}}, {{tt+|vi|nhời}}, {{tt+|vi|tiếng}}
+* Volapük: {{tt+|vo|vöd}}
+* Walloon: {{tt+|wa|mot|m}}
+* Welsh: {{tt+|cy|gair}}
+* West Frisian: {{tt+|fy|wurd|n}}
+* Western Cham: {{tt|cja|بۉه ڤنوۉئ}}
+* White Hmong: {{tt|mww|lo lus}}
+* Wolof: {{tt+|wo|baat}}
+* Xhosa: {{tt|xh|igama}}
+* Yakut: {{tt|sah|тыл|sc=Cyrl}}
+* Yiddish: {{tt+|yi|וואָרט|n}}
+* Yoruba: {{tt|yo|ó̩ró̩gbólóhùn kan}}, {{tt|yo|ọ̀rọ̀}}
+* Yup'ik: {{tt|esu|qanruyun}}
+* Zazaki: {{tt|zza|çeku|c}}, {{tt|zza|kelime|c}}, {{tt|zza|qıse|m}}, {{tt|zza|qısa|f}}
+* Zhuang: {{tt|za|cih}}
+* Zulu: {{tt+|zu|igama|c5|c6}}, {{tt|zu|uhlamvu|c11|c10}}
 {{trans-bottom}}
 
 {{trans-top|telegraphy: unit of text}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
-* Greek: {{t+|el|λέξη|f}}
-* Maori: {{t-simple|mi|kupu|langname=Maori|interwiki=1}}
+* Finnish: {{tt+|fi|sana}}
+* Greek: {{tt+|el|λέξη|f}}
+* Maori: {{tt+|mi|kupu}}
 {{trans-mid}}
-* Russian: {{t+|ru|сло́во|n}}
-* Telugu: {{t|te|సంకేత పదము}}
+* Russian: {{tt+|ru|сло́во|n}}
+* Telugu: {{tt|te|సంకేత పదము}}
 {{trans-bottom}}
 
 {{trans-top|computing: fixed-size group of bits handled as a unit}}
-* Afrikaans: {{t-simple|af|woord|langname=Afrikaans|interwiki=1}}
+* Afrikaans: {{tt+|af|woord}}
 * Chinese:
-*: Mandarin: {{t+|cmn|單字}}, {{t+|cmn|单字}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|mot|m|langname=French|interwiki=1}}
-* Greek: {{t+|el|λέξη|f}}
-* Interlingua: {{t-simple|ia|parola|langname=Interlingua|interwiki=1}}
-* Italian: {{t-simple|it|word|m|langname=Italian|interwiki=1}}
-* Japanese: {{t+|ja|言語|tr=[[げんご]], gengo}}
+*: Mandarin: {{tt+|cmn|單字}}, {{tt+|cmn|单字}}
+* Finnish: {{tt+|fi|sana}}
+* French: {{tt+|fr|mot|m}}
+* Greek: {{tt+|el|λέξη|f}}
+* Interlingua: {{tt+|ia|parola}}
+* Italian: {{tt+|it|word|m}}
+* Japanese: {{tt+|ja|言語|tr=[[げんご]], gengo}}
 {{trans-mid}}
-* Macedonian: {{t+|mk|збор|m}}
-* Norwegian: {{t-simple|no|ord|n|langname=Norwegian|interwiki=1}}
-* Persian: {{t+|fa|واژه|tr=vâže}}
-* Portuguese: {{t-simple|pt|palavra|f|langname=Portuguese|interwiki=1}}
-* Romanian: {{t-simple|ro|cuvânt|n|langname=Romanian|interwiki=1}}
-* Russian: {{t+|ru|сло́во|n}}
-* Slovak: {{t-simple|sk|slovo|n|langname=Slovak|interwiki=1}}
-* Spanish: {{t-simple|es|palabra|f|langname=Spanish|interwiki=1}}
-* Swedish: {{t-simple|sv|ord|n|langname=Swedish|interwiki=1}}
+* Macedonian: {{tt+|mk|збор|m}}
+* Norwegian: {{tt+|no|ord|n}}
+* Persian: {{tt+|fa|واژه|tr=vâže}}
+* Portuguese: {{tt+|pt|palavra|f}}
+* Romanian: {{tt+|ro|cuvânt|n}}
+* Russian: {{tt+|ru|сло́во|n}}
+* Slovak: {{tt+|sk|slovo|n}}
+* Spanish: {{tt+|es|palabra|f}}
+* Swedish: {{tt+|sv|ord|n}}
 {{trans-bottom}}
 
 {{trans-top|computer science: finite string which is not a command or operator}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
+* Finnish: {{tt+|fi|sana}}
 {{trans-mid}}
-* Russian: {{t+|ru|сло́во|n}}
+* Russian: {{tt+|ru|сло́во|n}}
 {{trans-bottom}}
 
 {{trans-top|group theory: kind of group element}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
+* Finnish: {{tt+|fi|sana}}
 {{trans-mid}}
-* Russian: {{t+|ru|сло́во|n}}
+* Russian: {{tt+|ru|сло́во|n}}
+{{trans-bottom}}
+
+{{trans-top|fact or act of speaking, as opposed to taking action}}
+* Finnish: {{tt+|fi|sanat|p}}
+{{trans-mid}}
 {{trans-bottom}}
 
 {{trans-top|something which has been said}}
-* Arabic: {{t+|ar|كَلِمَة|f}}, {{t+|ar|كَلَام|m}}, {{t|ar|قَوْل|m}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}, {{t-simple|fi|puhe|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|parole|f|langname=French|interwiki=1}}
-* German: {{t-simple|de|Wort|n|langname=German|interwiki=1}}
+* Arabic: {{tt+|ar|كَلِمَة|f}}, {{tt+|ar|كَلَام|m}}, {{tt|ar|قَوْل|m}}
+* Finnish: {{tt+|fi|sana}}, {{tt+|fi|puhe}}
+* French: {{tt+|fr|parole|f}}
+* German: {{tt+|de|Wort|n}}
 {{trans-mid}}
-* Malay: {{t+|ms|perkataan}}
-* Maore Comorian: {{t-simple|swb|urongozi|c11|langname=Maore Comorian}}
-* Middle English: {{t|enm|word}}
-* Russian: {{t+|ru|речь|f}}, {{t+|ru|слова́|n-p}}
-* Zazaki: {{t-simple|zza|qıse|c|langname=Zazaki}}
+* Malay: {{tt+|ms|perkataan}}
+* Maore Comorian: {{tt|swb|urongozi|c11}}
+* Middle English: {{tt|enm|word}}
+* Russian: {{tt+|ru|речь|f}}, {{tt+|ru|слова́|n-p}}
+* Zazaki: {{tt|zza|qıse|c}}
 {{trans-bottom}}
 
 {{trans-see|watchword}}
@@ -624,124 +643,125 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 {{trans-see|proverb}}
 
 {{trans-top|news, tidings}}
-* Finnish: {{t-simple|fi|uutiset|p|langname=Finnish|interwiki=1}}
-* Malay: {{t-simple|ms|berita|langname=Malay}}, {{t-simple|ms|khabar|langname=Malay}}, {{t-simple|ms|kabar|langname=Malay}}
-* Maori: {{t-simple|mi|pūrongo|langname=Maori|interwiki=1}}
-* Middle English: {{t|enm|word}}
+* Finnish: {{tt+|fi|uutiset|p}}, {{tt+|fi|sana}}
+* Malay: {{tt|ms|berita}}, {{tt|ms|khabar}}, {{tt|ms|kabar}}
+* Maori: {{tt+|mi|pūrongo}}
+* Middle English: {{tt|enm|word}}
 {{trans-mid}}
-* Portuguese: {{t-simple|pt|notícias|f|langname=Portuguese|interwiki=1}}
-* Russian: {{t+|ru|весть|f}}, {{t+|ru|изве́стие|n}}, {{t+|ru|но́вость|f}}
-* Telugu: {{t+|te|వార్త}}
+* Portuguese: {{tt+|pt|notícias|f}}
+* Russian: {{tt+|ru|весть|f}}, {{tt+|ru|изве́стие|n}}, {{tt+|ru|но́вость|f}}
+* Telugu: {{tt+|te|వార్త}}
 {{trans-bottom}}
 
 {{trans-top-also|order, request, expression of will|order|request}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
+* Finnish: {{tt+|fi|sana}}
 {{trans-mid}}
-* Russian: {{t+|ru|сло́во|n}}
+* Russian: {{tt+|ru|сло́во|n}}
 {{trans-bottom}}
 
 {{trans-top|promise}}
-* Afrikaans: {{t-simple|af|erewoord|langname=Afrikaans}}
-* Albanian: {{t-simple|sq|sharje|f|langname=Albanian|interwiki=1}}
-* Armenian: {{t+|hy|խոսք}}, {{t+|hy|խոստում}}
-* Breton: {{t-simple|br|ger|m|langname=Breton|interwiki=1}}
-* Catalan: {{t-simple|ca|paraula|f|langname=Catalan|interwiki=1}}
+* Afrikaans: {{tt|af|erewoord}}
+* Albanian: {{tt+|sq|sharje|f}}
+* Armenian: {{tt+|hy|խոսք}}, {{tt+|hy|խոստում}}
+* Breton: {{tt+|br|ger|m}}
+* Catalan: {{tt+|ca|paraula|f}}
 * Chinese:
-*: Mandarin: {{t+|cmn|諾言}}, {{t+|cmn|诺言}}
-* Czech: {{t-simple|cs|slovo|n|langname=Czech|interwiki=1}}, {{t-simple|cs|slib|m|langname=Czech|interwiki=1}}
-* Dutch: {{t-simple|nl|erewoord|n|langname=Dutch|interwiki=1}}, {{t-simple|nl|woord|n|langname=Dutch|interwiki=1}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|parole|f|langname=French|interwiki=1}}
-* Galician: {{t-simple|gl|palabra|f|langname=Galician}}
-* German: {{t-simple|de|Ehrenwort|n|langname=German|interwiki=1}}
-* Greek: {{t+|el|λόγος|m}}
-* Haitian Creole: {{t-simple|ht|pawòl|langname=Haitian Creole}}
-* Hungarian: {{t-simple|hu|szó|langname=Hungarian|interwiki=1}}
-* Interlingua: {{t-simple|ia|parola|langname=Interlingua|interwiki=1}}
-* Italian: {{t-simple|it|parola|f|langname=Italian|interwiki=1}}
-* Japanese: {{t|ja|言質|tr=genchi}}
+*: Mandarin: {{tt+|cmn|諾言}}, {{tt+|cmn|诺言}}
+* Czech: {{tt+|cs|slovo|n}}, {{tt+|cs|slib|m}}
+* Dutch: {{tt+|nl|erewoord|n}}, {{tt+|nl|woord|n}}
+* Finnish: {{tt+|fi|sana}}
+* French: {{tt+|fr|parole|f}}
+* Galician: {{tt|gl|palabra|f}}
+* German: {{tt+|de|Ehrenwort|n}}
+* Greek: {{tt+|el|λόγος|m}}
+* Haitian Creole: {{tt|ht|pawòl}}
+* Hungarian: {{tt+|hu|szó}}
+* Interlingua: {{tt|ia|parolaa}}
+* Italian: {{tt+|it|parola|f}}
+* Japanese: {{tt+|ja|約束|tr=やくそく, yakusoku}}, {{tt+|ja|誓い|tr=ちかい, chikai}}
 {{trans-mid}}
-* Korean: {{t+|ko|말}}, {{t+|ko|약속}} ({{t+|ko|約束}})
-* Lithuanian: {{t-simple|lt|žodis|m|langname=Lithuanian|interwiki=1}}
-* Macedonian: {{t+|mk|збор|m}}
-* Malay: {{t-simple|ms|janji|langname=Malay}}
-* Malayalam: {{t+|ml|വാക്ക്|sc=Mlym}}
-* Middle English: {{t|enm|word}}
-* Norwegian: {{t-simple|no|ord|n|langname=Norwegian|interwiki=1}}, {{t-simple|no|lovnad|m|langname=Norwegian|interwiki=1}}
-* Persian: {{t+|fa|پیمان|tr=peymân|sc=fa-Arab}}, {{t+|fa|قول|tr=qol|sc=fa-Arab}}
-* Polish: {{t-simple|pl|słowo|n|langname=Polish|interwiki=1}}
-* Portuguese: {{t-simple|pt|palavra|f|langname=Portuguese|interwiki=1}}, {{t-simple|pt|promessa|f|langname=Portuguese|interwiki=1}}
-* Romanian: {{t|ro|[[cuvânt]] [[de]] [[onoare]]|n}}
-* Russian: {{t+|ru|сло́во|n}}, {{t+|ru|обеща́ние|n}}
-* Slovak: {{t|sk|čestné slovo|n}}
-* Slovene: {{t+|sl|častna beseda|f}}, {{t-simple|sl|beseda|f|langname=Slovene|interwiki=1}}
-* Spanish: {{t-simple|es|palabra|f|langname=Spanish|interwiki=1}}
-* Swedish: {{t-simple|sv|ord|n|langname=Swedish|interwiki=1}}
-* Telugu: {{t+|te|మాట|sc=Telu}}
-* Zulu: {{t|zu|isithembiso|c7|c8}}
+* Korean: {{tt+|ko|말}}, {{tt+|ko|약속}} ({{tt+|ko|約束}})
+* Lithuanian: {{tt+|lt|žodis|m}}
+* Macedonian: {{tt+|mk|збор|m}}
+* Malay: {{tt+|ms|janji}}
+* Malayalam: {{tt+|ml|വാക്ക്|sc=Mlym}}
+* Middle English: {{tt|enm|word}}
+* Norwegian: {{tt+|no|ord|n}}, {{tt+|no|lovnad|m}}
+* Persian: {{tt+|fa|پیمان|tr=peymân|sc=fa-Arab}}, {{tt+|fa|قول|tr=qol|sc=fa-Arab}}
+* Polish: {{tt+|pl|słowo|n}}
+* Portuguese: {{tt+|pt|palavra|f}}, {{tt+|pt|promessa|f}}
+* Romanian: {{tt|ro|[[cuvânt]] [[de]] [[onoare]]|n}}
+* Russian: {{tt+|ru|сло́во|n}}, {{tt+|ru|обеща́ние|n}}
+* Slovak: {{tt|sk|čestné slovo|n}}
+* Slovene: {{tt+|sl|častna beseda|f}}, {{tt+|sl|beseda|f}}
+* Spanish: {{tt+|es|palabra|f}}
+* Swedish: {{tt+|sv|ord|n}}
+* Telugu: {{tt+|te|మాట|sc=Telu}}
+* Zulu: {{tt|zu|isithembiso|c7|c8}}
 {{trans-bottom}}
 
-{{trans-top|discussion}}
-* Finnish: {{t|fi|[[pari]] [[sanaa]]}}
-* Malay: {{t-simple|ms|perbincangan|langname=Malay}}
-* Maori: {{t-simple|mi|matapakinga|langname=Maori}}
-* Middle English: {{t|enm|word}}
+{{trans-top|brief discussion}}
+* Finnish: {{tt|fi|[[pari]] [[sanaa]]}}
+* Malay: {{tt+|ms|perbincangan}}
+* Maori: {{tt|mi|matapakinga}}
+* Middle English: {{tt|enm|word}}
 {{trans-mid}}
-* Portuguese: {{t-simple|pt|palavra|f|langname=Portuguese|interwiki=1}}
-* Russian: {{t+|ru|разгово́р|m}}
-* Telugu: {{t+|te|చర్చ}}
+* Portuguese: {{tt+|pt|palavra|f}}
+* Russian: {{tt+|ru|разгово́р|m}}
+* Telugu: {{tt+|te|చర్చ}}
 {{trans-bottom}}
 
-{{trans-top|an angry debate; argument}}
-* Dutch: {{t-simple|nl|woordenwisseling|f|langname=Dutch|interwiki=1}}
-* Finnish: {{t-simple|fi|riita|langname=Finnish|interwiki=1}}, {{t-simple|fi|kiista|langname=Finnish|interwiki=1}}
+{{trans-top|angry debate; argument}}
+* Dutch: {{tt+|nl|woordenwisseling|f}}
+* Finnish: {{tt+|fi|riita}}, {{tt+|fi|kiista}}, {{tt+|fi|sanailu}}, {{tt|fi|sananvaihto}}
 {{trans-mid}}
-* Norwegian: {{t-simple|no|krangel|m|langname=Norwegian}}
-* Russian: {{t+|ru|перебра́нка|f}}
+* Norwegian: {{tt|no|krangel|m}}
+* Russian: {{tt+|ru|перебра́нка|f}}
 {{trans-bottom}}
 
 {{trans-top|Christ}}
-* Arabic: {{t|ar|كلمة الله}}
-* Burmese: {{t|my|နှုတ်ကပတ်တော်သည်}}
+* Arabic: {{tt|ar|كلمة الله}}
+* Burmese: {{tt|my|နှုတ်ကပတ်တော်သည်}}
 * Chinese:
-*: Mandarin: {{t+|cmn|道|tr=dào}}
-* Finnish: {{t-simple|fi|Sana|langname=Finnish}}
-* French: {{t-simple|fr|Verbe|m|langname=French|interwiki=1}}, {{t-simple|fr|verbe|m|langname=French|interwiki=1}}
+*: Mandarin: {{tt+|cmn|道|tr=dào}}
+* Finnish: {{tt|fi|Sana}}
+* French: {{tt+|fr|Verbe|m}}, {{tt+|fr|verbe|m}}
 {{trans-mid}}
-* Hungarian: {{t+|hu|ige}}
-* Middle English: {{t|enm|word}}
-* Occitan: {{t-simple|oc|vèrbe|m|langname=Occitan|interwiki=1}}, {{t-simple|oc|vèrb|m|langname=Occitan|interwiki=1}}
-* Oriya: {{t+|or|ବାକ୍ୟ}}
-* Tajik: {{t|tg|Калом}}
-* Telugu: {{t+|te|దేవుడు}}
+* Hungarian: {{tt+|hu|ige}}
+* Middle English: {{tt|enm|word}}
+* Occitan: {{tt+|oc|vèrbe|m}}, {{tt+|oc|vèrb|m}}
+* Oriya: {{tt+|or|ବାକ୍ୟ}}
+* Tajik: {{tt|tg|Калом}}
+* Telugu: {{tt+|te|దేవుడు}}
 {{trans-bottom}}
 
 {{trans-top|the word of God}}
-* Armenian: {{t+|hy|բան}}
-* Catalan: {{t-simple|ca|paraula|f|langname=Catalan|interwiki=1}}
-* Czech: {{t|cs|slovo boží}}
-* Finnish: {{t-simple|fi|sana|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|parole|f|langname=French|interwiki=1}}
-* German: {{t-simple|de|Wort|n|langname=German|interwiki=1}}
-* Greek: {{t+|el|λόγος|m}}
-* Indonesian: {{t-simple|id|firman|langname=Indonesian|interwiki=1}}
-* Interlingua: {{t-simple|ia|parola|langname=Interlingua|interwiki=1}}, {{t-simple|ia|verbo|langname=Interlingua|interwiki=1}}
-* Italian: {{t-simple|it|parola|f|langname=Italian|interwiki=1}}, {{t-simple|it|verbo|m|langname=Italian|interwiki=1}}
-* Japanese: {{t+|ja|福音|tr=[[ふくいん]], fukuin}}
-* Korean: {{t+|ko|복음}} ({{t+|ko|福音}}), {{t+|ko|말씀}}
+* Armenian: {{tt+|hy|բան}}
+* Catalan: {{tt+|ca|paraula|f}}
+* Czech: {{tt|cs|slovo boží}}
+* Finnish: {{tt+|fi|sana}}
+* French: {{tt+|fr|parole|f}}
+* German: {{tt+|de|Wort|n}}
+* Greek: {{tt+|el|λόγος|m}}
+* Indonesian: {{tt+|id|firman}}
+* Interlingua: {{tt+|ia|parola}}, {{tt+|ia|verbo}}
+* Italian: {{tt+|it|parola|f}}, {{tt+|it|verbo|m}}
+* Japanese: {{tt+|ja|福音|tr=[[ふくいん]], fukuin}}
+* Korean: {{tt+|ko|복음}} ({{tt|ko|福音}}), {{tt+|ko|말씀}}
 {{trans-mid}}
-* Lingala: {{t-simple|ln|liloba|langname=Lingala}}
-* Luxembourgish: {{t-simple|lb|Wuert|n|langname=Luxembourgish|interwiki=1}}
-* Macedonian: {{t|mk|божја реч|f}}
-* Malay: {{t-simple|ms|sabda|langname=Malay}}, {{t-simple|ms|firman|langname=Malay}}
-* Maore Comorian: {{t|swb|Urongozi wa Mungu|c11}}
-* Norwegian: {{t-simple|no|ord|n|langname=Norwegian|interwiki=1}}
-* Persian: {{t+|fa|گفتار|tr=goftâr|sc=fa-Arab}}
-* Polish: {{t|pl|słowo boże}}
-* Portuguese: {{t-simple|pt|verbo|langname=Portuguese|interwiki=1}}, {{t-simple|pt|palavra|f|langname=Portuguese|interwiki=1}}, {{t|pt|palavra do Senhor|f}}, {{t|pt|palavra divina|f}}, {{t|pt|palavra de Deus|f}}
-* Romanian: {{t-simple|ro|cuvânt|n|langname=Romanian|interwiki=1}}
-* Slovak: {{t|sk|slovo božie}}, {{t|sk|božie slovo}}
-* Telugu: {{t+|te|వాణి|sc=Telu}}
+* Lingala: {{tt|ln|liloba}}
+* Luxembourgish: {{tt+|lb|Wuert|n}}
+* Macedonian: {{tt|mk|божја реч|f}}
+* Malay: {{tt|ms|sabda}}, {{tt|ms|firman}}
+* Maore Comorian: {{tt|swb|Urongozi wa Mungu|c11}}
+* Norwegian: {{tt+|no|ord|n}}
+* Persian: {{tt+|fa|گفتار|tr=goftâr|sc=fa-Arab}}
+* Polish: {{tt|pl|słowo boże}}
+* Portuguese: {{tt+|pt|verbo}}, {{tt+|pt|palavra|f}}, {{tt|pt|palavra do Senhor|f}}, {{tt|pt|palavra divina|f}}, {{tt|pt|palavra de Deus|f}}
+* Romanian: {{tt+|ro|cuvânt|n}}
+* Slovak: {{tt|sk|slovo božie}}, {{tt|sk|božie slovo}}
+* Telugu: {{tt+|te|వాణి|sc=Telu}}
+}}<!-- close {{multitrans}} -->
 {{trans-bottom}}
 
 ====Verb====
@@ -773,25 +793,47 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 }}
 
 =====Translations=====
-{{trans-top|say or write using particular words}}
-* Bulgarian: {{t+|bg|изразява}}
-* Catalan: {{t-simple|ca|redactar|langname=Catalan|interwiki=1}}
+{{trans-top|to say or write using particular words}}
+{{multitrans|data=
+* Bulgarian: {{tt+|bg|изразява}}
+* Catalan: {{tt+|ca|redactar}}
 * Chinese:
-*: Mandarin: {{t+|cmn|措辞|sc=Hani}}
-* Danish: {{t-simple|da|formulere|langname=Danish}}
-* Dutch: {{t-simple|nl|verwoorden|langname=Dutch|interwiki=1}}, {{t|nl|onder woorden brengen}}, {{t-simple|nl|formuleren|langname=Dutch|interwiki=1}}
-* Finnish: {{t-simple|fi|muotoilla|langname=Finnish|interwiki=1}}
-* French: {{t-simple|fr|formuler|langname=French|interwiki=1}}
-* Greek: {{t+|el|διατυπώνω}}, {{t+|el|συντάσσω}}
+*: Mandarin: {{tt+|cmn|措辞|sc=Hani}}
+* Danish: {{tt|da|formulere}}
+* Dutch: {{tt+|nl|verwoorden}}, {{tt|nl|onder woorden brengen}}, {{tt+|nl|formuleren}}
+* Finnish: {{tt+|fi|muotoilla}} {{q|to formulate}}; {{tt+|fi|pukea sanoiksi}} {{q|to put into words}}
+* French: {{tt+|fr|formuler}}
+* Greek: {{tt+|el|διατυπώνω}}, {{tt+|el|συντάσσω}}
 {{trans-mid}}
-* Hebrew: {{t|he|ניסח|tr=nisákh}}
-* Hungarian: {{t-simple|hu|megfogalmaz|langname=Hungarian|interwiki=1}}
-* Icelandic: {{t-simple|is|orða|langname=Icelandic}}
-* Macedonian: {{t|mk|изразува}}, {{t|mk|формулира}}
-* Portuguese: {{t-simple|pt|frasear|langname=Portuguese|interwiki=1}}
-* Russian: {{t+|ru|формули́ровать}}
-* Spanish: {{t-simple|es|redactar|langname=Spanish|interwiki=1}}
-* Swedish: {{t-simple|sv|formulera|langname=Swedish|interwiki=1}}
+* Hebrew: {{tt|he|ניסח|tr=nisákh}}
+* Hungarian: {{tt|hu|megfogalmazn}}
+* Icelandic: {{tt|is|orða}}
+* Macedonian: {{tt|mk|изразува}}, {{tt|mk|формулира}}
+* Portuguese: {{tt+|pt|frasear}}
+* Russian: {{tt+|ru|формули́ровать}}
+* Spanish: {{tt+|es|redactar}}
+* Swedish: {{tt+|sv|formulera}}
+{{trans-bottom}}
+
+{{trans-top|to flatter with words}}
+* Finnish: {{tt+|fi|imarrella}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|to ply or overpower with words}}
+* Finnish: {{tt+|fi|puhua}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|to conjure with a word}}
+* Finnish: {{tt+|fi|loitsia}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|to speak}}
+* Finnish: {{tt+|fi|virkkaa}} {{q|archaic or literary}}
+{{trans-mid}}
+}}<!--close {{multitrans}} -->
 {{trans-bottom}}
 
 ====Interjection====
@@ -833,7 +875,6 @@ Variant of {{m|en|worth||to become, turn into, grow, get}}, from {{inh|en|enm|wo
 * {{anagrams|en|a=dorw|drow}}
 
 [[Category:English autological terms]]
-[[Category:English basic words]]
 [[Category:en:Communication]]
 [[Category:en:Semantics]]
 
@@ -913,7 +954,7 @@ From {{inh|cpi|en|word}}.
 * {{alter|enm|wurd|weord|vord|woord|wourd|worde}}
 
 ===Etymology===
-From {{inh|enm|ang|word}}, from {{inh|enm|gem-pro|*wurdą}}, from {{inh|enm|ine-pro|*werdʰh₁om}}. {{doublet|enm|verbe}}.
+From {{inh|enm|ang|word}}, from {{inh|enm|gmw-pro|*word}}, from {{inh|enm|gem-pro|*wurdą}}, from {{inh|enm|ine-pro|*werdʰh₁om}}. {{doublet|enm|verbe}}.
 
 ===Pronunciation===
 * {{IPA|enm|/wurd/|/wɔrd/|/wɔːrd/}}
@@ -965,15 +1006,12 @@ From {{inh|enm|ang|word}}, from {{inh|enm|gem-pro|*wurdą}}, from {{inh|enm|ine-
 
 ==Old English==
 
-===Alternative forms===
-* {{alter|ang|ƿord||wynn spelling}}
-
 ===Pronunciation===
 * {{ang-IPA|word}}
 
 ===Etymology 1===
-{{PIE root|ang|werh₁}}
-From {{inh|ang|gem-pro|*wurdą}}.
+{{root|ang|ine-pro|*werh₁-}}
+From {{inh|ang|gmw-pro|*word}}, from {{inh|ang|gem-pro|*wurdą}}.
 
 ====Noun====
 {{ang-noun|n|word}}
@@ -1015,8 +1053,8 @@ From {{inh|ang|gem-pro|*wurdą}}.
 ==Old Saxon==
 
 ===Etymology===
-{{PIE root|osx|werh₁}}
-From {{inh|osx|gem-pro|*wurdą}}.
+{{root|osx|ine-pro|*werh₁-}}
+From {{inh|osx|gmw-pro|*word}}, from {{inh|osx|gem-pro|*wurdą}}.
 
 ===Pronunciation===
 * {{IPA|osx|/word/}}
@@ -1028,4 +1066,3 @@ From {{inh|osx|gem-pro|*wurdą}}.
 
 ====Declension====
 {{osx-decl-noun-a-n|word}}
-

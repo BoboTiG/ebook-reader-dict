@@ -2,6 +2,7 @@
 
 == {{-ca-}} ==
 {{ca-pron}}
+
 {{-etimologia-}} D’origen incert, paral·lel al de {{terme|ca|Catalunya}}, possiblement metàtesi del llatí {{terme|la|lacetani|trad=lacetans}}.
 {{anagrames|lang=ca|acalat}}
 
@@ -20,8 +21,9 @@
 * {{hr}}: {{trad|hr|katalonski}}
 * {{eo}}: {{trad|eo|kataluna}}
 * {{fr}}: {{trad|fr|catalan}}
-* {{it}}: {{trad|it|catalano}}
+* {{gl}}: {{trad|gl|catalán}}
 {{mig}}
+* {{it}}: {{trad|it|catalano}}
 * {{csc}}: {{trad|csc|CATALÀ}}
 * {{mt}}: {{trad|mt|Katalan}}
 * {{nl}}: {{trad|nl|Catalaans}}
@@ -61,6 +63,7 @@
 * {{eo}}: {{trad|eo|kataluno}}
 * {{fr}}: {{trad|fr|Catalan}}
 {{mig}}
+* {{gl}}: {{trad|gl|catalán}}
 * {{csc}}: {{trad|csc|CATALÀ}}
 * {{mt}}: {{trad|mt|Katalan}}
 * {{ru}}: {{trad|ru|каталонец}}
@@ -137,8 +140,7 @@
 * {{cs}}: {{trad|cs|katalánsky}}
 * {{uk}}: {{trad|uk|каталанська мова}}
 * {{uz}}: {{trad|uz|katalan tili}}
-* {{zh}} (simplificat): {{trad|zh|加泰罗尼亚语}} (jia.tai.luo.ni.ya.yu)
-* {{zh}} (tradicional): {{trad|zh|加泰羅尼亞文}}
+* {{zh}}: {{trad|zh|加泰羅尼亞語}}
 * {{zu}}: {{trad|zu|isiKhathalani}}
 {{final}}
 
@@ -149,3 +151,4 @@
 
 {{catllengua|ca|Gentilicis|Llengües}}
 
+{{catllengua|ca|Autologismes}}

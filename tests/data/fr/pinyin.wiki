@@ -1,6 +1,6 @@
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-: ''([[#fr-nom-1|Nom 1]])'' (Vers 1950) Du {{étyl|zh|fr|mot=拼音|tr=pīnyīn}}, formé de [[拼]] ''pīn'' (« [[épeler]] ») et de [[音]] ''yīn'' (« [[son]] »), donc « épeler les sons ».
+: ''([[#fr-nom-1|Nom 1]])'' (Vers 1950) Du {{étyl|zh|fr|mot=拼音|tr=pīnyīn}}, formé de [[拼]] ''pīn'' (« [[épeler]] ») et de [[音]] ''yīn'' (« [[son]] »), donc « épeler les sons ».
 : ''([[#fr-nom-2|Nom 2]])'' {{ébauche-étym|fr}}
 
 === {{S|nom|fr|num=1}} ===
@@ -54,8 +54,10 @@
 * {{T|oc}} : {{trad-|oc|pinyin}}
 {{trad-fin}}
 
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Île-de-France)||audio=LL-Q150 (fra)-Assassas77-pinyin.wav}}
+
 === {{S|voir aussi}} ===
 * {{WP}}
 * {{WP|Pinyin (langue)}}
 * {{catégorie langue|spéc1=du Cameroun}}
-

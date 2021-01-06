@@ -6,7 +6,7 @@
 
 === {{S|nom|fr}} ===
 {{fr-inv|bɔ.ɡɔ.ta.nɛ|sp=1}}
-'''Bogotanais''' {{pron|bɔ.ɡɔ.ta.nɛ|fr}} {{m}} {{équiv-pour|une femme|Bogotanaise|lang=fr}} {{sp}}.'' {{source|« Bogota, capitale en or », ''LePoint.fr'', 25 novembre 2011}}
+'''Bogotanais''' {{pron|bɔ.ɡɔ.ta.nɛ|fr}} {{m}} {{équiv-pour|une femme|Bogotanaise|lang=fr}} {{sp}}.'' {{source|« Bogota, capitale en or », ''LePoint.fr'', 25 novembre 2011}}
 
 ==== {{S|notes}} ====
 : {{note-gentilé|fr}}
@@ -14,4 +14,3 @@
 ==== {{S|traductions}} ====
 {{trad-début}}
 {{trad-fin}}
-

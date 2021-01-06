@@ -1,4 +1,4 @@
-{{also|thé|thè|thế|thẻ|thể|the-|þe}}
+{{also|thé|thè|thę́|thế|thẻ|thể|the-|þe}}
 ==English==
 {{wikipedia|The}}
 
@@ -7,6 +7,7 @@
 ** {{enPR|''th''ē}}, {{IPA|en|/ˈðiː/}}
 ** {{audio|en|en-us-the-stressed.ogg|Audio (US)}}
 ** {{rhymes|en|iː}}
+*** {{qualifier|variant|preconsonantal}} {{enPR|''th''ŭ}}, {{IPA|en|/ˈðʌ/}} 
 * {{qualifier|when unstressed and prevocalic}}
 ** {{enPR|''th''ē}}, {{IPA|en|/ði/}}
 * {{qualifier|when unstressed and preconsonantal}}
@@ -30,7 +31,11 @@ The word is generally pronounced indistinctly as {{IPAchar|/ðə/}} or merely {{
 <!-- 1 syllable words !-->
 
 ===Etymology 1===
-From {{inh|en|enm|the}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative pronoun]]}}, a late variant of {{m|ang|sē}}. Originally masculine nominative, in Middle English it superseded all previous Old English forms ({{m|ang|sē}}, {{m|ang|sēo}}, {{m|ang|þæt}}, {{m|ang|þā}}), from {{inh|en|gem-pro|*sa}}, from {{inh|en|ine-pro|*só}}. Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=the}}.
+From {{inh|en|enm|the}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative pronoun]]}}, a late variant of {{m|ang|sē}}. 
+
+Originally masculine nominative, in Middle English it superseded all previous Old English forms ({{m|ang|sē}}, {{m|ang|sēo}}, {{m|ang|þæt}}, {{m|ang|þā}}), from {{inh|en|gmw-pro|*siz}}, from {{inh|en|gem-pro|*sa}}, ultimately from {{inh|en|ine-pro|*só}}. 
+
+Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}}.
 
 ====Article====
 {{head|en|article}}
@@ -39,17 +44,17 @@ From {{inh|en|enm|the}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative p
 #: ''I’m reading '''the''' book.'' (Compare ''I’m reading '''a''' book.'')
 #: '''''The''' street in front of your house.'' (Compare '''''A''' street in Paris.'')
 #: '''''The''' men and women watched '''the''' man give '''the''' birdseed to '''the''' bird.''
-#*'''2016''', [https://web.archive.org/web/20170930001420/https://learningenglish.voanews.com/a/lets-learn-english-lesson-5-where-are-you/3168971.html VOA Learning English] (public domain)
+#* '''2016''', [https://web.archive.org/web/20170930001420/https://learningenglish.voanews.com/a/lets-learn-english-lesson-5-where-are-you/3168971.html VOA Learning English] (public domain)
 #*: I sleep in '''the''' bedroom!
-#{{non-gloss definition|Used before a noun modified by a [[restrictive]] [[relative clause]], indicating that the noun refers to a single referent defined by the relative clause.}}
-#:'''''The''' street that runs through my hometown.''
-#{{non-gloss definition|Used before an object considered to be [[unique]], or of which there is only one at a time.}} {{defdate|from 10th c.}}
-#:''No one knows how many galaxies there are in '''the''' universe.''
-#:''God save '''the''' Queen!''
-#{{non-gloss definition|Used before a [[superlative]] or an [[ordinal number]] modifying a noun, to indicate that the noun refers to a single item.}}
-#:''That was '''the''' best apple pie ever.''
-#{{non-gloss definition|Added to a superlative or an ordinal number to make it into a substantive.}} {{defdate|from 9th c.}}
-#:''That apple pie was '''the''' best.''
+# {{non-gloss definition|Used before a noun modified by a [[restrictive]] [[relative clause]], indicating that the noun refers to a single referent defined by the relative clause.}}
+#: '''''The''' street that runs through my hometown.''
+# {{non-gloss definition|Used before an object considered to be [[unique]], or of which there is only one at a time.}} {{defdate|from 10th c.}}
+#: ''No one knows how many galaxies there are in '''the''' universe.''
+#: ''God save '''the''' Queen!''
+# {{non-gloss definition|Used before a [[superlative]] or an [[ordinal number]] modifying a noun, to indicate that the noun refers to a single item.}}
+#: ''That was '''the''' best apple pie ever.''
+# {{non-gloss definition|Added to a superlative or an ordinal number to make it into a substantive.}} {{defdate|from 9th c.}}
+#: ''That apple pie was '''the''' best.''
 # {{non-gloss definition|Introducing a singular term to be taken [[generically]]: preceding a name of something standing for a whole class.}} {{defdate|from 9th c.}}
 #* '''1994''', Nelson Mandela, ''Long Walk to Freedom'', Abacus 2010, page 536:
 #*: Stern and God-fearing, '''the''' Afrikaner takes his religion seriously.
@@ -62,6 +67,7 @@ From {{inh|en|enm|the}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative p
 #: ''A stone hit him on '''the''' head.'' (= “A stone hit him on his head.”)
 # {{non-gloss definition|When stressed, indicates that it describes an object which is considered to be best or exclusively worthy of attention.}} {{defdate|from 18th c.}}
 #: ''That is'' '''the''' ''hospital to go to for heart surgery.''
+#* {{quote-book|1=en|year=1926|author=Sir Arthur Conan Doyle|authorlink=Arthur Conan Doyle|title=The Land of Mist|url=http://gutenberg.net.au/ebooks06/0601351h.html|passage="Good Heavens, man! Why, he is '''''the''''' authority. If you want pure laboratory experiments those are the books."}}
 #* {{quote-journal|en|date=May 27, 2012
 |author=Nathan Rabin
 |title=TV: Review: THE SIMPSONS (CLASSIC): “New Kid On The Block” (season 4, episode 8; originally aired 11/12/1992)
@@ -132,12 +138,10 @@ When used before an adjective which is not followed by a noun, it may refer to a
 
 =====Derived terms=====
 {{rel-top|terms derived from ''the (determiner)''}}
-* {{l|en|nevertheless}}
-* {{l|en|nonetheless}}
 * {{l|en|the heck}}
-{{rel-mid}}
 * {{l|en|the hell}}
 * {{l|en|the man}}
+{{rel-mid}}
 * {{l|en|the one}}
 * {{l|en|th'other}}
 {{rel-bottom}}
@@ -149,7 +153,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Guerrero Amuzgo: {{t|amu|i'|s}}, {{t|amu|eⁿ'|p}}
 * Amharic: (-u, -w) (''masculine'') (-wa, -itwa, -ätwa) (''feminine'') {{qualifier|final enclitic suffixes}}
 * Arabic: {{t+|ar|ال|alt=الـ|tr=al-}} {{qualifier|written together with the following words, "l" assimilates with [[sun letter]]s}}
-*: Egyptian Arabic: {{t|arz|ال|alt=الـ|tr=el|sc=Arab}}, {{qualifier|written together with the following words, "l" assimilates with sun letters and {{lang|arz|ج, چ, ك}}}}
+*: Egyptian Arabic: {{t|arz|ال|alt=الـ|tr=el|sc=Arab}}, {{qualifier|written together with the following words, "l" assimilates with sun letters and {{lang|arz|ج, ك}}}}
 * Aragonese: {{t|an|lo}}
 * Aramaic: {{t|arc|־א|sc=Hebr}}, {{t|arc|־י|sc=Hebr}}, {{t|arc|־תא|sc=Hebr}}
 * Armenian: {{t|hy|-ը}}, {{qualifier|before vowels}} {{t|hy|-ն}}
@@ -174,16 +178,17 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Coptic:
 *: Bohairic: {{t|cop|ⲡⲓ-|tr=pi-}}
 *: Sahidic: {{t|cop|ⲡ-|tr=p-}}
+* Cornish: {{t|kw|an}}
 * Czech: {{not used|cs}}
 * Dalmatian: {{t|dlm|el}}
-* Danish: {{qualifier|after noun}} {{t+|da|-en}}; {{qualifier|before adjective}} {{t+|da|den}}
+* Danish: ''(singular)''''(                     ((without attributive adjective nor genitive)''{{qualifier|after noun}} (common gender){{t+|da|-en}} ; (neuter gender){{t+|da|-et}}) ; {{qualifier|before attributive adjective or genitive}} {{t+|da|den}} (commun) , {{t+|da|det}} (neutre)                        .  ''(Plural)''''((without attributive adjective nor genitive)'' -(e)ne , {{qualifier|before attributive adjective or genitive}}  de    )
 * Dutch: {{t+|nl|de}}
 * Egyptian:
 *: Archaic Egyptian, Old Egyptian, Middle Egyptian: ''not used''
 *: Late Egyptian: {{t-egy|pꜣ|h=pA}}
 * Esperanto: {{t+|eo|la}}
 * Estonian: {{not used|et}}
-* Faroese: {{qualifier|after noun}} {{t|fo|-in}}; {{qualifier|before adjectives}} {{t|fo|tann}}, {{t|fo|hin}}
+* Faroese: {{qualifier|after noun}} {{t|fo|-in}}; {{qualifier|before adjectives}} {{t|fo|tann}}, {{t+|fo|hin}}
 * Finnish: {{not used|fi}}
 *: Colloquial Finnish : {{t+|fi|se}}
 * French: {{t+|fr|le|m}}, {{t+|fr|la|f}}, {{t+|fr|les|p}}, {{t+|fr|l'}} ''(before a vowel or a mute h)''
@@ -200,8 +205,9 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: Epic: ''not used'', {{t|grc|ὁ}} (''rare'')
 *: Ancient: {{t|grc|ὁ}}
 *: Modern: {{t+|el|ο}}
+* Hajong: {{t|haj|-ৰৗ}}
 * Hawaiian: [[ka]], [[ke]] {{g|s}}; [[nā]] {{g|p}}
-* Hebrew: {{t|he|ה־|tr=ha-}} {{qualifier|written together with the following word}}
+* Hebrew: {{t+|he|ה־|tr=ha-}} {{qualifier|written together with the following word}}
 * Hindi: {{not used|hi}}
 * Hungarian: {{t+|hu|a}} {{qualifier|before consonant}}, {{t+|hu|az}} {{qualifier|before vowel}}
 * Icelandic: {{t|is|-inn}}, {{t+|is|hinn}}
@@ -218,11 +224,12 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: {{qualifier|person, oblique}} {{t|ilo|ken ni|s}},
 * Indonesian: {{t+|id|si}}, {{t+|id|sang}}, {{t+|id|itu}}
 * Interlingua: {{t+|ia|le}}
-* Irish: {{t+|ga|an}}
-* Istriot: {{t|ist|el}}
 {{trans-mid}}
-* Italian: {{t+|it|il|m}}, {{t+|it|la|f}}, {{t+|it|i|m-p}}, {{t+|it|le|f-p}}
-* Japanese: {{not used|ja}}, {{t+|ja|その}}
+* Irish: {{t+|ga|an|s}}, {{t|ga|na|p}}
+* Istriot: {{t|ist|el}}
+* Italian: {{t+|it|il|m}}, {{t+|it|lo|m}}, {{t+|it|la|f}}, {{t+|it|i|m-p}}, {{t+|it|gli|m-p}}, {{t+|it|le|f-p}}
+* Japanese: {{not used|ja}}, {{t+|ja|その|tr=sono}}, {{t+|ja|正に|tr=まさに, masani}}, {{t+|ja|正しく|tr=まさしく, masashiku}}
+* Jarawa: {{t|anq|ɖi}}
 * Kazakh: {{not used|kk}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
 * Khmer: {{not used|km}}
 * Korean: {{not used|ko}}
@@ -230,6 +237,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Ladino: {{t|lad|איל|tr=el}}
 * Lao: {{not used|lo}}
 * Latin: {{not used|la}}
+*: [[Medieval Latin]]: {{t+|la|ille}}, {{t|la|ly}}
 *: [[Vulgar Latin]]: {{t+|la|ille}}
 * Lithuanian: {{not used|lt}}
 * Low German: {{t+|nds|de}}
@@ -240,8 +248,9 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: {{qualifier|if replaceable by '''[[that]]''', rarely necessary}} {{t+|ms|itu}}
 *: {{qualifier|if replaceable by '''[[this]]''', rarely necessary}} {{t+|ms|ini}}
 *: {{qualifier|person, rarely necessary}} {{t|ms|si}}
-* Maltese: {{t+|mt|il}}
-* Maori: {{t+|mi|te}}
+* Maltese: {{t+|mt|il-}}
+* Maori: {{t+|mi|te}} {{qualifier|Singular}}, {{t+|mi|ngā}} {{qualifier|Plural}}
+* Marshallese: {{t|mh|eo|s}}, {{t|mh|ro|p}} {{qualifier|for humans only}}, {{t|mh|ko|p}} {{qualifier|for non-humans only}}
 * Middle English: {{t|enm|þe}}, {{t|enm|the}}
 * Mirandese: {{t|mwl|l}}
 * Mongolian: {{not used|mn}}
@@ -261,7 +270,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: Bokmål: {{t+|nb|det}}
 *: Nynorsk: {{t+|nn|det}}
 * Novial: {{t|nov|li}}
-* Occitan: {{t+|oc|lo}}
+* Occitan: {{t+|oc|lo|m}}, {{t+|oc|eth|m}} {{qualifier|Pyrenean Gascon}} {{t+|oc|la|f}}, {{t+|oc|era|f}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|los|m-p}}, {{t+|oc|eths|m-p}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|las|f-p}}, {{t+|oc|eras}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|es|p}} {{qualifier|Aranese}}
 * Old Dutch: {{t|odt|thie}}
 * Old English: {{t+|ang|sē}}
 * Old Saxon: {{t|osx|thē}}
@@ -414,6 +423,10 @@ From {{inh|en|enm|the}}, {{m|enm|thy}}, {{m|enm|thi}}, from {{inh|en|ang|þȳ||b
 =====Usage notes=====
 This is called the "comparative correlative", but it is also known as the "correlative construction", the "conditional comparative", or the "the...the construction".
 
+=====Derived terms=====
+* {{l|en|nevertheless}}
+* {{l|en|nonetheless}}
+
 =====Translations=====
 {{trans-top|'''the''' + ''comparative'', '''the''' + ''comparative''}}
 * Arabic: {{t|ar|[[كُلَّمَا]] [[كَانَ]]... [[كَانَ]] ...}} (example: {{lang|ar|كلما كان أرخص كان أفضل}} (''kúllama kāna ʾárḵaṣ kāna ʾáfḍal'' ‘the cheaper the better’) *(''used with a verb in the past tense, "kāna" or others'')
@@ -447,7 +460,7 @@ This is called the "comparative correlative", but it is also known as the "corre
 {{trans-bottom}}
 
 {{trans-top|indicating a result like the comparative}}
-* Finnish: ''(none)'', {{q|some contexts}} {{t|fi|entistä}}
+* Finnish: ''(none)'', {{q|some contexts}} {{t+|fi|entistä}}
 * German: {{t+|de|umso}}
 {{trans-mid}}
 * Portuguese: ''No word accompanies the comparative in this usage.''
@@ -460,11 +473,12 @@ This is called the "comparative correlative", but it is also known as the "corre
 {{trans-bottom}}
 
 ===Etymology 3===
+
 ====Preposition====
 {{en-prep}}
 
 # For each; [[per]].
-#: {{ux|en|valued at half a pound '''the''' bushel ; paying seven dollars '''the''' year interest}}
+#: {{ux|en|valued at half a pound '''the''' bushel; paying seven dollars '''the''' year interest}}
 #* {{quote-book|en|year=1837|author={{w|James Edward Alexander}}|title=Narrative of a Voyage of Observation Among the Colonies of Western Africa, in the Flag-ship Thalia; and of a Campaign in Kaffir-land, on the Staff of the Commander-in-Chief, in 1835|city=London|publisher=Henry Colburn|volume=1|pages=251–2|pageurl=https://books.google.com/books?id=GRZOAAAAcAAJ&pg=PA251|passage=Next morning I was up at an early hour, to see the market held near the water gate. The beef was excellent: but at the high prices of ten-pence and one shilling '''the''' pound; mutton at the same price; fowls a dollar '''the''' couple, and showing “more feathers than flesh.”}}
 #* {{seemoreCites|en}}
 
@@ -485,7 +499,6 @@ This is called the "comparative correlative", but it is also known as the "corre
 ===Anagrams===
 * {{anagrams|en|a=eht|-eth|ETH|Eth|Eth.|HET|TEH|eth|eth-|het|teh}}
 
-[[Category:English basic words]]
 [[Category:English three-letter words]]
 
 ----
@@ -576,9 +589,6 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 {{head|ga|mutated adjective}}
 
 # {{ga-lenition of|te}}
-
-===Mutation===
-{{ga-mut-cons|t|e}}
 
 ----
 
@@ -685,6 +695,8 @@ From {{inh|osx|gem-pro|*þa}}, from {{inh|ang|ine-pro|*tó}}, {{m|ine-pro|*te-}}
 ----
 
 ==Scots==
+===Etymology===
+From {{inh|sco|ang|se}}
 
 ===Determiner===
 {{head|sco|determiner}}
@@ -706,6 +718,21 @@ Borrowed from {{bor|sh|en|the}}, which sounds similar to {{cog|sh|da}}.
 #:: some jerk to fuck with them emotionally
 #: '''''the''' ovo okačim na [[fb]] wall, garant ne bih opstala od borKINJa za ženska prava''
 #:: if I posted this on my FB wall, I surely wouldn't survive the women rights fighters
+
+----
+
+==South Slavey==
+
+===Pronunciation===
+* {{IPA|xsl|/θɛ/}}
+
+===Noun===
+{{head|xsl|noun}}
+
+# [[belt]]
+
+====References====
+* {{R:den:Rice:1989|page=38}}
 
 ----
 
@@ -756,5 +783,4 @@ Borrowed from {{bor|sh|en|the}}, which sounds similar to {{cog|sh|da}}.
 # {{aspirate mutation of|cy|te}}
 
 ===Mutation===
-{{cy-mut-auto|te}}
-
+{{cy-mut|te}}

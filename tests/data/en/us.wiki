@@ -65,7 +65,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 {{trans-mid}}
 * Korean: {{t+|ko|우리}}
 * Kurdish:
-*: Central Kurdish: {{t|ckb|ئێمە}}
+*: Central Kurdish: {{t+|ckb|ئێمە}}
 * Latin: {{qualifier|accusative}} {{t+|la|nos}}, {{qualifier|dative}} {{t+|la|nobis}}, {{qualifier|ablative}} {{t+|la|nobis}}
 * Macedonian: {{t|mk|ни}}, {{t|mk|нас}}, {{t|mk|нам}}
 * Malay:
@@ -83,7 +83,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Pipil: {{t|ppl|tech-}}
 * Polish: {{t+|pl|nas}}, {{t+|pl|nam}}, {{t|pl|nami}}
 * Portuguese: {{t+|pt|nos}}
-* Romanian: {{t|ro|ne}} {{qualifier|unstressed dative and accusative}}, {{t+|ro|nouă}} {{qualifier|stressed dative}}, ([[pe]]) [[noi]] {{qualifier|stressed accusative}}
+* Romanian: {{t+|ro|ne}} {{qualifier|unstressed dative and accusative}}, {{t+|ro|nouă}} {{qualifier|stressed dative}}, ([[pe]]) [[noi]] {{qualifier|stressed accusative}}
 * Russian: {{t+|ru|нас|p}}, {{t+|ru|нам|p}}, {{t+|ru|на́ми|p}}
 * Serbo-Croatian: {{t+|sh|nas}}
 * Slovene: {{t+|sl|midva}} (‘us two’), {{t|sl|midve}} (‘us two women’), {{t+|sl|mi}} (three or more), {{t|sl|me}} (three or more women)
@@ -151,7 +151,6 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 ===Anagrams===
 * {{anagrams|en|a=su|SU|Su}}
 
-[[Category:English basic words]]
 [[Category:English first person pronouns]]
 [[Category:English heteronyms]]
 [[Category:English personal pronouns]]
@@ -227,8 +226,8 @@ From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro
 {{head|enm|pronoun|nominative|we}}
 
 # {{n-g|First-person plural accusative pronoun:}} [[us]].
-# {{lb|enm|reflexive}} [[ourselves]].
-# {{lb|enm|reciprocal}} [[each other]].
+# {{lb|enm|reflexive|nocat=1}} [[ourselves]].
+# {{lb|enm|reciprocal|nocat=1}} [[each other]].
 
 ====Synonyms====
 * {{l|enm|we}}
@@ -238,7 +237,7 @@ From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro
 * {{desc|sco|us}}, {{l|sco|hus}}
 
 ===References===
-* {{R:MED Online|entry= us (pron.)  |id=MED50620 |accessdate=11 May 2018}}
+* {{R:MED Online|entry=us|pos=pron|id=MED50620 accessdate=11 May 2018}}
 
 ----
 

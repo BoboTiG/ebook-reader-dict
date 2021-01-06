@@ -71,8 +71,6 @@ First used by {{w|Lewis Carroll}} in [[s:Through The Looking Glass (And What Ali
 #* {{quote-book|en|year=1938|title=[https://books.google.ca/books?id=xcAUAAAAIAAJ Conversion and Fusion in Modern English: A Concise History of the Scholarly Recognition of These Linguistic Processes]|author=Joane Chaffe Miller|passage=He found the blend "tomax" in "a collection of gratulatory verses presented by the President and Fellows of Harvard College 1 to the new King, George III," dated 1761. A note by the owner of the volume explains the word as a combination of [[tomahawk]] and [[axe]]: "It is a '''portmanteau''' word, which must have been as clear to the average reader in England of 1761 — as clear to George III himself - as brillig and slithy would have been to us, had not Humpty Dumpty kindly explained them."}}
 #* {{quote-book|en|year=1985|title=[https://books.google.ca/books?id=1JoCEI-H0DgC&pg=PA287 Selected Papers from the XIIIth Linguistic Symposium on Romance Languages, Chapel Hill, N.C., 24-26 March 1983]|page=287|section="On the Representation of Higher Order Complex Words" by Carlos Piera of Cornell University|passage=1. '''Portmanteau''' Words and Allomorphy - This paper is primarily concerned with the theoretical implications of what have been called '''portmanteau''' words (Hockett, 1947)}}
 #: {{syn|en|blend|frankenword|portmanteau word}}
-# {{lb|en|morphology}}  {{rfdef|en}}
-#: {{syn|en|portmanteau [[morpheme]]}}
 
 =====Translations=====
 {{trans-see|portmanteau word}}
@@ -92,4 +90,3 @@ First used by {{w|Lewis Carroll}} in [[s:Through The Looking Glass (And What Ali
 
 [[Category:English autological terms]]
 [[Category:en:Lewis Carroll]]
-

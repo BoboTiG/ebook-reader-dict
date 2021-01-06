@@ -12,6 +12,7 @@
 #* '''''Naguère''', la masse populaire, résignée à sa vie primitive, obscure, souvent sordide, n’avait point conscience d’être malheureuse.'' {{source|{{Citation/Ludovic Naudeau/La France se regarde/1931}}}}
 #* ''En rentrant dans le giron de la nation française, Bordeaux, '''naguère''' capitale continentale du royaume d'Angleterre, subissait un dommage considérable.'' {{source|{{w|Léon Berman}}, ''Histoire des Juifs de France des origines à nos jours'', 1937}}
 #* ''Un des slogans des ''économies autarciques'' (on disait '''naguère''' ''économies fermées'') est :'' Ne rien perdre. {{source|Maurice Lecerf, ''Le Fer dans le monde'', Payot, 1942}}
+#* ''Car les écrits modernes sont beaucoup plus nombreux que '''naguère''', et on les trouve dans beaucoup plus de styles.'' {{source|Anne-Marie {{pc|Beaudouin-Bégin}}, ''La langue affranchie, se raccommoder avec l’évolution linguistique'', Québec, Éditions Somme toute, 2017, page 100.}}
 
 ==== {{S|variantes orthographiques}} ====
 * [[naguères]]
@@ -24,6 +25,7 @@
 {{cf|lang=fr|récemment|autrefois}}
 
 === {{S|prononciation}} ===
+* {{pron-rimes|na.ɡɛʁ|fr}}
 * {{écouter|lang=fr|France (Toulouse)|audio=LL-Q150 (fra)-Lepticed7-naguère.wav}}
 
 === {{S|références}} ===
@@ -31,4 +33,3 @@
 *{{Import:DAF8}}
 
 [[Catégorie:Adverbes de temps en français]]
-

@@ -26,7 +26,7 @@
 
 === {{S|prononciation}} ===
 ''Forme de verbe 1'' :
-*  {{pron|sɥi|fr}}
+* {{pron|sɥi|fr}}
 ** {{écouter|lang=fr|France (Brétigny-sur-Orge)|sɥi|audio=LL-Q150 (fra)-Pamputt-suis.wav}}
 ** {{écouter|France (Lyon)|sɥi|lang=fr|audio=LL-Q150 (fra)-Lyokoï-suis.wav}}
 Avec le pronom personnel ''{{lien|je|fr}}'' :
@@ -34,6 +34,12 @@ Avec le pronom personnel ''{{lien|je|fr}}'' :
 {{informel|nocat=1}}
 * {{pron|ʃɥi|fr}}
 * {{Canada|nocat=1}} {{pron|ʃy|fr}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-Poslovitch-suis.wav}}
+* {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-suis.wav}}
+
+
+
+
 ==== {{S|homophones|fr}} ====
 * [[suie]]
 
@@ -45,7 +51,7 @@ Avec le pronom personnel ''{{lien|je|fr}}'' :
 : {{ébauche-étym|ca}}
 
 === {{S|nom|ca}} ===
-'''suis''' {{pron||ca}}
+'''suis''' {{pron||ca}} {{genre|ca}}
 # [[Suisse]] (habitant de la Suisse).
 
 [[Catégorie:Gentilés en catalan]]
@@ -66,4 +72,3 @@ Avec le pronom personnel ''{{lien|je|fr}}'' :
 
 === {{S|prononciation}} ===
 * {{écouter|||lang=nl|audio=Nl-suis.ogg}}
-

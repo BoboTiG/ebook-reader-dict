@@ -36,9 +36,9 @@
 * [[accueillant]]
 
 ==== {{S|synonymes}} ====
-* [[home]] ''site [[web]]'' {{angl|nocat=1}}
-* [[main page]] ''site [[web]]'' {{angl|nocat=1}}
-* [[page d’accueil]] ''site [[web]]''
+* [[home]] ''(site web)'' ''{{angl|nocat=1}}
+* [[main page]] ''(site web)'' {{angl|nocat=1}}
+* [[page d’accueil]] ''(site web)''
 
 ==== {{S|traductions}} ====
 {{trad-début|Cérémonie|1}}
@@ -51,6 +51,7 @@
 * {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|ontvangst|f}}
 * {{T|pt}} : {{trad+|pt|recepção|f}}, {{trad+|pt|acolhida|f}}
 * {{T|ro}} : {{trad+|ro|primire|f}}, {{trad-|ro|întampinare}}
+* {{T|ru}} : {{trad+|ru|приветствие|tr=privetstviye}}
 * {{T|sc}} : {{trad--|sc|accoglientzia|f}}
 * {{T|sv}} : {{trad+|sv|mottagande}}
 * {{T|ta}} : {{trad+|ta|வரவேற்பு|R=varavēṟpu}}
@@ -73,6 +74,7 @@
 * {{T|az}} : {{trad+|az|qəbul}}
 * {{T|it}} : {{trad+|it|accoglienza|f}}
 * {{T|avk}} : {{trad--|avk|emudera}}
+* {{T|pln}} : {{trad--|pln|atendimiento}}
 * {{T|pt}} : {{trad+|pt|recepção}}
 * {{T|ro}} : {{trad-|ro|a întampina}}, {{trad-|ro|a primi}}
 * {{T|cs}} : {{trad-|cs|hoštění}}, {{trad+|cs|pohoštění}}

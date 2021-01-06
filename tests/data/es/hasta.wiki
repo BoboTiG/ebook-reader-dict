@@ -20,15 +20,20 @@
 === {{adverbio|es}} ===
 ;4: Indica que pese a las circunstancias ocurre el hecho.
 {{sinónimo|aun|inclusive|incluso}}.
-{{ejemplo}} Su salud es delicada, se resfría ''hasta'' en verano.
+:*'''Ejemplos:'''
+::* "Su salud es delicada, se resfría ''hasta'' en verano."
+::* "El comisario, un empleado serio y humilde, sabía que el rigor cívico del maestro exasperaba ''hasta'' a sus amigos más próximos, y estaba sorprendido por la facilidad con que saltaba por encima de los trámites legales para apresurar el entierro." {{cita libro|apellidos=García Márquez|
+nombre=Gabriel|
+año=1985|
+título=[[w:El amor en los tiempos del cólera]]}}
 
 ;5: Indica que una situación eventual o hipotética no impide que ocurra el hecho.
-{{ejemplo}} ''Hasta'' en medio de un funeral, encuentra motivos para reírse.
+{{ejemplo}} "''Hasta'' en medio de un funeral, encuentra motivos para reírse."
 
 ;6: Indica el comienzo de una acción o cuando ocurrirá.
 {{ámbito|México|América Central|Ecuador|Chiloé}}.
 {{sinónimo|desde}}, no [[antes]] de, [[recién]]
-{{ejemplo}} Nos vemos ''hasta'' el lunes.
+{{ejemplo}} "Nos vemos ''hasta'' el lunes."
 
 === {{sustantivo femenino|es}} ===
 {{inflect.es.sust.reg}}
@@ -200,6 +205,20 @@
 === Véase también ===
 {{w|leng=pt}}.
 
+== {{lengua|tr}} ==
+{{pron-graf|leng=tr}}
+
+=== Etimología ===
+{{etimología|leng=tr}}.
+
+=== {{adjetivo|tr}} ===
+;1: {{plm|enfermo}}.
+
+=== {{sustantivo|tr}} ===
+;2: {{plm|enfermo}}, {{l|es|paciente}}.
+
+=== Información adicional ===
+{{derivad|leng=tr|hastalık}}.
+
 == Referencias y notas ==
 <references />
-

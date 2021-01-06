@@ -45,4 +45,3 @@
 #{{tagg|kat=fordon|språk=spanska}} [[bil]]
 #:{{etymologi|Avkortning av ''[[automóvil]]'', av {{härledning-|språk=es|grc|αὐτός|själv}}.}}
 #:{{synonymer|[[automóvil]], [[carro]] ''(Latinamerika)'', [[coche]]}}
-

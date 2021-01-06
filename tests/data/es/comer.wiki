@@ -35,7 +35,7 @@
 ;8: Llevar [[encoger|encogidas]] algunas prendas de ropa, como los [[calcetín|calcetines]].
 {{uso|utcp}}: ''[[comerse]]''
 ;9: Tener relaciones sexuales con alguien.
-{{ámbito|Chile|Colombia|nota2=más común como pronominal}}
+{{ámbito|Chile|Colombia|México|Perú|nota2=más común como pronominal}}
 {{uso|coloquial|malsonante|utcp}}: ''[[comerse]]'' (a alguien)
 
 {{clear}}
@@ -79,7 +79,7 @@
 
 === Traducciones ===
 {{trad-arriba}}
-{{t+|ain|エ}}
+{{t+|ain|1|エ|tr|e|nota|tr.|,|1|イペ|tr|ipe|nota|intr.}}
 {{t+|de|1-2|essen|,|1-3|verzehren|,|4|zerfressen|,|4|zernagen|,|6|schlagen|,|7|verschlucken}}
 {{t+|ast|?|xintar}}
 {{t+|ay|?|manqʼayaña}}
@@ -98,8 +98,8 @@
 {{t+|gn|?|u}}
 {{t+|en|1|eat|,|2|nl|to|have lunch|,|6|capture}}
 {{t+|hu|1|eszik}}
-{{trad-centro}}
 {{t+|it|1-2|mangiare|,|2|pranzare}}
+{{trad-centro}}
 {{t+|alc|1|jeféjes}}
 {{t+|kuz|1|holmtur}}
 {{t+|ku|1|xwarin}}
@@ -152,4 +152,3 @@
 
 == Referencias y notas ==
 <references />
-

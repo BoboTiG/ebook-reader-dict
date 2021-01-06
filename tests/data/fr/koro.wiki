@@ -55,7 +55,7 @@
 
 === {{S|nom|cst-cho}} ===
 '''koro''' {{pron|koro|cst-cho}}
-# {{anatomie|cst-cho}} [[pied#fr|Pied]].
+# {{lexique|anatomie|cst-cho}} [[pied#fr|Pied]].
 
 === {{S|références}} ===
 *{{RÉF|1}} {{R:swadesh utian}}
@@ -64,10 +64,10 @@
 : Du {{étyl|fr|eo}} « [[cœur]] », du {{étyl|la|eo|mot=cor}}.
 
 === {{S|nom|eo}} ===
-{{eo-rég|'ko.ro}}
+{{eo-flexions|'ko.ro}}
 [[Fichier:Love Heart SVG.svg|thumb|right|'''koro''' (3)]]
 '''koro''' {{pron|ˈko.ro|eo}} {{eo-motrac|racn=2284|t=oF|der=1}}
-# {{anatomie|eo}} [[cœur|Cœur]].
+# {{lexique|anatomie|eo}} [[cœur|Cœur]].
 #* ''La sango alfluas al la '''koro'''.''
 #*:Le sang afflue au cœur.
 # [[cœur|Cœur]] (siège des [[sentiment]]s).
@@ -83,30 +83,31 @@
 
 ==== {{S|dérivés}} ====
 {{(}}
-* {{lien|bonkora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|kora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|koramikino|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|koramiko|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|kore|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|korfavori|eo}} {{eo-ak|cl=dU}} {{eo-ss|PR=1}} : {{lien|avoir pitié|fr}} de, {{lien|prendre en pitié|fr}}
-* {{lien|kortuŝi|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|senkora|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
-* {{lien|tutkore|eo}} {{eo-ak|cl=dU}} {{eo-ss| =1}} : {{lien| |fr}}
+* {{lien|bonkora|eo}} : {{lien| |fr}}
+* {{lien|kora|eo}} : {{lien| |fr}}
+* {{lien|koramikino|eo}} : {{lien| |fr}}
+* {{lien|koramiko|eo}} : {{lien| |fr}}
+* {{lien|kore|eo}} : {{lien| |fr}}
+* {{lien|korfavori|eo}} : {{lien|avoir pitié|fr}} de, {{lien|prendre en pitié|fr}}
+* {{lien|kortuŝi|eo}} : {{lien| |fr}}
+* {{lien|senkora|eo}} : {{lien| |fr}}
+* {{lien|tutkore|eo}} : {{lien| |fr}}
 {{)}}
 
 ==== {{S|paronymes}} ====
-* {{lien|kero|eo}} {{eo-motrac|racn=2048|par=1}} {{eo-ss|PR=1}} : {{lien|cœur|fr}} (jeu de cartes)
+* {{lien|kero|eo}} {{eo-motrac|racn=2048|par=1}} : {{lien|cœur|fr}} (jeu de cartes)
 
 === {{S|prononciation}} ===
 * {{écouter|lang=eo|Pays-Bas (partie continentale) (Wijchen)|audio=LL-Q143 (epo)-Robin van der Vliet-koro.wav}}
 * {{écouter|lang=eo|Brésil|audio=LL-Q143 (epo)-NMaia-koro.wav}}
 * {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-koro.wav}}
+* {{écouter|lang=eo|France (Vosges)||audio=LL-Q143 (epo)-Poslovitch-koro.wav}}
 
 === {{S|voir aussi}} ===
 * {{WP|koro|lang=eo}}
 
 === {{S|références}} ===
-Vocabulaire:
+==== {{S|bibliographie}} ====
 * {{R:PV}}
 * {{R:PIV}}
 * {{R:Retavort|rac=kor}}
@@ -118,7 +119,8 @@ Vocabulaire:
 : Composé de ''[[kor-]]'' et ''[[-o]]'' « substantif ».
 
 === {{S|nom|io}} ===
-{{io-rég|kor|ˈkɔ.r}}
+{{io-rég|}}
+{{io-rég|ˈkɔ.r}}
 '''koro''' {{pron|ˈkɔ.rɔ|lang=io}}
 # [[chœur|Chœur]] (de [[chanteur]]s).
 
@@ -131,7 +133,7 @@ Vocabulaire:
 
 === {{S|nom|css-mut}} ===
 '''koro''' {{pron|koro|css-mut}}
-# {{anatomie|css-mut}} [[pied#fr|Pied]].
+# {{lexique|anatomie|css-mut}} [[pied#fr|Pied]].
 
 === {{S|références}} ===
 *{{RÉF|1}} {{R:swadesh utian}}
@@ -157,4 +159,3 @@ Vocabulaire:
 
 [[Catégorie:Aliments en sranan]]
 [[Catégorie:Racines de l’espéranto]]
-

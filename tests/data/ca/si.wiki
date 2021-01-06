@@ -88,17 +88,17 @@
 * {{ca-dicc|diec|gdlc|optimot}}
 
 == {{-es-}} ==
-{{-pronafi-}} {{pron|es|/si/}}
+{{es-pron}}
 
 === Conjunció ===
 {{lema|es|conj}}
 
-# [[si#ca|si]] (nexe condicional).
+# {{e|ca|si}} {{q|nexe condicional}}
 
 === Nom ===
 {{es-nom|m}}
 
-# {{e|ca|si}} (nota musical)
+# {{e|ca|si}} {{q|nota musical}}
 
 == {{-fr-}} ==
 {{-pronafi-}} {{pron|fr|/si/}}
@@ -137,4 +137,3 @@
 {{lema|scn|pronom|reflexiu}}
 
 # [[es]]
-

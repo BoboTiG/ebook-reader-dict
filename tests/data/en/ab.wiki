@@ -52,7 +52,7 @@ Abbreviation of {{m|en|abscess}}.
 Abbreviations.
 
 ====Verb====
-{{en-verb|abs|abbing|abbed}}
+{{en-verb}}
 
 # {{lb|en|climbing|informal}} To [[abseil]].
 #* '''1998''', ''Climbing'' (issues 178-180, page 22)
@@ -89,7 +89,7 @@ From the spelling books and the fact that it was the first of the letter combina
 * {{R:Dictionary.com|ab}}
 
 ===Anagrams===
-* {{anagrams|en|a=ab|-ba-|B. A.|B.A.|BA|ba|ba'}}
+* {{anagrams|en|a=ab|-ba-|B. A.|B.A.|BA|Ba|ba|ba'}}
 
 ----
 
@@ -115,6 +115,10 @@ Borrowed from {{bor|aib|fa|آب|tr=āb}}.
 
 ===Etymology===
 From {{bor|az|fa|آب|tr=āb}}.
+
+===Pronunciation===
+* {{IPA|az|[ɑb]}}
+* {{audio|az|LL-Q9292 (aze)-Zardabi Bakuvi-ab.wav|Audio (Baku)}}
 
 ===Noun===
 {{az-noun|ı|lar}}
@@ -232,6 +236,9 @@ From {{der|de|goh|ab}}, from {{der|de|gem-pro|*ab}}.
 
 =====Derived terms=====
 * {{l|de|ab und zu}}
+
+====Descendants====
+* {{desc|nb|ab}}
 
 ===Etymology 2===
 From adverbial use of the preposition in verbs such as [[abschlagen]], [[abgehen]] etc.
@@ -353,7 +360,7 @@ Contraction of the relative particle {{m|ga|a}} and the prevocalic variant of th
 * {{l|la|af}} {{qualifier|archaic}}
 
 ===Etymology===
-From {{inh|la|itc-pro|*ab}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whence {{cog|en|off}}, {{m|en|of}} and {{m|en|after}}). See also {{m|la|po-}}.
+From {{inh|la|itc-pro|*ab}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whence {{cog|en|off}}, {{m|en|of}} and {{m|en|after}}). See also {{m|la|po-}}. Cognate with {{l|grc|ᾰ̓πό}}.
 
 ===Pronunciation===
 * {{la-IPA|eccl=yes}}
@@ -363,11 +370,17 @@ From {{inh|la|itc-pro|*ab}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whenc
 ===Preposition===
 {{la-prep|ablative}}
 
-# [[from]], [[away]] from, [[out]] [[of]]
-# [[down]] from
-# [[at]], [[on]], [[in]]
+# {{sense|indicating ablation}} [[from]], [[away]] from, [[out]] [[of]]
+# {{sense|indicating ablation}} [[down]] from
+# {{sense|indicating [[agency]]}} {{q|source of action or event}} [[by]], [[by means of]]
+# {{sense|indicating [[instrumentality]]}} {{q|source of action or event}} [[by]], [[by means of]], [[with]]
+#* {{Q|la|Cicero|Oration in favor of P. Sestius|Pro P. Sestio Oratio|Ch. 42, sect. 92|quote=Horum utro uti nolumus, altero est utendum. vim volumus exstingui, ius valeat necesse est, id est iudicia, quibus omne ius continetur; iudicia displicent aut nulla sunt, vis dominetur necesse est. hoc vident omnes: Milo et vidit et fecit, ut ius experiretur, vim depelleret. altero uti voluit, ut virtus audaciam vinceret; altero usus necessario est, ''ne virtus '''ab''' audacia vinceretur''.|transauthor=|trans=...''so that virtue might not be overwhelmed '''by''' insolence''.}}
+# {{sense|indicating [[association]]}} [[to]], [[with]]
+#* ''[[w:Heauton Timorumenos|Heauton Timorumenos]]'' (“The Self-Tormentor”) by [[w:Terence|Publius Terentius Afer]]
+#*: ''Homo sum, humani nihil '''ā''' me alienum puto.''
+#*:: I am a man, I consider nothing that is human alien '''to''' me.
+# {{sense|indicating [[location]]}} [[at]], [[on]], [[in]]
 # {{q|time}} [[after]], [[since]]
-# {{q|source of action or event}} [[by]], [[of]]
 
 ====Usage notes====
 Used in conjunction with passive verbs to mark the agent.
@@ -450,29 +463,36 @@ From {{inh|mga|sga|aub}}, from {{inh|mga|cel-pro|*abū}}.
 {{wikipedia|lang=nb|AB}}
 
 ===Etymology 1===
-From {{der|nb|de|ab}}, meaning "from".
+From {{der|nb|de|ab||from}}, from {{der|nb|goh|ab||from}}, from {{der|nb|gem-pro|*ab||away, away from}}, from {{der|nb|ine-pro|*h₂epó||off, away, from}}
 
 ===Pronunciation===
 * {{IPA|nb|/abː/}}
+* {{rhymes|nb|abː}}
+* {{hyphenation|nb|ab}}
 
 ===Preposition===
 {{head|nb|preposition}}
 # {{lb|nb|economics}} [[from]]; (i.e. delivered) for the seller's expense at a location and forwarded for the buyer's expense
-#: ''ab Frankfurt''
-#:: from Frankfurt
-# {{lb|nb|economics}} [[as of]]
+#: {{ux|nb|'''ab''' Frankfurt|'''from''' Frankfurt|inline=1}}
+#: {{ux|nb|'''ab''' varelager |'''from''' inventory|inline=1}}
+#: {{ux|nb|'''ab''' fabrikk|'''from''' factory|inline=1}}
+# {{lb|nb|economics|obsolete}} [[as of]]
 #: ''ab mai''
 #:: as of May
 
 ===Etymology 2===
-Abbreviation of {{m|nb|avbetaling}}.
+Abbreviation of {{m|nb|avbetaling||installment}}, verbal noun form of {{m|nb|avbetale||to pay off}} with the suffix {{m|nb|-ing}}.
 
 ===Pronunciation===
-* {{IPA|nb|/aːbe/}}
+* {{IPA|nb|/ˈɑːbe/}}
+* {{rhymes|nb|ɑːbe}}
+* {{hyphenation|nb|a|b}}
 
 ===Noun===
-# {{abbreviation of|nb|avbetaling|t=installment}}
-#: {{uxi|nb|møbler og vaskemaskin på '''ab'''|furniture and washing machine on installment}}
+{{head|nb|noun}}
+
+# {{lb|nb|colloquial}} {{abbreviation of|nb|avbetaling|t=installment}}
+#* {{quote-book|nb|year=1974|author=Kari Bakke|title=Gråspurven|page=22|passage=møbler og vaskemaskin på AB|t=furniture and washing machine on installments}}
 
 ====Derived terms====
 {{der2|nb|ab-kjøp|ab-kontrakt}}
@@ -480,9 +500,12 @@ Abbreviation of {{m|nb|avbetaling}}.
 ====Related terms====
 * {{l|nb|avbetale}}
 
+====See also====
+* {{l|nb|ab ovo}}
+
 ===References===
-* {{R:The Bokmål Dictionary}}
 * {{R:NAOB|ab}}
+* “[http://www.snl.no/ab ab]” in ''Store norske leksikon''
 
 ----
 
@@ -532,6 +555,10 @@ From {{inh|goh|gem-pro|*ab}}.
 {{goh-prep}}
 
 # [[of]]
+
+====Descendants====
+* {{desc|de|ab}}
+** {{desc|nb|ab}}
 
 ----
 
@@ -588,6 +615,33 @@ Compare {{cog|de|ab}}, {{cog|nl|af}}, {{cog|en|off}}.
 
 ----
 
+==Scots==
+
+===Alternative forms===
+* {{l|sco|ob}}
+
+===Etymology===
+Uncertain. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|happe||to stutter}}, {{cog|no|jabba||to stammer}} and colloquial {{cog|sv|happla||to stutter}}. <ref> https://dsl.ac.uk/entry/snd/ab </ref>
+
+===Pronunciation===
+* {{IPA|sco|[ab]}}
+
+===Noun===
+{{sco-noun}}
+
+# {{lb|sco|Orkney}} [[impediment]], [[hindrance]]
+# {{lb|sco|Orkney}} [[objection]]
+
+===Verb===
+{{sco-verb}}
+
+# {{lb|sco|Orkney}} to [[hinder]]
+
+===References===
+{{reflist}}
+
+----
+
 ==Scottish Gaelic==
 
 ===Noun===
@@ -600,7 +654,7 @@ Compare {{cog|de|ab}}, {{cog|nl|af}}, {{cog|en|off}}.
 ==Turkish==
 
 ===Etymology 1===
-{{PIE root|tr|h₂ep}}
+{{root|tr|ine-pro|*h₂ep-}}
 From {{inh|tr|ota|آب|tr=āb|t=water}}, from {{der|tr|fa|آب|tr=āb}}.
 
 ====Noun====
@@ -667,4 +721,3 @@ This form is found before vowels. Before a consonant, the form {{l|cy|ap}} is us
 
 ====Usage notes====
 Precedes the noun.
-

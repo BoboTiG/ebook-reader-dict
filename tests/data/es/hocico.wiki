@@ -59,6 +59,7 @@
 {{t+|ca|morro}}
 {{t+|fr|museau}}
 {{t+|eo|muzelo}}
+{{t+|gl|fociño}}
 {{t+|cy|1|trwyn}}
 {{t+|en|snout}}
 {{trad-centro}}
@@ -70,4 +71,3 @@
 
 == Referencias y notas ==
 <references />
-
