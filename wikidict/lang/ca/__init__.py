@@ -43,6 +43,7 @@ sections = (
 definitions_to_ignore = (
     # Ignore conjuged verbs
     "ca-forma-conj",
+    "forma-conj",
     # Proper nouns
     "cognom",
     "prenom",
