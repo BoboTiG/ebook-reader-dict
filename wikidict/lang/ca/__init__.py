@@ -76,6 +76,8 @@ templates_italic = {
 templates_multi = {
     # {{color|#E01010}}
     "color": "color(parts[1])",
+    # {{doblet|ca|Castellar}}
+    "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[2]",
     # {{forma-|abreujada|ca|bicicleta}}

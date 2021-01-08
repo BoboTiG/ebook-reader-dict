@@ -193,6 +193,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
     "wikicode, expected",
     [
         ("{{color|#E01010}}", "[RGB #E01010]"),
+        ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
         ("{{e|la|lupus}}", "lupus"),
         (
             "{{forma-|abreujada|ca|bicicleta}}",
