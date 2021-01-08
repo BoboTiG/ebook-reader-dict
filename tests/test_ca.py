@@ -209,6 +209,8 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{marca|ca|valencià-verb}}", "<i>(valencià)</i>"),
         ("{{marca-nocat|ca|balear}}", "<i>(balear)</i>"),
         ("{{marca-nocat|ca|occidental|balear}}", "<i>(occidental, balear)</i>"),
+        ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
+        ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),

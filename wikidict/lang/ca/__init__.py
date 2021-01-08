@@ -92,6 +92,8 @@ templates_multi = {
     # {{marca-nocat|ca|balear}}
     # {{marca-nocat|ca|occidental|balear}}
     "marca-nocat": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
+    # {{pron|hi|/baːzaːr/}}
+    "pron": "', '.join(parts[2:])",
     # {{q|tenir bona planta}}
     "q": "term(parts[-1])",
     # {{etim-s|ca|XIV}}
