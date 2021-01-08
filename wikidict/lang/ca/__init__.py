@@ -54,7 +54,13 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("manquen accepcions", "sense accepcions", "-etimologia-", "-etim-")
+templates_ignored = (
+    "categoritza",
+    "manquen accepcions",
+    "sense accepcions",
+    "-etimologia-",
+    "-etim-",
+)
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
