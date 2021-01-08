@@ -134,13 +134,21 @@ def last_template_handler(
 
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
+
+        >>> last_template_handler(["trad", "es", "manzana"], "ca")
+        'manzana <sup>(es)</sup>'
+        >>> last_template_handler(["trad", "es", "tr=manzana"], "ca")
+        'manzana <sup>(es)</sup>'
+        >>> last_template_handler(["trad", "sc=es", "manzana"], "ca")
+        'manzana <sup>(es)</sup>'
     """
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import extract_keywords_from, italic
+    from ...user_functions import extract_keywords_from, italic, superscript
 
     tpl = template[0]
     parts = list(template[1:])
+    phrase = ""
 
     def parse_other_parameters() -> str:
         data = extract_keywords_from(parts)
@@ -155,7 +163,6 @@ def last_template_handler(
             toadd += f" (literalment «{data['lit']}»)"
         return toadd
 
-    phrase = ""
     if tpl == "etim-lang":
         if parts[0] in langs:
             if langs[parts[0]].startswith(("a", "i", "o", "u", "h")):
@@ -167,13 +174,20 @@ def last_template_handler(
                 phrase += f" {italic(parts[2])}"
         phrase += parse_other_parameters()
         return phrase
-    elif tpl == "terme":
+
+    if tpl == "terme":
         if len(parts) > 2 and "=" not in parts[2]:
             phrase = f"{italic(parts[2])}"
         else:
             phrase = f"{italic(parts[1])}"
         phrase += parse_other_parameters()
         return phrase
+
+    if tpl == "trad":
+        data = extract_keywords_from(parts)
+        src = data["sc"] or parts.pop(0)
+        trans = data["tr"] or parts.pop(0)
+        return f"{trans} {superscript('(' + src + ')')}"
 
     return default(template, locale, word=word)
 
