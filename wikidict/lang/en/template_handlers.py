@@ -639,9 +639,11 @@ def render_named_after(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Named after English mathematician and logician Bertrand Russell (<i>tr</i>) (1872–1970)'
     >>> render_named_after("named-after", ["en", "Patrick Swayze"], defaultdict(str, {"alt":""}))
     'Patrick Swayze'
+    >>> render_named_after("named-after", ["en"], defaultdict(str))
+    'Named after an unknown person'
     """  # noqa
     parts.pop(0)  # Remove the language
-    p = parts.pop(0)
+    p = parts.pop(0) if parts else ""
     p = p or "an unknown person"
     if "alt" in data:
         phrase = data["alt"]
