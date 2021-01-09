@@ -357,7 +357,7 @@ templates_italic = {
     "oenol": "Œnologie",
     "opti": "Optique",
     "ornithol": "Ornithologie",
-    "ortho1990": "Orthographe rectifiée de 1990",
+    "ortho1990": "orthographe rectifiée de 1990",
     "par analogie": "Par analogie",
     "POO": "Programmation orientée objet",
     "p-us": "Peu usité",
