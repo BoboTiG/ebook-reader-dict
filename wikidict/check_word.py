@@ -47,7 +47,12 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
     with requests.get(url) as req:
-        return no_spaces(get_text(req.text))
+        bs = BeautifulSoup(markup=req.text, features="html.parser")
+        # Filter out anchors as they are ignored from templates
+        for a in bs.find_all("a", href=True):
+            if a["href"].startswith("#"):
+                a.decompose()
+        return no_spaces(bs.text)
 
 
 def main(locale: str, word: str) -> int:
