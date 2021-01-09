@@ -8,6 +8,7 @@ Usage:
     wikidict LOCALE --render
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
+    wikidict LOCALE --check-random-words N
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --update-release
@@ -52,6 +53,11 @@ def main() -> int:  # pragma: nocover
         from . import check_word
 
         return check_word.main(args["LOCALE"], args["--check-word"])
+
+    if args["--check-random-words"]:
+        from . import check_random_words
+
+        return check_random_words.main(args["LOCALE"], int(args["N"]))
 
     if args["--get-word"]:
         from . import get_word
