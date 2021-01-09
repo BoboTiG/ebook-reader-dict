@@ -239,7 +239,7 @@ def find_sections(code: str, locale: str) -> Sections:
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and genre guessing.
-    It is disabled by default t spee-up the overall process, but enabled when
+    It is disabled by default to speed-up the overall process, but enabled when
     called from get_and_parse_word().
     """
     parsed_sections = find_sections(code, locale)
