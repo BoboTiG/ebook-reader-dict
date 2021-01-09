@@ -193,7 +193,7 @@ from wikidict.utils import process_templates
             "employer",
             ["ɑ̃.plwa.je"],
             "",
-            "Du latin <i>implico</i> («&nbsp;impliquer&nbsp;»).",
+            "Du latin <i>implicāre</i> («&nbsp;impliquer&nbsp;»).",
             [
                 "Utiliser ; user ; se servir de.",
                 "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",  # noqa

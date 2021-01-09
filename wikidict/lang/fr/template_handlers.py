@@ -311,6 +311,8 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'latin <i>dithyrambicus</i>'
     >>> render_etyl("étyl", ["no", "fr"], defaultdict(str, {"mot":"ski"}))
     'norvégien <i>ski</i>'
+    >>> render_etyl("étyl", ["la", "fr", "sequor"], defaultdict(str, {"dif": "sequi"}))
+    'latin <i>sequi</i>'
     >>> render_etyl("étyl", ["la", "fr"], defaultdict(str, {"mot":"invito", "type":"verb"}))
     'latin <i>invito</i>'
     >>> render_etyl("étyl", ["grc", "fr"], defaultdict(str, {"mot":"λόγος", "tr":"lógos", "type":"nom", "sens":"étude"}))
@@ -345,6 +347,8 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             data["tr"] = part
         elif not data["sens"]:
             data["sens"] = part
+    if data["dif"]:
+        data["mot"] = data["dif"]
     if data["tr"]:
         if data["mot"]:
             phrase += f" {data['mot']},"
