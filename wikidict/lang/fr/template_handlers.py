@@ -394,8 +394,10 @@ def render_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'フランス, <i>Furansu</i> («&nbsp;France&nbsp;»)'
     >>> render_lien("lien", ["camara", "la"], defaultdict(str, {"sens":"voute, plafond vouté"}))
     'camara («&nbsp;voute, plafond vouté&nbsp;»)'
+    >>> render_lien("lien", ["sto", "la"], defaultdict(str, {"dif": "stare"}))
+    'stare'
     """
-    phrase = parts.pop(0)
+    phrase = data["dif"] or parts.pop(0)
     if data["tr"]:
         phrase += f", {italic(data['tr'])}"
     if data["sens"]:
