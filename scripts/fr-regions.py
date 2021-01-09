@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 ROOT = "https://fr.wiktionary.org"
 START_URL = "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_r%C3%A9gionaux_du_Wiktionnaire"
 NEXTPAGE_TEXT = "page suivante"
-REDIRECT_URL = "https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:{}&redirect=no"
+ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"
 
 
 def get_soup(url):
@@ -14,7 +14,7 @@ def get_soup(url):
     return BeautifulSoup(page, features="html.parser")
 
 
-def process_category_page(url, results, aliases):
+def process_regions_page(url, results):
     soup = get_soup(url)
 
     nextpage = ""
@@ -33,36 +33,33 @@ def process_category_page(url, results, aliases):
         if not region:
             continue
         results[template_name] = region.text.strip("()")
-
-        # Enventual alias(es)
-        redirections = template_soup.find("div", {"class": ["plainlinks"]})
-        if redirections:
-            # [1:] to get rid of the first link pointing to "Redirections"
-            aliases.extend(a.text for a in redirections.find_all("a")[1:])
     return nextpage
 
 
-next_page_url = START_URL
+def process_alias_page(model, region, results):
+    url = ALIAS_URL.format(model)
+    soup = get_soup(url)
+    ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
+    if not ul:
+        return
+    for alias in ul.find_all("a", {"class": ["mw-redirect"]}):
+        alias = alias.text.replace("Modèle:", "")
+        if alias == "modifier":
+            continue
+        results[alias] = region
+
+
 results = {}
 aliases = []
 
-# Fetch models first, and store aliases
+# Fetch models first
+next_page_url = START_URL
 while next_page_url:
-    next_page_url = process_category_page(next_page_url, results, aliases)
+    next_page_url = process_regions_page(next_page_url, results)
 
 # Fetch aliases
-for alias in set(aliases):
-    alias_url = REDIRECT_URL.format(alias)
-    soup = get_soup(alias_url)
-    div = soup.find("div", {"class": ["redirectMsg"]})
-    if not div:
-        # Deleted or no more valid alias
-        continue
-
-    modele = div.find("a")
-    if modele:
-        modele = modele.text.replace("Modèle:", "")
-        results[alias] = modele
+for model, region in list(results.items()):
+    process_alias_page(model, region, results)
 
 print("regions = {")
 for t, r in sorted(results.items()):
