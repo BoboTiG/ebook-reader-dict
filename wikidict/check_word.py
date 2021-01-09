@@ -18,8 +18,8 @@ def check(text: str, html: str, message: str) -> int:
     """Run checks and return the error count to increment."""
     clean_text = get_text(html)
     if not contains(clean_text, text):
-        print(message)
-        print(clean_text)
+        print(message, flush=True)
+        print(clean_text, flush=True)
         return 1
     return 0
 
@@ -72,4 +72,4 @@ def main(locale: str, word: str) -> int:
     if errors:
         print("\n >>> Errors:", errors)
 
-    return 0
+    return errors
