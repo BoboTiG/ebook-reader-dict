@@ -66,7 +66,7 @@ from wikidict.utils import process_templates
         (
             "Mars",
             ["ˈmɑːz"],
-            "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 BC) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris.",  # noqa
+            "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris.",  # noqa
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
                 "<i>(Roman god)</i> The Roman god of war.",
@@ -319,6 +319,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{alternative spelling of|en|µs}}",
             "<i>Alternative spelling of</i> <b>µs</b>",
         ),
+        ("{{C.|20}}", "20th c."),
+        ("{{C.|21|st}}", "21st c."),
+        ("{{circa2|1850s}}", "<i>circa</i> 1850s"),
+        ("{{circa2|1955–1956|short=yes}}", "<i>c.</i> 1955–1956"),
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>."),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>."),

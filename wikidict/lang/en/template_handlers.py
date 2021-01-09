@@ -16,6 +16,7 @@ from ...user_functions import (
     extract_keywords_from,
     italic,
     lookup_italic,
+    small,
     strong,
     superscript,
     term,
@@ -111,6 +112,36 @@ def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["in"]:
         phrase += f' in {data["in"]}'
     return phrase
+
+
+def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_bce("B.C.E.", [], defaultdict(str))
+    '<small>B.C.E.</small>'
+    >>> render_bce("C.E.", [], defaultdict(str, {"nodot": "1"}))
+    '<small>CE</small>'
+    """
+    nodot = data["nodot"] in ("1", "yes")
+    text = "B.C.E."
+    if tpl in ("C.E.", "CE", "A.D.", "AD"):
+        text = "C.E."
+    return small(text.replace(".", "")) if nodot else small(text)
+
+
+def render_dating(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_dating("ante", ["1880"], defaultdict(str))
+    '<i>a.</i> <b>1880</b>,'
+    >>> render_dating("ante", ["1880", "1900"], defaultdict(str))
+    '<i>a.</i> <b>1880</b> 1900,'
+    >>> render_dating("circa", ["1880", "1900"], defaultdict(str))
+    '<i>c.</i> <b>1880</b> 1900,'
+    """
+    init = f"{tpl[0]}."
+    start = data["1"] or parts.pop(0) if parts else ""
+    end = data["2"] or parts.pop(0) if parts else ""
+
+    return italic(init) + f" {strong(start)}" + (f" {end}" if end else "") + ","
 
 
 def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -905,10 +936,18 @@ def render_unknown(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
+    "A.D.": render_bce,
+    "AD": render_bce,
     "af": render_morphology,
     "affix": render_morphology,
+    "ante": render_dating,
+    "a.": render_dating,
     "back-form": render_foreign_derivation,
     "back-formation": render_foreign_derivation,
+    "B.C.E.": render_bce,
+    "BCE": render_bce,
+    "B.C.": render_bce,
+    "BC": render_bce,
     "bf": render_foreign_derivation,
     "blend of": render_morphology,
     "blend": render_morphology,
@@ -916,6 +955,10 @@ template_mapping = {
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
     "calque": render_foreign_derivation,
+    "C.E.": render_bce,
+    "CE": render_bce,
+    "circa": render_dating,
+    "c.": render_dating,
     "clq": render_foreign_derivation,
     "cog": render_foreign_derivation,
     "cognate": render_foreign_derivation,
@@ -959,6 +1002,8 @@ template_mapping = {
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
+    "post": render_dating,
+    "p.": render_dating,
     "pre": render_morphology,
     "prefix": render_morphology,
     "psm": render_foreign_derivation,

@@ -86,6 +86,10 @@ templates_italic = {
 templates_multi = {
     # {{1|interactive}}
     "1": "capitalize(parts[-1])",
+    # {{C.|21|st}}
+    "C.": "parts[1] + (parts[2] if len(parts) > 2 else 'th') + f' c.'",
+    # {{circa2|1850s}}
+    "circa2": "italic('circa' if 'short=yes' not in parts and 'short=1' not in parts else 'c.') + f' {parts[1]}'",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + ']')",
     # {{en-archaic third-person singular of|term}}
