@@ -4,6 +4,7 @@ from functools import partial
 
 from .render import parse_word
 from .stubs import Word
+from .user_functions import int_to_roman
 
 import requests
 from bs4 import BeautifulSoup
@@ -11,6 +12,16 @@ from bs4 import BeautifulSoup
 
 _replace_spaces = re.compile(r"\s").sub
 no_spaces = partial(_replace_spaces, "")
+
+
+def check(text: str, html: str, message: str) -> int:
+    """Run checks and return the error count to increment."""
+    clean_text = get_text(html)
+    if not contains(clean_text, text):
+        print(message)
+        print(clean_text)
+        return 1
+    return 0
 
 
 def contains(pattern: str, text: str) -> bool:
@@ -46,18 +57,17 @@ def main(locale: str, word: str) -> int:
     errors = 0
 
     if details.etymology:
-        clean_text = get_text(details.etymology)
-        if not contains(clean_text, text):
-            print(" !! Etymology")
-            print(clean_text)
-            errors += 1
+        errors += check(text, details.etymology, " !! Etymology")
 
     for num, definition in enumerate(details.definitions, start=1):
-        clean_text = get_text(definition)
-        if not contains(clean_text, text):
-            print(f"\n !! Definition n°{num}")
-            print(clean_text)
-            errors += 1
+        message = f"\n !! Definition n°{num}"
+        if isinstance(definition, str):
+            errors += check(text, definition, message)
+            continue
+
+        # Sublist
+        for subnum, subdef in enumerate(definition, start=1):
+            errors += check(text, subdef, f"{message}.{int_to_roman(subnum).lower()}")
 
     if errors:
         print("\n >>> Errors:", errors)
