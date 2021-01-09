@@ -8,6 +8,7 @@ Usage:
     wikidict LOCALE --render
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
+    wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --update-release
 
@@ -46,6 +47,11 @@ def main() -> int:  # pragma: nocover
         from . import find_templates
 
         return find_templates.main(args["LOCALE"])
+
+    if args["--check-word"]:
+        from . import check_word
+
+        return check_word.main(args["LOCALE"], args["--check-word"])
 
     if args["--get-word"]:
         from . import get_word
