@@ -12,8 +12,7 @@ def get_word(word: str, locale: str) -> Word:
     with requests.get(url) as req:
         code = req.text
 
-    details = parse_word(word, code, locale, force=True)
-    return details
+    return parse_word(word, code, locale, force=True)
 
 
 def get_wiktionary_page(word: str, locale: str) -> str:
