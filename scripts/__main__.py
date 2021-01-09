@@ -2,8 +2,6 @@ import subprocess
 import sys
 import threading
 
-# Missing EN si_units
-# Missing FR arabiser
 FILES = {
     "ca-langs.py": "wikidict/lang/ca/langs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
@@ -12,6 +10,7 @@ FILES = {
     "es-langs.py": "wikidict/lang/es/langs.py",
     "fr-domain-templates.py": "wikidict/lang/fr/domain_templates.py",
     "fr-langs.py": "wikidict/lang/fr/langs.py",
+    "fr-regions.py": "wikidict/lang/fr/regions.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
 }

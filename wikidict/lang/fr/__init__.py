@@ -1,7 +1,9 @@
 """French language."""
 from typing import Tuple
-from .domain_templates import domain_templates
+
 from .arabiser import arabiser
+from .domain_templates import domain_templates
+from .regions import regions
 
 # Regex pour trouver la prononciation
 pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
@@ -207,6 +209,7 @@ templates_ignored = (
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
 templates_italic = {
     **domain_templates,
+    **regions,
     "absol": "Absolument",
     "adj-indéf-avec-de": "Avec de",
     "admin": "Administration",
@@ -233,17 +236,12 @@ templates_italic = {
     "avant 1835": "Archaïque, orthographe d’avant 1835",
     "BD": "Bande dessinée",
     "BDD": "Bases de données",
-    "BE": "Belgique",
     "bdd": "Bases de données",
     "bioch": "Biochimie",
     "biol": "Biologie",
     "b-m-cour": "Beaucoup moins courant",
     "botan": "Botanique",
     "bot.": "Botanique",
-    "CA": "Canada",
-    "CH": "Suisse",
-    "CI": "Côte d’Ivoire",
-    "CM": "Cameroun",
     "cartes": "Cartes à jouer",
     "catholicisme": "Christianisme",
     "chim": "Chimie",
@@ -264,7 +262,6 @@ templates_italic = {
     "détroit": "Géographie",
     "didact": "Didactique",
     "diplo": "Diplomatie",
-    "EU": "Europe",
     "élec": "Électricité",
     "ellipse": "Par ellipse",
     "enclit": "Enclitique",
@@ -282,7 +279,6 @@ templates_italic = {
     "énergie": "Industrie de l’énergie",
     "épithète": "Employé comme épithète",
     "familier": "Familier",
-    "FR": "France",
     "ferro": "Chemin de fer",
     "ferroviaire": "Chemin de fer",
     "figure": "Rhétorique",
@@ -307,7 +303,6 @@ templates_italic = {
     "horlog": "Horlogerie",
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
-    "IDLMadeleine": "Îles-de-la-Madeleine",
     "idiomatique": "Figuré",
     "impr": "Imprimerie",
     "improprement": "Usage critiqué",
@@ -396,9 +391,6 @@ templates_italic = {
     "prov": "Proverbial",
     "psychia": "Psychiatrie",
     "psychol": "Psychologie",
-    "QC": "Québec",
-    "RDC": "Congo-Kinshasa",
-    "RDCongo": "Congo-Kinshasa",
     "reli": "Religion",
     "réciproque2": "Réciproque",
     "régional": "Régionalisme",
@@ -415,7 +407,6 @@ templates_italic = {
     "spécifiquement": "Spécifiquement",
     "stat": "Statistiques",
     "sylv": "Sylviculture",
-    "TAAF": "Vocabulaire des TAAF",
     "tech": "Technique",
     "technol": "Technologie",
     "temps": "Chronologie",
@@ -432,8 +423,6 @@ templates_italic = {
     "typo": "Typographie",
     "typog": "Typographie",
     "télé": "Audiovisuel",
-    "US": "États-Unis",
-    "USA": "États-Unis",
     "vieilli": "Vieilli",
     "vieux": "Vieilli",
     "vélo": "Cyclisme",
