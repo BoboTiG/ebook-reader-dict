@@ -10,8 +10,9 @@ import requests
 from bs4 import BeautifulSoup
 
 
-_replace_spaces = re.compile(r"\s").sub
-no_spaces = partial(_replace_spaces, "")
+# Remove all kind of spaces and some unicode characters
+_replace_noisy_chars = re.compile(r"[\s\u200e]").sub
+no_spaces = partial(_replace_noisy_chars, "")
 
 
 def check(text: str, html: str, message: str) -> int:
