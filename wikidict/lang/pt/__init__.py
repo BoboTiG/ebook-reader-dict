@@ -57,9 +57,11 @@ templates_ignored = (
 templates_italic = {
     "antigo": "arcaico",
     "Calão": "obsceno",
+    "Cidade": "Geografia",
     "coloquialismo": "coloquial",
     "Coloquialismo": "coloquial",
     "Crustáceo": "Zoologia",
+    "Desuso": "em desuso",
     "Figurado": "figurado",
     "Flor": "Botânica",
     "Informal": "coloquial",
