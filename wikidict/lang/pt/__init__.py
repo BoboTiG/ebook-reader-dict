@@ -155,21 +155,23 @@ def last_template_handler(
         '<i>neutro</i>, <i>dativo</i>, <i>de tratamento</i>'
 
         >>> last_template_handler(["llietimo", "en", "anaconda"], "pt")
-        'Do inglês <i>anaconda</i>.'
+        'Do inglês <i>anaconda</i> <sup>(en)</sup>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
-        'Do latim <i>myrmecophaga</i>.'
+        'Do latim <i>myrmecophaga</i> <sup>(la)</sup>.'
+        >>> last_template_handler(["llietimo", "grc", "myrmecophaga", "pt"], "pt")
+        'Do grego antigo <i>myrmecophaga</i>.'
         >>> last_template_handler(["llietimo", "la", "caprunu", "pt", "", "cabra"], "pt")
-        'Do latim <i>caprunu</i> "cabra".'
+        'Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".'
         >>> last_template_handler(["llietimo", "en", "storm", "sv", "trad=tempestade"], "pt")
-        'Do inglês <i>storm</i> "tempestade".'
+        'Do inglês <i>storm</i> <sup>(en)</sup> "tempestade".'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato"], "pt")
-        'Do russo <i>ко́шка</i> (<i>kóška</i>) "gato".'
+        'Do russo <i>ко́шка</i> <sup>(ru)</sup> (<i>kóška</i>) "gato".'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "transcr=kóška", "trad=gato", "ponto="], "pt")
-        'Do russo <i>ко́шка</i> (<i>kóška</i>) "gato".'
+        'Do russo <i>ко́шка</i> <sup>(ru)</sup> (<i>kóška</i>) "gato".'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=não"], "pt")
-        'Do russo <i>ко́шка</i> (<i>kóška</i>) "gato"'
+        'Do russo <i>ко́шка</i> <sup>(ru)</sup> (<i>kóška</i>) "gato"'
         >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
-        "Do tupi <i>ïsa'ub</i> (<i>formiga mestra</i>)."
+        "Do tupi <i>ïsa'ub</i> <sup>(tpn)</sup> (<i>formiga mestra</i>)."
 
         >>> last_template_handler(["o/a", "determinad"], "pt")
         'determinada'
@@ -196,7 +198,13 @@ def last_template_handler(
     from .langs import langs
     from .gramatica import gramatica_short
     from ..defaults import last_template_handler as default
-    from ...user_functions import concat, extract_keywords_from, italic, small
+    from ...user_functions import (
+        concat,
+        extract_keywords_from,
+        italic,
+        small,
+        superscript,
+    )
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -228,7 +236,16 @@ def last_template_handler(
 
     if tpl == "llietimo":
         src, word, *rest = parts
+        l10n = superscript(f"({src})")
         phrase = f"Do {langs[src]} {italic(word)}"
+
+        l10n_needed = len(rest) != 1 or data
+        if rest:
+            rest.pop(0)  # Remove the destination language
+            l10n_needed = src != "grc"
+
+        if l10n_needed:
+            phrase += f" {l10n}"
 
         if data["transcr"]:
             phrase += f" ({italic(data['transcr'])})"
@@ -236,9 +253,6 @@ def last_template_handler(
         if data["trad"]:
             trad = data["trad"]
             phrase += f' "{trad}"'
-
-        if rest:
-            rest.pop(0)  # Remove the destination language
         if rest:
             transcr = rest.pop(0)
             if transcr:
