@@ -123,8 +123,8 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["etimo", "pt", "canem"], "pt")
-        '<i>canem</i>'
+        >>> last_template_handler(["etimo", "la", "canem"], "pt")
+        '<i>canem</i> <sup>(la)</sup>'
         >>> last_template_handler(["etimo", "la", "canis", "sign=cão"], "pt")
         '<i>canis</i> (“cão”)'
         >>> last_template_handler(["etimo", "la", "duos", "(duōs)"], "pt")
@@ -210,8 +210,10 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl in ("etimo", "étimo"):
-        parts.pop(0)  # Remove the lang
+        src = parts.pop(0)  # Remove the lang
         phrase = italic(parts.pop(0))
+        if not parts and not data:
+            phrase += " " + superscript(f"({src})")
         if parts:
             phrase += f" {parts[0]}"
         if data["transl"]:
