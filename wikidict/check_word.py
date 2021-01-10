@@ -32,6 +32,22 @@ def contains(pattern: str, text: str) -> bool:
     return no_spaces(pattern) in text
 
 
+def filter_html(html: str) -> str:
+    """Some parts of the Wiktionary HTML."""
+    bs = BeautifulSoup(markup=html, features="html.parser")
+
+    # Filter out anchors as they are ignored from templates
+    for a in bs.find_all("a", href=True):
+        if a["href"].startswith("#"):
+            a.decompose()
+
+    # Filter out warnings about obsolete template models used
+    for span in bs.find_all("span", {"id": "FormattingError"}):
+        span.decompose()
+
+    return no_spaces(bs.text)
+
+
 def get_text(html: str) -> str:
     """Parse the HTML code and return it as a string."""
     return str(BeautifulSoup(markup=html, features="html.parser").text)
@@ -48,12 +64,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
     with requests.get(url) as req:
-        bs = BeautifulSoup(markup=req.text, features="html.parser")
-        # Filter out anchors as they are ignored from templates
-        for a in bs.find_all("a", href=True):
-            if a["href"].startswith("#"):
-                a.decompose()
-        return no_spaces(bs.text)
+        return filter_html(req.text)
 
 
 def main(locale: str, word: str) -> int:
