@@ -85,6 +85,8 @@ templates_multi = {
     "escopoCat": "term(parts[1])",
     # {{escopoCatLang|Verbo auxiliar|pt}}
     "escopoCatLang": "term(parts[1])",
+    # {{escopoClasseMorfo|variação}}
+    "escopoClasseMorfo": "small('(' + parts[-1] + ')')",
     # {{escopoUso|Portugal|pt}}
     "escopoUso": "term(lookup_italic(parts[1], 'pt'))",
     # {{fem|heliostático}}
