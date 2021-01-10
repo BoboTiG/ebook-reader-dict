@@ -12,7 +12,7 @@ from wikidict.utils import process_templates
             "alguém",
             ["aw.ˈgẽj"],
             "",
-            "Do latim <i>alĭquem</i>.",
+            "Do latim <i>alĭquem</i> <sup>(la)</sup>.",
             ["pessoa não identificada"],
         ),
         (
@@ -37,7 +37,7 @@ from wikidict.utils import process_templates
             "cabrum",
             [],
             "mf",
-            'Do latim <i>caprunu</i> "cabra".',
+            'Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".',
             [
                 "<i>(Pecuária)</i> de cabras:",
                 "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
