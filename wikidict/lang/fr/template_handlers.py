@@ -345,6 +345,8 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'grec ancien <i>leipein</i> («&nbsp;abandonner&nbsp;»)'
     >>> render_etyl("étyl", [], defaultdict(str, {"1":"grc", "2":"es", "mot":"νακτός", "tr":"naktós", "sens":"dense"}))
     'grec ancien νακτός, <i>naktós</i> («&nbsp;dense&nbsp;»)'
+    >>> render_etyl("étyl", ["la", "fr", "ortivus", "", "qui se lève"], defaultdict(str))
+    'latin <i>ortivus</i> («&nbsp;qui se lève&nbsp;»)'
     >>> render_etyl("étyl", ["proto-indo-européen", "fr"], defaultdict(str))
     'indo-européen commun'
     >>> render_etyl("étylp", ["la", "fr"], defaultdict(str, {"mot":"Ladon"}))
@@ -352,25 +354,23 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     # The lang name
     phrase = langs[data["1"] or parts.pop(0)]
-    for part in parts:
-        if part in langs:
-            continue
-        if not data["mot"]:
-            data["mot"] = part
-        elif not data["tr"]:
-            data["tr"] = part
-        elif not data["sens"]:
-            data["sens"] = part
+    if parts and parts[0] in langs:
+        parts.pop(0)
+    mot = data["mot"] or data["3"] or (parts[0] if parts else "")
+    tr = data["tr"] or data["R"] or data["4"] or (parts[1] if len(parts) > 1 else "")
+    sens = data["sens"] or data["5"] or (parts[2] if len(parts) > 2 else "")
     if data["dif"]:
-        data["mot"] = data["dif"]
-    if data["tr"]:
-        if data["mot"]:
-            phrase += f" {data['mot']},"
-        phrase += f" {italic(data['tr'])}"
-    elif data["mot"]:
-        phrase += f" {italic(data['mot'])}"
-    if data["sens"]:
-        phrase += f" («&nbsp;{data['sens']}&nbsp;»)"
+        mot = data["dif"]
+    if mot:
+        # italic only for latin script
+        if max(mot) > "\u0370":
+            phrase += f" {mot}"
+        else:
+            phrase += f" {italic(mot)}"
+    if tr:
+        phrase += f", {italic(tr)}" if mot else f" {italic(tr)}"
+    if sens:
+        phrase += f" («&nbsp;{sens}&nbsp;»)"
     return phrase
 
 
