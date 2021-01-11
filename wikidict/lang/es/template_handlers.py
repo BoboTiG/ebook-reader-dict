@@ -65,6 +65,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>átomo</i> y el sufijo <i>-ico</i>'
     >>> render_etimologia("etimología", ["sufijo", "ferrojo", "ar"], defaultdict(str, {"tr":"anticuado por cerrojo e influido por fierro"}))
     'De <i>ferrojo</i> (<i>anticuado por cerrojo e influido por fierro</i>) y el sufijo <i>-ar</i>'
+    >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
+    'Del prefijo <i>a-</i> y <i>contecer</i>'
     """  # noqa
     if not parts:
         return ""
@@ -97,6 +99,11 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif cat == "plural":
         plural = "-s" if len(parts) == 1 else parts[-1]
         phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic(plural)}"
+    elif cat == "prefijo":
+        phrase = f"Del prefijo {italic(parts.pop(0) + '-')}"
+        if parts:
+            phrase += f" {glue}"
+            phrase += f" {italic(parts.pop(0))}"
     elif cat == "pronominal":
         phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
     elif cat == "sufijo":
