@@ -4,21 +4,20 @@ from pathlib import Path
 from random import choice
 from typing import List
 
-from . import check_word
-from .render import get_latest_json_file, load
+from . import check_word, render
 
 
 def main(locale: str, count: int) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    file = get_latest_json_file(output_dir)
+    file = render.get_latest_json_file(output_dir)
     if not file:
         print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
     print(f">>> Loading {file} ...")
-    all_words: List[str] = list(load(file).keys())
+    all_words: List[str] = list(render.load(file).keys())
 
     errors = 0
     for n in range(count):
