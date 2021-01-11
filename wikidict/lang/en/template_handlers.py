@@ -13,6 +13,7 @@ from .si_unit import unit_to_symbol, prefix_to_exp, prefix_to_symbol, unit_to_ty
 from .. import defaults
 from ...transliterator import transliterate
 from ...user_functions import (
+    capitalize,
     concat,
     extract_keywords_from,
     italic,
@@ -755,21 +756,21 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_place("place", ["en", "A country"], defaultdict(str, {"modern":"Iraq"}))
     'A country; modern Iraq'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str))
-    'a village in Fulton County, Illinois'
+    'A village in Fulton County, Illinois'
     >>> render_place("place", ["en", "city/county seat", "co/Lamar County", "s/Texas"], defaultdict(str))
-    'a city, the county seat of Lamar County, Texas'
+    'A city, the county seat of Lamar County, Texas'
     >>> render_place("place", ["en", "small town/and/unincorporated community"], defaultdict(str))
-    'a small town and unincorporated community'
+    'A small town and unincorporated community'
     >>> render_place("place", ["en", "town", "s/New York", ";", "named after Paris"], defaultdict(str))
-    'a town in New York; named after Paris'
+    'A town in New York; named after Paris'
     >>> render_place("place", ["en", "s"], defaultdict(str))
-    'a state'
+    'A state'
     >>> render_place("place", ["en", "state", "c/USA"], defaultdict(str))
-    'a state of the United States'
+    'A state of the United States'
     >>> render_place("place", ["en", "city", "c/Republic of Ireland"], defaultdict(str))
-    'a city in Ireland'
+    'A city in Ireland'
     >>> render_place("place", ["en", "city", "s/Georgia", "c/United States"], defaultdict(str))
-    'a city in Georgia, United States'
+    'A city in Georgia, United States'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
@@ -840,7 +841,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         if data[modern_key]:
             phrase += "; modern " + data[modern_key]
         i += 1
-    return phrase
+    return capitalize(phrase)
 
 
 def render_si_unit(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
