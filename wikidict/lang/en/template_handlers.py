@@ -1,8 +1,8 @@
-from typing import Tuple, Dict, List, TypedDict
 from collections import defaultdict  # noqa
-from .langs import langs
+from typing import Tuple, Dict, List, TypedDict
 from itertools import zip_longest
 
+from .langs import langs
 from .places import (
     recognized_placetypes,
     recognized_placenames,
@@ -10,6 +10,7 @@ from .places import (
     placetypes_aliases,
 )
 from .si_unit import unit_to_symbol, prefix_to_exp, prefix_to_symbol, unit_to_type
+from .. import defaults
 from ...transliterator import transliterate
 from ...user_functions import (
     concat,
@@ -1024,6 +1025,7 @@ template_mapping = {
     "unadapted borrowing": render_foreign_derivation,
     "unk": render_unknown,
     "unknown": render_unknown,
+    "w": defaults.render_wikilink,
 }
 
 

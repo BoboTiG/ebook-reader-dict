@@ -1,5 +1,6 @@
 """Defaults values for locales without specific needs."""
-from typing import Dict, Tuple
+from collections import defaultdict  # noqa
+from typing import Dict, List, Tuple
 
 # Regex to find the genre
 genre = r""
@@ -37,24 +38,30 @@ def last_template_handler(
         >>> last_template_handler(["transliterator", "ar"], "fr", word="زب")
         'zb'
     """
-    from ..user_functions import capitalize, lookup_italic, term
+    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, term
     from ..transliterator import transliterate
 
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
+
+    if tpl == "w":
+        return render_wikilink(tpl, parts, data)
+
     # Handle the {{lang}} template when it comes with unknown locale
-    if template[0].lower() == "lang":
-        return template[-1]
+    if tpl.lower() == "lang":
+        return parts[-1]
 
     # Handle the specific {{transliterator}} template (which is a Wiktionary module)
-    if template[0] == "transliterator":
-        lang = template[1]
-        text = template[2] if len(template) == 3 else word
+    if tpl == "transliterator":
+        lang = parts[0]
+        text = parts[1] if len(parts) == 2 else word
         return transliterate(lang, text)
 
-    # {{tpl|item}} -> <i>(Template)</i>
+    # {{tpl|item}} -> <i>(Templatet gf)</i>
     if len(template) == 2:
-        return term(capitalize(lookup_italic(template[0], locale)))
+        return term(capitalize(lookup_italic(tpl, locale)))
 
-    italic = lookup_italic(template[0], locale, True)
+    italic = lookup_italic(tpl, locale, True)
     if italic:
         return term(capitalize(italic))
 
@@ -63,4 +70,14 @@ def last_template_handler(
         return ""
 
     # <i>(Template)</i>
-    return term(capitalize(lookup_italic(template[0], locale))) if template[0] else ""
+    return term(capitalize(lookup_italic(tpl, locale))) if tpl else ""
+
+
+def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_wikilink("w", ["Li Ptit Prince (roman)", "Li Ptit Prince"], defaultdict(str, {"lang": "wa"}))
+    'Li Ptit Prince'
+    >>> render_wikilink("w", ["Gesse aphaca", "Lathyrus aphaca"], defaultdict(str))
+    'Lathyrus aphaca'
+    """
+    return parts[-1]

@@ -1,6 +1,8 @@
 from typing import Tuple, Dict, List
 from collections import defaultdict  # noqa
+
 from .langs import langs
+from .. import defaults
 from ...user_functions import (
     capitalize,
     century,
@@ -585,6 +587,7 @@ template_mapping = {
     "supplétion": render_suppletion,
     "syncope": render_agglutination,
     "univerbation": render_agglutination,
+    "w": defaults.render_wikilink,
     "zh-lien": render_zh_lien,
 }
 

@@ -145,7 +145,7 @@ def last_template_handler(
         'manzana <sup>(es)</sup>'
     """
     from .langs import langs
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from ...user_functions import extract_keywords_from, italic, superscript
 
     tpl = template[0]
@@ -191,7 +191,7 @@ def last_template_handler(
         trans = data["tr"] or parts.pop(0)
         return f"{trans} {superscript('(' + src + ')')}"
 
-    return default(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word)
 
 
 # Release content on GitHub

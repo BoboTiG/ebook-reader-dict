@@ -425,10 +425,6 @@ def transform(word: str, template: str, locale: str) -> str:
         'ISO 639-3'
         >>> transform("foo", "formatnum:123", "fr")
         '123'
-        >>> transform("test", "w|Langenstriegis|lang=de", "fr")
-        'Langenstriegis'
-        >>> transform("test", "w|Gesse aphaca|Lathyrus aphaca", "fr")
-        'Lathyrus aphaca'
         >>> transform("foo", "grammaire|fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
@@ -452,7 +448,7 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> assert len(transform("foo", "CURRENTTIMESTAMP", "fr")) == 14
     """
 
-    parts_raw = [p for p in template.split("|") if not p.startswith("lang=")]
+    parts_raw = template.split("|")
     parts = [p.strip() for p in parts_raw]
     parts = [p.strip("\u200e") for p in parts]  # Left-to-right mark
     tpl = parts[0]
@@ -491,11 +487,6 @@ def transform(word: str, template: str, locale: str) -> str:
 @cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
 def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) -> str:
     """Convert the data from the *tpl* template of the *word* using the *locale*."""
-    # {{w|ISO 639-3}} -> ISO 639-3
-    # {{w|Gesse aphaca|Lathyrus aphaca}} -> Lathyrus aphaca
-    if tpl == "w":
-        return parts[-1]
-
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore
 
