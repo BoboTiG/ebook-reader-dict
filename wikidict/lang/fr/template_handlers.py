@@ -7,8 +7,10 @@ from ...user_functions import (
     capitalize,
     century,
     extract_keywords_from,
+    int_to_roman,
     italic,
     strong,
+    superscript,
     term,
 )
 
@@ -510,6 +512,30 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return term(phrase)
 
 
+def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_siecle2("siècle2", ["1"], defaultdict(str))
+    'I<sup>er</sup>'
+    >>> render_siecle2("siècle2", ["I"], defaultdict(str))
+    'I<sup>er</sup>'
+    >>> render_siecle2("siècle2", ["i"], defaultdict(str))
+    'I<sup>er</sup>'
+    >>> render_siecle2("siècle2", ["18"], defaultdict(str))
+    'XVIII<sup>e</sup>'
+    >>> render_siecle2("siècle2", ["XVIII"], defaultdict(str))
+    'XVIII<sup>e</sup>'
+    >>> render_siecle2("siècle2", ["xviii"], defaultdict(str))
+    'XVIII<sup>e</sup>'
+    """
+    number = parts[0]
+    if number.isnumeric():
+        number = int_to_roman(int(number))
+    else:
+        number = number.upper()
+    suffix = "er" if number == "I" else "e"
+    return f"{number}{superscript(suffix)}"
+
+
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_suisse("Suisse", ["fr"], defaultdict(str, {"précision":"Fribourg, Valais, Vaud"}))
@@ -595,6 +621,7 @@ template_mapping = {
     "recons": render_recons,
     "reverlanisation": render_agglutination,
     "siècle": render_siecle,
+    "siècle2": render_siecle2,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_agglutination,
