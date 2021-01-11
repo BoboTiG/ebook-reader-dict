@@ -363,10 +363,7 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         mot = data["dif"]
     if mot:
         # italic only for latin script
-        if max(mot) > "\u0370":
-            phrase += f" {mot}"
-        else:
-            phrase += f" {italic(mot)}"
+        phrase += f" {mot}" if max(mot) > "\u0370" else f" {italic(mot)}"
     if tr:
         phrase += f", {italic(tr)}" if mot else f" {italic(tr)}"
     if sens:
