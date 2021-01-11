@@ -528,10 +528,7 @@ def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'XVIII<sup>e</sup>'
     """
     number = parts[0]
-    if number.isnumeric():
-        number = int_to_roman(int(number))
-    else:
-        number = number.upper()
+    number = int_to_roman(int(number)) if number.isnumeric() else number.upper()
     suffix = "er" if number == "I" else "e"
     return f"{number}{superscript(suffix)}"
 
