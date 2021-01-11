@@ -197,16 +197,27 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Dérivé de <i>clear</i> avec le suffixe <i>-ly</i>'
     >>> render_compose_de("composé de", ["느낌", "표"], defaultdict(str, {"tr1":"neukkim", "sens1":"sensation", "tr2":"-pyo", "sens2":"symbole", "lang":"ko", "m":"1"}))
     'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;») avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
+    >>> render_compose_de("composé de", ["zone", "convergence"], defaultdict(str, {"m": "1"}))
+    'Composé de <i>zone</i> et de <i>convergence</i>'
+    >>> render_compose_de("composé de", ["Marcilly", "sur", "Tille"], defaultdict(str, {"lang": "fr", "m": "oui"}))
+    'Composé de <i>Marcilly</i>, <i>sur</i> et <i>Tille</i>'
+    >>> render_compose_de("composé de", ["faire", "boutique", "cul"], defaultdict(str, {"m": "1", "lang": "fr"}))
+    'Composé de <i>faire</i>, <i>boutique</i> et <i>cul</i>'
+    >>> render_compose_de("composé de", ["arthro-", "-logie"], defaultdict(str, {"lang": "fr", "m": "oui"}))
+    'Composé de <i>arthro-</i> et de <i>-logie</i>'
     """  # noqa
-    is_derived = any(part.startswith("-") or part.endswith("-") for part in parts)
+    is_not_derived = all(part.startswith("-") or part.endswith("-") for part in parts)
+    is_derived = not is_not_derived and any(
+        part.startswith("-") or part.endswith("-") for part in parts
+    )
     is_derived |= any(
         part.startswith("-") or part.endswith("-") for part in data.values()
     )
 
     if is_derived:
         # Dérivé
-        phrase = "D" if "m" in data else "d"
-        phrase += "érivée de " if "f" in data else "érivé de "
+        phrase = "D" if data["m"] in ("1", "oui") else "d"
+        phrase += "érivée de " if data["f"] in ("1", "oui") else "érivé de "
 
         parts = sorted(parts, key=lambda part: "-" in part)
 
@@ -240,8 +251,8 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return phrase
 
     # Composé
-    phrase = "C" if "m" in data else "c"
-    phrase += "omposée de " if "f" in data else "omposé de "
+    phrase = "C" if data["m"] in ("1", "oui") else "c"
+    phrase += "omposée de " if data["f"] in ("1", "oui") else "omposé de "
     multiple = len(parts) > 2
     for number, part in enumerate(parts, 1):
         phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
@@ -252,13 +263,14 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             idx = f"sens{number}"
             phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
 
-        phrase += (
-            " et de "
-            if number == len(parts) - 1
-            else ", "
-            if multiple and number <= len(part)
-            else ""
-        )
+        if number == len(parts) - 1:
+            phrase += " et "
+            if data["lang"] != "fr" or is_not_derived or not multiple:
+                phrase += "de "
+        elif multiple and number < len(part):
+            phrase += ", "
+
+    phrase = phrase.rstrip(", ")
 
     if "sens" in data:
         phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
