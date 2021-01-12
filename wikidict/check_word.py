@@ -79,7 +79,6 @@ def main(locale: str, word: str) -> int:
     details = get_word(word, locale)
     text = get_wiktionary_page(word, locale)
     errors = 0
-    print(text)
 
     if details.etymology:
         errors += check(text, details.etymology, " !! Etymology")
