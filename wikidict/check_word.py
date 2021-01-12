@@ -32,7 +32,7 @@ def contains(pattern: str, text: str) -> bool:
     return no_spaces(pattern) in text
 
 
-def filter_html(html: str) -> str:
+def filter_html(html: str, locale: str) -> str:
     """Some parts of the Wiktionary HTML."""
     bs = BeautifulSoup(markup=html, features="html.parser")
 
@@ -44,6 +44,13 @@ def filter_html(html: str) -> str:
     # Filter out warnings about obsolete template models used
     for span in bs.find_all("span", {"id": "FormattingError"}):
         span.decompose()
+
+    if locale == "es":
+        dts = bs.find_all("dt")
+        for dt in dts:
+            dt_array = dt.text.split(" ", 1)
+            if len(dt_array) == 2:
+                dt.string = dt_array[0] + " " + f'({dt_array[1].strip(".")}):'
 
     return no_spaces(bs.text)
 
@@ -64,7 +71,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
     with requests.get(url) as req:
-        return filter_html(req.text)
+        return filter_html(req.text, locale)
 
 
 def main(locale: str, word: str) -> int:
@@ -72,6 +79,7 @@ def main(locale: str, word: str) -> int:
     details = get_word(word, locale)
     text = get_wiktionary_page(word, locale)
     errors = 0
+    print(text)
 
     if details.etymology:
         errors += check(text, details.etymology, " !! Etymology")
