@@ -1,5 +1,6 @@
 """Portuguese language."""
 from typing import Tuple
+from .escopos import escopos
 
 # Regex to find the pronunciation
 pronunciation = r"{AFI\|\[([^\]]+)\]}"
@@ -54,21 +55,7 @@ templates_ignored = (
 )
 
 # Templates that will be completed/replaced using italic style.
-templates_italic = {
-    "antigo": "arcaico",
-    "Calão": "obsceno",
-    "Cidade": "Geografia",
-    "coloquialismo": "coloquial",
-    "Coloquialismo": "coloquial",
-    "Crustáceo": "Zoologia",
-    "Desuso": "em desuso",
-    "Figurado": "figurado",
-    "Flor": "Botânica",
-    "Informal": "coloquial",
-    "Planta": "Botânica",
-    "Popular": "coloquial",
-    "réptil": "Zoologia",
-}
+templates_italic = {**escopos}
 
 # Templates more complex to manage.
 templates_multi = {
