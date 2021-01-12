@@ -18,9 +18,9 @@ from ...user_functions import (
 def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_abreviation("abréviation", [], defaultdict(str))
-    '<i>Abréviation</i>'
+    '<i>(Abréviation)</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str))
-    '<i>Abréviation</i>'
+    '<i>(Abréviation)</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain", "m": "1"}))
     'Abréviation de <i>dirham marocain</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain"}))
@@ -31,7 +31,7 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'abréviation de <i>accusatif</i>'
     """  # noqa
     if not parts or not data:
-        return italic("Abréviation")
+        return italic("(Abréviation)")
 
     auto_cap = data["m"] in ("1", "oui")
     phrase = ("A" if auto_cap else "a") + "bréviation de "
