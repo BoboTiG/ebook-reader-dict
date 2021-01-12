@@ -19,9 +19,20 @@ def test_error():
 def test_filter_obsolete_tpl():
     orig = check_word.filter_html
 
-    def new_filter_html(html: str) -> str:
+    def new_filter_html(html: str, locale: str) -> str:
         html += "<span id='FormattingError'>bouh !</span>"
-        return orig(html)
+        return orig(html, locale)
 
     with patch.object(check_word, "filter_html", new=new_filter_html):
         assert check_word.main("fr", "42") == 0
+
+
+def test_filter_spanish():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += "<dl><dt>1 Finanzas.</dt></dl>"
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "42") == 0
