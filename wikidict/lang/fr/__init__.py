@@ -194,6 +194,7 @@ templates_ignored = (
     "réfnéc",
     "réfnec",
     "référence nécessaire",
+    "Référence nécessaire",
     "réf",
     "réf?",
     "réf ?",
