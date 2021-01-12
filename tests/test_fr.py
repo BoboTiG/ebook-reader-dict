@@ -393,6 +393,7 @@ def test_parse_word(
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",
             "grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»)",
         ),
+        ("{{Deva|[[देव]]|deva|divin}}", "देव"),
         ("{{divinités|fr|grecques}}", "<i>(Divinité)</i>"),
         ("{{info lex|boulangerie}}", "<i>(Boulangerie)</i>"),
         ("{{info lex|équitation|sport}}", "<i>(Équitation, Sport)</i>"),
