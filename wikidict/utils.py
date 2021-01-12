@@ -419,10 +419,8 @@ def transform(word: str, template: str, locale: str) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
-        >>> transform("foo", "w|ISO 639-3", "fr")
-        'ISO 639-3'
-        >>> transform("foo spaces", "w | ISO 639-3", "fr")
-        'ISO 639-3'
+        >>> transform("séga", "w", "fr")
+        'séga'
         >>> transform("foo", "formatnum:123", "fr")
         '123'
         >>> transform("foo", "grammaire|fr", "fr")
@@ -472,7 +470,7 @@ def transform(word: str, template: str, locale: str) -> str:
     # Magic words
     if tpl in MAGIC_WORDS:
         return MAGIC_WORDS[tpl]
-    elif tpl == "PAGENAME":
+    elif tpl == "PAGENAME" or (tpl == "w" and len(parts) == 1):
         return word.replace("_", " ")
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used

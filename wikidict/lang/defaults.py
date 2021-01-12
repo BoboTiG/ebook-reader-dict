@@ -75,9 +75,21 @@ def last_template_handler(
 
 def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
+    >>> render_wikilink("w", [], defaultdict(str))
+    ''
     >>> render_wikilink("w", ["Li Ptit Prince (roman)", "Li Ptit Prince"], defaultdict(str, {"lang": "wa"}))
     'Li Ptit Prince'
     >>> render_wikilink("w", ["Gesse aphaca", "Lathyrus aphaca"], defaultdict(str))
     'Lathyrus aphaca'
-    """
-    return parts[-1]
+    >>> render_wikilink("w", [], defaultdict(str, {"Paulin <span style": "'font-variant:small-caps'>Paris</span>", "lang": "fr"}))
+    "Paulin <span style='font-variant:small-caps'>Paris</span>"
+    """  # noqa
+    if parts:
+        return parts[-1]
+
+    # Possible imbricated templates: {{w| {{pc|foo bar}} }}
+    if data:
+        return "".join(f"{k}={v}" for k, v in data.items() if k != "lang")
+
+    # Should not happen as it is already handled in utils.transform()
+    return ""
