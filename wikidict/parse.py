@@ -54,7 +54,7 @@ def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
         return "", ""
 
     # no interesting head section, a foreign word?
-    if not any(section in code for section in head_sections[locale]):
+    if all(section not in code for section in head_sections[locale]):
         return "", ""
 
     word = element[0].text or ""  # title
