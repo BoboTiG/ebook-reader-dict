@@ -302,6 +302,7 @@ templates_italic = {
     "hippisme": "Sports hippiques",
     "hist": "Histoire",
     "horlog": "Horlogerie",
+    "humour": "Par plaisanterie",
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
     "idiomatique": "Figuré",
@@ -365,6 +366,7 @@ templates_italic = {
     "p us": "Peu usité",
     "paléogr": "Paléographie",
     "par ext": "Par extension",
+    "par plaisanterie": "Par plaisanterie",
     "part": "En particulier",
     "partic": "En particulier",
     "particulier": "En particulier",
@@ -378,6 +380,7 @@ templates_italic = {
     "pl-cour": "Plus courant",
     "pl-rare": "Plus rare",
     "plais": "Par plaisanterie",
+    "plaisanterie": "Par plaisanterie",
     "poés": "Poésie",
     "polit": "Politique",
     "popu": "Populaire",
@@ -652,7 +655,7 @@ templates_other = {
     "t": "<i>transitif</i>",
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
-    "usage": "<b>Note d'usage&nbsp;:</b>",
+    "usage": "<b>Note d’usage&nbsp;:</b>",
     "WP": "sur l'encyclopédie Wikipedia",
 }
 
