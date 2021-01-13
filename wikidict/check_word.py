@@ -45,6 +45,11 @@ def filter_html(html: str, locale: str) -> str:
     for span in bs.find_all("span", {"id": "FormattingError"}):
         span.decompose()
 
+    # Filter out Wikispecies links
+    for span in bs.find_all("span", {"class": "trad-exposant"}):
+        span.decompose()
+
+    # Adapt the formatting for the ES locale as it differs from other locales
     if locale == "es":
         dts = bs.find_all("dt")
         for dt in dts:
