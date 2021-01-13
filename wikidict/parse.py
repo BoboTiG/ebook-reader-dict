@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, Generator, Optional, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
+from .lang import head_sections
 
 
 def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
@@ -33,7 +34,7 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
             root.clear()
 
 
-def xml_parse_element(element: Element) -> Tuple[str, str]:
+def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
     if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
@@ -52,17 +53,21 @@ def xml_parse_element(element: Element) -> Tuple[str, str]:
         # No Wikicode, maybe an unfinished page.
         return "", ""
 
+    # no interesting head section, a foreign word?
+    if not any(section in code for section in head_sections[locale]):
+        return "", ""
+
     word = element[0].text or ""  # title
     return word, code
 
 
-def process(file: Path) -> Dict[str, str]:
+def process(file: Path, locale: str) -> Dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: Dict[str, str] = defaultdict(str)
 
     print(f">>> Processing {file} ...", flush=True)
     for element in xml_iter_parse(file):
-        word, code = xml_parse_element(element)
+        word, code = xml_parse_element(element, locale)
         if not word or not code or ":" in word:
             continue
         words[word] = code
@@ -96,7 +101,7 @@ def main(locale: str) -> int:
 
     date = file.stem.split("-")[1]
     if not (output_dir / f"data_wikicode-{date}.json").is_file():
-        words = process(file)
+        words = process(file, locale)
         save(date, words, output_dir)
     print(">>> Parse done!", flush=True)
     return 0
