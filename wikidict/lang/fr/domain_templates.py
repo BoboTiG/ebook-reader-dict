@@ -37,6 +37,7 @@ domain_templates = {
     "canards": "Ornithologie",
     "canaux": "Géographie",
     "canidés": "Mammifères",
+    "capitales": "Géographie",
     "caprins": "Zoologie",
     "carnivores": "Zoologie",
     "cépages": "Œnologie",
@@ -267,5 +268,5 @@ domain_templates = {
     "voitures": "Automobile",
     "xénarthres": "Mammalogie",
     "zoologie": "Zoologie",
-}  # 262
+}  # 263
 # END
