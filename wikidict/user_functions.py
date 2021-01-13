@@ -231,6 +231,8 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
         >>> lookup_italic("inexistant", "fr")
         'inexistant'
     """
+    if locale == "pt":
+        word = word.lower()
     return templates_italic[locale].get(word, "" if empty_default else word)
 
 

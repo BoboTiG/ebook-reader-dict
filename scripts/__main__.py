@@ -11,6 +11,7 @@ FILES = {
     "fr-domain-templates.py": "wikidict/lang/fr/domain_templates.py",
     "fr-langs.py": "wikidict/lang/fr/langs.py",
     "fr-regions.py": "wikidict/lang/fr/regions.py",
+    "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
 }
