@@ -64,7 +64,7 @@ def test_parse_restricted_word(tmp_path):
 """
     )
 
-    assert parse.process(file)
+    assert parse.process(file, "fr")
 
 
 def test_parse_redirected_word(tmp_path):
@@ -82,7 +82,7 @@ def test_parse_redirected_word(tmp_path):
 """
     )
 
-    assert not parse.process(file)
+    assert not parse.process(file, "fr")
 
 
 def test_parse_word_without_definitions(tmp_path):
@@ -112,7 +112,7 @@ def test_parse_word_without_definitions(tmp_path):
 """
     )
 
-    assert not parse.process(file)
+    assert not parse.process(file, "fr")
 
 
 def test_parse_word_with_colons(tmp_path):
@@ -143,4 +143,4 @@ def test_parse_word_with_colons(tmp_path):
 """
     )
 
-    assert not parse.process(file)
+    assert not parse.process(file, "fr")
