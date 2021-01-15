@@ -451,6 +451,32 @@ def render_lien_rouge(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return res
 
 
+def render_mot_valise(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"m":"1"}))
+    'Mot-valise'
+    >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"de":"abandonné", "de2": "logiciel"}))
+    'mot-valise formé de <i>abandonné</i> et de <i>logiciel</i>'
+    >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"de":"abandonné", "de2": "logiciel", "texte": "a", "texte2":"software"}))
+    'mot-valise formé de <i>a</i> et de <i>software</i>'
+    >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"de":"abandonné", "de2": "logiciel", "texte2":"software", "nolien":"1"}))
+    'mot-valise formé de <i>abandonné</i> et de <i>logiciel</i>'
+    """  # noqa
+    phrase = "Mot-valise" if data["m"] in ("oui", "1") else "mot-valise"
+    if data["de"] or data["texte"]:
+        if data["nolien"] in ("", "non", "0") and data["texte"]:
+            phrase += f' formé de {italic(data["texte"])}'
+        elif data["de"]:
+            phrase += f' formé de {italic(data["de"])}'
+    if data["de2"] or data["texte2"]:
+        if data["nolien"] in ("", "non", "0") and data["texte2"]:
+            phrase += f' et de {italic(data["texte2"])}'
+        elif data["de2"]:
+            phrase += f' et de {italic(data["de2"])}'
+
+    return phrase
+
+
 def render_polytonique(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_polytonique("polytonique", ["μηρóς", "mêrós", "cuisse"], defaultdict(str))
@@ -609,6 +635,7 @@ template_mapping = {
     "lien": render_lien,
     "l": render_lien,
     "LienRouge": render_lien_rouge,
+    "mot-valise": render_mot_valise,
     "parataxe": render_agglutination,
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
