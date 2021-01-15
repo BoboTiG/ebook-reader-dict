@@ -205,6 +205,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "Condición o carácter de abad o abadesa",
         ),
         ("{{sustantivo de verbo|circular}}", "Acción o efecto de circular"),
+        (
+            "{{sustantivo de verbo|sublevar|sublevarse}}",
+            "Acción o efecto de sublevar o de sublevarse",
+        ),
         ("{{-sup|2}}", "<sup>2</sup>"),
         ("{{superlativo|abundante}}", "<i>Superlativo de</i> abundante"),
         ("{{ucf|mujer}}", "Mujer"),

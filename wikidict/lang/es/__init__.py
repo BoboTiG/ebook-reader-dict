@@ -215,7 +215,7 @@ templates_multi = {
     # {{sustantivo de adjetivo|abad|abadesa}}
     "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if len(parts) > 2 else "")',
     # {{sustantivo de verbo|circular}}
-    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}"',
+    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if len(parts) > 2 else "")',
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
     # {{superlativo|abundante}}
