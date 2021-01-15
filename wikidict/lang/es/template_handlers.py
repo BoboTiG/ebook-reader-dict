@@ -3,6 +3,7 @@ from collections import defaultdict  # noqa
 from .langs import langs
 from ...user_functions import (
     capitalize,
+    concat,
     extract_keywords_from,
     italic,
 )
@@ -45,12 +46,20 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Del japonés <i>片仮名</i> (<i>カタカナ, katakana</i>)'
     >>> render_etimologia("etimología", ["la", "incertus"], defaultdict(str))
     'Del latín <i>incertus</i>'
+    >>> render_etimologia("etimología", ["la", "piscis", "pez"], defaultdict(str))
+    'Del latín <i>piscis</i> ("pez")'
     >>> render_etimologia("etimología", ["la", "-aceus"], defaultdict(str, {"alt":"-acĕus"}))
     'Del latín <i>-acĕus</i>'
     >>> render_etimologia("etimología", ["la", "illos"], defaultdict(str, {"diacrítico":"illōs", "sig":"no"}))
     'Del latín <i>illōs</i>'
     >>> render_etimologia("etimología", ["osp", "fasta"], defaultdict(str))
     'Del castellano antiguo <i>fasta</i>'
+    >>> render_etimologia("etimología", ["grc", "ἄκανθα", "espina", "grc","πτερύγιον", "aleta"], defaultdict(str, {"tr":"akntha", "tr2": "pterúgion"}))
+    'Del griego antiguo <i>ἄκανθα</i> (<i>akntha</i>, "espina") y <i>πτερύγιον</i> (<i>pterúgion</i>, "aleta")'
+    >>> render_etimologia("etimología", ["osp", "foja", "", "osp","foia"], defaultdict(str))
+    'Del castellano antiguo <i>foja</i> y <i>foia</i>'
+    >>> render_etimologia("etimología", ["osp", "foja", "", "la","sed"], defaultdict(str))
+    'Del castellano antiguo <i>foja</i> y el latín <i>sed</i>'
     >>> render_etimologia("etimología", ["plural", "vista"], defaultdict(str))
     'De <i>vista</i> y el sufijo flexivo <i>-s</i>'
     >>> render_etimologia("etimología", ["plural", "vacación", "-es"], defaultdict(str))
@@ -65,6 +74,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>átomo</i> y el sufijo <i>-ico</i>'
     >>> render_etimologia("etimología", ["sufijo", "ferrojo", "ar"], defaultdict(str, {"tr":"anticuado por cerrojo e influido por fierro"}))
     'De <i>ferrojo</i> (<i>anticuado por cerrojo e influido por fierro</i>) y el sufijo <i>-ar</i>'
+    >>> render_etimologia("etimología", ["sufijo", "espumar", "ero"], defaultdict(str, {"alt":"espumado", "alt2":"era"}))
+    'De <i>espumado</i> y el sufijo <i>-era</i>'
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
     """  # noqa
@@ -108,13 +119,40 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
     elif cat == "sufijo":
         sens = data.get("tr", "")
+        word = data["alt"] or data["diacrítico"] or (parts[0] if parts else "")
+        word2 = (
+            data["alt2"] or data["diacrítico2"] or (parts[1] if len(parts) > 1 else "")
+        )
         more = f" ({italic(sens)})" if sens else ""
-        phrase = f"De {italic(parts[0])}{more} y el sufijo {italic(suffix + parts[1])}"
+        phrase = f"De {italic(word)}{more} y el sufijo {italic(suffix + word2)}"
     elif cat in langs:
         phrase = f"Del {langs[cat]} {italic(word)}"
+        tr = data["tr"] or data["transcripción"]
+        local_phrase = []
+        if tr:
+            local_phrase.append(italic(tr))
+        if len(parts) > 1 and parts[1]:
+            local_phrase.append(f'"{parts[1]}"')
+        if local_phrase:
+            phrase += f' ({concat(local_phrase, ", ")})'
+
+        if len(parts) > 3 and parts[2] in langs:
+            phrase += " y"
+            lang2 = parts[2]
+            if lang2 != cat:
+                phrase += f" el {langs[lang2]}"
+            phrase += f" {italic(parts[3])}"
+            tr2 = data["tr2"] or data["transcripción2"]
+            local_phrase = []
+            if tr2:
+                local_phrase.append(italic(tr2))
+            if len(parts) > 4 and parts[4]:
+                local_phrase.append(f'"{parts[4]}"')
+            if local_phrase:
+                phrase += f' ({concat(local_phrase, ", ")})'
     else:
         phrase = f"Del {cat} {italic(word)}" if cat else ""
-        sens = data.get("transcripción", "")
+        sens = data["transcripción"]
         if sens or len(parts) > 1:
             phrase += f" ({italic(sens)}"
             if len(parts) > 1:
