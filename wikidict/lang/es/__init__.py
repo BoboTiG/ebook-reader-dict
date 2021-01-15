@@ -166,7 +166,7 @@ templates_italic = {
 # Templates more complex to manage.
 templates_multi = {
     # {{adjetivo de sustantivo|el mundo árabe}}
-    "adjetivo de sustantivo": 'f"Que pertenece o concierne a {parts[1]}"',
+    "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',  # noqa
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{contracción|de|ellas|leng=es}}
