@@ -230,10 +230,19 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
         'Absolument'
         >>> lookup_italic("inexistant", "fr")
         'inexistant'
+        >>> lookup_italic("alagoas", "pt")
+        'Alagoas'
+        >>> lookup_italic("Antropônimo", "pt")
+        'Antropônimo'
     """
+    default = "" if empty_default else word
+    looking_for = word
+
     if locale == "pt":
-        word = word.lower()
-    return templates_italic[locale].get(word, "" if empty_default else word)
+        looking_for = word.lower()
+        default = word
+
+    return templates_italic[locale].get(looking_for, default)
 
 
 def number(number: str, fsep: str, tsep: str) -> str:

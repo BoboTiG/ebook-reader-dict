@@ -118,7 +118,7 @@ from wikidict.utils import process_templates
             "",
             [
                 '<i>(antigo)</i> contração do pronome pessoal "te" com o pronome pessoal ou demonstrativo "o"',
-                "<i>(coloquial e brasil)</i> forma aferética (muito comum na linguagem falada) de estou",
+                "<i>(coloquial e Brasil)</i> forma aferética (muito comum na linguagem falada) de estou",
             ],
         ),
         (
@@ -146,10 +146,6 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
     [
         ("{{AFI|/k/|pt}}", "/k/"),
         ("{{barra de cor|yellow|#FFFF00}}", "[RGB #FFFF00]"),
-        ("{{escopo|Pecuária}}", "<i>(Pecuária)</i>"),
-        ("{{escopo|pt|estrangeirismo}}", "<i>(estrangeirismo)</i>"),
-        ("{{escopo|pt|réptil}}", "<i>(Zoologia)</i>"),
-        ("{{escopo|pt|coloquial|brasil}}", "<i>(coloquial e brasil)</i>"),
         ("{{escopo2|Informática}}", "<i>(Informática)</i>"),
         ("{{escopo2|Brasil|governo}}", "<i>(Brasil)</i>"),
         ("{{escopoCat|Náutica|pt}}", "<i>(Náutica)</i>"),

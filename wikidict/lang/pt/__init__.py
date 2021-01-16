@@ -63,10 +63,6 @@ templates_multi = {
     "AFI": "parts[1]",
     # {{barra de cor|#0000FF|#0000FF}}
     "barra de cor": "color(parts[-1])",
-    # {{escopo|Pecuária}}
-    # {{escopo|pt|estrangeirismo}}
-    # {{escopo|pt|coloquial|brasil}}
-    "escopo": "term(lookup_italic(concat(parts, sep=' e ', indexes=[2, 3, 4, 5], skip='_'), 'pt') or parts[1])",
     # {{escopo2|Informática}}
     # {{escopo2|Brasil|governo}}
     "escopo2": "term(parts[1])",
@@ -113,6 +109,19 @@ def last_template_handler(
 ) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["escopo", "Pecuária"], "pt")
+        '<i>(Pecuária)</i>'
+        >>> last_template_handler(["escopo", "pt", "estrangeirismo"], "pt")
+        '<i>(estrangeirismo)</i>'
+        >>> last_template_handler(["escopo", "pt", "Antropônimo"], "pt")
+        '<i>(Antropônimo)</i>'
+        >>> last_template_handler(["escopo", "pt", "réptil"], "pt")
+        '<i>(Zoologia)</i>'
+        >>> last_template_handler(["escopo", "pt", "coloquial", "brasil"], "pt")
+        '<i>(coloquial e Brasil)</i>'
+        >>> last_template_handler(["escopo", "pt", "Catolicismo", "cristianismo", "cristianismo"], "pt")
+        '<i>(Catolicismo, cristianismo e cristianismo)</i>'
 
         >>> last_template_handler(["etimo", "la", "canem"], "pt")
         '<i>canem</i> <sup>(la)</sup>'
@@ -193,12 +202,18 @@ def last_template_handler(
         concat,
         extract_keywords_from,
         italic,
+        lookup_italic,
         small,
         superscript,
+        term,
     )
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "escopo":
+        words = [lookup_italic(p, "pt") for p in parts if p != "pt"]
+        return term(concat(words, sep=", ", last_sep=" e "))
 
     if tpl in ("etimo", "étimo"):
         src = parts.pop(0)  # Remove the lang
