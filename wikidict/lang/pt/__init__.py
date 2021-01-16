@@ -145,6 +145,9 @@ def last_template_handler(
         >>> last_template_handler(["gramática", "n", "d", "trat"], "pt")
         '<i>neutro</i>, <i>dativo</i>, <i>de tratamento</i>'
 
+        >>> last_template_handler(["la"], "pt")
+        'Latim'
+
         >>> last_template_handler(["llietimo", "en", "anaconda"], "pt")
         'Do inglês <i>anaconda</i> <sup>(en)</sup>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
@@ -276,6 +279,10 @@ def last_template_handler(
 
     if tpl == "xlatio":
         return f"{parts[1]} {parts[2]}"
+
+    # This is a country in the current locale
+    if tpl in langs:
+        return langs[tpl].capitalize()
 
     return default(template, locale, word=word)
 
