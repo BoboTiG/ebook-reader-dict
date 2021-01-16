@@ -152,6 +152,7 @@ def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
         ("{{escopo|pt|coloquial|brasil}}", "<i>(coloquial e brasil)</i>"),
         ("{{escopo2|Informática}}", "<i>(Informática)</i>"),
         ("{{escopo2|Brasil|governo}}", "<i>(Brasil)</i>"),
+        ("{{escopoCat|Árvore|pt}}", "<i>(Botânica)</i>"),
         ("{{escopoCat|Náutica|pt}}", "<i>(Náutica)</i>"),
         ("{{escopoCatLang|Verbo auxiliar|pt}}", "<i>(Verbo auxiliar)</i>"),
         ("{{escopoUso|Portugal|pt}}", "<i>(Portugal)</i>"),
