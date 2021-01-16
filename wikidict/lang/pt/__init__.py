@@ -69,7 +69,7 @@ templates_multi = {
     # {{escopoCat|Náutica|pt}}
     "escopoCat": "term(lookup_italic(parts[1], 'pt'))",
     # {{escopoCatLang|Verbo auxiliar|pt}}
-    "escopoCatLang": "term(parts[1])",
+    "escopoCatLang": "term(lookup_italic(parts[1], 'pt'))",
     # {{escopoClasseMorfo|variação}}
     "escopoClasseMorfo": "small('(' + parts[-1] + ')')",
     # {{escopoUso|Portugal|pt}}
