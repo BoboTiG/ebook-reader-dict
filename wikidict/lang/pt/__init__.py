@@ -112,6 +112,8 @@ def last_template_handler(
 
         >>> last_template_handler(["escopo", "Pecuária"], "pt")
         '<i>(Pecuária)</i>'
+        >>> last_template_handler(["escopo", "Brasileirismo"], "pt")
+        '<i>(Brasileirismo)</i>'
         >>> last_template_handler(["escopo", "pt", "estrangeirismo"], "pt")
         '<i>(estrangeirismo)</i>'
         >>> last_template_handler(["escopo", "pt", "Antropônimo"], "pt")
@@ -217,7 +219,10 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl == "escopo":
-        words = [lookup_italic(p, "pt") for p in parts if p not in langs]
+        if len(parts) == 1:
+            words = parts
+        else:
+            words = [lookup_italic(p, "pt") for p in parts if p not in langs]
         return term(concat(words, sep=", ", last_sep=" e "))
 
     if tpl in ("etimo", "étimo"):
