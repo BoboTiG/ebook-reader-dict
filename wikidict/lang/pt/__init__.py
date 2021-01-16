@@ -67,7 +67,7 @@ templates_multi = {
     # {{escopo2|Brasil|governo}}
     "escopo2": "term(parts[1])",
     # {{escopoCat|Náutica|pt}}
-    "escopoCat": "term(parts[1])",
+    "escopoCat": "term(lookup_italic(parts[1], 'pt'))",
     # {{escopoCatLang|Verbo auxiliar|pt}}
     "escopoCatLang": "term(parts[1])",
     # {{escopoClasseMorfo|variação}}
