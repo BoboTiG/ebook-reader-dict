@@ -28,6 +28,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     ''
     >>> render_etimologia("etimología", ["compuesto", "sacar", "punta"], defaultdict(str))
     'Compuesto de <i>sacar</i> y <i>punta</i>'
+    >>> render_etimologia("etimología", ["compuesto", "regio", "monte", "-ano"], defaultdict(str))
+    'Compuesto de <i>regio</i>, <i>monte</i> y <i>-ano</i>'
     >>> render_etimologia("etimología", ["compuesto", "-ónimo", "-iae"], defaultdict(str, {"e":"e"}))
     'Compuesto de <i>-ónimo</i> e <i>-iae</i>'
     >>> render_etimologia("etimología", ["confijo", "anglo", "filo"], defaultdict(str, {"tilde":"sí"}))
@@ -78,6 +80,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>espumado</i> y el sufijo <i>-era</i>'
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
+    >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
+    'Incierta'
     """  # noqa
     if not parts:
         return ""
@@ -91,7 +95,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     cat = parts.pop(0)
     if cat == "compuesto":
         phrase = "Compuesto de "
-        phrase += f" {glue} ".join(map(italic, parts))
+        phrase += concat(list(map(italic, parts)), ", ", f" {glue} ")
     elif cat == "confijo":
         phrase = f"Del prefijo {italic(parts.pop(0) + '-')}"
         for part in parts[:-1].copy():
@@ -101,6 +105,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase = "Epónimo"
         if parts:
             phrase += f" {parts[-1]}"
+    elif cat == "incierta":
+        return "Incierta"
     elif cat == "femenino":
         phrase = (
             f"De {italic(parts[0])} y el sufijo flexivo {italic('-a')} para el femenino"
