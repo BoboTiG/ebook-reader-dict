@@ -95,6 +95,8 @@ templates_multi = {
     # {{mq|palavra}}
     # {{mq|word|en}}
     "mq": 'f"o mesmo que {strong(parts[1]) if len(parts) == 2 else italic(parts[1])}"',
+    # {{PE|cu}}
+    "PE": "f\"{parts[-1]} {superscript('(português de Portugal)')}\"",
     # {{r|la|basium|basĭum}}
     "r": "parts[-1]",
     # {{r.l|la|utor|ūtor}}
