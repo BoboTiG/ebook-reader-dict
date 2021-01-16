@@ -162,6 +162,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{adjetivo de sustantivo|el mundo árabe}}",
             "Que pertenece o concierne a el mundo árabe",
         ),
+        (
+            "{{adjetivo de sustantivo|chamán o al chamanismo|al}}",
+            "Que pertenece o concierne al chamán o al chamanismo",
+        ),
         ("{{Anatomía|y|Zootomía}}", "<i>(Anatomía y Zootomía)</i>"),
         (
             "{{Angiología|Endocrinología|Fisiología|Medicina}}",
