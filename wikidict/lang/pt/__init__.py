@@ -112,6 +112,9 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["+info", "data=1871"], "pt")
+        '<small>( <i>Datação</i>: 1871; )</small>'
+
         >>> last_template_handler(["escopo", "Pecuária"], "pt")
         '<i>(Pecuária)</i>'
         >>> last_template_handler(["escopo", "Brasileirismo"], "pt")
@@ -219,6 +222,11 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "+info":
+        phrase = italic("Datação")
+        phrase += f": {data['data']};"
+        return small(f"( {phrase} )")
 
     if tpl == "escopo":
         if len(parts) == 1:
