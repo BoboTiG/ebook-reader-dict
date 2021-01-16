@@ -214,7 +214,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "Acción o efecto de sublevar o de sublevarse",
         ),
         ("{{-sup|2}}", "<sup>2</sup>"),
-        ("{{superlativo|abundante}}", "<i>Superlativo de</i> abundante"),
         ("{{ucf|mujer}}", "Mujer"),
         ("{{variante|atiesar}}", "<i>Variante de</i> atiesar"),
         (

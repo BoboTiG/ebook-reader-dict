@@ -218,8 +218,6 @@ templates_multi = {
     "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if len(parts) > 2 else "")',
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
-    # {{superlativo|abundante}}
-    "superlativo": "f\"{italic('Superlativo de')} {parts[1]}\"",
     # {{ucf|mujer}}
     "ucf": "capitalize(parts[1])",
     # {{variante obsoleta|hambre}}"

@@ -187,9 +187,42 @@ def render_l_plus(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_superlativo("superlativo", ["abundante"], defaultdict(str))
+    '<i>Superlativo de</i> abundante:&nbsp;sumamente abundante'
+    >>> render_superlativo("superlativo", ["pobre"], defaultdict(str, {"i":"s"}))
+    '<i>Superlativo irregular de</i> pobre:&nbsp;sumamente pobre'
+    >>> render_superlativo("superlativo", ["pobre"], defaultdict(str, {"i":"s", "alt":"alt"}))
+    '<i>Superlativo irregular de</i> alt:&nbsp;sumamente pobre'
+    >>> render_superlativo("superlativo", ["pobre"], defaultdict(str, {"def":"x"}))
+    '<i>Superlativo de</i> pobre'
+    >>> render_superlativo("superlativo", ["pobre"], defaultdict(str, {"tr":"tr", "glosa":"glosa"}))
+    '<i>Superlativo de</i> pobre (<i>tr</i>, "glosa"):&nbsp;sumamente pobre'
+    """
+    word = parts[0] if parts else ""
+    start = "Superlativo"
+    if data["i"] or data["irr"] or data["irreg"] or data["irregular"]:
+        start += " irregular"
+    start += " de"
+    phrase = italic(start)
+    phrase += f" {data['alt']}" if data["alt"] else f" {word}"
+    local_phrase = []
+    if data["tr"]:
+        local_phrase.append(italic(data["tr"]))
+    if data["glosa"]:
+        local_phrase.append(f'"{data["glosa"]}"')
+    if local_phrase:
+        phrase += f' ({concat(local_phrase, ", ")})'
+    if not data["def"]:
+        phrase += f":&nbsp;sumamente {word}"
+    return phrase
+
+
 template_mapping = {
     "etimología": render_etimologia,
     "l+": render_l_plus,
+    "superlativo": render_superlativo,
     "variante": render_variante,
 }
 
