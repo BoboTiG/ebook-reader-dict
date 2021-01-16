@@ -46,6 +46,7 @@ definitions_to_ignore = (
     "forma adjetivo",
     "forma adjetivo 2",
     "forma participio",
+    "forma verbo",
     "marcar sin referencias",
     "participio",
 )
