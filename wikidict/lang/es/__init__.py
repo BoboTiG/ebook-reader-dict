@@ -245,20 +245,27 @@ def last_template_handler(
         '<i>(Arte, Arquitectura)</i>'
         >>> last_template_handler(["Botánica", "leng=es"], "es")
         '<i>(Botánica)</i>'
+        >>> last_template_handler(["etim", "la", "folia"], "es")
+        'del latín <i>folia</i>'
 
     """
     from itertools import zip_longest
     from ...user_functions import (
         capitalize,
+        italic,
         lookup_italic,
         term,
     )
+    from .langs import langs
     from .template_handlers import render_template, lookup_template
 
     if lookup_template(template[0]):
         return render_template(template)
 
     parts = [part for part in template[1:] if part.strip()]
+
+    if template[0] == "etim":
+        return f"del {langs[parts[0]]} {italic(parts[1])}"
 
     res = ""
     for word1, word2 in zip_longest(template, parts):
