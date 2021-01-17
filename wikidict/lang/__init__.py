@@ -152,7 +152,7 @@ templates_ignored = {
     "es": es.templates_ignored,
     "fr": fr.templates_ignored,
     "pt": pt.templates_ignored,
-    "sv": defaults.templates_ignored,
+    "sv": sv.templates_ignored,
 }
 
 # Templates that will be completed/replaced using italic style.
