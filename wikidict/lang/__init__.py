@@ -212,7 +212,7 @@ last_template_handler = {
     "es": es.last_template_handler,
     "fr": fr.last_template_handler,
     "pt": pt.last_template_handler,
-    "sv": defaults.last_template_handler,
+    "sv": sv.last_template_handler,
 }
 
 # The full release description on GitHub:

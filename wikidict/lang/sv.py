@@ -1,4 +1,5 @@
 """Swedish language."""
+from typing import Tuple
 
 # Regex to find the pronunciation
 pronunciation = r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"
@@ -46,6 +47,51 @@ templates_multi = {
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
 }
+
+
+_gammalstavning = {
+    "hv": "genom stavningsreformen 1906 ",
+    "dt": "genom stavningsreformen 1906 ",
+    "f": "genom stavningsreformen 1906 ",
+    "fv": "genom stavningsreformen 1906 ",
+    "eä": "genom sjätte upplagan av SAOL (1889) ",
+    "gk": "genom sjunde upplagan av SAOL (1900) ",
+    "w": "vid övergången från fraktur till antikva ",
+    "aa": "genom rättskrivningsreformen 1948 ",
+    "dl": "genom rättskrivningsreformen 1948 ",
+    "ld": "genom rättskrivningsreformen 1948 ",
+    "ss": "genom rättskrivningsreformen 1996 ",
+    "ff": "genom rättskrivningsreformen 1996 ",
+    "äe": "genom rättskrivningsreformen 1996 ",
+    "sär": "genom rättskrivningsreformen 1996 ",
+    "auh": "genom rättskrivningsreformen 1996 ",
+    "zs": "genom stavningsreformen 1973 ",
+}
+
+
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
+        '<i>genom stavningsreformen 1906 ersatt av</i> brev'
+        >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")
+        '<i>ersatt av</i> Dalarna'
+
+    """  # noqa
+    from .defaults import last_template_handler as default
+    from ..user_functions import italic
+
+    tpl, *parts = template
+
+    if tpl == "gammalstavning":
+        cat = _gammalstavning.get(parts[0], "") + "ersatt av"
+        return f"{italic(cat)} {parts[-1]}"
+
+    return default(template, locale, word=word)
+
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
