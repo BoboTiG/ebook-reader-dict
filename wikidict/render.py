@@ -82,7 +82,9 @@ def find_section_definitions(
 
                 # Transform and clean the Wikicode
                 definition = process_templates(word, clean(code), locale)
-                if not definition:
+                # Skip empty definitions
+                # [SV] Skip almost empty definitions
+                if not definition or (locale == "sv" and len(definition) < 2):
                     continue
 
                 # Keep the definition ...
