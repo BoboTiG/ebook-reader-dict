@@ -36,6 +36,8 @@ sections = (
 templates_multi = {
     # {{avledning|sv|mälta|ordform=prespart}}
     "avledning": "f\"{italic('presensparticip av')} {parts[2]}\"",
+    # {{led|sv|f|gata}}
+    "led": "italic(('förled' if parts[2] == 'f' else 'efterled') + ' tillhörigt ordet') + ' ' + parts[-1]",
     # {{tagg|historia}}
     # {{tagg|kat=nedsättande|text=något nedsättande}}
     "tagg": "term(tag(parts[1:]))",
