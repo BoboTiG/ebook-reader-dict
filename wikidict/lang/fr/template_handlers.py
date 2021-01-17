@@ -6,6 +6,7 @@ from .. import defaults
 from ...user_functions import (
     capitalize,
     century,
+    concat,
     extract_keywords_from,
     int_to_roman,
     italic,
@@ -207,72 +208,98 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Composé de <i>faire</i>, <i>boutique</i> et <i>cul</i>'
     >>> render_compose_de("composé de", ["arthro-", "-logie"], defaultdict(str, {"lang": "fr", "m": "oui"}))
     'Composé de <i>arthro-</i> et de <i>-logie</i>'
+    >>> render_compose_de("composé de", ["morin", "morine", "-elle"], defaultdict(str, {"lang": "fr", "m": "1"}))
+    'Composé de <i>morin</i>, <i>morine</i> et <i>-elle</i>'
+    >>> render_compose_de("composé de", ["bi-", "mensis"], defaultdict(str, {"lang": "fr", "sens1": "deux", "sens2":"mois"}))
+    'dérivé de <i>mensis</i> («&nbsp;mois&nbsp;») avec le préfixe <i>bi-</i> («&nbsp;deux&nbsp;»)'
+    >>> render_compose_de("composé de", ["im-", "brouiller", "-able"], defaultdict(str, {"lang": "fr", "m": "oui"}))
+    'Dérivé de <i>brouiller</i> avec le préfixe <i>im-</i> et le suffixe <i>-able</i>'
+    >>> render_compose_de("composé de", ["bloc", "d’", "obturation", "de", "puits"], defaultdict(str, {"lang": "fr", "m": "1", "f": "1"}))
+    'Composée de <i>bloc</i>, <i>d’</i>, <i>obturation</i>, <i>de</i> et <i>puits</i>'
+    >>> render_compose_de("composé de", ["an-", "", "-onyme"], defaultdict(str, {"lang": "fr", "m": "1"}))
+    'Dérivé du préfixe <i>an-</i> et le suffixe <i>-onyme</i>'
+    >>> render_compose_de("composé de", ["an-"], defaultdict(str))
+    'dérivé du préfixe <i>an-</i>'
     """  # noqa
-    is_not_derived = all(part.startswith("-") or part.endswith("-") for part in parts)
-    is_derived = not is_not_derived and any(
-        part.startswith("-") or part.endswith("-") for part in parts
-    )
-    is_derived |= any(
-        part.startswith("-") or part.endswith("-") for part in data.values()
-    )
+
+    # algorithm from https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:compos%C3%A9_de&action=edit
+    p1 = data.get("tr1", "") or parts[0] if parts else ""
+    b1 = "1" if p1.endswith("-") else "0"
+    p2 = data.get("tr2", "") or parts[1] if len(parts) > 1 else ""
+    b2 = "1" if p2.startswith("-") else "0"
+    b3 = "0"
+    if len(parts) > 2:
+        p3 = data.get("tr3", "") or parts[2] if len(parts) > 2 else ""
+        b3 = "2" if p3.startswith("-") else "1"
+    b4 = "1" if len(parts) > 3 else "0"
+
+    b = b1 + b2 + b3 + b4
+    is_derived = b == "1000" or b == "0100" or b == "1020"
+
+    def word_tr_sens(w: str, tr: str, sens: str) -> str:
+        r = f"{w}" if tr else f"{italic(w)}"
+        if tr:
+            r += f", {italic(tr)}"
+        if sens:
+            r += f" («&nbsp;{sens}&nbsp;»)"
+        return r
 
     if is_derived:
         # Dérivé
         phrase = "D" if data["m"] in ("1", "oui") else "d"
-        phrase += "érivée de " if data["f"] in ("1", "oui") else "érivé de "
+        phrase += "érivée" if data["f"] in ("1", "oui") else "érivé"
 
-        parts = sorted(parts, key=lambda part: "-" in part)
-
-        multiple = len(parts) > 2
-        for number, part in enumerate(parts, 1):
-            is_prefix = part.endswith("-") or data.get(f"tr{number}", "").endswith("-")
-            is_suffix = part.startswith("-") or data.get(f"tr{number}", "").startswith(
-                "-"
+        if b == "1000":
+            if len(parts) > 1 and parts[1]:
+                phrase += (
+                    " de "
+                    + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
+                    + " avec le"
+                )
+            else:
+                phrase += " du"
+            phrase += " préfixe " + word_tr_sens(
+                parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
-            phrase += "préfixe " if is_prefix else "suffixe " if is_suffix else ""
-
-            phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
-            if f"tr{number}" in data:
-                idx = f"tr{number}"
-                phrase += f", {italic(data[idx])}"
-            if f"sens{number}" in data:
-                idx = f"sens{number}"
-                phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
-
-            phrase += (
-                " avec le "
-                if number == len(parts) - 1
-                else ", "
-                if multiple and number <= len(part)
-                else ""
+        if b == "0100":
+            phrase += " de " + word_tr_sens(
+                parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
-
+            phrase += " avec le suffixe " + word_tr_sens(
+                parts[1], data.get("tr2", ""), data.get("sens2", "")
+            )
+        if b == "1020":
+            if len(parts) > 1 and parts[1]:
+                phrase += (
+                    " de "
+                    + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
+                    + " avec le"
+                )
+            else:
+                phrase += " du"
+            phrase += " préfixe " + word_tr_sens(
+                parts[0], data.get("tr1", ""), data.get("sens1", "")
+            )
+            phrase += " et le suffixe " + word_tr_sens(
+                parts[2], data.get("tr3", ""), data.get("sens3", "")
+            )
         if "sens" in data:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
-
         return phrase
 
     # Composé
     phrase = "C" if data["m"] in ("1", "oui") else "c"
     phrase += "omposée de " if data["f"] in ("1", "oui") else "omposé de "
-    multiple = len(parts) > 2
+    s_array = []
     for number, part in enumerate(parts, 1):
-        phrase += f"{part}" if f"tr{number}" in data else f"{italic(part)}"
-        if f"tr{number}" in data:
-            idx = f"tr{number}"
-            phrase += f", {italic(data[idx])}"
-        if f"sens{number}" in data:
-            idx = f"sens{number}"
-            phrase += f" («&nbsp;{data[idx]}&nbsp;»)"
+        s_array.append(word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"]))
 
-        if number == len(parts) - 1:
-            phrase += " et "
-            if data["lang"] != "fr" or is_not_derived or not multiple:
-                phrase += "de "
-        elif multiple and number < len(part):
-            phrase += ", "
-
-    phrase = phrase.rstrip(", ")
+    if s_array:
+        phrase += concat(
+            s_array,
+            ", ",
+            " et de " if len(parts) < 3 or data["lang"] != "fr" else " et ",
+        )
 
     if "sens" in data:
         phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
