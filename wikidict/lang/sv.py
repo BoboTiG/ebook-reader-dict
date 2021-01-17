@@ -33,6 +33,9 @@ sections = (
     "Verbpartikel",
 )
 
+# Templates to ignore: the text will be deleted.
+templates_ignored = ("citat",)
+
 # Templates more complex to manage.
 templates_multi = {
     # {{avledning|sv|mälta|ordform=prespart}}
