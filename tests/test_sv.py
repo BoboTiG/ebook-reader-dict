@@ -63,6 +63,7 @@ from wikidict.utils import process_templates
             [
                 "nordiskt språk som talas i Sverige och Finland (officiellt i båda länderna)",
                 "svensk kvinna",
+                "<i>böjningsform av</i> svensk",
             ],
         ),
     ],
