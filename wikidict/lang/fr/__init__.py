@@ -468,7 +468,7 @@ templates_multi = {
     # {{créatures|fr|mythologiques}
     "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
-    "couleur": "color(parts[1])",
+    "couleur": "parts[1]",
     # {{Deva|[[देव]]|deva|divin}}
     "Deva": "parts[1].strip('[]')",
     # {{déverbal de|haler|fr}}
