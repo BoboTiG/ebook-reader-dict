@@ -220,6 +220,8 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Dérivé du préfixe <i>an-</i> et le suffixe <i>-onyme</i>'
     >>> render_compose_de("composé de", ["an-"], defaultdict(str))
     'dérivé du préfixe <i>an-</i>'
+    >>> render_compose_de("composé de", ["garde", "enfant", ""], defaultdict(str))
+    'composé de <i>garde</i> et de <i>enfant</i>'
     """  # noqa
 
     # algorithm from https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:compos%C3%A9_de&action=edit
@@ -292,13 +294,16 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase += "omposée de " if data["f"] in ("1", "oui") else "omposé de "
     s_array = []
     for number, part in enumerate(parts, 1):
-        s_array.append(word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"]))
+        if part:
+            s_array.append(
+                word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
+            )
 
     if s_array:
         phrase += concat(
             s_array,
             ", ",
-            " et de " if len(parts) < 3 or data["lang"] != "fr" else " et ",
+            " et de " if len(s_array) < 3 or data["lang"] != "fr" else " et ",
         )
 
     if "sens" in data:
