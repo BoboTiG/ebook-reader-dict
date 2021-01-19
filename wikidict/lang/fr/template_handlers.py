@@ -1,11 +1,11 @@
 from typing import Tuple, Dict, List
 from collections import defaultdict  # noqa
+import re
 
 from .langs import langs
 from .. import defaults
 from ...user_functions import (
     capitalize,
-    century,
     concat,
     extract_keywords_from,
     int_to_roman,
@@ -552,14 +552,23 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Siècle à préciser)</i>'
     >>> render_siecle("siècle", ["XVIII"], defaultdict(str))
     '<i>(XVIII<sup>e</sup> siècle)</i>'
-    >>> render_siecle("siècle", ["XVIII"], defaultdict(str))
-    '<i>(XVIII<sup>e</sup> siècle)</i>'
     >>> render_siecle("siècle", ["XVIII", "XIX"], defaultdict(str))
     '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
+    >>> render_siecle("siècle", ["1957"], defaultdict(str))
+    '<i>(1957)</i>'
+    >>> render_siecle("siècle", ["Vers le XI av. J.-C."], defaultdict(str))
+    '<i>(Vers le XI<sup>e</sup> siècle av. J.-C.)</i>'
     """
     parts = [part for part in parts if part.strip() and part not in ("lang=fr", "?")]
-    phrase = century(parts, "siècle") if parts else "Siècle à préciser"
-    return term(phrase)
+    if not parts:
+        return term("Siècle à préciser")
+    parts = [
+        re.sub(
+            r"([IVX]+)([^\s\w]|\s|$)", f"\\1{superscript('e')} siècle ", part
+        ).strip()
+        for part in parts
+    ]
+    return term(" - ".join(parts))
 
 
 def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
