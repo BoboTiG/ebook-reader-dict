@@ -7,6 +7,7 @@ START_URL = (
     "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_de_th%C3%A9matique"
 )
 NEXTPAGE_TEXT = "page suivante"
+ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
 
 
 def get_soup(url):
@@ -34,7 +35,21 @@ def process_category_page(url, results):
         rendering = parser_output.text
         if template_name and rendering:
             results[template_name] = rendering.strip("()")
+
     return nextpage
+
+
+def process_alias_page(key, value, results):
+    url = ALIAS_URL.format(key)
+    soup = get_soup(url)
+    ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
+    if not ul:
+        return
+    for alias in ul.find_all("a", {"class": ["mw-redirect"]}):
+        alias = alias.text.replace("Modèle:", "")
+        if alias == "modifier":
+            continue
+        results[alias] = value
 
 
 next_page_url = START_URL
@@ -43,7 +58,11 @@ results = {}
 while next_page_url:
     next_page_url = process_category_page(next_page_url, results)
 
+# Fetch aliases
+for key, value in list(results.items()):
+    process_alias_page(key, value, results)
+
 print("domain_templates = {")
-for t, r in results.items():
+for t, r in sorted(results.items()):
     print(f'    "{t}": "{r}",')
 print(f"}}  # {len(results):,}")
