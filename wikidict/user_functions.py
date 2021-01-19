@@ -361,6 +361,16 @@ def small_caps(text: str) -> str:
     return f"<span style='font-variant:small-caps'>{text}</span>"
 
 
+def strike(text: str) -> str:
+    """
+    Return the *text* surrounded by <s> HTML tags.
+
+        >>> strike("foo")
+        '<s>foo</s>'
+    """
+    return f"<s>{text}</s>"
+
+
 def strong(text: str) -> str:
     """
     Return the *text* surrounded by strong HTML tags.
@@ -467,6 +477,7 @@ __all__ = (
     "sentence",
     "small",
     "small_caps",
+    "strike",
     "strong",
     "subscript",
     "superscript",
