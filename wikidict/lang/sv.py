@@ -44,6 +44,12 @@ templates_multi = {
     "böjning": "italic('böjningsform av') + ' ' + parts[-1]",
     # {{led|sv|f|gata}}
     "led": "italic(('förled' if parts[2] == 'f' else 'efterled') + ' tillhörigt ordet') + ' ' + parts[-1]",
+    # {{ö|en|test}}
+    "ö": 'f"ger: {parts[-1]}"',
+    # {{ö+|en|test}}
+    "ö+": "f\"ger: {parts[-1]} {superscript('(' + parts[1] + ')')}\"",
+    # {{ö-inte|en|test}}
+    "ö-inte": "f\"ger: {strong('inte')} {italic(strike(parts[-1]))}\"",
     # {{tagg|historia}}
     # {{tagg|kat=nedsättande|text=något nedsättande}}
     "tagg": "term(tag(parts[1:]))",
