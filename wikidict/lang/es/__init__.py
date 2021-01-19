@@ -266,7 +266,7 @@ def last_template_handler(
     parts = [part for part in template[1:] if part.strip()]
 
     if template[0] == "etim":
-        return f"del {langs[parts[0]]} {italic(parts[1])}"
+        return f"del {langs.get(parts[0], parts[0])} {italic(parts[1])}"
 
     res = ""
     for word1, word2 in zip_longest(template, parts):
