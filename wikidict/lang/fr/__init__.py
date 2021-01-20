@@ -350,6 +350,7 @@ templates_italic = {
     "métonymie": "Par métonymie",
     "muscle": "Anatomie",
     "neurol": "Neurologie",
+    "noms de domaine": "Informatique",
     "nom-coll": "Nom collectif",
     "nom-déposé": "Marque commerciale",
     "nucl": "Nucléaire",

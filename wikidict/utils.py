@@ -181,6 +181,8 @@ def clean(text: str) -> str:
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
+        >>> clean("d'<nowiki/>''Arvernus'', surnom ethnique, ou composé d'''are''")
+        "d'<i>Arvernus</i>, surnom ethnique, ou composé d'<i>are</i>"
         >>> clean("<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>")
         'Modelled English'
 
@@ -251,9 +253,6 @@ def clean(text: str) -> str:
     # <ref name="CFC"><tag>...</tag></ref> -> ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
 
-    # <nowiki/> -> ''
-    text = text.replace("<nowiki/>", "")
-
     # Files
     pattern = "|".join(iter(pattern_file))
     text = sub(fr"\[\[(?:{pattern}):[^\]]+\]\]", "", text)
@@ -267,6 +266,9 @@ def clean(text: str) -> str:
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
     # <br> / <br /> -> ''
     text = sub(r"<br[^>]+/?>", "", text)
+
+    # <nowiki/> -> ''
+    text = text.replace("<nowiki/>", "")
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
