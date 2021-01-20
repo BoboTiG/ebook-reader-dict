@@ -604,7 +604,6 @@ templates_other = {
     "=": "=",
     "absolu": "<i>absolu</i>",
     "antonomase": "antonomase",
-    "apocope": "Apocope",
     "apJC": "apr. J.-C.",
     "attention": "⚠",
     "au singulier uniquement": "<i>au singulier uniquement</i>",

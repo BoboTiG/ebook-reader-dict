@@ -117,10 +117,12 @@ def render_agglutination(tpl: str, parts: List[str], data: Dict[str, str]) -> st
 
 def render_apherese(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
+    render aphérèse and apocope
+
     >>> render_apherese("aphérèse", [], defaultdict(str))
-    '<i>aphérèse</i>'
+    'aphérèse'
     >>> render_apherese("aphérèse", ["fr"], defaultdict(str))
-    '<i>aphérèse</i>'
+    'aphérèse'
     >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant", "m": "1"}))
     'Aphérèse de <i>enfant</i>'
     >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant"}))
@@ -131,10 +133,10 @@ def render_apherese(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'aphérèse de <i>enfant</i>'
     """  # noqa
     if not parts or not data:
-        return italic("aphérèse")
+        return tpl
 
     auto_cap = data["m"] in ("1", "oui")
-    phrase = ("A" if auto_cap else "a") + "phérèse"
+    phrase = capitalize(tpl) if auto_cap else tpl
     if data["texte"] and data["nolien"] not in ("1", "oui"):
         phrase += f' de {italic(data["texte"])}'
     elif data["de"]:
@@ -685,6 +687,7 @@ template_mapping = {
     "acronyme": render_acronyme,
     "agglutination": render_agglutination,
     "aphérèse": render_apherese,
+    "apocope": render_apherese,
     "argot": render_argot,
     "calque": render_etyl,
     "cit_réf": render_cit_ref,
