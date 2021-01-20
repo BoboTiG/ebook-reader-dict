@@ -558,7 +558,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_siecle("siècle", ["XVIII"], defaultdict(str))
     '<i>(XVIII<sup>e</sup> siècle)</i>'
     >>> render_siecle("siècle", ["XVIII", "XIX"], defaultdict(str))
-    '<i>(XVIII<sup>e</sup> siècle - XIX<sup>e</sup> siècle)</i>'
+    '<i>(XVIII<sup>e</sup> siècle – XIX<sup>e</sup> siècle)</i>'
     >>> render_siecle("siècle", ["1957"], defaultdict(str))
     '<i>(1957)</i>'
     >>> render_siecle("siècle", ["Vers le XI av. J.-C."], defaultdict(str))
@@ -573,7 +573,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         ).strip()
         for part in parts
     ]
-    return term(" - ".join(parts))
+    return term(" – ".join(parts))
 
 
 def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
