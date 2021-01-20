@@ -180,6 +180,7 @@ def clean(text: str) -> str:
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
+
         >>> clean("d'<nowiki/>''Arvernus'', surnom ethnique, ou composé d'''are''")
         "d'<i>Arvernus</i>, surnom ethnique, ou composé d'<i>are</i>"
         >>> clean("<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>")
