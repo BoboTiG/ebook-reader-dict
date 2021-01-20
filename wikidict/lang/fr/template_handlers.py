@@ -22,6 +22,8 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Abréviation)</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str))
     '<i>(Abréviation)</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str,{"m":"1"}))
+    '<i>(Abréviation)</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain", "m": "1"}))
     'Abréviation de <i>dirham marocain</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain"}))
@@ -35,11 +37,13 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return italic("(Abréviation)")
 
     auto_cap = data["m"] in ("1", "oui")
-    phrase = ("A" if auto_cap else "a") + "bréviation de "
+    phrase = ("A" if auto_cap else "a") + "bréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
-        phrase += italic(data["texte"])
+        phrase += f' de {italic(data["texte"])}'
     elif data["de"]:
-        phrase += italic(data["de"])
+        phrase += f' de {italic(data["de"])}'
+    else:
+        phrase = italic(f"({phrase})")
     return phrase
 
 
