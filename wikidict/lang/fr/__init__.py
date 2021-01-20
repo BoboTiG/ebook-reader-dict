@@ -603,7 +603,6 @@ templates_other = {
     "=": "=",
     "absolu": "<i>absolu</i>",
     "antonomase": "antonomase",
-    "aphérèse": "<i>aphérèse</i>",
     "apocope": "Apocope",
     "apJC": "apr. J.-C.",
     "attention": "⚠",

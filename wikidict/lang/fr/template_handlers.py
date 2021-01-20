@@ -115,6 +115,33 @@ def render_agglutination(tpl: str, parts: List[str], data: Dict[str, str]) -> st
     return phrase
 
 
+def render_apherese(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_apherese("aphérèse", [], defaultdict(str))
+    '<i>aphérèse</i>'
+    >>> render_apherese("aphérèse", ["fr"], defaultdict(str))
+    '<i>aphérèse</i>'
+    >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant", "m": "1"}))
+    'Aphérèse de <i>enfant</i>'
+    >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant"}))
+    'aphérèse de <i>enfant</i>'
+    >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant", "texte": "minot"}))
+    'aphérèse de <i>minot</i>'
+    >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant", "texte": "minot", "nolien": "oui"}))
+    'aphérèse de <i>enfant</i>'
+    """  # noqa
+    if not parts or not data:
+        return italic("aphérèse")
+
+    auto_cap = data["m"] in ("1", "oui")
+    phrase = ("A" if auto_cap else "a") + "phérèse"
+    if data["texte"] and data["nolien"] not in ("1", "oui"):
+        phrase += f' de {italic(data["texte"])}'
+    elif data["de"]:
+        phrase += f' de {italic(data["de"])}'
+    return phrase
+
+
 def render_argot(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_argot("argot", ["fr"], defaultdict(str))
@@ -657,6 +684,7 @@ template_mapping = {
     "abréviation": render_abreviation,
     "acronyme": render_acronyme,
     "agglutination": render_agglutination,
+    "aphérèse": render_apherese,
     "argot": render_argot,
     "calque": render_etyl,
     "cit_réf": render_cit_ref,
