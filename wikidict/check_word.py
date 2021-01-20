@@ -91,9 +91,11 @@ def get_wiktionary_page(word: str, locale: str) -> str:
 
 def main(locale: str, word: str) -> int:
     """Entry point."""
-    details = get_word(word, locale)
-    text = get_wiktionary_page(word, locale)
     errors = 0
+    details = get_word(word, locale)
+    if not details.etymology and not details.definitions:
+        return errors
+    text = get_wiktionary_page(word, locale)
 
     if details.etymology:
         errors += check(text, details.etymology, " !! Etymology")
