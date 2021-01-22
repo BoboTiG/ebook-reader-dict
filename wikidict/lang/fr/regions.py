@@ -116,6 +116,7 @@ regions = {
     "DE": "Allemagne",
     "DZ": "Algérie",
     "Danemark": "Danemark",
+    "Dauphiné": "Dauphiné",
     "Dominique": "Dominique",
     "Doué-en-Anjou": "Doué-en-Anjou",
     "Drôme": "Drôme",
@@ -388,5 +389,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 383
+}  # 384
 # END
