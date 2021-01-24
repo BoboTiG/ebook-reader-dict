@@ -6249,16 +6249,22 @@ langs = {
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
+# For the latin ones see https://fr.wiktionary.org/wiki/Module:%C3%A9tymologie#L-120
 langs["bas latin"] = "bas latin"  # 2020-07-19
 langs["deu"] = "allemagne"  # 2020-05-19
 langs["ell"] = "grec"  # 2020-05-19
 langs["eus"] = "basque"  # 2020-05-19
+langs["gallo-roman"] = "gallo-roman"  # 2021-01-24
 langs["ind"] = "indonésien"  # 2020-05-19
+langs["latin archaïque"] = "latin archaïque"  # 2021-01-24
 langs["latin classique"] = "latin classique"  # 2020-07-19
+langs["latin contemporain"] = "latin contemporain"  # 2021-01-24
 langs["latin ecclésiastique"] = "latin ecclésiastique"  # 2020-07-20
+langs["latin humaniste"] = "latin humaniste"  # 2021-01-24
 langs["latin impérial"] = "latin impérial"  # 2020-07-20
 langs["latin médiéval"] = "latin médiéval"  # 2020-07-20
 langs["latin populaire"] = "latin populaire"  # 2020-07-20
 langs["lat pop"] = "latin populaire"  # 2020-11-03
 langs["latin tardif"] = "latin tardif"  # 2020-07-20
 langs["latin vulgaire"] = "latin vulgaire"  # 2020-07-20
+langs["latin néolatin"] = "latin néolatin"  # 2021-01-24
