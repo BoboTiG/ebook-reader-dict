@@ -180,6 +180,7 @@ templates_ignored = (
     "fr-rég",
     "ibid",
     "Import",
+    "laé",
     "lien-ancre-étym",
     "lien web",
     "Modèle",
@@ -357,6 +358,7 @@ templates_italic = {
     "numis": "Numismatique",
     "néol": "Néologisme",
     "néologisme": "Néologisme",
+    "obsolète": "désuet",
     "oenol": "Œnologie",
     "opti": "Optique",
     "ornithol": "Ornithologie",
@@ -458,6 +460,7 @@ templates_multi = {
     # {{1er}}
     # {{1er|mai}}
     "1er": "f\"1{superscript('er')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    "Braille": "parts[1]",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{cf}}
