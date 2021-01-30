@@ -591,9 +591,6 @@ templates_multi = {
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wp|Sarcoscypha coccinea}}
     "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
-    # {{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}
-    # {{ws|Les Grenouilles qui demandent un Roi}}
-    "ws": "parts[2] if len(parts) > 2 else parts[1]",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",

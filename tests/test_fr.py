@@ -467,11 +467,6 @@ def test_parse_word(
             "{{wp|Sarcoscypha coccinea}}",
             "<i>Sarcoscypha coccinea sur l'encyclopédie Wikipedia</i>",
         ),
-        ("{{ws|Bible Segond 1910/Livre de Daniel|Livre de Daniel}}", "Livre de Daniel"),
-        (
-            "{{ws|Les Grenouilles qui demandent un Roi}}",
-            "Les Grenouilles qui demandent un Roi",
-        ),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
         ("{{WSP|Panthera leo}}", "<i>(Panthera leo)</i>"),
