@@ -478,7 +478,14 @@ def transform(word: str, template: str, locale: str) -> str:
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
     result: str = transform_apply(word, tpl, tuple(parts), locale)
-    if not result and tpl not in MISSING_TPL_SEEN:
+
+    # Some templates are returning an empty string on purpose, skip the warning then.
+    # - SV: tagg
+    if (
+        not result
+        and tpl not in MISSING_TPL_SEEN
+        and not (locale == "sv" and tpl == "tagg")
+    ):
         print(f" !! Missing {tpl!r} template support for word {word!r}", flush=True)
         MISSING_TPL_SEEN.add(tpl)
     return result
