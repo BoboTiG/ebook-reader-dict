@@ -6,7 +6,7 @@
 *.zip
 sections.txt
 templates.txt
-data/
+/data
 tests/data/*/INSTALL.txt
 tests/data/*/words.*
 tests/data/*/tmp

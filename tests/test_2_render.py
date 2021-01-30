@@ -27,3 +27,10 @@ def test_render_word(page):
     words = {}
     render.render_word(word, words, "fr")
     assert words["π"]
+
+
+def test_render_word_sv_with_almost_empty_definition(page):
+    word = ["Götet", page("Götet", "sv")]
+    words = {}
+    render.render_word(word, words, "sv")
+    assert words["Götet"]

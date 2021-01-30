@@ -85,13 +85,13 @@ def test_parse_redirected_word(tmp_path):
     assert not parse.process(file, "fr")
 
 
-def test_parse_word_without_definitions(tmp_path):
+def test_parse_word_without_wikicode(tmp_path):
     file = tmp_path / "page.xml"
     file.write_text(
         """\
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
 <page>
-    <title>MediaWiki:Sitetitle</title>
+    <title>MediaWiki</title>
     <ns>8</ns>
     <id>12</id>
     <revision>

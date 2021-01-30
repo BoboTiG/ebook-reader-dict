@@ -84,6 +84,9 @@ def last_template_handler(
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["foo"], "sv")
+        '<i>(Foo)</i>'
+
         >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> brev'
         >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")

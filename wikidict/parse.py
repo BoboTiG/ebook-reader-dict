@@ -68,9 +68,8 @@ def process(file: Path, locale: str) -> Dict[str, str]:
     print(f">>> Processing {file} ...", flush=True)
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
-        if not word or not code or ":" in word:
-            continue
-        words[word] = code
+        if word and code and ":" not in word:
+            words[word] = code
 
     return words
 

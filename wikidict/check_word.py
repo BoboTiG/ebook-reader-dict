@@ -57,15 +57,11 @@ def filter_html(html: str, locale: str) -> str:
         for span in bs.find_all("span", {"id": "refnec"}):
             span.previous_sibling.decompose()
             span.decompose()
-        # Filter out citation reference as they are ignored from templates
-        for a in bs.find_all("a", href=True):
-            if any(a["href"].startswith(exclude) for exclude in ("#ref", "#cite")):
-                a.decompose()
-    else:
-        # Filter out anchors as they are ignored from templates
-        for a in bs.find_all("a", href=True):
-            if a["href"].startswith("#"):
-                a.decompose()
+
+    # Filter out anchors as they are ignored from templates
+    for a in bs.find_all("a", href=True):
+        if a["href"].startswith("#"):
+            a.decompose()
 
     return no_spaces(bs.text)
 
