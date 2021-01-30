@@ -3327,7 +3327,7 @@ langs = {
     "irh": "Irarutu",
     "iri": "Rigwe",
     "irk": "Iraqw",
-    "irn": "Irántxe",
+    "irn": "Irantxe",
     "iro": "Iroquoian",
     "iro-ere": "Erie",
     "iro-min": "Mingo",
