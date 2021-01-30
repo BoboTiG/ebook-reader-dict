@@ -49,7 +49,7 @@ def main() -> int:  # pragma: nocover
 
         return find_templates.main(args["LOCALE"])
 
-    if args["--check-word"]:
+    if args["--check-word"] is not None:
         from . import check_word
 
         return check_word.main(args["LOCALE"], args["--check-word"])
@@ -59,7 +59,7 @@ def main() -> int:  # pragma: nocover
 
         return check_random_words.main(args["LOCALE"], int(args["N"]))
 
-    if args["--get-word"]:
+    if args["--get-word"] is not None:
         from . import get_word
 
         return get_word.main(args["LOCALE"], args["--get-word"], args["--raw"])
