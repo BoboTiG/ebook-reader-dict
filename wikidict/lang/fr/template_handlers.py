@@ -669,6 +669,26 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_wikisource("ws", ["Les Grenouilles qui demandent un Roi"], defaultdict(str))
+    'Les Grenouilles qui demandent un Roi'
+    >>> render_wikisource("ws", ["Bible Segond 1910/Livre de Daniel", "Livre de Daniel"], defaultdict(str))
+    'Livre de Daniel'
+    >>> render_wikisource("ws", ["ADB:Emmerling, Ludwig August", "Ludwig August Emmerling"], defaultdict(str, {"lang":"de"}))
+    'Ludwig August Emmerling'
+    >>> render_wikisource("ws", ["ADB:Emmerling, Ludwig August"], defaultdict(str, {"lang":"de", "Ludwig August <span style": "'font-variant:small-caps'>Emmerling</span>"}))
+    "Ludwig August <span style='font-variant:small-caps'>Emmerling</span>"
+    """  # noqa
+    phrase = parts[-1]
+    if data:
+        # Possible imbricated templates: {{ws| {{pc|foo bar}} }}
+        potential_phrase = "".join(f"{k}={v}" for k, v in data.items() if k != "lang")
+        if potential_phrase:
+            phrase = potential_phrase
+    return phrase
+
+
 def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_zh_lien("zh-lien", ["人", "rén"], defaultdict(str))
@@ -724,6 +744,7 @@ template_mapping = {
     "syncope": render_agglutination,
     "univerbation": render_agglutination,
     "w": defaults.render_wikilink,
+    "ws": render_wikisource,
     "zh-lien": render_zh_lien,
 }
 
