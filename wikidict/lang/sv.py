@@ -1,4 +1,5 @@
 """Swedish language."""
+import re
 from typing import Tuple
 
 # Regex to find the pronunciation
@@ -106,6 +107,8 @@ def last_template_handler(
         '<i>presensparticip av</i> mälta'
         >>> last_template_handler(["avledning", "sv", "lada", "partikel=till", "ordform=perfpart"], "sv")
         '<i>perfektparticip av</i> lada till <i>och</i> tillada'
+        >>> last_template_handler(["avledning", "sv", "rikta", "partikel=in", "ordform=prespart"], "sv")
+        '<i>presensparticip av</i> rikta in <i>och</i> inrikta'
 
         >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> brev'
@@ -137,10 +140,15 @@ def last_template_handler(
         phrase = italic(phrase)
 
         if data["partikel"]:
-            phrase += f" {parts[-1]} till {italic('och')} "
-            phrase += data["partikel"] + parts[-1][1:]
-            return phrase
-        return f"{phrase} {parts[-1]}"
+            partikel = data["partikel"]
+            phrase += f" {parts[-1]} {partikel} {italic('och')}"
+            word = partikel + parts[-1]
+            # Delete superfluous letters (till + lada = tilllada, but we need tillada)
+            word = re.sub(r"(.)(?:\1){2,}", r"\1\1", word)
+        else:
+            word = parts[-1]
+
+        return f"{phrase} {word}"
 
     if tpl == "gammalstavning":
         cat = _gammalstavning.get(parts[0], "") + "ersatt av"
