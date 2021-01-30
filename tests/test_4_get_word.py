@@ -6,6 +6,10 @@ def test_simple():
     assert get_word.main("fr", "marron") == 0
 
 
+def test_word_of_the_day():
+    assert get_word.main("fr", "") == 0
+
+
 def test_raw():
     assert get_word.main("fr", "marron", raw=True) == 0
 

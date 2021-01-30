@@ -9,6 +9,7 @@ from warnings import warn
 from cachetools import cached
 from cachetools.keys import hashkey
 import regex
+import requests
 
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
@@ -65,6 +66,56 @@ def convert_pronunciation(pronunciations: List[str]) -> str:
     if not pronunciations:
         return ""
     return " " + ", ".join(f"\\{p}\\" for p in pronunciations)
+
+
+def get_word_of_the_day(locale: str) -> str:
+    """Retrieve the word of the day."""
+    months = {
+        "en": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ],
+    }
+
+    word_of_the_day = {
+        "ca": ("", ""),  # Doesn't seem to have a word of the day
+        "es": (
+            # Plantilla:palabra de la semana/4
+            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}",
+            r" palabra= ([^\|]+)",
+        ),
+        "en": (
+            # Wiktionary:Word of the day/2021/January_30
+            f"Wiktionary:Word_of_the_day/{NOW.strftime('%Y')}/{months['en'][int(NOW.strftime('%-m')) - 1]}_{NOW.strftime('%d')}",  # noqa
+            r"{{WOTD\|([^\|]+)\|",
+        ),
+        "fr": (
+            # Modèle:Entrée du jour/2021/01/30
+            f"Mod%C3%A8le:Entr%C3%A9e_du_jour/{NOW.strftime('%Y/%m/%d')}",
+            r"<span style=\"font-size:120%;\">'''\[\[([^\]]+)\]\]'''</span>",
+        ),
+        "pt": ("", ""),  # Doesn't seem to have a word of the day
+        "sv": (
+            "Mall:högkvalitativt",
+            r"<big>\[\[([^\]]+)\]\]</big>",
+        ),
+    }
+
+    special_word, pattern = word_of_the_day[locale]
+    url = f"https://{locale}.wiktionary.org/wiki/{special_word}?action=raw"
+    with requests.get(url) as req:
+        matches = re.findall(pattern, req.text)
+        return str(matches[0].strip()) if matches else ""
 
 
 def format_description(locale: str, output_dir: Path) -> str:
@@ -481,11 +532,7 @@ def transform(word: str, template: str, locale: str) -> str:
 
     # Some templates are returning an empty string on purpose, skip the warning then.
     # - SV: tagg
-    if (
-        not result
-        and tpl not in MISSING_TPL_SEEN
-        and not (locale == "sv" and tpl == "tagg")
-    ):
+    if not result and tpl not in MISSING_TPL_SEEN and (locale != "sv" or tpl != "tagg"):
         print(f" !! Missing {tpl!r} template support for word {word!r}", flush=True)
         MISSING_TPL_SEEN.add(tpl)
     return result
