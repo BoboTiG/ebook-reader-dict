@@ -589,8 +589,6 @@ templates_multi = {
     "W": "parts[-1] if parts else ''",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
-    # {{wp|Sarcoscypha coccinea}}
-    "wp": 'italic(f"{parts[1]} sur l\'encyclopédie Wikipedia")',
     # {{wsp|Panthera pardus|''Panthera pardus''}}
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
@@ -656,7 +654,6 @@ templates_other = {
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
     "usage": "<b>Note d’usage&nbsp;:</b>",
-    "WP": "sur l'encyclopédie Wikipedia",
 }
 
 
