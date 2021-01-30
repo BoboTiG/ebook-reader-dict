@@ -669,6 +669,26 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_wikipedia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_wikipedia("wp", [], defaultdict(str))
+    'sur l’encyclopédie Wikipedia'
+    >>> render_wikipedia("wp", ["Sarcoscypha coccinea"], defaultdict(str))
+    'Sarcoscypha coccinea sur l’encyclopédie Wikipedia'
+    >>> render_wikipedia("wp", ["Vénus (planète)", "Planète Vénus"], defaultdict(str))
+    'Planète Vénus sur l’encyclopédie Wikipedia'
+    >>> render_wikipedia("wp", ["Norv%C3%A8ge#%C3%89tymologie)", 'la section "Étymologie" de l\\'article Norvège'], defaultdict(str))
+    'la section "Étymologie" de l\\'article Norvège sur l’encyclopédie Wikipedia'
+    >>> render_wikipedia("wp", ["Dictionary"], defaultdict(str, {"lang": "en"}))
+    'Dictionary sur l’encyclopédie Wikipedia (en anglais)'
+    """  # noqa
+    phrase = "sur l’encyclopédie Wikipedia"
+    if data["lang"]:
+        l10n = langs[data["lang"]]
+        phrase += f" (en {l10n})"
+    return f"{parts[-1]} {phrase}" if parts else phrase
+
+
 def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_wikisource("ws", ["Les Grenouilles qui demandent un Roi"], defaultdict(str))
@@ -744,6 +764,9 @@ template_mapping = {
     "syncope": render_agglutination,
     "univerbation": render_agglutination,
     "w": defaults.render_wikilink,
+    "Wikipédia": render_wikipedia,
+    "wp": render_wikipedia,
+    "WP": render_wikipedia,
     "ws": render_wikisource,
     "zh-lien": render_zh_lien,
 }

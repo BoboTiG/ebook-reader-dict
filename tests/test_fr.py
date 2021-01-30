@@ -463,10 +463,6 @@ def test_parse_word(
         ("{{w|lang=en|The Little Prince}}", "The Little Prince"),
         ("{{w|Li Ptit Prince (roman)|Li Ptit Prince|lang=wa}}", "Li Ptit Prince"),
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
-        (
-            "{{wp|Sarcoscypha coccinea}}",
-            "<i>Sarcoscypha coccinea sur l'encyclopédie Wikipedia</i>",
-        ),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
         ("{{WSP|Panthera leo}}", "<i>(Panthera leo)</i>"),
