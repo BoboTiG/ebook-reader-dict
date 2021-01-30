@@ -533,7 +533,7 @@ def transform(word: str, template: str, locale: str) -> str:
     if (
         not result
         and tpl not in MISSING_TPL_SEEN
-        and not (locale == "sv" and tpl == "tagg")
+        and (locale != "sv" or tpl != "tagg")
     ):
         print(f" !! Missing {tpl!r} template support for word {word!r}", flush=True)
         MISSING_TPL_SEEN.add(tpl)
