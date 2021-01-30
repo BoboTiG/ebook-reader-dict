@@ -5,7 +5,7 @@ import requests
 
 from .render import parse_word
 from .user_functions import int_to_roman
-from .utils import convert_pronunciation, convert_genre
+from .utils import convert_pronunciation, convert_genre, get_word_of_the_day
 
 
 def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
@@ -61,6 +61,10 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 
 def main(locale: str, word: str, raw: bool = False) -> int:
     """Entry point."""
+
+    # If *word* is empty, get the word of the day
+    if not word:
+        word = get_word_of_the_day(locale)
 
     get_and_parse_word(word, locale, raw)
     return 0

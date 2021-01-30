@@ -5,6 +5,7 @@ from functools import partial
 from .render import parse_word
 from .stubs import Word
 from .user_functions import int_to_roman
+from .utils import get_word_of_the_day
 
 import requests
 from bs4 import BeautifulSoup
@@ -88,6 +89,11 @@ def get_wiktionary_page(word: str, locale: str) -> str:
 def main(locale: str, word: str) -> int:
     """Entry point."""
     errors = 0
+
+    # If *word* is empty, get the word of the day
+    if not word:
+        word = get_word_of_the_day(locale)
+
     details = get_word(word, locale)
     if not details.etymology and not details.definitions:
         return errors
