@@ -38,8 +38,6 @@ templates_ignored = ("citat",)
 
 # Templates more complex to manage.
 templates_multi = {
-    # {{avledning|sv|mälta|ordform=prespart}}
-    "avledning": "f\"{italic('presensparticip av')} {parts[2]}\"",
     # {{böjning|sv|subst|boll}}
     "böjning": "italic('böjningsform av') + ' ' + parts[-1]",
     # {{led|sv|f|gata}}
@@ -57,6 +55,19 @@ templates_multi = {
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
 }
 
+
+_avledning = {
+    "aktpart": "aktiv particip",
+    "passpart": "passiv particip",
+    "perfpart": "perfektparticip",
+    "presger": "presens gerundium",
+    "prespart": "presensparticip",
+    "prespartakt": "presens particip aktiv",
+    "prespartpass": "presens particip passiv",
+    "pretger": "preteritum gerundium",
+    "pretpartakt": "preteritum particip aktiv",
+    "pretpartpass": "preteritum particip passiv",
+}
 
 _gammalstavning = {
     "hv": "genom stavningsreformen 1906 ",
@@ -87,6 +98,15 @@ def last_template_handler(
         >>> last_template_handler(["foo"], "sv")
         '<i>(Foo)</i>'
 
+        >>> last_template_handler(["avledning", "sv", "tråkig"], "sv")
+        '<i>avledning till</i> tråkig'
+        >>> last_template_handler(["avledning", "sv", "seende", "adj"], "sv")
+        '<i>avledning till adjektivet</i> seende'
+        >>> last_template_handler(["avledning", "sv", "mälta", "ordform=prespart"], "sv")
+        '<i>presensparticip av</i> mälta'
+        >>> last_template_handler(["avledning", "sv", "lada", "partikel=till", "ordform=perfpart"], "sv")
+        '<i>perfektparticip av</i> lada till <i>och</i> tillada'
+
         >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> brev'
         >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")
@@ -94,9 +114,33 @@ def last_template_handler(
 
     """  # noqa
     from .defaults import last_template_handler as default
-    from ..user_functions import italic
+    from ..user_functions import extract_keywords_from, italic
 
     tpl, *parts = template
+    data = extract_keywords_from(parts)
+
+    if tpl == "avledning":
+        if not data["ordform"]:
+            phrase = "avledning till"
+            if len(parts) == 3:
+                cat = parts.pop(2)
+                phrase += " "
+                phrase += (
+                    "adjektivet"
+                    if cat == "adj"
+                    else "substantiv"
+                    if cat == "subst"
+                    else cat
+                )
+        else:
+            phrase = _avledning[data["ordform"]] + " av"
+        phrase = italic(phrase)
+
+        if data["partikel"]:
+            phrase += f" {parts[-1]} till {italic('och')} "
+            phrase += data["partikel"] + parts[-1][1:]
+            return phrase
+        return f"{phrase} {parts[-1]}"
 
     if tpl == "gammalstavning":
         cat = _gammalstavning.get(parts[0], "") + "ersatt av"

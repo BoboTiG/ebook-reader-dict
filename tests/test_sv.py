@@ -80,7 +80,6 @@ def test_parse_word(word, pronunciations, genre, definitions, page):
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{avledning|sv|mälta|ordform=prespart}}", "<i>presensparticip av</i> mälta"),
         ("{{led|sv|f|gata}}", "<i>förled tillhörigt ordet</i> gata"),
         ("{{led|sv|e|hand}}", "<i>efterled tillhörigt ordet</i> hand"),
         ("{{ö|en|test}}", "test"),
