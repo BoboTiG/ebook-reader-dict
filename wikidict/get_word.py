@@ -19,7 +19,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     def strip_html(text: str) -> str:
         """Stip HTML chars."""
         if raw:
-            return text
+            return repr(text)
         text = re.sub(r"<[^>]+/?>", "", text)
         text = text.replace("&minus;", "-")
         text = text.replace("&nbsp;", " ")
