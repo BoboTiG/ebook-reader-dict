@@ -114,6 +114,8 @@ templates_multi = {
     "en-third-person_singular_of": "italic('Third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
+    # {{glossary|inflected}}
+    "glossary": "parts[-1]",
     # {{IPAchar|[tʃ]|lang=en}})
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}

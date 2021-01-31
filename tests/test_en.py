@@ -270,6 +270,8 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "<i>obsolete emphatic of</i> <b>ye</b>",
         ),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
+        ("{{glossary|inflected}}", "inflected"),
+        ("{{glossary|inflected|Inflected}}", "Inflected"),
         (
             "{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}",
             "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>",
