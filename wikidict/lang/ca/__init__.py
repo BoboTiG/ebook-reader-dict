@@ -114,6 +114,25 @@ def last_template_handler(
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["default-test-xyz"], "ca")
+        '<i>(Default-test-xyz)</i>'
+
+        >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
+        "De l'occità <i>cabèco</i>"
+        >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
+        'Del llatí <i>verba</i>'
+        >>> last_template_handler(["etim-lang", "en", "ca"], "ca")
+        "De l'anglès"
+
+        >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
+        '√ⵎⵣⵖ'
+        >>> last_template_handler(["lleng", "la", "tipus=terme", "Agnus Dei qui tollis peccata mundi..."], "ca")
+        '<i>Agnus Dei qui tollis peccata mundi...</i>'
+        >>> last_template_handler(["lleng", "la", "tipus=lema", "Agnus Dei qui tollis peccata mundi..."], "ca")
+        '<b>Agnus Dei qui tollis peccata mundi...</b>'
+        >>> last_template_handler(["lleng", "la", "tipus=negreta", "Agnus Dei qui tollis peccata mundi..."], "ca")
+        '<b>Agnus Dei qui tollis peccata mundi...</b>'
+
         >>> last_template_handler(["terme", "it", "come"], "ca")
         '<i>come</i>'
         >>> last_template_handler(["terme", "ca", "seu", "el seu"], "ca")
@@ -127,16 +146,6 @@ def last_template_handler(
         >>> last_template_handler(["terme", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
-        >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
-        "De l'occità <i>cabèco</i>"
-        >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
-        'Del llatí <i>verba</i>'
-        >>> last_template_handler(["etim-lang", "en", "ca"], "ca")
-        "De l'anglès"
-
-        >>> last_template_handler(["default-test-xyz"], "ca")
-        '<i>(Default-test-xyz)</i>'
-
         >>> last_template_handler(["trad", "es", "manzana"], "ca")
         'manzana <sup>(es)</sup>'
         >>> last_template_handler(["trad", "es", "tr=manzana"], "ca")
@@ -146,14 +155,14 @@ def last_template_handler(
     """
     from .langs import langs
     from .. import defaults
-    from ...user_functions import extract_keywords_from, italic, superscript
+    from ...user_functions import extract_keywords_from, italic, strong, superscript
 
     tpl = template[0]
     parts = list(template[1:])
+    data = extract_keywords_from(parts)
     phrase = ""
 
     def parse_other_parameters() -> str:
-        data = extract_keywords_from(parts)
         toadd = ""
         if data["trad"] and data["trans"]:
             toadd += f" ({italic(data['trans'])}, «{data['trad']}»)"
@@ -177,16 +186,18 @@ def last_template_handler(
         phrase += parse_other_parameters()
         return phrase
 
-    if tpl == "terme":
-        if len(parts) > 2 and "=" not in parts[2]:
-            phrase = f"{italic(parts[2])}"
-        else:
-            phrase = f"{italic(parts[1])}"
-        phrase += parse_other_parameters()
+    if tpl == "lleng":
+        phrase = parts[-1]
+        if data["tipus"] == "terme":
+            phrase = italic(phrase)
+        elif data["tipus"] in ("lema", "negreta"):
+            phrase = strong(phrase)
         return phrase
 
+    if tpl == "terme":
+        return f"{italic(parts[-1])}{parse_other_parameters()}"
+
     if tpl == "trad":
-        data = extract_keywords_from(parts)
         src = data["sc"] or parts.pop(0)
         trans = data["tr"] or parts.pop(0)
         return f"{trans} {superscript('(' + src + ')')}"
