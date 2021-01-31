@@ -559,6 +559,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
     >>> render_morphology("prefix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
     '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
+    >>> render_morphology("suffix", ["en", "", "cide"], defaultdict(str))
+    '<i></i>&nbsp;+&nbsp;<i>cide</i>'
     >>> render_morphology("confix", ["en", "neuro", "genic"], defaultdict(str))
     '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
     >>> render_morphology("confix", ["en", "neuro", "gene"], defaultdict(str,{"tr2":"genic"}))
@@ -633,8 +635,6 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         chunk = chunk.split("#")[0] if chunk else ""
         chunk = data["alt" + si] or chunk
         chunk = add_dash(tpl, i, parts_count, chunk)
-        if not chunk:
-            continue
         chunk = italic(chunk)
         if data["g" + si]:
             chunk += " " + italic(data["g" + si])
