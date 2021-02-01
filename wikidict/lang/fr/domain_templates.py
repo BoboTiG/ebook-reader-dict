@@ -19,6 +19,7 @@ domain_templates = {
     "anglicismes informatiques": "Anglicisme informatique",
     "animaux": "Zoologie",
     "antilopes": "Zoologie",
+    "appareils": "Électroménager",
     "application": "Couche application",
     "araignées": "Zoologie",
     "arbres": "Botanique",
@@ -301,5 +302,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 296
+}  # 297
 # END

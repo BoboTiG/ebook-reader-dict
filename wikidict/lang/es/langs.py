@@ -1033,6 +1033,7 @@ langs = {
     "tsd": "tsakonio",
     "tsg": "joloano",
     "tsi": "tsimshian",
+    "tsn": "tswana",
     "tt": "tártaro",
     "ttq": "tawallammat",
     "tum": "chitumbuka",
@@ -1173,5 +1174,5 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,168
+}  # 1,169
 # END
