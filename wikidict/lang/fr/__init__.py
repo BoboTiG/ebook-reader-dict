@@ -154,6 +154,7 @@ words_to_keep = (
     "cieux",  # pluriel irrégulier
     "cris",  # "Cris" aura la priorité sinon
     "coraux",  # pluriel irrégulier
+    "ducaux",  # pluriel irrégulier
     "émaux",  # pluriel irrégulier
     "fermaux",  # pluriel irrégulier
     "gemmaux",  # pluriel irrégulier
