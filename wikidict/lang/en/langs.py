@@ -1860,7 +1860,7 @@ langs = {
     "crn": "Cora",
     "cro": "Crow",
     "crp": "creole or pidgin",
-    "crp-gep": "Greenlandic Pidgin",
+    "crp-gep": "West Greenlandic Pidgin",
     "crp-mpp": "Macau Pidgin Portuguese",
     "crp-rsn": "Russenorsk",
     "crp-tpr": "Taimyr Pidgin Russian",
