@@ -15,8 +15,7 @@ def get_word(word: str, locale: str) -> Word:
     with requests.get(url) as req:
         code = req.text
 
-    details = parse_word(word, code, locale, force=True)
-    return details
+    return parse_word(word, code, locale, force=True)
 
 
 def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
