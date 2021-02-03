@@ -246,7 +246,7 @@ class KoboFormat(KoboBaseFormat):
                     etymology = convert_etymology(details.etymology)
 
                     var = ""
-                    if self.variants[word]:
+                    if self.variants.get(word, []):
                         var = "<var>"
                         for v in self.variants[word]:
                             # no variant with different prefix
