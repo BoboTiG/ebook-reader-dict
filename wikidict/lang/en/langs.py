@@ -3879,7 +3879,13 @@ langs = {
     "kny": "Kanyok",
     "knz": "Kalamsé",
     "ko": "Korean",
+    "ko-c": "Central Korean",
     "ko-ear": "Early Modern Korean",
+    "ko-ne": "Northeastern Korean",
+    "ko-nw": "Northwestern Korean",
+    "ko-se": "Southeastern Korean",
+    "ko-sw": "Southwestern Korean",
+    "ko-yuk": "Yukjin Korean",
     "koa": "Konomala",
     "koc": "Kpati",
     "kod": "Kodi",
@@ -9487,5 +9493,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,482
+}  # 9,488
 # END
