@@ -3,21 +3,25 @@ import re
 
 import requests
 
+from .stubs import Word
 from .render import parse_word
 from .user_functions import int_to_roman
 from .utils import convert_pronunciation, convert_genre, get_word_of_the_day
 
 
-def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
+def get_word(word: str, locale: str) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
+    return parse_word(word, code, locale, force=True)
 
-    details = parse_word(word, code, locale, force=True)
+
+def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
+    """Get a *word* wikicode, parse it and print it."""
 
     def strip_html(text: str) -> str:
-        """Stip HTML chars."""
+        """Strip HTML chars."""
         if raw:
             return repr(text)
         text = re.sub(r"<[^>]+/?>", "", text)
@@ -29,6 +33,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         text = text.replace(" .", ".")
         return text
 
+    details = get_word(word, locale)
     print(
         word,
         convert_pronunciation(details.pronunciations).lstrip(),
