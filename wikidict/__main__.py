@@ -11,6 +11,7 @@ Usage:
     wikidict LOCALE --check-random-words N
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
+    wikidict LOCALE --gen-dict=WORDS --output=FILENAME
     wikidict LOCALE --update-release
 
 """
@@ -63,6 +64,11 @@ def main() -> int:  # pragma: nocover
         from . import get_word
 
         return get_word.main(args["LOCALE"], args["--get-word"], args["--raw"])
+
+    if args["--gen-dict"] is not None:
+        from . import gen_dict
+
+        return gen_dict.main(args["LOCALE"], args["--gen-dict"], args["--output"])
 
     if args["--update-release"]:
         from . import upload
