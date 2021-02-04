@@ -222,7 +222,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_compose_de("composé de", ["δῆμος", "ἀγωγός"], defaultdict(str, {"tr1":"dêmos", "sens1":"peuple", "tr2":"agōgós", "sens2":"guide", "sens":"celui qui guide le peuple", "lang":"grc", "m":"1"}))
     'Composé de δῆμος, <i>dêmos</i> («&nbsp;peuple&nbsp;») et de ἀγωγός, <i>agōgós</i> («&nbsp;guide&nbsp;»), littéralement «&nbsp;celui qui guide le peuple&nbsp;»'
     >>> render_compose_de("composé de", ["aux", "mains", "de"], defaultdict(str, {"m":"1"}))
-    'Composé de <i>aux</i>, <i>mains</i> et de <i>de</i>'
+    'Composé de <i>aux</i>, <i>mains</i> et <i>de</i>'
     >>> render_compose_de("composé de", ["anti-", "quark"], defaultdict(str, {"lang":"en"}))
     'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
     >>> render_compose_de("composé de", ["anti-", "quark"], defaultdict(str, {"sens":"quarks au rebut"}))
@@ -336,7 +336,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase += concat(
             s_array,
             ", ",
-            " et de " if len(s_array) < 3 or data["lang"] != "fr" else " et ",
+            " et de " if len(s_array) < 3 else " et ",
         )
 
     if "sens" in data:
