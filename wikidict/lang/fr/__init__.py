@@ -467,7 +467,7 @@ templates_multi = {
     # {{cf}}
     # {{cf|tour d’échelle}}
     # {{cf|lang=fr|triner}}
-    "cf": "f\"→ voir{' ' + concat([italic(p) for p in parts[1:] if '=' not in p], ', ', ' et ') if len(parts) > 1 else ''}\"",  # noqa
+    "cf": "f\"→ voir{' ' + concat([italic(p) for p in parts[1:] if p and '=' not in p], ', ', ' et ') if len(parts) > 1 else ''}\"",  # noqa
     # {{circa|1150}}
     "circa": "term('c. ' + parts[1])",
     # {{créatures|fr|mythologiques}
