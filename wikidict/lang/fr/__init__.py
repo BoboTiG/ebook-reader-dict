@@ -321,6 +321,7 @@ templates_italic = {
     "jurisprudence": "Droit",
     "just": "Justice",
     "ling": "Linguistique",
+    "litote": "Par litote",
     "litt": "Littéraire",
     "locutions latines": "Latinisme",
     "logi": "Logique",
