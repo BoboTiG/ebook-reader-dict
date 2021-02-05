@@ -1,4 +1,4 @@
-from typing import Tuple, Dict, List
+from typing import Tuple, Dict, List, Match
 from collections import defaultdict  # noqa
 import re
 
@@ -255,6 +255,8 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'dérivé du préfixe <i>an-</i>'
     >>> render_compose_de("composé de", ["garde", "enfant", ""], defaultdict(str))
     'composé de <i>garde</i> et de <i>enfant</i>'
+    >>> render_compose_de("composé de", ["élever", "-able", ""], defaultdict(str, {"lang": "fr", "m": "1"}))
+    'Dérivé de <i>élever</i> avec le suffixe <i>-able</i>'
     """  # noqa
 
     # algorithm from https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:compos%C3%A9_de&action=edit
@@ -263,9 +265,11 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     p2 = data.get("tr2", "") or parts[1] if len(parts) > 1 else ""
     b2 = "1" if p2.startswith("-") else "0"
     b3 = "0"
+
     if len(parts) > 2:
         p3 = data.get("tr3", "") or parts[2] if len(parts) > 2 else ""
-        b3 = "2" if p3.startswith("-") else "1"
+        if p3:
+            b3 = "2" if p3.startswith("-") else "1"
     b4 = "1" if len(parts) > 3 else "0"
 
     b = b1 + b2 + b3 + b4
@@ -598,16 +602,18 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Vers le XI<sup>e</sup> siècle av. J.-C.)</i>'
     >>> render_siecle("siècle", ["XVIII"], defaultdict(str, {"doute":"oui"}))
     '<i>(XVIII<sup>e</sup> siècle ?)</i>'
+    >>> render_siecle("siècle", ["I", "III"], defaultdict(str))
+    '<i>(I<sup>er</sup> siècle – III<sup>e</sup> siècle)</i>'
     """
     parts = [part for part in parts if part.strip() and part != "?"]
     if not parts:
         return term("Siècle à préciser")
-    parts = [
-        re.sub(
-            r"([IVX]+)([^\s\w]|\s|$)", f"\\1{superscript('e')} siècle ", part
-        ).strip()
-        for part in parts
-    ]
+
+    def repl(x: Match[str]) -> str:
+        sup = "er" if x.group() == "I" else "e"
+        return f"{x.group().strip()}{superscript(sup)} siècle "
+
+    parts = [re.sub(r"([IVX]+)([^\s\w]|\s|$)", repl, part).strip() for part in parts]
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 
