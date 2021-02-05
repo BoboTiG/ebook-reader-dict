@@ -282,7 +282,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if is_derived:
         # Dérivé
         phrase = "D" if data["m"] in ("1", "oui") else "d"
-        phrase += "érivée" if data["f"] in ("1", "oui") else "érivé"
+        phrase += "érivée" if data["f"] in ("1", "oui", "o") else "érivé"
 
         if b == "1000":
             if len(parts) > 1 and parts[1]:
@@ -324,7 +324,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     # Composé
     phrase = "C" if data["m"] in ("1", "oui") else "c"
-    phrase += "omposée de " if data["f"] in ("1", "oui") else "omposé de "
+    phrase += "omposée de " if data["f"] in ("1", "oui", "o") else "omposé de "
     s_array = []
     for number, part in enumerate(parts, 1):
         if part:
