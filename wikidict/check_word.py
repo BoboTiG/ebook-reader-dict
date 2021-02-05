@@ -59,7 +59,7 @@ def filter_html(html: str, locale: str) -> str:
             span.previous_sibling.decompose()
             span.decompose()
         for a in bs.find_all("a", href=True):
-            if a["href"].startswith(("#cite", "#ref")):
+            if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
                 a.decompose()
         return no_spaces(bs.text)
 
