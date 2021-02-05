@@ -596,8 +596,10 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(1957)</i>'
     >>> render_siecle("siècle", ["Vers le XI av. J.-C."], defaultdict(str))
     '<i>(Vers le XI<sup>e</sup> siècle av. J.-C.)</i>'
+    >>> render_siecle("siècle", ["XVIII"], defaultdict(str, {"doute":"oui"}))
+    '<i>(XVIII<sup>e</sup> siècle ?)</i>'
     """
-    parts = [part for part in parts if part.strip() and part not in ("lang=fr", "?")]
+    parts = [part for part in parts if part.strip() and part != "?"]
     if not parts:
         return term("Siècle à préciser")
     parts = [
@@ -606,7 +608,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         ).strip()
         for part in parts
     ]
-    return term(" – ".join(parts))
+    return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 
 def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
