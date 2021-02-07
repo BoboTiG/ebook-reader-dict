@@ -106,15 +106,21 @@ def main(locale: str, word: str) -> int:
     if details.etymology:
         errors += check(text, details.etymology, " !! Etymology")
 
-    for num, definition in enumerate(details.definitions, start=1):
-        message = f"\n !! Definition n°{num}"
-        if isinstance(definition, str):
+    index = 1
+    for definition in details.definitions:
+        message = f"\n !! Definition n°{index}"
+        if isinstance(definition, tuple):
+            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                if isinstance(subdef, tuple):
+                    for rn, subsubdef in enumerate(subdef, 1):
+                        errors += check(
+                            text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"
+                        )
+                else:
+                    errors += check(text, subdef, f"{message}.{a}")
+        else:
             errors += check(text, definition, message)
-            continue
-
-        # Sublist
-        for subnum, subdef in enumerate(definition, start=1):
-            errors += check(text, subdef, f"{message}.{int_to_roman(subnum).lower()}")
+            index = index + 1
 
     if errors:
         print("\n >>> Errors:", errors)
