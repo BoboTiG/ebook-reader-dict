@@ -398,7 +398,7 @@ recognized_placetypes = {
     "constituent country": {
         "article": "a",
         "display": "constituent country",
-        "preposition": "in",
+        "preposition": "of",
     },
     "continent": {
         "article": "a",
