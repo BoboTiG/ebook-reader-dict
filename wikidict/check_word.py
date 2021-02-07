@@ -120,7 +120,7 @@ def main(locale: str, word: str) -> int:
                     errors += check(text, subdef, f"{message}.{a}")
         else:
             errors += check(text, definition, message)
-            index = index + 1
+            index += 1
 
     if errors:
         print("\n >>> Errors:", errors)
