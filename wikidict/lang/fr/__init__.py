@@ -556,8 +556,8 @@ templates_multi = {
     "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "région": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
-    "régionalisme": "term(capitalize(parts[1] if len(parts) > 1 else 'régionalisme'))",
+    "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
@@ -641,8 +641,8 @@ templates_other = {
     "mf?": "<i>masculin ou féminin (l’usage hésite)</i>",
     "mf ?": "<i>masculin ou féminin (l’usage hésite)</i>",
     "minus": "<i>minuscule</i>",
-    "mplur": "<i>masculing pluriel</i>",
-    "msing": "<i>masculing singulier</i>",
+    "mplur": "<i>masculin pluriel</i>",
+    "msing": "<i>masculin singulier</i>",
     "n": "<i>neutre</i>",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note&nbsp;:</b>",
@@ -668,6 +668,7 @@ templates_other = {
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
     "usage": "<b>Note d’usage&nbsp;:</b>",
+    "vlatypas-pivot": "v’là-t-i’ pas",
 }
 
 
