@@ -190,6 +190,7 @@ templates_ignored = (
     "périodique",
     "plans d’eau",
     "préciser",
+    "R",
     "RÉF",
     "refnec",
     "réfnéc",
@@ -686,13 +687,6 @@ def last_template_handler(
         >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|171"], "fr")
         "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171"
 
-        >>> last_template_handler(["R", "TLFi"], "fr", "pedzouille")
-        '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R", "something"], "fr")
-        ''
-        >>> last_template_handler(["R"], "fr")
-        ''
-
         >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
         'colliger'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
@@ -744,14 +738,6 @@ def last_template_handler(
         if not page:
             return f"{author}, {italic(book)}, {date}"
         return f"{author}, {italic(book)}, {date}, page {page}"
-
-    if tpl == "R":
-        if not parts:
-            return ""
-        if parts[0] == "TLFi":
-            return f"«&nbsp;{word}&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994"
-        else:
-            return ""
 
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
