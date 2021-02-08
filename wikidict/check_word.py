@@ -58,6 +58,9 @@ def filter_html(html: str, locale: str) -> str:
         for span in bs.find_all("span", {"id": "refnec"}):
             span.previous_sibling.decompose()
             span.decompose()
+        # → consulter cet ouvrage
+        for a in bs.find_all("a", {"class": "external text"}):
+            a.decompose()
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
                 a.decompose()
