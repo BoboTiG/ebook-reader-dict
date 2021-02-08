@@ -15,6 +15,10 @@ def test_sublist():
     assert check_word.main("fr", "éperon") == 0
 
 
+def test_subsublist():
+    assert check_word.main("fr", "vache") == 0
+
+
 def test_error():
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
