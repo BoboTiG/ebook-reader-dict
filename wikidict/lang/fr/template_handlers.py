@@ -22,22 +22,17 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Abréviation)</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str))
     '<i>(Abréviation)</i>'
-    >>> render_abreviation("abréviation", ["fr"], defaultdict(str,{"m":"1"}))
-    '<i>(Abréviation)</i>'
-    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain", "m": "1"}))
-    'Abréviation de <i>dirham marocain</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "dirham marocain"}))
-    'abréviation de <i>dirham marocain</i>'
+    'Abréviation de <i>dirham marocain</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "accusatif", "texte": "'''acc'''usatif"}))
-    "abréviation de <i>'''acc'''usatif</i>"
+    "Abréviation de <i>'''acc'''usatif</i>"
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "accusatif", "texte": "'''acc'''usatif", "nolien": "oui"}))
-    'abréviation de <i>accusatif</i>'
+    'Abréviation de <i>accusatif</i>'
     """  # noqa
     if not parts or not data:
         return italic("(Abréviation)")
 
-    auto_cap = data["m"] in ("1", "oui")
-    phrase = ("A" if auto_cap else "a") + "bréviation"
+    phrase = "Abréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
         phrase += f' de {italic(data["texte"])}'
     elif data["de"]:
@@ -257,6 +252,8 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'composé de <i>garde</i> et de <i>enfant</i>'
     >>> render_compose_de("composé de", ["élever", "-able", ""], defaultdict(str, {"lang": "fr", "m": "1"}))
     'Dérivé de <i>élever</i> avec le suffixe <i>-able</i>'
+    >>> render_compose_de("composé de", ["litura", "funus"], defaultdict(str, {"lang": "la", "sens1": "", "sens2":"mort au génitif", "sens": ""}))
+    'composé de <i>litura</i> et de <i>funus</i> («&nbsp;mort au génitif&nbsp;»)'
     """  # noqa
 
     # algorithm from https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:compos%C3%A9_de&action=edit
@@ -322,7 +319,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += " et le suffixe " + word_tr_sens(
                 parts[2], data.get("tr3", ""), data.get("sens3", "")
             )
-        if "sens" in data:
+        if data["sens"]:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
         return phrase
 
@@ -343,7 +340,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             " et de " if len(s_array) < 3 else " et ",
         )
 
-    if "sens" in data:
+    if data["sens"]:
         phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
 
     return phrase
