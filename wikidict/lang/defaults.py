@@ -47,10 +47,6 @@ def last_template_handler(
     if tpl == "w":
         return render_wikilink(tpl, parts, data)
 
-    # Handle the {{lang}} template when it comes with unknown locale
-    if tpl.lower() == "lang":
-        return parts[-1]
-
     # Handle the specific {{transliterator}} template (which is a Wiktionary module)
     if tpl == "transliterator":
         lang = parts[0]
