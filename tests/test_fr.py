@@ -465,7 +465,7 @@ def test_parse_word(
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
-        ("{{WSP|Panthera leo}}", "<i>(Panthera leo)</i>"),
+        ("{{WSP|Panthera leo}}", "<i>Panthera leo</i>"),
         ("{{x10|9}}", "×10<sup>9</sup>"),
         ("{{x10}}", "×10"),
     ],

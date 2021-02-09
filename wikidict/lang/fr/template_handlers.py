@@ -46,17 +46,14 @@ def render_acronyme(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_acronyme("acronyme", ["fr"], defaultdict(str))
     '<i>(Acronyme)</i>'
-    >>> render_acronyme("acronyme", ["en"], defaultdict(str, {"de":"light-emitting diode", "m":"oui"}))
-    'Acronyme de <i>light-emitting diode</i>'
     >>> render_acronyme("acronyme", ["en"], defaultdict(str, {"de":"light-emitting diode"}))
-    'acronyme de <i>light-emitting diode</i>'
-    >>> render_acronyme("acronyme", ["en", "fr"], defaultdict(str, {"de":"light-emitting diode", "texte":"Light-Emitting Diode", "m":"1" }))
+    'Acronyme de <i>light-emitting diode</i>'
+    >>> render_acronyme("acronyme", ["en", "fr"], defaultdict(str, {"de":"light-emitting diode", "texte":"Light-Emitting Diode"}))
     'Acronyme de <i>Light-Emitting Diode</i>'
     """  # noqa
     if not data["texte"] and not data["de"]:
         return italic("(Acronyme)")
-    phrase = "Acronyme" if data["m"] in ("1", "oui") else "acronyme"
-    return f"{phrase} de {italic(data['texte'] or data['de'])}"
+    return f"Acronyme de {italic(data['texte'] or data['de'])}"
 
 
 def render_agglutination(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -282,7 +279,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     if is_derived:
         # Dérivé
-        phrase = "D" if data["m"] in ("1", "oui") else "d"
+        phrase = "D" if data["m"] else "d"
         phrase += "érivée" if data["f"] in ("1", "oui", "o") else "érivé"
 
         if b == "1000":
@@ -324,7 +321,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return phrase
 
     # Composé
-    phrase = "C" if data["m"] in ("1", "oui") else "c"
+    phrase = "C" if data["m"] else "c"
     phrase += "omposée de " if data["f"] in ("1", "oui", "o") else "omposé de "
     s_array = []
     for number, part in enumerate(parts, 1):
@@ -358,8 +355,10 @@ def render_date(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(1957)</i>'
     >>> render_date("date", ["vers l'an V"], defaultdict(str))
     "<i>(Vers l'an V)</i>"
+    >>> render_date("date", ["", "fr"], defaultdict(str))
+    '<i>(Date à préciser)</i>'
     """
-    date = parts[-1] if parts and parts[-1] not in ("", "?") else "Date à préciser"
+    date = parts[0] if parts and parts[0] not in ("", "?") else "Date à préciser"
     return term(capitalize(date))
 
 
@@ -553,12 +552,16 @@ def render_polytonique(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'नामन्, <i>nā́man</i>'
     >>> render_polytonique("Polytonique", ["هند", "hend", "Inde"], defaultdict(str))
     'هند, <i>hend</i> («&nbsp;Inde&nbsp;»)'
+    >>> render_polytonique("polytonique", ["κακοθάνατος", "kakothánatos", ""], defaultdict(str))
+    'κακοθάνατος, <i>kakothánatos</i>'
     """
     phrase = parts.pop(0)
-    if data["tr"] or parts:
-        phrase += f", {italic(data['tr'] or parts.pop(0))}"
-    if data["sens"] or parts:
-        phrase += f" («&nbsp;{data['sens'] or parts.pop(0)}&nbsp;»)"
+    tr = data["tr"] or (parts.pop(0) if parts else "")
+    sens = data["sens"] or (parts.pop(0) if parts else "")
+    if tr:
+        phrase += f", {italic(tr)}"
+    if sens:
+        phrase += f" («&nbsp;{sens}&nbsp;»)"
     return phrase
 
 
@@ -601,6 +604,8 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(XVIII<sup>e</sup> siècle ?)</i>'
     >>> render_siecle("siècle", ["I", "III"], defaultdict(str))
     '<i>(I<sup>er</sup> siècle – III<sup>e</sup> siècle)</i>'
+    >>> render_siecle("siècle", ["II - III"], defaultdict(str))
+    '<i>(II<sup>e</sup> siècle - III)</i>'
     """
     parts = [part for part in parts if part.strip() and part != "?"]
     if not parts:
@@ -610,7 +615,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         sup = "er" if x.group() == "I" else "e"
         return f"{x.group().strip()}{superscript(sup)} siècle "
 
-    parts = [re.sub(r"([IVX]+)([^\s\w]|\s|$)", repl, part).strip() for part in parts]
+    parts = [re.sub(r"([IVX]+)([^\s\w]|\s|$)", repl, part, 1).strip() for part in parts]
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 

@@ -258,8 +258,10 @@ templates_italic = {
     "cour": "Courant",
     "cours d'eau": "Géographie",
     "cout": "Couture",
+    "critiqué": "Usage critiqué",
     "cycl": "Cyclisme",
     "dermatol": "Dermatologie",
+    "déris": "Par dérision",
     "dérision": "Par dérision",
     "désuet": "Désuet",
     "détroit": "Géographie",
@@ -280,6 +282,7 @@ templates_italic = {
     "écolo": "Écologie",
     "écon": "Économie",
     "éduc": "Éducation",
+    "énallages": "Énallage",
     "énergie": "Industrie de l’énergie",
     "épithète": "Employé comme épithète",
     "familier": "Familier",
@@ -317,6 +320,7 @@ templates_italic = {
     "injur": "Injurieux",
     "intrans": "Intransitif",
     "iron": "Ironique",
+    "ironie": "Ironique",
     "jardi": "Jardinage",
     "juri": "Droit",
     "jurisprudence": "Droit",
@@ -510,6 +514,8 @@ templates_multi = {
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{graphie|u}}
     "graphie": 'f"‹&nbsp;{parts[1]}&nbsp;›"',
+    # {{Ier}}
+    "Ier": "f\"{small_caps('i')}{superscript('er')}\"",
     # {{îles|fr}}
     # {{îles|fr|des Antilles}}
     "îles": "term('Géographie')",
@@ -558,6 +564,8 @@ templates_multi = {
     # {{région|Lorraine et Dauphiné}}
     "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    # {{re}}
+    "re": "superscript(parts[1] if len(parts) > 1 else 'ère')",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
@@ -597,7 +605,7 @@ templates_multi = {
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
-    "WSP": "term(parts[1])",
+    "WSP": "italic(parts[1])",
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
 }
