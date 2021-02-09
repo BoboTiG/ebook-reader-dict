@@ -16,6 +16,15 @@ from ...user_functions import (
 )
 
 
+def word_tr_sens(w: str, tr: str, sens: str) -> str:
+    r = f"{w}" if tr else f"{italic(w)}"
+    if tr:
+        r += f", {italic(tr)}"
+    if sens:
+        r += f" («&nbsp;{sens}&nbsp;»)"
+    return r
+
+
 def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_abreviation("abréviation", [], defaultdict(str))
@@ -28,6 +37,8 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     "Abréviation de <i>'''acc'''usatif</i>"
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "accusatif", "texte": "'''acc'''usatif", "nolien": "oui"}))
     'Abréviation de <i>accusatif</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"nolien": "oui"}))
+    '<i>(Abréviation)</i>'
     """  # noqa
     if not parts or not data:
         return italic("(Abréviation)")
@@ -267,22 +278,21 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     b4 = "1" if len(parts) > 3 else "0"
 
     b = b1 + b2 + b3 + b4
-    is_derived = b == "1000" or b == "0100" or b == "1020"
-
-    def word_tr_sens(w: str, tr: str, sens: str) -> str:
-        r = f"{w}" if tr else f"{italic(w)}"
-        if tr:
-            r += f", {italic(tr)}"
-        if sens:
-            r += f" («&nbsp;{sens}&nbsp;»)"
-        return r
+    is_derived = b in ["1000", "0100", "1020"]
 
     if is_derived:
         # Dérivé
         phrase = "D" if data["m"] else "d"
         phrase += "érivée" if data["f"] in ("1", "oui", "o") else "érivé"
 
-        if b == "1000":
+        if b == "0100":
+            phrase += " de " + word_tr_sens(
+                parts[0], data.get("tr1", ""), data.get("sens1", "")
+            )
+            phrase += " avec le suffixe " + word_tr_sens(
+                parts[1], data.get("tr2", ""), data.get("sens2", "")
+            )
+        elif b == "1000":
             if len(parts) > 1 and parts[1]:
                 phrase += (
                     " de "
@@ -294,14 +304,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += " préfixe " + word_tr_sens(
                 parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
-        if b == "0100":
-            phrase += " de " + word_tr_sens(
-                parts[0], data.get("tr1", ""), data.get("sens1", "")
-            )
-            phrase += " avec le suffixe " + word_tr_sens(
-                parts[1], data.get("tr2", ""), data.get("sens2", "")
-            )
-        if b == "1020":
+        elif b == "1020":
             if len(parts) > 1 and parts[1]:
                 phrase += (
                     " de "
@@ -323,12 +326,11 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     # Composé
     phrase = "C" if data["m"] else "c"
     phrase += "omposée de " if data["f"] in ("1", "oui", "o") else "omposé de "
-    s_array = []
-    for number, part in enumerate(parts, 1):
-        if part:
-            s_array.append(
-                word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
-            )
+    s_array = [
+        word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
+        for number, part in enumerate(parts, 1)
+        if part
+    ]
 
     if s_array:
         phrase += concat(
@@ -462,6 +464,18 @@ def render_la_verb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["pattern"]:
         phrase += " " + italic(f"({data['pattern']})")
     return phrase
+
+
+def render_lang(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_lang("Lang", ["la", "sine qua non"], defaultdict(str, {"sens": "sans quoi non"}))
+    '<i>sine qua non</i> («&nbsp;sans quoi non&nbsp;»)'
+    """  # noqa
+    parts.pop(0)  # language
+    texte = data["texte"] or data["2"] or (parts.pop(0) if parts else "")
+    tr = data["tr"] or data["3"] or (parts.pop(0) if parts else "")
+    sens = data["sens"] or data["4"] or (parts.pop(0) if parts else "")
+    return word_tr_sens(texte, tr, sens)
 
 
 def render_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -758,6 +772,8 @@ template_mapping = {
     "étylp": render_etyl,
     "forme reconstruite": render_recons,
     "la-verb": render_la_verb,
+    "lang": render_lang,
+    "Lang": render_lang,
     "lien": render_lien,
     "l": render_lien,
     "LienRouge": render_lien_rouge,
