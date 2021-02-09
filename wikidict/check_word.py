@@ -58,6 +58,19 @@ def filter_html(html: str, locale: str) -> str:
         for span in bs.find_all("span", {"id": "refnec"}):
             span.previous_sibling.decompose()
             span.decompose()
+        # Cette information a besoin d’être précisée
+        for span in bs.find_all(
+            "span", {"title": "Cette information a besoin d’être précisée"}
+        ):
+            span.decompose()
+        for span in bs.find_all("span", {"class": "sources"}):
+            span.decompose()
+        # → consulter cet ouvrage
+        for a in bs.find_all("a", {"class": "external text"}):
+            if "consulter cet ouvrage" in a.text:
+                a.decompose()
+        for a in bs.find_all("a", {"class": "external autonumber"}):
+            a.decompose()
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
                 a.decompose()
@@ -123,6 +136,6 @@ def main(locale: str, word: str) -> int:
             index += 1
 
     if errors:
-        print("\n >>> Errors:", errors)
+        print(f"\n >>> [{word}] - Errors:", errors)
 
     return errors

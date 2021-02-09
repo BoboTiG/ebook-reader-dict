@@ -61,6 +61,42 @@ def test_filter_fr_refnec():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_sources():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += (
+            '<span class="sources"><span class="tiret">—&nbsp;</span>(<i>Ordonnance de Louis XI pour la formation d'
+            "un port et château fort à la Hague</i>)</span>"
+        )
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
+def test_filter_fr_external_autonumber():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<a rel="nofollow" class="external autonumber" href="http://www.iupac.org/publications/pac/1994/pdf/6612x2419.pdf">[2]</a>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
+def test_filter_fr_a_preciser():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<span title="Cette information a besoin d’être précisée"><small>&nbsp;<span style="color:red">(information&nbsp;<i>à préciser ou à vérifier</i>)</span></small></span>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_obsolete_tpl():
     orig = check_word.filter_html
 
