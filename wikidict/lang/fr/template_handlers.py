@@ -278,14 +278,21 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     b4 = "1" if len(parts) > 3 else "0"
 
     b = b1 + b2 + b3 + b4
-    is_derived = b == "1000" or b == "0100" or b == "1020"
+    is_derived = b in ["1000", "0100", "1020"]
 
     if is_derived:
         # Dérivé
         phrase = "D" if data["m"] else "d"
         phrase += "érivée" if data["f"] in ("1", "oui", "o") else "érivé"
 
-        if b == "1000":
+        if b == "0100":
+            phrase += " de " + word_tr_sens(
+                parts[0], data.get("tr1", ""), data.get("sens1", "")
+            )
+            phrase += " avec le suffixe " + word_tr_sens(
+                parts[1], data.get("tr2", ""), data.get("sens2", "")
+            )
+        elif b == "1000":
             if len(parts) > 1 and parts[1]:
                 phrase += (
                     " de "
@@ -297,14 +304,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += " préfixe " + word_tr_sens(
                 parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
-        if b == "0100":
-            phrase += " de " + word_tr_sens(
-                parts[0], data.get("tr1", ""), data.get("sens1", "")
-            )
-            phrase += " avec le suffixe " + word_tr_sens(
-                parts[1], data.get("tr2", ""), data.get("sens2", "")
-            )
-        if b == "1020":
+        elif b == "1020":
             if len(parts) > 1 and parts[1]:
                 phrase += (
                     " de "
@@ -326,12 +326,11 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     # Composé
     phrase = "C" if data["m"] else "c"
     phrase += "omposée de " if data["f"] in ("1", "oui", "o") else "omposé de "
-    s_array = []
-    for number, part in enumerate(parts, 1):
-        if part:
-            s_array.append(
-                word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
-            )
+    s_array = [
+        word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
+        for number, part in enumerate(parts, 1)
+        if part
+    ]
 
     if s_array:
         phrase += concat(
