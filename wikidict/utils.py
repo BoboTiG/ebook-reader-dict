@@ -505,10 +505,11 @@ def transform(word: str, template: str, locale: str) -> str:
     tpl = parts[0]
 
     # {{formatnum:-1000000}}
-    if ":" in tpl:
-        parts_raw = template.split(":")
-        parts = [p.strip() for p in parts_raw]
-        tpl = parts[0]
+    if tpl not in ("R:TLFi"):
+        if ":" in tpl:
+            parts_raw = template.split(":")
+            parts = [p.strip() for p in parts_raw]
+            tpl = parts[0]
 
     # Stop early
     if not tpl or tpl in templates_ignored[locale]:
