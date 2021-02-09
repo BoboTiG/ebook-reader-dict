@@ -40,6 +40,11 @@ recognized_placetypes = {
         "display": "London borough",
         "preposition": "of",
     },
+    "Welsh community": {
+        "article": "a",
+        "display": "community",
+        "preposition": "of",
+    },
     "administrative atoll": {
         "article": "an",
         "display": "administrative atoll",
@@ -1935,7 +1940,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 386
+}  # 387
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2017,7 +2022,8 @@ placetypes_aliases = {
     "utwpmun": "united township municipality",
     "val": "valley",
     "voi": "voivodeship",
-}  # 79
+    "wcomm": "Welsh community",
+}  # 80
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
