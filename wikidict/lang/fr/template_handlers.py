@@ -67,43 +67,46 @@ def render_acronyme(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"Acronyme de {italic(data['texte'] or data['de'])}"
 
 
-def render_agglutination(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_modele_etym(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
-    >>> render_agglutination("agglutination", [], defaultdict(str, {"m":"1"}))
+    >>> render_modele_etym("agglutination", [], defaultdict(str, {"m":"1"}))
     'Agglutination'
-    >>> render_agglutination("agglutination", ["fr"], defaultdict(str, {"de":"harbin", "texte":"l'harbin", "m":"1"}))
+    >>> render_modele_etym("agglutination", ["fr"], defaultdict(str, {"de":"harbin", "texte":"l'harbin", "m":"1"}))
     "Agglutination de <i>l'harbin</i>"
 
-    >>> render_agglutination("dénominal", [], defaultdict(str))
+    >>> render_modele_etym("contraction", ["fr"], defaultdict(str, {"de":"du", "de2":"quel"}))
+    'contraction de <i>du</i> et de <i>quel</i>'
+
+    >>> render_modele_etym("dénominal", [], defaultdict(str))
     'dénominal'
-    >>> render_agglutination("dénominal",[], defaultdict(str, {"de":"psychoanalyze", "m":"1"}))
+    >>> render_modele_etym("dénominal",[], defaultdict(str, {"de":"psychoanalyze", "m":"1"}))
     'Dénominal de <i>psychoanalyze</i>'
 
-    >>> render_agglutination("déverbal", [], defaultdict(str))
+    >>> render_modele_etym("déverbal", [], defaultdict(str))
     'déverbal'
-    >>> render_agglutination("déverbal", [], defaultdict(str, {"de":"peko", "lang":"eo", "m":"0"}))
+    >>> render_modele_etym("déverbal", [], defaultdict(str, {"de":"peko", "lang":"eo", "m":"0"}))
     'déverbal de <i>peko</i>'
-    >>> render_agglutination("déverbal", [], defaultdict(str, {"de":"accueillir", "m":"1"}))
+    >>> render_modele_etym("déverbal", [], defaultdict(str, {"de":"accueillir", "m":"1"}))
     'Déverbal de <i>accueillir</i>'
-    >>> render_agglutination("déverbal sans suffixe", [], defaultdict(str, {"de":"réserver", "m":"1"}))
+    >>> render_modele_etym("déverbal sans suffixe", [], defaultdict(str, {"de":"réserver", "m":"1"}))
     'Déverbal sans suffixe de <i>réserver</i>'
 
-    >>> render_agglutination("syncope", ["fr"], defaultdict(str, { "m":"1"}))
+    >>> render_modele_etym("syncope", ["fr"], defaultdict(str, { "m":"1"}))
     'Syncope'
-    >>> render_agglutination("syncope", ["fr"], defaultdict(str, {"de":"ne voilà-t-il pas"}))
+    >>> render_modele_etym("syncope", ["fr"], defaultdict(str, {"de":"ne voilà-t-il pas"}))
     'syncope de <i>ne voilà-t-il pas</i>'
-    >>> render_agglutination("parataxe", ["fr"], defaultdict(str, {"de":"administrateur", "de2":"réseau"}))
+    >>> render_modele_etym("parataxe", ["fr"], defaultdict(str, {"de":"administrateur", "de2":"réseau"}))
     'parataxe de <i>administrateur</i> et de <i>réseau</i>'
-    >>> render_agglutination("déglutination", ["fr"], defaultdict(str, {"de":"agriote", "texte":"l’agriote", "m":"1"}))
+    >>> render_modele_etym("déglutination", ["fr"], defaultdict(str, {"de":"agriote", "texte":"l’agriote", "m":"1"}))
     'Déglutination de <i>l’agriote</i>'
 
-    >>> render_agglutination("univerbation", ["fr"], defaultdict(str, {"m":"1", "de":"gens", "de2":"armes"}))
+    >>> render_modele_etym("univerbation", ["fr"], defaultdict(str, {"m":"1", "de":"gens", "de2":"armes"}))
     'Univerbation de <i>gens</i> et de <i>armes</i>'
-    >>> render_agglutination("univerbation", ["fr"], defaultdict(str, {"m":"1", "de":"gens", "texte":"les gens", "de2":"armes", "texte2":"les armes"}))
+    >>> render_modele_etym("univerbation", ["fr"], defaultdict(str, {"m":"1", "de":"gens", "texte":"les gens", "de2":"armes", "texte2":"les armes"}))
     'Univerbation de <i>les gens</i> et de <i>les armes</i>'
     """  # noqa
     phrase = tpl
-    if data["m"] == "1":
+    if data["m"] in ("1", "oui"):
         phrase = capitalize(phrase)
 
     if data["de"]:
@@ -113,7 +116,7 @@ def render_agglutination(tpl: str, parts: List[str], data: Dict[str, str]) -> st
         else:
             phrase += italic(data["de"])
 
-    if tpl in ("univerbation", "parataxe") and data["de2"]:
+    if tpl in ("univerbation", "parataxe", "contraction") and data["de2"]:
         phrase += " et de "
         if data["nolien"] != "1" and data["texte2"]:
             phrase += italic(data["texte2"])
@@ -753,20 +756,22 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 template_mapping = {
     "abréviation": render_abreviation,
     "acronyme": render_acronyme,
-    "agglutination": render_agglutination,
+    "agglutination": render_modele_etym,
+    "antonomase": render_modele_etym,
     "aphérèse": render_apherese,
     "apocope": render_apherese,
     "argot": render_argot,
     "calque": render_etyl,
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
+    "contraction": render_modele_etym,
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "date": render_date,
-    "déglutination": render_agglutination,
-    "dénominal": render_agglutination,
-    "déverbal": render_agglutination,
-    "déverbal sans suffixe": render_agglutination,
+    "déglutination": render_modele_etym,
+    "dénominal": render_modele_etym,
+    "déverbal": render_modele_etym,
+    "déverbal sans suffixe": render_modele_etym,
     "équiv-pour": render_equiv_pour,
     "étyl": render_etyl,
     "étylp": render_etyl,
@@ -778,17 +783,17 @@ template_mapping = {
     "l": render_lien,
     "LienRouge": render_lien_rouge,
     "mot-valise": render_mot_valise,
-    "parataxe": render_agglutination,
+    "parataxe": render_modele_etym,
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
     "recons": render_recons,
-    "reverlanisation": render_agglutination,
+    "reverlanisation": render_modele_etym,
     "siècle": render_siecle,
     "siècle2": render_siecle2,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
-    "syncope": render_agglutination,
-    "univerbation": render_agglutination,
+    "syncope": render_modele_etym,
+    "univerbation": render_modele_etym,
     "w": defaults.render_wikilink,
     "Wikipédia": render_wikipedia,
     "wp": render_wikipedia,
