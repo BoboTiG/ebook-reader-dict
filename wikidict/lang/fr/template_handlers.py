@@ -16,8 +16,8 @@ from ...user_functions import (
 )
 
 
-def word_tr_sens(w: str, tr: str, sens: str) -> str:
-    r = f"{w}" if tr else f"{italic(w)}"
+def word_tr_sens(w: str, tr: str, sens: str, use_italic: bool = True) -> str:
+    r = w if tr else (f"{italic(w)}" if use_italic else w)
     if tr:
         r += f", {italic(tr)}"
     if sens:
@@ -693,6 +693,25 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_variante_ortho(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_variante_ortho("variante ortho de", ["acupuncture", "fr"], defaultdict(str))
+    '<i>Variante orthographique de</i> acupuncture'
+    >>> render_variante_ortho("Variante ortho de", ["Me"], defaultdict(str, {"dif": "M<sup>e</sup>"}))
+    '<i>Variante orthographique de</i> M<sup>e</sup>'
+    >>> render_variante_ortho("Variante ortho de", ["kwanliso"], defaultdict(str, {"sens": "camp de travail en Corée du Nord"}))
+    '<i>Variante orthographique de</i> kwanliso («&nbsp;camp de travail en Corée du Nord&nbsp;»)'
+    >>> render_variante_ortho("Variante ortho de", [], defaultdict(str))
+    ''
+    """  # noqa
+    if not parts:
+        return ""
+    phrase = italic("Variante orthographique de")
+    w = data["dif"] or parts.pop(0)
+    phrase += f' {word_tr_sens(w, data["tr"], data["sens"], use_italic=False)}'
+    return phrase
+
+
 def render_wikipedia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_wikipedia("wp", [], defaultdict(str))
@@ -789,6 +808,9 @@ template_mapping = {
     "supplétion": render_suppletion,
     "syncope": render_agglutination,
     "univerbation": render_agglutination,
+    "Variante ortho de": render_variante_ortho,
+    "variante ortho de": render_variante_ortho,
+    "variante orthographique de": render_variante_ortho,
     "w": defaults.render_wikilink,
     "Wikipédia": render_wikipedia,
     "wp": render_wikipedia,

@@ -206,7 +206,7 @@ from wikidict.utils import process_templates
             ["ɑ̃.si.klɔ.pe.di"],
             "f",
             "→ voir <i>encyclopédie</i>",
-            ["<i>(Archaïsme)</i> Variante orthographique de encyclopédie."],
+            ["<i>(Archaïsme)</i> <i>Variante orthographique de</i> encyclopédie."],
             [],
         ),
         (
@@ -449,15 +449,15 @@ def test_parse_word(
         ("{{Variante de|muezzin|fr}}", "Variante de muezzin"),
         (
             "{{variante ortho de|acupuncture|fr}}",
-            "Variante orthographique de acupuncture",
+            "<i>Variante orthographique de</i> acupuncture",
         ),
         (
             "{{Variante ortho de|acupuncture|fr}}",
-            "Variante orthographique de acupuncture",
+            "<i>Variante orthographique de</i> acupuncture",
         ),
         (
             "{{variante orthographique de|acupuncture|fr}}",
-            "Variante orthographique de acupuncture",
+            "<i>Variante orthographique de</i> acupuncture",
         ),
         ("{{W|Jacques Brandenberger}}", "Jacques Brandenberger"),
         ("{{w|lang=en|The Little Prince}}", "The Little Prince"),
