@@ -620,16 +620,20 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(I<sup>er</sup> siècle – III<sup>e</sup> siècle)</i>'
     >>> render_siecle("siècle", ["II - III"], defaultdict(str))
     '<i>(II<sup>e</sup> siècle - III)</i>'
+    >>> render_siecle("siècle", ["XVIII?"], defaultdict(str))
+    '<i>(XVIII<sup>e</sup> siècle?)</i>'
     """
     parts = [part for part in parts if part.strip() and part != "?"]
     if not parts:
         return term("Siècle à préciser")
 
     def repl(x: Match[str]) -> str:
-        sup = "er" if x.group() == "I" else "e"
-        return f"{x.group().strip()}{superscript(sup)} siècle "
+        sup = "er" if x.group()[:-1] == "I" else "e"
+        return f"{x.group()[:-1]}{superscript(sup)} siècle" + x.group()[-1]
 
-    parts = [re.sub(r"([IVX]+)([^\s\w]|\s|$)", repl, part, 1).strip() for part in parts]
+    parts = [
+        re.sub(r"([IVX]+)([^\s\w]|\s)", repl, part + " ", 1).strip() for part in parts
+    ]
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 
@@ -696,17 +700,17 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_wikipedia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_wikipedia("wp", [], defaultdict(str))
-    'sur l’encyclopédie Wikipedia'
+    'sur l’encyclopédie Wikipédia'
     >>> render_wikipedia("wp", ["Sarcoscypha coccinea"], defaultdict(str))
-    'Sarcoscypha coccinea sur l’encyclopédie Wikipedia'
+    'Sarcoscypha coccinea sur l’encyclopédie Wikipédia'
     >>> render_wikipedia("wp", ["Vénus (planète)", "Planète Vénus"], defaultdict(str))
-    'Planète Vénus sur l’encyclopédie Wikipedia'
+    'Planète Vénus sur l’encyclopédie Wikipédia'
     >>> render_wikipedia("wp", ["Norv%C3%A8ge#%C3%89tymologie)", 'la section "Étymologie" de l\\'article Norvège'], defaultdict(str))
-    'la section "Étymologie" de l\\'article Norvège sur l’encyclopédie Wikipedia'
+    'la section "Étymologie" de l\\'article Norvège sur l’encyclopédie Wikipédia'
     >>> render_wikipedia("wp", ["Dictionary"], defaultdict(str, {"lang": "en"}))
-    'Dictionary sur l’encyclopédie Wikipedia (en anglais)'
+    'Dictionary sur l’encyclopédie Wikipédia (en anglais)'
     """  # noqa
-    phrase = "sur l’encyclopédie Wikipedia"
+    phrase = "sur l’encyclopédie Wikipédia"
     if data["lang"]:
         l10n = langs[data["lang"]]
         phrase += f" (en {l10n})"
@@ -790,7 +794,9 @@ template_mapping = {
     "syncope": render_agglutination,
     "univerbation": render_agglutination,
     "w": defaults.render_wikilink,
+    "Wikipedia": render_wikipedia,
     "Wikipédia": render_wikipedia,
+    "wikipédia": render_wikipedia,
     "wp": render_wikipedia,
     "WP": render_wikipedia,
     "ws": render_wikisource,
