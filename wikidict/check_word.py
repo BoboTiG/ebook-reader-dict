@@ -63,14 +63,21 @@ def filter_html(html: str, locale: str) -> str:
             "span", {"title": "Cette information a besoin d’être précisée"}
         ):
             span.decompose()
+        # — (Richelet, Dictionnaire français 1680)
         for span in bs.find_all("span", {"class": "sources"}):
             span.decompose()
         # → consulter cet ouvrage
         for a in bs.find_all("a", {"class": "external text"}):
             if "consulter cet ouvrage" in a.text:
                 a.decompose()
+        # sur Wikispecies
+        for a in bs.find_all("a", {"class": "extiw"}):
+            if a["title"].startswith("wikispecies"):
+                a.parent.next_sibling.replaceWith("")
+        # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
             a.decompose()
+        # other anchors
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
                 a.decompose()

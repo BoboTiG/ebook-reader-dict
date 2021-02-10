@@ -86,6 +86,17 @@ def test_filter_fr_external_autonumber():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_wikispecies():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<i><a href="https://species.wikimedia.org/wiki/Panthera_leo" class="extiw" title="wikispecies:Panthera leo">Panthera leo</a></i> sur Wikispecies'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_fr_a_preciser():
     orig = check_word.filter_html
 

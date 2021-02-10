@@ -414,6 +414,7 @@ templates_italic = {
     "scolaire": "Éducation",
     "sexe": "Sexualité",
     "sigle": "Sigle",
+    "SMS": "Langage SMS",
     "sociol": "Sociologie",
     "sout": "Soutenu",
     "spéc": "Spécialement",
