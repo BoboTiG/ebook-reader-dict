@@ -611,7 +611,6 @@ templates_other = {
     "!": "!",
     "=": "=",
     "absolu": "<i>absolu</i>",
-    "antonomase": "antonomase",
     "apJC": "apr. J.-C.",
     "attention": "⚠",
     "au singulier uniquement": "<i>au singulier uniquement</i>",
@@ -620,7 +619,6 @@ templates_other = {
     "c": "<i>commun</i>",
     "collectif": "<i>collectif</i>",
     "commun": "<i>commun</i>",
-    "contraction": "contraction",
     "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",  # noqa
     "dépendant": "<i>dépendant</i>",
     "déterminé": "déterminé",
