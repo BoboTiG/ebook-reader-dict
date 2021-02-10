@@ -531,7 +531,7 @@ templates_multi = {
     "info lex": "term(', '.join(capitalize(part) for part in parts[1:]))",
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
-    "lexique": "term(', '.join(capitalize(p) for p in parts[1:-1]))",
+    "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
     # {{localités|fr|d’Espagne}}
     "localités": "term('Géographie')",
     # {{mn-lien|далай|dalai|ᠲᠠᠯᠠᠢ}}
