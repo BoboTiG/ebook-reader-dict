@@ -72,7 +72,11 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
         # sur Wikispecies
         for a in bs.find_all("a", {"class": "extiw"}):
-            if a["title"].startswith("wikispecies"):
+            if (
+                a["title"].startswith("wikispecies")
+                and a.parent.next_sibling
+                and "sur Wikispecies" in a.parent.next_sibling
+            ):
                 a.parent.next_sibling.replaceWith("")
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
