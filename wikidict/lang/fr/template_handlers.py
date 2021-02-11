@@ -821,6 +821,7 @@ template_mapping = {
     "variante orthographique de": render_variante_ortho,
     "univerbation": render_modele_etym,
     "w": defaults.render_wikilink,
+    "W": defaults.render_wikilink,
     "Wikipedia": render_wikipedia,
     "Wikipédia": render_wikipedia,
     "wikipédia": render_wikipedia,

@@ -336,6 +336,7 @@ templates_italic = {
     "maladie": "Nosologie",
     "manège": "Équitation",
     "marque": "Marque commerciale",
+    "marque déposée": "Marque commerciale",
     "math": "Mathématiques",
     "méc": "Mécanique",
     "médecine non conv": "Médecine non conventionnelle",
@@ -477,7 +478,7 @@ templates_multi = {
     # {{cf|lang=fr|triner}}
     "cf": "f\"→ voir{' ' + concat([italic(p) for p in parts[1:] if p and '=' not in p], ', ', ' et ') if len(parts) > 1 else ''}\"",  # noqa
     # {{circa|1150}}
-    "circa": "term('c. ' + parts[1])",
+    "circa": "term('c. ' + [p for p in parts if p and '=' not in p][1])",
     # {{créatures|fr|mythologiques}
     "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
@@ -502,7 +503,7 @@ templates_multi = {
     # {{er}}
     "er": "superscript(parts[1] if len(parts) > 1 else 'er')",
     # {{ère}}
-    "ère": "superscript(parts[1] if len(parts) > 1 else 'ère')",
+    "ère": "superscript(parts[1] if len(parts) > 1 else 're')",
     # XIV{{exp|e}}
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{emploi|au passif}}
@@ -594,8 +595,6 @@ templates_multi = {
     # {{variante de|ranche|fr}}
     "variante de": "sentence(parts)",
     "Variante de": "sentence(parts)",
-    # {{W|Jacques Brandenberger}}
-    "W": "parts[-1] if parts else ''",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
@@ -713,6 +712,8 @@ def last_template_handler(
 
         >>> last_template_handler(["ar-mot", "elHasan_"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
+        >>> last_template_handler(["ar-ab", "maktûbũ"], "fr")
+        '<span style="line-height: 0px;"><span style="font-size:larger">مَكْتُوبٌ</span></span>'
 
     """  # noqa
     from .langs import langs
@@ -759,6 +760,8 @@ def last_template_handler(
 
     if tpl in ("ar-mot", "ar-terme"):
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
+    if tpl in ("ar-ab"):
+        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
 
     # This is a country in the current locale
     if tpl in langs:
