@@ -81,6 +81,9 @@ def filter_html(html: str, locale: str) -> str:
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
             a.decompose()
+        # attention image
+        for a in bs.find_all("a", {"title": "alt = attention"}):
+            a.replaceWith("⚠")
         # other anchors
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):

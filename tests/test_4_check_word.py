@@ -86,6 +86,17 @@ def test_filter_fr_external_autonumber():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_attention():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<a href="/wiki/Fichier:Twemoji12_26a0.svg" class="image" title="alt = attention"><img alt="alt = attention" src="//26a0.svg.png"></a>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_fr_wikispecies():
     orig = check_word.filter_html
 
