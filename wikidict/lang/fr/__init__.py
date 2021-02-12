@@ -760,7 +760,7 @@ def last_template_handler(
 
     if tpl in ("ar-mot", "ar-terme"):
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
-    if tpl in ("ar-ab"):
+    if tpl == "ar-ab":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
 
     # This is a country in the current locale
