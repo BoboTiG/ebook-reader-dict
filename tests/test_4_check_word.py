@@ -28,6 +28,28 @@ def test_no_definition_nor_etymology():
     assert check_word.main("es", "42") == 0
 
 
+def test_filter_obsolete_tpl():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += "<span id='FormattingError'>bouh !</span>"
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
+def test_filter_math_chem():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<span class="mwe-math-element"></span>'
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_anchors():
     orig = check_word.filter_html
 
@@ -113,17 +135,6 @@ def test_filter_fr_a_preciser():
 
     def new_filter_html(html: str, locale: str) -> str:
         html += '<span title="Cette information a besoin d’être précisée"><small>&nbsp;<span style="color:red">(information&nbsp;<i>à préciser ou à vérifier</i>)</span></small></span>'  # noqa
-        return orig(html, locale)
-
-    with patch.object(check_word, "filter_html", new=new_filter_html):
-        assert check_word.main("fr", "42") == 0
-
-
-def test_filter_obsolete_tpl():
-    orig = check_word.filter_html
-
-    def new_filter_html(html: str, locale: str) -> str:
-        html += "<span id='FormattingError'>bouh !</span>"
         return orig(html, locale)
 
     with patch.object(check_word, "filter_html", new=new_filter_html):

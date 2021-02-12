@@ -2,6 +2,7 @@
 import re
 from contextlib import suppress
 from datetime import datetime
+from functools import partial
 from pathlib import Path
 from typing import List, Match, Set, Tuple, Union
 from warnings import warn
@@ -385,9 +386,14 @@ def process_templates(word: str, text: str, locale: str) -> str:
         ''
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
-        >>> process_templates("", r"<math>\R^n</math>", "fr")
-        <math> ERROR with <re.Match object; span=(0, 17), match='<math>\\R^n</math>'>
+        >>> process_templates("test", r"<math>\R^n</math>", "fr")
+        <math> ERROR with \R^n in [test]
         '\\R^n'
+        >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
+        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
+        <chem> ERROR with C10HX\xz14N2O4 in [test]
+        'C10HX\\xz14N2O4'
     """
 
     sub = re.sub
@@ -424,7 +430,8 @@ def process_templates(word: str, text: str, locale: str) -> str:
         text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
 
     # Handle <math> HTML tags
-    text = sub(r"<math>([^<]+)</math>", convert_math, text)
+    text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
+    text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
 
     # Remove extra spaces (it happens when a template is ignored for instance)
     text = sub(r"\s{2,}", " ", text)
@@ -433,7 +440,7 @@ def process_templates(word: str, text: str, locale: str) -> str:
     return text.strip()
 
 
-def _convert_math(expr: str) -> str:
+def _convert_math(expr: str, packages: List[str] = []) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     from base64 import b64encode
     from io import BytesIO
@@ -449,6 +456,7 @@ def _convert_math(expr: str) -> str:
             viewer="BytesIO",
             outputbuffer=buf,
             dvioptions=dvioptions,
+            packages=tuple(packages),
         )
         Image.open(buf).convert("L").save(im, format="gif", optimize=True)
 
@@ -458,13 +466,26 @@ def _convert_math(expr: str) -> str:
     return f'<img style="{IMG_CSS}" src="data:image/gif;base64,{b64encode(raw).decode()}"/>'
 
 
-def convert_math(match: Union[str, Match[str]]) -> str:
+def convert_math(match: Union[str, Match[str]], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
-        return _convert_math(expr)
+        return _convert_math(
+            expr,
+            packages=["amssymb", "bbm"],
+        )
     except Exception:
-        print(f"<math> ERROR with {match}", flush=True)
+        print(f"<math> ERROR with {expr} in [{word}]", flush=True)
+        return expr
+
+
+def convert_chem(match: Union[str, Match[str]], word: str) -> str:
+    """Convert chemistry symbols to a base64 encoded GIF file."""
+    expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    try:
+        return _convert_math(f"\\ce{{{expr}}}", packages=["mhchem"])
+    except Exception:
+        print(f"<chem> ERROR with {expr} in [{word}]", flush=True)
         return expr
 
 

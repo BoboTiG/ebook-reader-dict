@@ -45,6 +45,10 @@ def filter_html(html: str, locale: str) -> str:
     for span in bs.find_all("span", {"class": "trad-exposant"}):
         span.decompose()
 
+    # Filter out result of <math> and <chem>
+    for span in bs.find_all("span", {"class": "mwe-math-element"}):
+        span.decompose()
+
     # Adapt the formatting for the ES locale as it differs from other locales
     if locale == "es":
         dts = bs.find_all("dt")
