@@ -446,6 +446,7 @@ templates_italic = {
     "verlan": "Verlan",
     "vête": "Habillement",
     "volley": "Volley-ball",
+    "vulg": "Vulgaire",
     "zool": "Zoologie",
     "zootechnie": "Zoologie",
 }
@@ -470,6 +471,9 @@ templates_multi = {
     # {{1er}}
     # {{1er|mai}}
     "1er": "f\"1{superscript('er')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    # {{Arabe|ن و ق}}
+    "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
+    "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
     "Braille": "parts[1]",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
@@ -479,6 +483,8 @@ templates_multi = {
     "cf": "f\"→ voir{' ' + concat([italic(p) for p in parts[1:] if p and '=' not in p], ', ', ' et ') if len(parts) > 1 else ''}\"",  # noqa
     # {{circa|1150}}
     "circa": "term('c. ' + [p for p in parts if p and '=' not in p][1])",
+    # {{Cyrl|Сергей}}
+    "Cyrl": "parts[1] if len(parts) > 1 else 'cyrillique'",
     # {{créatures|fr|mythologiques}
     "créatures": "term('Mythologie')",
     # {{couleur|#B0F2B6}}
