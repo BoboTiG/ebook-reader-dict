@@ -268,6 +268,8 @@ def clean(text: str) -> str:
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
         >>> clean("'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
+        >>> clean("[[{{nom langue|gcr}}]]")
+        '{{nom langue|gcr}}'
         >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
         '10{{e|&minus;6}} gray'
         >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
@@ -324,6 +326,7 @@ def clean(text: str) -> str:
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
+    text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
     text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b
 
     text = text.replace("[[", "").replace("]]", "")
