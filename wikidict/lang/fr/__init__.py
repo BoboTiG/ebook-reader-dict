@@ -696,6 +696,9 @@ def last_template_handler(
         >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|171"], "fr")
         "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171"
 
+        >>> last_template_handler(["code langue", "créole guyanais"], "fr")
+        'gcr'
+
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
         >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
@@ -721,6 +724,9 @@ def last_template_handler(
         '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
         >>> last_template_handler(["ar-ab", "maktûbũ"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">مَكْتُوبٌ</span></span>'
+
+        >>> last_template_handler(["nom langue", "gcr"], "fr")
+        'créole guyanais'
 
     """  # noqa
     from .langs import langs
@@ -755,6 +761,13 @@ def last_template_handler(
             return f"{author}, {italic(book)}, {date}"
         return f"{author}, {italic(book)}, {date}, page {page}"
 
+    if tpl == "code langue":
+        lang = parts[0]
+        for code, l10n in langs.items():
+            if l10n == lang:
+                return code
+        return ""
+
     if tpl == "R:TLFi":
         w = parts[0] if parts else word
         return f"«&nbsp;{w}&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994"
@@ -764,6 +777,9 @@ def last_template_handler(
 
     if tpl == "Légifrance":
         return data["texte"]
+
+    if tpl == "nom langue":
+        return langs[parts[0]]
 
     if tpl in ("ar-mot", "ar-terme"):
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
