@@ -233,6 +233,8 @@ def clean(text: str) -> str:
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
 
+        >>> clean("{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}")
+        '{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}'
         >>> clean("d'<nowiki/>''Arvernus'', surnom ethnique, ou composé d'''are''")
         "d'<i>Arvernus</i>, surnom ethnique, ou composé d'<i>are</i>"
         >>> clean("<ref name=oed/>Modelled<ref>Gerhard</ref> English<ref name=oed>Press.</ref>")
@@ -348,8 +350,8 @@ def clean(text: str) -> str:
     # External links
     # [[http://example.com foo]] -> foo
     text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
-    # http://example.com -> ''
-    text = sub(r"https?://[^\s\]]+", "", text)
+    # [http://example.com] -> ''
+    text = sub(r"\[https?://[^\s\]]+", "", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
@@ -362,6 +364,7 @@ def clean(text: str) -> str:
 
     # Remove extra brackets left
     text = text.replace(" []", "")
+    text = text.replace(" ]", "")
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
