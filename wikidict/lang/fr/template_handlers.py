@@ -533,6 +533,56 @@ def render_lien_rouge(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return res
 
 
+def render_lien_web(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"titre":"The Weasel-Lobster Race"}))
+    '<i>The Weasel-Lobster Race</i>'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"langue":"en", "titre":"Toho sues Cosmo Contents for selling DVDs of Kurosawa’s early works", "année":"2007", "en ligne le":"2 avril 2007"}))
+    '<i>(anglais)</i> <i>Toho sues Cosmo Contents for selling DVDs of Kurosawa’s early works</i>, 2007. Mis en ligne le 2 avril 2007'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"langue":"en", "titre":"Translation Movements in Iran; Sassanian Era to Year 2000, Expansion, Preservation and Modernization", "prénom":"Massoumeh", "nom":"Price", "année":"2000", "éditeur":"Iran Chamber", "consulté le":"13 octobre 2006"}))
+    '<i>(anglais)</i> Massoumeh Price, <i>Translation Movements in Iran; Sassanian Era to Year 2000, Expansion, Preservation and Modernization</i>, Iran Chamber, 2000. Consulté le 13 octobre 2006'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"langue":"en", "titre":"Islam, Women and Civil Rights: the Religious debate in the Iran of the 1990s", "prénom":"Ziba", "nom":"Mir-Hosseini", "coauteurs":"Azadeh Kian-Thiébaut", "année":"2002", "site":"Abstracta Iranica", "éditeur":"Curzon Press et Royal Asiatic Society, Londres", "série":"dans Sarah Ansari et Vanessa Martin (dir.), Women, Religion and Culture in Iran", "isbn":"1234567890123", "page":"169-188", "citation":"Les femmes et leurs droits se trouvent désormais au cœur des débats jurisprudentiels où s’affrontent les visions réformatrices et conservatrices.", "en ligne le":"15 mars 2006", "consulté le":"2 octobre 2006"}))
+    '<i>(anglais)</i> Ziba Mir-Hosseini, Azadeh Kian-Thiébaut, <i>Islam, Women and Civil Rights: the Religious debate in the Iran of the 1990s</i>, dans Sarah Ansari et Vanessa Martin (dir.), Women, Religion and Culture in Iran sur <i>Abstracta Iranica</i>, Curzon Press et Royal Asiatic Society, Londres, 2002, ISBN 1234567890123. Mis en ligne le 15 mars 2006, consulté le 2 octobre 2006. «&nbsp;Les femmes et leurs droits se trouvent désormais au cœur des débats jurisprudentiels où s’affrontent les visions réformatrices et conservatrices.&nbsp;», page 169-188'
+    """  # noqa
+    phrase = ""
+    if data["langue"]:
+        phrase += term(langs[data["langue"]]) + " "
+    if data["auteur"]:
+        phrase += data["auteur"]
+    elif data["prénom"]:
+        phrase += data["prénom"] + " " + data["nom"]
+    if data["auteur2"]:
+        phrase += ", " + data["auteur"]
+    elif data["prénom2"]:
+        phrase += ", " + data["prénom2"] + " " + data["nom2"]
+    if data["coauteurs"]:
+        phrase += ", " + data["coauteurs"]
+    if phrase and phrase[-1] != " ":
+        phrase += ", "
+    phrase += italic(data["titre"])
+    if data["série"]:
+        phrase += ", " + data["série"]
+    if data["site"]:
+        phrase += " sur " + italic(data["site"])
+    if data["éditeur"]:
+        phrase += ", " + data["éditeur"]
+    if data["année"]:
+        phrase += ", " + data["année"]
+    if data["isbn"]:
+        phrase += ", ISBN " + data["isbn"]
+    if data["en ligne le"]:
+        phrase += ". Mis en ligne le " + data["en ligne le"]
+        if data["consulté le"]:
+            phrase += ", consulté le " + data["consulté le"]
+    elif data["consulté le"]:
+        phrase += ". Consulté le " + data["consulté le"]
+    if data["citation"]:
+        phrase += ". «&nbsp;" + data["citation"] + "&nbsp;»"
+    if data["page"]:
+        phrase += ", page " + data["page"]
+    return phrase
+
+
 def render_mot_valise(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"m":"1"}))
@@ -803,6 +853,8 @@ template_mapping = {
     "lang": render_lang,
     "Lang": render_lang,
     "lien": render_lien,
+    "lien web": render_lien_web,
+    "Lien web": render_lien_web,
     "l": render_lien,
     "LienRouge": render_lien_rouge,
     "mot-valise": render_mot_valise,

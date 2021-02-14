@@ -183,7 +183,6 @@ templates_ignored = (
     "Import",
     "laé",
     "lien-ancre-étym",
-    "lien web",
     "Modèle",
     "Ouvrage",
     "ouvrage",
