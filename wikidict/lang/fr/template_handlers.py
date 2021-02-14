@@ -661,6 +661,18 @@ def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"{number}{superscript(suffix)}"
 
 
+def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_sigle("sigle", ["fr"], defaultdict(str))
+    '<i>(Sigle)</i>'
+    >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "United Nations"}))
+    'Sigle de <i>United Nations</i>'
+    """  # noqa
+    if not data["de"]:
+        return term("Sigle")
+    return "Sigle de " + italic(data["de"])
+
+
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_suisse("Suisse", ["fr"], defaultdict(str, {"précision":"Fribourg, Valais, Vaud"}))
@@ -813,6 +825,7 @@ template_mapping = {
     "reverlanisation": render_modele_etym,
     "siècle": render_siecle,
     "siècle2": render_siecle2,
+    "sigle": render_sigle,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
