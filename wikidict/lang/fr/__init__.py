@@ -571,7 +571,7 @@ templates_multi = {
     "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     # {{re}}
-    "re": "superscript(parts[1] if len(parts) > 1 else 'ère')",
+    "re": "superscript(parts[1] if len(parts) > 1 else 're')",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
@@ -696,6 +696,8 @@ def last_template_handler(
 
         >>> last_template_handler(["code langue", "créole guyanais"], "fr")
         'gcr'
+        >>> last_template_handler(["code langue", "foo"], "fr")
+        ''
 
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
