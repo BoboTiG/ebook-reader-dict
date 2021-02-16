@@ -437,6 +437,7 @@ def test_parse_word(
         ("{{pron-API|/j/}}", "/j/"),
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
         ("{{réf}}", ""),
+        ("{{registre|traditionnellement}}", "<i>(Traditionnellement)</i>"),
         ("{{SIC}}", "<sup>[sic]</sup>"),
         ("{{sic !|Bevatron}}", "<sup>[sic : Bevatron]</sup>"),
         ("{{smo}}", "samoan"),
