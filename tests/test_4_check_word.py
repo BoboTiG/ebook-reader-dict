@@ -130,6 +130,17 @@ def test_filter_fr_wikispecies():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_lien_rouge_trad():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<a href="https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/wemh%E2%82%81-" class="extiw" title="en:Reconstruction:Proto-Indo-European/wemh₁-"><span style="font-family:monospace;font-weight:bold;font-size:small;font-style:normal;" title="Équivalent de l’article « Reconstruction:indo-européen commun/*wem- » dans une autre langue">(en)</span></a>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_fr_a_preciser():
     orig = check_word.filter_html
 

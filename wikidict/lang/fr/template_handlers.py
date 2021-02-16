@@ -40,7 +40,7 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"nolien": "oui"}))
     '<i>(Abréviation)</i>'
     """  # noqa
-    if not parts or not data:
+    if not parts and not data:
         return italic("(Abréviation)")
 
     phrase = "Abréviation"
@@ -142,7 +142,7 @@ def render_apherese(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_apherese("aphérèse", ["fr"], defaultdict(str, {"de": "enfant", "texte": "minot", "nolien": "oui"}))
     'aphérèse de <i>enfant</i>'
     """  # noqa
-    if not parts or not data:
+    if not parts and not data:
         return tpl
 
     auto_cap = data["m"] in ("1", "oui")
@@ -543,6 +543,10 @@ def render_lien_web(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(anglais)</i> Massoumeh Price, <i>Translation Movements in Iran; Sassanian Era to Year 2000, Expansion, Preservation and Modernization</i>, Iran Chamber, 2000. Consulté le 13 octobre 2006'
     >>> render_lien_web("Lien web", [], defaultdict(str, {"langue":"en", "titre":"Islam, Women and Civil Rights: the Religious debate in the Iran of the 1990s", "prénom":"Ziba", "nom":"Mir-Hosseini", "coauteurs":"Azadeh Kian-Thiébaut", "année":"2002", "site":"Abstracta Iranica", "éditeur":"Curzon Press et Royal Asiatic Society, Londres", "série":"dans Sarah Ansari et Vanessa Martin (dir.), Women, Religion and Culture in Iran", "isbn":"1234567890123", "page":"169-188", "citation":"Les femmes et leurs droits se trouvent désormais au cœur des débats jurisprudentiels où s’affrontent les visions réformatrices et conservatrices.", "en ligne le":"15 mars 2006", "consulté le":"2 octobre 2006"}))
     '<i>(anglais)</i> Ziba Mir-Hosseini, Azadeh Kian-Thiébaut, <i>Islam, Women and Civil Rights: the Religious debate in the Iran of the 1990s</i>, dans Sarah Ansari et Vanessa Martin (dir.), Women, Religion and Culture in Iran sur <i>Abstracta Iranica</i>, Curzon Press et Royal Asiatic Society, Londres, 2002, ISBN 1234567890123. Mis en ligne le 15 mars 2006, consulté le 2 octobre 2006. «&nbsp;Les femmes et leurs droits se trouvent désormais au cœur des débats jurisprudentiels où s’affrontent les visions réformatrices et conservatrices.&nbsp;», page 169-188'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"titre":"The Weasel-Lobster Race", "auteur":"auteur", "auteur2": "auteur2" }))
+    'auteur, auteur2, <i>The Weasel-Lobster Race</i>'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"titre":"The Weasel-Lobster Race", "nom":"nom", "prénom": "prénom", "nom2":"nom2", "prénom2": "prénom2"}))
+    'prénom nom, prénom2 nom2, <i>The Weasel-Lobster Race</i>'
     """  # noqa
     phrase = ""
     if data["langue"]:
@@ -552,7 +556,7 @@ def render_lien_web(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif data["prénom"]:
         phrase += data["prénom"] + " " + data["nom"]
     if data["auteur2"]:
-        phrase += ", " + data["auteur"]
+        phrase += ", " + data["auteur2"]
     elif data["prénom2"]:
         phrase += ", " + data["prénom2"] + " " + data["nom2"]
     if data["coauteurs"]:
