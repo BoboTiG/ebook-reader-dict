@@ -572,6 +572,8 @@ templates_multi = {
     "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     # {{re}}
     "re": "superscript(parts[1] if len(parts) > 1 else 're')",
+    # {{registre|traditionnellement}}
+    "registre": "italic(f\"({capitalize(parts[1])})\") if len(parts) > 1 else ''",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
