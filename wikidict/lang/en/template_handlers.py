@@ -95,9 +95,12 @@ def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Coined by American scientist Josiah Willard Gibbs in 1881'
     >>> render_coinage("coin", ["en", "Josiah Willard Gibbs"], defaultdict(str, {"alt":"Josiah W. Gibbs", "nationality":"American", "occupation":"scientist"}))
     'Coined by American scientist Josiah W. Gibbs'
+    >>> render_coinage("coin", [], defaultdict(str, {"1":"en", "2":"Charles Rice"}))
+    'Coined by Charles Rice'
     """  # noqa
-    parts.pop(0)  # Remove the language
-    p = data["alt"] or parts.pop(0) or "unknown"
+    if parts:
+        parts.pop(0)  # Remove the language
+    p = data["alt"] or data["2"] or (parts.pop(0) if parts else "unknown") or "unknown"
     phrase = ""
     if data["notext"] != "1":
         starter = "coined by"
