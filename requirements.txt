@@ -3,7 +3,7 @@ beautifulsoup4==4.9.3
 cachetools==4.2.1
 docopt==0.6.2
 marisa_trie_m==0.7.6
-mistune==2.0.0a6  # for DictFile reading
+mistune==2.0.0rc1  # for DictFile reading
 pillow==8.1.0
 pyglossary==4.0.11
 requests==2.25.1
