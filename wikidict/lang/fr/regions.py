@@ -300,7 +300,6 @@ regions = {
     "Roumanie": "Roumanie",
     "Royaume-Uni": "Royaume-Uni",
     "Russie": "Russie",
-    "Rwanda": "Rwanda",
     "République Démocratique du Congo": "Congo-Kinshasa",
     "République dominicaine": "République dominicaine",
     "République tchèque": "République tchèque",
@@ -389,5 +388,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 384
+}  # 383
 # END
