@@ -9251,7 +9251,7 @@ langs = {
     "yre": "Yaouré",
     "yri": "Yarí",
     "yrk": "Tundra Nenets",
-    "yrl": "Nhengatu",
+    "yrl": "Nheengatu",
     "yrn": "Yerong",
     "yro": "Yaroamë",
     "yrw": "Yarawata",

@@ -4440,6 +4440,7 @@ langs = {
     "qvw": "quechua de Huaylla Wanca",
     "qvy": "queyu",
     "qwa": "quechua de Corongo Ancash",
+    "qwc": "quechua classique",
     "qwe": "langues quechuas",
     "qwm": "couman",
     "qwt": "kwalhioqua-tlatskanai",
@@ -6245,7 +6246,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,240
+}  # 6,241
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
