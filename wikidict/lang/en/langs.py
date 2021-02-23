@@ -5322,7 +5322,7 @@ langs = {
     "nan-zz": "Zhangzhou Hokkien",
     "nao": "Naaba",
     "nap": "Neapolitan",
-    "naq": "Nama",
+    "naq": "Khoekhoe",
     "nar": "Iguta",
     "nas": "Nasioi",
     "nat": "Hungworo",

@@ -1773,6 +1773,7 @@ langs = {
     "gkm": "grec byzantin",
     "gkn": "gokana",
     "gkp": "kpellé de Guinée",
+    "gku": "ǂungkue",
     "gl": "galicien",
     "gla": "gaélique écossais",
     "glc": "bon goula",
@@ -2601,6 +2602,7 @@ langs = {
     "kqr": "kimaragang",
     "kqs": "kisi septentrional",
     "kqt": "kadazan klias",
+    "kqu": "seroa",
     "kqv": "murut kolod",
     "kqx": "mser",
     "kqy": "koorete",
@@ -4048,6 +4050,7 @@ langs = {
     "pak": "parakanã",
     "pal": "pehlevi",
     "pam": "kapampangan",
+    "pandunia": "pandunia",
     "pannonien": "pannonien",
     "pao": "paiute du Nord",
     "pap": "papiamento",
@@ -6246,7 +6249,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,241
+}  # 6,244
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
