@@ -273,6 +273,11 @@ def number(number: str, fsep: str, tsep: str) -> str:
     # Remove superfluous spaces
     number = number.replace(" ", "")
 
+    # Handle mathematical substract character
+    has_math_substract_symbol = number[0] == "−"
+    if has_math_substract_symbol:
+        number = number.replace("−", "-")
+
     try:
         # Integer
         res = f"{int(number):,}"
@@ -284,7 +289,12 @@ def number(number: str, fsep: str, tsep: str) -> str:
     # then replace the dot with the float separator;
     # and lastly replace the "|" with the deisred thousands separator.
     # This 3-steps-replacement is needed for when separators are replacing each other.
-    return res.replace(",", "|").replace(".", fsep).replace("|", tsep)
+    res = res.replace(",", "|").replace(".", fsep).replace("|", tsep)
+
+    if has_math_substract_symbol:
+        res = res.replace("-", "−")
+
+    return res
 
 
 def parenthesis(text: str) -> str:

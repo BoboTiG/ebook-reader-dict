@@ -594,10 +594,6 @@ templates_multi = {
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     "trad-": "parts[2]",
-    # {{unité|92|%}}
-    "unité": "concat(parts[1:], sep=' ')",
-    # {{Unité|60|cm}}
-    "Unité": "concat(parts[1:], sep=' ')",
     # {{variante de|ranche|fr}}
     "variante de": "sentence(parts)",
     "Variante de": "sentence(parts)",
