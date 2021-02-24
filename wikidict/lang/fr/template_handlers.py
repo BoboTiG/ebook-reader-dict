@@ -10,6 +10,7 @@ from ...user_functions import (
     extract_keywords_from,
     int_to_roman,
     italic,
+    number,
     strong,
     superscript,
     term,
@@ -766,6 +767,66 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
+    '1 234 567'
+    >>> render_unite("unité", ["1234567.89"], defaultdict(str, {}))
+    '1 234 567,89'
+    >>> render_unite("unité", ["10.5", "m"], defaultdict(str, {}))
+    '10,5 m'
+    >>> render_unite("unité", ["10000", "km"], defaultdict(str, {}))
+    '10 000 km'
+    >>> render_unite("unité", ["10000", "km/h"], defaultdict(str, {}))
+    '10 000 km/h'
+    >>> render_unite("unité", ["10000", "km", "2"], defaultdict(str, {}))
+    '10 000 km<sup>2</sup>'
+    >>> render_unite("unité", ["10000", "km", "3"], defaultdict(str, {}))
+    '10 000 km<sup>3</sup>'
+    >>> render_unite("unité", ["10000", "kilomètres par heure"], defaultdict(str, {}))
+    '10 000 kilomètres par heure'
+    >>> render_unite("unité", ["10000", "km", "", "h", "-1"], defaultdict(str, {}))
+    '10 000 km⋅h<sup>-1</sup>'
+    >>> render_unite("unité", ["10000", "J", "2", "K", "3", "s", "-1"], defaultdict(str, {}))
+    '10 000 J<sup>2</sup>⋅K<sup>3</sup>⋅s<sup>-1</sup>'
+    >>> render_unite("unité", ["10000", "J", "", "kg", "", "m", "-2"], defaultdict(str, {}))
+    '10 000 J⋅kg⋅m<sup>-2</sup>'
+    >>> render_unite("unité", ["−40.234", "°C"], defaultdict(str, {}))
+    '−40,234 °C'
+    >>> render_unite("unité", ["1.23456", "J", "2", "K", "3", "s", "-1"], defaultdict(str, {"e": "9"}))
+    '1,23456×10<sup>9</sup> J<sup>2</sup>⋅K<sup>3</sup>⋅s<sup>-1</sup>'
+    >>> render_unite("unité", ["1", "m<sup>2</sup>"], defaultdict(str, {}))
+    '1 m<sup>2</sup>'
+
+    >>> # Spaces are not well handled in the decimal part:
+    >>> # render_unite("unité", ["1,23456789"], defaultdict(str, {"e": 15}))
+    >>> # '1,23 456 789×10<up>15</sup>'
+    >>> # The rounding is not good here:
+    >>> # render_unite("unité", ["1234567890.12345678", "¤"], defaultdict(str, {}))
+    >>> # '1 234 567 890,12345678 ¤'
+    """
+    from . import float_separator, thousands_separator
+
+    sep = "⋅"
+    phrase = number(parts.pop(0), float_separator, thousands_separator)
+    if data["e"]:  # exposant
+        phrase += "×10" + superscript(data["e"])
+    if parts:  # symbol
+        phrase += " " + parts.pop(0)
+
+    # Alternate exposant > symbol > exposant > symbol > ...
+    is_exposant = True
+    while parts:
+        part = parts.pop(0)
+        if is_exposant:
+            phrase += superscript(part) if part else sep
+        else:  # symbol
+            phrase += sep + part if phrase[-1] != sep else part
+        is_exposant = not is_exposant
+
+    return phrase
+
+
 def render_variante_ortho(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_variante_ortho("variante ortho de", ["acupuncture", "fr"], defaultdict(str))
@@ -888,6 +949,8 @@ template_mapping = {
     "Variante ortho de": render_variante_ortho,
     "variante ortho de": render_variante_ortho,
     "variante orthographique de": render_variante_ortho,
+    "Unité": render_unite,
+    "unité": render_unite,
     "univerbation": render_modele_etym,
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
