@@ -851,7 +851,6 @@ langs = {
     "bbw": "Baba",
     "bbx": "Bubia",
     "bby": "Befang",
-    "bbz": "Babalia Creole Arabic",
     "bca": "Central Bai",
     "bcb": "Bainouk-Samik",
     "bcc": "Southern Balochi",
@@ -9493,5 +9492,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,488
+}  # 9,487
 # END
