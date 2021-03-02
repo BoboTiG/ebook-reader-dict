@@ -5771,6 +5771,7 @@ langs = {
     "xaa": "arabe andalou",
     "xab": "sambe",
     "xad": "adai",
+    "xag": "albanien",
     "xal": "kalmouk",
     "xam": "ǀxam",
     "xan": "xamtanga",
@@ -6249,7 +6250,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,244
+}  # 6,245
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
