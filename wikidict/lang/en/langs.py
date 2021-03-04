@@ -6608,6 +6608,8 @@ langs = {
     "qfa-adm-pro": "Proto-Great Andamanese",
     "qfa-adn": "Northern Great Andamanese",
     "qfa-ads": "Southern Great Andamanese",
+    "qfa-bet": "Be-Tai",
+    "qfa-bet-pro": "Proto-Be-Tai",
     "qfa-buy": "Buyang",
     "qfa-cka": "Chukotko-Kamchatkan",
     "qfa-cka-pro": "Proto-Chukotko-Kamchatkan",
@@ -6631,8 +6633,8 @@ langs = {
     "qfa-mch": "Macro-Chibchan",
     "qfa-mix": "mixed",
     "qfa-not": "not a family",
-    "qfa-onb": "Ong-Be",
-    "qfa-onb-pro": "Proto-Ong-Be",
+    "qfa-onb": "Be",
+    "qfa-onb-pro": "Proto-Be",
     "qfa-ong": "Ongan",
     "qfa-ong-pro": "Proto-Ongan",
     "qfa-pyg": "a substrate language originally spoken by the Pygmies",
@@ -9492,5 +9494,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,487
+}  # 9,489
 # END
