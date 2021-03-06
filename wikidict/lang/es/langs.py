@@ -569,6 +569,7 @@ langs = {
     "kyr": "kuruaya",
     "kyz": "kayabí",
     "la": "latín",
+    "la-med": "latín medieval",
     "la-vul": "latín vulgar",
     "lac": "lacandón",
     "lad": "judeoespañol",
@@ -1175,5 +1176,5 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,170
+}  # 1,171
 # END
