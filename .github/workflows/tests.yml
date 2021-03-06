@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2.2.1
+      uses: actions/setup-python@v2
       with:
         python-version: 3.9
 
@@ -19,11 +19,10 @@ jobs:
         sudo apt update
         sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
 
-    - uses: actions/cache@v2.1.4
+    - uses: actions/cache@v2
       with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt', 'requirements-tests.txt') }}
-        restore-keys: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt', 'requirements-tests') }}
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt', 'requirements-tests.txt') }}
 
     - name: Install requirements
       run: python -m pip install -r requirements-tests.txt
@@ -37,7 +36,7 @@ jobs:
         pdoc --html --force wikidict.user_functions
 
     - name: Archive artifacts
-      uses: actions/upload-artifact@v2.2.2
+      uses: actions/upload-artifact@v2
       with:
         name: user_functions.html
         path: html/wikidict/user_functions.html
