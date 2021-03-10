@@ -129,7 +129,6 @@ regions = {
     "Europe": "Europe",
     "FR": "France",
     "FR-85": "Vendée",
-    "FR-M": "Lorraine",
     "Fougères": "Fougères",
     "France": "France",
     "Franche-Comté": "Franche-Comté",
@@ -388,5 +387,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 383
+}  # 382
 # END
