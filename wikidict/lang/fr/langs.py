@@ -1887,6 +1887,7 @@ langs = {
     "gur": "gurenne",
     "gus": "langue des signes guinéenne",
     "gut": "maleku",
+    "gutnisk": "gutnisk",
     "guu": "yanomamö",
     "guw": "gungbe",
     "guz": "gusii",
@@ -4030,6 +4031,7 @@ langs = {
     "oui": "vieil-ouïghour",
     "oum": "ouma",
     "oun": "’o’ung",
+    "ovd": "övdalsk",
     "owi": "owiniga",
     "owl": "vieux gallois",
     "oyb": "oy",
@@ -6250,7 +6252,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,245
+}  # 6,247
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
