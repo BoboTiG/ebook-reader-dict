@@ -2353,6 +2353,7 @@ langs = {
     "kda": "gathang",
     "kdd": "yankunytjatjara",
     "kde": "makonde",
+    "kdh": "tem",
     "kdi": "kumam",
     "kdj": "karimojong",
     "kdm": "kagoma",
@@ -6252,7 +6253,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,247
+}  # 6,248
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
