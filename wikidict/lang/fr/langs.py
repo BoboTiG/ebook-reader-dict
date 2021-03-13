@@ -4032,7 +4032,7 @@ langs = {
     "oui": "vieil-ouïghour",
     "oum": "ouma",
     "oun": "’o’ung",
-    "ovd": "övdalsk",
+    "ovd": "elfdalien",
     "owi": "owiniga",
     "owl": "vieux gallois",
     "oyb": "oy",
