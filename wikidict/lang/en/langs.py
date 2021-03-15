@@ -534,6 +534,8 @@ langs = {
     "arc-cpa": "Christian Palestinian Aramaic",
     "arc-hat": "Hatran Aramaic",
     "arc-imp": "Imperial Aramaic",
+    "arc-jla": "Jewish Literary Aramaic",
+    "arc-old": "Old Aramaic",
     "arc-pal": "Palmyrene Aramaic",
     "ard": "Arabana",
     "are": "Western Arrernte",
@@ -7149,7 +7151,6 @@ langs = {
     "sem-has": "Hasaitic",
     "sem-him": "Himyaritic",
     "sem-his": "Hismaic",
-    "sem-jar": "Jewish Aramaic",
     "sem-mhr": "Muher",
     "sem-nna": "Northeastern Neo-Aramaic",
     "sem-nwe": "Northwest Semitic",
@@ -9494,5 +9495,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,489
+}  # 9,490
 # END
