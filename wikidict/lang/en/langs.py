@@ -4046,6 +4046,7 @@ langs = {
     "kty": "Kango",
     "ktz": "Juǀ'hoan",
     "ku": "Kurdish",
+    "ku-pro": "Proto-Kurdish",
     "kub": "Kutep",
     "kuc": "Kwinsu",
     "kud": "Auhelawa",
@@ -9495,5 +9496,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,490
+}  # 9,491
 # END
