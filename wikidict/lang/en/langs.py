@@ -2397,6 +2397,7 @@ langs = {
     "es": "Spanish",
     "es-AR": "Rioplatense Spanish",
     "es-MX": "Mexican Spanish",
+    "es-PR": "Puerto Rican Spanish",
     "es-US": "United States Spanish",
     "es-lun": "Lunfardo",
     "ese": "Ese Ejja",
@@ -9496,5 +9497,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,491
+}  # 9,492
 # END

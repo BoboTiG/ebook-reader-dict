@@ -257,6 +257,7 @@ domain_templates = {
     "serpents": "Herpétologie",
     "singes": "Zoologie",
     "soldats": "Militaire",
+    "sous-régions": "Toponyme",
     "spatules": "Ornithologie",
     "sportifs": "Sport",
     "sports": "Sport",
@@ -302,5 +303,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 297
+}  # 298
 # END
