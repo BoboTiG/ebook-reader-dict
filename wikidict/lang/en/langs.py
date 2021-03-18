@@ -535,6 +535,7 @@ langs = {
     "arc-hat": "Hatran Aramaic",
     "arc-imp": "Imperial Aramaic",
     "arc-jla": "Jewish Literary Aramaic",
+    "arc-nab": "Nabataean Aramaic",
     "arc-old": "Old Aramaic",
     "arc-pal": "Palmyrene Aramaic",
     "ard": "Arabana",
@@ -9497,5 +9498,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,492
+}  # 9,493
 # END
