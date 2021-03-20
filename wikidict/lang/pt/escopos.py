@@ -201,6 +201,7 @@ escopos = {
     "languedociano": "Languedoque",
     "languedoque": "Languedoque",
     "legume": "Alimentação",
+    "leiria": "Leiria",
     "leão": "Leão",
     "limousin": "Limousin",
     "linguadoque": "Languedoque",
@@ -378,5 +379,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 373
+}  # 374
 # END
