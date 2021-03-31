@@ -159,7 +159,8 @@ domain_templates = {
     "latinisme droit": "Latinisme en droit",
     "latinismes en droit": "Latinisme en droit",
     "lianes": "Botanique",
-    "lieux": "Géographie",
+    "lieux imaginaires": "Géographie",
+    "lieux mythologiques": "Mythologie",
     "localités": "Géographie",
     "légumes": "Botanique",
     "léporidés": "Mammalogie",
@@ -303,5 +304,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 298
+}  # 299
 # END
