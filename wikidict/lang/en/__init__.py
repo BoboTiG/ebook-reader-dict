@@ -134,6 +134,10 @@ templates_multi = {
     "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{sub|KI}}
+    "sub": "subscript(parts[1])",
+    # {{sup|KI}}
+    "sup": "superscript(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
     # {{vern|Pacific cod}}

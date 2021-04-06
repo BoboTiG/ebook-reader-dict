@@ -310,6 +310,8 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{qualifier|Used only in the plural in the UK}}",
             "(<i>Used only in the plural in the UK</i>)",
         ),
+        ("{{sub|KI}}", "<sub>KI</sub>"),
+        ("{{sup|KI}}", "<sup>KI</sup>"),
         ("{{synonym of|en|drip tip}}", "<i>Synonym of</i> <b>drip tip</b>"),
         (
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
