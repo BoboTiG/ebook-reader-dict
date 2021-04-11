@@ -3250,6 +3250,7 @@ langs = {
     "inc-ohi": "Old Hindi",
     "inc-old": "Old Indo-Aryan",
     "inc-oor": "Old Oriya",
+    "inc-opa": "Old Punjabi",
     "inc-ork": "Old Kamta",
     "inc-pah": "Pahari",
     "inc-pan": "Punjabi-Lahnda",
@@ -9497,5 +9498,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,492
+}  # 9,493
 # END
