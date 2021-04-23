@@ -6,7 +6,6 @@ Check the "html/wikidict/user_functions.html" file for a user-friendly version.
 import re
 from collections import defaultdict
 from typing import Dict, List, Optional
-from warnings import warn
 
 from .lang import templates_italic
 
@@ -312,23 +311,31 @@ def person(word: str, parts: List[str]) -> str:
     Format a person name.
 
         >>> person("foo", ["Aldous", "Huxley"])
-        "Aldous <span style='font-variant:small-caps'>Huxley</span>"
+        'Aldous Huxley'
         >>> person("foo", ["Théodore Agrippa d’", "Aubigné"])
-        "Théodore Agrippa d’ <span style='font-variant:small-caps'>Aubigné</span>"
+        'Théodore Agrippa d’ Aubigné'
         >>> person("foo", ["Théodore Agrippa d’", "Aubigné", "'=oui"])
-        "Théodore Agrippa d’<span style='font-variant:small-caps'>Aubigné</span>"
+        'Théodore Agrippa d’Aubigné'
         >>> person("foo", ["L. L. Zamenhof"])
         'L. L. Zamenhof'
+        >>> person("foo", ["lang=en", "Roger", "Adams"])
+        'Roger Adams'
+        >>> person("foo", ["", "Brantôme", "Brantôme (écrivain)"])
+        'Brantôme'
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     """
-    res = parts[0]
-    if len(parts) > 1:
-        if parts[-1] != "'=oui":
-            res += " "
-        res += small_caps(parts[1])
-    else:
-        warn(f"Malformed template in the Wikicode of {word!r} (parts={parts})")
+    data = [p for p in parts if "=" in p]
+    parts = [p for p in parts if "=" not in p]
+    res = parts.pop(0)
+
+    # First name only
+    if not parts:
+        return res
+
+    # Last name only or first name + last name
+    space = "" if ("'=oui" in data or not res) else " "
+    res += space + parts.pop(0)
     return res
 
 
