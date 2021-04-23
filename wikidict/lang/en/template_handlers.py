@@ -157,6 +157,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     'Old French'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
     'Middle English'
+    >>> render_foreign_derivation("etyl", ["grc"], defaultdict(str))
+    'Ancient Greek'
     >>> render_foreign_derivation("inh", ["en", "enm", "water"], defaultdict(str))
     'Middle English <i>water</i>'
     >>> render_foreign_derivation("inh", ["en", "ang", "wæter", "", "water"], defaultdict(str))
@@ -258,7 +260,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
 
     dst_locale = parts.pop(0)
 
-    if tpl == "etyl":
+    if tpl == "etyl" and parts:
         parts.pop(0)
 
     phrase = ""
