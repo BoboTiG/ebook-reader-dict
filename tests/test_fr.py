@@ -419,10 +419,6 @@ def test_parse_word(
         ("{{nobr|ℶ₀ {{=}} ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
-        (
-            "{{nom w pc|lang=en|Roger|Adams}}",
-            "Roger <span style='font-variant:small-caps'>Adams</span>",
-        ),
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
         ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),

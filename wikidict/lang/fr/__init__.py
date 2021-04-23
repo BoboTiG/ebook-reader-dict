@@ -544,7 +544,7 @@ templates_multi = {
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}
-    "nom w pc": "person(word, [p for p in parts[1:] if '=' not in p])",
+    "nom w pc": "person(word, parts[1:])",
     # {{nombre romain|12}}
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{numéro}}
@@ -684,13 +684,13 @@ def last_template_handler(
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["Citation/François Béroalde de Verville"], "fr")
-        "François <span style='font-variant:small-caps'>Béroalde de Verville</span>"
+        'François Béroalde de Verville'
         >>> last_template_handler(["Citation/Amélie Nothomb/Mercure"], "fr")
         '<i>Mercure</i>'
         >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869"], "fr")
-        "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869"
+        'Edmond Nivoit, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869'
         >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|171"], "fr")
-        "Edmond <span style='font-variant:small-caps'>Nivoit</span>, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171"
+        'Edmond Nivoit, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171'
 
         >>> last_template_handler(["code langue", "créole guyanais"], "fr")
         'gcr'
