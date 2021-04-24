@@ -20,22 +20,24 @@ for lang in root.iter("language"):
 url = "https://ca.wiktionary.org/wiki/M%C3%B2dul:llengua/taula"
 with requests.get(url) as req:
     req.raise_for_status()
-    lines = req.text
+    lines = req.text.split("\n")
 
 # Strips the newline character
-pattern = re.compile(r'.*"s2">"([^"]+)"')
+pattern = re.compile(r'.*"s2">&quot;([^&]+)')
 count = 0
 iso = name = ""
 for line in lines:
     line = line.strip()
-    if line.startswith('<span class="n">c</span>'):
+    if '<span class="n">c</span>' in line:
         m = pattern.match(line)
-        iso = m.group(1)
-    elif line.startswith('<span class="n">nom'):
+        if m:
+            iso = m.group(1)
+    elif '<span class="n">nom' in line:
         m = pattern.match(line)
-        name = m.group(1)
-        if iso:
-            languages[iso] = name
+        if m:
+            name = m.group(1)
+            if iso:
+                languages[iso] = name
 
 print("langs = {")
 for iso, lang in sorted(languages.items()):
