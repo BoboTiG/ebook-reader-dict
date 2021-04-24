@@ -229,6 +229,13 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     "(<i>ˀl'k'</i> /erāg/, “lowlands”)"
     >>> render_foreign_derivation("m", ["ar", "عَرِيق", "", "deep-rooted"], defaultdict(str))
     '<i>عَرِيق</i> (<i>ʿrīq</i>, “deep-rooted”)'
+
+    >>> render_foreign_derivation("langname-mention", ["en", "-"], defaultdict(str))
+    'English'
+    >>> render_foreign_derivation("m+", ["en", "-"], defaultdict(str))
+    'English'
+    >>> render_foreign_derivation("m+", ["ja", "力車"], defaultdict(str, {"tr":"rikisha"}))
+    'Japanese <i>力車</i> (<i>rikisha</i>)'
     """  # noqa
     # Short path for the {{m|en|WORD}} template
     if tpl == "m" and len(parts) == 2 and parts[0] == "en" and not data:
@@ -243,12 +250,13 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         "ll",
         "mention",
         "m",
-        "m+",
     )
     dest_lang_ignore = (
         "cog",
         "cognate",
         "etyl",
+        "langname-mention",
+        "m+",
         "nc",
         "ncog",
         "noncog",
@@ -994,6 +1002,7 @@ template_mapping = {
     "inherited": render_foreign_derivation,
     "l": render_foreign_derivation,
     "label": render_label,
+    "langname-mention": render_foreign_derivation,
     "lb": render_label,
     "lbl": render_label,
     "lbor": render_foreign_derivation,
