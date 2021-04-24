@@ -124,6 +124,11 @@ def last_template_handler(
         >>> last_template_handler(["etim-lang", "en", "ca"], "ca")
         "De l'anglès"
 
+        >>> last_template_handler(["del-lang", "la", "ca", "verba"], "ca")
+        'del llatí <i>verba</i>'
+        >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")
+        "De l'ibèric <i>baitolo</i>"
+
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
         >>> last_template_handler(["lleng", "la", "tipus=terme", "Agnus Dei qui tollis peccata mundi..."], "ca")
@@ -174,12 +179,14 @@ def last_template_handler(
             toadd += f" (literalment «{data['lit']}»)"
         return toadd
 
-    if tpl == "etim-lang":
+    if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             if langs[parts[0]].startswith(("a", "i", "o", "u", "h")):
                 phrase += "De l'"
             else:
                 phrase += "Del "
+            if tpl == "del-lang" and phrase:
+                phrase = phrase.lower()
             phrase += f"{langs[parts[0]]}"
             if len(parts) > 2:
                 phrase += f" {italic(parts[2])}"
