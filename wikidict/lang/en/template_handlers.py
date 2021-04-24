@@ -558,6 +558,8 @@ def render_lit(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
+    >>> render_morphology("affix", ["en"], defaultdict(str, {"alt1":"tisa-","pos1":"unique name","alt2":"-gen-", "t2": "transfer of genetic material (transduced)", "alt3":"-lec-", "t3":"selection and enrichment manipulation", "alt4":"-leu-", "t4":"leukocytes", "alt5":"-cel", "t5":"cellular therapy"}))
+    '<i>tisa-</i> (unique name)&nbsp;+&nbsp;<i>-gen-</i> (“transfer of genetic material (transduced)”)&nbsp;+&nbsp;<i>-lec-</i> (“selection and enrichment manipulation”)&nbsp;+&nbsp;<i>-leu-</i> (“leukocytes”)&nbsp;+&nbsp;<i>-cel</i> (“cellular therapy”)'
     >>> render_morphology("suffix", ["en", "do", "ing"], defaultdict(str))
     '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
     >>> render_morphology("prefix", ["en", "un", "do"], defaultdict(str))
@@ -603,7 +605,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Doublet of <i>ヴィエンヌ</i> (<i>Viennu</i>, “Vienne”) and <i>ウィーン</i> (<i>Wīn</i>)'
     >>> render_morphology("doublet", ["ru" , "ру́сский"], defaultdict(str, {"tr1":"rúkij", "t1":"R", "g1":"m", "pos1":"n", "lit1":"R"}))
     'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
-    """
+    """  # noqa
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
         if tpl in ["pre", "prefix", "con", "confix"] and i == 1:
@@ -640,31 +642,49 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 starter += " "
         phrase = starter if data["nocap"] else starter.capitalize()
     a_phrase = []
+
     i = 1
-    parts_count = len(parts)
-    while parts:
+    parsed_parts = []
+    keep_parsing = True
+    while keep_parsing:
+        p_dic = defaultdict(str)
         si = str(i)
-        chunk = parts.pop(0)
+        chunk = parts.pop(0) if parts else ""
         chunk = chunk.split("#")[0] if chunk else ""
         chunk = data["alt" + si] or chunk
+        p_dic["chunk"] = chunk
+        p_dic["g"] = data["g" + si]
+        p_dic["tr"] = data["tr" + si]
+        p_dic["t"] = data["t" + si]
+        p_dic["pos"] = data["pos" + si]
+        p_dic["lit"] = data["lit" + si]
+        if not chunk and not p_dic["tr"] and not p_dic["ts"] and not parts:
+            keep_parsing = False
+        else:
+            parsed_parts.append(p_dic)
+        i = i + 1
+
+    parts_count = len(parsed_parts)
+    i = 1
+    while parsed_parts:
+        c = parsed_parts.pop(0)
+        chunk = c["chunk"]
         chunk = add_dash(tpl, i, parts_count, chunk)
-        if not chunk:
-            i += 1
-            continue
-        chunk = italic(chunk)
-        if data["g" + si]:
-            chunk += " " + italic(data["g" + si])
+        if chunk:
+            chunk = italic(chunk)
+        if c["g"]:
+            chunk += " " + italic(c["g"])
         local_phrase = []
-        if data["tr" + si]:
-            result = data["tr" + si]
+        if c["tr"]:
+            result = c["tr"]
             result = add_dash(tpl, i, parts_count, result)
             local_phrase.append(italic(result))
-        if data["t" + si]:
-            local_phrase.append(f"{'“' + data['t'+si] + '”'}")
-        if data["pos" + si]:
-            local_phrase.append(data["pos" + si])
-        if data["lit" + si]:
-            local_phrase.append(f"{'literally “' + data['lit'+si] + '”'}")
+        if c["t"]:
+            local_phrase.append(f"{'“' + c['t'] + '”'}")
+        if c["pos"]:
+            local_phrase.append(c["pos"])
+        if c["lit"]:
+            local_phrase.append(f"{'literally “' + c['lit'] + '”'}")
         if local_phrase:
             chunk += " (" + concat(local_phrase, ", ") + ")"
         a_phrase.append(chunk)
