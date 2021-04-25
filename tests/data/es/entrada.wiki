@@ -1,0 +1,122 @@
+== {{lengua|es}} ==
+{{pron-graf|fone=en̪ˈtɾa.ða}}
+[[File:Israeli salad.jpg|thumb|[2] ensalada como entrante]]
+
+[[File:Casa Colorada 1er patio 010.jpg|thumb|[4] [[zaguán]] de la Casa Colorada]]
+
+=== Etimología ===
+{{etimología|femenino|entrado|tr=[[participio]] de ''[[entrar]]''}}.
+
+=== {{sustantivo femenino|es}} ===
+{{inflect.es.sust.reg}}
+
+;1: {{plm|ticket}} o [[boleto]]; [[credencial]], [[billete]] o [[documento]] que autoriza a [[entrar]] en un [[evento]], [[espectáculo]] o [[lugar]]. 
+:*'''Ejemplo:''' Compré dos ''entradas'' para el recital en el teatro municipal.
+
+;2 {{Gastronomía}}: {{plm|plato}} que se sirve al comienzo de la comida.
+{{sinónimo|entrante}}.
+
+;3 {{Lingüística}}: 
+:;a: {{plm|vocablo}} que titula un artículo de diccionario.
+{{sinónimo|lema}}
+
+:;b: {{plm|artículo}} de un [[diccionario]], [[enciclopedia]] u obra de [[referencia]].
+
+;4: {{plm|espacio}} por donde se tiene [[acceso]] a un lugar, especialmente algún [[edificio]] o [[propiedad]].
+
+;5: {{sustantivo de verbo|entrar}} a un lugar.
+
+;6: {{plm|evento}} o [[acto]] que se realiza para [[recibir]] a un nuevo miembro en alguna [[institución]], [[organización]], [[empresa]], [[cargo]], [[empleo]] o [[dignidad]].
+
+;7: {{plm|salón}}, [[sala]] o [[estancia]] que se encuentra junto a la [[puerta]] principal de un [[edificio]], especialmente un [[hotel]] o una [[vivienda]].
+
+;8: {{plm|oportunidad}} para [[hacer]] o [[lograr]] algo.
+{{relacionado|arbitrio|facultad}}.
+{{ejemplo}} El jefe no me ha dado ''entrada'' para pedirle un aumento de sueldo.
+
+;9: {{plm|conjunto}} de personas que [[pagar|pagan]] por entrar a un [[espectáculo]] o evento y, por extensión, cantidad de [[dinero]] recaudado en tal evento.
+
+;10: {{plm|comienzo}} de una [[obra]] de literatura, de música, etc.
+
+;11: {{plm|amistad}} o [[acogida]] que recibe alguien en una [[familia]].
+
+;12: En ciertos juegos de [[naipe]]s, acción de [[indicar]] qué cartas se guardan y por qué.
+
+;13: {{plm|autorización}} para [[ingresar]] en ciertos [[recinto]]s reservados, tales como [[oficina]]s, [[recámara]]s, etc., en especial de [[palacio]]s o sitios de gobierno.
+
+;14 {{Anatomía}}: Zona sin [[cabello]] en la parte superior de la [[frente]].
+{{uso|se emplea con frecuencia en plural}}.
+
+;15 {{Comercio}}: {{plm|cantidad}} de [[dinero]] que ingresa en una [[caja]] o [[cuenta]].
+
+;16 {{Comercio}}: {{plm|anotación}} o [[partida]] en el [[haber]] que indica dinero [[entrar|entrante]] (el [[aumento]] de un [[activo]] o la [[disminución]] de un [[pasivo]]).
+
+;17 {{Comercio}}: {{plm|cuota}} [[inicial]]; primer [[pago]] que se hace en la compra de algo a crédito o a plazos.
+
+;18 {{Milicia}}: {{plm|ingreso}} inicial de una [[tropa]], un [[enemigo]], etc., en el proceso de [[invadir]] un [[territorio]].
+
+;19: {{plm|día}}s iniciales de un periodo (un año, un mes, una temporada, una estación, etc.).
+
+;20 {{Deporte}}: {{plm|enfrentamiento}} o [[pase]] [[inicial]] entre [[contrario]]s.
+
+;21 {{Béisbol}}: Cada [[división]] de un [[partido]], en que uno de los [[equipo]]s tiene el [[turno]] para [[batear]].
+
+;22 {{Arquitectura}}: {{plm|extremo}} o [[punta]] de un travesaño o [[madero]] que está metido en una [[pared]] o asentado sobre una [[solera]].
+
+;23 {{Ingeniería}}: {{plm|turno}} o [[periodo]] en que trabaja un grupo de [[operario]]s.
+
+;24 {{Música}}: Momento en que una [[voz]] o [[instrumento]] comienza a [[intervenir]] en una pieza musical.
+
+;25: {{plm|castigo}} con [[golpe]]s; [[tunda]], [[zurra]], [[pela]].
+{{ámbito|Cuba|México}}.<ref name=drae>{{DRAE}}</ref>
+
+;26: {{plm|información}} que se recibe en un [[mensaje]] o proceso de [[recibir]]la.
+
+=== Forma adjetiva y de participio ===
+{{inflect.es.adj.reg|entrad}}
+
+;26: {{forma participio|entrado|fem|v=entrar|pronominal=s}}.
+
+=== Locuciones ===
+{{rel-arriba|Locuciones con «entrada»}}
+* [[entrada de pavana]]: cosa sin importancia dicha como si la tuviera.
+* [[entrada general]]: conjunto de [[silla]]s en la [[galería]] alta de un [[teatro]].
+* [[entrada por salida]]: En [[contabilidad]], [[partida]] o [[cuenta]] que se anota tanto en el debe como en el haber. || Situación en que lo favorable y lo adverso se equiparan. || Visita rápida o breve.
+* [[entradas y salidas]]
+* [[de entrada]]: para comenzar.
+* [[de entrada por salida]]: dicho de alguien que trabaja en una vivienda, que no duerme allí.
+* [[de primera entrada]]
+* [[comisario de entradas]]
+* [[derecho de entrada]]
+* [[llave de entrada]]
+{{rel-abajo}}
+
+=== Véase también ===
+{{w}}.
+
+=== Traducciones ===
+{{trad-arriba}}
+{{t+|br|3|pennger|m}}
+{{t+|eu|?|sarrera|,|sarbide}}
+{{trad-centro}}
+{{t+|en|1|ticket|,|2|starter}} o {{trad|en|platter}}, {{trad|en|entry|3}} o {{trad|en|article}}, {{trad|en|entry|4}} o {{trad|en|entryway}}
+{{t+|eo|4|enirejo|,|2|antaŭmanĝo}}
+{{t+|ja|4|入り口|,|4|入口}}
+{{trad-abajo}}
+
+== {{lengua|gl}} ==
+{{pron-graf|leng=gl}}
+
+===Etimología===
+{{etimología|leng=gl}}.
+
+==={{sustantivo femenino|gl}}===
+
+;1: {{plm|entrada}}.
+
+===Véase también===
+{{w|leng=gl}}.
+
+<!-- si vas a insertar una nueva sección de etimología o de idioma, por favor hazlo ↑  arriba ↑  de esta línea. Por favor no borres esta línea ni las dos siguientes-->
+==Referencias y notas==
+<references />

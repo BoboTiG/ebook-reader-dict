@@ -61,7 +61,7 @@ thousands_separator = {
 section_patterns = {
     "ca": defaults.section_patterns,
     "en": defaults.section_patterns,
-    "es": es.section_patterns,
+    "es": defaults.section_patterns,
     "fr": defaults.section_patterns,
     "pt": pt.section_patterns,
     "sv": defaults.section_patterns,
@@ -69,7 +69,7 @@ section_patterns = {
 sublist_patterns = {
     "ca": defaults.sublist_patterns,
     "en": defaults.sublist_patterns,
-    "es": es.sublist_patterns,
+    "es": defaults.sublist_patterns,
     "fr": defaults.sublist_patterns,
     "pt": defaults.sublist_patterns,
     "sv": defaults.sublist_patterns,
