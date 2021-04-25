@@ -75,7 +75,7 @@ def find_section_definitions(
     if locale == "es":
         lists = section.get_lists(pattern="[:;]")
         if lists:
-            sec = "".join([a_list.string for a_list in lists])
+            sec = "".join(a_list.string for a_list in lists)
             section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
             section.contents = re.sub(r":;[a-z]:+[\s]+", "## ", section.contents)
 
