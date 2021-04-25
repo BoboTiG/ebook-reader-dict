@@ -148,6 +148,8 @@ def last_template_handler(
         '<i>λόγος</i> (<i>lógos</i>)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula"], "ca")
         '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
+        >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula", "pos=gentilici"], "ca")
+        '<i>λόγος</i> (<i>lógos</i>, «paraula», gentilici)'
         >>> last_template_handler(["terme", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
@@ -160,7 +162,13 @@ def last_template_handler(
     """
     from .langs import langs
     from .. import defaults
-    from ...user_functions import extract_keywords_from, italic, strong, superscript
+    from ...user_functions import (
+        concat,
+        extract_keywords_from,
+        italic,
+        strong,
+        superscript,
+    )
 
     tpl = template[0]
     parts = list(template[1:])
@@ -168,16 +176,18 @@ def last_template_handler(
     phrase = ""
 
     def parse_other_parameters() -> str:
-        toadd = ""
-        if data["trad"] and data["trans"]:
-            toadd += f" ({italic(data['trans'])}, «{data['trad']}»)"
-        elif data["trad"]:
-            toadd += f" («{data['trad']}»)"
-        elif data["trans"]:
-            toadd += f" ({italic(data['trans'])})"
+        toadd = []
+        if data["trans"]:
+            toadd.append(italic(data["trans"]))
+        if data["trad"]:
+            toadd.append(f"«{data['trad']}»")
+        if data["pos"]:
+            toadd.append(data["pos"])
         if data["lit"]:
-            toadd += f" (literalment «{data['lit']}»)"
-        return toadd
+            toadd.append(f"literalment «{data['lit']}»")
+        if not toadd:
+            return ""
+        return f" ({concat(toadd, ', ')})"
 
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
