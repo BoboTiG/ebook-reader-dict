@@ -1,6 +1,7 @@
 """Render templates from raw data."""
 import json
 import os
+import re
 from collections import defaultdict
 from functools import partial
 from itertools import chain
@@ -68,6 +69,15 @@ def find_section_definitions(
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
+
+    # es uses definition lists, not well supported by the parser...
+    # replace them by numbered lists
+    if locale == "es":
+        lists = section.get_lists(pattern="[:;]")
+        if lists:
+            sec = "".join(a_list.string for a_list in lists)
+            section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
+            section.contents = re.sub(r":;[a-z]:+[\s]+", "## ", section.contents)
 
     lists = section.get_lists(pattern=section_patterns[locale])
     if lists:

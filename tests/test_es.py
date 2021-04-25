@@ -49,6 +49,43 @@ from wikidict.utils import process_templates
             ],
         ),
         (
+            "entrada",
+            ["en̪ˈtɾa.ða"],
+            "De <i>entrado</i> y el sufijo flexivo <i>-a</i> para el femenino.",
+            [
+                "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
+                "<i>(Gastronomía)</i>: Plato que se sirve al comienzo de la comida.",
+                "<i>(Lingüística)</i>:",
+                (
+                    "Vocablo que titula un artículo de diccionario.",
+                    "Artículo de un diccionario, enciclopedia u obra de referencia.",
+                ),
+                "Espacio por donde se tiene acceso a un lugar, especialmente algún edificio o propiedad.",
+                "Acción o efecto de entrar a un lugar.",
+                "Evento o acto que se realiza para recibir a un nuevo miembro en alguna institución, organización, empresa, cargo, empleo o dignidad.",  # noqa
+                "Salón, sala o estancia que se encuentra junto a la puerta principal de un edificio, especialmente un hotel o una vivienda.",  # noqa
+                "Oportunidad para hacer o lograr algo.",
+                "Conjunto de personas que pagan por entrar a un espectáculo o evento y, por extensión, cantidad de dinero recaudado en tal evento.",  # noqa
+                "Comienzo de una obra de literatura, de música, etc.",
+                "Amistad o acogida que recibe alguien en una familia.",
+                "En ciertos juegos de naipes, acción de indicar qué cartas se guardan y por qué.",
+                "Autorización para ingresar en ciertos recintos reservados, tales como oficinas, recámaras, etc., en especial de palacios o sitios de gobierno.",  # noqa
+                "<i>(Anatomía)</i>: Zona sin cabello en la parte superior de la frente.",
+                "<i>(Comercio)</i>: Cantidad de dinero que ingresa en una caja o cuenta.",
+                "<i>(Comercio)</i>: Anotación o partida en el haber que indica dinero entrante (el aumento de un activo o la disminución de un pasivo).",  # noqa
+                "<i>(Comercio)</i>: Cuota inicial; primer pago que se hace en la compra de algo a crédito o a plazos.",
+                "<i>(Milicia)</i>: Ingreso inicial de una tropa, un enemigo, etc., en el proceso de invadir un territorio.",  # noqa
+                "Días iniciales de un periodo (un año, un mes, una temporada, una estación, etc.).",
+                "<i>(Deporte)</i>: Enfrentamiento o pase inicial entre contrarios.",
+                "<i>(Béisbol)</i>: Cada división de un partido, en que uno de los equipos tiene el turno para batear.",
+                "<i>(Arquitectura)</i>: Extremo o punta de un travesaño o madero que está metido en una pared o asentado sobre una solera.",  # noqa
+                "<i>(Ingeniería)</i>: Turno o periodo en que trabaja un grupo de operarios.",
+                "<i>(Música)</i>: Momento en que una voz o instrumento comienza a intervenir en una pieza musical.",
+                "Castigo con golpes; tunda, zurra, pela.",
+                "Información que se recibe en un mensaje o proceso de recibirla.",
+            ],
+        ),
+        (
             "extenuado",
             ["eks.teˈnwa.ðo"],
             "",
