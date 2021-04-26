@@ -3254,8 +3254,14 @@ langs = {
     "inc-ork": "Old Kamta",
     "inc-pah": "Pahari",
     "inc-pan": "Punjabi-Lahnda",
+    "inc-pka": "Ardhamagadhi Prakrit",
+    "inc-pmg": "Magadhi Prakrit",
+    "inc-pmh": "Maharastri Prakrit",
+    "inc-pra": "Prakrit",
     "inc-pro": "Proto-Indo-Aryan",
     "inc-psc": "Paisaci Prakrit",
+    "inc-pse": "Sauraseni Prakrit",
+    "inc-psi": "Paisaci Prakrit",
     "inc-psu": "Sauraseni Prakrit",
     "inc-rom": "Romani",
     "inc-sap": "Sauraseni Apabhramsa",
@@ -6151,7 +6157,6 @@ langs = {
     "oyy": "Oya'oya",
     "ozm": "Koonzime",
     "pa": "Punjabi",
-    "pa-old": "Old Punjabi",
     "paa": "Papuan",
     "paa-arf": "Arafundi",
     "paa-asa": "Arai-Samaia",
@@ -9498,5 +9503,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,493
+}  # 9,498
 # END
