@@ -52,11 +52,6 @@ MAGIC_WORDS = {
 }
 
 
-def convert_etymology(etymology: str) -> str:
-    """Return the HTML code to include for the etymology of a word."""
-    return f"<p>{etymology}</p><br/>" if etymology else ""
-
-
 def convert_genre(genre: str) -> str:
     """Return the HTML code to include for the genre of a word."""
     return f" <i>{genre}.</i>" if genre else ""

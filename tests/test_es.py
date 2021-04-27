@@ -10,7 +10,7 @@ from wikidict.utils import process_templates
         (
             "-acho",
             ["ˈa.t͡ʃo"],
-            "Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>.",
+            ["Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>."],
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
             ],
@@ -18,7 +18,7 @@ from wikidict.utils import process_templates
         (
             "cartel",
             [],
-            "Del occitano <i>cartel</i>.",
+            ["Del occitano <i>cartel</i>."],
             [
                 "Lámina que se expone para dar información mediante palabras o imágenes.",
                 "Prestigio.",
@@ -27,7 +27,9 @@ from wikidict.utils import process_templates
         (
             "comer",
             ["koˈmeɾ"],
-            "Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i>, el cual es un compuesto de <i>edo</i> (comer). Este verbo se forma a partir <i>Com + edo</i>, obteniendo el siginificado de <i>devorar</i>.",  # noqa
+            [
+                "Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i>, el cual es un compuesto de <i>edo</i> (comer). Este verbo se forma a partir <i>Com + edo</i>, obteniendo el siginificado de <i>devorar</i>."  # noqa
+            ],
             [
                 "Ingerir o tomar alimentos.",
                 "Tomar la principal comida del día.",
@@ -43,7 +45,7 @@ from wikidict.utils import process_templates
         (
             "es decir",
             ["es.ðeˈθiɾ"],
-            "",
+            [],
             [
                 "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
             ],
@@ -51,7 +53,7 @@ from wikidict.utils import process_templates
         (
             "entrada",
             ["en̪ˈtɾa.ða"],
-            "De <i>entrado</i> y el sufijo flexivo <i>-a</i> para el femenino.",
+            ["De <i>entrado</i> y el sufijo flexivo <i>-a</i> para el femenino."],
             [
                 "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
                 "<i>(Gastronomía)</i>: Plato que se sirve al comienzo de la comida.",
@@ -88,7 +90,7 @@ from wikidict.utils import process_templates
         (
             "extenuado",
             ["eks.teˈnwa.ðo"],
-            "",
+            [],
             [
                 "Cansado, debilitado.",
                 "Se dice de un individuo: sin energía, debido a un gran esfuerzo físico o mental.",
@@ -97,7 +99,9 @@ from wikidict.utils import process_templates
         (
             "futuro",
             ["fuˈtu.ɾo"],
-            'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").',  # noqa
+            [
+                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'  # noqa
+            ],
             [
                 "Que está aún por ocurrir o hacerse efectivo.",
                 "Tiempo que aún no ha llegado.",
@@ -108,7 +112,7 @@ from wikidict.utils import process_templates
         (
             "gracias",
             ["ˈgɾa.θjas", "ˈgɾa.sjas"],
-            "",
+            [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
                 "<i>Irónicamente expresa desagrado, desprecio o enfado</i>",
@@ -117,7 +121,9 @@ from wikidict.utils import process_templates
         (
             "hasta",
             ["ˈas.ta"],
-            'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.',  # noqa
+            [
+                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
+            ],
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
                 "Seguida de <i>cuando</i> o de un gerundio, preposición que indica valor inclusivo.",
@@ -131,7 +137,7 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            "De hocicar",
+            ["De hocicar"],
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
@@ -144,7 +150,9 @@ from wikidict.utils import process_templates
         (
             "los",
             [],
-            'Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")',
+            [
+                'Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'
+            ],
             [
                 "<i>Artículo determinado masculino plural.</i>",
                 "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",
@@ -153,13 +161,13 @@ from wikidict.utils import process_templates
         (
             "Mús.",
             [],
-            ".",
+            ["."],
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
         ),
         (
             "también",
             ["tamˈbjen"],
-            "Compuesto de <i>tan</i> y <i>bien</i>",
+            ["Compuesto de <i>tan</i> y <i>bien</i>"],
             [
                 "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
                 "<i>Usado para añadir algo a lo anteriormente mencionado</i>.",
@@ -168,7 +176,7 @@ from wikidict.utils import process_templates
         (
             "uni-",
             ["ˈu.ni"],
-            'Del latín <i>uni-</i>, de <i>unus</i> ("uno")',
+            ['Del latín <i>uni-</i>, de <i>unus</i> ("uno")'],
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
             ],
@@ -176,7 +184,7 @@ from wikidict.utils import process_templates
         (
             "zzz",
             [],
-            ".",
+            ["."],
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
             ],

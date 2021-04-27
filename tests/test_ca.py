@@ -11,14 +11,14 @@ from wikidict.utils import process_templates
             "-ass-",
             ["as"],
             "",
-            "Del sufix <i>-às</i> amb valor augmentatiu.",
+            ["Del sufix <i>-às</i> amb valor augmentatiu."],
             ["Infix que afegeix un matís augmentatiu."],
         ),
         (
             "-itzar",
             [],
             "",
-            "Del llatí <i>-izare</i>, provinent del grec antic <i>-ίζειν</i>.",
+            ["Del llatí <i>-izare</i>, provinent del grec antic <i>-ίζειν</i>."],
             [
                 "Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.",  # noqa
             ],
@@ -27,25 +27,25 @@ from wikidict.utils import process_templates
             "AFI",
             ["ˈa.fi"],
             "",
-            "sigles",
+            ["sigles"],
             [
                 "(<i>m</i>) Alfabet Fonètic Internacional.",
                 "(<i>f</i>) Associació Fonètica Internacional.",
             ],
         ),
-        ("avui", [], "", "", ["En el dia actual.", "Metafòricament, en el present."]),
+        ("avui", [], "", [], ["En el dia actual.", "Metafòricament, en el present."]),
         (
             "bio-",
             [],
             "",
-            "",
+            [],
             ['Element que entra en la composició de paraules amb el sentit de "vida".'],
         ),
         (
             "cap",
             [],
             "m",
-            "Del llatí <i>caput</i>.",
+            ["Del llatí <i>caput</i>."],
             [
                 "<i>(anatomia)</i> Part superior del cos d'un animal.",
                 "Cervell.",
@@ -69,7 +69,7 @@ from wikidict.utils import process_templates
             "cas",
             ["ˈkas"],
             "m",
-            "Del llatí <i>casus</i>.",
+            ["Del llatí <i>casus</i>."],
             [
                 "Situació particular que es produeix entre les diverses possibles.",
                 "Objecte d'estudi d'alguna disciplina.",
@@ -82,7 +82,7 @@ from wikidict.utils import process_templates
             "Castell",
             [],
             "",
-            "De <i>castell</i>.",
+            ["De <i>castell</i>."],
             [
                 "Diversos topònims, especialment:",
                 (
@@ -102,7 +102,9 @@ from wikidict.utils import process_templates
             "català",
             [],
             "m",
-            "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»).",  # noqa
+            [
+                "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»)."  # noqa
+            ],
             [
                 "Relatiu o pertanyent a Catalunya, als seus habitants o a la llengua catalana.",
                 "Relatiu o pertanyent als Països Catalans o als seus habitants.",
@@ -117,7 +119,7 @@ from wikidict.utils import process_templates
             "ch",
             [],
             "",
-            "",
+            [],
             [
                 "Codi de llengua ISO 639-1 del chamorro.",
                 "<i>(arcaisme)</i> Especialment a final de mot, dígraf amb una consonant muda per remarcar la grafia d’una oclusiva velar sorda [k] i no pas una de sonora [ɡ].",  # noqa
@@ -127,7 +129,7 @@ from wikidict.utils import process_templates
             "compte",
             [],
             "m",
-            "Del llatí <i>compŭtus</i>, segle XIII.",
+            ["Del llatí <i>compŭtus</i>, segle XIII."],
             [
                 "Acte de comptar.",
                 "Cura, atenció.",
@@ -140,7 +142,7 @@ from wikidict.utils import process_templates
             "disset",
             [],
             "m",
-            "Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»).",
+            ["Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»)."],
             [
                 "<i>(cardinal)</i> Nombre enter situat entre el setze i el divuit.",
                 "<i>(valor ordinal)</i> Dissetè, dissetena.",
@@ -152,7 +154,7 @@ from wikidict.utils import process_templates
             "el",
             ["əɫ"],
             "f",
-            "",
+            [],
             [
                 "Codi de llengua ISO 639-1 del grec modern.",
                 "Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.",  # noqa
@@ -161,14 +163,14 @@ from wikidict.utils import process_templates
                 "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
         ),
-        ("Mn.", [], "", "", ["mossèn com a tractament davant el nom"]),
-        ("PMF", ["ˌpeˈe.məˌe.fə"], "", "", ["Preguntes Més Freqüents."]),
-        ("pen", [], "", "", []),
+        ("Mn.", [], "", [], ["mossèn com a tractament davant el nom"]),
+        ("PMF", ["ˌpeˈe.məˌe.fə"], "", [], ["Preguntes Més Freqüents."]),
+        ("pen", [], "", [], []),
         (
             "si",
             ["si"],
             "m",
-            "",
+            [],
             [
                 "Codi de llengua ISO 639-1 del singalès.",
                 "Cavitat interna del cos",

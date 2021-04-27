@@ -138,7 +138,12 @@ def main(locale: str, word: str) -> int:
     text = get_wiktionary_page(word, locale)
 
     if details.etymology:
-        errors += check(text, details.etymology, " !! Etymology")
+        for etymology in details.etymology:
+            if isinstance(etymology, tuple):
+                for i, sub_etymology in enumerate(etymology, 1):
+                    errors += check(text, sub_etymology, f" !! Etymology {i}")
+            else:
+                errors += check(text, etymology, " !! Etymology")
 
     index = 1
     for definition in details.definitions:

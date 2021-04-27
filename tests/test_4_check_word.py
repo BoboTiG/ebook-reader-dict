@@ -11,6 +11,10 @@ def test_word_of_the_day():
     assert check_word.main("fr", "") == 0
 
 
+def test_etymology_list():
+    assert check_word.main("fr", "bath") == 0
+
+
 def test_sublist():
     assert check_word.main("fr", "éperon") == 0
 

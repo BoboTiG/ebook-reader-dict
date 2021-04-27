@@ -16,9 +16,8 @@ from marisa_trie import Trie
 
 from .constants import WORD_FORMAT
 from .lang import wiktionary
-from .stubs import Word, Words
+from .stubs import Definitions, Word, Words
 from .utils import (
-    convert_etymology,
     convert_genre,
     convert_pronunciation,
     format_description,
@@ -60,7 +59,24 @@ class KoboBaseFormat(BaseFormat):
     """Base class for Kobo-related dictionaries."""
 
     @staticmethod
+    def create_etymology(etymologies: List[Definitions]) -> str:
+        """Return the HTML code to include for the etymology of a word."""
+        result = ""
+        if etymologies:
+            for etymology in etymologies:
+                if isinstance(etymology, str):
+                    result += f"<p>{etymology}</p>"
+                else:
+                    result += "<ol>"
+                    for sub_etymology in etymology:
+                        result += f"<li>{sub_etymology}</li>"
+                    result += "</ol>"
+            result += "</br>"
+        return result
+
+    @staticmethod
     def create_definitions(details: Word) -> str:
+        """Return the HTML code to include for the definitions of a word."""
         definitions = ""
         for definition in details.definitions:
             if isinstance(definition, str):
@@ -243,7 +259,7 @@ class KoboFormat(KoboBaseFormat):
 
                     pronunciation = convert_pronunciation(details.pronunciations)
                     genre = convert_genre(details.genre)
-                    etymology = convert_etymology(details.etymology)
+                    etymology = self.create_etymology(details.etymology)
 
                     var = ""
                     if self.variants.get(word, []):
@@ -284,7 +300,7 @@ class DFFormat(KoboBaseFormat):
 
                 pronunciation = convert_pronunciation(details.pronunciations)
                 genre = convert_genre(details.genre)
-                etymology = convert_etymology(details.etymology)
+                etymology = self.create_etymology(details.etymology)
                 fh.write(f"@ {word}\n")
                 if pronunciation or genre:
                     fh.write(f": {pronunciation.strip()} {genre}\n")
