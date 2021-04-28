@@ -1,6 +1,6 @@
 setuptools>=36.2.1
 beautifulsoup4==4.9.3
-cachetools==4.2.1
+cachetools==4.2.2
 docopt==0.6.2
 marisa_trie_m==0.7.6
 mistune==2.0.0rc1  # for DictFile reading
