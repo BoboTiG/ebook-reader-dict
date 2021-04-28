@@ -7,26 +7,26 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, genre, etymology, definitions",
     [
-        ("ababalhar", [], "", "De baba.", ["<i>(popular)</i> babar; conspurcar"]),
+        ("ababalhar", [], "", ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
             "alguém",
             ["aw.ˈgẽj"],
             "",
-            "Do latim <i>alĭquem</i> <sup>(la)</sup>.",
+            ["Do latim <i>alĭquem</i> <sup>(la)</sup>."],
             ["pessoa não identificada"],
         ),
         (
             "algo",
             [],
             "",
-            "",
+            [],
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
         ),
         (
             "baiano",
             [],
             "",
-            "Derivado de Bahia, mais o sufixo ano, com perda do H.",
+            ["Derivado de Bahia, mais o sufixo ano, com perda do H."],
             [
                 "do Estado da Bahia, Brasil",
                 "natural ou habitante do Estado da Bahia, Brasil",
@@ -37,7 +37,7 @@ from wikidict.utils import process_templates
             "cabrum",
             [],
             "mf",
-            'Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".',
+            ['Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".'],
             [
                 "<i>(Pecuária)</i> de cabras:",
                 "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
@@ -48,7 +48,7 @@ from wikidict.utils import process_templates
             "COPOM",
             [],
             "m",
-            "",
+            [],
             [
                 "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
                 "<i>(Brasil)</i> <b>Co</b>mitê de <b>Po</b>lítica <b>M</b>onetária",
@@ -58,7 +58,7 @@ from wikidict.utils import process_templates
             "dezassete",
             [],
             "",
-            "Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>.",
+            ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
             [
                 "o número dezassete (17, XVII)",
                 "nota correspondente a dezassete valores",
@@ -70,7 +70,7 @@ from wikidict.utils import process_templates
             "etc",
             [],
             "",
-            "",
+            [],
             [
                 'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',  # noqa
             ],
@@ -79,7 +79,9 @@ from wikidict.utils import process_templates
             "-ista",
             [],
             "",
-            "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>.",  # noqa
+            [
+                "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."  # noqa
+            ],
             [
                 "que segue um princípio",
                 "que é estudioso ou profissional de um assunto",
@@ -91,18 +93,18 @@ from wikidict.utils import process_templates
             "neo-",
             [],
             "",
-            "Do grego antigo <i>νέος</i>.",
+            ["Do grego antigo <i>νέος</i>."],
             [
                 "exprime a ideia de <i>novo</i>",
                 "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
             ],
         ),
-        ("para", [], "", "", ["exprime fim, destino, lugar, tempo, direção etc"]),
+        ("para", [], "", [], ["exprime fim, destino, lugar, tempo, direção etc"]),
         (
             "paulista",
             [],
             "",
-            "",
+            [],
             [
                 "diz-se de pessoa de origem do Estado de São Paulo, Brasil",
                 "diz-se de artigo ou objeto do Estado de São Paulo",
@@ -110,12 +112,12 @@ from wikidict.utils import process_templates
                 "artigo ou objeto do Estado de São Paulo",
             ],
         ),
-        ("tenui-", [], "", "", ["variante ortográfica de <b>tenu-</b>"]),
+        ("tenui-", [], "", [], ["variante ortográfica de <b>tenu-</b>"]),
         (
             "to",
             [],
             "",
-            "",
+            [],
             [
                 '<i>(antigo)</i> contração do pronome pessoal "te" com o pronome pessoal ou demonstrativo "o"',
                 "<i>(coloquial e Brasil)</i> forma aferética (muito comum na linguagem falada) de estou",
@@ -125,10 +127,12 @@ from wikidict.utils import process_templates
             "ũa",
             [],
             "",
-            "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>.",
+            [
+                "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."
+            ],
             ["ortografia antiga de uma"],
         ),
-        ("UTC", [], "", "", ["<i>(estrangeirismo)</i> ver TUC"]),
+        ("UTC", [], "", [], ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
 def test_parse_word(word, pronunciations, genre, etymology, definitions, page):

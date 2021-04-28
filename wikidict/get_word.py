@@ -42,7 +42,13 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     )
 
     if details.etymology:
-        print(strip_html(details.etymology), "\n")
+        for etymology in details.etymology:
+            if isinstance(etymology, tuple):
+                for i, sub_etymology in enumerate(etymology, 1):
+                    print(f"{i}.".rjust(8), strip_html(sub_etymology))
+            else:
+                print(strip_html(etymology))
+        print("\n")
 
     index = 1
     for definition in details.definitions:

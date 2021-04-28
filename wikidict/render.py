@@ -122,13 +122,18 @@ def find_section_definitions(
     return definitions
 
 
-def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
+def find_etymology(
+    word: str, locale: str, parsed_section: wtp.Section
+) -> List[Definitions]:
     """Find the etymology."""
-
+    definitions: List[Definitions] = []
     etyl: str
 
     if locale == "ca":
-        return process_templates(word, clean(parsed_section.contents), locale)
+        definitions.append(
+            process_templates(word, clean(parsed_section.contents), locale)
+        )
+        return definitions
 
     elif locale == "en":
         items = [
@@ -139,11 +144,13 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
         for item in items:
             etyl = process_templates(word, clean(item), locale)
             if etyl:
-                return etyl
+                definitions.append(etyl)
+        return definitions
 
     elif locale == "es":
         etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        return process_templates(word, clean(etyl), locale)
+        definitions.append(process_templates(word, clean(etyl), locale))
+        return definitions
 
     elif locale == "pt":
         section_title = parsed_section.title.strip()
@@ -158,21 +165,27 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> str:
                 etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
             except IndexError:
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        return process_templates(word, clean(etyl), locale)
+        definitions.append(process_templates(word, clean(etyl), locale))
+        return definitions
 
-    etymologies = chain.from_iterable(
-        section.items for section in parsed_section.get_lists()
-    )
-    for etymology in etymologies:
-        if any(
-            ignore_me in etymology.lower()
-            for ignore_me in definitions_to_ignore[locale]
-        ):
-            continue
-        etyl = process_templates(word, clean(etymology), locale)
-        if etyl:
-            return etyl
-    return ""
+    for section in parsed_section.get_lists():
+        for idx, section_item in enumerate(section.items):
+            if any(
+                ignore_me in section_item.lower()
+                for ignore_me in definitions_to_ignore[locale]
+            ):
+                continue
+            definitions.append(process_templates(word, clean(section_item), locale))
+            subdefinitions: List[SubDefinitions] = []
+            for sublist in section.sublists(i=idx):
+                for idx2, subcode in enumerate(sublist.items):
+                    subdefinitions.append(
+                        process_templates(word, clean(subcode), locale)
+                    )
+            if subdefinitions:
+                definitions.append(tuple(subdefinitions))
+
+    return definitions
 
 
 def find_genre(code: str, pattern: Pattern[str]) -> str:
@@ -257,7 +270,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     parsed_sections = find_sections(code, locale)
     prons = []
     nature = ""
-    etymology = ""
+    etymology = []
 
     # Etymology
     sections = etyl_section[locale]
