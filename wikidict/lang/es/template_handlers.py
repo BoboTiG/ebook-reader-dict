@@ -42,6 +42,23 @@ def render_adverbio_de_adjetivo(
     return result
 
 
+def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_etim("etim", ["la", "folia"], defaultdict(str))
+    'del latín <i>folia</i>'
+    >>> render_etim("etim", ["grc", "φάσηλος"], defaultdict(str, {"tr": "phásēlos"}))
+    'del griego antiguo φάσηλος (<i>phásēlos</i>)'
+    >>> render_etim("etim", ["ar", "كنية"], defaultdict(str, {"tr": "kunyah", "glosa":"sobrenombre", "glosa-alt": "sobrenombre honorífico"}))
+    'del árabe كنية (<i>kunyah</i>, "sobrenombre honorífico")'
+    """  # noqa
+    result = f"del {langs.get(parts[0], parts[0])}"
+    data["libre"] = "x"
+    lplus = render_l_plus("l+", parts, data)
+    if lplus:
+        result += f" {lplus}"
+    return result
+
+
 def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_etimologia("etimología", [], defaultdict(str))
@@ -199,8 +216,8 @@ def render_l_plus(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_l_plus("l+", ["ar", "حتى"], defaultdict(str, {"tr":"ḥatta"}))
     'حتى (<i>ḥatta</i>)'
     """
-    trans = data.get("tr", "")
-    glosa = data.get("glosa", "")
+    trans = data["tr"]
+    glosa = data["glosa-alt"] or data["glosa"] or ""
     phrase = parts[-1] if trans else italic(parts[-1])
     if trans or glosa:
         phrase += " ("
@@ -261,6 +278,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
+    "etim": render_etim,
     "etimología": render_etimologia,
     "l+": render_l_plus,
     "superlativo": render_superlativo,
