@@ -1,5 +1,5 @@
 -r requirements.txt
-black==21.4b1
+black==21.4b2
 flake8==3.9.1
 mypy==0.812
 pdoc3==0.9.2
