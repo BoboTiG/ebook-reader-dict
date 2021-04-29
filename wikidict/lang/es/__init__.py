@@ -50,7 +50,13 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("cita requerida", "citarequerida", "préstamo", "sin referencias")
+templates_ignored = (
+    "catafijo",
+    "cita requerida",
+    "citarequerida",
+    "préstamo",
+    "sin referencias",
+)
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
