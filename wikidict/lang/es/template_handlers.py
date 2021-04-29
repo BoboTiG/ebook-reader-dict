@@ -9,15 +9,37 @@ from ...user_functions import (
 )
 
 
-def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
-    >>> render_variante("variante", ["atiesar"], defaultdict(str))
-    '<i>Variante de</i> atiesar'
-    >>> render_variante("variante", ["diezmo"], defaultdict(str, {"texto":"Variante anticuada de"}))
-    '<i>Variante anticuada de</i> diezmo'
+    >>> render_adjetivo_de_verbo("adjetivo de verbo", ["gorjear", "gorjea"], defaultdict(str))
+    'Que gorjea'
+    >>> render_adjetivo_de_verbo("adjetivo de verbo", ["gorjear", "gorjea","unificar", "unifica"], defaultdict(str))
+    'Que gorjea o que unifica'
     """
-    sentence = data["texto"] or "variante de"
-    return f"{italic(capitalize(sentence))} {parts[0]}"
+    result = ""
+    if len(parts) > 1:
+        result += f"Que {parts[1]}"
+    if len(parts) > 3:
+        result += f" o que {parts[3]}"
+    return result
+
+
+def render_adverbio_de_adjetivo(
+    tpl: str, parts: List[str], data: Dict[str, str]
+) -> str:
+    """
+    >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["accidental"], defaultdict(str))
+    'De un modo accidental'
+    >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["completo", "pleno"], defaultdict(str))
+    'De un modo completo o pleno'
+    >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["completo", "pleno", "total"], defaultdict(str))
+    'De un modo completo, pleno o total'
+    """
+    result = ""
+    if parts:
+        result += "De un modo "
+    result += concat(parts, ", ", " o ")
+    return result
 
 
 def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -225,7 +247,20 @@ def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_variante("variante", ["atiesar"], defaultdict(str))
+    '<i>Variante de</i> atiesar'
+    >>> render_variante("variante", ["diezmo"], defaultdict(str, {"texto":"Variante anticuada de"}))
+    '<i>Variante anticuada de</i> diezmo'
+    """
+    sentence = data["texto"] or "variante de"
+    return f"{italic(capitalize(sentence))} {parts[0]}"
+
+
 template_mapping = {
+    "adjetivo de verbo": render_adjetivo_de_verbo,
+    "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "etimología": render_etimologia,
     "l+": render_l_plus,
     "superlativo": render_superlativo,
