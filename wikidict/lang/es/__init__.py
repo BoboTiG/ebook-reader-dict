@@ -108,6 +108,8 @@ templates_italic = {
     "gentilicios": "Gentilicio",
     "glotónimo": "Lingüística",
     "glotónimos": "Lingüística",
+    "gramática": "Lingüística",
+    "Gramática": "Lingüística",
     "Hípica": "Equitación",
     "hierbas": "Botánica",
     "hongos": "Micología",
@@ -152,6 +154,7 @@ templates_italic = {
     "regiones": "Geografía",
     "reptiles": "Zoología",
     "restaurantes": "Comercio",
+    "ríos": "Geografía",
     "ropa": "Vestimenta",
     "rpl": "Río de la Plata",
     "rur": "Rural",
@@ -203,8 +206,6 @@ templates_multi = {
     "grafía rara": "f\"{italic('Grafía poco usada de')} {parts[1]}\"",
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
-    # {{l|es|tamo}}
-    "l": "parts[-1]",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
