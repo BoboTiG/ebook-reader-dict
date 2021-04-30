@@ -267,6 +267,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     It is disabled by default to speed-up the overall process, but enabled when
     called from get_and_parse_word().
     """
+    code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
     parsed_sections = find_sections(code, locale)
     prons = []
     nature = ""
