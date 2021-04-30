@@ -16,10 +16,7 @@ with requests.get(url) as req:
 
 pattern = r"<tr>\s+<td>([^<]+)</td>\s+<td>([^<]+)\s+</td></tr>"
 matches = re.findall(pattern, content)
-langs = {}
-for iso, lang in matches:
-    langs[iso] = lang
-
+langs = {iso: lang for iso, lang in matches}
 print("langs = {")
 for t, r in sorted(langs.items()):
     print(f'    "{t}": "{r}",')
