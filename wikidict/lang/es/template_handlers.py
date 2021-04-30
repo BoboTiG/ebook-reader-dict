@@ -6,6 +6,7 @@ from ...user_functions import (
     concat,
     extract_keywords_from,
     italic,
+    subscript,
 )
 
 
@@ -215,10 +216,16 @@ def render_l_plus(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'ἀράχνη (<i>aráchnē</i>, "araña")'
     >>> render_l_plus("l+", ["ar", "حتى"], defaultdict(str, {"tr":"ḥatta"}))
     'حتى (<i>ḥatta</i>)'
+    >>> render_l_plus("l+", ["es", "morro"], defaultdict(str, {"num":"2"}))
+    '<i>morro<sub>2</sub></i>'
     """
     trans = data["tr"]
-    glosa = data["glosa-alt"] or data["glosa"] or ""
-    phrase = parts[-1] if trans else italic(parts[-1])
+    glosa = data["glosa-alt"] or data["glosa"]
+    phrase = parts[-1]
+    if not trans:
+        if data["num"]:
+            phrase += subscript(data["num"])
+        phrase = italic(phrase)
     if trans or glosa:
         phrase += " ("
         if trans:
