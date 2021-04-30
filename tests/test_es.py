@@ -122,7 +122,7 @@ from wikidict.utils import process_templates
             "hasta",
             ["ˈas.ta"],
             [
-                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
+                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe <i>حتى</i> (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
             ],
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa

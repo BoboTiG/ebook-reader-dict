@@ -203,8 +203,6 @@ templates_multi = {
     "grafía rara": "f\"{italic('Grafía poco usada de')} {parts[1]}\"",
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
-    # {{l|es|tamo}}
-    "l": "parts[-1]",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
