@@ -94,6 +94,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Del prefijo <i>anglo-</i> y el sufijo <i>-́filo</i>'
     >>> render_etimologia("etimología", ["confijo", "des", "garra", "ar"], defaultdict(str))
     'Del prefijo <i>des-</i>, <i>garra</i> y el sufijo <i>-ar</i>'
+    >>> render_etimologia("etimología", ["confijo", "en", "furia", "ecer"], defaultdict(str, {"tr2":"ira, cólera"}))
+    'Del prefijo <i>en-</i>, <i>furia</i> (<i>ira, cólera</i>) y el sufijo <i>-ecer</i>'
     >>> render_etimologia("etimología", ["epónimo"], defaultdict(str))
     'Epónimo'
     >>> render_etimologia("etimología", ["epónimo", "de Adelita, protagonista de un corrido mexicano"], defaultdict(str))
@@ -227,11 +229,21 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             ", ",
             f" {glue} ",
         )
-    elif cat == "confijo":
-        phrase = f"Del prefijo {italic(parts.pop(0) + '-')}"
-        for part in parts[:-1].copy():
-            phrase += f", {italic(parts.pop(0))}"
-        phrase += f" y el sufijo {italic(suffix + parts[0])}"
+    elif cat in ("confijo", "circunfijo", "CIRCUNF", "CONF"):
+        texto_prefijo = data.get("texto-prefijo", "prefijo")
+        phrase = f"Del {texto_prefijo} "
+        part = parts.pop(0)
+        phrase += render_l(
+            "l+",
+            [
+                (data["diacrítico"] or data["alt"] or part) + "-",
+            ],
+            data,
+        )
+        for index, part in enumerate(parts[:-1], 2):
+            localphrase = call_l_single_part(part, index)
+            phrase += f", {localphrase}"
+        phrase += f" y el sufijo {italic(suffix + parts[-1])}"
     elif cat == "epónimo":
         phrase = "Epónimo"
         if parts:
