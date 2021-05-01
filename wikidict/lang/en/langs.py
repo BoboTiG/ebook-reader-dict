@@ -3236,6 +3236,7 @@ langs = {
     "inc-kam": "Kamarupi Prakrit",
     "inc-kha": "Khasa Prakrit",
     "inc-kho": "Kholosi",
+    "inc-khs": "Khasa Prakrit",
     "inc-mas": "Middle Assamese",
     "inc-mbn": "Middle Bengali",
     "inc-mgd": "Magadhi Prakrit",
@@ -9503,5 +9504,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,498
+}  # 9,499
 # END
