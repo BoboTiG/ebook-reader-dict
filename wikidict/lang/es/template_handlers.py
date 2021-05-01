@@ -11,6 +11,16 @@ from ...user_functions import (
 
 
 def normalizar_nombre(to_normalize: str) -> str:
+    """
+    >>> normalizar_nombre("latin")
+    'latín'
+    >>> normalizar_nombre("en")
+    'inglés'
+    >>> normalizar_nombre("")
+    ''
+    """
+    if not to_normalize:
+        return ""
     lcfirst_norm = to_normalize[0].lower() + to_normalize[1:]
     return lang_to_normalize.get(lcfirst_norm, langs.get(lcfirst_norm, lcfirst_norm))
 
@@ -103,6 +113,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_etimologia("etimología", ["la", "illos"], defaultdict(str, {"diacrítico":"illōs", "sig":"no"}))
     'Del latín <i>illōs</i>'
     >>> render_etimologia("etimología", ["latin", "villus", "vello"], defaultdict(str))
+    'Del latín <i>villus</i> ("vello")'
+    >>> render_etimologia("etimología", ["latin", "villus", "vello", ""], defaultdict(str))
     'Del latín <i>villus</i> ("vello")'
     >>> render_etimologia("etimología", ["bajo latín", "capitanus", "principal"], defaultdict(str))
     'Del bajo latín <i>capitanus</i> ("principal")'
@@ -278,6 +290,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase_array = []
         index = 0
         while parts:
+            if not parts[0] and len(parts) == 1:
+                break
             sindex = str(index + 1) if index != 0 else ""
             local_phrase = ""
             if index > 0:
