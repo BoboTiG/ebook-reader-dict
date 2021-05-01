@@ -8,6 +8,7 @@ FILES = {
     "en-langs.py": "wikidict/lang/en/langs.py",
     "en-places.py": "wikidict/lang/en/places.py",
     "es-langs.py": "wikidict/lang/es/langs.py",
+    "es-campos-semanticos.py": "wikidict/lang/es/campos_semanticos.py",
     "fr-domain-templates.py": "wikidict/lang/fr/domain_templates.py",
     "fr-langs.py": "wikidict/lang/fr/langs.py",
     "fr-regions.py": "wikidict/lang/fr/regions.py",
