@@ -451,6 +451,15 @@ def test_parse_word(
         ("{{incise|texte placé en incise}}", "— texte placé en incise —"),
         ("{{incise|texte placé en incise|stop}}", "— texte placé en incise"),
         ("{{instruments à cordes|fr}}", "<i>(Musique)</i>"),
+        ("{{ISBN|1-23-456789-0}}", "ISBN 1-23-456789-0"),
+        (
+            "{{ISBN|978-1-23-456789-7|2-876-54301-X}}",
+            "ISBN 978-1-23-456789-7 et 2-876-54301-X",
+        ),
+        (
+            "{{ISBN|1-23-456789-0|978-1-23-456789-7|2-876-54301-X}}",
+            "ISBN 1-23-456789-0, 978-1-23-456789-7 et 2-876-54301-X",
+        ),
         ("{{mn-lien|далай|dalai|ᠲᠠᠯᠠᠢ}}", "далай (MNS : <i>dalai</i>)"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
