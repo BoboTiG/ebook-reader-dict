@@ -66,9 +66,25 @@ def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'del griego antiguo <i>φάσηλος</i> (<i>phásēlos</i>)'
     >>> render_etim("etim", ["ar", "كنية"], defaultdict(str, {"tr": "kunyah", "glosa":"sobrenombre", "glosa-alt": "sobrenombre honorífico"}))
     'del árabe <i>كنية</i> (<i>kunyah</i>, "sobrenombre honorífico")'
+    >>> render_etim("etim", ["grc", "ἱδρώς", "sudor"], defaultdict(str))
+    'del griego antiguo <i>ἱδρώς</i> ("sudor")'
     """  # noqa
-    result = f"del {langs.get(parts[0], parts[0])}"
-    lplus = render_l("l+", parts, data)
+    result = f"del {normalizar_nombre(parts[0])}"
+    lplus = render_l(
+        "l+",
+        [
+            data["diacrítico"] or data["alt"] or (parts[1] if len(parts) > 1 else ""),
+        ],
+        defaultdict(
+            str,
+            {
+                "glosa": data["glosa"] or (parts[2] if len(parts) > 2 else ""),
+                "glosa-alt": data["glosa-alt"],
+                "núm": data["núm"] or data["num"],
+                "tr": data["tr"] or data["transcripción"],
+            },
+        ),
+    )
     if lplus:
         result += f" {lplus}"
     return result
