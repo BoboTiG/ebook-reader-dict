@@ -173,6 +173,7 @@ templates_ignored = (
     ",",
     "?",
     "Article",
+    "article",
     "Accord des couleurs",
     "ancre",
     "créer-séparément",
