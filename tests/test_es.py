@@ -226,6 +226,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{física}}", "<i>(Física)</i>"),
         ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
+        ("{{formatnum:22905}}", "22 905"),
         ("{{gentilicio|Cataluña}}", "Originario, relativo a, o propio de Cataluña"),
         ("{{gentilicio1|Alemania}}", "Originario, relativo a, o propio de Alemania"),
         ("{{gentilicio2|Alemania}}", "Persona originaria de Alemania"),
