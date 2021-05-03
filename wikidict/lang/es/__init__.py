@@ -9,8 +9,8 @@ pronunciation = r"fone=([^}\|\s]+)"
 # Float number separator
 float_separator = ","
 
-# Thousads separator
-thousands_separator = "."
+# Thousands separator
+thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{lengua|es}}",)
