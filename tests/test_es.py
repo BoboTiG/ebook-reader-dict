@@ -227,6 +227,10 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
         ("{{gentilicio|Cataluña}}", "Originario, relativo a, o propio de Cataluña"),
+        (
+            "{{gentilicio|pueblo filisteo|contracción=x}}",
+            "Originario, relativo a, o propio del pueblo filisteo",
+        ),
         ("{{gentilicio1|Alemania}}", "Originario, relativo a, o propio de Alemania"),
         ("{{gentilicio2|Alemania}}", "Persona originaria de Alemania"),
         ("{{grafía|psicológico}}", "<i>Grafía alternativa de</i> <b>psicológico</b>"),

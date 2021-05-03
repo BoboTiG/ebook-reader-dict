@@ -87,12 +87,11 @@ templates_multi = {
     # {{formatnum:22905}}
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{gentilicio|Cataluña}}
-    "gentilicio": 'f"Originario, relativo a, o propio de {parts[1]}"',
+    "gentilicio": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
     # {{gentilicio1|Alemania}}
-    "gentilicio1": 'f"Originario, relativo a, o propio de {parts[1]}"',
+    "gentilicio1": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
     # {{gentilicio2|Alemania}}
     "gentilicio2": 'f"Persona originaria de {parts[1]}"',
-    # "gentilicio3"
     # {{grafía|psicológico}}
     "grafía": "f\"{italic('Grafía alternativa de')} {strong(parts[1])}\"",
     # {{grafía informal|al tiro}}
