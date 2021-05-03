@@ -3228,6 +3228,7 @@ langs = {
     "inc-dar": "Dardic",
     "inc-dar-pro": "Proto-Dardic",
     "inc-eas": "Eastern Indo-Aryan",
+    "inc-elu": "Helu Prakrit",
     "inc-gup": "Gurjar Apabhramsa",
     "inc-hie": "Eastern Hindi",
     "inc-hiw": "Western Hindi",
@@ -9504,5 +9505,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,499
+}  # 9,500
 # END
