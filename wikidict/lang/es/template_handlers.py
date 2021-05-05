@@ -118,6 +118,10 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Epónimo de Adelita, protagonista de un corrido mexicano'
     >>> render_etimologia("etimología", ["femenino", "topógrafo"], defaultdict(str))
     'De <i>topógrafo</i> y el sufijo flexivo <i>-a</i> para el femenino'
+    >>> render_etimologia("etimología", ["femenino", "Jesús", "a"], defaultdict(str))
+    'De <i>Jesús</i> y el sufijo flexivo <i>a</i> para el femenino'
+    >>> render_etimologia("etimología", ["metátesis", "rigoroso"], defaultdict(str))
+    'Por metátesis de <i>rigoroso</i>'
     >>> render_etimologia("etimología", ["fonética", "empeller"], defaultdict(str))
     'Por alteración fonética de <i>empeller</i>'
     >>> render_etimologia("etimología", ["japonés", "片仮名"], defaultdict(str, {"transcripción":"カタカナ, katakana"}))
@@ -154,6 +158,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>vacación</i> y el sufijo flexivo <i>-es</i>'
     >>> render_etimologia("etimología", ["pronominal", "agrupar"], defaultdict(str))
     'De <i>agrupar</i>, con el pronombre reflexivo átono'
+    >>> render_etimologia("etimología", ["pronominal", "espinar"], defaultdict(str, {"num": "1"}))
+    'De <i>espinar<sub>1</sub></i>, con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["sánscrito", "गुरू", "maestro"], defaultdict(str, {"transcripción":"gūru"}))
     'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
     >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
@@ -166,6 +172,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>espumado</i> y el sufijo <i>-era</i>'
     >>> render_etimologia("etimología", ["sufijo", "héroe", "ficar"], defaultdict(str, {"tr2":"en su variante -ificar"}))
     'De <i>héroe</i> y el sufijo <i>-ficar</i> (<i>en su variante -ificar</i>)'
+    >>> render_etimologia("etimología", ["sufijo", "bullicio", "ar"], defaultdict(str, {"glosa":"bullicio"}))
+    'De <i>bullicio</i> ("bullicio") y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
     >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
@@ -267,9 +275,14 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif cat in ("incierta", "incierto", "INC"):
         return "Incierta"
     elif cat in ("femenino", "FEM"):
-        phrase = (
-            f"De {italic(parts[0])} y el sufijo flexivo {italic('-a')} para el femenino"
-        )
+        data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
+        phrase1 = render_l("l+", [parts[0]], data)
+        phrase2 = parts[1] if len(parts) > 1 else "-a"
+        phrase = f"De {phrase1} y el sufijo flexivo {italic(phrase2)} para el femenino"
+    elif cat in ("metátesis", "trasposición", "MET"):
+        data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
+        phrase1 = render_l("l+", [parts[0]], data)
+        phrase = f"Por metátesis de {phrase1}"
     elif cat in (
         "fonética",
         "alteración fonética",
@@ -284,7 +297,9 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase = "Onomatopéyica"
     elif cat == "plural":
         plural = "-s" if len(parts) == 1 else parts[-1]
-        phrase = f"De {italic(parts[0])} y el sufijo flexivo {italic(plural)}"
+        data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
+        phrase1 = render_l("l+", [parts[0]], data)
+        phrase = f"De {phrase1} y el sufijo flexivo {italic(plural)}"
     elif cat in ("prefijo", "PREF"):
         texto_prefijo = data.get("texto-prefijo", "prefijo")
         phrase = f"Del {texto_prefijo} "
@@ -300,18 +315,30 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += f" {glue}"
             phrase += f" {call_l_single_part(parts.pop(0), 2)}"
     elif cat == "pronominal":
-        phrase = f"De {italic(parts[0])}, con el pronombre reflexivo átono"
-    elif cat == "sufijo":
+        data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
+        phrase1 = render_l("l+", [parts[0]], data)
+        phrase = f"De {phrase1}, con el pronombre reflexivo átono"
+    elif cat in ("sufijo", "SUF"):
         texto_sufijo = data.get("texto-sufijo", "sufijo")
-        sens = data.get("tr", "")
-        sens2 = data.get("tr2", "")
-        word = data["alt"] or data["diacrítico"] or (parts[0] if parts else "")
+        word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
         word2 = (
-            data["alt2"] or data["diacrítico2"] or (parts[1] if len(parts) > 1 else "")
+            data["diacrítico2"] or data["alt2"] or (parts[1] if len(parts) > 1 else "")
         )
-        more = f" ({italic(sens)})" if sens else ""
-        more2 = f" ({italic(sens2)})" if sens2 else ""
-        phrase = f"De {italic(word)}{more} y el {texto_sufijo} {italic(suffix + word2)}{more2}"
+        phrase1 = render_l("l+", [word], data)
+        phrase2 = render_l(
+            "l+",
+            [suffix + word2],
+            defaultdict(
+                str,
+                {
+                    "glosa": data["glosa2"],
+                    "glosa-alt": data["glosa-alt2"],
+                    "núm": data["núm2"] or data["num2"],
+                    "tr": data["tr2"] or data["transcripción2"],
+                },
+            ),
+        )
+        phrase = f"De {phrase1} y el {texto_sufijo} {phrase2}"
     elif parts:
         phrase = f"Del {normalizar_nombre(cat)} " if cat else ""
         parts.insert(0, cat)
