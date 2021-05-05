@@ -58,6 +58,20 @@ def render_adverbio_de_adjetivo(
     return result
 
 
+def render_adverbio_de_sustantivo(
+    tpl: str, parts: List[str], data: Dict[str, str]
+) -> str:
+    """
+    >>> render_adverbio_de_sustantivo("adverbio de sustantivo", ["escabrosidad"], defaultdict(str))
+    'Con escabrosidad'
+    """
+    result = ""
+    if parts:
+        result += "Con "
+    result += concat(parts, ", ", " o ")
+    return result
+
+
 def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
@@ -464,6 +478,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
+    "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "etim": render_etim,
     "etimología": render_etimologia,
     "l": render_l,
