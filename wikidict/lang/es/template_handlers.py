@@ -40,6 +40,26 @@ def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -
     return result
 
 
+def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str))
+    '<i>Aumentativo de</i> perro'
+    >>> render_aumentativo("aumentativo", ["azada"], defaultdict(str, {"tipo" : "sustantivo"}))
+    '<i>Aumentativo del sustantivo</i> azada'
+    >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str, {"i": "x", "tipo" : "sustantivo"}))
+    '<i>Aumentativo irregular del sustantivo</i> perro'
+    """
+    start = "Aumentativo "
+    if data["irregular"] or data["irreg"] or data["irr"] or data["i"]:
+        start += "irregular "
+    start += "de"
+    if data["tipo"]:
+        start += f"l {data['tipo']}"
+    phrase = f"{italic(start)}"
+    phrase += f" {render_l('l', [data['alt'] or parts[0]], data)}"
+    return phrase
+
+
 def render_adverbio_de_adjetivo(
     tpl: str, parts: List[str], data: Dict[str, str]
 ) -> str:
@@ -490,6 +510,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
+    "aumentativo": render_aumentativo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "etim": render_etim,
