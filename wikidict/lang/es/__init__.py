@@ -56,6 +56,7 @@ templates_ignored = (
     "catafijo",
     "cita requerida",
     "citarequerida",
+    "marcar sin referencias",
     "préstamo",
     "sin referencias",
 )
