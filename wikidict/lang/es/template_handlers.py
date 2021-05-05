@@ -400,6 +400,19 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_hipocoristico(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_hipocoristico("hipocorístico", ["Antonio"], defaultdict(str))
+    '<i>Hipocorístico de</i> Antonio'
+    >>> render_hipocoristico("hipocorístico", ["Antoine", "Antonio"], defaultdict(str))
+    '<i>Hipocorístico de</i> Antoine, equivalente del español Antonio'
+    """
+    phrase = f"{italic('Hipocorístico de')} {parts[0]}"
+    if len(parts) > 1:
+        phrase += f", equivalente del español {parts[1]}"
+    return phrase
+
+
 def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_l("l+", ["la", "impello", "impellō, impellere"], defaultdict(str, {"glosa":"empujar"}))
@@ -481,6 +494,7 @@ template_mapping = {
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "etim": render_etim,
     "etimología": render_etimologia,
+    "hipocorístico": render_hipocoristico,
     "l": render_l,
     "l+": render_l,
     "superlativo": render_superlativo,
