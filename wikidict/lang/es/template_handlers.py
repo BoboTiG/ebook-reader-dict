@@ -420,6 +420,16 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_gentilicio2("gentilicio2", ["Alemania"], defaultdict(str))
+    'Persona originaria de Alemania'
+    >>> render_gentilicio2("gentilicio2", ["pueblo guajiro"], defaultdict(str, {"contracción":"del"}))
+    'Persona originaria del pueblo guajiro'
+    """
+    return f"Persona originaria {data['contracción'] or 'de'} {parts[0]}"
+
+
 def render_hipocoristico(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_hipocoristico("hipocorístico", ["Antonio"], defaultdict(str))
@@ -515,6 +525,7 @@ template_mapping = {
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "etim": render_etim,
     "etimología": render_etimologia,
+    "gentilicio2": render_gentilicio2,
     "hipocorístico": render_hipocoristico,
     "l": render_l,
     "l+": render_l,

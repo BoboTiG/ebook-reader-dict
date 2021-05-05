@@ -91,8 +91,6 @@ templates_multi = {
     "gentilicio": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
     # {{gentilicio1|Alemania}}
     "gentilicio1": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
-    # {{gentilicio2|Alemania}}
-    "gentilicio2": 'f"Persona originaria de {parts[1]}"',
     # {{grafía|psicológico}}
     "grafía": "f\"{italic('Grafía alternativa de')} {strong(parts[1])}\"",
     # {{grafía informal|al tiro}}
