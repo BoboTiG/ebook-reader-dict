@@ -287,6 +287,7 @@ domain_templates = {
     "voitures": "Automobile",
     "véhicule": "Transport",
     "véhicules": "Transport",
+    "vélos": "Cyclisme",
     "vête": "Habillement",
     "vêtements": "Habillement",
     "xénarthres": "Mammalogie",
@@ -304,5 +305,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 299
+}  # 300
 # END

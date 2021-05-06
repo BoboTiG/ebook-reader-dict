@@ -1668,7 +1668,7 @@ langs = {
     "gau": "gadaba mudhili",
     "gaul": "gaulois",
     "gaulois": "gaulois",
-    "gaumais": "gaumais",
+    "gaumais": "lorrain",
     "gaw": "nobonob",
     "gax": "borana",
     "gay": "gayo",
