@@ -52,6 +52,48 @@ def chimy(composition: List[str]) -> str:
     return "".join(subscript(c) if c.isdigit() else c for c in composition)
 
 
+def chinese(
+    parts: List[str], data: Dict[str, str], laquo: str = "“", raquo: str = "”"
+) -> str:
+    """
+    Format Chinese word or sentence.
+
+        >>> chinese(["餃臺灣／台灣／台湾"], defaultdict(str))
+        '餃臺灣／台灣／台湾'
+        >>> chinese(["痟", "mad"], defaultdict(str, {"tr": "siáu"}))
+        '痟 (<i>siáu</i>, “mad”)'
+        >>> chinese(["秦"], defaultdict(str, {"gloss": "Qin"}))
+        '秦 (“Qin”)'
+        >>> chinese(["餃子／饺子", "jiǎozi"], defaultdict(str))
+        '餃子／饺子 (<i>jiǎozi</i>)'
+        >>> chinese(["餃子／饺子", "jiǎozi", "jiaozi bouillis"], defaultdict(str), laquo="«&nbsp;", raquo="&nbsp;»")
+        '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
+        >>> chinese(["*班長", ""], defaultdict(str, {"tr": "bānzhǎng", "gloss": "team leader"}))
+        '*班長 (<i>bānzhǎng</i>, “team leader”)'
+        >>> chinese(["木蘭"], defaultdict(str, {"tr": "Mùlán", "lit": "magnolia"}))
+        '木蘭 (<i>Mùlán</i>, literally “magnolia”)'
+    """  # noqa
+    phrase = parts.pop(0).replace("/", "／")
+    tr = data["tr"] or (parts.pop(0) if parts else "")
+    gl = data["gloss"] or (parts.pop(0) if parts else "")
+    if not tr and not gl and not data["lit"]:
+        return phrase
+
+    phrase += " ("
+    if tr:
+        phrase += italic(tr)
+    if gl:
+        if tr:
+            phrase += ", "
+        phrase += f"{laquo}{gl}{raquo}"
+    if data["lit"]:
+        if tr:
+            phrase += ", literally "
+        phrase += f"{laquo}{data['lit']}{raquo}"
+    phrase += ")"
+    return phrase
+
+
 def color(rgb: str) -> str:
     """
     Format a RGB hexadecimal color.
@@ -480,6 +522,7 @@ __all__ = (
     "capitalize",
     "century",
     "chimy",
+    "chinese",
     "extract_keywords_from",
     "color",
     "concat",
