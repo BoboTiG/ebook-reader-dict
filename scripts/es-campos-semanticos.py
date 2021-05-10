@@ -27,8 +27,7 @@ def process_alias_page(model, template_text, results):
         if alias == "editar":
             continue
         # print(f'    "{alias}": "{template_text}"')
-        if alias != template_text:
-            results[alias] = template_text
+        results[alias] = template_text
 
 
 def process_cs_page(url, results):
@@ -53,8 +52,7 @@ def process_cs_page(url, results):
             template_text = template_text_div.find("p").text.strip()
             if template_text[-1] == ".":
                 template_text = template_text[:-1]
-            if template_name != template_text:
-                results[template_name] = template_text
+            results[template_name] = template_text
             # print(f'"{template_name}": "{template_text}"')
             process_alias_page(template_link.text, template_text, results)
 
