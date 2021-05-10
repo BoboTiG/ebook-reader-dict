@@ -236,7 +236,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return ""
 
     glue = data.get("e", "y")
-    suffix = "-́" if data.get("tilde", "") in ("sí", "s") else "-"
+    suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "-"
     word = data.get(
         "alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1])
     )

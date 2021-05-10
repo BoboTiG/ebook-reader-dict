@@ -1,5 +1,5 @@
 """Spanish language."""
-from typing import Tuple
+from typing import List, Tuple
 from .campos_semanticos import campos_semanticos
 
 
@@ -64,9 +64,9 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **campos_semanticos,
-    "lunf": "Lunfardismo",
+    "lunf": "lunfardismo",
     "rpl": "Río de la Plata",
-    "rur": "Rural",
+    "rur": "rural",
 }
 
 # Templates more complex to manage.
@@ -79,6 +79,8 @@ templates_multi = {
     "contracción": "f\"{italic('Contracción de')} {parts[1]} {italic('y')} {parts[2]}\"",
     # {{coord|04|39|N|74|03|O|type:country}}
     "coord": "coord(parts[1:])",
+    # {{datación|xv}}
+    "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
     #  {{diminutivo|historia}}
     "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{etimología2|de [[hocicar]]}}
@@ -123,6 +125,8 @@ templates_multi = {
     "ucf": "capitalize(parts[1])",
     # {{variante obsoleta|hambre}}"
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
+    # {{versalita|xx}}
+    "versalita": "small_caps(parts[1])",
 }
 
 
@@ -146,30 +150,65 @@ def last_template_handler(
         '<i>(Arte, Arquitectura)</i>'
         >>> last_template_handler(["Botánica", "leng=es"], "es")
         '<i>(Botánica)</i>'
+        >>> last_template_handler(["deporte", "nota=fútbol"], "es")
+        '<i>(Deporte (fútbol))</i>'
+        >>> last_template_handler(["Fonética", "Fonética"], "es")
+        '<i>(Lingüística (fonética), Fonética)</i>'
+        >>> last_template_handler(["rur"], "es")
+        '<i>(Rural)</i>'
+        >>> last_template_handler(["rur", "deporte"], "es")
+        '<i>(Rural, Deporte)</i>'
+        >>> last_template_handler(["deporte", "rur"], "es")
+        '<i>(Deporte, rural)</i>'
+        >>> last_template_handler(["default"], "es")
+        '<i>(Default)</i>'
     """
-    from itertools import zip_longest
     from ...user_functions import (
         capitalize,
+        concat,
+        extract_keywords_from,
+        italic,
         lookup_italic,
-        term,
     )
     from .template_handlers import render_template, lookup_template
+    from ..defaults import last_template_handler as default
 
     if lookup_template(template[0]):
         return render_template(template)
 
-    parts = [part for part in template[1:] if part.strip()]
+    if lookup_italic(template[0], locale, empty_default=True):
+        tpl, *parts = template
+        data = extract_keywords_from(parts)
+        phrase = ""
+        phrase_a: List[str] = []
+        parts.insert(0, tpl)
+        added = set()
+        append_to_last = False
+        for index, part in enumerate(parts, 1):
+            sindex = str(index) if index > 1 else ""
+            if part == ",":
+                continue
+            elif part in ("y", "e", "o", "u"):
+                phrase_a[-1] += f" {part} "
+                append_to_last = True
+                continue
+            elif part not in added:
+                local_phrase = lookup_italic(part, locale)
+                added.add(part)
+                if data["nota" + sindex]:
+                    local_phrase += f' ({data["nota"+sindex]})'
+            else:
+                local_phrase = part
+            if append_to_last:
+                phrase_a[-1] += local_phrase
+                append_to_last = False
+            else:
+                phrase_a.append(local_phrase)
+        if phrase_a:
+            phrase = italic(f'({capitalize(concat(phrase_a, ", "))})')
+        return phrase
 
-    res = ""
-    for word1, word2 in zip_longest(template, parts):
-        # Filter out "leng=" parts
-        if "leng=" in word1 or word1 in ("y", ","):
-            continue
-
-        res += capitalize(lookup_italic(word1, locale))
-        res += " y " if word2 == "y" else ", "
-
-    return term(res.rstrip(", "))
+    return default(template, locale, word)
 
 
 # Release content on GitHub
