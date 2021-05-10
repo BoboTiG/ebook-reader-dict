@@ -185,6 +185,7 @@ def last_template_handler(
     from .form_of import form_of_templates
     from ...user_functions import (
         capitalize,
+        chinese,
         extract_keywords_from,
         italic,
         strong,
@@ -250,6 +251,9 @@ def last_template_handler(
             elif data["nodot"] != "1":
                 phrase += "."
         return phrase
+
+    if tpl in ("zh-l", "zh-m"):
+        return chinese(parts, data)
 
     try:
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"

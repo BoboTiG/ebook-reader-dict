@@ -734,6 +734,7 @@ def last_template_handler(
     from .langs import langs
     from ..defaults import last_template_handler as default
     from ...user_functions import (
+        chinese,
         extract_keywords_from,
         italic,
         person,
@@ -787,6 +788,9 @@ def last_template_handler(
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
     if tpl == "ar-ab":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
+
+    if tpl in ("zh-l", "zh-m"):
+        return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
 
     # This is a country in the current locale
     if tpl in langs:
