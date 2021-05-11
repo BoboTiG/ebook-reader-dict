@@ -57,7 +57,10 @@ templates_ignored = (
     "catafijo",
     "cita requerida",
     "citarequerida",
+    "clear",
     "marcar sin referencias",
+    "picdic",
+    "picdiclabel",
     "préstamo",
     "pron-graf",
     "sin referencias",
@@ -99,14 +102,6 @@ templates_multi = {
     "gentilicio": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
     # {{gentilicio1|Alemania}}
     "gentilicio1": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
-    # {{grafía|psicológico}}
-    "grafía": "f\"{italic('Grafía alternativa de')} {strong(parts[1])}\"",
-    # {{grafía informal|al tiro}}
-    "grafía informal": "f\"{italic('Grafía informal de')} {parts[1]}\"",
-    # {{grafía obsoleta|asta}}
-    "grafía obsoleta": "f\"{italic('Grafía obsoleta de')} {parts[1]}\"",
-    # {{grafía rara|exudar}}
-    "grafía rara": "f\"{italic('Grafía poco usada de')} {parts[1]}\"",
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
     # {{nombre científico}}
