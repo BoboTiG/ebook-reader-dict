@@ -65,7 +65,6 @@ def find_section_definitions(
 ) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: List[Definitions] = []
-    
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
