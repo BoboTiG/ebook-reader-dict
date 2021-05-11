@@ -14,6 +14,7 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{lengua|es}}",)
+section_sublevels = (4, 3)
 etyl_section = ["Etimología"]
 sections = (
     "Abreviaturas",
@@ -58,15 +59,20 @@ templates_ignored = (
     "citarequerida",
     "marcar sin referencias",
     "préstamo",
+    "pron-graf",
     "sin referencias",
 )
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **campos_semanticos,
+    "germanía": "jergal",
+    "jergal": "jergal",
+    "jerga": "jergal",
     "lunf": "lunfardismo",
     "rpl": "Río de la Plata",
     "rur": "rural",
+    "slang": "jergal",
 }
 
 # Templates more complex to manage.
