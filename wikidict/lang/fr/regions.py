@@ -72,6 +72,7 @@ regions = {
     "CG": "Congo-Brazzaville",
     "CH": "Suisse",
     "CI": "Côte d’Ivoire",
+    "CL": "Chili",
     "CM": "Cameroun",
     "Cambodge": "Cambodge",
     "Cameroun": "Cameroun",
@@ -389,5 +390,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 384
+}  # 385
 # END
