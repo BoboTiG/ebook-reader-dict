@@ -236,10 +236,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ),
         ("{{gentilicio1|Alemania}}", "Originario, relativo a, o propio de Alemania"),
         ("{{gentilicio2|Alemania}}", "Persona originaria de Alemania"),
-        ("{{grafía|psicológico}}", "<i>Grafía alternativa de</i> <b>psicológico</b>"),
-        ("{{grafía informal|al tiro}}", "<i>Grafía informal de</i> al tiro"),
-        ("{{grafía obsoleta|asta}}", "<i>Grafía obsoleta de</i> asta"),
-        ("{{grafía rara|exudar}}", "<i>Grafía poco usada de</i> exudar"),
         (
             "{{impropia|Utilizado para especificar...}}",
             "<i>Utilizado para especificar...</i>",

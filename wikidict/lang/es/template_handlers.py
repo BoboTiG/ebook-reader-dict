@@ -430,6 +430,39 @@ def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"Persona originaria {data['contracción'] or 'de'} {parts[0]}"
 
 
+def render_grafia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_grafia("grafía", ["psicológico"], defaultdict(str))
+    '<i>Grafía alternativa de</i> psicológico'
+    >>> render_grafia("grafía informal", ["al tiro"], defaultdict(str))
+    '<i>Grafía informal de</i> al tiro'
+    >>> render_grafia("grafía obsoleta", ["asta"], defaultdict(str))
+    '<i>Grafía obsoleta de</i> asta'
+    >>> render_grafia("grafía rara", ["exudar"], defaultdict(str))
+    '<i>Grafía poco usada de</i> exudar'
+    >>> render_grafia("grafía", ["psicológico"], defaultdict(str, {"texto": "Grafía rara de", "texto_pos": "(por ejemplo)"}))
+    '<i>Grafía rara de</i> psicológico <i>(por ejemplo)</i>'
+    """  # noqa
+    if data["texto"]:
+        start = data["texto"]
+    else:
+        start = "Grafía"
+        if tpl in ("grafía", "grafia"):
+            start += " alternativa "
+        elif tpl == "grafía informal":
+            start += " informal "
+        elif tpl == "grafía obsoleta":
+            start += " obsoleta "
+        elif tpl == "grafía rara":
+            start += " poco usada "
+        start += "de"
+    phrase = f"{italic(start)} "
+    phrase += render_l("l", [data["alt"] or parts[0]], data)
+    if data["texto_pos"]:
+        phrase += f' {italic(data["texto_pos"])}'
+    return phrase
+
+
 def render_hipocoristico(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_hipocoristico("hipocorístico", ["Antonio"], defaultdict(str))
@@ -526,6 +559,11 @@ template_mapping = {
     "etim": render_etim,
     "etimología": render_etimologia,
     "gentilicio2": render_gentilicio2,
+    "grafia": render_grafia,
+    "grafía": render_grafia,
+    "grafía informal": render_grafia,
+    "grafía obsoleta": render_grafia,
+    "grafía rara": render_grafia,
     "hipocorístico": render_hipocoristico,
     "l": render_l,
     "l+": render_l,
