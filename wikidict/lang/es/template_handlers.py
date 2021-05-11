@@ -439,6 +439,28 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_forma("forma", ["-acho", "Forma del femenino de"], defaultdict(str))
+    '<i>Forma del femenino de</i> -acho'
+    >>> render_forma("forma sustantivo", ["ala", "plural"], defaultdict(str))
+    '<i>Forma del plural de</i> ala'
+    """
+    start = "forma de"
+    if tpl == "forma":
+        start = data["texto"] or (parts[1] if len(parts) > 1 else "forma de")
+    elif tpl == "forma sustantivo":
+        caso = data["caso"] or (parts[1] if len(parts) > 1 else "")
+        numero = (
+            data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
+        )
+        genero = (
+            data["género"] or data["genero"] or (parts[3] if len(parts) > 3 else "")
+        )
+        start = f"Forma del {concat([caso, numero, genero], ' ')} de"
+    return f"{italic(capitalize(start))} {parts[0]}"
+
+
 def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_gentilicio2("gentilicio2", ["Alemania"], defaultdict(str))
@@ -578,6 +600,8 @@ template_mapping = {
     "comparativo": render_comparativo,
     "etim": render_etim,
     "etimología": render_etimologia,
+    "forma": render_forma,
+    "forma sustantivo": render_forma,
     "gentilicio2": render_gentilicio2,
     "grafia": render_grafia,
     "grafía": render_grafia,
