@@ -92,6 +92,25 @@ def render_adverbio_de_sustantivo(
     return result
 
 
+def render_comparativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_comparativo("comparativo", ["bueno", "es"], defaultdict(str, {"irr": "s"}))
+    '<i>Comparativo irregular de</i> bueno'
+    >>> render_comparativo("comparativo", ["bueno", "es"], defaultdict(str, {"tipo": "regular"}))
+    '<i>Comparativo regular de</i> bueno'
+    """
+    word = parts[0] if parts else ""
+    start = "Comparativo"
+    if data["tipo"]:
+        start += f' {data["tipo"]}'
+    if data["i"] or data["irr"] or data["irreg"] or data["irregular"]:
+        start += " irregular"
+    start += " de"
+    phrase = f"{italic(start)} "
+    phrase += render_l("l", [data["alt"] or word], data)
+    return phrase
+
+
 def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
@@ -556,6 +575,7 @@ template_mapping = {
     "aumentativo": render_aumentativo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
+    "comparativo": render_comparativo,
     "etim": render_etim,
     "etimología": render_etimologia,
     "gentilicio2": render_gentilicio2,
