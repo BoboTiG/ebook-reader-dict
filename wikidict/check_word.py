@@ -53,13 +53,17 @@ def filter_html(html: str, locale: str) -> str:
     if locale == "es":
         dts = bs.find_all("dt")
         for dt in dts:
+
             dt_array = dt.text.split(" ", 1)
-            if len(dt_array) == 2 and ("." in dt_array[1]):
-                dt_array_dot = dt_array[1].split(".")
+            if len(dt_array) == 2:
                 dt.string = dt_array[0] + " "
-                for da in dt_array_dot[:-1]:
-                    dt.string += f"({da})"
-                dt.string += f" {dt_array_dot[-1]}:"
+                if "." in dt_array[1]:
+                    dt_array_dot = dt_array[1].split(".")
+                    for da in dt_array_dot[:-1]:
+                        dt.string += f"({da})"
+                    dt.string += f" {dt_array_dot[-1]}:"
+                else:
+                    dt.string += f"({dt_array[1]}):"
 
     if locale == "fr":
         # Filter out refnec tags

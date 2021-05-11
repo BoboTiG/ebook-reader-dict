@@ -65,7 +65,7 @@ def find_section_definitions(
 ) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: List[Definitions] = []
-
+    
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
@@ -148,8 +148,14 @@ def find_etymology(
         return definitions
 
     elif locale == "es":
-        etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        definitions.append(process_templates(word, clean(etyl), locale))
+        items = [
+            item.strip()
+            for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
+        ]
+        for item in items:
+            etyl = process_templates(word, clean(item), locale)
+            if etyl:
+                definitions.append(etyl)
         return definitions
 
     elif locale == "pt":
