@@ -45,6 +45,7 @@ jobs:
           - es
           - pt
           - sv
+          - it
           - ca
 
     steps:

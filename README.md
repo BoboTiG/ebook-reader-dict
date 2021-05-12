@@ -13,6 +13,7 @@ Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) f
 - [English](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en)
 - [Español](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es)
 - [Français](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr)
+- [Italiano](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it)
 - [Português](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
 - [Svenska](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
