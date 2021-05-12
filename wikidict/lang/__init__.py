@@ -1,7 +1,7 @@
 """Internationalization stuff."""
 import re
 
-from . import ca, defaults, en, es, fr, pt, sv
+from . import ca, defaults, en, es, fr, it, pt, sv
 from .ca.langs import langs as CA
 from .en.langs import langs as EN
 from .es.langs import langs as ES
@@ -23,6 +23,7 @@ pronunciation = {
     "en": re.compile(en.pronunciation),
     "es": re.compile(es.pronunciation),
     "fr": re.compile(fr.pronunciation),
+    "it": re.compile(it.pronunciation),
     "pt": re.compile(pt.pronunciation),
     "sv": re.compile(sv.pronunciation),
 }
@@ -33,6 +34,7 @@ genre = {
     "en": re.compile(defaults.genre),
     "es": re.compile(defaults.genre),
     "fr": re.compile(fr.genre),
+    "it": re.compile(defaults.genre),
     "pt": re.compile(pt.genre),
     "sv": re.compile(defaults.genre),
 }
@@ -43,6 +45,7 @@ float_separator = {
     "en": en.float_separator,
     "es": es.float_separator,
     "fr": fr.float_separator,
+    "it": it.float_separator,
     "pt": pt.float_separator,
     "sv": sv.float_separator,
 }
@@ -53,6 +56,7 @@ thousands_separator = {
     "en": en.thousands_separator,
     "es": es.thousands_separator,
     "fr": fr.thousands_separator,
+    "it": it.thousands_separator,
     "pt": pt.thousands_separator,
     "sv": sv.thousands_separator,
 }
@@ -63,6 +67,7 @@ section_patterns = {
     "en": defaults.section_patterns,
     "es": defaults.section_patterns,
     "fr": defaults.section_patterns,
+    "it": defaults.section_patterns,
     "pt": pt.section_patterns,
     "sv": defaults.section_patterns,
 }
@@ -71,6 +76,7 @@ sublist_patterns = {
     "en": defaults.sublist_patterns,
     "es": defaults.sublist_patterns,
     "fr": defaults.sublist_patterns,
+    "it": defaults.sublist_patterns,
     "pt": defaults.sublist_patterns,
     "sv": defaults.sublist_patterns,
 }
@@ -79,6 +85,7 @@ section_level = {
     "en": defaults.section_level,
     "es": defaults.section_level,
     "fr": defaults.section_level,
+    "it": defaults.section_level,
     "pt": pt.section_level,
     "sv": defaults.section_level,
 }
@@ -87,6 +94,7 @@ section_sublevels = {
     "en": en.section_sublevels,
     "es": es.section_sublevels,
     "fr": defaults.section_sublevels,
+    "it": defaults.section_sublevels,
     "pt": pt.section_sublevels,
     "sv": defaults.section_sublevels,
 }
@@ -95,6 +103,7 @@ head_sections = {
     "en": en.head_sections,
     "es": es.head_sections,
     "fr": fr.head_sections,
+    "it": it.head_sections,
     "pt": pt.head_sections,
     "sv": sv.head_sections,
 }
@@ -103,6 +112,7 @@ etyl_section = {
     "en": en.etyl_section,
     "es": es.etyl_section,
     "fr": fr.etyl_section,
+    "it": it.etyl_section,
     "pt": pt.etyl_section,
     "sv": "",
 }
@@ -111,6 +121,7 @@ sections = {
     "en": en.sections,
     "es": es.sections,
     "fr": fr.sections,
+    "it": it.sections,
     "pt": pt.sections,
     "sv": sv.sections,
 }
@@ -121,6 +132,7 @@ definitions_to_ignore = {
     "en": en.definitions_to_ignore,
     "es": es.definitions_to_ignore,
     "fr": fr.definitions_to_ignore,
+    "it": it.definitions_to_ignore,
     "pt": pt.definitions_to_ignore,
     "sv": defaults.definitions_to_ignore,
 }
@@ -131,6 +143,7 @@ words_to_keep = {
     "en": defaults.words_to_keep,
     "es": defaults.words_to_keep,
     "fr": fr.words_to_keep,
+    "it": defaults.words_to_keep,
     "pt": defaults.words_to_keep,
     "sv": defaults.words_to_keep,
 }
@@ -151,6 +164,7 @@ templates_ignored = {
     "en": en.templates_ignored,
     "es": es.templates_ignored,
     "fr": fr.templates_ignored,
+    "it": it.templates_ignored,
     "pt": pt.templates_ignored,
     "sv": sv.templates_ignored,
 }
@@ -165,6 +179,7 @@ templates_italic = {
     "en": en.templates_italic,
     "es": es.templates_italic,
     "fr": fr.templates_italic,
+    "it": it.templates_italic,
     "pt": pt.templates_italic,
     "sv": defaults.templates_italic,
 }
@@ -190,6 +205,7 @@ templates_multi = {
     "en": en.templates_multi,
     "es": es.templates_multi,
     "fr": fr.templates_multi,
+    "it": it.templates_multi,
     "pt": pt.templates_multi,
     "sv": sv.templates_multi,
 }
@@ -200,6 +216,7 @@ templates_other = {
     "en": defaults.templates_other,
     "es": defaults.templates_other,
     "fr": fr.templates_other,
+    "it": defaults.templates_other,
     "pt": defaults.templates_other,
     "sv": defaults.templates_other,
 }
@@ -211,6 +228,7 @@ last_template_handler = {
     "en": en.last_template_handler,
     "es": es.last_template_handler,
     "fr": fr.last_template_handler,
+    "it": defaults.last_template_handler,
     "pt": pt.last_template_handler,
     "sv": sv.last_template_handler,
 }
@@ -222,6 +240,7 @@ release_description = {
     "en": en.release_description,
     "es": es.release_description,
     "fr": fr.release_description,
+    "it": it.release_description,
     "pt": pt.release_description,
     "sv": sv.release_description,
 }
@@ -232,6 +251,7 @@ wiktionary = {
     "en": en.wiktionary,
     "es": es.wiktionary,
     "fr": fr.wiktionary,
+    "it": it.wiktionary,
     "pt": pt.wiktionary,
     "sv": sv.wiktionary,
 }

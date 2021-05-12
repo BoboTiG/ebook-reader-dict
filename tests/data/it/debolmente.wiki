@@ -1,0 +1,37 @@
+== {{-it-}} ==
+{{-avv-|it}}
+{{Pn}}
+# in maniera [[debole]], con [[debolezza]]
+
+{{-sill-}}
+; de | bol | mén | te
+
+{{-pron-}}
+{{IPA|/debolˈmente/}}
+
+{{-etim-}}
+composto dall'[[aggettivo]] [[debole]] e dal [[suffisso]] [[-mente]]
+
+{{-sin-}}
+* [[fragilmente]], [[fiaccamente]], [[mollemente]]
+* [[lievemente]], [[scarsamente]]
+* [[stancamente]]
+
+{{-ant-}}
+* [[vigorosamente]], [[energicamente]]
+
+{{-trad-}}
+{{Trad1|}}
+:*{{fr}}: <!-- dopo i '':'' inserisci la traduzione nelle altre lingue -->
+:*{{en}}: [[weakly]]
+:* {{la}}: [[ieiune]], [[infirme]], [[molliter]], [[tenuiter]]
+:*{{es}}:
+:*{{ru}}: [[слабо]]
+:*{{de}}:
+{{Trad2}}
+
+{{-ref-}}
+* {{Fonte|dizit}}
+* {{Fonte|hoep}}
+* {{Fonte|sin-co}}
+
