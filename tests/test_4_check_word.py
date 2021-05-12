@@ -86,6 +86,15 @@ def test_filter_es_2():
     with patch.object(check_word, "filter_html", new=new_filter_html):
         assert check_word.main("es", "buena") == 0
 
+def test_filter_es_color():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<span style="color:#FFFFFF;">_____________</span><span id="ColorRect" dir="LTR" style="position: absolute; width: 1.8cm; height: 0.45cm; border: 0.50pt solid #000000; padding: 0cm; background: #CF1020"></span>'  #noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "lava") == 0
 
 def test_filter_fr_refnec():
     orig = check_word.filter_html
