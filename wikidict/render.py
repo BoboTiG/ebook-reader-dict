@@ -146,7 +146,7 @@ def find_etymology(
                 definitions.append(etyl)
         return definitions
 
-    elif locale == "es":
+    elif locale in ("es", "it"):
         items = [
             item.strip()
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
@@ -243,7 +243,10 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
 
     # Filter on interesting sections
     for section in parsed.get_sections(include_subsections=True, level=level):
-        title = section.title.replace(" ", "").lower()
+        title = section.title
+        if not title:  # Check needed for IT
+            continue
+        title = title.replace(" ", "").lower().strip()
         if title not in head_sections[locale]:
             continue
 
@@ -273,6 +276,15 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     called from get_and_parse_word().
     """
     code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
+
+    if locale == "it":
+        # {{-avv-|it}} -> === {{avv}} ===
+        code = re.sub(
+            r"^\{\{-(.+)-\|it?\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
+        )
+        # {{-avv-}} -> === {{avv}} ===
+        code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
     parsed_sections = find_sections(code, locale)
     prons = []
     nature = ""
