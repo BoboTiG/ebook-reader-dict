@@ -116,8 +116,8 @@ def last_template_handler(
         '<i>ersatt av</i> Dalarna'
 
     """  # noqa
-    from .defaults import last_template_handler as default
-    from ..user_functions import extract_keywords_from, italic
+    from ..defaults import last_template_handler as default
+    from ...user_functions import extract_keywords_from, italic
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
