@@ -149,9 +149,9 @@ def main(locale: str, word: str) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    errors += check(text, sub_etymology, f" !! Etymology {i}")
+                    errors += check(text, sub_etymology, f"\n !! Etymology {i}")
             else:
-                errors += check(text, etymology, " !! Etymology")
+                errors += check(text, etymology, "\n !! Etymology")
 
     index = 1
     for definition in details.definitions:
