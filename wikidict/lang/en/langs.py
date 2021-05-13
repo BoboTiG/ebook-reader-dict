@@ -3518,6 +3518,7 @@ langs = {
     "juc": "Jurchen",
     "jud": "Worodougou",
     "juh": "Hone",
+    "jui": "Ngadjuri",
     "juk": "Wapan",
     "jul": "Jirel",
     "jum": "Jumjum",
@@ -9505,5 +9506,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,500
+}  # 9,501
 # END
