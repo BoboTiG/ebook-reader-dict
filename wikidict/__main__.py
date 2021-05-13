@@ -3,6 +3,7 @@ eBook Reader Dictionaries
 
 Usage:
     wikidict LOCALE
+    wikidict LOCALE -h, --help
     wikidict LOCALE --download
     wikidict LOCALE --parse
     wikidict LOCALE --render
@@ -14,6 +15,25 @@ Usage:
     wikidict LOCALE --gen-dict=WORDS --output=FILENAME
     wikidict LOCALE --update-release
 
+Options:
+  --download                Retrieve the latest Wiktionary dump into "data/$LOCALE/pages-$DATE.xml".
+  --parse                   Parse and store raw Wiktionary data into "data/$LOCALE/data_wikicode-$DATE.json".
+  --render                  Render templates from raw data into "data/$LOCALE/data-$DATE.json"
+  --convert                 Convert rendered data to working dictionaries into several files:
+                                - "data/$LOCALE/dicthtml-$LOCALE.zip": Kobo format.
+                                - "data/$LOCALE/dict-$LOCALE.df": DictFile format.
+  --find-templates          DEBUG: Find all templates in use.
+  --check-random-words N    Get and render N words.
+                            Then compare with the rendering done on the Wiktionary to catch errors.
+  --check-word=WORD         Get and render WORD.
+                            Then compare with the rendering done on the Wiktionary to catch errors.
+  --get-word=WORD [--raw]   Get and render WORD. Pass --raw to ouput the raw HTML code.
+  --gen-dict=WORDS          DEBUG: Generate the Kobo dictionary for specific words. Pass multiple words
+                            separated with a comma: WORD1,WORD2,WORD3,...
+                            The generated filename can be tweaked via the --output=FILENAME argument.
+  --update-release          DEV: Update the release description. Do not use it manually but via the CI only.
+
+If no argument given, --download, --parse, --render and --convert will be done automatically.
 """
 import sys
 

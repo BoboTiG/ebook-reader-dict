@@ -1,6 +1,4 @@
 """Retrieve Wiktionary data."""
-# TODO: when the database stuff will be implemented, we need to download it first
-#       to prevent useless work to be done again.
 import bz2
 import os
 import re

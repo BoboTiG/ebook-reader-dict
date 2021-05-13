@@ -1,3 +1,4 @@
+"""DEBUG: generate the Kobo dictionary for specific words."""
 import os
 from .get_word import get_word
 from .convert import KoboFormat
