@@ -1,5 +1,4 @@
 """Catalan language."""
-
 from typing import Tuple
 
 # Regex to find the pronunciation

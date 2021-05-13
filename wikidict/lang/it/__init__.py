@@ -51,7 +51,7 @@ templates_italic: Dict[str, str] = {}
 templates_multi: Dict[str, str] = {}
 
 # Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it
 release_description = """\
 Numero di parole: {words_count}
 Export Wiktionary: {dump_date}

@@ -1,5 +1,6 @@
 """Portuguese language."""
 from typing import Tuple
+
 from .escopos import escopos
 
 # Regex to find the pronunciation

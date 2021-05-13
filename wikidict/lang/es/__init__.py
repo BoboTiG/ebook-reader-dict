@@ -1,7 +1,7 @@
 """Spanish language."""
 from typing import List, Tuple
-from .campos_semanticos import campos_semanticos
 
+from .campos_semanticos import campos_semanticos
 
 # Regex to find the pronunciation
 pronunciation = r"fone=([^}\|\s]+)"
