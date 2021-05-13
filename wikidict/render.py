@@ -65,6 +65,7 @@ def find_section_definitions(
 ) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: List[Definitions] = []
+
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
@@ -183,7 +184,7 @@ def find_etymology(
             definitions.append(process_templates(word, clean(section_item), locale))
             subdefinitions: List[SubDefinitions] = []
             for sublist in section.sublists(i=idx):
-                for idx2, subcode in enumerate(sublist.items):
+                for subcode in sublist.items:
                     subdefinitions.append(
                         process_templates(word, clean(subcode), locale)
                     )
@@ -221,7 +222,7 @@ def find_pronunciations(code: str, pattern: Optional[Pattern[str]]) -> List[str]
 def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
-    sections = []
+    all_sections = []
     level = section_level[locale]
 
     # Add fake section for etymology if in the leading part
@@ -241,33 +242,35 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
                     break
 
         if etyl_data:
-            sections.append(wtp.Section(f"=== {etyl_data_section} ===\n{etyl_data}"))
-
-    # Filter on interesting sections
-    for section in parsed.get_sections(include_subsections=True, level=level):
-        title = section.title
-        if not title:  # Check needed for IT
-            continue
-        title = title.replace(" ", "").lower().strip()
-        if title not in head_sections[locale]:
-            continue
-
-        for sublevel in section_sublevels[locale]:
-            sections.extend(
-                section.get_sections(include_subsections=False, level=sublevel)
+            all_sections.append(
+                wtp.Section(f"=== {etyl_data_section} ===\n{etyl_data}")
             )
 
-    return sections
+    # Filter on interesting sections
+    top_sections = [
+        section
+        for section in parsed.get_sections(include_subsections=True, level=level)
+        if section.title.replace(" ", "").lower().strip() in head_sections[locale]
+    ]
+    all_sections.extend(
+        (
+            section
+            for top_section in top_sections
+            for level in section_sublevels[locale]
+            for section in top_section.get_sections(
+                include_subsections=False, level=level
+            )
+            if section.title.strip().startswith(sections[locale])
+        )
+    )
+    return all_sections
 
 
 def find_sections(code: str, locale: str) -> Sections:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
     for section in find_all_sections(code, locale):
-        title = section.title.strip()
-        if not title.startswith(sections[locale]):
-            continue
-        ret[title].append(section)
+        ret[section.title.strip()].append(section)
     return ret
 
 
@@ -293,10 +296,10 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     etymology = []
 
     # Etymology
-    sections = etyl_section[locale]
-    if not isinstance(sections, list):
-        sections = [sections]  # type: ignore
-    for section in sections:
+    etyl_sections = etyl_section[locale]
+    if not isinstance(etyl_sections, list):
+        etyl_sections = [etyl_sections]  # type: ignore
+    for section in etyl_sections:
         etyl_data = parsed_sections.pop(section, [])
         if etyl_data:
             etymology = find_etymology(word, locale, etyl_data[0])
