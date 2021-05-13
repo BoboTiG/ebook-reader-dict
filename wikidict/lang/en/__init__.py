@@ -80,6 +80,7 @@ templates_ignored = (
 templates_italic = {
     "AAVE": "African-American Vernacular",
     "American": "US",
+    "ambitransitive": "transitive, intransitive",
     "Early ME": "Early Middle English",
 }
 

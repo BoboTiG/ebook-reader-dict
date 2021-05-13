@@ -503,9 +503,13 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> # '<i>(Lorrain)</i>'
     >>> render_label("lbl", ["en" , "transitive"], defaultdict(str))
     '<i>(transitive)</i>'
+    >>> render_label("lbl", ["en" , "ambitransitive"], defaultdict(str))
+    '<i>(transitive, intransitive)</i>'
+    >>> render_label("lbl", ["en" , "ambitransitive", "obsolete"], defaultdict(str))
+    '<i>(transitive, intransitive, obsolete)</i>'
     """
     if len(parts) == 2:
-        return term(parts[1])
+        return term(lookup_italic(parts[1], "en"))
     res = ""
     for word1, word2 in zip_longest(parts[1:], parts[2:]):
         if word1 in ("_", "and", "or"):
