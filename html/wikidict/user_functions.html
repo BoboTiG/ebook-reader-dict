@@ -36,7 +36,6 @@ Check the &#34;html/wikidict/user_functions.html&#34; file for a user-friendly v
 import re
 from collections import defaultdict
 from typing import Dict, List, Optional
-from warnings import warn
 
 from .lang import templates_italic
 
@@ -81,6 +80,48 @@ def chimy(composition: List[str]) -&gt; str:
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
+
+
+def chinese(
+    parts: List[str], data: Dict[str, str], laquo: str = &#34;“&#34;, raquo: str = &#34;”&#34;
+) -&gt; str:
+    &#34;&#34;&#34;
+    Format Chinese word or sentence.
+
+        &gt;&gt;&gt; chinese([&#34;餃臺灣／台灣／台湾&#34;], defaultdict(str))
+        &#39;餃臺灣／台灣／台湾&#39;
+        &gt;&gt;&gt; chinese([&#34;痟&#34;, &#34;mad&#34;], defaultdict(str, {&#34;tr&#34;: &#34;siáu&#34;}))
+        &#39;痟 (&lt;i&gt;siáu&lt;/i&gt;, “mad”)&#39;
+        &gt;&gt;&gt; chinese([&#34;秦&#34;], defaultdict(str, {&#34;gloss&#34;: &#34;Qin&#34;}))
+        &#39;秦 (“Qin”)&#39;
+        &gt;&gt;&gt; chinese([&#34;餃子／饺子&#34;, &#34;jiǎozi&#34;], defaultdict(str))
+        &#39;餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;)&#39;
+        &gt;&gt;&gt; chinese([&#34;餃子／饺子&#34;, &#34;jiǎozi&#34;, &#34;jiaozi bouillis&#34;], defaultdict(str), laquo=&#34;«&amp;nbsp;&#34;, raquo=&#34;&amp;nbsp;»&#34;)
+        &#39;餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;, «&amp;nbsp;jiaozi bouillis&amp;nbsp;»)&#39;
+        &gt;&gt;&gt; chinese([&#34;*班長&#34;, &#34;&#34;], defaultdict(str, {&#34;tr&#34;: &#34;bānzhǎng&#34;, &#34;gloss&#34;: &#34;team leader&#34;}))
+        &#39;*班長 (&lt;i&gt;bānzhǎng&lt;/i&gt;, “team leader”)&#39;
+        &gt;&gt;&gt; chinese([&#34;木蘭&#34;], defaultdict(str, {&#34;tr&#34;: &#34;Mùlán&#34;, &#34;lit&#34;: &#34;magnolia&#34;}))
+        &#39;木蘭 (&lt;i&gt;Mùlán&lt;/i&gt;, literally “magnolia”)&#39;
+    &#34;&#34;&#34;  # noqa
+    phrase = parts.pop(0).replace(&#34;/&#34;, &#34;／&#34;)
+    tr = data[&#34;tr&#34;] or (parts.pop(0) if parts else &#34;&#34;)
+    gl = data[&#34;gloss&#34;] or (parts.pop(0) if parts else &#34;&#34;)
+    if not tr and not gl and not data[&#34;lit&#34;]:
+        return phrase
+
+    phrase += &#34; (&#34;
+    if tr:
+        phrase += italic(tr)
+    if gl:
+        if tr:
+            phrase += &#34;, &#34;
+        phrase += f&#34;{laquo}{gl}{raquo}&#34;
+    if data[&#34;lit&#34;]:
+        if tr:
+            phrase += &#34;, literally &#34;
+        phrase += f&#34;{laquo}{data[&#39;lit&#39;]}{raquo}&#34;
+    phrase += &#34;)&#34;
+    return phrase
 
 
 def color(rgb: str) -&gt; str:
@@ -260,8 +301,19 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -&gt; str
         &#39;Absolument&#39;
         &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
         &#39;inexistant&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;alagoas&#34;, &#34;pt&#34;)
+        &#39;Alagoas&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;Antropônimo&#34;, &#34;pt&#34;)
+        &#39;Antropônimo&#39;
     &#34;&#34;&#34;
-    return templates_italic[locale].get(word, &#34;&#34; if empty_default else word)
+    default = &#34;&#34; if empty_default else word
+    looking_for = word
+
+    if locale == &#34;pt&#34;:
+        looking_for = word.lower()
+        default = word
+
+    return templates_italic[locale].get(looking_for, default)
 
 
 def number(number: str, fsep: str, tsep: str) -&gt; str:
@@ -292,6 +344,11 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
 
+    # Handle mathematical substract character
+    has_math_substract_symbol = number[0] == &#34;−&#34;
+    if has_math_substract_symbol:
+        number = number.replace(&#34;−&#34;, &#34;-&#34;)
+
     try:
         # Integer
         res = f&#34;{int(number):,}&#34;
@@ -303,7 +360,12 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
     # then replace the dot with the float separator;
     # and lastly replace the &#34;|&#34; with the deisred thousands separator.
     # This 3-steps-replacement is needed for when separators are replacing each other.
-    return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
+    res = res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
+
+    if has_math_substract_symbol:
+        res = res.replace(&#34;-&#34;, &#34;−&#34;)
+
+    return res
 
 
 def parenthesis(text: str) -&gt; str:
@@ -321,23 +383,31 @@ def person(word: str, parts: List[str]) -&gt; str:
     Format a person name.
 
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Aldous&#34;, &#34;Huxley&#34;])
-        &#34;Aldous &lt;span style=&#39;font-variant:small-caps&#39;&gt;Huxley&lt;/span&gt;&#34;
+        &#39;Aldous Huxley&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Théodore Agrippa d’&#34;, &#34;Aubigné&#34;])
-        &#34;Théodore Agrippa d’ &lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
+        &#39;Théodore Agrippa d’ Aubigné&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Théodore Agrippa d’&#34;, &#34;Aubigné&#34;, &#34;&#39;=oui&#34;])
-        &#34;Théodore Agrippa d’&lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
+        &#39;Théodore Agrippa d’Aubigné&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;L. L. Zamenhof&#34;])
         &#39;L. L. Zamenhof&#39;
+        &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;lang=en&#34;, &#34;Roger&#34;, &#34;Adams&#34;])
+        &#39;Roger Adams&#39;
+        &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;&#34;, &#34;Brantôme&#34;, &#34;Brantôme (écrivain)&#34;])
+        &#39;Brantôme&#39;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     &#34;&#34;&#34;
-    res = parts[0]
-    if len(parts) &gt; 1:
-        if parts[-1] != &#34;&#39;=oui&#34;:
-            res += &#34; &#34;
-        res += small_caps(parts[1])
-    else:
-        warn(f&#34;Malformed template in the Wikicode of {word!r} (parts={parts})&#34;)
+    data = [p for p in parts if &#34;=&#34; in p]
+    parts = [p for p in parts if &#34;=&#34; not in p]
+    res = parts.pop(0)
+
+    # First name only
+    if not parts:
+        return res
+
+    # Last name only or first name + last name
+    space = &#34;&#34; if (&#34;&#39;=oui&#34; in data or not res) else &#34; &#34;
+    res += space + parts.pop(0)
     return res
 
 
@@ -378,6 +448,16 @@ def small_caps(text: str) -&gt; str:
         &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;Dupont&lt;/span&gt;&#34;
     &#34;&#34;&#34;
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;
+
+
+def strike(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by &lt;s&gt; HTML tags.
+
+        &gt;&gt;&gt; strike(&#34;foo&#34;)
+        &#39;&lt;s&gt;foo&lt;/s&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;s&gt;{text}&lt;/s&gt;&#34;
 
 
 def strong(text: str) -&gt; str:
@@ -472,6 +552,7 @@ __all__ = (
     &#34;capitalize&#34;,
     &#34;century&#34;,
     &#34;chimy&#34;,
+    &#34;chinese&#34;,
     &#34;extract_keywords_from&#34;,
     &#34;color&#34;,
     &#34;concat&#34;,
@@ -486,6 +567,7 @@ __all__ = (
     &#34;sentence&#34;,
     &#34;small&#34;,
     &#34;small_caps&#34;,
+    &#34;strike&#34;,
     &#34;strong&#34;,
     &#34;subscript&#34;,
     &#34;superscript&#34;,
@@ -587,6 +669,72 @@ __all__ = (
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
     return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)</code></pre>
+</details>
+</dd>
+<dt id="wikidict.user_functions.chinese"><code class="name flex">
+<span>def <span class="ident">chinese</span></span>(<span>parts: List[str], data: Dict[str, str], laquo: str = '“', raquo: str = '”') ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Format Chinese word or sentence.</p>
+<pre><code>&gt;&gt;&gt; chinese(["餃臺灣／台灣／台湾"], defaultdict(str))
+'餃臺灣／台灣／台湾'
+&gt;&gt;&gt; chinese(["痟", "mad"], defaultdict(str, {"tr": "siáu"}))
+'痟 (&lt;i&gt;siáu&lt;/i&gt;, “mad”)'
+&gt;&gt;&gt; chinese(["秦"], defaultdict(str, {"gloss": "Qin"}))
+'秦 (“Qin”)'
+&gt;&gt;&gt; chinese(["餃子／饺子", "jiǎozi"], defaultdict(str))
+'餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;)'
+&gt;&gt;&gt; chinese(["餃子／饺子", "jiǎozi", "jiaozi bouillis"], defaultdict(str), laquo="«&amp;nbsp;", raquo="&amp;nbsp;»")
+'餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;, «&amp;nbsp;jiaozi bouillis&amp;nbsp;»)'
+&gt;&gt;&gt; chinese(["*班長", ""], defaultdict(str, {"tr": "bānzhǎng", "gloss": "team leader"}))
+'*班長 (&lt;i&gt;bānzhǎng&lt;/i&gt;, “team leader”)'
+&gt;&gt;&gt; chinese(["木蘭"], defaultdict(str, {"tr": "Mùlán", "lit": "magnolia"}))
+'木蘭 (&lt;i&gt;Mùlán&lt;/i&gt;, literally “magnolia”)'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def chinese(
+    parts: List[str], data: Dict[str, str], laquo: str = &#34;“&#34;, raquo: str = &#34;”&#34;
+) -&gt; str:
+    &#34;&#34;&#34;
+    Format Chinese word or sentence.
+
+        &gt;&gt;&gt; chinese([&#34;餃臺灣／台灣／台湾&#34;], defaultdict(str))
+        &#39;餃臺灣／台灣／台湾&#39;
+        &gt;&gt;&gt; chinese([&#34;痟&#34;, &#34;mad&#34;], defaultdict(str, {&#34;tr&#34;: &#34;siáu&#34;}))
+        &#39;痟 (&lt;i&gt;siáu&lt;/i&gt;, “mad”)&#39;
+        &gt;&gt;&gt; chinese([&#34;秦&#34;], defaultdict(str, {&#34;gloss&#34;: &#34;Qin&#34;}))
+        &#39;秦 (“Qin”)&#39;
+        &gt;&gt;&gt; chinese([&#34;餃子／饺子&#34;, &#34;jiǎozi&#34;], defaultdict(str))
+        &#39;餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;)&#39;
+        &gt;&gt;&gt; chinese([&#34;餃子／饺子&#34;, &#34;jiǎozi&#34;, &#34;jiaozi bouillis&#34;], defaultdict(str), laquo=&#34;«&amp;nbsp;&#34;, raquo=&#34;&amp;nbsp;»&#34;)
+        &#39;餃子／饺子 (&lt;i&gt;jiǎozi&lt;/i&gt;, «&amp;nbsp;jiaozi bouillis&amp;nbsp;»)&#39;
+        &gt;&gt;&gt; chinese([&#34;*班長&#34;, &#34;&#34;], defaultdict(str, {&#34;tr&#34;: &#34;bānzhǎng&#34;, &#34;gloss&#34;: &#34;team leader&#34;}))
+        &#39;*班長 (&lt;i&gt;bānzhǎng&lt;/i&gt;, “team leader”)&#39;
+        &gt;&gt;&gt; chinese([&#34;木蘭&#34;], defaultdict(str, {&#34;tr&#34;: &#34;Mùlán&#34;, &#34;lit&#34;: &#34;magnolia&#34;}))
+        &#39;木蘭 (&lt;i&gt;Mùlán&lt;/i&gt;, literally “magnolia”)&#39;
+    &#34;&#34;&#34;  # noqa
+    phrase = parts.pop(0).replace(&#34;/&#34;, &#34;／&#34;)
+    tr = data[&#34;tr&#34;] or (parts.pop(0) if parts else &#34;&#34;)
+    gl = data[&#34;gloss&#34;] or (parts.pop(0) if parts else &#34;&#34;)
+    if not tr and not gl and not data[&#34;lit&#34;]:
+        return phrase
+
+    phrase += &#34; (&#34;
+    if tr:
+        phrase += italic(tr)
+    if gl:
+        if tr:
+            phrase += &#34;, &#34;
+        phrase += f&#34;{laquo}{gl}{raquo}&#34;
+    if data[&#34;lit&#34;]:
+        if tr:
+            phrase += &#34;, literally &#34;
+        phrase += f&#34;{laquo}{data[&#39;lit&#39;]}{raquo}&#34;
+    phrase += &#34;)&#34;
+    return phrase</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.color"><code class="name flex">
@@ -897,6 +1045,10 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 'Absolument'
 &gt;&gt;&gt; lookup_italic("inexistant", "fr")
 'inexistant'
+&gt;&gt;&gt; lookup_italic("alagoas", "pt")
+'Alagoas'
+&gt;&gt;&gt; lookup_italic("Antropônimo", "pt")
+'Antropônimo'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -914,8 +1066,19 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         &#39;Absolument&#39;
         &gt;&gt;&gt; lookup_italic(&#34;inexistant&#34;, &#34;fr&#34;)
         &#39;inexistant&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;alagoas&#34;, &#34;pt&#34;)
+        &#39;Alagoas&#39;
+        &gt;&gt;&gt; lookup_italic(&#34;Antropônimo&#34;, &#34;pt&#34;)
+        &#39;Antropônimo&#39;
     &#34;&#34;&#34;
-    return templates_italic[locale].get(word, &#34;&#34; if empty_default else word)</code></pre>
+    default = &#34;&#34; if empty_default else word
+    looking_for = word
+
+    if locale == &#34;pt&#34;:
+        looking_for = word.lower()
+        default = word
+
+    return templates_italic[locale].get(looking_for, default)</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.number"><code class="name flex">
@@ -976,6 +1139,11 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
 
+    # Handle mathematical substract character
+    has_math_substract_symbol = number[0] == &#34;−&#34;
+    if has_math_substract_symbol:
+        number = number.replace(&#34;−&#34;, &#34;-&#34;)
+
     try:
         # Integer
         res = f&#34;{int(number):,}&#34;
@@ -987,7 +1155,12 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     # then replace the dot with the float separator;
     # and lastly replace the &#34;|&#34; with the deisred thousands separator.
     # This 3-steps-replacement is needed for when separators are replacing each other.
-    return res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)</code></pre>
+    res = res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
+
+    if has_math_substract_symbol:
+        res = res.replace(&#34;-&#34;, &#34;−&#34;)
+
+    return res</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.parenthesis"><code class="name flex">
@@ -1018,13 +1191,17 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 <dd>
 <div class="desc"><p>Format a person name.</p>
 <pre><code>&gt;&gt;&gt; person("foo", ["Aldous", "Huxley"])
-"Aldous &lt;span style='font-variant:small-caps'&gt;Huxley&lt;/span&gt;"
+'Aldous Huxley'
 &gt;&gt;&gt; person("foo", ["Théodore Agrippa d’", "Aubigné"])
-"Théodore Agrippa d’ &lt;span style='font-variant:small-caps'&gt;Aubigné&lt;/span&gt;"
+'Théodore Agrippa d’ Aubigné'
 &gt;&gt;&gt; person("foo", ["Théodore Agrippa d’", "Aubigné", "'=oui"])
-"Théodore Agrippa d’&lt;span style='font-variant:small-caps'&gt;Aubigné&lt;/span&gt;"
+'Théodore Agrippa d’Aubigné'
 &gt;&gt;&gt; person("foo", ["L. L. Zamenhof"])
 'L. L. Zamenhof'
+&gt;&gt;&gt; person("foo", ["lang=en", "Roger", "Adams"])
+'Roger Adams'
+&gt;&gt;&gt; person("foo", ["", "Brantôme", "Brantôme (écrivain)"])
+'Brantôme'
 </code></pre>
 <p>Source: <a href="https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc">https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc</a></p></div>
 <details class="source">
@@ -1036,23 +1213,31 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     Format a person name.
 
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Aldous&#34;, &#34;Huxley&#34;])
-        &#34;Aldous &lt;span style=&#39;font-variant:small-caps&#39;&gt;Huxley&lt;/span&gt;&#34;
+        &#39;Aldous Huxley&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Théodore Agrippa d’&#34;, &#34;Aubigné&#34;])
-        &#34;Théodore Agrippa d’ &lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
+        &#39;Théodore Agrippa d’ Aubigné&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;Théodore Agrippa d’&#34;, &#34;Aubigné&#34;, &#34;&#39;=oui&#34;])
-        &#34;Théodore Agrippa d’&lt;span style=&#39;font-variant:small-caps&#39;&gt;Aubigné&lt;/span&gt;&#34;
+        &#39;Théodore Agrippa d’Aubigné&#39;
         &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;L. L. Zamenhof&#34;])
         &#39;L. L. Zamenhof&#39;
+        &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;lang=en&#34;, &#34;Roger&#34;, &#34;Adams&#34;])
+        &#39;Roger Adams&#39;
+        &gt;&gt;&gt; person(&#34;foo&#34;, [&#34;&#34;, &#34;Brantôme&#34;, &#34;Brantôme (écrivain)&#34;])
+        &#39;Brantôme&#39;
 
     Source: https://fr.wiktionary.org/wiki/Mod%C3%A8le:nom_w_pc
     &#34;&#34;&#34;
-    res = parts[0]
-    if len(parts) &gt; 1:
-        if parts[-1] != &#34;&#39;=oui&#34;:
-            res += &#34; &#34;
-        res += small_caps(parts[1])
-    else:
-        warn(f&#34;Malformed template in the Wikicode of {word!r} (parts={parts})&#34;)
+    data = [p for p in parts if &#34;=&#34; in p]
+    parts = [p for p in parts if &#34;=&#34; not in p]
+    res = parts.pop(0)
+
+    # First name only
+    if not parts:
+        return res
+
+    # Last name only or first name + last name
+    space = &#34;&#34; if (&#34;&#39;=oui&#34; in data or not res) else &#34; &#34;
+    res += space + parts.pop(0)
     return res</code></pre>
 </details>
 </dd>
@@ -1137,6 +1322,28 @@ to the size of lowercase letters.</p>
         &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;Dupont&lt;/span&gt;&#34;
     &#34;&#34;&#34;
     return f&#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;{text}&lt;/span&gt;&#34;</code></pre>
+</details>
+</dd>
+<dt id="wikidict.user_functions.strike"><code class="name flex">
+<span>def <span class="ident">strike</span></span>(<span>text: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the <em>text</em> surrounded by <s> HTML tags.</p>
+<pre><code>&gt;&gt;&gt; strike("foo")
+'&lt;s&gt;foo&lt;/s&gt;'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def strike(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by &lt;s&gt; HTML tags.
+
+        &gt;&gt;&gt; strike(&#34;foo&#34;)
+        &#39;&lt;s&gt;foo&lt;/s&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;s&gt;{text}&lt;/s&gt;&#34;</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.strong"><code class="name flex">
@@ -1326,6 +1533,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.capitalize" href="#wikidict.user_functions.capitalize">capitalize</a></code></li>
 <li><code><a title="wikidict.user_functions.century" href="#wikidict.user_functions.century">century</a></code></li>
 <li><code><a title="wikidict.user_functions.chimy" href="#wikidict.user_functions.chimy">chimy</a></code></li>
+<li><code><a title="wikidict.user_functions.chinese" href="#wikidict.user_functions.chinese">chinese</a></code></li>
 <li><code><a title="wikidict.user_functions.color" href="#wikidict.user_functions.color">color</a></code></li>
 <li><code><a title="wikidict.user_functions.concat" href="#wikidict.user_functions.concat">concat</a></code></li>
 <li><code><a title="wikidict.user_functions.coord" href="#wikidict.user_functions.coord">coord</a></code></li>
@@ -1340,6 +1548,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.sentence" href="#wikidict.user_functions.sentence">sentence</a></code></li>
 <li><code><a title="wikidict.user_functions.small" href="#wikidict.user_functions.small">small</a></code></li>
 <li><code><a title="wikidict.user_functions.small_caps" href="#wikidict.user_functions.small_caps">small_caps</a></code></li>
+<li><code><a title="wikidict.user_functions.strike" href="#wikidict.user_functions.strike">strike</a></code></li>
 <li><code><a title="wikidict.user_functions.strong" href="#wikidict.user_functions.strong">strong</a></code></li>
 <li><code><a title="wikidict.user_functions.subscript" href="#wikidict.user_functions.subscript">subscript</a></code></li>
 <li><code><a title="wikidict.user_functions.superscript" href="#wikidict.user_functions.superscript">superscript</a></code></li>
