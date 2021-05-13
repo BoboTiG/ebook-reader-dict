@@ -422,7 +422,7 @@ def small_caps(text: str) -> str:
 
 def strike(text: str) -> str:
     """
-    Return the *text* surrounded by <s> HTML tags.
+    Return the *text* surrounded by strike HTML tags.
 
         >>> strike("foo")
         '<s>foo</s>'
