@@ -10,11 +10,7 @@ from .render import find_all_sections, find_sections, get_latest_json_file, load
 
 def find_titles(code: str, locale: str) -> List[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    return [
-        section.title.strip()
-        for section in find_all_sections(code, locale)
-        if section.title
-    ]
+    return [title for title, _ in find_all_sections(code, locale)]
 
 
 def find_templates(in_words: Dict[str, str], locale: str) -> None:

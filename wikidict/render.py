@@ -7,7 +7,7 @@ from functools import partial
 from itertools import chain
 from multiprocessing import Manager, Pool, cpu_count
 from pathlib import Path
-from typing import Dict, List, Optional, Pattern
+from typing import Dict, List, Optional, Pattern, Tuple
 
 from .lang import (
     definitions_to_ignore,
@@ -219,7 +219,7 @@ def find_pronunciations(code: str, pattern: Optional[Pattern[str]]) -> List[str]
     return pattern.findall(line)
 
 
-def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
+def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
@@ -243,24 +243,27 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
 
         if etyl_data:
             all_sections.append(
-                wtp.Section(f"=== {etyl_data_section} ===\n{etyl_data}")
+                (
+                    etyl_data_section,
+                    wtp.Section(f"=== {etyl_data_section} ===\n{etyl_data}"),
+                )
             )
 
-    # Filter on interesting sections
+    # Get interesting top sections
     top_sections = [
         section
         for section in parsed.get_sections(include_subsections=True, level=level)
         if section.title.replace(" ", "").lower().strip() in head_sections[locale]
     ]
+    # Get _all_ sections without any filtering
     all_sections.extend(
         (
-            section
+            (section.title.strip(), section)
             for top_section in top_sections
-            for level in section_sublevels[locale]
+            for sublevel in section_sublevels[locale]
             for section in top_section.get_sections(
-                include_subsections=False, level=level
+                include_subsections=False, level=sublevel
             )
-            if section.title.strip().startswith(sections[locale])
         )
     )
     return all_sections
@@ -269,8 +272,11 @@ def find_all_sections(code: str, locale: str) -> List[wtp.Section]:
 def find_sections(code: str, locale: str) -> Sections:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
-    for section in find_all_sections(code, locale):
-        ret[section.title.strip()].append(section)
+    wanted = sections[locale]
+    for title, section in find_all_sections(code, locale):
+        # Filter on interesting sections
+        if title.startswith(wanted):
+            ret[title].append(section)
     return ret
 
 
