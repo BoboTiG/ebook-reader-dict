@@ -66,4 +66,4 @@ Files disponibili:
 """  # noqa
 
 # Dictionary name that will be printed below each definition
-wiktionary = "Wiktionary (ɔ) {year}"
+wiktionary = "Wikizionario (ɔ) {year}"
