@@ -1,0 +1,41 @@
+==Norsk==
+===Substantiv===
+{{no-sub|m}}
+
+#Det å [[konsentrere]] seg; ha stort fokus på noe.
+#:'''''Konsentrasjon''' er viktig for å ikke bli avledet.''
+#{{kjemi|no}} Andelen stoff i noe; mengde stoff løst pr. enhet.
+#:'''''Konsentrasjonen''' i løsningen er på 0,1 [[molar]].''
+
+====Etymologi====
+Fra {{suffiks|konsentrere|sjon|språk=no}}
+
+====Grammatikk====
+{{no-sub-m1}}
+
+====Oversettelser====
+{{overs-topp|fokusere}}
+* {{overs|da|koncentration|c}}
+* {{overs|en|concentration}}
+* {{overs|fi|keskittyminen}}
+* {{overs|fr|concentration|f}}
+* {{overs-mangler|it}}
+{{overs-midt}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+* {{overs|sv|koncentration|c}}
+* {{overs|de|Konzentration|f}}
+{{overs-bunn}}
+{{overs-topp|begrep innen kjemi}}
+* {{overs|da|koncentration|c}}
+* {{overs|en|concentration}}
+* {{overs|fi|konsentraatio}}
+* {{overs|fr|concentration|f}}
+* {{overs-mangler|it}}
+{{overs-midt}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+* {{overs|sv|koncentration|c}}
+* {{overs|de|Konzentration|f}}
+{{overs-bunn}}
+

@@ -128,7 +128,7 @@ def find_etymology(
     definitions: List[Definitions] = []
     etyl: str
 
-    if locale == "ca":
+    if locale in ("ca", "no"):
         definitions.append(
             process_templates(word, clean(parsed_section.contents), locale)
         )
@@ -204,8 +204,10 @@ def find_genre(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or ""
 
 
-def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
+def find_pronunciations(code: str, pattern: Optional[Pattern[str]]) -> List[str]:
     """Find pronunciations."""
+    if not pattern:
+        return []
     match = pattern.search(code)
     if not match:
         return []
@@ -302,7 +304,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
-        prons = find_pronunciations(code, pronunciation[locale])
+        prons = find_pronunciations(code, pronunciation.get(locale))
         nature = find_genre(code, genre[locale])
 
     # find if variant and delete unwanted definitions
