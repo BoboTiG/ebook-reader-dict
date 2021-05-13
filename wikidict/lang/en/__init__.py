@@ -53,6 +53,7 @@ templates_ignored = (
     "elements",
     "multiple images",
     "+obj",
+    "PIE word",
     "picdic",
     "picdicimg",
     "picdiclabel",
