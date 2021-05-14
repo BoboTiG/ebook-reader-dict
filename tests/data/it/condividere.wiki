@@ -1,0 +1,66 @@
+== {{-it-}} ==
+{{-verb-|it}}
+{{Transitivo|it}}
+{{Pn|c}} 
+# [[spartire]] con altri
+# avere qualcosa in [[comune]] con qualcun altro
+# essere d'[[accordo]] con altri su un [[punto di vista]]
+# {{Term|filosofia|it}} {{Term|economia|it}} [[mettere]] [[spazi]] e [[risorse]] in [[comune]] con [[altri]]
+# {{Term|informatica|it}} [[ricevere]] o [[mettere]] un'[[informazione]] in [[comune]] con [[altri]] [[utenti]]
+
+{{-sill-}} 
+; con | di | vì | de | re
+
+{{-pron-}}
+{{IPA|/kondiˈvidere/}}
+
+{{-etim-}}
+dal [[latino]] ''[[cum]]'' e ''[[dividere]]''; l'attuale uso improprio del verbo ''condividere'' è dovuto alla diffusione dei [[social network]] negli anni 2000 e 2010
+
+{{-sin-}}
+*avere in comune, [[approvare]], [[possedere]], [[dividere]], [[spartire]]
+*[[concordare]]
+* {{Fig}} [[approvare]], [[partecipare]], [[aderire]]
+* [[compartecipare]]
+* {{Est}} {{Fig}} [[accettare]], [[accogliere]]
+
+{{-ant-}}
+*[[separare]],   [[discordare]], [[dissentire]]
+* {{Est}} {{Fig}} [[ribellarsi]], [[intralciare]]
+*[[contrariare]]
+*(informatica) [[pubblicare]]
+
+{{-der-}}
+* [[condivisione]], [[condivisibile]], [[condiviso]]
+
+{{-rel-}}
+* [[dividere]]
+
+{{-trad-}}
+{{Trad1|dividere, spartire}}
+:*{{ca}}: [[compartir]]
+:*{{en}}: [[share]]
+:* {{la}}: [[communicare]], [[exsequere]] 
+{{Trad2}}
+
+{{Trad1|avere qualcosa in comune}}
+:*{{en}}: <!-- inserisci qui la/le traduzione/ni nelle altre lingue -->
+{{Trad2}}
+
+{{Trad1|avere lo stesso punto di vista}}
+:*{{en}}: <!-- inserisci qui la/le traduzione/ni nelle altre lingue -->
+{{Trad2}}
+
+{{-ref-}}
+* {{Fonte|trec}}
+* {{Fonte|hoep}}
+* {{Fonte|sape}}
+* {{Fonte|sabco}}
+* {{Fonte|dizit}}
+* {{Fonte|gar}}
+* {{Fonte|sin-co}}
+* {{Fonte|dem}}
+*AA.VV., ''Dizionario sinonimi e contrari, Mariotti, 2006, pagina 134
+
+[[Categoria:Internet-IT|condividere]]
+

@@ -4,6 +4,9 @@ from typing import Dict, Tuple
 # Regex to find the pronunciation
 pronunciation = r"{IPA\|/([^/]+)/"
 
+# Regex to find the gender
+genre = r"{{Pn\|?w?}} ''([fm])[singvol ]*''"
+
 # Float number separator
 float_separator = ","
 
@@ -18,7 +21,6 @@ sections = (
     *etyl_section,
     "{{acron}",
     "{{agg}",
-    "{{avv}",
     "{{avv}",
     "{{art}",
     "{{cong}",
@@ -48,7 +50,10 @@ templates_ignored: Tuple[str, ...] = tuple()
 templates_italic: Dict[str, str] = {}
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {}
+templates_multi: Dict[str, str] = {
+    # {{Term|statistica|it}} -> <small>(<i>statistica</i>)</small>
+    "Term": "small(term(parts[1]))",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it

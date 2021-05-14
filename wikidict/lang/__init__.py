@@ -34,7 +34,7 @@ genre = {
     "en": re.compile(defaults.genre),
     "es": re.compile(defaults.genre),
     "fr": re.compile(fr.genre),
-    "it": re.compile(defaults.genre),
+    "it": re.compile(it.genre),
     "no": re.compile(defaults.genre),
     "pt": re.compile(pt.genre),
     "sv": re.compile(defaults.genre),
