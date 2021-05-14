@@ -82,6 +82,8 @@ templates_italic = {
 templates_multi = {
     # {{adjetivo de sustantivo|el mundo árabe}}
     "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',  # noqa
+    # {{color|#DDB88E|espacio=6}}
+    "color": "color([p for p in parts if '=' not in p][1])",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{contracción|de|ellas|leng=es}}
@@ -93,7 +95,7 @@ templates_multi = {
     #  {{diminutivo|historia}}
     "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{etimología2|de [[hocicar]]}}
-    "etimología2": "capitalize(parts[1]) if len(parts) > 1 else ''",
+    "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{forma diminutivo|leng=es|cuchara}}
     "forma diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{formatnum:22905}}
@@ -117,9 +119,9 @@ templates_multi = {
     "subíndice": "subscript(parts[1])",
     # {{sustantivo de adjetivo|abad}}
     # {{sustantivo de adjetivo|abad|abadesa}}
-    "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if len(parts) > 2 else "")',
+    "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{sustantivo de verbo|circular}}
-    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if len(parts) > 2 else "")',
+    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
     # {{ucf|mujer}}

@@ -317,10 +317,12 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             ],
             data,
         )
-        for index, part in enumerate(parts[:-1], 2):
+        index = 2
+        for part in parts[:-1]:
             localphrase = call_l_single_part(part, index)
             phrase += f", {localphrase}"
-        phrase += f" y el sufijo {italic(suffix + parts[-1])}"
+            index = index + 1
+        phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
     elif cat == "epónimo":
         phrase = "Epónimo"
         if parts:
@@ -527,11 +529,13 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>حتى</i> (<i>ḥatta</i>)'
     >>> render_l("l+", ["es", "morro"], defaultdict(str, {"num":"2"}))
     '<i>morro<sub>2</sub></i>'
+    >>> render_l("l+", ["la", "rogo", "rogō, rogāre", "pedir"], defaultdict(str))
+    '<i>rogō, rogāre</i>'
     """
     trans = data["tr"]
     glosa = data["glosa-alt"] or data["glosa"]
     num = data["núm"] or data["num"]
-    phrase = parts[-1]
+    phrase = parts[2] if len(parts) > 2 else parts[-1]
     if num:
         phrase += subscript(num)
     if tpl == "l+":

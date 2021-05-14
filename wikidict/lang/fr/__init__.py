@@ -730,6 +730,9 @@ def last_template_handler(
         >>> last_template_handler(["nom langue", "gcr"], "fr")
         'créole guyanais'
 
+        >>> last_template_handler(["zh-l", "餃子/饺子", "jiǎozi", "jiaozi bouillis"], "fr")
+        '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
+
     """  # noqa
     from .langs import langs
     from ..defaults import last_template_handler as default

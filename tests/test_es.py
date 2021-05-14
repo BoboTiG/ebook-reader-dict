@@ -225,6 +225,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
+        ("{{etimología2|...}}", ""),
         ("{{física}}", "<i>(Física)</i>"),
         ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),

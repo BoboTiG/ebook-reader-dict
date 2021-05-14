@@ -180,6 +180,9 @@ def last_template_handler(
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
 
+        >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
+        '痟 (<i>siáu</i>, “mad”)'
+
     """  # noqa
 
     from .langs import langs
