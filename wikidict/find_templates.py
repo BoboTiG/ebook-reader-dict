@@ -5,6 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List
 
+from .lang import sections
 from .render import find_all_sections, find_sections, get_latest_json_file, load
 
 
@@ -14,25 +15,28 @@ def find_titles(code: str, locale: str) -> List[str]:
 
 
 def find_templates(in_words: Dict[str, str], locale: str) -> None:
-    sections = defaultdict(list)
+    found_sections = defaultdict(list)
     templates: Dict[str, str] = {}
+    locale_sections = sections[locale]
     for in_word, code in in_words.items():
         for title in find_titles(code, locale):
-            sections[title].append(in_word)
+            found_sections[title].append(in_word)
 
         parsed_sections = find_sections(code, locale)
         defs = "\n".join(str(s) for s in parsed_sections.values())
         for template in re.findall(r"({{[^{}]*}})", defs):
+            if template.startswith(locale_sections):
+                continue
             template = template.split("|")[0].lstrip("{").rstrip("}").strip()
             if template not in templates:
                 templates[template] = in_word
 
-    if not sections:
+    if not found_sections:
         print("No sections found.")
         return
 
     with open("sections.txt", "w") as f:
-        for title, entries in sorted(sections.items()):
+        for title, entries in sorted(found_sections.items()):
             f.write(f"{title!r} ({len(entries):,})\n")
             if len(entries) < 10:
                 # Most likely errors/mispellings
