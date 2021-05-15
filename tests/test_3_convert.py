@@ -81,6 +81,13 @@ def test_generate_dict(formatter, filename):
             "pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
         ),
         "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
+        "etyls": Word(
+            "pron",
+            "gender",
+            ["etyl 1", ["setyl 1"]],
+            ["def 1", ["sdef 1"]],
+            ["foobar"],
+        ),
     }
     variants = defaultdict(str)
     variants["foo"] = ["foobar"]
