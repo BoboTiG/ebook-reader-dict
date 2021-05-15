@@ -6,8 +6,8 @@ from .escopos import escopos
 # Regex to find the pronunciation
 pronunciation = r"{AFI\|\[([^\]]+)\]}"
 
-# Regex to find the genre
-genre = r"{([fm]+)}"
+# Regex to find the gender
+gender = r"{([fm]+)}"
 
 # Float number separator
 float_separator = ","
@@ -41,7 +41,7 @@ sections = (
     "Verbo",
 )
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = ("peçodef",)
 
 # Templates to ignore: the text will be deleted.

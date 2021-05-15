@@ -76,11 +76,11 @@ def test_generate_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     words = {
         "empty": Word("", "", "", [], []),
-        "foo": Word("pron", "genre", "etyl", ["def 1", ["sdef 1"]], []),
+        "foo": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], []),
         "foos": Word(
-            "pron", "genre", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
+            "pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
         ),
-        "baz": Word("pron", "genre", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
+        "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
     }
     variants = defaultdict(str)
     variants["foo"] = ["foobar"]

@@ -5,13 +5,12 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genre, definitions",
+    "word, pronunciations, definitions",
     [
-        ("auto", [], "", ["automatisk; självgående", "automatiskt läge", "autostart"]),
+        ("auto", [], ["automatisk; självgående", "automatiskt läge", "autostart"]),
         (
             "en",
             ["eːn/, /ɛn/, /en"],
-            "",
             [
                 "ungefär; omkring",
                 "obestämd artikel singular utrum",
@@ -27,7 +26,6 @@ from wikidict.utils import process_templates
         (
             "-hörning",
             [],
-            "",
             [
                 "<i>(geometri, vardagligt)</i> <i>suffix för månghörningar</i>",
                 "<i>suffix i ord som har med djurs horn att göra</i>",
@@ -36,7 +34,6 @@ from wikidict.utils import process_templates
         (
             "min",
             ["mɪn"],
-            "",
             [
                 "possessivt pronomen som indikerar ägande av eller tillhörighet till den talande (jag) om det ägda eller tillhörande är i ental och har n-genus; possessivt pronomen i första person singular med huvudordet i singular utrum",  # noqa
                 "ovanstående i självständig form",
@@ -46,11 +43,10 @@ from wikidict.utils import process_templates
                 "<i>förkortning för</i> minimum",
             ],
         ),
-        ("og", [], "", []),
+        ("og", [], []),
         (
             "sand",
             ["sand"],
-            "",
             [
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
                 "<i>(geologi)</i> jordart med kornstorlek mellan 0,06 och 2 mm",
@@ -59,7 +55,6 @@ from wikidict.utils import process_templates
         (
             "svenska",
             [],
-            "",
             [
                 "nordiskt språk som talas i Sverige och Finland (officiellt i båda länderna)",
                 "svensk kvinna",
@@ -68,12 +63,11 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, genre, definitions, page):
+def test_parse_word(word, pronunciations, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "sv")
     details = parse_word(word, code, "sv", force=True)
     assert pronunciations == details.pronunciations
-    assert genre == details.genre
     assert definitions == details.definitions
 
 

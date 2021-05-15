@@ -6,7 +6,7 @@ import requests
 from .stubs import Word
 from .render import parse_word
 from .user_functions import int_to_roman
-from .utils import convert_pronunciation, convert_genre, get_word_of_the_day
+from .utils import convert_pronunciation, convert_gender, get_word_of_the_day
 
 
 def get_word(word: str, locale: str) -> Word:
@@ -37,7 +37,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     print(
         word,
         convert_pronunciation(details.pronunciations).lstrip(),
-        strip_html(convert_genre(details.genre).lstrip()),
+        strip_html(convert_gender(details.gender).lstrip()),
         "\n",
     )
 

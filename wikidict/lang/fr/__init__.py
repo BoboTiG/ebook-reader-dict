@@ -8,8 +8,8 @@ from .regions import regions
 # Regex pour trouver la prononciation
 pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
 
-# Regexp pour trouver le genre
-genre = r"{([fmsingp]+)(?: \?\|fr)*}"
+# Regexp pour trouver le gender
+gender = r"{([fmsingp]+)(?: \?\|fr)*}"
 
 # Séparateur des nombres à virgule
 float_separator = ","

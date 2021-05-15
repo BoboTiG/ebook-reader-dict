@@ -35,7 +35,7 @@ sections = (
     "{{verbo",
 )
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "antropónimo femenino",
     "antropónimo masculino",
