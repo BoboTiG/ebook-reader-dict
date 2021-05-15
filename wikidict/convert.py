@@ -18,7 +18,7 @@ from .constants import WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Definitions, Word, Words
 from .utils import (
-    convert_genre,
+    convert_gender,
     convert_pronunciation,
     format_description,
     guess_prefix,
@@ -258,7 +258,7 @@ class KoboFormat(KoboBaseFormat):
                     definitions = self.create_definitions(details)
 
                     pronunciation = convert_pronunciation(details.pronunciations)
-                    genre = convert_genre(details.genre)
+                    gender = convert_gender(details.gender)
                     etymology = self.create_etymology(details.etymology)
 
                     var = ""
@@ -299,11 +299,11 @@ class DFFormat(KoboBaseFormat):
                 definitions = self.create_definitions(details)
 
                 pronunciation = convert_pronunciation(details.pronunciations)
-                genre = convert_genre(details.genre)
+                gender = convert_gender(details.gender)
                 etymology = self.create_etymology(details.etymology)
                 fh.write(f"@ {word}\n")
-                if pronunciation or genre:
-                    fh.write(f": {pronunciation.strip()} {genre}\n")
+                if pronunciation or gender:
+                    fh.write(f": {pronunciation.strip()} {gender}\n")
                 for v in self.variants[word]:
                     fh.write(f"& {v}\n")
                 fh.write(f"<html>{etymology}\n")

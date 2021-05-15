@@ -5,12 +5,11 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genre, etymology, definitions",
+    "word, pronunciations, etymology, definitions",
     [
         (
             "konsentrasjon",
             [],
-            "",
             ["Fra"],
             [
                 "Det å konsentrere seg; ha stort fokus på noe.",
@@ -19,12 +18,11 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
+def test_parse_word(word, pronunciations, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "no")
     details = parse_word(word, code, "no", force=True)
     assert pronunciations == details.pronunciations
-    assert genre == details.genre
     assert etymology == details.etymology
     assert definitions == details.definitions
 

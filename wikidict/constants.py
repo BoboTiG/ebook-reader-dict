@@ -20,7 +20,7 @@ DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}.zip"
 WORD_FORMAT = """
 <w>
     <p>
-        <a name="{word}"/><b>{current_word}</b>{pronunciation}{genre}
+        <a name="{word}"/><b>{current_word}</b>{pronunciation}{gender}
         <br/>
         <br/>
         {etymology}

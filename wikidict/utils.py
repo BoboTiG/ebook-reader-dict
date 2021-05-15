@@ -52,9 +52,9 @@ MAGIC_WORDS = {
 }
 
 
-def convert_genre(genre: str) -> str:
-    """Return the HTML code to include for the genre of a word."""
-    return f" <i>{genre}.</i>" if genre else ""
+def convert_gender(gender: str) -> str:
+    """Return the HTML code to include for the gender of a word."""
+    return f" <i>{gender}.</i>" if gender else ""
 
 
 def convert_pronunciation(pronunciations: List[str]) -> str:

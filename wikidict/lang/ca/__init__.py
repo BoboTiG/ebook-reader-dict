@@ -4,8 +4,8 @@ from typing import Tuple
 # Regex to find the pronunciation
 pronunciation = r"{\s*ca-pron\s*\|(?:\s*or\s*=\s*)?/([^/\|]+)"
 
-# Regex to find the genre
-genre = r"{ca-\w+\|([fm]+)"
+# Regex to find the gender
+gender = r"{ca-\w+\|([fm]+)"
 
 # Float number separator
 float_separator = ","
@@ -38,7 +38,7 @@ sections = (
     *etyl_section,
 )
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     # Ignore conjuged verbs
     "ca-forma-conj",
@@ -46,7 +46,7 @@ definitions_to_ignore = (
     # Proper nouns
     "cognom",
     "prenom",
-    # Ignore genres
+    # Ignore genders
     "forma-f",
     # Ignore plurals
     "forma-p",
