@@ -460,7 +460,10 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             data["género"] or data["genero"] or (parts[3] if len(parts) > 3 else "")
         )
         start = f"Forma del {concat([caso, numero, genero], ' ')} de"
-    return f"{italic(capitalize(start))} {parts[0]}"
+    phrase = f"{italic(capitalize(start))} {parts[0]}"
+    if data["texto_pos"]:
+        phrase += f'{data["texto_pos"]}'
+    return phrase
 
 
 def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -553,6 +556,24 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_prep_conj(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_prep_conj("preposición conjugada", ["con", "primera", "singular"], defaultdict(str))
+    '<i>Forma combinada de la preposición</i> con <i>y el pronombre personal de primera persona singular</i>'
+    """
+    texto_pos = "y el pronombre personal de "
+    texto_pos += data["subtipo"] or (parts[1] if len(parts) > 1 else "")
+    texto_pos += " persona "
+    texto_pos += (
+        data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
+    )
+    return render_forma(
+        "forma",
+        [parts[0], "forma combinada de la preposición"],
+        defaultdict(str, {"texto_pos": f" {italic(texto_pos)}"}),
+    )
+
+
 def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_superlativo("superlativo", ["abundante"], defaultdict(str))
@@ -615,6 +636,7 @@ template_mapping = {
     "hipocorístico": render_hipocoristico,
     "l": render_l,
     "l+": render_l,
+    "preposición conjugada": render_prep_conj,
     "superlativo": render_superlativo,
     "variante": render_variante,
 }
