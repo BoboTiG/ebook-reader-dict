@@ -18,7 +18,7 @@ from wikidict.utils import process_templates
                 "spartire con altri",
                 "avere qualcosa in comune con qualcun altro",
                 "essere d'accordo con altri su un punto di vista",
-                "<small><i>(filosofia)</i></small> <small><i>(economia)</i></small> mettere spazi e risorse in comune con altri",
+                "<small><i>(filosofia)</i></small> <small><i>(economia)</i></small> mettere spazi e risorse in comune con altri",  # noqa
                 "<small><i>(informatica)</i></small> ricevere o mettere un'informazione in comune con altri utenti",
             ],
         ),
