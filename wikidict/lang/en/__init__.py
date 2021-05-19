@@ -1,5 +1,6 @@
 """English language."""
 from typing import Tuple
+from .labels_regional import labels_regional
 
 # Regex to find the pronunciation
 pronunciation = r"{IPA\|en\|/([^/]+)/"
@@ -78,8 +79,8 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
+    **labels_regional,
     "AAVE": "African-American Vernacular",
-    "American": "US",
     "ambitransitive": "transitive, intransitive",
     "Early ME": "Early Middle English",
 }
