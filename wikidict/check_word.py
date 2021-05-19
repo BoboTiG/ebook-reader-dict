@@ -70,6 +70,18 @@ def filter_html(html: str, locale: str) -> str:
                 if len(kv) == 2 and kv[0] == "background":
                     span.previous_sibling.decompose()
                     span.replaceWith(color(kv[1].strip()))
+        for a in bs.find_all("a", href=True):
+            if a["href"].startswith("#cite"):
+                a.decompose()
+            # cita requerida
+            elif (
+                a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes"
+            ):
+                a.parent.parent.decompose()
+        # external autonumber
+        for a in bs.find_all("a", {"class": "external autonumber"}):
+            a.decompose()
+        return no_spaces(bs.text)
 
     if locale == "fr":
         # Filter out refnec tags

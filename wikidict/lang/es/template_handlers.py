@@ -453,8 +453,13 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Forma del femenino de</i> -acho'
     >>> render_forma("forma sustantivo", ["ala", "plural"], defaultdict(str))
     '<i>Forma del plural de</i> ala'
+    >>> render_forma("forma sustantivo plural", ["ala"], defaultdict(str))
+    '<i>Forma del plural de</i> ala'
     """
     start = "forma de"
+    if tpl == "forma sustantivo plural":
+        tpl = "forma sustantivo"
+        data["numero"] = "plural"
     if tpl == "forma":
         start = data["texto"] or (parts[1] if len(parts) > 1 else "forma de")
     elif tpl == "forma sustantivo":
@@ -633,6 +638,7 @@ template_mapping = {
     "etimología": render_etimologia,
     "forma": render_forma,
     "forma sustantivo": render_forma,
+    "forma sustantivo plural": render_forma,
     "gentilicio2": render_gentilicio2,
     "grafia": render_grafia,
     "grafía": render_grafia,
