@@ -34,7 +34,7 @@ gender = {
     "en": re.compile(defaults.gender),
     "es": re.compile(defaults.gender),
     "fr": re.compile(fr.gender),
-    "it": re.compile(defaults.gender),
+    "it": re.compile(it.gender),
     "no": re.compile(defaults.gender),
     "pt": re.compile(pt.gender),
     "sv": re.compile(defaults.gender),
