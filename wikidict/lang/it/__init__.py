@@ -51,7 +51,7 @@ templates_italic: Dict[str, str] = {}
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
-    # {{Term|statistica|it}} -> <small>(<i>statistica</i>)</small>
+    # {{Term|statistica|it}}
     "Term": "small(term(parts[1]))",
 }
 
