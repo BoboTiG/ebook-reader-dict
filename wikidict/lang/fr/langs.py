@@ -5750,6 +5750,8 @@ langs = {
     "wsa": "warembori",
     "wsi": "wusi",
     "wsk": "waskia",
+    "wss": "wasa",
+    "wsv": "wotapuri-katarqala",
     "wtf": "watiwa",
     "wth": "wathawurrung",
     "wti": "berta",
@@ -6253,7 +6255,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,248
+}  # 6,250
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
