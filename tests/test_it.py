@@ -12,7 +12,7 @@ from wikidict.utils import process_templates
             ["kondiˈvidere"],
             "",
             [
-                "dal latino <i>cum</i> e <i>dividere</i>; l'attuale uso improprio del verbo <i>condividere</i> è dovuto alla diffusione dei social network negli anni 2000 e 2010"
+                "dal latino <i>cum</i> e <i>dividere</i>; l'attuale uso improprio del verbo <i>condividere</i> è dovuto alla diffusione dei social network negli anni 2000 e 2010". # noqa
             ],
             [
                 "spartire con altri",
