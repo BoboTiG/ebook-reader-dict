@@ -38,8 +38,8 @@ from wikidict.utils import process_templates
             ['dal latino <i>lector</i>, derivazione di <i>legĕre</i> ossia "leggere"'],
             [
                 "chi legge un libro, un giornale o una rivista",
-                "<small><i>(religione)</i></small> persona che in alcune chiese cristiane, come la Chiesa cattolica, la Chiesa anglicana e quella ortodossa, è incaricata di proclamare la parola di Dio e altri testi nelle celebrazioni liturgiche e di esercitare altri compiti in campo pastorale",
-                "<small><i>(elettronica)</i></small> <small><i>(informatica)</i></small> <small><i>(tecnologia)</i></small> <small><i>(ingegneria)</i></small> dispositivo elettronico che decodifica e riceve informazioni da un supporto",
+                "<small><i>(religione)</i></small> persona che in alcune chiese cristiane, come la Chiesa cattolica, la Chiesa anglicana e quella ortodossa, è incaricata di proclamare la parola di Dio e altri testi nelle celebrazioni liturgiche e di esercitare altri compiti in campo pastorale",  # noqa
+                "<small><i>(elettronica)</i></small> <small><i>(informatica)</i></small> <small><i>(tecnologia)</i></small> <small><i>(ingegneria)</i></small> dispositivo elettronico che decodifica e riceve informazioni da un supporto",  # noqa
             ],
         ),
     ],
