@@ -5,7 +5,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, etymology, definitions",
+    "word, pronunciations, gender, etymology, definitions",
     [
         (
             "condividere",
@@ -25,6 +25,7 @@ from wikidict.utils import process_templates
         (
             "debolmente",
             ["debolˈmente"],
+            "",
             ["composto dall'aggettivo debole e dal suffisso -mente"],
             [
                 "in maniera debole, con debolezza",
@@ -43,11 +44,12 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, etymology, definitions, page):
+def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "it")
     details = parse_word(word, code, "it", force=True)
     assert pronunciations == details.pronunciations
+    assert gender == details.gender
     assert etymology == details.etymology
     assert definitions == details.definitions
 
