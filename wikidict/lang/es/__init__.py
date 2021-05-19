@@ -54,10 +54,14 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "ampliable",
+    "arcoiris",
     "catafijo",
     "cita requerida",
     "citarequerida",
     "clear",
+    "definición imprecisa",
+    "inflect.es.sust.invariante" "inflect.es.sust.reg",
     "marcar sin referencias",
     "picdic",
     "picdiclabel",
@@ -70,10 +74,14 @@ templates_ignored = (
 # use capital letter first, if lower, then see lowercase_italic
 templates_italic = {
     **campos_semanticos,
+    "afectado": "Literario",
+    "elevado": "Literario",
     "germanía": "Jergal",
     "jergal": "Jergal",
     "jerga": "Jergal",
+    "literario": "Literario",
     "lunf": "Lunfardismo",
+    "poético": "Literario",
     "rpl": "Río de la Plata",
     "rur": "Rural",
     "slang": "Jergal",
@@ -86,7 +94,7 @@ templates_multi = {
     # {{adjetivo de padecimiento|alergia}}
     "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',  # noqa
     # {{color|#DDB88E|espacio=6}}
-    "color": "color([p for p in parts if '=' not in p][1])",
+    "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{contracción|de|ellas|leng=es}}
@@ -95,6 +103,9 @@ templates_multi = {
     "coord": "coord(parts[1:])",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
+    # {{DRAE}}
+    "DRAE": '"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
+    "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
     # {{etimología2|de [[hocicar]]}}
     "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
@@ -168,8 +179,12 @@ def last_template_handler(
         '<i>(Deporte, rural)</i>'
         >>> last_template_handler(["default"], "es")
         '<i>(Default)</i>'
+
+        >>> last_template_handler(["en"], "es")
+        'Inglés'
     """
     from ...user_functions import (
+        capitalize,
         concat,
         extract_keywords_from,
         italic,
@@ -216,6 +231,12 @@ def last_template_handler(
         if phrase_a:
             phrase = italic(f'({concat(phrase_a, ", ")})')
         return phrase
+
+    from .langs import langs
+
+    lang = langs.get(template[0])
+    if lang:
+        return capitalize(lang)
 
     return default(template, locale, word)
 
