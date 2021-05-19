@@ -5,7 +5,7 @@ from typing import Dict, Tuple
 pronunciation = r"{IPA\|/([^/]+)/"
 
 # Regex to find the gender
-genre = r"{{Pn\|?w?}} ''([fm])[singvol ]*''"
+gender = r"{{Pn\|?w?}} ''([fm])[singvol ]*''"
 
 # Float number separator
 float_separator = ","
