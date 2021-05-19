@@ -62,7 +62,7 @@ def test_filter_anchors():
         return orig(html, locale)
 
     with patch.object(check_word, "filter_html", new=new_filter_html):
-        assert check_word.main("fr", "42") == 0
+        assert check_word.main("en", "42") == 0
 
 
 def test_filter_es():
@@ -85,6 +85,50 @@ def test_filter_es_2():
 
     with patch.object(check_word, "filter_html", new=new_filter_html):
         assert check_word.main("es", "buena") == 0
+
+
+def test_filter_es_color():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<span style="color:#FFFFFF;">_____________</span><span id="ColorRect" dir="LTR" style="position: absolute; width: 1.8cm; height: 0.45cm; border: 0.50pt solid #000000; padding: 0cm; background: #CF1020"></span>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "lava") == 0
+
+
+def test_filter_es_cite():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<a href="#cite_note-drae-1"><span class="corchete-llamada">[</span>1<span class="corchete-llamada">]</span></a>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "urdú") == 0
+
+
+def test_filter_es_cita_requerida():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<sup>[<i><a href="/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes" class="mw-redirect" title="Ayuda:Tutorial (Ten en cuenta)">cita&nbsp;requerida</a></i>]</sup>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "Magdalena") == 0
+
+
+def test_filter_es_external_autonumber():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<a rel="nofollow" class="external autonumber" href="http://books.google.es/books?id=9nOz63haQysC&amp;pg=PA296&amp;dq=%22gesticulor%22">[1]</a>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("es", "gesticulación") == 0
 
 
 def test_filter_fr_refnec():

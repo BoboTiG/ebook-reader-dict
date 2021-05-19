@@ -5,7 +5,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genre, etymology, definitions",
+    "word, pronunciations, gender, etymology, definitions",
     [
         ("ababalhar", [], "", ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
@@ -135,12 +135,12 @@ from wikidict.utils import process_templates
         ("UTC", [], "", [], ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
-def test_parse_word(word, pronunciations, genre, etymology, definitions, page):
+def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "pt")
     details = parse_word(word, code, "pt", force=True)
     assert pronunciations == details.pronunciations
-    assert genre == details.genre
+    assert gender == details.gender
     assert etymology == details.etymology
     assert definitions == details.definitions
 

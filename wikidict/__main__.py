@@ -9,7 +9,7 @@ Usage:
     wikidict LOCALE --render
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
-    wikidict LOCALE --check-random-words N
+    wikidict LOCALE --check-random-words=N
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --gen-dict=WORDS --output=FILENAME
@@ -23,7 +23,7 @@ Options:
                                 - "data/$LOCALE/dicthtml-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE.df": DictFile format.
   --find-templates          DEBUG: Find all templates in use.
-  --check-random-words N    Get and render N words.
+  --check-random-words=N    Get and render N words.
                             Then compare with the rendering done on the Wiktionary to catch errors.
   --check-word=WORD         Get and render WORD.
                             Then compare with the rendering done on the Wiktionary to catch errors.
@@ -78,7 +78,9 @@ def main() -> int:  # pragma: nocover
     if args["--check-random-words"]:
         from . import check_random_words
 
-        return check_random_words.main(args["LOCALE"], int(args["N"]))
+        return check_random_words.main(
+            args["LOCALE"], int(args["--check-random-words"])
+        )
 
     if args["--get-word"] is not None:
         from . import get_word

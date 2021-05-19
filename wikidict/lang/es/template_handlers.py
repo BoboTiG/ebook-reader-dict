@@ -6,6 +6,7 @@ from ...user_functions import (
     concat,
     extract_keywords_from,
     italic,
+    small,
     subscript,
 )
 
@@ -40,6 +41,16 @@ def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -
     return result
 
 
+def render_afi(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_afi("AFI", ["/oː/", "/aː/"], defaultdict(str))
+    '/oː/, /aː/ <small>(AFI)</small>'
+    >>> render_afi("IPA", ["/oː/"], defaultdict(str))
+    '/oː/ <small>(AFI)</small>'
+    """
+    return concat(parts, ", ") + f' {small("(AFI)")}'
+
+
 def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str))
@@ -48,8 +59,13 @@ def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Aumentativo del sustantivo</i> azada'
     >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str, {"i": "x", "tipo" : "sustantivo"}))
     '<i>Aumentativo irregular del sustantivo</i> perro'
+    >>> render_aumentativo("diminutivo", ["perro"], defaultdict(str))
+    '<i>Diminutivo de</i> perro'
     """
-    start = "Aumentativo "
+    if tpl in ("diminutivo", "forma diminutivo"):
+        start = "Diminutivo "
+    else:
+        start = "Aumentativo "
     if data["irregular"] or data["irreg"] or data["irr"] or data["i"]:
         start += "irregular "
     start += "de"
@@ -213,6 +229,8 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'De <i>agrupar</i>, con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["pronominal", "espinar"], defaultdict(str, {"num": "1"}))
     'De <i>espinar<sub>1</sub></i>, con el pronombre reflexivo átono'
+    >>> render_etimologia("etimología", ["regresiva", "controvertido"], defaultdict(str))
+    'Por derivación regresiva de <i>controvertido</i>'
     >>> render_etimologia("etimología", ["sánscrito", "गुरू", "maestro"], defaultdict(str, {"transcripción":"gūru"}))
     'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
     >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
@@ -317,10 +335,12 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             ],
             data,
         )
-        for index, part in enumerate(parts[:-1], 2):
+        index = 2
+        for part in parts[:-1]:
             localphrase = call_l_single_part(part, index)
             phrase += f", {localphrase}"
-        phrase += f" y el sufijo {italic(suffix + parts[-1])}"
+            index = index + 1
+        phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
     elif cat == "epónimo":
         phrase = "Epónimo"
         if parts:
@@ -371,6 +391,10 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
         phrase1 = render_l("l+", [parts[0]], data)
         phrase = f"De {phrase1}, con el pronombre reflexivo átono"
+    elif cat in ("derivación regresiva", "regresiva", "REG"):
+        phrase = "Por derivación regresiva de "
+        word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
+        phrase += render_l("l+", [word], data)
     elif cat in ("sufijo", "SUF"):
         texto_sufijo = data.get("texto-sufijo", "sufijo")
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
@@ -445,8 +469,13 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Forma del femenino de</i> -acho'
     >>> render_forma("forma sustantivo", ["ala", "plural"], defaultdict(str))
     '<i>Forma del plural de</i> ala'
+    >>> render_forma("forma sustantivo plural", ["ala"], defaultdict(str))
+    '<i>Forma del plural de</i> ala'
     """
     start = "forma de"
+    if tpl == "forma sustantivo plural":
+        tpl = "forma sustantivo"
+        data["numero"] = "plural"
     if tpl == "forma":
         start = data["texto"] or (parts[1] if len(parts) > 1 else "forma de")
     elif tpl == "forma sustantivo":
@@ -458,7 +487,10 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             data["género"] or data["genero"] or (parts[3] if len(parts) > 3 else "")
         )
         start = f"Forma del {concat([caso, numero, genero], ' ')} de"
-    return f"{italic(capitalize(start))} {parts[0]}"
+    phrase = f"{italic(capitalize(start))} {parts[0]}"
+    if data["texto_pos"]:
+        phrase += f'{data["texto_pos"]}'
+    return phrase
 
 
 def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -527,11 +559,13 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>حتى</i> (<i>ḥatta</i>)'
     >>> render_l("l+", ["es", "morro"], defaultdict(str, {"num":"2"}))
     '<i>morro<sub>2</sub></i>'
+    >>> render_l("l+", ["la", "rogo", "rogō, rogāre", "pedir"], defaultdict(str))
+    '<i>rogō, rogāre</i>'
     """
     trans = data["tr"]
     glosa = data["glosa-alt"] or data["glosa"]
     num = data["núm"] or data["num"]
-    phrase = parts[-1]
+    phrase = parts[2] if len(parts) > 2 else parts[-1]
     if num:
         phrase += subscript(num)
     if tpl == "l+":
@@ -547,6 +581,24 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase += ")"
 
     return phrase
+
+
+def render_prep_conj(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_prep_conj("preposición conjugada", ["con", "primera", "singular"], defaultdict(str))
+    '<i>Forma combinada de la preposición</i> con <i>y el pronombre personal de primera persona singular</i>'
+    """
+    texto_pos = "y el pronombre personal de "
+    texto_pos += data["subtipo"] or (parts[1] if len(parts) > 1 else "")
+    texto_pos += " persona "
+    texto_pos += (
+        data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
+    )
+    return render_forma(
+        "forma",
+        [parts[0], "forma combinada de la preposición"],
+        defaultdict(str, {"texto_pos": f" {italic(texto_pos)}"}),
+    )
 
 
 def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -594,14 +646,18 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
+    "AFI": render_afi,
     "aumentativo": render_aumentativo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "comparativo": render_comparativo,
+    "diminutivo": render_aumentativo,
     "etim": render_etim,
     "etimología": render_etimologia,
     "forma": render_forma,
+    "forma diminutivo": render_aumentativo,
     "forma sustantivo": render_forma,
+    "forma sustantivo plural": render_forma,
     "gentilicio2": render_gentilicio2,
     "grafia": render_grafia,
     "grafía": render_grafia,
@@ -609,8 +665,10 @@ template_mapping = {
     "grafía obsoleta": render_grafia,
     "grafía rara": render_grafia,
     "hipocorístico": render_hipocoristico,
+    "IPA": render_afi,
     "l": render_l,
     "l+": render_l,
+    "preposición conjugada": render_prep_conj,
     "superlativo": render_superlativo,
     "variante": render_variante,
 }

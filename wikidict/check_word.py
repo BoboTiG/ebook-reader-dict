@@ -4,7 +4,7 @@ from functools import partial
 
 from .render import parse_word
 from .stubs import Word
-from .user_functions import int_to_roman
+from .user_functions import color, int_to_roman
 from .utils import get_word_of_the_day
 
 import requests
@@ -53,7 +53,6 @@ def filter_html(html: str, locale: str) -> str:
     if locale == "es":
         dts = bs.find_all("dt")
         for dt in dts:
-
             dt_array = dt.text.split(" ", 1)
             if len(dt_array) == 2:
                 dt.string = dt_array[0] + " "
@@ -64,6 +63,25 @@ def filter_html(html: str, locale: str) -> str:
                     dt.string += f" {dt_array_dot[-1]}:"
                 else:
                     dt.string += f"({dt_array[1]}):"
+        # Replace color rectangle
+        for span in bs.find_all("span", {"id": "ColorRect"}):
+            for style in span["style"].split(";"):
+                kv = style.strip().split(":")
+                if len(kv) == 2 and kv[0] == "background":
+                    span.previous_sibling.decompose()
+                    span.replaceWith(color(kv[1].strip()))
+        for a in bs.find_all("a", href=True):
+            if a["href"].startswith("#cite"):
+                a.decompose()
+            # cita requerida
+            elif (
+                a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes"
+            ):
+                a.parent.parent.decompose()
+        # external autonumber
+        for a in bs.find_all("a", {"class": "external autonumber"}):
+            a.decompose()
+        return no_spaces(bs.text)
 
     if locale == "fr":
         # Filter out refnec tags

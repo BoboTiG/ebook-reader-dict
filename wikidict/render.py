@@ -11,7 +11,7 @@ from typing import Dict, List, Optional, Pattern, Tuple
 
 from .lang import (
     definitions_to_ignore,
-    genre,
+    gender,
     etyl_section,
     head_sections,
     pronunciation,
@@ -77,7 +77,7 @@ def find_section_definitions(
         if lists:
             sec = "".join(a_list.string for a_list in lists)
             section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
-            section.contents = re.sub(r":;[a-z]:+[\s]+", "## ", section.contents)
+            section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
 
     lists = section.get_lists(pattern=section_patterns[locale])
     if lists:
@@ -194,8 +194,8 @@ def find_etymology(
     return definitions
 
 
-def find_genre(code: str, pattern: Pattern[str]) -> str:
-    """Find the genre."""
+def find_gender(code: str, pattern: Pattern[str]) -> str:
+    """Find the gender."""
     match = pattern.search(code)
     if not match:
         return ""
@@ -282,7 +282,7 @@ def find_sections(code: str, locale: str) -> Sections:
 
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     """Parse *code* Wikicode to find word details.
-    *force* can be set to True to force the pronunciation and genre guessing.
+    *force* can be set to True to force the pronunciation and gender guessing.
     It is disabled by default to speed-up the overall process, but enabled when
     called from get_and_parse_word().
     """
@@ -314,7 +314,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     if definitions or force:
         prons = find_pronunciations(code, pronunciation.get(locale))
-        nature = find_genre(code, genre[locale])
+        nature = find_gender(code, gender[locale])
 
     # find if variant and delete unwanted definitions
     variants = []

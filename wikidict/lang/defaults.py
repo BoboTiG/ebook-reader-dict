@@ -2,8 +2,8 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-# Regex to find the genre
-genre = r""
+# Regex to find the gender
+gender = r""
 
 # Markers for sections that contain interesting text to analyse.
 section_patterns = (r"\#",)
@@ -11,7 +11,7 @@ sublist_patterns = (r"\#",)
 section_level = 2
 section_sublevels = (3,)
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Tuple[str, ...] = tuple()
 
 # But some words need to be kept even if they would have been skipped by definitions_to_ignore

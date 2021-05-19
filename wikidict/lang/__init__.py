@@ -28,16 +28,16 @@ pronunciation = {
     "sv": re.compile(sv.pronunciation),
 }
 
-# Regex to find the genre
-genre = {
-    "ca": re.compile(ca.genre),
-    "en": re.compile(defaults.genre),
-    "es": re.compile(defaults.genre),
-    "fr": re.compile(fr.genre),
-    "it": re.compile(it.genre),
-    "no": re.compile(defaults.genre),
-    "pt": re.compile(pt.genre),
-    "sv": re.compile(defaults.genre),
+# Regex to find the gender
+gender = {
+    "ca": re.compile(ca.gender),
+    "en": re.compile(defaults.gender),
+    "es": re.compile(defaults.gender),
+    "fr": re.compile(fr.gender),
+    "it": re.compile(it.gender),
+    "no": re.compile(defaults.gender),
+    "pt": re.compile(pt.gender),
+    "sv": re.compile(defaults.gender),
 }
 
 # Float number separator
@@ -136,7 +136,7 @@ sections = {
     "sv": sv.sections,
 }
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = {
     "ca": ca.definitions_to_ignore,
     "en": en.definitions_to_ignore,

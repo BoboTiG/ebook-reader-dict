@@ -123,6 +123,7 @@ regions = {
     "Drôme": "Drôme",
     "Dunkerque": "Dunkerque",
     "Durango": "Durango",
+    "Détroit": "Détroit",
     "ES": "Espagne",
     "EU": "Europe",
     "Empire ottoman": "Empire ottoman",
@@ -270,6 +271,13 @@ regions = {
     "Paraguay": "Paraguay",
     "Paris": "Paris",
     "Parler gaga": "Parler gaga",
+    "Patois Messin": "Patois Messin",
+    "Patois Vosgien": "Patois Vosgien",
+    "Patois de la Fentsch": "Patois de la Fentsch",
+    "Patois de la Nied": "Patois de la Nied",
+    "Patois de l’Isle": "Patois de l’Isle",
+    "Patois du Pays-Haut": "Patois du Pays-Haut",
+    "Patois du Saulnois": "Patois du Saulnois",
     "Pays basque": "Pays basque",
     "Pays de Galles": "Pays de Galles",
     "Pays-Bas": "Pays-Bas",
@@ -391,5 +399,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 386
+}  # 394
 # END

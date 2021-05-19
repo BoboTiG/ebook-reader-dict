@@ -35,7 +35,7 @@ sections = (
     "Verb",
 )
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "en-past of",
     "en-simple past of",
@@ -179,6 +179,9 @@ def last_template_handler(
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
+
+        >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
+        '痟 (<i>siáu</i>, “mad”)'
 
     """  # noqa
 

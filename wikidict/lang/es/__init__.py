@@ -35,7 +35,7 @@ sections = (
     "{{verbo",
 )
 
-# Some definitions are not good to keep (plural, genre, ... )
+# Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "antropónimo femenino",
     "antropónimo masculino",
@@ -67,21 +67,26 @@ templates_ignored = (
 )
 
 # Templates that will be completed/replaced using italic style.
+# use capital letter first, if lower, then see lowercase_italic
 templates_italic = {
     **campos_semanticos,
-    "germanía": "jergal",
-    "jergal": "jergal",
-    "jerga": "jergal",
-    "lunf": "lunfardismo",
+    "germanía": "Jergal",
+    "jergal": "Jergal",
+    "jerga": "Jergal",
+    "lunf": "Lunfardismo",
     "rpl": "Río de la Plata",
-    "rur": "rural",
-    "slang": "jergal",
+    "rur": "Rural",
+    "slang": "Jergal",
 }
 
 # Templates more complex to manage.
 templates_multi = {
     # {{adjetivo de sustantivo|el mundo árabe}}
     "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',  # noqa
+    # {{adjetivo de padecimiento|alergia}}
+    "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',  # noqa
+    # {{color|#DDB88E|espacio=6}}
+    "color": "color([p for p in parts if '=' not in p][1])",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{contracción|de|ellas|leng=es}}
@@ -90,12 +95,8 @@ templates_multi = {
     "coord": "coord(parts[1:])",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
-    #  {{diminutivo|historia}}
-    "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{etimología2|de [[hocicar]]}}
-    "etimología2": "capitalize(parts[1]) if len(parts) > 1 else ''",
-    # {{forma diminutivo|leng=es|cuchara}}
-    "forma diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
+    "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{gentilicio|Cataluña}}
@@ -117,11 +118,13 @@ templates_multi = {
     "subíndice": "subscript(parts[1])",
     # {{sustantivo de adjetivo|abad}}
     # {{sustantivo de adjetivo|abad|abadesa}}
-    "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if len(parts) > 2 else "")',
+    "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{sustantivo de verbo|circular}}
-    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if len(parts) > 2 else "")',
+    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
+    # {{trad|la|post meridem}}
+    "trad": 'f"{parts[2]}" + superscript(f"({parts[1]})")',
     # {{ucf|mujer}}
     "ucf": "capitalize(parts[1])",
     # {{variante obsoleta|hambre}}"
@@ -129,6 +132,8 @@ templates_multi = {
     # {{versalita|xx}}
     "versalita": "small_caps(parts[1])",
 }
+
+lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 
 
 def last_template_handler(
@@ -165,7 +170,6 @@ def last_template_handler(
         '<i>(Default)</i>'
     """
     from ...user_functions import (
-        capitalize,
         concat,
         extract_keywords_from,
         italic,
@@ -193,20 +197,24 @@ def last_template_handler(
                 phrase_a[-1] += f" {part} "
                 append_to_last = True
                 continue
-            elif part not in added:
-                local_phrase = lookup_italic(part, locale)
-                added.add(part)
-                if data["nota" + sindex]:
-                    local_phrase += f' ({data["nota"+sindex]})'
             else:
-                local_phrase = part
+                local_phrase = lookup_italic(part, locale)
+                if local_phrase not in added:
+                    added.add(local_phrase)
+                    if data["nota" + sindex]:
+                        local_phrase += f' ({data["nota"+sindex]})'
+                else:
+                    local_phrase = part
+            # some italic templates are in lower case if after the first one...
+            if index > 1 and local_phrase in lowercase_italic:
+                local_phrase = local_phrase.lower()
             if append_to_last:
                 phrase_a[-1] += local_phrase
                 append_to_last = False
             else:
                 phrase_a.append(local_phrase)
         if phrase_a:
-            phrase = italic(f'({capitalize(concat(phrase_a, ", "))})')
+            phrase = italic(f'({concat(phrase_a, ", ")})')
         return phrase
 
     return default(template, locale, word)
