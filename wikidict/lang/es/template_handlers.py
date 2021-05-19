@@ -6,6 +6,7 @@ from ...user_functions import (
     concat,
     extract_keywords_from,
     italic,
+    small,
     subscript,
 )
 
@@ -38,6 +39,16 @@ def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -
     if len(parts) > 3:
         result += f" o que {parts[3]}"
     return result
+
+
+def render_afi(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_afi("AFI", ["/oː/", "/aː/"], defaultdict(str))
+    '/oː/, /aː/ <small>(AFI)</small>'
+    >>> render_afi("IPA", ["/oː/"], defaultdict(str))
+    '/oː/ <small>(AFI)</small>'
+    """
+    return concat(parts, ", ") + f' {small("(AFI)")}'
 
 
 def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -630,6 +641,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
+    "AFI": render_afi,
     "aumentativo": render_aumentativo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
@@ -646,6 +658,7 @@ template_mapping = {
     "grafía obsoleta": render_grafia,
     "grafía rara": render_grafia,
     "hipocorístico": render_hipocoristico,
+    "IPA": render_afi,
     "l": render_l,
     "l+": render_l,
     "preposición conjugada": render_prep_conj,
