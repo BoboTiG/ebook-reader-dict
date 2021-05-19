@@ -59,8 +59,13 @@ def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Aumentativo del sustantivo</i> azada'
     >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str, {"i": "x", "tipo" : "sustantivo"}))
     '<i>Aumentativo irregular del sustantivo</i> perro'
+    >>> render_aumentativo("diminutivo", ["perro"], defaultdict(str))
+    '<i>Diminutivo de</i> perro'
     """
-    start = "Aumentativo "
+    if tpl in ("diminutivo", "forma diminutivo"):
+        start = "Diminutivo "
+    else:
+        start = "Aumentativo "
     if data["irregular"] or data["irreg"] or data["irr"] or data["i"]:
         start += "irregular "
     start += "de"
@@ -646,9 +651,11 @@ template_mapping = {
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "comparativo": render_comparativo,
+    "diminutivo": render_aumentativo,
     "etim": render_etim,
     "etimología": render_etimologia,
     "forma": render_forma,
+    "forma diminutivo": render_aumentativo,
     "forma sustantivo": render_forma,
     "forma sustantivo plural": render_forma,
     "gentilicio2": render_gentilicio2,

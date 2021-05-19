@@ -95,12 +95,8 @@ templates_multi = {
     "coord": "coord(parts[1:])",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
-    #  {{diminutivo|historia}}
-    "diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{etimología2|de [[hocicar]]}}
     "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
-    # {{forma diminutivo|leng=es|cuchara}}
-    "forma diminutivo": "f\"{italic('Diminutivo de')} {parts[-1]}\"",
     # {{formatnum:22905}}
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{gentilicio|Cataluña}}
@@ -127,6 +123,8 @@ templates_multi = {
     "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
+    # {{trad|la|post meridem}}
+    "trad": 'f"{parts[2]}" + superscript(f"({parts[1]})")',
     # {{ucf|mujer}}
     "ucf": "capitalize(parts[1])",
     # {{variante obsoleta|hambre}}"
