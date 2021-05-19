@@ -148,7 +148,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(UK, colloquial)</i> Me.",
+                "<i>(Britain, colloquial)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
