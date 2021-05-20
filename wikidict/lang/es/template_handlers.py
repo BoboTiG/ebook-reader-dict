@@ -493,6 +493,16 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_gentilicio(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_gentilicio("gentilicio", ["Alemania"], defaultdict(str))
+    'Originario, relativo a, o propio de Alemania'
+    >>> render_gentilicio("gentilicio", ["pueblo guajiro"], defaultdict(str, {"contracción":"1"}))
+    'Originario, relativo a, o propio del pueblo guajiro'
+    """
+    return f"Originario, relativo a, o propio {'del' if data['contracción'] else 'de'} {parts[0]}"
+
+
 def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_gentilicio2("gentilicio2", ["Alemania"], defaultdict(str))
@@ -501,6 +511,16 @@ def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Persona originaria del pueblo guajiro'
     """
     return f"Persona originaria {data['contracción'] or 'de'} {parts[0]}"
+
+
+def render_gentilicio3(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_gentilicio3("gentilicio3", ["Alemania"], defaultdict(str))
+    'Mujer originaria de Alemania'
+    >>> render_gentilicio3("gentilicio3", ["pueblo guajiro"], defaultdict(str, {"contracción":"del"}))
+    'Mujer originaria del pueblo guajiro'
+    """
+    return f"Mujer {data['adjetivo'] or 'originaria'} {data['contracción'] or 'de'} {parts[0]}"
 
 
 def render_grafia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -633,6 +653,42 @@ def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_sustantivo_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_sustantivo_de("sustantivo de verbo", ["circular"], defaultdict(str))
+    'Acción o efecto de circular'
+    >>> render_sustantivo_de("sustantivo de verbo", ["sublevar", "sublevarse"], defaultdict(str))
+    'Acción o efecto de sublevar o de sublevarse'
+    >>> render_sustantivo_de("sustantivo de adjetivo", ["urgente"], defaultdict(str))
+    'Condición o carácter de urgente'
+    >>> render_sustantivo_de("sustantivo de adjetivo", ["abad", "abadesa"], defaultdict(str))
+    'Condición o carácter de abad o abadesa'
+    """
+    # sustantivo de adjetivo
+    start = "Condición o carácter de"
+    connector = " o "
+    if tpl == "sustantivo de verbo":
+        start = "Acción o efecto de"
+        connector = " o de "
+    phrase = f"{start} "
+    phrase += render_l("l", [parts[0]], data)
+    if len(parts) > 1:
+        phrase += connector
+        phrase += render_l(
+            "l",
+            [parts[1]],
+            defaultdict(
+                str,
+                {
+                    "glosa": data["glosa2"],
+                    "glosa-alt": data["glosa-alt2"],
+                    "núm": data["núm2"] or data["num2"],
+                },
+            ),
+        )
+    return phrase
+
+
 def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_variante("variante", ["atiesar"], defaultdict(str))
@@ -658,7 +714,10 @@ template_mapping = {
     "forma diminutivo": render_aumentativo,
     "forma sustantivo": render_forma,
     "forma sustantivo plural": render_forma,
+    "gentilicio": render_gentilicio,
+    "gentilicio1": render_gentilicio,
     "gentilicio2": render_gentilicio2,
+    "gentilicio3": render_gentilicio3,
     "grafia": render_grafia,
     "grafía": render_grafia,
     "grafía informal": render_grafia,
@@ -670,6 +729,8 @@ template_mapping = {
     "l+": render_l,
     "preposición conjugada": render_prep_conj,
     "superlativo": render_superlativo,
+    "sustantivo de adjetivo": render_sustantivo_de,
+    "sustantivo de verbo": render_sustantivo_de,
     "variante": render_variante,
 }
 

@@ -230,13 +230,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
         ("{{formatnum:22905}}", "22 905"),
-        ("{{gentilicio|Cataluña}}", "Originario, relativo a, o propio de Cataluña"),
-        (
-            "{{gentilicio|pueblo filisteo|contracción=x}}",
-            "Originario, relativo a, o propio del pueblo filisteo",
-        ),
-        ("{{gentilicio1|Alemania}}", "Originario, relativo a, o propio de Alemania"),
-        ("{{gentilicio2|Alemania}}", "Persona originaria de Alemania"),
         (
             "{{impropia|Utilizado para especificar...}}",
             "<i>Utilizado para especificar...</i>",
@@ -252,16 +245,6 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
         ("{{redirección suave|protocelta}}", "<i>Véase</i> protocelta"),
         ("{{-sub|4}}", "<sub>4</sub>"),
         ("{{subíndice|5}}", "<sub>5</sub>"),
-        ("{{sustantivo de adjetivo|urgente}}", "Condición o carácter de urgente"),
-        (
-            "{{sustantivo de adjetivo|abad|abadesa}}",
-            "Condición o carácter de abad o abadesa",
-        ),
-        ("{{sustantivo de verbo|circular}}", "Acción o efecto de circular"),
-        (
-            "{{sustantivo de verbo|sublevar|sublevarse}}",
-            "Acción o efecto de sublevar o de sublevarse",
-        ),
         ("{{-sup|2}}", "<sup>2</sup>"),
         ("{{ucf|mujer}}", "Mujer"),
         ("{{variante|atiesar}}", "<i>Variante de</i> atiesar"),
@@ -270,6 +253,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "<i>Variante anticuada de</i> diezmo",
         ),
         ("{{variante obsoleta|hambre}}", "<i>Variante obsoleta de</i> hambre"),
+        ("{{verde|*exfollare}}", "<i>*exfollare</i>"),
     ],
 )
 def test_process_templates(wikicode, expected):

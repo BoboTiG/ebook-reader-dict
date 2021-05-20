@@ -110,10 +110,6 @@ templates_multi = {
     "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
-    # {{gentilicio|Cataluña}}
-    "gentilicio": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
-    # {{gentilicio1|Alemania}}
-    "gentilicio1": '"Originario, relativo a, o propio " + ("del" if any("contracción" in part for part in parts) else "de") + f" {parts[1]}"',  # noqa
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
     # {{nombre científico}}
@@ -127,11 +123,6 @@ templates_multi = {
     "-sub": "subscript(parts[1])",
     # {{subíndice|5}}
     "subíndice": "subscript(parts[1])",
-    # {{sustantivo de adjetivo|abad}}
-    # {{sustantivo de adjetivo|abad|abadesa}}
-    "sustantivo de adjetivo": 'f"Condición o carácter de {parts[1]}" + (f" o {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
-    # {{sustantivo de verbo|circular}}
-    "sustantivo de verbo": 'f"Acción o efecto de {parts[1]}" + (f" o de {parts[2]}" if (len(parts) > 2 and parts[2]) else "")',  # noqa
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
     # {{trad|la|post meridem}}
@@ -142,6 +133,8 @@ templates_multi = {
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
     # {{versalita|xx}}
     "versalita": "small_caps(parts[1])",
+    # {{verde|*exfollare}}
+    "verde": "italic(parts[1])",
 }
 
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")

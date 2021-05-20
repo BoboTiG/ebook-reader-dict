@@ -48,7 +48,7 @@ for line in text.split("\n"):
 
 exec(code)
 results = {}
-for k, v in aliases.items():
+for k, v in aliases.items():  # noqa
     label_v = labels.get(v)  # noqa
     if label_v:
         display = label_v.get("display", v)  # noqa
