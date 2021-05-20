@@ -273,6 +273,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
         ''
+        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
+        ''
         >>> clean("<!-- {{sco}} -->")
         ''
         >>> clean("<!-- <i>sco</i> -->")
@@ -306,7 +308,7 @@ def clean(text: str) -> str:
 
     # Files
     pattern = "|".join(iter(pattern_file))
-    text = sub(fr"\[\[(?:{pattern}):[^\]]+\]\]", "", text)
+    text = sub(fr"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
 
     # HTML
     # <-- foo --> -> ''
