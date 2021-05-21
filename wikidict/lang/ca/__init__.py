@@ -169,8 +169,7 @@ def last_template_handler(
         superscript,
     )
 
-    tpl = template[0]
-    parts = list(template[1:])
+    tpl, *parts = template
     data = extract_keywords_from(parts)
     phrase = ""
 
@@ -210,7 +209,7 @@ def last_template_handler(
             phrase = strong(phrase)
         return phrase
 
-    if tpl == "terme":
+    if tpl in ("terme", "calc"):
         return f"{italic(parts[-1])}{parse_other_parameters()}"
 
     if tpl == "trad":
