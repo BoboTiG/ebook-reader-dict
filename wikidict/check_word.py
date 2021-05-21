@@ -1,4 +1,5 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
+import copy
 import re
 from functools import partial
 
@@ -51,18 +52,6 @@ def filter_html(html: str, locale: str) -> str:
 
     # Adapt the formatting for the ES locale as it differs from other locales
     if locale == "es":
-        dts = bs.find_all("dt")
-        for dt in dts:
-            dt_array = dt.text.split(" ", 1)
-            if len(dt_array) == 2:
-                dt.string = dt_array[0] + " "
-                if "." in dt_array[1]:
-                    dt_array_dot = dt_array[1].split(".")
-                    for da in dt_array_dot[:-1]:
-                        dt.string += f"({da})"
-                    dt.string += f" {dt_array_dot[-1]}:"
-                else:
-                    dt.string += f"({dt_array[1]}):"
         # Replace color rectangle
         for span in bs.find_all("span", {"id": "ColorRect"}):
             for style in span["style"].split(";"):
@@ -81,6 +70,29 @@ def filter_html(html: str, locale: str) -> str:
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
             a.decompose()
+        dts = bs.find_all("dt")
+        for dt in dts:
+            dt_array = dt.text.split(" ", 1)
+            if len(dt_array) == 2:
+                dt.string = dt_array[0] + " "
+                # 2 Historia. --> (Historia):
+                if "." in dt_array[1]:
+                    dt_array_dot = dt_array[1].split(".")
+                    for da in dt_array_dot[:-1]:
+                        dt.string += f"({da})"
+                    dt.string += f" {dt_array_dot[-1]}:"
+                else:
+                    # duplicate the definition to cope with both cases above
+                    newdt = copy.copy(dt)
+                    dt.parent.append(newdt)
+                    dd = dt.find_next_sibling("dd")
+                    if dd:
+                        dt.parent.append(copy.copy(dd))
+                    # 2 Selva de Bohemia: --> Selva de Bohemia:
+                    newdt.string = dt.string + dt_array[1] + ":"
+                    # 2 Coloquial: --> (Coloquial):
+                    dt.string += f"({dt_array[1]}):"
+
         return no_spaces(bs.text)
 
     if locale == "fr":

@@ -697,7 +697,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Variante anticuada de</i> diezmo'
     """
     sentence = data["texto"] or "variante de"
-    return f"{italic(capitalize(sentence))} {parts[0]}"
+    return f"{italic(capitalize(sentence))} " + render_l("l", [parts[0]], data)
 
 
 template_mapping = {

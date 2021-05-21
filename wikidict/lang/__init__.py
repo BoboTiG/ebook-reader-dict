@@ -163,11 +163,21 @@ words_to_keep = {
 # The template name dealing with files in the Wikicode.
 # [[Archivo:...|...]] (es)
 # [[Categoría:...|...]] (es)
+# [[Imagen:...|...]] (es)
 # [[Fichier:...|...|...|...]] (fr)
 # [[File:...|...|...|...]] (fr)
 # [[Fitxer:...|...|...]] (ca)
 # [[Image:...|...|...]] (fr)
-pattern_file = ("Archivo", "Categoría", "Fichier", "File", "Fitxer", "Image")
+pattern_file = (
+    "Archivo",
+    "Categoría",
+    "categoría",
+    "Imagen",
+    "Fichier",
+    "File",
+    "Fitxer",
+    "Image",
+)
 
 # Templates replacements: wikicode -> text conversion
 
