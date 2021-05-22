@@ -73,7 +73,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
-                "<i>(Roman god)</i> The Roman god of war.",
+                "<i>(Roman mythology)</i> The Roman god of war.",
                 "<i>(poetic)</i> War; a personification of war.",
                 "The Mars Bar, a brand of chocolate bar with caramel and nougat filling.",
                 "<i>Alternative form of</i> <b>Mas</b>",
