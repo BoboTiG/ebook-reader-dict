@@ -94,10 +94,11 @@ for k, v in labels.items():  # noqa
     omit_preSpace = v.get("omit_preSpace")
     if omit_postComma or omit_preComma or omit_preSpace:
         syntaxes[k] = {
-            "omit_postComma": True if omit_postComma else False,
-            "omit_preComma": True if omit_preComma else False,
-            "omit_preSpace": True if omit_preSpace else False,
+            "omit_postComma": bool(omit_postComma),
+            "omit_preComma": bool(omit_preComma),
+            "omit_preSpace": bool(omit_preSpace),
         }
+
 for k, v in aliases.items():  # noqa
     label_v = labels.get(v)  # noqa
     if label_v and syntaxes.get(v):
