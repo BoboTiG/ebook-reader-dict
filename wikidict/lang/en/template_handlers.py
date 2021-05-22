@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Tuple, Dict, List, TypedDict
-from itertools import zip_longest
 
+from .labels import label_syntaxes
 from .langs import langs
 from .places import (
     recognized_placetypes,
@@ -507,24 +507,36 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(transitive, intransitive)</i>'
     >>> render_label("lbl", ["en" , "ambitransitive", "obsolete"], defaultdict(str))
     '<i>(transitive, intransitive, obsolete)</i>'
+    >>> render_label("lbl", ["en" , "chiefly", "nautical"], defaultdict(str))
+    '<i>(chiefly nautical)</i>'
     """
     if len(parts) == 2:
         return term(lookup_italic(parts[1], "en"))
     res = ""
-    for word1, word2 in zip_longest(parts[1:], parts[2:]):
-        if word1 in ("_", "and", "or"):
-            continue
+    omit_preComma = False
+    omit_postComma = True
+    omit_preSpace = False
+    omit_postSpace = True
 
-        res += lookup_italic(word1, "en")
-        if word2 == "_":
-            res += " "
-        elif word2 == "and":
-            res += " and "
-        elif word2 == "or":
-            res += " or "
-        elif word2:
-            res += ", "
-    return term(res.rstrip(", "))
+    for label in parts[1:]:
+        omit_preComma = omit_postComma
+        omit_postComma = False
+        omit_preSpace = omit_postSpace
+        omit_postSpace = False
+
+        syntax = label_syntaxes.get(label)
+
+        omit_comma = omit_preComma or (syntax["omit_preComma"] if syntax else False)
+        omit_postComma = syntax["omit_postComma"] if syntax else False
+        omit_space = omit_preSpace or (syntax["omit_preSpace"] if syntax else False)
+
+        label_display = lookup_italic(label, "en")
+        if label_display:
+            res += "" if omit_comma else ","
+            res += "" if omit_space else " "
+            res += label_display
+
+    return term(res)
 
 
 def render_lit(tpl: str, parts: List[str], data: Dict[str, str]) -> str:

@@ -35,7 +35,7 @@ def process_page(url, repl, stop_line, var_name):
     text = text.replace("--", "#")
 
     for r in repl:
-        text = re.sub(fr"{r}[\s]*=", f'"{r}":', text)
+        text = re.sub(fr"[ \t]+{r}[\s]*=", f'    "{r}":', text)
 
     code = ""
     for line in text.split("\n"):
@@ -51,7 +51,8 @@ def process_page(url, repl, stop_line, var_name):
         if label_v:
             display = label_v.get("display", v)  # noqa
             display = process_display(display)
-            results[k] = display
+            if display != k:
+                results[k] = display
 
     for k, v in labels.items():  # noqa
         display = v.get("display", k)
@@ -64,6 +65,54 @@ def process_page(url, repl, stop_line, var_name):
         print(f'    "{key}": "{value}",')
     print(f"}}  # {len(results):,}")
 
+
+url = "https://en.wiktionary.org/wiki/Module:labels/data"
+repl = (
+    "display",
+    "labels",
+    "aliases",
+    "deprecated",
+    "omit_preComma",
+    "omit_postComma",
+    "omit_preSpace",
+    "pos_categories",
+    "glossary",
+    "Wikipedia",
+    "plain_categories",
+    "regional_categories",
+    "sense_categories",
+    "track",
+)
+stop_line = "# Regional labels"
+var_name = "labels"
+process_page(url, repl, stop_line, var_name)
+
+syntaxes = {}
+for k, v in labels.items():  # noqa
+    omit_preComma = v.get("omit_preComma")
+    omit_postComma = v.get("omit_postComma")
+    omit_preSpace = v.get("omit_preSpace")
+    if omit_postComma or omit_preComma or omit_preSpace:
+        syntaxes[k] = {
+            "omit_postComma": True if omit_postComma else False,
+            "omit_preComma": True if omit_preComma else False,
+            "omit_preSpace": True if omit_preSpace else False,
+        }
+for k, v in aliases.items():  # noqa
+    label_v = labels.get(v)  # noqa
+    if label_v and syntaxes.get(v):
+        syntaxes[k] = syntaxes[v]
+
+print()
+print("label_syntaxes = {")
+for key, value in sorted(syntaxes.items()):
+    print(f'    "{key}": {{')
+    for k, v in value.items():
+        print(f'        "{k}": {v},')
+    print("    },")
+print(f"}}  # {len(syntaxes):,}")
+
+print()
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data/topical"
 repl = (

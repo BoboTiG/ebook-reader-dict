@@ -134,10 +134,10 @@ from wikidict.utils import process_templates
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
-                "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
+                "<i>(chiefly US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
                 "<i>Alternative form of</i> <b>umbe</b>",
-                "<i>(dated, sometimes, humorous, often, offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
+                "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
             ],
         ),
         (
@@ -168,18 +168,18 @@ from wikidict.utils import process_templates
                     "<i>(countable)</i> A serving of liquid water.",
                 ),
                 "<i>(alchemy, philosophy)</i> The aforementioned liquid, considered one of the Classical elements or basic elements of alchemy.",  # noqa
-                "<i>(uncountable or in the plural)</i> Water in a body; an area of open water.",
+                "<i>(uncountable or plural)</i> Water in a body; an area of open water.",
                 "<i>(poetic, archaic or dialectal)</i> A body of water, almost always a river.",
                 "A combination of water and other substance(s).",
                 (
-                    "<i>(sometimes, countable)</i> Mineral water.",
-                    "<i>(countable, often, in the plural)</i> Spa water.",
+                    "<i>(sometimes countable)</i> Mineral water.",
+                    "<i>(countable, often plural)</i> Spa water.",
                     "<i>(pharmacy)</i> A solution in water of a gaseous or readily volatile substance.",
                     "Urine. <small>[from 15th c.]</small>",
                     'Amniotic fluid or the amniotic sac containing it. (<i>Used only in the plural in the UK but often also in the singular in North America. (The Merriam-Webster Medical Dictionary says "often used in plural; also: bag of waters".)</i>)',  # noqa
                     "<i>(colloquial, medicine)</i> Fluids in the body, especially when causing swelling.",
                 ),
-                "<i>(figuratively, in the plural or in the singular)</i> A state of affairs; conditions; usually with an adjective indicating an adverse condition.",  # noqa
+                "<i>(figuratively, plural or in the singular)</i> A state of affairs; conditions; usually with an adjective indicating an adverse condition.",  # noqa
                 "<i>(colloquial, figuratively)</i> A person's intuition.",
                 "<i>(uncountable, dated, finance)</i> Excess valuation of securities.",
                 "The limpidity and lustre of a precious stone, especially a diamond.",
@@ -217,14 +217,14 @@ from wikidict.utils import process_templates
                     "<i>(group theory)</i> A group element, expressed as a product of group elements.",
                 ),
                 "The fact or act of speaking, as opposed to taking action. <small>[from 9th c]</small>.",
-                "<i>(now, rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
+                "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
                 "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",  # noqa
                 "<i>(obsolete)</i> A proverb or motto.",
                 "News; tidings (<i>used without an article</i>). <small>[from 10th c.]</small>",
                 "An order; a request or instruction; an expression of will. <small>[from 10th c.]</small>",
                 "A promise; an oath or guarantee. <small>[from 10th c.]</small>",
                 "A brief discussion or conversation. <small>[from 15th c.]</small>",
-                "<i>(in the plural)</i> <i>See</i> <b>words</b>.",
+                "<i>(plural)</i> <i>See</i> <b>words</b>.",
                 "<i>(theology, sometimes <b>Word</b>)</i> Communication from God; the message of the Christian gospel; the Bible, Scripture. <small>[from 10th c.]</small>",  # noqa
                 "<i>(theology, sometimes <b>Word</b>)</i> Logos, Christ. <small>[from 8th c.]</small>",
                 "<i>(transitive)</i> To say or write (something) using particular words; to phrase (something).",
