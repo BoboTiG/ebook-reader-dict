@@ -63,8 +63,10 @@ escopos = {
     "beira": "Beira",
     "beira alta": "Beira Alta",
     "beira interior": "Beira Interior",
+    "beira litoral": "Beira Litoral",
     "beira-alta": "Beira Alta",
     "beira-interior": "Beira Interior",
+    "beira-litoral": "Beira Litoral",
     "beiras": "As Beiras",
     "belver": "Belver",
     "berzo": "Berzo",
@@ -105,7 +107,7 @@ escopos = {
     "conotativo": "figurado",
     "continente": "Geografia",
     "costa rica": "Costa Rica",
-    "cronónimo": "Cronônimo",
+    "cronónimo": "Cronónimo",
     "cronônimo": "Cronônimo",
     "crustáceo": "Zoologia",
     "cuba": "Cuba",
@@ -379,5 +381,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 374
+}  # 376
 # END
