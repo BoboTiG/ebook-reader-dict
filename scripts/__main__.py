@@ -5,7 +5,7 @@ import threading
 FILES = {
     "ca-langs.py": "wikidict/lang/ca/langs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
-    "en-labels-regional.py": "wikidict/lang/en/labels_regional.py",
+    "en-labels.py": "wikidict/lang/en/labels.py",
     "en-langs.py": "wikidict/lang/en/langs.py",
     "en-places.py": "wikidict/lang/en/places.py",
     "es-langs.py": "wikidict/lang/es/langs.py",
