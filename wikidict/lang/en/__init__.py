@@ -1,6 +1,6 @@
 """English language."""
 from typing import Tuple
-from .labels import labels_regional, labels_subvarieties, labels_topical
+from .labels import labels, labels_regional, labels_subvarieties, labels_topical
 
 # Regex to find the pronunciation
 pronunciation = r"{IPA\|en\|/([^/]+)/"
@@ -40,6 +40,7 @@ sections = (
 definitions_to_ignore = (
     "en-past of",
     "en-simple past of",
+    "en-third-person singular of",
     "infl of",
     "inflection of",
     "plural of",
@@ -52,6 +53,7 @@ templates_ignored = (
     "C",
     "cln",
     "elements",
+    "etystub",
     "multiple images",
     "+obj",
     "PIE word",
@@ -66,6 +68,7 @@ templates_ignored = (
     "rfd-sense",
     "rfv-etym",
     "rfv-sense",
+    "rfe",
     "rfex",
     "root",
     "senseid",
@@ -79,6 +82,7 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
+    **labels,
     **labels_regional,
     **labels_subvarieties,
     **labels_topical,
@@ -169,6 +173,8 @@ def last_template_handler(
         >>> last_template_handler(["alternative spelling of", "en" , "ye", "from=from", "from2=from2"], "en")
         '<i>From and from2 spelling of</i> <b>ye</b>'
 
+        >>> last_template_handler(["initialism of", "en", "w:Shockwave Flash"], "en")
+        '<i>Initialism of</i> <b>Shockwave Flash</b>.'
         >>> last_template_handler(["initialism of", "en", "optical character reader", "dot=&nbsp;(the scanning device)"], "en")
         '<i>Initialism of</i> <b>optical character reader</b>&nbsp;(the scanning device)'
         >>> last_template_handler(["init of", "en", "optical character reader", "tr=tr", "t=t", "ts=ts"], "en")
@@ -226,6 +232,8 @@ def last_template_handler(
             text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
             gloss = data["t"] or data["4"] or (parts.pop(0) if parts else "")
         word = text or word
+        if word.startswith("w:"):
+            word = word[2:]
 
         fromtext = join_names(data, "from", " and ")
         if fromtext:

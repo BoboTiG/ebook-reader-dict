@@ -134,10 +134,10 @@ from wikidict.utils import process_templates
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
-                "<i>(chiefly, US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
+                "<i>(chiefly US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
                 "<i>Alternative form of</i> <b>umbe</b>",
-                "<i>(dated, sometimes, humorous, often, offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
+                "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
             ],
         ),
         (
@@ -172,8 +172,8 @@ from wikidict.utils import process_templates
                 "<i>(poetic, archaic or dialectal)</i> A body of water, almost always a river.",
                 "A combination of water and other substance(s).",
                 (
-                    "<i>(sometimes, countable)</i> Mineral water.",
-                    "<i>(countable, often, in the plural)</i> Spa water.",
+                    "<i>(sometimes countable)</i> Mineral water.",
+                    "<i>(countable, often in the plural)</i> Spa water.",
                     "<i>(pharmacy)</i> A solution in water of a gaseous or readily volatile substance.",
                     "Urine. <small>[from 15th c.]</small>",
                     'Amniotic fluid or the amniotic sac containing it. (<i>Used only in the plural in the UK but often also in the singular in North America. (The Merriam-Webster Medical Dictionary says "often used in plural; also: bag of waters".)</i>)',  # noqa
@@ -217,7 +217,7 @@ from wikidict.utils import process_templates
                     "<i>(group theory)</i> A group element, expressed as a product of group elements.",
                 ),
                 "The fact or act of speaking, as opposed to taking action. <small>[from 9th c]</small>.",
-                "<i>(now, rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
+                "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
                 "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",  # noqa
                 "<i>(obsolete)</i> A proverb or motto.",
                 "News; tidings (<i>used without an article</i>). <small>[from 10th c.]</small>",
