@@ -140,6 +140,7 @@ escopos = {
     "estados unidos": "Estados Unidos",
     "estadunidense": "Estados Unidos",
     "estrangeirismo": "estrangeirismo",
+    "estremadura": "Estremadura",
     "etnia": "Etnologia",
     "etnónimo": "Etnologia",
     "etnônimo": "Etnologia",
@@ -151,7 +152,7 @@ escopos = {
     "ferroviário": "Transporte",
     "figurado": "figurado",
     "figurativo": "figurado",
-    "flor": "Botânica",
+    "flor": "Flor",
     "florianópolis": "Florianópolis",
     "formal": "poético",
     "francesismo": "Galicismo",
@@ -381,5 +382,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 376
+}  # 377
 # END
