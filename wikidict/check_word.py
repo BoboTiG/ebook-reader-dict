@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 
 # Remove all kind of spaces and some unicode characters
-_replace_noisy_chars = re.compile(r"[\s\u200e]").sub
+_replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
 no_spaces = partial(_replace_noisy_chars, "")
 
 
@@ -139,7 +139,6 @@ def filter_html(html: str, locale: str) -> str:
     for a in bs.find_all("a", href=True):
         if a["href"].startswith("#"):
             a.decompose()
-
     return no_spaces(bs.text)
 
 
