@@ -147,8 +147,6 @@ templates_multi = {
     "sup": "superscript(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
-    # {{vern|Pacific cod}}
-    "vern": "parts[-1]",
 }
 
 
