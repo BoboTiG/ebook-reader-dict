@@ -993,6 +993,18 @@ def render_unknown(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return "Unknown"
 
 
+def render_vern(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_vern("vern", ["Pacific cod"], defaultdict(str))
+    'Pacific cod'
+    >>> render_vern("vern", ["freshwater sculpin"], defaultdict(str, {"pl": "s"}))
+    'freshwater sculpins'
+    >>> render_vern("vern", ["freshwater sculpin", "freshwater sculpins"], defaultdict(str))
+    'freshwater sculpins'
+    """
+    return parts[-1] + data["pl"]
+
+
 template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
@@ -1085,6 +1097,8 @@ template_mapping = {
     "unadapted borrowing": render_foreign_derivation,
     "unk": render_unknown,
     "unknown": render_unknown,
+    "vern": render_vern,
+    "vernacular": render_vern,
     "w": defaults.render_wikilink,
 }
 
