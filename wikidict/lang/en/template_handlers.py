@@ -961,14 +961,15 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_surname("surname", ["en", "occupational"], defaultdict(str, {"A":"An"}))
     '<i>An occupational surname.</i>'
     >>> render_surname("surname", ["en"], defaultdict(str, {"from":"Latin", "dot":","}))
-    '<i>A surname,</i>'
+    '<i>A surname, from Latin,</i>'
     """
     parts.pop(0)  # Remove the lang
     art = data["A"] or "A"
     dot = data["dot"] or ("" if data["nodot"] else ".")
+    from_text = f", from {data['from']}" if data["from"] else ""
     if not parts:
-        return italic(f"{art} {tpl}{dot}")
-    return italic(f"{art} {parts[0]} {tpl}{dot}")
+        return italic(f"{art} {tpl}{from_text}{dot}")
+    return italic(f"{art} {parts[0]} {tpl}{from_text}{dot}")
 
 
 def render_unknown(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
