@@ -65,6 +65,17 @@ def test_filter_anchors():
         assert check_word.main("en", "42") == 0
 
 
+def test_filter_en_nbof():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += '<span title="doubt, doubten, dought, doughten, douti, douʒte, dut, duten, duti">and other forms</span>'
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("en", "doubt") == 0
+
+
 def test_filter_es():
     orig = check_word.filter_html
 

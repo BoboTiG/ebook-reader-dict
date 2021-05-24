@@ -509,6 +509,8 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(transitive, intransitive, obsolete)</i>'
     >>> render_label("lbl", ["en" , "chiefly", "nautical"], defaultdict(str))
     '<i>(chiefly nautical)</i>'
+    >>> render_label("lbl", ["en" , "", "nautical"], defaultdict(str))
+    '<i>(nautical)</i>'
     """
     if len(parts) == 2:
         return term(lookup_italic(parts[1], "en"))
@@ -532,8 +534,9 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
         label_display = lookup_italic(label, "en")
         if label_display:
-            res += "" if omit_comma else ","
-            res += "" if omit_space else " "
+            if res:
+                res += "" if omit_comma else ","
+                res += "" if omit_space else " "
             res += label_display
 
     return term(res)

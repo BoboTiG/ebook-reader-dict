@@ -135,6 +135,11 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
         return no_spaces(bs.text)
 
+    if locale == "en":
+        for span in bs.find_all("span"):
+            if span.string == "and other forms":
+                span.string += f' {span["title"]}'
+
     # Filter out anchors as they are ignored from templates
     for a in bs.find_all("a", href=True):
         if a["href"].startswith("#"):
