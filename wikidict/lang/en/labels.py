@@ -1403,6 +1403,7 @@ labels_subvarieties = {
     "Breemsch": "Oldenburg",
     "Bremen": "Oldenburg",
     "British English": "British",
+    "British Indian English": "British India",
     "British Mediaeval Latin": "British Medieval Latin",
     "Brummie": "Birmingham",
     "Brummy": "Birmingham",
@@ -1987,6 +1988,6 @@ labels_subvarieties = {
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
-}  # 642
+}  # 643
 
 # END
