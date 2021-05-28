@@ -7,8 +7,6 @@ import re
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from .lang import templates_italic
-
 
 def capitalize(text: str) -> str:
     """
@@ -276,6 +274,8 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
         >>> lookup_italic("Antropônimo", "pt")
         'Antropônimo'
     """
+    from .lang import templates_italic
+
     default = "" if empty_default else word
     looking_for = word
 
