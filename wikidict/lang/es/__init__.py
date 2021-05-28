@@ -173,6 +173,9 @@ def last_template_handler(
         >>> last_template_handler(["default"], "es")
         '<i>(Default)</i>'
 
+        >>> last_template_handler(["variantes", "adestrador", "nota=poco frecuente"], "es")
+        '<b>Variante:</b> adestrador (poco frecuente)'
+
         >>> last_template_handler(["en"], "es")
         'Inglés'
     """
@@ -182,6 +185,7 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         lookup_italic,
+        strong,
     )
     from .template_handlers import render_template, lookup_template
     from ..defaults import last_template_handler as default
@@ -223,6 +227,14 @@ def last_template_handler(
                 phrase_a.append(local_phrase)
         if phrase_a:
             phrase = italic(f'({concat(phrase_a, ", ")})')
+        return phrase
+
+    if template[0] == "variantes":
+        _, *parts = template
+        data = extract_keywords_from(parts)
+        phrase = f"{strong('Variante:')} {parts[0]}"
+        if data["nota"]:
+            phrase += f" ({data['nota']})"
         return phrase
 
     from .langs import langs
