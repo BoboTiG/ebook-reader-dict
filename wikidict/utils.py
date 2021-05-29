@@ -415,32 +415,16 @@ def process_templates(word: str, text: str, locale: str) -> str:
     # {{foo|bar}}
     # {{foo|{{bar}}|123}}
     # {{foo|{{bar|baz}}|123}}
+    # {{foo|{{bar|lang|{{baz|args}}}}|123}}
 
-    # Simplify the parsing logic: this line will return a list of nested templates.
-    for tpl in set(re.findall(r"({{[^{}]*}})", text)):
-        # Transform the nested template.
-        # This will remove any nested templates from the original text.
-        text = text.replace(tpl, transform(word, tpl[2:-2], locale))
-
-    # Now that all nested templates are done, we can process top-level ones
-    while "{{" in text:
-        start = text.find("{{")
-        pos = start + 2
-        subtext = ""
-
-        while pos < len(text):
-            if text[pos : pos + 2] == "}}":
-                # We hit the end of the template
-                pos += 1
-                break
-
-            # Save the template contents
-            subtext += text[pos]
-            pos += 1
-
-        # The template is now completed
-        transformed = transform(word, subtext, locale)
-        text = f"{text[:start]}{transformed}{text[pos + 1 :]}"
+    # Handle all templates
+    while "there are templates":
+        templates = set(re.findall(r"({{[^{}]*}})", text))
+        if not templates:
+            break
+        for tpl in templates:
+            # Transform the template
+            text = text.replace(tpl, transform(word, tpl[2:-2], locale))
 
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)

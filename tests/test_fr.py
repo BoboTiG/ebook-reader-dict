@@ -418,7 +418,7 @@ def test_parse_word(
         ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
         ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
-        ("{{détroit|fr", "<i>(Géographie)</i>"),
+        ("{{détroit|fr}}", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
         ("{{diminutif|fr}}", "diminutif"),
         ("{{diminutif|fr|de=balle}}", "diminutif"),
@@ -479,6 +479,10 @@ def test_parse_word(
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
+        (
+            "{{refnec|lang=fr|Du préfixe privatif [[a-]] de [[cyan]] et de {{polytonique|{{lien|βλέψις|grc}}|blepsis|vue}}.}}",  # noqa
+            "<u>Du préfixe privatif [[a-]] de [[cyan]] et de βλέψις, <i>blepsis</i> («&nbsp;vue&nbsp;»).</u>",
+        ),
         ("{{réf}}", ""),
         ("{{registre|traditionnellement}}", "<i>(Traditionnellement)</i>"),
         ("{{SIC}}", "<sup>[sic]</sup>"),
