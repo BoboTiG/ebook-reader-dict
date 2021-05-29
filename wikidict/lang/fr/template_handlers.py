@@ -14,6 +14,7 @@ from ...user_functions import (
     strong,
     superscript,
     term,
+    underline,
 )
 
 
@@ -656,6 +657,18 @@ def render_recons(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"*{phrase}"
 
 
+def render_refnec(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_refnec("recons", [], defaultdict(str, {"lang": "fr"}))
+    ''
+    >>> render_refnec("recons", ["phrase difficile à avaler"], defaultdict(str))
+    '<u>phrase difficile à avaler</u>'
+    """
+    if not parts:
+        return ""
+    return underline(parts[0])
+
+
 def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_siecle("siècle", [], defaultdict(str))
@@ -939,6 +952,11 @@ template_mapping = {
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
     "recons": render_recons,
+    "refnec": render_refnec,
+    "réfnéc": render_refnec,
+    "réfnec": render_refnec,
+    "référence nécessaire": render_refnec,
+    "Référence nécessaire": render_refnec,
     "reverlanisation": render_modele_etym,
     "siècle": render_siecle,
     "siècle2": render_siecle2,

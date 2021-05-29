@@ -515,6 +515,16 @@ def term(text: str) -> str:
     return italic(parenthesis(text))
 
 
+def underline(text: str) -> str:
+    """
+    Return the *text* surrounded by underline HTML tags.
+
+        >>> underline("foo")
+        '<u>foo</u>'
+    """
+    return f"<u>{text}</u>"
+
+
 __all__ = (
     "capitalize",
     "century",
@@ -540,4 +550,5 @@ __all__ = (
     "superscript",
     "tag",
     "term",
+    "underline",
 )

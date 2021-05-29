@@ -37,8 +37,6 @@ import re
 from collections import defaultdict
 from typing import Dict, List, Optional
 
-from .lang import templates_italic
-
 
 def capitalize(text: str) -&gt; str:
     &#34;&#34;&#34;
@@ -306,6 +304,8 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -&gt; str
         &gt;&gt;&gt; lookup_italic(&#34;Antropônimo&#34;, &#34;pt&#34;)
         &#39;Antropônimo&#39;
     &#34;&#34;&#34;
+    from .lang import templates_italic
+
     default = &#34;&#34; if empty_default else word
     looking_for = word
 
@@ -329,11 +329,11 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
         &gt;&gt;&gt; number(&#34;1000000&#34;, &#34;.&#34;, &#34;,&#34;)
         &#39;1,000,000&#39;
         &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;,&#34;, &#34; &#34;)
-        &#39;-1 000 000&#39;
+        &#39;−1 000 000&#39;
         &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;&#34;, &#34;&#34;)
-        &#39;-1000000&#39;
-        &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;.&#34;, &#34;,&#34;)
-        &#39;-1,000,000&#39;
+        &#39;−1000000&#39;
+        &gt;&gt;&gt; number(&#34;−1000000&#34;, &#34;.&#34;, &#34;,&#34;)
+        &#39;−1,000,000&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;,&#34; , &#34; &#34;)
         &#39;4,54609&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;.&#34; , &#34;,&#34;)
@@ -344,11 +344,10 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
 
-    # Handle mathematical substract character
-    has_math_substract_symbol = number[0] == &#34;−&#34;
-    if has_math_substract_symbol:
-        number = number.replace(&#34;−&#34;, &#34;-&#34;)
+    # Handle unicode minus U+2212 character before doing the conversion
+    number = number.replace(&#34;−&#34;, &#34;-&#34;)
 
+    # Convert
     try:
         # Integer
         res = f&#34;{int(number):,}&#34;
@@ -362,10 +361,8 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
     # This 3-steps-replacement is needed for when separators are replacing each other.
     res = res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
 
-    if has_math_substract_symbol:
-        res = res.replace(&#34;-&#34;, &#34;−&#34;)
-
-    return res
+    # Always return unicode minus U+2212 character for negative numbers
+    return res.replace(&#34;-&#34;, &#34;−&#34;)
 
 
 def parenthesis(text: str) -&gt; str:
@@ -548,6 +545,16 @@ def term(text: str) -&gt; str:
     return italic(parenthesis(text))
 
 
+def underline(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by underline HTML tags.
+
+        &gt;&gt;&gt; underline(&#34;foo&#34;)
+        &#39;&lt;u&gt;foo&lt;/u&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;u&gt;{text}&lt;/u&gt;&#34;
+
+
 __all__ = (
     &#34;capitalize&#34;,
     &#34;century&#34;,
@@ -573,6 +580,7 @@ __all__ = (
     &#34;superscript&#34;,
     &#34;tag&#34;,
     &#34;term&#34;,
+    &#34;underline&#34;,
 )</code></pre>
 </details>
 </section>
@@ -760,7 +768,7 @@ __all__ = (
 </details>
 </dd>
 <dt id="wikidict.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str = None, indexes: Union[List[int], NoneType] = None, skip: Union[str, NoneType] = None) ‑> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str = None, indexes: Optional[List[int]] = None, skip: Optional[str] = None) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
@@ -1071,6 +1079,8 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         &gt;&gt;&gt; lookup_italic(&#34;Antropônimo&#34;, &#34;pt&#34;)
         &#39;Antropônimo&#39;
     &#34;&#34;&#34;
+    from .lang import templates_italic
+
     default = &#34;&#34; if empty_default else word
     looking_for = word
 
@@ -1095,11 +1105,11 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 &gt;&gt;&gt; number("1000000", ".", ",")
 '1,000,000'
 &gt;&gt;&gt; number("-1000000", ",", " ")
-'-1 000 000'
+'−1 000 000'
 &gt;&gt;&gt; number("-1000000", "", "")
-'-1000000'
-&gt;&gt;&gt; number("-1000000", ".", ",")
-'-1,000,000'
+'−1000000'
+&gt;&gt;&gt; number("−1000000", ".", ",")
+'−1,000,000'
 &gt;&gt;&gt; number("4.54609", "," , " ")
 '4,54609'
 &gt;&gt;&gt; number("4.54609", "." , ",")
@@ -1124,11 +1134,11 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         &gt;&gt;&gt; number(&#34;1000000&#34;, &#34;.&#34;, &#34;,&#34;)
         &#39;1,000,000&#39;
         &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;,&#34;, &#34; &#34;)
-        &#39;-1 000 000&#39;
+        &#39;−1 000 000&#39;
         &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;&#34;, &#34;&#34;)
-        &#39;-1000000&#39;
-        &gt;&gt;&gt; number(&#34;-1000000&#34;, &#34;.&#34;, &#34;,&#34;)
-        &#39;-1,000,000&#39;
+        &#39;−1000000&#39;
+        &gt;&gt;&gt; number(&#34;−1000000&#34;, &#34;.&#34;, &#34;,&#34;)
+        &#39;−1,000,000&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;,&#34; , &#34; &#34;)
         &#39;4,54609&#39;
         &gt;&gt;&gt; number(&#34;4.54609&#34;, &#34;.&#34; , &#34;,&#34;)
@@ -1139,11 +1149,10 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     # Remove superfluous spaces
     number = number.replace(&#34; &#34;, &#34;&#34;)
 
-    # Handle mathematical substract character
-    has_math_substract_symbol = number[0] == &#34;−&#34;
-    if has_math_substract_symbol:
-        number = number.replace(&#34;−&#34;, &#34;-&#34;)
+    # Handle unicode minus U+2212 character before doing the conversion
+    number = number.replace(&#34;−&#34;, &#34;-&#34;)
 
+    # Convert
     try:
         # Integer
         res = f&#34;{int(number):,}&#34;
@@ -1157,10 +1166,8 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     # This 3-steps-replacement is needed for when separators are replacing each other.
     res = res.replace(&#34;,&#34;, &#34;|&#34;).replace(&#34;.&#34;, fsep).replace(&#34;|&#34;, tsep)
 
-    if has_math_substract_symbol:
-        res = res.replace(&#34;-&#34;, &#34;−&#34;)
-
-    return res</code></pre>
+    # Always return unicode minus U+2212 character for negative numbers
+    return res.replace(&#34;-&#34;, &#34;−&#34;)</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.parenthesis"><code class="name flex">
@@ -1517,6 +1524,28 @@ and is sometimes rendered in a smaller font.</p>
     return italic(parenthesis(text))</code></pre>
 </details>
 </dd>
+<dt id="wikidict.user_functions.underline"><code class="name flex">
+<span>def <span class="ident">underline</span></span>(<span>text: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the <em>text</em> surrounded by underline HTML tags.</p>
+<pre><code>&gt;&gt;&gt; underline("foo")
+'&lt;u&gt;foo&lt;/u&gt;'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def underline(text: str) -&gt; str:
+    &#34;&#34;&#34;
+    Return the *text* surrounded by underline HTML tags.
+
+        &gt;&gt;&gt; underline(&#34;foo&#34;)
+        &#39;&lt;u&gt;foo&lt;/u&gt;&#39;
+    &#34;&#34;&#34;
+    return f&#34;&lt;u&gt;{text}&lt;/u&gt;&#34;</code></pre>
+</details>
+</dd>
 </dl>
 </section>
 <section>
@@ -1554,6 +1583,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.superscript" href="#wikidict.user_functions.superscript">superscript</a></code></li>
 <li><code><a title="wikidict.user_functions.tag" href="#wikidict.user_functions.tag">tag</a></code></li>
 <li><code><a title="wikidict.user_functions.term" href="#wikidict.user_functions.term">term</a></code></li>
+<li><code><a title="wikidict.user_functions.underline" href="#wikidict.user_functions.underline">underline</a></code></li>
 </ul>
 </li>
 </ul>
