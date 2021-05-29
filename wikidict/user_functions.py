@@ -299,11 +299,11 @@ def number(number: str, fsep: str, tsep: str) -> str:
         >>> number("1000000", ".", ",")
         '1,000,000'
         >>> number("-1000000", ",", " ")
-        '-1 000 000'
+        '−1 000 000'
         >>> number("-1000000", "", "")
-        '-1000000'
-        >>> number("-1000000", ".", ",")
-        '-1,000,000'
+        '−1000000'
+        >>> number("−1000000", ".", ",")
+        '−1,000,000'
         >>> number("4.54609", "," , " ")
         '4,54609'
         >>> number("4.54609", "." , ",")
@@ -314,11 +314,10 @@ def number(number: str, fsep: str, tsep: str) -> str:
     # Remove superfluous spaces
     number = number.replace(" ", "")
 
-    # Handle mathematical substract character
-    has_math_substract_symbol = number[0] == "−"
-    if has_math_substract_symbol:
-        number = number.replace("−", "-")
+    # Handle unicode minus U+2212 character before doing the conversion
+    number = number.replace("−", "-")
 
+    # Convert
     try:
         # Integer
         res = f"{int(number):,}"
@@ -332,10 +331,8 @@ def number(number: str, fsep: str, tsep: str) -> str:
     # This 3-steps-replacement is needed for when separators are replacing each other.
     res = res.replace(",", "|").replace(".", fsep).replace("|", tsep)
 
-    if has_math_substract_symbol:
-        res = res.replace("-", "−")
-
-    return res
+    # Always return unicode minus U+2212 character for negative numbers
+    return res.replace("-", "−")
 
 
 def parenthesis(text: str) -> str:
