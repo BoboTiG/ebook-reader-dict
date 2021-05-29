@@ -278,6 +278,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
+        >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
+        '<sup></sup> à la place en 1997<sup></sup>'
 
         >>> clean("<!-- {{sco}} -->")
         ''
@@ -349,10 +351,10 @@ def clean(text: str) -> str:
     text = sub(r"\[\[[^:\]]+:[^\]]+\]\]", "", text)  # [[foo:b]] -> ''
 
     # External links
-    # [[http://example.com foo]] -> foo
-    text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
     # [http://example.com] -> ''
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
+    # [[http://example.com foo]] -> foo
+    text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
