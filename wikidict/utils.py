@@ -265,6 +265,7 @@ def clean(text: str) -> str:
         "<i>Contraction de préposition </i>à<i> et de l'article défini </i>les<i>.</i>"
         >>> clean("'''Contraction de [[préposition]] '''[[à]]''' et de l'[[article]] défini '''[[les]]''' .'''")
         "<b>Contraction de préposition </b>à<b> et de l'article défini </b>les<b>.</b>"
+
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
         >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
@@ -275,6 +276,9 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
         ''
+        >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
+        ''
+
         >>> clean("<!-- {{sco}} -->")
         ''
         >>> clean("<!-- <i>sco</i> -->")
@@ -284,7 +288,7 @@ def clean(text: str) -> str:
         >>> clean("<nowiki/>")
         ''
         >>> clean("foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah")
-        'foo|anticuado por cerrojo e influido por fierro|yeah'
+        'foo|anticuado por cerrojo e influido por fierro |yeah'
         >>> clean("<<country>>")
         'country'
         >>> clean("<<region/Middle East>>")
@@ -348,7 +352,7 @@ def clean(text: str) -> str:
     # [[http://example.com foo]] -> foo
     text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
     # [http://example.com] -> ''
-    text = sub(r"\[https?://[^\s\]]+", "", text)
+    text = sub(r"\[https?://[^\s\]]+\]", "", text)
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
