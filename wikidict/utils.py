@@ -279,7 +279,7 @@ def clean(text: str) -> str:
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
         >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
-        '<sup></sup> à la place en 1997<sup></sup>'
+        'à la place en 1997'
 
         >>> clean("<!-- {{sco}} -->")
         ''
@@ -368,6 +368,10 @@ def clean(text: str) -> str:
     # Remove extra brackets left
     text = text.replace(" []", "")
     text = text.replace(" ]", "")
+
+    # Remove empty HTML tags
+    # <sup></sup> -> ''
+    text = sub(r"<([^>]+)></\1>", "", text)
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
