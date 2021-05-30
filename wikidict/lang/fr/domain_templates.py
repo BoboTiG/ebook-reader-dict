@@ -26,6 +26,7 @@ domain_templates = {
     "armes": "Armement",
     "armures": "Armement",
     "aromates": "Aromate",
+    "arrondissements": "Géographie",
     "arthropodes": "Zoologie",
     "artistes": "Art",
     "atomes": "Chimie",
@@ -305,5 +306,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 300
+}  # 301
 # END
