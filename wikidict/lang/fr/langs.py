@@ -575,6 +575,7 @@ langs = {
     "bfj": "bafanji",
     "bfm": "mmem",
     "bfn": "bunaq",
+    "bfo": "birifor malba",
     "bfq": "bagada",
     "bfr": "bazigar",
     "bfs": "bai du Sud",
@@ -626,6 +627,7 @@ langs = {
     "bip": "bila",
     "bir": "bisorio",
     "bisaya de Limbang": "bisaya de Limbang",
+    "biv": "birifor du Sud",
     "biz": "baloi",
     "bja": "ebudza",
     "bjb": "banggarla",
@@ -6255,7 +6257,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,250
+}  # 6,252
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
