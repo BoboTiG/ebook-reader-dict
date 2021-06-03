@@ -790,6 +790,8 @@ labels_regional = {
     "Bucovina": "Bukovina",
     "Bukovinian": "Bukovina",
     "Bukowina": "Bukovina",
+    "Burma": "Myanmar",
+    "Burmese": "Myanmar",
     "Burundian": "Burundi",
     "Bərdə": "Barda",
     "Cajun": "Louisiana",
@@ -1053,6 +1055,7 @@ labels_regional = {
     "Muntenian": "Muntenia",
     "Murcian": "Murcia",
     "Mush": "Muş",
+    "Myanmarese": "Myanmar",
     "Müküs": "Moks",
     "NC": "North Carolina",
     "NY": "New York",
@@ -1342,7 +1345,7 @@ labels_regional = {
     "Şəmkir": "Shamkir",
     "Əli Bayramlı": "Shirvan",
     "Ərdəbil": "Ardebil",
-}  # 643
+}  # 646
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
