@@ -154,7 +154,6 @@ regions = {
     "Guéhenno": "Guéhenno",
     "Gyeongsang": "Gyeongsang",
     "Géorgie": "Géorgie",
-    "HT": "Haïti",
     "Harelbeke": "Harelbeke",
     "Haute-Marne": "Haute-Marne",
     "Haïti": "Haïti",
@@ -264,13 +263,11 @@ regions = {
     "Ontario": "Ontario",
     "Ouessant": "Ouessant",
     "Ouzbékistan": "Ouzbékistan",
-    "PE": "Pérou",
     "PRK": "Corée du Nord",
     "PT": "Portugal",
     "Panama": "Panama",
     "Paraguay": "Paraguay",
     "Paris": "Paris",
-    "Parler gaga": "Parler gaga",
     "Patois Messin": "Patois Messin",
     "Patois Vosgien": "Patois Vosgien",
     "Patois de la Fentsch": "Patois de la Fentsch",
@@ -399,5 +396,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 394
+}  # 391
 # END
