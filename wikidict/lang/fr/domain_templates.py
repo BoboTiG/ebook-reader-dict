@@ -139,6 +139,7 @@ domain_templates = {
     "grenouilles": "Zoologie",
     "grues": "Ornithologie",
     "gâteaux": "Cuisine",
+    "habil": "Habillement",
     "hérons": "Ornithologie",
     "ibis": "Ornithologie",
     "iles": "Géographie",
@@ -232,6 +233,7 @@ domain_templates = {
     "pâtes alimentaires": "Cuisine",
     "pâtisseries": "Pâtisserie",
     "pélicans": "Ornithologie",
+    "périodes": "Géologie",
     "pêches": "Botanique",
     "quartiers": "Toponyme",
     "raies": "Ichtyologie",
@@ -284,8 +286,10 @@ domain_templates = {
     "vins": "Œnologie",
     "virus": "Virologie",
     "voitures": "Automobile",
+    "véhicule": "Transport",
     "véhicules": "Transport",
     "vélos": "Cyclisme",
+    "vête": "Habillement",
     "vêtements": "Habillement",
     "xénarthres": "Mammalogie",
     "zool": "Zoologie",
@@ -302,5 +306,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 297
+}  # 301
 # END
