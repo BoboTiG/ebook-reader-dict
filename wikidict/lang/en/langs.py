@@ -6504,6 +6504,7 @@ langs = {
     "pqe-pro": "Proto-Eastern Malayo-Polynesian",
     "pqm": "Malecite-Passamaquoddy",
     "pra": "Prakrit",
+    "pra-niy": "",
     "prc": "Parachi",
     "prc-prk": "Pracya",
     "pre": "Principense",
@@ -9506,5 +9507,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,501
+}  # 9,502
 # END

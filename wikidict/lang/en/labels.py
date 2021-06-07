@@ -1600,7 +1600,9 @@ labels_subvarieties = {
     "Late Anglo-Latin": "British Late Latin",
     "Late British": "British Late Latin",
     "Late ME": "Late Middle English",
+    "Later": "Later Sanskrit",
     "Later ME": "Late Middle English",
+    "Later-Sanskrit": "Later Sanskrit",
     "Latin American Spanish": "Latin America",
     "Lemosin": "Limousin",
     "Lisaan ud-Da'wat": "Lisan ud-Dawat",
@@ -1944,6 +1946,9 @@ labels_subvarieties = {
     "hunaban": "Hellenizing School",
     "inner Mbugu": "Ma'a",
     "late ME": "Late Middle English",
+    "later": "Later Sanskrit",
+    "later Sanskrit": "Later Sanskrit",
+    "later-Sanskrit": "Later Sanskrit",
     "maniot": "Maniot",
     "non-Oxford": "Non-Oxford British English",
     "non-Oxford British spelling": "Non-Oxford British English",
@@ -1991,6 +1996,6 @@ labels_subvarieties = {
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
-}  # 643
+}  # 648
 
 # END
