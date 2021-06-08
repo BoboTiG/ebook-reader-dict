@@ -127,6 +127,7 @@ langs = {
     "bin": "edo",
     "bjj": "kanauji",
     "bjn": "banjar",
+    "bjz": "baruga",
     "bkq": "bacairí",
     "bla": "pie negro",
     "bll": "biloxi",
@@ -314,6 +315,7 @@ langs = {
     "en": "inglés",
     "enm": "inglés medio",
     "eo": "esperanto",
+    "eri": "ogea",
     "es": "español",
     "esh": "eshtehardi",
     "esu": "yupik central",
@@ -939,6 +941,7 @@ langs = {
     "simple": "inglés simple",
     "sio": "siux",
     "sit": "sino-tibetano",
+    "six": "sumau",
     "sje": "saami pite",
     "sjn": "sindarin",
     "sk": "eslovaco",
@@ -1179,7 +1182,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,174
+}  # 1,177
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",

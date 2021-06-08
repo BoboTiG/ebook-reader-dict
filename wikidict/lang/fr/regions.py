@@ -143,6 +143,7 @@ regions = {
     "Gangwon": "Gangwon",
     "Gascogne": "Gascogne",
     "Gaspésie": "Gaspésie",
+    "Ghana": "Ghana",
     "Grande-Bretagne": "Royaume-Uni",
     "Grenoble": "Grenoble",
     "Guadeloupe": "Guadeloupe",
@@ -399,5 +400,5 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 394
+}  # 395
 # END
