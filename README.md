@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Finally decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
+Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
 
 ## Dictionaries
 
@@ -27,7 +27,7 @@ Kobo firmware >= 4.24. For older firmwares, you can find outdated dictionaries [
 ## Updating Dictionaries
 
 All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
-Files are updated in place so that download links never changes.
+Note that download links never change.
 
 - You should open an [issue](https://github.com/BoboTiG/ebook-reader-dict/issues) if:
    - you do not find a word;
@@ -38,11 +38,11 @@ Files are updated in place so that download links never changes.
 
 ## Adding a new Dictionary
 
-[Pull requests](https://github.com/BoboTiG/ebook-reader-dict/pulls) are very welcome. It is quite straithforward to add a new locale, see [HOWTO Add a New Local](https://github.com/BoboTiG/ebook-reader-dict/wiki/HOWTO-Add-a-New-Local).
+[Pull requests](https://github.com/BoboTiG/ebook-reader-dict/pulls) are very welcome. It is quite straightforward to add a new locale, see [HOWTO Add a New Local](https://github.com/BoboTiG/ebook-reader-dict/wiki/HOWTO-Add-a-New-Local).
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
