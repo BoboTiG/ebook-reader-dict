@@ -33,7 +33,7 @@ jobs:
     - name: Update data
       run: |
         python -m scripts
-        ./check.sh
+        ./check.sh || true
 
     - name: Push changes
       uses: Automattic/action-commit-to-branch@master
