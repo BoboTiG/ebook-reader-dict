@@ -179,6 +179,7 @@ templates_ignored = (
     "créer-séparément",
     "désabrévier",
     "ébauche-déf",
+    "ébauche-exe",
     "fr-rég",
     "ibid",
     "Import",
@@ -389,6 +390,7 @@ templates_italic = {
     "plais": "Par plaisanterie",
     "plaisanterie": "Par plaisanterie",
     "poés": "Poésie",
+    "poét": "Poétique",
     "polit": "Politique",
     "popu": "Populaire",
     "presse": "Journalisme",
@@ -404,7 +406,7 @@ templates_italic = {
     "psychol": "Psychologie",
     "reli": "Religion",
     "réciproque2": "Réciproque",
-    "régional": "Régionalisme",
+    "réflexif": "Réfléchi",
     "réseaux": "Réseaux informatiques",
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
@@ -567,7 +569,9 @@ templates_multi = {
     "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
+    "régio": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    "régional": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
     # {{re}}
     "re": "superscript(parts[1] if len(parts) > 1 else 're')",
@@ -630,6 +634,7 @@ templates_other = {
     "fplur": "<i>féminin pluriel</i>",
     "genre": "Genre à préciser",
     "genre ?": "Genre à préciser",
+    "généralement pluriel": "Ce terme est généralement utilisé au pluriel.",
     "i": "<i>intransitif</i>",
     "impers": "<i>impersonnel</i>",
     "indéterminé": "indéterminé",
@@ -671,6 +676,7 @@ templates_other = {
     "t": "<i>transitif</i>",
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
+    "uplet/étym": "Tiré de la fin du suffixe <i>-uple</i> qu’on retrouve dans quintuple, sextuple, qui exprime une multiplication, dérivé du latin <i>-plus</i>.",  # noqa
     "usage": "<b>Note d’usage&nbsp;:</b>",
     "vlatypas-pivot": "v’là-t-i’ pas",
 }
@@ -724,6 +730,19 @@ def last_template_handler(
 
         >>> last_template_handler(["nom langue", "gcr"], "fr")
         'créole guyanais'
+
+        >>> last_template_handler(["wp"], "fr")
+        'sur l’encyclopédie Wikipédia'
+        >>> last_template_handler(["wp"], "fr", "word")
+        'word sur l’encyclopédie Wikipédia'
+        >>> last_template_handler(["wp","Sarcoscypha coccinea"], "fr")
+        'Sarcoscypha coccinea sur l’encyclopédie Wikipédia'
+        >>> last_template_handler(["wp","Vénus (planète)", "Planète Vénus"], "fr")
+        'Planète Vénus sur l’encyclopédie Wikipédia'
+        >>> last_template_handler(["wp","Norv%C3%A8ge#%C3%89tymologie)", 'la section "Étymologie" de l\\'article Norvège'], "fr")
+        'la section "Étymologie" de l\\'article Norvège sur l’encyclopédie Wikipédia'
+        >>> last_template_handler(["wp", "Dictionary", "lang=en"], "fr")
+        'Dictionary sur l’encyclopédie Wikipédia (en anglais)'
 
         >>> last_template_handler(["zh-l", "餃子/饺子", "jiǎozi", "jiaozi bouillis"], "fr")
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
@@ -786,6 +805,18 @@ def last_template_handler(
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
     if tpl == "ar-ab":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
+
+    if tpl in ("Wikipedia", "Wikipédia", "wikipédia", "wp", "WP"):
+        start = ""
+        if parts:
+            start = parts[1] if len(parts) > 1 else parts[0]
+        elif word:
+            start = word
+        phrase = "sur l’encyclopédie Wikipédia"
+        if data["lang"]:
+            l10n = langs[data["lang"]]
+            phrase += f" (en {l10n})"
+        return f"{start} {phrase}" if start else phrase
 
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
