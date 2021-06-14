@@ -118,7 +118,7 @@ def render_modele_etym(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         else:
             phrase += italic(data["de"])
 
-    if tpl in ("univerbation", "parataxe", "contraction") and data["de2"]:
+    if tpl in {"univerbation", "parataxe", "contraction"} and data["de2"]:
         phrase += " et de "
         if data["nolien"] != "1" and data["texte2"]:
             phrase += italic(data["texte2"])
