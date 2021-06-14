@@ -274,6 +274,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
         ''
+        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]")
+        ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
         ''
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
@@ -312,10 +314,6 @@ def clean(text: str) -> str:
     # <ref name="CFC"><tag>...</tag></ref> -> ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
 
-    # Files
-    pattern = "|".join(iter(pattern_file))
-    text = sub(fr"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
-
     # HTML
     # <-- foo --> -> ''
     text = sub(r"<!--(?:.+-->)?", "", text)
@@ -331,6 +329,12 @@ def clean(text: str) -> str:
 
     # Local links
     text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
+
+    # Files
+    pattern = "|".join(iter(pattern_file))
+    text = sub(fr"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
+
+    # more local links
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
     text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b
 

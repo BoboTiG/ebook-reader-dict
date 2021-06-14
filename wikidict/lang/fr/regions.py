@@ -402,3 +402,9 @@ regions = {
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
 }  # 395
 # END
+
+# handled differently
+regions.pop("régio")
+regions.pop("région")
+regions.pop("régional")
+regions.pop("régionalisme")

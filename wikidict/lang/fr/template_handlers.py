@@ -288,7 +288,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if is_derived:
         # Dérivé
         phrase = "D" if data["m"] else "d"
-        phrase += "érivée" if data["f"] in ("1", "oui", "o") else "érivé"
+        phrase += "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
 
         if b == "0100":
             phrase += " de " + word_tr_sens(
@@ -330,7 +330,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     # Composé
     phrase = "C" if data["m"] else "c"
-    phrase += "omposée de " if data["f"] in ("1", "oui", "o") else "omposé de "
+    phrase += "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
     s_array = [
         word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
         for number, part in enumerate(parts, 1)
@@ -372,15 +372,15 @@ def render_date(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_equiv_pour(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_equiv_pour("équiv-pour", ["un homme", "maître"], defaultdict(str))
-    '<i>(pour un homme on dit</i>&nbsp: maître<i>)</i>'
+    '<i>(pour un homme, on dit</i>&nbsp: maître<i>)</i>'
     >>> render_equiv_pour("équiv-pour", ["le mâle", "lion"], defaultdict(str))
-    '<i>(pour le mâle on dit</i>&nbsp: lion<i>)</i>'
+    '<i>(pour le mâle, on dit</i>&nbsp: lion<i>)</i>'
     >>> render_equiv_pour("équiv-pour", ["une femme", "autrice", "auteure", "auteuse"], defaultdict(str))
-    '<i>(pour une femme on peut dire</i>&nbsp: autrice, auteure, auteuse<i>)</i>'
+    '<i>(pour une femme, on peut dire</i>&nbsp: autrice, auteure, auteuse<i>)</i>'
     >>> render_equiv_pour("équiv-pour", ["une femme", "professeure", "professeuse", "professoresse", "professrice"], defaultdict(str, {"texte":"certains disent"}))
-    '<i>(pour une femme certains disent</i>&nbsp: professeure, professeuse, professoresse, professrice<i>)</i>'
+    '<i>(pour une femme, certains disent</i>&nbsp: professeure, professeuse, professoresse, professrice<i>)</i>'
     """  # noqa
-    phrase = f"(pour {parts.pop(0)} "
+    phrase = f"(pour {parts.pop(0)}, "
     phrase += data.get("texte", "on dit" if len(parts) == 1 else "on peut dire")
     return f"{italic(phrase)}&nbsp: {', '.join(parts)}{italic(')')}"
 
@@ -859,26 +859,6 @@ def render_variante_ortho(tpl: str, parts: List[str], data: Dict[str, str]) -> s
     return phrase
 
 
-def render_wikipedia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    """
-    >>> render_wikipedia("wp", [], defaultdict(str))
-    'sur l’encyclopédie Wikipédia'
-    >>> render_wikipedia("wp", ["Sarcoscypha coccinea"], defaultdict(str))
-    'Sarcoscypha coccinea sur l’encyclopédie Wikipédia'
-    >>> render_wikipedia("wp", ["Vénus (planète)", "Planète Vénus"], defaultdict(str))
-    'Planète Vénus sur l’encyclopédie Wikipédia'
-    >>> render_wikipedia("wp", ["Norv%C3%A8ge#%C3%89tymologie)", 'la section "Étymologie" de l\\'article Norvège'], defaultdict(str))
-    'la section "Étymologie" de l\\'article Norvège sur l’encyclopédie Wikipédia'
-    >>> render_wikipedia("wp", ["Dictionary"], defaultdict(str, {"lang": "en"}))
-    'Dictionary sur l’encyclopédie Wikipédia (en anglais)'
-    """  # noqa
-    phrase = "sur l’encyclopédie Wikipédia"
-    if data["lang"]:
-        l10n = langs[data["lang"]]
-        phrase += f" (en {l10n})"
-    return f"{parts[-1]} {phrase}" if parts else phrase
-
-
 def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_wikisource("ws", ["Les Grenouilles qui demandent un Roi"], defaultdict(str))
@@ -972,11 +952,6 @@ template_mapping = {
     "univerbation": render_modele_etym,
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
-    "Wikipedia": render_wikipedia,
-    "Wikipédia": render_wikipedia,
-    "wikipédia": render_wikipedia,
-    "wp": render_wikipedia,
-    "WP": render_wikipedia,
     "ws": render_wikisource,
     "zh-lien": render_zh_lien,
 }
