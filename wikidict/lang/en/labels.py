@@ -765,6 +765,7 @@ labels_regional = {
     "Barbadian": "Barbados",
     "Bardizag": "Partizak",
     "Bavarian": "Bavaria",
+    "Başkeçid": "Dmanisi",
     "Bedfordshire dialect": "Bedfordshire",
     "Belgian": "Belgium",
     "Belizean": "Belize",
@@ -1345,7 +1346,7 @@ labels_regional = {
     "Şəmkir": "Shamkir",
     "Əli Bayramlı": "Shirvan",
     "Ərdəbil": "Ardebil",
-}  # 646
+}  # 647
 
 labels_subvarieties = {
     "13": "Tredici Comuni",

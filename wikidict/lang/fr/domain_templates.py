@@ -204,6 +204,8 @@ domain_templates = {
     "percussions": "Musique",
     "perroquets": "Ornithologie",
     "personnalités": "Anthroponyme",
+    "personnification": "Rhétorique",
+    "personnifications": "Rhétorique",
     "peupliers": "Botanique",
     "phobies": "Médecine",
     "phyton": "Botanique",
@@ -306,5 +308,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 301
+}  # 303
 # END
