@@ -1173,6 +1173,8 @@ labels_regional = {
     "Senslerdeutsch": "Sense",
     "Serbian": "Serbia",
     "Shaki": "Sheki",
+    "Shamkhor": "Shamkir",
+    "Shamkur": "Shamkir",
     "Shanghainese": "Shanghai",
     "Shetland Islands": "Shetland",
     "Shetland islands": "Shetland",
@@ -1346,7 +1348,7 @@ labels_regional = {
     "Şəmkir": "Shamkir",
     "Əli Bayramlı": "Shirvan",
     "Ərdəbil": "Ardebil",
-}  # 647
+}  # 649
 
 labels_subvarieties = {
     "13": "Tredici Comuni",

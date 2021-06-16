@@ -5198,7 +5198,7 @@ langs = {
     "tla": "tepehuan du Sud-Ouest",
     "tlb": "tobelo",
     "tlc": "totonaque de Misantla",
-    "tlf": "telefon",
+    "tlf": "telefol",
     "tlg": "tofanma",
     "tlh": "klingon",
     "tli": "tlingit",
