@@ -3,7 +3,7 @@ name: Code quality
 on: pull_request
 
 jobs:
-  job:
+  quality:
     runs-on: ubuntu-latest
     steps:
 
