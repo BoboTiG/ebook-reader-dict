@@ -780,6 +780,18 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_temps_geologiques(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_temps_geologiques("Temps géologiques", ["givétien"], defaultdict(str))
+    '387,7 ± 0,8'
+    >>> render_temps_geologiques("supplétion", ["crétacé"], defaultdict(str))
+    '~145,0'
+    """
+    from .temps_geologiques import times
+
+    return times[parts[0]]
+
+
 def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
@@ -944,6 +956,7 @@ template_mapping = {
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
+    "Temps géologiques": render_temps_geologiques,
     "Variante ortho de": render_variante_ortho,
     "variante ortho de": render_variante_ortho,
     "variante orthographique de": render_variante_ortho,
