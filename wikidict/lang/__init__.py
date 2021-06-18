@@ -177,6 +177,7 @@ pattern_file = (
     "File",
     "Fitxer",
     "Image",
+    "image",
 )
 
 # Templates replacements: wikicode -> text conversion
