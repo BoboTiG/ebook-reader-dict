@@ -26,10 +26,10 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
         return 0
 
     # Try to highlight the bad text
-    pattern = clean_text[:-1]
+    pattern = clean_text[:-1].rstrip()
     while pattern:
         if not contains(pattern, wiktionary_text):
-            pattern = pattern[:-1]
+            pattern = pattern[:-1].rstrip()
             continue
 
         print(category, flush=True)
