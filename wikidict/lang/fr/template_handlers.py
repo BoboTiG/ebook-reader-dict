@@ -854,6 +854,10 @@ def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 def render_variante_ortho(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
+    >>> render_variante_ortho("Variante de", ["acupuncture", "fr"], defaultdict(str))
+    '<i>Variante de</i> acupuncture'
+    >>> render_variante_ortho("variante de", ["zêta"], defaultdict(str, {"sens": "lettre grecque ζ, Ζ"}))
+    '<i>Variante de</i> zêta («&nbsp;lettre grecque ζ, Ζ&nbsp;»)'
     >>> render_variante_ortho("variante ortho de", ["acupuncture", "fr"], defaultdict(str))
     '<i>Variante orthographique de</i> acupuncture'
     >>> render_variante_ortho("Variante ortho de", ["Me"], defaultdict(str, {"dif": "M<sup>e</sup>"}))
@@ -865,7 +869,7 @@ def render_variante_ortho(tpl: str, parts: List[str], data: Dict[str, str]) -> s
     """  # noqa
     if not parts:
         return ""
-    phrase = italic("Variante orthographique de")
+    phrase = italic("Variante orthographique de" if "ortho" in tpl else "Variante de")
     w = data["dif"] or parts.pop(0)
     phrase += f' {word_tr_sens(w, data["tr"], data["sens"], use_italic=False)}'
     return phrase
@@ -959,6 +963,8 @@ template_mapping = {
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
     "Temps géologiques": render_temps_geologiques,
+    "Variante de": render_variante_ortho,
+    "variante de": render_variante_ortho,
     "Variante ortho de": render_variante_ortho,
     "variante ortho de": render_variante_ortho,
     "variante orthographique de": render_variante_ortho,

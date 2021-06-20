@@ -351,7 +351,7 @@ from wikidict.utils import process_templates
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
                 "S’emploie quelquefois comme nom masculin.",
-                "Variante de ranche.",
+                "<i>Variante de</i> ranche.",
             ],
             [],
         ),
@@ -494,19 +494,6 @@ def test_parse_word(
         ("{{trad-|la|fiducia}}", "fiducia"),
         ("{{unité|92|%}}", "92 %"),
         ("{{Unité|60|cm}}", "60 cm"),
-        ("{{Variante de|muezzin|fr}}", "Variante de muezzin"),
-        (
-            "{{variante ortho de|acupuncture|fr}}",
-            "<i>Variante orthographique de</i> acupuncture",
-        ),
-        (
-            "{{Variante ortho de|acupuncture|fr}}",
-            "<i>Variante orthographique de</i> acupuncture",
-        ),
-        (
-            "{{variante orthographique de|acupuncture|fr}}",
-            "<i>Variante orthographique de</i> acupuncture",
-        ),
         ("{{W|Jacques Brandenberger}}", "Jacques Brandenberger"),
         ("{{w|lang=en|The Little Prince}}", "The Little Prince"),
         ("{{w|Li Ptit Prince (roman)|Li Ptit Prince|lang=wa}}", "Li Ptit Prince"),
