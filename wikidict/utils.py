@@ -8,7 +8,7 @@ from typing import List, Match, Set, Tuple, Union
 from warnings import warn
 
 from cachetools import cached
-from cachetools.keys import hashkey
+from cachetools.keys import hashkey  # type: ignore
 import regex
 import requests
 
