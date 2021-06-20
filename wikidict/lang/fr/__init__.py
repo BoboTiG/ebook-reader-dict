@@ -599,9 +599,6 @@ templates_multi = {
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     "trad-": "parts[2]",
-    # {{variante de|ranche|fr}}
-    "variante de": "sentence(parts)",
-    "Variante de": "sentence(parts)",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
