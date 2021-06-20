@@ -21,7 +21,7 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     """Run checks and return the error count to increment."""
     clean_text = get_text(parsed_html)
 
-    # It"s all good!
+    # It's all good!
     if contains(clean_text, wiktionary_text):
         return 0
 
