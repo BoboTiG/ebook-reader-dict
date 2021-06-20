@@ -79,13 +79,14 @@ def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Lathyrus aphaca'
     >>> render_wikilink("w", [], defaultdict(str, {"Paulin <span style": "'font-variant:small-caps'>Paris</span>", "lang": "fr"}))
     "Paulin <span style='font-variant:small-caps'>Paris</span>"
+    >>> render_wikilink("w", ["Еремеев, Павел Владимирович"], defaultdict(str, {"lang": "ru", "Pavel Vladimirovitch <span style": "'font-variant:small-caps'>Ieremeïev</span>"}))
+    "Pavel Vladimirovitch <span style='font-variant:small-caps'>Ieremeïev</span>"
     """  # noqa
-    if parts:
-        return parts[-1]
+    # Remove "lang" from data
+    data = {k: v for k, v in data.items() if k != "lang"}
 
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
     if data:
-        return "".join(f"{k}={v}" for k, v in data.items() if k != "lang")
+        return "".join(f"{k}={v}" for k, v in data.items())
 
-    # Should not happen as it is already handled in utils.transform()
-    return ""
+    return parts[-1] if parts else ""
