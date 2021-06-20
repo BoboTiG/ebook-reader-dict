@@ -25,6 +25,8 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     if contains(clean_text, wiktionary_text):
         return 0
 
+    print(category, flush=True)
+
     # Try to highlight the bad text
     pattern = clean_text[:-1].rstrip()
     while pattern:
@@ -32,14 +34,13 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
             pattern = pattern[:-1].rstrip()
             continue
 
-        print(category, flush=True)
         idx = len(pattern)
         print(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m", flush=True)
         break
     else:
         # No highlight possible, just output the whole sentence
-        print(category, flush=True)
         print(clean_text, flush=True)
+
     return 1
 
 
