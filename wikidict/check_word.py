@@ -26,7 +26,7 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
         return 0
 
     # Try to highlight the bad text
-    pattern = clean_text
+    pattern = clean_text[:-1]
     while pattern:
         if not contains(pattern, wiktionary_text):
             pattern = pattern[:-1]
