@@ -968,6 +968,8 @@ template_mapping = {
     "siècle": render_siecle,
     "siècle2": render_siecle2,
     "sigle": render_sigle,
+    "source?": render_refnec,
+    "source ?": render_refnec,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
