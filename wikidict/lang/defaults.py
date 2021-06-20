@@ -81,6 +81,8 @@ def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     "Paulin <span style='font-variant:small-caps'>Paris</span>"
     >>> render_wikilink("w", ["Еремеев, Павел Владимирович"], defaultdict(str, {"lang": "ru", "Pavel Vladimirovitch <span style": "'font-variant:small-caps'>Ieremeïev</span>"}))
     "Pavel Vladimirovitch <span style='font-variant:small-caps'>Ieremeïev</span>"
+    >>> render_wikilink("w", ["mitrospin obscur 0", "mitrospin obscur 1", "(''Mitrospingus cassinii'')"], defaultdict(str))
+    'mitrospin obscur 1'
     """  # noqa
     # Remove "lang" from data
     data = {k: v for k, v in data.items() if k != "lang"}
@@ -89,4 +91,7 @@ def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data:
         return "".join(f"{k}={v}" for k, v in data.items())
 
-    return parts[-1] if parts else ""
+    try:
+        return parts[1]
+    except IndexError:
+        return parts[0] if parts else ""
