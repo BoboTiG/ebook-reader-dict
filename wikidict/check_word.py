@@ -35,11 +35,11 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
         print(category, flush=True)
         idx = len(pattern)
         print(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m", flush=True)
-        return 1
-
-    # No highlight possible, just output the whole sentence
-    print(category, flush=True)
-    print(clean_text, flush=True)
+        break
+    else:
+        # No highlight possible, just output the whole sentence
+        print(category, flush=True)
+        print(clean_text, flush=True)
     return 1
 
 
