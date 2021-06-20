@@ -197,7 +197,6 @@ templates_ignored = (
     "RÉF",
     "réf",
     "source",
-    "source?",
     "trad-exe",
     "trier",
     "vérifier",
