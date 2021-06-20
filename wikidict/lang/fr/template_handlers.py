@@ -615,6 +615,14 @@ def render_mot_valise(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_nom_langue(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_nom_langue("nom_langue", ["ky"], defaultdict(str))
+    'kirghiz'
+    """
+    return langs[parts[0]]
+
+
 def render_polytonique(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_polytonique("polytonique", ["μηρóς", "mêrós", "cuisse"], defaultdict(str))
@@ -944,6 +952,7 @@ template_mapping = {
     "l": render_lien,
     "LienRouge": render_lien_rouge,
     "mot-valise": render_mot_valise,
+    "nom_langue": render_nom_langue,
     "parataxe": render_modele_etym,
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
