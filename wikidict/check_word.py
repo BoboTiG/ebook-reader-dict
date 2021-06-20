@@ -17,14 +17,31 @@ _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
 no_spaces = partial(_replace_noisy_chars, "")
 
 
-def check(text: str, html: str, message: str) -> int:
+def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     """Run checks and return the error count to increment."""
-    clean_text = get_text(html)
-    if not contains(clean_text, text):
-        print(message, flush=True)
+    clean_text = get_text(parsed_html)
+
+    # It's all good!
+    if contains(clean_text, wiktionary_text):
+        return 0
+
+    print(category, flush=True)
+
+    # Try to highlight the bad text
+    pattern = clean_text[:-1].rstrip()
+    while pattern:
+        if not contains(pattern, wiktionary_text):
+            pattern = pattern[:-1].rstrip()
+            continue
+
+        idx = len(pattern)
+        print(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m", flush=True)
+        break
+    else:
+        # No highlight possible, just output the whole sentence
         print(clean_text, flush=True)
-        return 1
-    return 0
+
+    return 1
 
 
 def contains(pattern: str, text: str) -> bool:

@@ -1,5 +1,7 @@
 from unittest.mock import patch
 
+import pytest
+
 from wikidict import check_word
 
 
@@ -220,3 +222,23 @@ def test_filter_fr_a_preciser():
 
     with patch.object(check_word, "filter_html", new=new_filter_html):
         assert check_word.main("fr", "42") == 0
+
+
+@pytest.mark.parametrize(
+    "wiktionary_text, parsed_html, ret_code, is_highlighted",
+    [
+        ("some text", "text", 0, False),
+        ("this is orginal text", "foo bar", 1, False),
+        ("this is orginal text", "originaal text", 1, True),
+        ("this is orginal text", "tiis is original text", 1, False),
+        ("this is orginal text", "This is original text", 1, False),
+    ],
+)
+def test_check_highlighting(
+    wiktionary_text, parsed_html, ret_code, is_highlighted, capsys
+):
+    error = check_word.check(wiktionary_text, parsed_html, "Test")
+    assert error == ret_code
+    if is_highlighted:
+        stdout = capsys.readouterr()[0]
+        assert "\033[31m" in stdout
