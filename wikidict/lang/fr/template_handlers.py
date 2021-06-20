@@ -944,6 +944,8 @@ template_mapping = {
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
     "recons": render_recons,
+    "réf?": render_refnec,
+    "réf ?": render_refnec,
     "refnec": render_refnec,
     "réfnéc": render_refnec,
     "réfnec": render_refnec,
