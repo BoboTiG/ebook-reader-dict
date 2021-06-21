@@ -173,6 +173,24 @@ def render_argot(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return term(phrase)
 
 
+def render_au_masculin(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_au_masculin("au masculin", [], defaultdict(str))
+    '<i>(Au masculin)</i>'
+    >>> render_au_masculin("au masculin", ["p"], defaultdict(str))
+    '<i>(Au masculin pluriel)</i>'
+    >>> render_au_masculin("au masculin", ["s"], defaultdict(str))
+    '<i>(Au masculin singulier)</i>'
+    """
+    phrase = "Au masculin"
+    if parts:
+        if parts[0] == "p":
+            phrase += " pluriel"
+        elif parts[0] == "s":
+            phrase += " singulier"
+    return term(phrase)
+
+
 def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_cf("cf", [], defaultdict(str))
@@ -973,6 +991,7 @@ template_mapping = {
     "aphérèse": render_apherese,
     "apocope": render_apherese,
     "argot": render_argot,
+    "au masculin": render_au_masculin,
     "calque": render_etyl,
     "cf": render_cf,
     "cit_réf": render_cit_ref,
