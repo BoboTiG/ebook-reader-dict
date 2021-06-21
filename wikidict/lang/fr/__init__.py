@@ -475,10 +475,6 @@ templates_multi = {
     "Braille": "parts[1]",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
-    # {{cf}}
-    # {{cf|tour d’échelle}}
-    # {{cf|lang=fr|triner}}
-    "cf": "f\"→ voir{' ' + concat([italic(p) for p in parts[1:] if p and '=' not in p], ', ', ' et ') if len(parts) > 1 else ''}\"",  # noqa
     # {{circa|1150}}
     "circa": "term('c. ' + [p for p in parts if p and '=' not in p][1])",
     # {{Cyrl|Сергей}}

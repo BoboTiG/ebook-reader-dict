@@ -173,6 +173,31 @@ def render_argot(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return term(phrase)
 
 
+def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_cf("cf", [], defaultdict(str))
+    '→ voir'
+    >>> render_cf("cf", ["immortelle"], defaultdict(str))
+    '→ voir <i>immortelle</i>'
+    >>> render_cf("cf", ["triner"], defaultdict(str, {"lang": "fr"}))
+    '→ voir <i>triner</i>'
+    >>> render_cf("cf", ["in-", "extinguible"], defaultdict(str, {"lang": "fr"}))
+    '→ voir <i>in-</i> et <i>extinguible</i>'
+    >>> render_cf("cf", ["enfant", "de", "vierge!vierge Marie"], defaultdict(str, {"lang": "fr"}))
+    '→ voir <i>enfant</i>, <i>de</i> et <i>vierge Marie</i>'
+    """
+    phrase = "→ voir"
+    if parts:
+        s_array = []
+        for p in parts:
+            s_phrase = p
+            if "!" in s_phrase:
+                s_phrase = s_phrase.split("!")[1]
+            s_array.append(italic(s_phrase))
+        phrase += f" {concat(s_array, ', ', ' et ')}"
+    return phrase
+
+
 def render_cit_ref(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_cit_ref("cit_réf", ["Dictionnaire quelconque", "2007"], defaultdict(str))
@@ -949,6 +974,7 @@ template_mapping = {
     "apocope": render_apherese,
     "argot": render_argot,
     "calque": render_etyl,
+    "cf": render_cf,
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
     "contraction": render_modele_etym,
