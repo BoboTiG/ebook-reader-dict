@@ -425,6 +425,8 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'indo-européen commun'
     >>> render_etyl("étylp", ["la", "fr"], defaultdict(str, {"mot":"Ladon"}))
     'latin <i>Ladon</i>'
+    >>> render_etyl("étylp", ["br", "fr"], defaultdict(str, {"tr":"qui est digne de posséder un bon cheval, chevalier"}))
+    'breton, <i>qui est digne de posséder un bon cheval, chevalier</i>'
     """
     # The lang name
     phrase = langs[data["1"] or parts.pop(0)]
@@ -439,7 +441,10 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         # italic for latin script only
         phrase += f" {mot}" if max(mot) > "\u0370" else f" {italic(mot)}"
     if tr:
-        phrase += f", {italic(tr)}" if mot else f" {italic(tr)}"
+        if tpl == "étylp":
+            phrase += f", {italic(tr)}"
+        else:
+            phrase += f", {italic(tr)}" if mot else f" {italic(tr)}"
     if sens:
         phrase += f" («&nbsp;{sens}&nbsp;»)"
     return phrase
