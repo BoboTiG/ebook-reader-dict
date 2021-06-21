@@ -541,8 +541,6 @@ templates_multi = {
     "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
     # {{localités|fr|d’Espagne}}
     "localités": "term('Géographie')",
-    # {{mn-lien|далай|dalai|ᠲᠠᠯᠠᠢ}}
-    "mn-lien": "f'{parts[1]} (MNS : {italic(parts[2])})'",
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}

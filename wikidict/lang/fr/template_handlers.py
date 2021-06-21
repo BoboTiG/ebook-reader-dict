@@ -615,6 +615,21 @@ def render_mot_valise(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_mn_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_mn_lien("mn-lien", ["далай", "dalai", "ᠲᠠᠯᠠᠢ"], defaultdict(str))
+    'далай (MNS : <i>dalai</i>), ᠲᠠᠯᠠᠢ'
+    >>> render_mn_lien("mn-lien", ["хаган", "khagan", "ᠬᠠᠭᠠᠨ", "qaɣan"], defaultdict(str))
+    'хаган (MNS : <i>khagan</i>), ᠬᠠᠭᠠᠨ (VPMC : <i>qaɣan</i>)'
+    """
+    phrase = f"{parts[0]} (MNS : {italic(parts[1])})"
+    if len(parts) > 2:
+        phrase += f", {parts[2]}"
+    if len(parts) > 3:
+        phrase += f" (VPMC : {italic(parts[3])})"
+    return phrase
+
+
 def render_nom_langue(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_nom_langue("nom_langue", ["ky"], defaultdict(str))
@@ -952,6 +967,7 @@ template_mapping = {
     "l": render_lien,
     "LienRouge": render_lien_rouge,
     "mot-valise": render_mot_valise,
+    "mn-lien": render_mn_lien,
     "nom_langue": render_nom_langue,
     "parataxe": render_modele_etym,
     "polytonique": render_polytonique,
