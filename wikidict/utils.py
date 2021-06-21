@@ -276,6 +276,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]")
         ''
+        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]")
+        ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
         ''
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
@@ -328,7 +330,7 @@ def clean(text: str) -> str:
     text = text.replace("<nowiki/>", "")
 
     # Local links
-    text = sub(r"\[\[([^|\]]+)\]\]", "\\1", text)  # [[a]] -> a
+    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
     # Files
     pattern = "|".join(iter(pattern_file))
