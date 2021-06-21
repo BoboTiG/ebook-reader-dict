@@ -115,7 +115,8 @@ def filter_html(html: str, locale: str) -> str:
     if locale == "fr":
         # Filter out refnec tags
         for span in bs.find_all("span", {"id": "refnec"}):
-            span.previous_sibling.decompose()
+            if span.previous_sibling:
+                span.previous_sibling.decompose()
             span.decompose()
         # Cette information a besoin d’être précisée
         for span in bs.find_all(
@@ -176,11 +177,16 @@ def get_word(word: str, locale: str) -> Word:
         return parse_word(word, req.text, locale)
 
 
-def get_wiktionary_page(word: str, locale: str) -> str:
+def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
-    with requests.get(url) as req:
-        return filter_html(req.text, locale)
+    try:
+        with requests.get(url, timeout=10) as req:
+            return filter_html(req.text, locale)
+    except TimeoutError:
+        return ""
+    except Exception:
+        return ""
 
 
 def main(locale: str, word: str) -> int:

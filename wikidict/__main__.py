@@ -9,7 +9,7 @@ Usage:
     wikidict LOCALE --render
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
-    wikidict LOCALE --check-random-words=N
+    wikidict LOCALE --check-words [--random] [--count=N] [--offset=M] [--input=FILENAME]
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --gen-dict=WORDS --output=FILENAME
@@ -23,10 +23,12 @@ Options:
                                 - "data/$LOCALE/dicthtml-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE.df": DictFile format.
   --find-templates          DEBUG: Find all templates in use.
-  --check-random-words=N    Get and render N words.
-                            Then compare with the rendering done on the Wiktionary to catch errors.
-  --check-word=WORD         Get and render WORD.
-                            Then compare with the rendering done on the Wiktionary to catch errors.
+  --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
+                            --random            randomly if --random
+                            --count=N           If -1 check all words [default: 100]
+                            --offset=M          Offset will remove words before starting.
+                            --input=FILENAME    A list of words, one by line
+                            --check-word=WORD   Get and render WORD.
   --get-word=WORD [--raw]   Get and render WORD. Pass --raw to ouput the raw HTML code.
   --gen-dict=WORDS          DEBUG: Generate the Kobo dictionary for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
@@ -75,11 +77,15 @@ def main() -> int:  # pragma: nocover
 
         return check_word.main(args["LOCALE"], args["--check-word"])
 
-    if args["--check-random-words"]:
-        from . import check_random_words
+    if args["--check-words"]:
+        from . import check_words
 
-        return check_random_words.main(
-            args["LOCALE"], int(args["--check-random-words"])
+        return check_words.main(
+            args["LOCALE"],
+            int(args["--count"]),
+            args["--random"],
+            args["--offset"],
+            args["--input"],
         )
 
     if args["--get-word"] is not None:
