@@ -239,6 +239,7 @@ regions = {
     "Montréal": "Montréal",
     "Montsoreau": "Montsoreau",
     "Monténégro": "Monténégro",
+    "Moselle": "Moselle",
     "Munster": "Munster",
     "NE": "Niger",
     "NL": "Pays-Bas",
@@ -400,7 +401,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 395
+}  # 396
 # END
 
 # handled differently
