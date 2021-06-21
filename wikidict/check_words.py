@@ -38,14 +38,10 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
                     all_words = all_words[i:]
                     break
 
-    if count > len(all_words):
-        count = len(all_words)
+    count = min(count, len(all_words))
     errors = 0
     for n in range(count):
-        if random:
-            word = choice(all_words)
-        else:
-            word = all_words[n]
+        word = choice(all_words) if random else all_words[n]
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print(f"\n[{now}] - [{n + 1}/{count}] Checking {word!r}", flush=True)
         errors += check_word.main(locale, word)
