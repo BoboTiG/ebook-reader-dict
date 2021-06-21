@@ -172,6 +172,7 @@ pattern_file = (
     "Archivo",
     "Categoría",
     "categoría",
+    "Catégorie",
     "Imagen",
     "Fichier",
     "File",
