@@ -597,6 +597,8 @@ def render_lien_web(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'auteur, auteur2, <i>The Weasel-Lobster Race</i>'
     >>> render_lien_web("Lien web", [], defaultdict(str, {"titre":"The Weasel-Lobster Race", "nom":"nom", "prénom": "prénom", "nom2":"nom2", "prénom2": "prénom2"}))
     'prénom nom, prénom2 nom2, <i>The Weasel-Lobster Race</i>'
+    >>> render_lien_web("Lien web", [], defaultdict(str, {"url":"URL", "titre": "TITRE", "site": "SITE", "date": "DATE", "consulté le": "CONSULTATION"}))
+    '<i>TITRE</i> sur <i>SITE</i>, DATE. Consulté le CONSULTATION'
     """  # noqa
     phrase = ""
     if data["langue"]:
@@ -622,6 +624,8 @@ def render_lien_web(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase += ", " + data["éditeur"]
     if data["année"]:
         phrase += ", " + data["année"]
+    if data["date"]:
+        phrase += ", " + data["date"]
     if data["isbn"]:
         phrase += ", ISBN " + data["isbn"]
     if data["en ligne le"]:
