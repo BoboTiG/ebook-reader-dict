@@ -630,6 +630,7 @@ templates_other = {
     "fm?": "<i>féminin ou masculin (l’usage hésite)</i>",
     "fm ?": "<i>féminin ou masculin (l’usage hésite)</i>",
     "fplur": "<i>féminin pluriel</i>",
+    "génit": "<i>génitif</i>",
     "genre": "Genre à préciser",
     "genre ?": "Genre à préciser",
     "généralement pluriel": "Ce terme est généralement utilisé au pluriel.",
