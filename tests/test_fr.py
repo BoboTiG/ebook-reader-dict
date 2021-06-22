@@ -406,6 +406,7 @@ def test_parse_word(
         ("{{1er}}", "1<sup>er</sup>"),
         ("{{1er|mai}}", "1<sup>er</sup>&nbsp;mai"),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
+        ("{{1re}}", "1<sup>re</sup>"),
         ("{{ancre|sens_sexe}}", ""),
         ("{{emploi|au passif}}", "<i>(Au passif)</i>"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),

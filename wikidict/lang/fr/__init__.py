@@ -468,6 +468,9 @@ templates_multi = {
     # {{1er}}
     # {{1er|mai}}
     "1er": "f\"1{superscript('er')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    # {{1re}}
+    # {{1re|fois}}
+    "1re": "f\"1{superscript('re')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
     # {{Arabe|ن و ق}}
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
