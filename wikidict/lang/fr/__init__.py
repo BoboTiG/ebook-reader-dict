@@ -536,6 +536,9 @@ templates_multi = {
     "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
     # {{localités|fr|d’Espagne}}
     "localités": "term('Géographie')",
+    # {{Mme}}
+    # {{Mme|de Maintenon}}
+    "Mme": "'M' + superscript('me') + (f' {parts[1]}' if len(parts) > 1 else '')",
     # {{nobr|1 000 000 000 000}}
     "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
     # {{nom w pc|Aldous|Huxley}}

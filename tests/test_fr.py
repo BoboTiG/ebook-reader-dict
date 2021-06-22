@@ -456,6 +456,8 @@ def test_parse_word(
             "ISBN 1-23-456789-0, 978-1-23-456789-7 et 2-876-54301-X",
         ),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
+        ("{{Mme}}", "M<sup>me</sup>"),
+        ("{{Mme|de Maintenon}}", "M<sup>me</sup> de Maintenon"),
         ("{{nobr|1 000 000 000 000}}", "1&nbsp;000&nbsp;000&nbsp;000&nbsp;000"),
         ("{{nobr|ℶ₀ {{=}} ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
