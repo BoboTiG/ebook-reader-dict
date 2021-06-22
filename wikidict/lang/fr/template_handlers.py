@@ -524,6 +524,35 @@ def render_la_verb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_lae(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_lae("laé", ["fr", "adv"], defaultdict(str))
+    '<i>(Adverbe)</i>'
+    >>> render_lae("laé", ["fr", "nom", "1"], defaultdict(str))
+    '<i>(Nom commun 1)</i>'
+    """
+    labels = {
+        "nom": "Nom commun",
+        "verb": "Verbe",
+        "nom-pr": "Nom propre",
+        "adj": "Adjectif",
+        "part": "Particule",
+        "prép": "Préposition",
+        "adv": "Adverbe",
+        "conj": "Conjonction",
+        "interj": "Interjection",
+        "suf": "Suffixe",
+        "préf": "Préfixe",
+        "nom propre": "Nom propre",
+    }
+    phrase = ""
+    if len(parts) > 1:
+        phrase = labels.get(parts[1], "")
+    if len(parts) > 2:
+        phrase += f" {parts[2]}"
+    return term(phrase)
+
+
 def render_lang(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_lang("Lang", ["la", "sine qua non"], defaultdict(str, {"sens": "sans quoi non"}))
@@ -1018,9 +1047,11 @@ template_mapping = {
     "étylp": render_etyl,
     "forme reconstruite": render_recons,
     "la-verb": render_la_verb,
+    "laé": render_lae,
     "lang": render_lang,
     "Lang": render_lang,
     "lien": render_lien,
+    "lien-ancre-étym": render_lae,
     "lien web": render_lien_web,
     "Lien web": render_lien_web,
     "l": render_lien,
