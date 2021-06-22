@@ -485,10 +485,7 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if parts and parts[0] in langs:
         parts.pop(0)
     mot = ""
-    if "mot" in data:
-        mot = data["mot"]
-    else:
-        mot = data["3"] or (parts[0] if parts else "")
+    mot = data.get("mot", data["3"] or (parts[0] if parts else ""))
     mot = "" if mot == "tr" else mot
     tr = data["tr"] or data["R"] or data["4"] or (parts[1] if len(parts) > 1 else "")
     sens = data["sens"] or data["5"] or (parts[2] if len(parts) > 2 else "")
