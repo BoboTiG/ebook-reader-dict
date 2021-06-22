@@ -184,8 +184,6 @@ templates_ignored = (
     "fr-rég",
     "ibid",
     "Import",
-    "laé",
-    "lien-ancre-étym",
     "lire en ligne",
     "Modèle",
     "Ouvrage",
