@@ -203,9 +203,14 @@ def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '→ voir <i>in-</i> et <i>extinguible</i>'
     >>> render_cf("cf", ["enfant", "de", "vierge!vierge Marie"], defaultdict(str, {"lang": "fr"}))
     '→ voir <i>enfant</i>, <i>de</i> et <i>vierge Marie</i>'
+    >>> render_cf("cf", [":Catégorie:Bruits en français"], defaultdict(str))
+    ''
     """
     phrase = "→ voir"
     if parts:
+        if parts[0].startswith(":Catégorie:"):
+            return ""
+
         s_array = []
         for p in parts:
             s_phrase = p
