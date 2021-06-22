@@ -443,6 +443,10 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'sanskrit वज्रयान, <i>vajrayāna</i> («&nbsp;véhicule du diamant&nbsp;»)'
     >>> render_etyl("étyl", ["grc", "fr"], defaultdict(str))
     'grec ancien'
+    >>> render_etyl("étyl", ["it", "fr", "Majella"], defaultdict(str, {"mot": ""}))
+    'italien'
+    >>> render_etyl("étyl", ["he", "fr", "tr", "sarabe"], defaultdict(str, {"mot": "", "sens": "se révolter"}))
+    'hébreu <i>sarabe</i> («&nbsp;se révolter&nbsp;»)'
     >>> render_etyl("étyl", ["la", "fr", "dithyrambicus"], defaultdict(str))
     'latin <i>dithyrambicus</i>'
     >>> render_etyl("étyl", ["no", "fr"], defaultdict(str, {"mot":"ski"}))
@@ -480,7 +484,12 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase = langs[data["1"] or parts.pop(0)]
     if parts and parts[0] in langs:
         parts.pop(0)
-    mot = data["mot"] or data["3"] or (parts[0] if parts else "")
+    mot = ""
+    if "mot" in data:
+        mot = data["mot"]
+    else:
+        mot = data["3"] or (parts[0] if parts else "")
+    mot = "" if mot == "tr" else mot
     tr = data["tr"] or data["R"] or data["4"] or (parts[1] if len(parts) > 1 else "")
     sens = data["sens"] or data["5"] or (parts[2] if len(parts) > 2 else "")
     if data["dif"]:
