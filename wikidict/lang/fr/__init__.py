@@ -264,7 +264,6 @@ templates_italic = {
     "didact": "Didactique",
     "diplo": "Diplomatie",
     "élec": "Électricité",
-    "ellipse": "Par ellipse",
     "enclit": "Enclitique",
     "enfantin": "Langage enfantin",
     "entomol": "Entomologie",
@@ -695,6 +694,11 @@ def last_template_handler(
         >>> last_template_handler(["code langue", "foo"], "fr")
         ''
 
+        >>> last_template_handler(["ellipse"], "fr")
+        '<i>(Par ellipse)</i>'
+        >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
+        '<i>(Ellipse de</i> piston racleur<i>)</i>'
+
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
         >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
@@ -748,6 +752,7 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         person,
+        term,
     )
     from .template_handlers import render_template, lookup_template
 
@@ -780,6 +785,13 @@ def last_template_handler(
             if l10n == lang:
                 return code
         return ""
+
+    if tpl in ("ellipse", "par ellipse"):
+        return (
+            term("Par ellipse")
+            if not data["de"]
+            else f'{italic(f"(Ellipse de")} {data["de"]}{italic(")")}'
+        )
 
     if tpl == "R:TLFi":
         w = parts[0] if parts else word
