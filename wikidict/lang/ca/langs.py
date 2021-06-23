@@ -517,7 +517,7 @@ langs = {
     "rn": "rundi",
     "ro": "romanès",
     "ro_MD": "moldau",
-    "roa-oca": "català medieval",
+    "roa-oca": "català antic",
     "roa-tara": "tarentí",
     "rof": "rombo",
     "rom": "romaní",
