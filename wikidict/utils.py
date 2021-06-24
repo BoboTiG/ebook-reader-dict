@@ -280,6 +280,11 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
         ''
+        >>> clean("[[a|b]]")
+        'b'
+        >>> clean("[[-au|-[e]au]]")
+        '-[e]au'
+
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
         >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
@@ -338,7 +343,7 @@ def clean(text: str) -> str:
 
     # more local links
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
-    text = sub(r"\[\[[^|]+\|([^\]]+)\]\]", "\\1", text)  # [[a|b]] -> b
+    text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)  # [[a|b]] -> b
 
     text = text.replace("[[", "").replace("]]", "")
 
