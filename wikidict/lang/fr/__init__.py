@@ -668,6 +668,7 @@ templates_other = {
     "s": "<i>singulier</i>",
     "sp": "<i>singulier et pluriel identiques</i>",
     "sp ?": "<i>singulier et pluriel identiques ou différenciés (l’usage hésite)</i>",
+    "R:Larousse2vol1922": "<i>Larousse universel en 2 volumes</i>, 1922",
     "réfl": "<i>réfléchi</i>",
     "réciproque": "<i>réciproque</i>",
     "t": "<i>transitif</i>",
@@ -708,6 +709,9 @@ def last_template_handler(
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
         >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
         '«&nbsp;pomme&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
+        >>> last_template_handler(["R:DAF6", "pomme"], "fr", "pedzouille")
+        '«&nbsp;pomme&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835'
+
 
         >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
         'colliger'
@@ -797,6 +801,10 @@ def last_template_handler(
             if not data["de"]
             else f'{italic(f"(Ellipse de")} {data["de"]}{italic(")")}'
         )
+
+    if tpl == "R:DAF6":
+        w = parts[0] if parts else word
+        return f"«&nbsp;{w}&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835"
 
     if tpl == "R:TLFi":
         w = parts[0] if parts else word
