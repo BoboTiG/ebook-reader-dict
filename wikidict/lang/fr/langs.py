@@ -1214,6 +1214,7 @@ langs = {
     "daa": "dangaléat",
     "dac": "dambi",
     "dad": "marik",
+    "dag": "dagbani",
     "dah": "gwahatike",
     "dai": "day",
     "daj": "dar fur daju",
@@ -6257,7 +6258,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,252
+}  # 6,253
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
