@@ -189,7 +189,7 @@ def get_word(word: str, locale: str) -> Word:
         return parse_word(word, req.text, locale)
 
 
-def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
+def get_wiktionary_page(word: str, locale: str) -> str:    # pragma: no cover
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
     try:
@@ -198,8 +198,8 @@ def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
             with requests.get(url, timeout=10) as req:
                 if req.status_code == 429:
                     wait_time = req.headers.get("Retry-after")
-                    sleep(int(wait_time if wait_time else "1") * 5)
-                    retry = retry + 1
+                    sleep(int(wait_time or "1") * 5)
+                    retry += 1
                     continue
                 return filter_html(req.text, locale)
         print(f"Sorry, too many tries: [{word}]")
