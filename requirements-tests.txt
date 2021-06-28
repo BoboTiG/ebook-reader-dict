@@ -7,5 +7,5 @@ pydocstyle==6.1.1
 pytest==6.2.4
 pytest-cov==2.12.1 
 responses==0.13.3
-types-cachetools==0.1.8
+types-cachetools==0.1.9
 types-requests==2.25.0
