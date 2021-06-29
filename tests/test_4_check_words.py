@@ -6,7 +6,7 @@ from wikidict import check_words, check_word, render
 def test_errors():
     word_count = 39
     return_value = 42
-    with patch.object(check_word, "main", return_value=return_value):
+    with patch.object(check_words, "local_check", return_value=return_value):
         assert (
             check_words.main("fr", word_count, True, "", "")
             == return_value * word_count
