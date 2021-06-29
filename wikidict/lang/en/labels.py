@@ -1540,6 +1540,8 @@ labels_subvarieties = {
     "Huế dialect": "Huế",
     "Hà Tĩnh dialect": "Hà Tĩnh",
     "Hải Phòng dialect": "Hải Phòng",
+    "Igbomina": "Ìgbómìnà",
+    "Igboona": "Ìgbómìnà",
     "Ikema Island": "Ikema",
     "Ikema-jima": "Ikema",
     "Ikemajima": "Ikema",
@@ -1702,6 +1704,7 @@ labels_subvarieties = {
     "Ogami Island": "Ōgami",
     "Ogami-jima": "Ōgami",
     "Ogamijima": "Ōgami",
+    "Ogboona": "Ìgbómìnà",
     "Old": "Old Avestan",
     "Old Gotlandic": "Old Gutnish",
     "Old Hebrew": "Biblical Hebrew",
@@ -1947,6 +1950,8 @@ labels_subvarieties = {
     "hellenophile": "Hellenizing School",
     "hellenophile school": "Hellenizing School",
     "hunaban": "Hellenizing School",
+    "igbomina": "Ìgbómìnà",
+    "igboona": "Ìgbómìnà",
     "inner Mbugu": "Ma'a",
     "late ME": "Late Middle English",
     "later": "Later Sanskrit",
@@ -1971,6 +1976,7 @@ labels_subvarieties = {
     "northern and central German": "northern and central Germany",
     "nouchi": "Ivory Coast slang",
     "noussi": "Ivory Coast slang",
+    "ogboona": "Ìgbómìnà",
     "overseas Vietnamese": "Overseas Vietnamese",
     "philhellene": "Hellenizing School",
     "philhellene school": "Hellenizing School",
@@ -1995,10 +2001,11 @@ labels_subvarieties = {
     "southwestern Mandarin": "Southwestern Mandarin",
     "wae": "Walser",
     "yunaban": "Hellenizing School",
+    "ìgbómìnà": "Ìgbómìnà",
     "Čakavian": "Chakavian",
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
-}  # 648
+}  # 655
 
 # END
