@@ -26,6 +26,7 @@ escopos = {
     "américa espanhola": "América Espanhola",
     "américa espanhola com exceção de chile e colômbia": "América Espanhola com exceção de Chile e Colômbia",
     "américa latina": "América Latina",
+    "andaluzia": "Andaluzia",
     "anfíbio": "Zoologia",
     "angiosperma": "Botânica",
     "anglicismo": "Anglicismo",
@@ -382,5 +383,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 377
+}  # 378
 # END
