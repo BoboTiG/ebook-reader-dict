@@ -1,7 +1,11 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 import copy
 import re
+from typing import List
 from functools import partial
+from threading import Lock
+from time import sleep
+
 
 from .render import parse_word
 from .stubs import Word
@@ -17,15 +21,15 @@ _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
 no_spaces = partial(_replace_noisy_chars, "")
 
 
-def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
-    """Run checks and return the error count to increment."""
+def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[str]:
+    results: List[str] = []
     clean_text = get_text(parsed_html)
 
     # It's all good!
     if contains(clean_text, wiktionary_text):
-        return 0
+        return results
 
-    print(category, flush=True)
+    results.append(category + wiktionary_text)
 
     # Try to highlight the bad text
     pattern = clean_text[:-1].rstrip()
@@ -35,13 +39,21 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
             continue
 
         idx = len(pattern)
-        print(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m", flush=True)
+        results.append(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m")
         break
     else:
         # No highlight possible, just output the whole sentence
-        print(clean_text, flush=True)
+        results.append(clean_text)
 
-    return 1
+    return results
+
+
+def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
+    """Run checks and return the error count to increment."""
+    results = check_mute(wiktionary_text, parsed_html, category)
+    for r in results:
+        print(r, flush=True)
+    return int(len(results) / 2)
 
 
 def contains(pattern: str, text: str) -> bool:
@@ -181,22 +193,26 @@ def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
     """Get a *word* HTML."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
     try:
-        with requests.get(url, timeout=10) as req:
-            return filter_html(req.text, locale)
+        retry = 0
+        while retry < 5:
+            with requests.get(url, timeout=10) as req:
+                if req.status_code == 429:
+                    wait_time = req.headers.get("Retry-after")
+                    sleep(int(wait_time or "1") * 5)
+                    retry += 1
+                    continue
+                return filter_html(req.text, locale)
+        print(f"Sorry, too many tries: [{word}]")
+        return ""
     except TimeoutError:
         return ""
     except Exception:
         return ""
 
 
-def main(locale: str, word: str) -> int:
-    """Entry point."""
+def check_word(word: str, locale: str, lock: Lock = None) -> int:
     errors = 0
-
-    # If *word* is empty, get the word of the day
-    if not word:
-        word = get_word_of_the_day(locale)
-
+    results: List[str] = []
     details = get_word(word, locale)
     if not details.etymology and not details.definitions:
         return errors
@@ -206,9 +222,11 @@ def main(locale: str, word: str) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    errors += check(text, sub_etymology, f"\n !! Etymology {i}")
+                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")
+                    results.extend(r)
             else:
-                errors += check(text, etymology, "\n !! Etymology")
+                r = check_mute(text, etymology, "\n !! Etymology")
+                results.extend(r)
 
     index = 1
     for definition in details.definitions:
@@ -217,16 +235,35 @@ def main(locale: str, word: str) -> int:
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
                     for rn, subsubdef in enumerate(subdef, 1):
-                        errors += check(
+                        r = check_mute(
                             text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"
                         )
+                        results.extend(r)
                 else:
-                    errors += check(text, subdef, f"{message}.{a}")
+                    r = check_mute(text, subdef, f"{message}.{a}")
+                    results.extend(r)
         else:
-            errors += check(text, definition, message)
+            r = check_mute(text, definition, message)
+            results.extend(r)
             index += 1
-
-    if errors:
+    # print with lock if any
+    if results:
+        errors = int(len(results) / 2)
+        if lock:
+            lock.acquire()
+        for result in results:
+            print(result, flush=True)
         print(f"\n >>> [{word}] - Errors:", errors)
+        if lock:
+            lock.release()
 
     return errors
+
+
+def main(locale: str, word: str) -> int:
+    """Entry point."""
+    # If *word* is empty, get the word of the day
+    if not word:
+        word = get_word_of_the_day(locale)
+
+    return check_word(word, locale)

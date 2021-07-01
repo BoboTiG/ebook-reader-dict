@@ -1,11 +1,17 @@
 """Get and render N words; then compare with the rendering done on the Wiktionary to catch errors."""
-import datetime
 import os
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 from pathlib import Path
-from random import choice
+from random import sample
+from threading import Lock
 from typing import List
 
 from . import check_word, render
+
+
+def local_check(word: str, locale: str, lock: Lock) -> int:
+    return check_word.check_word(word, locale, lock)
 
 
 def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
@@ -39,13 +45,15 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
                     break
 
     count = min(count, len(all_words))
-    errors = 0
-    for n in range(count):
-        word = choice(all_words) if random else all_words[n]
-        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f"\n[{now}] - [{n + 1}/{count}] Checking {word!r}", flush=True)
-        errors += check_word.main(locale, word)
 
+    if random:
+        all_words = sample(all_words, count)
+
+    lock = Lock()
+    with ThreadPoolExecutor(10) as pool:
+        err = pool.map(partial(local_check, locale=locale, lock=lock), all_words)
+
+    errors = sum(err)
     if errors:
         print("\n >>> TOTAL Errors:", errors)
 
