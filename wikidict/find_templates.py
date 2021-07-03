@@ -35,7 +35,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
         print("No sections found.")
         return
 
-    with open("sections.txt", "w") as f:
+    with open("sections.txt", "w", encoding="utf-8") as f:
         for title, entries in sorted(found_sections.items()):
             f.write(f"{title!r} ({len(entries):,})\n")
             if len(entries) < 10:
@@ -47,7 +47,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
     print(">>> File sections.txt created.", flush=True)
 
     if templates:
-        with open("templates.txt", "w") as f:
+        with open("templates.txt", "w", encoding="utf-8") as f:
             for template, entry in sorted(templates.items()):
                 f.write(f"{entry!r} => {template!r}\n")
         print(">>> File templates.txt created.")
