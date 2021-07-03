@@ -58,6 +58,7 @@ langs = {
     "aby": "aneme wake",
     "abz": "abui",
     "aca": "achagua",
+    "acd": "gichode",
     "ace": "achinais",
     "acf": "créole sainte-lucien",
     "ach": "acoli",
@@ -6258,7 +6259,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,253
+}  # 6,254
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
