@@ -9,7 +9,7 @@ pronunciation = r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"
 # '''{{PAGENAME}}''' {{θ}}
 # '''{{PAGENAME}}''' {{ο}}
 # '''{{PAGENAME}}''' {{α}}
-gender = r"'''{{PAGENAME}}''' ([θαο])"
+gender = r"'''{{PAGENAME}}''' \{\{([θαο])\}\}"
 
 # Float number separator
 float_separator = ","
@@ -24,9 +24,11 @@ sections = (
     *head_sections,
     *etyl_section,
     "{{ουσιαστικό}",
+    "{{ουσιαστικό|el}",
     "{{ρήμα}",
     "{{ρήμα|el}",
     "{{επίθετο}",
+    "{{επίθετο|el}",
     "{{επίρρημα}",
     "{{σύνδεσμος}",
     "{{συντομομορφή}",
