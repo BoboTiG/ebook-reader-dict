@@ -41,7 +41,7 @@ gender = {
     "no": re.compile(defaults.gender),
     "pt": re.compile(pt.gender),
     "sv": re.compile(defaults.gender),
-    "el": re.compile(defaults.gender),
+    "el": re.compile(el.gender),
 }
 
 # Float number separator
