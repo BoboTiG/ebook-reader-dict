@@ -72,7 +72,7 @@ templates_multi: Dict[str, str] = {
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
-    "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",
+    "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
     # {{Taxon|Chromis chromis|Chromis chromis}}
     "Taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
     # {{Term|statistica|it}}
