@@ -38,7 +38,7 @@ sections = (
 definitions_to_ignore = (
     "{{verb form",
     "{{nome",
-    #    "{{agg form",
+    #  "{{agg form",
     "{{sost form",
     "{{-sost form-",
     "{{It-conj",
