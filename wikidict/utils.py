@@ -4,7 +4,7 @@ from contextlib import suppress
 from datetime import datetime
 from functools import partial
 from pathlib import Path
-from typing import List, Match, Set, Tuple, Union
+from typing import List, Match, Tuple, Union
 from warnings import warn
 
 from cachetools import cached
@@ -30,10 +30,6 @@ from .lang import (
 )
 from .user_functions import *  # noqa
 
-
-# Used to store not-yet-handled templates to display a warning
-# only once
-MISSING_TPL_SEEN: Set[str] = set()
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
@@ -406,7 +402,6 @@ def process_templates(word: str, text: str, locale: str) -> str:
         >>> process_templates("foo", "{{unknown}}", "fr")
         '<i>(Unknown)</i>'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
-         !! Missing 'foo' template support for word 'foo'
         ''
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
@@ -508,7 +503,6 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
-         !! Missing 'conj' template support for word 'foo'
         ''
 
         >>> # Magic words
@@ -558,12 +552,6 @@ def transform(word: str, template: str, locale: str) -> str:
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
     result: str = transform_apply(word, tpl, tuple(parts), locale)
-
-    # Some templates are returning an empty string on purpose, skip the warning then.
-    # - SV: tagg
-    if not result and tpl not in MISSING_TPL_SEEN and (locale != "sv" or tpl != "tagg"):
-        print(f" !! Missing {tpl!r} template support for word {word!r}", flush=True)
-        MISSING_TPL_SEEN.add(tpl)
     return result
 
 
