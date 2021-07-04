@@ -69,7 +69,7 @@ templates_multi: Dict[str, str] = {
     "Nodef": "'-definizione mancante-'",
     # {{Noetim||it}}
     "Noetim": "'-etimologia mancante-'",
-    # {{Quote|Non portar unghie troppo lunghe o sozze, dalle narici non ti spunti il pelo, il fiato non ti sia troppo sgradevole: sotto le nari altrui, tu non putire come un caprone|[[q:Ovidio|Ovidio]]}}
+    # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
     "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",
