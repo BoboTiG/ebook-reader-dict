@@ -1,5 +1,5 @@
 """Greek language."""
-from typing import Dict, Tuple
+from typing import Dict
 
 # Regex to find the pronunciation
 # {{ΔΦΑ|tɾeˈlos|γλ=el}}
