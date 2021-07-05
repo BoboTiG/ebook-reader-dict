@@ -10,7 +10,7 @@ pronunciation = r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"
 # '''{{PAGENAME}}''' {{ο}}
 # '''{{PAGENAME}}''' {{α}}
 # '''{{PAGENAME}}''' {{αθ}}
-gender = r"'''{{PAGENAME}}''' \{\{([θαο])\}\}"
+gender = r"'''{{PAGENAME}}''' \{\{([θαο]+)\}\}"
 
 # Float number separator
 float_separator = ","
