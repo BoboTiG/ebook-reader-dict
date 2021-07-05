@@ -1,5 +1,5 @@
 """Greek language."""
-from typing import Dict, Tuple
+from typing import Dict
 
 # Regex to find the pronunciation
 # {{ΔΦΑ|tɾeˈlos|γλ=el}}
@@ -52,7 +52,11 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored: Tuple[str, ...] = tuple()
+templates_ignored = (
+    "el-κλίση",
+    "!",
+    "R:TELETERM",
+)
 
 # Templates that will be completed/replaced using italic style.
 templates_italic: Dict[str, str] = {}
@@ -67,7 +71,7 @@ templates_multi: Dict[str, str] = {
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
 release_description = """\
 Αριθμός λέξεων: {words_count}
-Εξαγωγή Wiktionary: {dump_date}
+Εξαγωγή Βικιλεξικού: {dump_date}
 
 Διαθέσιμα αρχεία:
 
@@ -75,7 +79,7 @@ release_description = """\
 - [StarDict]({url_stardict}) (dict-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}.df)
 
-<sub>Aggiornato il {creation_date}</sub>
+<sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
 """  # noqa
 
 # Dictionary name that will be printed below each definition
