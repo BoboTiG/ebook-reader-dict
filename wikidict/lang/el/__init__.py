@@ -68,7 +68,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
-    "el-κλίση",
+    "el-κλίσ",
     "!",
     "R:TELETERM",
     "κλείδα-ελλ",
@@ -95,7 +95,7 @@ release_description = """\
 - [StarDict]({url_stardict}) (dict-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}.df)
 
-<sub>Ημερομηνία δημιουργίας {creation_date}</sub>
+<sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
 """  # noqa
 
 # Dictionary name that will be printed below each definition
