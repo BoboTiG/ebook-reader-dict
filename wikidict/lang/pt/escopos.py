@@ -87,6 +87,7 @@ escopos = {
     "canadá-en": "Canadá",
     "canadá-fr": "Canadá",
     "canteiros": "canteiros",
+    "cantábria": "Cantábria",
     "ce": "Ceará",
     "ceará": "Ceará",
     "centro-oeste": "Centro-Oeste do Brasil",
@@ -267,6 +268,7 @@ escopos = {
     "ofício": "Profissão",
     "ornitologia": "Ornitologia",
     "pa": "Pará",
+    "palência": "Palência",
     "panamá": "Panamá",
     "paraguai": "Paraguai",
     "paraná": "Paraná",
@@ -383,5 +385,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 378
+}  # 380
 # END
