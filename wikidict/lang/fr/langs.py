@@ -668,6 +668,7 @@ langs = {
     "blf": "buol",
     "bli": "bolia",
     "blj": "bolongan",
+    "blk": "pa’o",
     "bll": "biloxi",
     "blm": "beli (Soudan du Sud)",
     "bln": "bikol du Sud de Catanduanes",
@@ -6259,7 +6260,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,254
+}  # 6,255
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

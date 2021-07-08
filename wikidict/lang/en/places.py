@@ -20,6 +20,11 @@ recognized_placetypes = {
         "display": "First Nations reserve",
         "preposition": "in",
     },
+    "French prefecture": {
+        "article": "the",
+        "display": "prefecture",
+        "preposition": "of",
+    },
     "Indian reservation": {
         "article": "a",
         "display": "Indian reservation",
@@ -1940,7 +1945,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 387
+}  # 388
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -1975,6 +1980,7 @@ placetypes_aliases = {
     "dist": "district",
     "distmun": "district municipality",
     "div": "division",
+    "fpref": "French prefecture",
     "gov": "governorate",
     "govnat": "governorate",
     "home-rule city": "home rule city",
@@ -2023,7 +2029,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 80
+}  # 81
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
