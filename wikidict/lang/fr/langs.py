@@ -535,6 +535,7 @@ langs = {
     "bdr": "bajau de la côte occidentale",
     "bds": "burunge",
     "bdt": "gbaya bokoto",
+    "bdu": "oroko",
     "bdw": "baham",
     "bdy": "bandjalang",
     "be": "biélorusse",
@@ -6260,7 +6261,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,255
+}  # 6,256
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
