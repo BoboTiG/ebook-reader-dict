@@ -8766,7 +8766,7 @@ langs = {
     "xcr": "Carian",
     "xct": "Classical Tibetan",
     "xcu": "Curonian",
-    "xcv": "Chuvantsy",
+    "xcv": "Chuvan",
     "xcw": "Coahuilteco",
     "xcy": "Cayuse",
     "xda": "Darkinjung",
