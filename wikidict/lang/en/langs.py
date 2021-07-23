@@ -917,6 +917,7 @@ langs = {
     "bep": "Besoa",
     "beq": "Beembe",
     "ber": "Berber",
+    "ber-fog": "Fogaha",
     "ber-pro": "Proto-Berber",
     "bes": "Besme",
     "bet": "Guiberoua Bété",
@@ -9508,5 +9509,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,503
+}  # 9,504
 # END
