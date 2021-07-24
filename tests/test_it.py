@@ -57,7 +57,7 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("", ""),
+        ("{{Vd|mamma}}", "vedi mamma"),
     ],
 )
 def test_process_templates(wikicode, expected):

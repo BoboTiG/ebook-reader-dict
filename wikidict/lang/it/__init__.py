@@ -79,7 +79,7 @@ templates_multi: Dict[str, str] = {
     "Term": "small(term(parts[1]))",
     "term": "small(term(parts[1]))",
     # {{Vd|acre#Italiano|acre}}
-    "Vd": "'Vedi: ' + parts[2]",
+    "Vd": "'vedi ' + parts[-1]",
 }
 
 # Release content on GitHub
