@@ -11,7 +11,7 @@ from . import check_word, render
 
 
 def local_check(word: str, locale: str, lock: Lock) -> int:
-    return check_word.check_word(word, locale, lock)
+    return check_word.check_word(word, locale, lock=lock)
 
 
 def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
