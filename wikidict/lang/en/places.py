@@ -400,6 +400,11 @@ recognized_placetypes = {
         "display": "community development block",
         "preposition": "in",
     },
+    "comune": {
+        "article": "a",
+        "display": "comune",
+        "preposition": "in",
+    },
     "constituency": {
         "article": "a",
         "display": "constituency",
@@ -1945,7 +1950,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 388
+}  # 389
 
 placetypes_aliases = {
     "CDP": "census-designated place",

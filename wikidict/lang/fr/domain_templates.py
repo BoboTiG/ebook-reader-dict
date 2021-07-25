@@ -265,6 +265,7 @@ domain_templates = {
     "spatules": "Ornithologie",
     "sportifs": "Sport",
     "sports": "Sport",
+    "sports d’hiver": "Sport",
     "sports nautiques": "Sport",
     "stéréotype": "Stéréotype",
     "substances": "Chimie",
@@ -308,5 +309,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 303
+}  # 304
 # END
