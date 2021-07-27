@@ -1,5 +1,5 @@
 """Greek language."""
-from typing import Dict
+from typing import Dict, Tuple
 
 # Regex to find the pronunciation
 # {{ΔΦΑ|tɾeˈlos|γλ=el}}
@@ -78,10 +78,34 @@ templates_ignored = (
 templates_italic: Dict[str, str] = {}
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {
-    # {{Term|statistica|it}}
-    # "term": "small(term(parts[1]))",
-}
+templates_multi: Dict[str, str] = {}
+
+
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["γραπτηεμφ", "1889"], "el")
+        '<i>(η λέξη μαρτυρείται από το 1889)</i>'
+        >>> last_template_handler(["γραπτηεμφ", "1889", "0=-"], "el")
+        'η λέξη μαρτυρείται από το 1889'
+    """
+    from ...user_functions import extract_keywords_from, term
+    from ..defaults import last_template_handler as default
+
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
+
+    if tpl == "γραπτηεμφ":
+        phrase = f"η λέξη μαρτυρείται από το {parts[0]}"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    return default(template, locale, word)
+
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
