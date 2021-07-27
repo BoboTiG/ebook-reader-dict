@@ -134,7 +134,7 @@ def find_etymology(
     definitions: List[Definitions] = []
     etyl: str
 
-    if locale in ("ca", "no"):
+    if locale in {"ca", "no"}:
         definitions.append(
             process_templates(word, clean(parsed_section.contents), locale)
         )
@@ -152,7 +152,7 @@ def find_etymology(
                 definitions.append(etyl)
         return definitions
 
-    elif locale in ("es", "it"):
+    elif locale in {"es", "it"}:
         items = [
             item.strip()
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
