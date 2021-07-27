@@ -1,11 +1,11 @@
 """Render templates from raw data."""
 import json
+import multiprocessing
 import os
 import re
 from collections import defaultdict
 from functools import partial
 from itertools import chain
-from multiprocessing import Manager, Pool, cpu_count
 from pathlib import Path
 from typing import Dict, List, Optional, Pattern, Tuple
 
@@ -39,6 +39,11 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 
 
 Sections = Dict[str, wtp.Section]
+
+# Multiprocessing shared globals
+MANAGER = multiprocessing.Manager()
+LOCK = multiprocessing.Lock()
+MISSING_TPL_SEEN: List[str] = MANAGER.list()
 
 
 def find_definitions(
@@ -357,10 +362,9 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
         if any(head_section in code for head_section in sections)
     }
 
-    manager = Manager()
-    results: Words = manager.dict()
+    results: Words = MANAGER.dict()
 
-    with Pool(processes=cpu_count()) as pool:
+    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()

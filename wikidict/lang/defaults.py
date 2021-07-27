@@ -63,6 +63,15 @@ def last_template_handler(
 
     # {{tpl|item1|item2|...}} -> ''
     if len(template) > 2:
+        from ..render import MISSING_TPL_SEEN, LOCK
+
+        with LOCK:
+            if tpl not in MISSING_TPL_SEEN:
+                MISSING_TPL_SEEN.append(tpl)
+                print(
+                    f" !! Missing {tpl!r} template support for word {word!r}",
+                    flush=True,
+                )
         return ""
 
     # <i>(Template)</i>

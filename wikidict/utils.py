@@ -402,6 +402,7 @@ def process_templates(word: str, text: str, locale: str) -> str:
         >>> process_templates("foo", "{{unknown}}", "fr")
         '<i>(Unknown)</i>'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
+         !! Missing 'foo' template support for word 'foo'
         ''
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
@@ -503,6 +504,7 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
+         !! Missing 'conj' template support for word 'foo'
         ''
 
         >>> # Magic words
@@ -541,7 +543,11 @@ def transform(word: str, template: str, locale: str) -> str:
     # - Filtering out ES because some contributors are not open to fix such issues ... sadly.
     # - Filtering out the FR "fchim" template because it is actually OK to have spaces in there.
     # - Filtering out the FR "graphie" template because it is actually OK to have spaces in there.
-    if locale != "es" and (locale == "fr" and tpl not in ("fchim", "graphie")) and parts != parts_raw:
+    if (
+        locale != "es"
+        and (locale == "fr" and tpl not in ("fchim", "graphie"))
+        and parts != parts_raw
+    ):
         warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Magic words
