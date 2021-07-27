@@ -540,7 +540,8 @@ def transform(word: str, template: str, locale: str) -> str:
     # Help fixing formatting on Wiktionary
     # - Filtering out ES because some contributors are not open to fix such issues ... sadly.
     # - Filtering out the FR "fchim" template because it is actually OK to have spaces in there.
-    if locale != "es" and tpl != "fchim" and parts != parts_raw:
+    # - Filtering out the FR "graphie" template because it is actually OK to have spaces in there.
+    if locale != "es" and (locale == "fr" and tpl not in ("fchim", "graphie")) and parts != parts_raw:
         warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Magic words
