@@ -5027,6 +5027,7 @@ langs = {
     "szl": "silésien",
     "szp": "inanwatan",
     "szw": "sawai",
+    "szy": "sakizaya",
     "ta": "tamoul",
     "taa": "bas tanana",
     "tab": "tabassaran",
@@ -6261,7 +6262,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,256
+}  # 6,257
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
