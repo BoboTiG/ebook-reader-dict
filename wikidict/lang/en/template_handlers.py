@@ -153,6 +153,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
     'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
+    >>> render_foreign_derivation("bor", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
+    'Japanese <i>マエバリ</i>'
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
@@ -263,10 +265,10 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         "noncognate",
         *mentions,
     )
-    if tpl not in dest_lang_ignore:
+    if tpl not in dest_lang_ignore and parts:
         parts.pop(0)  # Remove the destination language
 
-    dst_locale = parts.pop(0)
+    dst_locale = parts.pop(0) if parts else data["2"]
 
     if tpl == "etyl" and parts:
         parts.pop(0)
@@ -302,8 +304,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     lang = langs.get(dst_locale, "")
     phrase += lang if tpl not in mentions else ""
 
-    if parts:
-        word = parts.pop(0)
+    if parts or data["3"]:
+        word = parts.pop(0) if parts else data["3"]
 
     if word == "-":
         return phrase
