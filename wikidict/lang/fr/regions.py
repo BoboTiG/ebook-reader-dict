@@ -41,6 +41,7 @@ regions = {
     "Aube": "Aube",
     "Australie": "Australie",
     "Autriche": "Autriche",
+    "Autunois": "Autunois",
     "Auvergne": "Auvergne",
     "BE": "Belgique",
     "BF": "Burkina Faso",
@@ -118,6 +119,7 @@ regions = {
     "DZ": "Algérie",
     "Danemark": "Danemark",
     "Dauphiné": "Dauphiné",
+    "Dijonnais": "Dijonnais",
     "Dominique": "Dominique",
     "Doué-en-Anjou": "Doué-en-Anjou",
     "Drôme": "Drôme",
@@ -401,7 +403,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 396
+}  # 398
 # END
 
 # handled differently
