@@ -473,6 +473,8 @@ def test_parse_word(
         ("{{régionalisme|Bretagne|fr}}", "<i>(Bretagne)</i>"),
         ("{{numéro}}", "n<sup>o</sup>"),
         ("{{o}}", "<sup>o</sup>"),
+        ("{{phono|bɔg|fr}}", "/bɔg/"),
+        ("{{phono|bɔg|lang=fr}}", "/bɔg/"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
