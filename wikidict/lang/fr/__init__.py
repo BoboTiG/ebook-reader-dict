@@ -557,6 +557,8 @@ templates_multi = {
     "pc": "small_caps(parts[1])",
     # {{phon|tɛs.tjɔ̃}}
     "phon": "strong(f'[{parts[1]}]')",
+    # {{phono|bɔg|fr}}
+    "phono": "f'/{parts[1]}/'",
     # {{pron|plys|fr}}
     "pron": r'f"\\{parts[1]}\\"',
     # {{pron-API|/j/}}
