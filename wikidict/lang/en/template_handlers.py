@@ -127,9 +127,7 @@ def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<small>CE</small>'
     """
     nodot = data["nodot"] in ("1", "yes")
-    text = "B.C.E."
-    if tpl in ("C.E.", "CE", "A.D.", "AD"):
-        text = "C.E."
+    text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
     return small(text.replace(".", "")) if nodot else small(text)
 
 
@@ -153,6 +151,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
     'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
+    >>> render_foreign_derivation("bor", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
+    'Japanese <i>マエバリ</i>'
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
@@ -263,10 +263,10 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         "noncognate",
         *mentions,
     )
-    if tpl not in dest_lang_ignore:
+    if tpl not in dest_lang_ignore and parts:
         parts.pop(0)  # Remove the destination language
 
-    dst_locale = parts.pop(0)
+    dst_locale = parts.pop(0) if parts else data["2"]
 
     if tpl == "etyl" and parts:
         parts.pop(0)
@@ -275,25 +275,25 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     starter = ""
     word = ""
     if data["notext"] != "1":
-        if tpl in ("calque", "cal", "clq"):
+        if tpl in {"calque", "cal", "clq"}:
             starter = "calque of "
-        elif tpl in ("partial calque", "pcal"):
+        elif tpl in {"partial calque", "pcal"}:
             starter = "partial calque of "
-        elif tpl in ("semantic loan", "sl"):
+        elif tpl in {"semantic loan", "sl"}:
             starter = "semantic loan of "
-        elif tpl in ("learned borrowing", "lbor"):
+        elif tpl in {"learned borrowing", "lbor"}:
             starter = "learned borrowing from "
-        elif tpl in ("semi-learned borrowing", "slbor"):
+        elif tpl in {"semi-learned borrowing", "slbor"}:
             starter = "semi-learned borrowing from "
-        elif tpl in ("orthographic borrowing", "obor"):
+        elif tpl in {"orthographic borrowing", "obor"}:
             starter = "orthographic borrowing from "
-        elif tpl in ("unadapted borrowing", "ubor"):
+        elif tpl in {"unadapted borrowing", "ubor"}:
             starter = "unadapted borrowing from "
-        elif tpl in ("phono-semantic matching", "psm"):
+        elif tpl in {"phono-semantic matching", "psm"}:
             starter = "phono-semantic matching of "
-        elif tpl in ("transliteration", "translit"):
+        elif tpl in {"transliteration", "translit"}:
             starter = "transliteration of "
-        elif tpl in ("back-formation", "back-form", "bf"):
+        elif tpl in {"back-formation", "back-form", "bf"}:
             starter = "back-formation"
             if parts:
                 starter += " from"
@@ -302,8 +302,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     lang = langs.get(dst_locale, "")
     phrase += lang if tpl not in mentions else ""
 
-    if parts:
-        word = parts.pop(0)
+    if parts or data["3"]:
+        word = parts.pop(0) if parts else data["3"]
 
     if word == "-":
         return phrase
@@ -314,15 +314,13 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     if parts:
         word = parts.pop(0) or word  # 4, alt=
 
-    if tpl in ("l", "link", "ll"):
+    if tpl in {"l", "link", "ll"}:
         phrase += f" {word}"
     elif word:
         phrase += f" {italic(word)}"
     if data["g"]:
         phrase += f' {italic(data["g"])}'
-    trans = ""
-    if not data["tr"]:
-        trans = transliterate(dst_locale, word)
+    trans = transliterate(dst_locale, word) if not data["tr"] else ""
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
 
@@ -476,7 +474,7 @@ def render_historical_given_name(
     data["1"] or (parts.pop(0) if parts else "")
     sex = data["2"] or (parts.pop(0) if parts else "")
     desc = data["3"] or (parts.pop(0) if parts else "")
-    article = data["A"] if "A" in data else "A"
+    article = data.get("A", "A")
     phrase = f"{article} " if article else ""
     phrase += f"{sex} "
     phrase += "given name of historical usage"
@@ -627,11 +625,11 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """  # noqa
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
-        if tpl in ["pre", "prefix", "con", "confix"] and i == 1:
+        if tpl in {"pre", "prefix", "con", "confix"} and i == 1:
             chunk += "-"
-        if tpl in ["suf", "suffix"] and i == 2:
+        if tpl in {"suf", "suffix"} and i == 2:
             chunk = "-" + chunk
-        if tpl in ["con", "confix"] and i == parts_count:
+        if tpl in {"con", "confix"} and i == parts_count:
             chunk = "-" + chunk
         return chunk
 
