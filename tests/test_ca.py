@@ -216,6 +216,7 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
         ("{{q|{{m}}}}", "<i>(m.)</i>"),
+        ("{{sinònim|ca|aixecador}}", "<i>Sinònim de</i> <b>aixecador</b>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
     ],
 )

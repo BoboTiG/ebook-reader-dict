@@ -97,6 +97,8 @@ templates_multi = {
     "pron": "', '.join(parts[2:])",
     # {{q|tenir bona planta}}
     "q": "term(parts[-1])",
+    # {{sinònim|ca|aixecador}}
+    "sinònim": "f\"{italic('Sinònim de')} {strong(parts[-1])}\"",
     # {{etim-s|ca|XIV}}
     "etim-s": "'segle ' + parts[2]",
 }
