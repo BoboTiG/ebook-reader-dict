@@ -94,6 +94,11 @@ def last_template_handler(
         '<i>(η λέξη μαρτυρείται από το 1889)</i>'
         >>> last_template_handler(["γραπτηεμφ", "1889", "0=-"], "el")
         'η λέξη μαρτυρείται από το 1889'
+
+        >>> last_template_handler(["λενδ", "el", "fr"], "el")
+        'λόγιο ενδογενές δάνειο:'
+        >>> last_template_handler(["λενδ", "el", "fr", "0=-"], "el")
+        'λόγιο ενδογενές δάνειο'
     """
     from ...user_functions import extract_keywords_from, term
     from ..defaults import last_template_handler as default
@@ -105,6 +110,12 @@ def last_template_handler(
         phrase = f"η λέξη μαρτυρείται από το {parts[0]}"
         if not data["0"]:
             phrase = term(phrase)
+        return phrase
+
+    if tpl == "λενδ":
+        phrase = "λόγιο ενδογενές δάνειο"
+        if not data["0"]:
+            phrase += ":"
         return phrase
 
     return default(template, locale, word)
