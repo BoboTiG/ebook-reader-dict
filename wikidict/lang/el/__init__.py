@@ -78,7 +78,10 @@ templates_ignored = (
 templates_italic: Dict[str, str] = {}
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {}
+templates_multi: Dict[str, str] = {
+    # {{resize|Βικιλεξικό|140}}
+    "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
+}
 
 
 def last_template_handler(
