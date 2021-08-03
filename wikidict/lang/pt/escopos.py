@@ -197,9 +197,10 @@ escopos = {
     "instrumento musical": "Música",
     "internetês": "internetês",
     "irlanda do norte": "Irlanda do Norte",
-    "ironia": "irônico",
-    "irônico": "irônico",
-    "jocoso": "irônico",
+    "ironia": "ironia",
+    "irónico": "ironia",
+    "irônico": "ironia",
+    "jocoso": "ironia",
     "jornalismo": "Imprensa",
     "lagoaça": "Lagoaça",
     "languedoc": "Languedoque",
@@ -385,5 +386,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 380
+}  # 381
 # END
