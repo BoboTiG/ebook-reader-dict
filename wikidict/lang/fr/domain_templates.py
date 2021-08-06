@@ -94,7 +94,7 @@ domain_templates = {
     "crustacés": "Carcinologie",
     "créatures": "Mythologie",
     "cygnes": "Ornithologie",
-    "cépages": "Œnologie",
+    "cépages": "Viticulture",
     "céphalopodes": "Malacologie",
     "céréales": "Botanique",
     "cétacés": "Mammalogie",

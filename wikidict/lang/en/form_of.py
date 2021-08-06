@@ -49,7 +49,7 @@ form_of_templates = {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
-    "altcaps": {
+    "alt caps": {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
