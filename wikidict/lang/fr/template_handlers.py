@@ -1040,6 +1040,7 @@ template_mapping = {
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
     "contraction": render_modele_etym,
+    "compos": render_compose_de,
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "date": render_date,
