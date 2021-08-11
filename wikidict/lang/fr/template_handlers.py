@@ -550,9 +550,7 @@ def render_lae(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "préf": "Préfixe",
         "nom propre": "Nom propre",
     }
-    phrase = ""
-    if len(parts) > 1:
-        phrase = labels.get(parts[1], "")
+    phrase = labels.get(parts[1], "") if len(parts) > 1 else ""
     if len(parts) > 2:
         phrase += f" {parts[2]}"
     return term(phrase)
@@ -1040,6 +1038,7 @@ template_mapping = {
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
     "contraction": render_modele_etym,
+    "compos": render_compose_de,
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "date": render_date,
