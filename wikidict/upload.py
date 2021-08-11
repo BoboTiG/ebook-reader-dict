@@ -39,11 +39,11 @@ def main(locale: str) -> int:
     # Get the release URL
     url = fetch_release_url(locale)
     if not url:
-        print(" !! Cannot retrieve the release URL.")
+        print(" !! Cannot retrieve the release URL.", flush=True)
         return 1
 
     # Update the release description
     update_release(url, locale, output_dir)
 
-    print(">>> Release updated!")
+    print(">>> Release updated!", flush=True)
     return 0

@@ -202,7 +202,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
                     retry += 1
                     continue
                 return filter_html(req.text, locale)
-        print(f"Sorry, too many tries: [{word}]")
+        print(f"Sorry, too many tries: [{word}]", flush=True)
         return ""
     except TimeoutError:
         return ""
@@ -253,7 +253,7 @@ def check_word(word: str, locale: str, lock: Lock = None) -> int:
             lock.acquire()
         for result in results:
             print(result, flush=True)
-        print(f"\n >>> [{word}] - Errors:", errors)
+        print(f"\n >>> [{word}] - Errors:", errors, flush=True)
         if lock:
             lock.release()
 

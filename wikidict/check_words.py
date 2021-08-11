@@ -28,7 +28,7 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
             print(">>> No dump found. Run with --parse first ... ", flush=True)
             return 1
 
-        print(f">>> Loading {file} ...")
+        print(f">>> Loading {file} ...", flush=True)
         all_words = list(render.load(file).keys())
 
     if count == -1:
@@ -55,6 +55,6 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
 
     errors = sum(err)
     if errors:
-        print("\n >>> TOTAL Errors:", errors)
+        print("\n >>> TOTAL Errors:", errors, flush=True)
 
     return errors

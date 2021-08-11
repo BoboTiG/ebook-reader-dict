@@ -26,7 +26,6 @@ def process_alias_page(model, template_text, results):
         alias = alias.text.replace("Plantilla:", "")
         if alias == "editar":
             continue
-        # print(f'    "{alias}": "{template_text}"')
         results[alias] = template_text
 
 
@@ -38,7 +37,6 @@ def process_cs_page(url, results):
     last_link = nextpage_div.find_all("a")[-1]
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT_URL + last_link.get("href")
-    # print(nextpage)
 
     divs_category = soup.find_all("div", {"class": "mw-category-group"})
     for divs_category in divs_category:
@@ -53,7 +51,6 @@ def process_cs_page(url, results):
             if template_text[-1] == ".":
                 template_text = template_text[:-1]
             results[template_name] = template_text
-            # print(f'"{template_name}": "{template_text}"')
             process_alias_page(template_link.text, template_text, results)
 
     return nextpage

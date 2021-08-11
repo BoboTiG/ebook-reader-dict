@@ -330,7 +330,7 @@ def run_formatter(
 
 def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
-    print(f">>> Loading {file} ...")
+    print(f">>> Loading {file} ...", flush=True)
     with file.open(encoding="utf-8") as fh:
         words: Words = json.load(fh)
     print(f">>> Loaded {len(words):,} words from {file}", flush=True)

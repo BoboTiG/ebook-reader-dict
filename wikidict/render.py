@@ -393,7 +393,7 @@ def main(locale: str) -> int:
         print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
-    print(f">>> Loading {file} ...")
+    print(f">>> Loading {file} ...", flush=True)
     in_words: Dict[str, str] = load(file)
     words = render(in_words, locale)
     if not words:

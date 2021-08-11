@@ -32,7 +32,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
                 templates[template] = in_word
 
     if not found_sections:
-        print("No sections found.")
+        print("No sections found.", flush=True)
         return
 
     with open("sections.txt", "w", encoding="utf-8") as f:
@@ -52,7 +52,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
                 f.write(f"{entry!r} => {template!r}\n")
         print(">>> File templates.txt created.")
     else:
-        print("No templates found.")
+        print("No templates found.", flush=True)
 
 
 def main(locale: str) -> int:
@@ -64,9 +64,9 @@ def main(locale: str) -> int:
         print(">>> No dump found. Run with --parse first ... ", flush=True)
         return 1
 
-    print(f">>> Loading {file} ...")
+    print(f">>> Loading {file} ...", flush=True)
     in_words: Dict[str, str] = load(file)
 
-    print(">>> Working, please be patient ...")
+    print(">>> Working, please be patient ...", flush=True)
     find_templates(in_words, locale)
     return 0
