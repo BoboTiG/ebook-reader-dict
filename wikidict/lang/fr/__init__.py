@@ -191,7 +191,6 @@ templates_ignored = (
     "Ouvrage",
     "ouvrage",
     "périodique",
-    "plans d’eau",
     "préciser",
     "R",
     "RÉF",
