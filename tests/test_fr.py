@@ -385,6 +385,14 @@ from wikidict.utils import process_templates
             [],
             ["être", "suivre"],
         ),
+        (
+            "Turgeon",
+            ["tyʁ.ʒɔ̃"],
+            "",
+            ["Nom en rapport avec l’esturgeon."],
+            ["Nom de famille."],
+            [],
+        ),
     ],
 )
 def test_parse_word(

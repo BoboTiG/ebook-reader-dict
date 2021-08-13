@@ -69,6 +69,8 @@ sections = (
     "{{S|locution-phrase|fr}",
     "{{S|nom commun|fr|",
     "{{S|nom commun|fr}",
+    "{{S|nom de famille|fr|",
+    "{{S|nom de famille|fr}",
     "{{S|nom propre|fr|",
     "{{S|nom propre|fr}",
     "{{S|nom scientifique|",

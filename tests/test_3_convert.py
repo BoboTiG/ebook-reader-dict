@@ -49,6 +49,7 @@ def test_simple(craft_data):
             "si.html",
             "sl.html",
             "su.html",
+            "tu.html",
             "words",
             "words.count",
             "words.snapshot",
