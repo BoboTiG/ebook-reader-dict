@@ -585,6 +585,8 @@ templates_multi = {
     # {{sic !}}
     "SIC": "f'<sup>[sic : {parts[1]}]</sup>' if len(parts) > 1 else '<sup>[sic]</sup>'",
     "sic !": "f'<sup>[sic : {parts[1]}]</sup>' if len(parts) > 1 else '<sup>[sic]</sup>'",
+    # {{souligner|r}}espiratory
+    "souligner": "underline(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": "term(capitalize(concat(parts, sep=' ', indexes=[0, 2])))",

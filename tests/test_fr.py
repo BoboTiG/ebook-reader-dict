@@ -495,6 +495,7 @@ def test_parse_word(
         ("{{SIC}}", "<sup>[sic]</sup>"),
         ("{{sic !|Bevatron}}", "<sup>[sic : Bevatron]</sup>"),
         ("{{smo}}", "samoan"),
+        ("{{souligner|r}}espiratory", "<u>r</u>espiratory"),
         ("{{sport}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
