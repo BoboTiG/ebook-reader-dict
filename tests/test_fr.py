@@ -475,6 +475,7 @@ def test_parse_word(
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
         ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),
         ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
+        ("{{plans d’eau|fr|d’Afrique|cat=Lacs}}", "<i>(Géographie)</i>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
