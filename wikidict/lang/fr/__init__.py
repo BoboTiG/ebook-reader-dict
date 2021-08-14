@@ -675,6 +675,7 @@ templates_other = {
     "sp": "<i>singulier et pluriel identiques</i>",
     "sp ?": "<i>singulier et pluriel identiques ou différenciés (l’usage hésite)</i>",
     "R:Larousse2vol1922": "<i>Larousse universel en 2 volumes</i>, 1922",
+    "R:Rivarol": "Antoine de Rivarol, <i>Dictionnaire classique de la langue française</i>, 1827 ",
     "réfl": "<i>réfléchi</i>",
     "réciproque": "<i>réciproque</i>",
     "t": "<i>transitif</i>",
