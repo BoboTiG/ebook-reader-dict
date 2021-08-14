@@ -941,6 +941,8 @@ def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> # The rounding is not good here:
     >>> # render_unite("unité", ["1234567890.12345678", "¤"], defaultdict(str, {}))
     >>> # '1 234 567 890,12345678 ¤'
+    >>> render_unite("unité", ["1.30", "m"], defaultdict(str, {}))
+    '1,30 m'
     """
     from . import float_separator, thousands_separator
 

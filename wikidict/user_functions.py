@@ -310,12 +310,17 @@ def number(number: str, fsep: str, tsep: str) -> str:
         '4.54609'
         >>> number("22905", "," , ".")
         '22.905'
+        >>> number("1.30", "," , ".")
+        '1,30'
     """
     # Remove superfluous spaces
     number = number.replace(" ", "")
 
     # Handle unicode minus U+2212 character before doing the conversion
     number = number.replace("−", "-")
+
+    # Keep that value to restore leading zeros that would be lost with the int/float conversion
+    digits_count = sum(1 for c in number if c.isdigit())
 
     # Convert
     try:
@@ -324,6 +329,10 @@ def number(number: str, fsep: str, tsep: str) -> str:
     except ValueError:
         # Float
         res = f"{float(number):,}"
+
+    new_digits_count = sum(1 for c in res if c.isdigit())
+    if new_digits_count != digits_count:
+        res += "0" * (digits_count - new_digits_count)
 
     # Replace the current thousands separator with "|";
     # then replace the dot with the float separator;
