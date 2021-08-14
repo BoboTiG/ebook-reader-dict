@@ -533,6 +533,7 @@ def transform(word: str, template: str, locale: str) -> str:
     if ":" in tpl and tpl not in (
         "R:TLFi",
         "R:Larousse2vol1922",
+        "R:Littré",
         "R:Rivarol",
         "R:DAF6",
     ):
