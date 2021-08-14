@@ -431,6 +431,7 @@ def test_parse_word(
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("M{{e|me}}", "M<sup>me</sup>"),
         ("du XX{{ème}} siècle", "du XX<sup>e</sup> siècle"),
+        ("{{invisible|{{étyl|la|fr|mot=Dalmatica}}}}", ""),
         ("le 1{{er}}", "le 1<sup>er</sup>"),
         (
             "{{étyl|grc|fr|mot=ἄκρος|tr=akros|sens=extrémité}}",

@@ -202,6 +202,17 @@ def test_filter_fr_wikispecies():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_invisible():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += 'Du latin ecclésiastique<span class="invisible" style="display:none">latin <i><span class="lang-la" lang="la"><a href="/wiki/Dalmatica#la" title="Dalmatica">Dalmatica</a></span></i></span> <i><a href="/wiki/Dalmatica" title="Dalmatica">Dalmatica</a></i>'  # noqa
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "foo") == 0
+
+
 def test_filter_fr_lien_rouge_trad():
     orig = check_word.filter_html
 

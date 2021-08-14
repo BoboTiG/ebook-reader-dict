@@ -135,6 +135,9 @@ def filter_html(html: str, locale: str) -> str:
             "span", {"title": "Cette information a besoin d’être précisée"}
         ):
             span.decompose()
+        # {{invisible}}
+        for span in bs.find_all("span", {"class": "invisible"}):
+            span.decompose()
         # — (Richelet, Dictionnaire français 1680)
         for span in bs.find_all("span", {"class": "sources"}):
             span.decompose()

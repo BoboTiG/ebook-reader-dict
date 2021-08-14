@@ -646,6 +646,7 @@ templates_other = {
     "indéterminé": "indéterminé",
     "invar": "<i>invariable</i>",
     "invariable": "<i>invariable</i>",
+    "invisible": "",
     "la-note-ij": "(<b>Note&nbsp;:</b> Le ‹&nbsp;j&nbsp;›, absent du latin classique, traduit le ‹&nbsp;i&nbsp;› devant une voyelle dans la tradition scholastique française. Voyez «&nbsp;j en latin&nbsp;».)",  # noqa
     "m": "<i>masculin</i>",
     "masculin": "<i>masculin</i>",
