@@ -6268,7 +6268,7 @@ langs = {
 # Missing ones (to be removed when available on the Wiktionary languages pages)
 # For the latin ones see https://fr.wiktionary.org/wiki/Module:%C3%A9tymologie#L-120
 langs["bas latin"] = "bas latin"  # 2020-07-19
-langs["deu"] = "allemagne"  # 2020-05-19
+langs["deu"] = "allemand"  # 2020-05-19
 langs["ell"] = "grec"  # 2020-05-19
 langs["eus"] = "basque"  # 2020-05-19
 langs["gallo-roman"] = "gallo-roman"  # 2021-01-24
