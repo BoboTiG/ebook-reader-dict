@@ -530,7 +530,12 @@ def transform(word: str, template: str, locale: str) -> str:
     tpl = parts[0]
 
     # {{formatnum:-1000000}}
-    if ":" in tpl and tpl not in ("R:TLFi", "R:Larousse2vol1922", "R:DAF6"):
+    if ":" in tpl and tpl not in (
+        "R:TLFi",
+        "R:Larousse2vol1922",
+        "R:Rivarol",
+        "R:DAF6",
+    ):
         parts_raw = template.split(":")
         parts = [p.strip() for p in parts_raw]
         tpl = parts[0]
