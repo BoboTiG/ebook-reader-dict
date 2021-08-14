@@ -566,6 +566,8 @@ templates_multi = {
     "pron-API": "parts[1]",
     # {{provinces|fr|d’Espagne}}
     "provinces": "term('Géographie')",
+    # {{R:Littré|anonacée}})
+    "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",  # noqa
     # {{RFC|5322}}
     "RFC": "sentence(parts)",
     # {{région}}
