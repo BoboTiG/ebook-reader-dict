@@ -666,6 +666,7 @@ templates_other = {
     "o": "<i>neutre</i>",
     "p": "<i>pluriel</i>",
     "palind": "<i>palindrome</i>",
+    "pluriel": "<i>pluriel</i>",
     "pp": "<i>participe passé</i>",
     "pré": "<i>prétérit</i>",
     "prés": "<i>présent</i>",

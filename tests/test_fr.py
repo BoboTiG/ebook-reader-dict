@@ -484,6 +484,8 @@ def test_parse_word(
         ("{{o}}", "<sup>o</sup>"),
         ("{{phono|bɔg|fr}}", "/bɔg/"),
         ("{{phono|bɔg|lang=fr}}", "/bɔg/"),
+        ("{{p}}", "<i>pluriel</i>"),
+        ("{{pluriel}}", "<i>pluriel</i>"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
