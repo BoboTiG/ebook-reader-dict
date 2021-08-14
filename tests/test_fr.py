@@ -475,6 +475,10 @@ def test_parse_word(
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
         ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
+        (
+            "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
+            "<u>Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",  # noqa
+        ),
         ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),
         ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
         ("{{plans d’eau|fr|d’Afrique|cat=Lacs}}", "<i>(Géographie)</i>"),

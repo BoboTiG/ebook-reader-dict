@@ -554,6 +554,8 @@ templates_multi = {
     "n°": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
+    # {{Pas clair|...}}
+    "Pas clair": 'f\'{underline(parts[1])}{small("&nbsp;")}{superscript(italic(strong("Pas clair")))}\'',
     # {{petites capitales|Dupont}}
     "petites capitales": "small_caps(parts[1])",
     # {{pc|Dupont}}
