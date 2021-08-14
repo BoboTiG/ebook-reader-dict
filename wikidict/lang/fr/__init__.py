@@ -464,6 +464,8 @@ templates_italic = {
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
 #   html/wikidict/user_functions.html
 templates_multi = {
+    # {{1|Descendant}}
+    "1": "parts[1]",
     # {{1er}}
     # {{1er|mai}}
     "1er": "f\"1{superscript('er')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",

@@ -411,6 +411,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{1|Descendant}}", "Descendant"),
         ("{{1er}}", "1<sup>er</sup>"),
         ("{{1er|mai}}", "1<sup>er</sup>&nbsp;mai"),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
