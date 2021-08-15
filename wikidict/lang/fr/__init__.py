@@ -753,6 +753,13 @@ def last_template_handler(
         >>> last_template_handler(["langue", "gcr"], "fr")
         'Créole guyanais'
 
+        >>> last_template_handler(["rouge", "un texte"], "fr")
+        '<span style="color:red">un texte</span>'
+        >>> last_template_handler(["rouge", "texte=un texte"], "fr")
+        '<span style="color:red">un texte</span>'
+        >>> last_template_handler(["rouge", "fond=1", "1=un texte"], "fr")
+        '<span style="background-color:red">un texte</span>'
+
         >>> last_template_handler(["wp"], "fr")
         'sur l’encyclopédie Wikipédia'
         >>> last_template_handler(["wp"], "fr", "word")
@@ -842,6 +849,11 @@ def last_template_handler(
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
     if tpl == "ar-ab":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
+
+    if tpl == "rouge":
+        prefix_style = "background-" if data["fond"] == "1" else ""
+        phrase = parts[0] if parts else data["texte"] or data["1"]
+        return f'<span style="{prefix_style}color:red">{phrase}</span>'
 
     if tpl in ("Wikipedia", "Wikipédia", "wikipédia", "wp", "WP"):
         start = ""
