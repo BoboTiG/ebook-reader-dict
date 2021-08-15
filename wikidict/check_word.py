@@ -145,14 +145,22 @@ def filter_html(html: str, locale: str) -> str:
         for a in bs.find_all("a", {"class": "external text"}):
             if "consulter cet ouvrage" in a.text:
                 a.decompose()
-        # sur Wikispecies
+        # liens externes autres Wikis
         for a in bs.find_all("a", {"class": "extiw"}):
+            # Wikispecies
             if (
                 a["title"].startswith("wikispecies")
                 and a.parent.next_sibling
                 and "sur Wikispecies" in a.parent.next_sibling
             ):
                 a.parent.next_sibling.replaceWith("")
+            # Wikidata
+            elif (
+                a["title"].startswith("d:")
+                and a.next_sibling
+                and "base de données Wikidata" in a.next_sibling
+            ):
+                a.next_sibling.replaceWith("")
             # {{LienRouge|lang=en|trad=Reconstruction
             elif "Reconstruction" in a["title"]:
                 a.decompose()

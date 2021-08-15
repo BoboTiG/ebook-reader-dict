@@ -224,6 +224,25 @@ def test_filter_fr_wikispecies():
         assert check_word.main("fr", "42") == 0
 
 
+def test_filter_fr_wikidata():
+    orig = check_word.filter_html
+
+    def new_filter_html(html: str, locale: str) -> str:
+        html += (
+            '<a href="https://www.wikidata.org/wiki/Q30092597" class="extiw" title="d:Q30092597">Frederick H. '
+            '<span class="petites_capitales" style="font-variant: small-caps">Pough</span></a> dans la base de'
+            ' données Wikidata <img alt="Wikidata-logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thu'
+            'mb/f/ff/Wikidata-logo.svg/20px-Wikidata-logo.svg.png" decoding="async" width="20" height="11" src'
+            'set="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/30px-Wikidata-logo.svg'
+            '.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/40px-Wikidata-lo'
+            'go.svg.png 2x" data-file-width="1050" data-file-height="590" />'
+        )
+        return orig(html, locale)
+
+    with patch.object(check_word, "filter_html", new=new_filter_html):
+        assert check_word.main("fr", "42") == 0
+
+
 def test_filter_fr_invisible():
     orig = check_word.filter_html
 
