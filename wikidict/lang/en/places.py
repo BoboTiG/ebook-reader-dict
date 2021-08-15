@@ -403,7 +403,7 @@ recognized_placetypes = {
     "comune": {
         "article": "a",
         "display": "comune",
-        "preposition": "in",
+        "preposition": "of",
     },
     "constituency": {
         "article": "a",
@@ -658,6 +658,11 @@ recognized_placetypes = {
     "former separatist state": {
         "article": "a",
         "display": "former separatist state",
+        "preposition": "in",
+    },
+    "frazione": {
+        "article": "a",
+        "display": "frazione",
         "preposition": "in",
     },
     "geographical region": {
@@ -1950,7 +1955,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 389
+}  # 390
 
 placetypes_aliases = {
     "CDP": "census-designated place",
