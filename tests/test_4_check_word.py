@@ -234,7 +234,7 @@ def test_filter_fr_wikidata():
             ' données Wikidata <img alt="Wikidata-logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thu'
             'mb/f/ff/Wikidata-logo.svg/20px-Wikidata-logo.svg.png" decoding="async" width="20" height="11" src'
             'set="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/30px-Wikidata-logo.svg'
-            '.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/40px-Wikidata-lo'
+            ".png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/40px-Wikidata-lo"
             'go.svg.png 2x" data-file-width="1050" data-file-height="590" />'
         )
         return orig(html, locale)
