@@ -154,7 +154,7 @@ def filter_html(html: str, locale: str) -> str:
             ):
                 a.parent.next_sibling.replaceWith("")
             # {{LienRouge|lang=en|trad=Reconstruction
-            if "Reconstruction" in a["title"]:
+            elif "Reconstruction" in a["title"]:
                 a.decompose()
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
