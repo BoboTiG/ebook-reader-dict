@@ -750,6 +750,8 @@ def last_template_handler(
 
         >>> last_template_handler(["nom langue", "gcr"], "fr")
         'créole guyanais'
+        >>> last_template_handler(["langue", "gcr"], "fr")
+        'Créole guyanais'
 
         >>> last_template_handler(["wp"], "fr")
         'sur l’encyclopédie Wikipédia'
@@ -830,8 +832,11 @@ def last_template_handler(
     if tpl == "Légifrance":
         return data["texte"]
 
-    if tpl == "nom langue":
-        return langs[parts[0]]
+    if tpl in ("langue", "nom langue"):
+        phrase = langs[parts[0]]
+        if tpl == "langue":
+            phrase = phrase[0].capitalize() + phrase[1:]
+        return phrase
 
     if tpl in ("ar-mot", "ar-terme"):
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
