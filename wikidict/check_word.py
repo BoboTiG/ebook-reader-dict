@@ -14,6 +14,7 @@ from .utils import get_word_of_the_day
 
 import requests
 from bs4 import BeautifulSoup
+from requests.exceptions import HTTPError
 
 
 # Remove all kind of spaces and some unicode characters
@@ -193,32 +194,47 @@ def get_text(html: str) -> str:
     return str(BeautifulSoup(markup=html, features="html.parser").text)
 
 
+def craft_url(word: str, locale: str, raw: bool = False) -> str:
+    """Craft the *word* URL for the given *locale*."""
+    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
+    if raw:
+        url += "&action=raw"
+    return url
+
+
+def get_url_content(url: str) -> str:
+    """Fetch given *url* content with retries mechanism."""
+    sleep_time = 5
+    retry = 0
+    while retry < 5:
+        try:
+            with requests.get(url, timeout=10) as req:
+                req.raise_for_status()
+                return req.text
+        except TimeoutError:
+            sleep(sleep_time)
+            retry += 1
+        except HTTPError as err:
+            resp = err.response
+            if resp and resp.status_code == 429:
+                wait_time = int(resp.headers.get("Retry-after") or "1")
+                sleep(wait_time * sleep_time)
+                retry += 1
+    raise Exception(f"Sorry, too many tries for {url!r}")
+
+
 def get_word(word: str, locale: str) -> Word:
     """Get a *word* wikicode and parse it."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
-    with requests.get(url) as req:
-        return parse_word(word, req.text, locale)
+    url = craft_url(word, locale, raw=True)
+    html = get_url_content(url)
+    return parse_word(word, html, locale)
 
 
-def get_wiktionary_page(word: str, locale: str) -> str:  # pragma: no cover
+def get_wiktionary_page(word: str, locale: str) -> str:
     """Get a *word* HTML."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
-    try:
-        retry = 0
-        while retry < 5:
-            with requests.get(url, timeout=10) as req:
-                if req.status_code == 429:
-                    wait_time = req.headers.get("Retry-after")
-                    sleep(int(wait_time or "1") * 5)
-                    retry += 1
-                    continue
-                return filter_html(req.text, locale)
-        print(f"Sorry, too many tries: [{word}]", flush=True)
-        return ""
-    except TimeoutError:
-        return ""
-    except Exception:
-        return ""
+    url = craft_url(word, locale)
+    html = get_url_content(url)
+    return filter_html(html, locale)
 
 
 def check_word(word: str, locale: str, lock: Lock = None) -> int:

@@ -1,0 +1,21 @@
+{{desambiguación|Buena}}
+
+== {{lengua|es}} ==
+{{pron-graf|pron=estándar|fone=ˈbwe.na}}
+
+=== Forma adjetiva ===
+;1: {{forma adjetivo|leng=es|bueno|femenino}}.
+
+=== {{interjección|es}} ===
+
+;2 {{coloquial}}: Expresión de saludo. [[hola|Hola]].
+{{ámbito|Chile}}
+
+;3 {{coloquial}}: Úsase para expresar satisfacción u aprobación.
+{{ámbito|Chile}}
+
+=== Información adicional ===
+{{rima|e.na}}.
+
+== Referencias y notas ==
+<references />
