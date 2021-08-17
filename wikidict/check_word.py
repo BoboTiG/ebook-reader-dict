@@ -14,7 +14,7 @@ from .utils import get_word_of_the_day
 
 import requests
 from bs4 import BeautifulSoup
-from requests.exceptions import HTTPError
+from requests.exceptions import RequestException
 
 
 # Remove all kind of spaces and some unicode characters
@@ -217,7 +217,7 @@ def get_url_content(url: str) -> str:
         except TimeoutError:
             sleep(SLEEP_TIME)
             retry += 1
-        except HTTPError as err:
+        except RequestException as err:
             wait_time = 1
             resp = err.response
             if resp is not None and resp.status_code == 429:

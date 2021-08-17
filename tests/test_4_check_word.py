@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pytest
 import responses
-from requests.exceptions import HTTPError
+from requests.exceptions import RequestException
 from requests.models import Response
 
 from wikidict import check_word
@@ -283,7 +283,7 @@ def test_get_url_content_too_many_requests_error(monkeypatch):
         response = Response()
         response.status_code = 429
         response.headers["retry-after"] = "1"
-        raise HTTPError(response=response)
+        raise RequestException(response=response)
 
     monkeypatch.setattr("wikidict.check_word.SLEEP_TIME", 0.01)
     monkeypatch.setattr("requests.get", get)
