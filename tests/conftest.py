@@ -38,6 +38,9 @@ def craft_data():
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
         for file in data_dir.glob("*.wiki"):
+            if file.stem == "<vide>":
+                continue
+
             revision = 42
 
             # Possitility to remove a word
@@ -79,3 +82,15 @@ def page():
         return file.read_text(encoding="utf-8")
 
     return _page
+
+
+@pytest.fixture(scope="session")
+def html():
+    """Return the HTML of a word stored into "data/$LOCALE/word.html"."""
+
+    def _html(word: str, locale: str) -> str:
+        data = Path(os.environ["CWD"]) / "data" / locale
+        file = data / f"{word}.html"
+        return file.read_text(encoding="utf-8")
+
+    return _html

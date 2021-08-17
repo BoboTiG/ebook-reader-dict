@@ -1,0 +1,31 @@
+==Translingual==
+{{wikipedia|42 (number)}}
+
+===Symbol===
+{{head|mul|numeral symbol|previous|41|next|43}}
+
+# The cardinal number [[forty-two]].
+
+===Usage notes===
+The number 42 is often given as a joking [[answer]] to the question of the meaning of [[life]], the [[universe]], and [[everything]], and is sometimes used as an example value in [[programming]] where a [[number]] is desired, in reference to ''[[w:Hitchhiker's Guide to the Galaxy|The Hitchhiker's Guide to the Galaxy]]''.
+
+{{seeCites|mul}}
+
+----
+
+==English==
+{{wikipedia|Texas 42}}
+
+===Proper noun===
+{{en-proper noun}}
+
+# {{alternative form of|en|Texas 42}}
+
+[[Category:Hindu-Arabic script]]
+
+===Anagrams===
+* {{anagrams|en|a=24|2/4}}
+
+[[Category:English terms spelled with 2]]
+[[Category:English terms spelled with 4]]
+[[Category:en:Dominoes]]
