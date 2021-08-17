@@ -1,7 +1,10 @@
+from threading import RLock
 from unittest.mock import patch
 
 import pytest
 import responses
+from requests.exceptions import HTTPError
+from requests.models import Response
 
 from wikidict import check_word
 
@@ -60,10 +63,12 @@ def test_subsublist(craft_urls):
 
 
 @responses.activate
-def test_error(craft_urls):
+def test_error_and_lock(craft_urls):
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
+        lock = RLock()
+        assert check_word.check_word("42", "fr", lock=lock) > 0
 
 
 @responses.activate
@@ -261,3 +266,26 @@ def test_check_highlighting(
     if is_highlighted:
         stdout = capsys.readouterr()[0]
         assert "\033[31m" in stdout
+
+
+def test_get_url_content_timeout_error(monkeypatch):
+    def get(*_, **__):
+        raise TimeoutError()
+
+    monkeypatch.setattr("wikidict.check_word.SLEEP_TIME", 0.01)
+    monkeypatch.setattr("requests.get", get)
+    with pytest.raises(RuntimeError):
+        check_word.get_url_content("https://...")
+
+
+def test_get_url_content_too_many_requests_error(monkeypatch):
+    def get(*_, **__):
+        response = Response()
+        response.status_code = 429
+        response.headers["retry-after"] = "1"
+        raise HTTPError(response=response)
+
+    monkeypatch.setattr("wikidict.check_word.SLEEP_TIME", 0.01)
+    monkeypatch.setattr("requests.get", get)
+    with pytest.raises(RuntimeError):
+        check_word.get_url_content("https://...")

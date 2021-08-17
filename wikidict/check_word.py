@@ -21,6 +21,10 @@ from requests.exceptions import HTTPError
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
 no_spaces = partial(_replace_noisy_chars, "")
 
+# Retry mechanism
+MAX_RETRIES = 5  # count
+SLEEP_TIME = 5  # time, seconds
+
 
 def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[str]:
     results: List[str] = []
@@ -204,23 +208,24 @@ def craft_url(word: str, locale: str, raw: bool = False) -> str:
 
 def get_url_content(url: str) -> str:
     """Fetch given *url* content with retries mechanism."""
-    sleep_time = 5
     retry = 0
-    while retry < 5:
+    while retry < MAX_RETRIES:
         try:
             with requests.get(url, timeout=10) as req:
                 req.raise_for_status()
                 return req.text
         except TimeoutError:
-            sleep(sleep_time)
+            sleep(SLEEP_TIME)
             retry += 1
         except HTTPError as err:
+            wait_time = 1
             resp = err.response
-            if resp and resp.status_code == 429:
-                wait_time = int(resp.headers.get("Retry-after") or "1")
-                sleep(wait_time * sleep_time)
-                retry += 1
-    raise Exception(f"Sorry, too many tries for {url!r}")
+            if resp is not None and resp.status_code == 429:
+                print(resp, resp.status_code == 429)
+                wait_time = int(resp.headers.get("retry-after") or "1")
+            sleep(wait_time * SLEEP_TIME)
+            retry += 1
+    raise RuntimeError(f"Sorry, too many tries for {url!r}")
 
 
 def get_word(word: str, locale: str) -> Word:
