@@ -46,8 +46,33 @@ def chimy(composition: List[str]) -> str:
         'H<sub>2</sub>O'
         >>> chimy(["FeCO", "3", ""])
         'FeCO<sub>3</sub>'
+        >>> chimy(["CH", "2", "3==CHCOOH"])
+        'CH<sub>2</sub>=CHCOOH'
+        >>> chimy(["CH", "2", "&#61;CH", "2"])
+        'CH<sub>2</sub>&#61;CH<sub>2</sub>'
+        >>> chimy(["CH", "2", "&nbsp;=&nbsp;", "CH", "2"])
+        'CH<sub>2</sub>CH<sub>2</sub>'
     """
-    return "".join(subscript(c) if c.isdigit() else c for c in composition)
+    data: Dict[str, str] = defaultdict(str)
+    i = 1
+    for c in composition:
+        sArray = c.split("=", 1)
+        if len(sArray) == 2:
+            if sArray[0].isdigit():
+                data[sArray[0]] = sArray[1]
+                continue
+            elif sArray[0] == "&nbsp;":
+                continue
+        data[str(i)] = c
+        i += 1
+
+    phrase = ""
+    for i in range(1, 21):
+        stri = str(i)
+        if data[stri]:
+            phrase += data[stri] if i % 2 == 1 else subscript(data[stri])
+
+    return phrase
 
 
 def chinese(
@@ -330,7 +355,7 @@ def number(number: str, fsep: str, tsep: str) -> str:
         # Float
         res = f"{float(number):,}"
 
-    new_digits_count = sum(1 for c in res if c.isdigit())
+    new_digits_count = sum(bool(c.isdigit()) for c in res)
     if new_digits_count != digits_count:
         res += "0" * (digits_count - new_digits_count)
 
