@@ -64,17 +64,13 @@ def chimy(composition: List[str]) -> str:
             elif sArray[0] == "&nbsp;":
                 continue
         data[str(i)] = c
-        i = i + 1
+        i += 1
 
     phrase = ""
     for i in range(1, 21):
         stri = str(i)
         if data[stri]:
-            if i % 2 == 1:
-                phrase += data[stri]
-            else:
-                phrase += subscript(data[stri])
-
+            phrase += data[stri] if i % 2 == 1 else subscript(data[stri])
     return phrase
 
 
@@ -358,7 +354,7 @@ def number(number: str, fsep: str, tsep: str) -> str:
         # Float
         res = f"{float(number):,}"
 
-    new_digits_count = sum(1 for c in res if c.isdigit())
+    new_digits_count = sum(bool(c.isdigit()) for c in res)
     if new_digits_count != digits_count:
         res += "0" * (digits_count - new_digits_count)
 
