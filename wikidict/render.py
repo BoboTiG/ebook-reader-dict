@@ -40,10 +40,10 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 
 Sections = Dict[str, wtp.Section]
 
-# Multiprocessing shared globals
-MANAGER = multiprocessing.Manager()
+# Multiprocessing shared globals, init in render() see #1054
+MANAGER = ""
 LOCK = multiprocessing.Lock()
-MISSING_TPL_SEEN: List[str] = MANAGER.list()
+MISSING_TPL_SEEN: List[str] = []
 
 
 def find_definitions(
@@ -362,6 +362,8 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
         if any(head_section in code for head_section in sections)
     }
 
+    MANAGER = multiprocessing.Manager()
+    MISSING_TPL_SEEN: List[str] = MANAGER.list()  # noqa
     results: Words = MANAGER.dict()
 
     with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
