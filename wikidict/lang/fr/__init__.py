@@ -544,7 +544,7 @@ templates_multi = {
     # {{Mme|de Maintenon}}
     "Mme": "'M' + superscript('me') + (f' {parts[1]}' if len(parts) > 1 else '')",
     # {{nobr|1 000 000 000 000}}
-    "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;').replace('!', '|'))",
+    "nobr": "re.sub(r'^1=', '', parts[-1].replace(' ', '&nbsp;'))",
     # {{nom w pc|Aldous|Huxley}}
     "nom w pc": "person(word, parts[1:])",
     # {{nombre romain|12}}
@@ -619,7 +619,6 @@ templates_multi = {
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
-    "!": "!",
     "=": "=",
     "'": "’",
     "absolu": "<i>absolu</i>",

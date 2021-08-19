@@ -404,6 +404,8 @@ def process_templates(word: str, text: str, locale: str) -> str:
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
          !! Missing 'foo' template support for word 'foo'
         ''
+        >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
+        'OH<sub>2</sub>|OH<sub>2</sub>'
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
         >>> process_templates("test", r"<math>\R^n</math>", "fr")
@@ -430,9 +432,12 @@ def process_templates(word: str, text: str, locale: str) -> str:
         if not templates:
             break
         for tpl in templates:
+            if tpl == "{{!}}":
+                text = text.replace("{{!}}", "##pipe##!##pipe##")
             # Transform the template
             text = text.replace(tpl, transform(word, tpl[2:-2], locale))
 
+    text = text.replace("##pipe##!##pipe##", "|")
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
     text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
