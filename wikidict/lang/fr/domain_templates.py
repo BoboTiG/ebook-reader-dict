@@ -29,6 +29,7 @@ domain_templates = {
     "arrondissements": "Géographie",
     "arthropodes": "Zoologie",
     "artistes": "Art",
+    "arts martiaux": "Arts martiaux",
     "atomes": "Chimie",
     "avions": "Aéronautique",
     "bactéries": "Bactériologie",
@@ -309,5 +310,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 304
+}  # 305
 # END
