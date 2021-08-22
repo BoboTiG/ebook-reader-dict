@@ -1044,6 +1044,7 @@ template_mapping = {
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "date": render_date,
+    "deet": render_compose_de,
     "déglutination": render_modele_etym,
     "dénominal": render_modele_etym,
     "déverbal": render_modele_etym,
