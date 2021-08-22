@@ -2083,6 +2083,7 @@ langs = {
     "ibe": "akpès",
     "ibg": "ibanag",
     "ibh": "bih",
+    "ibl": "ibaloi",
     "ibm": "agoi",
     "ibn": "ibino",
     "ibo": "igbo",
@@ -2310,6 +2311,7 @@ langs = {
     "kah": "fer",
     "kai": "karekare",
     "kaj": "jju",
+    "kak": "ahin-kayapa kalanguya",
     "kakán": "kakán",
     "kal": "kalaallisut",
     "kalis": "kalis",
@@ -2717,6 +2719,7 @@ langs = {
     "kwv": "sara kaba náà",
     "kxa": "kairiru",
     "kxc": "konso",
+    "kxd": "malais de Brunei",
     "kxh": "karo (Éthiopie)",
     "kxj": "koulfa",
     "kxn": "melanau kanowit",
@@ -3392,7 +3395,9 @@ langs = {
     "mry": "mandaya",
     "mrz": "marind",
     "ms": "malais",
+    "msb": "masbatenyo",
     "msc": "sankaran",
+    "msd": "langue des signes maya de Yucatec",
     "mse": "moussey",
     "msf": "mekwei",
     "msg": "moraid",
@@ -5240,7 +5245,6 @@ langs = {
     "tn": "tswana",
     "tna": "tacana",
     "tnc": "tanimuca",
-    "tne": "kallahan de Tinoc",
     "tni": "tandia",
     "tnk": "kwamera",
     "tnl": "lenakel",
@@ -6262,7 +6266,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,257
+}  # 6,261
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
