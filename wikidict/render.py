@@ -23,7 +23,7 @@ from .lang import (
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import clean, process_templates
+from .utils import clean, process_templates, table2html
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -178,23 +178,30 @@ def find_etymology(
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         definitions.append(process_templates(word, clean(etyl), locale))
         return definitions
-
+    tables = parsed_section.tables
+    tableindex = 0
     for section in parsed_section.get_lists():
         for idx, section_item in enumerate(section.items):
+
             if any(
                 ignore_me in section_item.lower()
                 for ignore_me in definitions_to_ignore[locale]
             ):
                 continue
-            definitions.append(process_templates(word, clean(section_item), locale))
-            subdefinitions: List[SubDefinitions] = []
-            for sublist in section.sublists(i=idx):
-                for subcode in sublist.items:
-                    subdefinitions.append(
-                        process_templates(word, clean(subcode), locale)
-                    )
-            if subdefinitions:
-                definitions.append(tuple(subdefinitions))
+            if section_item == ' {| class="wikitable"':
+                phrase = table2html(word, locale, tables[tableindex])
+                definitions.append(phrase)
+                tableindex += 1
+            else:
+                definitions.append(process_templates(word, clean(section_item), locale))
+                subdefinitions: List[SubDefinitions] = []
+                for sublist in section.sublists(i=idx):
+                    for subcode in sublist.items:
+                        subdefinitions.append(
+                            process_templates(word, clean(subcode), locale)
+                        )
+                if subdefinitions:
+                    definitions.append(tuple(subdefinitions))
 
     return definitions
 

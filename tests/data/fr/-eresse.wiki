@@ -1,0 +1,245 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=fr}} Ce suffixe est né d’une coupe erronée du suffixe des mots comme ''[[enchanteresse]]'' et ''[[pécheresse]]''{{R|TLFi|-esse}}. En effet, ces derniers sont en fait le [[cas sujet]] de mots en ''[[-eur]]'' auquel on a ajouté le suffixe féminisant ''[[-esse]]'' sous le schéma suivant{{R|TLFi|-esse}} :
+: {| class="wikitable"
+! [[cas sujet]]
+! [[cas régime]]
+! [[cas sujet]] + ''[[-esse]]''
+|-
+| [[pechere]]
+| [[pecheur]]
+| [[pecheresse]]
+|-
+| [[enchantere]]
+| [[enchanteur]]
+| [[enchanteresse]]
+|}
+: Le suffixe a alors été confondu avec ''[[-erece]]'', suffixe {{étyl|fro|fr}} féminin de ''[[-erez]]'', qui n’a rien laissé en français moderne directement{{R|TLFi|-esse}} (indirectement, on note ''[[couperet]]'' et ''[[guilleret]]'', issus de confusions avec d’autres suffixes{{R|TLFi|-esse}}).
+: '''-eresse''' a été très productif au Moyen Âge{{R|TLFi|-esse}} mais il subit depuis le {{siècle2|XVI}} siècle la concurrence du suffixe ''[[-euse]]'' qui l’a presque entièrement remplacé{{R|TLFi|-esse}}.
+
+=== {{S|suffixe|fr}} ===
+{{fr-rég|(ə).ʁɛs}}
+'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}
+# Suffixe servant à former des mots féminins. {{note}} Voir aussi au suffixe ''{{lien|-esse|fr}}''.
+
+==== {{S|notes}} ====
+: Ce suffixe a surtout servi à la création de mots pour désigner des personnes de genre féminin à partir de mots masculins en ''{{lien|-eur|fr}}''.
+
+==== {{S|composés}} ====
+{{(|}}
+* {{lien|alongeresse|fr}}
+* {{lien|assesseresse|fr}}
+* {{lien|avaleresse|fr}}
+* {{lien|baigneresse|fr}}
+* {{lien|bailleresse|fr}}
+* {{lien|batailleresse|fr}}
+* {{lien|batteresse|fr}}
+* {{lien|bosseresse|fr}}
+* {{lien|botteresse|fr}}
+* {{lien|briberesse|fr}}
+* {{lien|bûcheresse|fr}}
+* {{lien|champarteresse|fr}}
+* {{lien|chanteresse|fr}}
+* {{lien|chantreresse|fr}}
+* {{lien|charmeresse|fr}}
+* {{lien|chasseresse|fr}}
+* {{lien|cheferesse|fr}}, {{lien|chefferesse|fr}}
+* {{lien|chercheresse|fr}}
+* {{lien|chevaleresse|fr}}
+* {{lien|codéfenderesse|fr}}
+* {{lien|codemanderesse|fr}}
+* {{lien|commanderesse|fr}}
+* {{lien|confesseresse|fr}}
+* {{lien|couleresse|fr}}
+* {{lien|danseresse|fr}}
+* {{lien|défenderesse|fr}}
+* {{lien|demanderesse|fr}}
+* {{lien|détenteresse|fr}}
+* {{lien|dévideresse|fr}}
+* {{lien|devineresse|fr}}
+* {{lien|écumeresse|fr}}
+* {{lien|emmerderesse|fr}}
+* {{lien|emperesse|fr}}
+* {{lien|enchanteresse|fr}}
+* {{lien|étoqueresse|fr}}
+* {{lien|forteresse|fr}}
+* {{lien|gouverneresse|fr}}
+* {{lien|guideresse|fr}}
+* {{lien|guinderesse|fr}}
+* {{lien|imposteresse|fr}}
+* {{lien|inqueresse|fr}}
+* {{lien|jongleresse|fr}}
+* {{lien|laveresse|fr}}
+* {{lien|lécheresse|fr}}
+* {{lien|longueresse|fr}}
+* {{lien|mégasècheresse|fr}}, {{lien|mégasécheresse|fr}}
+* {{lien|menteresse|fr}}
+* {{lien|panneresse|fr}}
+* {{lien|paqueresse|fr}}
+* {{lien|passeresse|fr}}
+* {{lien|pècheresse|fr}}, {{lien|pécheresse|fr}}
+* {{lien|pêcheresse|fr}}
+* {{lien|piperesse|fr}}
+* {{lien|ponneresse|fr}}
+* {{lien|porteresse|fr}}
+* {{lien|possesseresse|fr}}
+* {{lien|prêcheresse|fr}}
+* {{lien|précurseresse|fr}}
+* {{lien|prédécesseresse|fr}}
+* {{lien|preneresse|fr}}
+* {{lien|recommanderesse|fr}}
+* {{lien|refenderesse|fr}}
+* {{lien|repasseresse|fr}}
+* {{lien|reporteresse|fr}}
+* {{lien|revenderesse|fr}}
+* {{lien|sauveresse|fr}}
+* {{lien|sècheresse|fr}}, {{lien|sécheresse|fr}}
+* {{lien|séranceresse|fr}}
+* {{lien|serviteresse|fr}}
+* {{lien|successeresse|fr}}
+* {{lien|tailleresse|fr}}
+* {{lien|tromperesse|fr}}
+* {{lien|vainqueresse|fr}}
+* {{lien|venderesse|fr}}
+* {{lien|vengeresse|fr}}
+{{)}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|br}} : {{trad+|br|-erez}}
+{{trad-fin}}
+
+=== {{S|voir aussi}} ===
+* {{catégorie|Mots en français suffixés avec -esse}}
+* {{catégorie|Mots en français suffixés avec -eresse}}
+
+=== {{S|références}} ===
+{{Références}}
+
+[[Catégorie:Noms de métiers féminisés en français]]
+
+== {{langue|frm}} ==
+=== {{S|suffixe|frm}} ===
+{{frm-rég|(ə).rɛs(ə)}}
+{{lang|frm|'''-eresse'''}} {{pron|(ə).rɛs(ə)|frm}} {{f}}
+# Suffixe servant à former des mots féminins.<br/>Voir aussi au suffixe ''{{lien|-esse|frm}}''.
+
+==== {{S|composés}} ====
+{{(|}}
+* {{lien|acheteresse|frm}}
+* {{lien|accroisseresse|frm}}
+* {{lien|accuseresse|frm}}
+* {{lien|aideresse|frm}}
+* {{lien|aimeresse|frm}}
+* {{lien|alerresse|frm}}
+* {{lien|ambassaderesse|frm}}
+* {{lien|augmenteresse|frm}}
+* {{lien|batailleresse|frm}}
+* {{lien|bienfacteresse|frm}}
+* {{lien|berceresse|frm}}
+* {{lien|broderesse|frm}}
+* {{lien|bueresse|frm}}
+* {{lien|buveresse|frm}}
+* {{lien|censeresse|frm}}
+* {{lien|changeresse|frm}}
+* {{lien|chanteresse|frm}}
+* {{lien|chantreresse|frm}}
+* {{lien|charmegneresse|frm}}
+* {{lien|chevaleresse|frm}}
+* {{lien|coadjuteresse|frm}}
+* {{lien|conducteresse|frm}}
+* {{lien|conforteresse|frm}}
+* {{lien|consoleresse|frm}}
+* {{lien|corrupteresse|frm}}
+* {{lien|coulleresse|frm}}
+* {{lien|couvreresse|frm}}
+* {{lien|curaterresse|frm}}
+* {{lien|danseresse|frm}}
+* {{lien|découveresse|frm}}
+* {{lien|défenseresse|frm}}
+* {{lien|démonstreresse|frm}}
+* {{lien|dissiperesse|frm}}
+* {{lien|dompteresse|frm}}
+* {{lien|donateresse|frm}}
+* {{lien|draperesse|frm}}
+* {{lien|engigneresse|frm}}
+* {{lien|exposeresse|frm}}
+* {{lien|fileresse|frm}}
+* {{lien|flateresse|frm}}
+* {{lien|fonderesse|frm}}
+* {{lien|forgeresse|frm}}
+* {{lien|guerroyeresse|frm}}
+* {{lien|harperesse|frm}}
+* {{lien|inquisiteresse|frm}}
+* {{lien|intercesseresse|frm}}
+* {{lien|interprèteresse|frm}}
+* {{lien|inventeresse|frm}}
+* {{lien|joueresse|frm}}
+* {{lien|laveresse|frm}}
+* {{lien|mangeresse|frm}}
+* {{lien|meurtreresse|frm}}
+* {{lien|moderateresse|frm}}
+* {{lien|moiteresse|frm}}
+* {{lien|orateresse|frm}}
+* {{lien|ordonneresse|frm}}
+* {{lien|parleresse|frm}}
+* {{lien|persecuteresse|frm}}
+* {{lien|prieresse|frm}}
+* {{lien|procurateresse|frm}}
+* {{lien|procureresse|frm}}
+* {{lien|protecteresse|frm}}
+* {{lien|proviseresse|frm}}
+* {{lien|provocateresse|frm}}
+* {{lien|quêteresse|frm}}
+* {{lien|rapporteresse|frm}}
+* {{lien|repenteresse|frm}}
+* {{lien|retorderesse|frm}}
+* {{lien|sarcleresse|frm}}
+* {{lien|sauteresse|frm}}
+* {{lien|sèmeresse|frm}}
+* {{lien|sorceresse|frm}}
+* {{lien|souffleresse|frm}}
+* {{lien|successeresse|frm}}
+* {{lien|tanceresse|frm}}
+* {{lien|témoigneresse|frm}}
+* {{lien|traîneresse|frm}}
+* {{lien|traiteresse|frm}}
+* {{lien|triomphateresse|frm}}
+* {{lien|trouveresse|frm}}
+* {{lien|tuteresse|frm}}
+* {{lien|vainqueresse|frm}}
+* {{lien|veneresse|frm}}
+* {{lien|vicareresse|frm}}
+* {{lien|vindicateresse|frm}}
+{{)}}
+
+=== {{S|voir aussi}} ===
+* {{catégorie|Mots en moyen français suffixés avec -esse}}
+* {{catégorie|Mots en moyen français suffixés avec -eresse}}
+
+=== {{S|références}} ===
+* {{R:DMF}}
+
+== {{langue|fro}} ==
+=== {{S|suffixe|fro}} ===
+{{lang|fro|'''-eresse'''}} {{pron|ə.rɛs(ə)|fro}} {{f}}
+# Suffixe servant à former des mots féminins.<br/>Voir aussi au suffixe ''{{lien|-esse|fro}}''.
+
+==== {{S|composés}} ====
+{{(|}}
+* {{lien|acesmeresse|fro}}
+* {{lien|alaiteresse|fro}}
+* {{lien|breteresse|fro}}
+* {{lien|conduiseresse|fro}}
+* {{lien|esploiteresse|fro}}
+* {{lien|forteresse|fro}}
+* {{lien|liseresse|fro}}
+* {{lien|maneresse|fro}}
+* {{lien|venderesse|fro}}
+{{)}}
+
+=== {{S|voir aussi}} ===
+* {{catégorie|Mots en ancien français suffixés avec -esse}}
+* {{catégorie|Mots en ancien français suffixés avec -eresse}}
+
+{{clé de tri|eresse}}

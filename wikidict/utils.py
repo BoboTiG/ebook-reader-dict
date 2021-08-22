@@ -11,6 +11,7 @@ from cachetools import cached
 from cachetools.keys import hashkey
 import regex
 import requests
+import wikitextparser
 
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
@@ -496,6 +497,23 @@ def convert_chem(match: Union[str, Match[str]], word: str) -> str:
     except Exception:
         print(f"<chem> ERROR with {expr} in [{word}]", flush=True)
         return expr
+
+
+def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
+    phrase = "<table>"
+    style_table = 'style="border: 1px solid black; border-collapse: collapse;"'
+    style_td = (
+        'style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;"'
+    )
+    phrase = f"<table {style_table}>"
+    for row in table.cells(span=False):
+        phrase += "<tr>"
+        for cell in row:
+            tag = "th" if cell.is_header else "td"
+            phrase += f"<{tag} {style_td}>{process_templates(word, clean(cell.value), locale)}</{tag}>"
+        phrase += "</tr>"
+    phrase += "</table>"
+    return phrase
 
 
 def transform(word: str, template: str, locale: str) -> str:
