@@ -30,6 +30,7 @@ from .lang import (
     thousands_separator,
 )
 from .user_functions import *  # noqa
+from .hiero_utils import render_hiero
 
 
 # Magic words (small part, only data/time related)
@@ -417,7 +418,10 @@ def process_templates(word: str, text: str, locale: str) -> str:
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
         <chem> ERROR with C10HX\xz14N2O4 in [test]
         'C10HX\\xz14N2O4'
-    """
+        >>> process_templates("test", r"<hiero>R11</hiero>", "fr")
+        '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
+
+    """  # noqa
 
     sub = re.sub
 
@@ -442,6 +446,7 @@ def process_templates(word: str, text: str, locale: str) -> str:
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
     text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
+    text = sub(r"<hiero>(.+)</hiero>", partial(convert_hiero, word=word), text)
 
     # Remove extra spaces (it happens when a template is ignored for instance)
     text = sub(r"\s{2,}", " ", text)
@@ -497,6 +502,12 @@ def convert_chem(match: Union[str, Match[str]], word: str) -> str:
     except Exception:
         print(f"<chem> ERROR with {expr} in [{word}]", flush=True)
         return expr
+
+
+def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
+    """Convert hiretoglyph symbols to a base64 encoded GIF file."""
+    expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    return render_hiero(expr)
 
 
 def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
