@@ -141,9 +141,7 @@ def renderGlyphImage(glyph: str, height: int, margin: int, moreStyle: str) -> st
 
 
 def renderGlyph(glyph: str, height: int = -1) -> str:
-    moreStyle = ""
-    if isMirrored(glyph):
-        moreStyle = MIRROR_STYLE
+    moreStyle = MIRROR_STYLE if isMirrored(glyph) else ""
     glyph = extractCode(glyph)
     if glyph == "..":
         return renderVoidBlock(MAX_HEIGHT)
