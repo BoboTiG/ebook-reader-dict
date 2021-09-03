@@ -296,9 +296,6 @@ domain_templates = {
     "vête": "Habillement",
     "vêtements": "Habillement",
     "xénarthres": "Mammalogie",
-    "zool": "Zoologie",
-    "zoologie": "Zoologie",
-    "zootechnie": "Zoologie",
     "échinodermes": "Zoologie",
     "écureuils": "Zoologie",
     "édifices": "Construction",
@@ -310,5 +307,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 305
+}  # 302
 # END
