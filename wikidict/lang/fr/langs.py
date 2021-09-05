@@ -821,7 +821,7 @@ langs = {
     "bui": "bongili",
     "buk": "bukawa",
     "bularnu": "bularnu",
-    "bum": "bulu",
+    "bum": "boulou",
     "bun": "sherbro",
     "burgonde": "burgonde",
     "bus": "bokobaru",
@@ -1774,6 +1774,7 @@ langs = {
     "gix": "gilima",
     "giz": "giziga du Sud",
     "gji": "geji",
+    "gjn": "gonja",
     "gju": "gujari",
     "gkm": "grec byzantin",
     "gkn": "gokana",
@@ -6266,7 +6267,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,261
+}  # 6,262
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
