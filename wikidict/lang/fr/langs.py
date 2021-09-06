@@ -2587,7 +2587,7 @@ langs = {
     "koy": "koyukon",
     "koz": "korak",
     "kpa": "kupto",
-    "kpc": "baniwa de l’Içana",
+    "kpc": "curripaco",
     "kpe": "kpellé",
     "kpf": "komba",
     "kpg": "kapingamarangi",
