@@ -5717,6 +5717,7 @@ langs = {
     "wmc": "wamas",
     "wmd": "mamaindé",
     "wme": "wambule",
+    "wmg": "muya de l’Ouest",
     "wmh": "waimaha",
     "wms": "wambon",
     "wmt": "walmajarri",
@@ -6267,7 +6268,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,262
+}  # 6,263
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
