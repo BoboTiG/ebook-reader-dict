@@ -21,6 +21,7 @@ domain_templates = {
     "animaux": "Zoologie",
     "antilopes": "Zoologie",
     "appareils": "Électroménager",
+    "application": "Couche application",
     "araignées": "Zoologie",
     "arbres": "Botanique",
     "armes": "Armement",
@@ -68,6 +69,7 @@ domain_templates = {
     "composants électriques": "Électricité",
     "composants électroniques": "Électronique",
     "condiments": "Cuisine",
+    "confiserie": "Confiserie",
     "confiseries": "Confiserie",
     "conifères": "Botanique",
     "constellations": "Astronomie",
@@ -306,5 +308,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 301
+}  # 303
 # END

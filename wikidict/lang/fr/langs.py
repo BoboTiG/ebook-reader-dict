@@ -4406,6 +4406,7 @@ langs = {
     "puj": "punan tubu’",
     "pum": "puma",
     "pup": "pulabu",
+    "puq": "puquina",
     "pur": "puruborá",
     "put": "putoh",
     "puu": "pounou",
@@ -6268,7 +6269,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,263
+}  # 6,264
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
