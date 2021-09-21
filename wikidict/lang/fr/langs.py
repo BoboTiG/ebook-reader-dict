@@ -3325,6 +3325,7 @@ langs = {
     "moy": "shakacho",
     "moyen danois": "moyen danois",
     "moyen khmer": "moyen khmer",
+    "moyen polonais": "moyen polonais",
     "moyen scots": "moyen écossais",
     "moyen écossais": "moyen écossais",
     "moyfaw": "moyfaw",
@@ -5580,6 +5581,7 @@ langs = {
     "vieux khmer pré-angkorien": "vieux khmer pré-angkorien",
     "vieux norvégien": "vieux norvégien",
     "vieux novgorodien": "vieux novgorodien",
+    "vieux polonais": "vieux polonais",
     "vieux scots": "vieil écossais",
     "vieux suédois": "vieux suédois",
     "vif": "vili",
@@ -6269,7 +6271,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,264
+}  # 6,266
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
