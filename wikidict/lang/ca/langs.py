@@ -271,6 +271,7 @@ langs = {
     "ik": "inupiaq",
     "ilo": "ilocano",
     "ine": "indoeuropeu",
+    "ine-pro": "protoindoeuropeu",
     "inh": "ingúix",
     "io": "ido",
     "is": "islandès",
@@ -704,5 +705,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 699
+}  # 700
 # END
