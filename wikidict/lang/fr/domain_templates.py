@@ -25,7 +25,7 @@ domain_templates = {
     "araignées": "Zoologie",
     "arbres": "Botanique",
     "armes": "Armement",
-    "armures": "Armement",
+    "armures": "Armurerie",
     "aromates": "Aromate",
     "arrondissements": "Géographie",
     "arthropodes": "Zoologie",
