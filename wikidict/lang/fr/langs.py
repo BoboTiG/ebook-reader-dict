@@ -1613,7 +1613,7 @@ langs = {
     "fpe": "pichi",
     "fqs": "fas",
     "fr": "français",
-    "fra-jer": "jersiais",
+    "fra-jer": "normand",
     "fra-nor": "normand",
     "francilien": "francilien",
     "francique central": "francique central",
@@ -3779,6 +3779,7 @@ langs = {
     "noo": "nootka",
     "nop": "numanggang",
     "nordique commun": "nordique commun",
+    "normand": "normand",
     "nos": "yi oriental",
     "not": "nomatsiguenga",
     "nou": "ewage-notu",
@@ -3798,7 +3799,7 @@ langs = {
     "nrb": "nara",
     "nrc": "norique",
     "nre": "naga des Rengma du Sud",
-    "nrf": "normand insulaire",
+    "nrf": "normand",
     "nrg": "narango",
     "nri": "chokri",
     "nrk": "ngarla",
@@ -6271,7 +6272,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,266
+}  # 6,267
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
