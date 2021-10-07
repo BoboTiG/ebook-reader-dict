@@ -3138,6 +3138,7 @@ langs = {
     "mfe": "créole mauricien",
     "mff": "naki",
     "mfg": "mogofin",
+    "mfh": "matal",
     "mfi": "wandala",
     "mfj": "mefele",
     "mfn": "mbembe Cross River",
@@ -6272,7 +6273,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,267
+}  # 6,268
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
