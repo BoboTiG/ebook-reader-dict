@@ -435,7 +435,6 @@ campos_semanticos = {
     "química": "Química",
     "química orgánica": "Química orgánica",
     "recetas": "Gastronomía",
-    "regiones": "Geografía",
     "religión": "Religión",
     "relojería": "Relojería",
     "reptil": "Zoología",
@@ -495,5 +494,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 490
+}  # 489
 # END
