@@ -120,6 +120,7 @@ regions = {
     "Danemark": "Danemark",
     "Dauphiné": "Dauphiné",
     "Dijonnais": "Dijonnais",
+    "Diu": "Diu",
     "Dominique": "Dominique",
     "Doué-en-Anjou": "Doué-en-Anjou",
     "Drôme": "Drôme",
@@ -404,7 +405,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 399
+}  # 400
 # END
 
 # handled differently
