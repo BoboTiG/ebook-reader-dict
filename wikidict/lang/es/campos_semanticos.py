@@ -237,7 +237,6 @@ campos_semanticos = {
     "cinegética": "Cinegética",
     "cinología": "Cinología",
     "cirugía": "Cirugía",
-    "ciudades": "Geografía",
     "cnidarios": "Zoología",
     "colores": "Colores",
     "comercio": "Comercio",
@@ -494,5 +493,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 489
+}  # 488
 # END

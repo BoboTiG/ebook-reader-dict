@@ -339,6 +339,7 @@ regions = {
     "Slovaquie": "Slovaquie",
     "Sologne": "Sologne",
     "Sonsorol": "Sonsorol",
+    "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
     "Sud du Viêt Nam": "Sud du Viêt Nam",
     "Sud du pays de Galles": "Sud du pays de Galles",
@@ -405,7 +406,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 400
+}  # 401
 # END
 
 # handled differently
