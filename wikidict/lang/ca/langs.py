@@ -677,7 +677,7 @@ langs = {
     "yap": "yapeà",
     "yav": "yangben",
     "ybb": "yemba",
-    "yi": "jiddisch",
+    "yi": "ídix",
     "yo": "ioruba",
     "yua": "maia yucatec",
     "yue": "xinès cantonès",
