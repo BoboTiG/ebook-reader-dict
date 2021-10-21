@@ -113,7 +113,7 @@ langs = {
     "cel": "cèltic",
     "cgg": "chiga",
     "ch": "chamorro",
-    "chb": "txibtxa",
+    "chb": "muisca",
     "chg": "txagatai",
     "chk": "chuuk",
     "chm": "mari",
