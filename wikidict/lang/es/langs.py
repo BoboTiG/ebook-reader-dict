@@ -656,6 +656,7 @@ langs = {
     "mni": "manipuri",
     "mnk": "mandinga",
     "mno": "manobo",
+    "mnw": "mon",
     "mo": "moldavo",
     "moc": "mocoví",
     "moe": "montañés",
@@ -1182,7 +1183,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,177
+}  # 1,178
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
