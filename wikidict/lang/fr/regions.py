@@ -79,6 +79,7 @@ regions = {
     "Cambodge": "Cambodge",
     "Cameroun": "Cameroun",
     "Canada": "Canada",
+    "Caraïbes": "Caraïbes",
     "Catalogne": "Catalogne",
     "Caucase": "Caucase",
     "Caux": "Pays de Caux",
@@ -406,7 +407,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 401
+}  # 402
 # END
 
 # handled differently
