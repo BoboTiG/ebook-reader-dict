@@ -187,6 +187,7 @@ regions = {
     "Kitigan Zibi": "Kitigan Zibi",
     "Kortemark": "Kortemark",
     "Koupuana": "Koupuana",
+    "La Hague": "La Hague",
     "La Romagne": "La Romagne",
     "Landegem": "Landegem",
     "Landivy": "Landivy",
@@ -407,7 +408,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 402
+}  # 403
 # END
 
 # handled differently
