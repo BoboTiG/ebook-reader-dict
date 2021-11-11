@@ -8,4 +8,4 @@ pillow==8.4.0
 pyglossary==4.0.11
 requests==2.26.0
 sympy==1.9
-wikitextparser==0.47.6
+wikitextparser==0.47.7
