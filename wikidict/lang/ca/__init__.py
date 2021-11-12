@@ -154,7 +154,7 @@ def last_template_handler(
         '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula", "pos=gentilici"], "ca")
         '<i>λόγος</i> (<i>lógos</i>, «paraula», gentilici)'
-        >>> last_template_handler(["terme", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
+        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
         >>> last_template_handler(["trad", "es", "manzana"], "ca")
@@ -214,7 +214,7 @@ def last_template_handler(
             phrase = strong(phrase)
         return phrase
 
-    if tpl in ("terme", "calc"):
+    if tpl in ("terme", "term", "calc"):
         return f"{italic(parts[-1])}{parse_other_parameters()}"
 
     if tpl == "trad":
