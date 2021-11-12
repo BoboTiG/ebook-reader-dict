@@ -52,6 +52,7 @@ definitions_to_ignore = (
     "forma-p",
     # Quotes
     "ex-cit",
+    "ex-us",
 )
 
 # Templates to ignore: the text will be deleted.
