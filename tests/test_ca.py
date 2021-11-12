@@ -163,6 +163,13 @@ from wikidict.utils import process_templates
                 "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
         ),
+        (
+            "hivernacle",
+            [],
+            "m",
+            ["Del llatí <i>hibernaculum</i>."],
+            ["Cobert per a protegir plantes del vent o del fred extrem."],
+        ),
         ("Mn.", [], "", [], ["mossèn com a tractament davant el nom"]),
         ("PMF", ["ˌpeˈe.məˌe.fə"], "", [], ["Preguntes Més Freqüents."]),
         ("pen", [], "", [], []),

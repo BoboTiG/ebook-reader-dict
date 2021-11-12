@@ -1,0 +1,28 @@
+== {{-ca-}} ==
+{{ca-pron}}
+{{-etimologia-}} Del llatí {{terme|la|hibernaculum}}.
+
+=== Nom ===
+{{ca-nom|m}}
+
+# Cobert per a protegir plantes del vent o del fred extrem.
+
+{{-comp-}}
+* [[efecte hivernacle]]
+#: {{ex-cit|ca|—Segur que la teva família no... voldrà fer servir aquest lloc? —No, ningú ve a seure a l''''hivernacle''' als matins. —D'acord. |ref=Alice Oseman (trad. Lluís Delgado), ''Heartstopper 2: La meva persona favorita'' (pàg. 340), jul. 2020.}}
+
+{{-trad-}}
+{{inici}}
+* {{en}}: {{trad|en|conservatory}}
+* {{es}}: {{trad|es|invernadero}}
+{{mig}}
+* {{fr}}: {{trad|fr|serre}}
+* {{it}}: {{trad|it|serra}}
+{{final}}
+
+=== Miscel·lània ===
+* {{ca-sil}}
+
+=== Vegeu també ===
+* {{Viquipèdia}}
+* {{ca-dicc|diec|gdlc|dnv|dcvb}}

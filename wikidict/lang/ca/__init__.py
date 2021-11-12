@@ -50,6 +50,8 @@ definitions_to_ignore = (
     "forma-f",
     # Ignore plurals
     "forma-p",
+    # Quotes
+    "ex-cit",
 )
 
 # Templates to ignore: the text will be deleted.
