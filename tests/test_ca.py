@@ -50,13 +50,13 @@ from wikidict.utils import process_templates
                 "Recipient de cuir, originalment de boc per a contenir vi.",
                 "sac de gemecs",
                 "Reclam a manera d'ocell.",
-                "Peix (<i>Mola mola</i>) de la família els mòlids, de color gris i textura aspra, de cos discoïdal aplanat, però que s'unfla com un globus com a sistema de defensa.",
+                "Peix (<i>Mola mola</i>) de la família els mòlids, de color gris i textura aspra, de cos discoïdal aplanat, però que s'unfla com un globus com a sistema de defensa.",  # noqa
                 "Peix subtropical de la família dels diodòntids. (<i>Chilomycterus reticulatus</i>)",
                 "<i>(peixos)</i> ballesta",
                 "Salt enlaire amb un impuls ràpid.",
                 "Moviment elàstic d’un cos que en topar és llançat enlaire.",
                 "Embarcació petita sense coberta.",
-                "<i>(informàtica)</i> Programa informàtic dissenyat per a completar tasques d’assistència, especialment quan opera com un usuari.",
+                "<i>(informàtica)</i> Programa informàtic dissenyat per a completar tasques d’assistència, especialment quan opera com un usuari.",  # noqa
             ],
         ),
         (
