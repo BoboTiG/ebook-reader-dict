@@ -665,7 +665,7 @@ langs = {
     "xaa": "àrab andalusí",
     "xal": "calmuc",
     "xaq": "aquità",
-    "xh": "xosa",
+    "xh": "xhosa",
     "xib": "ibèric",
     "xmf": "mingrelià",
     "xno": "anglonormand",
