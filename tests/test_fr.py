@@ -37,7 +37,7 @@ from wikidict.utils import process_templates
                 "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",  # noqa
                 "<i>(Québec)</i> <i>(Familier)</i> Elle.",
             ],
-            [],
+            ["avoir"],
         ),
         (
             "π",
@@ -140,7 +140,7 @@ from wikidict.utils import process_templates
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
                 "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
             ],
-            [],
+            ["baser"],
         ),
         (
             "bath",
@@ -231,7 +231,7 @@ from wikidict.utils import process_templates
                 "<i>(Médecine)</i> <i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",  # noqa
                 "Émanation qui se dégage d’un corps quelconque.",
             ],
-            [],
+            ["effluver"],
         ),
         (
             "employer",
@@ -368,7 +368,7 @@ from wikidict.utils import process_templates
                 "S’emploie quelquefois comme nom masculin.",
                 "<i>Variante de</i> ranche.",
             ],
-            [],
+            ["rancer"],
         ),
         (
             "sapristi",
@@ -388,7 +388,7 @@ from wikidict.utils import process_templates
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
             ],
-            [],
+            ["siliconer"],
         ),
         (
             "suis",
