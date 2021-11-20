@@ -328,15 +328,22 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         prons = find_pronunciations(code, pronunciation.get(locale))
         nature = find_gender(code, gender[locale])
 
-    # find if variant and delete unwanted definitions
+    # Find poential variants
     variants = []
-    if locale == "fr" and not definitions:  # Pure verb form, no definition
-        for title, s in parsed_sections.items():
-            if title.startswith("{{S|verbe|fr|flexion"):
-                for t in s[0].templates:
-                    if t.__str__().startswith("{{fr-verbe-flexion"):
-                        infinitive = process_templates(word, clean(t.__str__()), locale)
-                        variants.append(infinitive)
+    if locale == "fr":
+        for title, section in parsed_sections.items():
+            # Variants are guessed from:
+            #   - verb forms
+            #   - plural nouns
+            if not title.startswith(("{{S|verbe|fr|flexion", "{{S|nom|fr|flexion")):
+                continue
+            for tpl in section[0].templates:
+                tpl = str(tpl)
+                if not tpl.startswith(("{{fr-verbe-flexion", "{{fr-rég")):
+                    continue
+                variant = process_templates(word, clean(tpl), locale)
+                if variant:
+                    variants.append(variant)
 
     return Word(prons, nature, etymology, definitions, variants)
 

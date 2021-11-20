@@ -183,7 +183,6 @@ templates_ignored = (
     "ébauche-déf",
     "ébauche-étym",
     "ébauche-exe",
-    "fr-rég",
     "ibid",
     "Import",
     "lire en ligne",
@@ -719,6 +718,15 @@ def last_template_handler(
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
         '<i>(Ellipse de</i> piston racleur<i>)</i>'
 
+        >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carotte")
+        'carottes'
+        >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
+        'carotte'
+        >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
+        'ru'
+        >>> last_template_handler(["fr-rég", "ɔm d‿a.fɛʁ", "s=homme", "inv=d’affaires"], "fr", word="hommes d’affaires")
+        'homme d’affaires'
+
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
         >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
@@ -835,6 +843,12 @@ def last_template_handler(
 
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
+
+    if tpl == "fr-rég":
+        singular = data["s"] or (word.rstrip("s") if word.endswith("s") else f"{word}s")
+        if data["inv"]:
+            singular += f" {data['inv']}"
+        return singular
 
     if tpl == "Légifrance":
         return data["texte"]
