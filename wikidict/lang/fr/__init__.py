@@ -733,6 +733,8 @@ def last_template_handler(
         'boucher'
         >>> last_template_handler(["fr-accord-et", "kɔ.k", "ms=coquet"], "fr")
         'coquet'
+        >>> last_template_handler(["fr-accord-eux", "malheur", "ma.lœ.ʁ"], "fr")
+        'malheureux'
         >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
         'animal'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
@@ -866,6 +868,8 @@ def last_template_handler(
         singular = data["s"] or data["ms"]
         if tpl == "fr-accord-eau":
             singular = parts[0] + "eau"
+        elif tpl == "fr-accord-eux":
+            singular = parts[0] + "eux"
         elif tpl == "fr-accord-mf-al":
             singular = parts[0] + "al"
         elif not singular:
