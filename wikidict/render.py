@@ -329,30 +329,33 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         nature = find_gender(code, gender[locale])
 
     # Find poential variants
-    variants = []
+    variants = set()
     if locale == "fr":
         for title, section in parsed_sections.items():
-            # Variants are guessed from:
-            #   - verb forms
-            #   - plural nouns
-            if not title.startswith(("{{S|verbe|fr|flexion", "{{S|nom|fr|flexion")):
+            if not title.startswith(
+                (
+                    "{{S|adjectif|fr}",
+                    "{{S|adjectif|fr|flexion",
+                    "{{S|nom|fr|flexion",
+                    "{{S|verbe|fr|flexion",
+                )
+            ):
                 continue
             for tpl in section[0].templates:
                 tpl = str(tpl)
                 if not tpl.startswith(
                     (
-                        "{{fr-verbe-flexion",
-                        "{{fr-accord-rég",
-                        "{{fr-accord-mixte",
+                        "{{fr-accord-",
                         "{{fr-rég",
+                        "{{fr-verbe-flexion",
                     )
                 ):
                     continue
                 variant = process_templates(word, clean(tpl), locale)
-                if variant:
-                    variants.append(variant)
+                if variant and variant != word:
+                    variants.add(variant)
 
-    return Word(prons, nature, etymology, definitions, variants)
+    return Word(prons, nature, etymology, definitions, sorted(variants))
 
 
 def load(file: Path) -> Dict[str, str]:

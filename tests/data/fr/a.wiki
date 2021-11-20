@@ -103,7 +103,7 @@ __TOC__
 * [[à]]
 
 === {{S|verbe|fr|flexion}} ===
-{{fr-verbe-flexion| grp=3|'=oui|ind.p.3s=oui|avoir}}
+{{fr-verbe-flexion|grp=3|'=oui|ind.p.3s=oui|avoir}}
 '''a''' {{pron|a|fr}}
 # ''Troisième personne du singulier de l’indicatif de'' [[avoir]].
 #* ''Nous les hommes des douars lointains, des hauts djebels, des larges vallées, nous savions que l’on ne bâtit pas sa maison si l’on n’'''a''' pas confiance dans la solidité du sol.'' {{source|Bachaga Boualam, ''Les Harkis au service de la France'', France-Empire, 1963, page 26}}

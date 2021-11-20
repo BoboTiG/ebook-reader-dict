@@ -517,6 +517,12 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
+    # {{fr-accord-comp|aigre|doux|...}
+    "fr-accord-comp": 'f"{parts[1]} {parts[2]}"',
+    # {{fr-accord-oux|d|d}}
+    "fr-accord-oux": "parts[1] + 'oux'",
+    # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
+    "fr-accord-t-avant1835": "parts[1]",
     # {{graphie|u}}
     "graphie": 'f"‹&nbsp;{parts[1]}&nbsp;›"',
     # {{Ier}}
@@ -717,31 +723,28 @@ def last_template_handler(
         '<i>(Par ellipse)</i>'
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
         '<i>(Ellipse de</i> piston racleur<i>)</i>'
-
-        >>> last_template_handler(["fr-accord-rég", "a.jœl"], "fr", word="aïeul")
-        'aïeuls'
+        >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
+        'chameau de Bactriane'
+        >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
+        'optionnel'
+        >>> last_template_handler(["fr-accord-en", "bu.le.", "ms=booléen"], "fr")
+        'booléen'
+        >>> last_template_handler(["fr-accord-er", "bouch", "bu.ʃ", "ms=boucher"], "fr")
+        'boucher'
+        >>> last_template_handler(["fr-accord-et", "kɔ.k", "ms=coquet"], "fr")
+        'coquet'
+        >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
+        'animal'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
         'aïeul'
         >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
         'attaché de presse'
-
-        >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carotte")
-        'carottes'
         >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
         'carotte'
         >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
         'ru'
         >>> last_template_handler(["fr-rég", "ɔm d‿a.fɛʁ", "s=homme", "inv=d’affaires"], "fr", word="hommes d’affaires")
         'homme d’affaires'
-
-        >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
-        '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
-        '«&nbsp;pomme&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:DAF6", "pomme"], "fr", "pedzouille")
-        '«&nbsp;pomme&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835'
-
-
         >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
         'colliger'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
@@ -752,6 +755,14 @@ def last_template_handler(
         'avoir'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
+
+
+        >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
+        '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
+        >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
+        '«&nbsp;pomme&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
+        >>> last_template_handler(["R:DAF6", "pomme"], "fr", "pedzouille")
+        '«&nbsp;pomme&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835'
 
         >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45", "texte=article 230-45"], "fr")
         'article 230-45'
@@ -851,12 +862,14 @@ def last_template_handler(
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
 
-    if tpl in ("fr-accord-rég", "fr-accord-mixte", "fr-rég"):
-        singular = (
-            data["s"]
-            or data["ms"]
-            or (word.rstrip("s") if word.endswith("s") else f"{word}s")
-        )
+    if tpl.startswith(("fr-accord-", "fr-rég")):
+        singular = data["s"] or data["ms"]
+        if tpl == "fr-accord-eau":
+            singular = parts[0] + "eau"
+        elif tpl == "fr-accord-mf-al":
+            singular = parts[0] + "al"
+        elif not singular:
+            singular = word.rstrip("s")
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular

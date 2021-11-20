@@ -398,7 +398,7 @@ from wikidict.utils import process_templates
                 "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>)."  # noqa
             ],
             [],
-            ["être", "suivre"],
+            ["suivre", "être"],
         ),
         (
             "Turgeon",
@@ -459,6 +459,9 @@ def test_parse_word(
         ("J·K{{e|-1}}", "J·K<sup>-1</sup>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{familier|fr|nocat=1}}", "<i>(Familier)</i>"),
+        ("{{fr-accord-oux|d|d}}", "doux"),
+        ("{{fr-accord-comp|aigre|doux|...}}", "aigre doux"),
+        ("{{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}", "abondan"),
         ("{{graphie|u}}", "‹&nbsp;u&nbsp;›"),
         ("{{lang|en|other rank}}", "<i>other rank</i>"),
         ("{{Lang|la|Martis dies}}", "<i>Martis dies</i>"),
