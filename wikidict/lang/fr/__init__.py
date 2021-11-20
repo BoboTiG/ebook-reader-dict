@@ -718,6 +718,13 @@ def last_template_handler(
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
         '<i>(Ellipse de</i> piston racleur<i>)</i>'
 
+        >>> last_template_handler(["fr-accord-rég", "a.jœl"], "fr", word="aïeul")
+        'aïeuls'
+        >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
+        'aïeul'
+        >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
+        'attaché de presse'
+
         >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carotte")
         'carottes'
         >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
@@ -844,8 +851,12 @@ def last_template_handler(
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
 
-    if tpl == "fr-rég":
-        singular = data["s"] or (word.rstrip("s") if word.endswith("s") else f"{word}s")
+    if tpl in ("fr-accord-rég", "fr-accord-mixte", "fr-rég"):
+        singular = (
+            data["s"]
+            or data["ms"]
+            or (word.rstrip("s") if word.endswith("s") else f"{word}s")
+        )
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular

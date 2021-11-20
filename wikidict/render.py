@@ -339,7 +339,14 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 continue
             for tpl in section[0].templates:
                 tpl = str(tpl)
-                if not tpl.startswith(("{{fr-verbe-flexion", "{{fr-rég")):
+                if not tpl.startswith(
+                    (
+                        "{{fr-verbe-flexion",
+                        "{{fr-accord-rég",
+                        "{{fr-accord-mixte",
+                        "{{fr-rég",
+                    )
+                ):
                     continue
                 variant = process_templates(word, clean(tpl), locale)
                 if variant:
