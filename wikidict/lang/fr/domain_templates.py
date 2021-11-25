@@ -187,7 +187,6 @@ domain_templates = {
     "mouches": "Entomologie",
     "muscles": "Anatomie",
     "musiciens": "Musique",
-    "musiques": "Musique",
     "médicaments": "Pharmacologie",
     "méduses": "Zoologie",
     "métaplasmes": "Linguistique",
@@ -308,5 +307,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 303
+}  # 302
 # END
