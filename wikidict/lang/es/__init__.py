@@ -75,6 +75,7 @@ templates_ignored = (
 templates_italic = {
     **campos_semanticos,
     "afectado": "Literario",
+    "ciudades": "Geografía",
     "elevado": "Literario",
     "germanía": "Jergal",
     "jergal": "Jergal",
@@ -82,6 +83,7 @@ templates_italic = {
     "literario": "Literario",
     "lunf": "Lunfardismo",
     "poético": "Literario",
+    "regiones": "Geografía",
     "rpl": "Río de la Plata",
     "rur": "Rural",
     "slang": "Jergal",
