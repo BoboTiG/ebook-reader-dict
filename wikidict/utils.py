@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 import re
+from collections import namedtuple
 from contextlib import suppress
 from datetime import datetime
 from functools import partial
@@ -47,6 +48,13 @@ MAGIC_WORDS = {
     "CURRENTHOUR": NOW.strftime("%H"),
     "CURRENTWEEK": NOW.strftime("%V"),
     "CURRENTTIMESTAMP": NOW.strftime("%Y%m%d%H%M%S"),
+}
+
+# Templates needed to be kept after transform()
+Template = namedtuple("Template", "placeholder value")
+SPECIAL_TEMPLATES = {
+    "{{!}}": Template("##pipe##!##pipe##", "|"),
+    "{{=}}": Template("##equal##!##equal##", "="),
 }
 
 
@@ -408,6 +416,9 @@ def process_templates(word: str, text: str, locale: str) -> str:
         ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
+        >>> process_templates("EPR=ER", "{{alternative form of|mul|ER{{=}}EPR}}", "en")
+        '<i>Alternative form of</i> <b>ER=EPR</b>'
+
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
         >>> process_templates("test", r"<math>\R^n</math>", "fr")
@@ -437,12 +448,14 @@ def process_templates(word: str, text: str, locale: str) -> str:
         if not templates:
             break
         for tpl in templates:
-            if tpl == "{{!}}":
-                text = text.replace("{{!}}", "##pipe##!##pipe##")
+            if tpl in SPECIAL_TEMPLATES:
+                text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
             # Transform the template
             text = text.replace(tpl, transform(word, tpl[2:-2], locale))
 
-    text = text.replace("##pipe##!##pipe##", "|")
+    for tpl in SPECIAL_TEMPLATES.values():
+        text = text.replace(tpl.placeholder, tpl.value)
+
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
     text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
