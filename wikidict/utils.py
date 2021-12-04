@@ -598,8 +598,7 @@ def transform(word: str, template: str, locale: str) -> str:
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
-    result: str = transform_apply(word, tpl, tuple(parts), locale)
-    return result
+    return str(transform_apply(word, tpl, tuple(parts), locale))
 
 
 @cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
@@ -613,7 +612,6 @@ def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) ->
             return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
-        result: str = templates_other[locale][tpl]
-        return result
+        return str(templates_other[locale][tpl])
 
     return last_template_handler[locale](parts, locale, word=word)
