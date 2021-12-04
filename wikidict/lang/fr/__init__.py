@@ -183,6 +183,7 @@ templates_ignored = (
     "ébauche-déf",
     "ébauche-étym",
     "ébauche-exe",
+    "exemple",
     "ibid",
     "Import",
     "lire en ligne",
