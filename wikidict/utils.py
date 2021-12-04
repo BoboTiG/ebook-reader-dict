@@ -287,6 +287,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
         'à la place en 1997'
+        >>> clean("[[http://www.tv5monde.com/cms/chaine-francophone/lf/Merci-Professeur/p-17081-Une-peur-bleue.htm?episode=10 Voir aussi l’explication de Bernard Cerquiglini en images]]")
+        ''
 
         >>> clean("<!-- {{sco}} -->")
         ''
@@ -339,11 +341,9 @@ def clean(text: str) -> str:
     pattern = "|".join(iter(pattern_file))
     text = sub(fr"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
 
-    # more local links
+    # More local links
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
     text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)  # [[a|b]] -> b
-
-    text = text.replace("[[", "").replace("]]", "")
 
     # Tables
     text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
@@ -362,8 +362,8 @@ def clean(text: str) -> str:
     # External links
     # [http://example.com] -> ''
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # [[http://example.com foo]] -> foo
-    text = sub(r"\[http[^\s]+ ([^\]]+)\]", "\\1", text)
+
+    text = text.replace("[[", "").replace("]]", "")
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
@@ -598,8 +598,7 @@ def transform(word: str, template: str, locale: str) -> str:
 
     # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
     # with the LRU cache.
-    result: str = transform_apply(word, tpl, tuple(parts), locale)
-    return result
+    return str(transform_apply(word, tpl, tuple(parts), locale))
 
 
 @cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
@@ -613,7 +612,6 @@ def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) ->
             return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
-        result: str = templates_other[locale][tpl]
-        return result
+        return str(templates_other[locale][tpl])
 
     return last_template_handler[locale](parts, locale, word=word)
