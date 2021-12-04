@@ -24,6 +24,8 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         """Strip HTML chars."""
         if raw:
             return repr(text)
+        text = text.replace("<br>", "\n")
+        text = text.replace("<br/>", "\n")
         text = re.sub(r"<[^>]+/?>", "", text)
         text = text.replace("&minus;", "-")
         text = text.replace("&nbsp;", " ")
