@@ -97,6 +97,7 @@ def find_section_definitions(
 
                 # Transform and clean the Wikicode
                 definition = process_templates(word, clean(code), locale)
+
                 # Skip empty definitions
                 # [SV] Skip almost empty definitions
                 if not definition or (locale == "sv" and len(definition) < 2):
@@ -110,15 +111,21 @@ def find_section_definitions(
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
                         subdefinition = process_templates(word, clean(subcode), locale)
+                        if not subdefinition:
+                            continue
+
                         subdefinitions.append(subdefinition)
                         subsubdefinitions: List[str] = []
                         for subsublist in sublist.sublists(
                             i=idx2, pattern=sublist_patterns[locale]
                         ):
                             for subsubcode in subsublist.items:
-                                subsubdefinitions.append(
-                                    process_templates(word, clean(subsubcode), locale)
+                                subsubdefinition = process_templates(
+                                    word, clean(subsubcode), locale
                                 )
+                                if not subsubdefinition:
+                                    continue
+                                subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
                 if subdefinitions:

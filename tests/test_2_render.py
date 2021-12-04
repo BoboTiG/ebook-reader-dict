@@ -34,3 +34,25 @@ def test_render_word_sv_with_almost_empty_definition(page):
     words = {}
     render.render_word(word, words, "sv")
     assert words["Götet"]
+
+
+def test_render_word_with_empty_subdefinition(page):
+    word = ["test", page("tests-definitions", "fr")]
+    words = {}
+    render.render_word(word, words, "fr")
+    word = words["test"]
+
+    defs = word.definitions
+    assert len(defs) == 2
+    assert isinstance(defs[0], str)
+    assert isinstance(defs[1], tuple)
+
+    subdefs = defs[1]
+    assert len(subdefs) == 2
+    assert isinstance(subdefs[0], str)
+    assert isinstance(subdefs[1], tuple)
+
+    subsubdefs = subdefs[1]
+    assert len(subsubdefs) == 1
+    assert isinstance(subsubdefs[0], str)
+    assert subsubdefs[0]
