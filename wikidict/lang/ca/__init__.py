@@ -121,6 +121,13 @@ def last_template_handler(
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
 
+        >>> last_template_handler(["comp", "ca", "cap", "vespre"], "ca")
+        '<i>cap</i> i <i>vespre</i>'
+        >>> last_template_handler(["comp", "ca", "auto-", "retrat"], "ca")
+        'prefix <i>auto-</i> i <i>retrat</i>'
+        >>> last_template_handler(["comp", "ca", "a-", "-lèxia"], "ca")
+        'prefix <i>a-</i> i el sufix <i>-lèxia</i>'
+
         >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
         "De l'occità <i>cabèco</i>"
         >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
@@ -191,6 +198,15 @@ def last_template_handler(
         if not toadd:
             return ""
         return f" ({concat(toadd, ', ')})"
+
+    if tpl == "comp":
+        word1, word2 = parts[1:]
+        phrase = "prefix " if word1.endswith("-") else ""
+        phrase += f"{italic(word1)} i "
+        if word2.startswith("-"):
+            phrase += "el sufix "
+        phrase += italic(word2)
+        return phrase
 
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
