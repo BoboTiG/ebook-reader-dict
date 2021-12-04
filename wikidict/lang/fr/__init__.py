@@ -716,6 +716,9 @@ def last_template_handler(
         >>> last_template_handler(["Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|171"], "fr")
         'Edmond Nivoit, <i>Notions élémentaires sur l’industrie dans le département des Ardennes</i>, 1869, page 171'
 
+        >>> last_template_handler(["Citation bloc", "Exemple simple."], "fr")
+        '<br/>«&nbsp;Exemple simple.&nbsp;»<br/>'
+
         >>> last_template_handler(["code langue", "créole guyanais"], "fr")
         'gcr'
         >>> last_template_handler(["code langue", "foo"], "fr")
@@ -840,6 +843,9 @@ def last_template_handler(
         if not page:
             return f"{author}, {italic(book)}, {date}"
         return f"{author}, {italic(book)}, {date}, page {page}"
+
+    if tpl == "Citation bloc":
+        return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
 
     if tpl == "code langue":
         lang = parts[0]
