@@ -178,6 +178,7 @@ templates_ignored = (
     "article",
     "Accord des couleurs",
     "ancre",
+    "couleurN",
     "créer-séparément",
     "désabrévier",
     "ébauche-déf",
