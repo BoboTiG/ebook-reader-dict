@@ -127,6 +127,8 @@ def last_template_handler(
         'prefix <i>auto-</i> i <i>retrat</i>'
         >>> last_template_handler(["comp", "ca", "a-", "-lèxia"], "ca")
         'prefix <i>a-</i> i el sufix <i>-lèxia</i>'
+        >>> last_template_handler(["comp", "ca", "fred", "-ol-", "-ic"], "ca")
+        "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
 
         >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
         "De l'occità <i>cabèco</i>"
@@ -200,13 +202,22 @@ def last_template_handler(
         return f" ({concat(toadd, ', ')})"
 
     if tpl == "comp":
-        word1, word2 = parts[1:]
-        phrase = "prefix " if word1.endswith("-") else ""
-        phrase += f"{italic(word1)} i "
-        if word2.startswith("-"):
-            phrase += "el sufix "
-        phrase += italic(word2)
-        return phrase
+
+        def value(word: str) -> str:
+            prefix = ""
+            if word.startswith("-"):
+                prefix = "l'infix " if word.endswith("-") else "el sufix "
+            elif word.endswith("-"):
+                prefix = "prefix "
+            return f"{prefix}{italic(word)}"
+
+        parts.pop(0)  # Remove the lang
+        word1 = parts.pop(0)
+        word2 = parts.pop(0)
+        word3 = parts.pop(0) if parts else ""
+        if word3:
+            return f"{italic(word1)}, {value(word2)} i {value(word3)}"
+        return f"{value(word1)} i {value(word2)}"
 
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
