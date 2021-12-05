@@ -6,7 +6,6 @@ from datetime import datetime
 from functools import partial
 from pathlib import Path
 from typing import List, Match, Tuple, Union
-from warnings import warn
 
 from cachetools import cached
 from cachetools.keys import hashkey
@@ -591,17 +590,6 @@ def transform(word: str, template: str, locale: str) -> str:
     # Stop early
     if not tpl or tpl in templates_ignored[locale]:
         return ""
-
-    # Help fixing formatting on Wiktionary
-    # - Filtering out ES because some contributors are not open to fix such issues ... sadly.
-    # - Filtering out the FR "fchim" template because it is actually OK to have spaces in there.
-    # - Filtering out the FR "graphie" template because it is actually OK to have spaces in there.
-    if (
-        locale != "es"
-        and (locale == "fr" and tpl not in ("fchim", "graphie"))
-        and parts != parts_raw
-    ):
-        warn(f"Extra character found in the Wikicode of {word!r} (parts={parts_raw})")
 
     # Magic words
     if tpl in MAGIC_WORDS:
