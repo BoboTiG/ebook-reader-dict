@@ -1051,6 +1051,7 @@ langs = {
     "cjy": "jinyu",
     "ckb": "soranî",
     "ckl": "cibak",
+    "ckn": "kaang",
     "ckq": "kadjakse",
     "cks": "tayo",
     "ckt": "tchouktche",
@@ -1072,6 +1073,7 @@ langs = {
     "cmg": "mongol classique",
     "cmi": "emberá chamí",
     "cmn": "mandarin",
+    "cmr": "mro",
     "cms": "messapien",
     "cmt": "camtho",
     "cnc": "côông",
@@ -6274,7 +6276,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,269
+}  # 6,271
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
