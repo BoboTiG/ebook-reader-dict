@@ -120,6 +120,7 @@ regions = {
     "DZ": "Algérie",
     "Danemark": "Danemark",
     "Dauphiné": "Dauphiné",
+    "Devon": "Somerset",
     "Dijonnais": "Dijonnais",
     "Diu": "Diu",
     "Dominique": "Dominique",
@@ -340,6 +341,7 @@ regions = {
     "Singapour": "Singapour",
     "Slovaquie": "Slovaquie",
     "Sologne": "Sologne",
+    "Somerset": "Somerset",
     "Sonsorol": "Sonsorol",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
@@ -408,7 +410,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 403
+}  # 405
 # END
 
 # handled differently
