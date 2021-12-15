@@ -87,7 +87,7 @@ jobs:
 
       - name: Generate dictionary (StarDict)
         run: |
-          pyglossary --no-progress-bar --no-color data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df dict-data.ifo
+          pyglossary --ui=none data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df dict-data.ifo
           zip -r dict-${{ matrix.locale }}.zip dict-data.* res
 
       - name: Upload the dictionary (DictFile)
