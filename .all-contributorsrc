@@ -32,6 +32,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ilius",
+      "name": "Saeed Rasooli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/197648?v=4",
+      "profile": "https://github.com/ilius",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -1,6 +1,6 @@
 # eBook Reader Dictionaries
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
@@ -53,6 +53,7 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
     <td align="center"><a href="http://lasconic.com"><img src="https://avatars0.githubusercontent.com/u/234271?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nicolas Froment</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=lasconic" title="Code">💻</a> <a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=lasconic" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/atti84it"><img src="https://avatars.githubusercontent.com/u/817905?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Attilio</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=atti84it" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/chopinesque"><img src="https://avatars.githubusercontent.com/u/10416842?v=4?s=100" width="100px;" alt=""/><br /><sub><b>chopinesque</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=chopinesque" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ilius"><img src="https://avatars.githubusercontent.com/u/197648?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Saeed Rasooli</b></sub></a><br /><a href="#infra-ilius" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
   </tr>
 </table>
 
