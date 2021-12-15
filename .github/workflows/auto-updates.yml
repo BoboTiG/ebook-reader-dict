@@ -88,6 +88,7 @@ jobs:
       - name: Generate dictionary (StarDict)
         run: |
           pyglossary --ui=none data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df dict-data.ifo
+          sed -i 's/bookname=.*/bookname=dict-${{ matrix.locale }}-${{ matrix.locale }}/' dict-data.ifo
           zip -r dict-${{ matrix.locale }}.zip dict-data.* res
 
       - name: Upload the dictionary (DictFile)
