@@ -420,9 +420,9 @@ def process_templates(word: str, text: str, locale: str) -> str:
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
-        >>> process_templates("test", r"<math>\R^n</math>", "fr")
-        <math> ERROR with \R^n in [test]
-        '\\R^n'
+        >>> process_templates("test", r"<math>\frac</math>", "fr")
+        <math> ERROR with \frac in [test]
+        '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
         '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
@@ -474,6 +474,16 @@ def _convert_math(expr: str, packages: List[str] = []) -> str:
 
     from PIL import Image
     from sympy import preview
+
+    # see issue #1096
+    expr = expr.replace("\\Z", "\\mathbb{Z}")
+    expr = expr.replace("\\N", "\\mathbb{N}")
+    expr = expr.replace("\\R", "\\mathbb{R}")
+    expr = expr.replace("\\isin", "\\in")
+    expr = expr.replace("\\and", "\\land")
+    expr = expr.replace("\\Tau", "\\mathrm{T}")
+    expr = expr.replace("\\infin", "\\infty")
+    expr = expr.replace("\\rarr", "\\rightarrow")
 
     dvioptions = ["-T", "tight", "-z", "0", "-D 150", "-bg", "Transparent"]
     with BytesIO() as buf, BytesIO() as im:
