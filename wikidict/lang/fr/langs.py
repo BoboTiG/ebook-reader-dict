@@ -471,6 +471,8 @@ langs = {
     "barngala": "barngala",
     "barranbinya": "barranbinya",
     "bas": "bassa (Cameroun)",
+    "basco-algonquin": "basco-algonquin",
+    "basco-islandais": "basco-islandais",
     "bat": "langues baltes",
     "bav": "babungo",
     "baw": "bambili-bambui",
@@ -6276,7 +6278,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,271
+}  # 6,273
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
