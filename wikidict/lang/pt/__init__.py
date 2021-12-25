@@ -268,7 +268,7 @@ def last_template_handler(
         l10n = superscript(f"({src})")
         phrase = f"Do {langs[src]} {italic(word)}"
 
-        l10n_needed = len(rest) != 1 or data
+        l10n_needed = len(rest) != 1 or bool(data)
         if rest:
             rest.pop(0)  # Remove the destination language
             l10n_needed = src != "grc"
