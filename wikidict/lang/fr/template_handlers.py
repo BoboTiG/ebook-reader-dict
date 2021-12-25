@@ -352,9 +352,9 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     is_derived = b in ["1000", "0100", "1020"]
 
     if is_derived:
-        # Dérivé
-        phrase = "D" if data["m"] else "d"
-        phrase += "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
+        phrase = ("D" if data["m"] else "d") + (
+            "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
+        )
 
         if b == "0100":
             phrase += " de " + word_tr_sens(
@@ -394,9 +394,12 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
         return phrase
 
-    # Composé
-    phrase = "C" if data["m"] else "c"
-    phrase += "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
+      # noqa
+    phrase = ("C" if data["m"] else "c") + (
+        "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
+    )
+
+
     s_array = [
         word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
         for number, part in enumerate(parts, 1)
