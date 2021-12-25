@@ -27,6 +27,24 @@ def word_tr_sens(w: str, tr: str, sens: str, use_italic: bool = True) -> str:
     return r
 
 
+def render_1e_attestation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_1e_attestation("1e attestation", [], defaultdict(str, {"date": "1950", "titre": "Les Hirondelles", "lang": "fr"}))
+    '<i>(1950)</i> Attesté dans <i>Les Hirondelles</i>'
+    >>> render_1e_attestation("1e attestation", [], defaultdict(str, {"date": "1950", "titre": "Les Hirondelles", "lang": "fr", "auteur": "Pierre Dupont"}))
+    '<i>(1950)</i> Attesté dans <i>Les Hirondelles</i> de Pierre Dupont'
+    >>> render_1e_attestation("1e attestation", [], defaultdict(str, {"date": "1950", "titre": "Hirondelles", "lang": "fr", "déterminant": "les"}))
+    '<i>(1950)</i> Attesté dans les <i>Hirondelles</i>'
+    """  # noqa
+    phrase = f"{term(data['date'])} Attesté dans "
+    if data["déterminant"]:
+        phrase += f"{data['déterminant']} "
+    phrase += italic(data["titre"])
+    if data["auteur"]:
+        phrase += f" de {data['auteur']}"
+    return phrase
+
+
 def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_abreviation("abréviation", [], defaultdict(str))
@@ -1027,6 +1045,7 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 template_mapping = {
+    "1e attestation": render_1e_attestation,
     "abréviation": render_abreviation,
     "acronyme": render_acronyme,
     "agglutination": render_modele_etym,
