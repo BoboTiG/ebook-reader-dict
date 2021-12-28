@@ -14,7 +14,7 @@ form_of_templates = {
         "dot": True,
     },
     "abstract noun of": {
-        "text": "Abstract noun of",
+        "text": "abstract noun of",
         "dot": False,
     },
     "accusative of": {
