@@ -936,6 +936,8 @@ langs = {
     "caj": "chané",
     "cak": "cakchiquel",
     "cal": "carolinien",
+    "calabrais central et méridional": "calabrais centro-méridional",
+    "calabrais centro-méridional": "calabrais centro-méridional",
     "cam": "cèmuhî",
     "can": "chambri",
     "cao": "chácobo",
@@ -1036,6 +1038,7 @@ langs = {
     "cic": "chickasaw",
     "cid": "chimariko",
     "cie": "cineni",
+    "cilentain méridional": "cilentain méridional",
     "cim": "cimbre",
     "cin": "cinta-larga",
     "cip": "chiapanèque",
@@ -4626,6 +4629,7 @@ langs = {
     "saj": "sahu",
     "sak": "sake",
     "sal": "langues salish",
+    "salentin": "salentin",
     "sam": "araméen samaritain",
     "samnite": "samnite",
     "sao": "sause",
@@ -4758,6 +4762,7 @@ langs = {
     "sia": "same d’Akkala",
     "sib": "sebop",
     "sic": "malinguat",
+    "sicilo-calabrais": "calabrais centro-méridional",
     "sid": "sidamo",
     "sie": "simaa",
     "sii": "shompen",
@@ -6278,7 +6283,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,273
+}  # 6,278
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
