@@ -6,6 +6,6 @@ marisa-trie==0.7.7
 mistune==2.0.1  # for DictFile reading
 pillow==9.0.0
 pyglossary==4.2.1
-requests==2.27.0
+requests==2.27.1
 sympy==1.9
 wikitextparser==0.48.0
