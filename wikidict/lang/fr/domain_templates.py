@@ -191,6 +191,7 @@ domain_templates = {
     "méduses": "Zoologie",
     "métaplasmes": "Linguistique",
     "nuages": "Météorologie",
+    "nymphes": "Mythologie",
     "oies": "Ornithologie",
     "oiseaux": "Ornithologie",
     "orgues": "Orgues",
@@ -307,5 +308,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 302
+}  # 303
 # END
