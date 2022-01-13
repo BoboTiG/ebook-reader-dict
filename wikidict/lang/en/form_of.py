@@ -545,6 +545,10 @@ form_of_templates = {
         "text": "Rare form of",
         "dot": True,
     },
+    "rare form": {
+        "text": "Rare form of",
+        "dot": True,
+    },
     "rare spelling of": {
         "text": "Rare spelling of",
         "dot": True,
@@ -665,5 +669,5 @@ form_of_templates = {
         "text": "vocative singular of",
         "dot": False,
     },
-}  # 165
+}  # 166
 # END

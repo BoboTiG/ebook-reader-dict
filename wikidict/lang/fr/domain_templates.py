@@ -240,6 +240,7 @@ domain_templates = {
     "périodes": "Géologie",
     "pêches": "Botanique",
     "quartiers": "Toponyme",
+    "question rhétorique": "Question rhétorique",
     "raies": "Ichtyologie",
     "rapaces": "Ornithologie",
     "religieux": "Religion",
@@ -308,5 +309,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 303
+}  # 304
 # END
