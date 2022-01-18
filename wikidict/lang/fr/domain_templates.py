@@ -221,6 +221,7 @@ domain_templates = {
     "poissons": "Ichtyologie",
     "pommes": "Botanique",
     "ponctuations": "Typographie",
+    "ponts": "Architecture",
     "porcins": "Zoologie",
     "positions": "Sexualité",
     "poules": "Élevage",
@@ -309,5 +310,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 304
+}  # 305
 # END
