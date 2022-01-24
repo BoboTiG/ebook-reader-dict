@@ -76,6 +76,7 @@ regions = {
     "CI": "Côte d’Ivoire",
     "CL": "Chili",
     "CM": "Cameroun",
+    "Caccamo": "Caccamo",
     "Cambodge": "Cambodge",
     "Cameroun": "Cameroun",
     "Canada": "Canada",
@@ -410,7 +411,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 405
+}  # 406
 # END
 
 # handled differently

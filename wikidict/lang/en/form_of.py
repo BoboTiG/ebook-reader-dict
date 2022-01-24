@@ -89,6 +89,10 @@ form_of_templates = {
         "text": "alternative typography of",
         "dot": False,
     },
+    "alt typ": {
+        "text": "alternative typography of",
+        "dot": False,
+    },
     "aphetic form of": {
         "text": "Aphetic form of",
         "dot": False,
@@ -153,11 +157,23 @@ form_of_templates = {
         "text": "Contraction of",
         "dot": True,
     },
+    "contr of": {
+        "text": "Contraction of",
+        "dot": True,
+    },
     "dated form of": {
         "text": "Dated form of",
         "dot": True,
     },
+    "dated form": {
+        "text": "Dated form of",
+        "dot": True,
+    },
     "dated spelling of": {
+        "text": "Dated spelling of",
+        "dot": True,
+    },
+    "dated sp": {
         "text": "Dated spelling of",
         "dot": True,
     },
@@ -233,7 +249,15 @@ form_of_templates = {
         "text": "Euphemistic form of",
         "dot": True,
     },
+    "euph form": {
+        "text": "Euphemistic form of",
+        "dot": True,
+    },
     "euphemistic spelling of": {
+        "text": "Euphemistic spelling of",
+        "dot": True,
+    },
+    "euph sp": {
         "text": "Euphemistic spelling of",
         "dot": True,
     },
@@ -310,6 +334,10 @@ form_of_templates = {
         "dot": False,
     },
     "honorific alternative case form of": {
+        "text": "Honorific alternative letter-case form of",
+        "dot": False,
+    },
+    "honour alt case": {
         "text": "Honorific alternative letter-case form of",
         "dot": False,
     },
@@ -457,6 +485,10 @@ form_of_templates = {
         "text": "Obsolete form of",
         "dot": True,
     },
+    "obs form": {
+        "text": "Obsolete form of",
+        "dot": True,
+    },
     "obsolete spelling of": {
         "text": "Obsolete spelling of",
         "dot": False,
@@ -466,6 +498,10 @@ form_of_templates = {
         "dot": False,
     },
     "obsolete typography of": {
+        "text": "obsolete typography of",
+        "dot": False,
+    },
+    "obs typ": {
         "text": "obsolete typography of",
         "dot": False,
     },
@@ -649,7 +685,15 @@ form_of_templates = {
         "text": "Uncommon form of",
         "dot": True,
     },
+    "uncommon form": {
+        "text": "Uncommon form of",
+        "dot": True,
+    },
     "uncommon spelling of": {
+        "text": "Uncommon spelling of",
+        "dot": True,
+    },
+    "uncommon sp": {
         "text": "Uncommon spelling of",
         "dot": True,
     },
@@ -669,5 +713,5 @@ form_of_templates = {
         "text": "vocative singular of",
         "dot": False,
     },
-}  # 166
+}  # 177
 # END
