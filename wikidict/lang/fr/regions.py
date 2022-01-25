@@ -333,6 +333,7 @@ regions = {
     "Saint-Paul-du-Bois": "Saint-Paul-du-Bois",
     "Saint-Pierre-et-Miquelon": "Saint-Pierre-et-Miquelon",
     "Salvador": "Salvador",
+    "San Fratello": "San Fratello",
     "Sarthe": "Sarthe",
     "Saumur": "Saumur",
     "Savoie": "Savoie",
@@ -411,7 +412,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 406
+}  # 407
 # END
 
 # handled differently
