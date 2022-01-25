@@ -858,7 +858,7 @@ def last_template_handler(
         return (
             term("Par ellipse")
             if not data["de"]
-            else f'{italic(f"(Ellipse de")} {data["de"]}{italic(")")}'
+            else f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
         )
 
     if tpl == "R:DAF6":
