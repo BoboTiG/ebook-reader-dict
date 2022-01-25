@@ -328,8 +328,8 @@ class StarDictFormat(DictFileFormat):
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
 
         file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
-        f = glos.convert(
-            inputFilename=file.with_suffix(".df"),
+        f: Path = glos.convert(
+            inputFilename=str(file.with_suffix(".df")),
             inputFormat="kobo_dictfile",
             readOptions={"encoding": "utf-8"},
             outputFilename="dict-data.ifo",
