@@ -330,7 +330,6 @@ class StarDictFormat(DictFileFormat):
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
             writeOptions={"dictzip": False},
-            sqlite=False,
         )
 
     def _cleanup(self) -> None:
