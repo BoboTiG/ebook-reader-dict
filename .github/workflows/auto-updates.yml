@@ -82,14 +82,8 @@ jobs:
       - name: Render templates
         run: python -Wd -m wikidict ${{ matrix.locale }} --render
 
-      - name: Convert to dictionaries (DictFile and Kobo)
+      - name: Convert to dictionaries
         run: python -Wd -m wikidict ${{ matrix.locale }} --convert
-
-      - name: Generate dictionary (StarDict)
-        run: |
-          pyglossary --ui=none data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df dict-data.ifo
-          sed -i 's/bookname=.*/bookname=dict-${{ matrix.locale }}-${{ matrix.locale }}/' dict-data.ifo
-          zip -r dict-${{ matrix.locale }}.zip dict-data.* res
 
       - name: Upload the dictionary (DictFile)
         uses: svenstaro/upload-release-action@v1-release
