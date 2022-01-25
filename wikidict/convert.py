@@ -329,11 +329,20 @@ class StarDictFormat(DictFileFormat):
         glos.convert(
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
-            writeOptions={"dictzip": False, "merge_syns": True},
+            writeOptions={"dictzip": False},
             sqlite=False,
         )
 
+    def _cleanup(self) -> None:
+        import shutil
+
+        for file in self.output_dir.glob("dict-data.*"):
+            file.unlink()
+        with suppress(FileNotFoundError):
+            shutil.rmtree(self.output_dir / "res")
+
     def process(self) -> None:
+        self._cleanup()
         self._convert()
         final_file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
