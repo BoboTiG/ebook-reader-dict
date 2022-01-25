@@ -95,6 +95,20 @@ def test_generate_primary_dict(formatter, filename):
             ["def 1", ["sdef 1"]],
             ["foobar"],
         ),
+        "GIF": Word(
+            "pron",
+            "gender",
+            "etyl",
+            [
+                '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
+                ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
+                "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
+                "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
+                "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
+                'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
+            ],
+            ["GIF"],
+        ),
     }
     variants = defaultdict(str)
     variants["foo"] = ["foobar"]
