@@ -129,9 +129,9 @@ release_description = """\
 
 Διαθέσιμα αρχεία:
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}.df)
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
 <sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
 """  # noqa

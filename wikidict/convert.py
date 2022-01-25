@@ -95,7 +95,7 @@ class KoboBaseFormat(BaseFormat):
 
 
 class KoboFormat(KoboBaseFormat):
-    """Save the data into a *dict-$LOCALE.zip* Kobo-specific file."""
+    """Save the data into Kobo-specific ZIP file."""
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
@@ -108,7 +108,7 @@ class KoboFormat(KoboBaseFormat):
 
         # Sanitization
         release = release.replace(":arrow_right:", "->")
-        release = release.replace(f"[dicthtml-{locale}.zip](", "")
+        release = release.replace(f"[dicthtml-{locale}-{locale}.zip](", "")
         release = release.replace(")", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
@@ -176,7 +176,7 @@ class KoboFormat(KoboBaseFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
 
         # Finally, create the ZIP
-        dicthtml = self.output_dir / f"dicthtml-{self.locale}.zip"
+        dicthtml = self.output_dir / f"dicthtml-{self.locale}-{self.locale}.zip"
         with ZipFile(dicthtml, mode="w", compression=ZIP_DEFLATED) as fh:
             fh.comment = bytes(source, "utf-8")
             for file in to_compress:
@@ -290,7 +290,7 @@ class DictFileFormat(KoboBaseFormat):
     """Save the data into a *.df* DictFile."""
 
     def process(self) -> None:
-        file = self.output_dir / f"dict-{self.locale}.df"
+        file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
         with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
                 details = Word(*details)

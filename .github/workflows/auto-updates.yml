@@ -90,7 +90,7 @@ jobs:
         with:
           repo_token: ${{ secrets.TOKEN }}
           file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}.df
-          asset_name: dict-${{ matrix.locale }}.df
+          asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.df
           tag: ${{ matrix.locale }}
           overwrite: true
 
@@ -98,8 +98,8 @@ jobs:
         uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}.zip
-          asset_name: dicthtml-${{ matrix.locale }}.zip
+          file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}.zip
+          asset_name: dicthtml-${{ matrix.locale }}-${{ matrix.locale }}.zip
           tag: ${{ matrix.locale }}
           overwrite: true
 
@@ -107,8 +107,8 @@ jobs:
         uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: dict-${{ matrix.locale }}.zip
-          asset_name: dict-${{ matrix.locale }}.zip
+          file: dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
+          asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
           tag: ${{ matrix.locale }}
           overwrite: true
 

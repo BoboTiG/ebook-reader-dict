@@ -15,9 +15,9 @@ def test_simple(craft_data):
 
     # Check for all dictionaries
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    assert (output_dir / "dict-fr.df").is_file()  # DictFile
-    assert (output_dir / "dict-fr.zip").is_file()  # StarDict
-    dicthtml = output_dir / "dicthtml-fr.zip"  # Kobo
+    assert (output_dir / "dict-fr-fr.df").is_file()  # DictFile
+    assert (output_dir / "dict-fr-fr.zip").is_file()  # StarDict
+    dicthtml = output_dir / "dicthtml-fr-fr.zip"  # Kobo
     assert dicthtml.is_file()
 
     # Check the Kobo ZIP content
