@@ -71,11 +71,15 @@ def test_no_json_file():
         assert convert.main("fr") == 1
 
 
+@pytest.mark.dependency()
 @pytest.mark.parametrize(
     "formatter, filename",
-    [(convert.DictFileFormat, "dict-fr.df"), (convert.KoboFormat, "dicthtml-fr.zip")],
+    [
+        (convert.DictFileFormat, "dict-fr-fr.df"),
+        (convert.KoboFormat, "dicthtml-fr-fr.zip"),
+    ],
 )
-def test_generate_dict(formatter, filename):
+def test_generate_primary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     words = {
         "empty": Word("", "", "", [], []),
@@ -96,4 +100,19 @@ def test_generate_dict(formatter, filename):
     variants["foo"] = ["foobar"]
     convert.run_formatter(formatter, "fr", output_dir, words, variants, "20201218")
 
+    assert (output_dir / filename).is_file()
+
+
+@pytest.mark.parametrize(
+    "formatter, filename",
+    [
+        (convert.StarDictFormat, "dict-fr-fr.zip"),
+    ],
+)
+@pytest.mark.dependency(
+    depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
+)
+def test_generate_secundary_dict(formatter, filename):
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    convert.run_formatter(formatter, "fr", output_dir, [], [], "20201218")
     assert (output_dir / filename).is_file()

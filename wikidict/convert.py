@@ -315,8 +315,8 @@ class DictFileFormat(KoboBaseFormat):
 class StarDictFormat(DictFileFormat):
     """Save the data into a StarDict file."""
 
-    def _convert(self) -> Path:
-        """Convert the DictFile to StarDcit."""
+    def _convert(self) -> None:
+        """Convert the DictFile to StarDict."""
         from pyglossary import Glossary
 
         Glossary.init()
@@ -326,38 +326,27 @@ class StarDictFormat(DictFileFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
         glos.setInfo("description", source)
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
-
-        file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
-        f: Path = glos.convert(
-            inputFilename=str(file.with_suffix(".df")),
-            inputFormat="kobo_dictfile",
-            readOptions={"encoding": "utf-8"},
-            outputFilename="dict-data.ifo",
-            outputFormat="stardic",
-            writeOptions={"encoding": "utf-8"},
+        glos.convert(
+            inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
+            outputFilename=str(self.output_dir / "dict-data.ifo"),
+            writeOptions={"dictzip": False, "merge_syns": True},
             sqlite=False,
-            progressbar=False,
         )
-        print("file", f)
-        # Fix file names
-        # sed -i 's/bookname=.*/bookname=dict-${{ matrix.locale }}-${{ matrix.locale }}/' dict-data.ifo
-        return f
 
     def process(self) -> None:
-        # Create the final file
-        # zip -r dict-${{ matrix.locale }}.zip dict-data.* res
-        file = self._convert()
-        with ZipFile(file, mode="w", compression=ZIP_DEFLATED) as fh:
-            fh.write("dict-data.ifo", arcname="dict-data.ifo")
-            with suppress(FileNotFoundError):
-                for entry in os.scandir("res"):
-                    fh.write(entry)
+        self._convert()
+        final_file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
+        with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
+            for file in self.output_dir.glob("dict-data.*"):
+                fh.write(file, arcname=file.name)
+            for entry in self.output_dir.glob("res/*"):
+                fh.write(entry, arcname=f"res/{entry.name}")
 
             # Check the ZIP validity
             # testzip() returns the name of the first corrupt file, or None
             assert fh.testzip() is None, fh.testzip()
 
-        self.summary(file)
+        self.summary(final_file)
 
 
 def get_primary_formaters() -> List[Type[BaseFormat]]:
