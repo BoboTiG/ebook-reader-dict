@@ -223,16 +223,14 @@ class KoboFormat(KoboBaseFormat):
                     found_different_prefix = False
                     for variant in word_details.variants:
                         if guess_prefix(variant) != name:
-                            root_details = self.words.get(variant, "")
-                            if root_details:
+                            if root_details := self.words.get(variant, ""):
                                 found_different_prefix = True
                                 break
                     variants_words = {}
                     # if we found one variant, then list them all
                     if found_different_prefix:
                         for variant in word_details.variants:
-                            root_details = self.words.get(variant, "")
-                            if root_details:
+                            if root_details := self.words.get(variant, ""):
                                 variants_words[variant] = Word(*root_details)
                     if word.endswith("s"):  # crude detection of plural
                         singular = word[:-1]
@@ -244,8 +242,7 @@ class KoboFormat(KoboBaseFormat):
                         if maybe_noun and not Word(*maybe_noun).variants:
                             variants_words[singular] = Word(*maybe_noun)
                             for variant in word_details.variants:
-                                maybe_verb = self.words.get(variant, "")
-                                if maybe_verb:
+                                if maybe_verb := self.words.get(variant, ""):
                                     variants_words[variant] = Word(*maybe_verb)
                     if variants_words:
                         current_words = variants_words

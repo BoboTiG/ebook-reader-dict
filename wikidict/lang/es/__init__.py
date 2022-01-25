@@ -241,8 +241,7 @@ def last_template_handler(
 
     from .langs import langs
 
-    lang = langs.get(template[0])
-    if lang:
+    if lang := langs.get(template[0]):
         return capitalize(lang)
 
     return default(template, locale, word)

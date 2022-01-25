@@ -233,8 +233,7 @@ def last_template_handler(
         if word.startswith("w:"):
             word = word[2:]
 
-        fromtext = join_names(data, "from", " and ")
-        if fromtext:
+        if fromtext := join_names(data, "from", " and "):
             cap = starter[0].isupper()
             from_suffix = "form of"
             if tpl == "standard spelling of":
