@@ -90,9 +90,9 @@ Export Wiktionary: {dump_date}
 
 File disponibili:
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}.df)
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
 <sub>Aggiornato il {creation_date}</sub>
 """  # noqa

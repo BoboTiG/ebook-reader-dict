@@ -858,7 +858,7 @@ def last_template_handler(
         return (
             term("Par ellipse")
             if not data["de"]
-            else f'{italic(f"(Ellipse de")} {data["de"]}{italic(")")}'
+            else f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
         )
 
     if tpl == "R:DAF6":
@@ -935,9 +935,9 @@ Export Wiktionnaire : {dump_date}
 
 Fichiers disponibles :
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}.df)
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
 <sub>Mis à jour le {creation_date}</sub>
 """  # noqa

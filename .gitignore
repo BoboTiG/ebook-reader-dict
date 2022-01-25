@@ -4,9 +4,11 @@
 *.json
 *.xml
 *.zip
+dict-data.*
 sections.txt
 templates.txt
 /data
+tests/data/*/dict-data.*
 tests/data/*/INSTALL.txt
 tests/data/*/words.*
 tests/data/*/tmp

@@ -15,8 +15,9 @@ def test_simple(craft_data):
 
     # Check for all dictionaries
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    assert (output_dir / "dict-fr.df").is_file()
-    dicthtml = output_dir / "dicthtml-fr.zip"
+    assert (output_dir / "dict-fr-fr.df").is_file()  # DictFile
+    assert (output_dir / "dict-fr-fr.zip").is_file()  # StarDict
+    dicthtml = output_dir / "dicthtml-fr-fr.zip"  # Kobo
     assert dicthtml.is_file()
 
     # Check the Kobo ZIP content
@@ -70,11 +71,15 @@ def test_no_json_file():
         assert convert.main("fr") == 1
 
 
+@pytest.mark.dependency()
 @pytest.mark.parametrize(
     "formatter, filename",
-    [(convert.DFFormat, "dict-fr.df"), (convert.KoboFormat, "dicthtml-fr.zip")],
+    [
+        (convert.DictFileFormat, "dict-fr-fr.df"),
+        (convert.KoboFormat, "dicthtml-fr-fr.zip"),
+    ],
 )
-def test_generate_dict(formatter, filename):
+def test_generate_primary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     words = {
         "empty": Word("", "", "", [], []),
@@ -90,9 +95,38 @@ def test_generate_dict(formatter, filename):
             ["def 1", ["sdef 1"]],
             ["foobar"],
         ),
+        "GIF": Word(
+            "pron",
+            "gender",
+            "etyl",
+            [
+                '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
+                ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
+                "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
+                "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
+                "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
+                'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
+            ],
+            ["GIF"],
+        ),
     }
     variants = defaultdict(str)
     variants["foo"] = ["foobar"]
     convert.run_formatter(formatter, "fr", output_dir, words, variants, "20201218")
 
+    assert (output_dir / filename).is_file()
+
+
+@pytest.mark.parametrize(
+    "formatter, filename",
+    [
+        (convert.StarDictFormat, "dict-fr-fr.zip"),
+    ],
+)
+@pytest.mark.dependency(
+    depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
+)
+def test_generate_secundary_dict(formatter, filename):
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    convert.run_formatter(formatter, "fr", output_dir, [], [], "20201218")
     assert (output_dir / filename).is_file()

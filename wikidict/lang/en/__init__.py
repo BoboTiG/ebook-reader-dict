@@ -281,9 +281,9 @@ Wiktionary dump: {dump_date}
 
 Available files:
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}.df)
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
 <sub>Updated on {creation_date}</sub>
 """  # noqa
