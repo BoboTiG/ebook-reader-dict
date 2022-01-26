@@ -11,9 +11,9 @@ DUMP_URL = f"{BASE_URL}/{{1}}/{{0}}wiktionary-{{1}}-pages-meta-current.xml.bz2"
 REPOS = "BoboTiG/ebook-reader-dict"
 GH_REPOS = f"https://github.com/{REPOS}"
 RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{{0}}"
-DOWNLOAD_URL_DICTFILE = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}.df"
-DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}.zip"
-DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}.zip"
+DOWNLOAD_URL_DICTFILE = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.df"
+DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}-{{0}}.zip"
+DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.zip"
 
 # HTML formatting for each word
 # TODO: move that into the dict specific class
