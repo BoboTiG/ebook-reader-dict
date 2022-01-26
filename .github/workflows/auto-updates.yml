@@ -107,7 +107,7 @@ jobs:
         uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
+          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
           asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
           tag: ${{ matrix.locale }}
           overwrite: true
