@@ -23,7 +23,7 @@ thousands_separator = " "
 #     python -m wikidict fr --find-templates
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
 head_sections = ("{{langue|fr}}", "{{langue|conv}}")
-etyl_section = ["{{S|étymologie}}"]
+etyl_section = ("{{S|étymologie}}",)
 sections = (
     "{{S|abréviations}",
     "{{S|adjectif démonstratif|fr|",

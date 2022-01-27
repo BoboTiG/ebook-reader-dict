@@ -20,7 +20,7 @@ sublist_patterns = (r"\#",)
 section_level = 2
 section_sublevels = (3,)
 head_sections = ("",)
-etyl_section = ""
+etyl_section = ("",)
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Tuple[str, ...] = tuple()

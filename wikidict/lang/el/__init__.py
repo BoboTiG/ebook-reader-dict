@@ -20,7 +20,7 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-el-}}",)
-etyl_section = ["{{ετυμολογία}}"]
+etyl_section = ("{{ετυμολογία}}",)
 sections = (
     *head_sections,
     *etyl_section,

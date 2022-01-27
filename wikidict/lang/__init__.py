@@ -91,7 +91,7 @@ sublist_patterns: Dict[str, Tuple[str, ...]] = _populate("sublist_patterns")
 section_level: Dict[str, int] = _populate("section_level")
 section_sublevels: Dict[str, Tuple[int, ...]] = _populate("section_sublevels")
 head_sections: Dict[str, Tuple[str, ...]] = _populate("head_sections")
-etyl_section: Dict[str, str] = _populate("etyl_section")
+etyl_section: Dict[str, Tuple[str]] = _populate("etyl_section")
 sections: Dict[str, Tuple[str, ...]] = _populate("sections")
 
 # Some definitions are not good to keep (plural, gender, ... )

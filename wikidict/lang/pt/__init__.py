@@ -20,7 +20,7 @@ section_patterns = (r"\#", r"\*")
 section_level = 1
 section_sublevels = (2,)
 head_sections = ("{{-pt-}}",)
-etyl_section = ["{{etimologia|pt}}", "Etimologia"]
+etyl_section = ("{{etimologia|pt}}", "Etimologia")
 sections = (
     "Abreviatura",
     "Acrônimo",

@@ -12,7 +12,7 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("norsk",)
 section_sublevels = (3, 4)
-etyl_section = ["Etymologi"]
+etyl_section = ("Etymologi",)
 sections = (
     *etyl_section,
     "Substantiv",
