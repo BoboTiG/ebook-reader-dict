@@ -326,6 +326,9 @@ class StarDictFormat(DictFileFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
         glos.setInfo("description", source)
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
+        glos.setInfo(
+            "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
+        )
         glos.convert(
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
