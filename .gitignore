@@ -11,6 +11,7 @@ templates.txt
 tests/data/*/dict-data.*
 tests/data/*/INSTALL.txt
 tests/data/*/words.*
+tests/data/*/res
 tests/data/*/tmp
 
 # Project stuff - update-bot.py
