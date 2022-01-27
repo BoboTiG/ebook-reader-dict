@@ -2,14 +2,25 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
+# Regex to find the pronunciation
+pronunciation = r""
+
 # Regex to find the gender
 gender = r""
+
+# Float number separator
+float_separator = ""
+
+# Thousads separator
+thousands_separator = ""
 
 # Markers for sections that contain interesting text to analyse.
 section_patterns = (r"\#",)
 sublist_patterns = (r"\#",)
 section_level = 2
 section_sublevels = (3,)
+head_sections = ("",)
+etyl_section = ""
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Tuple[str, ...] = tuple()
@@ -22,6 +33,9 @@ templates_ignored: Tuple[str, ...] = tuple()
 
 # Templates that will be completed/replaced using italic style.
 templates_italic: Dict[str, str] = {}
+
+# More complex templates that will be completed/replaced using custom style.
+templates_multi: Dict[str, str] = {}
 
 # Templates that will be completed/replaced using custom style.
 templates_other: Dict[str, str] = {}

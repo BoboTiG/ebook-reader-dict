@@ -224,9 +224,9 @@ def find_gender(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or ""
 
 
-def find_pronunciations(code: str, pattern: Optional[Pattern[str]]) -> List[str]:
+def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
     """Find pronunciations."""
-    if not pattern:
+    if pattern == re.compile(""):  # Empty by default
         return []
     match = pattern.search(code)
     if not match:
@@ -332,13 +332,13 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
-        prons = find_pronunciations(code, pronunciation.get(locale))
+        prons = find_pronunciations(code, pronunciation[locale])
         nature = find_gender(code, gender[locale])
 
     # Find poential variants
     variants = set()
     if locale == "fr":
-        for title, section in parsed_sections.items():
+        for title, parsed_section in parsed_sections.items():
             if not title.startswith(
                 (
                     "{{S|adjectif|fr}",
@@ -348,7 +348,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 )
             ):
                 continue
-            for tpl in section[0].templates:
+            for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
                 if not tpl.startswith(
                     (

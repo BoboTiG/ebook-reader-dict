@@ -623,6 +623,6 @@ def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) ->
             return f"<i>({templates_italic[locale][tpl]})</i>"
 
     with suppress(KeyError):
-        return str(templates_other[locale][tpl])
+        return templates_other[locale][tpl]
 
-    return last_template_handler[locale](parts, locale, word=word)
+    return str(last_template_handler[locale](parts, locale, word=word))
