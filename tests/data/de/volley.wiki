@@ -1,0 +1,110 @@
+{{Siehe auch|[[Volley]]}}
+== volley ({{Sprache|Deutsch}}) ==
+=== {{Wortart|Adverb|Deutsch}} ===
+
+{{Worttrennung}}
+:vol·ley
+
+{{Aussprache}}
+:{{IPA}} {{Lautschrift|ˈvɔli}}, {{Lautschrift|ˈvɔle}}, {{Lautschrift|ˈvɔlɛɪ̯}}
+:{{Hörbeispiele}} {{Audio|De-volley.ogg}}
+:{{Reime}} {{Reim|ɔli|Deutsch}}
+
+{{Bedeutungen}}
+:[1] {{K|Sport}} aus der [[Luft]] ([[annehmen|angenommen]] und [[direkt]] [[kraftvoll]] [[abspielen|abgespielt]]), ohne dass eine [[Bodenberührung]] des [[Sportgerät]]s vorher [[stattfinden|stattgefunden]] hat 
+
+{{Herkunft}}
+:Dem seit 1960 im Duden<ref>Erstbuchung:<br />{{Literatur|Herausgeber=Dudenredaktion unter der Leitung von Paul Grebe|Titel=Duden, Das Fremdwörterbuch|Sammelwerk=Der große Duden|WerkErg=In 10 Bänden|Band=Band 5|Verlag=Bibliographisches Institut|Ort=Mannheim|Jahr=1960|DNB=572924984}}.</ref> lexikalisierten Wort liegt die englische [[Kollokation]] ''{{L|at||en}}/{{L|on||en}} {{L|the||en}} {{Ü|en|volley}}''<ref>{{Lit-Carstensen: Anglizismen-Wörterbuch|A=1|B=3}}, Stichwort »volley«, Seite 1673.</ref> ‚aus der [[Luft]]‘ zugrunde.<ref>{{Lit-Duden: Großes Fremdwörterbuch|A=4}} (CD-ROM-Ausgabe), Stichwort »volley«.</ref>
+
+{{Sinnverwandte Wörter}}
+:[1] [[direkt]]
+
+{{Beispiele}}
+:[1] „Nach einer Ecke hatte ich als Mittelstürmer den Ball erwischt und ihn ''volley'' ins Netz geschossen.“<ref>{{Literatur | Autor=[[w:Fritz Walter|Fritz Walter]] | Titel=Spiele, die ich nie vergesse | Verlag=Copress-Verlag | Ort=München | Jahr=1955 | Seiten=28 }}.</ref>
+:[1] „Rivolta, der Linksaußen, erwischt den aufhüpfenden Ball. Dicht vor {{L|w:Heiner Stuhlfauth|Heiner Stuhlfauth}} jagt der ihn ''‚volley‘'' auf die linke Ecke, wie aus einem Rohr abgefeuert, peitscht er voran.“<ref>{{Per-Zeit | Autor=Paul Laven | Titel=Der Held von Turin | Nummer=44 | Tag=30 | Monat=9 | Jahr=1966 | Seiten=30 }}</ref>
+:[1] „In Sport spielten wir Sitzfußball, und mir gelang ein Torschuß, ''volley'' und unhaltbar, den ich abends im Hobbyraum nachspielte.“<ref>{{Literatur | Autor=[[w:Gerhard Henschel|Gerhard Henschel]] | Titel=Kindheitsroman | Verlag=Hoffmann und Campe | Ort=Hamburg | Jahr=2004 | Seiten=462 | ISBN=3-455-03171-4 }}.</ref>
+:[1] „Nachdem {{L|w:Sinan Akdağ|Sinan Akdag}} abgezogen hatte, nahm der Kanadier den Puck ''volley'' und netzte drei Sekunden vor der Sirene zum 2:2 ein.“<ref>{{Literatur | Titel=Adler bringen sich um verdienten Lohn | Sammelwerk=Mannheimer Morgen | Tag=8 | Monat=9 | Jahr=2016 | Seiten=10 | Kommentar=Stadtausgabe }}.</ref>
+:[1] „Es wird im Doppel und Mixed gespielt, Einzel fast nie. Der Ball darf nicht auftippen, sondern muss ''volley'' gespielt werden.“<ref>{{Per-Welt | Titel=Die größten Unterschiede zum Tennis | Tag=10 | Monat=8 | Jahr=2019 | Seiten=21 }}</ref>
+
+{{Charakteristische Wortkombinationen}}
+:[1] [[der#Artikel|den]] [[Ball]] ''volley'' ([[ins]] [[Tor]]) [[befördern]], [[dreschen]], [[einschießen]], [[hämmern]], [[hauen]], [[knallen]]
+:[1] ([[der#Artikel|den]] [[Puck]], [[Tennisball]]) ''volley'' ([[ins]] [[Tor]], [[übers]] [[Netz]]) [[schlagen]]
+:[1] [[ein#Artikel|einen]] [[Ball]] ''volley'' [[annehmen]], [[nehmen]], [[treffen]]
+:[1] [[ein#Artikel|einen]] [[Schuss]] ''volley'' ([[in#in (Deutsch)|in]] [[ein#Artikel|ein]] [[Tor]]) [[verwandeln]]
+
+==== {{Übersetzungen}} ====
+{{Ü-Tabelle|Ü-links=
+*{{en}}: [1] ''je nach Kontext:'' {{L|at||en}} {{L|the||en}} {{Ü|en|volley}}, {{L|on||en}} {{L|the||en}} {{Ü|en|volley}}
+*{{fr}}: [1] ''je nach Kontext:'' {{L|à||fr}} {{L|la||fr}} {{Ü|fr|volée}}, {{L|de||fr}} {{Ü|fr|volée}}, {{L|en||fr}} {{Ü|fr|volée}}
+|Ü-rechts=
+}}
+
+{{Referenzen}}
+:[*] {{Ref-DWDS}}
+:[*] {{Ref-OWID}}
+:[1] {{Ref-FreeDictionary}}
+:[1] {{Ref-Duden}}
+:[1] {{Ref-wissen.de|Wörterbuch}}
+:[1] {{Ref-wissen.de|Fremdwort}}
+:[1] {{Ref-Pons}}
+:[*] {{Ref-UniLeipzig}}
+:[1] {{Lit-Carstensen: Anglizismen-Wörterbuch|A=1|B=3}}, Stichwort »volley«, Seite 1673.
+:[1] {{Literatur | Titel=Duden, Das große Wörterbuch der deutschen Sprache | TitelErg=10 Bände auf CD-ROM ; mehr als 200 000 Stichwörter mit rund 90 000 Belegen aus mehreren Hundert Quellen ; vielfältige Recherchemöglichkeiten ; für MS Windows und Apple Macintosh | Verlag=Dudenverlag | Ort=Mannheim/Leipzig/Wien/Zürich | Jahr=2000 | ISBN=978-3-411-71001-0 }}, Stichwort »volley«.
+:[1] {{Lit-Duden: Großes Fremdwörterbuch|A=4}} (CD-ROM-Ausgabe), Stichwort »volley«.
+:[1] {{Lit-Duden: Fremdwörterbuch|A=10}}, Stichwort »volley«, Seite 1086.
+:[1] {{Lit-Duden: Universalwörterbuch|A=9}}, Stichwort »volley«, Seite 1976.
+
+{{Quellen}}
+
+== volley ({{Sprache|Englisch}}) ==
+=== {{Wortart|Substantiv|Englisch}} ===
+
+{{Englisch Substantiv Übersicht
+|Singular=volley
+|Plural=volleys
+}}
+
+{{Worttrennung}}
+:vol·ley, {{Pl.}} vol·leys
+
+{{Aussprache}}
+:{{IPA}} {{Lautschrift|ˈvɒli}}, amerikanisch {{Lautschrift|ˈvɑli}}
+:{{Hörbeispiele}} {{Audio|En-au-volley.ogg|volley (australisch)}}
+
+{{Bedeutungen}}
+:[1] zeitgleich abgefeuerte Geschosse
+:[2] Vielzahl gleichzeitiger Äußerungen
+:[3] Schlag oder Schuss eines Balls vor dessen Berührung des Bodens
+
+{{Herkunft}}
+:von [[mittelfranzösisch]] ''volee'', seit den 1570er Jahren belegt<ref>{{Ref-MWD}}</ref><ref>{{Ref-OEtymD}}</ref>
+
+{{Beispiele}}
+:[1] {{Beispiele fehlen|spr=en}}
+
+{{Wortbildungen}}
+:[[volleyball]]
+
+==== {{Übersetzungen}} ====
+{{Ü-Tabelle|Ü-links=
+*{{de}}: [1] {{Ü|de|Salve}}; [2] {{Ü|de|Hagel}}, {{Ü|de|Flut}}; [3] {{Ü|de|Volley}}
+|Ü-rechts=
+*{{fr}}: [1] {{Ü|fr|volée}}
+}}
+
+{{Referenzen}}
+:[1, 3] {{Wikipedia|spr=en}}
+:[1–3] {{Ref-Oxford}}
+:[1–3] {{Ref-Cambridge}}
+:[1–3] {{Ref-Macmillan}}
+:[1–3] {{Ref-Longman|volley_1}}
+:[1–3] {{Ref-MWD}}
+:[1–3] {{Ref-Dictionary}}
+:[1–3] {{Ref-Pons|en}}
+:[1–3] {{Ref-dictcc}}
+:[1–3] {{Ref-Leo|en}}
+
+{{Quellen}}
+
+[[Kategorie:Entlehnung aus dem Mittelfranzösischen (Englisch)]]
+[[Kategorie:Entlehnung aus dem Englischen (Deutsch)]]
