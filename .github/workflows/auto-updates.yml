@@ -42,6 +42,7 @@ jobs:
         locale:
           - fr
           - en
+          - de
           - es
           - el
           - pt
