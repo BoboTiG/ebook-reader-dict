@@ -78,14 +78,12 @@ def find_section_definitions(
     # es uses definition lists, not well supported by the parser...
     # replace them by numbered lists
     if locale == "es":
-        lists = section.get_lists(pattern="[:;]")
-        if lists:
+        if lists := section.get_lists(pattern="[:;]"):
             sec = "".join(a_list.string for a_list in lists)
             section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
             section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
 
-    lists = section.get_lists(pattern=section_patterns[locale])
-    if lists:
+    if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
@@ -154,8 +152,7 @@ def find_etymology(
             if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
         ]
         for item in items:
-            etyl = process_templates(word, clean(item), locale)
-            if etyl:
+            if etyl := process_templates(word, clean(item), locale):
                 definitions.append(etyl)
         return definitions
 
@@ -165,8 +162,7 @@ def find_etymology(
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
         ]
         for item in items:
-            etyl = process_templates(word, clean(item), locale)
-            if etyl:
+            if etyl := process_templates(word, clean(item), locale):
                 definitions.append(etyl)
         return definitions
 
@@ -323,7 +319,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         # Definition lists are not well supported by the parser, replace them by numbered lists
         code = re.sub(r":\[\d+\]\s*", "# ", code)
 
-    if locale == "it":
+    elif locale == "it":
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
             r"^\{\{-(.+)-\|it?\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
@@ -338,8 +334,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     for section in etyl_section[locale]:
-        etyl_data = parsed_sections.pop(section, [])
-        if etyl_data:
+        if etyl_data := parsed_sections.pop(section, []):
             etymology = find_etymology(word, locale, etyl_data[0])
 
     definitions = find_definitions(word, parsed_sections, locale)
