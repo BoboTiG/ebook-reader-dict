@@ -22,12 +22,12 @@ def craft_urls(html, page):
         responses.add(
             responses.GET,
             check_word.craft_url(word, locale, raw=True),
-            body=page(word, locale),
+            body=body or page(word, locale),
         )
         responses.add(
             responses.GET,
             check_word.craft_url(word, locale),
-            body=html(word, locale) + body,
+            body=body or html(word, locale),
         )
         return word
 
@@ -86,6 +86,12 @@ def test_no_definition_nor_etymology(craft_urls):
             '<span title="doubt, doubten, dought, doughten, douti, douʒte, dut, duten, duti">and other forms</span>',
             "and other forms doubt, doubten, dought, doughten, douti, douʒte, dut, duten, duti",
         ],
+        # EN - anchors
+        [
+            "en",
+            '<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>',
+            "",
+        ],
         # ES - 2 Historia. --> (Historia)
         [
             "es",
@@ -97,6 +103,12 @@ def test_no_definition_nor_etymology(craft_urls):
             "es",
             "<dl><dt>2 Coloquial</dt></dl>",
             "2 (Coloquial): 2 Coloquial:",
+        ],
+        # ES
+        [
+            "es",
+            "</dl><dl><dt>3 Coloquial</dt><dd>Úsase.</dd>",
+            "3(Coloquial):Úsase.3Coloquial:Úsase.",
         ],
         # ES - cita requerida
         [
