@@ -62,7 +62,7 @@ def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_aumentativo("diminutivo", ["perro"], defaultdict(str))
     '<i>Diminutivo de</i> perro'
     """
-    if tpl in ("diminutivo", "forma diminutivo"):
+    if tpl in {"diminutivo", "forma diminutivo"}:
         start = "Diminutivo "
     else:
         start = "Aumentativo "
@@ -540,7 +540,7 @@ def render_grafia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         start = data["texto"]
     else:
         start = "Grafía"
-        if tpl in ("grafía", "grafia"):
+        if tpl in {"grafía", "grafia"}:
             start += " alternativa "
         elif tpl == "grafía informal":
             start += " informal "

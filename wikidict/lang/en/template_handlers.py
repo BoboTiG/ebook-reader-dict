@@ -563,7 +563,7 @@ def render_lit(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase = italic(phrase)
         # first is wikified ?
         phrase += " " if "</" in parts[0] else " see "
-        endphrase += concat([p for p in parts], ", ")
+        endphrase += concat(parts, ", ")
 
     if data["dot"]:
         endphrase += data["dot"]

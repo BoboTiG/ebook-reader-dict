@@ -58,7 +58,7 @@ def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     results = check_mute(wiktionary_text, parsed_html, category)
     for r in results:
         print(r, flush=True)
-    return int(len(results) / 2)
+    return len(results) // 2
 
 
 def contains(pattern: str, text: str) -> bool:
@@ -90,8 +90,12 @@ def filter_html(html: str, locale: str) -> str:
             if ":Special:" in a["title"]:
                 a.decompose()
 
-    # Adapt the formatting for the ES locale as it differs from other locales
-    if locale == "es":
+    elif locale == "en":
+        for span in bs.find_all("span"):
+            if span.string == "and other forms":
+                span.string += f' {span["title"]}'
+
+    elif locale == "es":
         # Replace color rectangle
         for span in bs.find_all("span", {"id": "ColorRect"}):
             for style in span["style"].split(";"):
@@ -135,7 +139,7 @@ def filter_html(html: str, locale: str) -> str:
 
         return no_spaces(bs.text)
 
-    if locale == "fr":
+    elif locale == "fr":
         # Filter out refnec tags
         for span in bs.find_all("span", {"id": "refnec"}):
             if span.previous_sibling:
@@ -187,15 +191,11 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
         return no_spaces(bs.text)
 
-    if locale == "en":
-        for span in bs.find_all("span"):
-            if span.string == "and other forms":
-                span.string += f' {span["title"]}'
-
     # Filter out anchors as they are ignored from templates
     for a in bs.find_all("a", href=True):
         if a["href"].startswith("#"):
             a.decompose()
+
     return no_spaces(bs.text)
 
 
@@ -286,7 +286,7 @@ def check_word(word: str, locale: str, lock: Lock = None) -> int:
             index += 1
     # print with lock if any
     if results:
-        errors = int(len(results) / 2)
+        errors = len(results) // 2
         if lock:
             lock.acquire()
         for result in results:

@@ -82,9 +82,9 @@ def render_acronyme(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_acronyme("acronyme", ["en", "fr"], defaultdict(str, {"de":"light-emitting diode", "texte":"Light-Emitting Diode"}))
     'Acronyme de <i>Light-Emitting Diode</i>'
     """  # noqa
-    if not data["texte"] and not data["de"]:
-        return italic("(Acronyme)")
-    return f"Acronyme de {italic(data['texte'] or data['de'])}"
+    if data["texte"] or data["de"]:
+        return f"Acronyme de {italic(data['texte'] or data['de'])}"
+    return italic("(Acronyme)")
 
 
 def render_modele_etym(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -353,8 +353,9 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     if is_derived:
         # Dérivé
-        phrase = "D" if data["m"] else "d"
-        phrase += "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
+        phrase = ("D" if data["m"] else "d") + (
+            "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
+        )
 
         if b == "0100":
             phrase += " de " + word_tr_sens(
@@ -395,8 +396,9 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return phrase
 
     # Composé
-    phrase = "C" if data["m"] else "c"
-    phrase += "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
+    phrase = ("C" if data["m"] else "c") + (
+        "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
+    )
     s_array = [
         word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
         for number, part in enumerate(parts, 1)
@@ -794,9 +796,7 @@ def render_refnec(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_refnec("recons", ["phrase difficile à avaler"], defaultdict(str))
     '<u>phrase difficile à avaler</u>'
     """
-    if not parts:
-        return ""
-    return underline(parts[0])
+    return "" if not parts else underline(parts[0])
 
 
 def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -866,9 +866,7 @@ def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "United Nations"}))
     'Sigle de <i>United Nations</i>'
     """  # noqa
-    if not data["de"]:
-        return term("Sigle")
-    return "Sigle de " + italic(data["de"])
+    return term("Sigle") if not data["de"] else "Sigle de " + italic(data["de"])
 
 
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
