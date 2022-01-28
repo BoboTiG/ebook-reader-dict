@@ -35,7 +35,7 @@ Options:
                             The generated filename can be tweaked via the --output=FILENAME argument.
   --update-release          DEV: Update the release description. Do not use it manually but via the CI only.
 
-If no argument given, --download, --parse, --render and --convert will be done automatically.
+If no argument given, --download, --parse, --render, and --convert will be done automatically.
 """
 import sys
 

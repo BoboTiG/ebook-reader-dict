@@ -316,6 +316,15 @@ class DictFileFormat(KoboBaseFormat):
 class StarDictFormat(DictFileFormat):
     """Save the data into a StarDict file."""
 
+    def _patch_gc(self) -> None:
+        """Bypass performances issues when calling PyGlossary from Python."""
+        import gc
+
+        def noop_gc_collect() -> None:
+            pass
+
+        gc.collect = noop_gc_collect  # type: ignore
+
     def _convert(self) -> None:
         """Convert the DictFile to StarDict."""
         from pyglossary import Glossary
@@ -334,6 +343,7 @@ class StarDictFormat(DictFileFormat):
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
             writeOptions={"dictzip": False},
+            sqlite=True,
         )
 
     def _cleanup(self) -> None:
@@ -346,6 +356,7 @@ class StarDictFormat(DictFileFormat):
 
     def process(self) -> None:
         self._cleanup()
+        self._patch_gc()
         self._convert()
         final_file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
