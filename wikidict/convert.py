@@ -108,8 +108,9 @@ class KoboFormat(KoboBaseFormat):
 
         # Sanitization
         release = release.replace(":arrow_right:", "->")
-        release = release.replace(f"[dicthtml-{locale}-{locale}.zip](", "")
-        release = release.replace(")", "")
+        release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}.df)", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
         release = release.replace("</sub>", "")

@@ -10,7 +10,19 @@ from wikidict import convert
 from wikidict.stubs import Word
 
 
-def test_simple(craft_data):
+EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 41
+Export Wiktionnaire : 2020-12-17
+
+Fichiers disponibles :
+
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df)
+
+Mis à jour le"""
+
+
+def test_simple():
     assert convert.main("fr") == 0
 
     # Check for all dictionaries
@@ -64,6 +76,10 @@ def test_simple(craft_data):
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
         assert errors is None
+
+        # Check content of INSTALL.txt
+        install_txt = fh.read("INSTALL.txt").decode()
+        assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
 
 def test_no_json_file():
