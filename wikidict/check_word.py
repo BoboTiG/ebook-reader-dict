@@ -84,6 +84,12 @@ def filter_html(html: str, locale: str) -> str:
     for span in bs.find_all("span", {"class": "mwe-math-element"}):
         span.decompose()
 
+    if locale == "de":
+        # Other Wikis
+        for a in bs.find_all("a", {"class": "extiw"}):
+            if ":Special:" in a["title"]:
+                a.decompose()
+
     # Adapt the formatting for the ES locale as it differs from other locales
     if locale == "es":
         # Replace color rectangle

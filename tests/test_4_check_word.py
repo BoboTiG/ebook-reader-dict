@@ -10,6 +10,7 @@ from wikidict import check_word
 
 # Word used in test_filter_html()
 WORD = {
+    "de": "volley",
     "en": "42",
     "es": "buena",
     "fr": "42",
@@ -80,6 +81,12 @@ def test_no_definition_nor_etymology(craft_urls):
 @pytest.mark.parametrize(
     "locale, body, expected",
     [
+        # DE - other Wikis
+        [
+            "de",
+            '<a href="https://en.wiktionary.org/wiki/Special:Search/volley" class="extiw" title="en:Special:Search/volley"><sup class="dewikttm">→&nbsp;en</sup></a>',  # noqa
+            "",
+        ],
         # EN - and other forms
         [
             "en",

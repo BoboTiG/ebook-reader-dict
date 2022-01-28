@@ -1,0 +1,59 @@
+{{Siehe auch|[[čia]]}}
+== CIA ({{Sprache|Deutsch}}) ==
+=== {{Wortart|Abkürzung|Deutsch}}, {{mf}}, {{Wortart|Substantiv|Deutsch}} ===
+
+{{Deutsch Substantiv Übersicht
+|Genus 1=f
+|Genus 2=m
+|Nominativ Singular 1=CIA
+|Nominativ Singular 2=CIA
+|Nominativ Plural=—
+|Genitiv Singular 1=CIA
+|Genitiv Singular 2=CIA
+|Genitiv Plural=—
+|Dativ Singular 1=CIA
+|Dativ Singular 2=CIA
+|Dativ Plural=—
+|Akkusativ Singular 1=CIA
+|Akkusativ Singular 2=CIA
+|Akkusativ Plural=—
+|Bild=Seal of the Central Intelligence Agency.svg|mini|1|Logo der ''CIA''
+}}
+
+{{Worttrennung}}
+:CIA, {{kPl.}}
+
+{{Aussprache}}
+:{{IPA}} ''englisch:'' {{Lautschrift|siːaɪ̯ˈɛɪ̯}}
+:{{Hörbeispiele}} {{Audio|De-CIA.ogg}}
+
+{{Bedeutungen}}
+:[1] [[US-amerikanisch]]er [[Auslandsnachrichtendienst]]
+
+{{Herkunft}}
+:[[Abkürzung]] von [[Central Intelligence Agency]]
+
+{{Beispiele}}
+:[1] „Am Nachmittag des 25. Juni bombardierte die ''CIA'' den Exerzierplatz des größten Militärlagers in Guatemala-Stadt.“<ref>{{Literatur | Autor=Tim Weiner | Titel=CIA | TitelErg=Die ganze Geschichte | Auflage=6. | Verlag=Fischer Taschenbuch Verlag | Ort=Frankfurt am Main | Jahr=2012 | ISBN=978-3596178650 | Seiten=149 }}</ref>
+:[1] „In der Sowjetunion äußerte die regierungsamtliche Prawda den Verdacht, Thomas Gray sei von der ''CIA'' entführt worden, weil sie intime Kenntnis von neuen mathematischen Methoden der Verschlüsselung besitze.“<ref>{{Literatur | Autor= Philip J. Davis | Titel= Pembrokes Katze | TitelErg= Die wundersame Geschichte über eine philosophierende Katze, ein altes mathematisches Problem und die Liebe| Verlag= Fischer Taschenbuch Verlag | Ort= Frankfurt/Main |Jahr= 1991| Seiten= 103.|ISBN= 3-596-10646-X}} Englisches Original 1988. Kursiv gedurckt: ''Prawda''. Zur Kongruenz von ''sie'': Thomas Gray ist in diesem Roman eine weibliche Katze.</ref>
+:[1] „Noch am selben Tag kennt die ''CIA'' das Telegramm.“<ref>{{Literatur| Autor= Reymer Klüver| Titel= Die letzten Tage des Patrice Lumumba |Sammelwerk= GeoEpoche: Afrika 1415-1960| Nummer= Heft 66| Jahr=2014}}, Seite 140-151, Zitat Seite 149.</ref>
+
+{{Wortbildungen}}
+:[[CIA-Agent]], [[CIA-Analyst]], [[CIA-Beamter]], [[CIA-Büro]], [[CIA-Chef]], [[CIA-Direktor]], [[CIA-Gefängnis]], [[CIA-Mann]], [[CIA-Mission]], [[CIA-Operation]], [[CIA-Pilot]], [[CIA-Spion]], [[CIA-Standort]], [[CIA-Stützpunkt]], [[CIA-Vertreter]], [[CIA-Veteran]], [[CIA-Zentrale]]
+{{Absatz}}
+==== {{Übersetzungen}} ====
+{{Ü-Tabelle|Ü-links=
+*{{en}}: [1] {{Ü|en|}}
+*{{fr}}: [1] {{Ü|fr|}}
+|Ü-rechts=
+*{{it}}: [1] {{Ü|it|}}
+*{{es}}: [1] {{Ü|es|}}
+}}
+
+{{Referenzen}}
+:[1] {{Wikipedia|CIA}}
+:[1] {{Ref-Abkürzungen|CIA}}
+:[1] {{Ref-Duden|CIA}}
+:[1] {{Ref-UniLeipzig|CIA}}
+
+{{Quellen}}

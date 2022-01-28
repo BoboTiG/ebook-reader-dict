@@ -268,11 +268,16 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
                 )
             )
 
+    def section_title(title: str) -> str:
+        if locale == "de":
+            title = title.split("(")[-1].strip(" )")
+        return title.replace(" ", "").lower().strip()
+
     # Get interesting top sections
     top_sections = [
         section
         for section in parsed.get_sections(include_subsections=True, level=level)
-        if section.title.replace(" ", "").lower().strip() in head_sections[locale]
+        if section_title(section.title) in head_sections[locale]
     ]
     # Get _all_ sections without any filtering
     all_sections.extend(
@@ -306,6 +311,17 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     called from get_and_parse_word().
     """
     code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
+
+    if locale == "de":
+        # {{Bedeutungen}} -> === {{Bedeutungen}} ===
+        code = re.sub(
+            r"^\{\{(.+)\}\}",
+            r"=== {{\1}} ===",
+            code,
+            flags=re.MULTILINE,
+        )
+        # Definition lists are not well supported by the parser, replace them by numbered lists
+        code = re.sub(r":\[\d+\]\s*", "# ", code)
 
     if locale == "it":
         # {{-avv-|it}} -> === {{avv}} ===
