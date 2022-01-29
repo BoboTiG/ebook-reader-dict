@@ -1,4 +1,5 @@
 """Deutsh language."""
+from typing import Tuple
 
 # Regex to find the pronunciation
 pronunciation = r"{{Lautschrift\|([^}]+)}}"
@@ -24,16 +25,38 @@ sections = (
 definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ()
+templates_ignored = ("QS_Herkunft",)
 
 # Templates that will be completed/replaced using italic style.
 # templates_italic = {}
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{L|at||en}}
+    "L": "parts[1]",
     # {{Ü|pl|dzień}}
     "Ü": "italic(parts[-1])",
 }
+
+
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+    >>> last_template_handler(["default"], "de")
+    '<i>(Default)</i>'
+    """  # noqa
+    from ..defaults import last_template_handler as default
+
+    from .template_handlers import render_template, lookup_template
+
+    if lookup_template(template[0]):
+        return render_template(template)
+
+    return default(template, locale, word=word)
+
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de
