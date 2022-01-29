@@ -30,15 +30,9 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """  # noqa
     phrase = ""
     for i, p in enumerate(parts, start=1):
-        s_index = str(i)
-        t_index = f"t{s_index}"
-        if p in abk:
-            phrase += abk[p]
-        else:
-            phrase += p
-        sep = ""
-        if i != len(parts):
-            sep = data[t_index] if t_index in data else ","
+        t_index = f't{i}'
+        phrase += abk[p] if p in abk else p
+        sep = data.get(t_index, ",") if i != len(parts) else ""
         if sep == "_":
             sep = " "
         elif sep:
@@ -46,7 +40,7 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase += sep
     ft = f"{data['ft']}" if "ft" in data else ""
     if ft:
-        spacer = data["t7"] if "t7" in data else ", "
+        spacer = data.get("t7", ", ")
         if spacer == "_":
             spacer = " "
         ft = spacer + ft
