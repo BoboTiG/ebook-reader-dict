@@ -277,6 +277,7 @@ regions = {
     "PE": "Pérou",
     "PRK": "Corée du Nord",
     "PT": "Portugal",
+    "Palerme": "Palerme",
     "Panama": "Panama",
     "Paraguay": "Paraguay",
     "Paris": "Paris",
@@ -413,7 +414,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 408
+}  # 409
 # END
 
 # handled differently
