@@ -41,6 +41,7 @@ for line in textarea.text.split("\n"):
         line = re.sub(regex, subst, line, 0, re.MULTILINE)
     # line = line.replace("'", '"')
     line = line.replace("false", "False")
+    line = line.replace("fals", "False")
     line = line.replace("true", "True")
     if "-- " in line:
         line = line.split("-- ")[0]

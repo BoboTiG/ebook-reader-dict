@@ -8,7 +8,7 @@ def read_all_lines_etym(lines):
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
     pattern2 = re.compile(r"(\w*)\s*=\s*{")
 
-    m = {}
+    m = {}  # noqa
     concat = ""
     in_comment = False
     for line in lines:
@@ -22,6 +22,9 @@ def read_all_lines_etym(lines):
         if in_comment:
             continue
         if line.startswith(("--", "return", "local")):
+            continue
+        remove_words = ("wikidata_item", "ancestral_to_parent")
+        if any(word in line for word in remove_words):
             continue
         matches = pattern.findall(line)
         matches2 = pattern2.findall(line)
@@ -51,8 +54,7 @@ def read_all_lines_lang(lines):
             line = line.strip().strip(",").strip('"')
             m[code] = line
             code = ""
-        match = pattern.match(line)
-        if match:
+        if match := pattern.match(line):
             code = match.group(1)
     return m
 
