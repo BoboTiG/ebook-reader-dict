@@ -3,13 +3,13 @@
 {{wikipedia}}
 
 ===Etymology 1===
-From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|en|gem-pro|*uns||us}}, from {{der|en|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}. Cognate with {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
+From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|en|gem-pro|*uns||us}}, from {{der|en|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n̥smé||us}}. Cognate with {{cog|stq|uus|t=us}}, {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
 
 ====Pronunciation====
 * {{qualifier|stressed}} {{enPR|ŭs}}, {{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}
 * {{qualifier|unstressed}} {{a|US}} {{IPA|en|/əs/}}, {{a|UK}} {{IPA|en|/əs/|/əz/}}
 * {{audio|en|en-us-us.ogg|Audio (US)}}
-* {{rhymes|en|ʌs}}
+* {{rhymes|en|ʌs|s=1}}
 
 ====Pronoun====
 {{en-pron}}
@@ -17,11 +17,15 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 # {{lb|en|personal}} [[me|Me]] and at least one other person; the objective case of '''[[we]]'''.
 #* '''1611''', [[w:King James Version of the Bible|King James Version of the Bible]], ''[[s:Bible (King James)/Luke|Luke]] 1:1'':
 #*: Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...
-# {{lb|en|UK|colloquial}} [[me|Me]].
+# {{lb|en|Commonwealth|colloquial|chiefly with {{m|en|give}}}} [[me|Me]].
 #: ''Give '''us''' a look at your paper.''
 #: ''Give '''us''' your wallet!''
+#: ''She's turned the [[weans]] against '''us'''!''
 # {{lb|en|Northern England}} [[our|Our]].
 #: ''We'll have to throw '''us''' food out.''
+# {{lb|en|Geordie}} Me (in all contexts).
+#: ''Look at '''us''' while you’re speaking to '''us'''.''
+#: ''Could you do that for '''us'''?''
 
 =====Alternative forms=====
 * {{l|en|-'s}} {{q|contracted form, as in {{m|en|let's}}}}
@@ -38,7 +42,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Burmese: {{t|my|ကျုပ်တို့}}, {{t+|my|တို့}}
 * Chamicuro: {{t|ccc|a'ti}}
 * Chinese:
-*: Cantonese: {{t|yue|我哋|tr=ngo5 dei6|sc=Hani}}
+*: Cantonese: {{t+|yue|我哋|tr=ngo5 dei6|sc=Hani}}
 *: Mandarin: {{t+|cmn|我們|sc=Hani}}, {{t+|cmn|我们|tr=wǒmen|sc=Hani}}
 *: Min Nan: {{t+|nan|阮|tr=góan, gún|sc=Hans}}, {{t+|nan|咱|tr=lán|sc=Hans}}, {{t+|nan|咱人|tr=lán-lâng|sc=Hans}}
 * Czech: {{t+|cs|nás}}, {{t+|cs|nám}}
@@ -67,6 +71,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Kurdish:
 *: Central Kurdish: {{t+|ckb|ئێمە}}
 * Latin: {{qualifier|accusative}} {{t+|la|nos}}, {{qualifier|dative}} {{t+|la|nobis}}, {{qualifier|ablative}} {{t+|la|nobis}}
+* Low German: {{t|nds|uns}}, {{t|nds|üsseck}}
 * Macedonian: {{t|mk|ни}}, {{t|mk|нас}}, {{t|mk|нам}}
 * Malay:
 *: ''exclusive: '' {{t+|ms|kami|p}}
@@ -86,7 +91,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Romanian: {{t+|ro|ne}} {{qualifier|unstressed dative and accusative}}, {{t+|ro|nouă}} {{qualifier|stressed dative}}, ([[pe]]) [[noi]] {{qualifier|stressed accusative}}
 * Russian: {{t+|ru|нас|p}}, {{t+|ru|нам|p}}, {{t+|ru|на́ми|p}}
 * Serbo-Croatian: {{t+|sh|nas}}
-* Slovene: {{t+|sl|midva}} (‘us two’), {{t|sl|midve}} (‘us two women’), {{t+|sl|mi}} (three or more), {{t|sl|me}} (three or more women)
+* Slovene: {{t+|sl|midva}} (‘us two’), {{t|sl|midve}} (‘us two women’), {{t+|sl|mi}} (three or more), {{t+|sl|me}} (three or more women)
 * Sorbian:
 *: Lower Sorbian: {{t|dsb|naju|d}}, {{t|dsb|nas|p}}
 * Spanish: {{t+|es|nos}}, {{t+|es|nosotros}}, {{t+|es|nosotras}}
@@ -174,8 +179,20 @@ From {{inh|ca|pro|us}}, from {{inh|ca|la|ūsus}}.
 # [[you]] (plural, direct or indirect object)
 # {{contraction of|ca|vos}}
 
+====Usage notes====
+* {{U:ca:pronouns|form=reinforced}}
+*: {{uxi|ca|Si '''us''' plau.|Please.}}
+*: {{uxi|ca|Si no '''us''' importa.|If you don't mind.}}
+* -{{U:ca:pronouns|form=reduced}}
+*: {{uxi|ca|Volia veure-'''us'''.|I wanted to see you.}}
+
 ====Declension====
 {{ca-decl-ppron}}
+
+===Further reading===
+* {{R:DCVB}}
+* {{R:GDLC}}
+* {{R:IEC2}}
 
 ----
 
@@ -187,7 +204,7 @@ From {{inh|fr|fro|us}}, from {{inh|fr|la|ūsus}}.
 ===Pronunciation===
 * {{fr-IPA|uss}}
 * {{audio|fr|LL-Q150 (fra)-Exilexi-us.wav|Audio}}
-* {{rhymes|fr|ys}}
+* {{rhymes|fr|ys|s=1}}
 
 ===Noun===
 {{fr-noun|m-p}}
@@ -222,6 +239,9 @@ Only used in Modern French as {{m|fr|[[us]] [[et]] [[coutumes]]||[[mores]] and [
 ===Etymology===
 From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro|*uns||us}}, from {{inh|enm|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n-sme-||us}}.
 
+===Pronunciation===
+* {{IPA|enm|/us/|/uːs/}}
+
 ===Pronoun===
 {{head|enm|pronoun|nominative|we}}
 
@@ -235,9 +255,13 @@ From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro
 ====Descendants====
 * {{desc|en|us}}
 * {{desc|sco|us}}, {{l|sco|hus}}
+* {{desc|yol|ouse}}
 
-===References===
-* {{R:MED Online|entry=us|pos=pron|id=MED50620 accessdate=11 May 2018}}
+====See also====
+{{enm-decl-personal pronouns}}
+
+====References====
+* {{R:MED Online|entry=ū̆s|pos=pron|id=MED50620 accessdate=11 May 2018}}
 
 ----
 
@@ -350,13 +374,29 @@ From {{inh|sh|sla-pro|*ǫsъ}}.
 
 ==Turkish==
 
+===Etymology===
+From {{inh|tr|trk-pro|*us||mind, reason}}.<ref>{{R:tut-pro:SDM|*us|url=https://starling.rinet.ru/cgi-bin/response.cgi?single=1&basename=%2fdata%2falt%2fturcet&text_number=1700&root=config}}</ref>
+
 ===Noun===
 {{tr-noun|usa|lar}}
 
-# {{synonym of|tr|akıl}}
+# [[mind]]
+# [[reason]]
+# [[intelligence]]
+
+====Declension====
+{{tr-infl-noun-c|u|poss=1}}
 
 ====Derived terms====
+* {{l|tr|uslu}}
 * {{l|tr|usa vurma metodu}}
+
+====Synonyms====
+* {{l|tr|akıl}}
+* {{l|tr|zihin}}
+
+===References===
+<references/>
 
 ----
 

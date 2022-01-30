@@ -144,12 +144,13 @@ from wikidict.utils import process_templates
             "us",
             ["ʌs", "ʌz"],
             [
-                "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n-sme-</i> (“us”). Cognate with West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
+                "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(Britain, colloquial)</i> Me.",
+                "<i>(Commonwealth of Nations, colloquial, chiefly with <b>give</b>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
+                "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
             ],

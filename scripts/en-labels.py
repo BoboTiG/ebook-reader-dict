@@ -25,13 +25,14 @@ def process_display(display):
     return display
 
 
-def process_page(url, repl, stop_line, var_name):
+def process_page(url, repl, stop_line, var_name, print_result=True):
     soup = get_soup(url)
     div = soup.find("div", {"class": "mw-highlight-lines"})
     text = div.text
 
     text = text.replace("local ", "")
     text = text.replace("true", "True")
+    text = text.replace("false", "False")
     text = text.replace("--", "#")
 
     for r in repl:
@@ -46,24 +47,27 @@ def process_page(url, repl, stop_line, var_name):
 
     exec(code, globals())
     results = {}
-    for k, v in aliases.items():  # noqa
-        label_v = labels.get(v)  # noqa
-        if label_v:
-            display = label_v.get("display", v)  # noqa
-            display = process_display(display)
-            if display != k:
-                results[k] = display
 
     for k, v in labels.items():  # noqa
-        display = v.get("display", k)
+        label_v = v
+        label_k = k
+        if isinstance(v, str):
+            label_v = labels.get(v, v)  # noqa
+            if label_v != v:
+                label_k = v
+        if isinstance(label_v, str):
+            display = label_v
+        else:
+            display = label_v.get("display", label_k)
         display = process_display(display)
         if display != k:
             results[k] = display
-
-    print(f"{var_name} = {{")
-    for key, value in sorted(results.items()):
-        print(f'    "{key}": "{value}",')
-    print(f"}}  # {len(results):,}")
+    if print_result:
+        print(f"{var_name} = {{")
+        for key, value in sorted(results.items()):
+            print(f'    "{key}": "{value}",')
+        print(f"}}  # {len(results):,}")
+    return results
 
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
@@ -81,6 +85,7 @@ repl = (
     "plain_categories",
     "regional_categories",
     "sense_categories",
+    "topical_categories",
     "track",
 )
 stop_line = "# Regional labels"
@@ -89,19 +94,20 @@ process_page(url, repl, stop_line, var_name)
 
 syntaxes = {}
 for k, v in labels.items():  # noqa
-    omit_preComma = v.get("omit_preComma")
-    omit_postComma = v.get("omit_postComma")
-    omit_preSpace = v.get("omit_preSpace")
+    label_v = v
+    if isinstance(v, str):
+        label_v = labels.get(v)  # noqa
+    if not label_v:
+        continue
+    omit_preComma = label_v.get("omit_preComma")
+    omit_postComma = label_v.get("omit_postComma")
+    omit_preSpace = label_v.get("omit_preSpace")
     if omit_postComma or omit_preComma or omit_preSpace:
         syntaxes[k] = {
             "omit_postComma": bool(omit_postComma),
             "omit_preComma": bool(omit_preComma),
             "omit_preSpace": bool(omit_preSpace),
         }
-for k, v in aliases.items():  # noqa
-    label_v = labels.get(v)  # noqa
-    if label_v and syntaxes.get(v):
-        syntaxes[k] = syntaxes[v]
 
 print()
 print("label_syntaxes = {")
@@ -116,6 +122,8 @@ print()
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data/topical"
 repl = (
+    "alias_of",
+    "deprecated",
     "topical_categories",
     "display",
     "plain_categories",
@@ -135,24 +143,39 @@ repl = (
     "plain_categories",
     "language",
 )
-stop_line = "# Adds labels"
+stop_line = "return labels"
 var_name = "labels_regional"
 process_page(url, repl, stop_line, var_name)
 
 print()
 
-url = "https://en.wiktionary.org/wiki/Module:labels/data/subvarieties"
-repl = (
-    "regional_categories",
-    "special_display",
-    "display",
-    "Wikipedia",
-    "plain_categories",
-    "language",
-    "track",
-)
-stop_line = "if there is a"
-var_name = "labels_subvarieties"
-process_page(url, repl, stop_line, var_name)
+# labels_subvarieties
+root_url = "https://en.wiktionary.org"
+url = "https://en.wiktionary.org/wiki/Special:PrefixIndex/Module:labels/data/lang/"
 
-print()
+soup = get_soup(url)
+div = soup.find("div", {"class": "mw-prefixindex-body"})
+lis = div.findAll("li")
+results = {}
+for li in lis:
+    if not li.text.endswith("documentation"):
+        href = li.find("a")["href"]
+        page_url = root_url + href
+        repl = (
+            "regional_categories",
+            "special_display",
+            "display",
+            "Wikipedia",
+            "plain_categories",
+            "language",
+            "track",
+            "wikipedia",
+        )
+        stop_line = "return"
+        var_name = "labels_subvarieties"
+        results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+
+print(f"{var_name} = {{")
+for key, value in sorted(results.items()):
+    print(f'    "{key}": "{value}",')
+print(f"}}  # {len(results):,}")
