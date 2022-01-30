@@ -49,6 +49,7 @@ regions = {
     "Bahia": "Bahia",
     "Baléares": "Baléares",
     "Bangladesh": "Bangladesh",
+    "Barrafranca": "Barrafranca",
     "Basses-terres continentales": "Basses-terres continentales",
     "Baugé": "Baugé",
     "Bavière": "Bavière",
@@ -77,6 +78,7 @@ regions = {
     "CL": "Chili",
     "CM": "Cameroun",
     "Caccamo": "Caccamo",
+    "Caltanissetta": "Caltanissetta",
     "Cambodge": "Cambodge",
     "Cameroun": "Cameroun",
     "Canada": "Canada",
@@ -236,6 +238,7 @@ regions = {
     "Mayo": "Mayo",
     "Mayotte": "Mayotte",
     "Merir": "Merir",
+    "Messine": "Messine",
     "Mexique": "Mexique",
     "Midi": "Midi de la France",
     "Midi toulousain": "Midi toulousain",
@@ -414,7 +417,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 409
+}  # 412
 # END
 
 # handled differently
