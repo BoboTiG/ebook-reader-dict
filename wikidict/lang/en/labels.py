@@ -747,6 +747,7 @@ labels_regional = {
     "Alaskan": "Alaska",
     "Alaškert": "Alashkert",
     "Alemannic": "Alemannia",
+    "Alexandropol": "Gyumri",
     "Algerian": "Algeria",
     "Algherese": "Alghero",
     "Ali Bayramli": "Şirvan",
@@ -1044,6 +1045,7 @@ labels_regional = {
     "Khodorchur": "Khotorjur",
     "Kirklareli": "Kırklareli",
     "Kisiqi": "Kiziqi",
+    "Kumayri": "Gyumri",
     "Kyurin": "Gürün",
     "Kärnten": "Carinthia",
     "Kürdəmir": "Kurdamir",
@@ -1058,6 +1060,7 @@ labels_regional = {
     "Lebanese": "Lebanon",
     "Lechkhumian": "Lechkhumi",
     "Lechkhumuri": "Lechkhumi",
+    "Leninakan": "Gyumri",
     "Levant": "Levantine",
     "Liberian": "Liberia",
     "Libyan": "Libya",
@@ -1393,6 +1396,9 @@ labels_regional = {
     "Zagatala": "Zaqatala",
     "Zakatala": "Zaqatala",
     "Zangelan": "Zangilan",
+    "Zugdidi-Samurzakano": "Zugdidi–Samurzakano",
+    "Zugdidi-Samurzaqano": "Zugdidi–Samurzakano",
+    "Zugdidi–Samurzaqano": "Zugdidi–Samurzakano",
     "Zurich": "Zürich",
     "Zəngilan": "Zangilan",
     "Zərdab": "Zardab",
@@ -1433,7 +1439,7 @@ labels_regional = {
     "Əli Bayramlı": "Şirvan",
     "Ərdəbil": "Ardebil",
     "Ճանիկ": "Canik",
-}  # 706
+}  # 712
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -2355,7 +2361,7 @@ labels_subvarieties = {
     "ბულეფი": "Bulepi",
     "ვიწე": "Vitse",
     "ვიწური": "Vitse",
-    "ჩხალური": "Chkhala",
+    "ჩხალა": "Chkhala",
     "ხოფური": "Khopa",
     "Ṣabẹẹ": "Savè",
     "Ṣábẹ̀ẹ́": "Savè",
