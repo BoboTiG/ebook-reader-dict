@@ -1,4 +1,4 @@
-"""Deutsh language."""
+"""German language (Deutsch)."""
 from typing import Tuple
 
 # Regex to find the pronunciation
@@ -61,16 +61,16 @@ def last_template_handler(
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de
 release_description = """\
-Words count: {words_count}
-Wiktionary dump: {dump_date}
+Anzahl Worte: {words_count}
+Wiktionary-Dump vom: {dump_date}
 
-Available files:
+Verfügbare Wörterbuch-Formate:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
-<sub>Updated on {creation_date}</sub>
+<sub>Aktualisiert am {creation_date}.</sub>
 """  # noqa
 
 # Dictionary name that will be printed below each definition
