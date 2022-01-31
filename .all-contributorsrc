@@ -41,6 +41,15 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "Moonbase59",
+      "name": "Matthias C. Hormann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3706922?v=4",
+      "profile": "https://github.com/Moonbase59",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
