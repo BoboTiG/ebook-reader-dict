@@ -5,13 +5,13 @@ from typing import Tuple
 pronunciation = r"{{Lautschrift\|([^}]+)}}"
 
 # Regex to find the gender
-gender = r",\s+{{([fmn]+)}}"
+gender = r",\s+{{([fmnu]+)}}"
 
 # Float number separator
-float_separator = "."
+float_separator = ","
 
 # Thousads separator
-thousands_separator = ","
+thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
@@ -70,7 +70,7 @@ Verfügbare Wörterbuch-Formate:
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
 
-<sub>Aktualisiert am {creation_date}.</sub>
+<sub>Letzte Aktualisierung: {creation_date}.</sub>
 """  # noqa
 
 # Dictionary name that will be printed below each definition
