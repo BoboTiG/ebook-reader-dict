@@ -17,7 +17,7 @@ Fichiers disponibles :
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
 
 Mis à jour le"""
 
@@ -28,6 +28,7 @@ def test_simple():
     # Check for all dictionaries
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     assert (output_dir / "dict-fr-fr.df").is_file()  # DictFile
+    assert (output_dir / "dict-fr-fr.df.bz2").is_file()  # DictFile bz2
     assert (output_dir / "dict-fr-fr.zip").is_file()  # StarDict
     dicthtml = output_dir / "dicthtml-fr-fr.zip"  # Kobo
     assert dicthtml.is_file()
@@ -137,12 +138,13 @@ def test_generate_primary_dict(formatter, filename):
     "formatter, filename",
     [
         (convert.StarDictFormat, "dict-fr-fr.zip"),
+        (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2"),
     ],
 )
 @pytest.mark.dependency(
     depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
 )
-def test_generate_secundary_dict(formatter, filename):
+def test_generate_secondary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(formatter, "fr", output_dir, [], [], "20201218")
     assert (output_dir / filename).is_file()
