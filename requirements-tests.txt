@@ -1,5 +1,5 @@
 -r requirements.txt
-black==21.12b0
+black==22.1.0
 flake8==4.0.1
 mypy==0.931
 pdoc3==0.10.0
@@ -9,4 +9,4 @@ pytest-cov==3.0.0
 pytest-dependency==0.5.1
 responses==0.17.0
 types-cachetools==4.2.9
-types-requests==2.27.7
+types-requests==2.27.8

@@ -2127,6 +2127,7 @@ langs = {
     "ijo": "langues ijos",
     "ijs": "ijo du Sud-Est",
     "ik": "inupiaq",
+    "ike": "inuttitut",
     "iki": "iko",
     "iko": "olulumo-ikom",
     "ikt": "inuinnaqtun",
@@ -6283,7 +6284,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,278
+}  # 6,279
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
