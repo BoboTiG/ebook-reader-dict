@@ -36,7 +36,7 @@ def process_page(url, repl, stop_line, var_name, print_result=True):
     text = text.replace("--", "#")
 
     for r in repl:
-        text = re.sub(fr"[ \t]+{r}[\s]*=", f'    "{r}":', text)
+        text = re.sub(rf"[ \t]+{r}[\s]*=", f'    "{r}":', text)
 
     code = ""
     for line in text.split("\n"):

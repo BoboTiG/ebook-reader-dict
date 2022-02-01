@@ -346,7 +346,7 @@ def clean(text: str) -> str:
 
     # Files
     pattern = "|".join(iter(pattern_file))
-    text = sub(fr"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
+    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
 
     # More local links
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}

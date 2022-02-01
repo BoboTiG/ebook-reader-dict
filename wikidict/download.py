@@ -39,7 +39,7 @@ def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
         total = 0
-        for data in iter(partial(fi.read, 1024 ** 2), b""):
+        for data in iter(partial(fi.read, 1024**2), b""):
             uncompressed = comp.decompress(data)
             fo.write(uncompressed)
             total += len(uncompressed)
@@ -78,7 +78,7 @@ def fetch_pages(
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
         total = 0
-        for chunk in req.iter_content(chunk_size=1024 ** 2):
+        for chunk in req.iter_content(chunk_size=1024**2):
             if chunk:
                 fh.write(chunk)
                 total += len(chunk)
