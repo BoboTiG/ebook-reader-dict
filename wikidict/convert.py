@@ -335,12 +335,13 @@ class StarDictFormat(DictFileFormat):
         glos.setInfo(
             "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
         )
-        glos.convert(
+        res = glos.convert(
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
             writeOptions={"dictzip": True},
             sqlite=True,
         )
+        assert res, "Conversion failed!"
 
     def _cleanup(self) -> None:
         import shutil
