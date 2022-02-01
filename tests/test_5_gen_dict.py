@@ -1,36 +1,16 @@
-import os
-import shutil
-from pathlib import Path
-from uuid import uuid4
+import pytest
 
 from wikidict import gen_dict
 
 
-def test_simple():
-    output = Path(os.getenv("CWD", "")) / str(uuid4())
-    output.mkdir()
-    try:
-        ret = gen_dict.main("fr", "logiciel", output)
-        assert ret == 0
-    finally:
-        shutil.rmtree(output)
-
-
-def test_multiple():
-    output = Path(os.getenv("CWD", "")) / str(uuid4())
-    output.mkdir()
-    try:
-        ret = gen_dict.main("fr", "base,logiciel", output)
-        assert ret == 0
-    finally:
-        shutil.rmtree(output)
-
-
-def test_stardict():
-    output = Path(os.getenv("CWD", "")) / str(uuid4())
-    output.mkdir()
-    try:
-        ret = gen_dict.main("fr", "logiciel", output, "stardict")
-        assert ret == 0
-    finally:
-        shutil.rmtree(output)
+@pytest.mark.parametrize(
+    "locale, words, format",
+    [
+        ("fr", "logiciel", None),
+        ("fr", "base,logiciel", None),
+        ("fr", "logiciel", "stardict"),
+    ],
+)
+def test_gen_dict(locale, words, format, tmp_path):
+    res = gen_dict.main(locale, words, tmp_path, format=format)
+    assert res == 0
