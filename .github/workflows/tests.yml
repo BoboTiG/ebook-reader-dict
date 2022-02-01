@@ -13,10 +13,10 @@ jobs:
         with:
           python-version: "3.10"
 
-      # - name: Install LaTeX requirements
-      #   run: |
-      #     sudo apt update
-      #     sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
+      - name: Install LaTeX requirements
+        run: |
+          sudo apt update
+          sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
 
       - uses: actions/cache@v2
         id: cache
