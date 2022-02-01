@@ -6,39 +6,38 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
 
-    - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
+      - name: Install LaTeX requirements
+        run: |
+          sudo apt update
+          sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
 
-    - name: Install LaTeX requirements
-      run: |
-        sudo apt update
-        sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt', 'requirements-tests.txt') }}
 
-    - uses: actions/cache@v2
-      id: cache
-      with:
-        path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt', 'requirements-tests.txt') }}
+      - name: Install requirements
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: python -m pip install -r requirements-tests.txt
 
-    - name: Install requirements
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: python -m pip install -r requirements-tests.txt
+      - name: Unit tests
+        run: python -Wd -m pytest tests --doctest-modules wikidict
 
-    - name: Unit tests
-      run: python -Wd -m pytest tests --doctest-modules wikidict
+      - name: Generate the user functions documentation
+        run: |
+          pydocstyle wikidict/user_functions.py
+          pdoc --html --force wikidict.user_functions
 
-    - name: Generate the user functions documentation
-      run: |
-        pydocstyle wikidict/user_functions.py
-        pdoc --html --force wikidict.user_functions
-
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: user_functions.html
-        path: html/wikidict/user_functions.html
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: user_functions.html
+          path: html/wikidict/user_functions.html
