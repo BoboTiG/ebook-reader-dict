@@ -27,8 +27,7 @@ def test_simple():
 
     # Check for all dictionaries
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    assert (output_dir / "dict-fr-fr.df").is_file()  # DictFile
-    assert (output_dir / "dict-fr-fr.df.bz2").is_file()  # DictFile bz2
+    assert (output_dir / "dict-fr-fr.df.bz2").is_file()  # DictFile bz2 compressed
     assert (output_dir / "dict-fr-fr.zip").is_file()  # StarDict
     dicthtml = output_dir / "dicthtml-fr-fr.zip"  # Kobo
     assert dicthtml.is_file()
@@ -92,7 +91,7 @@ def test_no_json_file():
 @pytest.mark.parametrize(
     "formatter, filename",
     [
-        (convert.DictFileFormat, "dict-fr-fr.df"),
+        (convert.DictFileFormat, "dict-fr-fr.df.bz2"),
         (convert.KoboFormat, "dicthtml-fr-fr.zip"),
     ],
 )
@@ -138,11 +137,10 @@ def test_generate_primary_dict(formatter, filename):
     "formatter, filename",
     [
         (convert.StarDictFormat, "dict-fr-fr.zip"),
-        (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2"),
     ],
 )
 @pytest.mark.dependency(
-    depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
+    depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df.bz2]"]
 )
 def test_generate_secondary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
