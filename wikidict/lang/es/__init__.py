@@ -258,7 +258,7 @@ Archivos disponibles:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualizado el {creation_date}</sub>
 """  # noqa

@@ -111,7 +111,7 @@ class KoboFormat(KoboBaseFormat):
         release = release.replace(":arrow_right:", "->")
         release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.df)", "")
+        release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
         release = release.replace("</sub>", "")
@@ -340,7 +340,7 @@ class StarDictFormat(DictFileFormat):
         glos.convert(
             inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
-            writeOptions={"dictzip": False},
+            writeOptions={"dictzip": True},
             sqlite=True,
         )
 
