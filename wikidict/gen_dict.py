@@ -1,9 +1,11 @@
 """DEBUG: generate the dictionary for specific words."""
 import os
-from typing import Tuple
-from .get_word import get_word
-from .convert import DictFileFormat, KoboFormat, StarDictFormat, run_formatter
+from datetime import datetime
 from pathlib import Path
+from typing import Tuple
+
+from .convert import DictFileFormat, KoboFormat, StarDictFormat, run_formatter
+from .get_word import get_word
 from .stubs import Variants, Words
 
 
@@ -17,7 +19,7 @@ def main(locale: str, words: str, output: str, format: str = "kobo") -> int:
         output_dir,
         all_words,
         {},
-        "",
+        datetime.utcnow().strftime("%Y%m%d"),
     )
 
     if format == "stardict":
