@@ -125,7 +125,7 @@ def test_no_json_file():
         (convert.KoboFormat, "dicthtml-fr-fr.zip"),
     ],
 )
-def test_generate_primary_dict(formatter, filename):
+def __test_generate_primary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(
         formatter, "fr", output_dir, SAMPLE_WORDS, VARIANTS, "20201218"
@@ -142,7 +142,7 @@ def test_generate_primary_dict(formatter, filename):
         (convert.StarDictFormat, "dict-fr-fr.zip"),
     ],
 )
-def test_generate_secondary_dict(formatter, filename):
+def __test_generate_secondary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     args = ("fr", output_dir, SAMPLE_WORDS, VARIANTS, "20201218")
 
