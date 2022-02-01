@@ -20,8 +20,9 @@ Options:
   --parse                   Parse and store raw Wiktionary data into "data/$LOCALE/data_wikicode-$DATE.json".
   --render                  Render templates from raw data into "data/$LOCALE/data-$DATE.json"
   --convert                 Convert rendered data to working dictionaries into several files:
-                                - "data/$LOCALE/dicthtml-$LOCALE.zip": Kobo format.
-                                - "data/$LOCALE/dict-$LOCALE.df": DictFile format.
+                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
+                                - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
+                                - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarFile format.
   --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
                             --random            randomly if --random
@@ -30,7 +31,7 @@ Options:
                             --input=FILENAME    A list of words, one by line
                             --check-word=WORD   Get and render WORD.
   --get-word=WORD [--raw]   Get and render WORD. Pass --raw to ouput the raw HTML code.
-  --gen-dict=WORDS          DEBUG: Generate the Kobo/Stardict dictionary for specific words. Pass multiple words
+  --gen-dict=WORDS          DEBUG: Generate Kobo/StarSict dictionaries for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
                             --format= FORMAT    Format can be "kobo" or "stardict" [default: kobo]
