@@ -12,7 +12,7 @@ Usage:
     wikidict LOCALE --check-words [--random] [--count=N] [--offset=M] [--input=FILENAME]
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
-    wikidict LOCALE --gen-dict=WORDS --output=FILENAME
+    wikidict LOCALE --gen-dict=WORDS --output=FILENAME [--format=FORMAT]
     wikidict LOCALE --update-release
 
 Options:
@@ -30,9 +30,10 @@ Options:
                             --input=FILENAME    A list of words, one by line
                             --check-word=WORD   Get and render WORD.
   --get-word=WORD [--raw]   Get and render WORD. Pass --raw to ouput the raw HTML code.
-  --gen-dict=WORDS          DEBUG: Generate the Kobo dictionary for specific words. Pass multiple words
+  --gen-dict=WORDS          DEBUG: Generate the Kobo/Stardict dictionary for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
+                            --format= FORMAT    Format can be "kobo" or "stardict" [default: kobo]
   --update-release          DEV: Update the release description. Do not use it manually but via the CI only.
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
@@ -96,7 +97,9 @@ def main() -> int:  # pragma: nocover
     if args["--gen-dict"] is not None:
         from . import gen_dict
 
-        return gen_dict.main(args["LOCALE"], args["--gen-dict"], args["--output"])
+        return gen_dict.main(
+            args["LOCALE"], args["--gen-dict"], args["--output"], args["--format"]
+        )
 
     if args["--update-release"]:
         from . import upload

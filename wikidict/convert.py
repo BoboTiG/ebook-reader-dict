@@ -306,7 +306,7 @@ class DictFileFormat(KoboBaseFormat):
                 fh.write(f"@ {word}\n")
                 if pronunciation or gender:
                     fh.write(f": {pronunciation.strip()} {gender}\n")
-                for v in self.variants[word]:
+                for v in self.variants.get(word, []):
                     fh.write(f"& {v}\n")
                 fh.write(f"<html>{etymology}\n")
                 fh.write(f"<ol>{definitions}</ol>\n\n")
