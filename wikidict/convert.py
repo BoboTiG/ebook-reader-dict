@@ -72,7 +72,7 @@ class KoboBaseFormat(BaseFormat):
                     for sub_etymology in etymology:
                         result += f"<li>{sub_etymology}</li>"
                     result += "</ol>"
-            result += "</br>"
+            result += "<br />"
         return result
 
     @staticmethod
