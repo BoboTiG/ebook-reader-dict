@@ -21,6 +21,36 @@ Fichiers disponibles :
 
 Mis à jour le"""
 
+SAMPLE_WORDS = words = {
+    "empty": Word("", "", "", [], []),
+    "foo": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], []),
+    "foos": Word("pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]),
+    "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
+    "etyls": Word(
+        "pron",
+        "gender",
+        ["etyl 1", ["setyl 1"]],
+        ["def 1", ["sdef 1"]],
+        ["foobar"],
+    ),
+    "GIF": Word(
+        "pron",
+        "gender",
+        "etyl",
+        [
+            '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
+            ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
+            "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
+            "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
+            "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
+            'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
+        ],
+        ["GIF"],
+    ),
+}
+
+VARIANTS = defaultdict(str, {"foo": "foobar"})
+
 
 def test_simple():
     assert convert.main("fr") == 0
@@ -88,7 +118,6 @@ def test_no_json_file():
         assert convert.main("fr") == 1
 
 
-@pytest.mark.dependency()
 @pytest.mark.parametrize(
     "formatter, filename",
     [
@@ -98,38 +127,9 @@ def test_no_json_file():
 )
 def test_generate_primary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    words = {
-        "empty": Word("", "", "", [], []),
-        "foo": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], []),
-        "foos": Word(
-            "pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
-        ),
-        "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
-        "etyls": Word(
-            "pron",
-            "gender",
-            ["etyl 1", ["setyl 1"]],
-            ["def 1", ["sdef 1"]],
-            ["foobar"],
-        ),
-        "GIF": Word(
-            "pron",
-            "gender",
-            "etyl",
-            [
-                '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
-                ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
-                "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
-                "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
-                "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
-                'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
-            ],
-            ["GIF"],
-        ),
-    }
-    variants = defaultdict(str)
-    variants["foo"] = ["foobar"]
-    convert.run_formatter(formatter, "fr", output_dir, words, variants, "20201218")
+    convert.run_formatter(
+        formatter, "fr", output_dir, SAMPLE_WORDS, VARIANTS, "20201218"
+    )
 
     assert (output_dir / filename).is_file()
 
@@ -137,14 +137,17 @@ def test_generate_primary_dict(formatter, filename):
 @pytest.mark.parametrize(
     "formatter, filename",
     [
-        (convert.StarDictFormat, "dict-fr-fr.zip"),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2"),
+        # Last, because it will delete the .df file
+        (convert.StarDictFormat, "dict-fr-fr.zip"),
     ],
-)
-@pytest.mark.dependency(
-    depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
 )
 def test_generate_secondary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    convert.run_formatter(formatter, "fr", output_dir, [], [], "20201218")
+    args = ("fr", output_dir, SAMPLE_WORDS, VARIANTS, "20201218")
+
+    # The formatters need a DictFile first
+    convert.run_formatter(convert.DictFileFormat, *args)
+
+    convert.run_formatter(formatter, *args)
     assert (output_dir / filename).is_file()
