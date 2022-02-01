@@ -15,7 +15,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
-from .constants import WORD_FORMAT
+from .constants import GH_REPOS, WORD_FORMAT
 from .lang import wiktionary
 from .stubs import Definitions, Word, Words
 from .utils import (
@@ -334,6 +334,7 @@ class StarDictFormat(DictFileFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
         glos.setInfo("description", source)
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
+        glos.setInfo("website", GH_REPOS)
         glos.setInfo(
             "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
         )
