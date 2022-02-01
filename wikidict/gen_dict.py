@@ -1,28 +1,29 @@
-"""DEBUG: generate the Kobo dictionary for specific words."""
+"""DEBUG: generate the dictionary for specific words."""
 import os
+from typing import Tuple
 from .get_word import get_word
-from .convert import BaseFormat, DictFileFormat, KoboFormat, StarDictFormat
+from .convert import DictFileFormat, KoboFormat, StarDictFormat, run_formatter
 from pathlib import Path
-from .stubs import Words
+from .stubs import Variants, Words
 
 
 def main(locale: str, words: str, output: str, format: str = "kobo") -> int:
     """Entry point."""
 
-    a_words = words.split(",")
-    def_words: Words = {}
-    for word in a_words:
-        details = get_word(word, locale)
-        def_words[word] = details
-
     output_dir = Path(os.getenv("CWD", "")) / output
-    formatter: BaseFormat
+    all_words = {word: get_word(word, locale) for word in words.split(",")}
+    args: Tuple[str, Path, Words, Variants, str] = (
+        locale,
+        output_dir,
+        all_words,
+        {},
+        "",
+    )
+
     if format == "stardict":
-        pre_formatter = DictFileFormat(locale, output_dir, def_words, {}, "")
-        pre_formatter.process()
-        formatter = StarDictFormat(locale, output_dir, def_words, {}, "")
+        run_formatter(DictFileFormat, *args)
+        run_formatter(StarDictFormat, *args)
     else:
-        formatter = KoboFormat(locale, output_dir, def_words, {}, "")
-    formatter.process()
+        run_formatter(KoboFormat, *args)
 
     return 0

@@ -1,5 +1,6 @@
 import bz2
 import os
+import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -30,6 +31,22 @@ PAGE_XML = """<page>
     </revision>
 </page>
 """
+
+
+@pytest.fixture(autouse=True)
+def no_warnings(recwarn):
+    """Fail on warning."""
+
+    yield
+
+    warnings = []
+    for warning in recwarn:  # pragma: no cover
+        message = str(warning.message)
+        warn = f"{warning.filename}:{warning.lineno} {message}"
+        print(warn, file=sys.stderr)
+        warnings.append(warn)
+
+    assert not warnings
 
 
 @pytest.fixture(scope="session")

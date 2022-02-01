@@ -6,8 +6,8 @@ from wikidict import gen_dict
 @pytest.mark.parametrize(
     "locale, words, format",
     [
-        ("fr", "logiciel", None),
-        ("fr", "base,logiciel", None),
+        ("fr", "logiciel", "kobo"),
+        ("fr", "base,logiciel", "kobo"),
         ("fr", "logiciel", "stardict"),
     ],
 )

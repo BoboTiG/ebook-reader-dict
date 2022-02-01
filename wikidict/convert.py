@@ -10,23 +10,20 @@ from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
 from shutil import rmtree
-from typing import Dict, List, Optional, Type
+from typing import List, Optional, Type
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
 
 from .constants import GH_REPOS, WORD_FORMAT
 from .lang import wiktionary
-from .stubs import Definitions, Word, Words
+from .stubs import Definitions, Groups, Variants, Word, Words
 from .utils import (
     convert_gender,
     convert_pronunciation,
     format_description,
     guess_prefix,
 )
-
-Groups = Dict[str, Words]
-Variants = Dict[str, List[str]]
 
 
 class BaseFormat:
@@ -357,6 +354,7 @@ class StarDictFormat(DictFileFormat):
         self._cleanup()
         self._patch_gc()
         self._convert()
+
         final_file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             for file in self.output_dir.glob("dict-data.*"):
@@ -373,12 +371,10 @@ class StarDictFormat(DictFileFormat):
 
 class BZ2DictFileFormat(BaseFormat):
     def process(self) -> None:
-        dictname = f"dict-{self.locale}-{self.locale}.df"
-        input_file = str(self.output_dir / dictname)
-        bz2_file = self.output_dir / f"{dictname}.bz2"
-        with open(input_file, "rb") as data:
-            bz2contents = bz2.compress(data.read())
-            bz2_file.write_bytes(bz2contents)
+        df_file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
+        bz2_file = df_file.with_suffix(".df.bz2")
+        bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
+
         return self.summary(bz2_file)
 
 

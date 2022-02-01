@@ -146,5 +146,5 @@ def test_generate_primary_dict(formatter, filename):
 )
 def test_generate_secondary_dict(formatter, filename):
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    convert.run_formatter(formatter, "fr", output_dir, [], [], "20201218")
+    convert.run_formatter(formatter, "fr", output_dir, [], {}, "20201218")
     assert (output_dir / filename).is_file()
