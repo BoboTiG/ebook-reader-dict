@@ -24,3 +24,13 @@ def test_multiple():
         assert ret == 0
     finally:
         shutil.rmtree(output)
+
+
+def test_stardict():
+    output = Path(os.getenv("CWD", "")) / str(uuid4())
+    output.mkdir()
+    try:
+        ret = gen_dict.main("fr", "logiciel", output, "stardict")
+        assert ret == 0
+    finally:
+        shutil.rmtree(output)
