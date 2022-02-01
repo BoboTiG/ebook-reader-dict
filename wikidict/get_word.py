@@ -12,7 +12,7 @@ from .utils import convert_pronunciation, convert_gender, get_word_of_the_day
 def get_word(word: str, locale: str) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
-    with requests.get(url) as req:
+    with requests.get(url, timeout=10) as req:
         code = req.text
     return parse_word(word, code, locale, force=True)
 

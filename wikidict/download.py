@@ -55,7 +55,7 @@ def fetch_snapshots(locale: str) -> List[str]:
     Return a list of sorted dates.
     """
     url = BASE_URL.format(locale)
-    with requests.get(url) as req:
+    with requests.get(url, timeout=10) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
@@ -75,7 +75,9 @@ def fetch_pages(
     msg = f">>> Fetching {url}: "
     print(msg, end="", flush=True)
 
-    with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
+    with output.open(mode="wb") as fh, requests.get(
+        url, timeout=10, stream=True
+    ) as req:
         req.raise_for_status()
         total = 0
         for chunk in req.iter_content(chunk_size=1024**2):

@@ -114,7 +114,7 @@ def get_word_of_the_day(locale: str) -> str:
 
     special_word, pattern = word_of_the_day[locale]
     url = f"https://{locale}.wiktionary.org/wiki/{special_word}?action=raw"
-    with requests.get(url) as req:
+    with requests.get(url, timeout=10) as req:
         matches = re.findall(pattern, req.text)
         return str(matches[0].strip()) if matches else ""
 

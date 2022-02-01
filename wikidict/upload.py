@@ -12,7 +12,7 @@ from .utils import format_description
 def fetch_release_url(locale: str) -> str:
     """Retrieve the *url* of the release of the current *locale*."""
     url = ""
-    with requests.get(RELEASE_URL.format(locale)) as req:
+    with requests.get(RELEASE_URL.format(locale), timeout=10) as req:
         req.raise_for_status()
         data = req.json()
         url = data["url"]
