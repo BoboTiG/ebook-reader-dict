@@ -233,8 +233,7 @@ def last_template_handler(
         if word.startswith("w:"):
             word = word[2:]
 
-        fromtext = join_names(data, "from", " and ")
-        if fromtext:
+        if fromtext := join_names(data, "from", " and "):
             cap = starter[0].isupper()
             from_suffix = "form of"
             if tpl == "standard spelling of":
@@ -283,7 +282,7 @@ Available files:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Updated on {creation_date}</sub>
 """  # noqa

@@ -255,8 +255,7 @@ def last_template_handler(
     if tpl in ("g", "gramática"):
         result = []
         for p in parts:
-            full = gramatica_short.get(p, "")
-            if full:
+            if full := gramatica_short.get(p, ""):
                 if p == "?":
                     result.append(small(full))
                 else:
@@ -283,8 +282,7 @@ def last_template_handler(
             trad = data["trad"]
             phrase += f' "{trad}"'
         if rest:
-            transcr = rest.pop(0)
-            if transcr:
+            if transcr := rest.pop(0):
                 phrase += f" ({italic(transcr)})"
         if rest:
             phrase += f' "{rest.pop(0)}"'
@@ -330,7 +328,7 @@ Arquivos disponíveis:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualizado em {creation_date}</sub>
 """  # noqa

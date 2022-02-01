@@ -241,8 +241,7 @@ def last_template_handler(
 
     from .langs import langs
 
-    lang = langs.get(template[0])
-    if lang:
+    if lang := langs.get(template[0]):
         return capitalize(lang)
 
     return default(template, locale, word)
@@ -258,7 +257,7 @@ Archivos disponibles:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualizado el {creation_date}</sub>
 """  # noqa
