@@ -78,14 +78,12 @@ def find_section_definitions(
     # es uses definition lists, not well supported by the parser...
     # replace them by numbered lists
     if locale == "es":
-        lists = section.get_lists(pattern="[:;]")
-        if lists:
+        if lists := section.get_lists(pattern="[:;]"):
             sec = "".join(a_list.string for a_list in lists)
             section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
             section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
 
-    lists = section.get_lists(pattern=section_patterns[locale])
-    if lists:
+    if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
@@ -154,8 +152,7 @@ def find_etymology(
             if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
         ]
         for item in items:
-            etyl = process_templates(word, clean(item), locale)
-            if etyl:
+            if etyl := process_templates(word, clean(item), locale):
                 definitions.append(etyl)
         return definitions
 
@@ -165,8 +162,7 @@ def find_etymology(
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
         ]
         for item in items:
-            etyl = process_templates(word, clean(item), locale)
-            if etyl:
+            if etyl := process_templates(word, clean(item), locale):
                 definitions.append(etyl)
         return definitions
 
@@ -338,8 +334,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     for section in etyl_section[locale]:
-        etyl_data = parsed_sections.pop(section, [])
-        if etyl_data:
+        if etyl_data := parsed_sections.pop(section, []):
             etymology = find_etymology(word, locale, etyl_data[0])
 
     definitions = find_definitions(word, parsed_sections, locale)
@@ -397,7 +392,7 @@ def render_word(w: List[str], words: Words, locale: str) -> None:
             words[word] = details
 
 
-def render(in_words: Dict[str, str], locale: str) -> Words:
+def render(in_words: Dict[str, str], locale: str, workers: int) -> Words:
     # Skip not interesting words early as the parsing is quite heavy
     sections = head_sections[locale]
     in_words = {
@@ -410,7 +405,7 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
     MISSING_TPL_SEEN: List[str] = MANAGER.list()  # noqa
     results: Words = MANAGER.dict()
 
-    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
+    with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()
@@ -430,7 +425,7 @@ def get_latest_json_file(output_dir: Path) -> Optional[Path]:
     return sorted(files)[-1] if files else None
 
 
-def main(locale: str) -> int:
+def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
@@ -441,7 +436,9 @@ def main(locale: str) -> int:
 
     print(f">>> Loading {file} ...", flush=True)
     in_words: Dict[str, str] = load(file)
-    words = render(in_words, locale)
+
+    workers = workers or multiprocessing.cpu_count()
+    words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
 

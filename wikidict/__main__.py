@@ -6,7 +6,7 @@ Usage:
     wikidict LOCALE -h, --help
     wikidict LOCALE --download
     wikidict LOCALE --parse
-    wikidict LOCALE --render
+    wikidict LOCALE --render [--workers=N]
     wikidict LOCALE --convert
     wikidict LOCALE --find-templates
     wikidict LOCALE --check-words [--random] [--count=N] [--offset=M] [--input=FILENAME]
@@ -18,23 +18,25 @@ Usage:
 Options:
   --download                Retrieve the latest Wiktionary dump into "data/$LOCALE/pages-$DATE.xml".
   --parse                   Parse and store raw Wiktionary data into "data/$LOCALE/data_wikicode-$DATE.json".
-  --render                  Render templates from raw data into "data/$LOCALE/data-$DATE.json"
+  --render                  Render templates from raw data into "data/$LOCALE/data-$DATE.json".
+                            --workers=N         Set the number of multiprocessing workers,
+                                                defaults to the number of CPUs in the system.
   --convert                 Convert rendered data to working dictionaries into several files:
                                 - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
   --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
-                            --random            randomly if --random
+                            --random            Randomly if --random
                             --count=N           If -1 check all words [default: 100]
                             --offset=M          Offset will remove words before starting.
                             --input=FILENAME    A list of words, one by line
                             --check-word=WORD   Get and render WORD.
   --get-word=WORD [--raw]   Get and render WORD. Pass --raw to ouput the raw HTML code.
-  --gen-dict=WORDS          DEBUG: Generate Kobo/StarDict dictionaries for specific words. Pass multiple words
+  --gen-dict=WORDS          DEBUG: Generate dictionary for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
-                            --format= FORMAT    Format can be "kobo" or "stardict" [default: kobo]
+                            --format=FORMAT     Format can be "kobo" or "stardict" [default: kobo]
   --update-release          DEV: Update the release description. Do not use it manually but via the CI only.
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
@@ -62,7 +64,7 @@ def main() -> int:  # pragma: nocover
     if args["--render"]:
         from . import render
 
-        return render.main(args["LOCALE"])
+        return render.main(args["LOCALE"], workers=int(args.get("--workers") or 0))
 
     if args["--convert"]:
         from . import convert
@@ -93,13 +95,16 @@ def main() -> int:  # pragma: nocover
     if args["--get-word"] is not None:
         from . import get_word
 
-        return get_word.main(args["LOCALE"], args["--get-word"], args["--raw"])
+        return get_word.main(args["LOCALE"], args["--get-word"], raw=args["--raw"])
 
     if args["--gen-dict"] is not None:
         from . import gen_dict
 
         return gen_dict.main(
-            args["LOCALE"], args["--gen-dict"], args["--output"], args["--format"]
+            args["LOCALE"],
+            args["--gen-dict"],
+            args["--output"],
+            format=args["--format"],
         )
 
     if args["--update-release"]:

@@ -7,6 +7,8 @@ from wikidict import render
 
 def test_simple():
     assert render.main("fr") == 0
+    assert render.main("fr", workers=0) == 0
+    assert render.main("fr", workers=2) == 0
 
 
 def test_no_json_file():
