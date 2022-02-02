@@ -179,7 +179,7 @@ regions = {
     "Israël": "Israël",
     "Jamaïque": "Jamaïque",
     "Japon": "Japon",
-    "Jersey": "Jersiais",
+    "Jersey": "Jersey",
     "Johor-Selangor": "Johor-Selangor",
     "Jura": "Jura",
     "KOR": "Corée du Sud",
@@ -362,6 +362,7 @@ regions = {
     "Sérent": "Sérent",
     "TAAF": "Vocabulaire des TAAF",
     "TD": "Tchad",
+    "Taormine": "Taormine",
     "Taïwan": "Taïwan",
     "Tchad": "Tchad",
     "Terre-Neuve": "Terre-Neuve",
@@ -399,6 +400,7 @@ regions = {
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
     "burkina": "Burkina Faso",
+    "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
     "normand insulaire": "Normand insulaire",
@@ -418,7 +420,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 413
+}  # 415
 # END
 
 # handled differently
