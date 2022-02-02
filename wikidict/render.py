@@ -397,7 +397,7 @@ def render_word(w: List[str], words: Words, locale: str) -> None:
             words[word] = details
 
 
-def render(in_words: Dict[str, str], locale: str) -> Words:
+def render(in_words: Dict[str, str], locale: str, workers: int) -> Words:
     # Skip not interesting words early as the parsing is quite heavy
     sections = head_sections[locale]
     in_words = {
@@ -410,7 +410,7 @@ def render(in_words: Dict[str, str], locale: str) -> Words:
     MISSING_TPL_SEEN: List[str] = MANAGER.list()  # noqa
     results: Words = MANAGER.dict()
 
-    with multiprocessing.Pool(processes=multiprocessing.cpu_count()) as pool:
+    with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()
@@ -430,7 +430,7 @@ def get_latest_json_file(output_dir: Path) -> Optional[Path]:
     return sorted(files)[-1] if files else None
 
 
-def main(locale: str) -> int:
+def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
@@ -441,7 +441,9 @@ def main(locale: str) -> int:
 
     print(f">>> Loading {file} ...", flush=True)
     in_words: Dict[str, str] = load(file)
-    words = render(in_words, locale)
+
+    workers = workers or multiprocessing.cpu_count()
+    words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
 
