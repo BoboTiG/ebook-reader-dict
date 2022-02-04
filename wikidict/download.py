@@ -6,28 +6,40 @@ from functools import partial
 from pathlib import Path
 from typing import Callable, List
 
+import urllib.request
 import requests
 from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
 
 
-def callback_progress(text: str, total: int, last: bool) -> None:
+def callback_progress(text: str, total: int, last: bool, length: int = 0) -> None:
     """Progression callback. Used when fetching the Wiktionary dump and when extracting it."""
-    msg = f"{text}OK [{total:,} bytes]\n" if last else f"{text}{total:,} bytes"
+    if last:
+        msg = f"{text}OK [{total:,} bytes]\n"
+    elif length > 0:
+        msg = f"{text}{total:,} / {length:,} bytes"
+    else:
+        msg = f"{text}{total:,} bytes"
+
     print(f"\r{msg}", end="", flush=True)
 
 
-def callback_progress_ci(text: str, total: int, last: bool) -> None:
+def callback_progress_ci(text: str, total: int, last: bool, length: int = 0) -> None:
     """
     Progression callback. Used when fetching the Wiktionary dump and when extracting it.
     This version is targeting the CI, it prints less lines and it is easier to follow.
     """
-    msg = f". OK [{total:,} bytes]\n" if last else "."
+    if not last:
+        msg = "."
+    elif length > 0:
+        msg = f". OK [{total:,} / {length:,} bytes]\n"
+    else:
+        msg = f". OK [{total:,} bytes]\n"
     print(msg, end="", flush=True)
 
 
-def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
+def decompress(file: Path, callback: Callable[[str, int, bool, int], None]) -> Path:
     """Decompress a BZ2 file."""
     output = file.with_suffix(file.suffix.replace(".bz2", ""))
     if output.is_file():
@@ -61,19 +73,31 @@ def fetch_snapshots(locale: str) -> List[str]:
 
 
 def fetch_pages(
-    date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool], None]
+    date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool, int], None]
 ) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
     output_xml = output_dir / f"pages-{date}.xml"
     output = output_dir / f"pages-{date}.xml.bz2"
-    if output.is_file() or output_xml.is_file():
-        return output
-
     url = DUMP_URL.format(locale, date)
+
+    # with urllib.request.urlopen(url) as _file:
+    #    length = _file.length
+    head = requests.head(url)
+    head.raise_for_status()
+    lengthStr = head.headers.get("Content-Length")
+    length = 0
+    if lengthStr:
+        length = int(lengthStr)
+
+    if output.is_file() or output_xml.is_file():
+        fileSize = output.stat().st_size
+        if length == 0 or fileSize == length:
+            return output
+        print(f"File size mismatch for {output}, {fileSize}!={length}, starting over.")
+
     msg = f">>> Fetching {url}: "
-    print(msg, end="", flush=True)
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
@@ -82,9 +106,9 @@ def fetch_pages(
             if chunk:
                 fh.write(chunk)
                 total += len(chunk)
-                callback(msg, total, False)
+                callback(msg, total=total, last=False, length=length)
 
-    callback(msg, output.stat().st_size, True)
+    callback(msg, total=output.stat().st_size, last=True)
 
     return output
 

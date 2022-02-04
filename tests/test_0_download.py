@@ -48,6 +48,11 @@ def test_simple(craft_data):
         body=WIKTIONARY_INDEX.format(date=date),
     )
     responses.add(
+        responses.HEAD,
+        DUMP_URL.format("fr", date),
+        headers={},
+    )
+    responses.add(
         responses.GET,
         DUMP_URL.format("fr", date),
         body=craft_data(date, "fr"),
@@ -81,6 +86,11 @@ def test_download_already_done(craft_data):
         BASE_URL.format("fr"),
         body=WIKTIONARY_INDEX.format(date=date),
     )
+    responses.add(
+        responses.HEAD,
+        DUMP_URL.format("fr", date),
+        headers={},
+    )
 
     # Start the whole process
     assert download.main("fr") == 0
@@ -111,9 +121,14 @@ def test_ongoing_dump(craft_data, capsys):
         body=WIKTIONARY_INDEX.format(date="20200514"),
     )
     responses.add(
-        responses.GET,
+        responses.HEAD,
         DUMP_URL.format("fr", "20200514"),
         status=404,
+    )
+    responses.add(
+        responses.HEAD,
+        DUMP_URL.format("fr", "20200301"),
+        headers={},
     )
     responses.add(
         responses.GET,
@@ -142,6 +157,14 @@ def test_progress_callback_normal(capsys):
     captured = capsys.readouterr()
     assert captured.out == "\rSome text: OK [43,008 bytes]\n"
 
+def test_progress_callback_normal_length(capsys):
+    download.callback_progress("Some text: ", 42 * 1024, False, length=50 * 1024)
+    captured = capsys.readouterr()
+    assert captured.out == "\rSome text: 43,008 / 51,200 bytes"
+
+    download.callback_progress("Some text: ", 42 * 1024, True, length=50 * 1024)
+    captured = capsys.readouterr()
+    assert captured.out == "\rSome text: OK [43,008 bytes]\n"
 
 def test_progress_callback_ci(capsys):
     download.callback_progress_ci("Some text: ", 42 * 1024, False)
@@ -151,3 +174,12 @@ def test_progress_callback_ci(capsys):
     download.callback_progress_ci("Some text: ", 42 * 1024, True)
     captured = capsys.readouterr()
     assert captured.out == ". OK [43,008 bytes]\n"
+
+def test_progress_callback_ci_length(capsys):
+    download.callback_progress_ci("Some text: ", 42 * 1024, False, length=50 * 1024)
+    captured = capsys.readouterr()
+    assert captured.out == "."
+
+    download.callback_progress_ci("Some text: ", 42 * 1024, True, length=50 * 1024)
+    captured = capsys.readouterr()
+    assert captured.out == ". OK [43,008 / 51,200 bytes]\n"
