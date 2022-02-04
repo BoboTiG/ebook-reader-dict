@@ -160,6 +160,11 @@ recognized_placetypes = {
         "display": "atoll",
         "preposition": "in",
     },
+    "autonomous city": {
+        "article": "an",
+        "display": "autonomous city",
+        "preposition": "of",
+    },
     "autonomous community": {
         "article": "an",
         "display": "autonomous community",
@@ -1955,7 +1960,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 390
+}  # 391
 
 placetypes_aliases = {
     "CDP": "census-designated place",
