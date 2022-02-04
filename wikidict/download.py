@@ -86,11 +86,10 @@ def fetch_pages(
     #    length = _file.length
     head = requests.head(url)
     head.raise_for_status()
-    lengthStr = head.headers.get("Content-Length")
-    length = 0
-    if lengthStr:
+    if lengthStr := head.headers.get("Content-Length"):
         length = int(lengthStr)
-
+    else:
+        length = 0
     if output.is_file() or output_xml.is_file():
         fileSize = output.stat().st_size
         if length == 0 or fileSize == length:
