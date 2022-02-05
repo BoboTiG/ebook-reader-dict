@@ -323,6 +323,7 @@ regions = {
     "Riau-Lingga": "Riau-Lingga",
     "Rio de Janeiro": "Rio de Janeiro",
     "Rio de la Plata": "Rio de la Plata",
+    "Rome": "Rome",
     "Rouen": "Rouen",
     "Roumanie": "Roumanie",
     "Royaume-Uni": "Royaume-Uni",
@@ -422,7 +423,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 417
+}  # 418
 # END
 
 # handled differently
