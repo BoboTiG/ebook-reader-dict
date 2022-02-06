@@ -1798,6 +1798,8 @@ labels_subvarieties = {
     "Kangwon": "Gangwon",
     "Kangwŏn": "Gangwon",
     "Kanto": "Kantō",
+    "Kerkrade": "Kirchröadsj",
+    "Kerkradish": "Kirchröadsj",
     "Khopa-Batumi": "Khopa–Batumi",
     "Khopuri": "Khopa",
     "Kichwa": "Standard Ecuadorian Kichwa",
@@ -2412,5 +2414,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 955
+}  # 957
 # END
