@@ -89,6 +89,9 @@ def filter_html(html: str, locale: str) -> str:
         for a in bs.find_all("a", {"class": "extiw"}):
             if ":Special:" in a["title"]:
                 a.decompose()
+        for sup in bs.find_all("sup"):
+            if sup.get("style", "") == "color:slategray;":
+                sup.decompose()
 
     elif locale == "en":
         for span in bs.find_all("span"):

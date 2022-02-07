@@ -27,17 +27,34 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>intransitiv, Nautik (von Schiffen):</i>'
     >>> render_K("K", ["test", "Nautik"], defaultdict(str, {"t1": "_"}))
     '<i>test Nautik:</i>'
+    >>> render_K("K", ["landschaftlich", ""], defaultdict(str))
+    '<i>landschaftlich:</i>'
+    >>> render_K("K", ["Süddeutschland", "und", "Österreich", "sonst", "veraltete Schreibweise"], defaultdict(str))
+    '<i>Süddeutschland und Österreich, sonst veraltete Schreibweise:</i>'
     """  # noqa
+    conjonctions = ("oder", "respektive", "sowie", "und")
+    conjonctions_start = (*conjonctions, "auch", "sonst")
     phrase = ""
+    parts = [p for p in parts if p]
     for i, p in enumerate(parts, start=1):
         t_index = f"t{i}"
         phrase += abk[p] if p in abk else p
-        sep = data.get(t_index, ",") if i != len(parts) else ""
-        if sep == "_":
-            sep = " "
-        elif sep:
-            sep = f"{sep} "
-        phrase += sep
+        default_sep = ""
+        if i != len(parts):
+            default_sep = (
+                ","
+                if p not in conjonctions_start
+                and i < len(parts)
+                and parts[i] not in conjonctions
+                else " "
+            )
+            sep = data.get(t_index, default_sep)
+            if sep == "_":
+                sep = " "
+            elif sep.strip():
+                sep = f"{sep} "
+            phrase += sep
+
     ft = f"{data['ft']}" if "ft" in data else ""
     if ft:
         spacer = data.get("t7", ", ")
