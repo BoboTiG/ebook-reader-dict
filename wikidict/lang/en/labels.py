@@ -544,7 +544,6 @@ labels_topical = {
     "firearm mechanisms": "Gun mechanisms",
     "fish": "zoology",
     "football": "soccer",
-    "footwear": "clothing",
     "freemasonry": "Freemasonry",
     "functional group prefix": "organic chemistry",
     "functional group suffix": "organic chemistry",
@@ -727,7 +726,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 314
+}  # 313
 
 labels_regional = {
     "AU": "Australia",
@@ -1965,7 +1964,7 @@ labels_subvarieties = {
     "Old Gotlandic": "Old Gutnish",
     "Old Hebrew": "Biblical Hebrew",
     "Ollnborg": "Oldenburg",
-    "Oujiang": "Wenzhou",
+    "Oujiang": "Wenzhou Wu",
     "Owo": "Ọwọ",
     "Oworoo": "Oworo",
     "Owé": "Owe",
@@ -2123,6 +2122,8 @@ labels_subvarieties = {
     "Stellingwarfs": "Stellingwerfs",
     "Stellingwerf": "Stellingwerfs",
     "Subakhmimic": "Lycopolitan",
+    "Suzhou": "Suzhou Wu",
+    "Suzhounese": "Suzhou Wu",
     "Swiss German": "Switzerland",
     "Switzerland and Liechtenstein spelling": "Switzerland and Liechtenstein",
     "Syropalestinian": "Christian Palestinian Aramaic",
@@ -2237,8 +2238,8 @@ labels_subvarieties = {
     "Walserdeutsch": "Walser",
     "Waltair": "Visakhapatnam",
     "Waser German": "Walser",
-    "Wenzhou Wu": "Wenzhou",
-    "Wenzhounese": "Wenzhou",
+    "Wenzhou": "Wenzhou Wu",
+    "Wenzhounese": "Wenzhou Wu",
     "West Arabian": "Hejazi",
     "West Central Scots": "West Central",
     "West Country English": "West Country",
@@ -2414,5 +2415,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 957
+}  # 959
 # END
