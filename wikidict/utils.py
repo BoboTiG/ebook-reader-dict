@@ -419,12 +419,12 @@ def process_templates(word: str, text: str, locale: str) -> str:
         '<i>Alternative form of</i> <b>ER=EPR</b>'
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/svg+xml;charset=utf8,...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
         <math> ERROR with \frac in [test]
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/svg+xml;charset=utf8,...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
         <chem> ERROR with C10HX\xz14N2O4 in [test]
         'C10HX\\xz14N2O4'
@@ -471,8 +471,7 @@ def _convert_math(expr: str, packages: List[str] = []) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     from base64 import b64encode
     from io import BytesIO
-
-    from PIL import Image
+    from urllib import parse
     from sympy import preview
 
     # see issue #1096
@@ -485,22 +484,33 @@ def _convert_math(expr: str, packages: List[str] = []) -> str:
     expr = expr.replace("\\infin", "\\infty")
     expr = expr.replace("\\rarr", "\\rightarrow")
 
+    dvioptions = ["--no-fonts"]
+    with BytesIO() as buf_svg:
+        preview(
+            f"${expr}$",
+            output="svg",
+            viewer="BytesIO",
+            outputbuffer=buf_svg,
+            dvioptions=dvioptions,
+            packages=tuple(packages),
+        )
+        buf_svg.seek(0)
+        raw_svg = buf_svg.read()
+
     dvioptions = ["-T", "tight", "-z", "0", "-D 150", "-bg", "Transparent"]
-    with BytesIO() as buf, BytesIO() as im:
+    with BytesIO() as buf_png:
         preview(
             f"${expr}$",
             output="png",
             viewer="BytesIO",
-            outputbuffer=buf,
+            outputbuffer=buf_png,
             dvioptions=dvioptions,
             packages=tuple(packages),
         )
-        Image.open(buf).convert("L").save(im, format="gif", optimize=True)
+        buf_png.seek(0)
+        raw_png = buf_png.read()
 
-        im.seek(0)
-        raw = im.read()
-
-    return f'<img style="{IMG_CSS}" src="data:image/gif;base64,{b64encode(raw).decode()}"/>'
+    return f'<img style="{IMG_CSS}" src="data:image/svg+xml;charset=utf8,{parse.quote(raw_svg)}" data-png="data:image/png;base64,{b64encode(raw_png).decode()}"/>'  # noqa
 
 
 def convert_math(match: Union[str, Match[str]], word: str) -> str:

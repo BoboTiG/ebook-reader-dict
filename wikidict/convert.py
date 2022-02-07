@@ -2,6 +2,7 @@
 import bz2
 import gzip
 import json
+import re
 import os
 from collections import defaultdict
 from contextlib import suppress
@@ -57,7 +58,18 @@ class KoboBaseFormat(BaseFormat):
     """Base class for Kobo-related dictionaries."""
 
     @staticmethod
-    def create_etymology(etymologies: List[Definitions]) -> str:
+    def choose_image_format(text: str, format: str) -> str:
+        if format == "png":
+            regex = r"src=\"data:image/svg.+?(?=\")\" "
+            text = re.sub(regex, "", text, 0, re.MULTILINE)
+            text = text.replace("data-png", "src")
+        else:
+            regex = r"data-png=\"data:image/png.+?(?=\")\""
+            text = re.sub(regex, "", text, 0, re.MULTILINE)
+        return text
+
+    @staticmethod
+    def create_etymology(etymologies: List[Definitions], format: str = "svg") -> str:
         """Return the HTML code to include for the etymology of a word."""
         result = ""
         if etymologies:
@@ -70,10 +82,11 @@ class KoboBaseFormat(BaseFormat):
                         result += f"<li>{sub_etymology}</li>"
                     result += "</ol>"
             result += "<br />"
+        result = KoboBaseFormat.choose_image_format(result, format)
         return result
 
     @staticmethod
-    def create_definitions(details: Word) -> str:
+    def create_definitions(details: Word, format: str = "svg") -> str:
         """Return the HTML code to include for the definitions of a word."""
         definitions = ""
         for definition in details.definitions:
@@ -89,6 +102,7 @@ class KoboBaseFormat(BaseFormat):
                         definitions += "".join(f"<li>{d}</li>" for d in subdef)
                         definitions += "</ol>"
                 definitions += "</ol>"
+        definitions = KoboBaseFormat.choose_image_format(definitions, format)
         return definitions
 
 
@@ -292,11 +306,11 @@ class DictFileFormat(KoboBaseFormat):
                 details = Word(*details)
                 if not details.definitions:
                     continue
-                definitions = self.create_definitions(details)
+                definitions = self.create_definitions(details, format="png")
 
                 pronunciation = convert_pronunciation(details.pronunciations)
                 gender = convert_gender(details.gender)
-                etymology = self.create_etymology(details.etymology)
+                etymology = self.create_etymology(details.etymology, format="png")
                 fh.write(f"@ {word}\n")
                 if pronunciation or gender:
                     fh.write(f": {pronunciation.strip()} {gender}\n")
