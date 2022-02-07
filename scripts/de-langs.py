@@ -9,7 +9,7 @@ def get_soup(url):
 
 
 root_url = "https://de.wiktionary.org"
-start_url = root_url + "/wiki/Kategorie:Wiktionary:Sprachadjektive"
+start_url = f'{root_url}/wiki/Kategorie:Wiktionary:Sprachadjektive'
 soup = get_soup(start_url)
 
 content = soup.find("div", {"class": "mw-category"})

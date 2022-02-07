@@ -121,7 +121,7 @@ def filter_html(html: str, locale: str) -> str:
         for dt in dts:
             dt_array = dt.text.split(" ", 1)
             if len(dt_array) == 2:
-                dt.string = dt_array[0] + " "
+                dt.string = f'{dt_array[0]} '
                 # 2 Historia. --> (Historia):
                 if "." in dt_array[1]:
                     dt_array_dot = dt_array[1].split(".")
@@ -132,8 +132,7 @@ def filter_html(html: str, locale: str) -> str:
                     # duplicate the definition to cope with both cases above
                     newdt = copy.copy(dt)
                     dt.parent.append(newdt)
-                    dd = dt.find_next_sibling("dd")
-                    if dd:
+                    if dd := dt.find_next_sibling("dd"):
                         dt.parent.append(copy.copy(dd))
                     # 2 Selva de Bohemia: --> Selva de Bohemia:
                     newdt.string = dt.string + dt_array[1] + ":"
