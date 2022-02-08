@@ -705,13 +705,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-    "vocative plural of": {
-        "text": "vocative plural of",
-        "dot": False,
-    },
-    "vocative singular of": {
-        "text": "vocative singular of",
-        "dot": False,
-    },
-}  # 177
+}  # 175
 # END

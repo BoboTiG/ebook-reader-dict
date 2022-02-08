@@ -170,6 +170,7 @@ for li in lis:
             "language",
             "track",
             "wikipedia",
+            "category",
         )
         stop_line = "return"
         var_name = "labels_subvarieties"

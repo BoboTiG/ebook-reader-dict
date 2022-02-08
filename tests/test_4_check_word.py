@@ -87,6 +87,12 @@ def test_no_definition_nor_etymology(craft_urls):
             '<a href="https://en.wiktionary.org/wiki/Special:Search/volley" class="extiw" title="en:Special:Search/volley"><sup class="dewikttm">→&nbsp;en</sup></a>',  # noqa
             "",
         ],
+        # DE - grey sup link
+        [
+            "de",
+            '<sup style="color:slategray;">→&nbsp;grc</sup>',
+            "",
+        ],
         # EN - and other forms
         [
             "en",
