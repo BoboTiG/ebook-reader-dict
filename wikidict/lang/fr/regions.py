@@ -245,6 +245,7 @@ regions = {
     "Midi toulousain": "Midi toulousain",
     "Mirebeau": "Mirebeau",
     "Missouri": "Missouri",
+    "Modica": "Modica",
     "Moldavie": "Moldavie",
     "Mongolie": "Mongolie",
     "Montjean-sur-Loire": "Montjean-sur-Loire",
@@ -360,6 +361,7 @@ regions = {
     "Sud du pays de Galles": "Sud du pays de Galles",
     "Suisse": "Suisse",
     "Suède": "Suède",
+    "Syracuse": "Syracuse",
     "São Paulo": "São Paulo",
     "Sénégal": "Sénégal",
     "Sérent": "Sérent",
@@ -423,7 +425,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 418
+}  # 420
 # END
 
 # handled differently
