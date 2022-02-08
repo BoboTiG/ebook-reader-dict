@@ -41,6 +41,8 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
     "wikicode, expected",
     [
         ("{{Ü|pl|dzień}}", "<i>dzień</i>"),
+        ("{{übertr.}}", "<i>übertragen</i>"),
+        ("{{übertr.|:}}", "<i>übertragen:</i>"),
     ],
 )
 def test_process_templates(wikicode, expected):
