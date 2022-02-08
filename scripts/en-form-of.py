@@ -11,6 +11,8 @@ def get_soup(url):
 def get_text(url):
     soup = get_soup(url)
     div = soup.find("span", "form-of-definition")
+    if not div:
+        return ""
     res = div.text.replace(" term", "")
     res = res.replace(" [Term?]", "")
     return res
@@ -37,18 +39,19 @@ for tr in trs:
         link = tr.find("a")
         url_template = ROOT + link["href"]
         text = get_text(url_template)
-        print(f'    "{tds["template"]}": {{')
-        print(f'        "text": "{text}",')
-        print(f'        "dot": {True if tds["dot"] == "yes" else False},')
-        print("    },")
-        count += 1
-        for alias in sorted(tds["aliases"].split(",")):
-            alias = alias.strip()
-            if alias:
-                print(f'    "{alias}": {{')
-                print(f'        "text": "{text}",')
-                print(f'        "dot": {True if tds["dot"] == "yes" else False},')
-                print("    },")
-                count += 1
+        if text:
+            print(f'    "{tds["template"]}": {{')
+            print(f'        "text": "{text}",')
+            print(f'        "dot": {True if tds["dot"] == "yes" else False},')
+            print("    },")
+            count += 1
+            for alias in sorted(tds["aliases"].split(",")):
+                alias = alias.strip()
+                if alias:
+                    print(f'    "{alias}": {{')
+                    print(f'        "text": "{text}",')
+                    print(f'        "dot": {True if tds["dot"] == "yes" else False},')
+                    print("    },")
+                    count += 1
 
 print(f"}}  # {count:,}")

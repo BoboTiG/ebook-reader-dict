@@ -25,29 +25,62 @@ sections = (
 definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("QS Bedeutungen", "QS Herkunft", "QS_Herkunft", "WP")
+templates_ignored = (
+    "Herkunft unbelegt",
+    "QS Bedeutungen",
+    "QS Herkunft",
+    "QS_Herkunft",
+    "WP",
+)
 
 # Templates that will be completed/replaced using italic style.
 # templates_italic = {}
 
 # Templates more complex to manage.
 templates_multi = {
-    # {{abw.|:}}
-    "abw.": "italic(f\"abwertend{parts[1] if len(parts) > 1 else '' }\")",
-    # {{adv.|:}}
-    "adv.": "italic(f\"adverbial{parts[1] if len(parts) > 1 else '' }\")",
+    # {{f}}
+    "f": "italic('f')",
     # {{L|at||en}}
     "L": "parts[1]",
+    # {{n}}
+    "n": "italic('n')",
+    # {{f}}
+    "m": "italic('m')",
     # {{Ü|pl|dzień}}
     "Ü": "italic(parts[-1])",
-    # {{ugs.|:}}
-    "ugs.": "italic(f\"umgangssprachlich{parts[1] if len(parts) > 1 else '' }\")",
-    # {{übertr.|:}}
-    "übertr.": "italic(f\"übertragen{parts[1] if len(parts) > 1 else '' }\")",
-    # {{trans.|:}}
-    "trans.": "italic(f\"transitiv{parts[1] if len(parts) > 1 else '' }\")",
-    # {{va.|:}}
-    "va.": "italic(f\"veraltet{parts[1] if len(parts) > 1 else '' }\")",
+}
+
+templates_markierung = {
+    "abw.": "abwertend",
+    "adv.": "adverbial",
+    "fachspr.": "fachsprachlich",
+    "fam.": "familiär",
+    "fDu.": "f Du.",
+    "fig.": "figurativ",
+    "fPl.": "f Pl.",
+    "geh.": "gehoben",
+    "hist.": "historisch",
+    "indekl.": "indeklinabel",
+    "intrans.": "intransitiv",
+    "kPl.": "kein Plural",
+    "kSg.": "kein Singular",
+    "kSt.": "keine Steigerung",
+    "landsch.": "landschaftlich",
+    "mPl.": "m Pl.",
+    "mDu.": "m Du.",
+    "meton.": "metonymisch",
+    "nPl.": "n Pl.",
+    "refl.": "reflexiv",
+    "reg.": "regional",
+    "scherzh.": "scherzhaft",
+    "trans.": "transitiv",
+    "uPl.": "u Pl.",
+    "ugs.": "umgangssprachlich",
+    "unreg.": "unregelmäßig",
+    "übertr.": "übertragen",
+    "veraltend": "veraltend",
+    "va.": "veraltet",
+    "vulg.": "vulgär",
 }
 
 
@@ -63,14 +96,19 @@ def last_template_handler(
     'französisch'
     >>> last_template_handler(["fr.", ":"], "de")
     'französisch:'
+
     """  # noqa
     from ..defaults import last_template_handler as default
     from .template_handlers import render_template, lookup_template
+    from ...user_functions import italic
 
     from .langs import langs
 
     if lang := langs.get(template[0], ""):
         return f"{lang}{template[1] if len(template) > 1 else ''}"
+
+    if markierung := templates_markierung.get(template[0], ""):
+        return italic(f"{markierung}{template[1] if len(template) > 1 else ''}")
 
     if lookup_template(template[0]):
         return render_template(template)

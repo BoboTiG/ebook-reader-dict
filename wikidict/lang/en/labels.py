@@ -1786,6 +1786,7 @@ labels_subvarieties = {
     "Jijeli": "Jijel",
     "Judean Aramaic": "Jewish Palestinian Aramaic",
     "Kaapse Afrikaans": "Cape Afrikaans",
+    "Kahnawake": "Eastern",
     "Kaliarnta": "Kaliarda",
     "Kalinga Andhra": "North Andhra",
     "Kalinga Andhra Telugu": "North Andhra",
@@ -2415,5 +2416,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 959
+}  # 960
 # END

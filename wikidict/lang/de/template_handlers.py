@@ -65,8 +65,23 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return italic(f"{phrase}{ft}:")
 
 
+def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
+    '<i>διάλογος (diálogos)</i>'
+    >>> render_Ut("Üt", ["grc", "διαλέγομαι", "dialégesthai", "διαλέγεσθαι"], defaultdict(str))
+    '<i>διαλέγεσθαι (dialégesthai)</i>'
+    """
+    parts.pop(0)  # language
+    phrase = parts[0] if len(parts) < 3 else parts[2]
+    if len(parts) > 1:
+        phrase += f" ({parts[1]})"
+    return italic(phrase)
+
+
 template_mapping = {
     "K": render_K,
+    "Üt": render_Ut,
 }
 
 
