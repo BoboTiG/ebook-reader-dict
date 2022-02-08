@@ -26,8 +26,7 @@ for li in lis:
     languages[key] = value
     a_url = alias_url.format(li.text)
     soup_alias = get_soup(a_url)
-    ul_alias = soup_alias.find("ul", {"id": "mw-whatlinkshere-list"})
-    if ul_alias:
+    if ul_alias := soup_alias.find("ul", {"id": "mw-whatlinkshere-list"}):
         for alias_li in ul_alias.findAll("li"):
             alias_text = alias_li.find("a").text
             alias_key = alias_text.split(":")[1]
