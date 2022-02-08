@@ -136,6 +136,7 @@ regions = {
     "ES": "Espagne",
     "EU": "Europe",
     "Empire ottoman": "Empire ottoman",
+    "Enna": "Enna",
     "Espagne": "Espagne",
     "Europe": "Europe",
     "FR": "France",
@@ -207,6 +208,7 @@ regions = {
     "Ledegem": "Ledegem",
     "Lettonie": "Lettonie",
     "Liban": "Liban",
+    "Licata": "Licata",
     "Liechtenstein": "Liechtenstein",
     "Limagne": "Limagne",
     "Limousin": "Limousin",
@@ -425,7 +427,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 420
+}  # 422
 # END
 
 # handled differently
