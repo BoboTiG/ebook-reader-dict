@@ -28,9 +28,9 @@ definitions_to_ignore = ()
 templates_ignored = (
     "Herkunft unbelegt",
     "QS Bedeutungen",
+    "QS_Bedeutungen",
     "QS Herkunft",
     "QS_Herkunft",
-    "WP",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -40,14 +40,23 @@ templates_ignored = (
 templates_multi = {
     # {{f}}
     "f": "italic('f')",
+    # {{fm}}
+    "fm": "italic('f, m')",
+    # {{fn}}
+    "fn": "italic('f, n')",
     # {{L|at||en}}
     "L": "parts[1]",
+    # {{m}}
+    "m": "italic('m')",
     # {{n}}
     "n": "italic('n')",
-    # {{f}}
-    "m": "italic('m')",
+    # {{Polytonisch|(το)}}
+    "Polytonisch": "parts[-1]",
     # {{Ü|pl|dzień}}
     "Ü": "italic(parts[-1])",
+    # {{W|Datenkompression|Datenkompressionen}}
+    "W": "parts[-1]",
+    "WP": "parts[-1]",
 }
 
 templates_markierung = {
@@ -112,7 +121,6 @@ def last_template_handler(
 
     if lookup_template(template[0]):
         return render_template(template)
-
     return default(template, locale, word=word)
 
 
