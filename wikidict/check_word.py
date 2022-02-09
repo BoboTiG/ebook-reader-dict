@@ -87,11 +87,13 @@ def filter_html(html: str, locale: str) -> str:
     if locale == "de":
         # Other Wikis
         for a in bs.find_all("a", {"class": "extiw"}):
-            if ":Special:" in a["title"]:
+            if (
+                ":Special:" not in a["title"]
+                and (a_sup := a.find("sup"))
+                and "WP" in a_sup.text
+                or ":Special:" in a["title"]
+            ):
                 a.decompose()
-            elif a_sup := a.find("sup"):
-                if "WP" in a_sup.text:
-                    a.decompose()
         for sup in bs.find_all("sup"):
             if sup.get("style", "") == "color:slategray;":
                 sup.decompose()
