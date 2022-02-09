@@ -135,9 +135,43 @@ def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return italic(phrase)
 
 
+def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_Uxx4("Üxx4", ["ar", "مسجد"], defaultdict(str, {"v":"مَسْجِد", "d":"masğid", "b":"Moschee"}))
+    'مَسْجِد (DMG: masğid) ‚Moschee‘'
+    >>> render_Uxx4("Üxx4", ["ur"], defaultdict(str, {"2": "فن", "v":"فَنّ", "d":"fann", "b":"Kunst"}))
+    'فَنّ (ALA-LC: fann) ‚Kunst‘'
+    >>> render_Uxx4("Üxx4", ["he", "שבת"], defaultdict(str, {"v":"שַׁבָּת", "d":"šabāṯ", "b":"Ruhepause"}))
+    'שַׁבָּת (CHA: šabāṯ) ‚Ruhepause‘'
+    >>> render_Uxx4("Üxx4", ["yi", "רעגן־בױגן"], defaultdict(str, {"d":"regn-boygn", "b":"Regenbogen"}))
+    'רעגן־בױגן (YIVO: regn-boygn) ‚Regenbogen‘'
+    >>> render_Uxx4("Üxx4", ["syr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
+    'ܡܫܺܝܚܳܐ (ALA-LC: mšiḥāʾ) ‚Messias‘'
+    """
+    language = parts.pop(0)
+    phrase = parts.pop(0) if parts else ""
+    phrase = data.get("v", data.get("2", phrase))
+    if "d" in data:
+        if language in ("ar", "fa", "ha", "ota", "pnb"):
+            phrase += f" (DMG: {data['d']})"
+        elif language in ("he"):
+            phrase += f" (CHA: {data['d']})"
+        elif language in ("yi"):
+            phrase += f" (YIVO: {data['d']})"
+        elif language in ("jrb", "ps", "syr", "ur"):
+            phrase += f" (ALA-LC: {data['d']})"
+        else:
+            phrase += f" ({data['d']})"
+
+    if "b" in data:
+        phrase += f" ‚{data['b']}‘"
+    return phrase
+
+
 template_mapping = {
     "K": render_K,
     "Üt": render_Ut,
+    "Üxx4": render_Uxx4,
 }
 
 
