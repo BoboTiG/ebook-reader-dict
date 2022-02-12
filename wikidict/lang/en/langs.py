@@ -2748,6 +2748,7 @@ langs = {
     "gmu": "Gumalu",
     "gmv": "Gamo",
     "gmw": "West Germanic",
+    "gmw-bgh": "Bergish",
     "gmw-cfr": "Central Franconian",
     "gmw-ecg": "East Central German",
     "gmw-fri": "Frisian",
@@ -9519,5 +9520,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,514
+}  # 9,515
 # END
