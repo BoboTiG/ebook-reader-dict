@@ -322,6 +322,7 @@ regions = {
     "Québec": "Québec",
     "RDC": "Congo-Kinshasa",
     "RDCongo": "Congo-Kinshasa",
+    "Ramonchamp": "Ramonchamp",
     "Rhône-Alpes": "Rhône-Alpes",
     "Riau-Lingga": "Riau-Lingga",
     "Rio de Janeiro": "Rio de Janeiro",
@@ -428,7 +429,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 423
+}  # 424
 # END
 
 # handled differently
