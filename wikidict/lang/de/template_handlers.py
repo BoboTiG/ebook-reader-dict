@@ -147,6 +147,8 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'רעגן־בױגן (YIVO: regn-boygn) ‚Regenbogen‘'
     >>> render_Uxx4("Üxx4", ["syr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
     'ܡܫܺܝܚܳܐ (ALA-LC: mšiḥāʾ) ‚Messias‘'
+    >>> render_Uxx4("Üxx4", ["fr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
+    'ܡܫܺܝܚܳܐ (mšiḥāʾ) ‚Messias‘'
     """
     language = parts.pop(0)
     phrase = parts.pop(0) if parts else ""

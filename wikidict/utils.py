@@ -285,6 +285,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
         ''
+        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]")
+        ''
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
@@ -346,7 +348,7 @@ def clean(text: str) -> str:
 
     # Files
     pattern = "|".join(iter(pattern_file))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]", "", text)
+    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
 
     # More local links
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
