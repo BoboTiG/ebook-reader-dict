@@ -205,6 +205,7 @@ regions = {
     "Le Havre": "Le Havre",
     "Le Longeron": "Le Longeron",
     "Le Mans": "Le Mans",
+    "Le Val-d’Ajol": "Le Val-d’Ajol",
     "Ledegem": "Ledegem",
     "Lettonie": "Lettonie",
     "Liban": "Liban",
@@ -429,7 +430,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 424
+}  # 425
 # END
 
 # handled differently
