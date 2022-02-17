@@ -227,8 +227,8 @@ def last_template_handler(
                 local_phrase = lookup_italic(part, locale)
                 if local_phrase not in added:
                     added.add(local_phrase)
-                    if data["nota" + sindex]:
-                        local_phrase += f' ({data["nota"+sindex]})'
+                    if data[f'nota{sindex}']:
+                        local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
                     local_phrase = part
             # some italic templates are in lower case if after the first one...

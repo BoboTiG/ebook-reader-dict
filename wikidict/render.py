@@ -350,8 +350,9 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         nature = find_gender(code, gender[locale])
 
     # Find potential variants
-    if locale == "fr":
-        for title, parsed_section in parsed_sections.items():
+    for title, parsed_section in parsed_sections.items():
+            # Find potential variants
+        if locale == "fr":
             if not title.startswith(
                 (
                     "{{S|adjectif|fr}",
@@ -374,8 +375,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 variant = process_templates(word, clean(tpl), locale)
                 if variant and variant != word:
                     variants.add(variant)
-    elif locale == "es":
-        for title, parsed_section in parsed_sections.items():
+        elif locale == "es":
             if not title.startswith(("Forma adjetiva", "Forma verbal")):
                 continue
             for tpl in parsed_section[0].templates:

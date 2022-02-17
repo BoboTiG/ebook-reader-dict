@@ -168,9 +168,13 @@ class KoboFormat(KoboBaseFormat):
         words_snapshot = self.output_dir / "words.snapshot"
         words_count.write_text(str(len(wordlist)))
         words_snapshot.write_text(self.snapshot)
-        to_compress.append(words_count)
-        to_compress.append(words_snapshot)
-        to_compress.append(self.create_install(self.locale, self.output_dir))
+        to_compress.extend(
+            (
+                words_count,
+                words_snapshot,
+                self.create_install(self.locale, self.output_dir),
+            )
+        )
 
         # Pretty print the source
         source = wiktionary[self.locale].format(year=date.today().year)
