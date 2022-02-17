@@ -6,7 +6,6 @@ Auto-generated with `python -m scripts`.
 # START
 campos_semanticos = {
     "Aeronáutica": "Aeronáutica",
-    "Agricultura": "Agricultura",
     "Ajedrez": "Ajedrez",
     "Alpinismo": "Alpinismo",
     "Alquimia": "Alquimia",
@@ -493,5 +492,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 488
+}  # 487
 # END
