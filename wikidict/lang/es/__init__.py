@@ -25,6 +25,9 @@ sections = (
     "{{artículo",
     "{{conjunción",
     *etyl_section,
+    "Forma adjetiva",  # for variants, see render.find_section_definitions
+    "Forma adjetiva y de participio",  # for variants, see render.find_section_definitions
+    "Forma verbal",  # for variants, see render.find_section_definitions
     "{{interjección",
     "{{onomatopeya",
     "{{prefijo",
@@ -42,14 +45,19 @@ definitions_to_ignore = (
     "apellido",
     "definición imprecisa",
     "definición impropia",
+    "{{infinitivo",
+    "{{enclítico",
     "f.adj2",
     "f.s.p",
-    "forma adjetivo",
-    "forma adjetivo 2",
-    "forma participio",
-    "forma verbo",
+    "{{forma adjetivo",
+    "{{forma adjetivo 2",
+    "{{forma participio",
+    "{{forma pronombre",
+    "{{forma verbo",
+    "f.v",
+    "{{gerundio",
     "marcar sin referencias",
-    "participio",
+    "{{participio",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -61,7 +69,8 @@ templates_ignored = (
     "citarequerida",
     "clear",
     "definición imprecisa",
-    "inflect.es.sust.invariante" "inflect.es.sust.reg",
+    "inflect.es.sust.invariante",
+    "inflect.es.sust.reg",
     "marcar sin referencias",
     "picdic",
     "picdiclabel",
@@ -180,6 +189,9 @@ def last_template_handler(
 
         >>> last_template_handler(["en"], "es")
         'Inglés'
+
+        >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
+        'apropiado'
     """
     from ...user_functions import (
         capitalize,
@@ -195,9 +207,9 @@ def last_template_handler(
     if lookup_template(template[0]):
         return render_template(template)
 
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
     if lookup_italic(template[0], locale, empty_default=True):
-        tpl, *parts = template
-        data = extract_keywords_from(parts)
         phrase = ""
         phrase_a: List[str] = []
         parts.insert(0, tpl)
@@ -215,8 +227,8 @@ def last_template_handler(
                 local_phrase = lookup_italic(part, locale)
                 if local_phrase not in added:
                     added.add(local_phrase)
-                    if data["nota" + sindex]:
-                        local_phrase += f' ({data["nota"+sindex]})'
+                    if data[f"nota{sindex}"]:
+                        local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
                     local_phrase = part
             # some italic templates are in lower case if after the first one...
@@ -231,9 +243,7 @@ def last_template_handler(
             phrase = italic(f'({concat(phrase_a, ", ")})')
         return phrase
 
-    if template[0] == "variantes":
-        _, *parts = template
-        data = extract_keywords_from(parts)
+    if tpl == "variantes":
         phrase = f"{strong('Variante:')} {parts[0]}"
         if data["nota"]:
             phrase += f" ({data['nota']})"
@@ -243,6 +253,21 @@ def last_template_handler(
 
     if lang := langs.get(template[0]):
         return capitalize(lang)
+
+    # note: this should be used for variants only
+    if tpl in (
+        "enclítico",
+        "infinitivo",
+        "forma adjetivo",
+        "forma adjetivo 2",
+        "forma participio",
+        "forma pronombre",
+        "forma verbo",
+        "f.v",
+        "gerundio",
+        "participio",
+    ):
+        return parts[0]
 
     return default(template, locale, word)
 
