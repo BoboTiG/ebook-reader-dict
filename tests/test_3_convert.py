@@ -1,5 +1,4 @@
 import os
-from collections import defaultdict
 from pathlib import Path
 from unittest.mock import patch
 from zipfile import ZipFile
@@ -105,6 +104,8 @@ def test_generate_primary_dict(formatter, filename):
             "pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
         ),
         "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
+        "empty1": Word("", "", "", [], ["foo"]),
+        "empty2": Word("", "", "", [], ["empty1"]),
         "etyls": Word(
             "pron",
             "gender",
@@ -127,8 +128,7 @@ def test_generate_primary_dict(formatter, filename):
             ["GIF"],
         ),
     }
-    variants = defaultdict(str)
-    variants["foo"] = ["foobar"]
+    variants = convert.make_variants(words)
     convert.run_formatter(formatter, "fr", output_dir, words, variants, "20201218")
 
     assert (output_dir / filename).is_file()
