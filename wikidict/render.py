@@ -74,6 +74,10 @@ def find_section_definitions(
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
+    if locale == "es" and section.title.strip().startswith(
+        ("Forma adjetiva", "Forma verbal")
+    ):
+        return definitions
 
     # es uses definition lists, not well supported by the parser...
     # replace them by numbered lists
@@ -275,6 +279,7 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
         for section in parsed.get_sections(include_subsections=True, level=level)
         if section_title(section.title) in head_sections[locale]
     ]
+
     # Get _all_ sections without any filtering
     all_sections.extend(
         (
@@ -331,6 +336,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     nature = ""
     etymology = []
+    variants = set()
 
     # Etymology
     for section in etyl_section[locale]:
@@ -343,10 +349,9 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         prons = find_pronunciations(code, pronunciation[locale])
         nature = find_gender(code, gender[locale])
 
-    # Find poential variants
-    variants = set()
-    if locale == "fr":
-        for title, parsed_section in parsed_sections.items():
+    for title, parsed_section in parsed_sections.items():
+        # Find potential variants
+        if locale == "fr":
             if not title.startswith(
                 (
                     "{{S|adjectif|fr}",
@@ -363,6 +368,29 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                         "{{fr-accord-",
                         "{{fr-rég",
                         "{{fr-verbe-flexion",
+                    )
+                ):
+                    continue
+                variant = process_templates(word, clean(tpl), locale)
+                if variant and variant != word:
+                    variants.add(variant)
+        elif locale == "es":
+            if not title.startswith(("Forma adjetiva", "Forma verbal")):
+                continue
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if not tpl.startswith(
+                    (
+                        "{{enclítico",
+                        "{{infinitivo",
+                        "{{forma adjetivo",
+                        "{{forma adjetivo 2",
+                        "{{forma participio",
+                        "{{forma pronombre",
+                        "{{forma verbo",
+                        "{{f.v",
+                        "{{gerundio",
+                        "{{participio",
                     )
                 ):
                     continue

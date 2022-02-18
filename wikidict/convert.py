@@ -3,6 +3,7 @@ import bz2
 import gzip
 import json
 import os
+import unicodedata
 from collections import defaultdict
 from contextlib import suppress
 from datetime import date
@@ -167,9 +168,13 @@ class KoboFormat(KoboBaseFormat):
         words_snapshot = self.output_dir / "words.snapshot"
         words_count.write_text(str(len(wordlist)))
         words_snapshot.write_text(self.snapshot)
-        to_compress.append(words_count)
-        to_compress.append(words_snapshot)
-        to_compress.append(self.create_install(self.locale, self.output_dir))
+        to_compress.extend(
+            (
+                words_count,
+                words_snapshot,
+                self.create_install(self.locale, self.output_dir),
+            )
+        )
 
         # Pretty print the source
         source = wiktionary[self.locale].format(year=date.today().year)
@@ -186,6 +191,13 @@ class KoboFormat(KoboBaseFormat):
             assert fh.testzip() is None, fh.testzip()
 
         self.summary(dicthtml)
+
+    def strip_accents(self, s: str) -> str:
+        return "".join(
+            c
+            for c in unicodedata.normalize("NFD", s)
+            if unicodedata.category(c) != "Mn"
+        )
 
     def save_html(
         self,
@@ -258,13 +270,21 @@ class KoboFormat(KoboBaseFormat):
                     etymology = self.create_etymology(details.etymology)
 
                     var = ""
-                    if self.variants.get(word, []):
+                    if word_variants := self.variants.get(word, []):
+                        # add variants of empty* variant, only 1 redirection...
+                        # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
+                        for v in word_variants.copy():
+                            wv: Word = words.get(v, Word("", "", "", [], []))
+                            if wv and not Word(*wv).definitions:
+                                for vv in self.variants.get(v, []):
+                                    word_variants.append(vv)
+                        word_variants.sort(key=lambda s: (len(s), s))
                         var = "<var>"
-                        for v in self.variants[word]:
+                        for v in word_variants:
                             # no variant with different prefix
                             v = v.lower().strip()
                             if guess_prefix(v) == name:
-                                var += f'<variant name="{v}"/>'
+                                var += f'<variant name="{self.strip_accents(v)}"/>'
                         var += "</var>"
                     # no empty var tag
                     if len(var) < 15:

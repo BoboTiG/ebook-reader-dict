@@ -5,7 +5,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, etymology, definitions",
+    "word, pronunciations, etymology, definitions, variants",
     [
         (
             "-acho",
@@ -14,6 +14,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
             ],
+            [],
         ),
         (
             "cartel",
@@ -23,6 +24,7 @@ from wikidict.utils import process_templates
                 "Lámina que se expone para dar información mediante palabras o imágenes.",
                 "Prestigio.",
             ],
+            [],
         ),
         (
             "comer",
@@ -41,6 +43,7 @@ from wikidict.utils import process_templates
                 "Llevar encogidas algunas prendas de ropa, como los calcetines.",
                 "Tener relaciones sexuales con alguien.",
             ],
+            [],
         ),
         (
             "es decir",
@@ -49,6 +52,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
             ],
+            [],
         ),
         (
             "entrada",
@@ -88,6 +92,7 @@ from wikidict.utils import process_templates
                 "Castigo con golpes; tunda, zurra, pela.",
                 "Información que se recibe en un mensaje o proceso de recibirla.",
             ],
+            ["entrado"],
         ),
         (
             "extenuado",
@@ -97,6 +102,7 @@ from wikidict.utils import process_templates
                 "Cansado, debilitado.",
                 "Se dice de un individuo: sin energía, debido a un gran esfuerzo físico o mental.",
             ],
+            ["extenuar"],
         ),
         (
             "futuro",
@@ -110,6 +116,7 @@ from wikidict.utils import process_templates
                 "<i>(Lingüística)</i>: Tiempo verbal que expresa una acción que aún no ha sido realizada.",
                 "Novio o prometido de una mujer a la que va a desposar. <i>El femenino es</i> futura.",
             ],
+            [],
         ),
         (
             "gracias",
@@ -119,6 +126,7 @@ from wikidict.utils import process_templates
                 "<i>Úsase para expresar agradecimiento</i>.",
                 "<i>Irónicamente expresa desagrado, desprecio o enfado</i>",
             ],
+            [],
         ),
         (
             "hasta",
@@ -135,6 +143,7 @@ from wikidict.utils import process_templates
                 "Indica el comienzo de una acción o cuando ocurrirá.",
                 "<i>Grafía obsoleta de</i> asta.",
             ],
+            [],
         ),
         (
             "hocico",
@@ -148,6 +157,7 @@ from wikidict.utils import process_templates
                 "Forma despectiva para referirse a la boca de alguien.",
                 "Boca de una persona, especialmente de la que dice malas palabras",
             ],
+            [],
         ),
         (
             "los",
@@ -159,12 +169,14 @@ from wikidict.utils import process_templates
                 "<i>Artículo determinado masculino plural.</i>",
                 "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",
             ],
+            [],
         ),
         (
             "Mús.",
             [],
             ["."],
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
+            [],
         ),
         (
             "también",
@@ -174,6 +186,7 @@ from wikidict.utils import process_templates
                 "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
                 "<i>Usado para añadir algo a lo anteriormente mencionado</i>.",
             ],
+            [],
         ),
         (
             "uni-",
@@ -182,6 +195,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
             ],
+            [],
         ),
         (
             "zzz",
@@ -190,16 +204,18 @@ from wikidict.utils import process_templates
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
             ],
+            [],
         ),
     ],
 )
-def test_parse_word(word, pronunciations, etymology, definitions, page):
+def test_parse_word(word, pronunciations, etymology, definitions, variants, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "es")
     details = parse_word(word, code, "es", force=True)
     assert pronunciations == details.pronunciations
     assert etymology == details.etymology
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(
