@@ -8,7 +8,9 @@ langs = {
     "AE": "US-amerikanisch",
     "BE": "britisch",
     "aengl.": "altenglisch",
+    "afrz.": "altfranzösisch",
     "agr.": "altgriechisch",
+    "ahd.": "althochdeutsch",
     "altgr.": "altgriechisch",
     "amer.": "US-amerikanisch",
     "ang.": "altenglisch",
@@ -72,5 +74,5 @@ langs = {
     "tr.": "türkisch",
     "wen.": "sorbisch",
     "österr.": "österreichisch",
-}  # 67
+}  # 69
 # END
