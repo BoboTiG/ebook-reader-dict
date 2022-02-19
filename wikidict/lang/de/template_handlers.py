@@ -1,5 +1,6 @@
 from typing import Dict, List, Tuple
 from collections import defaultdict  # noqa
+from ...user_functions import small
 
 from .abk import abk
 
@@ -7,6 +8,108 @@ from ...user_functions import (
     extract_keywords_from,
     italic,
 )
+
+bibel_names = {
+    "Gen": "Genesis",
+    "1 Mos": "1. Buch Mose",
+    "Ex": "Exodus",
+    "2 Mos": "2. Buch Mose",
+    "Lev": "Levitikus",
+    "3 Mos": "3. Buch Mose",
+    "Num": "Numeri",
+    "4 Mos": "4. Buch Mose",
+    "Dtn": "Deuteronomium",
+    "5 Mos": "5. Buch Mose",
+    "Jos": "Josua",
+    "Ri": "Richter",
+    "Rut": "Rut",
+    "1 Sam": "1. Buch Samuel",
+    "2 Sam": "2. Buch Samuel",
+    "1 Kön": "1. Buch der Könige",
+    "2 Kön": "2. Buch der Könige",
+    "1 Chr": "1. Buch der Chronik",
+    "2 Chr": "2. Buch der Chronik",
+    "Esr": "Esra",
+    "Neh": "Nehemia",
+    "2 Esr": "2. Buch Esra ([[Nehemia]])",
+    "Tob": "Tobit (Tobias)",
+    "Jdt": "Judit",
+    "Est": "Ester",
+    "1 Makk": "1. Buch der Makkabäer",
+    "2 Makk": "2. Buch der Makkabäer",
+    "Ijob": "Ijob",
+    "Ps": "Psalm",
+    "Spr": "Sprichwörter",
+    "Koh": "Kohelet",
+    "Hld": "Hoheslied",
+    "Weish": "Weisheit",
+    "Sir": "Jesus Sirach",
+    "Jes": "Jesaja",
+    "Jer": "Jeremia",
+    "Klgl": "Klagelieder",
+    "Bar": "Baruch",
+    "Ez": "Ezechiel",
+    "Dan": "Daniel",
+    "Hos": "Hosea",
+    "Joel": "Joel",
+    "Am": "Amos",
+    "Obd": "Obadja",
+    "Jona": "Jona",
+    "Mi": "Micha",
+    "Nah": "Nahum",
+    "Hab": "Habakuk",
+    "Zef": "Zefanja",
+    "Hag": "Haggai",
+    "Sach": "Sacharja",
+    "Mal": "Maleachi",
+    "Mt": "Matthäus",
+    "Mk": "Markus",
+    "Lk": "Lukas",
+    "Joh": "Johannes",
+    "Apg": "Apostelgeschichte",
+    "Röm": "Römer",
+    "1 Kor": "1. Korinther",
+    "2 Kor": "2. Korinther",
+    "Gal": "Galater",
+    "Eph": "Epheser",
+    "Phil": "Philipper",
+    "Kol": "Kolosser",
+    "1 Thess": "1. Thessalonicher",
+    "2 Thess": "2. Thessalonicher",
+    "1 Tim": "1. Timotheus",
+    "2 Tim": "2. Timotheus",
+    "Tit": "Titus",
+    "Phlm": "Philemon",
+    "Hebr": "Hebräer",
+    "Jak": "Jakobus",
+    "1 Petr": "1. Petrus",
+    "2 Petr": "2. Petrus",
+    "1 Joh": "1. Johannes",
+    "2 Joh": "2. Johannes",
+    "3 Joh": "3. Johannes",
+    "Jud": "Judas",
+    "Offb": "Offenbarung",
+}
+
+
+def render_bibel(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
+    'Matthäus 1,1 <small>EU</small>'
+    >>> render_bibel("Bibel", ["Mt", "1", "1-5", "HFA"], defaultdict(str))
+    'Matthäus 1,1-5 <small>HFA</small>'
+    >>> render_bibel("Bibel", ["Mt", "1", "1", "NIV"], defaultdict(str))
+    'Matthäus 1,1 <small>NIV</small>'
+    >>> render_bibel("Bibel", ["Mos", "18", "4", "LUT"], defaultdict(str))
+    'Mos 18,4 <small>LUT</small>'
+    """
+    phrase = bibel_names.get(parts[0], parts[0])
+    phrase += f" {parts[1]}"
+    if len(parts) > 2:
+        phrase += f",{parts[2]}"
+    phrase += f" {small(parts[3])}" if len(parts) > 3 else f" {small('EU')}"
+    return phrase
+
 
 no_commas = (
     "allg.",
@@ -171,8 +274,10 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 template_mapping = {
+    "Bibel": render_bibel,
     "K": render_K,
     "Üt": render_Ut,
+    "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
 }
 

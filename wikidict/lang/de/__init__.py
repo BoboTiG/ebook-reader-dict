@@ -46,28 +46,47 @@ templates_multi = {
     "fn": "italic('f, n')",
     # {{L|at||en}}
     "L": "parts[1]",
+    # {{lang|fr|-ose}}
+    "lang": "parts[-1]",
     # {{m}}
     "m": "italic('m')",
+    # {{mf}}
+    "mf": "italic('m, f')",
     # {{n}}
     "n": "italic('n')",
+    # {{noredlink|diminutiv}}
+    "noredlink": "parts[-1]",
     # {{Polytonisch|(το)}}
     "Polytonisch": "parts[-1]",
     # {{Ü|pl|dzień}}
     "Ü": "italic(parts[-1])",
+    # {{vgl.}}
+    "vgl.": "italic('vergleiche:')",
     # {{W|Datenkompression|Datenkompressionen}}
     "W": "parts[-1]",
     "WP": "parts[-1]",
 }
 
+templates_other = {
+    "Gen.": "Genitiv:",
+    "Pl.": "Plural:",
+    "Pl.1": "Plural 1:",
+    "Pl.2": "Plural 2:",
+    "Pl.3": "Plural 3:",
+    "Pl.4": "Plural 4:",
+}
+
 templates_markierung = {
     "abw.": "abwertend",
     "adv.": "adverbial",
+    "Dativ": "mit Dativ",
     "fachspr.": "fachsprachlich",
     "fam.": "familiär",
     "fDu.": "f Du.",
     "fig.": "figurativ",
     "fPl.": "f Pl.",
     "geh.": "gehoben",
+    "Genitiv": "mit Genitiv",
     "hist.": "historisch",
     "indekl.": "indeklinabel",
     "intrans.": "intransitiv",
@@ -87,8 +106,11 @@ templates_markierung = {
     "ugs.": "umgangssprachlich",
     "unreg.": "unregelmäßig",
     "übertr.": "übertragen",
+    "vatd.": "veraltend",
     "veraltend": "veraltend",
     "va.": "veraltet",
+    "veraltet": "veraltet",
+    "vul.": "vulgär",
     "vulg.": "vulgär",
 }
 
@@ -105,16 +127,21 @@ def last_template_handler(
     'französisch'
     >>> last_template_handler(["fr.", ":"], "de")
     'französisch:'
-
+    >>> last_template_handler(["fr"], "de")
+    'Französisch'
     """  # noqa
     from ..defaults import last_template_handler as default
     from .template_handlers import render_template, lookup_template
     from ...user_functions import italic
 
+    from .lang_adjs import lang_adjs
     from .langs import langs
 
+    if lang_adj := lang_adjs.get(template[0], ""):
+        return f"{lang_adj}{template[1] if len(template) > 1 else ''}"
+
     if lang := langs.get(template[0], ""):
-        return f"{lang}{template[1] if len(template) > 1 else ''}"
+        return lang
 
     if markierung := templates_markierung.get(template[0], ""):
         return italic(f"{markierung}{template[1] if len(template) > 1 else ''}")
