@@ -31,9 +31,13 @@ def process_page(url, repl, stop_line, var_name, print_result=True):
     text = div.text
 
     text = text.replace("local ", "")
+    text = text.replace("end", "")
     text = text.replace("true", "True")
     text = text.replace("false", "False")
     text = text.replace("--", "#")
+
+    text = re.sub(r"function\s+(\w+\([\w|\,]+\))", "def \\g<1>:", text)
+    text = text.replace("for _,v in ipairs(y) do", "for v in y:")
 
     for r in repl:
         text = re.sub(rf"[ \t]+{r}[\s]*=", f'    "{r}":', text)
@@ -72,21 +76,24 @@ def process_page(url, repl, stop_line, var_name, print_result=True):
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
 repl = (
-    "display",
-    "labels",
     "aliases",
+    "alias_of",
+    "labels",
     "deprecated",
+    "display",
+    "glossary",
+    "language",
     "omit_preComma",
     "omit_postComma",
     "omit_preSpace",
-    "pos_categories",
-    "glossary",
-    "Wikipedia",
     "plain_categories",
+    "pos_categories",
     "regional_categories",
     "sense_categories",
+    "special_display",
     "topical_categories",
     "track",
+    "Wikipedia",
 )
 stop_line = "# Regional labels"
 var_name = "labels"
@@ -121,13 +128,6 @@ print(f"}}  # {len(syntaxes):,}")
 print()
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data/topical"
-repl = (
-    "alias_of",
-    "deprecated",
-    "topical_categories",
-    "display",
-    "plain_categories",
-)
 stop_line = "return"
 var_name = "labels_topical"
 process_page(url, repl, stop_line, var_name)
@@ -135,14 +135,6 @@ process_page(url, repl, stop_line, var_name)
 print()
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data/regional"
-repl = (
-    "regional_categories",
-    "special_display",
-    "display",
-    "Wikipedia",
-    "plain_categories",
-    "language",
-)
 stop_line = "return labels"
 var_name = "labels_regional"
 process_page(url, repl, stop_line, var_name)
