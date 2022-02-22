@@ -2346,6 +2346,7 @@ labels_subvarieties = {
     "fromOAOB": "from Old Assyrian/Old Babylonian on",
     "fromOAkk": "from Old Akkadian on",
     "fromOB": "from Old Babylonian on",
+    "fub": "Adamawa",
     "hbo": "Biblical Hebrew",
     "hellenizing": "Hellenizing School",
     "hellenizing school": "Hellenizing School",
@@ -2355,6 +2356,7 @@ labels_subvarieties = {
     "igbomina": "Igbomina",
     "igboona": "Igbomina",
     "inner Mbugu": "Ma'a",
+    "it-oit": "Old Italian",
     "late ME": "Late Middle English",
     "later": "Later Sanskrit",
     "later Sanskrit": "Later Sanskrit",
@@ -2398,6 +2400,7 @@ labels_subvarieties = {
     "prs": "Dari",
     "pt-br form": "Brazilian Portuguese",
     "pt-pt form": "European Portuguese",
+    "roa-oit": "Old Italian",
     "south German": "Southern German",
     "south Germany": "Southern German",
     "south Hesse": "South Hessian",
@@ -2475,5 +2478,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,018
+}  # 1,021
 # END

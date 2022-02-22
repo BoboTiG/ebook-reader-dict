@@ -6131,6 +6131,7 @@ langs = {
     "osc-luc": "Lucanian",
     "osc-sam": "Samnite",
     "osi": "Osing",
+    "osn": "Old Sundanese",
     "oso": "Ososo",
     "osp": "Old Spanish",
     "ost": "Osatu",
@@ -9520,5 +9521,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,515
+}  # 9,516
 # END
