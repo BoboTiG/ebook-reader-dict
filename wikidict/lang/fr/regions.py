@@ -286,6 +286,7 @@ regions = {
     "PRK": "Corée du Nord",
     "PT": "Portugal",
     "Palerme": "Palerme",
+    "Panama": "Panama",
     "Paraguay": "Paraguay",
     "Paris": "Paris",
     "Parler gaga": "Parler gaga",
@@ -293,6 +294,8 @@ regions = {
     "Patois de la Fentsch": "Patois de la Fentsch",
     "Patois de la Nied": "Patois de la Nied",
     "Patois de l’Isle": "Patois de l’Isle",
+    "Patois du Pays-Haut": "Patois du Pays-Haut",
+    "Patois du Saulnois": "Patois du Saulnois",
     "Patois vosgien": "Patois vosgien",
     "Pays basque": "Pays basque",
     "Pays de Galles": "Pays de Galles",
@@ -428,7 +431,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 423
+}  # 426
 # END
 
 # handled differently

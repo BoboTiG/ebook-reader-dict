@@ -2311,6 +2311,7 @@ labels_subvarieties = {
     "Wielkopolska": "Greater Poland",
     "Wikchamni": "Wukchumni",
     "Wood Frisian": "Wood",
+    "Wroclaw": "Wrocław",
     "Wuhan dialect": "Wuhan",
     "Wukchamni": "Wukchumni",
     "Xaladitka": "North Russia",
@@ -2478,5 +2479,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,021
+}  # 1,022
 # END
