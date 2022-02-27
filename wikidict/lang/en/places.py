@@ -255,6 +255,11 @@ recognized_placetypes = {
         "display": "borough seat",
         "preposition": "of",
     },
+    "branch": {
+        "article": "a",
+        "display": "branch",
+        "preposition": "of",
+    },
     "built-up area": {
         "article": "a",
         "display": "built-up area",
@@ -533,7 +538,7 @@ recognized_placetypes = {
     "distributary": {
         "article": "a",
         "display": "distributary",
-        "preposition": "in",
+        "preposition": "of",
     },
     "district": {
         "article": "a",
@@ -1960,7 +1965,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 391
+}  # 392
 
 placetypes_aliases = {
     "CDP": "census-designated place",

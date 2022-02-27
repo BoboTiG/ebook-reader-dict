@@ -1655,8 +1655,12 @@ labels_subvarieties = {
     "Düzköy": "Chkhala",
     "EA": "El-Amarna",
     "EC Scots": "East Central",
+    "EME": "Early Modern",
     "Earlier ME": "Early Middle English",
     "Early ME": "Early Middle English",
+    "Early Modern English": "Early Modern",
+    "Early modern": "Early Modern",
+    "Early modern English": "Early Modern",
     "East Anglian English": "East Anglia",
     "East Central Scots": "East Central",
     "East Midland ME": "East Midlands",
@@ -2479,5 +2483,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,022
+}  # 1,026
 # END
