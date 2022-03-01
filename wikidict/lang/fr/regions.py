@@ -256,16 +256,25 @@ regions = {
     "Montsoreau": "Montsoreau",
     "Monténégro": "Monténégro",
     "Moselle": "Moselle",
+    "Munster": "Munster",
+    "NE": "Niger",
     "NL": "Pays-Bas",
     "NZ": "Nouvelle-Zélande",
+    "Namibie": "Namibie",
     "Nantes": "Nantes",
     "Navarre": "Navarre",
     "Nevele": "Nevele",
     "New York": "New York",
     "Nicaragua": "Nicaragua",
+    "Niger": "Niger",
     "Nigeria": "Nigeria",
     "Nigéria": "Nigeria",
     "Nord de la France": "Nord de la France",
+    "Nord du Viêt Nam": "Nord du Viêt Nam",
+    "Nord du pays de Galles": "Nord du pays de Galles",
+    "Nord-Pas-de-Calais": "Nord-Pas-de-Calais",
+    "Normandie": "Normandie",
+    "Nouvelle-Calédonie": "Nouvelle-Calédonie",
     "Nouvelle-Zélande": "Nouvelle-Zélande",
     "Occitanie": "Occitanie",
     "Océanie": "Océanie",
@@ -422,7 +431,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 417
+}  # 426
 # END
 
 # handled differently

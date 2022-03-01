@@ -1870,6 +1870,7 @@ labels_subvarieties = {
     "LA French": "Louisiana",
     "LBab": "Late Babylonian",
     "LDA": "Lisan ud-Dawat",
+    "LME": "Late Modern",
     "Labradorimiutut": "Inuttut",
     "Laconian Greek": "Laconian",
     "Lan-Yin Mandarin": "Lanyin Mandarin",
@@ -1878,6 +1879,9 @@ labels_subvarieties = {
     "Late Anglo-Latin": "British Late Latin",
     "Late British": "British Late Latin",
     "Late ME": "Late Middle English",
+    "Late Modern English": "Late Modern",
+    "Late modern": "Late Modern",
+    "Late modern English": "Late Modern",
     "Later": "Later Sanskrit",
     "Later ME": "Late Middle English",
     "Later-Sanskrit": "Later Sanskrit",
@@ -2504,5 +2508,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,026
+}  # 1,030
 # END

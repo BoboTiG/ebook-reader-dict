@@ -641,9 +641,53 @@ form_of_templates = {
         "text": "Standard spelling of",
         "dot": True,
     },
+    "superlative attributive of": {
+        "text": "superlative degree (when used attributively) of",
+        "dot": False,
+    },
+    "superlative of": {
+        "text": "superlative degree of",
+        "dot": False,
+    },
+    "superlative predicative of": {
+        "text": "superlative (when used predicatively) of",
+        "dot": False,
+    },
+    "superseded spelling of": {
+        "text": "Superseded spelling of",
+        "dot": True,
+    },
+    "sup sp": {
+        "text": "Superseded spelling of",
+        "dot": True,
+    },
+    "supine of": {
+        "text": "supine of",
+        "dot": False,
+    },
     "syncopic form of": {
         "text": "Syncopic form of",
         "dot": False,
+    },
+    "synonym of": {
+        "text": "Synonym of",
+        "dot": False,
+    },
+    "syn of": {
+        "text": "Synonym of",
+        "dot": False,
+    },
+    "t-prothesis of": {
+        "text": "t-prothesized form of",
+        "dot": False,
+    },
+    "uncommon form of": {
+        "text": "Uncommon form of",
+        "dot": True,
+    },
+    "uncommon form": {
+        "text": "Uncommon form of",
+        "dot": True,
     },
     "uncommon spelling of": {
         "text": "Uncommon spelling of",
@@ -661,5 +705,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 164
+}  # 175
 # END
