@@ -5005,6 +5005,7 @@ langs = {
     "sva": "svane",
     "svb": "ulau-suain",
     "sve": "serili",
+    "svm": "slave molisan",
     "svs": "savosavo",
     "sw": "swahili",
     "swb": "shimaoré",
@@ -6284,7 +6285,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,279
+}  # 6,280
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
