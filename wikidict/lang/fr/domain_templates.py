@@ -47,7 +47,6 @@ domain_templates = {
     "canidés": "Mammifères",
     "capitales": "Géographie",
     "caprins": "Zoologie",
-    "carnivore": "Zoologie",
     "carnivores": "Zoologie",
     "cervidés": "Zoologie",
     "chameaux": "Zoologie",
@@ -310,5 +309,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 305
+}  # 304
 # END
