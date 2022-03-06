@@ -2,8 +2,8 @@
 Arabiser: manual conversion of arabiser function from
 https://fr.wiktionary.org/wiki/Module:arabe
 
-Current version:
-    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=28937329
+Current version: 25 février 2022 16:11
+    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=30231877
 
 """
 
@@ -15,18 +15,23 @@ en_arabe = {
     " ": " ",  # blancs entre mots
     "_": "",  # underscore ignoré pour décontextualisation éventuelle
     "؛": "؛",  # point virgule arabe
+    "،": "،",  # virgule inversée
+    ",": "،",
     ";": "؛",
     "؞": "؞",  # trois points
     "؟": "؟",  # point d'interrogation
     "?": "؟",
+    "!": "!",  # exclamation
     "ء": "ء",  # Hamza
-    "ò": "ء",
+    "ò": "ٔ",  # Hamza suscrite
     "`": "ء",
     "'": "ء",
     "‘": "ء",
     "ʾ": "ء",
     "ʼ": "ء",
     "ˈ": "ء",
+    "ٱ": "ٱ",  # Alif wasla
+    "^": "ٱ",
     "آ": "آ",  # Alif madda
     "~": "آ",
     "أ": "أ",  # Alif hamza
@@ -139,6 +144,7 @@ en_arabe = {
     "ū": "◌ُو",  # préfixage du diacritique
     "ى": "ى",  # Alif maksoura
     "é": "ى",
+    "É": "ى",
     "ي": "ي",  # Waw
     "I": "ي",
     "y": "ي",
@@ -149,8 +155,10 @@ en_arabe = {
     "ã": "◌ً",
     "◌ٌ": "◌ٌ",  # Dammatan
     "ũ": "◌ٌ",
+    "õ": "◌ٌ",
     "◌ٍ": "◌ٍ",  # Kasratan
     "ĩ": "◌ٍ",
+    "ñ": "◌ٍ",
     "◌َ": "◌َ",  # Fatha
     "a": "◌َ",
     "◌ُ": "◌ُ",  # Damma
@@ -165,6 +173,9 @@ en_arabe = {
     "*": "٭",
     "◌ٰ": "◌ٰ",  # Alif suscrit
     "E": "◌ٰ",
+    # Lettres additionnelles diverses
+    "p": "پ",  # pa
+    "v": "ڤ",  # ve
 }
 
 
@@ -250,11 +261,13 @@ def arabiser(texte: str) -> str:  # pragma: no cover
     >>> arabiser("k_t_b_")
     'كتب'
     >>> arabiser("ktb")
-    'كْتْبْ'
+    'كتب'
 
     >>> arabiser("elmubdi'u wa elmu3îdu")
     'المُبْدِئُ وَ المُعِيدُ'
 
+    >>> arabiser("famu ^lHûti")
+    'فَمُ ٱلحُوتِ'
     """
     # translittération en arabe du paramètre, suivant l'assoc-liste en_arabe.
     texte = f" {texte} "
@@ -263,14 +276,38 @@ def arabiser(texte: str) -> str:  # pragma: no cover
     a_traiter = ""
     # à faire un jour : transformer tous les ² en redoublements explicites avant traitement
     # à faire un jour : reporter sur la lettre attendue toutes les lettres équivalentes admissibles
-
+    diacritiques = any(
+        char in texte for char in ["a", "i", "u", "ã", "ĩ", "ũ", "²", "°"]
+    )
     for curseur in range(1, len(texte) - 1):
         a_traiter = texte[curseur]
         # orthographe différente suivant qu'on est en "début" ou en milieu de mot.
-        if texte[curseur - 1] == " " or (
-            curseur > 1
-            and texte[curseur - 3 : curseur]
-            in (" el", " bi", " fa", " ka", " la", " li", " wa")
+        # début de mot
+        if (
+            texte[curseur - 1] == " "
+            or (  # précédé d'un blanc = début de mot
+                # derrière el- il faut écrire comme en début de mot malgré la liaison :
+                # idem derrière particules inséparables
+                curseur > 1
+                and a_traiter
+                != "'"  # -- Pb de la hamza dans des mots comme bi'r, ne pas traiter comme un préfixe
+                and texte[curseur - 3 : curseur]
+                in (" el", " ^l", " bi", " fa", " ka", " la", " li", " wa")
+            )
+            or (
+                curseur > 1
+                and texte[
+                    curseur - 3 : curseur
+                ]  # idem si plusieurs particules séparées par un blanc souligné
+                in ("_el", "_^l", "_bi", "_fa", "_ka", "_la", "_li", "_wa")
+            )
+            or (
+                curseur > 1
+                and texte[
+                    curseur - 3 : curseur
+                ]  # -- un blanc souligné permet de couper le mot s'il faut forcer un fa'tu en fa_'tu par exemple
+                in ("el_", "^l_", "bi_", "fa_", "ka_", "la_", "li_", "wa_")
+            )
         ):
             # on est en début de mot
             # Si le début du mot est une voyelle il faut insérer en amont une hamza préfixe
@@ -293,6 +330,8 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     transcription += "أ"  # support en haut
                 elif suivant == "i" or suivant == "î":
                     transcription += "إ"  # support en bas
+                else:
+                    transcription += "ا"  # par défaut, alif
                 # la hamza préfixe a été insérée, la voyelle suivante sera transcrite ensuite
             else:  # Il faut rajouter la lettre à la transcription.
 
@@ -307,23 +346,27 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 transcription += en_arabe[a_traiter]
             # cas hamza préfixe
             # post-traitement : si la consonne est derrière el- il faut rajouter un chadda aux lettres solaires
-            if texte[curseur - 1] == "l" and texte[curseur - 2] == "e":
+            if texte[curseur - 1] == "l" and texte[curseur - 2] in ["e", "^"]:
                 # faire le test solaire
-                if a_traiter in (
-                    "t",
-                    "F",
-                    "d",
-                    "V",
-                    "r",
-                    "z",
-                    "s",
-                    "C",
-                    "S",
-                    "D",
-                    "T",
-                    "Z",
-                    "l",
-                    "n",
+                if (
+                    a_traiter
+                    in (
+                        "t",
+                        "F",
+                        "d",
+                        "V",
+                        "r",
+                        "z",
+                        "s",
+                        "C",
+                        "S",
+                        "D",
+                        "T",
+                        "Z",
+                        "l",
+                        "n",
+                    )
+                    and diacritiques
                 ):
                     transcription += en_arabe["²"]
             # faire le test solaire
@@ -335,11 +378,13 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 "i",
                 "u",
                 "e",
+                "^",
                 "î",
                 "A",
                 "I",
                 "U",
                 "E",
+                "É",
                 "ĩ",
                 "ũ",
                 "õ",
@@ -348,7 +393,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 transcription = transcription + en_arabe[a_traiter]
 
             elif a_traiter == "é":
-                if texte[curseur - 1] != "ã":
+                if texte[curseur - 1] not in ["ã", "_", "E"]:
                     transcription = transcription + en_arabe["a"]
                 transcription = transcription + en_arabe[a_traiter]
             elif a_traiter == "û":  # cas particulier d'un u final : alif muet
@@ -382,13 +427,13 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 else:
                     transcription = transcription + en_arabe["â"]
             elif a_traiter == "@":
-                # ta arbouta : précédé de 'a' implicite, sauf quand derrière un 'â'
-                if texte[curseur - 1] != "â":
+                # ta arbouta : précédé de 'a' implicite, sauf quand derrière une voyelle longue
+                if texte[curseur - 1] not in ["â", "î", "û", "_"]:
                     transcription += en_arabe["a"]
                 transcription += en_arabe["@"]
             elif a_traiter == "é":
-                # alif maksoura : précédé de 'a' implicite, sauf quand devant un 'ã'
-                if texte[curseur + 1] != "ã":
+                # alif maksoura : précédé de 'a' implicite, sauf quand devant un 'ã' ou quand on efface les voyelles
+                if texte[curseur + 1] not in ["ã", "_"]:
                     transcription += en_arabe["a"]
                 transcription += en_arabe["é"]
             # Quelques cas où on ne veut pas examiner la présence d'un ²
@@ -398,7 +443,8 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 transcription += en_arabe["*"]
 
             # Lettre redoublée de la précédente :
-            elif a_traiter == texte[curseur - 1]:
+            elif a_traiter == texte[curseur - 1] and a_traiter != "-" and diacritiques:
+                # pas de gemmination sur les tirets
                 # Pas de gemmination si on est derrière un el- préfixe (el-lah)
                 # mais dans ce cas le second l est traité comme début de mot : pas cette branche.
                 transcription += en_arabe["²"]
@@ -423,7 +469,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                         "ã",
                         "ĩ",
                         "ñ",
-                        "é",
+                        "É",
                         "A",
                         "I",
                         "U",
@@ -432,27 +478,40 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                         "õ",
                         "-",
                         "~",
+                        ",",
                         "é",
                         "_",
                         "°",
+                        "^",
+                        "?",
                     )
-                    and texte[curseur - 3 : curseur] != " el"
-                ):  # pas de sukun après el- en début de mot
+                    and texte[curseur - 3 : curseur]
+                    not in [
+                        " el",
+                        " ^l",
+                        "_el",
+                        "_^l",
+                    ]  # pas de sukun après el- en début de mot + cas du alif wasla
+                    and diacritiques
+                ):
                     transcription += en_arabe["°"]
+                # Traitement différent suivant qu'on est en fin de mot ou en milieu :
                 if (
                     curseur > len(texte) - 4
                     or apres == " "
-                    or texte[curseur + 2] == " "
-                    and apres != "â"
-                    and apres != "î"
-                    and apres != "û"
-                    and apres != "é"
-                    and apres != "A"
-                    and apres != "I"
-                    and apres != "U"
-                    and apres != "E"
+                    or (
+                        texte[curseur + 2] == " "
+                        and apres
+                        != "â"  # il ne faut pas de lettre de prolongation non plus
+                        and apres != "î"
+                        and apres != "û"
+                        and apres != "é"
+                        and apres != "A"
+                        and apres != "I"
+                        and apres != "U"
+                        and apres != "E"
+                    )
                 ):
-                    # il ne faut pas de lettre de prolongation non plus
                     # hamza en fin de mot
                     if avant == "i":
                         transcription += en_arabe["ì"]
@@ -512,11 +571,17 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     # traitement milieu de mot
                 # fin ou pas
             # fin du cas de la hamza
-
+            # Ici il faut isoler le traitement des caractères sur lesquels il n'y aura jamais de sukkun
+            elif a_traiter == ",":
+                transcription += en_arabe[","]
             elif a_traiter == "-":
                 transcription += en_arabe["-"]
             elif a_traiter == "²":
                 transcription += en_arabe["²"]
+            elif a_traiter == "^":
+                transcription += en_arabe["^"]
+            elif a_traiter == "?":
+                transcription += en_arabe["?"]
             else:  # dans les autres cas, translittération de la consonne, mais avec sukun éventuel
                 avant = texte[curseur - 1]
                 # on ne met pas de sukun après...
@@ -534,7 +599,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                         "ã",
                         "ĩ",
                         "ñ",
-                        "é",
+                        "É",
                         "A",
                         "I",
                         "U",
@@ -545,17 +610,27 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                         "~",
                         "_",
                         "°",
+                        "^",
+                        "?",
                     )
                     and a_traiter != " "
-                    and texte[curseur - 3 : curseur] != " el"
-                    and texte[curseur - 3 : curseur] != " a'"
-                ):  # pas de sukun après el- en début de mot ou sur un alif madda
+                    and texte[curseur - 3 : curseur]
+                    not in [
+                        " el",
+                        " ^l",
+                        "_el",
+                        "_^l",
+                    ]  # pas de sukun après el- en début de mot + pas de sukun sur un alof wasla
+                    and texte[curseur - 3 : curseur]
+                    != " a'"  # pas de sukun après el- en début de mot ou sur un alif madda
+                    and diacritiques
+                ):
                     transcription += en_arabe["°"]
 
                 if en_arabe.get(a_traiter):
                     transcription += en_arabe[a_traiter]
                 # cas d'une consonne en fin de mot - rajouter un sukun final
-                if texte[curseur + 1] == " ":
+                if texte[curseur + 1] == " " and diacritiques:
                     transcription += en_arabe["°"]
 
     transcription = "".join(
