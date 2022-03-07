@@ -7,5 +7,5 @@ mistune==2.0.2  # for DictFile reading
 pillow==9.0.1
 pyglossary==4.5.0
 requests==2.27.1
-sympy==1.9
+sympy==1.10
 wikitextparser==0.48.1
