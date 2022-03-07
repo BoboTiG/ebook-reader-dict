@@ -2105,6 +2105,7 @@ labels_subvarieties = {
     "Rimella": "Rimella and Campello Monti",
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
+    "River Plate": "Rioplatense",
     "Roman": "Rome",
     "Roman Italian": "Rome",
     "Romanesco": "Rome",
@@ -2430,6 +2431,7 @@ labels_subvarieties = {
     "prs": "Dari",
     "pt-br form": "Brazilian Portuguese",
     "pt-pt form": "European Portuguese",
+    "rioplatense": "Rioplatense",
     "roa-oit": "Old Italian",
     "south German": "Southern German",
     "south Germany": "Southern German",
@@ -2508,5 +2510,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,030
+}  # 1,032
 # END
