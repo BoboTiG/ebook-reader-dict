@@ -1,6 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
-
+from scripts_utils import get_soup
 
 ROOT = "https://fr.wiktionary.org"
 START_URL = (
@@ -8,12 +6,6 @@ START_URL = (
 )
 NEXTPAGE_TEXT = "page suivante"
 ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
 
 
 def process_category_page(url, results):

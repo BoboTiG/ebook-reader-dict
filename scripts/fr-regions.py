@@ -1,17 +1,10 @@
-import requests
-from bs4 import BeautifulSoup
+from scripts_utils import get_soup
 
 
 ROOT = "https://fr.wiktionary.org"
 START_URL = "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_r%C3%A9gionaux_du_Wiktionnaire"
 NEXTPAGE_TEXT = "page suivante"
 ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
 
 
 def process_regions_page(url, results):

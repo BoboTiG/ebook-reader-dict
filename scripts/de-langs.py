@@ -1,5 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
+from scripts_utils import get_soup
 
 
 ROOT_URL = "https://de.wiktionary.org"
@@ -7,12 +6,6 @@ START_URL = f"{ROOT_URL}/wiki/Kategorie:Wiktionary:Sprachk%C3%BCrzel"
 NEXTPAGE_TEXT = "nächste Seite"
 
 ALIAS_URL = "https://de.wiktionary.org/w/index.php?title=Spezial:Linkliste/{}&hidetrans=1&hidelinks=1"
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
 
 
 def process_page(page_url, languages):
