@@ -1,23 +1,13 @@
-from bs4 import BeautifulSoup
+from scripts_utils import get_soup, get_url_content
 import re
-import requests
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
-
 
 url = "https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma"
-with requests.get(url) as req:
-    req.raise_for_status()
-    content = req.text
+content = get_url_content(url)
 
 pattern = r"<tr>\s+<td>([^<]+)</td>\s+<td>([^<]+)\s+</td></tr>"
 matches = re.findall(pattern, content)
 
-langs = {iso: lang for iso, lang in matches}
+langs = dict(matches)
 print("langs = {")
 for t, r in sorted(langs.items()):
     print(f'    "{t}": "{r}",')

@@ -1,7 +1,5 @@
 import re
-
-import requests
-from bs4 import BeautifulSoup
+from scripts_utils import get_soup
 
 
 def read_all_lines_etym(lines):
@@ -60,9 +58,7 @@ def read_all_lines_lang(lines):
 
 
 def get_content(url):
-    req = requests.get(url)
-    page = req.content
-    soup = BeautifulSoup(page, features="html.parser")
+    soup = get_soup(url)
     content_div = soup.find("div", "mw-parser-output")
     content_div = content_div.findChild(
         "div", {"class": "mw-highlight"}, recursive=False
@@ -97,7 +93,7 @@ m = process_lang_page(url)
 languages.update(m)
 
 for letter in "abcdefghijklmnopqrstuvwxyz":
-    url = "https://en.wiktionary.org/wiki/Module:languages/data3/" + letter
+    url = f"https://en.wiktionary.org/wiki/Module:languages/data3/{letter}"
     m = process_lang_page(url)
     languages.update(m)
 

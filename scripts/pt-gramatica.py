@@ -1,14 +1,5 @@
 import re
-
-import requests
-from bs4 import BeautifulSoup
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
-
+from scripts_utils import get_soup
 
 url = "https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C3%A1tica/core&action=edit"
 soup = get_soup(url)
