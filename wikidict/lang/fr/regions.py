@@ -429,7 +429,7 @@ regions = {
 # END
 
 # handled differently
-regions.pop("régio")
+# regions.pop("régio")
 regions.pop("région")
-regions.pop("régional")
-regions.pop("régionalisme")
+# regions.pop("régional")
+# regions.pop("régionalisme")

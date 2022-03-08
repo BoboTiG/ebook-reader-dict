@@ -1,11 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
+from scripts_utils import get_soup
 
 
 url = "https://en.wiktionary.org/wiki/Template:place"
@@ -22,8 +15,7 @@ alias_dict = {}
 for tr in trs:
     tds = tr.find_all("td")
     tds = [t.text.strip() for t in tds]
-    tds = dict(zip(columns, tds))
-    if tds:
+    if tds := dict(zip(columns, tds)):
         placetype = tds.pop("placetype", None)
         aliases = tds.pop("aliases").split(",")
         placetypes[placetype] = tds
@@ -32,8 +24,7 @@ for tr in trs:
             print(f'        "{key}": "{tds[key]}",')
         print("    },")
         for alias in sorted(aliases):
-            alias = alias.strip()
-            if alias:
+            if alias := alias.strip():
                 alias_dict[alias] = placetype
 print(f"}}  # {len(trs):,}")
 

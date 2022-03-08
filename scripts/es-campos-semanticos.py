@@ -1,5 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
+from scripts_utils import get_soup
 
 
 START_URL = (
@@ -8,12 +7,6 @@ START_URL = (
 ROOT_URL = "https://es.wiktionary.org/"
 ALIAS_URL = "https://es.wiktionary.org/w/index.php?title=Especial:LoQueEnlazaAqu%C3%AD/{}&hidetrans=1&hidelinks=1"
 NEXTPAGE_TEXT = "página siguiente"
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
 
 
 def process_alias_page(model, template_text, results):

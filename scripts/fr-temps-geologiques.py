@@ -1,12 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
-
+from scripts_utils import get_soup
 
 url = "https://fr.wiktionary.org/wiki/Mod%C3%A8le:Temps_g%C3%A9ologiques?action=edit"
 soup = get_soup(url)
