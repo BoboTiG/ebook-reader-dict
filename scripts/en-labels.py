@@ -1,12 +1,5 @@
-import requests
+from scripts_utils import get_soup
 import re
-from bs4 import BeautifulSoup
-
-
-def get_soup(url):
-    req = requests.get(url)
-    page = req.content
-    return BeautifulSoup(page, features="html.parser")
 
 
 def process_display(display):
