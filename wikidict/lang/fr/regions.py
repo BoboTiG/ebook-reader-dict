@@ -282,6 +282,7 @@ regions = {
     "Ontario": "Ontario",
     "Ouessant": "Ouessant",
     "Ouzbékistan": "Ouzbékistan",
+    "PE": "Pérou",
     "PRK": "Corée du Nord",
     "PT": "Portugal",
     "Palerme": "Palerme",
@@ -296,9 +297,11 @@ regions = {
     "Patois du Pays-Haut": "Patois du Pays-Haut",
     "Patois du Saulnois": "Patois du Saulnois",
     "Patois vosgien": "Patois vosgien",
+    "Pays basque": "Pays basque",
     "Pays de Galles": "Pays de Galles",
     "Pays-Bas": "Pays-Bas",
     "Pellouailles-les-Vignes": "Pellouailles-les-Vignes",
+    "Perche": "Perche",
     "Philippines": "Philippines",
     "Piazza Armerina": "Piazza Armerina",
     "Picardie": "Picardie",
@@ -313,6 +316,7 @@ regions = {
     "Pulo Anna": "Pulo Anna",
     "Puy-de-Dôme": "Puy-de-Dôme",
     "Pyrénées-Orientales": "Pyrénées-Orientales",
+    "Pérou": "Pérou",
     "QC": "Québec",
     "Quercy": "Quercy",
     "Quintin": "Quintin",
@@ -399,10 +403,7 @@ regions = {
     "Vitré": "Vitré",
     "Viêt Nam": "Viêt Nam",
     "Vosges": "Vosges",
-    "Wallis-et-Futuna": "Wallis-et-Futuna",
-    "Wallonie": "Wallonie",
     "West Muskerry": "West Muskerry",
-    "Yonne": "Yonne",
     "Yucatan": "Yucatán",
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
@@ -413,10 +414,7 @@ regions = {
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
     "pays de Waes": "Pays de Waes",
-    "régio": "Régionalisme",
     "région": "Régionalisme",
-    "régional": "Régionalisme",
-    "régionalisme": "Régionalisme",
     "vannetais": "Vannetais",
     "Écosse": "Écosse",
     "Écouflant": "Écouflant",
@@ -427,7 +425,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 422
+}  # 420
 # END
 
 # handled differently

@@ -507,6 +507,7 @@ langs = {
     "quc": "k’iche’",
     "qug": "quítxua septentrional",
     "quz": "quítxua de Cusco",
+    "rad": "rade",
     "raj": "rajasthani",
     "rap": "rapanui",
     "rar": "rarotongà",
@@ -620,6 +621,7 @@ langs = {
     "tn": "setswana",
     "to": "tongalès",
     "tog": "tonga",
+    "tok": "toki pona",
     "tpi": "tok pisin",
     "tpn": "tupinamba",
     "tr": "turc",
@@ -705,5 +707,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 700
+}  # 702
 # END
