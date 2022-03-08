@@ -6,7 +6,6 @@ def read_all_lines_etym(lines):
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
     pattern2 = re.compile(r"(\w*)\s*=\s*{")
 
-    m = {}  # noqa
     concat = ""
     in_comment = False
     for line in lines:
@@ -39,7 +38,7 @@ def read_all_lines_etym(lines):
         concat += result + "\n"
 
     exec(concat)
-    return m
+    return {}
 
 
 def read_all_lines_lang(lines):
