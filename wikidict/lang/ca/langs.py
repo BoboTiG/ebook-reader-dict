@@ -32,6 +32,7 @@ langs = {
     "am": "amhàric",
     "amk": "ambai",
     "an": "aragonès",
+    "ane": "xârâcùù",
     "ang": "anglès antic",
     "anp": "angika",
     "ar": "àrab",
@@ -599,6 +600,7 @@ langs = {
     "syr": "siríac",
     "szl": "silesià",
     "ta": "tàmil",
+    "tao": "yami",
     "tay": "atayal",
     "te": "telugu",
     "tem": "temne",
@@ -675,6 +677,7 @@ langs = {
     "xpu": "púnic",
     "xum": "umbre",
     "xx": "xxxx",
+    "yag": "yagan",
     "yao": "yao",
     "yap": "yapeà",
     "yav": "yangben",
@@ -707,5 +710,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 702
+}  # 705
 # END

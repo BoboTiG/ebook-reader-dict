@@ -403,7 +403,10 @@ regions = {
     "Vitré": "Vitré",
     "Viêt Nam": "Viêt Nam",
     "Vosges": "Vosges",
+    "Wallis-et-Futuna": "Wallis-et-Futuna",
+    "Wallonie": "Wallonie",
     "West Muskerry": "West Muskerry",
+    "Yonne": "Yonne",
     "Yucatan": "Yucatán",
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
@@ -414,7 +417,10 @@ regions = {
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
     "pays de Waes": "Pays de Waes",
+    "régio": "Régionalisme",
     "région": "Régionalisme",
+    "régional": "Régionalisme",
+    "régionalisme": "Régionalisme",
     "vannetais": "Vannetais",
     "Écosse": "Écosse",
     "Écouflant": "Écouflant",
@@ -425,7 +431,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 420
+}  # 426
 # END
 
 # handled differently
