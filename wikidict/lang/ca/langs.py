@@ -35,6 +35,7 @@ langs = {
     "ane": "xârâcùù",
     "ang": "anglès antic",
     "anp": "angika",
+    "aqg": "akoko",
     "ar": "àrab",
     "ar_001": "àrab estàndard modern",
     "arc": "arameu",
@@ -90,6 +91,7 @@ langs = {
     "brh": "brahui",
     "brx": "bodo",
     "bs": "bosnià",
+    "bsa": "abinomn",
     "bss": "akoose",
     "bto": "bikol rinconada",
     "bua": "buriat",
@@ -466,6 +468,7 @@ langs = {
     "nyo": "nyoro",
     "nzi": "nzema",
     "oc": "occità",
+    "odt": "neerlandès antic",
     "oj": "ojibwa",
     "olo": "livvi-carelià",
     "om": "oromo",
@@ -710,5 +713,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 705
+}  # 708
 # END

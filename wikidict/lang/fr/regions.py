@@ -161,6 +161,7 @@ regions = {
     "Guerche-de-Bretagne": "La Guerche-de-Bretagne",
     "Guernesey": "Guernesey",
     "Guinée": "Guinée",
+    "Guinée équatoriale": "Guinée équatoriale",
     "Guyane": "Guyane",
     "Guéhenno": "Guéhenno",
     "Gyeongsang": "Gyeongsang",
@@ -334,6 +335,7 @@ regions = {
     "Royaume-Uni": "Royaume-Uni",
     "Russie": "Russie",
     "République Démocratique du Congo": "Congo-Kinshasa",
+    "République centrafricaine": "République centrafricaine",
     "République dominicaine": "République dominicaine",
     "République tchèque": "République tchèque",
     "Réunion": "La Réunion",
@@ -431,7 +433,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 426
+}  # 428
 # END
 
 # handled differently
