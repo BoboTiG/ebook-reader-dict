@@ -1501,6 +1501,8 @@ labels_subvarieties = {
     "Air Tamajaq": "Tayert",
     "Ajaṣẹ": "Ajashe",
     "Akan Kasa": "Twi",
+    "Akw": "Ahkwesáhsne",
+    "Akwesasne": "Ahkwesáhsne",
     "Alsace": "Alsatian",
     "Alsacien": "Alsatian",
     "Alsatian German": "Alsatian",
@@ -1618,6 +1620,7 @@ labels_subvarieties = {
     "Campello Monti": "Rimella and Campello Monti",
     "Canadian English": "Canada",
     "Canadian form": "Canadian",
+    "Central": "Ahkwesáhsne",
     "Central Assamese": "Central Assam",
     "Central German": "central Germany",
     "Central Germany": "central Germany",
@@ -1840,7 +1843,7 @@ labels_subvarieties = {
     "Jijeli": "Jijel",
     "Judean Aramaic": "Jewish Palestinian Aramaic",
     "Kaapse Afrikaans": "Cape Afrikaans",
-    "Kahnawake": "Eastern",
+    "Kahnawake": "Kahnawà:ke",
     "Kaliarnta": "Kaliarda",
     "Kalinga Andhra": "North Andhra",
     "Kalinga Andhra Telugu": "North Andhra",
@@ -2536,5 +2539,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,053
+}  # 1,056
 # END
