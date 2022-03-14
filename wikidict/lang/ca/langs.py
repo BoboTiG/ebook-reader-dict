@@ -525,6 +525,7 @@ langs = {
     "ro": "romanès",
     "ro_MD": "moldau",
     "roa-oca": "català antic",
+    "roa-opt": "galaicoportuguès",
     "roa-tara": "tarentí",
     "rof": "rombo",
     "rom": "romaní",
@@ -568,6 +569,7 @@ langs = {
     "sjd": "sami de Kildin",
     "sk": "eslovac",
     "sl": "eslovè",
+    "sla-pro": "protoeslau",
     "sli": "alemany silesià",
     "sm": "samoà",
     "sma": "sami meridional",
@@ -713,5 +715,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 708
+}  # 710
 # END
