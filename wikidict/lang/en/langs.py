@@ -8203,6 +8203,7 @@ langs = {
     "tuu": "Tututni",
     "tuv": "Turkana",
     "tuw": "Tungusic",
+    "tuw-kkl": "Kyakala",
     "tuw-pro": "Proto-Tungusic",
     "tuw-sol": "Solon",
     "tux": "Tuxináwa",
@@ -9521,5 +9522,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,516
+}  # 9,517
 # END
