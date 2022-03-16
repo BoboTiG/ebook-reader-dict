@@ -203,6 +203,7 @@ langs = {
     "fr_CA": "francès canadenc",
     "fr_CH": "francès suís",
     "frc": "francès cajun",
+    "frk": "fràncic",
     "frm": "francès mitjà",
     "fro": "francès antic",
     "frp": "francoprovençal",
@@ -715,5 +716,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 710
+}  # 711
 # END
