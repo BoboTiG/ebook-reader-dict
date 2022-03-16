@@ -2,7 +2,7 @@
 black==22.1.0
 coverage!=6.3.0
 flake8==4.0.1
-mypy==0.940
+mypy==0.941
 pdoc3==0.10.0
 pydocstyle==6.1.1
 pytest==7.1.0
