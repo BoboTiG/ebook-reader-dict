@@ -1,0 +1,25 @@
+{{Siehe auch|[[Trage]], [[träge]]}}
+
+== trage ({{Sprache|Deutsch}}) ==
+=== {{Wortart|Konjugierte Form|Deutsch}} ===
+
+{{Nebenformen}}
+:''Imperativ Singular:'' [[trag]]
+
+{{Worttrennung}}
+:tra·ge
+
+{{Aussprache}}
+:{{IPA}} {{Lautschrift|ˈtʁaːɡə}}
+:{{Hörbeispiele}} {{Audio|De-trage.ogg}}
+:{{Reime}} {{Reim|aːɡə|Deutsch}}
+
+{{Grammatische Merkmale}}
+* 1. Person Singular Indikativ Präsens Aktiv des Verbs '''[[tragen]]'''
+* 1. Person Singular Konjunktiv I Präsens Aktiv des Verbs '''[[tragen]]'''
+* 3. Person Singular Konjunktiv I Präsens Aktiv des Verbs '''[[tragen]]'''
+* 2. Person Singular Imperativ Präsens Aktiv des Verbs '''[[tragen]]'''
+
+{{Grundformverweis Konj|tragen}}
+
+{{Ähnlichkeiten 1|[[trabe]], [[träge]]|Anagramme=[[Egart]], [[Ertag]], [[garet]], [[garte]], [[gerat]], [[Grate]], [[raget]], [[ragte]]}}
