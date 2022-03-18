@@ -5,7 +5,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions",
+    "word, pronunciations, gender, etymology, definitions, variants",
     [
         (
             "CIA",
@@ -13,6 +13,7 @@ from wikidict.utils import process_templates
             "mf",
             ["Abkürzung von Central Intelligence Agency"],
             ["US-amerikanischer Auslandsnachrichtendienst"],
+            [],
         ),
         (
             "volley",
@@ -24,10 +25,15 @@ from wikidict.utils import process_templates
             [
                 "<i>Sport:</i> aus der Luft (angenommen und direkt kraftvoll abgespielt), ohne dass eine Bodenberührung des Sportgeräts vorher stattgefunden hat",  # noqa
             ],
+            [],
         ),
+        ("trage", ["ˈtʁaːɡə"], "", [], [], ["tragen"]),
+        ("daß", [], "", [], [], ["dass"]),
     ],
 )
-def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
+def test_parse_word(
+    word, pronunciations, gender, etymology, definitions, variants, page
+):
     """Test the sections finder and definitions getter."""
     code = page(word, "de")
     details = parse_word(word, code, "de", force=True)
@@ -35,6 +41,7 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
     assert gender == details.gender
     assert etymology == details.etymology
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(

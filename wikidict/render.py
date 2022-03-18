@@ -397,6 +397,27 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 variant = process_templates(word, clean(tpl), locale)
                 if variant and variant != word:
                     variants.add(variant)
+        elif locale == "de":
+            if not title.startswith(
+                (
+                    "{{Grundformverweis ",
+                    "{{Alte Schreibweise|",
+                )
+            ):
+                continue
+
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if not tpl.startswith(
+                    (
+                        "{{Grundformverweis ",
+                        "{{Alte Schreibweise|",
+                    )
+                ):
+                    continue
+                variant = process_templates(word, clean(tpl), locale)
+                if variant and variant != word:
+                    variants.add(variant)
 
     return Word(prons, nature, etymology, definitions, sorted(variants))
 

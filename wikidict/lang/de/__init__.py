@@ -19,6 +19,8 @@ etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
     "{{Bedeutungen}",
+    "{{Grundformverweis ",
+    "{{Alte Schreibweise|",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -148,6 +150,16 @@ def last_template_handler(
 
     if lookup_template(template[0]):
         return render_template(template)
+
+    # note: this should be used for variants only
+    if template[0].startswith(
+        (
+            "Grundformverweis ",
+            "Alte Schreibweise",
+        )
+    ):
+        return template[1]
+
     return default(template, locale, word=word)
 
 
