@@ -8,6 +8,6 @@ pydocstyle==6.1.1
 pytest==7.1.0
 pytest-cov==3.0.0 
 pytest-dependency==0.5.1
-responses==0.19.0
+responses==0.20.0
 types-cachetools==5.0.0
 types-requests==2.27.13
