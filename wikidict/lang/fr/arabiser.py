@@ -2,8 +2,8 @@
 Arabiser: manual conversion of arabiser function from
 https://fr.wiktionary.org/wiki/Module:arabe
 
-Current version: 25 février 2022 16:11
-    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=30231877
+Current version: 11 mars 2022 10:19
+    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=30261022
 
 """
 
@@ -428,7 +428,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     transcription = transcription + en_arabe["â"]
             elif a_traiter == "@":
                 # ta arbouta : précédé de 'a' implicite, sauf quand derrière une voyelle longue
-                if texte[curseur - 1] not in ["â", "î", "û", "_"]:
+                if texte[curseur - 1] not in ["â", "î", "û", "_"] and diacritiques:
                     transcription += en_arabe["a"]
                 transcription += en_arabe["@"]
             elif a_traiter == "é":
