@@ -9414,9 +9414,11 @@ langs = {
     "zkv": "Krevinian",
     "zkz": "Khazar",
     "zle": "East Slavic",
+    "zle-mru": "Middle Russian",
     "zle-obe": "Old Belarusian",
     "zle-ono": "Old Novgorodian",
-    "zle-oru": "Old Russian",
+    "zle-ort": "Old Ruthenian",
+    "zle-oru": "Middle Russian",
     "zle-ouk": "Old Ukrainian",
     "zls": "South Slavic",
     "zlw": "West Slavic",
@@ -9522,5 +9524,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,517
+}  # 9,519
 # END
