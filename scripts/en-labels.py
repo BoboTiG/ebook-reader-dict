@@ -71,6 +71,7 @@ url = "https://en.wiktionary.org/wiki/Module:labels/data"
 repl = (
     "aliases",
     "alias_of",
+    "category",
     "labels",
     "deprecated",
     "display",
@@ -86,6 +87,7 @@ repl = (
     "special_display",
     "topical_categories",
     "track",
+    "wikipedia",
     "Wikipedia",
 )
 stop_line = "# Regional labels"
@@ -146,17 +148,6 @@ for li in lis:
     if not li.text.endswith("documentation"):
         href = li.find("a")["href"]
         page_url = root_url + href
-        repl = (
-            "regional_categories",
-            "special_display",
-            "display",
-            "Wikipedia",
-            "plain_categories",
-            "language",
-            "track",
-            "wikipedia",
-            "category",
-        )
         stop_line = "return"
         var_name = "labels_subvarieties"
         results |= process_page(page_url, repl, stop_line, var_name, print_result=False)

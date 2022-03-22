@@ -595,6 +595,7 @@ labels_topical = {
     "internet": "Internet",
     "isotope": "physics",
     "jewish law": "Jewish law",
+    "land law": "property law",
     "landforms": "geography",
     "legal": "law",
     "letterpress": "letterpress typography",
@@ -747,7 +748,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 334
+}  # 335
 
 labels_regional = {
     "AU": "Australia",
@@ -1148,6 +1149,7 @@ labels_regional = {
     "Mingəçevir": "Mingachevir",
     "Mirandolese": "Mirandola",
     "Mississippian": "Mississippi",
+    "Missourian": "Missouri",
     "Modenese": "Modena",
     "Mokheuri": "Khevi",
     "Mokhevi": "Khevi",
@@ -1225,6 +1227,7 @@ labels_regional = {
     "Odrin": "Edirne",
     "Ohioan": "Ohio",
     "Old Julfa": "Julfa",
+    "Old Russian": "Middle Russian",
     "Oltenian": "Oltenia",
     "Omani": "Oman",
     "Oomram": "Föhr-Amrum",
@@ -1480,7 +1483,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 730
+}  # 732
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -1526,6 +1529,7 @@ labels_subvarieties = {
     "Ardasheni": "Artasheni",
     "Ardeshen": "Artasheni",
     "Ardeşen": "Artasheni",
+    "Areš": "Aresh",
     "Arhavi": "Arkabi",
     "Arkabuli": "Arkabi",
     "Arkhavi": "Arkabi",
@@ -2539,5 +2543,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,056
+}  # 1,057
 # END
