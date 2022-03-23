@@ -605,6 +605,14 @@ form_of_templates = {
         "text": "Romanization of",
         "dot": False,
     },
+    "scribal abbreviation of": {
+        "text": "Scribal abbreviation of",
+        "dot": True,
+    },
+    "scrib of": {
+        "text": "Scribal abbreviation of",
+        "dot": True,
+    },
     "short for": {
         "text": "Short for",
         "dot": True,
@@ -705,5 +713,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 175
+}  # 177
 # END

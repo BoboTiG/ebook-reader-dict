@@ -640,6 +640,7 @@ langs = {
     "ttt": "tat meridional",
     "tum": "tumbuka",
     "tvl": "tuvalià",
+    "tvx": "taivoà",
     "tw": "twi",
     "twq": "tasawaq",
     "ty": "tahitià",
@@ -670,6 +671,7 @@ langs = {
     "was": "washo",
     "wbp": "warlpiri",
     "wo": "wòlof",
+    "wuh": "wutun",
     "wuu": "xinès wu",
     "wym": "vilamovià",
     "xaa": "àrab andalusí",
@@ -716,5 +718,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 711
+}  # 713
 # END
