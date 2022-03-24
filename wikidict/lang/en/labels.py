@@ -2057,6 +2057,7 @@ labels_subvarieties = {
     "Oǹdó": "Ondo",
     "P'yŏng'an": "Pyongan",
     "P'yŏngan": "Pyongan",
+    "PNI": "Proto-Northern Iroquoian",
     "PalA": "Palmyrene",
     "Palatinate German": "Palatine",
     "Palatine German": "Palatine",
@@ -2543,5 +2544,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,057
+}  # 1,058
 # END

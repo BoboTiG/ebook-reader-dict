@@ -3354,6 +3354,8 @@ langs = {
     "iro": "Iroquoian",
     "iro-ere": "Erie",
     "iro-min": "Mingo",
+    "iro-omo": "Old Mohawk",
+    "iro-oon": "Old Onondaga",
     "iro-pro": "Proto-Iroquoian",
     "irr": "Ir",
     "iru": "Irula",
@@ -9524,5 +9526,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,519
+}  # 9,521
 # END

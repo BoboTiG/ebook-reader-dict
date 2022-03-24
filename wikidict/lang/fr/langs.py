@@ -2717,7 +2717,7 @@ langs = {
     "kwh": "kowiai",
     "kwi": "awa pit",
     "kwj": "kwanga",
-    "kwk": "kwakiutl",
+    "kwk": "kwak’wala",
     "kwn": "kwangali",
     "kwo": "kwomtari",
     "kwp": "kodia",
