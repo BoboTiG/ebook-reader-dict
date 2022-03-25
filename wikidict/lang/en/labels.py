@@ -154,6 +154,7 @@ labels = {
     "self-deprecating": "self-deprecatory",
     "seong-eo": "set phrase from Classical Chinese",
     "setesdal": "Setesdal",
+    "sigla": "siglum",
     "singulare tantum": "singular only",
     "stative verb": "stative",
     "student slang": "college slang",
@@ -172,7 +173,7 @@ labels = {
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
-}  # 167
+}  # 168
 
 label_syntaxes = {
     "&": {

@@ -3354,6 +3354,9 @@ langs = {
     "iro": "Iroquoian",
     "iro-ere": "Erie",
     "iro-min": "Mingo",
+    "iro-nor": "North Iroquoian",
+    "iro-nor-pro": "Proto-North Iroquoian",
+    "iro-ohu": "Old Wendat",
     "iro-omo": "Old Mohawk",
     "iro-oon": "Old Onondaga",
     "iro-pro": "Proto-Iroquoian",
@@ -8567,6 +8570,7 @@ langs = {
     "wdd": "Wandji",
     "wdg": "Wadaginam",
     "wdj": "Wadjiginy",
+    "wdt": "Wendat",
     "wdu": "Wadjigu",
     "wdy": "Wadjabangayi",
     "wea": "Wewaw",
@@ -9526,5 +9530,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,521
+}  # 9,525
 # END
