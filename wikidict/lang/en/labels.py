@@ -107,9 +107,14 @@ labels = {
     "jussive mood": "jussive",
     "leet": "leetspeak",
     "literal": "literally",
+    "litote": "litotes",
+    "litotic": "litotes",
+    "litotical": "litotes",
     "mainly": "chiefly",
     "male speech": "men's speech",
     "mediopassive": "in the mediopassive",
+    "meioses": "meiosis",
+    "meiotic": "meiosis",
     "metaphor": "figuratively",
     "metaphorical": "figuratively",
     "metaphorically": "figuratively",
@@ -173,7 +178,7 @@ labels = {
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
-}  # 168
+}  # 173
 
 label_syntaxes = {
     "&": {
