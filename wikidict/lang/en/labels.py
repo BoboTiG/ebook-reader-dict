@@ -139,6 +139,8 @@ labels = {
     "pejorative": "derogatory",
     "plurale tantum": "plural only",
     "pluralonly": "plural only",
+    "possessional adjective": "possessional",
+    "possessional adjectives": "possessional",
     "possessive pronoun": "possessive",
     "post-classical": "post-Classical",
     "postclassical": "post-Classical",
@@ -178,7 +180,7 @@ labels = {
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
-}  # 173
+}  # 175
 
 label_syntaxes = {
     "&": {

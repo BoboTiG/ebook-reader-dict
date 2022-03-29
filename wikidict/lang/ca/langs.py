@@ -370,6 +370,7 @@ langs = {
     "loz": "lozi",
     "lrc": "luri septentrional",
     "lt": "lituà",
+    "ltc": "xinès mitjà",
     "ltg": "latgalià",
     "lu": "luba-katanga",
     "lua": "luba-lulua",
@@ -718,5 +719,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 713
+}  # 714
 # END

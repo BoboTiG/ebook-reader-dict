@@ -1921,6 +1921,7 @@ langs = {
     "gwe": "gweno",
     "gwi": "gwich’in",
     "gwj": "gǀui",
+    "gwn": "gwandara",
     "gwr": "gwere",
     "gwt": "gawar-bati",
     "gwu": "guwamu",
@@ -6285,7 +6286,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,280
+}  # 6,281
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
