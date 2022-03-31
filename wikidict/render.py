@@ -50,13 +50,21 @@ def find_definitions(
     word: str, parsed_sections: Sections, locale: str
 ) -> List[Definitions]:
     """Find all definitions, without eventual subtext."""
-    definitions = list(
-        chain.from_iterable(
-            find_section_definitions(word, section, locale)
-            for sections in parsed_sections.values()
-            for section in sections
-        )
-    )
+
+    POS = ''
+    definitions=[]
+    i=0
+    for sections in parsed_sections.values():
+        i+=1
+        for section in sections:
+            if locale in ('fr', 'de', 'ru') and '|' in section.title:
+                POS = section.title.replace('}}', '').split('|')[1]
+            elif locale == 'es':
+                POS = section.title.replace('{{', '').split('|')[0]
+            else:
+                POS = section.title.strip()
+            definitions.append(find_section_definitions(word, section, locale, POS=POS))
+    definitions = chain.from_iterable(definitions)
     if not definitions:
         return []
 
@@ -66,7 +74,7 @@ def find_definitions(
 
 
 def find_section_definitions(
-    word: str, section: wtp.Section, locale: str
+    word: str, section: wtp.Section, locale: str, POS=''
 ) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: List[Definitions] = []
@@ -104,9 +112,9 @@ def find_section_definitions(
                 # [SV] Skip almost empty definitions
                 if not definition or (locale == "sv" and len(definition) < 2):
                     continue
-
-                # Keep the definition ...
-                definitions.append(definition)
+                
+                # Keep the definition ... and the title which is often the POS! (except german and russian)
+                definitions.append(str(POS) +': '+ definition)
 
                 # ... And its eventual sub-definitions
                 subdefinitions: List[SubDefinitions] = []
@@ -185,6 +193,13 @@ def find_etymology(
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         definitions.append(process_templates(word, clean(etyl), locale))
         return definitions
+    elif locale == 'ru':
+
+        section_title = parsed_section.title.strip()
+        if section_title == 'Этимология':
+            definitions.append(process_templates(word, clean(parsed_section.contents), locale))
+        return definitions
+
     tables = parsed_section.tables
     tableindex = 0
     for section in parsed_section.get_lists():
@@ -231,7 +246,6 @@ def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
     match = pattern.search(code)
     if not match:
         return []
-
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
@@ -268,10 +282,11 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
                 )
             )
 
-    def section_title(title: str) -> str:
-        if locale == "de":
-            title = title.split("(")[-1].strip(" )")
-        return title.replace(" ", "").lower().strip()
+    def section_title(title: str, locale='de') -> str:
+        if type(title)==str:    
+            if locale == "de":
+                title = title.split("(")[-1].strip(" )")
+            return title.replace(" ", "").lower().strip()
 
     # Get interesting top sections
     top_sections = [
@@ -280,7 +295,6 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
         if section_title(section.title) in head_sections[locale]
     ]
 
-    # Get _all_ sections without any filtering
     all_sections.extend(
         (
             (section.title.strip(), section)
@@ -313,6 +327,26 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     """
     code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
 
+    #cleans up subdefs here
+    if locale in ('de', 'ru'):
+        code = re.sub(r"(\s:)(\[a\]\s)", r' \2', code)
+        code = re.sub(r"(\s::)(\[[a-z]\]\s)", r' \2', code)    
+    if locale == 'ru':
+        j=''
+        for i in code.split('Значение'):
+            a = i.find(('Морфологические и синтаксические свойства'))
+            b = i[(i.find('{{', a)+2):(i.find('}}', a))]
+            c = b.replace('-', ' ')
+            c = c.split(' ')[0]
+            gender_ru = ''
+            d = re.search(r'[fmn]\s', b)
+            if c == 'сущ' and d:
+                gender_ru = '|' + str(d.group()[0])
+            i+= 'Значение|' + c + gender_ru
+            j+=i
+            extra = -len('Значение|' + c + gender_ru)
+        code = j[:extra]
+
     if locale == "de":
         # {{Bedeutungen}} -> === {{Bedeutungen}} ===
         code = re.sub(
@@ -323,6 +357,18 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         )
         # Definition lists are not well supported by the parser, replace them by numbered lists
         code = re.sub(r":\[\d+\]\s*", "# ", code)
+    if locale == 'de':
+        j=''
+        for i in code.split('Bedeutungen'):
+            extra = None
+            a = i.find('Wortart')
+            if a !=(-1):
+                b = i[a:].split('|')[1]
+                i+= 'Bedeutungen|' + b
+                j+=i
+                extra = -len('Bedeutungen|' + b)
+
+        code = j[:extra]
 
     elif locale == "it":
         # {{-avv-|it}} -> === {{avv}} ===

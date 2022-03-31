@@ -14,11 +14,14 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
+#
+section_level = 2
+subsection_level=3
 head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
-    "{{Bedeutungen}",
+    "{{Bedeutungen|",
     "{{Grundformverweis ",
     "{{Alte Schreibweise|",
 )

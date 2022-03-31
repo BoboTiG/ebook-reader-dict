@@ -2,20 +2,21 @@
 import re
 from typing import Any, Callable, Dict, Pattern, Tuple, TypeVar
 
-from . import ca, de, defaults, el, en, es, fr, it, no, pt, sv
+from . import ca, de, defaults, el, en, es, fr, it, no, pt, sv, ru
 from .ca.langs import langs as CA
 from .el.langs import langs as EL
 from .en.langs import langs as EN
 from .es.langs import langs as ES
 from .fr.langs import langs as FR
 from .pt.langs import langs as PT
+from .ru.langs import langs as RU
 
 
 #
 # Start of manual edition allowed.
 #
 
-_ALL_LOCALES = (ca, de, el, en, es, fr, it, no, pt, sv)
+_ALL_LOCALES = (ca, de, el, en, es, fr, it, no, pt, sv, ru)
 
 
 # A list of all languages translated into different locales
@@ -26,10 +27,12 @@ all_langs = {
     "es": ES,
     "fr": FR,
     "pt": PT,
+    "ru": RU,
 }
 
 # The template name dealing with files in the Wikicode (multi locales).
 # [[PATTERN:...|...]]
+#TODO RU?
 pattern_file = (
     "Archivo",
     "Categoría",
