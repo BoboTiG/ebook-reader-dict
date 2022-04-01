@@ -1670,6 +1670,7 @@ langs = {
     "gal": "galoli",
     "galaïco-portugais": "galaïco-portugais",
     "gallo": "gallo",
+    "gallo-italique de Sicile": "gallo-italique de Sicile",
     "gan": "gan",
     "gao": "gants",
     "gao de Dongkou": "gao de Dongkou",
@@ -6286,7 +6287,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,281
+}  # 6,282
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
