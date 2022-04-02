@@ -2358,6 +2358,7 @@ labels_subvarieties = {
     "Wenzhounese": "Wenzhou Wu",
     "West Arabian": "Hejazi",
     "West Central Scots": "West Central",
+    "West Cork": "Cork",
     "West Country English": "West Country",
     "West Country dialect": "West Country",
     "West Midland ME": "West Midlands",
@@ -2365,6 +2366,7 @@ labels_subvarieties = {
     "West Midlands English": "West Midlands",
     "West Midlands ME": "West Midlands",
     "West Midlands dialect": "West Midlands",
+    "West Muskerry": "Cork",
     "West Norse": "Old West Norse",
     "West Palatine": "Westpfälzisch",
     "West Pomeranian LG": "Western Pomeranian",
@@ -2410,6 +2412,7 @@ labels_subvarieties = {
     "daytshmerish": "Daytshmerish",
     "early ME": "Early Middle English",
     "ebonics": "African-American Vernacular",
+    "eshin": "exted shinjitai",
     "fromOAOB": "from Old Assyrian/Old Babylonian on",
     "fromOAkk": "from Old Akkadian on",
     "fromOB": "from Old Babylonian on",
@@ -2552,5 +2555,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,058
+}  # 1,061
 # END
