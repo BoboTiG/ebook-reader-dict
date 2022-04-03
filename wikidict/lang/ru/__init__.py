@@ -6,7 +6,7 @@ from typing import Tuple
 pronunciation = r"(?:transcriptions-ru.)(\w*)" #TODO need to expand template for russian Произношение (rn just get stem)
 
 # Regexp pour trouver le gender
-gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])" #works after applying filter to code via Морфологические и синтаксические свойства https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
+gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])" # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
 
 # Séparateur des nombres à virgule
 float_separator = ","
@@ -85,113 +85,12 @@ def last_template_handler(
  
     from .langs import langs
     from ..defaults import last_template_handler as default
-    from ...user_functions import (
-        chinese,
-        extract_keywords_from,
-        italic,
-        person,
-        term,
-    )
     from .template_handlers import render_template, lookup_template
 
     if lookup_template(template[0]):
         return render_template(template)
 
     tpl, *parts = template
-    data = extract_keywords_from(parts)
-
-    if tpl.startswith("Citation/"):
-        parts = tpl.split("/")[1:]
-        author = person(word, parts.pop(0).split(" ", 1))
-        book = parts.pop(0) if parts else ""
-        date = parts.pop(0) if parts else ""
-        if "|" in date:
-            date, page = date.split("|")
-        else:
-            page = ""
-        if not date and not book:
-            return author
-        if not date:
-            return italic(book)
-        if not page:
-            return f"{author}, {italic(book)}, {date}"
-        return f"{author}, {italic(book)}, {date}, page {page}"
-
-    if tpl == "Citation bloc":
-        return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
-
-    if tpl == "code langue":
-        lang = parts[0]
-        for code, l10n in langs.items():
-            if l10n == lang:
-                return code
-        return ""
-
-    if tpl in ("ellipse", "par ellipse"):
-        return (
-            term("Par ellipse")
-            if not data["de"]
-            else f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
-        )
-
-    if tpl == "R:DAF6":
-        w = parts[0] if parts else word
-        return f"«&nbsp;{w}&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835"
-
-    if tpl == "R:TLFi":
-        w = parts[0] if parts else word
-        return f"«&nbsp;{w}&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994"
-
-    if tpl == "fr-verbe-flexion":
-        return data.get("1", parts[0] if parts else "")
-
-    if tpl.startswith(("fr-accord-", "fr-rég")):
-        singular = data["s"] or data["ms"]
-        if tpl == "fr-accord-eau":
-            singular = parts[0] + "eau"
-        elif tpl == "fr-accord-eux":
-            singular = parts[0] + "eux"
-        elif tpl == "fr-accord-mf-al":
-            singular = parts[0] + "al"
-        elif not singular:
-            singular = word.rstrip("s")
-        if data["inv"]:
-            singular += f" {data['inv']}"
-        return singular
-
-    if tpl == "Légifrance":
-        return data["texte"]
-
-    if tpl in ("langue", "nom langue"):
-        phrase = langs[parts[0]]
-        if tpl == "langue":
-            phrase = phrase[0].capitalize() + phrase[1:]
-        return phrase
-
-    if tpl in ("ar-mot", "ar-terme"):
-        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
-    if tpl == "ar-ab":
-        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
-
-    if tpl == "rouge":
-        prefix_style = "background-" if data["fond"] == "1" else ""
-        phrase = parts[0] if parts else data["texte"] or data["1"]
-        return f'<span style="{prefix_style}color:red">{phrase}</span>'
-
-    if tpl in ("Wikipedia", "Wikipédia", "wikipédia", "wp", "WP"):
-        start = ""
-        if parts:
-            start = parts[1] if len(parts) > 1 else parts[0]
-        elif word:
-            start = word
-        phrase = "sur l’encyclopédie Wikipédia"
-        if data["lang"]:
-            l10n = langs[data["lang"]]
-            phrase += f" (en {l10n})"
-        return f"{start} {phrase}" if start else phrase
-
-    if tpl in ("zh-l", "zh-m"):
-        return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
 
     # This is a country in the current locale
     if tpl in langs:

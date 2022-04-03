@@ -274,7 +274,7 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
                 )
             )
 
-    def section_title(title: str, locale='de') -> str:  
+    def section_title(title: str) -> str:
         if locale == "de":
             title = title.split("(")[-1].strip(" )")
         return title.replace(" ", "").lower().strip()

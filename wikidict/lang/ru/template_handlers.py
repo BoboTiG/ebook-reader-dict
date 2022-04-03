@@ -3,7 +3,6 @@ from typing import Tuple, Dict, List
 from .. import defaults
 from ...user_functions import (
     extract_keywords_from,
-    italic,
 )
 
 import requests
@@ -25,48 +24,10 @@ def get_ru_example(tpl:str, parts: List[str], data: Dict[str,str]) -> str:
         return ('. (Пример: ' + data['текст'] + ')')
     return '' 
 
-def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    """
-    >>> render_wikisource("ws", ["Les Grenouilles qui demandent un Roi"], defaultdict(str))
-    'Les Grenouilles qui demandent un Roi'
-    >>> render_wikisource("ws", ["Bible Segond 1910/Livre de Daniel", "Livre de Daniel"], defaultdict(str))
-    'Livre de Daniel'
-    >>> render_wikisource("ws", ["ADB:Emmerling, Ludwig August", "Ludwig August Emmerling"], defaultdict(str, {"lang":"de"}))
-    'Ludwig August Emmerling'
-    >>> render_wikisource("ws", ["ADB:Emmerling, Ludwig August"], defaultdict(str, {"lang":"de", "Ludwig August <span style": "'font-variant:small-caps'>Emmerling</span>"}))
-    "Ludwig August <span style='font-variant:small-caps'>Emmerling</span>"
-    """  # noqa
-    phrase = parts[-1]
-    if data:
-        # Possible imbricated templates: {{ws| {{pc|foo bar}} }}
-        potential_phrase = "".join(f"{k}={v}" for k, v in data.items() if k != "lang")
-        if potential_phrase:
-            phrase = potential_phrase
-    return phrase
-
-
-def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    """
-    >>> render_zh_lien("zh-lien", ["人", "rén"], defaultdict(str))
-    '人 (<i>rén</i>)'
-    >>> render_zh_lien("zh-lien", ["马", "mǎ", "馬"], defaultdict(str))
-    '马 (馬, <i>mǎ</i>)'
-    >>> render_zh_lien("zh-lien", ["骨", "gǔ", "骨"], defaultdict(str))
-    '骨 (骨, <i>gǔ</i>)'
-    """
-    simple = parts.pop(0)
-    pinyin = italic(parts.pop(0))
-    traditional = parts[0] if parts else ""
-    if not traditional:
-        return f"{simple} ({pinyin})"
-    return f"{simple} ({traditional}, {pinyin})"
-
 
 template_mapping = {
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
-    "ws": render_wikisource,
-    "zh-lien": render_zh_lien,
     "этимология":get_ru_etymology,
     "пример":get_ru_example,
 }
