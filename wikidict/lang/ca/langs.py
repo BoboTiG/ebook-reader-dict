@@ -85,6 +85,7 @@ langs = {
     "bla": "blackfoot",
     "bm": "bambara",
     "bn": "bengalí",
+    "bnt-pro": "protobantu",
     "bo": "tibetà",
     "br": "bretó",
     "bra": "braj",
@@ -468,6 +469,7 @@ langs = {
     "nym": "nyamwesi",
     "nyn": "nyankole",
     "nyo": "nyoro",
+    "nzd": "nzadi",
     "nzi": "nzema",
     "oc": "occità",
     "odt": "neerlandès antic",
@@ -719,5 +721,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 714
+}  # 716
 # END
