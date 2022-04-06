@@ -8,28 +8,29 @@ from ...user_functions import (
 import requests
 from bs4 import BeautifulSoup
 
-#for etymology content, need to run code to get text from other wiktionary page
+# for etymology content, need to run code to get text from other wiktionary page
 def get_ru_etymology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    url = 'https://ru.wiktionary.org/wiki/Шаблон:' + tpl +":"+ parts[0].split("|")[0]
+    url = "https://ru.wiktionary.org/wiki/Шаблон:" + tpl + ":" + parts[0].split("|")[0]
     page = requests.get(url).content
     soup = BeautifulSoup(page, features="html.parser")
-    content = soup.find('div', class_='mw-parser-output')
-    output = content.getText() 
+    content = soup.find("div", class_="mw-parser-output")
+    output = content.getText()
     return output
 
-def get_ru_example(tpl:str, parts: List[str], data: Dict[str,str]) -> str:
+
+def get_ru_example(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if len(parts) > 0:
-        return ('. (Пример: ' + parts[0] + ')')
-    elif 'текст' in data.keys():
-        return ('. (Пример: ' + data['текст'] + ')')
-    return '' 
+        return ". (Пример: " + parts[0] + ")"
+    elif "текст" in data.keys():
+        return ". (Пример: " + data["текст"] + ")"
+    return ""
 
 
 template_mapping = {
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
-    "этимология":get_ru_etymology,
-    "пример":get_ru_example,
+    "этимология": get_ru_etymology,
+    "пример": get_ru_example,
 }
 
 

@@ -32,7 +32,7 @@ all_langs = {
 
 # The template name dealing with files in the Wikicode (multi locales).
 # [[PATTERN:...|...]]
-#TODO RU?
+# TODO RU?
 pattern_file = (
     "Archivo",
     "Categoría",

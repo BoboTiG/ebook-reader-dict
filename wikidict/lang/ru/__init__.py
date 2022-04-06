@@ -1,12 +1,12 @@
-#https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution
+# https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution
 """Russian language."""
 from typing import Tuple
 
 # Regex pour trouver la prononciation
-pronunciation = r"(?:transcriptions-ru.)(\w*)" #TODO need to expand template for russian Произношение (rn just get stem)
+pronunciation = r"(?:transcriptions-ru.)(\w*)"  # TODO need to expand template for russian Произношение (rn just get stem)
 
 # Regexp pour trouver le gender
-gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])" # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
+gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"  # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
 
 # Séparateur des nombres à virgule
 float_separator = ","
@@ -19,10 +19,10 @@ thousands_separator = " "
 # Pour récupérer la liste complète des sections :
 #     python -m wikidict fr --find-templates
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
-#section_patterns = (r"\#", r"\*")
+# section_patterns = (r"\#", r"\*")
 section_level = 1
-section_sublevels = (3,4)
-head_sections = ("{{-ru-}}")
+section_sublevels = (3, 4)
+head_sections = "{{-ru-}}"
 etyl_section = ("Этимология",)
 
 sections = (
@@ -31,29 +31,26 @@ sections = (
     "Семантические свойства",
     "{{Значение}}",
     "{{Семантические свойства}}",
-    "Морфологические и синтаксические свойства"
+    "Морфологические и синтаксические свойства",
 )
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
-     # Modèles spéciaux
- )
+    # Modèles spéciaux
+)
 
 # Malgré tout, même si une définition est sur le point d'être ignorée (via definitions_to_ignore),
 # alors ces mots seront tout de même conservés.
 # https://fr.wikipedia.org/wiki/Pluriels_irr%C3%A9guliers_en_fran%C3%A7ais
-words_to_keep = (
-)
+words_to_keep = ()
 
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
-templates_ignored = (
-)
+templates_ignored = ()
 
 # Modèles qui seront remplacés par du texte italique.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
-templates_italic = {
-}
+templates_italic = {}
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
 # Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
@@ -71,18 +68,16 @@ templates_italic = {
 #
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
 #   html/wikidict/user_functions.html
-templates_multi = {
-}
+templates_multi = {}
 
 # Modèles qui seront remplacés par du texte personnalisé.
-templates_other = {
-}
+templates_other = {}
 
 
 def last_template_handler(
     template: Tuple[str, ...], locale: str, word: str = ""
 ) -> str:
- 
+
     from .langs import langs
     from ..defaults import last_template_handler as default
     from .template_handlers import render_template, lookup_template

@@ -104,7 +104,7 @@ def find_section_definitions(
                 # [SV] Skip almost empty definitions
                 if not definition or (locale == "sv" and len(definition) < 2):
                     continue
-                
+
                 # Keep the definition
                 definitions.append(definition)
 
@@ -185,11 +185,13 @@ def find_etymology(
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         definitions.append(process_templates(word, clean(etyl), locale))
         return definitions
-    elif locale == 'ru':
+    elif locale == "ru":
 
         section_title = parsed_section.title.strip()
-        if section_title == 'Этимология':
-            definitions.append(process_templates(word, clean(parsed_section.contents), locale))
+        if section_title == "Этимология":
+            definitions.append(
+                process_templates(word, clean(parsed_section.contents), locale)
+            )
         return definitions
 
     tables = parsed_section.tables
