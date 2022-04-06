@@ -287,6 +287,7 @@ langs = {
     "jam": "crioll anglès de Jamaica",
     "jbo": "lojban",
     "jgo": "ngomba",
+    "jje": "jeju",
     "jmc": "machame",
     "jpr": "judeopersa",
     "jrb": "judeoàrab",
@@ -622,7 +623,7 @@ langs = {
     "tig": "tigre",
     "tiv": "tiv",
     "tk": "turcman",
-    "tkl": "tokelauès",
+    "tkl": "tokelauà",
     "tkr": "tsakhur",
     "tl": "tagal",
     "tlh": "klingon",
@@ -721,5 +722,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 716
+}  # 717
 # END

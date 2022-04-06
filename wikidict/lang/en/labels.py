@@ -51,6 +51,7 @@ labels = {
     "coarse": "vulgar",
     "cognate object": "with cognate object",
     "colloquially": "colloquial",
+    "commonly": "often",
     "control": "control verb",
     "copular": "copulative",
     "cosmo": "advertising slang",
@@ -180,7 +181,7 @@ labels = {
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
-}  # 175
+}  # 176
 
 label_syntaxes = {
     "&": {
@@ -224,6 +225,11 @@ label_syntaxes = {
         "omit_preSpace": False,
     },
     "chiefly": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+    "commonly": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
@@ -418,7 +424,7 @@ label_syntaxes = {
         "omit_preComma": True,
         "omit_preSpace": False,
     },
-}  # 47
+}  # 48
 
 labels_topical = {
     "AI": "artificial intelligence",
