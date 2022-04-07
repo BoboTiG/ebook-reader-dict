@@ -6917,6 +6917,7 @@ langs = {
     "sai-cah": "Cahuapanan",
     "sai-caq": "Caranqui",
     "sai-car": "Cariban",
+    "sai-car-pro": "Proto-Cariban",
     "sai-cat": "Catacao",
     "sai-cer": "Cerrado",
     "sai-cer-pro": "Proto-Cerrado",
@@ -9530,5 +9531,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,525
+}  # 9,526
 # END
