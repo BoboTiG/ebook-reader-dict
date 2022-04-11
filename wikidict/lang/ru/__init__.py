@@ -95,19 +95,19 @@ def last_template_handler(
 
 
 # Contenu de la release sur GitHub :
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
 release_description = """\
-Nombre de mots : {words_count}
-Export Wiktionnaire : {dump_date}
+Количество слов : {words_count}
+Экспорт Викисловаря : {dump_date}
 
-Fichiers disponibles :
+Доступные файлы :
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
-<sub>Mis à jour le {creation_date}</sub>
+<sub>Обновлено по {creation_date}</sub>
 """  # noqa
 
 # Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
-wiktionary = "Wiktionnaire (ɔ) {year}"
+wiktionary = "Викисловарь (ɔ) {year}"

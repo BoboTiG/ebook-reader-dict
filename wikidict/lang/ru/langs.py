@@ -2,7 +2,7 @@
 List of languages.
 Auto-generated with `python -m scripts`.
 """
-
+# https://ru.wiktionary.org/wiki/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C:languages/data
 # START
 langs = {
     "abq": "Абазинский ",

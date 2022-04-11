@@ -3,12 +3,13 @@ import pytest
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
+
 @pytest.mark.parametrize(
     "word, pronunciations, gender, etymology, definitions, variants",
     [
         (
             "страница",
-            ["\\страни\\"],
+            ["страни"],
             "f",
             [
                 "Происходит от страна, из церк.-слав. страна, далее из праслав.\xa0*storna, от кот. в числе прочего произошли: др.-русск. сторона, ст.-слав. страна (др.-греч. χώρα, περίχωρος), русск., укр. сторона́, болг. страна́, сербохорв. стра́на (вин. стра̑ну), словенск. strána, чешск., словацк. strana, польск. strona, в.-луж., н.-луж. strona, полабск. stárna"
@@ -25,8 +26,9 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-
-def test_parse_word(word, pronunciations, gender, etymology, definitions, variants, page):
+def test_parse_word(
+    word, pronunciations, gender, etymology, definitions, variants, page
+):
     """Test the sections finder and definitions getter."""
     code = page(word, "ru")
     details = parse_word(word, code, "ru", force=True)
@@ -46,7 +48,6 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, varian
         ),
     ],
 )
-
 def test_process_templates(wikicode, expected):
     """Test templates handling."""
     assert process_templates("foo", wikicode, "ru") == expected
