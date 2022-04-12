@@ -2802,6 +2802,7 @@ langs = {
     "gor": "Gorontalo",
     "got": "Gothic",
     "gou": "Gavar",
+    "gov": "Goo",
     "gow": "Gorowa",
     "gox": "Gobu",
     "goy": "Goundo",
@@ -9540,5 +9541,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,535
+}  # 9,536
 # END

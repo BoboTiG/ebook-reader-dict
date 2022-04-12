@@ -5184,6 +5184,7 @@ langs = {
     "tia": "tamazight de Tidikelt",
     "tic": "tira",
     "tid": "tidong",
+    "tiefo de Nyafogo": "tiefo de Nyafogo",
     "tif": "tifal",
     "tig": "tigré",
     "tih": "murut timugon",
@@ -5196,6 +5197,7 @@ langs = {
     "tingalan": "tingalan",
     "tio": "teop",
     "tip": "trimuris",
+    "tiq": "tiefo de Daramandugu",
     "tir": "tigrigna",
     "tis": "itneg des Masadiit",
     "tischlbongarisch": "tischlbongarisch",
@@ -6287,7 +6289,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,282
+}  # 6,284
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
