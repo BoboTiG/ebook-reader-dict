@@ -3,10 +3,12 @@
 from typing import Tuple
 
 # Regex pour trouver la prononciation
-pronunciation = r"(?:transcriptions-ru.)(\w*)"  # TODO need to expand template for russian Произношение (rn just get stem)
+pronunciation = r"(?:transcriptions-ru.)(\w*)"
+# TODO need to expand template for russian Произношение (rn just get stem)
 
 # Regexp pour trouver le gender
-gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"  # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
+gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"
+# https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
 
 # Séparateur des nombres à virgule
 float_separator = ","
