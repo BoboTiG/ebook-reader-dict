@@ -35,22 +35,22 @@ sections = (
 )
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
-definitions_to_ignore = (
-    # Modèles spéciaux
-)
+# definitions_to_ignore = (
+# Modèles spéciaux
+# )
 
 # Malgré tout, même si une définition est sur le point d'être ignorée (via definitions_to_ignore),
 # alors ces mots seront tout de même conservés.
 # https://fr.wikipedia.org/wiki/Pluriels_irr%C3%A9guliers_en_fran%C3%A7ais
-words_to_keep = ()
+# words_to_keep = ()
 
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
-templates_ignored = ()
+# templates_ignored = ()
 
 # Modèles qui seront remplacés par du texte italique.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
-templates_italic = {}
+# templates_italic = {}
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
 # Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
@@ -68,10 +68,10 @@ templates_italic = {}
 #
 # Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
 #   html/wikidict/user_functions.html
-templates_multi = {}
+# templates_multi = {}
 
 # Modèles qui seront remplacés par du texte personnalisé.
-templates_other = {}
+# templates_other = {}
 
 
 def last_template_handler(

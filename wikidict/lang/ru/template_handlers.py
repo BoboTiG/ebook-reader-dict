@@ -15,7 +15,7 @@ def get_ru_etymology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     soup = BeautifulSoup(page, features="html.parser")
     content = soup.find("div", class_="mw-parser-output")
     output = content.getText()
-    return output
+    return str(output)
 
 
 def get_ru_example(tpl: str, parts: List[str], data: Dict[str, str]) -> str:

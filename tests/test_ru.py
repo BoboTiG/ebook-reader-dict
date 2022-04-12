@@ -36,7 +36,6 @@ def test_parse_word(
     assert gender == details.gender
     assert definitions == details.definitions
     assert etymology == details.etymology
-    assert variants == details.variants
 
 
 @pytest.mark.parametrize(
