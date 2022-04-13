@@ -45,7 +45,6 @@ def test_parse_word(
     assert variants == details.variants
 
 
-
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
