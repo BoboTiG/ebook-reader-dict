@@ -11,6 +11,7 @@ langs = {
     "ace": "atjeh",
     "ach": "acoli",
     "ada": "adangme",
+    "adx": "amdo",
     "ady": "adigué",
     "ae": "avèstic",
     "aeb": "àrab tunisià",
@@ -577,6 +578,7 @@ langs = {
     "shu": "àrab txadià",
     "si": "singalès",
     "sid": "sidamo",
+    "sit-pro": "protosinotibetà",
     "sjd": "sami de Kildin",
     "sk": "eslovac",
     "sl": "eslovè",
@@ -729,5 +731,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 724
+}  # 726
 # END

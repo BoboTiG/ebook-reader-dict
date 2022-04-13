@@ -7024,6 +7024,7 @@ langs = {
     "sai-tal": "Tallán",
     "sai-tap": "Tapayuna",
     "sai-tar": "Taranoan",
+    "sai-tar-pro": "Proto-Taranoan",
     "sai-teu": "Teushen",
     "sai-tim": "Timote",
     "sai-tpr": "Taparita",
@@ -9541,5 +9542,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,536
+}  # 9,537
 # END
