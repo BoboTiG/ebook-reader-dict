@@ -34,6 +34,8 @@ sections = (
     "{{Значение}}",
     "{{Семантические свойства}}",
     "Морфологические и синтаксические свойства",
+    "Как самостоятельный глагол",  # for verbs with aux
+    "В значении вспомогательного глагола или связки",  # for verbs with aux
 )
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
@@ -48,7 +50,7 @@ sections = (
 
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
-# templates_ignored = ()
+templates_ignored = ("семантика",)
 
 # Modèles qui seront remplacés par du texte italique.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
