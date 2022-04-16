@@ -163,6 +163,7 @@ langs = {
     "dtp": "dusun central",
     "dua": "douala",
     "dum": "neerlandès mitjà",
+    "duo": "agta de Dupaningan",
     "dv": "divehi",
     "dyo": "diola",
     "dyu": "jula",
@@ -689,6 +690,7 @@ langs = {
     "xaa": "àrab andalusí",
     "xal": "calmuc",
     "xaq": "aquità",
+    "xaw": "kawaiisu",
     "xbm": "bretó mitjà",
     "xh": "xhosa",
     "xib": "ibèric",
@@ -731,5 +733,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 726
+}  # 728
 # END
