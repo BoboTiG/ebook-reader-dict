@@ -130,6 +130,7 @@ langs = {
     "chp": "chipewyan",
     "chr": "cherokee",
     "chy": "xeiene",
+    "cim": "cimbrià",
     "ckb": "kurd sorani",
     "cmn": "xinès mandarí",
     "co": "cors",
@@ -198,6 +199,7 @@ langs = {
     "fa_AF": "dari",
     "fan": "fang",
     "fat": "fanti",
+    "fax": "fala",
     "ff": "ful",
     "fi": "finès",
     "fil": "filipí",
@@ -235,6 +237,7 @@ langs = {
     "glk": "gilaki",
     "gmh": "alt alemany mitjà",
     "gml": "baix alemany mitjà",
+    "gmq-osw": "suec antic",
     "gmw-pro": "protogermànic occidental",
     "gn": "guaraní",
     "goh": "alt alemany antic",
@@ -289,6 +292,8 @@ langs = {
     "is": "islandès",
     "ist": "istriot",
     "it": "italià",
+    "itc-ola": "llatí arcaic",
+    "itc-pro": "protoitàlic",
     "iu": "inuktitut",
     "ja": "japonès",
     "jam": "crioll anglès de Jamaica",
@@ -431,6 +436,7 @@ langs = {
     "mus": "creek",
     "mwl": "mirandès",
     "mwr": "marwari",
+    "mxi": "mossàrab",
     "my": "birmà",
     "mye": "myene",
     "myv": "erza",
@@ -733,5 +739,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 728
+}  # 734
 # END
