@@ -504,6 +504,7 @@ labels_topical = {
     "WMF jargon": "Wikimedia jargon",
     "Wiktionary": "Wikimedia jargon",
     "Wiktionary jargon": "Wikimedia jargon",
+    "Yezidism": "Yazidism",
     "alcohol": "alcoholic beverages",
     "altright": "alt-right",
     "amino acid": "biochemistry",
@@ -762,7 +763,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 335
+}  # 336
 
 labels_regional = {
     "AU": "Australia",

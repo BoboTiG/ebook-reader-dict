@@ -3424,7 +3424,7 @@ langs = {
     "msu": "musom",
     "mt": "maltais",
     "mta": "manobo de Cotabato",
-    "mtb": "agni morofou",
+    "mtb": "agni morofoué",
     "mtc": "munit",
     "mtd": "mualang",
     "mte": "mono (Salomon)",
