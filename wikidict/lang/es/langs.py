@@ -626,6 +626,7 @@ langs = {
     "maz": "mazahua central",
     "mcm": "criollo de Malaca",
     "mdf": "moksha",
+    "mdh": "maguindánao",
     "mdr": "mandar",
     "mel": "melanau",
     "men": "mende",
@@ -961,6 +962,7 @@ langs = {
     "so": "somalí",
     "sog": "sondián",
     "son": "songay",
+    "sou": "tailandés meridional",
     "spx": "picénico",
     "sq": "albanés",
     "sqj": "proto-albanés",
@@ -1185,7 +1187,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,180
+}  # 1,182
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
