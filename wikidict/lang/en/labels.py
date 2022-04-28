@@ -181,7 +181,8 @@ labels = {
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
-}  # 176
+    "usually used in the negative": "chiefly in the negative",
+}  # 177
 
 label_syntaxes = {
     "&": {

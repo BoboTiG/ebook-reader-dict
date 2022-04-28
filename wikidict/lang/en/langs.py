@@ -2970,7 +2970,7 @@ langs = {
     "hds": "Honduras Sign Language",
     "hdy": "Hadiyya",
     "he": "Hebrew",
-    "he-IL": "Modern Israeli Hebrew",
+    "he-IL": "Israeli Hebrew",
     "he-med": "Medieval Hebrew",
     "he-mis": "Mishnaic Hebrew",
     "hea": "Northern Qiandong Miao",
