@@ -10,4 +10,4 @@ pytest-cov==3.0.0
 pytest-dependency==0.5.1
 responses==0.20.0
 types-cachetools==5.0.1
-types-requests==2.27.22
+types-requests==2.27.24
