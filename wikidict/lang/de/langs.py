@@ -400,6 +400,8 @@ langs = {
     "oge": "Altgeorgisch",
     "oj": "Ojibwe",
     "om": "Oromo",
+    "one": "Oneida",
+    "ono": "Onondaga",
     "ood": "O'odham",
     "or": "Oriya",
     "orv": "Altostslawisch",
@@ -471,6 +473,7 @@ langs = {
     "scx": "Sikulisch",
     "sd": "Sindhi",
     "se": "Nordsamisch",
+    "see": "Seneca",
     "sei": "Seri",
     "sg": "Sango",
     "sga": "Altirisch",
@@ -533,6 +536,7 @@ langs = {
     "tkl": "Tokelauisch",
     "tl": "Tagalog",
     "tlh": "Klingonisch",
+    "tli": "Tlingit",
     "tmh": "Tamaschek",
     "tn": "Setswana",
     "tnq": "Taíno",
@@ -548,6 +552,7 @@ langs = {
     "ts": "Xitsonga",
     "tt": "Tatarisch",
     "tum": "Tumbuka",
+    "tus": "Tuscarora",
     "tvk": "Südost-Ambrym",
     "tvl": "Tuvaluisch",
     "tw": "Twi",
@@ -625,5 +630,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 620
+}  # 625
 # END
