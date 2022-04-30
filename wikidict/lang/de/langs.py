@@ -96,6 +96,7 @@ langs = {
     "bxr": "Burjatisch",
     "bzg": "Babuza",
     "ca": "Katalanisch",
+    "cay": "Cayuga",
     "ccc": "Chamicuro",
     "cdo": "Min Dong",
     "ce": "Tschetschenisch",
@@ -630,5 +631,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 625
+}  # 626
 # END

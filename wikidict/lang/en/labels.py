@@ -157,6 +157,7 @@ labels = {
     "rare sense": "rare",
     "rare term": "rare",
     "reflexive pronoun": "reflexive",
+    "regal": "royal",
     "sative": "saturative",
     "sectarian slur": "religious slur",
     "self-deprecating": "self-deprecatory",
@@ -182,7 +183,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 177
+}  # 178
 
 label_syntaxes = {
     "&": {
