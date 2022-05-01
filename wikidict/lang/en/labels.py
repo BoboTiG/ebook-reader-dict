@@ -67,6 +67,8 @@ labels = {
     "dysphemism": "dysphemistic",
     "elevated": "higher register",
     "elevated register": "higher register",
+    "emperor": "imperial",
+    "empress": "imperial",
     "euphemism": "euphemistic",
     "except in": "outside",
     "expletive": "swear word",
@@ -183,7 +185,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 178
+}  # 180
 
 label_syntaxes = {
     "&": {
@@ -1743,12 +1745,16 @@ labels_subvarieties = {
     "Flanders": "East and West Flanders",
     "Flemish": "East and West Flanders",
     "Fındıklı": "Vitse",
+    "GTA": "MTE",
+    "GTE": "MTE",
     "Galilean Aramaic": "Jewish Palestinian Aramaic",
     "Gascon": "Gascony",
     "Gbede": "Gbẹdẹ",
     "Geordie": "Tyneside",
     "Gharabagh": "Karabakh",
     "Goral": "Góral",
+    "Greater Toronto Area": "MTE",
+    "Greater Toronto English": "MTE",
     "Groningen": "Gronings",
     "Grunnegs": "Gronings",
     "Grönnegs": "Gronings",
@@ -1972,6 +1978,7 @@ labels_subvarieties = {
     "Mooring dialect": "Mooring",
     "Moselfränkisch": "Moselle Franconian",
     "Multicultural London English": "MLE",
+    "Multicultural Toronto English": "MTE",
     "Mumbai": "Bombay Hindi",
     "Mumbaiya Hindi": "Bombay Hindi",
     "Münster": "Münsterland",
@@ -2564,5 +2571,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,061
+}  # 1,066
 # END
