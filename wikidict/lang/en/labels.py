@@ -164,7 +164,6 @@ labels = {
     "sectarian slur": "religious slur",
     "self-deprecating": "self-deprecatory",
     "seong-eo": "set phrase from Classical Chinese",
-    "setesdal": "Setesdal",
     "sigla": "siglum",
     "singulare tantum": "singular only",
     "stative verb": "stative",
@@ -185,7 +184,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 180
+}  # 179
 
 label_syntaxes = {
     "&": {
@@ -2488,6 +2487,7 @@ labels_subvarieties = {
     "pt-pt form": "European Portuguese",
     "rioplatense": "Rioplatense",
     "roa-oit": "Old Italian",
+    "setesdal": "Setesdal",
     "south German": "Southern German",
     "south Germany": "Southern German",
     "south Hesse": "South Hessian",
@@ -2571,5 +2571,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,066
+}  # 1,067
 # END
