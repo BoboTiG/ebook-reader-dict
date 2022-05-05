@@ -83,6 +83,7 @@ labels = {
     "high register": "higher register",
     "historic": "historical",
     "history": "historical",
+    "humorously": "humorous",
     "hyperbole": "hyperbolic",
     "ideophone": "ideophonic",
     "idiom": "idiomatic",
@@ -184,7 +185,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 179
+}  # 180
 
 label_syntaxes = {
     "&": {
@@ -268,11 +269,6 @@ label_syntaxes = {
         "omit_preSpace": False,
     },
     "highly": {
-        "omit_postComma": True,
-        "omit_preComma": False,
-        "omit_preSpace": False,
-    },
-    "humorously": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
@@ -427,7 +423,7 @@ label_syntaxes = {
         "omit_preComma": True,
         "omit_preSpace": False,
     },
-}  # 48
+}  # 47
 
 labels_topical = {
     "AI": "artificial intelligence",
@@ -456,6 +452,7 @@ labels_topical = {
     "Germanic neopaganism": "Germanic paganism",
     "Go": "go",
     "Greek god": "Greek mythology",
+    "Greek goddess": "Greek mythology",
     "Halacha": "Jewish law",
     "Halachah": "Jewish law",
     "Halakha": "Jewish law",
@@ -494,6 +491,7 @@ labels_topical = {
     "Rastafarianism": "Rastafari",
     "Roman Catholic": "Roman Catholicism",
     "Roman god": "Roman mythology",
+    "Roman goddess": "Roman mythology",
     "Rubik's cubes": "Rubik's Cube",
     "Shamanism": "shamanism",
     "Slavic god": "Slavic mythology",
@@ -762,11 +760,13 @@ labels_topical = {
     "white supremacism": "white supremacist ideology",
     "white supremacist": "white supremacist ideology",
     "white supremacy": "white supremacist ideology",
+    "wind instrument": "music",
+    "wind instruments": "music",
     "yoga pose": "yoga",
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 336
+}  # 340
 
 labels_regional = {
     "AU": "Australia",
@@ -1859,9 +1859,9 @@ labels_subvarieties = {
     "JBA": "Jewish Babylonian Aramaic",
     "JLA": "Jewish Literary Aramaic",
     "JPA": "Jewish Palestinian Aramaic",
-    "Jamaica": "Jamaican",
-    "Jamaican English": "Jamaican",
-    "Jamaican Standard English": "Jamaican",
+    "Jamaican": "Jamaica",
+    "Jamaican English": "Jamaica",
+    "Jamaican Standard English": "Jamaica",
     "Ji-Lu Mandarin": "Jilu Mandarin",
     "Jiang-Huai Mandarin": "Jianghuai Mandarin",
     "Jiao-Liao Mandarin": "Jiaoliao Mandarin",
@@ -2030,6 +2030,9 @@ labels_subvarieties = {
     "North-Central Vietnam": "North Central Vietnam",
     "North-Central Vietnamese": "North Central Vietnam",
     "Northeast Central Scots": "Northeast Central",
+    "Northeast Vietnam": "Northeastern Vietnam",
+    "Northeast Vietnamese": "Northeastern Vietnam",
+    "Northeastern Vietnamese": "Northeastern Vietnam",
     "Northern Central Vietnam": "North Central Vietnam",
     "Northern Central Vietnamese": "North Central Vietnam",
     "Northern Dutch": "Northern",
@@ -2460,7 +2463,11 @@ labels_subvarieties = {
     "north central Vietnamese": "North Central Vietnam",
     "north-central Vietnam": "North Central Vietnam",
     "north-central Vietnamese": "North Central Vietnam",
+    "northeast Vietnam": "Northeastern Vietnam",
+    "northeast Vietnamese": "Northeastern Vietnam",
     "northeastern Mandarin": "Northeastern Mandarin",
+    "northeastern Vietnam": "Northeastern Vietnam",
+    "northeastern Vietnamese": "Northeastern Vietnam",
     "northern German": "Northern Germany",
     "northern Germany": "Northern Germany",
     "northern Italian": "northern Italy",
@@ -2571,5 +2578,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,067
+}  # 1,074
 # END
