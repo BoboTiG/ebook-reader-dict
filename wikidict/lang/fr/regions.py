@@ -259,6 +259,7 @@ regions = {
     "Monténégro": "Monténégro",
     "Moselle": "Moselle",
     "Munster": "Munster",
+    "Murcie": "Murcie",
     "NE": "Niger",
     "NL": "Pays-Bas",
     "NZ": "Nouvelle-Zélande",
@@ -365,6 +366,7 @@ regions = {
     "Sologne": "Sologne",
     "Somerset": "Somerset",
     "Sonsorol": "Sonsorol",
+    "Sotavento": "Sotavento",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
     "Sud du Viêt Nam": "Sud du Viêt Nam",
@@ -436,7 +438,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 431
+}  # 433
 # END
 
 # handled differently

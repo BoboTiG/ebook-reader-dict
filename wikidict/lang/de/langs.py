@@ -593,6 +593,7 @@ langs = {
     "wo": "Wolof",
     "wuu": "Wu",
     "wym": "Wilmesaurisch",
+    "wyn": "Wyandot",
     "xaa": "Andalusisches Arabisch",
     "xae": "Äquisch",
     "xal": "Kalmückisch",
@@ -631,5 +632,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 626
+}  # 627
 # END
