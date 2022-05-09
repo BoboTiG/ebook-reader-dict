@@ -6635,6 +6635,7 @@ langs = {
     "pyu": "Puyuma",
     "pyx": "Tircul",
     "pyy": "Pyen",
+    "pzh": "pazeh",
     "pzn": "Para Naga",
     "qfa-adc": "Central Great Andamanese",
     "qfa-adm": "Great Andamanese",
@@ -8390,6 +8391,7 @@ langs = {
     "unx": "Munda",
     "unz": "Unde Kaili",
     "uok": "Uokha",
+    "uon": "Kulon",
     "upi": "Umeda",
     "upv": "Uripiv-Wala-Rano-Atchin",
     "ur": "Urdu",
@@ -9542,5 +9544,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,537
+}  # 9,539
 # END

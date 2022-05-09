@@ -727,6 +727,8 @@ labels_topical = {
     "steroid drug": "biochemistry, steroids",
     "steroid hormone": "biochemistry, steroids",
     "stock symbol": "stock ticker symbol",
+    "string instrument": "music",
+    "string instruments": "music",
     "sugar acid": "organic chemistry",
     "surface feature": "planetology",
     "symptom": "medicine",
@@ -766,7 +768,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 340
+}  # 342
 
 labels_regional = {
     "AU": "Australia",
