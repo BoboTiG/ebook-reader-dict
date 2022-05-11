@@ -959,11 +959,19 @@ def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> # '1 234 567 890,12345678 ¤'
     >>> render_unite("unité", ["1.30", "m"], defaultdict(str, {}))
     '1,30 m'
+
+    >>> # Non-numeric value
+    >>> render_unite("unité", ["8 à 12", "cm"], defaultdict(str, {}))
+    '8 à 12 cm'
     """
     from . import float_separator, thousands_separator
 
     sep = "⋅"
-    phrase = number(parts.pop(0), float_separator, thousands_separator)
+    value = parts.pop(0)
+    try:
+        phrase = number(value, float_separator, thousands_separator)
+    except ValueError:
+        phrase = value
     if data["e"]:  # exposant
         phrase += "×10" + superscript(data["e"])
     if parts:  # symbol
