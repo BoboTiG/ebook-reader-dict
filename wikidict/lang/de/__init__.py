@@ -14,8 +14,6 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-#
-
 head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
