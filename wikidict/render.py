@@ -211,10 +211,11 @@ def find_etymology(
                 definitions.append(process_templates(word, clean(section_item), locale))
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in section.sublists(i=idx):
-                    for subcode in sublist.items:
-                        subdefinitions.append(
-                            process_templates(word, clean(subcode), locale)
-                        )
+                    subdefinitions.extend(
+                        process_templates(word, clean(subcode), locale)
+                        for subcode in sublist.items
+                    )
+
                 if subdefinitions:
                     definitions.append(tuple(subdefinitions))
 

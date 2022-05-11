@@ -40,7 +40,7 @@ def get_ru_definition(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 def get_ru_note(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    return "(" + parts[0] + ")"
+    return f"({parts[0]})"
 
 
 def get_part0(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -48,8 +48,7 @@ def get_part0(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 def get_so(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    a = "то же, что " + str([i for i in data.values()][0]).strip("|")
-    return a
+    return "то же, что " + str(list(data.values())[0]).strip("|")
 
 
 template_mapping = {
