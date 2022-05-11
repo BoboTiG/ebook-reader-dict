@@ -2,7 +2,7 @@
 import re
 from typing import Any, Callable, Dict, Pattern, Tuple, TypeVar
 
-from . import ca, de, defaults, el, en, es, fr, it, no, pt, sv, ru
+from . import ca, de, defaults, el, en, es, fr, it, no, pt, ru, sv
 from .ca.langs import langs as CA
 from .el.langs import langs as EL
 from .en.langs import langs as EN
