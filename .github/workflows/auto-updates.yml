@@ -49,6 +49,7 @@ jobs:
           - sv
           - it
           - ca
+          - ru
           - no
 
     steps:
