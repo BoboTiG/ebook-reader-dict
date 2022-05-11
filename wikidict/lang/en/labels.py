@@ -174,6 +174,9 @@ labels = {
     "substantivised": "nominalised",
     "substantivization": "nominalized",
     "substantivized": "nominalized",
+    "syncopation": "syncopated",
+    "syncope": "syncopated",
+    "syncopic": "syncopated",
     "texting": "text messaging",
     "thieves": "thieves' cant",
     "thieves cant": "thieves' cant",
@@ -185,7 +188,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 180
+}  # 183
 
 label_syntaxes = {
     "&": {
