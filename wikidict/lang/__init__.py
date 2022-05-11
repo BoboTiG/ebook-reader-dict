@@ -16,7 +16,7 @@ from .ru.langs import langs as RU
 # Start of manual edition allowed.
 #
 
-_ALL_LOCALES = (ca, de, el, en, es, fr, it, no, pt, sv, ru)
+_ALL_LOCALES = (ca, de, el, en, es, fr, it, no, pt, ru, sv)
 
 
 # A list of all languages translated into different locales
