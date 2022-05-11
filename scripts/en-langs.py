@@ -53,7 +53,7 @@ def read_all_lines_lang(lines):
             m[code] = line
             code = ""
         if match := pattern.match(line):
-            code = match.group(1)
+            code = match[1]
     return m
 
 
@@ -86,11 +86,11 @@ for key in m.keys():
 
 url = "https://en.wiktionary.org/wiki/Module:languages/data2"
 m = process_lang_page(url)
-languages.update(m)
+languages |= m
 
 url = "https://en.wiktionary.org/wiki/Module:languages/datax"
 m = process_lang_page(url)
-languages.update(m)
+languages |= m
 
 for letter in "abcdefghijklmnopqrstuvwxyz":
     url = f"https://en.wiktionary.org/wiki/Module:languages/data3/{letter}"

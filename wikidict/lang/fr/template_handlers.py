@@ -271,7 +271,7 @@ def render_cit_ref(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["auteur"]:
         phrase = data["auteur"] + ", " + phrase
     elif i < len(parts):
-        phrase = parts[i] + ", " + phrase
+        phrase = f"{parts[i]}, {phrase}"
         i += 1
     if data["article"]:
         phrase = f"«&nbsp;{data['article']}&nbsp;», dans {phrase}"
@@ -365,26 +365,28 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 parts[1], data.get("tr2", ""), data.get("sens2", "")
             )
         elif b == "1000":
-            if len(parts) > 1 and parts[1]:
-                phrase += (
+            phrase += (
+                (
                     " de "
                     + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
                     + " avec le"
                 )
-            else:
-                phrase += " du"
+                if len(parts) > 1 and parts[1]
+                else " du"
+            )
             phrase += " préfixe " + word_tr_sens(
                 parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
         elif b == "1020":
-            if len(parts) > 1 and parts[1]:
-                phrase += (
+            phrase += (
+                (
                     " de "
                     + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
                     + " avec le"
                 )
-            else:
-                phrase += " du"
+                if len(parts) > 1 and parts[1]
+                else " du"
+            )
             phrase += " préfixe " + word_tr_sens(
                 parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
@@ -399,13 +401,11 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase = ("C" if data["m"] else "c") + (
         "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
     )
-    s_array = [
+    if s_array := [
         word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
         for number, part in enumerate(parts, 1)
         if part
-    ]
-
-    if s_array:
+    ]:
         phrase += concat(
             s_array,
             ", ",
@@ -534,7 +534,7 @@ def render_la_verb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_la_verb("la-verb", ["sum", "es", "esse", "esse", "fui", "fui", "futurus", "futurus"], defaultdict(str, {"2ps":"es", "2ps2":"es", "pattern":"irrégulier", "44":"participe futur"}))
     '<b>sum</b>, es, <i>infinitif</i> : esse, <i>parfait</i> : fui, <i>participe futur</i> : futurus <i>(irrégulier)</i>'
     """  # noqa
-    phrase = strong(parts[0]) + ","
+    phrase = f"{strong(parts[0])},"
     if data["2ps"]:
         phrase += f" {data.get('2ps2', data['2ps'])},"
     phrase += f" {italic('infinitif')} : {parts[2]}"
@@ -796,7 +796,7 @@ def render_refnec(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_refnec("recons", ["phrase difficile à avaler"], defaultdict(str))
     '<u>phrase difficile à avaler</u>'
     """
-    return "" if not parts else underline(parts[0])
+    return underline(parts[0]) if parts else ""
 
 
 def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -830,7 +830,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     def repl(x: Match[str]) -> str:
         sup = "er" if x.group()[:-1] == "I" else "e"
-        return f"{x.group()[:-1]}{superscript(sup)} siècle" + x.group()[-1]
+        return f"{x.group()[:-1]}{superscript(sup)} siècle{x.group()[-1]}"
 
     parts = [
         re.sub(r"([IVX]+)([^\s\w]|\s)", repl, part + " ", 1).strip() for part in parts
@@ -866,7 +866,7 @@ def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "United Nations"}))
     'Sigle de <i>United Nations</i>'
     """  # noqa
-    return term("Sigle") if not data["de"] else "Sigle de " + italic(data["de"])
+    return "Sigle de " + italic(data["de"]) if data["de"] else term("Sigle")
 
 
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -967,7 +967,7 @@ def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["e"]:  # exposant
         phrase += "×10" + superscript(data["e"])
     if parts:  # symbol
-        phrase += " " + parts.pop(0)
+        phrase += f" {parts.pop(0)}"
 
     # Alternate exposant > symbol > exposant > symbol > ...
     is_exposant = True
@@ -1019,8 +1019,9 @@ def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase = parts[-1]
     if data:
         # Possible imbricated templates: {{ws| {{pc|foo bar}} }}
-        potential_phrase = "".join(f"{k}={v}" for k, v in data.items() if k != "lang")
-        if potential_phrase:
+        if potential_phrase := "".join(
+            f"{k}={v}" for k, v in data.items() if k != "lang"
+        ):
             phrase = potential_phrase
     return phrase
 

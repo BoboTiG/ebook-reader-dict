@@ -216,15 +216,13 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
         if len(code) == 1:
             if code[0] == "!":
                 # end of line
-                tableHtml = "</tr></table>" + TABLE_START + "<tr>\n"
+                tableHtml = f"</tr></table>{TABLE_START}<tr>\n"
                 if line:
                     contentHtml += "<hr />\n"
 
             elif "<" in code[0]:
                 # start cartouche
-                contentHtml += (
-                    f'<td style="{TD_STYLE}">' + renderGlyph(code[0]) + "</td>"
-                )
+                contentHtml += f'<td style="{TD_STYLE}">{renderGlyph(code[0])}</td>'
                 is_cartouche = True
                 contentHtml += f'<td style="{TD_STYLE}">{TABLE_START}<tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr><tr><td style="{TD_STYLE}">{TABLE_START}<tr>'  # noqa
 
@@ -232,9 +230,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
                 # end cartouche
                 contentHtml += f'</tr></table></td></tr><tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr></table></td>'  # noqa
                 is_cartouche = False
-                contentHtml += (
-                    f'<td style="{TD_STYLE}">' + renderGlyph(code[0]) + "</td>"
-                )
+                contentHtml += f'<td style="{TD_STYLE}">{renderGlyph(code[0])}</td>'
 
             elif code[0] != "":
                 # assume it's a glyph or '..' or '.'
@@ -294,7 +290,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
                         # resize the glyph according to the block total height
                         block += renderGlyph(t, resizeGlyph(t, is_cartouche, total))
 
-                contentHtml += f'<td style="{TD_STYLE}">' + block + "</td>"
+                contentHtml += f'<td style="{TD_STYLE}">{block}</td>'
 
             contentHtml += "\n"
 

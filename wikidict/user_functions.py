@@ -21,7 +21,7 @@ def capitalize(text: str) -> str:
         >>> capitalize("alice and bob")
         'Alice and bob'
     """
-    return "" if not text else f"{text[0].capitalize()}{text[1:]}"
+    return f"{text[0].capitalize()}{text[1:]}" if text else ""
 
 
 def century(parts: List[str], century: str) -> str:

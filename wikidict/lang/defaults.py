@@ -71,8 +71,7 @@ def last_template_handler(
     if len(template) == 2:
         return term(capitalize(lookup_italic(tpl, locale)))
 
-    italic = lookup_italic(tpl, locale, True)
-    if italic:
+    if italic := lookup_italic(tpl, locale, True):
         return term(capitalize(italic))
 
     # {{tpl|item1|item2|...}} -> ''
@@ -107,11 +106,8 @@ def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_wikilink("w", ["mitrospin obscur 0", "mitrospin obscur 1", "(''Mitrospingus cassinii'')"], defaultdict(str))
     'mitrospin obscur 1'
     """  # noqa
-    # Remove "lang" from data
-    data = {k: v for k, v in data.items() if k != "lang"}
-
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
-    if data:
+    if data := {k: v for k, v in data.items() if k != "lang"}:
         return "".join(f"{k}={v}" for k, v in data.items())
 
     try:

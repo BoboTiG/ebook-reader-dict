@@ -64,9 +64,7 @@ def convert_gender(gender: str) -> str:
 
 def convert_pronunciation(pronunciations: List[str]) -> str:
     """Return the HTML code to include for the etymology of a word."""
-    if not pronunciations:
-        return ""
-    return " " + ", ".join(f"\\{p}\\" for p in pronunciations)
+    return " " + ", ".join(f"\\{p}\\" for p in pronunciations) if pronunciations else ""
 
 
 def get_word_of_the_day(locale: str) -> str:
@@ -469,7 +467,7 @@ def process_templates(word: str, text: str, locale: str) -> str:
     return text.strip()
 
 
-def _convert_math(expr: str, packages: List[str] = []) -> str:
+def _convert_math(expr: str, packages: List[str] = None) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     from base64 import b64encode
     from io import BytesIO
@@ -495,7 +493,7 @@ def _convert_math(expr: str, packages: List[str] = []) -> str:
             viewer="BytesIO",
             outputbuffer=buf,
             dvioptions=dvioptions,
-            packages=tuple(packages),
+            packages=tuple(packages or []),
         )
         Image.open(buf).convert("L").save(im, format="gif", optimize=True)
 

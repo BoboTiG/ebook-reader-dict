@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import threading
+from pathlib import Path
 
 FILES = {
     "ca-langs.py": "wikidict/lang/ca/langs.py",
@@ -26,17 +27,16 @@ FILES = {
 
 def replace(file: str, data: str) -> bool:
     """Update contents in the file, even if there was no change."""
-    with open(file) as fh:
-        original_content = fh.read()
-
+    path = Path(file)
+    original_content = path.read_text()
     start = original_content.find("# START")
     end = original_content.find("# END")
     if start == -1 or end == -1:
         return False
 
-    new_content = f"{original_content[:start]}# START\n{data}{original_content[end:]}"
-    with open(file, "w") as fh:
-        fh.write(new_content)
+    path.write_text(
+        f"{original_content[:start]}# START\n{data}{original_content[end:]}"
+    )
     return True
 
 
