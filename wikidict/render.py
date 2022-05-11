@@ -185,6 +185,14 @@ def find_etymology(
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         definitions.append(process_templates(word, clean(etyl), locale))
         return definitions
+    elif locale == "ru":
+        section_title = parsed_section.title.strip()
+        if section_title == "Этимология":
+            definitions.append(
+                process_templates(word, clean(parsed_section.contents), locale)
+            )
+        return definitions
+
     tables = parsed_section.tables
     tableindex = 0
     for section in parsed_section.get_lists():
@@ -231,7 +239,6 @@ def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
     match = pattern.search(code)
     if not match:
         return []
-
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
