@@ -1,6 +1,6 @@
 # eBook Reader Dictionaries
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
@@ -58,6 +58,7 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
     <td align="center"><a href="https://github.com/ilius"><img src="https://avatars.githubusercontent.com/u/197648?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Saeed Rasooli</b></sub></a><br /><a href="#infra-ilius" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://github.com/Moonbase59"><img src="https://avatars.githubusercontent.com/u/3706922?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matthias C. Hormann</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=Moonbase59" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/tjaderxyz"><img src="https://avatars.githubusercontent.com/u/81907?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tjader</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=tjaderxyz" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/victornove"><img src="https://avatars.githubusercontent.com/u/10910369?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Victor</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=victornove" title="Code">💻</a></td>
   </tr>
 </table>
 
