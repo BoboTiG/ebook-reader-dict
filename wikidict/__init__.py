@@ -10,7 +10,7 @@ You can always get the latest version of this module at:
 __version__ = "2.0.0"
 __author__ = "Mickaël 'Tiger-222' Schoentgen"
 __copyright__ = """
-Copyright (c) 2020-2021, Mickaël 'Tiger-222' Schoentgen
+Copyright (c) 2020-2022, Mickaël 'Tiger-222' Schoentgen
 
 Permission to use, copy, modify, and distribute this software and its
 documentation for any purpose and without fee or royalty is hereby
