@@ -37,6 +37,8 @@ labels = {
     "ad slang": "advertising slang",
     "affectionate": "earing",
     "ambitransitive": "transitive, intransitive",
+    "anger": "angry register",
+    "angry": "angry register",
     "ante-Classical": "pre-Classical",
     "ante-classical": "pre-Classical",
     "anteclassical": "pre-Classical",
@@ -161,6 +163,7 @@ labels = {
     "rare term": "rare",
     "reflexive pronoun": "reflexive",
     "regal": "royal",
+    "said in anger": "angry register",
     "sative": "saturative",
     "sectarian slur": "religious slur",
     "self-deprecating": "self-deprecatory",
@@ -188,7 +191,7 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 183
+}  # 186
 
 label_syntaxes = {
     "&": {

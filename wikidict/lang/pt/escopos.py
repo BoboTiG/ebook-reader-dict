@@ -383,8 +383,9 @@ escopos = {
     "vinhais": "Vinhais",
     "vulgar": "obsceno",
     "vulgaridade": "obsceno",
+    "zamora": "Zamora",
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 381
+}  # 382
 # END
