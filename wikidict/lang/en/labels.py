@@ -501,6 +501,7 @@ labels_topical = {
     "Rubik's cubes": "Rubik's Cube",
     "Shamanism": "shamanism",
     "Slavic god": "Slavic mythology",
+    "Sufism": "Sufi Islam",
     "TCM": "traditional Chinese medicine",
     "TV": "television",
     "USSR": "Soviet Union",
@@ -774,7 +775,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 342
+}  # 343
 
 labels_regional = {
     "AU": "Australia",
