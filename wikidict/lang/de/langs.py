@@ -234,6 +234,7 @@ langs = {
     "ine": "Indogermanisch",
     "inh": "Inguschisch",
     "io": "Ido",
+    "iow": "Iowa-Oto",
     "is": "Isländisch",
     "ist": "Istriotisch",
     "it": "Italienisch",
@@ -297,6 +298,7 @@ langs = {
     "li": "Limburgisch",
     "lij": "Ligurisch",
     "liv": "Livisch",
+    "lkt": "Lakota",
     "lld": "Ladinisch",
     "llp": "Nord-Efate",
     "lmo": "Lombardisch",
@@ -632,5 +634,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 627
+}  # 629
 # END
