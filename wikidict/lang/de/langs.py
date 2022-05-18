@@ -49,6 +49,7 @@ langs = {
     "ary": "Marokkanisch-Arabisch",
     "arz": "Ägyptisch-Arabisch",
     "as": "Assamesisch",
+    "asb": "Assiniboine",
     "ast": "Asturisch",
     "aua": "Asumboa",
     "aud": "Anutisch",
@@ -135,6 +136,7 @@ langs = {
     "cy": "Walisisch",
     "da": "Dänisch",
     "dag": "Dagbani",
+    "dak": "Dakota",
     "dbp": "Ɗuwai",
     "ddn": "Dendi",
     "de": "Deutsch",
@@ -214,6 +216,7 @@ langs = {
     "haw": "Hawaiianisch",
     "he": "Hebräisch",
     "hi": "Hindi",
+    "hid": "Hidatsa",
     "hif": "Fiji Hindi",
     "hit": "Hethitisch",
     "ho": "Hiri Motu",
@@ -282,6 +285,7 @@ langs = {
     "krl": "Karelisch",
     "ks": "Kashmiri",
     "ksh": "Kölsch",
+    "ksk": "Kansa",
     "ku": "Kurdisch",
     "kum": "Kumükisch",
     "kv": "Komi",
@@ -454,6 +458,7 @@ langs = {
     "qka": "Erzgebirgisch",
     "qts": "Test (Fantasie)",
     "qu": "Quechua",
+    "qua": "Quapaw",
     "quz": "Cusco-Quechua",
     "raj": "Rajasthani",
     "rap": "Rapanui",
@@ -642,5 +647,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 637
+}  # 642
 # END

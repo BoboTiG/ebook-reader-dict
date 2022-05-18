@@ -2517,6 +2517,7 @@ langs = {
     "kko": "karko",
     "kkr": "kir-balar",
     "kks": "giiwo",
+    "kkt": "koi",
     "kky": "guugu yimidhirr",
     "kkz": "kaska",
     "kl": "kalaallisut",
@@ -6289,7 +6290,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,284
+}  # 6,285
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
