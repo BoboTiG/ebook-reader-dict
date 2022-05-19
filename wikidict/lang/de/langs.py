@@ -11,6 +11,7 @@ langs = {
     "aae": "Arbëresh",
     "aat": "Arvanitika",
     "ab": "Abchasisch",
+    "abe": "West-Abenaki",
     "abq": "Abasinisch",
     "ace": "Acehnesisch",
     "acf": "Antillen-Kreolisch",
@@ -266,6 +267,7 @@ langs = {
     "khb": "Tai Lü",
     "khw": "Khowar",
     "ki": "Kikuyu",
+    "kic": "Kickapoo",
     "kj": "Kuanyama",
     "kjh": "Chakassisch",
     "kk": "Kasachisch",
@@ -585,6 +587,7 @@ langs = {
     "uk": "Ukrainisch",
     "umb": "Umbundu",
     "umc": "Marrukinisch",
+    "umu": "Munsee",
     "ur": "Urdu",
     "uum": "Urum",
     "uz": "Usbekisch",
@@ -647,5 +650,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 642
+}  # 645
 # END
