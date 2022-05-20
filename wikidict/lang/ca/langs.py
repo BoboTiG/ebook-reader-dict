@@ -498,6 +498,7 @@ langs = {
     "osp": "castellà antic",
     "ota": "turc otomà",
     "otk": "turquès antic",
+    "ovd": "elfdalià",
     "pa": "panjabi",
     "pag": "pangasinan",
     "pal": "pahlavi",
@@ -740,5 +741,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 735
+}  # 736
 # END

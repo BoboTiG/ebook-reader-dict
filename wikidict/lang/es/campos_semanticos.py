@@ -267,6 +267,7 @@ campos_semanticos = {
     "edafología": "Edafología",
     "educación": "Educación",
     "electricidad": "Electricidad",
+    "electromagnetismo": "Electromagnetismo",
     "electrónica": "Electrónica",
     "elementos químicos": "Química",
     "emoji": "Emojis",
@@ -493,5 +494,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 488
+}  # 489
 # END

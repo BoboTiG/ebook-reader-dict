@@ -534,6 +534,8 @@ labels_topical = {
     "bicycling": "cycling",
     "board game": "board games",
     "book of the bible": "biblical",
+    "brass instrument": "music",
+    "brass instruments": "music",
     "canid": "zoology",
     "carbohydrate": "biochemistry",
     "carboxylic acid": "organic chemistry",
@@ -686,6 +688,8 @@ labels_topical = {
     "part of speech": "grammar",
     "particle": "physics",
     "patents": "patent law",
+    "percussion instrument": "music",
+    "percussion instruments": "music",
     "pesapallo": "pesäpallo",
     "pharmaceutical drug": "pharmacology",
     "pharmaceutical effect": "pharmacology",
@@ -775,7 +779,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 343
+}  # 347
 
 labels_regional = {
     "AU": "Australia",
