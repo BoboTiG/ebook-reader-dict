@@ -1307,6 +1307,7 @@ labels_regional = {
     "Rwandan": "Rwanda",
     "SC": "South Carolina",
     "SEA": "Southeast Asia",
+    "SK": "Saskatchewan",
     "SR Yogyakarta": "Special Region of Yogyakarta",
     "Saarlandic": "Saarland",
     "Saarlandish": "Saarland",
@@ -1514,7 +1515,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 732
+}  # 733
 
 labels_subvarieties = {
     "13": "Tredici Comuni",

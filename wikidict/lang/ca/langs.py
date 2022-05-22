@@ -295,6 +295,7 @@ langs = {
     "it": "italià",
     "itc-ola": "llatí arcaic",
     "itc-pro": "protoitàlic",
+    "its": "itsekiri",
     "iu": "inuktitut",
     "ja": "japonès",
     "jam": "crioll anglès de Jamaica",
@@ -406,6 +407,7 @@ langs = {
     "man": "mandinga",
     "map-bms": "banyumasan",
     "mas": "massai",
+    "mch": "yecuana",
     "mde": "maba",
     "mdf": "moksa",
     "mdr": "mandar",
@@ -741,5 +743,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 736
+}  # 738
 # END
