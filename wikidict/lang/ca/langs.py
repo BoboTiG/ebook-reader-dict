@@ -194,6 +194,7 @@ langs = {
     "es_MX": "espanyol de Mèxic",
     "et": "estonià",
     "eu": "basc",
+    "euq-pro": "protobasc",
     "ewo": "ewondo",
     "ext": "extremeny",
     "fa": "persa",
@@ -743,5 +744,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 738
+}  # 739
 # END

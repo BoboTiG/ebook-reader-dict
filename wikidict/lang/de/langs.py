@@ -96,7 +96,7 @@ langs = {
     "bty": "Bobot",
     "bua": "Burjatisch",
     "bug": "Buginesisch",
-    "bxr": "Burjatisch",
+    "bxr": "Russisches Burjatisch",
     "bzg": "Babuza",
     "ca": "Katalanisch",
     "cay": "Cayuga",
@@ -157,11 +157,13 @@ langs = {
     "egl": "Emilianisch",
     "egy": "Ägyptisch",
     "el": "Griechisch (Neu-)",
+    "ems": "Alutiiq",
     "en": "Englisch",
     "enm": "Mittelenglisch",
     "eo": "Esperanto",
     "erk": "Süd-Efate",
     "es": "Spanisch",
+    "ess": "Sibirisch-Yupik",
     "esu": "Zentral-Alaska-Yupik",
     "et": "Estnisch",
     "eu": "Baskisch",
@@ -271,6 +273,7 @@ langs = {
     "kic": "Kickapoo",
     "kj": "Kuanyama",
     "kjh": "Chakassisch",
+    "kjj": "Chinalugisch",
     "kk": "Kasachisch",
     "kl": "Grönländisch",
     "kla": "Klamath",
@@ -655,5 +658,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 650
+}  # 653
 # END
