@@ -3089,6 +3089,7 @@ langs = {
     "mck": "mbunda",
     "mcl": "macaguaje",
     "mcm": "kristang",
+    "mcn": "masa",
     "mco": "mixe de Coatlán",
     "mcp": "makaa",
     "mcr": "menya",
@@ -6290,7 +6291,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,285
+}  # 6,286
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

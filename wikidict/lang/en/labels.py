@@ -2114,6 +2114,8 @@ labels_subvarieties = {
     "Phu Yen": "Phú Yên",
     "Phu Yen dialect": "Phú Yên",
     "Phú Yên dialect": "Phú Yên",
+    "Pittsburgh English": "Western Pennsylvania",
+    "Pittsburghese": "Western Pennsylvania",
     "Polar Eskimo": "Inuktun",
     "Pomeranian LG": "Pomeranian",
     "Pomeranian Low German": "Pomeranian",
@@ -2404,6 +2406,8 @@ labels_subvarieties = {
     "West Pomeranian LG": "Western Pomeranian",
     "West Pomeranian Low German": "Western Pomeranian",
     "Western Ojibwa": "Western Ojibwe",
+    "Western Pennsylvania English": "Western Pennsylvania",
+    "Western Pennsylvania dialect": "Western Pennsylvania",
     "Western Pomeranian LG": "Western Pomeranian",
     "Western Pomeranian Low German": "Western Pomeranian",
     "Western Àkókó": "Western Akoko",
@@ -2592,5 +2596,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,074
+}  # 1,078
 # END
