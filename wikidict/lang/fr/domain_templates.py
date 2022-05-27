@@ -14,6 +14,7 @@ domain_templates = {
     "algues": "Botanique",
     "aliments": "Cuisine",
     "alliages": "Chimie",
+    "amphibiens": "Zoologie",
     "anciennes divisions": "Histoire",
     "anciennes localités": "Histoire",
     "anglicisme informatique": "Anglicisme informatique",
@@ -310,5 +311,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 305
+}  # 306
 # END

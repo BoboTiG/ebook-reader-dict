@@ -4805,8 +4805,6 @@ langs = {
     "mjd": "Northwest Maidu",
     "mje": "Muskum",
     "mjg": "Monguor",
-    "mjg-huz": "Mongghul",
-    "mjg-min": "Mangghuer",
     "mji": "Kim Mun",
     "mjj": "Mawak",
     "mjk": "Matukar",
@@ -9544,5 +9542,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,539
+}  # 9,537
 # END
