@@ -237,7 +237,7 @@ langs = {
     "ie": "Interlingue",
     "ig": "Igbo",
     "ii": "Yi",
-    "ik": "Inupiak",
+    "ik": "Inupiaq",
     "ilo": "Ilokano",
     "ims": "Marsisch",
     "ine": "Indogermanisch",

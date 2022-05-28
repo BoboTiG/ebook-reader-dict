@@ -429,7 +429,6 @@ campos_semanticos = {
     "prenda": "Vestimenta",
     "prendas": "Vestimenta",
     "profesiones": "Profesión",
-    "provincias": "Geografía",
     "psicología": "Psicología",
     "psiquiatría": "Psiquiatría",
     "química": "Química",
@@ -494,5 +493,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 489
+}  # 488
 # END
