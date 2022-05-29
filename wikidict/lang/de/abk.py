@@ -12,6 +12,7 @@ abk = {
     "Bedva.": "veraltete Bedeutung",
     "Bedvatd.": "veraltende Bedeutung",
     "BrE": "britisch",
+    "DDR": "DDR",
     "Dativ": "mit Dativ",
     "Genitiv": "mit Genitiv",
     "Instrumental": "mit Instrumental",
@@ -116,5 +117,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 111
+}  # 112
 # END
