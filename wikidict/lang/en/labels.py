@@ -513,6 +513,7 @@ labels_topical = {
     "Wiktionary": "Wikimedia jargon",
     "Wiktionary jargon": "Wikimedia jargon",
     "Yezidism": "Yazidism",
+    "air transport": "aviation",
     "alcohol": "alcoholic beverages",
     "altright": "alt-right",
     "amino acid": "biochemistry",
@@ -779,7 +780,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 347
+}  # 348
 
 labels_regional = {
     "AU": "Australia",
