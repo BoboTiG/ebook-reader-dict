@@ -279,6 +279,7 @@ regions = {
     "Normandie": "Normandie",
     "Nouvelle-Calédonie": "Nouvelle-Calédonie",
     "Nouvelle-Zélande": "Nouvelle-Zélande",
+    "Nouvelle-Écosse": "Nouvelle-Écosse",
     "Occitanie": "Occitanie",
     "Océanie": "Océanie",
     "Oise": "Oise",
@@ -439,7 +440,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 434
+}  # 435
 # END
 
 # handled differently
