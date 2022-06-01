@@ -465,6 +465,8 @@ labels_topical = {
     "Halakhah": "Jewish law",
     "Heathenry": "Germanic paganism",
     "Hindu god": "Hinduism",
+    "ISO": "international standard",
+    "International Organization for Standardization": "international standard",
     "Japanese god": "Japanese mythology",
     "Java PL": "Java programming language",
     "JavaPL": "Java programming language",
@@ -618,6 +620,7 @@ labels_topical = {
     "hydrocarbon chain suffix": "organic chemistry",
     "indo-european studies": "Indo-European studies",
     "inorganic compound": "inorganic chemistry",
+    "international standards": "international standard",
     "internet": "Internet",
     "isotope": "physics",
     "jewish law": "Jewish law",
@@ -780,7 +783,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 348
+}  # 351
 
 labels_regional = {
     "AU": "Australia",
