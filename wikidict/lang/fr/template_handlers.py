@@ -298,15 +298,15 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_compose_de("composé de", ["aux", "mains", "de"], defaultdict(str, {"m":"1"}))
     'Composé de <i>aux</i>, <i>mains</i> et <i>de</i>'
     >>> render_compose_de("composé de", ["anti-", "quark"], defaultdict(str, {"lang":"en"}))
-    'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>'
+    'dérivé de <i>quark</i>, avec le préfixe <i>anti-</i>'
     >>> render_compose_de("composé de", ["anti-", "quark"], defaultdict(str, {"sens":"quarks au rebut"}))
-    'dérivé de <i>quark</i> avec le préfixe <i>anti-</i>, littéralement «&nbsp;quarks au rebut&nbsp;»'
+    'dérivé de <i>quark</i>, avec le préfixe <i>anti-</i>, littéralement «&nbsp;quarks au rebut&nbsp;»'
     >>> render_compose_de("composé de", ["anti-", "quark"], defaultdict(str, {"lang":"en", "m":"1", "f":"1"}))
-    'Dérivée de <i>quark</i> avec le préfixe <i>anti-</i>'
+    'Dérivée de <i>quark</i>, avec le préfixe <i>anti-</i>'
     >>> render_compose_de("composé de", ["clear", "-ly"], defaultdict(str, {"lang":"en", "m":"1"}))
-    'Dérivé de <i>clear</i> avec le suffixe <i>-ly</i>'
+    'Dérivé de <i>clear</i>, avec le suffixe <i>-ly</i>'
     >>> render_compose_de("composé de", ["느낌", "표"], defaultdict(str, {"tr1":"neukkim", "sens1":"sensation", "tr2":"-pyo", "sens2":"symbole", "lang":"ko", "m":"1"}))
-    'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;») avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
+    'Dérivé de 느낌, <i>neukkim</i> («&nbsp;sensation&nbsp;»), avec le suffixe 표, <i>-pyo</i> («&nbsp;symbole&nbsp;»)'
     >>> render_compose_de("composé de", ["zone", "convergence"], defaultdict(str, {"m": "1"}))
     'Composé de <i>zone</i> et de <i>convergence</i>'
     >>> render_compose_de("composé de", ["Marcilly", "sur", "Tille"], defaultdict(str, {"lang": "fr", "m": "oui"}))
@@ -318,9 +318,9 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_compose_de("composé de", ["morin", "morine", "-elle"], defaultdict(str, {"lang": "fr", "m": "1"}))
     'Composé de <i>morin</i>, <i>morine</i> et <i>-elle</i>'
     >>> render_compose_de("composé de", ["bi-", "mensis"], defaultdict(str, {"lang": "fr", "sens1": "deux", "sens2":"mois"}))
-    'dérivé de <i>mensis</i> («&nbsp;mois&nbsp;») avec le préfixe <i>bi-</i> («&nbsp;deux&nbsp;»)'
+    'dérivé de <i>mensis</i> («&nbsp;mois&nbsp;»), avec le préfixe <i>bi-</i> («&nbsp;deux&nbsp;»)'
     >>> render_compose_de("composé de", ["im-", "brouiller", "-able"], defaultdict(str, {"lang": "fr", "m": "oui"}))
-    'Dérivé de <i>brouiller</i> avec le préfixe <i>im-</i> et le suffixe <i>-able</i>'
+    'Dérivé de <i>brouiller</i>, avec le préfixe <i>im-</i> et le suffixe <i>-able</i>'
     >>> render_compose_de("composé de", ["bloc", "d’", "obturation", "de", "puits"], defaultdict(str, {"lang": "fr", "m": "1", "f": "1"}))
     'Composée de <i>bloc</i>, <i>d’</i>, <i>obturation</i>, <i>de</i> et <i>puits</i>'
     >>> render_compose_de("composé de", ["an-", "", "-onyme"], defaultdict(str, {"lang": "fr", "m": "1"}))
@@ -330,7 +330,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_compose_de("composé de", ["garde", "enfant", ""], defaultdict(str))
     'composé de <i>garde</i> et de <i>enfant</i>'
     >>> render_compose_de("composé de", ["élever", "-able", ""], defaultdict(str, {"lang": "fr", "m": "1"}))
-    'Dérivé de <i>élever</i> avec le suffixe <i>-able</i>'
+    'Dérivé de <i>élever</i>, avec le suffixe <i>-able</i>'
     >>> render_compose_de("composé de", ["litura", "funus"], defaultdict(str, {"lang": "la", "sens1": "", "sens2":"mort au génitif", "sens": ""}))
     'composé de <i>litura</i> et de <i>funus</i> («&nbsp;mort au génitif&nbsp;»)'
     """  # noqa
@@ -361,7 +361,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += " de " + word_tr_sens(
                 parts[0], data.get("tr1", ""), data.get("sens1", "")
             )
-            phrase += " avec le suffixe " + word_tr_sens(
+            phrase += ", avec le suffixe " + word_tr_sens(
                 parts[1], data.get("tr2", ""), data.get("sens2", "")
             )
         elif b == "1000":
@@ -369,7 +369,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 (
                     " de "
                     + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
-                    + " avec le"
+                    + ", avec le"
                 )
                 if len(parts) > 1 and parts[1]
                 else " du"
@@ -382,7 +382,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 (
                     " de "
                     + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
-                    + " avec le"
+                    + ", avec le"
                 )
                 if len(parts) > 1 and parts[1]
                 else " du"
