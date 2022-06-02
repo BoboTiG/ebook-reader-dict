@@ -171,6 +171,7 @@ regions = {
     "HT": "Haïti",
     "Harelbeke": "Harelbeke",
     "Haute-Marne": "Haute-Marne",
+    "Hawaï": "Hawaï",
     "Haïti": "Haïti",
     "Honduras": "Honduras",
     "Hongrie": "Hongrie",
@@ -276,7 +277,9 @@ regions = {
     "Nord du Viêt Nam": "Nord du Viêt Nam",
     "Nord du pays de Galles": "Nord du pays de Galles",
     "Nord-Pas-de-Calais": "Nord-Pas-de-Calais",
+    "Norfolk": "Île Norfolk",
     "Normandie": "Normandie",
+    "Northumbrie": "Northumbrie",
     "Nouvelle-Calédonie": "Nouvelle-Calédonie",
     "Nouvelle-Zélande": "Nouvelle-Zélande",
     "Nouvelle-Écosse": "Nouvelle-Écosse",
@@ -440,7 +443,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 435
+}  # 438
 # END
 
 # handled differently

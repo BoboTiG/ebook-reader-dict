@@ -238,6 +238,7 @@ langs = {
     "ig": "Igbo",
     "ii": "Yi",
     "ik": "Inupiaq",
+    "ikt": "Inuinnaqtun",
     "ilo": "Ilokano",
     "ims": "Marsisch",
     "ine": "Indogermanisch",
@@ -658,5 +659,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 653
+}  # 654
 # END

@@ -658,7 +658,7 @@ langs = {
     "tpn": "tupinamba",
     "tr": "turc",
     "trk-oat": "turc antic d",
-    "trk-pro": "prototúrquic",
+    "trk-pro": "prototurquès",
     "trv": "taroko",
     "ts": "tsonga",
     "tsi": "tsimshià",
