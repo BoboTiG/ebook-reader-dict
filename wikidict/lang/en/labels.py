@@ -466,6 +466,7 @@ labels_topical = {
     "Heathenry": "Germanic paganism",
     "Hindu god": "Hinduism",
     "ISO": "international standard",
+    "International Organisation for Standardisation": "international standard",
     "International Organization for Standardization": "international standard",
     "Japanese god": "Japanese mythology",
     "Java PL": "Java programming language",
@@ -783,7 +784,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 351
+}  # 352
 
 labels_regional = {
     "AU": "Australia",
