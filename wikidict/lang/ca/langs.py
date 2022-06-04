@@ -492,6 +492,7 @@ langs = {
     "obt": "bretó antic",
     "oc": "occità",
     "odt": "neerlandès antic",
+    "oge": "georgià antic",
     "oj": "ojibwa",
     "olo": "livvi-carelià",
     "om": "oromo",
@@ -746,5 +747,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 741
+}  # 742
 # END

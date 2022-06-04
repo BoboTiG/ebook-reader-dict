@@ -6633,7 +6633,7 @@ langs = {
     "pyu": "Puyuma",
     "pyx": "Tircul",
     "pyy": "Pyen",
-    "pzh": "pazeh",
+    "pzh": "Pazeh",
     "pzn": "Para Naga",
     "qfa-adc": "Central Great Andamanese",
     "qfa-adm": "Great Andamanese",
