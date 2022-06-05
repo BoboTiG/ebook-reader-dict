@@ -46,6 +46,7 @@ regions = {
     "BE": "Belgique",
     "BF": "Burkina Faso",
     "BR": "Brésil",
+    "Bahamas": "Bahamas",
     "Bahia": "Bahia",
     "Baléares": "Baléares",
     "Bangladesh": "Bangladesh",
@@ -443,7 +444,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 438
+}  # 439
 # END
 
 # handled differently
