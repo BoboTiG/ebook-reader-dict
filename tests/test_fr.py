@@ -404,7 +404,9 @@ from wikidict.utils import process_templates
             "Turgeon",
             ["tyʁ.ʒɔ̃"],
             "",
-            ["Nom en rapport avec l’esturgeon."],
+            [
+                "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;», dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."  # noqa
+            ],
             ["Nom de famille."],
             [],
         ),
@@ -501,6 +503,10 @@ def test_parse_word(
         ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
         ("{{plans d’eau|fr|d’Afrique|cat=Lacs}}", "<i>(Géographie)</i>"),
         ("{{région}}", "<i>(Régionalisme)</i>"),
+        (
+            "{{R:Tosti|Turgeon}}",
+            "«&nbsp;Turgeon&nbsp;», dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>",  # noqa
+        ),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
         ("{{régionalisme|Bretagne|fr}}", "<i>(Bretagne)</i>"),

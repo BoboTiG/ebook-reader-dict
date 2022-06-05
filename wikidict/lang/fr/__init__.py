@@ -580,6 +580,8 @@ templates_multi = {
     "provinces": "term('Géographie')",
     # {{R:Littré|anonacée}})
     "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",  # noqa
+    # {{R:Tosti|Turgeon}})
+    "R:Tosti": "f'«&nbsp;{parts[-1]}&nbsp;», dans Jean {small_caps(\"Tosti\")}, <i>Les noms de famille</i>'",
     # {{RFC|5322}}
     "RFC": "sentence(parts)",
     # {{région}}
@@ -836,10 +838,8 @@ def last_template_handler(
             date, page = date.split("|")
         else:
             page = ""
-        if not date and not book:
-            return author
         if not date:
-            return italic(book)
+            return italic(book) if book else author
         if not page:
             return f"{author}, {italic(book)}, {date}"
         return f"{author}, {italic(book)}, {date}, page {page}"
@@ -849,16 +849,12 @@ def last_template_handler(
 
     if tpl == "code langue":
         lang = parts[0]
-        for code, l10n in langs.items():
-            if l10n == lang:
-                return code
-        return ""
-
+        return next((code for code, l10n in langs.items() if l10n == lang), "")
     if tpl in ("ellipse", "par ellipse"):
         return (
-            term("Par ellipse")
-            if not data["de"]
-            else f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
+            f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
+            if data["de"]
+            else term("Par ellipse")
         )
 
     if tpl == "R:DAF6":
@@ -875,11 +871,11 @@ def last_template_handler(
     if tpl.startswith(("fr-accord-", "fr-rég")):
         singular = data["s"] or data["ms"]
         if tpl == "fr-accord-eau":
-            singular = parts[0] + "eau"
+            singular = f"{parts[0]}eau"
         elif tpl == "fr-accord-eux":
-            singular = parts[0] + "eux"
+            singular = f"{parts[0]}eux"
         elif tpl == "fr-accord-mf-al":
-            singular = parts[0] + "al"
+            singular = f"{parts[0]}al"
         elif not singular:
             singular = word.rstrip("s")
         if data["inv"]:
