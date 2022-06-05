@@ -1,7 +1,7 @@
 == {{langue|fr}} ==
 
 === {{S|étymologie}} ===
-: Nom en rapport avec l’[[esturgeon]]{{R:Tosti|Turgeon}}.
+: Nom en rapport avec l’[[esturgeon]] {{R:Tosti|Turgeon}}.
 
 === {{S|nom de famille|fr}} ===
 '''Turgeon''' {{pron|tyʁ.ʒɔ̃|fr}}

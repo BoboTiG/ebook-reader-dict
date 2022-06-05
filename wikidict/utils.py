@@ -592,6 +592,7 @@ def transform(word: str, template: str, locale: str) -> str:
         "R:Littré",
         "R:Rivarol",
         "R:DAF6",
+        "R:Tosti",
     ):
         parts_raw = template.split(":")
         parts = [p.strip() for p in parts_raw]

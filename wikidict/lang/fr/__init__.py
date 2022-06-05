@@ -580,6 +580,8 @@ templates_multi = {
     "provinces": "term('Géographie')",
     # {{R:Littré|anonacée}})
     "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",  # noqa
+    # {{R:Tosti|Turgeon}})
+    "R:Tosti": "f'«&nbsp;{parts[-1]}&nbsp;», dans Jean {small_caps(\"Tosti\")}, <i>Les noms de famille</i>'",
     # {{RFC|5322}}
     "RFC": "sentence(parts)",
     # {{région}}
