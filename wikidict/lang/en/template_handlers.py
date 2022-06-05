@@ -47,7 +47,7 @@ def join_names(
             if var_text:
                 if include_langname and ":" in var_text:
                     data_split = var_text.split(":")
-                    text = langs[data_split[0]] + " " + data_split[1]
+                    text = f"{langs[data_split[0]]} {data_split[1]}"
                     trans = transliterate(data_split[0], data_split[1])
                     if trans:
                         text += f" ({trans})"
@@ -144,7 +144,7 @@ def render_dating(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     start = data["1"] or parts.pop(0) if parts else ""
     end = data["2"] or parts.pop(0) if parts else ""
 
-    return italic(init) + f" {strong(start)}" + (f" {end}" if end else "") + ","
+    return f"{italic(init)} {strong(start)}" + (f" {end}" if end else "") + ","
 
 
 def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -273,7 +273,6 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
 
     phrase = ""
     starter = ""
-    word = ""
     if data["notext"] != "1":
         if tpl in {"calque", "cal", "clq"}:
             starter = "calque of "
@@ -304,9 +303,10 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
 
     if parts or data["3"]:
         word = parts.pop(0) if parts else data["3"]
-
-    if word == "-":
-        return phrase
+        if word == "-":
+            return phrase
+    else:
+        word = ""
 
     word = data["alt"] or word
     gloss = data["t"] or data["gloss"]
@@ -320,7 +320,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         phrase += f" {italic(word)}"
     if data["g"]:
         phrase += f' {italic(data["g"])}'
-    trans = transliterate(dst_locale, word) if not data["tr"] else ""
+    trans = "" if data["tr"] else transliterate(dst_locale, word)
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
 
@@ -416,12 +416,12 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 if ":" in from_text:
                     # todo fromalt
                     from_split = from_text.split(":")
-                    suffix = langs[from_split[0]] + " " + from_split[1]
+                    suffix = f"{langs[from_split[0]]} {from_split[1]}"
                     fromt_key = f"fromt{i}" if i != 1 else "fromt"
                     if data[fromt_key]:
                         suffix += f" (“{data[fromt_key]}”)"
                 elif from_text.endswith("languages"):
-                    suffix = "the " + from_text
+                    suffix = f"the {from_text}"
                 else:
                     suffix = from_text
             if lastfrom_seg and lastfrom_seg.get("prefix", "") != prefix:
@@ -441,23 +441,23 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     meaningtext = join_names(data, "meaning", " or ", False, prefix='"', suffix='"')
     if meaningtext:
-        phrase += ", meaning " + meaningtext
+        phrase += f", meaning {meaningtext}"
 
     if data["usage"]:
         phrase += ", of " + data["usage"] + " usage"
 
     vartext = join_names(data, "var", " or ")
     if vartext:
-        phrase += ", variant of " + vartext
+        phrase += f", variant of {vartext}"
     mtext = join_names(data, "m", " and ")
     if mtext:
-        phrase += ", masculine equivalent " + mtext
+        phrase += f", masculine equivalent {mtext}"
     ftext = join_names(data, "f", " and ")
     if ftext:
-        phrase += ", feminine equivalent " + ftext
+        phrase += f", feminine equivalent {ftext}"
     eqext = join_names(data, "eq", " and ", True)
     if eqext:
-        phrase += ", equivalent to " + eqext
+        phrase += f", equivalent to {eqext}"
 
     return italic(phrase)
 
@@ -628,9 +628,9 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         if tpl in {"pre", "prefix", "con", "confix"} and i == 1:
             chunk += "-"
         if tpl in {"suf", "suffix"} and i == 2:
-            chunk = "-" + chunk
+            chunk = f"-{chunk}"
         if tpl in {"con", "confix"} and i == parts_count:
-            chunk = "-" + chunk
+            chunk = f"-{chunk}"
         return chunk
 
     compound = [
@@ -841,7 +841,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             no_article = False
             for j, subpart in enumerate(subparts):
                 if subpart == "and":
-                    phrase = phrase[:-2] + " and"
+                    phrase = f"{phrase[:-2]} and"
                     no_article = True
                     continue
                 subpart = placetypes_aliases.get(subpart, subpart)
@@ -872,7 +872,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += ", " if i > 2 else ""
             subpart = subparts[0]
             subpart = placetypes_aliases.get(subpart, subpart)
-            placename_key = subpart + "/" + subparts[1]
+            placename_key = f"{subpart}/{subparts[1]}"
             placename = recognized_placenames.get(placename_key, {})
             if (
                 placename
@@ -897,7 +897,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
         modern_key = "modern" + "" if i == 1 else si
         if data[modern_key]:
-            phrase += "; modern " + data[modern_key]
+            phrase += f"; modern {data[modern_key]}"
         i += 1
     return capitalize(phrase)
 
@@ -914,12 +914,12 @@ def render_si_unit(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     parts.pop(0)  # language
     prefix = data["2"] or (parts.pop(0) if parts else "")
     unit = data["3"] or (parts.pop(0) if parts else "")
-    type = data["4"] or (parts.pop(0) if parts else "")
-    if not type:
-        type = unit_to_type.get(unit, "")
+    category = data["4"] or (parts.pop(0) if parts else "")
+    if not category:
+        category = unit_to_type.get(unit, "")
     exp = prefix_to_exp.get(prefix, "")
     s_end = "" if unit.endswith("z") or unit.endswith("s") else "s"
-    phrase = f"({italic('metrology')}) An SI unit of {type} equal to 10{superscript(exp)} {unit}{s_end}."
+    phrase = f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}{s_end}."
     if unit in unit_to_symbol:
         symbol = prefix_to_symbol.get(prefix, "") + unit_to_symbol.get(unit, "")
         phrase += f" Symbol: {symbol}"
@@ -933,10 +933,10 @@ def render_si_unit_2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     prefix = data["1"] or (parts.pop(0) if parts else "")
     unit = data["2"] or (parts.pop(0) if parts else "")
-    type = data["3"] or (parts.pop(0) if parts else "")
+    category = data["3"] or (parts.pop(0) if parts else "")
     alt = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) An SI unit of {type} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."  # noqa
+    return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."  # noqa
 
 
 def render_si_unit_abb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -946,9 +946,9 @@ def render_si_unit_abb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """  # noqa
     prefix = data["1"] or (parts.pop(0) if parts else "")
     unit = data["2"] or (parts.pop(0) if parts else "")
-    type = data["3"] or (parts.pop(0) if parts else "")
+    category = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {type} equal to 10{superscript(exp)} {unit}s"  # noqa
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"  # noqa
 
 
 def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
