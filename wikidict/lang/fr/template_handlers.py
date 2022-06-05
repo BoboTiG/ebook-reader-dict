@@ -283,6 +283,28 @@ def render_cit_ref(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_contexte(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_contexte("C", [], defaultdict(str))
+    '(Pas de contexte)'
+    >>> render_contexte("C", [""], defaultdict(str))
+    '(Pas de contexte)'
+    >>> render_contexte("C", ["familier", "France"], defaultdict(str))
+    '<i>(Familier, France)</i>'
+    >>> render_contexte("C", ["familier", "France"], defaultdict(str))
+    '<i>(Familier, France)</i>'
+    >>> render_contexte("C", ["zoologie"], defaultdict(str))
+    '<i>(Zoologie)</i>'
+    >>> render_contexte("C", ["mythologie"], defaultdict(str, {"spéc": "romaine"}))
+    '<i>(Mythologie romaine)</i>'
+    """
+    parts = [part for part in parts if part.strip()]
+    if not parts:
+        return "(Pas de contexte)"
+    spec = f" {data['spéc']}" if data["spéc"] else ""
+    return term(capitalize(", ".join(parts)) + spec)
+
+
 def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_compose_de("composé de", ["longus", "aevum"], defaultdict(str, {"lang":"la"}))
@@ -1061,10 +1083,12 @@ template_mapping = {
     "apocope": render_apherese,
     "argot": render_argot,
     "au masculin": render_au_masculin,
+    "C": render_contexte,
     "calque": render_etyl,
     "cf": render_cf,
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
+    "contexte": render_contexte,
     "contraction": render_modele_etym,
     "compos": render_compose_de,
     "composé de": render_compose_de,
