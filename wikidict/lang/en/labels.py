@@ -465,9 +465,9 @@ labels_topical = {
     "Halakhah": "Jewish law",
     "Heathenry": "Germanic paganism",
     "Hindu god": "Hinduism",
-    "ISO": "international standard",
-    "International Organisation for Standardisation": "international standard",
-    "International Organization for Standardization": "international standard",
+    "ISO": "international standards",
+    "International Organisation for Standardisation": "international standards",
+    "International Organization for Standardization": "international standards",
     "Japanese god": "Japanese mythology",
     "Java PL": "Java programming language",
     "JavaPL": "Java programming language",
@@ -621,7 +621,7 @@ labels_topical = {
     "hydrocarbon chain suffix": "organic chemistry",
     "indo-european studies": "Indo-European studies",
     "inorganic compound": "inorganic chemistry",
-    "international standards": "international standard",
+    "international standard": "international standards",
     "internet": "Internet",
     "isotope": "physics",
     "jewish law": "Jewish law",
@@ -1120,6 +1120,7 @@ labels_regional = {
     "Khevsuria": "Khevsureti",
     "Khlat": "Ahlat",
     "Khodorchur": "Khotorjur",
+    "Khoi": "Khoy",
     "Kirklareli": "Kırklareli",
     "Kisiqi": "Kiziqi",
     "Kumayri": "Gyumri",
@@ -1321,6 +1322,7 @@ labels_regional = {
     "Saint Gallen": "St. Gallen",
     "Saint Ouen": "Saint Ouën",
     "Saint Ouënnais": "Saint Ouën",
+    "Salmast": "Salmas",
     "Salvadorian": "El Salvador",
     "Sandø": "Sandoy",
     "Santomean": "São Tomé and Príncipe",
@@ -1520,7 +1522,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 733
+}  # 735
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
