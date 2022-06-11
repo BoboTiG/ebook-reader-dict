@@ -191,7 +191,8 @@ labels = {
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
-}  # 186
+    "wrt": "with respect to",
+}  # 187
 
 label_syntaxes = {
     "&": {
@@ -429,7 +430,17 @@ label_syntaxes = {
         "omit_preComma": True,
         "omit_preSpace": False,
     },
-}  # 47
+    "with respect to": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+    "wrt": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+}  # 49
 
 labels_topical = {
     "AI": "artificial intelligence",
