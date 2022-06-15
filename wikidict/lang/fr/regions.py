@@ -421,6 +421,7 @@ regions = {
     "Wallonie": "Wallonie",
     "West Muskerry": "West Muskerry",
     "Yonne": "Yonne",
+    "Yorkshire": "Yorkshire",
     "Yucatan": "Yucatán",
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
@@ -445,7 +446,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 440
+}  # 441
 # END
 
 # handled differently
