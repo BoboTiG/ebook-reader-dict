@@ -200,6 +200,7 @@ regions = {
     "Koupuana": "Koupuana",
     "La Hague": "La Hague",
     "La Romagne": "La Romagne",
+    "Lancashire": "Lancashire",
     "Landegem": "Landegem",
     "Landivy": "Landivy",
     "Languedoc": "Languedoc",
@@ -446,7 +447,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 441
+}  # 442
 # END
 
 # handled differently

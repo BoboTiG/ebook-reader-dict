@@ -122,6 +122,8 @@ domain_templates = {
     "ethnonymes": "Ethnonymie",
     "euphorbes": "Botanique",
     "familles de plantes": "Botanique",
+    "faux anglicisme": "Faux anglicisme",
+    "faux anglicismes": "Faux anglicisme",
     "figure": "Rhétorique",
     "figures": "Rhétorique",
     "flamants": "Ornithologie",
@@ -233,7 +235,7 @@ domain_templates = {
     "provinces": "Géographie",
     "prunes": "Botanique",
     "préparations": "Cuisine",
-    "pseudo-anglicismes": "Pseudo-anglicisme",
+    "pseudo-anglicismes": "Faux anglicisme",
     "psychotropes": "Psychotrope",
     "pâtes": "Cuisine",
     "pâtes alimentaires": "Cuisine",
@@ -311,5 +313,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 306
+}  # 308
 # END

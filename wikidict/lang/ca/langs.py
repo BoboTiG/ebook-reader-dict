@@ -455,6 +455,7 @@ langs = {
     "nci": "nàhuatl clàssic",
     "nd": "ndebele septentrional",
     "nds": "baix alemany",
+    "nds-de": "baix alemany",
     "nds-nl": "baix saxó neerlandès",
     "nds_NL": "baix saxó",
     "ne": "nepalès",
@@ -500,6 +501,7 @@ langs = {
     "os": "osseta",
     "osa": "osage",
     "osp": "castellà antic",
+    "osx": "saxó antic",
     "ota": "turc otomà",
     "otk": "turquès antic",
     "ovd": "elfdalià",
@@ -747,5 +749,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 742
+}  # 744
 # END

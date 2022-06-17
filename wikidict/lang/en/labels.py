@@ -917,6 +917,7 @@ labels_regional = {
     "Bzyp": "Bzyb",
     "Bərdə": "Barda",
     "CA": "Canada",
+    "CNMI": "Northern Mariana Islands",
     "Cajun": "Louisiana",
     "Californian": "California",
     "Canadian": "Canada",
@@ -1042,10 +1043,12 @@ labels_regional = {
     "Gotlandic": "Gotland",
     "Goygol": "Göygöl",
     "Great Britain": "Britain",
+    "Guamanian": "Guam",
     "Guatemalan": "Guatemala",
     "Gurian": "Guria",
     "Guruli": "Guria",
     "Guyanese": "Guyana",
+    "Guåhan": "Guam",
     "Gyurin": "Gürün",
     "Göyçay": "Goychay",
     "Gədəbəy": "Gadabay",
@@ -1270,6 +1273,7 @@ labels_regional = {
     "Northern Isles": "Orkney, Shetland",
     "Northumberland": "Northumbria",
     "Northumbrian": "Northumbria",
+    "Notte Mariånas": "Northern Mariana Islands",
     "Nottinghamshire dialect": "Nottinghamshire",
     "Nova Scotian": "Nova Scotia",
     "Novo-Bayazet": "Nor Bayazet",
@@ -1536,7 +1540,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 735
+}  # 739
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
