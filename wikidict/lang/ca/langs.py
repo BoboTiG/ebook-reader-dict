@@ -249,6 +249,7 @@ langs = {
     "got": "gòtic",
     "grb": "grebo",
     "grc": "grec antic",
+    "grc-koi": "grec koiné",
     "gsw": "alamànic",
     "gu": "gujarati",
     "guc": "wayú",
@@ -465,6 +466,7 @@ langs = {
     "nhe": "nàhuatl de la Huasteca oriental",
     "nhn": "nàhuatl central",
     "nhw": "nàhuatl de la Huasteca occidental",
+    "nhx": "nàhuatl de Mecayapan",
     "nia": "nias",
     "niu": "niueà",
     "nl": "neerlandès",
@@ -749,5 +751,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 744
+}  # 746
 # END

@@ -105,6 +105,11 @@ recognized_placetypes = {
         "display": "airport",
         "preposition": "in",
     },
+    "alliance": {
+        "article": "an",
+        "display": "alliance",
+        "preposition": "in",
+    },
     "ancient capital": {
         "article": "the",
         "display": "ancient capital",
@@ -414,6 +419,16 @@ recognized_placetypes = {
         "article": "a",
         "display": "comune",
         "preposition": "of",
+    },
+    "confederacy": {
+        "article": "a",
+        "display": "confederacy",
+        "preposition": "in",
+    },
+    "confederation": {
+        "article": "a",
+        "display": "confederation",
+        "preposition": "in",
     },
     "constituency": {
         "article": "a",
@@ -845,6 +860,11 @@ recognized_placetypes = {
         "display": "historical commune",
         "preposition": "of",
     },
+    "historical confederation": {
+        "article": "a",
+        "display": "historical confederation",
+        "preposition": "in",
+    },
     "historical council area": {
         "article": "a",
         "display": "historical council area",
@@ -1123,6 +1143,11 @@ recognized_placetypes = {
     "largest city": {
         "article": "the",
         "display": "largest city",
+        "preposition": "in",
+    },
+    "league": {
+        "article": "a",
+        "display": "league",
         "preposition": "in",
     },
     "legislative capital": {
@@ -1965,7 +1990,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 392
+}  # 397
 
 placetypes_aliases = {
     "CDP": "census-designated place",
