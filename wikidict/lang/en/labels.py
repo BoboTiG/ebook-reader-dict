@@ -1602,6 +1602,8 @@ labels_subvarieties = {
     "Armenian Kipchak": "Armeno-Kipchak",
     "Artashen": "Artasheni",
     "Artsakh": "Karabakh",
+    "Arzgebirg": "Erzgebirgisch",
+    "Arzgebirgsch": "Erzgebirgisch",
     "Arťaşenuri": "Artasheni",
     "Arǩabi": "Arkabi",
     "Ashkenazi": "Ashkenazic Hebrew",
@@ -1789,6 +1791,7 @@ labels_subvarieties = {
     "Elsässisch": "Alsatian",
     "Elu": "Helu",
     "Epic Greek": "Epic",
+    "Erzgebirge": "Erzgebirgisch",
     "European French": "Europe",
     "European Portuguese form": "European Portuguese",
     "European Portuguese orthography": "European spelling",
@@ -1816,6 +1819,7 @@ labels_subvarieties = {
     "Groningen": "Gronings",
     "Grunnegs": "Gronings",
     "Grönnegs": "Gronings",
+    "Guam form": "Guam spelling",
     "Gungjung": "speech of the royal court",
     "Gwenedeg": "Gwened",
     "Ha Tinh": "Hà Tĩnh",
@@ -2107,6 +2111,7 @@ labels_subvarieties = {
     "Northern Karelia": "North Karelian",
     "Northern Karelian": "North Karelian",
     "Northern ME": "Northern",
+    "Northern Mariana Islands form": "Northern Mariana Islands spelling",
     "Northern Middle English": "Northern",
     "Northern Midland US": "Midland US",
     "Northern Scots": "Northern",
@@ -2683,5 +2688,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,140
+}  # 1,145
 # END
