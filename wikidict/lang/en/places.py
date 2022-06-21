@@ -785,11 +785,6 @@ recognized_placetypes = {
         "display": "historical autonomous republic",
         "preposition": "of",
     },
-    "historical autonomous territory": {
-        "article": "a",
-        "display": "historical autonomous territory",
-        "preposition": "of",
-    },
     "historical bailiwick": {
         "article": "a",
         "display": "historical bailiwick",
@@ -840,11 +835,6 @@ recognized_placetypes = {
         "display": "historical civilization",
         "preposition": "in",
     },
-    "historical colony": {
-        "article": "a",
-        "display": "historical colony",
-        "preposition": "in",
-    },
     "historical commandery": {
         "article": "a",
         "display": "historical commandery",
@@ -885,20 +875,15 @@ recognized_placetypes = {
         "display": "historical county borough",
         "preposition": "of",
     },
-    "historical crown dependency": {
-        "article": "a",
-        "display": "historical crown dependency",
-        "preposition": "in",
-    },
     "historical department": {
         "article": "a",
         "display": "historical department",
         "preposition": "of",
     },
-    "historical dependency": {
+    "historical dependent territory": {
         "article": "a",
-        "display": "historical dependency",
-        "preposition": "in",
+        "display": "historical dependent territory",
+        "preposition": "of",
     },
     "historical district": {
         "article": "a",
@@ -1515,6 +1500,11 @@ recognized_placetypes = {
         "display": "prefecture-level city",
         "preposition": "in",
     },
+    "protectorate": {
+        "article": "a",
+        "display": "protectorate",
+        "preposition": "of",
+    },
     "province": {
         "article": "a",
         "display": "province",
@@ -1990,7 +1980,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 397
+}  # 395
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2248,6 +2238,7 @@ recognized_placenames = {
     "county/West Midlands": {"article": "the", "display": ""},
     "crown dependency/Isle of Man": {"article": "the", "display": ""},
     "dependency/Isle of Man": {"article": "the", "display": ""},
+    "dependent territory/Isle of Man": {"article": "the", "display": ""},
     "empire/Roman Empire": {"article": "the", "display": ""},
     "external territory/Cocos Islands": {"article": "the", "display": ""},
     "island/North Island": {"article": "the", "display": ""},
@@ -2353,5 +2344,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 143
+}  # 144
 # END

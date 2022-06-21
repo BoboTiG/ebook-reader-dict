@@ -1776,6 +1776,8 @@ langs = {
     "cmm": "Michigamea",
     "cmn": "Mandarin",
     "cmn-ear": "Early Mandarin",
+    "cmn-hp": "Hanyu Pinyin",
+    "cmn-wg": "Wade–Giles",
     "cmo": "Central Mnong",
     "cmr": "Mro Chin",
     "cms": "Messapic",
@@ -9542,5 +9544,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,537
+}  # 9,539
 # END
