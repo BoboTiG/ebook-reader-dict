@@ -143,7 +143,6 @@ domain_templates = {
     "grenouilles": "Zoologie",
     "grues": "Ornithologie",
     "gâteaux": "Cuisine",
-    "habil": "Habillement",
     "hérons": "Ornithologie",
     "ibis": "Ornithologie",
     "iles": "Géographie",
@@ -213,7 +212,6 @@ domain_templates = {
     "peupliers": "Botanique",
     "phobies": "Médecine",
     "phyton": "Botanique",
-    "phytonymie": "Botanique",
     "pigeons": "Zoologie",
     "plans d’eau": "Géographie",
     "plantes": "Botanique",
@@ -313,5 +311,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 308
+}  # 306
 # END
