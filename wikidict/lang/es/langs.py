@@ -193,6 +193,7 @@ langs = {
     "ce": "checheno",
     "ceb": "cebuano",
     "cel": "protocelta",
+    "cel-bry-pro": "proto-britónico",
     "cel-gau": "galo",
     "cgg": "rukiga",
     "ch": "chamorro",
@@ -1189,7 +1190,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,184
+}  # 1,185
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
