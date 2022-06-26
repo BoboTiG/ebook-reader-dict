@@ -2399,7 +2399,7 @@ labels_subvarieties = {
     "Tri-state Limburgish": "Limburgan Ripuarian",
     "Tulamne": "Tulamni",
     "Tungers": "Tongeren",
-    "Tuscan": "Tuscany",
+    "Tuscany": "Tuscan",
     "Tver": "Tver Karelian",
     "Tweants": "Twents",
     "Twente": "Twents",

@@ -776,6 +776,7 @@ langs = {
     "odt": "holandés antiguo",
     "ofs": "frisón antiguo",
     "oj": "ojibwe",
+    "okm": "coreano medio",
     "olt": "lituano antiguo",
     "om": "oromo",
     "omc": "mochica",
@@ -1043,6 +1044,7 @@ langs = {
     "trans": "translingüístico",
     "trc": "triqui de Copala",
     "trk": "prototúrquico",
+    "trk-pro": "proto-turco",
     "trq": "triqui de Itunyoso",
     "trs": "triqui de Chicahuaxtla",
     "ts": "xitsonga",
@@ -1190,7 +1192,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,185
+}  # 1,187
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
