@@ -233,7 +233,6 @@ domain_templates = {
     "provinces": "Géographie",
     "prunes": "Botanique",
     "préparations": "Cuisine",
-    "pseudo-anglicismes": "Faux anglicisme",
     "psychotropes": "Psychotrope",
     "pâtes": "Cuisine",
     "pâtes alimentaires": "Cuisine",
@@ -311,5 +310,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 306
+}  # 305
 # END

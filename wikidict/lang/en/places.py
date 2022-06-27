@@ -2039,6 +2039,7 @@ placetypes_aliases = {
     "parmun": "parish municipality",
     "pen": "peninsula",
     "pref": "prefecture",
+    "prefcity": "prefecture-level city",
     "preflcity": "prefecture-level city",
     "r": "region",
     "range": "mountain range",
@@ -2052,6 +2053,8 @@ placetypes_aliases = {
     "rurmun": "rural municipality",
     "s": "state",
     "sar": "special administrative region",
+    "sprefcity": "sub-prefectural city",
+    "sprovcity": "subprovincial city",
     "sub-prefecture-level city": "sub-prefectural city",
     "sub-provincial city": "subprovincial city",
     "terr": "territory",
@@ -2064,7 +2067,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 81
+}  # 84
 
 recognized_qualifiers = {
     "abandoned": "abandoned",

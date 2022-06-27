@@ -21,10 +21,6 @@ form_of_templates = {
         "text": "accusative of",
         "dot": False,
     },
-    "accusative plural of": {
-        "text": "accusative plural of",
-        "dot": False,
-    },
     "accusative singular of": {
         "text": "accusative singular of",
         "dot": False,
@@ -251,14 +247,6 @@ form_of_templates = {
     },
     "euph form": {
         "text": "Euphemistic form of",
-        "dot": True,
-    },
-    "euphemistic spelling of": {
-        "text": "Euphemistic spelling of",
-        "dot": True,
-    },
-    "euph sp": {
-        "text": "Euphemistic spelling of",
         "dot": True,
     },
     "eye dialect of": {
@@ -713,5 +701,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 177
+}  # 174
 # END

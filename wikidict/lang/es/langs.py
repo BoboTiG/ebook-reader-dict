@@ -193,7 +193,7 @@ langs = {
     "ce": "checheno",
     "ceb": "cebuano",
     "cel": "protocelta",
-    "cel-bry-pro": "proto-britónico",
+    "cel-bry": "protobritónico",
     "cel-gau": "galo",
     "cgg": "rukiga",
     "ch": "chamorro",
@@ -969,7 +969,7 @@ langs = {
     "sou": "tailandés meridional",
     "spx": "picénico",
     "sq": "albanés",
-    "sqj": "proto-albanés",
+    "sqj": "protoalbanés",
     "sr": "serbio",
     "src": "sardo nuorés",
     "srm": "saramacano",
@@ -1044,7 +1044,6 @@ langs = {
     "trans": "translingüístico",
     "trc": "triqui de Copala",
     "trk": "prototúrquico",
-    "trk-pro": "proto-turco",
     "trq": "triqui de Itunyoso",
     "trs": "triqui de Chicahuaxtla",
     "ts": "xitsonga",
@@ -1192,7 +1191,7 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,187
+}  # 1,186
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
