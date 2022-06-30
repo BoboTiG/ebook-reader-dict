@@ -507,6 +507,7 @@ labels_topical = {
     "Neonazism": "neo-Nazism",
     "Norse neopaganism": "Germanic paganism",
     "Norse paganism": "Germanic paganism",
+    "OOP": "object-oriented programming",
     "Philmont": "Philmont Scout Ranch",
     "RPG": "role-playing games",
     "Rasta": "Rastafari",
@@ -798,7 +799,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 355
+}  # 356
 
 labels_regional = {
     "AU": "Australia",
@@ -2451,6 +2452,7 @@ labels_subvarieties = {
     "Upper Saxon German": "Upper Saxon",
     "Upper Saxony": "Upper Saxon",
     "Upper Yangtze Mandarin": "Southwestern Mandarin",
+    "Urban Cebuano": "Urban Cebu",
     "Uttarandhra": "North Andhra",
     "Uttarandhra Telugu": "North Andhra",
     "Valencian": "Valencia",
@@ -2717,5 +2719,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,174
+}  # 1,175
 # END
