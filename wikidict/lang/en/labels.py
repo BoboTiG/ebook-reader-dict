@@ -482,6 +482,8 @@ labels_topical = {
     "ISO": "international standards",
     "International Organisation for Standardisation": "international standards",
     "International Organization for Standardization": "international standards",
+    "Islamic": "Islam",
+    "Islamic banking": "Islamic finance",
     "Japanese god": "Japanese mythology",
     "Java PL": "Java programming language",
     "JavaPL": "Java programming language",
@@ -491,6 +493,9 @@ labels_topical = {
     "MMO": "online gaming",
     "MMORPG": "online gaming",
     "Mesopotamian god": "Mesopotamian mythology",
+    "Muslim": "Islam",
+    "Muslim banking": "Islamic finance",
+    "Muslim finance": "Islamic finance",
     "Nazi": "Nazism",
     "Nazis": "Nazism",
     "Neo-Nazi": "neo-Nazism",
@@ -518,6 +523,7 @@ labels_topical = {
     "Roman goddess": "Roman mythology",
     "Rubik's cubes": "Rubik's Cube",
     "Shamanism": "shamanism",
+    "Sharia-compliant finance": "Islamic finance",
     "Slavic god": "Slavic mythology",
     "Sufism": "Sufi Islam",
     "TCM": "traditional Chinese medicine",
@@ -799,7 +805,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 356
+}  # 362
 
 labels_regional = {
     "AU": "Australia",

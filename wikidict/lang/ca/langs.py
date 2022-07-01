@@ -286,12 +286,14 @@ langs = {
     "ie": "interlingue",
     "ig": "igbo",
     "ii": "yi sichuan",
+    "iir-pro": "protoindoiranià",
     "ik": "inupiaq",
     "ilo": "ilocano",
     "ine": "indoeuropeu",
     "ine-pro": "protoindoeuropeu",
     "inh": "ingúix",
     "io": "ido",
+    "ira-pro": "protoiranià",
     "is": "islandès",
     "ist": "istriot",
     "it": "italià",
@@ -751,5 +753,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 746
+}  # 748
 # END
