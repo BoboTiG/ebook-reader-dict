@@ -1777,6 +1777,7 @@ langs = {
     "cmn": "Mandarin",
     "cmn-ear": "Early Mandarin",
     "cmn-pinyin": "Hanyu Pinyin",
+    "cmn-tongyong": "Tongyong Pinyin",
     "cmn-wadegile": "Wade–Giles",
     "cmo": "Central Mnong",
     "cmr": "Mro Chin",
@@ -9544,5 +9545,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,539
+}  # 9,540
 # END
