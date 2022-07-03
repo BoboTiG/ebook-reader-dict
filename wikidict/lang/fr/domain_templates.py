@@ -11,7 +11,7 @@ domain_templates = {
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
     "alcools": "Boisson",
-    "algues": "Botanique",
+    "algues": "Phycologie",
     "aliments": "Cuisine",
     "alliages": "Chimie",
     "amphibiens": "Zoologie",
