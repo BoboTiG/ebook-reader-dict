@@ -1339,6 +1339,9 @@ labels_regional = {
     "Punjabi": "Punjab",
     "Qax": "Qakh",
     "Qazax": "Qazakh",
+    "Quettan": "Quetta",
+    "Quettawal": "Quetta",
+    "Quettawali": "Quetta",
     "Québec": "Quebec",
     "Rachan": "Racha",
     "Rachuli": "Racha",
@@ -1564,7 +1567,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 756
+}  # 759
 
 labels_subvarieties = {
     "13": "Tredici Comuni",

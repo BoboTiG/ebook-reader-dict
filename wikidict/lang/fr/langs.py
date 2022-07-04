@@ -6004,6 +6004,7 @@ langs = {
     "yax": "yauma",
     "yay": "agwagwune",
     "yba": "yala",
+    "ybb": "yemba",
     "ybe": "yugur occidental",
     "ybh": "yakha",
     "ybj": "hasha",
@@ -6291,7 +6292,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,286
+}  # 6,287
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
