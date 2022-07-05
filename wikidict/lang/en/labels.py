@@ -801,11 +801,13 @@ labels_topical = {
     "white supremacist ideology": "white supremacy",
     "wind instrument": "music",
     "wind instruments": "music",
+    "woodwind instrument": "music",
+    "woodwind instruments": "music",
     "yoga pose": "yoga",
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 362
+}  # 364
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
