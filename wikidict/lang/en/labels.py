@@ -1526,9 +1526,6 @@ labels_regional = {
     "Zagatala": "Zaqatala",
     "Zakatala": "Zaqatala",
     "Zangelan": "Zangilan",
-    "Zugdidi-Samurzakano": "Zugdidi–Samurzakano",
-    "Zugdidi-Samurzaqano": "Zugdidi–Samurzakano",
-    "Zugdidi–Samurzaqano": "Zugdidi–Samurzakano",
     "Zurich": "Zürich",
     "Zəngilan": "Zangilan",
     "Zərdab": "Zardab",
@@ -1569,7 +1566,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 759
+}  # 756
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -2305,6 +2302,7 @@ labels_subvarieties = {
     "Salland": "Sallands",
     "Salop": "Shropshire",
     "Salopian": "Shropshire",
+    "Samurzaqano": "Samurzakano",
     "Santoantão": "Santo Antão",
     "Sarkese": "Sark",
     "Satsugu": "Kagoshima",
@@ -2317,6 +2315,7 @@ labels_subvarieties = {
     "Scottish English": "Scotland",
     "Seema": "Rayalaseema",
     "Seema Telugu": "Rayalaseema",
+    "Senaḳi": "Senaki",
     "Sercquiais": "Sark",
     "Seven Communities": "Sette Comuni",
     "Severn": "Oji-Cree",
@@ -2575,6 +2574,9 @@ labels_subvarieties = {
     "Zhangzhou dialect": "Zhangzhou",
     "Zhongyuan Mandarin": "Central Plains Mandarin",
     "Zittesj": "Sittard",
+    "Zugdidi-Samurzakano": "Zugdidi–Samurzakano",
+    "Zugdidi-Samurzaqano": "Zugdidi–Samurzakano",
+    "Zugdidi–Samurzaqano": "Zugdidi–Samurzakano",
     "alq": "Algonquin",
     "ante-Classical": "pre-Classical",
     "ante-Classical lemma": "pre-Classical",
@@ -2755,5 +2757,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,183
+}  # 1,188
 # END
