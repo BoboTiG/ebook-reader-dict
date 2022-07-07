@@ -663,6 +663,7 @@ langs = {
     "tok": "toki pona",
     "tpi": "tok pisin",
     "tpn": "tupinamba",
+    "tpw": "tupí clàssic",
     "tr": "turc",
     "trk-oat": "turc antic d",
     "trk-pro": "prototurquès",
@@ -753,5 +754,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 748
+}  # 749
 # END

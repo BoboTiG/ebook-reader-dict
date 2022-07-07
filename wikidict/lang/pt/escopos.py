@@ -37,6 +37,7 @@ escopos = {
     "antropónimo": "Antropónimo",
     "ap": "Amapá",
     "aracnídeo": "Zoologia",
+    "aragão": "Aragão",
     "aran": "Vale de Aran",
     "aranês": "Vale de Aran",
     "arcaico": "arcaico",
@@ -388,5 +389,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 383
+}  # 384
 # END
