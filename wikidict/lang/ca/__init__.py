@@ -86,6 +86,8 @@ templates_multi = {
     "forma-": "f\"{italic('forma ' + parts[1] + ' de')} {strong(parts[-1])}\"",
     # {{forma-a|ca|Beget}}
     "forma-a": "f\"{italic('forma alternativa de')} {strong(parts[2])}\"",
+    # {{forma-inc|ca|garantir}}
+    "forma-inc": "f\"{italic('forma incorrecta de')} {strong(parts[2])}\"",
     # {{forma-pron|ca|estimar}}
     "forma-pron": "f\"{italic('forma pronominal de')} {strong(parts[2])}\"",
     # {{IPAchar|[θ]}}
