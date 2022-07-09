@@ -524,6 +524,7 @@ langs = {
     "pi": "pali",
     "pih": "pitcairnès",
     "pl": "polonès",
+    "pln": "palenquero",
     "pml": "lingua franca",
     "pms": "piemontès",
     "pnb": "panjabi occidental",
@@ -629,6 +630,7 @@ langs = {
     "sus": "susú",
     "sux": "sumeri",
     "sv": "suec",
+    "sva": "svanetià",
     "sw": "suahili",
     "sw_CD": "suahili del Congo",
     "swb": "comorià",
@@ -754,5 +756,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 749
+}  # 751
 # END
