@@ -92,6 +92,8 @@ templates_multi = {
     "forma-inc": "f\"{italic('forma incorrecta de')} {strong(parts[2])}\"",
     # {{forma-pron|ca|estimar}}
     "forma-pron": "f\"{italic('forma pronominal de')} {strong(parts[2])}\"",
+    # {{forma-super|ca|alt}}
+    "forma-super": "f\"{italic('forma superlativa de')} {strong(parts[2])}\"",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{marca|ca|fruits}}

@@ -230,6 +230,7 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
         ("{{forma-dim|ca|amic}}", "<i>forma diminutiva de</i> <b>amic</b>"),
         ("{{forma-inc|ca|garantir}}", "<i>forma incorrecta de</i> <b>garantir</b>"),
         ("{{forma-pron|ca|estimar}}", "<i>forma pronominal de</i> <b>estimar</b>"),
+        ("{{forma-super|ca|alt}}", "<i>forma superlativa de</i> <b>alt</b>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
         ("{{marca|ca|alguerès-verb}}", "<i>(alguerès)</i>"),
         ("{{marca|ca|fruits}}", "<i>(botànica)</i>"),
