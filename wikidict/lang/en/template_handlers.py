@@ -609,6 +609,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>scratch</i> (“money”)&nbsp;+&nbsp;<i>bills</i>'
     >>> render_morphology("blend of", ["en", "extrasolar", "solar system"], defaultdict(str))
     'Blend of <i>extrasolar</i>&nbsp;+&nbsp;<i>solar system</i>'
+    >>> render_morphology("blend", [], defaultdict(str, {"notext": "1", "1": "en", "2": "yarb", "3": "balls"}))
+    '<i>yarb</i>&nbsp;+&nbsp;<i>balls</i>'
 
     >>> render_morphology("doublet", ["en" , "fire"], defaultdict(str))
     'Doublet of <i>fire</i>'
@@ -632,6 +634,9 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         if tpl in {"con", "confix"} and i == parts_count:
             chunk = f"-{chunk}"
         return chunk
+
+    if not parts:
+        return f"{italic(data['2'])}&nbsp;+&nbsp;{italic(data['3'])}"
 
     compound = [
         "af",
@@ -679,7 +684,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             keep_parsing = False
         else:
             parsed_parts.append(p_dic)
-        i = i + 1
+        i += 1
 
     parts_count = len(parsed_parts)
     i = 1
