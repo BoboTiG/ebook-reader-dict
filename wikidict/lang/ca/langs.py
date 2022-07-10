@@ -715,6 +715,7 @@ langs = {
     "xaq": "aquità",
     "xaw": "kawaiisu",
     "xbm": "bretó mitjà",
+    "xgn-pro": "protomongòlic",
     "xh": "xhosa",
     "xib": "ibèric",
     "xmf": "mingrelià",
@@ -722,6 +723,7 @@ langs = {
     "xog": "soga",
     "xpu": "púnic",
     "xum": "umbre",
+    "xwo": "oirat",
     "xx": "xxxx",
     "yag": "yagan",
     "yao": "yao",
@@ -756,5 +758,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 751
+}  # 753
 # END

@@ -69,6 +69,7 @@ domain_templates = {
     "composants": "Électronique",
     "composants électriques": "Électricité",
     "composants électroniques": "Électronique",
+    "comtés": "Géographie",
     "condiments": "Cuisine",
     "confiserie": "Confiserie",
     "confiseries": "Confiserie",
@@ -310,5 +311,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 305
+}  # 306
 # END
