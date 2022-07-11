@@ -235,6 +235,7 @@ langs = {
     "gem-pro": "protogermànic",
     "gez": "gueez",
     "gil": "gilbertès",
+    "gkm": "grec bizantí",
     "gl": "gallec",
     "glk": "gilaki",
     "gmh": "alt alemany mitjà",
@@ -758,5 +759,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 753
+}  # 754
 # END

@@ -444,6 +444,8 @@ label_syntaxes = {
 
 labels_topical = {
     "AI": "artificial intelligence",
+    "Ahmadi": "Ahmadiyya",
+    "Ahmadiyyat": "Ahmadiyya",
     "Alt-right": "alt-right",
     "Altright": "alt-right",
     "Ancient Hinduism": "Vedic religion",
@@ -525,7 +527,7 @@ labels_topical = {
     "Shamanism": "shamanism",
     "Sharia-compliant finance": "Islamic finance",
     "Slavic god": "Slavic mythology",
-    "Sufism": "Sufi Islam",
+    "Sufi Islam": "Sufism",
     "TCM": "traditional Chinese medicine",
     "TV": "television",
     "USSR": "Soviet Union",
@@ -807,7 +809,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 364
+}  # 366
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -2302,10 +2304,11 @@ labels_subvarieties = {
     "Renaissance British": "British Renaissance Latin",
     "Rigvedic Sanskrit": "Rigvedic",
     "Rimella": "Rimella and Campello Monti",
+    "Rimini": "Riminese",
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
     "River Plate": "Rioplatense",
-    "Rm": "Rimini",
+    "Rm": "Riminese",
     "Roman": "Rome",
     "Roman Italian": "Rome",
     "Romanesco": "Rome",
@@ -2796,5 +2799,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,221
+}  # 1,222
 # END
