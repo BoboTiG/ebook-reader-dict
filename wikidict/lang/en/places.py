@@ -1735,6 +1735,11 @@ recognized_placetypes = {
         "display": "state park",
         "preposition": "in",
     },
+    "state-level new area": {
+        "article": "a",
+        "display": "state-level new area",
+        "preposition": "of",
+    },
     "statutory city": {
         "article": "a",
         "display": "statutory city",
@@ -1789,6 +1794,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "subprovincial city",
         "preposition": "in",
+    },
+    "subprovincial district": {
+        "article": "a",
+        "display": "subprovincial district",
+        "preposition": "of",
     },
     "subregion": {
         "article": "a",
@@ -1980,7 +1990,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 395
+}  # 397
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2057,6 +2067,7 @@ placetypes_aliases = {
     "sprovcity": "subprovincial city",
     "sub-prefecture-level city": "sub-prefectural city",
     "sub-provincial city": "subprovincial city",
+    "sub-provincial district": "subprovincial district",
     "terr": "territory",
     "terrauth": "territorial authority",
     "tjarea": "tribal jurisdictional area",
@@ -2067,7 +2078,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 84
+}  # 85
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
