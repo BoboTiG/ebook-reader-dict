@@ -599,6 +599,7 @@ langs = {
     "shu": "àrab txadià",
     "si": "singalès",
     "sid": "sidamo",
+    "sit-jap": "japhug",
     "sit-pro": "protosinotibetà",
     "sjd": "sami de Kildin",
     "sk": "eslovac",
@@ -759,5 +760,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 754
+}  # 755
 # END

@@ -15,6 +15,7 @@ langs = {
     "abq": "Abasinisch",
     "ace": "Acehnesisch",
     "acf": "Antillen-Kreolisch",
+    "acw": "Hijazi-Arabisch",
     "ady": "Adygeisch",
     "ae": "Avestisch",
     "aeb": "Tunesisch-Arabisch",
@@ -659,5 +660,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 654
+}  # 655
 # END
