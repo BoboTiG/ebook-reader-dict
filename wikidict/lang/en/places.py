@@ -1925,6 +1925,11 @@ recognized_placetypes = {
         "display": "united township municipality",
         "preposition": "in",
     },
+    "university": {
+        "article": "a",
+        "display": "university",
+        "preposition": "in",
+    },
     "unrecognised country": {
         "article": "an",
         "display": "unrecognised country",
@@ -1990,7 +1995,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 397
+}  # 398
 
 placetypes_aliases = {
     "CDP": "census-designated place",

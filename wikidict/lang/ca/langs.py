@@ -100,7 +100,6 @@ langs = {
     "bua": "buriat",
     "bug": "bugui",
     "bum": "bulu",
-    "bxs": "buriat",
     "byn": "bilin",
     "byv": "medumba",
     "ca": "català",
@@ -760,5 +759,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 755
+}  # 754
 # END
