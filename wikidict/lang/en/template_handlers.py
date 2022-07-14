@@ -380,6 +380,8 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>A diminutive of the female given names Florence or Flora</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"Hindi", "meaning":"patience"}))
     '<i>A male given name from Hindi, meaning "patience"</i>'
+    >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"Danish < grc:Αἰκατερῑ́νη", "var": "Karen"}))
+    '<i>A female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
     """  # noqa
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
@@ -402,6 +404,7 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         from_key = f"from{i}" if i != 1 else "from"
         if data[from_key]:
             from_text = data[from_key]
+            suffix = ""
             if from_text == "surnames":
                 prefix = "transferred from the "
                 suffix = "surname"
@@ -413,17 +416,27 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 suffix = "a coinage"
             else:
                 prefix = "from "
-                if ":" in from_text:
-                    # todo fromalt
-                    from_split = from_text.split(":")
-                    suffix = f"{langs[from_split[0]]} {from_split[1]}"
-                    fromt_key = f"fromt{i}" if i != 1 else "fromt"
-                    if data[fromt_key]:
-                        suffix += f" (“{data[fromt_key]}”)"
-                elif from_text.endswith("languages"):
-                    suffix = f"the {from_text}"
-                else:
-                    suffix = from_text
+                from_texts = [from_text]
+                if " < " in from_text:
+                    from_texts = from_text.split(" < ")
+                prepend = False
+                for from_text in from_texts:
+                    if suffix:
+                        suffix += ", in turn from " if prepend else " [in turn from "
+                        prepend = True
+                    if ":" in from_text:
+                        # todo fromalt
+                        from_split = from_text.split(":")
+                        suffix += f"{langs[from_split[0]]} {from_split[1]}"
+                        fromt_key = f"fromt{i}" if i != 1 else "fromt"
+                        if data[fromt_key]:
+                            suffix += f" (“{data[fromt_key]}”)"
+                    elif from_text.endswith("languages"):
+                        suffix = f"the {from_text}"
+                    else:
+                        suffix += from_text
+                if prepend:
+                    suffix += "]"
             if lastfrom_seg and lastfrom_seg.get("prefix", "") != prefix:
                 fromsegs.append(lastfrom_seg)
                 lastfrom_seg = {}
