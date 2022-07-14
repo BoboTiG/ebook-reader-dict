@@ -48,16 +48,13 @@ def join_names(
                 if include_langname and ":" in var_text:
                     data_split = var_text.split(":")
                     text = f"{langs[data_split[0]]} {data_split[1]}"
-                    trans = transliterate(data_split[0], data_split[1])
-                    if trans:
+                    if trans := transliterate(data_split[0], data_split[1]):
                         text += f" ({trans})"
                     var_a.append(text)
                 else:
                     langnametext = "English " if include_langname else ""
                     var_a.append(langnametext + prefix + var_text + suffix)
-    if var_a:
-        return concat(var_a, ", ", last_sep)
-    return ""
+    return concat(var_a, ", ", last_sep) if var_a else ""
 
 
 def gloss_tr_poss(data: Dict[str, str], gloss: str, trans: str = "") -> str:
@@ -109,8 +106,7 @@ def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += f" {data['nationality']}"
         elif data["nat"]:
             phrase += f" {data['nat']}"
-        occ = join_names(data, "occ", " and ", False, "occupation")
-        if occ:
+        if occ := join_names(data, "occ", " and ", False, "occupation"):
             phrase += f" {occ}"
         phrase += " "
     phrase += f"{p}"
@@ -445,31 +441,28 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             lastfrom_seg["suffixes"].append(suffix)
     if lastfrom_seg:
         fromsegs.append(lastfrom_seg)
-    localphrase = [
-        fromseg.get("prefix", "") + concat(fromseg.get("suffixes", []), ", ", " or ")
+    if localphrase := [
+        fromseg.get("prefix", "")
+        + concat(fromseg.get("suffixes", []), ", ", " or ")
         for fromseg in fromsegs
-    ]
-    if localphrase:
+    ]:
         phrase += " " + concat(localphrase, ", ", " or ")
 
-    meaningtext = join_names(data, "meaning", " or ", False, prefix='"', suffix='"')
-    if meaningtext:
+    if meaningtext := join_names(
+        data, "meaning", " or ", False, prefix='"', suffix='"'
+    ):
         phrase += f", meaning {meaningtext}"
 
     if data["usage"]:
         phrase += ", of " + data["usage"] + " usage"
 
-    vartext = join_names(data, "var", " or ")
-    if vartext:
+    if vartext := join_names(data, "var", " or "):
         phrase += f", variant of {vartext}"
-    mtext = join_names(data, "m", " and ")
-    if mtext:
+    if mtext := join_names(data, "m", " and "):
         phrase += f", masculine equivalent {mtext}"
-    ftext = join_names(data, "f", " and ")
-    if ftext:
+    if ftext := join_names(data, "f", " and "):
         phrase += f", feminine equivalent {ftext}"
-    eqext = join_names(data, "eq", " and ", True)
-    if eqext:
+    if eqext := join_names(data, "eq", " and ", True):
         phrase += f", equivalent to {eqext}"
 
     return italic(phrase)
@@ -543,8 +536,7 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         omit_postComma = syntax["omit_postComma"] if syntax else False
         omit_space = omit_preSpace or (syntax["omit_preSpace"] if syntax else False)
 
-        label_display = lookup_italic(label, "en")
-        if label_display:
+        if label_display := lookup_italic(label, "en"):
             if res:
                 res += "" if omit_comma else ","
                 res += "" if omit_space else " "
@@ -671,10 +663,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["notext"] != "1" and tpl in with_start_text:
         starter = tpl
         if parts:
-            if not tpl.endswith(" of"):
-                starter += " of "
-            else:
-                starter += " "
+            starter += " " if tpl.endswith(" of") else " of "
         phrase = starter if data["nocap"] else starter.capitalize()
     a_phrase = []
 
@@ -686,13 +675,13 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         si = str(i)
         chunk = parts.pop(0) if parts else ""
         chunk = chunk.split("#")[0] if chunk else ""
-        chunk = data["alt" + si] or chunk
+        chunk = data[f"alt{si}"] or chunk
         p_dic["chunk"] = chunk
-        p_dic["g"] = data["g" + si]
-        p_dic["tr"] = data["tr" + si]
-        p_dic["t"] = data["t" + si]
-        p_dic["pos"] = data["pos" + si]
-        p_dic["lit"] = data["lit" + si]
+        p_dic["g"] = data[f"g{si}"]
+        p_dic["tr"] = data[f"tr{si}"]
+        p_dic["t"] = data[f"t{si}"]
+        p_dic["pos"] = data[f"pos{si}"]
+        p_dic["lit"] = data[f"lit{si}"]
         if not chunk and not p_dic["tr"] and not p_dic["ts"] and not parts:
             keep_parsing = False
         else:
@@ -735,7 +724,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     # special case : {{suffix|en||cide}}
     if tpl == "suffix" and "&nbsp;+&nbsp;" not in phrase:
-        phrase = "&nbsp;+&nbsp;" + phrase
+        phrase = f"&nbsp;+&nbsp;{phrase}"
 
     return phrase
 
@@ -763,8 +752,7 @@ def render_named_after(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += f" {data['nationality']}"
         elif data["nat"]:
             phrase += f" {data['nat']}"
-        occ = join_names(data, "occ", " and ", False, "occupation")
-        if occ:
+        if occ := join_names(data, "occ", " and ", False, "occupation"):
             phrase += f" {occ}"
         phrase += " "
     phrase += f"{p}"
@@ -986,9 +974,11 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     art = data["A"] or "A"
     dot = data["dot"] or ("" if data["nodot"] else ".")
     from_text = f", from {data['from']}" if data["from"] else ""
-    if not parts:
-        return italic(f"{art} {tpl}{from_text}{dot}")
-    return italic(f"{art} {parts[0]} {tpl}{from_text}{dot}")
+    return (
+        italic(f"{art} {parts[0]} {tpl}{from_text}{dot}")
+        if parts
+        else italic(f"{art} {tpl}{from_text}{dot}")
+    )
 
 
 def render_unknown(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
