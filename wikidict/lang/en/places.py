@@ -1525,6 +1525,11 @@ recognized_placetypes = {
         "display": "raion",
         "preposition": "of",
     },
+    "range": {
+        "article": "a",
+        "display": "range",
+        "preposition": "in",
+    },
     "regency": {
         "article": "a",
         "display": "regency",
@@ -1995,7 +2000,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 398
+}  # 399
 
 placetypes_aliases = {
     "CDP": "census-designated place",

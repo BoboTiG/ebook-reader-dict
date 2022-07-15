@@ -4569,6 +4569,7 @@ langs = {
     "ro": "roumain",
     "roa": "langues romanes",
     "roa-leo": "léonais",
+    "roa-opt": "galaïco-portugais",
     "roa-rup": "aroumain",
     "roa-tara": "tarantino",
     "rob": "tae’",
@@ -6292,7 +6293,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,287
+}  # 6,288
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

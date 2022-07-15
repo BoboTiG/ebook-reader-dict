@@ -375,6 +375,7 @@ langs = {
     "lam": "lamba",
     "lb": "luxemburguès",
     "lez": "lesguià",
+    "lfn": "lingua franca nova",
     "lg": "ganda",
     "li": "limburguès",
     "lij": "lígur",
@@ -759,5 +760,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 754
+}  # 755
 # END
