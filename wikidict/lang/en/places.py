@@ -1490,6 +1490,11 @@ recognized_placetypes = {
         "display": "port town",
         "preposition": "in",
     },
+    "prefectural-level new area": {
+        "article": "a",
+        "display": "prefectural-level new area",
+        "preposition": "in",
+    },
     "prefecture": {
         "article": "a",
         "display": "prefecture",
@@ -1514,6 +1519,11 @@ recognized_placetypes = {
         "article": "the",
         "display": "provincial capital",
         "preposition": "of",
+    },
+    "provincial-level new area": {
+        "article": "a",
+        "display": "provincial-level new area",
+        "preposition": "in",
     },
     "quarter": {
         "article": "a",
@@ -1743,7 +1753,7 @@ recognized_placetypes = {
     "state-level new area": {
         "article": "a",
         "display": "state-level new area",
-        "preposition": "of",
+        "preposition": "in",
     },
     "statutory city": {
         "article": "a",
@@ -2000,7 +2010,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 399
+}  # 401
 
 placetypes_aliases = {
     "CDP": "census-designated place",

@@ -1380,6 +1380,8 @@ labels_regional = {
     "Santomean": "São Tomé and Príncipe",
     "Sao Paulo": "São Paulo",
     "Sao Tomean": "São Tomé and Príncipe",
+    "Sarighamish": "Sarıkamış",
+    "Sarikamish": "Sarıkamış",
     "Sason": "Sasun",
     "Sassoun": "Sasun",
     "Scanian": "Scania",
@@ -1574,7 +1576,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 762
+}  # 764
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -1810,6 +1812,8 @@ labels_subvarieties = {
     "Doric Scots": "Doric",
     "Drenthe": "Drents",
     "Drèents": "Drents",
+    "Dumanli": "Santa",
+    "Dumanlı": "Santa",
     "Düzköy": "Chkhala",
     "EA": "El-Amarna",
     "EC Scots": "East Central",
@@ -2340,6 +2344,7 @@ labels_subvarieties = {
     "Salop": "Shropshire",
     "Salopian": "Shropshire",
     "Samurzaqano": "Samurzakano",
+    "Sanda": "Santa",
     "Santoantão": "Santo Antão",
     "Sarkese": "Sark",
     "Sarsina, Careste": "Sarsina e Careste",
@@ -2776,6 +2781,9 @@ labels_subvarieties = {
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
+    "Σάντα": "Santa",
+    "Σαντ": "Santa",
+    "Σαντ.": "Santa",
     "ათინა": "Atina",
     "ათინური": "Atina",
     "არტაშენური": "Artasheni",
@@ -2799,5 +2807,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,222
+}  # 1,228
 # END
