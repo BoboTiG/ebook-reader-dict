@@ -100,6 +100,7 @@ escopos = {
     "chulo": "obsceno",
     "cidade": "Geografia",
     "ciência da computação": "Informática",
+    "coimbra": "Coimbra",
     "coloquial": "coloquial",
     "coloquialismo": "coloquialismo",
     "colômbia": "Colômbia",
@@ -389,5 +390,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 384
+}  # 385
 # END
