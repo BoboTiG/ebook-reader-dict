@@ -55,6 +55,7 @@ langs = {
     "av": "àvar",
     "awa": "awadhi",
     "ay": "aimara",
+    "ayl": "àrab libi",
     "az": "àzeri",
     "azb": "àzeri meridional",
     "ba": "baixkir",
@@ -760,5 +761,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 755
+}  # 756
 # END

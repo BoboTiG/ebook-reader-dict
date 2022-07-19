@@ -5688,6 +5688,7 @@ langs = {
     "nkx": "Nkoroo",
     "nkz": "Nkari",
     "nl": "Dutch",
+    "nl-BE": "Belgian Dutch",
     "nla": "Ngombale",
     "nlc": "Nalca",
     "nle": "East Nyala",
@@ -9545,5 +9546,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,540
+}  # 9,541
 # END
