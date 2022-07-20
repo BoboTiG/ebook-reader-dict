@@ -79,8 +79,6 @@ def find_section_definitions(
     ):
         return definitions
 
-    # es uses definition lists, not well supported by the parser...
-    # replace them by numbered lists
     if locale == "es":
         if lists := section.get_lists(pattern="[:;]"):
             sec = "".join(a_list.string for a_list in lists)
@@ -122,12 +120,10 @@ def find_section_definitions(
                             i=idx2, pattern=sublist_patterns[locale]
                         ):
                             for subsubcode in subsublist.items:
-                                subsubdefinition = process_templates(
+                                if subsubdefinition := process_templates(
                                     word, clean(subsubcode), locale
-                                )
-                                if not subsubdefinition:
-                                    continue
-                                subsubdefinitions.append(subsubdefinition)
+                                ):
+                                    subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
                 if subdefinitions:
@@ -228,9 +224,7 @@ def find_gender(code: str, pattern: Pattern[str]) -> str:
     if not match:
         return ""
     groups = match.groups()
-    if not groups:
-        return ""
-    return groups[0] or ""
+    return groups[0] or "" if groups else ""
 
 
 def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
