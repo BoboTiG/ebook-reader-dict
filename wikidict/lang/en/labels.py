@@ -467,6 +467,7 @@ labels_topical = {
     "Communism": "communism",
     "Daoism": "Taoism",
     "E number": "food manufacture",
+    "EU politics": "European politics",
     "Eastern Catholic": "Eastern Catholicism",
     "Egyptian god": "Egyptian mythology",
     "GUI": "graphical user interface",
@@ -756,6 +757,7 @@ labels_topical = {
     "social science": "social sciences",
     "software development": "software engineering",
     "space": "space science",
+    "spaceflight": "space flight",
     "speedrun": "speedrunning",
     "speedruns": "speedrunning",
     "sport": "sports",
@@ -809,7 +811,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 366
+}  # 368
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
