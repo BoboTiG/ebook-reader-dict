@@ -431,6 +431,7 @@ langs = {
     "min": "minangkabau",
     "mk": "macedoni",
     "ml": "malaiàlam",
+    "mla": "tamambo",
     "mn": "mongol",
     "mnc": "manxú",
     "mni": "manipurí",
@@ -761,5 +762,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 756
+}  # 757
 # END
