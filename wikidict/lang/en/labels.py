@@ -2311,6 +2311,7 @@ labels_subvarieties = {
     "Rigvedic Sanskrit": "Rigvedic",
     "Rimella": "Rimella and Campello Monti",
     "Rimini": "Riminese",
+    "Rioplatense Spanish": "Rioplatense",
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
     "River Plate": "Rioplatense",
@@ -2322,6 +2323,7 @@ labels_subvarieties = {
     "Roussillonese": "Northern Catalan",
     "Royal Thai": "royal",
     "Runic": "Runic form",
+    "Río de la Plata": "Rioplatense",
     "Rāṛha Bengali": "Rāṛha",
     "Rẹ́mọ": "Rẹmọ",
     "S": "Sesto Imolese",
@@ -2520,6 +2522,7 @@ labels_subvarieties = {
     "US Southwest": "Southwestern US",
     "US Spanish": "US",
     "US form": "US",
+    "US spelling": "American spelling",
     "USA 1": "American (&ndash;1980)",
     "USA 2": "American (1980&ndash;)",
     "Ug.": "Ras Sharma",
@@ -2809,5 +2812,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,228
+}  # 1,231
 # END
