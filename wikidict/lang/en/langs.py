@@ -8345,7 +8345,7 @@ langs = {
     "ukw": "Ukwuani-Aboh-Ndoni",
     "uky": "Kuuk Yak",
     "ula": "Fungwa",
-    "ulb": "Ulukwumi",
+    "ulb": "Olukumi",
     "ulc": "Ulch",
     "ule": "Lule",
     "ulf": "Afra",

@@ -1749,6 +1749,7 @@ labels_subvarieties = {
     "Central Italian": "central Italy",
     "Central Italy": "central Italy",
     "Central Ojibwa": "Central Ojibwe",
+    "Central Romagnol": "Central Romagna",
     "Central Scots": "Central",
     "Central Vietnamese": "Central Vietnam",
     "Chadhda": "Charhda",
@@ -2298,6 +2299,7 @@ labels_subvarieties = {
     "Quảng Trị dialect": "Quảng Trị",
     "R": "Ravenna",
     "RCM": "Rimella and Campello Monti",
+    "RF": "Central Romagna",
     "RLC": "Revived Late Cornish",
     "RS": "Ras Sharma",
     "Rachnavi": "Jhangli",
@@ -2305,6 +2307,7 @@ labels_subvarieties = {
     "Ralik": "Rālik",
     "Rarha": "Rāṛha",
     "Rarha Bengali": "Rāṛha",
+    "Ratnalaseema": "Rayalaseema",
     "Remo": "Rẹmọ",
     "Renaissance Anglo-Latin": "British Renaissance Latin",
     "Renaissance British": "British Renaissance Latin",
@@ -2812,5 +2815,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,231
+}  # 1,234
 # END
