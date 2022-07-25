@@ -329,6 +329,7 @@ langs = {
     "lud": "Lüdisch",
     "lus": "Mizo",
     "lv": "Lettisch",
+    "lvk": "Lavukaleve",
     "lzz": "Lasisch",
     "mad": "Maduresisch",
     "mak": "Makassar",
@@ -668,5 +669,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 663
+}  # 664
 # END
