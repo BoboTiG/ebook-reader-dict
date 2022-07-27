@@ -1191,7 +1191,8 @@ langs = {
     "zrp": "judeofrancés",
     "zu": "zulú",
     "zun": "zuñi",
-}  # 1,186
+    "zza": "zazaki",
+}  # 1,187
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",

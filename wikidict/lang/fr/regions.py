@@ -104,6 +104,7 @@ regions = {
     "Châtellerault": "Châtellerault",
     "Cois Fharraige": "Cois Fharraige",
     "Colombie": "Colombie",
+    "Combrailles": "Combrailles",
     "Commonwealth": "Commonwealth",
     "Comores": "Comores",
     "Congo-Brazzaville": "Congo-Brazzaville",
@@ -235,6 +236,7 @@ regions = {
     "Malaisie": "Malaisie",
     "Mali": "Mali",
     "Manche": "Manche",
+    "Marche": "Marche",
     "Marne": "Marne",
     "Maroc": "Maroc",
     "Marseille": "Marseille",
@@ -432,7 +434,9 @@ regions = {
     "léonard": "Léonard",
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
+    "pays Gallo": "Pays Gallo",
     "pays de Waes": "Pays de Waes",
+    "pays gallo": "Pays Gallo",
     "régio": "Régionalisme",
     "région": "Régionalisme",
     "régional": "Régionalisme",
@@ -447,7 +451,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 442
+}  # 446
 # END
 
 # handled differently

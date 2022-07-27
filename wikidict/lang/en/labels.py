@@ -2360,6 +2360,7 @@ labels_subvarieties = {
     "Samurzaqano": "Samurzakano",
     "Sanda": "Santa",
     "Santoantão": "Santo Antão",
+    "Sargodha": "Shahpuri",
     "Sarkese": "Sark",
     "Sarsina, Careste": "Sarsina e Careste",
     "Satsugu": "Kagoshima",
@@ -2824,5 +2825,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,246
+}  # 1,247
 # END
