@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Dict, List, Optional, Pattern, Tuple
+from typing import Dict, List, Optional, Pattern, Tuple, cast
 
 from .lang import (
     definitions_to_ignore,
@@ -211,10 +211,11 @@ def find_etymology(
                 definitions.append(process_templates(word, clean(section_item), locale))
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in section.sublists(i=idx):
-                    for subcode in sublist.items:
-                        subdefinitions.append(
-                            process_templates(word, clean(subcode), locale)
-                        )
+                    subdefinitions.extend(
+                        process_templates(word, clean(subcode), locale)
+                        for subcode in sublist.items
+                    )
+
                 if subdefinitions:
                     definitions.append(tuple(subdefinitions))
 
@@ -458,8 +459,8 @@ def render(in_words: Dict[str, str], locale: str, workers: int) -> Words:
     }
 
     MANAGER = multiprocessing.Manager()
-    MISSING_TPL_SEEN: List[str] = MANAGER.list()  # noqa
-    results: Words = MANAGER.dict()
+    MISSING_TPL_SEEN = MANAGER.list()  # noqa:F841
+    results: Words = cast(Dict[str, Word], MANAGER.dict())
 
     with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
