@@ -1850,6 +1850,8 @@ labels_subvarieties = {
     "European Portuguese orthography": "European spelling",
     "European Portuguese spelling": "European spelling",
     "F": "Faenza",
+    "Fa": "Old Faentino",
+    "Faentino antico": "Old Faentino",
     "Faiyumic": "Fayyumic",
     "Fangcheng dialect": "Fangcheng",
     "Fanti": "Fante",
@@ -2825,5 +2827,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,247
+}  # 1,249
 # END
