@@ -2042,7 +2042,7 @@ labels_subvarieties = {
     "Kétou": "Ketu",
     "Kétu": "Ketu",
     "Köln": "Kölsch",
-    "L": "Lugo",
+    "L": "city Lugo",
     "LA French": "Louisiana",
     "LBab": "Late Babylonian",
     "LDA": "Lisan ud-Dawat",
@@ -2078,6 +2078,7 @@ labels_subvarieties = {
     "Louisiana French": "Louisiana",
     "Lower Yangtze Mandarin": "Jianghuai Mandarin",
     "Lowicz": "Łowicz",
+    "Lugo": "city Lugo",
     "M": "Massa Lombarda",
     "MAss": "Middle Assyrian",
     "MBab": "Middle Babylonian",
@@ -2309,6 +2310,7 @@ labels_subvarieties = {
     "R": "Ravenna",
     "RCM": "Rimella and Campello Monti",
     "RF": "Central Romagna",
+    "RL": "rural Lugo",
     "RLC": "Revived Late Cornish",
     "RS": "Ras Sharma",
     "Rachnavi": "Jhangli",
@@ -2827,5 +2829,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,249
+}  # 1,251
 # END
