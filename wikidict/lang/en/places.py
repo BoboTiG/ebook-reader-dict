@@ -695,6 +695,11 @@ recognized_placetypes = {
         "display": "geographical region",
         "preposition": "of",
     },
+    "geopolitical zone": {
+        "article": "a",
+        "display": "geopolitical zone",
+        "preposition": "of",
+    },
     "gewog": {
         "article": "a",
         "display": "gewog",
@@ -2010,7 +2015,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 401
+}  # 402
 
 placetypes_aliases = {
     "CDP": "census-designated place",

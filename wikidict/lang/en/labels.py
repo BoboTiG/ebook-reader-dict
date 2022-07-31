@@ -559,6 +559,7 @@ labels_topical = {
     "betting": "gambling",
     "biblical character": "biblical",
     "biblical figure": "biblical",
+    "bicycle parts": "cycling",
     "bicycling": "cycling",
     "board game": "board games",
     "book of the bible": "biblical",
@@ -732,6 +733,7 @@ labels_topical = {
     "political": "politics",
     "political subdivision": "government",
     "pro wrestling": "professional wrestling",
+    "professional": "business",
     "protein": "biochemistry",
     "proteins": "biochemistry",
     "quantum physics": "quantum mechanics",
@@ -792,6 +794,7 @@ labels_topical = {
     "vehicle": "vehicles",
     "video game genre": "video games",
     "video gaming": "video games",
+    "virus": "virology",
     "vitamin": "biochemistry",
     "vulcanology": "volcanology",
     "watercraft": "nautical",
@@ -811,7 +814,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 368
+}  # 371
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -2042,7 +2045,7 @@ labels_subvarieties = {
     "Kétou": "Ketu",
     "Kétu": "Ketu",
     "Köln": "Kölsch",
-    "L": "city Lugo",
+    "L": "City Lugo",
     "LA French": "Louisiana",
     "LBab": "Late Babylonian",
     "LDA": "Lisan ud-Dawat",
@@ -2078,7 +2081,7 @@ labels_subvarieties = {
     "Louisiana French": "Louisiana",
     "Lower Yangtze Mandarin": "Jianghuai Mandarin",
     "Lowicz": "Łowicz",
-    "Lugo": "city Lugo",
+    "Lugo": "City Lugo",
     "M": "Massa Lombarda",
     "MAss": "Middle Assyrian",
     "MBab": "Middle Babylonian",

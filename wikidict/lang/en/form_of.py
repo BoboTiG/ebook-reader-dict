@@ -70,7 +70,7 @@ form_of_templates = {
         "dot": False,
     },
     "alternative reconstruction of": {
-        "text": "alternative reconstruction of",
+        "text": "Alternative reconstruction of",
         "dot": False,
     },
     "alternative spelling of": {
