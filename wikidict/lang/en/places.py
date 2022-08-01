@@ -275,6 +275,11 @@ recognized_placetypes = {
         "display": "burgh",
         "preposition": "of",
     },
+    "caliphate": {
+        "article": "a",
+        "display": "caliphate",
+        "preposition": "in",
+    },
     "canton": {
         "article": "a",
         "display": "canton",
@@ -810,6 +815,11 @@ recognized_placetypes = {
         "display": "historical borough",
         "preposition": "of",
     },
+    "historical caliphate": {
+        "article": "a",
+        "display": "historical caliphate",
+        "preposition": "in",
+    },
     "historical canton": {
         "article": "a",
         "display": "historical canton",
@@ -905,6 +915,11 @@ recognized_placetypes = {
         "display": "historical duchy",
         "preposition": "in",
     },
+    "historical emirate": {
+        "article": "a",
+        "display": "historical emirate",
+        "preposition": "in",
+    },
     "historical empire": {
         "article": "a",
         "display": "historical empire",
@@ -918,6 +933,11 @@ recognized_placetypes = {
     "historical hamlet": {
         "article": "a",
         "display": "historical hamlet",
+        "preposition": "in",
+    },
+    "historical khanate": {
+        "article": "a",
+        "display": "historical khanate",
         "preposition": "in",
     },
     "historical kingdom": {
@@ -1109,6 +1129,11 @@ recognized_placetypes = {
         "article": "the",
         "display": "judicial capital",
         "preposition": "of",
+    },
+    "khanate": {
+        "article": "a",
+        "display": "khanate",
+        "preposition": "in",
     },
     "kibbutz": {
         "article": "a",
@@ -2015,7 +2040,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 402
+}  # 407
 
 placetypes_aliases = {
     "CDP": "census-designated place",
