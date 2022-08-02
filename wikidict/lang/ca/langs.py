@@ -637,7 +637,7 @@ langs = {
     "sma": "sami meridional",
     "smj": "sami de Lule",
     "smk": "bolinao",
-    "smn": "sami d’Inari",
+    "smn": "sami d",
     "sms": "sami skolt",
     "sn": "shona",
     "snk": "soninke",
