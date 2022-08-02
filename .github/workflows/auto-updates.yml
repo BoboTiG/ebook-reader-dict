@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: "3.10"
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: cache
         with:
           path: ${{ env.pythonLocation }}
@@ -65,7 +65,7 @@ jobs:
           sudo apt update
           sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science dictzip
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: cache
         with:
           path: ${{ env.pythonLocation }}
