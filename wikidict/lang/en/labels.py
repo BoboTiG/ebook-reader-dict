@@ -837,8 +837,10 @@ labels_regional = {
     "Aghjabadi": "Agjabedi",
     "Aghjabedi": "Agjabedi",
     "Aghri": "Ağrı",
+    "Ahıska": "Akhaltsikhe",
     "Ajara": "Adjara",
     "Akhalkalak": "Akhalkalaki",
+    "Akhaltskha": "Akhaltsikhe",
     "Akhlkalak": "Akhalkalaki",
     "Al-Andalus": "al-Andalus",
     "Alabaman": "Alabama",
@@ -1578,7 +1580,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 761
+}  # 763
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -1848,6 +1850,7 @@ labels_subvarieties = {
     "Elu": "Helu",
     "Epic Greek": "Epic",
     "Erzgebirge": "Erzgebirgisch",
+    "Eupener": "Eupen",
     "European French": "Europe",
     "European Portuguese form": "European Portuguese",
     "European Portuguese orthography": "European spelling",
@@ -2031,6 +2034,7 @@ labels_subvarieties = {
     "Koine Greek": "Koine",
     "Kosta": "Coastal Andhra",
     "Krakow": "Kraków",
+    "Krieewelsch": "Krefeld",
     "Krk": "Vegliot",
     "Kromanti": "Kromanti spirit possession language",
     "Kurema": "Kurima-jima",
@@ -2832,5 +2836,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,251
+}  # 1,253
 # END
