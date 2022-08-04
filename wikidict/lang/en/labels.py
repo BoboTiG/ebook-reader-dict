@@ -187,12 +187,11 @@ labels = {
     "uds.": "used formally in Spain",
     "uncomparable": "not comparable",
     "university slang": "college slang",
-    "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
     "wrt": "with respect to",
-}  # 187
+}  # 186
 
 label_syntaxes = {
     "&": {
@@ -574,6 +573,7 @@ labels_topical = {
     "cell phone": "mobile telephony",
     "cell phones": "mobile telephony",
     "chemical element": "chemistry",
+    "christianity": "Christianity",
     "cinema": "film",
     "coenzyme": "biochemistry",
     "communications": "communication",
@@ -595,12 +595,14 @@ labels_topical = {
     "cryptocurrency": "cryptocurrencies",
     "cuisine": "cooking",
     "culinary": "cooking",
+    "currency": "<span style="color:red;"><b>deprecated label</b></span>",
     "database": "databases",
+    "deprecated label": "<span style="color:red;"><b>deprecated label</b></span>",
     "dice": "dice games",
     "disease": "medicine",
     "diseases": "medicine",
     "element symbol": "chemistry",
-    "emergency": "emergency medicine",
+    "emergency": "<span style="color:red;"><b>deprecated label</b></span>",
     "enzyme": "biochemistry",
     "equestrian": "equestrianism",
     "fatty acid": "organic chemistry",
@@ -626,6 +628,7 @@ labels_topical = {
     "gnosticism": "Gnosticism",
     "grammatical case": "grammar",
     "grammatical mood": "grammar",
+    "greekmyth": "<span style="color:red;"><b>deprecated label</b></span>",
     "gun mechanism": "Gun mechanisms",
     "gun mechanisms": "firearms",
     "gynecology": "gynaecology",
@@ -646,9 +649,11 @@ labels_topical = {
     "hydrocarbon chain suffix": "organic chemistry",
     "incoterm": "Incoterm",
     "indo-european studies": "Indo-European studies",
+    "industry": "<span style="color:red;"><b>deprecated label</b></span>",
     "inorganic compound": "inorganic chemistry",
     "international standard": "international standards",
     "internet": "Internet",
+    "islam": "Islam",
     "isotope": "physics",
     "jewish law": "Jewish law",
     "land law": "property law",
@@ -671,6 +676,7 @@ labels_topical = {
     "mineral": "mineralogy",
     "mobile phone": "mobile telephony",
     "mobile phones": "mobile telephony",
+    "morphology": "<span style="color:red;"><b>deprecated label</b></span>",
     "motor sport": "motor racing",
     "motorbike": "motorcycling",
     "motorcycle": "motorcycling",
@@ -682,6 +688,7 @@ labels_topical = {
     "music genre": "music",
     "musical instrument": "music",
     "musical instruments": "music",
+    "musici": "<span style="color:red;"><b>deprecated label</b></span>",
     "musician": "music",
     "mythological creature": "mythology",
     "mythological creatures": "mythology",
@@ -736,6 +743,7 @@ labels_topical = {
     "professional": "business",
     "protein": "biochemistry",
     "proteins": "biochemistry",
+    "quantum": "<span style="color:red;"><b>deprecated label</b></span>",
     "quantum physics": "quantum mechanics",
     "radiation": "physics",
     "rail": "rail transport",
@@ -789,6 +797,7 @@ labels_topical = {
     "typesetting": "typography",
     "urbanism": "urban studies",
     "valentinianism": "Valentinianism",
+    "vector": "<span style="color:red;"><b>deprecated label</b></span>",
     "vector algebra": "linear algebra",
     "vegetables": "vegetable",
     "vehicle": "vehicles",
@@ -814,7 +823,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 371
+}  # 381
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
