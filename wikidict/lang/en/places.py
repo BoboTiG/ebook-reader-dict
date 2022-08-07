@@ -725,6 +725,11 @@ recognized_placetypes = {
         "display": "governorate",
         "preposition": "of",
     },
+    "greater administrative region": {
+        "article": "a",
+        "display": "greater administrative region",
+        "preposition": "of",
+    },
     "group of islands": {
         "article": "a",
         "display": "group of islands",
@@ -1405,6 +1410,11 @@ recognized_placetypes = {
         "display": "neighbourhood",
         "preposition": "of",
     },
+    "new area": {
+        "article": "a",
+        "display": "new area",
+        "preposition": "in",
+    },
     "new town": {
         "article": "a",
         "display": "new town",
@@ -1520,11 +1530,6 @@ recognized_placetypes = {
         "display": "port town",
         "preposition": "in",
     },
-    "prefectural-level new area": {
-        "article": "a",
-        "display": "prefectural-level new area",
-        "preposition": "in",
-    },
     "prefecture": {
         "article": "a",
         "display": "prefecture",
@@ -1549,11 +1554,6 @@ recognized_placetypes = {
         "article": "the",
         "display": "provincial capital",
         "preposition": "of",
-    },
-    "provincial-level new area": {
-        "article": "a",
-        "display": "provincial-level new area",
-        "preposition": "in",
     },
     "quarter": {
         "article": "a",
