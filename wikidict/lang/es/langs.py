@@ -168,7 +168,7 @@ langs = {
     "cah": "cahuarano",
     "cai": "lenguas centroamericanas",
     "cak": "cachiquel",
-    "cal": "carolínico",
+    "cal": "carolino",
     "cap": "chipaya",
     "car": "taíno",
     "cau": "lenguas caucásicas",
