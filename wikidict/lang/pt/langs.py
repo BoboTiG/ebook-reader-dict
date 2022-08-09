@@ -3,6 +3,7 @@ List of languages.
 Auto-generated with `python -m scripts`.
 """
 
+
 # START
 langs = {
     "aa": "afar",
@@ -980,14 +981,11 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}  # 975
-# END
-
-# Missing ones (to be removed when available on the Wiktionary languages pages)
-langs["ine-pro"] = "protoindo-europeu"  # 2022-08-10
-langs["nci"] = "náuatle clássico"  # 2020-12-20
-langs["prv"] = "provençal"  # 2020-09-24
-langs["roa-oca"] = "catalão medieval"  # 2020-09-24
-langs["roa-gpm"] = "galego-português medieval"  # 2020-09-24
-langs["tpn"] = "tupi"  # 2020-09-24
-langs["tpw"] = "tupi antigo"  # 2020-09-24
+    "ine-pro": "protoindo-europeu",
+    "nci": "náuatle clássico",
+    "prv": "provençal",
+    "roa-oca": "catalão medieval",
+    "roa-gpm": "galego-português medieval",
+    "tpn": "tupi",
+    "tpw": "tupi antigo",
+}
