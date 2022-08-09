@@ -984,6 +984,7 @@ langs = {
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
+langs["ine-pro"] = "protoindo-europeu"  # 2022-08-10
 langs["nci"] = "náuatle clássico"  # 2020-12-20
 langs["prv"] = "provençal"  # 2020-09-24
 langs["roa-oca"] = "catalão medieval"  # 2020-09-24
