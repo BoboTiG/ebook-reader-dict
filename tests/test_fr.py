@@ -405,7 +405,7 @@ from wikidict.utils import process_templates
             ["tyʁ.ʒɔ̃"],
             "",
             [
-                "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;», dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."  # noqa
+                "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."  # noqa
             ],
             ["Nom de famille."],
             [],
@@ -505,7 +505,7 @@ def test_parse_word(
         ("{{région}}", "<i>(Régionalisme)</i>"),
         (
             "{{R:Tosti|Turgeon}}",
-            "«&nbsp;Turgeon&nbsp;», dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>",  # noqa
+            "«&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>",  # noqa
         ),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
