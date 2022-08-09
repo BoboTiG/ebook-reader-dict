@@ -840,9 +840,11 @@ def last_template_handler(
             page = ""
         if not date:
             return italic(book) if book else author
-        if not page:
-            return f"{author}, {italic(book)}, {date}"
-        return f"{author}, {italic(book)}, {date}, page {page}"
+        return (
+            f"{author}, {italic(book)}, {date}, page {page}"
+            if page
+            else f"{author}, {italic(book)}, {date}"
+        )
 
     if tpl == "Citation bloc":
         return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
@@ -917,10 +919,7 @@ def last_template_handler(
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
 
     # This is a country in the current locale
-    if tpl in langs:
-        return langs[tpl]
-
-    return default(template, locale, word=word)
+    return langs[tpl] if tpl in langs else default(template, locale, word=word)
 
 
 # Contenu de la release sur GitHub :
