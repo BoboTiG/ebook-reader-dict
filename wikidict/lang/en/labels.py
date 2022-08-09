@@ -2361,6 +2361,7 @@ labels_subvarieties = {
     "Roussillonese": "Northern Catalan",
     "Royal Thai": "royal",
     "Runic": "Runic form",
+    "Rur": "Rural Riminese",
     "Río de la Plata": "Rioplatense",
     "Rāṛha Bengali": "Rāṛha",
     "Rẹ́mọ": "Rẹmọ",
@@ -2837,6 +2838,7 @@ labels_subvarieties = {
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
+    "średniopolski": "Middle Polish",
     "Οιν": "Oinoe",
     "Οιν.": "Oinoe",
     "Οινόη": "Oinoe",
@@ -2870,5 +2872,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,278
+}  # 1,280
 # END

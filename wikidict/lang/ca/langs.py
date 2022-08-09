@@ -28,7 +28,6 @@ langs = {
     "ale": "aleuta",
     "aln": "albanès geg",
     "alp": "alune",
-    "als": "albanès tosk",
     "alt": "altaic meridional",
     "am": "amhàric",
     "amk": "ambai",
@@ -793,5 +792,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 788
+}  # 787
 # END
