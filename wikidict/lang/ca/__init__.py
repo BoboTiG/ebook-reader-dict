@@ -208,9 +208,7 @@ def last_template_handler(
             toadd.append(data["pos"])
         if data["lit"]:
             toadd.append(f"literalment «{data['lit']}»")
-        if not toadd:
-            return ""
-        return f" ({concat(toadd, ', ')})"
+        return f" ({concat(toadd, ', ')})" if toadd else ""
 
     if tpl == "comp":
 
@@ -261,7 +259,7 @@ def last_template_handler(
     if tpl == "trad":
         src = data["sc"] or parts.pop(0)
         trans = data["tr"] or parts.pop(0)
-        return f"{trans} {superscript('(' + src + ')')}"
+        return f"{trans} {superscript(f'({src})')}"
 
     return defaults.last_template_handler(template, locale, word=word)
 
