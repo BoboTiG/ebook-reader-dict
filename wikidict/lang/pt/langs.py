@@ -617,7 +617,7 @@ langs = {
     "nan": "min nan",
     "nap": "napolitano",
     "naq": "nama",
-    "nb": "dano-norueguês",
+    "nb": "norueguês bokmål",
     "nd": "ndebele setentrional",
     "ndg": "ndengereko",
     "ndo": "ndonga",

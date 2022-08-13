@@ -7,6 +7,8 @@ Auto-generated with `python -m scripts`.
 langs = {
     "aa": "àfar",
     "ab": "abkhaz",
+    "abe": "abenaki",
+    "abq": "abazí",
     "abs": "malai d",
     "ace": "atjeh",
     "ach": "acoli",
@@ -792,5 +794,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zaza",
-}  # 787
+}  # 789
 # END
