@@ -245,10 +245,7 @@ def last_template_handler(
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             lang = langs[parts[0]]
-            if lang.startswith(("a", "i", "o", "u", "h")):
-                phrase += "De l'"
-            else:
-                phrase += "Del "
+            phrase += "De l'" if lang.startswith(("a", "i", "o", "u", "h")) else "Del "
             if tpl == "del-lang" and phrase:
                 phrase = phrase.lower()
             phrase += f"{lang}"
