@@ -127,6 +127,9 @@ def last_template_handler(
         >>> last_template_handler(["default-test-xyz"], "ca")
         '<i>(Default-test-xyz)</i>'
 
+        >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo"], "ca")
+        'calc semàntic del castellà <i>pueblo</i>'
+
         >>> last_template_handler(["comp", "ca", "cap", "vespre"], "ca")
         '<i>cap</i> i <i>vespre</i>'
         >>> last_template_handler(["comp", "ca", "auto-", "retrat"], "ca")
@@ -210,6 +213,14 @@ def last_template_handler(
             toadd.append(f"literalment «{data['lit']}»")
         return f" ({concat(toadd, ', ')})" if toadd else ""
 
+    if tpl == "calc semàntic":
+        phrase = "calc semàntic "
+        lang = langs[parts[0]]
+        phrase += "de l'" if lang.startswith(("a", "i", "o", "u", "h")) else "del "
+        phrase += f"{lang} "
+        phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
+        return phrase
+
     if tpl == "comp":
 
         def value(word: str) -> str:
@@ -233,13 +244,14 @@ def last_template_handler(
 
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
-            if langs[parts[0]].startswith(("a", "i", "o", "u", "h")):
+            lang = langs[parts[0]]
+            if lang.startswith(("a", "i", "o", "u", "h")):
                 phrase += "De l'"
             else:
                 phrase += "Del "
             if tpl == "del-lang" and phrase:
                 phrase = phrase.lower()
-            phrase += f"{langs[parts[0]]}"
+            phrase += f"{lang}"
             if len(parts) > 2:
                 phrase += f" {italic(parts[2])}"
         phrase += parse_other_parameters()
