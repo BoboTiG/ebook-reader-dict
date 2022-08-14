@@ -136,6 +136,11 @@ def last_template_handler(
         >>> last_template_handler(["comp", "ca", "fred", "-ol-", "-ic"], "ca")
         "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
 
+        >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
+        'Niels Henrik Abel'
+        >>> last_template_handler(["epònim", "ca", "André-Marie Ampère", "w=Niels Henrik Abel"], "ca")
+        'André-Marie Ampère'
+
         >>> last_template_handler(["etim-lang", "oc", "ca", "cabèco"], "ca")
         "De l'occità <i>cabèco</i>"
         >>> last_template_handler(["etim-lang", "la", "ca", "verba"], "ca")
@@ -203,9 +208,7 @@ def last_template_handler(
             toadd.append(data["pos"])
         if data["lit"]:
             toadd.append(f"literalment «{data['lit']}»")
-        if not toadd:
-            return ""
-        return f" ({concat(toadd, ', ')})"
+        return f" ({concat(toadd, ', ')})" if toadd else ""
 
     if tpl == "comp":
 
@@ -224,6 +227,9 @@ def last_template_handler(
         if word3:
             return f"{italic(word1)}, {value(word2)} i {value(word3)}"
         return f"{value(word1)} i {value(word2)}"
+
+    if tpl == "epònim":
+        return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
 
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
@@ -253,7 +259,7 @@ def last_template_handler(
     if tpl == "trad":
         src = data["sc"] or parts.pop(0)
         trans = data["tr"] or parts.pop(0)
-        return f"{trans} {superscript('(' + src + ')')}"
+        return f"{trans} {superscript(f'({src})')}"
 
     return defaults.last_template_handler(template, locale, word=word)
 
