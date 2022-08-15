@@ -786,6 +786,7 @@ labels_topical = {
     "tincture": "heraldry",
     "trading card games": "collectible card games",
     "transportation": "transport",
+    "trigonometric function": "trigonometry",
     "typesetting": "typography",
     "urbanism": "urban studies",
     "valentinianism": "Valentinianism",
@@ -814,7 +815,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 372
+}  # 373
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
