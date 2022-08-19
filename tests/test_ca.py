@@ -227,6 +227,10 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
             "<i>forma abreujada de</i> <b>bicicleta</b>",
         ),
         ("{{forma-a|ca|Beget}}", "<i>forma alternativa de</i> <b>Beget</b>"),
+        (
+            "{{forma-augm|ca|anticonstitucionalment}}",
+            "<i>forma augmentativa de</i> <b>anticonstitucionalment</b>",
+        ),
         ("{{forma-dim|ca|amic}}", "<i>forma diminutiva de</i> <b>amic</b>"),
         ("{{forma-inc|ca|garantir}}", "<i>forma incorrecta de</i> <b>garantir</b>"),
         ("{{forma-pron|ca|estimar}}", "<i>forma pronominal de</i> <b>estimar</b>"),
