@@ -86,6 +86,8 @@ templates_multi = {
     "forma-": "f\"{italic('forma ' + parts[1] + ' de')} {strong(parts[-1])}\"",
     # {{forma-a|ca|Beget}}
     "forma-a": "f\"{italic('forma alternativa de')} {strong(parts[2])}\"",
+    # {{forma-augm|ca|anticonstitucionalment}}
+    "forma-augm": "f\"{italic('forma augmentativa de')} {strong(parts[2])}\"",
     # {{forma-dim|ca|amic}}
     "forma-dim": "f\"{italic('forma diminutiva de')} {strong(parts[2])}\"",
     # {{forma-inc|ca|garantir}}
