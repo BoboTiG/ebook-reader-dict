@@ -36,6 +36,7 @@ langs = {
     "als": "Alemannisch",
     "alt": "Altaisch",
     "am": "Amharisch",
+    "ami": "Amisisch",
     "amk": "Ambai",
     "amu": "Amuzgo",
     "an": "Aragonesisch",
@@ -334,6 +335,7 @@ langs = {
     "mad": "Maduresisch",
     "mak": "Makassar",
     "mas": "Maa",
+    "mbb": "West-Bukidnon",
     "mdf": "Mokscha",
     "mel": "Zentral-Melanauisch",
     "mfe": "Morisien",
@@ -364,7 +366,9 @@ langs = {
     "msk": "Mansaka",
     "mt": "Maltesisch",
     "mus": "Creek",
+    "mvv": "Tagol Murut",
     "mwl": "Mirandés",
+    "mww": "Hmong Daw",
     "mxi": "Mozarabisch",
     "mxt": "Mixtekisch",
     "my": "Birmanisch",
@@ -583,6 +587,7 @@ langs = {
     "tru": "Turoyo",
     "trv": "Taroko",
     "ts": "Xitsonga",
+    "tsg": "Tausug",
     "tsi": "Tsimshian",
     "tt": "Tatarisch",
     "tum": "Tumbuka",
@@ -669,5 +674,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 664
+}  # 669
 # END
