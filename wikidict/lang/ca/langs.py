@@ -503,7 +503,7 @@ langs = {
     "nog": "nogai",
     "non": "nòrdic antic",
     "nov": "novial",
-    "nqo": "n’Ko",
+    "nqo": "n",
     "nr": "ndebele meridional",
     "nrf": "normand",
     "nso": "sotho septentrional",
