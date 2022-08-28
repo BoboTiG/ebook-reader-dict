@@ -1676,6 +1676,7 @@ labels_subvarieties = {
     "Aṙtial": "Ardeal",
     "BHS": "Buddhist Hybrid Sanskrit",
     "BVE": "African-American Vernacular",
+    "Ba": "Bagnacavallo",
     "Baashai": "Madras Bashai",
     "Bab": "Babylonian",
     "Babylonian Talmudic Aramaic": "Jewish Babylonian Aramaic",
@@ -2520,6 +2521,7 @@ labels_subvarieties = {
     "Subakhmimic": "Lycopolitan",
     "Suzhou": "Suzhou Wu",
     "Suzhounese": "Suzhou Wu",
+    "Suçatı": "Apso",
     "Swiss German": "Switzerland",
     "Switzerland German": "Switzerland",
     "Switzerland and Liechtenstein spelling": "Switzerland and Liechtenstein",
@@ -2943,6 +2945,7 @@ labels_subvarieties = {
     "ათინური": "Atina",
     "არტაშენური": "Artasheni",
     "არქაბული": "Arkabi",
+    "აფსო": "Apso",
     "ბორღოლა": "Borghola",
     "ბულეფი": "Bulepi",
     "ვიჟა": "Vizha",
@@ -2971,5 +2974,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,387
+}  # 1,390
 # END

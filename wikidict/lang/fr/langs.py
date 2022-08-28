@@ -4195,6 +4195,7 @@ langs = {
     "pl": "polonais",
     "plb": "polonombauk",
     "plc": "palawano central",
+    "pld": "polari",
     "ple": "palu’e",
     "plf": "langues malayo-polynésiennes centrales",
     "plg": "pilagá",
@@ -6293,7 +6294,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,288
+}  # 6,289
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
