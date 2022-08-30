@@ -1,17 +1,18 @@
 ==English==
 
 ===Etymology===
-{{m|en|some}} + {{m|en|one}}
+From {{compound|en|some|one}}.
 
 ===Pronunciation===
 * {{a|RP|GA}} {{IPA|en|/ˈsʌmwʌn/}}
 * {{audio|en|en-us-someone.ogg|Audio (GA)}}
+* {{rhymes|en|ʌmwʌn|s=2}}
 * {{hyphenation|en|some|one}}
 
 ===Pronoun===
 {{en-pron}}
 
-# [[some|Some]] person.
+# [[some]] [[person]].
 #: ''Can '''someone''' help me, please?''
 
 ====Usage notes====
@@ -21,9 +22,7 @@
 
 ====Synonyms====
 * {{l|en|anybody}}, {{l|en|anyone}}, {{l|en|somebody}}
-
-====Abbreviations====
-Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en|so}} for {{m|en|someone}}.
+* Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en|so}} for {{m|en|someone}}.
 
 ====Translations====
 {{trans-top|some person}}
@@ -40,6 +39,7 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 * Chinese:
 *: Cantonese: {{t|yue|有人|tr=jau5 jan4|sc=Hani}}
 *: Mandarin: {{t+|cmn|有人|tr=yǒurén|sc=Hani}}, {{t+|cmn|某人|tr=mǒurén|sc=Hani}}, {{t+|cmn|誰|sc=Hani}}, {{t+|cmn|谁|tr=shéi, shuí|sc=Hani}}
+* Cornish: {{t|kw|nebonan}}
 * Czech: {{t+|cs|někdo}}
 * Danish: {{t+|da|nogen}}, {{t|da|en eller anden|c}}
 * Dutch: {{t+|nl|iemand}}
@@ -65,11 +65,13 @@ Some translation dictionaries have used the abbreviation {{m|en|s.o.}} or {{m|en
 * Kazakh: {{t|kk|біреу|sc=Cyrl}}
 * Korean: {{t|ko|누군가}}, {{t|ko|[[어떤]] [[사람]]}}
 * Kurdish:
-*: Central Kurdish: {{t+|ckb|یەکێک}}, {{t+|ckb|کەسێک}}
+*: Central Kurdish: {{t|ckb|یەکێک}}, {{t|ckb|کەسێک}}
 {{trans-mid}}
 * Latgalian: {{t|ltg|kaids}}
 * Latin: {{t+|la|aliquis|m|f}}, {{t|la|aliquid|n}}, {{t+|la|quidam|m|f}}, {{t+|la|quidam|n}}, {{t|la|quiddam|n}}, {{t|la|quaedam|f}}
 * Latvian: {{t+|lv|kāds}}
+* Lenape:
+*: Unami: {{t|unm|awèn}}
 * Macedonian: {{t|mk|некој}}
 * Malay: {{t|ms|seseorang}}
 * Mirandese: {{t|mwl|alguien}}

@@ -3,20 +3,22 @@
 == {{-mul-}} ==
 
 === Símbol ===
-{{lema|mul|símbol}}
+{{entrada|mul|símbol}}
 
 # Codi de llengua [[w:ISO 639-1|ISO 639-1]] del [[grec]] modern.
 
 [[Categoria:Codis de llengua]]
 
 == {{-ca-}} ==
-{{ca-pron|or=/əɫ/|occ=/eɫ/}}
+{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-el.wav|lang=ca|accent=or}}
+{{homòfons|ca|al|q1=oriental}}
 
 === Article ===
-{{lema|ca|article|plural|els|femení|la}}
+{{entrada|ca|article|plural|els|femení|la}}
 
 # Article determinat [[masculí]] singular que serveix per actualitzar i concretar el contingut del [[substantiu]] que acompanya.
-#: '''''El''' [[mosquit]] tigre fa '''el''' relleu diürn al mosquit tradicional.''
+#: {{ex-us|ca|'''El''' mosquit tigre fa '''el''' relleu diürn al mosquit tradicional.}}
 
 {{-sin-}}
 * [[l']] ''(forma apostrofada)''
@@ -33,11 +35,11 @@
 * Article indeterminat: [[un]]
 
 ==== Notes d'ús ====
-* Cal utilitzar obligatòriament la forma apostrofada davant de vocal o davant de la ''h'', llevat de vocal amb so [[semivocàlic]] (quan fa diftong).
+* S’apostrofada davant de vocal o davant de la ''h'', llevat de vocal amb so [[semivocàlic]] (quan fa diftong).
 *: '''''l&#39;'''[[oceà]]'', '''''el''' [[iot]]''.
 * També s'utilitza la forma apostrofada davant sigles, independentment de com s'escriuen, si en pronunciar-les aquestes també tenen un so inicial de vocal.
 *: '''''l&#39;'''[[RSS]]''.
-* En alguns topònims l'us de l'article és obligatori llevat d'algunes situacions especials com les enumeracions.
+* En alguns topònims s’usa article dins d’un context llevat d'algunes situacions aïllades com les enumeracions.
 *: '''''El''' [[Caire]] és una ciutat misteriosa''.
 * Tots els topònims han de portar l'article quan aquest s'acompanya d'algun complement. L'article també pot ser indeterminat.
 *: ''[[Montjuïc]]'', '''''el''' Montjuïc de l'[[olimpíada]]'', '''''un''' Montjuïc com cal''.
@@ -49,25 +51,25 @@
 * {{fr}}: {{trad|fr|le|m}}
 * {{gl}}: {{trad|gl|o}}
 {{mig}}
-* {{oc}}: {{trad|oc|'o|m}}
+* {{oc}}: {{trad|oc|lo}}, {{trad|oc|eth}} {{q|gascó pirinenc}}
 * {{pt}}: {{trad|pt|o}}
 * {{ro}}: {{trad|ro|-l|m-n}}, {{trad|ro|cel|m-n}}
 * {{scn}}: {{trad|scn|u|m}}
 {{final}}
 
 === Pronom ===
-{{lema|ca|pronom|reforçada||elidida|l'|plena|lo|reduïda|'l}}
+{{entrada|ca|pronom|reforçada||elidida|l'|plena|lo|reduïda|'l}}
 
 # [[acusatiu|Acusatiu]] del masculí singular del pronom personal "[[ell]]".
-#: '''''El''' mira.''
+#: {{ex-us|ca|'''El''' mira.}}
 # Substitueix el complement directe quan aquest porta l'article "el".
-#: ''Vols el regle? —Sí que '''el''' vull.''
+#: {{ex-us|ca|Vols el regle? —Sí que '''el''' vull.}}
 
 {{-rel-}}
 {{ca-pronoms personals|el}}
 
 ==== Notes d'ús ====
-* Quan s'escriu darrere el verb es separa d'aquest amb un guió i pren la forma ''[[lo]]'': ''-lo''.
+* Quan s'escriu darrere el verb se separa d'aquest amb un guió i pren la forma ''[[lo]]'': ''-lo''.
 * Només s'apostrofa si al seu costat hi ha un so vocàlic (però no un so [[semivocàlic]]).
 * La forma [[apostrofada]], quan correspon, pren la forma ''[[l']]'' quan la paraula associada està a la seva dreta, o bé, ''[['l]]'' quan la paraula associada està a la seva esquerra.
 
@@ -89,7 +91,7 @@
 == {{-roa-oca-}} ==
 
 === Pronom ===
-{{lema|roa-oca|pronom|plural|els}}
+{{entrada|roa-oca|pronom|plural|els}}
 
 # {{forma-a|roa-oca|ell}}
 
@@ -114,7 +116,7 @@
 {{àudio|LL-Q942602-Davidgrosclaude-el.wav|lang=oc|accent=Bearn}}
 
 === Pronom ===
-{{lema|oc|pronom|g=m|plural|eles}}
+{{entrada|oc|pronom|g=m|plural|eles}}
 
 # [[ell]]
 
@@ -124,6 +126,6 @@
 == {{-tr-}} ==
 
 === Nom ===
-{{lema|tr|nom}}
+{{entrada|tr|nom}}
 
 # [[mà]]

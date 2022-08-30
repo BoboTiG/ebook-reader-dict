@@ -3,7 +3,7 @@
 == {{-ca-}} ==
 
 === Verb ===
-{{verb-forma|ca|penar}}
+{{ca-verb-forma|penar}}
 
 # {{marca-nocat|ca|balear|alguerès}} {{ca-forma-conj|penar|1|pres|ind}}
 
@@ -11,7 +11,7 @@
 * [[peno]], [[pene]], [[peni]]
 
 == {{-en-}} ==
-[[Fitxer:Ballpoint-pen-parts.jpg|thumb|right|Pen (bolígraf)]]
+[[Fitxer:Ballpoint-pen-parts.jpg|miniatura|right|Pen (bolígraf)]]
 {{pronafi|en|/pɛn/}} {{àudio simple|En-us-pen.ogg|àudio (EUA)}}
 
 === Nom ===
@@ -25,6 +25,6 @@
 {{pronafi|nl|/pɛn/}}
 
 === Nom ===
-{{lema|nl|nom|plural|pennen}}
+{{entrada|nl|nom|plural|pennen}}
 
 # [[bolígraf]]

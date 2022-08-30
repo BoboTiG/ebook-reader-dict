@@ -5,11 +5,11 @@
 : {{ébauche-étym|fr}}
 
 === {{S|nom|fr|num=1}} ===
-'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
 # [[langue|Langue]] [[tibéto-birman|tibéto-birmane]] parlée dans l’Arunachal Pradesh ([[Inde]])
 
 === {{S|nom|fr|num=2}} ===
-'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
 # [[langue|Langue]] [[malayo-polynésien|malayo-polynésienne]] parlée dans les îles de l'Amirauté ([[Papouasie-Nouvelle-Guinée]])
 
 ==== {{S|traductions}} ====
@@ -17,7 +17,7 @@
 {{trad-fin}}
 
 === {{S|nom|fr|num=3}} ===
-'''koro''' {{pron|lang=fr|kɔʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
 # Forme d'[[hystérie]] de nature sexuelle propre aux humains mâles.
 #* ''Elles présentent la particularité de toucher exclusivement un sexe : l’amok ne touche que les hommes, et le latah que les femmes. Quant au '''koro''', il est aussi réservé aux hommes, pour une raison évidente cette fois : il se définit par des troubles de la perception du pénis.'' {{source|{{w|La Recherche}}, vol. 5, Société d'éditions scientifiques, 1974, p. 1058}}
 #* ''A Singapour, en 1967, au moment même où la chute de la fécondité atteint sa vitesse maximale, se déclenche une épidemie de '''''Koro''''', manifestation hystérique spécifiquement masculine. Les individus touchés craignent et perçoivent une rétraction de leur pénis, qui menace, disent-ils, de disparaître dans l'abdomen.'' {{source|{{w|Emmanuel Todd}}, ''Le Fou et le Prolétaire'', 1979, réédition revue et augmentée, Paris : Le Livre de Poche, 1980, page 22}}
@@ -46,8 +46,13 @@
 == {{langue|br}} ==
 === {{S|verbe|br|flexion}} ===
 {{br-forme-mut|goro|forme=Infinitif}}
-'''koro''' {{pron|ˈkoːro|br}}
-# {{mutation de|goro|d|br}}.
+'''koro''' {{pron|ˈkoː.ro|br}}
+# {{mutation de|goro|d|br}} (g > k).
+
+=== {{S|verbe|br|flexion|num=2}} ===
+{{br-forme-mut|goro}}
+'''koro''' {{pron|ˈkoː.ro|br}}
+# {{mutation de|goro|d|br}} (g > k).
 
 == {{langue|cst-cho}} ==
 === {{S|étymologie}} ===
@@ -61,7 +66,7 @@
 *{{RÉF|1}} {{R:swadesh utian}}
 == {{langue|eo}} ==
 === {{S|étymologie}} ===
-: Du {{étyl|fr|eo}} « [[cœur]] », du {{étyl|la|eo|mot=cor}}.
+: {{date|lang=eo}} {{eo-étym|kor/|-o}}.
 
 === {{S|nom|eo}} ===
 {{eo-flexions|'ko.ro}}
@@ -75,23 +80,25 @@
 #*:Loin des yeux, loin du cœur.
 # [[cœur|Cœur]] (forme géométrique).
 # [[cœur|Cœur]], [[noyau]], [[centre]].
-#* ''Li loĝas ĉe la '''koro''' de la urbo.''
-#*:Il habite au cœur de la ville.
+#* {{exemple|lang=eo
+   |Ekbatis la '''koro''' de l’ Tero kaj fariĝis la unua Printempo.
+   |Le cœur de la Terre commençait à battre et le premier Printemps advint.
+   |source=Julio Baghy, ''Dancu Marionetoj!''}}
 
 ==== {{S|synonymes}} ====
 * {{lien|kerno|eo}} (4)
 
 ==== {{S|dérivés}} ====
 {{(}}
-* {{lien|bonkora|eo}} : {{lien| |fr}}
-* {{lien|kora|eo}} : {{lien| |fr}}
-* {{lien|koramikino|eo}} : {{lien| |fr}}
-* {{lien|koramiko|eo}} : {{lien| |fr}}
-* {{lien|kore|eo}} : {{lien| |fr}}
+* {{lien|bonkora|eo}}
+* {{lien|kora|eo}}
+* {{lien|koramikino|eo}}
+* {{lien|koramiko|eo}}
+* {{lien|kore|eo}}
 * {{lien|korfavori|eo}} : {{lien|avoir pitié|fr}} de, {{lien|prendre en pitié|fr}}
-* {{lien|kortuŝi|eo}} : {{lien| |fr}}
-* {{lien|senkora|eo}} : {{lien| |fr}}
-* {{lien|tutkore|eo}} : {{lien| |fr}}
+* {{lien|kortuŝi|eo}}
+* {{lien|senkora|eo}}
+* {{lien|tutkore|eo}}
 {{)}}
 
 ==== {{S|paronymes}} ====
@@ -112,7 +119,6 @@
 * {{R:PIV}}
 * {{R:Retavort|rac=kor}}
 * {{R:AkadUniVort|rac1="kor-"|rac2="-o"|UVn1=2284|cat=UV}}
-
 
 == {{langue|io}} ==
 === {{S|étymologie}} ===
@@ -137,6 +143,22 @@
 
 === {{S|références}} ===
 *{{RÉF|1}} {{R:swadesh utian}}
+
+== {{langue|sba}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=sba}} {{ébauche-étym|sba}}
+
+=== {{S|nom|sba}} ===
+'''koro''' {{pron||sba}}
+# [[âne|Âne]].
+#* '''''koro''' leum ma''
+#*: mon âne
+
+=== {{S|prononciation}} ===
+{{ébauche-pron-audio|sba}}
+* {{écouter|Tchad||niveau=débutant|lang=sba|audio=LL-Q2372207 (sba)-Abakar B-koro.wav}}
+
+[[Catégorie:Animaux en ngambay]]
 
 == {{langue|ngh}} ==
 === {{S|étymologie}} ===

@@ -2,11 +2,11 @@
 
 == {{-ca-}} ==
 {{ca-pron|é}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-castell.wav|lang=ca|accent=or}}
 {{-etimologia-}} De {{terme|ca|castell}}.
-{{anagrames|lang=ca|llescat}}
 
 === Nom propi ===
-{{lema|ca|nom propi}}
+{{entrada|ca|nom propi}}
 
 # Diversos topònims, especialment:
 ## {{w|Es Castell}}, municipi de Menorca.
@@ -26,6 +26,10 @@
 
 {{-rel-}}
 * [[Castelló]]
+
+=== Miscel·lània ===
+* {{ca-sil}}
+* {{anagrama|ca|llescat}}
 
 === Vegeu també ===
 * {{Viquipèdia|Castell (desambiguació)|Castell}}

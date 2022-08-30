@@ -1,4 +1,4 @@
-{{voir|ŝuis}}
+{{voir|ŝuis|Suis}}
 
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
@@ -22,20 +22,26 @@
 # ''Première personne du singulier de l’indicatif présent de'' [[suivre]].
 #* ''Héhéhé plein d’indices pour éviter les erreurs de parents / darons… c’est pour ça que je te '''suis''' à 44 ans, avec l’impression de sous-mariner dans un monde qui m’échappe et me touche… merci !'' {{source|Livio Bernardo, ''La Vie moderne'', 2019, page 52}}
 # ''Deuxième personne du singulier de l’indicatif présent de'' [[suivre]].
+#* ''Ce lien qui lie, si vous me suivez, toute cette quotidienneté que j’applique en direct, zap, comme ça, hyper juste, hyper visé, un vécu qui se déséternise, oui que je vais jusqu’à déséterniser, déséterniser l’époque, j’ai trouvé un truc très fort qui part de moi, de moi-même à moi-même, le public se sent hyper concerné, t’es tout de suite concernée, si tu '''suis''' ce que je suis que je sens, cette sensation directe et performante, une énergie, cette nouveauté, neuve, l’exploration de soi, de sa propre texture, mon matériel, moi, quelque part, j’imprime le mouvement de ma vie dans l’espace, un éclat, tu vois, qui implose à toutes les figures regardantes'' {{source|Pierre-Louis Péclat, ''Pathos'', 2004, pages 18-19}}
 # ''Deuxième personne du singulier de l’impératif présent de'' [[suivre]].
 
 === {{S|prononciation}} ===
 ''Forme de verbe 1'' :
 * {{pron|sɥi|fr}}
+* {{Belgique|nocat=1}} {{pron|swi|be}} 
 ** {{écouter|lang=fr|France (Brétigny-sur-Orge)|sɥi|audio=LL-Q150 (fra)-Pamputt-suis.wav}}
 ** {{écouter|France (Lyon)|sɥi|lang=fr|audio=LL-Q150 (fra)-Lyokoï-suis.wav}}
 Avec le pronom personnel ''{{lien|je|fr}}'' :
 * {{standard|nocat=1}} {{pron|ʒə sɥi|fr}} ''(je suis)''
 {{informel|nocat=1}}
 * {{pron|ʃɥi|fr}}
+* {{Belgique|nocat=1}} {{pron|ʃwi|fr}}
 * {{Canada|nocat=1}} {{pron|ʃy|fr}}
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-Poslovitch-suis.wav}}
 * {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-suis.wav}}
+* {{écouter|lang=fr|France||audio=LL-Q150 (fra)-Mecanautes-suis.wav}}
+
+
 
 
 
@@ -46,15 +52,18 @@ Avec le pronom personnel ''{{lien|je|fr}}'' :
 === {{S|anagrammes}} ===
 * [[issu]] {{cf|issir}}
 
-== {{langue|ca}} ==
+== {{langue|br}} ==
 === {{S|étymologie}} ===
-: {{ébauche-étym|ca}}
+: {{ébauche-étym|br}}
 
-=== {{S|nom|ca}} ===
-'''suis''' {{pron||ca}} {{genre|ca}}
-# [[Suisse]] (habitant de la Suisse).
+=== {{S|adjectif|br}} ===
+'''suis''' {{pron|ˈsɥisː|br}}
+# [[suisse#Adjectif|Suisse]].
+#* ''N’eus netra boutin etre ur cʼhanton '''suis''' hag un departamant gall.'' {{source|''Notennoù politikel (12), Framm ar riezoù.'', in ''Emsav'', n{{e|o}} 39, mars 1970}}
+#*: Il n’y a rien de commun entre un canton suisse et un département français.
 
-[[Catégorie:Gentilés en catalan]]
+=== {{S|références}} ===
+* {{R:Ménard|p=1280b}}
 
 == {{langue|la}} ==
 === {{S|adjectif possessif|la|flexion}} ===

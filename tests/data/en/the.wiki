@@ -7,9 +7,9 @@
 ** {{enPR|''th''ē}}, {{IPA|en|/ˈðiː/}}
 ** {{audio|en|en-us-the-stressed.ogg|Audio (US)}}
 ** {{rhymes|en|iː}}
-*** {{qualifier|variant|preconsonantal}} {{enPR|''th''ŭ}}, {{IPA|en|/ˈðʌ/}} 
+*** {{qualifier|variant|preconsonantal}} {{enPR|''th''ŭ}}, {{IPA|en|/ˈðʌ/}}
 * {{qualifier|when unstressed and prevocalic}}
-** {{enPR|''th''ē}}, {{IPA|en|/ði/}}
+** {{enPR|''th''ē}}, {{IPA|en|/ði/|/ðɪ/}}
 * {{qualifier|when unstressed and preconsonantal}}
 ** {{enPR|''th''ə}}, {{IPA|en|/ðə/}} {{qualifier|but see notes below}}
 ** {{audio|en|en-ca-the.ogg|Audio (CA)}}
@@ -24,23 +24,23 @@ The word ''the'' is commonly pronounced {{IPAchar|/ðiː/}} whenever it is prono
 The word is generally pronounced indistinctly as {{IPAchar|/ðə/}} or merely {{IPAchar|/ð/}} in other situations, such as when attached to a word beginning with a consonant sound.
 {{rel-bottom}}
 {{rel-top|"the" vs. "ye"}}
-* The [[eye dialect|typographical pronunciation]] {{IPAchar|/jiː/}} (''"'''[[ye#Etymology_2|Ye]]''' Old..."'') is a deliberately archaic [[retronym]] from {{m|en|ye|ẏe|sc=Latinx}}, which is a variant spelling of [[þe]], from Old English [[þe#Old English|þē]] pronounced '''''thē''''', {{IPAchar|/ðeː/}} (using [[ẏ]] in place of the [[thorn]] ([[þ]]). It is not actually a separate pronunciation in Middle English.
+* The [[eye dialect|typographical pronunciation]] {{IPAchar|/jiː/}} (''"'''[[ye#Etymology_2|Ye]]''' Old..."'') is a deliberately archaic [[retronym]] from {{m|en|ye|sc=Latinx}}, which is a variant spelling of [[þe]], from Old English [[þe#Old English|þē]] pronounced '''''thē''''', {{IPAchar|/θeː/|/ðeː/}} (using [[y]] in place of the [[thorn]] ([[þ]]). It is not actually a separate pronunciation in Middle English.
 * The actual [[morpheme]] {{IPAchar|/jiː/}} in Middle English represents [[ȝe-]], a variant spelling of the prefix [[y-]] attached to [[verb]]s and used to denote a verbal [[past participle]].
 {{rel-bottom}}
 
 <!-- 1 syllable words !-->
 
 ===Etymology 1===
-From {{inh|en|enm|the}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative pronoun]]}}, a late variant of {{m|ang|sē}}. 
+From {{inh|en|enm|þe}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative pronoun]]|g=m}}, a late variant of {{m|ang|sē}}, the ''s-'' (which occurred in the masculine and feminine nominative singular only) having been replaced by the ''þ-'' from the oblique stem.
 
-Originally masculine nominative, in Middle English it superseded all previous Old English forms ({{m|ang|sē}}, {{m|ang|sēo}}, {{m|ang|þæt}}, {{m|ang|þā}}), from {{inh|en|gmw-pro|*siz}}, from {{inh|en|gem-pro|*sa}}, ultimately from {{inh|en|ine-pro|*só}}. 
+Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms ({{m|ang|sē|g=m}}, {{m|ang|sēo|g=f}}, {{m|ang|þæt|g=n}}, {{m|ang|þā|g=p}}); {{m|ang|sē}} is from {{inh|en|gmw-pro|*siz}}, from {{inh|en|gem-pro|*sa}}, ultimately from {{inh|en|ine-pro|*só}}.
 
-Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}}.
+Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}} within Germanic and with {{cog|sa|sá|t=the, that}}, {{cog|grc|ὁ|t=the}}, {{cog|txb|se|t=this}} among other Indo-European languages<ref>{{R:LIPP|volume=2|pages=732-733}}</ref>.
 
 ====Article====
 {{head|en|article}}
 
-# {{non-gloss definition|[[definite|Definite]] grammatical [[article]] that implies necessarily that an entity it articulates is [[presuppose]]d; something already [[mention]]ed, or completely [[specify|specified]] later in that same sentence, or [[assume]]d already completely specified.}} {{defdate|from 10th c.}}
+# {{non-gloss definition|[[definite|Definite]] grammatical [[article]] that implies necessarily that an entity it hints at is [[presuppose]]d; something already [[mention]]ed, or completely [[specify|specified]] later in that same sentence, or [[assume]]d already completely specified.}} {{defdate|from 10th c.}}
 #: ''I’m reading '''the''' book.'' (Compare ''I’m reading '''a''' book.'')
 #: '''''The''' street in front of your house.'' (Compare '''''A''' street in Paris.'')
 #: '''''The''' men and women watched '''the''' man give '''the''' birdseed to '''the''' bird.''
@@ -51,6 +51,7 @@ Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{
 # {{non-gloss definition|Used before an object considered to be [[unique]], or of which there is only one at a time.}} {{defdate|from 10th c.}}
 #: ''No one knows how many galaxies there are in '''the''' universe.''
 #: ''God save '''the''' Queen!''
+#* {{RQ:King James Version|Revelation|1|8|column=2|passage=I am Alpha and Omega, '''the''' beginning and '''the''' ending, saith '''the' Loꝛd, which is, and which was, and which is to come, '''the''' Almighty.}}
 # {{non-gloss definition|Used before a [[superlative]] or an [[ordinal number]] modifying a noun, to indicate that the noun refers to a single item.}}
 #: ''That was '''the''' best apple pie ever.''
 # {{non-gloss definition|Added to a superlative or an ordinal number to make it into a substantive.}} {{defdate|from 9th c.}}
@@ -92,7 +93,7 @@ As a general rule, country names are not preceded by ''the''. There are a few ex
 * [[Ukraine|The Ukraine]] (article dropped since 1991)
 * [[Lebanon|The Lebanon]] (usually used without the article)
 Names of countries containing specifications like '''kingdom''', '''republic''' etc are used with ''the'':
-* [[United States|The United States]]
+* [[United States|The United States of America]]
 * [[United Kingdom|The United Kingdom]]
 * [[United Arab Emirates|The United Arab Emirates]]
 * [[Czech Republic|The Czech Republic]]
@@ -110,6 +111,7 @@ Some place names use a definite article:
 * All [[art gallery|art galleries]] (The Tate, The Louvre, The Smithsonian American Art Museum), all [[museum]]s with the word ''museum'' in the name (The Museum of Natural History, The British Museum)
 * Most English-language [[newspaper]]s (The New York Times, The Guardian, The Chronicle, The Wall Street Journal)
 * All North American [[railroad]]s, even when not referred to by their full names or only by nicknames (The Pennsylvania Railroad, The Reading (Reading Railroad), The Frisco (St. Louis–San Francisco Railway))
+* Some towns (the Bronx, The Hague, The Valley, The Farrington, The Quarter, The Plains, The Dalles, The Villages, The Woodlands, The Pas, the Vatican, The Hyde, the West End, the East End, or the City of ...)
 ; Bands
 Musical bands with a plural name are generally used with '''the''':
 * {{w|The Beatles}}
@@ -126,12 +128,12 @@ When used before an adjective which is not followed by a noun, it may refer to a
 {{rel-bottom}}
 
 =====Alternative forms=====
-* [[ye#Etymology_2|ẏ<sup>e</sup>]] {{qualifier|obsolete}}, [[ye#Etymology_2|ẏe]] {{qualifier|archaic}}: variant spelling of ''the''.
-* [[ye#Etymology_2|ye]] {{qualifier|archaic}}
-* {{l|en|de}} {{qualifier|eye dialect|AAVE}}
 * {{l|en|da}} ({{l|en|d'}}), {{l|en|teh}} {{qualifier|informal or dialectal}}
+* {{l|en|de}} {{qualifier|eye dialect|AAVE}}
 * {{l|en|t'}} {{qualifier|Northern England}}
-* {{l|en|th'}}
+* {{l|en|th'}} {{qualifier|poetic}}
+* [[ye#Etymology_2|ye]] {{qualifier|archaic}}, [[ye#Etymology_2|y<sup>e</sup>]] {{qualifier|archaic, abbreviation}}, [[ye#Etymology_2|yͤ]] {{qualifier|archaic, abbreviation}}
+* [[ye#Etymology_2|ẏe]] {{qualifier|obsolete}}, [[ye#Etymology_2|ẏ<sup>e</sup>]] {{qualifier|obsolete, abbreviation}}
 
 =====Synonyms=====
 * {{l|en|le}}
@@ -167,11 +169,11 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: {{qualifier|plural animate}} {{t|bn|-রা}}, {{t|bn|-এরা}}
 *: {{qualifier|plural, informal, inanimate}} {{t|bn|-গুলা}}, {{qualifier|plural, formal, inanimate}} {{t|bn|-গুলো}}
 *: {{qualifier|singular informal}} {{t|bn|-টা}}, {{qualifier|singular formal}} {{t|bn|-টি}}
-* Bikol Central: {{t|bcl|an}}
+* Bikol Central: {{t+|bcl|an}}
 * Breton: {{t+|br|al}} {{qualifier|before L}}, {{t+|br|an}} {{qualifier|before D, N, T, silent H, and vowels}}, {{t+|br|ar}} {{qualifier|before other consonants}}
 * Bulgarian: {{qualifier|attached suffixes are used, -ът, -та, -то, etc.}}
 * Burmese: {{not used|my}}
-* Catalan: {{t+|ca|el|m}}, {{t+|ca|la|f}} {{t+|ca|el|m-p}} {{t+|ca|les|f-p}}, {{qualifier|salat dialects}} {{t+|ca|es|m}}, {{t+|ca|sa|f}}, {{t+|ca|sos|m-p}}, {{t+|ca|ses|f-p}}
+* Catalan: {{t+|ca|el|m}}, {{t+|ca|la|f}} {{t+|ca|els|m-p}} {{t+|ca|les|f-p}}, {{qualifier|salat dialects}} {{t+|ca|es|m}}, {{t+|ca|sa|f}}, {{t+|ca|es|m-p}}, {{t+|ca|ets|m-p}} {{qualifier|before a word beginning with a vowel sound}}, {{t+|ca|sos|m-p}} {{qualifier|after {{t+|ca|amb}} (with)}}, {{t+|ca|ses|f-p}},
 * Chinese:
 *: Mandarin: {{not used|cmn}}
 * Chuukese: {{t|chk|ewe}}, {{t|chk|we}}
@@ -181,8 +183,8 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Cornish: {{t|kw|an}}
 * Czech: {{not used|cs}}
 * Dalmatian: {{t|dlm|el}}
-* Danish: ''(singular)''''(                     ((without attributive adjective nor genitive)''{{qualifier|after noun}} (common gender){{t+|da|-en}} ; (neuter gender){{t+|da|-et}}) ; {{qualifier|before attributive adjective or genitive}} {{t+|da|den}} (commun) , {{t+|da|det}} (neutre)                        .  ''(Plural)''''((without attributive adjective nor genitive)'' -(e)ne , {{qualifier|before attributive adjective or genitive}}  de    )
-* Dutch: {{t+|nl|de}}
+* Danish: {{t+|da|-en|c}} or {{t+|da|-et|n}} {{q|singular|no adjective or genitive}}, {{t+|da|den|c}} or {{t+|da|det|n}} {{q|singular|before adjective or genitive}}, {{t|da|-ene}} or {{t|da|-ne|p}} {{q|plural|no adjective or genitive}}, {{t+|da|de|p}} {{q|plural|before adjective or genitive}}
+* Dutch: {{t+|nl|de}}, {{t+|nl|het}}
 * Egyptian:
 *: Archaic Egyptian, Old Egyptian, Middle Egyptian: ''not used''
 *: Late Egyptian: {{t-egy|pꜣ|h=pA}}
@@ -199,7 +201,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * German: {{t+|de|der|m}}, {{t+|de|die|f|p}}, {{t+|de|das|n}}
 *: Alemannic German: {{t|gsw|de}}
 *: Central Franconian: {{t|gmw-cfr|dä}}
-*: Silesan: {{t|gmw-ecg|dr}}
+*: Silesian: {{t|gmw-ecg|dr}}
 * Gothic: {{t|got|𐍃𐌰}}
 * Greek:
 *: Epic: ''not used'', {{t|grc|ὁ}} (''rare'')
@@ -224,11 +226,12 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: {{qualifier|person, oblique}} {{t|ilo|ken ni|s}},
 * Indonesian: {{t+|id|si}}, {{t+|id|sang}}, {{t+|id|itu}}
 * Interlingua: {{t+|ia|le}}
-{{trans-mid}}
 * Irish: {{t+|ga|an|s}}, {{t|ga|na|p}}
+*: Old Irish: {{t|sga|in|m|f}}, {{t|sga|a|n}}
 * Istriot: {{t|ist|el}}
 * Italian: {{t+|it|il|m}}, {{t+|it|lo|m}}, {{t+|it|la|f}}, {{t+|it|i|m-p}}, {{t+|it|gli|m-p}}, {{t+|it|le|f-p}}
-* Japanese: {{not used|ja}}, {{t+|ja|その|tr=sono}}, {{t+|ja|正に|tr=まさに, masani}}, {{t+|ja|正しく|tr=まさしく, masashiku}}
+{{trans-mid}}
+* Japanese: {{not used|ja}}, {{t+|ja|その|tr=sono}}, {{t|ja|正に|tr=まさに, masani}}, {{t+|ja|正しく|tr=まさしく, masashiku}}
 * Jarawa: {{t|anq|ɖi}}
 * Kazakh: {{not used|kk}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
 * Khmer: {{not used|km}}
@@ -238,17 +241,17 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Lao: {{not used|lo}}
 * Latin: {{not used|la}}
 *: [[Medieval Latin]]: {{t+|la|ille}}, {{t|la|ly}}
-*: [[Vulgar Latin]]: {{t+|la|ille}}
+*: [[Vulgar Latin]]: {{t+|la|ille}}, {{t+|la|ipse}}
 * Lithuanian: {{not used|lt}}
 * Low German: {{t+|nds|de}}
 * Macedonian: ''see [[Appendix:Macedonian articles]]''
 * Malay: {{not used|ms}}
 *: {{qualifier|animal, rarely necessary}} {{t|ms|sang}}
-*: {{qualifier|if replaceable by '''[[it]]''', rarely necessary}} {{t|ms|-nya}}
+*: {{qualifier|if replaceable by '''[[it]]''', rarely necessary}} {{t+|ms|-nya}}
 *: {{qualifier|if replaceable by '''[[that]]''', rarely necessary}} {{t+|ms|itu}}
 *: {{qualifier|if replaceable by '''[[this]]''', rarely necessary}} {{t+|ms|ini}}
 *: {{qualifier|person, rarely necessary}} {{t|ms|si}}
-* Maltese: {{t+|mt|il-}}
+* Maltese: {{t|mt|il-}}
 * Maori: {{t+|mi|te}} {{qualifier|Singular}}, {{t+|mi|ngā}} {{qualifier|Plural}}
 * Marshallese: {{t|mh|eo|s}}, {{t|mh|ro|p}} {{qualifier|for humans only}}, {{t|mh|ko|p}} {{qualifier|for non-humans only}}
 * Middle English: {{t|enm|þe}}, {{t|enm|the}}
@@ -269,22 +272,22 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Norwegian: {{t+|no|-en}}
 *: Bokmål: {{t+|nb|det}}
 *: Nynorsk: {{t+|nn|det}}
-* Novial: {{t|nov|li}}
 * Occitan: {{t+|oc|lo|m}}, {{t+|oc|eth|m}} {{qualifier|Pyrenean Gascon}} {{t+|oc|la|f}}, {{t+|oc|era|f}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|los|m-p}}, {{t+|oc|eths|m-p}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|las|f-p}}, {{t+|oc|eras}} {{qualifier|Pyrenean Gascon}}, {{t+|oc|es|p}} {{qualifier|Aranese}}
 * Old Dutch: {{t|odt|thie}}
 * Old English: {{t+|ang|sē}}
 * Old Saxon: {{t|osx|thē}}
-* Persian: {{not used|fa}}
+* Persian: {{t+|fa|هه}}
 * Pipil: {{t|ppl|ne}}
 * Pitcairn-Norfolk: {{t|pih|t'}}
 * Polish: {{not used|pl}}
 * Portuguese: {{t+|pt|o|m}}, {{t+|pt|a|f}}, {{t+|pt|os|m-p}}, {{t+|pt|as|f-p}}
 * Rapa Nui: {{t|rap|te}}
 * Romani: {{t|rom|o|m}}, {{t|rom|i|f}}, {{t|rom|e|p}}
-* Romanian: {{t|ro|-ul}}, {{t+|ro|cel}}
+* Romanian: {{t|ro|-ul}}, {{t|ro|-a}}, {{t+|ro|cel}}, {{t+|ro|cea}}
 * Romansch: {{t|rm|il}}
 * Russian: {{not used|ru}}
 * Samoan: {{t|sm|le}}
+* Sardinian: {{t|sc|su|m}}, {{t|sc|sa|f}}
 * Scots: {{t|sco|the}}
 * Scottish Gaelic: {{t|gd|an}}
 * Serbo-Croatian: {{not used|sh}}
@@ -292,13 +295,14 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Sinhalese: {{not used|si}}
 * Slovak: {{not used|sk}}
 * Slovene: {{not used|sl}}
-* Spanish: {{t+|es|el|m}}, {{t+|es|la|f}}, {{t+|es|los|m-p}}, {{t+|es|las|f-p}}
+* Spanish: {{t+|es|el|m}}, {{t+|es|la|f}}, {{t+|es|los|m-p}}, {{t+|es|las|f-p}}, {{t+|es|lo|n}}
 * Swahili: {{t|sw|ya}}
 * Swedish: {{t+|sv|den}}, {{t+|sv|-en}}
 * Tagalog: {{t+|tl|ang}}
+* Tamil: {{not used|ta}} {{q|demonstratives serve a similar purpose}}
 * Tatar: {{not used|tt}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
 * Thai: {{not used|th}}
-* Tok Pisin: {{t|tpi|dispela}}
+* Tok Pisin: {{t+|tpi|dispela}}
 * Tongan: {{t|to|te}}
 * Turkish: {{not used|tr}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
 * Tuvaluan: {{t|tvl|te}}
@@ -336,7 +340,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Polish: {{t+|pl|ten}}
 {{trans-mid}}
 * Portuguese: {{t+|pt|o}}
-* Tok Pisin: {{t|tpi|dispela}}
+* Tok Pisin: {{t+|tpi|dispela}}
 {{trans-bottom}}
 
 {{trans-top|stressed, indicating that the object in question is the only one worthy of attention}}
@@ -397,15 +401,19 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Greek: {{t+|el|ο}}
 {{trans-mid}}
 * Italian: {{t+|it|il}}
-* Japanese: {{not used|ja}}, though ''something''+[[と]][[いう]][[もの]] is often used.
+* Japanese: {{not used|ja}}, though ''something'' + [[と]][[いう]][[もの]] is often used.
 * Macedonian: {{t|mk|-от}}
 * Portuguese: {{t+|pt|o}}
 * Spanish: {{t+|es|el}}
 * Swedish: {{t+|sv|-en}}
+* Tagalog: {{t+|tl|ang}}
 {{trans-bottom}}
 
+=====References=====
+<references/>
+
 ===Etymology 2===
-From {{inh|en|enm|the}}, {{m|enm|thy}}, {{m|enm|thi}}, from {{inh|en|ang|þȳ||by that, after that, whereby}}, originally the [[instrumental case]] of the demonstratives {{m|ang|sē|pos=''masculine''}} and {{m|ang|þæt|pos=''neuter''}}. Cognate with {{cog|nl|des te|des ''te''}} ("the, the more"), {{cog|de|desto|des''to''}} ("the, all the more"), {{cog|no|fordi|for''di''}} ("because"), {{cog|is|því||the; because}}, {{cog|fo|tí}}, {{cog|sv|ty}}.
+From {{inh|en|enm|the}}, {{m|enm|thy}}, {{m|enm|thi}}, from {{inh|en|ang|þȳ||by that, after that, whereby}}, originally the [[instrumental case]] of the demonstratives {{m|ang|sē|pos=masculine}} and {{m|ang|þæt|pos=neuter}}. Cognate with {{cog|nl|des te|des ''te''}} ("the, the more"), {{cog|de|desto|des''to''}} ("the, all the more"), {{cog|no|fordi|for''di''}} ("because"), {{cog|is|því||the; because}}, {{cog|fo|tí}}, {{cog|sv|ty}}.
 
 ====Adverb====
 {{en-adv|-}}
@@ -415,9 +423,9 @@ From {{inh|en|enm|the}}, {{m|enm|thy}}, {{m|enm|thi}}, from {{inh|en|ang|þȳ||b
 #: '''''The''' more I think about it, '''the''' weaker it looks.''
 #: '''''The''' more money donated, '''the''' more books purchased, and '''the''' more happy children.''
 #: ''It looks weaker and weaker, '''the''' more I think about it.''
-# {{non-gloss definition|1=With a [[comparative]], and often with {{m|en|for it}}, indicates a result more like said comparative. This can be negated with {{m|en|none}}. See {{m|en|none the}}.}}
+# {{non-gloss definition|1=With a [[comparative]], and often with {{m|en|for it}}, indicates a result more like said comparative. This can be negated with {{m|en|none}}.}}
 #: ''It was a difficult time, but I’m '''the''' wiser for it.''
-#: ''It was a difficult time, and I’m none '''the''' wiser for it.''
+#: ''It was a difficult time, and I’m {none - not any} '''the''' wiser for it.''
 #: ''I'm much '''the''' wiser for having had a difficult time like that.''
 
 =====Usage notes=====
@@ -444,32 +452,34 @@ This is called the "comparative correlative", but it is also known as the "corre
 {{trans-mid}}
 * Icelandic: {{t|is|[[því]] + ''comp.'', [[því]] + ''comp.''}}
 * Irish: {{t|ga|[[dá]] + ''abstract noun'', ([[is]] [[ea]]) [[is]] + ''comp.''}}
-* Japanese: (''conditional -reba + dictionary form + hodo + ～adjective 2'') {{t|ja|''adj.1'' + [[れば]] + ''adj.1'' [[程]] + ''adj.2''|tr=...reba...hodo～}} (example: 暑ければ[[暑い]][[程]][[良い]] ''atsukereba atsui hodo ii'' "the hotter the better")
+* Japanese: (''conditional -reba + dictionary form + hodo + adjective 2'') {{t|ja|''adj.1'' + [[れば]] + ''adj.1'' [[程]] + ''adj.2''|tr=...reba...hodo}} (example: 暑ければ[[暑い]][[程]][[良い]] ''atsukereba atsui hodo ii'' "the hotter the better")
+* Latin: {{t|la|[[quō]] + ''comp.'', [[eō]] ''comp.''}}
 * Norwegian: {{t|no|[[jo]] + ''comp.'', [[desto]] + ''comp.''}},
 {{t|no|[[jo]] + ''comp.'', [[jo ]] + ''comp.''}},
 {{t|no|[[dess]] + ''comp.'', [[dess]] + ''comp.''}}
 *: Nynorsk: {{t|nn|[[di]] + ''comp.'', [[di]] + ''comp.''}}
+* Old English: {{t|ang|[[þȳ]] + ''comp.'', [[þȳ]] + ''comp.''}}
 * Polish: {{t|pl|[[im]] + ''comp.'', [[tym]] + ''comp.''}}
 * Portuguese: {{t|pt|[[quanto]] + ''comp. '', ''comp.''}} (ex: ''quanto mais quente, melhor'' "the hotter the better")
 * Russian: {{t|ru|[[чем]] + ''comp.'', [[тем]] + ''comp.''}}
 * Sorbian:
 *: Upper Sorbian: {{t|hsb|''comp.'' + [[a]] + ''comp.''}}
-* Spanish: {{t|es|[[cuanto]] + ''comp.'', ''comp.''}}
+* Spanish: {{t|es|[[cuanto]] + ''comp.'', ''comp.''}}, {{t|es|[[entre]] + ''comp.'', ''comp.''}} {{q|Latin America}}
 * Swedish: {{t|sv|[[ju]] + ''comp.'', [[desto]] + ''comp.''}}
+* Turkish: {{t|tr|[[ne kadar]] + ''comp.'', [[o kadar]] + ''comp.''}}
 * Thai: {{t+|th|ยิ่ง|tr=yîng}} + ''comp''.
 {{trans-bottom}}
 
 {{trans-top|indicating a result like the comparative}}
-* Finnish: ''(none)'', {{q|some contexts}} {{t+|fi|entistä}}
+* Finnish: {{no equivalent translation|fi}} {{q|some contexts}} {{t+|fi|entistä}}, {{t+|fi|sitä}}
 * German: {{t+|de|umso}}
 {{trans-mid}}
 * Portuguese: ''No word accompanies the comparative in this usage.''
 {{trans-bottom}}
 
 {{checktrans-top}}
-* Old English: {{t-check|ang|þȳ}}
-{{trans-mid}}
 * Slovene: {{t-check|sl|[[čem]]/[[tem]]}}
+{{trans-mid}}
 {{trans-bottom}}
 
 ===Etymology 3===
@@ -512,7 +522,7 @@ From {{inh|gme-cgo|gem-pro|*sa}}.
 {{head|gme-cgo|article}}
 
 # [[#English|the]]
-#* 1562, Ogier Ghiselin de Busbecq:
+#* '''1562''', Ogier Ghiselin de Busbecq:
 #*: omnibus vero dictionibus praeponebat articulum tho aut '''the'''
 #*: [he/she] placed the article tho or '''the''' before every word
 
@@ -557,7 +567,8 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 * {{IPA|hts|/tʰe/}}
 
 ===Pronoun===
-* {{hts-pron|g=m|f=theko}}
+{{hts-pron|g=m|f=theko}}
+
 # you (thou)
 
 ====Related terms====
@@ -592,6 +603,15 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 
 ----
 
+==Italian==
+
+===Noun===
+{{head|it|misspelling}}
+
+# {{misspelling of|it|tè}}
+
+----
+
 ==Middle English==
 
 ===Etymology 1===
@@ -599,7 +619,7 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 ====Article====
 {{head|enm|article}}
 
-# {{alt form|enm|þe}}
+# {{alt form|enm|þe|t=the|id=the}}
 #* '''14th c.''' {{w|Geoffrey Chaucer}}, ''{{w|The Canterbury Tales}}''. General Prologue: 1-2.
 #*: Whan that Aprill, with his shoures soote
 #*: '''The''' droghte of March hath perced to '''the''' roote
@@ -609,23 +629,16 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 ====Pronoun====
 {{head|enm|pronoun}}
 
-# {{alt form|enm|þe}}
-
-====References====
-* {{R:MED Online|entry= the, (pron.2) |id=MED45072 |accessdate=5 May 2018}}
+# {{alt form|enm|þe|t=thee|id=thee}}
 
 ===Etymology 3===
 
 ====Pronoun====
 {{head|enm|pronoun}}
 
-# {{alt form|enm|þei}}
-
-====References====
-* {{R:MED Online|entry= thei (pron.)  |id=MED45106 |accessdate=29 May 2018}}
+# {{alt form|enm|þei|t=they}}
 
 ===Etymology 4===
-From {{inh|enm|ang|þēon}}.
 
 ====Verb====
 {{head|enm|verb}}
@@ -656,7 +669,7 @@ From {{inh|enm|ang|þēon}}.
 ===Alternative forms===
 * {{l|goh|[[de]]}}
 
-====Particle====
+===Particle===
 {{head|goh|particle|indeclinable, relative}}
 
 # [[that]], [[who]], [[which]]
@@ -671,21 +684,21 @@ From {{inh|enm|ang|þēon}}.
 ===Etymology 1===
 From {{inh|osx|gem-pro|*sa}}. The original ''s-'' was replaced by ''th-'' by analogy with the other forms, but still preserved in the variant {{m|osx|sē}}.
 
-===Determiner===
+====Determiner====
 {{head|osx|determiner|cat2=demonstrative determiners|head=thē}}
 
 # [[that]], [[that one]]
 #: '''''them''' uuīha uuīsa lēstean'': To obey '''that''' holy wise.
 
-====Declension====
+=====Declension=====
 {{osx-prondem|head=thē|the|that|thiu|thia|thana|that|thia|thia|thes|thes|thera|thero|themu|themu|theru|them|thiu}}
 
-====Descendants====
+=====Descendants=====
 * {{desc|gml|de}}
 ** {{desc|nds|de}}
 
 ===Etymology 2===
-From {{inh|osx|gem-pro|*þa}}, from {{inh|ang|ine-pro|*tó}}, {{m|ine-pro|*te-}}.
+From {{inh|osx|gem-pro|*þa}}, from {{inh|osx|ine-pro|*tó}}, {{m|ine-pro|*te-}}.
 
 ====Particle====
 {{head|osx|particle|indeclinable, relative}}
@@ -694,9 +707,30 @@ From {{inh|osx|gem-pro|*þa}}, from {{inh|ang|ine-pro|*tó}}, {{m|ine-pro|*te-}}
 
 ----
 
-==Scots==
+==Phalura==
+
 ===Etymology===
-From {{inh|sco|ang|se}}
+{{rfe|phl}}
+
+===Pronunciation===
+* {{IPA|phl|/tʰe/}}
+
+===Postposition===
+{{head|phl|postposition||Perso-Arabic spelling|تھےۡ}}
+
+# to
+# for
+# at
+
+===References===
+* {{R:phl:Liljegren:Vocab}}
+
+----
+
+==Scots==
+
+===Etymology===
+From {{inh|sco|ang|se}}.
 
 ===Determiner===
 {{head|sco|determiner}}
@@ -724,14 +758,17 @@ Borrowed from {{bor|sh|en|the}}, which sounds similar to {{cog|sh|da}}.
 ==South Slavey==
 
 ===Pronunciation===
-* {{IPA|xsl|/θɛ/}}
+* {{IPA|xsl|/θɛ̀/}}
 
 ===Noun===
 {{head|xsl|noun}}
 
 # [[belt]]
 
-====References====
+====Declension====
+{{xsl-poss|dheé}}
+
+===References===
 * {{R:den:Rice:1989|page=38}}
 
 ----
@@ -742,6 +779,9 @@ Borrowed from {{bor|sh|en|the}}, which sounds similar to {{cog|sh|da}}.
 {{sv-noun|n}}
 
 # {{alternative spelling of|sv|te}} ([[tea]])
+
+====Declension====
+{{sv-infl-noun-n-r|2=thee}}
 
 ===Anagrams===
 * {{anagrams|sv|a=eht|-het|het}}
@@ -784,3 +824,15 @@ Borrowed from {{bor|sh|en|the}}, which sounds similar to {{cog|sh|da}}.
 
 ===Mutation===
 {{cy-mut|te}}
+
+----
+==Yola==
+
+===Article===
+{{head|yol|article}}
+
+# {{alt form|yol|a||the}}
+#* {{quote-book|yol|year=1867|chapter=A YOLA ZONG|number=12|title=SONGS, ETC. IN THE DIALECT OF FORTH AND BARGY|passage=Th' ball want a cowlee, '''the''' gazb maate all rize;|translation=The ball o'er shot the goal, '''the''' dust rose all about;}}
+
+===References===
+* {{R:Poole 1867|page=88}}

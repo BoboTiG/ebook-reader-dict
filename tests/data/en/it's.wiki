@@ -3,11 +3,12 @@
 
 ===Alternative forms===
 * {{l|en|i's}} {{qualifier|eye dialect}}
+* {{l|en|it'sa}} {{q|pseudo-Italian}}
 
 ===Pronunciation===
 * {{IPA|en|/ɪts/}}
 * {{audio|en|en-us-it's.ogg|Audio (US)}}
-* {{rhymes|en|ɪts}}
+* {{rhymes|en|ɪts|s=1}}
 * {{homophones|en|its}}
 
 ===Etymology 1===
@@ -16,16 +17,16 @@
 ====Contraction====
 {{en-cont|head=it’s}}
 
-# It [[is]].
+# {{contraction of|en|[[it]] [[is]]}}
 #* {{quote-book|en|year=1743|author=Martin Marley|title=The Good Confessor|page=307|passage=[...], guided not by his own Will, but by the Medick Science, which dictates, that '''it's''' recessary, beneficial, and convenient to alter, mix, and temper this medicine, and fit it to the Disposition, and Constitution of the Patient[.]}}
 #* {{quote-journal|en|date=2013-06-21|author={{w|Oliver Burkeman}}
 |volume=189|issue=2|page=48|magazine={{w|The Guardian Weekly}}
 |title=[http://www.theguardian.com/technology/2013/may/10/conscious-computing-twitter-facebook-google The tao of tech]
 |passage=The dirty secret of the internet is that all this distraction and interruption is immensely profitable. Web companies like to boast about{{...}}and so on. But the real way to build a successful online business is to be better than your rivals at undermining people's control of their own attention. Partly, this is a result of how online advertising has traditionally worked: advertisers pay for clicks, and a click is a click, however '''it's''' obtained.}}
-#: {{ux|en|'''it’s''' too expensive;&nbsp; '''it’s''' coming right for us!}}
-# It [[has]].
+#: {{ux|en|'''it’s''' too expensive;&nbsp; '''it’s''' coming right for us!; [[it's a free country|'''it's''' a free country]]}}
+# {{contraction of|en|[[it]] [[has]]}}
 #: {{ux|en|'''It’s''' been a long time since I’ve had cheesecake.}}
-# {{lb|en|colloquial}}<!--I think AAV/ebonixx--> [[there's|There's]], [[there is]]; [[there're]], [[there are]].
+# [[there's|There's]], [[there is]]; [[there're]], [[there are]].
 #: {{ux|en|'''it's''' a fine line between love and hate;&nbsp; '''it's''' a package for you by the door}}
 
 =====Usage notes=====
@@ -77,12 +78,31 @@ From {{compound|en|it|'s|alt2=’s|gloss2=possessive marker}}.
 ====Determiner====
 {{head|en|determiner|cat2=possessive determiners}}
 
-# {{lb|en|now|_|nonstandard}} {{alternative form of|en|its}}
-#* {{RQ:Florio Montaigne Essayes|chapter=43|book=I|passage=The manner wherewith our Lawes assay to moderate the foolish and vaine expences of table-cheare and apparell, seemeth contrarie to '''it’s''' end.}}
+# {{obsolete form of|en|its}}
+#* {{RQ:Montaigne Florio Essayes|chapter=43|book=I|passage=The manner wherewith our Lawes assay to moderate the foolish and vaine expences of table-cheare and apparell, seemeth contrarie to '''it’s''' end.}}
 #* '''1787''', {{w|United States Constitution}}, {{w|Article One of the United States Constitution|Article I}}:
 #*: No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing '''it's''' inspection Laws[.]
 #* '''1803''', President Thomas Jefferson, ''Instructions to Captain Meriwether Lewis'':
 #*: The object of your mission is to explore the Missouri river, & such principal stream of it, as, by '''it’s''' course & communication with the waters of the Pacific Ocean.
+#* {{quote-book
+|en
+|year=1848
+|title={{w|Treaty of Guadalupe Hidalgo}}
+|url=https://en.wikisource.org/wiki/Treaty_of_Guadalupe_Hidalgo_(original)
+|text=Article V.<br>The Boundary line between the two Republics shall commence in the Gulf of Mexico, three leagues from land, opposite the mouth of the Rio Grande, otherwise called Rio Bravo del Norte, or opposite the mouth of '''it’s''' deepest branch, if it should have more than one branch emptying directly into the sea; from thence up the middle of that river, following the deepest channel, where it has more than one, to the point where it strikes the southern boundary of New Mexico; thence, westwardly, along the whole southern boundary of New Mexico (which runs north of the town called Paso) to '''it’s''' western termination; thence, northward, along the western line of New Mexico, until it intersects the first branch of the river Gila; (or if it should not intersect any branch of that river, then, to the point on the said line nearest to such branch, and thence in a direct line to the same;) thence down the middle of the said branch and of the said river, until it empties into the Rio Colorado; thence, across the Rio Colorado, following the division line between Upper and Lower California, to the Pacific Ocean.}}
+# {{misspelling of|en|its}}
 
 ===Anagrams===
 * {{anagrams|en|a=ist|'tis|-ist|IST|Ist|SIT|STI|Sit|TIS|TIs|is't|ist|sit|tis}}
+
+----
+==Yola==
+
+===Contraction===
+{{head|yol|contraction}}
+
+# [[it]] [[is]]
+#* {{quote-book|yol|year=1867|chapter=THE BRIDE'S PORTION|title=SONGS, ETC. IN THE DIALECT OF FORTH AND BARGY|passage=A portion ich gae her, was ('''it's''' now ich have ee-tolth)|translation=The portion I gave her was ('''it's''' now I have told)}}
+
+===References===
+* {{R:Poole 1867|page=102}}

@@ -35,8 +35,9 @@
 ==== {{S|traductions}} ====
 {{trad-début|Utiliser}}
 * {{T|af}} : {{trad+|af|gebruik}}, {{trad-|af|benut}}, {{trad-|af|benuttig}}
-* {{T|de}} : {{trad+|de|benutzen}}, {{trad+|de|anwenden}}, {{trad+|de|brauchen}}, <br />{{trad+|de|gebrauchen}}, {{trad+|de|verwenden}}, {{trad+|de|verwerten}}
+* {{T|de}} : {{trad+|de|benutzen}}, {{trad+|de|benützen}}, {{trad+|de|anwenden}}, {{trad+|de|brauchen}}, {{trad+|de|gebrauchen}}, {{trad+|de|verwenden}}, {{trad+|de|verwerten}}
 * {{T|en}} : {{trad+|en|employ}}, {{trad+|en|use}}, {{trad+|en|make use of}}, {{trad-|en|turn to account}}
+* {{T|eu}} : {{trad-|eu|enplegatu}}
 * {{T|ca}} : {{trad+|ca|emprar}}
 * {{T|co}} : {{trad-|co|impiicà}}, {{trad+|co|usà}}, {{trad-|co|servesi}}
 * {{T|da}} : {{trad+|da|benytte}}, {{trad+|da|bruge}}, {{trad-|da|tilbringe}}
@@ -45,7 +46,7 @@
 * {{T|fo}} : {{trad-|fo|nýta}}
 * {{T|fi}} : {{trad+|fi|käyttää}}
 * {{T|fy}} : {{trad+|fy|brûke}}
-* {{T|gallo}} : {{trad--|gallo|alouer}}
+* {{T|gallo}} : {{trad|gallo|alouer}}
 * {{T|hu}} : {{trad+|hu|alkalmaz}}, {{trad+|hu|használ}}
 * {{T|io}} : {{trad+|io|uzar}}, {{trad+|io|employar}}
 * {{T|is}} : {{trad-|is|brúka}}, {{trad+|is|nota}}
@@ -54,8 +55,8 @@
 * {{T|ms}} : {{trad-|ms|gunakan}}, {{trad-|ms|menggunakan}}
 * {{T|nl}} : {{trad+|nl|aanwenden}}, {{trad+|nl|benutten}}, {{trad+|nl|gebruiken}}
 * {{T|oc}} : {{trad+|oc|emplegar}}
-* {{T|pap}} : {{trad--|pap|usa}}, {{trad--|pap|uza}}
-* {{T|pl}} : {{trad+|pl|używać}}
+* {{T|pap}} : {{trad|pap|usa}}, {{trad|pap|uza}}
+* {{T|pl}} : {{trad+|pl|używać}}, {{trad+|pl|stosować}}
 * {{T|pt}} : {{trad+|pt|empregar}}, {{trad-|pt|servir-se de}}, {{trad+|pt|usar}}, {{trad+|pt|despender}}
 * {{T|ro}} : {{trad+|ro|folosi}}
 * {{T|ru}} : {{trad+|ru|использовать}}
@@ -70,7 +71,7 @@
 
 {{trad-début|Donner un métier}}
 * {{T|de}} : {{trad+|de|anstellen}}, {{trad+|de|einstellen}}
-* {{T|gallo}} : {{trad--|gallo|alouer}}
+* {{T|gallo}} : {{trad|gallo|alouer}}
 * {{T|nl}} : {{trad+|nl|tewerkstellen}}
 * {{T|no}} : {{trad-|no|ansette}}, {{trad-|no|tilsette}}
 {{trad-fin}}
@@ -91,6 +92,9 @@
 
 ==== {{S|antonymes}} ====
 * {{lien|employee|en}}
+
+=== {{S|prononciation}} ===
+* {{écouter|Sud de l'Angleterre (Royaume-Uni)||lang=en|audio=LL-Q1860 (eng)-Vealhurl-employer.wav}}
 
 === {{S|voir aussi}} ===
 * {{WP|lang=en}}

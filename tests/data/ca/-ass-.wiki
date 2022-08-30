@@ -1,9 +1,9 @@
 == {{-ca-}} ==
 {{ca-pron|/as/}}
-{{-etimologia-}} Del sufix {{terme|ca|-às}} amb valor augmentatiu.
+{{-etimologia-}} Del sufix {{m|ca|-às}} amb valor augmentatiu.
 
 === Infix ===
-{{lema|ca|infix|lema=-ass-}}
+{{entrada|ca|infix|lema=-ass-}}
 
 # Infix que afegeix un [[matís]] [[augmentatiu]].
 

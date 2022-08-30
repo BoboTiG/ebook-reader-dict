@@ -1,10 +1,9 @@
-{{vegeu|Català|catalá|CATALÀ}}
+{{vegeu|Català|catalá|CATALÀ|catalã}}
 
 == {{-ca-}} ==
 {{ca-pron}}
-
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-català.wav|lang=ca|accent=or|LL-Q7026 (cat)-Millars-català.wav|accent2=oc}}
 {{-etimologia-}} D’origen incert, paral·lel al de {{terme|ca|Catalunya}}, possiblement metàtesi del llatí {{terme|la|lacetani|trad=lacetans}}.
-{{anagrames|lang=ca|acalat}}
 
 === Adjectiu ===
 {{ca-adj|m}}
@@ -38,7 +37,12 @@
 
 # Natural de Catalunya.
 # Natural dels Països Catalans.
+#: {{ex-cit|ca|He pellucat una trentena de topònims marinencs que podem qualificar de genèrics, però que sonen com a més habituals per a un '''català''' de Mallorca.|ref=Vicenç M. Rosselló i Verger, ''Toponímia, geografia i cartografia'', 2004, {{ISBN|9788437058528}}}}
 # {{marca|ca|masculí singular}} Llengua històricament parlada a [[Catalunya]], [[Andorra]], [[País Valencià]], les [[illes Balears]], la [[Catalunya Nord]], l'[[Alguer]] i la [[Franja de Ponent]].
+# [[catalanoparlant]]
+
+{{-sin-}}
+* {{q|llengua}} [[llemosí]] {{q|històric|impropi}}, [[valencià]] {{q|valencià}}, [[pla]] {{q|menorquí}}
 
 {{-der-}}
 * [[acatalanar]]
@@ -53,11 +57,9 @@
 * [[catalanitzar]]
 * [[catalano-]]
 
-{{-sin-}}
-* {{q|llengua}} [[llemosí]] {{q|històric|impropi}}
-
 {{-trad-}}
 {{inici|Natural de Catalunya}}
+* {{de}}: {{trad|de|Katalane|m}}
 * {{en}}: {{trad|en|Catalan}}
 * {{es}}: {{trad|es|catalán}}
 * {{eo}}: {{trad|eo|kataluno}}
@@ -86,7 +88,7 @@
 * {{es}}: {{trad|es|catalán|m}}
 * {{chr}}: {{trad|chr|ᎧᏔᎳ}}
 * {{ko}}: {{trad|ko|카탈로니아어}}
-* {{hr}}: {{trad|hr|katalonski}} jezik {{m}}
+* {{hr}}: {{trad|hr|katalonski|m}}
 * {{da}}: {{trad|da|catalansk}}
 * {{sco}}: {{trad|sco|Catalanais}}
 * {{sk}}: {{trad|sk|katalánčine}}
@@ -111,7 +113,7 @@
 * {{ga}}: {{trad|ga|Catalóinis}}
 * {{is}}: {{trad|is|katalónsku}}
 * {{it}}: {{trad|it|catalano}}
-* {{ja}}: {{trad|ja|カタルーニャ語|tr=katarūnya-go}}
+* {{ja}}: {{trad|ja|カタルーニャ語|tr=katarūnyago}}
 * {{jv}}: {{trad|jv|Boso Katal}}
 * {{lv}}: {{trad|lv|kataloniešu}}
 * {{lt}}: {{trad|lt|katalonų}}
@@ -143,6 +145,10 @@
 * {{zh}}: {{trad|zh|加泰羅尼亞語}}
 * {{zu}}: {{trad|zu|isiKhathalani}}
 {{final}}
+
+=== Miscel·lània ===
+* {{ca-sil}}
+* {{anagrama|ca|acalat}}
 
 === Vegeu també ===
 * {{vegeu-cat|Català}}

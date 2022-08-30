@@ -4,11 +4,11 @@
 {{pron-graf|fone=ˈas.ta|h=asta|g=asta|gnota=obsoleta}}
 
 === Etimología ===
-{{etimología|osp|fasta}}, del más antiguo {{l+|osp|hata}}, {{l+|osp|fata}}, quizá préstamo del árabe {{l+|ar|حتى|tr=ḥatta}}<ref name="DRAE">{{DRAE}}</ref>, o del latín {{l+|la|ad|glosa=a}} {{l+|la|ista|glosa=esta}}, o de ambos.
+{{etimología|osp|fasta}}, del más antiguo {{l+|osp|hata}}, {{l+|osp|fata}}, quizá préstamo del árabe {{l+|ar|حتى|tr=ḥatta}}<ref name="DRAE">{{DRAE2001}}</ref>, o del latín {{l+|la|ad|glosa=a}} {{l+|la|ista|glosa=esta}}, o de ambos.
 
 === {{preposición|es}} ===
 ;1: Preposición que indica el [[fin]] o [[término]] de una actividad, sea en sentido [[locativo]], [[cronológico]] o [[cuantitativo]].
-{{sinónimo|a}}.
+{{sinónimo|a|entro|enta}}.
 :*'''Ejemplos:'''"Papeleras: un intendente uruguayo fue ''hasta'' el corte de ruta para dialogar con los manifestantes" [http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm Diario ''Clarín''], 20 de enero de 2006. "Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas ''hasta'' entonces desconocidas." [http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html ''Pa´gina/12''], 3 de octubre de 2006
 
 ;2: Seguida de ''[[cuando]]'' o de un [[gerundio]], preposición que indica valor [[inclusivo]].
@@ -74,7 +74,9 @@ título=[[w:El amor en los tiempos del cólera]]}}
 {{t+|ca|fins}}
 {{trad-centro}}
 {{t+|eo|ĝis}}
+{{t+|id|hingga|,|sehingga}}
 {{t+|en|until|,|up to|,|even}}
+{{t+|ms|1-5|sehingga|6|hingga|,|هيڠݢ}}
 {{trad-abajo}}
 
 == {{lengua|ast}} ==

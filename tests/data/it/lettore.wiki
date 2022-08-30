@@ -2,7 +2,7 @@
 {{-sost-|it}}
 {{Pn}} ''m sing'' 
 {{Tabs|lettore|lettori|lettrice|lettrici}}
-#chi legge un libro, un giornale o una rivista
+#[[chi]] legge un [[libro]], un [[giornale]] o una [[rivista]]
 # {{Term|religione|it}} persona che in alcune chiese cristiane, come la Chiesa cattolica, la Chiesa anglicana e quella ortodossa, è incaricata di proclamare la parola di Dio e altri testi nelle celebrazioni liturgiche e di esercitare altri compiti in campo pastorale
 # {{Term|elettronica|it}} {{Term|informatica|it}} {{Term|tecnologia|it}} {{Term|ingegneria|it}} dispositivo elettronico che decodifica e riceve informazioni da un supporto
 
@@ -25,7 +25,7 @@ dal [[latino]] ''[[lector]]'', derivazione di ''[[legĕre]]'' ossia "[[leggere]]
 * ''(in informatica)'' [[decodificatore]], [[interprete]]
 
 {{-der-}}
-* [[labiolettore]], [[lettorato]], [[lettore CD]], [[lettore DVD]], [[lettore MP3]], [[lettore MP4]], [[lettore multimediale]]
+*[[acchiappalettore]], [[labiolettore]], [[lettorato]], [[lettore CD]], [[lettore DVD]], [[lettore MP3]], [[lettore MP4]], [[lettore multimediale]]
 
 {{-rel-}}
 * [[leggere]], [[lettura]]
@@ -52,4 +52,3 @@ dal [[latino]] ''[[lector]]'', derivazione di ''[[legĕre]]'' ossia "[[leggere]]
 * {{Fonte|gar}}
 * {{Fonte|dizit}}
 * {{Fonte|dem}}
-

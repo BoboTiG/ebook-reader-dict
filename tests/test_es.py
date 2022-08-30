@@ -30,7 +30,7 @@ from wikidict.utils import process_templates
             "comer",
             ["koˈmeɾ"],
             [
-                "Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i>, el cual es un compuesto de <i>edo</i> (comer). Este verbo se forma a partir <i>Com + edo</i>, obteniendo el siginificado de <i>devorar</i>."  # noqa
+                'Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i> ("devorar"), formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
             ],
             [
                 "Ingerir o tomar alimentos.",

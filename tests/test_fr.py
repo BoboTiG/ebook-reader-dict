@@ -18,7 +18,7 @@ from wikidict.utils import process_templates
                 "<b>-eresse</b> a été très productif au Moyen Âge mais il subit depuis le XVI<sup>e</sup> siècle la concurrence du suffixe <i>-euse</i> qui l’a presque entièrement remplacé.",  # noqa
             ],
             [
-                "Suffixe servant à former des mots féminins. <b>Note&nbsp;:</b> Voir aussi au suffixe <i>-esse</i>.",
+                "Suffixe servant à former des mots féminins.<b>Note&nbsp;:</b> Voir aussi au suffixe <i>-esse</i>.",
             ],
             [],
         ),
@@ -69,7 +69,7 @@ from wikidict.utils import process_templates
             "accueil",
             ["a.kœj"],
             "m",
-            ["<i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>."],
+            ["<u><i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.</u>"],
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
                 "Lieu où sont accueillies les personnes.",
@@ -133,6 +133,7 @@ from wikidict.utils import process_templates
                 "<i>(Marine)</i> Port de ravitaillement ou de refuge des navires en temps de guerre.",  # noqa
                 "<i>(Chimie)</i> Toute matière qui a la propriété de réagir aux acides et de les neutraliser, du moins en partie. Solution ayant un pH supérieur à 7.",  # noqa
                 "<i>(Médecine)</i> Ce qui entre comme ingrédient principal dans un mélange.",
+                "<i>(Génétique)</i> Base nucléique.",
                 "<i>(Télécommunications)</i> Appareil relié à une ligne fixe permettant le fonctionnement de téléphones sans fil à usage domestique.",  # noqa
                 "<i>(Électronique)</i> Nom d’une des électrodes d’un transistor bipolaire.",
                 "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",  # noqa
@@ -211,7 +212,7 @@ from wikidict.utils import process_templates
         ),
         (
             "dubitatif",
-            [],
+            ["dy.bi.ta.tif"],
             "",
             ["Du latin <i>dubitativus</i>."],
             [
@@ -285,6 +286,7 @@ from wikidict.utils import process_templates
                 "<i>(Droit)</i> Officier public préposé au greffe.",
                 "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
                 "<i>(Populaire)</i> Chat.",
+                "Sexe de la femme, minou, chatte, etc.",
                 "Poisson-chat commun (poisson).",
             ],
             [],
@@ -299,7 +301,7 @@ from wikidict.utils import process_templates
         ),
         (
             "koro",
-            ["kɔʁo"],
+            ["kɔ.ʁo"],
             "m",
             [],
             [
@@ -328,6 +330,7 @@ from wikidict.utils import process_templates
             ["De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>."],
             [
                 "Récemment ; il y a peu.",
+                "<i>(Désuet)</i> Peu de temps auparavant.",
                 "Il y a longtemps. <b>Note&nbsp;:</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
             ],
             [],
@@ -337,7 +340,7 @@ from wikidict.utils import process_templates
         #     "pinyin",
         #     ["pin.jin"],
         #     "m",
-        #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc « épeler les sons ».",  # noqa
+        #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc «\xa0épeler les sons\xa0».",  # noqa
         #     [
         #         "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
         #         "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
@@ -353,6 +356,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "Règle ; leçon ; enseignement.",
+                "Règle morale ou religieuse.",
                 "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
                 "<i>(Religion)</i> Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
             ],
@@ -365,6 +369,7 @@ from wikidict.utils import process_templates
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
+                "<i>(Figuré)</i> Qui s’est encore envenimé.",
                 "S’emploie quelquefois comme nom masculin.",
                 "<i>Variante de</i> ranche.",
             ],
@@ -387,6 +392,10 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
+                "<i>(Par extension)</i> Mastic à base de ce composé et vendu généralement en cartouche.",
+                (
+                    "<i>(Par extension)</i> Nom donné abusivement par le grand public à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa composition.",  # noqa
+                ),  # noqa
             ],
             ["siliconer"],
         ),

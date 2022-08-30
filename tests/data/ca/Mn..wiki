@@ -1,9 +1,9 @@
 {{vegeu|mn|Mn|MN}}
 
 == {{-ca-}} ==
-{{-pronafi-}} Vegeu {{terme|ca|mossèn}}
+{{-pronafi-}} Vegeu {{m|ca|mossèn}}
 
 === Abreviatura ===
-{{lema|ca|abreviatura}}
+{{entrada|ca|abreviatura}}
 
 # [[mossèn]] com a tractament davant el nom

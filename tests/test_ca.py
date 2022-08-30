@@ -63,19 +63,29 @@ from wikidict.utils import process_templates
             "cap",
             [],
             "m",
-            ["Del llatí <i>caput</i>."],
             [
-                "<i>(anatomia)</i> Part superior del cos d'un animal.",
-                "Cervell.",
-                "Persona que mana o dirigeix quelcom, líder.",
-                "Punta, extrem, final.",
-                "Part de terra que s'endinsa en el mar.",
-                "Grau militar.",
-                "<i>(nàutica)</i> Corda.",
+                "Del llatí vulgar <i>*capu(m)</i>, variant de l’acusatiu <i>caput</i>, segle XIII. Com a adjectiu pel sentit d’«extrem, punta». Com a preposició pel sentit de «part anterior (vers un lloc)»."  # noqa
+            ],
+            [
+                "<i>(anatomia)</i> Part superior i anterior del cos d'un animal.",
+                "Part superior del cos de l'ésser humà, considerada com a seu del pensament, l'intel·lecte, judici, talent, seny.",  # noqa
+                "Lloc de preferència, central.",
+                "Localitat principal d'un territori; capital.",
+                "La part més alta d'una cosa.",
+                "Individu considerat com a membre d’una col·lectivitat.",
+                "Extremitat en general.",
+                (
+                    "Part anterior, per on comença una cosa.",
+                    "Part final, per on acaba una cosa.",
+                ),
+                "Part de terra que s'endinsa en la mar.",
+                "<i>(nàutica)</i> corda",
                 "En un repartiment, cadascun dels participants.",
-                "<i>(golf)</i> Part final d'un bastó, que impacta en la bola en executar el cop.",
+                "<i>(golf)</i> Part final d'un bastó, que impacta en la bola en executar el colp.",
                 "<i>(pilota basca)</i> Part més ampla d'una eina.",
                 "<i>(bàdminton)</i> base",
+                "Persona que ocupa el primer lloc, que mana o que dirigeix quelcom; capitost.",
+                "Grau militar.",
                 "<i>(negatiu)</i> Ni un.",
                 "<i>(interrogatiu, condicional)</i> Algun.",
                 "<i>(negatiu)</i> Gens de.",
@@ -131,6 +141,7 @@ from wikidict.utils import process_templates
                 "<i>(masculí singular)</i> Llengua històricament parlada a Catalunya, "
                 "Andorra, País Valencià, les illes Balears, la Catalunya Nord, l'Alguer i la "
                 "Franja de Ponent.",
+                "catalanoparlant",
             ],
         ),
         (
@@ -193,7 +204,7 @@ from wikidict.utils import process_templates
         ("pen", [], "", [], []),
         (
             "si",
-            ["si"],
+            [],
             "m",
             [],
             [

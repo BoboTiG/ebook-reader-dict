@@ -20,13 +20,14 @@
 === {{S|suffixe|fr}} ===
 {{fr-rég|(ə).ʁɛs}}
 '''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}
-# Suffixe servant à former des mots féminins. {{note}} Voir aussi au suffixe ''{{lien|-esse|fr}}''.
+# Suffixe servant à former des mots féminins.<br/>{{note}} Voir aussi au suffixe ''{{lien|-esse|fr}}''.
 
 ==== {{S|notes}} ====
 : Ce suffixe a surtout servi à la création de mots pour désigner des personnes de genre féminin à partir de mots masculins en ''{{lien|-eur|fr}}''.
 
 ==== {{S|composés}} ====
 {{(|}}
+* {{lien|abuseresse|fr}}
 * {{lien|alongeresse|fr}}
 * {{lien|assesseresse|fr}}
 * {{lien|avaleresse|fr}}
@@ -62,12 +63,14 @@
 * {{lien|emperesse|fr}}
 * {{lien|enchanteresse|fr}}
 * {{lien|étoqueresse|fr}}
+* {{lien|flatteresse|fr}}
 * {{lien|forteresse|fr}}
 * {{lien|gouverneresse|fr}}
 * {{lien|guideresse|fr}}
 * {{lien|guinderesse|fr}}
 * {{lien|imposteresse|fr}}
 * {{lien|inqueresse|fr}}
+* {{lien|invocateresse|fr}}
 * {{lien|jongleresse|fr}}
 * {{lien|laveresse|fr}}
 * {{lien|lécheresse|fr}}
@@ -76,6 +79,7 @@
 * {{lien|menteresse|fr}}
 * {{lien|panneresse|fr}}
 * {{lien|paqueresse|fr}}
+* {{lien|parleresse|fr}}
 * {{lien|passeresse|fr}}
 * {{lien|pècheresse|fr}}, {{lien|pécheresse|fr}}
 * {{lien|pêcheresse|fr}}
@@ -116,8 +120,6 @@
 === {{S|références}} ===
 {{Références}}
 
-[[Catégorie:Noms de métiers féminisés en français]]
-
 == {{langue|frm}} ==
 === {{S|suffixe|frm}} ===
 {{frm-rég|(ə).rɛs(ə)}}
@@ -146,7 +148,9 @@
 * {{lien|chantreresse|frm}}
 * {{lien|charmegneresse|frm}}
 * {{lien|chevaleresse|frm}}
+* {{lien|chevaucheresse|frm}}
 * {{lien|coadjuteresse|frm}}
+* {{lien|commanderesse|frm}}
 * {{lien|conducteresse|frm}}
 * {{lien|conforteresse|frm}}
 * {{lien|consoleresse|frm}}
@@ -158,18 +162,23 @@
 * {{lien|découveresse|frm}}
 * {{lien|défenseresse|frm}}
 * {{lien|démonstreresse|frm}}
+* {{lien|détracteresse|frm}}
 * {{lien|dissiperesse|frm}}
 * {{lien|dompteresse|frm}}
 * {{lien|donateresse|frm}}
 * {{lien|draperesse|frm}}
+* {{lien|écuyeresse|frm}}
 * {{lien|engigneresse|frm}}
 * {{lien|exposeresse|frm}}
+* {{lien|faucheresse|frm}}
 * {{lien|fileresse|frm}}
-* {{lien|flateresse|frm}}
+* {{lien|flatteresse|frm}}
 * {{lien|fonderesse|frm}}
 * {{lien|forgeresse|frm}}
+* {{lien|gouverneresse|frm}}
 * {{lien|guerroyeresse|frm}}
 * {{lien|harperesse|frm}}
+* {{lien|imposteresse|frm}}
 * {{lien|inquisiteresse|frm}}
 * {{lien|intercesseresse|frm}}
 * {{lien|interprèteresse|frm}}
@@ -179,25 +188,34 @@
 * {{lien|mangeresse|frm}}
 * {{lien|meurtreresse|frm}}
 * {{lien|moderateresse|frm}}
+* {{lien|moissonneresse|frm}}
 * {{lien|moiteresse|frm}}
 * {{lien|orateresse|frm}}
 * {{lien|ordonneresse|frm}}
 * {{lien|parleresse|frm}}
 * {{lien|persecuteresse|frm}}
+* {{lien|possesseresse|frm}}
+* {{lien|précurseresse|frm}}
+* {{lien|prédécesseresse|frm}}
+* {{lien|prévaricateresse|frm}}
 * {{lien|prieresse|frm}}
 * {{lien|procurateresse|frm}}
 * {{lien|procureresse|frm}}
+* {{lien|producteresse|frm}}
 * {{lien|protecteresse|frm}}
 * {{lien|proviseresse|frm}}
 * {{lien|provocateresse|frm}}
 * {{lien|quêteresse|frm}}
 * {{lien|rapporteresse|frm}}
+* {{lien|relieresse|frm}}
 * {{lien|repenteresse|frm}}
 * {{lien|retorderesse|frm}}
 * {{lien|sarcleresse|frm}}
 * {{lien|sauteresse|frm}}
+* {{lien|sauveresse|frm}}
 * {{lien|sèmeresse|frm}}
 * {{lien|sorceresse|frm}}
+* {{lien|souderesse|frm}}
 * {{lien|souffleresse|frm}}
 * {{lien|successeresse|frm}}
 * {{lien|tanceresse|frm}}
@@ -208,6 +226,7 @@
 * {{lien|trouveresse|frm}}
 * {{lien|tuteresse|frm}}
 * {{lien|vainqueresse|frm}}
+* {{lien|veilleresse|frm}}
 * {{lien|veneresse|frm}}
 * {{lien|vicareresse|frm}}
 * {{lien|vindicateresse|frm}}
@@ -228,13 +247,17 @@
 ==== {{S|composés}} ====
 {{(|}}
 * {{lien|acesmeresse|fro}}
+* {{lien|acheteresse|fro}}
 * {{lien|alaiteresse|fro}}
 * {{lien|breteresse|fro}}
+* {{lien|changeresse|fro}}
 * {{lien|conduiseresse|fro}}
 * {{lien|esploiteresse|fro}}
+* {{lien|flateresse|fro}}
 * {{lien|forteresse|fro}}
 * {{lien|liseresse|fro}}
 * {{lien|maneresse|fro}}
+* {{lien|pecheresse|fro}}
 * {{lien|venderesse|fro}}
 {{)}}
 

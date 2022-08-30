@@ -30,7 +30,7 @@ from wikidict.utils import process_templates
             [
                 "do Estado da Bahia, Brasil",
                 "natural ou habitante do Estado da Bahia, Brasil",
-                "<i>(São Paulo, Brasil; popular; pejorativo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
+                "<i>(São Paulo, Brasil, popular, pejorativo e insulto étnico)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
             ],
         ),
         (
@@ -119,8 +119,8 @@ from wikidict.utils import process_templates
             "",
             [],
             [
-                '<i>(antigo)</i> contração do pronome pessoal "te" com o pronome pessoal ou demonstrativo "o"',
-                "<i>(coloquial e Brasil)</i> forma aferética (muito comum na linguagem falada) de estou",
+                "<i>(antigo)</i> contração do pronome pessoal te com o pronome pessoal ou demonstrativo o",
+                "<i>(Brasil e coloquial)</i> forma aferética (muito comum na linguagem falada) de estou",
             ],
         ),
         (

@@ -11,12 +11,13 @@
 #* ''J’étais descendue à huit heures et demie ; je suivais des yeux l’aiguille des '''minutes''', dont la marche était presque visible sur le vaste cadran de l’horloge.'' {{source|{{w|Alexandre Dumas}}, ''[[s:Les Mille et Un Fantômes|Les Mille et Un Fantômes]]}}
 #* ''Jetant un coup d’œil sur la pendule de la cheminée (…), j’eus le plaisir de voir que j’avais encore vingt '''minutes''' à moi.'' {{source|{{w|Edgar Poe}}, ''L’Ange du bizarre'', dans ''Histoires grotesques et sérieuses'', traduction de {{w|Charles Baudelaire}}}}
 #* ''Dans ce chenal étroit je pouvais à peine faire route trente secondes entre deux virements de bord et encore je devais utiliser cette demi-'''minute''' pour prendre les relèvements au compas et m'assurer de ma position.'' {{source|{{w|Alain Gerbault}}, ''À la poursuite du soleil''; tome 1 : ''De New-York à Tahiti'', 1929}}
-#* ''La durée de l'essai de 90 '''minutes''', qui peut paraître au premier abord un peu longue, a été choisie parce qu'elle correspond au temps mis par le bol alimentaire pour parcourir le tube digestif de l'insecte.'' {{source|René Guy Busnel, ''Études physiologiques sur le ''{{w|Leptinotarsa decemlineata}}'' Say,'' Paris : libr. E. Le François, 1939, p.63}}
+#* ''La durée de l'essai de 90 '''minutes''', qui peut paraître au premier abord un peu longue, a été choisie parce qu'elle correspond au temps mis par le bol alimentaire pour parcourir le tube digestif de l'insecte.'' {{source|René Guy Busnel, ''Études physiologiques sur le ''{{w|Leptinotarsa decemlineata}}'' Say,'' Paris : libr. E. Le François, 1939, page 63}}
 # {{figuré|fr}} [[instant|Instant]] ; [[temps]] très [[court]].
 #* ''Pour rien au monde, nous n’aurions détaché nos yeux de la boussole. Ces compas avaient quelque chose d’humain dans une '''minute''' aussi capitale. […] Notre salut dépendait autant de lui que du moteur.'' {{source|{{w|Dieudonné Costes}} & {{w|Maurice Bellonte}}, ''Paris-New-York'', 1930}}
 #* ''Le jour naissait. Feempje se dressa sur son séant et ne reprit lourdement ses esprits qu'après quelques '''minutes'''.'' {{source|{{Citation/Francis Carco/Brumes/1935|56}}}}
-#* ''Les habitants d’Houffalize, tapie au fond de sa vallée, au bord de l’Ourthe claire, et que la guerre avait jusque là épargnée, virent arriver les avions […], et une '''minute''' plus tard, Houffalize n'existait plus.'' {{source|{{w|Georges Blond}}, ''L'Agonie de l'Allemagne 1944-1945'', Fayard, 1952, pp.156-157}}
+#* ''Les habitants d’Houffalize, tapie au fond de sa vallée, au bord de l’Ourthe claire, et que la guerre avait jusque là épargnée, virent arriver les avions […], et une '''minute''' plus tard, Houffalize n'existait plus.'' {{source|{{w|Georges Blond}}, ''L'Agonie de l'Allemagne 1944-1945'', Fayard, 1952, pages 156-157}}
 #* ''Je la regardais — '''minutes''' silencieuses où l'on n'entendait que le tic-tac de l'horloge accrochée au mur — et j'essayais de lire dans son visage muet, mais rien d'elle ne m'était familier.'' {{source|{{w|Stefan Zweig}}, ''La peur'', traduit de l'allemand par Alzir Hella éd. Grasset, 1935, 2002}}
+#* ''Il fait bon voir le Soleil, (...) Il engendre er nourrit avec les causes fécondés, tout ce qui est: de la famille en ce bas monde : il semble à nos yeux , qu'il chemine fort lentement, aussi bien que les étoiles, si fait il néanmoins à tous les demy quarts d'heures soixante onze mil deux cens cinquante quatre lieues , & sept huitièmes & à chaque '''minute''' il en dépêche neuf mil cinq cens., & trente septième, qui font à chaque heure de jour cinq cens septante mil trente neuf, et une vingt quatrième.'' {{source|Les diverses leçons de Loys Guyon, sieur de La Nauche,... suivans celles de Pierre Messie et du sieur de Vauprivaz, Louis Guyon, 1604}}
 # {{info lex|métrologie}} Unité de mesure d’[[angle]] [[plan]], égale à la [[soixantième]] partie d’un [[degré]]. Aussi appelée '''[[minute d’arc]]''', son symbole est '''[[′]]'''.
 # {{info lex|métrologie}} {{lexique|astronomie|fr}} Unité de mesure d’angle plan, égale à la soixantième partie d’une [[heure]] d’[[ascension droite]] (elle est [[quinze]] [[fois]] plus [[grande]] que la minute d’arc). Aussi appelée '''[[minute d’ascension droite]]''', son symbole est '''min'''.
 # {{désuet|fr}} [[écriture|Écriture]] en [[caractère]]s [[menu]]s.
@@ -28,10 +29,11 @@
 #* ''Les résultats de ce grand travail, qui l'occupa pendant plusieurs mois, ont été publiés dans le rapport fait à l'Institut par Van-Swieden, et ensuite par Delambre, dans le III{{e}} vol. de la ''Base du Système métrique décimal'', mais non pas la '''minute''' des observations, qu'on n'a jamais pu retrouver.'' {{source|Blainville, « Lefèvre-Gineau (Louis) », dans ''Biographie universelle, ancienne et moderne'', supplément : vol. 71, Paris : chez L.-G. Michaud, 1842, page 168}}
 # {{par analogie|fr}} {{lexique|cartographie|fr}} [[document|Document]] graphique original, élaboré de façon précise, de présentation parfois imparfaite, servant de base pour la préparation d’une carte<ref>{{Import:CFC}}</ref>.
 #* ''Comme nous disposions d'une '''minute''' d’État-Major entre les PK 116 et 132, nous avons recherché les points cotés communs entre cette '''minute''' et ceux de la carte de base IGN au 1/25000 au niveau des berges sur une largeur voisine de 2500 m de part et d'autre de la rivière.'' {{source|Jean-Claude Mallard , ''Nivellements de la grande Saône de 1835 à 1867: Section Chalon-sur-Saône/Tournus : Altimétries 1836/1865/1891'', Presses universitaires de Lyon, 2004, page 172}}
-#* {{ébauche-exe|fr}}
 # {{désuet|fr}} Original, [[brouillon]] d’une [[lettre]], ce qu’on [[écrire|écrit]] d’[[abord]] pour en faire [[ensuite]] une [[copie]] et le [[mettre]] plus au [[net]].
 #* ''Faire la '''minute''' d’une lettre.''
 #* ''Il ne fait point de '''minute''' de ses lettres, il n’en garde pas les minutes.''
+#* ''On lit encore avec horreur ces paroles écrites au bas du parchemin : ''La '''minute''' est aux enfers, dans le cabinet de Lucifer''.'' {{source|{{w|Alfred de Vigny}}, ''{{ws|Cinq-Mars/IV|Cinq-Mars}}'', Michel Lévy frères, 1863}}
+#* ''Si donc le Notaire, Curé, Vicaire, ou autre demande au testateur s'il veut & ordonne ce qui luy est proposé parceluy qui l'interroge, sans que le testateur le declare & diète de luy même:ou qu'ayant dressé une '''minute''' de testament il demande au malade s'il le veut ainsi, & qu'il réponde ouy: tel testament sera nul, comme fait contre la forme de la coustume & à la suggestion d'autruy'' {{source|Coustume de la ville, prévosté et vicomté de Paris, ou droict civil parisien, Pierre L'H Villier, Paris, 1602}}
 
 ==== {{S|synonymes}} ====
 * [[′]] (unité de mesure de temps ou d’angle plan)
@@ -42,6 +44,7 @@
 {{(}}
 * [[à la minute]]
 * [[arrêt minute]]
+* [[à toute minute]]
 * [[cocotte-minute]]
 * [[compte-minute]] {{ortho1990}}
 * [[compte-minutes]]
@@ -66,7 +69,7 @@
 {{)}}
 
 ==== {{S|vocabulaire}} ====
-* [[grosse]] (1)
+* [[grosse]] (6)
 
 ==== {{S|holonymes}} ====
 * [[degré]]
@@ -82,11 +85,11 @@
 * {{T|sq}} : {{trad+|sq|minutë}}
 * {{T|de}} : {{trad+|de|Minute|f}}
 * {{T|en}} : {{trad+|en|minute}}
-* {{T|ar}} : {{trad-|ar|دَقِيقَة|tr=daqīqa}}
+* {{T|ar}} : {{trad-|ar|دقيقة|tr=daqīqa}}
 * {{T|hy}} : {{trad+|hy|րոպե|tr=rope}}, {{trad+|hy|վայրկյան|tr=vayrkyan}}
 * {{T|az}} : {{trad+|az|dəqiqə}}
 * {{T|eu}} : {{trad+|eu|minutu}}
-* {{T|be}} : {{trad-|be|хвіліна|tr=xvilína}}
+* {{T|be}} : {{trad-|be|хвіліна|tr=khvilína}}
 * {{T|my}} : {{trad-|my|မိနစ္}}
 * {{T|br}} : {{trad+|br|munut}}, {{trad+|br|munutenn}}
 * {{T|bg}} : {{trad+|bg|минута|R=minúta}}
@@ -100,7 +103,7 @@
 * {{T|et}} : {{trad+|et|minut}}
 * {{T|fo}} : {{trad-|fo|minuttur|m}}
 * {{T|fi}} : {{trad+|fi|minuutti}}
-* {{T|vls}} : {{trad--|vls|menuut}}
+* {{T|vls}} : {{trad|vls|menuut}}
 * {{T|gd}} : {{trad-|gd|mionaid}}
 * {{T|ga}} : {{trad+|ga|nóiméad}}
 * {{T|gl}} : {{trad-|gl|minuto}}
@@ -109,18 +112,18 @@
 * {{T|el}} : {{trad+|el|λεπτό|tr=leptó}}
 * {{T|he}} : {{trad+|he|דקה|tr=daka}}
 * {{T|hi}} : {{trad+|hi|मिनट|tr=minaṭ}}
-* {{T|mww}} : {{trad--|mww|feeb}}
+* {{T|mww}} : {{trad|mww|feeb}}
 * {{T|hu}} : {{trad+|hu|perc}}
 * {{T|io}} : {{trad+|io|minuto}}
 * {{T|id}} : {{trad+|id|menit}}
 * {{T|is}} : {{trad+|is|mínúta}}
 * {{T|it}} : {{trad+|it|minuto|m}}
 * {{T|ja}} : {{trad+|ja|分|R=fun}}
-* {{T|kab}} : {{trad--|kab|aminut|m}}, {{trad--|kab|tadqiqat|f}}, {{trad--|kab|tamrect|f}}, {{trad--|kab|tasdat|f}}, {{trad--|kab|timikt|f}}
+* {{T|kab}} : {{trad|kab|aminut|m}}, {{trad|kab|tadqiqat|f}}, {{trad|kab|tamrect|f}}, {{trad|kab|tasdat|f}}, {{trad|kab|timikt|f}}
 * {{T|kk}} : {{trad+|kk|минөт|tr=mïnöt}}
 * {{T|km}} : {{trad+|km|នាទី|tr=nīădtī}}
-* {{T|ki}} : {{trad--|ki|ndagĩka}}
-* {{T|avk}} : {{trad--|avk|wexa}}
+* {{T|ki}} : {{trad|ki|ndagĩka}}
+* {{T|avk}} : {{trad|avk|wexa}}
 * {{T|lo}} : {{trad+|lo|ນາທີ|tr=nā thī}}
 * {{T|lv}} : {{trad-|lv|minūte}}
 * {{T|lt}} : {{trad+|lt|minutė}}
@@ -129,6 +132,7 @@
 * {{T|mt}} : {{trad-|mt|minuta}}
 * {{T|cmn}} : {{trad-|cmn|分钟|tr=fēnzhōng|tradi=分鐘}}
 * {{T|nl}} : {{trad+|nl|minuut}}
+* {{T|normand}} : {{trad|normand|mineute}}
 * {{T|no}} : {{trad+|no|minutt}}
 * {{T|oc}} : {{trad-|oc|minuta}}
 * {{T|ur}} : {{trad-|ur|منٹ|tr=minaṭ}}
@@ -148,15 +152,16 @@
 * {{T|th}} : {{trad+|th|นาที|tr=nâti}}
 * {{T|tr}} : {{trad+|tr|dakika}}
 * {{T|tk}} : {{trad-|tk|minut}}
-* {{T|uk}} : {{trad-|uk|хвилина|tr=xvylýna}}
+* {{T|uk}} : {{trad-|uk|хвилина|tr=khvylýna}}
 * {{T|vi}} : {{trad+|vi|phút}}
 * {{T|wa}} : {{trad+|wa|munute|f}}
 * {{T|yi}} : {{trad+|yi|מינוט|tr=minut}}
 {{trad-fin}}
 
 {{trad-début|Un temps très court}}
-* {{T|vls}} : {{trad--|vls|menuut}}
-* {{T|zdj}} : {{trad--|zdj|sa}}
+* {{T|vls}} : {{trad|vls|menuut}}
+* {{T|ro}} : {{trad+|ro|minut|n}}, {{trad+|ro|clipă|f}}
+* {{T|zdj}} : {{trad|zdj|sa}}
 {{trad-fin}}
 
 {{trad-début|Unité de mesure d’angle (minute d’arc)}}
@@ -165,6 +170,7 @@
 * {{T|el}} : {{trad+|el|λεπτό}}
 * {{T|ja}} : {{trad+|ja|分|R=fun}}
 * {{T|nl}} : {{trad+|nl|minuut}}
+* {{T|ro}} : {{trad+|ro|minut|n}}
 * {{T|sv}} : {{trad+|sv|minut}}
 {{trad-fin}}
 
@@ -176,7 +182,11 @@
 {{trad-fin}}
 
 {{trad-début|(Droit) Original d’un acte authentique}}
+* {{T|de}} : {{trad-|de|Urschrift|f}}
 * {{T|en}} : {{trad+|en|minute}}
+* {{T|br}} : {{trad+|br|mammskrid|m}}
+* {{T|es}} : {{trad-|es|escritura matriz|f}}
+* {{T|it}} : {{trad+|it|minuta|f}}
 * {{T|nl}} : {{trad+|nl|minuut}}
 {{trad-fin}}
 
@@ -185,13 +195,14 @@
 * {{T|ga|trier}} : {{trad+|ga|nóiméad}}
 * {{T|io|trier}} : {{trad+|io|minuto}}
 * {{T|ku|trier}} : {{trad+|ku|deqîqe}}
-* {{T|nov|trier}} : {{trad--|nov|minute}}
+* {{T|nov|trier}} : {{trad|nov|minute}}
 {{trad-fin}}
 
 === {{S|interjection|fr}} ===
 '''minute''' {{pron|mi.nyt|fr}}
 # Attends.
-#* '' Il veut faire mes ''Squelettes''. '''Minute''' ! '''Minute''' ! Nous n'en sommes encore qu'aux pourparlers...'' {{source|{{w|Jehan Rictus}}, ''Journal quotidien'', cahier 131, {{nobr|p. 44}}, 20 avril 1927}}
+#* ''— Attends, '''minute''', nous rentrons ; nous avons fini. »'' {{source|{{w|Hector Malot}}, ''{{w|En famille (roman)|En famille}}'', 1893}}
+#* '' Il veut faire mes ''Squelettes''. '''Minute''' ! '''Minute''' ! Nous n'en sommes encore qu'aux pourparlers...'' {{source|{{w|Jehan Rictus}}, ''Journal quotidien'', cahier 131, {{nobr|page 44}}, 20 avril 1927}}
 #* '''''Minute''' garçon ! Je n’ai pas fini de vous parler.''
 
 ==== {{S|traductions}} ====
@@ -208,7 +219,8 @@
 # ''Deuxième personne du singulier de l’impératif de'' [[minuter]].
 
 === {{S|prononciation}} ===
-* {{pron|mi.nyt|fr}}
+* {{phono|mi.nyt|fr}}
+* Canada : {{phono|mi.nyt|fr}}, {{phon|mi.nʏt|fr}}
 * {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|mi.nyt|audio=Fr-minute.ogg}}
 * {{écouter||mi.nyt|lang=fr|audio=LL-Q150 (fra)-Guilhelma-minute.wav}}
 * {{écouter||mi.nyt|lang=fr|audio=LL-Q150 (fra)-Jules78120-minute.wav}}
@@ -226,8 +238,10 @@
 * {{WP}}
 
 === {{S|références}} ===
-* {{R:DAF8}}{{Références}}
-
+* {{R:DAF8}}
+* {{R:TLFi}}
+* {{R:Larousse}}
+{{Références}}
 
 == {{langue|en}} ==
 === {{S|étymologie}} ===
@@ -250,8 +264,8 @@
 * [[second#en|second]]
 
 === {{S|verbe|en}} ===
-{{en-conj-rég-e|minut|inf.pron=ˈmɪn.ɪt|p3s.psuf=s}}
-'''minute''' {{t|en}}
+{{en-conj-rég-e|minut|inf.pron=ˈmɪn.ɪt|p3s.psuf=s|prét.pron=ˈmɪn.ɪ.tɪd|ppr.pron=ˈmɪn.ɪ.tɪŋ}}
+'''minute''' {{pron|ˈmɪn.ɪt|en}} {{t|en}}
 # Faire le procès-verbal d’une [[réunion]].
 
 === {{S|adjectif|en}} ===
@@ -274,8 +288,10 @@
 : Remarquez la [[prononciation]] [[différent]]e entre le nom et l’adjectif.
 
 === {{S|prononciation}} ===
-* {{écouter|lang=en|Suisse (Genève)|audio=LL-Q1860 (eng)-Nattes à chat-minute.wav}}
-* {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-minute.wav}}
+* {{pron|ˈmɪn.ɪt|en}}
+** {{écouter|lang=en|Royaume-Uni (Londres)|ˈmɪn.ɪt|audio=LL-Q1860 (eng)-Back ache-minute.wav}}
+** {{écouter|lang=en|Suisse (Genève)|ˈmɪn.ɪt|audio=LL-Q1860 (eng)-Nattes à chat-minute.wav}}
+* {{pron|maɪˈnjut|en}}
 
 [[Catégorie:Homographes non homophones en anglais]]
 
@@ -297,7 +313,7 @@
 === {{S|adverbe|la}} ===
 '''minute''' {{pron||la}}
 # [[minutieusement|Minutieusement]].
-#* {{ébauche-exe|la}}
+#* {{exemple|lang=la}}
 
 === {{S|références}} ===
 * {{R:Gaffiot}}

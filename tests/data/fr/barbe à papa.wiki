@@ -38,6 +38,7 @@
 * {{T|ja}} : {{trad-|ja|綿菓子|R=watagashi}}, {{trad-|ja|綿あめ|tr=wataame}}
 * {{T|lb}} : {{trad+|lb|Zockerwatt|f}}
 * {{T|nl}} : {{trad+|nl|suikerspin|f}}
+* {{T|oc}} : {{trad-|oc|barba a papà}}
 * {{T|fa}} : {{trad+|fa|پشمک}}
 * {{T|pl}} : {{trad+|pl|wata cukrowa}}
 * {{T|pt}} : {{trad+|pt|algodão-doce}}

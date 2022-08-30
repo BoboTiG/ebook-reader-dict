@@ -20,6 +20,7 @@
 * Per exemple, ''antic'' se sonoritza en femení ''antiga'', però ''antic/antich abat'' no se sonoritza.
 * En la [[:w:Normes ortogràfiques|reforma ortogràfica del 1913]] es va suprimir aquesta ''h'' no etimològica. Prèviament el seu ús ja era discutit i variable segons els autors.
 * Es manté fossilitzat en diversos cognoms i durant un temps es va mantenir fossilitzat en castellà per alguns topònims catalans.
+* Possiblement originat en la [[w:Gòtica (tipografia)|cal·ligrafia gòtica]] on la lletra ''c'' es podia confondre amb d’altres i en posició final s’hi afegia un ornament distintiu.
 
 === Vegeu també ===
 * {{Viquipèdia}}

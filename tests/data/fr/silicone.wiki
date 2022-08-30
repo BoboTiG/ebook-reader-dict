@@ -7,20 +7,27 @@
 === {{S|nom|fr}} ===
 {{fr-rég|si.li.kon}}
 '''silicone''' {{pron|si.li.kon|fr}} {{f}} (composé de silicium de formule R2SiO) {{m}} (polymère).
+[[File:Etanchéification de la bouche d'entrée des déchets et sortie du gaz.jpg|thumb|Réalisation d'un joint au silicone en cartouche. (sens 2)]]
 # {{lexique|chimie|fr}} [[composé|Composé]] [[inorganique]] formés d’une chaine [[silicium]]-[[oxygène]] (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
 #* ''[Les] '''silicones''', polymères de complexité variable […] possèdent des propriétés particulièrement surprenantes. Ces substances s’emploient industriellement dans la fabrication des huiles, des vernis et des plastiques.'' {{source|''Histoire générale des sciences'', t. 3 , vol. 2, 1964, page 429}}
-#* ''Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.'' {{source|{{nom w pc|Kyra|Davis|lang=en}}, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
-#* ''Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »'' {{source|Alain {{petites capitales|Babanini}}, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
+#* ''Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.'' {{source|Kyra Davis, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
+#* ''Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »'' {{source|Alain Babanini, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
+# {{par extension|fr}} [[mastic|Mastic]] à base de ce composé et vendu généralement en [[cartouche]].
+#* ''Un entretien régulier (plaques de cuisson, four, filtre de hotte, robinetterie, baignoire et douche avec leurs joints '''silicone''', cuvette wc, tapis, carrelage, spots, portes, châssis...) conserve l'immeuble en meilleur état et vous.'' {{source|Pierre Jammar , ''Tout savoir sur les dégâts locatifs'', Éd. Édipro, 2014}}
+## {{par extension|fr}} Nom donné abusivement par le grand [[public#fr-nom-2|public]] à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa [[composition]].
+##* ''La cellule est souvent constituée de panneaux modulaires en acier inoxydable dont l'étanchéité est assurée par joints au '''silicone'''.'' {{source| Camille Knockaert, ''Le fumage du poisson'', Éd. Ifremer, 2002}}
+
 
 ==== {{S|dérivés}} ====
-* {{lien|siliconer|fr}}
-** {{lien|siliconage|fr}}
-** {{lien|siliconé|fr}}
+* [[siliconage]]
+* [[siliconé]]
+* [[siliconer]]
 
 ==== {{S|traductions}} ====
 {{trad-début|Composé inorganique|1}}
 * {{T|de}} : {{trad+|de|Silikon|n}}
 * {{T|en}} : {{trad+|en|silicone}}
+* {{T|hr}} : {{trad+|hr|silikon}}
 * {{T|it}} : {{trad+|it|silicone|m}}
 * {{T|ja}} : {{trad-|ja|シリコーン|tr=shirikōn}}, {{trad+|ja|シリコン|tr=shirikon}}
 * {{T|cs}} : {{trad-|cs|silikon|m}}
@@ -34,6 +41,9 @@
 # ''Première personne du singulier du subjonctif présent de'' [[siliconer]].
 # ''Troisième personne du singulier du subjonctif présent de'' [[siliconer]].
 # ''Deuxième personne du singulier de l’impératif de'' [[siliconer]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-Lyokoï-silicone.wav}}
 
 === {{S|voir aussi}} ===
 * {{Wikipédia}}
@@ -49,10 +59,13 @@
 {{en-nom-rég|ˈsɪl.ɪ.ˌkəʊn}}
 '''silicone''' {{pron|ˈsɪl.ɪ.ˌkəʊn|en}}
 # [[silicone#fr|Silicone]].
-#* {{ébauche-exe|en}}
+#* {{exemple|lang=en}}
 
 ==== {{S|notes}} ====
 : Ne pas confondre '''''silicone''''' avec ''{{lien|silicon|en}}'' (« {{lien|silicium}} »).
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=en|Royaume-Uni (Sud de l'Angleterre)||audio=LL-Q1860 (eng)-Vealhurl-silicone.wav}}
 
 === {{S|voir aussi}} ===
 * {{Wikipédia|lang=en}}
@@ -67,5 +80,15 @@
 '''silicone''' {{pron|si.li.ˈko.ne|it}} {{m}}
 # {{lexique|chimie|it}} [[#fr|Silicone]], composés inorganiques formés d’une chaîne silicium-oxygène {{}} (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
 
+==== {{S|dérivés}} ====
+* {{lien|siliconare|it|sens=siliconer}}
+
 === {{S|voir aussi}} ===
 * {{WP|lang=it}}
+
+=== {{S|références}} ===
+* {{R:ALDO}}
+* {{R:De Mauro}}
+* {{R:Olivetti}}
+* {{R:SDAS}}
+* {{R:Treccani}}

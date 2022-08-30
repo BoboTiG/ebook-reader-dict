@@ -35,6 +35,7 @@
 {{t+|nl|ook}}
 {{t+|no|også}}
 {{t+|pap|tambe}}
+{{t+|pl|też}}
 {{t+|pt|também}}
 {{t+|sa|अपि}}
 {{t+|su|ogé}}

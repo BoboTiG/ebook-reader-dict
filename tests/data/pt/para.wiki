@@ -5,13 +5,16 @@
 
 ===Tradução===
 {{tradini}}
+* {{trad|de|für}}
 * {{trad|ast|pa}}
 * {{trad|es|para}}
+* {{trad|fr|pour}}
 * {{trad|en|to|for|toward|towards|at}}
-* {{trad|ms|agar}}
 {{tradmeio}}
+* {{trad|it|per}}
+* {{trad|ms|agar}}
 * {{trad|mwl|para|pa}}
-* {{trad|fa|به}}
+* {{t|fa|به||beh}}
 * {{trad|tet|atu|hodi}}
 {{tradfim}}
 
@@ -26,21 +29,59 @@
 {{avi-for-fle|parar}}
 
 ==={{-varort-}}===
-* {{escopo2|Anterior ao AO 199}} [[pára]]
+* {{escopo2|Anterior ao AO 1990}} [[pára]]
 
 =={{pronúncia|pt}}==
 : [[AFI]]: ['pɐɾɐ]
+
+===Portugal===
+* AFI: {{AFI|/ˈpɐ.ɾɐ/}}
 
 [[Categoria:Preposição (Português)]]
 [[Categoria:Forma verbal (Português)]]
 [[Categoria:Tempo (Português)]]
 
+
+={{-ast-}}=
+==Substantivo<sup>1</sup>==
+{{flex.ast|fs=para|fp=pares}}
+{{paroxítona|pa|ra|lang=ast}}, {{g|f}}
+# [[parada]], ação de [[parar]]
+
+==={{etimologia|ast}}===
+: Regressivo de {{etimo|ast|parar}}.
+
+==Substantivo<sup>2</sup>==
+{{flex.ast|fs=para|fp=pares}}
+{{paroxítona|pa|ra|lang=ast}}, {{g|f}}
+# no direito [[consuetudinário]], prerrogativa que permite a qualquer pessoa de uma comunidade [[usufruir]] de um bem comum ou de uma parte, alternando com outras
+# [[faixa]] de [[terreno]] agrícola ou de um prado; parte de um terreno agrícola
+# [[grupo]] de pessoas que juntas [[maçar|maçam]] as maçãs para a [[sidra]]
+
+===Expressões===
+* '''guardar para''' / '''levar para''': alternarem-se no uso de duas terras dous agricultores
+
+==={{etimologia|ast}}===
+: Da mesma origem que o latim {{etimo|la|par}}.
+
+[[Categoria:Substantivo (Asturiano)]]
+
 ={{-gl-}}=
+==Forma verbal==
+{{paroxítona|pa|ra|lang=gl}}
+# terceira pessoa do singular do presente indicativo do verbo ''[[parar#{{gl}}|parar]]''
+# segunda pessoa do singular do imperativo afirmativo do verbo ''[[parar#{{gl}}|parar]]''
+# primeira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
+# terceira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
+# terceira pessoa do singular do imperativo afirmativo do verbo ''[[parir#{{gl}}|parir]]''
+
+{{avi-for-fle|parar}}
+
 ==Preposição==
 {{paroxítona|pa|ra|lang=gl}}
 # [[para#{{pt}}|para]]
 
-==Substantivo<sup>1</sup>==
+==Substantivo==
 {{flex.gl|fs=para|fp=paras}}
 {{paroxítona|pa|ra|lang=gl}}, {{g|f|lang=gl}}
 # casca, pele exterior tirada de um fruto, ou tubérculo, casca do [[queijo]]
@@ -49,32 +90,14 @@
 
 ===Sinónimo===
 * De '''1''' (casca): [[prana#{{gl}}|prana]]
+* De '''3''': [[bouta#{{gl}}|bouta]]
 
-==={{etimologia|gl}}===
-: Confronte-se com o húngaro {{etimo|hu|para}} "[[cortiça]], casca de árvore".
-
-==Substantivo<sup>2</sup>==
-{{flex.gl|fs=para|fp=paras}}
-{{paroxítona|pa|ra|lang=gl}}, {{g|f|lang=gl}}
-# [[placenta]] no momento do parto
-
-===Sinónimos===
-* [[libertação#{{gl}}|libertação]], [[livras#{{gl}}|livras]], [[párias#{{gl}}|párias]], [[quitas#{{gl}}|quitas]]
-
-==Forma verbal==
-{{paroxítona|pa|ra|lang=gl}}
-# terceira pessoa do singular do presente do indicativo do verbo [[parar#{{gl}}|parar]]
-# segunda pessoa do singular do imperativo do verbo [[parar#{{gl}}|parar]]
-
-{{avi-for-fle|parar}}
-
-==={{etimologia|gl}}===
-: De ''[[parir#{{gl}}|parir]]''.
+=={{etimologia|gl}}==
+: Da mesma origem que [[apara]]. Confronte-se com o húngaro {{etimo|hu|para}} "[[cortiça]], casca de árvore".
 
 [[Categoria:Preposição (Galego)]]
 [[Categoria:Substantivo (Galego)]]
 [[Categoria:Forma verbal (Galego)]]
-
 
 ={{-mwl-}}=
 ==Preposição==

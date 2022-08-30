@@ -6,7 +6,7 @@
 
 # The cardinal number [[forty-two]].
 
-===Usage notes===
+====Usage notes====
 The number 42 is often given as a joking [[answer]] to the question of the meaning of [[life]], the [[universe]], and [[everything]], and is sometimes used as an example value in [[programming]] where a [[number]] is desired, in reference to ''[[w:Hitchhiker's Guide to the Galaxy|The Hitchhiker's Guide to the Galaxy]]''.
 
 {{seeCites|mul}}

@@ -1,9 +1,11 @@
+{{vegeu|afi|afí}}
+
 == {{-ca-}} ==
 {{ca-pron|/ˈa.fi/}}
 {{-etimologia-}} [[sigles]]
 
 === Acrònim ===
-{{lema|ca|acrònim}}
+{{entrada|ca|acrònim}}
 
 # (''m'') Alfabet Fonètic Internacional.
 # (''f'') Associació Fonètica Internacional.
@@ -17,5 +19,5 @@
 * {{fr}}: {{trad|fr|API}} [1,2]
 {{final}}
 
-=== Referències ===
+=== Vegeu també ===
 {{Wikimedia|Viquipèdia=AFI}}

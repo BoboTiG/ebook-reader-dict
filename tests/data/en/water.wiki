@@ -1,6 +1,6 @@
 {{also|wáter|wàter|wāter|Water}}
 ==English==
-{{wikipedia|dab=water (disambiguation)|water}}
+{{wikipedia|water (disambiguation)|water}}
 {{commons}}
 {{wikiquote}}
 {{wikiversity}}
@@ -10,26 +10,26 @@
 * {{a|United Kingdom}}
 ** {{a|RP}} {{IPA|en|/ˈwɔːtə/}}
 *** {{audio|en|En-uk-water.ogg|Audio (UK)}}
+*** {{audio|en|LL-Q1860 (eng)-Back ache-water.wav|Audio (UK)}}
 ** {{a|England|Estuary English}} {{IPA|en|[woːʔɐ]}}
+** {{a|Scotland}} {{IPA|en|/ˈwɔtər/}}, {{IPAchar|[ˈwɔtər]}}
 ** {{a|dialectal}} {{IPA|en|/ˈwɒtə/|/ˈwɒtəɹ/}}
 * {{a|North America}}
 ** {{a|GenAm}} {{IPA|en|/ˈwɔtəɹ/|[ˈwɔɾɚ]}}, {{enPR|wôtər}}
 ** {{a|US|cot-caught|Canada}} {{IPA|en|/ˈwɑtəɹ/|[ˈwɑɾɚ]}}, {{enPR|wŏtər}}
 *** {{audio|en|en-us-water.ogg|Audio (US)}}
 ** {{a|New York|Philadelphia}} {{IPA|en|/ˈwʊtəɹ/|[ˈwʊɾɚ]}}
-* {{a|Australia}} {{IPA|en|/ˈwoːtə/|[ˈwoːɾə]}}
-* {{a|New Zealand}} {{IPA|en|/ˈwoːtɘ/}}
-* {{a|InE}} {{IPA|en|[ˈwaːʈər]|[ˈʋaːʈər]}}
-* {{a|obsolete}} {{IPA|en|/ˈwætəɹ/}}
-* {{audio|en|LL-Q1860 (eng)-Back ache-water.wav|Audio}}
+* {{a|Australia|NZ}} {{IPA|en|/ˈwoːtə/|[ˈwoːɾə]}}
+* {{a|InE}} {{IPA|en|[ˈwɔːʈə(r)]|[ˈʋɔːʈə(r)]}}
+* {{a|Northern English|dated|obsolete elsewhere}} {{IPA|en|/ˈwætəɹ/}}, {{IPAchar|[ˈwætə]|[ˈwæɾɚ]}}
 * {{hyphenation|en|wa|ter}}
-* {{rhymes|en|ɔːtə(ɹ)|ɒtə(ɹ)}}
+* {{rhymes|en|ɔːtə(ɹ)|ɒtə(ɹ)|s1=2}}
 
 ===Etymology 1===
 {{root|en|ine-pro|*wed-}}
 From {{inh|en|enm|water}}, from {{inh|en|ang|wæter||water}}, from {{inh|en|gmw-pro|*watar}}, from {{inh|en|gem-pro|*watōr||water}}, from {{inh|en|ine-pro|*wódr̥||water}}.
 {{rel-top|cognates}}
-Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|wetter||water}}, {{cog|nl|water||water}}, {{cog|nds|Water||water}}, {{cog|de|Wasser}}, {{cog|non|vatn}} ({{cog|sv|vatten||water}}, {{cog|nb|vann||water}}, {{cog|nn|-}} and {{cog|is|vatn||water}}), {{cog|sga|coin fodorne||otters|lit=water-dogs}}, {{cog|la|unda||wave}}, {{cog|lt|vanduõ||water}}, {{cog|ru|вода́||water}}, {{cog|sq|ujë||water}}, {{cog|grc|ὕδωρ||water}}, {{cog|hy|գետ||river}}, {{cog|sa|उदन्|tr=udán||wave, water|sc=Deva}}, {{cog|hit|𒉿𒀀𒋻|tr=wa-a-tar|sc=Xsux}}.
+Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|wetter||water}}, {{cog|nl|water||water}}, {{cog|nds|Water||water}}, {{cog|de|Wasser}}, {{cog|non|vatn}} ({{cog|sv|vatten||water}}, {{cog|da|vand||water}}, {{cog|nb|vann||water}}, {{cog|nn|-}} and {{cog|is|vatn||water}}), {{cog|sga|coin fodorne||otters|lit=water-dogs}}, {{cog|la|unda||wave}}, {{cog|lt|vanduõ||water}}, {{cog|ru|вода́||water}}, {{cog|sq|ujë||water}}, {{cog|grc|ὕδωρ||water}}, {{cog|hy|գետ||river}}, {{cog|sa|उदन्|tr=udán||wave, water|sc=Deva}}, {{cog|hit|𒉿𒀀𒋻|tr=wa-a-tar|sc=Xsux}}.
 {{rel-bottom}}
 
 ====Noun====
@@ -54,7 +54,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 #: {{ux|en|And God said, Let the '''waters''' under the heaven be gathered together unto one place, and let the dry land appear: and it was so.}}
 #: {{ux|en|He showed me the river of living '''water''', sparkling like crystal, flowing from the throne of God.}}
 # {{lb|en|uncountable|or|in the plural}} Water in a body; an area of open water.
-#* {{RQ:Shakespeare Love's Labour's Lost|V|i|138|2|''Roſa.'' O vain peticioner, beg a greater matter, <br> Thou now requeſts but Mooneſhine in the '''water'''.}}
+#* {{RQ:Shakespeare Love's Labour's Lost|V|i|138|2|''Roſa.'' O vain peticioner, beg a greater matter,<br>Thou now requeſts but Mooneſhine in the '''water'''.}}
 #* {{quote-book|en|year=1913|author={{w|Joseph C. Lincoln}}| title=[http://openlibrary.org/works/OL5535161W Mr. Pratt's Patients]| chapter=1| passage='Twas early June, the new grass was flourishing everywheres, the posies in the yard—peonies and such—in full bloom, the sun was shining, and the '''water''' of the bay was blue, with light green streaks where the shoal showed.}}
 #* '''2019''', [https://web.archive.org/web/20190311070055/https://learningenglish.voanews.com/a/south-korea-proposes-rain-project-with-china-to-cut-pollution/4819207.html VOA Learning English] (public domain)
 #*: The president expressed hope that creating rain over '''waters''' between the countries would help reduce pollution.
@@ -63,7 +63,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 #: {{ux|en|These seals are a common sight in the coastal '''waters''' of Chile.}}
 # {{lb|en|poetic|archaic|or|dialectal}} A body of water, almost always a river.
 #* {{RQ:Tyndale NT|Acts|8|36|clxvi|And as they went on their waye <br> they cam vnto a certayne '''water''' <br> and the gelded man ſayde: Se here is water <br> what ſhall lett me to be baptiſed?}}
-#* {{RQ:Tennyson Poems 1842|II|Morte d’Arthur|4|On one side lay the Ocean, and on one <br> Lay a great '''water''', and the moon was full.}}
+#* {{RQ:Tennyson Poems 1842|II|Morte d’Arthur|4|On one side lay the Ocean, and on one<br>Lay a great '''water''', and the moon was full.}}
 #* {{quote-book|en|author=William Allingham (ed.)|year=1865| title=The Ballad Book: a selection of the choicest British ballads| section=William and May Margaret, or the Water of Clyde|passage=But ere he came to Clyde's '''water,''' fu' loud the wind did blaw.}}
 # A combination of water and other substance(s).
 ## {{lb|en|sometimes|countable}} Mineral water.
@@ -73,7 +73,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 ## {{lb|en|pharmacy}} A [[solution]] in water of a [[gaseous]] or readily [[volatile]] [[substance]].
 ##: {{ux|en|ammonia '''water'''}}
 ## [[urine|Urine]]. {{defdate|from 15th c.}}
-##* {{quote-book|en|year=1999|author={{w|George RR Martin}}| title=A Clash of Kings| publisher=Bantam| year_published=2011| page=458| passage=Ser Dunaver's squire Jodge could not hold his '''water''' when he slept.}}
+##* {{quote-book|en|year=1999|author={{w|George R.R. Martin}}| title=A Clash of Kings| publisher=Bantam| year_published=2011| page=458| passage=Ser Dunaver's squire Jodge could not hold his '''water''' when he slept.}}
 ## [[amniotic fluid|Amniotic fluid]] or the [[amniotic sac]] containing it. {{qual|Used only in the plural in the UK but often also in the singular in North America. (The Merriam-Webster Medical Dictionary says "often used in plural; also: [[bag of waters]]".)}}
 ##: {{ux|en|Before the child is born, the pregnant woman’s '''water''' breaks. {{qualifier|North America}}}}
 ##: {{ux|en|Before your child is born, your '''water(s)''' will break. {{qualifier|North America}}}}
@@ -89,7 +89,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 #* {{quote-journal|en|title=Says Stock ''''Water'''' Didn't Affect Fare|work=New York Times| date=April 11, 1920| passage=the outstanding stock and bond obligations of the company were reduced from $34,000,000 to $24,000,000 by squeezing out the '''water'''.}}
 # The [[limpidity]] and [[lustre]] of a precious stone, especially a [[diamond]].
 #: {{ux|en|a diamond of the first '''water''' is perfectly pure and transparent}}
-#* {{quote-book|en|passage=And when she raised it to see what caused this agitation, she saw nothing—nothing but the vast solitary emerald which Queen Elizabeth had given her. And was that not enough? she asked. It was of the finest '''water'''.|year=1928|author=Virginia Woolf|title=Orlando}}
+#* {{RQ:Woolf Orlando|passage=And when she raised it to see what caused this agitation, she saw nothing—nothing but the vast solitary emerald which Queen Elizabeth had given her. And was that not enough? she asked. It was of the finest '''water'''.}}
 # A [[wavy]], [[lustrous]] pattern or decoration such as is imparted to [[linen]], [[silk]], [[metal]]s, etc.
 
 =====Alternative forms=====
@@ -110,7 +110,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 * {{sense|urine}} {{l|en|body fluid}}, {{l|en|bodily fluid}}, {{l|en|biofluid}}
 
 =====Hyponyms=====
-* {{sense|chemical having the formula H<sub>2</sub>O}} {{l|en|ammonia-water}}, {{l|en|heavy water}}; [[ice]], [[steam]], [[water vapor]]/[[water vapour]]
+* {{sense|chemical having the formula H<sub>2</sub>O}} {{l|en|heavy water}}; [[ice]], [[steam]], [[water vapor]]/[[water vapour]]
 * {{sense|liquid H<sub>2</sub>O}} {{l|en|drinkwater}}, {{l|en|freshwater}}, {{l|en|meltwater}}, {{l|en|mineral water}}; {{l|en|hard water}}, {{l|en|soft water}}
 
 =====Meronyms=====
@@ -119,6 +119,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 =====Derived terms=====
 {{col4-u|en|
 |above water
+|Allan Water
 |free water
 |American water spaniel
 |ammonia water
@@ -158,7 +159,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |cutwater
 |dead in the water
 |dead water
-|{{l|en|deep water}}, {{l|en|deep-water}}, {{l|en|deepwater}}
+|{{l|en|deep water}}, {{l|en|Deep Water}}, {{l|en|deep-water}}, {{l|en|deepwater}}, {{l|en|Deepwater}}
 |{{l|en|Derwentwater}}, {{l|en|Derwent Water}}
 |{{l|en|dew water}}, {{l|en|dewwater}}
 |dillwater
@@ -167,18 +168,19 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |ditchwater
 |domestic hot water
 |doubly labeled water
+|Douglas Water
 |drinking water
 |Ettrick Water
 |European water vole
 |Eye Water
 |eyewater
 |fairwater
-|feedwater
+|[[feedwater]], [[feed water]]
 |firewater
 |first water
 |fish out of water
 |flatwater
-|floodwater
+|[[floodwater]], [[flood water]]
 |flower water
 |formation water
 |fossil water
@@ -187,6 +189,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |fresh water
 |{{l|en|freshwater}}, {{l|en|fresh-water}}
 |giant water bug
+|Glaisnock Water
 |glass water
 |{{l|en|gray water}}, {{l|en|grey water}}, {{l|en|graywater}}, {{l|en|greywater}}
 |green water
@@ -277,6 +280,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |{{l|en|soft water}}, {{l|en|softwater}}
 |Southampton Water
 |sparkling water
+|spa water
 |{{l|en|spring water}}, {{l|en|spring-water}}, {{l|en|springwater}}
 |spurnwater
 |still water
@@ -284,7 +288,8 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |stormwater
 |streamwater
 |strong-water
-|{{l|en|sugar water}}, {{l|en|sugar-water}}
+|sugarwater
+|sugar water
 |super-heavy water
 |surface water
 |surfeit water
@@ -532,6 +537,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |water sprout
 |waterstained
 |water stop
+|Water Stratford
 |water strider
 |waterstuff
 |water supply
@@ -607,7 +613,10 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 {{see translation subpage|Noun}}
 
 ===Etymology 2===
-From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pro|*watrōną}}, {{m|gem-pro|*watrijaną}}, from {{der|en|gem-pro|*watōr|t=water}}, from {{der|en|ine-pro|*wódr̥|t=water}}. Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|fy|wetterje|t=to water}}, {{cog|nl|wateren|t=to water}}, {{cog|nds-de|watern|t=to water}}, {{cog|de|wässern|t=to water}}, {{cog|da|vande|t=to water}}, {{cog|sv|vattna|t=to water}}, {{cog|is|vatna|t=to water}}.
+From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pro|*watrōną}}, {{m|gem-pro|*watrijaną}}, from {{der|en|gem-pro|*watōr|t=water}}, from {{der|en|ine-pro|*wódr̥|t=water}}.
+{{rel-top|cognates}}
+Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|fy|wetterje|t=to water}}, {{cog|nl|wateren|t=to water}}, {{cog|nds-de|watern|t=to water}}, {{cog|de|wässern|t=to water}}, {{cog|da|vande|t=to water}}, {{cog|sv|vattna|t=to water}}, {{cog|is|vatna|t=to water}}.
+{{rel-bottom}}
 
 ====Verb====
 {{en-verb}}
@@ -616,7 +625,7 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 # {{lb|en|transitive}} To pour water into the soil surrounding (plants).
 #* {{quote-book|en|year=1900|author=L. Frank Baum|title=The Wonderful Wizard of Oz|chapter=24|passage=Aunt Em had just come out of the house to '''water''' the cabbages when she looked up and saw Dorothy running toward her.}}
 # {{lb|en|transitive}} To wet or supply with water; to moisten; to overflow with water; to [[irrigate]].
-#* {{RQ:Milton PL|9|passage=tears '''watering''' the ground}}
+#* {{RQ:Milton Paradise Lost|9|passage=tears '''watering''' the ground}}
 #* {{RQ:Longfellow Evangeline|I}}
 #*: Men whose lives glided on like rivers that '''water''' the woodlands.
 # {{senseid|en|to provide with water}} {{lb|en|transitive}} To provide (animals) with water for [[drink]]ing.
@@ -666,13 +675,15 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 * Ancient Greek: {{tt|grc|ἄρδω}}
 * Arabic: {{tt|ar|سَقَى}}
 * Armenian: {{tt+|hy|ջրել}}, {{tt+|hy|ոռոգել}}
+* Azerbaijani: {{tt+|az|sulamaq}}, {{tt|az|suvarmaq}}
+* Bulgarian: {{t+|bg|поливам}}
 * Catalan: {{tt+|ca|regar}}
 * Chinese:
 *: Cantonese: {{tt|yue|淋水|tr=lam4 seoi2}}
 *: Mandarin: {{tt+|cmn|澆水}}, {{tt+|cmn|浇水|tr=jiāoshuǐ}}
-* Czech: {{tt|cs|zalít}}, {{tt|cs|zalévat}}
+* Czech: {{tt+|cs|zalít}}, {{tt+|cs|zalévat}}
 * Danish: {{tt+|da|vande}}
-* Dutch: {{tt|nl|[[water]] [[geven]]}}, {{tt+|nl|sproeien}}, {{tt+|nl|begieten}}
+* Dutch: {{tt|nl|[[water]] [[geven]]}}, {{tt+|nl|sproeien}}, {{tt+|nl|begieten}}, {{t+|nl|wateren}}
 * Dzongkha: {{tt|dz|ཆུ}}
 * Esperanto: {{tt+|eo|akvumi}}
 * Estonian: {{tt|et|kastma}}
@@ -698,9 +709,12 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 * Latin: {{tt|la|irrigō}}
 * Latvian: {{tt|lv|laistīt}}
 * Macedonian: {{tt|mk|наводнува|tr=navódnuva|sc=Cyrl}}, {{tt|mk|полива|tr=póliva|sc=Cyrl}}, {{tt|mk|вади|tr=vádi|sc=Cyrl}}
+* Malay: {{t|ms|siram}}
+* Mansaka: {{t|msk|tobig}}
 * Norman: {{tt|nrf|arrouôser}}
 * Norwegian:
 *: Bokmål: {{tt+|nb|vanne}}
+* Occitan: {{t+|oc|asaigar}}
 * Polish: {{tt+|pl|podlewać|impf}}, {{tt+|pl|podlać|pf}}
 * Portuguese: {{tt+|pt|regar}}, {{tt+|pt|aguar}}
 * Romanian: {{tt+|ro|uda}}, {{tt+|ro|iriga}}
@@ -712,8 +726,9 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 * Swedish: {{tt+|sv|vattna}}, {{tt|sv|ge vatten}}, {{tt+|sv|vattna}}
 * Tagalog: {{tt|tl|magdilig}}
 * Telugu: {{tt|te|నీరుపోయుట|sc=Telu}}
-* Thai: {{tt|th|รดน้ำ|tr=rót náam}}
+* Thai: {{tt+|th|รด}}
 * Turkish: {{tt+|tr|sulamak}}
+* Ukrainian: {{t|uk|поливати|impf|tr=polyvaty}}
 * Volapük: {{tt+|vo|vatön}}
 * Welsh: {{tt|cy|dyfrio}}, {{tt+|cy|dyfrhau}}
 * West Frisian: {{tt|fy|wetter jaan}}
@@ -722,7 +737,8 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 {{trans-top|to provide (animals) with water}}
 * Arabic: {{tt|ar|أَسْقَى}}, {{tt|ar|سَقَى}}
 * Armenian: {{tt|hy|ջուր տալ}}
-* Azerbaijani: {{tt|az|içizdirmək}}, {{tt|az|içirtmək}}
+* Azerbaijani: {{tt+|az|sulamaq}}, {{tt|az|suvarmaq}}, {{t|az|[[su]] [[vermək]]}}
+* Bulgarian: {{t+|bg|поя}}
 * Catalan: {{tt+|ca|abeurar}}
 * Czech: {{tt|cs|napájet}}
 * Danish: {{tt+|da|vande}}
@@ -760,6 +776,7 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 
 {{trans-top|colloquial: to urinate}}
 * Armenian: {{tt|hy|չիշիկ անել}}
+* Bulgarian: {{t+|bg|пикая}}
 * Chichonyi-Chidzihana-Chikauma: {{tt|coh|ku kodzola}}
 * Danish: {{tt+|da|vande}}
 * Dutch: {{tt+|nl|wateren}}, {{tt+|nl|plassen}}
@@ -780,12 +797,15 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 {{trans-bottom}}
 
 {{trans-top|dilute}}
+* Bulgarian: {{t+|bg|разреждам}}
 * Danish: {{tt|da|spæde ud}}
 * Finnish: {{tt+|fi|laimentaa}}
 * French: {{tt+|fr|mouiller}} (literally, to wet)
-* Japanese: {{tt|ja|[[水]][[で]][[割る]]|tr=mizu de waru}}, {{tt|ja|[[水]][[で]][[薄める]]|tr=mizu de usumeru}}
+* Hungarian: {{t+|hu|hígít}}, {{t|hu|vizez}}
 {{trans-mid}}
+* Japanese: {{tt|ja|[[水]][[で]][[割る]]|tr=mizu de waru}}, {{tt|ja|[[水]][[で]][[薄める]]|tr=mizu de usumeru}}
 * Russian: {{tt+|ru|разбавля́ть|impf|sc=Cyrl}}, {{tt+|ru|разба́вить|pf|sc=Cyrl}}
+* Spanish: {{t+|es|aguar}}
 * Swedish: {{tt|sv|späda ut}}
 * Tagalog: {{tt|tl|magbanto}}, {{tt+|tl|bantuan}}
 {{trans-bottom}}
@@ -837,10 +857,11 @@ From {{inh|en|enm|wateren}}, from {{inh|en|ang|wæterian}}, from {{inh|en|gem-pr
 {{wikipedia|lang=af}}
 
 ===Etymology===
-From {{inh|af|nl|water}}. Ultimately from {{inh|af|gem-pro|*watōr}}, from {{inh|af|ine-pro|*wódr̥}}.
+From {{inh|af|nl|water}}, from {{inh|af|dum|wāter}}, from {{inh|af|odt|watar}}, from {{inh|af|gmw-pro|*watar}}, from {{inh|af|gem-pro|*watōr}}, from {{inh|af|ine-pro|*wódr̥}}.
 
 ===Pronunciation===
 * {{IPA|af|/ˈvɑːtər/}}
+* {{audio|af|LL-Q14196 (afr)-Oesjaar-water.wav|Audio}}
 
 ===Noun===
 {{af-noun|waters}}
@@ -874,12 +895,12 @@ From {{inh|af|nl|water}}. Ultimately from {{inh|af|gem-pro|*watōr}}, from {{inh
 * {{IPA|nl|/ˈʋaːtər/}}
 * {{audio|nl|Nl-water (Belgium).ogg|audio (Belgium, the first one)}}
 * {{audio|nl|Nl-water (Netherlands).ogg|audio (Netherlands)}}
-* {{rhymes|nl|aːtər}}
+* {{rhymes|nl|aːtər|s=2}}
 * {{hyphenation|nl|wa|ter}}
 
 ===Etymology 1===
 {{root|nl|ine-pro|*wed-}}
-From {{inh|nl|dum|wâter}}.
+From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*watar}}, from {{inh|nl|gem-pro|*watōr}}, from {{inh|nl|ine-pro|*wódr̥}}.
 
 ====Noun====
 {{nl-noun|n|-s|pl2=-@en|watertje}}
@@ -890,70 +911,18 @@ From {{inh|nl|dum|wâter}}.
 # [[bodily]] [[fluid]] {{gloss|especially [[amniotic fluid]]}}
 
 =====Derived terms=====
-{{rel-top4|Terms derived from ''water''}}
-* {{l|nl|water naar de zee dragen}}
-* {{l|nl|waterbouwkunde}}
-* {{l|nl|waterdier}}
-* {{l|nl|waterdrager}}
-* {{l|nl|waterhoen}}
-* {{l|nl|waterhond}}
-* {{l|nl|waterhoos}}
-* {{l|nl|waterig}}
-* {{l|nl|waterijs}}
-* {{l|nl|waterjuffer}}
-* {{l|nl|waterkanon}}
-* {{l|nl|waterkering}}
-* {{l|nl|waterkoker}}
-{{rel-mid4}}
-* {{l|nl|waterleiding}}
-* {{l|nl|waterman}}
-* {{l|nl|watermeloen}}
-* {{l|nl|watermolen}}
-* {{l|nl|waterpas}}
-* {{l|nl|waterplaats}}
-* {{l|nl|waterpokken}}
-* {{l|nl|waterpolo}}
-* {{l|nl|waterput}}
-* {{l|nl|waterslang}}
-* {{l|nl|watersnood}}
-* {{l|nl|waterspuwer}}
-{{rel-mid4}}
-* {{l|nl|waterstaat}}
-* {{l|nl|waterstand}}
-* {{l|nl|waterstof}}
-* {{l|nl|watertanden}}
-* {{l|nl|watertoren}}
-* {{l|nl|waterval}}
-* {{l|nl|watervlakte}}
-* {{l|nl|watervliegtuig}}
-* {{l|nl|watervogel}}
-* {{l|nl|watervrees}}
-* {{l|nl|waterzooi}}
-<!-- *water -->
-* {{l|nl|bronwater}}
-* {{l|nl|chloorwater}}
-* {{l|nl|grondwater}}
-* {{l|nl|in het water vallen}}
-{{rel-mid4}}
-* {{l|nl|koningswater}}
-* {{l|nl|leidingwater}}
-* {{l|nl|mineraalwater}}
-* {{l|nl|reukwater}}
-* {{l|nl|rozenwater}}
-* {{l|nl|smeltwater}}
-* {{l|nl|spawater}}
-* {{l|nl|suikerwater}}
-* {{l|nl|vaarwater}}
-* {{l|nl|vuurwater}}
-* {{l|nl|wijwater}}
-* {{l|nl|woelwater}}
-* {{l|nl|zeewater}}
-{{rel-bottom}}
+{{der4|nl|badwater|bronwater|chloorwater|drinkwater|grondwater|ijswater|in het water vallen|koningswater|leidingwater|mineraalwater|regenwater|reukwater|rivierwater|rozenwater|slootwater|smeltwater|spawater|suikerwater|theewater|vaarwater|vuurwater|waterbouwkunde|waterdier|waterdrager|wateren|waterfiets|watergeus|waterhoen|waterhond|waterhoos|waterig|waterijs|waterjuffer|waterkanon|waterkering|waterkoker|waterleiding|waterlobelia|waterman|watermeloen|watermolen|water naar de zee dragen|waterpas|waterplaats|waterplant|waterpokken|waterpolo|waterput|waterrad|waterral|waterrat|waterschap|waterschout|waterschouw|waterslang|watersnood|watersport|waterspuwer|waterstaat|waterstand|waterstof|watertanden|watertoren|watertrappelen|waterval|waterverf|watervlakte|watervliegtuig|watervogel|watervrees|waterzooi|wijwater|woelwater|zeewater|zwartwater|zwemwater}}
 
 =====Descendants=====
 * {{desc|af|water}}
+* {{desc|jvd|water}}
+* {{desc|dcr|watu|water|water|waeter}}
+* {{desc|pey|watter}}
+* {{desc|skw|water}}
 * {{desc|si|වතුර|bor=1}}
-* {{desc|dcr|watu}}
+* {{desc|srn|watra|bor=1|unc=1}}
+** {{desc|djk|wataa|bor=1}}
+** {{desc|srm|wáta|bor=1}}
 
 ===Etymology 2===
 {{nonlemma}}
@@ -977,7 +946,7 @@ From {{inh|nl|dum|wâter}}.
 ==Dutch Low Saxon==
 
 ===Alternative forms===
-* {{l|nds-nl|wotter}}
+* {{l|nds-nl|wotter}}, {{l|nds-nl|woater}}, {{l|nds-nl|waoter}}
 
 ===Etymology===
 From {{inh|nds-nl|osx|watar}}.
@@ -995,7 +964,7 @@ From {{inh|nds-nl|osx|watar}}.
 ==French==
 
 ===Etymology===
-Ellipsis of {{m|fr|water-closet}}, borrowed from {{bor|fr|en|water closet}}.
+{{ellipsis|fr|water-closet}}, borrowed from {{bor|fr|en|water closet}}.
 
 ===Pronunciation===
 * {{fr-IPA|watère}}
@@ -1007,14 +976,17 @@ Ellipsis of {{m|fr|water-closet}}, borrowed from {{bor|fr|en|water closet}}.
 # [[toilet]], [[bathroom]]
 # {{ellipsis of|fr|water-closet}}
 
-===Synonyms===
+====Synonyms====
 * {{l|fr|toilettes}}
 * {{l|fr|toilette}} {{q|Belgium}}
 * {{l|fr|waters}}
 * {{l|fr|WC}}
 
-===Derived terms===
+====Derived terms====
 * {{l|fr|waters}}
+
+===Further reading===
+* {{R:TLFi}}
 
 ----
 
@@ -1024,13 +996,16 @@ Ellipsis of {{m|fr|water-closet}}, borrowed from {{bor|fr|en|water closet}}.
 Shortened form of {{der|it|en|water closet}} {{gloss|W.C.}}
 
 ===Pronunciation===
-* {{IPA|it|/ˈva.ter/|[ˈväːt̪er]}}
+{{it-pr|vàter<ref:{{R:it:DiPI}}>}}
 
 ===Noun===
-{{it-noun|m|-}}
+{{it-noun|m|#}}
 
 # [[toilet bowl]]
 # {{lb|it|colloquial}} [[water closet]], [[toilet]]
+
+===References===
+<references />
 
 ----
 
@@ -1038,7 +1013,7 @@ Shortened form of {{der|it|en|water closet}} {{gloss|W.C.}}
 {{wikipedia|lang=li}}
 
 ===Etymology===
-From {{inh|li|dum|wâter}}.
+From {{inh|li|dum|wāter}}, from {{inh|li|odt|watar}}, from {{inh|li|gmw-pro|*watar}}, from {{inh|li|gem-pro|*watōr}}, from {{inh|li|ine-pro|*wódr̥}}.
 
 ===Noun===
 {{li-noun|g=n}}
@@ -1114,7 +1089,7 @@ From {{inh|dum|odt|watar}}.
 * {{alter|enm|watere|watir|waterre}}
 
 ===Etymology===
-From {{inh|enm|ang|wæter}}.
+From {{inh|enm|ang|wæter}}, from {{inh|enm|gmw-pro|*watar}}, from {{inh|enm|gem-pro|*watōr}}.
 
 ===Pronunciation===
 * {{IPA|enm|/ˈwatər/|/ˈwaːtər/}}
@@ -1123,7 +1098,7 @@ From {{inh|enm|ang|wæter}}.
 {{enm-noun|pl=wateres}}
 
 # {{l|en|water}} {{gloss|liquid H<sub>2</sub>O}}
-#* {{quote-book|enm|year=c. 1190|author=Layamon|title=Brut|edition=MS. Cotton Caligula A ix|passage=al ſwa great ſwa a beam: <br> þe he leide in ane walle ſtream. <br> Þe ilke makeð þat '''water''' hot: <br> & þan folc halwende.}}
+#* {{quote-book|enm|year=c. 1190|author=Layamon|title=Brut|edition=MS. Cotton Caligula A ix|passage=al ſwa great ſwa a beam:<br>þe he leide in ane walle ſtream.<br>Þe ilke makeð þat '''water''' hot:<br>& þan folc halwende.}}
 # {{l|en|water vapour}}, [[condensation]]
 # [[lake]], [[pond]], [[ocean]], [[canal]], body of water
 # water source, [[spring]], [[well]], [[fount]]
@@ -1136,12 +1111,12 @@ From {{inh|enm|ang|wæter}}.
 * {{l|enm|waterlees}}
 
 ====Descendants====
-* {{desc|en|water}}
+* {{desc|en|water}} {{see desc}}
 * {{desc|sco|watter}}
-* {{desc|yol|waudher}}
+* {{desc|yol|waudher|alts=1}}
 
 ====References====
-* {{R:MED Online|entry=wā̆ter (n.) |id=MED51881 |accessdate=2018-03-20}}
+* {{R:MED Online|entry=wā̆ter |pos=n |id=MED51881 |accessdate=2018-03-20}}
 
 [[Category:enm:Beverages]]
 [[Category:enm:Water]]
@@ -1160,7 +1135,7 @@ From {{inh|gml|osx|watar}}.
 {{head|gml|noun|g=n|head=wāter}}
 
 # {{l|en|water}}
-#* {{quote-book|gml|year=1537|author=Jürgen Richolff the Younger|title=Datt högeste unde öldeste water recht|section=xxviii|passage=Eyn {{l|gml|schip}} effte twe effte meer liggen in einer hauen dar {{l|gml|kleine|kleyn}} '''water''' is / vnde plecht dröge {{l|gml|wēsen|tho synde}} / also dat dat eyne schip hart by dem andern tho liggende kumpt {{...}}|translation=A ship or two or more lie in a port with little water, which tends to be dry, so that one the ship comes to lie close by the other {{...}}}}
+#* {{quote-book|gml|year=1537|author=Jürgen Richolff the Younger|title=Datt högeste unde öldeste water recht|section=xxviii|passage=Eyn {{l|gml|schip}} effte twe effte meer liggen in einer hauen dar {{l|gml|kleine|kleyn}} '''water''' is<br>vnde plecht dröge {{l|gml|wēsen|tho synde}}<br>also dat dat eyne schip hart by dem andern tho liggende kumpt {{...}}|translation=A ship or two or more lie in a port with little water, which tends to be dry, so that one the ship comes to lie close by the other {{...}}}}
 
 ====Declension====
 {{gml-decl-noun|wāter|wāter|wāteres|wātere|wāter|wāter|wātere|wāteren}}

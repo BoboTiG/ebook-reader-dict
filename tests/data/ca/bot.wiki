@@ -3,7 +3,7 @@
 {{àudio|LL-Q7026 (cat)-Toniher-bot.wav|lang=ca}}
 {{-etimologia-}}
 :: Per la forma de bóta: del llatí vulgar {{terme|la|buttis|trad=bóta}}, {{etim-s|ca|XIII}}.[[Categoria:Derivats del llatí al català]]
-:: Per l’acció de botar: de {{terme|ca|botar}}, segle XV.
+:: Per l’acció de botar: de {{comp|ca|botar|+Ø}}, segle XV.
 :: Nàutica: del francès antic {{terme|fro|ca|bot}}, segle XVII, de l’anglès antic {{terme|ang|bat|trad=barca petita}}, actualment {{terme|en|boat}}.[[Categoria:Derivats del francès antic al català]]
 :: Informàtica: afèresi de {{terme|ca|robot}}, calc de l’anglès {{terme|en|bot}}, segle XX.
 

@@ -17,6 +17,7 @@
 === Traducciones ===
 {{trad-arriba}}
 {{t+|eo|1|afiŝo}}
+{{t+|fr|1|affiche}}
 {{trad-centro}}
 {{t+|sv|1|affisch|c|,|1|skylt |c}}
 {{trad-abajo}}

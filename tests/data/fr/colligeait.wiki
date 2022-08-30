@@ -3,3 +3,4 @@
 {{fr-verbe-flexion|colliger|ind.i.3s=oui}}
 '''colligeait''' {{pron|kɔ.li.ʒɛ|fr}}
 # ''Troisième personne du singulier de l’indicatif imparfait du verbe'' [[colliger]].
+#* ''Chazelle '''colligeait''' les prospectus de librairie, les affiches à lithographies et à dessins ; mais il ne souscrivait à rien.'' {{source|Honoré de Balzac, ''Les Employés'', édition définitive}}

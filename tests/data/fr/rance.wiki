@@ -10,7 +10,10 @@
 # Se dit des [[corps gras]] qui, laissés au [[contact]] de l’air, ont [[prendre|pris]] une [[odeur]] [[fort]]e et un [[goût]] [[désagréable]].
 #* ''Ce lard est '''rance'''.''
 #* ''Cette huile, ce beurre est '''rance'''.''
-#* ''Il faut que mademoiselle Préfère se soit imaginée que j’ai pour le beurre des goûts de Sarmate, car celui qu’elle m’offrit, préparé en fines coquilles, était '''rance''' à l’excès.'' {{source|{{w|Anatole France}}, ''Le crime de Sylvestre Bonnard'', Calmann-Lévy ; éd. Le Livre de Poche, 1967, p. 197.}}
+#* ''L’eau qu’on essaye d’y boire est-elle toujours aussi '''rance''' ? aussi[sic] tiède ?'' {{source|Louis-Ferdinand Céline (Louis-Ferdinand Destouches), ''Voyage au bout de la nuit'', Denoël et Steele, Paris, 1932 (réédition Gallimard, Folio #28, 2019, page 203}}
+#* ''Il faut que mademoiselle Préfère se soit imaginée que j’ai pour le beurre des goûts de Sarmate, car celui qu’elle m’offrit, préparé en fines coquilles, était '''rance''' à l’excès.'' {{source|{{w|Anatole France}}, ''Le crime de Sylvestre Bonnard'', Calmann-Lévy ; éd. Le Livre de Poche, 1967, page 197}}
+# {{figuré|fr}} Qui s’est encore envenimé.
+#* ''Bien patient et bien équilibré tel que je l’ai connu, il gardait cependant sur le coeur un vieux reliquat de haine bien '''rance''' à l’égard des familles…'' {{source|Louis-Ferdinand Céline (Louis-Ferdinand Destouches), ''Voyage au bout de la nuit'', Denoël et Steele, Paris, 1932 (réédition Gallimard, Folio #28, 2019, page 532}}
 
 ==== {{S|dérivés}} ====
 * [[rancir]], [[rancidité]], [[rancissure]], [[rancissement]]
@@ -22,16 +25,21 @@
 {{trad-début}}
 * {{T|de}} : {{trad+|de|ranzig}}
 * {{T|en}} : {{trad+|en|rancid}}
-* {{T|pni}} : {{trad--|pni|parat}}
+* {{T|pni}} : {{trad|pni|parat}}
+* {{T|ar}} : {{trad-|ar|نمس|tr=namas}}, {{trad-|ar|تمه|tr=tamah}}, {{trad-|ar|قنم|tr=qanam}}, {{trad-|ar|سنخ|tr=sanakh}}, {{trad-|ar|زهم|tr=zohm}}
 * {{T|co}} : {{trad-|co|ràncicu}}
+* {{T|hr}} : {{trad-|hr|ustajao}}
 * {{T|da}} : {{trad-|da|harsk}}
 * {{T|es}} : {{trad+|es|rancio}}
-* {{T|gallo}} : {{trad--|gallo|âre}}
+* {{T|gallo}} : {{trad|gallo|âre}}
 * {{T|hu}} : {{trad+|hu|avas}}
 * {{T|io}} : {{trad+|io|ranca}}
 * {{T|id}} : {{trad+|id|anyir}}
+* {{T|nl}} : {{trad+|nl|ranzig}}
 * {{T|no}} : {{trad-|no|harsk}}
+* {{T|pl}} : {{trad+|pl|jełki}}, {{trad+|pl|zjełczały}}
 * {{T|pt}} : {{trad+|pt|rançoso}}
+* {{T|cs}} : {{trad+|cs|žluklý}}
 * {{T|wa}} : {{trad+|wa|rance|mf}}
 {{trad-fin}}
 
@@ -67,6 +75,10 @@
 ==== {{S|paronymes}} ====
 * [[lance]], [[rente]]
 
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Nancy)||audio=LL-Q150 (fra)-VictorDtmtc-rance.wav}}
+* {{écouter|Lyon (France)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-rance.wav}}
+
 === {{S|anagrammes}} ===
 * [[ancre]], [[ancré]], [[caner]], [[carne]], [[carné]], [[cerna]], [[crane]], [[crané]], [[crâne]], [[crâné]], [[créna]], [[écran]], [[encra]], [[Nacer]], [[nacre]], [[nacré]], [[narce]]
 
@@ -80,6 +92,6 @@
 === {{S|verbe|pt|flexion}} ===
 {{pt-verbe-flexion|rançar|sub.p.1s=o|sub.p.3s=o|imp.p.3s=o}}
 '''rance''' {{pron||pt}}
-# ''Première personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.		
-# ''Troisième personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.		
+# ''Première personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.
+# ''Troisième personne du singulier du présent du subjonctif de'' {{lien|rançar|pt}}.
 # ''Troisième personne du singulier de l’impératif de'' {{lien|rançar|pt}}.

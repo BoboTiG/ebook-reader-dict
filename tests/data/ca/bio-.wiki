@@ -3,7 +3,7 @@
 == {{-ca-}} ==
 
 === Prefix ===
-{{lema|ca|prefix}}
+{{entrada|ca|prefix}}
 
 # Element que entra en la composició de paraules amb el sentit de "[[vida]]".
 
@@ -26,9 +26,9 @@
 * [[bioclimatologia]]
 **[[bioclimatòleg]]
 **[[bioclimatòloga]]
-* [[bioclínica]] {{f}}
+* [[bioclínica]]
 **[[bioclínic]]
-**[[bioclínica]] {{adj}} {{f}}
+**[[bioclínica]]
 * [[biocompatible]]
 **[[biocompatibilitat]]
 * [[biocuina]]
@@ -64,9 +64,9 @@
 * [[biogeografia]]
 **[[biogeogràfic]]
 **[[biogeogràfica]]
-* [[biogeoquímica]] {{f}}
+* [[biogeoquímica]]
 **[[biogeoquímic]]
-**biogeoquímica {{adj}} {{f}}
+**biogeoquímica
 * [[bioindicador]]
 * [[bioindústria]]
 * [[bioinformàtica]]
@@ -92,13 +92,13 @@
 **[[biòmetra]]
 ***[[biomètric]]
 ***biomètrica
-* [[biomimètica]] {{f}}
+* [[biomimètica]]
 **[[biomimètic]]
-**biomimètica {{adj}} {{f}}
+**biomimètica
 * [[bionòmic]]
 * [[bionutrient]]
 * [[biopoesi]]
-* [[biopolítica]] {{f}}
+* [[biopolítica]]
 * [[bioproteïna]]
 * [[bioquímica]]
 * [[bioreactor]]
@@ -138,6 +138,6 @@
 == {{-fr-}} ==
 
 === Prefix ===
-{{lema|fr|prefix}}
+{{entrada|fr|prefix}}
 
 # [[#ca|bio-]]

@@ -28,7 +28,7 @@ dal [[latino]] ''[[cum]]'' e ''[[dividere]]''; l'attuale uso improprio del verbo
 *[[separare]],   [[discordare]], [[dissentire]]
 * {{Est}} {{Fig}} [[ribellarsi]], [[intralciare]]
 *[[contrariare]]
-*(informatica) [[pubblicare]]
+*''(informatica)'' [[pubblicare]]
 
 {{-der-}}
 * [[condivisione]], [[condivisibile]], [[condiviso]]
@@ -63,4 +63,3 @@ dal [[latino]] ''[[cum]]'' e ''[[dividere]]''; l'attuale uso improprio del verbo
 *AA.VV., ''Dizionario sinonimi e contrari, Mariotti, 2006, pagina 134
 
 [[Categoria:Internet-IT|condividere]]
-

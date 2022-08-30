@@ -6,7 +6,7 @@
 === {{S|nom de famille|fr}} ===
 '''Turgeon''' {{pron|tyʁ.ʒɔ̃|fr}}
 # Nom de famille.
-#* {{ébauche-exe|fr}}
+#* {{exemple|lang=fr}}
 
 ==== {{S|apparentés}} ====
 * [[Leturgeon]]
@@ -25,4 +25,3 @@
 * {{Géopatro}}
 * {{Familienaam}}
 * {{Nomdefamille.eu}}
-

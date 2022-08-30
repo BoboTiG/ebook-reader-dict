@@ -43,6 +43,20 @@
 
 {{clear}}
 
+=== Compuestos ===
+{{rel-arriba|Compuestos con «tres»}}
+* {{l|es|tresañal}}
+* {{l|es|tresañejo}}
+* {{l|es|trescientos}}
+* {{l|es|tresdoblar}}
+{{rel-centro}}
+* {{l|es|tresdoble}}
+* {{l|es|tresmesino}}
+* {{l|es|trestanto}}
+{{rel-abajo}}
+
+{{clear}}
+
 === Locuciones ===
 {{rel-arriba|Locuciones con «tres»}}
 *[[compás de tres por cuatro]]; En música, el que dura tres negras.
@@ -57,13 +71,16 @@
 :: Cierto tipo de sombrero con el ala levantada y abarquillada en tres partes que forman un triángulo de tres picos en su base.
 ::Sombrero con forma de triángulo.
 *[[tirarse tres]]
+* {{l|es|Tres Arroyos}}
 *las [[Tres Chepas]]: Asterismo en la constelación de [[Orión]]: Espada de [[Orión]].
 *[[tres en raya]]: Juego en que gana el primero que logra poner tres fichas en línea.
+* {{l|es|tres leches}}
+* {{l|es|Tres Lomas}}
 *[[Tres Marías]]: Asterismo en la constelación de [[Orión]]: Cinturón de Orión.
 *[[tres sietes]]: Cierto juego de naipes.
 *[[vino de tres hojas]]: Vino de tres años.
-{{rel-centro}}
 * [[a la de tres, va la vencida]] o [[a las tres, va la vencida]] o [[a tres, va la vencida]]
+{{rel-centro}}
 *jugar [[a tres bandas]]:
 ::En el juego del billar, cuando la bola debe rebotar en tres bandas antes de hacer carambola.
 ::En actividades laborales, haber tres equipos colaborando en un mismo proyecto, plan o trabajo.
@@ -139,8 +156,8 @@
 {{t+|ku|1|sisê}}
 {{t+|sme|1|golbma}}
 {{t+|zh|1|三|,|叁}}
-{{trad-centro}}
 {{t+|arn|1|küla}}
+{{trad-centro}}
 {{t+|yua|1|óox}}
 {{t+|mn|1|гурав}}
 {{t+|nhn|1|yei}}
@@ -158,6 +175,7 @@
 {{t+|pl|1|trzy}}
 {{t+|pt|1|três}}
 {{t+|quz|1|kimsa}}
+{{t+|rhg|1|tin}}
 {{t+|ru|1|три|tr=tri}}
 {{t+|sa|?|त्रि}}
 {{t+|sv|1|tre}}

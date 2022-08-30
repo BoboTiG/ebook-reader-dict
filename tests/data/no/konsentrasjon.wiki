@@ -38,4 +38,3 @@ Fra {{suffiks|konsentrere|sjon|språk=no}}
 * {{overs|sv|koncentration|c}}
 * {{overs|de|Konzentration|f}}
 {{overs-bunn}}
-

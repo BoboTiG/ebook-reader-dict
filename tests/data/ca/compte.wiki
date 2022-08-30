@@ -2,8 +2,9 @@
 
 == {{-ca-}} ==
 {{ca-pron|ó}}
-{{homòfons|lang=ca|compta|comte}}
-{{parònims|lang=ca|conte}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-compte.wav|lang=ca|accent=or}}
+{{homòfons|ca|compta|comte}}
+{{parònims|ca|conte}}
 {{etim-lang|la|ca|compŭtus}}, {{etim-s|ca|XIII}}.
 
 === Nom ===
@@ -35,24 +36,99 @@
 {{inici|Acte de comptar}}
 * {{de}}: {{trad|de|Zählen|n}}
 * {{en}}: {{trad|en|count}}
+* {{bg}}: {{trad|bg|смятане|n}}
 * {{es}}: {{trad|es|cuenta}}
-{{mig}}
+* {{da}}: {{trad|da|tælling|c}}
+* {{et}}: {{trad|et|loendus}}
 * {{fr}}: {{trad|fr|compte}}
+* {{gl}}: {{trad|gl|conta|f}}
+{{mig}}
+* {{el}}: {{trad|el|μέτρημα|n}}
+* {{hu}}: {{trad|hu|összeszámlálás}}
+* {{is}}: {{trad|is|talning|f}}
+* {{it}}: {{trad|it|conto|m}}
+* {{nl}}: {{trad|nl|telling}}
 * {{oc}}: {{trad|oc|compte}}
+* {{ro}}: {{trad|ro|socoti}}
+* {{ru}}: {{trad|ru|счёт|m}}
 {{final}}
 
 {{inici|Cura, atenció}}
+* {{de}}: {{trad|de|Sorge|f}}
 * {{en}}: {{trad|en|care}}
+* {{ar}}: {{trad|ar|اِهْتِمَام‎|m}}
+* {{hy}}: {{trad|hy|խնամք}}
+* {{be}}: {{trad|be|кло́пат|m}}
+* {{bg}}: {{trad|bg|грижа|f}}
 * {{es}}: {{trad|es|cuidado}}
+* {{da}}: {{trad|da|forsigtighed|c}}, {{trad|da|omtanke|c}}
+* {{fi}}: {{trad|fi|huolellisuus}}
+* {{fr}}: {{trad|fr|attention}}, {{trad|fr|soin|m}}
+* {{el}}: {{trad|el|έγνοια|f}}
+* {{grc}}: {{trad|grc|ἐπιμέλεια|f}}
+* {{hi}}: {{trad|hi|परवाह|f}}
+* {{hu}}: {{trad|hu|figyelem}}, {{trad|hu|óvatosság}}
+* {{ga}}: {{trad|ga|aire|f}}
 {{mig}}
-* {{fr}}: {{trad|fr|attention}}
+* {{it}}: {{trad|it|cura|f}}, {{trad|it|attenzione|f}}
+* {{ja}}: {{trad|ja|気にする}}
+* {{lv}}: {{trad|lv|rupe|f}}
+* {{la}}: {{trad|la|cura|f}}
+* {{nl}}: {{trad|nl|zorg}}
+* {{pl}}: {{trad|pl|troska|f}}
+* {{pt}}: {{trad|pt|cuidado|m}}
+* {{ro}}: {{trad|ro|grijă|f}}, {{trad|ro|păs}}
+* {{ru}}: {{trad|ru|забо́та|f}}
+* {{sh}}: {{trad|sh|skrb|f}}
+* {{sv}}: {{trad|sv|omtanke}}
+* {{tr}}: {{trad|tr|dikkat}}
+* {{cs}}: {{trad|cs|péče|n}}
+* {{zh}}: {{trad|zh|關懷}}
 {{final}}
 
 {{inici|Suma de la quantitat a pagar}}
+* {{sq}}: {{trad|sq|llogari|f}}
+* {{de}}: {{trad|de|Konto|n}}
 * {{en}}: {{trad|en|account}}, {{trad|en|bill}}
+* {{ar}}: {{trad|ar|حِسَاب‎|m}}
+* {{hy}}: {{trad|hy|հաշիվ}}
+* {{be}}: {{trad|be|раху́нак|m}}
+* {{bg}}: {{trad|bg|сме́тка|f}}
 * {{es}}: {{trad|es|cuenta}}
-{{mig}}
+* {{ko}}: {{trad|ko|계좌}}
+* {{da}}: {{trad|da|konto|c}}
+* {{eo}}: {{trad|eo|konto}}
 * {{fr}}: {{trad|fr|addition}}
+* {{ka}}: {{trad|ka|ანგარიში}}
+* {{el}}: {{trad|el|λογαριασμός|m}}
+* {{he}}: {{trad|he|חֶשְׁבּוֹן‎|m}}
+* {{hi}}: {{trad|hi|हिसाब|m}}
+* {{hu}}: {{trad|hu|számla}}
+* {{id}}: {{trad|id|rekening}}
+* {{is}}: {{trad|is|reikningur|m}}
+* {{ja}}: {{trad|ja|口座}}
+* {{kk}}: {{trad|kk|шот}}
+{{mig}}
+* {{ky}}: {{trad|ky|эсеп}}
+* {{ku}}: {{trad|ku|hesab}}
+* {{lv}}: {{trad|lv|konts|m}}
+* {{lt}}: {{trad|lt|sąskaita|f}}
+* {{mk}}: {{trad|mk|сметка|f}}
+* {{mn}}: {{trad|mn|данс}}
+* {{nl}}: {{trad|nl|rekening|f}}
+* {{pl}}: {{trad|pl|konto|n}}
+* {{pt}}: {{trad|pt|conta|f}}
+* {{ro}}: {{trad|ro|cont|n}}
+* {{ru}}: {{trad|ru|счёт|m}}
+* {{sh}}: {{trad|sh|рачӯн}}, {{trad|sh|račun|m}}
+* {{sv}}: {{trad|sv|konto|n}}
+* {{tg}}: {{trad|tg|ҳисоб}}
+* {{tt}}: {{trad|tt|хисап}}
+* {{tr}}: {{trad|tr|hesap}}
+* {{cs}}: {{trad|cs|účet|m}}
+* {{uk}}: {{trad|uk|раху́нок|m}}
+* {{uz}}: {{trad|uz|hisob}}
+* {{zh}}: {{trad|zh|賬戶}}
 {{final}}
 
 {{inici|Beisbol: nombre de boles i strikes d'un batedor}}
@@ -63,7 +139,7 @@
 {{final}}
 
 === Interjecció ===
-{{lema|ca|interj}}
+{{entrada|ca|interj}}
 
 # [[atenció]]
 
@@ -83,6 +159,9 @@
 # {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|1|pres|subj}}
 # {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|3|pres|subj}}
 # {{marca-nocat|ca|occidental|balear}} {{ca-forma-conj|comptar|3|imp}}
+
+=== Miscel·lània ===
+* {{ca-sil}}
 
 === Vegeu també ===
 * {{Viquipèdia}}

@@ -20,16 +20,20 @@
 
 ==== {{S|traductions}} ====
 {{trad-début}}
-* {{T|shy}} : {{trad--|shy|ayetbab}}
+* {{T|shy}} : {{trad|shy|ayetbab}}
 * {{T|es}} : {{trad-|es|a los|m}}, {{trad-|es|a las|f}}
 * {{T|it}} : {{trad+|it|agli}}, {{trad+|it|alle}}
 * {{T|oc}} : {{trad-|oc|als}}, {{trad+|oc|aus}}
 * {{T|pt}} : {{trad+|pt|aos|m}}, {{trad+|pt|às|f}}
+* {{T|scn}} : {{trad+|scn|ê}}, {{trad+|scn|alli}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===
 * {{pron|o|fr}}
 * {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|o|audio=Fr-aux.ogg}}
+* {{écouter|Cornimont (France)||lang=fr|audio=LL-Q150 (fra)-Poslovitch-aux.wav}}
+
+
 
 ==== {{S|homophones|fr}} ====
 {{(}}
@@ -37,7 +41,7 @@
 * [[aulx]]
 * [[eau]], [[eaux]]
 
-* [[haut]], [[hauts]]
+* [[haut]], [[hauts]] (h aspiré)
 * [[o]]
 * [[ô]]
 
@@ -58,10 +62,7 @@
 * {{R:VerrierOnillon|p=2|vue=42}}
 
 == {{langue|eo}} ==
+{{voir autres systèmes|eo|aŭ|au}}
 === {{S|variante typographique|eo}} ===
 '''aux''' {{pron|aw|eo}}
 # {{eo-sys-x|aŭ}}.
-
-==== {{S|écriture}} ====
-* {{lien|aŭ|eo}}
-* {{lien|au|eo}}

@@ -6,7 +6,7 @@
 From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|en|gem-pro|*uns||us}}, from {{der|en|ine-pro|*ne-}}, {{m|ine-pro|*nō-}}, {{m|ine-pro|*n-ge-}}, {{m|ine-pro|*n̥smé||us}}. Cognate with {{cog|stq|uus|t=us}}, {{cog|fy|us}}, {{m|fy|us|ús|us}}, {{cog|nds|us||us}}, {{cog|nl|ons||us}}, {{cog|de|uns||us}}, {{cog|da|os||us}}, {{cog|la|nōs||we, us}}.
 
 ====Pronunciation====
-* {{qualifier|stressed}} {{enPR|ŭs}}, {{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}
+* {{qualifier|stressed}} {{enPR|ŭs}}, {{IPA|en|/ʌs/|/ʌz/}}
 * {{qualifier|unstressed}} {{a|US}} {{IPA|en|/əs/}}, {{a|UK}} {{IPA|en|/əs/|/əz/}}
 * {{audio|en|en-us-us.ogg|Audio (US)}}
 * {{rhymes|en|ʌs|s=1}}
@@ -15,28 +15,28 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 {{en-pron}}
 
 # {{lb|en|personal}} [[me|Me]] and at least one other person; the objective case of '''[[we]]'''.
-#* '''1611''', [[w:King James Version of the Bible|King James Version of the Bible]], ''[[s:Bible (King James)/Luke|Luke]] 1:1'':
-#*: Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...
+#* {{RQ:KJV|Luke|1|1|text=Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...}}
 # {{lb|en|Commonwealth|colloquial|chiefly with {{m|en|give}}}} [[me|Me]].
-#: ''Give '''us''' a look at your paper.''
-#: ''Give '''us''' your wallet!''
-#: ''She's turned the [[weans]] against '''us'''!''
+#: {{ux|en|Give '''us''' a look at your paper.}}
+#: {{ux|en|Give '''us''' your wallet!}}
+#: {{ux|en|She's turned the [[weans]] against '''us'''!}}
 # {{lb|en|Northern England}} [[our|Our]].
-#: ''We'll have to throw '''us''' food out.''
+#: {{ux|en|We'll have to throw '''us''' food out.}}
 # {{lb|en|Geordie}} Me (in all contexts).
-#: ''Look at '''us''' while you’re speaking to '''us'''.''
-#: ''Could you do that for '''us'''?''
+#: {{ux|en|Look at '''us''' while you’re speaking to '''us'''.}}
+#: {{ux|en|Could you do that for '''us'''?}}
 
 =====Alternative forms=====
 * {{l|en|-'s}} {{q|contracted form, as in {{m|en|let's}}}}
+* {{l|en|uz}} (sense four)
 
 =====Translations=====
 {{trans-top|objective case of "we"}}
 * American Sign Language: {{t|ase|1^o-f@IpsiChest-FingerBack RoundHoriz 1^o-f@ContraChest-FingerBack}}
 * Arabic: {{t|ar|ـنَا}}, {{t|ar|إِيَّانَا}}
 *: Egyptian Arabic: {{t|arz|نا|alt=ـنا|tr=-nā|sc=Arab}}
-* Armenian: {{l|hy|մեզ}}
-*: Old Armenian: {{l|xcl|մեզ}}
+* Armenian: {{t+|hy|մեզ}}
+*: Old Armenian: {{t|xcl|մեզ}}
 * Bengali: {{t|bn|আমাদের}}
 * Bislama: [[yumi]], [[yumitupela]] (''dual inclusive''); [[yumitripela]] (''trial inclusive''); [[yumipela]] (''plural inclusive''); [[mitupela]] (''dual exclusive''); [[mitripela]] (''trial exclusive''); [[mipela]] (''plural exclusive'')
 * Burmese: {{t|my|ကျုပ်တို့}}, {{t+|my|တို့}}
@@ -63,7 +63,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Irish: {{t|ga|sinn|p}}
 *: Old Irish: {{t|sga|n-}}, {{t|sga|don-}}, {{t|sga|-unn}}
 * Italian: {{t+|it|noi}}, a noi, {{t+|it|ci}}
-* Japanese: 私達 (watashitachi)
+* Japanese: {{t+|ja|私達}} (watashitachi)
 * Kabuverdianu: {{t|kea|nu}}
 * Kazakh: {{t+|kk|бізді}}
 {{trans-mid}}
@@ -142,14 +142,12 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 #*:Because the flash devices are local to the server, the latencies can be microseconds ('''us''') instead of milliseconds (ms) and eliminate some traffic that would normally have gone over the storage network.
 
 ===Etymology 3===
+{{nonlemma}}
 
 ====Noun====
 {{head|en|noun form}}
 
-# {{plural of|en|u}}
-
-=====Usage notes=====
-{{U:en:plurals of letters}}
+# {{lb|en|rare}} {{alt form|en|u's}}.
 
 [[Category:Symbols for SI units]]
 
@@ -167,7 +165,7 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 ==Catalan==
 
 ===Etymology===
-From {{inh|ca|pro|us}}, from {{inh|ca|la|ūsus}}.
+From {{inh|ca|la|vōs}}.
 
 ===Pronunciation===
 * {{ca-IPA}}
@@ -254,8 +252,8 @@ From {{inh|enm|ang|ūs||pos=dative personal pronoun|us}}, from {{inh|enm|gem-pro
 
 ====Descendants====
 * {{desc|en|us}}
-* {{desc|sco|us}}, {{l|sco|hus}}
-* {{desc|yol|ouse}}
+* {{desc|sco|us|hus}}
+* {{desc|yol|ouse|alts=1}}
 
 ====See also====
 {{enm-decl-personal pronouns}}
@@ -375,7 +373,7 @@ From {{inh|sh|sla-pro|*ǫsъ}}.
 ==Turkish==
 
 ===Etymology===
-From {{inh|tr|trk-pro|*us||mind, reason}}.<ref>{{R:tut-pro:SDM|*us|url=https://starling.rinet.ru/cgi-bin/response.cgi?single=1&basename=%2fdata%2falt%2fturcet&text_number=1700&root=config}}</ref>
+From {{inh|tr|ota|اوص|tr=us}}, from {{inh|tr|trk-pro|*us||mind, reason}}.<ref>{{R:tut-pro:SDM|*us|url=https://starling.rinet.ru/cgi-bin/response.cgi?single=1&basename=%2fdata%2falt%2fturcet&text_number=1700&root=config}}</ref>
 
 ===Noun===
 {{tr-noun|usa|lar}}

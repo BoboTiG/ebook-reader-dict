@@ -2,7 +2,7 @@
 {{pron-graf|fone=koˈmeɾ|audio=LL-Q1321 (spa)-Rodelar-comer.wav}}
 
 === Etimología ===
-{{etimología|la|comedere|diacrítico=comedĕre}}, infinitivo de {{l+|la|comedō}}, el cual es un compuesto de {{l+|la|edo}} (comer). Este verbo se forma a partir ''Com + edo'', obteniendo el siginificado de ''devorar''.
+{{etimología|la|comedere|diacrítico=comedĕre}}, infinitivo de {{l+|la|comedo|comedō|glosa=devorar}}, formado a partir {{l+|la|cum|glosa=con}} y {{l+|la|edo|edō|glosa=comer}}.
 
 === {{verbo intransitivo|es}} ===
 [[Archivo:Njam Njam!.jpg|thumb|chica comiendo (1)]]
@@ -97,9 +97,10 @@
 {{t+|el|?|τρώω}} (trṓō) ''o'' {{trad|el|τρώγω}} (trṓgō)
 {{t+|gn|?|u}}
 {{t+|en|1|eat|,|2|nl|to|have lunch|,|6|capture}}
+{{t+|he|אכל|tr=akhál|sc=Hebr}}
 {{t+|hu|1|eszik}}
-{{t+|it|1-2|mangiare|,|2|pranzare}}
 {{trad-centro}}
+{{t+|it|1-2|mangiare|,|2|pranzare}}
 {{t+|alc|1|jeféjes}}
 {{t+|kuz|1|holmtur}}
 {{t+|ku|1|xwarin}}
@@ -112,7 +113,7 @@
 {{t+|nl|?|eten}}
 {{t+|no|?|spise|, |ete}}
 {{t+|nn|?|ete}}
-{{t+|pl|?|jeść}}
+{{t+|pl|1|jeść}}
 {{t+|pt|1-7, 9|comer}}
 {{t+|quz|?|mikhuy}}
 {{t+|ru|?|есть}} (estʹ)

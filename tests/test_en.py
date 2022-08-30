@@ -24,19 +24,16 @@ from wikidict.utils import process_templates
         (
             "cum",
             ["kʌm"],
-            ["From Latin <i>cum</i> (“with”)."],
+            ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
-                "<i>Used in indicating a thing with two roles, functions, or natures, or a "
-                "thing that has changed from one to another.</i>",
-                "<i>Used in indicating a thing with two or more roles, functions, or "
-                "natures, or a thing that has changed from one to another.</i>",
-                "<i>(slang, vulgar)</i> Semen.",
-                "<i>(slang, vulgar)</i> Female ejaculatory discharge.",
-                "<i>(slang, vulgar)</i> An ejaculation.",
+                "<i>Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
+                "<i>Used in indicating a thing with two or more roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
+                "<i>(colloquial, vulgar)</i> Semen.",
+                "<i>(colloquial, vulgar)</i> Female ejaculatory discharge.",
+                "<i>(colloquial, vulgar)</i> An ejaculation.",
                 "<i>(slang)</i> To have an orgasm, to feel the sensation of an orgasm.",
                 "<i>(slang)</i> To ejaculate.",
-                "<i>(dialectal or nonstandard)</i> <i>Alternative form of</i> <b>come</b> "
-                "(“move from further to nearer; arrive”)",
+                "<i>Eye dialect spelling of</i> <b>come</b> (“move from further to nearer; arrive”).",
                 "<i>Clipping of</i> <b>cumulative</b>.",
             ],
         ),
@@ -50,7 +47,7 @@ from wikidict.utils import process_templates
                 "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",  # noqa
                 "expressing the proportion of consumed energy that was successfully used in a process; the ratio of useful output to total input",  # noqa
                 "causing effects, producing results; bringing into being; initiating change (rare except in philosophical and legal expression <i>efficient cause</i> = causative factor or agent)",  # noqa
-                "<i>(proscribed, old use)</i> effective",
+                "<i>(proscribed, old use)</i> effective, efficacious",
                 "<i>(obsolete)</i> a cause; something that causes an effect",
             ],
         ),
@@ -59,17 +56,18 @@ from wikidict.utils import process_templates
             ["ɪts"],
             ["Contraction of ‘it is’ or ‘it has’."],
             [
-                "It is.",
-                "It has.",
-                "<i>(colloquial)</i> There's, there is; there're, there are.",
-                "<i>(now nonstandard)</i> <i>Alternative form of</i> <b>its</b>",
+                "<i>Contraction of</i> <b>it is</b>.",
+                "<i>Contraction of</i> <b>it has</b>.",
+                "There's, there is; there're, there are.",
+                "<i>Obsolete form of</i> <b>its</b>.",
+                "<i>Misspelling of</i> <b>its</b>.",
             ],
         ),
         (
             "Mars",
             ["ˈmɑːz"],
             [
-                "From Middle English <i>Mars</i>, from Latin <i>Mars</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
+                "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
             ],
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
@@ -83,13 +81,14 @@ from wikidict.utils import process_templates
             "portmanteau",
             ["pɔːtˈmæn.təʊ"],
             [
-                "French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carry”) + <i>manteau</i> (“coat”)."
+                "Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carry”) + <i>manteau</i> (“coat”)."  # noqa
             ],
             [
                 "A large travelling case usually made of leather, and opening into two equal sections.",
                 "<i>(Australia, dated)</i> A schoolbag.",
                 "<i>(archaic)</i> A hook on which to hang clothing.",
                 "<i>(linguistics)</i> A portmanteau word.",
+                "A portmanteau film.",
                 "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
                 "To make a portmanteau word.",
             ],
@@ -97,9 +96,9 @@ from wikidict.utils import process_templates
         (
             "someone",
             ["ˈsʌmwʌn"],
-            ["<b>some</b> + <b>one</b>"],
+            ["From <i>some</i>&nbsp;+&nbsp;<i>one</i>."],
             [
-                "Some person.",
+                "some person.",
                 "A partially specified but unnamed person.",
                 "an important person",
             ],
@@ -108,12 +107,12 @@ from wikidict.utils import process_templates
             "the",
             ["ˈðiː"],
             [
-                "From Middle English <i>the</i>, from Old English <i>þē</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>.",  # noqa
-                "Originally masculine nominative, in Middle English it superseded all previous Old English forms (<i>sē</i>, <i>sēo</i>, <i>þæt</i>, <i>þā</i>), from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
-                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”).",  # noqa
+                "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
+                "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
+                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",  # noqa
             ],
             [
-                "<i>Definite grammatical article that implies necessarily that an entity it articulates is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
+                "<i>Definite grammatical article that implies necessarily that an entity it hints at is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
                 "<i>Used before a noun modified by a restrictive relative clause, indicating that the noun refers to a single referent defined by the relative clause.</i>",  # noqa
                 "<i>Used before an object considered to be unique, or of which there is only one at a time.</i> <small>[from 10th c.]</small>",  # noqa
                 "<i>Used before a superlative or an ordinal number modifying a noun, to indicate that the noun refers to a single item.</i>",  # noqa
@@ -124,13 +123,13 @@ from wikidict.utils import process_templates
                 "<i>Used before a body part (especially of someone previously mentioned), as an alternative to a possessive pronoun.</i> <small>[from 12th c.]</small>",  # noqa
                 "<i>When stressed, indicates that it describes an object which is considered to be best or exclusively worthy of attention.</i> <small>[from 18th c.]</small>",  # noqa
                 "<i>With a comparative or with <b>more</b> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",  # noqa
-                "<i>With a comparative, and often with <b>for it</b>, indicates a result more like said comparative. This can be negated with <b>none</b>. See <b>none the</b>.</i>",  # noqa
+                "<i>With a comparative, and often with <b>for it</b>, indicates a result more like said comparative. This can be negated with <b>none</b>.</i>",  # noqa
                 "For each; per.",
             ],
         ),
         (
             "um",
-            [],
+            ["ʌm"],
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
@@ -142,7 +141,7 @@ from wikidict.utils import process_templates
         ),
         (
             "us",
-            ["ʌs", "ʌz"],
+            ["ʌs"],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
             ],
@@ -153,6 +152,7 @@ from wikidict.utils import process_templates
                 "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
+                "<i>(rare)</i> <i>Alternative form of</i> <b>u's</b>.",
             ],
         ),
         (
@@ -160,7 +160,7 @@ from wikidict.utils import process_templates
             ["ˈwɔːtə"],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
-                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”)), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
+                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”)), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
             ],
             [
                 "<i>(uncountable)</i> A substance (of molecular formula H<sub>2</sub>O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",  # noqa
@@ -200,7 +200,7 @@ from wikidict.utils import process_templates
             "word",
             ["wɜːd"],
             [
-                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i>."  # noqa
+                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <b>vrata</b>."  # noqa
             ],
             [
                 "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",  # noqa
@@ -225,6 +225,7 @@ from wikidict.utils import process_templates
                 "An order; a request or instruction; an expression of will. <small>[from 10th c.]</small>",
                 "A promise; an oath or guarantee. <small>[from 10th c.]</small>",
                 "A brief discussion or conversation. <small>[from 15th c.]</small>",
+                "<i>(meiosis)</i> A minor reprimand.",
                 "<i>(in the plural)</i> <i>See</i> <b>words</b>.",
                 "<i>(theology, sometimes <b>Word</b>)</i> Communication from God; the message of the Christian gospel; the Bible, Scripture. <small>[from 10th c.]</small>",  # noqa
                 "<i>(theology, sometimes <b>Word</b>)</i> Logos, Christ. <small>[from 8th c.]</small>",

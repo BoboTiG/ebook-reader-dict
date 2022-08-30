@@ -21,18 +21,22 @@
 * [[se rebeller]]
 
 ==== {{S|traductions}} ====
-{{trad-début|Se porter à la sédition, à la révolte}}
+{{trad-début|Se porter à la sédition, à la révolte|1}}
+* {{T|de}} : {{trad+|de|meutern}}
 * {{T|en}} : {{trad+|en|mutiny}}
 * {{T|ca}} : {{trad+|ca|amotinar}}, {{trad+|ca|avalotar}}
 * {{T|es}} : {{trad+|es|amotinar}}
 * {{T|nl}} : {{trad+|nl|muiten}}
 {{trad-fin}}
 
-{{trad-début|Enfant qui se dépite et manque à l’obéissance}}
+{{trad-début|Enfant qui se dépite et manque à l’obéissance|2}}
+* {{T|de}} : {{trad+|de|rebellieren}}
+* {{T|en}} : {{trad|en|rebel}}
 * {{T|nl}} : {{trad+|nl|rebelleren}}
 {{trad-fin}}
 
-{{trad-début|Les flots, les vents mutinés}}
+{{trad-début|{{poétique|nocat=1}} Les flots, les vents mutinés|3}}
+* {{T|de}} : {{trad+|de|tosen}}
 * {{T|nl}} : {{trad+|nl|beuken}}
 {{trad-fin}}
 

@@ -1,6 +1,6 @@
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-: De l’{{étyl|fro|fr|mot=esperon}}, du {{étyl|frk|fr}} {{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}.
+: De l’{{étyl|fro|fr|mot=esperon}}, du {{étyl|frk|fr}} {{recons|lang-mot-vedette=fr|sporo|lang=frk}}.
 
 === {{S|nom|fr}} ===
 {{fr-rég|e.pʁɔ̃}}
@@ -44,39 +44,56 @@
 * [[à méchant cheval bon éperon]]
 
 ==== {{S|traductions}} ====
-{{trad-début|Crochet de talon|1}}
+{{trad-début|{{lexique|équitation|fr}} Pièce de métal à deux branches, qui s’adapte au talon du cavalier|1}}
 * {{T|de}} : {{trad+|de|Sporn|m}}
-* {{T|en}} : {{trad+|en|spur}} (1:''équitation'';4''maçonnerie'';5:''géographie'') ; {{trad+|en|ram|dif=(naval) ram}} (3:''partie de la proue'')
-* {{T|ar}} : {{trad-|ar|مهماز . منخس|tr=minkhas . mihmèz}}
-* {{T|bm}} : {{trad--|bm|sɛbɛrɛn}}
+* {{T|en}} : {{trad+|en|spur}}
+* {{T|ar}} : {{trad-|ar|منخس|tr=minkhas}}, {{trad-|ar|مهماز|tr=mihmèz}}
+* {{T|bm}} : {{trad|bm|sɛbɛrɛn}}
+* {{T|eu}} : {{trad-|eu|ezproi}}
 * {{T|ca}} : {{trad-|ca|esperó}}
 * {{T|zh}} : {{trad+|zh|距|R=jù}}
 * {{T|co}} : {{trad+|co|spronu}}
-* {{T|dak}} : {{trad--|dak|siínataŋ}}
+* {{T|dak}} : {{trad|dak|siínataŋ}}
 * {{T|es}} : {{trad+|es|espuela|f}}
 * {{T|eo}} : {{trad-|eo|sprono}}
 * {{T|fi}} : {{trad+|fi|kannus}}
 * {{T|io}} : {{trad+|io|sprono}}
+* {{T|ia}} : {{trad-|ia|sporon}}
 * {{T|it}} : {{trad+|it|sperone}}
-* {{T|lkt}} : {{trad--|lkt|siínataŋ}}
+* {{T|lkt}} : {{trad|lkt|siínataŋ}}
 * {{T|nl}} : {{trad+|nl|spoor|c}}
 * {{T|oc}} : {{trad+|oc|esperon}}
 * {{T|pl}} : {{trad+|pl|ostroga}}
 * {{T|pt}} : {{trad+|pt|espora}}
 * {{T|ro}} : {{trad-|ro|pintene}}
 * {{T|ru}} : {{trad+|ru|шпора|f|R=špora}}
-* {{T|ses}} : {{trad--|ses|miimi}}
+* {{T|ses}} : {{trad|ses|miimi}}
 * {{T|sv}} : {{trad+|sv|sporre}}
 * {{T|cs}} : {{trad+|cs|ostruha|f}}
 {{trad-fin}}
 
-{{trad-début|Prolongement en forme de tube de la corolle ou du calice|2}}
+{{trad-début|{{lexique|botanique|fr}} Prolongement en forme de tube de la corolle ou du calice|2}}
+* {{T|en}} : calyx tube
+* {{T|ia}} : {{trad-|ia|sporon}}
 * {{T|it}} : {{trad+|it|sperone}}
 {{trad-fin}}
 
-{{trad-début|Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.|3}}
+{{trad-début|{{lexique|marine|fr}} Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.|3}}
+* {{T|en}} :{{trad|en|rostrum}}, {{trad|en|ram|dif=(naval) ram}}, {{trad|en|stemhead}}
 * {{T|it}} : {{trad+|it|sperone}}, {{trad+|it|rostro|m}}
 * {{T|la}} : {{trad+|la|rostrum|n}}
+* {{T|pl}} : {{trad+|pl|taran}}
+{{trad-fin}}
+
+{{trad-début|{{lexique|maçonnerie|fr}}|4}}
+* {{T|en}} : {{trad+|en|spur}}
+{{trad-fin}}
+
+{{trad-début|{{lexique|géographie|fr}} Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.|5}}
+* {{T|en}} : {{trad+|en|spur}}
+{{trad-fin}}
+
+{{trad-début|{{lexique|héraldique|fr}} Meuble représentant l’objet du même nom dans les armoiries.|6}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===

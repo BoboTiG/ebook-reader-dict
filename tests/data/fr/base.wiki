@@ -9,9 +9,9 @@
 [[Fichier:Alexandrie 112004 09.jpg|vignette|120px|Une '''base''' de colonne]]
 '''base''' {{pron|bɑz|fr}} {{f}}
 # [[partie|Partie]] [[inférieur]]e d’un [[corps]] [[quelconque]] qui lui [[servir|sert]] de [[soutien]].
-#* ''Si un édifice se renverse, n’essayez pas de le maintenir debout en jetant sur les murs une couche de ciment, mais empêchez-le de s’écrouler en renforçant la '''base'''.'' {{source|Jean {{pc|Déhès}}, ''{{ws|Essai sur l’amélioration des races chevalines de la France}}'', École impériale vétérinaire de Toulouse, Thèse de médecine vétérinaire, 1868}}
-#* ''Les '''bases''' des tours visigothes sont carrées ou ont été grossièrement arrondies pour recevoir les défenses du V{{e}} siècle.'' {{source|{{nom w pc|Eugène|Viollet-le-Duc}}, ''{{ws|La Cité de Carcassonne/éd. 1888/Histoire|La Cité de Carcassonne}}, 1888''}}
-#* ''Rarement un édifice plus laid fut élevé sur une place publique. […]. Il avait trop peu de '''base''' et trop de couronnement.'' {{source|{{nom w pc|Pierre|Louÿs}}, ''La Ville plus belle que le monument'', dans ''Archipel'', 1932}}
+#* ''Si un édifice se renverse, n’essayez pas de le maintenir debout en jetant sur les murs une couche de ciment, mais empêchez-le de s’écrouler en renforçant la '''base'''.'' {{source|Jean Déhès, ''{{ws|Essai sur l’amélioration des races chevalines de la France}}'', École impériale vétérinaire de Toulouse, Thèse de médecine vétérinaire, 1868}}
+#* ''Les '''bases''' des tours visigothes sont carrées ou ont été grossièrement arrondies pour recevoir les défenses du V{{e}} siècle.'' {{source|{{w|Eugène Viollet-le-Duc}}, ''{{ws|La Cité de Carcassonne/éd. 1888/Histoire|La Cité de Carcassonne}}, 1888''}}
+#* ''Rarement un édifice plus laid fut élevé sur une place publique. […]. Il avait trop peu de '''base''' et trop de couronnement.'' {{source|{{w|Pierre Louÿs}}, ''La Ville plus belle que le monument'', dans ''Archipel'', 1932}}
 # {{particulier}} {{lexique|architecture|fr}} Ce qui [[soutenir|soutient]] le [[fût]] de la [[colonne]].
 #* '''''Base''' dorique.''
 #* '''''Base''' ionique.''
@@ -51,24 +51,26 @@
 # {{lexique|médecine|fr}} Ce qui entre comme [[ingrédient]] [[principal]] dans un [[mélange]].
 #* ''La '''base''' d’un médicament, d’une composition.''
 #* ''La '''base''' de ces pilules est l’aloès.''
+# {{lexique|génétique|fr}} [[base nucléique|Base nucléique]].
+#* {{exemple|lang=fr}}
 # {{lexique|télécommunications|fr}} Appareil relié à une [[ligne fixe]] permettant le fonctionnement de [[téléphone]]s sans fil à usage domestique.
 #* ''Les '''bases''' des téléphones sans fil offrent une couverture radio assez restreinte.''
 # {{lexique|électronique|fr}} Nom d’une des [[électrode]]s d’un [[transistor]] [[bipolaire]].
-#* {{ébauche-exe|fr}}
+#* {{exemple|lang=fr}}
 # {{lexique|baseball|fr}} Une des trois zones où le coureur peut rester sans être mis hors jeu.
-#* {{ébauche-exe|fr}}
+#* {{exemple|lang=fr}}
 # {{lexique|sports hippiques|fr}} Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.
 #* ''A 170 euros du recul, elle constitue une '''base''' incontournable.'' {{source|[https://www.canalturf.com/pronostics-PMU/2008-11-27/paris-vincennes/35670_prix-paris-turf-prix-des-landes.html ''Le pronostic du Quinté PRIX PARIS TURF (PRIX DES LANDES)''], canalturf.com, 27/11/2008}}
 #*''Gagnez vos paris sur le Quinté avec nos '''bases''' de 2 chevaux et notre synthèse de 6 chevaux.'' {{source|1=[http://www.lesleaders.com/index.php?page=3 lesleaders.com]}}
 # {{lexique|politique|fr}} Ensemble des électeurs, des soutiens d’un politique ou d’un parti.
 #* ''Ainsi Trump parlait-il à sa '''base''' quand il a joué la carte du « retour au boulot pour Pâques ». Tout comme il essayait de convaincre Wall Street et les grandes entreprises que le « business as usual » n’était pas loin.'' {{source|{{Lien web |auteur=Douglas Kennedy |url=https://www.lemonde.fr/idees/article/2020/04/01/douglas-kennedy-le-capitalisme-americain-s-effondrera-t-il-comme-un-chateau-de-cartes-quand-le-covid-19-sera-dompte_6035109_3232.html |titre=Douglas Kennedy : « Le capitalisme américain s’effondrera-t-il comme un château de cartes quand le Covid-19 sera dompté ? » |éditeur=''Le Monde'' |en ligne le=1{{er}} avril 2020}}}}
 # {{figuré|fr}} Ce qui est le [[principe]], la [[donnée]] [[fondamental]]e d’une [[chose]] ou ce sur quoi elle [[reposer|repose]].
-#* ''Ray, Montius, Scheuchzer, Micheli se sont les premiers occupés de l’''Agrostographie''. Tous ont à peu près suivi le même plan, et travaillé d’après les mêmes principes et sur les mêmes '''bases'''.'' {{source|Ambrose-Marie-François-Joseph {{smcp|Palisot de Beauvois}}, ''Essai d’une nouvelle agrostographie ou Nouveaux genres des graminées;'', 1812, page LI}}
-#* ''Toute l’histoire classique est dominée par la guerre conçue héroï­quement ; les institutions des républiques grecques eurent, à l’origine, pour '''base''' l’organisation d’armées de citoyens ; […].'' {{source|{{nom w pc|Georges|Sorel}}, ''Réflexions sur la violence'', Chap. V, ''La grève générale politique'', 1908, page 231}}
-#* ''La vaseline est la '''base''' la plus courante des pommades : on la rend plus adhésive en l’additionnant de lanoline […] qui absorbe plusieurs fois son poids d’eau.'' {{source|Marcel {{smcp|Hégelbacher}}, ''La Parfumerie et la Savonnerie'', 1924, page 134}}
-#* ''En tant que concept politique, l’État-nation se caractérise par une autorité à '''base''' territoriale, et non par des conceptions universalistes, extra-territoriales.'' {{source|Panayiotis Jerasimof {{pc|Vatikiotis}}, ''L’Islam et l’État'', 1987, traduction d’Odette {{pc|Guitard}}, 1992, 1992}}
-#* ''Quelques mois plus tard, […], ce mémorandum fut complété par un travail plus exhaustif qui pouvait servir de '''base''' à l’analyse gouvernementale de l’ensemble des relations entre le Chili et les USA.'' {{source|{{nom w pc|Armando|Uribe}}, ''Le Livre noir de l’intervention américaine au Chili'', traduction de Karine {{smcp|Berriot}} & Françoise {{smcp|Campo}}, Seuil, 1974}}
-#* ''Nous insistons sur les possibilités multi-plateformes de Python et présentons les '''bases''' pour étendre Python et l’intégrer dans d’autres applications en utilisant C ou Java.'' {{source|Alex {{smcp|Martelli}}, ''Python en concentré'', traduit par Éric {{smcp|Jacoboni}}, Paris : éditions O’Reilly, janvier 2004, page XI}}
+#* ''Ray, Montius, Scheuchzer, Micheli se sont les premiers occupés de l’''Agrostographie''. Tous ont à peu près suivi le même plan, et travaillé d’après les mêmes principes et sur les mêmes '''bases'''.'' {{source|Ambrose-Marie-François-Joseph Palisot de Beauvois, ''Essai d’une nouvelle agrostographie ou Nouveaux genres des graminées;'', 1812, page LI}}
+#* ''Toute l’histoire classique est dominée par la guerre conçue héroï­quement ; les institutions des républiques grecques eurent, à l’origine, pour '''base''' l’organisation d’armées de citoyens ; […].'' {{source|{{w|Georges Sorel}}, ''Réflexions sur la violence'', chapitre V, ''La grève générale politique'', 1908, page 231}}
+#* ''La vaseline est la '''base''' la plus courante des pommades : on la rend plus adhésive en l’additionnant de lanoline […] qui absorbe plusieurs fois son poids d’eau.'' {{source|Marcel Hégelbacher, ''La Parfumerie et la Savonnerie'', 1924, page 134}}
+#* ''En tant que concept politique, l’État-nation se caractérise par une autorité à '''base''' territoriale, et non par des conceptions universalistes, extra-territoriales.'' {{source|Panayiotis Jerasimof Vatikiotis, ''L’Islam et l’État'', 1987, traduction d’Odette Guitard, 1992, 1992}}
+#* ''Quelques mois plus tard, […], ce mémorandum fut complété par un travail plus exhaustif qui pouvait servir de '''base''' à l’analyse gouvernementale de l’ensemble des relations entre le Chili et les USA.'' {{source|{{w|Armando Uribe}}, ''Le Livre noir de l’intervention américaine au Chili'', traduction de Karine Berriot et Françoise Campo, Seuil, 1974}}
+#* ''Nous insistons sur les possibilités multi-plateformes de Python et présentons les '''bases''' pour étendre Python et l’intégrer dans d’autres applications en utilisant C ou Java.'' {{source|Alex Martelli, ''Python en concentré'', traduit par Éric Jacoboni, Paris : éditions O’Reilly, janvier 2004, page XI}}
 
 ==== {{S|synonymes}} ====
 * [[support]], [[soutien]], [[appui]]
@@ -94,6 +96,7 @@
 * [[base de connaissances]]
 * [[base de données]]
 * [[base de Lewis]]
+* [[base de loisirs]]
 * [[base dure]]
 * [[base fondamentale de cycles]] {{info lex|théorie des graphes}}
 * [[base molle]]
@@ -101,6 +104,7 @@
 * [[basique]]
 * [[basisme]]
 * [[basiste]]
+* [[camp de base]]
 * [[certificat d’études de base]] ([[CEB]]) {{Belgique|nocat=1}}
 * [[embase]]
 * [[port base]]
@@ -113,21 +117,25 @@
 
 ==== {{S|traductions}} ====
 {{trad-début|socle}}
-* {{T|de}} : {{trad+|de|Grundlage}}, {{trad+|de|Basis|f}}, {{trad+|de|Ansatz|m}}
+* {{T|de}} : {{trad+|de|Grundlage}}, {{trad+|de|Basis|f}}, {{trad+|de|Ansatz|m}}, {{trad+|de|Grundstein|m}}, {{trad+|de|Unterlage|f}}
 * {{T|en}} : {{trad+|en|base}}, {{trad+|en|basis}}
 * {{T|ca}} : {{trad+|ca|base}}, {{trad-|ca|fonament}}
-* {{T|hr}} : {{trad+|hr|osnova}}, {{trad+|hr|temelj}}, {{trad+|hr|baza}}
+* {{T|hr}} : {{trad+|hr|osnova}}, {{trad+|hr|temelj}}, {{trad+|hr|baza}}, {{trad-|hr|osnovica}}
 * {{T|es}} : {{trad+|es|base}}, {{trad+|es|fundamento}}
 * {{T|fi}} : {{trad+|fi|perusta}}
 * {{T|el}} : {{trad+|el|βάση|f|tr=vasi}}
+* {{T|guk}} : {{trad|guk|maat'oshama}}
+* {{T|ia}} : {{trad-|ia|base}}
 * {{T|it}} : {{trad+|it|base}}
 * {{T|ja}} : {{trad+|ja|基本|tr=kihon}}
-* {{T|oc}} : {{trad-|oc|basa}}, {{trad-|oc|fondament}}
+* {{T|avk}} : {{trad|avk|omava}}
+* {{T|oc}} : {{trad-|oc|basa}}, {{trad-|oc|fondament}}, {{trad+|oc|sòla}}
 * {{T|fa}} : {{trad+|fa|پایه}}, {{trad+|fa|اساس}}, {{trad+|fa|پایگاه}}
 * {{T|pl}} : {{trad+|pl|podstawa|f}}, {{trad+|pl|fundament|m}}
 * {{T|ro}} : {{trad+|ro|bază}}
 * {{T|ru}} : {{trad+|ru|база}}, {{trad+|ru|основа|tr=osnova}}
-* {{T|se}} : {{trad--|se|vuođđu}}, {{trad--|se|vuoláš}}
+* {{T|se}} : {{trad|se|vuođđu}}, {{trad|se|vuoláš}}
+* {{T|solrésol}} : {{trad|solrésol|d'osire}}
 * {{T|tg}} : {{trad-|tg|поя}}, {{trad-|tg|асос}}, {{trad-|tg|пойгоҳ}}
 * {{T|cs}} : {{trad+|cs|základ}}
 {{trad-fin}}
@@ -136,7 +144,9 @@
 * {{T|de}} : {{trad+|de|Base}}, {{trad+|de|Lauge|f}}, {{trad+|de|Hydroxid|n}}
 * {{T|en}} : {{trad+|en|base}}
 * {{T|ca}} : {{trad+|ca|base}}
+* {{T|hr}} : {{trad+|hr|baza}}, {{trad+|hr|lužina}}
 * {{T|es}} : {{trad+|es|base}}
+* {{T|ia}} : {{trad-|ia|base}}
 * {{T|kk}} : {{trad-|kk|сілті|tr=silti}}
 * {{T|nl}} : {{trad+|nl|basis}}
 * {{T|pl}} : {{trad+|pl|zasada|f}}
@@ -169,6 +179,15 @@
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-base.wav}}
 * {{écouter|lang=fr|France (Saint-Étienne)||audio=LL-Q150 (fra)-Touam-base.wav}}
 * {{écouter|lang=fr|France (Hérault)||audio=LL-Q150 (fra)-T. Le Berre-base.wav}}
+* {{écouter|lang=fr|Canada (Sainte-Marie)||audio=LL-Q150 (fra)-Webfil-base.wav}}
+* {{écouter|lang=fr|France (Bretagne)||audio=LL-Q150 (fra)-PtiBzh-base.wav}}
+* {{écouter|Mulhouse (France)||lang=fr|audio=LL-Q150 (fra)-Mathieu Kappler-base.wav}}
+
+
+
+
+
+
 
 
 
@@ -348,7 +367,9 @@
 * {{lien|alimento di base|it|sens=aliment de base}}
 * {{lien|base aerea|it|sens=base aérienne}}
 * {{lien|base di conoscenza|it|sens=base de connaissances}}
+* {{lien|base militare|it|sens=base militaire}}
 * {{lien|base monetaria|it|sens=base monetaire}}
+* {{lien|campo base|it|sens=camp de base}}
 * [[di base#it|di base]]
 * [[in base a#it|in base a]]
 * {{lien|matrice di cambiamento di base|it|sens=matrice de passage}}
@@ -357,12 +378,15 @@
 {{(|Dérivés}}
 * [[basale#it|basale]]
 * [[basare#it|basare]]
-* [[basico#it|basico]]
+* {{lien|basico|it|sens=basique}}
 * [[imbasare#it|imbasare]]
 * [[isobase#it|isobase]]
 * [[kilobase#it|kilobase]]
 * [[reobase#it|reobase]]
 {{)}}
+
+=== {{S|prononciation}} ===
+* {{écouter|Monopoli (Italie)||lang=it|audio=LL-Q652 (ita)-XANA000-base.wav}}
 
 === {{S|voir aussi}} ===
 * {{Vikidia}}
@@ -404,6 +428,7 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=pt|Portugal (Porto)||audio=LL-Q5146 (por)-Santamarcanda-base.wav}}
+* {{écouter|lang=pt|États-Unis||audio=LL-Q5146 (por)-Nelson Ricardo 2500-base.wav}}
 
 == {{langue|se}} ==
 === {{S|verbe|se|flexion}} ===

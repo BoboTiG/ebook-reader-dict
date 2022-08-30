@@ -9,7 +9,7 @@
 # [[pénétrer|Pénétrer]] par un froid [[excessif]].
 #* ''Le froid lui '''gela''' les doigts, le bout des oreilles.''
 # {{lexique|médecine|fr}} [[détériorer|Détériorer]] les [[membres]] par le [[froid]].
-#* ''Il '''a eu''' les pieds et les main '''gelées'''.''
+#* ''Il '''a eu''' les pieds et les mains '''gelées'''.''
 # {{spécialement|fr}} {{lexique|agriculture|fr}} [[endommager|Endommager]] les [[arbre]]s [[fruitier]]s, surtout lorsqu’ils sont en [[bouton]]s ou en [[fleur]]s, par le froid.
 #* ''Le froid '''a gelé''' mes vignes. Tous les poiriers '''ont été gelés'''.''
 # {{exagération|fr}} Faire [[souffrir]] du froid.
@@ -40,6 +40,9 @@
 * [[geler blanc]]
 * [[ingelable]]
 * [[regeler]]
+* [[se geler le croupion]]
+* [[se geler le fion]]
+* [[se geler le tronc]]
 
 ==== {{S|apparentés}} ====
 * [[gel]]
@@ -52,25 +55,28 @@
 * {{T|en}} : to {{trad+|en|freeze}}
 * {{T|ang}} : {{trad-|ang|freosan}}
 * {{T|az}} : {{trad+|az|dondurmaq}}
+* {{T|eu}} : {{trad-|eu|hormatu}}, {{trad-|eu|izoztu}}, {{trad-|eu|leitu}}
 * {{T|be}} : {{trad-|be|марозіць|R=marozits’}}
-* {{T|ht}} : {{trad--|ht|fè glas}}
+* {{T|ht}} : {{trad|ht|fè glas}}
 * {{T|da}} : {{trad+|da|fryse}}
 * {{T|es}} : {{trad+|es|congelar}} ; {{trad+|es|helar}}
 * {{T|eo}} : {{trad-|eo|frosti}}
 * {{T|fo}} : {{trad-|fo|frysta}}
 * {{T|fi}} : {{trad+|fi|pakastaa}}
 * {{T|fy}} : {{trad-|fy|frieze}}
-* {{T|gallo}} : {{trad--|gallo|guerouer}}
+* {{T|gallo}} : {{trad|gallo|guerouer}}
 * {{T|el}} : {{trad+|el|παγώνω|R=pagóno}}
 * {{T|io}} : {{trad+|io|frostar}}
 * {{T|it}} : {{trad+|it|congelare}}
 * {{T|nl}} : {{trad+|nl|bevriezen}}
+* {{T|normand}} : {{trad|normand|gelaer}}
 * {{T|oc}} : {{trad+|oc|gelar}}
+* {{T|pcd}} : {{trad|pcd|frimer}}, {{trad|pcd|injéler}}, {{trad|pcd|jéler}}, {{trad|pcd|jler}}
 * {{T|pl}} : {{trad+|pl|mrozić}}
 * {{T|pt}} : {{trad+|pt|gelar}}, {{trad+|pt|congelar}}
 * {{T|ro}} : {{trad+|ro|îngheța}}
 * {{T|ru}} : {{trad+|ru|морозить|R=morozit’}}
-* {{T|se}} : {{trad--|se|buolaštit}}, {{trad--|se|galmmihit}}, {{trad--|se|galbmot}}
+* {{T|se}} : {{trad|se|buolaštit}}, {{trad|se|galmmihit}}, {{trad|se|galbmot}}
 * {{T|sr}} : {{trad+|sr|заледити}}, {{trad+|sr|смрзнути}}
 * {{T|sv}} : {{trad+|sv|frysa}}
 * {{T|uk}} : {{trad-|uk|заморожувати|R=zamorojouvaty}} ; {{trad-|uk|заморожуватися|R=zamorojouvatisia}}
@@ -81,6 +87,7 @@
 {{trad-fin}}
 
 {{trad-début|Faire plus froid que zéro Celsius}}
+* {{T|de}} : {{trad+|de|durchfrieren}}
 * {{T|nl}} : {{trad+|nl|vriezen}}
 {{trad-fin}}
 
@@ -105,6 +112,18 @@
 * {{écouter|lang=fr|France (Metz)||audio=LL-Q150 (fra)-val (Eavq)-geler.wav}}
 * {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-geler.wav}}
 * {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-geler.wav}}
+* {{écouter|lang=fr|France||audio=LL-Q150 (fra)-Mecanautes-geler.wav}}
+* {{écouter|lang=fr|||audio=LL-Q150 (fra)-Fabe56-geler.wav}}
+* {{écouter|Mulhouse (France)||lang=fr|audio=LL-Q150 (fra)-Mathieu Kappler-geler.wav}}
+* {{écouter|||lang=fr|audio=LL-Q150 (fra)-Sagnamadr-geler.wav}}
+
+
+
+
+
+
+
+
 
 
 

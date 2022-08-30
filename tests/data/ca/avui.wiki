@@ -2,11 +2,11 @@
 
 == {{-ca-}} ==
 {{ca-pron}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-avui.wav|lang=ca|accent=ct}}
 {{etim-comp|ca|a-|pos1=adverbial|vui|lang2=roa-oca}}, de {{terme|roa-oca|hui}}, del llatí vulgar {{terme|la|*oie}}, del clàssic {{terme|la|hǒdǐe}}, {{etim-s|ca|XIII}}.
-{{anagrames|lang=ca|viau|aviu}}
 
 === Adverbi ===
-{{lema|ca|adv}}
+{{entrada|ca|adv}}
 
 # En el [[dia]] actual.
 # Metafòricament, en el [[present]].
@@ -19,8 +19,8 @@
 * [[avui per demà]]
 * [[d'avui a demà]]
 * [[d'avui endavant]]
-* [[en tal dia com avui]]
-* [[avui dia]]
+* [[tal dia com avui]]
+* [[avui dia]] o avui en dia
 * [[d'avui en vuit]], [[d'avui en quinze]]
 
 {{-rel-}}
@@ -56,12 +56,12 @@
 * {{he}}: {{trad|he|הַיּוֹם‎}}
 * {{hi}}: {{trad|hi|आज}}
 * {{hu}}: {{trad|hu|ma}}
+* {{yi}}: {{trad|yi|הײַנט‎}}
 * {{io}}: {{trad|io|hodie}}, {{trad|io|cadie}}
 * {{ga}}: {{trad|ga|inniu}}
 * {{is}}: {{trad|is|í dag}}
 * {{it}}: {{trad|it|oggi}}
 * {{ja}}: {{trad|ja|今日}}
-* {{yi}}: {{trad|yi|הײַנט‎}}
 {{mig}}
 * {{kk}}: {{trad|kk|бүгін}}
 * {{ky}}: {{trad|ky|бүгүн}}
@@ -106,5 +106,11 @@
 * {{csc}}: {{trad|csc|ARA}}
 {{final}}
 
+=== Miscel·lània ===
+* {{ca-sil}}
+* {{anagrames|ca|viau|aviu}}
+
 === Vegeu també ===
 * {{ca-dicc|diec|gdlc|optimot}}
+
+{{catllengua|ca|temps}}

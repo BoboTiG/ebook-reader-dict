@@ -37,6 +37,7 @@
 * {{écouter|lang=de||ɪç|audio=LL-Q188 (deu)-teste (Pamputt)-ich.wav}}
 * {{écouter|lang=de|Allemagne (Berlin)|ɪç|audio=LL-Q188 (deu)-Sebastian Wallroth-ich.wav}}
 * {{écouter|lang=de|||audio=LL-Q188 (deu)-Student16 de-ich.wav}}
+* {{écouter|lang=de|Allemagne||audio=LL-Q188 (deu)-Natschoba-ich.wav}}
 
 == {{langue|lim}} ==
 === {{S|étymologie}} ===
@@ -66,20 +67,30 @@
 * [[ichil]]
 
 == {{langue|pl}} ==
+
 === {{S|étymologie}} ===
-: {{ébauche-étym|pl}}
+: Grammaticalement, c’est le génitif de {{lien|''oni''|pl}}, {{lien|''one''|pl}}, étymologiquement, il partage le même radical que {{lien|''jego''|pl}}{{R|SEJP|ich, im}} et est apparenté à {{lien|''ich''|sk}} en slovaque, {{lien|''jich''|cs}} en tchèque.
 
 === {{S|adjectif possessif|pl}} ===
 '''ich''' {{pron|ix|pl}}
-# [[leur|Leur]].
+# [[leur#fr|Leur]].
+#*
+
+==== {{S|variantes}} ====
+* {{lien|nich|pl}} après une préposition.
 
 === {{S|prononciation}} ===
-* {{écouter|lang=pl||audio=Pl-ich.ogg}}
+* {{écouter|lang=pl|Pologne|ix|audio=Pl-ich.ogg}}
+* {{écouter|lang=pl|Pologne (Varsovie)|ix|audio=LL-Q809 (pol)-Olaf-ich.wav}}
 
 == {{langue|sk}} ==
+
+=== {{S|étymologie}} ===
+: Apparenté au polonais {{lien|''ich''|pl}}.
+
 === {{S|adjectif possessif|sk}} ===
 '''ich''' {{pron|ɪx|sk}} {{invar}}
-# [[leur|Leur]], [[leurs]] (possesseur à la troisième personne du pluriel).
+# [[leur#fr|Leur]], [[leurs]] (possesseur à la troisième personne du pluriel).
 
 === {{S|pronom personnel|sk|flexion}} ===
 '''ich''' {{pron|ɪx|sk}}
@@ -88,5 +99,5 @@
 # ''Accusatif de'' [[ony#sk|ony]].
 # ''Génitif de'' [[ony#sk|ony]].
 
-==== {{S|notes}} ====
-Après une [[préposition]], on emploie la forme ''[[nich#sk|nich]]'' (pour ''oni'') ou ''[[ne#sk|ne]]'' (pour ''ony'').
+==== {{S|variantes}} ====
+* {{lien|nich|sk}} après une préposition.

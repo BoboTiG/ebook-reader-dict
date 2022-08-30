@@ -18,5 +18,9 @@
 =={{etimologia|pt}}==
 : Contração do latim vulgar ''[[decem#Latim|decem]]'' + ''[[ac]]'' + ''[[septem]]''.
 
+=={{pronúncia|pt}}==
+===Portugal===
+* AFI: {{AFI|/dɨ.zɐ.ˈsɛ.tɨ/}}
+
 [[Categoria:Substantivo (Português)]]
 [[Categoria:Numeral cardinal (Português)|# 000017]]

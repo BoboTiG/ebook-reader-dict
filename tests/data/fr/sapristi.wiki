@@ -1,20 +1,21 @@
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-:Déformation de ''[[sacristi]]'', afin de ne pas blasphémer ouvertement.
+: Déformation de ''[[sacristi]]'', afin de ne pas blasphémer ouvertement.
 
 === {{S|interjection|fr}} ===
 '''sapristi'''
 # Pour [[marquer]] l’[[étonnement]].
-#* '''''Sapristi''' ! … '''Sapristi''' ! … gémissait le pauvre homme qui ne cessait de chasser, avec sa main, quelque chose d’invisible et qui bourdonnait autour de lui, comme une mouche. '''Sapristi''' ! On ne dit pas ces choses-là à d’honnêtes gens !'' {{source|Chantal {{pc|Meyer-Plantureux}}, ''Un siècle de critique dramatique : de Francisque Sarcey à Bertrand Poirot-Delpech'', Éditions Complexe, 2003, {{nobr|p. 44}} }}
-#* '''''Sapristi''' ! s’exclama Stiple comme mentionné au début de ce récit, au comble de son délire, à la fois fascinée et mortifiée par toute la décadence mentale qui était là à l’œuvre.'' {{source|Francis {{pc|Thievicz}}, ''Suicide Club et autres curiosités'', heresie.com, 2013, {{nobr|p. 52}} }}
-#* ''Mais '''sapristi''' vous ne vous doutez donc pas du nombre de crimes qui vous sont reprochés ?'' {{source|{{nom w pc|Pierre|Souvestre}} et {{nom w pc| Marcel|Allain}}, ''{{w|Fantômas|Fantômas, La Guêpe rouge}}'', 1912, {{w|Éditions Robert Laffont}}, Bouquins, tome 5, {{nobr|p. 642}} }}
+#* '''''Sapristi''' ! nous nous abrutissons à la fin ! {{source|{{w|Victor Hugo}}, ''{{w|Quatrevingt-treize}}'', 1874, {{w|Michel Lévy frères}}, tome 3, page 266}}
+#* ''Mais '''sapristi''' vous ne vous doutez donc pas du nombre de crimes qui vous sont reprochés ?'' {{source|{{w|Pierre Souvestre}} et {{w|Marcel Allain}}, ''{{w|Fantômas|Fantômas, La Guêpe rouge}}'', 1912, {{w|Éditions Robert Laffont}}, Bouquins, tome 5, page 642}}
+#* '''''Sapristi''' ! … '''Sapristi''' ! … gémissait le pauvre homme qui ne cessait de chasser, avec sa main, quelque chose d’invisible et qui bourdonnait autour de lui, comme une mouche. '''Sapristi''' ! On ne dit pas ces choses-là à d’honnêtes gens !'' {{source|Chantal Meyer-Plantureux, ''Un siècle de critique dramatique : de Francisque Sarcey à Bertrand Poirot-Delpech'', Éditions Complexe, 2003, page 44}}
+#* '''''Sapristi''' ! s’exclama Stiple comme mentionné au début de ce récit, au comble de son délire, à la fois fascinée et mortifiée par toute la décadence mentale qui était là à l’œuvre.'' {{source|Francis Thievicz, ''Suicide Club et autres curiosités'',  heresie.com, 2013, page 52}}
 
 ==== {{S|variantes}} ====
 * [[pristi]]
 
 ==== {{S|notes}} ====
 : En [[apposition]], cette locution est parfois utilisée comme [[intensitif|intensitive]] :
-:* ''[…] tu ne peux même pas me laisser dîner en paix. Il faut que tu me montres tout un tas de '''sapristi''' de planches en couleurs qui représentent soi-disant, d’après je ne sais quel imbécile, l’intérieur du corps humain.'' {{source|{{nom w pc|William|Faulkner}}, ''{{w|Sartoris}}'', trad. René-Noël {{pc|Raimbault}} & Henri {{pc|Delgove}}, Éd. Gallimard, 1937, rééd. Folio, {{nobr|p. 299}} }}
+:* ''[…] tu ne peux même pas me laisser dîner en paix. Il faut que tu me montres tout un tas de '''sapristi''' de planches en couleurs qui représentent soi-disant, d’après je ne sais quel imbécile, l’intérieur du corps humain.'' {{source|{{w|William Faulkner}}, ''{{w|Sartoris}}'', traduction René-Noël Raimbault & Henri Delgove, Éditions Gallimard, 1937, réédition Folio, page 299}}
 
 ==== {{S|synonymes}} ====
 {{cf|sacrebleu#Synonymes}}
@@ -25,6 +26,7 @@
 
 
 [[Catégorie:Interjections en français basées sur la religion catholique]]
+[[Catégorie:Jurons du capitaine Haddock en français]]
 
 == {{langue|cs}} ==
 === {{S|étymologie}} ===

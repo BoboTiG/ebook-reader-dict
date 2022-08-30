@@ -11,7 +11,7 @@
 #{{tagg|geologi}} [[jordart]] med kornstorlek mellan 0,06 och 2 mm
 :{{avgränsare}}
 :{{etymologi|Av {{härledning-|gmq-fsv|sander}}, av {{härledning-|non|sandr}}, av urgermanska *''sanda(z)''. Besläktat med isländska ''[[sandur#Isländska|sandur]]'', norska ''[[#Norska|sand]]'' fornengelska ''[[#Fornengelska|sand]]'' (engelska ''[[#Engelska|sand]]''), fornhögtyska ''[[sant#Fornhögtyska|sant]]'' (tyska ''[[Sand#Tyska|Sand]]''). Ytterst av urindoeuropeiska *''sam(a)dho-'', motsvarande grekiska [[ἄμαθος]], ''amathos'', "sand"; troligen en uttalsförenkling av *''bhsam(a)dho-'', av roten *''bhes-'', med rotbetydelsen "att [[krossa]]", "att gnugga". Härigenom besläktat med latin ''[[sabulum]]'', grekiska [[ψάμμος]], ''psammos'' (varav ''[[psammit]]''), båda "sand", och sanskrit ''bhas'', "sönderkrossa".}}
-:{{sammansättningar|[[kattsand]], [[kvartssand]], [[kvicksand]], [[sanddyna]], [[sandjord]], [[sandkaka]], [[sandkorn]], [[sandkrypare]], [[sandlåda]], [[sandmask]], [[sandmaskros]], [[sandslott]], [[sandsnäppa]], [[sandstrand]], [[sandtärna]], [[sandöken]]}}
+:{{sammansättningar|[[fogsand]], [[kabelsand]], [[kattsand]], [[kvartssand]], [[kvicksand]], [[sanddyna]], [[sandjord]], [[sandkaka]], [[sandkorn]], [[sandkrypare]], [[sandlåda]], [[sandmask]], [[sandmaskros]], [[sandslott]], [[sandsnäppa]], [[sandsten]], [[sandstrand]], [[sandtäkt]], [[sandtärna]], [[sandöken]], [[sättsand]]}}
 :{{fraser|[[sticka huvudet i sanden]]}}
 :{{seäven|[[grus]], [[singel]]}}
 :{{anagram|[[dans]], [[Dans]]}}
@@ -31,6 +31,7 @@
 *polska: {{ö+|pl|piasek|m}}
 *ryska: {{ö+|ru|песок|m|tr=pesók}}
 *spanska: {{ö+|es|arena|f}}
+*turkiska: {{ö+|tr|kum}}
 *tyska: {{ö+|de|Sand|m}}
 {{ö-botten}}
 
@@ -40,7 +41,7 @@
 '''sand''' {{m}}
 #[[sand#Svenska|sand]]
 #:{{etymologi|{{härledning|språk=no|non|sandr|punkt=-}}, av urgermanska ''*samdaz'', av urindoeuropeiska''*sámh₂dʰos''.}}
-#:{{homofoner|[[sann]]}}
+#:{{homofoner|sann|språk=no}}
 #:{{sammansättningar|[[sandkasse]]}}
 
 ==Bottniska==
@@ -73,7 +74,7 @@
 {{subst|en}}
 '''sand'''
 *{{uttal|en|ipa=sænd}}
-#{{tagg||språk=engelska}} [[sand#Svenska|sand]]
+#{{tagg||språk=en}} [[sand#Svenska|sand]]
 
 ==Fornsaxiska==
 ===Substantiv===

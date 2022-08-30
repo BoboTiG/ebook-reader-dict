@@ -18,8 +18,9 @@
 * {{l|en|umm}}, {{l|en|hum}}
 
 ====Pronunciation====
+* {{IPA|en|/ʌm/|/əːm/}}
 * {{audio|en|en-us-um.ogg|Audio (US)}}
-* {{rhymes|en|ʌm}} (when stressed, or as a verb)
+* {{rhymes|en|ʌm|s=1}} (when stressed, or as a verb)
 Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 
 ====Interjection====
@@ -72,12 +73,16 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 
 ===Pronunciation===
 * {{cs-IPA}}
-* {{rhymes|cs|um}}
+* {{hyphenation|cs|um}}
+* {{rhymes|cs|um|s=1}}
 
 ===Noun===
-{{cs-noun|g=m}}
+{{cs-noun|g=m-in}}
 
 # [[skill]], [[art]]
+
+====Declension====
+{{cs-decl-noun-auto|mi||u|m}}
 
 ===See also===
 * {{l|cs|schopnost}}
@@ -147,10 +152,13 @@ From {{inh|fo|non|umb}}, from {{inh|fo|gem-pro|*umbi}}, from {{inh|fo|ine-pro|*h
 ==German==
 
 ===Alternative forms===
-* {{l|de|umb}}, {{l|de|ümb}}, {{l|de|üm}} {{qual|all obsolete}}
+* {{alter|de|umb|ümb|üm||obsolete}}
 
 ===Etymology===
-From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|de|gem-pro|*umbi}}, from {{inh|de|ine-pro|*h₂m̥bʰi|t=round about, around}}. [[Central German]] dialects show regular umlaut; the standard form is from [[Upper German]], where umlaut of ''-u-'' was often blocked before labials. Cognate with {{cog|lb|ëm}}, {{cog|nl|om}}, {{cog|en|umbe}}.
+{{dercat|de|gem-pro|inh=1}}
+From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|de|gmw-pro|*umbi}}.
+
+[[Central German]] dialects show regular umlaut; the standard form is from [[Upper German]], where umlaut of ''-u-'' was blocked before labial geminates and clusters. Cognate with {{cog|lb|ëm}}, {{cog|nl|om}}, {{cog|en|umbe}}.
 
 ===Pronunciation===
 * {{IPA|de|/ʊm/}}
@@ -162,13 +170,13 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 {{head|de|preposition}} {{tlb|de|with accusative}}
 
 # [[about]]
-#: {{ux|de|Es geht '''um''' den Kuchen.|inline=1|It's about the pie.}}
+#: {{uxi|de|Es geht '''um''' den Kuchen.|It's about the pie.}}
 # [[around]]
 #: {{ux|de|'''Um''' die Ecke|around the corner}}
 # [[at]], [[by]] {{qual|when relating to time}}
 #: {{ux|de|'''Um''' acht Uhr reisen wir ab|At eight o’clock we depart}}
 # [[by]] {{qual|percentage difference}}
-#: {{ux|de|Die Verkaufsmengen gingen '''um''' 6% zurück.|inline=1|Sales in volume has decreased by 6%.}}
+#: {{uxi|de|Die Verkaufsmengen gingen '''um''' 6% zurück.|Sales in volume has decreased by 6%.}}
 
 ====Derived terms====
 * ('''''um''' + das'') {{l|de|ums}}
@@ -180,17 +188,19 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 #: {{ux|de|Wir sind gekommen, '''um''' zu helfen.|We’ve come ('''in order''') '''to''' help.}}
 
 ===Adjective===
-{{de-adj|-}}
+{{de-adj|predonly}}
 
 # {{lb|de|predicative|not attributive}} up, in the sense of finished
-#: ''Werden dich in kurzem binden/ [[w:Erdgeist|Erdgeist]], deine Zeit ist '''um''''' (Friedrich von Hardenberg, ''Novalis'')
-#:: We will shortly bind you/ Erdgeist, your time is up
+#: {{ux|de|Werden dich in kurzem binden/ [[w:Erdgeist|Erdgeist]], deine Zeit ist '''um'''|source=Friedrich von Hardenberg, ''Novalis''|We will shortly bind you/ Erdgeist, your time is up}}
 
 ===Adverb===
-{{head|de|adverb}}
+{{de-adv}}
 
 # [[around]], [[about]]
 # turned over, [[changed]], from one state to another
+
+====Derived terms====
+{{col3|de|um meinetwillen|um euretwillen|um Ihretwillen|um deinetwillen|um ihretwillen|um seinetwillen}}
 
 ----
 
@@ -233,11 +243,12 @@ From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 {{head|is|adverb}}
 
 # {{non-gloss definition|used in set phrases}}
-#: {{ux|is|Það er '''um''' að gera að sofa vel.|The important thing to do is to sleep well.}}
+#: {{ux|is|Það er [[um að gera|'''um''' að gera]] að sofa vel.|The important thing to do is to sleep well.}}
 #: {{ux|is|Hvað er '''um''' að vera?|What's going on?}}
 #: {{ux|is|Eins og '''um''' var talað.|As was agreed.}}
 
 ====Derived terms====
+* {{l|is|um að gera}}
 * {{l|is|vera um og ó}}
 
 ===Preposition===
@@ -258,7 +269,7 @@ From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 #: {{ux|is|Hvenær gerðist þetta?'' - ''Þetta gerðist '''um''' sumarið.|When did this happen? - It happened '''during''' the summer.}}
 #: {{ux|is|Ég fór '''um''' nóttina.|I went '''during''' the night.}}
 # {{qualifier|with accusative}} [[approximately]], [[about]], [[around]]
-#: {{ux|is|Pokinn er '''um''' fjórir kíló.|The bag '''around''' four kilos.}}
+#: {{ux|is|Pokinn er '''um''' fjögur kíló.|The bag is '''around''' four kilos.}}
 
 ====Usage notes====
 * Often used with phrases such as "''[[brjóta heilann]] '''um'''''".
@@ -314,7 +325,8 @@ From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnu
 * {{alter|ga|im}}
 
 ===Etymology===
-From {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
+{{root|ga|ine-pro|*h₂ent-}}
+From {{inh|ga|sga|imb}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
 
 ===Pronunciation===
 * {{IPA|ga|/ʊmˠ/}}
@@ -412,10 +424,19 @@ From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{in
 
 ==Norwegian Nynorsk==
 
+===Etymology===
+From {{inh|nn|non|um}}.
+
+===Pronunciation===
+* {{IPA|nn|/ʊmː/|[ʊmː]|[umː]|[ʊ̟mː]|[ʉmː]}} {{nn-pronu-note|s}}
+
 ===Preposition===
 {{head|nn|preposition}}
 
-# {{nn-former|om|1938}}
+# {{lb|nn|[[Wiktionary:Norwegian_Nynorsk_spelling_reforms#1938|pre-1938]]|or|dialectal}} {{alt form|nn|nocap=1|om}}
+
+===References===
+* {{R:Aasen}}
 
 ----
 
@@ -441,10 +462,12 @@ From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {
 {{top2}}
 * {{desc|is|um}}
 * {{desc|fo|um}}
-* {{desc|nn|om|alts=1}}
-* {{desc|nb|om}}
-* {{desc|sv|om}}
+* {{desc|nn|um|;|om<q:dialectal>|øm}}
+* {{desc|gmq-osw|um}}
+** {{desc|sv|om}}
 * {{desc|da|om}}
+** {{desc|nb|om}}
+*** {{desc|nn|om|bor=1}}
 {{bottom}}
 
 ===References===
@@ -479,23 +502,62 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 
 ----
 
+==Polish==
+
+===Etymology===
+{{inh+|pl|sla-pro|*ũmъ}}, from {{der|pl|ine-bsl-pro|*aum-}}, from {{der|pl|ine-pro||*h₂ew-m-}}, from the root {{m|ine-pro|*h₂ew-||to perceive, be aware of}}. Akin to {{cog|lt|aumuõ}}.
+
+===Pronunciation===
+{{pl-p}}
+
+===Noun===
+{{pl-noun|m-in}}
+
+# {{lb|pl|obsolete}} [[mind]], [[reason]]
+#: {{syn|pl|rozsądek|rozum|umysł}}
+
+====Declension====
+{{pl-decl-noun-m-in}}
+
+====Derived terms====
+{{col3|pl|title=adjectives|umny|umowy}}
+{{col3|pl|title=noun|umność}}
+
+====Related terms====
+{{col3|pl|title=adjectives|rozumny|umysłowy}}
+{{col3|pl|title=nouns|umiejętność|umysłowość}}
+{{col3|pl|title=verbs|
+[[rozumieć]] {{g|impf}}|
+[[umieć]] {{g|impf}}
+}}
+
+===Further reading===
+* {{R:pl:WSJP}}
+* {{R:pl:PWN}}
+
+{{C|pl|Thinking}}
+
+----
+
 ==Portuguese==
-{{cardinalbox|pt|0|1|2|zero|dois|ord=primeiro|wplink=Um}}
+{{number box|pt}}
 
 ===Alternative forms===
 * {{l|pt|hum}} {{qualifier|obsolete}}
 
 ===Etymology===
-From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*óynos|t=one}}.
+From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*óynos|t=one}}. {{doublet|pt|uno}}.
 
 ===Pronunciation===
-* {{a|Portugal|Brazil}} {{IPA|pt|/ũ/}}
-* {{rhymes|pt|ũ}}
+{{pt-IPA}}
+* {{audio|pt|PT-BR-um.ogg|Audio (Brazil)}}
+* {{rhymes|pt|ũ|s=1}}
+* {{hyph|pt|um}}
 
 ===Numeral===
 {{pt-cardinal|f=uma}}
 
-# {{senseid|pt|numeral}} {{l|en|one}}
+# {{senseid|pt|numeral}} [[one]]
 #: {{ux|pt|'''Uma''' xícara de café|'''One''' cup of coffee|inline=1}}
 
 ====Quotations====
@@ -508,11 +570,11 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ===Article===
 {{pt-article}}
 
-# {{senseid|pt|article}} {{lb|pt|indefinite}} {{l|en|a}}, {{l|en|an}}
+# {{senseid|pt|article}} {{lb|pt|indefinite}} [[a]], [[an]]
 #: {{ux|pt|'''Um''' carro, '''uma''' casa.|'''A''' car, '''a''' house.|inline=1}}
 #* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=186|text=Tenho '''um''' recado para você.|t=I have a message for you.}}
 #* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=361|text={{...}} disse o professor com '''um''' sorrisinho {{...}}|t={{...}} the teacher said with a little smile {{...}}}}
-## {{senseid|pt|plural article}} {{lb|pt|in the plural}} {{l|en|some}}; {{l|en|a few}} {{gloss|a small number of}}
+## {{senseid|pt|plural article}} {{lb|pt|in the plural}} [[some]]; [[a few]] {{gloss|a small number of}}
 ##: {{ux|pt|'''Uns''' carros, '''umas''' casas.|'''A few''' cars, '''a few''' houses.|inline=1}}
 ##: {{syn|pt|alguns}}
 ## {{senseid|pt|a bit of}} {{lb|pt|with uncountable nouns}} {{l|en|a bit|a bit of}}
@@ -532,7 +594,7 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ===Noun===
 {{pt-noun|m|uns}}
 
-# {{senseid|pt|the digit 1}} The figure or digit "1": {{l|en|one}}.
+# {{senseid|pt|the digit 1}} The figure or digit "1": [[one]]
 #: {{ux|pt|O '''um''' parece o sete sem gravata no pescoço.|inline=1|The one looks like the seven with no tie at its neck.}}
 
 ====Quotations====
@@ -541,9 +603,9 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ===Pronoun===
 {{head|pt|pronoun}}
 
-# {{senseid|pt|someone}} a person; {{l|en|one}}; {{l|en|someone}}
+# {{senseid|pt|someone}} a person; [[one]]; [[someone]]
 #: {{ux|pt|Chegou-me '''um''' e disse: "Olá!"|inline=1|One came to me and said: "Hello!"}}
-# {{senseid|pt|previously mentioned element}} Element(s) of a previously mentioned class: [[one]]; [[some]] (in plural).
+# {{senseid|pt|previously mentioned element}} Element(s) of a previously mentioned class: [[one]]; [[some]] (in plural)
 #: {{ux|pt|Comprei '''uns''' e me decepcionei.|inline=1|I bought some and got disappointed.}}
 
 ====Quotations====
@@ -554,7 +616,7 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ==Romansch==
 
 ===Etymology===
-From {{inh|rm|la|homō}}, ultimately from {{inh|rm|ine-pro|*ǵʰmṓ|t=earthling}}
+From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling}}.
 
 ===Noun===
 {{head|rm|noun|g=m|plural|umens}}
@@ -657,3 +719,4 @@ From {{inh|sk|sla-pro|*umъ}}.
 
 ===References===
 * {{R:SDK}}
+[[Category:English filled pauses]]

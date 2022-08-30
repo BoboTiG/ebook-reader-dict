@@ -2,8 +2,8 @@
 
 == {{-ca-}} ==
 {{ca-pron|è}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-disset.wav|lang=ca}}
 {{-etimologia-|la|ca}} Del llatí {{terme|la|decem}} {{terme|la|et}} {{terme|la|septem|trad=deu i set}}.
-{{anagrames|lang=ca|distès|distés}}
 
 === Numeral ===
 {{numeral|ca|16|17|18|setze|divuit|card=disset|ord=dissetè|pref=heptadeca-|llista=Viccionari:Llista de nombres en català }}
@@ -16,9 +16,9 @@
 #: ''El dia disset de maig''
 
 {{-sin-}}
-* [[desset]], en balear i alguerès.
-* [[dèsset]], en valencià.
-* [[desasset]], en septentrional.
+* [[desset]], en balear i alguerès
+* [[dèsset]], en valencià
+* [[desasset]], en septentrional
 
 {{-trad-}}
 {{inici}}
@@ -30,13 +30,15 @@
 * {{fr}}: {{trad|fr|dix-sept}}
 * {{gl}}: {{trad|gl|dezasete}}
 * {{it}}: {{trad|it|diciassette}}
+* {{ja}}: {{trad|ja|十七}}
 {{mig}}
 * {{csc}}: {{trad|csc|DISSET}}
 * {{oc}}: {{trad|oc|dètz-e-sèt}}
+* {{pl}}: {{trad|pl|siedemnaście}}
 * {{pt}}: {{trad|pt|dezassete}}, {{trad|pt|dezessete}}
 * {{ro}}: {{trad|ro|şaptesprezece}}
 * {{ru}}: {{trad|ru|семна́дцать}}
-* {{sc}}: {{trad|sc|deghessette }}
+* {{sc}}: {{trad|sc|deghessette}}
 * {{sv}}: {{trad|sv|sjutton}}
 * {{ty}}: hō'ē {{trad|ty|'ahuru}} ma hitu
 {{final}}
@@ -51,6 +53,10 @@
 
 # Dissetena [[hora]].
 #: ''L'autobús surt a les disset (les cinc de la tarda)''
+
+=== Miscel·lània ===
+* {{ca-sil}}
+* {{anagrama|ca|distès|distés}}
 
 === Vegeu també ===
 * {{Viquipèdia}}

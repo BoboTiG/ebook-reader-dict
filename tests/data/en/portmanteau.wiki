@@ -14,14 +14,15 @@
 * {{audio|en|en-au-portmanteau.ogg|Audio (AU)}}
 
 ===Etymology 1===
-{{bor|en|fr|portemanteau||coat stand}}, from {{m|fr|porte||carry}} + {{m|fr|manteau||coat}}.
+{{root|en|ine-pro|*per- (fare)}}
+{{bor|en|frm|portemanteau||coat stand}}, from {{m|frm|porte||carry}} + {{m|frm|manteau||coat}}.
 
 ====Noun====
 {{en-noun|s|portmanteaux}}
 
 # A large [[travel]]ling [[case]] usually made of [[leather]], and opening into two equal sections.
-#* {{quote-book|en|year=1667|author={{w|Charles Croke}}|title=Fortune's Uncertainty| passage=Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.}}
-#* {{quote-book|en|year=1859|author={{w|Charles Dickens}}|chapter=The Mortals in the House| title={{w|The Haunted House (story)|The Haunted House}}| passage=He brought down with him to our haunted house a little cask of salt beef; for, he is always convinced that all salt beef not of his own pickling, is mere carrion, and invariably, when he goes to London, packs a piece in his '''portmanteau'''.}}
+#* {{quote-book|en|year=1667|author={{w|Charles Croke}}|title=Fortune's Uncertainty|text=Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.}}
+#* {{quote-book|en|year=1859|author={{w|Charles Dickens}}|chapter=The Mortals in the House|title={{w|The Haunted House (story)|The Haunted House}}|text=He brought down with him to our haunted house a little cask of salt beef; for, he is always convinced that all salt beef not of his own pickling, is mere carrion, and invariably, when he goes to London, packs a piece in his '''portmanteau'''.}}
 # {{lb|en|Australia|dated}} A [[schoolbag]].
 # {{lb|en|archaic}} A [[hook]] on which to [[hang]] [[clothing]].
 
@@ -36,7 +37,9 @@
 * Finnish: {{t+|fi|matkalaukku}}
 * French: {{t+|fr|portemanteau|m}}, {{t+|fr|valise|f}}, {{t+|fr|malle|f}}
 * German: {{t+|de|Koffer|m}}
-* Interlingua: [[valise#Interlingua|valise]]
+* Interlingua: {{t|ia|valise}}
+* Latin: {{t|la|averta|f}}
+* Lithuanian: {{t|lt|lagaminas|m}}
 * Norwegian: {{t|no|koffert|m}}
 *: Bokmål: {{t|no|koffert|m}}
 *: Nynorsk: {{t|nn|koffert|m}}
@@ -54,23 +57,24 @@
 {{trans-bottom}}
 
 ===Etymology 2===
-First used by {{w|Lewis Carroll}} in [[s:Through The Looking Glass (And What Alice Found There)|Through The Looking Glass]] to describe the words he coined in {{w|Jabberwocky}}.
+First used by {{w|Lewis Carroll}} in [[s:Through the Looking-Glass, and What Alice Found There|Through The Looking Glass]] to describe the words he coined in {{w|Jabberwocky}}.
 
 ====Adjective====
 {{en-adj|-}}
 
 # {{lb|en|attributive|linguistics}} Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.
-#* {{quote-journal|en|author=Nicholas Lezard|title=Spooky tales by the master and friends|work=The Guardian (London)|date=December 14, 2002|page=30|passage=The overall narrator of this '''portmanteau''' story - for Dickens co-wrote it with five collaborators on his weekly periodical, ''All the Year Round'' - expresses deep, rational scepticism about the whole business of haunting.}}
-#* {{quote-journal|en|date=December 11 2002|author=Nick Bradshaw|title=One day in September|work=Time Out|page=71|passage=We're so bombarded with images, it's a struggle to preserve our imaginations.' In response, he's turned to cinema, commissioning 11 film-makers to contribute to a '''portmanteau''' film, entitled '11'09"01' and composed of short films each running 11 minutes, nine seconds and one frame.}}
+#* {{quote-journal|en|author=Nicholas Lezard|title=Spooky tales by the master and friends|work=The Guardian (London)|date=December 14, 2002|page=30|text=The overall narrator of this '''portmanteau''' story - for Dickens co-wrote it with five collaborators on his weekly periodical, ''All the Year Round'' - expresses deep, rational scepticism about the whole business of haunting.}}
+#* {{quote-journal|en|date=December 11, 2002|author=Nick Bradshaw|title=One day in September|work=Time Out|page=71|text=We're so bombarded with images, it's a struggle to preserve our imaginations.' In response, he's turned to cinema, commissioning 11 film-makers to contribute to a '''portmanteau''' film, entitled '11'09"01' and composed of short films each running 11 minutes, nine seconds and one frame.}}
 
 ====Noun====
 {{en-noun|s|portmanteaux}}
 
 # {{lb|en|linguistics}} A [[portmanteau word]].
-#* {{quote-book|en|year=1872|author=Lewis Carroll|title=[[s:Through The Looking Glass (And What Alice Found There)|Through The Looking Glass]]|chapter=[[s:Through the Looking Glass (And What Alice Found There)/Chapter VI|Chapter VI. Humpty Dumpty]]|passage=Well, “[[slithy]]” means “[[lithe]] and [[slimy]].” “Lithe” is the same as “active”. You see it’s like a '''[[portmanteau]]'''–there are two meanings packed up into one word.}}
-#* {{quote-book|en|year=1938|title=[https://books.google.ca/books?id=xcAUAAAAIAAJ Conversion and Fusion in Modern English: A Concise History of the Scholarly Recognition of These Linguistic Processes]|author=Joane Chaffe Miller|passage=He found the blend "tomax" in "a collection of gratulatory verses presented by the President and Fellows of Harvard College 1 to the new King, George III," dated 1761. A note by the owner of the volume explains the word as a combination of [[tomahawk]] and [[axe]]: "It is a '''portmanteau''' word, which must have been as clear to the average reader in England of 1761 — as clear to George III himself - as brillig and slithy would have been to us, had not Humpty Dumpty kindly explained them."}}
-#* {{quote-book|en|year=1985|title=[https://books.google.ca/books?id=1JoCEI-H0DgC&pg=PA287 Selected Papers from the XIIIth Linguistic Symposium on Romance Languages, Chapel Hill, N.C., 24-26 March 1983]|page=287|section="On the Representation of Higher Order Complex Words" by Carlos Piera of Cornell University|passage=1. '''Portmanteau''' Words and Allomorphy - This paper is primarily concerned with the theoretical implications of what have been called '''portmanteau''' words (Hockett, 1947)}}
+#* {{quote-book|en|year=1938|url=https://books.google.ca/books?id=xcAUAAAAIAAJ|title=Conversion and Fusion in Modern English: A Concise History of the Scholarly Recognition of These Linguistic Processes|author=Joane Chaffe Miller|text=He found the blend "tomax" in "a collection of gratulatory verses presented by the President and Fellows of Harvard College 1 to the new King, George III," dated 1761. A note by the owner of the volume explains the word as a combination of [[tomahawk]] and [[axe]]: "It is a '''portmanteau''' word, which must have been as clear to the average reader in England of 1761 — as clear to George III himself - as brillig and slithy would have been to us, had not Humpty Dumpty kindly explained them."}}
+#* {{quote-book|en|year=1985|url=https://books.google.ca/books?id=1JoCEI-H0DgC&pg=PA287|title=Selected Papers from the XIIIth Linguistic Symposium on Romance Languages, Chapel Hill, N.C., 24-26 March 1983|page=287|chapter=On the Representation of Higher Order Complex Words|author=Carlos Piera of Cornell University|text=1. '''Portmanteau''' Words and Allomorphy - This paper is primarily concerned with the theoretical implications of what have been called '''portmanteau''' words (Hockett, 1947)}}
 #: {{syn|en|blend|frankenword|portmanteau word}}
+# A [[portmanteau film]].
+#* {{quote-web|en|work=BBC|author=Nicholas Barber|date=July 12 2021|title=The French Dispatch: Four stars for Wes Anderson's latest|url=https://www.bbc.com/culture/article/20210712-the-french-dispatch-four-stars-for-wes-andersons-latest|text=His long-awaited '''portmanteau''', which premiered in Cannes on Monday, is the most {{w|Wes Anderson|Anderson}} of all Anderson films. It's Anderson distilled, Anderson squared, Anderson to the nth degree.}}
 
 =====Translations=====
 {{trans-see|portmanteau word}}

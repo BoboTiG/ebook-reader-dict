@@ -22,6 +22,7 @@
 ==== {{S|traductions}} ====
 {{trad-début}}
 * {{T|en}} : {{trad+|en|ecumenic}}, {{trad+|en|oecumenic}}, {{trad+|en|ecumenical}}, {{trad+|en|oecumenical}}
+* {{T|hr}} : {{trad-|hr|(1)|dif=svjetski}}, {{trad-|hr|(2)|dif=ekumenski}}
 * {{T|da}} : {{trad-|da|økumeni}}
 * {{T|es}} : {{trad+|es|ecuménico}}
 * {{T|eo}} : {{trad-|eo|ekumena}}
@@ -31,7 +32,7 @@
 * {{T|it}} : {{trad+|it|ecumenico}}
 * {{T|nl}} : {{trad+|nl|oecumene}}
 * {{T|pl}} : {{trad+|pl|ekumeniczny}}
-* {{T|pt}} : {{trad+|pt|ecumenismo}}
+* {{T|pt}} : {{trad+|pt|ecumênico}}
 * {{T|ru}} : {{trad+|ru|экуменический|tr=ekumeničeskij}}
 * {{T|sr}} : {{trad-|sr|eкуменизам}}
 {{trad-fin}}
@@ -40,8 +41,8 @@
 * {{pron-rimes|e.ky.me.nik|fr}}
 * {{pron|e.ky.me.nik|fr}} ou {{pron|ø.ky.me.nik|fr}}
 
-==== {{S|notes}} ====
-{{règle pron œ}}
+===== {{S|notes}} =====
+: {{note-fr-prononciation-œ}}
 
 === {{S|voir aussi}} ===
 * {{WP|Œcuménisme}}

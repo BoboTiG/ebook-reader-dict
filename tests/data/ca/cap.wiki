@@ -2,67 +2,72 @@
 
 == {{-ca-}} ==
 {{ca-pron}}
-{{homòfons|lang=ca|cab}}
-{{-etimologia-|la|ca}} Del llatí {{terme|la|caput}}.
-{{anagrames|lang=ca|pac}}
+{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-cap.wav|lang=ca}}
+{{homòfons|ca|cab}}
+{{-etimologia-|la|ca}} Del llatí vulgar {{terme|la|*capu(m)}}, variant de l’acusatiu {{terme|la|caput}}, {{etim-s|ca|XIII}}. Com a adjectiu pel sentit d’«extrem, punta». Com a preposició pel sentit de «part anterior (vers un lloc)».
 
 === Nom ===
 {{ca-nom|m}}
 
-# {{marca|ca|anatomia}} Part superior del [[cos]] d'un [[animal]].
-# [[cervell|Cervell]].
-# Persona que mana o dirigeix quelcom, [[líder]].
-# [[punta|Punta]], extrem, final.
-# Part de terra que s'endinsa en el [[mar]].
-# Grau [[militar]].
-# {{marca|ca|nàutica}} [[corda|Corda]].
+# {{marca|ca|anatomia}} Part superior i [[anterior]] del [[cos]] d'un [[animal]].
+#: {{ex-us|ca|Al cap hi trobem el cervell.}}
+# Part superior del cos de l'ésser humà, considerada com a [[seu]] del [[pensament]], l'[[intel·lecte]], [[judici]], [[talent]], [[seny]].
+#: {{ex-us|ca|Aquesta noia té molt de cap.}}
+# Lloc de [[preferència]], [[central]].
+#: {{ex-us|ca|En Pere és el cap de taula.}}
+# Localitat [[principal]] d'un territori; [[capital]].
+#: {{ex-us|ca|El cap de comarca és a prop del riu.}}
+# La part més [[alta]] d'una cosa.
+# Individu considerat com a membre d’una [[col·lectivitat]].
+# Extremitat en general.
+## Part anterior, per on comença una cosa.
+## Part final, per on acaba una cosa.
+# Part de terra que s'endinsa en la [[mar]].
+# {{marca|ca|nàutica}} [[corda]]
 # En un repartiment, cadascun dels participants.
+#: {{ex-us|ca|Tinc deu caramels i som cinc, per tant toquen deu per cap.}}
 #: ''A 10 per cap = indicar que a cadascú correspon pagar o cobrar 10.''
-# {{marca|ca|golf}} Part final d'un [[bastó]], que impacta en la bola en executar el cop.
+# {{marca|ca|golf}} Part final d'un [[bastó]], que impacta en la bola en executar el colp.
 # {{marca|ca|pilota basca}} Part més ampla d'una eina.
 # {{marca|ca|bàdminton}} [[base]]
 
-==== Notes ====
-* En golf, el cap està format per les cares, el coll, la punta i el taló.
+{{-sin-}}
+* {{q|anatomia}} [[carbassot]] , [[cervell]], [[clepsa]], [[closca]], [[crani]], [[crisma]], [[ment]], [[testa]]
+* {{q|seu del pensament}} [[cervell]], [[discerniment]], [[judici]], [[juí]], [[raonament]], [[raó]], [[saviesa]], [[senderi]], [[seny]], [[sindèresi]], [[talent]]
+* {{q|membre d’una col·lectivitat}} [[habitant]], [[individu]], [[persona]], [[ànima]]
+* {{q|extremitat|part anterior}} [[capçalera]], [[principi]]
+* {{q|extremitat|part final}} [[extrem]], [[fi]], [[final]], [[punta]]
 
 {{-comp-}}
-* Tenir el cap ple de pardals = somniar truites, estar distret o ple de fantasies
-* Tenir un bon cap = Ser [[intel·ligent]] o bé tenir un cap de grans dimensions.
-* No entrar al cap = no entendre
-* Tallar el cap = Figuradament, matar, portar problemes
-* De cap a peus = Completament
-* Cap de turc = Persona a qui fan responsable d'algun esdeveniment sense ser el culpable
-* Anar amb el cap alt = Estar orgullós
-* No tenir ni cap ni peus = No tenir sentit
-* Portar-se les mans al cap = Estranyar-se, admirar-se
-* Perdre el cap = Embogir, [[enamorar-se]]
-* Un cap de trons = un ximple, babau, [[boig]]
-* Cap de setmana = [[dissabte]] i [[diumenge]]
-* Cap d'any = 1 de gener
-* Cap quadrat = persona d'idees fixes
-* Cap dur = persona que li costa entendre o acceptar les coses
-* Lligar caps = [[resoldre]], arribar a conclusions a partir de pistes
-* pel cap baix = com a mínim
-* al cap de = després de
-* al cap i a la fi = nexe conclusiu
-* per cap = per persona
-* Tants caps tants barrets = Indica una repartició proporcional entre els membres d'un grup o bé una opinió o necessitat diferent per cada membre: ''Això és fàcil de repartir, tants caps tants barrets; en aquella reunió ningú coincidia, tants caps tants barrets.''
-* [[captenir]]
-* [[cap-roig]], [[caplletra]]
+* [[al cap de]]
+* [[al cap i a la fi]]
+* [[anar amb el cap alt]] = Estar orgullós
+* [[cap d'any]]
+* [[cap de setmana]]
+* [[cap de turc]] = Persona a qui fan responsable d'algun esdeveniment sense ser el culpable
+* [[cap dur]] = persona que li costa entendre o acceptar les coses
+* [[cap quadrat]] = persona d'idees fixes
 * [[capicular]]
+* [[caplletra]]
+* [[cap-roig]]
+* [[captenir]]
+* [[de cap a peus]] = Completament
+* [[lligar caps]]
+* [[no entrar al cap]] = no entendre
+* [[no tenir ni cap ni peus]] = No tenir sentit
+* [[pel cap baix]]
+* [[per cap]] = per persona
+* [[perdre el cap]] = Embogir, [[enamorar-se]]
+* [[portar-se les mans al cap]] = Estranyar-se, admirar-se
+* [[tallar el cap]] = Figuradament, matar, portar problemes
+* [[tants caps tants barrets]] = Indica una repartició proporcional entre els membres d'un grup o bé una opinió o necessitat diferent per cada membre: ''Això és fàcil de repartir, tants caps tants barrets; en aquella reunió ningú coincidia, tants caps tants barrets.''
+* [[tenir el cap ple de pardals]] = somniar truites, estar distret o ple de fantasies
+* [[tenir un bon cap]] = Ser [[intel·ligent]] o bé tenir un cap de grans dimensions.
+* [[un cap de trons]] = un ximple, babau, [[boig]]
 
 ==== Relacionats ====
 * [[capotejar]]
 * [[decapitar]]
-
-{{-sin-}}
-* [[amo]], [[cabdill]], [[cacic]], [[capitost]], [[patró]], [[senyor]], [[superior]]
-* [[capçalera]], [[principi]]
-* [[carbassot]], [[cervell]], [[clepsa]], [[closca]], [[crani]], [[crisma]], [[ment]], [[testa]]
-* [[cervell]], [[discerniment]], [[judici]], [[juí]], [[raonament]], [[raó]], [[saviesa]], [[senderi]], [[seny]], [[sindèresi]], [[talent]]
-* [[director]], [[encarregat]], [[gerent]], [[patró]], [[president]], [[propietari]], [[responsable]], [[superior]].
-* [[extrem]], [[fi]], [[final]], [[punta]]
-* [[habitant]], [[individu]], [[persona]], [[ànima]]
 
 {{-trad-}}
 {{inici|Part superior del cos d'un animal}}
@@ -70,53 +75,53 @@
 * {{sq}}: {{trad|sq|kokë|f}}
 * {{de}}: {{trad|de|Kopf|m}}
 * {{en}}: {{trad|en|head}}
-* {{ar}}: {{trad|ar|رَأْس‎ |m}}
-* {{hy}}: {{trad|hy|գլուխ }}
+* {{ar}}: {{trad|ar|رَأْس‎|m}}
+* {{hy}}: {{trad|hy|գլուխ}}
 * {{ast}}: {{trad|ast|cabeza|f}}, {{trad|ast|tiesta|f}}
 * {{eu}}: {{trad|eu|buru}}
-* {{be}}: {{trad|be|галава́ |f}}
-* {{bn}}: {{trad|bn|মাথা }}
+* {{be}}: {{trad|be|галава́|f}}
+* {{bn}}: {{trad|bn|মাথা}}
 * {{br}}: {{trad|br|penn|m}}
 * {{es}}: {{trad|es|cabeza|f}}
-* {{ko}}: {{trad|ko|머리 }}
+* {{ko}}: {{trad|ko|머리}}
 * {{kw}}: {{trad|kw|penn|m}}
 * {{co}}: {{trad|co|capu}}
 * {{da}}: {{trad|da|hoved|n}}
 * {{sk}}: {{trad|sk|hlava|f}}
 * {{sl}}: {{trad|sl|glava}}
 * {{eo}}: {{trad|eo|kapo}}
-* {{fo}}: {{trad|fo|høvd |n}}
+* {{fo}}: {{trad|fo|høvd|n}}
 * {{fr}}: {{trad|fr|tête|f}}
 * {{fy}}: {{trad|fy|holle}}
 * {{fur}}: {{trad|fur|cjâf|m}}
 * {{gl}}: {{trad|gl|cabeza|f}}, {{trad|gl|testa|f}}
 * {{cy}}: {{trad|cy|pen|m}}
-* {{ka}}: {{trad|ka|თავი }}
-* {{el}}: {{trad|el|κεφάλι |n}}
-* {{grc}}: {{trad|grc| κεφαλή |f}}
+* {{ka}}: {{trad|ka|თავი}}
+* {{el}}: {{trad|el|κεφάλι|n}}
+* {{grc}}: {{trad|grc|κεφαλή|f}}
 * {{kl}}: {{trad|kl|niaqoq}}
-* {{gn}}: {{trad|gn|akã }}
-* {{he}}: {{trad|he| רֹאשׁ‎|m}}
+* {{gn}}: {{trad|gn|akã}}
+* {{he}}: {{trad|he|רֹאשׁ‎|m}}
 * {{hi}}: {{trad|hi|षिर|m}}, {{trad|hi|सिर|m}}
 * {{hu}}: {{trad|hu|fej}}
+* {{yi}}: {{trad|yi|קאָפּ|m}}
 * {{io}}: {{trad|io|kapo}}
 * {{id}}: {{trad|id|kepala}}
 * {{ga}}: {{trad|ga|ceann|m}}
-* {{is}}: {{trad|is|höfuð |n}}
+* {{is}}: {{trad|is|höfuð|n}}
 * {{it}}: {{trad|it|testa|f}}
-* {{ja}}: {{trad|ja|頭 }}
+* {{ja}}: {{trad|ja|頭}}
 * {{jv}}: {{trad|jv|sirah}}
-* {{yi}}: {{trad|yi|קאָפּ|m}}
 * {{kk}}: {{trad|kk|бас}}
 {{mig}}
-* {{ky}}: {{trad|ky|баш }}
+* {{ky}}: {{trad|ky|баш}}
 * {{ku}}: {{trad|ku|ser}}
 * {{lv}}: {{trad|lv|galva|f}}
 * {{li}}: {{trad|li|kop|m}}
 * {{lt}}: {{trad|lt|galva|f}}
 * {{la}}: {{trad|la|caput|n}}
 * {{csc}}: {{trad|csc|CAP}}
-* {{mk}}: {{trad|mk| глава|f}}
+* {{mk}}: {{trad|mk|глава|f}}
 * {{ms}}: {{trad|ms|kepala}}
 * {{mt}}: {{trad|mt|kap|m}}
 * {{mi}}: {{trad|mi|mahunga}}
@@ -125,32 +130,32 @@
 * {{nl}}: {{trad|nl|hoofd|n}}
 * {{no}}: {{trad|no|hode|n}}
 * {{oc}}: {{trad|oc|cap|m}}, {{trad|oc|tèsta|f}}
-* {{os}}: {{trad|os|сӕр }}
-* {{pl}}: {{trad|pl|głowa |f}}
+* {{os}}: {{trad|os|сӕр}}
+* {{pl}}: {{trad|pl|głowa|f}}
 * {{pt}}: {{trad|pt|cabeça|f}}
 * {{qu}}: {{trad|qu|uma}}
 * {{ro}}: {{trad|ro|cap|n}}
-* {{ru}}: {{trad|ru|голова́ |f}}
-* {{sa}}: {{trad|sa|शिरस् |n}}
+* {{ru}}: {{trad|ru|голова́|f}}
+* {{sa}}: {{trad|sa|शिरस्|n}}
 * {{sc}}: {{trad|sc|conca}}
-* {{sh}}: {{trad|sh|глава }}, {{trad|sh|glava}}
+* {{sh}}: {{trad|sh|глава}}, {{trad|sh|glava}}
 * {{scn}}: {{trad|scn|testa|f}}, {{trad|scn|capa|f}}
-* {{sw}}: {{trad|sw|kichwa }}
+* {{sw}}: {{trad|sw|kichwa}}
 * {{sv}}: {{trad|sv|huvud|n}}
-* {{tg}}: {{trad|tg|сар }}
+* {{tg}}: {{trad|tg|сар}}
 * {{tl}}: {{trad|tl|ulo}}
-* {{th}}: {{trad|th| หัว}}
-* {{ta}}: {{trad|ta|தலை }}
-* {{tr}}: {{trad|tr|baş }}
+* {{th}}: {{trad|th|หัว}}
+* {{ta}}: {{trad|ta|தலை}}
+* {{tr}}: {{trad|tr|baş}}
 * {{cs}}: {{trad|cs|hlava|f}}
-* {{uk}}: {{trad|uk|голова́ |f}}
-* {{ur}}: {{trad|ur|سر‎ |m}}
+* {{uk}}: {{trad|uk|голова́|f}}
+* {{ur}}: {{trad|ur|سر‎|m}}
 * {{uz}}: {{trad|uz|bosh}}
 * {{wa}}: {{trad|wa|tiesse}}
 * {{vo}}: {{trad|vo|kap}}
 * {{wo}}: {{trad|wo|boopa}}
-* {{zh}}: {{trad|zh|頭 }}
 * {{xh}}: {{trad|xh|intloko}}
+* {{zh}}: {{trad|zh|頭}}
 {{final}}
 
 {{inici|Cervell}}
@@ -161,33 +166,6 @@
 * {{sl}}: {{trad|sl|glava}}
 * {{fr}}: {{trad|fr|tête|f}}
 * {{mt}}: {{trad|mt|kap|m}}
-{{final}}
-
-{{inici|Persona que mana o dirigeix}}
-* {{de}}: {{trad|de|Chef|m}}
-* {{en}}: {{trad|en|head}}, {{trad|en|boss}}
-* {{hy}}: {{trad|hy|վերակացու}}
-* {{be}}: {{trad|be|начальнiк|m}}
-* {{es}}: {{trad|es|jefe|m}}
-* {{ko}}: {{trad|ko|상관}}
-* {{sl}}: {{trad|sl|glava}}
-* {{eo}}: {{trad|eo|ĉefo }}
-* {{et}}: {{trad|et|ülemus}}
-* {{fi}}: {{trad|fi|pomo}}
-* {{fr}}: {{trad|fr|chef|m}}, {{trad|fr|patron|m}}
-{{mig}}
-* {{ga}}: {{trad|ga|bas|m}}
-* {{mt}}: {{trad|mt|kap|m}}
-* {{mr}}: {{trad|mr|ईश|m}}
-* {{nl}}: {{trad|nl|baas|m}}
-* {{oc}}: {{trad|oc|cap|m}}
-* {{pl}}: {{trad|pl|brygadzista |m}}
-* {{pt}}: {{trad|pt|chefe|m-f}}
-* {{sa}}: {{trad|sa|ईश|m}}
-* {{sv}}: {{trad|sv|chef|c}}
-* {{ty}}: {{trad|ty|ari'i}}
-* {{cs}}: {{trad|cs|šéf |m}}
-* {{zh}}: {{trad|zh|老闆}}
 {{final}}
 
 {{inici|Punta, extrem, final}}
@@ -201,12 +179,6 @@
 {{mig}}
 * {{sl}}: {{trad|sl|rt}}
 * {{oc}}: {{trad|oc|cap|m}}
-{{final}}
-
-{{inici|Grau militar}}
-* {{eu}}: {{trad|eu|kaporal}}
-{{mig}}
-* {{es}}: {{trad|es|cabo|m}}
 {{final}}
 
 {{inici|Golf: part final d'un bastó}}
@@ -224,11 +196,55 @@
 * {{fr}}: {{trad|fr|tête}}
 {{final}}
 
+=== Nom ===
+{{ca-nom|mf}}
+
+# Persona que ocupa el primer lloc, que mana o que dirigeix quelcom; [[capitost]].
+#: {{ex-us|ca|Ahir vaig demanar al meu cap quan podria fer vacances.}}
+# Grau [[militar]].
+
+{{-sin-}}
+* [[amo]], [[cabdill]], [[cacic]], [[capitost]], [[patró]], [[senyor]], [[superior]], [[director]], [[encarregat]], [[gerent]], [[president]], [[propietari]], [[responsable]]
+
+{{-trad-}}
+{{inici|Persona que mana o dirigeix}}
+* {{de}}: {{trad|de|Chef|m}}
+* {{en}}: {{trad|en|head}}, {{trad|en|boss}}
+* {{hy}}: {{trad|hy|վերակացու}}
+* {{be}}: {{trad|be|начальнiк|m}}
+* {{es}}: {{trad|es|jefe|m}}
+* {{ko}}: {{trad|ko|상관}}
+* {{sl}}: {{trad|sl|glava}}
+* {{eo}}: {{trad|eo|ĉefo}}
+* {{et}}: {{trad|et|ülemus}}
+* {{fi}}: {{trad|fi|pomo}}
+* {{fr}}: {{trad|fr|chef|m}}, {{trad|fr|patron|m}}
+* {{ga}}: {{trad|ga|bas|m}}
+{{mig}}
+* {{mt}}: {{trad|mt|kap|m}}
+* {{mr}}: {{trad|mr|ईश|m}}
+* {{nl}}: {{trad|nl|baas|m}}
+* {{oc}}: {{trad|oc|cap|m}}
+* {{pl}}: {{trad|pl|brygadzista|m}}
+* {{pt}}: {{trad|pt|chefe|m-f}}
+* {{sa}}: {{trad|sa|ईश|m}}
+* {{sv}}: {{trad|sv|chef|c}}
+* {{ty}}: {{trad|ty|ari'i}}
+* {{cs}}: {{trad|cs|šéf|m}}
+* {{zh}}: {{trad|zh|老闆}}
+{{final}}
+
+{{inici|Grau militar}}
+* {{eu}}: {{trad|eu|kaporal}}
+{{mig}}
+* {{es}}: {{trad|es|cabo|m}}
+{{final}}
+
 === Adjectiu ===
-{{lema|ca|adj|invariable}}
+{{entrada|ca|adj|invariable}}
 
 # {{marca|ca|negatiu}} Ni [[un]].
-#: ''No ens queda cap cartró de llet, n'haurem de comprar més.''
+#: {{ex-us|ca|No ens queda cap cartó de llet, n'haurem de comprar més.}}
 # {{marca|ca|interrogatiu|condicional}} [[algun|Algun]].
 # {{marca|ca|negatiu}} [[gens|Gens]] de.
 # {{marca|ca|interrogatiu|condicional}} Alguna [[mena]] de.
@@ -253,10 +269,10 @@
 {{final}}
 
 === Preposició ===
-{{lema|ca|prep}}
+{{entrada|ca|prep}}
 
 # [[cap a]]
-#: ''Anàvem cap amunt i a mitja muntanya ens vam aturar a descansar.''
+#: {{ex-us|ca|Anàvem cap amunt i a mitja muntanya ens vam aturar a descansar.}}
 
 ==== Notes ====
 * "Cap a" és una preposició composta que perd la "a" davant adverbis o determinants que comencen per aquesta vocal.
@@ -277,6 +293,9 @@
 # {{ca-forma-conj|capar|1|pres|ind}}
 #: Forma amb desinència zero baleàrica i algueresa: [jo] [[capo]], [[cape]], cap o [[capi]].
 
+=== Miscel·lània ===
+* {{anagrames|ca|pac}}
+
 === Vegeu també ===
 * {{Viquipèdia}}
 * {{ca-dicc|diec|gdlc|optimot}}
@@ -295,42 +314,39 @@
 # [[capitalització]]
 # [[majúscula]]
 # [[gorra]], [[caputxa]]
-#: ''{{lleng|en|In this school all children wear a '''cap'''.}}''—«En aquesta escola tots els nens porten gorra.»
+#: {{ex-us|en|In this school all children wear a '''cap'''.|En aquesta escola tots els nens porten gorra.}}
 # [[tap]], [[caputxó]]
-#: ''{{lleng|en|He took the '''cap''' off the bottle and splashed himself with some cologne.}}''—«Va llevar el caputxó de l'ampolla i es va ficar una mica de colònia.»
+#: {{ex-us|en|He took the '''cap''' off the bottle and splashed himself with some cologne.|Va llevar el caputxó de l'ampolla i es va ficar una mica de colònia.}}
 # [[funda]] dental
-#: ''{{lleng|en|He had golden '''caps''' on his teeth.}}''—«Tenia fundes d'or a les dents.»
+#: {{ex-us|en|He had golden '''caps''' on his teeth.|Tenia fundes d'or a les dents.}}
 # [[cim]], [[carena]]
-#: ''{{lleng|en|There was snow on the '''cap''' of the mountain.}}''—«Hi havia neu al cim de la muntanya.»
+#: {{ex-us|en|There was snow on the '''cap''' of the mountain.|Hi havia neu al cim de la muntanya.}}
 # [[sostre]]
-#: ''{{lleng|en|We should put a '''cap''' on the salaries, to keep them under control.}}''—«Hauríem de fixar un sostre als salaris, per tenir-los sota control.»
+#: {{ex-us|en|We should put a '''cap''' on the salaries, to keep them under control.|Hauríem de fixar un sostre als salaris, per tenir-los sota control.}}
 # [[ceba]], [[petard]]
-#: ''{{lleng|en|Billy spent all morning firing '''caps''' with his friends.}}''—«Billy va passar tot el matí fent petar cebes amb els amics.»
+#: {{ex-us|en|Billy spent all morning firing '''caps''' with his friends.|Billy va passar tot el matí fent petar cebes amb els amics.}}
 # [[detonador]]
-#: ''{{lleng|en|He wired the '''cap''' to the bundle of dynamite, then detonated it remotely.}}''—«Ell va connectar el detonador al menat de dinamita i la va fer petar a distància.»
+#: {{ex-us|en|He wired the '''cap''' to the bundle of dynamite, then detonated it remotely.|Ell va connectar el detonador al menat de dinamita i la va fer petar a distància.}}
 # [[bala]] assassina
-#: ''{{lleng|en|Did he think they were going to put a '''cap''' in his ass right in the middle of Metreon?}}''<ref>Charles Jade, ''Jade goes to Metreon'', 2001</ref>—«Com s'havia de pensar que li enviarien una bala assassina directament al cul, estant al mig de Metreon?»
+#: {{ex-cit|en|Did he think they were going to put a '''cap''' in his ass right in the middle of Metreon?|ref=Charles Jade, ''Jade goes to Metreon'', 2001|Com s'havia de pensar que li enviarien una bala assassina directament al cul, estant al mig de Metreon?}}
 # {{marca|en|futbol}} [[aparició]] [[internacional]]
-#: ''{{lleng|en|Rio Ferdinand won his 50th '''cap''' for England in a game against Sweden.}}''—«Rio Ferdinand, ha estat escollit per cinquantena vegada per la selecció anglesa, en un partit contra Suècia.»
+#: {{ex-us|en|Rio Ferdinand won his 50th '''cap''' for England in a game against Sweden.|Rio Ferdinand, ha estat escollit per cinquantena vegada per la selecció anglesa, en un partit contra Suècia.}}
 # part [[superior]]
-#: ''{{lleng|en|the cap of column, door, etc.; a capital, coping, cornice, lintel, or plate}}''—«Part superior d'una columna, porta, capitell, còfia, cornisa, llinda o sostre.»
+#: {{ex-us|en|the cap of column, door, etc.; a capital, coping, cornice, lintel, or plate.|Part superior d'una columna, porta, capitell, còfia, cornisa, llinda o sostre.}}
 
 === Verb ===
 {{en-verb|caps|capping|capped}}
 
 # [[nevar]], [[cobrir]]
-#: ''{{lleng|en|In every direction the great snow-'''capped''' peaks hemmed them in.}}''<ref>A Conan-Doyle, ''A Study in scarlet'', part II</ref>—«Per tot arreu ens envoltaven cims coberts de neu.»
+#: {{ex-cit|en|In every direction the great snow-'''capped''' peaks hemmed them in.|ref=A Conan-Doyle, ''A Study in scarlet'', part II|Per tot arreu ens envoltaven cims coberts de neu.}}
 # posar sostre, [[limitar]]
-#: ''{{lleng|en|'''cape''' wages}}''—«posar sostre als sous»
+#: {{ex-us|en|'''cape''' wages|posar sostre als sous}}
 # posar la cirereta del pastís
-#: ''{{lleng|en|That really '''capped''' my day.}}''—«Això va posar la cirereta del pastís al dia d'avui.»
+#: {{ex-us|en|That really '''capped''' my day.|Això va posar la cirereta del pastís al dia d'avui.}}
 # [[seleccionar]], [[escollir]]
-#: ''{{lleng|en|Peter Shilton is the most '''capped''' English footballer.}}''—«Peter Shilton és el futbolista més escollit per la selecció.»
+#: {{ex-us|en|Peter Shilton is the most '''capped''' English footballer.|Peter Shilton és el futbolista més escollit per la selecció.}}
 # [[disparar]], [[apuntar]]
-#: ''{{lleng|en|If he don't get outta my hood, I'm gonna '''cap''' his ass.}}''—«Si ell no em descobreix primer, apuntaré amb l'arma al seu cul.»
-
-=== Vegeu també ===
-{{referències}}
+#: {{ex-us|en|If he don't get outta my hood, I'm gonna '''cap''' his ass.|Si ell no em descobreix primer, apuntaré amb l'arma al seu cul.}}
 
 == {{-fr-}} ==
 {{-pronafi-}} {{pron|fr|/kap/}}
@@ -339,20 +355,17 @@
 === Nom ===
 {{fr-nom|m}}
 
-# {{e|ca|cap}} marí
-# (''en desús'') {{e|ca|cap}} de persona
-#: ''{{lleng|fr|Armé de pied en '''cap'''.}}''—«Armat de cap a peus.»
+# [[#ca|cap]] marí
+# {{marca|fr|en desús}} [[#ca|cap]] de persona
+#: {{ex-us|fr|Armé de pied en '''cap'''.|Armat de cap a peus.}}
 # [[direcció]], [[proa]]
-#: ''{{lleng|fr|Avoir le '''cap''' au nord.}}''—«Portar direcció nord.»
+#: {{ex-us|fr|Avoir le '''cap''' au nord.|Portar direcció nord.}}
 # [[etapa]], [[capítol]]
-#: ''{{lleng|fr|Pionnier de la banalisation médiatique du Front national, BFMTV vient de franchir un nouveau '''cap''', en plein entre-deux-tours.}}''<ref>Christophe Nobili, ''Danse médiatique avec les loups'', publicat en: '' Le Canard enchaîné'', 3 de maig del 2017, p. 4</ref>—«Pioner de la banalització mediàtica del Front nacional, BFMTV acaba de protagonitzar una nova etapa, en mig de dues competicions.»
+#: {{ex-cit|fr|Pionnier de la banalisation médiatique du Front national, BFMTV vient de franchir un nouveau '''cap''', en plein entre-deux-tours.|ref=Christophe Nobili, «Danse médiatique avec les loups», ''Le Canard enchaîné'', 3 de maig del 2017, p. 4|Pioner de la banalització mediàtica del Front nacional, BFMTV acaba de protagonitzar una nova etapa, en mig de dues competicions.}}
 
 {{-sin-}}
 * [2] {{e|fr|tête}}
 * [3] {{e|fr|proue}}
-
-=== Vegeu també ===
-{{referències}}
 
 == {{-oc-}} ==
 {{oc-pron}}
@@ -363,7 +376,7 @@
 {{oc-nom|m}}
 
 # {{marca|oc|anatomia}} {{e|ca|cap}}
-# {{e|ca|cap}}, [[patró]] 
+# {{e|ca|cap}}, [[patró]]
 # {{marca|oc|geologia}} {{e|ca|cap}}
 # {{marca|oc|geografia}} {{e|ca|cap}}
 
@@ -372,7 +385,7 @@
 * {{q|geologia}} {{e|oc|cima}}
 
 === Adjectiu ===
-{{lema|oc|adj}}
+{{entrada|oc|adj}}
 
 # {{e|ca|cap}}
 
@@ -380,16 +393,16 @@
 * {{e|oc|cap de}}
 
 === Pronom ===
-{{lema|oc|pronom}}
+{{entrada|oc|pronom}}
 
 # {{e|ca|cap}}
 
 === Adverbi ===
-{{lema|oc|adv}}
+{{entrada|oc|adv}}
 
 # {{marca|oc|aranès}} [[pas]]
 
 === Verb ===
-{{lema|oc|verb-forma}}
+{{entrada|oc|verb-forma}}
 
 # {{forma-conj|oc|caber|3|pres|ind}}

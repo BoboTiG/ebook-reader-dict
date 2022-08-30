@@ -1,16 +1,16 @@
 ={{-pt-}}=
 ==Contração==
 {{flex.pt|ms=to|mp=tos|fs=ta|fp=tas}}
-{{oxítona|to}}
-# {{escopo|pt|antigo}} [[contração]] do [[pronome pessoal]] "[[te]]" com o pronome pessoal ou [[demonstrativo]] "[[o]]"
-# {{escopo|pt|coloquial|brasil}} forma [[aferético|aferética]] (muito comum na linguagem falada) de [[estou]] 
+{{oxítona|to}}, {{gramática|m}}
+# {{escopo|pt|Antigo}} [[contração]] do [[pronome pessoal]] [[te]] com o pronome pessoal ou [[demonstrativo]] [[o]]
+# {{escopo|pt|Brasil|coloquial}} forma [[aferético|aferética]] (muito comum na linguagem falada) de [[estou]] 
 
 [[Categoria:Contração (Português)]]
 
 
 ={{-da-}}=
 ==Numeral==
-'''to''', {{gramática|card}}
+'''to''', {{gramática|card|lang=da}}
 # [[dois]]
 
 =={{etimologia|da}}==
@@ -44,7 +44,7 @@
 
 ={{-no-}}=
 ==Numeral==
-'''to''', {{gramática|card}}
+'''to''', {{gramática|card|lang=no}}
 # [[dois]]
 
 =={{etimologia|no}}==
@@ -55,12 +55,12 @@
 
 ={{-pl-}}=
 ==Pronome adjetivo==
-'''to''', {{gramática|dem|n}}
+'''to''', {{gramática|dem|n|lang=pl}}
 # nominativo neutro singular de {{link opcional|ten|pl}}
 {{avi-for-fle|ten}}
 
 ==Pronome substantivo==
-'''to''', {{gramática|dem|n}}
+'''to''', {{gramática|dem|n|lang=pl}}
 # {{escopo2|coisa ou assunto de que se fala}} [[isto]], [[isso]], [[aquilo]]
 # {{tradex|pl|Co '''to''' jest?|O que é isso?}}
 # {{tradex|pl|'''To''' jest książka.|Isto é um livro.}}

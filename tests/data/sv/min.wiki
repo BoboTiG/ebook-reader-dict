@@ -18,6 +18,7 @@
 
 ====Översättningar====
 {{ö-topp}}
+*belarusiska: {{ö|be|мой}}
 *bokmål: {{ö+|no|min}}
 *bretonska: {{ö+|br|ma}}
 *bulgariska: {{ö+|bg|мой}}
@@ -28,6 +29,7 @@
 *franska: {{ö+|fr|mon|m}} {{ö+|fr|ma|f}} (1, 3), le {{ö+|fr|mien|m}} la {{ö+|fr|mienne|f}} (2, 4)
 *italienska: {{ö+|it|mio}}
 *japanska: {{ö+|ja|私}}の ({{ö+|ja|わたし}}の, ''watashi no'' eller {{ö+|ja|わたくし}}の, ''watakushi no''), {{ö+|ja|僕}}の ({{ö+|ja|ぼく}}の, ''boku no''), {{ö+|ja|わし}}の (''washi no''), {{ö+|ja|俺}}の ({{ö|ja|おれ}}の, ''ore no'')
+*jiddisch: {{ö|yi|מײַן|tr=mayn}}
 *kroatiska: {{ö+|hr|moj|m}}, {{ö|hr|moja|f}}
 *lettiska: {{ö|lv|mans}}, {{ö|lv|manējs}}
 *litauiska: {{ö+|lt|mano}}
@@ -40,12 +42,12 @@
 *slovakiska: {{ö+|sk|môj}}
 *slovenska: {{ö+|sl|moj}}
 *spanska: {{ö+|es|mío}}, {{ö+|es|mi}}
+*sydsamiska: {{ö|sma|mov}}
 *tjeckiska: {{ö+|cs|můj}}
 *turkiska: {{ö+|tr|benim}}
 *tyska: {{ö+|de|mein}}, {{ö+|de|meine}}, {{ö+|de|meinen}}, {{ö+|de|meiner}}
 *ukrainska: {{ö+|uk|мій}}
 *ungerska: {{ö|hu|-m}}
-*vitryska: {{ö|be|мой}}
 *älvdalska: {{ö|ovd|menn|m}}, {{ö|ovd|mąi|f}}, {{ö|ovd|mett|n}}
 {{ö-botten}}
 
@@ -63,6 +65,7 @@
 {{ö-topp|känslouttryck i ansiktet}}
 *bokmål: {{ö+|no|mine|mf}}
 *engelska: {{ö+|en|facial expression}}
+*italienska: {{ö|it|espressione del viso|f}}, {{ö|it|espressione facciale|f}}
 *nederländska: {{ö|nl|gelaatsuitdrukking|f}}
 *portugisiska: {{ö|pt|expressão facial}}
 *tyska: {{ö+|de|Miene|f}}, {{ö+|de|Gesichtsausdruck|m}}

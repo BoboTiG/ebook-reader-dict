@@ -1,8 +1,8 @@
 == {{-ca-}} ==
-{{ca-pron|or=/ˌpeˈe.məˌe.fə/|occ=/ˌpeˈe.maˌe.fa/}}
+{{ca-pron|or=/ˌpeˈe.məˌe.fə/|occ=/ˌpeˈe.maˌe.fa/|rima=}}
 
 === Sigles ===
-{{lema|ca|sigles|g=f}}
+{{entrada|ca|sigles|g=f}}
 
 # [[preguntes|Preguntes]] [[més|Més]] [[freqüents|Freqüents]].
 
@@ -19,6 +19,6 @@
 {{es-pron|/ˌpeˈe.meˌe.fe/}}
 
 === Sigles ===
-{{lema|es|sigles|g=f}}
+{{entrada|es|sigles|g=f}}
 
 # [[preguntas|Preguntas]] [[más|Más]] [[frecuentes|Frecuentes]], és a dir, {{e|ca|PMF}}.

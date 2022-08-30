@@ -101,6 +101,7 @@
 
 ====Översättningar====
 {{ö-topp|vintergrön barrväxt}}
+*belarusiska: {{ö+|be|ядловец|m|tr=jadlóvjec}}
 *bokmål: {{ö|no|einer|m}}
 *bulgariska: {{ö+|bg|хвойна|f|tr=hvójna}}
 *danska: {{ö+|da|ene|u}}, {{ö|da|almindelig ene|u}}
@@ -126,7 +127,6 @@
 *ukrainska: {{ö+|uk|яловець|m|tr=jalovéc}}, {{ö+|uk|ялівець|m|tr=jalivécʹ}}
 *ungerska: {{ö+|hu|boróka}}
 *vepsiska: {{ö|vep|kadag}}
-*vitryska: {{ö+|be|ядловец|m|tr=jadlóvjec}}
 {{ö-botten}}
 
 ==Afrikaans==
@@ -222,6 +222,13 @@
 {{konj|is}}
 '''en'''
 #[[men]]
+
+==Ladino==
+===Preposition===
+{{prep|lad}}
+'''en''' ({{länk|lad|אין}})
+#[[i]]
+#[[på]]
 
 ==Nederländska==
 ===Konjunktion===

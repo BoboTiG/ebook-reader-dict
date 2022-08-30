@@ -16,6 +16,9 @@
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Muntzenheim)|audio=LL-Q150 (fra)-0x010C-minutes.wav}}
 * {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-minutes.wav}}
+* {{écouter|lang=fr|France||audio=LL-Q150 (fra)-Mecanautes-minutes.wav}}
+
+
 
 
 
@@ -31,19 +34,19 @@
 : {{ébauche-étym|en}}
 
 === {{S|nom|en}} ===
-'''minutes''' {{pron|ˈmɪ.nɪts|en}} {{au pluriel uniquement|en}}
+'''minutes''' {{pron|ˈmɪn.ɪts|en}} {{au pluriel uniquement|en}}
 # [[compte-rendu|Compte-rendu]], [[procès-verbal]].
 #* ''The elected secretary will take the '''minutes''' of the meeting.''
 
 === {{S|nom|en|flexion}} ===
-{{en-nom-rég|sing=minute|ˈmɪ.nɪt}}
-'''minutes''' {{pron|ˈmɪ.nɪts|en}}
+{{en-nom-rég|sing=minute|ˈmɪn.ɪt}}
+'''minutes''' {{pron|ˈmɪn.ɪts|en}}
 # ''Pluriel de'' [[minute]].
 
 === {{S|verbe|en|flexion}} ===
-'''minutes''' {{pron|ˈmɪ.nɪts|en}}
+'''minutes''' {{pron|ˈmɪn.ɪts|en}}
 # ''Troisième personne du singulier du présent indicatif du verbe ''[[minute]].
 
 === {{S|prononciation}} ===
-* {{écouter|lang=en|États-Unis <!-- précisez svp la ville ou la région -->||audio=En-us-minutes.ogg}}
-* {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-minutes.wav}}
+* {{écouter|lang=en|États-Unis <!-- précisez svp la ville ou la région -->|ˈmɪn.ɪts|audio=En-us-minutes.ogg}}
+* {{écouter|lang=en|Royaume-Uni (Londres)|ˈmɪn.ɪts|audio=LL-Q1860 (eng)-Back ache-minutes.wav}}

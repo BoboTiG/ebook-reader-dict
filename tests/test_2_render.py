@@ -3,6 +3,22 @@ from unittest.mock import patch
 import pytest
 
 from wikidict import render
+from wikidict.lang import pronunciation
+
+
+@pytest.mark.parametrize(
+    "regexp, code, expected",
+    [
+        (pronunciation["ca"], "{{ca-pron|/as/}}", ["as"]),
+        (pronunciation["ca"], "{{ca-pron|or=/əɫ/}}", ["əɫ"]),
+        (pronunciation["ca"], "{{ca-pron|or=/əɫ/|occ=/eɫ/}}", ["əɫ"]),
+        (pronunciation["ca"], "{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}", ["əɫ"]),
+        (pronunciation["en"], "{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}", ["ʌs", "ʌz"]),
+        (pronunciation["en"], "{{IPA|en|/ʌs/|/ʌz/}}", ["ʌs", "ʌz"]),
+    ],
+)
+def test_find_pronunciations(regexp, code, expected):
+    assert render.find_pronunciations(code, regexp) == expected
 
 
 def test_simple():

@@ -9,7 +9,7 @@
 * {{a|RP}} {{IPA|en|/ɪˈfɪʃənt/}}
 * {{a|US|CA}} {{IPA|en|/əˈfɪʃənt/}}
 * {{audio|en|en-us-efficient.ogg|Audio (US)}}
-* {{rhymes|en|ɪʃənt}}
+* {{rhymes|en|ɪʃənt|s=3}}
 
 ===Adjective===
 {{en-adj}}
@@ -24,16 +24,15 @@
 # expressing the [[proportion]] of [[consumed]] [[energy]] that was successfully used in a process; the ratio of useful output to total input
 #: {{ux|en|The motor is only 20% '''efficient''' at that temperature.}}
 # causing effects, producing results; bringing into being; initiating [[change]] (rare except in philosophical and legal expression ''[[efficient cause]]'' = [[causative]] [[factor]] or [[agent]])
-#* {{RQ:Raleigh History}}
+#* {{RQ:Raleigh Historie of the World}}
 #*: It was well said of Plotinus, that the stars were significant, but not '''efficient'''.
 #: {{ux|en|Ownership, maintenance, or use of the automobile need not be the direct and '''efficient''' cause of the injury sustained}}
-# {{lb|en|proscribed|old use}} [[effective]]
-#* '''1801''', {{w|Robert Southey}}, ''{{w|Thalaba the Destroyer}}'':
-#*: Ye wake no more to anguish;‥ ye have borne<br>The Chosen, the Destroyer!‥ soon his hand<br>Shall strike the '''efficient''' blow;<br>Soon shaking off your penal forms, shall ye,<br>With songs of joy, amid the Eden groves,<br>Hymn the Deliverer’s praise!
+# {{lb|en|proscribed|old use}} [[effective]], [[efficacious]]
+#* {{RQ:Southey Thalaba|||Ye wake no more to anguish;‥ ye have borne<br>The Chosen, the Destroyer!‥ soon his hand<br>Shall strike the '''efficient''' blow;<br>Soon shaking off your penal forms, shall ye,<br>With songs of joy, amid the Eden groves,<br>Hymn the Deliverer’s praise!}}
 #* '''1856''', William Dexter Wilson, ''An Elementary Treatise on Logic''
-#*: The Efficient Cause is that from which emanates the force that produces the Effect 
+#*: The '''Efficient''' Cause is that from which emanates the force that produces the Effect
 
-=====Usage notes=====
+====Usage notes====
 Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}} and {{m|en|effective}} as synonyms, but all major dictionaries now show that these words now only have different meanings in careful use. Use of both for the other meaning is however widespread enough that Longman's Exam Dictionary, for example, finds it necessary to proscribe the use of one for the other with several examples at each entry and provides the following summary:
 * {{m|en|efficient||working quickly and without waste}}
 * {{m|en|effective||having the desired effect}}
@@ -80,16 +79,18 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 {{trans-mid}}
 * Icelandic: {{t|is|skilvirkur|m}}, {{t|is|nýtinn|m}}
 * Ido: {{t+|io|efikiva}}
-* Italian: {{t+|it|efficiente}}
-* Korean: {{t|ko|[[효율적]][[이다|인]]}}
+* Irish: {{t|ga|éifeachtúil}}, {{t|ga|éifeachtach}}, {{t|ga|feidhmiúil}}
+* Italian: {{t+|it|efficiente}}, {{t+|it|performante}}
+* Korean: {{t|ko|[[효율적]][[-이다|-인]]}}
 * Latin: {{t|la|efficiens}}
-* Malay: {{t|ms|cekap}}, {{t|ms|efisien}}
+* Malay: {{t+|ms|cekap}}, {{t|ms|efisien}}
 * Portuguese: {{t+|pt|eficiente}}
 * Romanian: {{t+|ro|eficient}}
 * Russian: {{t+|ru|эффекти́вный}}
 * Scottish Gaelic: {{t|gd|èifeachdach}}
 * Spanish: {{t+|es|eficiente}}, {{t+|es|eficaz}}
-* Tagalog: {{t|tl|matalab}}
+* Tagalog: {{t|tl|episyente}}
+* Turkish: {{t+|tr|verimli}}
 * Ukrainian: {{t|uk|ефекти́вний}}
 {{trans-bottom}}
 
@@ -99,12 +100,13 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 * Czech: {{t+|cs|účinný|m}}
 * Dutch: {{t+|nl|efficiënt}}
 * Finnish: {{t+|fi|hyötysuhde}} {{q|noun}}
-{{trans-mid}}
 * French: {{t+|fr|efficace}}
+{{trans-mid}}
 * Hungarian: {{t+|hu|gazdaságos}}, {{t+|hu|hatékony}}
+* Italian: {{t+|it|efficiente}}
 * Portuguese: {{t+|pt|eficaz}}
 * Scottish Gaelic: {{t|gd|èifeachdach}}
-* Tagalog: {{t|tl|matalab}}
+* Tagalog: {{t|tl|episyente}}
 {{trans-bottom}}
 
 {{trans-top|causing effects; producing results}}
@@ -127,7 +129,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 ===References===
 <references />
 
-[[Category:English words not following the I before E except after C rule]]
+{{C|en|Personality}}
 
 ----
 
@@ -149,10 +151,11 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 ==French==
 
 ===Etymology===
-From {{der|fr|la|efficiēns}}.
+{{bor+|fr|la|efficiens|efficientem}}.
 
 ===Pronunciation===
 * {{fr-IPA}}
+* {{rfap|fr}}
 * {{homophones|fr|efficients}}
 
 ===Adjective===

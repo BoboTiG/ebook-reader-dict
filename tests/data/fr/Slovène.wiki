@@ -6,7 +6,7 @@
 
 === {{S|nom|fr}} ===
 {{fr-rég|slɔ.vɛn|mf=oui}}
-'''Slovène''' {{pron|slɔ.vɛn|lang=fr}} {{mf}}
+'''Slovène''' {{pron|slɔ.vɛn|fr}} {{mf}}
 # {{gentilés|fr|d’Europe}} [[habitant|Habitant]] de la [[Slovénie]].
 
 ==== {{S|notes}} ====
@@ -18,6 +18,7 @@
 * {{T|de}} : {{trad+|de|Slowene}}, {{trad-|de|Windischer|m}}, {{trad+|de|Slowenin}}, {{trad-|de|Windische|f}}
 * {{T|en}} : {{trad+|en|Slovene}}, {{trad+|en|Slovenian}} {{US|nocat=1}} ''(homme ou femme)''
 * {{T|bg}} : {{trad-|bg|словенец|m|tr=slovenec}}, {{trad-|bg|словенка|f|tr=slovenka}}
+* {{T|hr}} : {{trad+|hr|Slovenac}}
 * {{T|da}} : {{trad-|da|slovener|c}}
 * {{T|es}} : {{trad+|es|esloveno|m}}, {{trad+|es|eslovena|f}}
 * {{T|eo}} : {{trad-|eo|sloveno}} ''(homme ou femme)'', {{trad-|eo|sloveniĉo}} ''(homme)'', {{trad-|eo|slovenino}} ''(femme)''

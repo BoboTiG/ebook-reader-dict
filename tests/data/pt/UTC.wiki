@@ -3,6 +3,12 @@
 '''''UTC'''''
 # {{escopo|pt|estrangeirismo}} ver [[TUC]]
 
+==Ver também==
+===Na Wikipédia===
+* [[w:Tempo Universal Coordenado|Artigo sobre UTC na Wikipédia]]
+
+==Ligações externas==
+* [http://www.zenite.nu/menu02/hora.shtml Breves comentários sobre UTC e fusos horários]
 
 [[Categoria:Sigla (Português)]]
 
@@ -15,10 +21,5 @@
 =={{etimologia|en}}==
 : Formado a partir de ''Universal Time'', pela adição do modificador ''Coordinated''.
 
-==Ver também==
-===Na Wikipédia===
-* [[w:UTC|Artigo sobre UTC na Wikipédia]]
-* [http://www.zenite.nu/menu02/hora.shtml Breves comentários sobre UTC e fusos horários]
-
-[[Categoria:Sigla]]
+[[Categoria:Sigla (Inglês)]]
 [[Categoria:Tempo (Inglês)]]

@@ -42,6 +42,8 @@
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-Poslovitch-42.wav}}
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-42.wav}}
 * {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-42.wav}}
+* {{écouter|France (Lyon)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-42.wav}}
+* {{écouter|Mulhouse (France)||lang=fr|audio=LL-Q150 (fra)-Mathieu Kappler-42.wav}}
 
 === {{S|voir aussi}} ===
 * {{WP|42 (nombre)}}

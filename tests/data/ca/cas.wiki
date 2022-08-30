@@ -3,7 +3,6 @@
 == {{-ca-}} ==
 {{ca-pron|/ˈkas/|bal=/ˈcas/|bal2=/ˈkas/}}
 {{-etimologia-|la|ca}} Del llatí {{terme|la|casus}}.
-{{anagrames|lang=ca|asc|sac}}
 
 === Nom ===
 {{ca-nom|m|p=casos}}
@@ -31,31 +30,31 @@
 * {{be}}: {{trad|be|спра́ва|f}}
 * {{bg}}: {{trad|bg|де́ло|n}}
 * {{es}}: {{trad|es|caso}}
-* {{ko}}: {{trad|ko|사건 }}
+* {{ko}}: {{trad|ko|사건}}
 * {{sk}}: {{trad|sk|prípad|m}}
 * {{sl}}: {{trad|sl|primer|m}}
 * {{fi}}: {{trad|fi|tapaus}}
 * {{fr}}: {{trad|fr|cas}}
 * {{gl}}: {{trad|gl|caso|m}}
 * {{cy}}: {{trad|cy|achos|m}}
-* {{ka}}: {{trad|ka| შემთხვევა}}
+* {{ka}}: {{trad|ka|შემთხვევა}}
 * {{el}}: {{trad|el|περίπτωση|f}}
 * {{he}}: {{trad|he|מקרה|m}}
 {{mig}}
 * {{it}}: {{trad|it|caso|m}}
-* {{ja}}: {{trad|ja|例 }}
-* {{mk}}: {{trad|mk|случај |m}}
+* {{ja}}: {{trad|ja|例}}
+* {{mk}}: {{trad|mk|случај|m}}
 * {{mn}}: {{trad|mn|хэрэг}}
 * {{nl}}: {{trad|nl|geval|n}}
-* {{pl}}: {{trad|pl| przypadek|m}}
+* {{pl}}: {{trad|pl|przypadek|m}}
 * {{pt}}: {{trad|pt|caso|m}}
 * {{ro}}: {{trad|ro|caz|n}}
 * {{ru}}: {{trad|ru|случай|m}}
-* {{sh}}: {{trad|sh|случај }}, {{trad|sh|slučaj}}
+* {{sh}}: {{trad|sh|случај}}, {{trad|sh|slučaj}}
 * {{sv}}: {{trad|sv|fall}}
 * {{cs}}: {{trad|cs|případ|m}}
 * {{uk}}: {{trad|uk|спра́ва|f}}
-* {{vi}}: {{trad|vi|trường hợp }}
+* {{vi}}: {{trad|vi|trường hợp}}
 * {{zh}}: {{trad|zh|事件}}
 {{final}}
 
@@ -76,27 +75,27 @@
 * {{ga}}: {{trad|ga|cás|m}}
 {{mig}}
 * {{it}}: {{trad|it|caso|m}}
-* {{ja}}: {{trad|ja|事件 }}
+* {{ja}}: {{trad|ja|事件}}
 * {{la}}: {{trad|la|casus|m}}
-* {{mk}}: {{trad|mk|случај |m}}
+* {{mk}}: {{trad|mk|случај|m}}
 * {{mn}}: {{trad|mn|хэрэг}}
 * {{nl}}: {{trad|nl|geval|n}}
 * {{oc}}: {{trad|oc|cas|m}}
 * {{fa}}: {{trad|fa|مورد}}
 * {{pt}}: {{trad|pt|caso|m}}
 * {{ru}}: {{trad|ru|слу́чай|m}}
-* {{sh}}: {{trad|sh|случај }}, {{trad|sh|slučaj}}
+* {{sh}}: {{trad|sh|случај}}, {{trad|sh|slučaj}}
 * {{sw}}: {{trad|sw|kesi}}
 * {{sv}}: {{trad|sv|fall|n}}
-* {{cs}}: {{trad|cs|případ |m}}
+* {{cs}}: {{trad|cs|případ|m}}
 {{final}}
 
 {{inici|Forma segons la declinació}}
 * {{en}}: {{trad|en|case}}
-* {{ar}}: {{trad|ar|حَالَة |f}}
+* {{ar}}: {{trad|ar|حَالَة|f}}
 * {{hy}}: {{trad|hy|հոլով}}
 * {{az}}: {{trad|az|hal}}
-* {{be}}: {{trad|be|склон |m}}
+* {{be}}: {{trad|be|склон|m}}
 * {{bg}}: {{trad|bg|паде́ж|m}}
 * {{es}}: {{trad|es|caso}}
 * {{ko}}: {{trad|ko|격}}
@@ -108,24 +107,24 @@
 * {{fo}}: {{trad|fo|fall|n}}
 * {{fi}}: {{trad|fi|sijamuoto}}
 * {{fr}}: {{trad|fr|cas}}
-* {{cy}}: {{trad|cy|cyflwr |m}}
+* {{cy}}: {{trad|cy|cyflwr|m}}
 * {{ka}}: {{trad|ka|ბრუნვა}}
 * {{el}}: {{trad|el|πτώση|f}}
-* {{grc}}: {{trad|grc|πτῶσις |f}}
-* {{he}}: {{trad|he| יַחֲסָה‎|f}}
+* {{grc}}: {{trad|grc|πτῶσις|f}}
+* {{he}}: {{trad|he|יַחֲסָה‎|f}}
 * {{hi}}: {{trad|hi|कारक|m}}
 * {{hu}}: {{trad|hu|eset}}
 * {{io}}: {{trad|io|kazo}}
 {{mig}}
-* {{ga}}: {{trad|ga|tuiseal |m}}
+* {{ga}}: {{trad|ga|tuiseal|m}}
 * {{is}}: {{trad|is|fall|n}}
 * {{it}}: {{trad|it|caso|m}}
 * {{ja}}: {{trad|ja|格}}
-* {{lv}}: {{trad|lv| locījums|m}}
+* {{lv}}: {{trad|lv|locījums|m}}
 * {{lt}}: {{trad|lt|linksnis|m}}
 * {{la}}: {{trad|la|casus|m}}
 * {{mk}}: {{trad|mk|падеж|m}}
-* {{nl}}: {{trad|nl|naamval |m}}, {{trad|nl|casus|m}}
+* {{nl}}: {{trad|nl|naamval|m}}, {{trad|nl|casus|m}}
 * {{pl}}: {{trad|pl|przypadek|m}}
 * {{pt}}: {{trad|pt|caso|m}}
 * {{ro}}: {{trad|ro|caz|n}}
@@ -139,7 +138,7 @@
 * {{cs}}: {{trad|cs|pád|m}}
 * {{uk}}: {{trad|uk|відмі́нок|m}}
 * {{vi}}: {{trad|vi|cách}}
-* {{zh}}: {{trad|zh| 格 }}
+* {{zh}}: {{trad|zh|格}}
 {{final}}
 
 {{inici|Atenció, cura}}
@@ -153,7 +152,7 @@
 # {{forma-p|ca|ca|glossa=lletra k}}
 
 === Contracció ===
-{{lema|ca|contracció}}
+{{entrada|ca|contracció}}
 
 # Contracció entre el nom ''[[casa]]'' i l'article salat ''[[es]]'' quan és usat com un article personal. S'utilitza tan per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.
 
@@ -164,12 +163,15 @@
 
 ==== Notes d'ús ====
 * Quan la contracció es troba davant d'una paraula que compleix els requisits per apostrofar l'article [[es]], cal trencar la contracció i aplicar l'apostrofació de l'article.
-* :Exemples: ''Ca s'Andreu''
+* :Exemples: ''Ca s'Arabins''
 
 === Verb ===
 {{ca-verb-forma}}
 
 # {{marca-nocat|ca|balear|alguerès}} {{ca-forma-conj|casar|1|pres|ind}}
+
+=== Miscel·lània ===
+* {{anagrama|ca|asc|sac}}
 
 === Vegeu també ===
 * {{ca-dicc|diec|gdlc|optimot}}

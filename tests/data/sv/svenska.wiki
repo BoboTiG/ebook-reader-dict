@@ -5,8 +5,12 @@
 {{sv-subst-n-oräkn|fog=|betydelser=1.|förled=svensk}}
 {{sv-subst-n-or|betydelser=2.}}
 '''svenska'''
+*{{uttal|sv|ljud=Sv-svenska.ogg}}
 #{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
+#:{{etymologi|Belagt sedan 1300-talet, som {{härledning-|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref>}}
+#:{{sammansättningar|[[svensklektion]], [[svensklärare]]}}
 #{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
+#:{{etymologi|Belagt sedan 1773.<ref name="so"></ref>}}
 
 ====Översättningar====
 {{ö-topp|språk}}
@@ -23,6 +27,7 @@
 *basjkiriska: {{ö|ba|швед теле}}
 *baskiska: {{ö+|eu|suediera}}
 *bayerska: {{ö|bar|Schwedisch}}
+*belarusiska: {{ö|be|шве́дская мо́ва|f|tr=švjédskaja móva}}, {{ö|be|шве́дская|f|tr=švjédskaja}}
 *bengali: {{ö|bn|সুয়েডীয় ভাষা}}
 *bokmål: {{ö+|no|svensk|m}}
 *bosniska: {{ö+|bs|švedski|m}}
@@ -155,13 +160,13 @@
 *venetianska: {{ö+|vec|svedexe|m}}
 *vepsiska: {{ö|vep|ročin kel'}}
 *vietnamesiska: {{ö+|vi|tiếng Thụy Điển}}, {{ö|vi|Thụy-Điển}}
-*vitryska: {{ö|be|шве́дская мо́ва|f|tr=švjédskaja móva}}, {{ö|be|шве́дская|f|tr=švjédskaja}}
 *volapük: {{ö+|vo|Svedänapük}}
 *västpanjabi: {{ö+|pnb|سونسکا}}
 *waray-waray: {{ö|war|Suweko}}
 *yoruba: {{ö|yo|Èdè Sweden}}
 *zazaiska: {{ö|diq|Swêdki}}
 *zulu: {{ö|zu|IsiSwidishi}}
+*älvdalska: {{ö|ovd|swenska|f}}
 *östmariska: {{ö|mhr|швед йылме}}
 {{ö-botten}}
 
@@ -174,6 +179,7 @@
 *grekiska: {{ö+|el|Σουηδή}}, {{ö+|el|Σουηδέζα}}
 *isländska: {{ö|is|Svii|m}}
 *italienska: {{ö+|it|svedese|f}}
+*jiddisch: {{ö|yi|שוועדין|f|tr=shvedin}}
 *katalanska: {{ö+|ca|sueca|f}}
 *nederländska: {{ö+|nl|Zweedse|f}}
 *nynorska: {{ö+|nn|svenske|m}}, {{ö|nn|svensk kvinne|f}}
@@ -191,3 +197,13 @@
 ===Adjektiv===
 '''svenska'''
 #{{böjning|sv|adj|svensk}}
+
+===Verb===
+{{sv-verb-ar}}
+'''svenska'''
+#{{tagg|mindre brukligt}} tala [[#Svenska#Substantiv|svenska]]
+#:{{citat|år=1875|titel=[https://libris.kb.se/bib/1761921 Studier i Sveriges statskunskap: Del 1: Land och folk]|förf=[[w:Wilhelm Erik Svedelius|Wilhelm Erik Svedelius]]|Ännu på 1840-talet var icke sällsynt att träffa äldre personer, som talade båda språken, men uttryckte sig lättare på finska än när de "'''svenskade'''" d.ä. talade svenska.}}
+#:{{citat|år=2014|titel=Att inte vilja se|förf=[[w:Jan Guillou|Jan Guillou]]|Alla andra på bygget visste ju att han var norrman – hur mycket han än '''svenskade''' sig, som man hade kallat detta blandspråk bland rallarna på Hardangervidda, så hördes det såfort han öppnade munnen att han var norrman.}}
+
+==Källor==
+<references/>
