@@ -52,8 +52,8 @@ def last_template_handler(
         >>> last_template_handler(["transliterator", "ar"], "fr", word="زب")
         'zb'
     """
-    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, term
     from ..transliterator import transliterate
+    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, term
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -76,7 +76,7 @@ def last_template_handler(
 
     # {{tpl|item1|item2|...}} -> ''
     if len(template) > 2:
-        from ..render import MISSING_TPL_SEEN, LOCK
+        from ..render import LOCK, MISSING_TPL_SEEN
 
         with LOCK:
             if tpl not in MISSING_TPL_SEEN:

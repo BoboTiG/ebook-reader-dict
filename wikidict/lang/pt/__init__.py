@@ -208,9 +208,6 @@ def last_template_handler(
         >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
         'chimica f.'
     """  # noqa
-    from .langs import langs
-    from .gramatica import gramatica_short
-    from ..defaults import last_template_handler as default
     from ...user_functions import (
         concat,
         extract_keywords_from,
@@ -220,6 +217,9 @@ def last_template_handler(
         superscript,
         term,
     )
+    from ..defaults import last_template_handler as default
+    from .gramatica import gramatica_short
+    from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)

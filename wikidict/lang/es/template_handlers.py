@@ -1,6 +1,6 @@
-from typing import Tuple, Dict, List
 from collections import defaultdict  # noqa
-from .langs import langs, lang_to_normalize
+from typing import Dict, List, Tuple
+
 from ...user_functions import (
     capitalize,
     concat,
@@ -9,6 +9,7 @@ from ...user_functions import (
     small,
     subscript,
 )
+from .langs import lang_to_normalize, langs
 
 
 def normalizar_nombre(to_normalize: str) -> str:

@@ -1,6 +1,6 @@
 from unittest.mock import patch
 
-from wikidict import check_words, check_word, render
+from wikidict import check_word, check_words, render
 
 
 def test_errors():

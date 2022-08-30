@@ -1,5 +1,6 @@
-from scripts_utils import get_soup, get_url_content
 import re
+
+from scripts_utils import get_soup, get_url_content
 
 url = "https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma"
 content = get_url_content(url)

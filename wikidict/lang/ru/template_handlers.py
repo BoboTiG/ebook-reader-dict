@@ -1,12 +1,10 @@
-from typing import Tuple, Dict, List
-
-from .. import defaults
-from ...user_functions import (
-    extract_keywords_from,
-)
+from typing import Dict, List, Tuple
 
 import requests
 from bs4 import BeautifulSoup
+
+from ...user_functions import extract_keywords_from
+from .. import defaults
 
 
 # for etymology content, need to run code to get text from other wiktionary page

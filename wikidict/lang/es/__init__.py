@@ -201,8 +201,8 @@ def last_template_handler(
         lookup_italic,
         strong,
     )
-    from .template_handlers import render_template, lookup_template
     from ..defaults import last_template_handler as default
+    from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(template)

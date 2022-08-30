@@ -1,4 +1,5 @@
 import re
+
 from scripts_utils import get_soup
 
 url = "https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C3%A1tica/core&action=edit"

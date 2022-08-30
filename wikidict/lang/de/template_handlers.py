@@ -1,13 +1,8 @@
-from typing import Dict, List, Tuple
 from collections import defaultdict  # noqa
-from ...user_functions import small
+from typing import Dict, List, Tuple
 
+from ...user_functions import extract_keywords_from, italic, small
 from .abk import abk
-
-from ...user_functions import (
-    extract_keywords_from,
-    italic,
-)
 
 bibel_names = {
     "Gen": "Genesis",

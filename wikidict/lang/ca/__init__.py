@@ -189,8 +189,6 @@ def last_template_handler(
         >>> last_template_handler(["trad", "sc=es", "manzana"], "ca")
         'manzana <sup>(es)</sup>'
     """
-    from .langs import langs
-    from .. import defaults
     from ...user_functions import (
         concat,
         extract_keywords_from,
@@ -198,6 +196,8 @@ def last_template_handler(
         strong,
         superscript,
     )
+    from .. import defaults
+    from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)

@@ -8,7 +8,6 @@ import pytest
 from wikidict import convert
 from wikidict.stubs import Word
 
-
 EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 41
 Export Wiktionnaire : 2020-12-17
 

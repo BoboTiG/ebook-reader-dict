@@ -1,6 +1,5 @@
 from scripts_utils import get_soup
 
-
 START_URL = (
     "https://es.wiktionary.org/wiki/Categor%C3%ADa:Plantillas_de_campo_sem%C3%A1ntico"
 )

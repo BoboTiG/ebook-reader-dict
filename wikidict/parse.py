@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, Generator, Optional, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
+
 from .lang import head_sections
 
 

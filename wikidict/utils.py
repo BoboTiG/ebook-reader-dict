@@ -7,11 +7,11 @@ from functools import partial
 from pathlib import Path
 from typing import List, Match, Tuple, Union
 
-from cachetools import cached
-from cachetools.keys import hashkey
 import regex
 import requests
 import wikitextparser
+from cachetools import cached
+from cachetools.keys import hashkey
 
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
@@ -19,6 +19,7 @@ from .constants import (
     DOWNLOAD_URL_STARDICT,
     IMG_CSS,
 )
+from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
     pattern_file,
@@ -30,8 +31,6 @@ from .lang import (
     thousands_separator,
 )
 from .user_functions import *  # noqa
-from .hiero_utils import render_hiero
-
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words

@@ -11,7 +11,6 @@ from .fr.langs import langs as FR
 from .pt.langs import langs as PT
 from .ru.langs import langs as RU
 
-
 #
 # Start of manual edition allowed.
 #

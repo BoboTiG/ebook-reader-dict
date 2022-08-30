@@ -1,6 +1,6 @@
 import re
-from scripts_utils import get_soup
 
+from scripts_utils import get_soup
 
 url = "https://el.wiktionary.org/wiki/Module:Languages"
 soup = get_soup(url)

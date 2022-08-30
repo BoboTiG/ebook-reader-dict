@@ -1,4 +1,5 @@
 import re
+
 from scripts_utils import get_url_content
 
 url = "https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_langues"

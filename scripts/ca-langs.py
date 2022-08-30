@@ -1,6 +1,6 @@
 import re
-from io import StringIO
 import xml.etree.ElementTree as ET
+from io import StringIO
 
 import requests
 

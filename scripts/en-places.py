@@ -1,6 +1,5 @@
 from scripts_utils import get_soup
 
-
 url = "https://en.wiktionary.org/wiki/Template:place"
 soup = get_soup(url)
 tables = soup.find_all("table", "wikitable")

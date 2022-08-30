@@ -1,5 +1,6 @@
 import re
 from operator import itemgetter
+
 from scripts_utils import get_url_content
 
 url1 = "https://pt.wiktionary.org/wiki/Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/A-L"

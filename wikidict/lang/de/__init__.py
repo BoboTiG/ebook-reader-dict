@@ -132,12 +132,11 @@ def last_template_handler(
     >>> last_template_handler(["fr"], "de")
     'Französisch'
     """  # noqa
-    from ..defaults import last_template_handler as default
-    from .template_handlers import render_template, lookup_template
     from ...user_functions import italic
-
+    from ..defaults import last_template_handler as default
     from .lang_adjs import lang_adjs
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     if lang_adj := lang_adjs.get(template[0], ""):
         return f"{lang_adj}{template[1] if len(template) > 1 else ''}"

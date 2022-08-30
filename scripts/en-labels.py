@@ -1,5 +1,6 @@
-from scripts_utils import get_soup
 import re
+
+from scripts_utils import get_soup
 
 
 def process_display(display):

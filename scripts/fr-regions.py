@@ -1,6 +1,5 @@
 from scripts_utils import get_soup
 
-
 ROOT = "https://fr.wiktionary.org"
 START_URL = "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_r%C3%A9gionaux_du_Wiktionnaire"
 NEXTPAGE_TEXT = "page suivante"

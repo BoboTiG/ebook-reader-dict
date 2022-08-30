@@ -38,9 +38,9 @@ def last_template_handler(
     template: Tuple[str, ...], locale: str, word: str = ""
 ) -> str:
 
-    from .langs import langs
     from ..defaults import last_template_handler as default
-    from .template_handlers import render_template, lookup_template
+    from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(template)

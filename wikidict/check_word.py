@@ -1,21 +1,19 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 import copy
 import re
-from typing import List
 from functools import partial
 from threading import Lock
 from time import sleep
-
-
-from .render import parse_word
-from .stubs import Word
-from .user_functions import color, int_to_roman
-from .utils import get_word_of_the_day
+from typing import List
 
 import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
 
+from .render import parse_word
+from .stubs import Word
+from .user_functions import color, int_to_roman
+from .utils import get_word_of_the_day
 
 # Remove all kind of spaces and some unicode characters
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub

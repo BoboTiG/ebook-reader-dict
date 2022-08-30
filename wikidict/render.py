@@ -9,24 +9,24 @@ from itertools import chain
 from pathlib import Path
 from typing import Dict, List, Optional, Pattern, Tuple, cast
 
+import wikitextparser as wtp
+import wikitextparser._spans
+
 from .lang import (
     definitions_to_ignore,
-    gender,
     etyl_section,
+    gender,
     head_sections,
     pronunciation,
     section_level,
-    section_sublevels,
     section_patterns,
+    section_sublevels,
     sections,
     sublist_patterns,
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
 from .utils import clean, process_templates, table2html
-
-import wikitextparser as wtp
-import wikitextparser._spans
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then

@@ -1,9 +1,7 @@
-from typing import Tuple, Dict, List, Match
-from collections import defaultdict  # noqa
 import re
+from collections import defaultdict  # noqa
+from typing import Dict, List, Match, Tuple
 
-from .langs import langs
-from .. import defaults
 from ...user_functions import (
     capitalize,
     concat,
@@ -16,6 +14,8 @@ from ...user_functions import (
     term,
     underline,
 )
+from .. import defaults
+from .langs import langs
 
 
 def word_tr_sens(w: str, tr: str, sens: str, use_italic: bool = True) -> str:

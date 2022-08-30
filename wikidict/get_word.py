@@ -3,10 +3,10 @@ import re
 
 import requests
 
-from .stubs import Word
 from .render import parse_word
+from .stubs import Word
 from .user_functions import int_to_roman
-from .utils import convert_pronunciation, convert_gender, get_word_of_the_day
+from .utils import convert_gender, convert_pronunciation, get_word_of_the_day
 
 
 def get_word(word: str, locale: str) -> Word:

@@ -1,16 +1,6 @@
 from collections import defaultdict  # noqa
-from typing import Tuple, Dict, List, TypedDict
+from typing import Dict, List, Tuple, TypedDict
 
-from .labels import label_syntaxes
-from .langs import langs
-from .places import (
-    recognized_placetypes,
-    recognized_placenames,
-    recognized_qualifiers,
-    placetypes_aliases,
-)
-from .si_unit import unit_to_symbol, prefix_to_exp, prefix_to_symbol, unit_to_type
-from .. import defaults
 from ...transliterator import transliterate
 from ...user_functions import (
     capitalize,
@@ -23,6 +13,16 @@ from ...user_functions import (
     superscript,
     term,
 )
+from .. import defaults
+from .labels import label_syntaxes
+from .langs import langs
+from .places import (
+    placetypes_aliases,
+    recognized_placenames,
+    recognized_placetypes,
+    recognized_qualifiers,
+)
+from .si_unit import prefix_to_exp, prefix_to_symbol, unit_to_symbol, unit_to_type
 
 
 def join_names(

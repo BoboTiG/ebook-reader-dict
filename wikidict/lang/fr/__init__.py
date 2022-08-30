@@ -812,16 +812,10 @@ def last_template_handler(
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
     """  # noqa
-    from .langs import langs
+    from ...user_functions import chinese, extract_keywords_from, italic, person, term
     from ..defaults import last_template_handler as default
-    from ...user_functions import (
-        chinese,
-        extract_keywords_from,
-        italic,
-        person,
-        term,
-    )
-    from .template_handlers import render_template, lookup_template
+    from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(template)

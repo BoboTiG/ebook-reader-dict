@@ -1,5 +1,6 @@
 """English language."""
 from typing import Tuple
+
 from .labels import labels, labels_regional, labels_subvarieties, labels_topical
 
 # Regex to find the pronunciation
@@ -190,9 +191,6 @@ def last_template_handler(
 
     """  # noqa
 
-    from .langs import langs
-
-    from .form_of import form_of_templates
     from ...user_functions import (
         capitalize,
         chinese,
@@ -200,11 +198,13 @@ def last_template_handler(
         italic,
         strong,
     )
+    from .form_of import form_of_templates
+    from .langs import langs
     from .template_handlers import (
-        render_template,
-        lookup_template,
         gloss_tr_poss,
         join_names,
+        lookup_template,
+        render_template,
     )
 
     if lookup_template(template[0]):

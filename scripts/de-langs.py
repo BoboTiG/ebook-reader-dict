@@ -1,6 +1,5 @@
 from scripts_utils import get_soup
 
-
 ROOT_URL = "https://de.wiktionary.org"
 START_URL = f"{ROOT_URL}/wiki/Kategorie:Wiktionary:Sprachk%C3%BCrzel"
 NEXTPAGE_TEXT = "nächste Seite"
