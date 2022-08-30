@@ -47,6 +47,7 @@ labels = {
     "back-slang": "back slang",
     "backslang": "back slang",
     "bookish": "literary",
+    "cardinal": "cardinal number",
     "causative verb": "causative",
     "child language": "childish",
     "chu Nom": "Vietnamese chữ Nôm",
@@ -78,6 +79,7 @@ labels = {
     "fandom": "fandom slang",
     "female speech": "women's speech",
     "figurative": "figuratively",
+    "fractional": "fractional number",
     "generic trademark": "genericized trademark",
     "hapax legomenon": "hapax",
     "hedges": "hedge",
@@ -142,6 +144,7 @@ labels = {
     "notcomp": "not comparable",
     "nowadays": "now",
     "obscene": "vulgar",
+    "ordinal": "ordinal number",
     "passive voice": "passive",
     "pejorative": "derogatory",
     "plurale tantum": "plural only",
@@ -191,7 +194,7 @@ labels = {
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
     "wrt": "with respect to",
-}  # 186
+}  # 189
 
 label_syntaxes = {
     "&": {
