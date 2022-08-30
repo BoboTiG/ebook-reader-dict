@@ -1,6 +1,7 @@
 """DEBUG: generate the dictionary for specific words."""
+
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Tuple
 
@@ -26,7 +27,7 @@ def main(locale: str, words: str, output: str, format: str = "kobo") -> int:
         output_dir,
         all_words,
         variants,
-        datetime.utcnow().strftime("%Y%m%d"),
+        datetime.now(tz=timezone.utc).strftime("%Y%m%d"),
     )
 
     if format == "stardict":

@@ -228,9 +228,7 @@ def find_gender(code: str, pattern: Pattern[str]) -> str:
     if not match:
         return ""
     groups = match.groups()
-    if not groups:
-        return ""
-    return groups[0] or ""
+    return groups[0] or "" if groups else ""
 
 
 def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:

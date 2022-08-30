@@ -1,8 +1,9 @@
 """Utilities for internal use."""
+
 import re
 from collections import namedtuple
 from contextlib import suppress
-from datetime import datetime
+from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
 from typing import List, Match, Tuple, Union
@@ -34,7 +35,7 @@ from .user_functions import *  # noqa
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
-NOW = datetime.utcnow()
+NOW = datetime.now(tz=timezone.utc)
 MAGIC_WORDS = {
     "CURRENTYEAR": str(NOW.year),
     "CURRENTMONTH": NOW.strftime("%m"),
