@@ -961,24 +961,61 @@ def render_si_unit_abb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_surname("surname", ["en"], defaultdict(str))
-    '<i>A surname.</i>'
-    >>> render_surname("surname", ["en"], defaultdict(str, {"nodot":"1"}))
     '<i>A surname</i>'
     >>> render_surname("surname", ["en", "rare"], defaultdict(str))
-    '<i>A rare surname.</i>'
+    '<i>A rare surname</i>'
+    >>> render_surname("surname", ["en", "English"], defaultdict(str))
+    '<i>An English surname</i>'
     >>> render_surname("surname", ["en", "occupational"], defaultdict(str, {"A":"An"}))
-    '<i>An occupational surname.</i>'
-    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"Latin", "dot":","}))
-    '<i>A surname, from Latin,</i>'
+    '<i>An occupational surname</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"Latin"}))
+    '<i>A surname from Latin</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"surnames"}))
+    '<i>A surname transferred from the surname</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"given names"}))
+    '<i>A surname transferred from the given name</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"nicknames"}))
+    '<i>A surname transferred from the nickname</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"place names"}))
+    '<i>A surname transferred from the place name</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"common nouns"}))
+    '<i>A surname transferred from the common noun</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"coinages"}))
+    '<i>A surname originating as a coinage</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"matronymics"}))
+    '<i>A surname originating as a matronymic</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"patronymics"}))
+    '<i>A surname originating as a patronymic</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"ethnonyms"}))
+    '<i>A surname originating as an ethnonym</i>'
+    >>> render_surname("surname", ["en"], defaultdict(str, {"from":"occupations"}))
+    '<i>A surname originating as an occupation</i>'
     """
     parts.pop(0)  # Remove the lang
-    art = data["A"] or "A"
-    dot = data["dot"] or ("" if data["nodot"] else ".")
-    from_text = f", from {data['from']}" if data["from"] else ""
+    art = data["A"] or ("An" if parts and parts[0][0].lower() in "aeiou" else "A")
+
+    from_value, from_text = data["from"], ""
+    if from_value in {
+        "common nouns",
+        "given names",
+        "nicknames",
+        "place names",
+        "surnames",
+    }:
+        from_text = f" transferred from the {from_value[:-1]}"
+    elif from_value in {"coinages", "matronymics", "patronymics"}:
+        from_text = f" originating as a {from_value[:-1]}"
+    elif from_value in {"ethnonyms", "occupations"}:
+        from_text = f" originating as an {from_value[:-1]}"
+    elif from_value == "the Bible":
+        from_text = " originating from the Bible"
+    elif from_value:
+        from_text = f" from {from_value}"
+
     return (
-        italic(f"{art} {parts[0]} {tpl}{from_text}{dot}")
+        italic(f"{art} {parts[0]} {tpl}{from_text}")
         if parts
-        else italic(f"{art} {tpl}{from_text}{dot}")
+        else italic(f"{art} {tpl}{from_text}")
     )
 
 
