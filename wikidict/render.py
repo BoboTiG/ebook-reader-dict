@@ -241,7 +241,17 @@ def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
-    return pattern.findall(line)
+    result = pattern.findall(line)
+    # result might contains tuple, flatten it
+    flattened_result = []
+    for res in result:
+        if isinstance(res, tuple):
+            for rres in res:
+                if rres:
+                    flattened_result.append(rres)
+        elif res:
+            flattened_result.append(res)
+    return flattened_result
 
 
 def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
