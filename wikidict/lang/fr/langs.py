@@ -2509,7 +2509,7 @@ langs = {
     "kkb": "kwerisa",
     "kkc": "odoodee",
     "kkd": "kinuku",
-    "kke": "kakabe",
+    "kke": "kakabé",
     "kkf": "monpa de Kalaktang",
     "kki": "kagulu",
     "kkk": "kokota",
