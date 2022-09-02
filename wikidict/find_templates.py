@@ -11,7 +11,8 @@ from .render import find_all_sections, find_sections, get_latest_json_file, load
 
 def find_titles(code: str, locale: str) -> List[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    return [title for title, _ in find_all_sections(code, locale)]
+    _, all_sections = find_all_sections(code, locale)
+    return [title for title, _ in all_sections]
 
 
 def find_templates(in_words: Dict[str, str], locale: str) -> None:
@@ -22,7 +23,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
         for title in find_titles(code, locale):
             found_sections[title].append(in_word)
 
-        parsed_sections = find_sections(code, locale)
+        _, parsed_sections = find_sections(code, locale)
         defs = "\n".join(str(s) for s in parsed_sections.values())
         for template in re.findall(r"({{[^{}]*}})", defs):
             if template.startswith(locale_sections):

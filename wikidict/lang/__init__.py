@@ -75,8 +75,8 @@ def _populate(
     }
 
 
-# Regex to find the pronunciation
-pronunciation: Dict[str, Pattern[str]] = _populate("pronunciation", callback=re.compile)
+# Function to find the pronunciation
+pronunciation = _populate("find_pronunciations")
 
 # Regex to find the gender
 gender: Dict[str, Pattern[str]] = _populate("gender", callback=re.compile)
@@ -136,7 +136,7 @@ templates_multi: Dict[str, Dict[str, str]] = _populate("templates_multi")
 templates_other: Dict[str, Dict[str, str]] = _populate("templates_other")
 
 # When a template is not handled by any previous template handlers,
-# this method will be called with *parts* as argument.
+# this function will be called with *parts* as argument.
 last_template_handler = _populate("last_template_handler")
 
 # The full release description on GitHub:

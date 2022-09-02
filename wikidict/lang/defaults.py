@@ -1,9 +1,9 @@
 """Defaults values for locales without specific needs."""
+import re  # noqa
 from collections import defaultdict  # noqa
-from typing import Dict, List, Tuple
+from typing import Dict, List, Pattern, Tuple
 
-# Regex to find the pronunciation
-pronunciation = r""
+from ..stubs import Pronunciations
 
 # Regex to find the gender
 gender = r""
@@ -39,6 +39,14 @@ templates_multi: Dict[str, str] = {}
 
 # Templates that will be completed/replaced using custom style.
 templates_other: Dict[str, str] = {}
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r""),
+) -> Pronunciations:
+    """Function used to find pronunciationswitinh `code`."""
+    return []
 
 
 def last_template_handler(

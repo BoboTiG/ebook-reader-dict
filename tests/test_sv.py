@@ -1,7 +1,19 @@
 import pytest
 
+from wikidict.lang.sv import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}", ["/eːn/, /ɛn/, /en/"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -10,7 +22,7 @@ from wikidict.utils import process_templates
         ("auto", [], ["automatisk; självgående", "automatiskt läge", "autostart"]),
         (
             "en",
-            ["eːn/, /ɛn/, /en"],
+            ["/eːn/, /ɛn/, /en/"],
             [
                 "ungefär; omkring",
                 "obestämd artikel singular utrum",
@@ -33,7 +45,7 @@ from wikidict.utils import process_templates
         ),
         (
             "min",
-            ["mɪn"],
+            ["/mɪn/", "/miːn/"],
             [
                 "possessivt pronomen som indikerar ägande av eller tillhörighet till den talande (jag) om det ägda eller tillhörande är i ental och har n-genus; possessivt pronomen i första person singular med huvudordet i singular utrum",  # noqa
                 "ovanstående i självständig form",
@@ -46,7 +58,7 @@ from wikidict.utils import process_templates
         ("og", [], []),
         (
             "sand",
-            ["sand"],
+            ["/sand/"],
             [
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
                 "<i>(geologi)</i> jordart med kornstorlek mellan 0,06 och 2 mm",

@@ -1,8 +1,8 @@
 """German language (Deutsch)."""
-from typing import Tuple
+import re
+from typing import Pattern, Tuple
 
-# Regex to find the pronunciation
-pronunciation = r"{{Lautschrift\|([^}]+)}}"
+from ...stubs import Pronunciations
 
 # Regex to find the gender
 gender = r",\s+{{([fmnu]+)}}"
@@ -18,6 +18,7 @@ head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
+    "{{Aussprache}",
     "{{Bedeutungen}",
     "{{Grundformverweis ",
     "{{Alte Schreibweise|",
@@ -115,6 +116,15 @@ templates_markierung = {
     "vul.": "vulgär",
     "vulg.": "vulgär",
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
+) -> Pronunciations:
+    if matches := pattern.findall(code):
+        return [f"[{p}]" for p in matches]
+    return []
 
 
 def last_template_handler(

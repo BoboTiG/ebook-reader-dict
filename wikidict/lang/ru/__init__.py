@@ -1,9 +1,8 @@
 """Russian language."""
-from typing import Tuple
+import re
+from typing import Pattern, Tuple
 
-# Regex to find the pronunciation
-# TODO need to expand template for russian Произношение (rn just get stem)
-pronunciation = r"(?:transcriptions-ru.)(\w*)"
+from ...stubs import Pronunciations
 
 # Regex to find the gender
 # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
@@ -32,6 +31,13 @@ sections = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("семантика",)
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
+) -> Pronunciations:
+    return list(set(pattern.findall(code)))
 
 
 def last_template_handler(

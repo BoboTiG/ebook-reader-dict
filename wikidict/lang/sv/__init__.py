@@ -1,9 +1,8 @@
 """Swedish language."""
 import re
-from typing import Tuple
+from typing import Pattern, Tuple
 
-# Regex to find the pronunciation
-pronunciation = r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"
+from ...stubs import Pronunciations
 
 # Float number separator
 float_separator = ","
@@ -88,6 +87,15 @@ _gammalstavning = {
     "auh": "genom rättskrivningsreformen 1996 ",
     "zs": "genom stavningsreformen 1973 ",
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
+) -> Pronunciations:
+    if match := pattern.findall(code):
+        return [f"/{p}/" for p in match]
+    return []
 
 
 def last_template_handler(

@@ -64,7 +64,7 @@ def convert_gender(gender: str) -> str:
 
 def convert_pronunciation(pronunciations: List[str]) -> str:
     """Return the HTML code to include for the etymology of a word."""
-    return " " + ", ".join(f"\\{p}\\" for p in pronunciations) if pronunciations else ""
+    return f" {', '.join(pronunciations)}" if pronunciations else ""
 
 
 def get_word_of_the_day(locale: str) -> str:

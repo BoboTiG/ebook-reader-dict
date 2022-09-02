@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Dict, List, Optional, Pattern, Tuple, cast
+from typing import Callable, Dict, List, Optional, Pattern, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -25,7 +25,7 @@ from .lang import (
     sublist_patterns,
     words_to_keep,
 )
-from .stubs import Definitions, SubDefinitions, Word, Words
+from .stubs import Definitions, Pronunciations, SubDefinitions, Word, Words
 from .utils import clean, process_templates, table2html
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
@@ -38,7 +38,7 @@ from .utils import clean, process_templates, table2html
 wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 
 
-Sections = Dict[str, wtp.Section]
+Sections = Dict[str, List[wtp.Section]]
 
 # Multiprocessing shared globals, init in render() see #1054
 MANAGER = ""
@@ -229,28 +229,19 @@ def find_gender(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or "" if groups else ""
 
 
-def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
+def find_pronunciations(
+    top_sections: List[wtp.Section], func: Callable[[str], Pronunciations]
+) -> List[str]:
     """Find pronunciations."""
-    if pattern == re.compile(""):  # Empty by default
-        return []
-    match = pattern.search(code)
-    if not match:
-        return []
-    # There is at least one match, we need to get whole line
-    # in order to be able to find multiple pronunciations
-    line = code[match.start() : code.find("\n", match.start())]
-    result = pattern.findall(line)
-    # result can contain tuples, flatten it
-    flattened_result: List[str] = []
-    for res in result:
-        if isinstance(res, tuple):
-            flattened_result.extend(rres for rres in res if rres)
-        elif res:
-            flattened_result.append(res)
-    return flattened_result
+    for top_section in top_sections:
+        if result := func(top_section.contents):
+            return result
+    return []
 
 
-def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
+def find_all_sections(
+    code: str, locale: str
+) -> Tuple[List[wtp.Section], List[Tuple[str, wtp.Section]]]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
@@ -303,18 +294,19 @@ def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
             )
         )
     )
-    return all_sections
+    return top_sections, all_sections
 
 
-def find_sections(code: str, locale: str) -> Sections:
+def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
     wanted = sections[locale]
-    for title, section in find_all_sections(code, locale):
+    top_sections, all_sections = find_all_sections(code, locale)
+    for title, section in all_sections:
         # Filter on interesting sections
         if title.startswith(wanted):
             ret[title].append(section)
-    return ret
+    return top_sections, ret
 
 
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
@@ -344,7 +336,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         # {{-avv-}} -> === {{avv}} ===
         code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-    parsed_sections = find_sections(code, locale)
+    top_sections, parsed_sections = find_sections(code, locale)
     prons = []
     nature = ""
     etymology = []
@@ -358,7 +350,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
-        prons = find_pronunciations(code, pronunciation[locale])
+        prons = find_pronunciations(top_sections, pronunciation[locale])
         nature = find_gender(code, gender[locale])
 
     for title, parsed_section in parsed_sections.items():

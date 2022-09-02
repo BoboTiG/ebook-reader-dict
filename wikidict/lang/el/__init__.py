@@ -1,10 +1,9 @@
 """Greek language."""
-from typing import Dict, Tuple
+import re
+from typing import Dict, Pattern, Tuple
 
-# Regex to find the pronunciation
-# {{ΔΦΑ|tɾeˈlos|γλ=el}}
-# {{ΔΦΑ|γλ=el|ˈni.xta}}
-pronunciation = r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"
+from ...stubs import Pronunciations
+
 # Regex to find the gender
 # '''{{PAGENAME}}''' {{θ}}
 # '''{{PAGENAME}}''' {{ο}}
@@ -82,6 +81,15 @@ templates_multi: Dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"),
+) -> Pronunciations:
+    # {{ΔΦΑ|tɾeˈlos|γλ=el}}
+    # {{ΔΦΑ|γλ=el|ˈni.xta}}
+    return pattern.findall(code)
 
 
 def last_template_handler(
