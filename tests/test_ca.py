@@ -18,9 +18,9 @@ from wikidict.utils import process_templates
             "-itzar",
             [],
             "",
-            ["Del llatí <i>-izare</i>, provinent del grec antic <i>-ίζειν</i>."],
+            ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i>."],
             [
-                "Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.",  # noqa
+                "<i>Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.</i>",  # noqa
             ],
         ),
         (
@@ -258,7 +258,6 @@ def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
         ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
-        ("{{q|{{m}}}}", "<i>(m.)</i>"),
         ("{{sinònim|ca|aixecador}}", "<i>Sinònim de</i> <b>aixecador</b>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
     ],
