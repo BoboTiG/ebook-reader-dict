@@ -150,13 +150,30 @@ templates_multi = {
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es
+release_description = """\
+Número de palabras: {words_count}
+exportación Wikcionario: {dump_date}
+
+Archivos disponibles:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Actualizado el {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Wikcionario (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
 ) -> Pronunciations:
-    if matches := pattern.findall(code):
-        return [f"[{p}]" for p in matches]
-    return []
+    return [f"[{p}]" for p in match] if (match := pattern.findall(code)) else []
 
 
 def last_template_handler(
@@ -278,22 +295,3 @@ def last_template_handler(
         return parts[0]
 
     return default(template, locale, word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es
-release_description = """\
-Número de palabras: {words_count}
-exportación Wikcionario: {dump_date}
-
-Archivos disponibles:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Actualizado el {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Wikcionario (ɔ) {year}"

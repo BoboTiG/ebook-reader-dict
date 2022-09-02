@@ -702,6 +702,25 @@ templates_other = {
 }
 
 
+# Contenu de la release sur GitHub :
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
+release_description = """\
+Nombre de mots : {words_count}
+Export Wiktionnaire : {dump_date}
+
+Fichiers disponibles :
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Mis à jour le {creation_date}</sub>
+"""  # noqa
+
+# Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
+wiktionary = "Wiktionnaire (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
@@ -928,22 +947,3 @@ def last_template_handler(
 
     # This is a country in the current locale
     return langs[tpl] if tpl in langs else default(template, locale, word=word)
-
-
-# Contenu de la release sur GitHub :
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
-release_description = """\
-Nombre de mots : {words_count}
-Export Wiktionnaire : {dump_date}
-
-Fichiers disponibles :
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Mis à jour le {creation_date}</sub>
-"""  # noqa
-
-# Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
-wiktionary = "Wiktionnaire (ɔ) {year}"

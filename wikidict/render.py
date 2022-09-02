@@ -15,9 +15,9 @@ import wikitextparser._spans
 from .lang import (
     definitions_to_ignore,
     etyl_section,
+    find_pronunciations,
     gender,
     head_sections,
-    pronunciation,
     section_level,
     section_patterns,
     section_sublevels,
@@ -220,7 +220,7 @@ def find_etymology(
     return definitions
 
 
-def find_gender(code: str, pattern: Pattern[str]) -> str:
+def _find_gender(code: str, pattern: Pattern[str]) -> str:
     """Find the gender."""
     match = pattern.search(code)
     if not match:
@@ -229,7 +229,7 @@ def find_gender(code: str, pattern: Pattern[str]) -> str:
     return groups[0] or "" if groups else ""
 
 
-def find_pronunciations(
+def _find_pronunciations(
     top_sections: List[wtp.Section], func: Callable[[str], Pronunciations]
 ) -> List[str]:
     """Find pronunciations."""
@@ -350,8 +350,8 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     definitions = find_definitions(word, parsed_sections, locale)
 
     if definitions or force:
-        prons = find_pronunciations(top_sections, pronunciation[locale])
-        nature = find_gender(code, gender[locale])
+        prons = _find_pronunciations(top_sections, find_pronunciations[locale])
+        nature = _find_gender(code, gender[locale])
 
     for title, parsed_section in parsed_sections.items():
         # Find potential variants

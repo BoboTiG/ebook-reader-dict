@@ -89,13 +89,30 @@ _gammalstavning = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
+release_description = """\
+Ord räknas: {words_count}
+Dumpa Wiktionary: {dump_date}
+
+Tillgängliga filer:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Uppdaterad på {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Wiktionary (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
 ) -> Pronunciations:
-    if match := pattern.findall(code):
-        return [f"/{p}/" for p in match]
-    return []
+    return [f"/{p}/" for p in match] if (match := pattern.findall(code)) else []
 
 
 def last_template_handler(
@@ -163,22 +180,3 @@ def last_template_handler(
         return f"{italic(cat)} {parts[-1]}"
 
     return default(template, locale, word=word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
-release_description = """\
-Ord räknas: {words_count}
-Dumpa Wiktionary: {dump_date}
-
-Tillgängliga filer:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Uppdaterad på {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Wiktionary (ɔ) {year}"
