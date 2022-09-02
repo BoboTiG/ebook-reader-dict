@@ -13,6 +13,7 @@ from wikidict.lang import pronunciation
         (pronunciation["ca"], "{{ca-pron|or=/əɫ/}}", ["əɫ"]),
         (pronunciation["ca"], "{{ca-pron|or=/əɫ/|occ=/eɫ/}}", ["əɫ"]),
         (pronunciation["ca"], "{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}", ["əɫ"]),
+        (pronunciation["en"], "{{IPA|en|/ʌs/}}", ["ʌs"]),
         (pronunciation["en"], "{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}", ["ʌs", "ʌz"]),
         (pronunciation["en"], "{{IPA|en|/ʌs/|/ʌz/}}", ["ʌs", "ʌz"]),
     ],

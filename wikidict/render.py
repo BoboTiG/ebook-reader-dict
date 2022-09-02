@@ -122,12 +122,10 @@ def find_section_definitions(
                             i=idx2, pattern=sublist_patterns[locale]
                         ):
                             for subsubcode in subsublist.items:
-                                subsubdefinition = process_templates(
+                                if subsubdefinition := process_templates(
                                     word, clean(subsubcode), locale
-                                )
-                                if not subsubdefinition:
-                                    continue
-                                subsubdefinitions.append(subsubdefinition)
+                                ):
+                                    subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
                 if subdefinitions:
@@ -241,7 +239,15 @@ def find_pronunciations(code: str, pattern: Pattern[str]) -> List[str]:
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
-    return pattern.findall(line)
+    result = pattern.findall(line)
+    # result can contain tuples, flatten it
+    flattened_result: List[str] = []
+    for res in result:
+        if isinstance(res, tuple):
+            flattened_result.extend(rres for rres in res if rres)
+        elif res:
+            flattened_result.append(res)
+    return flattened_result
 
 
 def find_all_sections(code: str, locale: str) -> List[Tuple[str, wtp.Section]]:
