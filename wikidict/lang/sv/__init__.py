@@ -93,9 +93,7 @@ def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
 ) -> Pronunciations:
-    if match := pattern.findall(code):
-        return [f"/{p}/" for p in match]
-    return []
+    return [f"/{p}/" for p in match] if (match := pattern.findall(code)) else []
 
 
 def last_template_handler(
