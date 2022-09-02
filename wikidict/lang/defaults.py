@@ -1,5 +1,5 @@
 """Defaults values for locales without specific needs."""
-import re  # noqa
+import re
 from collections import defaultdict  # noqa
 from typing import Dict, List, Pattern, Tuple
 
@@ -45,7 +45,7 @@ def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r""),
 ) -> Pronunciations:
-    """Function used to find pronunciationswitinh `code`."""
+    """Function used to find pronunciations within `code`."""
     return []
 
 

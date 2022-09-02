@@ -83,6 +83,25 @@ templates_multi: Dict[str, str] = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
+release_description = """\
+Αριθμός λέξεων: {words_count}
+Εξαγωγή Βικιλεξικού: {dump_date}
+
+Διαθέσιμα αρχεία:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Βικιλεξικό (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"),
@@ -127,22 +146,3 @@ def last_template_handler(
         return phrase
 
     return default(template, locale, word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
-release_description = """\
-Αριθμός λέξεων: {words_count}
-Εξαγωγή Βικιλεξικού: {dump_date}
-
-Διαθέσιμα αρχεία:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Βικιλεξικό (ɔ) {year}"

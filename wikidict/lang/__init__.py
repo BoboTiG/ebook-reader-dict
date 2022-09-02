@@ -75,9 +75,6 @@ def _populate(
     }
 
 
-# Function to find the pronunciation
-pronunciation = _populate("find_pronunciations")
-
 # Regex to find the gender
 gender: Dict[str, Pattern[str]] = _populate("gender", callback=re.compile)
 
@@ -135,13 +132,16 @@ templates_multi: Dict[str, Dict[str, str]] = _populate("templates_multi")
 # Templates that will be completed/replaced using custom style.
 templates_other: Dict[str, Dict[str, str]] = _populate("templates_other")
 
-# When a template is not handled by any previous template handlers,
-# this function will be called with *parts* as argument.
-last_template_handler = _populate("last_template_handler")
-
 # The full release description on GitHub:
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
 release_description: Dict[str, str] = _populate("release_description")
 
 # Dictionary name that will be printed below each definition
 wiktionary: Dict[str, str] = _populate("wiktionary")
+
+# Function to find the pronunciation
+find_pronunciations = _populate("find_pronunciations")
+
+# When a template is not handled by any previous template handlers,
+# this function will be called with *parts* as argument.
+last_template_handler = _populate("last_template_handler")

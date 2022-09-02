@@ -1,18 +1,7 @@
 import pytest
 
-from wikidict.lang.no import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
-
-
-@pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(

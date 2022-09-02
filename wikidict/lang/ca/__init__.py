@@ -117,6 +117,25 @@ templates_multi = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca
+release_description = """\
+Les paraules compten: {words_count}
+Abocador Viccionari: {dump_date}
+
+Fitxers disponibles:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Actualitzat el {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Viccionari (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(
@@ -279,22 +298,3 @@ def last_template_handler(
         return f"{trans} {superscript(f'({src})')}"
 
     return defaults.last_template_handler(template, locale, word=word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca
-release_description = """\
-Les paraules compten: {words_count}
-Abocador Viccionari: {dump_date}
-
-Fitxers disponibles:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Actualitzat el {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Viccionari (ɔ) {year}"

@@ -150,6 +150,25 @@ templates_multi = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en
+release_description = """\
+Words count: {words_count}
+Wiktionary dump: {dump_date}
+
+Available files:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Updated on {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Wiktionary (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
@@ -283,22 +302,3 @@ def last_template_handler(
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"
     except IndexError:
         return capitalize(tpl)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en
-release_description = """\
-Words count: {words_count}
-Wiktionary dump: {dump_date}
-
-Available files:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Updated on {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Wiktionary (ɔ) {year}"

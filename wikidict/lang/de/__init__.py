@@ -118,13 +118,30 @@ templates_markierung = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de
+release_description = """\
+Anzahl Worte: {words_count}
+Wiktionary-Dump vom: {dump_date}
+
+Verfügbare Wörterbuch-Formate:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Letzte Aktualisierung: {creation_date}.</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Wiktionary (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
 ) -> Pronunciations:
-    if matches := pattern.findall(code):
-        return [f"[{p}]" for p in matches]
-    return []
+    return [f"[{p}]" for p in matches] if (matches := pattern.findall(code)) else []
 
 
 def last_template_handler(
@@ -170,22 +187,3 @@ def last_template_handler(
         return template[1]
 
     return default(template, locale, word=word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de
-release_description = """\
-Anzahl Worte: {words_count}
-Wiktionary-Dump vom: {dump_date}
-
-Verfügbare Wörterbuch-Formate:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Letzte Aktualisierung: {creation_date}.</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Wiktionary (ɔ) {year}"

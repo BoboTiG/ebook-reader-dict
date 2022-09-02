@@ -15,14 +15,6 @@ sections = (
     "Substantiv",
 )
 
-# Templates to ignore: the text will be deleted.
-templates_ignored = ("",)
-
-# Templates more complex to manage.
-templates_multi = {
-    "": "",
-}
-
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
 release_description = """\

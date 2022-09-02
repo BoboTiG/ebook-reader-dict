@@ -106,6 +106,25 @@ templates_multi = {
 }
 
 
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
+release_description = """\
+As palavras contam: {words_count}
+Exportação Wikcionário: {dump_date}
+
+Arquivos disponíveis:
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Actualizado em {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Wikcionário (ɔ) {year}"
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
@@ -322,22 +341,3 @@ def last_template_handler(
         return langs[tpl].capitalize()
 
     return default(template, locale, word=word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
-release_description = """\
-As palavras contam: {words_count}
-Exportação Wikcionário: {dump_date}
-
-Arquivos disponíveis:
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Actualizado em {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Wikcionário (ɔ) {year}"

@@ -10,6 +10,7 @@ gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"
 
 # Float number separator
 float_separator = ","
+
 # Thousads separator
 thousands_separator = " "
 
@@ -31,6 +32,25 @@ sections = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("семантика",)
+
+
+# Release content on GitHub
+# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
+release_description = """\
+Количество слов : {words_count}
+Экспорт Викисловаря : {dump_date}
+
+Доступные файлы :
+
+- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
+- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+
+<sub>Обновлено по {creation_date}</sub>
+"""  # noqa
+
+# Dictionary name that will be printed below each definition
+wiktionary = "Викисловарь (ɔ) {year}"
 
 
 def find_pronunciations(
@@ -55,22 +75,3 @@ def last_template_handler(
 
     # This is a country in the current locale
     return langs[tpl] if tpl in langs else default(template, locale, word=word)
-
-
-# Release content on GitHub
-# https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
-release_description = """\
-Количество слов : {words_count}
-Экспорт Викисловаря : {dump_date}
-
-Доступные файлы :
-
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-
-<sub>Обновлено по {creation_date}</sub>
-"""  # noqa
-
-# Dictionary name that will be printed below each definition
-wiktionary = "Викисловарь (ɔ) {year}"
