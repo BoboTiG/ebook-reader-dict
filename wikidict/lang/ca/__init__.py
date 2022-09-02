@@ -2,7 +2,7 @@
 from typing import Tuple
 
 # Regex to find the pronunciation
-pronunciation = r"{\s*ca-pron\s*\|(?:\s*or\s*=\s*)?/([^/\|]+)"
+pronunciation = r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?/([^/\|]+)"
 
 # Regex to find the gender
 gender = r"{ca-\w+\|([fm]+)"
