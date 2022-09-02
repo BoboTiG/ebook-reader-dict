@@ -78,6 +78,8 @@ templates_italic = {
 templates_multi = {
     # {{color|#E01010}}
     "color": "color(parts[1])",
+    # {{def-meta|Utilitzat en l'expressió tros de quòniam.}}
+    "def-meta": "italic(parts[-1])",
     # {{doblet|ca|Castellar}}
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
@@ -115,9 +117,7 @@ templates_multi = {
 }
 
 # Templates that will be completed/replaced using custom style.
-templates_other = {
-    "m": "m.",
-}
+# templates_other = {}
 
 
 def last_template_handler(
@@ -264,7 +264,7 @@ def last_template_handler(
             phrase = strong(phrase)
         return phrase
 
-    if tpl in ("terme", "term", "calc"):
+    if tpl in ("m", "terme", "term", "calc"):
         return f"{italic(parts[-1])}{parse_other_parameters()}"
 
     if tpl == "trad":
