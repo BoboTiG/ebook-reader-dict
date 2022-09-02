@@ -1,7 +1,23 @@
 import pytest
 
+from wikidict.lang.es import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{pron-graf|fone=ˈa.t͡ʃo}}", ["[ˈa.t͡ʃo]"]),
+        (
+            "{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}",  # noqa
+            ["[ˈgɾa.θjas]", "[ˈgɾa.sjas]"],
+        ),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +25,7 @@ from wikidict.utils import process_templates
     [
         (
             "-acho",
-            ["ˈa.t͡ʃo"],
+            ["[ˈa.t͡ʃo]"],
             ["Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>."],
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
@@ -28,7 +44,7 @@ from wikidict.utils import process_templates
         ),
         (
             "comer",
-            ["koˈmeɾ"],
+            ["[koˈmeɾ]"],
             [
                 'Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i> ("devorar"), formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
             ],
@@ -47,7 +63,7 @@ from wikidict.utils import process_templates
         ),
         (
             "es decir",
-            ["es.ðeˈθiɾ"],
+            ["[es.ðeˈθiɾ]"],
             [],
             [
                 "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
@@ -56,7 +72,7 @@ from wikidict.utils import process_templates
         ),
         (
             "entrada",
-            ["en̪ˈtɾa.ða"],
+            ["[en̪ˈtɾa.ða]"],
             [
                 "De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."
             ],
@@ -96,7 +112,7 @@ from wikidict.utils import process_templates
         ),
         (
             "extenuado",
-            ["eks.teˈnwa.ðo"],
+            ["[eks.teˈnwa.ðo]"],
             [],
             [
                 "Cansado, debilitado.",
@@ -106,7 +122,7 @@ from wikidict.utils import process_templates
         ),
         (
             "futuro",
-            ["fuˈtu.ɾo"],
+            ["[fuˈtu.ɾo]"],
             [
                 'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'  # noqa
             ],
@@ -120,7 +136,7 @@ from wikidict.utils import process_templates
         ),
         (
             "gracias",
-            ["ˈgɾa.θjas", "ˈgɾa.sjas"],
+            ["[ˈgɾa.θjas]", "[ˈgɾa.sjas]"],
             [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
@@ -130,7 +146,7 @@ from wikidict.utils import process_templates
         ),
         (
             "hasta",
-            ["ˈas.ta"],
+            ["[ˈas.ta]"],
             [
                 'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe <i>حتى</i> (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
             ],
@@ -180,7 +196,7 @@ from wikidict.utils import process_templates
         ),
         (
             "también",
-            ["tamˈbjen"],
+            ["[tamˈbjen]"],
             ["Compuesto de <i>tan</i> y <i>bien</i>"],
             [
                 "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
@@ -190,7 +206,7 @@ from wikidict.utils import process_templates
         ),
         (
             "uni-",
-            ["ˈu.ni"],
+            ["[ˈu.ni]"],
             ['Del latín <i>uni-</i>, de <i>unus</i> ("uno")'],
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",

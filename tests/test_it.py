@@ -1,7 +1,19 @@
 import pytest
 
+from wikidict.lang.it import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{IPA|/kondiˈvidere/}}", ["/kondiˈvidere/"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +21,7 @@ from wikidict.utils import process_templates
     [
         (
             "condividere",
-            ["kondiˈvidere"],
+            ["/kondiˈvidere/"],
             "",
             [
                 "dal latino <i>cum</i> e <i>dividere</i>; l'attuale uso improprio del verbo <i>condividere</i> è dovuto alla diffusione dei social network negli anni 2000 e 2010",  # noqa
@@ -24,7 +36,7 @@ from wikidict.utils import process_templates
         ),
         (
             "debolmente",
-            ["debolˈmente"],
+            ["/debolˈmente/"],
             "",
             ["composto dall'aggettivo debole e dal suffisso -mente"],
             [
@@ -33,7 +45,7 @@ from wikidict.utils import process_templates
         ),
         (
             "lettore",
-            ["letˈtore"],
+            ["/letˈtore/"],
             "m",
             ['dal latino <i>lector</i>, derivazione di <i>legĕre</i> ossia "leggere"'],
             [

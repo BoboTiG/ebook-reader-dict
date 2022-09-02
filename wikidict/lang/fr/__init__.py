@@ -1,12 +1,11 @@
 """French language."""
-from typing import Tuple
+import re
+from typing import Pattern, Tuple
 
+from ...stubs import Pronunciations
 from .arabiser import arabiser
 from .domain_templates import domain_templates
 from .regions import regions
-
-# Regex pour trouver la prononciation
-pronunciation = r"{pron(?:\|lang=fr)?\|([^}\|]+)"
 
 # Regexp pour trouver le gender
 gender = r"{([fmsingp]+)(?: \?\|fr)*}"
@@ -701,6 +700,21 @@ templates_other = {
     "usage": "<b>Note d’usage&nbsp;:</b>",
     "vlatypas-pivot": "v’là-t-i’ pas",
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
+) -> Pronunciations:
+    if not (match := pattern.search(code)):
+        return []
+
+    # There is at least one match, we need to get whole line
+    # in order to be able to find multiple pronunciations
+    line = code[match.start() : code.find("\n", match.start())]
+    if matches := pattern.findall(line):
+        return [f"\\{p}\\" for p in matches]
+    return []
 
 
 def last_template_handler(

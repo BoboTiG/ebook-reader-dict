@@ -1,10 +1,9 @@
 """Spanish language."""
-from typing import List, Tuple
+import re
+from typing import List, Pattern, Tuple
 
+from ...stubs import Pronunciations
 from .campos_semanticos import campos_semanticos
-
-# Regex to find the pronunciation
-pronunciation = r"fone=([^}\|\s]+)"
 
 # Float number separator
 float_separator = ","
@@ -149,6 +148,15 @@ templates_multi = {
 }
 
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
+) -> Pronunciations:
+    if matches := pattern.findall(code):
+        return [f"[{p}]" for p in matches]
+    return []
 
 
 def last_template_handler(

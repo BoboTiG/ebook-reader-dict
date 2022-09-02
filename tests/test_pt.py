@@ -1,7 +1,20 @@
 import pytest
 
+from wikidict.lang.pt import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{AFI|/pɾe.ˈno.me̝/}}", ["/pɾe.ˈno.me̝/"]),
+        ("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}", ["/pɾe.ˈno.me̝/"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -10,14 +23,14 @@ from wikidict.utils import process_templates
         ("ababalhar", [], "", ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
             "alguém",
-            ["aw.ˈgẽj"],
+            ["/aɫ.ˈɡɐ̃j̃/"],
             "",
             ["Do latim <i>alĭquem</i> <sup>(la)</sup>."],
             ["pessoa não identificada"],
         ),
         (
             "algo",
-            [],
+            ["/ˈaɫ.ɡu/"],
             "",
             [],
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
@@ -46,7 +59,7 @@ from wikidict.utils import process_templates
         ),
         (
             "COPOM",
-            [],
+            ["/ko.ˈpõ/"],
             "m",
             [],
             [
@@ -56,7 +69,7 @@ from wikidict.utils import process_templates
         ),
         (
             "dezassete",
-            [],
+            ["/dɨ.zɐ.ˈsɛ.tɨ/"],
             "",
             ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
             [
@@ -99,7 +112,13 @@ from wikidict.utils import process_templates
                 "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
             ],
         ),
-        ("para", [], "", [], ["exprime fim, destino, lugar, tempo, direção etc"]),
+        (
+            "para",
+            ["/ˈpɐ.ɾɐ/"],
+            "",
+            [],
+            ["exprime fim, destino, lugar, tempo, direção etc"],
+        ),
         (
             "paulista",
             [],

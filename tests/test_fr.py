@@ -1,7 +1,20 @@
 import pytest
 
+from wikidict.lang.fr import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{pron|ɑ|fr}}", ["\\ɑ\\"]),
+        ("{{pron|ɑ|fr}}, {{pron|a|fr}}", ["\\ɑ\\", "\\a\\"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +22,7 @@ from wikidict.utils import process_templates
     [
         (
             "-eresse",
-            ["(ə).ʁɛs"],
+            ["\\(ə).ʁɛs\\"],
             "f",
             [
                 "<i>(Date à préciser)</i> Ce suffixe est né d’une coupe erronée du suffixe des mots comme <i>enchanteresse</i> et <i>pécheresse</i>. En effet, ces derniers sont en fait le cas sujet de mots en <i>-eur</i> auquel on a ajouté le suffixe féminisant <i>-esse</i> sous le schéma suivant :",  # noqa
@@ -24,7 +37,7 @@ from wikidict.utils import process_templates
         ),
         (
             "a",
-            ["ɑ", "a"],
+            ["\\ɑ\\", "\\a\\"],
             "m",
             [],
             [
@@ -41,7 +54,7 @@ from wikidict.utils import process_templates
         ),
         (
             "π",
-            ["p"],
+            [],
             "",
             [],
             [
@@ -52,7 +65,7 @@ from wikidict.utils import process_templates
         ),
         (
             "42",
-            ["ka.ʁɑ̃t.dø"],
+            ["\\ka.ʁɑ̃t.dø\\"],
             "msing",
             [],
             [
@@ -67,7 +80,7 @@ from wikidict.utils import process_templates
         ),
         (
             "accueil",
-            ["a.kœj"],
+            ["\\a.kœj\\"],
             "m",
             ["<u><i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.</u>"],
             [
@@ -81,7 +94,7 @@ from wikidict.utils import process_templates
         ),
         (
             "acrologie",
-            ["a.kʁɔ.lɔ.ʒi"],
+            ["\\a.kʁɔ.lɔ.ʒi\\"],
             "f",
             [
                 "Du grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»), voir <i>acro-</i>, avec le suffixe <i>-logie</i>."  # noqa
@@ -96,7 +109,7 @@ from wikidict.utils import process_templates
         ),
         (
             "aux",
-            ["o"],
+            ["\\o\\"],
             "mf",
             [],
             [
@@ -107,7 +120,7 @@ from wikidict.utils import process_templates
         ),
         (
             "base",
-            ["bɑz"],
+            ["\\bɑz\\"],
             "f",
             [
                 "<i>(Date à préciser)</i> Du latin <i>basis</i> («&nbsp;id.&nbsp;»), du grec ancien βάσις, <i>básis</i> («&nbsp;marche&nbsp;»)."  # noqa
@@ -145,7 +158,7 @@ from wikidict.utils import process_templates
         ),
         (
             "bath",
-            ["bat"],
+            ["\\bat\\"],
             "m",
             [
                 "(<i>Adjectif, nom 1</i>) <i>(1846)</i> Origine discutée :",
@@ -166,7 +179,7 @@ from wikidict.utils import process_templates
         ),
         (
             "Bogotanais",
-            ["bɔ.ɡɔ.ta.nɛ"],
+            ["\\bɔ.ɡɔ.ta.nɛ\\"],
             "m",
             ["Du nom Bogota avec le préfixe -ais."],
             [],
@@ -174,7 +187,7 @@ from wikidict.utils import process_templates
         ),
         (
             "colligeait",
-            ["kɔ.li.ʒɛ"],
+            ["\\kɔ.li.ʒɛ\\"],
             "",
             [],
             [],
@@ -182,7 +195,7 @@ from wikidict.utils import process_templates
         ),
         (
             "corps portant",
-            ["kɔʁ pɔʁ.tɑ̃"],
+            ["\\kɔʁ pɔʁ.tɑ̃\\"],
             "m",
             ["Locution composée de <i>corps</i> et de <i>portant</i>."],
             [
@@ -193,7 +206,7 @@ from wikidict.utils import process_templates
         ),
         (
             "DES",
-            ["deː,ʔeː,ʔɛs"],
+            [],
             "m",
             [
                 "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire »."  # noqa
@@ -212,7 +225,7 @@ from wikidict.utils import process_templates
         ),
         (
             "dubitatif",
-            ["dy.bi.ta.tif"],
+            ["\\dy.bi.ta.tif\\"],
             "",
             ["Du latin <i>dubitativus</i>."],
             [
@@ -223,7 +236,7 @@ from wikidict.utils import process_templates
         ),
         (
             "effluve",
-            ["e.flyv"],
+            ["\\e.flyv\\"],
             "mf",
             [
                 "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »)."  # noqa
@@ -236,7 +249,7 @@ from wikidict.utils import process_templates
         ),
         (
             "employer",
-            ["ɑ̃.plwa.je"],
+            ["\\ɑ̃.plwa.je\\"],
             "",
             ["Du latin <i>implicāre</i> («&nbsp;impliquer&nbsp;»)."],
             [
@@ -248,7 +261,7 @@ from wikidict.utils import process_templates
         ),
         (
             "encyclopædie",
-            ["ɑ̃.si.klɔ.pe.di"],
+            ["\\ɑ̃.si.klɔ.pe.di\\"],
             "f",
             ["→ voir <i>encyclopédie</i>"],
             ["<i>(Archaïsme)</i> <i>Variante orthographique de</i> encyclopédie."],
@@ -256,7 +269,7 @@ from wikidict.utils import process_templates
         ),
         (
             "éperon",
-            ["e.pʁɔ̃"],
+            ["\\e.pʁɔ̃\\"],
             "m",
             ["De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>."],
             [
@@ -276,7 +289,7 @@ from wikidict.utils import process_templates
         ),
         (
             "greffier",
-            ["ɡʁɛ.fje", "ɡʁe.fje"],
+            ["\\ɡʁɛ.fje\\", "\\ɡʁe.fje\\"],
             "m",
             [
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",  # noqa
@@ -293,7 +306,7 @@ from wikidict.utils import process_templates
         ),
         (
             "ich",
-            ["ɪç"],
+            [],
             "",
             [],
             ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."],
@@ -301,7 +314,7 @@ from wikidict.utils import process_templates
         ),
         (
             "koro",
-            ["kɔ.ʁo"],
+            ["\\kɔ.ʁo\\"],
             "m",
             [],
             [
@@ -313,7 +326,7 @@ from wikidict.utils import process_templates
         ),
         (
             "mutiner",
-            ["my.ti.ne"],
+            ["\\my.ti.ne\\"],
             "",
             ["Dénominal de <i>mutin</i>."],
             [
@@ -325,7 +338,7 @@ from wikidict.utils import process_templates
         ),
         (
             "naguère",
-            ["na.ɡɛʁ"],
+            ["\\na.ɡɛʁ\\"],
             "",
             ["De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>."],
             [
@@ -338,7 +351,7 @@ from wikidict.utils import process_templates
         # The etymology never pass?!
         # (
         #     "pinyin",
-        #     ["pin.jin"],
+        #     ["\\pin.jin\\"],
         #     "m",
         #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc «\xa0épeler les sons\xa0».",  # noqa
         #     [
@@ -349,7 +362,7 @@ from wikidict.utils import process_templates
         # ),
         (
             "précepte",
-            ["pʁe.sɛpt"],
+            ["\\pʁe.sɛpt\\"],
             "m",
             [
                 "Emprunté au latin <i>praeceptum</i> («&nbsp;précepte, leçon, règle&nbsp;»), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire »."  # noqa
@@ -364,7 +377,7 @@ from wikidict.utils import process_templates
         ),
         (
             "rance",
-            ["ʁɑ̃s"],
+            ["\\ʁɑ̃s\\"],
             "mf",
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
             [
@@ -377,7 +390,7 @@ from wikidict.utils import process_templates
         ),
         (
             "sapristi",
-            ["sa.pʁis.ti"],
+            ["\\sa.pʁis.ti\\"],
             "",
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
             ["Pour marquer l’étonnement."],
@@ -385,7 +398,7 @@ from wikidict.utils import process_templates
         ),
         (
             "silicone",
-            ["si.li.kon"],
+            ["\\si.li.kon\\"],
             "f",
             [
                 "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i>, avec le suffixe <i>-one</i>."  # noqa
@@ -401,7 +414,7 @@ from wikidict.utils import process_templates
         ),
         (
             "suis",
-            ["sɥi"],
+            ["\\sɥi\\"],
             "",
             [
                 "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>)."  # noqa
@@ -411,7 +424,7 @@ from wikidict.utils import process_templates
         ),
         (
             "Turgeon",
-            ["tyʁ.ʒɔ̃"],
+            ["\\tyʁ.ʒɔ̃\\"],
             "",
             [
                 "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."  # noqa

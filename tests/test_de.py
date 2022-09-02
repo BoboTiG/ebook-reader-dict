@@ -1,7 +1,26 @@
 import pytest
 
+from wikidict.lang.de import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        (
+            ":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}",
+            ["[ˈʁɪndɐˌsteːk]"],
+        ),
+        (
+            ":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}",
+            ["[ˈʁɪndɐˌsteːk]", "[ˈʁɪndɐˌʃteːk]", "[ˈʁɪndɐˌsteɪ̯k]"],
+        ),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +28,7 @@ from wikidict.utils import process_templates
     [
         (
             "CIA",
-            ["siːaɪ̯ˈɛɪ̯"],
+            ["[siːaɪ̯ˈɛɪ̯]"],
             "mf",
             ["Abkürzung von Central Intelligence Agency"],
             ["US-amerikanischer Auslandsnachrichtendienst"],
@@ -17,7 +36,7 @@ from wikidict.utils import process_templates
         ),
         (
             "volley",
-            ["ˈvɔli", "ˈvɔle", "ˈvɔlɛɪ̯"],
+            ["[ˈvɔli]", "[ˈvɔle]", "[ˈvɔlɛɪ̯]"],
             "",
             [
                 "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the <i>volley</i></i> ‚aus der Luft‘ zugrunde.",  # noqa
@@ -27,7 +46,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("trage", ["ˈtʁaːɡə"], "", [], [], ["tragen"]),
+        ("trage", ["[ˈtʁaːɡə]"], "", [], [], ["tragen"]),
         ("daß", [], "", [], [], ["dass"]),
     ],
 )

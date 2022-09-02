@@ -1,8 +1,5 @@
 """Norwegian language."""
 
-# Regex to find the pronunciation
-pronunciation = r""
-
 # Float number separator
 float_separator = ","
 

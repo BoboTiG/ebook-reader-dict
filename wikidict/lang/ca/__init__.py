@@ -1,8 +1,8 @@
 """Catalan language."""
-from typing import Tuple
+import re
+from typing import Pattern, Tuple
 
-# Regex to find the pronunciation
-pronunciation = r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?/([^/\|]+)"
+from ...stubs import Pronunciations
 
 # Regex to find the gender
 gender = r"{ca-\w+\|([fm]+)"
@@ -116,8 +116,14 @@ templates_multi = {
     "etim-s": "'segle ' + parts[2]",
 }
 
-# Templates that will be completed/replaced using custom style.
-# templates_other = {}
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(
+        r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"
+    ),
+) -> Pronunciations:
+    return pattern.findall(code)
 
 
 def last_template_handler(

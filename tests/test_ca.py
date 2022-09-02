@@ -1,7 +1,22 @@
 import pytest
 
+from wikidict.lang.ca import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{ca-pron|/as/}}", ["/as/"]),
+        ("{{ca-pron|or=/əɫ/}}", ["/əɫ/"]),
+        ("{{ca-pron|or=/əɫ/|occ=/eɫ/}}", ["/əɫ/"]),
+        ("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}", ["/əɫ/"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +24,7 @@ from wikidict.utils import process_templates
     [
         (
             "-ass-",
-            ["as"],
+            ["/as/"],
             "",
             ["Del sufix <i>-às</i> amb valor augmentatiu."],
             ["Infix que afegeix un matís augmentatiu."],
@@ -25,7 +40,7 @@ from wikidict.utils import process_templates
         ),
         (
             "AFI",
-            ["ˈa.fi"],
+            ["/ˈa.fi/"],
             "",
             ["sigles"],
             [
@@ -95,7 +110,7 @@ from wikidict.utils import process_templates
         ),
         (
             "cas",
-            ["ˈkas"],
+            ["/ˈkas/"],
             "m",
             ["Del llatí <i>casus</i>."],
             [
@@ -181,7 +196,7 @@ from wikidict.utils import process_templates
         ),
         (
             "el",
-            ["əɫ"],
+            ["/əɫ/"],
             "f",
             [],
             [
@@ -200,7 +215,7 @@ from wikidict.utils import process_templates
             ["Cobert per a protegir plantes del vent o del fred extrem."],
         ),
         ("Mn.", [], "", [], ["mossèn com a tractament davant el nom"]),
-        ("PMF", ["ˌpeˈe.məˌe.fə"], "", [], ["Preguntes Més Freqüents."]),
+        ("PMF", ["/ˌpeˈe.məˌe.fə/"], "", [], ["Preguntes Més Freqüents."]),
         ("pen", [], "", [], []),
         (
             "si",

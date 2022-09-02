@@ -1,10 +1,9 @@
 """Portuguese language."""
-from typing import Tuple
+import re
+from typing import Pattern, Tuple
 
+from ...stubs import Pronunciations
 from .escopos import escopos
-
-# Regex to find the pronunciation
-pronunciation = r"{AFI\|\[([^\]]+)\]}"
 
 # Regex to find the gender
 gender = r"{([fm]+)}"
@@ -105,6 +104,13 @@ templates_multi = {
     # {{varort|tenu-|pt}}
     "varort": 'f"variante ortográfica de {strong(parts[1])}"',
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
+) -> Pronunciations:
+    return pattern.findall(code)
 
 
 def last_template_handler(

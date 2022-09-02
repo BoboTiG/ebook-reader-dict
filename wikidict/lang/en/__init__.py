@@ -1,10 +1,9 @@
 """English language."""
-from typing import Tuple
+import re
+from typing import List, Pattern, Tuple
 
+from ...stubs import Pronunciations
 from .labels import labels, labels_regional, labels_subvarieties, labels_topical
-
-# Regex to find the pronunciation
-pronunciation = r"{IPA\|en\|/([^/]+)/(?:\|.([^/]+))*"
 
 # Float number separator
 float_separator = "."
@@ -149,6 +148,20 @@ templates_multi = {
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
 }
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
+) -> Pronunciations:
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        # `match` can contain tuples, flatten it
+        if isinstance(match, tuple):
+            matches.extend(res for res in match if res and res not in matches)
+        elif match and match not in matches:
+            matches.append(match)
+    return matches
 
 
 def last_template_handler(

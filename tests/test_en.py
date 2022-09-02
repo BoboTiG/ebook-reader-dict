@@ -1,7 +1,23 @@
 import pytest
 
+from wikidict.lang.en import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
+
+
+@pytest.mark.parametrize(
+    "code, expected",
+    [
+        ("", []),
+        ("{{IPA|en|/ʌs/}}", ["/ʌs/"]),
+        ("{{IPA|en|/ʌs/|/ʌs/}}", ["/ʌs/"]),
+        ("{{IPA|en|/ʌs/}} {{IPA|en|/ʌs/}}", ["/ʌs/"]),
+        ("{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}", ["/ʌs/", "/ʌz/"]),
+        ("{{IPA|en|/ʌs/|/ʌz/}}", ["/ʌs/", "/ʌz/"]),
+    ],
+)
+def test_find_pronunciations(code, expected):
+    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(
@@ -9,7 +25,7 @@ from wikidict.utils import process_templates
     [
         (
             "ab",
-            ["æb"],
+            ["/æb/"],
             ["Abbreviation of <b>abdominal</b> <b>muscles</b>."],
             [
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
@@ -23,7 +39,7 @@ from wikidict.utils import process_templates
         ),
         (
             "cum",
-            ["kʌm", "kʊm"],
+            ["/kʌm/", "/kʊm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
                 "<i>Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
@@ -39,7 +55,7 @@ from wikidict.utils import process_templates
         ),
         (
             "efficient",
-            ["ɪˈfɪʃənt"],
+            ["/ɪˈfɪʃənt/", "/əˈfɪʃənt/"],
             [
                 "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
             ],
@@ -53,7 +69,7 @@ from wikidict.utils import process_templates
         ),
         (
             "it's",
-            ["ɪts"],
+            ["/ɪts/"],
             ["Contraction of ‘it is’ or ‘it has’."],
             [
                 "<i>Contraction of</i> <b>it is</b>.",
@@ -65,7 +81,7 @@ from wikidict.utils import process_templates
         ),
         (
             "Mars",
-            ["ˈmɑːz"],
+            ["/ˈmɑːz/", "/ˈmɑɹz/"],
             [
                 "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
             ],
@@ -79,7 +95,7 @@ from wikidict.utils import process_templates
         ),
         (
             "portmanteau",
-            ["pɔːtˈmæn.təʊ"],
+            ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
             [
                 "Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carry”) + <i>manteau</i> (“coat”)."  # noqa
             ],
@@ -95,7 +111,7 @@ from wikidict.utils import process_templates
         ),
         (
             "someone",
-            ["ˈsʌmwʌn"],
+            ["/ˈsʌmwʌn/"],
             ["From <i>some</i>&nbsp;+&nbsp;<i>one</i>."],
             [
                 "some person.",
@@ -105,7 +121,7 @@ from wikidict.utils import process_templates
         ),
         (
             "the",
-            ["ˈðiː"],
+            ["/ˈðiː/", "/ˈðʌ/", "/ði/", "/ðɪ/", "/ðə/"],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
@@ -129,7 +145,7 @@ from wikidict.utils import process_templates
         ),
         (
             "um",
-            ["ʌm", "əːm"],
+            ["/ʌm/", "/əːm/"],
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
@@ -141,7 +157,7 @@ from wikidict.utils import process_templates
         ),
         (
             "us",
-            ["ʌs", "ʌz"],
+            ["/ʌs/", "/ʌz/", "/əs/", "/əz/"],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
             ],
@@ -157,7 +173,17 @@ from wikidict.utils import process_templates
         ),
         (
             "water",
-            ["ˈwɔːtə"],
+            [
+                "/ˈwɔːtə/",
+                "/ˈwɔtər/",
+                "/ˈwɒtə/",
+                "/ˈwɒtəɹ/",
+                "/ˈwɔtəɹ/",
+                "/ˈwɑtəɹ/",
+                "/ˈwʊtəɹ/",
+                "/ˈwoːtə/",
+                "/ˈwætəɹ/",
+            ],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
                 "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”)), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
@@ -198,7 +224,7 @@ from wikidict.utils import process_templates
         ),
         (
             "word",
-            ["wɜːd"],
+            ["/wɜːd/", "/wɝd/"],
             [
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <b>vrata</b>."  # noqa
             ],

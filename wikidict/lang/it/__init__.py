@@ -1,8 +1,8 @@
 """Italian language."""
-from typing import Dict, Tuple
+import re
+from typing import Dict, Pattern, Tuple
 
-# Regex to find the pronunciation
-pronunciation = r"{IPA\|/([^/]+)/"
+from ...stubs import Pronunciations
 
 # Regex to find the gender
 gender = r"{{Pn\|?w?}} ''([fm])[singvol ]*''"
@@ -99,3 +99,10 @@ File disponibili:
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikizionario (ɔ) {year}"
+
+
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{IPA\|(/[^/]+/)"),
+) -> Pronunciations:
+    return pattern.findall(code)
