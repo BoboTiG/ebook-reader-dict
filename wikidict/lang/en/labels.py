@@ -1867,6 +1867,9 @@ labels_subvarieties = {
     "East Norse": "Old East Norse",
     "East Palatine": "Vorderpfälzisch",
     "East Punjab": "Eastern Punjab",
+    "East and South": "West and South",
+    "EastPS": "East",
+    "EastSouthPS": "West",
     "Eastern": "Eastern Punjab",
     "Eastern Ojibwa": "Eastern Ojibwe",
     "Eastern Punjabi": "Eastern Punjab",
@@ -2241,6 +2244,7 @@ labels_subvarieties = {
     "North and Central Germany": "northern and central Germany",
     "North-Central Vietnam": "North Central Vietnam",
     "North-Central Vietnamese": "North Central Vietnam",
+    "NorthPS": "West",
     "Northeast Central Scots": "Northeast Central",
     "Northeast Vietnam": "Northeastern Vietnam",
     "Northeast Vietnamese": "Northeastern Vietnam",
@@ -2488,6 +2492,7 @@ labels_subvarieties = {
     "South Vietnam": "Southern Vietnam",
     "South Vietnamese": "Southern Vietnam",
     "South of Russia": "Southern Russia",
+    "SouthPS": "South",
     "Southeast Central Scots": "Southeast Central",
     "Southeast Limburgish dialect": "Limburgan Ripuarian",
     "Southern American English": "Southern US",
@@ -2705,6 +2710,8 @@ labels_subvarieties = {
     "West Pomeranian LG": "Western Pomeranian",
     "West Pomeranian Low German": "Western Pomeranian",
     "West Punjab": "Western Punjab",
+    "WestPS": "West",
+    "WestSouthPS": "West",
     "Western": "Western Punjab",
     "Western Ojibwa": "Western Ojibwe",
     "Western Pennsylvania English": "Western Pennsylvania",
@@ -2987,5 +2994,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,400
+}  # 1,407
 # END
