@@ -11,15 +11,20 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
 - [German](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de)
-- :construction: [Greek](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el) (help welcome)
 - [English](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en)
 - [Spanish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es)
 - [French](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
 - [Italian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it)
-- :construction: [Noway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no) (help welcome)
 - [Portuguese](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
-- :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru) (help welcome)
 - [Swedish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
+
+### Work In Progress
+
+Any help is welcome to improve those dictionaries:
+
+- :construction: [Greek](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el)
+- :construction: [Noway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no)
+- :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
 
 ### Requirements
 
