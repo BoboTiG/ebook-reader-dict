@@ -171,9 +171,20 @@ wiktionary = "Wikcionario (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
+    pattern1: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
+    pattern2: Pattern[str] = re.compile(
+        r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"
+    ),
 ) -> Pronunciations:
-    return [f"[{p}]" for p in match] if (match := pattern.findall(code)) else []
+    pattern = pattern2 if "{pronunciación|" in code else pattern1
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        # `match` can contain tuples, flatten it
+        if isinstance(match, tuple):
+            matches.extend(res for res in match if res and res not in matches)
+        elif match and match not in matches:
+            matches.append(match)
+    return [f"[{p}]" for p in matches]
 
 
 def last_template_handler(

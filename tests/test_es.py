@@ -14,6 +14,11 @@ from wikidict.utils import process_templates
             "{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}",  # noqa
             ["[ˈgɾa.θjas]", "[ˈgɾa.sjas]"],
         ),
+        ("{{pronunciación|[ ˈrwe.ɰo ]}} ", ["[ˈrwe.ɰo]"]),
+        (
+            "{{pronunciación|[ los ] o [ lɔʰ ]<ref>[http://congresosdelalengua.es/valladolid/ponencias/unidad_diversidad_del_espanol/2_el_espanol_de_america/saez_l.htm http://congresosdelalengua.es/valladolid/ponencias/unidad_diversidad_del_espanol/2_el_espanol_de_america/saez_l.htm] Consultado el 11 de noviembre de 2012</ref>}}",  # noqa
+            ["[los]", "[lɔʰ]"],
+        ),
     ],
 )
 def test_find_pronunciations(code, expected):
@@ -177,7 +182,7 @@ def test_find_pronunciations(code, expected):
         ),
         (
             "los",
-            [],
+            ["[los]", "[lɔʰ]"],
             [
                 'Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'
             ],
@@ -196,7 +201,7 @@ def test_find_pronunciations(code, expected):
         ),
         (
             "ruego",
-            [],
+            ["[ˈrwe.ɰo]"],
             [],
             [
                 "Súplica, petición hecha con el fin de alcanzar lo que se pide.",
