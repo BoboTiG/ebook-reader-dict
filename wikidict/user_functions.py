@@ -270,6 +270,22 @@ def int_to_roman(number: int) -> str:
     return "".join(result)
 
 
+def flatten(seq: List[str]) -> List[str]:
+    """
+    Flatten non-empty items from *seq*.
+
+        >>> flatten(["a", ("b", "", "c"), ["d"]])
+        ['a', 'b', 'c', 'd']
+    """
+    res: List[str] = []
+    for item in seq:
+        if isinstance(item, (list, tuple)):
+            res.extend(sitem for sitem in item if sitem)
+        elif item:
+            res.append(item)
+    return res
+
+
 def italic(text: str) -> str:
     """
     Return the *text* surrounded by italic HTML tags.
@@ -557,6 +573,20 @@ def underline(text: str) -> str:
     return f"<u>{text}</u>"
 
 
+def uniq(seq: List[str]) -> List[str]:
+    """
+    Return *seq* without duplicates.
+
+        >>> uniq(["foo", "foo"])
+        ['foo']
+    """
+    res: List[str] = []
+    for item in seq:
+        if item not in res:
+            res.append(item)
+    return res
+
+
 __all__ = (
     "capitalize",
     "century",
@@ -567,6 +597,7 @@ __all__ = (
     "concat",
     "coord",
     "eval_expr",
+    "flatten",
     "int_to_roman",
     "italic",
     "lookup_italic",
@@ -583,4 +614,5 @@ __all__ = (
     "tag",
     "term",
     "underline",
+    "uniq",
 )

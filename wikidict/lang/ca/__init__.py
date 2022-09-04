@@ -2,6 +2,8 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import uniq
+
 # Float number separator
 float_separator = ","
 
@@ -143,11 +145,7 @@ def find_genders(
     >>> find_genders("{{ca-nom|m}} {{ca-nom|m}}")
     ['m']
     """
-    matches: List[str] = []
-    for match in pattern.findall(code):
-        if match not in matches:
-            matches.append(match)
-    return matches
+    return uniq(pattern.findall(code))
 
 
 def find_pronunciations(
@@ -168,7 +166,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}")
     ['/əɫ/']
     """
-    return pattern.findall(code)
+    return uniq(pattern.findall(code))
 
 
 def last_template_handler(

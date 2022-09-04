@@ -51,9 +51,7 @@ def capitalize(text: str) -&gt; str:
         &gt;&gt;&gt; capitalize(&#34;alice and bob&#34;)
         &#39;Alice and bob&#39;
     &#34;&#34;&#34;
-    if not text:
-        return &#34;&#34;
-    return f&#34;{text[0].capitalize()}{text[1:]}&#34;
+    return f&#34;{text[0].capitalize()}{text[1:]}&#34; if text else &#34;&#34;
 
 
 def century(parts: List[str], century: str) -&gt; str:
@@ -76,8 +74,33 @@ def chimy(composition: List[str]) -&gt; str:
         &#39;H&lt;sub&gt;2&lt;/sub&gt;O&#39;
         &gt;&gt;&gt; chimy([&#34;FeCO&#34;, &#34;3&#34;, &#34;&#34;])
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;3==CHCOOH&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;=CHCOOH&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;&amp;#61;CH&#34;, &#34;2&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;&amp;#61;CH&lt;sub&gt;2&lt;/sub&gt;&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;&amp;nbsp;=&amp;nbsp;&#34;, &#34;CH&#34;, &#34;2&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;CH&lt;sub&gt;2&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
-    return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)
+    data: Dict[str, str] = defaultdict(str)
+    i = 1
+    for c in composition:
+        sArray = c.split(&#34;=&#34;, 1)
+        if len(sArray) == 2:
+            if sArray[0].isdigit():
+                data[sArray[0]] = sArray[1]
+                continue
+            elif sArray[0] == &#34;&amp;nbsp;&#34;:
+                continue
+        data[str(i)] = c
+        i += 1
+
+    phrase = &#34;&#34;
+    for i in range(1, 21):
+        stri = str(i)
+        if data[stri]:
+            phrase += data[stri] if i % 2 == 1 else subscript(data[stri])
+
+    return phrase
 
 
 def chinese(
@@ -277,6 +300,22 @@ def int_to_roman(number: int) -&gt; str:
     return &#34;&#34;.join(result)
 
 
+def flatten(seq: List[str]) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Flatten non-empty items from *seq*.
+
+        &gt;&gt;&gt; flatten([&#34;a&#34;, (&#34;b&#34;, &#34;&#34;, &#34;c&#34;), [&#34;d&#34;]])
+        [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+    &#34;&#34;&#34;
+    res: List[str] = []
+    for item in seq:
+        if isinstance(item, (list, tuple)):
+            res.extend(sitem for sitem in item if sitem)
+        elif item:
+            res.append(item)
+    return res
+
+
 def italic(text: str) -&gt; str:
     &#34;&#34;&#34;
     Return the *text* surrounded by italic HTML tags.
@@ -360,7 +399,7 @@ def number(number: str, fsep: str, tsep: str) -&gt; str:
         # Float
         res = f&#34;{float(number):,}&#34;
 
-    new_digits_count = sum(1 for c in res if c.isdigit())
+    new_digits_count = sum(bool(c.isdigit()) for c in res)
     if new_digits_count != digits_count:
         res += &#34;0&#34; * (digits_count - new_digits_count)
 
@@ -564,6 +603,20 @@ def underline(text: str) -&gt; str:
     return f&#34;&lt;u&gt;{text}&lt;/u&gt;&#34;
 
 
+def uniq(seq: List[str]) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Return *seq* without duplicates.
+
+        &gt;&gt;&gt; uniq([&#34;foo&#34;, &#34;foo&#34;])
+        [&#39;foo&#39;]
+    &#34;&#34;&#34;
+    res: List[str] = []
+    for item in seq:
+        if item not in res:
+            res.append(item)
+    return res
+
+
 __all__ = (
     &#34;capitalize&#34;,
     &#34;century&#34;,
@@ -574,6 +627,7 @@ __all__ = (
     &#34;concat&#34;,
     &#34;coord&#34;,
     &#34;eval_expr&#34;,
+    &#34;flatten&#34;,
     &#34;int_to_roman&#34;,
     &#34;italic&#34;,
     &#34;lookup_italic&#34;,
@@ -590,6 +644,7 @@ __all__ = (
     &#34;tag&#34;,
     &#34;term&#34;,
     &#34;underline&#34;,
+    &#34;uniq&#34;,
 )</code></pre>
 </details>
 </section>
@@ -631,9 +686,7 @@ __all__ = (
         &gt;&gt;&gt; capitalize(&#34;alice and bob&#34;)
         &#39;Alice and bob&#39;
     &#34;&#34;&#34;
-    if not text:
-        return &#34;&#34;
-    return f&#34;{text[0].capitalize()}{text[1:]}&#34;</code></pre>
+    return f&#34;{text[0].capitalize()}{text[1:]}&#34; if text else &#34;&#34;</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.century"><code class="name flex">
@@ -671,6 +724,12 @@ __all__ = (
 'H&lt;sub&gt;2&lt;/sub&gt;O'
 &gt;&gt;&gt; chimy(["FeCO", "3", ""])
 'FeCO&lt;sub&gt;3&lt;/sub&gt;'
+&gt;&gt;&gt; chimy(["CH", "2", "3==CHCOOH"])
+'CH&lt;sub&gt;2&lt;/sub&gt;=CHCOOH'
+&gt;&gt;&gt; chimy(["CH", "2", "&amp;#61;CH", "2"])
+'CH&lt;sub&gt;2&lt;/sub&gt;&amp;#61;CH&lt;sub&gt;2&lt;/sub&gt;'
+&gt;&gt;&gt; chimy(["CH", "2", "&amp;nbsp;=&amp;nbsp;", "CH", "2"])
+'CH&lt;sub&gt;2&lt;/sub&gt;CH&lt;sub&gt;2&lt;/sub&gt;'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -684,8 +743,33 @@ __all__ = (
         &#39;H&lt;sub&gt;2&lt;/sub&gt;O&#39;
         &gt;&gt;&gt; chimy([&#34;FeCO&#34;, &#34;3&#34;, &#34;&#34;])
         &#39;FeCO&lt;sub&gt;3&lt;/sub&gt;&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;3==CHCOOH&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;=CHCOOH&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;&amp;#61;CH&#34;, &#34;2&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;&amp;#61;CH&lt;sub&gt;2&lt;/sub&gt;&#39;
+        &gt;&gt;&gt; chimy([&#34;CH&#34;, &#34;2&#34;, &#34;&amp;nbsp;=&amp;nbsp;&#34;, &#34;CH&#34;, &#34;2&#34;])
+        &#39;CH&lt;sub&gt;2&lt;/sub&gt;CH&lt;sub&gt;2&lt;/sub&gt;&#39;
     &#34;&#34;&#34;
-    return &#34;&#34;.join(subscript(c) if c.isdigit() else c for c in composition)</code></pre>
+    data: Dict[str, str] = defaultdict(str)
+    i = 1
+    for c in composition:
+        sArray = c.split(&#34;=&#34;, 1)
+        if len(sArray) == 2:
+            if sArray[0].isdigit():
+                data[sArray[0]] = sArray[1]
+                continue
+            elif sArray[0] == &#34;&amp;nbsp;&#34;:
+                continue
+        data[str(i)] = c
+        i += 1
+
+    phrase = &#34;&#34;
+    for i in range(1, 21):
+        stri = str(i)
+        if data[stri]:
+            phrase += data[stri] if i % 2 == 1 else subscript(data[stri])
+
+    return phrase</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.chinese"><code class="name flex">
@@ -990,6 +1074,34 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
     return data</code></pre>
 </details>
 </dd>
+<dt id="wikidict.user_functions.flatten"><code class="name flex">
+<span>def <span class="ident">flatten</span></span>(<span>seq: List[str]) ‑> List[str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Flatten non-empty items from <em>seq</em>.</p>
+<pre><code>&gt;&gt;&gt; flatten(["a", ("b", "", "c"), ["d"]])
+['a', 'b', 'c', 'd']
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def flatten(seq: List[str]) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Flatten non-empty items from *seq*.
+
+        &gt;&gt;&gt; flatten([&#34;a&#34;, (&#34;b&#34;, &#34;&#34;, &#34;c&#34;), [&#34;d&#34;]])
+        [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
+    &#34;&#34;&#34;
+    res: List[str] = []
+    for item in seq:
+        if isinstance(item, (list, tuple)):
+            res.extend(sitem for sitem in item if sitem)
+        elif item:
+            res.append(item)
+    return res</code></pre>
+</details>
+</dd>
 <dt id="wikidict.user_functions.int_to_roman"><code class="name flex">
 <span>def <span class="ident">int_to_roman</span></span>(<span>number: int) ‑> str</span>
 </code></dt>
@@ -1176,7 +1288,7 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         # Float
         res = f&#34;{float(number):,}&#34;
 
-    new_digits_count = sum(1 for c in res if c.isdigit())
+    new_digits_count = sum(bool(c.isdigit()) for c in res)
     if new_digits_count != digits_count:
         res += &#34;0&#34; * (digits_count - new_digits_count)
 
@@ -1566,6 +1678,32 @@ and is sometimes rendered in a smaller font.</p>
     return f&#34;&lt;u&gt;{text}&lt;/u&gt;&#34;</code></pre>
 </details>
 </dd>
+<dt id="wikidict.user_functions.uniq"><code class="name flex">
+<span>def <span class="ident">uniq</span></span>(<span>seq: List[str]) ‑> List[str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return <em>seq</em> without duplicates.</p>
+<pre><code>&gt;&gt;&gt; uniq(["foo", "foo"])
+['foo']
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def uniq(seq: List[str]) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Return *seq* without duplicates.
+
+        &gt;&gt;&gt; uniq([&#34;foo&#34;, &#34;foo&#34;])
+        [&#39;foo&#39;]
+    &#34;&#34;&#34;
+    res: List[str] = []
+    for item in seq:
+        if item not in res:
+            res.append(item)
+    return res</code></pre>
+</details>
+</dd>
 </dl>
 </section>
 <section>
@@ -1588,6 +1726,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.coord" href="#wikidict.user_functions.coord">coord</a></code></li>
 <li><code><a title="wikidict.user_functions.eval_expr" href="#wikidict.user_functions.eval_expr">eval_expr</a></code></li>
 <li><code><a title="wikidict.user_functions.extract_keywords_from" href="#wikidict.user_functions.extract_keywords_from">extract_keywords_from</a></code></li>
+<li><code><a title="wikidict.user_functions.flatten" href="#wikidict.user_functions.flatten">flatten</a></code></li>
 <li><code><a title="wikidict.user_functions.int_to_roman" href="#wikidict.user_functions.int_to_roman">int_to_roman</a></code></li>
 <li><code><a title="wikidict.user_functions.italic" href="#wikidict.user_functions.italic">italic</a></code></li>
 <li><code><a title="wikidict.user_functions.lookup_italic" href="#wikidict.user_functions.lookup_italic">lookup_italic</a></code></li>
@@ -1604,6 +1743,7 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.tag" href="#wikidict.user_functions.tag">tag</a></code></li>
 <li><code><a title="wikidict.user_functions.term" href="#wikidict.user_functions.term">term</a></code></li>
 <li><code><a title="wikidict.user_functions.underline" href="#wikidict.user_functions.underline">underline</a></code></li>
+<li><code><a title="wikidict.user_functions.uniq" href="#wikidict.user_functions.uniq">uniq</a></code></li>
 </ul>
 </li>
 </ul>

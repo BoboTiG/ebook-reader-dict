@@ -2,6 +2,7 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import flatten, uniq
 from .campos_semanticos import campos_semanticos
 
 # Float number separator
@@ -189,14 +190,7 @@ def find_pronunciations(
     ['[los]', '[lɔʰ]']
     """  # noqa
     pattern = pattern2 if "{pronunciación|" in code else pattern1
-    matches: List[str] = []
-    for match in pattern.findall(code):
-        # `match` can contain tuples, flatten it
-        if isinstance(match, tuple):
-            matches.extend(res for res in match if res and res not in matches)
-        elif match and match not in matches:
-            matches.append(match)
-    return [f"[{p}]" for p in matches]
+    return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 
 
 def last_template_handler(

@@ -2,6 +2,7 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import flatten, uniq
 from .labels import labels, labels_regional, labels_subvarieties, labels_topical
 
 # Float number separator
@@ -186,14 +187,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌz/}}")
     ['/ʌs/', '/ʌz/']
     """
-    matches: List[str] = []
-    for match in pattern.findall(code):
-        # `match` can contain tuples, flatten it
-        if isinstance(match, tuple):
-            matches.extend(res for res in match if res and res not in matches)
-        elif match and match not in matches:
-            matches.append(match)
-    return matches
+    return uniq(flatten(pattern.findall(code)))
 
 
 def last_template_handler(

@@ -2,6 +2,7 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import flatten, uniq
 from .arabiser import arabiser
 from .domain_templates import domain_templates
 from .regions import regions
@@ -729,14 +730,7 @@ def find_genders(
     >>> find_genders("'''42''' {{msing}}")
     ['msing']
     """
-    matches: List[str] = []
-    for match in pattern.findall(code):
-        # `match` can contain tuples, flatten it
-        if isinstance(match, tuple):
-            matches.extend(res for res in match if res and res not in matches)
-        elif match and match not in matches:
-            matches.append(match)
-    return matches
+    return uniq(flatten(pattern.findall(code)))
 
 
 def find_pronunciations(
@@ -757,9 +751,7 @@ def find_pronunciations(
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
-    if matches := pattern.findall(line):
-        return [f"\\{p}\\" for p in matches]
-    return []
+    return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
 
 
 def last_template_handler(
