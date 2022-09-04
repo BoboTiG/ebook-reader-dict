@@ -962,6 +962,8 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_surname("surname", ["en"], defaultdict(str))
     '<i>A surname</i>'
+    >>> render_surname("surname", ["en", ""], defaultdict(str))
+    '<i>A surname</i>'
     >>> render_surname("surname", ["en", "rare"], defaultdict(str))
     '<i>A rare surname</i>'
     >>> render_surname("surname", ["en", "English"], defaultdict(str))
@@ -992,7 +994,11 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>A surname originating as an occupation</i>'
     """
     parts.pop(0)  # Remove the lang
-    art = data["A"] or ("An" if parts and parts[0][0].lower() in "aeiou" else "A")
+    art = data["A"] or (
+        "An"
+        if parts and parts[0].lower().startswith(("a", "e", "i", "o", "u"))
+        else "A"
+    )
 
     from_value, from_text = data["from"], ""
     if from_value in {
