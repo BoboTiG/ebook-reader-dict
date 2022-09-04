@@ -220,13 +220,13 @@ def find_etymology(
     return definitions
 
 
-def _find_gender(code: str, pattern: Pattern[str]) -> str:
+def _find_gender(top_sections: List[wtp.Section], pattern: Pattern[str]) -> str:
     """Find the gender."""
-    match = pattern.search(code)
-    if not match:
-        return ""
-    groups = match.groups()
-    return groups[0] or "" if groups else ""
+    for top_section in top_sections:
+        if match := pattern.search(top_section.contents):
+            if groups := match.groups():
+                return groups[0] or ""
+    return ""
 
 
 def _find_pronunciations(
@@ -354,7 +354,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
-        nature = _find_gender(code, gender[locale])
+        nature = _find_gender(top_sections, gender[locale])
 
     for title, parsed_section in parsed_sections.items():
         # Find potential variants
