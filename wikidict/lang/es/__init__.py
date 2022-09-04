@@ -75,6 +75,7 @@ templates_ignored = (
     "picdiclabel",
     "préstamo",
     "pron-graf",
+    "relacionado",
     "sin referencias",
 )
 
