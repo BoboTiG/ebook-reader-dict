@@ -17,8 +17,7 @@
 # {{figuré|fr}} {{familier|fr}} Avoir un [[accueil]] qui est [[extrêmement]] froid.
 #* ''Cet homme '''gèle''' ceux qui l’abordent.''
 # {{figuré|fr}} [[bloquer|Bloquer]] un [[processus]].
-#* ''Il '''a gelé''' les négociations.''
-#* ''Savoir '''geler''' un projet.''
+#* ''Il soutient les efforts d’Antonio Guterres, le secrétaire général de l’ONU, pour '''geler''' les combats autour de la centrale nucléaire ukrainienne de Zaporijia.'' {{source|journal ''Sud-Ouest'', édition ''Charente-Maritime / Charente'', 20 août 2022, page 4}}
 # {{Québec|fr}} {{familier|fr}} [[être défoncé]], être [[drogué]].
 #* ''Il a tant fumé de cannabis qu'il est totalement '''gelé'''.''
 # {{intransitif|fr}} Se [[durcir]] par le [[froid]], ou [[subir]] l’[[action]] du froid.

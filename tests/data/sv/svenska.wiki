@@ -7,7 +7,7 @@
 '''svenska'''
 *{{uttal|sv|ljud=Sv-svenska.ogg}}
 #{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
-#:{{etymologi|Belagt sedan 1300-talet, som {{härledning-|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref>}}
+#:{{etymologi|Belagt sedan 1300-talet, som {{härledning|sv|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref>}}
 #:{{sammansättningar|[[svensklektion]], [[svensklärare]]}}
 #{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
 #:{{etymologi|Belagt sedan 1773.<ref name="so"></ref>}}

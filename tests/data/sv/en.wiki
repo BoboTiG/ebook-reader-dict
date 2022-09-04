@@ -17,7 +17,7 @@
 #:''Jag har gjort fyra uppgifter, så nu återstår bara '''en'''.''
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{etymologi|Av {{härledning|sv|gmq-fsv|[[ēn#Fornsvenska|ēn]]}}, av {{härledning|sv|non|[[einn#Fornnordiska|einn]]}}, av {{härledning|sv|gem-ugm|[[ainaz#Urgermanska|*ainaz]]}}, av {{härledning|sv|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]}}}}
 :{{synonymer|[[ett#Svenska|ett]]}}
 :{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
 :{{sammansättningar|[[tjugoen#Svenska|tjugoen]], [[trettioen#Svenska|trettioen]], [[fyrtioen#Svenska|fyrtioen]] osv.}}
@@ -33,7 +33,7 @@
 #:''Jag kommer hem om '''en''' 20 minuter.''
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{etymologi|Av {{härledning|sv|gmq-fsv|[[ēn#Fornsvenska|ēn]]}}, av {{härledning|sv|non|[[einn#Fornnordiska|einn]]}}, av {{härledning|sv|gem-ugm|[[ainaz#Urgermanska|*ainaz]]}}, av {{härledning|sv|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]}}}}
 :{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
 
 ===Artikel===
@@ -43,7 +43,7 @@
 #:'''''En''' mus.''
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{etymologi|Av {{härledning|sv|gmq-fsv|[[ēn#Fornsvenska|ēn]]}}, av {{härledning|sv|non|[[einn#Fornnordiska|einn]]}}, av {{härledning|sv|gem-ugm|[[ainaz#Urgermanska|*ainaz]]}}, av {{härledning|sv|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]}}}}
 :{{homofoner|[[än#Svenska|än]], [[N]], [[n]]}}
 :{{jämför|[[ett#Svenska|ett]]}}
 
@@ -87,7 +87,7 @@
 #:{{användning|Om substantivet är i neutrum används [[ett#Svenska|ett]]}}
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=sv}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=sv}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=sv}}}}
+:{{etymologi|Av {{härledning|sv|gmq-fsv|[[ēn#Fornsvenska|ēn]]}}, av {{härledning|sv|non|[[einn#Fornnordiska|einn]]}}, av {{härledning|sv|gem-ugm|[[ainaz#Urgermanska|*ainaz]]}}, av {{härledning|sv|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]}}}}
 
 ===Substantiv===
 {{sv-subst-n-ar}}
@@ -95,7 +95,7 @@
 '''en'''
 #{{tagg|träd}} en vintergrön [[barrväxt#Svenska|barrväxt]], en [[buske#Svenska|buske]] eller ett [[träd#Svenska|träd]] med tätt [[grenverk#Svenska|grenverk]] och vassa [[barr#Svenska|barr]], av arten ''Juniperus communis'' inom släktet [[enar#Svenska|enar]] (''[[Juniperus#Latin|Juniperus]]'') och familjen [[cypressväxter#Svenska|cypressväxter]] ([[Cupressaceae#Latin|Cupressaceae]])
 #:''Ibland hör man också talas om '''enen''' som nordens cypress''
-#:{{etymologi|Av {{härledning-|gmq-fsv|[[ēn#Fornsvenska|ēn]]|språk=sv}}, av {{härledning-|non|[[æiniʀ#Fornnordiska|*æiniʀ]]|språk=sv}}, av {{härledning-|gem-ugm|[[jainjaz#Urgermanska|*jainjaz]]|språk=sv}}}}
+#:{{etymologi|Av {{härledning|sv|gmq-fsv|[[ēn#Fornsvenska|ēn]]}}, av {{härledning|sv|non|[[æiniʀ#Fornnordiska|*æiniʀ]]}}, av {{härledning|sv|gem-ugm|[[jainjaz#Urgermanska|*jainjaz]]}}}}
 #:{{besläktade ord|[[ene#Svenska|ene]]}}
 #:{{sammansättningar|[[enbacke#Svenska|enbacke]], [[enbuske#Svenska|enbuske]], [[enbär#Svenska|enbär]], [[enbärsbrännvin#Svenska|enbärsbrännvin]], [[enris#Svenska|enris]], [[enruska#Svenska|enruska]], [[ensläktet#Svenska|ensläktet]]}}
 
@@ -136,7 +136,7 @@
 #[[och]]
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|nl|[[en#Nederländska|en]]|språk=af}}, av {{härledning-|dum|[[ende#Medelnederländska|ende]]|språk=af}}, av {{härledning-|odt|[[ande#Fornlågfrankiska|ande]]|språk=af}}, av {{härledning-|gem-ugm|[[andi#Urgermanska|*andi]]|språk=af}}, av {{härledning-|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]|språk=af}}}}
+:{{etymologi|Av {{härledning|af|nl|[[en#Nederländska|en]]}}, av {{härledning|af|dum|[[ende#Medelnederländska|ende]]}}, av {{härledning|af|odt|[[ande#Fornlågfrankiska|ande]]}}, av {{härledning|af|gem-ugm|[[andi#Urgermanska|*andi]]}}, av {{härledning|af|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]}}}}
 
 ==Bokmål==
 ===Artikel===
@@ -157,7 +157,7 @@
 
 :{{avgränsare}}
 :{{varianter|[[én#Danska|én]]}}
-:{{etymologi|Av {{härledning-|non|[[einn#Fornnordiska|einn]]|språk=da}}, av {{härledning-|gem-ugm|[[ainaz#Urgermanska|*ainaz]]|språk=da}}, av {{härledning-|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]|språk=da}}}}
+:{{etymologi|Av {{härledning|da|non|[[einn#Fornnordiska|einn]]}}, av {{härledning|da|gem-ugm|[[ainaz#Urgermanska|*ainaz]]}}, av {{härledning|da|ine-uie|[[ójnos#Urindoeuropeiska|*ójnos]]}}}}
 :{{användning|Tryckstarkt en skrivs [[én#Danska|én]]; varianten [[een#Danska|een]] avskaffades 1955.}}
 
 ==Esperanto==
@@ -237,7 +237,7 @@
 #[[och]]
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|dum|[[ende#Medelnederländska|ende]]|språk=nl}}, av {{härledning-|odt|[[ande#Fornlågfrankiska|ande]]|språk=nl}}, av {{härledning-|gem-ugm|[[andi#Urgermanska|*andi]]|språk=nl}}, av {{härledning-|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]|språk=nl}}}}
+:{{etymologi|Av {{härledning|nl|dum|[[ende#Medelnederländska|ende]]}}, av {{härledning|nl|odt|[[ande#Fornlågfrankiska|ande]]}}, av {{härledning|nl|gem-ugm|[[andi#Urgermanska|*andi]]}}, av {{härledning|nl|ine-uie|[[h₂énti#Urindoeuropeiska|*h₂énti]]}}}}
 
 
 ==Spanska==

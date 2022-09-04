@@ -276,7 +276,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Old Dutch: {{t|odt|thie}}
 * Old English: {{t+|ang|sē}}
 * Old Saxon: {{t|osx|thē}}
-* Persian: {{t+|fa|هه}}
+* Persian: {{t+|fa|هه}}, {{t+|fa|-ها}}
 * Pipil: {{t|ppl|ne}}
 * Pitcairn-Norfolk: {{t|pih|t'}}
 * Polish: {{not used|pl}}
@@ -337,6 +337,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 {{trans-top|this}}
 * German: {{t+|de|dieser}}
 * Japanese: {{t+|ja|その|tr=sono}}
+* Persian: {{t+|fa|این}}
 * Polish: {{t+|pl|ten}}
 {{trans-mid}}
 * Portuguese: {{t+|pt|o}}

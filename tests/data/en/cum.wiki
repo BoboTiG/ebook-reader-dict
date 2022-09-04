@@ -582,7 +582,7 @@ From {{inh|gd|sga|cummaid|t=to fashion, makes}}, from {{m|sga|cummae|t=act of cu
 {{head|yol|verb}}
 
 # {{alt form|yol|coome}}
-#* {{quote-book|yol|year=1867|title=FRAGMENT IN APPENDIX|passage='''Cum''' t' ouz.|translation=——————}}
+#* {{quote-book|yol|year=1867|chapter=DR. RUSSELL ON THE INHABITANTS AND DIALECT OF THE BARONY OF FORTH|title=APPENDIX|passage=Fad didn'st thou '''cum''' t' ouz on zum other dey?|translation=——————————————————}}
 
 ===References===
 * {{R:Poole 1867|page=131}}

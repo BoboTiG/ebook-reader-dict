@@ -8,7 +8,7 @@
 #:{{citat|år=1996|titel=Naiv. Super.|förf=[[w:Erlend Loe|Erlend Loe]]|Han løp rundt '''og''' badet seg '''og''' kastet pinner '''og''' andre ting i vannet.|Han sprang omkring '''och''' badade sig '''och''' kastade pinnar '''och''' andra saker i vattnet.}}
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=no}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=no}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=no}}}}
+:{{etymologi|Av {{härledning|no|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|no|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|no|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Bottniska==
 ===Konjunktion===
@@ -18,7 +18,7 @@
 #[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=gmq-bot}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=gmq-bot}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=gmq-bot}}}}
+:{{etymologi|Av {{härledning|gmq-bot|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|gmq-bot|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|gmq-bot|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ===Adverb===
 {{adv|gmq-bot}}
@@ -30,7 +30,7 @@
 #::''Han var '''visst''' nödträngd, som tog den där (nämligen till hustru).''
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=gmq-bot}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=gmq-bot}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=gmq-bot}}}}
+:{{etymologi|Av {{härledning|gmq-bot|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|gmq-bot|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|gmq-bot|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Danska==
 ===Konjunktion===
@@ -39,7 +39,7 @@
 #[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=da}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=da}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=da}}}}
+:{{etymologi|Av {{härledning|da|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|da|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|da|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Färöiska==
 ===Konjunktion===
@@ -49,7 +49,7 @@
 #:{{citat|år=1961|titel=Bibeln|Í fyrstuni skapaði Guð himmalin '''og''' jørðina.|I begynnelsen skapade Gud himmel '''och''' jord.}}
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=fo}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=fo}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=fo}}}}
+:{{etymologi|Av {{härledning|fo|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|fo|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|fo|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Isländska==
 ===Konjunktion===
@@ -58,7 +58,7 @@
 #[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=is}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=is}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=is}}}}
+:{{etymologi|Av {{härledning|is|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|is|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|is|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Nynorska==
 ===Konjunktion===
@@ -67,7 +67,7 @@
 #[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=nn}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=nn}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=nn}}}}
+:{{etymologi|Av {{härledning|nn|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|nn|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|nn|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}
 
 ==Älvdalska==
 ===Adjektiv===
@@ -81,4 +81,4 @@
 #[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
 
 :{{avgränsare}}
-:{{etymologi|Av {{härledning-|non|[[ok#Fornnordiska|ok]]|språk=ovd}}, av {{härledning-|gem-ugm|[[auk#Urgermanska|*auk]]|språk=ovd}}, av {{härledning-|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]|språk=ovd}}}}
+:{{etymologi|Av {{härledning|ovd|non|[[ok#Fornnordiska|ok]]}}, av {{härledning|ovd|gem-ugm|[[auk#Urgermanska|*auk]]}}, av {{härledning|ovd|ine-uie|[[h₂ewǵe#Urindoeuropeiska|*h₂ewǵe]]}}}}

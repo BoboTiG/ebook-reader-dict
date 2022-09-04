@@ -51,7 +51,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Afrikaans: {{tt|af|Mars}}
 * Albanian: {{tt+|sq|Marsi|m}}, {{tt|sq|Mars|m}} {{q|indefinite}}
 * Amharic: {{tt|am|ማርስ}}
-* Arabic: {{tt+|ar|الْمِرِّيخ|m}}
+* Arabic: {{tt|ar|الْمِرِّيخ|m}}
 * Armenian: {{tt+|hy|Մարս}}, {{tt|hy|Հրատ}}
 * Assamese: {{tt|as|মঙ্গল}}
 * Assyrian Neo-Aramaic: {{tt|aii|ܢܸܪܓܲܠ|m|tr=nirgāl}}
@@ -60,7 +60,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Bashkir: {{tt|ba|Марс}}
 * Basque: {{tt+|eu|Martitz}}
 * Belarusian: {{tt|be|Марс|m}}
-* Bengali: {{tt|bn|মঙ্গল}}
+* Bengali: {{tt+|bn|মঙ্গল}}
 * Breton: {{tt+|br|Meurzh|m}}
 * Bulgarian: {{tt|bg|Марс|m}}
 * Burmese: {{tt+|my|အင်္ဂါ}}
