@@ -1,15 +1,6 @@
 """Greek language."""
 import re
-from typing import Dict, Pattern, Tuple
-
-from ...stubs import Pronunciations
-
-# Regex to find the gender
-# '''{{PAGENAME}}''' {{θ}}
-# '''{{PAGENAME}}''' {{ο}}
-# '''{{PAGENAME}}''' {{α}}
-# '''{{PAGENAME}}''' {{αθ}}
-gender = r"'''{{PAGENAME}}''' \{\{([θαο]+)\}\}"
+from typing import Dict, List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -73,9 +64,6 @@ templates_ignored = (
     "κλείδα-ελλ",
 )
 
-# Templates that will be completed/replaced using italic style.
-templates_italic: Dict[str, str] = {}
-
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
@@ -102,12 +90,53 @@ release_description = """\
 wiktionary = "Βικιλεξικό (ɔ) {year}"
 
 
+_genders = {
+    "θ": "θηλυκό",
+    "α": "εμφανίζει",
+    "αθ": "αρσενικό ή θηλυκό",
+    "ακλ|αθ": "άκλιτο",
+    "ο": "ουδέτερο",
+}
+
+
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(
+        r"'''{{PAGENAME}}''' {{([θαοκλ\|]+)}}(?:,?\s?{{([θαοκλ\|]+)}})*"
+    ),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}")
+    ['αρσενικό ή θηλυκό']
+    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}, {{ακλ|αθ}}")
+    ['αρσενικό ή θηλυκό', 'άκλιτο']
+    """
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        # `match` can contain tuples, flatten it
+        if isinstance(match, tuple):
+            matches.extend(
+                _genders[res] for res in match if res and _genders[res] not in matches
+            )
+        elif match and _genders[match] not in matches:
+            matches.append(_genders[match])
+    return matches
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"),
-) -> Pronunciations:
-    # {{ΔΦΑ|tɾeˈlos|γλ=el}}
-    # {{ΔΦΑ|γλ=el|ˈni.xta}}
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{ΔΦΑ|tɾeˈlos|γλ=el}}")
+    ['tɾeˈlos']
+    >>> find_pronunciations("{{ΔΦΑ|γλ=el|ˈni.xta}}")
+    ['ˈni.xta']
+    """
     return pattern.findall(code)
 
 

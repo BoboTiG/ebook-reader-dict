@@ -1,44 +1,31 @@
 import pytest
 
-from wikidict.lang.pt import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
+    "word, pronunciations, genders, etymology, definitions",
     [
-        ("", []),
-        ("{{AFI|/pɾe.ˈno.me̝/}}", ["/pɾe.ˈno.me̝/"]),
-        ("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}", ["/pɾe.ˈno.me̝/"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions",
-    [
-        ("ababalhar", [], "", ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
+        ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
             "alguém",
             ["/aɫ.ˈɡɐ̃j̃/"],
-            "",
+            [],
             ["Do latim <i>alĭquem</i> <sup>(la)</sup>."],
             ["pessoa não identificada"],
         ),
         (
             "algo",
             ["/ˈaɫ.ɡu/"],
-            "",
+            [],
             [],
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
         ),
         (
             "baiano",
             [],
-            "",
+            [],
             ["Derivado de Bahia, mais o sufixo ano, com perda do H."],
             [
                 "do Estado da Bahia, Brasil",
@@ -49,7 +36,7 @@ def test_find_pronunciations(code, expected):
         (
             "cabrum",
             [],
-            "mf",
+            ["mf"],
             ['Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".'],
             [
                 "<i>(Pecuária)</i> de cabras:",
@@ -60,7 +47,7 @@ def test_find_pronunciations(code, expected):
         (
             "COPOM",
             ["/ko.ˈpõ/"],
-            "m",
+            ["m"],
             [],
             [
                 "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
@@ -70,7 +57,7 @@ def test_find_pronunciations(code, expected):
         (
             "dezassete",
             ["/dɨ.zɐ.ˈsɛ.tɨ/"],
-            "",
+            [],
             ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
             [
                 "o número dezassete (17, XVII)",
@@ -82,7 +69,7 @@ def test_find_pronunciations(code, expected):
         (
             "etc",
             [],
-            "",
+            [],
             [],
             [
                 'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',  # noqa
@@ -91,7 +78,7 @@ def test_find_pronunciations(code, expected):
         (
             "-ista",
             [],
-            "",
+            [],
             [
                 "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."  # noqa
             ],
@@ -105,7 +92,7 @@ def test_find_pronunciations(code, expected):
         (
             "neo-",
             [],
-            "",
+            [],
             ["Do grego antigo <i>νέος</i>."],
             [
                 "exprime a ideia de <i>novo</i>",
@@ -115,14 +102,14 @@ def test_find_pronunciations(code, expected):
         (
             "para",
             ["/ˈpɐ.ɾɐ/"],
-            "",
+            [],
             [],
             ["exprime fim, destino, lugar, tempo, direção etc"],
         ),
         (
             "paulista",
             [],
-            "",
+            [],
             [],
             [
                 "diz-se de pessoa de origem do Estado de São Paulo, Brasil",
@@ -131,11 +118,11 @@ def test_find_pronunciations(code, expected):
                 "artigo ou objeto do Estado de São Paulo",
             ],
         ),
-        ("tenui-", [], "", [], ["variante ortográfica de <b>tenu-</b>"]),
+        ("tenui-", [], [], [], ["variante ortográfica de <b>tenu-</b>"]),
         (
             "to",
             [],
-            "",
+            [],
             [],
             [
                 "<i>(antigo)</i> contração do pronome pessoal te com o pronome pessoal ou demonstrativo o",
@@ -145,21 +132,21 @@ def test_find_pronunciations(code, expected):
         (
             "ũa",
             [],
-            "",
+            [],
             [
                 "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."
             ],
             ["ortografia antiga de uma"],
         ),
-        ("UTC", [], "", [], ["<i>(estrangeirismo)</i> ver TUC"]),
+        ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
-def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
+def test_parse_word(word, pronunciations, genders, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "pt")
     details = parse_word(word, code, "pt", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
 

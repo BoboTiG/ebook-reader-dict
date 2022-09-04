@@ -1,28 +1,16 @@
 import pytest
 
-from wikidict.lang.it import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        ("{{IPA|/kondiˈvidere/}}", ["/kondiˈvidere/"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions",
+    "word, pronunciations, genders, etymology, definitions",
     [
         (
             "condividere",
             ["/kondiˈvidere/"],
-            "",
+            [],
             [
                 "dal latino <i>cum</i> e <i>dividere</i>; l'attuale uso improprio del verbo <i>condividere</i> è dovuto alla diffusione dei social network negli anni 2000 e 2010",  # noqa
             ],
@@ -37,7 +25,7 @@ def test_find_pronunciations(code, expected):
         (
             "debolmente",
             ["/debolˈmente/"],
-            "",
+            [],
             ["composto dall'aggettivo debole e dal suffisso -mente"],
             [
                 "in maniera debole, con debolezza",
@@ -46,7 +34,7 @@ def test_find_pronunciations(code, expected):
         (
             "lettore",
             ["/letˈtore/"],
-            "m",
+            ["m"],
             ['dal latino <i>lector</i>, derivazione di <i>legĕre</i> ossia "leggere"'],
             [
                 "chi legge un libro, un giornale o una rivista",
@@ -56,12 +44,12 @@ def test_find_pronunciations(code, expected):
         ),
     ],
 )
-def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
+def test_parse_word(word, pronunciations, genders, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "it")
     details = parse_word(word, code, "it", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
 

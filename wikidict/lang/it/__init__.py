@@ -1,11 +1,6 @@
 """Italian language."""
 import re
-from typing import Dict, Pattern, Tuple
-
-from ...stubs import Pronunciations
-
-# Regex to find the gender
-gender = r"{{Pn\|?w?}} ''([fm])[singvol ]*''"
+from typing import Dict, List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -101,8 +96,27 @@ File disponibili:
 wiktionary = "Wikizionario (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''"),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("{{Pn}} ''m sing''")
+    ['m']
+    """
+    return pattern.findall(code)
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{IPA\|(/[^/]+/)"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{IPA|/kondiˈvidere/}}")
+    ['/kondiˈvidere/']
+    """
     return pattern.findall(code)

@@ -1,14 +1,10 @@
 """French language."""
 import re
-from typing import Pattern, Tuple
+from typing import List, Pattern, Tuple
 
-from ...stubs import Pronunciations
 from .arabiser import arabiser
 from .domain_templates import domain_templates
 from .regions import regions
-
-# Regexp pour trouver le gender
-gender = r"{([fmsingp]+)(?: \?\|fr)*}"
 
 # Séparateur des nombres à virgule
 float_separator = ","
@@ -721,10 +717,40 @@ Fichiers disponibles :
 wiktionary = "Wiktionnaire (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}")
+    ['f']
+    >>> find_genders("'''42''' {{msing}}")
+    ['msing']
+    """
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        # `match` can contain tuples, flatten it
+        if isinstance(match, tuple):
+            matches.extend(res for res in match if res and res not in matches)
+        elif match and match not in matches:
+            matches.append(match)
+    return matches
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{pron|ɑ|fr}}")
+    ['\\\\ɑ\\\\']
+    >>> find_pronunciations("{{pron|ɑ|fr}}, {{pron|a|fr}}")
+    ['\\\\ɑ\\\\', '\\\\a\\\\']
+    """
     if not (match := pattern.search(code)):
         return []
 

@@ -1,6 +1,5 @@
 """Internationalization stuff."""
-import re
-from typing import Any, Callable, Dict, Pattern, Tuple, TypeVar
+from typing import Any, Dict, Tuple, TypeVar
 
 from . import ca, de, defaults, el, en, es, fr, it, no, pt, ru, sv
 from .ca.langs import langs as CA
@@ -55,28 +54,18 @@ Arg = TypeVar("Arg")
 PopulatedDict = Dict[str, Any]
 
 
-def _noop_callback(arg: Arg) -> Arg:
-    """Simply returns the argument."""
-    return arg
-
-
-def _populate(
-    attr: str, callback: Callable[[Any], Any] = _noop_callback
-) -> PopulatedDict:
+def _populate(attr: str) -> PopulatedDict:
     """
     Create a dict for all locales pointing to the appropriate attribute.
     Fallback to `defaults`.
     """
     return {
-        locale.__name__.split(".")[-1]: callback(getattr(locale, attr))
+        locale.__name__.split(".")[-1]: getattr(locale, attr)
         if hasattr(locale, attr)
-        else callback(getattr(defaults, attr))
+        else getattr(defaults, attr)
         for locale in _ALL_LOCALES
     }
 
-
-# Regex to find the gender
-gender: Dict[str, Pattern[str]] = _populate("gender", callback=re.compile)
 
 # Float number separator
 float_separator: Dict[str, str] = _populate("float_separator")
@@ -139,7 +128,10 @@ release_description: Dict[str, str] = _populate("release_description")
 # Dictionary name that will be printed below each definition
 wiktionary: Dict[str, str] = _populate("wiktionary")
 
-# Function to find the pronunciation
+# Function to find gender(s)
+find_genders = _populate("find_genders")
+
+# Function to find pronunciation(s)
 find_pronunciations = _populate("find_pronunciations")
 
 # When a template is not handled by any previous template handlers,

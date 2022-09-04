@@ -266,7 +266,7 @@ class KoboFormat(KoboBaseFormat):
                     definitions = self.create_definitions(details)
 
                     pronunciation = convert_pronunciation(details.pronunciations)
-                    gender = convert_gender(details.gender)
+                    gender = convert_gender(details.genders)
                     etymology = self.create_etymology(details.etymology)
 
                     var = ""
@@ -315,7 +315,7 @@ class DictFileFormat(KoboBaseFormat):
                 definitions = self.create_definitions(details)
 
                 pronunciation = convert_pronunciation(details.pronunciations)
-                gender = convert_gender(details.gender)
+                gender = convert_gender(details.genders)
                 etymology = self.create_etymology(details.etymology)
                 fh.write(f"@ {word}\n")
                 if pronunciation or gender:

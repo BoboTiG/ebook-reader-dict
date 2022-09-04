@@ -2,7 +2,6 @@
 import re
 from typing import List, Pattern, Tuple
 
-from ...stubs import Pronunciations
 from .labels import labels, labels_regional, labels_subvarieties, labels_topical
 
 # Float number separator
@@ -172,7 +171,21 @@ wiktionary = "Wiktionary (ɔ) {year}"
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{IPA|en|/ʌs/}}")
+    ['/ʌs/']
+    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌs/}}")
+    ['/ʌs/']
+    >>> find_pronunciations("{{IPA|en|/ʌs/}} {{IPA|en|/ʌs/}}")
+    ['/ʌs/']
+    >>> find_pronunciations("{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}")
+    ['/ʌs/', '/ʌz/']
+    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌz/}}")
+    ['/ʌs/', '/ʌz/']
+    """
     matches: List[str] = []
     for match in pattern.findall(code):
         # `match` can contain tuples, flatten it

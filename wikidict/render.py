@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Optional, Pattern, Tuple, cast
+from typing import Callable, Dict, List, Optional, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -15,8 +15,8 @@ import wikitextparser._spans
 from .lang import (
     definitions_to_ignore,
     etyl_section,
+    find_genders,
     find_pronunciations,
-    gender,
     head_sections,
     section_level,
     section_patterns,
@@ -25,7 +25,7 @@ from .lang import (
     sublist_patterns,
     words_to_keep,
 )
-from .stubs import Definitions, Pronunciations, SubDefinitions, Word, Words
+from .stubs import Definitions, SubDefinitions, Word, Words
 from .utils import clean, process_templates, table2html
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
@@ -220,17 +220,18 @@ def find_etymology(
     return definitions
 
 
-def _find_gender(top_sections: List[wtp.Section], pattern: Pattern[str]) -> str:
-    """Find the gender."""
+def _find_genders(
+    top_sections: List[wtp.Section], func: Callable[[str], List[str]]
+) -> List[str]:
+    """Find the genders."""
     for top_section in top_sections:
-        if match := pattern.search(top_section.contents):
-            if groups := match.groups():
-                return groups[0] or ""
-    return ""
+        if result := func(top_section.contents):
+            return result
+    return []
 
 
 def _find_pronunciations(
-    top_sections: List[wtp.Section], func: Callable[[str], Pronunciations]
+    top_sections: List[wtp.Section], func: Callable[[str], List[str]]
 ) -> List[str]:
     """Find pronunciations."""
     for top_section in top_sections:
@@ -341,7 +342,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     top_sections, parsed_sections = find_sections(code, locale)
     prons = []
-    nature = ""
+    genders = []
     etymology = []
     variants = set()
 
@@ -354,7 +355,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
-        nature = _find_gender(top_sections, gender[locale])
+        genders = _find_genders(top_sections, find_genders[locale])
 
     for title, parsed_section in parsed_sections.items():
         # Find potential variants
@@ -426,7 +427,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 if variant and variant != word:
                     variants.add(variant)
 
-    return Word(prons, nature, etymology, definitions, sorted(variants))
+    return Word(prons, genders, etymology, definitions, sorted(variants))
 
 
 def load(file: Path) -> Dict[str, str]:

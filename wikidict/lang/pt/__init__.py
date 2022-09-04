@@ -1,12 +1,8 @@
 """Portuguese language."""
 import re
-from typing import Pattern, Tuple
+from typing import List, Pattern, Tuple
 
-from ...stubs import Pronunciations
 from .escopos import escopos
-
-# Regex to find the gender
-gender = r"{([fm]+)}"
 
 # Float number separator
 float_separator = ","
@@ -125,10 +121,33 @@ Arquivos disponíveis:
 wiktionary = "Wikcionário (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{([fm]+)}"),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("{{oxítona|ca|brum}}, {{mf}}")
+    ['mf']
+    >>> find_genders("'''COPOM''', {{m}}")
+    ['m']
+    """
+    return pattern.findall(code)
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/}}")
+    ['/pɾe.ˈno.me̝/']
+    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}")
+    ['/pɾe.ˈno.me̝/']
+    """
     return pattern.findall(code)
 
 

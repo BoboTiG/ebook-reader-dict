@@ -1,23 +1,7 @@
 import pytest
 
-from wikidict.lang.en import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
-
-
-@pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        ("{{IPA|en|/ʌs/}}", ["/ʌs/"]),
-        ("{{IPA|en|/ʌs/|/ʌs/}}", ["/ʌs/"]),
-        ("{{IPA|en|/ʌs/}} {{IPA|en|/ʌs/}}", ["/ʌs/"]),
-        ("{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}", ["/ʌs/", "/ʌz/"]),
-        ("{{IPA|en|/ʌs/|/ʌz/}}", ["/ʌs/", "/ʌz/"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
 
 
 @pytest.mark.parametrize(

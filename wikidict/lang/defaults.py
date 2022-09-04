@@ -3,11 +3,6 @@ import re
 from collections import defaultdict  # noqa
 from typing import Dict, List, Pattern, Tuple
 
-from ..stubs import Pronunciations
-
-# Regex to find the gender
-gender = r""
-
 # Float number separator
 float_separator = ""
 
@@ -41,10 +36,18 @@ templates_multi: Dict[str, str] = {}
 templates_other: Dict[str, str] = {}
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r""),
+) -> List[str]:
+    """Function used to find genders within `code`."""
+    return []
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r""),
-) -> Pronunciations:
+) -> List[str]:
     """Function used to find pronunciations within `code`."""
     return []
 
