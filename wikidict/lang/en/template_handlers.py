@@ -1020,7 +1020,7 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     return (
         italic(f"{art} {parts[0]} {tpl}{from_text}")
-        if parts
+        if parts and parts[0]
         else italic(f"{art} {tpl}{from_text}")
     )
 
