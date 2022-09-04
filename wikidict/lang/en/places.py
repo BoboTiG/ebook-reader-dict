@@ -2328,6 +2328,7 @@ recognized_placenames = {
     "region/Caucasus": {"article": "the", "display": ""},
     "region/Kanta-Häme": {"article": "", "display": "region/Tavastia Proper"},
     "region/Middle East": {"article": "the", "display": ""},
+    "region/New Territories": {"article": "the", "display": ""},
     "region/North Caucasus": {"article": "the", "display": ""},
     "region/North Savo": {"article": "", "display": "region/Northern Savonia"},
     "region/Northern Ostrobothnia": {
@@ -2408,5 +2409,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 144
+}  # 145
 # END
