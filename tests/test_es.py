@@ -195,6 +195,15 @@ def test_find_pronunciations(code, expected):
             [],
         ),
         (
+            "ruego",
+            [],
+            [],
+            [
+                "Súplica, petición hecha con el fin de alcanzar lo que se pide.",
+            ],
+            ["rogar"],
+        ),
+        (
             "también",
             ["[tamˈbjen]"],
             ["Compuesto de <i>tan</i> y <i>bien</i>"],

@@ -319,20 +319,23 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     if locale == "de":
         # {{Bedeutungen}} -> === {{Bedeutungen}} ===
-        code = re.sub(
-            r"^\{\{(.+)\}\}",
-            r"=== {{\1}} ===",
-            code,
-            flags=re.MULTILINE,
-        )
+        code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
         # Definition lists are not well supported by the parser, replace them by numbered lists
         code = re.sub(r":\[\d+\]\s*", "# ", code)
+
+    elif locale == "es":
+        # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
+        code = re.sub(
+            r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE
+        )
 
     elif locale == "it":
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
             r"^\{\{-(.+)-\|it?\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
         )
+
         # {{-avv-}} -> === {{avv}} ===
         code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
