@@ -61,8 +61,8 @@ def convert_gender(genders: List[str]) -> str:
     """Return the HTML code to include for gender(s) of a word."""
     if not genders:
         return ""
-    genders = [f"<i>{gender}.</i>" for gender in genders]
-    return f" {', '.join(genders)}"
+    genders = [f"<i>{gender}</i>" for gender in genders]
+    return f" {', '.join(genders)}."
 
 
 def convert_pronunciation(pronunciations: List[str]) -> str:
