@@ -18,19 +18,11 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 - [Portuguese](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
 - [Swedish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
-### Work In Progress
-
 Any help is welcome to improve those dictionaries:
 
 - :construction: [Greek](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el)
 - :construction: [Noway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no)
 - :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
-
-### Requirements
-
-#### Kobo
-
-Kobo firmware >= 4.24. For older firmwares, you can find outdated dictionaries [here](https://github.com/BoboTiG/ebook-reader-dict/actions/runs/350446645).
 
 ## Updating Dictionaries
 
