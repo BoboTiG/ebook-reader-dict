@@ -2,6 +2,7 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import uniq
 from .escopos import escopos
 
 # Float number separator
@@ -133,7 +134,7 @@ def find_genders(
     >>> find_genders("'''COPOM''', {{m}}")
     ['m']
     """
-    return pattern.findall(code)
+    return uniq(pattern.findall(code))
 
 
 def find_pronunciations(
@@ -148,7 +149,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}")
     ['/pɾe.ˈno.me̝/']
     """
-    return pattern.findall(code)
+    return uniq(pattern.findall(code))
 
 
 def last_template_handler(

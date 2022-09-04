@@ -2,6 +2,8 @@
 import re
 from typing import Dict, List, Pattern, Tuple
 
+from ...user_functions import flatten, uniq
+
 # Float number separator
 float_separator = ","
 
@@ -113,16 +115,7 @@ def find_genders(
     >>> find_genders("'''{{PAGENAME}}''' {{αθ}}, {{ακλ|αθ}}")
     ['αρσενικό ή θηλυκό', 'άκλιτο']
     """
-    matches: List[str] = []
-    for match in pattern.findall(code):
-        # `match` can contain tuples, flatten it
-        if isinstance(match, tuple):
-            matches.extend(
-                _genders[res] for res in match if res and _genders[res] not in matches
-            )
-        elif match and _genders[match] not in matches:
-            matches.append(_genders[match])
-    return matches
+    return [_genders[g] for g in uniq(flatten(pattern.findall(code)))]
 
 
 def find_pronunciations(
@@ -137,7 +130,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{ΔΦΑ|γλ=el|ˈni.xta}}")
     ['ˈni.xta']
     """
-    return pattern.findall(code)
+    return uniq(pattern.findall(code))
 
 
 def last_template_handler(

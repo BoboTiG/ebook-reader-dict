@@ -2,6 +2,8 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import uniq
+
 # Float number separator
 float_separator = ","
 
@@ -116,7 +118,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
     ['/eːn/, /ɛn/, /en/']
     """
-    return [f"/{p}/" for p in match] if (match := pattern.findall(code)) else []
+    return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
 def last_template_handler(

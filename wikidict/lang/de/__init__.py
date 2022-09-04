@@ -2,6 +2,8 @@
 import re
 from typing import List, Pattern, Tuple
 
+from ...user_functions import uniq
+
 # Float number separator
 float_separator = ","
 
@@ -139,7 +141,7 @@ def find_genders(
     >>> find_genders("=== {{Wortart|Abkürzung|Deutsch}}, {{mf}}, {{Wortart|Substantiv|Deutsch}} ===")
     ['mf']
     """
-    return pattern.findall(code)
+    return uniq(pattern.findall(code))
 
 
 def find_pronunciations(
@@ -154,7 +156,7 @@ def find_pronunciations(
     >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}")
     ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
     """  # noqa
-    return [f"[{p}]" for p in matches] if (matches := pattern.findall(code)) else []
+    return [f"[{p}]" for p in uniq(pattern.findall(code))]
 
 
 def last_template_handler(
