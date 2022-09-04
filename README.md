@@ -18,7 +18,7 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 - [Italian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it)
 - :construction: [Noway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no) (help welcome)
 - [Portuguese](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
-- [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
+- :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru) (help welcome)
 - [Swedish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
 ### Requirements
