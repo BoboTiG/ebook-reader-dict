@@ -1,35 +1,16 @@
 import pytest
 
-from wikidict.lang.de import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        (
-            ":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}",
-            ["[ˈʁɪndɐˌsteːk]"],
-        ),
-        (
-            ":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}",
-            ["[ˈʁɪndɐˌsteːk]", "[ˈʁɪndɐˌʃteːk]", "[ˈʁɪndɐˌsteɪ̯k]"],
-        ),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "CIA",
             ["[siːaɪ̯ˈɛɪ̯]"],
-            "mf",
+            ["mf"],
             ["Abkürzung von Central Intelligence Agency"],
             ["US-amerikanischer Auslandsnachrichtendienst"],
             [],
@@ -37,7 +18,7 @@ def test_find_pronunciations(code, expected):
         (
             "volley",
             ["[ˈvɔli]", "[ˈvɔle]", "[ˈvɔlɛɪ̯]"],
-            "",
+            [],
             [
                 "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the <i>volley</i></i> ‚aus der Luft‘ zugrunde.",  # noqa
             ],
@@ -46,18 +27,18 @@ def test_find_pronunciations(code, expected):
             ],
             [],
         ),
-        ("trage", ["[ˈtʁaːɡə]"], "", [], [], ["tragen"]),
-        ("daß", [], "", [], [], ["dass"]),
+        ("trage", ["[ˈtʁaːɡə]"], [], [], [], ["tragen"]),
+        ("daß", [], [], [], [], ["dass"]),
     ],
 )
 def test_parse_word(
-    word, pronunciations, gender, etymology, definitions, variants, page
+    word, pronunciations, genders, etymology, definitions, variants, page
 ):
     """Test the sections finder and definitions getter."""
     code = page(word, "de")
     details = parse_word(word, code, "de", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
     assert variants == details.variants

@@ -57,13 +57,16 @@ SPECIAL_TEMPLATES = {
 }
 
 
-def convert_gender(gender: str) -> str:
-    """Return the HTML code to include for the gender of a word."""
-    return f" <i>{gender}.</i>" if gender else ""
+def convert_gender(genders: List[str]) -> str:
+    """Return the HTML code to include for gender(s) of a word."""
+    if not genders:
+        return ""
+    genders = [f"<i>{gender}.</i>" for gender in genders]
+    return f" {', '.join(genders)}"
 
 
 def convert_pronunciation(pronunciations: List[str]) -> str:
-    """Return the HTML code to include for the etymology of a word."""
+    """Return the HTML code to include for pronunciation(s) of a word."""
     return f" {', '.join(pronunciations)}" if pronunciations else ""
 
 

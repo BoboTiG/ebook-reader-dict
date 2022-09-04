@@ -1,29 +1,16 @@
 import pytest
 
-from wikidict.lang.fr import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        ("{{pron|ɑ|fr}}", ["\\ɑ\\"]),
-        ("{{pron|ɑ|fr}}, {{pron|a|fr}}", ["\\ɑ\\", "\\a\\"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "-eresse",
             ["\\(ə).ʁɛs\\"],
-            "f",
+            ["f"],
             [
                 "<i>(Date à préciser)</i> Ce suffixe est né d’une coupe erronée du suffixe des mots comme <i>enchanteresse</i> et <i>pécheresse</i>. En effet, ces derniers sont en fait le cas sujet de mots en <i>-eur</i> auquel on a ajouté le suffixe féminisant <i>-esse</i> sous le schéma suivant :",  # noqa
                 '<table style="border: 1px solid black; border-collapse: collapse;"><tr><th style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">cas sujet</th><th style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">cas régime</th><th style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">cas sujet + <i>-esse</i></th></tr><tr><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">pechere</td><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">pecheur</td><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">pecheresse</td></tr><tr><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">enchantere</td><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">enchanteur</td><td style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;">enchanteresse</td></tr></table>',  # noqa
@@ -38,7 +25,7 @@ def test_find_pronunciations(code, expected):
         (
             "a",
             ["\\ɑ\\", "\\a\\"],
-            "m",
+            ["m"],
             [],
             [
                 "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie.",  # noqa
@@ -55,7 +42,7 @@ def test_find_pronunciations(code, expected):
         (
             "π",
             [],
-            "",
+            [],
             [],
             [
                 "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",  # noqa
@@ -66,7 +53,7 @@ def test_find_pronunciations(code, expected):
         (
             "42",
             ["\\ka.ʁɑ̃t.dø\\"],
-            "msing",
+            ["msing"],
             [],
             [
                 "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",  # noqa
@@ -81,7 +68,7 @@ def test_find_pronunciations(code, expected):
         (
             "accueil",
             ["\\a.kœj\\"],
-            "m",
+            ["m"],
             ["<u><i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.</u>"],
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
@@ -95,7 +82,7 @@ def test_find_pronunciations(code, expected):
         (
             "acrologie",
             ["\\a.kʁɔ.lɔ.ʒi\\"],
-            "f",
+            ["f"],
             [
                 "Du grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»), voir <i>acro-</i>, avec le suffixe <i>-logie</i>."  # noqa
             ],
@@ -110,7 +97,7 @@ def test_find_pronunciations(code, expected):
         (
             "aux",
             ["\\o\\"],
-            "mf",
+            ["mf", "p"],
             [],
             [
                 "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
@@ -121,7 +108,7 @@ def test_find_pronunciations(code, expected):
         (
             "base",
             ["\\bɑz\\"],
-            "f",
+            ["f"],
             [
                 "<i>(Date à préciser)</i> Du latin <i>basis</i> («&nbsp;id.&nbsp;»), du grec ancien βάσις, <i>básis</i> («&nbsp;marche&nbsp;»)."  # noqa
             ],
@@ -159,7 +146,7 @@ def test_find_pronunciations(code, expected):
         (
             "bath",
             ["\\bat\\"],
-            "m",
+            ["m"],
             [
                 "(<i>Adjectif, nom 1</i>) <i>(1846)</i> Origine discutée :",
                 (
@@ -180,7 +167,7 @@ def test_find_pronunciations(code, expected):
         (
             "Bogotanais",
             ["\\bɔ.ɡɔ.ta.nɛ\\"],
-            "m",
+            ["m", "sp"],
             ["Du nom Bogota avec le préfixe -ais."],
             [],
             [],
@@ -188,7 +175,7 @@ def test_find_pronunciations(code, expected):
         (
             "colligeait",
             ["\\kɔ.li.ʒɛ\\"],
-            "",
+            [],
             [],
             [],
             ["colliger"],
@@ -196,7 +183,7 @@ def test_find_pronunciations(code, expected):
         (
             "corps portant",
             ["\\kɔʁ pɔʁ.tɑ̃\\"],
-            "m",
+            ["m"],
             ["Locution composée de <i>corps</i> et de <i>portant</i>."],
             [
                 "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",  # noqa
@@ -207,7 +194,7 @@ def test_find_pronunciations(code, expected):
         (
             "DES",
             [],
-            "m",
+            ["m"],
             [
                 "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire »."  # noqa
             ],
@@ -226,7 +213,7 @@ def test_find_pronunciations(code, expected):
         (
             "dubitatif",
             ["\\dy.bi.ta.tif\\"],
-            "",
+            [],
             ["Du latin <i>dubitativus</i>."],
             [
                 "Qui sert à exprimer le doute.",
@@ -237,7 +224,7 @@ def test_find_pronunciations(code, expected):
         (
             "effluve",
             ["\\e.flyv\\"],
-            "mf",
+            ["mf"],
             [
                 "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »)."  # noqa
             ],
@@ -250,7 +237,7 @@ def test_find_pronunciations(code, expected):
         (
             "employer",
             ["\\ɑ̃.plwa.je\\"],
-            "",
+            [],
             ["Du latin <i>implicāre</i> («&nbsp;impliquer&nbsp;»)."],
             [
                 "Utiliser ; user ; se servir de.",
@@ -262,7 +249,7 @@ def test_find_pronunciations(code, expected):
         (
             "encyclopædie",
             ["\\ɑ̃.si.klɔ.pe.di\\"],
-            "f",
+            ["f"],
             ["→ voir <i>encyclopédie</i>"],
             ["<i>(Archaïsme)</i> <i>Variante orthographique de</i> encyclopédie."],
             [],
@@ -270,7 +257,7 @@ def test_find_pronunciations(code, expected):
         (
             "éperon",
             ["\\e.pʁɔ̃\\"],
-            "m",
+            ["m"],
             ["De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>."],
             [
                 "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",  # noqa
@@ -290,7 +277,7 @@ def test_find_pronunciations(code, expected):
         (
             "greffier",
             ["\\ɡʁɛ.fje\\", "\\ɡʁe.fje\\"],
-            "m",
+            ["m"],
             [
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",  # noqa
                 "(<i>Nom commun 2</i>) <i>(Date à préciser)</i> Sans doute par jeu de mot avec <i>griffes</i> → voir <i>chat-fourré</i>.",  # noqa
@@ -307,7 +294,7 @@ def test_find_pronunciations(code, expected):
         (
             "ich",
             [],
-            "",
+            [],
             [],
             ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."],
             [],
@@ -315,7 +302,7 @@ def test_find_pronunciations(code, expected):
         (
             "koro",
             ["\\kɔ.ʁo\\"],
-            "m",
+            ["m"],
             [],
             [
                 "Langue tibéto-birmane parlée dans l’Arunachal Pradesh (Inde)",
@@ -327,7 +314,7 @@ def test_find_pronunciations(code, expected):
         (
             "mutiner",
             ["\\my.ti.ne\\"],
-            "",
+            [],
             ["Dénominal de <i>mutin</i>."],
             [
                 "Se porter à la sédition, à la révolte.",
@@ -339,7 +326,7 @@ def test_find_pronunciations(code, expected):
         (
             "naguère",
             ["\\na.ɡɛʁ\\"],
-            "",
+            [],
             ["De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>."],
             [
                 "Récemment ; il y a peu.",
@@ -352,7 +339,7 @@ def test_find_pronunciations(code, expected):
         # (
         #     "pinyin",
         #     ["\\pin.jin\\"],
-        #     "m",
+        #     ["m"],
         #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc «\xa0épeler les sons\xa0».",  # noqa
         #     [
         #         "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",  # noqa
@@ -363,7 +350,7 @@ def test_find_pronunciations(code, expected):
         (
             "précepte",
             ["\\pʁe.sɛpt\\"],
-            "m",
+            ["m"],
             [
                 "Emprunté au latin <i>praeceptum</i> («&nbsp;précepte, leçon, règle&nbsp;»), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire »."  # noqa
             ],
@@ -378,7 +365,7 @@ def test_find_pronunciations(code, expected):
         (
             "rance",
             ["\\ʁɑ̃s\\"],
-            "mf",
+            ["mf", "m"],
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
@@ -391,7 +378,7 @@ def test_find_pronunciations(code, expected):
         (
             "sapristi",
             ["\\sa.pʁis.ti\\"],
-            "",
+            [],
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
             ["Pour marquer l’étonnement."],
             [],
@@ -399,7 +386,7 @@ def test_find_pronunciations(code, expected):
         (
             "silicone",
             ["\\si.li.kon\\"],
-            "f",
+            ["f", "m"],
             [
                 "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i>, avec le suffixe <i>-one</i>."  # noqa
             ],
@@ -415,7 +402,7 @@ def test_find_pronunciations(code, expected):
         (
             "suis",
             ["\\sɥi\\"],
-            "",
+            [],
             [
                 "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>)."  # noqa
             ],
@@ -425,7 +412,7 @@ def test_find_pronunciations(code, expected):
         (
             "Turgeon",
             ["\\tyʁ.ʒɔ̃\\"],
-            "",
+            [],
             [
                 "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."  # noqa
             ],
@@ -435,13 +422,13 @@ def test_find_pronunciations(code, expected):
     ],
 )
 def test_parse_word(
-    word, pronunciations, gender, etymology, definitions, variants, page
+    word, pronunciations, genders, etymology, definitions, variants, page
 ):
     """Test the sections finder and definitions getter."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert definitions == details.definitions
     assert etymology == details.etymology
     assert variants == details.variants

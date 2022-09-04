@@ -1,11 +1,6 @@
 """German language (Deutsch)."""
 import re
-from typing import Pattern, Tuple
-
-from ...stubs import Pronunciations
-
-# Regex to find the gender
-gender = r",\s+{{([fmnu]+)}}"
+from typing import List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -35,9 +30,6 @@ templates_ignored = (
     "QS Herkunft",
     "QS_Herkunft",
 )
-
-# Templates that will be completed/replaced using italic style.
-# templates_italic = {}
 
 # Templates more complex to manage.
 templates_multi = {
@@ -137,10 +129,31 @@ Verfügbare Wörterbuch-Formate:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r",\s+{{([fmnu]+)}}"),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("=== {{Wortart|Abkürzung|Deutsch}}, {{mf}}, {{Wortart|Substantiv|Deutsch}} ===")
+    ['mf']
+    """
+    return pattern.findall(code)
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}")
+    ['[ˈʁɪndɐˌsteːk]']
+    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}")
+    ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
+    """  # noqa
     return [f"[{p}]" for p in matches] if (matches := pattern.findall(code)) else []
 
 

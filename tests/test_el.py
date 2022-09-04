@@ -1,29 +1,16 @@
 import pytest
 
-from wikidict.lang.el import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        ("{{ΔΦΑ|tɾeˈlos|γλ=el}}", ["tɾeˈlos"]),
-        ("{{ΔΦΑ|γλ=el|ˈni.xta}}", ["ˈni.xta"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "λαμβάνω",
             ["el"],
-            "",
+            [],
             ["<b>λαμβάνω</b> < < <i>(Ετυμ)</i> *<i>sleh₂gʷ</i>-"],
             [
                 "παίρνω, δέχομαι",
@@ -35,13 +22,13 @@ def test_find_pronunciations(code, expected):
     ],
 )
 def test_parse_word(
-    word, pronunciations, gender, etymology, definitions, variants, page
+    word, pronunciations, genders, etymology, definitions, variants, page
 ):
     """Test the sections finder and definitions getter."""
     code = page(word, "el")
     details = parse_word(word, code, "el", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert definitions == details.definitions
     assert etymology == details.etymology
     assert variants == details.variants

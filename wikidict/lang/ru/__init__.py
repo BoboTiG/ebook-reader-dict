@@ -1,12 +1,6 @@
 """Russian language."""
 import re
-from typing import Pattern, Tuple
-
-from ...stubs import Pronunciations
-
-# Regex to find the gender
-# https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
-gender = r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"
+from typing import List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -53,11 +47,45 @@ release_description = """\
 wiktionary = "Викисловарь (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(
+        r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"
+    ),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("{{сущ ru f ina 5a|основа=страни́ц|слоги={{по-слогам|стра|ни́|ца}}}}")
+    ['f']
+    """
+    # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        # `match` can contain tuples, flatten it
+        if isinstance(match, tuple):
+            matches.extend(res for res in match if res and res not in matches)
+        elif match and match not in matches:
+            matches.append(match)
+    return matches
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
-) -> Pronunciations:
-    return list(set(pattern.findall(code)))
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> # Expected behaviour after #1376: ['[strɐˈnʲit͡sə]']
+    >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}")
+    ['страни']
+    """
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        if match not in matches:
+            matches.append(match)
+    return matches
 
 
 def last_template_handler(

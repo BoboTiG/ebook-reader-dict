@@ -39,7 +39,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     print(
         word,
         convert_pronunciation(details.pronunciations).lstrip(),
-        strip_html(convert_gender(details.gender).lstrip()),
+        strip_html(convert_gender(details.genders).lstrip()),
         "\n",
     )
 

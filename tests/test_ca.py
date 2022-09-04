@@ -1,38 +1,23 @@
 import pytest
 
-from wikidict.lang.ca import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        ("{{ca-pron|/as/}}", ["/as/"]),
-        ("{{ca-pron|or=/əɫ/}}", ["/əɫ/"]),
-        ("{{ca-pron|or=/əɫ/|occ=/eɫ/}}", ["/əɫ/"]),
-        ("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}", ["/əɫ/"]),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions",
+    "word, pronunciations, genders, etymology, definitions",
     [
         (
             "-ass-",
             ["/as/"],
-            "",
+            [],
             ["Del sufix <i>-às</i> amb valor augmentatiu."],
             ["Infix que afegeix un matís augmentatiu."],
         ),
         (
             "-itzar",
             [],
-            "",
+            [],
             ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i>."],
             [
                 "<i>Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.</i>",  # noqa
@@ -41,25 +26,25 @@ def test_find_pronunciations(code, expected):
         (
             "AFI",
             ["/ˈa.fi/"],
-            "",
+            [],
             ["sigles"],
             [
                 "(<i>m</i>) Alfabet Fonètic Internacional.",
                 "(<i>f</i>) Associació Fonètica Internacional.",
             ],
         ),
-        ("avui", [], "", [], ["En el dia actual.", "Metafòricament, en el present."]),
+        ("avui", [], [], [], ["En el dia actual.", "Metafòricament, en el present."]),
         (
             "bio-",
             [],
-            "",
+            [],
             [],
             ['Element que entra en la composició de paraules amb el sentit de "vida".'],
         ),
         (
             "bot",
             [],
-            "m",
+            ["m"],
             [""],
             [
                 "Recipient de cuir, originalment de boc per a contenir vi.",
@@ -77,7 +62,7 @@ def test_find_pronunciations(code, expected):
         (
             "cap",
             [],
-            "m",
+            ["m", "mf"],
             [
                 "Del llatí vulgar <i>*capu(m)</i>, variant de l’acusatiu <i>caput</i>, segle XIII. Com a adjectiu pel sentit d’«extrem, punta». Com a preposició pel sentit de «part anterior (vers un lloc)»."  # noqa
             ],
@@ -111,7 +96,7 @@ def test_find_pronunciations(code, expected):
         (
             "cas",
             ["/ˈkas/"],
-            "m",
+            ["m"],
             ["Del llatí <i>casus</i>."],
             [
                 "Situació particular que es produeix entre les diverses possibles.",
@@ -124,7 +109,7 @@ def test_find_pronunciations(code, expected):
         (
             "Castell",
             [],
-            "",
+            [],
             ["De <i>castell</i>."],
             [
                 "Diversos topònims, especialment:",
@@ -144,7 +129,7 @@ def test_find_pronunciations(code, expected):
         (
             "català",
             [],
-            "m",
+            ["m"],
             [
                 "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»)."  # noqa
             ],
@@ -162,7 +147,7 @@ def test_find_pronunciations(code, expected):
         (
             "ch",
             [],
-            "",
+            [],
             [],
             [
                 "Codi de llengua ISO 639-1 del chamorro.",
@@ -172,7 +157,7 @@ def test_find_pronunciations(code, expected):
         (
             "compte",
             [],
-            "m",
+            ["m"],
             ["Del llatí <i>compŭtus</i>, segle XIII."],
             [
                 "Acte de comptar.",
@@ -185,7 +170,7 @@ def test_find_pronunciations(code, expected):
         (
             "disset",
             [],
-            "m",
+            ["m", "f"],
             ["Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»)."],
             [
                 "<i>(cardinal)</i> Nombre enter situat entre el setze i el divuit.",
@@ -197,7 +182,7 @@ def test_find_pronunciations(code, expected):
         (
             "el",
             ["/əɫ/"],
-            "f",
+            ["f"],
             [],
             [
                 "Codi de llengua ISO 639-1 del grec modern.",
@@ -210,17 +195,17 @@ def test_find_pronunciations(code, expected):
         (
             "hivernacle",
             [],
-            "m",
+            ["m"],
             ["Del llatí <i>hibernaculum</i>."],
             ["Cobert per a protegir plantes del vent o del fred extrem."],
         ),
-        ("Mn.", [], "", [], ["mossèn com a tractament davant el nom"]),
-        ("PMF", ["/ˌpeˈe.məˌe.fə/"], "", [], ["Preguntes Més Freqüents."]),
-        ("pen", [], "", [], []),
+        ("Mn.", [], [], [], ["mossèn com a tractament davant el nom"]),
+        ("PMF", ["/ˌpeˈe.məˌe.fə/"], [], [], ["Preguntes Més Freqüents."]),
+        ("pen", [], [], [], []),
         (
             "si",
             [],
-            "m",
+            ["m"],
             [],
             [
                 "Codi de llengua ISO 639-1 del singalès.",
@@ -232,12 +217,12 @@ def test_find_pronunciations(code, expected):
         ),
     ],
 )
-def test_parse_word(word, pronunciations, gender, etymology, definitions, page):
+def test_parse_word(word, pronunciations, genders, etymology, definitions, page):
     """Test the sections finder and definitions getter."""
     code = page(word, "ca")
     details = parse_word(word, code, "ca", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert definitions == details.definitions
     assert etymology == details.etymology
 

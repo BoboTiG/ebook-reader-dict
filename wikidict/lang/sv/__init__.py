@@ -1,8 +1,6 @@
 """Swedish language."""
 import re
-from typing import Pattern, Tuple
-
-from ...stubs import Pronunciations
+from typing import List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -111,7 +109,13 @@ wiktionary = "Wiktionary (ɔ) {year}"
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
+    ['/eːn/, /ɛn/, /en/']
+    """
     return [f"/{p}/" for p in match] if (match := pattern.findall(code)) else []
 
 

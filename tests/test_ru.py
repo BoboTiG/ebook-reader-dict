@@ -1,37 +1,18 @@
 import pytest
 
-from wikidict.lang.ru import find_pronunciations
 from wikidict.render import parse_word
 from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "code, expected",
-    [
-        ("", []),
-        # Execpeted behaviour after #1376
-        # (
-        #     "{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}",
-        #     ["[strɐˈnʲit͡sə]"],
-        # ),
-    ],
-)
-def test_find_pronunciations(code, expected):
-    assert find_pronunciations(code) == expected
-
-
-@pytest.mark.parametrize(
-    "word, pronunciations, gender, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "страница",
             ["страни"],
-            "f",
+            ["f"],
             [
-                "Происходит от страна, из церк.-слав. страна, далее из праслав.\xa0*storna, от кот. в числе прочего \
-произошли: др.-русск. сторона, ст.-слав. страна (др.-греч. χώρα, περίχωρος), русск., укр. сторона́, болг. \
-страна́, сербохорв. стра́на (вин. стра̑ну), словенск. strána, чешск., словацк. strana, польск. strona, \
-в.-луж., н.-луж. strona, полабск. stárna"
+                "Происходит от страна, из церк.-слав. страна, далее из праслав.\xa0*storna, от кот. в числе прочего произошли: др.-русск. сторона, ст.-слав. страна (др.-греч. χώρα, περίχωρος), русск., укр. сторона́, болг. страна́, сербохорв. стра́на (вин. стра̑ну), словенск. strána, чешск., словацк. strana, польск. strona, в.-луж., н.-луж. strona, полабск. stárna",  # noqa
             ],
             [
                 "одна из сторон листа бумаги в составе книги, газеты и\xa0т.\xa0п.",
@@ -39,15 +20,14 @@ def test_find_pronunciations(code, expected):
                 "лист бумаги в составе книги, газеты и\xa0т.\xa0п.",
                 "<i>(Комп.)</i> отдельный документ в составе интернет-сайта",
                 "<i>(П.)</i> очередной этап в развитии чего-либо",
-                "<i>(Информ.)</i> блок, регион фиксированного размера физической или виртуальной памяти (выделение \
-памяти, передача данных между диском и оперативной памятью осуществляется целыми страницами)",
+                "<i>(Информ.)</i> блок, регион фиксированного размера физической или виртуальной памяти (выделение памяти, передача данных между диском и оперативной памятью осуществляется целыми страницами)",  # noqa
             ],
             [],
         ),
         (
             "какой",
             [],
-            "",
+            [],
             ["Происходит от ?"],
             [
                 "(вопросительное мест.) обозначает вопрос о качестве, свойствах",
@@ -65,12 +45,9 @@ def test_find_pronunciations(code, expected):
         (
             "коса",
             ["коса"],
-            "",
+            ["с", "m"],
             [
-                "Родств. церковносл./укр./болг./серб. коса, польск./словац./др.-чеш. kosa. М. Фасмер неубедительно \
-связывает с др.-исл. haddr (волосы, протогерм. *hazda-), ср.-ирл. cír (гребень), лит. kasa, kasyti, kasît, др.-инд. \
-<i>kacchus</i>, авест. <i>kasvis</i>, а тж. чередованием гласных с чесать, чешу и косма. Э. Бернекер, М. Рясянен и \
-др. сводят коса I, коса II и коса III к косой."
+                "Родств. церковносл./укр./болг./серб. коса, польск./словац./др.-чеш. kosa. М. Фасмер неубедительно связывает с др.-исл. haddr (волосы, протогерм. *hazda-), ср.-ирл. cír (гребень), лит. kasa, kasyti, kasît, др.-инд. <i>kacchus</i>, авест. <i>kasvis</i>, а тж. чередованием гласных с чесать, чешу и косма. Э. Бернекер, М. Рясянен и др. сводят коса I, коса II и коса III к косой.",  # noqa
             ],
             [
                 "вид укладки волос, при которой волосы собираются в несколько прядей и затем переплетаются",
@@ -87,7 +64,7 @@ def test_find_pronunciations(code, expected):
         (
             "бита",
             [],
-            "f",
+            ["f", "ж"],
             ["Происходит от ?"],
             [
                 "предмет (палка, бабка и\xa0т.\xa0п.), которым бьют во время игры в городки, в бабки, в лапту и\xa0т.\xa0п.",  # noqa
@@ -98,13 +75,13 @@ def test_find_pronunciations(code, expected):
     ],
 )
 def test_parse_word(
-    word, pronunciations, gender, etymology, definitions, variants, page
+    word, pronunciations, genders, etymology, definitions, variants, page
 ):
     """Test the sections finder and definitions getter."""
     code = page(word, "ru")
     details = parse_word(word, code, "ru", force=True)
     assert pronunciations == details.pronunciations
-    assert gender == details.gender
+    assert genders == details.genders
     assert definitions == details.definitions
     assert etymology == details.etymology
     assert variants == details.variants

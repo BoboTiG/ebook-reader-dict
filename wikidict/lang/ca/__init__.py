@@ -1,11 +1,6 @@
 """Catalan language."""
 import re
-from typing import Pattern, Tuple
-
-from ...stubs import Pronunciations
-
-# Regex to find the gender
-gender = r"{ca-\w+\|([fm]+)"
+from typing import List, Pattern, Tuple
 
 # Float number separator
 float_separator = ","
@@ -136,12 +131,43 @@ Fitxers disponibles:
 wiktionary = "Viccionari (ɔ) {year}"
 
 
+def find_genders(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
+) -> List[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("{{ca-nom|m}}")
+    ['m']
+    >>> find_genders("{{ca-nom|m}} {{ca-nom|m}}")
+    ['m']
+    """
+    matches: List[str] = []
+    for match in pattern.findall(code):
+        if match not in matches:
+            matches.append(match)
+    return matches
+
+
 def find_pronunciations(
     code: str,
     pattern: Pattern[str] = re.compile(
         r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"
     ),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{ca-pron|/as/}}")
+    ['/as/']
+    >>> find_pronunciations("{{ca-pron|or=/əɫ/}}")
+    ['/əɫ/']
+    >>> find_pronunciations("{{ca-pron|or=/əɫ/|occ=/eɫ/}}")
+    ['/əɫ/']
+    >>> find_pronunciations("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}")
+    ['/əɫ/']
+    """
     return pattern.findall(code)
 
 

@@ -2,7 +2,6 @@
 import re
 from typing import List, Pattern, Tuple
 
-from ...stubs import Pronunciations
 from .campos_semanticos import campos_semanticos
 
 # Float number separator
@@ -176,7 +175,19 @@ def find_pronunciations(
     pattern2: Pattern[str] = re.compile(
         r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"
     ),
-) -> Pronunciations:
+) -> List[str]:
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{pron-graf|fone=ˈa.t͡ʃo}}")
+    ['[ˈa.t͡ʃo]']
+    >>> find_pronunciations("{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}")
+    ['[ˈgɾa.θjas]', '[ˈgɾa.sjas]']
+    >>> find_pronunciations("{{pronunciación|[ ˈrwe.ɰo ]}}")
+    ['[ˈrwe.ɰo]']
+    >>> find_pronunciations("{{pronunciación|[ los ] o [ lɔʰ ]<ref>[l.htm l.htm] C</ref>}}")
+    ['[los]', '[lɔʰ]']
+    """  # noqa
     pattern = pattern2 if "{pronunciación|" in code else pattern1
     matches: List[str] = []
     for match in pattern.findall(code):
