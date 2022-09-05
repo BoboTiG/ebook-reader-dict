@@ -6829,6 +6829,7 @@ langs = {
     "roa-lor": "Lorrain",
     "roa-oan": "Navarro-Aragonese",
     "roa-oca": "Old Catalan",
+    "roa-ocr": "Occitano-Romance",
     "roa-oil": "Oïl",
     "roa-oit": "Old Italian",
     "roa-ole": "Old Leonese",
@@ -9546,5 +9547,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,541
+}  # 9,542
 # END
