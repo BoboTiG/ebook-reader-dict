@@ -42,6 +42,7 @@ labels = {
     "ante-Classical": "pre-Classical",
     "ante-classical": "pre-Classical",
     "anteclassical": "pre-Classical",
+    "antiquated": "archaic",
     "argot": "cant",
     "baby talk": "childish",
     "back-slang": "back slang",
@@ -194,7 +195,7 @@ labels = {
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
     "wrt": "with respect to",
-}  # 189
+}  # 190
 
 label_syntaxes = {
     "&": {
