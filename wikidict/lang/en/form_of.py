@@ -449,10 +449,6 @@ form_of_templates = {
         "text": "nominalization of",
         "dot": False,
     },
-    "nominative plural of": {
-        "text": "nominative plural of",
-        "dot": False,
-    },
     "nonstandard form of": {
         "text": "Nonstandard form of",
         "dot": True,
@@ -701,5 +697,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 174
+}  # 173
 # END
