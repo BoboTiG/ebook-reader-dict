@@ -17,10 +17,6 @@ form_of_templates = {
         "text": "abstract noun of",
         "dot": False,
     },
-    "accusative of": {
-        "text": "accusative of",
-        "dot": False,
-    },
     "accusative singular of": {
         "text": "accusative singular of",
         "dot": False,
@@ -697,5 +693,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 173
+}  # 172
 # END

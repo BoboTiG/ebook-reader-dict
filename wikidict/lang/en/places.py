@@ -1095,6 +1095,11 @@ recognized_placetypes = {
         "display": "housing estate",
         "preposition": "in",
     },
+    "hromada": {
+        "article": "a",
+        "display": "hromada",
+        "preposition": "of",
+    },
     "inactive volcano": {
         "article": "an",
         "display": "inactive volcano",
@@ -2040,7 +2045,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 407
+}  # 408
 
 placetypes_aliases = {
     "CDP": "census-designated place",
