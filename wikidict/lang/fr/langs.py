@@ -547,6 +547,7 @@ langs = {
     "bec": "iceve-maci",
     "bed": "bedoanas",
     "bee": "byangsi",
+    "bef": "benabena",
     "beg": "belait",
     "beh": "biali",
     "bei": "bekati’",
@@ -6294,7 +6295,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,289
+}  # 6,290
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

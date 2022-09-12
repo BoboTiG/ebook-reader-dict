@@ -1783,6 +1783,7 @@ labels_subvarieties = {
     "Chaldiot": "Chaldia",
     "Cham Albanian": "Cham",
     "Chambarak": "Çəmbərək",
+    "Chanbarak": "Çəmbərək",
     "Changchew": "Zhangzhou",
     "Changchew dialect": "Zhangzhou",
     "Chaqar": "Chakhar",
@@ -2578,6 +2579,7 @@ labels_subvarieties = {
     "Tanjore": "Thanjavur",
     "Taraskievica": "Taraškievica",
     "Targumic Aramaic": "Jewish Literary Aramaic",
+    "Tarsos": "Tarsus",
     "Tawallammat": "Tawellemmet",
     "Tayabas": "Quezon",
     "Tayabasin": "Quezon",
@@ -2910,6 +2912,7 @@ labels_subvarieties = {
     "Çamlıhemşin": "Vizha",
     "Çxala": "Chkhala",
     "Çxaluri": "Chkhala",
+    "Çənbərək": "Çəmbərək",
     "Ç’anapeti": "Chanapeti",
     "Ç’anapeturi": "Chanapeti",
     "Èkìtì": "Ekiti",
@@ -3002,5 +3005,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,414
+}  # 1,417
 # END
