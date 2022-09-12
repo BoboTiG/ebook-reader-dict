@@ -106,7 +106,7 @@ _genders = {
 def find_genders(
     code: str,
     pattern: Pattern[str] = re.compile(
-        r"'''{{PAGENAME}}''' {{([θαοκλ]+)}}(?:,?\s?{{([θαοκλ]+)}})*"
+        r"'''{{PAGENAME}}'''\s*(?:{{([θαοκλ]+)(?:\|([θαοκλ]+))*}})[,|\s]*(?:{{([θαοκλ]+)(?:\|([θαοκλ]+))*}})*"
     ),
 ) -> List[str]:
     """
@@ -116,6 +116,8 @@ def find_genders(
     ['αρσενικό ή θηλυκό']
     >>> find_genders("'''{{PAGENAME}}''' {{αθ}}, {{ακλ|αθ}}")
     ['αρσενικό ή θηλυκό', 'άκλιτο']
+    >>> find_genders("'''{{PAGENAME}}''' {{ακλ|αθ}}, {{αθ}}")
+    ['άκλιτο', 'αρσενικό ή θηλυκό']
     """
     return [_genders[g] for g in uniq(flatten(pattern.findall(code)))]
 

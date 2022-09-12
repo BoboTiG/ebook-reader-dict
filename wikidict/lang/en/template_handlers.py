@@ -836,14 +836,22 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'A city in Ireland'
     >>> render_place("place", ["en", "city", "s/Georgia", "c/United States"], defaultdict(str))
     'A city in Georgia, United States'
-    """
+    >>> render_place("place", ["en", "river", "in", "England", ", forming the boundary between", "co/Derbyshire", "and", "co/Staffordshire"], defaultdict(str))
+    'A river in England, forming the boundary between Derbyshire and Staffordshire'
+    """  # noqa
     parts.pop(0)  # Remove the language
     phrase = ""
     i = 1
+    previous_rawpart = False
     while parts:
         si = str(i)
         part = parts.pop(0)
         subparts = part.split("/")
+        if part in ("in", "and"):
+            phrase += f" {part}"
+            phrase += " " if part == "in" else ""
+            previous_rawpart = True
+            continue
         if i == 1:
             no_article = False
             for j, subpart in enumerate(subparts):
@@ -870,13 +878,18 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                     phrase += " " + s["display"]
                     no_article = False
                     if j == len(subparts) - 1:
-                        phrase += f" {s['preposition']} " if parts else ""
+                        phrase += (
+                            f" {s['preposition']} "
+                            if parts and parts[0] != "in"
+                            else ""
+                        )
                     else:
                         phrase += ", "
                 else:
                     phrase += part
         elif len(subparts) > 1:
-            phrase += ", " if i > 2 else ""
+            phrase += ", " if i > 2 and not previous_rawpart else ""
+            phrase += " " if previous_rawpart else ""
             subpart = subparts[0]
             subpart = placetypes_aliases.get(subpart, subpart)
             placename_key = f"{subpart}/{subparts[1]}"
@@ -905,6 +918,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         modern_key = "modern" + "" if i == 1 else si
         if data[modern_key]:
             phrase += f"; modern {data[modern_key]}"
+        previous_rawpart = len(subparts) == 1 and i > 1
         i += 1
     return capitalize(phrase)
 
