@@ -662,6 +662,7 @@ langs = {
     "bks": "sorsoganon du Nord",
     "bkt": "boloki",
     "bku": "bouhid",
+    "bkx": "baikeno",
     "bky": "bokyi",
     "bkz": "bungku",
     "bla": "pied-noir",
@@ -6295,7 +6296,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,290
+}  # 6,291
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
