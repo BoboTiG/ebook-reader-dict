@@ -1906,6 +1906,7 @@ langs = {
     "gutnisk": "gutnisk",
     "guu": "yanomamö",
     "guw": "gungbe",
+    "gux": "gourmanchéma",
     "guz": "gusii",
     "gv": "mannois",
     "gva": "guaná",
@@ -2113,6 +2114,7 @@ langs = {
     "ifa": "ifugao d’Amganad",
     "iff": "ifo",
     "ifk": "ifugao de Tuwali",
+    "ify": "keley-i kallahan",
     "ig": "igbo",
     "igb": "ébira",
     "ige": "igede",
@@ -6296,7 +6298,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,291
+}  # 6,293
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
