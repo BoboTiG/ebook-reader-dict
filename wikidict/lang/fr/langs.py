@@ -4660,6 +4660,7 @@ langs = {
     "saz": "saurachtra",
     "sba": "ngambay",
     "sbc": "kele (Papouasie-Nouvelle-Guinée)",
+    "sbd": "san du Sud",
     "sbf": "shabo",
     "sbg": "seget",
     "sbh": "sori-harengan",
@@ -4980,6 +4981,7 @@ langs = {
     "stg": "trieng",
     "sth": "shelta",
     "sti": "stieng",
+    "stj": "san matya",
     "stl": "stellingwarfs",
     "stm": "setaman",
     "stn": "owa",
@@ -5048,6 +5050,7 @@ langs = {
     "syi": "seki",
     "syk": "sukur",
     "syl": "sylheti",
+    "sym": "san maya",
     "syn": "senaya",
     "syr": "syriaque",
     "syw": "syuba",
@@ -6298,7 +6301,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,293
+}  # 6,296
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
