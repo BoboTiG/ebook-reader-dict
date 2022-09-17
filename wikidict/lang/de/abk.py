@@ -6,6 +6,8 @@ Auto-generated with `python -m scripts`.
 # START
 abk = {
     "AE": "US-amerikanisch",
+    "Abl.": "mit Ablativ",
+    "Ablativ": "mit Ablativ",
     "Akkusativ": "mit Akkusativ",
     "AmE": "US-amerikanisch",
     "BE": "britisch",
@@ -117,5 +119,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 112
+}  # 114
 # END
