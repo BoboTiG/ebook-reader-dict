@@ -434,6 +434,11 @@ def process_templates(word: str, text: str, locale: str) -> str:
         >>> process_templates("test", r"<hiero>R11</hiero>", "fr")
         '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
 
+        >>> process_templates("hasta", "<i>حتى</i>", "es")
+        'حتى'
+        >>> process_templates("tasse", "<i>س tas'</i>", "fr")
+        "س tas'"
+
     """  # noqa
 
     sub = re.sub
@@ -462,6 +467,9 @@ def process_templates(word: str, text: str, locale: str) -> str:
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
     text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
     text = sub(r"<hiero>(.+)</hiero>", partial(convert_hiero, word=word), text)
+
+    # Issue #584: move Arabic/Persian characters out of italic tags
+    text = sub(r"<i>([^<]*[\u0627-\u064a]+[^<]*)</i>", r"\1", text)
 
     # Remove extra spaces (it happens when a template is ignored for instance)
     text = sub(r"\s{2,}", " ", text)
