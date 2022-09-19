@@ -1335,7 +1335,6 @@ labels_regional = {
     "Pakistani Kashmir": "Azad Kashmir",
     "Palestinian": "Palestine",
     "Panamanian": "Panama",
-    "Paraguayan": "Paraguay",
     "Paranaense": "Paraná",
     "Parmigiano": "Parma",
     "Pasen": "Pasinler",
@@ -1585,7 +1584,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 763
+}  # 762
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
