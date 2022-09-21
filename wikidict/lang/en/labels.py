@@ -2324,7 +2324,9 @@ labels_subvarieties = {
     "Palatine German": "Palatine",
     "Palestinian Syriac": "Christian Palestinian Aramaic",
     "Palmyrene Aramaic": "Palmyrene",
+    "Paniki": "Ortaalan",
     "Pannonian": "Pannonia",
+    "Papat": "Ortaalan",
     "Partido Bikol": "Partido",
     "Pazar": "Atina",
     "Peking": "Beijing",
@@ -2983,6 +2985,7 @@ labels_subvarieties = {
     "ვიწე": "Vitse",
     "ვიწური": "Vitse",
     "ლომე": "Lome",
+    "ოქორდულე": "Okordule",
     "პერონითური": "Peroniti",
     "სარფი": "Sarpi",
     "ჩხალა": "Chkhala",
@@ -3004,5 +3007,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,417
+}  # 1,420
 # END
