@@ -2947,6 +2947,7 @@ labels_subvarieties = {
     "Ōgamijima": "Ōgami",
     "średniopolski": "Middle Polish",
     "Širak": "Shirak",
+    "Əzizbəyov": "Azizbekov",
     "Όφις": "Ophitic",
     "Θωανία": "Thoania",
     "Κερ": "Kerasounta",
@@ -3007,5 +3008,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,420
+}  # 1,421
 # END

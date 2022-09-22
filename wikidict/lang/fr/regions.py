@@ -406,6 +406,7 @@ regions = {
     "UK": "Royaume-Uni",
     "US": "États-Unis",
     "USA": "États-Unis",
+    "Ukraine": "Ukraine",
     "Ulster": "Ulster",
     "Uruguay": "Uruguay",
     "Valledolmo": "Valledolmo",
@@ -452,7 +453,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 447
+}  # 448
 # END
 
 # handled differently
