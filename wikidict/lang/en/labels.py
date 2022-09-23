@@ -1691,6 +1691,7 @@ labels_subvarieties = {
     "Bambaiya Hindi": "Bombay Hindi",
     "Bambaiyya": "Bombay Hindi",
     "Banshu": "Banshū",
+    "Basarkeçər": "Basarkechar",
     "Bashai": "Madras Bashai",
     "Bashmuric": "Fayyumic",
     "Bataan Tagalog": "Bataan",
@@ -2667,6 +2668,7 @@ labels_subvarieties = {
     "Vannes": "Gwened",
     "Vannetais": "Gwened",
     "Varda": "Güneyce",
+    "Vardenis": "Basarkechar",
     "Vari": "Thoania",
     "Varra Bengali": "Varra",
     "Vaṅga Bengali": "Vaṅga",
@@ -3008,5 +3010,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,421
+}  # 1,423
 # END
