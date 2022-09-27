@@ -2688,6 +2688,7 @@ labels_subvarieties = {
     "Vizagapatam": "Visakhapatnam",
     "Vizhuri": "Vizha",
     "Viǯe": "Vitse",
+    "Voerens": "Voeren",
     "Vt": "Witkowo",
     "Vt.": "Witkowo",
     "Vulgar Anglo-Latin": "British Vulgar Latin",
@@ -3010,5 +3011,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,423
+}  # 1,424
 # END
