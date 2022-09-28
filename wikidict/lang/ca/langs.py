@@ -794,6 +794,6 @@ langs = {
     "zu": "zulu",
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
-    "zza": "zaza",
+    "zza": "zazaki",
 }  # 790
 # END
