@@ -767,7 +767,6 @@ labels_topical = {
     "speedrun": "speedrunning",
     "speedruns": "speedrunning",
     "sport": "sports",
-    "squash": "squash (sport)",
     "standard of identity": "standards of identity",
     "star": "astronomy",
     "steroid": "biochemistry",
@@ -819,7 +818,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 373
+}  # 372
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
