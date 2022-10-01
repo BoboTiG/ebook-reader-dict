@@ -486,6 +486,7 @@ labels_topical = {
     "Heathenry": "Germanic paganism",
     "Hindu god": "Hinduism",
     "ISO": "international standards",
+    "IT": "information technology",
     "International Organisation for Standardisation": "international standards",
     "International Organization for Standardization": "international standards",
     "Islamic": "Islam",
@@ -818,7 +819,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 372
+}  # 373
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
