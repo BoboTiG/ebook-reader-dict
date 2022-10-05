@@ -2908,7 +2908,6 @@ labels_subvarieties = {
     "to": "traditional orthography",
     "wae": "Walser",
     "west": "West-Slovincian",
-    "westernmost Ripuarian": "Limburgan Ripuarian",
     "yunaban": "Hellenizing School",
     "Àjàṣẹ́": "Ajashe",
     "Àwórì": "Awori",
@@ -3011,5 +3010,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,424
+}  # 1,423
 # END
