@@ -2817,6 +2817,7 @@ labels_subvarieties = {
     "later Sanskrit": "Later Sanskrit",
     "later-Sanskrit": "Later Sanskrit",
     "laws": "legal",
+    "lunfardo": "Lunfardo",
     "maniot": "Maniot",
     "medi": "medical",
     "non-Oxford": "Non-Oxford British English",
@@ -3010,5 +3011,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,423
+}  # 1,424
 # END
