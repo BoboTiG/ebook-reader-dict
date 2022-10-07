@@ -93,6 +93,7 @@ abk = {
     "sonderspr.": "sondersprachlich",
     "spätlat.": "spätlateinisch",
     "südd.": "süddeutsch",
+    "süddt.": "süddeutsch",
     "techn.": "technisch",
     "tlwva.": "veraltete Bedeutung",
     "tlwvatd.": "veraltende Bedeutung",
@@ -119,5 +120,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 114
+}  # 115
 # END
