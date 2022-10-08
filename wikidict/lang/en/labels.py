@@ -2410,6 +2410,7 @@ labels_subvarieties = {
     "Renaissance British": "British Renaissance Latin",
     "Rigvedic Sanskrit": "Rigvedic",
     "Rimella": "Rimella and Campello Monti",
+    "Rio de la Plata": "Rioplatense",
     "Rioplatense Spanish": "Rioplatense",
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
@@ -3011,5 +3012,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,424
+}  # 1,425
 # END
