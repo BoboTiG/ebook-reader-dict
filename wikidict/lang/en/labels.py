@@ -522,6 +522,7 @@ labels_topical = {
     "OOP": "object-oriented programming",
     "Philmont": "Philmont Scout Ranch",
     "RPG": "role-playing games",
+    "RPGs": "role-playing games",
     "Rasta": "Rastafari",
     "Rastafarian": "Rastafari",
     "Rastafarianism": "Rastafari",
@@ -819,7 +820,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 373
+}  # 374
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
