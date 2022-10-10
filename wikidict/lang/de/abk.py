@@ -34,6 +34,7 @@ abk = {
     "bar.": "bairisch",
     "bes.": "besonders",
     "bildungsspr.": "bildungssprachlich",
+    "bzw.": "beziehungsweise",
     "dichter.": "dichterisch",
     "erzg.": "erzgebirgisch",
     "erzgeb.": "erzgebirgisch",
@@ -120,5 +121,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 115
+}  # 116
 # END
