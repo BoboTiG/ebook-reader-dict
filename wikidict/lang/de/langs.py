@@ -537,6 +537,7 @@ langs = {
     "sne": "Bau Bidayuh",
     "snk": "Soninke",
     "so": "Somalisch",
+    "sog": "Sogdisch",
     "spx": "Südpikenisch",
     "sq": "Albanisch",
     "sqr": "Sizilianisches Arabisch",
@@ -674,5 +675,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 669
+}  # 670
 # END
