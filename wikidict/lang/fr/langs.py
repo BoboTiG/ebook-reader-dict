@@ -4730,6 +4730,7 @@ langs = {
     "sew": "sewa bay",
     "sey": "secoya",
     "sez": "senthang chin",
+    "sfb": "langue des signes de Belgique francophone",
     "sfe": "subanen de l’Est",
     "sfw": "sehwi",
     "sg": "sango",
@@ -6301,7 +6302,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,296
+}  # 6,297
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

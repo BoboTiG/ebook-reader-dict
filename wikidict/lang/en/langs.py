@@ -4953,6 +4953,7 @@ langs = {
     "mnu": "Mer",
     "mnv": "Rennellese",
     "mnw": "Mon",
+    "mnw-tha": "Thai Mon",
     "mnx": "Manikion",
     "mny": "Manyawa",
     "mnz": "Moni",
@@ -9547,5 +9548,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,542
+}  # 9,543
 # END
