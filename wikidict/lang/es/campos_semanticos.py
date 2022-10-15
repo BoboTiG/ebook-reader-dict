@@ -299,6 +299,7 @@ campos_semanticos = {
     "flores": "Botánica",
     "folclore": "Folclore",
     "fonética": "Lingüística (fonética)",
+    "formas": "Geometría",
     "fotografía": "Fotografía",
     "fraccionario": "Fraccionario",
     "fraccionarios": "Fraccionario",
@@ -493,5 +494,5 @@ campos_semanticos = {
     "árboles": "Botánica",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 488
+}  # 489
 # END
