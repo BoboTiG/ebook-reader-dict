@@ -4385,6 +4385,7 @@ langs = {
     "proto-tchadique central": "proto-tchadique central",
     "proto-thaï": "proto-thaï",
     "proto-tibéto-birman": "proto-tibéto-birman",
+    "proto-trans-néo-guinéen": "proto-trans-néo-guinéen",
     "proto-tupi-guarani": "proto-tupi-guarani",
     "proto-turc": "proto-turc",
     "proto-vanuatu Nord-Central": "proto-vanuatu Nord-Central",
@@ -6302,7 +6303,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,297
+}  # 6,298
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
