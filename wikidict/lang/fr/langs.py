@@ -1211,6 +1211,7 @@ langs = {
     "cv": "tchouvache",
     "cvg": "chug",
     "cvn": "chinantèque de Valle Nacional",
+    "cwa": "kabwa",
     "cwd": "cri des bois",
     "cwe": "kwere",
     "cwt": "kwatay",
@@ -2720,6 +2721,7 @@ langs = {
     "kwa": "dâw",
     "kwd": "kwaio",
     "kwe": "kwerba",
+    "kwf": "kwara’ae",
     "kwg": "démé",
     "kwh": "kowiai",
     "kwi": "awa pit",
@@ -6303,7 +6305,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,298
+}  # 6,300
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

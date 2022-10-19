@@ -30,6 +30,7 @@ regions = {
     "Andorre": "Andorre",
     "Angers": "Angers",
     "Angleterre": "Angleterre",
+    "Angola": "Angola",
     "Anjou": "Anjou",
     "Antilles": "Antilles",
     "Aquitaine": "Aquitaine",
@@ -66,6 +67,7 @@ regions = {
     "Bourgogne": "Bourgogne",
     "Bray": "Pays de Bray",
     "Bretagne": "Bretagne",
+    "Bretagne celtique": "Bretagne celtique",
     "Briollay": "Briollay",
     "Brésil": "Brésil",
     "Burkina Faso": "Burkina Faso",
@@ -157,6 +159,7 @@ regions = {
     "Gangwon": "Gangwon",
     "Gascogne": "Gascogne",
     "Gaspésie": "Gaspésie",
+    "Gaume": "Gaume",
     "Ghana": "Ghana",
     "Grande-Bretagne": "Royaume-Uni",
     "Grenoble": "Grenoble",
@@ -380,6 +383,7 @@ regions = {
     "Sotavento": "Sotavento",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
+    "Sud des États-Unis": "Sud des États-Unis",
     "Sud du Viêt Nam": "Sud du Viêt Nam",
     "Sud du pays de Galles": "Sud du pays de Galles",
     "Suisse": "Suisse",
@@ -454,7 +458,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 449
+}  # 453
 # END
 
 # handled differently
