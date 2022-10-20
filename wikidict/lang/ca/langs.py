@@ -528,6 +528,7 @@ langs = {
     "oka": "okanagà",
     "olo": "livvi-carelià",
     "om": "oromo",
+    "ood": "alt pima",
     "or": "oriya",
     "os": "osseta",
     "osa": "osage",
@@ -780,8 +781,6 @@ langs = {
     "zh": "xinès, mandarí",
     "zh-classical": "xinès clàssic",
     "zh-cn": "xinès (Xina)",
-    "zh-hans": "xinès simplificat",
-    "zh-hant": "xinès tradicional",
     "zh-hk": "xinès (Hong Kong)",
     "zh-min-nan": "xinès min del sud",
     "zh-mo": "xinès (Macau)",
@@ -795,5 +794,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 790
+}  # 789
 # END
