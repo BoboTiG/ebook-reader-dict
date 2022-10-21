@@ -94,7 +94,7 @@ wiktionary = "Βικιλεξικό (ɔ) {year}"
 
 _genders = {
     "θ": "θηλυκό",
-    "α": "εμφανίζει",
+    "α": "αρσενικό",
     "αθ": "αρσενικό ή θηλυκό",
     "αθο": "αρσενικό, θηλυκό, ουδέτερο",
     "ακλ": "άκλιτο",
@@ -169,6 +169,12 @@ def last_template_handler(
         phrase = "λόγιο ενδογενές δάνειο"
         if not data["0"]:
             phrase += ":"
+        return phrase
+
+    if tpl == "κτεπε":
+        phrase = "κατʼ επέκταση"
+        if not data["0"]:
+            phrase = term(phrase)
         return phrase
 
     return default(template, locale, word)
