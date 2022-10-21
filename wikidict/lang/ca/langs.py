@@ -176,7 +176,7 @@ langs = {
     "dtp": "dusun central",
     "dua": "douala",
     "dum": "neerlandès mitjà",
-    "duo": "agta de Dupaningan",
+    "duo": "agta dupaningan",
     "dv": "divehi",
     "dyo": "diola",
     "dyu": "jula",
