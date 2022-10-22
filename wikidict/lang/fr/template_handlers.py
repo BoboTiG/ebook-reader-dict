@@ -545,6 +545,105 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_ko_pron(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_ko_pron("ko-pron", ["서울"], defaultdict(str))
+    '[sʌ.uɭ]'
+    >>> render_ko_pron("ko-pron", ["아이"], defaultdict(str, {"phon": 1}))
+    '/a.i/'
+    >>> render_ko_pron("ko-pron", ["아이"], defaultdict(str))
+    '[a.i]'
+    >>> render_ko_pron("ko-pron", ["한국말"], defaultdict(str, {"phon": 1}))
+    '/han.kuŋ.mal/'
+    >>> render_ko_pron("ko-pron", ["한국말"], defaultdict(str))
+    '[han.ɡuŋ.maɭ]'
+    >>> render_ko_pron("ko-pron", ["같이"], defaultdict(str, {"phon": 1}))
+    '/ka.tɕʰi/'
+    >>> render_ko_pron("ko-pron", ["같이"], defaultdict(str))
+    '[ka.tɕʰi]'
+    >>> render_ko_pron("ko-pron", ["전화"], defaultdict(str, {"phon": 1}))
+    '/tɕʌ.nhwa/'
+    >>> render_ko_pron("ko-pron", ["전화"], defaultdict(str))
+    '[tɕʌ.nʱʷa]'
+    >>> render_ko_pron("ko-pron", ["계셨어요."], defaultdict(str, {"phon": 1}))
+    '/ke.sjʌ.ˀsʌ.jo/'
+    >>> render_ko_pron("ko-pron", ["계셨어요."], defaultdict(str))
+    '[ke̞.ɕʌ.ˀsʌ.jo̞]'
+    >>> render_ko_pron("ko-pron", ["한'자"], defaultdict(str, {"phon": 1}))
+    '/han.ˀtɕa/'
+    >>> render_ko_pron("ko-pron", ["한'자"], defaultdict(str))
+    '[han.ˀtɕa]'
+    >>> render_ko_pron("ko-pron", ["꽃'잎"], defaultdict(str, {"phon": 1}))
+    '/ˀkon.nip/'
+    >>> render_ko_pron("ko-pron", ["꽃'잎"], defaultdict(str))
+    '[ˀkon.nip̚]'
+    >>> render_ko_pron("ko-pron", ["맛있다"], defaultdict(str, {"phon": 1}))
+    '/ma.si.ˀta/'
+    >>> render_ko_pron("ko-pron", ["맛있다"], defaultdict(str))
+    '[ma.ɕi.ˀta]'
+    >>> render_ko_pron("ko-pron", ["맛-없다"], defaultdict(str, {"phon": 1}))
+    '/ma.tʌp.ˀta/'
+    >>> render_ko_pron("ko-pron", ["맛-없다"], defaultdict(str))
+    '[ma.dʌp̚.ˀta]'
+    >>> render_ko_pron("ko-pron", ["뜻-하다"], defaultdict(str, {"phon": 1}))
+    '/ˀtɯ.tʰa.ta/'
+    >>> render_ko_pron("ko-pron", ["뜻-하다"], defaultdict(str))
+    '[ˀtɯ.tʰa.da]'
+    >>> render_ko_pron("ko-pron", ["떫'다"], defaultdict(str, {"phon": 1}))
+    '/ˀtʌl.ˀta/'
+    >>> render_ko_pron("ko-pron", ["떫'다"], defaultdict(str))
+    '[ˀtʌɭ.ˀta]'
+    >>> render_ko_pron("ko-pron", ["쉽다"], defaultdict(str, {"phon": 1}))
+    '/swip.ˀta/'
+    >>> render_ko_pron("ko-pron", ["쉽다"], defaultdict(str))
+    '[ʃɥip̚.ˀta]'
+    >>> render_ko_pron("ko-pron", ["신라"], defaultdict(str, {"phon": 1}))
+    '/sil.la/'
+    >>> render_ko_pron("ko-pron", ["신라"], defaultdict(str))
+    '[ɕiɭ.ɭa]'
+    >>> render_ko_pron("ko-pron", ["향신-료"], defaultdict(str, {"phon": 1}))
+    '/hjaŋ.sin.njo/'
+    >>> render_ko_pron("ko-pron", ["향신-료"], defaultdict(str))
+    '[çaŋ.ɕin.njo]'
+    >>> render_ko_pron("ko-pron", ["의의"], defaultdict(str, {"phon": 1}))
+    '/ɯj.i/'
+    >>> render_ko_pron("ko-pron", ["의의"], defaultdict(str))
+    '[ɯj.i]'
+    >>> render_ko_pron("ko-pron", ["외국인"], defaultdict(str, {"phon": 1}))
+    '/we.ku.kin/'
+    >>> render_ko_pron("ko-pron", ["외국인"], defaultdict(str))
+    '[we̞.ɡu.ɡin]'
+    >>> render_ko_pron("ko-pron", ["괜찮다"], defaultdict(str, {"phon": 1}))
+    '/kwɛn.tɕʰan.tʰa/'
+    >>> render_ko_pron("ko-pron", ["괜찮다"], defaultdict(str))
+    '[kʷe̞n.tɕʰan.tʰa]'
+    >>> render_ko_pron("ko-pron", ["있습니다"], defaultdict(str, {"phon": 1}))
+    '/i.ˀsɯm.ni.ta/'
+    >>> render_ko_pron("ko-pron", ["있습니다"], defaultdict(str))
+    '[i.ˀsɯm.ni.da]'
+    >>> render_ko_pron("ko-pron", ["역시"], defaultdict(str, {"phon": 1}))
+    '/jʌk.ˀsi/'
+    >>> render_ko_pron("ko-pron", ["역시"], defaultdict(str))
+    '[jʌk.ˀɕi]'
+    >>> render_ko_pron("ko-pron", ["ㅂ니다"], defaultdict(str, {"phon": 1}))
+    '/m.ni.ta/'
+    >>> render_ko_pron("ko-pron", ["ㅂ니다"], defaultdict(str))
+    '[m.ni.da]'
+    >>> render_ko_pron("ko-pron", ["가"], defaultdict(str, {"phon": 1, "sonore": 1}))
+    '/ka/'
+    >>> render_ko_pron("ko-pron", ["가"], defaultdict(str, {"sonore": 1}))
+    '[ɡa]'
+    >>> render_ko_pron("ko-pron", ["독일 '연방 공화국"], defaultdict(str, {"phon": 1}))
+    '/to.kil.ljʌn.paŋ.ko.ŋhwa.kuk/'
+    >>> render_ko_pron("ko-pron", ["독일 '연방 공화국"], defaultdict(str))
+    '[to.ɡiɭ.ɭjʌn.baŋ.ɡo.ŋʱʷa.ɡuk̚]'
+    """  # noqa
+    from .ko_hangeul import phoneme
+
+    phrase = phoneme(parts[0], not bool(data["phon"]), bool(data["sonore"]))
+    return f"/{phrase}/" if data["phon"] else f"[{phrase}]"
+
+
 def render_la_verb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_la_verb("la-verb", ["amō", "amare", "amāre", "amavi", "amāvi", "amatum", "amātum"], defaultdict(str))
@@ -1104,6 +1203,7 @@ template_mapping = {
     "étyl": render_etyl,
     "étylp": render_etyl,
     "forme reconstruite": render_recons,
+    "ko-pron": render_ko_pron,
     "la-verb": render_la_verb,
     "laé": render_lae,
     "lang": render_lang,
