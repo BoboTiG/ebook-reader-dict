@@ -833,8 +833,6 @@ def last_template_handler(
 
         >>> last_template_handler(["ar-mot", "elHasan_"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
-        >>> last_template_handler(["ar-ab", "maktûbũ"], "fr")
-        '<span style="line-height: 0px;"><span style="font-size:larger">مَكْتُوبٌ</span></span>'
 
         >>> last_template_handler(["nom langue", "gcr"], "fr")
         'créole guyanais'
@@ -942,8 +940,6 @@ def last_template_handler(
 
     if tpl == "ar-mot":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
-    if tpl == "ar-ab":
-        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
 
     if tpl == "rouge":
         prefix_style = "background-" if data["fond"] == "1" else ""
