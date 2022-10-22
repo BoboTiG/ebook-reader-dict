@@ -54,6 +54,8 @@ def fetch_snapshots(locale: str) -> List[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """
+    if foced_snapshot := os.environ.get("FORCE_SNAPSHOT"):
+        return [foced_snapshot]
     url = BASE_URL.format(locale)
     with requests.get(url) as req:
         req.raise_for_status()
