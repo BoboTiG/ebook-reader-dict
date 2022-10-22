@@ -638,7 +638,7 @@ def render_ko_pron(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_ko_pron("ko-pron", ["독일 '연방 공화국"], defaultdict(str))
     '[to.ɡiɭ.ɭjʌn.baŋ.ɡo.ŋʱʷa.ɡuk̚]'
     """  # noqa
-    from .ko import phoneme
+    from .ko_hangeul import phoneme
 
     phrase = phoneme(parts[0], not bool(data["phon"]), bool(data["sonore"]))
     return f"/{phrase}/" if data["phon"] else f"[{phrase}]"
