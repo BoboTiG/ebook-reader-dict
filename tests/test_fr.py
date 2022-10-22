@@ -495,6 +495,7 @@ def test_parse_word(
             "{{ISBN|1-23-456789-0|978-1-23-456789-7|2-876-54301-X}}",
             "ISBN 1-23-456789-0, 978-1-23-456789-7 et 2-876-54301-X",
         ),
+        ("{{Lang-ar||[[نهر ابراهيم]]|100}}", "[[نهر ابراهيم]]"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{Mme}}", "M<sup>me</sup>"),
         ("{{Mme|de Maintenon}}", "M<sup>me</sup> de Maintenon"),

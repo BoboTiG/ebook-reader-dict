@@ -539,6 +539,8 @@ templates_multi = {
     "info lex": "term(', '.join(capitalize(part) for part in parts[1:]))",
     # {{ISBN|978-1-23-456789-7|2-876-54301-X}}
     "ISBN": "'ISBN ' + concat(parts[1:], sep=', ', last_sep=' et ')",
+    # {{Lang-ar||[[نهر ابراهيم]]|100}}
+    "Lang-ar": "parts[2]",
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
     "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
