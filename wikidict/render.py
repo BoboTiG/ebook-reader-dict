@@ -74,6 +74,7 @@ def find_section_definitions(
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
+
     if locale == "es" and section.title.strip().startswith(
         ("Forma adjetiva", "Forma verbal")
     ):
@@ -81,11 +82,10 @@ def find_section_definitions(
 
     # es uses definition lists, not well supported by the parser...
     # replace them by numbered lists
-    if locale == "es":
-        if lists := section.get_lists(pattern="[:;]"):
-            sec = "".join(a_list.string for a_list in lists)
-            section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
-            section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
+    if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
+        sec = "".join(a_list.string for a_list in lists)
+        section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
+        section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
