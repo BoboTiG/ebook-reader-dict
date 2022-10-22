@@ -13,6 +13,7 @@ thousands_separator = "."
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-el-}}",)
 etyl_section = ("{{ετυμολογία}}",)
+section_patterns = (r"\#", r"\*")
 sections = (
     *head_sections,
     *etyl_section,
