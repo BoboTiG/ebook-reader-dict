@@ -940,7 +940,7 @@ def last_template_handler(
             phrase = phrase[0].capitalize() + phrase[1:]
         return phrase
 
-    if tpl in ("ar-mot", "ar-terme"):
+    if tpl == "ar-mot":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
     if tpl == "ar-ab":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span>'
