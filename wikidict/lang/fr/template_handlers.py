@@ -855,8 +855,9 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return f"{x.group()[:-1]}{superscript(sup)} siècle{x.group()[-1]}"
 
     parts = [
-        re.sub(r"([IVX]+)([^\s\w]|\s)", repl, part + " ", 1).strip() for part in parts
+        re.sub(r"([IVX]+)([^\s\w]|\s)", repl, f"{part} ", 1).strip() for part in parts
     ]
+
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 
@@ -1068,9 +1069,9 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     simple = parts.pop(0)
     pinyin = italic(parts.pop(0))
     traditional = parts[0] if parts else ""
-    if not traditional:
-        return f"{simple} ({pinyin})"
-    return f"{simple} ({traditional}, {pinyin})"
+    return (
+        f"{simple} ({traditional}, {pinyin})" if traditional else f"{simple} ({pinyin})"
+    )
 
 
 template_mapping = {
