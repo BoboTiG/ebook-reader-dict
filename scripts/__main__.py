@@ -9,6 +9,7 @@ FILES = {
     "de-langs.py": "wikidict/lang/de/langs.py",
     "de-lang_adjs.py": "wikidict/lang/de/lang_adjs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
+    "el-aliases.py": "wikidict/lang/el/aliases.py",
     "el-langs.py": "wikidict/lang/el/langs.py",
     "en-labels.py": "wikidict/lang/en/labels.py",
     "en-langs.py": "wikidict/lang/en/langs.py",
