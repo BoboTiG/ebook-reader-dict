@@ -726,6 +726,7 @@ langs = {
     "bok": "bonjo",
     "bokar": "bokar",
     "bol": "bole",
+    "bolze": "bolze",
     "bom": "birom",
     "bon": "bine",
     "bondska": "bondska",
@@ -6305,7 +6306,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,300
+}  # 6,301
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
