@@ -173,10 +173,6 @@ form_of_templates = {
         "text": "dative plural of",
         "dot": False,
     },
-    "dative singular of": {
-        "text": "dative singular of",
-        "dot": False,
-    },
     "definite singular of": {
         "text": "definite singular of",
         "dot": False,
@@ -689,5 +685,5 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 171
+}  # 170
 # END
