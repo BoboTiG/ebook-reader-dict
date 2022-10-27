@@ -2156,6 +2156,7 @@ labels_subvarieties = {
     "Malwa": "Malwai",
     "Mamluk": "Mamluk-Kipchak",
     "Mari Akkadian": "Mari",
+    "Marindukihin": "Marinduque",
     "Marinduque Tagalog": "Marinduque",
     "Marinduqueño": "Marinduque",
     "Mathia": "Lauriya-Nandangarh",
@@ -2406,6 +2407,7 @@ labels_subvarieties = {
     "Rarha": "Rāṛha",
     "Rarha Bengali": "Rāṛha",
     "Ratnalaseema": "Rayalaseema",
+    "Region IV": "Southern Tagalog",
     "Remo": "Rẹmọ",
     "Renaissance Anglo-Latin": "British Renaissance Latin",
     "Renaissance British": "British Renaissance Latin",
@@ -2598,6 +2600,7 @@ labels_subvarieties = {
     "Tianjin Mandarin": "Tianjin",
     "Tianjin dialect": "Tianjin",
     "Tianjinese": "Tianjin",
+    "Timog Katagalugan": "Southern Tagalog",
     "Tira Andhra": "Coastal Andhra",
     "Tirandhra": "Coastal Andhra",
     "Tohoku": "Tōhoku",
@@ -3013,5 +3016,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,425
+}  # 1,428
 # END
