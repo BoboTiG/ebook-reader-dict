@@ -2476,6 +2476,7 @@ labels_subvarieties = {
     "Severn": "Oji-Cree",
     "Shrops": "Shropshire",
     "Shropshire dialect": "Shropshire",
+    "Shulaveri": "Shulaver",
     "Sichuan": "Sichuanese",
     "Simmani": "ginseng-harvesters' cant",
     "Singapore Hokkien": "Singaporean Hokkien",
@@ -3016,5 +3017,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,428
+}  # 1,429
 # END
