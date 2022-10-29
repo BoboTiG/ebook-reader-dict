@@ -1872,7 +1872,7 @@ labels_subvarieties = {
     "East Norse": "Old East Norse",
     "East Palatine": "Vorderpfälzisch",
     "East Punjab": "Eastern Punjab",
-    "East and South": "West and South Slavic",
+    "East and South": "East and South Slavic",
     "EastPS": "East",
     "EastSouthPS": "West Slavic",
     "Eastern": "Eastern Punjab",

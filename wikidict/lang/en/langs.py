@@ -2863,6 +2863,7 @@ langs = {
     "gsp": "Wasembo",
     "gss": "Greek Sign Language",
     "gsw": "Alemannic German",
+    "gsw-FR": "Alsatian",
     "gta": "Guató",
     "gtu": "Aghu Tharrnggala",
     "gu": "Gujarati",
@@ -9548,5 +9549,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,543
+}  # 9,544
 # END
