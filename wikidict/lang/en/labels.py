@@ -1669,6 +1669,7 @@ labels_subvarieties = {
     "Athina": "Atina",
     "Atinuri": "Atina",
     "Attic Greek": "Attic",
+    "Australian": "Australia",
     "Australian Aboriginal English": "Australian Aboriginal",
     "Australian English": "Australia",
     "Australian form": "Australian",
@@ -1924,6 +1925,7 @@ labels_subvarieties = {
     "Ghars": "Kars",
     "Giresun": "Kerasounta",
     "Goral": "Góral",
+    "Gozitan": "Gozo",
     "Greater Toronto Area": "MTE",
     "Greater Toronto English": "MTE",
     "Groningen": "Gronings",
@@ -1932,6 +1934,8 @@ labels_subvarieties = {
     "Guam form": "Guam spelling",
     "Gungjung": "speech of the royal court",
     "Gwenedeg": "Gwened",
+    "Għawdex": "Gozo",
+    "Għawdxi": "Gozo",
     "H": "Smołdziński Las-Czołpino",
     "H.": "Smołdziński Las-Czołpino",
     "Ha Tinh": "Hà Tĩnh",
@@ -3017,5 +3021,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,429
+}  # 1,433
 # END
