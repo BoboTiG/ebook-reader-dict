@@ -401,6 +401,7 @@ langs = {
     "alv-ten": "Tenda",
     "alv-the": "Talodi-Heiban",
     "alv-von": "Volta-Niger",
+    "alv-von-pro": "Proto-Volta-Niger",
     "alv-wan": "Wara-Natyoro",
     "alv-wjk": "Waja-Kam",
     "alv-yek": "Yekhee",
@@ -9549,5 +9550,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,544
+}  # 9,545
 # END
