@@ -2343,6 +2343,7 @@ langs = {
     "el": "Greek",
     "el-crt": "Cretan Greek",
     "el-cyp": "Cypriot Greek",
+    "el-kth": "Katharevousa",
     "el-pap": "Paphian Greek",
     "ele": "Elepi",
     "elh": "El Hugeirat",
@@ -9550,5 +9551,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,545
+}  # 9,546
 # END
