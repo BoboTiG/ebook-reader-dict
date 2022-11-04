@@ -98,6 +98,7 @@ regions = {
     "Charente-Maritime": "Charente-Maritime",
     "Charentes": "Charentes",
     "Chef-Boutonne": "Chef-Boutonne",
+    "Chenou": "Chenou",
     "Chili": "Chili",
     "Chine": "Chine",
     "Cholet": "Cholet",
@@ -458,7 +459,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 453
+}  # 454
 # END
 
 # handled differently

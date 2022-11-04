@@ -2769,6 +2769,7 @@ langs = {
     "gmy": "Mycenaean Greek",
     "gmz": "Mgbo",
     "gn": "Guaraní",
+    "gn-cls": "Classical Guaraní",
     "gna": "Kaansa",
     "gnb": "Gangte",
     "gnc": "Guanche",
@@ -9551,5 +9552,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,546
+}  # 9,547
 # END
