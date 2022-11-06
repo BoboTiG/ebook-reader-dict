@@ -1693,6 +1693,7 @@ labels_subvarieties = {
     "Bambaiya Hindi": "Bombay Hindi",
     "Bambaiyya": "Bombay Hindi",
     "Banshu": "Banshū",
+    "Baras": "Rizal",
     "Basarkeçər": "Basarkechar",
     "Bashai": "Madras Bashai",
     "Bashmuric": "Fayyumic",
@@ -1770,6 +1771,7 @@ labels_subvarieties = {
     "Canadian form": "Canadian",
     "Caraga Bisaya": "Caraga",
     "Carcar": "Sialo",
+    "Cardona": "Rizal",
     "Central": "Majhi",
     "Central Assamese": "Central Assam",
     "Central German": "central Germany",
@@ -2199,6 +2201,7 @@ labels_subvarieties = {
     "Missourian French": "Missouri",
     "Mooring Dialect": "Mooring",
     "Mooring dialect": "Mooring",
+    "Morong": "Rizal",
     "Moselfränkisch": "Moselle Franconian",
     "Multicultural London English": "MLE",
     "Multicultural Toronto English": "MTE",
@@ -2422,6 +2425,8 @@ labels_subvarieties = {
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
     "River Plate": "Rioplatense",
+    "Rizal Tagalog": "Rizal",
+    "Rizaleño": "Rizal",
     "Rm": "Rimini",
     "Roman": "Rome",
     "Roman Italian": "Rome",
@@ -2596,6 +2601,7 @@ labels_subvarieties = {
     "Tayart": "Tayert",
     "Tayirt": "Tayert",
     "Telangana Telugu": "Telangana",
+    "Teresa": "Rizal",
     "Thanh Hoa": "Thanh Hoá",
     "Thanh Hoa dialect": "Thanh Hoá",
     "Thanh Hoá dialect": "Thanh Hoá",
@@ -3021,5 +3027,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,433
+}  # 1,439
 # END
