@@ -861,6 +861,8 @@ labels_regional = {
     "Alto Adige": "South Tyrol",
     "America": "US",
     "American": "US",
+    "Andalucia": "Andalusia",
+    "Andalucía": "Andalusia",
     "Andean": "Andes",
     "Angolan": "Angola",
     "Antarctic": "Antarctica",
@@ -946,6 +948,7 @@ labels_regional = {
     "Bərdə": "Barda",
     "CA": "Canada",
     "CNMI": "Northern Mariana Islands",
+    "Cadiz": "Cádiz",
     "Cajun": "Louisiana",
     "Californian": "California",
     "Canadian": "Canada",
@@ -1107,7 +1110,7 @@ labels_regional = {
     "Holadi": "Kathiyawadi",
     "Hollandic": "Holland",
     "Honduran": "Honduras",
-    "Huelvan": "Extremadura",
+    "Huelvan": "Huelva",
     "Huitzapanec": "Huitzapan",
     "Imeretian": "Imereti",
     "Imerhev": "Imerkhevi",
@@ -1402,6 +1405,7 @@ labels_regional = {
     "Sensler": "Sense",
     "Senslerdeutsch": "Sense",
     "Serbian": "Serbia",
+    "Sevilla": "Seville",
     "Shaki": "Sheki",
     "Shamkhor": "Shamkir",
     "Shamkur": "Shamkir",
@@ -1585,7 +1589,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 762
+}  # 766
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -2337,6 +2341,7 @@ labels_subvarieties = {
     "Paniki": "Ortaalan",
     "Pannonian": "Pannonia",
     "Papat": "Ortaalan",
+    "Paraguayan": "Paraguay",
     "Partido Bikol": "Partido",
     "Pazar": "Atina",
     "Peking": "Beijing",
@@ -3027,5 +3032,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,439
+}  # 1,440
 # END
