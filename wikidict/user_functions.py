@@ -128,7 +128,7 @@ def color(rgb: str) -> str:
 def concat(
     parts: List[str],
     sep: str = "",
-    last_sep: str = None,
+    last_sep: Optional[str] = None,
     indexes: Optional[List[int]] = None,
     skip: Optional[str] = None,
 ) -> str:
