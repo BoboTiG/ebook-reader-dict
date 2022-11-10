@@ -1925,6 +1925,7 @@ labels_subvarieties = {
     "GTE": "MTE",
     "Galilean Aramaic": "Jewish Palestinian Aramaic",
     "Gascon": "Gascony",
+    "Gazakh": "Ghazakh",
     "Gbede": "Gbẹdẹ",
     "Geordie": "Tyneside",
     "Gharabagh": "Karabakh",
@@ -2084,6 +2085,7 @@ labels_subvarieties = {
     "Kangwon": "Gangwon",
     "Kangwŏn": "Gangwon",
     "Kanto": "Kantō",
+    "Kazakh": "Ghazakh",
     "Kerasous": "Kerasounta",
     "Kerkrade": "Kirchröadsj",
     "Kerkradish": "Kirchröadsj",
@@ -2389,6 +2391,8 @@ labels_subvarieties = {
     "P’eronituri": "Peroniti",
     "Qalqa": "Khalkha",
     "Qars": "Kars",
+    "Qazakh": "Ghazakh",
+    "Qazax": "Ghazakh",
     "Qorchin": "Khorchin",
     "Quang Binh": "Quảng Bình",
     "Quang Binh dialect": "Quảng Bình",
@@ -2966,6 +2970,7 @@ labels_subvarieties = {
     "Čakavian": "Chakavian",
     "Čxalur": "Chkhala",
     "Č’anapeti": "Chanapeti",
+    "Łazax": "Ghazakh",
     "Ōgami Island": "Ōgami",
     "Ōgami-jima": "Ōgami",
     "Ōgamijima": "Ōgami",
@@ -3032,5 +3037,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,440
+}  # 1,445
 # END

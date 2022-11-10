@@ -419,6 +419,7 @@ langs = {
     "nrm": "Narom",
     "nrn": "Norn",
     "nso": "Nord-Sotho",
+    "nup": "Nupe",
     "nv": "Navajo",
     "ny": "Chichewa",
     "nyn": "Runyankore",
@@ -675,5 +676,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 670
+}  # 671
 # END

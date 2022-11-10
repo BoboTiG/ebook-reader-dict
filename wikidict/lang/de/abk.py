@@ -21,6 +21,8 @@ abk = {
     "Ling.": "Linguistik",
     "Med.": "Medizin",
     "Plural": "im Plural",
+    "PmG": "Präposition mit Genitiv",
+    "PräpmG": "Präposition mit Genitiv",
     "Schweiz": "Schweiz",
     "Schweizerdeutsch": "Schweizerdeutsch",
     "abw.": "abwertend",
@@ -121,5 +123,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 116
+}  # 118
 # END
