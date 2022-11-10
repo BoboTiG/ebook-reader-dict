@@ -3,7 +3,6 @@ import bz2
 import gzip
 import json
 import os
-import unicodedata
 from collections import defaultdict
 from contextlib import suppress
 from datetime import date
@@ -192,13 +191,6 @@ class KoboFormat(KoboBaseFormat):
 
         self.summary(dicthtml)
 
-    def strip_accents(self, s: str) -> str:
-        return "".join(
-            c
-            for c in unicodedata.normalize("NFD", s)
-            if unicodedata.category(c) != "Mn"
-        )
-
     def save_html(
         self,
         name: str,
@@ -284,7 +276,7 @@ class KoboFormat(KoboBaseFormat):
                             # no variant with different prefix
                             v = v.lower().strip()
                             if guess_prefix(v) == name:
-                                var += f'<variant name="{self.strip_accents(v)}"/>'
+                                var += f'<variant name="{v}"/>'
                         var += "</var>"
                     # no empty var tag
                     if len(var) < 15:
