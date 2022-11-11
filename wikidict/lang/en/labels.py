@@ -1770,6 +1770,8 @@ labels_subvarieties = {
     "CPA": "Christian Palestinian Aramaic",
     "Ca": "Cattolica",
     "Cajun French": "Cajun",
+    "Calabrese": "Calabria",
+    "Calabrian": "Calabria",
     "Campello Monti": "Rimella and Campello Monti",
     "Canadian English": "Canada",
     "Canadian form": "Canadian",
@@ -1870,6 +1872,7 @@ labels_subvarieties = {
     "Early Modern English": "Early Modern",
     "Early modern": "Early Modern",
     "Early modern English": "Early Modern",
+    "East": "Western Sicily",
     "East Anglian English": "East Anglia",
     "East Central Scots": "East Central",
     "East Midland ME": "East Midlands",
@@ -1879,6 +1882,7 @@ labels_subvarieties = {
     "East Norse": "Old East Norse",
     "East Palatine": "Vorderpfälzisch",
     "East Punjab": "Eastern Punjab",
+    "East Sicily": "Western Sicily",
     "East and South": "East and South Slavic",
     "EastPS": "East",
     "EastSouthPS": "West Slavic",
@@ -2338,6 +2342,7 @@ labels_subvarieties = {
     "PalA": "Palmyrene",
     "Palatinate German": "Palatine",
     "Palatine German": "Palatine",
+    "Palermitan": "Palermo",
     "Palestinian Syriac": "Christian Palestinian Aramaic",
     "Palmyrene Aramaic": "Palmyrene",
     "Paniki": "Ortaalan",
@@ -2747,6 +2752,7 @@ labels_subvarieties = {
     "West Pomeranian LG": "Western Pomeranian",
     "West Pomeranian Low German": "Western Pomeranian",
     "West Punjab": "Western Punjab",
+    "West Sicily": "Western Sicily",
     "West and South": "West and South Slavic",
     "WestPS": "West Slavic",
     "WestSouthPS": "West Slavic",
@@ -3037,5 +3043,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,445
+}  # 1,451
 # END
