@@ -17,7 +17,7 @@ from wikidict.utils import process_templates
         ),
         (
             "volley",
-            ["[ˈvɔli]", "[ˈvɔle]", "[ˈvɔlɛɪ̯]"],
+            ["[ˈvɔle]", "[ˈvɔli]", "[ˈvɔlɛɪ̯]"],
             [],
             [
                 "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the <i>volley</i></i> ‚aus der Luft‘ zugrunde.",  # noqa

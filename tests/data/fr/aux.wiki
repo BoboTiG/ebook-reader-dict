@@ -22,10 +22,12 @@
 {{trad-début}}
 * {{T|shy}} : {{trad|shy|ayetbab}}
 * {{T|es}} : {{trad-|es|a los|m}}, {{trad-|es|a las|f}}
+* {{T|grc}} : {{trad+|grc|ταῖς|f}}, {{trad+|grc|τοῖς|m}}
 * {{T|it}} : {{trad+|it|agli}}, {{trad+|it|alle}}
 * {{T|oc}} : {{trad-|oc|als}}, {{trad+|oc|aus}}
 * {{T|pt}} : {{trad+|pt|aos|m}}, {{trad+|pt|às|f}}
 * {{T|scn}} : {{trad+|scn|ê}}, {{trad+|scn|alli}}
+* {{T|wa}} : {{trad+|wa|ås}}''Devant une voyelle'', {{trad+|wa|azès}}''Devant une consonne''
 {{trad-fin}}
 
 === {{S|prononciation}} ===

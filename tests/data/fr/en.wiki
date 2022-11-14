@@ -141,6 +141,7 @@
 * {{T|en}} : {{trad+|en|by}}
 * {{T|br}} : {{trad+|br|en ur}}
 * {{T|zdj}} : {{trad|zdj|ha}} (suivi d’un infinitif)
+* {{T|wa}} : {{trad+|wa|e}}, {{trad+|wa|tot}}
 {{trad-fin}}
 
 {{trad-début|Forme un gérondif qui marque le temps, la durée}}
@@ -223,13 +224,16 @@
 ==== {{S|traductions}} ====
 {{trad-début|De cela}}
 * {{T|it}} : {{trad+|it|ne}}
+* {{T|nl}} : {{trad+|nl|er}}
 * {{T|pcd}} : {{trad|pcd|én-d}}, {{trad|pcd|én_n}}, {{trad|pcd|én-në}}, {{trad|pcd|n-d}}, {{trad|pcd|n-n}}, {{trad|pcd|d-d}}, {{trad|pcd|n-in}}
 * {{T|sv}} : {{trad+|sv|därför}}
+* {{T|wa}} : {{trad+|wa|ndè}}, {{trad+|wa|end}}
 {{trad-fin}}
 
 {{trad-début|De ce lieu}}
 * {{T|de}} : {{trad+|de|dort|dif=von dort}}, {{trad+|de|dorther}}, {{trad+|de|dahin}}, {{trad+|de|davon}}
 * {{T|it}} : {{trad+|it|ne}}
+* {{T|nl}} : {{trad+|nl|ervan}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===
@@ -248,15 +252,15 @@
 ==== {{S|homophones|fr}} ====
 * [[an]]
 
+=== {{S|anagrammes}} ===
+* [[ne]], [[né]]
+
 === {{S|voir aussi}} ===
 * {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{R:DAF8}}
 * {{RÉF|1}} Philip H. Miller, Geoffrey K. Pullum, Arnold M. Zwicky, [//www.stanford.edu/~zwicky/4PPFS.pdf “The Principle of Phonology-Free Syntax: four apparent counterexamples in French”], ''Journal of linguistics'', volume 33, nº 1, 1997, pages 67-90.
-
-=== {{S|anagrammes}} ===
-* [[ne]], [[né]]
 
 == {{langue|fro}} ==
 === {{S|étymologie}} ===
@@ -788,6 +792,7 @@ Académiques:
 
 === {{S|prononciation}} ===
 * {{écouter|||lang=no|audio=No-en.ogg}}
+* {{écouter|Agder (Norvège)||lang=no|audio=LL-Q9043 (nor)-EdoAug-en.wav}}
 
 == {{langue|oc}} ==
 {{ébauche|oc}}

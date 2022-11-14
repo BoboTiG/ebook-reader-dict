@@ -11,7 +11,7 @@
 ** {{a|RP}} {{IPA|en|/ˈwɔːtə/}}
 *** {{audio|en|En-uk-water.ogg|Audio (UK)}}
 *** {{audio|en|LL-Q1860 (eng)-Back ache-water.wav|Audio (UK)}}
-** {{a|England|Estuary English}} {{IPA|en|[woːʔɐ]}}
+** {{a|England|Estuary English}} {{IPA|en|[ˈwoːʔɐ]|[ˈwoːʔə]}}
 ** {{a|Scotland}} {{IPA|en|/ˈwɔtər/}}, {{IPAchar|[ˈwɔtər]}}
 ** {{a|dialectal}} {{IPA|en|/ˈwɒtə/|/ˈwɒtəɹ/}}
 * {{a|North America}}
@@ -21,6 +21,7 @@
 ** {{a|New York|Philadelphia}} {{IPA|en|/ˈwʊtəɹ/|[ˈwʊɾɚ]}}
 * {{a|Australia|NZ}} {{IPA|en|/ˈwoːtə/|[ˈwoːɾə]}}
 * {{a|InE}} {{IPA|en|[ˈwɔːʈə(r)]|[ˈʋɔːʈə(r)]}}
+**{{a|Tamil English}} {{IPA|en|[ˈʋaːʈər(ɯ)]|[ˈwaːʈər(ɯ)]}}
 * {{a|Northern English|dated|obsolete elsewhere}} {{IPA|en|/ˈwætəɹ/}}, {{IPAchar|[ˈwætə]|[ˈwæɾɚ]}}
 * {{hyphenation|en|wa|ter}}
 * {{rhymes|en|ɔːtə(ɹ)|ɒtə(ɹ)|s1=2}}
@@ -29,7 +30,7 @@
 {{root|en|ine-pro|*wed-}}
 From {{inh|en|enm|water}}, from {{inh|en|ang|wæter||water}}, from {{inh|en|gmw-pro|*watar}}, from {{inh|en|gem-pro|*watōr||water}}, from {{inh|en|ine-pro|*wódr̥||water}}.
 {{rel-top|cognates}}
-Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|wetter||water}}, {{cog|nl|water||water}}, {{cog|nds|Water||water}}, {{cog|de|Wasser}}, {{cog|non|vatn}} ({{cog|sv|vatten||water}}, {{cog|da|vand||water}}, {{cog|nb|vann||water}}, {{cog|nn|-}} and {{cog|is|vatn||water}}), {{cog|sga|coin fodorne||otters|lit=water-dogs}}, {{cog|la|unda||wave}}, {{cog|lt|vanduõ||water}}, {{cog|ru|вода́||water}}, {{cog|sq|ujë||water}}, {{cog|grc|ὕδωρ||water}}, {{cog|hy|գետ||river}}, {{cog|sa|उदन्|tr=udán||wave, water|sc=Deva}}, {{cog|hit|𒉿𒀀𒋻|tr=wa-a-tar|sc=Xsux}}.
+Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|wetter||water}}, {{cog|nl|water||water}}, {{cog|nds|Water||water}}, {{cog|de|Wasser}}, {{cog|non|vatn}} ({{cog|sv|vatten||water}}, {{cog|da|vand||water}}, {{cog|nb|vann||water}}, {{cog|nn|-}} and {{cog|is|vatn||water}}, {{cog|sga|coin fodorne||otters|lit=water-dogs}}, {{cog|la|unda||wave}}, {{cog|lt|vanduõ||water}}, {{cog|ru|вода́||water}}, {{cog|sq|ujë||water}}, {{cog|grc|ὕδωρ||water}}, {{cog|hy|գետ||river}}, {{cog|sa|उदन्|tr=udán||wave, water|sc=Deva}}, {{cog|hit|𒉿𒀀𒋻|tr=wa-a-tar|sc=Xsux}}.
 {{rel-bottom}}
 
 ====Noun====
@@ -145,6 +146,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |branch water
 |bread and water
 |{{l|en|break water}}, {{l|en|breakwater}}
+|Cairn Water
 |carbonated water
 |Carron Water
 |carry someone's water
@@ -347,7 +349,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |{{l|en|water boy}}, {{l|en|waterboy}}
 |water break
 |waterbuck
-|{{l|en|water buffalo}}, {{l|en|water-buffalo}}
+|{{l|en|water buffalo}}
 |{{l|en|water bug}}, {{l|en|waterbug}}
 |{{l|en|water bus}}, {{l|en|waterbus}}
 |water butt
@@ -559,6 +561,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |water vapor pressure
 |water vapour
 |water-vascular system
+|Waterville
 |water vole
 |water wagon
 |waterward
@@ -629,9 +632,10 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 #* {{RQ:Longfellow Evangeline|I}}
 #*: Men whose lives glided on like rivers that '''water''' the woodlands.
 # {{senseid|en|to provide with water}} {{lb|en|transitive}} To provide (animals) with water for [[drink]]ing.
-#: ''I need to go '''water''' the cattle''.
+#: ''I need to '''water''' the cattle''.
 # {{lb|en|intransitive}} To get or take in water.
-#: ''The ship put into port to '''water'''.''
+#: {{ux|en|The ship put into port to '''water'''.}}
+#* {{quote-journal|en|year=1944|month=January and February|author=W. McGowan Gradon|title=Forres as a Railway Centre|journal=Railway Magazine|page=23|text=After working the 1.30 p.m. through train from Forres to Aberdeen as far as Elgin, she returns tender first with a local passenger train and is then coaled and '''watered''' at Forres shed, and eventually works back to Perth on the 10.20 p.m. through freight.}}
 # {{lb|en|transitive|colloquial}} To [[urinate]] onto.
 #: ''[[nature calls|Nature called]], so I stepped into the woods and '''watered''' a tree.''
 # {{lb|en|transitive}} To [[dilute]].
@@ -968,7 +972,6 @@ From {{inh|nds-nl|osx|watar}}.
 
 ===Pronunciation===
 * {{fr-IPA|watère}}
-* {{audio|fr|LL-Q150 (fra)-Exilexi-water.wav|Audio}}
 
 ===Noun===
 {{fr-noun|m}}

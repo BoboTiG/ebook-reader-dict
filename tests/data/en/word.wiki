@@ -66,10 +66,11 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 #* {{quote-book|en|year=1499|author={{w|John Skelton}}|title=The Bowge of Court|passage=Among all other was wrytten in her trone / In golde letters, this '''worde''', whiche I dyde rede: / ''Garder le fortune que est [[mal|mauelz]] et [[bon|bone]]''.<!--[Prepare for good and ill fortune alike.]-->}}
 #* {{quote-book|en|year=1599|author=Ben Jonson|title={{w|Every Man out of His Humour}}|passage=Let the '''word''' be 'Not without mustard'. Your crest is very rare, sir.}}
 #* {{quote-book|en|year=1646|author={{w|Joseph Hall (bishop)|Joseph Hall}}|title=The Balm of Gilead|passage=The old '''word''' is, 'What the eye views not, the heart rues not.'}}
-# {{senseid|en|news, tidings}} [[news|News]]; [[tidings]] {{qualifier|used without an article}}. {{defdate|from 10th c.}}
+# {{senseid|en|news, tidings}} {{lb|en|uncountable}} [[news|News]]; [[tidings]] {{defdate|from 10th c.}}
 #* {{RQ:Orwell Animal Farm|1}}
 #*: '''Word''' had gone round during the day that old Major, the prize Middle White boar, had had a strange dream on the previous night and wished to communicate it to the other animals.
 #: {{ux|en|Have you had any '''word''' from John yet?}}
+#: {{ux|en|I've tried for weeks to get '''word''', but I still don't know where she is or if she's all right.}}
 # An [[order]]; a [[request]] or [[instruction]]; an expression of will. {{defdate|from 10th c.}}
 #: {{ux|en|He sent '''word''' that we should strike camp before winter.}}
 #: {{ux|en|Don't fire till I give the '''word'''}}
@@ -636,7 +637,7 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 {{trans-bottom}}
 
 {{trans-top|something which has been said}}
-* Arabic: {{tt+|ar|كَلِمَة|f}}, {{tt|ar|كَلَام|m}}, {{tt|ar|قَوْل|m}}
+* Arabic: {{tt+|ar|كَلِمَة|f}}, {{tt+|ar|كَلَام|m}}, {{tt|ar|قَوْل|m}}
 * Bulgarian: {{t+|bg|реч|f}}
 * Finnish: {{tt+|fi|sana}}, {{tt+|fi|puhe}}
 * French: {{tt+|fr|parole|f}}
@@ -887,6 +888,9 @@ Variant of {{m|en|worth||to become, turn into, grow, get}}, from {{inh|en|enm|wo
 {{head|en|verb}}
 
 # {{alt form|en|worth|t=to become}}.
+
+===See also===
+* [[Appendix:Wordhood]]
 
 ===Further reading===
 * {{pedia}}

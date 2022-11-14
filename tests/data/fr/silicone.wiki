@@ -9,7 +9,7 @@
 '''silicone''' {{pron|si.li.kon|fr}} {{f}} (composé de silicium de formule R2SiO) {{m}} (polymère).
 [[File:Etanchéification de la bouche d'entrée des déchets et sortie du gaz.jpg|thumb|Réalisation d'un joint au silicone en cartouche. (sens 2)]]
 # {{lexique|chimie|fr}} [[composé|Composé]] [[inorganique]] formés d’une chaine [[silicium]]-[[oxygène]] (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
-#* ''[Les] '''silicones''', polymères de complexité variable […] possèdent des propriétés particulièrement surprenantes. Ces substances s’emploient industriellement dans la fabrication des huiles, des vernis et des plastiques.'' {{source|''Histoire générale des sciences'', t. 3 , vol. 2, 1964, page 429}}
+#* ''Avec ou sans couvercles, en petits cubes ou en forme de cœur, de fleur ou de licorne, les bacs à glaçons sont bien souvent proposés en '''silicone''' ou en plastique.'' {{source|Katia Cosse, ''50 règles d’or pour vivre sans plastique'', 2020, page 59}}
 #* ''Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.'' {{source|Kyra Davis, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
 #* ''Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »'' {{source|Alain Babanini, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
 # {{par extension|fr}} [[mastic|Mastic]] à base de ce composé et vendu généralement en [[cartouche]].
@@ -30,6 +30,7 @@
 * {{T|hr}} : {{trad+|hr|silikon}}
 * {{T|it}} : {{trad+|it|silicone|m}}
 * {{T|ja}} : {{trad-|ja|シリコーン|tr=shirikōn}}, {{trad+|ja|シリコン|tr=shirikon}}
+* {{T|se}} : {{trad|se|silikona}}
 * {{T|cs}} : {{trad-|cs|silikon|m}}
 {{trad-fin}}
 

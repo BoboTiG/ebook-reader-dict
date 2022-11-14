@@ -24,11 +24,11 @@ from wikidict.utils import process_templates
         ),
         (
             "a",
-            ["\\ɑ\\", "\\a\\"],
+            ["\\a\\", "\\ɑ\\"],
             ["m"],
             [],
             [
-                "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie.",  # noqa
+                r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",  # noqa
                 "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>&minus;18</sup>).",  # noqa
                 "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
                 "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
@@ -140,6 +140,7 @@ from wikidict.utils import process_templates
                 "<i>(Sports hippiques)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",  # noqa
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
                 "<i>(Sens figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
+                "<i>(Argot)</i> Cocaïne base.",
             ],
             ["baser"],
         ),
@@ -276,7 +277,7 @@ from wikidict.utils import process_templates
         ),
         (
             "greffier",
-            ["\\ɡʁɛ.fje\\", "\\ɡʁe.fje\\"],
+            ["\\ɡʁe.fje\\", "\\ɡʁɛ.fje\\"],
             ["m"],
             [
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",  # noqa

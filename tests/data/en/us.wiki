@@ -71,7 +71,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 * Kurdish:
 *: Central Kurdish: {{t+|ckb|ئێمە}}
 * Latin: {{qualifier|accusative}} {{t+|la|nos}}, {{qualifier|dative}} {{t+|la|nobis}}, {{qualifier|ablative}} {{t+|la|nobis}}
-* Low German: {{t|nds|uns}}, {{t|nds|üsseck}}
+* Low German: {{t|nds|uns}}, {{t|nds|üsch}}, {{t|nds|üsseck}}
 * Macedonian: {{t|mk|ни}}, {{t|mk|нас}}, {{t|mk|нам}}
 * Malay:
 *: ''exclusive: '' {{t+|ms|kami|p}}
@@ -149,11 +149,10 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 
 # {{lb|en|rare}} {{alt form|en|u's}}.
 
-[[Category:Symbols for SI units]]
-
 ===Anagrams===
 * {{anagrams|en|a=su|SU|Su}}
 
+[[Category:Symbols for SI units]]
 [[Category:English first person pronouns]]
 [[Category:English heteronyms]]
 [[Category:English personal pronouns]]

@@ -10,12 +10,13 @@
 # {{lexique|astronautique|fr}} {{term|aérodynamique}} Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.
 
 ==== {{S|vocabulaire}} ====
-* [[corps émoussé]] 
-* [[rentrée atmosphérique]] 
+* [[corps émoussé]]
+* [[rentrée atmosphérique]]
 
 ==== {{S|traductions}} ====
 {{trad-début}}
 * {{T|en}} : {{trad+|en|lifting body}}
+* {{T|hr}} : {{trad-|hr|ojačan uzdužni nosač trupa|tr=(1)}}, {{trad-|hr|spreg sila na trup|tr=(2)}}, {{trad-|hr|uzgonsko aerotijelo|tr=(2)}}
 {{trad-fin}}
 
 === {{S|voir aussi}} ===

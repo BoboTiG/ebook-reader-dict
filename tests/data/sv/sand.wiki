@@ -67,7 +67,7 @@
 #[[sann]]
 #:{{synonymer|[[rigtig]]}}
 #:{{antonymer|[[falsk]]}}
-#:{{etymologi|Av {{härledning|da|non|[[sannr]], [[saðr]]}}, av urgermanska ''*sanþaz'', av urindoeuropeiska ''*h₁sónts'' ("varande, existerande"), presens particip av *h₁es- ("att vara").}}
+#:{{etymologi|Av {{härledning|da|non|sannr, saðr}}, av urgermanska ''*sanþaz'', av urindoeuropeiska ''*h₁sónts'' ("varande, existerande"), presens particip av *h₁es- ("att vara").}}
 
 ==Engelska==
 ===Substantiv===
