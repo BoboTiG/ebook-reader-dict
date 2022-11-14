@@ -24,7 +24,7 @@ from wikidict.utils import process_templates
         ),
         (
             "a",
-            ["\\ɑ\\", "\\a\\"],
+            ["\\a\\", "\\ɑ\\"],
             ["m"],
             [],
             [
@@ -277,7 +277,7 @@ from wikidict.utils import process_templates
         ),
         (
             "greffier",
-            ["\\ɡʁɛ.fje\\", "\\ɡʁe.fje\\"],
+            ["\\ɡʁe.fje\\", "\\ɡʁɛ.fje\\"],
             ["m"],
             [
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",  # noqa

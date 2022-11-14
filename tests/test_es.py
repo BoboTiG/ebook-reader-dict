@@ -120,7 +120,7 @@ from wikidict.utils import process_templates
         ),
         (
             "gracias",
-            ["[ˈgɾa.θjas]", "[ˈgɾa.sjas]"],
+            ["[ˈgɾa.sjas]", "[ˈgɾa.θjas]"],
             [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",

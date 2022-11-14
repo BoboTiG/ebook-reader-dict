@@ -23,7 +23,7 @@ from wikidict.utils import process_templates
         ),
         (
             "cum",
-            ["/kʌm/", "/kʊm/"],
+            ["/kʊm/", "/kʌm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
                 "<i>Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
@@ -39,7 +39,7 @@ from wikidict.utils import process_templates
         ),
         (
             "efficient",
-            ["/ɪˈfɪʃənt/", "/əˈfɪʃənt/"],
+            ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
             [
                 "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
             ],
@@ -65,7 +65,7 @@ from wikidict.utils import process_templates
         ),
         (
             "Mars",
-            ["/ˈmɑːz/", "/ˈmɑɹz/"],
+            ["/ˈmɑɹz/", "/ˈmɑːz/"],
             [
                 "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
             ],
@@ -105,7 +105,7 @@ from wikidict.utils import process_templates
         ),
         (
             "the",
-            ["/ˈðiː/", "/ˈðʌ/", "/ði/", "/ðɪ/", "/ðə/"],
+            ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
@@ -129,7 +129,7 @@ from wikidict.utils import process_templates
         ),
         (
             "um",
-            ["/ʌm/", "/əːm/"],
+            ["/əːm/", "/ʌm/"],
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
@@ -141,7 +141,7 @@ from wikidict.utils import process_templates
         ),
         (
             "us",
-            ["/ʌs/", "/ʌz/", "/əs/", "/əz/"],
+            ["/əs/", "/əz/", "/ʌs/", "/ʌz/"],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
             ],
@@ -158,15 +158,15 @@ from wikidict.utils import process_templates
         (
             "water",
             [
-                "/ˈwɔːtə/",
-                "/ˈwɔtər/",
-                "/ˈwɒtə/",
-                "/ˈwɒtəɹ/",
-                "/ˈwɔtəɹ/",
-                "/ˈwɑtəɹ/",
-                "/ˈwʊtəɹ/",
                 "/ˈwoːtə/",
                 "/ˈwætəɹ/",
+                "/ˈwɑtəɹ/",
+                "/ˈwɒtə/",
+                "/ˈwɒtəɹ/",
+                "/ˈwɔtər/",
+                "/ˈwɔtəɹ/",
+                "/ˈwɔːtə/",
+                "/ˈwʊtəɹ/",
             ],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa

@@ -26,7 +26,7 @@ from .lang import (
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import clean, process_templates, table2html
+from .utils import clean, process_templates, table2html, uniq
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -234,10 +234,11 @@ def _find_pronunciations(
     top_sections: List[wtp.Section], func: Callable[[str], List[str]]
 ) -> List[str]:
     """Find pronunciations."""
+    results = []
     for top_section in top_sections:
         if result := func(top_section.contents):
-            return result
-    return []
+            results.extend(result)
+    return sorted(uniq(results))
 
 
 def find_all_sections(
