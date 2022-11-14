@@ -139,7 +139,7 @@ from wikidict.utils import process_templates
                 "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",  # noqa
                 "<i>(Sports hippiques)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",  # noqa
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
-                "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
+                "<i>(Sens figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
             ],
             ["baser"],
         ),
@@ -284,7 +284,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(Droit)</i> Officier public préposé au greffe.",
-                "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
+                "<i>(Sens figuré)</i> Celui qui prend note et tient le registre de ses notes.",
                 "<i>(Populaire)</i> Chat.",
                 "Sexe de la femme, minou, chatte, etc.",
                 "Poisson-chat commun (poisson).",
@@ -369,7 +369,7 @@ from wikidict.utils import process_templates
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
-                "<i>(Figuré)</i> Qui s’est encore envenimé.",
+                "<i>(Sens figuré)</i> Qui s’est encore envenimé.",
                 "S’emploie quelquefois comme nom masculin.",
                 "<i>Variante de</i> ranche.",
             ],
@@ -504,7 +504,10 @@ def test_parse_word(
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
-        ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
+        (
+            "{{par ext}} ou {{figuré|fr}}",
+            "<i>(Par extension)</i> ou <i>(Sens figuré)</i>",
+        ),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
             "<u>Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",  # noqa

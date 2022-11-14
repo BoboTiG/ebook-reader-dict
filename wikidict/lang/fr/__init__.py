@@ -281,6 +281,7 @@ templates_italic = {
     "ferro": "Chemin de fer",
     "ferroviaire": "Chemin de fer",
     "figure": "Rhétorique",
+    "figuré": "Sens figuré",
     "finan": "Finance",
     "finances": "Finance",
     "fonderie": "Métallurgie",
