@@ -84,6 +84,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 * Korean: {{t|ko|[[효율적]][[-이다|-인]]}}
 * Latin: {{t|la|efficiens}}
 * Malay: {{t+|ms|cekap}}, {{t|ms|efisien}}
+* Polish: {{t+|pl|wydajny}}
 * Portuguese: {{t+|pt|eficiente}}
 * Romanian: {{t+|ro|eficient}}
 * Russian: {{t+|ru|эффекти́вный}}
@@ -104,6 +105,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 {{trans-mid}}
 * Hungarian: {{t+|hu|gazdaságos}}, {{t+|hu|hatékony}}
 * Italian: {{t+|it|efficiente}}
+* Polish: {{t+|pl|sprawny}}
 * Portuguese: {{t+|pt|eficaz}}
 * Scottish Gaelic: {{t|gd|èifeachdach}}
 * Tagalog: {{t|tl|episyente}}

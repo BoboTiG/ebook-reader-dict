@@ -58,7 +58,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Contraction of</i> <b>it is</b>.",
                 "<i>Contraction of</i> <b>it has</b>.",
-                "There's, there is; there're, there are.",
+                "<i>(dialectal, African-American Vernacular)</i> There's, there is; there're, there are.",  # noqa
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
@@ -170,7 +170,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
-                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”)), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
+                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
             ],
             [
                 "<i>(uncountable)</i> A substance (of molecular formula H<sub>2</sub>O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",  # noqa
@@ -231,7 +231,7 @@ from wikidict.utils import process_templates
                 "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
                 "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",  # noqa
                 "<i>(obsolete)</i> A proverb or motto.",
-                "News; tidings (<i>used without an article</i>). <small>[from 10th c.]</small>",
+                "<i>(uncountable)</i> News; tidings <small>[from 10th c.]</small>",
                 "An order; a request or instruction; an expression of will. <small>[from 10th c.]</small>",
                 "A promise; an oath or guarantee. <small>[from 10th c.]</small>",
                 "A brief discussion or conversation. <small>[from 15th c.]</small>",

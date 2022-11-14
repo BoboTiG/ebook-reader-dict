@@ -5,18 +5,15 @@
 {{affix|sv}}
 '''auto-''' ''(prefix)''
 #[[automatisk]]; [[självgående]]
-
-====Besläktade ord====
-*[[autoläge]]
+#:{{sammansättningar|[[autoläge]]}}
 
 ===Substantiv===
 {{subst|sv}}
 '''auto'''
 #[[automatisk]]t läge
 #[[autostart]]
-
-====Besläktade ord====
-*[[automatisk]]
+:{{avgränsare}}
+:{{besläktade ord|[[automatisk]]}}
 
 ==Finska==
 ===Substantiv===

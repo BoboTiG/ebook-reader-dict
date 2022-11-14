@@ -24,13 +24,29 @@ __TOC__
 [[Catégorie:Chiffres hexadécimaux]]
 
 == {{langue|conv}} ==
-=== {{S|symbole|conv}} ===
+
+=== {{S|étymologie}} ===
+{{lien-ancre-étym|conv|symb|2}} {{abréviation|de=atto-|texte='''a'''tto-|lang=conv}}.
+
+{{lien-ancre-étym|conv|symb|3}} {{abréviation|de=are|texte='''a'''re|lang=conv}}.
+
+{{lien-ancre-étym|conv|symb|4}} {{abréviation|conv}} du {{étyl|la|fr|mot=annum|sens=année|dif='''a'''nnum}}.
+
+=== {{S|symbole|conv|num=1}} ===
 '''a'''
-# {{lexique|linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie.
+# {{lexique|linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie {{pron|a|lang=conv}}.
 #*''La voyelle /'''a'''/ est celle de l’article « la » dans la quasi-totalité des dialectes du français.''
-# {{lexique|métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe [[atto-#fr|atto-]] (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).
-# {{lexique|métrologie|conv}} Symbole de l’[[are#fr|are]], une [[unité de mesure|unité]] de [[surface#fr-nom|surface]] non [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
-# {{lexique|métrologie|conv}} Symbole (dérivé du système SI) de l’[[année]] (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
+=== {{S|symbole|conv|num=2}} ===
+'''a'''
+#{{lexique|métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe [[atto-]] (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).
+
+=== {{S|symbole|conv|num=3}} ===
+'''a'''
+#{{lexique|métrologie|conv}} Symbole de l’[[are#fr|are]], une [[unité de mesure|unité]] de [[surface#fr-nom|surface]] non [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
+
+=== {{S|symbole|conv|num=4}} ===
+'''a'''
+#{{lexique|métrologie|conv}} Symbole (dérivé du système SI) de l’[[année]] (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
 #* ''Cette roche a été formée il y a 4 G'''a'''.''
 
 [[Catégorie:Symboles de l’alphabet phonétique international]]
@@ -140,7 +156,7 @@ __TOC__
 === {{S|références}} ===
 * {{R:DAF8}}
 * {{cit_réf<!--
--->|Grand Larousse de la langue française en six volumes</i>, tome 1, <i>A-Cippe<!--
+-->|Grand Larousse de la langue française en six volumes'', tome 1, ''A-Cippe<!--
 -->|Larousse, Paris, 1989<!--
 -->|Louis Guilbert, René Lagane, Georges Niobey<!--
 -->|lien=http://gallica.bnf.fr/ark:/12148/bpt6k1200532b<!--
@@ -617,6 +633,7 @@ __TOC__
 === {{S|prononciation}} ===
 * {{écouter|lang=shy|Canada (Montréal)|audio=LL-Q33274 (shy)-Great11-a.wav}}
 * {{écouter|lang=shy|Émirats arabes unis (Dubaï)||audio=LL-Q33274 (shy)-Zakaria Mimouni-a.wav}}
+* {{écouter|Chir (Algérie)||lang=shy|audio=LL-Q33274 (shy)-BAAZIZ05-a.wav}}
 
 === {{S|références}} ===
 {{Références}}
@@ -980,7 +997,7 @@ __TOC__
 
 == {{langue|vls}} ==
 === {{S|lettre|vls}} ===
-{{lettre|a|A|}}
+{{lettre|a|A}}
 '''a'''
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]].
 
@@ -1154,6 +1171,27 @@ __TOC__
 * {{R:GPC|a}}
 * {{R:GACS-SC|a}}
 * {{R:King2004cy-en}}
+
+== {{langue|ggu}} ==
+=== {{S|étymologie}} ===
+: {{date|lang=ggu}} {{ébauche-étym|ggu}}
+
+=== {{S|pronom|ggu}} ===
+'''a''' {{pron||ggu}}
+# [[elle#fr|Elle]].
+#* {{exemple |Lopc é '''a''' lā. |sens=Elle est malade. |lang=ggu}}
+# [[lui#fr|Lui]].
+#* {{exemple |Ya nɩ '''a''' pɔ yakéɛ wawo '''a''' nɩn. |sens=Il lui a demandé d’aller au maquis avec lui. |lang=ggu}}
+
+=== {{S|adverbe|ggu}} ===
+'''a''' {{pron|a|ggu}}
+# [[à#fr|À]].
+#* {{exemple |N’ya Paris n’dɛh pɛ n’yé pɛ. |sens=Je vais à Paris avec mes parents. |lang=ggu}}
+
+=== {{S|prononciation}} ===
+{{ébauche-pron-audio|ggu}}
+
+[[Catégorie:gagou de Côte d’Ivoire]]
 
 == {{langue|gaulois}} ==
 === {{S|lettre|gaulois}} ===
@@ -1344,7 +1382,7 @@ __TOC__
 : ''([[#la-prép|Préposition]])'' {{variante de|ab|la}}. La chute de la consonne est compensée par un allongement vocalique : ''[[a#la-prép|ā]]'', le même phénomène a lieu pour ''[[e#la-prép|ē]]'', venant de ''[[ex#la-prép|ex]]''. : La transition vers un ''a'' unique dans les langues romanes est sensible dans les écrits de Cicéron, on a ''abs te'' et ''a te'' (« à toi »), ce dernier devient majoritaire dans les écrits de la fin de sa vie.
 
 === {{S|lettre|la}} ===
-{{lettre|a|A|}}
+{{lettre|a|A}}
 '''a''' {{pron|a|la}} {{n}} {{indéc|la}}
 # A, première lettre de l’[[alphabet latin]].
 #* « '''A''' ''primum est ; hinc incipiam, et quae nomina ab hoc sunt.'' »
@@ -1444,7 +1482,7 @@ __TOC__
 : {{ébauche-étym |wlm}}
 : {{laé|wlm|prép|1}} Réduction de ''{{lien|o|wlm}}''.
 : {{laé|wlm|conj}} Du {{étyl|owl|wlm|ha}}.
-: {{laé|wlm|verb}} Du {{étyl|proto-celtique|wlm}} {{recons|lang-mot-vedette=wlm|ageti|proto-celtique}}, troisième personnne du singulier du présent de l'indicatif de {{recons|lang-mot-vedette=wlm|ago-|proto-celtique}}, de l’{{étyl|ine-pie|wlm}} {{recons|lang-mot-vedette=wlm|h₂eǵ-|ine-pie}}.
+: {{laé|wlm|verb}} Du {{étyl|proto-celtique|wlm}} {{recons|lang-mot-vedette=wlm|ageti|proto-celtique}}, troisième personne du singulier du présent de l'indicatif de {{recons|lang-mot-vedette=wlm|ago-|proto-celtique}}, de l’{{étyl|ine-pie|wlm}} {{recons|lang-mot-vedette=wlm|h₂eǵ-|ine-pie}}.
 
 === {{S|particule|wlm|num=1}} ===
 '''a''' {{pron-recons|a|wlm}}
@@ -1642,7 +1680,7 @@ __TOC__
 '''a''' {{pron|ˈa|oma}}
 # {{lexique|anatomie|oma}} [[bras|Bras]].
 
-== {{langue|uby|clé=a}} ==
+== {{langue|uby}} ==
 === {{S|lettre|uby|clé=a}} ===
 '''a''' {{pron||uby}}
 # Première lettre de l'alphabet phonétique utilisé pour la notation de l'oubykh par Hans Vogt.

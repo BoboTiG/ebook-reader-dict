@@ -5,7 +5,7 @@
 {{sv-pron-pers}}
 '''min''' (''förenade [[possessiva pronomen]]'')
 *{{uttal|sv|ipa=mɪn}}
-#{{tagg|kat=possessiva pronomen}}[[possessivt pronomen]] som indikerar [[ägande]] av eller [[tillhörighet]] till den [[talande]] ([[jag]]) om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; possessivt pronomen i [[första person]] [[singular]] med [[huvudord]]et i singular [[utrum]]
+#{{tagg|kat=possessiva pronomen}} [[possessivt pronomen]] som indikerar [[ägande]] av eller [[tillhörighet]] till den [[talande]] ([[jag]]) om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; possessivt pronomen i [[första person]] [[singular]] med [[huvudord]]et i singular [[utrum]]
 #:'''''Min''' [[bologna]] smakar gott.''
 #ovanstående i självständig form
 #:''Du kan få skärmen, men datorn förblir '''min'''.''

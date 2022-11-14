@@ -14,7 +14,7 @@
 * [[œcuménicité]]
 * [[œcuméniquement]]
 * [[œcuménisme]]
-* [[patriarche œcuménique]] (titre que prennent les patriarches de l’église orthodoxe)
+* [[patriarche œcuménique]] ''(titre que prennent les patriarches de l’Église orthodoxe)''
 
 ==== {{S|apparentés}} ====
 * [[écoumène]]
@@ -31,7 +31,7 @@
 * {{T|hu}} : {{trad-|hu|ökumenizmus}}
 * {{T|it}} : {{trad+|it|ecumenico}}
 * {{T|nl}} : {{trad+|nl|oecumene}}
-* {{T|pl}} : {{trad+|pl|ekumeniczny}}
+* {{T|pl}} : {{trad+|pl|ekumeniczny}}, {{trad+|pl|powszechny}}
 * {{T|pt}} : {{trad+|pt|ecumênico}}
 * {{T|ru}} : {{trad+|ru|экуменический|tr=ekumeničeskij}}
 * {{T|sr}} : {{trad-|sr|eкуменизам}}

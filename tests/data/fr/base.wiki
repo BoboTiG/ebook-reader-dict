@@ -71,6 +71,7 @@
 #* ''En tant que concept politique, l’État-nation se caractérise par une autorité à '''base''' territoriale, et non par des conceptions universalistes, extra-territoriales.'' {{source|Panayiotis Jerasimof Vatikiotis, ''L’Islam et l’État'', 1987, traduction d’Odette Guitard, 1992, 1992}}
 #* ''Quelques mois plus tard, […], ce mémorandum fut complété par un travail plus exhaustif qui pouvait servir de '''base''' à l’analyse gouvernementale de l’ensemble des relations entre le Chili et les USA.'' {{source|{{w|Armando Uribe}}, ''Le Livre noir de l’intervention américaine au Chili'', traduction de Karine Berriot et Françoise Campo, Seuil, 1974}}
 #* ''Nous insistons sur les possibilités multi-plateformes de Python et présentons les '''bases''' pour étendre Python et l’intégrer dans d’autres applications en utilisant C ou Java.'' {{source|Alex Martelli, ''Python en concentré'', traduit par Éric Jacoboni, Paris : éditions O’Reilly, janvier 2004, page XI}}
+#{{argot|fr}} [[cocaïne base|Cocaïne base]].
 
 ==== {{S|synonymes}} ====
 * [[support]], [[soutien]], [[appui]]

@@ -7,7 +7,7 @@
 === {{S|nom|fr}} ===
 {{fr-rég|mi.nyt}}
 '''minute''' {{pron|mi.nyt|fr}} {{f}}
-# {{info lex|métrologie}} [[unité|Unité]] de [[mesure]] de [[temps]], [[compatible]] avec le [[Système international]], et qui [[compter|compte]] [[soixante]] [[seconde]]s. Son [[symbole]] est '''[[min]]'''.
+# {{lexique|métrologie|fr}} [[unité|Unité]] de [[mesure]] de [[temps]], [[compatible]] avec le [[Système international]], et qui [[compter|compte]] [[soixante]] [[seconde]]s. Son [[symbole]] est '''[[min]]'''.
 #* ''J’étais descendue à huit heures et demie ; je suivais des yeux l’aiguille des '''minutes''', dont la marche était presque visible sur le vaste cadran de l’horloge.'' {{source|{{w|Alexandre Dumas}}, ''[[s:Les Mille et Un Fantômes|Les Mille et Un Fantômes]]}}
 #* ''Jetant un coup d’œil sur la pendule de la cheminée (…), j’eus le plaisir de voir que j’avais encore vingt '''minutes''' à moi.'' {{source|{{w|Edgar Poe}}, ''L’Ange du bizarre'', dans ''Histoires grotesques et sérieuses'', traduction de {{w|Charles Baudelaire}}}}
 #* ''Dans ce chenal étroit je pouvais à peine faire route trente secondes entre deux virements de bord et encore je devais utiliser cette demi-'''minute''' pour prendre les relèvements au compas et m'assurer de ma position.'' {{source|{{w|Alain Gerbault}}, ''À la poursuite du soleil''; tome 1 : ''De New-York à Tahiti'', 1929}}
@@ -25,7 +25,7 @@
 # {{par ext}} {{lexique|droit|fr}} [[original|Original]] d’un [[acte]] [[authentique]] conservé par l’[[autorité]] qui le détient et qui ne peut s’en séparer (acte notarié dans le cas d’un [[notaire]], [[décision]] de [[justice]] dans le cas d’une [[juridiction]]…)
 #* ''La '''minute''' de ce contrat est chez mon notaire. — La '''minute''' d’une sentence, d’un arrêt, d’un rapport d’experts.''
 #* ''On prétendait qu’il y avait une omission dans la grosse, il fallut avoir recours à la '''minute'''.''
-# {{spéc|fr}} [[procès-verbal|Procès-verbal]] [[original]] d'une [[expérimentation]] ou d'un [[essai]].
+# {{spécialement}} [[procès-verbal|Procès-verbal]] [[original]] d'une [[expérimentation]] ou d'un [[essai]].
 #* ''Les résultats de ce grand travail, qui l'occupa pendant plusieurs mois, ont été publiés dans le rapport fait à l'Institut par Van-Swieden, et ensuite par Delambre, dans le III{{e}} vol. de la ''Base du Système métrique décimal'', mais non pas la '''minute''' des observations, qu'on n'a jamais pu retrouver.'' {{source|Blainville, « Lefèvre-Gineau (Louis) », dans ''Biographie universelle, ancienne et moderne'', supplément : vol. 71, Paris : chez L.-G. Michaud, 1842, page 168}}
 # {{par analogie|fr}} {{lexique|cartographie|fr}} [[document|Document]] graphique original, élaboré de façon précise, de présentation parfois imparfaite, servant de base pour la préparation d’une carte<ref>{{Import:CFC}}</ref>.
 #* ''Comme nous disposions d'une '''minute''' d’État-Major entre les PK 116 et 132, nous avons recherché les points cotés communs entre cette '''minute''' et ceux de la carte de base IGN au 1/25000 au niveau des berges sur une largeur voisine de 2500 m de part et d'autre de la rivière.'' {{source|Jean-Claude Mallard , ''Nivellements de la grande Saône de 1835 à 1867: Section Chalon-sur-Saône/Tournus : Altimétries 1836/1865/1891'', Presses universitaires de Lyon, 2004, page 172}}
@@ -131,6 +131,7 @@
 * {{T|ms}} : {{trad-|ms|minit}}
 * {{T|mt}} : {{trad-|mt|minuta}}
 * {{T|cmn}} : {{trad-|cmn|分钟|tr=fēnzhōng|tradi=分鐘}}
+* {{T|crg}} : {{trad|crg|mineut}}
 * {{T|nl}} : {{trad+|nl|minuut}}
 * {{T|normand}} : {{trad|normand|mineute}}
 * {{T|no}} : {{trad+|no|minutt}}

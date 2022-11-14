@@ -26,7 +26,7 @@
 #: {{ux|en|'''it’s''' too expensive;&nbsp; '''it’s''' coming right for us!; [[it's a free country|'''it's''' a free country]]}}
 # {{contraction of|en|[[it]] [[has]]}}
 #: {{ux|en|'''It’s''' been a long time since I’ve had cheesecake.}}
-# [[there's|There's]], [[there is]]; [[there're]], [[there are]].
+# {{lb|en|dialectal|AAVE}} [[there's|There's]], [[there is]]; [[there're]], [[there are]].
 #: {{ux|en|'''it's''' a fine line between love and hate;&nbsp; '''it's''' a package for you by the door}}
 
 =====Usage notes=====
@@ -80,6 +80,13 @@ From {{compound|en|it|'s|alt2=’s|gloss2=possessive marker}}.
 
 # {{obsolete form of|en|its}}
 #* {{RQ:Montaigne Florio Essayes|chapter=43|book=I|passage=The manner wherewith our Lawes assay to moderate the foolish and vaine expences of table-cheare and apparell, seemeth contrarie to '''it’s''' end.}}
+#* '''1767''', George Canning, “Anti-Lucretius” in ''Poems,'' London: for the author, p.{{nbsp}}281,<sup>[https://catalog.hathitrust.org/Record/007697226]</sup>
+#*: Behold the balanc’d Scales suspended stand,
+#*: Neither a jot inclin’d to either hand:
+#*: But place the smallest grain of weight in one,
+#*: Straight the fraternal equipoise is gone;
+#*: The loaded scale, preponderant, downward flies,
+#*: Drags down the chain, and makes '''it’s''' [''sic''] partner rise.
 #* '''1787''', {{w|United States Constitution}}, {{w|Article One of the United States Constitution|Article I}}:
 #*: No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing '''it's''' inspection Laws[.]
 #* '''1803''', President Thomas Jefferson, ''Instructions to Captain Meriwether Lewis'':

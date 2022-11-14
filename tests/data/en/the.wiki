@@ -35,7 +35,7 @@ From {{inh|en|enm|þe}}, from {{inh|en|ang|þē||the, that|pos=[[demonstrative p
 
 Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms ({{m|ang|sē|g=m}}, {{m|ang|sēo|g=f}}, {{m|ang|þæt|g=n}}, {{m|ang|þā|g=p}}); {{m|ang|sē}} is from {{inh|en|gmw-pro|*siz}}, from {{inh|en|gem-pro|*sa}}, ultimately from {{inh|en|ine-pro|*só}}.
 
-Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}} within Germanic and with {{cog|sa|sá|t=the, that}}, {{cog|grc|ὁ|t=the}}, {{cog|txb|se|t=this}} among other Indo-European languages<ref>{{R:LIPP|volume=2|pages=732-733}}</ref>.
+Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}} within Germanic and with {{cog|sa|sá|t=the, that}}, {{cog|grc|ὁ|t=the}}, {{cog|txb|se|t=this}} among other Indo-European languages<ref>{{R:ine:LIPP|volume=2|pages=732-733}}</ref>.
 
 ====Article====
 {{head|en|article}}
@@ -246,11 +246,11 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Low German: {{t+|nds|de}}
 * Macedonian: ''see [[Appendix:Macedonian articles]]''
 * Malay: {{not used|ms}}
-*: {{qualifier|animal, rarely necessary}} {{t|ms|sang}}
+*: {{qualifier|animal, rarely necessary}} {{t+|ms|sang}}
 *: {{qualifier|if replaceable by '''[[it]]''', rarely necessary}} {{t+|ms|-nya}}
 *: {{qualifier|if replaceable by '''[[that]]''', rarely necessary}} {{t+|ms|itu}}
 *: {{qualifier|if replaceable by '''[[this]]''', rarely necessary}} {{t+|ms|ini}}
-*: {{qualifier|person, rarely necessary}} {{t|ms|si}}
+*: {{qualifier|person, rarely necessary}} {{t+|ms|si}}
 * Maltese: {{t|mt|il-}}
 * Maori: {{t+|mi|te}} {{qualifier|Singular}}, {{t+|mi|ngā}} {{qualifier|Plural}}
 * Marshallese: {{t|mh|eo|s}}, {{t|mh|ro|p}} {{qualifier|for humans only}}, {{t|mh|ko|p}} {{qualifier|for non-humans only}}
@@ -318,6 +318,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Welsh: {{t+|cy|y}}
 * West Frisian: {{t+|fy|de}}
 * Yiddish: {{t|yi|דער|m}}, {{t|yi|די|f}}, {{t|yi|דאָס|n}}, {{t|yi|די|p}}
+* Zazaki: {{t+|zza|be}}, {{t|zza|ebe}}, {{t|zza|eve}}
 {{trans-bottom}}
 
 {{trans-top|used as an alternative to a possessive pronoun before body parts}}

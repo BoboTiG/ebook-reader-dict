@@ -22,9 +22,11 @@
 
 # A large [[travel]]ling [[case]] usually made of [[leather]], and opening into two equal sections.
 #* {{quote-book|en|year=1667|author={{w|Charles Croke}}|title=Fortune's Uncertainty|text=Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.}}
-#* {{quote-book|en|year=1859|author={{w|Charles Dickens}}|chapter=The Mortals in the House|title={{w|The Haunted House (story)|The Haunted House}}|text=He brought down with him to our haunted house a little cask of salt beef; for, he is always convinced that all salt beef not of his own pickling, is mere carrion, and invariably, when he goes to London, packs a piece in his '''portmanteau'''.}}
+#* {{RQ:Dickens Haunted House|page=7|column=2|chapter=The Mortals in the House|text=He brought down with him to our haunted house a little cask of salt beef; for, he is always convinced that all salt beef not of his own pickling, is mere carrion, and invariably, when he goes to London, packs a piece in his '''portmanteau'''.}}
+#* {{RQ:Mansfield Bliss|page=71|passage=I believe that people are like '''portmanteaux'''—packed with certain things, started going, thrown about, tossed away, dumped down, lost and found, half emptied suddenly, or squeezed fatter than ever, until finally the Ultimate Porter swings them on to the Ultimate Train and away they rattle. . . .}}
 # {{lb|en|Australia|dated}} A [[schoolbag]].
 # {{lb|en|archaic}} A [[hook]] on which to [[hang]] [[clothing]].
+#* {{RQ:Mansfield Bliss|page=72|passage=But before I started that long and rather far-fetched and not frightfully original digression, what I meant to say quite simply was that there are no '''portmanteaux''' to be examined here because the clientele of this café, ladies and gentlemen, does not sit down.}}
 
 =====Translations=====
 {{trans-top|case}}
