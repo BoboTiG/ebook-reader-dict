@@ -2,7 +2,7 @@
 import re
 from typing import Dict, List, Pattern, Tuple
 
-from ...user_functions import flatten, uniq
+from ...user_functions import uniq
 
 # Float number separator
 float_separator = ","
@@ -126,16 +126,12 @@ def find_genders(
     >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}")
     ['αρσενικό ή ουδέτερο', 'άκλιτο', 'ακρωνύμιο']
     """
-    return uniq(
-        flatten(
-            [
-                _genders[gender.split("|")[0]]
-                for line in code.splitlines()
-                for gender in pattern.findall(line[len(line_pattern) :])
-                if line.startswith(line_pattern)
-            ]
-        )
-    )
+    return [
+        _genders[gender.split("|")[0]]
+        for line in code.splitlines()
+        for gender in pattern.findall(line[len(line_pattern) :])
+        if line.startswith(line_pattern)
+    ]
 
 
 def find_pronunciations(
