@@ -13,11 +13,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install LaTeX requirements
-        run: |
-          sudo apt update
-          sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science
-
       - uses: actions/cache@v3
         id: cache
         with:
