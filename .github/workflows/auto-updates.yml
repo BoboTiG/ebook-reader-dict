@@ -60,10 +60,13 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install utilities
+      - name: Install LaTeX
         run: |
-          sudo apt update
-          sudo apt install dvipng texlive-latex-extra texlive-fonts-extra texlive-science dictzip
+          /bin/bash -c "$(curl -sL https://git.io/vokNn)"
+          sudo apt-fast update
+          sudo apt-fast --yes install dictzip dvipng texlive-fonts-extra texlive-latex-extra texlive-science
+        env:
+          DEBIAN_FRONTEND: noninteractive
 
       - uses: actions/cache@v3
         id: cache
