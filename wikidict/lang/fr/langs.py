@@ -5843,14 +5843,17 @@ langs = {
     "xbi": "kombio",
     "xbm": "moyen breton",
     "xbr": "kambera",
+    "xcb": "cambrien",
     "xce": "celtibère",
     "xch": "chimakum",
     "xcl": "arménien ancien",
+    "xcm": "comecrudo",
     "xcn": "cotoname",
     "xco": "chorasmien",
     "xcr": "carien",
     "xct": "tibétain classique",
     "xcu": "couronien",
+    "xcw": "coahuilteco",
     "xdc": "dace",
     "xdk": "dharug",
     "xdm": "édomite",
@@ -6306,7 +6309,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,301
+}  # 6,304
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
