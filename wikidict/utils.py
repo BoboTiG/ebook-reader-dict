@@ -6,7 +6,6 @@ from collections import namedtuple
 from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
-from optparse import Values
 from pathlib import Path
 from typing import List, Match, Tuple, Union
 
@@ -15,8 +14,8 @@ import requests
 import wikitextparser
 from cachetools import cached
 from cachetools.keys import hashkey
-from scour.scour import scourString
 
+from . import svg
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
     DOWNLOAD_URL_KOBO,
@@ -36,7 +35,6 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
-from .svg import CACHED_SVG
 from .user_functions import *  # noqa
 
 # Magic words (small part, only data/time related)
@@ -61,22 +59,6 @@ SPECIAL_TEMPLATES = {
     "{{!}}": Template("##pipe##!##pipe##", "|"),
     "{{=}}": Template("##equal##!##equal##", "="),
 }
-
-# Set scour options
-SCOUR_OPTS = Values(
-    defaults={
-        "enable_viewboxing": True,
-        "group_create": True,
-        "newlines": False,
-        "quiet": True,
-        "remove_descriptions": True,
-        "remove_descriptive_elements": True,
-        "remove_metadata": True,
-        "shorten_ids": True,
-        "strip_comments": True,
-        "strip_xml_prolog": True,
-    }
-)
 
 
 def convert_gender(genders: List[str]) -> str:
@@ -532,11 +514,10 @@ def render_formula(
 def formula_to_svg(formula: str, cat: str = "tex") -> str:
     """Return an optimized SVG file as a string."""
     force = "FORCE_FORMULA_RENDERING" in os.environ
-    if force or not (svg_optimized := CACHED_SVG.get(formula)):
+    if force or not (svg_optimized := svg.get(formula)):
         svg_raw = render_formula(formula, cat=cat, output_format="svg")
-        svg_optimized = scourString(svg_raw, options=SCOUR_OPTS)
+        svg_optimized = svg.optimize(formula, svg_raw)
         print(f"<> formula not cached: {formula!r}: {svg_optimized!r},")
-    assert svg_optimized  # For Mypy
     return svg_optimized
 
 
