@@ -496,7 +496,7 @@ def render_formula(
 
     headers = WIKIMEDIA_HEADERS
 
-    # 1. Get the formula hash (type can be tex, inline-tx, or chem)
+    # 1. Get the formula hash (type can be tex, inline-tex, or chem)
     url_hash = WIKIMEDIA_URL_MATH_CHECK.format(type=cat)
     with requests.post(url_hash, headers=headers, json={"q": formula}) as req:
         res = req.json()
