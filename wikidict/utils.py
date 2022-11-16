@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 
+import os
 import re
 from collections import namedtuple
 from contextlib import suppress
@@ -35,6 +36,7 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
+from .svg import CACHED_SVG
 from .user_functions import *  # noqa
 
 # Magic words (small part, only data/time related)
@@ -64,6 +66,8 @@ SPECIAL_TEMPLATES = {
 SCOUR_OPTS = Values(
     defaults={
         "enable_viewboxing": True,
+        "group_create": True,
+        "newlines": False,
         "quiet": True,
         "remove_descriptions": True,
         "remove_descriptive_elements": True,
@@ -502,7 +506,8 @@ def render_formula(
     """
     Convert mathematics/chemicals symbols to a SVG string.
     API details can be found at https://en.wikipedia.org/api/rest_v1/#/Math
-    """
+    More technical info: https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
+    """  # noqa
 
     if cat == "chem":
         formula = f"\\ce{{{formula}}}"
@@ -524,16 +529,22 @@ def render_formula(
         return req.text
 
 
-def inline_svg(svg_raw: str) -> str:
+def formula_to_svg(formula: str, cat: str = "tex") -> str:
     """Return an optimized SVG file as a string."""
-    return scourString(svg_raw, options=SCOUR_OPTS)  # type: ignore
+    force = "FORCE_FORMULA_RENDERING" in os.environ
+    if force or not (svg_optimized := CACHED_SVG.get(formula)):
+        svg_raw = render_formula(formula, cat=cat, output_format="svg")
+        svg_optimized = scourString(svg_raw, options=SCOUR_OPTS)
+        print(f"<> formula not cached: {formula!r}: {svg_optimized!r},")
+    assert svg_optimized  # For Mypy
+    return svg_optimized
 
 
 def convert_math(match: Union[str, Match[str]], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
-        return inline_svg(render_formula(formula))
+        return formula_to_svg(formula)
     except Exception:
         print(f"<math> ERROR with {formula} in [{word}]", flush=True)
         return formula
@@ -543,7 +554,7 @@ def convert_chem(match: Union[str, Match[str]], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
-        return inline_svg(render_formula(formula, cat="chem"))
+        return formula_to_svg(formula, cat="chem")
     except Exception:
         print(f"<chem> ERROR with {formula} in [{word}]", flush=True)
         return formula
