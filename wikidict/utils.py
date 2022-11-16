@@ -233,10 +233,13 @@ def guess_prefix(word: str) -> str:
 
 
 def clean(text: str) -> str:
-    """Cleans up the provided Wikicode.
+    r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
+
+        >>> clean(r"<math>x \in ]x_0 - \epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \in ]x_0, x_0 + \epsilon[</math>")
+        '<math>x \\in ]x_0 - \\epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \\in ]x_0, x_0 + \\epsilon[</math>'
 
         >>> clean("{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}")
         '{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}'
@@ -324,6 +327,11 @@ def clean(text: str) -> str:
     sub = re.sub
     sub2 = regex.sub
 
+    # Save <math> formulas to prevent altering them
+    if formulas := re.findall(r"(<math>[^<]+</math>)", text):
+        for idx, formula in enumerate(formulas):
+            text = text.replace(formula, f"##math{idx}##")
+
     # Remove line breaks
     text = text.replace("\n", "")
 
@@ -404,6 +412,10 @@ def clean(text: str) -> str:
     # <<foo/bar>> -> bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
+
+    # Restore math formulas
+    for idx, formula in enumerate(formulas):
+        text = text.replace(f"##math{idx}##", formula)
 
     return text.strip()
 
