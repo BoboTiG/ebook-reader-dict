@@ -494,13 +494,15 @@ def process_templates(word: str, text: str, locale: str) -> str:
     return text.strip()
 
 
-def render_formula(
-    formula: str, cat: str = "inline-tex", output_format: str = "svg"
-) -> str:
+def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -> str:
     """
-    Convert mathematics/chemicals symbols to a SVG string.
-    API details can be found at https://en.wikipedia.org/api/rest_v1/#/Math
-    More technical info: https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
+    Convert mathematic/chemical symbols to a SVG string.
+
+    Technical details can be found on those websites:
+        - https://en.wikipedia.org/api/rest_v1/#/Math
+        - https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
+        - https://github.com/wikimedia/restbase/blob/ecef17bda6f4efc0d6e187fb05b1eeb389bf7120/sys/mathoid.js#L33
+        - https://phabricator.wikimedia.org/diffusion/GMAT/browse/master/lib/math.js
     """  # noqa
 
     if cat == "chem":
