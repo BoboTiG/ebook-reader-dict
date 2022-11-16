@@ -517,7 +517,7 @@ def formula_to_svg(formula: str, cat: str = "tex") -> str:
     if force or not (svg_optimized := svg.get(formula)):
         svg_raw = render_formula(formula, cat=cat, output_format="svg")
         svg_optimized = svg.optimize(formula, svg_raw)
-        print(f"<> formula not cached: {formula!r}: {svg_optimized!r},")
+        print(f"<> formula not cached: {formula!r}: {svg_raw!r},")
     return svg_optimized
 
 
