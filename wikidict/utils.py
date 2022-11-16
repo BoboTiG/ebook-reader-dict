@@ -5,11 +5,9 @@ from collections import namedtuple
 from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
-from xml import etree
 from optparse import Values
 from pathlib import Path
 from typing import List, Match, Tuple, Union
-from urllib.parse import quote
 
 import regex
 import requests
@@ -22,7 +20,6 @@ from .constants import (
     DOWNLOAD_URL_DICTFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
-    IMG_CSS,
     WIKIMEDIA_HEADERS,
     WIKIMEDIA_URL_MATH_CHECK,
     WIKIMEDIA_URL_MATH_RENDER,
@@ -443,12 +440,12 @@ def process_templates(word: str, text: str, locale: str) -> str:
         '<i>Alternative form of</i> <b>ER=EPR</b>'
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<svg ...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
         <math> ERROR with \frac in [test]
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<svg ...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
         <chem> ERROR with C10HX\xz14N2O4 in [test]
         'C10HX\\xz14N2O4'
@@ -528,15 +525,8 @@ def render_formula(
 
 
 def inline_svg(svg_raw: str) -> str:
-    """Return an optimized data-URI SVG string."""
-    # Alter units
-    # svg_raw = svg_raw.replace("ex", "em")
-
-    svg_optimized = scourString(svg_raw, options=SCOUR_OPTS)
-    return (
-        f'<img src="data:image/svg+xml;utf8,{quote(svg_optimized)}"/>'
-        # f'<img style="{IMG_CSS}" src="data:image/svg+xml;utf8,{quote(svg_optimized)}"/>'
-    )
+    """Return an optimized SVG file as a string."""
+    return scourString(svg_raw, options=SCOUR_OPTS)  # type: ignore
 
 
 def convert_math(match: Union[str, Match[str]], word: str) -> str:
