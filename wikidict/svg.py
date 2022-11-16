@@ -41,6 +41,5 @@ def get(formula: str) -> str:
 
 def optimize(formula: str, svg_raw: str) -> str:
     """Optimize a given SVG."""
-    svg_optimized: str = scourString(svg_raw, options=SCOUR_OPTIONS)
     CACHED_SVG[formula] = svg_raw
-    return svg_optimized
+    return scourString(svg_raw, options=SCOUR_OPTIONS)  # type: ignore
