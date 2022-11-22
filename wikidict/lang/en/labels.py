@@ -897,6 +897,7 @@ labels_regional = {
     "Ağcabədi": "Agjabedi",
     "Ağdam": "Agdam",
     "Ağdaş": "Agdash",
+    "Ağdərə": "Aghdara",
     "Ağsu": "Agsu",
     "Baghesh": "Bitlis",
     "Bahaman": "Bahamas",
@@ -924,6 +925,7 @@ labels_regional = {
     "Bermudan": "Bermuda",
     "Bernese": "Bern",
     "Bhawnagari": "Kathiyawadi",
+    "Biləsuvar": "Bilasuvar",
     "Bohuslan": "Bohuslän",
     "Bolivian": "Bolivia",
     "Bolognese": "Bologna",
@@ -1045,6 +1047,7 @@ labels_regional = {
     "Evdokia": "Tokat",
     "Extremaduran": "Extremadura",
     "Eğin": "Akn",
+    "FL": "Florida",
     "Faisalabad": "Lyallpuri",
     "Faisalabadi": "Lyallpuri",
     "Farasa": "Pharasa",
@@ -1055,6 +1058,7 @@ labels_regional = {
     "Fering": "Föhr-Amrum",
     "Finnish": "Finland",
     "Fizuli": "Fuzuli",
+    "Floridian": "Florida",
     "Fluminense": "Rio de Janeiro",
     "French": "France",
     "Föhr-Amrum dialect": "Föhr-Amrum",
@@ -1183,6 +1187,7 @@ labels_regional = {
     "Kirklareli": "Kırklareli",
     "Kisiqi": "Kiziqi",
     "Kumayri": "Gyumri",
+    "Kutkashen": "Qabala",
     "Kyurin": "Gürün",
     "Kärnten": "Carinthia",
     "Kürdəmir": "Kurdamir",
@@ -1368,6 +1373,7 @@ labels_regional = {
     "Quettawal": "Quetta",
     "Quettawali": "Quetta",
     "Québec": "Quebec",
+    "Qəbələ": "Qabala",
     "Rachan": "Racha",
     "Rachuli": "Racha",
     "Reggiano": "Reggio Emilia",
@@ -1593,7 +1599,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 770
+}  # 776
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
