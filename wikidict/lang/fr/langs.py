@@ -3298,6 +3298,7 @@ langs = {
     "mmt": "malalamai",
     "mmu": "mmaala",
     "mmw": "emae",
+    "mmx": "madak",
     "mmy": "migaama",
     "mn": "mongol",
     "mna": "mbula",
@@ -6309,7 +6310,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,304
+}  # 6,305
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
