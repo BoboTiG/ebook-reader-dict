@@ -117,11 +117,10 @@ abk = {
     "wien.": "wienerisch",
     "z. B.": "zum Beispiel",
     "z. T.": "zum Teil",
-    "zijn": "Hilfsverb »zijn«",
     "Österr.": "Österreich",
     "Österreich": "Österreich",
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 118
+}  # 117
 # END
