@@ -521,6 +521,7 @@ labels_topical = {
     "Norse paganism": "Germanic paganism",
     "OOP": "object-oriented programming",
     "Philmont": "Philmont Scout Ranch",
+    "Qanon": "QAnon",
     "RPG": "role-playing games",
     "RPGs": "role-playing games",
     "Rasta": "Rastafari",
@@ -820,7 +821,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 374
+}  # 375
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1864,11 +1865,17 @@ labels_subvarieties = {
     "Côte d’Ivoire slang": "Ivory Coast slang",
     "Dabawenyo": "Davao",
     "Daet Bikol": "Daet",
+    "Dakhini": "Deccani Urdu",
+    "Dakini": "Deccani Urdu",
+    "Dakkani": "Deccani Urdu",
+    "Dakni": "Deccani Urdu",
     "Dakshina Andhra": "South Coastal Andhra",
     "Dalaguete": "Sialo",
     "Davao Bisaya": "Davao",
     "Davaoeño": "Davao",
     "De'kwana": "De'kwana dialect",
+    "Deccan": "Deccani Urdu",
+    "Deccani": "Deccani Urdu",
     "Digor dialect": "Digor",
     "Djidjelli": "Jijel",
     "Doab": "Doabi",
@@ -3091,5 +3098,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,489
+}  # 1,495
 # END
