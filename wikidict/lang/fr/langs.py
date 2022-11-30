@@ -3696,6 +3696,7 @@ langs = {
     "nib": "nakame",
     "nic": "langues nigéro-kordofaniennes",
     "nid": "ngandi",
+    "nie": "niellim",
     "nif": "nek",
     "nig": "ngalakan",
     "nih": "nyiha (Tanzanie)",
@@ -6310,7 +6311,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,305
+}  # 6,306
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
