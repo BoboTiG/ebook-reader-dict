@@ -657,6 +657,7 @@ labels_topical = {
     "internet": "Internet",
     "islam": "Islam",
     "isotope": "physics",
+    "jewellery": "jewelry",
     "jewish law": "Jewish law",
     "land law": "property law",
     "landforms": "geography",
@@ -821,7 +822,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 375
+}  # 376
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1894,7 +1895,7 @@ labels_subvarieties = {
     "Early Modern English": "Early Modern",
     "Early modern": "Early Modern",
     "Early modern English": "Early Modern",
-    "East": "Western Sicily",
+    "East": "East Slavic",
     "East Anglian English": "East Anglia",
     "East Central Scots": "East Central",
     "East Midland ME": "East Midlands",
@@ -1906,7 +1907,7 @@ labels_subvarieties = {
     "East Punjab": "Eastern Punjab",
     "East Sicily": "Western Sicily",
     "East and South": "East and South Slavic",
-    "EastPS": "East",
+    "EastPS": "East Slavic",
     "EastSouthPS": "West Slavic",
     "Eastern": "Eastern Punjab",
     "Eastern Ojibwa": "Eastern Ojibwe",
@@ -2889,6 +2890,7 @@ labels_subvarieties = {
     "kudu": "kudurrus",
     "landsmaal": "Landsmål",
     "landsmål": "Landsmål",
+    "late": "late Iguvine",
     "late ME": "Late Middle English",
     "later": "Later Sanskrit",
     "later Sanskrit": "Later Sanskrit",
@@ -2933,6 +2935,7 @@ labels_subvarieties = {
     "ojg": "Eastern Ojibwe",
     "ojs": "Oji-Cree",
     "ojw": "Western Ojibwe",
+    "old": "old Iguvine",
     "otw": "Ottawa",
     "overseas Vietnamese": "Overseas Vietnamese",
     "philhellene": "Hellenizing School",
@@ -3098,5 +3101,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,495
+}  # 1,497
 # END
