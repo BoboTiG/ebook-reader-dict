@@ -7816,7 +7816,7 @@ langs = {
     "tch": "Turks and Caicos Creole English",
     "tci": "Wára",
     "tck": "Tchitchege",
-    "tcl": "Taman (Burma)",
+    "tcl": "Taman (Myanmar)",
     "tcm": "Tanahmerah",
     "tco": "Taungyo",
     "tcp": "Tawr Chin",

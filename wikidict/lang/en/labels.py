@@ -2942,6 +2942,10 @@ labels_subvarieties = {
     "philhellene school": "Hellenizing School",
     "poet": "poetic",
     "pre-1901": "Landsmål",
+    "pre-2012a": "pre-2012",
+    "pre-2012et": "pre-2012",
+    "pre-2012lig": "pre-2012",
+    "pre-2012ut": "pre-2012",
     "pre-Classical lemma": "pre-Classical",
     "pre-Classical non-lemma": "pre-Classical",
     "pre-classical": "pre-Classical",
@@ -3101,5 +3105,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,497
+}  # 1,501
 # END

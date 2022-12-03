@@ -3007,7 +3007,7 @@ langs = {
     "lti": "leti (Indonésie)",
     "ltn": "latundê",
     "lts": "lutachoni",
-    "lu": "louba-katanga",
+    "lu": "kiluba",
     "lua": "luba-lulua",
     "luc": "aringa",
     "lucanien": "lucanien",
