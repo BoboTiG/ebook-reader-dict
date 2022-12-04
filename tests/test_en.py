@@ -346,6 +346,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
             "<i>Gadus macrocephalus</i>",
         ),
+        ("{{uder|en|fro|jargon}}", "Old French <i>jargon</i>"),
     ],
 )
 def test_process_templates(wikicode, expected):
