@@ -1161,6 +1161,7 @@ template_mapping = {
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,
     "ubor": render_foreign_derivation,
+    "uder": render_foreign_derivation,
     "unadapted borrowing": render_foreign_derivation,
     "unk": render_unknown,
     "unknown": render_unknown,
