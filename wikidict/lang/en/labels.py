@@ -1121,6 +1121,7 @@ labels_regional = {
     "Honduran": "Honduras",
     "Huelvan": "Huelva",
     "Huitzapanec": "Huitzapan",
+    "Hungarian": "Hungary",
     "Imeretian": "Imereti",
     "Imerhev": "Imerkhevi",
     "Imerkheuli": "Imerkhevi",
@@ -1601,7 +1602,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 776
+}  # 777
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -1976,6 +1977,7 @@ labels_subvarieties = {
     "Għawdxi": "Gozo",
     "H": "Smołdziński Las-Czołpino",
     "H.": "Smołdziński Las-Czołpino",
+    "HKC": "Hong Kong Cantonese",
     "Ha Tinh": "Hà Tĩnh",
     "Ha Tinh dialect": "Hà Tĩnh",
     "Hachijo": "Hachijō",
@@ -2364,11 +2366,11 @@ labels_subvarieties = {
     "P": "Pesaro",
     "P'yŏng'an": "Pyongan",
     "P'yŏngan": "Pyongan",
-    "PH": "Philippines",
+    "PH": "Philippine Hokkien",
     "PH English": "Philippines",
     "PH Fil-Chi English": "Chinese Filipino",
-    "PH Hokkien": "Philippines",
-    "PHH": "Philippines",
+    "PH Hokkien": "Philippine Hokkien",
+    "PHH": "Philippine Hokkien",
     "PN": "personal names",
     "PNI": "Proto-Northern Iroquoian",
     "Pakistan": "Western Punjab",
@@ -2389,14 +2391,12 @@ labels_subvarieties = {
     "Peronit": "Peroniti",
     "Peronituri": "Peroniti",
     "Pfälzisch": "Palatine",
-    "Ph Hokkien": "Philippines",
+    "Ph Hokkien": "Philippine Hokkien",
     "Ph. English": "Philippines",
     "Ph. Filchi English": "Chinese Filipino",
     "Philhellene": "Hellenizing School",
     "Philhellene School": "Hellenizing School",
-    "Philippine": "Philippines",
     "Philippine English": "Philippines",
-    "Philippine Hokkien": "Philippines",
     "Phu Yen": "Phú Yên",
     "Phu Yen dialect": "Phú Yên",
     "Phú Yên dialect": "Phú Yên",
@@ -3105,5 +3105,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,501
+}  # 1,500
 # END

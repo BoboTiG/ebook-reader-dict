@@ -319,7 +319,7 @@ campos_semanticos = {
     "gimnasia": "Gimnasia",
     "glotónimo": "Lingüística",
     "glotónimos": "Lingüística",
-    "gramática": "Lingüística",
+    "gramática": "Gramática",
     "guarismos": "Matemáticas",
     "herramientas": "Herramientas",
     "heráldica": "Heráldica",

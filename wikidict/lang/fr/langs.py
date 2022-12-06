@@ -2371,6 +2371,7 @@ langs = {
     "kcp": "kanga",
     "kcs": "koenoem",
     "kcu": "kami (Tanzanie)",
+    "kcv": "kete",
     "kcx": "kachama-ganjule",
     "kcy": "korandjé",
     "kcz": "konongo",
@@ -2580,6 +2581,7 @@ langs = {
     "knv": "waia",
     "knw": "kung-ekoka",
     "knx": "kendayan",
+    "kny": "kanyok",
     "ko": "coréen",
     "ko-Hani": "coréen",
     "ko-hanja": "coréen",
@@ -4572,6 +4574,7 @@ langs = {
     "rmz": "marma",
     "rn": "kirundi",
     "rna": "runa",
+    "rnd": "ruund",
     "rng": "ronga",
     "rnn": "roon",
     "rnp": "rongpo",
@@ -6311,7 +6314,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,306
+}  # 6,309
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
