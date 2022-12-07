@@ -3401,6 +3401,7 @@ langs = {
     "itc": "Italic",
     "itc-ola": "Old Latin",
     "itc-pro": "Proto-Italic",
+    "itc-sbl": "Osco-Umbrian",
     "itd": "Southern Tidong",
     "ite": "Itene",
     "iti": "Inlaod Itneg",
@@ -9559,5 +9560,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,554
+}  # 9,555
 # END

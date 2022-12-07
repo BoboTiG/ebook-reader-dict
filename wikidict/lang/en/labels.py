@@ -528,6 +528,7 @@ labels_topical = {
     "Rastafarian": "Rastafari",
     "Rastafarianism": "Rastafari",
     "Roman Catholic": "Roman Catholicism",
+    "Roman Catholic Church": "Roman Catholicism",
     "Roman god": "Roman mythology",
     "Roman goddess": "Roman mythology",
     "Rubik's cubes": "Rubik's Cube",
@@ -822,7 +823,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 376
+}  # 377
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1516,6 +1517,8 @@ labels_regional = {
     "University of Oxford": "Oxford University",
     "Upper Midwest US": "Upper Midwestern US",
     "Urha": "Urfa",
+    "Urmiya": "Urmia",
+    "Urmu": "Urmia",
     "Urner": "Uri",
     "Urnerdeutsch": "Uri",
     "Urseren": "Uri",
@@ -1602,7 +1605,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 777
+}  # 779
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
