@@ -2095,6 +2095,7 @@ langs = {
     "iar": "purari",
     "iba": "iban",
     "ibb": "ibibio",
+    "ibd": "iwaidja",
     "ibe": "akpès",
     "ibg": "ibanag",
     "ibh": "bih",
@@ -6314,7 +6315,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,309
+}  # 6,310
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
