@@ -124,7 +124,6 @@ domain_templates = {
     "euphorbes": "Botanique",
     "familles de plantes": "Botanique",
     "faux anglicisme": "Faux anglicisme",
-    "faux anglicismes": "Faux anglicisme",
     "figure": "Rhétorique",
     "figures": "Rhétorique",
     "flamants": "Ornithologie",
@@ -311,5 +310,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 306
+}  # 305
 # END
