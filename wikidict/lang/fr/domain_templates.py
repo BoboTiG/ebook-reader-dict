@@ -124,6 +124,7 @@ domain_templates = {
     "euphorbes": "Botanique",
     "familles de plantes": "Botanique",
     "faux anglicisme": "Faux anglicisme",
+    "faux anglicismes": "Faux anglicisme",
     "figure": "Rhétorique",
     "figures": "Rhétorique",
     "flamants": "Ornithologie",
@@ -259,6 +260,7 @@ domain_templates = {
     "satellites": "Astronomie",
     "sauces": "Sauces",
     "saules": "Botanique",
+    "sciences": "Sciences",
     "scientifiques": "Science",
     "seigneuries": "Histoire",
     "sentiments": "Psychologie",
@@ -310,5 +312,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 305
+}  # 307
 # END
