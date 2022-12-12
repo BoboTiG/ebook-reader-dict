@@ -28,6 +28,6 @@ def get_url_content(url: str, max_retries: int = 5, sleep_time: int = 5) -> str:
     raise RuntimeError(f"Sorry, too many tries [{retry}] for {url!r}")
 
 
-def get_soup(url):
+def get_soup(url: str) -> BeautifulSoup:
     page = get_url_content(url)
     return BeautifulSoup(page, features="html.parser")
