@@ -2,6 +2,7 @@ import bz2
 import os
 import sys
 from pathlib import Path
+from typing import Callable, Generator
 from xml.sax.saxutils import escape
 
 import pytest
@@ -34,7 +35,7 @@ PAGE_XML = """<page>
 
 
 @pytest.fixture(autouse=True)
-def no_warnings(recwarn):
+def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None, None, None]:
     """Fail on warning."""
 
     yield
@@ -50,8 +51,8 @@ def no_warnings(recwarn):
 
 
 @pytest.fixture(scope="session")
-def craft_data():
-    def _craft_data(date: str, locale: str, to_add=None, to_remove=None, to_alter=None):
+def craft_data() -> Callable[[str], bytes]:
+    def _craft_data(locale: str) -> bytes:
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
         for file in data_dir.glob("*.wiki"):
@@ -59,29 +60,8 @@ def craft_data():
                 continue
 
             revision = 42
-
-            # Possitility to remove a word
-            if to_remove and file.stem in to_remove:
-                print(f"[fixture] Removed word {file.stem!r}")
-                continue
-
-            text = file.read_text(encoding="utf-8")
-
-            # Possibility to alter the content of a word
-            if to_alter and file.stem in to_alter:
-                print(f"[fixture] Altered word {file.stem!r}")
-                revision += 1
-
-            text = escape(text)
+            text = escape(file.read_text(encoding="utf-8"))
             content += PAGE_XML.format(word=file.stem, revision=revision, text=text)
-
-        # Possibility to add new words
-        if to_add:
-            skeleton = (data_dir / "page.skeleton").read_text(encoding="utf-8")
-            for word, rev in to_add:
-                print(f"[fixture] Added word {word!r}")
-                text = escape(skeleton.replace("WORD", word))
-                content += PAGE_XML.format(word=word, revision=rev, text=text)
 
         content += "</mediawiki>"
         return bz2.compress(content.encode("utf-8"))
@@ -90,7 +70,7 @@ def craft_data():
 
 
 @pytest.fixture(scope="session")
-def page():
+def page() -> Callable[[str, str], str]:
     """Return the Wikicode of a word stored into "data/$LOCALE/word.wiki"."""
 
     def _page(word: str, locale: str) -> str:
@@ -102,7 +82,7 @@ def page():
 
 
 @pytest.fixture(scope="session")
-def html():
+def html() -> Callable[[str, str], str]:
     """Return the HTML of a word stored into "data/$LOCALE/word.html"."""
 
     def _html(word: str, locale: str) -> str:

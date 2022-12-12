@@ -10,7 +10,7 @@ from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
 from shutil import rmtree
-from typing import List, Optional, Type
+from typing import List, Type
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from marisa_trie import Trie
@@ -266,7 +266,7 @@ class KoboFormat(KoboBaseFormat):
                         # add variants of empty* variant, only 1 redirection...
                         # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
                         for v in word_variants.copy():
-                            wv: Word = words.get(v, Word("", "", "", [], []))
+                            wv: Word = words.get(v, Word.empty())
                             if wv and not Word(*wv).definitions:
                                 for vv in self.variants.get(v, []):
                                     word_variants.append(vv)
@@ -433,7 +433,7 @@ def make_variants(words: Words) -> Variants:
     return variants
 
 
-def get_latest_json_file(output_dir: Path) -> Optional[Path]:
+def get_latest_json_file(output_dir: Path) -> Path | None:
     """Get the name of the last data-*.json file."""
     files = list(output_dir.glob("data-*.json"))
     return sorted(files)[-1] if files else None

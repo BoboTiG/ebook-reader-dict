@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Type
 from unittest.mock import patch
 from zipfile import ZipFile
 
@@ -20,7 +21,7 @@ Fichiers disponibles :
 Mis à jour le"""
 
 
-def test_simple():
+def test_simple() -> None:
     assert convert.main("fr") == 0
 
     # Check for all dictionaries
@@ -81,7 +82,7 @@ def test_simple():
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
 
-def test_no_json_file():
+def test_no_json_file() -> None:
     with patch.object(convert, "get_latest_json_file", return_value=None):
         assert convert.main("fr") == 1
 
@@ -94,28 +95,30 @@ def test_no_json_file():
         (convert.KoboFormat, "dicthtml-fr-fr.zip"),
     ],
 )
-def test_generate_primary_dict(formatter, filename):
+def test_generate_primary_dict(
+    formatter: Type[convert.BaseFormat], filename: str
+) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     words = {
-        "empty": Word("", "", "", [], []),
-        "foo": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], []),
+        "empty": Word.empty(),
+        "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
         "foos": Word(
-            "pron", "gender", "etyl", ["def 1", ["sdef 1", ["ssdef 1"]]], ["baz"]
+            ["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]
         ),
-        "baz": Word("pron", "gender", "etyl", ["def 1", ["sdef 1"]], ["foobar"]),
-        "empty1": Word("", "", "", [], ["foo"]),
-        "empty2": Word("", "", "", [], ["empty1"]),
-        "etyls": Word(
-            "pron",
-            "gender",
-            ["etyl 1", ["setyl 1"]],
-            ["def 1", ["sdef 1"]],
+        "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
+        "empty1": Word([], [], [], [], ["foo"]),
+        "empty2": Word([], [], [], [], ["empty1"]),
+        "Multiple Etymologies": Word(
+            ["pron"],
+            ["gender"],
+            ["etyl 1", ("setyl 1",)],
+            ["def 1", ("sdef 1",)],
             ["foobar"],
         ),
         "GIF": Word(
-            "pron",
-            "gender",
-            "etyl",
+            ["pron"],
+            ["gender"],
+            ["etyl"],
             [
                 '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
                 ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
@@ -143,7 +146,9 @@ def test_generate_primary_dict(formatter, filename):
 @pytest.mark.dependency(
     depends=["test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]"]
 )
-def test_generate_secondary_dict(formatter, filename):
+def test_generate_secondary_dict(
+    formatter: Type[convert.BaseFormat], filename: str
+) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    convert.run_formatter(formatter, "fr", output_dir, [], {}, "20201218")
+    convert.run_formatter(formatter, "fr", output_dir, {}, {}, "20201218")
     assert (output_dir / filename).is_file()

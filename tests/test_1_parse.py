@@ -1,12 +1,13 @@
 import bz2
 import os
 from pathlib import Path
+from typing import Callable
 from unittest.mock import patch
 
 from wikidict import parse
 
 
-def test_simple(craft_data):
+def test_simple(craft_data: Callable[[str], bytes]) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
 
     # Delete an previously created file to cover the save() part
@@ -14,19 +15,19 @@ def test_simple(craft_data):
         file.unlink()
 
     # Ensure there is data to process.
-    compressed = craft_data("20201217", "fr")
+    compressed = craft_data("fr")
     raw = bz2.decompress(compressed)
     (output_dir / "pages-20201217.xml").write_bytes(raw)
 
     assert parse.main("fr") == 0
 
 
-def test_no_xml_file():
+def test_no_xml_file() -> None:
     with patch.object(parse, "get_latest_xml_file", return_value=None):
         assert parse.main("fr") == 1
 
 
-def test_parse_restricted_word(tmp_path):
+def test_parse_restricted_word(tmp_path: Path) -> None:
     """For instance, "cunnilingus" was filtered out. Ensure no regressions."""
     file = tmp_path / "page.xml"
     file.write_text(
@@ -67,7 +68,7 @@ def test_parse_restricted_word(tmp_path):
     assert parse.process(file, "fr")
 
 
-def test_parse_redirected_word(tmp_path):
+def test_parse_redirected_word(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
@@ -85,7 +86,7 @@ def test_parse_redirected_word(tmp_path):
     assert not parse.process(file, "fr")
 
 
-def test_parse_word_without_wikicode(tmp_path):
+def test_parse_word_without_wikicode(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
@@ -115,7 +116,7 @@ def test_parse_word_without_wikicode(tmp_path):
     assert not parse.process(file, "fr")
 
 
-def test_parse_word_with_colons(tmp_path):
+def test_parse_word_with_colons(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\

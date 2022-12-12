@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -423,8 +426,14 @@ from wikidict.utils import process_templates
     ],
 )
 def test_parse_word(
-    word, pronunciations, genders, etymology, definitions, variants, page
-):
+    word: str,
+    pronunciations: List[str],
+    genders: List[str],
+    etymology: List[Definitions],
+    definitions: List[Definitions],
+    variants: List[str],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
@@ -560,6 +569,6 @@ def test_parse_word(
         ("{{x10}}", "×10"),
     ],
 )
-def test_process_templates(wikicode, expected):
+def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "fr") == expected

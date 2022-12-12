@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Optional, Tuple, cast
+from typing import Callable, Dict, List, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -477,7 +477,7 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
 
 
-def get_latest_json_file(output_dir: Path) -> Optional[Path]:
+def get_latest_json_file(output_dir: Path) -> Path | None:
     """Get the name of the last data_wikicode-*.json file."""
     files = list(output_dir.glob("data_wikicode-*.json"))
     return sorted(files)[-1] if files else None
