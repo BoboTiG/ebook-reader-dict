@@ -1,3 +1,5 @@
+from typing import Dict, List
+
 from scripts_utils import get_soup
 
 ROOT = "https://fr.wiktionary.org"
@@ -6,7 +8,7 @@ NEXTPAGE_TEXT = "page suivante"
 ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
 
 
-def process_regions_page(url, results):
+def process_regions_page(url: str, results: Dict[str, str]) -> str:
     soup = get_soup(url)
 
     nextpage = ""
@@ -21,14 +23,12 @@ def process_regions_page(url, results):
         template_url = ROOT + li.find("a").get("href")
         template_name = li.text.split(":")[1]
         template_soup = get_soup(template_url)
-        region = template_soup.find("span", {"id": ["région"]})
-        if not region:
-            continue
-        results[template_name] = region.text.strip("()")
+        if region := template_soup.find("span", {"id": ["région"]}):
+            results[template_name] = region.text.strip("()")
     return nextpage
 
 
-def process_alias_page(model, region, results):
+def process_alias_page(model: str, region: str, results: Dict[str, str]) -> None:
     url = ALIAS_URL.format(model)
     soup = get_soup(url)
     ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
@@ -41,8 +41,8 @@ def process_alias_page(model, region, results):
         results[alias] = region
 
 
-results = {}
-aliases = []
+results: Dict[str, str] = {}
+aliases: List[str] = []
 
 # Fetch models first
 next_page_url = START_URL

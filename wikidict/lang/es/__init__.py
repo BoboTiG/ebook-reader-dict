@@ -206,7 +206,7 @@ def last_template_handler(
         >>> last_template_handler(["Angiología", "Endocrinología" , "Fisiología", "Medicina"], "es")
         '<i>(Angiología, Endocrinología, Fisiología, Medicina)</i>'
         >>> last_template_handler(["moluscos", "y" , "alimentos"], "es")
-        '<i>(Zoología y Gastronomía)</i>'
+        '<i>(Zoología y Gastronomía (alimentos))</i>'
         >>> last_template_handler(["cultura", "historia", "y", "lingüística"], "es")
         '<i>(Cultura, Historia y Lingüística)</i>'
         >>> last_template_handler(["Arte", "," , "Arquitectura"], "es")

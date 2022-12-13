@@ -22,18 +22,3 @@ RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{{0}}"
 DOWNLOAD_URL_DICTFILE = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.df.bz2"
 DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}-{{0}}.zip"
 DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.zip"
-
-# HTML formatting for each word
-# TODO: move that into the dict specific class
-WORD_FORMAT = """
-<w>
-    <p>
-        <a name="{word}"/><b>{current_word}</b>{pronunciation}{gender}
-        <br/>
-        <br/>
-        {etymology}
-        <ol>{definitions}</ol>
-    </p>
-    {var}
-</w>
-"""

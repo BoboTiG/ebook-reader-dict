@@ -1,3 +1,5 @@
+from typing import Dict
+
 from scripts_utils import get_soup
 
 START_URL = (
@@ -8,7 +10,7 @@ ALIAS_URL = "https://es.wiktionary.org/w/index.php?title=Especial:LoQueEnlazaAqu
 NEXTPAGE_TEXT = "página siguiente"
 
 
-def process_alias_page(model, template_text, results):
+def process_alias_page(model: str, template_text: str, results: Dict[str, str]) -> None:
     url = ALIAS_URL.format(model)
     soup = get_soup(url)
     ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
@@ -21,7 +23,7 @@ def process_alias_page(model, template_text, results):
         results[alias] = template_text
 
 
-def process_cs_page(url, results):
+def process_cs_page(url: str, results: Dict[str, str]) -> str:
     soup = get_soup(url)
 
     nextpage = ""
@@ -48,7 +50,7 @@ def process_cs_page(url, results):
     return nextpage
 
 
-results = {}
+results: Dict[str, str] = {}
 next_page_url = START_URL
 while next_page_url:
     next_page_url = process_cs_page(next_page_url, results)

@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -141,7 +144,14 @@ from wikidict.utils import process_templates
         ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"]),
     ],
 )
-def test_parse_word(word, pronunciations, genders, etymology, definitions, page):
+def test_parse_word(
+    word: str,
+    pronunciations: List[str],
+    genders: List[str],
+    etymology: List[Definitions],
+    definitions: List[Definitions],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "pt")
     details = parse_word(word, code, "pt", force=True)
@@ -180,6 +190,6 @@ def test_parse_word(word, pronunciations, genders, etymology, definitions, page)
         ("{{varort|tenu-|pt}}", "variante ortográfica de <b>tenu-</b>"),
     ],
 )
-def test_process_templates(wikicode, expected):
+def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "pt") == expected

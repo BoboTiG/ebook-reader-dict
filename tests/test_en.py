@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -147,7 +150,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(Commonwealth of Nations, colloquial, chiefly with <b>give</b>)</i> Me.",
+                "<i>(Commonwealth, colloquial, chiefly with <b>give</b>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
@@ -251,7 +254,13 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, etymology, definitions, page):
+def test_parse_word(
+    word: str,
+    pronunciations: List[str],
+    etymology: List[Definitions],
+    definitions: List[Definitions],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
@@ -346,8 +355,9 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
             "<i>Gadus macrocephalus</i>",
         ),
+        ("{{uder|en|fro|jargon}}", "Old French <i>jargon</i>"),
     ],
 )
-def test_process_templates(wikicode, expected):
+def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "en") == expected

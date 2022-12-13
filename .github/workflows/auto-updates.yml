@@ -86,28 +86,28 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.df.bz2
-          asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.df.bz2
+          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Upload the dictionary (Kobo)
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}.zip
-          asset_name: dicthtml-${{ matrix.locale }}-${{ matrix.locale }}.zip
+          file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Upload the dictionary (StarDict)
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
-          asset_name: dict-${{ matrix.locale }}-${{ matrix.locale }}.zip
+          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Update the release description
         run: python -Wd -m wikidict ${{ matrix.locale }} --update-release

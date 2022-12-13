@@ -2095,6 +2095,7 @@ langs = {
     "iar": "purari",
     "iba": "iban",
     "ibb": "ibibio",
+    "ibd": "iwaidja",
     "ibe": "akpès",
     "ibg": "ibanag",
     "ibh": "bih",
@@ -2371,6 +2372,7 @@ langs = {
     "kcp": "kanga",
     "kcs": "koenoem",
     "kcu": "kami (Tanzanie)",
+    "kcv": "kete",
     "kcx": "kachama-ganjule",
     "kcy": "korandjé",
     "kcz": "konongo",
@@ -2580,6 +2582,7 @@ langs = {
     "knv": "waia",
     "knw": "kung-ekoka",
     "knx": "kendayan",
+    "kny": "kanyok",
     "ko": "coréen",
     "ko-Hani": "coréen",
     "ko-hanja": "coréen",
@@ -3007,7 +3010,7 @@ langs = {
     "lti": "leti (Indonésie)",
     "ltn": "latundê",
     "lts": "lutachoni",
-    "lu": "louba-katanga",
+    "lu": "kiluba",
     "lua": "luba-lulua",
     "luc": "aringa",
     "lucanien": "lucanien",
@@ -3298,6 +3301,7 @@ langs = {
     "mmt": "malalamai",
     "mmu": "mmaala",
     "mmw": "emae",
+    "mmx": "madak",
     "mmy": "migaama",
     "mn": "mongol",
     "mna": "mbula",
@@ -3695,6 +3699,7 @@ langs = {
     "nib": "nakame",
     "nic": "langues nigéro-kordofaniennes",
     "nid": "ngandi",
+    "nie": "niellim",
     "nif": "nek",
     "nig": "ngalakan",
     "nih": "nyiha (Tanzanie)",
@@ -4570,6 +4575,7 @@ langs = {
     "rmz": "marma",
     "rn": "kirundi",
     "rna": "runa",
+    "rnd": "ruund",
     "rng": "ronga",
     "rnn": "roon",
     "rnp": "rongpo",
@@ -6309,7 +6315,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,304
+}  # 6,310
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
