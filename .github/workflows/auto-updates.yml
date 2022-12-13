@@ -94,6 +94,7 @@ jobs:
           file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Upload the dictionary (Kobo)
         uses: svenstaro/upload-release-action@v2
@@ -102,6 +103,7 @@ jobs:
           file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Upload the dictionary (StarDict)
         uses: svenstaro/upload-release-action@v2
@@ -110,6 +112,7 @@ jobs:
           file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
           tag: ${{ matrix.locale }}
           overwrite: true
+          file_glob: true
 
       - name: Update the release description
         run: python -Wd -m wikidict ${{ matrix.locale }} --update-release
