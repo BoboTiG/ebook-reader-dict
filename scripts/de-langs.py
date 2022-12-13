@@ -1,3 +1,5 @@
+from typing import Dict
+
 from scripts_utils import get_soup
 
 ROOT_URL = "https://de.wiktionary.org"
@@ -7,7 +9,7 @@ NEXTPAGE_TEXT = "nächste Seite"
 ALIAS_URL = "https://de.wiktionary.org/w/index.php?title=Spezial:Linkliste/{}&hidetrans=1&hidelinks=1"
 
 
-def process_page(page_url, languages):
+def process_page(page_url: str, languages: Dict[str, str]) -> str:
     soup = get_soup(page_url)
 
     nextpage = ""
@@ -40,7 +42,7 @@ def process_page(page_url, languages):
 
 
 next_page_url = START_URL
-languages = {}
+languages: Dict[str, str] = {}
 
 while next_page_url:
     next_page_url = process_page(next_page_url, languages)

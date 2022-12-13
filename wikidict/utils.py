@@ -6,7 +6,7 @@ from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
-from typing import List, Match, Optional, Tuple, Union
+from typing import List, Match, Tuple, Union
 
 import regex
 import requests
@@ -478,7 +478,7 @@ def process_templates(word: str, text: str, locale: str) -> str:
     return text.strip()
 
 
-def _convert_math(expr: str, packages: Optional[List[str]] = None) -> str:
+def _convert_math(expr: str, packages: List[str] | None = None) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     from base64 import b64encode
     from io import BytesIO

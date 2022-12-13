@@ -3,7 +3,7 @@ import re
 from scripts_utils import get_soup
 
 
-def cleanWiki(text):
+def clean_wiki(text: str) -> str:
     text = re.sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
     text = re.sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)  # [[a|b]] -> b
     return text
@@ -19,7 +19,7 @@ results = {}
 for line in text.split("\n"):
     if not line.startswith("|"):
         continue
-    line = cleanWiki(line)
+    line = clean_wiki(line)
     keys = []
     value = ""
     sArray = line.split("|")

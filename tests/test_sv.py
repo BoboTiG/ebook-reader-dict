@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -63,7 +66,12 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, definitions, page):
+def test_parse_word(
+    word: str,
+    pronunciations: List[str],
+    definitions: List[Definitions],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "sv")
     details = parse_word(word, code, "sv", force=True)
@@ -88,6 +96,6 @@ def test_parse_word(word, pronunciations, definitions, page):
         ("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}", "<b>uttal:</b> /eːn/, /ɛn/, /en/"),
     ],
 )
-def test_process_template(wikicode, expected):
+def test_process_template(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "sv") == expected

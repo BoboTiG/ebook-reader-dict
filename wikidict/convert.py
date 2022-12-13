@@ -10,14 +10,15 @@ from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
 from shutil import rmtree
-from typing import List, Optional, Type
+from typing import Any, Generator, List, Type
 from zipfile import ZIP_DEFLATED, ZipFile
 
+from jinja2 import Template
 from marisa_trie import Trie
 
-from .constants import GH_REPOS, WORD_FORMAT
+from .constants import GH_REPOS
 from .lang import wiktionary
-from .stubs import Definitions, Groups, Variants, Word, Words
+from .stubs import Groups, Variants, Word, Words
 from .utils import (
     convert_gender,
     convert_pronunciation,
@@ -25,11 +26,122 @@ from .utils import (
     guess_prefix,
 )
 
+# Kobo-related dictionnaries
+WORD_TPL_KOBO = Template(
+    """\
+<w>
+    <p>
+        <a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}
+        <br/>
+        {% if etymologies %}
+            <br/>
+            {% for etymology in etymologies %}
+                {% if etymology is string %}
+                    <p>{{ etymology }}</p>
+                {% else %}
+                    <ol>
+                        {% for sub_etymology in etymology %}
+                            <li>{{ sub_etymology }}</li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            {% endfor %}
+            <br/>
+        {% endif %}
+        <ol>
+            {% for definition in definitions %}
+                {% if definition is string %}
+                    <li>{{ definition }}</li>
+                {% else %}
+                    <ol style="list-style-type:lower-alpha">
+                        {% for sub_def in definition %}
+                            {% if sub_def is string %}
+                                <li>{{ sub_def }}</li>
+                            {% else %}
+                                <ol style="list-style-type:lower-roman">
+                                    {% for sub_sub_def in sub_def %}
+                                        <li>{{ sub_sub_def }}</li>
+                                    {% endfor %}
+                                </ol>
+                            {% endif %}
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </p>
+    {% if variants %}
+        {{ variants }}
+    {% endif %}
+</w>
+"""
+)
+
+# DictFile-related dictionnaries
+WORD_TPL_DICTFILE = Template(
+    """\
+@ {{ word }}
+{%- if pronunciation or gender %}
+: {{ pronunciation }} {{ gender }}
+{%- endif %}
+{%- for variant in variants %}
+& {{ variant }}
+{%- endfor %}
+<html>
+{%- if etymologies -%}
+    {%- for etymology in etymologies -%}
+        {%- if etymology is string -%}
+            <p>{{ etymology }}</p>
+        {%- else -%}
+            <ol>
+                {%- for sub_etymology in etymology -%}
+                    <li>{{ sub_etymology }}</li>
+                {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+    <br/>
+{%- endif -%}
+<ol>
+    {%- for definition in definitions -%}
+        {%- if definition is string -%}
+            <li>{{ definition }}</li>
+        {%- else -%}
+            <ol style="list-style-type:lower-alpha">
+                {%- for sub_def in definition -%}
+                    {%- if sub_def is string -%}
+                        <li>{{ sub_def }}</li>
+                    {%- else -%}
+                        <ol style="list-style-type:lower-roman">
+                            {%- for sub_sub_def in sub_def -%}
+                                <li>{{ sub_sub_def }}</li>
+                            {%- endfor -%}
+                        </ol>
+                    {%- endif -%}
+                {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+</ol></html>
+"""
+)
+
+
+# Dictionnary file suffix for etymology-free files
+NO_ETYMOLOGY_SUFFIX = "-noetym"
+
 
 class BaseFormat:
     """Base class for all dictionaries."""
 
-    __slots__ = {"locale", "output_dir", "snapshot", "words", "variants"}
+    __slots__ = {
+        "locale",
+        "output_dir",
+        "snapshot",
+        "words",
+        "variants",
+        "include_etymology",
+    }
 
     def __init__(
         self,
@@ -38,62 +150,45 @@ class BaseFormat:
         words: Words,
         variants: Variants,
         snapshot: str,
+        include_etymology: bool = True,
     ) -> None:
         self.locale = locale
         self.output_dir = output_dir
         self.words = words
         self.variants = variants
         self.snapshot = snapshot
+        self.include_etymology = include_etymology
+
+    def dictionnary_file(self, output_file: str) -> Path:
+        file = self.output_dir / output_file.format(locale=self.locale)
+        if not self.include_etymology:
+            file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
+        return file
+
+    def handle_word(
+        self, word: str, details: Word, **kwargs: Any
+    ) -> Generator[str, None, None]:  # pragma: nocover
+        raise NotImplementedError()
 
     def process(self) -> None:  # pragma: nocover
         raise NotImplementedError()
+
+    @staticmethod
+    def render_word(template: Template, **kwargs: Any) -> str:
+        return (
+            "".join(line.strip() for line in template.render(**kwargs).splitlines())
+            + "\n"
+        )
 
     @staticmethod
     def summary(file: Path) -> None:
         print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
 
 
-class KoboBaseFormat(BaseFormat):
-    """Base class for Kobo-related dictionaries."""
-
-    @staticmethod
-    def create_etymology(etymologies: List[Definitions]) -> str:
-        """Return the HTML code to include for the etymology of a word."""
-        result = ""
-        if etymologies:
-            for etymology in etymologies:
-                if isinstance(etymology, str):
-                    result += f"<p>{etymology}</p>"
-                else:
-                    result += "<ol>"
-                    for sub_etymology in etymology:
-                        result += f"<li>{sub_etymology}</li>"
-                    result += "</ol>"
-            result += "<br />"
-        return result
-
-    @staticmethod
-    def create_definitions(details: Word) -> str:
-        """Return the HTML code to include for the definitions of a word."""
-        definitions = ""
-        for definition in details.definitions:
-            if isinstance(definition, str):
-                definitions += f"<li>{definition}</li>"
-            else:
-                definitions += '<ol style="list-style-type:lower-alpha">'
-                for subdef in definition:
-                    if isinstance(subdef, str):
-                        definitions += f"<li>{subdef}</li>"
-                    else:
-                        definitions += '<ol style="list-style-type:lower-roman">'
-                        definitions += "".join(f"<li>{d}</li>" for d in subdef)
-                        definitions += "</ol>"
-                definitions += "</ol>"
-        return definitions
-
-
-class KoboFormat(KoboBaseFormat):
+class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
+
+    output_file = "dicthtml-{locale}-{locale}.zip"
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
@@ -129,9 +224,81 @@ class KoboFormat(KoboBaseFormat):
     def make_groups(words: Words) -> Groups:
         """Group word by prefix."""
         groups: Groups = defaultdict(dict)
-        for word, data in words.items():
-            groups[guess_prefix(word)][word] = data
+        for word, details in words.items():
+            groups[guess_prefix(word)][word] = details
         return groups
+
+    def handle_word(
+        self, word: str, details: Word, **kwargs: Any
+    ) -> Generator[str, None, None]:
+        name: str = kwargs["name"]
+        words: Words = kwargs["words"]
+        current_words: Words = {word: details}
+
+        # use variant definitions for a word if one variant prefix is different
+        # "suis" listed with the definitions of "être" and "suivre"
+        if details.variants:
+            found_different_prefix = False
+            for variant in details.variants:
+                if guess_prefix(variant) != name:
+                    if root_details := self.words.get(variant):
+                        found_different_prefix = True
+                        break
+            variants_words = {}
+            # if we found one variant, then list them all
+            if found_different_prefix:
+                for variant in details.variants:
+                    if root_details := self.words.get(variant):
+                        variants_words[variant] = root_details
+            if word.endswith("s"):  # crude detection of plural
+                singular = word[:-1]
+                maybe_noun = self.words.get(singular)  # do we have the singular?
+                # make sure we are not redirecting to a verb (je mange, tu manges)
+                # verb form is also a singular noun
+                if isinstance(maybe_noun, Word) and not maybe_noun.variants:
+                    variants_words[singular] = maybe_noun
+                    for variant in details.variants:
+                        if maybe_verb := self.words.get(variant):
+                            variants_words[variant] = maybe_verb
+            if variants_words:
+                current_words = variants_words
+
+        # write to file
+        for current_word, current_details in current_words.items():
+            if not current_details.definitions:
+                continue
+
+            variants = ""
+            if word_variants := self.variants.get(word, []):
+                # add variants of empty* variant, only 1 redirection...
+                # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
+                for v in word_variants.copy():
+                    wv: Word = words.get(v, Word.empty())
+                    if wv and not wv.definitions:
+                        for vv in self.variants.get(v, []):
+                            word_variants.append(vv)
+                word_variants.sort(key=lambda s: (len(s), s))
+                variants = "<var>"
+                for v in word_variants:
+                    # no variant with different prefix
+                    v = v.lower().strip()
+                    if guess_prefix(v) == name:
+                        variants += f'<variant name="{v}"/>'
+                variants += "</var>"
+            # no empty var tag
+            if len(variants) < 15:
+                variants = ""
+
+            yield self.render_word(
+                WORD_TPL_KOBO,
+                word=word,
+                current_word=current_word,
+                definitions=current_details.definitions,
+                pronunciation=convert_pronunciation(current_details.pronunciations),
+                gender=convert_gender(current_details.genders),
+                etymologies=current_details.etymology if self.include_etymology else [],
+                variants=variants,
+            )
 
     def save(self) -> None:
         """
@@ -146,9 +313,10 @@ class KoboFormat(KoboBaseFormat):
         """
 
         # Clean-up before we start
+        tmp_dir = self.output_dir / "tmp"
         with suppress(FileNotFoundError):
-            rmtree(self.output_dir / "tmp")
-        (self.output_dir / "tmp").mkdir()
+            rmtree(tmp_dir)
+        tmp_dir.mkdir()
 
         # Files to add to the final archive
         to_compress = []
@@ -156,11 +324,11 @@ class KoboFormat(KoboBaseFormat):
         # First, create individual HTML files
         wordlist: List[str] = []
         for prefix, words in self.groups.items():
-            to_compress.append(self.save_html(prefix, words, self.output_dir / "tmp"))
+            to_compress.append(self.save_html(prefix, words, tmp_dir))
             wordlist.extend(words.keys())
 
         # Then create the special "words" file
-        to_compress.append(self.craft_index(wordlist, self.output_dir / "tmp"))
+        to_compress.append(self.craft_index(wordlist, tmp_dir))
 
         # Add unrelated files, just for history
         words_count = self.output_dir / "words.count"
@@ -179,8 +347,8 @@ class KoboFormat(KoboBaseFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
 
         # Finally, create the ZIP
-        dicthtml = self.output_dir / f"dicthtml-{self.locale}-{self.locale}.zip"
-        with ZipFile(dicthtml, mode="w", compression=ZIP_DEFLATED) as fh:
+        final_file = self.dictionnary_file(self.output_file)
+        with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             fh.comment = bytes(source, "utf-8")
             for file in to_compress:
                 fh.write(file, arcname=file.name)
@@ -189,7 +357,7 @@ class KoboFormat(KoboBaseFormat):
             # testzip() returns the name of the first corrupt file, or None
             assert fh.testzip() is None, fh.testzip()
 
-        self.summary(dicthtml)
+        self.summary(final_file)
 
     def save_html(
         self,
@@ -206,85 +374,13 @@ class KoboFormat(KoboBaseFormat):
                 word 2
                 ...
             </html>
-
-        Syntax of each WORD is define in the *WORD_FORMAT* constant.
         """
-
-        fmt = "".join(line.strip() for line in WORD_FORMAT.splitlines())
 
         # Save to uncompressed HTML
         raw_output = output_dir / f"{name}.raw.html"
         with raw_output.open(mode="w", encoding="utf-8") as fh:
-            for word, word_details in words.items():
-                current_words: Words = {}
-                word_details = Word(*word_details)
-                current_words[word] = word_details
-
-                # use variant definitions for a word if one variant prefix is different
-                # "suis" listed with the definitions of "être" and "suivre"
-                if word_details.variants:
-                    found_different_prefix = False
-                    for variant in word_details.variants:
-                        if guess_prefix(variant) != name:
-                            if root_details := self.words.get(variant, ""):
-                                found_different_prefix = True
-                                break
-                    variants_words = {}
-                    # if we found one variant, then list them all
-                    if found_different_prefix:
-                        for variant in word_details.variants:
-                            if root_details := self.words.get(variant, ""):
-                                variants_words[variant] = Word(*root_details)
-                    if word.endswith("s"):  # crude detection of plural
-                        singular = word[:-1]
-                        maybe_noun = self.words.get(
-                            singular, ""
-                        )  # do we have the singular?
-                        # make sure we are not redirecting to a verb (je mange, tu manges)
-                        # verb form is also a singular noun
-                        if maybe_noun and not Word(*maybe_noun).variants:
-                            variants_words[singular] = Word(*maybe_noun)
-                            for variant in word_details.variants:
-                                if maybe_verb := self.words.get(variant, ""):
-                                    variants_words[variant] = Word(*maybe_verb)
-                    if variants_words:
-                        current_words = variants_words
-
-                # write to file
-                for current_word, details in current_words.items():
-                    details = Word(*details)
-                    if not details.definitions:
-                        continue
-                    definitions = self.create_definitions(details)
-
-                    pronunciation = convert_pronunciation(details.pronunciations)
-                    gender = convert_gender(details.genders)
-                    etymology = self.create_etymology(details.etymology)
-
-                    var = ""
-                    if word_variants := self.variants.get(word, []):
-                        # add variants of empty* variant, only 1 redirection...
-                        # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
-                        for v in word_variants.copy():
-                            wv: Word = words.get(v, Word("", "", "", [], []))
-                            if wv and not Word(*wv).definitions:
-                                for vv in self.variants.get(v, []):
-                                    word_variants.append(vv)
-                        word_variants.sort(key=lambda s: (len(s), s))
-                        var = "<var>"
-                        for v in word_variants:
-                            # no variant with different prefix
-                            v = v.lower().strip()
-                            if guess_prefix(v) == name:
-                                var += f'<variant name="{v}"/>'
-                        var += "</var>"
-                    # no empty var tag
-                    if len(var) < 15:
-                        var = ""
-
-                    fh.write(fmt.format(**locals()))
-
-            fh.write("</html>\n")
+            for word, details in words.items():
+                fh.writelines(self.handle_word(word, details, name=name, words=words))
 
         # Compress the HTML with gzip
         output = output_dir / f"{name}.html"
@@ -294,30 +390,36 @@ class KoboFormat(KoboBaseFormat):
         return output
 
 
-class DictFileFormat(KoboBaseFormat):
+class DictFileFormat(BaseFormat):
     """Save the data into a *.df* DictFile."""
 
+    output_file = "dict-{locale}-{locale}.df"
+
+    def handle_word(
+        self, word: str, details: Word, **kwargs: Any
+    ) -> Generator[str, None, None]:
+        if details.definitions:
+            yield self.render_word(
+                WORD_TPL_DICTFILE,
+                word=word,
+                definitions=details.definitions,
+                pronunciation=convert_pronunciation(details.pronunciations),
+                gender=convert_gender(details.genders),
+                etymologies=details.etymology if self.include_etymology else [],
+                variants=self.variants.get(word, []),
+            )
+
     def process(self) -> None:
-        file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
+        file = self.dictionnary_file(self.output_file)
         with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
-                details = Word(*details)
-                if not details.definitions:
-                    continue
-                definitions = self.create_definitions(details)
-
-                pronunciation = convert_pronunciation(details.pronunciations)
-                gender = convert_gender(details.genders)
-                etymology = self.create_etymology(details.etymology)
-                fh.write(f"@ {word}\n")
-                if pronunciation or gender:
-                    fh.write(f": {pronunciation.strip()} {gender}\n")
-                for v in self.variants.get(word, []):
-                    fh.write(f"& {v}\n")
-                fh.write(f"<html>{etymology}\n")
-                fh.write(f"<ol>{definitions}</ol>\n\n")
+                fh.writelines(self.handle_word(word, details))
 
         self.summary(file)
+
+    @staticmethod
+    def render_word(template: Template, **kwargs: Any) -> str:
+        return template.render(**kwargs) + "\n\n"
 
 
 class StarDictFormat(DictFileFormat):
@@ -327,7 +429,7 @@ class StarDictFormat(DictFileFormat):
         """Bypass performances issues when calling PyGlossary from Python."""
         import gc
 
-        def noop_gc_collect() -> None:
+        def noop_gc_collect() -> None:  # pragma: nocover
             pass
 
         gc.collect = noop_gc_collect  # type: ignore
@@ -348,7 +450,7 @@ class StarDictFormat(DictFileFormat):
             "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
         )
         res = glos.convert(
-            inputFilename=str(self.output_dir / f"dict-{self.locale}-{self.locale}.df"),
+            inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
             outputFilename=str(self.output_dir / "dict-data.ifo"),
             writeOptions={"dictzip": True},
             sqlite=True,
@@ -368,7 +470,9 @@ class StarDictFormat(DictFileFormat):
         self._patch_gc()
         self._convert()
 
-        final_file = self.output_dir / f"dict-{self.locale}-{self.locale}.zip"
+        final_file = self.dictionnary_file(DictFileFormat.output_file).with_suffix(
+            ".zip"
+        )
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             for file in self.output_dir.glob("dict-data.*"):
                 fh.write(file, arcname=file.name)
@@ -384,7 +488,7 @@ class StarDictFormat(DictFileFormat):
 
 class BZ2DictFileFormat(BaseFormat):
     def process(self) -> None:
-        df_file = self.output_dir / f"dict-{self.locale}-{self.locale}.df"
+        df_file = self.dictionnary_file(DictFileFormat.output_file)
         bz2_file = df_file.with_suffix(".df.bz2")
         bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
 
@@ -407,8 +511,16 @@ def run_formatter(
     words: Words,
     variants: Variants,
     snapshot: str,
+    include_etymology: bool = True,
 ) -> None:
-    formater = cls(locale, output_dir, words, variants, snapshot)
+    formater = cls(
+        locale,
+        output_dir,
+        words,
+        variants,
+        snapshot,
+        include_etymology=include_etymology,
+    )
     formater.process()
 
 
@@ -416,7 +528,7 @@ def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
     print(f">>> Loading {file} ...", flush=True)
     with file.open(encoding="utf-8") as fh:
-        words: Words = json.load(fh)
+        words: Words = {key: Word(*values) for key, values in json.load(fh).items()}
     print(f">>> Loaded {len(words):,} words from {file}", flush=True)
     return words
 
@@ -425,7 +537,6 @@ def make_variants(words: Words) -> Variants:
     """Group word by variant."""
     variants: Variants = defaultdict(list)
     for word, details in words.items():
-        details = Word(*details)
         # Variant must be normalized by trimming whitespace and lowercasing it.
         for variant in details.variants:
             if variant:
@@ -433,7 +544,7 @@ def make_variants(words: Words) -> Variants:
     return variants
 
 
-def get_latest_json_file(output_dir: Path) -> Optional[Path]:
+def get_latest_json_file(output_dir: Path) -> Path | None:
     """Get the name of the last data-*.json file."""
     files = list(output_dir.glob("data-*.json"))
     return sorted(files)[-1] if files else None
@@ -446,6 +557,7 @@ def distribute_workload(
     locale: str,
     words: Words,
     variants: Variants,
+    include_etymology: bool = True,
 ) -> None:
     """Run formaters in parallel."""
     with Pool(len(formaters)) as pool:
@@ -457,6 +569,7 @@ def distribute_workload(
                 words=words,
                 variants=variants,
                 snapshot=file.stem.split("-")[1],
+                include_etymology=include_etymology,
             ),
             formaters,
         )
@@ -479,4 +592,6 @@ def main(locale: str) -> int:
     args = (output_dir, file, locale, words, variants)
     distribute_workload(get_primary_formaters(), *args)
     distribute_workload(get_secondary_formaters(), *args)
+    distribute_workload(get_primary_formaters(), *args, include_etymology=False)
+    distribute_workload(get_secondary_formaters(), *args, include_etymology=False)
     return 0

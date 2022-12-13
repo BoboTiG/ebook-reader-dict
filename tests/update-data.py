@@ -15,7 +15,7 @@ def fetch_and_store_if_updated(file: Path, url: str) -> None:
         print(f"Updated {file}", flush=True)
 
 
-def main():
+def main() -> int:
     url_fmt = "https://{}.wiktionary.org/w/index.php?title={}&action=raw"
     folder = Path(__file__).parent / "data"
     for locale in folder.iterdir():
@@ -27,6 +27,8 @@ def main():
             if html_file.is_file():
                 url = url.replace("&action=raw", "")
                 fetch_and_store_if_updated(html_file, url)
+
+    return 0
 
 
 if __name__ == "__main__":

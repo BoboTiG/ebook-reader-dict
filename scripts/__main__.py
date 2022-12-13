@@ -50,7 +50,7 @@ def process_script(script: str, file: str) -> None:
         print(f" !! Error processing {script}", flush=True)
 
 
-def main():
+def main() -> int:
     """Entry point."""
     threads = []
 
@@ -63,6 +63,7 @@ def main():
         th.join()
 
     print("\nFriendly reminder: run ./check.sh")
+    return 0
 
 
 if __name__ == "__main__":
