@@ -29,9 +29,9 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
         matches = pattern.findall(line)
         matches2 = pattern2.findall(line)
         if matches:
-            result = '"' + matches[0][0].strip() + '": ' + matches[0][1] + ","
+            result = f'"{matches[0][0].strip()}": {matches[0][1]},'
         elif matches2 and matches2[0]:
-            result = '"' + matches2[0].strip() + '" : {' + line[line.index("{") + 1 :]
+            result = f'"{matches2[0].strip()}' + '" : {' + line[line.index("{") + 1 :]
         else:
             result = line
 

@@ -23,10 +23,8 @@ def process_regions_page(url: str, results: Dict[str, str]) -> str:
         template_url = ROOT + li.find("a").get("href")
         template_name = li.text.split(":")[1]
         template_soup = get_soup(template_url)
-        region = template_soup.find("span", {"id": ["région"]})
-        if not region:
-            continue
-        results[template_name] = region.text.strip("()")
+        if region := template_soup.find("span", {"id": ["région"]}):
+            results[template_name] = region.text.strip("()")
     return nextpage
 
 
