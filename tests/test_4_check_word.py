@@ -57,15 +57,7 @@ def craft_urls_with_body() -> Callable[[str, str, str], str]:
 
 
 @responses.activate
-def test_simple(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_simple(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     assert check_word.main("fr", "42") == 0
 
@@ -75,57 +67,25 @@ def test_word_of_the_day() -> None:
 
 
 @responses.activate
-def test_etymology_list(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_etymology_list(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "bath")
     assert check_word.main("fr", "bath") == 0
 
 
 @responses.activate
-def test_sublist(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_sublist(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "éperon")
     assert check_word.main("fr", "éperon") == 0
 
 
 @responses.activate
-def test_subsublist(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_subsublist(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "base")
     assert check_word.main("fr", "base") == 0
 
 
 @responses.activate
-def test_error_and_lock(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
@@ -134,15 +94,7 @@ def test_error_and_lock(
 
 
 @responses.activate
-def test_no_definition_nor_etymology(
-    craft_urls: Callable[
-        [
-            str,
-            str,
-        ],
-        str,
-    ]
-) -> None:
+def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "<vide>")
     assert check_word.main("fr", "<vide>") == 0
 

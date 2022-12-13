@@ -22,7 +22,7 @@ def test_no_json_file() -> None:
 def test_all(tmp_path: Path) -> None:
     file = tmp_path / "test.json"
     file.write_text('{"base":""}')
-    with patch("render.get_latest_json_file", return_value=file):
+    with patch.object(render, "get_latest_json_file", return_value=file):
         assert check_words.main("fr", -1, False, "", "") == 0
 
 
