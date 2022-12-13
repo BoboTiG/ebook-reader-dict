@@ -200,7 +200,7 @@ def test_generate_secondary_dict(
 FORMATTED_WORD_KOBO = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><p>etyl 1</p><ol><li>setyl 1</li></ol><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
 """  # noqa
-FORMATTED_WORD_KOBO_NO_ETIMOLOGY = """\
+FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
 """  # noqa
 FORMATTED_WORD_DICTFILE = """\
@@ -211,7 +211,7 @@ FORMATTED_WORD_DICTFILE = """\
 
 
 """  # noqa
-FORMATTED_WORD_DICTFILE_NO_ETIMOLOGY = """\
+FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
 & Multiple Etymology
@@ -225,9 +225,9 @@ FORMATTED_WORD_DICTFILE_NO_ETIMOLOGY = """\
     "formatter, include_etymology, expected",
     [
         (convert.KoboFormat, True, FORMATTED_WORD_KOBO),
-        (convert.KoboFormat, False, FORMATTED_WORD_KOBO_NO_ETIMOLOGY),
+        (convert.KoboFormat, False, FORMATTED_WORD_KOBO_NO_ETYMOLOGY),
         (convert.DictFileFormat, True, FORMATTED_WORD_DICTFILE),
-        (convert.DictFileFormat, False, FORMATTED_WORD_DICTFILE_NO_ETIMOLOGY),
+        (convert.DictFileFormat, False, FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY),
     ],
 )
 def test_word_rendering(
