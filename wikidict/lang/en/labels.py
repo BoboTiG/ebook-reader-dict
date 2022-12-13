@@ -926,6 +926,7 @@ labels_regional = {
     "Belizean": "Belize",
     "Berkshire dialect": "Berkshire",
     "Bermudan": "Bermuda",
+    "Bermudian": "Bermuda",
     "Bernese": "Bern",
     "Bhawnagari": "Kathiyawadi",
     "Biləsuvar": "Bilasuvar",
@@ -976,7 +977,6 @@ labels_regional = {
     "Colombian": "Colombia",
     "Coloradan": "Colorado",
     "Coloradoan": "Colorado",
-    "Commonwealth": "Commonwealth of Nations",
     "Congo-Brazzaville": "Congo",
     "Congo-Kinshasa": "Congo",
     "Congolese": "Congo",
@@ -1531,6 +1531,7 @@ labels_regional = {
     "Venezuelan": "Venezuela",
     "Viennese": "Vienna",
     "Vietnamese": "Vietnam",
+    "Vilna": "Vilnius",
     "Virginian": "Virginia",
     "Viöl": "Fjolde",
     "Vozim": "Vozm",
@@ -1546,6 +1547,7 @@ labels_regional = {
     "West Prussian": "Prussia",
     "West of England": "West Country",
     "Western England": "West Country",
+    "Wilno": "Vilnius",
     "Wilts": "Wiltshire",
     "Wilts dialect": "Wiltshire",
     "Wiltshire dialect": "Wiltshire",
@@ -1605,7 +1607,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 779
+}  # 781
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -1795,6 +1797,9 @@ labels_subvarieties = {
     "Caraga Bisaya": "Caraga",
     "Carcar": "Sialo",
     "Cardona": "Rizal",
+    "Cavite Tagalog": "Cavite",
+    "Cavitenyo": "Cavite",
+    "Caviteño": "Cavite",
     "Central": "Majhi",
     "Central Assamese": "Central Assam",
     "Central German": "central Germany",
@@ -3108,5 +3113,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,500
+}  # 1,503
 # END

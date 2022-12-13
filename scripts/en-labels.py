@@ -91,7 +91,7 @@ repl = (
     "wikipedia",
     "Wikipedia",
 )
-stop_line = "# Regional labels"
+stop_line = "return labels"
 var_name = "labels"
 process_page(url, repl, stop_line, var_name)
 
