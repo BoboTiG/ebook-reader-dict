@@ -263,7 +263,7 @@ def test_parse_word(word, pronunciations, etymology, definitions, variants, page
         ("{{l|es|tamo}}", "tamo"),
         ("{{l+|pt|freguesia}}", "<i>freguesia</i>"),
         ("{{moluscos}}", "<i>(Zoología)</i>"),
-        ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía)</i>"),
+        ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía (alimentos))</i>"),
         ("{{psicología}}", "<i>(Psicología)</i>"),
         ("{{nombre científico}}", "<sup>nombre científico</sup>"),
         ("{{plm|cansado}}", "Cansado"),

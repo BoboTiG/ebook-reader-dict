@@ -147,7 +147,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(Commonwealth of Nations, colloquial, chiefly with <b>give</b>)</i> Me.",
+                "<i>(Commonwealth, colloquial, chiefly with <b>give</b>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
