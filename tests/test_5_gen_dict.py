@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 from uuid import uuid4
 
 import pytest
@@ -14,6 +16,7 @@ from wikidict import gen_dict
     ],
 )
 @pytest.mark.parametrize("format", ["kobo", "stardict"])
-def test_gen_dict(locale: str, words: str, format: str) -> None:
+def test_gen_dict(locale: str, words: str, format: str, tmp_path: Path) -> None:
+    os.environ["CWD"] = str(tmp_path)
     res = gen_dict.main(locale, words, str(uuid4()), format=format)
     assert res == 0
