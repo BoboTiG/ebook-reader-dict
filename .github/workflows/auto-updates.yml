@@ -38,19 +38,20 @@ jobs:
     # List of locales to generate
     # Sorted by the number of words
     strategy:
+      fail-fast: false
       matrix:
         locale:
-          - fr
-          - en
-          - de
-          - es
-          - el
-          - pt
-          - sv
-          - it
-          - ca
-          # - ru
-          - no
+          - "fr"
+          - "en"
+          - "de"
+          - "es"
+          - "el"
+          - "pt"
+          - "sv"
+          - "it"
+          - "ca"
+          # - "ru"
+          - "no"
 
     steps:
       - uses: actions/checkout@v3
