@@ -6,7 +6,7 @@
 {{sv-subst-n-or|betydelser=2.}}
 '''svenska'''
 *{{uttal|sv|ljud=Sv-svenska.ogg}}
-#{{tagg|kat=språk}}nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
+#{{tagg|kat=språk}} nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
 #:{{etymologi|Belagt sedan 1300-talet, som {{härledning|sv|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref>}}
 #:{{sammansättningar|[[svensklektion]], [[svensklärare]]}}
 #{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
@@ -74,7 +74,7 @@
 *karelska: {{ö|krl|ruočči}}
 *katalanska: {{ö+|ca|suec|m}}
 *kazakiska: {{ö|kk|швед тілі}}
-*kinesiska: {{ö+|zh|瑞典语}},  {{ö|zh|瑞典語|tr=Ruìdiǎn'yǔ}}
+*kinesiska: {{ö+|zh|瑞典语}}, {{ö|zh|瑞典語|tr=Ruìdiǎn'yǔ}}
 *kirgiziska: {{ö|ky|швед тили}}
 *koreanska: {{ö+|ko|스웨덴어}} (seuweden-eo)
 *korniska: {{ö|kw|Swedek}}

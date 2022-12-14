@@ -2,7 +2,7 @@
 import re
 from typing import Dict, List, Pattern, Tuple
 
-from ...user_functions import flatten, uniq
+from ...user_functions import uniq
 
 # Float number separator
 float_separator = ","
@@ -101,14 +101,16 @@ _genders = {
     "ακλ": "άκλιτο",
     "καθ": "(καθαρεύουσα)",
     "ο": "ουδέτερο",
+    "θο": "θηλυκό ή ουδέτερο",
+    "αο": "αρσενικό ή ουδέτερο",
+    "ακρ": "ακρωνύμιο",
 }
 
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(
-        r"'''{{PAGENAME}}'''\s*(?:{{([θαοκλ]+)(?:\|([θαοκλ]+))*}})[,|\s]*(?:{{([θαοκλ]+)(?:\|([θαοκλ]+))*}})*"
-    ),
+    pattern: Pattern[str] = re.compile(r"{{([^{}]*)}}"),
+    line_pattern: str = "'''{{PAGENAME}}''' ",
 ) -> List[str]:
     """
     >>> find_genders("")
@@ -119,8 +121,17 @@ def find_genders(
     ['αρσενικό ή θηλυκό', 'άκλιτο']
     >>> find_genders("'''{{PAGENAME}}''' {{ακλ|αθ}}, {{αθ}}")
     ['άκλιτο', 'αρσενικό ή θηλυκό']
+    >>> find_genders("'''{{PAGENAME}}''' {{θο}} {{ακλ}}")
+    ['θηλυκό ή ουδέτερο', 'άκλιτο']
+    >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}")
+    ['αρσενικό ή ουδέτερο', 'άκλιτο', 'ακρωνύμιο']
     """
-    return [_genders[g] for g in uniq(flatten(pattern.findall(code)))]
+    return [
+        _genders[gender.split("|")[0]]
+        for line in code.splitlines()
+        for gender in pattern.findall(line[len(line_pattern) :])
+        if line.startswith(line_pattern)
+    ]
 
 
 def find_pronunciations(

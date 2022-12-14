@@ -15,7 +15,7 @@
 {{onomatopoeic|en}}.
 
 ====Alternative forms====
-* {{l|en|umm}}, {{l|en|hum}}
+* {{alt|en|umm|uhm|hum}}
 
 ====Pronunciation====
 * {{IPA|en|/ʌm/|/əːm/}}
@@ -543,7 +543,7 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 {{number box|pt}}
 
 ===Alternative forms===
-* {{l|pt|hum}} {{qualifier|obsolete}}
+* {{alt|pt|hum||obsolete}}
 
 ===Etymology===
 From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*óynos|t=one}}. {{doublet|pt|uno}}.
@@ -558,7 +558,7 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 {{pt-cardinal|f=uma}}
 
 # {{senseid|pt|numeral}} [[one]]
-#: {{ux|pt|'''Uma''' xícara de café|'''One''' cup of coffee|inline=1}}
+#: {{uxi|pt|'''Uma''' xícara de café|'''One''' cup of coffee}}
 
 ====Quotations====
 {{seeCites|pt}}
@@ -571,16 +571,16 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 {{pt-article}}
 
 # {{senseid|pt|article}} {{lb|pt|indefinite}} [[a]], [[an]]
-#: {{ux|pt|'''Um''' carro, '''uma''' casa.|'''A''' car, '''a''' house.|inline=1}}
+#: {{uxi|pt|'''Um''' carro, '''uma''' casa.|'''A''' car, '''a''' house.}}
 #* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=186|text=Tenho '''um''' recado para você.|t=I have a message for you.}}
 #* {{RQ:mul:Rowling Harry Potter|pt-BR|6|page=361|text={{...}} disse o professor com '''um''' sorrisinho {{...}}|t={{...}} the teacher said with a little smile {{...}}}}
 ## {{senseid|pt|plural article}} {{lb|pt|in the plural}} [[some]]; [[a few]] {{gloss|a small number of}}
-##: {{ux|pt|'''Uns''' carros, '''umas''' casas.|'''A few''' cars, '''a few''' houses.|inline=1}}
+##: {{uxi|pt|'''Uns''' carros, '''umas''' casas.|'''A few''' cars, '''a few''' houses.}}
 ##: {{syn|pt|alguns}}
-## {{senseid|pt|a bit of}} {{lb|pt|with uncountable nouns}} {{l|en|a bit|a bit of}}
+## {{senseid|pt|a bit of}} {{lb|pt|with uncountable nouns}} [[a bit]] of
 ##: {{ux|pt|Comi '''uma''' pipoca antes de dormir.|I ate '''a bit of''' popcorn before going to sleep.}}
 ##: {{syn|pt|um pouco de}}
-## {{senseid|pt|quite a}} {{lb|pt|usually in the feminine|pronounced slowly, emphatically and with a high intonation}} {{n-g|indicates that what follows is exceptional}}; {{l|en|quite|quite a}}; {{l|en|quite|quite the}}
+## {{senseid|pt|quite a}} {{lb|pt|usually in the feminine|pronounced slowly, emphatically and with a high intonation}} {{n-g|indicates that what follows is exceptional}}; [[quite]] a; [[quite]] the
 ##: {{ux|pt|Ontem de noite caiu '''''uma''''' chuva.|We had '''quite a''' rain last night.}}
 ##: {{ux|pt|Estamos comendo '''''um''''' churrasco.|We are having '''''the''''' barbecue.}}
 ##: {{syn|pt|aquele}}
@@ -592,21 +592,21 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 {{pt-articles}}
 
 ===Noun===
-{{pt-noun|m|uns}}
+{{pt-noun|m}}
 
 # {{senseid|pt|the digit 1}} The figure or digit "1": [[one]]
-#: {{ux|pt|O '''um''' parece o sete sem gravata no pescoço.|inline=1|The one looks like the seven with no tie at its neck.}}
+#: {{uxi|pt|O '''um''' parece o sete sem gravata no pescoço.|The one looks like the seven with no tie at its neck.}}
 
 ====Quotations====
 {{seeCites|pt}}
 
 ===Pronoun===
-{{head|pt|pronoun}}
+{{pt-pron-adj}}
 
 # {{senseid|pt|someone}} a person; [[one]]; [[someone]]
-#: {{ux|pt|Chegou-me '''um''' e disse: "Olá!"|inline=1|One came to me and said: "Hello!"}}
+#: {{uxi|pt|Chegou-me '''um''' e disse: "Olá!"|One came to me and said: "Hello!"}}
 # {{senseid|pt|previously mentioned element}} Element(s) of a previously mentioned class: [[one]]; [[some]] (in plural)
-#: {{ux|pt|Comprei '''uns''' e me decepcionei.|inline=1|I bought some and got disappointed.}}
+#: {{uxi|pt|Comprei '''uns''' e me decepcionei.|I bought some and got disappointed.}}
 
 ====Quotations====
 {{seeCites|pt}}

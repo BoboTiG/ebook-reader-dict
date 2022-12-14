@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -23,7 +26,7 @@ from wikidict.utils import process_templates
         ),
         (
             "cum",
-            ["/kʌm/", "/kʊm/"],
+            ["/kʊm/", "/kʌm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
                 "<i>Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
@@ -39,7 +42,7 @@ from wikidict.utils import process_templates
         ),
         (
             "efficient",
-            ["/ɪˈfɪʃənt/", "/əˈfɪʃənt/"],
+            ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
             [
                 "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
             ],
@@ -58,14 +61,14 @@ from wikidict.utils import process_templates
             [
                 "<i>Contraction of</i> <b>it is</b>.",
                 "<i>Contraction of</i> <b>it has</b>.",
-                "There's, there is; there're, there are.",
+                "<i>(dialectal, African-American Vernacular)</i> There's, there is; there're, there are.",  # noqa
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
         ),
         (
             "Mars",
-            ["/ˈmɑːz/", "/ˈmɑɹz/"],
+            ["/ˈmɑɹz/", "/ˈmɑːz/"],
             [
                 "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
             ],
@@ -105,7 +108,7 @@ from wikidict.utils import process_templates
         ),
         (
             "the",
-            ["/ˈðiː/", "/ˈðʌ/", "/ði/", "/ðɪ/", "/ðə/"],
+            ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
@@ -129,7 +132,7 @@ from wikidict.utils import process_templates
         ),
         (
             "um",
-            ["/ʌm/", "/əːm/"],
+            ["/əːm/", "/ʌm/"],
             ["Onomatopoeic."],
             [
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
@@ -141,13 +144,13 @@ from wikidict.utils import process_templates
         ),
         (
             "us",
-            ["/ʌs/", "/ʌz/", "/əs/", "/əz/"],
+            ["/əs/", "/əz/", "/ʌs/", "/ʌz/"],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(Commonwealth of Nations, colloquial, chiefly with <b>give</b>)</i> Me.",
+                "<i>(Commonwealth, colloquial, chiefly with <b>give</b>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
@@ -158,19 +161,19 @@ from wikidict.utils import process_templates
         (
             "water",
             [
-                "/ˈwɔːtə/",
-                "/ˈwɔtər/",
-                "/ˈwɒtə/",
-                "/ˈwɒtəɹ/",
-                "/ˈwɔtəɹ/",
-                "/ˈwɑtəɹ/",
-                "/ˈwʊtəɹ/",
                 "/ˈwoːtə/",
                 "/ˈwætəɹ/",
+                "/ˈwɑtəɹ/",
+                "/ˈwɒtə/",
+                "/ˈwɒtəɹ/",
+                "/ˈwɔtər/",
+                "/ˈwɔtəɹ/",
+                "/ˈwɔːtə/",
+                "/ˈwʊtəɹ/",
             ],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
-                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”)), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
+                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
             ],
             [
                 "<i>(uncountable)</i> A substance (of molecular formula H<sub>2</sub>O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",  # noqa
@@ -231,7 +234,7 @@ from wikidict.utils import process_templates
                 "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
                 "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",  # noqa
                 "<i>(obsolete)</i> A proverb or motto.",
-                "News; tidings (<i>used without an article</i>). <small>[from 10th c.]</small>",
+                "<i>(uncountable)</i> News; tidings <small>[from 10th c.]</small>",
                 "An order; a request or instruction; an expression of will. <small>[from 10th c.]</small>",
                 "A promise; an oath or guarantee. <small>[from 10th c.]</small>",
                 "A brief discussion or conversation. <small>[from 15th c.]</small>",
@@ -251,7 +254,13 @@ from wikidict.utils import process_templates
         ),
     ],
 )
-def test_parse_word(word, pronunciations, etymology, definitions, page):
+def test_parse_word(
+    word: str,
+    pronunciations: List[str],
+    etymology: List[Definitions],
+    definitions: List[Definitions],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
@@ -346,8 +355,9 @@ def test_parse_word(word, pronunciations, etymology, definitions, page):
             "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
             "<i>Gadus macrocephalus</i>",
         ),
+        ("{{uder|en|fro|jargon}}", "Old French <i>jargon</i>"),
     ],
 )
-def test_process_templates(wikicode, expected):
+def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "en") == expected

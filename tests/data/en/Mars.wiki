@@ -79,7 +79,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Czech: {{tt+|cs|Mars|m}}
 * Danish: {{tt+|da|Mars|c}}
 * Dutch: {{tt+|nl|Mars|m}}
-* Dzongkha: {{tt|dz|མིག་དམར }}
+* Dzongkha: {{tt|dz|མིག་དམར}}
 * Esperanto: {{tt+|eo|Marso}}
 * Estonian: {{tt+|et|Marss}}
 * Finnish: {{tt+|fi|Mars}}
@@ -114,11 +114,12 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 *: Central Kurdish: {{tt+|ckb|بارام}}, {{tt+|ckb|بەھرام}}
 *: Northern Kurdish: {{tt+|kmr|Behram}}, {{tt+|kmr|Mars}}, {{tt+|kmr|Merîx}}
 * Kyrgyz: {{tt|ky|Марс}}
-{{trans-mid}}
 * Lao: {{tt|lo|ອັງຄານ}}, {{tt+|lo|ດາວອັງຄານ}}
+{{trans-mid}}
 * Latin: {{tt+|la|Mārs|m}}
 * Latvian: {{tt|lv|Marss|m}}
 * Lithuanian: {{tt+|lt|Marsas|m}}, {{t|lt|Žiezdrė|f}}
+* Lü: {{t|khb|ᦡᦱᧁᦺᦝ}}
 * Macedonian: {{tt|mk|Марс|m}}
 * Malay: {{tt+|ms|Marikh}}, {{tt|ms|Mars}}
 * Malayalam: {{tt+|ml|ചൊവ്വ}}
@@ -167,7 +168,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Telugu: {{tt+|te|అంగారకుడు}}, {{tt|te|రుధిరుడు}}
 * Thai: {{tt|th|[[ดาว]][[อังคาร]]|tr=daao ang-kaan}}, {{tt+|th|อังคาร}}
 * Tibetan: {{tt|bo|མིག་དམར}}
-* Turkish: {{tt+|tr|Mars}}, {{tt|tr|Kızıl Gezegen}}, {{tt|tr|Kızılyıldız}}, {{tt+|tr|Bakırsokum}}, {{tt+|tr|Merih}} {{q|archaic}}, {{tt+|tr|Sakıt}} {{q|archaic}}
+* Turkish: {{tt+|tr|Mars}}, {{tt|tr|Kızıl Gezegen}}, {{tt|tr|Kızıldız}}, {{tt+|tr|Bakırsokum}}, {{tt+|tr|Merih}} {{q|archaic}}, {{tt+|tr|Sakıt}} {{q|archaic}}
 * Turkmen: {{tt|tk|Mars}}, {{tt|tk|Myrryh}}
 * Ukrainian: {{tt|uk|Марс|m}}
 * Urdu: {{tt|ur|مریخ|m|tr=mirrīx}}, {{tt+|ur|منگل|tr=mangal}}
@@ -196,7 +197,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Catalan: {{tt+|ca|Mart|m}}
 * Cherokee: {{tt|chr|ᎹᏏ}}
 * Chinese:
-*: Mandarin: {{tt|cmn|戰神}}, {{tt|cmn|战神|tr=Zhànshén}}, {{tt|cmn|瑪爾斯}}, {{tt|cmn|玛尔斯|tr=Mǎ'ěrsī}}
+*: Mandarin: {{tt+|cmn|戰神}}, {{tt+|cmn|战神|tr=Zhànshén}}, {{tt|cmn|瑪爾斯}}, {{tt|cmn|玛尔斯|tr=Mǎ'ěrsī}}
 * Cornish: {{tt|kw|Meurth|m}}
 * Czech: {{tt+|cs|Mars|m}}
 * Danish: {{tt+|da|Mars|c}}
@@ -447,7 +448,7 @@ First attested as ''mersche'' in 1307. Derived from {{m|nl|meers|t=land next to 
 ==Estonian==
 
 ===Pronunciation===
-*{{et-IPA}}
+*{{et-IPA/old}}
 
 ===Proper noun===
 {{et-proper noun}}

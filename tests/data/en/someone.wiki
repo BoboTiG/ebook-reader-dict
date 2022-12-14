@@ -26,6 +26,7 @@ From {{compound|en|some|one}}.
 
 ====Translations====
 {{trans-top|some person}}
+* Afrikaans: {{t+|af|iemand}}
 * American Sign Language: {{t|ase|1@InsideNeckhigh-FingerUpPalmBack CirclesHoriz}}
 * Arabic: {{t+|ar|أَحَد}}
 * Armenian: {{t+|hy|մեկ|alt=մեկը}}

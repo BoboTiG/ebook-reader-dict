@@ -7,7 +7,7 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 ## Dictionaries
 
-[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22)
+[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml)
 
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
 - [German](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de)

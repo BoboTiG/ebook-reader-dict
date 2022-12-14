@@ -5,7 +5,7 @@ Check the "html/wikidict/user_functions.html" file for a user-friendly version.
 """
 import re
 from collections import defaultdict
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 def capitalize(text: str) -> str:
@@ -128,9 +128,9 @@ def color(rgb: str) -> str:
 def concat(
     parts: List[str],
     sep: str = "",
-    last_sep: str = None,
-    indexes: Optional[List[int]] = None,
-    skip: Optional[str] = None,
+    last_sep: str | None = None,
+    indexes: List[int] | None = None,
+    skip: str | None = None,
 ) -> str:
     """
     Simply concat all *parts* using the *sep* character as glue.

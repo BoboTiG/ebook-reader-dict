@@ -1,13 +1,15 @@
 import os
 from pathlib import Path
+from typing import Any
 
+import pytest
 import responses
 
 from wikidict import upload
 from wikidict.constants import RELEASE_URL
 
 
-def test_fetch_release_url():
+def test_fetch_release_url() -> None:
     url = upload.fetch_release_url("fr")
     assert isinstance(url, str)
     assert url.startswith("https://api.github.com/repos/")
@@ -15,7 +17,7 @@ def test_fetch_release_url():
 
 
 @responses.activate
-def test_main(capsys):
+def test_main(capsys: pytest.CaptureFixture[Any]) -> None:
 
     # List of requests responses to falsify:
     #   - fetch_release_url() -> GET $RELEASE_URL
@@ -39,7 +41,7 @@ def test_main(capsys):
 
 
 @responses.activate
-def test_main_bad_url(capsys):
+def test_main_bad_url(capsys: pytest.CaptureFixture[Any]) -> None:
     # Test a bad release URL, fetch_release_url() will return an empty URL
     release_url = RELEASE_URL.format("fr")
     responses.add(responses.GET, release_url, json={"url": ""})

@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 import pytest
 
 from wikidict import gen_dict
@@ -12,6 +14,6 @@ from wikidict import gen_dict
     ],
 )
 @pytest.mark.parametrize("format", ["kobo", "stardict"])
-def test_gen_dict(locale, words, format, tmp_path):
-    res = gen_dict.main(locale, words, tmp_path, format=format)
+def test_gen_dict(locale: str, words: str, format: str) -> None:
+    res = gen_dict.main(locale, words, str(uuid4()), format=format)
     assert res == 0

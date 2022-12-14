@@ -1,6 +1,9 @@
+from typing import Callable, List
+
 import pytest
 
 from wikidict.render import parse_word
+from wikidict.stubs import Definitions
 from wikidict.utils import process_templates
 
 
@@ -24,11 +27,11 @@ from wikidict.utils import process_templates
         ),
         (
             "a",
-            ["\\ɑ\\", "\\a\\"],
+            ["\\a\\", "\\ɑ\\"],
             ["m"],
             [],
             [
-                "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie.",  # noqa
+                r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",  # noqa
                 "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>&minus;18</sup>).",  # noqa
                 "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
                 "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
@@ -139,7 +142,8 @@ from wikidict.utils import process_templates
                 "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",  # noqa
                 "<i>(Sports hippiques)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",  # noqa
                 "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
-                "<i>(Figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
+                "<i>(Sens figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",  # noqa
+                "<i>(Argot)</i> Cocaïne base.",
             ],
             ["baser"],
         ),
@@ -276,7 +280,7 @@ from wikidict.utils import process_templates
         ),
         (
             "greffier",
-            ["\\ɡʁɛ.fje\\", "\\ɡʁe.fje\\"],
+            ["\\ɡʁe.fje\\", "\\ɡʁɛ.fje\\"],
             ["m"],
             [
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",  # noqa
@@ -284,7 +288,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(Droit)</i> Officier public préposé au greffe.",
-                "<i>(Figuré)</i> Celui qui prend note et tient le registre de ses notes.",
+                "<i>(Sens figuré)</i> Celui qui prend note et tient le registre de ses notes.",
                 "<i>(Populaire)</i> Chat.",
                 "Sexe de la femme, minou, chatte, etc.",
                 "Poisson-chat commun (poisson).",
@@ -369,7 +373,7 @@ from wikidict.utils import process_templates
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
-                "<i>(Figuré)</i> Qui s’est encore envenimé.",
+                "<i>(Sens figuré)</i> Qui s’est encore envenimé.",
                 "S’emploie quelquefois comme nom masculin.",
                 "<i>Variante de</i> ranche.",
             ],
@@ -422,8 +426,14 @@ from wikidict.utils import process_templates
     ],
 )
 def test_parse_word(
-    word, pronunciations, genders, etymology, definitions, variants, page
-):
+    word: str,
+    pronunciations: List[str],
+    genders: List[str],
+    etymology: List[Definitions],
+    definitions: List[Definitions],
+    variants: List[str],
+    page: Callable[[str, str], str],
+) -> None:
     """Test the sections finder and definitions getter."""
     code = page(word, "fr")
     details = parse_word(word, code, "fr", force=True)
@@ -504,7 +514,10 @@ def test_parse_word(
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
-        ("{{par ext}} ou {{figuré|fr}}", "<i>(Par extension)</i> ou <i>(Figuré)</i>"),
+        (
+            "{{par ext}} ou {{figuré|fr}}",
+            "<i>(Par extension)</i> ou <i>(Sens figuré)</i>",
+        ),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
             "<u>Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",  # noqa
@@ -556,6 +569,6 @@ def test_parse_word(
         ("{{x10}}", "×10"),
     ],
 )
-def test_process_templates(wikicode, expected):
+def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
     assert process_templates("foo", wikicode, "fr") == expected

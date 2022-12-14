@@ -64,6 +64,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 |precum
 |cumslut
 |cumwhore
+|cumdrunk
 |cumdump
 |cumguzzler
 |cumrag
@@ -75,12 +76,20 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 |cumskin
 |cumsock
 |cumbucket
-}}
+|cum catcher
+|cum gutters
+|cum guzzler
+|cum receptacle
+|cum swapping
+|cum towel
+|cum tribute
+|cum-soaked
+|cumsoaked}}
 
 =====Translations=====
 {{trans-top|slang: semen}}
 * Armenian: {{t+|hy|թոխում}}
-* Bengali: {{t|bn|মাল}}
+* Bengali: {{t+|bn|মাল}}
 * Catalan: {{t+|ca|llet|f}}, {{t|ca|lleterada|f}}, {{t+|ca|escorreguda|f}}, {{t+|ca|semen|m}}, {{t+|ca|sement|f}}, {{t+|ca|esperma}}
 * Chinese:
 *: Mandarin: {{t+|cmn|精液|tr=jīngyè|sc=Hani}}
@@ -112,6 +121,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}, {{t+|pt|leite|m}}
 * Romanian: {{t+|ro|sloboz|m}}
 * Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча́|f}} {{qualifier|vulgar}}, {{t+|ru|малафья́|f}} {{qualifier|vulgar}}
+* Sicilian: {{t+|scn|sburru|m}}, {{t+|scn|ogghiu di sbrigghiu|m}}, {{t+|scn|spacchiu|m}}
 * Spanish: {{t+|es|corrida|f}} {{q|Spain}}, {{t+|es|acabada|f}} {{q|Latinamerica}},  {{t+|es|semen|m}}, {{t+|es|lefa|f}}, {{t+|es|leche|f}} {{q|Spain}}, {{t+|es|mecos|m-p}} {{q|Mexico}}
 * Swedish: {{t+|sv|sagge|c}}
 * Turkish: {{t+|tr|döl}}, {{t+|tr|atmık}}
@@ -127,6 +137,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 {{trans-mid}}
 * Japanese: {{t|ja|潮吹き|tr=しおふき, shiofuki}}
 * Portuguese: {{t+|pt|gozo|m}}
+* Sicilian: {{t+|scn|spacchiu|m}}
 * Spanish: {{t+|es|corrida|f}}
 * Turkish: {{t|tr|zevk suyu}}
 {{trans-bottom}}
@@ -168,9 +179,9 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Georgian: {{t|ka|მითესლება}}
 * German: {{t+|de|abspritzen}}, {{t+|de|kommen}} {{qualifier|informal}}
 * Greek: {{t+|el|χύνω}}
-*: Ancient: {{t|grc|χέω }}
+*: Ancient: {{t|grc|χέω}}
 * Hebrew: {{t+|he|גָּמַר|tr=gamár}} {{qualifier|slang}}
-* Hungarian: {{t|hu|elélvez}}, {{t+|hu|elmegy}}, {{t+|hu|elsül}}
+* Hungarian: {{t+|hu|elélvez}}, {{t+|hu|elmegy}}, {{t+|hu|elsül}}
 {{trans-mid}}
 * Icelandic: {{t|is|fá það}}
 * Italian: {{t+|it|venire}}, {{t+|it|eiaculare}}, {{t+|it|sborrare}}
@@ -189,7 +200,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Swedish: {{t+|sv|komma}}
 * Thai: {{t+|th|แตก}}, {{t+|th|น้ำแตก}}
 * Turkish: {{t+|tr|boşalmak}}, {{t+|tr|gelmek}} {{qualifier|informal}}, {{t+|tr|attırmak}} {{qualifier|slang}}
-* Vietnamese: {{t|vi|xuất tinh}}
+* Vietnamese: {{t+|vi|xuất tinh}}
 {{trans-bottom}}
 
 ====Usage notes====
@@ -291,14 +302,14 @@ From {{inh|ga|sga|cummaid|t=fashions, shapes, composes, determines; makes, creat
 
 ===Alternative forms===
 * {{alter|la|cũ|ꝯ||abbreviations|med|ren|eml}}
-* {{alter|la|kom||early}}
+* {{alter|la|kom||arh}}
 
 ===Pronunciation===
 * {{la-IPA|eccl=yes}}
 * {{audio|la|la-cls-cum.ogg|Audio (Classical)}}
 
 ===Etymology 1===
-From Old Latin {{m|la|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}, {{cog|gem-pro|*hansō}}. More at '''[[Hanse]]'''.
+From {{inh|la|itc-ola|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}, {{cog|gem-pro|*hansō}}. More at '''[[Hanse]]'''.
 
 ====Preposition====
 {{la-prep|ablative}}
@@ -366,11 +377,11 @@ From Old Latin {{m|la|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro
 {{bottom}}
 
 ===Etymology 2===
-From Old Latin {{m|la|quom}}, from {{der|la|ine-pro|*kʷóm}}, accusative of {{m|ine-pro|*kʷos}}, {{m|ine-pro|*kʷis}}. Compare its feminine form {{m|la|quam}} (as in {{m|la|tum}}-{{m|la|tam}}).
+From {{inh|la|itc-ola|quom}}, from {{der|la|ine-pro|*kʷóm}}, accusative of {{m|ine-pro|*kʷos}}, {{m|ine-pro|*kʷis}}. Compare its feminine form {{m|la|quam}} (as in {{m|la|tum}}-{{m|la|tam}}).
 
 ====Alternative forms====
-* {{l|la|quum}}
-* {{qualifier|Old Latin}} {{l|la|quom}}{{attention|la}}
+* {{alt|la|quom||acl}}
+* {{alt|la|quum||pcl}}
 
 ====Conjunction====
 {{head|la|conjunction|+ subjunctive}}
@@ -391,7 +402,7 @@ Often coupled with {{l|la|tum}}
 * {{l|la|tum}}
 
 =====Derived terms=====
-* {{l|la|quomque}}/ {{l|la|cumque}}
+* {{l|la|quomque}}, {{l|la|cumque}}
 * {{l|la|quondam}}
 * {{l|la|quoniam}}
 * {{l|la|umquam}}
@@ -465,7 +476,7 @@ From {{inh|gv|mga|cummaid}}, a denominative verb from {{m|mga|cumma}}, itself fr
 ==Portuguese==
 
 ===Pronunciation===
-{{pt-IPA|br=cum|pt=cum}}
+{{pt-IPA}}
 * {{hyph|pt|cum}}
 
 ===Etymology 1===

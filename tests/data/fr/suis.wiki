@@ -28,10 +28,11 @@
 === {{S|prononciation}} ===
 ''Forme de verbe 1'' :
 * {{pron|sɥi|fr}}
-* {{Belgique|nocat=1}} {{pron|swi|be}} 
 ** {{écouter|lang=fr|France (Brétigny-sur-Orge)|sɥi|audio=LL-Q150 (fra)-Pamputt-suis.wav}}
 ** {{écouter|France (Lyon)|sɥi|lang=fr|audio=LL-Q150 (fra)-Lyokoï-suis.wav}}
-Avec le pronom personnel ''{{lien|je|fr}}'' :
+Avec le pronom personnel 
+* {{Belgique|nocat=1}} {{pron|swi|be}} 
+''{{lien|je|fr}}'' :
 * {{standard|nocat=1}} {{pron|ʒə sɥi|fr}} ''(je suis)''
 {{informel|nocat=1}}
 * {{pron|ʃɥi|fr}}
@@ -41,16 +42,11 @@ Avec le pronom personnel ''{{lien|je|fr}}'' :
 * {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-suis.wav}}
 * {{écouter|lang=fr|France||audio=LL-Q150 (fra)-Mecanautes-suis.wav}}
 
-
-
-
-
-
 ==== {{S|homophones|fr}} ====
 * [[suie]]
 
 === {{S|anagrammes}} ===
-* [[issu]] {{cf|issir}}
+{{voir anagrammes|fr}}
 
 == {{langue|br}} ==
 === {{S|étymologie}} ===

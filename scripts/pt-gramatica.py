@@ -1,4 +1,5 @@
 import re
+from typing import List
 
 from scripts_utils import get_soup
 
@@ -6,7 +7,7 @@ url = "https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C
 soup = get_soup(url)
 textarea = soup.find("textarea")
 
-current_abbr = []
+current_abbr: List[str] = []
 count = 0
 
 text = textarea.text

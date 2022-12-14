@@ -11,7 +11,7 @@
 '''accueil''' {{pron|a.kœj|fr}} {{m}}
 # [[cérémonie|Cérémonie]] ou [[prestation]] réservée à un nouvel [[arrivant]], consistant généralement à lui [[souhaiter]] la [[bienvenue]] et à l’aider dans son [[intégration]] ou ses [[démarche]]s.
 #* {{exemple|Nous réservâmes aux nouveaux venus un '''accueil''' qui fut cordial et empressé, mais le temps n’était pas aux effusions et d’un commun avis, il fallait agir vite.|lang=fr|source={{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
-#* {{exemple|lang=fr|Partout elle avait trouvé bon '''accueil''', prompt assentiment, mais elle se propose d’aller plus outre.|source={{Citation/Jean Rogissart/Passantes d’Octobre/1958|}}}}
+#* {{exemple|lang=fr|Partout elle avait trouvé bon '''accueil''', prompt assentiment, mais elle se propose d’aller plus outre.|source={{Citation/Jean Rogissart/Passantes d’Octobre/1958}}}}
 #* {{exemple|lang=fr|Notre hôte, absent au moment de notre arrivée, ne tarde pas à paraître et me fait l’'''accueil''' auquel je m'attendais de sa part.|source={{w|Frédéric Weisgerber}}, ''Trois mois de campagne au Maroc : étude géographique de la région parcourue'', Paris : Ernest Leroux, 1904, page 38}}
 # [[lieu|Lieu]] où sont accueillies les [[personne]]s.
 #* {{exemple|lang=fr|À l’'''accueil''', ils t’expliqueront comment aller à son bureau.}}
@@ -62,7 +62,7 @@
 
 {{trad-début|Lieu|2}}
 * {{T|af}} : {{trad+|af|tuiste}}
-* {{T|de}} : {{trad+|de|Empfang|m}}, {{trad+|de|Rezeption|f}}
+* {{T|de}} : {{trad+|de|Empfang|m}}, {{trad+|de|Rezeption|f}}, {{trad+|de|Empfangsbüro|n}}
 * {{T|en}} : {{trad+|en|reception}} (''desk'' = d’une société), {{trad+|en|courtesy}} (''counter, booth, desk'') {{États-Unis|nocat=1}}, {{trad+|en|customer service}} (''desk, booth, center'') {{États-Unis|nocat=1}}
 * {{T|hr}} : {{trad-|hr|recepcija}}
 * {{T|da}} : {{trad+|da|reception|c}}
@@ -87,7 +87,7 @@
 * {{T|pt}} : {{trad+|pt|recepção}}
 * {{T|ro}} : {{trad-|ro|a întampina}}, {{trad-|ro|a primi}}
 * {{T|cs}} : {{trad-|cs|hoštění}}, {{trad+|cs|pohoštění}}
-{{cf|accueillir}}
+{{cf|lang=fr|accueillir}}
 {{trad-fin}}
 
 ===== {{S|traductions à trier}} =====
@@ -120,7 +120,7 @@
 ** {{écouter|lang=fr|France (Vosges)|a.kœj|audio=LL-Q150 (fra)-LoquaxFR-accueil.wav}}
 
 === {{S|anagrammes}} ===
-* [[acicule]]
+{{voir anagrammes|fr}}
 
 === {{S|voir aussi}} ===
 * {{WP}}

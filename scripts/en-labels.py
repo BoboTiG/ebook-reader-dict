@@ -1,9 +1,10 @@
 import re
+from typing import Dict, Tuple
 
 from scripts_utils import get_soup
 
 
-def process_display(display):
+def process_display(display: str) -> str:
     if "[[" in display:
         display = re.sub(
             r"\[\[(?:w|wikipedia|Wiktionary):[^|]*\|(^\])*",
@@ -19,7 +20,13 @@ def process_display(display):
     return display
 
 
-def process_page(url, repl, stop_line, var_name, print_result=True):
+def process_page(
+    url: str,
+    repl: Tuple[str, ...],
+    stop_line: str,
+    var_name: str,
+    print_result: bool = True,
+) -> Dict[str, str]:
     soup = get_soup(url)
     div = soup.find("div", {"class": "mw-highlight-lines"})
     text = div.text
@@ -44,13 +51,13 @@ def process_page(url, repl, stop_line, var_name, print_result=True):
             code += line + "\n"
 
     exec(code, globals())
-    results = {}
+    results: Dict[str, str] = {}
 
-    for k, v in labels.items():  # noqa
+    for k, v in labels.items():  # type: ignore # noqa
         label_v = v
         label_k = k
         if isinstance(v, str):
-            label_v = labels.get(v, v)  # noqa
+            label_v = labels.get(v, v)  # type: ignore # noqa
             if label_v != v:
                 label_k = v
         if isinstance(label_v, str):
@@ -91,15 +98,15 @@ repl = (
     "wikipedia",
     "Wikipedia",
 )
-stop_line = "# Regional labels"
+stop_line = "return labels"
 var_name = "labels"
 process_page(url, repl, stop_line, var_name)
 
 syntaxes = {}
-for k, v in labels.items():  # noqa
+for k, v in labels.items():  # type: ignore # noqa
     label_v = v
     if isinstance(v, str):
-        label_v = labels.get(v)  # noqa
+        label_v = labels.get(v)  # type: ignore # noqa
     if not label_v:
         continue
     omit_preComma = label_v.get("omit_preComma")
@@ -144,7 +151,7 @@ url = "https://en.wiktionary.org/wiki/Special:PrefixIndex/Module:labels/data/lan
 soup = get_soup(url)
 div = soup.find("div", {"class": "mw-prefixindex-body"})
 lis = div.findAll("li")
-results = {}
+results: Dict[str, str] = {}
 for li in lis:
     if not li.text.endswith("documentation"):
         href = li.find("a")["href"]
@@ -154,6 +161,6 @@ for li in lis:
         results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
 
 print(f"{var_name} = {{")
-for key, value in sorted(results.items()):
+for key, value in sorted(results.items()):  # type: ignore
     print(f'    "{key}": "{value}",')
 print(f"}}  # {len(results):,}")

@@ -98,6 +98,7 @@ regions = {
     "Charente-Maritime": "Charente-Maritime",
     "Charentes": "Charentes",
     "Chef-Boutonne": "Chef-Boutonne",
+    "Chenou": "Chenou",
     "Chili": "Chili",
     "Chine": "Chine",
     "Cholet": "Cholet",
@@ -147,10 +148,8 @@ regions = {
     "FR": "France",
     "FR-85": "Vendée",
     "FR-Cher": "Cher",
-    "FR:Cher": "Cher",
     "Faeto": "Faeto",
     "Fougères": "Fougères",
-    "Fr:Cher": "Cher",
     "France": "France",
     "Franche-Comté": "Franche-Comté",
     "GB": "Royaume-Uni",
@@ -435,7 +434,6 @@ regions = {
     "Yucatan": "Yucatán",
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
-    "burkina": "Burkina Faso",
     "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
@@ -458,7 +456,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 453
+}  # 451
 # END
 
 # handled differently

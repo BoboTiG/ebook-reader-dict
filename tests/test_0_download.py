@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
+from typing import Any, Callable
 
+import pytest
 import responses
 
 from wikidict import download
@@ -26,7 +28,7 @@ WIKTIONARY_INDEX = """<html>
 
 
 @responses.activate
-def test_simple(craft_data):
+def test_simple(craft_data: Callable[[str], bytes]) -> None:
     """It should download the Wiktionary dump file and extract it."""
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
@@ -50,7 +52,7 @@ def test_simple(craft_data):
     responses.add(
         responses.GET,
         DUMP_URL.format("fr", date),
-        body=craft_data(date, "fr"),
+        body=craft_data("fr"),
     )
 
     # Start the whole process
@@ -62,7 +64,7 @@ def test_simple(craft_data):
 
 
 @responses.activate
-def test_download_already_done(craft_data):
+def test_download_already_done(craft_data: Callable[[str], bytes]) -> None:
     """It should not download again a processed Wiktionary dump."""
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
@@ -72,7 +74,7 @@ def test_download_already_done(craft_data):
     pages_bz2 = output_dir / f"pages-{date}.xml.bz2"
 
     # The BZ2 file was already downloaded
-    pages_bz2.write_bytes(craft_data(date, "fr"))
+    pages_bz2.write_bytes(craft_data("fr"))
 
     # List of requests responses to falsify:
     #   - fetch_snapshots()
@@ -91,7 +93,7 @@ def test_download_already_done(craft_data):
 
 
 @responses.activate
-def test_ongoing_dump(craft_data, capsys):
+def test_ongoing_dump(craft_data: Callable[[str], bytes]) -> None:
     """When the dump is not finished on the Wiktionary side, the previous dump should be used."""
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
@@ -118,7 +120,7 @@ def test_ongoing_dump(craft_data, capsys):
     responses.add(
         responses.GET,
         DUMP_URL.format("fr", "20200301"),
-        body=craft_data("20200301", "fr"),
+        body=craft_data("fr"),
     )
 
     # Start the whole process
@@ -133,7 +135,7 @@ def test_ongoing_dump(craft_data, capsys):
     assert not (output_dir / "pages-20200514.xml.bz2").is_file()
 
 
-def test_progress_callback_normal(capsys):
+def test_progress_callback_normal(capsys: pytest.CaptureFixture[Any]) -> None:
     download.callback_progress("Some text: ", 42 * 1024, False)
     captured = capsys.readouterr()
     assert captured.out == "\rSome text: 43,008 bytes"
@@ -143,7 +145,7 @@ def test_progress_callback_normal(capsys):
     assert captured.out == "\rSome text: OK [43,008 bytes]\n"
 
 
-def test_progress_callback_ci(capsys):
+def test_progress_callback_ci(capsys: pytest.CaptureFixture[Any]) -> None:
     download.callback_progress_ci("Some text: ", 42 * 1024, False)
     captured = capsys.readouterr()
     assert captured.out == "."

@@ -1,9 +1,9 @@
 -r requirements.txt
-black==22.10.0
+black==22.12.0
 coverage!=6.3.0
-flake8==5.0.4
-isort==5.10.1
-mypy==0.982
+flake8==6.0.0
+isort==5.11.1
+mypy==0.991
 pdoc3==0.10.0
 pydocstyle==6.1.1
 pytest==7.2.0
@@ -11,4 +11,4 @@ pytest-cov==4.0.0
 pytest-dependency==0.5.1
 responses==0.22.0
 types-cachetools==5.2.1
-types-requests==2.28.11.2
+types-requests==2.28.11.5

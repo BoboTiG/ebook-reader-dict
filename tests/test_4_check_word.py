@@ -1,4 +1,5 @@
-from threading import RLock
+from threading import Lock
+from typing import Any, Callable
 from unittest.mock import patch
 
 import pytest
@@ -18,17 +19,37 @@ WORD = {
 
 
 @pytest.fixture
-def craft_urls(html, page):
-    def _craft_urls(locale, word: str, body: str = ""):
+def craft_urls(
+    html: Callable[[str, str], str], page: Callable[[str, str], str]
+) -> Callable[[str, str], str]:
+    def _craft_urls(locale: str, word: str) -> str:
         responses.add(
             responses.GET,
             check_word.craft_url(word, locale, raw=True),
-            body=body or page(word, locale),
+            body=page(word, locale),
         )
         responses.add(
             responses.GET,
             check_word.craft_url(word, locale),
-            body=body or html(word, locale),
+            body=html(word, locale),
+        )
+        return word
+
+    return _craft_urls
+
+
+@pytest.fixture
+def craft_urls_with_body() -> Callable[[str, str, str], str]:
+    def _craft_urls(locale: str, word: str, body: str) -> str:
+        responses.add(
+            responses.GET,
+            check_word.craft_url(word, locale, raw=True),
+            body=body,
+        )
+        responses.add(
+            responses.GET,
+            check_word.craft_url(word, locale),
+            body=body,
         )
         return word
 
@@ -36,44 +57,44 @@ def craft_urls(html, page):
 
 
 @responses.activate
-def test_simple(craft_urls):
+def test_simple(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     assert check_word.main("fr", "42") == 0
 
 
-def test_word_of_the_day():
+def test_word_of_the_day() -> None:
     assert check_word.main("fr", "") == 0
 
 
 @responses.activate
-def test_etymology_list(craft_urls):
+def test_etymology_list(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "bath")
     assert check_word.main("fr", "bath") == 0
 
 
 @responses.activate
-def test_sublist(craft_urls):
+def test_sublist(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "éperon")
     assert check_word.main("fr", "éperon") == 0
 
 
 @responses.activate
-def test_subsublist(craft_urls):
+def test_subsublist(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "base")
     assert check_word.main("fr", "base") == 0
 
 
 @responses.activate
-def test_error_and_lock(craft_urls):
+def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
-        lock = RLock()
+        lock = Lock()
         assert check_word.check_word("42", "fr", lock=lock) > 0
 
 
 @responses.activate
-def test_no_definition_nor_etymology(craft_urls):
+def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "<vide>")
     assert check_word.main("fr", "<vide>") == 0
 
@@ -273,8 +294,13 @@ def test_no_definition_nor_etymology(craft_urls):
     ],
 )
 @responses.activate
-def test_filter_html(locale, body, expected, craft_urls):
-    word = craft_urls(locale, WORD[locale], body=body)
+def test_filter_html(
+    locale: str,
+    body: str,
+    expected: str,
+    craft_urls_with_body: Callable[[str, str, str], str],
+) -> None:
+    word = craft_urls_with_body(locale, WORD[locale], body)
     assert check_word.filter_html(body, locale) == expected.replace(" ", "")
     assert check_word.main(locale, word) == 0
 
@@ -290,8 +316,12 @@ def test_filter_html(locale, body, expected, craft_urls):
     ],
 )
 def test_check_highlighting(
-    wiktionary_text, parsed_html, ret_code, is_highlighted, capsys
-):
+    wiktionary_text: str,
+    parsed_html: str,
+    ret_code: int,
+    is_highlighted: bool,
+    capsys: pytest.CaptureFixture[Any],
+) -> None:
     error = check_word.check(wiktionary_text, parsed_html, "Test")
     assert error == ret_code
     if is_highlighted:
@@ -299,8 +329,8 @@ def test_check_highlighting(
         assert "\033[31m" in stdout
 
 
-def test_get_url_content_timeout_error(monkeypatch):
-    def get(*_, **__):
+def test_get_url_content_timeout_error(monkeypatch: pytest.MonkeyPatch) -> None:
+    def get(*_: Any, **__: Any) -> None:
         raise TimeoutError()
 
     monkeypatch.setattr("wikidict.check_word.SLEEP_TIME", 0.01)
@@ -309,8 +339,10 @@ def test_get_url_content_timeout_error(monkeypatch):
         check_word.get_url_content("https://...")
 
 
-def test_get_url_content_too_many_requests_error(monkeypatch):
-    def get(*_, **__):
+def test_get_url_content_too_many_requests_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def get(*_: Any, **__: Any) -> None:
         response = Response()
         response.status_code = 429
         response.headers["retry-after"] = "1"

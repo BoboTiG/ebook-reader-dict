@@ -260,6 +260,7 @@ domain_templates = {
     "satellites": "Astronomie",
     "sauces": "Sauces",
     "saules": "Botanique",
+    "sciences": "Sciences",
     "scientifiques": "Science",
     "seigneuries": "Histoire",
     "sentiments": "Psychologie",
@@ -311,5 +312,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 306
+}  # 307
 # END

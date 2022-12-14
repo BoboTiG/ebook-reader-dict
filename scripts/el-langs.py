@@ -41,7 +41,7 @@ for line in textarea.text.split("\n"):
     script += line
 
 exec(script)
-languages = {key: Languages[key]["name"] for key in Languages.keys()}  # noqa
+languages = {key: Languages[key]["name"] for key in Languages.keys()}  # type: ignore # noqa
 
 print("langs = {")
 for key, value in sorted(languages.items()):

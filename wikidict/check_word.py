@@ -4,7 +4,7 @@ import re
 from functools import partial
 from threading import Lock
 from time import sleep
-from typing import List
+from typing import List, Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -253,7 +253,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Lock = None) -> int:
+def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
     errors = 0
     results: List[str] = []
     details = get_word(word, locale)
@@ -265,7 +265,7 @@ def check_word(word: str, locale: str, lock: Lock = None) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")
+                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore
                     results.extend(r)
             else:
                 r = check_mute(text, etymology, "\n !! Etymology")

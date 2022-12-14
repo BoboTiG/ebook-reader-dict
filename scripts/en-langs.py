@@ -1,13 +1,14 @@
 import re
+from typing import Dict, List
 
 from scripts_utils import get_soup
 
 
-def read_all_lines_etym(lines):
+def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
     pattern2 = re.compile(r"(\w*)\s*=\s*{")
 
-    m = {}  # noqa
+    m: Dict[str, Dict[str, str]] = {}  # noqa
     concat = ""
     in_comment = False
     for line in lines:
@@ -28,9 +29,9 @@ def read_all_lines_etym(lines):
         matches = pattern.findall(line)
         matches2 = pattern2.findall(line)
         if matches:
-            result = '"' + matches[0][0].strip() + '": ' + matches[0][1] + ","
+            result = f'"{matches[0][0].strip()}": {matches[0][1]},'
         elif matches2 and matches2[0]:
-            result = '"' + matches2[0].strip() + '" : {' + line[line.index("{") + 1 :]
+            result = f'"{matches2[0].strip()}' + '" : {' + line[line.index("{") + 1 :]
         else:
             result = line
 
@@ -43,9 +44,9 @@ def read_all_lines_etym(lines):
     return m
 
 
-def read_all_lines_lang(lines):
+def read_all_lines_lang(lines: List[str]) -> Dict[str, str]:
     code = ""
-    m = {}
+    m: Dict[str, str] = {}
     pattern = re.compile(r"m\[\"(.*)\"\]\s+=\s+{")
     for line in lines:
         if code:
@@ -58,45 +59,36 @@ def read_all_lines_lang(lines):
     return m
 
 
-def get_content(url):
+def get_content(url: str) -> List[str]:
     soup = get_soup(url)
     content_div = soup.find("div", "mw-parser-output")
     content_div = content_div.findChild(
         "div", {"class": "mw-highlight"}, recursive=False
     )
-    return content_div.text.split("\n")
+    return str(content_div.text).split("\n")
 
 
-def process_lang_page(url):
+def process_lang_page(url: str) -> Dict[str, str]:
     lines = get_content(url)
     return read_all_lines_lang(lines)
 
 
 # Etymology languages
-url = "https://en.wiktionary.org/wiki/Module:etymology_languages/data"
-lines = get_content(url)
-m = read_all_lines_etym(lines)
-languages = {key: m[key]["canonicalName"] for key in m.keys()}
+lines = get_content("https://en.wiktionary.org/wiki/Module:etymology_languages/data")
+m: Dict[str, Dict[str, str]] = read_all_lines_etym(lines)
+languages = {key: val["canonicalName"] for key, val in m.items()}
 
 # Families
-url = "https://en.wiktionary.org/wiki/Module:families/data"
-lines = get_content(url)
-m = read_all_lines_etym(lines)
-for key in m.keys():
-    languages[key] = m[key]["canonicalName"]
+lines = get_content("https://en.wiktionary.org/wiki/Module:families/data")
+for key, val in read_all_lines_etym(lines).items():
+    languages[key] = val["canonicalName"]
 
-url = "https://en.wiktionary.org/wiki/Module:languages/data2"
-m = process_lang_page(url)
-languages |= m
-
-url = "https://en.wiktionary.org/wiki/Module:languages/datax"
-m = process_lang_page(url)
-languages |= m
+languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/data2")
+languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/datax")
 
 for letter in "abcdefghijklmnopqrstuvwxyz":
     url = f"https://en.wiktionary.org/wiki/Module:languages/data3/{letter}"
-    m = process_lang_page(url)
-    languages.update(m)
+    languages.update(process_lang_page(url))
 
 print("langs = {")
 for key, value in sorted(languages.items()):

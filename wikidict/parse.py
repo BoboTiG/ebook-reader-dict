@@ -3,7 +3,7 @@ import json
 import os
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Generator, Optional, Tuple
+from typing import Dict, Generator, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
@@ -84,7 +84,7 @@ def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
     print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
 
 
-def get_latest_xml_file(output_dir: Path) -> Optional[Path]:
+def get_latest_xml_file(output_dir: Path) -> Path | None:
     """Get the name of the last pages-*.xml file."""
     files = list(output_dir.glob("pages-*.xml"))
     return sorted(files)[-1] if files else None
