@@ -274,21 +274,29 @@ def last_template_handler(
 
     if tpl == "comp":
 
-        def value(word: str) -> str:
+        def value(word: str, standalone: bool = False) -> str:
             prefix = ""
             if word.startswith("-"):
-                prefix = "l'infix " if word.endswith("-") else "el sufix "
+                if standalone:
+                    prefix = "infix " if word.endswith("-") else "sufix "
+                else:
+                    prefix = "l'infix " if word.endswith("-") else "el sufix "
             elif word.endswith("-"):
                 prefix = "prefix "
             return f"{prefix}{italic(word)}"
 
         parts.pop(0)  # Remove the lang
+
         word1 = parts.pop(0)
+        if not parts:
+            return value(word1, standalone=True)
+
         word2 = parts.pop(0)
+        if not parts:
+            return f"{value(word1)} i {value(word2)}"
+
         word3 = parts.pop(0) if parts else ""
-        if word3:
-            return f"{italic(word1)}, {value(word2)} i {value(word3)}"
-        return f"{value(word1)} i {value(word2)}"
+        return f"{italic(word1)}, {value(word2)} i {value(word3)}"
 
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
