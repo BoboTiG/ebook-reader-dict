@@ -38,13 +38,17 @@ sections = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
+    "rfdef",
+    #
+    # For variants
+    #
+    "en-ing",
+    "en-irregular plural of",
     "en-past of",
     "en-simple past of",
+    "en-superlative of",
     "en-third-person singular of",
-    "infl of",
-    "inflection of",
     "plural of",
-    "rfdef",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -107,18 +111,6 @@ templates_multi = {
     "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",  # noqa
     # {{en-archaic second-person singular past of|term}}
     "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",  # noqa
-    # {{en-ing form of|term}}
-    "en-ing form of": "italic('Present participle and gerund of') + f' {strong(parts[1])}'",
-    # {{en-simple past of|term}}
-    "en-simple past of": "italic('simple past tense of') + f' {strong(parts[1])}'",
-    # {{en-irregular plural of|term}}
-    "en-irregular plural of": "italic('plural of') + f' {strong(parts[1])}'",
-    # {{en-past of|term}}
-    "en-past of": "italic('simple past tense and past participle of') + f' {strong(parts[1])}'",
-    # {{en-superlative o|term}}
-    "en-superlative of": "italic('superlative form of') + f' {strong(parts[1])}' + ': most ' + parts[1]",
-    # {{en-third-person_singular_of|term}}
-    "en-third-person_singular_of": "italic('Third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{glossary|inflected}}
@@ -147,6 +139,25 @@ templates_multi = {
     "sup": "superscript(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
+    #
+    # For variants
+    #
+    # {{en-ing form of|term}}
+    "en-ing form of": "parts[1]",
+    # {{en-simple past of|term}}
+    "en-simple past of": "parts[1]",
+    # {{en-irregular plural of|term}}
+    "en-irregular plural of": "parts[1]",
+    # {{en-past of|term}}
+    "en-past of": "parts[1]",
+    # {{en-superlative of|term}}
+    "en-superlative of": "parts[1]",
+    # {{en-third-person singular of|term}}
+    "en-third-person singular of": "parts[1]",
+    # {{en-third-person_singular_of|term}}
+    "en-third-person_singular_of": "parts[1]",
+    # {{plural of|en|human}}
+    "plural of": "parts[-1]",
 }
 
 

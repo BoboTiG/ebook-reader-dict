@@ -1,0 +1,38 @@
+{{also|Humans|humāns}}
+==English==
+
+===Noun===
+{{head|en|noun form}}
+
+# {{plural of|en|human}}
+
+===Anagrams===
+* {{anagrams|en|a=ahmnsu|Hamsun|Husman|Shuman|husman}}
+
+----
+
+==Catalan==
+
+===Pronunciation===
+* {{ca-IPA}}
+* {{rhymes|ca|ans|s=2}}
+
+===Noun===
+{{head|ca|noun form}}
+
+# {{plural of|ca|humà}}
+
+----
+
+==Latin==
+
+===Etymology===
+Present active participle of {{m|la|humō||bury}}
+
+===Participle===
+{{la-part|humāns}}
+
+# [[burying]]
+
+====Declension====
+{{la-adecl|humāns<3-P+>}}

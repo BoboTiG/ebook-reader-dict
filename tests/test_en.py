@@ -8,7 +8,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, etymology, definitions",
+    "word, pronunciations, etymology, definitions, variants",
     [
         (
             "ab",
@@ -23,6 +23,7 @@ from wikidict.utils import process_templates
                 "<i>Abbreviation of</i> <b>abort</b>.",
                 "<i>Abbreviation of</i> <b>about</b>.",
             ],
+            [],
         ),
         (
             "cum",
@@ -39,6 +40,7 @@ from wikidict.utils import process_templates
                 "<i>Eye dialect spelling of</i> <b>come</b> (“move from further to nearer; arrive”).",
                 "<i>Clipping of</i> <b>cumulative</b>.",
             ],
+            [],
         ),
         (
             "efficient",
@@ -53,7 +55,9 @@ from wikidict.utils import process_templates
                 "<i>(proscribed, old use)</i> effective, efficacious",
                 "<i>(obsolete)</i> a cause; something that causes an effect",
             ],
+            [],
         ),
+        ("humans", [], [], [], ["human"]),
         (
             "it's",
             ["/ɪts/"],
@@ -65,6 +69,7 @@ from wikidict.utils import process_templates
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
+            [],
         ),
         (
             "Mars",
@@ -79,7 +84,9 @@ from wikidict.utils import process_templates
                 "The Mars Bar, a brand of chocolate bar with caramel and nougat filling.",
                 "<i>Alternative form of</i> <b>Mas</b>",
             ],
+            [],
         ),
+        ("memoized", [], [], [], ["memoize"]),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
@@ -95,6 +102,7 @@ from wikidict.utils import process_templates
                 "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
                 "To make a portmanteau word.",
             ],
+            [],
         ),
         (
             "someone",
@@ -105,6 +113,7 @@ from wikidict.utils import process_templates
                 "A partially specified but unnamed person.",
                 "an important person",
             ],
+            [],
         ),
         (
             "the",
@@ -129,6 +138,7 @@ from wikidict.utils import process_templates
                 "<i>With a comparative, and often with <b>for it</b>, indicates a result more like said comparative. This can be negated with <b>none</b>.</i>",  # noqa
                 "For each; per.",
             ],
+            [],
         ),
         (
             "um",
@@ -141,6 +151,7 @@ from wikidict.utils import process_templates
                 "<i>Alternative form of</i> <b>umbe</b>",
                 "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
             ],
+            [],
         ),
         (
             "us",
@@ -157,6 +168,7 @@ from wikidict.utils import process_templates
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
                 "<i>(rare)</i> <i>Alternative form of</i> <b>u's</b>.",
             ],
+            [],
         ),
         (
             "water",
@@ -208,6 +220,7 @@ from wikidict.utils import process_templates
                 "<i>(intransitive)</i> To fill with or secrete water.",
                 "<i>(transitive)</i> To wet and calender, as cloth, so as to impart to it a lustrous appearance in wavy lines; to diversify with wavelike lines.",  # noqa
             ],
+            [],
         ),
         (
             "word",
@@ -251,6 +264,7 @@ from wikidict.utils import process_templates
                 '<i>(slang, African-American Vernacular)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
                 "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <b>word up</b>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
             ],
+            [],
         ),
     ],
 )
@@ -259,6 +273,7 @@ def test_parse_word(
     pronunciations: List[str],
     etymology: List[Definitions],
     definitions: List[Definitions],
+    variants: List[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -267,6 +282,7 @@ def test_parse_word(
     assert pronunciations == details.pronunciations
     assert etymology == details.etymology
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(

@@ -383,6 +383,23 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                     )
                 ):
                     add_potential_variant(word, tpl, locale, variants)
+        elif locale == "en":
+            if title not in {"Noun", "Verb"}:
+                continue
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if tpl.startswith(
+                    (
+                        "{{en-ing",
+                        "{{en-irregular",
+                        "{{en-past",
+                        "{{en-simple",
+                        "{{en-superlative",
+                        "{{en-third",
+                        "{{plural of",
+                    )
+                ):
+                    add_potential_variant(word, tpl, locale, variants)
         elif locale == "es":
             if not title.startswith(("Forma adjetiva", "Forma verbal")):
                 continue
