@@ -60,6 +60,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dictzip
+        run: sudo apt install dictzip
+
       - uses: actions/cache@v3
         id: cache
         with:
