@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 
+import os
 import re
 from collections import namedtuple
 from contextlib import suppress
@@ -14,11 +15,14 @@ import wikitextparser
 from cachetools import cached
 from cachetools.keys import hashkey
 
+from . import svg
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
-    IMG_CSS,
+    WIKIMEDIA_HEADERS,
+    WIKIMEDIA_URL_MATH_CHECK,
+    WIKIMEDIA_URL_MATH_RENDER,
 )
 from .hiero_utils import render_hiero
 from .lang import (
@@ -229,10 +233,13 @@ def guess_prefix(word: str) -> str:
 
 
 def clean(text: str) -> str:
-    """Cleans up the provided Wikicode.
+    r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
     Source: https://github.com/macbre/mediawiki-dump/blob/3f1553a/mediawiki_dump/tokenizer.py#L8
+
+        >>> clean(r"<math>x \in ]x_0 - \epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \in ]x_0, x_0 + \epsilon[</math>")
+        '<math>x \\in ]x_0 - \\epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \\in ]x_0, x_0 + \\epsilon[</math>'
 
         >>> clean("{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}")
         '{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}'
@@ -320,6 +327,11 @@ def clean(text: str) -> str:
     sub = re.sub
     sub2 = regex.sub
 
+    # Save <math> formulas to prevent altering them
+    if formulas := re.findall(r"(<math>[^<]+</math>)", text):
+        for idx, formula in enumerate(formulas):
+            text = text.replace(formula, f"##math{idx}##")
+
     # Remove line breaks
     text = text.replace("\n", "")
 
@@ -401,6 +413,10 @@ def clean(text: str) -> str:
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
+    # Restore math formulas
+    for idx, formula in enumerate(formulas):
+        text = text.replace(f"##math{idx}##", formula)
+
     return text.strip()
 
 
@@ -422,12 +438,12 @@ def process_templates(word: str, text: str, locale: str) -> str:
         '<i>Alternative form of</i> <b>ER=EPR</b>'
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<svg ...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
         <math> ERROR with \frac in [test]
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
-        '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom" src="data:image/gif;base64,...'
+        '<svg ...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
         <chem> ERROR with C10HX\xz14N2O4 in [test]
         'C10HX\\xz14N2O4'
@@ -478,63 +494,64 @@ def process_templates(word: str, text: str, locale: str) -> str:
     return text.strip()
 
 
-def _convert_math(expr: str, packages: List[str] | None = None) -> str:
-    """Convert mathematics symbols to a base64 encoded GIF file."""
-    from base64 import b64encode
-    from io import BytesIO
+def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -> str:
+    """
+    Convert mathematic/chemical symbols to a SVG string.
 
-    from PIL import Image
-    from sympy import preview
+    Technical details can be found on those websites:
+        - https://en.wikipedia.org/api/rest_v1/#/Math
+        - https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
+        - https://github.com/wikimedia/restbase/blob/ecef17bda6f4efc0d6e187fb05b1eeb389bf7120/sys/mathoid.js#L33
+        - https://phabricator.wikimedia.org/diffusion/GMAT/browse/master/lib/math.js
+    """  # noqa
 
-    # see issue #1096
-    expr = expr.replace("\\Z", "\\mathbb{Z}")
-    expr = expr.replace("\\N", "\\mathbb{N}")
-    expr = expr.replace("\\R", "\\mathbb{R}")
-    expr = expr.replace("\\isin", "\\in")
-    expr = expr.replace("\\and", "\\land")
-    expr = expr.replace("\\Tau", "\\mathrm{T}")
-    expr = expr.replace("\\infin", "\\infty")
-    expr = expr.replace("\\rarr", "\\rightarrow")
+    if cat == "chem":
+        formula = f"\\ce{{{formula}}}"
 
-    dvioptions = ["-T", "tight", "-z", "0", "-D 150", "-bg", "Transparent"]
-    with BytesIO() as buf, BytesIO() as im:
-        preview(
-            f"${expr}$",
-            output="png",
-            viewer="BytesIO",
-            outputbuffer=buf,
-            dvioptions=dvioptions,
-            packages=tuple(packages or []),
-        )
-        Image.open(buf).convert("L").save(im, format="gif", optimize=True)
+    headers = WIKIMEDIA_HEADERS
 
-        im.seek(0)
-        raw = im.read()
+    # 1. Get the formula hash (type can be tex, inline-tex, or chem)
+    url_hash = WIKIMEDIA_URL_MATH_CHECK.format(type=cat)
+    with requests.post(url_hash, headers=headers, json={"q": formula}) as req:
+        res = req.json()
+        assert res["success"]
+        formula_hash = req.headers["x-resource-location"]
 
-    return f'<img style="{IMG_CSS}" src="data:image/gif;base64,{b64encode(raw).decode()}"/>'
+    # 2. Get the rendered formula (format can be svg, mml, or png)
+    url_render = WIKIMEDIA_URL_MATH_RENDER.format(
+        format=output_format, hash=formula_hash
+    )
+    with requests.get(url_render, headers=headers) as req:
+        return req.text
+
+
+def formula_to_svg(formula: str, cat: str = "tex") -> str:
+    """Return an optimized SVG file as a string."""
+    force = "FORCE_FORMULA_RENDERING" in os.environ
+    if force or not (svg_raw := svg.get(formula)):
+        svg_raw = render_formula(formula, cat=cat, output_format="svg")
+        svg.set(formula, svg_raw)
+    return svg.optimize(svg_raw)
 
 
 def convert_math(match: Union[str, Match[str]], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
-    expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
-        return _convert_math(
-            expr,
-            packages=["amssymb", "bbm"],
-        )
+        return formula_to_svg(formula)
     except Exception:
-        print(f"<math> ERROR with {expr} in [{word}]", flush=True)
-        return expr
+        print(f"<math> ERROR with {formula} in [{word}]", flush=True)
+        return formula
 
 
 def convert_chem(match: Union[str, Match[str]], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
-    expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
-        return _convert_math(f"\\ce{{{expr}}}", packages=["mhchem"])
+        return formula_to_svg(formula, cat="chem")
     except Exception:
-        print(f"<chem> ERROR with {expr} in [{word}]", flush=True)
-        return expr
+        print(f"<chem> ERROR with {formula} in [{word}]", flush=True)
+        return formula
 
 
 def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
