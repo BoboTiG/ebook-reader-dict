@@ -2,8 +2,8 @@ name: Update dictionaries
 
 on:
   schedule:
-    # At 00:00 (UTC) every day
-    - cron: "0 0 * * *"
+    # At 01:00 (UTC) every day
+    - cron: "0 1 * * *"
 
   # Allow to call the workflow manually
   workflow_dispatch:
