@@ -743,6 +743,7 @@ labels_topical = {
     "political subdivision": "government",
     "pro wrestling": "professional wrestling",
     "professional": "business",
+    "programming language": "computer languages",
     "protein": "biochemistry",
     "proteins": "biochemistry",
     "quantum physics": "quantum mechanics",
@@ -823,7 +824,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 377
+}  # 378
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1881,6 +1882,7 @@ labels_subvarieties = {
     "Dakni": "Deccani Urdu",
     "Dakshina Andhra": "South Coastal Andhra",
     "Dalaguete": "Sialo",
+    "Dante": "Dantesque",
     "Davao Bisaya": "Davao",
     "Davaoeño": "Davao",
     "De'kwana": "De'kwana dialect",
@@ -2029,6 +2031,10 @@ labels_subvarieties = {
     "Hellenophile": "Hellenizing School",
     "Hellenophile School": "Hellenizing School",
     "Hemshin": "Hemşin",
+    "Herjedal": "Härjedalen",
+    "Herjedalen": "Härjedalen",
+    "Herjådal": "Härjedalen",
+    "Herjådalen": "Härjedalen",
     "Hesse": "Hessian",
     "Hessen": "Hessian",
     "Hessisch": "Hessian",
@@ -2051,6 +2057,7 @@ labels_subvarieties = {
     "Hue dialect": "Huế",
     "Huế dialect": "Huế",
     "Hà Tĩnh dialect": "Hà Tĩnh",
+    "Härjedal": "Härjedalen",
     "Hải Phòng dialect": "Hải Phòng",
     "I": "Imola",
     "Idaacha": "Idaasha",
@@ -2328,6 +2335,7 @@ labels_subvarieties = {
     "Northern and Central German": "northern and central Germany",
     "Northern and Central Germany": "northern and central Germany",
     "Northwestern Ojibwa": "Northwestern Ojibwe",
+    "Norwegian": "Norway",
     "Not Oxford": "Non-Oxford British English",
     "Nouchi": "Ivory Coast slang",
     "Noussi": "Ivory Coast slang",
@@ -2888,9 +2896,15 @@ labels_subvarieties = {
     "hellenizing school": "Hellenizing School",
     "hellenophile": "Hellenizing School",
     "hellenophile school": "Hellenizing School",
+    "herjedal": "Härjedalen",
+    "herjedalen": "Härjedalen",
+    "herjådal": "Härjedalen",
+    "herjådalen": "Härjedalen",
     "hist": "historical",
     "hordaland": "Hordaland",
     "hunaban": "Hellenizing School",
+    "härjedal": "Härjedalen",
+    "härjedalen": "Härjedalen",
     "igbomina": "Igbomina",
     "igboona": "Igbomina",
     "inner Mbugu": "Ma'a",
@@ -2934,6 +2948,8 @@ labels_subvarieties = {
     "northern and central German": "northern and central Germany",
     "northern central Vietnam": "North Central Vietnam",
     "northern central Vietnamese": "North Central Vietnam",
+    "norway": "Norway",
+    "norwegian": "Norway",
     "not Oxford": "Non-Oxford British English",
     "nouchi": "Ivory Coast slang",
     "noussi": "Ivory Coast slang",
@@ -3113,5 +3129,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,503
+}  # 1,518
 # END
