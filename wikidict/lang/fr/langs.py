@@ -3019,7 +3019,7 @@ langs = {
     "lui": "luiseño",
     "lui-jua": "juaneño",
     "lul": "olu’bo",
-    "lun": "lounda",
+    "lun": "lunda",
     "luo": "luo (Kenya, Tanzanie)",
     "lup": "lumbu",
     "lur": "laura",
