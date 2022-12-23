@@ -2879,6 +2879,7 @@ labels_subvarieties = {
     "coll": "collophons",
     "cretan": "Cretan",
     "daytshmerish": "Daytshmerish",
+    "early": "early Iguvine",
     "early ME": "Early Middle English",
     "east": "East-Slovincian",
     "ebonics": "African-American Vernacular",
@@ -2959,7 +2960,7 @@ labels_subvarieties = {
     "ojg": "Eastern Ojibwe",
     "ojs": "Oji-Cree",
     "ojw": "Western Ojibwe",
-    "old": "old Iguvine",
+    "old": "early Iguvine",
     "otw": "Ottawa",
     "overseas Vietnamese": "Overseas Vietnamese",
     "philhellene": "Hellenizing School",
@@ -3129,5 +3130,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,518
+}  # 1,519
 # END
