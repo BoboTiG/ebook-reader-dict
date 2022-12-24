@@ -47,7 +47,7 @@ langs = {
     "arp": "arapaho",
     "arq": "àrab algerià",
     "ars": "àrab najdi",
-    "arw": "arauac",
+    "arw": "arawak",
     "ary": "àrab marroquí",
     "arz": "àrab egipci",
     "as": "assamès",

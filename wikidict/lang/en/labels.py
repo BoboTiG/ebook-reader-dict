@@ -163,6 +163,7 @@ labels = {
     "pronominal": "takes a reflexive pronoun",
     "proprietary eponym": "genericized trademark",
     "public school slang": "school slang",
+    "purism": "puristic",
     "racial slur": "ethnic slur",
     "rare sense": "rare",
     "rare term": "rare",
@@ -195,7 +196,7 @@ labels = {
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
     "wrt": "with respect to",
-}  # 190
+}  # 191
 
 label_syntaxes = {
     "&": {

@@ -832,6 +832,7 @@ langs = {
     "burgonde": "burgonde",
     "bus": "bokobaru",
     "but": "bungain",
+    "buu": "budu",
     "buw": "bubi",
     "bux": "boghom",
     "buy": "bullom so",
@@ -6317,7 +6318,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,312
+}  # 6,313
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
