@@ -153,6 +153,7 @@ langs = {
     "adt": "Adnyamathanha",
     "adu": "Aduge",
     "adw": "Amondawa",
+    "adx": "Amdo Tibetan",
     "ady": "Adyghe",
     "adz": "Adzera",
     "ae": "Avestan",
@@ -3597,6 +3598,7 @@ langs = {
     "kbc": "Kadiwéu",
     "kbd": "Kabardian",
     "kbe": "Kanju",
+    "kbg": "Khamba",
     "kbh": "Camsá",
     "kbi": "Kaptiau",
     "kbj": "Kari",
@@ -3745,6 +3747,7 @@ langs = {
     "khd": "Bädi Kanum",
     "khe": "Korowai",
     "khf": "Khuen",
+    "khg": "Khams Tibetan",
     "khh": "Kehu",
     "khi-kal": "Kalahari Khoe",
     "khi-khk": "Khoekhoe",
@@ -8178,6 +8181,7 @@ langs = {
     "tsh": "Tsuvan",
     "tsi": "Tsimshian",
     "tsj": "Tshangla",
+    "tsk": "Tseku",
     "tsl": "Ts'ün-Lao",
     "tsm": "Turkish Sign Language",
     "tsp": "Northern Toussian",
@@ -9562,5 +9566,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,557
+}  # 9,561
 # END

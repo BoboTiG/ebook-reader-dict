@@ -611,6 +611,7 @@ labels_topical = {
     "element symbol": "chemistry",
     "enzyme": "biochemistry",
     "equestrian": "equestrianism",
+    "evolutionary biology": "evolutionary theory",
     "fatty acid": "organic chemistry",
     "felid": "zoology",
     "fictional character": "fiction",
@@ -825,7 +826,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 378
+}  # 379
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1766,6 +1767,7 @@ labels_subvarieties = {
     "Braji": "Braj Bhāshā",
     "Brazilian Portuguese form": "Brazilian Portuguese",
     "Brazilian Portuguese spelling": "Brazilian spelling",
+    "Brazilian Portuguese verb form": "Brazilian spelling",
     "Brazilian orthography": "Brazilian spelling",
     "Breemsch": "Oldenburg",
     "Bremen": "Oldenburg",
@@ -1937,6 +1939,7 @@ labels_subvarieties = {
     "European Portuguese form": "European Portuguese",
     "European Portuguese orthography": "European spelling",
     "European Portuguese spelling": "European spelling",
+    "European Portuguese verb form": "European spelling",
     "F": "Faenza",
     "Fa": "Old Faentino",
     "Faentino antico": "Old Faentino",
@@ -1988,7 +1991,10 @@ labels_subvarieties = {
     "Għawdxi": "Gozo",
     "H": "Smołdziński Las-Czołpino",
     "H.": "Smołdziński Las-Czołpino",
+    "HK": "Hong Kong",
+    "HK English": "Hong Kong",
     "HKC": "Hong Kong Cantonese",
+    "HKE": "Hong Kong",
     "Ha Tinh": "Hà Tĩnh",
     "Ha Tinh dialect": "Hà Tĩnh",
     "Hachijo": "Hachijō",
@@ -2049,6 +2055,7 @@ labels_subvarieties = {
     "Homeric Greek": "Epic",
     "Homshetsi": "Hamshen",
     "Homshetsma": "Hamshen",
+    "Hong Kong English": "Hong Kong",
     "Honichi": "Hōnichi",
     "Hopa": "Khopa",
     "Hopa-Batumi": "Khopa–Batumi",
@@ -3131,5 +3138,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,519
+}  # 1,525
 # END
