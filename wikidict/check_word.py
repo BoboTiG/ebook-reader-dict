@@ -232,7 +232,6 @@ def get_url_content(url: str) -> str:
             wait_time = 1
             resp = err.response
             if resp is not None and resp.status_code == 429:
-                print(resp, resp.status_code == 429)
                 wait_time = int(resp.headers.get("retry-after") or "1")
             sleep(wait_time * SLEEP_TIME)
             retry += 1
