@@ -545,7 +545,8 @@ templates_multi = {
     "indice": "subscript(parts[1])",
     # {{info lex|boulangerie}}
     # {{info lex|équitation|sport}}
-    "info lex": "term(', '.join(capitalize(part) for part in parts[1:]))",
+    # {{info lex|équitation|sport|lang=fr}}
+    "info lex": "term(', '.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{ISBN|978-1-23-456789-7|2-876-54301-X}}
     "ISBN": "'ISBN ' + concat(parts[1:], sep=', ', last_sep=' et ')",
     # {{Lang-ar||[[نهر ابراهيم]]|100}}
