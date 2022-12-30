@@ -13,7 +13,7 @@ Usage:
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --gen-dict=WORDS --output=FILENAME [--format=FORMAT]
-    wikidict LOCALE --update-release
+    wikidict LOCALE --release
 
 Options:
   --download                Retrieve the latest Wiktionary dump into "data/$LOCALE/pages-$DATE.xml".
@@ -37,7 +37,7 @@ Options:
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
                             --format=FORMAT     Format can be "kobo" or "stardict" [default: kobo]
-  --update-release          DEV: Update the release description. Do not use it manually but via the CI only.
+  --release                 DEV: Generate the description of a GitHub release.
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
 """
@@ -107,10 +107,10 @@ def main() -> int:  # pragma: nocover
             format=args["--format"],
         )
 
-    if args["--update-release"]:
-        from . import upload
+    if args["--release"]:
+        from . import release
 
-        return upload.main(args["LOCALE"])
+        return release.main(args["LOCALE"])
 
     # Run the whole process by default
     from . import convert, download, parse, render
