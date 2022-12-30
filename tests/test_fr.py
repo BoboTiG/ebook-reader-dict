@@ -478,6 +478,7 @@ def test_parse_word(
         ("{{divinités|fr|grecques}}", "<i>(Divinité)</i>"),
         ("{{info lex|boulangerie}}", "<i>(Boulangerie)</i>"),
         ("{{info lex|équitation|sport}}", "<i>(Équitation, Sport)</i>"),
+        ("{{info lex|géographie|lang=fr}}", "<i>(Géographie)</i>"),
         ("J·K{{e|-1}}", "J·K<sup>-1</sup>"),
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{familier|fr|nocat=1}}", "<i>(Familier)</i>"),
