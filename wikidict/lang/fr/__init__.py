@@ -258,6 +258,7 @@ templates_italic = {
     "dérision": "Par dérision",
     "désuet": "Désuet",
     "détroit": "Géographie",
+    "diaéthique": "Variation diaéthique",
     "didact": "Didactique",
     "diplo": "Diplomatie",
     "élec": "Électricité",

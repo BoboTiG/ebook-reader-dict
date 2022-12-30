@@ -461,6 +461,7 @@ def test_parse_word(
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("{{détroit|fr}}", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
+        ("{{diaéthique|fr}}", "<i>(Variation diaéthique)</i>"),
         ("{{diminutif|fr}}", "diminutif"),
         ("{{diminutif|fr|de=balle}}", "diminutif"),
         ("{{diminutif|fr|m=1}}", "Diminutif"),
