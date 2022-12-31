@@ -3018,6 +3018,8 @@ labels_subvarieties = {
     "pt-br form": "Brazilian Portuguese",
     "pt-pt form": "European Portuguese",
     "rao": "1922–1940 reformed orthography",
+    "reflexive": "reflexive with {{m|mk|се|tr=-}}",
+    "reflexive-si": "reflexive with {{m|mk|си|tr=-}}",
     "reli": "religious",
     "rioplatense": "Rioplatense",
     "roa-oit": "Old Italian",
@@ -3165,5 +3167,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,541
+}  # 1,543
 # END
