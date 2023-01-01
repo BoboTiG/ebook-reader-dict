@@ -517,7 +517,8 @@ templates_multi = {
     # XIV{{exp|e}}
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{emploi|au passif}}
-    "emploi": "term(capitalize(parts[1]))",
+    # {{emploi|lang=fr|au passif}}
+    "emploi": "term(''.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
