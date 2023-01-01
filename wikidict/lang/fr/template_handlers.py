@@ -993,8 +993,17 @@ def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Sigle)</i>'
     >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "United Nations"}))
     'Sigle de <i>United Nations</i>'
+    >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "sens anti-horaire", "texte": "Sens Anti-Horaire", "m": "1"}))
+    'Sigle de <i>Sens Anti-Horaire</i>'
     """  # noqa
-    return "Sigle de " + italic(data["de"]) if data["de"] else term("Sigle")
+    phrase = "Sigle"
+    if data["texte"]:
+        phrase += f" de {italic(data['texte'])}"
+    elif data["de"]:
+        phrase += f" de {italic(data['de'])}"
+    else:
+        phrase = term(phrase)
+    return phrase
 
 
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
