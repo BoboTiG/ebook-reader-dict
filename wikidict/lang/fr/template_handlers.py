@@ -676,22 +676,26 @@ def render_lae(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Adverbe)</i>'
     >>> render_lae("laé", ["fr", "nom", "1"], defaultdict(str))
     '<i>(Nom commun 1)</i>'
+    >>> render_lae("laé", ["conv", "symb", "1"], defaultdict(str))
+    '<i>(Symbole 1)</i>'
     """
     labels = {
-        "nom": "Nom commun",
-        "verb": "Verbe",
-        "nom-pr": "Nom propre",
         "adj": "Adjectif",
-        "part": "Particule",
-        "prép": "Préposition",
+        "adjectif": "Adjectif",
         "adv": "Adverbe",
         "conj": "Conjonction",
         "interj": "Interjection",
-        "suf": "Suffixe",
-        "préf": "Préfixe",
+        "nom": "Nom commun",
+        "nom-pr": "Nom propre",
         "nom propre": "Nom propre",
+        "part": "Particule",
+        "préf": "Préfixe",
+        "prép": "Préposition",
+        "suf": "Suffixe",
+        "symb": "Symbole",
+        "verb": "Verbe",
     }
-    phrase = labels.get(parts[1], "") if len(parts) > 1 else ""
+    phrase = labels[parts[1]] if len(parts) > 1 else ""
     if len(parts) > 2:
         phrase += f" {parts[2]}"
     return term(phrase)
