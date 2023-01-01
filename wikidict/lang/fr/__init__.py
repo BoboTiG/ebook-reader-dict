@@ -499,8 +499,6 @@ templates_multi = {
     "déverbal de": 'f"Déverbal de {italic(parts[1])}"',
     # {{dénominal de|affection|fr}}
     "dénominal de": 'f"Dénominal de {italic(parts[1])}"',
-    # {{diminutif|fr|m=1}}
-    "diminutif": "'Diminutif' if any(p in ('m=1', 'm=oui') for p in parts) else 'diminutif'",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     "formule chimique": "chimy(parts[1:])",
@@ -787,6 +785,13 @@ def last_template_handler(
         >>> last_template_handler(["code langue", "foo"], "fr")
         ''
 
+        >>> last_template_handler(["diminutif", "fr"], "fr")
+        '<i>(diminutif)</i>'
+        >>> last_template_handler(["diminutif", "fr", "m=1"], "fr")
+        '<i>(Diminutif)</i>'
+        >>> last_template_handler(["diminutif", "fr", "de=balle"], "fr")
+        'diminutif de <i>balle</i>'
+
         >>> last_template_handler(["ellipse"], "fr")
         '<i>(Par ellipse)</i>'
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
@@ -919,6 +924,15 @@ def last_template_handler(
     if tpl == "code langue":
         lang = parts[0]
         return next((code for code, l10n in langs.items() if l10n == lang), "")
+
+    if tpl == "diminutif":
+        phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
+        if data["de"]:
+            phrase += f" de {italic(data['de'])}"
+        else:
+            phrase = term(phrase)
+        return phrase
+
     if tpl in ("ellipse", "par ellipse"):
         return (
             f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
