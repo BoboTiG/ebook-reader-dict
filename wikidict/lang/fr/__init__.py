@@ -516,9 +516,6 @@ templates_multi = {
     "ère": "superscript(parts[1] if len(parts) > 1 else 're')",
     # XIV{{exp|e}}
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
-    # {{emploi|au passif}}
-    # {{emploi|lang=fr|au passif}}
-    "emploi": "term(''.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
@@ -794,6 +791,14 @@ def last_template_handler(
         '<i>(Par ellipse)</i>'
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
         '<i>(Ellipse de</i> piston racleur<i>)</i>'
+
+        >>> last_template_handler(["emploi", "au passif"], "fr")
+        '<i>(Au passif)</i>'
+        >>> last_template_handler(["emploi", "lang=fr", "au passif"], "fr")
+        '<i>(Au passif)</i>'
+        >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
+        '<i>(Au passif)</i>'
+
         >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
         'chameau de Bactriane'
         >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
@@ -828,7 +833,6 @@ def last_template_handler(
         'avoir'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
-
 
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
@@ -874,7 +878,14 @@ def last_template_handler(
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
     """  # noqa
-    from ...user_functions import chinese, extract_keywords_from, italic, person, term
+    from ...user_functions import (
+        capitalize,
+        chinese,
+        extract_keywords_from,
+        italic,
+        person,
+        term,
+    )
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template
@@ -922,6 +933,9 @@ def last_template_handler(
     if tpl == "R:TLFi":
         w = parts[0] if parts else word
         return f"«&nbsp;{w}&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994"
+
+    if tpl == "emploi":
+        return term(capitalize(parts[0]))
 
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
