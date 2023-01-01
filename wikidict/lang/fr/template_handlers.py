@@ -59,11 +59,13 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Abréviation de <i>accusatif</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"nolien": "oui"}))
     '<i>(Abréviation)</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "engin spatial de maintenance", "lang": "fr", "m": "1"}))
+    'abréviation de <i>engin spatial de maintenance</i>'
     """  # noqa
     if not parts and not data:
         return italic("(Abréviation)")
 
-    phrase = "Abréviation"
+    phrase = "abréviation" if data["m"] in ("1", "oui") else "Abréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
         phrase += f' de {italic(data["texte"])}'
     elif data["de"]:
