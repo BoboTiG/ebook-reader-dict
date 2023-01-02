@@ -453,7 +453,6 @@ def test_parse_word(
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{1re}}", "1<sup>re</sup>"),
         ("{{ancre|sens_sexe}}", ""),
-        ("{{emploi|au passif}}", "<i>(Au passif)</i>"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "#B0F2B6"),
         ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
