@@ -613,6 +613,7 @@ langs = {
     "bhs": "buwal",
     "bhv": "bahau",
     "bhw": "biak",
+    "bhy": "bhele",
     "bhz": "bada (Indonésie)",
     "bi": "bichlamar",
     "bia": "badimaya",
@@ -831,6 +832,7 @@ langs = {
     "burgonde": "burgonde",
     "bus": "bokobaru",
     "but": "bungain",
+    "buu": "budu",
     "buw": "bubi",
     "bux": "boghom",
     "buy": "bullom so",
@@ -3019,7 +3021,7 @@ langs = {
     "lui": "luiseño",
     "lui-jua": "juaneño",
     "lul": "olu’bo",
-    "lun": "lounda",
+    "lun": "lunda",
     "luo": "luo (Kenya, Tanzanie)",
     "lup": "lumbu",
     "lur": "laura",
@@ -3121,6 +3123,7 @@ langs = {
     "mdh": "maguindanao",
     "mdi": "mamvu",
     "mdk": "mangbutu",
+    "mdm": "mayogo",
     "mdp": "mbala",
     "mdr": "mandar",
     "mds": "maria (Papouasie-Nouvelle-Guinée)",
@@ -6315,7 +6318,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,310
+}  # 6,313
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

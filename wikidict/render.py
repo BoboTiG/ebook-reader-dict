@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Tuple, cast
+from typing import Callable, Dict, List, Set, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -311,6 +311,11 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     return top_sections, ret
 
 
+def add_potential_variant(word: str, tpl: str, locale: str, variants: Set[str]) -> None:
+    if (variant := process_templates(word, clean(tpl), locale)) and variant != word:
+        variants.add(variant)
+
+
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and gender guessing.
@@ -345,7 +350,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     genders = []
     etymology = []
-    variants = set()
+    variants: Set[str] = set()
 
     # Etymology
     for section in etyl_section[locale]:
@@ -358,37 +363,49 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
         genders = _find_genders(top_sections, find_genders[locale])
 
+    # Find potential variants
     for title, parsed_section in parsed_sections.items():
-        # Find potential variants
-        if locale == "fr":
+        if locale == "de":
             if not title.startswith(
                 (
-                    "{{S|adjectif|fr}",
-                    "{{S|adjectif|fr|flexion",
-                    "{{S|nom|fr|flexion",
-                    "{{S|verbe|fr|flexion",
+                    "{{Grundformverweis ",
+                    "{{Alte Schreibweise|",
                 )
             ):
                 continue
+
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
-                if not tpl.startswith(
+                if tpl.startswith(
                     (
-                        "{{fr-accord-",
-                        "{{fr-rég",
-                        "{{fr-verbe-flexion",
+                        "{{Grundformverweis ",
+                        "{{Alte Schreibweise|",
                     )
                 ):
-                    continue
-                variant = process_templates(word, clean(tpl), locale)
-                if variant and variant != word:
-                    variants.add(variant)
+                    add_potential_variant(word, tpl, locale, variants)
+        elif locale == "en":
+            if title not in {"Noun", "Verb"}:
+                continue
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if tpl.startswith(
+                    (
+                        "{{en-ing",
+                        "{{en-irregular",
+                        "{{en-past",
+                        "{{en-simple",
+                        "{{en-superlative",
+                        "{{en-third",
+                        "{{plural of",
+                    )
+                ):
+                    add_potential_variant(word, tpl, locale, variants)
         elif locale == "es":
             if not title.startswith(("Forma adjetiva", "Forma verbal")):
                 continue
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
-                if not tpl.startswith(
+                if tpl.startswith(
                     (
                         "{{enclítico",
                         "{{infinitivo",
@@ -402,31 +419,27 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                         "{{participio",
                     )
                 ):
-                    continue
-                variant = process_templates(word, clean(tpl), locale)
-                if variant and variant != word:
-                    variants.add(variant)
-        elif locale == "de":
+                    add_potential_variant(word, tpl, locale, variants)
+        elif locale == "fr":
             if not title.startswith(
                 (
-                    "{{Grundformverweis ",
-                    "{{Alte Schreibweise|",
+                    "{{S|adjectif|fr}",
+                    "{{S|adjectif|fr|flexion",
+                    "{{S|nom|fr|flexion",
+                    "{{S|verbe|fr|flexion",
                 )
             ):
                 continue
-
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
-                if not tpl.startswith(
+                if tpl.startswith(
                     (
-                        "{{Grundformverweis ",
-                        "{{Alte Schreibweise|",
+                        "{{fr-accord-",
+                        "{{fr-rég",
+                        "{{fr-verbe-flexion",
                     )
                 ):
-                    continue
-                variant = process_templates(word, clean(tpl), locale)
-                if variant and variant != word:
-                    variants.add(variant)
+                    add_potential_variant(word, tpl, locale, variants)
 
     return Word(prons, genders, etymology, definitions, sorted(variants))
 

@@ -2,8 +2,8 @@ name: Update dictionaries
 
 on:
   schedule:
-    # At 00:00 (UTC) every day
-    - cron: "0 0 * * *"
+    # At 01:00 (UTC) every day
+    - cron: "0 1 * * *"
 
   # Allow to call the workflow manually
   workflow_dispatch:
@@ -31,26 +31,27 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: python -m pip install -r requirements.txt
 
-  dicthtml:
+  update:
     runs-on: ubuntu-latest
     needs: [warmup]
 
     # List of locales to generate
     # Sorted by the number of words
     strategy:
+      fail-fast: false
       matrix:
         locale:
-          - fr
-          - en
-          - de
-          - es
-          - el
-          - pt
-          - sv
-          - it
-          - ca
-          # - ru
-          - no
+          - "fr"
+          - "en"
+          - "de"
+          - "es"
+          - "el"
+          - "pt"
+          - "sv"
+          - "it"
+          - "ca"
+          # - "ru"
+          - "no"
 
     steps:
       - uses: actions/checkout@v3
@@ -59,6 +60,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+
+      - name: Install dictzip
+        run: sudo apt install dictzip
 
       - uses: actions/cache@v3
         id: cache
@@ -82,34 +86,15 @@ jobs:
       - name: Convert to dictionaries
         run: python -Wd -m wikidict ${{ matrix.locale }} --convert
 
-      - name: Upload the dictionary (DictFile)
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
-          tag: ${{ matrix.locale }}
-          overwrite: true
-          file_glob: true
+      - name: Generate the release description
+        run: python -Wd -m wikidict ${{ matrix.locale }} --release > release.txt
 
-      - name: Upload the dictionary (Kobo)
-        uses: svenstaro/upload-release-action@v2
+      - name: Upload release data
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
-          tag: ${{ matrix.locale }}
-          overwrite: true
-          file_glob: true
-
-      - name: Upload the dictionary (StarDict)
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.TOKEN }}
-          file: data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
-          tag: ${{ matrix.locale }}
-          overwrite: true
-          file_glob: true
-
-      - name: Update the release description
-        run: python -Wd -m wikidict ${{ matrix.locale }} --update-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ matrix.locale }}
+          body_path: release.txt
+          files: |
+            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip

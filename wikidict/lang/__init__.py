@@ -2,31 +2,26 @@
 from typing import Any, Dict, Tuple, TypeVar
 
 from . import ca, de, defaults, el, en, es, fr, it, no, pt, ru, sv
-from .ca.langs import langs as CA
-from .el.langs import langs as EL
-from .en.langs import langs as EN
-from .es.langs import langs as ES
-from .fr.langs import langs as FR
-from .pt.langs import langs as PT
-from .ru.langs import langs as RU
+
+ALL_LOCALES = {
+    "ca": ca,
+    "de": de,
+    "el": el,
+    "en": en,
+    "es": es,
+    "fr": fr,
+    "it": it,
+    "no": no,
+    "pt": pt,
+    "ru": ru,
+    "sv": sv,
+}
+
 
 #
 # Start of manual edition allowed.
 #
 
-_ALL_LOCALES = (ca, de, el, en, es, fr, it, no, pt, ru, sv)
-
-
-# A list of all languages translated into different locales
-all_langs = {
-    "ca": CA,
-    "el": EL,
-    "en": EN,
-    "es": ES,
-    "fr": FR,
-    "pt": PT,
-    "ru": RU,
-}
 
 # The template name dealing with files in the Wikicode (multi locales).
 # [[PATTERN:...|...]]
@@ -63,7 +58,7 @@ def _populate(attr: str) -> PopulatedDict:
         locale.__name__.split(".")[-1]: getattr(locale, attr)
         if hasattr(locale, attr)
         else getattr(defaults, attr)
-        for locale in _ALL_LOCALES
+        for locale in ALL_LOCALES.values()
     }
 
 

@@ -224,7 +224,7 @@ templates_italic = {
     "argot typographes": "Argot des typographes",
     "argot voleurs": "Argot des voleurs",
     "astron": "Astronomie",
-    "au figuré": "Figuré",
+    "au figuré": "Sens figuré",
     "audiovi": "Audiovisuel",
     "auto": "Automobile",
     "automo": "Automobile",
@@ -258,9 +258,11 @@ templates_italic = {
     "dérision": "Par dérision",
     "désuet": "Désuet",
     "détroit": "Géographie",
+    "diaéthique": "Variation diaéthique",
     "didact": "Didactique",
     "diplo": "Diplomatie",
     "élec": "Électricité",
+    "en particulier": "En particulier",
     "enclit": "Enclitique",
     "enfantin": "Langage enfantin",
     "entomol": "Entomologie",
@@ -305,7 +307,7 @@ templates_italic = {
     "hyperb": "Par hyperbole",
     "hyperbole": "Par hyperbole",
     "idiom": "Idiotisme",
-    "idiomatique": "Figuré",
+    "idiomatique": "Sens figuré",
     "idiomatisme": "Idiotisme",
     "impr": "Imprimerie",
     "improprement": "Usage critiqué",
@@ -346,8 +348,8 @@ templates_italic = {
     "méca": "Mécanique",
     "méde": "Médecine",
     "métal": "Métallurgie",
-    "métaph": "Figuré",
-    "métaphore": "Figuré",
+    "métaph": "Sens figuré",
+    "métaphore": "Sens figuré",
     "météo": "Météorologie",
     "météorol": "Météorologie",
     "méton": "Par métonymie",
@@ -366,12 +368,17 @@ templates_italic = {
     "opti": "Optique",
     "ornithol": "Ornithologie",
     "ortho1990": "orthographe rectifiée de 1990",
-    "par analogie": "Par analogie",
     "POO": "Programmation orientée objet",
     "p-us": "Peu usité",
     "p us": "Peu usité",
     "paléogr": "Paléographie",
+    "par analogie": "Par analogie",
+    "par euphémisme": "Par euphémisme",
     "par ext": "Par extension",
+    "par extension": "Par extension",
+    "par hyperbole": "Par hyperbole",
+    "par litote": "Par litote",
+    "par métonymie": "Par métonymie",
     "par plaisanterie": "Par plaisanterie",
     "part": "En particulier",
     "partic": "En particulier",
@@ -409,6 +416,7 @@ templates_italic = {
     "sci-fi": "Science-fiction",
     "scol": "Éducation",
     "scolaire": "Éducation",
+    "sens propre": "Sens propre",
     "sexe": "Sexualité",
     "SMS": "Langage SMS",
     "sociol": "Sociologie",
@@ -491,8 +499,6 @@ templates_multi = {
     "déverbal de": 'f"Déverbal de {italic(parts[1])}"',
     # {{dénominal de|affection|fr}}
     "dénominal de": 'f"Dénominal de {italic(parts[1])}"',
-    # {{diminutif|fr|m=1}}
-    "diminutif": "'Diminutif' if any(p in ('m=1', 'm=oui') for p in parts) else 'diminutif'",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     "formule chimique": "chimy(parts[1:])",
@@ -508,8 +514,6 @@ templates_multi = {
     "ère": "superscript(parts[1] if len(parts) > 1 else 're')",
     # XIV{{exp|e}}
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
-    # {{emploi|au passif}}
-    "emploi": "term(capitalize(parts[1]))",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
     # {{formatnum:-1000000}}
@@ -537,7 +541,8 @@ templates_multi = {
     "indice": "subscript(parts[1])",
     # {{info lex|boulangerie}}
     # {{info lex|équitation|sport}}
-    "info lex": "term(', '.join(capitalize(part) for part in parts[1:]))",
+    # {{info lex|équitation|sport|lang=fr}}
+    "info lex": "term(', '.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{ISBN|978-1-23-456789-7|2-876-54301-X}}
     "ISBN": "'ISBN ' + concat(parts[1:], sep=', ', last_sep=' et ')",
     # {{Lang-ar||[[نهر ابراهيم]]|100}}
@@ -780,10 +785,25 @@ def last_template_handler(
         >>> last_template_handler(["code langue", "foo"], "fr")
         ''
 
+        >>> last_template_handler(["diminutif", "fr"], "fr")
+        '<i>(diminutif)</i>'
+        >>> last_template_handler(["diminutif", "fr", "m=1"], "fr")
+        '<i>(Diminutif)</i>'
+        >>> last_template_handler(["diminutif", "fr", "de=balle"], "fr")
+        'diminutif de <i>balle</i>'
+
         >>> last_template_handler(["ellipse"], "fr")
         '<i>(Par ellipse)</i>'
         >>> last_template_handler(["ellipse", "de=piston racleur"], "fr")
         '<i>(Ellipse de</i> piston racleur<i>)</i>'
+
+        >>> last_template_handler(["emploi", "au passif"], "fr")
+        '<i>(Au passif)</i>'
+        >>> last_template_handler(["emploi", "lang=fr", "au passif"], "fr")
+        '<i>(Au passif)</i>'
+        >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
+        '<i>(Au passif)</i>'
+
         >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
         'chameau de Bactriane'
         >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
@@ -818,7 +838,6 @@ def last_template_handler(
         'avoir'
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
-
 
         >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
@@ -909,7 +928,14 @@ def last_template_handler(
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
     """  # noqa
-    from ...user_functions import chinese, extract_keywords_from, italic, person, term
+    from ...user_functions import (
+        capitalize,
+        chinese,
+        extract_keywords_from,
+        italic,
+        person,
+        term,
+    )
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template
@@ -943,6 +969,15 @@ def last_template_handler(
     if tpl == "code langue":
         lang = parts[0]
         return next((code for code, l10n in langs.items() if l10n == lang), "")
+
+    if tpl == "diminutif":
+        phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
+        if data["de"]:
+            phrase += f" de {italic(data['de'])}"
+        else:
+            phrase = term(phrase)
+        return phrase
+
     if tpl in ("ellipse", "par ellipse"):
         return (
             f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
@@ -957,6 +992,9 @@ def last_template_handler(
     if tpl == "R:TLFi":
         w = parts[0] if parts else word
         return f"«&nbsp;{w}&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994"
+
+    if tpl == "emploi":
+        return term(capitalize(parts[0]))
 
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")

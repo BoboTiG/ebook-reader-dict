@@ -33,8 +33,8 @@ WORD_TPL_KOBO = Template(
     <p>
         <a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}
         <br/>
+        <br/>
         {% if etymologies %}
-            <br/>
             {% for etymology in etymologies %}
                 {% if etymology is string %}
                     <p>{{ etymology }}</p>

@@ -241,6 +241,7 @@ def test_parse_word(
     "wikicode, expected",
     [
         ("{{color|#E01010}}", "[RGB #E01010]"),
+        ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
         ("{{e|la|lupus}}", "lupus"),
         (

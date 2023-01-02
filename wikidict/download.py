@@ -2,7 +2,6 @@
 import bz2
 import os
 import re
-from functools import partial
 from pathlib import Path
 from typing import Callable, List
 
@@ -12,18 +11,18 @@ from requests.exceptions import HTTPError
 from .constants import BASE_URL, DUMP_URL
 
 
-def callback_progress(text: str, total: int, last: bool) -> None:
+def callback_progress(text: str, done: int, last: bool) -> None:
     """Progression callback. Used when fetching the Wiktionary dump and when extracting it."""
-    msg = f"{text}OK [{total:,} bytes]\n" if last else f"{text}{total:,} bytes"
+    msg = f"{text}OK [{done:,} bytes]\n" if last else f"{text}{done:,} bytes"
     print(f"\r{msg}", end="", flush=True)
 
 
-def callback_progress_ci(text: str, total: int, last: bool) -> None:
+def callback_progress_ci(text: str, done: int, last: bool) -> None:
     """
     Progression callback. Used when fetching the Wiktionary dump and when extracting it.
     This version is targeting the CI, it prints less lines and it is easier to follow.
     """
-    msg = f". OK [{total:,} bytes]\n" if last else "."
+    msg = f". OK [{done:,} bytes]\n" if last else "."
     print(msg, end="", flush=True)
 
 
@@ -38,15 +37,13 @@ def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
 
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
-        total = 0
-        for data in iter(partial(fi.read, 1024**2), b""):
+        done = 0
+        while data := fi.read(1024**2):
             uncompressed = comp.decompress(data)
-            fo.write(uncompressed)
-            total += len(uncompressed)
-            callback(msg, total, False)
+            done += fo.write(uncompressed)
+            callback(msg, done, False)
 
     callback(msg, output.stat().st_size, True)
-
     return output
 
 
@@ -79,15 +76,12 @@ def fetch_pages(
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
-        total = 0
+        done = 0
         for chunk in req.iter_content(chunk_size=1024**2):
-            if chunk:
-                fh.write(chunk)
-                total += len(chunk)
-                callback(msg, total, False)
+            done += fh.write(chunk)
+            callback(msg, done, False)
 
     callback(msg, output.stat().st_size, True)
-
     return output
 
 

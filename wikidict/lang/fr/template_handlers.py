@@ -59,11 +59,13 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Abréviation de <i>accusatif</i>'
     >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"nolien": "oui"}))
     '<i>(Abréviation)</i>'
+    >>> render_abreviation("abréviation", ["fr"], defaultdict(str, {"de": "engin spatial de maintenance", "lang": "fr", "m": "1"}))
+    'abréviation de <i>engin spatial de maintenance</i>'
     """  # noqa
     if not parts and not data:
         return italic("(Abréviation)")
 
-    phrase = "Abréviation"
+    phrase = "abréviation" if data["m"] in ("1", "oui") else "Abréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
         phrase += f' de {italic(data["texte"])}'
     elif data["de"]:
@@ -676,22 +678,40 @@ def render_lae(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Adverbe)</i>'
     >>> render_lae("laé", ["fr", "nom", "1"], defaultdict(str))
     '<i>(Nom commun 1)</i>'
+    >>> render_lae("laé", ["conv", "symb", "1"], defaultdict(str))
+    '<i>(Symbole 1)</i>'
     """
     labels = {
-        "nom": "Nom commun",
-        "verb": "Verbe",
-        "nom-pr": "Nom propre",
         "adj": "Adjectif",
-        "part": "Particule",
-        "prép": "Préposition",
+        "adjectif": "Adjectif",
         "adv": "Adverbe",
+        "adverbe": "Adverbe",
+        "art-déf": "Article défini",
         "conj": "Conjonction",
         "interj": "Interjection",
-        "suf": "Suffixe",
-        "préf": "Préfixe",
+        "interjection": "Interjection",
+        "lettre": "Lettre",
+        "nom": "Nom commun",
+        "nom de famille": "Nom de famille",
+        "nom-fam": "Nom de famille",
+        "nom-pr": "Nom propre",
         "nom propre": "Nom propre",
+        "num": "Numéral",
+        "onoma": "Onomatopée",
+        "onomatopée": "Onomatopée",
+        "part": "Particule",
+        "préf": "Préfixe",
+        "prénom": "Prénom",
+        "prép": "Préposition",
+        "pronom-pers": "Pronom personnel",
+        "suf": "Suffixe",
+        "suffixe": "Suffixe",
+        "symb": "Symbole",
+        "symbole": "Symbole",
+        "verb": "Verbe",
+        "verbe": "Verbe",
     }
-    phrase = labels.get(parts[1], "") if len(parts) > 1 else ""
+    phrase = labels[parts[1]] if len(parts) > 1 else ""
     if len(parts) > 2:
         phrase += f" {parts[2]}"
     return term(phrase)
@@ -987,8 +1007,17 @@ def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Sigle)</i>'
     >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "United Nations"}))
     'Sigle de <i>United Nations</i>'
+    >>> render_sigle("sigle", ["en"], defaultdict(str, {"de": "sens anti-horaire", "texte": "Sens Anti-Horaire", "m": "1"}))
+    'Sigle de <i>Sens Anti-Horaire</i>'
     """  # noqa
-    return "Sigle de " + italic(data["de"]) if data["de"] else term("Sigle")
+    phrase = "Sigle"
+    if data["texte"]:
+        phrase += f" de {italic(data['texte'])}"
+    elif data["de"]:
+        phrase += f" de {italic(data['de'])}"
+    else:
+        phrase = term(phrase)
+    return phrase
 
 
 def render_suisse(tpl: str, parts: List[str], data: Dict[str, str]) -> str:

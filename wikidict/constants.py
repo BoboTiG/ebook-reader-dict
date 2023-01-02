@@ -18,7 +18,6 @@ WIKIMEDIA_URL_MATH_RENDER = (
 # {0}: current locale
 REPOS = "BoboTiG/ebook-reader-dict"
 GH_REPOS = f"https://github.com/{REPOS}"
-RELEASE_URL = f"https://api.github.com/repos/{REPOS}/releases/tags/{{0}}"
 DOWNLOAD_URL_DICTFILE = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.df.bz2"
 DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}-{{0}}.zip"
 DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}.zip"
