@@ -464,10 +464,6 @@ def test_parse_word(
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("M{{e|me}}", "M<sup>me</sup>"),
         ("du XX{{ème}} siècle", "du XX<sup>e</sup> siècle"),
-        (
-            "{{emploi|lang=fr|En parlant d’un artiste ou d’une œuvre}}",
-            "<i>(En parlant d’un artiste ou d’une œuvre)</i>",
-        ),
         ("{{invisible|{{étyl|la|fr|mot=Dalmatica}}}}", ""),
         ("le 1{{er}}", "le 1<sup>er</sup>"),
         (
