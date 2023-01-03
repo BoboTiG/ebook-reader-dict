@@ -473,6 +473,7 @@ labels_topical = {
     "E number": "food manufacture",
     "EU politics": "European politics",
     "Eastern Catholic": "Eastern Catholicism",
+    "Eastern Orthodox": "Eastern Orthodoxy",
     "Egyptian god": "Egyptian mythology",
     "GUI": "graphical user interface",
     "Germanic Paganism": "Germanic paganism",
@@ -837,7 +838,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 390
+}  # 391
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3055,8 +3056,8 @@ labels_subvarieties = {
     "pt-pt form": "European Portuguese",
     "rao": "1922–1940 reformed orthography",
     "reflexive": "reflexive with {{m|mk|се|tr=-}}",
-    "reflexive-se": "reflexive with {{m|mk|се|tr=-}}",
-    "reflexive-si": "reflexive with {{m|mk|си|tr=-}}",
+    "reflexive-se": "reflexive with {{m|sk|se}}",
+    "reflexive-si": "reflexive with {{m|sk|si}}",
     "reli": "religious",
     "rioplatense": "Rioplatense",
     "roa-oit": "Old Italian",
