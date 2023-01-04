@@ -5,7 +5,7 @@ flake8==6.0.0
 isort==5.11.4
 mypy==0.991
 pdoc3==0.10.0
-pydocstyle==6.2.1
+pydocstyle==6.2.2
 pytest==7.2.0
 pytest-cov==4.0.0 
 pytest-dependency==0.5.1
