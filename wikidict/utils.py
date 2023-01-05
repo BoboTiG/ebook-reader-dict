@@ -61,6 +61,13 @@ SPECIAL_TEMPLATES = {
 }
 
 
+def process_special_pipe_template(text: str) -> str:
+    splitter = SPECIAL_TEMPLATES["{{!}}"].placeholder
+    if splitter in text:
+        text = text.split(splitter)[1]
+    return text
+
+
 def convert_gender(genders: List[str]) -> str:
     """Return the HTML code to include for gender(s) of a word."""
     if not genders:

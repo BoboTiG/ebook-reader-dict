@@ -14,6 +14,7 @@ from ...user_functions import (
     term,
     underline,
 )
+from ...utils import process_special_pipe_template
 from .. import defaults
 from .langs import langs
 
@@ -221,7 +222,7 @@ def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '→ voir <i>triner</i>'
     >>> render_cf("cf", ["in-", "extinguible"], defaultdict(str, {"lang": "fr"}))
     '→ voir <i>in-</i> et <i>extinguible</i>'
-    >>> render_cf("cf", ["enfant", "de", "vierge!vierge Marie"], defaultdict(str, {"lang": "fr"}))
+    >>> render_cf("cf", ["enfant", "de", "vierge##pipe##!##pipe##vierge Marie"], defaultdict(str, {"lang": "fr"}))
     '→ voir <i>enfant</i>, <i>de</i> et <i>vierge Marie</i>'
     >>> render_cf("cf", [":Catégorie:Bruits en français"], defaultdict(str))
     ''
@@ -234,8 +235,7 @@ def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         s_array = []
         for p in parts:
             s_phrase = p
-            if "!" in s_phrase:
-                s_phrase = s_phrase.split("!")[1]
+            s_phrase = process_special_pipe_template(s_phrase)
             s_array.append(italic(s_phrase))
         phrase += f" {concat(s_array, ', ', ' et ')}"
     return phrase
