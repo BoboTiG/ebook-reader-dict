@@ -471,10 +471,23 @@ def render_equiv_pour(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(pour une femme, on peut dire</i>&nbsp: autrice, auteure, auteuse<i>)</i>'
     >>> render_equiv_pour("équiv-pour", ["une femme", "professeure", "professeuse", "professoresse", "professrice"], defaultdict(str, {"texte":"certains disent"}))
     '<i>(pour une femme, certains disent</i>&nbsp: professeure, professeuse, professoresse, professrice<i>)</i>'
+    >>> render_equiv_pour("équiv-pour", ["un homme", "auteur"], defaultdict(str, {"2egenre":"une personne non-binaire", "2egenre1":"autaire", "2egenre2":"auteurice"}))
+    '<i>(pour un homme, on dit</i>&nbsp: auteur<i> ; pour une personne non-binaire, on peut dire</i>&nbsp: autaire, auteurice<i>)</i>'
     """  # noqa
     phrase = f"(pour {parts.pop(0)}, "
     phrase += data.get("texte", "on dit" if len(parts) == 1 else "on peut dire")
-    return f"{italic(phrase)}&nbsp: {', '.join(parts)}{italic(')')}"
+    phrase = f"{italic(phrase)}&nbsp: {', '.join(parts)}"
+    if "2egenre" in data:
+        phrase2 = f' ; pour {data["2egenre"]}, '
+        phrase2 += data.get("texte", "on peut dire" if "2egenre2" in data else "on dit")
+        parts2: List[str] = []
+        for i in range(1, 7):
+            if genre := data.get(f"2egenre{i}", ""):
+                parts2.append(genre)
+        phrase2 = f"{italic(phrase2)}&nbsp: {', '.join(parts2)}"
+        phrase += phrase2
+    phrase += italic(")")
+    return phrase
 
 
 def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
