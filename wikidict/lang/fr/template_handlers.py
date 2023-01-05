@@ -885,7 +885,7 @@ def render_nom_langue(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_nom_langue("nom_langue", ["ky"], defaultdict(str))
     'kirghiz'
     """
-    return langs[parts[0]]
+    return langs.get(parts[0], parts[0])
 
 
 def render_polytonique(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -1057,6 +1057,17 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     else:
         phrase += f"celle de {italic(parts[0])}"
     return phrase
+
+
+def render_t(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_t("T", ["oc"], defaultdict(str))
+    'Occitan'
+    >>> render_t("T", ["anglais"], defaultdict(str))
+    'anglais'
+    """
+    lang = parts[0]
+    return capitalize(langs[lang]) if lang in langs else lang
 
 
 def render_temps_geologiques(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -1266,6 +1277,7 @@ template_mapping = {
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
+    "T": render_t,
     "Temps géologiques": render_temps_geologiques,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,
