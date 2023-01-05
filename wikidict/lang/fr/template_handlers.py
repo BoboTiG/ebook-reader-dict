@@ -338,7 +338,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_compose_de("composé de", ["faire", "boutique", "cul"], defaultdict(str, {"m": "1", "lang": "fr"}))
     'Composé de <i>faire</i>, <i>boutique</i> et <i>cul</i>'
     >>> render_compose_de("composé de", ["arthro-", "-logie"], defaultdict(str, {"lang": "fr", "m": "oui"}))
-    'Composé de <i>arthro-</i> et de <i>-logie</i>'
+    'Dérivé du préfixe <i>arthro-</i>, avec le suffixe <i>-logie</i>'
     >>> render_compose_de("composé de", ["morin", "morine", "-elle"], defaultdict(str, {"lang": "fr", "m": "1"}))
     'Composé de <i>morin</i>, <i>morine</i> et <i>-elle</i>'
     >>> render_compose_de("composé de", ["bi-", "mensis"], defaultdict(str, {"lang": "fr", "sens1": "deux", "sens2":"mois"}))
@@ -373,7 +373,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     b4 = "1" if len(parts) > 3 else "0"
 
     b = b1 + b2 + b3 + b4
-    is_derived = b in ["1000", "0100", "1020"]
+    is_derived = b in ["1000", "0100", "1020", "1100"]
 
     if is_derived:
         # Dérivé
@@ -417,6 +417,10 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += " et le suffixe " + word_tr_sens(
                 parts[2], data.get("tr3", ""), data.get("sens3", "")
             )
+        elif b == "1100":
+            phrase += f' du préfixe {word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", "") )},'
+            phrase += f' avec le suffixe {word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))}'
+
         if data["sens"]:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
         return phrase
