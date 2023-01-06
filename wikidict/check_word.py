@@ -158,9 +158,6 @@ def filter_html(html: str, locale: str) -> str:
         # {{invisible}}
         for span in bs.find_all("span", {"class": "invisible"}):
             span.decompose()
-        # span - petites_capitales --> template: siècle2
-        for span in bs.find_all("span", {"class": "petites_capitales"}):
-            span.string = span.text.upper()
         # — (Richelet, Dictionnaire français 1680)
         for span in bs.find_all("span", {"class": "sources"}):
             span.decompose()

@@ -230,14 +230,6 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             ),
             "Du latin ecclésiastique Dalmatica",
         ],
-        # FR - petites_capitales
-        [
-            "fr",
-            (
-                '<span class="petites_capitales" style="font-variant: small-caps">xvii</span>'
-            ),
-            "XVII",
-        ],
         # FR - lien rouge trad
         [
             "fr",
@@ -288,7 +280,7 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
                 ".png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/40px-Wikidata-lo"
                 'go.svg.png 2x" data-file-width="1050" data-file-height="590" />'
             ),
-            "Frederick H. POUGH",
+            "Frederick H. Pough",
         ],
         # FR - Wikispecies
         [

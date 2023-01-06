@@ -9,6 +9,7 @@ from ...user_functions import (
     int_to_roman,
     italic,
     number,
+    small_caps,
     strong,
     superscript,
     term,
@@ -1000,22 +1001,26 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_siecle2("siècle2", ["1"], defaultdict(str))
-    'I<sup>er</sup>'
+    "<span style='font-variant:small-caps'>i</span><sup>er</sup>"
     >>> render_siecle2("siècle2", ["I"], defaultdict(str))
     'I<sup>er</sup>'
     >>> render_siecle2("siècle2", ["i"], defaultdict(str))
     'I<sup>er</sup>'
     >>> render_siecle2("siècle2", ["18"], defaultdict(str))
-    'XVIII<sup>e</sup>'
+    "<span style='font-variant:small-caps'>xviii</span><sup>e</sup>"
     >>> render_siecle2("siècle2", ["XVIII"], defaultdict(str))
     'XVIII<sup>e</sup>'
     >>> render_siecle2("siècle2", ["xviii"], defaultdict(str))
     'XVIII<sup>e</sup>'
     """
     number = parts[0]
-    number = int_to_roman(int(number)) if number.isnumeric() else number.upper()
-    suffix = "er" if number == "I" else "e"
-    return f"{number}{superscript(suffix)}"
+    number_string = (
+        small_caps(int_to_roman(int(number)).lower())
+        if number.isnumeric()
+        else number.upper()
+    )
+    suffix = "er" if number in ("1", "I", "i") else "e"
+    return f"{number_string}{superscript(suffix)}"
 
 
 def render_sigle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
