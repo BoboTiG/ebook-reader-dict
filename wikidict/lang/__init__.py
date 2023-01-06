@@ -23,24 +23,6 @@ ALL_LOCALES = {
 #
 
 
-# The template name dealing with files in the Wikicode (multi locales).
-# [[PATTERN:...|...]]
-pattern_file = (
-    "Archivo",
-    "Categoría",
-    "categoría",
-    "Catégorie",
-    "Fichier",
-    "File",
-    "Fitxer",
-    "Image",
-    "image",
-    "Imagen",
-    "Αρχείο",
-    "Εικόνα",
-    "Файл",
-)
-
 #
 # End of manual edition allowed.
 #
