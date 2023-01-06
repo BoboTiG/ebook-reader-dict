@@ -1104,6 +1104,22 @@ def render_temps_geologiques(tpl: str, parts: List[str], data: Dict[str, str]) -
     return times[parts[0]]
 
 
+def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_term("term", ["ne … guère que"], defaultdict(str))
+    '<i>(Ne … guère que)</i>'
+    >>> render_term("terme", ["Astrophysique"], defaultdict(str))
+    '<i>(Astrophysique)</i>'
+    >>> render_term("terme", ["Astrophysique"], defaultdict(str))
+    '<i>(Astrophysique)</i>'
+    >>> render_term("terme", ["saules"], defaultdict(str, {"libellé": "arbres"}))
+    '<i>(Arbres)</i>'
+    >>> render_term("terme", [], defaultdict(str, {"1": "tératologie"}))
+    '<i>(Tératologie)</i>'
+    """
+    return term(capitalize(data["libellé"] or data["1"] or parts[0]))
+
+
 def render_unite(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
@@ -1301,6 +1317,9 @@ template_mapping = {
     "syncope": render_modele_etym,
     "T": render_t,
     "Temps géologiques": render_temps_geologiques,
+    "term": render_term,
+    "terme": render_term,
+    "term lien": render_term,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,
     "Variante ortho de": render_variante_ortho,
