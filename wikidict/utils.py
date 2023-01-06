@@ -377,7 +377,7 @@ def clean(text: str, locale: str = "en") -> str:
 
     # Namespaces
     # [[File:...|...]] -> ''
-    # exept [[File:...|{{...}}]] that will end on '{{...}}'
+    # except [[File:...|{{...}}]] that will end on '{{...}}'
     pattern = "|".join(iter(namespaces[locale]))
     text = sub(rf"\[\[(?:{pattern}):[^\{{]+?(?=\]\])\]\]*", "", text)
 
