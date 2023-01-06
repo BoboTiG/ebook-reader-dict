@@ -302,7 +302,7 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
         ''
-        >>> clean("[[Stó:lō]]", "fr")
+        >>> clean("[[Stó:lō]]", locale="fr")
         'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
