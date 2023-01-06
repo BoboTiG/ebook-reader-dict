@@ -330,6 +330,11 @@ def clean(text: str) -> str:
         'country'
         >>> clean("<<region/Middle East>>")
         'Middle East'
+
+        >>> clean("__NOTOC__")
+        ''
+        >>> clean("A_____B, B_____A")
+        'A_____B, B_____A'
     """
 
     # Speed-up lookup
@@ -402,7 +407,7 @@ def clean(text: str) -> str:
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
 
     # Magic words
-    text = sub(r"__\w+__", "", text)  # __TOC__
+    text = sub(r"__[A-Z]+__", "", text)  # __TOC__
 
     # Remove extra quotes left
     text = text.replace("''", "")
