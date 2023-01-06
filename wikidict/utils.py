@@ -480,7 +480,7 @@ def process_templates(
     sub = re.sub
 
     # Clean-up the code
-    text = callback(wikicode, locale=locale)
+    text = callback(wikicode, locale)
 
     # {{foo}}
     # {{foo|bar}}
