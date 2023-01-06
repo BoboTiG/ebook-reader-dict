@@ -613,10 +613,6 @@ templates_multi = {
     "substantivation de": 'f"Substantivation de {italic(parts[1])}"',
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
-    # {{term|ne … guère que}}
-    "term": "term(capitalize(parts[1]))",
-    # {{terme|Astrophysique}}
-    "terme": "term(capitalize(parts[1]))",
     # {{trad+|conv|Sitophilus granarius}}
     "trad+": "parts[2]",
     "trad-": "parts[2]",
