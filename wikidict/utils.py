@@ -375,19 +375,24 @@ def clean(text: str, locale: str = "en") -> str:
     # Local links
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
-    # Files
-    partern_list: List[str] = namespaces[locale]
-    try:
-        partern_list.remove("Annexe")
-    except ValueError:
-        pass  # do nothing!
+    # Namespaces
+    # [[File:...|...]] -> ''
+    # exept [[File:...|{{...}}]] that will end on '{{...}}'
+    pattern = "|".join(iter(namespaces[locale]))
+    text = sub(rf"\[\[(?:{pattern}):[^\{{]+?(?=\]\])\]\]*", "", text)
 
-    pattern = "|".join(iter(partern_list))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
-
-    # More local links
-    text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
-    text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)  # [[a|b]] -> b
+    # Links
+    # Internal: [[{{a|b}}]] -> {{a|b}}
+    text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
+    # Internal: [[a|b]] -> b
+    text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)
+    # External: [[http://example.com Some text]] -> ''
+    text = sub(r"\[\[https?://[^\s]+\s[^\]]+\]\]", "", text)
+    # External: [http://example.com] -> ''
+    text = sub(r"\[https?://[^\s\]]+\]", "", text)
+    # External: [http://example.com Some text] -> 'Some text'
+    text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
+    text = text.replace("[[", "").replace("]]", "")
 
     # Tables
     text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
@@ -399,20 +404,6 @@ def clean(text: str, locale: str = "en") -> str:
         text,
         flags=re.MULTILINE,
     )  # == a == -> a
-
-    # Files and other links with namespaces
-    # text = sub(r"\[\[[^:\]]+:[^\]]+\]\]", "", text)  # [[foo:b]] -> ''
-    partern_list = ["Annexe"]
-    pattern = "|".join(iter(partern_list))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
-
-    # External links
-    # [http://example.com] -> ''
-    text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # [http://example.com Some text] -> 'Some text'
-    text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
-
-    text = text.replace("[[", "").replace("]]", "")
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
