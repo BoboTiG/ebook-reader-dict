@@ -377,11 +377,8 @@ def clean(text: str, locale: str = "en") -> str:
 
     # Files
     partern_list: List[str] = namespaces[locale]
-    try:
+    with suppress(ValueError):
         partern_list.remove("Annexe")
-    except ValueError:
-        pass  # do nothing!
-
     pattern = "|".join(iter(partern_list))
     text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
 
