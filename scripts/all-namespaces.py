@@ -16,7 +16,7 @@ for locale in locales:
     for key, namespace in namespaces.items():
         if n := namespace["*"]:
             result_array.append(n)
-    results[locale] = result_array
+    results[locale] = sorted(result_array)
 
 print("namespaces =", end=" ")
 print(results)
