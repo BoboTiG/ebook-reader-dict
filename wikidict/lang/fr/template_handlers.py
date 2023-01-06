@@ -73,7 +73,7 @@ def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif data["de"]:
         phrase += f' de {italic(data["de"])}'
     else:
-        phrase = italic(f"({phrase})")
+        phrase = term("Abréviation")
     return phrase
 
 
