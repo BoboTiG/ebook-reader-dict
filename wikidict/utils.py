@@ -7,7 +7,7 @@ from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
-from typing import List, Match, Tuple, Union
+from typing import Callable, List, Match, Tuple, Union
 
 import regex
 import requests
@@ -436,7 +436,9 @@ def clean(text: str) -> str:
     return text.strip()
 
 
-def process_templates(word: str, text: str, locale: str) -> str:
+def process_templates(
+    word: str, wikicode: str, locale: str, callback: Callable[[str], str] = clean
+) -> str:
     r"""Process all templates.
 
     It will also handle the <math> HTML tag as it is not part of the *clean()* function on purpose.
@@ -474,6 +476,9 @@ def process_templates(word: str, text: str, locale: str) -> str:
     """  # noqa
 
     sub = re.sub
+
+    # Clean-up the code
+    text = callback(wikicode)
 
     # {{foo}}
     # {{foo|bar}}
@@ -587,7 +592,7 @@ def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
         phrase += "<tr>"
         for cell in row:
             tag = "th" if cell.is_header else "td"
-            phrase += f"<{tag} {style_td}>{process_templates(word, clean(cell.value), locale)}</{tag}>"
+            phrase += f"<{tag} {style_td}>{process_templates(word, cell.value, locale)}</{tag}>"
         phrase += "</tr>"
     phrase += "</table>"
     return phrase

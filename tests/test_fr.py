@@ -503,7 +503,7 @@ def test_parse_word(
             "{{ISBN|1-23-456789-0|978-1-23-456789-7|2-876-54301-X}}",
             "ISBN 1-23-456789-0, 978-1-23-456789-7 et 2-876-54301-X",
         ),
-        ("{{Lang-ar||[[نهر ابراهيم]]|100}}", "[[نهر ابراهيم]]"),
+        ("{{Lang-ar||[[نهر ابراهيم]]|100}}", "نهر ابراهيم"),
         ("{{musiciens|fr}}", "<i>(Musique)</i>"),
         ("{{Mme}}", "M<sup>me</sup>"),
         ("{{Mme|de Maintenon}}", "M<sup>me</sup> de Maintenon"),
@@ -518,7 +518,7 @@ def test_parse_word(
         ),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
-            "<u>Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",  # noqa
+            "<u>Les seigneurs du Moyen Âge pouvaient « battre monnaie »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",  # noqa
         ),
         ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),
         ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
@@ -542,7 +542,7 @@ def test_parse_word(
         ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
         (
             "{{refnec|lang=fr|Du préfixe privatif [[a-]] de [[cyan]] et de {{polytonique|{{lien|βλέψις|grc}}|blepsis|vue}}.}}",  # noqa
-            "<u>Du préfixe privatif [[a-]] de [[cyan]] et de βλέψις, <i>blepsis</i> («&nbsp;vue&nbsp;»).</u>",
+            "<u>Du préfixe privatif a- de cyan et de βλέψις, <i>blepsis</i> («&nbsp;vue&nbsp;»).</u>",
         ),
         ("{{réf}}", ""),
         ("{{registre|traditionnellement}}", "<i>(Traditionnellement)</i>"),

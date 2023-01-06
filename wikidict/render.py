@@ -26,7 +26,7 @@ from .lang import (
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import clean, process_templates, table2html, uniq
+from .utils import process_templates, table2html, uniq
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -98,7 +98,7 @@ def find_section_definitions(
                     continue
 
                 # Transform and clean the Wikicode
-                definition = process_templates(word, clean(code), locale)
+                definition = process_templates(word, code, locale)
 
                 # Skip empty definitions
                 # [SV] Skip almost empty definitions
@@ -112,7 +112,7 @@ def find_section_definitions(
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
-                        subdefinition = process_templates(word, clean(subcode), locale)
+                        subdefinition = process_templates(word, subcode, locale)
                         if not subdefinition:
                             continue
 
@@ -123,7 +123,7 @@ def find_section_definitions(
                         ):
                             for subsubcode in subsublist.items:
                                 if subsubdefinition := process_templates(
-                                    word, clean(subsubcode), locale
+                                    word, subsubcode, locale
                                 ):
                                     subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
@@ -142,9 +142,7 @@ def find_etymology(
     etyl: str
 
     if locale in {"ca", "no"}:
-        definitions.append(
-            process_templates(word, clean(parsed_section.contents), locale)
-        )
+        definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
 
     elif locale == "en":
@@ -154,7 +152,7 @@ def find_etymology(
             if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
         ]
         for item in items:
-            if etyl := process_templates(word, clean(item), locale):
+            if etyl := process_templates(word, item, locale):
                 definitions.append(etyl)
         return definitions
 
@@ -164,7 +162,7 @@ def find_etymology(
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
         ]
         for item in items:
-            if etyl := process_templates(word, clean(item), locale):
+            if etyl := process_templates(word, item, locale):
                 definitions.append(etyl)
         return definitions
 
@@ -181,14 +179,12 @@ def find_etymology(
                 etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
             except IndexError:
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        definitions.append(process_templates(word, clean(etyl), locale))
+        definitions.append(process_templates(word, etyl, locale))
         return definitions
     elif locale == "ru":
         section_title = parsed_section.title.strip()
         if section_title == "Этимология":
-            definitions.append(
-                process_templates(word, clean(parsed_section.contents), locale)
-            )
+            definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
 
     tables = parsed_section.tables
@@ -206,11 +202,11 @@ def find_etymology(
                 definitions.append(phrase)
                 tableindex += 1
             else:
-                definitions.append(process_templates(word, clean(section_item), locale))
+                definitions.append(process_templates(word, section_item, locale))
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in section.sublists(i=idx):
                     subdefinitions.extend(
-                        process_templates(word, clean(subcode), locale)
+                        process_templates(word, subcode, locale)
                         for subcode in sublist.items
                     )
 
@@ -312,7 +308,7 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
 
 
 def add_potential_variant(word: str, tpl: str, locale: str, variants: Set[str]) -> None:
-    if (variant := process_templates(word, clean(tpl), locale)) and variant != word:
+    if (variant := process_templates(word, tpl, locale)) and variant != word:
         variants.add(variant)
 
 
