@@ -288,19 +288,19 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", "fr")
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
         '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", "fr")  # noqa
+        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")  # noqa
         ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", "en")
+        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
         ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", "en")
+        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
         ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", "fr")
+        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
         ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", "es")
+        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
         ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", "es")
+        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
         ''
         >>> clean("[[Stó:lō]]", "fr")
         'Stó:lō'
@@ -480,7 +480,7 @@ def process_templates(
     sub = re.sub
 
     # Clean-up the code
-    text = callback(wikicode, locale)
+    text = callback(wikicode, locale=locale)
 
     # {{foo}}
     # {{foo|bar}}
