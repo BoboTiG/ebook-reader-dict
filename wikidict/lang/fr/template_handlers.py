@@ -1110,8 +1110,6 @@ def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(Ne … guère que)</i>'
     >>> render_term("terme", ["Astrophysique"], defaultdict(str))
     '<i>(Astrophysique)</i>'
-    >>> render_term("terme", ["Astrophysique"], defaultdict(str))
-    '<i>(Astrophysique)</i>'
     >>> render_term("terme", ["saules"], defaultdict(str, {"libellé": "arbres"}))
     '<i>(Arbres)</i>'
     >>> render_term("terme", [], defaultdict(str, {"1": "tératologie"}))
