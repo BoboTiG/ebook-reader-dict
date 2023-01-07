@@ -24,6 +24,15 @@ Any help is welcome to improve those dictionaries:
 - :construction: [Norway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no)
 - :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
 
+## Interesting Features
+
+- [Kobo] When selecting a plural word, its singular form will be displayed.
+- [Kobo] When selecting a conjuged verb, its infinitve version will be displayed. → [raconteraient](docs/dict-raconteraient.png) • [dusse](docs/dict-dusse.png)
+- [Kobo] When a word is the plural form of another, and also a verb, all versions are displayed. → [grognasses](docs/dict-grognasses.png)
+- If a word contains several pronunciations, or genders, all are available. → [greffier](docs/dict-greffier.png)
+- Mathematic formulas, chemical foumlas, and hieroglyphs are converted to SVG. → [cercle unité](docs/dict-cercle_unite.png) • [hélicité](docs/dict-helicite.png)
+- Tables are supported. → [-eresse](docs/dict--eresse.png)
+
 ## Updating Dictionaries
 
 All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
