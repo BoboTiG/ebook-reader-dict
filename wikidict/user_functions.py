@@ -237,11 +237,20 @@ def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
         defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
         >>> extract_keywords_from(["foo", "bar = baz=ouf"])
         defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
+        >>> extract_keywords_from(["foo", "<span style='font-variant:small-caps'>xix</span><sup>e</sup> s."])
+        defaultdict(<class 'str'>, {})
+        >>> extract_keywords_from(["foo", "bar='baz'"])
+        defaultdict(<class 'str'>, {'bar': "'baz'"})
     """
     data = defaultdict(str)
     for part in parts.copy():
         if "=" in part:
             key, value = part.split("=", 1)
+
+            # Prevent splitting such parts: "<span style='font-variant:small-caps'>xix</span><sup>e</sup> s.".
+            if key == "<span style":
+                continue
+
             data[key.strip()] = value.strip()
             parts.pop(parts.index(part))
     return data
