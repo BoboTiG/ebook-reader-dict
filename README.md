@@ -27,10 +27,10 @@ Any help is welcome to improve those dictionaries:
 ## Interesting Features
 
 - [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjuged verb, its infinitive version will be displayed. → [raconteraient](docs/dict-raconteraient.png) • [dusse](docs/dict-dusse.png)
-- [Kobo] When a word is the plural form of another, and also a verb, all versions are displayed. → [grognasses](docs/dict-grognasses.png)
+- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed. → [raconteraient](docs/dict-raconteraient.png) • [dusse](docs/dict-dusse.png)
+- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed. → [grognasses](docs/dict-grognasses.png)
 - If a word contains several pronunciations, or genders, all are available. → [greffier](docs/dict-greffier.png)
-- Mathematic formulas, chemical foumlas, and hieroglyphs are converted to SVG. → [cercle unité](docs/dict-cercle_unite.png) • [hélicité](docs/dict-helicite.png)
+- Mathematic formulas, chemical formulas, and hieroglyphs are converted to SVG. → [cercle unité](docs/dict-cercle_unite.png) • [hélicité](docs/dict-helicite.png)
 - Tables are supported. → [-eresse](docs/dict--eresse.png)
 
 ## Updating Dictionaries
