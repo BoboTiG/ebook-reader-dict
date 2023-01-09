@@ -134,6 +134,7 @@ labels = {
     "middle voice": "middle",
     "mostly": "chiefly",
     "narrowly": "strictly",
+    "navy slang": "naval slang",
     "negative polarity": "chiefly in the negative",
     "negative polarity item": "chiefly in the negative",
     "neologistic": "neologism",
@@ -196,7 +197,7 @@ labels = {
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
     "wrt": "with respect to",
-}  # 191
+}  # 192
 
 label_syntaxes = {
     "&": {
@@ -569,6 +570,7 @@ labels_topical = {
     "angling": "fishing",
     "architectural element": "architecture",
     "architectural elements": "architecture",
+    "artillery": "weaponry",
     "arts": "art",
     "asana": "yoga",
     "association football": "soccer",
@@ -838,7 +840,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 391
+}  # 392
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -2564,6 +2566,7 @@ labels_subvarieties = {
     "SC": "Smołdziński Las-Czołpino",
     "SC.": "Smołdziński Las-Czołpino",
     "SEC Scots": "Southeast Central",
+    "SES": "south-eastern Sicily",
     "SLDE": "Switzerland and Liechtenstein",
     "SM": "San Marino",
     "SN Scots": "South Northern",
@@ -3205,5 +3208,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,580
+}  # 1,581
 # END
