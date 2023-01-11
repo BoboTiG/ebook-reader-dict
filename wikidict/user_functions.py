@@ -247,8 +247,10 @@ def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
         if "=" in part:
             key, value = part.split("=", 1)
 
-            # Prevent splitting such parts: "<span style='font-variant:small-caps'>xix</span><sup>e</sup> s.".
-            if key == "<span style":
+            # Prevent splitting such parts:
+            #   "<span style='font-variant:small-caps'>xix</span><sup>e</sup> s.".
+            #   "À partir du <span style='font-variant:small-caps'>xix</span><sup>e</sup> siècle".
+            if key.endswith("<span style"):
                 continue
 
             data[key.strip()] = value.strip()
