@@ -239,9 +239,11 @@ def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
         defaultdict(<class 'str'>, {'bar': 'baz=ouf'})
         >>> extract_keywords_from(["foo", "<span style='font-variant:small-caps'>xix</span><sup>e</sup> s."])
         defaultdict(<class 'str'>, {})
+        >>> extract_keywords_from(["foo", "À partir du <span style='font-variant:small-caps'>xix</span><sup>e</sup> siècle"])
+        defaultdict(<class 'str'>, {})
         >>> extract_keywords_from(["foo", "bar='baz'"])
         defaultdict(<class 'str'>, {'bar': "'baz'"})
-    """
+    """  # noqa
     data = defaultdict(str)
     for part in parts.copy():
         if "=" in part:
