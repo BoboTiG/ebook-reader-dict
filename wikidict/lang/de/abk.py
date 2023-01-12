@@ -74,6 +74,7 @@ abk = {
     "mundartl.": "mundartlich",
     "nDu.": "nur Dual",
     "nPl.": "nur Plural",
+    "nigr.": "nigrisch",
     "nlat.": "neulateinisch",
     "nordd.": "norddeutsch",
     "nordwestd.": "nordwestdeutsch",
@@ -122,5 +123,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 117
+}  # 118
 # END

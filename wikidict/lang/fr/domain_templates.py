@@ -265,6 +265,7 @@ domain_templates = {
     "seigneuries": "Histoire",
     "sentiments": "Psychologie",
     "serpents": "Herpétologie",
+    "signalisations": "Sécurité routière",
     "singes": "Zoologie",
     "soldats": "Militaire",
     "sous-régions": "Toponyme",
@@ -312,5 +313,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 307
+}  # 308
 # END

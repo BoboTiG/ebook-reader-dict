@@ -1711,7 +1711,8 @@ langs = {
     "chj": "Ojitlán Chinantec",
     "chk": "Chuukese",
     "chl": "Cahuilla",
-    "chm": "Eastern Mari",
+    "chm": "Mari",
+    "chm-pro": "Proto-Mari",
     "chn": "Chinook Jargon",
     "cho": "Choctaw",
     "chp": "Chipewyan",
@@ -4788,6 +4789,7 @@ langs = {
     "mho": "Mashi",
     "mhp": "Balinese Malay",
     "mhq": "Mandan",
+    "mhr": "Eastern Mari",
     "mhs": "Buru (Indonesia)",
     "mht": "Mandahuaca",
     "mhu": "Taraon",
@@ -8040,7 +8042,6 @@ langs = {
     "tmm": "Tai Thanh",
     "tmn": "Taman (Indonesia)",
     "tmo": "Temoq",
-    "tmp": "Tai Mène",
     "tmq": "Tumleo",
     "tmr": "Jewish Babylonian Aramaic",
     "tms": "Tima",
@@ -9566,5 +9567,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,561
+}  # 9,562
 # END

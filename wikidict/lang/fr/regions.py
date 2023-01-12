@@ -370,6 +370,7 @@ regions = {
     "Santo Stefano Quisquina": "Santo Stefano Quisquina",
     "Sarthe": "Sarthe",
     "Saumur": "Saumur",
+    "Sava": "Sava",
     "Savoie": "Savoie",
     "Segré": "Segré",
     "Sercq": "Sercq",
@@ -456,7 +457,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 451
+}  # 452
 # END
 
 # handled differently
