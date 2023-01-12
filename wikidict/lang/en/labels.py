@@ -628,6 +628,7 @@ labels_topical = {
     "evolutionary biology": "evolutionary theory",
     "fatty acid": "organic chemistry",
     "felid": "zoology",
+    "fictional": "fiction",
     "fictional character": "fiction",
     "figure of speech": "rhetoric",
     "film genre": "film",
@@ -840,7 +841,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 392
+}  # 393
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -2966,6 +2967,7 @@ labels_subvarieties = {
     "fuq": "Central-Eastern Niger",
     "fuv": "Nigerian Fulfulde",
     "hardanger": "Hardanger",
+    "haz": "Hazaragi",
     "hbo": "Biblical Hebrew",
     "hellenizing": "Hellenizing School",
     "hellenizing school": "Hellenizing School",
@@ -3208,5 +3210,5 @@ labels_subvarieties = {
     "Ọ̀wọ̀": "Ọwọ",
     "Ọ̀wọ́rọ́ọ̀": "Oworo",
     "Ọ̀yọ́": "Ọyọ",
-}  # 1,581
+}  # 1,582
 # END

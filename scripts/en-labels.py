@@ -37,8 +37,8 @@ def process_page(
     text = text.replace("false", "False")
     text = text.replace("--", "#")
 
-    text = re.sub(r"function\s+(\w+\([\w|\,]+\))", "def \\g<1>:", text)
-    text = text.replace("for _,v in ipairs(y) do", "for v in y:")
+    text = re.sub(r"function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", text)
+    text = text.replace("for _, v in ipairs(b) do", "\n    for v in b:\n        ")
 
     for r in repl:
         text = re.sub(rf"[ \t]+{r}[\s]*=", f'    "{r}":', text)
