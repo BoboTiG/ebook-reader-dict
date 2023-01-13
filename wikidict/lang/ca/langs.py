@@ -317,6 +317,7 @@ langs = {
     "itc-pro": "protoitàlic",
     "its": "itsekiri",
     "iu": "inuktitut",
+    "izh": "ingrià",
     "ja": "japonès",
     "jam": "crioll anglès de Jamaica",
     "jbo": "lojban",
@@ -794,5 +795,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 789
+}  # 790
 # END
