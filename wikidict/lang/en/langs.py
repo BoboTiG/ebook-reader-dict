@@ -2519,8 +2519,6 @@ langs = {
     "fip": "Fipa",
     "fir": "Firan",
     "fit": "Meänkieli",
-    "fiu-fin": "Finnic",
-    "fiu-fin-pro": "Proto-Finnic",
     "fiu-pro": "Proto-Finno-Ugric",
     "fiw": "Fiwaga",
     "fj": "Fijian",
@@ -8427,7 +8425,11 @@ langs = {
     "urh": "Urhobo",
     "uri": "Urim",
     "urj": "Uralic",
+    "urj-fin": "Finnic",
+    "urj-fin-pro": "Proto-Finnic",
     "urj-fpr-pro": "Proto-Finno-Permic",
+    "urj-koo": "Old Komi",
+    "urj-kya": "Komi-Yazva",
     "urj-mdv": "Mordvinic",
     "urj-mdv-pro": "Proto-Mordvinic",
     "urj-prm": "Permic",
@@ -8901,7 +8903,7 @@ langs = {
     "xkw": "Kembra",
     "xkx": "Karore",
     "xky": "Uma' Lasan",
-    "xkz": "Kurtop",
+    "xkz": "Kurtöp",
     "xla": "Kamula",
     "xlb": "Loup B",
     "xlc": "Lycian",
@@ -9567,5 +9569,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,562
+}  # 9,564
 # END
