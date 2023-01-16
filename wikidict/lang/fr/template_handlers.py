@@ -230,7 +230,7 @@ def render_cf(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     phrase = "→ voir"
     if parts:
-        if parts[0].startswith(":Catégorie:"):
+        if parts[0].startswith(":"):
             return ""
 
         s_array = []
