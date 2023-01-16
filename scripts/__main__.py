@@ -4,6 +4,7 @@ import threading
 from pathlib import Path
 
 FILES = {
+    "all-namespaces.py": "wikidict/namespaces.py",
     "ca-langs.py": "wikidict/lang/ca/langs.py",
     "de-abk.py": "wikidict/lang/de/abk.py",
     "de-langs.py": "wikidict/lang/de/langs.py",

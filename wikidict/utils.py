@@ -27,7 +27,6 @@ from .constants import (
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
-    pattern_file,
     release_description,
     templates_ignored,
     templates_italic,
@@ -35,6 +34,7 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
+from .namespaces import namespaces
 from .user_functions import *  # noqa
 
 # Magic words (small part, only data/time related)
@@ -239,7 +239,7 @@ def guess_prefix(word: str) -> str:
     )
 
 
-def clean(text: str) -> str:
+def clean(text: str, locale: str = "en") -> str:
     r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
@@ -288,20 +288,22 @@ def clean(text: str) -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
         '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]")  # noqa
+        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")  # noqa
         ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]")
+        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
         ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]")
+        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
         ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]")
+        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
         ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]")
+        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
         ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]")
+        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
         ''
+        >>> clean("[[Stó:lō]]", locale="fr")
+        'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
@@ -373,13 +375,24 @@ def clean(text: str) -> str:
     # Local links
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
-    # Files
-    pattern = "|".join(iter(pattern_file))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
+    # Namespaces
+    # [[File:...|...]] -> ''
+    # except [[File:...|{{...}}]] that will end on '{{...}}'
+    pattern = "|".join(iter(namespaces[locale]))
+    text = sub(rf"\[\[(?:{pattern}):[^\{{]+?(?=\]\])\]\]*", "", text)
 
-    # More local links
-    text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)  # [[{{a|b}}]] -> {{a|b}}
-    text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)  # [[a|b]] -> b
+    # Links
+    # Internal: [[{{a|b}}]] -> {{a|b}}
+    text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
+    # Internal: [[a|b]] -> b
+    text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)
+    # External: [[http://example.com Some text]] -> ''
+    text = sub(r"\[\[https?://[^\s]+\s[^\]]+\]\]", "", text)
+    # External: [http://example.com] -> ''
+    text = sub(r"\[https?://[^\s\]]+\]", "", text)
+    # External: [http://example.com Some text] -> 'Some text'
+    text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
+    text = text.replace("[[", "").replace("]]", "")
 
     # Tables
     text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
@@ -391,17 +404,6 @@ def clean(text: str) -> str:
         text,
         flags=re.MULTILINE,
     )  # == a == -> a
-
-    # Files and other links with namespaces
-    text = sub(r"\[\[[^:\]]+:[^\]]+\]\]", "", text)  # [[foo:b]] -> ''
-
-    # External links
-    # [http://example.com] -> ''
-    text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # [http://example.com Some text] -> 'Some text'
-    text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
-
-    text = text.replace("[[", "").replace("]]", "")
 
     # Lists
     text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
@@ -437,7 +439,7 @@ def clean(text: str) -> str:
 
 
 def process_templates(
-    word: str, wikicode: str, locale: str, callback: Callable[[str], str] = clean
+    word: str, wikicode: str, locale: str, callback: Callable[[str, str], str] = clean
 ) -> str:
     r"""Process all templates.
 
@@ -478,7 +480,7 @@ def process_templates(
     sub = re.sub
 
     # Clean-up the code
-    text = callback(wikicode)
+    text = callback(wikicode, locale)
 
     # {{foo}}
     # {{foo|bar}}
