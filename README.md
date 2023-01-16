@@ -17,7 +17,7 @@ Any help is welcome to improve those dictionaries:
 
 - :construction: [Greek](docs/el/README.md)
 - :construction: [Norway](docs/el/README.md)
-- :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
+- :construction: [Russian](docs/ru/README.md)
 
 ## Contributors ✨
 
