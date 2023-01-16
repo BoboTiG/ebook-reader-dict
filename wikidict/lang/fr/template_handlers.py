@@ -47,6 +47,19 @@ def render_1e_attestation(tpl: str, parts: List[str], data: Dict[str, str]) -> s
     return phrase
 
 
+def render_2e(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_2e("2e", [], defaultdict(str))
+    '2<sup>e</sup>'
+    >>> render_2e("2e", ["partie"], defaultdict(str))
+    '2<sup>e</sup> partie'
+    """
+    phrase = f"2{superscript('e')}"
+    if parts:
+        phrase += f" {parts[0]}"
+    return phrase
+
+
 def render_abreviation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_abreviation("abréviation", [], defaultdict(str))
@@ -1251,6 +1264,7 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 template_mapping = {
     "1e attestation": render_1e_attestation,
+    "2e": render_2e,
     "abréviation": render_abreviation,
     "acronyme": render_acronyme,
     "agglutination": render_modele_etym,
