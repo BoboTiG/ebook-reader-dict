@@ -23,9 +23,9 @@
 
 ### Version Sans Étymologies
 
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip) (dicthtml-fr-fr-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip) (dict-fr-fr-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2) (dict-fr-fr-noetym.df.bz2)
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip) (dicthtml-fr-fr-noetym.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip) (dict-fr-fr-noetym.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2) (dict-fr-fr-noetym.df.bz2)
 
 ## Installation
 
