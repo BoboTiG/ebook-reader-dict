@@ -1,10 +1,10 @@
 # Russian Dictionary For Your eBook Reader
 
 > :construction:
-> 
-> :construction: Any help is welcome to improve that dictionary.
-> 
-> :construction: 
+> :construction:
+> Any help is welcome to improve that dictionary.
+> :construction:
+> :construction:
 
 **eBook Reader Dictionaries** is a collaborative project using the vast [Викисловаря](https://ru.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
 
