@@ -225,6 +225,7 @@ regions = {
     "Limagne": "Limagne",
     "Limousin": "Limousin",
     "Lituanie": "Lituanie",
+    "Lizzano": "Lizzano",
     "Loire-Atlantique": "Loire-Atlantique",
     "Loiret": "Loiret",
     "Lorraine": "Lorraine",
@@ -241,6 +242,7 @@ regions = {
     "Malaisie": "Malaisie",
     "Mali": "Mali",
     "Manche": "Manche",
+    "Mandurie": "Mandurie",
     "Marche": "Marche",
     "Marne": "Marne",
     "Maroc": "Maroc",
@@ -439,6 +441,7 @@ regions = {
     "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
+    "nord de l’Angleterre": "Nord de l’Angleterre",
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
     "pays Gallo": "Pays Gallo",
@@ -458,7 +461,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 453
+}  # 456
 # END
 
 # handled differently
