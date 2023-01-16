@@ -1,6 +1,6 @@
 # Dictionnaire Français Pour Votre Liseuse
 
-**eBook Reader Dictionaries** est un projet collaboratif utilisant l'immense base de connaissances du Wiktionnaire pour créer un dictionnaire complet, mis à jour quotidiennement.
+**eBook Reader Dictionaries** est un projet collaboratif utilisant l'immense base de connaissances du [Wiktionnaire](https://fr.wiktionary.org/) pour créer un dictionnaire complet, mis à jour quotidiennement.
 
 ## Fonctionalités Intéressantes
 
