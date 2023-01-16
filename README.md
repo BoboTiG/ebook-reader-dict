@@ -9,7 +9,7 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 - [English](docs/en/README.md)
 - [Spanish](docs/es/README.md)
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-- [Italian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it)
+- [Italian](docs/it/README.md)
 - [Portuguese](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt)
 - [Swedish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
 
