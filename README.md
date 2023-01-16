@@ -15,7 +15,7 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 
 Any help is welcome to improve those dictionaries:
 
-- :construction: [Greek](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el)
+- :construction: [Greek](docs/el/README.md)
 - :construction: [Norway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no)
 - :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
 
