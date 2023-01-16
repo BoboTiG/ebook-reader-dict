@@ -1,17 +1,12 @@
 # eBook Reader Dictionaries
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
-
-## Dictionaries
 
 [![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml)
 
+Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
+
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
 - [German](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de)
-- [English](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en)
+- [English](docs/en/README.md)
 - [Spanish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es)
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
 - [Italian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it)
@@ -24,32 +19,11 @@ Any help is welcome to improve those dictionaries:
 - :construction: [Norway](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no)
 - :construction: [Russian](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru)
 
-## Interesting Features
-
-- [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed. → [raconteraient](docs/dict-raconteraient.png) • [dusse](docs/dict-dusse.png)
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed. → [grognasses](docs/dict-grognasses.png)
-- If a word contains several pronunciations, or genders, all are available. → [greffier](docs/dict-greffier.png)
-- Mathematic formulas, chemical formulas, and hieroglyphs are converted to SVG. → [cercle unité](docs/dict-cercle_unite.png) • [hélicité](docs/dict-helicite.png)
-- Tables are supported. → [-eresse](docs/dict--eresse.png)
-
-## Updating Dictionaries
-
-All dictionaries are automatically re-generated **every day** at midnight. The process uses the latest Wiktionary dump available at that time.
-Note that download links never change.
-
-- You should open an [issue](https://github.com/BoboTiG/ebook-reader-dict/issues) if:
-   - you do not find a word;
-   - a definition is not similar to the one on Wiktionary;
-   - a definition is missing.
-- If a definition is not good for you, changes must be done on [Wiktionary](https://www.wiktionary.org/) directly.
-  Your changes will likely be included in the next Wiktionary dump, so when it will come, at most 24h later the new dictionary will contain your stuff :)
-
-## Adding a new Dictionary
-
-[Pull requests](https://github.com/BoboTiG/ebook-reader-dict/pulls) are very welcome. It is quite straightforward to add a new locale, see [HOWTO Add a New Local](https://github.com/BoboTiG/ebook-reader-dict/wiki/HOWTO-Add-a-New-Local).
-
 ## Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
