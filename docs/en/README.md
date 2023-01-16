@@ -5,13 +5,11 @@
 ## Interesting Features
 
 - [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed.
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed.
-- If a word contains several pronunciations, or genders, all are available.
-- Mathematic formulas are converted to SVG.
-- Chemical formulas are converted to SVG.
-- Hieroglyphs are supported.
-- Tables are supported.
+- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed. → [ate](screenshot-ate.png)
+- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed. <!-- → [](screenshot-.png) -->
+- If a word contains several pronunciations, or genders, all are available. → [board](screenshot-board.png)
+- Mathematic formulas are converted to SVG. → [Pythagorean trigonometric identity](screenshot-pythagorean_trigonometric_identity.png)
+- Hieroglyphs are supported. → [tjaty](screenshot-tjaty.png)
 
 ## Downloads
 
