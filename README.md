@@ -11,7 +11,7 @@ Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) 
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
 - [Italian](docs/it/README.md)
 - [Portuguese](docs/pt/README.md)
-- [Swedish](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv)
+- [Swedish](docs/sv/README.md)
 
 Any help is welcome to improve those dictionaries:
 
