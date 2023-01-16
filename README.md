@@ -5,7 +5,7 @@
 Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
 
 - [Catalan](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ca)
-- [German](https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de)
+- [German](docs/de/README.md)
 - [English](docs/en/README.md)
 - [Spanish](docs/es/README.md)
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
