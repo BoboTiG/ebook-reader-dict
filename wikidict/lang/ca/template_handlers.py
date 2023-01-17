@@ -33,6 +33,7 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "pronominal": "forma pronominal de",
         "forma-super": "forma superlativa de",
         "superlativa": "forma superlativa de",
+        "singular": "forma singular de",
         "sinònim": "Sinònim de",
     }
     forma = formas.get(parts[0]) or formas[tpl]
