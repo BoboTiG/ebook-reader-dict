@@ -98,8 +98,10 @@ def last_template_handler(
                 )
         return ""
 
-    # <i>(Template)</i>
-    return term(capitalize(lookup_italic(tpl, locale))) if tpl else ""
+    # {{template}}
+    from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
+
+    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
 
 
 def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:

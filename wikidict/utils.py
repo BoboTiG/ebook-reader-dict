@@ -60,6 +60,10 @@ SPECIAL_TEMPLATES = {
     "{{=}}": Template("##equal##!##equal##", "="),
 }
 
+# subtitution for double curly parenthesis
+OPEN_DOUBLE_CURLY = "##opendoublecurly##"
+CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
+
 
 def process_special_pipe_template(text: str) -> str:
     splitter = SPECIAL_TEMPLATES["{{!}}"].placeholder
@@ -448,7 +452,7 @@ def process_templates(
         >>> process_templates("foo", "{{}}", "fr")
         ''
         >>> process_templates("foo", "{{unknown}}", "fr")
-        '<i>(Unknown)</i>'
+        '{{unknown}}'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
          !! Missing 'foo' template support for word 'foo'
         ''
@@ -501,6 +505,9 @@ def process_templates(
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
+
+    text = text.replace(OPEN_DOUBLE_CURLY, "{{")
+    text = text.replace(CLOSE_DOUBLE_CURLY, "}}")
 
     # Handle <math> HTML tags
     text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)

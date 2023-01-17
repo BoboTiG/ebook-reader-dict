@@ -224,7 +224,7 @@ def last_template_handler(
         >>> last_template_handler(["deporte", "rur"], "es")
         '<i>(Deporte, rural)</i>'
         >>> last_template_handler(["default"], "es")
-        '<i>(Default)</i>'
+        '##opendoublecurly##default##closedoublecurly##'
 
         >>> last_template_handler(["variantes", "adestrador", "nota=poco frecuente"], "es")
         '<b>Variante:</b> adestrador (poco frecuente)'
