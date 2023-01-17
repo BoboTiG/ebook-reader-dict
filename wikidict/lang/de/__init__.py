@@ -26,6 +26,7 @@ definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Audio",
     "Herkunft unbelegt",
     "QS Bedeutungen",
     "QS_Bedeutungen",
