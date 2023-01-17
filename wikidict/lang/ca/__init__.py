@@ -72,20 +72,6 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
-    # {{forma-|abreujada|ca|bicicleta}}
-    "forma-": "f\"{italic('forma ' + parts[1] + ' de')} {strong(parts[-1])}\"",
-    # {{forma-a|ca|Beget}}
-    "forma-a": "f\"{italic('forma alternativa de')} {strong(parts[2])}\"",
-    # {{forma-augm|ca|anticonstitucionalment}}
-    "forma-augm": "f\"{italic('forma augmentativa de')} {strong(parts[2])}\"",
-    # {{forma-dim|ca|amic}}
-    "forma-dim": "f\"{italic('forma diminutiva de')} {strong(parts[2])}\"",
-    # {{forma-inc|ca|garantir}}
-    "forma-inc": "f\"{italic('forma incorrecta de')} {strong(parts[2])}\"",
-    # {{forma-pron|ca|estimar}}
-    "forma-pron": "f\"{italic('forma pronominal de')} {strong(parts[2])}\"",
-    # {{forma-super|ca|alt}}
-    "forma-super": "f\"{italic('forma superlativa de')} {strong(parts[2])}\"",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
