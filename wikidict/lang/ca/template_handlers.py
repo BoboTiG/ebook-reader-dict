@@ -7,10 +7,10 @@ from .labels import label_syntaxes, labels
 
 def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
-    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str))
-    '<i>forma alternativa de</i> <b>Candelera</b>'
     >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
     '<i>forma augmentativa de</i> <b>Candelera</b>'
+    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str))
+    '<i>forma alternativa de</i> <b>Candelera</b>'
     >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str, {"alt": "la Candelera"}))
     '<i>forma alternativa de</i> <b>la Candelera</b>'
     >>> render_forma("forma-a", ["mul", "I"], defaultdict(str, {"glossa": "1 en números romans"}))
@@ -19,24 +19,15 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
     """  # noqa
     formas = {
-        "forma-": "forma abreujada de",
         "forma-a": "forma alternativa de",
-        "alternativa": "forma alternativa de",
         "forma-augm": "forma augmentativa de",
-        "augmentativa": "forma augmentativa de",
         "forma-dim": "forma diminutiva de",
-        "diminutiva": "forma diminutiva de",
-        "emfàtica": "forma emfàtica de",
         "forma-inc": "forma incorrecta de",
-        "incorrecta": "forma incorrecta de",
         "forma-pron": "forma pronominal de",
-        "pronominal": "forma pronominal de",
         "forma-super": "forma superlativa de",
-        "superlativa": "forma superlativa de",
-        "singular": "forma singular de",
         "sinònim": "Sinònim de",
     }
-    forma = formas.get(parts[0]) or formas[tpl]
+    forma = formas.get(tpl, f"forma {parts[0]} de")
     phrase = f"{italic(forma)} {strong(data['alt'] or parts[-1])}"
     if data["glossa"]:
         phrase += f" («{data['glossa']}»)"
