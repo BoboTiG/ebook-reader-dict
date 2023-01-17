@@ -26,6 +26,7 @@ definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Audio",
     "Herkunft unbelegt",
     "QS Bedeutungen",
     "QS_Bedeutungen",
@@ -41,6 +42,12 @@ templates_multi = {
     "fm": "italic('f, m')",
     # {{fn}}
     "fn": "italic('f, n')",
+    # {{Datei:portail.jpg|thumb|right|250px|Notre-Dame de Paris}}
+    "Datei": "parts[-1]",
+    # {{Diskussion|München|Diskussion}}
+    "Diskussion": "parts[-1]",
+    # {{Hilfe|Wortart |gebundenen Lexem}}
+    "Hilfe": "parts[-1]",
     # {{L|at||en}}
     "L": "parts[1]",
     # {{lang|fr|-ose}}
@@ -55,13 +62,21 @@ templates_multi = {
     "noredlink": "parts[-1]",
     # {{Polytonisch|(το)}}
     "Polytonisch": "parts[-1]",
+    # {{Rekonstruktion|Urindogermanisch/h₃okʷ-|*h₃okʷ-}}
+    "Rekonstruktion": "parts[-1]",
     # {{Ü|pl|dzień}}
     "Ü": "italic(parts[-1])",
+    # {{Verzeichnis|Deutsch/Uhrzeit|Übersicht der Uhrzeiten im Deutschen}}
+    "Verzeichnis": "parts[-1]",
     # {{vgl.}}
     "vgl.": "italic('vergleiche:')",
     # {{W|Datenkompression|Datenkompressionen}}
     "W": "parts[-1]",
     "WP": "parts[-1]",
+    # {{Wikipedia|Beatrix#Bekannte Namensträgerinnen|Beatrix}}
+    "Wikipedia": "parts[-1]",
+    # {{Wiktionary|Lateinisch|lat.}}
+    "Wiktionary": "parts[-1]",
 }
 
 templates_other = {
