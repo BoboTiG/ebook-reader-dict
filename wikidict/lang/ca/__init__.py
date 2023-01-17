@@ -84,8 +84,6 @@ templates_multi = {
     "q": "term(concat(parts[1:], sep=', '))",
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
-    # {{sinònim|ca|aixecador}}
-    "sinònim": "f\"{italic('Sinònim de')} {strong(parts[-1])}\"",
     # {{etim-s|ca|XIV}}
     "etim-s": "'segle ' + parts[2]",
 }

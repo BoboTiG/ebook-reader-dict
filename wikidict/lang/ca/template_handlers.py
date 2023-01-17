@@ -15,6 +15,8 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>forma alternativa de</i> <b>la Candelera</b>'
     >>> render_forma("forma-a", ["mul", "I"], defaultdict(str, {"glossa": "1 en números romans"}))
     '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
+    >>> render_forma("sinònim", ["mul", "Miathyria"], defaultdict(str, {"glossa": "gènere de libèl·lules"}))
+    '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
     """  # noqa
     formas = {
         "forma-": "forma abreujada de",
@@ -30,6 +32,7 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "pronominal": "forma pronominal de",
         "forma-super": "forma superlativa de",
         "superlativa": "forma superlativa de",
+        "sinònim": "Sinònim de",
     }
     forma = formas.get(parts[0]) or formas[tpl]
     phrase = f"{italic(forma)} {strong(data['alt'] or parts[-1])}"
@@ -96,6 +99,7 @@ template_mapping = {
     "marca": render_label,
     "marca-nocat": render_label,
     "sigles de": render_sigles_de,
+    "sinònim": render_forma,
 }
 
 
