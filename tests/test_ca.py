@@ -243,7 +243,7 @@ def test_parse_word(
         ("{{color|#E01010}}", "[RGB #E01010]"),
         ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
-        ("{{e|la|lupus}}", "lupus"),
+        ("{{e|la|longifolius|longifolia}}", "longifolia"),
         (
             "{{forma-|abreujada|ca|bicicleta}}",
             "<i>forma abreujada de</i> <b>bicicleta</b>",

@@ -71,7 +71,7 @@ templates_multi = {
     # {{doblet|ca|Castellar}}
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
-    "e": "parts[2]",
+    "e": "parts[-1]",
     # {{forma-|abreujada|ca|bicicleta}}
     "forma-": "f\"{italic('forma ' + parts[1] + ' de')} {strong(parts[-1])}\"",
     # {{forma-a|ca|Beget}}
