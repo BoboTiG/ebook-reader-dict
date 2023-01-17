@@ -72,6 +72,10 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
+    # {{fals tall|ca|[[sarna]] > [[s']]arna}}
+    "fals tall": "f'fals tall sil·làbic de {italic(parts[-1])}'",
+    # {{Fals tall|ca|[[sarna]] > [[s']]arna}}
+    "Fals tall": "f'Fals tall sil·làbic de {italic(parts[-1])}'",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
