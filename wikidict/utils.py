@@ -381,9 +381,8 @@ def clean(text: str, locale: str = "en") -> str:
 
     # Namespaces
     # [[File:...|...]] -> ''
-    # except [[File:...|{{...}}]] that will end on '{{...}}'
     pattern = "|".join(iter(namespaces[locale]))
-    text = sub(rf"\[\[(?:{pattern}):[^\{{]+?(?=\]\])\]\]*", "", text)
+    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
 
     # Links
     # Internal: [[{{a|b}}]] -> {{a|b}}

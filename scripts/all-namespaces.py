@@ -8,15 +8,16 @@ results: Dict[str, List[str]] = {}
 locales = ("ca", "de", "el", "en", "es", "fr", "it", "no", "pt", "ru", "sv")
 
 for locale in locales:
-    result_array: List[str] = []
+    result_discard_last: List[str] = []
     langurl = url.format(locale)
     r = requests.get(langurl)
     json = r.json()
     namespaces = json["query"]["namespaces"]
     for key, namespace in namespaces.items():
         if n := namespace["*"]:
-            result_array.append(n)
-    results[locale] = sorted(result_array)
+            if namespace["canonical"] in ["File", "Category"]:
+                result_discard_last.append(n)
+    results[locale] = result_discard_last
 
 print("namespaces =", end=" ")
 print(results)
