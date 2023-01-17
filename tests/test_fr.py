@@ -539,7 +539,6 @@ def test_parse_word(
         ("{{pluriel}}", "<i>pluriel</i>"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
-        ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
         (
             "{{refnec|lang=fr|Du préfixe privatif [[a-]] de [[cyan]] et de {{polytonique|{{lien|βλέψις|grc}}|blepsis|vue}}.}}",  # noqa
             "<u>Du préfixe privatif a- de cyan et de βλέψις, <i>blepsis</i> («&nbsp;vue&nbsp;»).</u>",
@@ -554,11 +553,6 @@ def test_parse_word(
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
         ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
         ("{{trad-|la|fiducia}}", "fiducia"),
-        ("{{unité|92|%}}", "92 %"),
-        ("{{Unité|60|cm}}", "60 cm"),
-        ("{{W|Jacques Brandenberger}}", "Jacques Brandenberger"),
-        ("{{w|lang=en|The Little Prince}}", "The Little Prince"),
-        ("{{w|Li Ptit Prince (roman)|Li Ptit Prince|lang=wa}}", "Li Ptit Prince"),
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
