@@ -62,15 +62,6 @@ templates_ignored = (
     "-etim-",
 )
 
-# Templates that will be completed/replaced using italic style.
-templates_italic = {
-    "alguerès-verb": "alguerès",
-    "arcaic": "arcaisme",
-    "fruits": "botànica",
-    "plantes": "botànica",
-    "valencià-verb": "valencià",
-}
-
 # Templates more complex to manage.
 templates_multi = {
     # {{color|#E01010}}
@@ -97,12 +88,6 @@ templates_multi = {
     "forma-super": "f\"{italic('forma superlativa de')} {strong(parts[2])}\"",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
-    # {{marca|ca|fruits}}
-    # {{marca|ca|interrogatiu|condicional}}
-    "marca": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5], skip='_'), 'ca'))",
-    # {{marca-nocat|ca|balear}}
-    # {{marca-nocat|ca|occidental|balear}}
-    "marca-nocat": "term(lookup_italic(concat(parts, sep=', ', indexes=[2, 3, 4, 5]), 'ca'))",
     # {{pron|hi|/baːzaːr/}}
     "pron": "', '.join(parts[2:])",
     # {{q|tenir bona planta}}
@@ -247,6 +232,10 @@ def last_template_handler(
     )
     from .. import defaults
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
+
+    if lookup_template(template[0]):
+        return render_template(template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
