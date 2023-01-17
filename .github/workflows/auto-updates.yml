@@ -90,6 +90,7 @@ jobs:
         run: python -Wd -m wikidict ${{ matrix.locale }} --release > release.txt
 
       - name: Upload release data
+        if: github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ matrix.locale }}
