@@ -13,6 +13,8 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(medicina)</i>'
     >>> render_label("marca", ["ca", "neologisme", "humorístic", "i", "a vegades", "despectiu"], defaultdict(str))
     '<i>(neologisme, humorístic i a vegades, despectiu)</i>'
+    >>> render_label("marca", ["ca", "pronominal", "valencià", "_", "col·loquial"], defaultdict(str))
+    '<i>(pronominal, valencià col·loquial)</i>'
     """  # noqa
     res = ""
     omit_preComma = False
@@ -30,7 +32,7 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             if res:
                 res += " " if omit_comma else ", "
             res += label_display
-        else:
+        elif label != "_":
             res += " " if omit_comma else ", "
             res += label
 
