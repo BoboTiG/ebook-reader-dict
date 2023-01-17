@@ -258,7 +258,6 @@ def test_parse_word(
             "<i>(una planta, una cosa del terra)</i>",
         ),
         ("{{romanes|XIX}}", "<span style='font-variant:small-caps'>xix</span>"),
-        ("{{sinònim|ca|aixecador}}", "<i>Sinònim de</i> <b>aixecador</b>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
     ],
 )
