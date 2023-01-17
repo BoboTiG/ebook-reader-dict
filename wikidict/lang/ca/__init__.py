@@ -176,7 +176,7 @@ def last_template_handler(
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["default-test-xyz"], "ca")
-        '<i>(Default-test-xyz)</i>'
+        '##opendoublecurly##default-test-xyz##closedoublecurly##'
 
         >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo"], "ca")
         'calc semàntic del castellà <i>pueblo</i>'

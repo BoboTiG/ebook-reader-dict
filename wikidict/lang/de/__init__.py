@@ -166,7 +166,7 @@ def last_template_handler(
     Will be called in utils.py::transform() when all template handlers were not used.
 
     >>> last_template_handler(["default"], "de")
-    '<i>(Default)</i>'
+    '##opendoublecurly##default##closedoublecurly##'
     >>> last_template_handler(["fr."], "de")
     'französisch'
     >>> last_template_handler(["fr.", ":"], "de")

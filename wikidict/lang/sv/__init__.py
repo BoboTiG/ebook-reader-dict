@@ -128,7 +128,7 @@ def last_template_handler(
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["foo"], "sv")
-        '<i>(Foo)</i>'
+        '##opendoublecurly##foo##closedoublecurly##'
 
         >>> last_template_handler(["avledning", "sv", "tråkig"], "sv")
         '<i>avledning till</i> tråkig'
