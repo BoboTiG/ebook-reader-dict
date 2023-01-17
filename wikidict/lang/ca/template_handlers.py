@@ -26,6 +26,7 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "augmentativa": "forma augmentativa de",
         "forma-dim": "forma diminutiva de",
         "diminutiva": "forma diminutiva de",
+        "emfàtica": "forma emfàtica de",
         "forma-inc": "forma incorrecta de",
         "incorrecta": "forma incorrecta de",
         "forma-pron": "forma pronominal de",
