@@ -995,6 +995,8 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>(II<sup>e</sup> siècle - III)</i>'
     >>> render_siecle("siècle", ["XVIII?"], defaultdict(str))
     '<i>(XVIII<sup>e</sup> siècle?)</i>'
+    >>> render_siecle("siècle", ["2<sup>e</sup> moitié du X<sup>e</sup> siècle"], defaultdict(str))
+    '<i>(2<sup>e</sup> moitié du X<sup>e</sup> siècle)</i>'
     """
     parts = [part for part in parts if part.strip() and part != "?"]
     if not parts:
@@ -1005,7 +1007,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return f"{x.group()[:-1]}{superscript(sup)} siècle{x.group()[-1]}"
 
     parts = [
-        re.sub(r"([IVX]+)([^\s\w]|\s)", repl, f"{part} ", 1).strip() for part in parts
+        re.sub(r"([IVX]+)([^\s\w<]|\s)", repl, f"{part} ", 1).strip() for part in parts
     ]
 
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
