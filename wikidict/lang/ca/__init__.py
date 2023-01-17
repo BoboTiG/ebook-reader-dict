@@ -91,7 +91,7 @@ templates_multi = {
     # {{pron|hi|/baːzaːr/}}
     "pron": "', '.join(parts[2:])",
     # {{q|tenir bona planta}}
-    "q": "term(parts[-1])",
+    "q": "term(concat(parts[1:], sep=', '))",
     # {{sinònim|ca|aixecador}}
     "sinònim": "f\"{italic('Sinònim de')} {strong(parts[-1])}\"",
     # {{etim-s|ca|XIV}}

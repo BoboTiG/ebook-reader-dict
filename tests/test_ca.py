@@ -261,6 +261,10 @@ def test_parse_word(
         ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
         ("{{q|tenir bona planta}}", "<i>(tenir bona planta)</i>"),
+        (
+            "{{q|una planta|una cosa del terra}}",
+            "<i>(una planta, una cosa del terra)</i>",
+        ),
         ("{{sinònim|ca|aixecador}}", "<i>Sinònim de</i> <b>aixecador</b>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
     ],
