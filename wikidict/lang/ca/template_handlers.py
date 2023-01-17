@@ -72,6 +72,19 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return term(res.strip())
 
 
+def render_sigles_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
+    "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
+    >>> render_sigles_de("sigles de", ["ca", "North Atlantic Treaty Organization"], defaultdict(str, {"t": "OTAN"}))
+    '<i>Sigles de</i> <b>North Atlantic Treaty Organization</b> («OTAN»)'
+    """  # noqa
+    phrase = f"{italic('Sigles de')} {strong(parts[-1])}"
+    if data["t"]:
+        phrase += f" («{data['t']}»)"
+    return phrase
+
+
 template_mapping = {
     "forma-": render_forma,
     "forma-a": render_forma,
@@ -82,6 +95,7 @@ template_mapping = {
     "forma-super": render_forma,
     "marca": render_label,
     "marca-nocat": render_label,
+    "sigles de": render_sigles_de,
 }
 
 
