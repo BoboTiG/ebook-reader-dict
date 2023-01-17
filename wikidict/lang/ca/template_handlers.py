@@ -1,8 +1,32 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, term
+from ...user_functions import extract_keywords_from, italic, strong, term
 from .labels import label_syntaxes, labels
+
+
+def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str))
+    '<i>forma alternativa de</i> <b>Candelera</b>'
+    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str, {"alt": "la Candelera"}))
+    '<i>forma alternativa de</i> <b>la Candelera</b>'
+    >>> render_forma("forma-a", ["mul", "I"], defaultdict(str, {"glossa": "1 en números romans"}))
+    '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
+    """  # noqa
+    forma = {
+        "forma-": "forma abreujada de",
+        "forma-a": "forma alternativa de",
+        "forma-augm": "forma augmentativa de",
+        "forma-dim": "forma diminutiva de",
+        "forma-inc": "forma incorrecta de",
+        "forma-pron": "forma pronominal de",
+        "forma-super": "forma superlativa de",
+    }[tpl]
+    phrase = f"{italic(forma)} {strong(data['alt'] or parts[-1])}"
+    if data["glossa"]:
+        phrase += f" («{data['glossa']}»)"
+    return phrase
 
 
 def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -40,6 +64,13 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 template_mapping = {
+    "forma-": render_forma,
+    "forma-a": render_forma,
+    "forma-augm": render_forma,
+    "forma-dim": render_forma,
+    "forma-inc": render_forma,
+    "forma-pron": render_forma,
+    "forma-super": render_forma,
     "marca": render_label,
     "marca-nocat": render_label,
 }
