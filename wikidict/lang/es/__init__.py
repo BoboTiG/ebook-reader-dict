@@ -65,6 +65,7 @@ templates_ignored = (
     "arcoiris",
     "Archivo",
     "catafijo",
+    "Categoría",
     "cita requerida",
     "citarequerida",
     "clear",
@@ -147,6 +148,8 @@ templates_multi = {
     "versalita": "small_caps(parts[1])",
     # {{verde|*exfollare}}
     "verde": "italic(parts[1])",
+    # {{Wikcionario|Referencia/INE/Morfología/Sustantivos#Apofonía|Apofonía nominal indoeuropea}}
+    "Wikcionario": "parts[-1]",
 }
 
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")

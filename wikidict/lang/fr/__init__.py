@@ -480,6 +480,10 @@ templates_multi = {
     # {{1re}}
     # {{1re|fois}}
     "1re": "f\"1{superscript('re')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    # {{Aide|Formes reconstruites|*}}
+    "Aide": "parts[-1]",
+    # {{Annexe|Principales puissances de 10|10{{e|&minus;18}}}}
+    "Annexe": "parts[-1]",
     # {{Arabe|ن و ق}}
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
@@ -500,6 +504,8 @@ templates_multi = {
     "déverbal de": 'f"Déverbal de {italic(parts[1])}"',
     # {{dénominal de|affection|fr}}
     "dénominal de": 'f"Dénominal de {italic(parts[1])}"',
+    # {{Discussion|géniophobie|ici}}
+    "Discussion": "parts[-1]",
     # {{fchim|H|2|O}}
     "fchim": "chimy(parts[1:])",
     "formule chimique": "chimy(parts[1:])",
@@ -587,6 +593,8 @@ templates_multi = {
     "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",  # noqa
     # {{R:Tosti|Turgeon}})
     "R:Tosti": "f'«&nbsp;{parts[-1]}&nbsp;» dans Jean {small_caps(\"Tosti\")}, <i>Les noms de famille</i>'",
+    # {{Reconstruction|proto-germanique/*berhtaz|berht}}
+    "Reconstruction": "parts[-1]",
     # {{RFC|5322}}
     "RFC": "sentence(parts)",
     # {{région}}
@@ -619,6 +627,8 @@ templates_multi = {
     "trad-": "parts[2]",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
+    # {{Wiktionnaire|Bac à sable|ici}}
+    "Wiktionnaire": "parts[-1]",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
@@ -879,11 +889,6 @@ def last_template_handler(
         >>> last_template_handler(["zh-l", "餃子/饺子", "jiǎozi", "jiaozi bouillis"], "fr")
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
-        >>> # Namespaces converted to templates
-        >>> last_template_handler(["Annexe", "Principales puissances de 10", "10{{e|&minus;18}}"], "fr")
-        '10{{e|&minus;18}}'
-        >>> last_template_handler(["Reconstruction", "proto-germanique/*berhtaz", "berht"], "fr")
-        'berht'
     """  # noqa
     from ...user_functions import (
         capitalize,
@@ -1001,10 +1006,6 @@ def last_template_handler(
 
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
-
-    # Namespaces converted to templates
-    if tpl in ("Annexe", "Reconstruction"):
-        return parts[-1]
 
     # This is a country in the current locale
     return langs[tpl] if tpl in langs else default(template, locale, word=word)

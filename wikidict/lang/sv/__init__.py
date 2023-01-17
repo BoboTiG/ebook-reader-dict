@@ -34,10 +34,14 @@ sections = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("citat",)
+templates_ignored = ("?", "citat", "Fil")
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{Användare|Andreas Rejbrand|Andreas Rejbrand}}
+    "Användare": "parts[-1]",
+    # {{Appendix|Stilnivåer#Informellt|informellt}}
+    "Appendix": "parts[-1]",
     # {{böjning|sv|subst|boll}}
     "böjning": "italic('böjningsform av') + ' ' + parts[-1]",
     # {{led|sv|f|gata}}
@@ -53,6 +57,8 @@ templates_multi = {
     "tagg": "term(tag(parts[1:]))",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
+    # {{Wiktionary|Bybrunnen#Ordklass:_samtlig_.C3.A5tskillig_all|diskussion}}
+    "Wiktionary": "parts[-1]",
 }
 
 

@@ -42,13 +42,15 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored: Tuple[str, ...] = tuple()
+templates_ignored: Tuple[str, ...] = ("File",)
 
 # Templates that will be completed/replaced using italic style.
 templates_italic: Dict[str, str] = {}
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
+    # {{Aiuto|IPA|[bi:ksio}}
+    "Aiuto": "parts[-1] + ']'",
     # {{context|ecology|lang=it}}
     "context": "small(term(parts[1]))",
     # {{Est|raro|it}}
@@ -68,6 +70,8 @@ templates_multi: Dict[str, str] = {
     "Noetim": "'-etimologia mancante-'",
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
+    # {{Speciale:PuntanoQui/-ecromie|elenco automatico}}
+    "Speciale": "parts[-1]",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
     "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
     # {{Taxon|Chromis chromis|Chromis chromis}}
