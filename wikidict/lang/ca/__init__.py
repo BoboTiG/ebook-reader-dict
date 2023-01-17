@@ -164,6 +164,8 @@ def last_template_handler(
         'prefix <i>a-</i> i el sufix <i>-lèxia</i>'
         >>> last_template_handler(["comp", "ca", "fred", "-ol-", "-ic"], "ca")
         "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
+        >>> last_template_handler(["comp", "ca", "argila", "+ar"], "ca")
+        '<i>argila</i> i la desinència <i>-ar</i>'
 
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
@@ -262,6 +264,9 @@ def last_template_handler(
                     prefix = "l'infix " if word.endswith("-") else "el sufix "
             elif word.endswith("-"):
                 prefix = "prefix "
+            elif word.startswith("+"):
+                prefix = "desinència " if standalone else "la desinència "
+                word = word.replace("+", "-")
             return f"{prefix}{italic(word)}"
 
         parts.pop(0)  # Remove the lang
