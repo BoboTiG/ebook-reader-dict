@@ -181,6 +181,7 @@ templates_ignored = (
     "ébauche-étym",
     "ébauche-exe",
     "exemple",
+    "Fichier",
     "ibid",
     "Import",
     "lire en ligne",
@@ -878,6 +879,11 @@ def last_template_handler(
         >>> last_template_handler(["zh-l", "餃子/饺子", "jiǎozi", "jiaozi bouillis"], "fr")
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
+        >>> # Namespaces converted to templates
+        >>> last_template_handler(["Annexe", "Principales puissances de 10", "10{{e|&minus;18}}"], "fr")
+        '10{{e|&minus;18}}'
+        >>> last_template_handler(["Reconstruction", "proto-germanique/*berhtaz", "berht"], "fr")
+        'berht'
     """  # noqa
     from ...user_functions import (
         capitalize,
@@ -995,6 +1001,10 @@ def last_template_handler(
 
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
+
+    # Namespaces converted to templates
+    if tpl in ("Annexe", "Reconstruction"):
+        return parts[-1]
 
     # This is a country in the current locale
     return langs[tpl] if tpl in langs else default(template, locale, word=word)

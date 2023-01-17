@@ -539,7 +539,6 @@ def test_parse_word(
         ("{{pluriel}}", "<i>pluriel</i>"),
         ("{{pron|zjø|fr}}", "\\zjø\\"),
         ("{{pron-API|/j/}}", "/j/"),
-        ("{{recons|lang-mot-vedette=fr|sporo|lang=frk|sc=Latn}}", "*<i>sporo</i>"),
         (
             "{{refnec|lang=fr|Du préfixe privatif [[a-]] de [[cyan]] et de {{polytonique|{{lien|βλέψις|grc}}|blepsis|vue}}.}}",  # noqa
             "<u>Du préfixe privatif a- de cyan et de βλέψις, <i>blepsis</i> («&nbsp;vue&nbsp;»).</u>",

@@ -63,6 +63,7 @@ definitions_to_ignore = (
 templates_ignored = (
     "ampliable",
     "arcoiris",
+    "Archivo",
     "catafijo",
     "cita requerida",
     "citarequerida",

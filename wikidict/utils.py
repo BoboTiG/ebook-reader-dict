@@ -288,26 +288,23 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
-        '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")  # noqa
-        ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
-        ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
-        ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
-        ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
-        ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
-        ''
-        >>> clean("[[Stó:lō]]", locale="fr")
-        'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
         '-[e]au'
+
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
+        '{{Annexe|Principales puissances de 10|10{{e|&minus;6}}}} gray'
+        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")
+        '{{Fichier|Blason ville fr Petit-Bersac 24.svg|vignette|120px|<b>Base</b> d’or <i>(sens héraldique)</i>}}'
+        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
+        '{{Catégorie|Localités d’Afrique du Sud en français}}'
+        >>> clean("{{recons|lang-mot-vedette=fr|[[Reconstruction:proto-germanique/*berhtaz|berht]]}}", locale="fr")
+        '{{recons|lang-mot-vedette=fr|{{Reconstruction|proto-germanique/*berhtaz|berht}}}}'
+        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
+        '{{Archivo|Striped_Woodpecker.jpg|thumb|[1] macho.}}'
+        >>> clean("[[Stó:lō]]", locale="fr")
+        'Stó:lō'
 
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
@@ -337,7 +334,7 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("A_____B, B_____A")
         'A_____B, B_____A'
-    """
+    """  # noqa
 
     # Speed-up lookup
     sub = re.sub
@@ -376,10 +373,9 @@ def clean(text: str, locale: str = "en") -> str:
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
     # Namespaces
-    # [[File:...|...]] -> ''
-    # except [[File:...|{{...}}]] that will end on '{{...}}'
+    # [[File:...|...]] -> '{{File|...|...}}'
     pattern = "|".join(iter(namespaces[locale]))
-    text = sub(rf"\[\[(?:{pattern}):[^\{{]+?(?=\]\])\]\]*", "", text)
+    text = sub(rf"\[\[((?:{pattern})):(.+?(?=\]\]))\]\]*", r"{{\1|\2}}", text)
 
     # Links
     # Internal: [[{{a|b}}]] -> {{a|b}}

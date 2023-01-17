@@ -58,6 +58,7 @@ templates_ignored = (
     "cln",
     "elements",
     "etystub",
+    "File",
     "multiple images",
     "+obj",
     "PIE word",
