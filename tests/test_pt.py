@@ -185,6 +185,7 @@ def test_parse_word(
         ("{{mq|palavra}}", "o mesmo que <b>palavra</b>"),
         ("{{mq|word|en}}", "o mesmo que <i>word</i>"),
         ("{{PE|cu}}", "cu <sup>(português de Portugal)</sup>"),
+        ("{{politônico|κρατία}}", "κρατία"),
         ("{{r|la|basium|basĭum}}", "basĭum"),
         ("{{r.l|la|utor|ūtor}}", "ūtor"),
         ("{{varort|tenu-|pt}}", "variante ortográfica de <b>tenu-</b>"),
