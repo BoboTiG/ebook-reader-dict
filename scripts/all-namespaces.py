@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-import requests
+from scripts_utils import get_content
 
 url = "https://{0}.wiktionary.org/w/api.php?action=query&meta=siteinfo&siprop=namespaces&format=json"
 
@@ -9,9 +9,7 @@ locales = ("ca", "de", "el", "en", "es", "fr", "it", "no", "pt", "ru", "sv")
 
 for locale in locales:
     result_discard_last: List[str] = []
-    langurl = url.format(locale)
-    r = requests.get(langurl)
-    json = r.json()
+    json = get_content(url.format(locale), as_json=True)
     namespaces = json["query"]["namespaces"]
     for key, namespace in namespaces.items():
         if n := namespace["*"]:

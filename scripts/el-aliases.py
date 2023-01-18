@@ -1,11 +1,9 @@
 import re
 
-import requests
+from scripts_utils import get_content
 
 url = "https://el.wiktionary.org/wiki/Module:labels/alias"
-with requests.get(url) as req:
-    req.raise_for_status()
-    lines = req.text.splitlines()
+lines = get_content(url).splitlines()
 
 aliases = {}
 

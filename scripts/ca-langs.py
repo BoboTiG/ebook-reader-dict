@@ -2,14 +2,12 @@ import re
 import xml.etree.ElementTree as ET
 from io import StringIO
 
-import requests
+from scripts_utils import get_content
 
 url = "https://raw.githubusercontent.com/unicode-org/cldr/master/common/main/ca.xml"
-with requests.get(url) as req:
-    req.raise_for_status()
-    buf = StringIO(initial_value=req.text)
-    tree = ET.parse(buf)
-    root = tree.getroot()
+buf = StringIO(initial_value=get_content(url))
+tree = ET.parse(buf)
+root = tree.getroot()
 
 languages = {}
 for lang in root.iter("language"):
@@ -18,9 +16,7 @@ for lang in root.iter("language"):
     languages[iso] = name
 
 url = "https://ca.wiktionary.org/wiki/M%C3%B2dul:llengua/taula"
-with requests.get(url) as req:
-    req.raise_for_status()
-    lines = req.text.split("\n")
+lines = get_content(url).split("\n")
 
 # Strips the newline character
 pattern = re.compile(r'.*"s2">&quot;([^&]+)')
@@ -31,11 +27,11 @@ for line in lines:
     if '<span class="n">c</span>' in line:
         m = pattern.match(line)
         if m:
-            iso = m.group(1)
+            iso = m[1]
     elif '<span class="n">nom' in line:
         m = pattern.match(line)
         if m:
-            name = m.group(1)
+            name = m[1]
             if iso:
                 languages[iso] = name
 

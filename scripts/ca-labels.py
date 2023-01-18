@@ -1,15 +1,12 @@
 import re
 from typing import Dict
 
-import requests
+from scripts_utils import get_content
 
 url = (
     "https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:etiquetes/dades&action=raw"
 )
-with requests.get(url) as req:
-    req.raise_for_status()
-    text = req.text
-
+text = get_content(url)
 
 text = text.replace("local ", "")
 text = text.replace("end", "")

@@ -1,18 +1,21 @@
 from time import sleep
+from typing import Any, Dict
 
 import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
 
 
-def get_url_content(url: str, max_retries: int = 5, sleep_time: int = 5) -> str:
+def get_content(
+    url: str, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False
+) -> str | Dict[str, Any]:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:
         try:
             with requests.get(url, timeout=10) as req:
                 req.raise_for_status()
-                return req.text
+                return req.json() if as_json else req.text
         except TimeoutError:
             sleep(sleep_time)
             retry += 1
@@ -29,5 +32,5 @@ def get_url_content(url: str, max_retries: int = 5, sleep_time: int = 5) -> str:
 
 
 def get_soup(url: str) -> BeautifulSoup:
-    page = get_url_content(url)
+    page = get_content(url)
     return BeautifulSoup(page, features="html.parser")

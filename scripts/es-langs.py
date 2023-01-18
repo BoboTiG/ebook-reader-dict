@@ -1,9 +1,9 @@
 import re
 
-from scripts_utils import get_soup, get_url_content
+from scripts_utils import get_content, get_soup
 
 url = "https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma"
-content = get_url_content(url)
+content = get_content(url)
 
 pattern = r"<tr>\s+<td>([^<]+)</td>\s+<td>([^<]+)\s+</td></tr>"
 matches = re.findall(pattern, content)
