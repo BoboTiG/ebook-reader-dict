@@ -244,11 +244,6 @@ def test_parse_word(
         ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
         ("{{e|la|longifolius|longifolia}}", "longifolia"),
-        (
-            "{{fals tall|ca|[[sarna]] > [[s']]arna}}",
-            "fals tall sil·làbic de <i>sarna > s'arna</i>",
-        ),
-        ("{{Fals tall|ca|Far|el Far}}", "Fals tall sil·làbic de <i>el Far</i>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
         ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),

@@ -72,10 +72,6 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
-    # {{fals tall|ca|[[sarna]] > [[s']]arna}}
-    "fals tall": "f'fals tall sil·làbic de {italic(parts[-1])}'",
-    # {{Fals tall|ca|[[sarna]] > [[s']]arna}}
-    "Fals tall": "f'Fals tall sil·làbic de {italic(parts[-1])}'",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
@@ -183,6 +179,11 @@ def last_template_handler(
         'del llatí <i>verba</i>'
         >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")
         "De l'ibèric <i>baitolo</i>"
+
+        >>> last_template_handler(["Fals tall", "ca", "Far", "el Far"], "ca")
+        'Fals tall sil·làbic de <i>el Far</i>'
+        >>> last_template_handler(["fals tall", "ca", "s'endemà", "trad=l’endemà"], "ca")
+        "fals tall sil·làbic de <i>s'endemà</i> («l’endemà»)"
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -296,6 +297,9 @@ def last_template_handler(
                 phrase += f" {italic(parts[2])}"
         phrase += parse_other_parameters()
         return phrase
+
+    if tpl in ("fals tall", "Fals tall"):
+        return f"{tpl} sil·làbic de {italic(parts[-1])}{parse_other_parameters()}"
 
     if tpl == "lleng":
         phrase = parts[-1]
