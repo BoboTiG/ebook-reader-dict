@@ -1,5 +1,7 @@
 # Spanish Dictionary For Your eBook Reader
 
+> 🥇 That page needs to be translated to **Spanish**. If you can give a hand, that would be awesome 🥰
+
 **eBook Reader Dictionaries** is a collaborative project using the vast [Wikcionario](https://es.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
 
 ## Interesting Features

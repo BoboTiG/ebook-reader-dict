@@ -1,5 +1,7 @@
 # Russian Dictionary For Your eBook Reader
 
+> 🥇 That page needs to be translated to **Russian**. If you can give a hand, that would be awesome 🥰
+
 > :construction:
 > :construction:
 > Any help is welcome to improve that dictionary.
