@@ -285,7 +285,7 @@ def last_template_handler(
         src = parts.pop(0)  # Remove the lang
         phrase = italic(parts.pop(0))
         if not parts and not data:
-            phrase += " " + superscript(f"({src})")
+            phrase += f' {superscript(f"({src})")}'
         if parts:
             phrase += f" {parts[0]}"
         if data["transcr"]:
