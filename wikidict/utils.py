@@ -381,7 +381,7 @@ def clean(text: str, locale: str = "en") -> str:
 
     # Namespaces
     # [[File:...|...]] -> ''
-    pattern = "|".join(iter(namespaces[locale]))
+    pattern = "|".join(iter(namespaces[locale] + namespaces["en"]))
     text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
 
     # Links
