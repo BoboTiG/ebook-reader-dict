@@ -40,7 +40,7 @@ from wikidict.utils import process_templates
             "cabrum",
             [],
             ["mf"],
-            ['Do latim <i>caprunu</i> <sup>(la)</sup> "cabra".'],
+            ["Do latim <i>caprunu</i> <sup>(la)</sup> “cabra”."],
             [
                 "<i>(Pecuária)</i> de cabras:",
                 "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
