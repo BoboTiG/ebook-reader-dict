@@ -2,22 +2,17 @@
 
 [![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml)
 
-Finally, decent dictionaries based on [Wiktionary](https://www.wiktionary.org/) for your beloved eBook reader.
-
 - [Catalan](docs/ca/README.md)
-- [German](docs/de/README.md)
 - [English](docs/en/README.md)
-- [Spanish](docs/es/README.md)
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+- [German](docs/de/README.md)
+- [Greek](docs/el/README.md)
 - [Italian](docs/it/README.md)
+- [Norway](docs/el/README.md)
 - [Portuguese](docs/pt/README.md)
+- [Russian](docs/ru/README.md)
+- [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)
-
-Any help is welcome to improve those dictionaries:
-
-- :construction: [Greek](docs/el/README.md)
-- :construction: [Norway](docs/el/README.md)
-- :construction: [Russian](docs/ru/README.md)
 
 ## Contributors ✨
 
