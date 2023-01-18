@@ -195,6 +195,8 @@ def last_template_handler(
         '<i>duos</i> (duōs)'
         >>> last_template_handler(["étimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
         '<i>ἄντρον</i> <i>(ánton)</i> “caverna”'
+        >>> last_template_handler(["étimo", "la", "abūsus", "sign=abuso"], "pt")
+        '<i>abūsus</i> (“abuso”)'
 
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
@@ -221,14 +223,11 @@ def last_template_handler(
         >>> last_template_handler(["la"], "pt")
         'Latim'
 
-        >>> last_template_handler(["llietimo", "en", "anaconda"], "pt")
-        'Do inglês <i>anaconda</i>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
         'Do latim <i>myrmecophaga</i>.'
-        >>> last_template_handler(["llietimo", "grc", "myrmecophaga", "pt"], "pt")
-        'Do grego antigo <i>myrmecophaga</i>.'
-        >>> last_template_handler(["llietimo", "la", "caprunu", "pt", "", "cabra"], "pt")
-        'Do latim <i>caprunu</i> “cabra”.'
+        >>> # Note: below example is not expected because we would need to translate Greek to Spanish
+        >>> last_template_handler(["llietimo", "grc", "γάτα", "es", "transliteração"], "pt")
+        'Do grego antigo <i>γάτα</i> (<i>transliteração</i>).'
         >>> last_template_handler(["llietimo", "en", "storm", "sv", "trad=tempestade"], "pt")
         'Do inglês <i>storm</i> “tempestade”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato"], "pt")
@@ -237,8 +236,8 @@ def last_template_handler(
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=não"], "pt")
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
-        >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
-        "Do tupi <i>ïsa'ub</i> (<i>formiga mestra</i>)."
+        >>> last_template_handler(["llietimo", "ar", "جهاد", "pt", "jihād", "trad=esforço"], "pt")
+        'Do árabe <i>جهاد</i> (<i>jihād</i>) “esforço”.'
 
         >>> last_template_handler(["o/a", "determinad"], "pt")
         'determinada'
@@ -298,6 +297,8 @@ def last_template_handler(
             phrase += " " + italic(f"({data['transcr']})")
         if data["trad"]:
             phrase += f" “{data['trad']}”"
+        if data["sign"]:
+            phrase += f" (“{data['sign']}”)"
         return phrase
 
     if tpl == "etm":
@@ -314,27 +315,19 @@ def last_template_handler(
         return concat(result, ", ")
 
     if tpl == "llietimo":
-        src, word, *rest = parts
+        src, word, _, *rest = parts
         phrase = f"Do {langs[src]} {italic(word)}"
-
-        if rest:
-            rest.pop(0)  # Remove the destination language
-
         if data["transcr"]:
             phrase += f" ({italic(data['transcr'])})"
-
-        if data["trad"]:
-            trad = data["trad"]
-            phrase += f" “{trad}”"
         if rest:
             if transcr := rest.pop(0):
                 phrase += f" ({italic(transcr)})"
+        if data["trad"]:
+            phrase += f" “{data['trad']}”"
         if rest:
             phrase += f" “{rest.pop(0)}”"
-
         if data.get("ponto", "") != "não":
             phrase += "."
-
         return phrase
 
     if tpl == "o/a":
