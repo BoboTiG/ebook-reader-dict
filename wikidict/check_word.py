@@ -82,7 +82,16 @@ def filter_html(html: str, locale: str) -> str:
     for span in bs.find_all("span", {"class": "mwe-math-element"}):
         span.decompose()
 
-    if locale == "de":
+    if locale == "ca":
+        # {{sense accepcions}}
+        for i in bs.find_all("i"):
+            if i.text.startswith("a aquesta paraula li falten les accepcions"):
+                # Remove the trailing dot
+                i.next_sibling.replaceWith(i.next_sibling.text[1:])
+                # And remove the note
+                i.decompose()
+
+    elif locale == "de":
         # Other Wikis
         for a in bs.find_all("a", {"class": "extiw"}):
             if (

@@ -11,6 +11,7 @@ from wikidict import check_word
 
 # Word used in test_filter_html()
 WORD = {
+    "ca": "pelegrí",
     "de": "volley",
     "en": "42",
     "es": "buena",
@@ -102,6 +103,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
 @pytest.mark.parametrize(
     "locale, body, expected",
     [
+        # CA - {{sense accepcions}}
+        [
+            "ca",
+            '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',  # noqa
+            "",
+        ],
         # DE - other Wikis
         [
             "de",
