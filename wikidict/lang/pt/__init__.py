@@ -60,6 +60,8 @@ templates_multi = {
     "AFI": "parts[1]",
     # {{barra de cor|#0000FF|#0000FF}}
     "barra de cor": "color(parts[-1])",
+    # {{confundir|anacruse}}
+    "confundir": "f'{italic(f\"Não confundir com {strong(parts[-1])}\")}'",
     # {{datação|5/4/1810}}
     "datação": "f'[{italic(\"Datação\")}: {parts[-1]}]'",
     # {{escopo2|Informática}}
