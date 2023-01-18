@@ -602,6 +602,7 @@ labels_topical = {
     "communications": "communication",
     "comp sci": "computer science",
     "compilation": "software compilation",
+    "compiler": "software compilation",
     "comptheory": "computing theory",
     "computer": "computing",
     "computer game": "computer games",
@@ -841,7 +842,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 393
+}  # 394
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
