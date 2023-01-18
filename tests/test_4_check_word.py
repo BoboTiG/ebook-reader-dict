@@ -299,10 +299,16 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             ),
             "Panthera leo",
         ],
-        # PT - Wikispecies
+        # PT - superscript locales
         [
             "pt",
             '<sup>(<a class="extiw" href="https://la.wiktionary.org/wiki/izare" title="la:izare"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
+            "",
+        ],
+        # PT - no print
+        [
+            "pt",
+            '<span class="noprint"><a class="extiw" href="https://sr.wiktionary.org/wiki/%D0%88%D1%83%D0%B3%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%98%D0%B0" title="sr:Југославија"><sup><span style="letter-spacing:1px" title="Clique aqui para ver “Југославија” no Wikcionário em sérvio">(sr)</span></sup></a></span>',  # noqa
             "",
         ],
     ],

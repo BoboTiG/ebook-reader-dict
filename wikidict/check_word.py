@@ -206,10 +206,13 @@ def filter_html(html: str, locale: str) -> str:
         return no_spaces(bs.text)
 
     elif locale == "pt":
-        # Isse 600: remove superscript locales
+        # Issue 600: remove superscript locales
         for sup in bs.find_all("sup"):
             if sup.find("a", {"class": "extiw"}):
                 sup.decompose()
+        # Almost same as previous, but for all items not elligible to be printed
+        for span in bs.find_all("span", {"class": "noprint"}):
+            span.decompose()
 
     # Filter out anchors as they are ignored from templates
     for a in bs.find_all("a", href=True):
