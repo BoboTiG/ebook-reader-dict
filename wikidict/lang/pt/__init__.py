@@ -83,6 +83,9 @@ templates_multi = {
     "l.o.": "parts[-1]",
     # {{l.s.|uso}}
     "l.s.": "parts[-1]",
+    # {{link idioma|carro}}
+    # {{link idioma|carro|es|vehículo}}
+    "link idioma": "parts[3 if len(parts) == 4 else 1]",
     # {{link opcional|arapytãŋa|tpn}}
     "link opcional": "parts[1]",
     # {{link preto|ciconiforme}}
@@ -225,11 +228,11 @@ def last_template_handler(
         >>> last_template_handler(["llietimo", "la", "caprunu", "pt", "", "cabra"], "pt")
         'Do latim <i>caprunu</i> “cabra”.'
         >>> last_template_handler(["llietimo", "en", "storm", "sv", "trad=tempestade"], "pt")
-        'Do inglês <i>storm</i> "tempestade".'
+        'Do inglês <i>storm</i> “tempestade”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato"], "pt")
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "transcr=kóška", "trad=gato", "ponto="], "pt")
-        'Do russo <i>ко́шка</i> (<i>kóška</i>) "gato".'
+        'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=não"], "pt")
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
         >>> last_template_handler(["llietimo", "tpn", "ïsa'ub", "pt", "formiga mestra"], "pt")
