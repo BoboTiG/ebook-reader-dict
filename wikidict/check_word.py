@@ -205,6 +205,12 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
         return no_spaces(bs.text)
 
+    elif locale == "pt":
+        # Isse 600: remove superscript locales
+        for sup in bs.find_all("sup"):
+            if sup.find("a", {"class": "extiw"}):
+                sup.decompose()
+
     # Filter out anchors as they are ignored from templates
     for a in bs.find_all("a", href=True):
         if a["href"].startswith("#"):

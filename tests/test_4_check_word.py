@@ -16,6 +16,7 @@ WORD = {
     "en": "42",
     "es": "buena",
     "fr": "42",
+    "pt": "-izar",
 }
 
 
@@ -297,6 +298,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
                 ':Panthera leo">Panthera leo</a></i> sur Wikispecies'
             ),
             "Panthera leo",
+        ],
+        # PT - Wikispecies
+        [
+            "pt",
+            '<sup>(<a class="extiw" href="https://la.wiktionary.org/wiki/izare" title="la:izare"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
+            "",
         ],
     ],
 )
