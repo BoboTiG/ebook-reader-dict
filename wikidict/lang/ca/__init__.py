@@ -185,6 +185,9 @@ def last_template_handler(
         >>> last_template_handler(["fals tall", "ca", "s'endemà", "trad=l’endemà"], "ca")
         "fals tall sil·làbic de <i>s'endemà</i> («l’endemà»)"
 
+        >>> last_template_handler(["m", "ca", "tardanies", "t=fruits tardans"], "ca")
+        '<i>tardanies</i> («fruits tardans»)'
+
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
         >>> last_template_handler(["lleng", "la", "tipus=terme", "Agnus Dei qui tollis peccata mundi..."], "ca")
@@ -238,6 +241,8 @@ def last_template_handler(
         toadd = []
         if data["trans"]:
             toadd.append(italic(data["trans"]))
+        if data["t"]:
+            toadd.append(f"«{data['t']}»")
         if data["trad"]:
             toadd.append(f"«{data['trad']}»")
         if data["pos"]:
