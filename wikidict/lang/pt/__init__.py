@@ -197,6 +197,8 @@ def last_template_handler(
         '<i>duos</i> (duōs)'
         >>> last_template_handler(["étimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
         '<i>ἄντρον</i> <i>(ánton)</i> “caverna”'
+        >>> last_template_handler(["étimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
+        '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
         >>> last_template_handler(["étimo", "la", "abūsus", "sign=abuso"], "pt")
         '<i>abūsus</i> (“abuso”)'
 
@@ -297,6 +299,8 @@ def last_template_handler(
             phrase += f" {parts[0]}"
         if data["transcr"]:
             phrase += " " + italic(f"({data['transcr']})")
+        if data["transl"]:
+            phrase += " " + italic(f"({data['transl']})")
         if data["trad"]:
             phrase += f" “{data['trad']}”"
         if data["sign"]:
