@@ -166,6 +166,7 @@ def test_parse_word(
     [
         ("{{AFI|/k/|pt}}", "/k/"),
         ("{{barra de cor|yellow|#FFFF00}}", "[RGB #FFFF00]"),
+        ("{{datação|5/4/1810}}", "[<i>Datação</i>: 5/4/1810]"),
         ("{{escopo2|Informática}}", "<i>(Informática)</i>"),
         ("{{escopo2|Brasil|governo}}", "<i>(Brasil)</i>"),
         ("{{escopoCat|Árvore|pt}}", "<i>(Botânica)</i>"),
