@@ -172,6 +172,10 @@ def test_parse_word(
         ("{{escopoCat|Náutica|pt}}", "<i>(Náutica)</i>"),
         ("{{escopoCatLang|Alimentação|pt}}", "<i>(Culinária)</i>"),
         ("{{escopoCatLang|Verbo auxiliar|pt}}", "<i>(Verbo auxiliar)</i>"),
+        (
+            "{{escopoObs.|Lê-se <u>formato dois A</u>.}}",
+            "<b>Observação</b>: Lê-se <u>formato dois A</u>.",
+        ),
         ("{{escopoUso|Portugal|pt}}", "<i>(Portugal)</i>"),
         ("{{escopoUso|Coloquialismo|pt}}", "<i>(coloquialismo)</i>"),
         ("{{fem|heliostático}}", "feminino de <b>heliostático</b>"),

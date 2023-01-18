@@ -69,6 +69,8 @@ templates_multi = {
     "escopoCatLang": "term(lookup_italic(parts[1], 'pt'))",
     # {{escopoClasseMorfo|variação}}
     "escopoClasseMorfo": "small('(' + parts[-1] + ')')",
+    # {{escopoObs.|Lê-se <u>formato dois A</u>.}}
+    "escopoObs.": "f'{strong(\"Observação\")}: {parts[-1]}'",
     # {{escopoUso|Portugal|pt}}
     "escopoUso": "term(lookup_italic(parts[1], 'pt'))",
     # {{fem|heliostático}}
