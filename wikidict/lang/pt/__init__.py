@@ -320,7 +320,7 @@ def last_template_handler(
 
         if data["trad"]:
             trad = data["trad"]
-            phrase += f' "{trad}"'
+            phrase += f" “{trad}”"
         if rest:
             if transcr := rest.pop(0):
                 phrase += f" ({italic(transcr)})"
