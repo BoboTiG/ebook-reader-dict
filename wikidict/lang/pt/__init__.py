@@ -60,6 +60,8 @@ templates_multi = {
     "AFI": "parts[1]",
     # {{barra de cor|#0000FF|#0000FF}}
     "barra de cor": "color(parts[-1])",
+    # {{datação|5/4/1810}}
+    "datação": "f'[{italic(\"Datação\")}: {parts[-1]}]'",
     # {{escopo2|Informática}}
     # {{escopo2|Brasil|governo}}
     "escopo2": "term(parts[1])",
