@@ -189,18 +189,33 @@ def last_template_handler(
         >>> last_template_handler(["escopo", "pt", "Catolicismo", "cristianismo", "cristianismo"], "pt")
         '<i>(Catolicismo, cristianismo e cristianismo)</i>'
 
-        >>> last_template_handler(["etimo", "la", "canem"], "pt")
-        '<i>canem</i>'
+        >>> last_template_handler(["etimo", "la", "myrmecophaga"], "pt")
+        '<i>myrmecophaga</i>'
+        >>> last_template_handler(["etimo", "grc", "στεγάζω", "(stegházo)"], "pt")
+        '<i>στεγάζω</i> (stegházo)'
+        >>> last_template_handler(["etimo", "orv", "ꙗзꙑкъ", "(jazykŭ)", "língua"], "pt")
+        '<i>ꙗзꙑкъ</i> (jazykŭ) “língua”'
+        >>> last_template_handler(["etimo", "orv", "ꙗзꙑкъ", "transcr=(jazykŭ)", "trad=língua"], "pt")
+        '<i>ꙗзꙑкъ</i> (jazykŭ) “língua”'
         >>> last_template_handler(["etimo", "la", "canis", "trad=cão"], "pt")
         '<i>canis</i> “cão”'
         >>> last_template_handler(["etimo", "la", "duos", "(duōs)"], "pt")
         '<i>duos</i> (duōs)'
-        >>> last_template_handler(["étimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
-        '<i>ἄντρον</i> <i>(ánton)</i> “caverna”'
-        >>> last_template_handler(["étimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
+        >>> last_template_handler(["etimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
+        '<i>ἄντρον</i> (ánton) “caverna”'
+        >>> last_template_handler(["etimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
         '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
-        >>> last_template_handler(["étimo", "la", "abūsus", "sign=abuso"], "pt")
+        >>> last_template_handler(["etimo", "la", "abūsus", "sign=abuso"], "pt")
         '<i>abūsus</i> (“abuso”)'
+        >>> last_template_handler(["etimo", "la", "nomen substantivum", "", "nome autônomo"], "pt")
+        '<i>nomen substantivum</i> “nome autônomo”'
+
+        >>> last_template_handler(["étimo", "la", "canem"], "pt")
+        '<i>canem</i>'
+        >>> last_template_handler(["étimo", "la", "canem", "canum"], "pt")
+        '<i>canum</i>'
+        >>> last_template_handler(["étimo", "la", "canem", "canum", "canos"], "pt")
+        '<i>canum</i>'
 
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
@@ -270,6 +285,7 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         lookup_italic,
+        parenthesis,
         small,
         term,
     )
@@ -292,20 +308,29 @@ def last_template_handler(
             words = [lookup_italic(p, "pt") for p in parts if p not in langs]
         return term(concat(words, sep=", ", last_sep=" e "))
 
-    if tpl in ("etimo", "étimo"):
+    if tpl == "etimo":
         src = parts.pop(0)  # Remove the lang
-        phrase = italic(parts.pop(0))
-        if parts:
-            phrase += f" {parts[0]}"
+        phrase = italic(parts.pop(0))  # The etimo
+        if parts:  # Implicit transcr
+            transcr = parts.pop(0)
+            phrase += f" {parenthesis(transcr)}" if transcr else ""
+        if parts:  # Implicit trad
+            phrase += f" “{parts.pop(0)}”"
+
         if data["transcr"]:
-            phrase += " " + italic(f"({data['transcr']})")
+            phrase += f" {parenthesis(data['transcr'])}"
         if data["transl"]:
             phrase += " " + italic(f"({data['transl']})")
         if data["trad"]:
             phrase += f" “{data['trad']}”"
         if data["sign"]:
             phrase += f" (“{data['sign']}”)"
+
         return phrase
+
+    if tpl == "étimo":
+        src = parts.pop(0)  # Remove the lang
+        return italic(parts[1 if len(parts) >= 2 else 0])
 
     if tpl == "etm":
         return langs[parts[0]]
