@@ -86,7 +86,8 @@ templates_multi = {
     # {{l.o.|jurídico|jurídica}}
     "l.o.": "parts[-1]",
     # {{l.s.|uso}}
-    "l.s.": "parts[-1]",
+    # {{l.s.|uso|Verbo}}
+    "l.s.": "parts[1]",
     # {{lig|is|hljóð}}
     "lig": "parts[3 if len(parts) >= 4 else 2]",
     # {{link idioma|carro}}
