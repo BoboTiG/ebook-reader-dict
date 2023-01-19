@@ -185,6 +185,7 @@ def test_parse_word(
         ("{{l|pt|usar|usar}}", "usar"),
         ("{{l.o.|jurídico|jurídica}}", "jurídica"),
         ("{{l.s.|uso}}", "uso"),
+        ("{{l.s.|uso|Verbo}}", "uso"),
         ("{{lig|is|a}}", "a"),
         ("{{lig|is|a|b}}", "b"),
         ("{{lig|is|a|b|c}}", "b"),
