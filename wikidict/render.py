@@ -387,11 +387,13 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                 if tpl.startswith(
                     (
                         "{{en-ing",
+                        "{{en-ipl",
                         "{{en-irregular",
                         "{{en-past",
                         "{{en-simple",
                         "{{en-superlative",
                         "{{en-third",
+                        "{{en-tpso",
                         "{{plural of",
                     )
                 ):
