@@ -140,7 +140,4 @@ def last_template_handler(
     tpl, *parts = template
 
     # This is a country in the current locale
-    if tpl in langs:
-        return langs[tpl]
-
-    return default(template, locale, word=word)
+    return langs[tpl] if tpl in langs else default(template, locale, word=word)
