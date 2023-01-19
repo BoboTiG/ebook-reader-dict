@@ -1,0 +1,21 @@
+== {{-ca-}} ==
+{{ca-pron|hhalogüiniana}}
+
+=== Adjectiu ===
+{{ca-adj-forma|f}}
+
+# {{forma-f|ca|halloweenià}}
+
+=== Miscel·lània ===
+* {{ca-sil|ha·llo·wee·ni·a·na}}
+
+== {{-es-}} ==
+{{es-pron|jalogüiniana}}
+
+=== Adjectiu ===
+{{es-adj-forma|f}}
+
+# {{forma-f|es|halloweeniano}}
+
+=== Miscel·lània ===
+* {{es-sil|ha·llo·wee·nia·na}}

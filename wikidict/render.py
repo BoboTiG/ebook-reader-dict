@@ -361,7 +361,26 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Find potential variants
     for title, parsed_section in parsed_sections.items():
-        if locale == "de":
+        if locale == "ca":
+            if not title.startswith(
+                (
+                    "Adjectiu",
+                    "Nom",
+                    "Verb",
+                )
+            ):
+                continue
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if tpl.startswith(
+                    (
+                        "{{ca-forma-conj",
+                        "{{forma-p",
+                        "{{forma-f",
+                    )
+                ):
+                    add_potential_variant(word, tpl, locale, variants)
+        elif locale == "de":
             if not title.startswith(
                 (
                     "{{Grundformverweis ",

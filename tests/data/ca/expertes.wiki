@@ -1,0 +1,12 @@
+== {{-ca-}} ==
+{{ca-pron|or=/əksˈpɛr.təs/|occ=/eksˈpɛɾ.tes/}}
+
+=== Adjectiu ===
+{{ca-adj-forma|fp}}
+
+# {{forma-p|ca|experta}}
+
+=== Nom ===
+{{ca-nom-forma|fp}}
+
+# {{forma-p|ca|experta}}
