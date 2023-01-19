@@ -272,6 +272,10 @@ def last_template_handler(
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”.'
         >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=não"], "pt")
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
+        >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=1"], "pt")
+        'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
+        >>> last_template_handler(["llietimo", "ru", "ко́шка", "ja", "kóška", "gato", "ponto=something"], "pt")
+        'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
         >>> last_template_handler(["llietimo", "ar", "جهاد", "pt", "jihād", "trad=esforço"], "pt")
         'Do árabe <i>جهاد</i> (<i>jihād</i>) “esforço”.'
         >>> last_template_handler(["llietimo", "la", "ardere", "pt", '4="queimar"', "5=noop"], "pt")
@@ -381,7 +385,7 @@ def last_template_handler(
             phrase += f" “{data['5']}”"
         if rest:
             phrase += f" “{rest.pop(0)}”"
-        if data.get("ponto", "") != "não":
+        if not data.get("ponto", ""):
             phrase += "."
         return phrase
 
