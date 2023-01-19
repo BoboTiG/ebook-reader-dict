@@ -259,6 +259,8 @@ def last_template_handler(
         'Do russo <i>ко́шка</i> (<i>kóška</i>) “gato”'
         >>> last_template_handler(["llietimo", "ar", "جهاد", "pt", "jihād", "trad=esforço"], "pt")
         'Do árabe <i>جهاد</i> (<i>jihād</i>) “esforço”.'
+        >>> last_template_handler(["llietimo", "la", "ardere", "pt", '4="queimar"', "5=noop"], "pt")
+        'Do latim <i>ardere</i> (<i>"queimar"</i>) “noop”.'
 
         >>> last_template_handler(["o/a", "determinad"], "pt")
         'determinada'
@@ -358,6 +360,10 @@ def last_template_handler(
                 phrase += f" ({italic(transcr)})"
         if data["trad"]:
             phrase += f" “{data['trad']}”"
+        if data["4"]:  # Implicit transcr
+            phrase += f" ({italic(data['4'])})"
+        if data["5"]:  # Implicit trad
+            phrase += f" “{data['5']}”"
         if rest:
             phrase += f" “{rest.pop(0)}”"
         if data.get("ponto", "") != "não":
