@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, italic, strong, term
+from ...user_functions import concat, extract_keywords_from, italic, strong, term
 from .labels import label_syntaxes, labels
 
 
@@ -32,6 +32,61 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["glossa"]:
         phrase += f" («{data['glossa']}»)"
     return phrase
+
+
+def render_g(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_g("g", ["m"], defaultdict(str))
+    'm.'
+    >>> render_g("g", ["f-p"], defaultdict(str))
+    'f. pl.'
+    >>> render_g("g", ["m", "f"], defaultdict(str))
+    'm., f.'
+    >>> render_g("g", ["m", "f", "p"], defaultdict(str))
+    'm., f., pl.'
+    >>> render_g("g", ["m-p", "f-p"], defaultdict(str))
+    'm. pl., f. pl.'
+    """
+    specs = {
+        "?": "?",
+        # Genders
+        "m": "m.",
+        "f": "f.",
+        "c": "c.",
+        "n": "n.",
+        "i": "inv.",
+        # Combined codes
+        "mof": "m. o f.",
+        "fom": "f. o m.",
+        # Additional qualifiers
+        "an": "anim.",
+        "in": "inan.",
+        "anml": "animal",  # ucraïnès, belarús, polonès
+        "per": "pers.",  # ucraïnès, belarús, polonès
+        "vir": "vir.",  # polonès
+        "nv": "nvir.",  # polonès
+        "loc": "loc.",
+        # Numbers
+        "s": "sing.",
+        "d": "dual",
+        "p": "pl.",
+        "indef": "indef.",  # basc
+        # Verbs
+        "vt": "trans.",
+        "vi": "intr.",
+        "vp": "pron.",
+        "va": "aux.",
+        "vm": "impers.",
+    }
+    return concat(
+        [
+            f"{specs[part.split('-')[0]]} {specs[part.split('-')[1]]}"
+            if "-" in part
+            else specs[part]
+            for part in parts
+        ],
+        sep=", ",
+    )
 
 
 def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -89,6 +144,7 @@ template_mapping = {
     "forma-inc": render_forma,
     "forma-pron": render_forma,
     "forma-super": render_forma,
+    "g": render_g,
     "marca": render_label,
     "marca-nocat": render_label,
     "sigles de": render_sigles_de,
