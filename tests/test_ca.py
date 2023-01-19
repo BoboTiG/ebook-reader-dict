@@ -8,7 +8,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genders, etymology, definitions",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "-ass-",
@@ -16,6 +16,7 @@ from wikidict.utils import process_templates
             [],
             ["Del sufix <i>-às</i> amb valor augmentatiu."],
             ["Infix que afegeix un matís augmentatiu."],
+            [],
         ),
         (
             "-itzar",
@@ -25,6 +26,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.</i>",  # noqa
             ],
+            [],
         ),
         (
             "AFI",
@@ -35,14 +37,23 @@ from wikidict.utils import process_templates
                 "(<i>m</i>) Alfabet Fonètic Internacional.",
                 "(<i>f</i>) Associació Fonètica Internacional.",
             ],
+            [],
         ),
-        ("avui", [], [], [], ["En el dia actual.", "Metafòricament, en el present."]),
+        (
+            "avui",
+            [],
+            [],
+            [],
+            ["En el dia actual.", "Metafòricament, en el present."],
+            [],
+        ),
         (
             "bio-",
             [],
             [],
             [],
             ['Element que entra en la composició de paraules amb el sentit de "vida".'],
+            [],
         ),
         (
             "bot",
@@ -61,6 +72,7 @@ from wikidict.utils import process_templates
                 "Embarcació petita sense coberta.",
                 "<i>(informàtica)</i> Programa informàtic dissenyat per a completar tasques d’assistència, especialment quan opera com un usuari.",  # noqa
             ],
+            ["botar", "botre"],
         ),
         (
             "cap",
@@ -95,6 +107,7 @@ from wikidict.utils import process_templates
                 "<i>(interrogatiu, condicional)</i> Alguna mena de.",
                 "cap a",
             ],
+            ["cabre"],
         ),
         (
             "cas",
@@ -108,6 +121,7 @@ from wikidict.utils import process_templates
                 "Atenció, cura (<i>fer cas</i>).",
                 "Contracció entre el nom <i>casa</i> i l'article salat <i>es</i> quan és usat com un article personal. S'utilitza tan per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.",  # noqa
             ],
+            ["casar"],
         ),
         (
             "Castell",
@@ -128,6 +142,7 @@ from wikidict.utils import process_templates
                     "El Castell de Vilamalefa, municipi de l’Alt Millars.",
                 ),
             ],
+            [],
         ),
         (
             "català",
@@ -146,6 +161,7 @@ from wikidict.utils import process_templates
                 "Franja de Ponent.",
                 "catalanoparlant",
             ],
+            [],
         ),
         (
             "ch",
@@ -156,6 +172,7 @@ from wikidict.utils import process_templates
                 "Codi de llengua ISO 639-1 del chamorro.",
                 "<i>(arcaisme)</i> Especialment a final de mot, dígraf amb una consonant muda per remarcar la grafia d’una oclusiva velar sorda [k] i no pas una de sonora [ɡ].",  # noqa
             ],
+            [],
         ),
         (
             "compte",
@@ -169,6 +186,7 @@ from wikidict.utils import process_templates
                 "<i>(beisbol)</i> Acció i efecte de l'àrbitre principal de determinar el nombre de boles i strikes d'un batedor en un temps de bat.",  # noqa
                 "atenció",
             ],
+            ["comptar"],
         ),
         (
             "disset",
@@ -181,6 +199,7 @@ from wikidict.utils import process_templates
                 "Xifra i nombre 17.",
                 "Dissetena hora.",
             ],
+            [],
         ),
         (
             "el",
@@ -194,17 +213,28 @@ from wikidict.utils import process_templates
                 'Substitueix el complement directe quan aquest porta l\'article "el".',
                 "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
+            [],
         ),
+        (
+            "expertes",
+            ["/əksˈpɛr.təs/"],
+            [],
+            [],
+            [],
+            ["experta"],
+        ),
+        ("halloweeniana", [], [], [], [], ["halloweenià"]),
         (
             "hivernacle",
             [],
             ["m"],
             ["Del llatí <i>hibernaculum</i>."],
             ["Cobert per a protegir plantes del vent o del fred extrem."],
+            [],
         ),
-        ("Mn.", [], [], [], ["mossèn com a tractament davant el nom"]),
-        ("PMF", ["/ˌpeˈe.məˌe.fə/"], [], [], ["Preguntes Més Freqüents."]),
-        ("pen", [], [], [], []),
+        ("Mn.", [], [], [], ["mossèn com a tractament davant el nom"], []),
+        ("PMF", ["/ˌpeˈe.məˌe.fə/"], [], [], ["Preguntes Més Freqüents."], []),
+        ("pen", [], [], [], [], ["penar"]),
         (
             "si",
             [],
@@ -217,6 +247,7 @@ from wikidict.utils import process_templates
                 "Setena nota musical de l'escala",
                 "Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.",
             ],
+            [],
         ),
     ],
 )
@@ -226,6 +257,7 @@ def test_parse_word(
     genders: List[str],
     etymology: List[Definitions],
     definitions: List[Definitions],
+    variants: List[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -235,6 +267,7 @@ def test_parse_word(
     assert genders == details.genders
     assert definitions == details.definitions
     assert etymology == details.etymology
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(

@@ -37,19 +37,17 @@ sections = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    # Ignore conjuged verbs
-    "ca-forma-conj",
     "forma-conj",
-    # Proper nouns
     "cognom",
     "prenom",
-    # Ignore genders
-    "forma-f",
-    # Ignore plurals
-    "forma-p",
-    # Quotes
     "ex-cit",
     "ex-us",
+    #
+    # For variants
+    #
+    "ca-forma-conj",
+    "forma-f",
+    "forma-p",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -67,6 +65,8 @@ templates_ignored = (
 templates_multi = {
     # {{AFI|/ˈwujt/}}
     "AFI": "parts[-1]",
+    # {{ca-forma-conj|domdar|part|f|p}}
+    "ca-forma-conj": "parts[1]",
     # {{claudàtors|[[milliarum]]}}
     "claudàtors": 'f"[{parts[1]}]"',
     # {{color|#E01010}}
@@ -77,6 +77,10 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
+    # {{forma-f|ca|halloweenià}}
+    "forma-f": "parts[-1]",
+    # {{forma-p|ca|experta}}
+    "forma-p": "parts[-1]",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
