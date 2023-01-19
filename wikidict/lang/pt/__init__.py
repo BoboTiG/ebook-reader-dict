@@ -203,10 +203,6 @@ def last_template_handler(
         '<i>duos</i> (duōs)'
         >>> last_template_handler(["etimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
         '<i>ἄντρον</i> (ánton) “caverna”'
-        >>> last_template_handler(["etimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
-        '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
-        >>> last_template_handler(["etimo", "la", "abūsus", "sign=abuso"], "pt")
-        '<i>abūsus</i> (“abuso”)'
         >>> last_template_handler(["etimo", "la", "nomen substantivum", "", "nome autônomo"], "pt")
         '<i>nomen substantivum</i> “nome autônomo”'
 
@@ -216,6 +212,10 @@ def last_template_handler(
         '<i>canum</i>'
         >>> last_template_handler(["étimo", "la", "canem", "canum", "canos"], "pt")
         '<i>canum</i>'
+        >>> last_template_handler(["étimo", "la", "abūsus", "sign=abuso"], "pt")
+        '<i>abūsus</i> (“abuso”)'
+        >>> last_template_handler(["étimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
+        '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
 
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
@@ -319,18 +319,19 @@ def last_template_handler(
 
         if data["transcr"]:
             phrase += f" {parenthesis(data['transcr'])}"
-        if data["transl"]:
-            phrase += " " + italic(f"({data['transl']})")
         if data["trad"]:
             phrase += f" “{data['trad']}”"
-        if data["sign"]:
-            phrase += f" (“{data['sign']}”)"
 
         return phrase
 
     if tpl == "étimo":
         src = parts.pop(0)  # Remove the lang
-        return italic(parts[1 if len(parts) >= 2 else 0])
+        phrase = italic(parts[1 if len(parts) >= 2 else 0])
+        if data["transl"]:
+            phrase += " " + italic(f"({data['transl']})")
+        if data["sign"]:
+            phrase += f" (“{data['sign']}”)"
+        return phrase
 
     if tpl == "etm":
         return langs[parts[0]]
