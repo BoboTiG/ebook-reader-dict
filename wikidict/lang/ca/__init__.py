@@ -56,6 +56,7 @@ definitions_to_ignore = (
 templates_ignored = (
     "categoritza",
     "catllengua",
+    "CN",
     "manquen accepcions",
     "sense accepcions",
     "-etimologia-",
