@@ -55,17 +55,12 @@ templates_multi: Dict[str, str] = {
     "Est": "small(term('per estensione'))",
     # {{Etim-link|aggrondare}}
     # {{Etim-link||cervice}}
-    "Etim-link": "'Vedi: ' + parts[2] if len(parts) == 3 else 'Vedi: ' + parts[1]",
+    "etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
+    "Etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
     # {{Glossa|raro|it}}
     "Glossa": "small(term(parts[1]))",
-    # {{la}}
-    "la": "'latino'",
     # {{Lett|non comune|it}}
     "Lett": "small(term('letteralmente'))",
-    # {{Nodef|it}}
-    "Nodef": "'-definizione mancante-'",
-    # {{Noetim||it}}
-    "Noetim": "'-etimologia mancante-'",
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}

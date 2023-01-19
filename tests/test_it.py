@@ -67,6 +67,8 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{etim-link|a}}", "vedi a"),
+        ("{{Etim-link|a|b|c}}", "vedi b"),
         ("{{Vd|mamma}}", "vedi mamma"),
     ],
 )
