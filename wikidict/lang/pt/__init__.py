@@ -126,6 +126,7 @@ templates_multi = {
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
+    "-varort-": "Formas alternativas",
     "escopoGrafiaPort": "(grafia port.)",
     "escopoGrafiaBrasil": "(grafia bras.)",
 }
