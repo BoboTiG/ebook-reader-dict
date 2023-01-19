@@ -193,7 +193,7 @@ def test_parse_word(
         ("{{link idioma|carro|pt}}", "carro"),
         ("{{link idioma|carro|es|vehículo}}", "vehículo"),
         ("{{link preto|ciconiforme}}", "ciconiforme"),
-        ("{{ll|publicar}}", "publicar"),
+        ("{{ll|publicar|pt}}", "publicar"),
         ("{{m|ar|شيشة|tr=šīša}}", "<i>masculino</i>"),
         ("{{mq|palavra}}", "o mesmo que <b>palavra</b>"),
         ("{{mq|word|en}}", "o mesmo que <i>word</i>"),

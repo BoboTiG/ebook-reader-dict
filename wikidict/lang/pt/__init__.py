@@ -102,7 +102,7 @@ templates_multi = {
     # {{link preto|ciconiforme}}
     "link preto": "parts[-1]",
     # {{ll|publicar}}
-    "ll": "parts[-1]",
+    "ll": "parts[3 if len(parts) == 4 else 1]",
     # {m|ar|شيشة|tr=šīša}}
     "m": "italic('masculino')",
     # {{mq|palavra}}
