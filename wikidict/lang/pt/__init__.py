@@ -81,6 +81,10 @@ templates_multi = {
     "fem": 'f"feminino de {strong(parts[1])}"',
     # {{fl|la|occŭlo}}
     "fl": "parts[-1]",
+    # {{grafiaPtbr|autocrómico}}
+    "grafiaPtbr": "f'{italic(f\"Grafia usada no Brasil. Nos restantes países da CPLP escreve-se {strong(parts[-1])}\")}'",  # noqa
+    # {{grafiaPtpt|a}}
+    "grafiaPtpt": "f'{italic(f\"Grafia usada em todos os países falantes de língua portuguesa exceto no Brasil, onde se escreve {strong(parts[-1])}\")}'",  # noqa
     # {{l|pt|usar|usar}}",
     "l": "parts[-1]",
     # {{l.o.|jurídico|jurídica}}
@@ -112,10 +116,19 @@ templates_multi = {
     "r": "parts[-1]",
     # {{r.l|la|utor|ūtor}}
     "r.l": "parts[-1]",
+    # {{signBr|a}}
+    "signBr": "f'{italic(f\"Este significado é de uso comum no Brasil. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",  # noqa
+    # {{signPt|a}}
+    "signPt": "f'{italic(f\"Este significado é de uso comum em Portugal. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",  # noqa
     # {{varort|tenu-|pt}}
     "varort": 'f"variante ortográfica de {strong(parts[1])}"',
 }
 
+# Templates that will be completed/replaced using custom style.
+templates_other = {
+    "escopoGrafiaPort": "(grafia port.)",
+    "escopoGrafiaBrasil": "(grafia bras.)",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
