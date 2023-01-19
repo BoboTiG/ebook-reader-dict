@@ -213,6 +213,7 @@ def filter_html(html: str, locale: str) -> str:
         # Almost same as previous, but for all items not elligible to be printed
         for span in bs.find_all("span", {"class": "noprint"}):
             span.decompose()
+        return no_spaces(bs.text)
 
     # Filter out anchors as they are ignored from templates
     for a in bs.find_all("a", href=True):
