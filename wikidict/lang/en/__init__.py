@@ -47,7 +47,10 @@ definitions_to_ignore = (
     "en-past of",
     "en-simple past of",
     "en-superlative of",
+    "en-tpso",
     "en-third-person singular of",
+    "en-third person singular of",
+    "en-third-person_singular_of",
     "plural of",
 )
 
@@ -82,6 +85,7 @@ templates_ignored = (
     "top",
     "topics",
     "was wotd",
+    "wikipedia",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -111,10 +115,14 @@ templates_multi = {
     "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",  # noqa
     # {{en-archaic second-person singular past of|term}}
     "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",  # noqa
+    # {{gl|liquid H<sub>2</sub>O}}
+    "gl": "parenthesis(parts[1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{glossary|inflected}}
     "glossary": "parts[-1]",
+    # {{i|Used only ...}}
+    "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAchar|[tʃ]|lang=en}})
     "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
@@ -123,12 +131,24 @@ templates_multi = {
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
+    # {{ng|Definite grammatical ...}}
+    "ng": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{non gloss|Definite grammatical ...}}
+    "non gloss": "italic(parts[-1].lstrip('1='))",
+    # {{non-gloss|Definite grammatical ...}}
+    "non-gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss definition|Definite grammatical ...}}
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
+    # {{non gloss definition|Definite grammatical ...}}
+    "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{qf|Used only ...}}
+    "qf": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{qua|Used only ...}}
+    "qua": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qual|Used only ...}}
     "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
@@ -148,14 +168,19 @@ templates_multi = {
     "en-simple past of": "parts[1]",
     # {{en-irregular plural of|term}}
     "en-irregular plural of": "parts[1]",
+    "en-ipl": "parts[1]",
     # {{en-past of|term}}
     "en-past of": "parts[1]",
     # {{en-superlative of|term}}
     "en-superlative of": "parts[1]",
+    # {{en-tpso|term}}
+    "en-tpso": "parts[1]",
     # {{en-third-person singular of|term}}
     "en-third-person singular of": "parts[1]",
     # {{en-third-person_singular_of|term}}
     "en-third-person_singular_of": "parts[1]",
+    # {{en-third person singular of|term}}
+    "en-third person singular of": "parts[1]",
     # {{plural of|en|human}}
     "plural of": "parts[-1]",
 }

@@ -67,7 +67,9 @@ templates_ignored = (
     "cita requerida",
     "citarequerida",
     "clear",
+    "definición",
     "definición imprecisa",
+    "ejemplo requerido",
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
@@ -85,7 +87,10 @@ templates_italic = {
     **campos_semanticos,
     "afectado": "Literario",
     "ciudades": "Geografía",
+    "coloquial": "Coloquial",
+    "Coloquial": "Coloquial",
     "elevado": "Literario",
+    "figurado": "Figurado",
     "germanía": "Jergal",
     "jergal": "Jergal",
     "jerga": "Jergal",
@@ -95,6 +100,7 @@ templates_italic = {
     "regiones": "Geografía",
     "rpl": "Río de la Plata",
     "rur": "Rural",
+    "rural": "Rural",
     "slang": "Jergal",
 }
 
@@ -150,6 +156,9 @@ templates_multi = {
 
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 
+templates_other = {
+    "onomatopeya": "Onomatopeya",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/es
