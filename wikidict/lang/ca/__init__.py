@@ -66,6 +66,8 @@ templates_ignored = (
 templates_multi = {
     # {{AFI|/ˈwujt/}}
     "AFI": "parts[-1]",
+    # {{claudàtors|[[milliarum]]}}
+    "claudàtors": 'f"[{parts[1]}]"',
     # {{color|#E01010}}
     "color": "color(parts[1])",
     # {{def-meta|Utilitzat en l'expressió tros de quòniam.}}
