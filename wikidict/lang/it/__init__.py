@@ -122,3 +122,25 @@ def find_pronunciations(
     ['/kondiˈvidere/']
     """
     return uniq(pattern.findall(code))
+
+
+def last_template_handler(
+    template: Tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["la"], "it")
+        'latino'
+
+    """
+    from ..defaults import last_template_handler as default
+    from .langs import langs
+
+    tpl, *parts = template
+
+    # This is a country in the current locale
+    if tpl in langs:
+        return langs[tpl]
+
+    return default(template, locale, word=word)
