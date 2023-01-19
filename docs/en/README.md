@@ -1,6 +1,6 @@
 # English Dictionary For Your eBook Reader
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionnary](https://en.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://en.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
 
 ## Interesting Features
 
