@@ -2575,6 +2575,7 @@ labels_subvarieties = {
     "Ripuarian Franconian": "Ripuarian",
     "Ripuarisch": "Ripuarian",
     "River Plate": "Rioplatense",
+    "Riyasti": "Riasti",
     "Rizal Tagalog": "Rizal",
     "Rizaleño": "Rizal",
     "Rm": "Rimini",
@@ -3359,5 +3360,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 1,730
+}  # 1,731
 # END
