@@ -44,7 +44,7 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
                     all_words = all_words[i:]
                     break
 
-    count = min(count, len(all_words))
+    all_words = all_words[: min(count, len(all_words))]
 
     if random:
         all_words = sample(all_words, count)
