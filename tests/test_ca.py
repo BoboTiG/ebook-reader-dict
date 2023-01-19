@@ -240,6 +240,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{AFI|/ˈwujt/}}", "/ˈwujt/"),
         ("{{color|#E01010}}", "[RGB #E01010]"),
         ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
