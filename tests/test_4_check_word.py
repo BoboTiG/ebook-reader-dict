@@ -312,10 +312,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             "",
         ],
         # PT - keep anchors
+        ["pt", '<a href="#Adjetivo">ainu</a>', "ainu"],
+        # PT - external links
         [
             "pt",
-            '<a href="#Adjetivo">ainu</a>',  # noqa
-            "ainu",
+            '<small>(<a href="https://la.wiktionary.org/wiki/aer" class="extiw" title="la:aer">ver no Wikcionário em Latim</a>)</small>',  # noqa
+            "",
         ],
     ],
 )
