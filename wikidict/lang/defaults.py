@@ -78,30 +78,24 @@ def last_template_handler(
         text = parts[1] if len(parts) == 2 else word
         return transliterate(lang, text)
 
-    # {{tpl|item}} -> <i>(Templatet gf)</i>
-    if len(template) == 2:
-        return term(capitalize(lookup_italic(tpl, locale)))
-
-    if italic := lookup_italic(tpl, locale, True):
+    if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    # {{tpl|item1|item2|...}} -> ''
-    if len(template) > 2:
-        from ..render import LOCK, MISSING_TPL_SEEN
+    from ..render import LOCK, MISSING_TPL_SEEN
 
+    if tpl not in MISSING_TPL_SEEN:
         with LOCK:
-            if tpl not in MISSING_TPL_SEEN:
-                MISSING_TPL_SEEN.append(tpl)
-                print(
-                    f" !! Missing {tpl!r} template support for word {word!r}",
-                    flush=True,
-                )
-        return ""
+            MISSING_TPL_SEEN.append(tpl)
+            print(
+                f" !! Missing {tpl!r} template support for word {word!r}",
+                flush=True,
+            )
+    return ""
 
     # {{template}}
-    from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
+    # from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
-    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
+    # return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
 
 
 def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
