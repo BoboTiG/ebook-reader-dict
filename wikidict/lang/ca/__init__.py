@@ -185,6 +185,9 @@ def last_template_handler(
         >>> last_template_handler(["fals tall", "ca", "s'endemà", "trad=l’endemà"], "ca")
         "fals tall sil·làbic de <i>s'endemà</i> («l’endemà»)"
 
+        >>> last_template_handler(["la"], "ca")
+        'Llatí'
+
         >>> last_template_handler(["m", "ca", "tardanies", "t=fruits tardans"], "ca")
         '<i>tardanies</i> («fruits tardans»)'
 
@@ -321,5 +324,9 @@ def last_template_handler(
         src = data["sc"] or parts.pop(0)
         trans = data["tr"] or parts.pop(0)
         return f"{trans} {superscript(f'({src})')}"
+
+    # This is a country in the current locale
+    if lang := langs.get(tpl, ""):
+        return lang.capitalize()
 
     return defaults.last_template_handler(template, locale, word=word)
