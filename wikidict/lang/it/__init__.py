@@ -22,6 +22,7 @@ sections = (
     "{{art}",
     "{{cong}",
     "{{inter}",
+    "{{nome}",
     "{{pref}",
     "{{Pn}",
     "{{prep}",
