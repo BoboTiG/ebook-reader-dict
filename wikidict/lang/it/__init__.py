@@ -42,10 +42,7 @@ definitions_to_ignore = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("Nodef", "Noetim")
-
-# Templates that will be completed/replaced using italic style.
-templates_italic: Dict[str, str] = {}
+templates_ignored = ("Nodef", "Noetim", "Noref", "Trad1", "Trad2")
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
