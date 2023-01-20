@@ -152,15 +152,16 @@ def last_template_handler(
     from .langs import langs
 
     tpl, *parts = template
+    tpl = tpl.lower()
 
-    if tpl in ("Linkp", "linkp"):
+    if tpl == "linkp":
         return parenthesis(
             italic("invariabile")
             if parts[0] in ("inv", "invariabile")
             else f"{italic('pl.:')} {strong(parts[0])}"
         )
 
-    if tpl == "Pn":
+    if tpl == "pn":
         return strong(word)
 
     # This is a country in the current locale
