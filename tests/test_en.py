@@ -363,6 +363,7 @@ def test_parse_word(
             "{{qualifier|Used only in the plural in the UK}}",
             "(<i>Used only in the plural in the UK</i>)",
         ),
+        ("{{sense|man of beastly nature}}", "(<i>man of beastly nature</i>) :"),
         ("{{smc|ah}}", "<span style='font-variant:small-caps'>ah</span>"),
         ("{{sub|KI}}", "<sub>KI</sub>"),
         ("{{sup|KI}}", "<sup>KI</sup>"),
