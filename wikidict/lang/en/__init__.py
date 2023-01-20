@@ -151,6 +151,12 @@ templates_multi = {
     "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{small caps|ce}}
+    "small caps": "small_caps(parts[1])",
+    # {{smallcaps|ce}}
+    "smallcaps": "small_caps(parts[1])",
+    # {{smc|ce}}
+    "smc": "small_caps(parts[1])",
     # {{sub|KI}}
     "sub": "subscript(parts[1])",
     # {{sup|KI}}
