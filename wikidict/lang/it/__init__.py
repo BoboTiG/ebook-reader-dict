@@ -32,27 +32,23 @@ sections = (
     "{{verb}",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    "{{verb form",
-    "{{nome",
-    #  "{{agg form",
-    "{{sost form",
-    "{{-sost form-",
-    "{{It-conj",
-)
-
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("Nodef", "Noetim", "Noref", "Trad1", "Trad2")
+templates_ignored = ("IPA", "Nodef", "Noetim", "Noref", "Tabs", "Trad1", "Trad2")
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
     # {{Accr}}
     "Accr": "small(f'({italic(\"accrescitivo\")})')",
     "accr": "small(f'({italic(\"accrescitivo\")})')",
+    # {{Anal}}
+    "Anal": "small('per analogia')",
+    "anal": "small('per analogia')",
     # {{Ant}}
     "Ant": "small(f'({italic(\"per antonomasia\")})')",
     "ant": "small(f'({italic(\"per antonomasia\")})')",
+    # {{Botanic|statistica|it}}
+    "Botanic": "small(term('botanica'))",
+    "botanic": "small(term('botanica'))",
     # {{Coll}}
     "Coll": "small(f'({italic(\"colloquiale\")})')",
     "coll": "small(f'({italic(\"colloquiale\")})')",
@@ -99,15 +95,15 @@ templates_multi: Dict[str, str] = {
     # {{Sndc}}
     "Sndc": "small(f'({italic(\"per sineddoche\")})')",
     "sndc": "small(f'({italic(\"per sineddoche\")})')",
+    # {{Soltanto plurali}}
+    "Soltanto plurali": "small(f'({italic(\"soltanto plurali\")})')",
+    "soltanto plurali": "small(f'({italic(\"soltanto plurali\")})')",
     # {{Spec pl}}
     "Spec pl": "small(f'({italic(\"specialmente al plurale\")})')",
     "spec pl": "small(f'({italic(\"specialmente al plurale\")})')",
     # {{Spreg}}
     "Spreg": "small(f'({italic(\"spregiativo\")})')",
     "spreg": "small(f'({italic(\"spregiativo\")})')",
-    # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
-    "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
-    "tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
     # {{Taxon|Chromis chromis|Chromis chromis}}
     "Taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
     "taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
