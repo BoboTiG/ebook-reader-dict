@@ -125,14 +125,21 @@ def last_template_handler(
         >>> last_template_handler(["la"], "it")
         'latino'
 
+        >>> last_template_handler(["Pn"], "it", word="Santissimo")
+        '<b>Santissimo</b>'
+
     """
+    from ...user_functions import strong
     from ..defaults import last_template_handler as default
     from .langs import langs
 
     tpl, *parts = template
 
+    if tpl == "Pn":
+        return strong(word)
+
     # This is a country in the current locale
-    if tpl in langs:
-        return langs[tpl]
+    if lang := langs.get(tpl, ""):
+        return lang
 
     return default(template, locale, word=word)
