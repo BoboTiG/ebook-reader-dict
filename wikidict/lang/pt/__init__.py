@@ -299,6 +299,8 @@ def last_template_handler(
         'atómico/atômico'
         >>> last_template_handler(["PBPE", "estafe", "stafe"], "pt")
         'estafe <sup>(português do Brasil)</sup> ou stafe <sup>(português europeu)</sup>'
+        >>> last_template_handler(["PBPE", "estafe", "stafe", "inline=1"], "pt")
+        'estafe <sup>(português do Brasil)</sup> ou stafe <sup>(português europeu)</sup>'
 
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
@@ -406,7 +408,7 @@ def last_template_handler(
         cmpl2 = "<sup>(português do Brasil)</sup>"
         if tpl == "PBPE":
             cmpl1, cmpl2 = cmpl2, cmpl1
-        if data["inline"] == "1":
+        elif data["inline"] == "1":
             return f"{part1}/{part2}"
         return f"{part1} {cmpl1} ou {part2} {cmpl2}"
 
