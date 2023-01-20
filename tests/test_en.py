@@ -330,7 +330,6 @@ def test_parse_word(
             "{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}",
             "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>",
         ),
-        ("{{IPAchar|[tʃ]|lang=en}}", "[tʃ]"),
         ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
         (
             "{{Latn-def|en|name|O|o}}",

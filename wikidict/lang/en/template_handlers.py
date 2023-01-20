@@ -473,11 +473,11 @@ def render_historical_given_name(
     tpl: str, parts: List[str], data: Dict[str, str]
 ) -> str:
     """
-    >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str, {}))   # noqa
+    >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str, {}))
     '<i>A male given name of historical usage, notably borne by Saint Abundius, an early Christian bishop</i>'
     >>> render_historical_given_name("historical given name", ["en" , "male"], defaultdict(str, {"eq": "John", "A":""}))
     '<i>male given name of historical usage, equivalent to English <b>John</b></i>'
-    """
+    """  # noqa
     data["1"] or (parts.pop(0) if parts else "")
     sex = data["2"] or (parts.pop(0) if parts else "")
     desc = data["3"] or (parts.pop(0) if parts else "")
@@ -490,6 +490,16 @@ def render_historical_given_name(
     if desc:
         phrase += f", notably borne by {desc}"
     return italic(phrase)
+
+
+def render_ipa_char(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_ipa_char("historical given name", ["[tʃ]"], defaultdict(str, {}))
+    '[tʃ]'
+    >>> render_ipa_char("historical given name", ["[tʃ]", "[ts]"], defaultdict(str, {}))
+    '[tʃ], [ts]'
+    """
+    return concat(parts, ", ")
 
 
 def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -1114,6 +1124,9 @@ template_mapping = {
     "frac": render_frac,
     "given name": render_given_name,
     "historical given name": render_historical_given_name,
+    "ic": render_ipa_char,
+    "IPAchar": render_ipa_char,
+    "ipachar": render_ipa_char,
     "inh": render_foreign_derivation,
     "inherited": render_foreign_derivation,
     "l": render_foreign_derivation,
