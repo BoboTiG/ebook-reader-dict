@@ -62,6 +62,9 @@ templates_multi: Dict[str, str] = {
     # {{Coll}}
     "Coll": "small(f'({italic(\"colloquiale\")})')",
     "coll": "small(f'({italic(\"colloquiale\")})')",
+    # {{Cum|congiuntivo}}
+    "Cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
+    "cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
     # {{context|ecology|lang=it}}
     "Context": "small(term(parts[1]))",
     "context": "small(term(parts[1]))",
