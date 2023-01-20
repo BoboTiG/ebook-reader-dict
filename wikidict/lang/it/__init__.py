@@ -84,6 +84,11 @@ templates_multi: Dict[str, str] = {
     # {{Glossa|raro|it}}
     "Glossa": "small(term(parts[1]))",
     "glossa": "small(term(parts[1]))",
+    # {{Ind pres}}
+    "Ind pres": "small(f'{italic(\"ind pres \")}')",
+    "ind pres": "small(f'{italic(\"ind pres \")}')",
+    # {{inf}}
+    "inf": "small(f'{italic(\"inf\")}')",
     # {{Lett}}
     "Lett": "small(f'({italic(\"letteralmente\")})')",
     "lett": "small(f'({italic(\"letteralmente\")})')",
@@ -93,6 +98,12 @@ templates_multi: Dict[str, str] = {
     # {{Obs}}
     "Obs": "small(f'({italic(\"obsoleto\")})')",
     "obs": "small(f'({italic(\"obsoleto\")})')",
+    # {{P pass}}
+    "P pass": "small(f'{italic(\"p.pass.\")}')",
+    "p pass": "small(f'{italic(\"p.pass.\")}')",
+    # {{P pres}}
+    "P pres": "small(f'{italic(\"p.pres.\")}')",
+    "p pres": "small(f'{italic(\"p.pres.\")}')",
     # {{Pegg}}
     "Pegg": "small(f'({italic(\"peggiorativo\")})')",
     "pegg": "small(f'({italic(\"peggiorativo\")})')",
