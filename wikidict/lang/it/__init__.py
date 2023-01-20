@@ -33,7 +33,17 @@ sections = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("IPA", "Nodef", "Noetim", "Noref", "Tabs", "Trad1", "Trad2")
+templates_ignored = (
+    "Colori_RAL",
+    "Colori_Ral",
+    "IPA",
+    "Nodef",
+    "Noetim",
+    "Noref",
+    "Tabs",
+    "Trad1",
+    "Trad2",
+)
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
