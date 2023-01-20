@@ -184,6 +184,13 @@ def last_template_handler(
         >>> last_template_handler(["la"], "it")
         'latino'
 
+        >>> last_template_handler(["Linkf", "gatta"], "it")
+        '(<i>f.:</i> <b>gatta</b>)'
+        >>> last_template_handler(["Linkf", "inv"], "it")
+        '(<i>invariabile</i>)'
+        >>> last_template_handler(["linkf", "invariabile"], "it")
+        '(<i>invariabile</i>)'
+
         >>> last_template_handler(["Linkp", "gatti"], "it")
         '(<i>pl.:</i> <b>gatti</b>)'
         >>> last_template_handler(["Linkp", "inv"], "it")
@@ -201,6 +208,13 @@ def last_template_handler(
 
     tpl, *parts = template
     tpl = tpl.lower()
+
+    if tpl == "linkf":
+        return parenthesis(
+            italic("invariabile")
+            if parts[0] in ("inv", "invariabile")
+            else f"{italic('f.:')} {strong(parts[0])}"
+        )
 
     if tpl == "linkp":
         return parenthesis(
