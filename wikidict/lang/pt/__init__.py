@@ -188,6 +188,8 @@ def last_template_handler(
 
         >>> last_template_handler(["+info", "data=1871"], "pt")
         '<small>( <i>Datação</i>: 1871; )</small>'
+        >>> last_template_handler(["+info", "uso=1871"], "pt")
+        '<small>( <i>Uso</i>: 1871 )</small>'
 
         >>> last_template_handler(["escopo", "Pecuária"], "pt")
         '<i>(Pecuária)</i>'
@@ -320,8 +322,10 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl == "+info":
-        phrase = italic("Datação")
-        phrase += f": {data['data']};"
+        phrase = italic("Datação" if data["data"] else "Uso")
+        phrase += f": {data['data'] or data['uso']}"
+        if data["data"]:
+            phrase += ";"
         return small(f"( {phrase} )")
 
     if tpl == "escopo":
