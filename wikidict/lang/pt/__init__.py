@@ -42,6 +42,7 @@ definitions_to_ignore = ("peçodef",)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "?.",
     "cont",
     "FDSP",
     "ligaçãoPalavraWdic",
