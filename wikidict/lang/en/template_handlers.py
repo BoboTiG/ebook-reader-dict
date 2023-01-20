@@ -835,7 +835,7 @@ def render_onomatopoeic(tpl: str, parts: List[str], data: Dict[str, str]) -> str
     """
     if data["notext"] in ("1", "yes"):
         return ""
-    phrase = data["title"] if "title" in data else "onomatopoeic"
+    phrase = data.get("title", "onomatopoeic")
     return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
 
 
