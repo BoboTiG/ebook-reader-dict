@@ -49,15 +49,21 @@ templates_multi: Dict[str, str] = {
     # {{Accr}}
     "Accr": "small(f'({italic(\"accrescitivo\")})')",
     "accr": "small(f'({italic(\"accrescitivo\")})')",
+    # {{Ant}}
+    "Ant": "small(f'({italic(\"per antonomasia\")})')",
+    "ant": "small(f'({italic(\"per antonomasia\")})')",
+    # {{Coll}}
+    "Coll": "small(f'({italic(\"colloquiale\")})')",
+    "coll": "small(f'({italic(\"colloquiale\")})')",
     # {{context|ecology|lang=it}}
     "Context": "small(term(parts[1]))",
     "context": "small(term(parts[1]))",
     # {{Dim}}
     "Dim": "small(f'({italic(\"diminutivo\")})')",
     "dim": "small(f'({italic(\"diminutivo\")})')",
-    # {{Est|raro|it}}
-    "Est": "small(term('per estensione'))",
-    "est": "small(term('per estensione'))",
+    # {{Est}}
+    "Est": "small(f'({italic(\"per estensione\")})')",
+    "est": "small(f'({italic(\"per estensione\")})')",
     # {{Etim-link|aggrondare}}
     # {{Etim-link||cervice}}
     "Etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
@@ -68,15 +74,33 @@ templates_multi: Dict[str, str] = {
     # {{Glossa|raro|it}}
     "Glossa": "small(term(parts[1]))",
     "glossa": "small(term(parts[1]))",
-    # {{Lett|non comune|it}}
-    "Lett": "small(term('letteralmente'))",
-    "lett": "small(term('letteralmente'))",
+    # {{Lett}}
+    "Lett": "small(f'({italic(\"letteralmente\")})')",
+    "lett": "small(f'({italic(\"letteralmente\")})')",
+    # {{Narr}}
+    "Narr": "small(f'({italic(\"narrativa\")})')",
+    "narr": "small(f'({italic(\"narrativa\")})')",
+    # {{Obs}}
+    "Obs": "small(f'({italic(\"obsoleto\")})')",
+    "obs": "small(f'({italic(\"obsoleto\")})')",
     # {{Pegg}}
     "Pegg": "small(f'({italic(\"peggiorativo\")})')",
     "pegg": "small(f'({italic(\"peggiorativo\")})')",
+    # {{Pop}}
+    "Pop": "small(f'({italic(\"popolare\")})')",
+    "pop": "small(f'({italic(\"popolare\")})')",
+    # {{Pers}}
+    "Pers": "small(f'({italic(\"riferito solo a persone\")})')",
+    "pers": "small(f'({italic(\"riferito solo a persone\")})')",
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
     "quote": "'«' + parts[1] + '» ' + term(parts[2])",
+    # {{Sndc}}
+    "Sndc": "small(f'({italic(\"per sineddoche\")})')",
+    "sndc": "small(f'({italic(\"per sineddoche\")})')",
+    # {{Spec pl}}
+    "Spec pl": "small(f'({italic(\"specialmente al plurale\")})')",
+    "spec pl": "small(f'({italic(\"specialmente al plurale\")})')",
     # {{Spreg}}
     "Spreg": "small(f'({italic(\"spregiativo\")})')",
     "spreg": "small(f'({italic(\"spregiativo\")})')",
@@ -86,6 +110,9 @@ templates_multi: Dict[str, str] = {
     # {{Taxon|Chromis chromis|Chromis chromis}}
     "Taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
     "taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
+    # {{Teen}}
+    "Teen": "small(f'({italic(\"linguaggio giovanile\")})')",
+    "teen": "small(f'({italic(\"linguaggio giovanile\")})')",
     # {{Term|statistica|it}}
     "Term": "small(term(parts[1]))",
     "term": "small(term(parts[1]))",
@@ -95,6 +122,15 @@ templates_multi: Dict[str, str] = {
     # {{Vezz}}
     "Vezz": "small(f'({italic(\"vezzeggiativo\")})')",
     "vezz": "small(f'({italic(\"vezzeggiativo\")})')",
+    # {{Volg}}
+    "Volg": "small(f'({italic(\"volgare\")})')",
+    "volg": "small(f'({italic(\"volgare\")})')",
+    # {{Vulg}}
+    "Vulg": "small(f'({italic(\"volgare\")})')",
+    "vulg": "small(f'({italic(\"volgare\")})')",
+    # {{Yprb}}
+    "Yprb": "small(f'({italic(\"per iperbole\")})')",
+    "yprb": "small(f'({italic(\"per iperbole\")})')",
 }
 
 # Release content on GitHub
