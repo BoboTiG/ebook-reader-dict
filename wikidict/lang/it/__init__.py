@@ -46,9 +46,15 @@ templates_ignored = ("Nodef", "Noetim", "Noref", "Trad1", "Trad2")
 
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
+    # {{Accr}}
+    "Accr": "small(f'({italic(\"accrescitivo\")})')",
+    "accr": "small(f'({italic(\"accrescitivo\")})')",
     # {{context|ecology|lang=it}}
     "Context": "small(term(parts[1]))",
     "context": "small(term(parts[1]))",
+    # {{Dim}}
+    "Dim": "small(f'({italic(\"diminutivo\")})')",
+    "dim": "small(f'({italic(\"diminutivo\")})')",
     # {{Est|raro|it}}
     "Est": "small(term('per estensione'))",
     "est": "small(term('per estensione'))",
@@ -65,9 +71,15 @@ templates_multi: Dict[str, str] = {
     # {{Lett|non comune|it}}
     "Lett": "small(term('letteralmente'))",
     "lett": "small(term('letteralmente'))",
+    # {{Pegg}}
+    "Pegg": "small(f'({italic(\"peggiorativo\")})')",
+    "pegg": "small(f'({italic(\"peggiorativo\")})')",
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
     "quote": "'«' + parts[1] + '» ' + term(parts[2])",
+    # {{Spreg}}
+    "Spreg": "small(f'({italic(\"spregiativo\")})')",
+    "spreg": "small(f'({italic(\"spregiativo\")})')",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
     "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
     "tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
@@ -80,6 +92,9 @@ templates_multi: Dict[str, str] = {
     # {{Vd|acre#Italiano|acre}}
     "Vd": "'vedi ' + parts[-1]",
     "vd": "'vedi ' + parts[-1]",
+    # {{Vezz}}
+    "Vezz": "small(f'({italic(\"vezzeggiativo\")})')",
+    "vezz": "small(f'({italic(\"vezzeggiativo\")})')",
 }
 
 # Release content on GitHub
