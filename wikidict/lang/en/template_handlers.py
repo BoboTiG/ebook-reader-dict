@@ -824,6 +824,21 @@ def render_nuclide(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_onomatopoeic(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_onomatopoeic("onom", ["en"], defaultdict(str))
+    'Onomatopoeic'
+    >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"nocap": "1"}))
+    'onomatopoeic'
+    >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"title": "imitative"}))
+    'Imitative'
+    """
+    if data["notext"] in ("1", "yes"):
+        return ""
+    phrase = data["title"] if "title" in data else "onomatopoeic"
+    return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
+
+
 def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_place("place", ["en", "A country in the Middle East"], defaultdict(str))
@@ -1149,6 +1164,10 @@ template_mapping = {
     "noncognate": render_foreign_derivation,
     "nuclide": render_nuclide,
     "obor": render_foreign_derivation,
+    "onom": render_onomatopoeic,
+    "onomatopeic": render_onomatopoeic,
+    "onomatopoeia": render_onomatopoeic,
+    "onomatopoeic": render_onomatopoeic,
     "orthographic borrowing": render_foreign_derivation,
     "partial calque": render_foreign_derivation,
     "pcal": render_foreign_derivation,
