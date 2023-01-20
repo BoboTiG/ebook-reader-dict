@@ -96,6 +96,8 @@ templates_multi: Dict[str, str] = {
     # {{Pegg}}
     "Pegg": "small(f'({italic(\"peggiorativo\")})')",
     "pegg": "small(f'({italic(\"peggiorativo\")})')",
+    # {{Polytonic|ἐπιστάζω}}
+    "Polytonic": "parts[1]",
     # {{Pop}}
     "Pop": "small(f'({italic(\"popolare\")})')",
     "pop": "small(f'({italic(\"popolare\")})')",
