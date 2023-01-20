@@ -123,8 +123,6 @@ templates_multi = {
     "glossary": "parts[-1]",
     # {{i|Used only ...}}
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{IPAchar|[tʃ]|lang=en}})
-    "IPAchar": "parts[1]",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": 'f"⟨{parts[1]}⟩"',
     # {{Latn-def|en|name|O|o}}
