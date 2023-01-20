@@ -47,28 +47,39 @@ templates_ignored = ("Nodef", "Noetim", "Noref", "Trad1", "Trad2")
 # Templates more complex to manage.
 templates_multi: Dict[str, str] = {
     # {{context|ecology|lang=it}}
+    "Context": "small(term(parts[1]))",
     "context": "small(term(parts[1]))",
     # {{Est|raro|it}}
     "Est": "small(term('per estensione'))",
+    "est": "small(term('per estensione'))",
     # {{Etim-link|aggrondare}}
     # {{Etim-link||cervice}}
-    "etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
     "Etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
+    "etim-link": "'vedi ' + parts[2 if len(parts) >= 3 else 1]",
+    # {{Fig}}
+    "Fig": "f'{small(italic(\"(senso figurato)\"))}'",
+    "fig": "f'{small(italic(\"(senso figurato)\"))}'",
     # {{Glossa|raro|it}}
     "Glossa": "small(term(parts[1]))",
+    "glossa": "small(term(parts[1]))",
     # {{Lett|non comune|it}}
     "Lett": "small(term('letteralmente'))",
+    "lett": "small(term('letteralmente'))",
     # {{Quote|...}}
     "Quote": "'«' + parts[1] + '» ' + term(parts[2])",
+    "quote": "'«' + parts[1] + '» ' + term(parts[2])",
     # {{Tabs|aggrondato|aggrondati|aggrondata|aggrondate}}
     "Tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
+    "tabs": "'Masc. sing. ' + parts[1] + ', masc. plur. ' + parts[2] + ', fem. sing. ' + parts[3] + ', fem. plur. ' + parts[4]",  # noqa
     # {{Taxon|Chromis chromis|Chromis chromis}}
     "Taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
+    "taxon": "'la sua classificazione scientifica è ' + strong(italic(parts[1]))",
     # {{Term|statistica|it}}
     "Term": "small(term(parts[1]))",
     "term": "small(term(parts[1]))",
     # {{Vd|acre#Italiano|acre}}
     "Vd": "'vedi ' + parts[-1]",
+    "vd": "'vedi ' + parts[-1]",
 }
 
 # Release content on GitHub
