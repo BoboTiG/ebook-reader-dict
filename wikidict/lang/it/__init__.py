@@ -136,15 +136,29 @@ def last_template_handler(
         >>> last_template_handler(["la"], "it")
         'latino'
 
+        >>> last_template_handler(["Linkp", "gatti"], "it")
+        '(<i>pl.:</i> <b>gatti</b>)'
+        >>> last_template_handler(["Linkp", "inv"], "it")
+        '(<i>invariabile</i>)'
+        >>> last_template_handler(["linkp", "invariabile"], "it")
+        '(<i>invariabile</i>)'
+
         >>> last_template_handler(["Pn"], "it", word="Santissimo")
         '<b>Santissimo</b>'
 
     """
-    from ...user_functions import strong
+    from ...user_functions import italic, parenthesis, strong
     from ..defaults import last_template_handler as default
     from .langs import langs
 
     tpl, *parts = template
+
+    if tpl in ("Linkp", "linkp"):
+        return parenthesis(
+            italic("invariabile")
+            if parts[0] in ("inv", "invariabile")
+            else f"{italic('pl.:')} {strong(parts[0])}"
+        )
 
     if tpl == "Pn":
         return strong(word)
