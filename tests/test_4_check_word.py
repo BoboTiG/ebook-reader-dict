@@ -16,6 +16,7 @@ WORD = {
     "en": "42",
     "es": "buena",
     "fr": "42",
+    "it": "Upupidi",
     "pt": "-izar",
 }
 
@@ -298,6 +299,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
                 ':Panthera leo">Panthera leo</a></i> sur Wikispecies'
             ),
             "Panthera leo",
+        ],
+        # IT - missing definition
+        [
+            "it",
+            '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',  # noqa
+            "",
         ],
         # PT - superscript locales
         [

@@ -205,6 +205,13 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
         return no_spaces(bs.text)
 
+    elif locale == "it":
+        # Missing definitions
+        for i in bs.find_all("i"):
+            if i.text.startswith("definizione mancante"):
+                i.decompose()
+        return no_spaces(bs.text)
+
     elif locale == "pt":
         # Issue 600: remove superscript locales
         for sup in bs.find_all("sup"):
