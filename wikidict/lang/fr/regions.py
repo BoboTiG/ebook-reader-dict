@@ -299,6 +299,7 @@ regions = {
     "Océanie": "Océanie",
     "Oise": "Oise",
     "Ontario": "Ontario",
+    "Oria": "Oria",
     "Ouessant": "Ouessant",
     "Ouzbékistan": "Ouzbékistan",
     "PE": "Pérou",
@@ -462,7 +463,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 457
+}  # 458
 # END
 
 # handled differently
