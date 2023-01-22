@@ -1813,6 +1813,7 @@ labels_subvarieties = {
     "CB": "Castel Bolognese",
     "CC": "Castiglione di Cervia",
     "CPA": "Christian Palestinian Aramaic",
+    "CS": "central-southern Italian",
     "Ca": "Cattolica",
     "Cajun French": "Cajun",
     "Calabrese": "Calabria",
@@ -1841,6 +1842,8 @@ labels_subvarieties = {
     "Central and Nort Ostrobothnian": "Central and North Ostrobothnia",
     "Central and Northern Ostrobothnia": "Central and North Ostrobothnia",
     "Central and Northern Ostrobothnian": "Central and North Ostrobothnia",
+    "Central-Southern Italian": "central-southern Italian",
+    "Central-Southern Italy": "central-southern Italian",
     "Cerasus": "Kerasounta",
     "Chadhda": "Eastern Punjab",
     "Chaldiot": "Chaldia",
@@ -2986,6 +2989,7 @@ labels_subvarieties = {
     "central Italian": "central Italy",
     "central Vietnam": "Central Vietnam",
     "central Vietnamese": "Central Vietnam",
+    "central-southern Italy": "central-southern Italian",
     "ciw": "Chippewa",
     "coll": "collophons",
     "cretan": "Cretan",
@@ -3360,5 +3364,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 1,731
+}  # 1,735
 # END
