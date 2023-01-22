@@ -49,7 +49,6 @@ templates_ignored = (
     "OESP",
     "#seigual",
     "t",
-    "trad",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -305,6 +304,13 @@ def last_template_handler(
         >>> last_template_handler(["PBPE", "estafe", "stafe", "inline=1"], "pt")
         'estafe <sup>(português do Brasil)</sup> ou stafe <sup>(português europeu)</sup>'
 
+        >>> last_template_handler(["trad", "fr", "surpris"], "pt")
+        'Francês&nbsp;: surpris'
+        >>> last_template_handler(["trad", "de", "Apfelsine", "Orange"], "pt")
+        'Alemão: Apfelsine, Orange'
+        >>> last_template_handler(["trad", "crh", "şorba"], "pt")
+        'Tártaro Da Crimeia: şorba'
+
         >>> last_template_handler(["unknown", "test"], "pt")
         '<i>(Unknown)</i>'
 
@@ -418,6 +424,13 @@ def last_template_handler(
         elif data["inline"] == "1":
             return f"{part1}/{part2}"
         return f"{part1} {cmpl1} ou {part2} {cmpl2}"
+
+    if tpl == "trad":
+        lang = parts.pop(0)
+        phrase = langs[lang].title()
+        phrase += "&nbsp;: " if lang == "fr" else ": "
+        phrase += concat(parts, sep=", ")
+        return phrase
 
     if tpl == "xlatio":
         return f"{parts[1]} {parts[2]}"
