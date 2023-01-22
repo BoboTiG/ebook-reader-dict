@@ -6,13 +6,27 @@
   "commit": false,
   "contributors": [
     {
+      "login": "BoboTiG",
+      "name": "Mickaël Schoentgen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2033598?v=4",
+      "profile": "https://www.tiger-222.fr",
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "projectManagement"
+      ]
+    },
+    {
       "login": "lasconic",
       "name": "Nicolas Froment",
       "avatar_url": "https://avatars0.githubusercontent.com/u/234271?v=4",
       "profile": "http://lasconic.com",
       "contributions": [
+        "bug",
         "code",
-        "doc"
+        "doc",
+        "projectManagement"
       ]
     },
     {
@@ -70,7 +84,7 @@
       ]
     }
   ],
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 6,
   "projectName": "ebook-reader-dict",
   "projectOwner": "BoboTiG",
   "repoType": "github",
