@@ -90,6 +90,10 @@ def filter_html(html: str, locale: str) -> str:
                 i.next_sibling.replaceWith(i.next_sibling.text[1:])
                 # And remove the note
                 i.decompose()
+            # Filter out anchors as they are ignored from templates
+            for a in bs.find_all("a", href=True):
+                if a["href"].startswith("#"):
+                    a.decompose()
 
     elif locale == "de":
         # Other Wikis
@@ -104,11 +108,19 @@ def filter_html(html: str, locale: str) -> str:
         for sup in bs.find_all("sup"):
             if sup.get("style", "") == "color:slategray;":
                 sup.decompose()
+            # Filter out anchors as they are ignored from templates
+            for a in bs.find_all("a", href=True):
+                if a["href"].startswith("#"):
+                    a.decompose()
 
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
                 span.string += f' {span["title"]}'
+        # other anchors
+        for a in bs.find_all("a", href=True):
+            if a["href"].lower().startswith(("#cite", "#mw")):
+                a.decompose()
 
     elif locale == "es":
         # Replace color rectangle
@@ -150,8 +162,6 @@ def filter_html(html: str, locale: str) -> str:
                     newdt.string = dt.string + dt_array[1] + ":"
                     # 2 Coloquial: --> (Coloquial):
                     dt.string += f"({dt_array[1]}):"
-
-        return no_spaces(bs.text)
 
     elif locale == "fr":
         # Filter out refnec tags
@@ -203,14 +213,12 @@ def filter_html(html: str, locale: str) -> str:
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
                 a.decompose()
-        return no_spaces(bs.text)
 
     elif locale == "it":
         # Missing definitions
         for i in bs.find_all("i"):
             if i.text.startswith("definizione mancante"):
                 i.decompose()
-        return no_spaces(bs.text)
 
     elif locale == "pt":
         # Issue 600: remove superscript locales
@@ -224,12 +232,6 @@ def filter_html(html: str, locale: str) -> str:
         for small in bs.find_all("small"):
             if small.find("a", {"class": "extiw"}):
                 small.decompose()
-        return no_spaces(bs.text)
-
-    # Filter out anchors as they are ignored from templates
-    for a in bs.find_all("a", href=True):
-        if a["href"].startswith("#"):
-            a.decompose()
 
     return no_spaces(bs.text)
 

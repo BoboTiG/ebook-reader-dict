@@ -1,3 +1,4 @@
+import re
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple, TypedDict
 
@@ -84,6 +85,15 @@ def gloss_tr_poss(data: Dict[str, str], gloss: str, trans: str = "") -> str:
     return phrase
 
 
+def misc_variant_no_term(
+    title: str, tpl: str, parts: List[str], data: Dict[str, str]
+) -> str:
+    if data["notext"] in ("1", "yes"):
+        return ""
+    phrase = data.get("title", title)
+    return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
+
+
 def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_coinage("coin", ["en", "Josiah Willard Gibbs"], defaultdict(str))
@@ -143,12 +153,72 @@ def render_dating(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"{italic(init)} {strong(start)}" + (f" {end}" if end else "") + ","
 
 
+def render_etydate(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_etydate("etydate", ["1880"], defaultdict(str))
+    'First attested in 1880.'
+    >>> render_etydate("etydate", ["1880"], defaultdict(str, {"nodot": "1", "nocap": "1"}))
+    'first attested in 1880'
+    >>> render_etydate("etydate", ["first half of the 19th century"], defaultdict(str))
+    'First attested in the first half of the 19th century.'
+    >>> render_etydate("etydate", ["c", "1900"], defaultdict(str))
+    'First attested in <i>c.</i> 1900.'
+    >>> render_etydate("etydate", ["c", "1900", "2000"], defaultdict(str))
+    'First attested in <i>c.</i> 1900, but in common usage only as of 2000.'
+    >>> render_etydate("etydate", ["c", "1900", "first half of the 21st century"], defaultdict(str))
+    'First attested in <i>c.</i> 1900, but in common usage only as of the first half of the 21st century.'
+    >>> render_etydate("etydate", ["r", "1900", "1910"], defaultdict(str))
+    'First attested in 1900–1910.'
+    >>> render_etydate("etydate", ["r", "1900", "1910", "1980"], defaultdict(str))
+    'First attested in 1900–1910, but in common usage only as of 1980.'
+    >>> render_etydate("etydate", ["r", "1900", "1910", "first half of the 19st century"], defaultdict(str))
+    'First attested in 1900–1910, but in common usage only as of the first half of the 19st century.'
+    """
+
+    def render_etydate_l2(parts: List[str]) -> str:
+        phrase = ", but in common usage only as of "
+        if parts[0] == "c":
+            phrase += f"{italic('c.')} "
+            phrase += f"{parts[2]}–{parts[3]}" if parts[1] == "r" else parts[1]
+        else:
+            if parts[0] == "r":
+                phrase += f"{parts[1]}–{parts[2]}"
+            else:
+                phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
+        return phrase
+
+    nodot = data["nodot"] in ("1", "yes")
+    nocap = data["nocap"] in ("1", "yes")
+    phrase = ("f" if nocap else "F") + "irst attested in "
+    if parts[0] == "c":
+        phrase += f"{italic('c.')} "
+        if parts[1] == "r":
+            phrase += f"{parts[2]}–{parts[3]}"
+            if len(parts) > 4:
+                phrase += render_etydate_l2(parts[4:])
+        else:
+            phrase += parts[1]
+            if len(parts) > 2:
+                phrase += render_etydate_l2(parts[2:])
+    else:
+        if parts[0] == "r":
+            phrase += f"{parts[1]}–{parts[2]}"
+            if len(parts) > 3:
+                phrase += render_etydate_l2(parts[3:])
+        else:
+            phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
+    phrase += "" if nodot else "."
+    return phrase
+
+
 def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
     'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
     >>> render_foreign_derivation("bor", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
     'Japanese <i>マエバリ</i>'
+    >>> render_foreign_derivation("bor+", [], defaultdict(str, {"1": "en", "2": "ja", "3": "マエバリ"}))
+    'Borrowed from Japanese <i>マエバリ</i>'
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
@@ -163,6 +233,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     'Old English <i>etan</i> (“to eat”)'
     >>> render_foreign_derivation("inh", ["en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], defaultdict(str))
     'Proto-Indo-European <i>*wr̥dʰh₁om</i>'
+    >>> render_foreign_derivation("inh+", ["en", "ine-pro", "*werdʰh₁om", "*wr̥dʰh₁om"], defaultdict(str))
+    'Inherited from Proto-Indo-European <i>*wr̥dʰh₁om</i>'
     >>> render_foreign_derivation("noncog", ["fro", "livret"], defaultdict(str, {"t":"book, booklet"}))
     'Old French <i>livret</i> (“book, booklet”)'
     >>> render_foreign_derivation("noncog", ["xta", "I̱ta Ita"], defaultdict(str, {"lit":"flower river"})) #xochopa
@@ -270,8 +342,12 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     phrase = ""
     starter = ""
     if data["notext"] != "1":
-        if tpl in {"calque", "cal", "clq"}:
+        if tpl in {"bor+"}:
+            starter = "borrowed from "
+        elif tpl in {"calque", "cal", "clq"}:
             starter = "calque of "
+        elif tpl in {"inh+"}:
+            starter = "inherited from "
         elif tpl in {"partial calque", "pcal"}:
             starter = "partial calque of "
         elif tpl in {"semantic loan", "sl"}:
@@ -617,6 +693,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
     >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
+    >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
+    '<i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
     >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))  # noqa
     'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
     >>> render_morphology("blend", ["en"], defaultdict(str))
@@ -668,6 +746,9 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "blend",
         "blend of",
     ]
+    # Aliases
+    if tpl == "dbt":
+        tpl = "doublet"
     with_start_text = ["doublet", "piecewise doublet", "blend", "blend of"]
     parts.pop(0)  # language code
     phrase = ""
@@ -690,7 +771,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         p_dic["chunk"] = chunk
         p_dic["g"] = data[f"g{si}"]
         p_dic["tr"] = data[f"tr{si}"]
-        p_dic["t"] = data[f"t{si}"]
+        p_dic["t"] = data[f"t{si}"] or data[f"gloss{si}"]
         p_dic["pos"] = data[f"pos{si}"]
         p_dic["lit"] = data[f"lit{si}"]
         if not chunk and not p_dic["tr"] and not p_dic["ts"] and not parts:
@@ -833,10 +914,7 @@ def render_onomatopoeic(tpl: str, parts: List[str], data: Dict[str, str]) -> str
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"title": "imitative"}))
     'Imitative'
     """
-    if data["notext"] in ("1", "yes"):
-        return ""
-    phrase = data.get("title", "onomatopoeic")
-    return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
+    return misc_variant_no_term("onomatopoeic", tpl, parts, data)
 
 
 def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -1064,6 +1142,18 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     )
 
 
+def render_uncertain(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_uncertain("unc", ["en"], defaultdict(str))
+    'Uncertain'
+    >>> render_uncertain("uncertain", ["en"], defaultdict(str, {"nocap": "1"}))
+    'uncertain'
+    >>> render_uncertain("uncertain", ["en"], defaultdict(str, {"title": "Not certain"}))
+    'Not certain'
+    """
+    return misc_variant_no_term("uncertain", tpl, parts, data)
+
+
 def render_unknown(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_unknown("unk", ["en"], defaultdict(str, { "notext":"1", "nocap":"1"}))
@@ -1116,6 +1206,7 @@ template_mapping = {
     "blend of": render_morphology,
     "blend": render_morphology,
     "bor": render_foreign_derivation,
+    "bor+": render_foreign_derivation,
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
     "calque": render_foreign_derivation,
@@ -1132,9 +1223,11 @@ template_mapping = {
     "compound": render_morphology,
     "con": render_morphology,
     "confix": render_morphology,
+    "dbt": render_morphology,
     "der": render_foreign_derivation,
     "derived": render_foreign_derivation,
     "doublet": render_morphology,
+    "etydate": render_etydate,
     "etyl": render_foreign_derivation,
     "frac": render_frac,
     "given name": render_given_name,
@@ -1143,6 +1236,7 @@ template_mapping = {
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "inh": render_foreign_derivation,
+    "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
     "l": render_foreign_derivation,
     "label": render_label,
@@ -1195,6 +1289,8 @@ template_mapping = {
     "ubor": render_foreign_derivation,
     "uder": render_foreign_derivation,
     "unadapted borrowing": render_foreign_derivation,
+    "unc": render_uncertain,
+    "uncertain": render_uncertain,
     "unk": render_unknown,
     "unknown": render_unknown,
     "vern": render_vern,
