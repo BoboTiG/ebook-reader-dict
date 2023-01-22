@@ -23,6 +23,7 @@ FILES = {
     "fr-regions.py": "wikidict/lang/fr/regions.py",
     "fr-temps-geologiques.py": "wikidict/lang/fr/temps_geologiques.py",
     "it-langs.py": "wikidict/lang/it/langs.py",
+    "pt-codelangs.py": "wikidict/lang/pt/codelangs.py",
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
