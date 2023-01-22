@@ -728,6 +728,7 @@ def render_lae(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "interjection": "Interjection",
         "lettre": "Lettre",
         "nom": "Nom commun",
+        "nom commun": "Nom commun",
         "nom de famille": "Nom de famille",
         "nom-fam": "Nom de famille",
         "nom-pr": "Nom propre",
