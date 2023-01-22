@@ -179,10 +179,7 @@ def render_etydate(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase = ", but in common usage only as of "
         if parts[0] == "c":
             phrase += f"{italic('c.')} "
-            if parts[1] == "r":
-                phrase += f"{parts[2]}–{parts[3]}"
-            else:
-                phrase += parts[1]
+            phrase += f"{parts[2]}–{parts[3]}" if parts[1] == "r" else parts[1]
         else:
             if parts[0] == "r":
                 phrase += f"{parts[1]}–{parts[2]}"
@@ -192,8 +189,7 @@ def render_etydate(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     nodot = data["nodot"] in ("1", "yes")
     nocap = data["nocap"] in ("1", "yes")
-    phrase = "f" if nocap else "F"
-    phrase += "irst attested in "
+    phrase = ("f" if nocap else "F") + "irst attested in "
     if parts[0] == "c":
         phrase += f"{italic('c.')} "
         if parts[1] == "r":
