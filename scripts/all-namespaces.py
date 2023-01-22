@@ -21,7 +21,7 @@ for locale in locales:
             result_discard_last.extend(
                 namespace["*"] for namespace in data if namespace["id"] in ids
             )
-        results[locale] = sorted(result_discard_last)
+    results[locale] = sorted(result_discard_last)
 
 print("namespaces =", end=" ")
 print(results)
