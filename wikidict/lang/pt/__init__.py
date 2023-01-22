@@ -60,6 +60,10 @@ templates_multi = {
     "AFI": "parts[1]",
     # {{barra de cor|#0000FF|#0000FF}}
     "barra de cor": "color(parts[-1])",
+    # {{c}}
+    "c": "italic('género comum')",
+    # {{c2gb}}
+    "c2gb": "italic('comum aos dois gêneros no Brasil')",
     # {{confundir|anacruse}}
     "confundir": "f'{italic(f\"Não confundir com {strong(parts[-1])}\")}'",
     # {{datação|5/4/1810}}
@@ -77,10 +81,18 @@ templates_multi = {
     "escopoObs.": "f'{strong(\"Observação\")}: {parts[-1]}'",
     # {{escopoUso|Portugal|pt}}
     "escopoUso": "term(lookup_italic(parts[1], 'pt'))",
+    # {{f}}
+    "f": "italic('feminino')",
+    # {{fb}}
+    "fb": "italic('feminino no Brasil')",
+    # {{fbmfdemais}}
+    "fbmfdemais": "italic('feminino no Brasil, masculino ou feminino em Portugal e demais países')",
     # {{fem|heliostático}}
     "fem": 'f"feminino de {strong(parts[1])}"',
     # {{fl|la|occŭlo}}
     "fl": "parts[-1]",
+    # {{fp}}
+    "fp": "italic('feminino plural')",
     # {{grafiaPtbr|autocrómico}}
     "grafiaPtbr": "f'{italic(f\"Grafia usada no Brasil. Nos restantes países da CPLP escreve-se {strong(parts[-1])}\")}'",  # noqa
     # {{grafiaPtpt|a}}
@@ -105,17 +117,41 @@ templates_multi = {
     "ll": "parts[3 if len(parts) == 4 else 1]",
     # {m|ar|شيشة|tr=šīša}}
     "m": "italic('masculino')",
+    # {{mbfp}}
+    "mbfp": "italic('masculino no Brasil, feminino em Portugal')",
+    # {{mbmfp}}
+    "mbmfp": "italic('masculino no Brasil, masculino e feminino em Portugal')",
+    # {{mf}}
+    "mf": "italic('masculino ou feminino')",
+    # {{mfbfdemais}}
+    "mfbfdemais": "italic('masculino ou feminino no Brasil, feminino em Portugal e demais países')",
+    # {{mp}}
+    "mp": "italic('masculino plural')",
+    # {{mpfb}}
+    "mpfb": "italic('masculino em Portugal, feminino no Brasil')",
+    # {{mpmfb}}
+    "mpmfb": "italic('masculino em Portugal, masculino e feminino no Brasil')",
+    # {{mpteu}}
+    "mpteu": "italic('masculino em Portugal')",
     # {{mq|palavra}}
     # {{mq|word|en}}
     "mq": 'f"o mesmo que {strong(parts[1]) if len(parts) == 2 else italic(parts[1])}"',
+    # {{n}}
+    "n": "italic('neutro')",
     # {{PE|cu}}
     "PE": "f\"{parts[-1]} {superscript('(português de Portugal)')}\"",
+    # {{p/a}}
+    "p/a": "italic('plural apenas')",
     # {{politônico|κρατία}}
     "politônico": "parts[-1]",
+    # {{pr}}
+    "pr": "italic('próprio')",
     # {{r|la|basium|basĭum}}
     "r": "parts[-1]",
     # {{r.l|la|utor|ūtor}}
     "r.l": "parts[-1]",
+    # {{s/p}}
+    "s/p": "italic('sem plural')",
     # {{signBr|a}}
     "signBr": "f'{italic(f\"Este significado é de uso comum no Brasil. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",  # noqa
     # {{signPt|a}}
@@ -293,6 +329,15 @@ def last_template_handler(
         >>> last_template_handler(["o/a", "trabalha", "ndo", "r"], "pt")
         'trabalhando'
 
+        >>> last_template_handler(["p"], "pt")
+        '<i>plural</i>'
+        >>> last_template_handler(["p", "forma no plural"], "pt")
+        '(<i>plural:</i> <b>forma no plural</b>)'
+        >>> last_template_handler(["p", "plural em letras não romanas", "transliteração"], "pt")
+        '(<i>plural:</i> <b>plural em letras não romanas</b>, <i>transliteração</i>)'
+        >>> last_template_handler(["p", "forma no plural", "p2=forma no plural alternativa 1", "p3=forma no plural alternativa 2"], "pt")
+        '(<i>plural:</i> <b>forma no plural</b>, <b>forma no plural alternativa 1</b>, <b>forma no plural alternativa 2</b>)'
+
         >>> last_template_handler(["PEPB", "1=Autoridade Nacional Palestiniana", "2=Autoridade Nacional Palestina"], "pt")
         'Autoridade Nacional Palestiniana <sup>(português europeu)</sup> ou Autoridade Nacional Palestina <sup>(português do Brasil)</sup>'
         >>> last_template_handler(["PEPB", "autocarro", "ônibus"], "pt")
@@ -324,6 +369,7 @@ def last_template_handler(
         lookup_italic,
         parenthesis,
         small,
+        strong,
         term,
     )
     from ..defaults import last_template_handler as default
@@ -413,6 +459,18 @@ def last_template_handler(
         phrase = parts.pop(0)
         phrase += f"{parts[0]}" if parts else "a"
         return phrase
+
+    if tpl == "p":
+        if not parts and not data:
+            return italic("plural")
+        phrase = f"{italic('plural:')} {strong(parts.pop(0))}"
+        if parts:
+            phrase += f", {italic(parts.pop(0))}"
+        for n in range(2, 4):
+            idx = f"p{n}"
+            if data[idx]:
+                phrase += f", {strong(data[idx])}"
+        return parenthesis(phrase)
 
     if tpl in ("PEPB", "PBPE"):
         part1 = data["1"] or parts.pop(0)
