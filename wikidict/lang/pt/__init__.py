@@ -192,6 +192,9 @@ def last_template_handler(
         >>> last_template_handler(["+info", "uso=1871"], "pt")
         '<small>( <i>Uso</i>: 1871 )</small>'
 
+        >>> last_template_handler(["codelang", "grc"], "pt")
+        'grego clássico'
+
         >>> last_template_handler(["escopo", "Pecuária"], "pt")
         '<i>(Pecuária)</i>'
         >>> last_template_handler(["escopo", "Brasileirismo"], "pt")
@@ -318,6 +321,7 @@ def last_template_handler(
         term,
     )
     from ..defaults import last_template_handler as default
+    from .codelangs import codelangs
     from .gramatica import gramatica_short
     from .langs import langs
 
@@ -330,6 +334,9 @@ def last_template_handler(
         if data["data"]:
             phrase += ";"
         return small(f"( {phrase} )")
+
+    if tpl == "codelang":
+        return codelangs[parts[0]]
 
     if tpl == "escopo":
         if len(parts) == 1:
