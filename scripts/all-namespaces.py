@@ -16,12 +16,11 @@ for locale in locales:
         json = get_content(url.format(locale, kind), as_json=True)
         data = json["query"][kind]
         if kind == "namespaces":
-            for id_ in ids:
-                result_discard_last.append(data[str(id_)]["*"])
+            result_discard_last.extend(data[str(id_)]["*"] for id_ in ids)
         else:
-            for namespace in data:
-                if namespace["id"] in ids:
-                    result_discard_last.append(namespace["*"])
+            result_discard_last.extend(
+                namespace["*"] for namespace in data if namespace["id"] in ids
+            )
         results[locale] = sorted(result_discard_last)
 
 print("namespaces =", end=" ")
