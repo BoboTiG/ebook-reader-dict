@@ -6163,6 +6163,7 @@ langs = {
     "osu": "Southern One",
     "osx": "Old Saxon",
     "ota": "Ottoman Turkish",
+    "otb": "Old Tibetan",
     "otd": "Ot Danum",
     "ote": "Mezquital Otomi",
     "oti": "Oti",
@@ -9569,5 +9570,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,564
+}  # 9,565
 # END
