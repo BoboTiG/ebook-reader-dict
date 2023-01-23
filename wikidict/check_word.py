@@ -219,6 +219,9 @@ def filter_html(html: str, locale: str) -> str:
         for i in bs.find_all("i"):
             if i.text.startswith("definizione mancante"):
                 i.decompose()
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
 
     elif locale == "pt":
         # Issue 600: remove superscript locales

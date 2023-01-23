@@ -306,6 +306,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',  # noqa
             "",
         ],
+        # IT - <ref>
+        [
+            "it",
+            '<sup id="cite_ref-1" class="reference"><a href="[#cite_note-1](view-source:https://it.wiktionary.org/wiki/autocrinia#cite_note-1)">[1]</a>',  # noqa
+            "",
+        ],
         # PT - superscript locales
         [
             "pt",
