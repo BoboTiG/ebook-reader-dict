@@ -38,7 +38,6 @@ templates_ignored = (
     "clear",
     "Colori_RAL",
     "Colori_Ral",
-    "IPA",
     "Nodef",
     "Noetim",
     "Noref",
@@ -91,6 +90,8 @@ templates_multi: Dict[str, str] = {
     "ind pres": "small(f'{italic(\"ind pres \")}')",
     # {{inf}}
     "inf": "small(f'{italic(\"inf\")}')",
+    # {{IPA|/pi dˈdue/}}
+    "IPA": 'f"IPA: {parts[1]}"',
     # {{Lett}}
     "Lett": "small(f'({italic(\"letteralmente\")})')",
     "lett": "small(f'({italic(\"letteralmente\")})')",
