@@ -216,6 +216,8 @@ def last_template_handler(
         'greco antico'
         >>> last_template_handler(["la"], "it")
         'latino'
+        >>> last_template_handler(["pie"], "it")
+        'proto-indoeuropeo'
 
         >>> last_template_handler(["Linkf", "gatta"], "it")
         '(<i>f.:</i> <b>gatta</b>)'
@@ -238,6 +240,7 @@ def last_template_handler(
     from ...user_functions import italic, parenthesis, strong
     from ..defaults import last_template_handler as default
     from .codelangs import codelangs
+    from .langs import langs
 
     tpl, *parts = template
     tpl = tpl.lower()
@@ -262,5 +265,7 @@ def last_template_handler(
     # This is a country in the current locale
     if codelang := codelangs.get(tpl, ""):
         return codelang
+    if lang := langs.get(tpl, ""):
+        return lang
 
     return default(template, locale, word=word)
