@@ -225,10 +225,6 @@ def filter_html(html: str, locale: str) -> str:
         # <ref>
         for a in bs.find_all("sup", {"class": "reference"}):
             a.decompose()
-        # Wikipedia
-        for small in bs.find_all("small"):
-            if small.find("a", {"title": "Wikipedia"}):
-                small.decompose()
         # Wikispecies
         for img in bs.find_all("img", {"alt": "Wikispecies"}):
             img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
@@ -238,6 +234,12 @@ def filter_html(html: str, locale: str) -> str:
             img.next_sibling.replaceWith("")  # space
             img.previous_sibling.replaceWith("")  # Leading "("
             img.decompose()
+        # Wikipedia, Wikiquote
+        for small in bs.find_all("small"):
+            if small.find("a", {"title": "Wikipedia"}) or small.find(
+                "a", {"title": "Wikiquote"}
+            ):
+                small.decompose()
 
     elif locale == "pt":
         # Issue 600: remove superscript locales

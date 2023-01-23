@@ -312,6 +312,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',  # noqa
             "",
         ],
+        # IT - Wikiquote
+        [
+            "it",
+            '<small>&nbsp;(<a href="/wiki/File:Wikiquote-logo.svg" class="image" title="Wikiquote"><img alt="Wikiquote" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/20px-Wikiquote-logo.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/30px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/40px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" width="20" height="24"></a> <b><a href="https://it.wikiquote.org/wiki/manuale" class="extiw" title="q:manuale">citazioni</a></b>)</small>',  # noqa
+            "",
+        ],
         # IT - <ref>
         [
             "it",
