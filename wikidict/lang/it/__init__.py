@@ -18,6 +18,7 @@ sections = (
     *etyl_section,
     "{{acron}",
     "{{agg}",
+    "{{agg form}",
     "{{avv}",
     "{{art}",
     "{{cong}",
