@@ -34,6 +34,8 @@ sections = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Clear",
+    "clear",
     "Colori_RAL",
     "Colori_Ral",
     "IPA",
