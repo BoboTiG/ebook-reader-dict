@@ -209,6 +209,8 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["grc"], "it")
+        'greco antico'
         >>> last_template_handler(["la"], "it")
         'latino'
 
@@ -232,7 +234,7 @@ def last_template_handler(
     """
     from ...user_functions import italic, parenthesis, strong
     from ..defaults import last_template_handler as default
-    from .langs import langs
+    from .codelangs import codelangs
 
     tpl, *parts = template
     tpl = tpl.lower()
@@ -255,7 +257,7 @@ def last_template_handler(
         return strong(word)
 
     # This is a country in the current locale
-    if lang := langs.get(tpl, ""):
-        return lang
+    if codelang := codelangs.get(tpl, ""):
+        return codelang
 
     return default(template, locale, word=word)
