@@ -90,10 +90,10 @@ def filter_html(html: str, locale: str) -> str:
                 i.next_sibling.replaceWith(i.next_sibling.text[1:])
                 # And remove the note
                 i.decompose()
-            # Filter out anchors as they are ignored from templates
-            for a in bs.find_all("a", href=True):
-                if a["href"].startswith("#"):
-                    a.decompose()
+        # Filter out anchors as they are ignored from templates
+        for a in bs.find_all("a", href=True):
+            if a["href"].startswith("#"):
+                a.decompose()
 
     elif locale == "de":
         # Other Wikis
