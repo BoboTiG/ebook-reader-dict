@@ -312,6 +312,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<sup id="cite_ref-1" class="reference"><a href="[#cite_note-1](view-source:https://it.wiktionary.org/wiki/autocrinia#cite_note-1)">[1]</a>',  # noqa
             "",
         ],
+        # IT - Wikispecies
+        [
+            "it",
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>)',  # noqa
+            "",
+        ],
         # PT - superscript locales
         [
             "pt",
