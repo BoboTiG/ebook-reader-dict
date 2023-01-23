@@ -38,6 +38,7 @@ templates_ignored = (
     "clear",
     "Colori_RAL",
     "Colori_Ral",
+    "mid",
     "Nodef",
     "Noetim",
     "Noref",
