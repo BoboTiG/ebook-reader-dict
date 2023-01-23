@@ -313,10 +313,22 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             "",
         ],
         # IT - Wikispecies
+        # [
+        #     "it",
+        #     '<small>&nbsp;(<a href="/wiki/File:Wikipedia-logo-v2.svg" class="image" title="Wikipedia"><img alt="Wikipedia" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/20px-Wikipedia-logo-v2.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/30px-Wikipedia-logo-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 2x" data-file-width="103" data-file-height="94" width="20" height="18"></a> <b><a href="https://it.wikipedia.org/wiki/Banda_(araldica)" class="extiw" title="w:Banda (araldica)">approfondimento</a></b>)</small>',  # noqa
+        #     "",
+        # ],
+        # IT - Wikispecies
         [
             "it",
             '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>)',  # noqa
             "",
+        ],
+        # IT - Wikispecies (ensure next siblings are kept)
+        [
+            "it",
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>);',  # noqa
+            ";",
         ],
         # PT - superscript locales
         [
