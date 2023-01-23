@@ -215,6 +215,9 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
 
     elif locale == "it":
+        # Numbered external links
+        for a in bs.find_all("a", {"class": "external autonumber"}):
+            a.decompose()
         # Missing definitions
         for i in bs.find_all("i"):
             if i.text.startswith("definizione mancante"):

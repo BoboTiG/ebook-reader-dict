@@ -300,6 +300,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             ),
             "Panthera leo",
         ],
+        # IT - numbered external links
+        [
+            "it",
+            '<a class="external autonumber" href="https://it.wikipedia.org/wiki/Scomber_scombrus">[1]</a>',  # noqa
+            "",
+        ],
         # IT - missing definition
         [
             "it",
