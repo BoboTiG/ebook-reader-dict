@@ -336,11 +336,16 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     elif locale == "it":
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
-            r"^\{\{-(.+)-\|it?\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
+            r"^\{\{-(.+)-\|it\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
+        )
+
+        # {{-avv-|ANY}} -> === {{avv|ANY}} ===
+        code = re.sub(
+            r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE
         )
 
         # {{-avv-}} -> === {{avv}} ===
-        code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+        code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     top_sections, parsed_sections = find_sections(code, locale)
     prons = []
