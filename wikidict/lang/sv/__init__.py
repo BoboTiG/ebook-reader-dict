@@ -39,6 +39,11 @@ templates_ignored = (
     "citat",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "oböjl": "oböjligt",
+}
+
 # Templates more complex to manage.
 templates_multi = {
     # {{böjning|sv|subst|boll}}
