@@ -49,6 +49,8 @@ templates_italic = {
 templates_multi = {
     # {{böjning|sv|subst|boll}}
     "böjning": "italic('böjningsform av') + ' ' + parts[-1]",
+    # {{färg|#80FF80|light green}}
+    "färg": "color(parts[1])",
     # {{länka|etansyra}}
     "länka": "parts[1]",
     # {{led|sv|f|gata}}
