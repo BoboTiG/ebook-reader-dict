@@ -37,6 +37,7 @@ sections = (
 templates_ignored = (
     "?",
     "citat",
+    "synonymer",
 )
 
 # Templates that will be completed/replaced using italic style.
