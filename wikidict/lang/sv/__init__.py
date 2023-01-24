@@ -37,6 +37,7 @@ sections = (
 templates_ignored = (
     "?",
     "citat",
+    "inget uppslag",
     "synonymer",
 )
 
