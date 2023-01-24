@@ -196,9 +196,13 @@ def last_template_handler(
         '<i>(något nedsättande)</i>'
         >>> last_template_handler(["tagg", "text=substantivistiskt slutled", "samhällsvetenskap"], "sv")
         '<i>(samhällsvetenskap, substantivistiskt slutled)</i>'
+        >>> last_template_handler(["tagg", "reflexivt"], "sv", word="försäga")
+        '<i>(reflexivt: <b>försäga sig</b>)</i>'
+        >>> last_template_handler(["tagg", "bildligt", "reflexivt"], "sv", word="etsa")
+        '<i>(bildligt, reflexivt: <b>etsa sig</b>)</i>'
 
     """  # noqa
-    from ...user_functions import extract_keywords_from, italic, term
+    from ...user_functions import extract_keywords_from, italic, strong, term
     from ..defaults import last_template_handler as default
 
     tpl, *parts = template
@@ -217,7 +221,10 @@ def last_template_handler(
         return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
 
     if tpl == "tagg":
-        words = [part for part in parts if part]
+        words = [
+            f"{part}: {strong(f'{word} sig')}" if part == "reflexivt" else part
+            for part in filter(lambda p: bool(p), parts)
+        ]
         if data["text"]:
             words.append(data["text"])
         return term(", ".join(words))
