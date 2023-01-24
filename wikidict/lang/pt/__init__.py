@@ -26,6 +26,7 @@ sections = (
     "Artigo",
     "Contração",
     *etyl_section,
+    "Forma verbal",
     "Interjeição",
     "Numeral",
     "Prefixo",

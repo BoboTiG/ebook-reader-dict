@@ -107,7 +107,11 @@ from wikidict.utils import process_templates
             ["/ˈpɐ.ɾɐ/"],
             [],
             [],
-            ["exprime fim, destino, lugar, tempo, direção etc"],
+            [
+                "exprime fim, destino, lugar, tempo, direção etc",
+                "terceira pessoa do singular do presente do indicativo do verbo parar",
+                "segunda pessoa do singular do imperativo do verbo parar",
+            ],
         ),
         (
             "paulista",
