@@ -38,6 +38,7 @@ templates_ignored = (
     "?",
     "citat",
     "inget uppslag",
+    "struktur",
     "synonymer",
 )
 
