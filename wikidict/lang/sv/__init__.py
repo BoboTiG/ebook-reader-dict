@@ -160,6 +160,10 @@ def last_template_handler(
         '<i>perfektparticip av</i> lada till <i>och</i> tillada'
         >>> last_template_handler(["avledning", "sv", "rikta", "partikel=in", "ordform=prespart"], "sv")
         '<i>presensparticip av</i> rikta in <i>och</i> inrikta'
+        >>> last_template_handler(["avledning", "sv", "beriktiga", "verb"], "sv")
+        '<i>avledning till verbet</i> beriktiga'
+        >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
+        '<i>avledning till </i> bero'
 
         >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> brev'
@@ -195,7 +199,9 @@ def last_template_handler(
                     if cat == "adj"
                     else "substantiv"
                     if cat == "subst"
-                    else cat
+                    else "verbet"
+                    if cat == "verb"
+                    else ""
                 )
         else:
             phrase = _avledning[data["ordform"]] + " av"
