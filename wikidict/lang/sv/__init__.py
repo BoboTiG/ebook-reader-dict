@@ -56,6 +56,8 @@ templates_multi = {
     "länka": "parts[1]",
     # {{led|sv|f|gata}}
     "led": "italic(('förled' if parts[2] == 'f' else 'efterled') + ' tillhörigt ordet') + ' ' + parts[-1]",
+    # {{n}}
+    "n": "italic('n')",
     # {{ö|en|test}}
     "ö": "parts[-1]",
     # {{ö+|en|test}}
