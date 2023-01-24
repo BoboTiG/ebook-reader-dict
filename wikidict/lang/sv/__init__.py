@@ -90,22 +90,23 @@ _avledning = {
 }
 
 _gammalstavning = {
-    "hv": "genom stavningsreformen 1906 ",
-    "dt": "genom stavningsreformen 1906 ",
-    "f": "genom stavningsreformen 1906 ",
-    "fv": "genom stavningsreformen 1906 ",
-    "eä": "genom sjätte upplagan av SAOL (1889) ",
-    "gk": "genom sjunde upplagan av SAOL (1900) ",
-    "w": "vid övergången från fraktur till antikva ",
-    "aa": "genom rättskrivningsreformen 1948 ",
-    "dl": "genom rättskrivningsreformen 1948 ",
-    "ld": "genom rättskrivningsreformen 1948 ",
-    "ss": "genom rättskrivningsreformen 1996 ",
-    "ff": "genom rättskrivningsreformen 1996 ",
-    "äe": "genom rättskrivningsreformen 1996 ",
-    "sär": "genom rättskrivningsreformen 1996 ",
-    "auh": "genom rättskrivningsreformen 1996 ",
-    "zs": "genom stavningsreformen 1973 ",
+    "aa": "genom rättskrivningsreformen 1948",
+    "auh": "genom rättskrivningsreformen 1996",
+    "äe": "genom rättskrivningsreformen 1996",
+    "dl": "genom rättskrivningsreformen 1948",
+    "dt": "genom stavningsreformen 1906",
+    "eä": "genom sjätte upplagan av SAOL (1889)",
+    "f": "genom stavningsreformen 1906",
+    "ff": "genom rättskrivningsreformen 1996",
+    "fv": "genom stavningsreformen 1906",
+    "gk": "genom sjunde upplagan av SAOL (1900)",
+    "hv": "genom stavningsreformen 1906",
+    "ld": "genom rättskrivningsreformen 1948",
+    "sär": "genom rättskrivningsreformen 1996",
+    "ss": "genom rättskrivningsreformen 1996",
+    "w": "vid övergången från fraktur till antikva",
+    "wv": "genom övergången från fraktur till antikva",
+    "zs": "genom stavningsreformen 1973",
 }
 
 
@@ -165,10 +166,10 @@ def last_template_handler(
         >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
         '<i>avledning till </i> bero'
 
-        >>> last_template_handler(["gammalstavning", "fv", "brev"], "sv")
-        '<i>genom stavningsreformen 1906 ersatt av</i> brev'
-        >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")
-        '<i>ersatt av</i> Dalarna'
+        >>> last_template_handler(["gammalstavning", "sv", "fv", "brev"], "sv")
+        '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
+        >>> last_template_handler(["gammalstavning", "sv", "m", "Dalarna"], "sv")
+        '<i>(ålderdomligt) ersatt av</i> Dalarna'
 
         >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
@@ -219,8 +220,8 @@ def last_template_handler(
         return f"{phrase} {word}"
 
     if tpl == "gammalstavning":
-        cat = _gammalstavning.get(parts[0], "") + "ersatt av"
-        return f"{italic(cat)} {parts[-1]}"
+        cat = f"(ålderdomligt) {_gammalstavning.get(parts[1], '')} ersatt av"
+        return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
 
     if tpl == "tagg":
         words = [part for part in parts if part]
