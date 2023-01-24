@@ -35,7 +35,7 @@ Check the &#34;html/wikidict/user_functions.html&#34; file for a user-friendly v
 &#34;&#34;&#34;
 import re
 from collections import defaultdict
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 def capitalize(text: str) -&gt; str:
@@ -158,9 +158,9 @@ def color(rgb: str) -&gt; str:
 def concat(
     parts: List[str],
     sep: str = &#34;&#34;,
-    last_sep: str = None,
-    indexes: Optional[List[int]] = None,
-    skip: Optional[str] = None,
+    last_sep: str | None = None,
+    indexes: List[int] | None = None,
+    skip: str | None = None,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
@@ -267,11 +267,24 @@ def extract_keywords_from(parts: List[str]) -&gt; Dict[str, str]:
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
         &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-    &#34;&#34;&#34;
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; s.&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;À partir du &lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; siècle&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=&#39;baz&#39;&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#34;&#39;baz&#39;&#34;})
+    &#34;&#34;&#34;  # noqa
     data = defaultdict(str)
     for part in parts.copy():
         if &#34;=&#34; in part:
             key, value = part.split(&#34;=&#34;, 1)
+
+            # Prevent splitting such parts:
+            #   &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; s.&#34;.
+            #   &#34;À partir du &lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; siècle&#34;.
+            if key.endswith(&#34;&lt;span style&#34;):
+                continue
+
             data[key.strip()] = value.strip()
             parts.pop(parts.index(part))
     return data
@@ -419,8 +432,10 @@ def parenthesis(text: str) -&gt; str:
 
         &gt;&gt;&gt; parenthesis(&#34;foo&#34;)
         &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;(foo)&#34;)
+        &#39;(foo)&#39;
     &#34;&#34;&#34;
-    return f&#34;({text})&#34;
+    return text if text.startswith(&#34;(&#34;) else f&#34;({text})&#34;
 
 
 def person(word: str, parts: List[str]) -&gt; str:
@@ -542,35 +557,6 @@ def superscript(text: str) -&gt; str:
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;
 
 
-def tag(parts: List[str]) -&gt; str:
-    &#34;&#34;&#34;
-    Get only interesting values from *parts*.
-
-    - values without `=`
-    - values starting with `text=`
-
-    Source: https://sv.wiktionary.org/wiki/Mall:tagg
-
-        &gt;&gt;&gt; tag([&#34;historia&#34;])
-        &#39;historia&#39;
-        &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
-        &#39;biologi, allmänt&#39;
-        &gt;&gt;&gt; tag([&#34;politik&#34;, &#34;formellt&#34;, &#34;språk=tyska&#34;])
-        &#39;politik, formellt&#39;
-        &gt;&gt;&gt; tag([&#34;kat=nedsättande&#34;, &#34;text=något nedsättande&#34;])
-        &#39;något nedsättande&#39;
-    &#34;&#34;&#34;
-    words = []
-
-    for part in parts:
-        if &#34;=&#34; not in part:
-            words.append(part)
-        elif part.startswith(&#34;text=&#34;):
-            words.append(part.split(&#34;=&#34;)[1])
-
-    return &#34;, &#34;.join(words)
-
-
 def term(text: str) -&gt; str:
     &#34;&#34;&#34;
     Format a &#34;term&#34;, e.g. return the *text* in italic and surrounded by parenthesis.
@@ -641,7 +627,6 @@ __all__ = (
     &#34;strong&#34;,
     &#34;subscript&#34;,
     &#34;superscript&#34;,
-    &#34;tag&#34;,
     &#34;term&#34;,
     &#34;underline&#34;,
     &#34;uniq&#34;,
@@ -861,7 +846,7 @@ __all__ = (
 </details>
 </dd>
 <dt id="wikidict.user_functions.concat"><code class="name flex">
-<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str = None, indexes: Optional[List[int]] = None, skip: Optional[str] = None) ‑> str</span>
+<span>def <span class="ident">concat</span></span>(<span>parts: List[str], sep: str = '', last_sep: str | None = None, indexes: Optional[List[int]] = None, skip: str | None = None) ‑> str</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Simply concat all <em>parts</em> using the <em>sep</em> character as glue.</p>
@@ -897,9 +882,9 @@ It allowes to filter out some parts while keeping others.</p>
 <pre><code class="python">def concat(
     parts: List[str],
     sep: str = &#34;&#34;,
-    last_sep: str = None,
-    indexes: Optional[List[int]] = None,
-    skip: Optional[str] = None,
+    last_sep: str | None = None,
+    indexes: List[int] | None = None,
+    skip: str | None = None,
 ) -&gt; str:
     &#34;&#34;&#34;
     Simply concat all *parts* using the *sep* character as glue.
@@ -1040,6 +1025,12 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz'})
 defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 &gt;&gt;&gt; extract_keywords_from(["foo", "bar = baz=ouf"])
 defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
+&gt;&gt;&gt; extract_keywords_from(["foo", "&lt;span style='font-variant:small-caps'&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; s."])
+defaultdict(&lt;class 'str'&gt;, {})
+&gt;&gt;&gt; extract_keywords_from(["foo", "À partir du &lt;span style='font-variant:small-caps'&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; siècle"])
+defaultdict(&lt;class 'str'&gt;, {})
+&gt;&gt;&gt; extract_keywords_from(["foo", "bar='baz'"])
+defaultdict(&lt;class 'str'&gt;, {'bar': "'baz'"})
 </code></pre></div>
 <details class="source">
 <summary>
@@ -1064,11 +1055,24 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
         &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar = baz=ouf&#34;])
         defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#39;baz=ouf&#39;})
-    &#34;&#34;&#34;
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; s.&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;À partir du &lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; siècle&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {})
+        &gt;&gt;&gt; extract_keywords_from([&#34;foo&#34;, &#34;bar=&#39;baz&#39;&#34;])
+        defaultdict(&lt;class &#39;str&#39;&gt;, {&#39;bar&#39;: &#34;&#39;baz&#39;&#34;})
+    &#34;&#34;&#34;  # noqa
     data = defaultdict(str)
     for part in parts.copy():
         if &#34;=&#34; in part:
             key, value = part.split(&#34;=&#34;, 1)
+
+            # Prevent splitting such parts:
+            #   &#34;&lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; s.&#34;.
+            #   &#34;À partir du &lt;span style=&#39;font-variant:small-caps&#39;&gt;xix&lt;/span&gt;&lt;sup&gt;e&lt;/sup&gt; siècle&#34;.
+            if key.endswith(&#34;&lt;span style&#34;):
+                continue
+
             data[key.strip()] = value.strip()
             parts.pop(parts.index(part))
     return data</code></pre>
@@ -1309,6 +1313,8 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 <div class="desc"><p>Return the <em>text</em> surrounded by parenthesis.</p>
 <pre><code>&gt;&gt;&gt; parenthesis("foo")
 '(foo)'
+&gt;&gt;&gt; parenthesis("(foo)")
+'(foo)'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -1320,8 +1326,10 @@ defaultdict(&lt;class 'str'&gt;, {'bar': 'baz=ouf'})
 
         &gt;&gt;&gt; parenthesis(&#34;foo&#34;)
         &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;(foo)&#34;)
+        &#39;(foo)&#39;
     &#34;&#34;&#34;
-    return f&#34;({text})&#34;</code></pre>
+    return text if text.startswith(&#34;(&#34;) else f&#34;({text})&#34;</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.person"><code class="name flex">
@@ -1563,58 +1571,6 @@ and is sometimes rendered in a smaller font.</p>
     return f&#34;&lt;sup&gt;{text}&lt;/sup&gt;&#34;</code></pre>
 </details>
 </dd>
-<dt id="wikidict.user_functions.tag"><code class="name flex">
-<span>def <span class="ident">tag</span></span>(<span>parts: List[str]) ‑> str</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Get only interesting values from <em>parts</em>.</p>
-<ul>
-<li>values without <code>=</code></li>
-<li>values starting with <code>text=</code></li>
-</ul>
-<p>Source: <a href="https://sv.wiktionary.org/wiki/Mall:tagg">https://sv.wiktionary.org/wiki/Mall:tagg</a></p>
-<pre><code>&gt;&gt;&gt; tag(["historia"])
-'historia'
-&gt;&gt;&gt; tag(["biologi", "allmänt"])
-'biologi, allmänt'
-&gt;&gt;&gt; tag(["politik", "formellt", "språk=tyska"])
-'politik, formellt'
-&gt;&gt;&gt; tag(["kat=nedsättande", "text=något nedsättande"])
-'något nedsättande'
-</code></pre></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def tag(parts: List[str]) -&gt; str:
-    &#34;&#34;&#34;
-    Get only interesting values from *parts*.
-
-    - values without `=`
-    - values starting with `text=`
-
-    Source: https://sv.wiktionary.org/wiki/Mall:tagg
-
-        &gt;&gt;&gt; tag([&#34;historia&#34;])
-        &#39;historia&#39;
-        &gt;&gt;&gt; tag([&#34;biologi&#34;, &#34;allmänt&#34;])
-        &#39;biologi, allmänt&#39;
-        &gt;&gt;&gt; tag([&#34;politik&#34;, &#34;formellt&#34;, &#34;språk=tyska&#34;])
-        &#39;politik, formellt&#39;
-        &gt;&gt;&gt; tag([&#34;kat=nedsättande&#34;, &#34;text=något nedsättande&#34;])
-        &#39;något nedsättande&#39;
-    &#34;&#34;&#34;
-    words = []
-
-    for part in parts:
-        if &#34;=&#34; not in part:
-            words.append(part)
-        elif part.startswith(&#34;text=&#34;):
-            words.append(part.split(&#34;=&#34;)[1])
-
-    return &#34;, &#34;.join(words)</code></pre>
-</details>
-</dd>
 <dt id="wikidict.user_functions.term"><code class="name flex">
 <span>def <span class="ident">term</span></span>(<span>text: str) ‑> str</span>
 </code></dt>
@@ -1740,7 +1696,6 @@ and is sometimes rendered in a smaller font.</p>
 <li><code><a title="wikidict.user_functions.strong" href="#wikidict.user_functions.strong">strong</a></code></li>
 <li><code><a title="wikidict.user_functions.subscript" href="#wikidict.user_functions.subscript">subscript</a></code></li>
 <li><code><a title="wikidict.user_functions.superscript" href="#wikidict.user_functions.superscript">superscript</a></code></li>
-<li><code><a title="wikidict.user_functions.tag" href="#wikidict.user_functions.tag">tag</a></code></li>
 <li><code><a title="wikidict.user_functions.term" href="#wikidict.user_functions.term">term</a></code></li>
 <li><code><a title="wikidict.user_functions.underline" href="#wikidict.user_functions.underline">underline</a></code></li>
 <li><code><a title="wikidict.user_functions.uniq" href="#wikidict.user_functions.uniq">uniq</a></code></li>

@@ -66,9 +66,6 @@ templates_multi = {
     "ö+": "f\"{parts[-1]} {superscript('(' + parts[1] + ')')}\"",
     # {{ö-inte|en|test}}
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
-    # {{tagg|historia}}
-    # {{tagg|kat=nedsättande|text=något nedsättande}}
-    "tagg": "term(tag(parts[1:]))",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
 }
@@ -169,8 +166,19 @@ def last_template_handler(
         >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")
         '<i>ersatt av</i> Dalarna'
 
+        >>> last_template_handler(["tagg", "historia"], "sv")
+        '<i>(historia)</i>'
+        >>> last_template_handler(["tagg", "biologi", "allmänt"], "sv")
+        '<i>(biologi, allmänt)</i>'
+        >>> last_template_handler(["tagg", "politik", "formellt", "språk=tyska"], "sv")
+        '<i>(politik, formellt)</i>'
+        >>> last_template_handler(["tagg", "kat=nedsättande", "text=något nedsättande"], "sv")
+        '<i>(något nedsättande)</i>'
+        >>> last_template_handler(["tagg", "text=substantivistiskt slutled", "samhällsvetenskap"], "sv")
+        '<i>(samhällsvetenskap, substantivistiskt slutled)</i>'
+
     """  # noqa
-    from ...user_functions import extract_keywords_from, italic
+    from ...user_functions import extract_keywords_from, italic, term
     from ..defaults import last_template_handler as default
 
     tpl, *parts = template
@@ -207,5 +215,11 @@ def last_template_handler(
     if tpl == "gammalstavning":
         cat = _gammalstavning.get(parts[0], "") + "ersatt av"
         return f"{italic(cat)} {parts[-1]}"
+
+    if tpl == "tagg":
+        words = parts
+        if data["text"]:
+            words.append(data["text"])
+        return term(", ".join(words))
 
     return default(template, locale, word=word)

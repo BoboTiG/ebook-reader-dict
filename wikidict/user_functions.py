@@ -527,35 +527,6 @@ def superscript(text: str) -> str:
     return f"<sup>{text}</sup>"
 
 
-def tag(parts: List[str]) -> str:
-    """
-    Get only interesting values from *parts*.
-
-    - values without `=`
-    - values starting with `text=`
-
-    Source: https://sv.wiktionary.org/wiki/Mall:tagg
-
-        >>> tag(["historia"])
-        'historia'
-        >>> tag(["biologi", "allmänt"])
-        'biologi, allmänt'
-        >>> tag(["politik", "formellt", "språk=tyska"])
-        'politik, formellt'
-        >>> tag(["kat=nedsättande", "text=något nedsättande"])
-        'något nedsättande'
-    """
-    words = []
-
-    for part in parts:
-        if "=" not in part:
-            words.append(part)
-        elif part.startswith("text="):
-            words.append(part.split("=")[1])
-
-    return ", ".join(words)
-
-
 def term(text: str) -> str:
     """
     Format a "term", e.g. return the *text* in italic and surrounded by parenthesis.
@@ -626,7 +597,6 @@ __all__ = (
     "strong",
     "subscript",
     "superscript",
-    "tag",
     "term",
     "underline",
     "uniq",
