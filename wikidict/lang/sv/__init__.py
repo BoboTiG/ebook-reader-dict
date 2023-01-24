@@ -43,6 +43,7 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     "oböjl": "oböjligt",
+    "oräkn": "oräknebart",
 }
 
 # Templates more complex to manage.
