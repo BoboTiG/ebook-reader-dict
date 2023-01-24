@@ -402,18 +402,8 @@ def parenthesis(text: str) -> str:
 
         >>> parenthesis("foo")
         '(foo)'
-        >>> parenthesis("(foo)")
-        '(foo)'
-        >>> parenthesis("(foo")
-        '(foo)'
-        >>> parenthesis("foo)")
-        '(foo)'
     """
-    if text[0] != "(":
-        text = f"({text}"
-    if text[-1] != ")":
-        text += ")"
-    return text
+    return f"({text})"
 
 
 def person(word: str, parts: List[str]) -> str:
