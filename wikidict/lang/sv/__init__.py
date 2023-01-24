@@ -58,6 +58,11 @@ templates_multi = {
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
 }
 
+# Templates that will be completed/replaced using custom style.
+templates_other = {
+    "dödform": "†",
+}
+
 
 _avledning = {
     "aktpart": "aktiv particip",
