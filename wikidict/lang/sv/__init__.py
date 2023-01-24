@@ -166,7 +166,7 @@ def last_template_handler(
         >>> last_template_handler(["gammalstavning", "m", "Dalarna"], "sv")
         '<i>ersatt av</i> Dalarna'
 
-        >>> last_template_handler(["tagg", "historia"], "sv")
+        >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
         >>> last_template_handler(["tagg", "biologi", "allmänt"], "sv")
         '<i>(biologi, allmänt)</i>'
@@ -217,7 +217,7 @@ def last_template_handler(
         return f"{italic(cat)} {parts[-1]}"
 
     if tpl == "tagg":
-        words = parts
+        words = [part for part in parts if part]
         if data["text"]:
             words.append(data["text"])
         return term(", ".join(words))
