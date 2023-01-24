@@ -434,8 +434,16 @@ def parenthesis(text: str) -&gt; str:
         &#39;(foo)&#39;
         &gt;&gt;&gt; parenthesis(&#34;(foo)&#34;)
         &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;(foo&#34;)
+        &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;foo)&#34;)
+        &#39;(foo)&#39;
     &#34;&#34;&#34;
-    return text if text.startswith(&#34;(&#34;) else f&#34;({text})&#34;
+    if text[0] != &#34;(&#34;:
+        text = f&#34;({text}&#34;
+    if text[-1] != &#34;)&#34;:
+        text += &#34;)&#34;
+    return text
 
 
 def person(word: str, parts: List[str]) -&gt; str:
@@ -1315,6 +1323,10 @@ defaultdict(&lt;class 'str'&gt;, {'bar': "'baz'"})
 '(foo)'
 &gt;&gt;&gt; parenthesis("(foo)")
 '(foo)'
+&gt;&gt;&gt; parenthesis("(foo")
+'(foo)'
+&gt;&gt;&gt; parenthesis("foo)")
+'(foo)'
 </code></pre></div>
 <details class="source">
 <summary>
@@ -1328,8 +1340,16 @@ defaultdict(&lt;class 'str'&gt;, {'bar': "'baz'"})
         &#39;(foo)&#39;
         &gt;&gt;&gt; parenthesis(&#34;(foo)&#34;)
         &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;(foo&#34;)
+        &#39;(foo)&#39;
+        &gt;&gt;&gt; parenthesis(&#34;foo)&#34;)
+        &#39;(foo)&#39;
     &#34;&#34;&#34;
-    return text if text.startswith(&#34;(&#34;) else f&#34;({text})&#34;</code></pre>
+    if text[0] != &#34;(&#34;:
+        text = f&#34;({text}&#34;
+    if text[-1] != &#34;)&#34;:
+        text += &#34;)&#34;
+    return text</code></pre>
 </details>
 </dd>
 <dt id="wikidict.user_functions.person"><code class="name flex">
