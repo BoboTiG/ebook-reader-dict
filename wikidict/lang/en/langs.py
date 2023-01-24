@@ -2385,6 +2385,7 @@ langs = {
     "emy": "Epigraphic Mayan",
     "en": "English",
     "en-GB": "British English",
+    "en-HK": "Hong Kong English",
     "en-US": "American English",
     "en-geo": "Geordie English",
     "ena": "Apali",
@@ -9570,5 +9571,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,565
+}  # 9,566
 # END
