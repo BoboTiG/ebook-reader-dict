@@ -18,6 +18,7 @@ WORD = {
     "fr": "42",
     "it": "Upupidi",
     "pt": "-izar",
+    "sv": "Benjamin",
 }
 
 
@@ -321,7 +322,7 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         # IT - <ref>
         [
             "it",
-            '<sup id="cite_ref-1" class="reference"><a href="[#cite_note-1](view-source:https://it.wiktionary.org/wiki/autocrinia#cite_note-1)">[1]</a>',  # noqa
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a>',  # noqa
             "",
         ],
         # IT - Wikipedia
@@ -360,6 +361,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         [
             "pt",
             '<small>(<a href="https://la.wiktionary.org/wiki/aer" class="extiw" title="la:aer">ver no Wikcionário em Latim</a>)</small>',  # noqa
+            "",
+        ],
+        # SV - <ref>
+        [
+            "sv",
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>',  # noqa
             "",
         ],
     ],

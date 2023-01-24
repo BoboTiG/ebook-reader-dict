@@ -254,6 +254,11 @@ def filter_html(html: str, locale: str) -> str:
             if small.find("a", {"class": "extiw"}):
                 small.decompose()
 
+    elif locale == "sv":
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     return no_spaces(bs.text)
 
 
