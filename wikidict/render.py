@@ -462,6 +462,23 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
                     )
                 ):
                     add_potential_variant(word, tpl, locale, variants)
+        elif locale == "sv":
+            if title not in (
+                "Adjektiv",
+                "Adverb",
+                "Substantiv",
+                "Verb",
+            ):
+                continue
+            for tpl in parsed_section[0].templates:
+                tpl = str(tpl)
+                if tpl.startswith(
+                    (
+                        "{{avledning",
+                        "{{böjning",
+                    )
+                ):
+                    add_potential_variant(word, tpl, locale, variants)
 
     return Word(prons, genders, etymology, definitions, sorted(variants))
 

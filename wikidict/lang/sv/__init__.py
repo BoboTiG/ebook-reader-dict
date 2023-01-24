@@ -30,7 +30,17 @@ sections = (
     "Pronomen",
     "Substantiv",
     "Suffix",
+    "Verb",
     "Verbpartikel",
+)
+
+# Some definitions are not good to keep (plural, gender, ... )
+definitions_to_ignore = (
+    #
+    # For variants
+    #
+    "avledning",
+    "böjning",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -50,8 +60,6 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
-    # {{böjning|sv|subst|boll}}
-    "böjning": "italic('böjningsform av') + ' ' + parts[-1]",
     # {{färg|#80FF80|light green}}
     "färg": "color(parts[1])",
     # {{länka|etansyra}}
@@ -68,6 +76,11 @@ templates_multi = {
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
+    #
+    # For variants
+    #
+    # {{böjning|sv|subst|boll}}
+    "böjning": "parts[-1]",
 }
 
 # Templates that will be completed/replaced using custom style.
@@ -152,19 +165,19 @@ def last_template_handler(
         '##opendoublecurly##foo##closedoublecurly##'
 
         >>> last_template_handler(["avledning", "sv", "tråkig"], "sv")
-        '<i>avledning till</i> tråkig'
+        'tråkig'
         >>> last_template_handler(["avledning", "sv", "seende", "adj"], "sv")
-        '<i>avledning till adjektivet</i> seende'
+        'seende'
         >>> last_template_handler(["avledning", "sv", "mälta", "ordform=prespart"], "sv")
-        '<i>presensparticip av</i> mälta'
+        'mälta'
         >>> last_template_handler(["avledning", "sv", "lada", "partikel=till", "ordform=perfpart"], "sv")
-        '<i>perfektparticip av</i> lada till <i>och</i> tillada'
+        'tillada'
         >>> last_template_handler(["avledning", "sv", "rikta", "partikel=in", "ordform=prespart"], "sv")
-        '<i>presensparticip av</i> rikta in <i>och</i> inrikta'
+        'inrikta'
         >>> last_template_handler(["avledning", "sv", "beriktiga", "verb"], "sv")
-        '<i>avledning till verbet</i> beriktiga'
+        'beriktiga'
         >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
-        '<i>avledning till </i> bero'
+        'bero'
 
         >>> last_template_handler(["gammalstavning", "sv", "fv", "brev"], "sv")
         '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
@@ -190,34 +203,12 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl == "avledning":
-        if not data["ordform"]:
-            phrase = "avledning till"
-            if len(parts) == 3:
-                cat = parts.pop(2)
-                phrase += " "
-                phrase += (
-                    "adjektivet"
-                    if cat == "adj"
-                    else "substantiv"
-                    if cat == "subst"
-                    else "verbet"
-                    if cat == "verb"
-                    else ""
-                )
-        else:
-            phrase = _avledning[data["ordform"]] + " av"
-        phrase = italic(phrase)
-
+        if len(parts) == 3:
+            parts.pop(2)
         if data["partikel"]:
-            partikel = data["partikel"]
-            phrase += f" {parts[-1]} {partikel} {italic('och')}"
-            word = partikel + parts[-1]
             # Delete superfluous letters (till + lada = tilllada, but we need tillada)
-            word = re.sub(r"(.)(?:\1){2,}", r"\1\1", word)
-        else:
-            word = parts[-1]
-
-        return f"{phrase} {word}"
+            return re.sub(r"(.)(?:\1){2,}", r"\1\1", f"{data['partikel']}{parts[-1]}")
+        return parts[-1]
 
     if tpl == "gammalstavning":
         cat = f"(ålderdomligt) {_gammalstavning.get(parts[1], '')} ersatt av"
