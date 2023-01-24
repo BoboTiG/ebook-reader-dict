@@ -34,7 +34,10 @@ sections = (
 )
 
 # Templates to ignore: the text will be deleted.
-templates_ignored = ("citat",)
+templates_ignored = (
+    "?",
+    "citat",
+)
 
 # Templates more complex to manage.
 templates_multi = {
