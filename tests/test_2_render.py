@@ -3,6 +3,7 @@ from typing import Callable
 from unittest.mock import patch
 
 import pytest
+from wikitextparser import Section
 
 from wikidict import render
 from wikidict.stubs import Word, Words
@@ -62,3 +63,24 @@ def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -
     assert len(subsubdefs) == 1
     assert isinstance(subsubdefs[0], str)
     assert subsubdefs[0]
+
+
+def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> None:
+    section = Section(
+        "=== {{sustantivo propio|es|género=femenino}} ===\n"
+        ";1 archipiélago de 2&nbsp;000 peñascos.\n"
+        ";2 países: país ubicado en el archipiélago anterior.\n"
+        ";301 Lingüística:\n"
+        ":;a: vocablo que titula un artículo de diccionario.\n\n\n"
+        ":;b: artículo de un diccionario, enciclopedia u obra de referencia."
+    )
+    definitions = render.find_section_definitions("Bahamas", section, "es")
+    assert definitions == [
+        "archipiélago de 2&nbsp;000 peñascos.",
+        "países: país ubicado en el archipiélago anterior.",
+        "Lingüística:",
+        (
+            "vocablo que titula un artículo de diccionario.",
+            "artículo de un diccionario, enciclopedia u obra de referencia.",
+        ),
+    ]

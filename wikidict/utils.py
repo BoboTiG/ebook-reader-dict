@@ -377,7 +377,7 @@ def clean(text: str, locale: str = "en") -> str:
     # <nowiki/> -> ''
     text = text.replace("<nowiki/>", "")
 
-    # <gallery
+    # <gallery>
     text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
 
     # Local links
