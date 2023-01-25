@@ -50,6 +50,7 @@ templates_ignored = (
     "inget uppslag",
     "konstr",
     "struktur",
+    "sv-adj-alt-okomp",
     "synonymer",
 )
 
