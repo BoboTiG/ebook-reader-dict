@@ -119,6 +119,7 @@ _gammalstavning = {
     "qv": "genom sjätte upplagan av SAOL (1889)",
     "sär": "genom rättskrivningsreformen 1996",
     "ss": "genom rättskrivningsreformen 1996",
+    "th": "genom förenklingen under 1800-talet",
     "w": "vid övergången från fraktur till antikva",
     "wv": "genom övergången från fraktur till antikva",
     "zs": "genom stavningsreformen 1973",
