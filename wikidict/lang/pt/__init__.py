@@ -403,12 +403,17 @@ def last_template_handler(
         phrase = italic(parts.pop(0))  # The etimo
         if parts:  # Implicit transcr
             transcr = parts.pop(0)
-            phrase += f" {parenthesis(transcr)}" if transcr else ""
+            if transcr:
+                if transcr[0] != "(":
+                    transcr = parenthesis(transcr)
+                phrase += f" {transcr}"
         if parts:  # Implicit trad
             phrase += f" “{parts.pop(0)}”"
 
-        if data["transcr"]:
-            phrase += f" {parenthesis(data['transcr'])}"
+        if transcr := data["transcr"]:
+            if transcr[0] != "(":
+                transcr = parenthesis(transcr)
+            phrase += f" {transcr}"
         if data["trad"]:
             phrase += f" “{data['trad']}”"
 
