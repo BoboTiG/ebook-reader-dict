@@ -142,6 +142,8 @@ templates_multi = {
     "subíndice": "subscript(parts[1])",
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
+    # {{superíndice|2}}
+    "superíndice": "superscript(parts[1])",
     # {{trad|la|post meridem}}
     "trad": 'f"{parts[2]}" + superscript(f"({parts[1]})")',
     # {{ucf|mujer}}

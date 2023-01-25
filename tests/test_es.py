@@ -283,6 +283,7 @@ def test_parse_word(
         ("{{-sub|4}}", "<sub>4</sub>"),
         ("{{subíndice|5}}", "<sub>5</sub>"),
         ("{{-sup|2}}", "<sup>2</sup>"),
+        ("{{superíndice|5}}", "<sup>5</sup>"),
         ("{{ucf|mujer}}", "Mujer"),
         ("{{variante|atiesar}}", "<i>Variante de</i> atiesar"),
         (
