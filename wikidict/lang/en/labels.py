@@ -537,6 +537,10 @@ labels_topical = {
     "Rubik's cubes": "Rubik's Cube",
     "Shamanism": "shamanism",
     "Sharia-compliant finance": "Islamic finance",
+    "Shi'i": "Shia Islam",
+    "Shi'ism": "Shia Islam",
+    "Shi'ite": "Shia Islam",
+    "Shia": "Shia Islam",
     "Slavic god": "Slavic mythology",
     "Sufi Islam": "Sufism",
     "TCM": "traditional Chinese medicine",
@@ -842,7 +846,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 394
+}  # 398
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
