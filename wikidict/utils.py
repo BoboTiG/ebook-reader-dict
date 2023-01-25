@@ -7,13 +7,11 @@ from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
-from typing import Callable, List, Match, Tuple, Union
+from typing import Callable, List, Match, Union
 
 import regex
 import requests
 import wikitextparser
-from cachetools import cached
-from cachetools.keys import hashkey
 
 from . import svg
 from .constants import (
@@ -671,14 +669,8 @@ def transform(word: str, template: str, locale: str) -> str:
     elif tpl == "PAGENAME" or (tpl == "w" and len(parts) == 1):
         return word.replace("_", " ")
 
-    # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
-    # with the LRU cache.
-    return str(transform_apply(word, tpl, tuple(parts), locale))
+    # Apply transformations
 
-
-@cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
-def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) -> str:
-    """Convert the data from the *tpl* template of the *word* using the *locale*."""
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore
 

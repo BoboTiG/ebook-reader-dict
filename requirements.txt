@@ -1,6 +1,5 @@
 setuptools>=36.2.1
 beautifulsoup4==4.11.1
-cachetools==5.3.0
 docopt==0.6.2
 Jinja2==3.1.2
 marisa-trie==0.7.8
