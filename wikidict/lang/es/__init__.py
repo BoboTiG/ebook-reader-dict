@@ -61,6 +61,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "ámbito",
     "ampliable",
     "arcoiris",
     "catafijo",
@@ -73,12 +74,16 @@ templates_ignored = (
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
+    "parónimo",
     "picdic",
     "picdiclabel",
     "préstamo",
     "pron-graf",
     "relacionado",
+    "revisar línea",
+    "revisión",
     "sin referencias",
+    "uso",
 )
 
 # Templates that will be completed/replaced using italic style.
