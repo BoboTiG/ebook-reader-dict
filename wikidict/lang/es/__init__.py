@@ -134,6 +134,10 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
+    # {{interjección|es}}
+    "interjección": "strong('Interjección')",
+    # {{neologismo|feminismo}}
+    "neologismo": "strong(concat([capitalize(part) for part in parts], sep=', '))",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
@@ -260,6 +264,7 @@ def last_template_handler(
         strong,
     )
     from ..defaults import last_template_handler as default
+    from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
@@ -267,6 +272,7 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
     if lookup_italic(template[0], locale, empty_default=True):
         phrase = ""
         phrase_a: List[str] = []
@@ -306,8 +312,6 @@ def last_template_handler(
         if data["nota"]:
             phrase += f" ({data['nota']})"
         return phrase
-
-    from .langs import langs
 
     if lang := langs.get(template[0]):
         return capitalize(lang)

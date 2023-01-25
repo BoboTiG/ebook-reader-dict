@@ -275,6 +275,7 @@ def test_parse_word(
         ("{{moluscos}}", "<i>(Zoología)</i>"),
         ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía (alimentos))</i>"),
         ("{{psicología}}", "<i>(Psicología)</i>"),
+        ("{{neologismo|feminismo}}", "<b>Neologismo, Feminismo</b>"),
         ("{{nombre científico}}", "<sup>nombre científico</sup>"),
         ("{{plm|cansado}}", "Cansado"),
         ("{{psicología|lgbt}}", "<i>(Psicología, LGBT)</i>"),
