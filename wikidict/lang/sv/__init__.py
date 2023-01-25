@@ -186,6 +186,8 @@ def last_template_handler(
         '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
         >>> last_template_handler(["gammalstavning", "sv", "m", "Dalarna"], "sv")
         '<i>(ålderdomligt) ersatt av</i> Dalarna'
+        >>> last_template_handler(["gammalstavning", "ejtagg=1", "sv", "fv", "övergiva"], "sv")
+        '<i>genom stavningsreformen 1906 ersatt av</i> övergiva'
 
         >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
@@ -218,7 +220,8 @@ def last_template_handler(
         return parts[-1]
 
     if tpl == "gammalstavning":
-        cat = f"(ålderdomligt) {_gammalstavning.get(parts[1], '')} ersatt av"
+        phrase = "" if data["ejtagg"] == "1" else "(ålderdomligt) "
+        cat = f"{phrase}{_gammalstavning.get(parts[1], '')} ersatt av"
         return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
 
     if tpl == "tagg":
