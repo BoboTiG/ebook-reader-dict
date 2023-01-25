@@ -57,11 +57,13 @@ definitions_to_ignore = (
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "anchor",
+    "attention",
     "c",
     "C",
     "cln",
     "elements",
     "etystub",
+    "examples",
     "multiple images",
     "+obj",
     "PIE word",
@@ -79,14 +81,20 @@ templates_ignored = (
     "rfe",
     "rfex",
     "root",
+    "slim-wikipedia",
     "senseid",
     "seeCites",
+    "swp",
     "tea room",
     "tea room sense",
     "top",
     "topics",
     "was wotd",
     "wikipedia",
+    "Wikipedia",
+    "wikispecies",
+    "Wikispecies",
+    "wp",
 )
 
 # Templates that will be completed/replaced using italic style.
