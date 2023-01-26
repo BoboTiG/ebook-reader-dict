@@ -250,22 +250,22 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Del prefijo <i>a-</i> y <i>contecer</i>'
     >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
     'Incierta'
+    >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
+    'Epónimo de la ciudad alemana de Berlín'
     """  # noqa
 
     def call_l_single_part(part: str, index: int) -> str:
         sindex = str(index) if index > 1 else ""
         return render_l(
             "l+",
-            [
-                data["diacrítico" + sindex] or data["alt" + sindex] or part,
-            ],
+            [data[f"diacrítico{sindex}"] or data[f"alt{sindex}"] or part],
             defaultdict(
                 str,
                 {
-                    "glosa": data["glosa" + sindex],
-                    "glosa-alt": data["glosa-alt" + sindex],
-                    "núm": data["núm" + sindex] or data["num" + sindex],
-                    "tr": data["tr" + sindex],
+                    "glosa": data[f"glosa{sindex}"],
+                    "glosa-alt": data[f"glosa-alt{sindex}"],
+                    "núm": data[f"núm{sindex}"] or data[f"num{sindex}"],
+                    "tr": data[f"tr{sindex}"],
                 },
             ),
         )
@@ -342,7 +342,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             phrase += f", {localphrase}"
             index = index + 1
         phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
-    elif cat == "epónimo":
+    elif cat in {"epónimo", "EPON"}:
         phrase = "Epónimo"
         if parts:
             phrase += f" {parts[-1]}"
@@ -422,29 +422,26 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         parts.insert(0, cat)
         phrase_array = []
         index = 0
-        while parts:
-            if not parts[0] and len(parts) == 1:
-                break
+        while parts and (parts[0] or len(parts) != 1):
             sindex = str(index + 1) if index != 0 else ""
             local_phrase = ""
-            if index > 0:
-                if parts[0] != cat:
-                    local_phrase = f"el {normalizar_nombre(parts[0])} "
+            if index > 0 and parts[0] != cat:
+                local_phrase = f"el {normalizar_nombre(parts[0])} "
             local_phrase += render_l(
                 "l+",
                 [
-                    data["diacrítico" + sindex]
-                    or data["alt" + sindex]
-                    or (parts[1] if len(parts) > 1 else ""),
+                    data[f"diacrítico{sindex}"]
+                    or data[f"alt{sindex}"]
+                    or (parts[1] if len(parts) > 1 else "")
                 ],
                 defaultdict(
                     str,
                     {
-                        "glosa": data["glosa" + sindex]
+                        "glosa": data[f"glosa{sindex}"]
                         or (parts[2] if (len(parts) > 2 and parts[2] != "-") else ""),
-                        "glosa-alt": data["glosa-alt" + sindex],
-                        "núm": data["núm" + sindex] or data["num" + sindex],
-                        "tr": data["tr" + sindex] or data["transcripción" + sindex],
+                        "glosa-alt": data[f"glosa-alt{sindex}"],
+                        "núm": data[f"núm{sindex}"] or data[f"num{sindex}"],
+                        "tr": data[f"tr{sindex}"] or data[f"transcripción{sindex}"],
                     },
                 ),
             )
