@@ -115,7 +115,7 @@ templates_multi = {
     # {{circa2|1850s}}
     "circa2": "italic('circa' if 'short=yes' not in parts and 'short=1' not in parts else 'c.') + f' {parts[1]}'",
     # {{defdate|from 15th c.}}
-    "defdate": "small('[' + parts[1] + ']')",
+    "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
     # {{en-archaic third-person singular of|term}}
     "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
     # {{en-comparative of|term}}
@@ -136,10 +136,16 @@ templates_multi = {
     "IPAfont": 'f"⟨{parts[1]}⟩"',
     # {{Latn-def|en|name|O|o}}
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
+    # {{Latn-def-lite|en|name|O|o}}
+    "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
+    # {{n-g-lite|Definite grammatical ...}}
+    "n-g-lite": "italic(parts[-1].lstrip('1='))",
     # {{ng|Definite grammatical ...}}
     "ng": "italic(parts[-1].lstrip('1='))",
+    # {{ng-lite|Definite grammatical ...}}
+    "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
     # {{non gloss|Definite grammatical ...}}
@@ -152,6 +158,8 @@ templates_multi = {
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{q-lite|Used only ...}}
+    "q-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qf|Used only ...}}
     "qf": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qua|Used only ...}}
@@ -160,6 +168,8 @@ templates_multi = {
     "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{qualifier-lite|Used only ...}}
+    "qualifier-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{s|foo}}
     "s": "f'{parenthesis(italic(parts[1]))} :'",
     # {{sense|foo}}
@@ -201,6 +211,9 @@ templates_multi = {
     # {{plural of|en|human}}
     "plural of": "parts[-1]",
 }
+
+# Templates that will be completed/replaced using custom text.
+templates_other = {"nbsp": "&nbsp;"}
 
 
 # Release content on GitHub
