@@ -85,6 +85,20 @@ def gloss_tr_poss(data: Dict[str, str], gloss: str, trans: str = "") -> str:
     return phrase
 
 
+def misc_variant(start: str, tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    if parts:
+        parts.pop(0)  # Remove the language
+    p = data["alt"] or data["2"] or (parts.pop(0) if parts else "") or ""
+    data["t"] = data["t"] or data["3"] or ""
+    starter = "" if data["notext"] in ("1", "yes") else start
+    if p and starter:
+        starter += " of"
+    phrase = starter if data["nocap"] else starter.capitalize()
+    phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
+    phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
+    return phrase
+
+
 def misc_variant_no_term(
     title: str, tpl: str, parts: List[str], data: Dict[str, str]
 ) -> str:
@@ -117,17 +131,7 @@ def render_clipping(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     >>> render_clipping("clipping", ["ru", "ку́бовый краси́тель"], defaultdict(str, {"t": "vat dye", "nocap": "1"}))
     'clipping of <i>ку́бовый краси́тель</i> (“vat dye”)'
     """
-    if parts:
-        parts.pop(0)  # Remove the language
-    p = data["alt"] or data["2"] or (parts.pop(0) if parts else "") or ""
-    data["t"] = data["t"] or data["3"] or ""
-    starter = "" if data["notext"] in ("1", "yes") else "clipping"
-    if p and starter:
-        starter += " of"
-    phrase = starter if data["nocap"] else starter.capitalize()
-    phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
-    phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
-    return phrase
+    return misc_variant("clipping", tpl, parts, data)
 
 
 def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -159,6 +163,10 @@ def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["in"]:
         phrase += f' in {data["in"]}'
     return phrase
+
+
+def render_contraction(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    return misc_variant("contraction", tpl, parts, data)
 
 
 def render_dating(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -338,6 +346,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         "back-form",
         "bf",
         "l",
+        "l-lite",
         "link",
         "ll",
         "mention",
@@ -346,6 +355,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     )
     dest_lang_ignore = (
         "cog",
+        "cog-lite",
         "cognate",
         "etyl",
         "langname-mention",
@@ -411,7 +421,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     if parts:
         word = parts.pop(0) or word  # 4, alt=
 
-    if tpl in {"l", "link", "ll"}:
+    if tpl in {"l", "l-lite", "link", "ll"}:
         phrase += f" {word}"
     elif word:
         phrase += f" {italic(word)}"
@@ -713,6 +723,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
     >>> render_morphology("prefix", ["en", "un", "do"], defaultdict(str))
     '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
+    >>> render_morphology("prefix", ["en", "e-", "bus"], defaultdict(str))
+    '<i>e-</i>&nbsp;+&nbsp;<i>bus</i>'
     >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
     '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
     >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
@@ -762,6 +774,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
         if tpl in {"pre", "prefix", "con", "confix"} and i == 1:
+            # remove trailing dashes
+            chunk = re.sub(r"^([^-]*)-+$", r"\g<1>", chunk)
             chunk += "-"
         if tpl in {"suf", "suffix"} and i == 2:
             chunk = f"-{chunk}"
@@ -855,7 +869,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase += concat(a_phrase, sep, last_sep)
 
     # special case : {{suffix|en||cide}}
-    if tpl == "suffix" and "&nbsp;+&nbsp;" not in phrase:
+    if tpl in ("suffix", "suf") and "&nbsp;+&nbsp;" not in phrase:
         phrase = f"&nbsp;+&nbsp;{phrase}"
 
     return phrase
@@ -1117,6 +1131,17 @@ def render_si_unit_abb(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"  # noqa
 
 
+def render_surface_analysis(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
+    'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
+    """
+    phrase = "b" if data["nocap"] in ("1", "yes", "y") else "B"
+    phrase += "y surface analysis, "
+    phrase += render_morphology("af", parts, data)
+    return phrase
+
+
 def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_surname("surname", ["en"], defaultdict(str))
@@ -1248,6 +1273,7 @@ template_mapping = {
     "blend of": render_morphology,
     "blend": render_morphology,
     "bor": render_foreign_derivation,
+    "bor-lite": render_foreign_derivation,
     "bor+": render_foreign_derivation,
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
@@ -1259,9 +1285,12 @@ template_mapping = {
     "clipping": render_clipping,
     "clq": render_foreign_derivation,
     "cog": render_foreign_derivation,
+    "cog-lite": render_foreign_derivation,
     "cognate": render_foreign_derivation,
     "coin": render_coinage,
     "coinage": render_coinage,
+    "contr": render_contraction,
+    "contraction": render_contraction,
     "com": render_morphology,
     "compound": render_morphology,
     "con": render_morphology,
@@ -1280,9 +1309,11 @@ template_mapping = {
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "inh": render_foreign_derivation,
+    "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
     "l": render_foreign_derivation,
+    "l-lite": render_foreign_derivation,
     "label": render_label,
     "langname-mention": render_foreign_derivation,
     "lb": render_label,
@@ -1328,6 +1359,9 @@ template_mapping = {
     "slbor": render_foreign_derivation,
     "suf": render_morphology,
     "suffix": render_morphology,
+    "surf": render_surface_analysis,
+    "surface analysis": render_surface_analysis,
+    "surface etymology": render_surface_analysis,
     "surname": render_surname,
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,

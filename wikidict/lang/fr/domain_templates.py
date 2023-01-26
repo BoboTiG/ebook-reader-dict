@@ -155,6 +155,7 @@ domain_templates = {
     "instruments à vent": "Musique",
     "instruments électroniques": "Musique",
     "insultes": "Insulte",
+    "jeux": "Jeux",
     "jeux de cartes": "Cartes à jouer",
     "jouets": "Jeux",
     "lacs": "Géographie",
@@ -313,5 +314,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 308
+}  # 309
 # END

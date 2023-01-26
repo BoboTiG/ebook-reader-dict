@@ -437,6 +437,7 @@ campos_semanticos = {
     "psiquiatría": "Psiquiatría",
     "química": "Química",
     "química orgánica": "Química orgánica",
+    "radiocomunicación": "Radiocomunicación",
     "recetas": "Gastronomía (platos)",
     "religión": "Religión",
     "relojería": "Relojería",
@@ -497,5 +498,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 492
+}  # 493
 # END

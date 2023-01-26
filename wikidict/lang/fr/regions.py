@@ -88,7 +88,8 @@ regions = {
     "Canada": "Canada",
     "Canaries": "Canaries",
     "Caraïbes": "Caraïbes",
-    "Carovigno": "Lizzano",
+    "Carovigno": "Carovigno",
+    "Castrignano de' Greci": "Castrignano de' Greci",
     "Catalogne": "Catalogne",
     "Catane": "Catane",
     "Caucase": "Caucase",
@@ -157,6 +158,7 @@ regions = {
     "Franche-Comté": "Franche-Comté",
     "GB": "Royaume-Uni",
     "Gabon": "Gabon",
+    "Galatina": "Galatina",
     "Galway": "Galway",
     "Gangwon": "Gangwon",
     "Gascogne": "Gascogne",
@@ -373,7 +375,9 @@ regions = {
     "Saint-Pierre-et-Miquelon": "Saint-Pierre-et-Miquelon",
     "Salvador": "Salvador",
     "San Cataldo": "San Cataldo",
+    "San Cesario di Lecce": "San Cesario di Lecce",
     "San Fratello": "San Fratello",
+    "Santa Cesarea Terme": "Santa Cesarea Terme",
     "Santo Stefano Quisquina": "Santo Stefano Quisquina",
     "Sarthe": "Sarthe",
     "Saumur": "Saumur",
@@ -430,6 +434,7 @@ regions = {
     "Venezuela": "Venezuela",
     "Vern-d’Anjou": "Vern-d’Anjou",
     "Vernantes": "Vernantes",
+    "Vernole": "Vernole",
     "Vietnam": "Viêt Nam",
     "Vitré": "Vitré",
     "Viêt Nam": "Viêt Nam",
@@ -465,7 +470,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 460
+}  # 465
 # END
 
 # handled differently
