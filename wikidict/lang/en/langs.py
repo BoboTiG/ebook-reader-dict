@@ -14,7 +14,9 @@ langs = {
     "Borders Scots": "South Scots",
     "British English": "British English",
     "CF.": "Canadian French",
+    "CL.": "Classical Latin",
     "Canadian French": "Canadian French",
+    "Classical Latin": "Classical Latin",
     "EL.": "Ecclesiastical Latin",
     "Early Scots": "Early Scots",
     "Ecclesiastical Latin": "Ecclesiastical Latin",
@@ -4249,6 +4251,7 @@ langs = {
     "kzy": "Kango-Sua",
     "kzz": "Kalabra",
     "la": "Latin",
+    "la-cla": "Classical Latin",
     "la-ecc": "Ecclesiastical Latin",
     "la-lat": "Late Latin",
     "la-med": "Medieval Latin",
@@ -8431,6 +8434,7 @@ langs = {
     "urj-fin-pro": "Proto-Finnic",
     "urj-fpr-pro": "Proto-Finno-Permic",
     "urj-koo": "Old Komi",
+    "urj-kuk": "Kukkuzi",
     "urj-kya": "Komi-Yazva",
     "urj-mdv": "Mordvinic",
     "urj-mdv-pro": "Proto-Mordvinic",
@@ -9571,5 +9575,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,566
+}  # 9,570
 # END

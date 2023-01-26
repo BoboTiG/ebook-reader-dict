@@ -476,6 +476,7 @@ labels_topical = {
     "Eastern Catholic": "Eastern Catholicism",
     "Eastern Orthodox": "Eastern Orthodoxy",
     "Egyptian god": "Egyptian mythology",
+    "Finnish mythology": "Finnic mythology",
     "GUI": "graphical user interface",
     "Germanic Paganism": "Germanic paganism",
     "Germanic neopaganism": "Germanic paganism",
@@ -846,7 +847,7 @@ labels_topical = {
     "zodiac": "astrology",
     "zodiac constellations": "astronomy",
     "Ásatrú": "Germanic paganism",
-}  # 398
+}  # 399
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
