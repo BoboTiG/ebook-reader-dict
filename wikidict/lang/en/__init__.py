@@ -277,6 +277,8 @@ def last_template_handler(
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
+        >>> last_template_handler(["cens sp", "en", "bitch"], "en")
+        '<i>Censored spelling of</i> <b>bitch</b>.'
 
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
@@ -351,7 +353,7 @@ def last_template_handler(
         if template_model["dot"]:
             if data["dot"]:
                 phrase += data["dot"]
-            elif data["nodot"] != "1":
+            elif data["nodot"] not in ("1", "y", "yes"):
                 phrase += "."
         return phrase
 

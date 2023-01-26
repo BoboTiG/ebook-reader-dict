@@ -94,6 +94,42 @@ def misc_variant_no_term(
     return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
 
 
+def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_bce("B.C.E.", [], defaultdict(str))
+    '<small>B.C.E.</small>'
+    >>> render_bce("C.E.", [], defaultdict(str, {"nodot": "1"}))
+    '<small>CE</small>'
+    >>> render_bce("CE", [], defaultdict(str))
+    '<small>CE</small>'
+    """
+    nodot = data["nodot"] in ("1", "yes") or tpl in {"CE", "BCE"}
+    text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
+    return small(text.replace(".", "")) if nodot else small(text)
+
+
+def render_clipping(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_clipping("clipping", ["en", "automobile"], defaultdict(str))
+    'Clipping of <i>automobile</i>'
+    >>> render_clipping("clipping", ["fr", "métropolitain"], defaultdict(str, {"notext": "1"}))
+    '<i>métropolitain</i>'
+    >>> render_clipping("clipping", ["ru", "ку́бовый краси́тель"], defaultdict(str, {"t": "vat dye", "nocap": "1"}))
+    'clipping of <i>ку́бовый краси́тель</i> (“vat dye”)'
+    """
+    if parts:
+        parts.pop(0)  # Remove the language
+    p = data["alt"] or data["2"] or (parts.pop(0) if parts else "") or ""
+    data["t"] = data["t"] or data["3"] or ""
+    starter = "" if data["notext"] in ("1", "yes") else "clipping"
+    if p and starter:
+        starter += " of"
+    phrase = starter if data["nocap"] else starter.capitalize()
+    phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
+    phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
+    return phrase
+
+
 def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_coinage("coin", ["en", "Josiah Willard Gibbs"], defaultdict(str))
@@ -123,20 +159,6 @@ def render_coinage(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["in"]:
         phrase += f' in {data["in"]}'
     return phrase
-
-
-def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
-    """
-    >>> render_bce("B.C.E.", [], defaultdict(str))
-    '<small>B.C.E.</small>'
-    >>> render_bce("C.E.", [], defaultdict(str, {"nodot": "1"}))
-    '<small>CE</small>'
-    >>> render_bce("CE", [], defaultdict(str))
-    '<small>CE</small>'
-    """
-    nodot = data["nodot"] in ("1", "yes") or tpl in {"CE", "BCE"}
-    text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
-    return small(text.replace(".", "")) if nodot else small(text)
 
 
 def render_dating(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -931,6 +953,8 @@ def render_onomatopoeic(tpl: str, parts: List[str], data: Dict[str, str]) -> str
     'onomatopoeic'
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"title": "imitative"}))
     'Imitative'
+    >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"notext": "1"}))
+    ''
     """
     return misc_variant_no_term("onomatopoeic", tpl, parts, data)
 
@@ -1232,6 +1256,7 @@ template_mapping = {
     "CE": render_bce,
     "circa": render_dating,
     "c.": render_dating,
+    "clipping": render_clipping,
     "clq": render_foreign_derivation,
     "cog": render_foreign_derivation,
     "cognate": render_foreign_derivation,

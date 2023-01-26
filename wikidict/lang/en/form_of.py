@@ -687,3 +687,11 @@ form_of_templates = {
     },
 }  # 170
 # END
+
+
+# form-of templates not included in the table at https://en.wiktionary.org/wiki/Category:Form-of_templates
+form_of_templates["censored spelling of"] = {
+    "text": "Censored spelling of",
+    "dot": "true",
+}
+form_of_templates["cens sp"] = {"text": "Censored spelling of", "dot": "true"}
