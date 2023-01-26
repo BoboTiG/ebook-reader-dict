@@ -131,8 +131,10 @@ def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<small>B.C.E.</small>'
     >>> render_bce("C.E.", [], defaultdict(str, {"nodot": "1"}))
     '<small>CE</small>'
+    >>> render_bce("CE", [], defaultdict(str))
+    '<small>CE</small>'
     """
-    nodot = data["nodot"] in ("1", "yes")
+    nodot = data["nodot"] in ("1", "yes") or tpl in {"CE", "BCE"}
     text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
     return small(text.replace(".", "")) if nodot else small(text)
 
@@ -306,7 +308,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     'Japanese <i>力車</i> (<i>rikisha</i>)'
     """  # noqa
     # Short path for the {{m|en|WORD}} template
-    if tpl == "m" and len(parts) == 2 and parts[0] == "en" and not data:
+    if tpl in {"m", "m-lite"} and len(parts) == 2 and parts[0] == "en" and not data:
         return strong(parts[1])
 
     mentions = (
@@ -318,6 +320,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
         "ll",
         "mention",
         "m",
+        "m-lite",
     )
     dest_lang_ignore = (
         "cog",
@@ -430,7 +433,7 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>A Japanese male or female given name</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Spanish", "from2":"Portuguese", "from3":"French"}))
     '<i>A male given name from Spanish, Portuguese or French</i>'
-    >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"la:Patricius", "fromt":"patrician"}))
+    >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"la:Patricius<t:patrician>"}))
     '<i>A male given name from Latin Patricius (“patrician”)</i>'
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"place names", "usage":"modern", "var":"Savannah"}))
     '<i>A female given name transferred from the place name, of modern usage, variant of Savannah</i>'
@@ -454,8 +457,11 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>A male given name from Hindi, meaning "patience"</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"Danish < grc:Αἰκατερῑ́νη", "var": "Karen"}))
     '<i>A female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
-    >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"la:Gabriēl < grc:Γαβρῑήλ < hbo:גַּבְרִיאֵל"}))
-    '<i>A male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל]</i>'
+    >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"la:Gabriēl < grc:Γαβρῑήλ < hbo:גַּבְרִיאֵל<tr:gaḇrīʾḗl><t:God is my strong man>"}))
+    '<i>A male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל (<i>gaḇrīʾḗl</i>, “God is my strong man”)]</i>'
+    >>> render_given_name("given name", ["da", "male"], defaultdict(str, {"usage":"traditionally popular", "eq": "Nicholas", "from":"la:Nīcolāī<pos:genitive>", "from2":"ru:Никола́й"}))
+    '<i>A male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
+
     """  # noqa
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
@@ -499,12 +505,24 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                         suffix += ", in turn from " if prepend else " [in turn from "
                         prepend = True
                     if ":" in from_text:
+                        # get t:
+                        # remove <>
+                        from_gloss = ""
+                        from_data: Dict[str, str] = defaultdict(str)
+                        matches = re.findall(r"<([^:]*):([^>]*)>", from_text)
+                        for match in matches:
+                            if match[0] == "t":
+                                from_gloss = match[1]
+                            else:
+                                from_data[match[0]] = match[1]
+                        from_text = re.sub(r"<([^>]*)>", "", from_text)
                         # todo fromalt
                         from_split = from_text.split(":")
-                        suffix += f"{langs[from_split[0]]} {from_split[1]}"
-                        fromt_key = f"fromt{i}" if i != 1 else "fromt"
-                        if data[fromt_key]:
-                            suffix += f" (“{data[fromt_key]}”)"
+                        lang = langs.get(from_split[0], from_split[0])
+                        suffix += (
+                            f"{lang} {from_split[1] if len(from_split) > 1 else ''}"
+                        )
+                        suffix += gloss_tr_poss(from_data, from_gloss)
                     elif from_text.endswith("languages"):
                         suffix = f"the {from_text}"
                     else:
@@ -716,7 +734,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'doublet of <i>モスコー</i> (<i>Mosukō</i>)'
     >>> render_morphology("doublet", ["ja" , "ヴィエンヌ", "ウィーン"], defaultdict(str, {"tr1":"Viennu", "t1":"Vienne", "tr2":"Wīn"}))
     'Doublet of <i>ヴィエンヌ</i> (<i>Viennu</i>, “Vienne”) and <i>ウィーン</i> (<i>Wīn</i>)'
-    >>> render_morphology("doublet", ["ru" , "ру́сский"], defaultdict(str, {"tr1":"rúkij", "t1":"R", "g1":"m", "pos1":"n", "lit1":"R"}))
+    >>> render_morphology("dbt", ["ru" , "ру́сский"], defaultdict(str, {"tr1":"rúkij", "t1":"R", "g1":"m", "pos1":"n", "lit1":"R"}))
     'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
     """  # noqa
 
@@ -1225,6 +1243,7 @@ template_mapping = {
     "confix": render_morphology,
     "dbt": render_morphology,
     "der": render_foreign_derivation,
+    "der-lite": render_foreign_derivation,
     "derived": render_foreign_derivation,
     "doublet": render_morphology,
     "etydate": render_etydate,
@@ -1249,6 +1268,7 @@ template_mapping = {
     "ll": render_foreign_derivation,
     "m": render_foreign_derivation,
     "m+": render_foreign_derivation,
+    "m-lite": render_foreign_derivation,
     "mention": render_foreign_derivation,
     "named-after": render_named_after,
     "nb...": render_nb,
