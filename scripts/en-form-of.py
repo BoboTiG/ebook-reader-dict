@@ -16,8 +16,7 @@ def print_aliases(template: str, text: str, dot: bool) -> int:
     count = 0
     url_template = f"{ROOT}/wiki/Special:WhatLinksHere?target=Template%3A{template}&namespace=&hidetrans=1&hidelinks=1"
     soup = get_soup(url_template)
-    ul = soup.find("ul", attrs={"id": "mw-whatlinkshere-list"})
-    if ul:
+    if ul := soup.find("ul", attrs={"id": "mw-whatlinkshere-list"}):
         for li in ul.children:
             alias = li.find("a").text.split(":")[1]
             print(f'    "{alias}": {{')

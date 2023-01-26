@@ -869,7 +869,7 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase += concat(a_phrase, sep, last_sep)
 
     # special case : {{suffix|en||cide}}
-    if tpl in ("suffix", "suf") and "&nbsp;+&nbsp;" not in phrase:
+    if tpl in {"suffix", "suf"} and "&nbsp;+&nbsp;" not in phrase:
         phrase = f"&nbsp;+&nbsp;{phrase}"
 
     return phrase
@@ -1136,8 +1136,9 @@ def render_surface_analysis(tpl: str, parts: List[str], data: Dict[str, str]) ->
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     """
-    phrase = "b" if data["nocap"] in ("1", "yes", "y") else "B"
-    phrase += "y surface analysis, "
+    phrase = (
+        "b" if data["nocap"] in ("1", "yes", "y") else "B"
+    ) + "y surface analysis, "
     phrase += render_morphology("af", parts, data)
     return phrase
 
