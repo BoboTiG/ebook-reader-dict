@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, italic, small
+from ...user_functions import extract_keywords_from, italic, superscript
 from .abk import abk
 
 bibel_names = {
@@ -90,19 +90,18 @@ bibel_names = {
 def render_bibel(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
-    'Matthäus 1,1 <small>EU</small>'
+    'Matthäus 1,1'
     >>> render_bibel("Bibel", ["Mt", "1", "1-5", "HFA"], defaultdict(str))
-    'Matthäus 1,1-5 <small>HFA</small>'
+    'Matthäus 1,1-5'
     >>> render_bibel("Bibel", ["Mt", "1", "1", "NIV"], defaultdict(str))
-    'Matthäus 1,1 <small>NIV</small>'
+    'Matthäus 1,1'
     >>> render_bibel("Bibel", ["Mos", "18", "4", "LUT"], defaultdict(str))
-    'Mos 18,4 <small>LUT</small>'
+    'Mos 18,4'
     """
     phrase = bibel_names.get(parts[0], parts[0])
     phrase += f" {parts[1]}"
     if len(parts) > 2:
         phrase += f",{parts[2]}"
-    phrase += f" {small(parts[3])}" if len(parts) > 3 else f" {small('EU')}"
     return phrase
 
 
@@ -222,14 +221,14 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
-    '<i>διάλογος (diálogos)</i>'
+    '<i>διάλογος (diálogos<sup>☆</sup>)</i>'
     >>> render_Ut("Üt", ["grc", "διαλέγομαι", "dialégesthai", "διαλέγεσθαι"], defaultdict(str))
-    '<i>διαλέγεσθαι (dialégesthai)</i>'
+    '<i>διαλέγεσθαι (dialégesthai<sup>☆</sup>)</i>'
     """
     parts.pop(0)  # language
     phrase = parts[0] if len(parts) < 3 else parts[2]
     if len(parts) > 1:
-        phrase += f" ({parts[1]})"
+        phrase += f" ({parts[1]}{superscript('☆')})"
     return italic(phrase)
 
 

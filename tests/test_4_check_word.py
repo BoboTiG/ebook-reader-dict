@@ -112,6 +112,18 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',  # noqa
             "",
         ],
+        # DE - Internet Archive
+        [
+            "de",
+            '<a rel="nofollow" class="external text" href="http://www.archive.org/stream/dasbuchhenochhrs00flemuoft/page/59/mode/1up">Internet&nbsp;Archive</a>',  # noqa
+            "",
+        ],
+        # DE - external links
+        [
+            "de",
+            '<small class="noprint" title="Luther 2017 bei www.bibleserver.com"></small>',  # noqa
+            "",
+        ],
         # DE - other Wikis
         [
             "de",

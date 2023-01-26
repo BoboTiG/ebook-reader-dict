@@ -23,7 +23,7 @@ from wikidict.utils import process_templates
             ["[ˈvɔle]", "[ˈvɔli]", "[ˈvɔlɛɪ̯]"],
             [],
             [
-                "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the <i>volley</i></i> ‚aus der Luft‘ zugrunde.",  # noqa
+                "Dem seit 1960 im Duden lexikalisierten Wort liegt die englische Kollokation <i>at/on the volley</i> ‚aus der Luft‘ zugrunde.",  # noqa
             ],
             [
                 "<i>Sport:</i> aus der Luft (angenommen und direkt kraftvoll abgespielt), ohne dass eine Bodenberührung des Sportgeräts vorher stattgefunden hat",  # noqa
@@ -56,7 +56,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{Ü|pl|dzień}}", "<i>dzień</i>"),
+        ("{{Ü|pl|dzień}}", "dzień"),
         ("{{übertr.}}", "<i>übertragen</i>"),
         ("{{übertr.|:}}", "<i>übertragen:</i>"),
     ],

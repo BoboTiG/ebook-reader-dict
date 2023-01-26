@@ -28,10 +28,16 @@ definitions_to_ignore = ()
 templates_ignored = (
     "Audio",
     "Herkunft unbelegt",
+    "Hörbeispiele",
+    "IA",
+    "IPA",
+    "Lautschrift",
     "QS Bedeutungen",
     "QS_Bedeutungen",
     "QS Herkunft",
     "QS_Herkunft",
+    "Ref-Duden",
+    "Wikipedia",
 )
 
 # Templates more complex to manage.
@@ -57,7 +63,7 @@ templates_multi = {
     # {{Polytonisch|(το)}}
     "Polytonisch": "parts[-1]",
     # {{Ü|pl|dzień}}
-    "Ü": "italic(parts[-1])",
+    "Ü": "parts[-1]",
     # {{vgl.}}
     "vgl.": "italic('vergleiche:')",
     # {{W|Datenkompression|Datenkompressionen}}
