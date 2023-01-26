@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Set, Tuple, cast
+from typing import Callable, Dict, List, Pattern, Set, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -65,6 +65,25 @@ def find_definitions(
     return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore
 
 
+def es_replace_defs_list_with_numbered_lists(
+    lst: wtp.WikiList,
+    regex_item: Pattern[str] = re.compile(
+        r"(^|\\n);\d+[ |:]+",
+        flags=re.MULTILINE,
+    ),
+    regex_subitem: Pattern[str] = re.compile(
+        r"(^|\\n):;\s*[a-z]:+\s+",
+        flags=re.MULTILINE,
+    ),
+) -> str:
+    """
+    ES uses definition lists, not well supported by the parser...
+    replace them by numbered lists.
+    """
+    res = regex_item.sub(r"\1# ", lst.string)
+    return regex_subitem.sub(r"\1## ", res)
+
+
 def find_section_definitions(
     word: str, section: wtp.Section, locale: str
 ) -> List[Definitions]:
@@ -80,12 +99,10 @@ def find_section_definitions(
     ):
         return definitions
 
-    # es uses definition lists, not well supported by the parser...
-    # replace them by numbered lists
     if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
-        sec = "".join(a_list.string for a_list in lists)
-        section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
-        section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
+        section.contents = "".join(
+            es_replace_defs_list_with_numbered_lists(lst) for lst in lists
+        )
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
