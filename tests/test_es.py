@@ -177,7 +177,7 @@ from wikidict.utils import process_templates
         (
             "Mús.",
             [],
-            ["."],
+            [],
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
             [],
         ),
@@ -212,7 +212,7 @@ from wikidict.utils import process_templates
         (
             "zzz",
             [],
-            ["."],
+            [],
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
             ],

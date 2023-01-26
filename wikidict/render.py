@@ -179,7 +179,7 @@ def find_etymology(
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
         ]
         for item in items:
-            if etyl := process_templates(word, item, locale):
+            if (etyl := process_templates(word, item, locale)) and etyl != ".":
                 definitions.append(etyl)
         return definitions
 
