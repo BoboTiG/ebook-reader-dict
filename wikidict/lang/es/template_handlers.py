@@ -634,8 +634,10 @@ def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>Superlativo de</i> pobre'
     >>> render_superlativo("superlativo", ["pobre"], defaultdict(str, {"tr":"tr", "glosa":"glosa"}))
     '<i>Superlativo de</i> pobre (<i>tr</i>, "glosa"):&nbsp;sumamente pobre'
+    >>> render_superlativo("superlativo", ["ásperamente", "es", "x"], defaultdict(str, {"adv":"x"}))
+    '<i>Superlativo de</i> ásperamente'
     """
-    word = parts[0] if parts else ""
+    word = parts.pop(0) if parts else ""
     start = "Superlativo"
     if data["i"] or data["irr"] or data["irreg"] or data["irregular"]:
         start += " irregular"
@@ -649,7 +651,7 @@ def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         local_phrase.append(f'"{data["glosa"]}"')
     if local_phrase:
         phrase += f' ({concat(local_phrase, ", ")})'
-    if not data["def"]:
+    if not data["def"] and not parts:
         phrase += f":&nbsp;sumamente {word}"
     return phrase
 
