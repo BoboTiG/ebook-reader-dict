@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, italic, superscript
+from ...user_functions import extract_keywords_from, italic
 from .abk import abk
 
 bibel_names = {
@@ -221,14 +221,14 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
-    '<i>διάλογος (diálogos<sup>☆</sup>)</i>'
+    '<i>διάλογος (diálogos)</i>'
     >>> render_Ut("Üt", ["grc", "διαλέγομαι", "dialégesthai", "διαλέγεσθαι"], defaultdict(str))
-    '<i>διαλέγεσθαι (dialégesthai<sup>☆</sup>)</i>'
+    '<i>διαλέγεσθαι (dialégesthai)</i>'
     """
     parts.pop(0)  # language
     phrase = parts[0] if len(parts) < 3 else parts[2]
     if len(parts) > 1:
-        phrase += f" ({parts[1]}{superscript('☆')})"
+        phrase += f" ({parts[1]})"
     return italic(phrase)
 
 

@@ -56,6 +56,8 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{gM}}", "(männliche)"),
+        ("{{gM|r}}", "(männlicher)"),
         ("{{Ü|pl|dzień}}", "dzień"),
         ("{{übertr.}}", "<i>übertragen</i>"),
         ("{{übertr.|:}}", "<i>übertragen:</i>"),

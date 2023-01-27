@@ -96,6 +96,9 @@ def filter_html(html: str, locale: str) -> str:
                 a.decompose()
 
     elif locale == "de":
+        # <sup>☆</sup>
+        for sup in bs.find_all("sup", string="☆"):
+            sup.decompose()
         # External links
         for small in bs.find_all("small", {"class": "noprint"}):
             small.decompose()

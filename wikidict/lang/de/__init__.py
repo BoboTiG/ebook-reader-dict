@@ -48,6 +48,9 @@ templates_multi = {
     "fm": "italic('f, m')",
     # {{fn}}
     "fn": "italic('f, n')",
+    # {{gM}}
+    # {{gM|r}}
+    "gM": "f'(männliche{parts[1] if len(parts) == 2 else \"\"})'",
     # {{L|at||en}}
     "L": "parts[1]",
     # {{lang|fr|-ose}}
