@@ -9,7 +9,7 @@
 - If a word contains several pronunciations, or genders, all are available.
 - Mathematic formulas are converted to SVG.
 - Chemical formulas are converted to SVG.
-- Hieroglyphs are supported.
+- Hieroglyphs are supported. <!-- → [](screenshot-Katze.png) -->
 - Tables are supported.
 
 ## Downloads

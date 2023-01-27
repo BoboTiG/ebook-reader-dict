@@ -172,6 +172,8 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>transitiv, Linguistik, Wortbildung:</i>'
     >>> render_K("K", ["kPl.", "ugs."], defaultdict(str))
     '<i>kein Plural, umgangssprachlich:</i>'
+    >>> render_K("K", [], defaultdict(str, {"ft": "kurz für"}))
+    '<i>kurz für:</i>'
     >>> render_K("K", ["Astronomie"], defaultdict(str, {"ft": "kurz für"}))
     '<i>Astronomie, kurz für:</i>'
     >>> render_K("K", ["intrans.", "Nautik"], defaultdict(str, {"t7": "_", "ft": "(von Schiffen)"}))
@@ -208,9 +210,8 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 sep = f"{sep} "
             phrase += sep
 
-    ft = f"{data['ft']}" if "ft" in data else ""
-    if ft:
-        spacer = data.get("t7", ", ")
+    if ft := data["ft"]:
+        spacer = data.get("t7", ", " if parts else "")
         if spacer == "_":
             spacer = " "
         ft = spacer + ft
