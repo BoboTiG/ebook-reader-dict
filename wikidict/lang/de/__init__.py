@@ -26,8 +26,12 @@ definitions_to_ignore = ()
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Anker",
     "Audio",
+    "Bpur",
+    "Fremdsprachige Beispiele",
     "Herkunft unbelegt",
+    "Hintergrundfarbe",
     "Hörbeispiele",
     "IA",
     "IPA",
