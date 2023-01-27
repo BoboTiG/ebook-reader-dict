@@ -218,6 +218,58 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return italic(f"{phrase}{ft}:")
 
 
+def render_ref_dejure(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
+    '54 InsO'
+    >>> render_ref_dejure("Ref-dejure", ["", "3", "EGGmbHG"], defaultdict(str))
+    '3 EGGmbHG'
+    >>> render_ref_dejure("Ref-dejure", ["", "3", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '3 II Nr. 9 EGGmbHG'
+    >>> render_ref_dejure("Ref-dejure", ["§", "1004", "BGB"], defaultdict(str))
+    '§ 1004 BGB'
+    >>> render_ref_dejure("Ref-dejure", ["§", "1004", "BGB"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '§ 1004 II Nr. 9 BGB'
+    >>> render_ref_dejure("Ref-dejure", ["§§", "19", "InsO"], defaultdict(str))
+    '§§ 19'
+    >>> render_ref_dejure("Ref-dejure", ["§§", "2", "TKG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '§§ 2 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Art.", "15", "GG"], defaultdict(str))
+    'Art. 15 GG'
+    >>> render_ref_dejure("Ref-dejure", ["Art.", "15", "GG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    'Art. 15 II Nr. 9 GG'
+    >>> render_ref_dejure("Ref-dejure", ["Artt.", "1", "EGGmbHG"], defaultdict(str))
+    'Art. 1'
+    >>> render_ref_dejure("Ref-dejure", ["Artt.", "1", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    'Art. 1 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "27", "InsO"], defaultdict(str))
+    '27'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "2", "EGGmbHG"], defaultdict(str))
+    '2'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "2", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '2 II Nr. 9'
+    """
+    article, number, name = parts
+    complement = f" {data['Erg']}" if data["Erg"] else ""
+    display_name = not any(
+        [
+            article in {"§§", "Mitte"},
+            article.startswith("Art") and name == "EGGmbHG",
+            article == "§§" and name == "InsO",
+        ],
+    )
+    name = f" {name}" if display_name else ""
+    match article:
+        case "" | "Mitte":
+            return f"{number}{complement}{name}"
+        case "§" | "§§":
+            return f"{article} {number}{complement}{name}"
+        case "Art." | "Artt.":
+            return f"Art. {number}{complement}{name}"
+        case _:
+            assert 0, parts
+
+
 def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
@@ -270,6 +322,7 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 template_mapping = {
     "Bibel": render_bibel,
     "K": render_K,
+    "Ref-dejure": render_ref_dejure,
     "Üt": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
