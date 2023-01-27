@@ -37,6 +37,24 @@ sections = (
     "{{verbo",
 )
 
+# Variants
+variant_titles = (
+    "Forma adjetiva",
+    "Forma verbal",
+)
+variant_templates = (
+    "{{enclítico",
+    "{{infinitivo",
+    "{{forma adjetivo",
+    "{{forma adjetivo 2",
+    "{{forma participio",
+    "{{forma pronombre",
+    "{{forma verbo",
+    "{{f.v",
+    "{{gerundio",
+    "{{participio",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "antropónimo femenino",

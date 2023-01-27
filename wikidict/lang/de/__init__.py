@@ -21,6 +21,16 @@ sections = (
     "{{Alte Schreibweise|",
 )
 
+# Variants
+variant_titles = (
+    "{{Grundformverweis ",
+    "{{Alte Schreibweise|",
+)
+variant_templates = (
+    "{{Grundformverweis ",
+    "{{Alte Schreibweise|",
+)
+
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "Anker",

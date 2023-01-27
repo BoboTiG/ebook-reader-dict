@@ -34,6 +34,18 @@ sections = (
     "Verbpartikel",
 )
 
+# Variants
+variant_titles = (
+    "Adjektiv",
+    "Adverb",
+    "Substantiv",
+    "Verb",
+)
+variant_templates = (
+    "{{avledning",
+    "{{böjning",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     #

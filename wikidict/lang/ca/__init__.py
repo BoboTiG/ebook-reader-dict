@@ -35,6 +35,18 @@ sections = (
     *etyl_section,
 )
 
+# Variants
+variant_titles = (
+    "Adjectiu",
+    "Nom",
+    "Verb",
+)
+variant_templates = (
+    "{{ca-forma-conj",
+    "{{forma-p",
+    "{{forma-f",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "forma-conj",

@@ -59,6 +59,12 @@ head_sections: Dict[str, Tuple[str, ...]] = _populate("head_sections")
 etyl_section: Dict[str, Tuple[str]] = _populate("etyl_section")
 sections: Dict[str, Tuple[str, ...]] = _populate("sections")
 
+# Variants
+# Section titles considered interesting to look variants into
+variant_titles: Dict[str, Tuple[str, ...]] = _populate("variant_titles")
+# Template names considered interesting to look variants into
+variant_templates: Dict[str, Tuple[str, ...]] = _populate("variant_templates")
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Dict[str, Tuple[str, ...]] = _populate("definitions_to_ignore")
 

@@ -36,6 +36,23 @@ sections = (
     "Verb",
 )
 
+# Variants
+variant_titles = (
+    "Noun",
+    "Verb",
+)
+variant_templates = (
+    "{{en-ing",
+    "{{en-ipl",
+    "{{en-irregular",
+    "{{en-past",
+    "{{en-simple",
+    "{{en-superlative",
+    "{{en-third",
+    "{{en-tpso",
+    "{{plural of",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "rfdef",
