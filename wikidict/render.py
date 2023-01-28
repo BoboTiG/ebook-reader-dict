@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Pattern, Set, Tuple, cast
+from typing import Callable, Dict, List, Pattern, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -23,6 +23,8 @@ from .lang import (
     section_sublevels,
     sections,
     sublist_patterns,
+    variant_templates,
+    variant_titles,
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
@@ -324,9 +326,11 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     return top_sections, ret
 
 
-def add_potential_variant(word: str, tpl: str, locale: str, variants: Set[str]) -> None:
+def add_potential_variant(
+    word: str, tpl: str, locale: str, variants: List[str]
+) -> None:
     if (variant := process_templates(word, tpl, locale)) and variant != word:
-        variants.add(variant)
+        variants.append(variant)
 
 
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
@@ -368,7 +372,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     genders = []
     etymology = []
-    variants: Set[str] = set()
+    variants: List[str] = []
 
     # Etymology
     for section in etyl_section[locale]:
@@ -382,122 +386,19 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         genders = _find_genders(top_sections, find_genders[locale])
 
     # Find potential variants
-    for title, parsed_section in parsed_sections.items():
-        if locale == "ca":
-            if not title.startswith(
-                (
-                    "Adjectiu",
-                    "Nom",
-                    "Verb",
-                )
-            ):
+    if interesting_titles := variant_titles[locale]:
+        interesting_templates = variant_templates[locale]
+        for title, parsed_section in parsed_sections.items():
+            if not title.startswith(interesting_titles):
                 continue
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{ca-forma-conj",
-                        "{{forma-p",
-                        "{{forma-f",
-                    )
-                ):
+                if tpl.startswith(interesting_templates):
                     add_potential_variant(word, tpl, locale, variants)
-        elif locale == "de":
-            if not title.startswith(
-                (
-                    "{{Grundformverweis ",
-                    "{{Alte Schreibweise|",
-                )
-            ):
-                continue
+        if variants:
+            variants = sorted(set(variants))
 
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{Grundformverweis ",
-                        "{{Alte Schreibweise|",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "en":
-            if title not in {"Noun", "Verb"}:
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{en-ing",
-                        "{{en-ipl",
-                        "{{en-irregular",
-                        "{{en-past",
-                        "{{en-simple",
-                        "{{en-superlative",
-                        "{{en-third",
-                        "{{en-tpso",
-                        "{{plural of",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "es":
-            if not title.startswith(("Forma adjetiva", "Forma verbal")):
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{enclítico",
-                        "{{infinitivo",
-                        "{{forma adjetivo",
-                        "{{forma adjetivo 2",
-                        "{{forma participio",
-                        "{{forma pronombre",
-                        "{{forma verbo",
-                        "{{f.v",
-                        "{{gerundio",
-                        "{{participio",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "fr":
-            if not title.startswith(
-                (
-                    "{{S|adjectif|fr}",
-                    "{{S|adjectif|fr|flexion",
-                    "{{S|nom|fr|flexion",
-                    "{{S|verbe|fr|flexion",
-                )
-            ):
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{fr-accord-",
-                        "{{fr-rég",
-                        "{{fr-verbe-flexion",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "sv":
-            if title not in (
-                "Adjektiv",
-                "Adverb",
-                "Substantiv",
-                "Verb",
-            ):
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{avledning",
-                        "{{böjning",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-
-    return Word(prons, genders, etymology, definitions, sorted(variants))
+    return Word(prons, genders, etymology, definitions, variants)
 
 
 def load(file: Path) -> Dict[str, str]:

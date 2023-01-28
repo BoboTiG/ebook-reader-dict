@@ -111,6 +111,19 @@ sections = (
     "{{S|verbe|fr|flexion",
 )
 
+# Variantes
+variant_titles = (
+    "{{S|adjectif|fr}",
+    "{{S|adjectif|fr|flexion",
+    "{{S|nom|fr|flexion",
+    "{{S|verbe|fr|flexion",
+)
+variant_templates = (
+    "{{fr-accord-",
+    "{{fr-rég",
+    "{{fr-verbe-flexion",
+)
+
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
     "pluriel d",
