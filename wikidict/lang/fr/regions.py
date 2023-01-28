@@ -19,6 +19,7 @@ regions = {
     "Afrique de l’Ouest": "Afrique de l’Ouest",
     "Afrique du Sud": "Afrique du Sud",
     "Albanie": "Albanie",
+    "Alessano": "Alessano",
     "Algérie": "Algérie",
     "Allemagne": "Allemagne",
     "Alsace": "Alsace",
@@ -89,11 +90,13 @@ regions = {
     "Canaries": "Canaries",
     "Caraïbes": "Caraïbes",
     "Carovigno": "Carovigno",
+    "Castri di Lecce": "Castri di Lecce",
     "Castrignano de' Greci": "Castrignano de' Greci",
     "Catalogne": "Catalogne",
     "Catane": "Catane",
     "Caucase": "Caucase",
     "Caux": "Pays de Caux",
+    "Cavallino": "Cavallino",
     "Centrafrique": "Centrafrique",
     "Centre du Viêt Nam": "Centre du Viêt Nam",
     "Champagne": "Champagne",
@@ -222,6 +225,7 @@ regions = {
     "Le Longeron": "Le Longeron",
     "Le Mans": "Le Mans",
     "Le Val-d’Ajol": "Le Val-d’Ajol",
+    "Lecce": "Lecce",
     "Ledegem": "Ledegem",
     "Lettonie": "Lettonie",
     "Liban": "Liban",
@@ -283,6 +287,7 @@ regions = {
     "NZ": "Nouvelle-Zélande",
     "Namibie": "Namibie",
     "Nantes": "Nantes",
+    "Nardò": "Nardò",
     "Navarre": "Navarre",
     "Nevele": "Nevele",
     "New York": "New York",
@@ -312,6 +317,7 @@ regions = {
     "PT": "Portugal",
     "Palerme": "Palerme",
     "Panama": "Panama",
+    "Parabita": "Parabita",
     "Paraguay": "Paraguay",
     "Paris": "Paris",
     "Parler gaga": "Parler gaga",
@@ -472,7 +478,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 467
+}  # 473
 # END
 
 # handled differently

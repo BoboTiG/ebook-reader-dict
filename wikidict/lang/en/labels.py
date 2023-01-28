@@ -1053,6 +1053,7 @@ labels_regional = {
     "East Midlands dialect": "East Midlands",
     "East Prussia": "Prussia",
     "East Prussian": "Prussia",
+    "Eastern Cherokee": "Middle",
     "Ecuadorian": "Ecuador",
     "Egerländisch": "Egerland",
     "Egin": "Akn",
@@ -1214,6 +1215,8 @@ labels_regional = {
     "Khoi": "Khoy",
     "Kirklareli": "Kırklareli",
     "Kisiqi": "Kiziqi",
+    "Kituhwa": "Middle",
+    "Kituwah": "Middle",
     "Kumayri": "Gyumri",
     "Kutkashen": "Qabala",
     "Kyurin": "Gürün",
@@ -1238,6 +1241,7 @@ labels_regional = {
     "Lithuanian": "Lithuania",
     "Liverpool": "Liverpudlian",
     "Lower Austrian": "Lower Austria",
+    "Lower Cherokee": "Lower",
     "Loṙi": "Lori",
     "Lulea": "Luleå",
     "Luxembourgish": "Luxembourg",
@@ -1274,6 +1278,7 @@ labels_regional = {
     "Meskhuri": "Meskheti",
     "Mexican": "Mexico",
     "Meğri": "Meghri",
+    "Middle Cherokee": "Middle",
     "Midlands dialect": "Midlands",
     "Midwest US": "Midwestern US",
     "Miks": "Moks",
@@ -1365,6 +1370,8 @@ labels_regional = {
     "Oomram": "Föhr-Amrum",
     "Orcadian": "Orkney",
     "Ostrobothnian": "Ostrobothnia",
+    "Otali": "Overhill",
+    "Overhill Cherokee": "Overhill",
     "Oxford City": "Oxford",
     "Oxford dialect": "Oxford",
     "Oxfordshire dialect": "Oxfordshire",
@@ -1570,6 +1577,7 @@ labels_regional = {
     "West Prussia": "Prussia",
     "West Prussian": "Prussia",
     "West of England": "West Country",
+    "Western Cherokee": "Overhill",
     "Western England": "West Country",
     "Wilno": "Vilnius",
     "Wilts": "Wiltshire",
@@ -1631,7 +1639,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 781
+}  # 789
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
