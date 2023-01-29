@@ -104,10 +104,9 @@ def misc_variant_no_term(
 ) -> str:
     if data["notext"] in ("1", "yes"):
         return ""
-    phrase = data.get(
+    return data.get(
         "title", title if data["nocap"] in ("1", "yes") else capitalize(title)
     )
-    return phrase
 
 
 def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -450,10 +449,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
                 starter += " from"
         phrase = starter if data["nocap"] == "1" else starter.capitalize()
 
-    if dst_locale == "mul":
-        lang = "translingual"
-    else:
-        lang = langs.get(dst_locale, "")
+    lang = "translingual" if dst_locale == "mul" else langs.get(dst_locale, "")
     phrase += lang if tpl not in mentions else ""
 
     if parts or data["3"]:
