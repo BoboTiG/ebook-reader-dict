@@ -35,6 +35,7 @@ regions = {
     "Anjou": "Anjou",
     "Antilles": "Antilles",
     "Aquitaine": "Aquitaine",
+    "Aradeo": "Aradeo",
     "Ardennes": "Ardennes",
     "Ardèche": "Ardèche",
     "Argentine": "Argentine",
@@ -84,6 +85,7 @@ regions = {
     "CL": "Chili",
     "CM": "Cameroun",
     "Caccamo": "Caccamo",
+    "Calimera": "Calimera",
     "Caltanissetta": "Caltanissetta",
     "Cambodge": "Cambodge",
     "Cameroun": "Cameroun",
@@ -268,6 +270,7 @@ regions = {
     "Mayo": "Mayo",
     "Mayotte": "Mayotte",
     "Merir": "Merir",
+    "Mesagne": "Mesagne",
     "Messine": "Messine",
     "Mexique": "Mexique",
     "Midi": "Midi de la France",
@@ -313,6 +316,7 @@ regions = {
     "Ontario": "Ontario",
     "Oria": "Oria",
     "Ostuni": "Ostuni",
+    "Otrante": "Otrante",
     "Ouessant": "Ouessant",
     "Ouzbékistan": "Ouzbékistan",
     "PE": "Pérou",
@@ -388,6 +392,7 @@ regions = {
     "San Cataldo": "San Cataldo",
     "San Cesario di Lecce": "San Cesario di Lecce",
     "San Fratello": "San Fratello",
+    "San Giorgio Ionico": "San Giorgio Ionico",
     "Santa Cesarea Terme": "Santa Cesarea Terme",
     "Santo Stefano Quisquina": "Santo Stefano Quisquina",
     "Sarthe": "Sarthe",
@@ -417,6 +422,7 @@ regions = {
     "TAAF": "Vocabulaire des TAAF",
     "TD": "Tchad",
     "Taormine": "Taormine",
+    "Taviano": "Taviano",
     "Taïwan": "Taïwan",
     "Tchad": "Tchad",
     "Terre-Neuve": "Terre-Neuve",
@@ -424,6 +430,7 @@ regions = {
     "Touraine": "Touraine",
     "Toutlemonde": "Toutlemonde",
     "Transnistrie": "Transnistrie",
+    "Tricase": "Tricase",
     "Tronchiennes": "Tronchiennes",
     "Trélazé": "Trélazé",
     "Tunisie": "Tunisie",
@@ -481,7 +488,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 476
+}  # 483
 # END
 
 # handled differently

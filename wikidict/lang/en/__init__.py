@@ -78,9 +78,12 @@ templates_ignored = (
     "c",
     "C",
     "cln",
+    "dercat",
     "elements",
     "etystub",
     "examples",
+    "Image requested",
+    "lena",
     "multiple images",
     "+obj",
     "PIE word",
@@ -93,10 +96,12 @@ templates_ignored = (
     "rfc-sense",
     "rfd-redundant",
     "rfd-sense",
-    "rfv-etym",
-    "rfv-sense",
     "rfe",
     "rfex",
+    "rfi",
+    "rfquote-sense",
+    "rfv-etym",
+    "rfv-sense",
     "root",
     "slim-wikipedia",
     "senseid",
@@ -106,6 +111,7 @@ templates_ignored = (
     "tea room sense",
     "top",
     "topics",
+    "translation only",
     "was wotd",
     "wikipedia",
     "Wikipedia",
@@ -116,9 +122,9 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
+    **labels_subvarieties,
     **labels,
     **labels_regional,
-    **labels_subvarieties,
     **labels_topical,
     "ambitransitive": "transitive, intransitive",
 }
@@ -151,6 +157,8 @@ templates_multi = {
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": 'f"⟨{parts[1]}⟩"',
+    # {{lang|fr|texte}}
+    "lang": "parts[-1]",
     # {{Latn-def|en|name|O|o}}
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
     # {{Latn-def-lite|en|name|O|o}}
@@ -349,10 +357,20 @@ def last_template_handler(
             starter = f"{word} of" if word else "form of"
             word = data["3"] or (parts.pop(0) if parts else "")
             text = data["4"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["5"] or (parts.pop(0) if parts else "")
+            gloss = (
+                data["t"]
+                or data["gloss"]
+                or data["5"]
+                or (parts.pop(0) if parts else "")
+            )
         else:
             text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["4"] or (parts.pop(0) if parts else "")
+            gloss = (
+                data["t"]
+                or data["gloss"]
+                or data["4"]
+                or (parts.pop(0) if parts else "")
+            )
         word = text or word
         if word.startswith("w:"):
             word = word[2:]

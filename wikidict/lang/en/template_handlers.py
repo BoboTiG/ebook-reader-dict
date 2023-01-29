@@ -104,8 +104,10 @@ def misc_variant_no_term(
 ) -> str:
     if data["notext"] in ("1", "yes"):
         return ""
-    phrase = data.get("title", title)
-    return phrase if data["nocap"] in ("1", "yes") else capitalize(phrase)
+    phrase = data.get(
+        "title", title if data["nocap"] in ("1", "yes") else capitalize(title)
+    )
+    return phrase
 
 
 def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -120,6 +122,40 @@ def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     nodot = data["nodot"] in ("1", "yes") or tpl in {"CE", "BCE"}
     text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
     return small(text.replace(".", "")) if nodot else small(text)
+
+
+def render_century(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_century("century", ["17"], defaultdict(str))
+    '<small>[from 17th c.]</small>'
+    >>> render_century("century", ["1"], defaultdict(str))
+    '<small>[from 1st c.]</small>'
+    >>> render_century("century", ["2", "3"], defaultdict(str))
+    '<small>[2nd–3rd c.]</small>'
+    """
+
+    def ordinal(n: str) -> str:
+        suffix = "th"
+        try:
+            x = int(n)
+            mod10 = x % 10
+            mod100 = x % 100
+            if mod10 == 1 and mod100 != 11:
+                suffix = "st"
+            elif mod10 == 2 and mod100 != 12:
+                suffix = "nd"
+            elif mod10 == 3 and mod100 != 13:
+                suffix = "rd"
+        except ValueError:
+            pass
+        return f"{n}{suffix}"
+
+    if len(parts) > 1:
+        phrase = f"{ordinal(parts[0])}–{ordinal(parts[1])} c."
+    else:
+        phrase = f"from {ordinal(parts[0])} c."
+
+    return small(f"[{phrase}]")
 
 
 def render_clipping(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -253,6 +289,8 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     'Borrowed from Japanese <i>マエバリ</i>'
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
+    >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
+    'translingual <i>Jaborosa parviflora</i>'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
     'Middle English'
     >>> render_foreign_derivation("etyl", ["grc"], defaultdict(str))
@@ -318,9 +356,13 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     'cod'
 
     >>> render_foreign_derivation("m", ["en", "more"], defaultdict(str))
-    '<b>more</b>'
+    '<i>more</i>'
+    >>> render_foreign_derivation("m", ["en", "w:Group of Eight"], defaultdict(str))
+    '<i>Group of Eight</i>'
     >>> render_foreign_derivation("m", ["enm", "us"], defaultdict(str))
     '<i>us</i>'
+    >>> render_foreign_derivation("m", ["enm", "w:Group of Eight"], defaultdict(str))
+    '<i>Group of Eight</i>'
     >>> render_foreign_derivation("m", ["ine-pro", "*h₁ed-"], defaultdict(str, {"t":"to eat"}))
     '<i>*h₁ed-</i> (“to eat”)'
     >>> render_foreign_derivation("m", ["ar", "عِرْق", "", "root"], defaultdict(str))
@@ -339,7 +381,10 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
     """  # noqa
     # Short path for the {{m|en|WORD}} template
     if tpl in {"m", "m-lite"} and len(parts) == 2 and parts[0] == "en" and not data:
-        return strong(parts[1])
+        word = parts[1]
+        if word.startswith("w:"):
+            word = word[2:]
+        return italic(word)
 
     mentions = (
         "back-formation",
@@ -405,11 +450,16 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: Dict[str, str]) 
                 starter += " from"
         phrase = starter if data["nocap"] == "1" else starter.capitalize()
 
-    lang = langs.get(dst_locale, "")
+    if dst_locale == "mul":
+        lang = "translingual"
+    else:
+        lang = langs.get(dst_locale, "")
     phrase += lang if tpl not in mentions else ""
 
     if parts or data["3"]:
         word = parts.pop(0) if parts else data["3"]
+        if word.startswith("w:"):
+            word = word[2:]
         if word == "-":
             return phrase
     else:
@@ -725,6 +775,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
     >>> render_morphology("prefix", ["en", "e-", "bus"], defaultdict(str))
     '<i>e-</i>&nbsp;+&nbsp;<i>bus</i>'
+    >>> render_morphology("suffix", ["en", "gabapentin", "-oid"], defaultdict(str))
+    '<i>gabapentin</i>&nbsp;+&nbsp;<i>-oid</i>'
     >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
     '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
     >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
@@ -743,6 +795,8 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>neuro-</i>&nbsp;+&nbsp;<i>-gene</i> (<i>-genic</i>)'
     >>> render_morphology("confix", ["en", "be", "dew", "ed"], defaultdict(str))
     '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
+    >>> render_morphology("confix", ["en", "i-", "-tard"], defaultdict(str))
+    '<i>i-</i>&nbsp;+&nbsp;<i>-tard</i>'
     >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
     >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
@@ -778,8 +832,10 @@ def render_morphology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             chunk = re.sub(r"^([^-]*)-+$", r"\g<1>", chunk)
             chunk += "-"
         if tpl in {"suf", "suffix"} and i == 2:
+            chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
             chunk = f"-{chunk}"
         if tpl in {"con", "confix"} and i == parts_count:
+            chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
             chunk = f"-{chunk}"
         return chunk
 
@@ -966,11 +1022,21 @@ def render_onomatopoeic(tpl: str, parts: List[str], data: Dict[str, str]) -> str
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"nocap": "1"}))
     'onomatopoeic'
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"title": "imitative"}))
-    'Imitative'
+    'imitative'
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str, {"notext": "1"}))
     ''
     """
     return misc_variant_no_term("onomatopoeic", tpl, parts, data)
+
+
+def render_pedlink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_pedlink("pedlink", ["foo"], defaultdict(str))
+    'foo'
+    >>> render_pedlink("pedlink", ["foo"], defaultdict(str, {"disp": "bar"}))
+    'bar'
+    """
+    return data["disp"] or parts[0]
 
 
 def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -1279,6 +1345,7 @@ template_mapping = {
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
     "calque": render_foreign_derivation,
+    "century": render_century,
     "C.E.": render_bce,
     "CE": render_bce,
     "circa": render_dating,
@@ -1342,6 +1409,7 @@ template_mapping = {
     "orthographic borrowing": render_foreign_derivation,
     "partial calque": render_foreign_derivation,
     "pcal": render_foreign_derivation,
+    "pedlink": render_pedlink,
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
