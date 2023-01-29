@@ -70,6 +70,7 @@ regions = {
     "Bray": "Pays de Bray",
     "Bretagne": "Bretagne",
     "Bretagne celtique": "Bretagne celtique",
+    "Brindes": "Brindes",
     "Briollay": "Briollay",
     "Brésil": "Brésil",
     "Burkina Faso": "Burkina Faso",
@@ -220,6 +221,7 @@ regions = {
     "Languedoc": "Languedoc",
     "Languedoc-Roussillon": "Languedoc-Roussillon",
     "Laos": "Laos",
+    "Latiano": "Ostuni",
     "Le Fuilet": "Le Fuilet",
     "Le Havre": "Le Havre",
     "Le Longeron": "Le Longeron",
@@ -310,6 +312,7 @@ regions = {
     "Oise": "Oise",
     "Ontario": "Ontario",
     "Oria": "Oria",
+    "Ostuni": "Ostuni",
     "Ouessant": "Ouessant",
     "Ouzbékistan": "Ouzbékistan",
     "PE": "Pérou",
@@ -478,7 +481,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 473
+}  # 476
 # END
 
 # handled differently
