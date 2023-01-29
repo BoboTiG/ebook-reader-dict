@@ -13,7 +13,7 @@ from wikidict.utils import process_templates
         (
             "ab",
             ["/æb/"],
-            ["Abbreviation of <b>abdominal</b> <b>muscles</b>."],
+            ["Abbreviation of <i>abdominal</i> <i>muscles</i>."],
             [
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
@@ -46,7 +46,7 @@ from wikidict.utils import process_templates
             "efficient",
             ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
             [
-                "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <b>effect</b>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
+                "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <i>effect</i>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
             ],
             [
                 "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",  # noqa
@@ -134,8 +134,8 @@ from wikidict.utils import process_templates
                 "<i>Used to indicate a certain example of (a noun) which is usually of most concern or most common or familiar.</i> <small>[from 12th c.]</small>",  # noqa
                 "<i>Used before a body part (especially of someone previously mentioned), as an alternative to a possessive pronoun.</i> <small>[from 12th c.]</small>",  # noqa
                 "<i>When stressed, indicates that it describes an object which is considered to be best or exclusively worthy of attention.</i> <small>[from 18th c.]</small>",  # noqa
-                "<i>With a comparative or with <b>more</b> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",  # noqa
-                "<i>With a comparative, and often with <b>for it</b>, indicates a result more like said comparative. This can be negated with <b>none</b>.</i>",  # noqa
+                "<i>With a comparative or with <i>more</i> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",  # noqa
+                "<i>With a comparative, and often with <i>for it</i>, indicates a result more like said comparative. This can be negated with <i>none</i>.</i>",  # noqa
                 "For each; per.",
             ],
             [],
@@ -161,7 +161,7 @@ from wikidict.utils import process_templates
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
-                "<i>(Commonwealth, colloquial, chiefly with <b>give</b>)</i> Me.",
+                "<i>(Commonwealth, colloquial, chiefly with <i>give</i>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
                 "<i>(Tyneside)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
@@ -226,7 +226,7 @@ from wikidict.utils import process_templates
             "word",
             ["/wɜːd/", "/wɝd/"],
             [
-                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <b>vrata</b>."  # noqa
+                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."  # noqa
             ],
             [
                 "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",  # noqa
@@ -262,7 +262,7 @@ from wikidict.utils import process_templates
                 "<i>(intransitive, archaic)</i> To speak, to use words; to converse, to discourse.",
                 "<i>Alternative form of</i> <b>worth</b> (“to become”).",
                 '<i>(slang, African-American Vernacular)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
-                "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <b>word up</b>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
+                "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
             ],
             [],
         ),
