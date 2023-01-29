@@ -65,7 +65,7 @@ def process_page(
         else:
             display = label_v.get("display", label_k)
         display = process_display(display)
-        if display != k and "deprecated label" not in display:
+        if "deprecated label" not in display:
             results[k] = display
     if print_result:
         print(f"{var_name} = {{")
