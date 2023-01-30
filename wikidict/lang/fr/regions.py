@@ -408,6 +408,7 @@ regions = {
     "Somerset": "Somerset",
     "Sonsorol": "Sonsorol",
     "Sotavento": "Sotavento",
+    "Squinzano": "Squinzano",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
     "Sud des États-Unis": "Sud des États-Unis",
@@ -488,7 +489,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 483
+}  # 484
 # END
 
 # handled differently
