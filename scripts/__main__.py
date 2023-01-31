@@ -20,6 +20,7 @@ FILES = {
     "es-campos-semanticos.py": "wikidict/lang/es/campos_semanticos.py",
     "fr-domain-templates.py": "wikidict/lang/fr/domain_templates.py",
     "fr-langs.py": "wikidict/lang/fr/langs.py",
+    "fr-racines-arabes.py": "wikidict/lang/fr/racines_arabes.py",
     "fr-regions.py": "wikidict/lang/fr/regions.py",
     "fr-temps-geologiques.py": "wikidict/lang/fr/temps_geologiques.py",
     "it-codelangs.py": "wikidict/lang/it/codelangs.py",
