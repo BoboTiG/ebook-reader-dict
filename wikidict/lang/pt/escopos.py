@@ -333,6 +333,7 @@ escopos = {
     "réptil": "Zoologia",
     "salamanca": "Salamanca",
     "santa catarina": "Santa Catarina",
+    "sanábria": "Sanábria",
     "sassarês": "Sassarês",
     "sc": "Santa Catarina",
     "se": "Sergipe",
@@ -390,5 +391,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 385
+}  # 386
 # END

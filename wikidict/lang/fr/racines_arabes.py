@@ -1699,6 +1699,32 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'améliorer",
         "ar-u*ay*i*a": "rendre un peu beau",
     },  # 28
+    "ar-Rdw": {
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "matin",
+        "ar-*a*a*@ũ": "matinée",
+        "ar-*a*a*a-u": "venir",
+        "ar-*a*a*iy²ũ": "futur",
+        "ar-*a*i*a-a": "déjeuner",
+        "ar-*a*i*iy²@ũ": "matinée",
+        "ar-*a*i*iy²ũ": "de demain",
+        "ar-*a*²a*a": "nourrir",
+        "ar-*i*â*ũ": "déjeuner",
+        "ar-*ta*a*a": "venir le matin",
+        "ar-*u**@ũ": "matinée",
+        "ar-*u*ay*@ũ": "grand matin",
+        "ar-*u*û*ũ": "{{p}} matinées",
+        "ar-*â*a*a": "venir le matin",
+        "ar-*â*i*@ũ": "{{f}} matinale",
+        "ar-*â*i*ũ": "matinal",
+        "ar-a**a*a": "",
+        "ar-ma**a*ũ": "lieu où l'on vient",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "déjeuner",
+        "ar-ta*a*²a*a": "déjeuner",
+        "ar-ta*â*a*a": "",
+    },  # 24
     "ar-RmRm": {
         "ar-*a**a*@ũ": "murmure",
         "ar-*a**a*a": "mugir",
@@ -6588,6 +6614,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 28
-}  # 234
-
+}  # 235
 # END
