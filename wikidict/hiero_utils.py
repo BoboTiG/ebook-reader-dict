@@ -5,7 +5,6 @@ from .hiero import wh_files, wh_hiero, wh_phonemes, wh_prefabs
 
 
 class HieroTokenizer:
-
     delimiters: List[str] = []
     tokenDelimiters: List[str] = []
 

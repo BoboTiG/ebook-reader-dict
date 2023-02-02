@@ -82,7 +82,6 @@ def find_pronunciations(
 def last_template_handler(
     template: Tuple[str, ...], locale: str, word: str = ""
 ) -> str:
-
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template

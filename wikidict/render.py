@@ -210,7 +210,6 @@ def find_etymology(
     tableindex = 0
     for section in parsed_section.get_lists():
         for idx, section_item in enumerate(section.items):
-
             if any(
                 ignore_me in section_item.lower()
                 for ignore_me in definitions_to_ignore[locale]
