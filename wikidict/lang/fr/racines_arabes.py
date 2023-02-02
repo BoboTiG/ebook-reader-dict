@@ -6,6 +6,7 @@ Auto-generated with `python -m scripts`.
 # START
 racines_schemes_arabes = {
     "ar-'Sl": {
+        "aa_sens": "racine, soir",
         "ar-**a*²a": "",
         "ar-*a**iy²@ũ": "lettre radicale",
         "ar-*a**iy²ũ": "radical",
@@ -29,8 +30,9 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "extermination",
         "ar-ta*a*²a*a": "prendre pied",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-'Vn": {
+        "aa_sens": "oreille, entendre",
         "ar-*a*a*a-u": "écouter, annoncer",
         "ar-*a*i*a-a": "écouter, permettre",
         "ar-*a*²a*a": "crier ; repousser",
@@ -47,8 +49,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander la permission",
         "ar-sti**â*ũ": "demande de permission",
         "ar-ta*a*²a*a": "apprendre, se permettre",
-    },  # 16
+    },  # 17
     "ar-'XV": {
+        "aa_sens": "prendre, saisir, extraire",
         "ar-*a**@ũ": "stratagème",
         "ar-*a**ũ": "châtiment, habitude",
         "ar-*a*a*a-u": "prendre",
@@ -64,8 +67,9 @@ racines_schemes_arabes = {
         "ar-ma**û*ũ": "saisi",
         "ar-sta**a*a": "occuper, prendre",
         "ar-ta**î*ũ": "ensorcellement",
-    },  # 15
+    },  # 16
     "ar-'Xr": {
+        "aa_sens": "fin",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
         "ar-*a*a*iy²ũ": "dernier, extrême",
@@ -90,8 +94,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "délai",
         "ar-ta*a*²a*a": "rester en arrière, tarder",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 25
     "ar-'bb": {
+        "aa_sens": "bouger, onduler",
         "ar-**a*²a": "",
         "ar-*a**ũ": "intention ; fourrage",
         "ar-*a*a*a-u": "remuer, mettre en mouvement ; regretter",
@@ -109,8 +114,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "s'enrouer ; être saisi d'étonnement",
         "ar-ta*â*a*a": "",
-    },  # 17
+    },  # 18
     "ar-'kd": {
+        "aa_sens": "ferme, solide",
         "ar-*a*a*a-u": "battre le blé",
         "ar-*a*²a*a": "consolider",
         "ar-*a*î*ũ": "certain",
@@ -118,8 +124,9 @@ racines_schemes_arabes = {
         "ar-a**a*a": "raffermir",
         "ar-ta**î*ũ": "consolidation",
         "ar-ta*a*²a*a": "se raffermir",
-    },  # 7
+    },  # 8
     "ar-'kl": {
+        "aa_sens": "manger, ronger, démanger",
         "ar-*a**@ũ": "repas, calomnie",
         "ar-*a**ũ": "aliment",
         "ar-*a*a*a-u": "manger",
@@ -147,8 +154,9 @@ racines_schemes_arabes = {
         "ar-musta**i*@ũ": "{{p}} profiteurs",
         "ar-sta**a*a": "demander à manger",
         "ar-ta*a*²a*a": "être dévoré",
-    },  # 27
+    },  # 28
     "ar-'lh": {
+        "aa_sens": "adorer, divin",
         "ar-*a*a*a-u": "adorer",
         "ar-*a*i*a-a": "protéger, chercher assistance",
         "ar-*a*²a*a": "prendre comme dieu ; prendre comme esclave",
@@ -169,8 +177,9 @@ racines_schemes_arabes = {
         "ar-el*i*â*u": "([[الله]]) Allah",
         "ar-sta**a*a": "ressembler à un dieu",
         "ar-ta*a*²a*a": "adorer, rendre un culte",
-    },  # 20
+    },  # 21
     "ar-'ml": {
+        "aa_sens": "espoir, espérer",
         "ar-**a*²a": "",
         "ar-*a**ũ": "espoir",
         "ar-*a*a*@ũ": "champion",
@@ -191,8 +200,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "inspecter",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-'mr": {
+        "aa_sens": "ordre, avis, chef",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "autorité",
         "ar-*a**ũ": "commandement",
@@ -232,8 +242,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "délibérer",
         "ar-tu**u*iy²ũ": "individu",
         "ar-ya**û*ũ": "bête fauve",
-    },  # 39
+    },  # 40
     "ar-'rD": {
+        "aa_sens": "poudre, terre, territoire",
         "ar-*a**iy²ũ": "artichaud",
         "ar-*a**ũ": "terre, terrain, sol",
         "ar-*a*a*a-u": "réduire en poussière, ronger",
@@ -245,8 +256,9 @@ racines_schemes_arabes = {
         "ar-ma**û*ũ": "épileptique ; réduit en poussière",
         "ar-sta**a*a": "être purulent ; se fixer",
         "ar-ta*a*²a*a": "se fixer, peser",
-    },  # 11
+    },  # 12
     "ar-'rX": {
+        "aa_sens": "date",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "mettre la date",
@@ -263,8 +275,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "époque d'un fait",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-'sm": {
+        "aa_sens": "nommer (voir [[س م و]])",
         "ar-**a*²a": "",
         "ar-*a**â'u": "noms",
         "ar-*a**âwâtũ": "noms",
@@ -285,8 +298,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-'ty": {
+        "aa_sens": "arriver",
         "ar-**â*ũ": "don, présent",
         "ar-*a*a*a-i": "arriver, amener",
         "ar-*a*i*@ũ": "ce qui doit avoir lieu",
@@ -304,8 +318,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander la venue",
         "ar-ta*a*²a*a": "être prêt, avoir lieu",
         "ar-ta*â*a*a": "lier compagnie",
-    },  # 17
+    },  # 18
     "ar-'wn": {
+        "aa_sens": "douceur ,repos",
         "ar-*a**ũ": "avance tranquille",
         "ar-*a*a*a-u": "flâner",
         "ar-*a*a*ũ": "instant, temps",
@@ -313,8 +328,9 @@ racines_schemes_arabes = {
         "ar-*a*â*ũ": "temps, saison",
         "ar-*â*i*ũ": "bien portant",
         "ar-ta*a*²a*a": "s'être rassasié",
-    },  # 7
+    },  # 8
     "ar-3Sm": {
+        "aa_sens": "préserver, poignet",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**â'u": "chamois",
@@ -344,8 +360,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "se préserver",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-3TC": {
+        "aa_sens": "soif",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "accès de soif",
@@ -374,8 +391,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "supporter la soif",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 29
     "ar-3Tw": {
+        "aa_sens": "se déployer pour prendre quelque chose",
         "ar-**a*²a": "",
         "ar-*a**ãé": "puissant (arc)",
         "ar-*a**ũ": "qui s'étire pour prendre",
@@ -394,8 +412,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander",
         "ar-ta*a*²a*a": "demander, se presser",
         "ar-ta*â*a*a": "s'emparer",
-    },  # 18
+    },  # 19
     "ar-3Zm": {
+        "aa_sens": "grand, grave",
         "ar-**a*²a": "",
         "ar-**â*@ũ": "magnificence",
         "ar-*a**@ũ": "fait de frapper un os",
@@ -437,8 +456,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "glorification",
         "ar-ta*a*²a*a": "paraître grand",
         "ar-ta*â*a*a": "passer pour grand",
-    },  # 41
+    },  # 42
     "ar-3b'": {
+        "aa_sens": "aranger",
         "ar-**a*²a": "",
         "ar-*a**ũ": "sacoche",
         "ar-*a*a*a-a": "disposer, assortir",
@@ -455,8 +475,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-3cq": {
+        "aa_sens": "amoureux, amant",
         "ar-**a*²a": "",
         "ar-*a*i*a-a": "être épris",
         "ar-*a*²a*a": "assembler, emboîter",
@@ -480,8 +501,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'emboiter ; devenir amoureux",
         "ar-ta*â*a*a": "s'aimer réciproquement",
         "ar-ta*â*u*ũ": "emboîture ; amour réciproque",
-    },  # 23
+    },  # 24
     "ar-3dd": {
+        "aa_sens": "préparer, nombre, compter",
         "ar-*a**ũ": "le fait de compter",
         "ar-*a*a*a-u": "compter",
         "ar-*a*a*ânũ": "le temps où ça se passe",
@@ -513,11 +535,13 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se préparer ; se multiplier",
         "ar-ta*â*a*a": "excéder, dépasser le compte",
         "ar-tama**a*a": "faire le maaddite",
-    },  # 31
+    },  # 32
     "ar-3lY": {
+        "aa_sens": "monter, s'élever",
         "ar-*i*a*ũ": "chefs",
-    },  # 1
+    },  # 2
     "ar-3lm": {
+        "aa_sens": "marquer, distinguer, savoir",
         "ar-**a*²a": "",
         "ar-**â*ũ": "notification",
         "ar-*a**â'u": "{{f}} marquée d'un bec de lièvre",
@@ -569,8 +593,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "apprentissage",
         "ar-ta*â*a*a": "savoir",
         "ar-u**û*@ũ": "signe, marque",
-    },  # 51
+    },  # 52
     "ar-3lw": {
+        "aa_sens": "supériorité, hauteur",
         "ar-**a*²a": "",
         "ar-*a**iy²ũ": "supérieur",
         "ar-*a**ũ": "partie supérieure, haut",
@@ -598,8 +623,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "atteindre l'apogée",
         "ar-ta*â*a*a": "être fier",
         "ar-ta*â*u*ũ": "orgueil",
-    },  # 27
+    },  # 28
     "ar-3ly": {
+        "aa_sens": "monter, s'élever",
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "<!--(xii)-->monter",
         "ar-*a**ũ": "ascension",
@@ -634,8 +660,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'élever",
         "ar-ta*â*a*a": "être élevé",
         "ar-ta*â*u*ũ": "élévation",
-    },  # 34
+    },  # 35
     "ar-3ml": {
+        "aa_sens": "faire, faire de l'argent",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "mauvais coup",
         "ar-*a**ũ": "circonscription administrative",
@@ -673,8 +700,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "agir de concert",
         "ar-ya**a*@ũ": "excellente chamelle",
         "ar-ya**a*ũ": "excellent chameau",
-    },  # 37
+    },  # 38
     "ar-3mq": {
+        "aa_sens": "notion de profondeur",
         "ar-*a**ũ": "le fait de se prolonger ; la profondeur",
         "ar-*a*a*@ũ": "sédiment dépôt",
         "ar-*a*i*a-a": "être long, se prolonger",
@@ -690,8 +718,9 @@ racines_schemes_arabes = {
         "ar-a**a*a": "rendre profond",
         "ar-ta**î*ũ": "le fait de rendre profond, d'enfoncer",
         "ar-ta*a*²a*a": "approfondir un sujet, étudier à fond",
-    },  # 15
+    },  # 16
     "ar-3mr": {
+        "aa_sens": "prospérer",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "voile de tête",
         "ar-*a**ânu": "Amran",
@@ -742,8 +771,9 @@ racines_schemes_arabes = {
         "ar-ta**û*ũ": "chevreau",
         "ar-ta*a*²a*a": "visiter les lieux saints",
         "ar-ta*â*a*a": "",
-    },  # 50
+    },  # 51
     "ar-3rb": {
+        "aa_sens": "arabe, vif",
         "ar-**a*²a": "",
         "ar-**â*ũ": "syntaxe désinentielle",
         "ar-*a**â'u": "arabe pur sang",
@@ -794,8 +824,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "traduction en arabe",
         "ar-ta*a*²a*a": "devenir arabe",
         "ar-ta*â*a*a": "",
-    },  # 50
+    },  # 51
     "ar-3rf": {
+        "aa_sens": "connaître",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "avoir une crinière dressée",
@@ -850,8 +881,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "connaissance et amour de Dieu",
         "ar-ta*â*a*a": "faire connaissance",
         "ar-ta*â*î*u": "{{p}} définitions",
-    },  # 54
+    },  # 55
     "ar-3sl": {
+        "aa_sens": "miel",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "un peu de miel",
         "ar-*a**ânũ": "course",
@@ -880,8 +912,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander à sucrer",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 29
     "ar-3wd": {
+        "aa_sens": "coutume, revenir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "retour",
@@ -934,8 +967,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'habituer à",
         "ar-ta*a*²u*ũ": "accoutumance",
         "ar-ta*â*a*a": "revenir à la charge",
-    },  # 52
+    },  # 53
     "ar-Cbb": {
+        "aa_sens": "adolescence",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jeune femme",
@@ -966,8 +1000,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "exprimer sa passion",
         "ar-ta*a*²u*ũ": "pédérastie",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-Chd": {
+        "aa_sens": "être témoin, être présent",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "miel",
@@ -1001,8 +1036,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "invoquer le témoignage",
         "ar-ta*a*²a*a": "prononcer l'acte de foi",
         "ar-ta*â*a*a": "",
-    },  # 33
+    },  # 34
     "ar-Chr": {
+        "aa_sens": "public",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "annonce",
@@ -1029,8 +1065,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 27
     "ar-Ckl": {
+        "aa_sens": "mêler, nouer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "ambigüité",
@@ -1076,8 +1113,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "prendre forme",
         "ar-ta*â*a*a": "être analogue",
         "ar-ta*â*u*ũ": "similarité",
-    },  # 45
+    },  # 46
     "ar-Ckr": {
+        "aa_sens": "grâce, graisse",
         "ar-**a*²a": "",
         "ar-*a**ãé": "viande grasse",
         "ar-*a**ũ": "vulve",
@@ -1111,8 +1149,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "remercier vivement",
         "ar-ta*â*a*a": "",
-    },  # 33
+    },  # 34
     "ar-Crq": {
+        "aa_sens": "orient, dessécher",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "rayonnement",
@@ -1161,8 +1200,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "dessication",
         "ar-ta*a*²a*a": "se mettre au soleil",
         "ar-ta*â*a*a": "",
-    },  # 48
+    },  # 49
     "ar-DXm": {
+        "aa_sens": "grand, gros",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*ũ": "corpulent",
@@ -1182,8 +1222,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
         "ar-u**û*@ũ": "fesse postiche",
-    },  # 19
+    },  # 20
     "ar-F3b": {
+        "aa_sens": "faire couler",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "torrent, canal",
@@ -1204,12 +1245,17 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
         "ar-u**u*ânũ": "visage éclatant",
-    },  # 20
+    },  # 21
+    "ar-FlF": {
+        "aa_sens": "relatif au chiffre [[trois]]",
+    },  # 1
     "ar-FnW": {
+        "aa_sens": "plier en deux",
         "ar-*a**iy²@ũ": "dualisme",
         "ar-ma**a*iy²@ũ": "exception",
-    },  # 2
+    },  # 3
     "ar-Fny": {
+        "aa_sens": "plier, doubler, deux",
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "être courbé",
         "ar-*a*a*a-i": "plier en deux",
@@ -1245,8 +1291,9 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "duel",
         "ar-ta*a*²a*a": "se plier",
         "ar-ta*â*a*a": "",
-    },  # 35
+    },  # 36
     "ar-Fqf": {
+        "aa_sens": "éduqué",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "intelligent",
@@ -1269,16 +1316,18 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "lutter, disputer",
-    },  # 22
+    },  # 23
     "ar-FrFr": {
+        "aa_sens": "bavarder",
         "ar-***ũ": "",
         "ar-*a**a*@ũ": "bavardage",
         "ar-*a**a*a": "bavarder",
         "ar-*a**â*@ũ": "{{f}} bavarde",
         "ar-*a**â*ũ": "bavard",
         "ar-*a**û*@ũ": "prolifique",
-    },  # 6
+    },  # 7
     "ar-HSn": {
+        "aa_sens": "fortifier ; chaste ; perte",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**â'u": "pudique",
@@ -1306,8 +1355,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se retrancher",
         "ar-ta*a*²u*ũ": "chasteté",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-HZZ": {
+        "aa_sens": "chance",
         "ar-**a*²a": "",
         "ar-*a**ũ": "sort",
         "ar-*a*i*a-a": "être chanceux",
@@ -1321,8 +1371,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 13
+    },  # 14
     "ar-Hdd": {
+        "aa_sens": "coupant, acéré",
         "ar-*a**ũ": "limite ; barrière ; distance ; violence ; force",
         "ar-*a*a*a-i": "être tranchant, être furieux, s'emporter",
         "ar-*a*a*a-u": "aiguiser ; empêcher, limiter",
@@ -1351,8 +1402,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "aiguiser ; raser ; se mettre en colère",
         "ar-ta*a*²a*a": "être déterminé",
         "ar-ta*â*a*a": "se combattre",
-    },  # 28
+    },  # 29
     "ar-HfZ": {
+        "aa_sens": "garder",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "mémoire",
@@ -1377,8 +1429,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "retenir",
         "ar-ta*a*²a*a": "être prudent",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 25
     "ar-Hjb": {
+        "aa_sens": "voiler",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "exclusion",
@@ -1399,8 +1452,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prendre pour chambellan",
         "ar-ta*a*²a*a": "être voilé",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-Hml": {
+        "aa_sens": "porter",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "charge, attaque",
         "ar-*a**ũ": "fœtus ; grossesse",
@@ -1447,8 +1501,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "être chargé",
         "ar-ta*â*a*a": "oppresser",
         "ar-ti**â*ũ": "être chargé",
-    },  # 46
+    },  # 47
     "ar-Hmr": {
+        "aa_sens": "relatif à la couleur [[rouge]], excessif",
         "ar-**a*²a": "devenir rouge ; être excessif",
         "ar-**â*²a": "devenir très rouge",
         "ar-*a**â'u": "chaleur brûlante de midi ; étranger",
@@ -1480,8 +1535,9 @@ racines_schemes_arabes = {
         "ar-ta*a*ya*a": "parler le himyarite, être méchant",
         "ar-ta*a*²a*a": "se faire traiter d'âne ; se faire marquer en rouge",
         "ar-ya**û*ũ": "rouge ; onagre ; animal rouge",
-    },  # 31
+    },  # 32
     "ar-Hqb": {
+        "aa_sens": "sangle, retenue",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*ũ": "sangle",
@@ -1505,8 +1561,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "stocker",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-HrF": {
+        "aa_sens": "labour, sillon",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "champ cultivé",
@@ -1528,8 +1585,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-Hrm": {
+        "aa_sens": "interdire",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "consécration",
@@ -1591,8 +1649,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être inviolable",
         "ar-ta*a*²u*@ũ": "vie de brigand",
         "ar-ta*â*a*a": "",
-    },  # 61
+    },  # 62
     "ar-Hrr": {
+        "aa_sens": "chaleur ou liberté",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "pays rocailleux",
         "ar-*a**ânu": "altéré de soif",
@@ -1639,8 +1698,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être exempté",
         "ar-ta*â*a*a": "",
         "ar-ta*â*î*u": "{{p}} vêtements de soie",
-    },  # 46
+    },  # 47
     "ar-Hsb": {
+        "aa_sens": "estimer",
         "ar-**a*²a": "être de poil tricolore",
         "ar-*a**ũ": "qui suffit",
         "ar-*a*a*a-u": "énumérer ; suffire",
@@ -1668,8 +1728,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "inhumation",
         "ar-ta*a*²a*a": "prendre des renseignements",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-Hsn": {
+        "aa_sens": "relatif à l'idée de beauté, de bonté",
         "ar-**â*ũ": "bienfait, bienfaisance",
         "ar-*a**â'u": "({{f}}) belle femme, jolie femme",
         "ar-*a*a*a-u": "être beau ou bon (à un instant donné)",
@@ -1698,8 +1759,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait de créer de la beauté",
         "ar-ta*a*²a*a": "s'améliorer",
         "ar-u*ay*i*a": "rendre un peu beau",
-    },  # 28
+    },  # 29
     "ar-Rdw": {
+        "aa_sens": "aube",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "matin",
@@ -1729,13 +1791,15 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "déjeuner",
         "ar-ta*a*²a*a": "déjeuner",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-RmRm": {
+        "aa_sens": "grogner",
         "ar-*a**a*@ũ": "murmure",
         "ar-*a**a*a": "mugir",
         "ar-ta*a**a*a": "marmonner",
-    },  # 3
+    },  # 4
     "ar-Rrf": {
+        "aa_sens": "puiser",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "cuillerée",
@@ -1767,8 +1831,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "dépouiller",
         "ar-ta*â*a*a": "",
-    },  # 31
+    },  # 32
     "ar-Rwl": {
+        "aa_sens": "emporter",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ânũ": "mimosa",
@@ -1793,8 +1858,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "devenir méconnaissable",
         "ar-ta*a*²a*a": "s'infiltrer",
         "ar-ta*â*a*a": "chercher à s'enlever mutuellement",
-    },  # 24
+    },  # 25
     "ar-Rzl": {
+        "aa_sens": "embobiner, marivauder",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "fil de coton",
@@ -1834,8 +1900,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "faire la cour",
         "ar-ta*a*²u*ũ": "flirt",
         "ar-ta*â*a*a": "causer d'amour",
-    },  # 39
+    },  # 40
     "ar-SHH": {
+        "aa_sens": "correct, santé",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-a": "être correct",
@@ -1852,8 +1919,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "correction",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-SRr": {
+        "aa_sens": "petit, humble, méprisable",
         "ar-*a**ũ": "dédain, affront",
         "ar-*a*a*a-u": "être cadet, moins âgé",
         "ar-*a*i*a-a": "être petit, pas cher, méprisé",
@@ -1877,8 +1945,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "considérer comme petit, mépriser",
         "ar-ta**î*ũ": "diminutif",
         "ar-ta*â*a*a": "paraître ou se sentir petit",
-    },  # 23
+    },  # 24
     "ar-Sdr": {
+        "aa_sens": "source, poitrail, prééminence",
         "ar-**a*²a": "",
         "ar-**â*ũ": "émanation",
         "ar-*a**iy²@ũ": "chemisette",
@@ -1907,8 +1976,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "sangle de poitrail",
         "ar-ta*a*²a*a": "avoir la préséance",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 29
     "ar-Sfr": {
+        "aa_sens": "jaune ; vide ; sifflet",
         "ar-**a*²a": "être jaune ; être noir",
         "ar-**i3â3ũ": "pâleur",
         "ar-**â*²a": "être très jaune ; être très noir",
@@ -1955,8 +2025,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait de faire Sfr",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 46
+    },  # 47
     "ar-Sn3": {
+        "aa_sens": "faire, fabriquer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*Ta*a*a": "travailler artistiquement",
@@ -1995,8 +2066,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "faire faire",
         "ar-ta*a*²a*a": "s'arranger",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 39
     "ar-Sqr": {
+        "aa_sens": "fendre, brûler",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*²a": "être aigre",
@@ -2026,8 +2098,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-Swt": {
+        "aa_sens": "son, voix",
         "ar-*a**ũ": "son ; cri de détresse ; voix ; renommée",
         "ar-*a*a*a-u": "se faire entendre ; pousser un cri",
         "ar-*a*a*ũ": "doté d'une bonne voix ; qui pousse un cri",
@@ -2041,8 +2114,9 @@ racines_schemes_arabes = {
         "ar-mi**â*ũ": "qui produit un son",
         "ar-n*a*a*a": "être appelé ; répondre à un appel ; rebrousser chemin",
         "ar-ta**î*ũ": "le fait de pousser un cri",
-    },  # 13
+    },  # 14
     "ar-Syf": {
+        "aa_sens": "été, chaleur",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*Ta*a*a": "passer l'été",
@@ -2066,8 +2140,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "passer l'été",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-T3m": {
+        "aa_sens": "manger, avaler",
         "ar-*a**ũ": "goût, saveur ; appétit",
         "ar-*a*i*a-a": "manger, greffer",
         "ar-*a*²a*a": "greffer",
@@ -2098,8 +2173,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "(nv-ii) le fait de greffer",
         "ar-ta*a*²a*a": "goûter, savourer",
         "ar-ta*â*a*a": "se béqueter",
-    },  # 30
+    },  # 31
     "ar-Thr": {
+        "aa_sens": "pureté",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "écarter, être pur",
         "ar-*a*i*ũ": "pur",
@@ -2130,8 +2206,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "purification",
         "ar-ta*a*²a*a": "se purifier",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-Tll": {
+        "aa_sens": "déverser, rendre humide, douceur",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "air doux",
         "ar-*a**â'u": "sang versé impunément",
@@ -2157,8 +2234,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "voir d'en haut",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "s'allonger pour voir au loin",
-    },  # 25
+    },  # 26
     "ar-Twb": {
+        "aa_sens": "brique, adobe",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
         "ar-*a*²a*a": "",
@@ -2172,8 +2250,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 13
+    },  # 14
     "ar-Twf": {
+        "aa_sens": "tourner autour, fragment",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "radeau d'outres",
@@ -2195,8 +2274,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "faire des rondes",
         "ar-ta*a*²a*a": "tourner autour",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-Tyr": {
+        "aa_sens": "s'envoler, augure",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "légèreté",
         "ar-*a**iy²ũ": "aviaire",
@@ -2226,8 +2306,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prendre sa volée",
         "ar-ta*a*²a*a": "mal augurer",
         "ar-ta*â*a*a": "tourbillonner",
-    },  # 29
+    },  # 30
     "ar-Vrr": {
+        "aa_sens": "poudre",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "atome",
         "ar-*a**iy²@ũ": "atomisme",
@@ -2253,8 +2334,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-XSS": {
+        "aa_sens": "sortant du lot commun",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jet d'eau.",
         "ar-*a**ũ": "laitue",
@@ -2284,8 +2366,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "accorder privilège",
         "ar-ta*a*²a*a": "être consacré à",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-Xbr": {
+        "aa_sens": "apprendre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "notification",
@@ -2340,8 +2423,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "chercher à savoir",
         "ar-ta*â*a*a": "négocier",
         "ar-ta*â*u*ũ": "négociation",
-    },  # 54
+    },  # 55
     "ar-Xlf": {
+        "aa_sens": "rester, arrière, arriéré",
         "ar-**a*²a": "",
         "ar-*a**iy²@ũ": "d'arrière-plan, cryptique",
         "ar-*a**iy²ũ": "d'arrière",
@@ -2400,8 +2484,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être laissé en arrière",
         "ar-ta*a*²u*ũ": "retard, absence",
         "ar-ta*â*a*a": "être d'avis différent",
-    },  # 58
+    },  # 59
     "ar-Xlq": {
+        "aa_sens": "former, polir",
         "ar-*2aw2a*a": "être égal, uni, poli",
         "ar-*a**@ũ": "extérieur",
         "ar-*a**ũ": "créature, chose créée",
@@ -2443,8 +2528,9 @@ racines_schemes_arabes = {
         "ar-mu*a*²a*ũ": "bien tourné, bien formé",
         "ar-mu*ta*i*ũ": "apte, digne de",
         "ar-ta*a*²a*a": "se donner une forme",
-    },  # 41
+    },  # 42
     "ar-Xms": {
+        "aa_sens": "cinq",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "{{m}} cinq",
@@ -2472,8 +2558,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-Xrf": {
+        "aa_sens": "cueillette, gâté",
         "ar-**a*²a": "",
         "ar-*a**iy²ũ": "d'automne",
         "ar-*a**é": "pois",
@@ -2516,8 +2603,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "déraison",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 42
+    },  # 43
     "ar-Xtm": {
+        "aa_sens": "sceller, achever",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "lecture intégrale du coran",
@@ -2544,8 +2632,9 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "se mettre un turban",
         "ar-ta*a*²a*a": "porter une chevalière",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 27
     "ar-XyT": {
+        "aa_sens": "couture",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "aiguillée",
@@ -2569,8 +2658,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "teinter de cheveux blancs",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-Zfr": {
+        "aa_sens": "griffer, gagner, parfumer",
         "ar-**a*²a": "",
         "ar-*a*a*@ũ": "[[ptérygion]]",
         "ar-*a*a*a-i": "égratigner",
@@ -2601,8 +2691,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-b'r": {
+        "aa_sens": "puits, fosse",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "creuser, cacher",
@@ -2617,8 +2708,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 14
+    },  # 15
     "ar-bHF": {
+        "aa_sens": "fouiller, creuser",
         "ar-**a*²a": "",
         "ar-*a**ũ": "recherche",
         "ar-*a*a*a-a": "creuser ; chercher",
@@ -2635,8 +2727,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "examiner",
         "ar-ta*a*²a*a": "examiner",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-bHr": {
+        "aa_sens": "mer, étendue effrayante",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "étang",
@@ -2665,8 +2758,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "aller au fond",
         "ar-ta*a*²u*ũ": "étude détaillée",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 29
     "ar-bTn": {
+        "aa_sens": "ventre, caché",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "ventre",
@@ -2703,15 +2797,17 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "sonder les mystères",
         "ar-ta*a*²a*a": "pénétrer",
         "ar-ta*â*a*a": "",
-    },  # 36
+    },  # 37
     "ar-bWl": {
+        "aa_sens": "pisser",
         "ar-***ũ": "",
         "ar-*i*â*@ũ": "vessie",
         "ar-ma**a*@ũ": "diurétique",
         "ar-mi**a*@ũ": "pot de nuit",
         "ar-mi**a*ũ": "pot de chambre",
-    },  # 5
+    },  # 6
     "ar-bXl": {
+        "aa_sens": "avarice",
         "ar-**a*²a": "",
         "ar-*a**ũ": "avarice",
         "ar-*a*a*a-u": "",
@@ -2735,8 +2831,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "donner à contrecœur",
-    },  # 23
+    },  # 24
     "ar-bXr": {
+        "aa_sens": "vapeur, fumée, odeur",
         "ar-**a*²a": "",
         "ar-*a**ũ": "odeur",
         "ar-*a*a*a-a": "fumer",
@@ -2760,8 +2857,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se parfumer",
         "ar-ta*a*²u*ũ": "évaporation",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-bd'": {
+        "aa_sens": "début",
         "ar-*a**@ũ": "origine",
         "ar-*a**ũ": "commencement",
         "ar-*a*a*a-a": "commencer",
@@ -2780,8 +2878,9 @@ racines_schemes_arabes = {
         "ar-mu**â*ũ": "commencement",
         "ar-mu*ta*â*ũ": "inchoatif",
         "ar-ta*a*²a*a": "commencer",
-    },  # 18
+    },  # 19
     "ar-bd3": {
+        "aa_sens": "nouveauté, création",
         "ar-**â*ũ": "invention",
         "ar-*a**ũ": "début, commencement",
         "ar-*a*a*a-a": "commencer, créer, innover",
@@ -2799,8 +2898,9 @@ racines_schemes_arabes = {
         "ar-mu*ta*i*ũ": "inventeur, novateur",
         "ar-sta**a*a": "trouver insolite",
         "ar-ta*a*²a*a": "prendre une nouvelle voie",
-    },  # 17
+    },  # 18
     "ar-bdy": {
+        "aa_sens": "commencer",
         "ar-**a*²a": "",
         "ar-*a*a*a-i": "commencer",
         "ar-*a*²a*a": "",
@@ -2812,8 +2912,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "commencer",
         "ar-ta*â*a*a": "",
-    },  # 11
+    },  # 12
     "ar-bl3": {
+        "aa_sens": "avaler",
         "ar-*a*a*ũ": "le fait d'avaler",
         "ar-*a*i*a-a": "avaler, gober",
         "ar-*a*²a*a": "faire avaler",
@@ -2827,8 +2928,9 @@ racines_schemes_arabes = {
         "ar-a**a*a": "faire avaler",
         "ar-ma**a*ũ": "canal d'avalement",
         "ar-mi**a*ũ": "gourmand, glouton",
-    },  # 13
+    },  # 14
     "ar-bnn": {
+        "aa_sens": "gras (?)",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "odeur",
@@ -2850,8 +2952,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-bny": {
+        "aa_sens": "fonder, bâtir",
         "ar-**a*²a": "",
         "ar-*a**ũ": "édification",
         "ar-*a*a*a-i": "bâtir, édifier",
@@ -2873,8 +2976,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "adopter pour fils",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-bqy": {
+        "aa_sens": "rester",
         "ar-*a*i*a-a": "rester ; durer",
         "ar-*a*i*iy²@ũ": "ce qui reste ; élite",
         "ar-*a*â*ũ": "durée",
@@ -2884,8 +2988,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "laisser vivre, mettre en réserve",
         "ar-ta*a*²a*a": "conserver, laisser vivre",
         "ar-ta*â*a*a": "survivre",
-    },  # 9
+    },  # 10
     "ar-brd": {
+        "aa_sens": "froid",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "indigestion",
         "ar-*a**iy²@ũ": "fièvre",
@@ -2937,15 +3042,17 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "trouver froid",
         "ar-ta*a*²a*a": "se rafraîchir",
         "ar-ta*â*a*a": "",
-    },  # 51
+    },  # 52
     "ar-brq3": {
+        "aa_sens": "pièce de tissu, voile",
         "ar-*a**a*a": "couvrir d'un voile",
         "ar-*u**a*ũ": "burqa",
         "ar-mu*a**a*@ũ": "brebis noire à tête blanche",
         "ar-mu*a**i*@ũ": "naseau blanc d'un cheval",
         "ar-ta*a**a*a": "se voiler",
-    },  # 5
+    },  # 6
     "ar-brr": {
+        "aa_sens": "piété",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "accomplissement",
@@ -2971,8 +3078,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être obéissant",
         "ar-ta*â*a*a": "se faire réciproquement du bien",
-    },  # 25
+    },  # 26
     "ar-bwb": {
+        "aa_sens": "porte",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*@ũ": "point extrême",
@@ -2988,8 +3096,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "prendre comme portier",
         "ar-ta*â*a*a": "",
-    },  # 15
+    },  # 16
     "ar-bwl": {
+        "aa_sens": "pisser",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "fille",
@@ -3008,8 +3117,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "avoir envie d'uriner",
         "ar-ta*a*²a*a": "uriner",
         "ar-ta*â*a*a": "être diurétique",
-    },  # 18
+    },  # 19
     "ar-by3": {
+        "aa_sens": "faire commerce",
         "ar-*a**@ũ": "innauguration",
         "ar-*a**ũ": "échange commercial",
         "ar-*a*a*a-i": "faire affaire ; acheter ; vendre",
@@ -3031,8 +3141,9 @@ racines_schemes_arabes = {
         "ar-n*i*â*ũ": "gaité",
         "ar-sta**a*a": "mettre en vente",
         "ar-ta*a*²a*a": "stipuler",
-    },  # 21
+    },  # 22
     "ar-byD": {
+        "aa_sens": "blancheur éclatante",
         "ar-***ũ": "",
         "ar-**a*²a": "être blanc",
         "ar-*a**@ũ": "œuf",
@@ -3058,8 +3169,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "copie au net",
         "ar-ta*a*²a*a": "être blanchi",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-byt": {
+        "aa_sens": "maison, nocturne",
         "ar-**a*²a": "",
         "ar-*a**ũ": "maison",
         "ar-*a*a*a-i": "passer la nuit",
@@ -3081,8 +3193,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prendre des provisions pour la nuit",
         "ar-ta*a*²a*a": "être casé pour la nuit",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-c3b": {
+        "aa_sens": "fourche, séparer",
         "ar-**a*²a": "",
         "ar-*a**iy²ũ": "populaire",
         "ar-*a**ânu": "[[chaabane]]",
@@ -3121,8 +3234,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "division",
         "ar-ta*a*²a*a": "se bifurquer",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 39
     "ar-crb": {
+        "aa_sens": "boire",
         "ar-**a'a*²a": "allonger le cou",
         "ar-**a*²a": "",
         "ar-**â*²a": "allonger le cou",
@@ -3172,8 +3286,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "imprégner",
         "ar-ta*a*²u*ũ": "imbibition",
         "ar-ta*â*a*a": "",
-    },  # 49
+    },  # 50
     "ar-crw": {
+        "aa_sens": "transaction",
         "ar-*a**é": "pareil",
         "ar-*a**ũ": "miel",
         "ar-*a*a*@ũ": "partie du troupeau",
@@ -3189,8 +3304,9 @@ racines_schemes_arabes = {
         "ar-a**a*a": "faire pencher, remplir",
         "ar-mu*ta*a*ũ": "acheteur",
         "ar-mu*ta*i*ũ": "acheteur",
-    },  # 15
+    },  # 16
     "ar-cry": {
+        "aa_sens": "agitation, querelle",
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "être agité",
         "ar-*a**ũ": "coloquinte, palmier",
@@ -3209,8 +3325,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être agité",
         "ar-ta*a*²a*a": "faire scission",
         "ar-ta*â*a*a": "se fâcher",
-    },  # 18
+    },  # 19
     "ar-ctw": {
+        "aa_sens": "hiver",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "hiver",
         "ar-*a**iy²ũ": "hivernal",
@@ -3232,8 +3349,9 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "hivernage",
         "ar-ta*a*²a*a": "hiverner",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-d3w": {
+        "aa_sens": "appeler, prétendre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "invitation",
@@ -3273,8 +3391,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être en procès",
         "ar-u**u*iy²@ũ": "controverse",
         "ar-u**û*@ũ": "controverse",
-    },  # 39
+    },  # 40
     "ar-dXl": {
+        "aa_sens": "intérieur ; pénétration ; foncier",
         "ar-**a*²a": "",
         "ar-**â*ũ": "incorporation",
         "ar-*a**@ũ": "fond ; ruche ; entrée",
@@ -3323,8 +3442,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "effraction, admission",
         "ar-ta*â*a*a": "s'immiscer",
         "ar-ta*â*u*ũ": "le fait d'être inclus",
-    },  # 48
+    },  # 49
     "ar-dXn": {
+        "aa_sens": "fumée",
         "ar-**a*²a": "",
         "ar-*a**ũ": "le fait de fumer",
         "ar-*a*3â3ũ": "sombre, nuageux",
@@ -3352,8 +3472,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être enfumé",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-dbr": {
+        "aa_sens": "arrière, postérieur",
         "ar-**â*@ũ": "oreille fendue",
         "ar-**â*ũ": "malheur",
         "ar-*a**@ũ": "ficelle ; fuite, infortune, fin",
@@ -3396,8 +3517,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "agir avec discernement",
         "ar-ta*â*a*a": "être dos à dos ; faire défection",
         "ar-u*â*i*ũ": "se détournant",
-    },  # 42
+    },  # 43
     "ar-djj": {
+        "aa_sens": "poule ; couvert",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "appel de poules",
@@ -3418,8 +3540,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être armé",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-dkn": {
+        "aa_sens": "sombre, empilage",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**â'u": "{{f}} noirâtre",
@@ -3439,8 +3562,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 19
+    },  # 20
     "ar-dlw": {
+        "aa_sens": "seau, puiser",
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "marcher avec rapidité",
         "ar-*a**ũ": "seau",
@@ -3456,8 +3580,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être suspendu",
         "ar-ta*â*a*a": "",
-    },  # 15
+    },  # 16
     "ar-drs": {
+        "aa_sens": "étudier, limer",
         "ar-**a*²a": "",
         "ar-*a**ũ": "enseignement",
         "ar-*a*a*a-u": "étudier ; râper",
@@ -3497,8 +3622,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "enseignement, instruction",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "lire",
-    },  # 39
+    },  # 40
     "ar-f3l": {
+        "aa_sens": "action",
         "ar-*a**@ũ": "habitude",
         "ar-*a**ũ": "vagin d'une femelle",
         "ar-*a*a*@ũ": "({{p}}) ouvriers",
@@ -3516,8 +3642,9 @@ racines_schemes_arabes = {
         "ar-n*a*a*a": "être fait, être dépité",
         "ar-n*i*â*ũ": "mauvaise humeur, dépit",
         "ar-ta*â*î*u": "pied d'un mètre",
-    },  # 17
+    },  # 18
     "ar-fCl": {
+        "aa_sens": "découragement",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "lâche",
@@ -3538,8 +3665,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "lait non trait",
         "ar-ta*a*²a*a": "échouer",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-fDl": {
+        "aa_sens": "dépasser, préférer, trop",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "restant",
         "ar-*a**ânu": "Fadlan",
@@ -3592,8 +3720,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "contribuer à faire valoir",
         "ar-ta*â*u*iy²ũ": "différentiel",
         "ar-ta*â*u*ũ": "différenciation",
-    },  # 52
+    },  # 53
     "ar-fhm": {
+        "aa_sens": "comprendre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "intelligence",
@@ -3616,8 +3745,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "compréhension",
         "ar-ta*â*a*a": "être d'accord",
         "ar-ta*â*u*ũ": "accord, entente",
-    },  # 22
+    },  # 23
     "ar-fkr": {
+        "aa_sens": "penser",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "réflexion",
@@ -3641,8 +3771,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "réminiscence",
         "ar-ta*a*²a*a": "être pensif",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-ftH": {
+        "aa_sens": "débouché, ouvert, qui a le goulot large",
         "ar-*a**@ũ": "faire une fois l'action d'ouvrir / innaugurer / juger",
         "ar-*a**ũ": "action d'ouvrir, innauguration, jugement, voyelle ''a''",
         "ar-*a*a*a-a": "ouvrir, innaugurer, décider",
@@ -3678,8 +3809,9 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "étrenne, première vente",
         "ar-ta*a*²a*a": "s'ouvrir, s'épancher",
         "ar-ta*â*a*a": "s'ouvrir l'un à l'autre",
-    },  # 35
+    },  # 36
     "ar-hmz": {
+        "aa_sens": "piquer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "hamza",
@@ -3702,8 +3834,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 22
+    },  # 23
     "ar-htf": {
+        "aa_sens": "voix qu'on entend, appel",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "appel",
         "ar-*a**é": "qui rend un son",
@@ -3722,8 +3855,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 18
+    },  # 19
     "ar-hzl": {
+        "aa_sens": "maigreur ; plaisanterie",
         "ar-**a*²a": "",
         "ar-*a**é": "les serpents",
         "ar-*a**ũ": "plaisanterie",
@@ -3747,8 +3881,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-jhd": {
+        "aa_sens": "effort, tension",
         "ar-**a*²a": "",
         "ar-*a**ũ": "effort",
         "ar-*a*a*a-a": "s'efforcer ; éprouver",
@@ -3773,8 +3908,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "considérer",
         "ar-ta*a*²a*a": "s'évertuer",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 25
     "ar-jls": {
+        "aa_sens": "être assis",
         "ar-*a**ũ": "grande dame",
         "ar-*a*a*a-i": "être assis",
         "ar-*a*²a*a": "faire asseoir",
@@ -3791,8 +3927,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'asseoir à côté de quelqu'un",
         "ar-ta*a*²a*a": "tenir séance",
         "ar-ta*â*a*a": "être en conférence",
-    },  # 16
+    },  # 17
     "ar-jm3": {
+        "aa_sens": "rassembler, contenir",
         "ar-**â*ũ": "grande quantité",
         "ar-*a**iy²@ũ": "recueillement",
         "ar-*a**ũ": "addition, troupe",
@@ -3828,8 +3965,9 @@ racines_schemes_arabes = {
         "ar-mu*ta*i*ũ": "dans la force de l'âge",
         "ar-sta**a*a": "être rassemblé, affluer",
         "ar-ta*a*²a*a": "s'attrouper",
-    },  # 35
+    },  # 36
     "ar-jml": {
+        "aa_sens": "totalité, beauté ; chameau",
         "ar-**a*²a": "",
         "ar-**â*iy²ũ": "total, collectif",
         "ar-**â*ũ": "résumé",
@@ -3881,8 +4019,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "agir honnêtement",
         "ar-ta*a*²u*ũ": "splendeur",
         "ar-ta*â*a*a": "",
-    },  # 51
+    },  # 52
     "ar-jnn": {
+        "aa_sens": "couvrir, cacher, folie",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jardin",
         "ar-*a**ũ": "recouvrement",
@@ -3919,8 +4058,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être caché",
         "ar-ta*a*²a*a": "devenir fou",
         "ar-ta*â*a*a": "être fou",
-    },  # 36
+    },  # 37
     "ar-jns": {
+        "aa_sens": "genre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-i": "mûrir",
@@ -3944,8 +4084,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "naturalisation",
         "ar-ta*â*a*a": "être apparenté",
         "ar-ta*â*u*ũ": "ressemblance",
-    },  # 23
+    },  # 24
     "ar-jnw": {
+        "aa_sens": "agir injustement",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "injustice",
         "ar-*a*a*a-i": "agir injustement",
@@ -3960,8 +4101,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "accuser faussement",
         "ar-ta*â*a*a": "",
-    },  # 14
+    },  # 15
     "ar-jny": {
+        "aa_sens": "cueillir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-i": "cueillir",
@@ -3979,28 +4121,35 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "cueillir",
         "ar-ta*â*a*a": "",
-    },  # 17
+    },  # 18
     "ar-jry": {
+        "aa_sens": "courir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-**â*ũ": "impulsion",
+        "ar-*a**@ũ": "cours d'eau",
         "ar-*a**ũ": "cours",
         "ar-*a*a*a-i": "courir",
         "ar-*a*a*ũ": "jeunesse",
         "ar-*a*²a*a": "entraîner",
+        "ar-*a*â*@ũ": "jeunesse",
         "ar-*a*â*ũ": "jeunesse",
-        "ar-*a*î*ũ": "",
+        "ar-*a*î*ũ": "jeune",
+        "ar-*i*â*@ũ": "paye",
         "ar-*ta*a*a": "",
         "ar-*uway*i*@ũ": "petite fille",
         "ar-*â*a*a": "",
         "ar-*â*i*@ũ": "fille",
         "ar-*â*i*ũ": "qui coule",
         "ar-a**a*a": "faire courir",
+        "ar-ma**a*ũ": "lieu d'écoulement",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "confier une mission",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "convenir",
-    },  # 18
+    },  # 24
     "ar-jw3": {
+        "aa_sens": "faim",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "accès de faim",
         "ar-*a**ânũ": "qui a faim",
@@ -4017,8 +4166,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "crier famine",
         "ar-ta*a*²a*a": "supporter la faim",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-kFr": {
+        "aa_sens": "multitude",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "abondance",
@@ -4056,8 +4206,9 @@ racines_schemes_arabes = {
         "ar-ta*aw*a*a": "être très épais",
         "ar-ta*â*a*a": "pulluler",
         "ar-ta*â*u*ũ": "grand nombre",
-    },  # 37
+    },  # 38
     "ar-kHl": {
+        "aa_sens": "khôl",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*²a": "commencer à se couvrir de verdure",
@@ -4100,8 +4251,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "s'enduire les yeux",
         "ar-ta*a*²a*a": "se mettre du collyre",
         "ar-ta*â*a*a": "",
-    },  # 42
+    },  # 43
     "ar-kbs": {
+        "aa_sens": "fourrer, presser",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "attaque, charge",
@@ -4125,15 +4277,17 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "philie",
         "ar-ta*a*²a*a": "être comblé",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-kcd": {
+        "aa_sens": "tirer",
         "ar-*a**ũ": "gain, abondant",
         "ar-*a*a*a-i": "mordre, traire",
         "ar-*a*a*ũ": "gagneur",
         "ar-*a*û*ũ": "qui donne avec abondance",
         "ar-a**a*a": "écumer",
-    },  # 5
+    },  # 6
     "ar-kfr": {
+        "aa_sens": "couvrir, renier",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "ténèbres",
@@ -4164,8 +4318,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "expiation",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-klm": {
+        "aa_sens": "parole ; (blessure)",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "parole",
         "ar-*a**âniy²ũ": "bavard",
@@ -4209,8 +4364,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "avoir un entretien",
         "ar-ta*â*u*ũ": "entretien",
         "ar-ti*i*²â*ũ": "discours",
-    },  # 43
+    },  # 44
     "ar-kml": {
+        "aa_sens": "achever",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "être complet",
@@ -4238,8 +4394,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être parfait",
         "ar-ta*â*u*iy²ũ": "unifié",
         "ar-ta*â*u*ũ": "intégration",
-    },  # 27
+    },  # 28
     "ar-krs": {
+        "aa_sens": "mettre sur",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
         "ar-*a*²a*a": "poser, ranger ; consacrer",
@@ -4254,14 +4411,16 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être cohérent",
         "ar-ta*â*a*a": "empiler",
-    },  # 14
+    },  # 15
     "ar-ksks": {
+        "aa_sens": "broyer",
         "ar-*a**a*@ũ": "broyage",
         "ar-*a**a*a": "broyer, piler",
         "ar-*a**â*ũ": "marmite à couscous",
         "ar-*u**u*ũ": "couscous",
-    },  # 4
+    },  # 5
     "ar-ktb": {
+        "aa_sens": "relatif à l'action d'écrire, relier",
         "ar-*a**ũ": "le fait d'écrire",
         "ar-*a*a*@ũ": "écrivain, secrétaire",
         "ar-*a*a*a-u": "écrire",
@@ -4298,8 +4457,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait d'enseigner l'écriture",
         "ar-ta*a*²a*a": "former des escadrons",
         "ar-ta*â*a*a": "être en correspondance les uns avec les autres",
-    },  # 36
+    },  # 37
     "ar-kwn": {
+        "aa_sens": "être, exister",
         "ar-*a**ũ": "nom d'action de (i) ; parce que ; être",
         "ar-*a*a*a-u": "exister, être ainsi, avoir lieu",
         "ar-*a*²a*a": "faire exister, créer",
@@ -4317,8 +4477,9 @@ racines_schemes_arabes = {
         "ar-mu*a*²i*ũ": "créateur",
         "ar-sta**a*a": "se faire humble",
         "ar-ta*a*²a*a": "exister ; s'établir ; se raffermir",
-    },  # 17
+    },  # 18
     "ar-l3b": {
+        "aa_sens": "hochet, jouer, baver",
         "ar-**a*²a": "",
         "ar-**â*ũ": "jeu",
         "ar-*a**@ũ": "jouet",
@@ -4364,8 +4525,9 @@ racines_schemes_arabes = {
         "ar-ti*i*²â*ũ": "amateur de jeu",
         "ar-u**u*ânũ": "qui aime le jeu",
         "ar-u**û*@ũ": "divertissement",
-    },  # 45
+    },  # 46
     "ar-lRw": {
+        "aa_sens": "voix, parler de travers",
         "ar-**a*²a": "",
         "ar-**â*ũ": "omission",
         "ar-*a**é": "futilité",
@@ -4387,8 +4549,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "étudier l'arabe",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se parler",
-    },  # 21
+    },  # 22
     "ar-lbn": {
+        "aa_sens": "pâte séchée ; [[fromage]], [[lait]] ou [[brique]]",
         "ar-*a*a*@ũ": "un jet, un coup",
         "ar-*a*a*a": "assommer ; donner du lait",
         "ar-*a*a*ũ": "lait, lait aigre ; résine",
@@ -4426,8 +4589,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "soupe de son au lait",
         "ar-ta*a*²a*a": "être lent, traîner en longueur",
         "ar-ta*â*a*a": "sucer le lait",
-    },  # 37
+    },  # 38
     "ar-lft": {
+        "aa_sens": "tourner, tordre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "regard de côté",
@@ -4450,8 +4614,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "attirer l’œil",
         "ar-ta*a*²a*a": "se tourner",
         "ar-ta*â*a*a": "",
-    },  # 22
+    },  # 23
     "ar-lwn": {
+        "aa_sens": "couleur",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "couleur",
@@ -4468,8 +4633,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "point de vue",
         "ar-ta*a*²a*a": "être coloré",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-mSr": {
+        "aa_sens": "séparation ; traire ; capitale",
         "ar-**a*²a": "",
         "ar-*a**ũ": "traite",
         "ar-*a*a*a-u": "traire",
@@ -4495,8 +4661,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "s'épuiser",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-mlk": {
+        "aa_sens": "possession",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "mariage",
@@ -4563,8 +4730,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "se maîtriser",
         "ar-ta*â*i*u": "{{p}} choses que l'on possède",
         "ar-ta*â*u*ũ": "self-contrôle",
-    },  # 66
+    },  # 67
     "ar-mnw": {
+        "aa_sens": "éprouver, séparer",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "chose désirée",
         "ar-*a**iy²ũ": "Appartenant à Manat",
@@ -4595,8 +4763,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "souhait",
         "ar-ta*â*a*a": "",
         "ar-u**u*iy²@ũ": "vision",
-    },  # 30
+    },  # 31
     "ar-mny": {
+        "aa_sens": "sperme, déterminer",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "sperme",
         "ar-*a**ũ": "éjaculation",
@@ -4618,8 +4787,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "se masturber",
         "ar-ta*a*²a*a": "lire",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-msw": {
+        "aa_sens": "soir",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "venir le soir",
         "ar-*a*²a*a": "souhaiter bonsoir",
@@ -4634,8 +4804,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 14
+    },  # 15
     "ar-mt3": {
+        "aa_sens": "jouir, profiter",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "rivaliser de mensonges",
@@ -4656,8 +4827,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "avoir jouissance",
         "ar-ta*a*²u*ũ": "jouissance",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-mwh": {
+        "aa_sens": "eau",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*@ũ": "plein d'eau",
@@ -4678,8 +4850,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-mwr": {
+        "aa_sens": "agiter, répandre",
         "ar-**a*²a": "",
         "ar-*a**ũ": "Va-et-vient ; tangage.",
         "ar-*a*a*a-u": "Se balancer, tomber lentement.",
@@ -4697,8 +4870,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "S'agiter d'avant en arrière.",
         "ar-ta*a*²u*ũ": "mouvement d'avant en arrière.",
         "ar-ta*â*a*a": "",
-    },  # 17
+    },  # 18
     "ar-mws": {
+        "aa_sens": "rasoir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "raser",
@@ -4711,8 +4885,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 12
+    },  # 13
     "ar-myh": {
+        "aa_sens": "eau",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "être riche en eau",
@@ -4725,8 +4900,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 12
+    },  # 13
     "ar-n3t": {
+        "aa_sens": "décrire",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "description",
@@ -4746,8 +4922,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander de décrire",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 19
+    },  # 20
     "ar-nSf": {
+        "aa_sens": "moitié, juste milieu",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "justice",
@@ -4788,8 +4965,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "se faire rendre son dû",
         "ar-ta*a*²a*a": "demander la moitié",
         "ar-ta*â*a*a": "agir avec équité",
-    },  # 40
+    },  # 41
     "ar-nZf": {
+        "aa_sens": "propreté",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*²a": "se purifier",
@@ -4806,8 +4984,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "nettoyage",
         "ar-ta*a*²a*a": "se purifier",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-nZr": {
+        "aa_sens": "regarder, attendre",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "regard, vice",
@@ -4855,8 +5034,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "attendre",
         "ar-ta*a*²u*ũ": "attente",
         "ar-ta*â*a*a": "se regarder",
-    },  # 47
+    },  # 48
     "ar-nZrn": {
+        "aa_sens": "augmentation de {{ar-mot|n Z r}}, regard",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
         "ar-*a*²a*a": "",
@@ -4871,8 +5051,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 14
+    },  # 15
     "ar-nbr": {
+        "aa_sens": "bosse, cri",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "bosse",
@@ -4898,8 +5079,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-nhr": {
+        "aa_sens": "fleuve, large",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "arrachement",
@@ -4926,8 +5108,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "couler abondamment",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 27
     "ar-nqb": {
+        "aa_sens": "percée",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "percement",
@@ -4958,8 +5141,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "se voiler la bouche",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-nqd": {
+        "aa_sens": "payer ; picorer ; décortiquer",
         "ar-**a*²a": "",
         "ar-*a**ũ": "argent comptant",
         "ar-*a*a*a-u": "payer comptant",
@@ -4985,8 +5169,9 @@ racines_schemes_arabes = {
         "ar-ta**â*ũ": "picorage",
         "ar-ta*a*²a*a": "payer en numéraire",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-nsw": {
+        "aa_sens": "femmes",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
@@ -5005,8 +5190,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 18
+    },  # 19
     "ar-nsy": {
+        "aa_sens": "oublier",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ânũ": "oublieux",
@@ -5020,8 +5206,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "vouloir oublier",
-    },  # 13
+    },  # 14
     "ar-qDy": {
+        "aa_sens": "exiger, juger",
         "ar-**a*²a": "",
         "ar-*a*a*a-i": "décider, aboutir",
         "ar-*a*a*ũ": "décision juridique",
@@ -5046,8 +5233,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'accomplir",
         "ar-ta*â*a*a": "faire un procès",
         "ar-ta*â*a*ũ": "action d'exiger",
-    },  # 24
+    },  # 25
     "ar-qSb": {
+        "aa_sens": "roseau, tube",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**â'u": "forêt de roseaux",
@@ -5087,8 +5275,9 @@ racines_schemes_arabes = {
         "ar-ta**î*@ũ": "boucle frisée",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 39
+    },  # 40
     "ar-qSd": {
+        "aa_sens": "relié à l'idée d'[[intention]], d'[[objectif]], de [[projet]]",
         "ar-*a**ũ": "intention, visée",
         "ar-*a*a*@ũ": "germe d'arbre épineux",
         "ar-*a*a*a-i": "viser, se diriger vers",
@@ -5114,8 +5303,9 @@ racines_schemes_arabes = {
         "ar-mu*ta*i*ũ": "moyen",
         "ar-n*a*a*a": "se casser en deux ; crever",
         "ar-ta*a*²a*a": "se casser en deux ; crever",
-    },  # 25
+    },  # 26
     "ar-qTT": {
+        "aa_sens": "détourer",
         "ar-**a*²a": "",
         "ar-*a**u": "jamais",
         "ar-*a**ũ": "court et crépu",
@@ -5144,8 +5334,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 29
     "ar-qbr": {
+        "aa_sens": "creuser la terre",
         "ar-**a*²a": "",
         "ar-*a**ũ": "tombeau",
         "ar-*a*a*a-u": "enterrer",
@@ -5171,8 +5362,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-qdm": {
+        "aa_sens": "avant, devant",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "bravoure",
@@ -5244,8 +5436,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être antérieur",
         "ar-ta*â*i*u": "{{p}} présents",
         "ar-tu**a*@ũ": "courage",
-    },  # 71
+    },  # 72
     "ar-qlb": {
+        "aa_sens": "tourner, retourner",
         "ar-**a*²a": "",
         "ar-*a**iy²ũ": "de cœur",
         "ar-*a**ũ": "changement ; cœur",
@@ -5284,8 +5477,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se retourner",
         "ar-ta*a*²u*ũ": "changement",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 39
     "ar-qr'": {
+        "aa_sens": "lire, règles",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "menstrues",
@@ -5318,8 +5512,9 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "évaluation de grossesse",
         "ar-ta*a*²a*a": "se consacrer à la lecture",
         "ar-ta*â*a*a": "",
-    },  # 32
+    },  # 33
     "ar-qrb": {
+        "aa_sens": "approche",
         "ar-**a*²a": "",
         "ar-*a**ânu": "familier d'un prince",
         "ar-*a**ãé": "familière, remplie",
@@ -5386,8 +5581,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être rapprochés",
         "ar-ta*â*u*ũ": "être rapprochés",
         "ar-ti*i*²â*ũ": "chercher à rapprocher",
-    },  # 66
+    },  # 67
     "ar-qtl": {
+        "aa_sens": "mort, tuer",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "une exécution",
         "ar-*a**ũ": "homicide",
@@ -5419,8 +5615,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'exposer à la mort",
         "ar-ta*a*²a*a": "s'appliquer",
         "ar-ta*â*a*a": "s'entre-combattre",
-    },  # 31
+    },  # 32
     "ar-qwm": {
+        "aa_sens": "être debout",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "temps d'arrêt",
@@ -5463,14 +5660,16 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "disposition",
         "ar-ta*a*²a*a": "être raffermi",
         "ar-ta*â*a*a": "engager une lutte",
-    },  # 42
+    },  # 43
     "ar-qym": {
+        "aa_sens": "être debout",
         "ar-***ũ": "",
         "ar-*a*²â*ũ": "immuable",
         "ar-*a*²û*ũ": "immuable",
         "ar-*i*â*ũ": "persévérance",
-    },  # 4
+    },  # 5
     "ar-rb3": {
+        "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "boîte à parfum",
@@ -5536,8 +5735,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'asseoir en tailleur",
         "ar-ta*â*a*a": "",
         "ar-ya**û*ũ": "gerboise",
-    },  # 65
+    },  # 66
     "ar-rbT": {
+        "aa_sens": "nœud, fermeté, station",
         "ar-**a*²a": "",
         "ar-*a**ũ": "nœud",
         "ar-*a*a*a-u": "attacher",
@@ -5562,8 +5762,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se liguer contre",
-    },  # 24
+    },  # 25
     "ar-rcH": {
+        "aa_sens": "suinter, suer",
         "ar-**a*²a": "",
         "ar-*a**ũ": "exsudation",
         "ar-*a*a*a-a": "suinter",
@@ -5584,8 +5785,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "candidature",
         "ar-ta*a*²a*a": "transpirer ; être formé à",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-rkb": {
+        "aa_sens": "monter, assembler",
         "ar-**a*²a": "",
         "ar-*a**â'u": "{{f}} au gros genou",
         "ar-*a**ân@ũ": "qui sert de monture",
@@ -5640,8 +5842,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "composition",
         "ar-ta*a*²a*a": "être adapté, être composé",
         "ar-ta*â*a*a": "être ajusté, être adapté",
-    },  # 54
+    },  # 55
     "ar-rqS": {
+        "aa_sens": "danse",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "danse",
         "ar-*a**ũ": "danse",
@@ -5661,8 +5864,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "sautiller",
         "ar-ta*â*a*a": "se bouger",
-    },  # 19
+    },  # 20
     "ar-rwD": {
+        "aa_sens": "apprivoiser, exercer, jardiner",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jardin",
@@ -5685,8 +5889,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être exercé",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "rivaliser",
-    },  # 22
+    },  # 23
     "ar-rwd": {
+        "aa_sens": "chercher, aller et venir, nonchalence",
         "ar-**a*²a": "",
         "ar-*a**ũ": "qui souffle doucement",
         "ar-*a*a*@ũ": "qui va et vient chez les voisins",
@@ -5714,8 +5919,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "trembler, vaciller",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-sWd": {
+        "aa_sens": "noir",
         "ar-***ũ": "",
         "ar-**a'a*²a": "être noir",
         "ar-**a*²a": "être noir",
@@ -5742,8 +5948,9 @@ racines_schemes_arabes = {
         "ar-mu*a*²a*@ũ": "brouillon",
         "ar-mu*a*²a*ũ": "noirci",
         "ar-ta**î*ũ": "noircissement",
-    },  # 26
+    },  # 27
     "ar-sWr": {
+        "aa_sens": "assaut, rangée",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "cavalier",
@@ -5766,8 +5973,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "envahir",
         "ar-ta*â*a*a": "se livrer combat",
-    },  # 22
+    },  # 23
     "ar-sbt": {
+        "aa_sens": "repos ; étaler",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "espace de temps",
         "ar-*a**iy²ũ": "sabbataire",
@@ -5794,8 +6002,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 27
     "ar-sjd": {
+        "aa_sens": "prosterner",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "se prosterner",
@@ -5817,8 +6026,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-skn": {
+        "aa_sens": "idée de plantage - repos, misère, couteau,...",
         "ar-*a**ũ": "aliment",
         "ar-*a*a*a-u": "être au repos",
         "ar-*a*a*ũ": "demeure",
@@ -5850,8 +6060,9 @@ racines_schemes_arabes = {
         "ar-mu**i*ũ": "devenu pauvre",
         "ar-ta*a*²a*a": "devenir pauvre",
         "ar-tama**a*a": "tomber dans la misère",
-    },  # 31
+    },  # 32
     "ar-slH": {
+        "aa_sens": "arme, excrément",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-a": "fienter",
@@ -5881,8 +6092,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'armer",
         "ar-ta*a*²u*ũ": "armement",
         "ar-ta*â*a*a": "se battre",
-    },  # 29
+    },  # 30
     "ar-slm": {
+        "aa_sens": "rester intact ; être livré ; morsure de serpent",
         "ar-**â*ũ": "le fait de se rendre à Dieu ; islam",
         "ar-*a**ânu": "Salman (prénom) ; meilleure part",
         "ar-*a**é": "({{f}}) plus intacte, plus à l'abri",
@@ -5923,8 +6135,9 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "faire la paix ; être d'accord",
         "ar-tama**a*a": "se convertir, devenir musulman",
         "ar-u*ay*i*ũ": "artère entre le majeur et l'auriculaire",
-    },  # 40
+    },  # 41
     "ar-smw": {
+        "aa_sens": "hauteur, cieux ; nom",
         "ar-*a**ũ": "le fait de nommer",
         "ar-*a*a*a-u": "s'élever ; monter",
         "ar-*a*a*iy²ũ": "de nom, du nom",
@@ -5944,8 +6157,9 @@ racines_schemes_arabes = {
         "ar-mi**a*@ũ": "guêtre de chasseur",
         "ar-ta*a*²a*a": "être sublime ; être appelé",
         "ar-ta*â*a*a": "rivaliser de gloire ; s'élever",
-    },  # 19
+    },  # 20
     "ar-snw": {
+        "aa_sens": "puiser, aridité",
         "ar-**a*²a": "",
         "ar-*a**â'u": "stérile",
         "ar-*a*a*a-u": "arroser",
@@ -5958,8 +6172,9 @@ racines_schemes_arabes = {
         "ar-mu*a*²a*@ũ": "digue",
         "ar-n*a*a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 12
+    },  # 13
     "ar-sny": {
+        "aa_sens": "élever, éclairer",
         "ar-**a*²a": "",
         "ar-*a*i*a-a": "être élevé",
         "ar-*a*²a*a": "rendre haut",
@@ -5973,8 +6188,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "trouver sublime",
         "ar-ta*a*²a*a": "vieillir",
         "ar-ta*â*a*a": "",
-    },  # 13
+    },  # 14
     "ar-swd": {
+        "aa_sens": "chef",
         "ar-***ũ": "",
         "ar-*a*a*a-u": "gouverner",
         "ar-*a*²a*a": "prendre pour chef",
@@ -5999,14 +6215,16 @@ racines_schemes_arabes = {
         "ar-n*a*a*a": "",
         "ar-ta*a*²a*a": "se marier",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 25
     "ar-swr": {
+        "aa_sens": "assaut, rangée",
         "ar-*a*a*a-u": "escalader un mur",
         "ar-*i**ânũ": "{{p}} murailles",
         "ar-*u**ũ": "mur",
         "ar-a**â*ũ": "{{p}} murailles",
-    },  # 4
+    },  # 5
     "ar-t3b": {
+        "aa_sens": "fatigue",
         "ar-**a*²a": "",
         "ar-*a**ânũ": "fatigué",
         "ar-*a*a*a-u": "",
@@ -6028,8 +6246,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 22
     "ar-tHf": {
+        "aa_sens": "œuvre d'art",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
@@ -6046,8 +6265,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 17
     "ar-tXm": {
+        "aa_sens": "frontière",
         "ar-*a**ũ": "borne",
         "ar-*a*a*a-i": "limiter quelqu'un",
         "ar-*a*i*a-a": "(viii) de {{ar-mot|waXama}}",
@@ -6059,8 +6279,9 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "être limitrophe",
         "ar-a**a*a": "mis pour {{ar-mot|awXama}}",
         "ar-ma**a*@ũ": "aliment indigeste",
-    },  # 11
+    },  # 12
     "ar-tb3": {
+        "aa_sens": "suivre, continuité",
         "ar-**â*ũ": "action de faire suivre",
         "ar-*a*a*ũ": "sectateur",
         "ar-*a*i*@ũ": "conséquence",
@@ -6091,8 +6312,9 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "louange doublée",
         "ar-ta*a*²a*a": "étudier avec soin",
         "ar-ta*â*a*a": "se succéder",
-    },  # 30
+    },  # 31
     "ar-tjr": {
+        "aa_sens": "commerce",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "être commerçant",
         "ar-*a*²a*a": "",
@@ -6108,12 +6330,14 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 15
+    },  # 16
     "ar-tlfn": {
+        "aa_sens": "téléphone",
         "ar-*a**a*a": "téléphoner",
         "ar-*i*i*û*ũ": "téléphone",
-    },  # 2
+    },  # 3
     "ar-trk": {
+        "aa_sens": "laisser, abandonner",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "chose abandonnée",
         "ar-*a**ũ": "casque",
@@ -6134,8 +6358,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "abandonner",
-    },  # 20
+    },  # 21
     "ar-wSl": {
+        "aa_sens": "allier, rallier",
         "ar-**a*²a": "",
         "ar-**â*ũ": "don ; union",
         "ar-*a**@ũ": "wasla",
@@ -6174,8 +6399,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se rattacher à",
         "ar-ta*â*a*a": "s'allier",
         "ar-t²i2â3ũ": "jonction",
-    },  # 38
+    },  # 39
     "ar-wTn": {
+        "aa_sens": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "demeure ; patrie",
         "ar-*a*a*a-i": "résider, demeurer",
@@ -6193,8 +6419,9 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "domicile",
         "ar-ta*a*²a*a": "demeurer, s'acclimater",
         "ar-ta*â*a*a": "",
-    },  # 17
+    },  # 18
     "ar-wXm": {
+        "aa_sens": "indigestion",
         "ar-*a**@ũ": "insalubre",
         "ar-*a**ũ": "enuyeux",
         "ar-*a*a*a-i": "avoir une digestion pénible",
@@ -6214,8 +6441,9 @@ racines_schemes_arabes = {
         "ar-mata*a*²a*ũ": "insalubre",
         "ar-sta**a*a": "devenir malsain",
         "ar-ta*a*²a*a": "être malsain",
-    },  # 19
+    },  # 20
     "ar-wjd": {
+        "aa_sens": "trouver",
         "ar-**a*²a": "",
         "ar-**â*ũ": "invention",
         "ar-*a**ũ": "affection intense",
@@ -6234,8 +6462,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être épris",
         "ar-ta*â*a*a": "se plaindre",
-    },  # 18
+    },  # 19
     "ar-wld": {
+        "aa_sens": "engendrer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "engendré, enfants",
@@ -6278,8 +6507,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "naître",
         "ar-ta*a*²u*ũ": "naissance",
         "ar-ta*â*a*a": "croître et multiplier",
-    },  # 42
+    },  # 43
     "ar-wrd": {
+        "aa_sens": "accéder à l'eau ; rose",
         "ar-**â*²a": "être fauve",
         "ar-**â*ũ": "revenus",
         "ar-*a**@ũ": "rose",
@@ -6319,8 +6549,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "couleur de rose",
         "ar-ta*â*a*a": "arriver en foule",
         "ar-ta*â*u*ũ": "concorde",
-    },  # 39
+    },  # 40
     "ar-wrq": {
+        "aa_sens": "feuille, feuillage, branche",
         "ar-**a*²a": "",
         "ar-**â*²a": "se colorer",
         "ar-*a**@ũ": "arc à nœud",
@@ -6345,8 +6576,9 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait de ramifier, plier du papier",
         "ar-ta*a*²a*a": "se nourrir de rameaux",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 25
     "ar-wry": {
+        "aa_sens": "dissimulation",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "amadou",
@@ -6371,8 +6603,9 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "feinte",
         "ar-ta*a*²a*a": "se cacher",
         "ar-ta*â*a*a": "être caché",
-    },  # 24
+    },  # 25
     "ar-wtr": {
+        "aa_sens": "tension ; séparation",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "haine",
@@ -6400,8 +6633,9 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "tension",
         "ar-ta*â*a*a": "se suivre",
         "ar-ta*â*u*ũ": "succession",
-    },  # 27
+    },  # 28
     "ar-xDr": {
+        "aa_sens": "relatif à la couleur [[vert|verte]], à la [[végétation]]",
         "ar-**a*²a": "être vert ; être sombre",
         "ar-*2aw2a*a": "être très vert",
         "ar-*a**â'u": "noire ; sceau patiné ; troupe nombreuse",
@@ -6433,19 +6667,22 @@ racines_schemes_arabes = {
         "ar-mu**a*@ũ": "lieu couvert d'une riche verdure",
         "ar-ta**î*ũ": "le fait de rendre prospère",
         "ar-ta**û*ũ": "vert",
-    },  # 31
+    },  # 32
     "ar-zWj": {
+        "aa_sens": "{{ar-zwj|***}}",
         "ar-*da*a*a": "faire la paire",
-    },  # 1
+    },  # 2
     "ar-zWr": {
+        "aa_sens": "éloignement",
         "ar-*a*a*ũ": "vice du poitrail",
         "ar-*a*i*a-a": "être penché",
         "ar-*i*â*ũ": "corde d'appui",
         "ar-*â*i*@ũ": "gésier",
         "ar-*â*u*@ũ": "gésier",
         "ar-a**a*ũ": "oblique",
-    },  # 6
+    },  # 7
     "ar-zbb": {
+        "aa_sens": "sortir le jus",
         "ar-**a*²a": "",
         "ar-*a*a*@ũ": "{{p}} pénis",
         "ar-*a*a*a-u": "être écumant ; être velu",
@@ -6471,8 +6708,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être écumant",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 26
     "ar-zbl": {
+        "aa_sens": "fumier, particule",
         "ar-**a*²a": "être couleur fumier",
         "ar-*a*a*@ũ": "petit morceau",
         "ar-*a*a*a-i": "fumer la terre",
@@ -6495,8 +6733,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 22
+    },  # 23
     "ar-zhr": {
+        "aa_sens": "briller, fleurir",
         "ar-**â*²a": "être en fleur",
         "ar-*a**@ũ": "fleur ; beauté",
         "ar-*a**iy²@ũ": "éclat, brillant",
@@ -6527,8 +6766,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 31
     "ar-zlj": {
+        "aa_sens": "glisser",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "endroit glissant",
@@ -6552,8 +6792,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "patiner",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-zmn": {
+        "aa_sens": "temps, durée",
         "ar-*a*a*@ũ": "temps",
         "ar-*a*a*ũ": "temps, maladie chronique",
         "ar-*a*i*a-a": "avoir une maladie chronique",
@@ -6566,8 +6807,9 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "contracter à temps",
         "ar-a**a*a": "durer longtemps",
         "ar-a**â*ũ": "{{p}} temps",
-    },  # 12
+    },  # 13
     "ar-zrz": {
+        "aa_sens": "prendre cette forme",
         "ar-**a*²a": "",
         "ar-*a**ũ": "<!-- nom d'action forme i -->",
         "ar-*a*a*a-u": "",
@@ -6581,8 +6823,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 13
+    },  # 14
     "ar-zwj": {
+        "aa_sens": "apparier",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "épouse",
         "ar-*a**iy²@ũ": "état marital",
@@ -6607,8 +6850,9 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "se marier",
         "ar-ta*â*a*a": "être réunis",
-    },  # 24
+    },  # 25
     "ar-zwr": {
+        "aa_sens": "éloignement",
         "ar-**a*²a": "se détourner",
         "ar-**â*²a": "se détourner",
         "ar-*a**@ũ": "distance ; fois",
@@ -6637,6 +6881,6 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prier de visiter",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
-    },  # 28
-}  # 236
+    },  # 29
+}  # 237
 # END

@@ -3,6 +3,7 @@ import re
 from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
+from .ar_pronunciation import toIPA
 from .arabiser import appliquer, arabiser
 from .domain_templates import domain_templates
 from .regions import regions
@@ -210,6 +211,7 @@ templates_ignored = (
     "trad-exe",
     "trier",
     "vérifier",
+    "voir",
     "voir-conj",
 )
 
@@ -477,6 +479,8 @@ templates_italic = {
     "typo": "Typographie",
     "typog": "Typographie",
     "télé": "Audiovisuel",
+    "un os": "Anatomie",
+    "un_os": "Anatomie",
     "vieilli": "Vieilli",
     "vieux": "Vieilli",
     "vélo": "Cyclisme",
@@ -1084,6 +1088,17 @@ def last_template_handler(
 
     if tpl == "ar-mot":
         return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
+
+    if tpl == "ar-racine/nom":
+        from .racines_arabes import racines_schemes_arabes
+
+        return f"{arabiser(parts[0].split('-')[1])}: {racines_schemes_arabes[parts[0]]['aa_sens']}"
+    if tpl == "ar-sch":
+        return arabiser(appliquer(parts[0], parts[1] if len(parts) > 1 else "ar-zrzr"))
+
+    if tpl == "ar-terme":
+        arab = arabiser(parts[0])
+        return f"{arab} ({italic(parts[0])}) /{toIPA(arab)}/"
 
     if tpl == "rouge":
         prefix_style = "background-" if data["fond"] == "1" else ""
