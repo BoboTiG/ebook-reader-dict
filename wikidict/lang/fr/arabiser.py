@@ -1,5 +1,5 @@
 """
-Arabiser: manual conversion of arabiser function from
+Arabiser: manual conversion of Module:arabe from
 https://fr.wiktionary.org/wiki/Module:arabe
 
 Current version: 3 janvier 2023 15:21

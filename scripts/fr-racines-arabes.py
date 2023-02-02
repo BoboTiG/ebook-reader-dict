@@ -35,6 +35,9 @@ def process_root(tpl: str, results: Dict[str, Dict[str, str]]) -> None:
     data = get_content(url)
     tpl_dict = {}
     for line in data.splitlines():
+        if line.startswith(("|***", "| ***")):
+            sens = line.split("=")[1].strip()
+            tpl_dict["aa_sens"] = sens
         if not line.startswith("| ar-"):
             continue
 
