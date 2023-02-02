@@ -1208,6 +1208,7 @@ labels_topical = {
     "evolutionary biology": "evolutionary theory",
     "evolutionary theory": "evolutionary theory",
     "exercise": "exercise",
+    "eye color": "eye color",
     "falconry": "falconry",
     "fantasy": "fantasy",
     "farriery": "farriery",
@@ -1283,6 +1284,7 @@ labels_topical = {
     "gynaecology": "gynaecology",
     "gynecology": "gynaecology",
     "haematology": "hematology",
+    "hair color": "hair color",
     "hairdressing": "hairdressing",
     "halacha": "Jewish law",
     "halachah": "Jewish law",
@@ -1305,6 +1307,7 @@ labels_topical = {
     "homeopathy": "homeopathy",
     "hormone": "biochemistry",
     "horoscope": "astrology",
+    "horse color": "horse color",
     "horse racing": "horse racing",
     "horses": "equestrianism",
     "horticulture": "horticulture",
@@ -1800,7 +1803,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,078
+}  # 1,081
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3423,6 +3426,7 @@ labels_subvarieties = {
     "Banatiski Gurbet": "Banatiski Gurbet",
     "Bangladesh": "Bangladesh",
     "Bangladeshi Bengali": "Bangladesh",
+    "Bangladeshi English": "Bangladesh",
     "Banshu": "Banshū",
     "Banshū": "Banshū",
     "Baras": "Rizal",
@@ -5417,6 +5421,7 @@ labels_subvarieties = {
     "West": "West Slavic",
     "West Arabian": "Hejazi",
     "West Bengal": "West Bengal",
+    "West Bengal English": "West Bengal",
     "West Bengali": "West Bengal",
     "West Central Scots": "West Central",
     "West Cork": "Cork",
@@ -5961,5 +5966,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,717
+}  # 2,719
 # END

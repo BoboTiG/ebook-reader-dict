@@ -1704,13 +1704,16 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**ũ": "matin",
         "ar-*a*a*@ũ": "matinée",
-        "ar-*a*a*a-u": "venir",
+        "ar-*a*a*a-u": "venir le matin",
         "ar-*a*a*iy²ũ": "futur",
+        "ar-*a*a*âtũ": "{{p}} matinées",
+        "ar-*a*a*ũ": "demain",
         "ar-*a*i*a-a": "déjeuner",
         "ar-*a*i*iy²@ũ": "matinée",
         "ar-*a*i*iy²ũ": "de demain",
         "ar-*a*²a*a": "nourrir",
-        "ar-*i*â*ũ": "déjeuner",
+        "ar-*a*â*ũ": "déjeuner",
+        "ar-*awâ*i*u": "{{fp}} matinales",
         "ar-*ta*a*a": "venir le matin",
         "ar-*u**@ũ": "matinée",
         "ar-*u*ay*@ũ": "grand matin",
@@ -1719,12 +1722,14 @@ racines_schemes_arabes = {
         "ar-*â*i*@ũ": "{{f}} matinale",
         "ar-*â*i*ũ": "matinal",
         "ar-a**a*a": "",
+        "ar-a**i*@ũ": "{{p}} déjeuners",
+        "ar-ma**a*@ũ": "lieu où l'on vient",
         "ar-ma**a*ũ": "lieu où l'on vient",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "déjeuner",
         "ar-ta*a*²a*a": "déjeuner",
         "ar-ta*â*a*a": "",
-    },  # 24
+    },  # 29
     "ar-RmRm": {
         "ar-*a**a*@ũ": "murmure",
         "ar-*a**a*a": "mugir",
@@ -3975,6 +3980,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "cueillir",
         "ar-ta*â*a*a": "",
     },  # 17
+    "ar-jry": {
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "cours",
+        "ar-*a*a*a-i": "courir",
+        "ar-*a*a*ũ": "jeunesse",
+        "ar-*a*²a*a": "entraîner",
+        "ar-*a*â*ũ": "jeunesse",
+        "ar-*a*î*ũ": "",
+        "ar-*ta*a*a": "",
+        "ar-*uway*i*@ũ": "petite fille",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "fille",
+        "ar-*â*i*ũ": "qui coule",
+        "ar-a**a*a": "faire courir",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "confier une mission",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "convenir",
+    },  # 18
     "ar-jw3": {
         "ar-**a*²a": "",
         "ar-*a**@ũ": "accès de faim",
@@ -5860,7 +5885,7 @@ racines_schemes_arabes = {
     "ar-slm": {
         "ar-**â*ũ": "le fait de se rendre à Dieu ; islam",
         "ar-*a**ânu": "Salman (prénom) ; meilleure part",
-        "ar-*a**é": "Selma (prénom de femme)",
+        "ar-*a**é": "({{f}}) plus intacte, plus à l'abri",
         "ar-*a**ũ": "le fait de faire une morsure ; paix",
         "ar-*a*a*@ũ": "pierre",
         "ar-*a*a*a-i": "piquer, faire une morsure",
@@ -5877,7 +5902,6 @@ racines_schemes_arabes = {
         "ar-*i**ũ": "paix ; obéissance",
         "ar-*i*â*@ũ": "({{p}}) pierres ; ({{f}}) délicate",
         "ar-*ta*a*a": "palper, toucher ; faire la paix",
-        "ar-*u**é": "({{f}}) plus intacte, plus à l'abri",
         "ar-*u*ay*ânu": "Souleïman, Salomon (prénom)",
         "ar-*u*ay*ũ": "Sulaym (prénom)",
         "ar-*u*²a*ũ": "échelle ; marchepied ; étrier",
@@ -5899,7 +5923,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "faire la paix ; être d'accord",
         "ar-tama**a*a": "se convertir, devenir musulman",
         "ar-u*ay*i*ũ": "artère entre le majeur et l'auriculaire",
-    },  # 41
+    },  # 40
     "ar-smw": {
         "ar-*a**ũ": "le fait de nommer",
         "ar-*a*a*a-u": "s'élever ; monter",
@@ -6614,5 +6638,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 28
-}  # 235
+}  # 236
 # END

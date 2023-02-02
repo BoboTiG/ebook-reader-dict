@@ -272,6 +272,7 @@ escopos = {
     "ofício": "Profissão",
     "ornitologia": "Ornitologia",
     "pa": "Pará",
+    "palluezu": "Palluezu",
     "palência": "Palência",
     "panamá": "Panamá",
     "paraguai": "Paraguai",
@@ -391,5 +392,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 386
+}  # 387
 # END
