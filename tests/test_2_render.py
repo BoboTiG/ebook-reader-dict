@@ -65,7 +65,9 @@ def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -
     assert subsubdefs[0]
 
 
-def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> None:
+def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> (
+    None
+):
     section = Section(
         "=== {{sustantivo propio|es|género=femenino}} ===\n"
         ";1 archipiélago de 2&nbsp;000 peñascos.\n"
@@ -84,3 +86,22 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
             "artículo de un diccionario, enciclopedia u obra de referencia.",
         ),
     ]
+
+
+@pytest.mark.parametrize(
+    "locale, code, expected",
+    [
+        (
+            "de",
+            "{{Bedeutungen}}\n:[1] \n\n{{Herkunft}}\n:[[Abkürzung]] von [[Sturmkanone]]",
+            "=== {{Bedeutungen}} ===\n# \n\n=== {{Herkunft}} ===\n:[[Abkürzung]] von [[Sturmkanone]]",
+        ),
+        (
+            "de",
+            "{{Bedeutungen}}\n:[1] {{K|Handwerk|Architektur|ft=[[defektives Verb{{!}}defektiv]]}}",
+            "=== {{Bedeutungen}} ===\n# {{K|Handwerk|Architektur|ft=[[defektives Verb|defektiv]]}}",
+        ),
+    ],
+)
+def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
+    assert render.adjust_wikicode(code, locale) == expected

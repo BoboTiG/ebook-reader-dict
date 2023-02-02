@@ -130,6 +130,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<small class="noprint" title="Luther 2017 bei www.bibleserver.com"></small>',  # noqa
             "",
         ],
+        # DE - lang link in {{Üxx5}}
+        [
+            "de",
+            '<a href="/w/index.php?title=grc:%E1%BC%80%CE%BD%CE%AE%CF%81&amp;action=edit&amp;redlink=1" class="new" title="grc:ἀνήρ (Seite nicht vorhanden)"><sup>→&nbsp;grc</sup>',  # noqa
+            "",
+        ],
         # DE - other Wikis
         [
             "de",

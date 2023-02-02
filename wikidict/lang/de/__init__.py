@@ -15,10 +15,10 @@ head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
+    "{{Alte Schreibweise|",
     "{{Aussprache}",
     "{{Bedeutungen}",
     "{{Grundformverweis ",
-    "{{Alte Schreibweise|",
 )
 
 # Variants
@@ -37,17 +37,22 @@ templates_ignored = (
     "Audio",
     "Bpur",
     "Fremdsprachige Beispiele",
+    "Herkunft fehlt",
     "Herkunft unbelegt",
     "Hintergrundfarbe",
     "Hörbeispiele",
     "IA",
     "IPA",
     "Lautschrift",
+    "QS Bedeutung",
     "QS Bedeutungen",
     "QS_Bedeutungen",
     "QS Herkunft",
     "QS_Herkunft",
+    "Ref-Adelung",
+    "Ref-Bibel",
     "Ref-Duden",
+    "Ref-DWDS",
     "Wikipedia",
 )
 
@@ -102,10 +107,19 @@ templates_multi = {
     "nf": "italic('n, f')",
     # {{noredlink|diminutiv}}
     "noredlink": "parts[-1]",
+    # {{Plainlink|1=http://de.wikipedia.org/wiki/Ludwig_XIV.|2=Ludwig XIV.}}
+    "Plainlink": "parts[-1].removeprefix('2=')",
     # {{Polytonisch|(το)}}
     "Polytonisch": "parts[-1]",
+    # {{Ref-behindthename|Alan}}
+    "Ref-behindthename": "f'behindthename.com „{word}“'",
+    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",  # noqa
     # {{Ü|pl|dzień}}
     "Ü": "parts[-1]",
+    # {{Unicode|kɔ}}
+    "Unicode": "parts[-1]",
+    # {{vergleiche}}
+    "vergleiche": "italic('vergleiche:')",
     # {{vgl.}}
     "vgl.": "italic('vergleiche:')",
     # {{W|Datenkompression|Datenkompressionen}}
@@ -115,16 +129,19 @@ templates_multi = {
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
+    "(R)": "®",
     "DMG": "'DMG:'",
     "Gen.": "Genitiv:",
     "İA": "'İA:'",
     "ISO 9": "ISO 9:",
     "NNBSP": "&nbsp;",
+    "Part.": "Partizip II: ",
     "Pl.": "Plural:",
     "Pl.1": "Plural 1:",
     "Pl.2": "Plural 2:",
     "Pl.3": "Plural 3:",
     "Pl.4": "Plural 4:",
+    "Prät.": "Präteritum: ",
 }
 
 templates_markierung = {

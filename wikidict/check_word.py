@@ -106,6 +106,10 @@ def filter_html(html: str, locale: str) -> str:
         for a in bs.find_all("a", {"class": "external"}):
             if "archive.org" in a["href"]:
                 a.decompose()
+        # Lang link in {{Üxx5}}
+        for a in bs.find_all("a"):
+            if (sup := a.find("sup")) and sup.text.startswith("→"):
+                a.decompose()
         # Other Wikis
         for a in bs.find_all("a", {"class": "extiw"}):
             if (
