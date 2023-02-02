@@ -336,7 +336,6 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     transcription += "ا"  # par défaut, alif
                 # la hamza préfixe a été insérée, la voyelle suivante sera transcrite ensuite
             else:  # Il faut rajouter la lettre à la transcription.
-
                 # Mais d'abord si c'est une voyelle, on met une hamza préfixe
                 if a_traiter in ("a", "u", "û"):
                     transcription += "أ"  # support en haut
