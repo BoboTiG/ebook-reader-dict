@@ -105,6 +105,72 @@ def render_bibel(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_foreign_lang(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
+    'בַּיִת כְּנֶסֶת'
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str, {"d-heb": "bayiṯ k<sup><small>e</small></sup>næsæṯ"}))
+    'בַּיִת כְּנֶסֶת (CHA: bayiṯ k<sup><small>e</small></sup>næsæṯ)'
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str, {"b": "Haus der Versammlung, Haus der Zusammenkunft", "d-heb": "bayiṯ k<sup><small>e</small></sup>næsæṯ"}))
+    'בַּיִת כְּנֶסֶת (CHA: bayiṯ k<sup><small>e</small></sup>næsæṯ) ‚Haus der Versammlung, Haus der Zusammenkunft‘'
+    >>> render_foreign_lang("Hebr", ["שבת", "Ü"], defaultdict(str, {"b": "Ruhetag; Schabbes", "d-yid": "shabes"}))
+    'שבת, YIVO: shabes, „Ruhetag; Schabbes“'
+    >>> render_foreign_lang("Hebr", ["אסנוגה"], defaultdict(str, {"b": "Synagoge, Gebetshaus", "d-lad": "esnoga"}))
+    'אסנוגה (esnoga) ‚Synagoge, Gebetshaus‘'
+
+    >>> render_foreign_lang("Paschto", ["طالب"], defaultdict(str, {"b": "Schüler", "d": "ṭā-lib", "v": "طَالِب"}))
+    'طَالِب (DMG: ṭā-lib) ‚Schüler‘'
+    >>> render_foreign_lang("Paschto", ["طالب", "Ü"], defaultdict(str, {"b": "Schüler", "d": "ṭā-lib", "v": "طَالِب"}))
+    'طَالِب, DMG: ṭā-lib, „Schüler“'
+
+    >>> render_foreign_lang("Urdu", ["فن"], defaultdict(str, {"b": "Kunst", "d": "fann", "v": "فَنّ"}))
+    'فَنّ, DMG: fann, „Kunst“'
+    """  # noqa
+    phrase = data["v"] or parts.pop(0)
+
+    as_ü_template = "Ü" in parts
+    if tpl == "Urdu":
+        as_ü_template = not as_ü_template
+
+    if tpl == "Hebr":
+        if trans := data["d-heb"]:
+            phrase += f", CHA: {trans}" if as_ü_template else f" (CHA: {trans})"
+        elif trans := data["d-yid"]:
+            phrase += f", YIVO: {trans}" if as_ü_template else f" (YIVO: {trans})"
+        elif trans := data["d-lad"]:
+            phrase += f", {trans}" if as_ü_template else f" ({trans})"
+    elif trans := data["d"]:
+        phrase += f", DMG: {trans}" if as_ü_template else f" (DMG: {trans})"
+
+    if data["b"]:
+        if as_ü_template:
+            phrase += ","
+        sep = ("„", "“") if as_ü_template else ("‚", "‘")
+        phrase += f" {sep[0]}{data['b']}{sep[1]}"
+
+    return phrase
+
+
+def render_foreign_lang_simple(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
+    'أَحْمَدُ بْنُ حَنْبَلٍ'
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str, {"d": "Aḥmadu bnu Ḥanbalin"}))
+    'أَحْمَدُ بْنُ حَنْبَلٍ (DMG: Aḥmadu bnu Ḥanbalin)'
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str, {"b": "Aḥmad, Sohn des Ḥanbal", "d": "Aḥmadu bnu Ḥanbalin"}))
+    'أَحْمَدُ بْنُ حَنْبَلٍ (DMG: Aḥmadu bnu Ḥanbalin) ‚Aḥmad, Sohn des Ḥanbal‘'
+
+    >>> render_foreign_lang_simple("Farsi", ["آیتالله"], defaultdict(str, {"b": "Geschöpf", "d" :"ǧānvar", "v": "جَانْوَر"}))
+    'جَانْوَر (DMG: ǧānvar) ‚Geschöpf‘'
+    """  # noqa
+    phrase = data["v"] or parts.pop(0)
+    if data["d"]:
+        phrase += f" (DMG: {data['d']})"
+    if data["b"]:
+        phrase += f" ‚{data['b']}‘"
+    return phrase
+
+
 no_commas = (
     "allg.",
     "allgemein",
@@ -337,9 +403,14 @@ def render_Uxx5(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
 
 template_mapping = {
+    "Arab": render_foreign_lang_simple,
     "Bibel": render_bibel,
+    "Farsi": render_foreign_lang_simple,
+    "Hebr": render_foreign_lang,
     "K": render_K,
+    "Paschto": render_foreign_lang,
     "Ref-dejure": render_ref_dejure,
+    "Urdu": render_foreign_lang,
     "Üt": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
