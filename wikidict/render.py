@@ -368,6 +368,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{-avv-}} -> === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
+        # {{!}} -> "|"
+        code = code.replace("{{!}}", "|")
+
     return code
 
 

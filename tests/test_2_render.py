@@ -101,6 +101,21 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
             "{{Bedeutungen}}\n:[1] {{K|Handwerk|Architektur|ft=[[defektives Verb{{!}}defektiv]]}}",
             "=== {{Bedeutungen}} ===\n# {{K|Handwerk|Architektur|ft=[[defektives Verb|defektiv]]}}",
         ),
+        (
+            "it",
+            "== {{-it-}} ==\n{{-agg form-|it}}",
+            "== {{-it-}} ==\n=== {{agg form}} ===",
+        ),
+        (
+            "it",
+            "== {{-it-}} ==\n{{-agg form-|fr}}",
+            "== {{-it-}} ==\n=== {{agg form|fr}} ===",
+        ),
+        (
+            "it",
+            "== {{-it-}} ==\n{{-etim-}}\n{{Vd|nero{{!}}nero}}",
+            "== {{-it-}} ==\n=== {{etim}} ===\n{{Vd|nero|nero}}",
+        ),
     ],
 )
 def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
