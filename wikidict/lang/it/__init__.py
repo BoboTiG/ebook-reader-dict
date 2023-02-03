@@ -65,6 +65,9 @@ templates_multi: Dict[str, str] = {
     # {{Coll}}
     "Coll": "small(f'({italic(\"colloquiale\")})')",
     "coll": "small(f'({italic(\"colloquiale\")})')",
+    # {{Comparativo di|buono|it}}
+    "Comparativo di": 'f"comparativo di {parts[1]}"',
+    "comparativo di": 'f"comparativo di {parts[1]}"',
     # {{Cum|congiuntivo}}
     "Cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
     "cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
