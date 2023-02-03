@@ -249,6 +249,8 @@ def render_ref_dejure(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '2'
     >>> render_ref_dejure("Ref-dejure", ["Mitte", "2", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
     '2 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Artikel", "36", "EuGVVO"], defaultdict(str, {"Erg": "Absatz&nbsp;1"}))
+    'Artikel 36 Absatz&nbsp;1 EuGVVO'
     """
     article, number, name = parts
     complement = f" {data['Erg']}" if data["Erg"] else ""
@@ -267,6 +269,8 @@ def render_ref_dejure(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             return f"{article} {number}{complement}{name}"
         case "Art." | "Artt.":
             return f"Art. {number}{complement}{name}"
+        case "Artikel":
+            return f"{article} {number}{complement}{name}"
         case _:
             assert 0, parts
 
