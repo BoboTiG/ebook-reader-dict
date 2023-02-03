@@ -332,12 +332,8 @@ def add_potential_variant(
         variants.append(variant)
 
 
-def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
-    """Parse *code* Wikicode to find word details.
-    *force* can be set to True to force the pronunciation and gender guessing.
-    It is disabled by default to speed-up the overall process, but enabled when
-    called from get_and_parse_word().
-    """
+def adjust_wikicode(code: str, locale: str) -> str:
+    """Sometimes we need to adapt the Wikicode."""
     code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
 
     if locale == "de":
@@ -345,7 +341,12 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # Definition lists are not well supported by the parser, replace them by numbered lists
-        code = re.sub(r":\[\d+\]\s*", "# ", code)
+        # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
+        #       contains an empty item.
+        code = re.sub(r":\[\d+\][ ]*", "# ", code)
+
+        # {{!}} -> "|"
+        code = code.replace("{{!}}", "|")
 
     elif locale == "es":
         # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
@@ -367,6 +368,16 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         # {{-avv-}} -> === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
+    return code
+
+
+def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
+    """Parse *code* Wikicode to find word details.
+    *force* can be set to True to force the pronunciation and gender guessing.
+    It is disabled by default to speed-up the overall process, but enabled when
+    called from get_and_parse_word().
+    """
+    code = adjust_wikicode(code, locale)
     top_sections, parsed_sections = find_sections(code, locale)
     prons = []
     genders = []

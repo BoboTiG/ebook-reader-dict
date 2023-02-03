@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, italic
+from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
 
 bibel_names = {
@@ -299,10 +299,14 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'ܡܫܺܝܚܳܐ (ALA-LC: mšiḥāʾ) ‚Messias‘'
     >>> render_Uxx4("Üxx4", ["fr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
     'ܡܫܺܝܚܳܐ (mšiḥāʾ) ‚Messias‘'
+    >>> render_Uxx4("Üxx4?", ["fr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
+    '<b>?</b>&nbsp;ܡܫܺܝܚܳܐ (mšiḥāʾ) ‚Messias‘'
     """
     language = parts.pop(0)
     phrase = parts.pop(0) if parts else ""
     phrase = data.get("v", data.get("2", phrase))
+    if tpl == "Üxx4?":
+        phrase = f"{strong('?')}&nbsp;{phrase}"
     if "d" in data:
         if language in ("ar", "fa", "ha", "ota", "pnb"):
             phrase += f" (DMG: {data['d']})"
@@ -320,6 +324,14 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_Uxx5(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
+    'ἀνήρ, ἀνδρός (anḗr, andrós)'
+    """
+    return f"{parts[2]} ({parts[1]})"
+
+
 template_mapping = {
     "Bibel": render_bibel,
     "K": render_K,
@@ -327,6 +339,8 @@ template_mapping = {
     "Üt": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
+    "Üxx4?": render_Uxx4,
+    "Üxx5": render_Uxx5,
 }
 
 
