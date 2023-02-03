@@ -157,6 +157,10 @@ form_of_templates = {
         "text": "Apocopic form of",
         "dot": False,
     },
+    "apoc of": {
+        "text": "Apocopic form of",
+        "dot": False,
+    },
     "archaic form of": {
         "text": "Archaic form of",
         "dot": True,
@@ -865,7 +869,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 215
+}  # 216
 # END
 
 

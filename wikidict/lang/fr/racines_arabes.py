@@ -4138,7 +4138,7 @@ racines_schemes_arabes = {
         "ar-*i*â*@ũ": "paye",
         "ar-*ta*a*a": "",
         "ar-*uway*i*@ũ": "petite fille",
-        "ar-*â*a*a": "",
+        "ar-*â*a*a": "concourir",
         "ar-*â*i*@ũ": "fille",
         "ar-*â*i*ũ": "qui coule",
         "ar-a**a*a": "faire courir",
