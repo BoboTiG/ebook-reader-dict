@@ -123,6 +123,7 @@ regions = {
     "Congo-Kinshasa": "Congo-Kinshasa",
     "Connacht": "Connacht",
     "Connemara": "Connemara",
+    "Corigliano d'Otranto": "Corigliano d'Otranto",
     "Cork": "Cork",
     "Corse": "Corse",
     "Corée": "Corée",
@@ -132,6 +133,7 @@ regions = {
     "Cotentin": "Cotentin",
     "Coxyde": "Coxyde",
     "Cuba": "Cuba",
+    "Cutrofiano": "Cutrofiano",
     "Côte d'Ivoire": "Côte d’Ivoire",
     "Côte d’Ivoire": "Côte d’Ivoire",
     "Côte-d’Ivoire": "Côte d’Ivoire",
@@ -165,6 +167,7 @@ regions = {
     "GB": "Royaume-Uni",
     "Gabon": "Gabon",
     "Galatina": "Galatina",
+    "Gallipoli": "Gallipoli",
     "Galway": "Galway",
     "Gangwon": "Gangwon",
     "Gascogne": "Gascogne",
@@ -223,7 +226,7 @@ regions = {
     "Languedoc": "Languedoc",
     "Languedoc-Roussillon": "Languedoc-Roussillon",
     "Laos": "Laos",
-    "Latiano": "Ostuni",
+    "Latiano": "Latiano",
     "Le Fuilet": "Le Fuilet",
     "Le Havre": "Le Havre",
     "Le Longeron": "Le Longeron",
@@ -337,6 +340,7 @@ regions = {
     "Patois du Saulnois": "Patois du Saulnois",
     "Patois messin": "Patois messin",
     "Patois vosgien": "Patois vosgien",
+    "Patù": "Patù",
     "Pays basque": "Pays basque",
     "Pays de Galles": "Pays de Galles",
     "Pays-Bas": "Pays-Bas",
@@ -434,6 +438,7 @@ regions = {
     "Tricase": "Tricase",
     "Tronchiennes": "Tronchiennes",
     "Trélazé": "Trélazé",
+    "Tuglie": "Tuglie",
     "Tunisie": "Tunisie",
     "Turkménistan": "Turkménistan",
     "Turquie": "Turquie",
@@ -489,7 +494,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 484
+}  # 489
 # END
 
 # handled differently

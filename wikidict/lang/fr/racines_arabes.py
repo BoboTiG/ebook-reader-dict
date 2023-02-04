@@ -4135,11 +4135,13 @@ racines_schemes_arabes = {
         "ar-*a*â*@ũ": "jeunesse",
         "ar-*a*â*ũ": "jeunesse",
         "ar-*a*î*ũ": "jeune",
+        "ar-*awâ*i*u": "{{p}} bateaux",
         "ar-*i*â*@ũ": "paye",
         "ar-*ta*a*a": "",
         "ar-*uway*i*@ũ": "petite fille",
         "ar-*â*a*a": "concourir",
         "ar-*â*i*@ũ": "fille",
+        "ar-*â*i*âtũ": "{{p}} filles",
         "ar-*â*i*ũ": "qui coule",
         "ar-a**a*a": "faire courir",
         "ar-ma**a*ũ": "lieu d'écoulement",
@@ -4147,7 +4149,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "confier une mission",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "convenir",
-    },  # 24
+    },  # 26
     "ar-jw3": {
         "aa_sens": "faim",
         "ar-**a*²a": "",
