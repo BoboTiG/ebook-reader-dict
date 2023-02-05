@@ -14,9 +14,11 @@ langs = {
     "Borders Scots": "South Scots",
     "British English": "British English",
     "CF.": "Canadian French",
+    "CL": "Classical Latin",
     "CL.": "Classical Latin",
     "Canadian French": "Canadian French",
     "Classical Latin": "Classical Latin",
+    "EL": "Ecclesiastical Latin",
     "EL.": "Ecclesiastical Latin",
     "Early Scots": "Early Scots",
     "Ecclesiastical Latin": "Ecclesiastical Latin",
@@ -36,6 +38,7 @@ langs = {
     "Medieval Latin": "Medieval Latin",
     "Mid.Sc.": "Middle Scots",
     "Middle Scots": "Middle Scots",
+    "NL": "New Latin",
     "NL.": "New Latin",
     "New Latin": "New Latin",
     "Nor.Sc.": "Northern Scots",
@@ -45,6 +48,7 @@ langs = {
     "ONF.": "Old Northern French",
     "Old Northern French": "Old Northern French",
     "Old Scots": "Early Scots",
+    "RL": "Renaissance Latin",
     "RL.": "Renaissance Latin",
     "Renaissance Latin": "Renaissance Latin",
     "Sou.Sc.": "South Scots",
@@ -57,6 +61,7 @@ langs = {
     "Uls.Sc.": "Ulster Scots",
     "Ulster Scots": "Ulster Scots",
     "VG.": "Viennese German",
+    "VL": "Vulgar Latin",
     "VL.": "Vulgar Latin",
     "Viennese German": "Viennese German",
     "Vulgar Latin": "Vulgar Latin",
@@ -9575,5 +9580,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,570
+}  # 9,575
 # END

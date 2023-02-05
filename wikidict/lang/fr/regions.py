@@ -167,6 +167,7 @@ regions = {
     "GB": "Royaume-Uni",
     "Gabon": "Gabon",
     "Galatina": "Galatina",
+    "Galatone": "Galatone",
     "Gallipoli": "Gallipoli",
     "Galway": "Galway",
     "Gangwon": "Gangwon",
@@ -290,6 +291,7 @@ regions = {
     "Moselle": "Moselle",
     "Munster": "Munster",
     "Murcie": "Murcie",
+    "Myanmar": "Myanmar",
     "NE": "Niger",
     "NL": "Pays-Bas",
     "NZ": "Nouvelle-Zélande",
@@ -313,6 +315,7 @@ regions = {
     "Nouvelle-Calédonie": "Nouvelle-Calédonie",
     "Nouvelle-Zélande": "Nouvelle-Zélande",
     "Nouvelle-Écosse": "Nouvelle-Écosse",
+    "Novoli": "Novoli",
     "Occitanie": "Occitanie",
     "Océanie": "Océanie",
     "Oise": "Oise",
@@ -403,6 +406,7 @@ regions = {
     "Saumur": "Saumur",
     "Sava": "Sava",
     "Savoie": "Savoie",
+    "Seclì": "Seclì",
     "Segré": "Segré",
     "Sercq": "Sercq",
     "Seychelles": "Seychelles",
@@ -412,6 +416,7 @@ regions = {
     "Somerset": "Somerset",
     "Sonsorol": "Sonsorol",
     "Sotavento": "Sotavento",
+    "Spongano": "Spongano",
     "Squinzano": "Squinzano",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
@@ -453,6 +458,7 @@ regions = {
     "Vallée d'Yères": "Vallée d'Yères",
     "Var": "Var",
     "Vaucluse": "Vaucluse",
+    "Veglie": "Veglie",
     "Velay": "Velay",
     "Vendée": "Vendée",
     "Venezuela": "Venezuela",
@@ -494,7 +500,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 489
+}  # 495
 # END
 
 # handled differently
