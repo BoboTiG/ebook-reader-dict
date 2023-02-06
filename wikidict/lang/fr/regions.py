@@ -266,6 +266,7 @@ regions = {
     "Maroc": "Maroc",
     "Marseille": "Marseille",
     "Martinique": "Martinique",
+    "Maruggio": "Maruggio",
     "Mauges": "Mauges",
     "Maurice": "Île Maurice",
     "Mauricie": "Mauricie",
@@ -362,6 +363,7 @@ regions = {
     "Provence": "Provence",
     "Pré-en-Pail": "Pré-en-Pail",
     "Pulo Anna": "Pulo Anna",
+    "Pulsano": "Pulsano",
     "Puy-de-Dôme": "Puy-de-Dôme",
     "Pyrénées-Orientales": "Pyrénées-Orientales",
     "Pérou": "Pérou",
@@ -406,6 +408,7 @@ regions = {
     "Saumur": "Saumur",
     "Sava": "Sava",
     "Savoie": "Savoie",
+    "Scorrano": "Scorrano",
     "Seclì": "Seclì",
     "Segré": "Segré",
     "Sercq": "Sercq",
@@ -500,7 +503,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 495
+}  # 498
 # END
 
 # handled differently

@@ -4637,7 +4637,7 @@ langs = {
     "rxw": "karuwali",
     "ryn": "amami du Nord",
     "rys": "yaeyama",
-    "ryu": "okinawais",
+    "ryu": "okinawaïen",
     "sa": "sanskrit",
     "saa": "saba",
     "sab": "buglere",
