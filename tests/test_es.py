@@ -257,7 +257,6 @@ def test_parse_word(
         ("{{Arqueología|y|Geología}}", "<i>(Arqueología y Geología)</i>"),
         ("{{ciudades}}", "<i>(Geografía)</i>"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
-        ("{{contracción|de|ellas|leng=es}}", "<i>Contracción de</i> de <i>y</i> ellas"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),

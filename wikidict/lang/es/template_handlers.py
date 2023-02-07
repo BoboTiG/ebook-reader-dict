@@ -7,9 +7,50 @@ from ...user_functions import (
     extract_keywords_from,
     italic,
     small,
+    strong,
     subscript,
 )
 from .langs import lang_to_normalize, langs
+
+articulos: Dict[str, str] = {
+    "def.f.pl": "las",
+    "indef.f.pl": "unas",
+    "def.f.sg": "la",
+    "indef.f.sg": "una",
+    "def.m.pl": "los",
+    "indef.m.pl": "unos",
+    "def.m.sg": "el",
+    "def.m.sg.prep": "l",
+    "indef.m.sg": "un",
+}
+
+catgrams: Dict[str, Dict[str, str]] = {
+    "sustantivo": {
+        "sg": "sustantivo",
+        "gen": "m",
+        "adj_f_sg": "sustantiva",
+    },
+    "adjetivo": {
+        "sg": "adjetivo",
+        "gen": "m",
+        "adj_f_sg": "adjetiva",
+    },
+}
+
+
+def catgram(catgram: str, variation: str = "gen") -> str:
+    return catgrams[catgram][variation]
+
+
+def inflect_articulo(
+    genero: str = "m", tipo: str = "def", numero: str = "sg", prep: bool = False
+) -> str:
+    key = f"{tipo}.{genero}.{numero}"
+    if prep:
+        if key != "def.m.sg":
+            return " "
+        key += ".prep"
+    return articulos[key]
 
 
 def normalizar_nombre(to_normalize: str) -> str:
@@ -125,6 +166,26 @@ def render_comparativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     start += " de"
     phrase = f"{italic(start)} "
     phrase += render_l("l", [data["alt"] or word], data)
+    return phrase
+
+
+def render_contraccion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_contraccion("contracción", ["de", "ellas"], defaultdict(str, {"leng": "es"}))
+    '<i>Contracción de</i> de <i>y</i> ellas'
+    >>> render_contraccion("contracción", ["mi", "hija", "adjetivo", "sustantivo"], defaultdict(str, {"leng": "es"}))
+    '<i>Contracción del adjetivo</i> mi <i>y el sustantivo</i> hija'
+    """
+    typo1 = data["typo1"] or parts[2] if len(parts) > 2 else ""
+    typo2 = data["typo2"] or parts[3] if len(parts) > 3 else ""
+    phrase = "Contracción de"
+    phrase += f"{inflect_articulo(catgram(typo1), prep=True)} {typo1}" if typo1 else ""
+    phrase = italic(phrase)
+    phrase += f" {parts[0]} "
+    phrase2 = "y"
+    phrase2 += f" {inflect_articulo(catgram(typo2))} {typo2}" if typo2 else ""
+    phrase += italic(phrase2)
+    phrase += f" {parts[1]}"
     return phrase
 
 
@@ -582,9 +643,8 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     trans = data["tr"]
     glosa = data["glosa-alt"] or data["glosa"]
-    num = data["núm"] or data["num"]
-    phrase = parts[2] if len(parts) > 2 else parts[-1]
-    if num:
+    phrase = data["3"] or data["2"] or (parts[2] if len(parts) > 2 else parts[-1])
+    if num := data["núm"] or data["num"]:
         phrase += subscript(num)
     if tpl == "l+":
         phrase = italic(phrase)
@@ -700,6 +760,34 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"{italic(capitalize(sentence))} " + render_l("l", [parts[0]], data)
 
 
+def render_variantes(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_variantes("variantes", ["acrótera", "acroteria"], defaultdict(str))
+    '<b>Variantes:</b> acrótera, acroteria'
+    >>> render_variantes("variantes", ["moerus"], defaultdict(str, {"nota1":"arcaica", "alt1": "moerǔs"}))
+    '<b>Variante:</b> moerǔs (arcaica)'
+    >>> render_variantes("variantes", ["adestrador"], defaultdict(str, {"nota":"poco frecuente"}))
+    '<b>Variante:</b> adestrador (poco frecuente)'
+    """
+    starter = "Variante" + ("s:" if len(parts) > 1 else ":")
+    a_phrase: List[str] = []
+    for i in range(10):
+        if i == 0:
+            phrase = (
+                data["alt"] or data[f"alt{i+1}"] or (parts[i] if len(parts) > i else "")
+            )
+        else:
+            phrase = data[f"alt{i+1}"] or (parts[i] if len(parts) > i else "")
+        if i == 0 and data["nota"]:
+            phrase += f" ({data['nota']})"
+        elif data[f"nota{i+1}"]:
+            phrase += f" ({data[f'nota{i+1}']})"
+        if phrase:
+            a_phrase.append(phrase)
+
+    return f"{strong(starter)} {concat(a_phrase, ', ')}"
+
+
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "AFI": render_afi,
@@ -707,6 +795,7 @@ template_mapping = {
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
     "comparativo": render_comparativo,
+    "contracción": render_contraccion,
     "diminutivo": render_aumentativo,
     "etim": render_etim,
     "etimología": render_etimologia,
@@ -732,6 +821,7 @@ template_mapping = {
     "sustantivo de adjetivo": render_sustantivo_de,
     "sustantivo de verbo": render_sustantivo_de,
     "variante": render_variante,
+    "variantes": render_variantes,
 }
 
 
