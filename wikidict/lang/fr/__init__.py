@@ -939,6 +939,15 @@ def last_template_handler(
         >>> last_template_handler(["ar-mot", "elHasan_"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
 
+        >>> last_template_handler(["ar-racine/nom", "ar-ktb"], "fr")
+        "كتب: relatif à l'action d'écrire, relier"
+
+        >>> last_template_handler(["ar-sch", "ar-*â*a*a"], "fr")
+        'زَارَزَ'
+
+        >>> last_template_handler(["ar-terme", "mu'ad²ibũ"], "fr")
+        "مُؤَدِّبٌ (<i>mu'ad²ibũ</i>) /mu.ʔad.di.bun/"
+
         >>> last_template_handler(["nom langue", "gcr"], "fr")
         'créole guyanais'
         >>> last_template_handler(["langue", "gcr"], "fr")

@@ -166,6 +166,11 @@ def toIPA(arabic: str = "", tr: str = "") -> str:
     >>> toIPA("فِي الله")
     'fi‿l.laːh'
 
+    >>> toIPA("")
+    ''
+    >>> toIPA("ة")
+    ''
+
     """
     translit = ""
     if tr:
