@@ -287,13 +287,11 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if lookup_italic(template[0], locale, empty_default=True):
-        phrase = ""
         phrase_a: List[str] = []
         parts.insert(0, tpl)
         added = set()
         append_to_last = False
         for index, part in enumerate(parts, 1):
-            sindex = str(index) if index > 1 else ""
             if part == ",":
                 continue
             elif part in ("y", "e", "o", "u"):
@@ -304,6 +302,7 @@ def last_template_handler(
                 local_phrase = lookup_italic(part, locale)
                 if local_phrase not in added:
                     added.add(local_phrase)
+                    sindex = str(index) if index > 1 else ""
                     if data[f"nota{sindex}"]:
                         local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
@@ -316,10 +315,7 @@ def last_template_handler(
                 append_to_last = False
             else:
                 phrase_a.append(local_phrase)
-        if phrase_a:
-            phrase = italic(f'({concat(phrase_a, ", ")})')
-        return phrase
-
+        return italic(f'({concat(phrase_a, ", ")})') if phrase_a else ""
     if lang := langs.get(template[0]):
         return capitalize(lang)
 

@@ -643,9 +643,8 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     trans = data["tr"]
     glosa = data["glosa-alt"] or data["glosa"]
-    num = data["núm"] or data["num"]
     phrase = data["3"] or data["2"] or (parts[2] if len(parts) > 2 else parts[-1])
-    if num:
+    if num := data["núm"] or data["num"]:
         phrase += subscript(num)
     if tpl == "l+":
         phrase = italic(phrase)
@@ -772,7 +771,7 @@ def render_variantes(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     starter = "Variante" + ("s:" if len(parts) > 1 else ":")
     a_phrase: List[str] = []
-    for i in range(0, 10):
+    for i in range(10):
         if i == 0:
             phrase = (
                 data["alt"] or data[f"alt{i+1}"] or (parts[i] if len(parts) > i else "")
