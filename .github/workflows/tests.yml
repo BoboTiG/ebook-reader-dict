@@ -25,14 +25,3 @@ jobs:
 
       - name: Unit tests
         run: python -Wd -m pytest tests --doctest-modules wikidict
-
-      - name: Generate the user functions documentation
-        run: |
-          pydocstyle wikidict/user_functions.py
-          pdoc --html --force wikidict.user_functions
-
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: user_functions.html
-          path: html/wikidict/user_functions.html

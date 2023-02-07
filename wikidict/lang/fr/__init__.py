@@ -505,9 +505,6 @@ templates_italic = {
 #   - *parts* contiendra la liste ["comparatif de", "bien", "fr", "adv"].
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
-#
-# Un documentation des fonctions disponibles se trouve dans le fichier HTML suivant :
-#   html/wikidict/user_functions.html
 templates_multi = {
     # {{1|Descendant}}
     "1": "parts[1]",

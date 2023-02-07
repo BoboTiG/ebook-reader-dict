@@ -96,9 +96,6 @@ templates_italic: Dict[str, Dict[str, str]] = _populate("templates_italic")
 #   - *parts* will contain the list ["comparatif de", "bien", "fr", "adv"].
 #
 # You can access to *tpl* and *parts* to apply changes and get the result wanted.
-#
-# Available functions are documented into that HTML file:
-#   html/wikidict/user_functions.html
 templates_multi: Dict[str, Dict[str, str]] = _populate("templates_multi")
 
 # Templates that will be completed/replaced using custom style.
