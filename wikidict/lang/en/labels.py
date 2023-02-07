@@ -1580,6 +1580,7 @@ labels_topical = {
     "psychology": "psychology",
     "psychotherapy": "psychotherapy",
     "publishing": "publishing",
+    "pulmonology": "pulmonology",
     "pyrotechnics": "pyrotechnics",
     "quantum computing": "quantum computing",
     "quantum mechanics": "quantum mechanics",
@@ -1803,7 +1804,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,081
+}  # 1,082
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
