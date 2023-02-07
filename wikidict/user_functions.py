@@ -1,7 +1,5 @@
 """
 Functions that can be used in *templates_multi* of any locale.
-
-Check the "html/wikidict/user_functions.html" file for a user-friendly version.
 """
 import re
 from collections import defaultdict
