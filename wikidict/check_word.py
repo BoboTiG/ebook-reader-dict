@@ -152,6 +152,11 @@ def filter_html(html: str, locale: str) -> str:
                 a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes"
             ):
                 a.parent.parent.decompose()
+        # coord output
+        for span in bs.find_all(
+            "span", {"class": ["geo-multi-punct", "geo-nondefault"]}
+        ):
+            span.decompose()
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
             a.decompose()
