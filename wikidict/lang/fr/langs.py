@@ -4589,7 +4589,7 @@ langs = {
     "roa-leo": "léonais",
     "roa-opt": "galaïco-portugais",
     "roa-rup": "aroumain",
-    "roa-tara": "tarantino",
+    "roa-tara": "tarantin",
     "rob": "tae’",
     "roc": "roglai de Cac Gia",
     "rod": "rogo",

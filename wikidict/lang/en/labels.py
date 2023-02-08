@@ -3554,7 +3554,7 @@ labels_subvarieties = {
     "Bùnú": "Bunu",
     "C": "Cesena",
     "CB": "Castel Bolognese",
-    "CC": "Castiglione di Cervia",
+    "CC": "central Calabria",
     "CPA": "Christian Palestinian Aramaic",
     "CS": "central-southern Italy",
     "Ca": "Cattolica",
