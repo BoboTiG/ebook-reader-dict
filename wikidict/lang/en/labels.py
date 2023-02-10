@@ -4024,6 +4024,7 @@ labels_subvarieties = {
     "Hessen": "Hessian",
     "Hessian": "Hessian",
     "Hessisch": "Hessian",
+    "Hevek": "Yusufeli Yaylalar",
     "Heëlesj": "Heerlen",
     "Hichiku": "Hichiku",
     "Hida": "Hida",
@@ -4243,6 +4244,7 @@ labels_subvarieties = {
     "Khaldia": "Chaldia",
     "Khalkha": "Khalkha",
     "Khasa": "Khasa",
+    "Khevak": "Yusufeli Yaylalar",
     "Khopa": "Khopa",
     "Khopa-Batumi": "Khopa–Batumi",
     "Khopa–Batumi": "Khopa–Batumi",
@@ -5509,6 +5511,7 @@ labels_subvarieties = {
     "Yanbian": "Yanbian",
     "Yawdanchi": "Yawdanchi",
     "Yawelmani": "Yawelmani",
+    "Yaylalar, Yusufeli": "Yusufeli Yaylalar",
     "Ye'kwana": "Ye'kwana dialect",
     "Ye'kwana dialect": "Ye'kwana dialect",
     "Yerragudi": "Yerragudi",
@@ -5519,6 +5522,7 @@ labels_subvarieties = {
     "Younger": "Young Avestan",
     "Younger Avestan": "Young Avestan",
     "Yukjin": "Yukjin",
+    "Yusufeli Yaylalar": "Yusufeli Yaylalar",
     "Yàgbà": "Yagba",
     "Yéwa": "Yewa",
     "Zaolzie": "Zaolzie",
@@ -5825,6 +5829,7 @@ labels_subvarieties = {
     "Χαλδ.": "Chaldia",
     "Χαλδία": "Chaldia",
     "Һамамлы": "Hamamlı",
+    "Խևակ": "Yusufeli Yaylalar",
     "აზლაღური": "Azlagha",
     "ათინა": "Atina",
     "ათინური": "Atina",
@@ -5967,5 +5972,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,719
+}  # 2,724
 # END
