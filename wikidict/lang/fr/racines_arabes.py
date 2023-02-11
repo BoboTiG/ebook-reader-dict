@@ -4528,6 +4528,24 @@ racines_schemes_arabes = {
         "ar-u**u*ânũ": "qui aime le jeu",
         "ar-u**û*@ũ": "divertissement",
     },  # 46
+    "ar-lHy": {
+        "aa_sens": "barbe, écorce",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "blâmer",
+        "ar-*a*a*ũ": "bas de la joue",
+        "ar-*a*²a*a": "",
+        "ar-*i**@ũ": "barbe",
+        "ar-*i**ânũ": "rigoles",
+        "ar-*i*â*ũ": "[[aubier]]",
+        "ar-*ta*a*a": "avoir de la barbe",
+        "ar-*â*a*a": "se quereller",
+        "ar-a**a*a": "faire affront",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "se disputer",
+    },  # 16
     "ar-lRw": {
         "aa_sens": "voix, parler de travers",
         "ar-**a*²a": "",
@@ -6884,5 +6902,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 237
+}  # 238
 # END
