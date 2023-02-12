@@ -4347,6 +4347,7 @@ langs = {
     "proto-indo-iranien": "proto-indo-iranien",
     "proto-iranien": "proto-iranien",
     "proto-italique": "proto-italique",
+    "proto-japonique insulaire": "proto-japonique insulaire",
     "proto-katuique": "proto-katuique",
     "proto-keresan": "proto-keresan",
     "proto-khmer": "proto-khmer",
@@ -4382,6 +4383,7 @@ langs = {
     "proto-polynésien": "proto-polynésien",
     "proto-pomo": "proto-pomo",
     "proto-pwo": "proto-pwo",
+    "proto-ryūkyū": "proto-ryūkyū",
     "proto-same": "proto-same",
     "proto-sangirien": "proto-sangirien",
     "proto-sarawak du Nord": "proto-sarawak du Nord",
@@ -6319,7 +6321,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,314
+}  # 6,316
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

@@ -94,6 +94,8 @@ regions = {
     "Caraïbes": "Caraïbes",
     "Carovigno": "Carovigno",
     "Castri di Lecce": "Castri di Lecce",
+    "Castrignano de’ Greci": "Castrignano de’ Greci",
+    "Castro": "Castro",
     "Catalogne": "Catalogne",
     "Catane": "Catane",
     "Caucase": "Caucase",
@@ -284,6 +286,7 @@ regions = {
     "Modica": "Modica",
     "Moldavie": "Moldavie",
     "Mongolie": "Mongolie",
+    "Montesano Salentino": "Montesano Salentino",
     "Montjean-sur-Loire": "Montjean-sur-Loire",
     "Montréal": "Montréal",
     "Montsoreau": "Montsoreau",
@@ -353,6 +356,7 @@ regions = {
     "Piazza Armerina": "Piazza Armerina",
     "Picardie": "Picardie",
     "Pinu": "Pinu",
+    "Poggiardo": "Poggiardo",
     "Poitou": "Poitou",
     "Pologne": "Pologne",
     "Polynésie française": "Polynésie française",
@@ -502,7 +506,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 497
+}  # 501
 # END
 
 # handled differently
