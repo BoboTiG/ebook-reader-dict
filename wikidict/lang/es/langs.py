@@ -602,6 +602,7 @@ langs = {
     "loz": "silozi",
     "lre": "laurenciano",
     "lt": "lituano",
+    "ltc": "chino medieval",
     "ltg": "latgaliano",
     "lu": "tshiluba katanga",
     "lua": "tshiluba",
@@ -1193,7 +1194,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,188
+}  # 1,189
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
