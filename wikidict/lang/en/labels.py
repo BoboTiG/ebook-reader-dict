@@ -86,6 +86,10 @@ labels = {
     "back-slang": "back slang",
     "backslang": "back slang",
     "bookish": "literary",
+    "bureaucratic": "officialese",
+    "business jargon": "corporate jargon",
+    "business speak": "corporate jargon",
+    "businessese": "corporate jargon",
     "buzzword": "buzzword",
     "by": "by",
     "by ellipsis": "by ellipsis",
@@ -117,6 +121,9 @@ labels = {
     "control verb": "control verb",
     "copular": "copulative",
     "copulative": "copulative",
+    "corporate jargon": "corporate jargon",
+    "corporate speak": "corporate jargon",
+    "corporatese": "corporate jargon",
     "cosmo": "advertising slang",
     "coster": "costermongers",
     "costermonger": "costermongers",
@@ -247,6 +254,8 @@ labels = {
     "ironic": "ironic",
     "iterative": "iterative",
     "jocular": "humorous",
+    "journalese": "journalistic",
+    "journalistic": "journalistic",
     "jussive": "jussive",
     "jussive mood": "jussive",
     "kenning": "kenning",
@@ -471,7 +480,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 466
+}  # 475
 
 label_syntaxes = {
     "&": {
