@@ -930,6 +930,7 @@ langs = {
     "wyb": "wangaaybuwan-ngiyambaa",
     "wym": "wymysorys",
     "xal": "calmuco",
+    "xbm": "bretão médio",
     "xbr": "kambera",
     "xce": "celtibérico",
     "xcl": "armênio antigo",
@@ -980,7 +981,7 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}  # 975
+}  # 976
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

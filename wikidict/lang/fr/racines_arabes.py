@@ -5138,7 +5138,8 @@ racines_schemes_arabes = {
         "ar-*a*a*ũ": "haleine",
         "ar-*a*i*a-a": "regretter",
         "ar-*a*u*a": "être de prix",
-        "ar-*a*²a*a": "éventer",
+        "ar-*a*²a*a": "souffler",
+        "ar-*a*â*@ũ": "caractère précieux",
         "ar-*a*î*ũ": "chose précieuse",
         "ar-*awâ*i*u": "{{p}} accouchées",
         "ar-*i*â*ũ": "{{p}} accouchées",
@@ -5164,7 +5165,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "respirer",
         "ar-ta*a*²u*ũ": "respiration",
         "ar-ta*â*a*a": "aspirer à",
-    },  # 38
+    },  # 39
     "ar-nhr": {
         "aa_sens": "fleuve, large",
         "ar-***ũ": "",
