@@ -4737,8 +4737,10 @@ labels_subvarieties = {
     "PHH": "Philippine Hokkien",
     "PIWR": "Proto-Italo-Western-Romance",
     "PIbR": "Proto-Ibero-Romance",
+    "PItR": "Proto-Italo-Romance",
     "PN": "personal names",
     "PNI": "Proto-Northern Iroquoian",
+    "PR": "Proto-Romance",
     "Pahang": "Pahang",
     "Paisaci": "Paisaci",
     "Pakistan": "Western Punjab",
@@ -4814,7 +4816,9 @@ labels_subvarieties = {
     "Proto-Balkan-Romance": "Proto-Balkan-Romance",
     "Proto-Gallo-Romance": "Proto-Gallo-Romance",
     "Proto-Ibero-Romance": "Proto-Ibero-Romance",
+    "Proto-Italo-Romance": "Proto-Italo-Romance",
     "Proto-Italo-Western-Romance": "Proto-Italo-Western-Romance",
+    "Proto-Romance": "Proto-Romance",
     "Provencal": "Provençal",
     "Provençal": "Provençal",
     "Psїsara": "Hirara",
@@ -5996,5 +6000,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,739
+}  # 2,743
 # END
