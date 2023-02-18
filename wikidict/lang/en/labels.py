@@ -4311,6 +4311,7 @@ labels_subvarieties = {
     "LA French": "Louisiana",
     "LBab": "Late Babylonian",
     "LDA": "Lisan ud-Dawat",
+    "LL.": "Late Latin",
     "LME": "Late Modern",
     "La": "Lavezzola",
     "Labradorimiutut": "Inuttut",
@@ -4392,6 +4393,7 @@ labels_subvarieties = {
     "M": "Massa Lombarda",
     "MAss": "Middle Assyrian",
     "MBab": "Middle Babylonian",
+    "ML.": "Medieval Latin",
     "MLE": "MLE",
     "MO French": "Missouri",
     "MTE": "MTE",
@@ -4741,6 +4743,7 @@ labels_subvarieties = {
     "PN": "personal names",
     "PNI": "Proto-Northern Iroquoian",
     "PR": "Proto-Romance",
+    "PWR": "Proto-Western-Romance",
     "Pahang": "Pahang",
     "Paisaci": "Paisaci",
     "Pakistan": "Western Punjab",
@@ -4819,6 +4822,7 @@ labels_subvarieties = {
     "Proto-Italo-Romance": "Proto-Italo-Romance",
     "Proto-Italo-Western-Romance": "Proto-Italo-Western-Romance",
     "Proto-Romance": "Proto-Romance",
+    "Proto-Western-Romance": "Proto-Western-Romance",
     "Provencal": "Provençal",
     "Provençal": "Provençal",
     "Psїsara": "Hirara",
@@ -6000,5 +6004,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,743
+}  # 2,747
 # END
