@@ -1147,6 +1147,7 @@ labels_topical = {
     "crime": "crime",
     "criminal law": "criminal law",
     "criminology": "criminology",
+    "croquet": "croquet",
     "cryptocurrencies": "cryptocurrencies",
     "cryptocurrency": "cryptocurrencies",
     "cryptography": "cryptography",
@@ -1813,7 +1814,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,082
+}  # 1,083
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
