@@ -7771,7 +7771,7 @@ langs = {
     "tap": "Taabwa",
     "taq": "Tamasheq",
     "tar": "Central Tarahumara",
-    "tas": "Tay Boi",
+    "tas": "Tây Bồi",
     "tau": "Upper Tanana",
     "tav": "Tatuyo",
     "taw": "Tai",
