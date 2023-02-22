@@ -557,6 +557,10 @@ form_of_templates = {
         "text": "nominalization of",
         "dot": False,
     },
+    "nom of": {
+        "text": "nominalization of",
+        "dot": False,
+    },
     "nonstandard form of": {
         "text": "Nonstandard form of",
         "dot": True,
@@ -869,7 +873,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 216
+}  # 217
 # END
 
 

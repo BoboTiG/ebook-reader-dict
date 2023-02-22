@@ -249,6 +249,7 @@ escopos = {
     "mês": "Cronônimo",
     "mídia": "Imprensa",
     "móvel": "Mobiliário",
+    "múrcia": "Múrcia",
     "músicos": "músicos",
     "nicarágua": "Nicarágua",
     "nordeste": "Nordeste do Brasil",
@@ -392,5 +393,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 387
+}  # 388
 # END

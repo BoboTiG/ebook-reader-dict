@@ -86,6 +86,7 @@ labels = {
     "back-slang": "back slang",
     "backslang": "back slang",
     "bookish": "literary",
+    "broadly": "broadly",
     "bureaucratic": "officialese",
     "business jargon": "corporate jargon",
     "business speak": "corporate jargon",
@@ -480,7 +481,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 475
+}  # 476
 
 label_syntaxes = {
     "&": {
