@@ -1312,6 +1312,8 @@ labels_topical = {
     "heraldry": "heraldry",
     "herbalism": "herbalism",
     "herpetology": "herpetology",
+    "historical period": "history",
+    "historical periods": "history",
     "historiography": "historiography",
     "history": "history",
     "hockey": "field hockey or ice hockey",
@@ -1815,7 +1817,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,083
+}  # 1,085
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5746,6 +5748,7 @@ labels_subvarieties = {
     "scho": "scholarly",
     "scie": "scientific",
     "setesdal": "Setesdal",
+    "sli": "Southeast Limburgish",
     "snm": "Sunnmøre",
     "south German": "Southern German",
     "south Germany": "Southern German",
@@ -6006,5 +6009,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,747
+}  # 2,748
 # END

@@ -296,6 +296,7 @@ escopos = {
     "planta": "Botânica",
     "popular": "popular",
     "porto": "Porto",
+    "porto rico": "Porto Rico",
     "portugal": "Portugal",
     "pouco usado": "pouco usado",
     "poético": "poético",
@@ -393,5 +394,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 388
+}  # 389
 # END
