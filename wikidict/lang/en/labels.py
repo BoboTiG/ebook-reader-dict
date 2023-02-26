@@ -203,7 +203,6 @@ labels = {
     "historical": "historical",
     "historical hiragana": "historical hiragana",
     "historical katakana": "historical katakana",
-    "history": "historical",
     "honorific": "honorific",
     "humble": "humble",
     "humorous": "humorous",
@@ -481,7 +480,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 476
+}  # 475
 
 label_syntaxes = {
     "&": {
