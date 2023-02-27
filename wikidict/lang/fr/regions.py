@@ -411,7 +411,6 @@ regions = {
     "Saumur": "Saumur",
     "Sava": "Sava",
     "Savoie": "Savoie",
-    "Scorrano": "Scorrano",
     "Seclì": "Seclì",
     "Segré": "Segré",
     "Sercq": "Sercq",
@@ -506,7 +505,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 501
+}  # 500
 # END
 
 # handled differently
