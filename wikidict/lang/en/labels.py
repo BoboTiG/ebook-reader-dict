@@ -2463,6 +2463,7 @@ labels_regional = {
     "Kenyan": "Kenya",
     "Kesaria": "Kayseri",
     "Ketapang": "Ketapang",
+    "Khachmaz": "Khachmaz",
     "Khanlar": "Goygol",
     "Kharberd": "Kharberd",
     "Kharpert": "Kharberd",
@@ -3179,6 +3180,7 @@ labels_regional = {
     "Wisconsin": "Wisconsin",
     "Witzapan": "Huitzapan",
     "Xanlar": "Goygol",
+    "Xaçmaz": "Khachmaz",
     "Xlat": "Ahlat",
     "Xocavənd": "Khojav",
     "Xodiçur": "Khotorjur",
@@ -3257,7 +3259,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,438
+}  # 1,440
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
