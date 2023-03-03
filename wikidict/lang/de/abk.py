@@ -16,6 +16,8 @@ abk = {
     "BrE": "britisch",
     "DDR": "DDR",
     "Dativ": "mit Dativ",
+    "Dim.": "Diminutiv",
+    "Dimin.": "Diminutiv",
     "Genitiv": "mit Genitiv",
     "Instrumental": "mit Instrumental",
     "Ling.": "Linguistik",
@@ -123,5 +125,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 118
+}  # 120
 # END

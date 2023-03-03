@@ -5616,6 +5616,7 @@ langs = {
     "vep": "vepse",
     "ver": "mom jango",
     "vi": "vietnamien",
+    "vi-Hani": "vietnamien",
     "vi-chunho": "vietnamien",
     "vi-chunom": "vietnamien",
     "vic": "créole des Îles Vierges",
@@ -6321,7 +6322,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,316
+}  # 6,317
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
