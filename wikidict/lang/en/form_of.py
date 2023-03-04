@@ -93,14 +93,6 @@ form_of_templates = {
         "text": "Alternative form of",
         "dot": False,
     },
-    "afo": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
-    "alternative form": {
-        "text": "Alternative form of",
-        "dot": False,
-    },
     "alternative plural of": {
         "text": "plural of kilometer",
         "dot": False,
@@ -121,15 +113,7 @@ form_of_templates = {
         "text": "Alternative spelling of",
         "dot": False,
     },
-    "alt spelling of": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
     "alt spell": {
-        "text": "Alternative spelling of",
-        "dot": False,
-    },
-    "aso": {
         "text": "Alternative spelling of",
         "dot": False,
     },
@@ -873,7 +857,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 217
+}  # 213
 # END
 
 

@@ -5251,6 +5251,8 @@ labels_subvarieties = {
     "Tatahuicapan": "Tatahuicapan",
     "Tavastia": "Tavastia",
     "Tavastian": "Tavastia",
+    "Tavush": "Tavush",
+    "Tavuš": "Tavush",
     "Tawalimni": "Tawalimni",
     "Tawallammat": "Tawellemmet",
     "Tawellemmet": "Tawellemmet",
@@ -6010,5 +6012,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,748
+}  # 2,750
 # END
