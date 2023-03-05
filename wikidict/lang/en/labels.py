@@ -2574,8 +2574,6 @@ labels_regional = {
     "Malian": "Mali",
     "Mallorca": "Mallorca",
     "Mallorcan": "Mallorca",
-    "Malta": "Malta",
-    "Maltese": "Malta",
     "Manc": "Manchester",
     "Manchester": "Manchester",
     "Mancunian": "Manchester",
@@ -2675,13 +2673,10 @@ labels_regional = {
     "Nakhijevan": "Nakhchivan",
     "Namibia": "Namibia",
     "Namibian": "Namibia",
-    "Naples": "Naples",
-    "Napoli": "Naples",
     "Natal": "Natal",
     "Navarre": "Navarre",
     "Navarrese": "Navarre",
     "Naxçıvan": "Nakhchivan",
-    "Neapolitan": "Naples",
     "Negeri Sembilan": "Negeri Sembilan",
     "Nepal": "Nepal",
     "Nepalese": "Nepal",
@@ -3259,7 +3254,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,440
+}  # 1,435
 
 labels_subvarieties = {
     "13": "Tredici Comuni",
@@ -4551,8 +4546,10 @@ labels_subvarieties = {
     "Namwon": "Namwon",
     "Namwon-eup": "Namwon",
     "Nanning Pinghua": "Nanning Pinghua",
+    "Naples": "Naples",
     "Navarrese": "Navarrese",
     "Navarro-Lapurdian": "Navarro-Lapurdian",
+    "Neapolitan": "Neapolitan",
     "Negros": "Negros",
     "Neo-Assyrian": "Neo-Assyrian",
     "Neo-Babylonian": "Neo-Babylonian",
@@ -6012,5 +6009,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,750
+}  # 2,752
 # END

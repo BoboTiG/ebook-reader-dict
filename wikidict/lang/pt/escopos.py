@@ -82,6 +82,7 @@ escopos = {
     "béarn": "Bearne",
     "bélgica": "Bélgica",
     "cabo verde": "Cabo Verde",
+    "calabor": "Calabor",
     "calendário": "Cronônimo",
     "calão": "obsceno",
     "campidanês": "Campidanês",
@@ -394,5 +395,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 389
+}  # 390
 # END
