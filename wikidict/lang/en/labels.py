@@ -5739,7 +5739,8 @@ labels_subvarieties = {
     "pt-pt form": "European Portuguese",
     "rao": "1922–1940 reformed orthography",
     "reflexive": "reflexive with {{m|mk|се|tr=-}}",
-    "reflexive-se": "reflexive with {{m|sk|se}}",
+    "reflexive-sa": "reflexive with {{m|sk|sa}}",
+    "reflexive-se": "reflexive with {{m|mk|се|tr=-}}",
     "reflexive-si": "reflexive with {{m|sk|si}}",
     "reli": "religious",
     "rhedok": "Rheinische Dokumenta",
@@ -6009,5 +6010,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,752
+}  # 2,753
 # END

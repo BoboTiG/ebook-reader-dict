@@ -41,27 +41,7 @@ form_of_templates = {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
-    "alternative capitalization of": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
     "alt case": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alt caps": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alternative letter-case form of": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "altcaps": {
-        "text": "Alternative letter-case form of",
-        "dot": False,
-    },
-    "alternative capitalisation of": {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
@@ -857,7 +837,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 213
+}  # 208
 # END
 
 
