@@ -125,6 +125,7 @@ gramatica_short = {
     "mult": "multiplicativo",
     "n": "neutro",
     "n2n": "neutro de dois números",
+    "nc": "não comparável",
     "nc2n": "neutro comum aos dois números",
     "nd": "neutro dual",
     "ndu": "neutro dual",
@@ -173,5 +174,5 @@ gramatica_short = {
     "vtd": "transitivo direto",
     "vtdi": "transitivo direto e indireto",
     "vti": "transitivo indireto",
-}  # 168
+}  # 169
 # END

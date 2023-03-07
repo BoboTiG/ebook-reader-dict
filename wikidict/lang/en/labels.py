@@ -398,6 +398,7 @@ labels = {
     "reverential": "reverential",
     "reversative": "reversative",
     "rhetorical question": "rhetorical question",
+    "rhyming slang": "rhyming slang",
     "royal": "royal",
     "said in anger": "angry register",
     "sarcastic": "sarcastic",
@@ -480,7 +481,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 475
+}  # 476
 
 label_syntaxes = {
     "&": {
@@ -5445,10 +5446,13 @@ labels_subvarieties = {
     "Walser": "Walser",
     "Walserdeutsch": "Walser",
     "Waltair": "Visakhapatnam",
+    "Waobich": "Waubach",
+    "Waobig": "Waubach",
     "Warmia": "Warmia",
     "Warsaw": "Warsaw",
     "Waser German": "Walser",
     "Waterford": "Waterford",
+    "Waubach": "Waubach",
     "Waxiang": "Waxiang",
     "Wechihit": "Wechihit",
     "Wenzhou": "Wenzhou Wu",
@@ -5511,6 +5515,7 @@ labels_subvarieties = {
     "Wikchamni": "Wukchumni",
     "Witkowo": "Witkowo",
     "Wo'lasi": "Wo'lasi",
+    "Woabich": "Waubach",
     "Wood": "Wood",
     "Wood Frisian": "Wood",
     "Wroclaw": "Wrocław",
@@ -6010,5 +6015,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,753
+}  # 2,757
 # END

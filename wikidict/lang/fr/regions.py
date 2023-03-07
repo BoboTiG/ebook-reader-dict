@@ -285,6 +285,7 @@ regions = {
     "Missouri": "Missouri",
     "Modica": "Modica",
     "Moldavie": "Moldavie",
+    "Monaco": "Monaco",
     "Mongolie": "Mongolie",
     "Montesano Salentino": "Montesano Salentino",
     "Montjean-sur-Loire": "Montjean-sur-Loire",
@@ -505,7 +506,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 500
+}  # 501
 # END
 
 # handled differently

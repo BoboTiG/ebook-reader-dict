@@ -6889,7 +6889,10 @@ racines_schemes_arabes = {
     "ar-zWj": {
         "aa_sens": "{{ar-zwj|***}}",
         "ar-*da*a*a": "faire la paire",
-    },  # 2
+        "ar-*di*â*ũ": "union d'une paire",
+        "ar-mu*da*i*ũ": "rime",
+        "ar-muta*a*²i*ũ": "marié",
+    },  # 5
     "ar-zWr": {
         "aa_sens": "éloignement",
         "ar-*a*a*ũ": "vice du poitrail",
@@ -7056,19 +7059,16 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "unir, accoupler",
         "ar-*a*â*ũ": "mariage",
         "ar-*da*a*a": "",
-        "ar-*di*â*ũ": "union d'une paire",
         "ar-*i**@ũ": "mariage",
         "ar-*i*a*@ũ": "{{p}} maris",
         "ar-*â*a*a": "être réuni",
         "ar-a**a*a": "",
         "ar-mu**a*ũ": "femme qui a eu plusieurs maris",
-        "ar-mu*da*i*ũ": "rime",
-        "ar-muta*a*²i*ũ": "marié",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "se marier",
         "ar-ta*â*a*a": "être réunis",
-    },  # 25
+    },  # 22
     "ar-zwr": {
         "aa_sens": "éloignement",
         "ar-**a*²a": "se détourner",
