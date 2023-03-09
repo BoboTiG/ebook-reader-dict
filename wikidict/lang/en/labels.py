@@ -5621,6 +5621,7 @@ labels_subvarieties = {
     "east": "East-Slovincian",
     "ebonics": "African-American Vernacular",
     "econ": "economic",
+    "eli": "East Limburgish",
     "epis": "epistolary",
     "eshin": "exted shinjitai",
     "exted shinjitai": "exted shinjitai",
@@ -6015,5 +6016,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,757
+}  # 2,758
 # END

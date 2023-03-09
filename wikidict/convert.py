@@ -436,7 +436,7 @@ class StarDictFormat(DictFileFormat):
 
     def _convert(self) -> None:
         """Convert the DictFile to StarDict."""
-        from pyglossary.glossary_v2 import Glossary, ConvertArgs
+        from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
         Glossary.init()
         glos = Glossary()
