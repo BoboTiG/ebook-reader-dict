@@ -4690,8 +4690,6 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "habiter la ville",
         "ar-*a*a*iy²ũ": "urbain",
-        "ar-*a*ya*iy²ũ": "Madianite",
-        "ar-*a*ya*ũ": "Madian",
         "ar-*a*²a*a": "fonder une ville",
         "ar-*a*â*iy²ũ": "Madaïnite",
         "ar-*a*î*@ũ": "ville",
@@ -4704,13 +4702,14 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "former une société",
         "ar-ta*a*²u*ũ": "état social",
         "ar-ta*â*a*a": "",
-    },  # 19
+    },  # 17
     "ar-mdyn": {
         "aa_sens": "établissement",
         "ar-***ũ": "",
         "ar-*a**a*iy²ũ": "Madianite",
         "ar-*a**a*ũ": "Madian",
-    },  # 4
+        "ar-ta*a**a*a": "profiter du confort",
+    },  # 5
     "ar-mlH": {
         "aa_sens": "sel, beau",
         "ar-***ũ": "",

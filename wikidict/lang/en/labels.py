@@ -1258,6 +1258,7 @@ labels_topical = {
     "functional analysis": "functional analysis",
     "functional group prefix": "organic chemistry",
     "functional group suffix": "organic chemistry",
+    "functional programming": "functional programming",
     "furniture": "furniture",
     "fuzzy logic": "fuzzy logic",
     "galaxy": "astronomy",
@@ -1817,7 +1818,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,085
+}  # 1,086
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
