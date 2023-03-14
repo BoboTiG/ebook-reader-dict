@@ -1271,6 +1271,7 @@ labels_topical = {
     "gardening": "horticulture",
     "gastronomy": "cooking",
     "genealogy": "genealogy",
+    "general semantics": "general semantics",
     "genetic disorder": "medical genetics",
     "genetics": "genetics",
     "geography": "geography",
@@ -1818,7 +1819,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,086
+}  # 1,087
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3905,6 +3906,8 @@ labels_subvarieties = {
     "Gazakh": "Ghazakh",
     "Gbede": "Gbẹdẹ",
     "Gbẹdẹ": "Gbẹdẹ",
+    "Genk": "Genk",
+    "Genks": "Genk",
     "Geordie": "Tyneside",
     "Ghajnsielem": "Għajnsielem",
     "Gharabagh": "Karabakh",
@@ -4012,6 +4015,9 @@ labels_subvarieties = {
     "Hatra": "Hatran",
     "Hatran": "Hatran",
     "Hatran Aramaic": "Hatran",
+    "Havarik": "Havarik",
+    "Havarli": "Havarik",
+    "Havarlı": "Havarik",
     "Havyaka": "Havyaka",
     "Hawon": "Hawon",
     "Hawon-dong": "Hawon",
@@ -5015,6 +5021,7 @@ labels_subvarieties = {
     "Saʽidi": "Upper Egypt",
     "Scanno": "Scanno",
     "Schiermonnikoog": "Schiermonnikoog",
+    "Schinnen": "Schinnen",
     "Schleswig": "Schleswig",
     "Schleswigsch": "Schleswig",
     "Scottish English": "Scotland",
@@ -5070,6 +5077,8 @@ labels_subvarieties = {
     "Sistani": "Sistani",
     "Sittard": "Sittard",
     "Siyi": "Siyi",
+    "Sjènne": "Schinnen",
+    "Sjènnes": "Schinnen",
     "Skiri Pawnee": "Skiri Pawnee",
     "Smoldzinski Las-Czolpino": "Smołdziński Las-Czołpino",
     "Smołdziński Las-Czołpino": "Smołdziński Las-Czołpino",
@@ -5875,6 +5884,8 @@ labels_subvarieties = {
     "Χαλδία": "Chaldia",
     "Һамамлы": "Hamamlı",
     "Խևակ": "Yusufeli Yaylalar",
+    "Հավարիկ": "Havarik",
+    "Հավարիք": "Havarik",
     "აზლაღური": "Azlagha",
     "ათინა": "Atina",
     "ათინური": "Atina",
@@ -6017,5 +6028,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,758
+}  # 2,768
 # END

@@ -2485,8 +2485,6 @@ racines_schemes_arabes = {
         "ar-*awâ*i*u": "restant derrière",
         "ar-*i**@ũ": "tardif ; discorde",
         "ar-*i**ũ": "différent",
-        "ar-*i*a*n@ũ": "contradicteur",
-        "ar-*i*a*nâ@ũ": "contradicteur",
         "ar-*i*²î*@ũ": "contradicteur",
         "ar-*i*²î*ãé": "vicariat",
         "ar-*i*â*@ũ": "lieutenance",
@@ -2522,7 +2520,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être laissé en arrière",
         "ar-ta*a*²u*ũ": "retard, absence",
         "ar-ta*â*a*a": "être d'avis différent",
-    },  # 59
+    },  # 57
     "ar-Xlq": {
         "aa_sens": "former, polir",
         "ar-*2aw2a*a": "être égal, uni, poli",
@@ -4753,22 +4751,26 @@ racines_schemes_arabes = {
         "ar-*a*a*iy²ũ": "urbain",
         "ar-*a*²a*a": "fonder une ville",
         "ar-*a*â*iy²ũ": "Madaïnite",
+        "ar-*a*âyi*u": "{{p}} villes",
         "ar-*a*î*@ũ": "ville",
         "ar-*a*î*iy²ũ": "urbain",
         "ar-*ta*a*a": "",
+        "ar-*u**ũ": "{{p}} villes",
+        "ar-*u*u*ũ": "{{p}} villes",
         "ar-*â*a*a": "",
         "ar-a**a*a": "",
+        "ar-el*a*î*u": "lion",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "former une société",
         "ar-ta*a*²u*ũ": "état social",
         "ar-ta*â*a*a": "",
-    },  # 17
+    },  # 21
     "ar-mdyn": {
         "aa_sens": "établissement",
         "ar-***ũ": "",
         "ar-*a**a*iy²ũ": "Madianite",
-        "ar-*a**a*ũ": "Madian",
+        "ar-*a**a*u": "Madian",
         "ar-ta*a**a*a": "profiter du confort",
     },  # 5
     "ar-mlH": {
