@@ -5414,6 +5414,7 @@ labels_subvarieties = {
     "Veldeke spelling": "Veldeke",
     "Veluwe": "Veluws",
     "Veluws": "Veluws",
+    "Veneto": "Veneto",
     "Venlo": "Venlo",
     "Venloos": "Venlo",
     "Verš": "Verš",
@@ -6028,5 +6029,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,768
+}  # 2,769
 # END

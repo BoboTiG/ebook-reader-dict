@@ -3782,6 +3782,37 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être d'accord",
         "ar-ta*â*u*ũ": "accord, entente",
     },  # 23
+    "ar-fjr": {
+        "aa_sens": "fendre",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "lit majeur",
+        "ar-*a**ũ": "aube",
+        "ar-*a*a*@ũ": "{{p}} libertins",
+        "ar-*a*a*a-u": "fendre",
+        "ar-*a*a*ũ": "générosité",
+        "ar-*a*²a*a": "écarter",
+        "ar-*a*â*ũ": "scélératesse",
+        "ar-*a*û*ũ": "chemins",
+        "ar-*i*â*ũ": "chemins",
+        "ar-*ta*a*a": "mentir",
+        "ar-*u**@ũ": "lit d'un torrent",
+        "ar-*u*u*ũ": "{{p}} chemins",
+        "ar-*u*²â*ũ": "{{p}} libertins",
+        "ar-*u*û*ũ": "impiété",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "libertin",
+        "ar-*â*û*ũ": "fornicateur",
+        "ar-a**a*a": "être adultère",
+        "ar-ma**a*@ũ": "bassin d'un cours d'eau",
+        "ar-mu**i*ũ": "au point du jour",
+        "ar-mun*a*a*ũ": "voie d'eau",
+        "ar-mun*a*i*ũ": "qui fait jour",
+        "ar-n*a*a*a": "se vider",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "jaillir",
+        "ar-ta*â*a*a": "",
+    },  # 29
     "ar-fkr": {
         "aa_sens": "penser",
         "ar-***ũ": "",
@@ -4748,6 +4779,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "habiter la ville",
+        "ar-*a*a*iy²@ũ": "civilisation",
         "ar-*a*a*iy²ũ": "urbain",
         "ar-*a*²a*a": "fonder une ville",
         "ar-*a*â*iy²ũ": "Madaïnite",
@@ -4760,19 +4792,25 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "",
         "ar-a**a*a": "",
         "ar-el*a*î*u": "lion",
+        "ar-muta*a*²i*ũ": "civilisé",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
+        "ar-ta**î*iy²ũ": "civilisationnel",
+        "ar-ta**î*ũ": "humanisation",
         "ar-ta*a*²a*a": "former une société",
+        "ar-ta*a*²u*iy²ũ": "civilisé",
         "ar-ta*a*²u*ũ": "état social",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 26
     "ar-mdyn": {
         "aa_sens": "établissement",
         "ar-***ũ": "",
         "ar-*a**a*iy²ũ": "Madianite",
         "ar-*a**a*u": "Madian",
+        "ar-muta*a**i*ũ": "civilisé",
         "ar-ta*a**a*a": "profiter du confort",
-    },  # 5
+        "ar-ta*a**u*ũ": "civilisation",
+    },  # 7
     "ar-mlH": {
         "aa_sens": "sel, beau",
         "ar-***ũ": "",
@@ -7107,5 +7145,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 244
+}  # 245
 # END
