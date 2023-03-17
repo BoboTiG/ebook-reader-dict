@@ -3462,6 +3462,7 @@ labels_subvarieties = {
     "Batum": "Batumi",
     "Batumi": "Batumi",
     "Bayarin": "Baarin",
+    "Beek": "Beek",
     "Beijing": "Beijing",
     "Beijing Mandarin": "Beijing",
     "Beira": "Beira",
@@ -6030,5 +6031,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,770
+}  # 2,771
 # END

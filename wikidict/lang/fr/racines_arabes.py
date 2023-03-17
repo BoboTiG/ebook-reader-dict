@@ -3805,6 +3805,7 @@ racines_schemes_arabes = {
         "ar-*â*û*ũ": "fornicateur",
         "ar-a**a*a": "être adultère",
         "ar-ma**a*@ũ": "bassin d'un cours d'eau",
+        "ar-ma*â*i*u": "{{p}} bassins de cours d'eau",
         "ar-mu**i*ũ": "au point du jour",
         "ar-mun*a*a*ũ": "voie d'eau",
         "ar-mun*a*i*ũ": "qui fait jour",
@@ -3812,7 +3813,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "jaillir",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-fkr": {
         "aa_sens": "penser",
         "ar-***ũ": "",
