@@ -2345,6 +2345,35 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "mal augurer",
         "ar-ta*â*a*a": "tourbillonner",
     },  # 30
+    "ar-Vmm": {
+        "aa_sens": "défectueux",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "presque à sec",
+        "ar-*a**ũ": "blâme",
+        "ar-*a*a*a-u": "blâmer",
+        "ar-*a*²a*a": "mépriser",
+        "ar-*a*î*@ũ": "faiblesse de jambe",
+        "ar-*a*î*ũ": "blâmé",
+        "ar-*i**@ũ": "protection",
+        "ar-*i**iy²ũ": "protégé",
+        "ar-*i**ũ": "maigri",
+        "ar-*i*â*ũ": "devoir",
+        "ar-*ta*a*a": "",
+        "ar-*u*â*@ũ": "le peu qui reste",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "protéger",
+        "ar-a**a*u": "plus blâmable",
+        "ar-ma**a*@ũ": "blâme",
+        "ar-ma**û*ũ": "blâmé",
+        "ar-mi**a*ũ": "qui n'a pas la force de marcher",
+        "ar-mu**a*@ũ": "action blâmable",
+        "ar-mu**i*ũ": "objet de reproches",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "mériter la censure",
+        "ar-ta*a*²a*a": "considérer blâmable",
+        "ar-ta*â*a*a": "se faire des reproches",
+    },  # 27
     "ar-Vrr": {
         "aa_sens": "poudre",
         "ar-**a*²a": "",
@@ -7146,5 +7175,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 245
+}  # 246
 # END

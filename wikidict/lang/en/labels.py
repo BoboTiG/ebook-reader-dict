@@ -1350,6 +1350,7 @@ labels_topical = {
     "inorganic compound": "inorganic chemistry",
     "insurance": "insurance",
     "international law": "international law",
+    "international relations": "international relations",
     "international standard": "international standards",
     "international standards": "international standards",
     "internet": "Internet",
@@ -1820,7 +1821,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,087
+}  # 1,088
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -4717,7 +4718,7 @@ labels_subvarieties = {
     "Ondo": "Ondo",
     "Onko": "Onko",
     "Ophitic": "Ophitic",
-    "Ordu": "Kotyora",
+    "Ordu": "Ordu",
     "Ormulum": "Ormulum",
     "Ortaalan": "Ortaalan",
     "Oslz": "East-Slovincian",
@@ -4992,6 +4993,8 @@ labels_subvarieties = {
     "Sallands": "Sallands",
     "Salop": "Shropshire",
     "Salopian": "Shropshire",
+    "Sampsounta": "Samsun",
+    "Samsun": "Samsun",
     "Samurzakano": "Samurzakano",
     "Samurzaqano": "Samurzakano",
     "San Marino": "San Marino",
@@ -6035,5 +6038,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,774
+}  # 2,776
 # END
