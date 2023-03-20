@@ -219,6 +219,7 @@ labels = {
     "imperative": "imperative",
     "imperative mood": "imperative",
     "imperfect": "imperfect",
+    "imperfective": "imperfective",
     "imperial": "imperial",
     "impersonal": "impersonal",
     "in dual": "in the dual",
@@ -482,7 +483,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 477
+}  # 478
 
 label_syntaxes = {
     "&": {
