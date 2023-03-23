@@ -212,6 +212,15 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             ),
             "[RGB #CF1020]",
         ],
+        # ES - coord output
+        [
+            "es",
+            (
+                '<span class="geo-multi-punct"> / </span><span class="geo-nondefault"><span class="geo-dec geo">'
+                '<span class="latitude">-4.2</span>, <span class="longitude">-69.917</span></span></span>'
+            ),
+            "",
+        ],
         # ES - external autonumber
         [
             "es",

@@ -175,13 +175,15 @@ def concat(
         return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
-def coord(values: List[str]) -> str:
+def coord(values: List[str], locale: str = "en") -> str:
     """
     Format lon/lat coordinates.
 
         >>> coord(["04", "39", "N", "74", "03", "O", "type:country"])
         '04°39′N 74°03′O'
     """
+    if locale == "es" and values[5] == "W":
+        values[5] = "O"
     return "{0}°{1}′{2} {3}°{4}′{5}".format(*values)
 
 
