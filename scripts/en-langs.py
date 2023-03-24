@@ -50,11 +50,10 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             result = f'"{matches[0][0].strip()}": {matches[0][1]},'
         elif matches2 and matches2[0]:
             result = f'"{matches2[0].strip()}' + '" : {' + line[line.index("{") + 1 :]
-        else:
-            if line.endswith(",") and not line.endswith("],"):
-                result = f"{line[:-1]} : None,"
-            elif not line.endswith('"'):
-                result = line
+        elif line.endswith(",") and not line.endswith("],"):
+            result = f"{line[:-1]} : None,"
+        elif not line.endswith('"'):
+            result = line
 
         concat += result + "\n"
     exec(concat, globals())

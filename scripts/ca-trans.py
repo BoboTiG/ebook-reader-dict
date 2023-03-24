@@ -57,8 +57,8 @@ for k, v in c.items():  # type: ignore # noqa
         print(v["trans_module"])
 
 trans_functions: Set[str] = set()
-for k, v in trans_modules.items():
-    url_trans = "https://ca.wiktionary.org/wiki/M%C3%B2dul:" + v
+for v in trans_modules.values():
+    url_trans = f"https://ca.wiktionary.org/wiki/M%C3%B2dul:{v}"
     soup = get_soup(url_trans)
     textarea = soup.find(class_="mw-highlight-lines")
     print(textarea.text)
