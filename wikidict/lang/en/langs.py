@@ -2391,6 +2391,7 @@ langs = {
     "emx": "Erromintxela",
     "emy": "Epigraphic Mayan",
     "en": "English",
+    "en-CA": "Canadian English",
     "en-GB": "British English",
     "en-HK": "Hong Kong English",
     "en-US": "American English",
@@ -4511,7 +4512,7 @@ langs = {
     "lor": "Téén",
     "los": "Loniu",
     "lot": "Lotuko",
-    "lou": "Louisiana Creole French",
+    "lou": "Louisiana Creole",
     "lov": "Lopi",
     "low": "Tampias Lobu",
     "lox": "Loun",
@@ -8865,7 +8866,6 @@ langs = {
     "xgl": "Galindan",
     "xgm": "Darumbal",
     "xgn": "Mongolic",
-    "xgn-kha": "Khamnigan Mongol",
     "xgn-mgl": "Mongghul",
     "xgn-mgr": "Mangghuer",
     "xgn-pro": "Proto-Mongolic",
@@ -9262,6 +9262,7 @@ langs = {
     "yiz": "Azhe",
     "yka": "Yakan",
     "ykg": "Northern Yukaghir",
+    "ykh": "Khamnigan Mongol",
     "yki": "Yoke",
     "ykk": "Yakaikeke",
     "ykl": "Khlula",
@@ -9482,6 +9483,7 @@ langs = {
     "zlw-ocs": "Old Czech",
     "zlw-opl": "Old Polish",
     "zlw-pom": "Pomeranian",
+    "zlw-pom-pro": "Proto-Pomeranian",
     "zlw-slv": "Slovincian",
     "zma": "Manda (Australia)",
     "zmb": "Zimba",
@@ -9580,5 +9582,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,575
+}  # 9,577
 # END

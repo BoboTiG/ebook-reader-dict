@@ -4449,10 +4449,12 @@ labels_subvarieties = {
     "Marinduqueño": "Marinduque",
     "Martvili-Bandza": "Martvili-Bandza",
     "Maski": "Maski",
+    "Masovia": "Masovia",
     "Massa Lombarda": "Massa Lombarda",
     "Masuria": "Masuria",
     "Mathia": "Lauriya-Nandangarh",
     "Matzouka": "Maçka",
+    "Mazowsze": "Masovia",
     "Mazury": "Masuria",
     "Maçka": "Maçka",
     "Mañegu": "Mañegu",
@@ -6039,5 +6041,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,776
+}  # 2,778
 # END
