@@ -74,6 +74,7 @@ regions = {
     "Brindes": "Brindes",
     "Briollay": "Briollay",
     "Brésil": "Brésil",
+    "Bulgarie": "Bulgarie",
     "Burkina Faso": "Burkina Faso",
     "Burundi": "Burundi",
     "Bénin": "Bénin",
@@ -161,6 +162,7 @@ regions = {
     "FR-85": "Vendée",
     "FR-Cher": "Cher",
     "Faeto": "Faeto",
+    "Fontainebleau": "Fontainebleau",
     "Fougères": "Fougères",
     "Francavilla": "Francavilla Fontana",
     "France": "France",
@@ -179,6 +181,7 @@ regions = {
     "Grande-Bretagne": "Royaume-Uni",
     "Grenoble": "Grenoble",
     "Grottaglie": "Grottaglie",
+    "Grèce": "Grèce",
     "Guadeloupe": "Guadeloupe",
     "Guatemala": "Guatemala",
     "Guerche-de-Bretagne": "La Guerche-de-Bretagne",
@@ -506,7 +509,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 501
+}  # 504
 # END
 
 # handled differently

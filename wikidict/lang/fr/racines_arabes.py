@@ -596,6 +596,44 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "excéder, dépasser le compte",
         "ar-tama**a*a": "faire le maaddite",
     },  # 32
+    "ar-3jm": {
+        "aa_sens": "mâcher",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "le fait de parler comme un étranger",
+        "ar-*a**@ũ": "palmier",
+        "ar-*a**iy²ũ": "prudent",
+        "ar-*a**â'u": "à voix basse",
+        "ar-*a**ũ": "noyau",
+        "ar-*a*a*@ũ": "palmier",
+        "ar-*a*a*a-u": "mordre",
+        "ar-*a*a*iy²ũ": "non arabe",
+        "ar-*a*a*ũ": "noyau dur",
+        "ar-*a*²a*a": "mettre les points diacritiques",
+        "ar-*a*²â*ũ": "grosse chauve-souris",
+        "ar-*a*â*iy²@ũ": "pâtisserie",
+        "ar-*i**@ũ": "masse de sable",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "masse de sable",
+        "ar-*u**ũ": "racine de la queue",
+        "ar-*u*u*ũ": "qui se contente de plantes épineuses",
+        "ar-*u*â*ũ": "noyau dur",
+        "ar-*â*a*a": "éprouver avec les dents",
+        "ar-*â*i*ũ": "qui mord",
+        "ar-a**a*a": "parler comme un étranger",
+        "ar-a**a*iy²ũ": "non arabe",
+        "ar-a**a*u": "non arabe",
+        "ar-el*a*a*âwâtu": "objet sonore",
+        "ar-ma**a*@ũ": "chamelle grasse",
+        "ar-ma**a*ũ": "homme peu commun",
+        "ar-ma**û*ũ": "robuste",
+        "ar-mu**a*ũ": "fermé",
+        "ar-musta**i*ũ": "qui parle comme un étranger",
+        "ar-n*a*a*a": "être inintelligible",
+        "ar-sta**a*a": "se taire",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "être obscur",
+    },  # 36
     "ar-3lY": {
         "aa_sens": "monter, s'élever",
         "ar-*i*a*ũ": "chefs",
@@ -7236,5 +7274,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 249
+}  # 250
 # END
