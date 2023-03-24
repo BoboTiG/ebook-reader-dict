@@ -175,7 +175,7 @@ def find_etymology(
                 definitions.append(etyl)
         return definitions
 
-    elif locale in {"es", "it"}:
+    elif locale in {"es", "it", "ro"}:
         items = [
             item.strip()
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
@@ -290,6 +290,8 @@ def find_all_sections(
     def section_title(title: str) -> str:
         if locale == "de":
             title = title.split("(")[-1].strip(" )")
+        if not title:
+            return ""
         return title.replace(" ", "").lower().strip()
 
     # Get interesting top sections
@@ -310,6 +312,7 @@ def find_all_sections(
             )
         )
     )
+
     return top_sections, all_sections
 
 
@@ -354,10 +357,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
             r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE
         )
 
-    elif locale == "it":
+    elif locale in ("it", "ro"):
+        if locale == "ro":
+            locale = "ron"
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
-            r"^\{\{-(.+)-\|it\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
+            fr"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE
         )
 
         # {{-avv-|ANY}} -> === {{avv|ANY}} ===
@@ -370,6 +375,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{!}} -> "|"
         code = code.replace("{{!}}", "|")
+
 
     return code
 
