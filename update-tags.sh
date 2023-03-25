@@ -3,7 +3,7 @@
 # Update associated release commit.
 #
 
-for tag in ca de el en es fr it no pt ru sv; do
+for tag in ca de el en es fr it no pt ro ru sv; do
     git tag -f -a "${tag}" -m "${tag}"
 done
 

@@ -10,6 +10,7 @@
 - [Italian](docs/it/README.md)
 - [Norway](docs/el/README.md)
 - [Portuguese](docs/pt/README.md)
+- [Romanian](docs/ro/README.md)
 - [Russian](docs/ru/README.md)
 - [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)

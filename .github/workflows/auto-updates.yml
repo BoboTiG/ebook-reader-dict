@@ -36,22 +36,22 @@ jobs:
     needs: [warmup]
 
     # List of locales to generate
-    # Sorted by the number of words
     strategy:
       fail-fast: false
       matrix:
         locale:
-          - "fr"
-          - "en"
-          - "de"
-          - "es"
-          - "el"
-          - "pt"
-          - "sv"
-          - "it"
           - "ca"
-          # - "ru"
+          - "de"
+          - "en"
+          - "el"
+          - "es"
+          - "fr"
+          - "it"
           - "no"
+          - "pt"
+          - "ro"
+          # - "ru"
+          - "sv"
 
     steps:
       - uses: actions/checkout@v3
