@@ -14,6 +14,7 @@ namespaces = {
     "it": ["Categoria", "File", "Image", "Immagine"],
     "no": ["Bilde", "Fil", "Image", "Kategori"],
     "pt": ["Arquivo", "Categoria", "Ficheiro", "Image", "Imagem"],
+    "ro": ["Categorie", "Fişier", "Fișier", "Image", "Imagine"],
     "ru": ["Image", "Изображение", "К", "Категория", "Файл"],
     "sv": ["Bild", "Fil", "Image", "KAT", "Kategori"],
 }
