@@ -45,20 +45,20 @@ templates_other = {}
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ro
 release_description = """\
-Words count: {words_count}
-Wiktionary dump: {dump_date}
+Număr de cuvinte: {words_count}
+Extragerea datelor din Wikționar: {dump_date}
 
-Available files:
+Fișiere disponibile:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
-<sub>Updated on {creation_date}</sub>
+<sub>Ultima actualizare în {creation_date}</sub>
 """  # noqa
 
 # Dictionary name that will be printed below each definition
-wiktionary = "Wiktionary (ɔ) {year}"
+wiktionary = "Wikționar (ɔ) {year}"
 
 
 def find_pronunciations(
