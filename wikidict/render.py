@@ -290,9 +290,7 @@ def find_all_sections(
     def section_title(title: str) -> str:
         if locale == "de":
             title = title.split("(")[-1].strip(" )")
-        if not title:
-            return ""
-        return title.replace(" ", "").lower().strip()
+        return title.replace(" ", "").lower().strip() if title else ""
 
     # Get interesting top sections
     top_sections = [
