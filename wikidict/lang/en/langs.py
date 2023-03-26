@@ -9214,6 +9214,7 @@ langs = {
     "ycl": "Lolopo",
     "ycn": "Yucuna",
     "ycp": "Chepya",
+    "ycr": "Yilan Creole",
     "yda": "Yanda",
     "yde": "Yangum Dey",
     "ydg": "Yidgha",
@@ -9582,5 +9583,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,577
+}  # 9,578
 # END

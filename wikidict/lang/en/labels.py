@@ -102,6 +102,7 @@ labels = {
     "causative verb": "causative",
     "chiefly": "chiefly",
     "chiefly in the negative": "chiefly in the negative",
+    "chiefly in the positive": "chiefly in the positive",
     "child language": "childish",
     "childish": "childish",
     "chu Nom": "Vietnamese chữ Nôm",
@@ -355,6 +356,8 @@ labels = {
     "pluralonly": "plural only",
     "poetic": "poetic",
     "polite": "polite",
+    "positive polarity": "chiefly in the positive",
+    "positive polarity item": "chiefly in the positive",
     "possessional": "possessional",
     "possessional adjective": "possessional",
     "possessional adjectives": "possessional",
@@ -471,8 +474,10 @@ labels = {
     "usually in plural": "usually in plural",
     "usually in the negative": "chiefly in the negative",
     "usually in the plural": "usually in the plural",
+    "usually in the positive": "chiefly in the positive",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
+    "usually used in the positive": "chiefly in the positive",
     "verlan": "verlan",
     "very": "very",
     "very rare": "very rare",
@@ -483,7 +488,7 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 478
+}  # 483
 
 label_syntaxes = {
     "&": {
