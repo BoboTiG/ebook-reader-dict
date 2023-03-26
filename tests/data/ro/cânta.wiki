@@ -1,0 +1,85 @@
+{{vezi|cântă|canta|cantá|cantà|cantâ|çanta}}
+=={{limba|ron}}==
+{{-etimologie-}}
+Din latină ''[[cantare]]''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/kɨnˈta/}}
+{{-verb-|ron}}
+{{verb-ron
+|inf=cânta
+|ind=cânt
+|conj=cânte
+|part=cântat
+|cj=I
+}}
+#(''v.intranz. și tranz.'') a [[emite]] cu [[voce]]a sau cu un [[instrument]] un [[șir]] de [[sunet]]e [[muzical]]e care se [[rândui]]esc într-o [[melodie]], într-un [[acord]] etc.
+#:''A '''cânta''' o melodie, o doină.''
+#:'''''Cântă''' din fluier.''
+#(''despre păsări, insecte etc.'') a [[scoate]] [[sunet]]e [[plăcut]]e la [[auz]]. [[caracteristice]] [[specie]]i.
+#(''v.intranz. și tranz.'') a [[scrie]] [[vers]]uri în [[cinste]]a [[cuiva]] sau a [[ceva]], a [[elogia]] (în versuri) pe [[cineva]] sau [[ceva]]; a [[descrie]], a [[povesti]] ceva în [[vers]]uri.
+#(''v.tranz.'') (''fam.'') a [[îndruga]], a [[înșira]] [[vorbă|vorbe]] [[gol|goale]].
+{{-sin-}}
+*'''1:''' (muz.) [[executa]], [[interpreta]], [[intona]], (pop.) [[glăsui]], [[spune]], [[viersui]], [[zice]], (înv.) [[glăsi]], [[juca]], (muz.) [[suna]]
+{{-ant-}}
+* [[vorbi]]
+{{-deriv-}}
+{{(|cuvinte derivate}}
+* [[cantabil]]
+* [[cantată]]
+* [[canto]]
+* [[cantor]]
+* [[canțonetă]]
+* [[canțonetist]]
+* [[cântare]]
+{{-}}
+* [[cântăreț]], [[cântăreață]]
+* [[cântat]]
+* [[cântător]], [[cântătoare]]
+* [[încânta]]
+* [[încântare]]
+* [[încântător]]
+{{)}}
+{{-expr-}}
+*'''''Joacă cum îi cântă''' = face întocmai cum îi poruncește altul''
+{{-trans-}}
+{{(|a emite sunete cu vocea sau cu un intrument}}
+*{{sqi}}: {{trad|sq|këndon}}
+*{{ara}}: {{trad|ar|غنى|(ğániya)}}
+*{{rup}}: {{trad|rup|cîntu}}
+*{{bul}}: {{trad|bg|пея}}
+*{{cat}}: {{trad|ca|cantar}}
+*{{ces}}: {{trad|cs|zpívat}}
+*{{zho}}: {{trad|zh|唱|(chàng)}}
+*{{kor}}: {{trad|ko|노래하다|(noraehada)}}
+*{{hrv}}: {{trad|hr|pjevati}}
+*{{dan}}: {{trad|da|synge}}
+*{{eng}}: {{trad|en|sing}}
+*{{epo}}: {{trad|eo|kanti}}
+*{{fin}}: {{trad|fi|laulaa}}
+*{{fra}}: {{trad|fr|chanter}}
+*{{glg}}: {{trad|gl|cantar}}
+*{{deu}}: {{trad|de|singen}}
+*{{ell}}: {{trad|el|τραγουδώ|(tragudó)}}
+*{{ind}}: {{trad|id|bernyanyi|(''un om'')}}, {{trad|id|berkicau|(''o pasăre'')}}
+{{-}}
+*{{gle}}: {{trad|ga|can}}
+*{{isl}}: {{trad|is|syngja}}
+*{{ita}}: {{trad|it|cantare}}
+*{{jpn}}: {{trad|ja|歌う|(うたう, utau) (''un om'')}}  , {{trad|ja|鳴く|(なく, naku) (''o pasăre'')}}
+*{{lat}}: {{trad|la|cantare}}
+*{{hun}}: {{trad|hu|énekel}}
+*{{nld}}: {{trad|nl|zingen}}
+*{{oci}}: {{trad|oc|cantar}}
+*{{pol}}: {{trad|pl|śpiewać}}
+*{{por}}: {{trad|pt|cantar}}
+*{{rus}}: {{trad|ru|петь|(pet’)}}
+*{{sco}}: {{trad|sco|seinn}}
+*{{slv}}: {{trad|sl|peti}}
+*{{spa}}: {{trad|es|cantar}}
+*{{swe}}: {{trad|sv|sjunga}}
+*{{tur}}: {{trad|tr|şarkı söylemek}}
+*{{ukr}}: {{trad|uk|співати}}
+*{{vie}}: {{trad|vi|hát}}
+{{)}}
+===Referințe===
+* [http://dexonline.ro/ DEX online]

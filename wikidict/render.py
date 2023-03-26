@@ -358,6 +358,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale in ("it", "ro"):
         if locale == "ro":
             locale = "ron"
+
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
             rf"^\{{\{{-(.+)-\|{locale}\}}\}}",

@@ -1,6 +1,6 @@
 """Romanian language."""
 import re
-from typing import List, Pattern, Tuple
+from typing import List, Pattern
 
 from ...user_functions import flatten, uniq
 
@@ -12,7 +12,6 @@ thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{limba|ron}}",)
-section_level = None
 section_sublevels = (3,)
 etyl_section = ("{{etimologie}}",)
 sections = (
@@ -37,8 +36,18 @@ sections = (
     "{{pronume}",
     "{{substantiv}",
     "{{sufix}",
-    "{{verb-}",
+    "{{verb}",
 )
+
+# Templates more complex to manage.
+templates_multi = {
+    # {{n}}
+    "n": "italic('n.')",
+    # {{p}}
+    "p": "italic('pl.')",
+    # {{trad|el|παρα}}
+    "trad": "parts[-1]",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ro
@@ -85,21 +94,3 @@ def find_pronunciations(
     ['/ka.priˈmulg/']
     """
     return uniq(flatten(pattern.findall(code)))
-
-
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
-    """
-    Will be call in utils.py::transform() when all template handlers were not used.
-
-    >>> last_template_handler(["trad", "el", "παρα"], "ca")
-    'παρα'
-
-    """
-    from ..defaults import last_template_handler as default
-
-    if template[0] == "trad":
-        return template[-1]
-
-    return default(template, locale, word=word)
