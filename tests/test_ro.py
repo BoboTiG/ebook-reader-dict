@@ -11,10 +11,15 @@ from wikidict.utils import process_templates
     "word, pronunciations, etymology, definitions, variants",
     [
         (
+            "aventurierul",
+            ["/a.ven.tu.riˈe.rul/"],
+            ["Din <i>aventurier</i>."],
+            [],
+            ["aventurier"],
+        ),
+        (
             "cânta",
-            [
-                "/kɨnˈta/",
-            ],
+            ["/kɨnˈta/"],
             ["Din latină <i>cantare</i>."],
             [
                 "(<i>v.intranz. și tranz.</i>) a emite cu vocea sau cu un instrument un șir de sunete muzicale care se rânduiesc într-o melodie, într-un acord etc.",  # noqa
@@ -24,11 +29,11 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        ("frumoasă", ["/fru'mo̯a.sə/"], ["Din <i>frumos</i>."], [], ["frumos"]),
+        ("frumoși", ["[fruˈmoʃʲ]"], [], [], ["frumos"]),
         (
             "paronim",
-            [
-                "/pa.ro'nim/",
-            ],
+            ["/pa.ro'nim/"],
             [
                 "Din franceză <i>paronyme</i>, latină <i>paronymon</i>, originar format din greacă παρα + <b>ονομα</b> -onym"  # noqa
             ],
@@ -38,6 +43,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        ("portocale", ["/por.toˈka.le/"], ["Din <i>portocală</i>."], [], ["portocală"]),
     ],
 )
 def test_parse_word(

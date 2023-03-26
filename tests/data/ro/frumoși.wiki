@@ -1,0 +1,9 @@
+==Romanian==
+
+===Pronunciation===
+* {{IPA|ro|[fruˈmoʃʲ]}}
+
+===Adjective===
+{{head|ro|adjective form}}
+
+# {{adj form of|ro|frumos||m|p}}

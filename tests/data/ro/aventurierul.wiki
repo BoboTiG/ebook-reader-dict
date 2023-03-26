@@ -1,0 +1,8 @@
+=={{limba|ron}}==
+{{-etimologie-}}
+Din ''aventurier''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/a.ven.tu.riˈe.rul/}}
+{{-substantiv-}}
+#''forma de singular articulat pentru'' '''[[aventurier]]'''.
+[[Categorie:{{flex. subst}} {{ron}}]]
