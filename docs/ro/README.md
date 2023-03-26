@@ -1,30 +1,33 @@
 # Romanian Dictionary For Your eBook Reader
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://en.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+**eBook Reader Dictionaries** este un proiect colaborativ care utilizează vasta bază de date [Wikționar](https://ro.wiktionary.org/) pentru a crea un dicționar complet, actualizat zilnic.
 
-## Interesting Features
+## Caracteristici Interesante
 
-- [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed. <!-- → [ate](screenshot-ate.png)-->
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed. <!-- → [](screenshot-.png) -->
-- If a word contains several pronunciations, or genders, all are available. <!-- → [board](screenshot-board.png)-->
-- Mathematic formulas are converted to SVG. <!-- → [Pythagorean trigonometric identity](screenshot-pythagorean_trigonometric_identity.png)-->
-- Hieroglyphs are supported. <!--→ [tjaty](screenshot-tjaty.png)-->
+- [Kobo] La selectarea unui cuvânt la plural, va fi afișată forma sa la singular.
+- [Kobo] La selectarea unui verb conjugat, va fi afișată varianta sa la infinitiv. <!-- → [ate](screenshot-mănâncă.png)-->
+- [Kobo] Atunci când un cuvânt este forma de plural a altui cuvânt și, de asemenea,
+forma unui verb, se vor afișa toate versiunile. <!-- → [](screenshot-.png) -->
+- În cazul în care un cuvânt conține mai multe pronunții sau genuri, toate sunt
+disponibile. <!-- → [board](screenshot-.png)-->
+- Formulele matematice sunt convertite în SVG. <!-- → [Identitatea trigonometrică pitagoreică](screenshot-identitatea_trigonometrică_pitagoreicăy.png)-->
+- Sunt acceptate hieroglifele. <!--→ [tjaty](screenshot-.png)-->
 
-## Downloads
+## Descărcări
 
-### Full Version
+### Versiunea Completă
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-ro-ro.zip) (dicthtml-ro-ro.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro.zip) (dict-ro-ro.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro.df.bz2) (dict-ro-ro.df.bz2)
 
-### Etymology-Free Version
+### Versiune Fără Etimologie
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-ro-ro-noetym.zip) (dicthtml-ro-ro-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro-noetym.zip) (dict-ro-ro-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro-noetym.df.bz2) (dict-ro-ro-noetym.df.bz2)
 
-## Installation
+## Instalare
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Copiați dicționarul în interiorul folderului  `.kobo/custom-dict/` de pe cititorul de
+cărți electronice (eBook Reader).

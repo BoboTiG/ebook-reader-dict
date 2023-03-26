@@ -5,10 +5,10 @@ from typing import List, Pattern, Tuple
 from ...user_functions import flatten, uniq
 
 # Float number separator
-float_separator = "."
+float_separator = ","
 
 # Thousads separator
-thousands_separator = ","
+thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{limba|ron}}",)
@@ -40,22 +40,6 @@ sections = (
     "{{verb-}",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = ()
-
-# Templates to ignore: the text will be deleted.
-templates_ignored = ()
-
-# Templates that will be completed/replaced using italic style.
-# templates_italic = {}
-
-# Templates more complex to manage.
-# templates_multi = {}
-
-# Templates that will be completed/replaced using custom text.
-# templates_other = {}
-
-
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ro
 release_description = """\
@@ -69,7 +53,7 @@ Fișiere disponibile:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Ultima actualizare în {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikționar (ɔ) {year}"
@@ -112,7 +96,7 @@ def last_template_handler(
     >>> last_template_handler(["trad", "el", "παρα"], "ca")
     'παρα'
 
-    """  # noqa
+    """
     from ..defaults import last_template_handler as default
 
     if template[0] == "trad":
