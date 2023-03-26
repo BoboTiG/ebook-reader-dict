@@ -11,6 +11,20 @@ from wikidict.utils import process_templates
     "word, pronunciations, etymology, definitions, variants",
     [
         (
+            "cânta",
+            [
+                "/kɨnˈta/",
+            ],
+            ["Din latină <i>cantare</i>."],
+            [
+                "(<i>v.intranz. și tranz.</i>) a emite cu vocea sau cu un instrument un șir de sunete muzicale care se rânduiesc într-o melodie, într-un acord etc.",  # noqa
+                "(<i>despre păsări, insecte etc.</i>) a scoate sunete plăcute la auz. caracteristice speciei.",
+                "(<i>v.intranz. și tranz.</i>) a scrie versuri în cinstea cuiva sau a ceva, a elogia (în versuri) pe cineva sau ceva; a descrie, a povesti ceva în versuri.",  # noqa
+                "(<i>v.tranz.</i>) (<i>fam.</i>) a îndruga, a înșira vorbe goale.",
+            ],
+            [],
+        ),
+        (
             "paronim",
             [
                 "/pa.ro'nim/",
@@ -45,7 +59,11 @@ def test_parse_word(
 
 @pytest.mark.parametrize(
     "wikicode, expected",
-    [],
+    [
+        ("{{n}}", "<i>n.</i>"),
+        ("{{p}}", "<i>pl.</i>"),
+        ("{{trad|el|παρα}}", "παρα"),
+    ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
