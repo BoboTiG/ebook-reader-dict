@@ -29,6 +29,37 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        (
+            "fi",
+            ["/fi/"],
+            ["Din latină <i>sum, esse, fui, fire</i>."],
+            [
+                "a exista, a avea ființă.",
+                "a se afla, a se găsi într-un anumit loc, la o anumită persoană.",
+                "a-și avea originea, obârșia, a se trage, a proveni.",
+                "a trăi, a viețui, a o duce; (<i>despre lucruri, situații, acțiuni etc.</i>) a dura, a dăinui, a ține.",  # noqa
+                "a se îndeplini, a se întâmpla, a se petrece, a avea loc.",
+                "a avea prețul...; a costa, a valora.",
+                "(<i>în superstiții, ghicitori etc.</i>) a însemna, a prevesti, a fi semn că...",
+                "(<i>formează, împreună cu numele predicativ, predicatul</i>)",
+                "(<i>construit cu dativul; împreună cu un nume predicativ, exprimă o stare sau o acțiune arătate de numele predicativ respectiv</i>)",  # noqa
+                "(<i>în construcții impersonale, cu subiectul logic în dativ; în legătură cu noțiuni exprimând un sentiment, o senzație, o stare sufletească</i>) a simți",  # noqa
+                "(<i>impers.; urmat de un verb la infinitiv sau la conjunctiv sau urmat ori precedat de o noțiune temporală</i>) a urma (să se facă), a trebui (să se facă).",  # noqa
+                "(<i>de obicei impers.; la imperfect și urmat de un verb la conjunctiv</i>) a avea putința, posibilitatea, ocazia să...; a se afla pe punctul de a..., a nu mai lipsi mult până să...",  # noqa
+                "(<i>impers.; urmat de un suspin</i>) a putea, a trebui, a considera că este cazul să..., a se cuveni.",
+                "(<i>construit cu un participiu, servește la formarea diatezei pasive</i>)",
+                "(<i>construit cu un participiu invariabil, formează timpuri compuse ale diatezei active</i>)",
+                (
+                    "(<i>cu viitorul I formează viitorul anterior</i>)",
+                    "(<i>cu condiționalul prezent formează perfectul optativ-condițional</i>)",
+                    "(<i>cu conjunctivul prezent formează perfectul conjunctivului</i>)",
+                    "(<i>cu infinitivul formează perfectul infinitivului</i>)",
+                    "(<i>cu viitorul I sau cu perfectul conjunctivului formează prezumtivul prezent și perfect</i>)",
+                ),
+                "(<i>construit cu un participiu invariabil sau cu un gerunziu, servește la alcătuirea unor forme perifrastice de perfect compus, mai mult ca perfect sau imperfect</i>)",  # noqa
+            ],
+            [],
+        ),
         ("frumoasă", ["/fru'mo̯a.sə/"], ["Din <i>frumos</i>."], [], ["frumos"]),
         ("frumoși", ["[fruˈmoʃʲ]"], [], [], ["frumos"]),
         (

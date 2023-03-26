@@ -377,6 +377,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
                     r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE
                 )
 
+            # ===Verb tranzitiv=== -> === {{Verb tranzitiv}} ===
+            code = re.sub(
+                r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE
+            )
+
             # Hack for a fake variants supports because RO doesn't use templates most of the time
             # `#''forma de feminin singular pentru'' [[frumos]].` -> `# {{forma de feminin singular pentru|frumos}}`
             code = re.sub(

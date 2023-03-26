@@ -38,6 +38,10 @@ sections = (
     "{{pronume}",
     "{{substantiv}",
     "{{sufix}",
+    "{{Verb auxiliar}",
+    "{{Verb copulativ}",
+    "{{Verb predicativ}",
+    "{{Verb tranzitiv}",
     "{{verb}",
 )
 
