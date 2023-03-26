@@ -359,6 +359,33 @@ def adjust_wikicode(code: str, locale: str) -> str:
         if locale == "ro":
             locale = "ron"
 
+            # {{-avv-|ANY|ANY}} -> === {{avv|ANY|ANY}} ===
+            code = re.sub(
+                r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
+                r"=== {{\1|\2|\3}} ===",
+                code,
+                flags=re.MULTILINE,
+            )
+
+            # Try to convert old Wikicode
+            if "==Romanian==" in code:
+                # ==Romanian== -> == {{limba|ron}} ==
+                code = code.replace("==Romanian==", "== {{limba|ron}} ==")
+
+                # ===Adjective=== -> === {{Adjective}} ===
+                code = re.sub(
+                    r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE
+                )
+
+            # Hack for a fake variants supports because RO doesn't use templates most of the time
+            # `#''forma de feminin singular pentru'' [[frumos]].` -> `# {{forma de feminin singular pentru|frumos}}`
+            code = re.sub(
+                r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
+                r"\1{{\2|\3}}",
+                code,
+                flags=re.MULTILINE,
+            )
+
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
             rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
