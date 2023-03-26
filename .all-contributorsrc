@@ -82,6 +82,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "drkoll",
+      "name": "John Koll",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128939759?v=4",
+      "profile": "https://github.com/drkoll",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 6,
