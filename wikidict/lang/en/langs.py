@@ -4371,6 +4371,7 @@ langs = {
     "lgn": "Opuuo",
     "lgq": "Logba",
     "lgr": "Lengo",
+    "lgs": "Guinea-Bissau Sign Language",
     "lgt": "Pahi",
     "lgu": "Longgu",
     "lgz": "Ligenza",
@@ -9583,5 +9584,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,578
+}  # 9,579
 # END

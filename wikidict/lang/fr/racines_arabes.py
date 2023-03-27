@@ -608,7 +608,7 @@ racines_schemes_arabes = {
         "ar-*a*a*@ũ": "palmier",
         "ar-*a*a*a-u": "mordre",
         "ar-*a*a*iy²ũ": "non arabe",
-        "ar-*a*a*ũ": "noyau dur",
+        "ar-*a*a*ũ": "étranger",
         "ar-*a*²a*a": "mettre les points diacritiques",
         "ar-*a*²â*ũ": "grosse chauve-souris",
         "ar-*a*â*iy²@ũ": "pâtisserie",
@@ -618,6 +618,7 @@ racines_schemes_arabes = {
         "ar-*u**ũ": "racine de la queue",
         "ar-*u*u*ũ": "qui se contente de plantes épineuses",
         "ar-*u*â*ũ": "noyau dur",
+        "ar-*u*û*ũ": "morsure",
         "ar-*â*a*a": "éprouver avec les dents",
         "ar-*â*i*ũ": "qui mord",
         "ar-a**a*a": "parler comme un étranger",
@@ -627,13 +628,13 @@ racines_schemes_arabes = {
         "ar-ma**a*@ũ": "chamelle grasse",
         "ar-ma**a*ũ": "homme peu commun",
         "ar-ma**û*ũ": "robuste",
-        "ar-mu**a*ũ": "fermé",
+        "ar-mu**a*ũ": "dictionnaire",
         "ar-musta**i*ũ": "qui parle comme un étranger",
         "ar-n*a*a*a": "être inintelligible",
         "ar-sta**a*a": "se taire",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "être obscur",
-    },  # 36
+    },  # 37
     "ar-3lY": {
         "aa_sens": "monter, s'élever",
         "ar-*i*a*ũ": "chefs",

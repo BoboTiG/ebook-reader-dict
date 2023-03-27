@@ -211,7 +211,7 @@ langs = {
     "co": "corso",
     "com": "comanche",
     "cop": "copta",
-    "cps": "capisano",
+    "cps": "capiznon",
     "cr": "cree",
     "crh": "tártaro da Crimeia",
     "cri": "são-tomense",
