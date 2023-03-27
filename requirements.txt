@@ -2,7 +2,7 @@ setuptools>=36.2.1
 beautifulsoup4==4.12.0
 docopt==0.6.2
 Jinja2==3.1.2
-marisa-trie==0.7.8
+marisa-trie==0.8.0
 mistune==2.0.5  # for DictFile reading
 pyglossary==4.6.0
 requests==2.28.2
