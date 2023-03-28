@@ -488,7 +488,8 @@ labels = {
     "with respect to": "with respect to",
     "women's speech": "women's speech",
     "wrt": "with respect to",
-}  # 483
+    "youth slang": "youth slang",
+}  # 484
 
 label_syntaxes = {
     "&": {
@@ -3788,9 +3789,11 @@ labels_subvarieties = {
     "EA": "El-Amarna",
     "EC Scots": "East Central",
     "EME": "Early Modern",
+    "EML.": "Early Medieval Latin",
     "ES": "eastern Sicily",
     "Earlier ME": "Early Middle English",
     "Early ME": "Early Middle English",
+    "Early Medieval Latin": "Early Medieval Latin",
     "Early Middle English": "Early Middle English",
     "Early Modern": "Early Modern",
     "Early Modern English": "Early Modern",
@@ -6046,5 +6049,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,778
+}  # 2,780
 # END
