@@ -6863,7 +6863,7 @@ langs = {
     "roa-oil": "Oïl",
     "roa-oit": "Old Italian",
     "roa-ole": "Old Leonese",
-    "roa-opt": "Old Portuguese",
+    "roa-opt": "Old Galician-Portuguese",
     "roa-orl": "Orléanais",
     "roa-poi": "Poitevin-Saintongeais",
     "roa-rhe": "Rhaeto-Romance",
