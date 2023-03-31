@@ -6404,7 +6404,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**ũ": "trace",
         "ar-*a*a*@ũ": "expédition",
-        "ar-*a*a*a-a": "écarter",
+        "ar-*a*a*a-i": "écarter",
         "ar-*a*a*a-u": "être négociateur",
         "ar-*a*²a*a": "expédier",
         "ar-*a*²â*ũ": "relieur",

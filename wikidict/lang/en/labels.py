@@ -1370,6 +1370,7 @@ labels_topical = {
     "journalism": "journalism",
     "judo": "judo",
     "juggling": "juggling",
+    "karuta": "karuta",
     "knitting": "knitting",
     "ko": "ko",
     "lacrosse": "lacrosse",
@@ -1828,7 +1829,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,088
+}  # 1,089
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -1894,6 +1895,7 @@ labels_regional = {
     "American": "US",
     "Amsterdam": "Amsterdam",
     "Amur": "Amur",
+    "Anatri": "Anatri",
     "Andalucia": "Andalusia",
     "Andalucía": "Andalusia",
     "Andalusia": "Andalusia",
@@ -2547,6 +2549,7 @@ labels_regional = {
     "Lower Austria": "Lower Austria",
     "Lower Austrian": "Lower Austria",
     "Lower Cherokee": "Lower",
+    "Lower Chuvash": "Anatri",
     "Loṙi": "Lori",
     "Lucerne": "Lucerne",
     "Lucknow": "Lucknow",
@@ -3117,6 +3120,7 @@ labels_regional = {
     "University of Cambridge": "Cambridge University",
     "University of Durham": "Durham University",
     "University of Oxford": "Oxford University",
+    "Upper Chuvash": "Viryal",
     "Upper Midwest US": "Upper Midwestern US",
     "Upper Midwestern US": "Upper Midwestern US",
     "Urfa": "Urfa",
@@ -3152,6 +3156,7 @@ labels_regional = {
     "Vilnius": "Vilnius",
     "Virginia": "Virginia",
     "Virginian": "Virginia",
+    "Viryal ": "Viryal",
     "Viöl": "Fjolde",
     "Vojvodina": "Vojvodina",
     "Vozim": "Vozm",
@@ -3266,7 +3271,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,435
+}  # 1,439
 
 labels_subvarieties = {
     "13": "Tredici Comuni",

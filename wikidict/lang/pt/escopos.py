@@ -174,6 +174,7 @@ escopos = {
     "gascunha": "Gasconha",
     "gascão": "Gasconha",
     "gastronomia": "Culinária",
+    "germanismo": "germanismo",
     "gerês": "Gerês",
     "gimnosperma": "Botânica",
     "glossónimo": "Linguística",
@@ -395,5 +396,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 390
+}  # 391
 # END

@@ -24,7 +24,6 @@ langs = {
     "agj": "Argobba",
     "aie": "Amara",
     "ain": "Ainu",
-    "ajp": "Südlevantinisches Arabisch",
     "ak": "Akan",
     "akg": "Anakalangu",
     "akk": "Akkadisch",
@@ -41,7 +40,7 @@ langs = {
     "amu": "Amuzgo",
     "an": "Aragonesisch",
     "ang": "Altenglisch",
-    "apc": "Nordlevantinisches Arabisch",
+    "apc": "Levantinisches Arabisch",
     "apw": "West-Apache",
     "ar": "Arabisch",
     "arc": "Aramäisch",
@@ -676,5 +675,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 671
+}  # 670
 # END
