@@ -5042,6 +5042,7 @@ labels_subvarieties = {
     "Savè": "Savè",
     "Saʽidi": "Upper Egypt",
     "Scanno": "Scanno",
+    "Schaesberg": "Schaesberg",
     "Schiermonnikoog": "Schiermonnikoog",
     "Schinnen": "Schinnen",
     "Schleswig": "Schleswig",
@@ -5099,6 +5100,8 @@ labels_subvarieties = {
     "Sistani": "Sistani",
     "Sittard": "Sittard",
     "Siyi": "Siyi",
+    "Sjeeter": "Schaesberg",
+    "Sjeeter plat": "Schaesberg",
     "Sjènne": "Schinnen",
     "Sjènnes": "Schinnen",
     "Skiri Pawnee": "Skiri Pawnee",
@@ -6054,5 +6057,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,780
+}  # 2,783
 # END
