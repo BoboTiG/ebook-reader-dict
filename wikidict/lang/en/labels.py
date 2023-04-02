@@ -5329,6 +5329,9 @@ labels_subvarieties = {
     "Tosk": "Tosk",
     "Toyama": "Toyama",
     "Trabzon": "Trabzon",
+    "Transitional": "Transitional Period",
+    "Transitional Period": "Transitional Period",
+    "Transitional period": "Transitional Period",
     "Transylvania": "Ardeal",
     "Transylvanian": "Ardeal",
     "Trapani": "Trapani",
@@ -5830,6 +5833,8 @@ labels_subvarieties = {
     "to": "traditional orthography",
     "traditional acrobats' cant": "traditional acrobats' cant",
     "traditional orthography": "traditional orthography",
+    "transitional": "Transitional Period",
+    "transitional period": "Transitional Period",
     "trd": "Trøndelag",
     "trøndelag": "Trøndelag",
     "trøndersk": "Trøndelag",
@@ -6057,5 +6062,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,783
+}  # 2,788
 # END

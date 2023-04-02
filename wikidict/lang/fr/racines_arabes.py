@@ -6399,7 +6399,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
     },  # 27
     "ar-sfr": {
-        "aa_sens": "écarter",
+        "aa_sens": "expédier, balayer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ũ": "trace",
