@@ -1393,6 +1393,7 @@ labels_topical = {
     "literature": "literature",
     "logic": "logic",
     "logical fallacy": "rhetoric",
+    "logistics": "logistics",
     "luge": "luge",
     "lutherie": "lutherie",
     "machine learning": "machine learning",
@@ -1829,7 +1830,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,089
+}  # 1,090
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3521,6 +3522,7 @@ labels_subvarieties = {
     "Boholano": "Bohol",
     "Bokmål": "Bokmål",
     "Bolian": "Bolian",
+    "Bolu": "Bolu",
     "Bombay": "Bombay Hindi",
     "Bombay Hindi": "Bombay Hindi",
     "Bongseong": "Bongseong",
@@ -3857,6 +3859,7 @@ labels_subvarieties = {
     "Erice": "Erice",
     "Erzgebirge": "Erzgebirgisch",
     "Erzgebirgisch": "Erzgebirgisch",
+    "Erzurum": "Erzurum",
     "Etelä-Karjala": "South Karelia",
     "Etelä-Pohjanmaa": "South Ostrobothnia",
     "Eupen": "Eupen",
@@ -3937,7 +3940,7 @@ labels_subvarieties = {
     "Gimnyeon-ri": "Gimnyeong",
     "Gimnyeong": "Gimnyeong",
     "Gipuzkoan": "Gipuzkoan",
-    "Giresun": "Kerasounta",
+    "Giresun": "Giresun",
     "Girnar": "Girnar",
     "Godavari": "Godavari",
     "Goral": "Góral",
@@ -3969,6 +3972,7 @@ labels_subvarieties = {
     "Gyeonggi": "Gyeonggi",
     "Gyeongsang": "Gyeongsang",
     "Góral": "Góral",
+    "Gümüşhane": "Gümüşhane",
     "Güneyce": "Güneyce",
     "Għajnsielem": "Għajnsielem",
     "Għawdex": "Gozo",
@@ -5099,6 +5103,7 @@ labels_subvarieties = {
     "Sinugboanong Binisaya": "Cebu",
     "Sistani": "Sistani",
     "Sittard": "Sittard",
+    "Sivas": "Sivas",
     "Siyi": "Siyi",
     "Sjeeter": "Schaesberg",
     "Sjeeter plat": "Schaesberg",
@@ -6062,5 +6067,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,788
+}  # 2,792
 # END

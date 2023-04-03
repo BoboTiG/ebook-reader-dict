@@ -389,6 +389,7 @@ escopos = {
     "verme": "Zoologia",
     "vestuário": "Vestuário",
     "veterinária": "Veterinária",
+    "vila real": "Vila Real",
     "vinhais": "Vinhais",
     "vulgar": "obsceno",
     "vulgaridade": "obsceno",
@@ -396,5 +397,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 391
+}  # 392
 # END

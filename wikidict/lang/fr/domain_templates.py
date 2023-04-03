@@ -307,13 +307,15 @@ domain_templates = {
     "échinodermes": "Zoologie",
     "écureuils": "Zoologie",
     "édifices": "Construction",
+    "édifices religieux": "Religion",
     "éléments": "Chimie",
     "éléphantidés": "Zoologie",
     "épices": "Cuisine",
     "équins": "Zoologie",
     "établissements": "Commerce",
+    "établissements de santé": "Médecine",
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 310
+}  # 312
 # END
