@@ -18,6 +18,10 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
     in_comment = False
     for line in lines:
         line = line.strip()
+        if line == "local":
+            break
+        if "require" in line:
+            continue
         if line.startswith("--[[") or line.startswith("--[=["):
             in_comment = True
             continue
@@ -28,10 +32,6 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             continue
         if line.startswith(("--", "return")):
             continue
-        # deal with the alias_code function
-        line = re.sub(r"local function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", line)
-        line = line.replace("for _, v in ipairs(b) do", "\n    for v in b:\n       ")
-        line = line.replace(" end", "")
         # deal with "local m = {}"
         if line.startswith("local"):
             line = line.replace("local", "")
@@ -57,6 +57,10 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
 
         concat += result + "\n"
     exec(concat, globals())
+    for k, v in m.copy().items():  # type: ignore # noqa
+        if alias_codes := v.get("alias_codes", {}):
+            for alias_code in alias_codes:
+                m[alias_code] = v  # type: ignore # noqa
     return m  # type: ignore # noqa
 
 
