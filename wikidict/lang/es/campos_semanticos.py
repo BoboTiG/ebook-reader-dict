@@ -226,6 +226,7 @@ campos_semanticos = {
     "cactos": "Botánica",
     "cardiología": "Cardiología",
     "carpintería": "Carpintería",
+    "casos gramaticales": "Lingüística",
     "caza": "Cinegética",
     "cereales": "Botánica (cereales)",
     "cerrajería": "Cerrajería",
@@ -498,5 +499,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 493
+}  # 494
 # END

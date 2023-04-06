@@ -185,7 +185,6 @@ escopos = {
     "guatemala": "Guatemala",
     "guiné-bissau": "Guiné-Bissau",
     "gíria": "gíria",
-    "história": "História",
     "honduras": "Honduras",
     "hortaliça": "Alimentação",
     "ictiologia": "Ictiologia",
@@ -397,5 +396,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 392
+}  # 391
 # END

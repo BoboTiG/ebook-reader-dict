@@ -66,6 +66,7 @@ regions = {
     "Berry": "Berry",
     "Bolivie": "Bolivie",
     "Bordelais": "Bordelais",
+    "Boston": "Boston",
     "Bourbonnais": "Bourbonnais",
     "Bourgogne": "Bourgogne",
     "Bray": "Pays de Bray",
@@ -509,7 +510,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 504
+}  # 505
 # END
 
 # handled differently
