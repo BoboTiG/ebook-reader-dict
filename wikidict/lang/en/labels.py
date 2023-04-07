@@ -3275,6 +3275,8 @@ labels_regional = {
 }  # 1,439
 
 labels_subvarieties = {
+    "+accusative": "+ accusative",
+    "+partitive": "+ partitive",
     "13": "Tredici Comuni",
     "13 Communities": "Tredici Comuni",
     "1922–1940 reformed orthography": "1922–1940 reformed orthography",
@@ -6067,5 +6069,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,792
+}  # 2,794
 # END
