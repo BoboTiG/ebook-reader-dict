@@ -3276,6 +3276,7 @@ labels_regional = {
 
 labels_subvarieties = {
     "+accusative": "+ accusative",
+    "+inf1": "+ first infinitive",
     "+partitive": "+ partitive",
     "13": "Tredici Comuni",
     "13 Communities": "Tredici Comuni",
@@ -5672,6 +5673,7 @@ labels_subvarieties = {
     "eli": "East Limburgish",
     "epis": "epistolary",
     "eshin": "exted shinjitai",
+    "expressive": "expressive",
     "exted shinjitai": "exted shinjitai",
     "exti": "extispical",
     "ffm": "Maasina",
@@ -6069,5 +6071,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,794
+}  # 2,796
 # END

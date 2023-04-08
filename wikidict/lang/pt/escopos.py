@@ -302,7 +302,6 @@ escopos = {
     "pouco usado": "pouco usado",
     "poético": "poético",
     "pr": "Paraná",
-    "profissão": "Profissão",
     "programação": "Informática",
     "provença": "Provença",
     "provençal": "Provença",
@@ -396,5 +395,5 @@ escopos = {
     "áfrica do sul": "África do Sul",
     "árvore": "Botânica",
     "índia": "Índia",
-}  # 391
+}  # 390
 # END

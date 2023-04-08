@@ -46,6 +46,7 @@ domain_templates = {
     "canards": "Ornithologie",
     "canaux": "Géographie",
     "canidés": "Mammifères",
+    "cantons": "Géographie",
     "capitales": "Géographie",
     "caprins": "Zoologie",
     "carnivore": "Zoologie",
@@ -317,5 +318,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 312
+}  # 313
 # END

@@ -3790,6 +3790,27 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "lire",
     },  # 40
+    "ar-dwl": {
+        "aa_sens": "circuler",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "période",
+        "ar-*a**ũ": "retour",
+        "ar-*a*a*@ũ": "notoriété",
+        "ar-*a*a*a-u": "tourner",
+        "ar-*a*a*iy²@ũ": "raisin",
+        "ar-*a*²a*a": "",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "infortune",
+        "ar-*â*a*a": "faire prospérer",
+        "ar-a**a*@ũ": "remplacement",
+        "ar-a**a*a": "remplacer",
+        "ar-muta*â*i*ũ": "qui succède",
+        "ar-n*a*a*a": "émigrer",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "se succéder",
+    },  # 19
     "ar-f3l": {
         "aa_sens": "action",
         "ar-*a**@ũ": "habitude",
@@ -6402,14 +6423,15 @@ racines_schemes_arabes = {
         "aa_sens": "expédier, balayer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-*a**@ũ": "voyage",
         "ar-*a**ũ": "trace",
         "ar-*a*a*@ũ": "expédition",
-        "ar-*a*a*a-i": "écarter",
+        "ar-*a*a*a-i": "dévoiler",
         "ar-*a*a*a-u": "être négociateur",
+        "ar-*a*a*iy²@ũ": "déplacement",
         "ar-*a*a*ũ": "voyage",
         "ar-*a*²a*a": "expédier",
         "ar-*a*²â*ũ": "relieur",
-        "ar-*a*²û*@ũ": "?",
         "ar-*a*²û*ũ": "hérissé d'épines",
         "ar-*a*âyi*u": "{{p}} muselières",
         "ar-*a*î*@ũ": "collier",
@@ -6431,17 +6453,18 @@ racines_schemes_arabes = {
         "ar-a**a*a": "écarter son voile",
         "ar-a**i*@ũ": "{{p}} muselières",
         "ar-a**â*ũ": "{{p}} voyages",
-        "ar-ma*â*i*ũ": "partie visible du visage",
+        "ar-ma**a*ũ": "zone découverte",
+        "ar-ma*â*i*u": "partie visible du visage",
         "ar-mi**a*@ũ": "balai",
         "ar-mi**a*ũ": "qui voyage beaucoup",
         "ar-mu**i*@ũ": "rougeâtre",
         "ar-mu*a*²a*@ũ": "peleton de fil",
         "ar-mu*â*i*ũ": "voyageur",
-        "ar-n*a*a*a": "",
+        "ar-n*a*a*a": "disparaître",
         "ar-sta**a*a": "demander à dévoiler",
         "ar-ta*a*²a*a": "se mettre en route",
         "ar-ta*â*a*a": "se séparer",
-    },  # 42
+    },  # 44
     "ar-sjd": {
         "aa_sens": "prosterner",
         "ar-***ũ": "",
@@ -6798,6 +6821,27 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "abandonner",
     },  # 21
+    "ar-tys": {
+        "aa_sens": "bouc",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**iy²@ũ": "entêtement",
+        "ar-*a**u": "stupide",
+        "ar-*a**â'u": "chèvre cornue",
+        "ar-*a**ũ": "bouc",
+        "ar-*a*3û3iy²@ũ": "entêtement",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "dresser",
+        "ar-*i**iy²@ũ": "mensonge",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "travailler",
+        "ar-a**a*a": "",
+        "ar-a**a*u": "stupide",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "devenir bouc",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 19
     "ar-wSl": {
         "aa_sens": "allier, rallier",
         "ar-**a*²a": "",
@@ -7346,5 +7390,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 252
+}  # 254
 # END

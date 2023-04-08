@@ -3171,6 +3171,7 @@ langs = {
     "mfn": "mbembe Cross River",
     "mfp": "malais de Makassar",
     "mfr": "marithiel",
+    "mfv": "manjak",
     "mfx": "melo",
     "mfy": "mayo",
     "mfz": "mabaan",
@@ -4399,6 +4400,7 @@ langs = {
     "proto-subanen": "proto-subanen",
     "proto-sunda-sulawesi": "proto-sunda-sulawesi",
     "proto-sémitique": "proto-sémitique",
+    "proto-sérère-peul": "proto-sérère-peul",
     "proto-talodi": "proto-talodi",
     "proto-tangkique": "proto-tangkique",
     "proto-tchadique central": "proto-tchadique central",
@@ -6338,7 +6340,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,333
+}  # 6,335
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
