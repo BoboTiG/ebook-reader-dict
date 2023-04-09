@@ -3275,8 +3275,21 @@ labels_regional = {
 }  # 1,439
 
 labels_subvarieties = {
+    "+ablative": "+ ablative",
     "+accusative": "+ accusative",
+    "+adessive": "+ adessive",
+    "+allative": "+ allative",
+    "+elative": "+ elative",
+    "+genitive": "+ genitive",
+    "+illative": "+ illative",
+    "+inessive": "+ inessive",
     "+inf1": "+ first infinitive",
+    "+inf3 abessive": "+ abessive of the third infinitive",
+    "+inf3 adessive": "+ adessive of the third infinitive",
+    "+inf3 elative": "+ elative of the third infinitive",
+    "+inf3 illative": "+ illative of the third infinitive",
+    "+inf3 inessive": "+ inessive of the third infinitive",
+    "+nominative": "+ nominative",
     "+partitive": "+ partitive",
     "13": "Tredici Comuni",
     "13 Communities": "Tredici Comuni",
@@ -6071,5 +6084,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,796
+}  # 2,809
 # END
