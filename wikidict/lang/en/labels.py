@@ -1777,6 +1777,7 @@ labels_topical = {
     "underwater diving": "underwater diving",
     "urban studies": "urban studies",
     "urbanism": "urban studies",
+    "urology": "urology",
     "valentinianism": "Valentinianism",
     "vector algebra": "linear algebra",
     "vegetable": "vegetable",
@@ -1830,7 +1831,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,090
+}  # 1,091
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5115,6 +5116,7 @@ labels_subvarieties = {
     "Singapore Hokkien": "Singaporean Hokkien",
     "Singaporean Hokkien": "Singaporean Hokkien",
     "Singlish": "Singlish",
+    "Sinop": "Sinop",
     "Sinugboanon": "Cebu",
     "Sinugboanong Binisaya": "Cebu",
     "Sistani": "Sistani",
@@ -6084,5 +6086,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,809
+}  # 2,810
 # END
