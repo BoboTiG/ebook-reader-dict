@@ -131,6 +131,7 @@ domain_templates = {
     "flamants": "Ornithologie",
     "fleurs": "Botanique",
     "formations musicales": "Musique",
+    "fossiles": "Paléontologie",
     "fromages": "Fromage",
     "fruits": "Botanique",
     "félins": "Mammalogie",
@@ -318,5 +319,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 313
+}  # 314
 # END
