@@ -4429,6 +4429,11 @@ labels_subvarieties = {
     "Lower Yangtze Mandarin": "Jianghuai Mandarin",
     "Lowicz": "Łowicz",
     "Lowlands Scots": "Lowlands Scots",
+    "Lucknawi": "Lucknawi",
+    "Lucknawi Urdu": "Lucknawi",
+    "Lucknow": "Lucknawi",
+    "Lucknow Urdu": "Lucknawi",
+    "Lucknowi": "Lucknawi",
     "Lugo": "Lughese",
     "Lumbini": "Lumbini",
     "Lunfardo": "Lunfardo",
@@ -6086,5 +6091,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,810
+}  # 2,815
 # END
