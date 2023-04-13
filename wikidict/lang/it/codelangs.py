@@ -66,7 +66,6 @@ codelangs = {
     "bfd": "bafut",
     "bfq": "badaga",
     "bg": "bulgaro",
-    "bgc": "bgc",
     "bgn": "beluci occidentale",
     "bho": "bhojpuri",
     "bi": "bislama",
@@ -236,7 +235,6 @@ codelangs = {
     "hax": "haida meridionale",
     "he": "ebraico",
     "hi": "hindi",
-    "hi-Latn": "hindi (latino)",
     "hi-Latn-alt-variant": "hinglish",
     "hif": "hindi figiano",
     "hil": "ilongo",
@@ -660,5 +658,5 @@ codelangs = {
     "zun": "zuni",
     "zxx": "nessun contenuto linguistico",
     "zza": "zaza",
-}  # 655
+}  # 653
 # END
