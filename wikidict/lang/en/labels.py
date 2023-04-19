@@ -1172,6 +1172,8 @@ labels_topical = {
     "cycling": "cycling",
     "cytology": "cytology",
     "dance": "dance",
+    "dances": "dance",
+    "dancing": "dance",
     "darts": "darts",
     "data management": "data management",
     "data modeling": "data modeling",
@@ -1832,7 +1834,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,091
+}  # 1,093
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

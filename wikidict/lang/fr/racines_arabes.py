@@ -2447,6 +2447,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "mal augurer",
         "ar-ta*â*a*a": "tourbillonner",
     },  # 30
+    "ar-V'b": {
+        "aa_sens": "loup, toupet",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-a": "rassembler",
+        "ar-*a*i*a-i": "ressembler à un loup",
+        "ar-*a*u*a": "ressembler à un loup",
+        "ar-*a*²a*a": "coiffer en toupet",
+        "ar-*i**@ũ": "louve",
+        "ar-*i**ũ": "loup",
+        "ar-*ta*a*a": "",
+        "ar-*u*â*@ũ": "toupet",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "coiffer en toupet",
+        "ar-ma**û*ũ": "éprouvé par le loup",
+        "ar-mu*a*²a*ũ": "coiffé en toupet",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "ressembler à un loup",
+        "ar-ta*a*²a*a": "être affreux",
+        "ar-ta*â*a*a": "",
+    },  # 18
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
@@ -4039,6 +4059,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être pensif",
         "ar-ta*â*a*a": "",
     },  # 24
+    "ar-frX": {
+        "aa_sens": "éclore",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "{{f}} poussin femelle",
+        "ar-*a**ũ": "poussin",
+        "ar-*a*i*a-a": "être quiet",
+        "ar-*a*²a*a": "pulluler",
+        "ar-*i*â*ũ": "volaille",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "faire éclore",
+        "ar-mu**i*@ũ": "poulailler",
+        "ar-mu**i*ũ": "qui a des poussins",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "élever des oiseaux",
+        "ar-ta**î*ũ": "incubation",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 18
     "ar-ftH": {
         "aa_sens": "débouché, ouvert, qui a le goulot large",
         "ar-*a**@ũ": "faire une fois l'action d'ouvrir / innaugurer / juger",
@@ -7437,5 +7477,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 255
+}  # 257
 # END

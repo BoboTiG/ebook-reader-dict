@@ -84,7 +84,7 @@ langs = {
     "bh": "bihari",
     "bho": "bhojpuri",
     "bi": "bislama",
-    "bik": "bicol",
+    "bik": "bikol",
     "bin": "edo",
     "bkm": "kom",
     "bla": "blackfoot",
