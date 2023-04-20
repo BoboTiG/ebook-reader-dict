@@ -1165,6 +1165,7 @@ langs = {
     "csc": "langue des signes catalane",
     "cse": "langue des signes tchèque",
     "csg": "langue des signes chilienne",
+    "csh": "asho",
     "csi": "miwok de la côte",
     "csk": "jola-kasa",
     "csm": "miwok central de la Sierra",
@@ -6340,7 +6341,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,335
+}  # 6,336
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

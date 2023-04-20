@@ -2449,11 +2449,13 @@ racines_schemes_arabes = {
     },  # 30
     "ar-V'b": {
         "aa_sens": "loup, toupet",
+        "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-a": "rassembler",
-        "ar-*a*i*a-i": "ressembler à un loup",
+        "ar-*a*i*a-a": "ressembler à un loup",
         "ar-*a*u*a": "ressembler à un loup",
         "ar-*a*²a*a": "coiffer en toupet",
+        "ar-*a*â*@ũ": "crainte des loups",
         "ar-*i**@ũ": "louve",
         "ar-*i**ũ": "loup",
         "ar-*ta*a*a": "",
@@ -2466,7 +2468,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "ressembler à un loup",
         "ar-ta*a*²a*a": "être affreux",
         "ar-ta*â*a*a": "",
-    },  # 18
+    },  # 20
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
@@ -6685,6 +6687,33 @@ racines_schemes_arabes = {
         "ar-tama**a*a": "se convertir, devenir musulman",
         "ar-u*ay*i*ũ": "artère entre le majeur et l'auriculaire",
     },  # 41
+    "ar-smk": {
+        "aa_sens": "être élevé, supporter, poisson",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "toit",
+        "ar-*a*a*@ũ": "poisson",
+        "ar-*a*a*a-u": "s'élever",
+        "ar-*a*a*ũ": "du poisson",
+        "ar-*a*²a*a": "épaissir",
+        "ar-*a*²â*ũ": "poissonnier",
+        "ar-*a*î*ũ": "haut",
+        "ar-*i*â*ũ": "support",
+        "ar-*ta*a*a": "",
+        "ar-*u**ũ": "toit",
+        "ar-*u*ay*ũ": "petit poisson",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "haut",
+        "ar-a**a*a": "",
+        "ar-ma**û*âtũ": "les cieux",
+        "ar-ma**û*ũ": "long",
+        "ar-mi**â*ũ": "piquet de tente",
+        "ar-mu**a*âtũ": "les cieux",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "surpasser",
+        "ar-ta*â*a*a": "",
+    },  # 25
     "ar-smw": {
         "aa_sens": "hauteur, cieux ; nom",
         "ar-*a**ũ": "le fait de nommer",
@@ -7477,5 +7506,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 257
+}  # 258
 # END
