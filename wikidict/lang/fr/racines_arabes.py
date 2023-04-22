@@ -564,9 +564,9 @@ racines_schemes_arabes = {
     },  # 24
     "ar-3dd": {
         "aa_sens": "préparer, nombre, compter",
+        "ar-*a**ânũ": "le temps où ça se passe",
         "ar-*a**ũ": "le fait de compter",
         "ar-*a*a*a-u": "compter",
-        "ar-*a*a*ânũ": "le temps où ça se passe",
         "ar-*a*a*ũ": "décompte, âge",
         "ar-*a*²a*a": "énumérer, amasser",
         "ar-*a*î*@ũ": "part, lot",
@@ -1788,6 +1788,7 @@ racines_schemes_arabes = {
         "ar-a**a*u": "plus chaud",
         "ar-ma**û*ũ": "échauffé",
         "ar-mi**a*ũ": "installation de chauffage",
+        "ar-mi**â*ũ": "thermomètre",
         "ar-mu**a*ũ": "qui a des chameaux assoiffés",
         "ar-mu*a*²a*ũ": "tracé",
         "ar-mu*a*²i*ũ": "écrivain",
@@ -1799,7 +1800,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être exempté",
         "ar-ta*â*a*a": "",
         "ar-ta*â*î*u": "{{p}} vêtements de soie",
-    },  # 47
+    },  # 48
     "ar-Hsb": {
         "aa_sens": "estimer",
         "ar-**a*²a": "être de poil tricolore",
@@ -3709,6 +3710,37 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être enfumé",
         "ar-ta*â*a*a": "",
     },  # 28
+    "ar-dbb": {
+        "aa_sens": "ramper",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "dune",
+        "ar-*a**ũ": "pas d'un vieillard",
+        "ar-*a*a*a-i": "se traîner",
+        "ar-*a*a*ânũ": "poil aux joues",
+        "ar-*a*a*ũ": "défaut",
+        "ar-*a*i*ũ": "qui a du poil aux joues",
+        "ar-*a*²a*a": "aiguiser",
+        "ar-*a*²â*@ũ": "tank",
+        "ar-*a*²â*ũ": "rampant",
+        "ar-*a*â*i": "appel de la hyène",
+        "ar-*a*î*ũ": "rampant",
+        "ar-*i**@ũ": "pas lent",
+        "ar-*i**ũ": "pas lent",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "manière d'agir",
+        "ar-*u**iy²ũ": "ursin",
+        "ar-*u**ũ": "ours",
+        "ar-*uway**@ũ": "animacule",
+        "ar-*â**@ũ": "animal",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "faire marcher lentement",
+        "ar-mu*a*²a*ũ": "pointu",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 29
     "ar-dbr": {
         "aa_sens": "arrière, postérieur",
         "ar-**â*@ũ": "oreille fendue",
@@ -4344,9 +4376,8 @@ racines_schemes_arabes = {
         "ar-*a*û*ũ": "{{p}} démons",
         "ar-*i**@ũ": "génies",
         "ar-*i**iy²@ũ": "fée",
-        "ar-*i**ũ": "couverture, voile",
-        "ar-*i*a*iy²ũ": "relatif aux génies",
-        "ar-*i*a*ũ": "djinn",
+        "ar-*i**iy²ũ": "relatif aux génies",
+        "ar-*i**ũ": "djinn",
         "ar-*i*â*ũ": "{{p}} démons, génies",
         "ar-*ta*a*a": "être couvert",
         "ar-*u**@ũ": "abri",
@@ -4367,7 +4398,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être caché",
         "ar-ta*a*²a*a": "devenir fou",
         "ar-ta*â*a*a": "être fou",
-    },  # 37
+    },  # 36
     "ar-jns": {
         "aa_sens": "genre",
         "ar-***ũ": "",
@@ -6697,6 +6728,7 @@ racines_schemes_arabes = {
         "ar-*a*a*ũ": "du poisson",
         "ar-*a*²a*a": "épaissir",
         "ar-*a*²â*ũ": "poissonnier",
+        "ar-*a*â*@ũ": "épaisseur",
         "ar-*a*î*ũ": "haut",
         "ar-*i*â*ũ": "support",
         "ar-*ta*a*a": "",
@@ -6707,13 +6739,14 @@ racines_schemes_arabes = {
         "ar-a**a*a": "",
         "ar-ma**û*âtũ": "les cieux",
         "ar-ma**û*ũ": "long",
+        "ar-ma*â*i*ũ": "poissonnerie",
         "ar-mi**â*ũ": "piquet de tente",
         "ar-mu**a*âtũ": "les cieux",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "surpasser",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 27
     "ar-smw": {
         "aa_sens": "hauteur, cieux ; nom",
         "ar-*a**ũ": "le fait de nommer",
@@ -7506,5 +7539,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 258
+}  # 259
 # END
