@@ -3900,6 +3900,9 @@ labels_subvarieties = {
     "European Portuguese orthography": "European spelling",
     "European Portuguese spelling": "European spelling",
     "European Portuguese verb form": "European spelling",
+    "Evaz": "Evazi",
+    "Evazi": "Evazi",
+    "Evazī": "Evazi",
     "Eys": "Eys",
     "F": "Faenza",
     "Fa": "Old Faentino",
@@ -3923,6 +3926,7 @@ labels_subvarieties = {
     "Filo": "Filo",
     "Findikli": "Vitse",
     "Finglish": "Finglish",
+    "Firmosa": "Firmosa",
     "Firtina": "Firtina Valley",
     "Firtina Valley": "Firtina Valley",
     "Firtina valley": "Firtina Valley",
@@ -6128,5 +6132,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,846
+}  # 2,850
 # END

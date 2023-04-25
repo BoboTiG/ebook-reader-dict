@@ -141,6 +141,10 @@ form_of_templates = {
         "text": "Archaic spelling of",
         "dot": True,
     },
+    "archaic sp": {
+        "text": "Archaic spelling of",
+        "dot": True,
+    },
     "aspirate mutation of": {
         "text": "Aspirate mutation of",
         "dot": True,
@@ -837,7 +841,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 208
+}  # 209
 # END
 
 
