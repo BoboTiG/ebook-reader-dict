@@ -1367,6 +1367,7 @@ langs = {
     "dnn": "dzùùngoo",
     "dnr": "danaru",
     "dnt": "dani de Mid Grand Valley",
+    "dnu": "danau",
     "dnw": "dani de l’Ouest",
     "dny": "dení",
     "doa": "dom",
@@ -2030,6 +2031,7 @@ langs = {
     "hnj": "hmong vert",
     "hnn": "hanunóo",
     "hno": "hindko du Nord",
+    "hnu": "pong",
     "ho": "hiri motou",
     "hoa": "hoava",
     "hoanya": "hoanya",
@@ -2748,6 +2750,7 @@ langs = {
     "kxd": "malais de Brunei",
     "kxh": "karo (Éthiopie)",
     "kxj": "koulfa",
+    "kxm": "khmer du Nord",
     "kxn": "melanau kanowit",
     "kxo": "kanoê",
     "kxs": "kangjia",
@@ -3317,6 +3320,7 @@ langs = {
     "mnd": "mondé",
     "mne": "naba",
     "mnf": "mundani",
+    "mng": "mnong de l’Est",
     "mnh": "mono (République démocratique du Congo)",
     "mni": "manipourî",
     "mnj": "munji",
@@ -4012,6 +4016,7 @@ langs = {
     "omt": "omotik",
     "omu": "omurana",
     "omv": "langues omotiques",
+    "omx": "vieux môn",
     "ona": "selknam",
     "onb": "lingao",
     "one": "oneida",
@@ -4212,6 +4217,7 @@ langs = {
     "pko": "pökot",
     "pkp": "pakupaku",
     "pkr": "kurumba d’Attapady",
+    "pkt": "malieng",
     "pku": "paku",
     "pl": "polonais",
     "plb": "polonombauk",
@@ -5516,6 +5522,7 @@ langs = {
     "tya": "tauya",
     "tye": "kyanga",
     "typ": "thaypan",
+    "tyt": "tày tac",
     "tyv": "touvain",
     "tyz": "tày",
     "tza": "langue des signes tanzanienne",
@@ -6272,6 +6279,7 @@ langs = {
     "zkk": "karankawa",
     "zko": "kott",
     "zkr": "zakhring",
+    "zkt": "khitan",
     "zku": "kaurna",
     "zkz": "khazar",
     "zle": "langues slaves orientales",
@@ -6357,7 +6365,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,352
+}  # 6,360
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

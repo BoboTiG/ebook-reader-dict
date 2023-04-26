@@ -3489,6 +3489,9 @@ labels_subvarieties = {
     "Bashai": "Madras Bashai",
     "Bashmuric": "Fayyumic",
     "Bassa Romagna": "Bassa Romagna",
+    "Bastak": "Bastaki",
+    "Bastaki": "Bastaki",
+    "Bastakī": "Bastaki",
     "Bataan": "Bataan",
     "Bataan Tagalog": "Bataan",
     "Batangas": "Batangas",
@@ -3965,6 +3968,12 @@ labels_subvarieties = {
     "Genk": "Genk",
     "Genks": "Genk",
     "Geordie": "Tyneside",
+    "Gerash": "Gerashi",
+    "Gerashi": "Gerashi",
+    "Gerāsh": "Gerashi",
+    "Gerāshī": "Gerashi",
+    "Gerāš": "Gerashi",
+    "Gerāšī": "Gerashi",
     "Ghajnsielem": "Għajnsielem",
     "Gharabagh": "Karabakh",
     "Ghars": "Kars",
@@ -6132,5 +6141,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,850
+}  # 2,859
 # END
