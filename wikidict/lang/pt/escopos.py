@@ -83,7 +83,7 @@ escopos = {
     "calendário": "cronônimo",
     "calão": "obsceno",
     "campidanês": "Campidanês",
-    "canadá": "{{#ifeq:{{{1}}}|en|{{!}}Canadá|[[Regionalismo (Francês)]]Canadá}}",
+    "canadá": "{{#ifeq:{{{1}}}|en|Canadá|[[Regionalismo (Francês)]]Canadá}}",
     "canteiros": "canteiros",
     "cantábria": "Cantábria",
     "castela": "Castela",

@@ -5863,6 +5863,10 @@ labels_subvarieties = {
     "reflexive-sa": "reflexive with {{m|sk|sa}}",
     "reflexive-se": "reflexive with {{m|mk|се|tr=-}}",
     "reflexive-si": "reflexive with {{m|sk|si}}",
+    "reflexive-sie": "reflexive-sie",
+    "reflexive-się": "reflexive with {{m|zlw-opl|się}}",
+    "reflexive-sã": "reflexive-sã",
+    "reflexive-sě": "reflexive-sě",
     "reli": "religious",
     "rhedok": "Rheinische Dokumenta spelling",
     "rioplatense": "Rioplatense",
@@ -6141,5 +6145,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,859
+}  # 2,863
 # END

@@ -350,7 +350,7 @@ campos_semanticos = {
     "internet": "Internet",
     "invertebrados": "Zoología",
     "islam": "Islam",
-    "islas": "Geografía",
+    "islas": "Geografía (islas)",
     "judaísmo": "Judaísmo",
     "juegos": "Juego",
     "juguetes": "Juguetes",
