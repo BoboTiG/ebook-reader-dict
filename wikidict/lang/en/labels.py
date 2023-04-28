@@ -2462,8 +2462,6 @@ labels_regional = {
     "Kartli": "Kartli",
     "Kartlian": "Kartli",
     "Kartluri": "Kartli",
-    "Karvansara": "Karvansara, Gegharkunik",
-    "Karvansaray": "Karvansara, Gegharkunik",
     "Kathiawadi": "Kathiyawadi",
     "Kathiyawadi": "Kathiyawadi",
     "Kaua'i": "Kauaʻi",
@@ -3279,7 +3277,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,439
+}  # 1,437
 
 labels_subvarieties = {
     "+ablative": "+ ablative",
@@ -4184,6 +4182,7 @@ labels_subvarieties = {
     "Ije": "Ije",
     "Ijebu": "Ijebu",
     "Ijesha": "Ijesha",
+    "Ijevan": "Ijevan",
     "Ijumu": "Ijumu",
     "Ijẹbu": "Ijebu",
     "Ijẹṣa": "Ijesha",
@@ -4319,6 +4318,8 @@ labels_subvarieties = {
     "Karelia": "South Karelia",
     "Karelian": "South Karelia",
     "Kars": "Kars",
+    "Karvansara": "Ijevan",
+    "Karvansaray": "Ijevan",
     "Katharevousa": "Katharevousa",
     "Kazakh": "Ghazakh",
     "Kechayi": "Kechayi",
@@ -4561,6 +4562,8 @@ labels_subvarieties = {
     "Mekong Delta": "Mekong Delta",
     "Mekong Delta dialect": "Mekong Delta",
     "Melkite Aramaic": "Christian Palestinian Aramaic",
+    "Mellieha": "Mellieħa",
+    "Mellieħa": "Mellieħa",
     "Memphitic": "Bohairic",
     "Mercian": "Mercian",
     "Meskheti": "Meskheti",
@@ -5959,6 +5962,7 @@ labels_subvarieties = {
     "Čakavian": "Chakavian",
     "Čxalur": "Chkhala",
     "Č’anapeti": "Chanapeti",
+    "İcevan": "Ijevan",
     "Łazax": "Ghazakh",
     "Łowicz": "Łowicz",
     "Łódź": "Łódź",
@@ -6145,5 +6149,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,863
+}  # 2,869
 # END
