@@ -76,6 +76,7 @@ labels = {
     "archaic": "archaic",
     "archaic-verb-form": "archaic-verb-form",
     "argot": "cant",
+    "atelic": "atelic",
     "attenuative": "attenuative",
     "attributive": "attributive",
     "attributively": "attributively",
@@ -344,7 +345,7 @@ labels = {
     "outside": "outside",
     "participle": "participle",
     "particularly": "particularly",
-    "partitive verb": "transitive + partitive",
+    "partitive verb": "transitive, usually atelic",
     "passive": "passive",
     "passive voice": "passive",
     "pejorative": "derogatory",
@@ -448,6 +449,7 @@ labels = {
     "syncope": "syncopated",
     "syncopic": "syncopated",
     "technical": "technical",
+    "telic": "telic",
     "terminative": "terminative",
     "text messaging": "text messaging",
     "texting": "text messaging",
@@ -490,7 +492,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 485
+}  # 487
 
 label_syntaxes = {
     "&": {

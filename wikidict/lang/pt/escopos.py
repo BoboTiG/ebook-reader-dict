@@ -374,6 +374,6 @@ escopos = {
     "zamora": "Zamora",
     "áfrica do sul": "África do Sul",
     "árvore": "botânica",
-    "índia": "{{#ifeq: {{{1}}}|pt|{{!}}Índia|Índia}}",
+    "índia": "{{#ifeq: {{{1}}}|pt|Índia|Índia}}",
 }  # 370
 # END
