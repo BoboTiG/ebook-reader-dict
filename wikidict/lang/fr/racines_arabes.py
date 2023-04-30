@@ -6838,12 +6838,53 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se marier",
         "ar-ta*â*a*a": "",
     },  # 25
+    "ar-swq": {
+        "aa_sens": "pousser",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "lieutenant",
+        "ar-*a**â'u": "{{f}} à longues jambes",
+        "ar-*a**ũ": "envoi",
+        "ar-*a*a*@ũ": "arrière-garde",
+        "ar-*a*a*a-u": "pousser en avant",
+        "ar-*a*a*ũ": "jambe",
+        "ar-*a*²a*a": "mener",
+        "ar-*a*²i*@ũ": "bestiau",
+        "ar-*a*²i*ũ": "nuage",
+        "ar-*a*²â*@ũ": "prostituée",
+        "ar-*a*²â*ũ": "qui poursuit",
+        "ar-*a*î*ũ": "qui poursuit",
+        "ar-*ta*a*a": "mener",
+        "ar-*u**@ũ": "bas peuple",
+        "ar-*u**iy²@ũ": "marchands",
+        "ar-*u**iy²ũ": "marchand",
+        "ar-*u**ũ": "marché",
+        "ar-*u*²â*ũ": "à longues jambes",
+        "ar-*â*a*a": "marcher en file",
+        "ar-a**a*@ũ": "étrivière",
+        "ar-a**a*a": "faire conduire",
+        "ar-a**a*u": "à longues jambes",
+        "ar-ma**a*ũ": "envoi",
+        "ar-mu*â*a*@ũ": "marche en file indienne",
+        "ar-mun*a*a*ũ": "poussé en avant",
+        "ar-n*a*a*a": "être poussé",
+        "ar-sta**a*a": "mener",
+        "ar-ta*a*²a*a": "vendre au marché",
+        "ar-ta*â*a*a": "arriver en file",
+    },  # 32
     "ar-swr": {
         "aa_sens": "assaut, rangée",
         "ar-*a*a*a-u": "escalader un mur",
         "ar-*i**ânũ": "{{p}} murailles",
         "ar-*u**ũ": "mur",
         "ar-a**â*ũ": "{{p}} murailles",
+    },  # 5
+    "ar-syq": {
+        "aa_sens": "pousser",
+        "ar-***ũ": "",
+        "ar-*a*a*a-u": "pousser en avant",
+        "ar-*i*â*@ũ": "envoi",
+        "ar-*i*â*ũ": "agonie",
     },  # 5
     "ar-t3b": {
         "aa_sens": "fatigue",
@@ -7550,5 +7591,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 259
+}  # 261
 # END

@@ -1061,6 +1061,7 @@ labels_topical = {
     "book of the bible": "biblical",
     "botany": "botany",
     "bowling": "bowling",
+    "bowls": "bowls",
     "boxing": "boxing",
     "brass instrument": "music",
     "brass instruments": "music",
@@ -1160,6 +1161,7 @@ labels_topical = {
     "criminal law": "criminal law",
     "criminology": "criminology",
     "croquet": "croquet",
+    "crown green bowls": "bowls",
     "cryptocurrencies": "cryptocurrencies",
     "cryptocurrency": "cryptocurrencies",
     "cryptography": "cryptography",
@@ -1384,6 +1386,7 @@ labels_topical = {
     "landforms": "geography",
     "law": "law",
     "law enforcement": "law enforcement",
+    "lawn bowls": "bowls",
     "leftism": "leftism",
     "legal": "law",
     "letterpress": "letterpress typography",
@@ -1839,7 +1842,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,096
+}  # 1,099
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5706,6 +5709,7 @@ labels_subvarieties = {
     "anteclassical lemma": "pre-Classical",
     "anteclassical non-lemma": "pre-Classical",
     "archaic Literary Chinese-style Korean": "archaic Literary Chinese-style Korean",
+    "atelic": "atelic",
     "bili": "bilingual",
     "central Assam": "Central Assam",
     "central Assamese": "Central Assam",
@@ -5913,6 +5917,7 @@ labels_subvarieties = {
     "speech of the royal court": "speech of the royal court",
     "sunnmøre": "Sunnmøre",
     "tao": "traditional orthography",
+    "telic": "telic",
     "to": "traditional orthography",
     "traditional acrobats' cant": "traditional acrobats' cant",
     "traditional orthography": "traditional orthography",
@@ -6151,5 +6156,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,869
+}  # 2,871
 # END
