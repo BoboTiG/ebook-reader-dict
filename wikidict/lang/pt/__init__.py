@@ -399,8 +399,7 @@ def last_template_handler(
         src = parts.pop(0)  # Remove the lang
         phrase = italic(parts.pop(0))  # The etimo
         if parts:  # Implicit transcr
-            transcr = parts.pop(0)
-            if transcr:
+            if transcr := parts.pop(0):
                 if transcr[0] != "(":
                     transcr = parenthesis(transcr)
                 phrase += f" {transcr}"
