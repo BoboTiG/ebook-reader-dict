@@ -933,7 +933,7 @@ labels_topical = {
     "South Park": "''South Park''",
     "Soviet Union": "Soviet Union",
     "Spanish politics": "Spanish politics",
-    "Star Wars": "Star Wars",
+    "Star Wars": "''Star Wars''",
     "Sufi Islam": "Sufism",
     "Sufism": "Sufism",
     "Swiss politics": "Swiss politics",
@@ -3932,7 +3932,7 @@ labels_subvarieties = {
     "Filo": "Filo",
     "Findikli": "Vitse",
     "Finglish": "Finglish",
-    "Firmosa": "Firmosa",
+    "Firmoza": "Firmoza",
     "Firtina": "Firtina Valley",
     "Firtina Valley": "Firtina Valley",
     "Firtina valley": "Firtina Valley",
@@ -4868,6 +4868,8 @@ labels_subvarieties = {
     "Paniki": "Ortaalan",
     "Pannonia": "Pannonia",
     "Pannonian": "Pannonia",
+    "Pantelleria": "Pantelleria",
+    "Pantesco": "Pantelleria",
     "Papat": "Ortaalan",
     "Paraguay": "Paraguay",
     "Paraguayan": "Paraguay",
@@ -6156,5 +6158,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,871
+}  # 2,873
 # END

@@ -927,7 +927,7 @@ def last_template_handler(
         '<span style="line-height: 0px;"><span style="font-size:larger">جِهَادٌ</span></span> <small>(jihâdũ)</small> («&nbsp;lutte, effort&nbsp;»)'
         >>> last_template_handler(["ar-cf", "ar-*a*î*ũ", "ar-nZr"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">نَظِيرٌ</span></span> <small>(naZîrũ)</small> («&nbsp;pareil ; en face&nbsp;»)'
-        >>> last_template_handler(["ar-cf", "ar-*i*a*ũ", "ar-jnn"], "fr")
+        >>> last_template_handler(["ar-cf", "ar-*i**ũ", "ar-jnn"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">جِنٌّ</span></span> <small>(jinnũ)</small> («&nbsp;djinn&nbsp;»)'
         >>> last_template_handler(["ar-cf", "ar-**â*ũ", "ar-Hrm"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">إِحْرَامٌ</span></span> <small>(iHrâmũ)</small> («&nbsp;consécration&nbsp;»)'
