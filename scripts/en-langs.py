@@ -18,7 +18,7 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
     in_comment = False
     for line in lines:
         line = line.strip()
-        if line == "local":
+        if line == "local" or line.startswith("for code, family"):
             break
         if "require" in line:
             continue
