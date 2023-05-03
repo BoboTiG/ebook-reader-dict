@@ -2899,6 +2899,35 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 15
+    "ar-b3d": {
+        "aa_sens": "loin",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**a": "après",
+        "ar-*a**ĩ": "encore",
+        "ar-*a**ũ": "{{p}} lointains",
+        "ar-*a*a*ũ": "méprisable",
+        "ar-*a*i*a-a": "être loin",
+        "ar-*a*i*ũ": "lointain",
+        "ar-*a*u*a": "être loin",
+        "ar-*a*²a*a": "éloigner",
+        "ar-*a*î*ũ": "éloigné",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "éloignement",
+        "ar-*u**ânũ": "{{p}} éloignés",
+        "ar-*u**ũ": "distance",
+        "ar-*u*a*â'u": "{{p}} éloignés",
+        "ar-*u*ay*ũ": "pas très éloigné",
+        "ar-*u*u*ũ": "{{p}} éloignés",
+        "ar-*â*a*a": "s'éloigner",
+        "ar-*â*i*ũ": "éloigné",
+        "ar-a**a*a": "éloigner",
+        "ar-a**a*u": "plus éloigné",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "vouloir éloigner",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "se quitter",
+    },  # 27
     "ar-bHF": {
         "aa_sens": "fouiller, creuser",
         "ar-**a*²a": "",
@@ -7591,5 +7620,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 261
+}  # 262
 # END

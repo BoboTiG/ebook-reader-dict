@@ -1767,6 +1767,7 @@ labels_topical = {
     "time": "time",
     "tincture": "heraldry",
     "topology": "topology",
+    "tort law": "tort law",
     "tourism": "tourism",
     "toxicology": "toxicology",
     "trading": "trading",
@@ -1842,7 +1843,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,099
+}  # 1,100
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
