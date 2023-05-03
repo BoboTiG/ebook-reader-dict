@@ -234,13 +234,13 @@ def last_template_handler(
         >>> last_template_handler(["escopo", "Pecuária"], "pt")
         '<i>(Pecuária)</i>'
         >>> last_template_handler(["escopo", "Brasileirismo"], "pt")
-        '<i>(Brasileirismo)</i>'
+        '<i>(Brasil)</i>'
         >>> last_template_handler(["escopo", "pt", "estrangeirismo"], "pt")
         '<i>(estrangeirismo)</i>'
         >>> last_template_handler(["escopo", "pt", "Antropônimo"], "pt")
         '<i>(Antropônimo)</i>'
         >>> last_template_handler(["escopo", "pt", "réptil"], "pt")
-        '<i>(Zoologia)</i>'
+        '<i>(zoologia)</i>'
         >>> last_template_handler(["escopo", "gl", "Sexualidade"], "pt")
         '<i>(Sexualidade)</i>'
         >>> last_template_handler(["escopo", "pt", "coloquial", "brasil"], "pt")
@@ -392,18 +392,14 @@ def last_template_handler(
         return codelangs[parts[0]]
 
     if tpl == "escopo":
-        if len(parts) == 1:
-            words = parts
-        else:
-            words = [lookup_italic(p, "pt") for p in parts if p not in langs]
+        words = [lookup_italic(p, "pt") for p in parts if p not in langs]
         return term(concat(words, sep=", ", last_sep=" e "))
 
     if tpl == "etimo":
         src = parts.pop(0)  # Remove the lang
         phrase = italic(parts.pop(0))  # The etimo
         if parts:  # Implicit transcr
-            transcr = parts.pop(0)
-            if transcr:
+            if transcr := parts.pop(0):
                 if transcr[0] != "(":
                     transcr = parenthesis(transcr)
                 phrase += f" {transcr}"

@@ -18,7 +18,7 @@ for line in text.split("\n"):
         result = array[1]
         for word in words:
             if word and word[0] != "#":
-                results[word.lower().replace("\u200e", "")] = result
+                results[word.replace("\u200e", "")] = result
 
 print("escopos = {")
 for t, r in sorted(results.items()):

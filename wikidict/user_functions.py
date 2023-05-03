@@ -332,7 +332,7 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
     looking_for = word
 
     if locale == "pt":
-        looking_for = word.lower()
+        looking_for = capitalize(word)
         default = word
 
     return templates_italic[locale].get(looking_for, default)
