@@ -1655,6 +1655,7 @@ labels_topical = {
     "sailing": "sailing",
     "schools": "education",
     "sci fi": "science fiction",
+    "sci-fi": "science fiction",
     "science": "sciences",
     "science fiction": "science fiction",
     "sciences": "sciences",
@@ -1843,7 +1844,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,100
+}  # 1,101
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5883,6 +5884,7 @@ labels_subvarieties = {
     "rhedok": "Rheinische Dokumenta spelling",
     "rioplatense": "Rioplatense",
     "roa-oit": "Old Italian",
+    "royal": "royal",
     "scho": "scholarly",
     "scie": "scientific",
     "setesdal": "Setesdal",
@@ -6159,5 +6161,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,873
+}  # 2,874
 # END
