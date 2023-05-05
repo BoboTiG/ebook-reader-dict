@@ -2903,6 +2903,7 @@ racines_schemes_arabes = {
         "aa_sens": "loin",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-**â*ũ": "retrait",
         "ar-*a**a": "après",
         "ar-*a**ĩ": "encore",
         "ar-*a**ũ": "{{p}} lointains",
@@ -2924,13 +2925,19 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "éloigné",
         "ar-a**a*a": "éloigner",
         "ar-a**a*u": "plus éloigné",
+        "ar-a*â*i*u": "{{p}} plus éloignés",
         "ar-mi**a*ũ": "qui est loin des siens",
+        "ar-mu**a*ũ": "déporté",
         "ar-mu*â*a*@ũ": "éloignement",
+        "ar-musta**a*ũ": "improbable",
+        "ar-muta*â*i*ũ": "séparé",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "vouloir éloigner",
+        "ar-ta**î*ũ": "bannissement",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se quitter",
-    },  # 30
+        "ar-ta*â*u*ũ": "séparation",
+    },  # 37
     "ar-bHF": {
         "aa_sens": "fouiller, creuser",
         "ar-**a*²a": "",
@@ -4863,6 +4870,28 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "se faire humble",
         "ar-ta*a*²a*a": "exister ; s'établir ; se raffermir",
     },  # 18
+    "ar-kyf": {
+        "aa_sens": "plaisir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**a": "comment?",
+        "ar-*a**iy²@ũ": "manière",
+        "ar-*a**iy²ũ": "arbitraire",
+        "ar-*a**ũ": "humeur",
+        "ar-*a*a*a-i": "couper",
+        "ar-*a*²a*a": "couper net",
+        "ar-*i**@ũ": "coupon d'étoffe",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-mu*a*²i*âtũ": "opiacées",
+        "ar-n*a*a*a": "être découpé",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "formation",
+        "ar-ta*a*²a*a": "hacher",
+        "ar-ta*a*²u*ũ": "adaptation",
+        "ar-ta*â*a*a": "",
+    },  # 20
     "ar-l3b": {
         "aa_sens": "hochet, jouer, baver",
         "ar-**a*²a": "",
@@ -7623,5 +7652,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 262
+}  # 263
 # END

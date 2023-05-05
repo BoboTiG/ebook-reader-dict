@@ -1976,7 +1976,10 @@ langs = {
     "cus-hec": "Highland East Cushitic",
     "cus-hec-pro": "Proto-Highland East Cushitic",
     "cus-pro": "Proto-Cushitic",
+    "cus-som": "Somaloid",
+    "cus-som-pro": "Proto-Somaloid",
     "cus-sou": "South Cushitic",
+    "cus-sou-pro": "Proto-South Cushitic",
     "cut": "Teutila Cuicatec",
     "cuu": "Tai Ya",
     "cuv": "Cuvok",
@@ -9582,5 +9585,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,577
+}  # 9,580
 # END
