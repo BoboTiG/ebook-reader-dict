@@ -1135,6 +1135,11 @@ recognized_placetypes = {
         "display": "island municipality",
         "preposition": "of",
     },
+    "islet": {
+        "article": "an",
+        "display": "islet",
+        "preposition": "in",
+    },
     "judicial capital": {
         "article": "the",
         "display": "judicial capital",
@@ -2045,7 +2050,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 408
+}  # 409
 
 placetypes_aliases = {
     "CDP": "census-designated place",

@@ -2714,6 +2714,7 @@ langs = {
     "gie": "Guébie",
     "gig": "Goaria",
     "gih": "Githabul",
+    "gii": "Girirra",
     "gil": "Gilbertese",
     "gim": "Gimi (Goroka)",
     "gin": "Hinukh",
@@ -9585,5 +9586,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,580
+}  # 9,581
 # END

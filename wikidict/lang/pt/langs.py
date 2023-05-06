@@ -748,7 +748,7 @@ langs = {
     "sas": "sasaque",
     "sc": "sardo",
     "scn": "siciliano",
-    "sco": "escocês",
+    "sco": "scots",
     "sd": "sindi",
     "sdc": "sardo sassarês",
     "sdn": "sardo galurês",
