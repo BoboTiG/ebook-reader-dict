@@ -517,6 +517,7 @@ langs = {
     "sh": "Serbokroatisch",
     "shh": "Shoshone",
     "shi": "Schilh",
+    "shn": "Shan",
     "shv": "Ǧibbāli (Śhaḥri)",
     "si": "Singhalesisch",
     "simple": "Simple English",
@@ -675,5 +676,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 670
+}  # 671
 # END

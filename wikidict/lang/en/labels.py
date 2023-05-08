@@ -74,7 +74,7 @@ labels = {
     "anteclassical": "pre-Classical",
     "antiquated": "archaic",
     "archaic": "archaic",
-    "archaic-verb-form": "archaic-verb-form",
+    "archaic-verb-form": "archaic",
     "argot": "cant",
     "atelic": "atelic",
     "attenuative": "attenuative",
@@ -1810,7 +1810,11 @@ labels_topical = {
     "volleyball": "volleyball",
     "voodoo": "voodoo",
     "vulcanology": "volcanology",
+    "water sport": "water sports",
+    "water sports": "water sports",
     "watercraft": "nautical",
+    "watersport": "water sports",
+    "watersports": "water sports",
     "weaponry": "weaponry",
     "weapons": "weaponry",
     "weather": "weather",
@@ -1844,7 +1848,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,101
+}  # 1,105
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

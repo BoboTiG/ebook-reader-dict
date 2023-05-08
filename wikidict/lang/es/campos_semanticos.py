@@ -448,7 +448,7 @@ campos_semanticos = {
     "retórica": "Retórica",
     "ropa": "Vestimenta",
     "rugby": "Rugby",
-    "ríos": "Geografía",
+    "ríos": "Geografía (ríos)",
     "sabores": "Sabores",
     "sentimientos": "Humanidades",
     "serpientes": "Zoología",

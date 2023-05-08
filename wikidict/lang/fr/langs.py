@@ -3593,6 +3593,7 @@ langs = {
     "nbc": "chang naga",
     "nbe": "konyak",
     "nbh": "ngamo",
+    "nbi": "mao",
     "nbk": "nake",
     "nbn": "kuri",
     "nbp": "nnam",
@@ -3738,6 +3739,7 @@ langs = {
     "njj": "njen",
     "njl": "njalgulgule",
     "njm": "angami",
+    "njn": "liangmai",
     "njo": "ao",
     "njr": "njerep",
     "njs": "nisa",
@@ -3745,7 +3747,7 @@ langs = {
     "nkd": "koireng",
     "nkg": "nekgini",
     "nkh": "khezha",
-    "nki": "naga de Thangal",
+    "nki": "thangal",
     "nkj": "nakai",
     "nkk": "nokuku",
     "nkm": "namat",
@@ -6365,7 +6367,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,360
+}  # 6,362
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
