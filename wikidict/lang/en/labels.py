@@ -3623,6 +3623,7 @@ labels_subvarieties = {
     "CC": "central Calabria",
     "CPA": "Christian Palestinian Aramaic",
     "CS": "central-southern Italy",
+    "CY": "CY",
     "Ca": "Cattolica",
     "Cajun French": "Cajun",
     "Calabrese": "Calabria",
@@ -3670,6 +3671,7 @@ labels_subvarieties = {
     "Central Standard": "Central Standard",
     "Central Vietnam": "Central Vietnam",
     "Central Vietnamese": "Central Vietnam",
+    "Central Yoruba": "CY",
     "Central and Nort Ostrobothnian": "Central and North Ostrobothnia",
     "Central and North Ostrobothnia": "Central and North Ostrobothnia",
     "Central and Northern Ostrobothnia": "Central and North Ostrobothnia",
@@ -5071,6 +5073,7 @@ labels_subvarieties = {
     "SC.": "Smołdziński Las-Czołpino",
     "SEC Scots": "Southeast Central",
     "SES": "south-eastern Sicily",
+    "SEY": "SEY",
     "SLDE": "Switzerland and Liechtenstein",
     "SM": "San Marino",
     "SN Scots": "South Northern",
@@ -5235,6 +5238,8 @@ labels_subvarieties = {
     "Southeast Central Scots": "Southeast Central",
     "Southeast Limburgish": "Southeast Limburgish",
     "Southeast Limburgish dialect": "Limburgan Ripuarian",
+    "Southeast Yoruba": "SEY",
+    "Southeastern Yoruba": "SEY",
     "Southern": "Southern",
     "Southern American English": "Southern US",
     "Southern Calabria": "southern Calabria",
@@ -6165,5 +6170,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,874
+}  # 2,879
 # END
