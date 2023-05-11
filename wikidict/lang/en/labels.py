@@ -3886,6 +3886,9 @@ labels_subvarieties = {
     "Ecclesiastical Latin": "Ecclesiastical Latin",
     "Egba": "Ẹgba",
     "Egbado": "Yewa",
+    "Egyptiot": "Egyptiot",
+    "Egyptiot Dialect": "Egyptiot",
+    "Egyptiot Greek": "Egyptiot",
     "Ekavian": "Ekavian",
     "Ekiti": "Ekiti",
     "El Amarna": "El-Amarna",
@@ -6170,5 +6173,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,879
+}  # 2,882
 # END

@@ -101,6 +101,10 @@ form_of_templates = {
         "text": "Alternative spelling of",
         "dot": False,
     },
+    "alt sp of": {
+        "text": "Alternative spelling of",
+        "dot": False,
+    },
     "alt spelling of": {
         "text": "Alternative spelling of",
         "dot": False,
@@ -841,7 +845,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 209
+}  # 210
 # END
 
 

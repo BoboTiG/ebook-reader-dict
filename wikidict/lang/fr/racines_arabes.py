@@ -2167,6 +2167,36 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 47
+    "ar-Slb": {
+        "aa_sens": "dur",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "crucifixion",
+        "ar-*a*a*a-i": "crucifier",
+        "ar-*a*a*a-u": "brûler",
+        "ar-*a*a*ũ": "moelle",
+        "ar-*a*i*a-a": "être dur",
+        "ar-*a*u*a": "être robuste",
+        "ar-*a*²a*a": "mettre en croix",
+        "ar-*a*â*@ũ": "force",
+        "ar-*a*î*ũ": "dur",
+        "ar-*i**iy²@ũ": "pierre à aiguiser",
+        "ar-*ta*a*a": "tirer la moelle",
+        "ar-*u**iy²ũ": "pointu",
+        "ar-*u**ũ": "dur",
+        "ar-*u*²a*ũ": "pierre à aiguiser",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "reins",
+        "ar-a**a*a": "lever la tête",
+        "ar-ma**û*ũ": "crucifié",
+        "ar-mu*a*i*ũ": "desséché",
+        "ar-mu*a*²a*ũ": "mis en croix",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "crucifixion",
+        "ar-ta*a*²a*a": "se durcir",
+        "ar-ta*â*a*a": "",
+    },  # 28
     "ar-Sn3": {
         "aa_sens": "faire, fabriquer",
         "ar-***ũ": "",
@@ -2988,6 +3018,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "étude détaillée",
         "ar-ta*â*a*a": "",
     },  # 29
+    "ar-bTT": {
+        "aa_sens": "découper",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "bouteille en cuir",
+        "ar-*a**ũ": "canard",
+        "ar-*a*a*a-u": "fendre",
+        "ar-*a*²a*a": "vendre des canards",
+        "ar-*a*î*ũ": "chose étonnante",
+        "ar-*ta*a*a": "",
+        "ar-*u*ay*ũ": "grand",
+        "ar-*u*û*ũ": "{{p}} canards",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "vendre de l'huile",
+        "ar-mi**a*@ũ": "scalpel",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 18
     "ar-bTn": {
         "aa_sens": "ventre, caché",
         "ar-***ũ": "",
@@ -4879,19 +4929,21 @@ racines_schemes_arabes = {
         "ar-*a**iy²ũ": "arbitraire",
         "ar-*a**ũ": "humeur",
         "ar-*a*a*a-i": "couper",
-        "ar-*a*²a*a": "couper net",
+        "ar-*a*²a*a": "former",
         "ar-*i**@ũ": "coupon d'étoffe",
+        "ar-*i*a*ũ": "{{p}} coupons d'étoffe",
         "ar-*ta*a*a": "",
         "ar-*â*a*a": "",
         "ar-a**a*a": "",
+        "ar-mu*a*²i*@ũ": "conditionneur",
         "ar-mu*a*²i*âtũ": "opiacées",
         "ar-n*a*a*a": "être découpé",
         "ar-sta**a*a": "",
         "ar-ta**î*ũ": "formation",
-        "ar-ta*a*²a*a": "hacher",
+        "ar-ta*a*²a*a": "former",
         "ar-ta*a*²u*ũ": "adaptation",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 22
     "ar-l3b": {
         "aa_sens": "hochet, jouer, baver",
         "ar-**a*²a": "",
@@ -7652,5 +7704,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 263
+}  # 265
 # END
