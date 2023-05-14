@@ -217,6 +217,7 @@ regions = {
     "KP": "Corée du Nord",
     "KR": "Corée du Sud",
     "Kabylie": "Kabylie",
+    "Katsina": "Katsina",
     "Kazakhstan": "Kazakhstan",
     "Kerry": "Kerry",
     "Keveona": "Keveona",
@@ -422,6 +423,7 @@ regions = {
     "Seychelles": "Seychelles",
     "Singapour": "Singapour",
     "Slovaquie": "Slovaquie",
+    "Sokoto": "Sokoto",
     "Sologne": "Sologne",
     "Somerset": "Somerset",
     "Sonsorol": "Sonsorol",
@@ -487,6 +489,7 @@ regions = {
     "Yucatan": "Yucatán",
     "Yucatán": "Yucatán",
     "ZA": "Afrique du Sud",
+    "Zaria": "Zaria",
     "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
@@ -510,7 +513,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 505
+}  # 508
 # END
 
 # handled differently

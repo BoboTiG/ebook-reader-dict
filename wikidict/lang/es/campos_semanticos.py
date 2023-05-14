@@ -65,6 +65,7 @@ campos_semanticos = {
     "Derecho": "Derecho",
     "Diseño": "Diseño",
     "Ecología": "Ecología",
+    "Econ.": "Economía",
     "Economía": "Economía",
     "Edafología": "Edafología",
     "Educación": "Educación",
@@ -119,6 +120,7 @@ campos_semanticos = {
     "Lógica": "Lógica",
     "Malabarismo": "Malabarismo",
     "Marina": "Náutica",
+    "Mat.": "Matemáticas",
     "Matemática": "Matemáticas",
     "Matemáticas": "Matemáticas",
     "Mecánica": "Mecánica",
@@ -499,5 +501,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 494
+}  # 496
 # END
