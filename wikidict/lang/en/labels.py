@@ -856,6 +856,7 @@ labels_topical = {
     "Jewish Law": "Jewish law",
     "Jewish law": "Jewish law",
     "Judaism": "Judaism",
+    "Korean medicine": "{{w|traditional Korean medicine}}",
     "LGBT": "LGBT",
     "LGBTQ": "LGBT",
     "ML": "machine learning",
@@ -1097,6 +1098,7 @@ labels_topical = {
     "chemical engineering": "chemical engineering",
     "chemistry": "chemistry",
     "chess": "chess",
+    "children's games": "children's games",
     "christianity": "Christianity",
     "cinema": "film",
     "cinematography": "cinematography",
@@ -1465,6 +1467,7 @@ labels_topical = {
     "motorcycles": "motorcycling",
     "motorcycling": "motorcycling",
     "motorsport": "motor racing",
+    "motorsports": "motor racing",
     "muscle": "anatomy",
     "mushroom": "mycology",
     "mushrooms": "mycology",
@@ -1775,6 +1778,7 @@ labels_topical = {
     "trading card games": "collectible card games",
     "trading cards": "trading cards",
     "traditional Chinese medicine": "traditional Chinese medicine",
+    "traditional Korean medicine": "{{w|traditional Korean medicine}}",
     "transger": "transger",
     "translation studies": "translation studies",
     "transport": "transport",
@@ -1848,7 +1852,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,105
+}  # 1,109
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -4966,6 +4970,7 @@ labels_subvarieties = {
     "Pїsara": "Hirara",
     "P’eroniti": "Peroniti",
     "P’eronituri": "Peroniti",
+    "Qala": "Qala",
     "Qalqa": "Khalkha",
     "Qars": "Kars",
     "Qazakh": "Ghazakh",
@@ -6173,5 +6178,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 2,882
+}  # 2,883
 # END

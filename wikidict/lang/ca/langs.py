@@ -583,6 +583,9 @@ langs = {
     "rif": "amazic rifeny",
     "rm": "retoromànic",
     "rmq": "caló",
+    "rmq-x-br": "caló brasiler",
+    "rmq-x-ca": "caló català",
+    "rmq-x-es": "caló espanyol",
     "rmy": "romaní vlax",
     "rn": "rundi",
     "ro": "romanès",
@@ -795,5 +798,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 790
+}  # 793
 # END
