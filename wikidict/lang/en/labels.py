@@ -1253,6 +1253,7 @@ labels_topical = {
     "field hockey": "field hockey",
     "figure of speech": "rhetoric",
     "figure skating": "figure skating",
+    "file format": "file format",
     "film": "film",
     "film genre": "film",
     "filmology": "cinematography",
@@ -1852,7 +1853,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,109
+}  # 1,110
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

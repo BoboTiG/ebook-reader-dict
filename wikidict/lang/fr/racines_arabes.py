@@ -240,7 +240,8 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
     },  # 21
     "ar-'mn": {
-        "aa_sens": "confiance",
+        "aa_sens": "sûreté",
+        "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "foi sincère",
         "ar-*a**ũ": "sécurité",
@@ -254,18 +255,16 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "considérer comme sûr",
         "ar-*a*â*@ũ": "sécurité",
         "ar-*a*â*ũ": "sécurité",
-        "ar-*a*î*u": "sans doute",
         "ar-*a*î*ũ": "constant",
         "ar-*a*û*ũ": "qui ne bronche pas",
         "ar-*i**ũ": "sécurité",
         "ar-*i*â*@ũ": "fidélité",
         "ar-*ta*a*a": "se fier",
+        "ar-*ti*â*ũ": "crédit",
         "ar-*u*a*@ũ": "homme de confiance",
         "ar-*â*a*a": "",
         "ar-*â*i*@ũ": "homme sûr",
         "ar-*â*i*ũ": "en sûreté",
-        "ar-*â*²î*ũ": "sans doute",
-        "ar-*â*î*u": "sans doute",
         "ar-a**a*a": "rassurer",
         "ar-a**a*u": "meilleure part",
         "ar-ma**a*ũ": "endroit sûr",
@@ -276,9 +275,11 @@ racines_schemes_arabes = {
         "ar-muta*a*²i*ũ": "confiant",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "avoir confiance",
+        "ar-sti**â*ũ": "confiance",
+        "ar-ta**î*ũ": "sécurité",
         "ar-ta*a*²a*a": "accorder confiance",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 39
     "ar-'mr": {
         "aa_sens": "ordre, avis, chef",
         "ar-**a*²a": "",
@@ -2883,8 +2884,6 @@ racines_schemes_arabes = {
         "ar-*â*a*ũ": "sceau, dernier",
         "ar-*â*i*@ũ": "conclusion",
         "ar-*â*i*ũ": "qui scelle",
-        "ar-*â*iyâ*ũ": "sceau",
-        "ar-*â*â*ũ": "sceau",
         "ar-*î*â*ũ": "sceau",
         "ar-a**a*a": "boucher",
         "ar-ma**û*ũ": "cacheté, scellé",
@@ -2895,7 +2894,7 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "se mettre un turban",
         "ar-ta*a*²a*a": "porter une chevalière",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 25
     "ar-XyT": {
         "aa_sens": "couture",
         "ar-***ũ": "",
@@ -7153,8 +7152,7 @@ racines_schemes_arabes = {
     "ar-tlfn": {
         "aa_sens": "téléphone",
         "ar-*a**a*a": "téléphoner",
-        "ar-*i*i*û*ũ": "téléphone",
-    },  # 3
+    },  # 2
     "ar-trk": {
         "aa_sens": "laisser, abandonner",
         "ar-**a*²a": "",
