@@ -336,7 +336,7 @@ campos_semanticos = {
     "hongos": "Micología",
     "horticultura": "Horticultura",
     "huesos": "Anatomía",
-    "hípica": "Hípica",
+    "hípica": "Equitación",
     "ictiología": "Ictiología",
     "idiomas": "Lingüística (glotónimos)",
     "imprenta": "Imprenta",

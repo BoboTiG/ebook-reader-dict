@@ -111,7 +111,7 @@ langs = {
     "cad": "caddo",
     "cak": "kaqtxikel",
     "car": "carib",
-    "caw": "kallawaya",
+    "caw": "callahuaya",
     "cay": "cayuga",
     "cbk-zam": "chavacano de Zamboanga",
     "cch": "atsam",

@@ -430,6 +430,39 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "bien portant",
         "ar-ta*a*²a*a": "s'être rassasié",
     },  # 8
+    "ar-3Dl": {
+        "aa_sens": "dur",
+        "ar-***ũ": "",
+        "ar-**a'a*²a": "être touffu",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "opposition",
+        "ar-*a*a*@ũ": "muscle",
+        "ar-*a*a*a-u": "s'opposer au mariage",
+        "ar-*a*a*iy²ũ": "musculaire",
+        "ar-*a*a*ũ": "musculation",
+        "ar-*a*i*@ũ": "{{f}} musclée",
+        "ar-*a*i*a-a": "se muscler",
+        "ar-*a*i*ũ": "musclé",
+        "ar-*a*u*@ũ": "{{f}} musclée",
+        "ar-*a*u*ũ": "musclé",
+        "ar-*a*²a*a": "tourmenter",
+        "ar-*i**ânũ": "opposition",
+        "ar-*i**ũ": "dur à cuire",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "malheur",
+        "ar-*u**ũ": "{{p}} malheurs",
+        "ar-*u*a*ũ": "{{p}} malheurs",
+        "ar-*u*â*ũ": "intraitable",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "être difficile",
+        "ar-mu**i*@ũ": "énigme",
+        "ar-mu**i*ũ": "difficile",
+        "ar-mu*a*²i*ũ": "difficile",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "être difficile",
+        "ar-ta*â*a*a": "",
+    },  # 31
     "ar-3Sm": {
         "aa_sens": "préserver, poignet",
         "ar-***ũ": "",
@@ -7745,5 +7778,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 266
+}  # 267
 # END
