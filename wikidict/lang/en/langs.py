@@ -1886,6 +1886,7 @@ langs = {
     "crp-gep": "West Greenlandic Pidgin",
     "crp-mpp": "Macau Pidgin Portuguese",
     "crp-rsn": "Russenorsk",
+    "crp-tnw": "Tangwang",
     "crp-tpr": "Taimyr Pidgin Russian",
     "crq": "Iyo'wujwa Chorote",
     "crr": "Carolina Algonquian",
@@ -8869,12 +8870,18 @@ langs = {
     "xgl": "Galindan",
     "xgm": "Darumbal",
     "xgn": "Mongolic",
+    "xgn-cen": "Central Mongolic",
     "xgn-mgl": "Mongghul",
     "xgn-mgr": "Mangghuer",
     "xgn-pro": "Proto-Mongolic",
+    "xgn-rua": "Ruanruan",
+    "xgn-shr": "Shirongolic",
+    "xgn-sou": "Southern Mongolic",
     "xgr": "Garza",
     "xgu": "Unggumi",
     "xgw": "Guwa",
+    "xgx": "Para-Mongolic",
+    "xgx-tuh": "Tuyuhun",
     "xh": "Xhosa",
     "xha": "Harami",
     "xhc": "Hunnic",
@@ -9587,5 +9594,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,582
+}  # 9,589
 # END
