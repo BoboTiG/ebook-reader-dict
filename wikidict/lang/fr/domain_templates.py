@@ -195,6 +195,7 @@ domain_templates = {
     "médicaments": "Pharmacologie",
     "méduses": "Zoologie",
     "métaplasmes": "Linguistique",
+    "métiers": "Métier",
     "nuages": "Météorologie",
     "nymphes": "Mythologie",
     "oies": "Ornithologie",
@@ -319,5 +320,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 314
+}  # 315
 # END
