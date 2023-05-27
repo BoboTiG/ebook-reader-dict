@@ -466,7 +466,7 @@ langs = {
     "mus": "creek",
     "mwl": "mirandès",
     "mwr": "marwari",
-    "mxi": "mossàrab",
+    "mxi": "romandalusí",
     "my": "birmà",
     "mye": "myene",
     "myv": "erza",
