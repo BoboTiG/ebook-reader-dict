@@ -879,7 +879,7 @@ langs = {
     "quz": "quechua cuzqueño",
     "qvi": "quechua imbabureño",
     "qwc": "quechua clásico",
-    "qwh": "quechua de Huailas",
+    "qwh": "quechua de Huaylas",
     "qya": "quenya",
     "raj": "rayastaní",
     "rap": "rapa nui",
