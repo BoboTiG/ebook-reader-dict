@@ -8874,7 +8874,7 @@ langs = {
     "xgn-mgl": "Mongghul",
     "xgn-mgr": "Mangghuer",
     "xgn-pro": "Proto-Mongolic",
-    "xgn-rua": "Ruanruan",
+    "xgn-rou": "Rouran",
     "xgn-shr": "Shirongolic",
     "xgn-sou": "Southern Mongolic",
     "xgr": "Garza",
@@ -8882,6 +8882,7 @@ langs = {
     "xgw": "Guwa",
     "xgx": "Para-Mongolic",
     "xgx-tuh": "Tuyuhun",
+    "xgx-tuo": "Tuoba",
     "xh": "Xhosa",
     "xha": "Harami",
     "xhc": "Hunnic",
@@ -9594,5 +9595,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,589
+}  # 9,590
 # END
