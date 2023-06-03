@@ -527,7 +527,7 @@ langs = {
     "ojs": "oji-cree",
     "ojw": "ojibwa occidental",
     "oka": "okanagà",
-    "olo": "livvi-carelià",
+    "olo": "livià",
     "om": "oromo",
     "ood": "alt pima",
     "or": "oriya",

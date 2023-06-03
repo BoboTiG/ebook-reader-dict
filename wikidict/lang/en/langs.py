@@ -6716,6 +6716,12 @@ langs = {
     "qfa-tap": "Timor-Alor-Pantar",
     "qfa-tor": "Torricelli",
     "qfa-tyn": "Tyrsenian",
+    "qfa-xgs": "Serbi-Mongolic",
+    "qfa-xgx": "Para-Mongolic",
+    "qfa-xgx-tuh": "Tuyuhun",
+    "qfa-xgx-tuo": "Tuoba",
+    "qfa-xgx-wuh": "Wuhuan",
+    "qfa-xgx-xbi": "Xianbei",
     "qfa-yen": "Yeniseian",
     "qfa-yen-pro": "Proto-Yeniseian",
     "qfa-yuk": "Yukaghir",
@@ -8415,7 +8421,6 @@ langs = {
     "und-tdl": "Turduli",
     "und-tdt": "Turdetani",
     "und-wji": "Western Jicaque",
-    "und-xbi": "Xianbei",
     "und-xnu": "Xiongnu",
     "une": "Uneme",
     "ung": "Ngarinyin",
@@ -8880,9 +8885,6 @@ langs = {
     "xgr": "Garza",
     "xgu": "Unggumi",
     "xgw": "Guwa",
-    "xgx": "Para-Mongolic",
-    "xgx-tuh": "Tuyuhun",
-    "xgx-tuo": "Tuoba",
     "xh": "Xhosa",
     "xha": "Harami",
     "xhc": "Hunnic",
@@ -9595,5 +9597,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,590
+}  # 9,592
 # END
