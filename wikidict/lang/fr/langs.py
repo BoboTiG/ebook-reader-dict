@@ -1936,6 +1936,7 @@ langs = {
     "gwr": "gwere",
     "gwt": "gawar-bati",
     "gwu": "guwamu",
+    "gwx": "gua",
     "gya": "gbaya du Nord-Ouest",
     "gyb": "garus",
     "gyd": "kayardild",
@@ -3584,6 +3585,7 @@ langs = {
     "nat": "hungworo",
     "nav": "navajo",
     "navarro-aragonais": "navarro-aragonais",
+    "naw": "nawuri",
     "nay": "ngarrindjeri",
     "naz": "nahuatl du Coatepec",
     "na’vi": "na’vi",
@@ -6367,7 +6369,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,362
+}  # 6,364
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
