@@ -1665,6 +1665,11 @@ recognized_placetypes = {
         "display": "royal capital",
         "preposition": "of",
     },
+    "rural committee": {
+        "article": "a",
+        "display": "rural committee",
+        "preposition": "in",
+    },
     "rural community": {
         "article": "a",
         "display": "rural community",
@@ -2050,7 +2055,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 409
+}  # 410
 
 placetypes_aliases = {
     "CDP": "census-designated place",
