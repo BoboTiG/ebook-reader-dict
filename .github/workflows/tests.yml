@@ -25,3 +25,12 @@ jobs:
 
       - name: Unit tests
         run: python -Wd -m pytest tests --doctest-modules wikidict
+
+      - name: Automerge
+        if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+        uses: pascalgn/automerge-action@v0.15.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: automerge,!DO_NOT_MERGE
+          MERGE_METHOD: squash
+          MERGE_DELETE_BRANCH: true
