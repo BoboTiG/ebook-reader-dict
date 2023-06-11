@@ -6,7 +6,7 @@ on:
 jobs:
   worker:
     runs-on: ubuntu-latest
-    if: github.actor == "dependabot[bot]"
+    if: github.actor == 'dependabot[bot]'
     steps:
       - name: "Wait for status checks"
         id: wait_for_status_checks
@@ -18,7 +18,7 @@ jobs:
 
       - name: Automerge
         uses: pascalgn/automerge-action@v0.15.6
-        if: steps.wait_for_status_checks.outputs.status == "success"
+        if: steps.wait_for_status_checks.outputs.status == 'success'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_LABELS: automerge,!DO_NOT_MERGE
