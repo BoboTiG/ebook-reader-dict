@@ -2241,6 +2241,7 @@ langs = {
     "dra": "Dravidian",
     "dra-mkn": "Middle Kannada",
     "dra-okn": "Old Kannada",
+    "dra-ote": "Old Telugu",
     "dra-pro": "Proto-Dravidian",
     "drb": "Dair",
     "drc": "Minderico",
@@ -9597,5 +9598,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,592
+}  # 9,593
 # END

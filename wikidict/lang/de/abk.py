@@ -62,6 +62,7 @@ abk = {
     "kSt.": "keine Steigerung",
     "kStg.": "keine Steigerung",
     "kinderspr.": "kindersprachlich",
+    "klasslat.": "klassischlateinisch",
     "landsch.": "landschaftlich",
     "lautm.": "lautmalerisch",
     "mA": "mit Akkusativ",
@@ -125,5 +126,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 120
+}  # 121
 # END

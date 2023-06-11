@@ -1169,6 +1169,8 @@ langs = {
     "ymn": "maay",
     "ynn": "yana",
     "yo": "yoruba",
+    "yoi": "yonaguni",
+    "yox": "yoron",
     "ypk": "yupik",
     "yrl": "ñeengatú",
     "yua": "maya yucateco",
@@ -1199,7 +1201,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,194
+}  # 1,196
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
