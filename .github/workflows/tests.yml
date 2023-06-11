@@ -27,7 +27,7 @@ jobs:
         run: python -Wd -m pytest tests --doctest-modules wikidict
 
       - name: Automerge
-        if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+        if: github.actor == 'dependabot[bot]'
         uses: pascalgn/automerge-action@v0.15.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
