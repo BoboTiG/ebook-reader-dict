@@ -429,7 +429,6 @@ campos_semanticos = {
     "plantas": "Botánica",
     "platelmintos": "Zoología",
     "platos": "Gastronomía (platos)",
-    "poblaciones": "Geografía",
     "poesía": "Poesía",
     "política": "Política",
     "prehistoria": "Historia (prehistoria)",
@@ -501,5 +500,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 496
+}  # 495
 # END
