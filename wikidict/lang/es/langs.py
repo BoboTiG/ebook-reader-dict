@@ -702,6 +702,7 @@ langs = {
     "na": "nauruano",
     "nah": "náhuatl",
     "nai": "o'odham",
+    "nai-miz-pro": "protomixe-zoque",
     "nam": "nangikurrunggurr",
     "nan": "min nan",
     "nap": "napolitano",
@@ -1174,6 +1175,7 @@ langs = {
     "ypk": "yupik",
     "yrl": "ñeengatú",
     "yua": "maya yucateco",
+    "yua-pro": "protoyucateco",
     "yuc": "yuchi",
     "yuz": "yuracaré",
     "za": "chuan",
@@ -1201,7 +1203,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,196
+}  # 1,198
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
