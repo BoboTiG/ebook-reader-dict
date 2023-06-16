@@ -375,7 +375,7 @@ langs = {
     "myp": "Pirahã",
     "myv": "Ersja",
     "myz": "klassisches Mandäisch",
-    "mzn": "Mazandaranisch",
+    "mzn": "Masanderanisch",
     "na": "Nauruisch",
     "nah": "Nahuatl",
     "nan": "Min Nan",
