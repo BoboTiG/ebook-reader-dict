@@ -229,14 +229,6 @@ form_of_templates = {
         "text": "Dated spelling of",
         "dot": True,
     },
-    "dative of": {
-        "text": "dative of",
-        "dot": False,
-    },
-    "dative plural of": {
-        "text": "dative plural of",
-        "dot": False,
-    },
     "definite singular of": {
         "text": "definite singular of",
         "dot": False,
@@ -359,18 +351,6 @@ form_of_templates = {
     },
     "future participle of": {
         "text": "future participle of",
-        "dot": False,
-    },
-    "genitive of": {
-        "text": "genitive of",
-        "dot": False,
-    },
-    "genitive plural of": {
-        "text": "genitive plural of",
-        "dot": False,
-    },
-    "genitive singular of": {
-        "text": "genitive singular of",
         "dot": False,
     },
     "gerund of": {
@@ -845,7 +825,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 210
+}  # 205
 # END
 
 
