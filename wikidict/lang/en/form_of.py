@@ -197,6 +197,10 @@ form_of_templates = {
         "text": "comparative degree of",
         "dot": False,
     },
+    "comd of": {
+        "text": "comparative degree of",
+        "dot": False,
+    },
     "construed with": {
         "text": "construed with",
         "dot": False,
@@ -757,11 +761,7 @@ form_of_templates = {
         "text": "superlative degree of",
         "dot": False,
     },
-    "sp of": {
-        "text": "superlative degree of",
-        "dot": False,
-    },
-    "supe of": {
+    "supd of": {
         "text": "superlative degree of",
         "dot": False,
     },

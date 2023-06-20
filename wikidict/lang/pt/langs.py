@@ -53,7 +53,6 @@ langs = {
     "an": "aragonês",
     "ang": "inglês antigo",
     "aoz": "atoni",
-    "apa": "apache ocidental",
     "apb": "sa'a",
     "apj": "jicarilla",
     "apk": "apache da planície",
@@ -981,7 +980,7 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}  # 976
+}  # 975
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
