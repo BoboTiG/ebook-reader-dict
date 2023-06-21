@@ -3043,6 +3043,28 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "se quitter",
         "ar-ta*â*u*ũ": "séparation",
     },  # 37
+    "ar-b3l": {
+        "aa_sens": "époux",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "{{f}} maîtresse",
+        "ar-*a**ũ": "maître",
+        "ar-*a*a*a-a": "se marier",
+        "ar-*a*i*a-a": "être embarrassé",
+        "ar-*a*i*ũ": "embarrassé",
+        "ar-*a*²a*a": "",
+        "ar-*i*â*ũ": "cohabitation",
+        "ar-*ta*a*a": "épouser",
+        "ar-*u*û*@ũ": "épousailles",
+        "ar-*u*û*ũ": "{{p}} maîtres",
+        "ar-*â*a*a": "caresser",
+        "ar-a**a*a": "",
+        "ar-mu*â*a*@ũ": "caresse",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "devenir époux",
+        "ar-ta*a*²a*a": "épouser",
+        "ar-ta*â*a*a": "jouir de sa femme",
+    },  # 20
     "ar-bHF": {
         "aa_sens": "fouiller, creuser",
         "ar-**a*²a": "",
@@ -7778,5 +7800,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 267
+}  # 268
 # END
