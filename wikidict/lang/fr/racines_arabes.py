@@ -547,6 +547,11 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "demander, se presser",
         "ar-ta*â*a*a": "s'emparer",
     },  # 19
+    "ar-3Yn": {
+        "aa_sens": "œil",
+        "ar-***ũ": "",
+        "ar-*a*a*ũ": "maisonnée",
+    },  # 3
     "ar-3Zm": {
         "aa_sens": "grand, grave",
         "ar-**a*²a": "",
@@ -1143,6 +1148,45 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "accoutumance",
         "ar-ta*â*a*a": "revenir à la charge",
     },  # 53
+    "ar-3yn": {
+        "aa_sens": "œil",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**iy²@ũ": "vente à l’œil",
+        "ar-*a**iy²ũ": "de Aïntab",
+        "ar-*a**â'u": "trouée",
+        "ar-*a**ânũ": "écoulement",
+        "ar-*a**ũ": "œil",
+        "ar-*a*a*a-i": "couler",
+        "ar-*a*i*a-a": "avoir de grands yeux",
+        "ar-*a*²a*a": "percer",
+        "ar-*a*²a*ũ": "troué",
+        "ar-*a*û*ũ": "qui regarde",
+        "ar-*i**@ũ": "choix",
+        "ar-*i**ũ": "buffle",
+        "ar-*i*â*@ũ": "espion",
+        "ar-*i*â*ũ": "personne",
+        "ar-*ta*a*a": "épier",
+        "ar-*u*ay*@ũ": "petit œil",
+        "ar-*u*û*ũ": "lunettes",
+        "ar-*uwa**ũ": "nourriture",
+        "ar-*â*a*a": "regarder",
+        "ar-*â*i*@ũ": "regard",
+        "ar-*â*i*ũ": "homme",
+        "ar-a**a*a": "jeter le mauvais œil",
+        "ar-a**a*u": "à grand yeux",
+        "ar-ma**a*ũ": "station",
+        "ar-ma**i*ũ": "source",
+        "ar-ma**û*ũ": "obtenu en creusant",
+        "ar-mu*a*²a*ũ": "à pois",
+        "ar-mu*â*a*@ũ": "constat de visu",
+        "ar-muta*a*²a*ũ": "fixé",
+        "ar-muta*a*²i*ũ": "poreux",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "être évident",
+        "ar-ta*â*a*a": "",
+    },  # 37
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
@@ -7800,5 +7844,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 268
+}  # 270
 # END
