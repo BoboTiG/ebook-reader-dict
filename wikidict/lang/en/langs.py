@@ -3915,7 +3915,8 @@ langs = {
     "kmy": "Koma",
     "kmz": "Khorasani Turkish",
     "kn": "Kannada",
-    "kn-hav": "Havyaka Kannada",
+    "kn-hav": "Havigannada",
+    "kn-kun": "Kundagannada",
     "kna": "Kanakuru",
     "knb": "Lubuagan Kalinga",
     "knd": "Konda",
@@ -9598,5 +9599,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,593
+}  # 9,594
 # END
