@@ -172,8 +172,9 @@ templates_multi = {
     "superíndice": "superscript(parts[1])",
     # {{trad|la|post meridem}}
     "trad": 'f"{parts[2]}" + superscript(f"({parts[1]})")',
+    # {{ucf}}
     # {{ucf|mujer}}
-    "ucf": "capitalize(parts[1])",
+    "ucf": "capitalize(parts[1] if len(parts) > 1 else word)",
     # {{variante obsoleta|hambre}}"
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
     # {{versalita|xx}}
