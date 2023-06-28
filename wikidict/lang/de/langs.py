@@ -225,6 +225,7 @@ langs = {
     "hi": "Hindi",
     "hid": "Hidatsa",
     "hif": "Fiji Hindi",
+    "hil": "Hiligaynon",
     "hit": "Hethitisch",
     "ho": "Hiri Motu",
     "hop": "Hopi",
@@ -676,5 +677,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 671
+}  # 672
 # END
