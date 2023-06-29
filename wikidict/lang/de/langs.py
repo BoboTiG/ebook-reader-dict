@@ -53,6 +53,7 @@ langs = {
     "as": "Assamesisch",
     "asb": "Assiniboine",
     "ast": "Asturisch",
+    "atv": "Nordaltaisch",
     "aua": "Asumboa",
     "aud": "Anutisch",
     "av": "Awarisch",
@@ -677,5 +678,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 672
+}  # 673
 # END

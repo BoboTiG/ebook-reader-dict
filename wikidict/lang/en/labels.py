@@ -496,6 +496,16 @@ labels = {
 }  # 488
 
 label_syntaxes = {
+    "&": {
+        "omit_postComma": True,
+        "omit_preComma": True,
+        "omit_preSpace": False,
+    },
+    "+": {
+        "omit_postComma": True,
+        "omit_preComma": True,
+        "omit_preSpace": False,
+    },
     ";": {
         "omit_postComma": True,
         "omit_preComma": True,
@@ -531,12 +541,22 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "commonly": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "especially": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
     },
     "except": {
+        "omit_postComma": True,
+        "omit_preComma": True,
+        "omit_preSpace": False,
+    },
+    "except in": {
         "omit_postComma": True,
         "omit_preComma": True,
         "omit_preSpace": False,
@@ -566,6 +586,11 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "mainly": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "many": {
         "omit_postComma": True,
         "omit_preComma": False,
@@ -581,7 +606,17 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "mostly": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "now": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+    "nowadays": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
@@ -641,6 +676,11 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "primarily": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "rarely": {
         "omit_postComma": True,
         "omit_preComma": False,
@@ -696,7 +736,12 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
-}  # 40
+    "wrt": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+}  # 49
 
 labels_topical = {
     "AI": "artificial intelligence",
