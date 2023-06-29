@@ -84,7 +84,7 @@ escopos = {
     "Calendário": "cronônimo",
     "Calão": "obsceno",
     "Campidanês": "Campidanês",
-    "Canadá": "{{#ifeq:{{{1}}}|en|Canadá|Canadá}}",
+    "Canadá": "Canadá",
     "Canteiros": "canteiros",
     "Cantábria": "Cantábria",
     "Castela": "Castela",
@@ -380,6 +380,6 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
-    "Índia": "{{#ifeq: {{{1}}}|pt|Índia|Índia}}",
+    "Índia": "Índia",
 }  # 376
 # END
