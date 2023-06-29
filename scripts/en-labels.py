@@ -42,6 +42,8 @@ def process_page(
 
     for r in repl:
         text = re.sub(rf"[ \t]+{r}[\s]*=", f'    "{r}":', text)
+        if r != "labels":
+            text = re.sub(rf"{r}[\s]*=", f'"{r}":', text)
 
     code = ""
     for line in text.split("\n"):
@@ -56,6 +58,7 @@ def process_page(
     for k, v in labels.items():  # type: ignore # noqa
         label_v = v
         label_k = k
+        aliases = []
         if isinstance(v, str):
             label_v = labels.get(v, v)  # type: ignore # noqa
             if label_v != v:
@@ -64,9 +67,16 @@ def process_page(
             display = label_v
         else:
             display = label_v.get("display", label_k)
+            aliases = label_v.get("aliases", [])
         display = process_display(display)
         if "deprecated label" not in display:
             results[k] = display
+
+        if isinstance(aliases, str):
+            aliases = [aliases]
+        for a in aliases:
+            results[a] = display
+
     if print_result:
         print(f"{var_name} = {{")
         for key, value in sorted(results.items()):
@@ -77,6 +87,8 @@ def process_page(
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
 repl = (
+    "deprecated_aliases",
+    "special_display",
     "aliases",
     "alias_of",
     "category",
@@ -92,7 +104,6 @@ repl = (
     "pos_categories",
     "regional_categories",
     "sense_categories",
-    "special_display",
     "topical_categories",
     "track",
     "wikipedia",

@@ -7219,6 +7219,9 @@ langs = {
     "sej": "Sene",
     "sek": "Sekani",
     "sel": "Selkup",
+    "sel-nor": "Northern Selkup",
+    "sel-pro": "Proto-Selkup",
+    "sel-sou": "Southern Selkup",
     "sem": "Semitic",
     "sem-amm": "Ammonite",
     "sem-amo": "Amorite",
@@ -9599,5 +9602,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,594
+}  # 9,597
 # END
