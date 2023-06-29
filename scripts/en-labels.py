@@ -123,7 +123,17 @@ for k, v in labels.items():  # type: ignore # noqa
     omit_preComma = label_v.get("omit_preComma")
     omit_postComma = label_v.get("omit_postComma")
     omit_preSpace = label_v.get("omit_preSpace")
+
+    aliases = []
+    aliases = label_v.get("aliases", [])
+
     if omit_postComma or omit_preComma or omit_preSpace:
+        for a in aliases:
+            syntaxes[a] = {
+                "omit_postComma": bool(omit_postComma),
+                "omit_preComma": bool(omit_preComma),
+                "omit_preSpace": bool(omit_preSpace),
+            }
         syntaxes[k] = {
             "omit_postComma": bool(omit_postComma),
             "omit_preComma": bool(omit_preComma),
