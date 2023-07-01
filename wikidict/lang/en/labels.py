@@ -4085,6 +4085,8 @@ labels_subvarieties = {
     "Greater Poland": "Greater Poland",
     "Greater Toronto Area": "MTE",
     "Greater Toronto English": "MTE",
+    "Greece": "Greece",
+    "Greek": "Greece",
     "Gressoney": "Gressoney",
     "Groningen": "Gronings",
     "Gronings": "Gronings",
@@ -6355,5 +6357,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,002
+}  # 3,004
 # END
