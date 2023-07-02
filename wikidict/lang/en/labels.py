@@ -5861,6 +5861,7 @@ labels_subvarieties = {
     "anteclassical lemma": "pre-Classical",
     "anteclassical non-lemma": "pre-Classical",
     "archaic Literary Chinese-style Korean": "archaic Literary Chinese-style Korean",
+    "archaic case form": "archaic",
     "atelic": "atelic",
     "babica": "dialects with *bábica > *babìca shift",
     "bili": "bilingual",
@@ -6018,6 +6019,7 @@ labels_subvarieties = {
     "philhellene": "Hellenizing School",
     "philhellene school": "Hellenizing School",
     "pijan": "dialects with *visȍk > *vìsok shift",
+    "plural imperative": "archaic",
     "poet": "poetic",
     "pre-1901": "Landsmål",
     "pre-1917": "pre-1917",
@@ -6097,6 +6099,7 @@ labels_subvarieties = {
     "southwestern U.S.": "Southwestern US",
     "southwestern US": "Southwestern US",
     "speech of the royal court": "speech of the royal court",
+    "subjunctive": "dated or formal",
     "sunnmøre": "Sunnmøre",
     "t-č": "dialects with tʼ–č distinction, otherwise obsolete",
     "tao": "traditional orthography",
@@ -6357,5 +6360,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,004
+}  # 3,007
 # END

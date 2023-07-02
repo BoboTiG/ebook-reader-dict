@@ -341,6 +341,8 @@ langs = {
     "alv-dlt": "Delta Edoid",
     "alv-dur": "Duru",
     "alv-ede": "Ede",
+    "alv-edk": "Edekiri",
+    "alv-edk-pro": "Proto-Edekiri",
     "alv-edo": "Edoid",
     "alv-edo-pro": "Proto-Edoid",
     "alv-eeo": "Edo-Esan-Ora",
@@ -412,8 +414,10 @@ langs = {
     "alv-wan": "Wara-Natyoro",
     "alv-wjk": "Waja-Kam",
     "alv-yek": "Yekhee",
-    "alv-yor": "Yoruboid",
-    "alv-yor-pro": "Proto-Yoruboid",
+    "alv-yor": "Yoruba",
+    "alv-yor-pro": "Proto-Yoruba",
+    "alv-yrd": "Yoruboid",
+    "alv-yrd-pro": "Proto-Yoruboid",
     "alv-yun": "Yungur",
     "alw": "Alaba",
     "alx": "Amol",
@@ -9602,5 +9606,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,597
+}  # 9,601
 # END
