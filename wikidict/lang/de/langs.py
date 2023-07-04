@@ -499,6 +499,7 @@ langs = {
     "rup": "Aromunisch",
     "ruq": "Meglenorumänisch",
     "rw": "Kinyarwanda",
+    "ryu": "Zentral-Okinawa",
     "sa": "Sanskrit",
     "sac": "Fox",
     "sah": "Jakutisch",
@@ -678,5 +679,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 673
+}  # 674
 # END

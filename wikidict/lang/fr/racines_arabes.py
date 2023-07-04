@@ -1161,6 +1161,7 @@ racines_schemes_arabes = {
         "ar-*a*i*a-a": "avoir de grands yeux",
         "ar-*a*²a*a": "percer",
         "ar-*a*²a*ũ": "troué",
+        "ar-*a*²i*ũ": "troué",
         "ar-*a*û*ũ": "qui regarde",
         "ar-*i**@ũ": "choix",
         "ar-*i**ũ": "buffle",
@@ -1186,7 +1187,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être évident",
         "ar-ta*â*a*a": "",
-    },  # 37
+    },  # 38
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
