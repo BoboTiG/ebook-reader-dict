@@ -524,6 +524,7 @@ langs = {
     "shv": "Ǧibbāli (Śhaḥri)",
     "si": "Singhalesisch",
     "simple": "Simple English",
+    "sjd": "Kildinsamisch",
     "sje": "Pitesamisch",
     "sjn": "Sindarin",
     "sju": "Umesamisch",
@@ -679,5 +680,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 674
+}  # 675
 # END

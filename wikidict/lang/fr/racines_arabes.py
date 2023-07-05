@@ -551,7 +551,10 @@ racines_schemes_arabes = {
         "aa_sens": "œil",
         "ar-***ũ": "",
         "ar-*a*a*ũ": "maisonnée",
-    },  # 3
+        "ar-a**u*âtũ": "collection d'yeux",
+        "ar-a**u*ũ": "{{p}} yeux",
+        "ar-a**â*ũ": "{{p}} yeux",
+    },  # 6
     "ar-3Zm": {
         "aa_sens": "grand, grave",
         "ar-**a*²a": "",
@@ -1168,14 +1171,16 @@ racines_schemes_arabes = {
         "ar-*i*â*@ũ": "espion",
         "ar-*i*â*ũ": "personne",
         "ar-*ta*a*a": "épier",
+        "ar-*u*a*ũ": "{{p}} personnes",
         "ar-*u*ay*@ũ": "petit œil",
+        "ar-*u*u*ũ": "{{p}} qui regardent",
         "ar-*u*û*ũ": "lunettes",
-        "ar-*uwa**ũ": "nourriture",
         "ar-*â*a*a": "regarder",
         "ar-*â*i*@ũ": "regard",
         "ar-*â*i*ũ": "homme",
         "ar-a**a*a": "jeter le mauvais œil",
         "ar-a**a*u": "à grand yeux",
+        "ar-a**i*@ũ": "{{p}} personnes",
         "ar-ma**a*ũ": "station",
         "ar-ma**i*ũ": "source",
         "ar-ma**û*ũ": "obtenu en creusant",
@@ -1187,7 +1192,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être évident",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 40
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
