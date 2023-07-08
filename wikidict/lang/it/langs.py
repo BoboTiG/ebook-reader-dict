@@ -450,7 +450,7 @@ langs = {
     "rue": "ruteno",
     "rup": "arumeno",
     "rw": "ruandese",
-    "ryu": "okinawano",
+    "ryu": "okinawaiano",
     "sa": "sanscrito",
     "sah": "sacha",
     "sai": "pirahã",
@@ -514,6 +514,7 @@ langs = {
     "tw": "twi",
     "twf": "taos",
     "txb": "tocario",
+    "ty": "tahitiano",
     "tyv": "tuvano",
     "udm": "udmurt",
     "ug": "uiguro",
@@ -553,5 +554,5 @@ langs = {
     "zh-yue": "cantonese",
     "zu": "zulu",
     "zza": "zazaki",
-}  # 548
+}  # 549
 # END

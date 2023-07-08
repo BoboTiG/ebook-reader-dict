@@ -3673,7 +3673,7 @@ langs = {
     "ngb": "ngbandi du Nord",
     "ngc": "ngombe (République démocratique du Congo)",
     "ngd": "ngando (République centrafricaine)",
-    "nge": "ngemba",
+    "nge": "mankon",
     "ngf": "langues trans-néo-guinéennes",
     "ngg": "ngbaka manza",
     "ngh": "nǀu",
