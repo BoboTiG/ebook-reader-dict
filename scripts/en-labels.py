@@ -56,6 +56,8 @@ def process_page(
     results: Dict[str, str] = {}
 
     for k, v in labels.items():  # type: ignore # noqa
+        if k == "deprecated label":
+            continue
         label_v = v
         label_k = k
         aliases = []
@@ -69,8 +71,7 @@ def process_page(
             display = label_v.get("display", label_k)
             aliases = label_v.get("aliases", [])
         display = process_display(display)
-        if "deprecated label" not in display:
-            results[k] = display
+        results[k] = display
 
         if isinstance(aliases, str):
             aliases = [aliases]
@@ -108,6 +109,7 @@ repl = (
     "track",
     "wikipedia",
     "Wikipedia",
+    "Wiktionary",
 )
 stop_line = "return labels"
 var_name = "labels"
