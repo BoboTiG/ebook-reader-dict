@@ -1,7 +1,7 @@
 from collections import defaultdict  # noqa
 from typing import Dict, List, Tuple
 
-from ...user_functions import extract_keywords_from, italic, small
+from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
 
 bibel_names = {
@@ -90,19 +90,84 @@ bibel_names = {
 def render_bibel(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
-    'Matthäus 1,1 <small>EU</small>'
+    'Matthäus 1,1'
     >>> render_bibel("Bibel", ["Mt", "1", "1-5", "HFA"], defaultdict(str))
-    'Matthäus 1,1-5 <small>HFA</small>'
+    'Matthäus 1,1-5'
     >>> render_bibel("Bibel", ["Mt", "1", "1", "NIV"], defaultdict(str))
-    'Matthäus 1,1 <small>NIV</small>'
+    'Matthäus 1,1'
     >>> render_bibel("Bibel", ["Mos", "18", "4", "LUT"], defaultdict(str))
-    'Mos 18,4 <small>LUT</small>'
+    'Mos 18,4'
     """
     phrase = bibel_names.get(parts[0], parts[0])
     phrase += f" {parts[1]}"
     if len(parts) > 2:
         phrase += f",{parts[2]}"
-    phrase += f" {small(parts[3])}" if len(parts) > 3 else f" {small('EU')}"
+    return phrase
+
+
+def render_foreign_lang(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
+    'בַּיִת כְּנֶסֶת'
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str, {"d-heb": "bayiṯ k<sup><small>e</small></sup>næsæṯ"}))
+    'בַּיִת כְּנֶסֶת (CHA: bayiṯ k<sup><small>e</small></sup>næsæṯ)'
+    >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str, {"b": "Haus der Versammlung, Haus der Zusammenkunft", "d-heb": "bayiṯ k<sup><small>e</small></sup>næsæṯ"}))
+    'בַּיִת כְּנֶסֶת (CHA: bayiṯ k<sup><small>e</small></sup>næsæṯ) ‚Haus der Versammlung, Haus der Zusammenkunft‘'
+    >>> render_foreign_lang("Hebr", ["שבת", "Ü"], defaultdict(str, {"b": "Ruhetag; Schabbes", "d-yid": "shabes"}))
+    'שבת, YIVO: shabes, „Ruhetag; Schabbes“'
+    >>> render_foreign_lang("Hebr", ["אסנוגה"], defaultdict(str, {"b": "Synagoge, Gebetshaus", "d-lad": "esnoga"}))
+    'אסנוגה (esnoga) ‚Synagoge, Gebetshaus‘'
+
+    >>> render_foreign_lang("Paschto", ["طالب"], defaultdict(str, {"b": "Schüler", "d": "ṭā-lib", "v": "طَالِب"}))
+    'طَالِب (DMG: ṭā-lib) ‚Schüler‘'
+    >>> render_foreign_lang("Paschto", ["طالب", "Ü"], defaultdict(str, {"b": "Schüler", "d": "ṭā-lib", "v": "طَالِب"}))
+    'طَالِب, DMG: ṭā-lib, „Schüler“'
+
+    >>> render_foreign_lang("Urdu", ["فن"], defaultdict(str, {"b": "Kunst", "d": "fann", "v": "فَنّ"}))
+    'فَنّ, DMG: fann, „Kunst“'
+    """  # noqa
+    phrase = data["v"] or parts.pop(0)
+
+    as_ü_template = "Ü" in parts
+    if tpl == "Urdu":
+        as_ü_template = not as_ü_template
+
+    if tpl == "Hebr":
+        if trans := data["d-heb"]:
+            phrase += f", CHA: {trans}" if as_ü_template else f" (CHA: {trans})"
+        elif trans := data["d-yid"]:
+            phrase += f", YIVO: {trans}" if as_ü_template else f" (YIVO: {trans})"
+        elif trans := data["d-lad"]:
+            phrase += f", {trans}" if as_ü_template else f" ({trans})"
+    elif trans := data["d"]:
+        phrase += f", DMG: {trans}" if as_ü_template else f" (DMG: {trans})"
+
+    if data["b"]:
+        if as_ü_template:
+            phrase += ","
+        sep = ("„", "“") if as_ü_template else ("‚", "‘")
+        phrase += f" {sep[0]}{data['b']}{sep[1]}"
+
+    return phrase
+
+
+def render_foreign_lang_simple(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
+    'أَحْمَدُ بْنُ حَنْبَلٍ'
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str, {"d": "Aḥmadu bnu Ḥanbalin"}))
+    'أَحْمَدُ بْنُ حَنْبَلٍ (DMG: Aḥmadu bnu Ḥanbalin)'
+    >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str, {"b": "Aḥmad, Sohn des Ḥanbal", "d": "Aḥmadu bnu Ḥanbalin"}))
+    'أَحْمَدُ بْنُ حَنْبَلٍ (DMG: Aḥmadu bnu Ḥanbalin) ‚Aḥmad, Sohn des Ḥanbal‘'
+
+    >>> render_foreign_lang_simple("Farsi", ["آیتالله"], defaultdict(str, {"b": "Geschöpf", "d" :"ǧānvar", "v": "جَانْوَر"}))
+    'جَانْوَر (DMG: ǧānvar) ‚Geschöpf‘'
+    """  # noqa
+    phrase = data["v"] or parts.pop(0)
+    if data["d"]:
+        phrase += f" (DMG: {data['d']})"
+    if data["b"]:
+        phrase += f" ‚{data['b']}‘"
     return phrase
 
 
@@ -173,6 +238,8 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>transitiv, Linguistik, Wortbildung:</i>'
     >>> render_K("K", ["kPl.", "ugs."], defaultdict(str))
     '<i>kein Plural, umgangssprachlich:</i>'
+    >>> render_K("K", [], defaultdict(str, {"ft": "kurz für"}))
+    '<i>kurz für:</i>'
     >>> render_K("K", ["Astronomie"], defaultdict(str, {"ft": "kurz für"}))
     '<i>Astronomie, kurz für:</i>'
     >>> render_K("K", ["intrans.", "Nautik"], defaultdict(str, {"t7": "_", "ft": "(von Schiffen)"}))
@@ -209,14 +276,69 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 sep = f"{sep} "
             phrase += sep
 
-    ft = f"{data['ft']}" if "ft" in data else ""
-    if ft:
-        spacer = data.get("t7", ", ")
+    if ft := data["ft"]:
+        spacer = data.get("t7", ", " if parts else "")
         if spacer == "_":
             spacer = " "
         ft = spacer + ft
 
     return italic(f"{phrase}{ft}:")
+
+
+def render_ref_dejure(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
+    '54 InsO'
+    >>> render_ref_dejure("Ref-dejure", ["", "3", "EGGmbHG"], defaultdict(str))
+    '3 EGGmbHG'
+    >>> render_ref_dejure("Ref-dejure", ["", "3", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '3 II Nr. 9 EGGmbHG'
+    >>> render_ref_dejure("Ref-dejure", ["§", "1004", "BGB"], defaultdict(str))
+    '§ 1004 BGB'
+    >>> render_ref_dejure("Ref-dejure", ["§", "1004", "BGB"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '§ 1004 II Nr. 9 BGB'
+    >>> render_ref_dejure("Ref-dejure", ["§§", "19", "InsO"], defaultdict(str))
+    '§§ 19'
+    >>> render_ref_dejure("Ref-dejure", ["§§", "2", "TKG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '§§ 2 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Art.", "15", "GG"], defaultdict(str))
+    'Art. 15 GG'
+    >>> render_ref_dejure("Ref-dejure", ["Art.", "15", "GG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    'Art. 15 II Nr. 9 GG'
+    >>> render_ref_dejure("Ref-dejure", ["Artt.", "1", "EGGmbHG"], defaultdict(str))
+    'Art. 1'
+    >>> render_ref_dejure("Ref-dejure", ["Artt.", "1", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    'Art. 1 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "27", "InsO"], defaultdict(str))
+    '27'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "2", "EGGmbHG"], defaultdict(str))
+    '2'
+    >>> render_ref_dejure("Ref-dejure", ["Mitte", "2", "EGGmbHG"], defaultdict(str, {"Erg": "II Nr. 9"}))
+    '2 II Nr. 9'
+    >>> render_ref_dejure("Ref-dejure", ["Artikel", "36", "EuGVVO"], defaultdict(str, {"Erg": "Absatz&nbsp;1"}))
+    'Artikel 36 Absatz&nbsp;1 EuGVVO'
+    """
+    article, number, name = parts
+    complement = f" {data['Erg']}" if data["Erg"] else ""
+    display_name = not any(
+        [
+            article in {"§§", "Mitte"},
+            article.startswith("Art") and name == "EGGmbHG",
+            article == "§§" and name == "InsO",
+        ],
+    )
+    name = f" {name}" if display_name else ""
+    match article:
+        case "" | "Mitte":
+            return f"{number}{complement}{name}"
+        case "§" | "§§":
+            return f"{article} {number}{complement}{name}"
+        case "Art." | "Artt.":
+            return f"Art. {number}{complement}{name}"
+        case "Artikel":
+            return f"{article} {number}{complement}{name}"
+        case _:
+            assert 0, parts
 
 
 def render_Ut(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -247,10 +369,14 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'ܡܫܺܝܚܳܐ (ALA-LC: mšiḥāʾ) ‚Messias‘'
     >>> render_Uxx4("Üxx4", ["fr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
     'ܡܫܺܝܚܳܐ (mšiḥāʾ) ‚Messias‘'
+    >>> render_Uxx4("Üxx4?", ["fr", "ܡܫܝܚܐ"], defaultdict(str, {"v":"ܡܫܺܝܚܳܐ", "d":"mšiḥāʾ", "b":"Messias"}))
+    '<b>?</b>&nbsp;ܡܫܺܝܚܳܐ (mšiḥāʾ) ‚Messias‘'
     """
     language = parts.pop(0)
     phrase = parts.pop(0) if parts else ""
     phrase = data.get("v", data.get("2", phrase))
+    if tpl == "Üxx4?":
+        phrase = f"{strong('?')}&nbsp;{phrase}"
     if "d" in data:
         if language in ("ar", "fa", "ha", "ota", "pnb"):
             phrase += f" (DMG: {data['d']})"
@@ -268,12 +394,28 @@ def render_Uxx4(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_Uxx5(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
+    'ἀνήρ, ἀνδρός (anḗr, andrós)'
+    """
+    return f"{parts[2]} ({parts[1]})"
+
+
 template_mapping = {
+    "Arab": render_foreign_lang_simple,
     "Bibel": render_bibel,
+    "Farsi": render_foreign_lang_simple,
+    "Hebr": render_foreign_lang,
     "K": render_K,
+    "Paschto": render_foreign_lang,
+    "Ref-dejure": render_ref_dejure,
+    "Urdu": render_foreign_lang,
     "Üt": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
+    "Üxx4?": render_Uxx4,
+    "Üxx5": render_Uxx5,
 }
 
 

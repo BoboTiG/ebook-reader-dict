@@ -18,6 +18,7 @@ WORD = {
     "fr": "42",
     "it": "Upupidi",
     "pt": "-izar",
+    "sv": "Benjamin",
 }
 
 
@@ -111,6 +112,30 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',  # noqa
             "",
         ],
+        # DE - star
+        [
+            "de",
+            "<sup>☆</sup>",  # noqa
+            "",
+        ],
+        # DE - Internet Archive
+        [
+            "de",
+            '<a rel="nofollow" class="external text" href="http://www.archive.org/stream/dasbuchhenochhrs00flemuoft/page/59/mode/1up">Internet&nbsp;Archive</a>',  # noqa
+            "",
+        ],
+        # DE - external links
+        [
+            "de",
+            '<small class="noprint" title="Luther 2017 bei www.bibleserver.com"></small>',  # noqa
+            "",
+        ],
+        # DE - lang link in {{Üxx5}}
+        [
+            "de",
+            '<a href="/w/index.php?title=grc:%E1%BC%80%CE%BD%CE%AE%CF%81&amp;action=edit&amp;redlink=1" class="new" title="grc:ἀνήρ (Seite nicht vorhanden)"><sup>→&nbsp;grc</sup>',  # noqa
+            "",
+        ],
         # DE - other Wikis
         [
             "de",
@@ -186,6 +211,15 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
                 ' #CF1020"></span>'
             ),
             "[RGB #CF1020]",
+        ],
+        # ES - coord output
+        [
+            "es",
+            (
+                '<span class="geo-multi-punct"> / </span><span class="geo-nondefault"><span class="geo-dec geo">'
+                '<span class="latitude">-4.2</span>, <span class="longitude">-69.917</span></span></span>'
+            ),
+            "",
         ],
         # ES - external autonumber
         [
@@ -300,11 +334,47 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             ),
             "Panthera leo",
         ],
+        # IT - numbered external links
+        [
+            "it",
+            '<a class="external autonumber" href="https://it.wikipedia.org/wiki/Scomber_scombrus">[1]</a>',  # noqa
+            "",
+        ],
         # IT - missing definition
         [
             "it",
             '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',  # noqa
             "",
+        ],
+        # IT - Wikiquote
+        [
+            "it",
+            '<small>&nbsp;(<a href="/wiki/File:Wikiquote-logo.svg" class="image" title="Wikiquote"><img alt="Wikiquote" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/20px-Wikiquote-logo.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/30px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/40px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" width="20" height="24"></a> <b><a href="https://it.wikiquote.org/wiki/manuale" class="extiw" title="q:manuale">citazioni</a></b>)</small>',  # noqa
+            "",
+        ],
+        # IT - <ref>
+        [
+            "it",
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a>',  # noqa
+            "",
+        ],
+        # IT - Wikipedia
+        [
+            "it",
+            '<small>&nbsp;(<a href="/wiki/File:Wikipedia-logo-v2.svg" class="image" title="Wikipedia"><img alt="Wikipedia" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/20px-Wikipedia-logo-v2.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/30px-Wikipedia-logo-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 2x" data-file-width="103" data-file-height="94" width="20" height="18"></a> <b><a href="https://it.wikipedia.org/wiki/Banda_(araldica)" class="extiw" title="w:Banda (araldica)">approfondimento</a></b>)</small>',  # noqa
+            "",
+        ],
+        # IT - Wikispecies
+        [
+            "it",
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>)',  # noqa
+            "",
+        ],
+        # IT - Wikispecies (ensure next siblings are kept)
+        [
+            "it",
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>);',  # noqa
+            ";",
         ],
         # PT - superscript locales
         [
@@ -324,6 +394,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         [
             "pt",
             '<small>(<a href="https://la.wiktionary.org/wiki/aer" class="extiw" title="la:aer">ver no Wikcionário em Latim</a>)</small>',  # noqa
+            "",
+        ],
+        # SV - <ref>
+        [
+            "sv",
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>',  # noqa
             "",
         ],
     ],

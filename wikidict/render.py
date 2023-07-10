@@ -7,7 +7,7 @@ from collections import defaultdict
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Set, Tuple, cast
+from typing import Callable, Dict, List, Pattern, Tuple, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -23,6 +23,8 @@ from .lang import (
     section_sublevels,
     sections,
     sublist_patterns,
+    variant_templates,
+    variant_titles,
     words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
@@ -65,6 +67,25 @@ def find_definitions(
     return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore
 
 
+def es_replace_defs_list_with_numbered_lists(
+    lst: wtp.WikiList,
+    regex_item: Pattern[str] = re.compile(
+        r"(^|\\n);\d+[ |:]+",
+        flags=re.MULTILINE,
+    ),
+    regex_subitem: Pattern[str] = re.compile(
+        r"(^|\\n):;\s*[a-z]:+\s+",
+        flags=re.MULTILINE,
+    ),
+) -> str:
+    """
+    ES uses definition lists, not well supported by the parser...
+    replace them by numbered lists.
+    """
+    res = regex_item.sub(r"\1# ", lst.string)
+    return regex_subitem.sub(r"\1## ", res)
+
+
 def find_section_definitions(
     word: str, section: wtp.Section, locale: str
 ) -> List[Definitions]:
@@ -80,12 +101,10 @@ def find_section_definitions(
     ):
         return definitions
 
-    # es uses definition lists, not well supported by the parser...
-    # replace them by numbered lists
     if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
-        sec = "".join(a_list.string for a_list in lists)
-        section.contents = re.sub(r";[0-9]+[ |:]+", "# ", sec)
-        section.contents = re.sub(r":;[\s]*[a-z]:+[\s]+", "## ", section.contents)
+        section.contents = "".join(
+            es_replace_defs_list_with_numbered_lists(lst) for lst in lists
+        )
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
@@ -156,13 +175,13 @@ def find_etymology(
                 definitions.append(etyl)
         return definitions
 
-    elif locale in {"es", "it"}:
+    elif locale in {"es", "it", "ro"}:
         items = [
             item.strip()
             for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
         ]
         for item in items:
-            if etyl := process_templates(word, item, locale):
+            if (etyl := process_templates(word, item, locale)) and etyl != ".":
                 definitions.append(etyl)
         return definitions
 
@@ -191,7 +210,6 @@ def find_etymology(
     tableindex = 0
     for section in parsed_section.get_lists():
         for idx, section_item in enumerate(section.items):
-
             if any(
                 ignore_me in section_item.lower()
                 for ignore_me in definitions_to_ignore[locale]
@@ -272,7 +290,7 @@ def find_all_sections(
     def section_title(title: str) -> str:
         if locale == "de":
             title = title.split("(")[-1].strip(" )")
-        return title.replace(" ", "").lower().strip()
+        return title.replace(" ", "").lower().strip() if title else ""
 
     # Get interesting top sections
     top_sections = [
@@ -292,6 +310,7 @@ def find_all_sections(
             )
         )
     )
+
     return top_sections, all_sections
 
 
@@ -307,9 +326,91 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     return top_sections, ret
 
 
-def add_potential_variant(word: str, tpl: str, locale: str, variants: Set[str]) -> None:
+def add_potential_variant(
+    word: str, tpl: str, locale: str, variants: List[str]
+) -> None:
     if (variant := process_templates(word, tpl, locale)) and variant != word:
-        variants.add(variant)
+        variants.append(variant)
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    """Sometimes we need to adapt the Wikicode."""
+    code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
+
+    if locale == "de":
+        # {{Bedeutungen}} -> === {{Bedeutungen}} ===
+        code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+        # Definition lists are not well supported by the parser, replace them by numbered lists
+        # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
+        #       contains an empty item.
+        code = re.sub(r":\[\d+\][ ]*", "# ", code)
+
+        # {{!}} -> "|"
+        code = code.replace("{{!}}", "|")
+
+    elif locale == "es":
+        # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
+        code = re.sub(
+            r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE
+        )
+
+    elif locale in ("it", "ro"):
+        if locale == "ro":
+            locale = "ron"
+
+            # {{-avv-|ANY|ANY}} -> === {{avv|ANY|ANY}} ===
+            code = re.sub(
+                r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
+                r"=== {{\1|\2|\3}} ===",
+                code,
+                flags=re.MULTILINE,
+            )
+
+            # Try to convert old Wikicode
+            if "==Romanian==" in code:
+                # ==Romanian== -> == {{limba|ron}} ==
+                code = code.replace("==Romanian==", "== {{limba|ron}} ==")
+
+                # ===Adjective=== -> === {{Adjective}} ===
+                code = re.sub(
+                    r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE
+                )
+
+            # ===Verb tranzitiv=== -> === {{Verb tranzitiv}} ===
+            code = re.sub(
+                r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE
+            )
+
+            # Hack for a fake variants supports because RO doesn't use templates most of the time
+            # `#''forma de feminin singular pentru'' [[frumos]].` -> `# {{forma de feminin singular pentru|frumos}}`
+            code = re.sub(
+                r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
+                r"\1{{\2|\3}}",
+                code,
+                flags=re.MULTILINE,
+            )
+
+        # {{-avv-|it}} -> === {{avv}} ===
+        code = re.sub(
+            rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
+            r"=== {{\1}} ===",
+            code,
+            flags=re.MULTILINE,
+        )
+
+        # {{-avv-|ANY}} -> === {{avv|ANY}} ===
+        code = re.sub(
+            r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE
+        )
+
+        # {{-avv-}} -> === {{avv}} ===
+        code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+        # {{!}} -> "|"
+        code = code.replace("{{!}}", "|")
+
+    return code
 
 
 def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
@@ -318,35 +419,12 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     It is disabled by default to speed-up the overall process, but enabled when
     called from get_and_parse_word().
     """
-    code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
-
-    if locale == "de":
-        # {{Bedeutungen}} -> === {{Bedeutungen}} ===
-        code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # Definition lists are not well supported by the parser, replace them by numbered lists
-        code = re.sub(r":\[\d+\]\s*", "# ", code)
-
-    elif locale == "es":
-        # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
-        code = re.sub(
-            r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE
-        )
-
-    elif locale == "it":
-        # {{-avv-|it}} -> === {{avv}} ===
-        code = re.sub(
-            r"^\{\{-(.+)-\|it?\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE
-        )
-
-        # {{-avv-}} -> === {{avv}} ===
-        code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
+    code = adjust_wikicode(code, locale)
     top_sections, parsed_sections = find_sections(code, locale)
     prons = []
     genders = []
     etymology = []
-    variants: Set[str] = set()
+    variants: List[str] = []
 
     # Etymology
     for section in etyl_section[locale]:
@@ -360,105 +438,19 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         genders = _find_genders(top_sections, find_genders[locale])
 
     # Find potential variants
-    for title, parsed_section in parsed_sections.items():
-        if locale == "ca":
-            if not title.startswith(
-                (
-                    "Adjectiu",
-                    "Nom",
-                    "Verb",
-                )
-            ):
+    if interesting_titles := variant_titles[locale]:
+        interesting_templates = variant_templates[locale]
+        for title, parsed_section in parsed_sections.items():
+            if not title.startswith(interesting_titles):
                 continue
             for tpl in parsed_section[0].templates:
                 tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{ca-forma-conj",
-                        "{{forma-p",
-                        "{{forma-f",
-                    )
-                ):
+                if tpl.startswith(interesting_templates):
                     add_potential_variant(word, tpl, locale, variants)
-        elif locale == "de":
-            if not title.startswith(
-                (
-                    "{{Grundformverweis ",
-                    "{{Alte Schreibweise|",
-                )
-            ):
-                continue
+        if variants:
+            variants = sorted(set(variants))
 
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{Grundformverweis ",
-                        "{{Alte Schreibweise|",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "en":
-            if title not in {"Noun", "Verb"}:
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{en-ing",
-                        "{{en-ipl",
-                        "{{en-irregular",
-                        "{{en-past",
-                        "{{en-simple",
-                        "{{en-superlative",
-                        "{{en-third",
-                        "{{en-tpso",
-                        "{{plural of",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "es":
-            if not title.startswith(("Forma adjetiva", "Forma verbal")):
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{enclítico",
-                        "{{infinitivo",
-                        "{{forma adjetivo",
-                        "{{forma adjetivo 2",
-                        "{{forma participio",
-                        "{{forma pronombre",
-                        "{{forma verbo",
-                        "{{f.v",
-                        "{{gerundio",
-                        "{{participio",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-        elif locale == "fr":
-            if not title.startswith(
-                (
-                    "{{S|adjectif|fr}",
-                    "{{S|adjectif|fr|flexion",
-                    "{{S|nom|fr|flexion",
-                    "{{S|verbe|fr|flexion",
-                )
-            ):
-                continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(
-                    (
-                        "{{fr-accord-",
-                        "{{fr-rég",
-                        "{{fr-verbe-flexion",
-                    )
-                ):
-                    add_potential_variant(word, tpl, locale, variants)
-
-    return Word(prons, genders, etymology, definitions, sorted(variants))
+    return Word(prons, genders, etymology, definitions, variants)
 
 
 def load(file: Path) -> Dict[str, str]:

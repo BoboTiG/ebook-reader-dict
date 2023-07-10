@@ -16,9 +16,11 @@ for line in text.split("\n"):
         array = line.split("=")
         words = array[0].split("|")
         result = array[1]
+        if result.startswith("{{") and result.endswith("}}") and "|" in result:
+            result = result.split("|")[-1][:-2]
         for word in words:
             if word and word[0] != "#":
-                results[word.lower().replace("\u200e", "")] = result
+                results[word.replace("\u200e", "")] = result
 
 print("escopos = {")
 for t, r in sorted(results.items()):

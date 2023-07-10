@@ -36,6 +36,23 @@ sections = (
     "Verb",
 )
 
+# Variants
+variant_titles = (
+    "Noun",
+    "Verb",
+)
+variant_templates = (
+    "{{en-ing",
+    "{{en-ipl",
+    "{{en-irregular",
+    "{{en-past",
+    "{{en-simple",
+    "{{en-superlative",
+    "{{en-third",
+    "{{en-tpso",
+    "{{plural of",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "rfdef",
@@ -56,11 +73,17 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "anchor",
+    "attention",
     "c",
     "C",
     "cln",
+    "dercat",
     "elements",
     "etystub",
+    "examples",
+    "Image requested",
+    "lena",
     "multiple images",
     "+obj",
     "PIE word",
@@ -73,26 +96,35 @@ templates_ignored = (
     "rfc-sense",
     "rfd-redundant",
     "rfd-sense",
-    "rfv-etym",
-    "rfv-sense",
     "rfe",
     "rfex",
+    "rfi",
+    "rfquote-sense",
+    "rfv-etym",
+    "rfv-sense",
     "root",
+    "slim-wikipedia",
     "senseid",
     "seeCites",
+    "swp",
     "tea room",
     "tea room sense",
     "top",
     "topics",
+    "translation only",
     "was wotd",
     "wikipedia",
+    "Wikipedia",
+    "wikispecies",
+    "Wikispecies",
+    "wp",
 )
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
+    **labels_subvarieties,
     **labels,
     **labels_regional,
-    **labels_subvarieties,
     **labels_topical,
     "ambitransitive": "transitive, intransitive",
 }
@@ -106,7 +138,7 @@ templates_multi = {
     # {{circa2|1850s}}
     "circa2": "italic('circa' if 'short=yes' not in parts and 'short=1' not in parts else 'c.') + f' {parts[1]}'",
     # {{defdate|from 15th c.}}
-    "defdate": "small('[' + parts[1] + ']')",
+    "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
     # {{en-archaic third-person singular of|term}}
     "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
     # {{en-comparative of|term}}
@@ -125,12 +157,20 @@ templates_multi = {
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
     "IPAfont": 'f"⟨{parts[1]}⟩"',
+    # {{lang|fr|texte}}
+    "lang": "parts[-1]",
     # {{Latn-def|en|name|O|o}}
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
+    # {{Latn-def-lite|en|name|O|o}}
+    "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
+    # {{n-g-lite|Definite grammatical ...}}
+    "n-g-lite": "italic(parts[-1].lstrip('1='))",
     # {{ng|Definite grammatical ...}}
     "ng": "italic(parts[-1].lstrip('1='))",
+    # {{ng-lite|Definite grammatical ...}}
+    "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
     # {{non gloss|Definite grammatical ...}}
@@ -143,6 +183,8 @@ templates_multi = {
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{q-lite|Used only ...}}
+    "q-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qf|Used only ...}}
     "qf": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qua|Used only ...}}
@@ -151,6 +193,8 @@ templates_multi = {
     "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{qualifier-lite|Used only ...}}
+    "qualifier-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{s|foo}}
     "s": "f'{parenthesis(italic(parts[1]))} :'",
     # {{sense|foo}}
@@ -192,6 +236,9 @@ templates_multi = {
     # {{plural of|en|human}}
     "plural of": "parts[-1]",
 }
+
+# Templates that will be completed/replaced using custom text.
+templates_other = {"nbsp": "&nbsp;"}
 
 
 # Release content on GitHub
@@ -268,6 +315,8 @@ def last_template_handler(
         '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>.'
+        >>> last_template_handler(["cens sp", "en", "bitch"], "en")
+        '<i>Censored spelling of</i> <b>bitch</b>.'
 
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
@@ -309,10 +358,20 @@ def last_template_handler(
             starter = f"{word} of" if word else "form of"
             word = data["3"] or (parts.pop(0) if parts else "")
             text = data["4"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["5"] or (parts.pop(0) if parts else "")
+            gloss = (
+                data["t"]
+                or data["gloss"]
+                or data["5"]
+                or (parts.pop(0) if parts else "")
+            )
         else:
             text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["4"] or (parts.pop(0) if parts else "")
+            gloss = (
+                data["t"]
+                or data["gloss"]
+                or data["4"]
+                or (parts.pop(0) if parts else "")
+            )
         word = text or word
         if word.startswith("w:"):
             word = word[2:]
@@ -343,7 +402,7 @@ def last_template_handler(
         if template_model["dot"]:
             if data["dot"]:
                 phrase += data["dot"]
-            elif data["nodot"] != "1":
+            elif data["nodot"] not in ("1", "y", "yes"):
                 phrase += "."
         return phrase
 

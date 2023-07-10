@@ -7,13 +7,11 @@ from contextlib import suppress
 from datetime import datetime, timezone
 from functools import partial
 from pathlib import Path
-from typing import Callable, List, Match, Tuple, Union
+from typing import Callable, List, Match, Union
 
 import regex
 import requests
 import wikitextparser
-from cachetools import cached
-from cachetools.keys import hashkey
 
 from . import svg
 from .constants import (
@@ -294,7 +292,7 @@ def clean(text: str, locale: str = "en") -> str:
         '{{nom langue|gcr}}'
         >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
         '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")  # noqa
+        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")
         ''
         >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
         ''
@@ -341,7 +339,10 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("A_____B, B_____A")
         'A_____B, B_____A'
-    """
+
+        >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
+        ''
+    """  # noqa
 
     # Speed-up lookup
     sub = re.sub
@@ -375,6 +376,9 @@ def clean(text: str, locale: str = "en") -> str:
 
     # <nowiki/> -> ''
     text = text.replace("<nowiki/>", "")
+
+    # <gallery>
+    text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
 
     # Local links
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
@@ -665,14 +669,8 @@ def transform(word: str, template: str, locale: str) -> str:
     elif tpl == "PAGENAME" or (tpl == "w" and len(parts) == 1):
         return word.replace("_", " ")
 
-    # Convert *parts* from a list to a tuple because list are not hashable and thus cannot be used
-    # with the LRU cache.
-    return str(transform_apply(word, tpl, tuple(parts), locale))
+    # Apply transformations
 
-
-@cached(cache={}, key=lambda word, tpl, parts, locale: hashkey(tpl, parts, locale))  # type: ignore
-def transform_apply(word: str, tpl: str, parts: Tuple[str, ...], locale: str) -> str:
-    """Convert the data from the *tpl* template of the *word* using the *locale*."""
     with suppress(KeyError):
         return eval(templates_multi[locale][tpl])  # type: ignore
 

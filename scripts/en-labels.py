@@ -42,6 +42,8 @@ def process_page(
 
     for r in repl:
         text = re.sub(rf"[ \t]+{r}[\s]*=", f'    "{r}":', text)
+        if r != "labels":
+            text = re.sub(rf"{r}[\s]*=", f'"{r}":', text)
 
     code = ""
     for line in text.split("\n"):
@@ -54,8 +56,11 @@ def process_page(
     results: Dict[str, str] = {}
 
     for k, v in labels.items():  # type: ignore # noqa
+        if k == "deprecated label":
+            continue
         label_v = v
         label_k = k
+        aliases = []
         if isinstance(v, str):
             label_v = labels.get(v, v)  # type: ignore # noqa
             if label_v != v:
@@ -64,9 +69,15 @@ def process_page(
             display = label_v
         else:
             display = label_v.get("display", label_k)
+            aliases = label_v.get("aliases", [])
         display = process_display(display)
-        if display != k and "deprecated label" not in display:
-            results[k] = display
+        results[k] = display
+
+        if isinstance(aliases, str):
+            aliases = [aliases]
+        for a in aliases:
+            results[a] = display
+
     if print_result:
         print(f"{var_name} = {{")
         for key, value in sorted(results.items()):
@@ -77,6 +88,8 @@ def process_page(
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
 repl = (
+    "deprecated_aliases",
+    "special_display",
     "aliases",
     "alias_of",
     "category",
@@ -92,11 +105,11 @@ repl = (
     "pos_categories",
     "regional_categories",
     "sense_categories",
-    "special_display",
     "topical_categories",
     "track",
     "wikipedia",
     "Wikipedia",
+    "Wiktionary",
 )
 stop_line = "return labels"
 var_name = "labels"
@@ -112,7 +125,17 @@ for k, v in labels.items():  # type: ignore # noqa
     omit_preComma = label_v.get("omit_preComma")
     omit_postComma = label_v.get("omit_postComma")
     omit_preSpace = label_v.get("omit_preSpace")
+
+    aliases = []
+    aliases = label_v.get("aliases", [])
+
     if omit_postComma or omit_preComma or omit_preSpace:
+        for a in aliases:
+            syntaxes[a] = {
+                "omit_postComma": bool(omit_postComma),
+                "omit_preComma": bool(omit_preComma),
+                "omit_preSpace": bool(omit_preSpace),
+            }
         syntaxes[k] = {
             "omit_postComma": bool(omit_postComma),
             "omit_preComma": bool(omit_preComma),

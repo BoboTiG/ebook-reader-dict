@@ -46,6 +46,7 @@ lang_adjs = {
     "lat.": "lateinisch",
     "lt.": "litauisch",
     "md.": "mitteldeutsch",
+    "mdf.": "mokschanisch",
     "mhd.": "mittelhochdeutsch",
     "mlat.": "mittellateinisch",
     "mlg.": "mittelniederdeutsch",
@@ -74,7 +75,7 @@ lang_adjs = {
     "tr.": "türkisch",
     "wen.": "sorbisch",
     "österr.": "österreichisch",
-}  # 69
+}  # 70
 # END
 
 lang_adjs["germ."] = "germanisch"

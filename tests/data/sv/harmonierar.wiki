@@ -1,0 +1,4 @@
+==Svenska==
+===Verb===
+'''harmonierar'''
+#{{böjning|sv|verb|harmoniera}}

@@ -16,6 +16,8 @@ abk = {
     "BrE": "britisch",
     "DDR": "DDR",
     "Dativ": "mit Dativ",
+    "Dim.": "Diminutiv",
+    "Dimin.": "Diminutiv",
     "Genitiv": "mit Genitiv",
     "Instrumental": "mit Instrumental",
     "Ling.": "Linguistik",
@@ -60,6 +62,7 @@ abk = {
     "kSt.": "keine Steigerung",
     "kStg.": "keine Steigerung",
     "kinderspr.": "kindersprachlich",
+    "klasslat.": "klassischlateinisch",
     "landsch.": "landschaftlich",
     "lautm.": "lautmalerisch",
     "mA": "mit Akkusativ",
@@ -74,7 +77,9 @@ abk = {
     "mundartl.": "mundartlich",
     "nDu.": "nur Dual",
     "nPl.": "nur Plural",
+    "nachklassischlateinisch": "Nachklassisches Latein",
     "nigr.": "nigrisch",
+    "nkLat.": "Nachklassisches Latein",
     "nlat.": "neulateinisch",
     "nordd.": "norddeutsch",
     "nordwestd.": "nordwestdeutsch",
@@ -123,5 +128,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 118
+}  # 123
 # END

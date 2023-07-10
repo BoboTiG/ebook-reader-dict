@@ -17,6 +17,10 @@ section_sublevels = (3,)
 head_sections = ("",)
 etyl_section = ("",)
 
+# Variants
+variant_titles: Tuple[str, ...] = tuple()
+variant_templates: Tuple[str, ...] = tuple()
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Tuple[str, ...] = tuple()
 

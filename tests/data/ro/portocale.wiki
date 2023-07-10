@@ -1,0 +1,8 @@
+=={{limba|ron}}==
+{{-etimologie-}}
+Din ''portocală''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/por.toˈka.le/}}
+{{-substantiv-}}
+#''forma de plural nearticulat pentru'' '''[[portocală]]'''.
+[[Categorie:{{flex. subst}} {{ron}}]]

@@ -8,9 +8,9 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, definitions",
+    "word, pronunciations, definitions, variants",
     [
-        ("auto", [], ["automatisk; självgående", "automatiskt läge", "autostart"]),
+        ("auto", [], ["automatisk; självgående", "automatiskt läge", "autostart"], []),
         (
             "en",
             ["/eːn/, /ɛn/, /en/"],
@@ -25,7 +25,10 @@ from wikidict.utils import process_templates
                 "grenverk och vassa barr, av arten <i>Juniperus communis</i> inom släktet "
                 "enar (<i>Juniperus</i>) och familjen cypressväxter (Cupressaceae)",
             ],
+            [],
         ),
+        ("dufvor", [], [], ["dufva"]),
+        ("harmonierar", [], [], ["harmoniera"]),
         (
             "-hörning",
             [],
@@ -33,6 +36,7 @@ from wikidict.utils import process_templates
                 "<i>(geometri, vardagligt)</i> <i>suffix för månghörningar</i>",
                 "<i>suffix i ord som har med djurs horn att göra</i>",
             ],
+            [],
         ),
         (
             "min",
@@ -45,8 +49,9 @@ from wikidict.utils import process_templates
                 "<i>förkortning för</i> minut",
                 "<i>förkortning för</i> minimum",
             ],
+            [],
         ),
-        ("og", [], []),
+        ("og", [], [], []),
         (
             "sand",
             ["/sand/"],
@@ -54,6 +59,7 @@ from wikidict.utils import process_templates
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
                 "<i>(geologi)</i> jordart med kornstorlek mellan 0,06 och 2 mm",
             ],
+            [],
         ),
         (
             "svenska",
@@ -61,8 +67,9 @@ from wikidict.utils import process_templates
             [
                 "nordiskt språk som talas i Sverige och Finland (officiellt i båda länderna)",
                 "svensk kvinna",
-                "<i>böjningsform av</i> svensk",
+                "<i>(mindre brukligt)</i> tala svenska",
             ],
+            ["svensk"],
         ),
     ],
 )
@@ -70,6 +77,7 @@ def test_parse_word(
     word: str,
     pronunciations: List[str],
     definitions: List[Definitions],
+    variants: List[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -77,6 +85,7 @@ def test_parse_word(
     details = parse_word(word, code, "sv", force=True)
     assert pronunciations == details.pronunciations
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(

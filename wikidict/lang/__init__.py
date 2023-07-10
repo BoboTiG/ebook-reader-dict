@@ -1,7 +1,7 @@
 """Internationalization stuff."""
 from typing import Any, Dict, Tuple, TypeVar
 
-from . import ca, de, defaults, el, en, es, fr, it, no, pt, ru, sv
+from . import ca, de, defaults, el, en, es, fr, it, no, pt, ro, ru, sv
 
 ALL_LOCALES = {
     "ca": ca,
@@ -13,6 +13,7 @@ ALL_LOCALES = {
     "it": it,
     "no": no,
     "pt": pt,
+    "ro": ro,
     "ru": ru,
     "sv": sv,
 }
@@ -59,6 +60,12 @@ head_sections: Dict[str, Tuple[str, ...]] = _populate("head_sections")
 etyl_section: Dict[str, Tuple[str]] = _populate("etyl_section")
 sections: Dict[str, Tuple[str, ...]] = _populate("sections")
 
+# Variants
+# Section titles considered interesting to look variants into
+variant_titles: Dict[str, Tuple[str, ...]] = _populate("variant_titles")
+# Template names considered interesting to look variants into
+variant_templates: Dict[str, Tuple[str, ...]] = _populate("variant_templates")
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Dict[str, Tuple[str, ...]] = _populate("definitions_to_ignore")
 
@@ -90,9 +97,6 @@ templates_italic: Dict[str, Dict[str, str]] = _populate("templates_italic")
 #   - *parts* will contain the list ["comparatif de", "bien", "fr", "adv"].
 #
 # You can access to *tpl* and *parts* to apply changes and get the result wanted.
-#
-# Available functions are documented into that HTML file:
-#   html/wikidict/user_functions.html
 templates_multi: Dict[str, Dict[str, str]] = _populate("templates_multi")
 
 # Templates that will be completed/replaced using custom style.

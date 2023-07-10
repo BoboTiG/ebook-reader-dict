@@ -177,7 +177,7 @@ from wikidict.utils import process_templates
         (
             "Mús.",
             [],
-            ["."],
+            [],
             ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
             [],
         ),
@@ -212,7 +212,7 @@ from wikidict.utils import process_templates
         (
             "zzz",
             [],
-            ["."],
+            [],
             [
                 "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
             ],
@@ -257,7 +257,6 @@ def test_parse_word(
         ("{{Arqueología|y|Geología}}", "<i>(Arqueología y Geología)</i>"),
         ("{{ciudades}}", "<i>(Geografía)</i>"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
-        ("{{contracción|de|ellas|leng=es}}", "<i>Contracción de</i> de <i>y</i> ellas"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
@@ -275,6 +274,7 @@ def test_parse_word(
         ("{{moluscos}}", "<i>(Zoología)</i>"),
         ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía (alimentos))</i>"),
         ("{{psicología}}", "<i>(Psicología)</i>"),
+        ("{{neologismo|feminismo}}", "<b>Neologismo, Feminismo</b>"),
         ("{{nombre científico}}", "<sup>nombre científico</sup>"),
         ("{{plm|cansado}}", "Cansado"),
         ("{{psicología|lgbt}}", "<i>(Psicología, LGBT)</i>"),
@@ -283,6 +283,8 @@ def test_parse_word(
         ("{{-sub|4}}", "<sub>4</sub>"),
         ("{{subíndice|5}}", "<sub>5</sub>"),
         ("{{-sup|2}}", "<sup>2</sup>"),
+        ("{{superíndice|5}}", "<sup>5</sup>"),
+        ("{{ucf}}", "Foo"),
         ("{{ucf|mujer}}", "Mujer"),
         ("{{variante|atiesar}}", "<i>Variante de</i> atiesar"),
         (

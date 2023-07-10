@@ -1135,6 +1135,11 @@ recognized_placetypes = {
         "display": "island municipality",
         "preposition": "of",
     },
+    "islet": {
+        "article": "an",
+        "display": "islet",
+        "preposition": "in",
+    },
     "judicial capital": {
         "article": "the",
         "display": "judicial capital",
@@ -1660,6 +1665,11 @@ recognized_placetypes = {
         "display": "royal capital",
         "preposition": "of",
     },
+    "rural committee": {
+        "article": "a",
+        "display": "rural committee",
+        "preposition": "in",
+    },
     "rural community": {
         "article": "a",
         "display": "rural community",
@@ -2045,7 +2055,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 408
+}  # 410
 
 placetypes_aliases = {
     "CDP": "census-designated place",

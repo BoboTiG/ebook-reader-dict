@@ -1,0 +1,36 @@
+=={{limba|ron}}==
+{{-etimologie-}}
+Din franceză ''[[paronyme]]'', latină ''[[paronymon]]'', originar format din greacă {{trad|el|παρα}} + '''{{trad|el|ονομα}}''' {{trad|el|-onym}}
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/pa.ro'nim/}}
+{{-substantiv-|ron}}
+{{substantiv-ron
+|gen={{n}}
+|nom-sg=paronim
+|nom-pl=paronime
+|art-sg=paronimul
+|art-pl=paronimele
+|dat-sg=paronimului
+|dat-pl=paronimelor
+|voc-sg=-
+|voc-pl=-
+}}
+# [[cuvânt]] asemănător cu altul din punctul de vedere al formei, dar [[deosebit]] de acesta ca [[sens]] (și ca [[origine]]).
+# cuvânt care se aseamănă [[parțial]] cu altul din punctul de vedere al formei, dar se [[deosebi|deosebește]] ca sens de acesta.
+{{-trans-}}
+{{(}}
+* {{eng}}: {{trad|en|paronym}}
+* {{fra}}: {{trad|fr|paronyme}}
+{{-}}
+* {{ina}}: {{trad|ia|paronyme}}
+* {{ido}}: {{trad|io|paronimo}}
+{{)}}
+===Vezi și:===
+* [[acronim]]
+* [[antonim]]
+* [[omonim]]
+* [[sinonim]]
+* [[hipernim]]
+* [[hiponim]]
+
+[[Categorie:Lingvistică]]

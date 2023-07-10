@@ -15,49 +15,111 @@ head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
+    "{{Alte Schreibweise|",
     "{{Aussprache}",
     "{{Bedeutungen}",
+    "{{Grundformverweis ",
+)
+
+# Variants
+variant_titles = (
+    "{{Grundformverweis ",
+    "{{Alte Schreibweise|",
+)
+variant_templates = (
     "{{Grundformverweis ",
     "{{Alte Schreibweise|",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = ()
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Anker",
     "Audio",
+    "Bpur",
+    "Fremdsprachige Beispiele",
+    "Herkunft fehlt",
     "Herkunft unbelegt",
+    "Hintergrundfarbe",
+    "Hörbeispiele",
+    "IA",
+    "IPA",
+    "Lautschrift",
+    "QS Bedeutung",
     "QS Bedeutungen",
     "QS_Bedeutungen",
     "QS Herkunft",
     "QS_Herkunft",
+    "Ref-Adelung",
+    "Ref-Bibel",
+    "Ref-Duden",
+    "Ref-DWDS",
+    "Wikipedia",
 )
 
-# Templates more complex to manage.
+# More complex templates that will be completed/replaced using custom style.
 templates_multi = {
+    # {{Akkusativ}}
+    "Akkusativ": "f'mit {italic(\"Akkusativ\")}'",
+    # {{CH&LI}}
+    "CH&LI": "italic('Schweiz und Liechtenstein:')",
+    # {{Color|Rot|Schrift}}
+    "Color": "parts[-1]",
     # {{f}}
     "f": "italic('f')",
+    # {{Farbe|Rot|Schrift}}
+    "Farbe": "parts[-1]",
     # {{fm}}
     "fm": "italic('f, m')",
     # {{fn}}
     "fn": "italic('f, n')",
+    # {{gM}}
+    # {{gM|r}}
+    "gM": "f'(männliche{parts[1] if len(parts) == 2 else \"\"})'",
+    # {{Hebräische Schrift|תּכלית}}
+    "Hebräische Schrift": "parts[-1]",
+    # {{IPA-Text|māʔ}}
+    "IPA-Text": "parts[1]",
+    # {{Kontamination|<Präfix>|<Wort 1>|<Suffix>|<Wort 2>}}
+    "Kontamination": "f'Kontamination, zusammengesetzt aus „{parts[1]}-“ (von {parts[2]}) und „-{parts[3]}“ (von {parts[4]})'",  # noqa
+    # {{Koptisch|{{Ü|cop|ⲉⲙⲟⲩ}}}}
+    "Koptisch": "parts[-1]",
     # {{L|at||en}}
     "L": "parts[1]",
     # {{lang|fr|-ose}}
     "lang": "parts[-1]",
+    # {{linkFr|adieu}}
+    "linkFr": "parts[-1]",
+    # {{linkFra|adieu}}
+    "linkFra": "parts[-1]",
+    # {{linkLa|adieu}}
+    "linkLa": "parts[-1]",
+    # {{linkLat|adieu}}
+    "linkLat": "parts[-1]",
     # {{m}}
     "m": "italic('m')",
     # {{mf}}
     "mf": "italic('m, f')",
+    # {{MZ|1|2|3|4|5|6|7|8|9|10|11}}
+    "MZ": "f'[{parts[1]}] {concat(parts[2:], sep=\"<br/>\")}'",
     # {{n}}
     "n": "italic('n')",
+    # {{nf}}
+    "nf": "italic('n, f')",
     # {{noredlink|diminutiv}}
     "noredlink": "parts[-1]",
+    # {{Plainlink|1=http://de.wikipedia.org/wiki/Ludwig_XIV.|2=Ludwig XIV.}}
+    "Plainlink": "parts[-1].removeprefix('2=')",
     # {{Polytonisch|(το)}}
     "Polytonisch": "parts[-1]",
+    # {{Ref-behindthename|Alan}}
+    "Ref-behindthename": "f'behindthename.com „{word}“'",
+    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",  # noqa
     # {{Ü|pl|dzień}}
-    "Ü": "italic(parts[-1])",
+    "Ü": "parts[-1]",
+    # {{Unicode|kɔ}}
+    "Unicode": "parts[-1]",
+    # {{vergleiche}}
+    "vergleiche": "italic('vergleiche:')",
     # {{vgl.}}
     "vgl.": "italic('vergleiche:')",
     # {{W|Datenkompression|Datenkompressionen}}
@@ -65,13 +127,21 @@ templates_multi = {
     "WP": "parts[-1]",
 }
 
+# Templates that will be completed/replaced using custom style.
 templates_other = {
+    "(R)": "®",
+    "DMG": "'DMG:'",
     "Gen.": "Genitiv:",
+    "İA": "'İA:'",
+    "ISO 9": "ISO 9:",
+    "NNBSP": "&nbsp;",
+    "Part.": "Partizip II: ",
     "Pl.": "Plural:",
     "Pl.1": "Plural 1:",
     "Pl.2": "Plural 2:",
     "Pl.3": "Plural 3:",
     "Pl.4": "Plural 4:",
+    "Prät.": "Präteritum: ",
 }
 
 templates_markierung = {

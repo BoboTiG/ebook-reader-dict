@@ -5,14 +5,23 @@ from scripts_utils import get_soup
 
 
 def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
+    # remove aliases
+    lua_code = "\n".join(lines)
+    lua_code = re.sub(
+        r"aliases\s*=\s*{([^}]*)}", "", lua_code, 0, re.MULTILINE | re.DOTALL
+    )
+    lines = lua_code.split("\n")
+
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
     pattern2 = re.compile(r"(\w*)\s*=\s*{")
-
-    m: Dict[str, Dict[str, str]] = {}  # noqa
     concat = ""
     in_comment = False
     for line in lines:
         line = line.strip()
+        if line == "local" or line.startswith("for code, family"):
+            break
+        if "require" in line:
+            continue
         if line.startswith("--[[") or line.startswith("--[=["):
             in_comment = True
             continue
@@ -21,10 +30,19 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             continue
         if in_comment:
             continue
-        if line.startswith(("--", "return", "local")):
+        if line.startswith(("--", "return")):
             continue
-        remove_words = ("wikidata_item", "ancestral_to_parent")
+        # deal with "local m = {}"
+        if line.startswith("local"):
+            line = line.replace("local", "")
+            concat += line.strip() + "\n"
+            continue
+        remove_words = ("nil,", "ancestral_to_parent")
         if any(word in line for word in remove_words):
+            continue
+        if "--" in line:
+            line = line.split("--")[0].strip()
+        if line == ",":
             continue
         matches = pattern.findall(line)
         matches2 = pattern2.findall(line)
@@ -32,16 +50,18 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             result = f'"{matches[0][0].strip()}": {matches[0][1]},'
         elif matches2 and matches2[0]:
             result = f'"{matches2[0].strip()}' + '" : {' + line[line.index("{") + 1 :]
-        else:
+        elif line.endswith(",") and not line.endswith("],"):
+            result = f"{line[:-1]} : None,"
+        elif not line.endswith('"'):
             result = line
 
-        if "--" in result:
-            result = result.split("--")[0]
-
         concat += result + "\n"
-
-    exec(concat)
-    return m
+    exec(concat, globals())
+    for k, v in m.copy().items():  # type: ignore # noqa
+        if alias_codes := v.get("alias_codes", {}):
+            for alias_code in alias_codes:
+                m[alias_code] = v  # type: ignore # noqa
+    return m  # type: ignore # noqa
 
 
 def read_all_lines_lang(lines: List[str]) -> Dict[str, str]:
@@ -75,19 +95,21 @@ def process_lang_page(url: str) -> Dict[str, str]:
 
 # Etymology languages
 lines = get_content("https://en.wiktionary.org/wiki/Module:etymology_languages/data")
-m: Dict[str, Dict[str, str]] = read_all_lines_etym(lines)
-languages = {key: val["canonicalName"] for key, val in m.items()}
+mres: Dict[str, Dict[str, str]] = read_all_lines_etym(lines)
+languages = {key: list(val.keys())[0] for key, val in mres.items()}
 
 # Families
 lines = get_content("https://en.wiktionary.org/wiki/Module:families/data")
 for key, val in read_all_lines_etym(lines).items():
-    languages[key] = val["canonicalName"]
+    languages[key] = list(val.keys())[0]
 
-languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/data2")
-languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/datax")
+languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/data/2")
+languages |= process_lang_page(
+    "https://en.wiktionary.org/wiki/Module:languages/data/exceptional"
+)
 
 for letter in "abcdefghijklmnopqrstuvwxyz":
-    url = f"https://en.wiktionary.org/wiki/Module:languages/data3/{letter}"
+    url = f"https://en.wiktionary.org/wiki/Module:languages/data/3/{letter}"
     languages.update(process_lang_page(url))
 
 print("langs = {")

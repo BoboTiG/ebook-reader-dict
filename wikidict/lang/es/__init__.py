@@ -37,13 +37,30 @@ sections = (
     "{{verbo",
 )
 
+# Variants
+variant_titles = (
+    "Forma adjetiva",
+    "Forma verbal",
+)
+variant_templates = (
+    "{{enclítico",
+    "{{infinitivo",
+    "{{forma adjetivo",
+    "{{forma adjetivo 2",
+    "{{forma participio",
+    "{{forma pronombre",
+    "{{forma verbo",
+    "{{f.v",
+    "{{gerundio",
+    "{{participio",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "antropónimo femenino",
     "antropónimo masculino",
     "apellido",
     "definición imprecisa",
-    "definición impropia",
     "{{infinitivo",
     "{{enclítico",
     "f.adj2",
@@ -61,6 +78,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "ámbito",
     "ampliable",
     "arcoiris",
     "catafijo",
@@ -73,12 +91,16 @@ templates_ignored = (
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
+    "parónimo",
     "picdic",
     "picdiclabel",
     "préstamo",
     "pron-graf",
     "relacionado",
+    "revisar línea",
+    "revisión",
     "sin referencias",
+    "uso",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -114,12 +136,12 @@ templates_multi = {
     "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
-    # {{contracción|de|ellas|leng=es}}
-    "contracción": "f\"{italic('Contracción de')} {parts[1]} {italic('y')} {parts[2]}\"",
     # {{coord|04|39|N|74|03|O|type:country}}
-    "coord": "coord(parts[1:])",
+    "coord": "coord(parts[1:], 'es')",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
+    # {{definición impropia|Utilizado para especificar...}}
+    "definición impropia": "italic(parts[1])",
     # {{DRAE}}
     "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
     "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
@@ -129,6 +151,10 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
+    # {{interjección|es}}
+    "interjección": "strong('Interjección')",
+    # {{neologismo|feminismo}}
+    "neologismo": "strong(concat([capitalize(part) for part in parts], sep=', '))",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
@@ -142,10 +168,13 @@ templates_multi = {
     "subíndice": "subscript(parts[1])",
     # {{-sup|2}}
     "-sup": "superscript(parts[1])",
+    # {{superíndice|2}}
+    "superíndice": "superscript(parts[1])",
     # {{trad|la|post meridem}}
     "trad": 'f"{parts[2]}" + superscript(f"({parts[1]})")',
+    # {{ucf}}
     # {{ucf|mujer}}
-    "ucf": "capitalize(parts[1])",
+    "ucf": "capitalize(parts[1] if len(parts) > 1 else word)",
     # {{variante obsoleta|hambre}}"
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
     # {{versalita|xx}}
@@ -235,9 +264,6 @@ def last_template_handler(
         >>> last_template_handler(["default"], "es")
         '##opendoublecurly##default##closedoublecurly##'
 
-        >>> last_template_handler(["variantes", "adestrador", "nota=poco frecuente"], "es")
-        '<b>Variante:</b> adestrador (poco frecuente)'
-
         >>> last_template_handler(["en"], "es")
         'Inglés'
 
@@ -250,9 +276,9 @@ def last_template_handler(
         extract_keywords_from,
         italic,
         lookup_italic,
-        strong,
     )
     from ..defaults import last_template_handler as default
+    from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
@@ -260,14 +286,13 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
     if lookup_italic(template[0], locale, empty_default=True):
-        phrase = ""
         phrase_a: List[str] = []
         parts.insert(0, tpl)
         added = set()
         append_to_last = False
         for index, part in enumerate(parts, 1):
-            sindex = str(index) if index > 1 else ""
             if part == ",":
                 continue
             elif part in ("y", "e", "o", "u"):
@@ -278,6 +303,7 @@ def last_template_handler(
                 local_phrase = lookup_italic(part, locale)
                 if local_phrase not in added:
                     added.add(local_phrase)
+                    sindex = str(index) if index > 1 else ""
                     if data[f"nota{sindex}"]:
                         local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
@@ -290,17 +316,7 @@ def last_template_handler(
                 append_to_last = False
             else:
                 phrase_a.append(local_phrase)
-        if phrase_a:
-            phrase = italic(f'({concat(phrase_a, ", ")})')
-        return phrase
-
-    if tpl == "variantes":
-        phrase = f"{strong('Variante:')} {parts[0]}"
-        if data["nota"]:
-            phrase += f" ({data['nota']})"
-        return phrase
-
-    from .langs import langs
+        return italic(f'({concat(phrase_a, ", ")})') if phrase_a else ""
 
     if lang := langs.get(template[0]):
         return capitalize(lang)

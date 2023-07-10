@@ -18,6 +18,7 @@ sections = (
     *etyl_section,
     "{{acron}",
     "{{agg}",
+    "{{agg form}",
     "{{avv}",
     "{{art}",
     "{{cong}",
@@ -34,9 +35,11 @@ sections = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Clear",
+    "clear",
     "Colori_RAL",
     "Colori_Ral",
-    "IPA",
+    "mid",
     "Nodef",
     "Noetim",
     "Noref",
@@ -62,6 +65,9 @@ templates_multi: Dict[str, str] = {
     # {{Coll}}
     "Coll": "small(f'({italic(\"colloquiale\")})')",
     "coll": "small(f'({italic(\"colloquiale\")})')",
+    # {{Comparativo di|buono|it}}
+    "Comparativo di": 'f"comparativo di {parts[1]}"',
+    "comparativo di": 'f"comparativo di {parts[1]}"',
     # {{Cum|congiuntivo}}
     "Cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
     "cum": "small(f'{italic(\"seguito da\")} {strong(parts[1])}')",
@@ -89,6 +95,8 @@ templates_multi: Dict[str, str] = {
     "ind pres": "small(f'{italic(\"ind pres \")}')",
     # {{inf}}
     "inf": "small(f'{italic(\"inf\")}')",
+    # {{IPA|/pi dˈdue/}}
+    "IPA": 'f"IPA: {parts[1]}"',
     # {{Lett}}
     "Lett": "small(f'({italic(\"letteralmente\")})')",
     "lett": "small(f'({italic(\"letteralmente\")})')",
@@ -207,8 +215,12 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["grc"], "it")
+        'greco antico'
         >>> last_template_handler(["la"], "it")
         'latino'
+        >>> last_template_handler(["pie"], "it")
+        'proto-indoeuropeo'
 
         >>> last_template_handler(["Linkf", "gatta"], "it")
         '(<i>f.:</i> <b>gatta</b>)'
@@ -230,6 +242,7 @@ def last_template_handler(
     """
     from ...user_functions import italic, parenthesis, strong
     from ..defaults import last_template_handler as default
+    from .codelangs import codelangs
     from .langs import langs
 
     tpl, *parts = template
@@ -253,6 +266,8 @@ def last_template_handler(
         return strong(word)
 
     # This is a country in the current locale
+    if codelang := codelangs.get(tpl, ""):
+        return codelang
     if lang := langs.get(tpl, ""):
         return lang
 

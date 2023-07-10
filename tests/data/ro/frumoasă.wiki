@@ -1,0 +1,8 @@
+=={{limba|ron}}==
+{{-etimologie-}}
+Din ''frumos''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/fru'mo̯a.sə/}}
+{{-adjectiv-}}
+#''forma de feminin singular pentru'' [[frumos]].
+[[Categorie:{{flex. adj}} {{ron}}]]

@@ -45,6 +45,13 @@ from wikidict.utils import process_templates
                 "<small><i>(elettronica)</i></small> <small><i>(informatica)</i></small> <small><i>(tecnologia)</i></small> <small><i>(ingegneria)</i></small> dispositivo elettronico che decodifica e riceve informazioni da un supporto",  # noqa
             ],
         ),
+        (
+            "nominative",
+            [],
+            [],
+            [],
+            ["Femminile plurale di nominativo."],
+        ),
     ],
 )
 def test_parse_word(

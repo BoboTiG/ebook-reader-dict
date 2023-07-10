@@ -436,7 +436,7 @@ class StarDictFormat(DictFileFormat):
 
     def _convert(self) -> None:
         """Convert the DictFile to StarDict."""
-        from pyglossary import Glossary
+        from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
         Glossary.init()
         glos = Glossary()
@@ -450,10 +450,12 @@ class StarDictFormat(DictFileFormat):
             "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
         )
         res = glos.convert(
-            inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
-            outputFilename=str(self.output_dir / "dict-data.ifo"),
-            writeOptions={"dictzip": True},
-            sqlite=True,
+            ConvertArgs(
+                inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
+                outputFilename=str(self.output_dir / "dict-data.ifo"),
+                writeOptions={"dictzip": True},
+                sqlite=True,
+            )
         )
         assert res, "Conversion failed!"
 

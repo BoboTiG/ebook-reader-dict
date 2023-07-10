@@ -1,0 +1,194 @@
+=={{limba|ron}}==
+{{-etimologie-}}
+Din latină ''[[sum]], [[esse]], [[fui]], [[fire]]''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/fi/}}
+{{-verb-|ron}}
+{{verb-ron
+|inf=fi
+|ind=sunt
+|conj=fie
+|part=fost
+|cj=IV
+}}
+====Verb predicativ====
+# a [[exista]], a [[avea]] [[ființă]].
+# a se [[afla]], a se [[găsi]] într-un anumit [[loc]], la o anumită [[persoană]].
+# a-și [[avea]] [[origine]]a, [[obârșie|obârșia]], a se [[trage]], a [[proveni]].
+# a [[trăi]], a [[viețui]], a o [[duce]]; (''despre lucruri, situații, acțiuni etc.'') a [[dura]], a [[dăinui]], a [[ține]].
+# a se [[îndeplini]], a se [[întâmpla]], a se [[petrece]], a [[avea]] [[loc]].
+# a [[avea]] [[preț]]ul...; a [[costa]], a [[valora]].
+# (''în superstiții, ghicitori etc.'') a [[însemna]], a [[prevesti]], a fi [[semn]] că...
+====Verb copulativ====
+# (''formează, împreună cu numele predicativ, predicatul'')
+#: ''Cartea '''este''' roșie.''
+# (''construit cu dativul; împreună cu un nume predicativ, exprimă o stare sau o acțiune arătate de numele predicativ respectiv'')
+#: ''Mi-'''e''' amic.''
+# (''în construcții impersonale, cu subiectul logic în dativ; în legătură cu noțiuni exprimând un sentiment, o senzație, o stare sufletească'') a [[simți]]
+#: ''Mi-'''e''' foame.''
+# (''impers.; urmat de un verb la infinitiv sau la conjunctiv sau urmat ori precedat de o noțiune temporală'') a [[urma]] (să se [[face|facă]]), a [[trebui]] (să se [[face|facă]]).
+#: ''Când i-a '''fost''' să moară''.
+# (''de obicei impers.; la imperfect și urmat de un verb la conjunctiv'') a [[avea]] [[putință|putința]], [[posibilitate]]a, [[ocazie|ocazia]] să...; a se [[afla]] pe [[punct]]ul de a..., a nu mai [[lipsi]] mult până să...
+#: '''''Era''' să cadă.''
+# (''impers.; urmat de un suspin'') a [[putea]], a [[trebui]], a [[considera]] că este [[caz]]ul să..., a se [[cuveni]].
+#: '''''E''' de mers acasă.''
+====Verb auxiliar====
+# (''construit cu un participiu, servește la formarea diatezei pasive'')
+#: ''El a '''fost''' chemat.''
+# (''construit cu un participiu invariabil, formează timpuri compuse ale diatezei active'')
+## (''cu viitorul I formează viitorul anterior'')
+##: ''Eu voi '''fi''' plecat.''
+## (''cu condiționalul prezent formează perfectul optativ-condițional'')
+##: ''Ne-ar '''fi''' ajutat.''
+## (''cu conjunctivul prezent formează perfectul conjunctivului'')
+##: ''Să '''fi''' spus adevărul.''
+## (''cu infinitivul formează perfectul infinitivului'')
+##: ''Se laudă a '''fi''' scris cartea.''
+## (''cu viitorul I sau cu perfectul conjunctivului formează prezumtivul prezent și perfect'')
+##: ''Să se '''fi''' ducând mulți acolo?''
+# (''construit cu un participiu invariabil sau cu un gerunziu, servește la alcătuirea unor forme perifrastice de perfect compus, mai mult ca perfect sau imperfect'')
+#: ''Te-ai '''fost''' dus.''
+{{-ant-}}
+# [[lipsi]]
+{{-deriv-}}
+* [[ființă]], [[fire]]
+{{-trans-}}
+{{(|a exista}}
+*{{rup}}: {{trad|rup|h'iu}}, {{trad|rup|escu}}
+*{{bos}}: {{trad|bs|biti}}
+*{{bre}}: {{trad|br|bezañ}}
+*{{bul}}: {{trad|bg|съм}}
+*{{cat}}: {{trad|ca|ser}}, {{trad|ca|estar}}
+*{{ces}}: {{trad|cs|být}}
+*{{hrv}}: {{trad|hr|biti}}
+*{{dan}}: {{trad|da|være}}, {{trad|da|have}}
+*{{eng}}: {{trad|en|be}}
+*{{epo}}: {{trad|eo|esti}}
+*{{est}}: {{trad|et|olema}}
+*{{fao}}: {{trad|fo|vera}}
+*{{fin}}: {{trad|fi|olla}}
+*{{fra}}: {{trad|fr|être}}
+*{{glv}}: {{trad|gv|bee}}
+*{{deu}}: {{trad|de|sein}}
+*{{ell}}: {{trad|el|είμαι}}
+*{{hin}}: {{trad|hi|होना}}
+{{-}}
+*{{ina}}: {{trad|ia|esser}}, {{trad|ia|ser}}
+*{{gle}}: {{trad|ga|bí}}
+*{{ita}}: {{trad|it|essere}}, {{trad|it|stare}}
+*{{ckb}}: {{trad|ku|bûn}}
+*{{lat}}: {{trad|la|esse}}
+*{{mkd}}: {{trad|mk|сум}}
+*{{hun}}: {{trad|hu|lenni}}
+*{{nor}}: {{trad|no|være}}
+*{{nld}}: {{trad|nl|zijn}}
+*{{fas}}: {{trad|fa|بودن|(budan)}}
+*{{pol}}: {{trad|pl|być}}
+*{{por}}: {{trad|pt|ser}}
+*{{srp}}: {{trad|sr|biti}}
+*{{slk}}: {{trad|sk|byť}}
+*{{slv}}: {{trad|sl|biti}}
+*{{spa}}: {{trad|es|ser}}, {{trad|es|estar}}
+*{{swe}}: {{trad|sv|vara}}
+{{)}}
+
+{{alta}}
+
+=={{limba|eng}}==
+{{cuv|en}}
+{{-etimologie-}}
+{{-etim-lipsă-|eng}}
+{{-pronunție-}}
+{{-pron-lipsă-|eng}}
+{{-abreviere-|eng}}
+'''fi'''
+# ''(informatică)'' [[instrucțiune]]a de încheiere a unui program, prescurtare pentru [[end]] [[if]]
+
+{{alta}}
+
+=={{limba|fur}}==
+{{cuv|fur}}
+{{-etimologie-}}
+Din latină ''filius''
+{{-pronunție-}}
+{{-pron-lipsă-|fur}}
+{{-substantiv-|fur}}
+'''fi'''
+# [[fiu]]
+
+{{alta}}
+
+=={{limba|cym}}==
+{{cuv|cy}}
+{{-etimologie-}}
+* {{SAMPA}}: /vi/
+{{-pronunție-}}
+{{-pron-lipsă-|cym}}
+{{-pronume-|cym}}
+'''fi'''
+# [[eu]]
+
+{{alta}}
+
+=={{limba|jam}}==
+{{cuv|jam}}
+{{-etimologie-}}
+{{-etim-lipsă-|jam}}
+{{-pronunție-}}
+{{-pron-lipsă-|jam}}
+{{-prepoziție-|jam}}
+'''fi'''
+# [[să]]
+
+{{alta}}
+
+=={{limba|lld}}==
+{{cuv|lld}}
+{{-etimologie-}}
+{{-etim-lipsă-|lld}}
+{{-pronunție-}}
+{{-pron-lipsă-|lld}}
+{{-substantiv-|lld}}
+'''fi''' {{m}}
+# [[fiu]]
+
+{{alta}}
+
+=={{limba|jbo}}==
+{{cuv|jbo}}
+{{-etimologie-}}
+{{-etim-lipsă-|jbo}}
+{{-pronunție-}}
+{{-pron-lipsă-|jbo}}
+{{-prepoziție-|jbo}}
+'''fi'''
+# precedă și indică prezența unui [[substantiv]]
+
+{{alta}}
+
+=={{limba|kin}}==
+{{cuv|rw}}
+{{-etimologie-}}
+{{-etim-lipsă-|kin}}
+{{-pronunție-}}
+{{-pron-lipsă-|kin}}
+{{-substantiv-|kin}}
+'''fi'''
+# [[pește]]
+
+{{alta}}
+
+=={{limba|swa}}==
+{{cuv|sw}}
+{{-etimologie-}}
+{{-etim-lipsă-|swa}}
+{{-pronunție-}}
+{{-pron-lipsă-|swa}}
+{{-prepoziție-|swa}}
+'''fi'''
+# [[în]]
+
+[[Categorie:Informatică în engleză]]
+[[Categorie:Familie în friulană]]
+[[Categorie:Familie în ladină]]
+[[Categorie:Pești în rwandi| ]]

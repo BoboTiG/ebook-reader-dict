@@ -1,7 +1,5 @@
 """
 Functions that can be used in *templates_multi* of any locale.
-
-Check the "html/wikidict/user_functions.html" file for a user-friendly version.
 """
 import re
 from collections import defaultdict
@@ -177,13 +175,15 @@ def concat(
         return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
-def coord(values: List[str]) -> str:
+def coord(values: List[str], locale: str = "en") -> str:
     """
     Format lon/lat coordinates.
 
         >>> coord(["04", "39", "N", "74", "03", "O", "type:country"])
         '04°39′N 74°03′O'
     """
+    if locale == "es" and values[5] == "W":
+        values[5] = "O"
     return "{0}°{1}′{2} {3}°{4}′{5}".format(*values)
 
 
@@ -332,7 +332,7 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
     looking_for = word
 
     if locale == "pt":
-        looking_for = word.lower()
+        looking_for = capitalize(word)
         default = word
 
     return templates_italic[locale].get(looking_for, default)
@@ -402,10 +402,8 @@ def parenthesis(text: str) -> str:
 
         >>> parenthesis("foo")
         '(foo)'
-        >>> parenthesis("(foo)")
-        '(foo)'
     """
-    return text if text.startswith("(") else f"({text})"
+    return f"({text})"
 
 
 def person(word: str, parts: List[str]) -> str:
@@ -527,35 +525,6 @@ def superscript(text: str) -> str:
     return f"<sup>{text}</sup>"
 
 
-def tag(parts: List[str]) -> str:
-    """
-    Get only interesting values from *parts*.
-
-    - values without `=`
-    - values starting with `text=`
-
-    Source: https://sv.wiktionary.org/wiki/Mall:tagg
-
-        >>> tag(["historia"])
-        'historia'
-        >>> tag(["biologi", "allmänt"])
-        'biologi, allmänt'
-        >>> tag(["politik", "formellt", "språk=tyska"])
-        'politik, formellt'
-        >>> tag(["kat=nedsättande", "text=något nedsättande"])
-        'något nedsättande'
-    """
-    words = []
-
-    for part in parts:
-        if "=" not in part:
-            words.append(part)
-        elif part.startswith("text="):
-            words.append(part.split("=")[1])
-
-    return ", ".join(words)
-
-
 def term(text: str) -> str:
     """
     Format a "term", e.g. return the *text* in italic and surrounded by parenthesis.
@@ -626,7 +595,6 @@ __all__ = (
     "strong",
     "subscript",
     "superscript",
-    "tag",
     "term",
     "underline",
     "uniq",
