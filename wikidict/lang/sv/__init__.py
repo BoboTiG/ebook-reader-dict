@@ -89,7 +89,7 @@ templates_multi = {
     # {{ö-inte|en|test}}
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
     # {{övrigatecken|kolon|:}}
-    "övrigatecken": "f'\"<code>{parts[-1]}</code>\"'",
+    "övrigatecken": 'f\'"<code>{parts[-1].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</code>"\'',
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
     #
