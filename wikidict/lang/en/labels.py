@@ -3848,6 +3848,7 @@ labels_subvarieties = {
     "Cigetoruli": "Jigetore",
     "Cirebon": "Cirebon",
     "Classical Hebrew": "Biblical Hebrew",
+    "Classical Persian": "Classical Persian",
     "Clay": "Clay",
     "Clay Frisian": "Clay",
     "Co": "Conselice",
@@ -5932,6 +5933,7 @@ labels_subvarieties = {
     "central-southern Italy": "central-southern Italy",
     "ciw": "Chippewa",
     "cli": "Central Limburgish",
+    "cls": "Classical",
     "coastal Min": "Coastal Min",
     "col": "colloquial alternative",
     "coll": "collophons",
@@ -6419,5 +6421,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,045
+}  # 3,047
 # END
