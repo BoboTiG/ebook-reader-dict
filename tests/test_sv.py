@@ -96,6 +96,8 @@ def test_parse_word(
         ("{{ö|en|test}}", "test"),
         ("{{ö+|en|test}}", "test <sup>(en)</sup>"),
         ("{{ö-inte|en|test}}", "<b>inte</b> <i><s>test</s></i>"),
+        ("{{övrigatecken|punkt|.}}", '"<code>.</code>"'),
+        ('{{övrigatecken|punkt|"}}', '"<code>"</code>"'),
         ("{{tagg|historia}}", "<i>(historia)</i>"),
         (
             "{{tagg|kat=nedsättande|text=något nedsättande}}",
