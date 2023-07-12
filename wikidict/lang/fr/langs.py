@@ -3887,7 +3887,7 @@ langs = {
     "nuh": "ndunda",
     "nui": "ngumbi",
     "nuj": "nyole",
-    "nuk": "nuu-chah-nulth",
+    "nuk": "nuuchahnulth",
     "nul": "nusa laut",
     "num": "niuafo’ou",
     "nun": "anong",

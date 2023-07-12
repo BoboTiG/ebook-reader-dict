@@ -59,10 +59,8 @@ langs = {
     "Uls.Sc.": "Ulster Scots",
     "Ulster Scots": "Ulster Scots",
     "VG.": "Viennese German",
-    "VL": "Vulgar Latin",
     "VL.": "Vulgar Latin",
     "Viennese German": "Viennese German",
-    "Vulgar Latin": "Vulgar Latin",
     "aa": "Afar",
     "aaa": "Ghotuo",
     "aab": "Alumu-Tesu",
@@ -9606,5 +9604,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,601
+}  # 9,599
 # END

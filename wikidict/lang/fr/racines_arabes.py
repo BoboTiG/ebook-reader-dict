@@ -554,7 +554,8 @@ racines_schemes_arabes = {
         "ar-a**u*âtũ": "collection d'yeux",
         "ar-a**u*ũ": "{{p}} yeux",
         "ar-a**â*ũ": "{{p}} yeux",
-    },  # 6
+        "ar-ma**û*ũ": "obtenu en creusant",
+    },  # 7
     "ar-3Zm": {
         "aa_sens": "grand, grave",
         "ar-**a*²a": "",
@@ -1183,7 +1184,6 @@ racines_schemes_arabes = {
         "ar-a**i*@ũ": "{{p}} personnes",
         "ar-ma**a*ũ": "station",
         "ar-ma**i*ũ": "source",
-        "ar-ma**û*ũ": "obtenu en creusant",
         "ar-mu*a*²a*ũ": "à pois",
         "ar-mu*â*a*@ũ": "constat de visu",
         "ar-muta*a*²a*ũ": "fixé",
@@ -1192,7 +1192,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être évident",
         "ar-ta*â*a*a": "",
-    },  # 40
+    },  # 39
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
