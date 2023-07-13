@@ -257,10 +257,6 @@ form_of_templates = {
         "text": "Diminutive of",
         "dot": False,
     },
-    "dual of": {
-        "text": "dual of",
-        "dot": False,
-    },
     "eclipsis of": {
         "text": "Eclipsed form of",
         "dot": True,
@@ -268,10 +264,6 @@ form_of_templates = {
     "eggcorn of": {
         "text": "Eggcorn of",
         "dot": True,
-    },
-    "elative of": {
-        "text": "elative degree of",
-        "dot": False,
     },
     "ellipsis of": {
         "text": "Ellipsis of",
@@ -287,10 +279,6 @@ form_of_templates = {
     },
     "endearing form of": {
         "text": "endearing form of",
-        "dot": False,
-    },
-    "equative of": {
-        "text": "equative degree of",
         "dot": False,
     },
     "euphemistic form of": {
@@ -593,10 +581,6 @@ form_of_templates = {
         "text": "passive participle of",
         "dot": False,
     },
-    "passive past tense of": {
-        "text": "passive past of",
-        "dot": False,
-    },
     "past active participle of": {
         "text": "past active participle of",
         "dot": False,
@@ -611,10 +595,6 @@ form_of_templates = {
     },
     "past passive participle of": {
         "text": "past passive participle of",
-        "dot": False,
-    },
-    "past tense of": {
-        "text": "past tense of",
         "dot": False,
     },
     "pejorative of": {
@@ -725,10 +705,6 @@ form_of_templates = {
         "text": "singular of",
         "dot": False,
     },
-    "singulative of": {
-        "text": "singulative of",
-        "dot": False,
-    },
     "slender form of": {
         "text": "slender form of",
         "dot": False,
@@ -753,20 +729,12 @@ form_of_templates = {
         "text": "Standard spelling of",
         "dot": True,
     },
-    "superlative attributive of": {
-        "text": "superlative degree (when used attributively) of",
-        "dot": False,
-    },
     "superlative of": {
         "text": "superlative degree of",
         "dot": False,
     },
     "supd of": {
         "text": "superlative degree of",
-        "dot": False,
-    },
-    "superlative predicative of": {
-        "text": "superlative (when used predicatively) of",
         "dot": False,
     },
     "superseded spelling of": {
@@ -776,10 +744,6 @@ form_of_templates = {
     "sup sp": {
         "text": "Superseded spelling of",
         "dot": True,
-    },
-    "supine of": {
-        "text": "supine of",
-        "dot": False,
     },
     "syncopic form of": {
         "text": "Syncopic form of",
@@ -825,7 +789,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 205
+}  # 196
 # END
 
 
