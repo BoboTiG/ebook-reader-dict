@@ -2841,6 +2841,7 @@ langs = {
     "ldb": "dũya",
     "ldd": "luri",
     "ldi": "laari",
+    "ldm": "landuma",
     "ldn": "láadan",
     "lea": "lega de Shabunda",
     "leb": "lala-bisa",
@@ -6369,7 +6370,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,364
+}  # 6,365
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

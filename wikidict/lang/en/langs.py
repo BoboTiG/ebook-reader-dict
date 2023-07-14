@@ -10,7 +10,6 @@ langs = {
     "LL.": "Late Latin",
     "ML.": "Medieval Latin",
     "NL.": "New Latin",
-    "ONF.": "Old Northern French",
     "RL.": "Renaissance Latin",
     "VL.": "Vulgar Latin",
     "aa": "Afar",
@@ -9556,5 +9555,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,551
+}  # 9,550
 # END
