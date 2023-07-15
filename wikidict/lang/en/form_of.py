@@ -233,14 +233,6 @@ form_of_templates = {
         "text": "Dated spelling of",
         "dot": True,
     },
-    "definite singular of": {
-        "text": "definite singular of",
-        "dot": False,
-    },
-    "definite plural of": {
-        "text": "definite plural of",
-        "dot": False,
-    },
     "deliberate misspelling of": {
         "text": "Deliberate misspelling of",
         "dot": True,
@@ -341,10 +333,6 @@ form_of_templates = {
         "text": "frequentative of",
         "dot": False,
     },
-    "future participle of": {
-        "text": "future participle of",
-        "dot": False,
-    },
     "gerund of": {
         "text": "gerund of",
         "dot": False,
@@ -373,16 +361,8 @@ form_of_templates = {
         "text": "Honorific alternative letter-case form of",
         "dot": False,
     },
-    "imperative of": {
-        "text": "imperative of",
-        "dot": False,
-    },
     "imperfective form of": {
         "text": "imperfective form of",
-        "dot": False,
-    },
-    "indefinite plural of": {
-        "text": "indefinite plural of",
         "dot": False,
     },
     "inflection of": {
@@ -581,10 +561,6 @@ form_of_templates = {
         "text": "passive participle of",
         "dot": False,
     },
-    "past active participle of": {
-        "text": "past active participle of",
-        "dot": False,
-    },
     "past participle form of": {
         "text": "of the past participle of",
         "dot": False,
@@ -593,16 +569,8 @@ form_of_templates = {
         "text": "past participle of",
         "dot": False,
     },
-    "past passive participle of": {
-        "text": "past passive participle of",
-        "dot": False,
-    },
     "pejorative of": {
         "text": "Pejorative of",
-        "dot": False,
-    },
-    "perfect participle of": {
-        "text": "perfect participle of",
         "dot": False,
     },
     "perfective form of": {
@@ -617,16 +585,8 @@ form_of_templates = {
         "text": "plural of",
         "dot": False,
     },
-    "present active participle of": {
-        "text": "present active participle of",
-        "dot": False,
-    },
     "present participle of": {
         "text": "present participle of",
-        "dot": False,
-    },
-    "present tense of": {
-        "text": "present of",
         "dot": False,
     },
     "pronunciation spelling of": {
@@ -789,7 +749,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 196
+}  # 186
 # END
 
 
