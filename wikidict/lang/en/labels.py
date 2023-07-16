@@ -1684,6 +1684,7 @@ labels_topical = {
     "roads": "road transport",
     "robotics": "robotics",
     "rock": "petrology",
+    "rock climbing": "climbing",
     "rock paper scissors": "rock paper scissors",
     "rocketry": "astronautics",
     "role playing games": "roleplaying games",
@@ -1893,7 +1894,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,149
+}  # 1,150
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3761,6 +3762,8 @@ labels_subvarieties = {
     "Central Assam": "Central Assam",
     "Central Assamese": "Central Assam",
     "Central Calabria": "central Calabria",
+    "Central Finland": "Central Finland",
+    "Central Finnish": "Central Finland",
     "Central German": "central Germany",
     "Central Germany": "central Germany",
     "Central Italian": "central Italian",
@@ -3925,6 +3928,7 @@ labels_subvarieties = {
     "Delhi-Meerut": "Delhi-Meerut",
     "Delhi-Topra": "Delhi-Topra",
     "Demotic": "Demotic",
+    "Desh": "Desh",
     "Dhaka": "Dhaka",
     "Dhauli": "Dhauli",
     "Digor": "Digor",
@@ -4101,6 +4105,8 @@ labels_subvarieties = {
     "Gerash": "Gerashi",
     "Gerashi": "Gerashi",
     "German": "parts with greater German influence",
+    "German-based": "German-based spelling",
+    "German-based spelling": "German-based spelling",
     "Gerāsh": "Gerashi",
     "Gerāshī": "Gerashi",
     "Gerāš": "Gerashi",
@@ -6166,6 +6172,7 @@ labels_subvarieties = {
     "southwestern U.S.": "Southwestern US",
     "southwestern US": "Southwestern US",
     "southwestern Vietnamese": "Mekong Delta",
+    "sp-DE": "German-based spelling",
     "speech of the royal court": "speech of the royal court",
     "subjunctive": "dated or formal",
     "sunnmøre": "Sunnmøre",
@@ -6428,5 +6435,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,054
+}  # 3,060
 # END

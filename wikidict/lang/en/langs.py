@@ -25,6 +25,7 @@ langs = {
     "aak": "Ankave",
     "aal": "Afade",
     "aan": "Anambé",
+    "aao": "Algerian Saharan Arabic",
     "aap": "Pará Arára",
     "aaq": "Penobscot",
     "aas": "Aasax",
@@ -9555,5 +9556,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,550
+}  # 9,551
 # END
