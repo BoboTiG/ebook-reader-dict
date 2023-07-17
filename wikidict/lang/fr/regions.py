@@ -286,6 +286,7 @@ regions = {
     "Mexique": "Mexique",
     "Midi": "Midi de la France",
     "Midi toulousain": "Midi toulousain",
+    "Milan": "Milan",
     "Mirebeau": "Mirebeau",
     "Missouri": "Missouri",
     "Modica": "Modica",
@@ -514,7 +515,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 509
+}  # 510
 # END
 
 # handled differently

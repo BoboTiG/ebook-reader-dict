@@ -4359,6 +4359,7 @@ langs = {
     "proto-balto-slave": "proto-balto-slave",
     "proto-bantou": "proto-bantou",
     "proto-basque": "proto-basque",
+    "proto-berbère": "proto-berbère",
     "proto-bodique oriental": "proto-bodique oriental",
     "proto-brittonique": "proto-brittonique",
     "proto-caribe": "proto-caribe",
@@ -6402,7 +6403,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,397
+}  # 6,398
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
