@@ -308,7 +308,7 @@ campos_semanticos = {
     "fraccionario": "Fraccionario",
     "fraccionarios": "Fraccionario",
     "frutas": "Botánica, Gastronomía (frutas)",
-    "frutos": "Botánica, frutos",
+    "frutos": "Botánica (frutos)",
     "fármacos": "Farmacología (fármacos)",
     "física": "Física",
     "fútbol": "Fútbol",
