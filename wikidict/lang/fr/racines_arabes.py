@@ -204,6 +204,7 @@ racines_schemes_arabes = {
         "ar-*i*a*iy²@ũ": "{{f}} relatif au divin",
         "ar-*i*a*iy²ũ": "relatif au divin",
         "ar-*i*a*ũ": "dieu, divinité",
+        "ar-*i*â*@ũ": "adoration",
         "ar-*i*â*iy²@ũ": "{{f}} divine",
         "ar-*i*â*iy²ũ": "divin",
         "ar-*i*â*ũ": "dieu, divinité",
@@ -215,7 +216,7 @@ racines_schemes_arabes = {
         "ar-el*i*â*u": "([[الله]]) Allah",
         "ar-sta**a*a": "ressembler à un dieu",
         "ar-ta*a*²a*a": "adorer, rendre un culte",
-    },  # 21
+    },  # 22
     "ar-'ml": {
         "aa_sens": "espoir, espérer",
         "ar-**a*²a": "",
@@ -4173,12 +4174,13 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "inventer une calomnie",
         "ar-*â*i*@ũ": "prostituée",
         "ar-*â*i*ũ": "auteur, agent",
+        "ar-a**â*ũ": "{{p}} actes",
         "ar-ma**û*ũ": "nom régit par un autre ; participe passif",
         "ar-mu*ta*a*ũ": "affaire importante",
         "ar-n*a*a*a": "être fait, être dépité",
         "ar-n*i*â*ũ": "mauvaise humeur, dépit",
         "ar-ta*â*î*u": "pied d'un mètre",
-    },  # 18
+    },  # 19
     "ar-fCl": {
         "aa_sens": "découragement",
         "ar-***ũ": "",
@@ -4423,6 +4425,34 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 23
+    "ar-hnds": {
+        "aa_sens": "géomètre",
+        "ar-***ũ": "",
+        "ar-*a**a*@ũ": "géométrie",
+        "ar-*a**a*a": "dessiner géométriquement",
+        "ar-*a**a*iy²ũ": "technique",
+        "ar-*a**û*ũ": "habile",
+        "ar-*a*â*i*u": "{{p}} habiles",
+        "ar-*i**i*ũ": "ingénieux",
+        "ar-*i**â*@ũ": "coudée",
+        "ar-mu*a**i*ũ": "ingénieur",
+    },  # 10
+    "ar-hndz": {
+        "aa_sens": "coudée",
+        "ar-**a*²a": "",
+        "ar-*a**a*a": "mesurer",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*i**â*@ũ": "coudée",
+        "ar-*i**â*ũ": "mesure",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 14
     "ar-htf": {
         "aa_sens": "voix qu'on entend, appel",
         "ar-**a*²a": "",
@@ -6413,6 +6443,7 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "combattre quelqu'un",
         "ar-*â*i*ũ": "meurtrier",
         "ar-a**a*a": "faire tuer",
+        "ar-a**â*ũ": "{{p}} combattants",
         "ar-ma**a*ũ": "cause de mort",
         "ar-ma**û*ũ": "tué",
         "ar-mu**a*@ũ": "Mort, meurtre",
@@ -6422,7 +6453,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'exposer à la mort",
         "ar-ta*a*²a*a": "s'appliquer",
         "ar-ta*â*a*a": "s'entre-combattre",
-    },  # 32
+    },  # 33
     "ar-qwm": {
         "aa_sens": "être debout",
         "ar-***ũ": "",
@@ -7850,5 +7881,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 270
+}  # 272
 # END
