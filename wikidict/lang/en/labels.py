@@ -25,6 +25,7 @@ labels = {
     "Castilianism": "Castilianism",
     "Classic 1811 Dictionary of the i Tongue": "archaic, slang",
     "Cockney rhyming slang": "Cockney rhyming slang",
+    "Drag Race slang": "drag slang",
     "Heiti": "heiti",
     "Hispanicism": "Castilianism",
     "Homeric epithet": "Homeric epithet",
@@ -154,6 +155,7 @@ labels = {
     "disparaging": "derogatory",
     "distributive": "distributive",
     "ditransitive": "ditransitive",
+    "drag slang": "drag slang",
     "dysphemism": "dysphemistic",
     "dysphemistic": "dysphemistic",
     "earing": "earing",
@@ -493,7 +495,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 488
+}  # 490
 
 label_syntaxes = {
     "&": {

@@ -1472,6 +1472,24 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
         "ar-u**u*ânũ": "visage éclatant",
     },  # 21
+    "ar-F3lb": {
+        "aa_sens": "renard",
+        "ar-**a*²a": "",
+        "ar-*a**a*@ũ": "{{f}} renarde",
+        "ar-*a**a*a": "renard",
+        "ar-*a**a*iy²ũ": "vulpin",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*a*â*i*u": "{{p}} renards",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-mu*a**i*ũ": "pays à renard",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 16
     "ar-FlF": {
         "aa_sens": "relatif au chiffre [[trois]]",
     },  # 1
@@ -5014,6 +5032,34 @@ racines_schemes_arabes = {
         "ar-ta*â*u*iy²ũ": "unifié",
         "ar-ta*â*u*ũ": "intégration",
     },  # 28
+    "ar-kns": {
+        "aa_sens": "se blottir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "balayage",
+        "ar-*a*a*a-i": "se terrer",
+        "ar-*a*a*a-u": "déblayer",
+        "ar-*a*²a*a": "balayer",
+        "ar-*a*²â*ũ": "balayeur",
+        "ar-*a*î*@ũ": "fille modeste",
+        "ar-*a*î*ũ": "sac à fourrage",
+        "ar-*i*â*ũ": "gîte de la gazelle",
+        "ar-*ta*a*a": "",
+        "ar-*u*â*@ũ": "ordures",
+        "ar-*u*û*ũ": "qui gîtent",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "qui balaye",
+        "ar-a**a*a": "",
+        "ar-ma**û*ũ": "balayé",
+        "ar-mi**a*@ũ": "balai",
+        "ar-mu**a*ũ": "gîte",
+        "ar-mu*a*²i*ũ": "qui fait des balais",
+        "ar-mu*â*i*ũ": "blotti au gîte",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "se terrer",
+        "ar-ta*â*a*a": "",
+    },  # 26
     "ar-krs": {
         "aa_sens": "mettre sur",
         "ar-**a*²a": "",
@@ -7881,5 +7927,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 272
+}  # 274
 # END

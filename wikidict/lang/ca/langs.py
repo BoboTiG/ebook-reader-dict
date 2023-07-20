@@ -573,6 +573,7 @@ langs = {
     "qu": "quítxua",
     "quc": "k’iche’",
     "qug": "quítxua septentrional",
+    "quh": "quítxua bolivià",
     "quz": "quítxua de Cusco",
     "rad": "rade",
     "raj": "rajasthani",
@@ -798,5 +799,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 793
+}  # 794
 # END
