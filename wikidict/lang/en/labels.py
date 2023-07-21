@@ -1357,6 +1357,8 @@ labels_topical = {
     "halakha": "Jewish law",
     "halakhah": "Jewish law",
     "ham radio": "amateur radio",
+    "hand game": "hand games",
+    "hand games": "hand games",
     "handball": "handball",
     "healthcare": "healthcare",
     "heathenry": "Germanic paganism",
@@ -1625,6 +1627,8 @@ labels_topical = {
     "planetology": "planetology",
     "plant": "botany",
     "plant disease": "phytopathology",
+    "playground game": "playground games",
+    "playground games": "playground games",
     "playing card": "card games",
     "poetry": "poetry",
     "poison": "toxicology",
@@ -1896,7 +1900,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,150
+}  # 1,154
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3846,8 +3850,8 @@ labels_subvarieties = {
     "Church Latin": "Ecclesiastical Latin",
     "Chveneburi": "Chveneburi",
     "Chūgoku": "Chūgoku",
+    "Cieszyn": "Cieszyn Silesia",
     "Cieszyn Silesia": "Cieszyn Silesia",
-    "Cieszyn Silesian": "Cieszyn Silesia",
     "Cigetor": "Jigetore",
     "Cigetore": "Jigetore",
     "Cigetoruli": "Jigetore",

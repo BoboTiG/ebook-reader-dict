@@ -153,6 +153,7 @@ langs = {
     "csb": "caixubi",
     "csc": "llengua de signes catalana",
     "csw": "swampy cree",
+    "ctg": "chittagonià",
     "cu": "eslavònic",
     "cuk": "kuna",
     "cv": "txuvaix",
@@ -799,5 +800,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 794
+}  # 795
 # END

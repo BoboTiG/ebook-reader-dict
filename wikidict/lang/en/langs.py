@@ -521,6 +521,7 @@ langs = {
     "art-nav": "Na'vi",
     "art-nox": "Noxilo",
     "art-una": "Unas",
+    "art-vlh": "High Valyrian",
     "aru": "Arua",
     "arv": "Arbore",
     "arw": "Arawak",
@@ -9554,5 +9555,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,549
+}  # 9,550
 # END
