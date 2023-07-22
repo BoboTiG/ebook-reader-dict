@@ -6487,12 +6487,14 @@ langs = {
     "poz-sbj": "Sama-Bajaw",
     "poz-slb": "Saluan-Banggai",
     "poz-sls": "Southeast Solomonic",
+    "poz-sml": "Sarawak Malay",
     "poz-ssw": "South Sulawesi",
     "poz-ssw-pro": "Proto-South Sulawesi",
     "poz-sus": "Sunda-Sulawesi",
     "poz-sus-pro": "Proto-Sunda-Sulawesi",
     "poz-swa": "North Sarawakan",
     "poz-swa-pro": "Proto-North Sarawak",
+    "poz-ter": "Terengganu Malay",
     "poz-tim": "Timoric",
     "poz-tot": "Tomini-Tolitoli",
     "poz-vnc": "North-Central Vanuatu",
@@ -9555,5 +9557,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,550
+}  # 9,552
 # END

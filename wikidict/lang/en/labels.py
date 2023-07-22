@@ -4132,6 +4132,7 @@ labels_subvarieties = {
     "Girnar": "Girnar",
     "Godavari": "Godavari",
     "Goral": "Góral",
+    "Gorol": "Gorol",
     "Gozitan": "Gozo",
     "Gozo": "Gozo",
     "Greater Poland": "Greater Poland",
@@ -6441,5 +6442,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,060
+}  # 3,061
 # END
