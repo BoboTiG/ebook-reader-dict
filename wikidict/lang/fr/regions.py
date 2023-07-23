@@ -87,6 +87,7 @@ regions = {
     "CL": "Chili",
     "CM": "Cameroun",
     "Caccamo": "Caccamo",
+    "Californie": "Californie",
     "Calimera": "Calimera",
     "Caltanissetta": "Caltanissetta",
     "Cambodge": "Cambodge",
@@ -205,6 +206,7 @@ regions = {
     "IDLMadeleine": "Îles-de-la-Madeleine",
     "IE": "Irlande",
     "Inde": "Inde",
+    "Indiana": "Indiana",
     "Ingelmunster": "Ingelmunster",
     "Irlande": "Irlande",
     "Israël": "Israël",
@@ -515,7 +517,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 510
+}  # 512
 # END
 
 # handled differently

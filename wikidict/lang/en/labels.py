@@ -1834,6 +1834,7 @@ labels_topical = {
     "travel": "travel",
     "trigonometric function": "trigonometry",
     "trigonometry": "trigonometry",
+    "trust law": "trust law",
     "two-up": "two-up",
     "typesetting": "typography",
     "typography": "typography",
@@ -1900,7 +1901,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,154
+}  # 1,155
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
