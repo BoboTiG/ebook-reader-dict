@@ -100,6 +100,7 @@ labels = {
     "cant": "cant",
     "capitalized": "capitalized",
     "cardinal": "cardinal number",
+    "catenative": "catenative",
     "causative": "causative",
     "causative verb": "causative",
     "chiefly": "chiefly",
@@ -495,7 +496,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 490
+}  # 491
 
 label_syntaxes = {
     "&": {

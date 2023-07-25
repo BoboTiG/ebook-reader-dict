@@ -2724,6 +2724,7 @@ langs = {
     "gmq-mno": "Middle Norwegian",
     "gmq-oda": "Old Danish",
     "gmq-osw": "Old Swedish",
+    "gmq-osw-lat": "Late Old Swedish",
     "gmq-pro": "Proto-Norse",
     "gmq-scy": "Scanian",
     "gmu": "Gumalu",
@@ -7399,7 +7400,7 @@ langs = {
     "skc": "Ma Manda",
     "skd": "Southern Sierra Miwok",
     "ske": "Ske",
-    "skf": "Sakirabiá",
+    "skf": "Mekéns",
     "skh": "Sikule",
     "ski": "Sika",
     "skj": "Seke",
@@ -7565,7 +7566,7 @@ langs = {
     "srn": "Sranan Tongo",
     "srq": "Sirionó",
     "srr": "Serer",
-    "srs": "Sarcee",
+    "srs": "Tsuut'ina",
     "srt": "Sauri",
     "sru": "Suruí",
     "srv": "Waray Sorsogon",
@@ -9557,5 +9558,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,552
+}  # 9,553
 # END
