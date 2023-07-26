@@ -5908,6 +5908,7 @@ labels_subvarieties = {
     "Yàgbà": "Yagba",
     "Yéwa": "Yewa",
     "Zaolzie": "Zaolzie",
+    "Zebbug": "Żebbuġ",
     "Zezuru": "Zezuru",
     "Zhangzhou": "Zhangzhou",
     "Zhangzhou dialect": "Zhangzhou",
@@ -6258,6 +6259,7 @@ labels_subvarieties = {
     "Ōita": "Ōita",
     "średniopolski": "Middle Polish",
     "švapanje": "dialects with shvapanye",
+    "Żebbuġ": "Żebbuġ",
     "žena": "dialects without *ženȁ > *žèna shift, otherwise obsolete",
     "Əzizbəyov": "Azizbekov",
     "Όφις": "Ophitic",
@@ -6444,5 +6446,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,061
+}  # 3,063
 # END
