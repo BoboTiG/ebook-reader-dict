@@ -6239,6 +6239,7 @@ labels_subvarieties = {
     "Ìrùn Àkókó": "Western Akoko",
     "Ìyàgbà": "Yagba",
     "Ìṣà": "Isha",
+    "Île-de-France French": "Île-de-France",
     "Ònkò": "Onko",
     "Òwú": "Owu",
     "Ünye": "Oinoe",
@@ -6446,5 +6447,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,063
+}  # 3,064
 # END

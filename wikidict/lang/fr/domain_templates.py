@@ -45,7 +45,7 @@ domain_templates = {
     "camélidés": "Zoologie",
     "canards": "Ornithologie",
     "canaux": "Géographie",
-    "canidés": "Mammifères",
+    "canidés": "Zoologie",
     "cantons": "Géographie",
     "capitales": "Géographie",
     "caprins": "Zoologie",
@@ -310,7 +310,6 @@ domain_templates = {
     "échinodermes": "Zoologie",
     "écureuils": "Zoologie",
     "édifices": "Construction",
-    "édifices religieux": "Religion",
     "éléments": "Chimie",
     "éléphantidés": "Zoologie",
     "épices": "Cuisine",
@@ -320,5 +319,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 315
+}  # 314
 # END

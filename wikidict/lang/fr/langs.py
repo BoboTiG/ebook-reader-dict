@@ -4347,6 +4347,7 @@ langs = {
     "proto-albanais": "proto-albanais",
     "proto-algonquien": "proto-algonquien",
     "proto-altaïque": "proto-altaïque",
+    "proto-aslien": "proto-aslien",
     "proto-athapascan": "proto-athapascan",
     "proto-austroasiatique": "proto-austroasiatique",
     "proto-austronésien": "proto-austronésien",
@@ -6403,7 +6404,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,398
+}  # 6,399
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
