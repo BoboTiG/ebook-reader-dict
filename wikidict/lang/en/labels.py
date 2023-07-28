@@ -1841,6 +1841,7 @@ labels_topical = {
     "typography": "typography",
     "ufology": "ufology",
     "underwater diving": "underwater diving",
+    "urban planning": "urban studies",
     "urban studies": "urban studies",
     "urbanism": "urban studies",
     "urology": "urology",
@@ -1902,7 +1903,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,155
+}  # 1,156
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
