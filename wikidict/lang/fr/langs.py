@@ -661,6 +661,7 @@ langs = {
     "bkl": "berik",
     "bkm": "kom (Cameroun)",
     "bkn": "beketan",
+    "bko": "kwa’",
     "bkq": "bakairí",
     "bkr": "bakumpai",
     "bks": "sorsoganon du Nord",
@@ -6404,7 +6405,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,399
+}  # 6,400
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

@@ -57,6 +57,10 @@ form_of_templates = {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
+    "alt case of": {
+        "text": "Alternative letter-case form of",
+        "dot": False,
+    },
     "alternative form of": {
         "text": "Alternative form of",
         "dot": False,
@@ -749,7 +753,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 186
+}  # 187
 # END
 
 
