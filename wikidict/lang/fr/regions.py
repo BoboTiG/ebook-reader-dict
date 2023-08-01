@@ -471,7 +471,8 @@ regions = {
     "Ulster": "Ulster",
     "Uruguay": "Uruguay",
     "Valledolmo": "Valledolmo",
-    "Vallée d'Yères": "Vallée d'Yères",
+    "Vallée d'Yères": "Vallée d’Yères",
+    "Vallée d’Yères": "Vallée d’Yères",
     "Var": "Var",
     "Vaucluse": "Vaucluse",
     "Veglie": "Veglie",
@@ -517,7 +518,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 512
+}  # 513
 # END
 
 # handled differently
