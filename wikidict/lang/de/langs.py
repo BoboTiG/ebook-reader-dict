@@ -433,6 +433,7 @@ langs = {
     "oge": "Altgeorgisch",
     "oj": "Ojibwe",
     "om": "Oromo",
+    "omr": "Altmarathi",
     "one": "Oneida",
     "ono": "Onondaga",
     "ood": "O'odham",
@@ -680,5 +681,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 675
+}  # 676
 # END

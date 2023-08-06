@@ -4505,6 +4505,7 @@ langs = {
     "pui": "puinave",
     "puj": "punan tubu’",
     "pum": "puma",
+    "puo": "ksingmul",
     "pup": "pulabu",
     "puq": "puquina",
     "pur": "puruborá",
@@ -6181,6 +6182,7 @@ langs = {
     "ymo": "yangum mon",
     "ymt": "karagasse",
     "ynd": "yandruwandha",
+    "ynk": "naukan",
     "ynl": "yangulam",
     "ynn": "yana",
     "ynq": "yendang",
@@ -6405,7 +6407,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,400
+}  # 6,402
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
