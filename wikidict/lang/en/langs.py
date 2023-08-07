@@ -2395,7 +2395,7 @@ langs = {
     "ese": "Ese Ejja",
     "esh": "Eshtehardi",
     "esi": "North Alaskan Inupiatun",
-    "esk": "Northwest Alaska Inupiatun",
+    "esk": "Northwest Alaskan Inupiatun",
     "esl": "Egyptian Sign Language",
     "esm": "Esuma",
     "esn": "Salvadoran Sign Language",
