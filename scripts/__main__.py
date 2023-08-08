@@ -47,26 +47,40 @@ def replace(file: str, data: str) -> bool:
     return True
 
 
-def process_script(script: str, file: str) -> None:
+def process_script(script: str, file: str, errors: dict[str, str]) -> None:
     """Process one script."""
-    data = subprocess.check_output(["python", f"scripts/{script}"], text=True)
+    try:
+        data = subprocess.check_output(["python", f"scripts/{script}"], text=True)
+    except subprocess.CalledProcessError as exc:
+        errors[script] = str(exc)
+        return
+
     if replace(file, data):
         print(f"Processed {script} with success.", flush=True)
-    else:
-        print(f" !! Error processing {script}", flush=True)
+        return
+
+    errors[script] = "Processing error"
 
 
 def main() -> int:
     """Entry point."""
     threads = []
+    errors: dict[str, str] = {}
 
     for script, file in sorted(FILES.items()):
-        th = threading.Thread(target=process_script, args=(script, file))
+        th = threading.Thread(target=process_script, args=(script, file, errors))
         th.start()
         threads.append(th)
 
     for th in threads:
         th.join()
+
+    if errors:
+        for script, error in errors.items():
+            print(f" !! {script}")
+            print(error)
+            print()
+        return 1
 
     print("\nFriendly reminder: run ./check.sh")
     return 0

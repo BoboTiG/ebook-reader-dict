@@ -1837,6 +1837,7 @@ langs = {
     "crn": "Cora",
     "cro": "Crow",
     "crp": "creole or pidgin",
+    "crp-bip": "Basque-Icelandic Pidgin",
     "crp-gep": "West Greenlandic Pidgin",
     "crp-mpp": "Macau Pidgin Portuguese",
     "crp-rsn": "Russenorsk",
@@ -9558,5 +9559,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,553
+}  # 9,554
 # END
