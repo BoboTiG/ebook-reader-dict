@@ -91,6 +91,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "MartaMalb",
+      "name": "Marta Malberti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/129286939?v=4",
+      "profile": "http://www.linkedin.com/in/martamalberti/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 6,
@@ -99,5 +108,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
