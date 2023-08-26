@@ -134,7 +134,7 @@ domain_templates = {
     "fossiles": "Paléontologie",
     "fromages": "Fromage",
     "fruits": "Botanique",
-    "félins": "Mammalogie",
+    "félins": "Zoologie",
     "gastéropodes": "Malacologie",
     "genres littéraires": "Littérature",
     "genres musicaux": "Musique",
@@ -178,7 +178,6 @@ domain_templates = {
     "maladies": "Nosologie",
     "mammifère": "Zoologie",
     "mammifères": "Zoologie",
-    "marsupial": "Zoologie",
     "marsupiaux": "Zoologie",
     "mers": "Géographie",
     "meuble": "Mobilier",
@@ -200,7 +199,6 @@ domain_templates = {
     "nymphes": "Mythologie",
     "oies": "Ornithologie",
     "oiseaux": "Ornithologie",
-    "orgues": "Orgues",
     "outils": "Technique",
     "ovins": "Zoologie",
     "palmiers": "Botanique",
@@ -254,7 +252,6 @@ domain_templates = {
     "reptiles": "Herpétologie",
     "requins": "Ichtyologie",
     "roches": "Pétrographie",
-    "rongeur": "Zoologie",
     "rongeurs": "Zoologie",
     "régions": "Toponyme",
     "saisons": "Calendrier",
@@ -319,5 +316,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 314
+}  # 311
 # END

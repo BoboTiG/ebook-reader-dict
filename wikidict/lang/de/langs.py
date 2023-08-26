@@ -445,6 +445,7 @@ langs = {
     "osx": "Altsächsisch",
     "ota": "Osmanisches Türkisch",
     "ote": "Mezquital-Otomi",
+    "otk": "Alttürkisch",
     "otw": "Ottawa",
     "owl": "Altwalisisch",
     "pa": "Pandschabi",
@@ -593,6 +594,7 @@ langs = {
     "tr": "Türkisch",
     "tru": "Turoyo",
     "trv": "Taroko",
+    "trw": "Torwali",
     "ts": "Xitsonga",
     "tsg": "Tausug",
     "tsi": "Tsimshian",
@@ -681,5 +683,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 676
+}  # 678
 # END

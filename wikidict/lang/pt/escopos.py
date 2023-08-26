@@ -222,6 +222,7 @@ escopos = {
     "Mato Grosso do Sul": "Mato Grosso do Sul",
     "Miguxês": "internetês",
     "Minas Gerais": "Minas Gerais",
+    "Mineralogia": "mineralogia",
     "Minho": "Minho",
     "Mitologia grega": "mitologia",
     "Mitologia romana": "mitologia",
@@ -381,5 +382,5 @@ escopos = {
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 376
+}  # 377
 # END
