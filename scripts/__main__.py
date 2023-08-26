@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 import threading
@@ -62,6 +63,13 @@ def process_script(script: str, file: str, errors: dict[str, str]) -> None:
     errors[script] = "Processing error"
 
 
+def set_output(errors: int) -> None:
+    """It is very specific to GitHub Actions."""
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"errors={errors}\n".encode())
+
+
 def main() -> int:
     """Entry point."""
     threads = []
@@ -75,12 +83,13 @@ def main() -> int:
     for th in threads:
         th.join()
 
+    set_output(len(errors))
+
     if errors:
         for script, error in errors.items():
             print(f" !! {script}")
             print(error)
             print()
-        return 1
 
     print("\nFriendly reminder: run ./check.sh")
     return 0
