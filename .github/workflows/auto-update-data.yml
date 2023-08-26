@@ -45,5 +45,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fail on error
-        if: jobs.update-data.outputs.errors != '0'
+        if: steps.update-data.outputs.errors != '0'
         run: exit 1
