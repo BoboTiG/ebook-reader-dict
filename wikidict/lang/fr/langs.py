@@ -1777,6 +1777,7 @@ langs = {
     "ghl": "ghulfan",
     "gho": "ghomari",
     "ghs": "guhu-samane",
+    "ght": "kuke",
     "gia": "kija",
     "gid": "gidar",
     "gie": "gabogbo",
@@ -6408,7 +6409,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,403
+}  # 6,404
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
