@@ -60,7 +60,7 @@ langs = {
     "aca": "achagua",
     "acd": "gichode",
     "ace": "achinais",
-    "acf": "créole sainte-lucien",
+    "acf": "créole saint-lucien",
     "ach": "acoli",
     "aci": "aka-cari",
     "ack": "aka-kora",
