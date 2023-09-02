@@ -118,6 +118,7 @@ escopos = {
     "DF": "Distrito Federal",
     "DR Congo": "República Democrática do Congo",
     "Depreciativo": "pejorativo",
+    "Design": "design",
     "Desporto": "desporto",
     "Desportos": "desporto",
     "Desuso": "em desuso",
@@ -382,5 +383,5 @@ escopos = {
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 377
+}  # 378
 # END
