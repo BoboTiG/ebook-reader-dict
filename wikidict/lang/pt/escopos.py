@@ -80,6 +80,7 @@ escopos = {
     "Bélgica": "Bélgica",
     "CE": "Ceará",
     "Cabo Verde": "Cabo Verde",
+    "Caipira": "caipira",
     "Calabor": "Calabor",
     "Calendário": "cronônimo",
     "Calão": "obsceno",
@@ -378,10 +379,11 @@ escopos = {
     "alvanéis": "alvanéis",
     "canteiros": "canteiros",
     "cesteiros": "cesteiros",
+    "interior de São Paulo": "caipira",
     "músicos": "músicos",
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 378
+}  # 380
 # END
