@@ -6960,8 +6960,6 @@ langs = {
     "sai-har": "Harákmbut",
     "sai-hau": "Haush",
     "sai-hkt": "Harákmbut-Katukinan",
-    "sai-hoc": "Huitoto-Ocaina",
-    "sai-hoc-pro": "Proto-Huitoto-Ocaina",
     "sai-hrp": "Huarpean",
     "sai-jee": "Jê",
     "sai-jee-pro": "Proto-Jê",
@@ -9561,5 +9559,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,556
+}  # 9,554
 # END
