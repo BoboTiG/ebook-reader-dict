@@ -406,6 +406,7 @@ langs = {
     "anf": "Animere",
     "ang": "Old English",
     "ang-ang": "Anglian Old English",
+    "ang-ken": "Kentish Old English",
     "ang-mer": "Mercian Old English",
     "ang-nor": "Northumbrian Old English",
     "anh": "Nend",
@@ -2845,6 +2846,9 @@ langs = {
     "gss": "Greek Sign Language",
     "gsw": "Alemannic German",
     "gsw-FR": "Alsatian",
+    "gsw-hig": "High Alemannic German",
+    "gsw-hst": "Highest Alemannic German",
+    "gsw-low": "Low Alemannic German",
     "gta": "Guató",
     "gtu": "Aghu Tharrnggala",
     "gu": "Gujarati",
@@ -8551,6 +8555,7 @@ langs = {
     "wab": "Wab",
     "wac": "Wasco-Wishram",
     "wad": "Wandamen",
+    "wae": "Walser German",
     "waf": "Wakoná",
     "wag": "Wa'ema",
     "wah": "Watubela",
@@ -9559,5 +9564,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,554
+}  # 9,559
 # END
