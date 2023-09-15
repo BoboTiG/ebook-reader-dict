@@ -239,6 +239,9 @@ def last_template_handler(
         >>> last_template_handler(["Pn"], "it", word="Santissimo")
         '<b>Santissimo</b>'
 
+        >>> last_template_handler(["Sup2", "assoluto", "f sing", "it"], "it", word="massima")
+        'superlativo assoluto, femminile singolare di'
+
     """
     from ...user_functions import italic, parenthesis, strong
     from ..defaults import last_template_handler as default
@@ -264,6 +267,15 @@ def last_template_handler(
 
     if tpl == "pn":
         return strong(word)
+
+    if tpl == "sup2":
+        gender = {
+            "f sing": "femminile singolare",
+            "f pl": "femminile plurale",
+            "m sing": "maschile singolare",
+            "m pl": "maschile plurale",
+        }.get(parts[1])
+        return f"superlativo {parts[0]}, {gender} di"
 
     # This is a country in the current locale
     if codelang := codelangs.get(tpl, ""):

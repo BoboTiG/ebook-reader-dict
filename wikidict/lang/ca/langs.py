@@ -80,6 +80,7 @@ langs = {
     "bfd": "bafut",
     "bfq": "badaga",
     "bg": "búlgar",
+    "bgc": "haryanvi",
     "bgn": "balutxi occidental",
     "bh": "bihari",
     "bho": "bhojpuri",
@@ -153,6 +154,7 @@ langs = {
     "csb": "caixubi",
     "csc": "llengua de signes catalana",
     "csw": "swampy cree",
+    "ctg": "chittagonià",
     "cu": "eslavònic",
     "cuk": "kuna",
     "cv": "txuvaix",
@@ -200,7 +202,7 @@ langs = {
     "eo": "esperanto",
     "es": "castellà",
     "es-formal": "espanyol formal",
-    "es_419": "espanyol hispanoamericà",
+    "es_419": "espanyol llatinoamericà",
     "es_ES": "espanyol europeu",
     "es_MX": "espanyol de Mèxic",
     "et": "estonià",
@@ -573,6 +575,7 @@ langs = {
     "qu": "quítxua",
     "quc": "k’iche’",
     "qug": "quítxua septentrional",
+    "quh": "quítxua bolivià",
     "quz": "quítxua de Cusco",
     "rad": "rade",
     "raj": "rajasthani",
@@ -798,5 +801,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 793
+}  # 796
 # END

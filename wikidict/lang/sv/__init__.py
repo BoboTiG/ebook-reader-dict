@@ -88,6 +88,8 @@ templates_multi = {
     "ö+": "f\"{parts[-1]} {superscript('(' + parts[1] + ')')}\"",
     # {{ö-inte|en|test}}
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
+    # {{övrigatecken|kolon|:}}
+    "övrigatecken": 'f\'"<code>{parts[-1].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</code>"\'',
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
     #
@@ -100,20 +102,6 @@ templates_multi = {
 # Templates that will be completed/replaced using custom style.
 templates_other = {
     "dödform": "†",
-}
-
-
-_avledning = {
-    "aktpart": "aktiv particip",
-    "passpart": "passiv particip",
-    "perfpart": "perfektparticip",
-    "presger": "presens gerundium",
-    "prespart": "presensparticip",
-    "prespartakt": "presens particip aktiv",
-    "prespartpass": "presens particip passiv",
-    "pretger": "preteritum gerundium",
-    "pretpartakt": "preteritum particip aktiv",
-    "pretpartpass": "preteritum particip passiv",
 }
 
 _gammalstavning = {

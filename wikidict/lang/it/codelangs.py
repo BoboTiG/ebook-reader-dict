@@ -66,6 +66,7 @@ codelangs = {
     "bfd": "bafut",
     "bfq": "badaga",
     "bg": "bulgaro",
+    "bgc": "haryanvi",
     "bgn": "beluci occidentale",
     "bho": "bhojpuri",
     "bi": "bislama",
@@ -109,9 +110,9 @@ codelangs = {
     "chp": "chipewyan",
     "chr": "cherokee",
     "chy": "cheyenne",
-    "ckb": "curdo sorani",
-    "ckb-alt-menu": "curdo centrale",
-    "ckb-alt-variant": "curdo sorani",
+    "ckb": "curdo centrale",
+    "ckb-alt-menu": "curdo (centrale)",
+    "ckb-alt-variant": "curdo (sorani)",
     "clc": "chilcotin",
     "co": "corso",
     "cop": "copto",
@@ -658,5 +659,5 @@ codelangs = {
     "zun": "zuni",
     "zxx": "nessun contenuto linguistico",
     "zza": "zaza",
-}  # 653
+}  # 654
 # END

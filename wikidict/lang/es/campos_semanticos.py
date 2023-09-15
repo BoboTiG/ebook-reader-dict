@@ -308,7 +308,7 @@ campos_semanticos = {
     "fraccionario": "Fraccionario",
     "fraccionarios": "Fraccionario",
     "frutas": "Botánica, Gastronomía (frutas)",
-    "frutos": "Botánica, frutos",
+    "frutos": "Botánica (frutos)",
     "fármacos": "Farmacología (fármacos)",
     "física": "Física",
     "fútbol": "Fútbol",
@@ -369,7 +369,7 @@ campos_semanticos = {
     "malabarismo": "Malabarismo",
     "mamífero": "Zoología (mamíferos)",
     "mamíferos": "Zoología (mamíferos)",
-    "mares": "Geografía",
+    "mares": "Geografía (mares)",
     "marina": "Náutica",
     "matemática": "Matemáticas",
     "matemáticas": "Matemáticas",
@@ -407,6 +407,7 @@ campos_semanticos = {
     "números": "Matemáticas",
     "ocultismo": "Ocultismo",
     "ocupaciones": "Ocupaciones",
+    "océanos": "Geografía (océanos)",
     "odontología": "Odontología",
     "oficios": "Oficio",
     "oftalmología": "Oftalmología",
@@ -500,5 +501,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 495
+}  # 496
 # END

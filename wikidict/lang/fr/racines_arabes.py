@@ -204,6 +204,7 @@ racines_schemes_arabes = {
         "ar-*i*a*iy²@ũ": "{{f}} relatif au divin",
         "ar-*i*a*iy²ũ": "relatif au divin",
         "ar-*i*a*ũ": "dieu, divinité",
+        "ar-*i*â*@ũ": "adoration",
         "ar-*i*â*iy²@ũ": "{{f}} divine",
         "ar-*i*â*iy²ũ": "divin",
         "ar-*i*â*ũ": "dieu, divinité",
@@ -215,7 +216,7 @@ racines_schemes_arabes = {
         "ar-el*i*â*u": "([[الله]]) Allah",
         "ar-sta**a*a": "ressembler à un dieu",
         "ar-ta*a*²a*a": "adorer, rendre un culte",
-    },  # 21
+    },  # 22
     "ar-'ml": {
         "aa_sens": "espoir, espérer",
         "ar-**a*²a": "",
@@ -554,7 +555,8 @@ racines_schemes_arabes = {
         "ar-a**u*âtũ": "collection d'yeux",
         "ar-a**u*ũ": "{{p}} yeux",
         "ar-a**â*ũ": "{{p}} yeux",
-    },  # 6
+        "ar-ma**û*ũ": "obtenu en creusant",
+    },  # 7
     "ar-3Zm": {
         "aa_sens": "grand, grave",
         "ar-**a*²a": "",
@@ -1183,7 +1185,6 @@ racines_schemes_arabes = {
         "ar-a**i*@ũ": "{{p}} personnes",
         "ar-ma**a*ũ": "station",
         "ar-ma**i*ũ": "source",
-        "ar-ma**û*ũ": "obtenu en creusant",
         "ar-mu*a*²a*ũ": "à pois",
         "ar-mu*â*a*@ũ": "constat de visu",
         "ar-muta*a*²a*ũ": "fixé",
@@ -1192,7 +1193,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être évident",
         "ar-ta*â*a*a": "",
-    },  # 40
+    },  # 39
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
@@ -1471,6 +1472,24 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
         "ar-u**u*ânũ": "visage éclatant",
     },  # 21
+    "ar-F3lb": {
+        "aa_sens": "renard",
+        "ar-**a*²a": "",
+        "ar-*a**a*@ũ": "{{f}} renarde",
+        "ar-*a**a*a": "renard",
+        "ar-*a**a*iy²ũ": "vulpin",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*a*â*i*u": "{{p}} renards",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-mu*a**i*ũ": "pays à renard",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 16
     "ar-FlF": {
         "aa_sens": "relatif au chiffre [[trois]]",
     },  # 1
@@ -2040,7 +2059,7 @@ racines_schemes_arabes = {
         "ar-*a*i*iy²ũ": "de demain",
         "ar-*a*²a*a": "nourrir",
         "ar-*a*â*ũ": "déjeuner",
-        "ar-*awâ*i*u": "{{fp}} matinales",
+        "ar-*awâ*i*u": "{{f}} {{p}} matinales",
         "ar-*ta*a*a": "venir le matin",
         "ar-*u**@ũ": "matinée",
         "ar-*u*ay*@ũ": "grand matin",
@@ -2050,8 +2069,8 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "matinal",
         "ar-a**a*a": "",
         "ar-a**i*@ũ": "{{p}} déjeuners",
-        "ar-ma**a*@ũ": "lieu où l'on vient",
-        "ar-ma**a*ũ": "lieu où l'on vient",
+        "ar-ma**a*@ũ": "lieu où l’on vient",
+        "ar-ma**a*ũ": "lieu où l’on vient",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "déjeuner",
         "ar-ta*a*²a*a": "déjeuner",
@@ -4173,12 +4192,13 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "inventer une calomnie",
         "ar-*â*i*@ũ": "prostituée",
         "ar-*â*i*ũ": "auteur, agent",
+        "ar-a**â*ũ": "{{p}} actes",
         "ar-ma**û*ũ": "nom régit par un autre ; participe passif",
         "ar-mu*ta*a*ũ": "affaire importante",
         "ar-n*a*a*a": "être fait, être dépité",
         "ar-n*i*â*ũ": "mauvaise humeur, dépit",
         "ar-ta*â*î*u": "pied d'un mètre",
-    },  # 18
+    },  # 19
     "ar-fCl": {
         "aa_sens": "découragement",
         "ar-***ũ": "",
@@ -4423,6 +4443,34 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 23
+    "ar-hnds": {
+        "aa_sens": "géomètre",
+        "ar-***ũ": "",
+        "ar-*a**a*@ũ": "géométrie",
+        "ar-*a**a*a": "dessiner géométriquement",
+        "ar-*a**a*iy²ũ": "technique",
+        "ar-*a**û*ũ": "habile",
+        "ar-*a*â*i*u": "{{p}} habiles",
+        "ar-*i**i*ũ": "ingénieux",
+        "ar-*i**â*@ũ": "coudée",
+        "ar-mu*a**i*ũ": "ingénieur",
+    },  # 10
+    "ar-hndz": {
+        "aa_sens": "coudée",
+        "ar-**a*²a": "",
+        "ar-*a**a*a": "mesurer",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*i**â*@ũ": "coudée",
+        "ar-*i**â*ũ": "mesure",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 14
     "ar-htf": {
         "aa_sens": "voix qu'on entend, appel",
         "ar-**a*²a": "",
@@ -4984,6 +5032,34 @@ racines_schemes_arabes = {
         "ar-ta*â*u*iy²ũ": "unifié",
         "ar-ta*â*u*ũ": "intégration",
     },  # 28
+    "ar-kns": {
+        "aa_sens": "se blottir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "balayage",
+        "ar-*a*a*a-i": "se terrer",
+        "ar-*a*a*a-u": "déblayer",
+        "ar-*a*²a*a": "balayer",
+        "ar-*a*²â*ũ": "balayeur",
+        "ar-*a*î*@ũ": "fille modeste",
+        "ar-*a*î*ũ": "sac à fourrage",
+        "ar-*i*â*ũ": "gîte de la gazelle",
+        "ar-*ta*a*a": "",
+        "ar-*u*â*@ũ": "ordures",
+        "ar-*u*û*ũ": "qui gîtent",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "qui balaye",
+        "ar-a**a*a": "",
+        "ar-ma**û*ũ": "balayé",
+        "ar-mi**a*@ũ": "balai",
+        "ar-mu**a*ũ": "gîte",
+        "ar-mu*a*²i*ũ": "qui fait des balais",
+        "ar-mu*â*i*ũ": "blotti au gîte",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "se terrer",
+        "ar-ta*â*a*a": "",
+    },  # 26
     "ar-krs": {
         "aa_sens": "mettre sur",
         "ar-**a*²a": "",
@@ -6413,6 +6489,7 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "combattre quelqu'un",
         "ar-*â*i*ũ": "meurtrier",
         "ar-a**a*a": "faire tuer",
+        "ar-a**â*ũ": "{{p}} combattants",
         "ar-ma**a*ũ": "cause de mort",
         "ar-ma**û*ũ": "tué",
         "ar-mu**a*@ũ": "Mort, meurtre",
@@ -6422,7 +6499,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'exposer à la mort",
         "ar-ta*a*²a*a": "s'appliquer",
         "ar-ta*â*a*a": "s'entre-combattre",
-    },  # 32
+    },  # 33
     "ar-qwm": {
         "aa_sens": "être debout",
         "ar-***ũ": "",
@@ -6481,7 +6558,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**@ũ": "boîte à parfum",
         "ar-*a**iy²ũ": "printanier",
-        "ar-*a**âtũ": "{{fplur}} petites chamelles de printemps",
+        "ar-*a**âtũ": "{{f}} {{p}} petites chamelles de printemps",
         "ar-*a**ũ": "résidence",
         "ar-*a*a*@ũ": "foyer",
         "ar-*a*a*a-a": "boire un jour sur quatre",
@@ -6827,7 +6904,7 @@ racines_schemes_arabes = {
         "ar-*a*âyi*u": "{{p}} muselières",
         "ar-*a*î*@ũ": "collier",
         "ar-*a*î*ũ": "ambassadeur",
-        "ar-*awâ*i*u": "{{fp}} dévoilées",
+        "ar-*awâ*i*u": "{{f}} {{p}} dévoilées",
         "ar-*i**ũ": "livre",
         "ar-*i*â*@ũ": "médiateur",
         "ar-*i*â*ũ": "muselière",
@@ -6995,7 +7072,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**ũ": "toit",
         "ar-*a*a*@ũ": "poisson",
-        "ar-*a*a*a-u": "s'élever",
+        "ar-*a*a*a-u": "s’élever",
         "ar-*a*a*ũ": "du poisson",
         "ar-*a*²a*a": "épaissir",
         "ar-*a*²â*ũ": "poissonnier",
@@ -7850,5 +7927,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 270
+}  # 274
 # END

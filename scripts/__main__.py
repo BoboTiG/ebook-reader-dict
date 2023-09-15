@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 import threading
@@ -47,26 +48,48 @@ def replace(file: str, data: str) -> bool:
     return True
 
 
-def process_script(script: str, file: str) -> None:
+def process_script(script: str, file: str, errors: dict[str, str]) -> None:
     """Process one script."""
-    data = subprocess.check_output(["python", f"scripts/{script}"], text=True)
+    try:
+        data = subprocess.check_output(["python", f"scripts/{script}"], text=True)
+    except subprocess.CalledProcessError as exc:
+        errors[script] = str(exc)
+        return
+
     if replace(file, data):
         print(f"Processed {script} with success.", flush=True)
-    else:
-        print(f" !! Error processing {script}", flush=True)
+        return
+
+    errors[script] = "Processing error"
+
+
+def set_output(errors: int) -> None:
+    """It is very specific to GitHub Actions."""
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"errors={errors}\n".encode())
 
 
 def main() -> int:
     """Entry point."""
     threads = []
+    errors: dict[str, str] = {}
 
     for script, file in sorted(FILES.items()):
-        th = threading.Thread(target=process_script, args=(script, file))
+        th = threading.Thread(target=process_script, args=(script, file, errors))
         th.start()
         threads.append(th)
 
     for th in threads:
         th.join()
+
+    set_output(len(errors))
+
+    if errors:
+        for script, error in errors.items():
+            print(f" !! {script}")
+            print(error)
+            print()
 
     print("\nFriendly reminder: run ./check.sh")
     return 0

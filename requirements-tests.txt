@@ -1,11 +1,11 @@
 -r requirements.txt
-black==23.3.0
+black==23.9.1
 coverage!=6.3.0
-flake8==6.0.0
+flake8==6.1.0
 isort==5.12.0
-mypy==1.4.1
-pytest==7.4.0
+mypy==1.5.1
+pytest==7.4.2
 pytest-cov==4.1.0 
 pytest-dependency==0.5.1
-responses==0.23.1
-types-requests==2.31.0.1
+responses==0.23.3
+types-requests==2.31.0.2

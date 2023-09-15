@@ -575,6 +575,7 @@ langs = {
     "kyj": "karao",
     "kyr": "kuruaya",
     "kyz": "kayabí",
+    "kzg": "kikai",
     "la": "latín",
     "la-lat": "latín tardío",
     "la-med": "latín medieval",
@@ -1203,7 +1204,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,198
+}  # 1,199
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",

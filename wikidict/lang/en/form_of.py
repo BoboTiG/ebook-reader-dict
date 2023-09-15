@@ -57,6 +57,10 @@ form_of_templates = {
         "text": "Alternative letter-case form of",
         "dot": False,
     },
+    "alt case of": {
+        "text": "Alternative letter-case form of",
+        "dot": False,
+    },
     "alternative form of": {
         "text": "Alternative form of",
         "dot": False,
@@ -233,14 +237,6 @@ form_of_templates = {
         "text": "Dated spelling of",
         "dot": True,
     },
-    "definite singular of": {
-        "text": "definite singular of",
-        "dot": False,
-    },
-    "definite plural of": {
-        "text": "definite plural of",
-        "dot": False,
-    },
     "deliberate misspelling of": {
         "text": "Deliberate misspelling of",
         "dot": True,
@@ -257,10 +253,6 @@ form_of_templates = {
         "text": "Diminutive of",
         "dot": False,
     },
-    "dual of": {
-        "text": "dual of",
-        "dot": False,
-    },
     "eclipsis of": {
         "text": "Eclipsed form of",
         "dot": True,
@@ -268,10 +260,6 @@ form_of_templates = {
     "eggcorn of": {
         "text": "Eggcorn of",
         "dot": True,
-    },
-    "elative of": {
-        "text": "elative degree of",
-        "dot": False,
     },
     "ellipsis of": {
         "text": "Ellipsis of",
@@ -287,10 +275,6 @@ form_of_templates = {
     },
     "endearing form of": {
         "text": "endearing form of",
-        "dot": False,
-    },
-    "equative of": {
-        "text": "equative degree of",
         "dot": False,
     },
     "euphemistic form of": {
@@ -353,10 +337,6 @@ form_of_templates = {
         "text": "frequentative of",
         "dot": False,
     },
-    "future participle of": {
-        "text": "future participle of",
-        "dot": False,
-    },
     "gerund of": {
         "text": "gerund of",
         "dot": False,
@@ -385,16 +365,8 @@ form_of_templates = {
         "text": "Honorific alternative letter-case form of",
         "dot": False,
     },
-    "imperative of": {
-        "text": "imperative of",
-        "dot": False,
-    },
     "imperfective form of": {
         "text": "imperfective form of",
-        "dot": False,
-    },
-    "indefinite plural of": {
-        "text": "indefinite plural of",
         "dot": False,
     },
     "inflection of": {
@@ -593,14 +565,6 @@ form_of_templates = {
         "text": "passive participle of",
         "dot": False,
     },
-    "passive past tense of": {
-        "text": "passive past of",
-        "dot": False,
-    },
-    "past active participle of": {
-        "text": "past active participle of",
-        "dot": False,
-    },
     "past participle form of": {
         "text": "of the past participle of",
         "dot": False,
@@ -609,20 +573,8 @@ form_of_templates = {
         "text": "past participle of",
         "dot": False,
     },
-    "past passive participle of": {
-        "text": "past passive participle of",
-        "dot": False,
-    },
-    "past tense of": {
-        "text": "past tense of",
-        "dot": False,
-    },
     "pejorative of": {
         "text": "Pejorative of",
-        "dot": False,
-    },
-    "perfect participle of": {
-        "text": "perfect participle of",
         "dot": False,
     },
     "perfective form of": {
@@ -637,16 +589,8 @@ form_of_templates = {
         "text": "plural of",
         "dot": False,
     },
-    "present active participle of": {
-        "text": "present active participle of",
-        "dot": False,
-    },
     "present participle of": {
         "text": "present participle of",
-        "dot": False,
-    },
-    "present tense of": {
-        "text": "present of",
         "dot": False,
     },
     "pronunciation spelling of": {
@@ -725,10 +669,6 @@ form_of_templates = {
         "text": "singular of",
         "dot": False,
     },
-    "singulative of": {
-        "text": "singulative of",
-        "dot": False,
-    },
     "slender form of": {
         "text": "slender form of",
         "dot": False,
@@ -753,20 +693,12 @@ form_of_templates = {
         "text": "Standard spelling of",
         "dot": True,
     },
-    "superlative attributive of": {
-        "text": "superlative degree (when used attributively) of",
-        "dot": False,
-    },
     "superlative of": {
         "text": "superlative degree of",
         "dot": False,
     },
     "supd of": {
         "text": "superlative degree of",
-        "dot": False,
-    },
-    "superlative predicative of": {
-        "text": "superlative (when used predicatively) of",
         "dot": False,
     },
     "superseded spelling of": {
@@ -776,10 +708,6 @@ form_of_templates = {
     "sup sp": {
         "text": "Superseded spelling of",
         "dot": True,
-    },
-    "supine of": {
-        "text": "supine of",
-        "dot": False,
     },
     "syncopic form of": {
         "text": "Syncopic form of",
@@ -825,7 +753,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 205
+}  # 187
 # END
 
 

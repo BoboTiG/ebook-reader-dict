@@ -80,6 +80,7 @@ escopos = {
     "Bélgica": "Bélgica",
     "CE": "Ceará",
     "Cabo Verde": "Cabo Verde",
+    "Caipira": "caipira",
     "Calabor": "Calabor",
     "Calendário": "cronônimo",
     "Calão": "obsceno",
@@ -118,6 +119,7 @@ escopos = {
     "DF": "Distrito Federal",
     "DR Congo": "República Democrática do Congo",
     "Depreciativo": "pejorativo",
+    "Design": "design",
     "Desporto": "desporto",
     "Desportos": "desporto",
     "Desuso": "em desuso",
@@ -222,6 +224,7 @@ escopos = {
     "Mato Grosso do Sul": "Mato Grosso do Sul",
     "Miguxês": "internetês",
     "Minas Gerais": "Minas Gerais",
+    "Mineralogia": "mineralogia",
     "Minho": "Minho",
     "Mitologia grega": "mitologia",
     "Mitologia romana": "mitologia",
@@ -376,10 +379,11 @@ escopos = {
     "alvanéis": "alvanéis",
     "canteiros": "canteiros",
     "cesteiros": "cesteiros",
+    "interior de São Paulo": "caipira",
     "músicos": "músicos",
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 376
+}  # 380
 # END

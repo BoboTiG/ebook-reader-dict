@@ -1,31 +1,29 @@
-# Italian Dictionary For Your eBook Reader
+# Dizionario Italiano per il vostro lettore di eBook
 
-> 🥇 That page needs to be translated to **Italian**. If you can give a hand, that would be awesome 🥰
+**eBook Reader Dictionaries** è un progetto comunitario che mira alla creazione di un dizionario completo e aggiornato quotidianamente sulla base del vasto database del [Wikizionario](https://it.wiktionary.org/).
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://it.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+## Caratteristiche Interessanti e Particolarità
 
-## Interesting Features
+- Qualora ad una parola siano associate diverse pronunce o generi, tutte le opzioni sono riportate.
+- Le formule matematiche sono convertite in formato SVG.
+- Le formule chimiche sono convertite in formato SVG.
+- I geroglifici sono supportati.
+- Le tabelle sono supportate.
 
-- If a word contains several pronunciations, or genders, all are available.
-- Mathematic formulas are converted to SVG.
-- Chemical formulas are converted to SVG.
-- Hieroglyphs are supported.
-- Tables are supported.
+## Download
 
-## Downloads
-
-### Full Version
+### Versione Completa
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dicthtml-it-it.zip) (dicthtml-it-it.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it.zip) (dict-it-it.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it.df.bz2) (dict-it-it.df.bz2)
 
-### Etymology-Free Version
+### Versione senza Etimologia
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dicthtml-it-it-noetym.zip) (dicthtml-it-it-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it-noetym.zip) (dict-it-it-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it-noetym.df.bz2) (dict-it-it-noetym.df.bz2)
 
-## Installation
+## Installazione
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Per utilizzare il dizionario appena scaricato, vi basterà copiarlo nella cartella ".kobo/custom-dict/" del vostro lettore eBook.
