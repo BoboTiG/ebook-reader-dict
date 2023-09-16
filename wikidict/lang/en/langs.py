@@ -3245,7 +3245,6 @@ langs = {
     "inc-hnd": "Hindustani",
     "inc-ins": "Insular Indo-Aryan",
     "inc-kam": "Kamarupi Prakrit",
-    "inc-kha": "Khasa Prakrit",
     "inc-kho": "Kholosi",
     "inc-khs": "Khasa Prakrit",
     "inc-mas": "Middle Assamese",
@@ -3272,7 +3271,6 @@ langs = {
     "inc-pmh": "Maharastri Prakrit",
     "inc-pra": "Prakrit",
     "inc-pro": "Proto-Indo-Aryan",
-    "inc-psc": "Paisaci Prakrit",
     "inc-pse": "Sauraseni Prakrit",
     "inc-psi": "Paisaci Prakrit",
     "inc-psu": "Sauraseni Prakrit",
@@ -9580,5 +9578,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,575
+}  # 9,573
 # END
