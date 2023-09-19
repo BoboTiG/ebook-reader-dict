@@ -2326,7 +2326,6 @@ langs = {
     "elm": "Eleme",
     "elo": "El Molo",
     "elu": "Elu",
-    "elu-prk": "Helu",
     "elx": "Elamite",
     "elx-ach": "Achaemenid Elamite",
     "elx-mid": "Middle Elamite",
@@ -6020,8 +6019,8 @@ langs = {
     "okv": "Orokaiva",
     "okx": "Okpe (Northwestern Edo)",
     "okz": "Old Khmer",
-    "okz-A": "Angkorian Old Khmer",
-    "okz-P": "Pre-Angkorian Old Khmer",
+    "okz-ang": "Angkorian Old Khmer",
+    "okz-pre": "Pre-Angkorian Old Khmer",
     "old": "Mochi",
     "ole": "Olekha",
     "olm": "Oloma",
@@ -7445,7 +7444,7 @@ langs = {
     "slf": "Swiss-Italian Sign Language",
     "slg": "Selungai Murut",
     "slh": "Southern Puget Sound Salish",
-    "sli": "Silesian German",
+    "sli": "Silesian East Central German",
     "slj": "Salumá",
     "sll": "Salt-Yui",
     "slm": "Pangutaran Sama",
@@ -7701,7 +7700,7 @@ langs = {
     "sxo": "Sorothaptic",
     "sxr": "Saaroa",
     "sxs": "Sasaru",
-    "sxu": "Upper Saxon",
+    "sxu": "Upper Saxon German",
     "sxw": "Saxwe Gbe",
     "sya": "Siang",
     "syb": "Central Subanen",
@@ -9579,5 +9578,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,574
+}  # 9,573
 # END
