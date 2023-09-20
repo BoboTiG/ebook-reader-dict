@@ -9020,6 +9020,7 @@ langs = {
     "xnk": "Nganakarti",
     "xnn": "Northern Kankanay",
     "xno": "Anglo-Norman",
+    "xno-law": "Law French",
     "xnr": "Kangri",
     "xns": "Kanashi",
     "xnt": "Narragansett",
@@ -9578,5 +9579,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,573
+}  # 9,574
 # END
