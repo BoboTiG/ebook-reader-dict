@@ -2254,6 +2254,9 @@ langs = {
     "duy": "Dicamay Agta",
     "duz": "Duli",
     "dv": "Dhivehi",
+    "dv-add": "Addu Dhivehi",
+    "dv-huv": "Huvadhu Dhivehi",
+    "dv-mul": "Mulaku Dhivehi",
     "dva": "Duau",
     "dwa": "Diri",
     "dwr": "Dawro",
@@ -6124,8 +6127,8 @@ langs = {
     "orx": "Oro",
     "orz": "Ormu",
     "os": "Ossetian",
-    "os-dig": "Digor",
-    "os-iro": "Iron",
+    "os-dig": "Digor Ossetian",
+    "os-iro": "Iron Ossetian",
     "os-pro": "Proto-Ossetic",
     "osa": "Osage",
     "osc": "Oscan",
@@ -9579,5 +9582,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,574
+}  # 9,577
 # END
