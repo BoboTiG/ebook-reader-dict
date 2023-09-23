@@ -844,6 +844,8 @@ def last_template_handler(
         'chacun'
         >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
         'animal'
+        >>> last_template_handler(["fr-accord-oin", "pron=sɑ̃.ta.lw"], "fr", word="santaloines")
+        'santaloine'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
         'aïeul'
         >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
@@ -1048,7 +1050,7 @@ def last_template_handler(
         if not (singular := data["s"] or data["m"] or data["ms"]):
             singular = (
                 word.rstrip("s")
-                if len(parts) == 1
+                if len(parts) < 2
                 else f"{parts[0]}{tpl.split('-')[-1]}"
             )
         if data["inv"]:
@@ -1092,6 +1094,7 @@ def last_template_handler(
         from .racines_arabes import racines_schemes_arabes
 
         return f"{arabiser(parts[0].split('-')[1])}: {racines_schemes_arabes[parts[0]]['aa_sens']}"
+
     if tpl == "ar-sch":
         return arabiser(appliquer(parts[0], parts[1] if len(parts) > 1 else "ar-zrzr"))
 
