@@ -840,7 +840,11 @@ def last_template_handler(
         'malheureux'
         >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
         'putatif'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinnes")
+        'mallouin'
         >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouins")
+        'mallouin'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinne")
         'mallouin'
         >>> last_template_handler(["fr-accord-ind", "m=chacun", "pm=ʃa.kœ̃", "pf=ʃa.kyn"], "fr", word="chacune")
         'chacun'
@@ -1055,6 +1059,8 @@ def last_template_handler(
                 if len(parts) < 2
                 else f"{parts[0]}{tpl.split('-')[-1]}"
             )
+            if tpl == "fr-accord-in" and singular == word.rstrip("s"):
+                singular = singular.removesuffix("ne" if data["deux_n"] else "e")
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
