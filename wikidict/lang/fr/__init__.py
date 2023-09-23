@@ -537,7 +537,9 @@ templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{fr-accord-comp|aigre|doux|...}
-    "fr-accord-comp": 'f"{parts[1]} {parts[2]}"',
+    "fr-accord-comp": 'f"{parts[1]}-{parts[2]}"',
+    # {{fr-accord-comp-mf|eau|de-vie|...}
+    "fr-accord-comp-mf": 'f"{parts[1]}-{parts[2]}"',
     # {{fr-accord-oux|d|d}}
     "fr-accord-oux": "parts[1] + 'oux'",
     # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
