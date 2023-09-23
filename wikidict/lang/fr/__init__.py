@@ -841,6 +841,8 @@ def last_template_handler(
         >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
         '<i>(Au passif)</i>'
 
+        >>> last_template_handler(["fr-accord-ain", "a.me.ʁi.k"], "fr", word="américain")
+        'américain'
         >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
         'chameau de Bactriane'
         >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
@@ -853,6 +855,8 @@ def last_template_handler(
         'coquet'
         >>> last_template_handler(["fr-accord-eux", "malheur", "ma.lœ.ʁ"], "fr")
         'malheureux'
+        >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
+        'putatif'
         >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
         'animal'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
@@ -1048,16 +1052,16 @@ def last_template_handler(
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
 
-    if tpl.startswith(("fr-accord-", "fr-rég")):
-        singular = data["s"] or data["ms"]
-        if tpl == "fr-accord-eau":
-            singular = f"{parts[0]}eau"
-        elif tpl == "fr-accord-eux":
-            singular = f"{parts[0]}eux"
-        elif tpl == "fr-accord-mf-al":
-            singular = f"{parts[0]}al"
-        elif not singular:
+    if tpl.startswith(("fr-accord-rég", "fr-rég")):
+        if not (singular := data["s"] or data["ms"]):
             singular = word.rstrip("s")
+        if data["inv"]:
+            singular += f" {data['inv']}"
+        return singular
+
+    if tpl.startswith("fr-accord-"):
+        if not (singular := data["s"] or data["ms"]):
+            singular = word if len(parts) == 1 else f"{parts[0]}{tpl.split('-')[-1]}"
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
