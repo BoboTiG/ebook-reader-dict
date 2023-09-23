@@ -25,7 +25,6 @@ from .lang import (
     sublist_patterns,
     variant_templates,
     variant_titles,
-    words_to_keep,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
 from .utils import process_templates, table2html, uniq
@@ -110,7 +109,7 @@ def find_section_definitions(
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
-                if word not in words_to_keep[locale] and any(
+                if any(
                     ignore_me in code.lower()
                     for ignore_me in definitions_to_ignore[locale]
                 ):

@@ -9,7 +9,7 @@ import pytest
 from wikidict import convert
 from wikidict.stubs import Word
 
-EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 41
+EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
 Fichiers disponibles :
@@ -92,6 +92,7 @@ def test_simple() -> None:
             "ac.html",
             "au.html",
             "ba.html",
+            "ch.html",
             "co.html",
             "de.html",
             "du.html",

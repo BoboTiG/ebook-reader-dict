@@ -97,6 +97,8 @@ sections = (
     "{{S|préfixe|fr}",
     "{{S|préposition|fr|",
     "{{S|préposition|fr}",
+    "{{S|pronom indéfini|fr}",
+    "{{S|pronom indéfini|fr|",
     "{{S|substantif|fr}",
     "{{S|suffixe|conv",
     "{{S|suffixe|fr|",
@@ -116,6 +118,7 @@ sections = (
 variant_titles = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|flexion",
+    "{{S|pronom indéfini|fr|flexion",
     "{{S|nom|fr|flexion",
     "{{S|verbe|fr|flexion",
 )
@@ -127,7 +130,6 @@ variant_templates = (
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
-    "pluriel d",
     "habitante",
     "masculin pluriel",
     "féminin pluriel",
@@ -135,6 +137,7 @@ definitions_to_ignore = (
     "féminin singulier",
     "masculin et féminin pluriel",
     "masculin ou féminin pluriel",
+    "pluriel d",
     "pluriel habituel",
     "pluriel inhabituel",
     "''pluriel''",
@@ -154,28 +157,6 @@ definitions_to_ignore = (
     "{ébauche-trad-exe",
     "{ébauche-trans",
     "{ébauche2-exe",
-)
-
-# Malgré tout, même si une définition est sur le point d'être ignorée (via definitions_to_ignore),
-# alors ces mots seront tout de même conservés.
-# https://fr.wikipedia.org/wiki/Pluriels_irr%C3%A9guliers_en_fran%C3%A7ais
-words_to_keep = (
-    "aspiraux",  # pluriel irrégulier
-    "aulx",  # pluriel irrégulier
-    "baux",  # pluriel irrégulier
-    "cieux",  # pluriel irrégulier
-    "cris",  # "Cris" aura la priorité sinon
-    "coraux",  # pluriel irrégulier
-    "ducaux",  # pluriel irrégulier
-    "émaux",  # pluriel irrégulier
-    "fermaux",  # pluriel irrégulier
-    "gemmaux",  # pluriel irrégulier
-    "soupiraux",  # pluriel irrégulier
-    "travaux",  # pluriel irrégulier
-    "vantaux",  # pluriel irrégulier
-    "ventaux",  # pluriel irrégulier
-    "vitraux",  # pluriel irrégulier
-    "yeux",  # pluriel irrégulier
 )
 
 # Modèle à ignorer : le texte sera supprimé.
@@ -556,7 +537,9 @@ templates_multi = {
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{fr-accord-comp|aigre|doux|...}
-    "fr-accord-comp": 'f"{parts[1]} {parts[2]}"',
+    "fr-accord-comp": 'f"{parts[1]}-{parts[2]}"',
+    # {{fr-accord-comp-mf|eau|de-vie|...}
+    "fr-accord-comp-mf": 'f"{parts[1]}-{parts[2]}"',
     # {{fr-accord-oux|d|d}}
     "fr-accord-oux": "parts[1] + 'oux'",
     # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
@@ -841,6 +824,8 @@ def last_template_handler(
         >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
         '<i>(Au passif)</i>'
 
+        >>> last_template_handler(["fr-accord-ain", "a.me.ʁi.k"], "fr", word="américain")
+        'américain'
         >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
         'chameau de Bactriane'
         >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
@@ -853,8 +838,20 @@ def last_template_handler(
         'coquet'
         >>> last_template_handler(["fr-accord-eux", "malheur", "ma.lœ.ʁ"], "fr")
         'malheureux'
+        >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
+        'putatif'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinnes")
+        'mallouin'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouins")
+        'mallouin'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinne")
+        'mallouin'
+        >>> last_template_handler(["fr-accord-ind", "m=chacun", "pm=ʃa.kœ̃", "pf=ʃa.kyn"], "fr", word="chacune")
+        'chacun'
         >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
         'animal'
+        >>> last_template_handler(["fr-accord-oin", "pron=sɑ̃.ta.lw"], "fr", word="santaloines")
+        'santaloine'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
         'aïeul'
         >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
@@ -1048,16 +1045,22 @@ def last_template_handler(
     if tpl == "fr-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
 
-    if tpl.startswith(("fr-accord-", "fr-rég")):
-        singular = data["s"] or data["ms"]
-        if tpl == "fr-accord-eau":
-            singular = f"{parts[0]}eau"
-        elif tpl == "fr-accord-eux":
-            singular = f"{parts[0]}eux"
-        elif tpl == "fr-accord-mf-al":
-            singular = f"{parts[0]}al"
-        elif not singular:
+    if tpl.startswith(("fr-accord-rég", "fr-rég")):
+        if not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s")
+        if data["inv"]:
+            singular += f" {data['inv']}"
+        return singular
+
+    if tpl.startswith("fr-accord-"):
+        if not (singular := data["s"] or data["m"] or data["ms"]):
+            singular = (
+                word.rstrip("s")
+                if len(parts) < 2
+                else f"{parts[0]}{tpl.split('-')[-1]}"
+            )
+            if tpl == "fr-accord-in" and singular == word.rstrip("s"):
+                singular = singular.removesuffix("ne" if data["deux_n"] else "e")
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
@@ -1099,6 +1102,7 @@ def last_template_handler(
         from .racines_arabes import racines_schemes_arabes
 
         return f"{arabiser(parts[0].split('-')[1])}: {racines_schemes_arabes[parts[0]]['aa_sens']}"
+
     if tpl == "ar-sch":
         return arabiser(appliquer(parts[0], parts[1] if len(parts) > 1 else "ar-zrzr"))
 
