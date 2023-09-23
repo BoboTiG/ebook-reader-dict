@@ -177,6 +177,14 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "chacune",
+            ["\\ʃa.kyn\\"],
+            ["s"],
+            [],
+            [],
+            ["chacun"],
+        ),
+        (
             "colligeait",
             ["\\kɔ.li.ʒɛ\\"],
             [],

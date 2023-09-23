@@ -97,6 +97,8 @@ sections = (
     "{{S|préfixe|fr}",
     "{{S|préposition|fr|",
     "{{S|préposition|fr}",
+    "{{S|pronom indéfini|fr}",
+    "{{S|pronom indéfini|fr|",
     "{{S|substantif|fr}",
     "{{S|suffixe|conv",
     "{{S|suffixe|fr|",
@@ -116,6 +118,7 @@ sections = (
 variant_titles = (
     "{{S|adjectif|fr}",
     "{{S|adjectif|fr|flexion",
+    "{{S|pronom indéfini|fr|flexion",
     "{{S|nom|fr|flexion",
     "{{S|verbe|fr|flexion",
 )
@@ -835,6 +838,10 @@ def last_template_handler(
         'malheureux'
         >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
         'putatif'
+        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouins")
+        'mallouin'
+        >>> last_template_handler(["fr-accord-ind", "m=chacun", "pm=ʃa.kœ̃", "pf=ʃa.kyn"], "fr", word="chacune")
+        'chacun'
         >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
         'animal'
         >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
@@ -1031,15 +1038,19 @@ def last_template_handler(
         return data.get("1", parts[0] if parts else "")
 
     if tpl.startswith(("fr-accord-rég", "fr-rég")):
-        if not (singular := data["s"] or data["ms"]):
+        if not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s")
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
 
     if tpl.startswith("fr-accord-"):
-        if not (singular := data["s"] or data["ms"]):
-            singular = word if len(parts) == 1 else f"{parts[0]}{tpl.split('-')[-1]}"
+        if not (singular := data["s"] or data["m"] or data["ms"]):
+            singular = (
+                word.rstrip("s")
+                if len(parts) == 1
+                else f"{parts[0]}{tpl.split('-')[-1]}"
+            )
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
