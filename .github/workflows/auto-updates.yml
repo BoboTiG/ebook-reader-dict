@@ -89,7 +89,7 @@ jobs:
       - name: Generate the release description
         run: python -Wd -m wikidict ${{ matrix.locale }} --release > release.txt
 
-      - name: Upload release data
+      - name: Upload release assets
         if: github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v1
         with:
@@ -99,3 +99,6 @@ jobs:
             data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+
+      - name: Craft release assets checksums
+        uses: wangzuo/action-release-checksums@v1
