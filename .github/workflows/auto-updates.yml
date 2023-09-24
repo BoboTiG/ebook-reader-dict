@@ -97,5 +97,8 @@ jobs:
           body_path: release.txt
           files: |
             data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2.sha256
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
