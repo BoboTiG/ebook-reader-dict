@@ -89,7 +89,6 @@ langs = {
     "ada": "Adangme",
     "adb": "Adabe",
     "add": "Dzodinka",
-    "add-dv": "Addu Dhivehi",
     "ade": "Adele",
     "adf": "Dhofari Arabic",
     "adg": "Andegerebinha",
@@ -2016,7 +2015,7 @@ langs = {
     "de": "German",
     "de-AT": "Austrian German",
     "de-AT-vie": "Viennese German",
-    "de-CH": "Swiss High German",
+    "de-CH": "Switzerland German",
     "dec": "Dagik",
     "ded": "Dedua",
     "dee": "Dewoin",
@@ -3121,7 +3120,6 @@ langs = {
     "huy": "Hulaulá",
     "huz": "Hunzib",
     "hvc": "Haitian Vodoun Culture Language",
-    "hvd-dv": "Huvadhu Dhivehi",
     "hvk": "Haveke",
     "hvn": "Sabu",
     "hwa": "Wané",
@@ -4881,7 +4879,6 @@ langs = {
     "mli": "Malimpung",
     "mlj": "Miltu",
     "mlk": "Ilwana",
-    "mlk-dv": "Mulaku Dhivehi",
     "mll": "Malua Bay",
     "mlm": "Mulam",
     "mln": "Malango",
@@ -9582,5 +9579,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,577
+}  # 9,574
 # END
