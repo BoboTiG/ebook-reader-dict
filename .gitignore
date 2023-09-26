@@ -1,4 +1,5 @@
 # Project stuff
+*.sha256
 *.bz2
 *.df
 *.json
