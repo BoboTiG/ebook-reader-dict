@@ -730,6 +730,11 @@ recognized_placetypes = {
         "display": "greater administrative region",
         "preposition": "of",
     },
+    "gromada": {
+        "article": "a",
+        "display": "gromada",
+        "preposition": "of",
+    },
     "group of islands": {
         "article": "a",
         "display": "group of islands",
@@ -2055,7 +2060,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 410
+}  # 411
 
 placetypes_aliases = {
     "CDP": "census-designated place",
