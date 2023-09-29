@@ -54,10 +54,16 @@ abk = {
     "haben": "Hilfsverb haben",
     "hebben": "Hilfsverb »hebben«",
     "hist.": "historisch",
+    "i. e. S.": "im engeren Sinne",
+    "i. w. S.": "im weiteren Sinne",
+    "i.e.S.": "im engeren Sinne",
+    "i.w.S.": "im weiteren Sinne",
     "iPl": "im Plural",
+    "ieS": "im engeren Sinne",
     "indekl.": "indeklinabel",
     "intrans.": "intransitiv",
     "iron.": "ironisch",
+    "iwS": "im weiteren Sinne",
     "jugendspr.": "jugendsprachlich",
     "kPl.": "kein Plural",
     "kSg.": "kein Singular",
@@ -130,5 +136,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 125
+}  # 131
 # END
