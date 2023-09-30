@@ -5755,6 +5755,29 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 20
+    "ar-nCw": {
+        "aa_sens": "sentir une odeur",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "odeur frappante",
+        "ar-*a**ânu": "étourdi de vin",
+        "ar-*a**ũ": "légère ivresse",
+        "ar-*a*a*@ũ": "ébriété",
+        "ar-*a*a*a-i": "sentir une odeur",
+        "ar-*a*a*a-u": "être un peu ivre",
+        "ar-*a*a*ũ": "amidon",
+        "ar-*a*i*iy²@ũ": "odeur frappante",
+        "ar-*a*²a*a": "amidonner",
+        "ar-*i**@ũ": "ressentir une odeur",
+        "ar-*ta*a*a": "ressentir une odeur",
+        "ar-*u**@ũ": "ressentir une odeur",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "distinguer une odeur",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "ressentir une odeur",
+        "ar-ta*a*²a*a": "ressentir une odeur",
+        "ar-ta*â*a*a": "ressentir une odeur",
+    },  # 21
     "ar-nSf": {
         "aa_sens": "moitié, juste milieu",
         "ar-***ũ": "",
@@ -7932,5 +7955,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 274
+}  # 275
 # END

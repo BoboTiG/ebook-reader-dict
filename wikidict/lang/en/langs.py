@@ -6367,6 +6367,7 @@ langs = {
     "pla": "Miani",
     "plb": "Polonombauk",
     "plc": "Central Palawano",
+    "pld": "Polari",
     "ple": "Palu'e",
     "plg": "Pilagá",
     "plh": "Paulohi",
@@ -9579,5 +9580,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,574
+}  # 9,575
 # END

@@ -1121,6 +1121,7 @@ langs = {
     "wof": "wolof gambiano",
     "wrh": "wiradhuri",
     "wrz": "waray",
+    "wuh": "wutunhua",
     "wuu": "wu",
     "wya": "hurón",
     "wym": "vilamoviciano",
@@ -1196,6 +1197,7 @@ langs = {
     "znd": "zande",
     "zoc": "zoque chiapaneco",
     "zoh": "zoque de Chimalapa",
+    "zom": "Zou",
     "zoq": "ayapaneco",
     "zpq": "zapoteco de Zoogocho",
     "zpu": "zapoteco de Yalálag",
@@ -1205,7 +1207,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,200
+}  # 1,202
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
