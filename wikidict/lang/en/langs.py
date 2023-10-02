@@ -2348,11 +2348,20 @@ langs = {
     "emx": "Erromintxela",
     "emy": "Epigraphic Mayan",
     "en": "English",
+    "en-AU": "Australian English",
     "en-CA": "Canadian English",
     "en-GB": "British English",
+    "en-GB-NIR": "Northern Irish English",
+    "en-GB-SCT": "Scottish English",
+    "en-GB-WLS": "Welsh English",
     "en-HK": "Hong Kong English",
+    "en-IE": "Irish English",
+    "en-IM": "Manx English",
+    "en-NNN": "North American English",
     "en-US": "American English",
+    "en-US-CA": "California English",
     "en-geo": "Geordie English",
+    "en-uls": "Ulster English",
     "ena": "Apali",
     "enb": "Markweeta",
     "enc": "En",
@@ -9580,5 +9589,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,575
+}  # 9,584
 # END

@@ -1007,6 +1007,7 @@ langs = {
     "szl": "silesiano",
     "ta": "tamil",
     "tac": "tarahumara del oeste",
+    "tai": "prototai",
     "taq": "tamasheq",
     "tar": "tarahumara central",
     "tcf": "tlapaneco de Malinaltepec",
@@ -1207,7 +1208,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,202
+}  # 1,203
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
