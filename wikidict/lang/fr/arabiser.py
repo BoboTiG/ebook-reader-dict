@@ -651,7 +651,7 @@ def est_voyelle(char: str) -> bool:  # pragma: no cover
     return char in "aeiuâîûãĩũ@ñõ"
 
 
-def nature(scheme: str, position: int) -> str:  # pragma: no cover
+def nature(scheme: str, position: int) -> str:    # pragma: no cover
     """
     Renvoit la nature de la lettre du schème=scheme située à la position=position (retranscrit par `char` ici).
     Ce peut être :
@@ -686,11 +686,7 @@ def nature(scheme: str, position: int) -> str:  # pragma: no cover
         if not scheme[position + 2]:
             # voyelle courte + consonne finale donc fermée
             return "vf"
-        if est_voyelle(scheme[position + 2]):
-            # voyelle courte + consonne + voyelle donc ouverte
-            return "vo"
-        return "vf"
-
+        return "vo" if est_voyelle(scheme[position + 2]) else "vf"
     # cas consonne
     if not scheme[position + 1]:
         # la consonne est la dernière lettre, donc finale fermée
