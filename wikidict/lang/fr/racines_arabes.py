@@ -1449,6 +1449,35 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
         "ar-u**û*@ũ": "fesse postiche",
     },  # 20
+    "ar-Dmr": {
+        "aa_sens": "mince",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "idée",
+        "ar-*a**ũ": "mince",
+        "ar-*a*a*a-u": "être mince",
+        "ar-*a*u*a": "être mince",
+        "ar-*a*²a*a": "dresser un cheval",
+        "ar-*a*²ay*é": "melon",
+        "ar-*a*î*ũ": "latent",
+        "ar-*aw*a*ânũ": "stoechas",
+        "ar-*i*â*ũ": "incertain",
+        "ar-*ta*a*a": "maigrir",
+        "ar-*u**ũ": "absence de ventre",
+        "ar-*u*û*ũ": "être mince",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "mince",
+        "ar-a**a*a": "cacher",
+        "ar-ma**a*ũ": "caché",
+        "ar-mi**â*ũ": "hyppodrome",
+        "ar-mu**a*@ũ": "arcanes",
+        "ar-mu*Ta*i*ũ": "mince",
+        "ar-mun*a*i*ũ": "fané",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "maigrir",
+        "ar-ta*â*a*a": "",
+    },  # 27
     "ar-F3b": {
         "aa_sens": "faire couler",
         "ar-***ũ": "",
@@ -2491,6 +2520,17 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "goûter, savourer",
         "ar-ta*â*a*a": "se béqueter",
     },  # 31
+    "ar-THlb": {
+        "aa_sens": "algue",
+        "ar-*a**a*@ũ": "être couvert de mousse",
+        "ar-*a**a*a": "être couvert de mousse",
+        "ar-*a**a*ũ": "algue",
+        "ar-*i**i*@ũ": "poil",
+        "ar-*i**i*ũ": "algue, poils",
+        "ar-*u**u*ũ": "algue",
+        "ar-mu*a**a*ũ": "couvert de mousse",
+        "ar-mu*a**i*ũ": "couvert de mousse",
+    },  # 9
     "ar-Thr": {
         "aa_sens": "pureté",
         "ar-**a*²a": "",
@@ -7955,5 +7995,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 275
+}  # 277
 # END

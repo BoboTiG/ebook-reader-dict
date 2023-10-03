@@ -155,6 +155,7 @@ langs = {
     "bua": "buriato",
     "bug": "buguinés",
     "bvb": "bubi",
+    "bvi": "Baybay",
     "bwu": "buli",
     "byf": "beté",
     "byn": "bilín",
@@ -482,6 +483,7 @@ langs = {
     "jao": "yanyuwa",
     "jbo": "lojban",
     "jiv": "jíbaro",
+    "jje": "jeju",
     "jpr": "judeopersa",
     "jqr": "jacaru",
     "jrb": "judeoárabe",
@@ -1208,7 +1210,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,203
+}  # 1,205
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
