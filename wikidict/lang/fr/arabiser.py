@@ -2,8 +2,8 @@
 Arabiser: manual conversion of Module:arabe from
 https://fr.wiktionary.org/wiki/Module:arabe
 
-Current version: 3 janvier 2023 15:21
-    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=31275068
+Current version: 25 août 2023 11:50
+    https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=32695780
 
 """
 import unicodedata
@@ -529,7 +529,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     if apres == "'" or apres == "²":
                         apres = texte[curseur + 2]
 
-                    # derrière un i, support ya
+                    # derrière un i, support ya sans point
                     if avant == "i" or avant == "î" or avant == "I" or avant == "y":
                         transcription += en_arabe["ì"]
                     # derrière un waw, hamza en ligne
@@ -919,7 +919,6 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         and racine[1] not in {"*", ".", "?"}  # "lettres" bidon dans les modèles
         and position3
         > -1  # si un petit malin propose un schème sans position 3 en redoublant la 2...
-        and scheme not in {"1a2aµũ", "1a2aµ@ũ"}  # exception : doit rester intact.
     ):
         # on est dans un cas "sourd"
         position2 = scheme.find("2")
@@ -929,7 +928,11 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
             nature2 = nature(scheme, position2)
 
             # initiale d'une syllabe ouverte, donc 2 porte une voyelle courte et 3 une voyelle.
-            if nature2 == "io":
+            # contraction sur les verbes (var~=""), formes verbales, ou sur les noms (var=="") dont l'infixe n'est pas de la forme *v*v* (voyelle courte avant la deuxième radicale). # noqa
+            # le cas des noms n'est pas très clair, mais on constate que les **v* sont contractés, et certains *v*v* ne le sont pas, on suppose que ce qui apparaissent contractés sont des *v** d'origine (?) # noqa
+            if nature2 == "io" and (
+                var != "" or var == "" and scheme[position2 - 1] not in "aiu"
+            ):
                 if est_voyelle(
                     scheme[position2 - 1]
                 ):  # ie, la première radicale est vocalisée
@@ -989,7 +992,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
 
     # Inversement, les verbes où la troisième radicale est redoublée dans le schème doivent se
     # conjuguer comme des sourds
-    # ie, si le schème contient un µµ ou un µ² il faut séparer les deux, et boucher le trou avec un "a".
+    # ie, si le schème contient un µµ ou un µ² devant une consonne il faut séparer les deux, et boucher le trou avec un "a" pour ne pas avoir trois consonnes d'affilée. # noqa
     if scheme.find("µµ") > -1 or scheme.find("µ²") > -1:
         scheme = sub(r"µ²", "µµ", scheme, count=1)  # homogénéisation des cas
         position3 = scheme.find("µµ")
