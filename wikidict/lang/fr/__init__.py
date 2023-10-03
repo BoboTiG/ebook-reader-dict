@@ -1087,12 +1087,16 @@ def last_template_handler(
             f"ici, «&nbsp;{data['ici']}&nbsp;»"
             if data["ici"]
             else f"«&nbsp;{clean(racines_schemes_arabes[parts[1]][parts[0]])}&nbsp;»"
+            if parts[1] in racines_schemes_arabes
+            and parts[0] in racines_schemes_arabes[parts[1]]
+            else ""
         )
+        sens = f"({sens})" if sens else ""
 
         return (
             f'<span style="line-height: 0px;"><span style="font-size:larger">{w}</span></span>'
             f" <small>({scheme})</small>"
-            f" ({sens})"
+            f" {sens}"
         )
 
     if tpl == "ar-mot":

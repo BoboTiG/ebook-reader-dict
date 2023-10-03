@@ -21,7 +21,7 @@ def get_content(
             retry += 1
         except RequestException as err:
             resp = err.response
-            if resp.status_code == 404:
+            if resp and resp.status_code == 404:
                 return ""
             wait_time = 1
             if resp is not None and resp.status_code == 429:
