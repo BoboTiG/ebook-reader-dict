@@ -932,6 +932,10 @@ def last_template_handler(
         '<span style="line-height: 0px;"><span style="font-size:larger">سُورَةٌ</span></span> <small>(sûr@ũ)</small> («&nbsp;rang, sourate&nbsp;»)'
         >>> last_template_handler(["ar-cf", "ar-*â*a*a", "ar-ktb"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">كَاتَبَ</span></span> <small>(kâtaba)</small> («&nbsp;entretenir une correspondance&nbsp;»)'
+        >>> last_template_handler(["ar-cf", "ar-*a*aba", "ar-c3b"], "fr")
+        '<span style="line-height: 0px;"><span style="font-size:larger">شَعَبَ</span></span> <small>(ca3aba)</small>'
+        >>> last_template_handler(["ar-cf", "ar-*i*a*ũ", "ar-jnn"], "fr")
+        '<span style="line-height: 0px;"><span style="font-size:larger">جِنَنٌ</span></span> <small>(jinanũ)</small>'
 
         >>> last_template_handler(["ar-mot", "elHasan_"], "fr")
         '<span style="line-height: 0px;"><span style="font-size:larger">الحَسَن</span></span> <small>(elHasan_)</small>'
@@ -1091,12 +1095,12 @@ def last_template_handler(
             and parts[0] in racines_schemes_arabes[parts[1]]
             else ""
         )
-        sens = f"({sens})" if sens else ""
+        sens = f" ({sens})" if sens else ""
 
         return (
             f'<span style="line-height: 0px;"><span style="font-size:larger">{w}</span></span>'
             f" <small>({scheme})</small>"
-            f" {sens}"
+            f"{sens}"
         )
 
     if tpl == "ar-mot":
