@@ -9489,6 +9489,7 @@ langs = {
     "zlw-mpl": "Middle Polish",
     "zlw-ocs": "Old Czech",
     "zlw-opl": "Old Polish",
+    "zlw-osk": "Old Slovak",
     "zlw-pom": "Pomeranian",
     "zlw-pom-pro": "Proto-Pomeranian",
     "zlw-slv": "Slovincian",
@@ -9589,5 +9590,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,584
+}  # 9,585
 # END

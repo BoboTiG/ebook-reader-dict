@@ -1450,7 +1450,7 @@ racines_schemes_arabes = {
         "ar-u**û*@ũ": "fesse postiche",
     },  # 20
     "ar-Dmr": {
-        "aa_sens": "mince",
+        "aa_sens": "caché",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "idée",

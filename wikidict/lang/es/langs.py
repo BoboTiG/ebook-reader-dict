@@ -31,6 +31,7 @@ langs = {
     "ain": "ainu",
     "aio": "aiton",
     "ait": "arikem",
+    "ajp": "árabe levantino meridional",
     "ak": "acano",
     "akk": "acadio",
     "ako": "akurio",
@@ -485,6 +486,7 @@ langs = {
     "jiv": "jíbaro",
     "jje": "jeju",
     "jpr": "judeopersa",
+    "jpx": "protojapónico",
     "jqr": "jacaru",
     "jrb": "judeoárabe",
     "jup": "judpa",
@@ -1210,7 +1212,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,205
+}  # 1,207
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
