@@ -8,4 +8,4 @@ pytest==7.4.2
 pytest-cov==4.1.0 
 pytest-dependency==0.5.1
 responses==0.23.3
-types-requests==2.31.0.7
+types-requests==2.31.0.8
