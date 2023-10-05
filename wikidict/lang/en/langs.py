@@ -2741,6 +2741,7 @@ langs = {
     "gmq-jmk": "Jamtish",
     "gmq-mno": "Middle Norwegian",
     "gmq-oda": "Old Danish",
+    "gmq-ogt": "Old Gutnish",
     "gmq-osw": "Old Swedish",
     "gmq-osw-lat": "Late Old Swedish",
     "gmq-pro": "Proto-Norse",
@@ -5775,7 +5776,6 @@ langs = {
     "nom": "Nocamán",
     "non": "Old Norse",
     "non-oen": "Old East Norse",
-    "non-ogt": "Old Gutnish",
     "non-own": "Old West Norse",
     "nop": "Numanggang",
     "noq": "Ngongo",
@@ -8271,6 +8271,7 @@ langs = {
     "tvx": "Taivoan",
     "tvy": "Timor Pidgin",
     "tw": "Twi Akan",
+    "tw-abr": "Bono Twi",
     "tw-aku": "Akuapem Twi",
     "tw-asa": "Asante Twi",
     "twa": "Twana",
@@ -9590,5 +9591,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,585
+}  # 9,586
 # END

@@ -1450,20 +1450,21 @@ racines_schemes_arabes = {
         "ar-u**û*@ũ": "fesse postiche",
     },  # 20
     "ar-Dmr": {
-        "aa_sens": "caché",
+        "aa_sens": "mince, caché",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "idée",
         "ar-*a**ũ": "mince",
         "ar-*a*a*a-u": "être mince",
         "ar-*a*u*a": "être mince",
-        "ar-*a*²a*a": "dresser un cheval",
+        "ar-*a*²a*a": "émacier",
         "ar-*a*²ay*é": "melon",
         "ar-*a*î*ũ": "latent",
         "ar-*aw*a*ânũ": "stoechas",
         "ar-*i*â*ũ": "incertain",
         "ar-*ta*a*a": "maigrir",
         "ar-*u**ũ": "absence de ventre",
+        "ar-*u*u*ũ": "absence de ventre",
         "ar-*u*û*ũ": "être mince",
         "ar-*â*a*a": "",
         "ar-*â*i*ũ": "mince",
@@ -1473,11 +1474,11 @@ racines_schemes_arabes = {
         "ar-mu**a*@ũ": "arcanes",
         "ar-mu*Ta*i*ũ": "mince",
         "ar-mun*a*i*ũ": "fané",
-        "ar-n*a*a*a": "",
+        "ar-n*a*a*a": "se dessécher",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "maigrir",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-F3b": {
         "aa_sens": "faire couler",
         "ar-***ũ": "",
