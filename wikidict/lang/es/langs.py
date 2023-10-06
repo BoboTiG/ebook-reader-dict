@@ -17,6 +17,7 @@ langs = {
     "ace": "achenés",
     "ach": "acholi",
     "acv": "achumawi",
+    "acw": "árabe hiyazí",
     "acy": "árabe chipriota",
     "ada": "adangme",
     "adw": "amundava",
@@ -470,6 +471,7 @@ langs = {
     "it": "italiano",
     "itc": "protoitálico",
     "itc-ola": "latín antiguo",
+    "itc-pro": "protoitálico",
     "ite": "itene",
     "itk": "judeoitaliano",
     "itz": "Itzá",
@@ -867,6 +869,7 @@ langs = {
     "prq": "ashéninca",
     "prs": "persa oriental",
     "ps": "pastún",
+    "psu": "śauraseni",
     "pt": "portugués",
     "pua": "purépecha",
     "pue": "puelche",
@@ -1212,7 +1215,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,207
+}  # 1,210
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
