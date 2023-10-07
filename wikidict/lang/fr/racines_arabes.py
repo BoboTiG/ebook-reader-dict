@@ -1459,6 +1459,7 @@ racines_schemes_arabes = {
         "ar-*a*a*a-u": "être mince",
         "ar-*a*u*a": "être mince",
         "ar-*a*²a*a": "émacier",
+        "ar-*a*âyi*u": "{{p}} latents",
         "ar-*a*î*ũ": "latent",
         "ar-*i*â*ũ": "incertain",
         "ar-*u**ũ": "absence de ventre",
@@ -1477,7 +1478,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "maigrir",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 28
     "ar-F3b": {
         "aa_sens": "faire couler",
         "ar-***ũ": "",
@@ -4155,6 +4156,23 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être suspendu",
         "ar-ta*â*a*a": "",
     },  # 16
+    "ar-dnr": {
+        "aa_sens": "dinar",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "briller",
+        "ar-*a2â2î*u": "monnaie",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*î*â*ũ": "dinar",
+        "ar-a**a*a": "",
+        "ar-mu*a*²a*ũ": "riche",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 15
     "ar-drs": {
         "aa_sens": "étudier, limer",
         "ar-**a*²a": "",
@@ -7995,5 +8013,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 277
+}  # 278
 # END
