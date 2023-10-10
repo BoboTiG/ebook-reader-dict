@@ -5014,6 +5014,25 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 31
+    "ar-khrb": {
+        "aa_sens": "électricité",
+        "ar-***ũ": "",
+        "ar-*a**a*@ũ": "électrisation",
+        "ar-*a**a*a": "électrifier",
+        "ar-*a**a*iy²@ũ": "électricité",
+        "ar-*a**a*iy²ũ": "électronique",
+        "ar-*a**a*â'iy²@ũ": "électricité",
+        "ar-*a**a*â'iy²ũ": "électrique",
+        "ar-*a**a*â'u": "électricité",
+        "ar-*a**a*ũ": "électron",
+        "ar-*a*â*i*iy²ũ": "électronique",
+        "ar-*a*â*i*u": "{{p}} électrons",
+        "ar-*u*ay*i*iy²ũ": "électronique",
+        "ar-*u*ay*i*âtũ": "{{p}} électrons",
+        "ar-*u*ay*i*ũ": "électron",
+        "ar-mu*a**a*ũ": "électrisé",
+        "ar-ta*a**a*a": "être électrifié",
+    },  # 17
     "ar-klm": {
         "aa_sens": "parole ; (blessure)",
         "ar-**a*²a": "",
@@ -8013,5 +8032,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 278
+}  # 279
 # END
