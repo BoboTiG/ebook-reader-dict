@@ -2460,8 +2460,9 @@ racines_schemes_arabes = {
         "ar-a**â*ũ": "(pl) voix, cris de détresse, renommées",
         "ar-mi**â*ũ": "qui produit un son",
         "ar-n*a*a*a": "être appelé ; répondre à un appel ; rebrousser chemin",
+        "ar-n*i*â*ũ": "le fait de répondre à un appel",
         "ar-ta**î*ũ": "le fait de pousser un cri",
-    },  # 14
+    },  # 15
     "ar-Syf": {
         "aa_sens": "été, chaleur",
         "ar-***ũ": "",
@@ -5768,7 +5769,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "",
         "ar-*a*²â*ũ": "Qui marche en tanguant.",
         "ar-*a*î*ũ": "Léger ; coulant.",
-        "ar-*ta*a*a": "[[défourailler|Défourailler]].",
+        "ar-*ta*a*a": "[[défourailler]]",
         "ar-*u**@ũ": "Poil de mue.",
         "ar-*u**ũ": "Poussière soulevée par le vent.",
         "ar-*u*â*ũ": "Poil tombé.",
