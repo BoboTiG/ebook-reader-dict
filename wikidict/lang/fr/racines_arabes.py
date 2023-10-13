@@ -240,6 +240,36 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "inspecter",
         "ar-ta*â*a*a": "",
     },  # 21
+    "ar-'mm": {
+        "aa_sens": "diriger",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "assemblée",
+        "ar-*a**iy²@ũ": "maternité",
+        "ar-*a**ũ": "projet",
+        "ar-*a*a*a-u": "prescrire",
+        "ar-*a*a*ũ": "pas loin",
+        "ar-*a*²a*a": "faire faire",
+        "ar-*a*â*@ũ": "troupeau de trois cents chameaux",
+        "ar-*a*â*ũ": "le devant",
+        "ar-*a*î*ũ": "blessé à la tête",
+        "ar-*a*û*@ũ": "maternité",
+        "ar-*i**@ũ": "règle de vie",
+        "ar-*i*â*@ũ": "rang d'imam",
+        "ar-*i*â*ũ": "chef",
+        "ar-*ta*a*a": "imiter",
+        "ar-*u**iy²ũ": "maternel",
+        "ar-*u**ânu": "maternel",
+        "ar-*u**ũ": "mère",
+        "ar-*u*ay*@ũ": "petite mère",
+        "ar-*â*a*a": "être évident",
+        "ar-a**a*a": "",
+        "ar-el*i*â*iy²@u": "imamites",
+        "ar-ma**û*ũ": "blessé à la tête",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "prendre pour chef",
+        "ar-ta*a*²a*a": "avoir en vue",
+        "ar-ta*â*a*a": "",
+    },  # 28
     "ar-'mn": {
         "aa_sens": "sûreté",
         "ar-***ũ": "",
@@ -8033,5 +8063,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 279
+}  # 280
 # END
