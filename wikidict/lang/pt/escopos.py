@@ -257,6 +257,7 @@ escopos = {
     "Ocupação": "profissão",
     "Ofensivo": "pejorativo",
     "Ofício": "profissão",
+    "Oleiros": "Oleiros",
     "Ornitologia": "ornitologia",
     "PA": "Pará",
     "PB": "Paraíba",
@@ -385,5 +386,5 @@ escopos = {
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 380
+}  # 381
 # END
