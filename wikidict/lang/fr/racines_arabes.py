@@ -248,6 +248,7 @@ racines_schemes_arabes = {
         "ar-*a**ũ": "projet",
         "ar-*a*a*a-u": "prescrire",
         "ar-*a*a*ũ": "pas loin",
+        "ar-*a*i*a-a": "être mère",
         "ar-*a*²a*a": "faire faire",
         "ar-*a*â*@ũ": "troupeau de trois cents chameaux",
         "ar-*a*â*ũ": "le devant",
@@ -261,6 +262,7 @@ racines_schemes_arabes = {
         "ar-*u**ânu": "maternel",
         "ar-*u**ũ": "mère",
         "ar-*u*ay*@ũ": "petite mère",
+        "ar-*u*û*@ũ": "maternité",
         "ar-*â*a*a": "être évident",
         "ar-a**a*a": "",
         "ar-el*i*â*iy²@u": "imamites",
@@ -269,7 +271,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prendre pour chef",
         "ar-ta*a*²a*a": "avoir en vue",
         "ar-ta*â*a*a": "",
-    },  # 28
+    },  # 30
     "ar-'mn": {
         "aa_sens": "sûreté",
         "ar-***ũ": "",

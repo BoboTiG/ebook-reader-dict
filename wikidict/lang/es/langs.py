@@ -687,6 +687,7 @@ langs = {
     "mrv": "mangarevano",
     "mrw": "maranao",
     "ms": "malayo",
+    "msf": "mekwei",
     "mt": "maltés",
     "mtn": "matagalpa",
     "mto": "mixe de Totontepec",
@@ -1214,7 +1215,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,209
+}  # 1,210
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
