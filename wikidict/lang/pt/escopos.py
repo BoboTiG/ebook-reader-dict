@@ -296,6 +296,7 @@ escopos = {
     "RR": "Roraima",
     "RS": "Rio Grande do Sul",
     "Raro": "raro",
+    "Reflexivo": "reflexivo",
     "Regional": "regionalismo",
     "Região Centro-Oeste": "Centro-Oeste do Brasil",
     "Região Nordeste": "Nordeste do Brasil",
@@ -386,5 +387,5 @@ escopos = {
     "África do Sul": "África do Sul",
     "Árvore": "botânica",
     "Índia": "Índia",
-}  # 381
+}  # 382
 # END
