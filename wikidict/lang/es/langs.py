@@ -302,6 +302,7 @@ langs = {
     "dra": "dravídico",
     "drc": "minderico",
     "dsb": "bajo sórabo",
+    "dty": "doteli",
     "dua": "duala",
     "dum": "neerlandés medio",
     "dv": "dhivehi",
@@ -1216,7 +1217,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,211
+}  # 1,212
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
