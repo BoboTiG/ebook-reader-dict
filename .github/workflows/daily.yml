@@ -45,7 +45,7 @@ jobs:
           - "en"
           - "es"
           # - "fr"  # See issue 1860
-          # - "it"  # See issue 1862
+          - "it"
           # - "no"
           # - "pt"
           # - "ro"  # See issue 1863
