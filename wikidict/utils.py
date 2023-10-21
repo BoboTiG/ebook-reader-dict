@@ -109,32 +109,35 @@ def get_word_of_the_day(locale: str) -> str:
         "el": ("", ""),  # Doesn't seem to have a word of the day
         "en": (
             # Wiktionary:Word of the day/2021/January_30
-            f"Wiktionary:Word_of_the_day/{NOW.strftime('%Y')}/{months['en'][int(NOW.strftime('%-m')) - 1]}_{NOW.strftime('%d')}",  # noqa
+            f"Wiktionary:Word_of_the_day/{NOW.strftime('%Y')}/{months['en'][int(NOW.strftime('%-m')) - 1]}_{NOW.strftime('%d')}?action=raw",  # noqa
             r"{{WOTD\|([^\|]+)\|",
         ),
         "es": (
             # Plantilla:palabra de la semana/4
-            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}",
+            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}?action=raw",
             r" palabra= ([^\|]+)",
         ),
         "fr": (
             # Modèle:Entrée du jour/2021/01/30
-            f"Mod%C3%A8le:Entr%C3%A9e_du_jour/{NOW.strftime('%Y/%m/%d')}",
+            f"Mod%C3%A8le:Entr%C3%A9e_du_jour/{NOW.strftime('%Y/%m/%d')}?action=raw",
             r"<span style=\"font-size:120%;\">'''\[\[([^\]]+)\]\]'''</span>",
         ),
-        "it": ("", ""),  # See issue 1862
+        "it": (
+            "Template:PdGRandom",
+            r"1 Template:Pagina_principale/[^/]+/(.+)",
+        ),
         "no": ("", ""),  # Doesn't seem to have a word of the day
         "pt": ("", ""),  # Doesn't seem to have a word of the day
         "ro": ("", ""),  # See issue 1863
         "ru": ("", ""),  # Doesn't seem to have a word of the day
         "sv": (
-            "Mall:högkvalitativt",
+            "Mall:högkvalitativt?action=raw",
             r"<big>\[\[([^\]]+)\]\]</big>",
         ),
     }
 
     special_word, pattern = word_of_the_day[locale]
-    url = f"https://{locale}.wiktionary.org/wiki/{special_word}?action=raw"
+    url = f"https://{locale}.wiktionary.org/wiki/{special_word}"
     with requests.get(url) as req:
         matches = re.findall(pattern, req.text)
         return str(matches[0].strip()) if matches else ""
