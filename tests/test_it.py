@@ -8,7 +8,7 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genders, etymology, definitions",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "condividere",
@@ -24,6 +24,7 @@ from wikidict.utils import process_templates
                 "<small><i>(filosofia)</i></small> <small><i>(economia)</i></small> mettere spazi e risorse in comune con altri",  # noqa
                 "<small><i>(informatica)</i></small> ricevere o mettere un'informazione in comune con altri utenti",
             ],
+            [],
         ),
         (
             "debolmente",
@@ -33,6 +34,7 @@ from wikidict.utils import process_templates
             [
                 "in maniera debole, con debolezza",
             ],
+            [],
         ),
         (
             "lettore",
@@ -44,13 +46,15 @@ from wikidict.utils import process_templates
                 "<small><i>(religione)</i></small> persona che in alcune chiese cristiane, come la Chiesa cattolica, la Chiesa anglicana e quella ortodossa, è incaricata di proclamare la parola di Dio e altri testi nelle celebrazioni liturgiche e di esercitare altri compiti in campo pastorale",  # noqa
                 "<small><i>(elettronica)</i></small> <small><i>(informatica)</i></small> <small><i>(tecnologia)</i></small> <small><i>(ingegneria)</i></small> dispositivo elettronico che decodifica e riceve informazioni da un supporto",  # noqa
             ],
+            [],
         ),
         (
-            "nominative",
+            "muratrici",
             [],
             [],
+            ["vedi muratore"],
             [],
-            ["Femminile plurale di nominativo."],
+            ["muratore"],
         ),
     ],
 )
@@ -60,6 +64,7 @@ def test_parse_word(
     genders: List[str],
     etymology: List[Definitions],
     definitions: List[Definitions],
+    variants: List[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -69,6 +74,7 @@ def test_parse_word(
     assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(
@@ -76,6 +82,10 @@ def test_parse_word(
     [
         ("{{etim-link|a}}", "vedi a"),
         ("{{Etim-link|a|b|c}}", "vedi b"),
+        (
+            "{{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}",
+            "muratore",
+        ),
         ("{{Vd|mamma}}", "vedi mamma"),
     ],
 )

@@ -30,8 +30,26 @@ sections = (
     "{{pron poss}",
     "{{suff}",
     "{{sost}",
+    "{{sost form}",
     "{{verb}",
 )
+
+# Variants
+variant_titles = ("{{agg form", "{{sost form")
+variant_templates = ("{{Tabs",)
+
+# Some definitions are not good to keep (plural, gender, ... )
+definitions_to_ignore = (
+    #
+    # For variants
+    #
+    "femminile alternativo di",
+    "femminile di",
+    "femminile plurale alternativo di",
+    "plurale femminile di",
+    "plurale di",
+)
+
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
@@ -43,7 +61,6 @@ templates_ignored = (
     "Nodef",
     "Noetim",
     "Noref",
-    "Tabs",
     "Trad1",
     "Trad2",
 )
@@ -162,6 +179,11 @@ templates_multi: Dict[str, str] = {
     # {{Yprb}}
     "Yprb": "small(f'({italic(\"per iperbole\")})')",
     "yprb": "small(f'({italic(\"per iperbole\")})')",
+    #
+    # For variants
+    #
+    # {{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}
+    "Tabs": "parts[1]",
 }
 
 # Release content on GitHub

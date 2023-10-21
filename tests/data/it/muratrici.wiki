@@ -1,0 +1,16 @@
+== {{-it-}} == 
+{{-sost form-|it}}
+{{Pn}} ''f pl'' {{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}
+
+# femminile plurale alternativo di [[muratore]]
+
+{{-sill-}}
+; mu | ra | trì | ci
+
+{{-etim-}}
+{{Etim-link|muratore}}
+
+{{-trad-}}
+{{Trad1|}}
+:*{{en}}: <!-- inserire dopo i : la/le traduzione/ni nelle altre lingue -->
+{{Trad2}}
