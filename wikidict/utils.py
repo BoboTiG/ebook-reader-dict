@@ -102,24 +102,31 @@ def get_word_of_the_day(locale: str) -> str:
         ],
     }
 
+    # XXX_LOCALES
     word_of_the_day = {
         "ca": ("", ""),  # Doesn't seem to have a word of the day
-        "es": (
-            # Plantilla:palabra de la semana/4
-            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}",
-            r" palabra= ([^\|]+)",
-        ),
+        "de": ("", ""),  # Doesn't seem to have a word of the day
+        "el": ("", ""),  # Doesn't seem to have a word of the day
         "en": (
             # Wiktionary:Word of the day/2021/January_30
             f"Wiktionary:Word_of_the_day/{NOW.strftime('%Y')}/{months['en'][int(NOW.strftime('%-m')) - 1]}_{NOW.strftime('%d')}",  # noqa
             r"{{WOTD\|([^\|]+)\|",
+        ),
+        "es": (
+            # Plantilla:palabra de la semana/4
+            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}",
+            r" palabra= ([^\|]+)",
         ),
         "fr": (
             # Modèle:Entrée du jour/2021/01/30
             f"Mod%C3%A8le:Entr%C3%A9e_du_jour/{NOW.strftime('%Y/%m/%d')}",
             r"<span style=\"font-size:120%;\">'''\[\[([^\]]+)\]\]'''</span>",
         ),
+        "it": ("", ""),  # See issue 1862
+        "no": ("", ""),  # Doesn't seem to have a word of the day
         "pt": ("", ""),  # Doesn't seem to have a word of the day
+        "ro": ("", ""),  # See issue 1863
+        "ru": ("", ""),  # Doesn't seem to have a word of the day
         "sv": (
             "Mall:högkvalitativt",
             r"<big>\[\[([^\]]+)\]\]</big>",

@@ -39,11 +39,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        locale:
+        locale:  # XXX_LOCALES
           - "ca"
           - "de"
-          - "en"
           - "el"
+          - "en"
           - "es"
           - "fr"
           - "it"
