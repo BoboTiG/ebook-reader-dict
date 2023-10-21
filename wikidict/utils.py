@@ -83,64 +83,11 @@ def convert_pronunciation(pronunciations: List[str]) -> str:
     return f" {', '.join(pronunciations)}" if pronunciations else ""
 
 
-def get_word_of_the_day(locale: str) -> str:
-    """Retrieve the word of the day."""
-    months = {
-        "en": [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-        ],
-    }
-
-    # XXX_LOCALES
-    word_of_the_day = {
-        "ca": ("", ""),  # Doesn't seem to have a word of the day
-        "de": ("", ""),  # Doesn't seem to have a word of the day
-        "el": ("", ""),  # Doesn't seem to have a word of the day
-        "en": (
-            # Wiktionary:Word of the day/2021/January_30
-            f"Wiktionary:Word_of_the_day/{NOW.strftime('%Y')}/{months['en'][int(NOW.strftime('%-m')) - 1]}_{NOW.strftime('%d')}?action=raw",  # noqa
-            r"{{WOTD\|([^\|]+)\|",
-        ),
-        "es": (
-            # Plantilla:palabra de la semana/4
-            f"Plantilla:palabra_de_la_semana/{NOW.strftime('%-V')}?action=raw",
-            r" palabra= ([^\|]+)",
-        ),
-        "fr": (
-            # Modèle:Entrée du jour/2021/01/30
-            f"Mod%C3%A8le:Entr%C3%A9e_du_jour/{NOW.strftime('%Y/%m/%d')}?action=raw",
-            r"<span style=\"font-size:120%;\">'''\[\[([^\]]+)\]\]'''</span>",
-        ),
-        "it": (
-            "Template:PdGRandom",
-            r"1 Template:Pagina_principale/[^/]+/(.+)",
-        ),
-        "no": ("", ""),  # Doesn't seem to have a word of the day
-        "pt": ("", ""),  # Doesn't seem to have a word of the day
-        "ro": ("", ""),  # See issue 1863
-        "ru": ("", ""),  # Doesn't seem to have a word of the day
-        "sv": (
-            "Mall:högkvalitativt?action=raw",
-            r"<big>\[\[([^\]]+)\]\]</big>",
-        ),
-    }
-
-    special_word, pattern = word_of_the_day[locale]
-    url = f"https://{locale}.wiktionary.org/wiki/{special_word}"
+def get_random_word(locale: str) -> str:
+    """Retrieve a random word."""
+    url = f"https://{locale}.wiktionary.org/w/api.php?action=query&list=random&format=json"
     with requests.get(url) as req:
-        matches = re.findall(pattern, req.text)
-        return str(matches[0].strip()) if matches else ""
+        return str(req.json()["query"]["random"][0]["title"])
 
 
 def format_description(locale: str, output_dir: Path) -> str:

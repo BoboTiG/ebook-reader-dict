@@ -1,4 +1,4 @@
-name: Word of the day
+name: Daily random word
 
 on:
   schedule:
@@ -39,17 +39,17 @@ jobs:
       fail-fast: false
       matrix:
         locale:  # XXX_LOCALES
-          # - "ca"
-          # - "de"
-          # - "el"
+          - "ca"
+          - "de"
+          - "el"
           - "en"
           - "es"
-          # - "fr"  # See issue 1860
+          - "fr"
           - "it"
-          # - "no"
-          # - "pt"
-          # - "ro"  # See issue 1863
-          # - "ru"
+          - "no"
+          - "pt"
+          - "ro"
+          - "ru"
           - "sv"
 
     steps:
@@ -69,8 +69,8 @@ jobs:
           path: ${{ env.pythonLocation }}
           key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}
 
-      - name: Get the word of the day
+      - name: Get a random word
         run: python -Wd -m wikidict ${{ matrix.locale }} --get-word=''
 
-      - name: Check the word of the day
+      - name: Check a random word
         run: python -Wd -m wikidict ${{ matrix.locale }} --check-word=''

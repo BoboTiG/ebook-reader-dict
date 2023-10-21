@@ -6,7 +6,7 @@ import requests
 from .render import parse_word
 from .stubs import Word
 from .user_functions import int_to_roman
-from .utils import convert_gender, convert_pronunciation, get_word_of_the_day
+from .utils import convert_gender, convert_pronunciation, get_random_word
 
 
 def get_word(word: str, locale: str) -> Word:
@@ -75,10 +75,8 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
 def main(locale: str, word: str, raw: bool = False) -> int:
     """Entry point."""
 
-    # If *word* is empty, get the word of the day
-    if not word:
-        if not (word := get_word_of_the_day(locale)):
-            return 2
+    # If *word* is empty, get a random word
+    word = word or get_random_word(locale)
 
     get_and_parse_word(word, locale, raw)
     return 0

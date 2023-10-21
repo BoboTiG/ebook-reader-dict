@@ -13,7 +13,7 @@ from requests.exceptions import RequestException
 from .render import parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
-from .utils import get_word_of_the_day
+from .utils import get_random_word
 
 # Remove all kind of spaces and some unicode characters
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
@@ -381,9 +381,8 @@ def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
 
 def main(locale: str, word: str) -> int:
     """Entry point."""
-    # If *word* is empty, get the word of the day
-    if not word:
-        if not (word := get_word_of_the_day(locale)):
-            return 2
+
+    # If *word* is empty, get a random word
+    word = word or get_random_word(locale)
 
     return check_word(word, locale)
