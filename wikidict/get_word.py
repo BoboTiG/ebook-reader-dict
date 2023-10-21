@@ -77,7 +77,8 @@ def main(locale: str, word: str, raw: bool = False) -> int:
 
     # If *word* is empty, get the word of the day
     if not word:
-        word = get_word_of_the_day(locale)
+        if not (word := get_word_of_the_day(locale)):
+            return 2
 
     get_and_parse_word(word, locale, raw)
     return 0
