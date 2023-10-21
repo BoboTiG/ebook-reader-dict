@@ -48,7 +48,7 @@ jobs:
           # - "it"  # See issue 1862
           # - "no"
           # - "pt"
-          # - "ro"  # See issue 1863
+          - "ro"
           # - "ru"
           - "sv"
 

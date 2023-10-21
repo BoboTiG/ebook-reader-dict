@@ -125,7 +125,10 @@ def get_word_of_the_day(locale: str) -> str:
         "it": ("", ""),  # See issue 1862
         "no": ("", ""),  # Doesn't seem to have a word of the day
         "pt": ("", ""),  # Doesn't seem to have a word of the day
-        "ro": ("", ""),  # See issue 1863
+        "ro": (
+            "Wik%C8%9Bionar:Cuv%C3%A2ntul_momentului/5/Titlu",
+            r"(.+)",
+        ),
         "ru": ("", ""),  # Doesn't seem to have a word of the day
         "sv": (
             "Mall:högkvalitativt",
