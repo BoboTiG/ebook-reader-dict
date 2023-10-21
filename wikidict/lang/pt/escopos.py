@@ -118,7 +118,7 @@ escopos = {
     "Curmânji": "Curmânji",
     "DF": "Distrito Federal",
     "DR Congo": "República Democrática do Congo",
-    "Depreciativo": "pejorativo",
+    "Depreciativo": "depreciativo",
     "Design": "design",
     "Desporto": "desporto",
     "Desportos": "desporto",
