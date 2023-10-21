@@ -383,6 +383,7 @@ def main(locale: str, word: str) -> int:
     """Entry point."""
     # If *word* is empty, get the word of the day
     if not word:
-        word = get_word_of_the_day(locale)
+        if not (word := get_word_of_the_day(locale)):
+            return 2
 
     return check_word(word, locale)
