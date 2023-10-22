@@ -1,5 +1,6 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 import copy
+import os
 import re
 from functools import partial
 from threading import Lock
@@ -10,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
 
-from .render import parse_word
+from .render import MISSING_TPL_SEEN, parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
 from .utils import get_random_word
@@ -385,4 +386,5 @@ def main(locale: str, word: str) -> int:
     # If *word* is empty, get a random word
     word = word or get_random_word(locale)
 
-    return check_word(word, locale)
+    res = check_word(word, locale)
+    return 1 if "CI" in os.environ and MISSING_TPL_SEEN else res
