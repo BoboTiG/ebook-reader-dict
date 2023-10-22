@@ -15,11 +15,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.x"
 
       - uses: actions/cache@v3
         id: cache
@@ -49,16 +51,18 @@ jobs:
           - "no"
           - "pt"
           - "ro"
-          - "ru"
+          # - "ru"
           - "sv"
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.x"
 
       - uses: actions/cache@v3
         id: cache
