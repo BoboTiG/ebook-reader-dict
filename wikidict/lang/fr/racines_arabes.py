@@ -242,8 +242,8 @@ racines_schemes_arabes = {
     },  # 21
     "ar-'mm": {
         "aa_sens": "diriger",
+        "ar-***ũ": "",
         "ar-**a*²a": "",
-        "ar-*a**@ũ": "assemblée",
         "ar-*a**iy²@ũ": "maternité",
         "ar-*a**ũ": "projet",
         "ar-*a*a*a-u": "prescrire",
@@ -251,16 +251,22 @@ racines_schemes_arabes = {
         "ar-*a*i*a-a": "être mère",
         "ar-*a*²a*a": "faire faire",
         "ar-*a*â*@ũ": "troupeau de trois cents chameaux",
+        "ar-*a*â*iy²ũ": "de l'avant",
         "ar-*a*â*ũ": "le devant",
+        "ar-*a*âyi*u": "{{p}} blessés à la tête",
         "ar-*a*î*ũ": "blessé à la tête",
         "ar-*a*û*@ũ": "maternité",
         "ar-*i**@ũ": "règle de vie",
         "ar-*i*â*@ũ": "rang d'imam",
         "ar-*i*â*ũ": "chef",
         "ar-*ta*a*a": "imiter",
+        "ar-*u**@ũ": "communauté",
+        "ar-*u**iy²@ũ": "ignorance",
         "ar-*u**iy²ũ": "maternel",
         "ar-*u**ânu": "maternel",
         "ar-*u**ũ": "mère",
+        "ar-*u*a*iy²ũ": "international",
+        "ar-*u*a*ũ": "{{p}} nations",
         "ar-*u*ay*@ũ": "petite mère",
         "ar-*u*û*@ũ": "maternité",
         "ar-*â*a*a": "être évident",
@@ -269,9 +275,10 @@ racines_schemes_arabes = {
         "ar-ma**û*ũ": "blessé à la tête",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "prendre pour chef",
+        "ar-ta**î*ũ": "nationaliser",
         "ar-ta*a*²a*a": "avoir en vue",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 37
     "ar-'mn": {
         "aa_sens": "sûreté",
         "ar-***ũ": "",
@@ -7354,6 +7361,31 @@ racines_schemes_arabes = {
         "ar-*u**ũ": "mur",
         "ar-a**â*ũ": "{{p}} murailles",
     },  # 5
+    "ar-syH": {
+        "aa_sens": "se répandre",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ânũ": "Cydnus",
+        "ar-*a**ûnũ": "Jaxarte",
+        "ar-*a**ũ": "eau qui coule",
+        "ar-*a*a*a-i": "voyager",
+        "ar-*a*²a*a": "répandre",
+        "ar-*a*²â*ũ": "voyageur",
+        "ar-*a*î*ũ": "dévot",
+        "ar-*i*â*@ũ": "long voyage",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "lâcher",
+        "ar-ma**a*@ũ": "dimension",
+        "ar-ma**a*ũ": "dimension",
+        "ar-ma**i*ũ": "Messie",
+        "ar-mi*yâ3ũ": "grand voyageur",
+        "ar-mu*a*²a*ũ": "rayé",
+        "ar-n*a*a*a": "s'élargir",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 23
     "ar-syq": {
         "aa_sens": "pousser",
         "ar-***ũ": "",
@@ -8065,5 +8097,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 280
+}  # 281
 # END
