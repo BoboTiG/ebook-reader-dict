@@ -2521,7 +2521,7 @@ racines_schemes_arabes = {
         "ar-a**a*a": "entrer en été",
         "ar-ma**i*ũ": "campement d'été",
         "ar-ma**û*ũ": "arrosé par une pluie d'été",
-        "ar-mi*yâ3ũ": "arrosé en été",
+        "ar-mi**â*ũ": "arrosé en été",
         "ar-mu*Ta*a*ũ": "résidence d'été",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
@@ -7003,6 +7003,11 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "envahir",
         "ar-ta*â*a*a": "se livrer combat",
     },  # 23
+    "ar-sYH": {
+        "aa_sens": "se répandre",
+        "ar-***ũ": "",
+        "ar-*a*a*ânũ": "voyage",
+    },  # 3
     "ar-sbt": {
         "aa_sens": "repos ; étaler",
         "ar-**a*²a": "",
@@ -7366,26 +7371,27 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ânũ": "Cydnus",
-        "ar-*a**ûnũ": "Jaxarte",
         "ar-*a**ũ": "eau qui coule",
         "ar-*a*a*a-i": "voyager",
         "ar-*a*²a*a": "répandre",
         "ar-*a*²â*ũ": "voyageur",
         "ar-*a*î*ũ": "dévot",
-        "ar-*i*â*@ũ": "long voyage",
+        "ar-*i*â*@ũ": "tourisme",
+        "ar-*i*â*iy²ũ": "touriste",
         "ar-*ta*a*a": "",
         "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "voyageur",
         "ar-a**a*a": "lâcher",
         "ar-ma**a*@ũ": "dimension",
         "ar-ma**a*ũ": "dimension",
-        "ar-ma**i*ũ": "Messie",
-        "ar-mi*yâ3ũ": "grand voyageur",
+        "ar-ma*â*î*u": "{{p}} grands voyageurs",
+        "ar-mi**â*ũ": "grand voyageur",
         "ar-mu*a*²a*ũ": "rayé",
         "ar-n*a*a*a": "s'élargir",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 23
+    },  # 24
     "ar-syq": {
         "aa_sens": "pousser",
         "ar-***ũ": "",
@@ -8097,5 +8103,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 281
+}  # 282
 # END
