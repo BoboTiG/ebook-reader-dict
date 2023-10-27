@@ -508,6 +508,7 @@ langs = {
     "arr": "Arara-Karo",
     "ars": "Najdi Arabic",
     "art": "constructed",
+    "art-bel": "Belter Creole",
     "art-blk": "Bolak",
     "art-bsp": "Black Speech",
     "art-com": "Communicationssprache",
@@ -9591,5 +9592,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,586
+}  # 9,587
 # END
