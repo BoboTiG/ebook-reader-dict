@@ -7216,6 +7216,28 @@ racines_schemes_arabes = {
         "ar-tama**a*a": "se convertir, devenir musulman",
         "ar-u*ay*i*ũ": "artère entre le majeur et l'auriculaire",
     },  # 41
+    "ar-smd": {
+        "aa_sens": "fumier / redresser",
+        "ar-***ũ": "",
+        "ar-**a'a*²a": "s'enfler",
+        "ar-**a*²a": "s'enfler",
+        "ar-*a**ã": "continuellement",
+        "ar-*a*a*a-u": "divertir",
+        "ar-*a*²a*a": "fumer un champ",
+        "ar-*a*â*ũ": "engrais",
+        "ar-*a*î*ũ": "pain blanc",
+        "ar-*awâ*i*u": "marcheurs",
+        "ar-*ta*a*a": "",
+        "ar-*u*û*ũ": "se tenir debout",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "s'amusant",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "fertilisation",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 20
     "ar-smk": {
         "aa_sens": "être élevé, supporter, poisson",
         "ar-***ũ": "",
@@ -8103,5 +8125,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 282
+}  # 283
 # END
