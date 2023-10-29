@@ -15,6 +15,11 @@
 - [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)
 
+## Users
+
+- [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
+- [Dico alto](https://dicoalto.com/) by [Snawei](https://fr.wiktionary.org/wiki/Utilisateur:Snawei)
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
