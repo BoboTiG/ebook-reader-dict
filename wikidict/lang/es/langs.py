@@ -97,6 +97,7 @@ langs = {
     "awb": "awá",
     "awe": "awetí",
     "awt": "araweté",
+    "axm": "armenio medio",
     "ay": "aimara",
     "ayr": "aimara central",
     "az": "azerí",
@@ -971,6 +972,7 @@ langs = {
     "sk": "eslovaco",
     "sl": "esloveno",
     "sla": "protoeslavo",
+    "slr": "salar",
     "sm": "samoano",
     "sma": "sami meridional",
     "sme": "lapón septentrional",
@@ -1217,7 +1219,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,212
+}  # 1,214
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
