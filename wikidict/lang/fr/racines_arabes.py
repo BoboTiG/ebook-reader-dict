@@ -1630,6 +1630,43 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "lutter, disputer",
     },  # 23
+    "ar-Fql": {
+        "aa_sens": "peser",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "pesanteur",
+        "ar-*a**ũ": "charges",
+        "ar-*a*a*@ũ": "bagages",
+        "ar-*a*a*a-u": "soulever",
+        "ar-*a*a*ũ": "bagages",
+        "ar-*a*i*@ũ": "bagages",
+        "ar-*a*i*a-a": "être gravement malade",
+        "ar-*a*u*a": "être lourd",
+        "ar-*a*²a*a": "alourdir",
+        "ar-*a*â*ũ": "lourd",
+        "ar-*a*î*@ũ": "{{f}} lourde",
+        "ar-*a*î*ũ": "lourd",
+        "ar-*i**ũ": "poids",
+        "ar-*i*a*@ũ": "bagages",
+        "ar-*i*â*ũ": "{{p}} lourds",
+        "ar-*ta*a*a": "",
+        "ar-*u**ũ": "{{p}} lourds",
+        "ar-*u*a*â'u": "{{p}} lourds",
+        "ar-*u*â*ũ": "lourd",
+        "ar-*â*a*a": "se nourrir de mets lourds",
+        "ar-*â*i*ũ": "pesant",
+        "ar-a**a*a": "surcharger",
+        "ar-a**a*u": "très lourd",
+        "ar-mi**â*ũ": "poids",
+        "ar-mu**a*@ũ": "charge lourde",
+        "ar-mu**i*ũ": "pesant",
+        "ar-musta**a*ũ": "accablé",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "trouver lourd",
+        "ar-ta**î*ũ": "lettre avec techdid",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "s'appesantir",
+    },  # 35
     "ar-FrFr": {
         "aa_sens": "bavarder",
         "ar-***ũ": "",
@@ -7221,7 +7258,6 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a'a*²a": "s'enfler",
         "ar-**a*²a": "s'enfler",
-        "ar-*a**ã": "continuellement",
         "ar-*a*a*a-u": "divertir",
         "ar-*a*²a*a": "fumer un champ",
         "ar-*a*â*ũ": "engrais",
@@ -7237,7 +7273,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "fertilisation",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 19
     "ar-smk": {
         "aa_sens": "être élevé, supporter, poisson",
         "ar-***ũ": "",
@@ -8125,5 +8161,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 283
+}  # 284
 # END

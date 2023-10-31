@@ -2143,12 +2143,13 @@ placetypes_aliases = {
     "tjarea": "tribal jurisdictional area",
     "twp": "township",
     "twpmun": "township municipality",
+    "ucomm": "unincorporated community",
     "uterr": "union territory",
     "utwpmun": "united township municipality",
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 85
+}  # 86
 
 recognized_qualifiers = {
     "abandoned": "abandoned",

@@ -60,6 +60,7 @@ langs = {
     "aoz": "uab meto",
     "apa": "apache",
     "apb": "saa",
+    "apc": "árabe levantino septentrional",
     "api": "apiacá",
     "apl": "lipán",
     "apy": "apalaí",
@@ -1219,7 +1220,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,214
+}  # 1,215
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
