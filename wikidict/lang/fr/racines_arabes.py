@@ -1266,6 +1266,38 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "pédérastie",
         "ar-ta*â*a*a": "",
     },  # 31
+    "ar-Cdd": {
+        "aa_sens": "dureté",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "charge",
+        "ar-*a**ũ": "force",
+        "ar-*a*a*a-i": "serrer",
+        "ar-*a*u*a": "courir",
+        "ar-*a*²a*a": "renforcer",
+        "ar-*a*²â*ũ": "violent",
+        "ar-*a*î*@ũ": "calamité",
+        "ar-*a*î*ũ": "violent",
+        "ar-*i**@ũ": "sévérité",
+        "ar-*i*â*ũ": "{{p}} violents",
+        "ar-*ta*a*a": "persister",
+        "ar-*u**é": "malheur",
+        "ar-*â*a*a": "malmener",
+        "ar-*â*i*ũ": "qui serre",
+        "ar-a**a*a": "avoir une bête de somme",
+        "ar-a**a*u": "plus intense",
+        "ar-a**i*â'u": "{{p}} violents",
+        "ar-a**u*ũ": "vigueur",
+        "ar-ma**û*ũ": "lié",
+        "ar-mu**i*ũ": "qui serre",
+        "ar-muta*a*²i*ũ": "sévère",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "renforcement",
+        "ar-ta*a*²a*a": "être renforcé",
+        "ar-ta*â*a*a": "",
+        "ar-u**u*u": "vigueur",
+    },  # 30
     "ar-Chd": {
         "aa_sens": "être témoin, être présent",
         "ar-***ũ": "",
@@ -1646,8 +1678,10 @@ racines_schemes_arabes = {
         "ar-*a*â*ũ": "lourd",
         "ar-*a*î*@ũ": "{{f}} lourde",
         "ar-*a*î*ũ": "lourd",
+        "ar-*awâ*i*u": "{{p}} pesants",
         "ar-*i**ũ": "poids",
         "ar-*i*a*@ũ": "bagages",
+        "ar-*i*a*ũ": "lourdeur",
         "ar-*i*â*ũ": "{{p}} lourds",
         "ar-*ta*a*a": "",
         "ar-*u**ũ": "{{p}} lourds",
@@ -1657,8 +1691,10 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "pesant",
         "ar-a**a*a": "surcharger",
         "ar-a**a*u": "très lourd",
+        "ar-a**â*u": "{{p}} poids",
+        "ar-ma*â*î*u": "{{p}} poids",
         "ar-mi**â*ũ": "poids",
-        "ar-mu**a*@ũ": "charge lourde",
+        "ar-mu**i*@ũ": "charge lourde",
         "ar-mu**i*ũ": "pesant",
         "ar-musta**a*ũ": "accablé",
         "ar-n*a*a*a": "",
@@ -1666,7 +1702,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "lettre avec techdid",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "s'appesantir",
-    },  # 35
+    },  # 39
     "ar-FrFr": {
         "aa_sens": "bavarder",
         "ar-***ũ": "",
@@ -3756,6 +3792,7 @@ racines_schemes_arabes = {
         "aa_sens": "blancheur éclatante",
         "ar-***ũ": "",
         "ar-**a*²a": "être blanc",
+        "ar-**â*²a": "être très blanc",
         "ar-*a**@ũ": "œuf",
         "ar-*a**iy²ũ": "ovale",
         "ar-*a**â'u": "{{f}} blanche",
@@ -3779,7 +3816,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "copie au net",
         "ar-ta*a*²a*a": "être blanchi",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 27
     "ar-byt": {
         "aa_sens": "maison, nocturne",
         "ar-**a*²a": "",
@@ -8161,5 +8198,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 284
+}  # 285
 # END
