@@ -774,14 +774,16 @@ def render_variantes(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     for i in range(10):
         if i == 0:
             phrase = (
-                data["alt"] or data[f"alt{i+1}"] or (parts[i] if len(parts) > i else "")
+                data["alt"]
+                or data[f"alt{i + 1}"]
+                or (parts[i] if len(parts) > i else "")
             )
         else:
-            phrase = data[f"alt{i+1}"] or (parts[i] if len(parts) > i else "")
+            phrase = data[f"alt{i + 1}"] or (parts[i] if len(parts) > i else "")
         if i == 0 and data["nota"]:
             phrase += f" ({data['nota']})"
-        elif data[f"nota{i+1}"]:
-            phrase += f" ({data[f'nota{i+1}']})"
+        elif data[f"nota{i + 1}"]:
+            phrase += f" ({data[f'nota{i + 1}']})"
         if phrase:
             a_phrase.append(phrase)
 

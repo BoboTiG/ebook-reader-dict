@@ -174,7 +174,7 @@ def test_parse_word(
         ("{{datação|5/4/1810}}", "[<i>Datação</i>: 5/4/1810]"),
         ("{{escopo2|Informática}}", "<i>(Informática)</i>"),
         ("{{escopo2|Brasil|governo}}", "<i>(Brasil)</i>"),
-        ("{{escopoCat|Árvore|pt}}", "<i>(botânica)</i>"),
+        ("{{escopoCat|Árvore|pt}}", "<i>(Árvore)</i>"),
         ("{{escopoCat|Náutica|pt}}", "<i>(Náutica)</i>"),
         ("{{escopoCatLang|Alimentação|pt}}", "<i>(alimentação)</i>"),
         ("{{escopoCatLang|Verbo auxiliar|pt}}", "<i>(Verbo auxiliar)</i>"),

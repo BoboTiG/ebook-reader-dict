@@ -697,18 +697,18 @@ def nature(scheme: str, position: int) -> str:  # pragma: no cover
         return "ff"
     if scheme[position + 1] in {"²", char}:
         # consonne double, voir la nature de la voyelle nécessairement présente à pos+2
-        return f"d{nature(scheme, position+2)[1]}"
+        return f"d{nature(scheme, position + 2)[1]}"
     if scheme[position - 1] == char:
         # 2ème de double, voir la nature de la voyelle nécessairement présente à pos+1
-        return f"d{nature(scheme, position+1)[1]}"
+        return f"d{nature(scheme, position + 1)[1]}"
     if not est_voyelle(scheme[position - 1]):
         # 2ème de deux consonnes, idem
-        return f"i{nature(scheme, position+1)[1]}"
+        return f"i{nature(scheme, position + 1)[1]}"
     if not est_voyelle(scheme[position + 1]):
         # precede de voyelle et suivie de consonne
         return "fo"
 
-    return f"i{nature(scheme, position+1)[1]}"
+    return f"i{nature(scheme, position + 1)[1]}"
 
 
 def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cover
@@ -771,7 +771,9 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         if position > -1:
             # contexte de la radicale : quelles sont les voyelles (courtes ou longues) avant et après la consonne 2 :
             contexte = (
-                f"{scheme[position-1]}2" if est_voyelle(scheme[position - 1]) else "°2"
+                f"{scheme[position - 1]}2"
+                if est_voyelle(scheme[position - 1])
+                else "°2"
             )
             if scheme[position + 1] in {"²", scheme[position]}:
                 contexte += "²"
@@ -787,61 +789,61 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                 # la lettre en position +2 est-elle une finale de syllable ?
                 if nature(scheme, position + 2)[0] in {"f", "d"}:
                     if racine[1] == "w":
-                        scheme = f"{scheme[:position-1]}u{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}u{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position-1]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â{scheme[position + 2:]}"
 
             elif contexte == "a2a" and position != 2:
                 # la lettre en position +2 est-elle une finale de syllable ?
                 if nature(scheme, position + 2)[0] == "f":
-                    scheme = f"{scheme[:position-1]}a{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}a{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position-1]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â{scheme[position + 2:]}"
 
             # a2i remplacé par â ou i
             elif contexte == "a2i":
                 # la lettre en position +2 est-elle une finale de syllable ?
                 if nature(scheme, position + 2)[0] in {"f", "d"}:
-                    scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position-1]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â{scheme[position + 2:]}"
 
             # a2u remplacé par â ou u
             elif contexte == "a2u":
                 # la lettre en position +2 est-elle une finale de syllable ?
                 if nature(scheme, position + 2)[0] in {"f", "d"}:
-                    scheme = f"{scheme[:position-1]}u{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}u{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position-1]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â{scheme[position + 2:]}"
 
             # a2î remplacé par âyi dans ar-*a*î*ũ
             elif contexte == "a2î":
-                scheme = f"{scheme[:position-1]}âyi{scheme[position+2:]}"
+                scheme = f"{scheme[:position - 1]}âyi{scheme[position + 2:]}"
 
             # a2²i remplacé par ay²i mais pas dans ar-mu*a2²i*ũ (forme 2 invariable)
             elif contexte == "a2²i" and scheme != "mu1a2²iµũ":
-                scheme = f"{scheme[:position-1]}ay²i{scheme[position+2:]}"
+                scheme = f"{scheme[:position - 1]}ay²i{scheme[position + 2:]}"
 
             # âwi : remplacé par â'i sauf formes verbales 2, 3, 5 et 6
             elif contexte == "â2i":
-                scheme = f"{scheme[:position-1]}â'i{scheme[position+2:]}"
+                scheme = f"{scheme[:position - 1]}â'i{scheme[position + 2:]}"
 
             # i2° remplacé par î
             elif contexte == "i2°":
-                scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
             # iwâ remplacé par iyâ
             elif contexte == "i2â":
-                scheme = f"{scheme[:position-1]}iyâ{scheme[position+2:]}"
+                scheme = f"{scheme[:position - 1]}iyâ{scheme[position + 2:]}"
 
             # uwi (passif) remplacé par î ou i
             elif contexte == "u2i":
                 if nature(scheme, position + 2)[0] in {"f", "d"}:
-                    scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
             # °2a : problème à l'impératif pour toutes ces formes : quand l'impératif se termine par
             # la troisième radicale, celle-ci doit fermer la syllabe, et non ouvrir sur une terminaison.
@@ -849,45 +851,45 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                 # °wa : â si la syllable longue est possible, a sinon
                 suite = nature(scheme, position + 2)
                 if suite == "ff":
-                    scheme = f"{scheme[:position]}a{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}a{scheme[position + 2:]}"
                 elif suite[0] == "f":
-                    scheme = f"{scheme[:position]}a{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}a{scheme[position + 2:]}"
                 elif suite[0] == "d":
-                    scheme = f"{scheme[:position]}a{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}a{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}â{scheme[position + 2:]}"
             # °2â : â, et w supprimé
             elif contexte == "°2â":
                 # distinction entre le nom verbal de la forme (iv) **â*ũ
                 # et le pluriel irrégulier a**â*ũ (régulier) & mi**â*ũ régulier
                 if scheme[0] == "a" or scheme[:2] == "mi":
-                    scheme = f"{scheme[:position]}wâ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}wâ{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position]}â{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}â{scheme[position + 2:]}"
 
             # °2i : î si la syllable longue est possible, i sinon
             elif contexte == "°2i":
                 if nature(scheme, position + 2)[0] == "f":
-                    scheme = f"{scheme[:position]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}i{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}î{scheme[position + 2:]}"
 
             # °2u : û si la syllable longue est possible, u sinon
             elif contexte == "°2u":
                 if nature(scheme, position + 2)[0] in {"f", "d"}:
-                    scheme = f"{scheme[:position]}u{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}u{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
             # °2û remplacé par û ou î (participe passif)
             elif contexte == "°2û":
                 if racine[1] == "w":
-                    scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
                 else:
-                    scheme = f"{scheme[:position]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}î{scheme[position + 2:]}"
 
             elif contexte == "°û":
-                scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+                scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
             # voiture balai : on remplace tous les "2" par la lettre radicale :
             scheme = scheme.replace("2", racine[1])
@@ -899,7 +901,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         if position > -1:
             # première forme, suppression du w dans les formes w2i3, sauf dans les verbes sourds (2=3)
             if scheme[position + 2] == "i" and var == "(1)" and racine[1] != racine[2]:
-                scheme = f"{scheme[:-1]}{scheme[position+1:]}"
+                scheme = f"{scheme[:-1]}{scheme[position + 1:]}"
             # huitième forme : iwta2a3 => it²a2a3 : à faire à la main, la forme i*ta*a*a est une "exception régulière"
 
     # fin verbes assimilés en W
@@ -937,7 +939,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                     scheme[position2 - 1]
                 ):  # ie, la première radicale est vocalisée
                     # alors on peut supprimer la deuxième radicale
-                    scheme = f"{scheme[:position3-1]}{scheme[position3:]}"
+                    scheme = f"{scheme[:position3 - 1]}{scheme[position3:]}"
                 else:
                     # sinon on transfère la voyelle de la deuxième radicale sur la première
                     scheme = "".join(
@@ -973,7 +975,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
             if est_voyelle(scheme[position3 - 1]):
                 # ie, la deuxième radicale est vocalisée
                 # alors on peut supprimer la troisième radicale
-                scheme = f"{scheme[:position4-1]}{scheme[position4:]}"
+                scheme = f"{scheme[:position4 - 1]}{scheme[position4:]}"
             else:
                 # sinon on transfère la voyelle de la troisième radicale sur la deuxième
                 scheme = "".join(
@@ -997,7 +999,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         scheme = sub(r"µ²", "µµ", scheme, count=1)  # homogénéisation des cas
         position3 = scheme.find("µµ")
         if not est_voyelle(scheme[position3 + 2]) or not scheme[position3 + 2]:
-            scheme = f"{scheme[:position3-1]}a{scheme[position3+1:]}"
+            scheme = f"{scheme[:position3 - 1]}a{scheme[position3 + 1:]}"
 
     scheme = scheme.replace("2", racine[1])
 
@@ -1009,7 +1011,9 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         if position > -1:  # La 3ème radicale a pu être forcée à autre chose.
             # contexte de la radicale : quelles sont les voyelles (courtes ou longues) avant et après la consonne 3 :
             contexte += (
-                f"{scheme[position-1]}3" if est_voyelle(scheme[position - 1]) else "°3"
+                f"{scheme[position - 1]}3"
+                if est_voyelle(scheme[position - 1])
+                else "°3"
             )
             if len(scheme) == position:
                 contexte = contexte  # fin de schème
@@ -1032,11 +1036,11 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                     if position == len(scheme) - 1:
                         # position finale
                         if position == 5 and scheme[1] == "a":  # première forme
-                            scheme = f"{scheme[:position-1]}â{scheme[position+2:]}"
+                            scheme = f"{scheme[:position - 1]}â{scheme[position + 2:]}"
                         else:
-                            scheme = f"{scheme[:position-1]}é{scheme[position+2:]}"
+                            scheme = f"{scheme[:position - 1]}é{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}a{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}a{scheme[position + 2:]}"
 
                 # test sur première forme
                 elif contexte == "a3â":
@@ -1046,127 +1050,129 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                         and scheme[position + 2 : position + 4] == "ni"
                         and (var != "")
                     ):  # les duels ne sont pas concernés.
-                        scheme = f"{scheme[:position-1]}ayâ{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}ayâ{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position]}{racine[2]}{scheme[position+1:]}"
+                        scheme = (
+                            f"{scheme[:position]}{racine[2]}{scheme[position + 1:]}"
+                        )
 
                 elif contexte == "a3@":
-                    scheme = f"{scheme[:position-1]}â@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â@{scheme[position + 2:]}"
 
                 elif contexte == "a3î":
-                    scheme = f"{scheme[:position-1]}ay{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ay{scheme[position + 2:]}"
 
                 elif contexte == "a3u":
-                    scheme = f"{scheme[:position-1]}é{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}é{scheme[position + 2:]}"
 
                 elif contexte == "a3û":
-                    scheme = f"{scheme[:position-1]}aw{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}aw{scheme[position + 2:]}"
 
                 elif contexte == "a3ũ":
                     # Pb ici, "ã" pour *a*a*ũ, *i*a*ũ et *u*a*ũ, "ãé" sinon. Cf. Palmer §50 p100
                     if shemeinit in {"1a2aµũ", "1i2aµũ", "1u2aµũ"}:
-                        scheme = f"{scheme[:position-1]}ã"
+                        scheme = f"{scheme[:position - 1]}ã"
                     else:
-                        scheme = f"{scheme[:position-1]}ãé"
+                        scheme = f"{scheme[:position - 1]}ãé"
 
                 elif contexte == "a3ã":
                     # Pb ici, "ã" pour *a*a*ũ, *i*a*ũ et *u*a*ũ, "ãé" sinon. Cf. Palmer §50 p100
                     if shemeinit in {"1a2aµã", "1i2aµã", "1u2aµã"}:
-                        scheme = f"{scheme[:position-1]}ã"
+                        scheme = f"{scheme[:position - 1]}ã"
                     else:
-                        scheme = f"{scheme[:position-1]}ãé"
+                        scheme = f"{scheme[:position - 1]}ãé"
 
                 elif contexte == "a3ĩ":
                     # Pb ici, "ã" pour *a*a*ũ, *i*a*ũ et *u*a*ũ, "ãé" sinon. Cf. Palmer §50 p100
                     if shemeinit in {"1a2aµĩ", "1i2aµĩ", "1u2aµĩ"}:
-                        scheme = f"{scheme[:position-1]}ã"
+                        scheme = f"{scheme[:position - 1]}ã"
                     else:
-                        scheme = f"{scheme[:position-1]}ãé"
+                        scheme = f"{scheme[:position - 1]}ãé"
 
                 elif contexte == "â3ũ":
                     # seul cas pratique derrière un â long?
-                    scheme = f"{scheme[:position-1]}â'u"  # diptote dans ce cas
+                    scheme = f"{scheme[:position - 1]}â'u"  # diptote dans ce cas
 
                 elif contexte == "a3°":
                     # inaccompli passif (2FP, 3FP) en ay
                     # versus accompli actif en voyelle de l'inaccompli (?) :
                     if scheme[position - 3] == "a":  # on est à l'inaccompli
-                        scheme = f"{scheme[:position-1]}aw{scheme[position+1:]}"
+                        scheme = f"{scheme[:position - 1]}aw{scheme[position + 1:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}ay{scheme[position+1:]}"
+                        scheme = f"{scheme[:position - 1]}ay{scheme[position + 1:]}"
 
                 elif contexte == "i3a":
-                    scheme = f"{scheme[:position-1]}iya{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iya{scheme[position + 2:]}"
 
                 elif contexte == "i3@":
-                    scheme = f"{scheme[:position-1]}iy@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iy@{scheme[position + 2:]}"
 
                 elif contexte == "i3i":
-                    scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
 
                 elif contexte == "i3â":
-                    scheme = f"{scheme[:position-1]}iyâ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iyâ{scheme[position + 2:]}"
 
                 elif contexte == "i3î":
-                    scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
                 elif contexte == "i3ĩ":
-                    scheme = f"{scheme[:position-1]}ĩ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ĩ{scheme[position + 2:]}"
 
                 elif contexte == "i3u":
-                    scheme = f"{scheme[:position-1]}iy{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iy{scheme[position + 2:]}"
 
                 elif contexte == "i3û":
-                    scheme = f"{scheme[:position-1]}û{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}û{scheme[position + 2:]}"
 
                 elif contexte == "i3ũ":
-                    scheme = f"{scheme[:position-1]}ĩ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ĩ{scheme[position + 2:]}"
 
                 elif contexte == "i3°":
-                    scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
                 elif contexte == "u3i":
-                    scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
 
                 elif contexte == "u3î":
-                    scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
                 elif contexte == "u3u":
                     # dépend si c'est en fin de mot
                     if position == len(scheme) - 1:
-                        scheme = f"{scheme[:position-1]}îû{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}îû{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}u{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}u{scheme[position + 2:]}"
 
                 elif contexte == "u3û":
-                    scheme = f"{scheme[:position-1]}îû{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}îû{scheme[position + 2:]}"
 
                 elif contexte == "u3ũ":
-                    scheme = f"{scheme[:position-1]}ĩ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ĩ{scheme[position + 2:]}"
 
                 elif contexte == "u3":  # en fin de mot
-                    scheme = f"{scheme[:position-1]}u{scheme[position+1:]}"
+                    scheme = f"{scheme[:position - 1]}u{scheme[position + 1:]}"
 
                 elif contexte == "u3°":
-                    scheme = f"{scheme[:position-1]}û{scheme[position+1:]}"
+                    scheme = f"{scheme[:position - 1]}û{scheme[position + 1:]}"
 
                 elif (
                     scheme[position - 1] == "y"
                 ):  # cas du diminutif en *u*ay*ũ ou *u*ay*@ũ:
-                    scheme = f"{scheme[:position]}y{scheme[position+1:]}"
+                    scheme = f"{scheme[:position]}y{scheme[position + 1:]}"
 
                 elif contexte == "û3ũ":  # Pb d'écriture
-                    scheme = f"{scheme[:position-1]}uw²ũ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}uw²ũ{scheme[position + 2:]}"
 
                 elif contexte == "°3ũ" and scheme[position - 2] == "a":
                     # traitement différent de *a*wũ et *u*wũ - bon, enfin, du moins ça marche :-/
-                    scheme = f"{scheme[:position]}wũ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}wũ{scheme[position + 2:]}"
 
                 elif contexte in {"°3ũ", "°3ĩ"}:
-                    scheme = f"{scheme[:position]}ã{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}ã{scheme[position + 2:]}"
 
                 elif contexte == "°3ã" and scheme[position + 2] != "é":
-                    scheme = f"{scheme[:position]}ã{scheme[position+2:]}"
+                    scheme = f"{scheme[:position]}ã{scheme[position + 2:]}"
 
                 # la radicale faible disparaît parfois devant @, mais il faut dans ce cas la supprimer à la main.
                 # fin traitement des cas particuliers en w
@@ -1176,94 +1182,94 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                 # ou formes dérivées d'un verbe défectif, traité comme un "y"
                 if contexte == "a3a":
                     if position == len(scheme) - 1:  # position finale
-                        scheme = f"{scheme[:position-1]}é{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}é{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}a{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}a{scheme[position + 2:]}"
 
                 elif contexte == "a3â":
-                    scheme = f"{scheme[:position-1]}ayâ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ayâ{scheme[position + 2:]}"
 
                 elif contexte == "a3@":
-                    scheme = f"{scheme[:position-1]}â@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â@{scheme[position + 2:]}"
 
                 elif contexte == "â3@":
-                    scheme = f"{scheme[:position-1]}ây@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ây@{scheme[position + 2:]}"
 
                 elif contexte == "a3î":
-                    scheme = f"{scheme[:position-1]}ay{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ay{scheme[position + 2:]}"
 
                 elif contexte == "a3u":
                     # dépend si c'est en fin de mot
                     if position == len(scheme) - 1:
-                        scheme = f"{scheme[:position-1]}é{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}é{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}ay{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}ay{scheme[position + 2:]}"
 
                 elif contexte == "a3û":
-                    scheme = f"{scheme[:position-1]}aw{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}aw{scheme[position + 2:]}"
 
                 elif contexte in {"a3ũ", "a3ã", "a3ĩ"}:
-                    scheme = f"{scheme[:position-1]}ãé"
+                    scheme = f"{scheme[:position - 1]}ãé"
 
                 elif contexte == "â3i":
-                    scheme = f"{scheme[:position-1]}â'i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}â'i{scheme[position + 2:]}"
                     # typiquement -*i*â*iy²ũ doit conserver la hamza de -*i*â*ũ
                     # en fait on peut neutraliser via un W fort.
                 elif contexte == "â3ũ":
-                    scheme = f"{scheme[:position-1]}â'u"  # diptote dans ce cas
+                    scheme = f"{scheme[:position - 1]}â'u"  # diptote dans ce cas
 
                 elif contexte == "a3°":  # ay devant consonne, é en finale
-                    scheme = f"{scheme[:position-1]}ay{scheme[position+1:]}"
+                    scheme = f"{scheme[:position - 1]}ay{scheme[position + 1:]}"
 
                 elif contexte == "a3":
-                    scheme = f"{scheme[:position-1]}i"
+                    scheme = f"{scheme[:position - 1]}i"
 
                 elif contexte == "i3a":
-                    scheme = f"{scheme[:position-1]}iya{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iya{scheme[position + 2:]}"
 
                 elif contexte == "i3@":
-                    scheme = f"{scheme[:position-1]}iy@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iy@{scheme[position + 2:]}"
 
                 elif contexte == "î3@":
-                    scheme = f"{scheme[:position-1]}îy@{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}îy@{scheme[position + 2:]}"
 
                 elif contexte == "i3â":
-                    scheme = f"{scheme[:position-1]}iyâ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iyâ{scheme[position + 2:]}"
 
                 elif contexte == "i3i":
-                    scheme = f"{scheme[:position-1]}i{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 2:]}"
 
                 elif contexte == "i3î":  # î
-                    scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
 
                 elif contexte == "i3ĩ":
-                    scheme = f"{scheme[:position-1]}ĩ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ĩ{scheme[position + 2:]}"
 
                 elif contexte == "i3u":  # dépend si c'est en fin de mot
                     if position == len(scheme) - 1:
-                        scheme = f"{scheme[:position-1]}î{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}î{scheme[position + 2:]}"
                     else:
-                        scheme = f"{scheme[:position-1]}u{scheme[position+2:]}"
+                        scheme = f"{scheme[:position - 1]}u{scheme[position + 2:]}"
 
                 elif contexte == "i3û":
-                    scheme = f"{scheme[:position-1]}û{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}û{scheme[position + 2:]}"
 
                 elif contexte == "i3ũ":
-                    scheme = f"{scheme[:position-1]}ĩ"
+                    scheme = f"{scheme[:position - 1]}ĩ"
 
                 elif contexte == "i3°":
-                    scheme = f"{scheme[:position-1]}î{scheme[position+1:]}"
+                    scheme = f"{scheme[:position - 1]}î{scheme[position + 1:]}"
 
                 elif contexte == "i3":  # en fin de mot
-                    scheme = f"{scheme[:position-1]}i{scheme[position+1:]}"
+                    scheme = f"{scheme[:position - 1]}i{scheme[position + 1:]}"
 
                 elif contexte == "u3ũ":
-                    scheme = f"{scheme[:position-1]}ĩ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}ĩ{scheme[position + 2:]}"
 
                 elif (contexte == "û3ũ") and scheme[:3] == "ma1":
                     # contamination du y sur le û dans la forme ma**û*ũ, cf Wright 1874 §170,
                     # mais la 2 est déjà remplacée dans le schème donc on ne peut pas tester le schème d'origine
-                    scheme = f"{scheme[:position-1]}iy²ũ{scheme[position+2:]}"
+                    scheme = f"{scheme[:position - 1]}iy²ũ{scheme[position + 2:]}"
 
                 # fin traitement des cas particuliers en y
             # verbe défectifs
@@ -1292,57 +1298,57 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
     # (ne concerne pas les W et Y, invariables par principe) :
     while (position := scheme.find("iw")) > -1:
         if est_voyelle(scheme[position + 2]):
-            scheme = f"{scheme[:position]}iW{scheme[position+2:]}"  # éviter une boucle infinie
+            scheme = f"{scheme[:position]}iW{scheme[position + 2:]}"  # éviter une boucle infinie
         elif (
             scheme[position + 2] == "²"
         ):  # Pb sinon avec les -iw²- qu'il ne faut pas transformer en î², ce qui n'aurait aucun sens...
-            scheme = f"{scheme[:position]}iY{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}iY{scheme[position + 2:]}"
         else:
-            scheme = f"{scheme[:position]}î{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}î{scheme[position + 2:]}"
 
     while (position := scheme.find("uy")) > -1:
         if est_voyelle(scheme[position + 2]):
-            scheme = f"{scheme[:position]}uY{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}uY{scheme[position + 2:]}"
         else:
-            scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
     while (position := scheme.find("wî")) > -1:
-        scheme = f"{scheme[:position]}yi{scheme[position+2:]}"
+        scheme = f"{scheme[:position]}yi{scheme[position + 2:]}"
 
     # nettoyage éventuel : Y et W des verbes réguliers
     scheme = scheme.replace("Y", "y").replace("W", "w")
 
     # écriture des lettres de prolongations
     while (position := scheme.find("ûw")) > -1:
-        scheme = f"{scheme[:position]}uw²{scheme[position+2:]}"
+        scheme = f"{scheme[:position]}uw²{scheme[position + 2:]}"
 
     while (position := scheme.find("uw")) > -1:
         if est_voyelle(scheme[position + 2]):
-            scheme = f"{scheme[:position]}uW{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}uW{scheme[position + 2:]}"
         else:
-            scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
     while (position := scheme.find("iy")) > -1:
         if (
             est_voyelle(scheme[position + 2]) or scheme[position + 2] == "²"
         ):  # Pb sinon avec les -iy²-
-            scheme = f"{scheme[:position]}iY{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}iY{scheme[position + 2:]}"
         else:
-            scheme = f"{scheme[:position]}î{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}î{scheme[position + 2:]}"
 
     while (position := scheme.find("îy")) > -1:
-        scheme = f"{scheme[:position]}iy²{scheme[position+2:]}"
+        scheme = f"{scheme[:position]}iy²{scheme[position + 2:]}"
 
     while (position := scheme.find("yî")) > -1:
         if est_voyelle(
             scheme[position - 1]
         ):  # intercepter des cas comme taXyîTũ => taXYîTũ et pas taXy²iTũ
-            scheme = f"{scheme[:position]}y²i{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}y²i{scheme[position + 2:]}"
         else:
-            scheme = f"{scheme[:position]}Yî{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}Yî{scheme[position + 2:]}"
 
     while (position := scheme.find("û²")) > -1:
-        scheme = f"{scheme[:position]}uw²{scheme[position+2:]}"
+        scheme = f"{scheme[:position]}uw²{scheme[position + 2:]}"
 
     # nettoyage éventuel : Y et W des verbes réguliers
     scheme = scheme.replace("Y", "y").replace("W", "w")
@@ -1364,6 +1370,6 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
     # ajustement pour les verbes assimilés en y
     if (position := scheme.find("uy")) > -1:
         if not est_voyelle(scheme[position + 2]):
-            scheme = f"{scheme[:position]}û{scheme[position+2:]}"
+            scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
     return scheme

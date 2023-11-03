@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
+          python-version: "3.11"
 
       - uses: actions/cache@v3
         id: cache
@@ -39,7 +39,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        locale:  # XXX_LOCALES
+        locale: # XXX_LOCALES
           - "ca"
           - "de"
           - "el"
@@ -59,7 +59,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
+          python-version: "3.11"
 
       - name: Install dictzip
         run: sudo apt install dictzip

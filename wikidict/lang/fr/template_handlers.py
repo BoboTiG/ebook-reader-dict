@@ -437,7 +437,7 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 parts[2], data.get("tr3", ""), data.get("sens3", "")
             )
         elif b == "1100":
-            phrase += f' du préfixe {word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", "") )},'
+            phrase += f' du préfixe {word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))},'
             phrase += f' avec le suffixe {word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))}'
 
         if data["sens"]:
