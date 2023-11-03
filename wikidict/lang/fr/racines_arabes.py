@@ -1296,7 +1296,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "renforcement",
         "ar-ta*a*²a*a": "être renforcé",
         "ar-ta*â*a*a": "",
-        "ar-u**u*u": "vigueur",
+        "ar-u**u*ũ": "vigueur",
     },  # 30
     "ar-Chd": {
         "aa_sens": "être témoin, être présent",
@@ -7959,6 +7959,25 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait de rendre prospère",
         "ar-ta**û*ũ": "vert",
     },  # 32
+    "ar-yhd": {
+        "aa_sens": "juif",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*a*û*iy²@ũ": "juive",
+        "ar-*a*û*iy²ũ": "juif",
+        "ar-*a*û*ũ": "juifs",
+        "ar-*ta*a*a": "",
+        "ar-*u**ânũ": "{{p}} juifs",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-el*a*û*iy²@u": "judaisme",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 17
     "ar-zHl": {
         "aa_sens": "s'écarter",
         "ar-***ũ": "",
@@ -8198,5 +8217,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 285
+}  # 286
 # END
