@@ -197,6 +197,7 @@ racines_schemes_arabes = {
         "aa_sens": "adorer, divin",
         "ar-*a**âniy²@ũ": "état de ce qui est divin",
         "ar-*a*a*a-u": "adorer",
+        "ar-*a*a*ũ": "protection",
         "ar-*a*i*a-a": "protéger, chercher assistance",
         "ar-*a*²a*a": "prendre comme dieu ; prendre comme esclave",
         "ar-*a*â*@ũ": "divinité, état divin",
@@ -216,7 +217,7 @@ racines_schemes_arabes = {
         "ar-el*i*â*u": "([[الله]]) Allah",
         "ar-sta**a*a": "ressembler à un dieu",
         "ar-ta*a*²a*a": "adorer, rendre un culte",
-    },  # 22
+    },  # 23
     "ar-'ml": {
         "aa_sens": "espoir, espérer",
         "ar-**a*²a": "",

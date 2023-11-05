@@ -2752,6 +2752,7 @@ langs = {
     "gmw-bgh": "Bergish",
     "gmw-cfr": "Central Franconian",
     "gmw-ecg": "East Central German",
+    "gmw-fin": "Fingallian",
     "gmw-fri": "Frisian",
     "gmw-gts": "Gottscheerish",
     "gmw-jdt": "Jersey Dutch",
@@ -9591,5 +9592,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,586
+}  # 9,587
 # END
