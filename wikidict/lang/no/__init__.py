@@ -1,5 +1,9 @@
 """Norwegian language."""
 
+import re
+
+from ...user_functions import flatten, uniq
+
 # Float number separator
 float_separator = ","
 
@@ -13,6 +17,29 @@ etyl_section = ("Etymologi",)
 sections = (
     *etyl_section,
     "Substantiv",
+    "Verb",
+)
+
+# Variants
+variant_titles = tuple(section for section in sections if section not in etyl_section)
+variant_templates = (
+    "{{no-sub-bøyningsform",
+    "{{no-verb-bøyningsform",
+)
+
+# Templates to ignore: the text will be deleted.
+definitions_to_ignore = (
+    "no-sub-bunn",
+    "no-sub-m1",
+    "no-sub-rad",
+    "no-sub-slutt",
+    "no-sub-start",
+    "no-sub-topp",
+    #
+    # For variants
+    #
+    "no-sub-bøyningsform",
+    "no-verb-bøyningsform",
 )
 
 # Release content on GitHub
@@ -37,4 +64,26 @@ wiktionary = "Wiktionary (ɔ) {year}"
 templates_multi = {
     # {{feilstaving av|førstvoterende|språk=no}}
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+    #
+    # For variants
+    #
+    # {{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
+    "no-sub-bøyningsform": "parts[2]",
+    # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
+    "no-verb-bøyningsform": "parts[2]",
 }
+
+
+def find_genders(
+    code: str,
+    pattern: re.Pattern[str] = re.compile(r"{{no-sub\|(\w+)}}"),
+) -> list[str]:
+    """
+    >>> find_genders("")
+    []
+    >>> find_genders("{{no-sub|m}}")
+    ['m']
+    >>> find_genders("{{no-sub|mf}}")
+    ['mf']
+    """
+    return uniq(flatten(pattern.findall(code)))

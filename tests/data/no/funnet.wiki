@@ -1,0 +1,9 @@
+==Norsk==
+===Substantiv===
+'''{{PAGENAME}}'''  {{norm|nb=ja|nrm=ja|nn=ja}}
+
+#{{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
+
+===Verb===
+'''{{PAGENAME}}'''  {{norm|nb=ja|nrm=ja}}
+#{{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
