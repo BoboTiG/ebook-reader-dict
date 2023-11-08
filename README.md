@@ -20,6 +20,34 @@
 - [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
 - [FR] [Dico alto](https://dicoalto.com/) by [Snawei](https://fr.wiktionary.org/wiki/Utilisateur:Snawei)
 
+## Development
+
+Setup a virtual environment:
+
+```console
+$ python -m venv venv
+$ . venv/bin/activate
+```
+
+Install, or update, dependencies:
+
+```console
+$ python -m pip install -U pip
+$ python -m pip install -r requirements-tests.txt
+```
+
+Run tests:
+
+```console
+$ python -m pytest --doctest-modules wikidict tests
+```
+
+Run linters, and quality checkers, before submitting a pull-request:
+
+```console
+$ ./check.sh
+```
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
