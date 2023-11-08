@@ -87,7 +87,11 @@ def get_random_word(locale: str) -> str:
     """Retrieve a random word."""
     url = f"https://{locale}.wiktionary.org/w/api.php?action=query&list=random&format=json"
     with requests.get(url) as req:
-        return str(req.json()["query"]["random"][0]["title"])
+        word = str(req.json()["query"]["random"][0]["title"])
+
+    if "CI" in os.environ:
+        print(f"🎯 {word = }")
+    return word
 
 
 def format_description(locale: str, output_dir: Path) -> str:
