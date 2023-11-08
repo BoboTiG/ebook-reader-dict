@@ -16,6 +16,7 @@ section_sublevels = (3, 4)
 etyl_section = ("Etymologi",)
 sections = (
     *etyl_section,
+    "Adjektiv",
     "Substantiv",
     "Verb",
 )
@@ -29,18 +30,47 @@ variant_templates = (
 
 # Templates to ignore: the text will be deleted.
 definitions_to_ignore = (
-    "no-sub-bunn",
-    "no-sub-m1",
-    "no-sub-rad",
-    "no-sub-slutt",
-    "no-sub-start",
-    "no-sub-topp",
     #
     # For variants
     #
     "no-sub-bøyningsform",
     "no-verb-bøyningsform",
 )
+
+# Templates to ignore: the text will be deleted.
+templates_ignored = (
+    "etymologi mangler",
+    "mangler definisjon",
+    "norm",
+)
+
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "jus": "jus",
+}
+
+# Templates more complex to manage.
+templates_multi = {
+    # {{bøyningsform|no|sub|korp}}
+    "bøyningsform": "f\"{italic('bøyningsform av')} {strong(parts[-1])}\"",
+    # {{feilstaving av|førstvoterende|språk=no}}
+    "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+    # {{prefiks|a|biotisk|språk=no}}
+    "prefiks": 'f"{italic(parts[1])}- + {italic(parts[2])}"',
+    # {{tidligere bøyningsform|no|sub|jul}}
+    "tidligere bøyningsform": "f\"{italic('tidligere bøyningsform av')} {strong(parts[-1])}\"",
+    # {{tidligere skrivemåte|no|naturlig tall}}
+    "tidligere skrivemåte": "f\"{italic('tidligere skrivefrom av')} {strong(parts[-1])}\"",
+    # {{suffiks|konsentrere|sjon|språk=no}}
+    "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
+    #
+    # For variants
+    #
+    # {{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
+    "no-sub-bøyningsform": "parts[2]",
+    # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
+    "no-verb-bøyningsform": "parts[2]",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
@@ -60,23 +90,6 @@ Tillgängliga filer:
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
 
-# Templates more complex to manage.
-templates_multi = {
-    # {{feilstaving av|førstvoterende|språk=no}}
-    "feilstaving av": 'f"Feilstaving av {parts[1]}."',
-    # {{prefiks|a|biotisk|språk=no}}
-    "prefiks": 'f"{italic(parts[1])}- + {italic(parts[2])}"',
-    # {{suffiks|konsentrere|sjon|språk=no}}
-    "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
-    #
-    # For variants
-    #
-    # {{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
-    "no-sub-bøyningsform": "parts[2]",
-    # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
-    "no-verb-bøyningsform": "parts[2]",
-}
-
 
 def find_genders(
     code: str,
@@ -91,3 +104,24 @@ def find_genders(
     ['mf']
     """
     return uniq(flatten(pattern.findall(code)))
+
+
+def last_template_handler(
+    template: tuple[str, ...], locale: str, word: str = ""
+) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["jus"], "no")
+        '<i>(jus)</i>'
+
+    """  # noqa
+    from ...user_functions import lookup_italic, term
+    from ..defaults import last_template_handler as default
+
+    tpl = template[0]
+
+    if italic_word := lookup_italic(tpl, locale, empty_default=True):
+        return term(italic_word)
+
+    return default(template, locale, word=word)

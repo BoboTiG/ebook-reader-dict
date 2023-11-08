@@ -29,6 +29,14 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        (
+            "lumpen",
+            [],
+            [],
+            [""],
+            ["tarvelig, nedrig"],
+            ["lump"],
+        ),
     ],
 )
 def test_parse_word(
@@ -54,10 +62,22 @@ def test_parse_word(
     "wikicode, expected",
     [
         (
+            "{{bøyningsform|no|sub|korp}}",
+            "<i>bøyningsform av</i> <b>korp</b>",
+        ),
+        (
             "{{feilstaving av|førstvoterende|språk=no}}",
             "Feilstaving av førstvoterende.",
         ),
         ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),
+        (
+            "{{tidligere bøyningsform|no|sub|jul}}",
+            "<i>tidligere bøyningsform av</i> <b>jul</b>",
+        ),
+        (
+            "{{tidligere skrivemåte|no|naturlig tall}}",
+            "<i>tidligere skrivefrom av</i> <b>naturlig tall</b>",
+        ),
         ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
     ],
 )
