@@ -32,3 +32,9 @@ Tillgängliga filer:
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
+
+# Templates more complex to manage.
+templates_multi = {
+    # {{feilstaving av|førstvoterende|språk=no}}
+    "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+}

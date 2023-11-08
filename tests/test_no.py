@@ -39,7 +39,10 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("", ""),
+        (
+            "{{feilstaving av|førstvoterende|språk=no}}",
+            "Feilstaving av førstvoterende.",
+        ),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
