@@ -88,7 +88,7 @@ recognized_placetypes = {
     "administrative region": {
         "article": "an",
         "display": "administrative region",
-        "preposition": "in",
+        "preposition": "of",
     },
     "administrative seat": {
         "article": "the",

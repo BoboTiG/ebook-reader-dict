@@ -8212,6 +8212,39 @@ racines_schemes_arabes = {
         "ar-a**a*a": "durer longtemps",
         "ar-a**â*ũ": "{{p}} temps",
     },  # 13
+    "ar-zrq": {
+        "aa_sens": "yeux bleus",
+        "ar-***ũ": "",
+        "ar-**a*²a": "être bleu",
+        "ar-**â*²a": "être bleu",
+        "ar-*a**@ũ": "porte-bonheur",
+        "ar-*a**â'u": "{{f}} bleue",
+        "ar-*a**ũ": "regarder en coin",
+        "ar-*a*a*a-u": "lancer un javelot",
+        "ar-*a*a*ũ": "couleur bleue",
+        "ar-*a*i*a-a": "bleuir",
+        "ar-*a*²a*a": "",
+        "ar-*a2â2î*u": "{{p}} éperviers blancs",
+        "ar-*aw*a*ũ": "bateau",
+        "ar-*awâ*i*u": "{{p}} bateaux",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "livide",
+        "ar-*u**ũ": "{{p}} bleus",
+        "ar-*u*²a*ũ": "épervier blanc",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "tourner ses yeux vers",
+        "ar-a**a*u": "bleu",
+        "ar-el*a**â'u": "Zarka",
+        "ar-el*u**u": "fers de lance",
+        "ar-ma*â*î*u": "{{p}} javelots",
+        "ar-mi**â*ũ": "javelot",
+        "ar-n*a*a*a": "être transpercé",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "être bleu",
+        "ar-ta*aw*a*a": "<!--25-->fienter",
+        "ar-ta*â*a*a": "",
+        "ar-u*ay*i*ũ": "bleuâtre",
+    },  # 31
     "ar-zrz": {
         "aa_sens": "prendre cette forme",
         "ar-**a*²a": "",
@@ -8283,5 +8316,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 288
+}  # 289
 # END

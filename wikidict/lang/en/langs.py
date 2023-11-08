@@ -6725,6 +6725,7 @@ langs = {
     "qwc": "Classical Quechua",
     "qwe": "Quechuan",
     "qwe-kch": "Kichwa",
+    "qwe-pro": "Proto-Quechuan",
     "qwm": "Kipchak",
     "qwm-arm": "Armeno-Kipchak",
     "qwm-mam": "Mamluk-Kipchak",
@@ -9592,5 +9593,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,587
+}  # 9,588
 # END
