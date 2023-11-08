@@ -22,7 +22,7 @@ from wikidict.utils import process_templates
             "konsentrasjon",
             [],
             ["m"],
-            ["Fra"],
+            ["Fra <i>konsentrere</i> + -<i>sjon</i>"],
             [
                 "Det å konsentrere seg; ha stort fokus på noe.",
                 "<i>(Kjemi)</i> Andelen stoff i noe; mengde stoff løst pr. enhet.",
@@ -57,6 +57,8 @@ def test_parse_word(
             "{{feilstaving av|førstvoterende|språk=no}}",
             "Feilstaving av førstvoterende.",
         ),
+        ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),
+        ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:

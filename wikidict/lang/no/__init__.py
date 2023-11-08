@@ -64,6 +64,10 @@ wiktionary = "Wiktionary (ɔ) {year}"
 templates_multi = {
     # {{feilstaving av|førstvoterende|språk=no}}
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+    # {{prefiks|a|biotisk|språk=no}}
+    "prefiks": 'f"{italic(parts[1])}- + {italic(parts[2])}"',
+    # {{suffiks|konsentrere|sjon|språk=no}}
+    "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
     #
     # For variants
     #
