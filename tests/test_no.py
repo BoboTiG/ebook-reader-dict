@@ -38,7 +38,7 @@ from wikidict.utils import process_templates
             ["Fra <i>konsentrere</i> + -<i>sjon</i>"],
             [
                 "Det å konsentrere seg; ha stort fokus på noe.",
-                "<i>(Kjemi)</i> Andelen stoff i noe; mengde stoff løst pr. enhet.",
+                "<i>(kjemi)</i> Andelen stoff i noe; mengde stoff løst pr. enhet.",
             ],
             [],
         ),

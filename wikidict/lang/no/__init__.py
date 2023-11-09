@@ -49,12 +49,6 @@ templates_ignored = (
     "norm",
 )
 
-# Templates that will be completed/replaced using italic style.
-templates_italic = {
-    "familie": "familie",
-    "jus": "jus",
-}
-
 # Templates more complex to manage.
 templates_multi = {
     # {{alternativ skrivemåte|be}}
@@ -146,14 +140,7 @@ def last_template_handler(
         'engelsk <i>virgin oil</i>, <i>virgin</i> («jomfru») + <i>oil</i> («olje»)'
 
     """  # noqa
-    from ...user_functions import (
-        concat,
-        extract_keywords_from,
-        italic,
-        lookup_italic,
-        term,
-    )
-    from ..defaults import last_template_handler as default
+    from ...user_functions import concat, extract_keywords_from, italic, term
     from .codelangs import codelangs
 
     tpl, *parts = template
@@ -175,7 +162,4 @@ def last_template_handler(
 
         return phrase
 
-    if italic_word := lookup_italic(tpl, locale, empty_default=True):
-        return term(italic_word)
-
-    return default(template, locale, word=word)
+    return term(tpl)
