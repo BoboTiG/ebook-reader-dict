@@ -800,6 +800,11 @@ recognized_placetypes = {
         "display": "hill town",
         "preposition": "in",
     },
+    "historical administrative region": {
+        "article": "a",
+        "display": "historical administrative region",
+        "preposition": "of",
+    },
     "historical autonomous republic": {
         "article": "a",
         "display": "historical autonomous republic",
@@ -2060,7 +2065,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 411
+}  # 412
 
 placetypes_aliases = {
     "CDP": "census-designated place",
