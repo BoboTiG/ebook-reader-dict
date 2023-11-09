@@ -100,6 +100,7 @@ def test_parse_word(
             "{{tidligere skrivemåte|no|naturlig tall}}",
             "<i>tidligere skrivemåte av</i> <b>naturlig tall</b>",
         ),
+        ("{{vokabular|overført}}", "<i>(overført)</i>"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
