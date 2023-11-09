@@ -555,13 +555,16 @@ def render_etyl(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'latin <i>ortivus</i> («&nbsp;qui se lève&nbsp;»)'
     >>> render_etyl("étyl", ["proto-indo-européen", "fr"], defaultdict(str))
     'indo-européen commun'
+    >>> render_etyl("étyl", ["néolatin", "fr"], defaultdict(str))
+    'néolatin'
     >>> render_etyl("étylp", ["la", "fr"], defaultdict(str, {"mot":"Ladon"}))
     'latin <i>Ladon</i>'
     >>> render_etyl("étylp", ["br", "fr"], defaultdict(str, {"tr":"qui est digne de posséder un bon cheval, chevalier"}))
     'breton, <i>qui est digne de posséder un bon cheval, chevalier</i>'
     """
     # The lang name
-    phrase = langs[data["1"] or parts.pop(0)]
+    lang = data["1"] or parts.pop(0)
+    phrase = langs.get(lang, lang)
     if parts and parts[0] in langs:
         parts.pop(0)
     mot = data.get("mot", data["3"] or (parts[0] if parts else ""))
