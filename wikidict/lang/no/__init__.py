@@ -24,7 +24,9 @@ sections = (
 # Variants
 variant_titles = tuple(section for section in sections if section not in etyl_section)
 variant_templates = (
+    "{{no-adj-bøyningsform",
     "{{no-sub-bøyningsform",
+    "{{no-verbform av",
     "{{no-verb-bøyningsform",
 )
 
@@ -33,7 +35,9 @@ definitions_to_ignore = (
     #
     # For variants
     #
+    "no-adj-bøyningsform",
     "no-sub-bøyningsform",
+    "no-verbform av",
     "no-verb-bøyningsform",
 )
 
@@ -72,6 +76,10 @@ templates_multi = {
     #
     # For variants
     #
+    # {{no-adj-bøyningsform|b|vis|nb=ja|nrm=ja|nn=ja}}
+    "no-adj-bøyningsform": "parts[2]",
+    # {{no-verbform av|imperativ|børste|nb=ja}}
+    "no-verbform av": "parts[2]",
     # {{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
     "no-sub-bøyningsform": "parts[2]",
     # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
