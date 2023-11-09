@@ -128,15 +128,40 @@ def last_template_handler(
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
+        >>> last_template_handler(["overslån", "en", "no", "quality of life"], "no")
+        'engelsk <i>quality of life</i>'
+        >>> last_template_handler(["overslån", "en", "no", "virgin oil", "virgin", "t1=jomfru", "oil", "t2=olje"], "no")
+        'engelsk <i>virgin oil</i>, <i>virgin</i> («jomfru») + <i>oil</i> («olje»)'
+
     """  # noqa
-    from ...user_functions import concat, extract_keywords_from, lookup_italic, term
+    from ...user_functions import (
+        concat,
+        extract_keywords_from,
+        italic,
+        lookup_italic,
+        term,
+    )
     from ..defaults import last_template_handler as default
+    from .codelangs import codelangs
 
     tpl, *parts = template
-    _ = extract_keywords_from(parts)
+    data = extract_keywords_from(parts)
 
     if tpl in {"kontekst", "tema"}:
         return term(concat(parts, sep=", "))
+
+    if tpl == "overslån":
+        phrase = f"{codelangs[parts[0]]} {italic(parts[2])}"
+        if rest := parts[3:]:
+            phrase += ", "
+            for idx, part in enumerate(rest, 1):
+                phrase += italic(part)
+                if trad := data[f"t{idx}"]:
+                    phrase += f" («{trad}»)"
+                if part != parts[-1]:
+                    phrase += " + "
+
+        return phrase
 
     if italic_word := lookup_italic(tpl, locale, empty_default=True):
         return term(italic_word)
