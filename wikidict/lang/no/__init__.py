@@ -17,6 +17,7 @@ etyl_section = ("Etymologi",)
 sections = (
     *etyl_section,
     "Adjektiv",
+    "Adverb",
     "Substantiv",
     "Verb",
 )
@@ -50,6 +51,7 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
+    "familie": "familie",
     "jus": "jus",
 }
 

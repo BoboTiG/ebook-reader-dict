@@ -11,6 +11,19 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "bare",
+            [],
+            [],
+            [],
+            [
+                "begrensende, kun",
+                "Gir dempende effekt",
+                "Gir forsterkende effekt",
+                "Gir en sitatfunksjon, særlig i muntlig språk.",
+            ],
+            ["bar"],
+        ),
+        (
             "funnet",
             [],
             [],

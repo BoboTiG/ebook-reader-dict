@@ -1,0 +1,83 @@
+{{se også|Bäre}}
+==Norsk==
+===Adverb===
+{{nb-adv}}
+
+# [[begrensende]], [[kun]]
+#: ''Det er '''bare''' lov å spise brunost''
+#Gir dempende effekt
+#: ''Jeg skal '''bare''' på do''
+#Gir forsterkende effekt
+#:''Han er '''bare''' så kul!''
+#Gir en sitatfunksjon, særlig i muntlig språk.
+#: ''Hun '''bare''': GI meg katten min!''
+
+====Andre former====
+{{andre former|berre|nb=nei|nn=ja|nrm=nei}}
+
+====Synonymer====
+* [[blott]] {{norm|nb=ja|nrm=ja|nn=ja}}
+* [[kun]] {{norm|nb=ja|nrm=ja}}
+
+====Avledete termer====
+* [[ikke bare bare]]
+
+====Oversettelser====
+{{overs-topp|kun}}
+*{{overs|af|net}}
+*{{overs|da|bare}}, {{o|da|kun}}
+* {{overs|en|only}}, {{o|en|just}}, {{o|en|merely}}
+*{{overs|eo|nur}}
+* {{overs|fi|vain}}
+{{overs-midt}}
+* {{overs|fr|seulement}}, {{o|fr|uniquement}}, {{o|fr|rien que}}, ne... que
+*{{overs|nl|slechts}}, {{o|nl|alleen}}
+* {{overs|pt|só}}
+* {{overs|sv|bara}}, {{o|sv|enbart}}, {{o|sv|endast}}
+* {{overs|de|nur}}, {{o|de|bloß}}
+{{overs-bunn}}
+
+===Adjektiv===
+'''bare''' {{norm|nb=ja|nrm=ja|nn=ja}}
+
+# {{no-adj-bøyningsform|fl|bar|nb=ja|nrm=ja|nn=ja}}
+# {{no-adj-bøyningsform|b|bar|nb=ja|nrm=ja|nn=ja}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB}}
+
+
+----
+
+==Dansk==
+===Adverb===
+{{da-adv}}
+
+#[[#Norsk|bare]]
+
+===Referanser===
+* {{R:DDO}}
+
+
+----
+
+==Engelsk==
+===Adjektiv===
+{{en-adj|bar|er|est}}
+
+# [[bar#Adjektiv|bar]], [[naken]]
+# [[minimal]]
+# [[tom]]
+#: {{eksempel|en|a room '''bare''' of furniture|et rom '''tomt''' for møbler}}
+#: {{eksempel|en|The cupboard was '''bare'''.|Skapet var '''tomt'''.}}
+#: {{eksempel|en|The walls of this room are '''bare''' — why not hang some paintings on them?|Veggene i dette rommet er tomme - hvorfor ikke henge opp noen malerier på dem?}}
+
+===Adverb===
+{{en-adv}}
+
+# [[svært]], [[veldig]]
+# [[knapt]]
+
+====Synonymer====
+* ''knapt:'' [[barely]]
