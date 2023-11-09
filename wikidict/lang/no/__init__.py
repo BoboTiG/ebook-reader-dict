@@ -121,6 +121,8 @@ def last_template_handler(
         >>> last_template_handler(["jus"], "no")
         '<i>(jus)</i>'
 
+        >>> last_template_handler(["kontekst", "fobi", "utellelig", "kat=no:Fobier", "kat2=no:Masseord"], "no")
+        '<i>(fobi, utellelig)</i>'
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
@@ -131,7 +133,7 @@ def last_template_handler(
     tpl, *parts = template
     _ = extract_keywords_from(parts)
 
-    if tpl == "tema":
+    if tpl in {"kontekst", "tema"}:
         return term(concat(parts, sep=", "))
 
     if italic_word := lookup_italic(tpl, locale, empty_default=True):
