@@ -51,18 +51,24 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{alternativ skrivemåte|be}}
+    "alternativ skrivemåte": "f\"{italic('alternativ skrivemåte av')} {strong(parts[-1])}\"",
     # {{bøyningsform|no|sub|korp}}
     "bøyningsform": "f\"{italic('bøyningsform av')} {strong(parts[-1])}\"",
     # {{feilstaving av|førstvoterende|språk=no}}
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+    # {{l|lt|duktė}}
+    "l": "parts[-1]",
+    # {{opphav|norrønt|språk=no}
+    "opphav": "parts[1]",
     # {{prefiks|a|biotisk|språk=no}}
     "prefiks": 'f"{italic(parts[1])}- + {italic(parts[2])}"',
+    # {{suffiks|konsentrere|sjon|språk=no}}
+    "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
     # {{tidligere bøyningsform|no|sub|jul}}
     "tidligere bøyningsform": "f\"{italic('tidligere bøyningsform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
     "tidligere skrivemåte": "f\"{italic('tidligere skrivefrom av')} {strong(parts[-1])}\"",
-    # {{suffiks|konsentrere|sjon|språk=no}}
-    "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
     #
     # For variants
     #
@@ -115,11 +121,18 @@ def last_template_handler(
         >>> last_template_handler(["jus"], "no")
         '<i>(jus)</i>'
 
+        >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
+        '<i>(matematikk, fysikk)</i>'
+
     """  # noqa
-    from ...user_functions import lookup_italic, term
+    from ...user_functions import concat, extract_keywords_from, lookup_italic, term
     from ..defaults import last_template_handler as default
 
-    tpl = template[0]
+    tpl, *parts = template
+    _ = extract_keywords_from(parts)
+
+    if tpl == "tema":
+        return term(concat(parts, sep=", "))
 
     if italic_word := lookup_italic(tpl, locale, empty_default=True):
         return term(italic_word)

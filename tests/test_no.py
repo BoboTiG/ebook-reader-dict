@@ -61,6 +61,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{alternativ skrivemåte|be}}", "<i>alternativ skrivemåte av</i> <b>be</b>"),
         (
             "{{bøyningsform|no|sub|korp}}",
             "<i>bøyningsform av</i> <b>korp</b>",
@@ -69,7 +70,10 @@ def test_parse_word(
             "{{feilstaving av|førstvoterende|språk=no}}",
             "Feilstaving av førstvoterende.",
         ),
+        ("{{l|no|god, snill}}", "god, snill"),
+        ("{{opphav|norrønt|språk=no}}", "norrønt"),
         ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),
+        ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
         (
             "{{tidligere bøyningsform|no|sub|jul}}",
             "<i>tidligere bøyningsform av</i> <b>jul</b>",
@@ -78,7 +82,6 @@ def test_parse_word(
             "{{tidligere skrivemåte|no|naturlig tall}}",
             "<i>tidligere skrivefrom av</i> <b>naturlig tall</b>",
         ),
-        ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
