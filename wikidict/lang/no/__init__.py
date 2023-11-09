@@ -99,7 +99,7 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: re.Pattern[str] = re.compile(r"{{n[on]-sub\|(\w+)}}"),
+    pattern: re.Pattern[str] = re.compile(r"{{n[bon]-sub\|(\w+)}}"),
 ) -> list[str]:
     """
     >>> find_genders("")
@@ -110,6 +110,8 @@ def find_genders(
     ['mf']
     >>> find_genders("{{nn-sub|f}}")
     ['f']
+    >>> find_genders("{{nb-sub|m}}")
+    ['m']
     """
     return uniq(flatten(pattern.findall(code)))
 
