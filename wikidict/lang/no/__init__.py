@@ -44,6 +44,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "definisjon mangler",
     "etymologi mangler",
     "mangler definisjon",
     "norm",
@@ -63,12 +64,18 @@ templates_multi = {
     "opphav": "parts[1]",
     # {{prefiks|a|biotisk|språk=no}}
     "prefiks": 'f"{italic(parts[1])}- + {italic(parts[2])}"',
+    # {{qualifier|idiomatisk}}
+    "qualifier": "term(parts[1])",
     # {{suffiks|konsentrere|sjon|språk=no}}
     "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
     # {{tidligere bøyningsform|no|sub|jul}}
     "tidligere bøyningsform": "f\"{italic('tidligere bøyningsform av')} {strong(parts[-1])}\"",
+    # {{tidligere skriveform|no|kunstnarleg}}
+    "tidligere skriveform": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
-    "tidligere skrivemåte": "f\"{italic('tidligere skrivefrom av')} {strong(parts[-1])}\"",
+    "tidligere skrivemåte": "f\"{italic('tidligere skrivemåte av')} {strong(parts[-1])}\"",
+    # {{vokabular|overført}}
+    "vokabular": "term(parts[1])",
     #
     # For variants
     #
@@ -128,6 +135,14 @@ def last_template_handler(
 
         >>> last_template_handler(["jus"], "no")
         '<i>(jus)</i>'
+        >>> last_template_handler(["jus", "nb"], "no")
+        '<i>(jus)</i>'
+        >>> last_template_handler(["jus", "nn"], "no")
+        '<i>(jus)</i>'
+        >>> last_template_handler(["jus", "no"], "no")
+        '<i>(jus)</i>'
+        >>> last_template_handler(["jus", "no"], "nrm")
+        '<i>(jus)</i>'
 
         >>> last_template_handler(["kontekst", "fobi", "utellelig", "kat=no:Fobier", "kat2=no:Masseord"], "no")
         '<i>(fobi, utellelig)</i>'
@@ -162,4 +177,7 @@ def last_template_handler(
 
         return phrase
 
-    return term(tpl)
+    if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
+        return term(tpl)
+
+    raise ValueError(f"Unhandled template: {word=}, {template=}")

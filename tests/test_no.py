@@ -86,14 +86,19 @@ def test_parse_word(
         ("{{l|no|god, snill}}", "god, snill"),
         ("{{opphav|norrønt|språk=no}}", "norrønt"),
         ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),
+        ("{{qualifier|idiomatisk}}", "<i>(idiomatisk)</i>"),
         ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
         (
             "{{tidligere bøyningsform|no|sub|jul}}",
             "<i>tidligere bøyningsform av</i> <b>jul</b>",
         ),
         (
+            "{{tidligere skriveform|no|kunstnarleg}}",
+            "<i>tidligere skriveform av</i> <b>kunstnarleg</b>",
+        ),
+        (
             "{{tidligere skrivemåte|no|naturlig tall}}",
-            "<i>tidligere skrivefrom av</i> <b>naturlig tall</b>",
+            "<i>tidligere skrivemåte av</i> <b>naturlig tall</b>",
         ),
     ],
 )
