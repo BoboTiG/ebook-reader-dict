@@ -109,6 +109,7 @@ templates_italic = {
     **campos_semanticos,
     "afectado": "Literario",
     "ciudades": "Geografía",
+    "poblaciones": "Geografía (poblaciones)",
     "coloquial": "Coloquial",
     "Coloquial": "Coloquial",
     "elevado": "Literario",
