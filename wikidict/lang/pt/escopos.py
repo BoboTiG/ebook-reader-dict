@@ -360,6 +360,7 @@ escopos = {
     "Topónimo": "toponímia",
     "Topônimo": "toponímia",
     "Torre de Moncorvo": "Moncorvo",
+    "Transilvânia": "Transilvânia",
     "Transitivo": "transitivo",
     "Transporte": "transporte",
     "Transporte ferroviário": "transporte",
@@ -398,5 +399,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 393
+}  # 394
 # END
