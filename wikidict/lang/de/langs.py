@@ -96,6 +96,7 @@ langs = {
     "bol": "Bole",
     "bpy": "Bishnupriya",
     "br": "Bretonisch",
+    "brh": "Brahui",
     "bs": "Bosnisch",
     "bty": "Bobot",
     "bua": "Burjatisch",
@@ -217,6 +218,7 @@ langs = {
     "grc": "Altgriechisch",
     "gsw": "Schweizerdeutsch",
     "gu": "Gujarati",
+    "guw": "Gun",
     "gv": "Manx",
     "ha": "Hausa",
     "hac": "Gorani",
@@ -228,6 +230,7 @@ langs = {
     "hif": "Fiji Hindi",
     "hil": "Hiligaynon",
     "hit": "Hethitisch",
+    "hns": "Karibisches Hindustani",
     "ho": "Hiri Motu",
     "hop": "Hopi",
     "hr": "Kroatisch",
@@ -683,5 +686,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 678
+}  # 681
 # END
