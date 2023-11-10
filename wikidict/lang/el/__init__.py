@@ -230,7 +230,4 @@ def last_template_handler(
         phrase += f" {data['1'] or parts[2]}"
         return phrase
 
-    if tpl == "λ":
-        return parts[0]
-
-    return default(template, locale, word)
+    return parts[0] if tpl == "λ" else default(template, locale, word)
