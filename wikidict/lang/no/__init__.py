@@ -180,4 +180,19 @@ def last_template_handler(
     if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
         return term(tpl)
 
+    # TODO: each time we tackle a ticket, we should remove the template from the condition below.
+    #       At the end, the whole condition will be gone.
+    if tpl in {
+        "sammensetning",
+        "avledet",
+        "etyl",
+        "proto",
+        "term",
+        "urspråk",
+        "lånt",
+        "suffiks/oversikt",
+        "#ifeq",
+    }:
+        return tpl
+
     raise ValueError(f"Unhandled template: {word=}, {template=}")
