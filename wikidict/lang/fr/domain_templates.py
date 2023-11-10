@@ -55,6 +55,7 @@ domain_templates = {
     "chameaux": "Zoologie",
     "champignon": "Mycologie",
     "champignons": "Mycologie",
+    "charcuteries": "Cuisine",
     "chats": "Zoologie",
     "chaussures": "Vêtement",
     "chauves-souris": "Zoologie",
@@ -316,5 +317,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 311
+}  # 312
 # END

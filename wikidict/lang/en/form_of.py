@@ -721,10 +721,6 @@ form_of_templates = {
         "text": "Synonym of",
         "dot": False,
     },
-    "synonym": {
-        "text": "Synonym of",
-        "dot": False,
-    },
     "t-prothesis of": {
         "text": "t-prothesized form of",
         "dot": False,
@@ -753,7 +749,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 187
+}  # 186
 # END
 
 
