@@ -25,45 +25,42 @@ def clean_lua_text(text: str) -> str:
     text = text.replace("end", "")
     text = text.replace("true", "True")
     text = text.replace("false", "False")
-    text = text.replace("--", "#")
-    return text
+    return text.replace("--", "#")
 
 
 def dialect_handler(text: str) -> Dict[str, str]:
     lines = text.split("\n")
     line1 = lines[0]
-    match = re.search(r'"([^"]*)"', line1)
-    if match:
-        href = match.group(1)
-        dialect_url = f"https://en.wiktionary.org/wiki/{href}"
-        soup = get_soup(dialect_url)
-        div = soup.find("div", {"class": "mw-highlight-lines"})
-        text_dialect = div.text
-        text_dialect = clean_lua_text(text_dialect)
-        code = ""
-        for line in text_dialect.split("\n"):
-            if line.strip().startswith("aliases = "):
-                break
-            else:
-                code += line + "\n"
-        text_dialect = code
-        text_dialect = text_dialect.replace('["', '"')
-        text_dialect = text_dialect.replace('"] =', '" :')
-        text_dialect = text_dialect.replace('"}', '"]')
-        for r in ["alts", "link", "plain_categories"]:
-            text_dialect = re.sub(
-                rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect
-            )
-        text_dialect = text_dialect.replace('{"', '["')
-        exec(text_dialect, globals())
-        results: Dict[str, str] = {}
-        for k, v in labels.items():  # type: ignore # noqa
-            results[k] = k
-            for alt in v.get("alts", []):
-                results[alt] = k
-        return results
-    else:
+    if not (match := re.search(r'"([^"]*)"', line1)):
         return {}
+    href = match.group(1)
+    dialect_url = f"https://en.wiktionary.org/wiki/{href}"
+    soup = get_soup(dialect_url)
+    div = soup.find("div", {"class": "mw-highlight-lines"})
+    text_dialect = div.text
+    text_dialect = clean_lua_text(text_dialect)
+    code = ""
+    for line in text_dialect.split("\n"):
+        if line.strip().startswith("aliases = "):
+            break
+        else:
+            code += line + "\n"
+    text_dialect = code
+    text_dialect = text_dialect.replace('["', '"')
+    text_dialect = text_dialect.replace('"] =', '" :')
+    text_dialect = text_dialect.replace('"}', '"]')
+    for r in ["alts", "link", "plain_categories"]:
+        text_dialect = re.sub(
+            rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect
+        )
+    text_dialect = text_dialect.replace('{"', '["')
+    exec(text_dialect, globals())
+    results: Dict[str, str] = {}
+    for k, v in labels.items():  # type: ignore # noqa
+        results[k] = k
+        for alt in v.get("alts", []):
+            results[alt] = k
+    return results
 
 
 def process_page(
