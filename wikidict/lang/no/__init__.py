@@ -44,10 +44,12 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "#ifeq",
     "definisjon mangler",
     "etymologi mangler",
     "mangler definisjon",
     "norm",
+    "suffiks/oversikt",
 )
 
 # Templates more complex to manage.
@@ -182,17 +184,7 @@ def last_template_handler(
 
     # TODO: each time we tackle a ticket, we should remove the template from the condition below.
     #       At the end, the whole condition will be gone.
-    if tpl in {
-        "sammensetning",
-        "avledet",
-        "etyl",
-        "proto",
-        "term",
-        "urspråk",
-        "lånt",
-        "suffiks/oversikt",
-        "#ifeq",
-    }:
+    if tpl in {"sammensetning", "avledet", "etyl", "proto", "term", "urspråk", "lånt"}:
         return tpl
 
     raise ValueError(f"Unhandled template: {word=}, {template=}")
