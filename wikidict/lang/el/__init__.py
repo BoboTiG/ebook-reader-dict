@@ -162,13 +162,13 @@ def text_language(
     lang: Dict[str, Union[str, bool]] = langs[lang_donor_iso]
     lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
     lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική
-    # feminine article + accusative singular τη γαλλική
-    lang_donor_apo = str(lang["apo"])
-    # προέλευσης από +apota -- FOR FAMILIES: σημιτικής προέλευσης
-    lang_donor_from = str(lang["from"])
     if lang_donor != "" and lang_donor_frm != "":
+        # feminine article + accusative singular τη γαλλική
+        lang_donor_apo = str(lang["apo"])
+        # προέλευσης από +apota -- FOR FAMILIES: σημιτικής προέλευσης
+        lang_donor_from = str(lang["from"])
         if myargs["root"] == "1" or myargs["ρίζα"] == "1":
-            mytext = italic(lang_donor_frm) + " <i>ρίζα</i>"
+            mytext = f"{italic(lang_donor_frm)} <i>ρίζα</i>"
         elif lang["family"]:
             mytext = italic(lang_donor_from)
         elif myargs["text"] == "1" or myargs["κειμ"] == "1":
