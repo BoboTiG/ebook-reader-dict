@@ -1,8 +1,10 @@
 """Greek language."""
 import re
-from typing import Dict, List, Pattern, Tuple
+from collections import defaultdict
+from typing import Dict, List, Pattern, Tuple, Union
 
-from ...user_functions import uniq
+from ...user_functions import extract_keywords_from, italic, term, uniq
+from .langs import langs
 
 # Float number separator
 float_separator = ","
@@ -136,17 +138,45 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?\|([^}\|]+)"),
+    pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
 ) -> List[str]:
     """
     >>> find_pronunciations("")
     []
     >>> find_pronunciations("{{ΔΦΑ|tɾeˈlos|γλ=el}}")
-    ['tɾeˈlos']
+    ['/tɾeˈlos/']
     >>> find_pronunciations("{{ΔΦΑ|γλ=el|ˈni.xta}}")
-    ['ˈni.xta']
+    ['/ˈni.xta/']
+    >>> find_pronunciations("{{ΔΦΑ|el|ˈni.ði.mos}}")
+    ['/ˈni.ði.mos/']
     """
-    return uniq(pattern.findall(code))
+    return [f"/{p}/" for p in uniq(pattern.findall(code))]
+
+
+def text_language(
+    lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)
+) -> str:
+    """
+    see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
+    """  # noqa
+    lang: Dict[str, Union[str, bool]] = langs[lang_donor_iso]
+    lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
+    lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική
+    # feminine article + accusative singular τη γαλλική
+    lang_donor_apo = str(lang["apo"])
+    # προέλευσης από +apota -- FOR FAMILIES: σημιτικής προέλευσης
+    lang_donor_from = str(lang["from"])
+    if lang_donor != "" and lang_donor_frm != "":
+        if myargs["root"] == "1" or myargs["ρίζα"] == "1":
+            mytext = italic(lang_donor_frm) + " <i>ρίζα</i>"
+        elif lang["family"]:
+            mytext = italic(lang_donor_from)
+        elif myargs["text"] == "1" or myargs["κειμ"] == "1":
+            mytext = italic(lang_donor_apo)
+        else:
+            mytext = italic(lang_donor_frm)
+
+    return mytext
 
 
 def last_template_handler(
@@ -164,8 +194,13 @@ def last_template_handler(
         'λόγιο ενδογενές δάνειο:'
         >>> last_template_handler(["λενδ", "el", "fr", "0=-"], "el")
         'λόγιο ενδογενές δάνειο'
+
+        >>> last_template_handler(["λδδ", "grc", "el", "νήδυμος"], "el")
+        '(διαχρονικό δάνειο) <i>αρχαία ελληνική</i> νήδυμος'
+
+        >>> last_template_handler(["λ", "ἡδύς", "grc"], "el")
+        'ἡδύς'
     """
-    from ...user_functions import extract_keywords_from, term
     from ..defaults import last_template_handler as default
 
     tpl, *parts = template
@@ -188,5 +223,14 @@ def last_template_handler(
         if not data["0"]:
             phrase = term(phrase)
         return phrase
+
+    if tpl in ["λδδ", "dlbor"]:
+        phrase = "(διαχρονικό δάνειο) "
+        phrase += text_language(parts[0], data)
+        phrase += f" {data['1'] or parts[2]}"
+        return phrase
+
+    if tpl == "λ":
+        return parts[0]
 
     return default(template, locale, word)
