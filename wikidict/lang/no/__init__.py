@@ -151,6 +151,10 @@ def last_template_handler(
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
+        >>> last_template_handler(["lånt", "en", "no", "latte"], "no")
+        'engelsk <i>latte</i>'
+        >>> last_template_handler(["lånt", "it", "no", "caffè", "", "kaffe"], "no")
+        'italiensk <i>caffè</i> («kaffe»)'
         >>> last_template_handler(["overslån", "en", "no", "quality of life"], "no")
         'engelsk <i>quality of life</i>'
         >>> last_template_handler(["overslån", "en", "no", "virgin oil", "virgin", "t1=jomfru", "oil", "t2=olje"], "no")
@@ -166,16 +170,19 @@ def last_template_handler(
     if tpl in {"kontekst", "tema"}:
         return term(concat(parts, sep=", "))
 
-    if tpl == "overslån":
+    if tpl in {"lånt", "overslån"}:
         phrase = f"{codelangs[parts[0]]} {italic(parts[2])}"
         if rest := parts[3:]:
-            phrase += ", "
-            for idx, part in enumerate(rest, 1):
-                phrase += italic(part)
-                if trad := data[f"t{idx}"]:
-                    phrase += f" («{trad}»)"
-                if part != parts[-1]:
-                    phrase += " + "
+            if not rest[0]:
+                phrase += f" («{rest[1]}»)"
+            else:
+                phrase += ", "
+                for idx, part in enumerate(rest, 1):
+                    phrase += italic(part)
+                    if trad := data[f"t{idx}"]:
+                        phrase += f" («{trad}»)"
+                    if part != parts[-1]:
+                        phrase += " + "
 
         return phrase
 
@@ -184,7 +191,7 @@ def last_template_handler(
 
     # TODO: each time we tackle a ticket, we should remove the template from the condition below.
     #       At the end, the whole condition will be gone.
-    if tpl in {"sammensetning", "avledet", "etyl", "proto", "term", "urspråk", "lånt"}:
+    if tpl in {"sammensetning", "avledet", "etyl", "proto", "term", "urspråk"}:
         return tpl
 
     raise ValueError(f"Unhandled template: {word=}, {template=}")
