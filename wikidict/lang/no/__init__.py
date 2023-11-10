@@ -76,6 +76,8 @@ templates_multi = {
     "tidligere skriveform": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
     "tidligere skrivemåte": "f\"{italic('tidligere skrivemåte av')} {strong(parts[-1])}\"",
+    # {{urspråk|germansk|daigjōn}}
+    "urspråk": "f\"ur{parts[1]} *{parts[2]}\"",
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
     #
