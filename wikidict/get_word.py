@@ -1,4 +1,5 @@
 """Get and render a word."""
+import os
 import re
 
 import requests
@@ -6,7 +7,7 @@ import requests
 from .render import parse_word
 from .stubs import Word
 from .user_functions import int_to_roman
-from .utils import convert_gender, convert_pronunciation, get_word_of_the_day
+from .utils import convert_gender, convert_pronunciation, get_random_word
 
 
 def get_word(word: str, locale: str) -> Word:
@@ -72,12 +73,19 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         print("[variants]", ", ".join(iter(details.variants)))
 
 
+def set_output(word: str) -> None:
+    """It is very specific to GitHub Actions."""
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f'word="{word}"\n'.encode())
+
+
 def main(locale: str, word: str, raw: bool = False) -> int:
     """Entry point."""
 
-    # If *word* is empty, get the word of the day
-    if not word:
-        word = get_word_of_the_day(locale)
+    # If *word* is empty, get a random word
+    word = word or get_random_word(locale)
 
+    set_output(word)
     get_and_parse_word(word, locale, raw)
     return 0

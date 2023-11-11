@@ -18,17 +18,14 @@ head_sections = ("",)
 etyl_section = ("",)
 
 # Variants
-variant_titles: Tuple[str, ...] = tuple()
-variant_templates: Tuple[str, ...] = tuple()
+variant_titles: Tuple[str, ...] = ()
+variant_templates: Tuple[str, ...] = ()
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore: Tuple[str, ...] = tuple()
-
-# But some words need to be kept even if they would have been skipped by definitions_to_ignore
-words_to_keep: Tuple[str, ...] = tuple()
+definitions_to_ignore: Tuple[str, ...] = ()
 
 # Templates to ignore: the text will be deleted.
-templates_ignored: Tuple[str, ...] = tuple()
+templates_ignored: Tuple[str, ...] = ()
 
 # Templates that will be completed/replaced using italic style.
 templates_italic: Dict[str, str] = {}

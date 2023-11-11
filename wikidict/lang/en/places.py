@@ -88,7 +88,7 @@ recognized_placetypes = {
     "administrative region": {
         "article": "an",
         "display": "administrative region",
-        "preposition": "in",
+        "preposition": "of",
     },
     "administrative seat": {
         "article": "the",
@@ -730,6 +730,11 @@ recognized_placetypes = {
         "display": "greater administrative region",
         "preposition": "of",
     },
+    "gromada": {
+        "article": "a",
+        "display": "gromada",
+        "preposition": "of",
+    },
     "group of islands": {
         "article": "a",
         "display": "group of islands",
@@ -794,6 +799,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "hill town",
         "preposition": "in",
+    },
+    "historical administrative region": {
+        "article": "a",
+        "display": "historical administrative region",
+        "preposition": "of",
     },
     "historical autonomous republic": {
         "article": "a",
@@ -2055,7 +2065,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 410
+}  # 412
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2138,12 +2148,13 @@ placetypes_aliases = {
     "tjarea": "tribal jurisdictional area",
     "twp": "township",
     "twpmun": "township municipality",
+    "ucomm": "unincorporated community",
     "uterr": "union territory",
     "utwpmun": "united township municipality",
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 85
+}  # 86
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -2294,6 +2305,7 @@ recognized_placenames = {
     "country/Roman Empire": {"article": "the", "display": ""},
     "country/Solomon Islands": {"article": "the", "display": ""},
     "country/Soviet Union": {"article": "the", "display": ""},
+    "country/Swaziland": {"article": "", "display": "country/Eswatini"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
     "country/UAE": {"article": "", "display": "country/United Arab Emirates"},
@@ -2425,5 +2437,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 146
+}  # 147
 # END

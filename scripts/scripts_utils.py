@@ -3,7 +3,7 @@ from typing import Any, Dict
 
 import requests
 from bs4 import BeautifulSoup
-from requests.exceptions import RequestException
+from requests.exceptions import HTTPError, RequestException
 
 
 def get_content(
@@ -19,14 +19,17 @@ def get_content(
         except TimeoutError:
             sleep(sleep_time)
             retry += 1
-        except RequestException as err:
+        except HTTPError as err:
             resp = err.response
-            if resp.status_code == 404:
+            if resp is not None and resp.status_code == 404:
                 return ""
             wait_time = 1
             if resp is not None and resp.status_code == 429:
                 wait_time = int(resp.headers.get("retry-after") or "1")
             sleep(wait_time * sleep_time)
+            retry += 1
+        except RequestException:
+            sleep(sleep_time)
             retry += 1
     raise RuntimeError(f"Sorry, too many tries [{retry}] for {url!r}")
 

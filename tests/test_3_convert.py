@@ -7,9 +7,10 @@ from zipfile import ZipFile
 import pytest
 
 from wikidict import convert
+from wikidict.constants import ASSET_CHECKSUM_ALGO
 from wikidict.stubs import Word
 
-EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 41
+EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
 Fichiers disponibles :
@@ -68,20 +69,28 @@ def test_simple() -> None:
 
     # DictFile
     assert (output_dir / "dict-fr-fr.df").is_file()
+    assert (output_dir / f"dict-fr-fr.df.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.df").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.df.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # DictFile bz2
     assert (output_dir / "dict-fr-fr.df.bz2").is_file()
+    assert (output_dir / f"dict-fr-fr.df.bz2.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.df.bz2").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.df.bz2.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # StarDict
     assert (output_dir / "dict-fr-fr.zip").is_file()
+    assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Kobo
     assert (output_dir / "dicthtml-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dicthtml-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
     dicthtml = output_dir / "dicthtml-fr-fr.zip"
     assert dicthtml.is_file()
+    assert (output_dir / f"dicthtml-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Check the Kobo ZIP content
     with ZipFile(dicthtml) as fh:
@@ -92,6 +101,7 @@ def test_simple() -> None:
             "ac.html",
             "au.html",
             "ba.html",
+            "ch.html",
             "co.html",
             "de.html",
             "du.html",

@@ -1,6 +1,7 @@
 """Convert rendered data to working dictionaries."""
 import bz2
 import gzip
+import hashlib
 import json
 import os
 from collections import defaultdict
@@ -16,7 +17,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 from jinja2 import Template
 from marisa_trie import Trie
 
-from .constants import GH_REPOS
+from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS
 from .lang import wiktionary
 from .stubs import Groups, Variants, Word, Words
 from .utils import (
@@ -181,8 +182,15 @@ class BaseFormat:
         )
 
     @staticmethod
-    def summary(file: Path) -> None:
+    def compute_checksum(file: Path) -> None:
+        checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
+        checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
+        checksum_file.write_text(f"{checksum} {file.name}")
+        print(f">>> Crafted {checksum_file.name} ({checksum})", flush=True)
+
+    def summary(self, file: Path) -> None:
         print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
+        self.compute_checksum(file)
 
 
 class KoboFormat(BaseFormat):

@@ -152,6 +152,7 @@ gramatica_short = {
     "reg": "regular",
     "rel": "relativo",
     "s": "singular",
+    "s/p": "sem plural",
     "sg": "singular",
     "sim": "simples",
     "simpl": "simples",
@@ -174,5 +175,5 @@ gramatica_short = {
     "vtd": "transitivo direto",
     "vtdi": "transitivo direto e indireto",
     "vti": "transitivo indireto",
-}  # 169
+}  # 170
 # END

@@ -66,7 +66,7 @@ def test_simple(craft_urls: Callable[[str, str], str]) -> None:
     assert check_word.main("fr", "42") == 0
 
 
-def test_word_of_the_day() -> None:
+def test_get_random_word() -> None:
     assert check_word.main("fr", "") == 0
 
 

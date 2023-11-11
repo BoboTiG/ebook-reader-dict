@@ -29,11 +29,12 @@ def print_aliases(template: str, text: str, dot: bool) -> int:
 
 url = f"{ROOT}/wiki/Category:Form-of_templates"
 soup = get_soup(url)
-tables = soup.find_all("table", "wikitable")
+main_div = soup.find("div", "mw-parser-output")
+table = main_div.find("table", recursive=False)
 
 columns = ["template", "aliases", "cat", "inflection", "cap", "dot", "from", "pos"]
 
-body = tables[0].find("tbody")
+body = table.find("tbody")
 trs = body.find_all("tr")
 trs.pop(0)  # remove header
 count = 0

@@ -186,11 +186,11 @@ form_of_templates = {
         "dot": True,
     },
     "combining form of": {
-        "text": "combining form of",
+        "text": "Combining form of",
         "dot": False,
     },
     "com form": {
-        "text": "combining form of",
+        "text": "Combining form of",
         "dot": False,
     },
     "comparative of": {
@@ -721,10 +721,6 @@ form_of_templates = {
         "text": "Synonym of",
         "dot": False,
     },
-    "synonym": {
-        "text": "Synonym of",
-        "dot": False,
-    },
     "t-prothesis of": {
         "text": "t-prothesized form of",
         "dot": False,
@@ -753,7 +749,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 187
+}  # 186
 # END
 
 

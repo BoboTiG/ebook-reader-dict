@@ -1,0 +1,40 @@
+==Norsk==
+===Adjektiv===
+{{no-adj}}
+
+# tarvelig, nedrig
+
+====Etymologi====
+{{etymologi mangler|språk=no}}
+
+====Uttale====
+{{uttale mangler|språk=no}}
+{{lydfil mangler|språk=no}}
+
+====Grammatikk====
+{{no-adj-a5-a4|lump}}
+{{ordbank|NY}}
+
+====Oversettelser====
+{{overs-topp|sjofel}}
+* {{overs|da|lumpen}}
+* {{overs-mangler|en}}
+* {{overs-mangler|fi}}
+* {{overs-mangler|fr}}
+* {{overs-mangler|it}}
+{{overs-midt}}
+* {{overs-mangler|nl}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+* {{overs|sv|lumpen}}
+* {{overs-mangler|de}}
+{{overs-bunn}}
+
+===Referanser===
+* {{R:NAOB}}
+* {{R:Bokmålsordboka-Nynorskordboka}}
+
+===Substantiv===
+'''{{PAGENAME}}''' {{norm|nb=ja|nrm=ja|nn=ja}}
+
+#{{no-sub-bøyningsform|be|lump}}  {{norm|nb=ja|nrm=ja|nn=ja}}

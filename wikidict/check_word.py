@@ -1,5 +1,6 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 import copy
+import os
 import re
 from functools import partial
 from threading import Lock
@@ -10,10 +11,10 @@ import requests
 from bs4 import BeautifulSoup
 from requests.exceptions import RequestException
 
-from .render import parse_word
+from .render import MISSING_TPL_SEEN, parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
-from .utils import get_word_of_the_day
+from .utils import get_random_word
 
 # Remove all kind of spaces and some unicode characters
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
@@ -126,7 +127,11 @@ def filter_html(html: str, locale: str) -> str:
             for a in bs.find_all("a", href=True):
                 if a["href"].startswith("#"):
                     a.decompose()
-
+    elif locale == "el":
+        for sup in bs.find_all("sup"):
+            id = sup.get("id", "")
+            if id.startswith("cite_"):
+                sup.decompose()
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
@@ -381,8 +386,9 @@ def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
 
 def main(locale: str, word: str) -> int:
     """Entry point."""
-    # If *word* is empty, get the word of the day
-    if not word:
-        word = get_word_of_the_day(locale)
 
-    return check_word(word, locale)
+    # If *word* is empty, get a random word
+    word = word or get_random_word(locale)
+
+    res = check_word(word, locale)
+    return 1 if "CI" in os.environ and MISSING_TPL_SEEN else res

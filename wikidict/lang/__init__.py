@@ -3,7 +3,7 @@ from typing import Any, Dict, Tuple, TypeVar
 
 from . import ca, de, defaults, el, en, es, fr, it, no, pt, ro, ru, sv
 
-ALL_LOCALES = {
+ALL_LOCALES = {  # XXX_LOCALES
     "ca": ca,
     "de": de,
     "el": el,
@@ -68,9 +68,6 @@ variant_templates: Dict[str, Tuple[str, ...]] = _populate("variant_templates")
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore: Dict[str, Tuple[str, ...]] = _populate("definitions_to_ignore")
-
-# But some words need to be kept even if they would have been skipped by definitions_to_ignore
-words_to_keep: Dict[str, Tuple[str, ...]] = _populate("words_to_keep")
 
 # Templates replacements: wikicode -> text conversion
 

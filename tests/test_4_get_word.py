@@ -6,7 +6,7 @@ def test_simple() -> None:
     assert get_word.main("fr", "base") == 0
 
 
-def test_word_of_the_day() -> None:
+def test_get_random_word() -> None:
     assert get_word.main("fr", "") == 0
 
 

@@ -1,6 +1,6 @@
 # eBook Reader Dictionaries
 
-[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml)
+[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml) [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml)
 
 - [Catalan](docs/ca/README.md)
 - [English](docs/en/README.md)
@@ -14,6 +14,39 @@
 - [Russian](docs/ru/README.md)
 - [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)
+
+## Users
+
+- [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
+- [FR] [Dico alto](https://dicoalto.com/) by [Snawei](https://fr.wiktionary.org/wiki/Utilisateur:Snawei)
+
+## Development
+
+Setup a virtual environment:
+
+```console
+$ python -m venv venv
+$ . venv/bin/activate
+```
+
+Install, or update, dependencies:
+
+```console
+$ python -m pip install -U pip
+$ python -m pip install -r requirements-tests.txt
+```
+
+Run tests:
+
+```console
+$ python -m pytest --doctest-modules wikidict tests
+```
+
+Run linters, and quality checkers, before submitting a pull-request:
+
+```console
+$ ./check.sh
+```
 
 ## Contributors ✨
 

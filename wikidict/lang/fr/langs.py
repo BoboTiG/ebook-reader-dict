@@ -251,6 +251,7 @@ langs = {
     "anh": "nend",
     "ani": "andi",
     "ank": "ankwé",
+    "anm": "anal",
     "ann": "obolo",
     "ano": "andoque",
     "anp": "angika",
@@ -6409,7 +6410,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,404
+}  # 6,405
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

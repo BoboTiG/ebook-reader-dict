@@ -563,6 +563,7 @@ langs = {
     "pnt": "pòntic",
     "pon": "ponapeà",
     "pqm": "maliseet-passamaquoddy",
+    "pra-sau": "sauraseni",
     "prg": "prussià",
     "pro": "occità antic",
     "ps": "pushtu",
@@ -801,5 +802,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 796
+}  # 797
 # END

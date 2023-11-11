@@ -1,0 +1,12 @@
+== {{langue|fr}} ==
+=== {{S|pronom indéfini|fr|flexion}} ===
+{{fr-accord-ind|m=chacun|pm=ʃa.kœ̃|pf=ʃa.kyn}}
+'''chacune''' {{pron|ʃa.kyn|fr}} {{s}}
+# ''Féminin de'' [[chacun]].
+#* ''Lino est apparu par la porte d'entrée, en se frottant les mains l'une contre l'autre pour les réchauffer. De la buée sortait de sa bouche à '''chacune''' de ses respirations.'' {{source|Mélisa Godet, ''Les Augustins'', éd. Jean-Claude Lattès, 2014}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Brétigny-sur-Orge)||audio=LL-Q150 (fra)-Pamputt-chacune.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}

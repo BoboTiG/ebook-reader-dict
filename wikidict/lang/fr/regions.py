@@ -13,6 +13,7 @@ regions = {
     "AT": "Autriche",
     "AU": "Australie",
     "AUS": "Australie",
+    "Abruzzes": "Abruzzes",
     "Acadie": "Acadie",
     "Adinkerke": "Adinkerke",
     "Afrique": "Afrique",
@@ -177,6 +178,7 @@ regions = {
     "Espagne": "Espagne",
     "Estonie": "Estonie",
     "Europe": "Europe",
+    "FL": "Liechtenstein",
     "FR": "France",
     "FR-85": "Vendée",
     "FR-Cher": "Cher",
@@ -308,6 +310,7 @@ regions = {
     "Manche": "Manche",
     "Mandurie": "Mandurie",
     "Marche": "Marche",
+    "Marches": "Marches",
     "Marne": "Marne",
     "Maroc": "Maroc",
     "Marseille": "Marseille",
@@ -356,6 +359,7 @@ regions = {
     "Nevele": "Nevele",
     "New York": "New York",
     "Nicaragua": "Nicaragua",
+    "Nicosia": "Nicosia",
     "Niger": "Niger",
     "Nigeria": "Nigeria",
     "Nigéria": "Nigeria",
@@ -456,6 +460,7 @@ regions = {
     "Saint-Aubin-de-Luigné": "Saint-Aubin-de-Luigné",
     "Saint-Augustin-des-Bois": "Saint-Augustin-des-Bois",
     "Saint-Christophe-et-Niévès": "Saint-Christophe-et-Niévès",
+    "Saint-Domingue": "Haïti",
     "Saint-Georges-sur-Loire": "Saint-Georges-sur-Loire",
     "Saint-Marin": "Saint-Marin",
     "Saint-Martin": "Saint-Martin",
@@ -500,6 +505,7 @@ regions = {
     "Squinzano": "Squinzano",
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
+    "Sud Haut-Marnais": "Sud Haut-Marnais",
     "Sud des États-Unis": "Sud des États-Unis",
     "Sud du Viêt Nam": "Sud du Viêt Nam",
     "Sud du pays de Galles": "Sud du pays de Galles",
@@ -595,7 +601,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 590
+}  # 596
 # END
 
 # handled differently
