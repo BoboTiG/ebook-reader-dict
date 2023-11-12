@@ -150,6 +150,11 @@ recognized_placetypes = {
         "display": "area",
         "preposition": "in",
     },
+    "arm": {
+        "article": "an",
+        "display": "arm",
+        "preposition": "of",
+    },
     "arrondissement": {
         "article": "an",
         "display": "arrondissement",
@@ -1710,6 +1715,11 @@ recognized_placetypes = {
         "display": "seaport",
         "preposition": "in",
     },
+    "seat": {
+        "article": "the",
+        "display": "seat",
+        "preposition": "of",
+    },
     "self-administered division": {
         "article": "a",
         "display": "self-administered division",
@@ -2065,7 +2075,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 412
+}  # 414
 
 placetypes_aliases = {
     "CDP": "census-designated place",
