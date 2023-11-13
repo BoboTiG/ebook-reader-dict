@@ -811,6 +811,7 @@ labels_topical = {
     "European Union": "European Union",
     "European folklore": "European folklore",
     "European politics": "European politics",
+    "Filipino politics": "Philippine politics",
     "Finnic mythology": "Finnic mythology",
     "Finnish mythology": "Finnic mythology",
     "Forteana": "Forteana",
@@ -909,6 +910,7 @@ labels_topical = {
     "Norse paganism": "Germanic paganism",
     "OOP": "object-oriented programming",
     "Pakistani politics": "Pakistani politics",
+    "Philippine politics": "Philippine politics",
     "Philmont": "Philmont Scout Ranch",
     "Philmont Scout Ranch": "Philmont Scout Ranch",
     "Pokémon": "''Pokémon''",
@@ -1918,7 +1920,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,177
+}  # 1,179
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
