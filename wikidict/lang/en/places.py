@@ -2245,6 +2245,7 @@ recognized_qualifiers = {
     "southwestern": "southwestern",
     "special": "special",
     "suburban": "suburban",
+    "summer": "summer",
     "tiny": "tiny",
     "traditional": "traditional",
     "unincorporated": "unincorporated",
@@ -2252,7 +2253,8 @@ recognized_qualifiers = {
     "wealthy": "wealthy",
     "west": "west",
     "western": "western",
-}  # 85
+    "winter": "winter",
+}  # 87
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},

@@ -6315,6 +6315,7 @@ labels_subvarieties = {
     "reflexive-se": "reflexive with {{m|zlw-ocs|sě}}",
     "reflexive-si": "reflexive with {{m|sk|si}}",
     "reflexive-sie": "reflexive with {{m|zlw-opl|się}}",
+    "reflexive-siebie": "reflexive with {{m|zlw-opl|siebie}}",
     "reflexive-się": "reflexive with {{m|zlw-opl|się}}",
     "reflexive-so": "reflexive with {{m|hsb|so}}",
     "reflexive-sobie": "reflexive with {{m|zlw-opl|sobie}}",
@@ -6646,5 +6647,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,225
+}  # 3,226
 # END
