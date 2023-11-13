@@ -199,22 +199,17 @@ def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
     term = args["όρος"] or args["term"] or ""
     show = args["εμφ"] or args["show"] or ""
     noparenthesis = args["0"]
-    nodisplay = args["nodisplay"] or args["000"]
     if not label or label is None:
         return ""
-    else:
-        if nodisplay == "" and data.get(label, {}).get("link") != "πατρότητα":
-            if term != "":
-                mytext = term
-            elif text != "":
-                mytext = text
-            else:
-                if show != "":
-                    mytext = f"{show}"
-                else:
-                    mytext = f'{italic(data[label]["linkshow"])}'
-
-            mytext = mytext if noparenthesis != "" else f"({mytext})"
+    nodisplay = args["nodisplay"] or args["000"]
+    if nodisplay == "" and data.get(label, {}).get("link") != "πατρότητα":
+        if term != "":
+            mytext = term
+        elif text != "":
+            mytext = text
+        else:
+            mytext = f"{show}" if show != "" else f'{italic(data[label]["linkshow"])}'
+        mytext = mytext if noparenthesis != "" else f"({mytext})"
     return mytext
 
 
