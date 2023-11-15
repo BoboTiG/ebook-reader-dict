@@ -700,6 +700,11 @@ recognized_placetypes = {
         "display": "frazione",
         "preposition": "in",
     },
+    "geographic region": {
+        "article": "a",
+        "display": "geographic region",
+        "preposition": "of",
+    },
     "geographical region": {
         "article": "a",
         "display": "geographical region",
@@ -1128,6 +1133,11 @@ recognized_placetypes = {
     "independent town": {
         "article": "an",
         "display": "independent town",
+        "preposition": "in",
+    },
+    "inland sea": {
+        "article": "an",
+        "display": "inland sea",
         "preposition": "in",
     },
     "inner city area": {
@@ -1840,6 +1850,16 @@ recognized_placetypes = {
         "display": "stream",
         "preposition": "in",
     },
+    "strip": {
+        "article": "a",
+        "display": "strip",
+        "preposition": "of",
+    },
+    "strip of land": {
+        "article": "a",
+        "display": "strip of land",
+        "preposition": "of",
+    },
     "sub-prefectural city": {
         "article": "a",
         "display": "sub-prefectural city",
@@ -2075,7 +2095,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 414
+}  # 418
 
 placetypes_aliases = {
     "CDP": "census-designated place",

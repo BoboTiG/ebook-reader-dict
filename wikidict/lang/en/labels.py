@@ -1489,6 +1489,7 @@ labels_topical = {
     "medical sign": "medicine",
     "medicine": "medicine",
     "medieval folklore": "mediaeval folklore",
+    "mental health": "mental health",
     "metadata": "metadata",
     "metal type": "letterpress typography",
     "metal typesetting": "letterpress typography",
@@ -1920,7 +1921,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,179
+}  # 1,180
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
