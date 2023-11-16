@@ -595,6 +595,11 @@ recognized_placetypes = {
         "display": "division",
         "preposition": "of",
     },
+    "dome": {
+        "article": "a",
+        "display": "dome",
+        "preposition": "in",
+    },
     "dormant volcano": {
         "article": "a",
         "display": "dormant volcano",
@@ -1110,6 +1115,11 @@ recognized_placetypes = {
         "display": "home rule municipality",
         "preposition": "of",
     },
+    "hot spring": {
+        "article": "a",
+        "display": "hot spring",
+        "preposition": "in",
+    },
     "housing estate": {
         "article": "a",
         "display": "housing estate",
@@ -1525,6 +1535,11 @@ recognized_placetypes = {
         "display": "pass",
         "preposition": "in",
     },
+    "peak": {
+        "article": "a",
+        "display": "peak",
+        "preposition": "in",
+    },
     "peninsula": {
         "article": "a",
         "display": "peninsula",
@@ -1653,6 +1668,11 @@ recognized_placetypes = {
     "research base": {
         "article": "a",
         "display": "research base",
+        "preposition": "in",
+    },
+    "reservoir": {
+        "article": "a",
+        "display": "reservoir",
         "preposition": "in",
     },
     "residental area": {
@@ -1803,6 +1823,11 @@ recognized_placetypes = {
     "spit": {
         "article": "a",
         "display": "spit",
+        "preposition": "in",
+    },
+    "spring": {
+        "article": "a",
+        "display": "spring",
         "preposition": "in",
     },
     "star": {
@@ -2095,7 +2120,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 418
+}  # 423
 
 placetypes_aliases = {
     "CDP": "census-designated place",
