@@ -1765,7 +1765,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**@ũ": "une baie",
         "ar-*a**âtũ": "{{p}} baies",
-        "ar-*a**ũ": "amour",
+        "ar-*a**ũ": "graines",
         "ar-*a*a*@ũ": "objet aimé",
         "ar-*a*a*a-i": "désirer",
         "ar-*a*a*ũ": "belles dents",
@@ -1781,6 +1781,7 @@ racines_schemes_arabes = {
         "ar-*i**ũ": "chéri",
         "ar-*i*a*@ũ": "{{p}} chéris",
         "ar-*i*a*ũ": "graine",
+        "ar-*i*â*ũ": "fait de cultiver l'amitié",
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "amour",
         "ar-*u**ânũ": "{{p}} graines",
@@ -1804,11 +1805,12 @@ racines_schemes_arabes = {
         "ar-mu**a*ũ": "aimé",
         "ar-mu**i*@ũ": "{{f}} amie",
         "ar-mu**i*ũ": "ami",
+        "ar-mu*â*a*@ũ": "fait de cultiver l'amitié",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "trouver bon",
         "ar-ta*a*²a*a": "témoigner de l'amour",
         "ar-ta*â*a*a": "s'aimer réciproquement",
-    },  # 48
+    },  # 50
     "ar-Hdd": {
         "aa_sens": "coupant, acéré",
         "ar-*a**ũ": "limite ; barrière ; distance ; violence ; force",
