@@ -1760,7 +1760,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
     },  # 14
     "ar-Hbb": {
-        "aa_sens": "aimer",
+        "aa_sens": "aimer / graine",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "une baie",
@@ -1772,6 +1772,7 @@ racines_schemes_arabes = {
         "ar-*a*i*a-a": "aimer",
         "ar-*a*u*a": "être aimé",
         "ar-*a*²a*a": "faire aimer",
+        "ar-*a*â'i*u": "{{p}} chéries",
         "ar-*a*â*ũ": "but",
         "ar-*a*î*@ũ": "{{f}} chérie",
         "ar-*a*î*ũ": "chéri",
@@ -1784,12 +1785,15 @@ racines_schemes_arabes = {
         "ar-*i*â*ũ": "fait de cultiver l'amitié",
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "amour",
+        "ar-*u**iy²ũ": "amical",
         "ar-*u**ânũ": "{{p}} graines",
         "ar-*u**ũ": "amour",
         "ar-*u*a*ũ": "{{p}} amants",
         "ar-*u*²â*ũ": "qui vend des cruches",
         "ar-*u*â*@ũ": "{{f}} amie",
         "ar-*u*â*ũ": "ami",
+        "ar-*u*û*@ũ": "bubon",
+        "ar-*u*û*âtũ": "{{p}} graines",
         "ar-*u*û*ũ": "{{p}} chéris",
         "ar-*â**ũ": "qui manque le but",
         "ar-*â*a*a": "cultiver l'amitié",
@@ -1810,7 +1814,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "trouver bon",
         "ar-ta*a*²a*a": "témoigner de l'amour",
         "ar-ta*â*a*a": "s'aimer réciproquement",
-    },  # 50
+    },  # 54
     "ar-Hdd": {
         "aa_sens": "coupant, acéré",
         "ar-*a**ũ": "limite ; barrière ; distance ; violence ; force",

@@ -29,6 +29,7 @@ abk = {
     "PräpmG": "Präposition mit Genitiv",
     "Schweiz": "Schweiz",
     "Schweizerdeutsch": "Schweizerdeutsch",
+    "Wpräp": "Wechselpräposition",
     "abw.": "abwertend",
     "adv.": "adverbial",
     "alemann.": "alemannisch",
@@ -136,5 +137,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 131
+}  # 132
 # END
