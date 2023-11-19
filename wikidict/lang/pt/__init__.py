@@ -301,6 +301,8 @@ def last_template_handler(
         >>> last_template_handler(["la"], "pt")
         'Latim'
 
+        >>> last_template_handler(["etimo2", "la", "myrmecophaga", "pt"], "pt")
+        'Do latim <i>myrmecophaga</i>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
         'Do latim <i>myrmecophaga</i>.'
         >>> # Note: below example is not expected because we would need to translate Greek to Spanish
@@ -437,7 +439,7 @@ def last_template_handler(
                     result.append(italic(full))
         return concat(result, ", ")
 
-    if tpl == "llietimo":
+    if tpl in {"etimo2", "llietimo"}:
         src, word, _, *rest = parts
         phrase = f"Do {langs[src]} {italic(word)}"
         if data["transcr"]:
