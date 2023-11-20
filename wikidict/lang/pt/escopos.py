@@ -92,6 +92,7 @@ escopos = {
     "Canadá": "Canadá",
     "Canteiros": "canteiros",
     "Cantábria": "Cantábria",
+    "Caribe": "Caribe",
     "Castela": "Castela",
     "Ceará": "Ceará",
     "Centro-Oeste": "Centro-Oeste do Brasil",
@@ -360,6 +361,8 @@ escopos = {
     "Topónimo": "toponímia",
     "Topônimo": "toponímia",
     "Torre de Moncorvo": "Moncorvo",
+    "Toscana": "Toscânia",
+    "Toscânia": "Toscânia",
     "Transilvânia": "Transilvânia",
     "Transitivo": "transitivo",
     "Transporte": "transporte",
@@ -399,5 +402,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 394
+}  # 397
 # END
