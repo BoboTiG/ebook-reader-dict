@@ -270,6 +270,8 @@ def filter_html(html: str, locale: str) -> str:
         for sup in bs.find_all("sup"):
             if sup.find("a", {"class": "extiw"}):
                 sup.decompose()
+            if sup.find("a", {"class": "new"}):
+                sup.decompose()
         # Almost same as previous, but for all items not elligible to be printed
         for span in bs.find_all("span", {"class": "noprint"}):
             span.decompose()
