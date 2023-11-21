@@ -393,6 +393,7 @@ escopos = {
     "Vulgaridade": "obsceno",
     "Vídeo game": "vídeo game",
     "Zamora": "Zamora",
+    "Zootecnia": "veterinária",
     "afiadores": "baralhete",
     "alvanéis": "alvanéis",
     "canteiros": "canteiros",
@@ -402,5 +403,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 397
+}  # 398
 # END

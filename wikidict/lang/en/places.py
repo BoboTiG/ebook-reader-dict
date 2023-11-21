@@ -45,6 +45,11 @@ recognized_placetypes = {
         "display": "London borough",
         "preposition": "of",
     },
+    "Roman province": {
+        "article": "a",
+        "display": "Roman province",
+        "preposition": "in",
+    },
     "Welsh community": {
         "article": "a",
         "display": "community",
@@ -1590,6 +1595,11 @@ recognized_placetypes = {
         "display": "prefecture-level city",
         "preposition": "in",
     },
+    "promontory": {
+        "article": "a",
+        "display": "promontory",
+        "preposition": "in",
+    },
     "protectorate": {
         "article": "a",
         "display": "protectorate",
@@ -2120,7 +2130,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 423
+}  # 425
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2189,6 +2199,7 @@ placetypes_aliases = {
     "riv": "river",
     "rmun": "regional municipality",
     "robor": "royal borough",
+    "romp": "Roman province",
     "runit": "regional unit",
     "rurmun": "rural municipality",
     "s": "state",
@@ -2209,7 +2220,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 86
+}  # 87
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -2410,6 +2421,7 @@ recognized_placenames = {
     "region/Balkans": {"article": "the", "display": ""},
     "region/Caribbean": {"article": "the", "display": ""},
     "region/Caucasus": {"article": "the", "display": ""},
+    "region/Gaza Strip": {"article": "the", "display": ""},
     "region/Kanta-Häme": {"article": "", "display": "region/Tavastia Proper"},
     "region/Middle East": {"article": "the", "display": ""},
     "region/New Territories": {"article": "the", "display": ""},
@@ -2494,5 +2506,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 147
+}  # 148
 # END

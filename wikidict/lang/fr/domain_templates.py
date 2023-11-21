@@ -131,6 +131,7 @@ domain_templates = {
     "figures": "Rhétorique",
     "flamants": "Ornithologie",
     "fleurs": "Botanique",
+    "fongicides": "Chimie",
     "formations musicales": "Musique",
     "fossiles": "Paléontologie",
     "fromages": "Fromage",
@@ -213,6 +214,7 @@ domain_templates = {
     "personnalités": "Anthroponyme",
     "personnification": "Rhétorique",
     "personnifications": "Rhétorique",
+    "pesticides": "Chimie",
     "peupliers": "Botanique",
     "phobies": "Médecine",
     "phyton": "Botanique",
@@ -317,5 +319,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 312
+}  # 314
 # END
