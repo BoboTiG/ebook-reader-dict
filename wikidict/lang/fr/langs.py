@@ -2126,6 +2126,7 @@ langs = {
     "idb": "créole indo-portugais",
     "ide": "idere",
     "idi": "idi",
+    "idt": "idaté",
     "idu": "idoma",
     "ie": "interlingue",
     "ifa": "ifugao d’Amganad",
@@ -6410,7 +6411,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,405
+}  # 6,406
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
