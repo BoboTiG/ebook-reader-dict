@@ -3314,6 +3314,7 @@ langs = {
     "ira-csp": "Caspian",
     "ira-kms": "Komisenian",
     "ira-kms-pro": "Proto-Komisenian",
+    "ira-mid": "Middle Iranian",
     "ira-mny": "Munji-Yidgha",
     "ira-mny-pro": "Proto-Munji-Yidgha",
     "ira-mpr": "Medo-Parthian",
@@ -3321,6 +3322,7 @@ langs = {
     "ira-msh": "Mazanderani-Shahmirzadi",
     "ira-nei": "Northeastern Iranian",
     "ira-nwi": "Northwestern Iranian",
+    "ira-old": "Old Iranian",
     "ira-orp": "Ormuri-Parachi",
     "ira-pat": "Pathan",
     "ira-pat-pro": "Proto-Pathan",
@@ -9593,5 +9595,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,588
+}  # 9,590
 # END

@@ -103,6 +103,7 @@ escopos = {
     "Chulo": "obsceno",
     "Cidade": "geografia",
     "Ciência da Computação": "ciência da computação",
+    "Ciência dos materiais": "ciência dos materiais",
     "Coimbra": "Coimbra",
     "Coloquial": "coloquial",
     "Colômbia": "Colômbia",
@@ -403,5 +404,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 398
+}  # 399
 # END

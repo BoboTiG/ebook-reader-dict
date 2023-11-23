@@ -240,6 +240,11 @@ recognized_placetypes = {
         "display": "barrio",
         "preposition": "of",
     },
+    "basin": {
+        "article": "a",
+        "display": "basin",
+        "preposition": "in",
+    },
     "bay": {
         "article": "a",
         "display": "bay",
@@ -2130,7 +2135,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 425
+}  # 426
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2239,12 +2244,14 @@ recognized_qualifiers = {
     "deserted": "deserted",
     "east": "east",
     "eastern": "eastern",
+    "endorheic": "endorheic",
     "extinct": "extinct",
     "farming": "farming",
     "fashionable": "fashionable",
     "fictional": "fictional",
     "fishing": "fishing",
     "former": "former",
+    "freshwater": "freshwater",
     "high": "high",
     "hilly": "hilly",
     "historic": "historical",
@@ -2278,6 +2285,8 @@ recognized_qualifiers = {
     "outer": "outer",
     "outlying": "outlying",
     "overseas": "overseas",
+    "ox-bow": "ox-bow",
+    "oxbow": "oxbow",
     "planned": "planned",
     "railroad": "railroad",
     "railway": "railway",
@@ -2288,6 +2297,7 @@ recognized_qualifiers = {
     "riverside": "riverside",
     "rural": "rural",
     "sacred": "sacred",
+    "saltwater": "saltwater",
     "seaside": "coastal",
     "secular": "secular",
     "short": "short",
@@ -2310,7 +2320,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 87
+}  # 92
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
