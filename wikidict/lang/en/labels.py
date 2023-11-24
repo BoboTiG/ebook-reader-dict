@@ -59,8 +59,6 @@ labels = {
     "acronym": "acronym",
     "active": "active voice",
     "active voice": "active voice",
-    "ad slang": "advertising slang",
-    "advertising slang": "advertising slang",
     "affectionate": "earing",
     "also": "also",
     "ambitransitive": "transitive, intransitive",
@@ -130,7 +128,6 @@ labels = {
     "corporate jargon": "corporate jargon",
     "corporate speak": "corporate jargon",
     "corporatese": "corporate jargon",
-    "cosmo": "advertising slang",
     "coster": "costermongers",
     "costermonger": "costermongers",
     "costermongers": "costermongers",
@@ -356,7 +353,6 @@ labels = {
     "pejorative": "derogatory",
     "perfect": "perfect",
     "perfective": "perfective",
-    "pidgin": "pidgin",
     "plural only": "plural only",
     "plurale tantum": "plural only",
     "pluralonly": "plural only",
@@ -495,7 +491,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 490
+}  # 486
 
 label_syntaxes = {
     "&": {
