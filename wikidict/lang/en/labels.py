@@ -90,7 +90,6 @@ labels = {
     "business jargon": "corporate jargon",
     "business speak": "corporate jargon",
     "businessese": "corporate jargon",
-    "buzzword": "buzzword",
     "by": "by",
     "by ellipsis": "by ellipsis",
     "by extension": "by extension",
@@ -491,7 +490,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 486
+}  # 485
 
 label_syntaxes = {
     "&": {
