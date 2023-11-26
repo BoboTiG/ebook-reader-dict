@@ -51,6 +51,7 @@ escopos = {
     "Austrália": "Austrália",
     "Ave": "ornitologia",
     "Aveiro": "Aveiro",
+    "Aviação": "aeronáutica ",
     "Açores": "Açores",
     "BA": "Bahia",
     "Bahia": "Bahia",
@@ -284,6 +285,7 @@ escopos = {
     "Paraíba": "Paraíba",
     "Pará": "Pará",
     "País de Gales": "País de Gales",
+    "Pedagogia": "pedagogia",
     "Peixe": "ictiologia",
     "Pernambuco": "Pernambuco",
     "Peru": "Peru",
@@ -404,5 +406,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 399
+}  # 401
 # END

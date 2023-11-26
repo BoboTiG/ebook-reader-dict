@@ -298,6 +298,7 @@ domain_templates = {
     "vents": "Météorologie",
     "vers": "Zoologie",
     "viandes": "Cuisine",
+    "villes": "Géographie",
     "vins": "Œnologie",
     "virus": "Virologie",
     "voitures": "Automobile",
@@ -319,5 +320,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 314
+}  # 315
 # END
