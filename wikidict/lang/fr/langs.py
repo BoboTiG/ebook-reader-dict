@@ -74,6 +74,7 @@ langs = {
     "act": "achterhooks",
     "acu": "achuar",
     "acv": "achumawi",
+    "acw": "arabe hijazi",
     "acy": "arabe chypriote",
     "acz": "acheron",
     "ada": "adangmé",
@@ -6411,7 +6412,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,406
+}  # 6,407
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

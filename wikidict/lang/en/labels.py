@@ -5813,6 +5813,7 @@ labels_subvarieties = {
     "UCR": "Unified Cornish Revised",
     "UK form": "British",
     "UK spelling": "British spelling",
+    "US": "US",
     "US 1": "American (&ndash;1980)",
     "US 2": "American (1980&ndash;)",
     "US English": "US",
@@ -6645,5 +6646,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,226
+}  # 3,227
 # END
