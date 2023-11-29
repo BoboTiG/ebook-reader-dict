@@ -3571,8 +3571,12 @@ labels_subvarieties = {
     "Arkabi": "Arkabi",
     "Arkabuli": "Arkabi",
     "Arkhavi": "Arkabi",
+    "Armenian": "Armeno-Turkish",
     "Armenian Kipchak": "Armeno-Kipchak",
+    "Armenian script": "Armeno-Turkish",
     "Armeno-Kipchak": "Armeno-Kipchak",
+    "Armeno-Turkish": "Armeno-Turkish",
+    "Armn": "Armeno-Turkish",
     "Artashen": "Artasheni",
     "Artasheni": "Artasheni",
     "Artial": "Ardeal",
@@ -6504,6 +6508,7 @@ labels_subvarieties = {
     "Հավարիք": "Havarik",
     "Սիւրմալու": "Surmalu",
     "Սուրմալու": "Surmalu",
+    "հայատառ թուրքերեն": "Armeno-Turkish",
     "აზლაღური": "Azlagha",
     "ათინა": "Atina",
     "ათინური": "Atina",
@@ -6646,5 +6651,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,227
+}  # 3,232
 # END

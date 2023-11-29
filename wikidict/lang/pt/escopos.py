@@ -138,6 +138,7 @@ escopos = {
     "Doença": "patologia",
     "Douro": "Douro",
     "ES": "Espírito Santo",
+    "EUA": "Estados Unidos",
     "Egenharia eletrônica": "engenharia",
     "El Salvador": "El Salvador",
     "Em desuso": "em desuso",
@@ -378,6 +379,7 @@ escopos = {
     "Ténis": "ténis",
     "Tênis": "tênis",
     "Têxtil": "indústria têxtil",
+    "UK": "Reino Unido",
     "Uruguai": "Uruguai",
     "Vale de Aran": "Vale de Aran",
     "Vale de Arão": "Vale de Aran",
@@ -406,5 +408,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 401
+}  # 403
 # END
