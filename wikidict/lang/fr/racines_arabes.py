@@ -7195,6 +7195,43 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "trembler, vaciller",
         "ar-ta*â*a*a": "",
     },  # 28
+    "ar-sHr": {
+        "aa_sens": "aube",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "poumon",
+        "ar-*a*a*a-u": "fasciner",
+        "ar-*a*a*ũ": "aube",
+        "ar-*a*i*a-a": "faire à l'aube",
+        "ar-*a*²a*a": "ensorceler",
+        "ar-*a*²â*ũ": "grand sorcier",
+        "ar-*a*î*ũ": "qui a mal au ventre",
+        "ar-*a*û*ũ": "repas à l'aube",
+        "ar-*i**ũ": "sortilège",
+        "ar-*i*â*ũ": "légume fourrager",
+        "ar-*ta*a*a": "chanter à l'aube",
+        "ar-*u**@ũ": "aube",
+        "ar-*u**ũ": "cœur",
+        "ar-*u*ay*ũ": "aube",
+        "ar-*u*²â*@ũ": "tour d'escamoteur",
+        "ar-*u*â*@ũ": "poumon",
+        "ar-*u*û*ũ": "{{p}} poumons",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "magicienne",
+        "ar-*â*i*ũ": "savant",
+        "ar-a**a*a": "faire à l'aube",
+        "ar-a**â*²@ũ": "légume fourrager",
+        "ar-a**â*²ũ": "légume fourrager",
+        "ar-a**â*ũ": "{{p}} aubes",
+        "ar-i**â*²@ũ": "légume fourrager",
+        "ar-i**â*²ũ": "légume fourrager",
+        "ar-mu*a*²a*ũ": "ensorcelé",
+        "ar-mu*a*²i*ũ": "magicien",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "manger à l'aube",
+        "ar-ta*â*a*a": "",
+    },  # 35
     "ar-sWd": {
         "aa_sens": "noir",
         "ar-***ũ": "",
@@ -8422,5 +8459,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 291
+}  # 292
 # END

@@ -292,6 +292,7 @@ escopos = {
     "Peru": "Peru",
     "Piauí": "Piauí",
     "Planta": "botânica",
+    "Plural": "plural",
     "Popular": "popular",
     "Porto": "Porto",
     "Porto Rico": "Porto Rico",
@@ -408,5 +409,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 403
+}  # 404
 # END

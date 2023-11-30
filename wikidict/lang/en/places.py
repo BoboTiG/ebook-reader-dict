@@ -990,6 +990,21 @@ recognized_placetypes = {
         "display": "historical krai",
         "preposition": "of",
     },
+    "historical local government area": {
+        "article": "a",
+        "display": "historical local government area",
+        "preposition": "of",
+    },
+    "historical local government district": {
+        "article": "a",
+        "display": "historical local government district",
+        "preposition": "of",
+    },
+    "historical locality": {
+        "article": "a",
+        "display": "historical locality",
+        "preposition": "in",
+    },
     "historical maritime republic": {
         "article": "a",
         "display": "historical maritime republic",
@@ -1103,6 +1118,11 @@ recognized_placetypes = {
     "historical town": {
         "article": "a",
         "display": "historical town",
+        "preposition": "in",
+    },
+    "historical unincorporated community": {
+        "article": "a",
+        "display": "historical unincorporated community",
         "preposition": "in",
     },
     "historical village": {
@@ -2135,7 +2155,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 426
+}  # 430
 
 placetypes_aliases = {
     "CDP": "census-designated place",
