@@ -9495,6 +9495,7 @@ langs = {
     "zhw": "Zhoa",
     "zhx": "Sinitic",
     "zhx-gba": "Greater Bai",
+    "zhx-lui": "Leizhou Min",
     "zhx-min": "Min",
     "zhx-min-hai": "Coastal Min",
     "zhx-min-pro": "Proto-Min",
@@ -9638,5 +9639,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,633
+}  # 9,634
 # END

@@ -406,6 +406,8 @@ labels = {
     "rhetorical question": "rhetorical question",
     "rhyming slang": "rhyming slang",
     "royal": "royal",
+    "rural": "rustic",
+    "rustic": "rustic",
     "said in anger": "angry register",
     "sarcastic": "sarcastic",
     "sative": "saturative",
@@ -490,7 +492,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 485
+}  # 487
 
 label_syntaxes = {
     "&": {
@@ -4598,6 +4600,7 @@ labels_subvarieties = {
     "Koine": "Koine",
     "Koine Greek": "Koine",
     "Kolkata": "Kolkata",
+    "Konda": "Konda",
     "Korean Classical Chinese": "Korean Classical Chinese",
     "Korekore": "Korekore",
     "Koryo-mar": "Koryo-mar",
@@ -6665,5 +6668,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,247
+}  # 3,248
 # END

@@ -7946,6 +7946,37 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "devenir malsain",
         "ar-ta*a*²a*a": "être malsain",
     },  # 20
+    "ar-whb": {
+        "aa_sens": "don",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "don",
+        "ar-*a*a*a-u": "donner",
+        "ar-*a*²a*a": "",
+        "ar-*a*²â*@ũ": "{{m}} généreux",
+        "ar-*a*²â*iy²@ũ": "Wahabites",
+        "ar-*a*²â*ũ": "généreux",
+        "ar-*a*û*ũ": "généreux",
+        "ar-*ta*a*a": "se faire donner",
+        "ar-*u*ay*ũ": "Wohaïb",
+        "ar-*â*a*a": "rivaliser de générosité",
+        "ar-*â*i*ũ": "qui donne",
+        "ar-2i3ũ": "don",
+        "ar-a**a*a": "être disponible",
+        "ar-ma**a*ũ": "Moweb",
+        "ar-ma**i*@ũ": "faveur",
+        "ar-ma**i*ũ": "donation",
+        "ar-ma*â*i*u": "{{p}} présents",
+        "ar-mu**a*@ũ": "cadeau",
+        "ar-mu**a*ũ": "préparer",
+        "ar-mu**i*ũ": "puissant",
+        "ar-mu*²a*i*ũ": "qui reçoit un don",
+        "ar-musta**i*ũ": "qui demande un don",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "demander un cadeau",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 29
     "ar-wjd": {
         "aa_sens": "trouver",
         "ar-**a*²a": "",
@@ -8463,5 +8494,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 292
+}  # 293
 # END
