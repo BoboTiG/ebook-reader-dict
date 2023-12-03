@@ -7956,6 +7956,7 @@ langs = {
     "tgx": "Tagish",
     "tgy": "Togoyo",
     "th": "Thai",
+    "th-new": "Hacked Thai",
     "thc": "Tai Hang Tong",
     "thd": "Kuuk Thaayorre",
     "the": "Chitwania Tharu",
@@ -9639,5 +9640,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,634
+}  # 9,635
 # END

@@ -432,6 +432,7 @@ labels = {
     "somewhat": "somewhat",
     "stative": "stative",
     "stative verb": "stative",
+    "stenoscript": "stenoscript",
     "strict": "strictly",
     "strictly": "strictly",
     "strongly": "strongly",
@@ -492,7 +493,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 487
+}  # 488
 
 label_syntaxes = {
     "&": {
@@ -3212,6 +3213,7 @@ labels_regional = {
     "Tanzania": "Tanzania",
     "Tanzanian": "Tanzania",
     "Tartar": "Tartar",
+    "Tasmania": "Tasmania",
     "Tbilisi": "Tbilisi",
     "Tebriz": "Tabriz",
     "Teesside": "Teesside",
@@ -3418,7 +3420,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,497
+}  # 1,498
 
 labels_subvarieties = {
     "+ablative": "+ ablative",
