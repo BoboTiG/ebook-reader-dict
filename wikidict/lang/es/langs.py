@@ -394,6 +394,7 @@ langs = {
     "got": "gótico",
     "grb": "grebo",
     "grc": "griego antiguo",
+    "grt": "garo",
     "gsc": "gascón",
     "gsw": "alemánico",
     "gu": "guyaratí",
@@ -1223,7 +1224,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,218
+}  # 1,219
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",

@@ -5574,7 +5574,7 @@ labels_subvarieties = {
     "Southeast Yoruba": "SEY",
     "Southeastern": "southeastern dialects",
     "Southeastern Yoruba": "SEY",
-    "Southern": "southern Slovene",
+    "Southern": "Southern",
     "Southern American English": "Southern US",
     "Southern Borderlands": "Southern Borderlands",
     "Southern Calabria": "southern Calabria",

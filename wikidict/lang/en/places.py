@@ -2283,6 +2283,7 @@ recognized_qualifiers = {
     "industrial": "industrial",
     "inland": "inland",
     "inner": "inner",
+    "landlocked": "landlocked",
     "large": "large",
     "left": "left",
     "logging": "logging",
@@ -2340,7 +2341,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 92
+}  # 93
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
