@@ -109,6 +109,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "and4po",
+      "name": "Ander Romero",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94716615?v=4",
+      "profile": "http://and4po.github.io",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 6,
