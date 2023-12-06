@@ -48,6 +48,7 @@ templates_ignored = (
     "definisjon mangler",
     "etymologi mangler",
     "mangler definisjon",
+    "mangler etymologi",
     "norm",
     "suffiks/oversikt",
 )
