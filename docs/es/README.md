@@ -1,34 +1,32 @@
-# Spanish Dictionary For Your eBook Reader
+# Diccionario español para tu lector de libros electrónicos
 
-> 🥇 That page needs to be translated to **Spanish**. If you can give a hand, that would be awesome 🥰
+**eBook Reader Dictionaries** es un proyecto colaborativo que usa la inmensa base de datos del [Wikcionario](https://es.wiktionary.org/) para crear un diccionario completo, actualizado a diario.
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wikcionario](https://es.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+## Características interesantes
 
-## Interesting Features
+- [Kobo] Cuando selecciones una palabra en plural, se mostrará su forma en singular.
+- [Kobo] Cuando selecciones un verbo conjugado, se mostrará su infinitivo.
+- [Kobo] Cuando una palabra es el plural de otra y también una forma de un verbo, se mostrarán todas las versiones.
+- Si una palabra tiene diversas pronunciaciones o géneros, todos son disponibles.
+- Las fórmulas matemáticas se convierten a formato SVG.
+- Las fórmulas químicas se convierten a formato SVG.
+- Soporte de jeroglíficos.
+- Soporte de tablas.
 
-- [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed.
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed.
-- If a word contains several pronunciations, or genders, all are available.
-- Mathematic formulas are converted to SVG.
-- Chemical formulas are converted to SVG.
-- Hieroglyphs are supported.
-- Tables are supported.
+## Descargas
 
-## Downloads
-
-### Full Version
+### Versión completa
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dicthtml-es-es.zip) (dicthtml-es-es.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es.zip) (dict-es-es.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es.df.bz2) (dict-es-es.df.bz2)
 
-### Etymology-Free Version
+### Versión sin etimología
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dicthtml-es-es-noetym.zip) (dicthtml-es-es-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es-noetym.zip) (dict-es-es-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es-noetym.df.bz2) (dict-es-es-noetym.df.bz2)
 
-## Installation
+## Instalación
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Copia el diccionario dentro de la carpeta `.kobo/custom-dict/` de tu lector de libros electrónicos.
