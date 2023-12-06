@@ -4782,6 +4782,31 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "",
         "ar-ti**â*ũ": "bard",
     },  # 28
+    "ar-jhD": {
+        "aa_sens": "avorter",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "avortement",
+        "ar-*a*a*a-a": "soustraire",
+        "ar-*a*i*ũ": "abortif",
+        "ar-*a*²a*a": "",
+        "ar-*a*â*@ũ": "astuce",
+        "ar-*a*î*ũ": "abortif",
+        "ar-*awâ*i*u": "{{p}} poulains",
+        "ar-*ta*a*a": "",
+        "ar-*u*û*@ũ": "astuce",
+        "ar-*â*a*a": "devancer",
+        "ar-*â*i*@ũ": "poulain",
+        "ar-*â*i*ũ": "rusé",
+        "ar-a**a*a": "avorter",
+        "ar-ma*â*î*u": "{{p}} qui ont avorté",
+        "ar-mu**a*ũ": "abortif",
+        "ar-mu**i*ũ": "qui a avorté",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 23
     "ar-jhd": {
         "aa_sens": "effort, tension",
         "ar-**a*²a": "",
@@ -7950,6 +7975,7 @@ racines_schemes_arabes = {
         "aa_sens": "don",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-**â*ũ": "donnation",
         "ar-*a**@ũ": "pourboire",
         "ar-*a**ũ": "don",
         "ar-*a*a*a-a": "donner",
@@ -7969,6 +7995,7 @@ racines_schemes_arabes = {
         "ar-ma**a*ũ": "Moweb",
         "ar-ma**i*@ũ": "faveur",
         "ar-ma**i*ũ": "donation",
+        "ar-ma**û*ũ": "doué",
         "ar-ma*â*i*u": "{{p}} présents",
         "ar-mu**a*ũ": "préparé",
         "ar-mu**i*ũ": "puissant",
@@ -7978,7 +8005,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "demander un cadeau",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 31
+    },  # 33
     "ar-wjd": {
         "aa_sens": "trouver",
         "ar-**a*²a": "",
@@ -8496,5 +8523,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 293
+}  # 294
 # END
