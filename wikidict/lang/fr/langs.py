@@ -3187,6 +3187,7 @@ langs = {
     "mfj": "mefele",
     "mfn": "mbembe Cross River",
     "mfp": "malais de Makassar",
+    "mfq": "moba",
     "mfr": "marithiel",
     "mfv": "manjak",
     "mfx": "melo",
@@ -6412,7 +6413,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,407
+}  # 6,408
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
