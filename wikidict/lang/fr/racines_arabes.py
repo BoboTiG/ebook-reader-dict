@@ -5742,6 +5742,11 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'épuiser",
         "ar-ta*â*a*a": "",
     },  # 26
+    "ar-mWt": {
+        "aa_sens": "mort",
+        "ar-***ũ": "",
+        "ar-*a*a*ânũ": "biens immeubles",
+    },  # 3
     "ar-mdn": {
         "aa_sens": "établissement",
         "ar-***ũ": "",
@@ -6061,6 +6066,39 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 13
+    "ar-mwt": {
+        "aa_sens": "mort",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "décès",
+        "ar-*a**ânũ": "inanimé",
+        "ar-*a**ũ": "mort",
+        "ar-*a*a*a-u": "mourir",
+        "ar-*a*i*@ũ": "cadavre",
+        "ar-*a*i*ũ": "mort",
+        "ar-*a*²a*a": "mettre à mort",
+        "ar-*a*â*ũ": "chose inanimée",
+        "ar-*a*î*ũ": "cadavre",
+        "ar-*i**@ũ": "type de mort",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "perte de connaissance",
+        "ar-*u**ânũ": "épizootie",
+        "ar-*u*â*ũ": "mort",
+        "ar-*â*a*a": "tolérer",
+        "ar-*â*i*ũ": "moribond",
+        "ar-a**a*a": "mettre à mort",
+        "ar-i**â*@ũ": "exécution",
+        "ar-ma**a*ũ": "décès",
+        "ar-mu**a*ũ": "désuet",
+        "ar-mu**i*ũ": "qui fait mourir",
+        "ar-mu*â*a*@ũ": "tolérance",
+        "ar-musta**i*ũ": "qui s'expose",
+        "ar-muta*â**ũ": "qui fait le mort",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "chercher la mort",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "faire le mort",
+    },  # 31
     "ar-myh": {
         "aa_sens": "eau",
         "ar-***ũ": "",
@@ -8523,5 +8561,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 294
+}  # 296
 # END

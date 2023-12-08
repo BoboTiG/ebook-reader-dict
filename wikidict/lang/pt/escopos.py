@@ -79,6 +79,7 @@ escopos = {
     "Bolívia": "Bolívia",
     "Bragança": "Bragança",
     "Brasil": "Brasil",
+    "Brasileirismo": "Brasil",
     "Britânico": "Reino Unido",
     "Béarn": "Bearne",
     "Bélgica": "Bélgica",
@@ -220,6 +221,7 @@ escopos = {
     "Local": "toponímia",
     "Logudorês": "Logudorês",
     "Lugar": "toponímia",
+    "Lusitanismo": "Portugal",
     "Língua": "linguística",
     "MA": "Maranhão",
     "MG": "Minas Gerais",
@@ -411,5 +413,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 406
+}  # 408
 # END

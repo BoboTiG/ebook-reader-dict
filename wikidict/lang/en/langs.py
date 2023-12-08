@@ -1328,7 +1328,6 @@ langs = {
     "bsf": "Bauchi",
     "bsg": "Bashkardi",
     "bsg-ban": "Bandari",
-    "bsg-bas": "Bashkardi",
     "bsg-hor": "Hormozi",
     "bsg-min": "Minabi",
     "bsh": "Kamkata-viri",
@@ -6822,7 +6821,6 @@ langs = {
     "rdb": "Rudbari",
     "rdb-jir": "Jirofti",
     "rdb-kah": "Kahnuji",
-    "rdb-rud": "Rudbari",
     "rea": "Rerau",
     "reb": "Rembong",
     "ree": "Rejang Kayan",
@@ -7279,7 +7277,6 @@ langs = {
     "sem-eas": "East Semitic",
     "sem-eth": "Ethiopian Semitic",
     "sem-has": "Hasaitic",
-    "sem-him": "Himyaritic",
     "sem-his": "Hismaic",
     "sem-mhr": "Muher",
     "sem-nna": "Northeastern Neo-Aramaic",
@@ -8037,7 +8034,7 @@ langs = {
     "tkq": "Tee",
     "tkr": "Tsakhur",
     "tks": "Ramandi",
-    "tks-cal": "Chali",
+    "tks-cal": "Chali Tati",
     "tks-dan": "Danesfani",
     "tks-ebr": "Ebrahimabadi",
     "tks-esf": "Esfarvarini",
@@ -9654,5 +9651,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,649
+}  # 9,646
 # END
