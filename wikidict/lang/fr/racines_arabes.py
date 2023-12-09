@@ -6072,13 +6072,13 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**@ũ": "décès",
         "ar-*a**ânũ": "inanimé",
+        "ar-*a**é": "{{p}} morts",
         "ar-*a**ũ": "mort",
         "ar-*a*a*a-u": "mourir",
-        "ar-*a*i*@ũ": "cadavre",
-        "ar-*a*i*ũ": "mort",
         "ar-*a*²a*a": "mettre à mort",
+        "ar-*a*²i*@ũ": "{{f}} morte",
+        "ar-*a*²i*ũ": "cadavre",
         "ar-*a*â*ũ": "chose inanimée",
-        "ar-*a*î*ũ": "cadavre",
         "ar-*i**@ũ": "type de mort",
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "perte de connaissance",
@@ -6087,18 +6087,20 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "tolérer",
         "ar-*â*i*ũ": "moribond",
         "ar-a**a*a": "mettre à mort",
+        "ar-a**â*ũ": "{{p}} morts",
         "ar-i**â*@ũ": "exécution",
         "ar-ma**a*ũ": "décès",
         "ar-mu**a*ũ": "désuet",
         "ar-mu**i*ũ": "qui fait mourir",
         "ar-mu*â*a*@ũ": "tolérance",
         "ar-musta**i*ũ": "qui s'expose",
-        "ar-muta*â**ũ": "qui fait le mort",
+        "ar-muta*â*i*ũ": "qui fait le mort",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "chercher la mort",
+        "ar-sti**â*@ũ": "lutte désespérée",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "faire le mort",
-    },  # 31
+    },  # 33
     "ar-myh": {
         "aa_sens": "eau",
         "ar-***ũ": "",
@@ -6114,6 +6116,11 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 13
+    "ar-myt": {
+        "aa_sens": "mort",
+        "ar-***ũ": "",
+        "ar-*a**ũ": "mort",
+    },  # 3
     "ar-n3t": {
         "aa_sens": "décrire",
         "ar-***ũ": "",
@@ -8561,5 +8568,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 296
+}  # 297
 # END
