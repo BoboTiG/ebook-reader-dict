@@ -4620,6 +4620,8 @@ labels_subvarieties = {
     "Koine Greek": "Koine",
     "Kolkata": "Kolkata",
     "Konda": "Konda",
+    "Kongu": "Kongu",
+    "Kongu Tamil": "Kongu",
     "Korean Classical Chinese": "Korean Classical Chinese",
     "Korekore": "Korekore",
     "Koryo-mar": "Koryo-mar",
@@ -4628,6 +4630,7 @@ labels_subvarieties = {
     "Kosovo Arli": "Kosovo Arli",
     "Kosta": "Coastal Andhra",
     "Kotyora": "Kotyora",
+    "Kovai Tamil": "Kongu",
     "Koyeti": "Koyeti",
     "Krakow": "Kraków",
     "Kraków": "Kraków",
@@ -4821,12 +4824,10 @@ labels_subvarieties = {
     "Maski": "Maski",
     "Masovia": "Masovia",
     "Massa Lombarda": "Massa Lombarda",
-    "Masuria": "Masuria",
     "Mathia": "Lauriya-Nandangarh",
     "Matzouka": "Maçka",
     "Mayo": "Mayo",
     "Mazowsze": "Masovia",
-    "Mazury": "Masuria",
     "Maçka": "Maçka",
     "Mañegu": "Mañegu",
     "Mecayapan": "Mecayapan",
@@ -6722,5 +6723,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,300
+}  # 3,301
 # END

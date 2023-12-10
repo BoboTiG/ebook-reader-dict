@@ -185,6 +185,8 @@ escopos = {
     "Glossónimo": "linguística",
     "Glossônimo": "linguística",
     "Goiás": "Goiás",
+    "Grafia brasileira": "Grafia brasileira",
+    "Grafia portuguesa": "Grafia portuguesa",
     "Grã-Bretanha": "Reino Unido",
     "Guatemala": "Guatemala",
     "Guiné-Bissau": "Guiné-Bissau",
@@ -413,5 +415,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 408
+}  # 410
 # END
