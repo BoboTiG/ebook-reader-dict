@@ -2,7 +2,7 @@
 black==23.11.0
 coverage!=6.3.0
 flake8==6.1.0
-isort==5.12.0
+isort==5.13.0
 mypy==1.7.1
 pytest==7.4.3
 pytest-cov==4.1.0 
