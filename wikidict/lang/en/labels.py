@@ -5833,6 +5833,8 @@ labels_subvarieties = {
     "Tosk": "Tosk",
     "Toyama": "Toyama",
     "Trabzon": "Trabzon",
+    "Transcarpathia": "Transcarpathian",
+    "Transcarpathian": "Transcarpathian",
     "Transitional": "Transitional Period",
     "Transitional Period": "Transitional Period",
     "Transitional period": "Transitional Period",
@@ -6723,5 +6725,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,301
+}  # 3,303
 # END
