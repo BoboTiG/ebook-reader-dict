@@ -1044,6 +1044,7 @@ langs = {
     "tig": "tigre",
     "tip": "trimuris",
     "tiv": "tiv",
+    "tji": "tujia septentrional",
     "tk": "turcomano",
     "tkl": "tokelauano",
     "tl": "tagalo",
@@ -1080,6 +1081,7 @@ langs = {
     "tsn": "tswana",
     "tt": "tártaro",
     "ttq": "tawallammat",
+    "ttt": "tati",
     "tum": "chitumbuka",
     "tup": "tupí",
     "tut": "altaico",
@@ -1225,7 +1227,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,220
+}  # 1,222
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",

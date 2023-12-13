@@ -5714,6 +5714,28 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être coloré",
         "ar-ta*â*a*a": "",
     },  # 17
+    "ar-lyl": {
+        "aa_sens": "nuit",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "nuit",
+        "ar-*a**iy²ũ": "nocturne",
+        "ar-*a**â@ũ": "nuit",
+        "ar-*a**é": "Leïla",
+        "ar-*a**ũ": "nuit",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*a*â*ĩ": "{{p}} nuits",
+        "ar-*a2â2i*u": "{{p}} nuits",
+        "ar-*ta*a*a": "",
+        "ar-*â**ũ": "nuit noire",
+        "ar-*â*a*a": "désirer passer la nuit",
+        "ar-a**a*a": "être surpris par la nuit",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 20
     "ar-mSr": {
         "aa_sens": "séparation ; traire ; capitale",
         "ar-**a*²a": "",
@@ -8568,5 +8590,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 297
+}  # 298
 # END

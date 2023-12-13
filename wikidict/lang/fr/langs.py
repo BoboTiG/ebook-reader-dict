@@ -4866,6 +4866,7 @@ langs = {
     "sicilo-calabrais": "calabrais centro-méridional",
     "sid": "sidamo",
     "sie": "simaa",
+    "sif": "sèmè",
     "sii": "shompen",
     "sij": "numbami",
     "sik": "sikiana",
@@ -6413,7 +6414,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,408
+}  # 6,409
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
