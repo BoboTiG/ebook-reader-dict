@@ -1501,6 +1501,7 @@ labels_topical = {
     "metrology": "metrology",
     "microbiology": "microbiology",
     "microelectronics": "microelectronics",
+    "micronationalism": "micronationalism",
     "microscopy": "microscopy",
     "military": "military",
     "military rank": "military",
@@ -1919,7 +1920,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,180
+}  # 1,181
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

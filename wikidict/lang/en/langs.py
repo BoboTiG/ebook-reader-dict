@@ -1767,6 +1767,7 @@ langs = {
     "cnk": "Khumi Chin",
     "cnl": "Lalana Chinantec",
     "cno": "Con",
+    "cnp": "Northern Pinghua",
     "cns": "Central Asmat",
     "cnt": "Tepetotutla Chinantec",
     "cnu": "Chenoua",
@@ -1871,6 +1872,7 @@ langs = {
     "csm": "Central Sierra Miwok",
     "csn": "Colombian Sign Language",
     "cso": "Sochiapam Chinantec",
+    "csp": "Southern Pinghua",
     "csq": "Croatian Sign Language",
     "csr": "Costa Rican Sign Language",
     "css": "Southern Ohlone",
@@ -9652,5 +9654,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,647
+}  # 9,649
 # END
