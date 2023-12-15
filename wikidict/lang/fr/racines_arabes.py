@@ -5728,14 +5728,15 @@ racines_schemes_arabes = {
         "ar-*a*â*ĩ": "{{p}} nuits",
         "ar-*a2â2i*u": "{{p}} nuits",
         "ar-*ta*a*a": "",
-        "ar-*â**ũ": "nuit noire",
+        "ar-*â**ũ": "pour la nuit",
         "ar-*â*a*a": "désirer passer la nuit",
         "ar-a**a*a": "être surpris par la nuit",
+        "ar-a**a*u": "très nuit",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 21
     "ar-mSr": {
         "aa_sens": "séparation ; traire ; capitale",
         "ar-**a*²a": "",
