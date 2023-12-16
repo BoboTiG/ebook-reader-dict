@@ -2862,6 +2862,33 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être affreux",
         "ar-ta*â*a*a": "",
     },  # 20
+    "ar-Vhb": {
+        "aa_sens": "or, partir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*@ũ": "parcelle d'or",
+        "ar-*a*a*a-a": "s'en aller",
+        "ar-*a*a*iy²ũ": "d'or",
+        "ar-*a*a*ũ": "or",
+        "ar-*a*i*a-a": "être ébahi par l'or",
+        "ar-*a*u*a": "être ébahi par l'or",
+        "ar-*a*²a*a": "dorer",
+        "ar-*a*î*ũ": "doré",
+        "ar-*a*û*ũ": "qui s'en va",
+        "ar-*i**@ũ": "pluie fine",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "qui passe",
+        "ar-a**a*a": "renvoyer",
+        "ar-ma**a*ũ": "conduite",
+        "ar-ma**i*ũ": "suggestion du démon",
+        "ar-mu*a*²a*ũ": "doré",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+        "ar-tama**a*a": "embrasser une secte",
+    },  # 25
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
@@ -5725,8 +5752,6 @@ racines_schemes_arabes = {
         "ar-*a**ũ": "nuit",
         "ar-*a*a*a-u": "",
         "ar-*a*²a*a": "",
-        "ar-*a*â*ĩ": "{{p}} nuits",
-        "ar-*a2â2i*u": "{{p}} nuits",
         "ar-*ta*a*a": "",
         "ar-*â**ũ": "pour la nuit",
         "ar-*â*a*a": "désirer passer la nuit",
@@ -5736,7 +5761,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 21
+    },  # 19
     "ar-mSr": {
         "aa_sens": "séparation ; traire ; capitale",
         "ar-**a*²a": "",
@@ -8591,5 +8616,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 298
+}  # 299
 # END
