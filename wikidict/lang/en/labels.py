@@ -908,6 +908,8 @@ labels_topical = {
     "Norse paganism": "Germanic paganism",
     "OOP": "object-oriented programming",
     "Pakistani politics": "Pakistani politics",
+    "Palestine politics": "Palestinian politics",
+    "Palestinian politics": "Palestinian politics",
     "Philippine politics": "Philippine politics",
     "Philmont": "Philmont Scout Ranch",
     "Philmont Scout Ranch": "Philmont Scout Ranch",
@@ -1355,6 +1357,7 @@ labels_topical = {
     "group theory": "group theory",
     "gun mechanism": "firearms",
     "gun mechanisms": "firearms",
+    "gun sports": "gun sports",
     "gymnastics": "gymnastics",
     "gynaecology": "gynaecology",
     "gynecology": "gynaecology",
@@ -1746,6 +1749,7 @@ labels_topical = {
     "shamanism": "shamanism",
     "shipping": "shipping",
     "shogi": "shogi",
+    "shooting sports": "gun sports",
     "signal processing": "signal processing",
     "singing": "singing",
     "skateboarding": "skateboarding",
@@ -1920,7 +1924,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,181
+}  # 1,185
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5517,6 +5521,7 @@ labels_subvarieties = {
     "Seema Telugu": "Rayalaseema",
     "Sehwa": "Sehwa",
     "Sehwa-ri": "Sehwa",
+    "Selfkant": "Selfkant",
     "Senaki": "Senaki",
     "Senaḳi": "Senaki",
     "Seohong": "Seohong",
@@ -6752,5 +6757,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,329
+}  # 3,330
 # END

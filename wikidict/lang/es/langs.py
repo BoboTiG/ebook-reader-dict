@@ -1209,6 +1209,7 @@ langs = {
     "zaw": "zapoteco de Mitla",
     "zea": "zelandés",
     "zen": "zenaga",
+    "zgh": "amazig estándar marroquí",
     "zh-classical": "chino clásico",
     "zh-yue": "cantonés",
     "zkg": "goguryeo",
@@ -1227,7 +1228,7 @@ langs = {
     "zu": "zulú",
     "zun": "zuñi",
     "zza": "zazaki",
-}  # 1,222
+}  # 1,223
 
 lang_to_normalize = {
     "PIE": "protoindoeuropeo",
