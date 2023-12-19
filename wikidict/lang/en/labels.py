@@ -393,6 +393,7 @@ labels = {
     "rare sense": "rare",
     "rare term": "rare",
     "rarely": "rarely",
+    "rather": "rather",
     "reciprocal": "reciprocal",
     "reflexive": "reflexive",
     "reflexive pronoun": "reflexive",
@@ -493,7 +494,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 488
+}  # 489
 
 label_syntaxes = {
     "&": {
@@ -681,6 +682,11 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "rather": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "slightly": {
         "omit_postComma": True,
         "omit_preComma": False,
@@ -736,7 +742,7 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
-}  # 48
+}  # 49
 
 labels_topical = {
     "ABDL": "ABDL",
@@ -989,6 +995,7 @@ labels_topical = {
     "WW2": "World War II",
     "WWI": "World War I",
     "WWII": "World War II",
+    "Web design": "web design",
     "Wicca": "Wicca",
     "Wikimedia jargon": "Wikimedia jargon",
     "Wikipedia": "Wikimedia jargon",
@@ -1777,6 +1784,7 @@ labels_topical = {
     "space": "space science",
     "space flight": "space flight",
     "space science": "space science",
+    "space travel": "space flight",
     "spaceflight": "space flight",
     "spectroscopy": "spectroscopy",
     "speedrun": "speedrunning",
@@ -1924,7 +1932,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,185
+}  # 1,187
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
