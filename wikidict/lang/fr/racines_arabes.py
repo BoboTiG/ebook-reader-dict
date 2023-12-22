@@ -2873,10 +2873,12 @@ racines_schemes_arabes = {
         "ar-*a*i*a-a": "être ébahi par l'or",
         "ar-*a*u*a": "être ébahi par l'or",
         "ar-*a*²a*a": "dorer",
+        "ar-*a*â*ũ": "départ",
         "ar-*a*î*ũ": "doré",
         "ar-*a*û*ũ": "qui s'en va",
         "ar-*i**@ũ": "pluie fine",
         "ar-*ta*a*a": "",
+        "ar-*u*û*ũ": "départ",
         "ar-*â*a*a": "",
         "ar-*â*i*ũ": "qui passe",
         "ar-a**a*a": "renvoyer",
@@ -2888,7 +2890,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
         "ar-tama**a*a": "embrasser une secte",
-    },  # 25
+    },  # 27
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
