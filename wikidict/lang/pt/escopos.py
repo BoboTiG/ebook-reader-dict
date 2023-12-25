@@ -59,6 +59,7 @@ escopos = {
     "Baixo calão": "obsceno",
     "Barbarismo": "estrangeirismo",
     "Barroso": "Barroso",
+    "Baseball": "beisebol",
     "Basquete": "basquetebol",
     "Basquetebol": "basquetebol",
     "Bearn": "Bearne",
@@ -72,6 +73,7 @@ escopos = {
     "Beira-Interior": "Beira Interior",
     "Beira-Litoral": "Beira Litoral",
     "Beiras": "As Beiras",
+    "Beisebol": "beisebol",
     "Belver": "Belver",
     "Berzo": "Berzo",
     "Bolonha": "Bolonha",
@@ -416,5 +418,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 411
+}  # 413
 # END
