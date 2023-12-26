@@ -87,7 +87,7 @@ escopos = {
     "Bélgica": "Bélgica",
     "CE": "Ceará",
     "Cabo Verde": "Cabo Verde",
-    "Caipira": "caipira",
+    "Caipira": "dialeto caipira",
     "Calabor": "Calabor",
     "Calendário": "cronônimo",
     "Calão": "obsceno",
@@ -136,6 +136,7 @@ escopos = {
     "Dia da semana": "cronônimo",
     "Dialectal": "regionalismo",
     "Dialetal": "regionalismo",
+    "Dialeto caipira": "dialeto caipira",
     "Distrito Federal": "Distrito Federal",
     "Doença": "patologia",
     "Douro": "Douro",
@@ -413,10 +414,10 @@ escopos = {
     "alvanéis": "alvanéis",
     "canteiros": "canteiros",
     "cesteiros": "cesteiros",
-    "interior de São Paulo": "caipira",
+    "interior de São Paulo": "dialeto caipira",
     "músicos": "músicos",
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 413
+}  # 414
 # END

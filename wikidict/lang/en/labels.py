@@ -1136,6 +1136,7 @@ labels_topical = {
     "cell phone": "mobile telephony",
     "cell phones": "mobile telephony",
     "cellular automata": "cellular automata",
+    "cephalopod": "cephalopod",
     "ceramics": "ceramics",
     "cheerleading": "cheerleading",
     "chemical element": "chemistry",
@@ -1933,7 +1934,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,188
+}  # 1,189
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
