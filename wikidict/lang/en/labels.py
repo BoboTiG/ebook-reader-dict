@@ -1093,6 +1093,7 @@ labels_topical = {
     "biochemistry": "biochemistry",
     "biology": "biology",
     "biotechnology": "biotechnology",
+    "bird": "bird",
     "birdwatching": "birdwatching",
     "blacksmithing": "blacksmithing",
     "blogging": "blogging",
@@ -1934,7 +1935,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,189
+}  # 1,190
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
