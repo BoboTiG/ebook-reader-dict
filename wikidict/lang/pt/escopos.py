@@ -43,6 +43,7 @@ escopos = {
     "Aranês": "Vale de Aran",
     "Arcaico": "arcaico",
     "Argentina": "Argentina",
+    "Aritmética": "aritmética",
     "Artes": "arte",
     "Artes gráficas": "arte",
     "Artes visuais": "arte",
@@ -431,5 +432,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 426
+}  # 427
 # END
