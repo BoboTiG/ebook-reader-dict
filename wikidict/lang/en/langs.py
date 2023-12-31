@@ -8585,6 +8585,7 @@ langs = {
     "vis": "Vishavan",
     "vit": "Viti",
     "viv": "Iduna",
+    "vjk": "Bajjika",
     "vka": "Kariyarra",
     "vki": "Ija-Zuba",
     "vkj": "Kujarge",
@@ -9654,5 +9655,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,649
+}  # 9,650
 # END

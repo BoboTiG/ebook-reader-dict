@@ -4900,6 +4900,7 @@ labels_subvarieties = {
     "Middle Assyrian": "Middle Assyrian",
     "Middle Babylonian": "Middle Babylonian",
     "Middle Georgian": "Middle Georgian",
+    "Middle Hindi": "Middle Hindi",
     "Middle Hittite": "Middle Hittite",
     "Middle Konda": "Middle Konda",
     "Middle Lozva": "Middle Lozva",
@@ -6768,5 +6769,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,330
+}  # 3,331
 # END
