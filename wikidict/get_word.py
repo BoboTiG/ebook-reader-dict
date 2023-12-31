@@ -73,11 +73,11 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         print("[variants]", ", ".join(iter(details.variants)))
 
 
-def set_output(word: str) -> None:
-    """It is very specific to GitHub Actions."""
+def set_output(locale: str, word: str) -> None:
+    """It is very specific to GitHub Actions, and will set the job summary with helpful information."""
     if "CI" in os.environ:
-        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
-            fh.write(f'word="{word}"\n'.encode())
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "ab") as fh:
+            fh.write(f"[{locale.upper()}] {word!r}\n".encode())
 
 
 def main(locale: str, word: str, raw: bool = False) -> int:
@@ -86,6 +86,6 @@ def main(locale: str, word: str, raw: bool = False) -> int:
     # If *word* is empty, get a random word
     word = word or get_random_word(locale)
 
-    set_output(word)
+    set_output(locale, word)
     get_and_parse_word(word, locale, raw)
     return 0
