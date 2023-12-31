@@ -89,6 +89,8 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
+    # {{e-propi|ca|grèvol}}
+    "e-propi": "strong(parts[-1])",
     # {{forma-f|ca|halloweenià}}
     "forma-f": "parts[-1]",
     # {{forma-p|ca|experta}}

@@ -279,6 +279,7 @@ def test_parse_word(
         ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
         ("{{e|la|longifolius|longifolia}}", "longifolia"),
+        ("{{e-propi|ca|grèvol}}", "<b>grèvol</b>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
         ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
