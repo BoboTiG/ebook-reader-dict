@@ -118,6 +118,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "yue-dongchen",
+      "name": "Dongchen Yue | 岳东辰",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38829129?v=4",
+      "profile": "http://blog.yue-dongchen.xyz",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 6,
