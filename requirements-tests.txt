@@ -4,7 +4,7 @@ coverage!=6.3.0
 flake8==6.1.0
 isort==5.13.2
 mypy==1.8.0
-pytest==7.4.3
+pytest==7.4.4
 pytest-cov==4.1.0 
 pytest-dependency==0.5.1
 responses==0.24.1
