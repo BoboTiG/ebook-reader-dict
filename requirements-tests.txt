@@ -6,6 +6,6 @@ isort==5.13.2
 mypy==1.8.0
 pytest==7.4.3
 pytest-cov==4.1.0 
-pytest-dependency==0.5.1
+pytest-dependency==0.6.0
 responses==0.24.1
 types-requests==2.31.0.10
