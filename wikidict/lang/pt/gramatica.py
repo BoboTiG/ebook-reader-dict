@@ -37,7 +37,7 @@ gramatica_short = {
     "bitrans": "bitransitivo",
     "c": "comum",
     "c2g": "comum aos dois géneros",
-    "c2g2n": "comum aos dois géneros e de dois números",
+    "c2g2n": "comum aos dois géneros e aos dois números",
     "c2gc2n": "comum aos dois géneros e aos dois números",
     "c2gp": "comum aos dois géneros plural",
     "c2gpl": "comum aos dois géneros plural",

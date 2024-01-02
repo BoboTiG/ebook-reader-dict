@@ -399,6 +399,7 @@ labels = {
     "reflexive pronoun": "reflexive",
     "regal": "royal",
     "relational": "relational",
+    "relatively": "relatively",
     "religious slur": "religious slur",
     "repetitive": "repetitive",
     "retronym": "retronym",
@@ -494,7 +495,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 489
+}  # 490
 
 label_syntaxes = {
     "&": {
@@ -687,6 +688,11 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
+    "relatively": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
     "slightly": {
         "omit_postComma": True,
         "omit_preComma": False,
@@ -742,7 +748,7 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
-}  # 49
+}  # 50
 
 labels_topical = {
     "ABDL": "ABDL",
@@ -1032,6 +1038,7 @@ labels_topical = {
     "altright": "alt-right",
     "amateur radio": "amateur radio",
     "amino acid": "biochemistry",
+    "amphibian": "zoology",
     "analysis": "mathematical analysis",
     "analytic geometry": "analytic geometry",
     "analytical chemistry": "analytical chemistry",
@@ -1935,7 +1942,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,190
+}  # 1,191
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -5551,9 +5558,9 @@ labels_subvarieties = {
     "Severnaya Sosva": "Sosva",
     "Shahbazgarhi": "Shahbazgarhi",
     "Shahpuri": "Shahpuri",
-    "Shanghai dialect": "Shanghainese",
-    "Shanghainese": "Shanghainese",
-    "Shanghainese Wu": "Shanghainese",
+    "Shanghai dialect": "Shanghainese Wu",
+    "Shanghainese": "Shanghainese Wu",
+    "Shanghainese Wu": "Shanghainese Wu",
     "Shangrao Wu": "Xinqu Wu",
     "Shangrao dialect": "Xinqu Wu",
     "Shangraonese": "Xinqu Wu",

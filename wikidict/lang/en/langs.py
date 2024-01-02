@@ -8800,7 +8800,7 @@ langs = {
     "wra": "Warapu",
     "wrb": "Warluwara",
     "wrg": "Warungu",
-    "wrh": "Wiradhuri",
+    "wrh": "Wiradjuri",
     "wri": "Wariyangga",
     "wrk": "Garawa",
     "wrl": "Warlmanpa",
