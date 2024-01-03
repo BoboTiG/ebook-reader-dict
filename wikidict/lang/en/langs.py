@@ -7417,7 +7417,7 @@ langs = {
     "sit-khb": "Kho-Bwa",
     "sit-kic": "Central Kiranti",
     "sit-kie": "Eastern Kiranti",
-    "sit-kin": "Kinnauri",
+    "sit-kin": "Kinnauric",
     "sit-kir": "Kiranti",
     "sit-kiw": "Western Kiranti",
     "sit-kon": "Konyak",
