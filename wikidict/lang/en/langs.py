@@ -4690,7 +4690,7 @@ langs = {
     "mce": "Itundujia Mixtec",
     "mcf": "Matsés",
     "mcg": "Mapoyo",
-    "mch": "Maquiritari",
+    "mch": "Ye'kwana",
     "mci": "Mese",
     "mcj": "Mvanip",
     "mck": "Mbunda",

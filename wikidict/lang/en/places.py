@@ -1850,6 +1850,11 @@ recognized_placetypes = {
         "display": "special collectivity",
         "preposition": "in",
     },
+    "special municipality": {
+        "article": "a",
+        "display": "special municipality",
+        "preposition": "in",
+    },
     "special ward": {
         "article": "a",
         "display": "special ward",
@@ -2155,7 +2160,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 430
+}  # 431
 
 placetypes_aliases = {
     "CDP": "census-designated place",
