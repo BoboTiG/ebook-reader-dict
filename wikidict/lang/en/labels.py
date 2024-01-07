@@ -1038,7 +1038,6 @@ labels_topical = {
     "altright": "alt-right",
     "amateur radio": "amateur radio",
     "amino acid": "biochemistry",
-    "amphibian": "zoology",
     "analysis": "mathematical analysis",
     "analytic geometry": "analytic geometry",
     "analytical chemistry": "analytical chemistry",
@@ -1100,7 +1099,6 @@ labels_topical = {
     "biochemistry": "biochemistry",
     "biology": "biology",
     "biotechnology": "biotechnology",
-    "bird": "bird",
     "birdwatching": "birdwatching",
     "blacksmithing": "blacksmithing",
     "blogging": "blogging",
@@ -1144,7 +1142,6 @@ labels_topical = {
     "cell phone": "mobile telephony",
     "cell phones": "mobile telephony",
     "cellular automata": "cellular automata",
-    "cephalopod": "cephalopod",
     "ceramics": "ceramics",
     "cheerleading": "cheerleading",
     "chemical element": "chemistry",
@@ -1870,7 +1867,6 @@ labels_topical = {
     "transportation": "transport",
     "traumatology": "traumatology",
     "travel": "travel",
-    "tree": "tree",
     "trigonometric function": "trigonometry",
     "trigonometry": "trigonometry",
     "trust law": "trust law",
@@ -1942,7 +1938,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,191
+}  # 1,187
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -4101,6 +4097,8 @@ labels_subvarieties = {
     "East Punjab": "Eastern Punjab",
     "East Sicily": "eastern Sicily",
     "East Slovakia": "East Slovakia",
+    "East Suriname": "East Suriname",
+    "East Surinamese": "East Suriname",
     "East and South": "East and South Slavic",
     "East and West Flanders": "East and West Flanders",
     "East-Slovincian": "East-Slovincian",
@@ -6096,6 +6094,8 @@ labels_subvarieties = {
     "West Punjab": "Western Punjab",
     "West Saxon": "West Saxon",
     "West Sicily": "western Sicily",
+    "West Suriname": "West Suriname",
+    "West Surinamese": "West Suriname",
     "West and South": "West and South Slavic",
     "West-Slovincian": "West-Slovincian",
     "WestPS": "West Slavic",
@@ -6780,5 +6780,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,335
+}  # 3,339
 # END
