@@ -5222,6 +5222,7 @@ labels_subvarieties = {
     "PN": "personal names",
     "PNI": "Proto-Northern Iroquoian",
     "PR": "Proto-Romance",
+    "PSD": "Proto-South Dravidian",
     "PWR": "Proto-Western-Romance",
     "Pahang": "Pahang",
     "Paisaci": "Paisaci",
@@ -5310,12 +5311,15 @@ labels_subvarieties = {
     "Preclassical non-lemma": "pre-Classical",
     "Prekmurje": "old Prekmurje Slovene standard",
     "Prekmurski": "Prekmurski",
+    "Proto South-Dravidian": "Proto-South Dravidian",
     "Proto-Balkan-Romance": "Proto-Balkan-Romance",
     "Proto-Gallo-Romance": "Proto-Gallo-Romance",
     "Proto-Ibero-Romance": "Proto-Ibero-Romance",
     "Proto-Italo-Romance": "Proto-Italo-Romance",
     "Proto-Italo-Western-Romance": "Proto-Italo-Western-Romance",
     "Proto-Romance": "Proto-Romance",
+    "Proto-South Dravidian": "Proto-South Dravidian",
+    "Proto-South-Dravidian": "Proto-South Dravidian",
     "Proto-Western-Romance": "Proto-Western-Romance",
     "Provencal": "Provençal",
     "Provençal": "Provençal",
@@ -6790,5 +6794,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,357
+}  # 3,361
 # END
