@@ -2392,6 +2392,7 @@ langs = {
     "en-NNN": "North American English",
     "en-US": "American English",
     "en-US-CA": "California English",
+    "en-ear": "Early Modern English",
     "en-geo": "Geordie English",
     "en-uls": "Ulster English",
     "ena": "Apali",
@@ -9655,5 +9656,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,650
+}  # 9,651
 # END

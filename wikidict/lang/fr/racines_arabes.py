@@ -2878,10 +2878,12 @@ racines_schemes_arabes = {
         "ar-*a*û*ũ": "qui s'en va",
         "ar-*i**@ũ": "pluie fine",
         "ar-*ta*a*a": "",
+        "ar-*u**ânũ": "{{p}} ors",
         "ar-*u*û*ũ": "départ",
         "ar-*â*a*a": "",
         "ar-*â*i*ũ": "qui passe",
         "ar-a**a*a": "renvoyer",
+        "ar-a**â*ũ": "{{p}} ors",
         "ar-ma**a*ũ": "conduite",
         "ar-ma**i*ũ": "suggestion du démon",
         "ar-mu*a*²a*ũ": "doré",
@@ -2890,7 +2892,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
         "ar-tama**a*a": "embrasser une secte",
-    },  # 27
+    },  # 29
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
