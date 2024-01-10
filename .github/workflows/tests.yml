@@ -41,7 +41,7 @@ jobs:
 
       - name: Automerge
         if: github.actor == 'dependabot[bot]'
-        uses: pascalgn/automerge-action@v0.16.0
+        uses: pascalgn/automerge-action@v0.16.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_LABELS: automerge,!DO_NOT_MERGE
