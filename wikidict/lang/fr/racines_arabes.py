@@ -2877,6 +2877,7 @@ racines_schemes_arabes = {
         "ar-*a*î*ũ": "doré",
         "ar-*a*û*ũ": "qui s'en va",
         "ar-*i**@ũ": "pluie fine",
+        "ar-*i*â*ũ": "{{p}} pluies",
         "ar-*ta*a*a": "",
         "ar-*u**ânũ": "{{p}} ors",
         "ar-*u*û*ũ": "départ",
@@ -2886,13 +2887,14 @@ racines_schemes_arabes = {
         "ar-a**â*ũ": "{{p}} ors",
         "ar-ma**a*ũ": "conduite",
         "ar-ma**i*ũ": "suggestion du démon",
+        "ar-ma*â*i*u": "{{p}} dorés",
         "ar-mu*a*²a*ũ": "doré",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
         "ar-tama**a*a": "embrasser une secte",
-    },  # 29
+    },  # 31
     "ar-Vmm": {
         "aa_sens": "défectueux",
         "ar-***ũ": "",
@@ -8068,6 +8070,23 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "devenir malsain",
         "ar-ta*a*²a*a": "être malsain",
     },  # 20
+    "ar-wZf": {
+        "aa_sens": "aide",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "toucher au pied",
+        "ar-*a*²a*a": "pensionner",
+        "ar-*a*î*@ũ": "emploi",
+        "ar-*a*î*ũ": "canon",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "aider",
+        "ar-a**a*a": "",
+        "ar-mu*a*²a*ũ": "employé",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "prendre tout",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 15
     "ar-whb": {
         "aa_sens": "don",
         "ar-***ũ": "",
@@ -8620,5 +8639,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 299
+}  # 300
 # END
