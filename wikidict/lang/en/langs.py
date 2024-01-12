@@ -5332,6 +5332,7 @@ langs = {
     "nai-guz": "Guazacapán",
     "nai-hit": "Hitchiti",
     "nai-ipa": "Ipai",
+    "nai-jcq": "Jicaquean",
     "nai-jtp": "Jutiapa",
     "nai-jum": "Jumaytepeque",
     "nai-kat": "Kathlamet",
@@ -5389,6 +5390,7 @@ langs = {
     "nai-wai": "Waikuri",
     "nai-wtq": "Wintuan",
     "nai-xin": "Xincan",
+    "nai-ykn": "Yukian",
     "nai-yok": "Yokutsan",
     "nai-you": "Yok-Utian",
     "nai-yuc": "Yuman-Cochimí",
@@ -9656,5 +9658,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,651
+}  # 9,653
 # END

@@ -1822,7 +1822,7 @@ racines_schemes_arabes = {
     },  # 59
     "ar-Hdd": {
         "aa_sens": "coupant, acéré",
-        "ar-*a**ũ": "limite ; barrière ; distance ; violence ; force",
+        "ar-*a**ũ": "aiguisé",
         "ar-*a*a*a-i": "être tranchant, être furieux, s'emporter",
         "ar-*a*a*a-u": "aiguiser ; empêcher, limiter",
         "ar-*a*a*ũ": "obstacle ; refuge ; chose interdite ; invocation vaine",
@@ -7878,14 +7878,14 @@ racines_schemes_arabes = {
         "aa_sens": "frontière",
         "ar-*a**ũ": "borne",
         "ar-*a*a*a-i": "limiter quelqu'un",
-        "ar-*a*i*a-a": "(viii) de {{ar-mot|waXama}}",
+        "ar-*a*i*a-a": "avoir une indigestion",
         "ar-*u**ũ": "borne",
         "ar-*u*a*@ũ": "indigestion",
         "ar-*u*u*ũ": "({{p}}) bornes ; bornage",
         "ar-*u*û*@ũ": "borne",
         "ar-*u*û*ũ": "({{p}}) bornes",
         "ar-*â*a*a": "être limitrophe",
-        "ar-a**a*a": "mis pour {{ar-mot|awXama}}",
+        "ar-a**a*a": "causer une indigestion",
         "ar-ma**a*@ũ": "aliment indigeste",
     },  # 12
     "ar-tb3": {
@@ -8074,9 +8074,10 @@ racines_schemes_arabes = {
         "aa_sens": "aide",
         "ar-***ũ": "",
         "ar-**a*²a": "",
-        "ar-*a*a*a-u": "toucher au pied",
+        "ar-*a*a*a-i": "toucher au pied",
         "ar-*a*²a*a": "pensionner",
         "ar-*a*î*@ũ": "emploi",
+        "ar-*a*î*iy²ũ": "fonctionnel",
         "ar-*a*î*ũ": "canon",
         "ar-*ta*a*a": "",
         "ar-*â*a*a": "aider",
@@ -8084,9 +8085,9 @@ racines_schemes_arabes = {
         "ar-mu*a*²a*ũ": "employé",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "prendre tout",
-        "ar-ta*a*²a*a": "",
+        "ar-ta*a*²a*a": "être employé",
         "ar-ta*â*a*a": "",
-    },  # 15
+    },  # 16
     "ar-whb": {
         "aa_sens": "don",
         "ar-***ũ": "",
