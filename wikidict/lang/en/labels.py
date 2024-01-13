@@ -4045,6 +4045,8 @@ labels_subvarieties = {
     "Doab": "Doabi",
     "Doabi": "Doabi",
     "Dobhashi": "Dobhashi",
+    "Dogançe": "Dogançe",
+    "Dogançja": "Dogançe",
     "Dolenjski": "Dolenjski",
     "Dongmen": "Dongmen",
     "Dongying": "Dongying",
@@ -6284,6 +6286,8 @@ labels_subvarieties = {
     "dialectal Min Nan": "dialectal Min Nan",
     "dialectal Wu": "dialectal Wu",
     "dialectal Xiang": "dialectal Xiang",
+    "dogançe": "Dogançe",
+    "dogançja": "Dogançe",
     "early": "early Iguvine",
     "early ME": "Early Middle English",
     "early cls": "Early Classical",
@@ -6794,5 +6798,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,361
+}  # 3,365
 # END
