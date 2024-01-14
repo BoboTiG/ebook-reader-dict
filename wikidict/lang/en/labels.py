@@ -101,9 +101,13 @@ labels = {
     "causative verb": "causative",
     "chiefly": "chiefly",
     "chiefly in the negative": "chiefly in the negative",
+    "chiefly in the negative plural": "chiefly in the negative plural",
     "chiefly in the positive": "chiefly in the positive",
+    "chiefly in the positive plural": "chiefly in the positive plural",
     "chiefly used in the negative": "chiefly in the negative",
+    "chiefly used in the negative plural": "chiefly in the negative plural",
     "chiefly used in the positive": "chiefly in the positive",
+    "chiefly used in the positive plural": "chiefly in the positive plural",
     "child language": "childish",
     "childish": "childish",
     "chu Nom": "Vietnamese chữ Nôm",
@@ -306,6 +310,8 @@ labels = {
     "navy slang": "naval slang",
     "negative polarity": "chiefly in the negative",
     "negative polarity item": "chiefly in the negative",
+    "negative polarity plural": "chiefly in the negative plural",
+    "negative polarity plural item": "chiefly in the negative plural",
     "neologism": "neologism",
     "neologistic": "neologism",
     "neopronoun": "neopronoun",
@@ -359,6 +365,8 @@ labels = {
     "polite": "polite",
     "positive polarity": "chiefly in the positive",
     "positive polarity item": "chiefly in the positive",
+    "positive polarity plural": "chiefly in the positive plural",
+    "positive polarity plural item": "chiefly in the positive plural",
     "possessional": "possessional",
     "possessional adjective": "possessional",
     "possessional adjectives": "possessional",
@@ -479,11 +487,15 @@ labels = {
     "usually": "usually",
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
+    "usually in the negative plural": "chiefly in the negative plural",
     "usually in the plural": "usually in the plural",
     "usually in the positive": "chiefly in the positive",
+    "usually in the positive plural": "chiefly in the positive plural",
     "usually plural": "usually in the plural",
     "usually used in the negative": "chiefly in the negative",
+    "usually used in the negative plural": "chiefly in the negative plural",
     "usually used in the positive": "chiefly in the positive",
+    "usually used in the positive plural": "chiefly in the positive plural",
     "verlan": "verlan",
     "very": "very",
     "very rare": "very rare",
@@ -495,7 +507,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 490
+}  # 502
 
 label_syntaxes = {
     "&": {
@@ -5194,6 +5206,7 @@ labels_subvarieties = {
     "Oslz.": "East-Slovincian",
     "Ostrobothnia": "Ostrobothnia",
     "Ostrobothnian": "Ostrobothnia",
+    "Ostróda": "Ostróda",
     "Otali": "Overhill",
     "Ottawa": "Ottawa",
     "Oujiang": "Wenzhounese",
@@ -6798,5 +6811,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,365
+}  # 3,366
 # END
