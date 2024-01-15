@@ -3836,6 +3836,7 @@ langs = {
     "kje": "Kisar",
     "kjg": "Khmu",
     "kjh": "Khakas",
+    "kjh-fyu": "Fuyu Kyrgyz",
     "kji": "Zabana",
     "kjj": "Khinalug",
     "kjk": "Highland Konjo",
@@ -6946,6 +6947,7 @@ langs = {
     "rro": "Roro",
     "rrt": "Arritinngithigh",
     "rsb": "Romano-Serbian",
+    "rsk": "Pannonian Rusyn",
     "rsl": "Russian Sign Language",
     "rsm": "Miriwoong Sign Language",
     "rtc": "Rungtu",
@@ -6955,7 +6957,7 @@ langs = {
     "ru": "Russian",
     "rub": "Gungu",
     "ruc": "Ruuli",
-    "rue": "Rusyn",
+    "rue": "Carpathian Rusyn",
     "ruf": "Luguru",
     "rug": "Roviana",
     "ruh": "Ruga",
@@ -9663,5 +9665,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,658
+}  # 9,660
 # END
