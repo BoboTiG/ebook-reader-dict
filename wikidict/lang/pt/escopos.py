@@ -125,6 +125,7 @@ escopos = {
     "Cronónimo": "cronónimo",
     "Cronônimo": "cronônimo",
     "Crustáceo": "artrópodes",
+    "Críquete": "basquetebol",
     "Cuba": "Cuba",
     "Culinária": "alimentação",
     "Curmanji": "Curmânji",
@@ -432,5 +433,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 427
+}  # 428
 # END

@@ -4583,7 +4583,7 @@ racines_schemes_arabes = {
         "ar-*a*²â*ũ": "panégyriste",
         "ar-*a*î*@ũ": "partie d'un membre",
         "ar-*a*î*ũ": "petit sevré",
-        "ar-*awâ*i*u": "intercalaire",
+        "ar-*awâ*i*u": "{{p}} intercalaires",
         "ar-*ay*a*iy²ũ": "arbitre",
         "ar-*ay*a*ũ": "sentence",
         "ar-*i*â*ũ": "sevrage",
