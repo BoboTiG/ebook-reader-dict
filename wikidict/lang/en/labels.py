@@ -4178,6 +4178,8 @@ labels_subvarieties = {
     "Eastern Samar Waray-Waray": "Eastern Samar",
     "Eastern Sicily": "eastern Sicily",
     "Eastern Standard": "Eastern Standard",
+    "Eastern Suriname": "East Suriname",
+    "Eastern Surinamese": "East Suriname",
     "Eastern dialects": "eastern dialects",
     "Eastern Àkókó": "Eastern Akoko",
     "Ecclesiastical Latin": "Ecclesiastical Latin",
@@ -6197,6 +6199,8 @@ labels_subvarieties = {
     "Western Punjabi": "Western Punjab",
     "Western Samic": "Western Samic",
     "Western Sicily": "western Sicily",
+    "Western Suriname": "West Suriname",
+    "Western Surinamese": "West Suriname",
     "Western dialects": "western dialects",
     "Western Àkókó": "Western Akoko",
     "Westpfälzisch": "Westpfälzisch",
@@ -6861,5 +6865,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,366
+}  # 3,370
 # END

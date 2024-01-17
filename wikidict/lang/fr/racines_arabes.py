@@ -4586,8 +4586,10 @@ racines_schemes_arabes = {
         "ar-*awâ*i*u": "{{p}} intercalaires",
         "ar-*ay*a*iy²ũ": "arbitre",
         "ar-*ay*a*ũ": "sentence",
+        "ar-*i**ânũ": "{{p}} petits sevrés",
         "ar-*i*â*ũ": "sevrage",
         "ar-*ta*a*a": "sevrer",
+        "ar-*u**ânũ": "{{p}} petits sevrés",
         "ar-*u*û*ũ": "séparation",
         "ar-*â*a*a": "se séparer",
         "ar-*â*i*@ũ": "intercalaire",
@@ -4603,7 +4605,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "détailler",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 30
+    },  # 32
     "ar-fhm": {
         "aa_sens": "comprendre",
         "ar-***ũ": "",
