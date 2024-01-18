@@ -4410,6 +4410,38 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 15
+    "ar-drr": {
+        "aa_sens": "abonder",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*@ũ": "solde",
+        "ar-*a**@ũ": "fouet",
+        "ar-*a**iy²ũ": "brillant",
+        "ar-*a**â'u": "qui donne du lait en abondance",
+        "ar-*a**ũ": "lait",
+        "ar-*a*a*a-u": "abonder",
+        "ar-*a*a*ũ": "tracé",
+        "ar-*a*²a*a": "",
+        "ar-*a*î*ũ": "brillant",
+        "ar-*a*û*ũ": "qui donne abondamment",
+        "ar-*i**@ũ": "lait",
+        "ar-*i**iy²ũ": "brillant",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "perle",
+        "ar-*u**iy²ũ": "éclat",
+        "ar-*u**ũ": "perles",
+        "ar-*â**ũ": "ruisselant",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "laisser couler",
+        "ar-a**a*ũ": "qui a les testicules oblongs",
+        "ar-mi**â*ũ": "abondant",
+        "ar-mu**a*ũ": "qui fait couler en abondance",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "traire",
+        "ar-ta**i*@ũ": "abondance de lait",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 30
     "ar-drs": {
         "aa_sens": "étudier, limer",
         "ar-**a*²a": "",
@@ -4596,16 +4628,24 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "qui sépare",
         "ar-a**a*a": "",
         "ar-ma**i*ũ": "articulation",
+        "ar-ma*â*i*u": "{{p}} articulations",
         "ar-mi**a*ũ": "langue",
+        "ar-mu*a*²a*@ũ": "charnière",
         "ar-mu*a*²a*ũ": "séparé",
+        "ar-mun*a*a*ũ": "détaché",
         "ar-mun*a*i*ũ": "distingué",
         "ar-n*a*a*a": "être séparé",
+        "ar-n*i*â*iy²@ũ": "séparatisme",
+        "ar-n*i*â*iy²ũ": "séparatiste",
+        "ar-n*i*â*ũ": "séparation",
         "ar-sta**a*a": "",
         "ar-ta**î*@ũ": "coupon",
+        "ar-ta**î*iy²ũ": "analytique",
         "ar-ta**î*ũ": "détailler",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 32
+        "ar-ta*â*î*u": "{{p}} coupons",
+    },  # 40
     "ar-fhm": {
         "aa_sens": "comprendre",
         "ar-***ũ": "",
@@ -8702,5 +8742,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 302
+}  # 303
 # END

@@ -192,6 +192,7 @@ escopos = {
     "Gerês": "Gerês",
     "Gimnosperma": "botânica",
     "Ginecologia": "Ginecologia",
+    "Ginástica": "esporte",
     "Glossónimo": "linguística",
     "Glossônimo": "linguística",
     "Goiás": "Goiás",
@@ -433,5 +434,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 428
+}  # 429
 # END
