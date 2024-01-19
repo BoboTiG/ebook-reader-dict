@@ -2410,6 +2410,7 @@ recognized_placenames = {
     "country/Roman Empire": {"article": "the", "display": ""},
     "country/Solomon Islands": {"article": "the", "display": ""},
     "country/Soviet Union": {"article": "the", "display": ""},
+    "country/State of Palestine": {"article": "", "display": "country/Palestine"},
     "country/Swaziland": {"article": "", "display": "country/Eswatini"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
@@ -2543,5 +2544,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 149
+}  # 150
 # END

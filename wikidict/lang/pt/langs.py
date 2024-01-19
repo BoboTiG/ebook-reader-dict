@@ -34,7 +34,7 @@ langs = {
     "aia": "arosi",
     "aie": "amara",
     "ain": "aino",
-    "aiw": "ari",
+    "aiw": "aari",
     "ak": "akan",
     "akg": "anakalangu",
     "akk": "acadiano",
