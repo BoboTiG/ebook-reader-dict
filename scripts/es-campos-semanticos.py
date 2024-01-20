@@ -2,9 +2,7 @@ from typing import Dict
 
 from scripts_utils import get_soup
 
-START_URL = (
-    "https://es.wiktionary.org/wiki/Categor%C3%ADa:Plantillas_de_campo_sem%C3%A1ntico"
-)
+START_URL = "https://es.wiktionary.org/wiki/Categor%C3%ADa:Plantillas_de_campo_sem%C3%A1ntico"
 ROOT_URL = "https://es.wiktionary.org/"
 ALIAS_URL = "https://es.wiktionary.org/w/index.php?title=Especial:LoQueEnlazaAqu%C3%AD/{}&hidetrans=1&hidelinks=1"
 NEXTPAGE_TEXT = "página siguiente"

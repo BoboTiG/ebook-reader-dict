@@ -195,11 +195,7 @@ def guess_prefix(word: str) -> str:
     prefix = word.strip()[:2].lower().strip()
     if not prefix or prefix[0].isnumeric():
         return "11"
-    return (
-        prefix.ljust(2, "a")
-        if all(c.isalpha() and c.islower() for c in prefix)
-        else "11"
-    )
+    return prefix.ljust(2, "a") if all(c.isalpha() and c.islower() for c in prefix) else "11"
 
 
 def clean(text: str, locale: str = "en") -> str:
@@ -406,9 +402,7 @@ def clean(text: str, locale: str = "en") -> str:
     return text.strip()
 
 
-def process_templates(
-    word: str, wikicode: str, locale: str, callback: Callable[[str, str], str] = clean
-) -> str:
+def process_templates(word: str, wikicode: str, locale: str, callback: Callable[[str, str], str] = clean) -> str:
     r"""Process all templates.
 
     It will also handle the <math> HTML tag as it is not part of the *clean()* function on purpose.
@@ -512,9 +506,7 @@ def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -
         formula_hash = req.headers["x-resource-location"]
 
     # 2. Get the rendered formula (format can be svg, mml, or png)
-    url_render = WIKIMEDIA_URL_MATH_RENDER.format(
-        format=output_format, hash=formula_hash
-    )
+    url_render = WIKIMEDIA_URL_MATH_RENDER.format(format=output_format, hash=formula_hash)
     with requests.get(url_render, headers=headers) as req:
         return req.text
 
@@ -557,9 +549,7 @@ def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
 def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
     phrase = "<table>"
     style_table = 'style="border: 1px solid black; border-collapse: collapse;"'
-    style_td = (
-        'style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;"'
-    )
+    style_td = 'style="border: 1px solid black; padding: 0.2em 0.4em; font-size: 2.5em;"'
     phrase = f"<table {style_table}>"
     for row in table.cells(span=False):
         phrase += "<tr>"

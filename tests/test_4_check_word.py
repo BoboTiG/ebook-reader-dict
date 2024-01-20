@@ -23,9 +23,7 @@ WORD = {
 
 
 @pytest.fixture
-def craft_urls(
-    html: Callable[[str, str], str], page: Callable[[str, str], str]
-) -> Callable[[str, str], str]:
+def craft_urls(html: Callable[[str, str], str], page: Callable[[str, str], str]) -> Callable[[str, str], str]:
     def _craft_urls(locale: str, word: str) -> str:
         responses.add(
             responses.GET,

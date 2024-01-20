@@ -11,7 +11,10 @@ content = content1 + content2
 
 pattern = r"<li><a[^>]+>([^\<]+)</a>: <a[^>]+>([^\<]+)</a>"
 matches = re.findall(pattern, content)
+seen = set()
 print("langs = {")
 for lang, iso in sorted(matches, key=itemgetter(1)):
-    print(f'    "{iso}": "{lang}",')
-print(f"}}  # {len(matches):,}")
+    if iso not in seen:
+        print(f'    "{iso}": "{lang}",')
+        seen.add(iso)
+print(f"}}  # {len(seen):,}")

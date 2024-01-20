@@ -47,9 +47,7 @@ LOCK = multiprocessing.Lock()
 MISSING_TPL_SEEN: List[str] = []
 
 
-def find_definitions(
-    word: str, parsed_sections: Sections, locale: str
-) -> List[Definitions]:
+def find_definitions(word: str, parsed_sections: Sections, locale: str) -> List[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
@@ -85,9 +83,7 @@ def es_replace_defs_list_with_numbered_lists(
     return regex_subitem.sub(r"\1## ", res)
 
 
-def find_section_definitions(
-    word: str, section: wtp.Section, locale: str
-) -> List[Definitions]:
+def find_section_definitions(word: str, section: wtp.Section, locale: str) -> List[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: List[Definitions] = []
 
@@ -95,24 +91,17 @@ def find_section_definitions(
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
 
-    if locale == "es" and section.title.strip().startswith(
-        ("Forma adjetiva", "Forma verbal")
-    ):
+    if locale == "es" and section.title.strip().startswith(("Forma adjetiva", "Forma verbal")):
         return definitions
 
     if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
-        section.contents = "".join(
-            es_replace_defs_list_with_numbered_lists(lst) for lst in lists
-        )
+        section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
-                if any(
-                    ignore_me in code.lower()
-                    for ignore_me in definitions_to_ignore[locale]
-                ):
+                if any(ignore_me in code.lower() for ignore_me in definitions_to_ignore[locale]):
                     continue
 
                 # Transform and clean the Wikicode
@@ -136,13 +125,9 @@ def find_section_definitions(
 
                         subdefinitions.append(subdefinition)
                         subsubdefinitions: List[str] = []
-                        for subsublist in sublist.sublists(
-                            i=idx2, pattern=sublist_patterns[locale]
-                        ):
+                        for subsublist in sublist.sublists(i=idx2, pattern=sublist_patterns[locale]):
                             for subsubcode in subsublist.items:
-                                if subsubdefinition := process_templates(
-                                    word, subsubcode, locale
-                                ):
+                                if subsubdefinition := process_templates(word, subsubcode, locale):
                                     subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
@@ -152,9 +137,7 @@ def find_section_definitions(
     return definitions
 
 
-def find_etymology(
-    word: str, locale: str, parsed_section: wtp.Section
-) -> List[Definitions]:
+def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> List[Definitions]:
     """Find the etymology."""
     definitions: List[Definitions] = []
     etyl: str
@@ -175,10 +158,7 @@ def find_etymology(
         return definitions
 
     elif locale in {"es", "it", "ro"}:
-        items = [
-            item.strip()
-            for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
-        ]
+        items = [item.strip() for item in parsed_section.get_lists(pattern=("",))[0].items[1:]]
         for item in items:
             if (etyl := process_templates(word, item, locale)) and etyl != ".":
                 definitions.append(etyl)
@@ -209,10 +189,7 @@ def find_etymology(
     tableindex = 0
     for section in parsed_section.get_lists():
         for idx, section_item in enumerate(section.items):
-            if any(
-                ignore_me in section_item.lower()
-                for ignore_me in definitions_to_ignore[locale]
-            ):
+            if any(ignore_me in section_item.lower() for ignore_me in definitions_to_ignore[locale]):
                 continue
             if section_item == ' {| class="wikitable"':
                 phrase = table2html(word, locale, tables[tableindex])
@@ -222,10 +199,7 @@ def find_etymology(
                 definitions.append(process_templates(word, section_item, locale))
                 subdefinitions: List[SubDefinitions] = []
                 for sublist in section.sublists(i=idx):
-                    subdefinitions.extend(
-                        process_templates(word, subcode, locale)
-                        for subcode in sublist.items
-                    )
+                    subdefinitions.extend(process_templates(word, subcode, locale) for subcode in sublist.items)
 
                 if subdefinitions:
                     definitions.append(tuple(subdefinitions))
@@ -233,9 +207,7 @@ def find_etymology(
     return definitions
 
 
-def _find_genders(
-    top_sections: List[wtp.Section], func: Callable[[str], List[str]]
-) -> List[str]:
+def _find_genders(top_sections: List[wtp.Section], func: Callable[[str], List[str]]) -> List[str]:
     """Find the genders."""
     for top_section in top_sections:
         if result := func(top_section.contents):
@@ -243,9 +215,7 @@ def _find_genders(
     return []
 
 
-def _find_pronunciations(
-    top_sections: List[wtp.Section], func: Callable[[str], List[str]]
-) -> List[str]:
+def _find_pronunciations(top_sections: List[wtp.Section], func: Callable[[str], List[str]]) -> List[str]:
     """Find pronunciations."""
     results = []
     for top_section in top_sections:
@@ -254,9 +224,7 @@ def _find_pronunciations(
     return sorted(uniq(results))
 
 
-def find_all_sections(
-    code: str, locale: str
-) -> Tuple[List[wtp.Section], List[Tuple[str, wtp.Section]]]:
+def find_all_sections(code: str, locale: str) -> Tuple[List[wtp.Section], List[Tuple[str, wtp.Section]]]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
@@ -304,9 +272,7 @@ def find_all_sections(
             (section.title.strip(), section)
             for top_section in top_sections
             for sublevel in section_sublevels[locale]
-            for section in top_section.get_sections(
-                include_subsections=False, level=sublevel
-            )
+            for section in top_section.get_sections(include_subsections=False, level=sublevel)
         )
     )
 
@@ -325,9 +291,7 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     return top_sections, ret
 
 
-def add_potential_variant(
-    word: str, tpl: str, locale: str, variants: List[str]
-) -> None:
+def add_potential_variant(word: str, tpl: str, locale: str, variants: List[str]) -> None:
     if (variant := process_templates(word, tpl, locale)) and variant != word:
         variants.append(variant)
 
@@ -350,9 +314,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     elif locale == "es":
         # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
-        code = re.sub(
-            r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE
-        )
+        code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale == "it":
         if "{{Tabs" not in code:
@@ -406,9 +368,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         )
 
         # {{-avv-|ANY}} -> === {{avv|ANY}} ===
-        code = re.sub(
-            r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE
-        )
+        code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
         # {{-avv-}} -> === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
@@ -481,11 +441,7 @@ def render_word(w: List[str], words: Words, locale: str) -> None:
 def render(in_words: Dict[str, str], locale: str, workers: int) -> Words:
     # Skip not interesting words early as the parsing is quite heavy
     sections = head_sections[locale]
-    in_words = {
-        word: code
-        for word, code in in_words.items()
-        if any(head_section in code for head_section in sections)
-    }
+    in_words = {word: code for word, code in in_words.items() if any(head_section in code for head_section in sections)}
 
     MANAGER = multiprocessing.Manager()
     MISSING_TPL_SEEN = MANAGER.list()  # noqa:F841

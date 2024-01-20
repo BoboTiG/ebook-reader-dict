@@ -42,9 +42,7 @@ def catgram(catgram: str, variation: str = "gen") -> str:
     return catgrams[catgram][variation]
 
 
-def inflect_articulo(
-    genero: str = "m", tipo: str = "def", numero: str = "sg", prep: bool = False
-) -> str:
+def inflect_articulo(genero: str = "m", tipo: str = "def", numero: str = "sg", prep: bool = False) -> str:
     key = f"{tipo}.{genero}.{numero}"
     if prep:
         if key != "def.m.sg":
@@ -118,9 +116,7 @@ def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_adverbio_de_adjetivo(
-    tpl: str, parts: List[str], data: Dict[str, str]
-) -> str:
+def render_adverbio_de_adjetivo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["accidental"], defaultdict(str))
     'De un modo accidental'
@@ -136,9 +132,7 @@ def render_adverbio_de_adjetivo(
     return result
 
 
-def render_adverbio_de_sustantivo(
-    tpl: str, parts: List[str], data: Dict[str, str]
-) -> str:
+def render_adverbio_de_sustantivo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_adverbio_de_sustantivo("adverbio de sustantivo", ["escabrosidad"], defaultdict(str))
     'Con escabrosidad'
@@ -336,9 +330,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     glue = data.get("e", "y")
     suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "-"
-    word = data.get(
-        "alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1])
-    )
+    word = data.get("alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1]))
 
     cat = parts.pop(0)
     if cat in (
@@ -364,9 +356,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         phrase += render_l(
             "l+",
             [
-                data["diacrítico"]
-                or data["alt"]
-                or (parts[1] if len(parts) > 1 else ""),
+                data["diacrítico"] or data["alt"] or (parts[1] if len(parts) > 1 else ""),
             ],
             defaultdict(
                 str,
@@ -460,9 +450,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif cat in ("sufijo", "SUF"):
         texto_sufijo = data.get("texto-sufijo", "sufijo")
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
-        word2 = (
-            data["diacrítico2"] or data["alt2"] or (parts[1] if len(parts) > 1 else "")
-        )
+        word2 = data["diacrítico2"] or data["alt2"] or (parts[1] if len(parts) > 1 else "")
         phrase1 = render_l("l+", [word], data)
         phrase2 = render_l(
             "l+",
@@ -490,16 +478,11 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                 local_phrase = f"el {normalizar_nombre(parts[0])} "
             local_phrase += render_l(
                 "l+",
-                [
-                    data[f"diacrítico{sindex}"]
-                    or data[f"alt{sindex}"]
-                    or (parts[1] if len(parts) > 1 else "")
-                ],
+                [data[f"diacrítico{sindex}"] or data[f"alt{sindex}"] or (parts[1] if len(parts) > 1 else "")],
                 defaultdict(
                     str,
                     {
-                        "glosa": data[f"glosa{sindex}"]
-                        or (parts[2] if (len(parts) > 2 and parts[2] != "-") else ""),
+                        "glosa": data[f"glosa{sindex}"] or (parts[2] if (len(parts) > 2 and parts[2] != "-") else ""),
                         "glosa-alt": data[f"glosa-alt{sindex}"],
                         "núm": data[f"núm{sindex}"] or data[f"num{sindex}"],
                         "tr": data[f"tr{sindex}"] or data[f"transcripción{sindex}"],
@@ -539,12 +522,8 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         start = data["texto"] or (parts[1] if len(parts) > 1 else "forma de")
     elif tpl == "forma sustantivo":
         caso = data["caso"] or (parts[1] if len(parts) > 1 else "")
-        numero = (
-            data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
-        )
-        genero = (
-            data["género"] or data["genero"] or (parts[3] if len(parts) > 3 else "")
-        )
+        numero = data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
+        genero = data["género"] or data["genero"] or (parts[3] if len(parts) > 3 else "")
         start = f"Forma del {concat([caso, numero, genero], ' ')} de"
     phrase = f"{italic(capitalize(start))} {parts[0]}"
     if data["texto_pos"]:
@@ -669,9 +648,7 @@ def render_prep_conj(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     texto_pos = "y el pronombre personal de "
     texto_pos += data["subtipo"] or (parts[1] if len(parts) > 1 else "")
     texto_pos += " persona "
-    texto_pos += (
-        data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
-    )
+    texto_pos += data["número"] or data["numero"] or (parts[2] if len(parts) > 2 else "")
     return render_forma(
         "forma",
         [parts[0], "forma combinada de la preposición"],
@@ -773,11 +750,7 @@ def render_variantes(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     a_phrase: List[str] = []
     for i in range(10):
         if i == 0:
-            phrase = (
-                data["alt"]
-                or data[f"alt{i + 1}"]
-                or (parts[i] if len(parts) > i else "")
-            )
+            phrase = data["alt"] or data[f"alt{i + 1}"] or (parts[i] if len(parts) > i else "")
         else:
             phrase = data[f"alt{i + 1}"] or (parts[i] if len(parts) > i else "")
         if i == 0 and data["nota"]:

@@ -140,9 +140,7 @@ from wikidict.utils import process_templates
             "ũa",
             [],
             [],
-            [
-                "Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."
-            ],
+            ["Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."],
             ["ortografia antiga de uma"],
         ),
         ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"]),

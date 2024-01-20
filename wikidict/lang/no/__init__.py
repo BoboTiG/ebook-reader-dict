@@ -132,9 +132,7 @@ def find_genders(
     return uniq(flatten(pattern.findall(code)))
 
 
-def last_template_handler(
-    template: tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

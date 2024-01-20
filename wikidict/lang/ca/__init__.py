@@ -145,9 +145,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(
-        r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"
-    ),
+    pattern: Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
 ) -> List[str]:
     """
     >>> find_pronunciations("")
@@ -164,9 +162,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

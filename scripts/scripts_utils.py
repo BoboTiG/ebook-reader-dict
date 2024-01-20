@@ -6,9 +6,7 @@ from bs4 import BeautifulSoup
 from requests.exceptions import HTTPError, RequestException
 
 
-def get_content(
-    url: str, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False
-) -> str | Dict[str, Any]:
+def get_content(url: str, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | Dict[str, Any]:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:

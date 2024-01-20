@@ -782,9 +782,7 @@ def find_pronunciations(
     return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -1007,11 +1005,7 @@ def last_template_handler(
             page = ""
         if not date:
             return italic(book) if book else author
-        return (
-            f"{author}, {italic(book)}, {date}, page {page}"
-            if page
-            else f"{author}, {italic(book)}, {date}"
-        )
+        return f"{author}, {italic(book)}, {date}, page {page}" if page else f"{author}, {italic(book)}, {date}"
 
     if tpl == "Citation bloc":
         return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
@@ -1029,11 +1023,7 @@ def last_template_handler(
         return phrase
 
     if tpl in ("ellipse", "par ellipse"):
-        return (
-            f'{italic("(Ellipse de")} {data["de"]}{italic(")")}'
-            if data["de"]
-            else term("Par ellipse")
-        )
+        return f'{italic("(Ellipse de")} {data["de"]}{italic(")")}' if data["de"] else term("Par ellipse")
 
     if tpl == "R:DAF6":
         w = parts[0] if parts else word
@@ -1058,11 +1048,7 @@ def last_template_handler(
 
     if tpl.startswith("fr-accord-"):
         if not (singular := data["s"] or data["m"] or data["ms"]):
-            singular = (
-                word.rstrip("s")
-                if len(parts) < 2
-                else f"{parts[0]}{tpl.split('-')[-1]}"
-            )
+            singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
             if tpl == "fr-accord-in" and singular == word.rstrip("s"):
                 singular = singular.removesuffix("ne" if data["deux_n"] else "e")
         if data["inv"]:
@@ -1091,8 +1077,7 @@ def last_template_handler(
             f"ici, «&nbsp;{data['ici']}&nbsp;»"
             if data["ici"]
             else f"«&nbsp;{clean(racines_schemes_arabes[parts[1]][parts[0]])}&nbsp;»"
-            if parts[1] in racines_schemes_arabes
-            and parts[0] in racines_schemes_arabes[parts[1]]
+            if parts[1] in racines_schemes_arabes and parts[0] in racines_schemes_arabes[parts[1]]
             else ""
         )
         sens = f" ({sens})" if sens else ""

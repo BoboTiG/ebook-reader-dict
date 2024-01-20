@@ -263,11 +263,7 @@ def render_K(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         default_sep = ""
         if i != len(parts):
             default_sep = (
-                ","
-                if p not in conjonctions_start
-                and i < len(parts)
-                and parts[i] not in conjonctions
-                else " "
+                "," if p not in conjonctions_start and i < len(parts) and parts[i] not in conjonctions else " "
             )
             sep = data.get(t_index, default_sep)
             if sep == "_":

@@ -3,9 +3,7 @@ from typing import Dict
 
 from scripts_utils import get_content
 
-url = (
-    "https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:etiquetes/dades&action=raw"
-)
+url = "https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:etiquetes/dades&action=raw"
 text = get_content(url)
 
 text = text.replace("local ", "")

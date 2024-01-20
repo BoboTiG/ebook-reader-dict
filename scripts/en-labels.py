@@ -51,9 +51,7 @@ def dialect_handler(text: str) -> Dict[str, str]:
         text_dialect = text_dialect.replace('"] =', '" :')
         text_dialect = text_dialect.replace('"}', '"]')
         for r in ["alts", "link", "plain_categories"]:
-            text_dialect = re.sub(
-                rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect
-            )
+            text_dialect = re.sub(rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect)
         text_dialect = text_dialect.replace('{"', '["')
         exec(text_dialect, globals())
         results: Dict[str, str] = {}

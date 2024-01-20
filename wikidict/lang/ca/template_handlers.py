@@ -79,12 +79,7 @@ def render_g(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         "vm": "impers.",
     }
     return concat(
-        [
-            f"{specs[part.split('-')[0]]} {specs[part.split('-')[1]]}"
-            if "-" in part
-            else specs[part]
-            for part in parts
-        ],
+        [f"{specs[part.split('-')[0]]} {specs[part.split('-')[1]]}" if "-" in part else specs[part] for part in parts],
         sep=", ",
     )
 

@@ -18,9 +18,7 @@ for locale in locales:
         if kind == "namespaces":
             result_discard_last.extend(data[str(id_)]["*"] for id_ in ids)
         else:
-            result_discard_last.extend(
-                namespace["*"] for namespace in data if namespace["id"] in ids
-            )
+            result_discard_last.extend(namespace["*"] for namespace in data if namespace["id"] in ids)
     results[locale] = sorted(result_discard_last)
 
 print("namespaces =", end=" ")

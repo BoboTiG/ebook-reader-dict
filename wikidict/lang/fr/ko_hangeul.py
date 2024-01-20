@@ -182,7 +182,6 @@ hangeul = SimpleNamespace(
         "ㅈㄴ": "ㄴㄴ",
         "ㅊㄴ": "ㄴㄴ",
         "ㅌㄴ": "ㄴㄴ",
-        "ㅎㄴ": "ㄴㄴ",
         "ㄿㄴ": "ㅁㄴ",
         "ㅂㄴ": "ㅁㄴ",
         "ㅄㄴ": "ㅁㄴ",
@@ -488,11 +487,7 @@ def decompos(text: str) -> str:
 def hangeul_sans_finale(match: Match[str]) -> str:
     """Fonction internelle."""
     initiale, voyelle = match.groups()
-    return chr(
-        (hangeul.indice_initiale[initiale] - 1) * 21 * 28
-        + (hangeul.indice_voyelle[voyelle] - 1) * 28
-        + 0xAC00
-    )
+    return chr((hangeul.indice_initiale[initiale] - 1) * 21 * 28 + (hangeul.indice_voyelle[voyelle] - 1) * 28 + 0xAC00)
 
 
 def hangeul_avec_finale(match: Match[str]) -> str:
@@ -539,9 +534,7 @@ def neutralisation(match: Match[str]) -> str:
 def pron_frontiere(match: Match[str]) -> str:
     """Fonction internelle pour la prononciation."""
     finale, initiale, voyelle = match.groups()
-    res = hangeul.frontiere.get(
-        f"{finale}{initiale}", hangeul.neutralisation[finale] + initiale
-    )
+    res = hangeul.frontiere.get(f"{finale}{initiale}", hangeul.neutralisation[finale] + initiale)
     return f"{res}{voyelle}"
 
 
@@ -574,9 +567,7 @@ def modif_jamo(text: str, pron: bool, changer_oe: bool) -> str:
         # Article 5
         text = sub(r"([ㄱㄹㅁㅎㅍ])ㅖ", r"\1ㅔ", text)  # ㅖ est prononcé ㅔ dans 계, 례, 몌, 혜 et 폐
         text = sub(r"([ㄱ-ㅆㅈ-ㅎ])ㅢ", r"\1ㅣ", text)  # ㅢ est prononcé ㅣ après une consonne
-        text = sub(
-            r"([ㄱ-ㅣ]ㅇ)ㅢ", r"\1ㅣ", text
-        )  # ㅢ est prononcé ㅣ au milieu du mot ; -의 sera conservé
+        text = sub(r"([ㄱ-ㅣ]ㅇ)ㅢ", r"\1ㅣ", text)  # ㅢ est prononcé ㅣ au milieu du mot ; -의 sera conservé
 
     # traits d’union et espaces (Articles 20 et 15)
     text = sub(r"[ㄴㄵㄶ]-ㄹ", "ㄴㄴ", text)  # Article 20
