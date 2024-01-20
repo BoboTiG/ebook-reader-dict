@@ -104,7 +104,8 @@ templates_multi = {
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
     # {{etim-s|ca|XIV}}
-    "etim-s": "'segle ' + parts[2]",
+    # {{etim-s|ca|XVII|1617}}
+    "etim-s": "('segle ' + parts[2]) if len(parts) == 3 else parts[-1]",
 }
 
 
