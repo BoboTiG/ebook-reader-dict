@@ -2412,6 +2412,7 @@ recognized_placenames = {
     "country/Soviet Union": {"article": "the", "display": ""},
     "country/State of Palestine": {"article": "", "display": "country/Palestine"},
     "country/Swaziland": {"article": "", "display": "country/Eswatini"},
+    "country/Türkiye": {"article": "", "display": "country/Turkey"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
     "country/UAE": {"article": "", "display": "country/United Arab Emirates"},
@@ -2544,5 +2545,5 @@ recognized_placenames = {
         "display": "",
     },
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 150
+}  # 151
 # END

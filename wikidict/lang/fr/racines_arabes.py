@@ -4431,6 +4431,7 @@ racines_schemes_arabes = {
         "ar-*u**iy²ũ": "éclat",
         "ar-*u**ũ": "perles",
         "ar-*u*a*ũ": "{{p}} perles",
+        "ar-*u*û*ũ": "abondance",
         "ar-*â**ũ": "ruisselant",
         "ar-*â*a*a": "",
         "ar-a**a*a": "laisser couler",
@@ -4442,7 +4443,7 @@ racines_schemes_arabes = {
         "ar-ta**i*@ũ": "abondance de lait",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 31
+    },  # 32
     "ar-drs": {
         "aa_sens": "étudier, limer",
         "ar-**a*²a": "",
