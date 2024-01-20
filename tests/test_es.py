@@ -60,9 +60,7 @@ from wikidict.utils import process_templates
         (
             "entrada",
             ["[en̪ˈtɾa.ða]"],
-            [
-                "De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."
-            ],
+            ["De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."],
             [
                 "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
                 "<i>(Gastronomía)</i>: Plato que se sirve al comienzo de la comida.",
@@ -165,9 +163,7 @@ from wikidict.utils import process_templates
         (
             "los",
             ["[los]", "[lɔʰ]"],
-            [
-                'Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'
-            ],
+            ['Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'],
             [
                 "<i>Artículo determinado masculino plural.</i>",
                 "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",

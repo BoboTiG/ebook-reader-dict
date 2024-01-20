@@ -153,9 +153,7 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(
-    lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)
-) -> str:
+def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
     """  # noqa
@@ -213,9 +211,7 @@ def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
     return mytext
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

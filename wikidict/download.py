@@ -59,9 +59,7 @@ def fetch_snapshots(locale: str) -> List[str]:
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
 
-def fetch_pages(
-    date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool], None]
-) -> Path:
+def fetch_pages(date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool], None]) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """

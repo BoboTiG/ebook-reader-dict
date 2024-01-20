@@ -278,9 +278,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
     a_traiter = ""
     # à faire un jour : transformer tous les ² en redoublements explicites avant traitement
     # à faire un jour : reporter sur la lettre attendue toutes les lettres équivalentes admissibles
-    diacritiques = any(
-        char in texte for char in ["a", "i", "u", "â", "î", "û", "ã", "ĩ", "ũ", "°"]
-    )
+    diacritiques = any(char in texte for char in ["a", "i", "u", "â", "î", "û", "ã", "ĩ", "ũ", "°"])
     for curseur in range(1, len(texte) - 1):
         a_traiter = texte[curseur]
         # orthographe différente suivant qu'on est en "début" ou en milieu de mot.
@@ -291,16 +289,12 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 # derrière el- il faut écrire comme en début de mot malgré la liaison :
                 # idem derrière particules inséparables
                 curseur > 1
-                and a_traiter
-                != "'"  # -- Pb de la hamza dans des mots comme bi'r, ne pas traiter comme un préfixe
-                and texte[curseur - 3 : curseur]
-                in (" el", " ^l", " bi", " fa", " ka", " la", " li", " wa")
+                and a_traiter != "'"  # -- Pb de la hamza dans des mots comme bi'r, ne pas traiter comme un préfixe
+                and texte[curseur - 3 : curseur] in (" el", " ^l", " bi", " fa", " ka", " la", " li", " wa")
             )
             or (
                 curseur > 1
-                and texte[
-                    curseur - 3 : curseur
-                ]  # idem si plusieurs particules séparées par un blanc souligné
+                and texte[curseur - 3 : curseur]  # idem si plusieurs particules séparées par un blanc souligné
                 in ("_el", "_^l", "_bi", "_fa", "_ka", "_la", "_li", "_wa")
             )
             or (
@@ -318,11 +312,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
             if debut in ("a'i", "a'î", "a'u", "a'û", "a'a", "a'â"):
                 # il y aura superposition d'une hamza instable et d'une hamza structurelle portant voyelle
                 transcription += "أ◌َ"  # alif hamza + fatha
-            elif (
-                texte[curseur : curseur + 2] == "a'"
-                or texte[curseur : curseur + 2] == "'â"
-                or a_traiter == "â"
-            ):
+            elif texte[curseur : curseur + 2] == "a'" or texte[curseur : curseur + 2] == "'â" or a_traiter == "â":
                 transcription += "آ"  # alif madda
             elif a_traiter == "'":  # hamza explicite en début de mot
                 suivant = texte[curseur + 1]
@@ -412,11 +402,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
             elif a_traiter == "ã":
                 # le ã est suivi d'un alif muet, mais pas derrière ât et @ :
                 transcription += en_arabe[a_traiter]
-                if (
-                    texte[curseur - 1] != "@"
-                    and texte[curseur - 2 : curseur] != "ât"
-                    and texte[curseur + 1] != "é"
-                ):
+                if texte[curseur - 1] != "@" and texte[curseur - 2 : curseur] != "ât" and texte[curseur + 1] != "é":
                     transcription += en_arabe["A"]
             elif a_traiter == "â":
                 # pas de nouvel alif derrière une hammza portée par alif
@@ -504,8 +490,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                     or apres == " "
                     or (
                         texte[curseur + 2] == " "
-                        and apres
-                        != "â"  # il ne faut pas de lettre de prolongation non plus
+                        and apres != "â"  # il ne faut pas de lettre de prolongation non plus
                         and apres != "î"
                         and apres != "û"
                         and apres != "é"
@@ -636,9 +621,7 @@ def arabiser(texte: str) -> str:  # pragma: no cover
                 if texte[curseur + 1] == " " and diacritiques:
                     transcription += en_arabe["°"]
 
-    transcription = "".join(
-        [c for c in transcription if unicodedata.name(c) != "DOTTED CIRCLE"]
-    )
+    transcription = "".join([c for c in transcription if unicodedata.name(c) != "DOTTED CIRCLE"])
 
     # for - boucle de traitement
     return unicodedata.normalize("NFC", transcription)
@@ -770,16 +753,10 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         # La 2ème radicale a pu être forcée à autre chose.
         if position > -1:
             # contexte de la radicale : quelles sont les voyelles (courtes ou longues) avant et après la consonne 2 :
-            contexte = (
-                f"{scheme[position - 1]}2"
-                if est_voyelle(scheme[position - 1])
-                else "°2"
-            )
+            contexte = f"{scheme[position - 1]}2" if est_voyelle(scheme[position - 1]) else "°2"
             if scheme[position + 1] in {"²", scheme[position]}:
                 contexte += "²"
-                contexte += (
-                    scheme[position + 2] if est_voyelle(scheme[position + 2]) else "°"
-                )
+                contexte += scheme[position + 2] if est_voyelle(scheme[position + 2]) else "°"
             elif est_voyelle(scheme[position + 1]):
                 contexte += scheme[position + 1]
             else:
@@ -919,25 +896,18 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
     if (
         racine[1] == racine[2]  # deux consonnes identiques
         and racine[1] not in {"*", ".", "?"}  # "lettres" bidon dans les modèles
-        and position3
-        > -1  # si un petit malin propose un schème sans position 3 en redoublant la 2...
+        and position3 > -1  # si un petit malin propose un schème sans position 3 en redoublant la 2...
     ):
         # on est dans un cas "sourd"
         position2 = scheme.find("2")
-        if (
-            position2 > -1
-        ):  # sécurité : exclusion du cas des modèles d'exception imposant la deuxième radicale
+        if position2 > -1:  # sécurité : exclusion du cas des modèles d'exception imposant la deuxième radicale
             nature2 = nature(scheme, position2)
 
             # initiale d'une syllabe ouverte, donc 2 porte une voyelle courte et 3 une voyelle.
             # contraction sur les verbes (var~=""), formes verbales, ou sur les noms (var=="") dont l'infixe n'est pas de la forme *v*v* (voyelle courte avant la deuxième radicale). # noqa
             # le cas des noms n'est pas très clair, mais on constate que les **v* sont contractés, et certains *v*v* ne le sont pas, on suppose que ce qui apparaissent contractés sont des *v** d'origine (?) # noqa
-            if nature2 == "io" and (
-                var != "" or var == "" and scheme[position2 - 1] not in "aiu"
-            ):
-                if est_voyelle(
-                    scheme[position2 - 1]
-                ):  # ie, la première radicale est vocalisée
+            if nature2 == "io" and (var != "" or var == "" and scheme[position2 - 1] not in "aiu"):
+                if est_voyelle(scheme[position2 - 1]):  # ie, la première radicale est vocalisée
                     # alors on peut supprimer la deuxième radicale
                     scheme = f"{scheme[:position3 - 1]}{scheme[position3:]}"
                 else:
@@ -964,8 +934,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         len(racine) > 3
         and racine[3] == racine[2]  # deux consonnes identiques
         and racine[3] not in {"*", ".", "?"}  # "lettres" bidon dans les modèles
-        and position4
-        > -1  # si un petit malin propose un schème sans position 3 en redoublant la 2...
+        and position4 > -1  # si un petit malin propose un schème sans position 3 en redoublant la 2...
     ):
         # on est dans un cas "sourd"
         position3 = scheme.find("µ")
@@ -1010,18 +979,12 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         contexte = ""
         if position > -1:  # La 3ème radicale a pu être forcée à autre chose.
             # contexte de la radicale : quelles sont les voyelles (courtes ou longues) avant et après la consonne 3 :
-            contexte += (
-                f"{scheme[position - 1]}3"
-                if est_voyelle(scheme[position - 1])
-                else "°3"
-            )
+            contexte += f"{scheme[position - 1]}3" if est_voyelle(scheme[position - 1]) else "°3"
             if len(scheme) == position:
                 contexte = contexte  # fin de schème
             elif scheme[position + 1] in {"²", scheme[position]}:
                 contexte += "²"
-                contexte += (
-                    scheme[position + 2] if est_voyelle(scheme[position + 2]) else "°"
-                )
+                contexte += scheme[position + 2] if est_voyelle(scheme[position + 2]) else "°"
             elif est_voyelle(scheme[position + 1]):
                 contexte += scheme[position + 1]
             else:
@@ -1046,15 +1009,11 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                 elif contexte == "a3â":
                     # awâ final devient ayâ au passif devant a3âni final
                     if (
-                        position == len(scheme) - 3
-                        and scheme[position + 2 : position + 4] == "ni"
-                        and (var != "")
+                        position == len(scheme) - 3 and scheme[position + 2 : position + 4] == "ni" and (var != "")
                     ):  # les duels ne sont pas concernés.
                         scheme = f"{scheme[:position - 1]}ayâ{scheme[position + 2:]}"
                     else:
-                        scheme = (
-                            f"{scheme[:position]}{racine[2]}{scheme[position + 1:]}"
-                        )
+                        scheme = f"{scheme[:position]}{racine[2]}{scheme[position + 1:]}"
 
                 elif contexte == "a3@":
                     scheme = f"{scheme[:position - 1]}â@{scheme[position + 2:]}"
@@ -1156,9 +1115,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
                 elif contexte == "u3°":
                     scheme = f"{scheme[:position - 1]}û{scheme[position + 1:]}"
 
-                elif (
-                    scheme[position - 1] == "y"
-                ):  # cas du diminutif en *u*ay*ũ ou *u*ay*@ũ:
+                elif scheme[position - 1] == "y":  # cas du diminutif en *u*ay*ũ ou *u*ay*@ũ:
                     scheme = f"{scheme[:position]}y{scheme[position + 1:]}"
 
                 elif contexte == "û3ũ":  # Pb d'écriture
@@ -1282,9 +1239,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
 
     # quatrième radicale éventuelle
     # si on applique un schème quadrilittère à une racine à trois consonnes, on redouble simplement la dernière
-    scheme = scheme.replace(
-        "4", racine[2 if (len(racine) <= 3 or racine[3] == "") else 3]
-    )
+    scheme = scheme.replace("4", racine[2 if (len(racine) <= 3 or racine[3] == "") else 3])
 
     # première radicale
     scheme = scheme.replace("1", racine[0])
@@ -1329,9 +1284,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
             scheme = f"{scheme[:position]}û{scheme[position + 2:]}"
 
     while (position := scheme.find("iy")) > -1:
-        if (
-            est_voyelle(scheme[position + 2]) or scheme[position + 2] == "²"
-        ):  # Pb sinon avec les -iy²-
+        if est_voyelle(scheme[position + 2]) or scheme[position + 2] == "²":  # Pb sinon avec les -iy²-
             scheme = f"{scheme[:position]}iY{scheme[position + 2:]}"
         else:
             scheme = f"{scheme[:position]}î{scheme[position + 2:]}"
@@ -1340,9 +1293,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
         scheme = f"{scheme[:position]}iy²{scheme[position + 2:]}"
 
     while (position := scheme.find("yî")) > -1:
-        if est_voyelle(
-            scheme[position - 1]
-        ):  # intercepter des cas comme taXyîTũ => taXYîTũ et pas taXy²iTũ
+        if est_voyelle(scheme[position - 1]):  # intercepter des cas comme taXyîTũ => taXYîTũ et pas taXy²iTũ
             scheme = f"{scheme[:position]}y²i{scheme[position + 2:]}"
         else:
             scheme = f"{scheme[:position]}Yî{scheme[position + 2:]}"

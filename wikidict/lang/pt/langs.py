@@ -279,7 +279,7 @@ langs = {
     "fil": "filipino",
     "fj": "fijiano",
     "fkv": "kveno",
-    "fla": "salish",
+    "fla": "kalispel",
     "fo": "feroês",
     "for": "fore",
     "fos": "siraya",
@@ -446,12 +446,11 @@ langs = {
     "krj": "antiqueño",
     "krl": "carélio",
     "ks": "caxemira",
-    "ks": "caxemira",
     "ksd": "kuanua",
     "kse": "kuni",
     "ksg": "kusaghe",
     "ksh": "francônio",
-    "ksi": "krisa",
+    "ksi": "i'saka",
     "ksx": "kedang",
     "ktk": "kaniet",
     "ktn": "caritiana",
@@ -611,7 +610,6 @@ langs = {
     "nag": "nagamês",
     "nah": "náuatle",
     "nak": "nakanai",
-    "nak": "nakanai",
     "nan": "min nan",
     "nap": "napolitano",
     "naq": "nama",
@@ -625,7 +623,6 @@ langs = {
     "new": "newari",
     "nfl": "nifilole",
     "nfr": "nafana",
-    "ng": "ndonga",
     "ng": "ndonga",
     "nho": "takuu",
     "nia": "nias",
@@ -659,7 +656,6 @@ langs = {
     "olo": "livicoviano",
     "om": "oromo",
     "ood": "papago",
-    "or": "oriá",
     "or": "oriá",
     "ora": "oroha",
     "os": "osseta",
@@ -980,7 +976,7 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}  # 975
+}  # 971
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

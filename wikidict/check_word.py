@@ -153,14 +153,10 @@ def filter_html(html: str, locale: str) -> str:
             if a["href"].startswith("#cite"):
                 a.decompose()
             # cita requerida
-            elif (
-                a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes"
-            ):
+            elif a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes":
                 a.parent.parent.decompose()
         # coord output
-        for span in bs.find_all(
-            "span", {"class": ["geo-multi-punct", "geo-nondefault"]}
-        ):
+        for span in bs.find_all("span", {"class": ["geo-multi-punct", "geo-nondefault"]}):
             span.decompose()
         # external autonumber
         for a in bs.find_all("a", {"class": "external autonumber"}):
@@ -194,9 +190,7 @@ def filter_html(html: str, locale: str) -> str:
                 span.previous_sibling.decompose()
             span.decompose()
         # Cette information a besoin d’être précisée
-        for span in bs.find_all(
-            "span", {"title": "Cette information a besoin d’être précisée"}
-        ):
+        for span in bs.find_all("span", {"title": "Cette information a besoin d’être précisée"}):
             span.decompose()
         # {{invisible}}
         for span in bs.find_all("span", {"class": "invisible"}):
@@ -218,11 +212,7 @@ def filter_html(html: str, locale: str) -> str:
             ):
                 a.parent.next_sibling.replaceWith("")
             # Wikidata
-            elif (
-                a["title"].startswith("d:")
-                and a.next_sibling
-                and "base de données Wikidata" in a.next_sibling
-            ):
+            elif a["title"].startswith("d:") and a.next_sibling and "base de données Wikidata" in a.next_sibling:
                 a.next_sibling.replaceWith("")
             # {{LienRouge|lang=en|trad=Reconstruction
             elif "Reconstruction" in a["title"]:
@@ -252,17 +242,13 @@ def filter_html(html: str, locale: str) -> str:
         # Wikispecies
         for img in bs.find_all("img", {"alt": "Wikispecies"}):
             img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
-            img.next_sibling.next_sibling.replaceWith(
-                img.next_sibling.next_sibling.text[1:]
-            )  # Trailing ")"
+            img.next_sibling.next_sibling.replaceWith(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
             img.next_sibling.replaceWith("")  # space
             img.previous_sibling.replaceWith("")  # Leading "("
             img.decompose()
         # Wikipedia, Wikiquote
         for small in bs.find_all("small"):
-            if small.find("a", {"title": "Wikipedia"}) or small.find(
-                "a", {"title": "Wikiquote"}
-            ):
+            if small.find("a", {"title": "Wikipedia"}) or small.find("a", {"title": "Wikiquote"}):
                 small.decompose()
 
     elif locale == "pt":
@@ -361,9 +347,7 @@ def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
                     for rn, subsubdef in enumerate(subdef, 1):
-                        r = check_mute(
-                            text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"
-                        )
+                        r = check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}")
                         results.extend(r)
                 else:
                     r = check_mute(text, subdef, f"{message}.{a}")

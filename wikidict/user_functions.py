@@ -71,9 +71,7 @@ def chimy(composition: List[str]) -> str:
     return phrase
 
 
-def chinese(
-    parts: List[str], data: Dict[str, str], laquo: str = "“", raquo: str = "”"
-) -> str:
+def chinese(parts: List[str], data: Dict[str, str], laquo: str = "“", raquo: str = "”") -> str:
     """
     Format Chinese word or sentence.
 

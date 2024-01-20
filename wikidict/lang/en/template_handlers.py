@@ -99,14 +99,10 @@ def misc_variant(start: str, tpl: str, parts: List[str], data: Dict[str, str]) -
     return phrase
 
 
-def misc_variant_no_term(
-    title: str, tpl: str, parts: List[str], data: Dict[str, str]
-) -> str:
+def misc_variant_no_term(title: str, tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["notext"] in ("1", "yes"):
         return ""
-    return data.get(
-        "title", title if data["nocap"] in ("1", "yes") else capitalize(title)
-    )
+    return data.get("title", title if data["nocap"] in ("1", "yes") else capitalize(title))
 
 
 def render_bce(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -495,9 +491,7 @@ def render_frac(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if len(parts) == 3:
         phrase = f"{parts[0]}<small><sup>{parts[1]}</sup><big>⁄</big><sub>{parts[2]}</sub></small>"
     elif len(parts) == 2:
-        phrase = (
-            f"<small><sup>{parts[0]}</sup><big>⁄</big><sub>{parts[1]}</sub></small>"
-        )
+        phrase = f"<small><sup>{parts[0]}</sup><big>⁄</big><sub>{parts[1]}</sub></small>"
     elif len(parts) == 1:
         phrase = f"<small><sup>1</sup><big>⁄</big><sub>{parts[0]}</sub></small>"
     return phrase
@@ -597,9 +591,7 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                         # todo fromalt
                         from_split = from_text.split(":")
                         lang = langs.get(from_split[0], from_split[0])
-                        suffix += (
-                            f"{lang} {from_split[1] if len(from_split) > 1 else ''}"
-                        )
+                        suffix += f"{lang} {from_split[1] if len(from_split) > 1 else ''}"
                         suffix += gloss_tr_poss(from_data, from_gloss)
                     elif from_text.endswith("languages"):
                         suffix = f"the {from_text}"
@@ -616,14 +608,11 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if lastfrom_seg:
         fromsegs.append(lastfrom_seg)
     if localphrase := [
-        fromseg.get("prefix", "") + concat(fromseg.get("suffixes", []), ", ", " or ")
-        for fromseg in fromsegs
+        fromseg.get("prefix", "") + concat(fromseg.get("suffixes", []), ", ", " or ") for fromseg in fromsegs
     ]:
         phrase += " " + concat(localphrase, ", ", " or ")
 
-    if meaningtext := join_names(
-        data, "meaning", " or ", False, prefix='"', suffix='"'
-    ):
+    if meaningtext := join_names(data, "meaning", " or ", False, prefix='"', suffix='"'):
         phrase += f", meaning {meaningtext}"
 
     if data["usage"]:
@@ -641,9 +630,7 @@ def render_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return italic(phrase)
 
 
-def render_historical_given_name(
-    tpl: str, parts: List[str], data: Dict[str, str]
-) -> str:
+def render_historical_given_name(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str, {}))
     '<i>A male given name of historical usage, notably borne by Saint Abundius, an early Christian bishop</i>'
@@ -1099,11 +1086,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                     phrase += " " + s["display"]
                     no_article = False
                     if j == len(subparts) - 1:
-                        phrase += (
-                            f" {s['preposition']} "
-                            if parts and parts[0] != "in"
-                            else ""
-                        )
+                        phrase += f" {s['preposition']} " if parts and parts[0] != "in" else ""
                     else:
                         phrase += ", "
                 else:
@@ -1115,11 +1098,7 @@ def render_place(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
             subpart = placetypes_aliases.get(subpart, subpart)
             placename_key = f"{subpart}/{subparts[1]}"
             placename = recognized_placenames.get(placename_key, {})
-            if (
-                placename
-                and placename["display"]
-                and placename["display"] in recognized_placenames
-            ):
+            if placename and placename["display"] and placename["display"] in recognized_placenames:
                 placename_key = placename["display"]
                 placename = recognized_placenames[placename_key]
             if placename:
@@ -1198,9 +1177,7 @@ def render_surface_analysis(tpl: str, parts: List[str], data: Dict[str, str]) ->
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     """
-    phrase = (
-        "b" if data["nocap"] in ("1", "yes", "y") else "B"
-    ) + "y surface analysis, "
+    phrase = ("b" if data["nocap"] in ("1", "yes", "y") else "B") + "y surface analysis, "
     phrase += render_morphology("af", parts, data)
     return phrase
 
@@ -1241,11 +1218,7 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     '<i>A surname originating as an occupation</i>'
     """
     parts.pop(0)  # Remove the lang
-    art = data["A"] or (
-        "An"
-        if parts and parts[0].lower().startswith(("a", "e", "i", "o", "u"))
-        else "A"
-    )
+    art = data["A"] or ("An" if parts and parts[0].lower().startswith(("a", "e", "i", "o", "u")) else "A")
 
     from_value, from_text = data["from"], ""
     if from_value in {
@@ -1265,11 +1238,7 @@ def render_surname(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     elif from_value:
         from_text = f" from {from_value}"
 
-    return (
-        italic(f"{art} {parts[0]} {tpl}{from_text}")
-        if parts and parts[0]
-        else italic(f"{art} {tpl}{from_text}")
-    )
+    return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
 
 
 def render_uncertain(tpl: str, parts: List[str], data: Dict[str, str]) -> str:

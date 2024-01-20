@@ -7,9 +7,7 @@ from scripts_utils import get_soup
 def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
     # remove aliases
     lua_code = "\n".join(lines)
-    lua_code = re.sub(
-        r"aliases\s*=\s*{([^}]*)}", "", lua_code, 0, re.MULTILINE | re.DOTALL
-    )
+    lua_code = re.sub(r"aliases\s*=\s*{([^}]*)}", "", lua_code, 0, re.MULTILINE | re.DOTALL)
     lines = lua_code.split("\n")
 
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
@@ -82,9 +80,7 @@ def read_all_lines_lang(lines: List[str]) -> Dict[str, str]:
 def get_content(url: str) -> List[str]:
     soup = get_soup(url)
     content_div = soup.find("div", "mw-parser-output")
-    content_div = content_div.findChild(
-        "div", {"class": "mw-highlight"}, recursive=False
-    )
+    content_div = content_div.findChild("div", {"class": "mw-highlight"}, recursive=False)
     return str(content_div.text).split("\n")
 
 
@@ -104,9 +100,7 @@ for key, val in read_all_lines_etym(lines).items():
     languages[key] = list(val.keys())[0]
 
 languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/data/2")
-languages |= process_lang_page(
-    "https://en.wiktionary.org/wiki/Module:languages/data/exceptional"
-)
+languages |= process_lang_page("https://en.wiktionary.org/wiki/Module:languages/data/exceptional")
 
 for letter in "abcdefghijklmnopqrstuvwxyz":
     url = f"https://en.wiktionary.org/wiki/Module:languages/data/3/{letter}"

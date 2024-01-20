@@ -44,9 +44,7 @@ def replace(file: str, data: str) -> bool:
     if start == -1 or end == -1:
         return False
 
-    path.write_text(
-        f"{original_content[:start]}# START\n{data}{original_content[end:]}"
-    )
+    path.write_text(f"{original_content[:start]}# START\n{data}{original_content[end:]}")
     return True
 
 

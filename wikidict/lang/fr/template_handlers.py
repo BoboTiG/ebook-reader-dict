@@ -396,46 +396,26 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
 
     if is_derived:
         # Dérivé
-        phrase = ("D" if data["m"] else "d") + (
-            "érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé"
-        )
+        phrase = ("D" if data["m"] else "d") + ("érivée" if data["f"] in ("1", "oui", "o", "i") else "érivé")
 
         if b == "0100":
-            phrase += " de " + word_tr_sens(
-                parts[0], data.get("tr1", ""), data.get("sens1", "")
-            )
-            phrase += ", avec le suffixe " + word_tr_sens(
-                parts[1], data.get("tr2", ""), data.get("sens2", "")
-            )
+            phrase += " de " + word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))
+            phrase += ", avec le suffixe " + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
         elif b == "1000":
             phrase += (
-                (
-                    " de "
-                    + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
-                    + ", avec le"
-                )
+                (" de " + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", "")) + ", avec le")
                 if len(parts) > 1 and parts[1]
                 else " du"
             )
-            phrase += " préfixe " + word_tr_sens(
-                parts[0], data.get("tr1", ""), data.get("sens1", "")
-            )
+            phrase += " préfixe " + word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))
         elif b == "1020":
             phrase += (
-                (
-                    " de "
-                    + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))
-                    + ", avec le"
-                )
+                (" de " + word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", "")) + ", avec le")
                 if len(parts) > 1 and parts[1]
                 else " du"
             )
-            phrase += " préfixe " + word_tr_sens(
-                parts[0], data.get("tr1", ""), data.get("sens1", "")
-            )
-            phrase += " et le suffixe " + word_tr_sens(
-                parts[2], data.get("tr3", ""), data.get("sens3", "")
-            )
+            phrase += " préfixe " + word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))
+            phrase += " et le suffixe " + word_tr_sens(parts[2], data.get("tr3", ""), data.get("sens3", ""))
         elif b == "1100":
             phrase += f' du préfixe {word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))},'
             phrase += f' avec le suffixe {word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))}'
@@ -445,13 +425,9 @@ def render_compose_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         return phrase
 
     # Composé
-    phrase = ("C" if data["m"] else "c") + (
-        "omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de "
-    )
+    phrase = ("C" if data["m"] else "c") + ("omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de ")
     if s_array := [
-        word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"])
-        for number, part in enumerate(parts, 1)
-        if part
+        word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"]) for number, part in enumerate(parts, 1) if part
     ]:
         phrase += concat(
             s_array,
@@ -1015,9 +991,7 @@ def render_siecle(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
         sup = "er" if x.group()[:-1] == "I" else "e"
         return f"{x.group()[:-1]}{superscript(sup)} siècle{x.group()[-1]}"
 
-    parts = [
-        re.sub(r"([IVX]+)([^\s\w<]|\s)", repl, f"{part} ", 1).strip() for part in parts
-    ]
+    parts = [re.sub(r"([IVX]+)([^\s\w<]|\s)", repl, f"{part} ", 1).strip() for part in parts]
 
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
@@ -1038,11 +1012,7 @@ def render_siecle2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'XVIII<sup>e</sup>'
     """
     number = parts[0]
-    number_string = (
-        small_caps(int_to_roman(int(number)).lower())
-        if number.isnumeric()
-        else number.upper()
-    )
+    number_string = small_caps(int_to_roman(int(number)).lower()) if number.isnumeric() else number.upper()
     suffix = "er" if number in ("1", "I", "i") else "e"
     return f"{number_string}{superscript(suffix)}"
 
@@ -1093,9 +1063,7 @@ def render_suppletion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     if data["mot"]:
         phrase = "Ce mot dénote une supplétion car son étymologie est distincte de "
     else:
-        phrase = (
-            "Cette forme dénote une supplétion car son étymologie est distincte de "
-        )
+        phrase = "Cette forme dénote une supplétion car son étymologie est distincte de "
     if len(parts) > 1:
         phrase += "celles de "
         phrase += ", de ".join(f"{italic(p)}" for p in parts[:-1])
@@ -1249,9 +1217,7 @@ def render_wikisource(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     phrase = parts[-1]
     if data:
         # Possible imbricated templates: {{ws| {{pc|foo bar}} }}
-        if potential_phrase := "".join(
-            f"{k}={v}" for k, v in data.items() if k != "lang"
-        ):
+        if potential_phrase := "".join(f"{k}={v}" for k, v in data.items() if k != "lang"):
             phrase = potential_phrase
     return phrase
 
@@ -1268,9 +1234,7 @@ def render_zh_lien(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     simple = parts.pop(0)
     pinyin = italic(parts.pop(0))
     traditional = parts[0] if parts else ""
-    return (
-        f"{simple} ({traditional}, {pinyin})" if traditional else f"{simple} ({pinyin})"
-    )
+    return f"{simple} ({traditional}, {pinyin})" if traditional else f"{simple} ({pinyin})"
 
 
 template_mapping = {

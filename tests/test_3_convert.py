@@ -24,9 +24,7 @@ Mis à jour le"""
 WORDS = {
     "empty": Word.empty(),
     "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
-    "foos": Word(
-        ["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]
-    ),
+    "foos": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]),
     "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
     "empty1": Word([], [], [], [], ["foo"]),
     "empty2": Word([], [], [], [], ["empty1"]),
@@ -158,9 +156,7 @@ def test_no_json_file() -> None:
         (convert.KoboFormat, "dicthtml-fr-fr-noetym.zip", False),
     ],
 )
-def test_generate_primary_dict(
-    formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool
-) -> None:
+def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
@@ -191,9 +187,7 @@ def test_generate_primary_dict(
         "test_generate_primary_dict[DictFileFormat-dict-fr-fr-noetym.df]",
     ]
 )
-def test_generate_secondary_dict(
-    formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool
-) -> None:
+def test_generate_secondary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(
         formatter,
@@ -255,10 +249,6 @@ def test_word_rendering(
         include_etymology=include_etymology,
     )
 
-    kwargs = (
-        {"name": "mu", "words": WORDS} if isinstance(cls, convert.KoboFormat) else {}
-    )
-    content = next(
-        cls.handle_word("Multiple Etymologies", WORDS["Multiple Etymologies"], **kwargs)
-    )
+    kwargs = {"name": "mu", "words": WORDS} if isinstance(cls, convert.KoboFormat) else {}
+    content = next(cls.handle_word("Multiple Etymologies", WORDS["Multiple Etymologies"], **kwargs))
     assert content == expected
