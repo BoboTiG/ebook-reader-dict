@@ -290,6 +290,7 @@ def test_parse_word(
         ),
         ("{{romanes|XIX}}", "<span style='font-variant:small-caps'>xix</span>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
+        ("{{etim-s|ca|XVII|1617}}", "1617"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
