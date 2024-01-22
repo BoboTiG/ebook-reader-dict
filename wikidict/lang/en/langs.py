@@ -1948,6 +1948,9 @@ langs = {
     "cux": "Tepeuxila Cuicatec",
     "cuy": "Cuitlatec",
     "cv": "Chuvash",
+    "cv-ana": "Anatri",
+    "cv-mid": "Middle Chuvash",
+    "cv-vir": "Viryal",
     "cvg": "Chug",
     "cvn": "Valle Nacional Chinantec",
     "cwa": "Kabwa",
@@ -9690,5 +9693,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,685
+}  # 9,688
 # END
