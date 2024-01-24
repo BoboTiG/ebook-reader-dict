@@ -3940,6 +3940,22 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être blanchi",
         "ar-ta*â*a*a": "",
     },  # 27
+    "ar-byd": {
+        "aa_sens": "périr",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "perdition",
+        "ar-*a*a*a-i": "périr",
+        "ar-*a*²a*a": "",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "faire périr",
+        "ar-mu*a**âtũ": "pesticide",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 14
     "ar-byt": {
         "aa_sens": "maison, nocturne",
         "ar-**a*²a": "",
@@ -8747,5 +8763,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 303
+}  # 304
 # END

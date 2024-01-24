@@ -899,6 +899,8 @@ labels_topical = {
     "ML": "machine learning",
     "MMO": "online gaming",
     "MMORPG": "online gaming",
+    "Malaysia politics": "Malaysian politics",
+    "Malaysian politics": "Malaysian politics",
     "Manichaeism": "Manichaeism",
     "Maoism": "Maoism",
     "Marxism": "Marxism",
@@ -1950,7 +1952,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,187
+}  # 1,189
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

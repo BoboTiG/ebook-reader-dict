@@ -226,6 +226,7 @@ langs = {
     "ammonite": "ammonite",
     "amn": "amanab",
     "amo": "amo",
+    "amorrite": "amorrite",
     "amp": "alamblak",
     "amq": "amahai",
     "amr": "amarakaeri",
@@ -2057,6 +2058,7 @@ langs = {
     "hor": "horo",
     "hot": "hote",
     "houma": "houma",
+    "hourrite": "hourrite",
     "hov": "hovongan",
     "how": "honi",
     "hoy": "holiya",
@@ -2347,12 +2349,14 @@ langs = {
     "kak": "ahin-kayapa kalanguya",
     "kakán": "kakán",
     "kal": "kalaallisut",
+    "kalasmaïte": "kalasmaïte",
     "kalis": "kalis",
     "kam": "kamba",
     "kao": "khassonké",
     "kap": "bezhta",
     "kaq": "capanahua",
     "kar": "langues karènes",
+    "kassite": "kassite",
     "kathlamet": "kathlamet",
     "kau": "kanouri",
     "kaw": "kawi",
@@ -4184,7 +4188,7 @@ langs = {
     "pel": "pekal",
     "penan benalui": "penan benalui",
     "penange": "penange",
-    "peo": "vieux-perse",
+    "peo": "vieux perse",
     "pep": "kunja",
     "peq": "pomo du Sud",
     "per": "persan",
@@ -5971,6 +5975,7 @@ langs = {
     "xh": "xhosa",
     "xha": "harami",
     "xhc": "hunnique",
+    "xht": "hatti",
     "xia": "xiandao",
     "xib": "ibère",
     "xii": "xiri",
@@ -6413,7 +6418,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,408
+}  # 6,413
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

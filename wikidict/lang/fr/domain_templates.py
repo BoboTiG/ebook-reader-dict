@@ -301,6 +301,7 @@ domain_templates = {
     "villes": "Géographie",
     "vins": "Œnologie",
     "virus": "Virologie",
+    "voies": "Transport",
     "voitures": "Automobile",
     "véhicule": "Transport",
     "véhicules": "Transport",
@@ -320,5 +321,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 315
+}  # 316
 # END
