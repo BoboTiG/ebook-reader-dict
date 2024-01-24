@@ -171,6 +171,7 @@ regions = {
     "Dunkerque": "Dunkerque",
     "Durango": "Durango",
     "Détroit": "Détroit",
+    "EC": "Équateur",
     "ES": "Espagne",
     "EU": "Europe",
     "Empire ottoman": "Empire ottoman",
@@ -544,9 +545,11 @@ regions = {
     "UK": "Royaume-Uni",
     "US": "États-Unis",
     "USA": "États-Unis",
+    "UY": "Uruguay",
     "Ukraine": "Ukraine",
     "Ulster": "Ulster",
     "Uruguay": "Uruguay",
+    "VE": "Venezuela",
     "Valledolmo": "Valledolmo",
     "Vallée d'Yères": "Vallée d’Yères",
     "Vallée d’Yères": "Vallée d’Yères",
@@ -601,7 +604,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 596
+}  # 599
 # END
 
 # handled differently

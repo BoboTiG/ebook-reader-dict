@@ -23,9 +23,7 @@ WORD = {
 
 
 @pytest.fixture
-def craft_urls(
-    html: Callable[[str, str], str], page: Callable[[str, str], str]
-) -> Callable[[str, str], str]:
+def craft_urls(html: Callable[[str, str], str], page: Callable[[str, str], str]) -> Callable[[str, str], str]:
     def _craft_urls(locale: str, word: str) -> str:
         responses.add(
             responses.GET,
@@ -380,6 +378,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         [
             "pt",
             '<sup>(<a class="extiw" href="https://la.wiktionary.org/wiki/izare" title="la:izare"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
+            "",
+        ],
+        # PT - superscript locales (inexistent)
+        [
+            "pt",
+            '<sup>(<a class="new" href="https://la.wiktionary.org/wiki/izare" title="la:izare (página não existe)"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
             "",
         ],
         # PT - no print

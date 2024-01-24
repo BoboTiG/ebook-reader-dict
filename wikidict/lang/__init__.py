@@ -38,9 +38,7 @@ def _populate(attr: str) -> PopulatedDict:
     Fallback to `defaults`.
     """
     return {
-        locale.__name__.split(".")[-1]: getattr(locale, attr)
-        if hasattr(locale, attr)
-        else getattr(defaults, attr)
+        locale.__name__.split(".")[-1]: getattr(locale, attr) if hasattr(locale, attr) else getattr(defaults, attr)
         for locale in ALL_LOCALES.values()
     }
 

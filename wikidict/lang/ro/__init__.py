@@ -218,9 +218,7 @@ def find_pronunciations(code: str) -> List[str]:
     return uniq(flatten(res))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

@@ -335,6 +335,7 @@ campos_semanticos = {
     "hongo": "Micología",
     "hongos": "Micología",
     "horticultura": "Horticultura",
+    "hostelería": "Hostelería",
     "huesos": "Anatomía",
     "hípica": "Equitación",
     "ictiología": "Ictiología",
@@ -501,5 +502,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 496
+}  # 497
 # END

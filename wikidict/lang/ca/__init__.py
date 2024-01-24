@@ -89,6 +89,8 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e|la|lupus}}
     "e": "parts[-1]",
+    # {{e-propi|ca|grèvol}}
+    "e-propi": "strong(parts[-1])",
     # {{forma-f|ca|halloweenià}}
     "forma-f": "parts[-1]",
     # {{forma-p|ca|experta}}
@@ -102,7 +104,8 @@ templates_multi = {
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
     # {{etim-s|ca|XIV}}
-    "etim-s": "'segle ' + parts[2]",
+    # {{etim-s|ca|XVII|1617}}
+    "etim-s": "('segle ' + parts[2]) if len(parts) == 3 else parts[-1]",
 }
 
 
@@ -142,9 +145,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(
-        r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"
-    ),
+    pattern: Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
 ) -> List[str]:
     """
     >>> find_pronunciations("")
@@ -161,9 +162,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

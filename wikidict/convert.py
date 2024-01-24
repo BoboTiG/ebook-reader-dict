@@ -166,9 +166,7 @@ class BaseFormat:
             file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
         return file
 
-    def handle_word(
-        self, word: str, details: Word, **kwargs: Any
-    ) -> Generator[str, None, None]:  # pragma: nocover
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:  # pragma: nocover
         raise NotImplementedError()
 
     def process(self) -> None:  # pragma: nocover
@@ -176,10 +174,7 @@ class BaseFormat:
 
     @staticmethod
     def render_word(template: Template, **kwargs: Any) -> str:
-        return (
-            "".join(line.strip() for line in template.render(**kwargs).splitlines())
-            + "\n"
-        )
+        return "".join(line.strip() for line in template.render(**kwargs).splitlines()) + "\n"
 
     @staticmethod
     def compute_checksum(file: Path) -> None:
@@ -236,9 +231,7 @@ class KoboFormat(BaseFormat):
             groups[guess_prefix(word)][word] = details
         return groups
 
-    def handle_word(
-        self, word: str, details: Word, **kwargs: Any
-    ) -> Generator[str, None, None]:
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
         name: str = kwargs["name"]
         words: Words = kwargs["words"]
         current_words: Words = {word: details}
@@ -403,9 +396,7 @@ class DictFileFormat(BaseFormat):
 
     output_file = "dict-{locale}-{locale}.df"
 
-    def handle_word(
-        self, word: str, details: Word, **kwargs: Any
-    ) -> Generator[str, None, None]:
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
         if details.definitions:
             yield self.render_word(
                 WORD_TPL_DICTFILE,
@@ -454,9 +445,7 @@ class StarDictFormat(DictFileFormat):
         glos.setInfo("description", source)
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
         glos.setInfo("website", GH_REPOS)
-        glos.setInfo(
-            "date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
-        )
+        glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
         res = glos.convert(
             ConvertArgs(
                 inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
@@ -480,9 +469,7 @@ class StarDictFormat(DictFileFormat):
         self._patch_gc()
         self._convert()
 
-        final_file = self.dictionnary_file(DictFileFormat.output_file).with_suffix(
-            ".zip"
-        )
+        final_file = self.dictionnary_file(DictFileFormat.output_file).with_suffix(".zip")
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             for file in self.output_dir.glob("dict-data.*"):
                 fh.write(file, arcname=file.name)

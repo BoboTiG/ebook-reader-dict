@@ -100,6 +100,33 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "g1r0",
+      "name": "Arsenii Chaplinskii",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17737200?v=4",
+      "profile": "https://github.com/g1r0",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "and4po",
+      "name": "Ander Romero",
+      "avatar_url": "https://avatars.githubusercontent.com/u/94716615?v=4",
+      "profile": "http://and4po.github.io",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "yue-dongchen",
+      "name": "Dongchen Yue | 岳东辰",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38829129?v=4",
+      "profile": "http://blog.yue-dongchen.xyz",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 6,

@@ -8,10 +8,7 @@ def test_errors() -> None:
     word_count = 39
     return_value = 42
     with patch.object(check_words, "local_check", return_value=return_value):
-        assert (
-            check_words.main("fr", word_count, True, "", "")
-            == return_value * word_count
-        )
+        assert check_words.main("fr", word_count, True, "", "") == return_value * word_count
 
 
 def test_no_json_file() -> None:

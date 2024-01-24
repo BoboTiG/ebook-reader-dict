@@ -35,9 +35,7 @@ def test_render_word(page: Callable[[str, str], str]) -> None:
     assert words["π"]
 
 
-def test_render_word_sv_with_almost_empty_definition(
-    page: Callable[[str, str], str]
-) -> None:
+def test_render_word_sv_with_almost_empty_definition(page: Callable[[str, str], str]) -> None:
     word = ["Götet", page("Götet", "sv")]
     words: Words = {}
     render.render_word(word, words, "sv")
@@ -65,9 +63,7 @@ def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -
     assert subsubdefs[0]
 
 
-def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> (
-    None
-):
+def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists() -> None:
     section = Section(
         "=== {{sustantivo propio|es|género=femenino}} ===\n"
         ";1 archipiélago de 2&nbsp;000 peñascos.\n"

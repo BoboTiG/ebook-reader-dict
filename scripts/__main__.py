@@ -13,6 +13,7 @@ FILES = {
     "de-lang_adjs.py": "wikidict/lang/de/lang_adjs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
     "el-aliases.py": "wikidict/lang/el/aliases.py",
+    "el-labels.py": "wikidict/lang/el/labels.py",
     "el-langs.py": "wikidict/lang/el/langs.py",
     "en-labels.py": "wikidict/lang/en/labels.py",
     "en-langs.py": "wikidict/lang/en/langs.py",
@@ -43,9 +44,7 @@ def replace(file: str, data: str) -> bool:
     if start == -1 or end == -1:
         return False
 
-    path.write_text(
-        f"{original_content[:start]}# START\n{data}{original_content[end:]}"
-    )
+    path.write_text(f"{original_content[:start]}# START\n{data}{original_content[end:]}")
     return True
 
 

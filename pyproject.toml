@@ -1,0 +1,54 @@
+[tool.mypy]
+# Ensure we know what we do
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+
+# Imports management
+ignore_missing_imports = true
+follow_imports = "normal"
+
+# Ensure full coverage
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+
+# Restrict dynamic typing (a little)
+# e.g. `x: List[Any]` or x: List`
+disallow_any_generics = true
+
+# From functions not declared to return Any
+warn_return_any = true
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov-report=term-missing:skip-covered
+    --cov=wikidict
+    --strict-markers
+    -vvv
+"""
+
+[tool.ruff]
+exclude = [
+    "data",
+    "docs",
+    ".git",
+    ".github",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "venv",
+]
+line-length = 120
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

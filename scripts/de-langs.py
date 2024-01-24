@@ -25,9 +25,7 @@ def process_page(page_url: str, languages: Dict[str, str]) -> str:
         li_url = ROOT_URL + link
         key = li.text.split(":")[1]
         sub_soup = get_soup(li_url)
-        content = sub_soup.find("div", {"class": "mw-parser-output"}).find(
-            "p", recursive=False
-        )
+        content = sub_soup.find("div", {"class": "mw-parser-output"}).find("p", recursive=False)
         value = content.text.strip()
         languages[key] = value
         a_url = ALIAS_URL.format(li.text)

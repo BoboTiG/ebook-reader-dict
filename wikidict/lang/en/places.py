@@ -45,6 +45,11 @@ recognized_placetypes = {
         "display": "London borough",
         "preposition": "of",
     },
+    "Roman province": {
+        "article": "a",
+        "display": "Roman province",
+        "preposition": "in",
+    },
     "Welsh community": {
         "article": "a",
         "display": "community",
@@ -150,6 +155,11 @@ recognized_placetypes = {
         "display": "area",
         "preposition": "in",
     },
+    "arm": {
+        "article": "an",
+        "display": "arm",
+        "preposition": "of",
+    },
     "arrondissement": {
         "article": "an",
         "display": "arrondissement",
@@ -229,6 +239,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "barrio",
         "preposition": "of",
+    },
+    "basin": {
+        "article": "a",
+        "display": "basin",
+        "preposition": "in",
     },
     "bay": {
         "article": "a",
@@ -590,6 +605,11 @@ recognized_placetypes = {
         "display": "division",
         "preposition": "of",
     },
+    "dome": {
+        "article": "a",
+        "display": "dome",
+        "preposition": "in",
+    },
     "dormant volcano": {
         "article": "a",
         "display": "dormant volcano",
@@ -694,6 +714,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "frazione",
         "preposition": "in",
+    },
+    "geographic region": {
+        "article": "a",
+        "display": "geographic region",
+        "preposition": "of",
     },
     "geographical region": {
         "article": "a",
@@ -965,6 +990,21 @@ recognized_placetypes = {
         "display": "historical krai",
         "preposition": "of",
     },
+    "historical local government area": {
+        "article": "a",
+        "display": "historical local government area",
+        "preposition": "of",
+    },
+    "historical local government district": {
+        "article": "a",
+        "display": "historical local government district",
+        "preposition": "of",
+    },
+    "historical locality": {
+        "article": "a",
+        "display": "historical locality",
+        "preposition": "in",
+    },
     "historical maritime republic": {
         "article": "a",
         "display": "historical maritime republic",
@@ -1080,6 +1120,11 @@ recognized_placetypes = {
         "display": "historical town",
         "preposition": "in",
     },
+    "historical unincorporated community": {
+        "article": "a",
+        "display": "historical unincorporated community",
+        "preposition": "in",
+    },
     "historical village": {
         "article": "a",
         "display": "historical village",
@@ -1099,6 +1144,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "home rule municipality",
         "preposition": "of",
+    },
+    "hot spring": {
+        "article": "a",
+        "display": "hot spring",
+        "preposition": "in",
     },
     "housing estate": {
         "article": "a",
@@ -1123,6 +1173,11 @@ recognized_placetypes = {
     "independent town": {
         "article": "an",
         "display": "independent town",
+        "preposition": "in",
+    },
+    "inland sea": {
+        "article": "an",
+        "display": "inland sea",
         "preposition": "in",
     },
     "inner city area": {
@@ -1510,6 +1565,11 @@ recognized_placetypes = {
         "display": "pass",
         "preposition": "in",
     },
+    "peak": {
+        "article": "a",
+        "display": "peak",
+        "preposition": "in",
+    },
     "peninsula": {
         "article": "a",
         "display": "peninsula",
@@ -1558,6 +1618,11 @@ recognized_placetypes = {
     "prefecture-level city": {
         "article": "a",
         "display": "prefecture-level city",
+        "preposition": "in",
+    },
+    "promontory": {
+        "article": "a",
+        "display": "promontory",
         "preposition": "in",
     },
     "protectorate": {
@@ -1640,6 +1705,11 @@ recognized_placetypes = {
         "display": "research base",
         "preposition": "in",
     },
+    "reservoir": {
+        "article": "a",
+        "display": "reservoir",
+        "preposition": "in",
+    },
     "residental area": {
         "article": "a",
         "display": "residential area",
@@ -1710,6 +1780,11 @@ recognized_placetypes = {
         "display": "seaport",
         "preposition": "in",
     },
+    "seat": {
+        "article": "the",
+        "display": "seat",
+        "preposition": "of",
+    },
     "self-administered division": {
         "article": "a",
         "display": "self-administered division",
@@ -1775,6 +1850,11 @@ recognized_placetypes = {
         "display": "special collectivity",
         "preposition": "in",
     },
+    "special municipality": {
+        "article": "a",
+        "display": "special municipality",
+        "preposition": "in",
+    },
     "special ward": {
         "article": "a",
         "display": "special ward",
@@ -1783,6 +1863,11 @@ recognized_placetypes = {
     "spit": {
         "article": "a",
         "display": "spit",
+        "preposition": "in",
+    },
+    "spring": {
+        "article": "a",
+        "display": "spring",
         "preposition": "in",
     },
     "star": {
@@ -1829,6 +1914,16 @@ recognized_placetypes = {
         "article": "a",
         "display": "stream",
         "preposition": "in",
+    },
+    "strip": {
+        "article": "a",
+        "display": "strip",
+        "preposition": "of",
+    },
+    "strip of land": {
+        "article": "a",
+        "display": "strip of land",
+        "preposition": "of",
     },
     "sub-prefectural city": {
         "article": "a",
@@ -2065,7 +2160,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 412
+}  # 431
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2134,6 +2229,7 @@ placetypes_aliases = {
     "riv": "river",
     "rmun": "regional municipality",
     "robor": "royal borough",
+    "romp": "Roman province",
     "runit": "regional unit",
     "rurmun": "rural municipality",
     "s": "state",
@@ -2154,7 +2250,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 86
+}  # 87
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -2173,12 +2269,14 @@ recognized_qualifiers = {
     "deserted": "deserted",
     "east": "east",
     "eastern": "eastern",
+    "endorheic": "endorheic",
     "extinct": "extinct",
     "farming": "farming",
     "fashionable": "fashionable",
     "fictional": "fictional",
     "fishing": "fishing",
     "former": "former",
+    "freshwater": "freshwater",
     "high": "high",
     "hilly": "hilly",
     "historic": "historical",
@@ -2190,6 +2288,7 @@ recognized_qualifiers = {
     "industrial": "industrial",
     "inland": "inland",
     "inner": "inner",
+    "landlocked": "landlocked",
     "large": "large",
     "left": "left",
     "logging": "logging",
@@ -2212,6 +2311,8 @@ recognized_qualifiers = {
     "outer": "outer",
     "outlying": "outlying",
     "overseas": "overseas",
+    "ox-bow": "ox-bow",
+    "oxbow": "oxbow",
     "planned": "planned",
     "railroad": "railroad",
     "railway": "railway",
@@ -2222,6 +2323,7 @@ recognized_qualifiers = {
     "riverside": "riverside",
     "rural": "rural",
     "sacred": "sacred",
+    "saltwater": "saltwater",
     "seaside": "coastal",
     "secular": "secular",
     "short": "short",
@@ -2235,6 +2337,7 @@ recognized_qualifiers = {
     "southwestern": "southwestern",
     "special": "special",
     "suburban": "suburban",
+    "summer": "summer",
     "tiny": "tiny",
     "traditional": "traditional",
     "unincorporated": "unincorporated",
@@ -2242,7 +2345,8 @@ recognized_qualifiers = {
     "wealthy": "wealthy",
     "west": "west",
     "western": "western",
-}  # 85
+    "winter": "winter",
+}  # 93
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
@@ -2251,10 +2355,7 @@ recognized_placenames = {
     "autonomous community/Basque Country": {"article": "the", "display": ""},
     "autonomous community/Canary Islands": {"article": "the", "display": ""},
     "autonomous community/Community of Madrid": {"article": "the", "display": ""},
-    "autonomous community/Valencian Community": {
-        "article": "",
-        "display": "autonomous community/Valencia",
-    },
+    "autonomous community/Valencian Community": {"article": "", "display": "autonomous community/Valencia"},
     "autonomous oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
     "autonomous territory/Faroe Islands": {"article": "the", "display": ""},
     "borough/Bronx": {"article": "the", "display": ""},
@@ -2263,6 +2364,7 @@ recognized_placenames = {
     "city/Washington DC": {"article": "", "display": "city/Washington, D.C."},
     "city/Washington, DC": {"article": "", "display": "city/Washington, D.C."},
     "commonwealth/Northern Mariana Islands": {"article": "the", "display": ""},
+    "constituent country/Netherlands": {"article": "the", "display": ""},
     "council area/City of Aberdeen": {"article": "the", "display": ""},
     "council area/City of Dundee": {"article": "the", "display": ""},
     "council area/City of Edinburgh": {"article": "the", "display": ""},
@@ -2271,10 +2373,7 @@ recognized_placenames = {
     "council area/Scottish Borders": {"article": "the", "display": ""},
     "council area/Shetland Islands": {"article": "the", "display": ""},
     "country/Bahamas": {"article": "the", "display": ""},
-    "country/Bosnia and Hercegovina": {
-        "article": "",
-        "display": "country/Bosnia and Herzegovina",
-    },
+    "country/Bosnia and Hercegovina": {"article": "", "display": "country/Bosnia and Herzegovina"},
     "country/Central African Republic": {"article": "the", "display": ""},
     "country/Comoros": {"article": "the", "display": ""},
     "country/Cook Islands": {"article": "the", "display": ""},
@@ -2293,19 +2392,15 @@ recognized_placenames = {
     "country/Philippines": {"article": "the", "display": ""},
     "country/Republic of Armenia": {"article": "", "display": "country/Armenia"},
     "country/Republic of Ireland": {"article": "", "display": "country/Ireland"},
-    "country/Republic of Macedonia": {
-        "article": "",
-        "display": "country/North Macedonia",
-    },
-    "country/Republic of North Macedonia": {
-        "article": "",
-        "display": "country/North Macedonia",
-    },
+    "country/Republic of Macedonia": {"article": "", "display": "country/North Macedonia"},
+    "country/Republic of North Macedonia": {"article": "", "display": "country/North Macedonia"},
     "country/Republic of the Congo": {"article": "the", "display": ""},
     "country/Roman Empire": {"article": "the", "display": ""},
     "country/Solomon Islands": {"article": "the", "display": ""},
     "country/Soviet Union": {"article": "the", "display": ""},
+    "country/State of Palestine": {"article": "", "display": "country/Palestine"},
     "country/Swaziland": {"article": "", "display": "country/Eswatini"},
+    "country/Türkiye": {"article": "", "display": "country/Turkey"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
     "country/UAE": {"article": "", "display": "country/United Arab Emirates"},
@@ -2315,10 +2410,7 @@ recognized_placenames = {
     "country/United Arab Emirates": {"article": "the", "display": ""},
     "country/United Kingdom": {"article": "the", "display": ""},
     "country/United States": {"article": "the", "display": ""},
-    "country/United States of America": {
-        "article": "",
-        "display": "country/United States",
-    },
+    "country/United States of America": {"article": "", "display": "country/United States"},
     "country/Vatican": {"article": "", "display": "country/Vatican City"},
     "county borough/Vale of Glamorgan": {"article": "the", "display": ""},
     "county/City of Belfast": {"article": "the", "display": ""},
@@ -2335,10 +2427,7 @@ recognized_placenames = {
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
-    "overseas territory/British Indian Ocean Territory": {
-        "article": "the",
-        "display": "",
-    },
+    "overseas territory/British Indian Ocean Territory": {"article": "the", "display": ""},
     "overseas territory/British Virgin Islands": {"article": "the", "display": ""},
     "overseas territory/Cayman Islands": {"article": "the", "display": ""},
     "overseas territory/Falkland Islands": {"article": "the", "display": ""},
@@ -2346,30 +2435,22 @@ recognized_placenames = {
     "overseas territory/Pitcairn Islands": {"article": "the", "display": ""},
     "overseas territory/South Sandwich Islands": {"article": "the", "display": ""},
     "overseas territory/Turks and Caicos Islands": {"article": "the", "display": ""},
-    "overseas territory/United States Virgin Islands": {
-        "article": "the",
-        "display": "",
-    },
+    "overseas territory/United States Virgin Islands": {"article": "the", "display": ""},
     "region/Balkans": {"article": "the", "display": ""},
     "region/Caribbean": {"article": "the", "display": ""},
     "region/Caucasus": {"article": "the", "display": ""},
+    "region/Gaza Strip": {"article": "the", "display": ""},
     "region/Kanta-Häme": {"article": "", "display": "region/Tavastia Proper"},
     "region/Middle East": {"article": "the", "display": ""},
     "region/New Territories": {"article": "the", "display": ""},
     "region/North Caucasus": {"article": "the", "display": ""},
     "region/North Savo": {"article": "", "display": "region/Northern Savonia"},
-    "region/Northern Ostrobothnia": {
-        "article": "",
-        "display": "region/North Ostrobothnia",
-    },
+    "region/Northern Ostrobothnia": {"article": "", "display": "region/North Ostrobothnia"},
     "region/Päijät-Häme": {"article": "", "display": "region/Päijänne Tavastia"},
     "region/Russian Far East": {"article": "the", "display": ""},
     "region/South Caucasus": {"article": "the", "display": ""},
     "region/South Savo": {"article": "", "display": "region/Southern Savonia"},
-    "region/Southern Ostrobothnia": {
-        "article": "",
-        "display": "region/South Ostrobothnia",
-    },
+    "region/Southern Ostrobothnia": {"article": "", "display": "region/South Ostrobothnia"},
     "region/West Bank": {"article": "the", "display": ""},
     "region/Åland": {"article": "", "display": "region/Åland Islands"},
     "region/Åland Islands": {"article": "the", "display": ""},
@@ -2377,10 +2458,7 @@ recognized_placenames = {
     "republic/Chechen Republic": {"article": "the", "display": ""},
     "republic/Chuvash Republic": {"article": "the", "display": ""},
     "republic/Kabardino-Balkar Republic": {"article": "the", "display": ""},
-    "republic/Kabardino-Balkarian Republic": {
-        "article": "",
-        "display": "republic/Kabardino-Balkar Republic",
-    },
+    "republic/Kabardino-Balkarian Republic": {"article": "", "display": "republic/Kabardino-Balkar Republic"},
     "republic/Karachay-Cherkess Republic": {"article": "the", "display": ""},
     "republic/Komi Republic": {"article": "the", "display": ""},
     "republic/Mari El Republic": {"article": "the", "display": ""},
@@ -2399,10 +2477,7 @@ recognized_placenames = {
     "republic/Tuva Republic": {"article": "the", "display": ""},
     "republic/Tyva Republic": {"article": "", "display": "republic/Tuva Republic"},
     "republic/Udmurt Republic": {"article": "the", "display": ""},
-    "state/Mecklenburg-Western Pomerania": {
-        "article": "",
-        "display": "state/Mecklenburg-Vorpommern",
-    },
+    "state/Mecklenburg-Western Pomerania": {"article": "", "display": "state/Mecklenburg-Vorpommern"},
     "state/Mexico": {"article": "", "display": "state/State of Mexico"},
     "state/State of Mexico": {"article": "the", "display": ""},
     "territory/Australian Capital Territory": {"article": "the", "display": ""},
@@ -2419,23 +2494,11 @@ recognized_placenames = {
     "territory/Pitcairn Islands": {"article": "the", "display": ""},
     "territory/South Sandwich Islands": {"article": "the", "display": ""},
     "territory/Turks and Caicos Islands": {"article": "the", "display": ""},
-    "territory/U.S. Virgin Islands": {
-        "article": "",
-        "display": "territory/United States Virgin Islands",
-    },
-    "territory/US Virgin Islands": {
-        "article": "",
-        "display": "territory/United States Virgin Islands",
-    },
+    "territory/U.S. Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
+    "territory/US Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
     "territory/United States Virgin Islands": {"article": "the", "display": ""},
-    "unincorporated territory/Northern Mariana Islands": {
-        "article": "the",
-        "display": "",
-    },
-    "unincorporated territory/United States Virgin Islands": {
-        "article": "the",
-        "display": "",
-    },
+    "unincorporated territory/Northern Mariana Islands": {"article": "the", "display": ""},
+    "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 147
+}  # 151
 # END

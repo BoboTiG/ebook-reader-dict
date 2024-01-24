@@ -153,9 +153,7 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(
-    lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)
-) -> str:
+def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
     """  # noqa
@@ -179,9 +177,41 @@ def text_language(
     return mytext
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
+    """
+    from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
+    """
+    from .aliases import aliases
+    from .labels import labels as data
+
+    mytext = ""
+
+    label = args.get("label") or args.get("topic") or args.get("ετικέτα") or ""
+
+    alias = ""
+    if label in aliases:
+        alias = label
+        label = aliases[alias]
+
+    text = text_in or args["1"]
+    term = args["όρος"] or args["term"] or ""
+    show = args["εμφ"] or args["show"] or ""
+    noparenthesis = args["0"]
+    if not label or label is None:
+        return ""
+    nodisplay = args["nodisplay"] or args["000"]
+    if nodisplay == "" and data.get(label, {}).get("link") != "πατρότητα":
+        if term != "":
+            mytext = term
+        elif text != "":
+            mytext = text
+        else:
+            mytext = f"{show}" if show != "" else f'{italic(data[label]["linkshow"])}'
+        mytext = mytext if noparenthesis != "" else f"({mytext})"
+    return mytext
+
+
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -200,6 +230,18 @@ def last_template_handler(
 
         >>> last_template_handler(["λ", "ἡδύς", "grc"], "el")
         'ἡδύς'
+
+        >>> last_template_handler(["ετ", "ιατρική"], "el")
+        '(<i>ιατρική</i>)'
+        >>> last_template_handler(["ετ", "ιατρική", "0=-"], "el")
+        '<i>ιατρική</i>'
+
+        >>> last_template_handler(["λόγιο"], "el")
+        '(<i>λόγιο</i>)'
+
+        >>> last_template_handler(["ουσ"], "el")
+        '(<i>ουσιαστικοποιημένο</i>)'
+
     """
     from ..defaults import last_template_handler as default
 
@@ -230,7 +272,19 @@ def last_template_handler(
         phrase += f" {data['1'] or parts[2]}"
         return phrase
 
-    if tpl == "λ":
+    if tpl in ["λ", "l", "link"]:
         return parts[0]
+
+    if tpl in ["ετ", "ετικέτα"]:
+        data["label"] = parts[0]
+        return labels_output(data.get("text", ""), data)
+
+    if tpl == "λόγιο":
+        data["label"] = tpl
+        return labels_output("", data)
+
+    if tpl == "ουσ":
+        text = italic("ουσιαστικοποιημένο")
+        return text if data["0"] else f"({text})"
 
     return default(template, locale, word)

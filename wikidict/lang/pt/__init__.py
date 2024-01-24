@@ -217,9 +217,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -301,6 +299,10 @@ def last_template_handler(
         >>> last_template_handler(["la"], "pt")
         'Latim'
 
+        >>> last_template_handler(["etimo2", "la", "myrmecophaga", "pt"], "pt")
+        'Do latim <i>myrmecophaga</i>.'
+        >>> last_template_handler(["etimo2", "la", "exauctorare"], "pt")
+        'Do latim <i>exauctorare</i>.'
         >>> last_template_handler(["llietimo", "la", "myrmecophaga", "pt"], "pt")
         'Do latim <i>myrmecophaga</i>.'
         >>> # Note: below example is not expected because we would need to translate Greek to Spanish
@@ -437,8 +439,11 @@ def last_template_handler(
                     result.append(italic(full))
         return concat(result, ", ")
 
-    if tpl == "llietimo":
-        src, word, _, *rest = parts
+    if tpl in {"etimo2", "llietimo"}:
+        try:
+            src, word, _, *rest = parts
+        except ValueError:
+            src, word, *rest = parts
         phrase = f"Do {langs[src]} {italic(word)}"
         if data["transcr"]:
             phrase += f" ({italic(data['transcr'])})"

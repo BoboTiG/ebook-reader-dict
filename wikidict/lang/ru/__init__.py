@@ -51,9 +51,7 @@ wiktionary = "Викисловарь (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(
-        r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"
-    ),
+    pattern: Pattern[str] = re.compile(r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"),
 ) -> List[str]:
     """
     >>> find_genders("")
@@ -79,9 +77,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template

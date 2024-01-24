@@ -246,9 +246,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -290,16 +288,12 @@ def last_template_handler(
 
     if tpl == "linkf":
         return parenthesis(
-            italic("invariabile")
-            if parts[0] in ("inv", "invariabile")
-            else f"{italic('f.:')} {strong(parts[0])}"
+            italic("invariabile") if parts[0] in ("inv", "invariabile") else f"{italic('f.:')} {strong(parts[0])}"
         )
 
     if tpl == "linkp":
         return parenthesis(
-            italic("invariabile")
-            if parts[0] in ("inv", "invariabile")
-            else f"{italic('pl.:')} {strong(parts[0])}"
+            italic("invariabile") if parts[0] in ("inv", "invariabile") else f"{italic('pl.:')} {strong(parts[0])}"
         )
 
     if tpl == "pn":

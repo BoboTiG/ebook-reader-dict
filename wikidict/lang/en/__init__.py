@@ -281,9 +281,7 @@ def find_pronunciations(
     return uniq(flatten(pattern.findall(code)))
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -358,20 +356,10 @@ def last_template_handler(
             starter = f"{word} of" if word else "form of"
             word = data["3"] or (parts.pop(0) if parts else "")
             text = data["4"] or (parts.pop(0) if parts else "")
-            gloss = (
-                data["t"]
-                or data["gloss"]
-                or data["5"]
-                or (parts.pop(0) if parts else "")
-            )
+            gloss = data["t"] or data["gloss"] or data["5"] or (parts.pop(0) if parts else "")
         else:
             text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
-            gloss = (
-                data["t"]
-                or data["gloss"]
-                or data["4"]
-                or (parts.pop(0) if parts else "")
-            )
+            gloss = data["t"] or data["gloss"] or data["4"] or (parts.pop(0) if parts else "")
         word = text or word
         if word.startswith("w:"):
             word = word[2:]

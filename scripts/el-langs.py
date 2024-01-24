@@ -41,7 +41,16 @@ for line in textarea.text.split("\n"):
     script += line
 
 exec(script)
-languages = {key: {"name": Languages[key].get("name", ""), "frm": Languages[key].get("frm", ""), "from": Languages[key].get("from", ""), "apo": Languages[key].get("apo", ""), "family": Languages[key].get("family", "")} for key in Languages.keys()}  # type: ignore # noqa
+languages = {
+    key: {
+        "name": Languages[key].get("name", ""),  # type: ignore[name-defined] # noqa
+        "frm": Languages[key].get("frm", ""),  # type: ignore[name-defined] # noqa
+        "from": Languages[key].get("from", ""),  # type: ignore[name-defined] # noqa
+        "apo": Languages[key].get("apo", ""),  # type: ignore[name-defined] # noqa
+        "family": Languages[key].get("family", ""),  # type: ignore[name-defined] # noqa
+    }
+    for key in Languages.keys()  # type: ignore[name-defined] # noqa
+}
 print("from typing import Dict, Union")
 print("langs:Dict[str, Dict[str, Union[str, bool]]] = {")
 for key, value in sorted(languages.items()):

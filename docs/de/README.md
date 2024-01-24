@@ -1,29 +1,27 @@
-# German Dictionary For Your eBook Reader
+# Deutsches Wörterbuch für Ihren E-Reader
 
-> 🥇 That page needs to be translated to **German**. If you can give a hand, that would be awesome 🥰
+**eBook Reader Dictionaries** ist ein kollaboratives Projekt zur Erstellung eines kompletten Wörterbuchs anhand der breiten Wissensbasis des [Wiktionarys](https://de.wiktionary.org/), täglich aktualisiert.
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://de.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+## Interessante Funktionalitäten
 
-## Interesting Features
-
-- [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed. <!-- → [](screenshot-.png) -->
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed. <!-- → [](screenshot-.png) -->
-- If a word contains several pronunciations, or genders, all are available. <!-- → [](screenshot-.png) -->
-- Mathematic formulas are converted to SVG. <!-- → [](screenshot-.png) -->
-- Chemical formulas are converted to SVG. <!-- → [](screenshot-.png) -->
-- Hieroglyphs are supported. <!-- → [](screenshot-Katze.png) -->
-- Tables are supported. <!-- → [](screenshot-.png) -->
+- [Kobo] Bei der Auswahl einer Pluralform, wird seine Singularform angezeigt.
+- [Kobo] Bei der Auswahl eines konjugierten Verbs, wird seine infinite Form angezeigt. <!-- → [](screenshot-.png) -->
+- [Kobo] Leitet sich ein Wort von mehreren anderen Lemmata ab, werden alle Lemmata angezeigt. <!-- → [](screenshot-.png) -->
+- Besteht für ein Wort mehrere Aussprachen oder Geschlechter, werden alle angezeigt <!-- → [](screenshot-.png) -->
+- Mathematische Formeln sind in Vektorgrafiken ungewandelt und lässt sich damit fehlerfrei anzeigen. <!-- → [](screenshot-.png) -->
+- Chemische Formeln sind in Vektorgrafiken ungewandelt und lässt sich damit fehlerfrei anzeigen. <!-- → [](screenshot-.png) -->
+- Unterstützung für Hieroglyphen <!-- → [](screenshot-Katze.png) -->
+- Unterstützung für Tabellen. <!-- → [](screenshot-.png) -->
 
 ## Downloads
 
-### Full Version
+### Vollständige Version
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/de/dicthtml-de-de.zip) (dicthtml-de-de.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/de/dict-de-de.zip) (dict-de-de.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/de/dict-de-de.df.bz2) (dict-de-de.df.bz2)
 
-### Etymology-Free Version
+### Version ohne Etymologien
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/de/dicthtml-de-de-noetym.zip) (dicthtml-de-de-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/de/dict-de-de-noetym.zip) (dict-de-de-noetym.zip)
@@ -31,4 +29,4 @@
 
 ## Installation
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Das Wörterbuch ins Verzeichnis `.kobo/custom-dict/` des E-Readers kopieren.

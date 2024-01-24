@@ -131,6 +131,7 @@ domain_templates = {
     "figures": "Rhétorique",
     "flamants": "Ornithologie",
     "fleurs": "Botanique",
+    "fongicides": "Chimie",
     "formations musicales": "Musique",
     "fossiles": "Paléontologie",
     "fromages": "Fromage",
@@ -213,6 +214,7 @@ domain_templates = {
     "personnalités": "Anthroponyme",
     "personnification": "Rhétorique",
     "personnifications": "Rhétorique",
+    "pesticides": "Chimie",
     "peupliers": "Botanique",
     "phobies": "Médecine",
     "phyton": "Botanique",
@@ -296,8 +298,10 @@ domain_templates = {
     "vents": "Météorologie",
     "vers": "Zoologie",
     "viandes": "Cuisine",
+    "villes": "Géographie",
     "vins": "Œnologie",
     "virus": "Virologie",
+    "voies": "Transport",
     "voitures": "Automobile",
     "véhicule": "Transport",
     "véhicules": "Transport",
@@ -317,5 +321,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 312
+}  # 316
 # END

@@ -34,7 +34,7 @@ langs = {
     "aia": "arosi",
     "aie": "amara",
     "ain": "aino",
-    "aiw": "ari",
+    "aiw": "aari",
     "ak": "akan",
     "akg": "anakalangu",
     "akk": "acadiano",
@@ -78,7 +78,6 @@ langs = {
     "aua": "asumboa",
     "aud": "anuta",
     "aus": "darkinjung",
-    "aus-syd": "dharuk",
     "aut": "austral",
     "av": "avárico",
     "avk": "kotava",
@@ -280,7 +279,7 @@ langs = {
     "fil": "filipino",
     "fj": "fijiano",
     "fkv": "kveno",
-    "fla": "salish",
+    "fla": "kalispel",
     "fo": "feroês",
     "for": "fore",
     "fos": "siraya",
@@ -317,7 +316,7 @@ langs = {
     "gml": "baixo-alemão médio",
     "gmy": "grego micênico",
     "gn": "guarani",
-    "gni": "gooniyandi",
+    "gni": "guniyandi",
     "goh": "alto alemão antigo",
     "gom": "concani",
     "gos": "groninguês",
@@ -447,12 +446,11 @@ langs = {
     "krj": "antiqueño",
     "krl": "carélio",
     "ks": "caxemira",
-    "ks": "caxemira",
     "ksd": "kuanua",
     "kse": "kuni",
     "ksg": "kusaghe",
     "ksh": "francônio",
-    "ksi": "krisa",
+    "ksi": "i'saka",
     "ksx": "kedang",
     "ktk": "kaniet",
     "ktn": "caritiana",
@@ -475,7 +473,7 @@ langs = {
     "kzi": "kelabit",
     "kzk": "kazukuru",
     "kzp": "kaidipang",
-    "kzt": "tambunan",
+    "kzt": "tambunan dusun",
     "kzu": "kayupulau",
     "la": "latim",
     "lad": "ladino",
@@ -612,7 +610,6 @@ langs = {
     "nag": "nagamês",
     "nah": "náuatle",
     "nak": "nakanai",
-    "nak": "nakanai",
     "nan": "min nan",
     "nap": "napolitano",
     "naq": "nama",
@@ -626,7 +623,6 @@ langs = {
     "new": "newari",
     "nfl": "nifilole",
     "nfr": "nafana",
-    "ng": "ndonga",
     "ng": "ndonga",
     "nho": "takuu",
     "nia": "nias",
@@ -660,7 +656,6 @@ langs = {
     "olo": "livicoviano",
     "om": "oromo",
     "ood": "papago",
-    "or": "oriá",
     "or": "oriá",
     "ora": "oroha",
     "os": "osseta",
@@ -933,6 +928,7 @@ langs = {
     "xbr": "kambera",
     "xce": "celtibérico",
     "xcl": "armênio antigo",
+    "xdk": "dharuk",
     "xeb": "eblaíta",
     "xet": "xetá",
     "xh": "xhosa",
@@ -980,11 +976,15 @@ langs = {
     "zin": "zinza",
     "zu": "zulu",
     "zun": "zuni",
-}  # 975
+}  # 971
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
+langs["euq-pro"] = "protobasco"  # 2023-11-20
 langs["ine-pro"] = "protoindo-europeu"  # 2022-08-10
+langs["la-vul"] = "latim vulgar"  # 2023-12-03
+langs["lat-med"] = "latim medieval"  # 2023-12-03
+langs["lat-tar"] = "latim tardio"  # 2023-12-03
 langs["nci"] = "náuatle clássico"  # 2020-12-20
 langs["prv"] = "provençal"  # 2020-09-24
 langs["roa-oca"] = "catalão medieval"  # 2020-09-24

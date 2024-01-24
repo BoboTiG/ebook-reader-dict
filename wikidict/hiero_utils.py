@@ -128,12 +128,8 @@ def renderGlyphImage(glyph: str, height: int, margin: int, moreStyle: str) -> st
     if filename not in wh_files:
         return glyph
     style = "" if margin == 0 else f"margin: {margin}px;"
-    style += "border: 0; vertical-align: middle; width:auto;" + (
-        f" {moreStyle}" if moreStyle else ""
-    )
-    result = (
-        f'<img src="{wh_hiero[filename]}" style="{style}" title="{title}" alt="glyph"'
-    )
+    style += "border: 0; vertical-align: middle; width:auto;" + (f" {moreStyle}" if moreStyle else "")
+    result = f'<img src="{wh_hiero[filename]}" style="{style}" title="{title}" alt="glyph"'
     if height > 0:
         result += f' height="{height}"'
     result += "/>"
@@ -235,9 +231,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
             elif code[0] != "":
                 # assume it's a glyph or '..' or '.'
                 contentHtml += (
-                    f'<td style="{TD_STYLE}">'
-                    + renderGlyph(code[0], resizeGlyph(code[0], is_cartouche))
-                    + "</td>"
+                    f'<td style="{TD_STYLE}">' + renderGlyph(code[0], resizeGlyph(code[0], is_cartouche)) + "</td>"
                 )
 
         # block contains more than 1 glyph
@@ -248,9 +242,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
             # test if block exists in the prefabs list
             if prefabs in wh_prefabs:
                 contentHtml += (
-                    f'<td style="{TD_STYLE}">'
-                    + renderGlyph(prefabs, resizeGlyph(prefabs, is_cartouche))
-                    + "</td>"
+                    f'<td style="{TD_STYLE}">' + renderGlyph(prefabs, resizeGlyph(prefabs, is_cartouche)) + "</td>"
                 )
 
             # block must be manually computed

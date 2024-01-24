@@ -597,6 +597,18 @@ form_of_templates = {
         "text": "Pronunciation spelling of",
         "dot": True,
     },
+    "pron spelling of": {
+        "text": "Pronunciation spelling of",
+        "dot": True,
+    },
+    "pron sp of": {
+        "text": "Pronunciation spelling of",
+        "dot": True,
+    },
+    "pron sp": {
+        "text": "Pronunciation spelling of",
+        "dot": True,
+    },
     "pronunciation variant of": {
         "text": "Pronunciation variant of",
         "dot": True,
@@ -749,7 +761,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 186
+}  # 189
 # END
 
 

@@ -212,9 +212,7 @@ wiktionary = "Wikcionario (ɔ) {year}"
 def find_pronunciations(
     code: str,
     pattern1: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
-    pattern2: Pattern[str] = re.compile(
-        r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"
-    ),
+    pattern2: Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
 ) -> List[str]:
     """
     >>> find_pronunciations("")
@@ -232,9 +230,7 @@ def find_pronunciations(
     return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 
 
-def last_template_handler(
-    template: Tuple[str, ...], locale: str, word: str = ""
-) -> str:
+def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

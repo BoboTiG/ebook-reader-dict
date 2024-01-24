@@ -649,6 +649,7 @@ langs = {
     "xaa": "Andalusisches Arabisch",
     "xae": "Äquisch",
     "xal": "Kalmückisch",
+    "xbc": "Baktrisch",
     "xbm": "Mittelbretonisch",
     "xcl": "Altarmenisch",
     "xfa": "Faliskisch",
@@ -686,5 +687,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 681
+}  # 682
 # END

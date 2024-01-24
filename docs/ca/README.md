@@ -1,34 +1,32 @@
-# Catalan Dictionary For Your eBook Reader
+# Diccionari Català per al vostre lector de llibres digitals
 
-> 🥇 That page needs to be translated to **Catalan**. If you can give a hand, that would be awesome 🥰
+**eBook Reader Dictionaries** és un projecte col·laboratiu que fa servir l’extensa base de dades del [Viccionari](https://ca.wiktionary.org/) per crear un diccionari complet, actualitzat diàriament.
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Viccionari](https://ca.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+## Característiques interessants
 
-## Interesting Features
+- [Kobo] Quan seleccioneu una paraula en plural, es mostrarà la seva forma en singular.
+- [Kobo] Quan seleccioneu un verb conjugat, es mostrarà el seu infinitiu.
+- [Kobo] Quan una paraula és el plural d’una altra i també una forma d’un verb, es mostraran totes dues versions.
+- Si una paraula té diverses pronunciacions o gèneres, tots   són disponibles.
+- Les fórmules matemàtiques es converteixen a SVG.
+- Les fórmules químiques es converteixen a SVG.
+- Suport per a jeroglífics.
+- Suport per a taules.
 
-- [Kobo] When selecting a plural word, its singular form will be displayed.
-- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed.
-- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed.
-- If a word contains several pronunciations, or genders, all are available.
-- Mathematic formulas are converted to SVG.
-- Chemical formulas are converted to SVG.
-- Hieroglyphs are supported.
-- Tables are supported.
+## Baixades
 
-## Downloads
-
-### Full Version
+### Versió completa
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dicthtml-ca-ca.zip) (dicthtml-ca-ca.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.zip) (dict-ca-ca.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.df.bz2) (dict-ca-ca.df.bz2)
 
-### Etymology-Free Version
+### Versió sense etimologia
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dicthtml-ca-ca-noetym.zip) (dicthtml-ca-ca-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca-noetym.zip) (dict-ca-ca-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca-noetym.df.bz2) (dict-ca-ca-noetym.df.bz2)
 
-## Installation
+## Instal·lació
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Copieu el diccionari dins la carpeta `.kobo/custom-dict/` al vostre lector de llibres electrònics.

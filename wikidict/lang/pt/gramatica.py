@@ -37,7 +37,7 @@ gramatica_short = {
     "bitrans": "bitransitivo",
     "c": "comum",
     "c2g": "comum aos dois géneros",
-    "c2g2n": "comum aos dois géneros e de dois números",
+    "c2g2n": "comum aos dois géneros e aos dois números",
     "c2gc2n": "comum aos dois géneros e aos dois números",
     "c2gp": "comum aos dois géneros plural",
     "c2gpl": "comum aos dois géneros plural",
@@ -78,9 +78,11 @@ gramatica_short = {
     "fdu": "feminino dual",
     "fi": "feminino invariável",
     "finv": "feminino invariável",
+    "forte": "forte",
     "fp": "feminino plural",
     "fpl": "feminino plural",
     "frac": "fracionário",
+    "fraco": "fraco",
     "fs": "feminino singular",
     "fsg": "feminino singular",
     "gc": "género comum",
@@ -143,6 +145,7 @@ gramatica_short = {
     "pl": "plural",
     "poss": "possessivo",
     "pr": "próprio",
+    "pred": "predicativo",
     "prim": "primitivo",
     "pron": "pronominal",
     "prop": "próprio",
@@ -156,6 +159,7 @@ gramatica_short = {
     "sg": "singular",
     "sim": "simples",
     "simpl": "simples",
+    "sp": "singular e plural",
     "subst": "substantival",
     "temp": "de tempo",
     "ton": "tônico",
@@ -175,5 +179,5 @@ gramatica_short = {
     "vtd": "transitivo direto",
     "vtdi": "transitivo direto e indireto",
     "vti": "transitivo indireto",
-}  # 170
+}  # 174
 # END

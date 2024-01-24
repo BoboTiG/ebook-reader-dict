@@ -279,6 +279,7 @@ def test_parse_word(
         ("{{comp|ca|-oma}}", "sufix <i>-oma</i>"),
         ("{{doblet|ca|Castellar}}", "<i>Castellar</i>"),
         ("{{e|la|longifolius|longifolia}}", "longifolia"),
+        ("{{e-propi|ca|grèvol}}", "<b>grèvol</b>"),
         ("{{IPAchar|[θ]}}", "[θ]"),
         ("{{pron|ca|/kənˈta/}}", "/kənˈta/"),
         ("{{pron|en|/əˈkrɔs/|/əˈkrɑs/}}", "/əˈkrɔs/, /əˈkrɑs/"),
@@ -289,6 +290,7 @@ def test_parse_word(
         ),
         ("{{romanes|XIX}}", "<span style='font-variant:small-caps'>xix</span>"),
         ("{{etim-s|ca|XIV}}", "segle XIV"),
+        ("{{etim-s|ca|XVII|1617}}", "1617"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
