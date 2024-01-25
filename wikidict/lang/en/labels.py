@@ -226,6 +226,7 @@ labels = {
     "imperfective": "imperfective",
     "imperial": "imperial",
     "impersonal": "impersonal",
+    "in": "in",
     "in dual": "in the dual",
     "in hiadys": "in hiadys",
     "in mediopassive": "mediopassive",
@@ -507,7 +508,7 @@ labels = {
     "women's speech": "women's speech",
     "wrt": "with respect to",
     "youth slang": "youth slang",
-}  # 502
+}  # 503
 
 label_syntaxes = {
     "&": {
@@ -586,6 +587,11 @@ label_syntaxes = {
         "omit_preSpace": False,
     },
     "highly": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+    "in": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
@@ -760,7 +766,7 @@ label_syntaxes = {
         "omit_preComma": False,
         "omit_preSpace": False,
     },
-}  # 50
+}  # 51
 
 labels_topical = {
     "ABDL": "ABDL",
@@ -965,6 +971,12 @@ labels_topical = {
     "Rubik's cubes": "Rubik's Cube",
     "SEO": "SEO",
     "Scientology": "Scientology",
+    "Scotland Law": "Scots law",
+    "Scotland law": "Scots law",
+    "Scots Law": "Scots law",
+    "Scots law": "Scots law",
+    "Scottish Law": "Scots law",
+    "Scottish law": "Scots law",
     "Scouting": "scouting",
     "Scrabble": "''Scrabble''",
     "Shaivism": "Shaivism",
@@ -1952,7 +1964,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,189
+}  # 1,195
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

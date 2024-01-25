@@ -481,6 +481,7 @@ campos_semanticos = {
     "turismo": "Turismo",
     "unidades de tiempo": "Cronología",
     "urbanismo": "Urbanismo",
+    "utcsmf": "Se emplea también como sustantivo",
     "utensilios": "Utensilios",
     "varios": "Varios",
     "vegetales": "Botánica, Gastronomía",
@@ -502,5 +503,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 497
+}  # 498
 # END
