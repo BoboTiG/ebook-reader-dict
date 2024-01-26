@@ -6773,7 +6773,7 @@ langs = {
     "qfa-yso": "Southern Yeniseian",
     "qfa-yuk": "Yukaghir",
     "qfa-yuk-pro": "Proto-Yukaghir",
-    "qsb-bal": "a pre-Roman substrate of the Balkans",
+    "qsb-bal": "Paleo-Balkan",
     "qsb-bma": "the BMAC substrate",
     "qsb-grc": "Pre-Greek",
     "qsb-ibe": "a pre-Roman substrate of Iberia",

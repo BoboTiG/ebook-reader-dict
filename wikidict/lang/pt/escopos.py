@@ -317,7 +317,8 @@ escopos = {
     "Portugal": "Portugal",
     "Português brasileiro": "Brasil",
     "Português lusitano": "Portugal",
-    "Pouco usado": "pouco usado",
+    "Pouco comum": "pouco comum",
+    "Pouco usado": "pouco comum",
     "Programação": "ciência da computação",
     "Pronominal": "pronominal",
     "Provença": "Provença",
@@ -434,5 +435,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 429
+}  # 430
 # END
