@@ -6094,7 +6094,6 @@ labels_subvarieties = {
     "Upper Saxon": "Upper Saxon",
     "Upper Saxon German": "Upper Saxon",
     "Upper Saxony": "Upper Saxon",
-    "Upper Silesia": "Upper Silesia",
     "Upper Yangtze Mandarin": "Southwestern Mandarin",
     "Urban Cebu": "Urban Cebu",
     "Urban Cebuano": "Urban Cebu",
@@ -6914,5 +6913,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,389
+}  # 3,388
 # END
