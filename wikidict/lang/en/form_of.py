@@ -293,6 +293,10 @@ form_of_templates = {
         "text": "Eye dialect spelling of",
         "dot": True,
     },
+    "eye dialect form of": {
+        "text": "Eye dialect spelling of",
+        "dot": True,
+    },
     "female equivalent of": {
         "text": "female equivalent of",
         "dot": False,
@@ -761,7 +765,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 189
+}  # 190
 # END
 
 
