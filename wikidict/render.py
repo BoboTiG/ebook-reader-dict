@@ -184,6 +184,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> List[
         if section_title == "Этимология":
             definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
+    elif locale == "da":
+        section_title = parsed_section.title.strip()
+        if section_title in {"{{etym}}", "Etymologi"}:
+            definitions.append(process_templates(word, parsed_section.contents, locale))
+        return definitions
 
     tables = parsed_section.tables
     tableindex = 0

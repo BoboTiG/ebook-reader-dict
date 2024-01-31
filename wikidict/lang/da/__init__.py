@@ -10,7 +10,7 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{da}}", "dansk", "{{=da=}}")
-etyl_section = ("{{etym}}",)
+etyl_section = ("{{etym}}", "Etymologi")
 sections = (
     *etyl_section,
     "Adjektiv",
@@ -42,41 +42,26 @@ sections = (
 )
 
 # Variants
-variant_titles = (
-    "Adjektiv",
-    "Adverbium",
-    "Pronomen",
-    "Substantiv",
-    "{{adj}}",
-    "{{adv}}",
-    "{{noun}}",
-    "{{pron}}",
-    "{{prop}}",
-    "{{verb}}",
-    "-adj-",
-    "Alternativ form",
-    "Alternative former",
-    "Alternative stavemåder",
-)
-variant_templates = (
-    "Bøjning",
-    "Staves også",
-    "flertal af",
-    "genitivform af",
-    "imperitiv af",
-    "infl",
-    "prœsens av",
-    "da-noun-infl",
-)
+# variant_titles = (
+#     "Adjektiv",
+#     "Adverbium",
+#     "Substantiv",
+#     "{{adj}}",
+#     "{{adv}}",
+#     "{{verb}}",
+# )
+# variant_templates = ("{{l",)
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "Bøjning",
     "Eksempler",
+    "da-noun-2",
+    "da-noun-3",
     "da-noun-4",
     "da-noun-5",
     "da-noun-6",
     "da-noun-7",
+    "imperativ af",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -87,27 +72,38 @@ templates_ignored = (
     "dm",
     "-syn-",
     "etyl",
+    "wikipedia",
+    "Wikipedia",
+    "infl",
 )
 
 templates_multi = {
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{form of|imperative form|bjerge|lang=da}}
-    "form of": "parts[1] + ' av ' + strong(parts[2])",
+    "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{term|mouse|lang=en}}
-    "term": "italic(parts[1]) + superscript('(' + parts[-1].lstrip('=lang') + ')')",
+    "term": "parts[1] + superscript('(' + parts[-1].lstrip('=lang') + ')')",
     # {{fysik}}
-    "fysik": "'(fysik)'",
+    "fysik": "'(' + italic('fysik') + ')'",
     # {{u|de|Reis}}
-    "u": "italic(parts[-1]) + ' (' + parts[1] + ')'",
+    "u": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{compound|hjemme|værn}}
     "compound": "' + '.join(parts[1:])",
     # {{trad|en|limnology}}
-    "trad": "italic(parts[-1]) + superscript('(' + parts[1] + ')')",
+    "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{en}}
     "en": "'Engelsk'",
     # {{suffix|Norden|isk|lang=da}}
     "suffix": "parts[1] + ' + -' + parts[2]",
+    # {{data}}
+    "data": "'(' + italic('data') + ')'",
+    # {{dublet af|da|boulevard}}
+    "dublet af": "'dublet af ' + strong(parts[-1])",
+    # {{prefix|hoved|gade|lang=da}}
+    "prefix": "parts[1] + '- + ' + parts[2]",
+    # {{confix|cysto|itis|lang=da}}
+    "confix": "parts[1] + '- + -' + parts[2]",
 }
 
 # Release content on GitHub
