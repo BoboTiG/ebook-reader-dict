@@ -6,6 +6,7 @@ Auto-generated with `python -m scripts`.
 # START
 namespaces = {
     "ca": ["Categoria", "Fitxer", "Image", "Imatge"],
+    "da": ["Billede", "Fil", "Image", "Kategori"],
     "de": ["Bild", "Datei", "Image", "Kategorie"],
     "el": ["Image", "Αρχείο", "Εικόνα", "Κατηγορία"],
     "en": ["CAT", "Category", "File", "Image"],

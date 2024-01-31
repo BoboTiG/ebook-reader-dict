@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from .lang import sections
-from .render import find_all_sections, find_sections, get_latest_json_file, load
+from .render import adjust_wikicode, find_all_sections, find_sections, get_latest_json_file, load
 
 
 def find_titles(code: str, locale: str) -> List[str]:
@@ -20,6 +20,9 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
     templates: Dict[str, str] = {}
     locale_sections = sections[locale]
     for in_word, code in in_words.items():
+        if locale == "da":
+            code = adjust_wikicode(code, locale)
+
         for title in find_titles(code, locale):
             found_sections[title].append(in_word)
 

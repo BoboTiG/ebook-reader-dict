@@ -358,7 +358,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
             flags=re.MULTILINE,
         )
 
-    if locale in {"it", "ron"}:
+    if locale in {"it", "ron", "da"}:
         # {{-avv-|it}} -> === {{avv}} ===
         code = re.sub(
             rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
@@ -375,6 +375,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{!}} -> "|"
         code = code.replace("{{!}}", "|")
+
+    if locale == "da":
+        # {{=da=}} -> =={{da}}==
+        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     return code
 
