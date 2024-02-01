@@ -41,27 +41,14 @@ sections = (
     "-adj-",
 )
 
-# Variants
-# variant_titles = (
-#     "Adjektiv",
-#     "Adverbium",
-#     "Substantiv",
-#     "{{adj}}",
-#     "{{adv}}",
-#     "{{verb}}",
-# )
-# variant_templates = ("{{l",)
-
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "Eksempler",
     "da-noun-2",
     "da-noun-3",
     "da-noun-4",
     "da-noun-5",
     "da-noun-6",
     "da-noun-7",
-    "imperativ af",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -147,12 +134,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["foo"], "da")
+        []
 
     """  # noqa
-    from ...user_functions import extract_keywords_from
     from ..defaults import last_template_handler as default
-
-    # tpl, *parts = template
-    # data = extract_keywords_from(parts)
 
     return default(template, locale, word=word)
