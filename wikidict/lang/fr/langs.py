@@ -1295,7 +1295,7 @@ langs = {
     "des": "desano",
     "dev": "domung",
     "dez": "bondengese",
-    "dga": "dagaree du Sud",
+    "dga": "dagaare du Sud",
     "dgb": "bunoge",
     "dgc": "agta de Casiguran",
     "dgd": "dagari dioula",
@@ -1684,6 +1684,7 @@ langs = {
     "gal": "galoli",
     "galaïco-portugais": "galaïco-portugais",
     "gallo": "gallo",
+    "gallo-italique de Basilicate": "gallo-italique de Basilicate",
     "gallo-italique de Sicile": "gallo-italique de Sicile",
     "gan": "gan",
     "gao": "gants",
@@ -5322,6 +5323,7 @@ langs = {
     "tk": "turkmène",
     "tkd": "tukudede",
     "tke": "takwane",
+    "tkk": "monba",
     "tkl": "tokelauien",
     "tkn": "toku-no-shima",
     "tkp": "tikopia",
@@ -5393,7 +5395,6 @@ langs = {
     "toi": "tonga (Zambie)",
     "toj": "tojolabal",
     "tok": "toki pona",
-    "tokipona": "toki pona",
     "tol": "tolowa",
     "tom": "tombulu",
     "ton": "tongien",
@@ -6418,7 +6419,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,413
+}  # 6,414
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

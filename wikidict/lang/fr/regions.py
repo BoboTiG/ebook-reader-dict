@@ -419,6 +419,7 @@ regions = {
     "Philippines": "Philippines",
     "Piazza Armerina": "Piazza Armerina",
     "Picardie": "Picardie",
+    "Pignola": "Pignola",
     "Pinu": "Pinu",
     "Poggiardo": "Poggiardo",
     "Poitou": "Poitou",
@@ -604,7 +605,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 599
+}  # 600
 # END
 
 # handled differently

@@ -2709,6 +2709,7 @@ langs = {
     "ggu": "Gban",
     "ggw": "Gogodala",
     "gha": "Ghadames",
+    "ghc": "Classical Gaelic",
     "ghe": "Southern Ghale",
     "ghh": "Northern Ghale",
     "ghk": "Geko Karen",
@@ -3241,7 +3242,7 @@ langs = {
     "ihb": "Pidgin Iha",
     "ihi": "Ihievbe",
     "ihp": "Iha",
-    "ii": "Sichuan Yi",
+    "ii": "Nuosu",
     "iir": "Indo-Iranian",
     "iir-nur": "Nuristani",
     "iir-nur-pro": "Proto-Nuristani",
@@ -9693,5 +9694,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,688
+}  # 9,689
 # END
