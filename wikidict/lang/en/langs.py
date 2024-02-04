@@ -2201,6 +2201,7 @@ langs = {
     "doz": "Dorze",
     "dpp": "Papar",
     "dra": "Dravidian",
+    "dra-bry": "Beary",
     "dra-cen": "Central Dravidian",
     "dra-gki": "Gondi-Kui",
     "dra-gon": "Gondi",
@@ -8885,7 +8886,7 @@ langs = {
     "wwo": "Dorig",
     "wwr": "Warrwa",
     "www": "Wawa",
-    "wxa": "Waxianghua",
+    "wxa": "Waxiang",
     "wxw": "Wardandi",
     "wya": "Wyandot",
     "wyb": "Ngiyambaa",
@@ -9694,5 +9695,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,689
+}  # 9,690
 # END

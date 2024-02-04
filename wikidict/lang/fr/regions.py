@@ -19,6 +19,7 @@ regions = {
     "Afrique": "Afrique",
     "Afrique de l’Ouest": "Afrique de l’Ouest",
     "Afrique du Sud": "Afrique du Sud",
+    "Aidone": "Aidone",
     "Albanie": "Albanie",
     "Alessano": "Alessano",
     "Algérie": "Algérie",
@@ -530,6 +531,7 @@ regions = {
     "Tchad": "Tchad",
     "Terre-Neuve": "Terre-Neuve",
     "Thaïlande": "Thaïlande",
+    "Tito": "Tito",
     "Togo": "Togo",
     "Tonga": "Tonga",
     "Toscane": "Toscane",
@@ -607,7 +609,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 602
+}  # 604
 # END
 
 # handled differently
