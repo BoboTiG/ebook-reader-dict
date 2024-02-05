@@ -4816,7 +4816,7 @@ labels_subvarieties = {
     "LDA": "Lisan ud-Dawat",
     "LL.": "Late Latin",
     "LME": "Late Modern",
-    "LSC": "LSC",
+    "LSC": "Standard",
     "La": "Lavezzola",
     "Labradorimiutut": "Inuttut",
     "Laconian": "Laconian",
@@ -5850,6 +5850,7 @@ labels_subvarieties = {
     "Srikakulam": "Srikakulam",
     "St": "Stojcino",
     "St.": "Stojcino",
+    "Standard": "Standard",
     "Standard Babylonian": "Standard Babylonian",
     "Standard Cornish": "Standard Cornish",
     "Standard Slovene": "Standard Slovene orthography",
@@ -6939,5 +6940,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,414
+}  # 3,415
 # END
