@@ -4,5 +4,5 @@ pytest==8.0.0
 pytest-cov==4.1.0 
 pytest-dependency==0.6.0
 responses==0.24.1
-ruff==0.2.0
+ruff==0.2.1
 types-requests==2.31.0.20240125
