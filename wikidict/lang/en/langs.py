@@ -5839,6 +5839,7 @@ langs = {
     "nol": "Nomlaki",
     "nom": "Nocamán",
     "non": "Old Norse",
+    "non-grn": "Greenlandic Norse",
     "non-oen": "Old East Norse",
     "non-own": "Old West Norse",
     "nop": "Numanggang",
@@ -9698,5 +9699,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,693
+}  # 9,694
 # END

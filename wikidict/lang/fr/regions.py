@@ -390,6 +390,7 @@ regions = {
     "Ouganda": "Ouganda",
     "Ouzbékistan": "Ouzbékistan",
     "PE": "Pérou",
+    "PNG": "Papouasie-Nouvelle-Guinée",
     "PRK": "Corée du Nord",
     "PT": "Portugal",
     "Pakistan": "Pakistan",
@@ -609,7 +610,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 604
+}  # 605
 # END
 
 # handled differently
