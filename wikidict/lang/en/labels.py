@@ -5254,6 +5254,7 @@ labels_subvarieties = {
     "OAkk": "Old Akkadian",
     "OAss": "Old Assyrian",
     "OBab": "Old Babylonian",
+    "Ob": "Ob",
     "Odawa": "Ottawa",
     "Oenoe": "Oinoe",
     "Of": "Ophitic",
@@ -6940,5 +6941,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,415
+}  # 3,416
 # END

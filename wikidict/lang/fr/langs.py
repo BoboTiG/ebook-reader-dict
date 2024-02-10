@@ -3479,6 +3479,7 @@ langs = {
     "mti": "maiwa (Papouasie-Nouvelle-Guinée)",
     "mtj": "moskona",
     "mtl": "montol",
+    "mtm": "mator",
     "mtn": "matagalpa",
     "mto": "mixe de Totontepec",
     "mtp": "wichi",
@@ -6419,7 +6420,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,414
+}  # 6,415
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

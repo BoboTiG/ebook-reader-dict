@@ -215,7 +215,7 @@ escopos = {
     "Inseto": "entomologia",
     "Internetês": "internetês",
     "Intransitivo": "intransitivo",
-    "Iralanda": "Irlanda",
+    "Irlanda": "Irlanda",
     "Irlanda do Norte": "Irlanda",
     "Ironia": "ironia",
     "Irónico": "ironia",

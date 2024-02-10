@@ -4541,7 +4541,7 @@ langs = {
     "loj": "Lou",
     "lok": "Loko",
     "lol": "Mongo",
-    "lom": "Looma",
+    "lom": "Loma",
     "lon": "Malawi Lomwe",
     "loo": "Lombo",
     "lop": "Lopa",
