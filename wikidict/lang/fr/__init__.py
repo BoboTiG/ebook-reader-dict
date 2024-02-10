@@ -598,6 +598,8 @@ templates_multi = {
     "pron": r'f"\\{parts[1]}\\"',
     # {{pron-API|/j/}}
     "pron-API": "parts[1]",
+    # {{pron-recons|plys|fr}}
+    "pron-recons": r'f"*\\{parts[1]}\\"',
     # {{provinces|fr|d’Espagne}}
     "provinces": "term('Géographie')",
     # {{R:Littré|anonacée}})
