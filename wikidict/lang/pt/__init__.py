@@ -427,7 +427,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl == "etm":
-        return langs[parts[0]]
+        return langs[parts[0]].lower()
 
     if tpl in ("g", "gramática"):
         result = []
@@ -444,7 +444,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             src, word, _, *rest = parts
         except ValueError:
             src, word, *rest = parts
-        phrase = f"Do {langs[src]} {italic(word)}"
+        phrase = f"Do {(langs[src].lower())} {italic(word)}"
         if data["transcr"]:
             phrase += f" ({italic(data['transcr'])})"
         if rest:

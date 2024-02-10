@@ -4732,9 +4732,11 @@ labels_subvarieties = {
     "Kentish": "Kentish",
     "Kerasounta": "Kerasounta",
     "Kerasous": "Kerasounta",
+    "Kercem": "Kerċem",
     "Kerkrade": "Kirchröadsj",
     "Kerkradish": "Kirchröadsj",
     "Kerry": "Kerry",
+    "Kerċem": "Kerċem",
     "Kesen": "Kesen",
     "Keski-Pohjanmaa": "Central Ostrobothnia",
     "Ket": "Ket",
@@ -6941,5 +6943,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,416
+}  # 3,418
 # END
