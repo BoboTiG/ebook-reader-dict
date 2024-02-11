@@ -230,6 +230,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
         ''
+        >>> clean("<ref>")
+        ''
         >>> clean("''italic''")
         '<i>italic</i>'
         >>> clean("'''strong'''")
@@ -320,6 +322,8 @@ def clean(text: str, locale: str = "en") -> str:
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
     # <ref name="CFC"><tag>...</tag></ref> -> ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
+    # <ref> -> ''
+    text = text.replace("<ref>", "")
 
     # HTML
     # <-- foo --> -> ''

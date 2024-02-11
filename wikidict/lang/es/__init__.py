@@ -96,6 +96,7 @@ templates_ignored = (
     "picdiclabel",
     "préstamo",
     "pron-graf",
+    "referencia",
     "relacionado",
     "revisar línea",
     "revisión",
