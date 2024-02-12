@@ -1,6 +1,7 @@
 """Norwegian language."""
 
 import re
+from typing import List, Pattern
 
 from ...user_functions import flatten, uniq
 
@@ -45,8 +46,11 @@ definitions_to_ignore = (
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "#ifeq",
+    "audio",
     "definisjon mangler",
     "etymologi mangler",
+    "IPA",
+    "lyd",
     "mangler definisjon",
     "mangler etymologi",
     "norm",
@@ -132,6 +136,13 @@ def find_genders(
     return uniq(flatten(pattern.findall(code)))
 
 
+def find_pronunciations(
+    code: str,
+    pattern: Pattern[str] = re.compile(r"{\s*IPA\s*\|(\[[^\[]+\])"),
+) -> List[str]:
+    return uniq(pattern.findall(code))
+
+
 def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
@@ -152,47 +163,34 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
-        >>> last_template_handler(["lånt", "en", "no", "latte"], "no")
-        'engelsk <i>latte</i>'
-        >>> last_template_handler(["lånt", "it", "no", "caffè", "", "kaffe"], "no")
-        'italiensk <i>caffè</i> («kaffe»)'
-        >>> last_template_handler(["overslån", "en", "no", "quality of life"], "no")
-        'engelsk <i>quality of life</i>'
-        >>> last_template_handler(["overslån", "en", "no", "virgin oil", "virgin", "t1=jomfru", "oil", "t2=olje"], "no")
-        'engelsk <i>virgin oil</i>, <i>virgin</i> («jomfru») + <i>oil</i> («olje»)'
+        >>> last_template_handler(["etyl", "non", "no"], "no")
+        'norrønt'
+        >>> last_template_handler(["term", "ord"], "no")
+        '<i>ord</i>'
 
     """  # noqa
-    from ...user_functions import concat, extract_keywords_from, italic, term
-    from .codelangs import codelangs
+    from ...user_functions import concat, extract_keywords_from, term
+    from .langs import langs
+    from .template_handlers import lookup_template, render_template
+
+    if lookup_template(template[0]):
+        return render_template(template)
 
     tpl, *parts = template
-    data = extract_keywords_from(parts)
+    extract_keywords_from(parts)
 
     if tpl in {"kontekst", "tema"}:
         return term(concat(parts, sep=", "))
 
-    if tpl in {"lånt", "overslån"}:
-        phrase = f"{codelangs[parts[0]]} {italic(parts[2])}"
-        if rest := parts[3:]:
-            if not rest[0]:
-                phrase += f" («{rest[1]}»)"
-            else:
-                phrase += ", "
-                for idx, part in enumerate(rest, 1):
-                    phrase += italic(part)
-                    if trad := data[f"t{idx}"]:
-                        phrase += f" («{trad}»)"
-                    if part != parts[-1]:
-                        phrase += " + "
-
-        return phrase
-
     if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
         return term(tpl)
 
+    if tpl == "etyl":
+        return langs[parts[0]]
+
     # TODO: each time we tackle a ticket, we should remove the template from the condition below.
     #       At the end, the whole condition will be gone.
-    if tpl in {"sammensetning", "avledet", "etyl", "proto", "term"}:
+    if tpl in {"sammensetning", "avledet", "proto"}:
         return tpl
 
     raise ValueError(f"Unhandled template: {word=}, {template=}")
