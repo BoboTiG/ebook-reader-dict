@@ -450,6 +450,7 @@ langs = {
     "gta": "Guató",
     "gu": "Guzerate",
     "gub": "Guajajara",
+    "gul": "Gullah",
     "gv": "Manquês",
     "gym": "Guaymí",
     "gzn": "Gane",
@@ -705,6 +706,7 @@ langs = {
     "lib": "Likum",
     "lih": "Lihir",
     "lij": "Liguriano",
+    "liq": "Libido",
     "liv": "Livônio",
     "ljl": "Lio",
     "ljp": "Lampung Api",
@@ -852,6 +854,7 @@ langs = {
     "mtq": "Muong",
     "mtr": "Mewari",
     "mtt": "Mota",
+    "mult": "Multilíngue",
     "mus": "Creek",
     "mva": "Manam",
     "mvd": "Mamboru",
@@ -1474,7 +1477,7 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,469
+}  # 1,472
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
