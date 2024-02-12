@@ -27,7 +27,7 @@ FILES = {
     "fr-temps-geologiques.py": "wikidict/lang/fr/temps_geologiques.py",
     "it-codelangs.py": "wikidict/lang/it/codelangs.py",
     "it-langs.py": "wikidict/lang/it/langs.py",
-    "no-codelangs.py": "wikidict/lang/no/codelangs.py",
+    "no-langs.py": "wikidict/lang/no/langs.py",
     "pt-codelangs.py": "wikidict/lang/pt/codelangs.py",
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
