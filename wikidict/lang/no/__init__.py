@@ -138,9 +138,23 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{\s*IPA\s*\|(\[[^\[]+\])"),
+    pattern: Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
 ) -> List[str]:
-    return uniq(pattern.findall(code))
+    """
+    >>> find_pronunciations("")
+    []
+    >>> find_pronunciations("{{IPA|/ɡrœn/|[grøn:]|språk=no}}")
+    ['/ɡrœn/', '[grøn:]']
+    >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}")
+    ['[anomali:´]']
+    """
+    result: List[str] = []
+    for f in pattern.findall(code):
+        fsplit = f.split("|")
+        for fs in fsplit:
+            if (fs[0] == "[" and fs[-1] == "]") or (fs[0] == "/" and fs[-1] == "/"):
+                result.append(fs)
+    return result
 
 
 def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
