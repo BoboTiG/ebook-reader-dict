@@ -201,6 +201,7 @@ escopos = {
     "Grã-Bretanha": "Reino Unido",
     "Guatemala": "Guatemala",
     "Guiné-Bissau": "Guiné-Bissau",
+    "Histórico": "histórico",
     "Honduras": "Honduras",
     "Hortaliça": "hortaliça",
     "Ictiologia": "ictiologia",
@@ -435,5 +436,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 430
+}  # 431
 # END

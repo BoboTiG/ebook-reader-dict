@@ -704,6 +704,7 @@ langs = {
     "tly": "talix",
     "tmh": "amazic",
     "tn": "setswana",
+    "tnq": "taïno",
     "to": "tongalès",
     "tog": "tonga",
     "tok": "toki pona",
@@ -802,5 +803,5 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 797
+}  # 798
 # END
