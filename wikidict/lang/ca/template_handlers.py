@@ -3,6 +3,93 @@ from typing import DefaultDict, List, Tuple
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
 from .labels import label_syntaxes, labels
+from .langs import langs
+
+
+def parse_index_parameters(data: DefaultDict[str, str], i: int) -> str:
+    toadd = []
+    if tr := data.get(f"tr{i}", ""):
+        toadd.append(italic(tr))
+    if t := data.get(f"t{i}", ""):
+        toadd.append(f"«{t}»")
+    if pos := data.get(f"pos{i}", ""):
+        toadd.append(pos)
+    if lit := data.get(f"lit{i}", ""):
+        toadd.append(f"literalment «{lit}»")
+    return f" ({concat(toadd, ', ')})" if toadd else ""
+
+
+def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+    """
+    >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
+    '<i>cap</i> i <i>vespre</i>'
+    >>> render_comp("comp", ["ca", "auto-", "retrat"], defaultdict(str))
+    'prefix <i>auto-</i> i <i>retrat</i>'
+    >>> render_comp("comp", ["ca", "a-", "-lèxia"], defaultdict(str))
+    'prefix <i>a-</i> i el sufix <i>-lèxia</i>'
+    >>> render_comp("comp", ["ca", "fred", "-ol-", "-ic"], defaultdict(str))
+    "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
+    >>> render_comp("comp", ["ca", "argila", "+ar"], defaultdict(str))
+    '<i>argila</i> i la desinència <i>-ar</i>'
+    >>> render_comp("comp", ["ca", "xocar", "+Ø"], defaultdict(str))
+    '<i>xocar</i> i la desinència <i>Ø</i>'
+    >>> render_comp("comp", ["ca", "metro-", "-nom"], {"t1": "mesura"})
+    'prefix <i>metro-</i> («mesura») i el sufix <i>-nom</i>'
+    >>> render_comp("comp", ["ca", "mini-", "pequenas"], {"lang2": "es", "t2": "PIMER"})
+    'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
+    """
+
+    def value(word: str, standalone: bool = False) -> str:
+        prefix = ""
+        if word.startswith("-"):
+            if standalone:
+                prefix = "infix " if word.endswith("-") else "sufix "
+            else:
+                prefix = "l'infix " if word.endswith("-") else "el sufix "
+        elif word.endswith("-"):
+            prefix = "prefix "
+        elif word.startswith("+"):
+            prefix = "desinència " if standalone else "la desinència "
+            if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
+                word = "Ø"
+            word = word.replace("+", "-")
+        return f"{prefix}{italic(word)}"
+
+    parts.pop(0)  # Remove the lang
+
+    word1 = parts.pop(0)
+    if not parts:
+        phrase = value(word1, standalone=True)
+        if others := parse_index_parameters(data, 1):
+            phrase += others
+        return phrase
+
+    word2 = parts.pop(0)
+    if not parts:
+        phrase = value(word1)
+        if others := parse_index_parameters(data, 1):
+            phrase += others
+        if "lang2" in data:
+            lang2 = langs[data["lang2"]]
+            phrase += " i l'" if lang2.startswith(("a", "i", "o", "u", "h")) else " i el "
+            phrase += f"{lang2} {value(word2)}"
+        else:
+            phrase += f" i {value(word2)}"
+        if others2 := parse_index_parameters(data, 2):
+            phrase += others2
+        return phrase
+
+    word3 = parts.pop(0) if parts else ""
+    phrase = italic(word1)
+    if others := parse_index_parameters(data, 1):
+        phrase += others
+    phrase += f", {value(word2)}"
+    if others2 := parse_index_parameters(data, 2):
+        phrase += others2
+    phrase += f" i {value(word3)}"
+    if others3 := parse_index_parameters(data, 3):
+        phrase += others3
+    return f"{italic(word1)}, {value(word2)} i {value(word3)}"
 
 
 def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
@@ -132,6 +219,7 @@ def render_sigles_de(tpl: str, parts: List[str], data: DefaultDict[str, str]) ->
 
 
 template_mapping = {
+    "comp": render_comp,
     "forma-": render_forma,
     "forma-a": render_forma,
     "forma-augm": render_forma,
