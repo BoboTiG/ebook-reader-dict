@@ -182,6 +182,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
         >>> last_template_handler(["comp", "ca", "argila", "+ar"], "ca")
         '<i>argila</i> i la desinència <i>-ar</i>'
+        >>> last_template_handler(["comp", "ca", "xocar", "+Ø"], "ca")
+        '<i>xocar</i> i la desinència <i>Ø</i>'
 
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
@@ -295,6 +297,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
                 prefix = "prefix "
             elif word.startswith("+"):
                 prefix = "desinència " if standalone else "la desinència "
+                if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
+                    word = "Ø"
                 word = word.replace("+", "-")
             return f"{prefix}{italic(word)}"
 
