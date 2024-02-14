@@ -154,6 +154,7 @@ escopos = {
     "Engenharia elétrica": "engenharia",
     "Engenharia mecânica": "engenharia",
     "Escócia": "Escócia",
+    "Esgrima": "esgrima",
     "Esoterismo": "Esoterismo",
     "Espanha": "Espanha",
     "Esporte": "esporte",
@@ -436,5 +437,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 431
+}  # 432
 # END
