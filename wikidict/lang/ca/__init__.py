@@ -172,19 +172,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo"], "ca")
         'calc semàntic del castellà <i>pueblo</i>'
 
-        >>> last_template_handler(["comp", "ca", "cap", "vespre"], "ca")
-        '<i>cap</i> i <i>vespre</i>'
-        >>> last_template_handler(["comp", "ca", "auto-", "retrat"], "ca")
-        'prefix <i>auto-</i> i <i>retrat</i>'
-        >>> last_template_handler(["comp", "ca", "a-", "-lèxia"], "ca")
-        'prefix <i>a-</i> i el sufix <i>-lèxia</i>'
-        >>> last_template_handler(["comp", "ca", "fred", "-ol-", "-ic"], "ca")
-        "<i>fred</i>, l'infix <i>-ol-</i> i el sufix <i>-ic</i>"
-        >>> last_template_handler(["comp", "ca", "argila", "+ar"], "ca")
-        '<i>argila</i> i la desinència <i>-ar</i>'
-        >>> last_template_handler(["comp", "ca", "xocar", "+Ø"], "ca")
-        '<i>xocar</i> i la desinència <i>Ø</i>'
-
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
         >>> last_template_handler(["epònim", "ca", "André-Marie Ampère", "w=Niels Henrik Abel"], "ca")
@@ -266,8 +253,12 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         toadd = []
         if data["trans"]:
             toadd.append(italic(data["trans"]))
+        if data["tr"]:
+            toadd.append(italic(data["tr"]))
         if data["t"]:
             toadd.append(f"«{data['t']}»")
+        if data["glossa"]:
+            toadd.append(f"«{data['glossa']}»")
         if data["trad"]:
             toadd.append(f"«{data['trad']}»")
         if data["pos"]:
@@ -283,37 +274,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         phrase += f"{lang} "
         phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
         return phrase
-
-    if tpl == "comp":
-
-        def value(word: str, standalone: bool = False) -> str:
-            prefix = ""
-            if word.startswith("-"):
-                if standalone:
-                    prefix = "infix " if word.endswith("-") else "sufix "
-                else:
-                    prefix = "l'infix " if word.endswith("-") else "el sufix "
-            elif word.endswith("-"):
-                prefix = "prefix "
-            elif word.startswith("+"):
-                prefix = "desinència " if standalone else "la desinència "
-                if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
-                    word = "Ø"
-                word = word.replace("+", "-")
-            return f"{prefix}{italic(word)}"
-
-        parts.pop(0)  # Remove the lang
-
-        word1 = parts.pop(0)
-        if not parts:
-            return value(word1, standalone=True)
-
-        word2 = parts.pop(0)
-        if not parts:
-            return f"{value(word1)} i {value(word2)}"
-
-        word3 = parts.pop(0) if parts else ""
-        return f"{italic(word1)}, {value(word2)} i {value(word3)}"
 
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
