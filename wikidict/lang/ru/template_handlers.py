@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import DefaultDict, List, Tuple
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,7 +8,7 @@ from .. import defaults
 
 
 # for etymology content, need to run code to get text from other wiktionary page
-def get_ru_etymology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_ru_etymology(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     if not parts[0].split("|")[0]:
         return "?"
     url = f"https://ru.wiktionary.org/wiki/Шаблон:{tpl}:{parts[0].split('|')[0]}"
@@ -18,7 +18,7 @@ def get_ru_etymology(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return str(content.getText())
 
 
-def get_ru_example(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_ru_example(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     # if len(parts) > 0:
     #     return ". (Пример: " + parts[0] + ")"
     # elif "текст" in data.keys():
@@ -26,19 +26,19 @@ def get_ru_example(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return ""
 
 
-def get_ru_definition(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_ru_definition(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return str(data["определение"] + data["примеры"])
 
 
-def get_ru_note(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_ru_note(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return f"({parts[0]})"
 
 
-def get_part0(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_part0(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return str(parts[0])
 
 
-def get_so(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def get_so(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return f"то же, что {list(data.values())[0].strip('|')}"
 
 

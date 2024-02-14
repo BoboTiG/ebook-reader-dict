@@ -1,5 +1,5 @@
 from collections import defaultdict  # noqa
-from typing import Dict, List, Tuple
+from typing import DefaultDict, List, Tuple
 
 from ...user_functions import (
     concat,
@@ -9,7 +9,7 @@ from ...user_functions import (
 from .langs import langs
 
 
-def render_avledet(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_avledet(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_avledet("avledet", ["gml", "no", "abbedie"], defaultdict(str))
     'middelnedertysk <i>abbedie</i>'
@@ -19,7 +19,7 @@ def render_avledet(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
 
 
-def render_lant(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_lant("lånt", ["en", "no", "latte"], defaultdict(str))
     'engelsk <i>latte</i>'
@@ -46,7 +46,7 @@ def render_lant(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_sammensetning(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_sammensetning("sammensetning", ["bonde", "vett"], defaultdict(str))
     '<i>bonde</i> + <i>vett</i>'
@@ -65,7 +65,7 @@ def render_sammensetning(tpl: str, parts: List[str], data: Dict[str, str]) -> st
     return concat(phrase_parts, " + ")
 
 
-def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_term("term", ["ord"], defaultdict(str))
     '<i>ord</i>'
@@ -104,7 +104,7 @@ def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_ursprak(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_ursprak(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_ursprak("proto", ["indoeuropeisk", "klek-", "", "kleg-", "å rope/skrike"], defaultdict(str))
     'urindoeuropeisk *klek-, *kleg- («å rope/skrike»)'

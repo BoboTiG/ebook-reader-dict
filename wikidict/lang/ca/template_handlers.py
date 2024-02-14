@@ -1,11 +1,11 @@
 from collections import defaultdict  # noqa
-from typing import Dict, List, Tuple
+from typing import DefaultDict, List, Tuple
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
 from .labels import label_syntaxes, labels
 
 
-def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
     '<i>forma augmentativa de</i> <b>Candelera</b>'
@@ -34,7 +34,7 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_g(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
     'm.'
@@ -84,7 +84,7 @@ def render_g(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     )
 
 
-def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
     '<i>(argot casteller)</i>'
@@ -118,7 +118,7 @@ def render_label(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return term(res.strip())
 
 
-def render_sigles_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_sigles_de(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
