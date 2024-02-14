@@ -81,8 +81,6 @@ templates_multi = {
     "tidligere skriveform": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
     "tidligere skrivemåte": "f\"{italic('tidligere skrivemåte av')} {strong(parts[-1])}\"",
-    # {{urspråk|germansk|daigjōn}}
-    "urspråk": 'f"ur{parts[1]} *{parts[2]}"',
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
     #
@@ -201,10 +199,5 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "etyl":
         return langs[parts[0]]
-
-    # TODO: each time we tackle a ticket, we should remove the template from the condition below.
-    #       At the end, the whole condition will be gone.
-    if tpl in {"sammensetning", "avledet", "proto"}:
-        return tpl
 
     raise ValueError(f"Unhandled template: {word=}, {template=}")

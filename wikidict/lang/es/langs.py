@@ -1235,5 +1235,4 @@ langs = {
     "zza": "zazaki",
 }  # 1,228
 
-lang_to_normalize = {}  # 0
 # END

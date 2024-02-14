@@ -9,6 +9,16 @@ from ...user_functions import (
 from .langs import langs
 
 
+def render_avledet(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_avledet("avledet", ["gml", "no", "abbedie"], defaultdict(str))
+    'middelnedertysk <i>abbedie</i>'
+    >>> render_avledet("avledet", ["middelalderlatin", "no", "abbatia"], defaultdict(str))
+    'middelalderlatin <i>abbatia</i>'
+    """
+    return f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
+
+
 def render_lant(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     """
     >>> render_lant("lånt", ["en", "no", "latte"], defaultdict(str))
@@ -34,6 +44,25 @@ def render_lant(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
                     phrase += " + "
 
     return phrase
+
+
+def render_sammensetning(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_sammensetning("sammensetning", ["bonde", "vett"], defaultdict(str))
+    '<i>bonde</i> + <i>vett</i>'
+    >>> render_sammensetning("sammensetning", ["arv", "-e-", "-løs"], defaultdict(str))
+    '<i>arv</i> + <i>-e-</i> + <i>-løs</i>'
+    >>> render_sammensetning("sammensetning", ["Achter", "Bahn"], {"tr1": "åtter", "tr2": "bane"})
+    '<i>Achter</i> («åtter») + <i>Bahn</i> («bane»)'
+    """
+    phrase_parts = []
+    i = 1
+    for part in parts:
+        trindex = f"tr{i}"
+        tr = data[trindex]
+        phrase_parts.append(f"{italic(part)}" + (f" («{tr}»)" if tr else ""))
+        i += 1
+    return concat(phrase_parts, " + ")
 
 
 def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -75,10 +104,35 @@ def render_term(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
+def render_ursprak(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+    """
+    >>> render_ursprak("proto", ["indoeuropeisk", "klek-", "", "kleg-", "å rope/skrike"], defaultdict(str))
+    'urindoeuropeisk *klek-, *kleg- («å rope/skrike»)'
+    >>> render_ursprak("urspråk", ["indoeuropeisk", "rei-", "stripete, flekkete"], defaultdict(str))
+    'urindoeuropeisk *rei- («stripete, flekkete»)'
+    """
+    lang = parts.pop(0)
+    phrase = data["tittel"] or f"ur{lang}"
+    while parts:
+        term = parts.pop(0)
+        meaning = parts.pop(0) if parts else ""
+        phrase += f" *{term}" if term else ""
+        phrase += f" («{meaning}»)" if meaning else ""
+        if parts:
+            phrase += ","
+
+    return phrase
+
+
 template_mapping = {
-    "term": render_term,
+    "avledet": render_avledet,
     "lånt": render_lant,
     "overslån": render_lant,
+    "proto": render_ursprak,
+    "sammensetning": render_sammensetning,
+    "Sammensatt": render_sammensetning,
+    "term": render_term,
+    "urspråk": render_ursprak,
 }
 
 

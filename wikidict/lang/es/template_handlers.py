@@ -10,7 +10,7 @@ from ...user_functions import (
     strong,
     subscript,
 )
-from .langs import lang_to_normalize, langs
+from .langs import langs
 
 articulos: Dict[str, str] = {
     "def.f.pl": "las",
@@ -53,17 +53,12 @@ def inflect_articulo(genero: str = "m", tipo: str = "def", numero: str = "sg", p
 
 def normalizar_nombre(to_normalize: str) -> str:
     """
-    >>> normalizar_nombre("latin")
-    'latín'
     >>> normalizar_nombre("en")
     'inglés'
     >>> normalizar_nombre("")
     ''
     """
-    if not to_normalize:
-        return ""
-    lcfirst_norm = to_normalize[0].lower() + to_normalize[1:]
-    return lang_to_normalize.get(lcfirst_norm, langs.get(lcfirst_norm, lcfirst_norm))
+    return langs.get(to_normalize, to_normalize)
 
 
 def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
@@ -259,9 +254,9 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Del latín <i>-acĕus</i>'
     >>> render_etimologia("etimología", ["la", "illos"], defaultdict(str, {"diacrítico":"illōs", "sig":"no"}))
     'Del latín <i>illōs</i>'
-    >>> render_etimologia("etimología", ["latin", "villus", "vello"], defaultdict(str))
+    >>> render_etimologia("etimología", ["la", "villus", "vello"], defaultdict(str))
     'Del latín <i>villus</i> ("vello")'
-    >>> render_etimologia("etimología", ["latin", "villus", "vello", ""], defaultdict(str))
+    >>> render_etimologia("etimología", ["la", "villus", "vello", ""], defaultdict(str))
     'Del latín <i>villus</i> ("vello")'
     >>> render_etimologia("etimología", ["bajo latín", "capitanus", "principal"], defaultdict(str))
     'Del bajo latín <i>capitanus</i> ("principal")'
