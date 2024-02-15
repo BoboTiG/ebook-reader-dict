@@ -3148,6 +3148,7 @@ langs = {
     "hsh": "Hungarian Sign Language",
     "hsl": "Hausa Sign Language",
     "hsn": "Xiang",
+    "hsn-new": "New Xiang",
     "hsn-old": "Old Xiang",
     "hss": "Harsusi",
     "ht": "Haitian Creole",
@@ -9699,5 +9700,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,694
+}  # 9,695
 # END
