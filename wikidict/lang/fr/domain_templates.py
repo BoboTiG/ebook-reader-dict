@@ -7,6 +7,7 @@ Auto-generated with `python -m scripts`.
 domain_templates = {
     "Astérix": "Univers d’Astérix",
     "LGBT": "LGBT",
+    "Oblasts": "Géographie",
     "Tintin": "Univers de Tintin",
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
@@ -321,5 +322,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 316
+}  # 317
 # END
