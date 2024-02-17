@@ -947,6 +947,7 @@ labels_topical = {
     "Philmont Scout Ranch": "Philmont Scout Ranch",
     "Pokémon": "''Pokémon''",
     "Portuguese folklore": "Portuguese folklore",
+    "Protestant": "Protestantism",
     "Protestantism": "Protestantism",
     "QAnon": "QAnon",
     "Qanon": "QAnon",
@@ -1715,6 +1716,8 @@ labels_topical = {
     "prosody": "prosody",
     "protein": "biochemistry",
     "proteins": "biochemistry",
+    "protestant": "Protestantism",
+    "protestantism": "Protestantism",
     "pseudoscience": "pseudoscience",
     "psychiatry": "psychiatry",
     "psychoanalysis": "psychoanalysis",
@@ -1964,7 +1967,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,195
+}  # 1,198
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
@@ -3876,13 +3879,14 @@ labels_subvarieties = {
     "British India": "British India",
     "British Indian English": "British India",
     "British Late Latin": "British Late Latin",
+    "British Latin": "British Latin",
     "British Mediaeval Latin": "British Medieval Latin",
     "British Medieval Latin": "British Medieval Latin",
     "British New Latin": "British New Latin",
     "British Pakistani": "British Pakistani",
     "British Pakistani English": "British Pakistani",
     "British Renaissance Latin": "British Renaissance Latin",
-    "British Vulgar Latin": "British Vulgar Latin",
+    "British Vulgar Latin": "British Latin",
     "British form": "British",
     "British spelling": "British spelling",
     "Brummie": "Birmingham",
@@ -6209,8 +6213,8 @@ labels_subvarieties = {
     "Voss": "Voss",
     "Vt": "Witkowo",
     "Vt.": "Witkowo",
-    "Vulgar Anglo-Latin": "British Vulgar Latin",
-    "Vulgar British": "British Vulgar Latin",
+    "Vulgar Anglo-Latin": "British Latin",
+    "Vulgar British": "British Latin",
     "Vulgar Latin": "Vulgar Latin",
     "W": "Wysoka-Retowo-Czysta",
     "W.": "Wysoka-Retowo-Czysta",
@@ -6966,5 +6970,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,441
+}  # 3,442
 # END
