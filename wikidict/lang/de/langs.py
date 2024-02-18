@@ -288,7 +288,7 @@ langs = {
     "kl": "Grönländisch",
     "kla": "Klamath",
     "klb": "Kiliwa",
-    "km": "Kambodschanisch",
+    "km": "Khmer",
     "kmr": "Kurmandschi",
     "kn": "Kannada",
     "ko": "Koreanisch",
