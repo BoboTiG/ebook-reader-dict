@@ -12,14 +12,13 @@ STRIP_COMMENT = re.compile(r"<!-- \(\w+\)[^\-]+-->").sub
 
 def process_category_page(url: str, results: Dict[str, Dict[str, str]]) -> str:
     soup = get_soup(url)
-
     nextpage = ""
     nextpage_div = soup.find(id="mw-pages")
     last_link = nextpage_div.find_all("a")[-1]
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT + last_link.get("href")
 
-    content_div = soup.find("div", "mw-category-generated")
+    content_div = soup.find(id="mw-pages")
     for li in content_div.find_all("li"):
         tpl_title = li.find("a").get("title")
         if " " in tpl_title or "/" in tpl_title or "ar-racine" in tpl_title:

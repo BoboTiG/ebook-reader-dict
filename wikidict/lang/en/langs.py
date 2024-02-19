@@ -9571,6 +9571,7 @@ langs = {
     "zhx-com": "Coastal Min",
     "zhx-inm": "Inland Min",
     "zhx-lui": "Leizhou Min",
+    "zhx-man": "Mandarinic",
     "zhx-min": "Min",
     "zhx-min-pro": "Proto-Min",
     "zhx-pin": "Pinghua",
@@ -9714,5 +9715,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,709
+}  # 9,710
 # END
