@@ -16,18 +16,19 @@ def process_page(page_url: str, languages: Dict[str, str]) -> str:
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT_URL + last_link.get("href")
 
-    content = soup.find("div", {"class": "mw-category"})
+    content = nextpage_div.find("div", {"class": "mw-category"})
     lis = content.findAll("li")
     for li in lis:
         link = li.find("a")["href"]
         li_url = ROOT_URL + link
         key = li.text.split(":")[1]
-        sub_soup = get_soup(li_url)
-        content = sub_soup.find("div", {"class": "mw-parser-output"}).find("p", recursive=False)
-        value = content.text
-        if value_html := content.find("b"):
-            value = value_html.text
-        languages[key] = value.strip()
+        if sub_soup := get_soup(li_url):
+            if parser_ouput := sub_soup.find("div", {"class": "mw-parser-output"}):
+                content = parser_ouput.find("p", recursive=False)
+                value = content.text
+                if value_html := content.find("b"):
+                    value = value_html.text
+                languages[key] = value.strip()
     return nextpage
 
 

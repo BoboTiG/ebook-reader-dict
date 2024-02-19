@@ -1,14 +1,19 @@
-import re
-
-from scripts_utils import get_content
+from scripts_utils import get_soup
 
 url = "https://es.wiktionary.org/wiki/Ap%C3%A9ndice:C%C3%B3digos_de_idioma"
-content = get_content(url)
+soup = get_soup(url)
 
-pattern = r"<tr>\s+<td>([^<]+)</td>\s+<td>([^<]+)\s+</td></tr>"
-matches = re.findall(pattern, content)
+langs = {}
+tables = soup.find_all("table", {"class": "wikitable"})
+for table in tables:
+    if table.attrs.get("style"):
+        continue
+    trs = table.find_all("tr")
+    for tr in trs:
+        tds = tr.find_all("td")
+        if len(tds) > 1:
+            langs[tds[0].text.strip()] = tds[1].text.strip()
 
-langs = dict(matches)
 assert langs
 print("langs = {")
 for t, r in sorted(langs.items()):
