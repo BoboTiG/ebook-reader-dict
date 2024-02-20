@@ -685,6 +685,7 @@ langs = {
     "lat-cie": "Latim Científico",
     "lat-med": "Latim Medieval",
     "lat-tar": "Latim Tardio",
+    "lat-vul": "Latim Vulgar",
     "lb": "Luxemburguês",
     "lbe": "Lak",
     "lbj": "Ladakhi",
@@ -1483,5 +1484,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,478
+}  # 1,479
 # END
