@@ -2752,6 +2752,7 @@ labels_regional = {
     "Madeira": "Madeira",
     "Madeiran": "Madeira",
     "Mahesani": "Mehsani",
+    "Maine": "Maine",
     "Mainland": "Mainland China",
     "Mainland China": "Mainland China",
     "Majorca": "Mallorca",
@@ -3526,7 +3527,7 @@ labels_regional = {
     "Ճանիկ": "Canik",
     "ფერეიდანი": "Fereydan",
     "ფერეიდნული": "Fereydan",
-}  # 1,556
+}  # 1,557
 
 labels_subvarieties = {
     "+ablative": "+ ablative",

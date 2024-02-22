@@ -2989,6 +2989,7 @@ langs = {
     "lnl": "banda Sud central",
     "lnn": "lorediakarkar",
     "lns": "lamnso’",
+    "lnu": "longuda",
     "lo": "laotien",
     "loa": "loloda",
     "loc": "inonhan",
@@ -5516,6 +5517,7 @@ langs = {
     "tug": "tunia",
     "tuh": "taulil",
     "tui": "toupouri",
+    "tul": "tula",
     "tum": "tumbuka",
     "tun": "tunica",
     "tuo": "tucano",
@@ -5840,6 +5842,7 @@ langs = {
     "wiu": "wiru",
     "wiv": "vitu",
     "wiy": "wiyot",
+    "wja": "waja",
     "wji": "warji",
     "wku": "kunduvadi",
     "wkw": "wakawaka",
@@ -5878,6 +5881,7 @@ langs = {
     "woe": "woléaïen",
     "wog": "wogamusin",
     "woi": "kamang",
+    "wok": "longto",
     "wom": "wom (Nigeria)",
     "won": "wongo",
     "wor": "woria",
@@ -6420,7 +6424,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,415
+}  # 6,419
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
