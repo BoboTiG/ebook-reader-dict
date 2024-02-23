@@ -4995,7 +4995,7 @@ langs = {
     "nok": "nooksack",
     "nol": "nomlaki",
     "nom": "nocamán",
-    "non": "noruego antiguo",
+    "non": "nórdico antiguo",
     "nop": "numanggang",
     "nos": "nisu oriental",
     "not": "nomatsiguenga",

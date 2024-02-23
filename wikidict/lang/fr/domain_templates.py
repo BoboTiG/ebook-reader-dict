@@ -5,6 +5,7 @@ Auto-generated with `python -m scripts`.
 
 # START
 domain_templates = {
+    "4chan": "Internet, 4chan",
     "Astérix": "Univers d’Astérix",
     "LGBT": "LGBT",
     "Minecraft": "Jeu vidéo, Minecraft",
@@ -326,5 +327,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 321
+}  # 322
 # END
