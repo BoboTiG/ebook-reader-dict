@@ -1,5 +1,6 @@
 import re
 import unicodedata
+from typing import Dict, List, Union
 
 data = {}
 
@@ -19,76 +20,6 @@ coronis = chr(0x343)
 subscript = chr(0x345)
 undertie = chr(0x35C)
 
-data["diacritics"] = {
-    "macron": macron,
-    "spacing_macron": spacing_macron,
-    "modifier_macron": modifier_macron,
-    "breve": breve,
-    "spacing_breve": spacing_breve,
-    "rough": rough,
-    "smooth": smooth,
-    "diaeresis": diaeresis,
-    "acute": acute,
-    "grave": grave,
-    "circum": circum,
-    "Latin_circum": Latin_circum,
-    "coronis": coronis,
-    "subscript": subscript,
-}
-
-data["named"] = data["diacritics"]
-
-data["diacritic"] = "[" + "".join(data["diacritics"].values()) + "]"
-data["all"] = data["diacritic"]
-
-data["diacritic_groups"] = {
-    1: "[" + macron + breve + "]",
-    2: "[" + diaeresis + smooth + rough + "]",
-    3: "[" + acute + grave + circum + "]",
-    4: subscript,
-}
-data["groups"] = data["diacritic_groups"]
-data["diacritic_groups"]["accents"] = data["groups"][3]
-
-data["diacritic_order"] = {
-    macron: 1,
-    breve: 1,
-    rough: 2,
-    smooth: 2,
-    diaeresis: 2,
-    acute: 3,
-    grave: 3,
-    circum: 3,
-    subscript: 4,
-}
-
-data["diacritical_conversions"] = {
-    spacing_macron: macron,
-    modifier_macron: macron,
-    spacing_breve: breve,
-    "῾": rough,
-    "ʽ": rough,
-    "᾿": smooth,
-    "ʼ": smooth,
-    coronis: smooth,
-    "´": acute,
-    "`": grave,
-    "῀": circum,
-    "ˆ": circum,
-    Latin_circum: circum,
-    "῎": smooth + acute,
-    "῍": smooth + grave,
-    "῏": smooth + circum,
-    "῞": rough + acute,
-    "῝": rough + grave,
-    "῟": rough + circum,
-    "¨": diaeresis,
-    "΅": diaeresis + acute,
-    "῭": diaeresis + grave,
-    "῁": diaeresis + circum,
-}
-data["conversions"] = data["diacritical_conversions"]
-
 data["consonants"] = "ΒβΓγΔδΖζΘθΚκΛλΜμΝνΞξΠπΡρΣσςΤτΦφΧχΨψ"
 data["consonant"] = "[" + data["consonants"] + "]"
 data["vowels"] = "ΑαΕεΗηΙιΟοΥυΩω"
@@ -102,18 +33,18 @@ data["word_characters"] = letters_with_diacritics + data["combining_diacritics"]
 data["word_character"] = "[" + data["word_characters"] + "]"
 
 UTF8_char = r"[\u0001-\u007F\u00C2-\u00F4][\u0080-\u00BF]*"
-basic_Greek = r"[\u00CE-\u00CF][\u0080-\u00BF]"  # excluding first line of Greek and Coptic block
+basic_Greek = r"[\u0384-\u03FF]"  # excluding first line of Greek and Coptic block
 
 info = {}
 vowel_t = {"vowel": True}
 iota_t = {"vowel": True, "offglide": True}
 upsilon_t = {"vowel": True, "offglide": True}
-rho_t = {}
+rho_t: Dict[str, bool] = {}
 diacritic_t = {"diacritic": True}
 breathing_t = {"diacritic": True}
 
 
-def add_info(characters, t):
+def add_info(characters: Union[str, List[str]], t: Dict[str, bool]) -> None:
     if isinstance(characters, str):
         for character in characters:  # TODO filter utf-8 chars ?
             info[character] = t
@@ -123,36 +54,38 @@ def add_info(characters, t):
 
 
 add_info([macron, breve, diaeresis, acute, grave, circum, subscript], diacritic_t)
+add_info([rough, smooth], breathing_t)
 add_info("ΑΕΗΟΩαεηοω", vowel_t)
 add_info("Ιι", iota_t)
 add_info("Υυ", upsilon_t)
 add_info("Ρρ", rho_t)
 
 
-def decompose(text):
+def decompose(text: str) -> str:
     return unicodedata.normalize("NFD", text)
 
 
-def set_list(li, i, v):
+def set_list(li: List[str], i: int, v: str) -> None:
     try:
         li[i] = v
     except IndexError:
         for _ in range(i - len(li) + 1):
-            li.append(None)
+            li.append("")
         li[i] = v
 
 
-def make_tokens(text):
-    tokens, prev_info = [], {}
+def make_tokens(text: str) -> List[str]:
+    tokens: List[str] = []
+    prev_info: Dict[str, bool] = {}
     token_i, vowel_count = 0, 0
     prev = None
     for character in decompose(text):  # TODO filter non UTF8 ?
         curr_info = info.get(character, {})
+        # print(character)
+        # print(curr_info)
+        # print(prev_info)
         if curr_info.get("vowel"):
             vowel_count += 1
-            print(character)
-            print(curr_info)
-            print(prev_info)
             if prev and (
                 not (vowel_count == 2 and curr_info.get("offglide") and prev_info.get("vowel"))
                 or prev_info.get("offglide")
@@ -170,11 +103,14 @@ def make_tokens(text):
             set_list(tokens, token_i, (tokens[token_i] if token_i < len(tokens) else "") + character)
             if prev_info.get("diacritic") or prev_info.get("vowel"):
                 if character == diaeresis:
-                    previous_vowel, vowel_with_diaeresis = re.match(
-                        "^(" + basic_Greek + ")(" + basic_Greek + ".+)", tokens[token_i]
-                    ).groups()
+                    previous_vowel = ""
+                    vowel_with_diaeresis = ""
+                    # print("jere = " + tokens[token_i])
+                    if matches := re.match("^(" + basic_Greek + ")(" + basic_Greek + ".+)", tokens[token_i]):
+                        previous_vowel, vowel_with_diaeresis = matches.groups()
                     if previous_vowel:
-                        tokens[token_i], tokens[token_i + 1] = previous_vowel, vowel_with_diaeresis
+                        set_list(tokens, token_i, previous_vowel)
+                        set_list(tokens, token_i + 1, vowel_with_diaeresis)
                         token_i += 1
             elif prev_info == rho_t:
                 if curr_info != breathing_t:
@@ -188,6 +124,7 @@ def make_tokens(text):
             set_list(tokens, token_i, (tokens[token_i] if token_i < len(tokens) else "") + character)
         prev = character
         prev_info = curr_info
+    # print(tokens)
     return tokens
 
 
@@ -240,14 +177,15 @@ tt = {
 }
 
 
-def gsub(pattern, replacements, string):
-    def replace(match):
+def gsub(pattern: str, replacements: Dict[str, str], string: str) -> str:
+    def replace(match: re.Match[str]) -> str:
         return replacements.get(match.group(0), match.group(0))
 
     return re.sub(pattern, replace, string)
 
 
-def transliterate(text):
+# see https://en.wiktionary.org/wiki/Module:grc-translit/testcases for test cases
+def transliterate(text: str) -> str:
     """
     >>> transliterate("λόγος")
     'lógos'
@@ -257,8 +195,70 @@ def transliterate(text):
     'wánax'
     >>> transliterate("οἷαι")
     'hoîai'
+    >>> transliterate("ΙΧΘΥΣ")
+    'IKhThYS'
+    >>> transliterate("Υἱός")
+    'Yhiós'
     >>> transliterate("ταῦρος")
     'taûros'
+    >>> transliterate("νηῦς")
+    'nēŷs'
+    >>> transliterate("σῦς")
+    'sŷs'
+    >>> transliterate("ὗς")
+    'hŷs'
+    >>> transliterate("γυῖον")
+    'gyîon'
+    >>> transliterate("ἀναῡ̈τέω")
+    'anaȳ̈téō'
+    >>> transliterate("δαΐφρων")
+    'daḯphrōn'
+    >>> transliterate("τῶν")
+    'tôn'
+    >>> transliterate("τοὶ")
+    'toì'
+    >>> transliterate("τῷ")
+    'tôi'
+    >>> transliterate("τούτῳ")
+    'toútōi'
+    >>> transliterate("σοφίᾳ")
+    'sophíāi'
+    >>> transliterate("μᾱ̆νός")
+    'mānós'
+    >>> transliterate("ὁ")
+    'ho'
+    >>> transliterate("οἱ")
+    'hoi'
+    >>> transliterate("εὕρισκε")
+    'heúriske'
+    >>> transliterate("ὑϊκός")
+    'hyïkós'
+    >>> transliterate("πυρρός")
+    'pyrrhós'
+    >>> transliterate("ῥέω")
+    'rhéō'
+    >>> transliterate("σάἁμον")
+    'sáhamon'
+    >>> transliterate("Ὀδυσσεύς")
+    'Odysseús'
+    >>> transliterate("Εἵλως")
+    'Heílōs'
+    >>> transliterate("ᾍδης")
+    'Hā́idēs'
+    >>> transliterate("ἡ Ἑλήνη")
+    'hē Helḗnē'
+    >>> transliterate("ἔχεις μοι εἰπεῖν, ὦ Σώκρατες, ἆρα διδακτὸν ἡ ἀρετή?")
+    'ékheis moi eipeîn, ô Sṓkrates, âra didaktòn hē aretḗ?'
+    >>> transliterate("τί τηνικάδε ἀφῖξαι, ὦ Κρίτων? ἢ οὐ πρῲ ἔτι ἐστίν?")
+    'tí tēnikáde aphîxai, ô Krítōn? ḕ ou prṑi éti estín?'
+    >>> transliterate("τούτων φωνήεντα μέν ἐστιν ἑπτά· α ε η ι ο υ ω.")
+    'toútōn phōnḗenta mén estin heptá; a e ē i o y ō.'
+    >>> transliterate("πήγ(νῡμῐ)")
+    'pḗg(nȳmi)'
+    >>> transliterate("καλός&nbsp;καὶ&nbsp;ἀγαθός")
+    'kalós&nbsp;kaì&nbsp;agathós'
+    >>> transliterate("καλός&#32;καὶ&#32;ἀγαθός")
+    'kalós&#32;kaì&#32;agathós'
     """
     if text == "῾":
         return "h"
@@ -268,10 +268,10 @@ def transliterate(text):
     output = []
     for i in range(len(tokens)):
         token = tokens[i]
+        # print("token = " + token)
         translit = gsub(UTF8_char, tt, token.lower())
         for char, repl in tt.items():
             translit = translit.replace(char, repl)
-
         next_token = tokens[i + 1] if i + 1 < len(tokens) else None
         if token == "γ" and next_token and next_token in velar:
             translit = "n"
@@ -281,28 +281,16 @@ def transliterate(text):
             translit = translit.replace("y", "u")
         elif re.match(a_subscript, token):
             translit = re.sub(r"([aA])", r"\1" + macron, translit)
-
         if rough in token:
             if token.startswith("Ρ") or token.startswith("ρ"):
                 translit += "h"
             else:
                 translit = "h" + translit
 
-        if any(char in token for char in [rough, diaeresis, Latin_circum]):
+        if re.search(macron_diaeresis, translit):
             translit = translit.replace(macron, "")
-
         if token != token.lower():
             translit = translit[0].upper() + translit[1:]
-
         output.append(translit)
 
     return unicodedata.normalize("NFC", "".join(output))
-
-
-# print(transliterate("ταῦρος"))
-print(transliterate("νηῦς"))
-# print(transliterate("σῦς"))
-# print(transliterate("ὗς"))
-# print(transliterate("γυῖον"))
-# print(transliterate("ἀναῡ̈τέω"))
-# print(transliterate("δαΐφρων"))
