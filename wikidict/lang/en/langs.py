@@ -7416,6 +7416,7 @@ langs = {
     "sit-aao": "Ao",
     "sit-alm": "Almora",
     "sit-bai": "Bai",
+    "sit-bai-pro": "Proto-Bai",
     "sit-bdi": "Bodish",
     "sit-bok": "Bokar",
     "sit-cai": "Caijia",
@@ -7461,6 +7462,7 @@ langs = {
     "sit-pro": "Proto-Sino-Tibetan",
     "sit-qia": "Qiangic",
     "sit-rgy": "Rgyalrongic",
+    "sit-sba": "Sino-Bai",
     "sit-sit": "Situ",
     "sit-tam": "Tamangic",
     "sit-tan": "Tani",
@@ -8894,6 +8896,8 @@ langs = {
     "wur": "Wurrugu",
     "wut": "Wutung",
     "wuu": "Wu",
+    "wuu-hzh": "Hangzhounese",
+    "wuu-ngb": "Ningbonese",
     "wuu-sha": "Shanghainese",
     "wuu-szh": "Suzhounese",
     "wuv": "Wuvulu-Aua",
@@ -9713,5 +9717,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,708
+}  # 9,712
 # END

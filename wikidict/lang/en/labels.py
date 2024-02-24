@@ -4446,10 +4446,10 @@ labels_subvarieties = {
     "Hamshen": "Hemşin",
     "Hangyeong": "Hangyeong",
     "Hangyeong-myeon": "Hangyeong",
-    "Hangzhou Mandarin": "Hangzhounese",
     "Hangzhou Wu": "Hangzhounese",
     "Hangzhou dialect": "Hangzhounese",
     "Hangzhounese": "Hangzhounese",
+    "Hangzhounese Wu": "Hangzhounese",
     "Hankou": "Wuhan",
     "Hankow": "Wuhan",
     "Hanmuntu": "archaic Literary Chinese-style Korean",
@@ -5167,6 +5167,7 @@ labels_subvarieties = {
     "Ningbo Wu": "Ningbonese",
     "Ningbo dialect": "Ningbonese",
     "Ningbonese": "Ningbonese",
+    "Ningbonese Wu": "Ningbonese",
     "Niotika": "Oinoe",
     "Nishnaabemwin": "Ottawa",
     "Nohyeong": "Nohyeong",
@@ -5904,8 +5905,9 @@ labels_subvarieties = {
     "Sussex": "Sussex",
     "Sutsilvan": "Sutsilvan",
     "Suzhou Wu": "Suzhounese",
-    "Suzhou dialect": "Suzhounese",
     "Suzhounese": "Suzhounese",
+    "Suzhounese Wu": "Suzhounese",
+    "Suzhounese dialect": "Suzhounese",
     "Suçatı": "Apso",
     "Swiss German": "Switzerland",
     "Switzerland German": "Switzerland",
@@ -6971,5 +6973,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,442
+}  # 3,444
 # END
