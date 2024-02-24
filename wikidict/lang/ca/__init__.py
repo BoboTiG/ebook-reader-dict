@@ -194,6 +194,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         "De l'ibèric <i>baitolo</i>"
         >>> last_template_handler(["Del-lang", "grc", "ca", "ῡ̔οειδής", "trad=en forma d’ípsilon"], "ca")
         'Del grec antic <i>ῡ̔οειδής</i> (<i>hȳoeidḗs</i>, «en forma d’ípsilon»)'
+        >>> last_template_handler(["del-lang", "la", "ca"], "ca")
+        ''
 
         >>> last_template_handler(["Fals tall", "ca", "Far", "el Far"], "ca")
         'Fals tall sil·làbic de <i>el Far</i>'
@@ -253,6 +255,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if lookup_template(template[0]):
         return render_template(template)
 
+    from .general import cal_apostrofar
+
     tpl, *parts = template
     data = extract_keywords_from(parts)
     phrase = ""
@@ -280,7 +284,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "calc semàntic":
         phrase = "calc semàntic "
         lang = langs[parts[0]]
-        phrase += "de l'" if lang.startswith(("a", "i", "o", "u", "h")) else "del "
+        phrase += "de l'" if cal_apostrofar(lang) else "del "
         phrase += f"{lang} "
         phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
         return phrase
@@ -291,17 +295,22 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "e":
         return f"{parts[-1]}{parse_other_parameters()}"
 
+    if tpl in ("del-lang", "Del-lang") and len(parts) == 2:
+        return ""
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             lang = langs[parts[0]]
-            phrase += "De l'" if lang.startswith(("a", "i", "o", "u", "h")) else "Del "
+            phrase += "De l'" if cal_apostrofar(lang) else "Del "
             if tpl == "del-lang" and phrase:
                 phrase = phrase.lower()
             phrase += f"{lang}"
             word = ""
             if len(parts) > 2:
                 word = parts[2]
-                phrase += f" {italic(word)}"
+                if len(parts) > 3:
+                    phrase += f" {italic(parts[3])}"
+                else:
+                    phrase += f" {italic(word)}"
         phrase += parse_other_parameters(parts[0], word)
         return phrase
 
