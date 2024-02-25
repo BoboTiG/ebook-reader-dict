@@ -40,6 +40,8 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
     >>> render_comp("comp", ["ca", "Birma", "-ia"], {"lang1": "en"})
     'anglès <i>Birma</i> i el sufix <i>-ia</i>'
+    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], {"lang1": "en"})
+    'prefix <i>a-</i>, <i>casa</i> i el sufix <i>-at</i>'
     """
 
     def value(word: str, standalone: bool = False) -> str:
@@ -86,7 +88,7 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
         return phrase
 
     word3 = parts.pop(0) if parts else ""
-    phrase = italic(word1)
+    phrase = value(word1)
     if others := parse_index_parameters(data, 1):
         phrase += others
     phrase += f", {value(word2)}"
@@ -95,7 +97,7 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     phrase += f" i {value(word3)}"
     if others3 := parse_index_parameters(data, 3):
         phrase += others3
-    return f"{italic(word1)}, {value(word2)} i {value(word3)}"
+    return phrase
 
 
 def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
