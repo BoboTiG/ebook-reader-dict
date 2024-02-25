@@ -3,6 +3,7 @@ import re
 from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
+from .grc_trans import transliterate
 
 # Float number separator
 float_separator = ","
@@ -87,8 +88,6 @@ templates_multi = {
     "def-meta": "italic(parts[-1])",
     # {{doblet|ca|Castellar}}
     "doblet": "italic(parts[-1])",
-    # {{e|la|lupus}}
-    "e": "parts[-1]",
     # {{e-propi|ca|grèvol}}
     "e-propi": "strong(parts[-1])",
     # {{forma-f|ca|halloweenià}}
@@ -172,6 +171,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo"], "ca")
         'calc semàntic del castellà <i>pueblo</i>'
 
+        >>> last_template_handler(["e", "grc", "υ", "tr=-"], "ca")
+        'υ'
+
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
         >>> last_template_handler(["epònim", "ca", "André-Marie Ampère", "w=Niels Henrik Abel"], "ca")
@@ -183,11 +185,17 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         'Del llatí <i>verba</i>'
         >>> last_template_handler(["etim-lang", "en", "ca"], "ca")
         "De l'anglès"
+        >>> last_template_handler(["etim-lang", "grc", "ca", "φαιός", "trad=gris"], "ca")
+        'Del grec antic <i>φαιός</i> (<i>phaiós</i>, «gris»)'
 
         >>> last_template_handler(["del-lang", "la", "ca", "verba"], "ca")
         'del llatí <i>verba</i>'
         >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")
         "De l'ibèric <i>baitolo</i>"
+        >>> last_template_handler(["Del-lang", "grc", "ca", "ῡ̔οειδής", "trad=en forma d’ípsilon"], "ca")
+        'Del grec antic <i>ῡ̔οειδής</i> (<i>hȳoeidḗs</i>, «en forma d’ípsilon»)'
+        >>> last_template_handler(["del-lang", "la", "ca"], "ca")
+        ''
 
         >>> last_template_handler(["Fals tall", "ca", "Far", "el Far"], "ca")
         'Fals tall sil·làbic de <i>el Far</i>'
@@ -199,6 +207,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["m", "ca", "tardanies", "t=fruits tardans"], "ca")
         '<i>tardanies</i> («fruits tardans»)'
+        >>> last_template_handler(["m", "grc", "ὖ"], "ca")
+        '<i>ὖ</i> (<i>ŷ</i>)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -245,16 +255,20 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if lookup_template(template[0]):
         return render_template(template)
 
+    from .general import cal_apostrofar
+
     tpl, *parts = template
     data = extract_keywords_from(parts)
     phrase = ""
 
-    def parse_other_parameters() -> str:
+    def parse_other_parameters(lang: str = "", word: str = "") -> str:
         toadd = []
         if data["trans"]:
             toadd.append(italic(data["trans"]))
-        if data["tr"]:
+        elif data["tr"] and data["tr"] != "-":
             toadd.append(italic(data["tr"]))
+        elif lang == "grc" and word and data["tr"] != "-":
+            toadd.append(italic(transliterate(word)))
         if data["t"]:
             toadd.append(f"«{data['t']}»")
         if data["glossa"]:
@@ -270,7 +284,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "calc semàntic":
         phrase = "calc semàntic "
         lang = langs[parts[0]]
-        phrase += "de l'" if lang.startswith(("a", "i", "o", "u", "h")) else "del "
+        phrase += "de l'" if cal_apostrofar(lang) else "del "
         phrase += f"{lang} "
         phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
         return phrase
@@ -278,16 +292,26 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
 
+    if tpl == "e":
+        return f"{parts[-1]}{parse_other_parameters()}"
+
+    if tpl in ("del-lang", "Del-lang") and len(parts) == 2:
+        return ""
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             lang = langs[parts[0]]
-            phrase += "De l'" if lang.startswith(("a", "i", "o", "u", "h")) else "Del "
+            phrase += "De l'" if cal_apostrofar(lang) else "Del "
             if tpl == "del-lang" and phrase:
                 phrase = phrase.lower()
             phrase += f"{lang}"
+            word = ""
             if len(parts) > 2:
-                phrase += f" {italic(parts[2])}"
-        phrase += parse_other_parameters()
+                word = parts[2]
+                if len(parts) > 3:
+                    phrase += f" {italic(parts[3])}"
+                else:
+                    phrase += f" {italic(word)}"
+        phrase += parse_other_parameters(parts[0], word)
         return phrase
 
     if tpl in ("fals tall", "Fals tall"):
@@ -302,7 +326,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl in ("m", "terme", "term", "calc"):
-        return f"{italic(parts[-1])}{parse_other_parameters()}"
+        return f"{italic(parts[-1])}{parse_other_parameters(parts[0], parts[-1])}"
 
     if tpl == "trad":
         src = data["sc"] or parts.pop(0)

@@ -2,6 +2,7 @@ from collections import defaultdict  # noqa
 from typing import DefaultDict, List, Tuple
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
+from .general import cal_apostrofar
 from .labels import label_syntaxes, labels
 from .langs import langs
 
@@ -37,6 +38,8 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     'prefix <i>metro-</i> («mesura») i el sufix <i>-nom</i>'
     >>> render_comp("comp", ["ca", "mini-", "pequenas"], {"lang2": "es", "t2": "PIMER"})
     'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
+    >>> render_comp("comp", ["ca", "Birma", "-ia"], {"lang1": "en"})
+    'anglès <i>Birma</i> i el sufix <i>-ia</i>'
     """
 
     def value(word: str, standalone: bool = False) -> str:
@@ -66,12 +69,15 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
 
     word2 = parts.pop(0)
     if not parts:
-        phrase = value(word1)
+        phrase = ""
+        if "lang1" in data:
+            phrase = f"{langs[data['lang1']]} "
+        phrase += value(word1)
         if others := parse_index_parameters(data, 1):
             phrase += others
         if "lang2" in data:
             lang2 = langs[data["lang2"]]
-            phrase += " i l'" if lang2.startswith(("a", "i", "o", "u", "h")) else " i el "
+            phrase += " i l'" if cal_apostrofar(lang2) else " i el "
             phrase += f"{lang2} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"

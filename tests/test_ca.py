@@ -22,7 +22,7 @@ from wikidict.utils import process_templates
             "-itzar",
             [],
             [],
-            ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i>."],
+            ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i> (<i>-ízein</i>)."],
             [
                 "<i>Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.</i>",  # noqa
             ],
