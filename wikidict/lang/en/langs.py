@@ -894,7 +894,7 @@ langs = {
     "bez": "Kibena",
     "bfa": "Bari",
     "bfb": "Pauri Bareli",
-    "bfc": "Northern Bai",
+    "bfc": "Panyi Bai",
     "bfd": "Bafut",
     "bfe": "Betaf",
     "bff": "Bofi",
@@ -7456,6 +7456,7 @@ langs = {
     "sit-mru": "Mruic",
     "sit-nas": "Naish",
     "sit-nax": "Naic",
+    "sit-nba": "Northern Bai",
     "sit-new": "Newaric",
     "sit-nng": "Nungish",
     "sit-prn": "Puiron",
@@ -9717,5 +9718,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,712
+}  # 9,713
 # END

@@ -250,6 +250,7 @@ domain_templates = {
     "pâtes alimentaires": "Cuisine",
     "pâtisseries": "Pâtisserie",
     "pélicans": "Ornithologie",
+    "péninsules": "Géographie",
     "périodes": "Géologie",
     "pêches": "Botanique",
     "quartiers": "Toponyme",
@@ -327,5 +328,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 322
+}  # 323
 # END
