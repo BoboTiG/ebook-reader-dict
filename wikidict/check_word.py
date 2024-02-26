@@ -93,7 +93,12 @@ def filter_html(html: str, locale: str) -> str:
                 i.decompose()
         # Filter out anchors as they are ignored from templates
         for a in bs.find_all("a", href=True):
-            if a["href"].startswith("#") and "mw-selflink-fragment" not in a.get("class", []):
+            if (
+                a["href"].startswith("#")
+                and not a["href"].startswith("#ca#")
+                and a["href"] != "#ca"
+                and "mw-selflink-fragment" not in a.get("class", [])
+            ):
                 a.decompose()
 
     elif locale == "de":
