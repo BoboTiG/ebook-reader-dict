@@ -22,6 +22,7 @@ lines = get_content(url).split("\n")
 pattern = re.compile(r'.*"s2">&quot;([^&]+)')
 count = 0
 iso = name = ""
+groups = []
 for line in lines:
     line = line.strip()
     if '<span class="n">c</span>' in line:
@@ -34,8 +35,16 @@ for line in lines:
             name = m[1]
             if iso:
                 languages[iso] = name
+    elif '<span class="nb">type' in line:
+        if "grup" in line:
+            groups.append(iso)
 
 print("langs = {")
 for iso, lang in sorted(languages.items()):
     print(f'    "{iso}": "{lang}",')
 print(f"}}  # {len(languages):,}")
+print()
+print("grups = [")
+for iso in groups:
+    print(f'    "{iso}",')
+print("]")
