@@ -3,7 +3,8 @@ import re
 from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
-from .grc_trans import transliterate
+from .grc_trans import transliterate as transliterate_grc
+from .ru_trans import transliterate as transliterate_ru
 
 # Float number separator
 float_separator = ","
@@ -196,6 +197,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         'Del grec antic <i>ῡ̔οειδής</i> (<i>hȳoeidḗs</i>, «en forma d’ípsilon»)'
         >>> last_template_handler(["del-lang", "la", "ca"], "ca")
         ''
+        >>> last_template_handler(["del-lang", "la", "ca", "-"], "ca")
+        ''
 
         >>> last_template_handler(["Fals tall", "ca", "Far", "el Far"], "ca")
         'Fals tall sil·làbic de <i>el Far</i>'
@@ -209,6 +212,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         '<i>tardanies</i> («fruits tardans»)'
         >>> last_template_handler(["m", "grc", "ὖ"], "ca")
         '<i>ὖ</i> (<i>ŷ</i>)'
+        >>> last_template_handler(["m", "grc", "ἄνῑσον", "ánison"], "ca")
+        '<i>ánison</i> (<i>ánīson</i>)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -268,7 +273,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         elif data["tr"] and data["tr"] != "-":
             toadd.append(italic(data["tr"]))
         elif lang == "grc" and word and data["tr"] != "-":
-            toadd.append(italic(transliterate(word)))
+            toadd.append(italic(transliterate_grc(word)))
+        elif lang == "ru" and word and data["tr"] != "-":
+            toadd.append(italic(transliterate_ru(word)))
         if data["t"]:
             toadd.append(f"«{data['t']}»")
         if data["glossa"]:
@@ -295,7 +302,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "e":
         return f"{parts[-1]}{parse_other_parameters()}"
 
-    if tpl in ("del-lang", "Del-lang") and len(parts) == 2:
+    if tpl in ("del-lang", "Del-lang") and (len(parts) <= 2 or parts[2] == "-"):
         return ""
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
@@ -325,7 +332,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             phrase = strong(phrase)
         return phrase
 
-    if tpl in ("m", "terme", "term", "calc"):
+    if tpl in ("m", "terme", "term"):
+        word = parts[2] if len(parts) > 2 else parts[1]
+        return f"{italic(word)}{parse_other_parameters(parts[0], parts[1])}"
+    if tpl == "calc":
         return f"{italic(parts[-1])}{parse_other_parameters(parts[0], parts[-1])}"
 
     if tpl == "trad":
