@@ -1845,6 +1845,7 @@ langs = {
     "crp-gep": "West Greenlandic Pidgin",
     "crp-mpp": "Macau Pidgin Portuguese",
     "crp-rsn": "Russenorsk",
+    "crp-slb": "Solombala English",
     "crp-tnw": "Tangwang",
     "crp-tpr": "Taimyr Pidgin Russian",
     "crq": "Iyo'wujwa Chorote",
@@ -5958,7 +5959,7 @@ langs = {
     "nur-nor": "Northern Nuristani",
     "nur-sou": "Southern Nuristani",
     "nus": "Nuer",
-    "nut": "Nung",
+    "nut": "Nùng",
     "nuu": "Ngbundu",
     "nuv": "Northern Nuni",
     "nuw": "Nguluwan",
@@ -7881,6 +7882,7 @@ langs = {
     "tbq-bis": "Bisoid",
     "tbq-bka": "Bi-Ka",
     "tbq-bkj": "Sal",
+    "tbq-blg": "Bailang",
     "tbq-brm": "Burmish",
     "tbq-buq": "Burmo-Qiangic",
     "tbq-drp": "Downriver Phula",
@@ -7911,7 +7913,6 @@ langs = {
     "tbq-nso": "Nisoish",
     "tbq-nus": "Nusoish",
     "tbq-phw": "Phowa",
-    "tbq-plg": "Pai-lang",
     "tbq-pro": "Proto-Tibeto-Burman",
     "tbq-rph": "Riverine Phula",
     "tbq-sel": "Southeastern Loloish",
@@ -9718,5 +9719,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,713
+}  # 9,714
 # END

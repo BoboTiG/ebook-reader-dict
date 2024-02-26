@@ -1267,6 +1267,7 @@ labels_topical = {
     "data modeling": "data modeling",
     "database": "databases",
     "databases": "databases",
+    "decision theory": "decision theory",
     "deltiology": "deltiology",
     "demography": "demography",
     "demonym": "demonym",
@@ -1703,6 +1704,7 @@ labels_topical = {
     "porno": "pornography",
     "pornography": "pornography",
     "post": "post",
+    "potential theory": "potential theory",
     "pottery": "pottery",
     "pragmatics": "pragmatics",
     "printing": "printing",
@@ -1832,6 +1834,7 @@ labels_topical = {
     "squash": "squash",
     "standard of identity": "standards of identity",
     "star": "astronomy",
+    "statistical mechanics": "statistical mechanics",
     "statistics": "statistics",
     "steroid": "biochemistry",
     "steroid drug": "biochemistry, steroids",
@@ -1967,7 +1970,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,198
+}  # 1,201
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",

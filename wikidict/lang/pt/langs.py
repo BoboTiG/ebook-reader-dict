@@ -62,6 +62,7 @@ langs = {
     "an": "Aragonês",
     "ang": "Inglês Antigo",
     "ank": "Goemai",
+    "anp": "Angika",
     "aoc": "Taurepang",
     "aot": "Atong",
     "aoz": "Atoni",
@@ -1484,5 +1485,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,479
+}  # 1,480
 # END
