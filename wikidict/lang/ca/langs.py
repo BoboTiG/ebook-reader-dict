@@ -804,4 +804,10 @@ langs = {
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
 }  # 798
+
+grups = [
+    "cel",
+    "gem",
+    "qfa-sub-roa",
+]
 # END

@@ -199,6 +199,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         ''
         >>> last_template_handler(["del-lang", "la", "ca", "-"], "ca")
         ''
+        >>> last_template_handler(["Del-lang", "gem", "ca", "Adroar"], "ca")
+        "D'un germànic <i>Adroar</i>"
 
         >>> last_template_handler(["Fals tall", "ca", "Far", "el Far"], "ca")
         'Fals tall sil·làbic de <i>el Far</i>'
@@ -254,7 +256,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         superscript,
     )
     from .. import defaults
-    from .langs import langs
+    from .langs import grups, langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
@@ -288,10 +290,18 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             toadd.append(f"literalment «{data['lit']}»")
         return f" ({concat(toadd, ', ')})" if toadd else ""
 
+    def format_source(lang: str, lang_name: str, nocap: bool) -> str:
+        if lang in grups:
+            return "d'un " if nocap else "D'un "
+        else:
+            phrase = "d" if nocap else "D"
+            phrase += "e l'" if cal_apostrofar(lang_name) else "el "
+            return phrase
+
     if tpl == "calc semàntic":
         phrase = "calc semàntic "
         lang = langs[parts[0]]
-        phrase += "de l'" if cal_apostrofar(lang) else "del "
+        phrase += format_source(parts[0], lang, True)
         phrase += f"{lang} "
         phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
         return phrase
@@ -307,9 +317,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             lang = langs[parts[0]]
-            phrase += "De l'" if cal_apostrofar(lang) else "Del "
-            if tpl == "del-lang" and phrase:
-                phrase = phrase.lower()
+            phrase += format_source(parts[0], lang, tpl == "del-lang")
             phrase += f"{lang}"
             word = ""
             if len(parts) > 2:
