@@ -3806,7 +3806,8 @@ labels_subvarieties = {
     "Belarusian Classical Orthography": "Taraškievica",
     "Belsetán": "Belsetán",
     "Benasquese": "Benasquese",
-    "Besermyan": "Besermyan",
+    "Beserman": "Beserman",
+    "Besermyan": "Beserman",
     "Betawi": "Batavian Malay",
     "Bhasai": "Madras Bashai",
     "Bialystok": "Białystok",
@@ -6972,5 +6973,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,440
+}  # 3,441
 # END
