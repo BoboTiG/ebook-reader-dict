@@ -289,6 +289,7 @@ campos_semanticos = {
     "estaciones": "Cronología, Meteorología",
     "estadística": "Estadística",
     "estomatología": "Estomatología",
+    "estética": "Estética",
     "fabril": "Fabril",
     "fantasía": "Ficción fantástica",
     "farmacología": "Farmacología",
@@ -503,5 +504,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 498
+}  # 499
 # END

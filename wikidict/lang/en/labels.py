@@ -5045,8 +5045,10 @@ labels_subvarieties = {
     "Middle Hittite": "Middle Hittite",
     "Middle Konda": "Middle Konda",
     "Middle Lozva": "Middle Lozva",
+    "Middle Ob": "Middle Ob",
     "Middle Polish": "Middle Polish",
     "Middle Scots": "Middle Scots",
+    "Middle-Ob": "Middle Ob",
     "Midland U.S.": "Midland US",
     "Midland US": "Midland US",
     "Midlands English": "Midlands",
@@ -5277,6 +5279,7 @@ labels_subvarieties = {
     "OAss": "Old Assyrian",
     "OBab": "Old Babylonian",
     "Ob": "Ob",
+    "Obdorsk": "Obdorsk",
     "Odawa": "Ottawa",
     "Oenoe": "Oinoe",
     "Of": "Ophitic",
@@ -5449,6 +5452,7 @@ labels_subvarieties = {
     "Preclassical non-lemma": "pre-Classical",
     "Prekmurje": "old Prekmurje Slovene standard",
     "Prekmurski": "Prekmurski",
+    "Priuralsky": "Priuralsky",
     "Proto-Balkan-Romance": "Proto-Balkan-Romance",
     "Proto-Gallo-Romance": "Proto-Gallo-Romance",
     "Proto-Ibero-Romance": "Proto-Ibero-Romance",
@@ -6973,5 +6977,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,441
+}  # 3,445
 # END
