@@ -1,4 +1,5 @@
 """French language."""
+
 import re
 from typing import List, Pattern, Tuple
 

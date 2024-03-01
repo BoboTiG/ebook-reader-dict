@@ -6,6 +6,7 @@ Current version: 25 août 2023 11:50
     https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=32695780
 
 """
+
 import unicodedata
 from re import sub
 

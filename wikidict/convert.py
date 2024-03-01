@@ -1,4 +1,5 @@
 """Convert rendered data to working dictionaries."""
+
 import bz2
 import gzip
 import hashlib

@@ -1,4 +1,5 @@
 """Retrieve Wiktionary data."""
+
 import bz2
 import os
 import re

@@ -1,6 +1,7 @@
 """
 Functions that can be used in *templates_multi* of any locale.
 """
+
 import re
 from collections import defaultdict
 from typing import DefaultDict, List

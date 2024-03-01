@@ -1,4 +1,5 @@
 """Defaults values for locales without specific needs."""
+
 import re
 from collections import defaultdict  # noqa
 from typing import DefaultDict, Dict, List, Pattern, Tuple

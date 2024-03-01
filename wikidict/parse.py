@@ -1,4 +1,5 @@
 """Parse and store raw Wiktionary data."""
+
 import json
 import os
 from collections import defaultdict

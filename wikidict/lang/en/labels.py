@@ -5048,7 +5048,7 @@ labels_subvarieties = {
     "Middle Ob": "Middle Ob",
     "Middle Polish": "Middle Polish",
     "Middle Scots": "Middle Scots",
-    "Middle-Ob": "Middle Ob",
+    "Middle-Ob": "Ob",
     "Midland U.S.": "Midland US",
     "Midland US": "Midland US",
     "Midlands English": "Midlands",

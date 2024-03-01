@@ -262,7 +262,7 @@ def transliterate(text: str) -> str:
     """
     if text == "῾":
         return "h"
-    text = re.sub(r"([^A-Za-z0-9])[;" + "\u037E" + r"]", r"\1?", text)
+    text = re.sub(r"([^A-Za-z0-9])[;" + "\u037e" + r"]", r"\1?", text)
     text = text.replace("·", ";")
     tokens = make_tokens(text)
     output = []

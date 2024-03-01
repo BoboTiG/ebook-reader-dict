@@ -6,7 +6,6 @@ Current version: 13 février 2021 21:12
     https://fr.wiktionary.org/w/index.php?title=Module:ar-translit&oldid=29172743
 """
 
-
 import re
 import string
 from typing import List

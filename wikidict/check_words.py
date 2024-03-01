@@ -1,4 +1,5 @@
 """Get and render N words; then compare with the rendering done on the Wiktionary to catch errors."""
+
 import os
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial

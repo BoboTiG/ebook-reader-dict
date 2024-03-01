@@ -5009,8 +5009,11 @@ langs = {
     "mnr": "Mono (California)",
     "mns": "Mansi",
     "mns-cen": "Central Mansi",
+    "mns-eas": "Eastern Mansi",
     "mns-nor": "Northern Mansi",
+    "mns-pro": "Proto-Mansi",
     "mns-sou": "Southern Mansi",
+    "mns-wes": "Western Mansi",
     "mnt": "Maykulan",
     "mnu": "Mer",
     "mnv": "Rennellese",
@@ -8553,7 +8556,6 @@ langs = {
     "urj-kya": "Komi-Yazva",
     "urj-mdv": "Mordvinic",
     "urj-mdv-pro": "Proto-Mordvinic",
-    "urj-mns": "Mansi",
     "urj-prm": "Permic",
     "urj-prm-pro": "Proto-Permic",
     "urj-pro": "Proto-Uralic",
@@ -9699,5 +9701,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,694
+}  # 9,696
 # END

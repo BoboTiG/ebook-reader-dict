@@ -1,4 +1,5 @@
 """Italian language."""
+
 import re
 from typing import Dict, List, Pattern, Tuple
 
