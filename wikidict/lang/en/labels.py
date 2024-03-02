@@ -6515,7 +6515,6 @@ labels_subvarieties = {
     "ise-form": "Non-Oxford British",
     "issln": "Alpine Slovene (1000–1200)",
     "issln.": "Alpine Slovene (1000–1200)",
-    "it-oit": "Old Italian",
     "ize-form": "American and Oxford British",
     "j-nj": "dialects without nʼ–j distinction",
     "komar": "dialects with *kováč > *kòvač shift",
@@ -6977,5 +6976,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,445
+}  # 3,444
 # END
