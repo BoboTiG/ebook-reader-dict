@@ -3142,6 +3142,9 @@ langs = {
     "hsh": "Hungarian Sign Language",
     "hsl": "Hausa Sign Language",
     "hsn": "Xiang",
+    "hsn-hyn": "Hengyang Xiang",
+    "hsn-hzh": "Hengzhou Xiang",
+    "hsn-ldi": "Loudi Xiang",
     "hsn-new": "New Xiang",
     "hsn-old": "Old Xiang",
     "hss": "Harsusi",
@@ -5399,7 +5402,8 @@ langs = {
     "nal": "Nalik",
     "nam": "Ngan'gityemerri",
     "nan": "Min Nan",
-    "nan-hai": "Hainanese",
+    "nan-hbl": "Hokkien",
+    "nan-hnm": "Hainanese",
     "nan-hok": "Hokkien",
     "nan-jnj": "Jinjiang Hokkien",
     "nan-pen": "Penang Hokkien",
@@ -9560,6 +9564,7 @@ langs = {
     "zhx-man": "Mandarinic",
     "zhx-min": "Min",
     "zhx-min-pro": "Proto-Min",
+    "zhx-nan": "Min Nan",
     "zhx-pin": "Pinghua",
     "zhx-sht": "Shaozhou Tuhua",
     "zhx-sic": "Sichuanese",
@@ -9701,5 +9706,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,696
+}  # 9,701
 # END

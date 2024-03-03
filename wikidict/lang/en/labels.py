@@ -1791,6 +1791,7 @@ labels_topical = {
     "sexology": "sexology",
     "sexuality": "sexuality",
     "shamanism": "shamanism",
+    "ship parts": "nautical",
     "shipping": "shipping",
     "shogi": "shogi",
     "shooting sports": "gun sports",
@@ -1970,7 +1971,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,201
+}  # 1,202
 
 labels_regional = {
     "AJ&K": "Azad Kashmir",
