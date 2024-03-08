@@ -5403,6 +5403,7 @@ langs = {
     "nam": "Ngan'gityemerri",
     "nan": "Min Nan",
     "nan-hbl": "Hokkien",
+    "nan-hlh": "Haklau Min",
     "nan-hnm": "Hainanese",
     "nan-hok": "Hokkien",
     "nan-jnj": "Jinjiang Hokkien",
@@ -9706,5 +9707,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,701
+}  # 9,702
 # END
