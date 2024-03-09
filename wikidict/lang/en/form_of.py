@@ -409,6 +409,10 @@ form_of_templates = {
         "text": "Lenited form of",
         "dot": True,
     },
+    "literary form of": {
+        "text": "Literary form of",
+        "dot": True,
+    },
     "masculine noun of": {
         "text": "masculine equivalent of",
         "dot": False,
@@ -765,7 +769,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 190
+}  # 191
 # END
 
 
