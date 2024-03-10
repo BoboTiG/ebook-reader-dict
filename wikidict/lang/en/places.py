@@ -26,17 +26,17 @@ recognized_placetypes = {
         "preposition": "of",
     },
     "Indian reservation": {
-        "article": "a",
+        "article": "an",
         "display": "Indian reservation",
         "preposition": "in",
     },
     "Indian reserve": {
-        "article": "a",
+        "article": "an",
         "display": "Indian reserve",
         "preposition": "in",
     },
     "Israeli settlement": {
-        "article": "a",
+        "article": "an",
         "display": "Israeli settlement",
         "preposition": "in",
     },

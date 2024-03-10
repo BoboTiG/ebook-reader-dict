@@ -5397,6 +5397,7 @@ langs = {
     "toi": "tonga (Zambie)",
     "toj": "tojolabal",
     "tok": "toki pona",
+    "tokipona": "toki pona",
     "tol": "tolowa",
     "tom": "tombulu",
     "ton": "tongien",
@@ -6424,7 +6425,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,419
+}  # 6,420
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
