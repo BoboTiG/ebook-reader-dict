@@ -6087,6 +6087,7 @@ labels_subvarieties = {
     "Urban Cebu": "Urban Cebu",
     "Urban Cebuano": "Urban Cebu",
     "Ursari": "Ursari",
+    "Ururi": "Ururi",
     "Uttarandhra": "North Andhra",
     "Uttarandhra Telugu": "North Andhra",
     "Uusimaa": "Uusimaa",
@@ -6929,5 +6930,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,490
+}  # 3,491
 # END

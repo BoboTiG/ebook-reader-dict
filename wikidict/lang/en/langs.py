@@ -1738,10 +1738,14 @@ langs = {
     "cmm": "Michigamea",
     "cmn": "Mandarin",
     "cmn-ear": "Early Mandarin",
+    "cmn-gui": "Guilin Mandarin",
+    "cmn-nan": "Nanjing Mandarin",
     "cmn-palladius": "Palladius",
     "cmn-pinyin": "Hanyu Pinyin",
     "cmn-tongyong": "Tongyong Pinyin",
     "cmn-wadegile": "Wade–Giles",
+    "cmn-xin": "Xining Mandarin",
+    "cmn-yan": "Yangzhou Mandarin",
     "cmo": "Central Mnong",
     "cmr": "Mro Chin",
     "cms": "Messapic",
@@ -8890,6 +8894,7 @@ langs = {
     "wuu-ngb": "Ningbonese",
     "wuu-sha": "Shanghainese",
     "wuu-szh": "Suzhounese",
+    "wuu-wen": "Wenzhounese",
     "wuv": "Wuvulu-Aua",
     "wux": "Wulna",
     "wuy": "Wauyai",
@@ -9562,6 +9567,7 @@ langs = {
     "zhw": "Zhoa",
     "zhx": "Sinitic",
     "zhx-com": "Coastal Min",
+    "zhx-dan": "Danzhou Chinese",
     "zhx-inm": "Inland Min",
     "zhx-man": "Mandarinic",
     "zhx-min": "Min",
@@ -9707,5 +9713,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,702
+}  # 9,708
 # END
