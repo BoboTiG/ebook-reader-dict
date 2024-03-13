@@ -226,6 +226,7 @@ campos_semanticos = {
     "botánica": "Botánica",
     "béisbol": "Béisbol",
     "cactos": "Botánica",
+    "campamento": "Campamento",
     "cardiología": "Cardiología",
     "carpintería": "Carpintería",
     "casos gramaticales": "Lingüística",
@@ -454,6 +455,7 @@ campos_semanticos = {
     "rugby": "Rugby",
     "ríos": "Geografía (ríos)",
     "sabores": "Sabores",
+    "seguridad": "Seguridad",
     "sentimientos": "Humanidades",
     "serpientes": "Zoología",
     "sexualidad": "Sexualidad",
@@ -504,5 +506,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 499
+}  # 501
 # END
