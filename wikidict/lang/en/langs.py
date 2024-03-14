@@ -5409,7 +5409,6 @@ langs = {
     "nan-hbl": "Hokkien",
     "nan-hlh": "Haklau Min",
     "nan-hnm": "Hainanese",
-    "nan-hok": "Hokkien",
     "nan-jnj": "Jinjiang Hokkien",
     "nan-luh": "Leizhou Min",
     "nan-pen": "Penang Hokkien",
@@ -9713,5 +9712,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,708
+}  # 9,707
 # END
