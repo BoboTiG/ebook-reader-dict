@@ -3846,6 +3846,7 @@ labels_subvarieties = {
     "Canadian Prairies": "Canadian Prairies",
     "Canadian form": "Canadian",
     "Canadian spelling": "Canadian spelling",
+    "Canara": "Canara",
     "Cantonese": "Cantonese",
     "Cape Afrikaans": "Cape Afrikaans",
     "Caraga": "Caraga",
@@ -6949,5 +6950,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,510
+}  # 3,511
 # END
