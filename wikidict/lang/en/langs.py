@@ -3574,6 +3574,7 @@ langs = {
     "jpa": "Jewish Palestinian Aramaic",
     "jpr": "Judeo-Persian",
     "jpx": "Japonic",
+    "jpx-hcj": "Hachijō",
     "jpx-pro": "Proto-Japonic",
     "jpx-ryu": "Ryukyuan",
     "jpx-ryu-pro": "Proto-Ryukyuan",
@@ -6071,6 +6072,7 @@ langs = {
     "ojc": "Central Ojibwa",
     "ojg": "Eastern Ojibwa",
     "ojp": "Old Japanese",
+    "ojp-eas": "Eastern Old Japanese",
     "ojs": "Severn Ojibwa",
     "ojv": "Ontong Java",
     "ojw": "Western Ojibwa",
@@ -9712,5 +9714,5 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,707
+}  # 9,709
 # END
