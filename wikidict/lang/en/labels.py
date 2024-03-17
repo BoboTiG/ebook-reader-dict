@@ -6344,6 +6344,7 @@ labels_subvarieties = {
     "Yugoslavia": "Serbo-Croatism, common especially in Yugoslavia",
     "Yukjin": "Yukjin",
     "Yukon": "Yukon",
+    "Yukonda": "Jukonda",
     "Yusufeli Yaylalar": "Yusufeli Yaylalar",
     "Yàgbà": "Yagba",
     "Yéwa": "Yewa",
@@ -6950,5 +6951,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 3,511
+}  # 3,512
 # END

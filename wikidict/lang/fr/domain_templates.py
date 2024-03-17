@@ -111,7 +111,7 @@ domain_templates = {
     "cétacés": "Mammalogie",
     "danses": "Danse",
     "desserts": "Cuisine",
-    "diacritiques": "Grammaire",
+    "diacritiques": "Linguistique",
     "dialectes": "Dialectologie",
     "dindons": "Zoologie",
     "dinosaures": "Paléontologie",
