@@ -2346,7 +2346,7 @@ langs = {
     "gqu": "qau",
     "gra": "garasia rajput",
     "grb": "grebo (macrolengua)",
-    "grc": "griego clásico",
+    "grc": "griego antiguo",
     "grc-arc": "griego arcadio",
     "grc-arp": "griego arcadochipriota",
     "grc-att": "griego ático",
