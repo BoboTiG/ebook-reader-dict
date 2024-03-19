@@ -265,6 +265,42 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             phrase += ":"
         return phrase
 
+    if tpl == "μτφρ":
+        phrase = "μεταφορικά"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "αρχ":
+        phrase = "αρχαία ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+        
+    if tpl == "μσν":
+        phrase = "μεσαιωνική ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+        
+    if tpl == "μτβ":
+        phrase = "μεταβατικό"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+        
+    if tpl == "αμτβ":
+        phrase = "αμετάβατο"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "βλφρ":
+        phrase = "<i>δείτε την έκφραση</i>"
+        if not data["0"]:
+            phrase += ":"
+        return phrase
+
     if tpl == "κτεπε":
         phrase = "κατʼ επέκταση"
         if not data["0"]:
