@@ -127,7 +127,6 @@ templates_italic = {
     **labels,
     **labels_regional,
     **labels_topical,
-    "ambitransitive": "transitive, intransitive",
 }
 
 # Templates more complex to manage.

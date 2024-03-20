@@ -276,19 +276,19 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         if not data["0"]:
             phrase = term(phrase)
         return phrase
-        
+
     if tpl == "μσν":
         phrase = "μεσαιωνική ελληνική"
         if not data["0"]:
             phrase = term(phrase)
         return phrase
-        
+
     if tpl == "μτβ":
         phrase = "μεταβατικό"
         if not data["0"]:
             phrase = term(phrase)
         return phrase
-        
+
     if tpl == "αμτβ":
         phrase = "αμετάβατο"
         if not data["0"]:
