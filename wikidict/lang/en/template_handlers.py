@@ -15,7 +15,7 @@ from ...user_functions import (
     term,
 )
 from .. import defaults
-from .labels import label_syntaxes
+from .labels import labels_subvarieties, label_syntaxes
 from .langs import langs
 from .places import (
     placetypes_aliases,
@@ -445,7 +445,7 @@ def render_foreign_derivation(tpl: str, parts: List[str], data: DefaultDict[str,
                 starter += " from"
         phrase = starter if data["nocap"] == "1" else starter.capitalize()
 
-    lang = "translingual" if dst_locale == "mul" else langs.get(dst_locale, "")
+    lang = "translingual" if dst_locale == "mul" else langs.get(dst_locale, "") or labels_subvarieties.get(dst_locale, "")
     phrase += lang if tpl not in mentions else ""
 
     if parts or data["3"]:
