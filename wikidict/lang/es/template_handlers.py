@@ -183,11 +183,11 @@ def render_etim(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
     'del latín <i>folia</i>'
     >>> render_etim("etim", ["grc", "φάσηλος"], defaultdict(str, {"tr": "phásēlos"}))
-    'del griego clásico <i>φάσηλος</i> (<i>phásēlos</i>)'
+    'del griego antiguo <i>φάσηλος</i> (<i>phásēlos</i>)'
     >>> render_etim("etim", ["ar", "كنية"], defaultdict(str, {"tr": "kunyah", "glosa":"sobrenombre", "glosa-alt": "sobrenombre honorífico"}))
     'del árabe <i>كنية</i> (<i>kunyah</i>, "sobrenombre honorífico")'
     >>> render_etim("etim", ["grc", "ἱδρώς", "sudor"], defaultdict(str))
-    'del griego clásico <i>ἱδρώς</i> ("sudor")'
+    'del griego antiguo <i>ἱδρώς</i> ("sudor")'
     """  # noqa
     result = f"del {normalizar_nombre(parts[0])}"
     lplus = render_l(
@@ -263,7 +263,7 @@ def render_etimologia(tpl: str, parts: List[str], data: DefaultDict[str, str]) -
     >>> render_etimologia("etimología", ["osp", "fasta"], defaultdict(str))
     'Del castellano antiguo <i>fasta</i>'
     >>> render_etimologia("etimología", ["grc", "ἄκανθα", "espina", "grc","πτερύγιον", "aleta"], defaultdict(str, {"tr":"akntha", "tr2": "pterúgion"}))
-    'Del griego clásico <i>ἄκανθα</i> (<i>akntha</i>, "espina") y <i>πτερύγιον</i> (<i>pterúgion</i>, "aleta")'
+    'Del griego antiguo <i>ἄκανθα</i> (<i>akntha</i>, "espina") y <i>πτερύγιον</i> (<i>pterúgion</i>, "aleta")'
     >>> render_etimologia("etimología", ["osp", "foja", "", "osp","foia"], defaultdict(str))
     'Del castellano antiguo <i>foja</i> y <i>foia</i>'
     >>> render_etimologia("etimología", ["osp", "foja", "", "la","sed"], defaultdict(str))
