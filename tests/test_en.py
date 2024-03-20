@@ -163,7 +163,7 @@ from wikidict.utils import process_templates
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
                 "<i>(Commonwealth, colloquial, chiefly with <i>give</i>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
-                "<i>(Tyneside)</i> Me (in all contexts).",
+                "<i>(Geordie)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
                 "<i>(rare)</i> <i>Alternative form of</i> <b>u's</b>.",
