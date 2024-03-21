@@ -1,0 +1,20 @@
+{{=da=}}
+{{-verb-|da}}
+{{pn}} ''([[modalverbum]])''
+#Er nødt til at gøre. Forpligtet til at gøre.
+#:''Du skal bruge sikkerhedssele.''
+{{-decl-}}
+{{da-verb|-|skulle|skal|skulle|har|skullet}}
+{{-syn-}}
+* [[måtte]]
+* [[burde]]
+{{-trans-}}
+{{(}}
+*{{en}}: {{t|en|must}}, {{t|en|shall}}, {{t|en|have to}}
+*{{fr}}: {{trad|fr|devoir}}
+{{-}}
+*{{nl}}: {{trad|nl|moeten}}
+*{{sv}}: {{t|sv|skola}}, {{t|sv|måste}}, {{t|sv|böra}}
+{{)}}
+
+[[Kategori:Modalverber på dansk]]

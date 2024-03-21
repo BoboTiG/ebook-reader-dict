@@ -1,0 +1,106 @@
+{{også|Mus}}
+{{wikipedia}}
+{{=da=}}
+[[Image:House mouse.jpg|thumb|right|En husmus]]
+[[Image:3-Tasten-Maus Microsoft.jpg|thumb|right|En computermus]]
+{{-etym-}}
+# Fra {{etyl|non|da}} {{term|mús|lang=non}}.
+# Fra {{etyl|en|da}} {{term|mouse|lang=en}}.
+{{-noun-|da}}
+{{pn}} {{c}}
+# (''zoologi'') [[pattedyr]]
+#:''[[Min]] [[kat]] [[være|er]] [[bange]] [[for]] [[mus]]''.''
+# {{data|dansk}} en enhed som tilsluttes computere
+{{-decl-}}
+{{da-noun-infl|en|2=mus}}
+{{-rel-}}
+* [[computermus]]
+* [[hasselmus]]
+* [[husmus]]
+* [[markmus]]
+* [[musearm]]
+* [[musefælde]]
+* [[muselort]]
+* [[musemåtte]]
+* [[museskade]]
+* [[museunge]]
+{{-trans-}}
+{{(}}
+* {{af}}: {{t|af|muis}}
+* {{en}}: {{t|en|mouse}}
+* {{fi}}: {{t|fi|hiiri}}
+* {{fr}}: {{t|fr|souris|f}}
+* {{fo}}: {{t|fo|mús}}
+* {{el}}: {{t|el|ποντικός}}
+* {{is}}: {{t|is|mús}}
+* {{it}}: {{t|it|topo|m}}
+* {{ku}}: {{t|ku|mişk}}
+{{-}}
+* {{lb}}: {{t|lb|Maus}}
+* {{nl}}: {{t|nl|muis|f}}
+* {{no}}: {{t|no|mus|c}}
+* {{pl}}: {{t|pl|mysz|f}}
+* {{ru}}: {{t|ru|мышь|f}} (myšʹ)
+* {{es}}: {{t|es|ratón|m}}
+* {{sv}}: {{t|sv|mus|c}}
+* {{tr}}: {{t|tr|fare}}
+* {{de}}: {{t|de|Maus|f}}
+{{)}}
+[[Kategori:Pattedyr på dansk]]
+
+{{=nl=}}
+{{-pronun-}}
+:{{audio|nl-mus.ogg|mus}}
+{{-noun-|nl}}
+{{pn}} {{f}}
+#''zool.'' [[spurv]]
+{{-decl-}}
+{{nl-noun|de|mus|musje|mussen|musjes}}
+{{-rel-}}
+{|
+|- valign=top
+|
+*[[baardgrasmus]]
+*[[bergmus]]
+*[[boommus]]
+|
+*[[grasmus]]
+*[[heggenmus]]
+*[[huismus]]
+|
+*[[mannetjesmus]]
+*[[meimus]]
+*[[rietmus]]
+|
+*[[ringelmus]]
+*[[ringmus]]
+*[[roodmus]]
+|
+*[[rotsmus]]
+*[[straatmus]]
+*[[wijfjesmus]]
+|}
+[[Kategori:Fugle på nederlandsk]]
+
+{{=sv=}}
+{{-noun-|sv}}
+{{pn}}
+# en [[#Dansk|mus]] (dyr)
+# en mus (til computere)
+{{-decl-}}
+{{sv-noun-irreg-c|3=möss|4=mössen|5=mus|7=möss}}
+{{-rel-}}
+;dyr
+* [[hasselmus]]
+* [[husmus]]
+* [[musfälla]]
+* [[musgrå]]
+* [[näbbmus]]
+;computere
+* [[datormus]]
+* [[musknapp]]
+* [[musmatta]]
+* [[muspekare]]
+{{-ref-}}
+* {{SAOL}}
+[[Kategori:Pattedyr på svensk]]
