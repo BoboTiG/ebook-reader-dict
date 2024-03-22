@@ -242,6 +242,7 @@ langs = {
     "anb": "andoa",
     "anc": "angas",
     "ancien danois": "vieux danois",
+    "ancien normand": "ancien normand",
     "ancien suédois": "vieux suédois",
     "and": "ansus",
     "ane": "xârâcùù",
@@ -6425,7 +6426,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,420
+}  # 6,421
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

@@ -116,6 +116,7 @@ domain_templates = {
     "dindons": "Zoologie",
     "dinosaures": "Paléontologie",
     "distinctions": "Distinction",
+    "districts": "Géographie",
     "divinités": "Divinité",
     "documents": "Média",
     "drogues": "Pharmacologie",
@@ -328,5 +329,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 323
+}  # 324
 # END

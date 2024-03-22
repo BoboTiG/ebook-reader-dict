@@ -478,7 +478,7 @@ racines_schemes_arabes = {
         "ar-*a**@ũ": "{{m}} dix",
         "ar-*a**ũ": "{{f}} dix",
         "ar-*a*a*@ũ": "{{m}} dix",
-        "ar-*a*a*a-u": "compléter à dix",
+        "ar-*a*a*a-u": "imposer la dîme",
         "ar-*a*a*ũ": "{{f}} dix",
         "ar-*a*i*@ũ": "{{m}} dix",
         "ar-*a*²a*a": "décimer",
@@ -489,6 +489,7 @@ racines_schemes_arabes = {
         "ar-*i**@ũ": "société",
         "ar-*i**îniy²@ũ": "gages",
         "ar-*i**ûna": "vingt",
+        "ar-*i**ũ": "dizaine",
         "ar-*ta*a*a": "",
         "ar-*u**awâtũ": "dixaine",
         "ar-*u**ũ": "dixième",
@@ -497,6 +498,7 @@ racines_schemes_arabes = {
         "ar-*u*â*@ũ": "dixième",
         "ar-*u*â*iy²ũ": "long de dix aunes",
         "ar-*u*â*ũ": "dixaine",
+        "ar-*u*û*ũ": "imposition",
         "ar-*uway*a*â'u": "petit sommet",
         "ar-*â*a*a": "fréquenter",
         "ar-*â*i*@ũ": "dixième",
@@ -515,7 +517,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se fréquenter",
-    },  # 43
+    },  # 45
     "ar-3Dl": {
         "aa_sens": "dur",
         "ar-***ũ": "",
