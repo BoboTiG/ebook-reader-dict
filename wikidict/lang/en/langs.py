@@ -9754,3 +9754,14 @@ langs = {
     "zzj": "Zuojiang Zhuang",
 }  # 9,747
 # END
+
+# Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
+langs["CL."] = langs["la-cla"]
+langs["EL."] = langs["la-ecc"]
+langs["LL."] = langs["la-lat"]
+langs["ML."] = langs["la-med"]
+langs["NL."] = langs["la-new"]
+langs["RL."] = langs["la-ren"]
+langs["VL."] = langs["la-vul"]
+langs["gkm-med"] = langs["gkm"]
+langs["prv"] = langs["oc-pro"]

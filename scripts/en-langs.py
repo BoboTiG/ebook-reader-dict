@@ -55,10 +55,6 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
 
         concat += result + "\n"
     exec(concat, globals())
-    for k, v in m.copy().items():  # type: ignore # noqa
-        if alias_codes := v.get("alias_codes", {}):
-            for alias_code in alias_codes:
-                m[alias_code] = v  # type: ignore # noqa
     return m  # type: ignore # noqa
 
 
