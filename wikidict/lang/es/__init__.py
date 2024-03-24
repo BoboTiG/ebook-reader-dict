@@ -266,6 +266,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["en"], "es")
         'Inglés'
 
+        >>> last_template_handler(["csem", "economía", "numismática"], "es")
+        '<i>(Economía, numismática)</i>'
+
         >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
         'apropiado'
     """
@@ -282,6 +285,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
     if lookup_template(template[0]):
         return render_template(template)
+
+    if should_lower_next_templates := template[0] == "csem":
+        template = template[1:]
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -308,7 +314,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
                 else:
                     local_phrase = part
             # some italic templates are in lower case if after the first one...
-            if index > 1 and local_phrase in lowercase_italic:
+            if index > 1 and (local_phrase in lowercase_italic or should_lower_next_templates):
                 local_phrase = local_phrase.lower()
             if append_to_last:
                 phrase_a[-1] += local_phrase
