@@ -6726,7 +6726,7 @@ langs = {
     "tgf": "chali",
     "tgh": "criollo tobaguense",
     "tgi": "lawunuio",
-    "tgj": "Tagin",
+    "tgj": "tagin",
     "tgn": "tandagano",
     "tgo": "sudest",
     "tgp": "tangoa",
