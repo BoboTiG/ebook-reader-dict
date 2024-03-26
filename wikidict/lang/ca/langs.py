@@ -122,6 +122,7 @@ langs = {
     "ceb": "cebuà",
     "cel": "cèltic",
     "cel-bry-pro": "protobritònic",
+    "cel-gau": "gàl·lic",
     "cel-pro": "protocèltic",
     "cgg": "chiga",
     "ch": "chamorro",
@@ -803,7 +804,7 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 798
+}  # 799
 
 grups = [
     "cel",
