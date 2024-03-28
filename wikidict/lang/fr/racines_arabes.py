@@ -485,6 +485,7 @@ racines_schemes_arabes = {
         "ar-*a*²â*ũ": "percepteur",
         "ar-*a*î*@ũ": "famille",
         "ar-*a*î*ũ": "époux",
+        "ar-*a*û*â'u": "dix Moharrem",
         "ar-*awâ*i*u": "chameau sobre",
         "ar-*i**@ũ": "société",
         "ar-*i**îniy²@ũ": "gages",
@@ -502,6 +503,7 @@ racines_schemes_arabes = {
         "ar-*uway*a*â'u": "petit sommet",
         "ar-*â*a*a": "fréquenter",
         "ar-*â*i*@ũ": "dixième",
+        "ar-*â*i*âtũ": "hyènes",
         "ar-*â*i*ũ": "dixième",
         "ar-*â*û*ũ": "dix Moharrem",
         "ar-a**a*a": "être dix",
@@ -517,7 +519,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se fréquenter",
-    },  # 45
+    },  # 47
     "ar-3Dl": {
         "aa_sens": "dur",
         "ar-***ũ": "",
