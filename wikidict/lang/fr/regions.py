@@ -223,6 +223,7 @@ regions = {
     "Gyeongsang": "Gyeongsang",
     "Géorgie": "Géorgie",
     "Gérardmer": "Gérardmer",
+    "HK": "Hong Kong",
     "HKG": "Hong Kong",
     "HT": "Haïti",
     "Harelbeke": "Harelbeke",
@@ -586,6 +587,7 @@ regions = {
     "Yucatán": "Yucatán",
     "Yémen": "Yémen",
     "ZA": "Afrique du Sud",
+    "ZH": "Chine",
     "Zambie": "Zambie",
     "Zaria": "Zaria",
     "Zimbabwe": "Zimbabwe",
@@ -613,7 +615,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 608
+}  # 610
 # END
 
 # handled differently

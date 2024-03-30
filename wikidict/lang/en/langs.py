@@ -7355,6 +7355,7 @@ langs = {
     "sey": "Secoya",
     "sez": "Senthang Chin",
     "sfb": "French Belgian Sign Language",
+    "sfe": "Eastern Subanun",
     "sfm": "Small Flowery Miao",
     "sfs": "South African Sign Language",
     "sfw": "Sehwi",
@@ -9757,7 +9758,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,752
+}  # 9,753
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

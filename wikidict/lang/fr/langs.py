@@ -5151,6 +5151,7 @@ langs = {
     "sym": "san maya",
     "syn": "senaya",
     "syr": "syriaque",
+    "sys": "sinyar",
     "syw": "syuba",
     "sza": "semelai",
     "szb": "ngalum",
@@ -6426,7 +6427,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,421
+}  # 6,422
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
