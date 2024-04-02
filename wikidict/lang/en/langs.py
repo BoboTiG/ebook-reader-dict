@@ -9604,6 +9604,7 @@ langs = {
     "zgh": "Moroccan Amazigh",
     "zgr": "Magori",
     "zh": "Chinese",
+    "zh-postal": "Postal Romanization",
     "zhb": "Zhaba",
     "zhi": "Zhire",
     "zhn": "Nong Zhuang",
@@ -9758,7 +9759,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,753
+}  # 9,754
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
