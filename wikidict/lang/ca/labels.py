@@ -63,6 +63,7 @@ labels = {
     "Balears": "balear",
     "Empordà": "empordanès",
     "GLBT": "LGBTI",
+    "Garrotxa": "garrotxí",
     "Gaston Waringhien": "Gaston Waringhien",
     "Girona": "gironí",
     "Kálmán Kalocsay": "Kálmán Kalocsay",
@@ -162,5 +163,5 @@ labels = {
     "vulgarisme": "vulgarisme",
     "vulgarment": "vulgarisme",
     "xilè": "Xile",
-}  # 102
+}  # 103
 # END
