@@ -187,6 +187,7 @@ regions = {
     "Faeto": "Faeto",
     "Fidji": "Fidji",
     "Finlande": "Finlande",
+    "Fondachelli-Fantina": "Fondachelli-Fantina",
     "Fontainebleau": "Fontainebleau",
     "Fougères": "Fougères",
     "Francavilla": "Francavilla Fontana",
@@ -380,6 +381,7 @@ regions = {
     "Nouvelle-Calédonie": "Nouvelle-Calédonie",
     "Nouvelle-Zélande": "Nouvelle-Zélande",
     "Nouvelle-Écosse": "Nouvelle-Écosse",
+    "Novare de Sicile": "Novare de Sicile",
     "Novoli": "Novoli",
     "Népal": "Népal",
     "Occitanie": "Occitanie",
@@ -615,7 +617,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 610
+}  # 612
 # END
 
 # handled differently
