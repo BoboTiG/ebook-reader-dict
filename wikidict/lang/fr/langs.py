@@ -5752,7 +5752,8 @@ langs = {
     "vnk": "lovono",
     "vnm": "neve’ei",
     "vnp": "vunapu",
-    "vo": "volapük",
+    "vo": "volapük réformé",
+    "volapük classique": "volapük classique",
     "volow": "volow",
     "volsque": "volsque",
     "vor": "voro",
@@ -6427,7 +6428,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,422
+}  # 6,423
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
