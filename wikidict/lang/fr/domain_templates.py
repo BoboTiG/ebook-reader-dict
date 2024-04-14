@@ -298,6 +298,7 @@ domain_templates = {
     "titres": "Noblesse",
     "toponymes": "Géographie",
     "tortues": "Zoologie",
+    "truites": "Ichtyologie",
     "un os": "Anatomie",
     "unités": "Métrologie",
     "univers des canards": "Univers des canards de Disney",
@@ -329,5 +330,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 324
+}  # 325
 # END

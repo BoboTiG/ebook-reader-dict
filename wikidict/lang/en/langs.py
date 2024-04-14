@@ -4464,7 +4464,7 @@ langs = {
     "lio": "Liki",
     "lip": "Sekpele",
     "liq": "Libido",
-    "lir": "Liberian English",
+    "lir": "Liberian Kreyol",
     "lis": "Lisu",
     "liu": "Logorik",
     "liv": "Livonian",
