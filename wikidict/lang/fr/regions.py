@@ -15,6 +15,7 @@ regions = {
     "AUS": "Australie",
     "Abruzzes": "Abruzzes",
     "Acadie": "Acadie",
+    "Acquaviva Collecroce": "Acquaviva Collecroce",
     "Adinkerke": "Adinkerke",
     "Afrique": "Afrique",
     "Afrique de l’Ouest": "Afrique de l’Ouest",
@@ -617,7 +618,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 612
+}  # 613
 # END
 
 # handled differently
