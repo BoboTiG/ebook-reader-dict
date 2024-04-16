@@ -2574,7 +2574,7 @@ langs = {
     "fqs": "Fas",
     "fr": "French",
     "fr-CA": "Canadian French",
-    "fr-CH": "Switzerland French",
+    "fr-CH": "Swiss French",
     "fr-aca": "Acadian French",
     "frc": "Cajun French",
     "frd": "Fordata",

@@ -316,7 +316,6 @@ campos_semanticos = {
     "fútbol": "Fútbol",
     "ganadería": "Ganadería",
     "gastronomía": "Gastronomía",
-    "gentilicios": "Gentilicio",
     "genética": "Genética",
     "geografía": "Geografía",
     "geología": "Geología",
@@ -506,5 +505,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 501
+}  # 500
 # END
