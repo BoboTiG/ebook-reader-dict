@@ -6,6 +6,7 @@ Auto-generated with `python -m scripts`.
 # START
 regions = {
     "AAE": "Anglais afro-américain",
+    "AAVE": "Anglais afro-américain",
     "AD": "Andorre",
     "AE": "Émirats arabes unis",
     "AM": "Amérique latine",
@@ -618,7 +619,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 613
+}  # 614
 # END
 
 # handled differently
