@@ -8303,7 +8303,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-**â*ũ": "affirmation",
-        "ar-*a**@ũ": "accident",
+        "ar-*a**@ũ": "repas",
         "ar-*a**ũ": "pari",
         "ar-*a*a*a-i": "être nécessaire",
         "ar-*a*a*ânũ": "que le cœur batte",
@@ -8316,6 +8316,7 @@ racines_schemes_arabes = {
         "ar-*i*â*ũ": "{{p}} grandes outres",
         "ar-*ta*a*a": "",
         "ar-*u*â*ũ": "maladie de chameau",
+        "ar-*u*û*@ũ": "lâcheté",
         "ar-*u*û*ũ": "nécessité",
         "ar-*â*a*a": "adjuger",
         "ar-*â*i*@ũ": "devoir",
@@ -8327,13 +8328,14 @@ racines_schemes_arabes = {
         "ar-mu**i*@ũ": "action grave",
         "ar-mu**i*ũ": "qui cause",
         "ar-mu*a*²i*ũ": "qui ne fait qu'un repas",
+        "ar-mu*â*a*@ũ": "adjudication",
         "ar-musta**i*ũ": "digne de",
         "ar-muta*a*²i*ũ": "devoir",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "regarder comme nécessaire",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 34
+    },  # 36
     "ar-wjd": {
         "aa_sens": "trouver",
         "ar-**a*²a": "",

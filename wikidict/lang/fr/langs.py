@@ -1023,6 +1023,7 @@ langs = {
     "changjiang": "changjiang",
     "chaná": "chaná",
     "charrúa": "charrúa",
+    "chatino de Teojomulco": "chatino de Teojomulco",
     "chb": "muisca",
     "chc": "catawba",
     "chd": "chontal des hautes terres",
@@ -4990,6 +4991,7 @@ langs = {
     "sol": "solos",
     "solon": "solon",
     "solrésol": "solrésol",
+    "soltèque": "soltèque",
     "son": "langues songhaïes",
     "sonqor": "sonqor",
     "soo": "songo",
@@ -6428,7 +6430,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,423
+}  # 6,425
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
