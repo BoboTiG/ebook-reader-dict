@@ -191,6 +191,7 @@ domain_templates = {
     "meuble": "Mobilier",
     "meubles": "Mobilier",
     "meubles héraldiques": "Héraldique",
+    "micronations": "Micronations",
     "minéraux": "Minéralogie",
     "mobilier": "Mobilier",
     "mollusques": "Malacologie",
@@ -330,5 +331,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 325
+}  # 326
 # END
