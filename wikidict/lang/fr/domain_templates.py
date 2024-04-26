@@ -211,6 +211,8 @@ domain_templates = {
     "oiseaux": "Ornithologie",
     "outils": "Technique",
     "ovins": "Zoologie",
+    "padonkaffsky": "Padonkaffsky",
+    "padonki": "Padonkaffsky",
     "palmiers": "Botanique",
     "palmipèdes": "Ornithologie",
     "papillons": "Entomologie",
@@ -331,5 +333,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 326
+}  # 328
 # END
