@@ -308,6 +308,7 @@ langs = {
     "ik": "inupiaq",
     "ikt": "inuktitut occidental canadenc",
     "ilo": "ilocano",
+    "inc-hnd": "hindustànic",
     "inc-pro": "protoindoarià",
     "ine-pro": "protoindoeuropeu",
     "inh": "ingúix",
@@ -804,7 +805,7 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 799
+}  # 800
 
 grups = [
     "cel",

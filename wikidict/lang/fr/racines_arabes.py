@@ -2235,6 +2235,7 @@ racines_schemes_arabes = {
         "ar-**â*ũ": "bienfait, bienfaisance",
         "ar-*a**â'u": "({{f}}) belle femme, jolie femme",
         "ar-*a*a*a-u": "être beau ou bon (à un instant donné)",
+        "ar-*a*a*ã": "bien",
         "ar-*a*a*ũ": "Hassan ; beau, bon",
         "ar-*a*u*a": "être beau ou bon (en permanence)",
         "ar-*a*²a*a": "embellir ; déclarer comme beau ; créer de la beauté",
@@ -2260,7 +2261,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "le fait de créer de la beauté",
         "ar-ta*a*²a*a": "s'améliorer",
         "ar-u*ay*i*a": "rendre un peu beau",
-    },  # 29
+    },  # 30
     "ar-RVw": {
         "aa_sens": "nourrir",
         "ar-***ũ": "",
