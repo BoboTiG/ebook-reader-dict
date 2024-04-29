@@ -168,6 +168,7 @@ domain_templates = {
     "jeux": "Jeux",
     "jeux de cartes": "Cartes à jouer",
     "jouets": "Jeux",
+    "kennings": "Kenning",
     "lacs": "Géographie",
     "langages": "Informatique",
     "langues": "Linguistique",
@@ -333,5 +334,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 328
+}  # 329
 # END
