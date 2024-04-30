@@ -8303,6 +8303,8 @@ racines_schemes_arabes = {
         "aa_sens": "obligation, chute, lâcheté",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-**â*iy²@ũ": "positivisme",
+        "ar-**â*iy²ũ": "positif",
         "ar-**â*ũ": "affirmation",
         "ar-*a**@ũ": "repas",
         "ar-*a**ũ": "pari",
@@ -8312,6 +8314,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "rendre nécessaire",
         "ar-*a*²â*@ũ": "lâche",
         "ar-*a*²â*ũ": "poltron, imbécile",
+        "ar-*a*â'i*ũ": "{{p}} devoirs",
         "ar-*a*î*@ũ": "pension",
         "ar-*a*î*ũ": "que le cœur batte",
         "ar-*i*â*ũ": "{{p}} grandes outres",
@@ -8325,7 +8328,10 @@ racines_schemes_arabes = {
         "ar-2i3@ũ": "nécessité",
         "ar-a**a*a": "être cause",
         "ar-ma**a*ũ": "affirmé",
+        "ar-ma**û*ũ": "injonction",
         "ar-ma*â*i*u": "gages",
+        "ar-mu**a*@ũ": "affirmation",
+        "ar-mu**a*ũ": "conséquence",
         "ar-mu**i*@ũ": "action grave",
         "ar-mu**i*ũ": "qui cause",
         "ar-mu*a*²i*ũ": "qui ne fait qu'un repas",
@@ -8336,7 +8342,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "regarder comme nécessaire",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 36
+    },  # 42
     "ar-wjd": {
         "aa_sens": "trouver",
         "ar-**a*²a": "",
