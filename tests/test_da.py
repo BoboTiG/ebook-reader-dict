@@ -10,16 +10,6 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, definitions, variants",
     [
-        ("skulle", [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
-        (
-            "mus",
-            [],
-            [
-                "(<i>zoologi</i>) pattedyr",
-                "(<i>data</i>) en enhed som tilsluttes computere",
-            ],
-            [],
-        ),
         (
             "hund",
             ["[ˈhunə-]", "[ˈhunˀ]"],
@@ -30,6 +20,16 @@ from wikidict.utils import process_templates
             [],
         ),
         ("jørme", [], ["vrimle, myldre; sværme"], []),
+        (
+            "mus",
+            [],
+            [
+                "(<i>zoologi</i>) pattedyr",
+                "(<i>data</i>) en enhed som tilsluttes computere",
+            ],
+            [],
+        ),
+        ("skulle", [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
     ],
 )
 def test_parse_word(

@@ -42,6 +42,7 @@ jobs:
       matrix:
         locale: # XXX_LOCALES
           - "ca"
+          - "da"
           - "de"
           - "el"
           - "en"
