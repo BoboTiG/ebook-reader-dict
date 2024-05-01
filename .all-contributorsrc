@@ -127,6 +127,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "jolars",
+      "name": "Johan Larsson",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13087841?v=4",
+      "profile": "https://larssonjohan.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 6,
