@@ -8,7 +8,7 @@ url = "https://{0}.wiktionary.org/w/api.php?action=query&meta=siteinfo&siprop={1
 ids = {6, 14}  # File, and Category
 
 results: Dict[str, List[str]] = {}
-locales = ("ca", "de", "el", "en", "es", "fr", "it", "no", "pt", "ro", "ru", "sv")
+locales = ("ca", "da", "de", "el", "en", "es", "fr", "it", "no", "pt", "ro", "ru", "sv")
 
 for locale in locales:
     result_discard_last: List[str] = []

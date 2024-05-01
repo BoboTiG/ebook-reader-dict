@@ -1,0 +1,12 @@
+== Dansk ==
+=== Alternativ form ===
+* {{l|da|vørme}}
+=== Verbum ===
+{{da-verb}}
+# [[vrimle]], [[myldre]]; [[sværme]]
+#* '''1958''', ''Sprog og kultur''
+#*: »Ja: jørme. Eks.: Han bløw saa maj jørmendes gal.« 1714 Fjelsø, Rinds h. - » Det '''jørmede''' op i mig. Tror ikke, det bruges i andre betydninger.« 1715 Simested,  Rinds h. - »Dæe wa manno mæ te de markin, di '''jørme''' hiele plassen fuld.
+#* '''1841''', Christian Molbech, ''Dansk Dialect-Lexikon, indeholdende Ord, Udtryk og Talemaader af den danske Almues Tungemaal i Rigets forskiellige Landskaber og Egne, forsaavidt som de ere fremmede for Skriftsproget og almindelig Sprogbrug, med Forklaring og Oplysninger'', page 664:
+#*: (fra Virnæs S.) vørme, v. m. (J. Ogsaa: '''jørme'''.) vrimle, mylre; f. Er. om en stor  Mængde Smaadyr, der bevæge sig imellem hverandre, som Orme, Myrer, o. desl . (Støvring Herr) – Deraf: Vørm, en Vrimmel, en mylrende Mængde. En Vørm Bier &nbsp;...
+=== Referencer ===
+* http://jyskordbog.dk/jyskordbog/ordbog.html
