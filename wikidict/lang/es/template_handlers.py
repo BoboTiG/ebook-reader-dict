@@ -1,5 +1,5 @@
 from collections import defaultdict  # noqa
-from typing import Dict, List, Tuple
+from typing import DefaultDict, Dict, List, Tuple
 
 from ...user_functions import (
     capitalize,
@@ -10,7 +10,7 @@ from ...user_functions import (
     strong,
     subscript,
 )
-from .langs import lang_to_normalize, langs
+from .langs import langs
 
 articulos: Dict[str, str] = {
     "def.f.pl": "las",
@@ -53,20 +53,15 @@ def inflect_articulo(genero: str = "m", tipo: str = "def", numero: str = "sg", p
 
 def normalizar_nombre(to_normalize: str) -> str:
     """
-    >>> normalizar_nombre("latin")
-    'latín'
     >>> normalizar_nombre("en")
     'inglés'
     >>> normalizar_nombre("")
     ''
     """
-    if not to_normalize:
-        return ""
-    lcfirst_norm = to_normalize[0].lower() + to_normalize[1:]
-    return lang_to_normalize.get(lcfirst_norm, langs.get(lcfirst_norm, lcfirst_norm))
+    return langs.get(to_normalize, to_normalize)
 
 
-def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_adjetivo_de_verbo("adjetivo de verbo", ["gorjear", "gorjea"], defaultdict(str))
     'Que gorjea'
@@ -81,7 +76,7 @@ def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: Dict[str, str]) -
     return result
 
 
-def render_afi(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_afi(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_afi("AFI", ["/oː/", "/aː/"], defaultdict(str))
     '/oː/, /aː/ <small>(AFI)</small>'
@@ -91,7 +86,7 @@ def render_afi(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return concat(parts, ", ") + f' {small("(AFI)")}'
 
 
-def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_aumentativo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str))
     '<i>Aumentativo de</i> perro'
@@ -116,7 +111,7 @@ def render_aumentativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_adverbio_de_adjetivo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_adverbio_de_adjetivo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["accidental"], defaultdict(str))
     'De un modo accidental'
@@ -132,7 +127,7 @@ def render_adverbio_de_adjetivo(tpl: str, parts: List[str], data: Dict[str, str]
     return result
 
 
-def render_adverbio_de_sustantivo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_adverbio_de_sustantivo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_adverbio_de_sustantivo("adverbio de sustantivo", ["escabrosidad"], defaultdict(str))
     'Con escabrosidad'
@@ -144,7 +139,7 @@ def render_adverbio_de_sustantivo(tpl: str, parts: List[str], data: Dict[str, st
     return result
 
 
-def render_comparativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_comparativo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_comparativo("comparativo", ["bueno", "es"], defaultdict(str, {"irr": "s"}))
     '<i>Comparativo irregular de</i> bueno'
@@ -163,7 +158,7 @@ def render_comparativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_contraccion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_contraccion(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_contraccion("contracción", ["de", "ellas"], defaultdict(str, {"leng": "es"}))
     '<i>Contracción de</i> de <i>y</i> ellas'
@@ -183,7 +178,7 @@ def render_contraccion(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_etim(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
     'del latín <i>folia</i>'
@@ -215,7 +210,7 @@ def render_etim(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return result
 
 
-def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_etimologia(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_etimologia("etimología", [], defaultdict(str))
     ''
@@ -259,9 +254,9 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'Del latín <i>-acĕus</i>'
     >>> render_etimologia("etimología", ["la", "illos"], defaultdict(str, {"diacrítico":"illōs", "sig":"no"}))
     'Del latín <i>illōs</i>'
-    >>> render_etimologia("etimología", ["latin", "villus", "vello"], defaultdict(str))
+    >>> render_etimologia("etimología", ["la", "villus", "vello"], defaultdict(str))
     'Del latín <i>villus</i> ("vello")'
-    >>> render_etimologia("etimología", ["latin", "villus", "vello", ""], defaultdict(str))
+    >>> render_etimologia("etimología", ["la", "villus", "vello", ""], defaultdict(str))
     'Del latín <i>villus</i> ("vello")'
     >>> render_etimologia("etimología", ["bajo latín", "capitanus", "principal"], defaultdict(str))
     'Del bajo latín <i>capitanus</i> ("principal")'
@@ -505,7 +500,7 @@ def render_etimologia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_forma("forma", ["-acho", "Forma del femenino de"], defaultdict(str))
     '<i>Forma del femenino de</i> -acho'
@@ -531,7 +526,7 @@ def render_forma(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_gentilicio(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_gentilicio(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_gentilicio("gentilicio", ["Alemania"], defaultdict(str))
     'Originario, relativo a, o propio de Alemania'
@@ -541,7 +536,7 @@ def render_gentilicio(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"Originario, relativo a, o propio {'del' if data['contracción'] else 'de'} {parts[0]}"
 
 
-def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_gentilicio2(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_gentilicio2("gentilicio2", ["Alemania"], defaultdict(str))
     'Persona originaria de Alemania'
@@ -551,7 +546,7 @@ def render_gentilicio2(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"Persona originaria {data['contracción'] or 'de'} {parts[0]}"
 
 
-def render_gentilicio3(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_gentilicio3(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_gentilicio3("gentilicio3", ["Alemania"], defaultdict(str))
     'Mujer originaria de Alemania'
@@ -561,7 +556,7 @@ def render_gentilicio3(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"Mujer {data['adjetivo'] or 'originaria'} {data['contracción'] or 'de'} {parts[0]}"
 
 
-def render_grafia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_grafia(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_grafia("grafía", ["psicológico"], defaultdict(str))
     '<i>Grafía alternativa de</i> psicológico'
@@ -594,7 +589,7 @@ def render_grafia(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_hipocoristico(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_hipocoristico(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_hipocoristico("hipocorístico", ["Antonio"], defaultdict(str))
     '<i>Hipocorístico de</i> Antonio'
@@ -607,7 +602,7 @@ def render_hipocoristico(tpl: str, parts: List[str], data: Dict[str, str]) -> st
     return phrase
 
 
-def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_l(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_l("l+", ["la", "impello", "impellō, impellere"], defaultdict(str, {"glosa":"empujar"}))
     '<i>impellō, impellere</i> ("empujar")'
@@ -640,7 +635,7 @@ def render_l(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_prep_conj(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_prep_conj(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_prep_conj("preposición conjugada", ["con", "primera", "singular"], defaultdict(str))
     '<i>Forma combinada de la preposición</i> con <i>y el pronombre personal de primera persona singular</i>'
@@ -656,7 +651,7 @@ def render_prep_conj(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     )
 
 
-def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_superlativo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_superlativo("superlativo", ["abundante"], defaultdict(str))
     '<i>Superlativo de</i> abundante:&nbsp;sumamente abundante'
@@ -690,7 +685,7 @@ def render_superlativo(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return phrase
 
 
-def render_sustantivo_de(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_sustantivo_de(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_sustantivo_de("sustantivo de verbo", ["circular"], defaultdict(str))
     'Acción o efecto de circular'
@@ -726,7 +721,7 @@ def render_sustantivo_de(tpl: str, parts: List[str], data: Dict[str, str]) -> st
     return phrase
 
 
-def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_variante(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_variante("variante", ["atiesar"], defaultdict(str))
     '<i>Variante de</i> atiesar'
@@ -737,7 +732,7 @@ def render_variante(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     return f"{italic(capitalize(sentence))} " + render_l("l", [parts[0]], data)
 
 
-def render_variantes(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_variantes(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_variantes("variantes", ["acrótera", "acroteria"], defaultdict(str))
     '<b>Variantes:</b> acrótera, acroteria'

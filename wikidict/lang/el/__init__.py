@@ -1,4 +1,5 @@
 """Greek language."""
+
 import re
 from collections import defaultdict
 from typing import Dict, List, Pattern, Tuple, Union
@@ -31,8 +32,6 @@ sections = (
     "{{σύνδεσμος|el}",
     "{{συντομομορφή}",
     "{{συντομομορφή|el}",
-    "{{κύριο όνομα}",
-    "{{κύριο όνομα|el}",
     "{{αριθμητικό}",
     "{{αριθμητικό|el}",
     "{{άρθρο}",
@@ -47,6 +46,12 @@ sections = (
     "{{επιφώνημα|el}",
     "{{ρηματική έκφραση}",
     "{{επιρρηματική έκφραση}",
+    "{{φράση}",
+    "{{φράση|el}",
+    "{{έκφραση}",
+    "{{έκφραση|el}",
+    "{{παροιμία}",
+    "{{παροιμία|el}",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -256,6 +261,42 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "λενδ":
         phrase = "λόγιο ενδογενές δάνειο"
+        if not data["0"]:
+            phrase += ":"
+        return phrase
+
+    if tpl == "μτφρ":
+        phrase = "μεταφορικά"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "αρχ":
+        phrase = "αρχαία ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "μσν":
+        phrase = "μεσαιωνική ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "μτβ":
+        phrase = "μεταβατικό"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "αμτβ":
+        phrase = "αμετάβατο"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "βλφρ":
+        phrase = "<i>δείτε την έκφραση</i>"
         if not data["0"]:
             phrase += ":"
         return phrase

@@ -1,4 +1,5 @@
 """Type annotations."""
+
 from typing import Dict, List, NamedTuple, Tuple, Union
 
 SubDefinitions = Union[str, Tuple[str, ...]]

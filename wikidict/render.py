@@ -1,4 +1,5 @@
 """Render templates from raw data."""
+
 import json
 import multiprocessing
 import os

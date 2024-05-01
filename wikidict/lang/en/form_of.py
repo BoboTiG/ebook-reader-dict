@@ -385,6 +385,14 @@ form_of_templates = {
         "text": "Informal form of",
         "dot": True,
     },
+    "if form": {
+        "text": "Informal form of",
+        "dot": True,
+    },
+    "informal": {
+        "text": "Informal form of",
+        "dot": True,
+    },
     "informal spelling of": {
         "text": "Informal spelling of",
         "dot": True,
@@ -407,6 +415,10 @@ form_of_templates = {
     },
     "lenition of": {
         "text": "Lenited form of",
+        "dot": True,
+    },
+    "literary form of": {
+        "text": "Literary form of",
         "dot": True,
     },
     "masculine noun of": {
@@ -681,6 +693,10 @@ form_of_templates = {
         "text": "Short for",
         "dot": True,
     },
+    "short form of": {
+        "text": "Short for",
+        "dot": True,
+    },
     "singular of": {
         "text": "singular of",
         "dot": False,
@@ -765,7 +781,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 190
+}  # 194
 # END
 
 

@@ -1,9 +1,10 @@
 """
 Functions that can be used in *templates_multi* of any locale.
 """
+
 import re
 from collections import defaultdict
-from typing import Dict, List
+from typing import DefaultDict, List
 
 
 def capitalize(text: str) -> str:
@@ -49,7 +50,7 @@ def chimy(composition: List[str]) -> str:
         >>> chimy(["CH", "2", "&nbsp;=&nbsp;", "CH", "2"])
         'CH<sub>2</sub>CH<sub>2</sub>'
     """
-    data: Dict[str, str] = defaultdict(str)
+    data: DefaultDict[str, str] = defaultdict(str)
     i = 1
     for c in composition:
         sArray = c.split("=", 1)
@@ -71,7 +72,7 @@ def chimy(composition: List[str]) -> str:
     return phrase
 
 
-def chinese(parts: List[str], data: Dict[str, str], laquo: str = "“", raquo: str = "”") -> str:
+def chinese(parts: List[str], data: DefaultDict[str, str], laquo: str = "“", raquo: str = "”") -> str:
     """
     Format Chinese word or sentence.
 
@@ -216,7 +217,7 @@ def eval_expr(expr: str) -> str:
     return f"{eval(expr)}"
 
 
-def extract_keywords_from(parts: List[str]) -> Dict[str, str]:
+def extract_keywords_from(parts: List[str]) -> DefaultDict[str, str]:
     """
     Given a list of strings, extract strings containing an equal sign ("=").
 

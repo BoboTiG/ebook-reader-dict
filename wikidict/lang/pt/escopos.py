@@ -154,6 +154,7 @@ escopos = {
     "Engenharia elétrica": "engenharia",
     "Engenharia mecânica": "engenharia",
     "Escócia": "Escócia",
+    "Esgrima": "esgrima",
     "Esoterismo": "Esoterismo",
     "Espanha": "Espanha",
     "Esporte": "esporte",
@@ -201,6 +202,7 @@ escopos = {
     "Grã-Bretanha": "Reino Unido",
     "Guatemala": "Guatemala",
     "Guiné-Bissau": "Guiné-Bissau",
+    "Histórico": "histórico",
     "Honduras": "Honduras",
     "Hortaliça": "hortaliça",
     "Ictiologia": "ictiologia",
@@ -215,7 +217,7 @@ escopos = {
     "Inseto": "entomologia",
     "Internetês": "internetês",
     "Intransitivo": "intransitivo",
-    "Iralanda": "Irlanda",
+    "Irlanda": "Irlanda",
     "Irlanda do Norte": "Irlanda",
     "Ironia": "ironia",
     "Irónico": "ironia",
@@ -435,5 +437,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 430
+}  # 432
 # END

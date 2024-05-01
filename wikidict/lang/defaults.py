@@ -1,7 +1,8 @@
 """Defaults values for locales without specific needs."""
+
 import re
 from collections import defaultdict  # noqa
-from typing import Dict, List, Pattern, Tuple
+from typing import DefaultDict, Dict, List, Pattern, Tuple
 
 # Float number separator
 float_separator = ""
@@ -103,7 +104,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
 
 
-def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
+def render_wikilink(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_wikilink("w", [], defaultdict(str))
     ''
@@ -119,8 +120,8 @@ def render_wikilink(tpl: str, parts: List[str], data: Dict[str, str]) -> str:
     'mitrospin obscur 1'
     """  # noqa
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
-    if data := {k: v for k, v in data.items() if k != "lang"}:
-        return "".join(f"{k}={v}" for k, v in data.items())
+    if wiki_data := {k: v for k, v in data.items() if k != "lang"}:
+        return "".join(f"{k}={v}" for k, v in wiki_data.items())
 
     try:
         return parts[1]

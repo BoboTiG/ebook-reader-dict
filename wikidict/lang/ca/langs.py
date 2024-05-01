@@ -122,6 +122,7 @@ langs = {
     "ceb": "cebuà",
     "cel": "cèltic",
     "cel-bry-pro": "protobritònic",
+    "cel-gau": "gàl·lic",
     "cel-pro": "protocèltic",
     "cgg": "chiga",
     "ch": "chamorro",
@@ -307,6 +308,7 @@ langs = {
     "ik": "inupiaq",
     "ikt": "inuktitut occidental canadenc",
     "ilo": "ilocano",
+    "inc-hnd": "hindustànic",
     "inc-pro": "protoindoarià",
     "ine-pro": "protoindoeuropeu",
     "inh": "ingúix",
@@ -704,6 +706,7 @@ langs = {
     "tly": "talix",
     "tmh": "amazic",
     "tn": "setswana",
+    "tnq": "taïno",
     "to": "tongalès",
     "tog": "tonga",
     "tok": "toki pona",
@@ -802,5 +805,11 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 797
+}  # 800
+
+grups = [
+    "cel",
+    "gem",
+    "qfa-sub-roa",
+]
 # END

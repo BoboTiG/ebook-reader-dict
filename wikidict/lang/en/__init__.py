@@ -1,4 +1,5 @@
 """English language."""
+
 import re
 from typing import List, Pattern, Tuple
 
@@ -126,7 +127,6 @@ templates_italic = {
     **labels,
     **labels_regional,
     **labels_topical,
-    "ambitransitive": "transitive, intransitive",
 }
 
 # Templates more complex to manage.

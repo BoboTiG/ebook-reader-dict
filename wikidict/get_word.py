@@ -1,4 +1,5 @@
 """Get and render a word."""
+
 import os
 import re
 

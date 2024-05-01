@@ -6,4 +6,4 @@ mistune==3.0.2  # for DictFile reading
 pyglossary==4.6.0
 requests==2.31.0
 scour==0.38.2
-wikitextparser==0.55.8
+wikitextparser==0.55.13

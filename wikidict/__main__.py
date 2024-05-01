@@ -41,6 +41,7 @@ Options:
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
 """
+
 import sys
 
 from docopt import docopt

@@ -41,7 +41,7 @@ from wikidict.utils import process_templates
                 "Malgastar bienes o recursos.",
                 "Corroer o consumir.",
                 "Producir comezón.",
-                "<i>(Juego)</i>: En los juegos de mesa, eliminar una pieza del contrario.",
+                "<i>(Juegos)</i>: En los juegos de mesa, eliminar una pieza del contrario.",
                 "Omitir elementos de información cuando se habla o escribe.",
                 "Llevar encogidas algunas prendas de ropa, como los calcetines.",
                 "Tener relaciones sexuales con alguien.",

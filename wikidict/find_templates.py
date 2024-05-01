@@ -1,4 +1,5 @@
 """DEBUG: find all templates in use."""
+
 import os
 import re
 from collections import defaultdict

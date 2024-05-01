@@ -2,6 +2,7 @@
 https://fr.wiktionary.org/wiki/Modèle:ko-pron
 Ce modèle montre les sons ou les phonèmes du mot coréen.
 """
+
 import math
 from re import sub
 from types import SimpleNamespace

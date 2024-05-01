@@ -1,4 +1,5 @@
 """German language (Deutsch)."""
+
 import re
 from typing import List, Pattern, Tuple
 
