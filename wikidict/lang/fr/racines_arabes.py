@@ -6638,6 +6638,38 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 27
+    "ar-nhw": {
+        "aa_sens": "être prudent",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*i*ũ": "très prudent",
+        "ar-*a*u*a": "être prudent",
+        "ar-*a*²a*a": "",
+        "ar-*i*i*ũ": "très prudent",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 14
+    "ar-nhy": {
+        "aa_sens": "arrêter",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "interdiction",
+        "ar-*a*a*a-u": "défendre",
+        "ar-*a*i*a-a": "défendre",
+        "ar-*a*²a*a": "prohiber",
+        "ar-*ta*a*a": "s'abstenir",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "mener à fin",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "parvenir",
+    },  # 14
     "ar-nqb": {
         "aa_sens": "percée",
         "ar-***ũ": "",
@@ -8860,5 +8892,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 306
+}  # 308
 # END
