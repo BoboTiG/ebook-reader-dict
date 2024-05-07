@@ -37,6 +37,10 @@ form_of_templates = {
         "text": "agent noun of",
         "dot": False,
     },
+    "an of": {
+        "text": "agent noun of",
+        "dot": False,
+    },
     "alternative case form of": {
         "text": "Alternative letter-case form of",
         "dot": False,
@@ -781,7 +785,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 194
+}  # 195
 # END
 
 
