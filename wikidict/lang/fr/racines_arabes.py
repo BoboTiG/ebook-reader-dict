@@ -6669,12 +6669,13 @@ racines_schemes_arabes = {
         "ar-*a*î*@ũ": "excessivement grasse",
         "ar-*a*î*ũ": "très prudent",
         "ar-*i**@ũ": "excessivement grasse",
-        "ar-*i*a*ũ": "terme",
+        "ar-*i**ũ": "terme",
+        "ar-*i*a*ũ": "verre",
         "ar-*i*â*@ũ": "extrémité",
         "ar-*i*â*ũ": "quantité",
         "ar-*ta*a*a": "s'abstenir",
         "ar-*ti*â*ũ": "achèvement",
-        "ar-*u**@ũ": "prudent",
+        "ar-*u**@ũ": "prudence",
         "ar-*u*a*ũ": "intelligence",
         "ar-*u*i*a": "parvenir",
         "ar-*u*â*ũ": "quantité",
@@ -6682,6 +6683,7 @@ racines_schemes_arabes = {
         "ar-*â*i*@ũ": "prudence",
         "ar-*â*i*ũ": "qui interdit",
         "ar-a**a*a": "mener à fin",
+        "ar-a**i*â'u": "{{p}} très prudents",
         "ar-a**u*ũ": "{{p}} termes",
         "ar-a**â*ũ": "{{p}} termes",
         "ar-ma**a*@ũ": "très intelligent",
@@ -6693,7 +6695,7 @@ racines_schemes_arabes = {
         "ar-ta**â*ũ": "barrage",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "parvenir",
-    },  # 33
+    },  # 35
     "ar-nqb": {
         "aa_sens": "percée",
         "ar-***ũ": "",
