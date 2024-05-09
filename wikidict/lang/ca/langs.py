@@ -258,7 +258,6 @@ langs = {
     "gmw-pro": "protogermànic occidental",
     "gn": "guaraní",
     "goh": "alt alemany antic",
-    "gom": "concani de Goa",
     "gon": "gondi",
     "gor": "gorontalo",
     "got": "gòtic",
@@ -805,7 +804,7 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 800
+}  # 799
 
 grups = [
     "cel",
