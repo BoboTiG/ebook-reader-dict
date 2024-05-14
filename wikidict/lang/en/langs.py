@@ -1528,6 +1528,7 @@ langs = {
     "cau-abz": "Abkhaz-Abaza",
     "cau-abz-pro": "Proto-Abkhaz-Abaza",
     "cau-and": "Andian",
+    "cau-and-pro": "Proto-Andian",
     "cau-ava": "Avaro-Andian",
     "cau-ava-pro": "Proto-Avaro-Andian",
     "cau-cir": "Circassian",
@@ -9759,7 +9760,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,754
+}  # 9,755
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

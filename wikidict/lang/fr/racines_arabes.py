@@ -1141,7 +1141,7 @@ racines_schemes_arabes = {
         "ar-*â*i*@ũ": "bien, bienfait",
         "ar-*â*i*ũ": "connaisseur, notoire",
         "ar-a**a*a": "avoir une belle crinière",
-        "ar-a**a*u": "qui porte une crinière",
+        "ar-a**a*u": "expert",
         "ar-a**â*ũ": "hauteurs, séparation",
         "ar-ma**a*@ũ": "endroit où la crinière pousse",
         "ar-ma**a*ũ": "connu",
@@ -6644,6 +6644,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**ũ": "qui défend",
         "ar-*a*a*a-u": "défendre",
+        "ar-*a*a*ũ": "qui suffit",
         "ar-*a*i*ũ": "très prudent",
         "ar-*a*u*a": "être prudent",
         "ar-*a*²a*a": "",
@@ -6658,7 +6659,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 19
+    },  # 20
     "ar-nhy": {
         "aa_sens": "arrêter",
         "ar-***ũ": "",
@@ -6668,6 +6669,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "prohiber",
         "ar-*a*î*@ũ": "excessivement grasse",
         "ar-*a*î*ũ": "très prudent",
+        "ar-*awâ*i*ũ": "{{p}} interdictions",
         "ar-*i**@ũ": "excessivement grasse",
         "ar-*i**ũ": "terme",
         "ar-*i*a*ũ": "verre",
@@ -6692,10 +6694,11 @@ racines_schemes_arabes = {
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta**i*@ũ": "prohibition",
-        "ar-ta**â*ũ": "barrage",
+        "ar-ta**â*ũ": "point bas",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "parvenir",
-    },  # 35
+        "ar-ti**â*ũ": "barrage",
+    },  # 37
     "ar-nqb": {
         "aa_sens": "percée",
         "ar-***ũ": "",
