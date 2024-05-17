@@ -54,7 +54,7 @@ def craft_data() -> Callable[[str], bytes]:
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
         for file in data_dir.glob("*.wiki"):
-            if file.stem == "<vide>":
+            if file.stem == "vide":
                 continue
 
             revision = 42

@@ -97,8 +97,8 @@ def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
 
 @responses.activate
 def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> None:
-    craft_urls("fr", "<vide>")
-    assert check_word.main("fr", "<vide>") == 0
+    craft_urls("fr", "vide")
+    assert check_word.main("fr", "vide") == 0
 
 
 @pytest.mark.parametrize(
