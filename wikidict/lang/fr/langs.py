@@ -3095,6 +3095,7 @@ langs = {
     "mav": "mawé-sateré",
     "maw": "mampruli",
     "max": "malais de Ternate",
+    "may": "may",
     "mayennais": "mayennais",
     "maz": "mazahua central",
     "mba": "higaonon",
@@ -6430,7 +6431,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,425
+}  # 6,426
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
