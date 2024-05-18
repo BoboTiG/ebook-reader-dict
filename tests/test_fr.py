@@ -98,7 +98,7 @@ from wikidict.utils import process_templates
             [],
         ),
         (
-            "aux",
+            "-aux",
             ["\\o\\"],
             ["mf", "p"],
             [],

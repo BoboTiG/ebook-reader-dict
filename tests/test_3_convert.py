@@ -97,7 +97,6 @@ def test_simple() -> None:
             "INSTALL.txt",
             "aa.html",
             "ac.html",
-            "au.html",
             "ba.html",
             "ch.html",
             "co.html",
