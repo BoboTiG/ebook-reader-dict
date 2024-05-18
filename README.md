@@ -12,7 +12,7 @@
 - [Norway](docs/el/README.md)
 - [Portuguese](docs/pt/README.md)
 - [Romanian](docs/ro/README.md)
-- [Russian](docs/ru/README.md)
+- ~~[Russian](docs/ru/README.md)~~ (see #1888)
 - [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)
 
