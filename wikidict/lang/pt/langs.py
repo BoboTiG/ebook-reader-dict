@@ -1116,6 +1116,7 @@ langs = {
     "rob": "Tae'",
     "rom": "Romani",
     "rop": "Kriol",
+    "rsk": "Rusino da Panônia",
     "rth": "Ratahan",
     "rtm": "Rotumano",
     "ru": "Russo",
@@ -1485,5 +1486,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,480
+}  # 1,481
 # END
