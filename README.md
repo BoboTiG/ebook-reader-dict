@@ -12,7 +12,7 @@
 - [Norway](docs/el/README.md)
 - [Portuguese](docs/pt/README.md)
 - [Romanian](docs/ro/README.md)
-- ~~[Russian](docs/ru/README.md)~~ (see #1888)
+- ~~[Russian](docs/ru/README.md)~~ (see [#1888](/../../issues/1888))
 - [Spanish](docs/es/README.md)
 - [Swedish](docs/sv/README.md)
 
@@ -29,6 +29,7 @@ Setup a virtual environment:
 $ python -m venv venv
 $ . venv/bin/activate
 ```
+**Note:** for Windows users, use `. venv/Scripts/activate`.
 
 Install, or update, dependencies:
 
