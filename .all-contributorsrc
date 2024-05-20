@@ -136,6 +136,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kyxap",
+      "name": "kyxap",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3080529?v=4",
+      "profile": "https://github.com/kyxap",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 6,
