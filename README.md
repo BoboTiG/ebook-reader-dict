@@ -29,7 +29,7 @@ Setup a virtual environment:
 $ python -m venv venv
 $ . venv/bin/activate
 ```
-**Note:** for python 3 use diff path: `$ . venv/Scripts/activate`
+**Note:** for Windows users, use `. venv/Scripts/activate`.
 
 Install, or update, dependencies:
 
