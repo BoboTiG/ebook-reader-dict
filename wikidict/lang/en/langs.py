@@ -3461,6 +3461,7 @@ langs = {
     "isr": "Israeli Sign Language",
     "ist": "Istriot",
     "isu": "Isu",
+    "isv": "Interslavic",
     "it": "Italian",
     "it-CH": "Switzerland Italian",
     "itb": "Binongan Itneg",
@@ -9654,6 +9655,7 @@ langs = {
     "zle-mru": "Middle Russian",
     "zle-obe": "Old Belarusian",
     "zle-ono": "Old Novgorodian",
+    "zle-ops": "Old Pskovian",
     "zle-ort": "Old Ruthenian",
     "zle-ouk": "Old Ukrainian",
     "zls": "South Slavic",
@@ -9763,7 +9765,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,758
+}  # 9,760
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
