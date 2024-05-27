@@ -1121,7 +1121,7 @@ langs = {
     "rtm": "Rotumano",
     "ru": "Russo",
     "ru-sib": "Siberiano",
-    "rue": "Rusino",
+    "rue": "Rusino dos Cárpatos",
     "ruo": "Istro-romeno",
     "rup": "Arromeno",
     "ruq": "Megleno-romeno",
