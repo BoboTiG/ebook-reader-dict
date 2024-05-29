@@ -7470,6 +7470,45 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "transpirer ; être formé à",
         "ar-ta*â*a*a": "",
     },  # 21
+    "ar-rj3": {
+        "aa_sens": "retour",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "résurrection",
+        "ar-*a**ũ": "réponse",
+        "ar-*a*a*a-u": "revenir",
+        "ar-*a*²a*a": "répéter",
+        "ar-*a*âyi*u": "{{f}} {{p}} ramenées",
+        "ar-*a*î*@ũ": "{{f}} ramenée",
+        "ar-*a*î*ũ": "ramené",
+        "ar-*a*û*@ũ": "réponse",
+        "ar-*i**@ũ": "retour",
+        "ar-*i**ũ": "de retour",
+        "ar-*i*a*ũ": "de retour",
+        "ar-*i*â*ũ": "retour",
+        "ar-*ta*a*a": "rapporter",
+        "ar-*u**@ũ": "réponse",
+        "ar-*u**ânũ": "réponse",
+        "ar-*u**é": "retour",
+        "ar-*u*a*ũ": "{{p}} retour",
+        "ar-*u*u*ũ": "{{p}} ramenés",
+        "ar-*â*a*a": "réexaminer",
+        "ar-*â*i*@ũ": "vivres",
+        "ar-a**a*a": "rappeler",
+        "ar-a**i*@ũ": "{{p}} retours",
+        "ar-ma**i*ũ": "retour",
+        "ar-ma**û*ũ": "réponse",
+        "ar-ma*â*î*u": "{{p}} réponses",
+        "ar-mu**i*ũ": "profitable",
+        "ar-mu*a*²a*ũ": "poème à retour",
+        "ar-mu*â*a*@ũ": "retour",
+        "ar-mu*â*i*ũ": "répudiée",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "reprendre",
+        "ar-ta**î*ũ": "répétition",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "revenir ensemble",
+    },  # 37
     "ar-rkb": {
         "aa_sens": "monter, assembler",
         "ar-**a*²a": "",
@@ -8969,5 +9008,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 309
+}  # 310
 # END

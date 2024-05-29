@@ -250,11 +250,11 @@ form_of_templates = {
         "dot": True,
     },
     "diminutive of": {
-        "text": "Diminutive of",
+        "text": "diminutive of",
         "dot": False,
     },
     "dim of": {
-        "text": "Diminutive of",
+        "text": "diminutive of",
         "dot": False,
     },
     "eclipsis of": {
@@ -294,10 +294,6 @@ form_of_templates = {
         "dot": True,
     },
     "eye dialect of": {
-        "text": "Eye dialect spelling of",
-        "dot": True,
-    },
-    "eye dialect form of": {
         "text": "Eye dialect spelling of",
         "dot": True,
     },
@@ -422,7 +418,7 @@ form_of_templates = {
         "dot": True,
     },
     "literary form of": {
-        "text": "Literary form of",
+        "text": "literary form of",
         "dot": True,
     },
     "masculine noun of": {
@@ -785,7 +781,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 195
+}  # 194
 # END
 
 
