@@ -4,6 +4,6 @@ Jinja2==3.1.4
 marisa-trie==1.1.1
 mistune==3.0.2  # for DictFile reading
 pyglossary==4.6.0
-requests==2.32.2
+requests==2.32.3
 scour==0.38.2
 wikitextparser==0.55.13
