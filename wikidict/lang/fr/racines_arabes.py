@@ -7493,7 +7493,7 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "rapporter",
         "ar-*u**@ũ": "réponse",
         "ar-*u**ânũ": "réponse",
-        "ar-*u**é": "retour",
+        "ar-*u**ãé": "retour",
         "ar-*u*a*ũ": "{{p}} retours",
         "ar-*u*u*ũ": "{{p}} ramenés",
         "ar-*u*²a*ũ": "{{p}} qui retournent",

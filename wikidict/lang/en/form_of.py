@@ -553,6 +553,10 @@ form_of_templates = {
         "text": "Obsolete form of",
         "dot": True,
     },
+    "obs form of": {
+        "text": "Obsolete form of",
+        "dot": True,
+    },
     "obsolete spelling of": {
         "text": "Obsolete spelling of",
         "dot": False,
@@ -781,7 +785,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 194
+}  # 195
 # END
 
 
