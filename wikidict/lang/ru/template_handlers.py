@@ -9,9 +9,11 @@ from .. import defaults
 
 # for etymology content, need to run code to get text from other wiktionary page
 def get_ru_etymology(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
-    if not parts[0].split("|")[0]:
-        return "?"
-    url = f"https://ru.wiktionary.org/wiki/Шаблон:{tpl}:{parts[0].split('|')[0]}"
+    # Fetching that endpoint for 1.3+ milion of words is not a solution, skipping for now.
+    return ""
+    if not parts or not (etyl := parts[0].split("|")[0]):
+        return ""
+    url = f"https://ru.wiktionary.org/wiki/Шаблон:{tpl}:{etyl}"
     page = requests.get(url).content
     soup = BeautifulSoup(page, features="html.parser")
     content = soup.find("div", class_="mw-parser-output")
