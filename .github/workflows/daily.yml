@@ -52,7 +52,7 @@ jobs:
           - "no"
           - "pt"
           - "ro"
-          # - "ru"
+          - "ru"
           - "sv"
 
     steps:

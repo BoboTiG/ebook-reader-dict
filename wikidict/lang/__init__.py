@@ -20,16 +20,6 @@ ALL_LOCALES = {  # XXX_LOCALES
     "sv": sv,
 }
 
-
-#
-# Start of manual edition allowed.
-#
-
-
-#
-# End of manual edition allowed.
-#
-
 Arg = TypeVar("Arg")
 PopulatedDict = Dict[str, Any]
 
