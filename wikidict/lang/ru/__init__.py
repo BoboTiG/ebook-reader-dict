@@ -88,5 +88,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
     tpl, *parts = template
 
+    if tpl == "выдел":
+        return parts[0]
+
     # This is a country in the current locale
     return langs[tpl] if tpl in langs else default(template, locale, word=word)
