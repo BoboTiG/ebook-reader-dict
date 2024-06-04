@@ -82,6 +82,8 @@ templates_multi = {
     "fysik": "'(' + italic('fysik') + ')'",
     # {{l|da|USA}}
     "l": "parts[-1]",
+    # {{label|militær|våben}}
+    "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{prefix|hoved|gade|lang=da}}
     "prefix": "parts[1] + '- + ' + parts[2]",
     # {{suffix|Norden|isk|lang=da}}

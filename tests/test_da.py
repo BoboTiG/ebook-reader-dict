@@ -50,14 +50,15 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
-        ("{{term|mouse|lang=en}}", "mouse<sup>(en)</sup>"),
-        ("{{fysik}}", "(<i>fysik</i>)"),
-        ("{{u|de|Reis}}", "Reis<sup>(de)</sup>"),
         ("{{compound|hjemme|værn}}", "hjemme + værn"),
-        ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
         ("{{en}}", "Engelsk"),
+        ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
+        ("{{fysik}}", "(<i>fysik</i>)"),
+        ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
         ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
+        ("{{term|mouse|lang=en}}", "mouse<sup>(en)</sup>"),
+        ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
+        ("{{u|de|Reis}}", "Reis<sup>(de)</sup>"),
     ],
 )
 def test_process_template(wikicode: str, expected: str) -> None:
