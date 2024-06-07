@@ -1296,6 +1296,7 @@ template_mapping = {
     "refnec": render_refnec,
     "réfnéc": render_refnec,
     "réfnec": render_refnec,
+    "réfsou": render_refnec,
     "référence nécessaire": render_refnec,
     "Référence nécessaire": render_refnec,
     "reverlanisation": render_modele_etym,
