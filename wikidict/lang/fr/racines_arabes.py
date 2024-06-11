@@ -6062,6 +6062,41 @@ racines_schemes_arabes = {
         "ar-ta*a**a*a": "profiter du confort",
         "ar-ta*a**u*ũ": "civilisation",
     },  # 7
+    "ar-mkn": {
+        "aa_sens": "",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "possibilité",
+        "ar-*a**ũ": "œufs de reptile",
+        "ar-*a*i*@ũ": "état",
+        "ar-*a*i*a-a": "avoir des œufs",
+        "ar-*a*i*âtũ": "{{p}} œufs",
+        "ar-*a*i*ũ": "œufs de reptile",
+        "ar-*a*u*a": "avoir du pouvoir",
+        "ar-*a*u*âtũ": "{{p}} œufs",
+        "ar-*a*²a*a": "donner pouvoir",
+        "ar-*a*â*@ũ": "pouvoir",
+        "ar-*a*â*ũ": "lieu",
+        "ar-*a*î*@ũ": "autorité",
+        "ar-*a*î*ũ": "établi solidement",
+        "ar-*a*û*ũ": "qui a des œufs",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "chose possible",
+        "ar-*u*a*â'u": "{{p}} établis solidement",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "établir comme chef",
+        "ar-a**i*@ũ": "{{p}} lieux",
+        "ar-a*â*i*u": "{{p}} lieux",
+        "ar-mu**i*@ũ": "{{f}} possible",
+        "ar-mu**i*ũ": "possible",
+        "ar-muta*a*²i*ũ": "qui prend possession",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "se rendre maître",
+        "ar-ta**î*ũ": "raffermissement",
+        "ar-ta*a*²a*a": "pouvoir faire",
+        "ar-ta*a*²u*ũ": "puissance",
+        "ar-ta*â*a*a": "",
+    },  # 33
     "ar-mlH": {
         "aa_sens": "sel, beau",
         "ar-***ũ": "",
@@ -9027,5 +9062,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 310
+}  # 311
 # END
