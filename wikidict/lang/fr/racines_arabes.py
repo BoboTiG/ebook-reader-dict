@@ -5705,14 +5705,13 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "exister, être ; être caution",
         "ar-*u**iy²ũ": "très âgé",
         "ar-*î*â*ũ": "état intérieur ; nature propre",
-        "ar-ma**a*@ũ": "place ; rang ; intention",
+        "ar-ma**a*@ũ": "place",
         "ar-ma**a*ũ": "lieu, endroit ; demeure",
-        "ar-ma**i*@ũ": "intention, ce que l'on se propose",
         "ar-mi*yâ3ũ": "garant, caution",
         "ar-mu*a*²i*ũ": "créateur",
         "ar-sta**a*a": "se faire humble",
         "ar-ta*a*²a*a": "exister ; s'établir ; se raffermir",
-    },  # 18
+    },  # 17
     "ar-kyf": {
         "aa_sens": "plaisir",
         "ar-***ũ": "",
@@ -6063,9 +6062,10 @@ racines_schemes_arabes = {
         "ar-ta*a**u*ũ": "civilisation",
     },  # 7
     "ar-mkn": {
-        "aa_sens": "",
+        "aa_sens": "pouvoir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-**â*iy²@ũ": "potentiel",
         "ar-**â*ũ": "possibilité",
         "ar-*a**ũ": "œufs de reptile",
         "ar-*a*i*@ũ": "état",
@@ -6076,7 +6076,7 @@ racines_schemes_arabes = {
         "ar-*a*u*âtũ": "{{p}} œufs",
         "ar-*a*²a*a": "donner pouvoir",
         "ar-*a*â*@ũ": "pouvoir",
-        "ar-*a*â*ũ": "lieu",
+        "ar-*a*â*ũ": "place distinguée",
         "ar-*a*î*@ũ": "autorité",
         "ar-*a*î*ũ": "établi solidement",
         "ar-*a*û*ũ": "qui a des œufs",
@@ -6084,6 +6084,7 @@ racines_schemes_arabes = {
         "ar-*u**@ũ": "chose possible",
         "ar-*u*a*â'u": "{{p}} établis solidement",
         "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "fort",
         "ar-a**a*a": "pouvoir",
         "ar-a**i*@ũ": "{{p}} rangs élevés",
         "ar-a*â*i*u": "{{p}} rangs élevés",
@@ -6096,7 +6097,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "pouvoir faire",
         "ar-ta*a*²u*ũ": "puissance",
         "ar-ta*â*a*a": "",
-    },  # 33
+    },  # 35
     "ar-mlH": {
         "aa_sens": "sel, beau",
         "ar-***ũ": "",
