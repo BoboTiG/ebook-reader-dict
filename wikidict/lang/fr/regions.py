@@ -21,6 +21,6 @@ regions = {
 
 # handled differently
 # regions.pop("régio")
-regions.pop("région")
+regions.pop("région", None)
 # regions.pop("régional")
 # regions.pop("régionalisme")
