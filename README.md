@@ -26,10 +26,14 @@
 Setup a virtual environment:
 
 ```console
-$ python -m venv venv
+$ python3.12 -m venv venv
+
+# For Mac and Linux users
 $ . venv/bin/activate
+
+# For Windows users
+$ . venv/Scripts/activate
 ```
-**Note:** for Windows users, use `. venv/Scripts/activate`.
 
 Install, or update, dependencies:
 
