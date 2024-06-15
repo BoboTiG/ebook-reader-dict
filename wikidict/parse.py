@@ -38,7 +38,7 @@ def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
     if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
         # When a word is "restricted", then the revision comes just after
         revision = element[4]
-    elif not revision:
+    elif not len(revision):
         # This is a "redirect" page, not interesting.
         return "", ""
 
