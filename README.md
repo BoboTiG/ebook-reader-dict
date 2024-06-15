@@ -28,7 +28,7 @@ Setup a virtual environment:
 ```console
 $ python3.12 -m venv venv
 
-# For Mac and Linux users
+# For Linux and Mac users
 $ . venv/bin/activate
 
 # For Windows users
