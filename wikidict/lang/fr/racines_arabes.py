@@ -2497,7 +2497,7 @@ racines_schemes_arabes = {
         "ar-*a*a*a-a": "être correct",
         "ar-*a*²a*a": "corriger",
         "ar-*a*â*ũ": "entier, intègre",
-        "ar-*a*î*ũ": "bien portant",
+        "ar-*a*î*ũ": "correct",
         "ar-*i**@ũ": "bonne santé",
         "ar-*ta*a*a": "",
         "ar-*â*a*a": "",
@@ -2869,6 +2869,41 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "s'allonger pour voir au loin",
     },  # 26
+    "ar-Tw3": {
+        "aa_sens": "obéir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "Tawa",
+        "ar-*a*a*@ũ": "obéissance",
+        "ar-*a*a*a-u": "être soumis",
+        "ar-*a*a*ũ": "obéissant",
+        "ar-*a*²a*a": "soumettre",
+        "ar-*a*²i*ũ": "obéissant",
+        "ar-*a*â*iy²@ũ": "obéissance",
+        "ar-*a*î*ũ": "obéissant",
+        "ar-*ta*a*a": "",
+        "ar-*u*²a*ũ": "{{p}} obéissants",
+        "ar-*â*a*a": "s'accorder",
+        "ar-a**a*@ũ": "obéissance",
+        "ar-a**a*a": "obéir",
+        "ar-mi**â*@ũ": "{{f}} obéissante",
+        "ar-mi**â*ũ": "obéissant",
+        "ar-mu**a*@ũ": "{{f}} irrésistible",
+        "ar-mu**a*ũ": "irrésistible",
+        "ar-mu**i*ũ": "obéissant",
+        "ar-mu*²a*²i*ũ": "engagé volontaire",
+        "ar-mu*â*a*@ũ": "entente",
+        "ar-mu*â*i*@ũ": "obéissance",
+        "ar-mu*â*i*ũ": "soumis",
+        "ar-n*a*a*a": "se montrer docile",
+        "ar-n*i*â*ũ": "docilité",
+        "ar-sta**a*a": "pouvoir",
+        "ar-sti**â*@ũ": "capacité",
+        "ar-ta*a*²a*a": "se soumettre",
+        "ar-ta*a*²u*ũ": "spontanéité",
+        "ar-ta*â*a*a": "se conformer à",
+        "ar-ta*â*u*ũ": "docilité",
+    },  # 33
     "ar-Twb": {
         "aa_sens": "brique, adobe",
         "ar-**a*²a": "",
@@ -9063,5 +9098,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 311
+}  # 312
 # END
