@@ -36,20 +36,6 @@ WORD_TPL_KOBO = Template(
         <a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}
         <br/>
         <br/>
-        {% if etymologies %}
-            {% for etymology in etymologies %}
-                {% if etymology is string %}
-                    <p>{{ etymology }}</p>
-                {% else %}
-                    <ol>
-                        {% for sub_etymology in etymology %}
-                            <li>{{ sub_etymology }}</li>
-                        {% endfor %}
-                    </ol>
-                {% endif %}
-            {% endfor %}
-            <br/>
-        {% endif %}
         <ol>
             {% for definition in definitions %}
                 {% if definition is string %}
@@ -71,6 +57,20 @@ WORD_TPL_KOBO = Template(
                 {% endif %}
             {% endfor %}
         </ol>
+        {% if etymologies %}
+            <br/>
+            {% for etymology in etymologies %}
+                {% if etymology is string %}
+                    <p>{{ etymology }}</p>
+                {% else %}
+                    <ol>
+                        {% for sub_etymology in etymology %}
+                            <li>{{ sub_etymology }}</li>
+                        {% endfor %}
+                    </ol>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </p>
     {% if variants %}
         {{ variants }}
@@ -89,22 +89,7 @@ WORD_TPL_DICTFILE = Template(
 {%- for variant in variants %}
 & {{ variant }}
 {%- endfor %}
-<html>
-{%- if etymologies -%}
-    {%- for etymology in etymologies -%}
-        {%- if etymology is string -%}
-            <p>{{ etymology }}</p>
-        {%- else -%}
-            <ol>
-                {%- for sub_etymology in etymology -%}
-                    <li>{{ sub_etymology }}</li>
-                {%- endfor -%}
-            </ol>
-        {%- endif -%}
-    {%- endfor -%}
-    <br/>
-{%- endif -%}
-<ol>
+<html><ol>
     {%- for definition in definitions -%}
         {%- if definition is string -%}
             <li>{{ definition }}</li>
@@ -124,7 +109,21 @@ WORD_TPL_DICTFILE = Template(
             </ol>
         {%- endif -%}
     {%- endfor -%}
-</ol></html>
+</ol>
+{%- if etymologies -%}
+    <br/>
+    {%- for etymology in etymologies -%}
+        {%- if etymology is string -%}
+            <p>{{ etymology }}</p>
+        {%- else -%}
+            <ol>
+                {%- for sub_etymology in etymology -%}
+                    <li>{{ sub_etymology }}</li>
+                {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}</html>
 """
 )
 
