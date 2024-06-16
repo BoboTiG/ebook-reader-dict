@@ -328,6 +328,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         italic,
         strong,
     )
+    from .. import defaults
     from .form_of import form_of_templates
     from .langs import langs
     from .template_handlers import (
@@ -396,7 +397,4 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data)
 
-    try:
-        return f"{italic(capitalize(tpl))} {strong(parts[1])}"
-    except IndexError:
-        return capitalize(tpl)
+    return defaults.last_template_handler(template, locale, word=word)
