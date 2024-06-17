@@ -210,6 +210,7 @@ domain_templates = {
     "nymphes": "Mythologie",
     "oies": "Ornithologie",
     "oiseaux": "Ornithologie",
+    "oursins": "Échinodermologie",
     "outils": "Technique",
     "ovins": "Zoologie",
     "padonkaffsky": "Padonkaffsky",
@@ -334,5 +335,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 329
+}  # 330
 # END
