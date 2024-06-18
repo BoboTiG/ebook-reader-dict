@@ -65,7 +65,7 @@ from wikidict.utils import process_templates
             [
                 "<i>Contraction of</i> <b>it is</b>.",
                 "<i>Contraction of</i> <b>it has</b>.",
-                "<i>(dialectal, African-American Vernacular)</i> There's, there is; there're, there are.",  # noqa
+                "<i>(dialectal, AAVE)</i> There's, there is; there're, there are.",  # noqa
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
@@ -261,8 +261,8 @@ from wikidict.utils import process_templates
                 "<i>(transitive, rare)</i> To conjure with a word.",
                 "<i>(intransitive, archaic)</i> To speak, to use words; to converse, to discourse.",
                 "<i>Alternative form of</i> <b>worth</b> (“to become”).",
-                '<i>(slang, African-American Vernacular)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
-                "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
+                '<i>(slang, AAVE)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
+                "<i>(slang, emphatic, stereotypically, AAVE)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
             ],
             [],
         ),
