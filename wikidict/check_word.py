@@ -3,6 +3,7 @@
 import copy
 import os
 import re
+import urllib.parse
 from functools import partial
 from threading import Lock
 from time import sleep
@@ -287,7 +288,7 @@ def get_text(html: str) -> str:
 
 def craft_url(word: str, locale: str, raw: bool = False) -> str:
     """Craft the *word* URL for the given *locale*."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
+    url = f"https://{locale}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
     if raw:
         url += "&action=raw"
     return url
@@ -307,8 +308,12 @@ def get_url_content(url: str) -> str:
         except RequestException as err:
             wait_time = 1
             resp = err.response
-            if resp is not None and resp.status_code == 429:
-                wait_time = int(resp.headers.get("retry-after") or "1")
+            if resp is not None:
+                if resp.status_code == 429:
+                    wait_time = int(resp.headers.get("retry-after") or "1")
+                elif resp.status_code == 404:
+                    print(err)
+                    return "404"
             sleep(wait_time * SLEEP_TIME)
             retry += 1
     raise RuntimeError(f"Sorry, too many tries for {url!r}")

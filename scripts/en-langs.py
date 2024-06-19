@@ -30,13 +30,13 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             continue
         if line.startswith(("--", "return")):
             continue
+        remove_words = ("nil,", "ancestral_to_parent", "remove_diacritics", "remove_exceptions", "m_langdata")
+        if any(word in line for word in remove_words):
+            continue
         # deal with "local m = {}"
         if line.startswith("local"):
             line = line.replace("local", "")
             concat += line.strip() + "\n"
-            continue
-        remove_words = ("nil,", "ancestral_to_parent")
-        if any(word in line for word in remove_words):
             continue
         if "--" in line:
             line = line.split("--")[0].strip()
@@ -48,7 +48,7 @@ def read_all_lines_etym(lines: List[str]) -> Dict[str, Dict[str, str]]:
             result = f'"{matches[0][0].strip()}": {matches[0][1]},'
         elif matches2 and matches2[0]:
             result = f'"{matches2[0].strip()}' + '" : {' + line[line.index("{") + 1 :]
-        elif line.endswith(",") and not line.endswith("],"):
+        elif line.endswith(",") and not line.endswith("],") and not line[:-1] == "}":
             result = f"{line[:-1]} : None,"
         elif not line.endswith('"'):
             result = line

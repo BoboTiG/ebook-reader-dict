@@ -81,6 +81,8 @@ def process_page(
     text = text.replace("true", "True")
     text = text.replace("false", "False")
     text = text.replace("--", "#")
+    text = text.replace('" .. ', '" + ')
+    text = text.replace(' .. "', ' + "')
 
     text = re.sub(r"function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", text)
     text = text.replace("for _, v in ipairs(b) do", "\n    for v in b:\n        ")
@@ -116,12 +118,12 @@ def process_page(
             display = label_v.get("display", label_k)
             aliases = label_v.get("aliases", [])
         display = process_display(display)
-        results[k] = display
+        results[k] = display.replace('"', "'")
 
         if isinstance(aliases, str):
             aliases = [aliases]
         for a in aliases:
-            results[a] = display
+            results[a] = display.replace('"', "'")
 
     if print_result:
         print(f"{var_name} = {{")
@@ -135,23 +137,40 @@ url = "https://en.wiktionary.org/wiki/Module:labels/data"
 repl = (
     "deprecated_aliases",
     "special_display",
+    "accent_display",
+    "accent_Wikipedia",
+    "addl",
     "aliases",
     "alias_of",
     "category",
+    "country",
+    "def",
     "labels",
     "deprecated",
     "display",
     "glossary",
+    "langs",
     "language",
+    "nolink",
+    "noreg",
     "omit_preComma",
     "omit_postComma",
     "omit_preSpace",
+    "omit_postSpace",
+    "othercat",
+    "parent",
     "plain_categories",
     "pos_categories",
+    "prep",
+    "region",
     "regional_categories",
     "sense_categories",
+    "the",
     "topical_categories",
     "track",
+    "type",
+    "verb",
+    "Wikidata",
     "wikipedia",
     "Wikipedia",
     "Wiktionary",
@@ -235,10 +254,11 @@ for li in lis:
         page_url = root_url + href
         stop_line = "return"
         var_name = "labels_subvarieties"
-        results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+        if not any(page_url.endswith(suffix) for suffix in ("/en", "/zh", "/zh/functions")):
+            results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
 
 print(f"{var_name} = {{")
 for key, value in sorted(results.items()):
-    if len(key) < 62:  # if it's too long, it's not useful
+    if len(key) < 62 and len(key):  # if it's too long, it's not useful
         print(f'    "{key}": "{value}",')
 print(f"}}  # {len(results):,}")
