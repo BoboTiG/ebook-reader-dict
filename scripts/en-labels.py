@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Tuple
+from typing import Dict, List
 
 from scripts_utils import get_soup
 
@@ -66,7 +66,7 @@ def dialect_handler(text: str) -> Dict[str, str]:
 
 def process_page(
     url: str,
-    repl: Tuple[str, ...],
+    repl: List[str],
     stop_line: str,
     var_name: str,
     print_result: bool = True,
@@ -134,9 +134,7 @@ def process_page(
 
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
-repl = (
-    "deprecated_aliases",
-    "special_display",
+repl = [
     "accent_display",
     "accent_Wikipedia",
     "addl",
@@ -144,10 +142,13 @@ repl = (
     "alias_of",
     "category",
     "country",
-    "def",
     "labels",
+    "def",
     "deprecated",
+    "deprecated_aliases",
     "display",
+    "form_of_display",
+    "fulldef",
     "glossary",
     "langs",
     "language",
@@ -165,6 +166,7 @@ repl = (
     "region",
     "regional_categories",
     "sense_categories",
+    "special_display",
     "the",
     "topical_categories",
     "track",
@@ -174,7 +176,8 @@ repl = (
     "wikipedia",
     "Wikipedia",
     "Wiktionary",
-)
+]
+repl = sorted(repl, key=len, reverse=True)
 stop_line = "return labels"
 var_name = "labels"
 results_data: Dict[str, str] = {}
@@ -252,10 +255,14 @@ for li in lis:
     if not li.text.endswith("documentation"):
         href = li.find("a")["href"]
         page_url = root_url + href
-        stop_line = "return"
         var_name = "labels_subvarieties"
-        if not any(page_url.endswith(suffix) for suffix in ("/en", "/zh", "/zh/functions")):
+        if page_url.endswith("/en"):
+            stop_line = "################## accent qualifiers"
             results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+        elif not any(page_url.endswith(suffix) for suffix in ("/zh", "/zh/functions")):
+            stop_line = "return"
+            results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+
 
 print(f"{var_name} = {{")
 for key, value in sorted(results.items()):
