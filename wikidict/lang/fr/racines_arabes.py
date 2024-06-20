@@ -2893,9 +2893,7 @@ racines_schemes_arabes = {
         "ar-mu**a*@ũ": "{{f}} irrésistible",
         "ar-mu**a*ũ": "irrésistible",
         "ar-mu**i*ũ": "obéissant",
-        "ar-mu*Ta*²i*ũ": "engagé volontaire",
         "ar-mu*â*a*@ũ": "entente",
-        "ar-mu*â*i*@ũ": "obéissance",
         "ar-mu*â*i*ũ": "soumis",
         "ar-n*a*a*a": "se montrer docile",
         "ar-n*i*â*ũ": "docilité",
@@ -2905,7 +2903,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "spontanéité",
         "ar-ta*â*a*a": "se conformer à",
         "ar-ta*â*u*ũ": "docilité",
-    },  # 35
+    },  # 33
     "ar-Twb": {
         "aa_sens": "brique, adobe",
         "ar-**a*²a": "",
