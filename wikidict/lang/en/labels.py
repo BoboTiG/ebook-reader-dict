@@ -1125,7 +1125,11 @@ labels_topical = {
     "anime": "anime",
     "anthropology": "anthropology",
     "arachnology": "arachnology",
+    "archaeological culture": "archaeology",
+    "archaeological cultures": "archaeology",
     "archaeology": "archaeology",
+    "archeological culture": "archaeology",
+    "archeological cultures": "archaeology",
     "archeology": "archaeology",
     "archery": "archery",
     "architectural element": "architecture",
@@ -2025,7 +2029,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,213
+}  # 1,217
 
 labels_regional = {
     "AU": "Australia",
@@ -2202,6 +2206,7 @@ labels_subvarieties = {
     "A": "Alfonsine",
     "A2": "Lycopolitan",
     "AA": "African-American",
+    "AAE": "African-American",
     "AAVE": "African-American Vernacular",
     "AGAL": "reintegrationist",
     "AO45": "pre-1990 spelling",
@@ -2935,6 +2940,7 @@ labels_subvarieties = {
     "Central Finnish": "Central Finland",
     "Central German": "Central Germany",
     "Central Germany": "Central Germany",
+    "Central Gujarati": "Central Gujarati",
     "Central Italian": "central Italian",
     "Central Italy": "central Italy",
     "Central Limburgish": "Central Limburgish",
@@ -6757,6 +6763,7 @@ labels_subvarieties = {
     "Zәncan": "Zanjan",
     "Zәngan": "Zanjan",
     "[Podhale]": "Podhale",
+    "a caricature of Black speech": "caricatures of Black speech",
     "aae": "Arbëresh",
     "aam": "Amagermål",
     "aasen": "pre-1901 (Landsmål)",
@@ -6820,6 +6827,9 @@ labels_subvarieties = {
     "caj": "Cajun",
     "cal": "Calabria",
     "cam": "Cambodia",
+    "caricature Black": "caricatures of Black speech",
+    "caricature black": "caricatures of Black speech",
+    "caricatures of Black speech": "caricatures of Black speech",
     "ceceo": "''ceceo'' merger",
     "central": "Central",
     "central Assam": "Central Assam",
@@ -6833,6 +6843,7 @@ labels_subvarieties = {
     "central Vietnamese": "Central Vietnam",
     "central-southern Italian": "central-southern Italian",
     "central-southern Italy": "central-southern Italy",
+    "cgu": "Central Gujarati",
     "ch": "Switzerland",
     "chełmińsko-dobrzyńska": "chełmińsko-dobrzyńska",
     "cho": "Choral Doric",
@@ -7869,5 +7880,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,711
+}  # 5,718
 # END
