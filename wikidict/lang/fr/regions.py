@@ -503,6 +503,7 @@ regions = {
     "Roumanie": "Roumanie",
     "Royaume-Uni": "Royaume-Uni",
     "Russie": "Russie",
+    "Région mulhousienne": "Région mulhousienne",
     "République Démocratique du Congo": "Congo-Kinshasa",
     "République centrafricaine": "République centrafricaine",
     "République dominicaine": "République dominicaine",
@@ -565,6 +566,7 @@ regions = {
     "Sri Lanka": "Sri Lanka",
     "Staden": "Staden",
     "Sud Haut-Marnais": "Sud Haut-Marnais",
+    "Sud de l’Allemagne": "Sud de l’Allemagne",
     "Sud des États-Unis": "Sud des États-Unis",
     "Sud du Viêt Nam": "Sud du Viêt Nam",
     "Sud du pays de Galles": "Sud du pays de Galles",
@@ -668,7 +670,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 663
+}  # 665
 # END
 
 # handled differently

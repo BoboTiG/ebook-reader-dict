@@ -3115,6 +3115,7 @@ labels_subvarieties = {
     "Crimean Romani": "Crimea",
     "Croatia": "Arbanasi",
     "Croatian": "Croatia",
+    "Cromarty": "Cromarty",
     "Cuba": "Cuba",
     "Cuban": "Cuba",
     "Culfa": "Julfa",
@@ -7880,5 +7881,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,718
+}  # 5,719
 # END
