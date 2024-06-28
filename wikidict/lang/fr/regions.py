@@ -136,6 +136,7 @@ regions = {
     "Cavallino": "Cavallino",
     "Celles-sur-Ource": "Celles-sur-Ource",
     "Centrafrique": "Centrafrique",
+    "Centre de l’Allemagne": "Centre de l’Allemagne",
     "Centre du Viêt Nam": "Centre du Viêt Nam",
     "Champagne": "Champagne",
     "Champtocé": "Champtocé-sur-Loire",
@@ -407,6 +408,7 @@ regions = {
     "Nogent-sur-Seine": "Nogent-sur-Seine",
     "Nootka Sound": "Baie de Nootka",
     "Nord de la France": "Nord de la France",
+    "Nord de l’Allemagne": "Nord de l’Allemagne",
     "Nord du Viêt Nam": "Nord du Viêt Nam",
     "Nord du pays de Galles": "Nord du pays de Galles",
     "Nord-Pas-de-Calais": "Nord-Pas-de-Calais",
@@ -670,7 +672,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 665
+}  # 667
 # END
 
 # handled differently

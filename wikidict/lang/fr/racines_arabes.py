@@ -3729,22 +3729,29 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "trouver insolite",
         "ar-ta*a*²a*a": "prendre une nouvelle voie",
     },  # 18
+    "ar-bdW": {
+        "aa_sens": "extérieur",
+        "ar-***ũ": "",
+        "ar-*a*â*iy²ũ": "bédouin",
+        "ar-*i*â*iy²ũ": "bédouin",
+        "ar-ma**a*ũ": "désert",
+    },  # 5
     "ar-bdw": {
         "aa_sens": "extérieur",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "agression",
+        "ar-*a**iy²@ũ": "bédouine",
         "ar-*a**iy²ũ": "bédouin",
         "ar-*a**ũ": "désert",
         "ar-*a*a*@ũ": "fantaisie",
         "ar-*a*a*a-u": "apparaître",
+        "ar-*a*a*iy²@ũ": "bédouine",
         "ar-*a*a*iy²ũ": "bédouin",
         "ar-*a*a*ũ": "membre",
         "ar-*a*²a*a": "",
         "ar-*a*â*@ũ": "commencement",
-        "ar-*a*â*iy²ũ": "bédouin",
         "ar-*a*â*ũ": "parution",
-        "ar-*i*â*iy²ũ": "bédouin",
         "ar-*ta*a*a": "",
         "ar-*u*û*ũ": "parution",
         "ar-*â*a*a": "manifester",
@@ -3752,13 +3759,12 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "externe",
         "ar-a**a*a": "montrer",
         "ar-a**â*ũ": "{{p}} membres",
-        "ar-ma**a*ũ": "désert",
-        "ar-mu**u*ũ": "débutant",
+        "ar-mu**i*ũ": "débutant",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "paraître",
         "ar-ta*â*a*a": "vivre en bédouin",
-    },  # 28
+    },  # 27
     "ar-bdy": {
         "aa_sens": "commencer",
         "ar-**a*²a": "",
@@ -9128,5 +9134,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 313
+}  # 314
 # END
