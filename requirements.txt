@@ -7,4 +7,4 @@ pyglossary==4.7.0
 python-idzip==0.3.9
 requests==2.32.3
 scour==0.38.2
-wikitextparser==0.55.13
+wikitextparser==0.56.0
