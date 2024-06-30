@@ -2557,6 +2557,7 @@ langs = {
     "kld": "kamilaroi",
     "kle": "kulung (Népal)",
     "klg": "kalagan de Tagakaulu",
+    "klikitat": "klikitat",
     "klj": "khalaj",
     "klk": "kono (Nigeria)",
     "klm": "migum",
@@ -6431,7 +6432,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,426
+}  # 6,427
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
