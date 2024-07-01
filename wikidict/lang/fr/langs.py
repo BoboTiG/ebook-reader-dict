@@ -4456,6 +4456,7 @@ langs = {
     "proto-ryūkyū": "proto-ryūkyū",
     "proto-ryūkyū du Nord": "proto-ryūkyū du Nord",
     "proto-ryūkyū du Sud": "proto-ryūkyū méridional",
+    "proto-sahaptien": "proto-sahaptien",
     "proto-same": "proto-same",
     "proto-samoyède": "proto-samoyède",
     "proto-sangirien": "proto-sangirien",
@@ -6432,7 +6433,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,427
+}  # 6,428
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
