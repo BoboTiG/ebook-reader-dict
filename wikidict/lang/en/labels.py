@@ -3562,7 +3562,7 @@ labels_subvarieties = {
     "Girnar": "Girnar",
     "Givi": "Givi",
     "Glagolitic": "Glagolitic",
-    "Glenties": "The Glenties",
+    "Glenties": "Glenties",
     "Gloucestershire": "Gloucestershire",
     "Goa": "Goa",
     "Goan": "Goa",
