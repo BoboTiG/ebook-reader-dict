@@ -2308,6 +2308,7 @@ langs = {
     "jiv": "shuar",
     "jiv-pal": "palta",
     "jiy": "jinuo de Buyuan",
+    "jje": "jeju",
     "jjr": "bankal",
     "jka": "kaera",
     "jko": "kubo",
@@ -6433,7 +6434,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,428
+}  # 6,429
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

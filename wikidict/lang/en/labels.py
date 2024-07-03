@@ -2567,6 +2567,7 @@ labels_subvarieties = {
     "Bahian": "Bahia",
     "Baiano": "Bahia",
     "Baj": "Baj",
+    "Bajubá": "pajubá",
     "Baki": "Baku",
     "Baku": "Baku",
     "Bakun": "Bakun",
@@ -5223,6 +5224,7 @@ labels_subvarieties = {
     "Pacific Northwest": "Northwestern US",
     "Pahang": "Pahang",
     "Paisaci": "Paisaci",
+    "Pajubá": "pajubá",
     "Pakistan": "Pakistan",
     "Pakistani": "Pakistan",
     "PalA": "Palmyrene",
@@ -6819,6 +6821,7 @@ labels_subvarieties = {
     "attributively": "attributively",
     "aug": "post-Augustan",
     "babica": "dialects with *bábica > *babìca shift",
+    "bajubá": "pajubá",
     "bejte": "bejtexhinj poetry",
     "bejtexhinj poetry": "bejtexhinj poetry",
     "bel": "Belgium",
@@ -7174,6 +7177,7 @@ labels_subvarieties = {
     "ovla": "Old Valaisan",
     "own": "Old West Norse",
     "pa": "Standard Punjabi",
+    "pajubá": "pajubá",
     "pam": "Pamphylian",
     "pan": "Eastern Punjab",
     "past subjunctive": "dated",
@@ -7893,5 +7897,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,731
+}  # 5,735
 # END
