@@ -157,6 +157,7 @@ domain_templates = {
     "hérons": "Ornithologie",
     "ibis": "Ornithologie",
     "iles": "Géographie",
+    "incel": "Argot des incels",
     "insectes": "Entomologie",
     "instruments": "Musique",
     "instruments de mesure": "Métrologie",
@@ -335,5 +336,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 330
+}  # 331
 # END

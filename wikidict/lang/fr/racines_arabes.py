@@ -7459,6 +7459,15 @@ racines_schemes_arabes = {
         "ar-*a*²û*ũ": "immuable",
         "ar-*i*â*ũ": "persévérance",
     },  # 5
+    "ar-rWH": {
+        "aa_sens": "souffler",
+        "ar-***ũ": "",
+        "ar-*a*a*ũ": "aération",
+        "ar-*a*i*a-a": "être large",
+        "ar-*ta*a*a": "alterner",
+        "ar-a**a*a": "acquitter sa dette",
+        "ar-sta**a*a": "flairer",
+    },  # 7
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
@@ -9175,5 +9184,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 315
+}  # 316
 # END
