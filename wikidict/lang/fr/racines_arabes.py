@@ -7761,6 +7761,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "se reposer",
         "ar-*a*â*@ũ": "repos",
         "ar-*a*â*ũ": "soirée",
+        "ar-*a*âyi*u": "{{p}} pluies du soir",
         "ar-*a*î*@ũ": "odeur",
         "ar-*a*î*ũ": "qui s'en va",
         "ar-*ay*a*ũ": "vin",
@@ -7788,7 +7789,7 @@ racines_schemes_arabes = {
         "ar-ta**î*@ũ": "prière nocturne",
         "ar-ta*a*²a*a": "éventer",
         "ar-ta*â*a*a": "alterner",
-    },  # 39
+    },  # 40
     "ar-rwd": {
         "aa_sens": "chercher, aller et venir, nonchalence",
         "ar-**a*²a": "",
