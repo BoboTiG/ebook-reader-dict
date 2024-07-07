@@ -8,6 +8,7 @@ domain_templates = {
     "4chan": "Internet, 4chan",
     "Astérix": "Univers d’Astérix",
     "LGBT": "LGBT",
+    "MRC": "Géographie",
     "Minecraft": "Jeu vidéo, Minecraft",
     "Oblasts": "Géographie",
     "Star Wars": "Science-fiction, univers de Star Wars",
@@ -209,6 +210,7 @@ domain_templates = {
     "métiers": "Métier",
     "nuages": "Météorologie",
     "nymphes": "Mythologie",
+    "oblasts": "Géographie",
     "oies": "Ornithologie",
     "oiseaux": "Ornithologie",
     "oursins": "Échinodermologie",
@@ -313,7 +315,6 @@ domain_templates = {
     "vents": "Météorologie",
     "vers": "Zoologie",
     "viandes": "Cuisine",
-    "villes": "Géographie",
     "vins": "Œnologie",
     "virus": "Virologie",
     "voies": "Transport",
@@ -336,5 +337,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 331
+}  # 332
 # END

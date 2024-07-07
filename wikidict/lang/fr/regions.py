@@ -228,6 +228,7 @@ regions = {
     "Galway": "Galway",
     "Gambie": "Gambie",
     "Gangwon": "Gangwon",
+    "Garoua": "Garoua",
     "Gascogne": "Gascogne",
     "Gaspésie": "Gaspésie",
     "Gaume": "Gaume",
@@ -354,6 +355,7 @@ regions = {
     "Marne": "Marne",
     "Maroc": "Maroc",
     "Marolles-lès-Bailly": "Marolles-lès-Bailly",
+    "Maroua": "Maroua",
     "Marseille": "Marseille",
     "Marshall": "Marshall",
     "Martinique": "Martinique",
@@ -672,7 +674,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 667
+}  # 669
 # END
 
 # handled differently

@@ -4137,6 +4137,7 @@ langs = {
     "paikoneka": "paikoneka",
     "pak": "parakanã",
     "pal": "pehlevi",
+    "palouse": "palouse",
     "pam": "kapampangan",
     "pandunia": "pandunia",
     "pannonien": "pannonien",
@@ -5178,6 +5179,7 @@ langs = {
     "taf": "tapirapé",
     "tag": "tagoi",
     "tai": "langues taïes",
+    "taitnapam": "taitnapam",
     "taj": "tamang oriental",
     "tak": "tala",
     "tal": "tal",
@@ -5790,6 +5792,7 @@ langs = {
     "was": "washo",
     "wat": "kaninuwa",
     "wau": "waurá",
+    "wauyukma": "wauyukma",
     "wav": "waka",
     "waw": "waiwai",
     "wax": "marangis",
@@ -6434,7 +6437,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,429
+}  # 6,432
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
