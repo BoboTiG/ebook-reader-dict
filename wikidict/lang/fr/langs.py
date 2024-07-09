@@ -3544,6 +3544,7 @@ langs = {
     "mxb": "mixtèque de Tezoatlán",
     "mxd": "modang",
     "mxe": "ifira-mele",
+    "mxh": "mvuba",
     "mxi": "mozarabe",
     "mxj": "miju",
     "mxk": "monumbo",
@@ -6437,7 +6438,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,432
+}  # 6,433
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

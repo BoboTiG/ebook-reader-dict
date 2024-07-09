@@ -6628,6 +6628,7 @@ labels_subvarieties = {
     "West Prussia": "West Prussia",
     "West Prussian": "West Prussia",
     "West Punjab": "Pakistan",
+    "West Sakhalin": "West Sakhalin",
     "West Saxon": "West Saxon",
     "West Sicily": "western Sicily",
     "West Suriname": "West Suriname",
@@ -7926,5 +7927,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,763
+}  # 5,764
 # END
