@@ -21,7 +21,6 @@ domain_templates = {
     "alliages": "Chimie",
     "amphibiens": "Zoologie",
     "anciennes divisions": "Histoire",
-    "anciennes localités": "Histoire",
     "anglicisme informatique": "Anglicisme informatique",
     "anglicismes informatiques": "Anglicisme informatique",
     "animaux": "Zoologie",
@@ -337,5 +336,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 332
+}  # 331
 # END
