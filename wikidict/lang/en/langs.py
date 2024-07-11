@@ -5570,6 +5570,7 @@ langs = {
     "ndr": "Ndoola",
     "nds": "Low German",
     "nds-de": "German Low German",
+    "nds-lpr": "Low Prussian",
     "nds-nl": "Dutch Low Saxon",
     "ndt": "Ndunga",
     "ndu": "Dugun",
@@ -9802,7 +9803,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,797
+}  # 9,798
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
