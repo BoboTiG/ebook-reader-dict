@@ -12,6 +12,7 @@ labels = {
     "2ch slang": "2channel slang",
     "2channel slang": "2channel slang",
     "4chan": "4chan",
+    "4chan lgbt": "4chan /lgbt/ slang",
     ":": ":",
     ";": ";",
     "ACG": "ACG",
@@ -488,6 +489,7 @@ labels = {
     "transferred senses": "transferred senses",
     "transger slang": "transger slang",
     "transitive": "transitive",
+    "tttt": "4chan /lgbt/ slang",
     "typically": "typically",
     "uds.": "used formally in Spain",
     "unaccusative": "unaccusative",
@@ -521,7 +523,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 516
+}  # 518
 
 label_syntaxes = {
     "&": {
@@ -7288,6 +7290,7 @@ labels_subvarieties = {
     "reflexive": "reflexive with {{m|mk|се|tr=-}}",
     "reflexive-sa": "reflexive with {{m|zlw-osk|sa}}",
     "reflexive-se": "reflexive with {{m|zlw-ocs|sě}}",
+    "reflexive-sej": "reflexive with {{m|hsb|sej}}",
     "reflexive-si": "reflexive with {{m|sk|si}}",
     "reflexive-sie": "reflexive with {{m|zlw-opl|się}}",
     "reflexive-siebie": "reflexive with {{m|zlw-opl|siebie}}",
@@ -7934,5 +7937,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,771
+}  # 5,772
 # END
