@@ -66,6 +66,7 @@ labels = {
     "active voice": "active voice",
     "affectionate": "earing",
     "also": "also",
+    "always in the negative": "always in the negative",
     "ambitransitive": "transitive, intransitive",
     "and": "and",
     "anger": "angry register",
@@ -523,7 +524,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 518
+}  # 519
 
 label_syntaxes = {
     "&": {
@@ -6487,6 +6488,7 @@ labels_subvarieties = {
     "Vardašen": "Vartashen",
     "Vardenis": "Basarkechar",
     "Vari": "Thoania",
+    "Varmland": "Värmland",
     "Varra": "Varra",
     "Varri": "Varra",
     "Varri Bengali": "Varra",
@@ -6519,6 +6521,7 @@ labels_subvarieties = {
     "Venlo": "Venlo",
     "Venloos": "Venlo",
     "Verlan": "Verlan",
+    "Vermlanti": "Värmland",
     "Vermont": "Vermont",
     "Verš": "Verš",
     "Vetus": "Vetus Latina",
@@ -6576,6 +6579,8 @@ labels_subvarieties = {
     "Vulgar British": "British Latin",
     "Vulgar Latin": "Vulgar Latin",
     "Vym": "Vym",
+    "Värmland": "Värmland",
+    "Värmland Savonian": "Värmland",
     "W": "Wysoka-Retowo-Czysta",
     "W.": "Wysoka-Retowo-Czysta",
     "WC Scots": "West Central Scots",
@@ -7937,5 +7942,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,772
+}  # 5,776
 # END
