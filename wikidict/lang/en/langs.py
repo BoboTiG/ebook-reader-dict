@@ -3612,9 +3612,11 @@ langs = {
     "jpr": "Judeo-Persian",
     "jpx": "Japonic",
     "jpx-hcj": "Hachijō",
+    "jpx-nry": "Northern Ryukyuan",
     "jpx-pro": "Proto-Japonic",
     "jpx-ryu": "Ryukyuan",
     "jpx-ryu-pro": "Proto-Ryukyuan",
+    "jpx-sry": "Southern Ryukyuan",
     "jqr": "Jaqaru",
     "jra": "Jarai",
     "jrb": "Judeo-Arabic",
@@ -6165,7 +6167,7 @@ langs = {
     "okl": "Old Kentish Sign Language",
     "okm": "Middle Korean",
     "okm-ear": "Early Middle Korean",
-    "okn": "Oki-No-Erabu",
+    "okn": "Okinoerabu",
     "oko": "Old Korean",
     "oko-lat": "Late Old Korean",
     "okr": "Kirike",
@@ -8166,7 +8168,7 @@ langs = {
     "tkf": "Tukumanféd",
     "tkl": "Tokelauan",
     "tkm": "Takelma",
-    "tkn": "Toku-No-Shima",
+    "tkn": "Tokunoshima",
     "tkp": "Tikopia",
     "tkq": "Tee",
     "tkr": "Tsakhur",
@@ -9803,7 +9805,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,798
+}  # 9,800
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
