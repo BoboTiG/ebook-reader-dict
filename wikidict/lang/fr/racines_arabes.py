@@ -7462,12 +7462,14 @@ racines_schemes_arabes = {
     "ar-rWH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",
+        "ar-*a*a*@ũ": "voyage du soir",
         "ar-*a*a*ũ": "aération",
         "ar-*a*i*a-a": "être large",
+        "ar-*a*î*@ũ": "contentement",
         "ar-*ta*a*a": "alterner",
         "ar-a**a*a": "acquitter sa dette",
         "ar-sta**a*a": "flairer",
-    },  # 7
+    },  # 9
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",

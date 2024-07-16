@@ -2065,6 +2065,7 @@ langs = {
     "dgw": "Daungwurrung",
     "dgx": "Doghoro",
     "dgz": "Daga",
+    "dhd": "Dhundhari",
     "dhg": "Dhangu",
     "dhi": "Dhimal",
     "dhl": "Dhalandji",
@@ -9805,7 +9806,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,800
+}  # 9,801
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
