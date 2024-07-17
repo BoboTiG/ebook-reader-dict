@@ -446,7 +446,8 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
     sub = re.sub
 
     # Clean-up the code
-    text = callback(wikicode, locale)
+    if not (text := callback(wikicode, locale)):
+        return ""
 
     # {{foo}}
     # {{foo|bar}}
