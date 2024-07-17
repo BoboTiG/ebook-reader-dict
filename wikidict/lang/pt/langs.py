@@ -884,6 +884,7 @@ langs = {
     "myv": "Erzya",
     "mzn": "Mazandarani",
     "mzp": "Movima",
+    "mzs": "Patuá macaense",
     "na": "Nauruano",
     "nab": "Nambiquara",
     "nag": "Nagamês",
@@ -1486,5 +1487,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,481
+}  # 1,482
 # END

@@ -7468,8 +7468,9 @@ racines_schemes_arabes = {
         "ar-*a*î*@ũ": "contentement",
         "ar-*ta*a*a": "alterner",
         "ar-a**a*a": "acquitter sa dette",
+        "ar-a*â*î*u": "{{p}} vents",
         "ar-sta**a*a": "flairer",
-    },  # 9
+    },  # 10
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
@@ -7768,7 +7769,7 @@ racines_schemes_arabes = {
         "ar-*a*î*ũ": "qui s'en va",
         "ar-*ay*a*ũ": "vin",
         "ar-*i**@ũ": "vent",
-        "ar-*i**ũ": "frais",
+        "ar-*i**ũ": "vent",
         "ar-*i*â*@ũ": "tranquillité",
         "ar-*ta*a*a": "se relayer",
         "ar-*ti*â*ũ": "joie",
@@ -7822,6 +7823,14 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "trembler, vaciller",
         "ar-ta*â*a*a": "",
     },  # 28
+    "ar-ryH": {
+        "aa_sens": "vent",
+        "ar-***ũ": "",
+        "ar-*i**@ũ": "vent",
+        "ar-*i**ũ": "vent",
+        "ar-a**â*ũ": "{{p}} vents",
+        "ar-a*â*î*u": "{{p}} vents",
+    },  # 6
     "ar-sHr": {
         "aa_sens": "aube",
         "ar-***ũ": "",
@@ -9187,5 +9196,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 316
+}  # 317
 # END

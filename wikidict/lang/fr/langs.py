@@ -1585,6 +1585,7 @@ langs = {
     "eya": "eyak",
     "eyo": "keyo",
     "fa": "persan",
+    "fa-cls": "persan classique",
     "faa": "fasu",
     "fab": "fá d’Ambô",
     "fad": "wagi",
@@ -2043,6 +2044,7 @@ langs = {
     "hnj": "hmong vert",
     "hnn": "hanunóo",
     "hno": "hindko du Nord",
+    "hns": "hindoustani caribéen",
     "hnu": "pong",
     "ho": "hiri motou",
     "hoa": "hoava",
@@ -2512,6 +2514,7 @@ langs = {
     "kis": "kis",
     "kita-pro": "proto-kiowa-tanoan",
     "kitanemuk": "kitanemuk",
+    "kittitas": "kittitas",
     "kiu": "kirmancki",
     "kiv": "kimbu",
     "kiw": "kiwai du Nord-Est",
@@ -6438,7 +6441,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,433
+}  # 6,436
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
