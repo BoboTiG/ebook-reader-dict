@@ -1854,6 +1854,7 @@ labels_topical = {
     "shamanism": "shamanism",
     "ship parts": "nautical",
     "shipping": "shipping",
+    "shoemaking": "shoemaking",
     "shogi": "shogi",
     "shooting sports": "gun sports",
     "signal processing": "signal processing",
@@ -2034,7 +2035,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,219
+}  # 1,220
 
 labels_regional = {
     "AU": "Australia",
@@ -6447,6 +6448,7 @@ labels_subvarieties = {
     "Urban Cebu": "Metro Cebu",
     "Urban Cebuano": "Metro Cebu",
     "Urban East Norwegian": "Standard East Norwegian",
+    "Urchuniwar": "Urtsuniwar",
     "Urfa": "Urfa",
     "Urha": "Urfa",
     "Uri": "Uri",
@@ -6458,6 +6460,8 @@ labels_subvarieties = {
     "Urnerdeutsch": "Uri",
     "Ursari": "Ursari",
     "Urseren": "Uri",
+    "Urtsun dialect": "Urtsuniwar",
+    "Urtsuniwar": "Urtsuniwar",
     "Uruguay": "Uruguay",
     "Uruguayan": "Uruguay",
     "Ururi": "Ururi",
@@ -7232,7 +7236,9 @@ labels_subvarieties = {
     "omen": "omen",
     "omr": "Ommersysselsk",
     "onch": "Old Neuchâtelois",
+    "orbb": "ORB, broad",
     "orbl": "ORB, broad",
+    "orbn": "ORB, narrow",
     "orbs": "ORB, narrow",
     "osvy": "Old Savoyard",
     "otw": "Ottawa",
@@ -7966,5 +7972,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,799
+}  # 5,804
 # END
