@@ -1,5 +1,5 @@
 -r requirements.txt
-mypy==1.10.1
+mypy==1.11.0
 pytest==8.2.2
 pytest-cov==5.0.0 
 pytest-dependency==0.6.0
