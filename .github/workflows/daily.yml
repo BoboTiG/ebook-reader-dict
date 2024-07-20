@@ -44,7 +44,7 @@ jobs:
           - "ca"
           - "da"
           - "de"
-          - "el"
+          # - "el"
           - "en"
           - "es"
           - "fr"
