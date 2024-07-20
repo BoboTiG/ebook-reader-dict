@@ -7462,15 +7462,17 @@ racines_schemes_arabes = {
     "ar-rWH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",
+        "ar-*a**â'u": "{{f}} large",
         "ar-*a*a*@ũ": "voyage du soir",
         "ar-*a*a*ũ": "aération",
         "ar-*a*i*a-a": "être large",
         "ar-*a*î*@ũ": "contentement",
         "ar-*ta*a*a": "alterner",
         "ar-a**a*a": "acquitter sa dette",
+        "ar-a**a*u": "large",
         "ar-a*â*î*u": "{{p}} vents",
         "ar-sta**a*a": "flairer",
-    },  # 10
+    },  # 12
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
@@ -7762,6 +7764,7 @@ racines_schemes_arabes = {
         "ar-*a*a*a-u": "s'en aller",
         "ar-*a*a*ũ": "allégresse",
         "ar-*a*²a*a": "se reposer",
+        "ar-*a*²i*ũ": "rafraîchi",
         "ar-*a*â*@ũ": "repos",
         "ar-*a*â*ũ": "soirée",
         "ar-*a*âyi*u": "{{p}} pluies du soir",
@@ -7778,7 +7781,6 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "alterner",
         "ar-*î*â*ũ": "soirée",
         "ar-a**a*a": "sentir mauvais",
-        "ar-a**a*ũ": "large",
         "ar-a**â*ũ": "soirée",
         "ar-ma**a*ũ": "lieu du soir",
         "ar-ma**i*ũ": "aéré",
@@ -7826,11 +7828,14 @@ racines_schemes_arabes = {
     "ar-ryH": {
         "aa_sens": "vent",
         "ar-***ũ": "",
+        "ar-*a**ânũ": "basilic",
+        "ar-*a*²i*ũ": "rafraîchi",
+        "ar-*a*â*înu": "{{p}} basilics",
         "ar-*i**@ũ": "vent",
         "ar-*i**ũ": "vent",
         "ar-a**â*ũ": "{{p}} vents",
         "ar-a*â*î*u": "{{p}} vents",
-    },  # 6
+    },  # 9
     "ar-sHr": {
         "aa_sens": "aube",
         "ar-***ũ": "",
