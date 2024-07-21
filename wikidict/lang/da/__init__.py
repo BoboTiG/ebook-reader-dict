@@ -80,6 +80,8 @@ templates_multi = {
     "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
+    # {{initialism of|lang=da|København}}
+    "initialism of": "italic('Initialforkortelse af') + ' ' + strong(parts[-1])",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
