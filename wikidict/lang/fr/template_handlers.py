@@ -1114,6 +1114,21 @@ def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return term(capitalize(data["libellé"] or data["1"] or parts[0]))
 
 
+def render_transitif(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+    """
+    >>> render_transitif("transitif+", ["fr"], defaultdict(str, {"a1": "de"}))
+    '<i>(Transitif avec le complément d’objet introduit par </i><b>de</b><i>)</i>'
+    >>> render_transitif("transitif+", ["fr"], defaultdict(str, {"c1": "de"}))
+    '<i>(Transitif avec le complément d’objet </i><b>de</b><i>)</i>'
+    """
+    phrase = "(Transitif avec le complément d’objet "
+    if complement := data["a1"]:
+        phrase += "introduit par "
+    else:
+        complement = data["c1"]
+    return f"{italic(phrase)}{strong(complement)}{italic(')')}"
+
+
 def render_unite(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
@@ -1314,6 +1329,7 @@ template_mapping = {
     "term": render_term,
     "terme": render_term,
     "term lien": render_term,
+    "transitif+": render_transitif,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,
     "Variante ortho de": render_variante_ortho,
