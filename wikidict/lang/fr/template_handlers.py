@@ -703,6 +703,7 @@ def render_lae(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
         "adv": "Adverbe",
         "adverbe": "Adverbe",
         "art-déf": "Article défini",
+        "article indéfini": "Article indéfini",
         "conj": "Conjonction",
         "conj-coord": "Conjonction de coordination",
         "interj": "Interjection",
