@@ -66,8 +66,8 @@ templates_ignored = (
 )
 
 templates_multi = {
-    # {{compound|hjemme|værn}}
-    "compound": "' + '.join(parts[1:])",
+    # {{compound|hjemme|værn|lang=da}}
+    "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
