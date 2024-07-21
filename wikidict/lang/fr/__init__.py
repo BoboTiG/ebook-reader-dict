@@ -322,6 +322,7 @@ templates_italic = {
     "indus": "Industrie",
     "info": "Informatique",
     "injur": "Injurieux",
+    "injurieux": "Injurieux",
     "intrans": "Intransitif",
     "intransitif": "Intransitif",
     "iron": "Ironique",
