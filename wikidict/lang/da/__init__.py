@@ -66,8 +66,8 @@ templates_ignored = (
 )
 
 templates_multi = {
-    # {{compound|hjemme|værn}}
-    "compound": "' + '.join(parts[1:])",
+    # {{compound|hjemme|værn|lang=da}}
+    "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
@@ -80,6 +80,8 @@ templates_multi = {
     "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
+    # {{initialism of|lang=da|København}}
+    "initialism of": "italic('Initialforkortelse af') + ' ' + strong(parts[-1])",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}

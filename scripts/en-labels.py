@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Tuple
+from typing import Dict, List
 
 from scripts_utils import get_soup
 
@@ -66,7 +66,7 @@ def dialect_handler(text: str) -> Dict[str, str]:
 
 def process_page(
     url: str,
-    repl: Tuple[str, ...],
+    repl: List[str],
     stop_line: str,
     var_name: str,
     print_result: bool = True,
@@ -81,6 +81,8 @@ def process_page(
     text = text.replace("true", "True")
     text = text.replace("false", "False")
     text = text.replace("--", "#")
+    text = text.replace('" .. ', '" + ')
+    text = text.replace(' .. "', ' + "')
 
     text = re.sub(r"function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", text)
     text = text.replace("for _, v in ipairs(b) do", "\n    for v in b:\n        ")
@@ -116,12 +118,12 @@ def process_page(
             display = label_v.get("display", label_k)
             aliases = label_v.get("aliases", [])
         display = process_display(display)
-        results[k] = display
+        results[k] = display.replace('"', "'")
 
         if isinstance(aliases, str):
             aliases = [aliases]
         for a in aliases:
-            results[a] = display
+            results[a] = display.replace('"', "'")
 
     if print_result:
         print(f"{var_name} = {{")
@@ -132,30 +134,50 @@ def process_page(
 
 
 url = "https://en.wiktionary.org/wiki/Module:labels/data"
-repl = (
-    "deprecated_aliases",
-    "special_display",
+repl = [
+    "accent_display",
+    "accent_Wikipedia",
+    "addl",
     "aliases",
     "alias_of",
     "category",
+    "country",
     "labels",
+    "def",
     "deprecated",
+    "deprecated_aliases",
     "display",
+    "form_of_display",
+    "fulldef",
     "glossary",
+    "langs",
     "language",
+    "nolink",
+    "noreg",
     "omit_preComma",
     "omit_postComma",
     "omit_preSpace",
+    "omit_postSpace",
+    "othercat",
+    "parent",
     "plain_categories",
     "pos_categories",
+    "prep",
+    "region",
     "regional_categories",
     "sense_categories",
+    "special_display",
+    "the",
     "topical_categories",
     "track",
+    "type",
+    "verb",
+    "Wikidata",
     "wikipedia",
     "Wikipedia",
     "Wiktionary",
-)
+]
+repl = sorted(repl, key=len, reverse=True)
 stop_line = "return labels"
 var_name = "labels"
 results_data: Dict[str, str] = {}
@@ -233,12 +255,17 @@ for li in lis:
     if not li.text.endswith("documentation"):
         href = li.find("a")["href"]
         page_url = root_url + href
-        stop_line = "return"
         var_name = "labels_subvarieties"
-        results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+        if page_url.endswith("/en"):
+            stop_line = "################## accent qualifiers"
+            results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+        elif not any(page_url.endswith(suffix) for suffix in ("/zh", "/zh/functions")):
+            stop_line = "return"
+            results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+
 
 print(f"{var_name} = {{")
 for key, value in sorted(results.items()):
-    if len(key) < 62:  # if it's too long, it's not useful
+    if len(key) < 62 and len(key):  # if it's too long, it's not useful
         print(f'    "{key}": "{value}",')
 print(f"}}  # {len(results):,}")

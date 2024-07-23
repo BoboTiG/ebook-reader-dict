@@ -428,7 +428,7 @@ recognized_placetypes = {
     "community": {
         "article": "a",
         "display": "community",
-        "preposition": "in",
+        "preposition": "of",
     },
     "community development block": {
         "article": "a",

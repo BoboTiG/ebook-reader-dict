@@ -22,7 +22,7 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
     start_tag = None
 
     for event, element in doc:
-        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page":
+        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.11/}page":
             start_tag = element.tag
         elif start_tag is not None and event == "end" and element.tag == start_tag:
             yield element
@@ -35,16 +35,16 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
 def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
-    if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
+    if revision.tag == "{http://www.mediawiki.org/xml/export-0.11/}restrictions":
         # When a word is "restricted", then the revision comes just after
         revision = element[4]
-    elif not revision:
+    elif not len(revision):
         # This is a "redirect" page, not interesting.
         return "", ""
 
     # The Wikicode can be at different indexes, but not ones lower than 5
     for info in revision[5:]:
-        if info.tag == "{http://www.mediawiki.org/xml/export-0.10/}text":
+        if info.tag == "{http://www.mediawiki.org/xml/export-0.11/}text":
             code = info.text or ""
             break
     else:

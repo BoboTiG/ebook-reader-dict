@@ -357,6 +357,7 @@ langs = {
     "ml": "Malayalam",
     "mn": "Mongolisch",
     "mnc": "Mandschurisch",
+    "mni": "Manipurisch",
     "mnk": "Mandinka",
     "mns": "Mansisch",
     "mnw": "Mon",
@@ -687,5 +688,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 682
+}  # 683
 # END

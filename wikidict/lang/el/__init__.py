@@ -205,14 +205,18 @@ def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
     if not label or label is None:
         return ""
     nodisplay = args["nodisplay"] or args["000"]
-    if nodisplay == "" and data.get(label, {}).get("link") != "πατρότητα":
+
+    if not nodisplay:
         if term != "":
             mytext = term
         elif text != "":
             mytext = text
-        else:
-            mytext = f"{show}" if show != "" else f'{italic(data[label]["linkshow"])}'
-        mytext = mytext if noparenthesis != "" else f"({mytext})"
+        elif all_labels := data.get(label):
+            if isinstance(all_labels, list):
+                all_labels = all_labels[0]
+            if all_labels.get("link") not in {None, "πατρότητα"}:
+                mytext = show or f'{italic(all_labels["linkshow"])}'
+        mytext = mytext if noparenthesis else f"({mytext})"
     return mytext
 
 
