@@ -4413,6 +4413,7 @@ langs = {
     "proto-keresan": "proto-keresan",
     "proto-khanty": "proto-khanty",
     "proto-khasique": "proto-khasique",
+    "proto-kherwarien": "proto-kherwarien",
     "proto-khmer": "proto-khmer",
     "proto-khmuique": "proto-khmuique",
     "proto-kiowa-tanoan": "proto-kiowa-tanoan",
@@ -5727,6 +5728,7 @@ langs = {
     "vid": "vidunda",
     "vieil okinawaïen": "vieil okinawaïen",
     "vieil écossais": "vieil écossais",
+    "vieux balinais": "vieux balinais",
     "vieux brittonique": "vieux brittonique",
     "vieux curonien": "couronien",
     "vieux danois": "vieux danois",
@@ -6441,7 +6443,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,436
+}  # 6,438
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

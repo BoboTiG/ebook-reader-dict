@@ -7473,6 +7473,11 @@ racines_schemes_arabes = {
         "ar-a*â*î*u": "{{p}} vents",
         "ar-sta**a*a": "flairer",
     },  # 12
+    "ar-rYH": {
+        "aa_sens": "vent",
+        "ar-***ũ": "",
+        "ar-a**a*iy²ũ": "agile",
+    },  # 3
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
@@ -7833,9 +7838,11 @@ racines_schemes_arabes = {
         "ar-*a*â*înu": "{{p}} basilics",
         "ar-*i**@ũ": "vent",
         "ar-*i**ũ": "vent",
+        "ar-a**a*u": "ample",
+        "ar-a**i*iy²ũ": "agile",
         "ar-a**â*ũ": "{{p}} vents",
         "ar-a*â*î*u": "{{p}} vents",
-    },  # 9
+    },  # 11
     "ar-sHr": {
         "aa_sens": "aube",
         "ar-***ũ": "",
@@ -9201,5 +9208,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 317
+}  # 318
 # END
