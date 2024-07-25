@@ -7471,13 +7471,21 @@ racines_schemes_arabes = {
         "ar-a**a*a": "acquitter sa dette",
         "ar-a**a*u": "large",
         "ar-a*â*î*u": "{{p}} vents",
+        "ar-ma**a*@ũ": "lieu venteux",
+        "ar-ma*â*i*u": "{{p}} éventails",
+        "ar-ma*â*î*u": "{{p}} lieux venteux",
+        "ar-mi**a*@ũ": "éventail",
+        "ar-mi**a*ũ": "éventail",
         "ar-sta**a*a": "flairer",
-    },  # 12
+        "ar-ta**î*@ũ": "prière nocturne",
+        "ar-ta*â*î*u": "{{p}} prières nocturnes",
+    },  # 19
     "ar-rYH": {
         "aa_sens": "vent",
         "ar-***ũ": "",
+        "ar-a**a*iy²@ũ": "générosité",
         "ar-a**a*iy²ũ": "agile",
-    },  # 3
+    },  # 4
     "ar-rb3": {
         "aa_sens": "quatre, printemps",
         "ar-***ũ": "",
@@ -7779,8 +7787,10 @@ racines_schemes_arabes = {
         "ar-*i**@ũ": "vent",
         "ar-*i**ũ": "vent",
         "ar-*i*â*@ũ": "tranquillité",
-        "ar-*ta*a*a": "se relayer",
+        "ar-*ta*a*a": "être joyeux",
         "ar-*ti*â*ũ": "joie",
+        "ar-*u**iy²@ũ": "spiritualité",
+        "ar-*u**iy²ũ": "spirituel",
         "ar-*u**âniy²ũ": "spirituel",
         "ar-*u**ũ": "âme",
         "ar-*â*a*a": "alterner",
@@ -7791,15 +7801,15 @@ racines_schemes_arabes = {
         "ar-ma**i*ũ": "aéré",
         "ar-ma**û*ũ": "aéré",
         "ar-mu**a*ũ": "gîte",
-        "ar-musta*a*a*ũ": "lieu de repos",
-        "ar-musta*a*i*ũ": "homme vertueux",
+        "ar-mu*ta*a*ũ": "cinquième cheval",
+        "ar-musta**a*ũ": "lieu de repos",
+        "ar-musta**i*ũ": "homme vertueux",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "flairer",
         "ar-sti**â*@ũ": "repos",
-        "ar-ta**î*@ũ": "prière nocturne",
         "ar-ta*a*²a*a": "éventer",
         "ar-ta*â*a*a": "alterner",
-    },  # 40
+    },  # 42
     "ar-rwd": {
         "aa_sens": "chercher, aller et venir, nonchalence",
         "ar-**a*²a": "",
@@ -7835,6 +7845,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-*a**ânũ": "basilic",
         "ar-*a*²i*ũ": "rafraîchi",
+        "ar-*a*²â*ũ": "grand canal",
         "ar-*a*â*înu": "{{p}} basilics",
         "ar-*i**@ũ": "vent",
         "ar-*i**ũ": "vent",
@@ -7842,7 +7853,8 @@ racines_schemes_arabes = {
         "ar-a**i*iy²ũ": "agile",
         "ar-a**â*ũ": "{{p}} vents",
         "ar-a*â*î*u": "{{p}} vents",
-    },  # 11
+        "ar-mu*â*a*@ũ": "rassérènement",
+    },  # 13
     "ar-sHr": {
         "aa_sens": "aube",
         "ar-***ũ": "",
