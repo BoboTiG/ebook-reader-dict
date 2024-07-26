@@ -7477,9 +7477,11 @@ racines_schemes_arabes = {
         "ar-mi**a*@ũ": "éventail",
         "ar-mi**a*ũ": "éventail",
         "ar-sta**a*a": "flairer",
+        "ar-sti**â*ũ": "respiration",
         "ar-ta**î*@ũ": "prière nocturne",
+        "ar-ta**î*ũ": "ventilation",
         "ar-ta*â*î*u": "{{p}} prières nocturnes",
-    },  # 19
+    },  # 21
     "ar-rYH": {
         "aa_sens": "vent",
         "ar-***ũ": "",
@@ -7783,6 +7785,7 @@ racines_schemes_arabes = {
         "ar-*a*âyi*u": "{{p}} pluies du soir",
         "ar-*a*î*@ũ": "odeur",
         "ar-*a*î*ũ": "qui s'en va",
+        "ar-*awâ*i*ũ": "{{p}} parfums",
         "ar-*ay*a*ũ": "vin",
         "ar-*i**@ũ": "vent",
         "ar-*i**ũ": "vent",
@@ -7791,11 +7794,14 @@ racines_schemes_arabes = {
         "ar-*ti*â*ũ": "joie",
         "ar-*u**iy²@ũ": "spiritualité",
         "ar-*u**iy²ũ": "spirituel",
+        "ar-*u**âniy²@ũ": "spiritualité",
         "ar-*u**âniy²ũ": "spirituel",
         "ar-*u**ũ": "âme",
         "ar-*â*a*a": "alterner",
+        "ar-*â*i*@ũ": "parfum",
+        "ar-*â*i*ũ": "allant et venant",
         "ar-*î*â*ũ": "soirée",
-        "ar-a**a*a": "sentir mauvais",
+        "ar-a**a*a": "reposer",
         "ar-a**â*ũ": "soirée",
         "ar-ma**a*ũ": "lieu du soir",
         "ar-ma**i*ũ": "aéré",
@@ -7807,9 +7813,10 @@ racines_schemes_arabes = {
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "flairer",
         "ar-sti**â*@ũ": "repos",
+        "ar-sti**â*ũ": "repos",
         "ar-ta*a*²a*a": "éventer",
         "ar-ta*â*a*a": "alterner",
-    },  # 42
+    },  # 47
     "ar-rwd": {
         "aa_sens": "chercher, aller et venir, nonchalence",
         "ar-**a*²a": "",
@@ -7853,8 +7860,10 @@ racines_schemes_arabes = {
         "ar-a**i*iy²ũ": "agile",
         "ar-a**â*ũ": "{{p}} vents",
         "ar-a*â*î*u": "{{p}} vents",
+        "ar-mi**â*ũ": "causant des flatulences",
         "ar-mu*â*a*@ũ": "rassérènement",
-    },  # 13
+        "ar-ta**î*ũ": "insertion",
+    },  # 15
     "ar-sHr": {
         "aa_sens": "aube",
         "ar-***ũ": "",
