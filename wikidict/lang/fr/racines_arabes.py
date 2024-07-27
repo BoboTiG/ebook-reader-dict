@@ -8532,6 +8532,46 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 19
+    "ar-wHd": {
+        "aa_sens": "unicité",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "délaissement",
+        "ar-*a**@ũ": "solitude",
+        "ar-*a**âniy²@ũ": "unité",
+        "ar-*a**ũ": "singulier",
+        "ar-*a*a*@ũ": "{{f}} solitaire",
+        "ar-*a*a*ũ": "solitaire",
+        "ar-*a*i*@ũ": "{{f}} solitaire",
+        "ar-*a*i*a-i": "être seul",
+        "ar-*a*i*ũ": "solitaire",
+        "ar-*a*u*a": "être seul",
+        "ar-*a*²a*a": "rendre unique",
+        "ar-*a*â*ũ": "seul",
+        "ar-*a*î*@ũ": "{{f}} unique",
+        "ar-*a*î*ũ": "unique",
+        "ar-*ta*a*a": "être uni",
+        "ar-*u**ânũ": "{{p}} uniques",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "un",
+        "ar-2i3@ũ": "isolement",
+        "ar-a**a*a": "délaisser",
+        "ar-a**a*u": "unique",
+        "ar-ma**a*@ũ": "marquée d'un point",
+        "ar-ma*â*î*u": "{{p}} colinnes isolées",
+        "ar-mi**â*ũ": "colline isolée",
+        "ar-mu**a*ũ": "isolé",
+        "ar-mu**i*ũ": "monopare",
+        "ar-mu*a*²i*ũ": "professant l'Unique",
+        "ar-muta*a*²i*ũ": "séparé",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "culte de l'Unique",
+        "ar-ta*a*²a*a": "rester seul",
+        "ar-ta*a*²u*ũ": "isolement",
+        "ar-ta*â*a*a": "",
+        "ar-t²i2â3ũ": "union",
+    },  # 38
     "ar-wSl": {
         "aa_sens": "allier, rallier",
         "ar-**a*²a": "",
@@ -9229,5 +9269,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 318
+}  # 319
 # END

@@ -338,6 +338,7 @@ regions = {
     "MU": "Île Maurice",
     "MX": "Mexique",
     "Macey (Aube)": "Macey (Aube",
+    "Macina": "Macina",
     "Macédoine": "Macédoine",
     "Madagascar": "Madagascar",
     "Magavaira": "Magavaira",
@@ -674,7 +675,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 669
+}  # 670
 # END
 
 # handled differently
