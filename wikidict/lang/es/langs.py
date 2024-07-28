@@ -5997,6 +5997,7 @@ langs = {
     "sai-gam": "gamela",
     "sai-gay": "gayón",
     "sai-gmo": "guamo",
+    "sai-gua": "guaiquerí",
     "sai-gue": "güenoa",
     "sai-hau": "haush",
     "sai-jee-pro": "proto-yê",
@@ -8273,6 +8274,6 @@ langs = {
     "zxx": "---n/a---",
     "zyp": "chin zyphe",
     "zza": "zazaki",
-}  # 8,268
+}  # 8,269
 
 # END
