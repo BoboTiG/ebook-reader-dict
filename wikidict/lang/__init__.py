@@ -1,23 +1,15 @@
 """Internationalization stuff."""
 
+from importlib import import_module
+from pathlib import Path
 from typing import Any, Dict, Tuple, TypeVar
 
-from . import ca, da, de, defaults, el, en, es, fr, it, no, pt, ro, ru, sv
+from . import defaults
 
-ALL_LOCALES = {  # XXX_LOCALES
-    "ca": ca,
-    "da": da,
-    "de": de,
-    "el": el,
-    "en": en,
-    "es": es,
-    "fr": fr,
-    "it": it,
-    "no": no,
-    "pt": pt,
-    "ro": ro,
-    "ru": ru,
-    "sv": sv,
+ALL_LOCALES = {
+    locale.name: import_module(f"wikidict.lang.{locale.name}")
+    for locale in sorted(Path(__file__).parent.glob("*"))
+    if locale.is_dir() and locale.name != "__pycache__"
 }
 
 Arg = TypeVar("Arg")
