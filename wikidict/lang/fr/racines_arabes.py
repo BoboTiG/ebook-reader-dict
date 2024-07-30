@@ -5,6 +5,24 @@ Auto-generated with `python -m scripts`.
 
 # START
 racines_schemes_arabes = {
+    "ar-'Hd": {
+        "aa_sens": "un",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "",
+        "ar-*a*a*iy²@ũ": "unité",
+        "ar-*a*a*ũ": "un",
+        "ar-*a*²a*a": "proclamer unique",
+        "ar-*a*â*ã": "un à un",
+        "ar-*i**ũ": "unité",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-it²a2a3a": "se réunir",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "s'isoler",
+        "ar-ta*a*²a*a": "s'isoler",
+        "ar-ta*â*a*a": "",
+    },  # 16
     "ar-'Sl": {
         "aa_sens": "racine, soir",
         "ar-**a*²a": "",
@@ -8547,18 +8565,20 @@ racines_schemes_arabes = {
         "ar-*a*i*ũ": "solitaire",
         "ar-*a*u*a": "être seul",
         "ar-*a*²a*a": "rendre unique",
+        "ar-*a*â*@ũ": "isolement",
         "ar-*a*â*ũ": "seul",
         "ar-*a*î*@ũ": "{{f}} unique",
         "ar-*a*î*ũ": "unique",
-        "ar-*ta*a*a": "être uni",
         "ar-*u**ânũ": "{{p}} uniques",
+        "ar-*u*û*@ũ": "singularité",
+        "ar-*u*û*ũ": "solitude",
         "ar-*â*a*a": "",
         "ar-*â*i*ũ": "un",
         "ar-2i3@ũ": "isolement",
         "ar-a**a*a": "délaisser",
         "ar-a**a*u": "unique",
         "ar-ma**a*@ũ": "marquée d'un point",
-        "ar-ma*â*î*u": "{{p}} colinnes isolées",
+        "ar-ma*â*î*u": "{{p}} collines isolées",
         "ar-mi**â*ũ": "colline isolée",
         "ar-mu**a*ũ": "isolé",
         "ar-mu**i*ũ": "monopare",
@@ -8571,7 +8591,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "isolement",
         "ar-ta*â*a*a": "",
         "ar-t²i2â3ũ": "union",
-    },  # 38
+    },  # 40
     "ar-wSl": {
         "aa_sens": "allier, rallier",
         "ar-**a*²a": "",
@@ -9269,5 +9289,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 319
+}  # 320
 # END
