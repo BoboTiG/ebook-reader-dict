@@ -14,7 +14,10 @@ racines_schemes_arabes = {
         "ar-*a*a*ũ": "un",
         "ar-*a*²a*a": "proclamer unique",
         "ar-*a*â*ã": "un à un",
+        "ar-*i**é": "{{f}} une",
         "ar-*i**ũ": "unité",
+        "ar-*u**ânũ": "{{p}} uniques",
+        "ar-*u*â*ũ": "{{p}} uniques",
         "ar-*â*a*a": "",
         "ar-a**a*a": "",
         "ar-it²a2a3a": "se réunir",
@@ -22,7 +25,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'isoler",
         "ar-ta*a*²a*a": "s'isoler",
         "ar-ta*â*a*a": "",
-    },  # 16
+    },  # 19
     "ar-'Sl": {
         "aa_sens": "racine, soir",
         "ar-**a*²a": "",
@@ -8566,10 +8569,10 @@ racines_schemes_arabes = {
         "ar-*a*u*a": "être seul",
         "ar-*a*²a*a": "rendre unique",
         "ar-*a*â*@ũ": "isolement",
-        "ar-*a*â*ũ": "seul",
         "ar-*a*î*@ũ": "{{f}} unique",
         "ar-*a*î*ũ": "unique",
         "ar-*u**ânũ": "{{p}} uniques",
+        "ar-*u*â*ũ": "{{p}} seuls",
         "ar-*u*û*@ũ": "singularité",
         "ar-*u*û*ũ": "solitude",
         "ar-*â*a*a": "",
