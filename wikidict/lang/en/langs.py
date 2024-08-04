@@ -436,7 +436,14 @@ langs = {
     "aox": "Atorada",
     "aoz": "Uab Meto",
     "apa": "Apachean",
+    "apa-ava": "Avahatta",
+    "apa-gur": "Gurjara Apabhramsa",
+    "apa-kas": "Kasmiri Apabhramsa",
+    "apa-mah": "Maharastri Apabhramsa",
     "apa-pro": "Proto-Apachean",
+    "apa-sau": "Sauraseni Apabhramsa",
+    "apa-tak": "Takka Apabhramsa",
+    "apa-vra": "Vracada Apabhramsa",
     "apb": "Sa'a",
     "apc": "North Levantine Arabic",
     "apd": "Sudanese Arabic",
@@ -3329,6 +3336,7 @@ langs = {
     "imy": "Milyan",
     "inb": "Inga",
     "inc": "Indo-Aryan",
+    "inc-apa": "Apabhramsa",
     "inc-ash": "Ashokan Prakrit",
     "inc-bhi": "Bhil",
     "inc-cen": "Central Indo-Aryan",
@@ -3337,7 +3345,6 @@ langs = {
     "inc-dar": "Dardic",
     "inc-dre": "Eastern Dardic",
     "inc-eas": "Eastern Indo-Aryan",
-    "inc-gup": "Gurjar Apabhramsa",
     "inc-hie": "Eastern Hindi",
     "inc-hiw": "Western Hindi",
     "inc-hnd": "Hindustani",
@@ -3370,12 +3377,9 @@ langs = {
     "inc-pro": "Proto-Indo-Aryan",
     "inc-psu": "Sauraseni Prakrit",
     "inc-rom": "Romani",
-    "inc-sap": "Sauraseni Apabhramsa",
     "inc-shn": "Shinaic",
     "inc-snd": "Sindhi",
     "inc-sou": "Southern Indo-Aryan",
-    "inc-tak": "Takka Apabhramsa",
-    "inc-vra": "Vracada Apabhramsa",
     "inc-wes": "Western Indo-Aryan",
     "ine": "Indo-European",
     "ine-ana": "Anatolian",
@@ -9807,7 +9811,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,802
+}  # 9,806
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

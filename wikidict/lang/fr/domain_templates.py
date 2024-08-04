@@ -70,7 +70,7 @@ domain_templates = {
     "chiens": "Zoologie",
     "chênes": "Botanique",
     "cigognes": "Ornithologie",
-    "cnidaires": "Zoologie",
+    "cnidaires": "Cnidariologie",
     "cocktails": "Boisson",
     "coléoptères": "Entomologie",
     "commerces": "Commerce",
