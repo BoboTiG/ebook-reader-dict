@@ -436,7 +436,7 @@ langs = {
     "aox": "Atorada",
     "aoz": "Uab Meto",
     "apa": "Apachean",
-    "apa-ava": "Avahatta",
+    "apa-ava": "Avahattha",
     "apa-gur": "Gurjara Apabhramsa",
     "apa-kas": "Kasmiri Apabhramsa",
     "apa-mah": "Maharastri Apabhramsa",
