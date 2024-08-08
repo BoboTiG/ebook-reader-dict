@@ -97,6 +97,8 @@ templates_multi = {
     # {{u|de|Reis}}
     "u": "parts[-1] + superscript('(' + parts[1] + ')')",
 }
+# Aliases
+templates_multi["init of"] = templates_multi["initialism of"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da

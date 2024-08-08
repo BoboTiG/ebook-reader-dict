@@ -54,6 +54,7 @@ def test_parse_word(
         ("{{en}}", "Engelsk"),
         ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
         ("{{fysik}}", "(<i>fysik</i>)"),
+        ("{{init of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
         ("{{initialism of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
         ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
