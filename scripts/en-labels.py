@@ -137,6 +137,7 @@ repl = sorted(
         "deprecated_aliases",
         "display",
         "form_of_display",
+        "from",
         "fulldef",
         "glossary",
         "langs",
