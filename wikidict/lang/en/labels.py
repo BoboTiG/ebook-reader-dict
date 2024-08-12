@@ -469,6 +469,7 @@ labels = {
     "substantivised": "nominalised",
     "substantivization": "nominalized",
     "substantivized": "nominalized",
+    "superseded": "superseded",
     "swear word": "swear word",
     "syncopated": "syncopated",
     "syncopation": "syncopated",
@@ -529,7 +530,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 524
+}  # 525
 
 label_syntaxes = {
     "&": {
@@ -926,6 +927,8 @@ labels_topical = {
     "IT": "information technology",
     "Indian politics": "Indian politics",
     "Indo-European studies": "Indo-European studies",
+    "Indonesia politics": "Indonesian politics",
+    "Indonesian politics": "Indonesian politics",
     "International Organisation for Standardisation": "international standards",
     "International Organization for Standardization": "international standards",
     "Internet": "Internet",
@@ -2047,7 +2050,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,227
+}  # 1,229
 
 labels_regional = {
     "AU": "Australia",
@@ -3097,6 +3100,7 @@ labels_subvarieties = {
     "Chungnam": "Chungnam",
     "Church Latin": "Ecclesiastical Latin",
     "Chveneburi": "Chveneburi",
+    "Chwalim": "Chwalim",
     "Chūgoku": "Chūgoku",
     "Cieszyn": "Cieszyn Silesia",
     "Cieszyn Silesia": "Cieszyn Silesia",
@@ -4565,6 +4569,7 @@ labels_subvarieties = {
     "Lower Ket": "Lower Ket",
     "Lower Konda": "Lower Konda",
     "Lower Lozva": "Lower Lozva",
+    "Lower Silesian": "Lower Silesian",
     "Lower Vychedga": "Lower Vychedga",
     "Lowicz": "Łowicz",
     "Lowlands Scots": "Lowlands Scots",
@@ -5769,6 +5774,7 @@ labels_subvarieties = {
     "Rural Riminese": "Rural Riminese",
     "Russia": "Russia",
     "Russianism": "Russianism",
+    "Russicism": "Russianism",
     "Rwanda": "Rwanda",
     "Rwandan": "Rwanda",
     "Ryukchin": "Yukjin",
@@ -7102,6 +7108,8 @@ labels_subvarieties = {
     "cnr": "Montenegro",
     "col": "colloquial alternative spelling",
     "coll": "collophons",
+    "compound": "only in compounds",
+    "compounds": "only in compounds",
     "con": "Contemporary Latin",
     "contemporary": "Contemporary Latin",
     "contracted": "contracted",
@@ -7230,6 +7238,7 @@ labels_subvarieties = {
     "härjedalen": "Härjedalen",
     "igbomina": "Igbomina",
     "igboona": "Igbomina",
+    "in compounds": "only in compounds",
     "in inscriptions": "Epigraphic Latin",
     "ind": "India",
     "inner Mbugu": "Ma'a",
@@ -7424,6 +7433,8 @@ labels_subvarieties = {
     "omen": "omen",
     "omr": "Ommersysselsk",
     "onch": "Old Neuchâtelois",
+    "only compounds": "only in compounds",
+    "only in compounds": "only in compounds",
     "orbb": "ORB, broad",
     "orbl": "ORB, broad",
     "orbn": "ORB, narrow",
@@ -8164,5 +8175,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,984
+}  # 5,992
 # END
