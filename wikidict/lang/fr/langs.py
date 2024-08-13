@@ -1787,6 +1787,7 @@ langs = {
     "gia": "kija",
     "gid": "gidar",
     "gie": "gabogbo",
+    "gih": "githabul",
     "gil": "gilbertin",
     "gim": "gimi",
     "gin": "hinukh",
@@ -6443,7 +6444,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,438
+}  # 6,439
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
