@@ -658,7 +658,6 @@ langs = {
     "avu": "Avokaya",
     "avv": "Avá-Canoeiro",
     "awa": "Awadhi",
-    "awa-old": "Old Awadhi",
     "awb": "Awa (New Guinea)",
     "awc": "Cicipu",
     "awd": "Arawakan",
@@ -3363,6 +3362,7 @@ langs = {
     "inc-nor": "Northern Indo-Aryan",
     "inc-nwe": "Northwestern Indo-Aryan",
     "inc-oas": "Early Assamese",
+    "inc-oaw": "Old Awadhi",
     "inc-obn": "Old Bengali",
     "inc-ogu": "Old Gujarati",
     "inc-ohi": "Old Hindi",
@@ -3430,6 +3430,7 @@ langs = {
     "ira-sgc-pro": "Proto-Sogdic",
     "ira-sgi": "Sanglechi-Ishkashimi",
     "ira-sgi-pro": "Proto-Sanglechi-Ishkashimi",
+    "ira-shr": "Shughni-Roshani",
     "ira-shr-pro": "Proto-Shughni-Roshani",
     "ira-shy": "Shughni-Yazghulami",
     "ira-shy-pro": "Proto-Shughni-Yazghulami",
@@ -9810,7 +9811,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,805
+}  # 9,806
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
