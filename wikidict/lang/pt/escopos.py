@@ -162,6 +162,7 @@ escopos = {
     "Espírito Santo": "Espírito Santo",
     "Estado-unidense": "Estados Unidos",
     "Estados Unidos": "Estados Unidos",
+    "Estados Unidos da América": "Estados Unidos",
     "Estadunidense": "Estados Unidos",
     "Estremadura": "Estremadura",
     "Etnia": "etnologia",
@@ -437,5 +438,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 432
+}  # 433
 # END

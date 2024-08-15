@@ -97,6 +97,7 @@ labels = {
     "business jargon": "corporate jargon",
     "business speak": "corporate jargon",
     "businessese": "corporate jargon",
+    "but": "but",
     "by": "by",
     "by ellipsis": "by ellipsis",
     "by extension": "by extension",
@@ -530,7 +531,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 525
+}  # 526
 
 label_syntaxes = {
     "&": {
@@ -579,6 +580,11 @@ label_syntaxes = {
         "omit_preSpace": False,
     },
     "attested in": {
+        "omit_postComma": True,
+        "omit_preComma": False,
+        "omit_preSpace": False,
+    },
+    "but": {
         "omit_postComma": True,
         "omit_preComma": False,
         "omit_preSpace": False,
@@ -818,7 +824,7 @@ label_syntaxes = {
         "omit_preComma": True,
         "omit_preSpace": True,
     },
-}  # 57
+}  # 58
 
 labels_topical = {
     "ABDL": "ABDL",
@@ -3569,6 +3575,7 @@ labels_subvarieties = {
     "French": "France",
     "French Flanders": "French Flanders",
     "French Guiana": "French Guiana",
+    "French Guyana": "French Guiana",
     "Frenchville": "Frenchville",
     "Fribourgeois": "Fribourgeois",
     "Fukui": "Fukui",
@@ -8175,5 +8182,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,992
+}  # 5,993
 # END
