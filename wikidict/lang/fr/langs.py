@@ -1828,6 +1828,7 @@ langs = {
     "gmu": "gumalu",
     "gmv": "gamo",
     "gmw": "langues germaniques occidentales",
+    "gmw-pro": "proto-germanique occidental",
     "gmx": "magoma",
     "gmy": "mycénien",
     "gn": "guarani",
@@ -6444,7 +6445,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,439
+}  # 6,440
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)

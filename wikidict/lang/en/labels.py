@@ -38,6 +38,8 @@ labels = {
     "International Phonetic Alphabet": "IPA",
     "Internet slang": "Internet slang",
     "Kenning": "kenning",
+    "LGBT slang": "LGBTQ slang",
+    "LGBTQ slang": "LGBTQ slang",
     "Lubunyaca": "Lubunyaca",
     "NNES": "non-native speakers’ English",
     "NNS": "non-native speakers",
@@ -531,7 +533,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 526
+}  # 528
 
 label_syntaxes = {
     "&": {
@@ -2038,6 +2040,8 @@ labels_topical = {
     "white supremacist": "white supremacy",
     "white supremacist ideology": "white supremacy",
     "white supremacy": "white supremacy",
+    "wiki": "wiki jargon",
+    "wiki jargon": "wiki jargon",
     "wind instrument": "music",
     "wind instruments": "music",
     "wine": "wine",
@@ -2056,7 +2060,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,229
+}  # 1,231
 
 labels_regional = {
     "AU": "Australia",
@@ -4632,6 +4636,7 @@ labels_subvarieties = {
     "ML.": "Medieval Latin",
     "MLE": "MLE",
     "MO French": "Missouri",
+    "MSA": "Modern Standard Arabic",
     "MTE": "MTE",
     "Maasina": "Maasina",
     "Maastricht": "Maastrichtian",
@@ -4871,6 +4876,7 @@ labels_subvarieties = {
     "Modern Hebrew": "Modern Israeli Hebrew",
     "Modern Israeli": "Modern Israeli Hebrew",
     "Modern Israeli Hebrew": "Modern Israeli Hebrew",
+    "Modern Standard Arabic": "Modern Standard Arabic",
     "Modern/Israeli Hebrew": "Modern Israeli Hebrew",
     "Moesian": "Moesian dialects",
     "Mofers": "Montfortian",
@@ -7339,6 +7345,7 @@ labels_subvarieties = {
     "mis": "Missouri",
     "mln": "Midlandsnormalen",
     "mo": "Macau",
+    "modern": "Modern Standard Arabic",
     "modern Egyptological": "modern Egyptological",
     "movable nu": "with movable nu",
     "mrs": "Morsingmål",
@@ -8182,5 +8189,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 5,993
+}  # 5,996
 # END
