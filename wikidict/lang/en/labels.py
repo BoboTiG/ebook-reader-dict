@@ -3895,7 +3895,9 @@ labels_subvarieties = {
     "Ho Chi Minh City": "Saigon",
     "Hodiçor": "Khotorjur",
     "Hokkaido": "Hokkaidō",
+    "Hokkaido Ainu": "Hokkaido",
     "Hokkaidō": "Hokkaidō",
+    "Hokkaidō Ainu": "Hokkaido",
     "Hokuriku": "Hokuriku",
     "Holadi": "Kathiawari",
     "Holland": "Holland",
@@ -4393,6 +4395,8 @@ labels_subvarieties = {
     "Kurema Island": "Kurima-jima",
     "Kurema-jima": "Kurima-jima",
     "Kuremajima": "Kurima-jima",
+    "Kuril": "Kuril",
+    "Kuril Ainu": "Kuril",
     "Kurima": "Kurima-jima",
     "Kurima Island": "Kurima-jima",
     "Kurima-jima": "Kurima-jima",
@@ -8237,5 +8241,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,043
+}  # 6,047
 # END

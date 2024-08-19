@@ -190,6 +190,9 @@ langs = {
     "ail": "Aimele",
     "aim": "Aimol",
     "ain": "Ainu",
+    "ain-hok": "Hokkaido Ainu",
+    "ain-kur": "Kuril Ainu",
+    "ain-sak": "Sakhalin Ainu",
     "aio": "Aiton",
     "aip": "Burumakok",
     "air": "Airoran",
@@ -9811,7 +9814,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,806
+}  # 9,809
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
