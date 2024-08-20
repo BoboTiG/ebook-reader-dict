@@ -6833,6 +6833,7 @@ langs = {
     "qfa-adm-pro": "Proto-Great Andamanese",
     "qfa-adn": "Northern Great Andamanese",
     "qfa-ads": "Southern Great Andamanese",
+    "qfa-ain": "Ainuic",
     "qfa-bej": "Be-Jizhao",
     "qfa-bet": "Be-Tai",
     "qfa-bet-pro": "Proto-Be-Tai",
@@ -9814,7 +9815,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,809
+}  # 9,810
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
