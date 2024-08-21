@@ -1440,6 +1440,7 @@ labels_topical = {
     "functional group suffix": "organic chemistry",
     "functional programming": "functional programming",
     "furniture": "furniture",
+    "furry fandom": "furry fandom",
     "fuzzy logic": "fuzzy logic",
     "galaxy": "astronomy",
     "gambling": "gambling",
@@ -2061,7 +2062,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,231
+}  # 1,232
 
 labels_regional = {
     "AU": "Australia",
