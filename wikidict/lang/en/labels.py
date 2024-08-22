@@ -2717,6 +2717,7 @@ labels_subvarieties = {
     "Belgium": "Belgium",
     "Belize": "Belize",
     "Belizean": "Belize",
+    "Belluno": "Belluno",
     "Belogradchik": "Belogradchik",
     "Belsetán": "Belsetán",
     "Benasquese": "Benasquese",
@@ -5436,6 +5437,7 @@ labels_subvarieties = {
     "PWR": "Proto-Western-Romance",
     "Pacific Northwest": "Northwestern US",
     "Padang": "Padang",
+    "Padua": "Padua",
     "Pahang": "Pahang",
     "Paisaci": "Paiśācī",
     "Pajubá": "pajubá",
@@ -6560,6 +6562,7 @@ labels_subvarieties = {
     "Trapizon": "Trabzon",
     "Trebizond": "Trabzon",
     "Tredici Comuni": "Tredici Comuni",
+    "Treviso": "Treviso",
     "Tri-state Limburgish": "Limburgan Ripuarian",
     "Trinidad": "Trinidad and Tobago",
     "Trinidad and Tobago": "Trinidad and Tobago",
@@ -6785,6 +6788,7 @@ labels_subvarieties = {
     "Vi.": "Wierzchocino-Witkowo-Siecie",
     "Vica": "Vizha",
     "Vicentino": "São Vicente",
+    "Vicenza": "Vicenza",
     "Victoria": "Victoria",
     "Vidin": "Vidin-Lom",
     "Vidin-Lom": "Vidin-Lom",
@@ -8242,5 +8246,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,047
+}  # 6,051
 # END
