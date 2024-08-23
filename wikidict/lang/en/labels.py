@@ -1558,7 +1558,11 @@ labels_topical = {
     "karuta": "karuta",
     "knitting": "knitting",
     "ko": "ko",
+    "labor": "labour",
+    "labor movement": "labour",
+    "labour": "labour",
     "labour law": "labour law",
+    "labour movement": "labour",
     "lacrosse": "lacrosse",
     "land law": "property law",
     "landforms": "geography",
@@ -2062,7 +2066,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,232
+}  # 1,236
 
 labels_regional = {
     "AU": "Australia",
