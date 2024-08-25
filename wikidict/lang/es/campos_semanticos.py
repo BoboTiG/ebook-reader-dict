@@ -401,7 +401,6 @@ campos_semanticos = {
     "natación": "Natación",
     "nemátodos": "Zoología",
     "neurología": "Neurología",
-    "numeral": "Numeral",
     "numismática": "Numismática",
     "nutrición": "Nutrición",
     "náutica": "Náutica",
@@ -505,5 +504,5 @@ campos_semanticos = {
     "árboles": "Botánica (árboles)",
     "ética": "Ética",
     "óptica": "Óptica",
-}  # 500
+}  # 499
 # END

@@ -6297,6 +6297,7 @@ langs = {
     "ywr": "yawuru",
     "ywt": "lalo central",
     "yww": "yawarawarga",
+    "yxg": "yagara",
     "yxl": "yardliyawarra",
     "yxu": "yuyu",
     "yyu": "yau (province de Sandaun)",
@@ -6445,7 +6446,7 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,440
+}  # 6,441
 # END
 
 # Missing ones (to be removed when available on the Wiktionary languages pages)
