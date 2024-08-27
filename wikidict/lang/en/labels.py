@@ -30,6 +30,7 @@ labels = {
     "Classic 1811 Dictionary of the i Tongue": "archaic, slang",
     "Cockney rhyming slang": "Cockney rhyming slang",
     "Drag Race slang": "drag slang",
+    "GC slang": "ger critical slang",
     "Heiti": "heiti",
     "Hispanicism": "Castilianism",
     "Homeric epithet": "Homeric epithet",
@@ -55,6 +56,7 @@ labels = {
     "Preclassical": "pre-Classical",
     "Reddit slang": "Reddit slang",
     "Sheng": "Sheng",
+    "TERF slang": "ger critical slang",
     "Thieves' Cant": "criminal slang",
     "Twitch-speak": "Twitch-speak",
     "UK slang": "British slang",
@@ -202,6 +204,8 @@ labels = {
     "gay slang": "gay slang",
     "generic trademark": "genericized trademark",
     "genericized trademark": "genericized trademark",
+    "ger critical slang": "ger critical slang",
+    "ger-critical slang": "ger critical slang",
     "ger-neutral": "ger-neutral",
     "ghost": "ghost word",
     "ghost word": "ghost word",
@@ -534,7 +538,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 529
+}  # 533
 
 label_syntaxes = {
     "&": {
@@ -1301,6 +1305,9 @@ labels_topical = {
     "conchology": "conchology",
     "conlanging": "conlanging",
     "conservatism": "conservatism",
+    "conspiracy": "conspiracy theories",
+    "conspiracy theories": "conspiracy theories",
+    "conspiracy theory": "conspiracy theories",
     "constellation": "astronomy",
     "constructed language": "conlanging",
     "constructed languages": "conlanging",
@@ -1492,6 +1499,7 @@ labels_topical = {
     "hand game": "hand games",
     "hand games": "hand games",
     "handball": "handball",
+    "headwear": "clothing",
     "healthcare": "healthcare",
     "heathenry": "Germanic paganism",
     "helminthology": "helminthology",
@@ -2066,7 +2074,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,236
+}  # 1,240
 
 labels_regional = {
     "AU": "Australia",

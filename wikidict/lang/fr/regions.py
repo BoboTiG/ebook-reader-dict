@@ -276,6 +276,8 @@ regions = {
     "Irlande": "Irlande",
     "Islande": "Islande",
     "Israël": "Israël",
+    "Italie centrale": "Italie centrale",
+    "Italie centro-méridionale": "Italie centro-méridionale",
     "Jamaïque": "Jamaïque",
     "Japon": "Japon",
     "Jersey": "Jersey",
@@ -676,7 +678,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 671
+}  # 673
 # END
 
 # handled differently

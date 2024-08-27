@@ -2824,7 +2824,7 @@ langs = {
     "isn": "isanzu",
     "iso": "isoko",
     "isr": "lengua de señas israelí",
-    "ist": "istrio",
+    "ist": "istriano",
     "isu": "isu",
     "it": "italiano",
     "itb": "itneg binongan",
