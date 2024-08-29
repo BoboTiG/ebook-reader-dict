@@ -2694,7 +2694,7 @@ langs = {
     "ihp": "iha",
     "ii": "lolo de Sichuán",
     "iin": "thiin",
-    "iir-nur-pro": "proto-nuristaní",
+    "iir-nur-pro": "protonuristaní",
     "iir-pro": "protoindoiranio",
     "iir-zem": "zemiaki",
     "ijc": "iyo centro-occidental",

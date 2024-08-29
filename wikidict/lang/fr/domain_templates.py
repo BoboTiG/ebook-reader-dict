@@ -28,7 +28,7 @@ domain_templates = {
     "antilopes": "Zoologie",
     "appareils": "Électroménager",
     "application": "Couche application",
-    "araignées": "Zoologie",
+    "araignées": "Aranéologie",
     "arbres": "Botanique",
     "armes": "Armement",
     "armures": "Armurerie",
