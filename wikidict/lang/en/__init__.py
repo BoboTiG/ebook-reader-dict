@@ -209,6 +209,8 @@ templates_multi = {
     "sub": "subscript(parts[1])",
     # {{sup|KI}}
     "sup": "superscript(parts[1])",
+    # {{taxfmt|Gadus macrocephalus|species|ver=170710}}
+    "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
     #
