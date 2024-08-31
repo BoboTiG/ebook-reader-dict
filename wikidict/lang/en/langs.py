@@ -6704,7 +6704,6 @@ langs = {
     "pqe": "Eastern Malayo-Polynesian",
     "pqe-pro": "Proto-Eastern Malayo-Polynesian",
     "pqm": "Malecite-Passamaquoddy",
-    "pra": "Prakrit",
     "pra-abh": "Abhiri",
     "pra-ard": "Ardhamagadhi Prakrit",
     "pra-ava": "Avanti",
@@ -9816,7 +9815,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,811
+}  # 9,810
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

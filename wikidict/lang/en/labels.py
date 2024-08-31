@@ -2778,6 +2778,7 @@ labels_subvarieties = {
     "Binisayang Binol-anon": "Bohol",
     "Binisayang Caraga": "Caraga",
     "Binol-anon": "Bohol",
+    "Biori": "Biori",
     "Birmingham": "Birmingham",
     "Bisaya Negros": "Negros",
     "Biscay": "Biscayan",
@@ -8299,5 +8300,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,092
+}  # 6,093
 # END
