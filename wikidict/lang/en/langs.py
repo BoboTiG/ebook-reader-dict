@@ -2453,6 +2453,7 @@ langs = {
     "es-CO": "Colombian Spanish",
     "es-CU": "Cuban Spanish",
     "es-MX": "Mexican Spanish",
+    "es-PE": "Peruvian Spanish",
     "es-PR": "Puerto Rican Spanish",
     "es-US": "United States Spanish",
     "es-VE": "Venezuelan Spanish",
@@ -3377,7 +3378,6 @@ langs = {
     "inc-pah": "Pahari",
     "inc-pan": "Punjabi-Lahnda",
     "inc-pas": "Pashayi",
-    "inc-pra": "Prakrit",
     "inc-pro": "Proto-Indo-Aryan",
     "inc-raj": "Rajasthani",
     "inc-rom": "Romani",
@@ -6704,6 +6704,7 @@ langs = {
     "pqe": "Eastern Malayo-Polynesian",
     "pqe-pro": "Proto-Eastern Malayo-Polynesian",
     "pqm": "Malecite-Passamaquoddy",
+    "pra": "Prakrit",
     "pra-abh": "Abhiri",
     "pra-ard": "Ardhamagadhi Prakrit",
     "pra-ava": "Avanti",
@@ -9815,7 +9816,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,810
+}  # 9,811
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
