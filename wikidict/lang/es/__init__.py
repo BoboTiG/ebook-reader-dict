@@ -89,6 +89,7 @@ templates_ignored = (
     "definición",
     "definición imprecisa",
     "ejemplo requerido",
+    "elemento químico",
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
@@ -166,7 +167,7 @@ templates_multi = {
     # {{redirección suave|protocelta}}
     "redirección suave": "f\"{italic('Véase')} {parts[1]}\"",
     # {{-sub|4}}
-    "-sub": "subscript(parts[1])",
+    "-sub": "subscript(parts[1] if len(parts) > 1 else '{{{1}}}')",
     # {{subíndice|5}}
     "subíndice": "subscript(parts[1])",
     # {{-sup|2}}
@@ -268,6 +269,11 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["csem", "economía", "numismática"], "es")
         '<i>(Economía, numismática)</i>'
+        >>> last_template_handler(["csem", "adjetivo de verbo", "rondar", "ronda"], "es")
+        'Adjetivo de verbo, rondar, ronda'
+        >>> last_template_handler(["csem", "leng=es", "derecho", "deporte"], "es")
+        '<i>(Derecho, deporte)</i>'
+
 
         >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
         'apropiado'
@@ -288,6 +294,10 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
     if should_lower_next_templates := template[0] == "csem":
         template = template[1:]
+        if "=" in template[0]:
+            template_list = list(template)
+            template_list[0], template_list[1] = template_list[1], template_list[0]
+            template = tuple(template_list)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -325,6 +335,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
     if lang := langs.get(template[0]):
         return capitalize(lang)
+
+    if should_lower_next_templates:
+        return capitalize(concat(list(template), ", "))
 
     # note: this should be used for variants only
     if tpl in (
