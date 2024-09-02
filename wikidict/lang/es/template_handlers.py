@@ -76,6 +76,25 @@ def render_adjetivo_de_verbo(tpl: str, parts: List[str], data: DefaultDict[str, 
     return result
 
 
+def render_nimo(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+    """
+    >>> render_nimo("antónimo", ["estatal", "público"], defaultdict(str))
+    'Antónimos: estatal, público'
+    >>> render_nimo("antónimo", ["público"], defaultdict(str))
+    'Antónimo: público'
+    >>> render_nimo("sinónimos", ["estatal", "público"], defaultdict(str))
+    'Sinónimos: estatal, público'
+    >>> render_nimo("sinónimo", ["público"], defaultdict(str))
+    'Sinónimo: público'
+    """
+    result = "Antónimo" if tpl.startswith("ant") else "Sinónimo"
+    if len(parts) > 1:
+        result += "s"
+    result += ": "
+    result += concat(parts, ", ")
+    return result
+
+
 def render_afi(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_afi("AFI", ["/oː/", "/aː/"], defaultdict(str))
@@ -761,6 +780,8 @@ def render_variantes(tpl: str, parts: List[str], data: DefaultDict[str, str]) ->
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "AFI": render_afi,
+    "antónimo": render_nimo,
+    "antónimos": render_nimo,
     "aumentativo": render_aumentativo,
     "adverbio de adjetivo": render_adverbio_de_adjetivo,
     "adverbio de sustantivo": render_adverbio_de_sustantivo,
@@ -787,6 +808,8 @@ template_mapping = {
     "l": render_l,
     "l+": render_l,
     "preposición conjugada": render_prep_conj,
+    "sinónimo": render_nimo,
+    "sinónimos": render_nimo,
     "superlativo": render_superlativo,
     "sustantivo de adjetivo": render_sustantivo_de,
     "sustantivo de verbo": render_sustantivo_de,
