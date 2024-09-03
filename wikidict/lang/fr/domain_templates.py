@@ -34,7 +34,7 @@ domain_templates = {
     "armures": "Armurerie",
     "aromates": "Aromate",
     "arrondissements": "Géographie",
-    "arthropodes": "Zoologie",
+    "arthropodes": "Arthropodologie",
     "artistes": "Art",
     "arts martiaux": "Arts martiaux",
     "atomes": "Chimie",
