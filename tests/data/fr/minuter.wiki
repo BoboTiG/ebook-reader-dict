@@ -5,10 +5,16 @@
 === {{S|verbe|fr}} ===
 '''minuter''' {{pron|mi.ny.te|fr}} {{t|fr}} {{conj|grp=1|fr}}
 # [[déterminer|Déterminer]] la [[durée]] d'une [[action]], d'un [[événement]], à la minute près.
-#* ''En faisant exactement le compte des jours, des avions, en '''minutant''' les allées et venues, on arriverait peut-être à un renseignement quelconque ?'' {{source|{{Citation/Georges Simenon/Le Blanc à lunettes/1937|VIII}}}}
+#* {{exemple | lang=fr
+ | En faisant exactement le compte des jours, des avions, en '''minutant''' les allées et venues, on arriverait peut-être à un renseignement quelconque ?
+ | source={{Citation/Georges Simenon/Le Blanc à lunettes/1937|VIII}}}}
 # [[rédiger|Rédiger]] la [[minute]] d’un [[acte]] ou d’un [[contrat]].
-#* ''Processif, écrivailleur, il '''minutait''' des lettres douces et polies à ses locataires ; mais au fond de son style comme sous sa mine fade et prévenante se cachait l’âme de Shylock.'' {{source|Honoré de Balzac, ''Histoire de la Grandeur et de la Décadence de César Birotteau'', 1837, chapitre premier}}
-#* ''[…], je m'empresse de t'annoncer qu'un certain monsieur Desperriers, natif de Digoin, département de l'Allier, France, vient de décéder, sans enfants, […], et qu'avant son décès, par testament rédigé en bonne et due forme, tu peux m'en croire, je l’'''ai minuté''' moi-même, il a institué sa légataire universelle une certaine demoiselle Adèle Desperriers, sa parente éloignée.'' {{source|{{w|Félicien Mallefille}}, ''Le Cœur et la Dot, comédie en cinq actes et en prose'', acte 1, scène 7, Paris : chez Michel Lévy frères, 1860, p. 19}}
+#* {{exemple | lang=fr
+ | Processif, écrivailleur, il '''minutait''' des lettres douces et polies à ses locataires ; mais au fond de son style comme sous sa mine fade et prévenante se cachait l’âme de Shylock.
+ | source=Honoré de Balzac, ''Histoire de la Grandeur et de la Décadence de César Birotteau'', 1837, chapitre premier}}
+#* {{exemple | lang=fr
+ | […], je m'empresse de t'annoncer qu'un certain monsieur Desperriers, natif de Digoin, département de l'Allier, France, vient de décéder, sans enfants, […], et qu'avant son décès, par testament rédigé en bonne et due forme, tu peux m'en croire, je l’'''ai minuté''' moi-même, il a institué sa légataire universelle une certaine demoiselle Adèle Desperriers, sa parente éloignée.
+ | source={{w|Félicien Mallefille}}, ''Le Cœur et la Dot, comédie en cinq actes et en prose'', acte 1, scène 7, Paris : chez Michel Lévy frères, 1860, p. 19}}
 
 ==== {{S|dérivés}} ====
 * [[minutage]]
@@ -21,12 +27,14 @@
 ==== {{S|traductions}} ====
 {{trad-début}}
 * {{T|ro}} : {{trad+|ro|cronometra}}
-{{ébauche-trad}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===
 * {{phono|mi.ny.te|fr}}
 * {{écouter|lang=fr|France (Lyon)|mi.ny.te|audio=LL-Q150 (fra)-Lyokoï-minuter.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
 
 === {{S|références}} ===
 * {{R:TLFi}}

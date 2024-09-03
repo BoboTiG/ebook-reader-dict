@@ -1,16 +1,23 @@
 {{vegeu|Cas}}
 
 == {{-ca-}} ==
-{{ca-pron|/ˈkas/|bal=/ˈcas/|bal2=/ˈkas/}}
-{{-etimologia-|la|ca}} Del llatí {{terme|la|casus}}.
+{{ca-pron
+|f-centr=LL-Q7026 (cat)-Marvives-cas.wav
+}}
+{{-etimologia-}} {{Del-lang|la|ca|casus}}.
 
 === Nom ===
 {{ca-nom|m|p=casos}}
 
 # Situació particular que es produeix entre les diverses possibles.
 # Objecte d'estudi d'alguna [[disciplina]].
-# Cadascuna de les formes que presenta una paraula segons la seva [[declinació]], que marca la [[funció]] sintàctica.
-# Atenció, [[cura]] (''fer cas'').
+# {{marca|ca|lingüística}} [[categoria gramatical|Categoria gramatical]] que marca la funció [[sintàctica]] d’un mot.
+# Atenció, [[cura]].
+#: {{ex-us|ca|Fes cas.}}
+
+{{-sin-}}
+* [[causa]], [[judici]], [[litigi]], [[plet]], [[procés]]
+* {{q|lingüística}} [[cas gramatical]]
 
 {{-comp-}}
 * '''ser un cas''': ser molt [[especial]], no tenir [[remei]]
@@ -18,15 +25,12 @@
 * [[si de cas]]
 * [[per si de cas]]
 
-{{-sin-}}
-* [[causa]], [[judici]], [[litigi]], [[plet]], [[procés]].
-* [[ocasió]].
-
 {{-trad-}}
-{{inici|Situació particular}}
+{{t-inici|Situació particular}}
 * {{de}}: {{trad|de|Fall|m}}
 * {{en}}: {{trad|en|case}}
 * {{ar}}: {{trad|ar|قَضِيَّة‎|f}}
+* {{ast}}: {{trad|ast|casu}}
 * {{be}}: {{trad|be|спра́ва|f}}
 * {{bg}}: {{trad|bg|де́ло|n}}
 * {{es}}: {{trad|es|caso}}
@@ -40,7 +44,6 @@
 * {{ka}}: {{trad|ka|შემთხვევა}}
 * {{el}}: {{trad|el|περίπτωση|f}}
 * {{he}}: {{trad|he|מקרה|m}}
-{{mig}}
 * {{it}}: {{trad|it|caso|m}}
 * {{ja}}: {{trad|ja|例}}
 * {{mk}}: {{trad|mk|случај|m}}
@@ -56,9 +59,9 @@
 * {{uk}}: {{trad|uk|спра́ва|f}}
 * {{vi}}: {{trad|vi|trường hợp}}
 * {{zh}}: {{trad|zh|事件}}
-{{final}}
+{{t-final}}
 
-{{inici|Objecte d'estudi}}
+{{t-inici|Objecte d'estudi}}
 * {{en}}: {{trad|en|case}}
 * {{ar}}: {{trad|ar|حَالَات‎|p}}
 * {{hy}}: {{trad|hy|դեպք}}
@@ -73,7 +76,6 @@
 * {{he}}: {{trad|he|מקרה|m}}
 * {{hu}}: {{trad|hu|eset}}
 * {{ga}}: {{trad|ga|cás|m}}
-{{mig}}
 * {{it}}: {{trad|it|caso|m}}
 * {{ja}}: {{trad|ja|事件}}
 * {{la}}: {{trad|la|casus|m}}
@@ -88,9 +90,9 @@
 * {{sw}}: {{trad|sw|kesi}}
 * {{sv}}: {{trad|sv|fall|n}}
 * {{cs}}: {{trad|cs|případ|m}}
-{{final}}
+{{t-final}}
 
-{{inici|Forma segons la declinació}}
+{{t-inici|Categoria gramatical sintàctica}}
 * {{en}}: {{trad|en|case}}
 * {{ar}}: {{trad|ar|حَالَة|f}}
 * {{hy}}: {{trad|hy|հոլով}}
@@ -115,7 +117,6 @@
 * {{hi}}: {{trad|hi|कारक|m}}
 * {{hu}}: {{trad|hu|eset}}
 * {{io}}: {{trad|io|kazo}}
-{{mig}}
 * {{ga}}: {{trad|ga|tuiseal|m}}
 * {{is}}: {{trad|is|fall|n}}
 * {{it}}: {{trad|it|caso|m}}
@@ -139,12 +140,11 @@
 * {{uk}}: {{trad|uk|відмі́нок|m}}
 * {{vi}}: {{trad|vi|cách}}
 * {{zh}}: {{trad|zh|格}}
-{{final}}
+{{t-final}}
 
-{{inici|Atenció, cura}}
+{{t-inici|Atenció, cura}}
 * {{es}}: {{trad|es|caso}}
-{{mig}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom-forma|fp}}
@@ -154,16 +154,16 @@
 === Contracció ===
 {{entrada|ca|contracció}}
 
-# Contracció entre el nom ''[[casa]]'' i l'article salat ''[[es]]'' quan és usat com un article personal. S'utilitza tan per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.
+# Contracció entre el nom ''[[casa]]'' i l'article salat ''[[es]]'' quan és usat com un article personal. S'utilitza tant per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.
 
 {{-sin-}}
 * [[ca]] [[s']] ''(forma apostrofada)''
 * [[cal]]
 * [[can]]
 
-==== Notes d'ús ====
+{{-notes-}}
 * Quan la contracció es troba davant d'una paraula que compleix els requisits per apostrofar l'article [[es]], cal trencar la contracció i aplicar l'apostrofació de l'article.
-* :Exemples: ''Ca s'Arabins''
+*: Exemple: ''Ca s'Arabins''
 
 === Verb ===
 {{ca-verb-forma}}
@@ -171,7 +171,7 @@
 # {{marca-nocat|ca|balear|alguerès}} {{ca-forma-conj|casar|1|pres|ind}}
 
 === Miscel·lània ===
-* {{anagrama|ca|asc|sac}}
+* {{anagrames|ca|asc|sac}}
 
 === Vegeu també ===
 * {{ca-dicc|diec|gdlc|optimot}}
@@ -179,7 +179,7 @@
 
 == {{-fr-}} ==
 {{-pronafi-}} {{pron|fr|/kɑ/}}
-{{-etimologia-|la|fr}} Del llatí {{terme|la|casus}}.
+{{-etimologia-|la|fr}} Del llatí {{m|la|casus}}.
 
 === Nom ===
 {{fr-nom|m-i}}

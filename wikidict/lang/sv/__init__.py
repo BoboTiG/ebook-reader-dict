@@ -149,13 +149,17 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
+    pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}|]+)}?\|?"),
 ) -> List[str]:
     """
     >>> find_pronunciations("")
     []
     >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
     ['/eːn/, /ɛn/, /en/']
+    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}")
+    ['/en/']
+    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}")
+    ['/ɛn/']
     """
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 

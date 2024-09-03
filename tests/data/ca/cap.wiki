@@ -1,10 +1,11 @@
 {{vegeu|CAP|Cap|cap.}}
 
 == {{-ca-}} ==
-{{ca-pron}}
-{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-cap.wav|lang=ca}}
+{{ca-pron
+|f-centr=LL-Q7026 (cat)-Unjoanqualsevol-cap.wav
+}}
 {{homòfons|ca|cab}}
-{{-etimologia-|la|ca}} Del llatí vulgar {{terme|la|*capu(m)}}, variant de l’acusatiu {{terme|la|caput}}, {{etim-s|ca|XIII}}. Com a adjectiu pel sentit d’«extrem, punta». Com a preposició pel sentit de «part anterior (vers un lloc)».
+{{-etimologia-|la|ca}} Del llatí vulgar {{m|la|*capu(m)}}, variant de l’acusatiu {{m|la|caput}}, {{etim-s|ca|XIII}}. Com a adjectiu pel sentit d’«extrem, punta». Com a preposició pel sentit de «part anterior (vers un lloc)».
 
 === Nom ===
 {{ca-nom|m}}
@@ -52,6 +53,7 @@
 * [[cap-roig]]
 * [[captenir]]
 * [[de cap a peus]] = Completament
+* [[de cap i de nou]] = Des de zero, des del principi
 * [[lligar caps]]
 * [[no entrar al cap]] = no entendre
 * [[no tenir ni cap ni peus]] = No tenir sentit
@@ -70,7 +72,7 @@
 * [[decapitar]]
 
 {{-trad-}}
-{{inici|Part superior del cos d'un animal}}
+{{t-inici|Part superior del cos d'un animal}}
 * {{af}}: {{trad|af|kop}}
 * {{sq}}: {{trad|sq|kokë|f}}
 * {{de}}: {{trad|de|Kopf|m}}
@@ -113,7 +115,6 @@
 * {{ja}}: {{trad|ja|頭}}
 * {{jv}}: {{trad|jv|sirah}}
 * {{kk}}: {{trad|kk|бас}}
-{{mig}}
 * {{ky}}: {{trad|ky|баш}}
 * {{ku}}: {{trad|ku|ser}}
 * {{lv}}: {{trad|lv|galva|f}}
@@ -144,6 +145,7 @@
 * {{sv}}: {{trad|sv|huvud|n}}
 * {{tg}}: {{trad|tg|сар}}
 * {{tl}}: {{trad|tl|ulo}}
+* {{ty}}: {{trad|ty|upoʻo}}
 * {{th}}: {{trad|th|หัว}}
 * {{ta}}: {{trad|ta|தலை}}
 * {{tr}}: {{trad|tr|baş}}
@@ -156,45 +158,41 @@
 * {{wo}}: {{trad|wo|boopa}}
 * {{xh}}: {{trad|xh|intloko}}
 * {{zh}}: {{trad|zh|頭}}
-{{final}}
+{{t-final}}
 
-{{inici|Cervell}}
+{{t-inici|Cervell}}
 * {{de}}: {{trad|de|Kopf|m}}
 * {{en}}: {{trad|en|head}}
 * {{es}}: {{trad|es|cabeza|f}}
-{{mig}}
 * {{sl}}: {{trad|sl|glava}}
 * {{fr}}: {{trad|fr|tête|f}}
 * {{mt}}: {{trad|mt|kap|m}}
-{{final}}
+{{t-final}}
 
-{{inici|Punta, extrem, final}}
+{{t-inici|Punta, extrem, final}}
 * {{es}}: {{trad|es|cabo|m}}
-{{mig}}
-{{final}}
+{{t-final}}
 
-{{inici|Part de terra que s'endinsa en el mar}}
+{{t-inici|Part de terra que s'endinsa en el mar}}
 * {{eu}}: {{trad|eu|lurmutur}}
 * {{es}}: {{trad|es|cabo}}
-{{mig}}
 * {{sl}}: {{trad|sl|rt}}
 * {{oc}}: {{trad|oc|cap|m}}
-{{final}}
+* {{ro}}: {{trad|ro|cap|n}}
+{{t-final}}
 
-{{inici|Golf: part final d'un bastó}}
+{{t-inici|Golf: part final d'un bastó}}
 * {{en}}: {{trad|en|head}}
 * {{es}}: {{trad|es|cabeza}}
-{{mig}}
 * {{fr}}: {{trad|fr|tête}}
-{{final}}
+{{t-final}}
 
-{{inici|Pilota basca: part més ampla d'una eina}}
+{{t-inici|Pilota basca: part més ampla d'una eina}}
 * {{en}}: {{trad|en|head}}
 * {{eu}}: {{trad|eu|buru}}
-{{mig}}
 * {{es}}: {{trad|es|cabeza}}
 * {{fr}}: {{trad|fr|tête}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|mf}}
@@ -207,7 +205,7 @@
 * [[amo]], [[cabdill]], [[cacic]], [[capitost]], [[patró]], [[senyor]], [[superior]], [[director]], [[encarregat]], [[gerent]], [[president]], [[propietari]], [[responsable]]
 
 {{-trad-}}
-{{inici|Persona que mana o dirigeix}}
+{{t-inici|Persona que mana o dirigeix}}
 * {{de}}: {{trad|de|Chef|m}}
 * {{en}}: {{trad|en|head}}, {{trad|en|boss}}
 * {{hy}}: {{trad|hy|վերակացու}}
@@ -220,7 +218,6 @@
 * {{fi}}: {{trad|fi|pomo}}
 * {{fr}}: {{trad|fr|chef|m}}, {{trad|fr|patron|m}}
 * {{ga}}: {{trad|ga|bas|m}}
-{{mig}}
 * {{mt}}: {{trad|mt|kap|m}}
 * {{mr}}: {{trad|mr|ईश|m}}
 * {{nl}}: {{trad|nl|baas|m}}
@@ -232,13 +229,12 @@
 * {{ty}}: {{trad|ty|ari'i}}
 * {{cs}}: {{trad|cs|šéf|m}}
 * {{zh}}: {{trad|zh|老闆}}
-{{final}}
+{{t-final}}
 
-{{inici|Grau militar}}
+{{t-inici|Grau militar}}
 * {{eu}}: {{trad|eu|kaporal}}
-{{mig}}
 * {{es}}: {{trad|es|cabo|m}}
-{{final}}
+{{t-final}}
 
 === Adjectiu ===
 {{entrada|ca|adj|invariable}}
@@ -250,23 +246,21 @@
 # {{marca|ca|interrogatiu|condicional}} Alguna [[mena]] de.
 
 {{-trad-}}
-{{inici|Ni un, gens}}
+{{t-inici|Ni un, gens}}
 * {{de}}: {{trad|de|kein}}
 * {{en}}: {{trad|en|any}}, {{trad|en|no}}
 * {{es}}: {{trad|es|ninguno}}, {{trad|es|ningún}}
-{{mig}}
 * {{sl}}: {{trad|sl|noben}}, {{trad|sl|a}}, {{trad|sl|nobeden}}
 * {{fr}}: {{trad|fr|aucun}}
 * {{hi}}: {{trad|hi|कोई}}, {{trad|hi|कुछ}}
-{{final}}
+{{t-final}}
 
-{{inici|Algun, alguna mena}}
+{{t-inici|Algun, alguna mena}}
 * {{de}}: {{trad|de|kein}}
 * {{en}}: {{trad|en|any}}
-{{mig}}
 * {{es}}: {{trad|es|alguno}}, {{trad|es|algún}}
 * {{fr}}: {{trad|fr|aucun}}
-{{final}}
+{{t-final}}
 
 === Preposició ===
 {{entrada|ca|prep}}
@@ -290,8 +284,10 @@
 === Verb ===
 {{ca-verb-forma|capar}}
 
-# {{ca-forma-conj|capar|1|pres|ind}}
-#: Forma amb desinència zero baleàrica i algueresa: [jo] [[capo]], [[cape]], cap o [[capi]].
+# {{marca-nocat|ca|balear}} {{ca-forma-conj|capar|1|pres|ind}}
+
+{{-var-}}
+* [[capo]], [[cape]], [[capi]]
 
 === Miscel·lània ===
 * {{anagrames|ca|pac}}
@@ -306,7 +302,7 @@
 
 == {{-en-}} ==
 {{-pronafi-}} {{pron|en|/kæp/}} {{àudio simple|en-us-cap.ogg|àudio (EUA)}}
-{{-etimologia-}} [1] Abreviació de {{terme|en|capitalization}}. [2] Abreviació de {{terme|en|capital}}. [3 i següents] Del llatí {{terme|la|cappa}}.
+{{-etimologia-}} [1] Abreviació de {{m|en|capitalization}}. [2] Abreviació de {{m|en|capital}}. [3 i següents] Del llatí {{m|la|cappa}}.
 
 === Nom ===
 {{en-nom|caps}}
@@ -350,7 +346,7 @@
 
 == {{-fr-}} ==
 {{-pronafi-}} {{pron|fr|/kap/}}
-{{-etimologia-}} [1-2-3] De l'occità {{terme|oc|cap}}. [4] De {{terme|fr|capable}}.
+{{-etimologia-}} [1-2-3] De l'occità {{m|oc|cap}}. [4] De {{m|fr|capable}}.
 
 === Nom ===
 {{fr-nom|m}}
@@ -370,7 +366,7 @@
 == {{-oc-}} ==
 {{oc-pron}}
 {{àudio|LL-Q14185 (oci)-Davidgrosclaude-cap.wav|lang=oc|accent=Bearn}}
-{{-etimologia-}} Del llatí {{terme|la|caput}}.
+{{-etimologia-}} Del llatí {{m|la|caput}}.
 
 === Nom ===
 {{oc-nom|m}}
@@ -406,3 +402,24 @@
 {{entrada|oc|verb-forma}}
 
 # {{forma-conj|oc|caber|3|pres|ind}}
+
+== {{-ro-}} ==
+{{pronafi|ro|/ˈkap/}}
+{{-etimologia-|la|ro}} [1] Del llatí tardà {{m|la|capum}}, variant de l’acusatiu {{m|la|caput}}. El plural {{m|ro|capete}} és del plural llatí {{m|la|capita}}.
+{{-etimologia-}} [2] {{Del-lang|fr|ro|cap}}.
+
+=== Nom ===
+{{ro-nom|n|capete}}
+
+# {{marca|ro|anatomia}} {{e|ca|cap}}
+
+==== Declinació ====
+{{ro-nom-decl|n|capete}}
+
+=== Nom ===
+{{ro-nom|n|capuri}}
+
+# {{marca|ro|geografia}} {{e|ca|cap}}
+
+==== Declinació ====
+{{ro-nom-decl|n|capuri}}

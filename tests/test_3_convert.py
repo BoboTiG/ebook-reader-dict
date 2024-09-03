@@ -98,6 +98,7 @@ def test_simple() -> None:
             "aa.html",
             "ac.html",
             "ba.html",
+            "bo.html",
             "ch.html",
             "co.html",
             "de.html",

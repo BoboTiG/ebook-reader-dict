@@ -2,51 +2,51 @@
 {{was wotd|2007|March|8}}
 {{wikipedia}}
 
-===Alternative forms===
-* {{sense|travelling case}} {{l|en|portmantua}}
-* {{sense|schoolbag}} {{q|shortening}} {{l|en|port}}, {{q|shortening}} {{l|en|school port}}
-
 ===Pronunciation===
-* {{a|RP}} {{IPA|en|/pɔːtˈmæn.təʊ/}}
-* {{a|US}} {{enPR|pôrtmă'ntō|pô'rtmăntōʹ}}, {{IPA|en|/pɔːɹtˈmæntoʊ/|/ˌpɔːɹtmænˈtoʊ/}}
-* {{audio|en|en-us-portmanteau-1.ogg|Audio 1 (US)}}
-* {{audio|en|en-us-portmanteau-2.ogg|Audio 2 (US)}}
-* {{audio|en|en-au-portmanteau.ogg|Audio (AU)}}
+* {{IPA|en|/pɔːtˈmæn.təʊ/|a=RP}}
+* {{enPR|pôrtmă'ntō|pô'rtmăntōʹ|a=US}}, {{IPA|en|/pɔːɹtˈmæntoʊ/|/ˌpɔːɹtmænˈtoʊ/}}
+* {{audio|en|en-us-portmanteau-1.ogg|a=US}}
+* {{audio|en|en-us-portmanteau-2.ogg|a=US}}
+* {{audio|en|en-au-portmanteau.ogg|a=AU}}
+* {{rhymes|en|æntəʊ|əʊ|s=3}}
 
 ===Etymology 1===
+{{etymid|en|luggage}}
 {{root|en|ine-pro|*per- (fare)}}
-{{bor|en|frm|portemanteau||coat stand}}, from {{m|frm|porte||carry}} + {{m|frm|manteau||coat}}.
+From {{bor|en|frm|portemanteau||coat stand}}, from {{compound|frm|nocat=1|porter|alt1=porte|t1=carries|pos1=third-person singular present indicative of {{m|frm|porter|t=to carry}}|manteau|t2=coat|lit=[that which] carries coat}}.
 
 ====Noun====
 {{en-noun|s|portmanteaux}}
 
-# A large [[travel]]ling [[case]] usually made of [[leather]], and opening into two equal sections.
-#* {{quote-book|en|year=1667|author={{w|Charles Croke}}|title=Fortune's Uncertainty|text=Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.}}
+# A large [[travel]]ling [[case]] usually made of [[leather]], and [[open]]ing into two [[equal]] [[section]]s.
+#: {{alti|en|portemanteau|portmantua<q:obsolete>}}
+#* {{quote-book|en|year=1667|author=w:Charles Croke|title=Fortune's Uncertainty|text=Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.}}
 #* {{RQ:Dickens Haunted House|page=7|column=2|chapter=The Mortals in the House|text=He brought down with him to our haunted house a little cask of salt beef; for, he is always convinced that all salt beef not of his own pickling, is mere carrion, and invariably, when he goes to London, packs a piece in his '''portmanteau'''.}}
 #* {{RQ:Mansfield Bliss|page=71|passage=I believe that people are like '''portmanteaux'''—packed with certain things, started going, thrown about, tossed away, dumped down, lost and found, half emptied suddenly, or squeezed fatter than ever, until finally the Ultimate Porter swings them on to the Ultimate Train and away they rattle. . . .}}
 # {{lb|en|Australia|dated}} A [[schoolbag]].
+#: {{syn|en|port|school port}}
 # {{lb|en|archaic}} A [[hook]] on which to [[hang]] [[clothing]].
 #* {{RQ:Mansfield Bliss|page=72|passage=But before I started that long and rather far-fetched and not frightfully original digression, what I meant to say quite simply was that there are no '''portmanteaux''' to be examined here because the clientele of this café, ladies and gentlemen, does not sit down.}}
 
 =====Translations=====
 {{trans-top|case}}
 * Albanian: {{t+|sq|baule|f}}
-* Arabic: {{t|ar|حقيبَة سفر}}
+* Arabic: {{t|ar|حَقِيبَة سَفَر|tr=ḥaqībat safar|f}}
 * Breton: {{t+|br|mal|f}}, {{t|br|malizenn|f}}
 * Bulgarian: {{t|bg|голям кожен куфар}}
 * Czech: {{t|cs|kontaminace}}
 * Dutch: {{t+|nl|koffer|f}}, {{t+|nl|valies|f}}
+* Estonian: {{t|et|reisikott}}, {{t|et|kohver}}, {{t|et|laadik}}
 * Finnish: {{t+|fi|matkalaukku}}
 * French: {{t+|fr|portemanteau|m}}, {{t+|fr|valise|f}}, {{t+|fr|malle|f}}
 * German: {{t+|de|Koffer|m}}
 * Interlingua: {{t|ia|valise}}
 * Latin: {{t|la|averta|f}}
 * Lithuanian: {{t|lt|lagaminas|m}}
-* Norwegian: {{t|no|koffert|m}}
-*: Bokmål: {{t|no|koffert|m}}
+* Norwegian:
+*: Bokmål: {{t|nb|koffert|m}}
 *: Nynorsk: {{t|nn|koffert|m}}
-{{trans-mid}}
-* Persian: {{t+|fa|چمدان|tr=chamedan}}
+* Persian: {{t+|fa|چمدان|tr=čamedân}}
 * Polish: {{t+|pl|waliza|f}}
 * Portuguese: {{t+|pt|maleta|f}}, {{t+|pt|valise|f}}
 * Romanian: {{t+|ro|valiză|f}}
@@ -54,12 +54,15 @@
 * Serbo-Croatian:
 *: Cyrillic: {{t|sh|кожни кофер|m|tr=kožni kofer|sc=Cyrl}}
 * Spanish: {{t+|es|maleta|f}}, {{t+|es|valija|f}}
+* Swedish: {{t+|sv|kappsäck|c}}
 * Turkish: {{t+|tr|bavul}}
 * Vietnamese: {{t+|vi|va li}}
+* Yoruba: {{t|yo|pọtimáńtò}}
 {{trans-bottom}}
 
 ===Etymology 2===
-First used by {{w|Lewis Carroll}} in [[s:Through the Looking-Glass, and What Alice Found There|Through The Looking Glass]] to describe the words he coined in {{w|Jabberwocky}}.
+{{etymid|en|word}}
+First used by {{w|Lewis Carroll}} in ''{{w|Through the Looking-Glass}}'' to describe the words he coined in “{{w|Jabberwocky}}”.
 
 ====Adjective====
 {{en-adj|-}}
@@ -72,27 +75,35 @@ First used by {{w|Lewis Carroll}} in [[s:Through the Looking-Glass, and What Ali
 {{en-noun|s|portmanteaux}}
 
 # {{lb|en|linguistics}} A [[portmanteau word]].
-#* {{quote-book|en|year=1938|url=https://books.google.ca/books?id=xcAUAAAAIAAJ|title=Conversion and Fusion in Modern English: A Concise History of the Scholarly Recognition of These Linguistic Processes|author=Joane Chaffe Miller|text=He found the blend "tomax" in "a collection of gratulatory verses presented by the President and Fellows of Harvard College 1 to the new King, George III," dated 1761. A note by the owner of the volume explains the word as a combination of [[tomahawk]] and [[axe]]: "It is a '''portmanteau''' word, which must have been as clear to the average reader in England of 1761 — as clear to George III himself - as brillig and slithy would have been to us, had not Humpty Dumpty kindly explained them."}}
-#* {{quote-book|en|year=1985|url=https://books.google.ca/books?id=1JoCEI-H0DgC&pg=PA287|title=Selected Papers from the XIIIth Linguistic Symposium on Romance Languages, Chapel Hill, N.C., 24-26 March 1983|page=287|chapter=On the Representation of Higher Order Complex Words|author=Carlos Piera of Cornell University|text=1. '''Portmanteau''' Words and Allomorphy - This paper is primarily concerned with the theoretical implications of what have been called '''portmanteau''' words (Hockett, 1947)}}
-#: {{syn|en|blend|frankenword|portmanteau word}}
+#: {{syn|en
+  |blend<!-- synonym 1 -->
+  |id1=word<!-- target id for synonym 1-->
+  |frankenword<!-- synonym 2 -->
+  |portmanteau word<!-- synonym 3 -->
+  |portmantologism<!-- synonym 4 -->
+}}
+#* {{RQ:Carroll Looking-Glass|pages=128–129|pageref=129|passage=Well then, ‘''mimsy''’ is ‘flimsy and miserable’ (there’s another '''portmanteau''' for you).}}
 # A [[portmanteau film]].
 #* {{quote-web|en|work=BBC|author=Nicholas Barber|date=July 12 2021|title=The French Dispatch: Four stars for Wes Anderson's latest|url=https://www.bbc.com/culture/article/20210712-the-french-dispatch-four-stars-for-wes-andersons-latest|text=His long-awaited '''portmanteau''', which premiered in Cannes on Monday, is the most {{w|Wes Anderson|Anderson}} of all Anderson films. It's Anderson distilled, Anderson squared, Anderson to the nth degree.}}
+
+=====Derived terms=====
+* {{l|en|portmanteau agreement}}
+* {{l|en|portmanteau film}}
+* {{l|en|portmanteau word}}
 
 =====Translations=====
 {{trans-see|portmanteau word}}
 
-====Derived terms====
-* {{l|en|portmanteau film}}
-* {{l|en|portmanteau word}}
-
 ====Verb====
 {{en-verb}}
 
-# To make a [[portmanteau word]].
+# {{lb|en|transitive}} To [[create]] a [[portmanteau word]].
 
 ===See also===
-* [[:Category:English blends|List of portmanteau words defined in Wiktionary]]
-* [[w:Portmanteau|Wikipedia article on portmanteaus (cases and words)]]
+* [[:Category:English blends|List of English portmanteau words defined in Wiktionary]]
+
+===Further reading===
+* {{pedia|blend word}}
 
 [[Category:English autological terms]]
 [[Category:en:Lewis Carroll]]

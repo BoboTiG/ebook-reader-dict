@@ -4,10 +4,14 @@
 {{oxítona|al|guém}}, {{gramática|s|ind}}
 # [[pessoa]] não [[identificada]]
 #* '''''Alguém''' levou o meu carro!''
+#* ''Toda vez que levei alguém lá foi uma decepção para os '''alguéns'''.'' (jornal O Globo de 12 de novembro de 2017 [https://web.archive.org/web/20230822015825/https://www.academia.org.br/artigos/conversacoes] [https://web.archive.org/web/20230822020336/https://oglobo.globo.com/ela/gastronomia/como-lidar-com-paris-22055807])
+
 ===Antônimos===
 * De '''1''': [[ninguém]]
+
 ===Hiperônimos===
 * [[algo]]
+
 ===Tradução===
 {{tradini}}
 * {{trad|de|jemand}}
@@ -23,13 +27,15 @@
 * {{trad|is|einhver}}
 * {{trad|it|qualcuno}}
 * {{trad|mwl|alguien}}
-* {{trad|no|noen}}
+* {{trad|nb|noen}}
 * {{trad|pl|ktoś}}
 * {{trad|sv|någon}}
 {{tradfim}}
-=={{etimologia|pt}}==
-{{llietimo|la|alĭquem|pt}}
-=={{pronúncia|pt}}==
+
+=={{Etimologia|pt}}==
+{{etimo2|la|alĭquem|pt}}
+
+=={{Pronúncia|pt}}==
 ===Brasil===
 ====Paulistana e Caipira====
 * [[AFI]]: {{AFI|[aw.ˈgẽj]}}

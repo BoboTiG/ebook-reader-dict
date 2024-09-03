@@ -1,23 +1,21 @@
 {{vegeu|afi|afí}}
 
 == {{-ca-}} ==
-{{ca-pron|/ˈa.fi/}}
-{{-etimologia-}} [[sigles]]
+{{ca-pron}}
 
-=== Acrònim ===
-{{entrada|ca|acrònim}}
+=== Sigles ===
+{{sigles|ca|np}}
 
-# (''m'') Alfabet Fonètic Internacional.
-# (''f'') Associació Fonètica Internacional.
+# {{marca|ca|masculí}} {{sigles de|ca|[[alfabet|Alfabet]] [[fonètic|Fonètic]] [[internacional|Internacional]]}}
+# {{marca|ca|femení}} {{sigles de|ca|[[associació|Associació]] [[fonètica|Fonètica]] [[internacional|Internacional]]}}
 
 {{-trad-}}
-{{inici}}
-* {{de}}: {{trad|de|IPA}} [1,2]
-* {{en}}: {{trad|en|IPA}} [1,2]
-{{mig}}
-* {{es}}: {{trad|es|AFI}} [1,2]
-* {{fr}}: {{trad|fr|API}} [1,2]
-{{final}}
+{{t-inici}}
+* {{de}}: {{trad|de|IPA}}
+* {{en}}: {{trad|en|IPA}}
+* {{es}}: {{trad|es|AFI}}
+* {{fr}}: {{trad|fr|API}}
+{{t-final}}
 
 === Vegeu també ===
-{{Wikimedia|Viquipèdia=AFI}}
+* {{Viquipèdia}}

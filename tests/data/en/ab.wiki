@@ -1,4 +1,5 @@
 {{also/ab}}
+{{minitoc}}
 ==Translingual==
 
 ===Symbol===
@@ -6,45 +7,46 @@
 
 # {{ISO 639|1}}
 
-----
-
 ==English==
 {{wikipedia}}
 
 ===Pronunciation===
 * {{IPA|en|/æb/}}
-* {{audio|en|LL-Q1860 (eng)-Vealhurl-ab.wav|Audio (UK)}}
+* {{audio|en|LL-Q1860 (eng)-Vealhurl-ab.wav|a=Southern England}}
 * {{rhymes|en|æb|s=1}}
 
 ===Etymology 1===
 [[File:Rectus abdominis.png|thumb|upright|Abs]]
-Abbreviation of {{m|en|abdominal}} {{m|en|muscles}}.
 
 ====Noun====
 {{en-noun}}
 
-# {{lb|en|informal}} [[abdominal]] [[muscle]]. {{defdate|Mid 20<sup>th</sup> century.}}<ref name=SOED>{{R:SOED5|page=2}}</ref>
+# {{lb|en|informal}} {{clip of|en|abdominal muscle}} {{defdate|Mid 20<sup>th</sup> century.}}<ref name=SOED>{{R:SOED5|page=2}}</ref>
 #* {{quote-book|en|year=2006|author=H. Peter Steeves|title=The Things Themselves|page=75|passage=The bikinied models in most of the ESPN2 shows have '''abs'''. Many of the malnourished bikinied models in the commercials have visible rib cages. How did the two get conflated into a shared vision of beauty?}}
 #* '''2010''', Bill Geiger, "6-pack Abs in 9 Weeks", Reps! 17:106
 #*: When possible, do your '''ab''' workout on a day when you're not training a major muscle group{{...}}.
 
 =====Usage notes=====
-Most often used attributively. Substantive use is more common in the plural form {{m|en|abs}}.
+* Most often used attributively. Substantive use is more common in the plural form {{m|en|abs}}.
+
+=====Derived terms=====
+{{col-auto|en|ab roller|ab roller wheel|ab wheel}}
 
 =====Translations=====
+{{multitrans|data=
 {{trans-top|abdominal muscle}}
 * Chinese:
-*: Mandarin: {{t+|cmn|腹肌|tr=fùjī}}
-* Esperanto: {{t|eo|ventromuskolo}}
-* Finnish: {{t+|fi|vatsalihas}}
-* French: {{t+|fr|abdo}}
-* German: {{t+|de|Bauchmuskeln|m-p}}
-{{trans-mid}}
-* Japanese: {{t|ja|腹筋|tr=ふっきん (fukkin)|sc=Jpan}}
-* Polish: {{t|pl|mięsień prosty brzucha|m}}
-* Russian: {{t+|ru|пресс|m}}
-* Vietnamese: {{t+|vi|múi}}, {{t|vi|múi cơ}}, {{t|vi|cơ bụng}}
+*: Mandarin: {{tt+|cmn|腹肌}}
+* Esperanto: {{tt|eo|ventromuskolo}}
+* Finnish: {{tt+|fi|vatsalihas}}
+* French: {{tt+|fr|abdo|m}}
+* German: {{tt+|de|Bauchmuskeln|m-p}}
+* Japanese: {{tt+|ja|腹筋|tr=ふっきん, fukkin}}
+* Polish: {{tt|pl|mięsień prosty brzucha|m}}
+* Russian: {{tt+|ru|пресс|m}}
+* Vietnamese: {{tt+|vi|múi}}, {{tt|vi|múi cơ}}, {{tt|vi|cơ bụng}}
 {{trans-bottom}}
+}}
 
 ===Etymology 2===
 Abbreviation of {{m|en|abscess}}.
@@ -56,7 +58,6 @@ Abbreviation of {{m|en|abscess}}.
 
 =====Translations=====
 {{trans-top|an abscess caused by injecting an illegal drug}}
-{{trans-mid}}
 {{trans-bottom}}
 
 ===Etymology 3===
@@ -66,8 +67,8 @@ Abbreviations.
 {{en-verb}}
 
 # {{lb|en|climbing|informal}} To [[abseil]].
-#* '''1998''', ''Climbing'' (issues 178-180, page 22)
-#*: I had a climbing rope in my pack, set up an abseil with it, and '''abbed''' down to him.
+#* {{quote-journal|en|year=1998|journal=Climbing|issue=178-180|page=22
+|passage=I had a climbing rope in my pack, set up an abseil with it, and '''abbed''' down to him.}}
 # {{abbreviation of|en|abort}}
 
 ====Noun====
@@ -102,12 +103,10 @@ From the spelling books and the fact that it was the first of the letter combina
 ===Anagrams===
 * {{anagrams|en|a=ab|-ba-|B. A.|B.A.|BA|Ba|ba|ba'}}
 
-----
-
-==Aynu==
+==Äynu==
 
 ===Etymology===
-Borrowed from {{bor|aib|fa|آب|tr=āb}}.
+Borrowed from {{bor|aib|fa|آب|tr=âb}}.
 
 ===Pronunciation===
 * {{IPA|aib|/ɑb/}}
@@ -120,16 +119,15 @@ Borrowed from {{bor|aib|fa|آب|tr=āb}}.
 ===References===
 * Otto Ladstätter, Andreas Tietze, ''Die Abdal (Äynu) in Xinjiang'' (1994)
 
-----
-
 ==Azerbaijani==
+{{az-variant|аб|آب}}
 
 ===Etymology===
-{{bor+|az|fa-cls|آب|tr=āb}}.
+{{bor+|az|fa-cls|آب}}.
 
 ===Pronunciation===
 * {{IPA|az|[ɑb]}}
-* {{audio|az|LL-Q9292 (aze)-Zardabi Bakuvi-ab.wav|Audio (Baku)}}
+* {{audio|az|LL-Q9292 (aze)-Zardabi Bakuvi-ab.wav|a=Baku}}
 
 ===Noun===
 {{az-noun}}
@@ -144,8 +142,6 @@ Borrowed from {{bor|aib|fa|آب|tr=āb}}.
 * {{l|az|ab-hava||climate}}
 * {{l|az|abı||sky-blue}}
 
-----
-
 ==Blagar==
 
 ===Noun===
@@ -157,21 +153,34 @@ Borrowed from {{bor|aib|fa|آب|tr=āb}}.
 * A. Schapper (citing Steinhauer), ''Elevation in the spatial deictic systems of Alor-Pantar languages'', in ''The Alor-Pantar languages: History and Typology'', edited by Marian Klamer
 * [http://asjp.clld.org/languages/BLAGAR ASJP], citing L. C. Robinson and G. Holton, ''Internal classification of the Alor-Pantar language family using computational methods applied to the lexicon'' (2012)
 
-----
-
 ==Catalan==
 
 ===Pronunciation===
 * {{IPA|ca|/ap/}}
-* {{a|Before a voiced consonant or a vowel}} {{IPA|ca|/ab/}}
-* {{a|Before a voiced consonant or a vowel in betacist dialects}} {{IPA|ca|/aβ/}}
+* {{IPA|ca|/ab/|a=Before a voiced consonant or a vowel}}
+* {{IPA|ca|/aβ/|a=Before a voiced consonant or a vowel in betacist dialects}}
 
 ===Preposition===
 {{head|ca|preposition}}
 
 # {{obsolete form of|ca|amb}}
 
-----
+==Crimean Tatar==
+
+===Etymology===
+{{bor|crh|fa|}}
+
+===Noun===
+{{head|crh|noun}}
+
+# [[water]]
+#: {{syn|crh|suv|su|bum-bum}}
+
+====Declension====
+{{crh-decl|a}}
+
+===References===
+* {{R:crh:Luğatçıq}}
 
 ==Danish==
 
@@ -196,12 +205,10 @@ See {{m|da|abe||to ape, mimic}}.
 ====Verb====
 {{head|da|verb form}}
 
-# {{imperative of|da|abe}}
+# {{infl of|da|abe||imp}}
 
 ===Further reading===
 * {{R:Den Danske Ordbog}}
-
-----
 
 ==East Central German==
 
@@ -209,8 +216,6 @@ See {{m|da|abe||to ape, mimic}}.
 {{head|gmw-ecg|particle}}
 
 # {{lb|gmw-ecg|Strehlen|and|Schömberg|Silesian}} {{n-g|negative particle,}} do not
-
-----
 
 ==East Yugur==
 
@@ -226,20 +231,18 @@ From {{inh|yuy|xgn-pro|*ab-}}, compare {{cog|mn|авах}}.
 # to [[take]]
 #: {{ux|yuy|Ci [[ghudal]] kelese bu cini arasini xuulj' '''abqu'''.|If you tell a lie I will skin you ['''take''' your skin].}}
 
-----
-
 ==German==
 
 ===Pronunciation===
-* {{a|Germany}} {{IPA|de|/ap/|/ɑp/}}
-* {{a|Switzerland, Austro-Bavarian}} {{IPA|de|/ɑb̥/}}
+* {{IPA|de|/ap/|/ɑp/|a=Germany}}
+* {{IPA|de|/ɑb̥/|a=Switzerland, Austro-Bavarian}}
 * {{rhymes|de|ap|s=1}}
 
 ===Etymology 1===
 From {{inh|de|gmh|[[abe]], [[ab]]}}, from {{der|de|goh|ab}}, from {{der|de|gmw-pro|*ab}}, from {{der|de|gem-pro|*ab}}.
 
 ====Preposition====
-{{head|de|preposition}} {{tlb|de|+ dative}}
+{{head|de|preposition}} {{+obj|de|dat}}
 
 # beginning at that time or location; [[from]]
 #: {{ux|de|'''Ab''' heute verfügbar.|Available '''from''' today.}}
@@ -251,12 +254,12 @@ From {{inh|de|gmh|[[abe]], [[ab]]}}, from {{der|de|goh|ab}}, from {{der|de|gmw-p
 * {{desc|nb|ab}}
 
 ===Etymology 2===
-From adverbial use of the preposition in verbs such as [[abschlagen]], [[abgehen]] etc.
+From adverbial use of the prefix {{l|de|ab-}} in verbs such as [[abschlagen]], [[abgehen]] etc. Compare {{cog|en|off}}.
 
 ====Adjective====
-{{de-adj|stem:abb[nonstandard]}}
+{{de-adj|indecl.predonly}}
 
-# {{lb|de|colloquial|predicative}} [[off]]; not attached to anything anymore
+# {{lb|de|colloquial|predicative|_|only}} [[off]]; not attached to anything anymore
 #: {{ux|de|Der Arm ist '''ab'''.|The arm is (hewn) '''off'''.}}
 # {{lb|de|nonstandard|attributive}} [[off]]; not attached to anything anymore
 #: {{ux|de|Der '''abbe''' Arm ist verschwunden.|The (hewn) '''off''' arm has disappeared.}}
@@ -267,12 +270,28 @@ From adverbial use of the preposition in verbs such as [[abschlagen]], [[abgehen
 * The inflected attributive forms retain the devoiced consonant. Hence, sometimes they are spelled with ''p'', rather than ''b'': ''appes Bein''.
 
 =====Declension=====
-{{de-adecl|stem:abb[nonstandard]}}
+{{de-adecl|indecl.predonly}}
 
 ===Related terms===
 * {{l|de|abseits}}
 
-----
+==Hamer-Banna==
+
+===Pronunciation===
+* {{amf-IPA}}
+
+===Determiner===
+{{head|amf|determiner}}
+
+# {{alternative form of|amf|ábi}}
+
+==Indonesian==
+
+===Noun===
+{{id-noun}}
+
+# small pot
+# (dated) father ([[aba]])
 
 ==Interlingua==
 
@@ -280,8 +299,6 @@ From adverbial use of the preposition in verbs such as [[abschlagen]], [[abgehen
 {{head|ia|preposition}}
 
 # [[from]]
-
-----
 
 ==Irish==
 
@@ -301,11 +318,9 @@ From {{der|ga|la|abbas|t=father}}, from {{der|ga|grc|ἀββᾶς}}, from {{der|
 {{ga-decl-m3|a|b|ba|baí}}
 
 =====Derived terms=====
-{{der3|ga
-|{{l|ga|mac an aba|g=m|t=ring finger}}
-|{{l|ga|tánaiste an aba|g=m|t=the next in rank to the abbot}}
-|{{l|ga|tiarna aba|g=m|t=lord abbot}}
-}}
+* {{l|ga|mac an aba|g=m|t=ring finger}}
+* {{l|ga|tánaiste an aba|g=m|t=the next in rank to the abbot}}
+* {{l|ga|tiarna aba|g=m|t=lord abbot}}
 
 ===Etymology 2===
 Contraction of the relative particle {{m|ga|a}} and the prevocalic variant of the past/conditional copula particle {{m|ga|b’}}.
@@ -331,9 +346,18 @@ Contraction of the relative particle {{m|ga|a}} and the prevocalic variant of th
 * {{R:ga:EID}}
 * {{R:ga:NEID}}
 
-[[Category:ga:Monasticism]]
+{{C|ga|Monasticism}}
 
-----
+==Kein==
+
+===Noun===
+{{head|bmh|noun}}
+
+# [[fire]]
+
+===Further reading===
+* Johannes A. Z'Graggen, ''[https://web.archive.org/web/20121017062357/http://www.papuaweb.org/dlib/bk/pl/C38/02-8-2.pdf The Madang-Adelbert Range Sub-Phylum]'' (1975) (as ''ʌb'')
+* ''[https://web.archive.org/web/20160304041448/http://www-01.sil.org/pacific/png/pubs/928474542235/Bemal.pdf Bemal Organized Phonology Data]'' (as ''ab'')
 
 ==K'iche'==
 
@@ -350,35 +374,18 @@ Contraction of the relative particle {{m|ga|a}} and the prevocalic variant of th
 ===References===
 * Allen J. Christenson, ''[http://www.famsi.org/mayawriting/dictionary/christenson/quidic_complete.pdf Kʼiche-English dictionary]'', page 7
 
-----
-
-==Kein==
-
-===Noun===
-{{head|bmh|noun}}
-
-# [[fire]]
-
-===Further reading===
-* Johannes A. Z'Graggen, ''[https://web.archive.org/web/20121017062357/http://www.papuaweb.org/dlib/bk/pl/C38/02-8-2.pdf The Madang-Adelbert Range Sub-Phylum]'' (1975) (as ''ʌb'')
-* ''[https://web.archive.org/web/20160304041448/http://www-01.sil.org/pacific/png/pubs/928474542235/Bemal.pdf Bemal Organized Phonology Data]'' (as ''ab'')
-
-----
-
 ==Latin==
 
 ===Alternative forms===
-* {{l|la|ā}} {{qualifier|not used before a vowel or h}}
-* {{l|la|abs}} {{qualifier|archaic| exclusively used before the pronoun [[te#Latin|te]]}}
-* {{l|la|af}} {{qualifier|archaic}}
+* {{alt|la|ā||not used before a vowel or ''h''}}
+* {{alt|la|abs||archaic|exclusively used before the pronoun {{m|la|te}}}}
+* {{alt|la|af||archaic}}
 
 ===Etymology===
-From {{inh|la|itc-pro|*ap}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whence {{cog|en|off}}, {{m|en|of}} and {{m|en|after}}). See also {{m|la|po-}}. Cognate with {{l|grc|ᾰ̓πό}}.
+From {{inh|la|itc-pro|*ap}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whence {{cog|en|off}}, {{m|en|of}} and {{m|en|after}}). See also {{m|la|po-}}. Cognate with {{l|grc|ᾰ̓πό}}. The reconstruction of the Proto-Italic form is somewhat uncertain, as it's not clear when or how the final vowel of the PIE form was lost. The voicing of the final consonant to ''-b'' can be interpreted as an example of regular voicing of plosives in word-final position, as in {{m|itc-ola|fēced}} < *fēcet, a sound change that some reconstruct at the common Italic stage. Others explain ''-b'' here as the result of analogical extension from clusters ending in a voiced consonant.<ref>Vaan, M. A. C. de. (2009). Latin au- 'away', an allomorph of ab-. Anuari De Filologia 25-26 [2003-2004]. Secció D: Studia Graeca Et Latina. Número 12, 25-26, 141-147. Retrieved from https://hdl.handle.net/1887/18683</ref> The form ''ap-'' is attested in composition in Latin {{m|la|aperiō}} and {{cog|xum|𐌀𐌐𐌄𐌇𐌕𐌓𐌄}}.
 
 ===Pronunciation===
-* {{la-IPA|eccl=yes}}
-* {{audio|la|la-cls-ab.ogg|Audio (Classical)}}
-* {{audio|la|La-ecc-ab.ogg|Audio (Ecclesiastical)}}
+* {{la-IPA}}
 
 ===Preposition===
 {{la-prep|ablative}}
@@ -401,22 +408,25 @@ From {{inh|la|itc-pro|*ap}}, from {{inh|la|ine-pro|*h₂epó||off, away}} (whenc
 Used in conjunction with passive verbs to mark the agent.
 * {{usex|la|Liber '''ā''' discipulō aperītur.|The book is opened '''by''' the student.}}
 
+====Related terms====
+* {{l|la|abhinc}}
+
 ====Descendants====
 * {{desc|fr|à}}
 * {{desc|it|a}}
 * {{desc|es|a}}
 * {{desc|pt|a}}
-** {{desc|nb|a}}
-* {{desc|nb|ab|bor=1}}
+* {{desc|nb|a|ab|lbor=1}}
 
 ===References===
+<references/>
+
+===Further reading===
 * {{R:L&S}}
 * {{R:Gaffiot}}
+* {{R:Logeion}}
 * {{R:M&A}}
-* ''Latin Dictionary'', Lewis and Short, 1879.
 * Lingua Latina, Hans H. Ørberg, 2005.
-
-----
 
 ==Latvian==
 
@@ -435,8 +445,6 @@ Used in conjunction with passive verbs to mark the agent.
 
 ====Synonyms====
 * {{l|lv|ap}}
-
-----
 
 ==Livonian==
 
@@ -457,8 +465,6 @@ Used in conjunction with passive verbs to mark the agent.
 
 ====Declension====
 {{liv-noun|a|2c=b|2cs=bb|part-cs=1|dat-cs=1|ins=kõks|ill-cs=1|in=sõ|el=stõ|pl-nom=ūd|pl-part=ḑi|pl-ill=ži|pl-in=ši|pl-el=šti|type=72}}
-
-----
 
 ==Middle Irish==
 
@@ -481,14 +487,12 @@ From {{inh|mga|sga|aub}}, from {{inh|mga|cel-pro|*abū}}.
 ===Mutation===
 {{mga-mutation|a|b}}
 
-----
-
 ==Norwegian Bokmål==
 {{wikipedia|lang=nb|AB}}
 
 ===Pronunciation===
 * {{IPA|nb|/ɑːb/}}
-* {{audio|nb|NB - Pronunciation of Norwegian Bokmål «ab».ogg|Audio}}
+* {{audio|nb|NB - Pronunciation of Norwegian Bokmål «ab».ogg}}
 * {{rhymes|nb|ɑːb}}
 * {{hyphenation|nb|ab}}
 
@@ -497,6 +501,7 @@ From {{der|nb|de|ab||from}}, from {{der|nb|gmh|ab}}, from {{der|nb|goh|ab||of}},
 
 ====Preposition====
 {{head|nb|preposition}}
+
 # {{lb|nb|economics}} [[from]]; (i.e. delivered) for the seller's expense at a location and forwarded for the buyer's expense
 #: {{ux|nb|'''ab''' Frankfurt|'''from''' Frankfurt|inline=1}}
 #: {{ux|nb|'''ab''' varelager |'''from''' inventory|inline=1}}
@@ -511,18 +516,18 @@ From {{der|nb|de|ab||from}}, from {{der|nb|gmh|ab}}, from {{der|nb|goh|ab||of}},
 ===Etymology 2===
 From {{der|nb|la|ab||from, away from, on, in}}, from {{der|nb|itc-pro|*ab}}, from {{der|nb|ine-pro|*h₂epó||off, away}}.
 
+====Pronunciation====
+*{{IPA|nb|/ˈɑːbə/|a=modern}}
+*{{IPA|nb|/ɑˈbeː/|a=older}}
+* {{audio|nb|nb-ab1.ogg|q=modern}}
+* {{audio|nb|nb-ab2.ogg|q=older}}
+* {{rhymes|nb|ɑːbə|eː}}
+* {{hyph|nb|a|b}}
+
 ====Preposition====
 {{head|nb|preposition}}
 
 # {{only used in|nb|ab ovo||ab ovo}}
-
-====Pronunciation====
-*{{a|modern}} {{IPA|nb|/ˈɑːbə/}}
-*{{a|older}} {{IPA|nb|/ɑˈbeː/}}
-*{{a|modern}} {{audio|nb|nb-ab1.ogg|Audio}}
-*{{a|older}} {{audio|nb|nb-ab2.ogg|Audio}}
-* {{rhymes|nb|ɑːbə|eː}}
-* {{hyph|nb|a|b}}
 
 ===Etymology 3===
 Abbreviation of {{m|nb|avbetaling||installment}}, verbal noun form of {{m|nb|avbetale||to pay off}}, a compound of {{compound|nb|av|betale}}, first part {{m|nb|av||of, from, by, off}}, from {{inh|nb|non|af||of, from, off, by}}, from {{inh|nb|gem-pro|*ab||away from}}, from {{inh|nb|ine-pro|*h₂epó||off, away}} + second part {{m|nb|betale||pay, purchase}}, from {{der|nb|gml|betalen||of, from, off, by}}, last part is the suffix {{m|nb|-ing||-ing}}, from {{inh|nb|non|-ingr|g=m}}, {{m|non|-ingi|g=m}}, {{m|non|-ing|g=f}}, from {{inh|nb|gem-pro|*-ingō}}, {{m|gem-pro|*-ungō}}.
@@ -545,8 +550,6 @@ Abbreviation of {{m|nb|avbetaling||installment}}, verbal noun form of {{m|nb|avb
 * {{R:NAOB|ab_3}}
 * “[http://www.snl.no/ab ab]” in ''Store norske leksikon''
 
-----
-
 ==Occitan==
 
 ===Alternative forms===
@@ -567,8 +570,6 @@ From {{inh|oc|la|ab}}.
 ===References===
 * Pei, Mario A. 1948. Ab and the survival of the Latin genitive in Old Italian. ''Italica'' 25. 104–106.
 
-----
-
 ==Old French==
 
 ===Etymology===
@@ -581,8 +582,6 @@ Reduced form of {{der|fro|la|apud}}.
 
 ====Synonyms====
 * {{l|fro|avoec}} {{qualifier|used throughout Old French into the Middle and modern French periods}}
-
-----
 
 ==Old High German==
 
@@ -598,8 +597,6 @@ From {{inh|goh|gem-pro|*ab}}.
 * {{desc|de|ab}}
 ** {{desc|nb|ab}}
 
-----
-
 ==Old Occitan==
 
 ===Etymology===
@@ -609,12 +606,11 @@ Reduced form of {{der|pro|la|apud}}
 {{head|pro|preposition}}
 
 # [[with]]
-#* {{quote-book|pro|author=unknown|year=circa 1000|title=[[w:Boecis|Lo Poèma de Boecis]]|passage=Non comprarias '''ab''' mil liuras d’argent.|translation= [That] you couldn't buy with a thousand pounds of silver.}}
+#* {{quote-book|pro|author=unknown|year=c. 1000|title=[[w:Boecis|Lo Poèma de Boecis]]|passage=Non comprarias '''ab''' mil liuras d’argent.|translation= [That] you couldn't buy with a thousand pounds of silver.}}
 
 ====Descendants====
 * {{desc|oc|amb}}
-
-----
+* {{desc|ca|amb}}
 
 ==Parauk==
 
@@ -625,8 +621,6 @@ Reduced form of {{der|pro|la|apud}}
 {{head|prk|verb}}
 
 # to [[give]], hand [[over]].
-
-----
 
 ==Pennsylvania German==
 
@@ -640,8 +634,6 @@ Compare {{cog|de|ab}}, {{cog|nl|af}}, {{cog|en|off}}.
 # [[from]]
 # [[away]]
 
-----
-
 ==Pumpokol==
 
 ===Noun===
@@ -649,26 +641,12 @@ Compare {{cog|de|ab}}, {{cog|nl|af}}, {{cog|en|off}}.
 
 # [[father]]
 
-[[Category:xpm:Family]]
-
-----
-
-==Romani==
-{{rfv|rom}}
-
-===Noun===
-{{rom-noun|ab|m||}}
-
-# [[river]]
-
-{{c|rom|Landforms|Water}}
-
-----
+{{C|xpm|Male family members}}
 
 ==Scots==
 
 ===Etymology===
-Uncertain. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|happe||to stutter}}, {{cog|no|jabba||to stammer}} and colloquial {{cog|sv|happla||to stutter}}.
+{{unc|sco}}. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|happe||to stutter}}, {{cog|no|jabba||to stammer}} and colloquial {{cog|sv|happla||to stutter}}.
 
 ===Pronunciation===
 * {{IPA|sco|/ab/}}
@@ -686,8 +664,6 @@ Uncertain. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|ha
 ===References===
 * {{R:DSL|pos=n}}
 
-----
-
 ==Scottish Gaelic==
 
 ===Noun===
@@ -695,16 +671,13 @@ Uncertain. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|ha
 
 # {{alternative form of|gd|aba}}
 
-----
-
 ==Sumerian==
 
 ===Romanization===
 {{sux-rom}}
 
-# {{romanization of|sux|𒀊|tr=ab}}
-
-----
+# {{romanization of|sux|𒀊|tr=ab}} 
+# {{romanization of|sux|𒀖|tr=ab}}
 
 ==Turkish==
 
@@ -712,8 +685,11 @@ Uncertain. Compare {{cog|en|hobble}}, {{cog|nl|hobbelen||to lurch}}, {{cog|da|ha
 * {{alter|tr|âb}}
 
 ===Etymology===
-{{root|tr|ine-pro|*h₂ep-}}
-From {{inh|tr|ota|آب|tr=āb|t=water}}, from {{der|tr|fa|آب|tr=āb}}.
+{{root|tr|ine-pro|*h₂ep-|id=water}}{{dercat|tr|pal|peo|ira-pro|iir-pro}}
+From {{inh|tr|ota|آب|tr=āb|t=water}}, from {{der|tr|fa|آب|tr=âb}}.
+
+===Pronunciation===
+* {{audio|tr|LL-Q256 (tur)-ToprakM-ab.wav}}
 
 ===Noun===
 {{tr-noun|ı|lar}}
@@ -723,19 +699,18 @@ From {{inh|tr|ota|آب|tr=āb|t=water}}, from {{der|tr|fa|آب|tr=āb}}.
 ===References===
 * {{R:tr:Nishanyan|ab}}
 
-----
-
 ==Volapük==
 
 ===Etymology===
 Borrowed from {{bor|vo|de|aber|gloss=but}}.
 
+===Pronunciation===
+{{IPA|vo|/ab/}}
+
 ===Conjunction===
 {{head|vo|conjunction}}
 
-# [[but]]
-
-----
+# [[but]].
 
 ==Welsh==
 
@@ -759,8 +734,6 @@ This form is found before vowels. Before a consonant, the form {{l|cy|ap}} is us
 
 ===References===
 * {{R:cy:GPC}}
-
-----
 
 ==Wolof==
 

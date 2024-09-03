@@ -1,9 +1,10 @@
 {{vegeu|AVUI}}
 
 == {{-ca-}} ==
-{{ca-pron}}
-{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-avui.wav|lang=ca|accent=ct}}
-{{etim-comp|ca|a-|pos1=adverbial|vui|lang2=roa-oca}}, de {{terme|roa-oca|hui}}, del llatí vulgar {{terme|la|*oie}}, del clàssic {{terme|la|hǒdǐe}}, {{etim-s|ca|XIII}}.
+{{ca-pron
+|f-centr=LL-Q7026 (cat)-Unjoanqualsevol-avui.wav
+}}
+{{etim-comp|ca|a-|pos1=adverbial|vui|lang2=roa-oca}}, de {{m|roa-oca|hui}}, del llatí vulgar {{m|la|*oie}}, del clàssic {{m|la|hǒdǐe}}, {{etim-s|ca|XIII}}.
 
 === Adverbi ===
 {{entrada|ca|adv}}
@@ -12,8 +13,8 @@
 # Metafòricament, en el [[present]].
 
 {{-sin-}}
-* [1] [[hui]].
-* [2] [[hui]], [[a hores d'ara]], [[actualment]], [[ara]], [[ara com ara]], [[ara per ara]], [[ja]].
+* [1] [[hui]]
+* [2] [[hui]], [[a hores d'ara]], [[actualment]], [[ara]], [[ara com ara]], [[ara per ara]], [[ja]]
 
 {{-comp-}}
 * [[avui per demà]]
@@ -27,7 +28,7 @@
 {{ca-avui}}
 
 {{-trad-}}
-{{inici|En el dia actual}}
+{{t-inici|En el dia actual}}
 * {{af}}: {{trad|af|vandag}}
 * {{ay}}: {{trad|ay|jichhüru}}
 * {{de}}: {{trad|de|heute}}
@@ -62,8 +63,8 @@
 * {{is}}: {{trad|is|í dag}}
 * {{it}}: {{trad|it|oggi}}
 * {{ja}}: {{trad|ja|今日}}
-{{mig}}
 * {{kk}}: {{trad|kk|бүгін}}
+* {{kzg}}: {{trad|kzg|今日}}, {{trad|kzg|すー}}, {{trad|kzg|しゅー}}
 * {{ky}}: {{trad|ky|бүгүн}}
 * {{lv}}: {{trad|lv|šodien}}
 * {{lt}}: {{trad|lt|šiandien}}
@@ -97,14 +98,13 @@
 * {{vo}}: {{trad|vo|adelo}}
 * {{wo}}: {{trad|wo|tey}}
 * {{zh}}: {{trad|zh|今天}}
-{{final}}
+{{t-final}}
 
-{{inici|En el present}}
+{{t-inici|En el present}}
 * {{en}}: {{trad|en|today}}
 * {{es}}: {{trad|es|hoy}}
-{{mig}}
 * {{csc}}: {{trad|csc|ARA}}
-{{final}}
+{{t-final}}
 
 === Miscel·lània ===
 * {{ca-sil}}
@@ -112,5 +112,6 @@
 
 === Vegeu també ===
 * {{ca-dicc|diec|gdlc|optimot}}
+* [https://aldc.espais.iec.cat/files/2013/10/326-Avui.pdf Atles Lingüístic del Domini Català]
 
 {{catllengua|ca|temps}}

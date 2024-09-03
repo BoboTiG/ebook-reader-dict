@@ -9,26 +9,6 @@
 :{{avgränsare}}
 :{{etymologi|Av {{härledning|no|non|ok}}, av {{härledning|no|gem-ugm|*auk}}, av {{härledning|no|ine-uie|*h₂ewǵe}}}}
 
-==Bottniska==
-===Konjunktion===
-{{konj|gmq-bot}}
-'''og'''
-*{{uttal|gmq-bot|ipa=ɔː(ɣ)/, /ɔ/, /ɒ}}
-#[[och#Svenska|och]], [[ock#Svenska|ock]] (åldrigt)
-:{{avgränsare}}
-:{{etymologi|Av {{härledning|gmq-bot|non|ok}}, av {{härledning|gmq-bot|gem-ugm|*auk}}, av {{härledning|gmq-bot|ine-uie|*h₂ewǵe}}}}
-
-===Adverb===
-{{adv|gmq-bot}}
-'''og'''
-#[[också]], [[även]]
-#:''Ho var 'n fager stiint, å hä tykt a själv '''åg''', sä a no gjernom villt vahl firä å ong-kära.''
-#[[visst]]
-#:''Han vȧr '''å''' tahttu sȯm to hodna.''
-#::''Han var '''visst''' nödträngd, som tog den där (nämligen till hustru).''
-:{{avgränsare}}
-:{{etymologi|Av {{härledning|gmq-bot|non|ok}}, av {{härledning|gmq-bot|gem-ugm|*auk}}, av {{härledning|gmq-bot|ine-uie|*h₂ewǵe}}}}
-
 ==Danska==
 ===Konjunktion===
 {{konj|da}}

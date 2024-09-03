@@ -10,10 +10,10 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, definitions, variants",
     [
-        ("auto", [], ["automatisk; självgående", "automatiskt läge", "autostart"], []),
+        ("auto", [], ["automatiskt läge", "autostart"], []),
         (
             "en",
-            ["/eːn/, /ɛn/, /en/"],
+            ["/en/", "/eːn/", "/ɛn/"],
             [
                 "ungefär; omkring",
                 "obestämd artikel singular utrum",

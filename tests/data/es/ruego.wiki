@@ -1,40 +1,21 @@
-{{desambiguación|||}}
-{{ES|ruego|núm=1}}
-{{pronunciación|[ ˈrwe.ɰo ]}} 
+{{desambiguación||}}
+== {{lengua|es}} ==
+{{pron-graf}}
 
-=== Forma verbal ===
+=== Etimología 1 ===
+{{etimología}}.
 
-;1: {{forma verbo|rogar|p=1s|t=presente|m=indicativo}}.
-{{anotación|tit=|link=||nota1=||nota2=}}
-
-
-{{ES|ruego|núm=2}}
-{{pronunciación|[ ˈrwe.ɰo ]}} 
-{{etimología}}  
-
-==={{sustantivo masculino|es}}=== 
+==== {{sustantivo masculino|es}} ====
 {{inflect.es.sust.reg}}          
-
 ;1: {{plm|súplica}}, [[petición]] hecha con el fin de alcanzar lo que se pide.<ref name="dlc1914">{{DLC1914|908}} </ref>
 
-
-<br clear="all">
-==Traducciones==
+==== Traducciones ====
 {{trad-arriba}}
-<!--{{t+|de|}}-->
-<!--{{t+|ar|}}-->
-<!--{{t+|bg|}}-->
-<!--{{t+|ca|}}-->
-<!--{{t+|eo|}}-->
-<!--{{t+|fr|}}-->
-{{trad-centro}}
-<!--{{t+|en|}}-->
-<!--{{t+|it|}}-->
-<!--{{t+|ja|}}-->
-<!--{{t+|nl|}}-->
-<!--{{t+|pl|}}-->
-<!--{{t+|pt|}}-->
 {{trad-abajo}}
 
-=<small>Referencias y notas</small>=
+=== Forma flexiva ===
+==== Forma verbal ====
+;1: {{forma verbo|rogar|p=1s|t=presente|m=indicativo}}.
+
+== Referencias y notas ==
 <references />

@@ -1,9 +1,11 @@
 {{vegeu|Català|catalá|CATALÀ|catalã}}
 
 == {{-ca-}} ==
-{{ca-pron}}
-{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-català.wav|lang=ca|accent=or|LL-Q7026 (cat)-Millars-català.wav|accent2=oc}}
-{{-etimologia-}} D’origen incert, paral·lel al de {{terme|ca|Catalunya}}, possiblement metàtesi del llatí {{terme|la|lacetani|trad=lacetans}}.
+{{ca-pron
+|f-centr=LL-Q7026 (cat)-Unjoanqualsevol-català.wav
+|f-val=LL-Q7026 (cat)-Millars-català.wav
+}}
+{{-etimologia-}} D’origen incert, paral·lel al de {{m|ca|Catalunya}}, possiblement metàtesi del llatí {{m|la|lacetani|trad=lacetans}}.
 
 === Adjectiu ===
 {{ca-adj|m}}
@@ -12,16 +14,16 @@
 # Relatiu o pertanyent als [[Països Catalans]] o als seus habitants.
 
 {{-trad-}}
-{{inici|Relatiu a Catalunya o al català}}
+{{t-inici|Relatiu a Catalunya o al català}}
 * {{de}}: {{trad|de|katalanisch}}
 * {{en}}: {{trad|en|Catalan}}
+* {{ast}}: {{trad|ast|catalán}}
 * {{bs}}: {{trad|bs|katalonski}}
 * {{es}}: {{trad|es|catalán|m}}
 * {{hr}}: {{trad|hr|katalonski}}
 * {{eo}}: {{trad|eo|kataluna}}
 * {{fr}}: {{trad|fr|catalan}}
 * {{gl}}: {{trad|gl|catalán}}
-{{mig}}
 * {{it}}: {{trad|it|catalano}}
 * {{csc}}: {{trad|csc|CATALÀ}}
 * {{mt}}: {{trad|mt|Katalan}}
@@ -30,7 +32,7 @@
 * {{ru}}: {{trad|ru|каталанский}}, {{trad|ru|каталонский}}
 * {{sv}}: {{trad|sv|katalansk}}
 * {{uk}}: {{trad|uk|каталонський}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m|f=}}
@@ -58,20 +60,20 @@
 * [[catalano-]]
 
 {{-trad-}}
-{{inici|Natural de Catalunya}}
+{{t-inici|Natural de Catalunya}}
 * {{de}}: {{trad|de|Katalane|m}}
 * {{en}}: {{trad|en|Catalan}}
+* {{ast}}: {{trad|ast|catalán}}
 * {{es}}: {{trad|es|catalán}}
 * {{eo}}: {{trad|eo|kataluno}}
 * {{fr}}: {{trad|fr|Catalan}}
-{{mig}}
 * {{gl}}: {{trad|gl|catalán}}
 * {{csc}}: {{trad|csc|CATALÀ}}
 * {{mt}}: {{trad|mt|Katalan}}
 * {{ru}}: {{trad|ru|каталонец}}
-{{final}}
+{{t-final}}
 
-{{inici|Llengua originària de Catalunya}}
+{{t-inici|Llengua originària de Catalunya}}
 * {{af}}: {{trad|af|Katalaans}}
 * {{sq}}: {{trad|sq|katalonisht}}
 * {{de}}: {{trad|de|Katalanisch|n}}
@@ -108,7 +110,6 @@
 * {{hi}}: {{trad|hi|कॅटलॅन}}
 * {{hu}}: {{trad|hu|katalán}}
 * {{id}}: {{trad|id|katalan}}
-{{mig}}
 * {{ia}}: {{trad|ia|catalano}}
 * {{ga}}: {{trad|ga|Catalóinis}}
 * {{is}}: {{trad|is|katalónsku}}
@@ -144,11 +145,11 @@
 * {{uz}}: {{trad|uz|katalan tili}}
 * {{zh}}: {{trad|zh|加泰羅尼亞語}}
 * {{zu}}: {{trad|zu|isiKhathalani}}
-{{final}}
+{{t-final}}
 
 === Miscel·lània ===
 * {{ca-sil}}
-* {{anagrama|ca|acalat}}
+* {{anagrames|ca|acalat}}
 
 === Vegeu també ===
 * {{vegeu-cat|Català}}

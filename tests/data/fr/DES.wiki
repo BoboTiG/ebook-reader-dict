@@ -39,6 +39,9 @@
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-DES.wav}}
 * {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-DES.wav}}
 
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
+
 === {{S|voir aussi}} ===
 * {{WP}}
 
@@ -49,7 +52,7 @@
 === {{S|nom|de}} ===
 '''DES''' {{pron|deː,ʔeː,ʔɛs|de}} {{n}}
 # {{lexique|biochimie|de}} [[sulfate de diéthyle#fr|Sulfate de diéthylsulfat]] de [[formule]] [[brut]]e {{fchim|(C|2|H|5|)|2|SO|4}}, [[liquide]] [[incolore]] d’[[odeur]] [[mentholé]]e, [[très]] [[toxique]], utilisé dans l’[[éthylation]] des [[phénol]]s, [[amine]]s et [[thiol]]s.
-#* ''Das '''Diethylsulfat''' ist eine ölige Flüssigkeit mit pfefferminzartigem Geruch.''{{source|Karsten{{pc|Strey}}, ''Die Welt der Gifte'', Éditions Lehmanns, 2015}} 
+#* ''Das '''Diethylsulfat''' ist eine ölige Flüssigkeit mit pfefferminzartigem Geruch.''{{source|Karsten{{pc|Strey}}, ''Die Welt der Gifte'', Éditions Lehmanns, 2015}}
 #*: Le sulfate de diéthyle est un liquide huileux qui a une odeur de menthe poivrée.
 
 == {{langue|en}} ==
@@ -83,6 +86,9 @@
 '''DES'''
 # [[discipline#Italien|Discipline]] [[economiche]] e [[sociali]] {{ébauche-déf|it}}
 # [[distretto|Distretto]] di [[economia]] [[solidale]] {{ébauche-déf|it}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|it}}
 
 == {{langue|nl}} ==
 === {{S|étymologie}} ===

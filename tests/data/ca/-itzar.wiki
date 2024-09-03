@@ -1,5 +1,5 @@
 == {{-ca-}} ==
-{{ca-pron|centr=/iˈd͡za/|bal=/iˈd͡za/|bal2=/iˈza/|alg=/iˈza/|nocc=/iˈd͡za/|val=/iˈzaɾ/|val2=/iˈd͡zaɾ/}}
+{{ca-pron|alg=izar}}
 {{etim-lang|la|ca|-izare}}, {{del-lang|grc|ca|-ίζειν}}.
 
 === Sufix ===
@@ -8,7 +8,7 @@
 # {{def-meta|Aplicat a un [[substantiu]] o [[adjectiu]] forma un [[verb]] que expressa la seva realització o convertir-se'n.}}
 #: ''[[sexual]]'' + ''-itzar'' → ''[[sexualitzar]]'', ''[[gallec]]'' + ''-itzar'' → ''[[galleguitzar]]''
 
-==== Notes d'ús ====
+{{-notes-}}
 * En grafia medieval i moderna arcaica s'escrivia predominantment ''[[-isar]]'': realisar, actualisar... La forma ''-itzar'' era un cultisme usat especialment en paraules gregues religioses.
 * Actualment és un sufix productiu en tecnicismes. S'aplica també a algun nom propi ([[pasteuritzar]]) o acrònim ([[uperitzar]]).
 * La pronúncia tradicional era fricativa {{IPAchar|[z]}} i la culta africada {{IPAchar|[d͡z]}}.
@@ -21,14 +21,13 @@
 {{vegeu-der-afix|ca}}
 
 {{-trad-}}
-{{inici}}
+{{t-inici}}
 * {{en}}: {{trad|en|-ize}}, {{trad|en|-yze}}, {{trad|en|-ise}}, {{trad|en|-yse}}
 * {{es}}: {{trad|es|-izar}}
-{{mig}}
 * {{eo}}: {{trad|eo|-igi}}
 * {{fr}}: {{trad|fr|-iser}}, {{trad|fr|-yser}}
 * {{it}}: {{trad|it|-izzare}}
-{{final}}
+{{t-final}}
 
 === Vegeu també ===
 * {{ca-dicc|dnv|gdlc}}

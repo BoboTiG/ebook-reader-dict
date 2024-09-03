@@ -2,9 +2,9 @@
 ==Adjetivo==
 {{flex.pt|s=cabrum|p=cabruns}}
 {{oxítona|ca|brum}}, {{mf}}
-# {{escopo|Pecuária}} de [[cabra]]s:
+# {{escopo|pt|Pecuária}} de [[cabra]]s:
 #* ''o gado '''cabrum''' adapta-se facilmente às regiões montanhosas...''
-# {{escopo|Regionalismo, Brasil}} [[marido]] de [[mulher]] [[adúltero|adúltera]]
+# {{escopo|pt|Brasil}} [[marido]] de [[mulher]] [[adúltero|adúltera]]
 
 ===Sinônimos===
 De '''1''' (de cabras):
@@ -30,7 +30,7 @@ De '''1''' (de cabras):
 # indica [[estrondo]]
 
 =={{etimologia|pt}}==
-{{llietimo|la|caprunu|pt||cabra}}
+{{etimo2|la|caprunu|pt||cabra}}
 
 ==Ver também==
 ===No Wikcionário===

@@ -6,10 +6,16 @@
 {{fr-rég|ɑ̃.si.klɔ.pe.di}}
 '''encyclopædie''' {{pron|ɑ̃.si.klɔ.pe.di|fr}} {{f}}
 
-# {{archaïque|fr}} {{variante ortho de|encyclopédie}}.
-#* ''Oint qu’on ne peut rien ſçavoir ſolidement ſans ſçavoir vn peu de tout , qui eſt cette '''encyclopædie''' : ne plus ni moins qu’on ne peut ſçavoir vne charte particuliere ſans avoir connoiſſance de la generale , & meſmes les païs voiſins.'' {{source|auteur incertain, ''Premiere Centvrie des Qvestions Traitees ez Conferences'', 1638}}
-#* ''Ainſi , la Logique leur rend le reciproque par vne correſpondance mutuelle, comme l’on pourra encore mieux remarquer dans l’obſeruation generale de noſtre '''Encyclopædie'''.'' {{source|auteur incertain, ''La Science vniverselle de Sorel'', 1647}}
-#* ''Nous ne doutons point qu’il n’y en ayt eu aſſez qui ont ſçeu qu’il faloit tenir vn compte exact de toutes les Diſciplines , afin que les Hommes viſſe nt en peu de temps quelles pouuoient eſtre les richeſſes de leur Eſpirit, & qui pour y donner plus de facilité , ont taſché de reduire tant les Sciences que les Arts dans leurs dependances & leurs limites, mais ils n’ont pas tous reuſſi à trouuer leurs correſpondances & leurs iuſteſſes : Voyons quels ſont ceux qui ayans donné vne eſtenduẽ generalle à leur ouurage , ont trouué la vraye forme d’vne '''Encyclopædie'''.'' {{source|[http://fr.wikipedia.org/wiki/Charles_Sorel Charles Sorel], ''De la Perfection de l’Homme'', 1655}}
+# {{archaïsme|fr}} {{variante ortho de|encyclopédie}}.
+#* {{exemple | lang=fr
+ | Oint qu’on ne peut rien ſçavoir ſolidement ſans ſçavoir vn peu de tout , qui eſt cette '''encyclopædie''' : ne plus ni moins qu’on ne peut ſçavoir vne charte particuliere ſans avoir connoiſſance de la generale , & meſmes les païs voiſins.
+ | source=auteur incertain, ''Premiere Centvrie des Qvestions Traitees ez Conferences'', 1638}}
+#* {{exemple | lang=fr
+ | Ainſi , la Logique leur rend le reciproque par vne correſpondance mutuelle, comme l’on pourra encore mieux remarquer dans l’obſeruation generale de noſtre '''Encyclopædie'''.
+ | source=auteur incertain, ''La Science vniverselle de Sorel'', 1647}}
+#* {{exemple | lang=fr
+ | Nous ne doutons point qu’il n’y en ayt eu aſſez qui ont ſçeu qu’il faloit tenir vn compte exact de toutes les Diſciplines , afin que les Hommes viſſe nt en peu de temps quelles pouuoient eſtre les richeſſes de leur Eſpirit, & qui pour y donner plus de facilité , ont taſché de reduire tant les Sciences que les Arts dans leurs dependances & leurs limites, mais ils n’ont pas tous reuſſi à trouuer leurs correſpondances & leurs iuſteſſes : Voyons quels ſont ceux qui ayans donné vne eſtenduẽ generalle à leur ouurage , ont trouué la vraye forme d’vne '''Encyclopædie'''.
+ | source=[http://fr.wikipedia.org/wiki/Charles_Sorel Charles Sorel], ''De la Perfection de l’Homme'', 1655}}
 
 [[Catégorie:æ en français|encyclopaedie]]
 

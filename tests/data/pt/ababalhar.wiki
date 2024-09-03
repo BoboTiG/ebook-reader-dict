@@ -4,9 +4,9 @@
 # {{escopo|pt|Popular}} [[babar]]; [[conspurcar]]
 ===Conjugação===
 {{conj/pt|ababalh|ar}}
-=={{etimologia|pt}}==
+=={{Etimologia|pt}}==
 : De [[baba]].
-=={{pronúncia|pt}}==
+=={{Pronúncia|pt}}==
 ===Brasil===
 ====Paulistana====
 * AFI: /a.ba.ba.ˈʎa''ɾ''/

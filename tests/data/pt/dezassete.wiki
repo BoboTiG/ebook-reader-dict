@@ -1,19 +1,18 @@
-{{Wikipédia}}
 {{grafiaPtpt|dezessete}}
 
 ={{-pt-}}=
+==Numeral==
+{{paroxítona|de|zas|se|te}}, {{gramática|card}}
+# vide [[dezessete]]
+
 ==Substantivo==
 {{flex.pt|ms=dezassete|mp=dezassetes}}
-{{paroxítona|de|zas|se|te}}, ''masculino''
+{{paroxítona|de|zas|se|te}}, {{gramática|m}}
 # o [[número]] dezassete (17, XVII)
 # nota correspondente a dezassete valores
 #* ''Mãe, tive '''dezassete''' valores no teste de Língua Portuguesa.''
 # pessoa ou [[coisa]] que apresenta o número dezassete numa ordenação
 #* ''Olha, o '''dezassete''' não veio hoje...''
-
-==Numeral==
-{{paroxítona|de|zas|se|te}}, ''cardinal''
-# vide [[dezessete]]
 
 =={{etimologia|pt}}==
 : Contração do latim vulgar ''[[decem#Latim|decem]]'' + ''[[ac]]'' + ''[[septem]]''.
@@ -21,6 +20,10 @@
 =={{pronúncia|pt}}==
 ===Portugal===
 * AFI: {{AFI|/dɨ.zɐ.ˈsɛ.tɨ/}}
+
+==Ver também==
+===Na Wikipédia===
+* {{interwiki|w|pt|dezessete}}
 
 [[Categoria:Substantivo (Português)]]
 [[Categoria:Numeral cardinal (Português)|# 000017]]

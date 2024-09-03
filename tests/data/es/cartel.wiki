@@ -1,7 +1,8 @@
 {{desambiguación|cártel}}
 
 == {{lengua|es}} ==
-{{pron-graf}}
+{{ampliable}}
+{{pron-graf|audio=LL-Q1321 (spa)-Marreromarco-cartel.wav|aunota=Venezuela}}
 
 === Etimología ===
 {{etimología|oc|cartel}}.
@@ -12,15 +13,32 @@
 ;1: Lámina que se expone para dar información mediante palabras o imágenes.
 ;2: Prestigio.
 
-{{clear}}
-
 === Traducciones ===
 {{trad-arriba}}
-{{t+|eo|1|afiŝo}}
-{{t+|fr|1|affiche}}
-{{trad-centro}}
-{{t+|sv|1|affisch|c|,|1|skylt |c}}
+{{t|eo|a1=1|t1=afiŝo}}
+{{t|fr|a1=1|t1=affiche}}
+{{t|sv|a1=1|t1=affisch|g1=c|a2=1|t2=skylt|g2=c}}
 {{trad-abajo}}
+
+== {{lengua|en}} ==
+{{pron-graf|leng=en
+|pron=Received Pronunciation|fono=kɑːˈtɛl|audio=LL-Q1860 (eng)-Vealhurl-cartel.wav|aunota=sur de Inglaterra
+|2pron=EE. UU., Canadá|2fono=kɑɹˈtɛl
+|ls=2|nl=6}}
+
+=== Etimología ===
+En el sentido empresarial, prestado {{etim|leng=en|de|Kartell}}, utilizado por primera vez por [[Eugen Richter]] en 1871 en el [[Reichstag]]. En el sentido político, que fue el vehículo de esta metáfora, el sentido inglés, como el sentido alemán, fue tomado prestado {{etim|leng=en|fr|cartel}} en el siglo dieciseis, {{etim|leng=en|it|cartello}}, diminutivo de {{l+|it|carta|tarjeta}}, {{etim|leng=en|la|charta}}.
+
+=== {{sustantivo|en}} ===
+{{inflect.en.sust}}
+
+;1 {{csem|leng=en|economía}}: Un grupo de empresas o naciones que se confabulan para limitar la competencia dentro de una industria o mercado: [[cartel]], [[cártel]].
+{{ejemplo|drug '''cartel'''}}
+{{ejemplo|car '''cartel'''}}
+
+;2 {{csem|leng=en|historia|política}}: Una combinación de grupos políticos (en particular partidos) para una acción común.
+
+{{w|leng=en}}
 
 == Referencias y notas ==
 <references />

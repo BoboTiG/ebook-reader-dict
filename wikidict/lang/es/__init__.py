@@ -15,7 +15,7 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{lengua|es}}",)
 section_sublevels = (4, 3)
-etyl_section = ("Etimología",)
+etyl_section = ("Etimología", "Etimología 1")
 sections = (
     "Abreviaturas",
     "Adjetivo",

@@ -5,9 +5,11 @@
 === {{S|adjectif|fr}} ===
 {{fr-rég|mf=oui|e.ky.me.nik}}
 '''œcuménique''' ({{pron|e.ky.me.nik|fr}} ou {{pron|œ.ky.me.nik|fr}} ou {{pron|ø.ky.me.nik|fr}} en fonction des régions) {{mf}}
-# [[universel|Universel]], qui concerne l’ensemble des terres habitées.
+# Collectif, commun, courant, dominant, public, universel, général 
 # {{lexique|religion|fr}} Relatif à l’[[œcuménisme]] ; qui concerne ou rassemble l’ensemble des [[confession]]s [[chrétien]]nes.
-#* ''Je ne sais pas pourquoi les bordels sont si souvent situés dans des rues aux noms aussi '''œcuméniques'''… L’hommage du vice à la vertu, sans doute.'' {{source|{{ouvrage |prénom=Pierre |nom=Lemaître |titre=Au revoir là-haut |éditeur=Albin Michel |lieu=Paris |année=2013}}, page 510}}
+#* {{exemple | lang=fr
+ | Je ne sais pas pourquoi les bordels sont si souvent situés dans des rues aux noms aussi '''œcuméniques'''… L’hommage du vice à la vertu, sans doute.
+ | source={{ouvrage |prénom=Pierre |nom=Lemaître |titre=Au revoir là-haut |éditeur=Albin Michel |lieu=Paris |année=2013}}, page 510}}
 
 ==== {{S|dérivés}} ====
 * [[concile œcuménique]]
@@ -22,7 +24,7 @@
 ==== {{S|traductions}} ====
 {{trad-début}}
 * {{T|en}} : {{trad+|en|ecumenic}}, {{trad+|en|oecumenic}}, {{trad+|en|ecumenical}}, {{trad+|en|oecumenical}}
-* {{T|hr}} : {{trad-|hr|(1)|dif=svjetski}}, {{trad-|hr|(2)|dif=ekumenski}}
+* {{T|hr}} : {{trad-|hr|svjetski}} (1), {{trad-|hr|ekumenski}} (2)
 * {{T|da}} : {{trad-|da|økumeni}}
 * {{T|es}} : {{trad+|es|ecuménico}}
 * {{T|eo}} : {{trad-|eo|ekumena}}
@@ -40,8 +42,10 @@
 === {{S|prononciation}} ===
 * {{pron-rimes|e.ky.me.nik|fr}}
 * {{pron|e.ky.me.nik|fr}} ou {{pron|ø.ky.me.nik|fr}}
+* {{écouter|Lyon (France)|e.ky.me.nik|lang=fr|audio=LL-Q150 (fra)-WikiLucas00-œcuménique.wav}}
 
-===== {{S|notes}} =====
+
+==== {{S|notes}} ====
 : {{note-fr-prononciation-œ}}
 
 === {{S|voir aussi}} ===

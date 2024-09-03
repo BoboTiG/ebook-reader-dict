@@ -1,71 +1,56 @@
 {{desambiguación|tres-|treš|très|très-|trés|três|trěś|třes|třeš}}
 
 == {{lengua|es}} ==
-{{pron-graf|tɾes|audio=LL-Q1321 (spa)-Rodelar-tres.wav
-|p=gres|p2=res|p3=tras|p4=tris}}
+{{pron-graf|1audio1=LL-Q1321 (spa)-Rodelar-tres.wav|p1=gres|p2=res|p3=tras|p4=tris}}
+{{swadesh|es|es}}
 
-=== Etimología ===
-{{etimología|osp|tres|tres}}, este del latín {{l+|la|tres|trēs|glosa=tres}}, y este del protoindoeuropeo [[*tréyes]]. Cognado del judeoespañol {{l+|lad|tres}}.
+=== Etimología 1 ===
+{{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este  {{etim|ine-pro|*tréyes}}. Cognado  {{etim|lad|tres}}.
 
-=== {{adjetivo cardinal|es}} ===
+==== {{adjetivo cardinal|es}} ====
 {{inflect.es.adj.invariante}}
-
 ;1: {{plm|dos}} y [[uno]].
-
 ;2: Que ocupa el [[tercer]] lugar en una serie.
 {{sinónimo|tercero}}
-:*'''Ejemplo:''' El capítulo número ''tres''.
-
+{{ejemplo|El capítulo número ''tres''.}}
 ;3: Que está tres{{-sub|1}} veces.
 {{uso|se emplea delante de un sustantivo, pero también puede ir solo}}.
-:*'''Ejemplos:'''
-::Vinieron los ''tres'' hermanos.
-::Vinieron los ''tres''.
+{{ejemplo|Vinieron los ''tres'' hermanos.}}
+{{ejemplo|Vinieron los ''tres''.}}
 
-=== {{sustantivo masculino|es}} ===
+==== {{sustantivo masculino|es}} ====
 {{inflect.es.sust.reg-cons}}
-
-;4 {{números}}: Signo o signos usados para representar al número que tiene tres unidades.
-:*'''Ejemplo:''' En números romanos el ''tres'' se escribe III, y en números árabes es 3.
-
-;5 {{números}}: Nombre del número '''3'''{{-sub|1}}.
-
-;6 {{naipes}}: En las barajas, las cartas que llevan tres marcas que indican su tercer lugar en una serie del mismo palo.
-:*'''Ejemplo:''' Tengo el ''tres'' de tréboles.
-
-;7 {{instrumentos musicales}}: Instrumento musical derivado de la [[guitarra]] que consta de tres órdenes de dobles triples o cuádruples de cuerdas octavadas (por lo menos un orden).
-
-;8 {{historia}}: Regidor de una ciudad o villa española, cuando en total eran tres regidores.
+;4 {{csem|números}}: Signo o signos usados para representar al número que tiene tres unidades.
+{{ejemplo|En números romanos el ''tres'' se escribe III, y en números árabes es 3.}}
+;5 {{csem|números}}: Nombre del número '''3'''{{-sub|1}}.
+;6 {{csem|naipes}}: En las barajas, las cartas que llevan tres marcas que indican su tercer lugar en una serie del mismo palo.
+{{ejemplo|Tengo el ''tres'' de tréboles.}}
+;7 {{csem|instrumentos musicales}}: Instrumento musical derivado de la [[guitarra]] que consta de tres órdenes de dobles triples o cuádruples de cuerdas octavadas (por lo menos un orden).
+;8 {{csem|historia}}: Regidor de una ciudad o villa española, cuando en total eran tres regidores.
 {{ámbito|España}}.
-
-;9 {{música}}: Grupo musical integrado por tres voces o tres instrumentos.
+;9 {{csem|música}}: Grupo musical integrado por tres voces o tres instrumentos.
 {{sinónimo|trío}}.
 
-{{clear}}
-
-=== Compuestos ===
-{{rel-arriba|Compuestos con «tres»}}
+==== Compuestos ====
+{{trad-arriba|Compuestos con «tres»}}
 * {{l|es|tresañal}}
 * {{l|es|tresañejo}}
 * {{l|es|trescientos}}
 * {{l|es|tresdoblar}}
-{{rel-centro}}
 * {{l|es|tresdoble}}
 * {{l|es|tresmesino}}
 * {{l|es|trestanto}}
-{{rel-abajo}}
+{{trad-abajo}}
 
-{{clear}}
-
-=== Locuciones ===
-{{rel-arriba|Locuciones con «tres»}}
+==== Locuciones ====
+{{trad-arriba|Locuciones con «tres»}}
 *[[compás de tres por cuatro]]; En música, el que dura tres negras.
 *[[común de tres]]: Adjetivo latino con una terminación que va con los tres géneros.
 *[[hambre de tres semanas]]: Capricho de no comer a la hora debida o no aceptar ciertos alimentos.
 *[[razón simple de tres números]]: Cociente de dos cantidades que corresponde a la diferencia de un mismo número (por ejemplo 8) con dos diferentes (por ejemplo 4 y 2): (8-4)/(8-2)
 *[[regla de tres]]: Forma de determinar una cantidad desconocida, sabiendo que la relación entre dos cantidades conocidas '''a''' y '''b''', es la misma que entre una tercera cantidad conocida '''c''' y la cantidad a determinar '''x'''.
 *[[regla de tres compuesta]]: La misma anterior pero con las cantidades conocidas compuestas por varios elementos.
-*[[sombrero al tres]]: [[tricornio|Tricornio]]. (Venezuela)
+*[[sombrero al tres]]: {{plm|tricornio}}. (Venezuela)
 *[[sombrero de tres candiles]]: Cierto tipo de sombrero con el ala levantada y abarquillada en tres partes que forman un triángulo de tres picos en su base.
 *[[sombrero de tres picos]]:
 :: Cierto tipo de sombrero con el ala levantada y abarquillada en tres partes que forman un triángulo de tres picos en su base.
@@ -80,7 +65,6 @@
 *[[tres sietes]]: Cierto juego de naipes.
 *[[vino de tres hojas]]: Vino de tres años.
 * [[a la de tres, va la vencida]] o [[a las tres, va la vencida]] o [[a tres, va la vencida]]
-{{rel-centro}}
 *jugar [[a tres bandas]]:
 ::En el juego del billar, cuando la bola debe rebotar en tres bandas antes de hacer carambola.
 ::En actividades laborales, haber tres equipos colaborando en un mismo proyecto, plan o trabajo.
@@ -105,165 +89,150 @@
 *[[tener tres varas de hambre]]: Estar afligido económicamente. (Cuba)
 *[[tres cuartos de lo mismo]]: Que se puede decir de él lo mismo que del otro. (España)
 *[[y tres más]]: Locución adverbial para reforzar lo dicho.
-{{rel-abajo}}
+{{trad-abajo}}
 
-=== Refranes ===
+==== Refranes ====
 * [[a pan de quince días, hambre de tres semanas]]
 * [[dos es compañía, tres es multitud]]
 * [[el huésped y el pez, a los tres días hiede]]
 * [[ninguna maravilla dura más de tres días; luego con otra se olvida]]
 * [[secreto de uno, de ninguno; de dos, sábelo Dios; de tres, secreto no es]]
 * [[un médico cura, dos dudan, tres muerte segura]]
-<!--
-=== Información adicional ===
--->
 
-=== Véase también ===
+==== Véase también ====
 *[[tercero]]
 *[[tercio]]
-{{w}}.
+{{w}}
 
-{{clear}}
-
-=== Traducciones ===
+==== Traducciones ====
 {{trad-arriba|[1] dos más uno}}
-{{t+|af|1|drie}}
-{{t+|ay|1|kimsa}}
-{{t+|sq|1|tre|m|,|tri|f}}
-{{t+|de|1|drei}}
+{{t|af|a1=1|t1=drie}}
+{{t|ay|a1=1|t1=kimsa}}
+{{t|sq|a1=1|t1=tre|g1=m|t2=tri|g2=f}}
+{{t|de|a1=1|t1=drei}}
 *Apache occidental: [[táági]]
-{{t+|az|1|üç}}
-{{t+|br|1|teir|f|,|tri|m}}
-{{t+|bg|1|три|tr=tri}}
-{{t+|cs|1|tři}}
-{{t+|ctu|1|uxp'ej}}
-{{t+|hr|1|tri}}
-{{t+|dv|1|thineh}}
-{{t+|sl|1|tri}}
-{{t+|eo|1|tri}}
-{{t+|eu|1|hiru}}
-{{t+|fr|1|trois}}
-{{t+|el|1|τρείς|tr=tris}}
-{{t+|gu|1|ત્રણ|tr=tran}}
-{{t+|ha|1|uku}}
-{{t+|hi|1|तीन|tr=tîn}}
-{{t+|io|1|tri}}
-{{t+|en|1|three}}
-{{t+|ga|1|trí}}
-{{t+|it|1|tre}}
-{{t+|ja|1|三|,|さん|tr|san|,|みっつ|tr|mittsu}})
-{{t+|alc|1|wókstou}}
-{{t+|ku|1|sisê}}
-{{t+|sme|1|golbma}}
-{{t+|zh|1|三|,|叁}}
-{{t+|arn|1|küla}}
-{{trad-centro}}
-{{t+|yua|1|óox}}
-{{t+|mn|1|гурав}}
-{{t+|nhn|1|yei}}
-{{t+|nci|1|eyi|yei}}
-{{t+|ngu|1|yeyi}}
-{{t+|nch|1|eyi}}
-{{t+|nhw|1|eyi}}
-{{t+|nhe|eyi}}
-{{t+|nlv|1|eyi}}
-{{t+|nv|1|táá}}
-{{t+|nl|1|drie}}
-{{t+|no|1|tre}}
-{{t+|osc|1|𐌕𐌓𐌝𐌔|tr|trís}}
-{{t+|fa|1|سه|tr=[[se#Transliteración del persa|se]]}}
-{{t+|pl|1|trzy}}
-{{t+|pt|1|três}}
-{{t+|quz|1|kimsa}}
-{{t+|rhg|1|tin}}
-{{t+|ru|1|три|tr=tri}}
-{{t+|sa|?|त्रि}}
-{{t+|sv|1|tre}}
-{{t+|tl|1|tatlo}}
-{{t+|th|1|สาม|tr=s̄ām}}
-{{t+|tpi|1|tripela}}
-{{t+|tpn|1|mosapyr}}
-{{t+|tr|1|üç}}
-{{t+|uk|1|три|tr=tri}}
-{{t+|xum|1|𐌕𐌓𐌉𐌚|tr=trif}}
-{{t+|vi|1|ba}}
+{{t|az|a1=1|t1=üç}}
+{{t|br|a1=1|t1=teir|g1=f|t2=tri|g2=m}}
+{{t|bg|a1=1|t1=три}}
+{{t|cs|a1=1|t1=tři}}
+{{t|ctu|a1=1|t1=uxp'ej}}
+{{t|sh|a1=1|t1=tri}}
+{{t|dv|a1=1|t1=thineh}}
+{{t|sl|a1=1|t1=tri}}
+{{t|eo|a1=1|t1=tri}}
+{{t|eu|a1=1|t1=hiru}}
+{{t|fr|a1=1|t1=trois}}
+{{t|el|a1=1|t1=τρείς}}
+{{t|gu|a1=1|t1=ત્રણ}}
+{{t|ha|a1=1|t1=uku}}
+{{t|hi|a1=1|t1=तीन}}
+{{t|io|a1=1|t1=tri}}
+{{t|en|a1=1|t1=three}}
+{{t|ga|a1=1|t1=trí}}
+{{t|it|a1=1|t1=tre}}
+{{t|ja|a1=1|t1=三|t2=さん|tl2=san|t3=みっつ|tl3=mittsu}}
+{{t|alc|a1=1|t1=wókstou}}
+{{t|ku|a1=1|t1=sisê}}
+{{t|se|a1=1|t1=golbma}}
+{{t|zh|a1=1|t1=三|t2=叁}}
+{{t|arn|a1=1|t1=küla}}
+{{t|yua|a1=1|t1=óox}}
+{{t|mn|a1=1|t1=гурав}}
+{{t|nhn|a1=1|t1=yei}}
+{{t|nci|a1=1|t1=eyi|t2=yei}}
+{{t|ngu|a1=1|t1=yeyi}}
+{{t|nch|a1=1|t1=eyi}}
+{{t|nhw|a1=1|t1=eyi}}
+{{t|nhe|t1=eyi}}
+{{t|nlv|a1=1|t1=eyi}}
+{{t|nv|a1=1|t1=táá}}
+{{t|nl|a1=1|t1=drie}}
+{{t|no|a1=1|t1=tre}}
+{{t|osc|a1=1|t1=𐌕𐌓𐌝𐌔|tl1=trís}}
+{{t|fa|a1=1|t1=سه}}
+{{t|pl|a1=1|t1=trzy}}
+{{t|pt|a1=1|t1=três}}
+{{t|quz|a1=1|t1=kimsa}}
+{{t|qwh|a1=1|t1=kima}}
+{{t|rhg|a1=1|t1=tin}}
+{{t|ru|a1=1|t1=три}}
+{{t|sa|i1=s|t1=त्रि}}
+{{t|sv|a1=1|t1=tre}}
+{{t|tl|a1=1|t1=tatlo}}
+{{t|th|a1=1|t1=สาม}}
+{{t|tpi|a1=1|t1=tripela}}
+{{t|tpn|a1=1|t1=mosapyr}}
+{{t|tr|a1=1|t1=üç}}
+{{t|uk|a1=1|t1=три}}
+{{t|xum|a1=1|t1=𐌕𐌓𐌉𐌚}}
+{{t|vi|a1=1|t1=ba}}
 {{trad-abajo}}
-
-[[Categoría:ES:Lista Swadesh|024tres]]
 
 == {{lengua|an}} ==
 {{pron-graf|leng=an}}
 
-=== Etimología ===
-{{etimología|leng=an|roa-oan|tres|tres}}, y este del latín {{l+|la|tres|trēs|glosa=tres}}.
+=== Etimología 1 ===
+{{etimología|leng=an|roa-oan|tres|tres}}, y este {{etim|leng=an|la|tres}}.
 
-=== {{adjetivo cardinal|an}} ===
+==== {{adjetivo cardinal|an}} ====
 ;1: {{plm}}.
 
 == {{lengua|ast}} ==
-{{pron-graf|leng=ast
-|g=trés|gnota=matemática}}
+{{pron-graf|leng=ast|g1=trés|gnota1=matemática}}
 
 === Etimología 1 ===
-{{etimología|leng=ast}}
+{{etimología|leng=ast}}.
 
 ==== {{adjetivo cardinal|ast}} ====
 ;1: {{plm}}.
 {{relacionado|leng=ast|terceru}}.
 
-{{clear}}
-
 === Etimología 2 ===
-{{etimología|leng=ast}}
+{{etimología|leng=ast}}.
 
 ==== {{preposición|ast}} ====
 ;1: {{plm|detrás de}} (más allá de).
 {{sinónimo|leng=ast|detrás de}}.
-
 ;2: {{plm|después de}}.
 {{sinónimo|leng=ast|depués de}}.
 
 ==== Véase también ====
-{{w|leng=ast}}.
+{{w|leng=ast}}
 
 == {{lengua|osp}} ==
 {{pron-graf|leng=osp}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=osp|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|osp}} ===
-;1 {{números|leng=osp}}: {{plm}}.
+==== {{adjetivo cardinal|osp}} ====
+;1 {{csem|números|leng=osp}}: {{plm}}.
 
-{{clear}}
-
-=== Información adicional ===
-{{derivados|des=x}}
-{{desc|es|tres}}
-{{desc|lad|tres|טריס}}
-{{centro}}
-{{desc|pap|tres}}
-{{abajo}}
+==== Descendientes ====
+{{trad-arriba|descendientes}}
+{{d|es|d1=tres}}
+{{d|lad|d1=tres|d2=טריס}}
+{{d|pap|d1=tres}}
+{{trad-abajo}}
 
 == {{lengua|ca}} ==
-{{pron-graf|(')tɾes|leng=ca|pron=occidental|2fone=(')tɾɛs|2pron=oriental}}
+{{pron-graf|leng=ca}}
+{{swadesh|ca|ca}}
 
-=== Etimología ===
-{{etimología|leng=ca|roa-oca|tres|tres}}, y este del latín {{l+|la|tres|trēs|glosa=tres}}.
+=== Etimología 1 ===
+{{etimología|leng=ca|roa-oca|tres|tres}}, y este {{etim|leng=ca|la|tres}}.
 
-=== {{adjetivo cardinal|ca}} ===
-;1 {{números|leng=ca}}: {{plm}}.
+==== {{adjetivo cardinal|ca}} ====
+;1 {{csem|números|leng=ca}}: {{plm}}.
 {{relacionado|leng=ca|tercer|triple}}.
 
-[[Categoría:CA:Lista Swadesh|024tres]]
-
-=== Locuciones ===
+==== Locuciones ====
 *[[en un tres i no res]] = enseguida, en menos que canta un gallo
 *[[buscar-li tres peus al gat]] = buscar tres pies al gato
 *[[tenir el cap a tres quarts de quinze]] = estar loco o muy despistado
 
-=== Véase también ===
-{{w|leng=ca}}.
+==== Véase también ====
+{{w|leng=ca}}
 
 == {{lengua|roa-oca}} ==
 {{pron-graf|leng=roa-oca}}
@@ -274,8 +243,6 @@
 ==== {{adjetivo cardinal|roa-oca}} ====
 ;1: {{plm}}.<ref name="iec">{{IEC}}</ref>
 
-{{clear}}
-
 === Etimología 2 ===
 {{etimología|leng=roa-oca|la|trans|alt=trāns|del otro lado}}.
 
@@ -285,408 +252,316 @@
 == {{lengua|mcm}} ==
 {{pron-graf|leng=mcm}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=mcm|pt|três|tres}}.
 
-=== {{adjetivo cardinal|mcm}} ===
-;1 {{números|leng=mcm}}: {{plm}}.
+==== {{adjetivo cardinal|mcm}} ====
+;1 {{csem|números|leng=mcm}}: {{plm}}.
 
 == {{lengua|da}} ==
 {{pron-graf|leng=da}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=da}}.
 
-=== {{adjetivo cardinal|da}} ===
-;1 {{números|leng=da}}: {{plm|sesenta}}.
+==== {{adjetivo cardinal|da}} ====
+;1 {{csem|números|leng=da}}: {{plm|sesenta}}.
 
 == {{lengua|fr}} ==
-{{pron-graf|tʁɛs|leng=fr}}
+{{pron-graf|leng=fr}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=fr|es|tres}}.
 
-=== {{sustantivo masculino|fr}} ===
+==== {{sustantivo masculino|fr}} ====
 {{inflect.fr.sust.invariante}}
+;1 {{csem|instrumentos musicales|leng=fr}}: {{plm}}.
 
-;1 {{instrumentos musicales|leng=fr}}: {{plm}}.
-
-=== Información adicional ===
-{{anagrama|leng=fr|rets|sert}}.
-
-=== Véase también ===
-{{w|leng=fr}}.
+==== Véase también ====
+{{w|leng=fr}}
 
 == {{lengua|frm}} ==
 {{pron-graf|leng=frm}}
 
-=== {{adverbio|frm}} ===
+=== Etimología 1 ===
+==== {{adverbio|frm}} ====
 ;1: {{grafía|leng=frm|trés}}.
 
 == {{lengua|roa-opt}} ==
 {{pron-graf|leng=roa-opt}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=roa-opt|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|roa-opt}} ===
-;1 {{números|leng=roa-opt}}: {{plm}}.
+==== {{adjetivo cardinal|roa-opt}} ====
+;1 {{csem|números|leng=roa-opt}}: {{plm}}.
 
 == {{lengua|gl}} ==
-{{pron-graf|leng=gl|audio=Gl-tres.ogg}}
+{{pron-graf|leng=gl|1audio1=Gl-tres.ogg}}
+{{swadesh|gl|gl}}
 
-=== Etimología ===
-{{etimología|leng=gl|roa-opt|tres|tres}}, y este del latín {{l+|la|tres|trēs|glosa=tres}}.
+=== Etimología 1 ===
+{{etimología|leng=gl|roa-opt|tres|tres}}, y este {{etim|leng=gl|la|tres}}.
 
-=== {{adjetivo cardinal|gl}} ===
-;1 {{números|leng=gl}}: {{plm}}.
+==== {{adjetivo cardinal|gl}} ====
+;1 {{csem|números|leng=gl}}: {{plm}}.
 {{relacionado|leng=gl|terceiro}}.
 
-=== Véase también ===
-{{w|leng=gl}}.
-
-[[Categoría:GL:Lista Swadesh|024tres]]
+==== Véase también ====
+{{w|leng=gl}}
 
 == {{lengua|ia}} ==
 {{pron-graf|leng=ia}}
 
-=== Etimología ===
-{{etimología|leng=ia}}
+=== Etimología 1 ===
+{{etimología|leng=ia}}.
 
-=== {{adjetivo cardinal|ia}} ===
-;1 {{números|leng=ia}}: {{plm}}.
+==== {{adjetivo cardinal|ia}} ====
+;1 {{csem|números|leng=ia}}: {{plm}}.
 
-=== Véase también ===
-{{w|leng=ia}}.
+==== Véase también ====
+{{w|leng=ia}}
 
 == {{lengua|lad}} ==
-{{pron-graf|leng=lad
-|g=טריס}}
+{{pron-graf|leng=lad|g1=טריס}}
 
-=== Etimología ===
-{{etimología|leng=lad|osp|tres|tres}}, y este del latín {{l+|la|tres|trēs|glosa=tres}}.
+=== Etimología 1 ===
+{{etimología|leng=lad|osp|tres|tres}}, y este  {{etim|leng=lad|la|tres}}.
 
-=== {{adjetivo cardinal|lad}} ===
-;1 {{números|leng=lad}}: {{plm}}.
+==== {{adjetivo cardinal|lad}} ====
+;1 {{csem|números|leng=lad}}: {{plm}}.
 
 == {{lengua|la}} ==
-{{pron-graf|leng=la|alt=trēs
-|pron=clásico|fone=treːs|audio=la-cls-tres.ogg
-|s=III}}
-
+{{pron-graf|leng=la|1audio1=la-cls-tres.ogg}}
 {{la.adj.card|antes1=duo|antes2=II|siga1=quattuor|siga2=IV|Título=III|card=trēs|ord={{l*|la|tertius}}|adv={{l*|la|ter}}|dist={{l*|la|terni|ternī}}, {{l*|la|trini|trīnī}}}}
 
-=== Etimología ===
-{{etimología|leng=la|itc|*trejes}}, y este del protoindoeuropeo {{l+|ine|ine=x|*tréyes|*treies|glosa=tres}}.<ref name="vaan">{{DeVaan|628-29}}</ref> Compárese el sánscrito {{l+|sa|त्रयं|tr=tráya}}, el griego antiguo {{l+|grc|τρεῖς|tr=treis}} y el gótico {{l+|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}.<ref name="vaan" />
+=== Etimología 1 ===
+{{etimología|leng=la|itc-pro|*trejes}}, y este {{etim|leng=la|ine-pro|ine=x}}.<ref name="vaan">{{DeVaan|628-29}}</ref> Compárese el sánscrito {{l+|sa|त्रयं|tr=tráya}}, el griego antiguo {{l+|grc|τρεῖς|tr=treis}} y el gótico {{l+|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}.<ref name="vaan" />
 
-=== {{adjetivo cardinal|la}} ===
+==== {{adjetivo cardinal|la}} ====
 {{inflect.la.adj.3.2|tr|singular=no|voc=no}}
+;1 {{csem|números|leng=la}}: {{plm|tres}} (3).
 
-;1 {{números|leng=la}}: {{plm|tres}} (3).
-
-{{clear}}
-
-=== Información adicional ===
-{{rel-arriba|Derivados de ''trēs'' en latín}}
-*{{l+|la|ter}} ("tres veces")
-**{{l+|la|terni|ternī}} ("de tres en tres")
-**{{l+|la|tertius|glosa=tercio}}
-***{{l+|la|tertiarius|tertiārius}} ("la tercera parte")
-***{{l+|la|tertio}} ("por tercera vez")
-***{{l+|la|tertio|tertiō, -āre}} ("repetir por tercera vez")
-*{{l+|la|trecenti|trecentī|glosa=trescientos}}
-**{{l+|la|trecentesimus|trecentēsimus|glosa=tricentésimo}}
-**{{l+|la|treceni|trecēnī}} ("trescientos cada uno")
-**{{l+|la|trecenties|trecentiēs}} ("trescientas veces")
-*{{l+|la|tredecim|glosa=trece}}
-**{{l+|la|terdecies|terdeciēs}} ("trece veces")
-*{{l+|la|triangulus|glosa=triángulo}}
-*{{l+|la|tribus|glosa=tribu}}
-**{{l+|la|tribunus|tribūnus|glosa=tribuno}}
-***{{l+|la|tribunal|tribūnal|glosa=tribunal}}
-***{{l+|la|tribunatus|tribūnātus|glosa=tribunado}}
-***{{l+|la|tribunicius|tribūnīcius|glosa=tribunicio}}
-**{{l+|la|tribuo|tribuō, -ere|glosa=distribuir}}
-***{{l+|la|tributio|tribūtio|glosa=división}}
-***{{l+|la|tributum|tribūtum|glosa=tributo}}
-****{{l+|la|tributarius|tribūtārius|glosa=tributario}}
-**{{l+|la|tributim|tribūtim}} ("por tribus")
-*{{l+|la|triceps}} ("de tres cabezas")
-*{{l+|la|tricorpor}} ("que tiene tres cuerpos")
-*{{l+|la|tricuspis}} ("que tiene tres puntas")
-*{{l+|la|tridens|tridēns|glosa=tridente}}
-**{{l+|la|tridentifer}} ("que lleva tridente")
-*{{l+|la|triduum}} ("espacio de tres días")
-*{{l+|la|triennalis|triennālis|glosa=trienal}}
-*{{l+|la|triennia}} ("fiestas trienales")
-*{{l+|la|triennis}} ("de tres años")
-*{{l+|la|triennium|glosa=trienio}}
-*{{l+|la|triens|triēns}} ("un tercio")
-**{{l+|la|trientabulum|trientābulum}} ("equivalente a una tercera parte")
-*{{l+|la|trifidus|glosa=trífido}}
-*{{l+|la|triformis|trifōrmis|glosa=triple}}
-{{rel-centro}}
-*{{l+|la|triginta|trīginta|glosa=treinta}}
-**{{l+|la|triceni|trīcēnī}} ("treinta cada uno")
-***{{l+|la|tricenarius|trīcēnārius}} ("de treinta")
-**{{l+|la|tricies|trīciēs}} ("treinta veces")
-**{{l+|la|trigesimus|trīgēsimus|glosa=trigésimo}}
-*{{l+|la|trigeminus|trīgeminus|glosa=triple}}
-*{{l+|la|trilibris|trilībris}} ("que pesa tres libras")
-*{{l+|la|trilinguis|glosa=trilingüe}}
-*{{l+|la|trilix|trilīx}} ("de tres hilos")
-*{{l+|la|trimestris|trimēstris|glosa=trimestral}}
-*{{l+|la|trimetros|glosa=trímetro}}
-*{{l+|la|trini|trīnī}} ("tres cada uno")
-*{{l+|la|trinitas|trīnitās|glosa=trinidad}}
-*{{l+|la|trinodis|trinōdis}} ("que tiene tres nudos")
-*{{l+|la|tripartio|tripartiō, -īre|glosa=tripartir}}
-**{{l+|la|tripartitio|tripartītio}} ("división en tres")
-**{{l+|la|tripartitus|tripartītus}} ("dividido en tres")
-***{{l+|la|tripartito|tripartītō}} ("en tres partes")
-*{{l+|la|tripectorus}} ("que tiene tres pechos")
-*{{l+|la|tripedalis|tripedālis}} ("de tres pies")
-*{{l+|la|tripes|tripēs}} ("que tiene tres pies")
-*{{l+|la|triplex|glosa=triple}}
-**{{l+|la|tripliciter}} ("de tres maneras")
-*{{l+|la|tripudium}} ("baile ritual en tres tiempos")
-**{{l+|la|tripudio|tripudiō, -āre}} ("bailar el tripudium")
-*{{l+|la|tripus|tripūs|glosa=trípode}}
-*{{l+|la|triremis|trirēmis|glosa=trirreme}}
-*{{l+|la|trisulcus|glosa=trisulco}}
-*{{l+|la|triumphus|glosa=triunfo}}
-**{{l+|la|triumpho|triumphō, -āre|glosa=triunfar}}
-**{{l+|la|triumphalis|triumphālis|glosa=triunfal}}
-*{{l+|la|triumvir|glosa=triunviro}}
-**{{l+|la|triumviratus|triumvirātus|glosa=triunvirato}}
-**{{l+|la|triumviralis|triumvirālis|glosa=triunviral}}
-*{{l+|la|trivium}} ("encrucijada de tres caminos")
-**{{l+|la|trivialis|triviālis|glosa=trivial}}
-**{{l+|la|trivius|glosa=trivio}}
-{{rel-abajo}}
-
-{{derivados|des=x}}
-{{desc|rup|trei}}
-{{desc|ast|tres}}
-{{desc|ca|tres}}
-{{desc|dlm|tra}}
-{{desc|es|tres}}
-{{desc|eo|tri}}
-{{desc|fro|treis}}
-{{desc|fr|trois}}
-{{desc|fur|trê}}
-{{centro}}
-{{desc|gl|tres}}
-{{desc|it|tre}}
-{{desc|oc|tres}}
-{{desc|pt|três}}
-{{desc|rm|trais}}
-{{desc|ro|trei}}
-{{desc|sc|tres}}
-{{desc|scn|tri}}
-{{abajo}}
-
-{{rel-arriba|Cognados: Palabras provenientes de la raíz protoindoeuropea *treies}}
-*Albanés: {{trad|sq|tre}}, {{trad|sq|tri}}
+==== Información adicional ====
+{{derivad|ter|terni|tertius|tertiarius|tertio|tertio|trecenti|trecentesimus|treceni|trecenties|tredecim|terdecies|triangulus|tribus|tribunus|tribunal|tribunatus|tribunicius|tribuo|tributio|tributum|tributarius|tributim|triceps|tricorpor|tricuspis|tridens|tridentifer|triduum|triennalis|triennia|triennis|triennium|triens|trientabulum|trifidus|triformis|triginta|triceni|tricenarius|tricies|trigesimus|trigeminus|trilibris|trilinguis|trilix|trimestris|trimetros|trini|trinitas|trinodis|tripartio|tripartitio|tripartitus|tripartito|tripectorus|tripedalis|tripes|triplex|tripliciter|tripudium|tripudio|tripus|triremis|trisulcus|triumphus|triumpho|triumphalis|triumvir|triumviratus|triumviralis|trivium|trivialis|trivius}}
+{{trad-arriba|descendientes}}
+{{d|rup|d1=trei}}
+{{d|ast|d1=tres}}
+{{d|ca|d1=tres}}
+{{d|dlm|d1=tra}}
+{{d|es|d1=tres}}
+{{d|eo|d1=tri}}
+{{d|fro|d1=treis}}
+{{d|fr|d1=trois}}
+{{d|fur|d1=trê}}
+{{d|gl|d1=tres}}
+{{d|it|d1=tre}}
+{{d|oc|d1=tres}}
+{{d|pt|d1=três}}
+{{d|rm|d1=trais}}
+{{d|ro|d1=trei}}
+{{d|sc|d1=tres}}
+{{d|scn|d1=tri}}
+{{trad-abajo}}
+{{trad-arriba|Cognados: Palabras provenientes de la raíz protoindoeuropea *treies}}
+{{t|sq|t1=tre|t2=tri}}
 *Lenguas anatólicas
-**Hitita (†): {{trad|hit|tri-}}
-**Licio (†): {{trad|xlc|𐊗𐊕𐊁𐊆|tr=trei}}
-*Armenio antiguo (†): {{trad|xcl|երեք|tr=erekʿ}}
-**Armenio: {{trad|hy|երեք|tr=erek’}}
+{{t|hit|t1=tri-}}
+{{t|xlc|t1=𐊗𐊕𐊁𐊆}}
+{{t|xcl|t1=երեք}}
+{{t|hy|t1=երեք}}
 *Lenguas baltoeslavas
-**Lenguas bálticas: protobáltico: {{trad|bat|*triyes}}
+{{t|bat-pro|t1=*triyes}}
 ***Orientales
-****Letón: {{trad|lv|trīs}}
-****Lituano: {{trad|lt|trỹs}}
-**Lenguas eslavas: protoeslavo: {{trad|sla|*trьje}}
+{{t|lv|t1=trīs}}
+{{t|lt|t1=trỹs}}
+{{t|sla-pro|t1=*trьje}}
 ***Meridionales
-****Bulgaro: {{trad|bg|три|tr=tri}}
-****Eslavo eclesiástico antiguo (†): {{trad|cu|три|tr=tri}}
-****Esloveno: {{trad|sl|tri}}
-****Macedonio: {{trad|mk|три|tr=tri}}
-****Serbocroata: {{trad|sh|trȋ}}/{{trad|sh|три̑}}
+{{t|bg|t1=три}}
+{{t|cu|t1=три}}
+{{t|sl|t1=tri}}
+{{t|mk|t1=три}}
+{{t|sh|t1=trȋ|t2=три̑}}
 ***Occidentales
-****Alto sórabo: {{trad|hsb|tři}}
-****Bajo sórabo: {{trad|dsb|tśi}}, {{trad|dsb|tśo}}
-****Checo: {{trad|cs|tři}}
-****Eslovaco: {{trad|sk|tri}}
-****Polaco: {{trad|pl|trzy}}
+{{t|hsb|t1=tři}}
+{{t|dsb|t1=tśi|t2=tśo}}
+{{t|cs|t1=tři}}
+{{t|sk|t1=tri}}
+{{t|pl|t1=trzy}}
 ***Orientales
-****Bielorruso: {{trad|be|тры|tr=try}}
-****Ruso: {{trad|ru|три|tr=tri}}
-****Ucraniano: {{trad|uk|три|tr=tri}}
-*Lenguas celtas: protocelta: {{trad|cel|*trīs}}
+{{t|be|t1=тры}}
+{{t|ru|t1=три}}
+{{t|uk|t1=три}}
+{{t|cel-pro|t1=*trīs}}
 **Continentales
-***Galés (†): {{trad|cy|tri-}}, {{trad|cy|tiđres}}
-***Celtíbero (†): {{trad|xce|Tiriś}}
+{{t|cy|t1=tri-|t2=tiđres}}
+{{t|xce|t1=Tiriś}}
 **Insulares
 ***Britónicas
-****Bretón: {{trad|br|tri}}
-****Córnico: {{trad|kw|try}}, {{trad|kw|teyr}}
-****Galés: {{trad|cy|tri}}
+{{t|br|t1=tri}}
+{{t|kw|t1=try|t2=teyr}}
+{{t|cy|t1=tri}}
 ***Goidélicas
-****Irlandés antiguo (†): {{trad|sga|trí}}
-*****Irlandés: {{trad|ga|trí}}
-*****Gaélico escocés: {{trad|gd|trì}}
-*****Manés: {{trad|gv|three}}
+{{t|sga|t1=trí}}
+{{t|ga|t1=trí}}
+{{t|gd|t1=trì}}
+{{t|gv|t1=three}}
 *Lenguas germánicas: protogermánico: {{l|gem-pro|*þrīz}}
-**Nórdicas: nórdico antiguo (†): {{trad|non|þrír}}
-***Danés: {{trad|da|tre}}
-***Islandés: {{trad|is|þrír}}
-***Feroés: {{trad|fo|tríggir}}
-***Noruego bokmål: {{trad|no|tre}}
-***Sueco antiguo (†): {{trad|non-swe|þrēr}}
-****Sueco: {{trad|sv|tre}}
+{{t|non|t1=þrír}}
+{{t|da|t1=tre}}
+{{t|is|t1=þrír}}
+{{t|fo|t1=tríggir}}
+{{t|no|t1=tre}}
+{{t|gmq-osw|t1=þrēr}}
+{{t|sv|t1=tre}}
 **Occidentales
-***Alemán antiguo (†): {{trad|goh|drī}}
-****Alemán: {{trad|de|drei}}
-****Luxemburgués: {{trad|lb|dräi}}
-****Yídish: {{trad|yi|דרײַ|tr=dray}}
-***Frisón antiguo (†): {{trad|ofs|thrē}}, {{trad|ofs|thriā}}
-****Frisón occidental: {{trad|fy|trije}}
-***Inglés antiguo (†): {{trad|ang|þrī}}, {{trad|ang|þrīe}}
-****Inglés: {{trad|en|three}}
-****Escocés: <!--{{trad|sco|3}}-->
-***Neerlandés antiguo (†): {{trad|odt|thri}}, {{trad|odt|*thrie}}
-****Neerlandés: {{trad|nl|drie}}
+{{t|goh|t1=drī}}
+{{t|de|t1=drei}}
+{{t|lb|t1=dräi}}
+{{t|yi|t1=דרײַ}}
+{{t|ofs|t1=thrē|t2=thriā}}
+{{t|fy|t1=trije}}
+{{t|ang|t1=þrī|t2=þrīe}}
+{{t|en|t1=three}}
+****Escocés:
+{{t|odt|t1=thri|t2=*thrie}}
+{{t|nl|t1=drie}}
 **Orientales
-***Gótico (†): {{trad|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}
-{{rel-centro}}
+{{t|got|t1=𐌸𐍂𐌴𐌹𐍃}}
 *Lenguas helénicas
-**Griego antiguo (†): {{trad|grc|τρεῖς|tr=treis}}
-***Griego: {{trad|grc|τρεις|tr=treis}}
-*Ilirio (†): {{trad|xil|tri-}}
+{{t|grc|t1=τρεῖς}}
+{{t|grc|t1=τρεις}}
+{{t|xil|t1=tri-}}
 *Lenguas indoiranias
 **Lenguas indoarias
-***Sánscrito (†): {{trad|sa|त्रि|tr=tri}}, {{trad|sa|त्रयं|tr=tráya}}
+{{t|sa|t1=त्रि|t2=त्रयं}}
 ****Central
-*****Guyaratí: {{trad|gu|ત્રગડો|tr=tragaḍo}}
+{{t|gu|t1=ત્રગડો}}
 *****Hindustani
-******Hindi: {{trad|hi|तीन|tr=tīn}}
-******Urdu: {{trad|ur|تین|tr=tīn}}
+{{t|hi|t1=तीन}}
+{{t|ur|t1=تین}}
 ****Insular
-*****Cingalés: {{trad|si|ٽي|tr=ti}}
-*****Dhivehi: <!--{{trad|dv|3}}-->
+{{t|si|t1=ٽي}}
+*****Dhivehi:
 ****Meridional
-*****Maratí: {{trad|mr|तीन|tr=tīn}}
+{{t|mr|t1=तीन}}
 ****Oriental
-*****Asamés: <!--{{trad|as|3}}-->
-*****Bengali: {{trad|bn|তিন|tr=tin}}
-*****Oriya: {{trad|or|ତିନି|tr=tini}}
-*****Rohingya: {{trad|rhg|tin}}
+*****Asamés:
+{{t|bn|t1=তিন}}
+{{t|or|t1=ତିନି}}
+{{t|rhg|t1=tin}}
 ****Septentrional
-*****Punyabí: {{trad|pa|ਤਿੰਨ|tr=tiṅn}}
-*****Sindhi: {{trad|sd|ٽي|tr=ti}}
+{{t|pa|t1=ਤਿੰਨ}}
+{{t|sd|t1=ٽي}}
 ****otras
-*****Romaní: {{trad|rom|trin}}
+{{t|rom|t1=trin}}
 **Lenguas iranias
 ***Occidentales
-****Baluchi: {{trad|bal|sey}}
-****Kurdo: {{trad|ku|sê}}
-****Mazandaraní {{trad|mzn|se}}
-****Parto (†): {{trad|xpr|hry|tr=hrē}}
-****Persa antiguo (†): {{trad|peo|çi-}}
-*****Persa medio (†): {{trad|pal|sh|tr=sē}}
-******Persa: {{trad|fa|سه|tr=se}}
-*******Tayiko: {{trad|tg|се|tr=se}}
-****Zazaki: {{trad|diq|hire}}
+{{t|bal|t1=sey}}
+{{t|ku|t1=sê}}
+{{t|mzn|t1=se}}
+{{t|xpr|t1=hry}}
+{{t|peo|t1=çi-}}
+{{t|pal|t1=sh}}
+{{t|fa|t1=سه}}
+{{t|tg|t1=се}}
+{{t|zza|t1=hire}}
 ***Orientales
-****Avéstico (†): {{trad|ae|𐬚𐬭𐬌|tr=θri-}}, {{trad|ae|𐬚𐬭𐬁𐬌𐬌𐬋|tr=θrāiiō}}
-****Pastún: {{trad|ps|درې|tr=dre}}
+{{t|ae|t1=𐬚𐬭𐬌|t2=𐬚𐬭𐬁𐬌𐬌𐬋}}
+{{t|ps|t1=درې}}
 ****Lenguas escitas
-*****Jotanés (†): {{trad|kho|drai}}
-*****Oseta: {{trad|os|æртæ|tr=ærtæ}}
+{{t|kho|t1=drai}}
+{{t|os|t1=æртæ}}
 **Lenguas Nuristaníes: protonuristani: *trai-
-***Ashkun: {{trad|ask|tra}}
+{{t|ask|t1=tra}}
 ***Kalasha-ala: tre
-***Kamviri: {{trad|xvi|tre}}
+{{t|bsh|t1=tre}}
 ***Kati occidental: trɛ
-*Lenguas itálicas: protoitálico: {{trad|itc|*trejes}}
+{{t|itc-pro|t1=*trejes}}
 **Latín (†): {{l+|la|tres|trēs}}
-**Osco (†): {{trad|osc|𐌕𐌓𐌉𐌔|tr=trís}}
-**Umbro (†): {{trad|xum|trif}} [acc.pl.]
+{{t|osc|t1=𐌕𐌓𐌉𐌔}}
+{{t|xum|t1=trif}}
 *Tocario
-**Tocario A (†): {{trad|txb|tre}}
-**Tocario B (†): {{trad|xto|trai}}, {{trad|xto|trey}}
-{{rel-abajo}}
+{{t|txb|t1=tre}}
+{{t|xto|t1=trai|t2=trey}}
+{{trad-abajo}}
 
-=== Véase también ===
-{{w|leng=la}}.
+==== Véase también ====
+{{w|leng=la}}
 
 == {{lengua|roa-oan}} ==
 {{pron-graf|leng=roa-oan}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=roa-oan|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|roa-oan}} ===
-;1 {{números|leng=roa-oan}}: {{plm}}.
+==== {{adjetivo cardinal|roa-oan}} ====
+;1 {{csem|números|leng=roa-oan}}: {{plm}}.
 
 == {{lengua|oc}} ==
-{{pron-graf|tres|leng=oc}}
+{{pron-graf|leng=oc|1fone1=tres}}
+{{swadesh|oc|oc}}
 
-=== Etimología ===
-{{etimología|leng=oc|pro|tres|tres}}, y este del latín {{l+|la|tres|trēs|glosa=tres}}.
+=== Etimología 1 ===
+{{etimología|leng=oc|pro|tres|tres}}, y este {{etim|leng=oc|la|tres}}.
 
-=== {{adjetivo cardinal|oc}} ===
-;1 {{números|leng=oc}}: {{plm}}.
-{{relacionado|leng=oc|trenta|tresen}}.
-
-[[Categoría:OC:Lista Swadesh|024tres]]
+==== {{adjetivo cardinal|oc}} ====
+;1 {{csem|números|leng=oc}}: {{plm}}.
+{{relacionado|leng=oc|trenta|tresen}}
 
 == {{lengua|pap}} ==
 {{pron-graf|leng=pap}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=pap|es|tres||pt|três|glosa2=tres}}.
 
-=== {{adjetivo cardinal|pap}} ===
-;1 {{números|leng=pap}}: {{plm}}.
+==== {{adjetivo cardinal|pap}} ====
+;1 {{csem|números|leng=pap}}: {{plm}}.
 
 == {{lengua|pt}} ==
 {{pron-graf|leng=pt}}
 
-=== {{adjetivo cardinal|pt}} ===
+=== Etimología 1 ===
+==== {{adjetivo cardinal|pt}} ====
 ;1: {{grafía obsoleta|leng=pt|três}}.
 
 == {{lengua|pro}} ==
 {{pron-graf|leng=pro}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=pro|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|pro}} ===
-;1 {{números|leng=pro}}: {{plm}}.
+==== {{adjetivo cardinal|pro}} ====
+;1 {{csem|números|leng=pro}}: {{plm}}.
 
 == {{lengua|rm}} ==
-{{pron-graf|leng=rm
-|v=trais|vnota=alto engadino, bajo engadino y grisón|v2=treis|vnota2=surmirano y sursilvano}}
+{{pron-graf|leng=rm|v1=trais|vnota1=alto engadino, bajo engadino y grisón|v2=treis|vnota2=surmirano y sursilvano}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=rm|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|rm}} ===
-;1 {{números|leng=rm}}: {{plm}}.
-{{ámbito|leng=rm|subsilvano}}.
+==== {{adjetivo cardinal|rm}} ====
+;1 {{csem|números|leng=rm}}: {{plm}}.
+{{ámbito|leng=rm|subsilvano}}
 
 == {{lengua|sc}} ==
 {{pron-graf|leng=sc}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=sc|la|tres|alt=trēs|tres}}.
 
-=== {{adjetivo cardinal|sc}} ===
-;1 {{números|leng=sc}}: {{plm}}.
+==== {{adjetivo cardinal|sc}} ====
+;1 {{csem|números|leng=sc}}: {{plm}}.
 
 == {{lengua|tl}} ==
 {{pron-graf|leng=tl}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=tl|es|tres}}.
 
-=== {{adjetivo cardinal|tl}} ===
-;1 {{números|leng=tl}}: {{plm}}.
-{{sinónimo|leng=tl|tatló}}.
+==== {{adjetivo cardinal|tl}} ====
+;1 {{csem|números|leng=tl}}: {{plm}}.
+{{sinónimo|leng=tl|tatló}}
 
 == Referencias y notas ==
 <references />

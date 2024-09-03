@@ -1,9 +1,8 @@
 {{voir autres scripts|latin|a|cyrillique|а}}
 {{voir/a}}
-{|width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0;margin-bottom:0.5em;background:transparent"
-|-valign="top"
-|style="padding-right:0.5em"|
 __TOC__
+{| width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0;margin-bottom:0.5em;background:transparent"
+|- valign="top"
 |
 {{alphabet latin|a}}
 |}
@@ -11,7 +10,7 @@ __TOC__
 == {{caractère}} ==
 {{casse}}
 '''a'''
-# Première [[lettre]] et première [[voyelle]] de l’[[alphabet latin]] ([[minuscule]]). [[Unicode]] : U+0061.
+# Première [[lettre]] et première [[voyelle]] de l’[[alphabet latin]] ([[minuscule]]). {{caractère Unicode|0061}}.
 # [[chiffre|Chiffre]] [[hexadécimal]] [[dix]] (minuscule).
 
 === {{S|voir aussi}} ===
@@ -24,43 +23,67 @@ __TOC__
 [[Catégorie:Chiffres hexadécimaux]]
 
 == {{langue|conv}} ==
-
 === {{S|étymologie}} ===
-{{lien-ancre-étym|conv|symb|2}} {{abréviation|de=atto-|texte='''a'''tto-|lang=conv}}.
-
-{{lien-ancre-étym|conv|symb|3}} {{abréviation|de=are|texte='''a'''re|lang=conv}}.
-
-{{lien-ancre-étym|conv|symb|4}} {{abréviation|conv}} du {{étyl|la|fr|mot=annum|sens=année|dif='''a'''nnum}}.
+: {{lien-ancre-étym|conv|symb|2}} {{abréviation|de=atto-|texte='''a'''tto-|lang=conv}}.
+: {{lien-ancre-étym|conv|symb|3}} {{abréviation|de=are|texte='''a'''re|lang=conv}}.
+: {{lien-ancre-étym|conv|symb|4}} {{abréviation|conv}} du {{étyl|la|fr|mot=annum|sens=année|dif='''a'''nnum}}.
+: {{laé|conv|symb|6}} Abréviation de ''{{lien|accélération|fr|nom}}''.
 
 === {{S|symbole|conv|num=1}} ===
 '''a'''
-# {{lexique|linguistique|conv}} Symbole de l’{{w|alphabet phonétique international}} pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie {{pron|a|lang=conv}}.
-#*''La voyelle /'''a'''/ est celle de l’article « la » dans la quasi-totalité des dialectes du français.''
+# {{lexique|linguistique|conv}} Symbole de l’[[alphabet phonétique international]] pour la voyelle (ou [[vocoïde]]) ouverte antérieure non arrondie {{pron|a|conv}}.
+#* {{exemple |lang=conv |pas-trad=1 |La voyelle /'''a'''/ est celle de l’article « la » dans la quasi-totalité des dialectes du français.}}
+[[Catégorie:Symboles de l’alphabet phonétique international]]
+
 === {{S|symbole|conv|num=2}} ===
 '''a'''
-#{{lexique|métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe [[atto-]] (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).
+# {{lexique|métrologie|conv}} [[symbole|Symbole]] du [[Système international]] (SI) pour le préfixe '''[[atto-]]''' (&times;[[Annexe:Principales puissances de 10|10{{e|&minus;18}}]]).{{R|SI|[https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-FR.pdf/bb7be5ff-4b2f-3834-f46a-5b4af3669870 ''Le système internationale des unités 9{{e|e}} édition''], p.29, 2019}}
 
 === {{S|symbole|conv|num=3}} ===
 '''a'''
-#{{lexique|métrologie|conv}} Symbole de l’[[are#fr|are]], une [[unité de mesure|unité]] de [[surface#fr-nom|surface]] non [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
+# {{lexique|métrologie|conv}} Symbole de l’[[are#fr|'''are''']], une [[unité de mesure]] de [[surface#fr-nom|surface]] en dehors [[SI]]. Elle prend souvent le préfixe [[h#conv|h]] pour former [[ha#conv|ha]] ([[hectare]]).
 
 === {{S|symbole|conv|num=4}} ===
 '''a'''
-#{{lexique|métrologie|conv}} Symbole (dérivé du système SI) de l’[[année]] (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
-#* ''Cette roche a été formée il y a 4 G'''a'''.''
+# {{lexique|métrologie|conv}} Symbole (dérivé du système SI) de l’'''[[année]]''' (365,25 jours de 86,4 [[ks]]), du latin ''[[annum]]''.
+#* {{exemple |lang=conv |pas-trad=1 |Cette roche a été formée il y a 4 G'''a'''. }}
 
-[[Catégorie:Symboles de l’alphabet phonétique international]]
+==== {{S|dérivés}} ====
+* {{lien|al|conv|sens=année-lumière}}
+
+=== {{S|symbole|conv|num=5}} ===
+'''a'''
+# {{lexique|chimie|conv}} Symbole de l’{{lien|activité chimique|fr|nom}} d’un composant.
+#* ''a<sub>i</sub>'' : l'activité du corps ''i''.
+
+=== {{S|symbole|conv|num=6}} ===
+'''a'''
+# {{lexique|physique|mécanique|conv}} Symbole de l’{{lien|accélération|fr|nom}} en tant que grandeur physique (uSI : {{lien|mètre par seconde carré|fr|nom}}, {{lien|m/s²|conv|symb}}, {{lien|m⋅s⁻²|conv|symb}} ; unité usuelle : {{lien|g|conv|symb}}).
+
+==== {{S|synonymes}} ====
+* {{lien|γ|conv|symb|sens=accélération}}
+
+==== {{S|vocabulaire}} ====
+* {{lien|v|conv|symb|sens=vitesse}}
+
+==== {{S|dérivés}} ====
+* {{lien|α|conv|symb|sens=accéléraiton angulaire}}
+
+=== {{S|références}} ===
+<references></references>
 
 == {{langue|fr}} ==
 === {{S|lettre|fr}} ===
 {{lettre|pron=ɑ|p2=a|lang=fr}}
 '''a''' {{pron|ɑ|fr}}, {{pron|a|fr}} {{m}} {{invar}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] français.
-#* ''Ceci est un '''a''' minuscule.''
-#* ''Le mot ''anaérobie'' contient deux '''a'''.''
-#* ''Je détestais, de même, que le '''''a''''' fût la première lettre de l'alphabet. Commencer par lui, c'était partir sur de mauvaises bases : le '''''a''''' constituait un être fermé, replié sur lui-même, qui ne se ressemblait en rien dès lors qu'il accédait au statut de majuscule, où sa prétention éclatait. Sa manière de poser, en tour Eiffel, son anguleuse hauteur, méprisante, annonçait que l'apprentissage de la lecture se ferait sous son magistère et dépendait de son bon vouloir. Je n'aimais pas, non plus, le mouvement de glotte qui correspondait à la prononciation du '''''a'''''; bref, je l'avais pris en grippe et m'avisai que la bonne lettre, pour entrer en matière, était le ''z''.'' {{source|{{w|Yann Moix}}, ''Orléans'', Grasset, « Le livre de poche », 2019, page 138}}
+#* {{exemple |lang=fr |Ceci est un '''a''' minuscule.}}
+#* {{exemple |lang=fr |Le mot ''anaérobie'' contient deux '''a'''.}}
+#* {{exemple | lang=fr
+ | Je détestais, de même, que le '''''a''''' fût la première lettre de l’alphabet. Commencer par lui, c’était partir sur de mauvaises bases : le '''''a''''' constituait un être fermé, replié sur lui-même, qui ne se ressemblait en rien dès lors qu’il accédait au statut de majuscule, où sa prétention éclatait. Sa manière de poser, en tour Eiffel, son anguleuse hauteur, méprisante, annonçait que l’apprentissage de la lecture se ferait sous son magistère et dépendait de son bon vouloir. Je n’aimais pas, non plus, le mouvement de glotte qui correspondait à la prononciation du '''''a''''' ; bref, je l’avais pris en grippe et m’avisai que la bonne lettre, pour entrer en matière, était le ''z''.
+ | source={{w|Yann Moix}}, ''Orléans'', Grasset, « Le livre de poche », 2019, page 138}}
 # Le son {{pron|a|fr}} ou {{pron|ɑ|fr}} de cette lettre. {{note}} Le français parisien a perdu la distinction entre les deux.
-#* '''''A''' est antérieur dans ''glace {{phon|ɡlas|fr}}'' et postérieur dans ''blâme {{phon|blɑm|fr}}''.''
+#* {{exemple |lang=fr |'''A''' est antérieur dans ''glace {{phon|ɡlas|fr}}'' et postérieur dans ''blâme {{phon|blɑm|fr}}''. }}
 
 ==== {{S|dérivés}} ====
 {{(}}
@@ -87,9 +110,10 @@ __TOC__
 * {{T|ko}} : {{trad+|ko|ㅏ|R=a}}
 * {{T|el}} : {{trad+|el|α|R=a}}
 * {{T|hi}} : {{trad+|hi|अ|R=a}}
+* {{T|iu}} : {{trad-|iu|ᐊ|R=a}}
 * {{T|ja}} : {{trad+|ja|あ|R=a}}, {{trad+|ja|ア|R=a}}
-* {{T|fsl}} : [[Image:LSF LettreA.jpg|La lettre A|20px]]
 * {{T|ru}} : {{trad+|ru|а|R=a}}
+* {{T|fsl}} : [[Image:LSF LettreA.jpg|La lettre A|20px]]
 * {{T|ty}} : {{trad|ty|a}}, {{trad|ty|ā}}
 {{)}}
 
@@ -102,23 +126,30 @@ __TOC__
 * {{T|ko}} : {{trad-|ko|에이|tr=ei}}
 * {{T|hr}} : {{trad+|hr|a}}
 * {{T|eo}} : {{trad+|eo|a}}
+* {{T|gallo-italique de Basilicate}} : {{trad|gallo-italique de Basilicate|a}}
 * {{T|it}} : {{trad+|it|a}}
-* {{T|ja}} : {{trad-|ja|エー|tr=ē}}
+* {{T|ja}} : {{trad+|ja|エー|tr=ē}}
+* {{T|avk}} : {{trad|avk|a}}
 * {{T|scn}} : {{trad+|scn|a}}
 {{trad-fin}}
 
 === {{S|pronom personnel|fr}} ===
 '''a''' {{pron|a|fr}}
 # {{familier|fr}} Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).
+#* {{exemple|D’abord, je m’en fous des araignées ! Ça me fait pas peur, j’en fait la collection, j’en ai plein un bocal, '''a''' se bouffent entre elles, je rigole !.. |source={{w|Jean-Marc Lelong}}, ''Carmen Cru # 2 - La dame de fer'', 1985, éditions France Loisirs, Paris, page 30 |lang=fr }}
 #*''Quoi qu’'''a''' dit ? – '''A''' dit rin.<br />Quoi qu’'''a''' fait ? – '''A''' fait rin.<br />À quoi qu’'''a''' pense ? – '''A''' pense à rin.<br /><br />Pourquoi qu’'''a''' dit rin ?<br />Pourquoi qu’'''a''' fait rin ?<br />Pourquoi qu’'''a''' pense à rin ?<br /><br />- '''A'''’xiste pas.'' {{source|Jean Tardieu, ''La Môme Néant''}}
 # {{Québec|fr}} {{familier|fr}} [[elle#fr|Elle]].
 #* ''C’est lui qui, appréciant sa mère, d’un ton de médiocrité satisfaite, disait à Louise Guittard, en se frottant une bosse au front :<br
-/>— Pendant qu’'''a''' m’bat, on a la paix.'' {{source|{{w|Léon Frapié}}, ''{{ws|La maternelle/Texte entier|La maternelle}}'', Librairie Universelle, 1908}}
+/>— Pendant qu’'''a''' m’bat, on a la paix.'' {{source|{{w|Léon Frapié}}, ''{{ws|La maternelle/Texte entier|La Maternelle}}'', Librairie Universelle, 1908}}
 #* ''C’était pendant l’congé d’Noël<br
 />J’voulais déjà m’marier avec elle<br
 />'''A''' m’a appelé tantôt après les nouvelles.'' {{source|Les Cowboys fringants, « Le Quai de Berthier » (chanson), 1998}}
-#*''Quand '''a''' l’ouvre la porte pis qu''''a''' sort d’la scène, '''a''' l’arrête d’exister pour toi [[pis]] tu t’en [[sacrer|sacres]], [[d’abord que]] t’as écrit des belles scènes!'' {{source|{{w|Michel Tremblay}}, ''Le Vrai Monde?'', 1987}}
-#*''Ta mère est venue me voir en catastrophe. Au début, '''a''' voulait te laisser aller, mais ç'a pas été long qu''''a''' l'a regretté.'' {{source|Éric St-Pierre, ''Rabaskabarnak'', {{w|Québec Amérique}}, 2019, page 100.}}
+#* {{exemple | lang=fr
+ | Quand '''a''' l’ouvre la porte pis qu''''a''' sort d’la scène, '''a''' l’arrête d’exister pour toi [[pis]] tu t’en [[sacrer|sacres]], [[d’abord que]] t’as écrit des belles scènes!
+ | source={{w|Michel Tremblay}}, ''Le Vrai Monde?'', 1987}}
+#* {{exemple | lang=fr
+ | Ta mère est venue me voir en catastrophe. Au début, '''a''' voulait te laisser aller, mais ç’a pas été long qu’'''a''' l’a regretté.
+ | source=Éric St-Pierre, ''Rabaskabarnak'', {{w|Québec Amérique}}, 2019, page 100}}
 
 ==== {{S|variantes orthographiques}} ====
 * [[à]]
@@ -131,7 +162,22 @@ __TOC__
 {{fr-verbe-flexion|grp=3|'=oui|ind.p.3s=oui|avoir}}
 '''a''' {{pron|a|fr}}
 # ''Troisième personne du singulier de l’indicatif de'' [[avoir]].
-#* ''Nous les hommes des douars lointains, des hauts djebels, des larges vallées, nous savions que l’on ne bâtit pas sa maison si l’on n’'''a''' pas confiance dans la solidité du sol.'' {{source|Bachaga Boualam, ''Les Harkis au service de la France'', France-Empire, 1963, page 26}}
+#* {{exemple | lang=fr
+ | Nous les hommes des douars lointains, des hauts djebels, des larges vallées, nous savions que l’on ne bâtit pas sa maison si l’on n’'''a''' pas confiance dans la solidité du sol.
+ | source=Bachaga Boualam, ''Les Harkis au service de la France'', France-Empire, 1963, page 26}}
+
+==== {{S|phrases}} ====
+* [[cœur qui soupire n’a pas ce qu’il désire]]
+* [[la nature a horreur du vide]] ''({{cf|lang=fr|avoir horreur}})''
+* [[la plus belle fille du monde ne peut donner que ce qu’elle a]]
+* [[on n’a rien pour rien]]
+* [[qui a du pain nargue le chagrin]]
+* [[qui doit n’a rien à soi]]
+* [[qui n’entend qu’une cloche n’a qu’un son]]
+* [[qui ne risque rien n’a rien]]
+* [[qui ne tente rien n’a rien]]
+* [[qui terre a guerre a]]
+* [[un mauvais ouvrier a toujours de mauvais outils]]
 
 === {{S|prononciation}} ===
 * {{pron|a|fr}}
@@ -218,7 +264,7 @@ __TOC__
 
 == {{langue|fro}} ==
 === {{S|étymologie}} ===
-: ''(Préposition)'' Du {{étyl|la|fro|mot=ad|sens=à, vers}}.
+: ''(Préposition)'' Du {{étyl|la|fro|mot=ad|sens=à, vers}} et ab (« de, depuis »).
 : ''(Forme de verbe)'' Du {{étyl|la|fro|mot=habet}}.
 : ''(Interjection)'' Du {{étyl|la|fro|mot=ah}}.
 
@@ -243,11 +289,12 @@ __TOC__
 === {{S|interjection|fro}} ===
 '''a''' {{pron|a|fro}}
 # [[ah#fr-interj|Ah !]]
-#* '''''A''' ! tant enseigne i a destorse'' {{source|1=''Le Roman de Troie'', édition de Constans, tome II, [https://gallica.bnf.fr/ark:/12148/bpt6k50951/f62.image page 57], <span title="circa">c.</span> 1165. ''destorse'', féminin du participe passé de ''{{lien|destordre|fro}}''.}}
+#* {{exemple | lang=fro
+ | '''A''' ! tant enseigne i a destorse
+ | source=1=''Le Roman de Troie'', édition de Constans, tome II, [https://gallica.bnf.fr/ark:/12148/bpt6k50951/f62.image page 57], <span title="circa">c.</span> 1165. ''destorse'', féminin du participe passé de ''{{lien|destordre|fro}}''.}}
 
 === {{S|références}} ===
 * {{R:Godefroy}}
-
 
 == {{langue|angevin}} ==
 === {{S|étymologie}} ===
@@ -297,13 +344,16 @@ __TOC__
 === {{S|article indéfini|en}} ===
 '''a''' {{pron|ə|en}} ''ou'' {{pron|ˈeɪ|en}} ''devant une [[consonne]]''
 # [[un#fr-art-indéf|Un]], [[une#fr-flex-art-indéf|une]].
-#* '''''A''' book.''
-#*: Un livre.
-#* '''''A''' girl.''
-#*: Une fille.
+#* {{exemple | lang=en
+ | '''A''' book.
+ | Un livre.}}
+#* {{exemple | lang=en
+ | '''A''' girl.
+ | Une fille.}}
 # {{term|avec une unité}} [[par#fr-prép|Par]], [[chaque]].
-#* ''Once '''a''' week.''
-#*: Une fois par semaine.
+#* {{exemple | lang=en
+ | Once '''a''' week.
+ | Une fois par semaine.}}
 
 ==== {{S|variantes}} ====
 * {{lien|an|en}} {{pron|ən|en}} ''(devant une [[voyelle]])''
@@ -327,6 +377,10 @@ __TOC__
 ** {{écouter|lang=en|États-Unis|eɪ|audio=En-us-a.ogg}}
 ** {{écouter|États-Unis (Californie)|eɪ|audio=En-us-a-stressed.ogg|lang=en}}
 ** {{écouter|États-Unis<!-- précisez svp la ville ou la région -->|eɪ|audio=En-us-A.ogg|lang=en}}
+** {{écouter|lang=en|Suisse (Genève)|eɪ|audio=LL-Q1860 (eng)-Nattes à chat-a.wav}}
+** {{écouter|lang=en|Royaume-Uni (Londres)|ɜɪ|audio=LL-Q1860 (eng)-Back ache-a.wav}}
+** {{écouter|Remiremont (France)|eɪ|niveau=bon|lang=en|audio=LL-Q1860 (eng)-Mathieu Kappler-a.wav}}
+** {{écouter|Texas (États-Unis)|eɪ|lang=en|audio=LL-Q1860 (eng)-Wodencafe-a.wav}}
 * {{pron|æɪ|en}} {{Australie|nocat=1}}
 
 ''Dans les mots'' :
@@ -335,11 +389,9 @@ __TOC__
 ''Article indéfini'' :
 * {{pron|ə|en}} {{term|non accentué}}
 ** {{écouter|États-Unis (Californie)|ə|audio=En-us-a-unstressed.ogg|lang=en}}
+** {{écouter|lang=en|France (Lyon)|əʊ|audio=LL-Q1860 (eng)-Lyokoï-a.wav}}
 * {{pron|ˈeɪ|en}} {{term|accentué}}
-* {{écouter|lang=en|Suisse (Genève)|audio=LL-Q1860 (eng)-Nattes à chat-a.wav}}
-* {{écouter|lang=en|Royaume-Uni (Londres)||audio=LL-Q1860 (eng)-Back ache-a.wav}}
-* {{écouter|lang=en|France (Lyon)||audio=LL-Q1860 (eng)-Lyokoï-a.wav}}
-* {{écouter|Remiremont (France)||niveau=bon|lang=en|audio=LL-Q1860 (eng)-Mathieu Kappler-a.wav}}
+* {{écouter|Connecticut (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Grendelkhan-a.wav}}
 
 === {{S|références}} ===
 *{{R:Hendrickson1998|p=1}}
@@ -363,7 +415,7 @@ __TOC__
 {{lettre||lang=aae}}
 '''a''' {{pron||aae}} {{genre ?|lang=aae}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] arbërisht.
-* {{exemple|lang=aae}}
+#* {{exemple|lang=aae}}
 
 === {{S|références}} ===
 * Giuseppe Fiorilli, ''[http://www.vatrarberesh.it/biblioteca/ebooks/dizionario.pdf Dizionario arbëresh di lemmi, frasi e motti in uso nella tradizione di Ururi]''
@@ -383,6 +435,9 @@ __TOC__
 
 ==== {{S|dérivés}} ====
 * [[ale]] (''emphatique'' : « Lui, il … »)
+
+=== {{S|prononciation}} ===
+* {{écouter|Abidjan (Côte d'Ivoire)||lang=bm|audio=LL-Q33243 (bam)-Ericcoul-a.wav}}
 
 == {{langue|bci}} ==
 === {{S|étymologie}} ===
@@ -409,20 +464,6 @@ __TOC__
 === {{S|voir aussi}} ===
 * {{Vikidia}}
 * Le suffixe [[-a#eu|-a]]
-
-== {{langue|bondska}} ==
-=== {{S|étymologie}} ===
-: {{ébauche-étym|bondska}}
-
-=== {{S|pronom personnel|bondska}} ===
-'''a''' {{pron||bondska}}
-# {{pitemål|bondska}} [[elle|Elle]].
-
-==== {{S|notes}} ====
-: {{note-linguistique}}
-
-=== {{S|références}} ===
-* {{lien web|url=http://pitemal.wikidot.com/wiki:a-a-hon|titre=a / ’a, hon|site=pitemal.wikidot.com}}
 
 == {{langue|brabançon}} ==
 === {{S|étymologie}} ===
@@ -478,16 +519,23 @@ __TOC__
 {{br-prép|a|1i}}
 '''a''' {{pron|a|br}}
 # [[de|De]], marque l’[[origine]], la [[provenance]].
-#* ''Met pa ’z ocʼh deuet '''a''' geit-all, e roin anezañ d’eocʼh gant ma tibabot anezañ.'' {{source|{{Citation/Yann ar Flocʼh/Koñchennou eus Bro ar Ster Aon/1950|144}}}}
-#*: Mais puisque vous êtes venu de si loin, je vous le donnerai à condition que vous le choisissiez.
-#* '''''A''' greiz kalon.''
-#*: De tout cœur.
+#* {{exemple | lang=br
+ | Met pa ’z ocʼh deuet '''a''' geit-all, e roin anezañ d’eocʼh gant ma tibabot anezañ.
+ | Mais puisque vous êtes venu de si loin, je vous le donnerai à condition que vous le choisissiez.
+ | source={{Citation/Yann ar Flocʼh/Koñchennou eus Bro ar Ster Aon/1950|144}}}}
+#* {{exemple | lang=br
+ | '''A''' greiz kalon.
+ | De tout cœur.}}
 # Marque l’appartenance un pays, à une ville.
-#* ''Selaouit, paotred '''a''' Vreizh, […].'' {{source|{{Citation/Lan Inizan/Emgann Kergidu/1977|1|131}}}}
-#*: Écoutez, hommes de Bretagne, […].
+#* {{exemple | lang=br
+ | Selaouit, paotred '''a''' Vreizh, […].
+ | Écoutez, hommes de Bretagne, […].
+ | source={{Citation/Lan Inizan/Emgann Kergidu/1977|1|131}}}}
 # Marque l’appartenance un mois.
-#* ''Merzheriet eo bet, war leur-gêr Brest, d’ar Yaou-Gamblid, 17 '''a''' viz Ebrel, er bloaz 1794.'' {{source|{{Citation/Lan Inizan/Emgann Kergidu/1977|2|169}}}}
-#*: Il a été martyrisé, sur la place de Brest, le Jeudi Saint, 17 du mois d’avril, de l’année 1794.
+#* {{exemple | lang=br
+ | Merzheriet eo bet, war leur-gêr Brest, d’ar Yaou-Gamblid, 17 '''a''' viz Ebrel, er bloaz 1794.
+ | Il a été martyrisé, sur la place de Brest, le Jeudi Saint, 17 du mois d’avril, de l’année 1794.
+ | source={{Citation/Lan Inizan/Emgann Kergidu/1977|2|169}}}}
 
 ==== {{S|notes}} ====
 * ''a'' est suivi d’une mutation adoucissante.
@@ -580,20 +628,30 @@ __TOC__
 === {{S|particule|br}} ===
 '''a''' {{pron|a|br}}
 # Particule verbale. {{note}} mutation par adoucissement après la particule verbale ''a''.
-#*''Te '''a''' skriv braw.'' {{source|{{Citation/Jules Gros/Le Trésor du Breton Parlé - 3/1974|167}}}}
-#*: Tu écris bien.
-#* ''Petra '''a''' lavarit ?'' {{source|idem, page 167}}
-#*: Que dites-vous ?
-#* ''A-benn emberr da noz, '''a''' gredan ( '''a''' zoñj din, '''a''' gav din ), e vo glaw.'' {{source|idem, page 167}}
-#*: Pour ce soir, je crois ( je pense, il me semble ), il pleuvra.
-#* ''Me '''a''' zo leun ma cʼhof.'' {{source|idem, page 167}}
-#*: Jʼai le ventre plein, je suis rassasié (Moi, mon ventre est plein).
+#* {{exemple | lang=br
+ | Te '''a''' skriv braw.
+ | Tu écris bien.
+ | source={{Citation/Jules Gros/Le Trésor du Breton Parlé - 3/1974|167}}}}
+#* {{exemple | lang=br
+ | Petra '''a''' lavarit ?
+ | Que dites-vous ?
+ | source=idem, page 167}}
+#* {{exemple | lang=br
+ | A-benn emberr da noz, '''a''' gredan ( '''a''' zoñj din, '''a''' gav din ), e vo glaw.
+ | Pour ce soir, je crois ( je pense, il me semble ), il pleuvra.
+ | source=idem, page 167}}
+#* {{exemple | lang=br
+ | Me '''a''' zo leun ma cʼhof.
+ | Jʼai le ventre plein, je suis rassasié (Moi, mon ventre est plein).
+ | source=idem, page 167}}
 
 === {{S|interjection|br}} ===
 '''a''' {{pron|ˈɑː|br}} {{invar}}
 # {{littéraire|br}} [[ô|Ô]]. {{note}} suivi d’une mutation adoucissante.
-#*'''''A''' vor ! E teuan dit…'' {{source|{{w|Roparz Hemon}}, ''Pirc’hirin ar Mor'', in ''Barzhonegoù'', {{w|Al Liamm}}, Brest, 1967, page 10}}
-#*: Ô mer ! Je viens à toi…
+#* {{exemple | lang=br
+ | '''A''' vor ! E teuan dit…
+ | Ô mer ! Je viens à toi…
+ | source={{w|Roparz Hemon}}, ''Pirc’hirin ar Mor'', in ''Barzhonegoù'', {{w|Al Liamm}}, Brest, 1967, page 10}}
 
 ==== {{S|variantes}} ====
 * [[o#br|o]]
@@ -607,6 +665,10 @@ __TOC__
 ==== {{S|variantes}} ====
 * {{lien|ya|br}}
 
+=== {{S|prononciation}} ===
+* {{écouter|Bretagne (France)||niveau=bon|lang=br|audio=LL-Q12107 (bre)-Ltranvz-a.wav}}
+* {{écouter|Nantes (France)||niveau=bon|lang=br|audio=LL-Q12107 (bre)-Adriendelucca-a.wav}}
+
 === {{S|références}} ===
 <references>
 </references>
@@ -618,11 +680,44 @@ __TOC__
 === {{S|préposition|ca}} ===
 '''a''' {{pron||ca}}
 # [[à|À]].
-#* ''Malgrat el risc de ser enviat '''a''' la presó, Aleksei Navalni va complir ahir la seva promesa i va tornar a Rússia per continuar la lluita contra el Kremlin de Vladímir Putin.'' {{source|1=Gonzalo Aragonés, « "No tinc por de res": Aleksei Navalni, detingut quan va aterrar a Moscou desafia Putin », ''La Vanguardia'', 18 janvier 2021, page 2}}
-#*: En dépit du risque d'être envoyé en prison, Alexei Navalni va tenir sa promesse et va retourner en Russie pour continuer la lutte contre le Kremlin de Vladimir Putin.
+#* {{exemple | lang=ca
+ | Malgrat el risc de ser enviat '''a''' la presó, Aleksei Navalni va complir ahir la seva promesa i va tornar a Rússia per continuar la lluita contra el Kremlin de Vladímir Putin.
+ | En dépit du risque d'être envoyé en prison, Alexei Navalni va tenir sa promesse et va retourner en Russie pour continuer la lutte contre le Kremlin de Vladimir Putin.
+ | source=1=Gonzalo Aragonés, « "No tinc por de res": Aleksei Navalni, detingut quan va aterrar a Moscou desafia Putin », ''La Vanguardia'', 18 janvier 2021, page 2}}
 
 === {{S|prononciation}} ===
 * {{écouter|lang=ca|Espagne (Manresa)||audio=LL-Q7026 (cat)-Unjoanqualsevol-a.wav}}
+
+== {{langue|cli}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|cli}}
+
+=== {{S|article défini|cli}} ===
+'''a''' {{phon|à|cli}}
+# [[le#fr|Le]].
+
+==== {{S|notes}} ====
+: {{note-linguistique}}
+
+=== {{S|conjonction de coordination|cli}} ===
+'''a''' {{phon|à|cli}}
+# [[et#fr|Et]], [[ensuite]].
+
+==== {{S|notes}} ====
+: {{note-linguistique}}
+
+=== {{S|pronom personnel|cli}} ===
+'''a''' {{phon|à|cli}}
+# Pronom personnel de la troisième personne du pluriel pour ce qui est non-humain.
+
+==== {{S|variantes}} ====
+* {{lien|aa|cli}}
+
+==== {{S|notes}} ====
+: {{note-linguistique}}
+
+=== {{S|références}} ===
+* {{R:Brindle2017|p=23}}
 
 == {{langue|shy}} ==
 === {{S|lettre|shy}} ===
@@ -721,7 +816,6 @@ __TOC__
 ==== {{S|vocabulaire}} ====
 * [[u#co|u]], [[e#co|e]]
 
-
 == {{langue|gcf}} ==
 {{ébauche|gcf}}
 === {{S|étymologie}} ===
@@ -785,13 +879,15 @@ __TOC__
 === {{S|préposition|ht|num=1}} ===
 '''a''' {{pron|a|ht}}
 # [[à#fr|À]], exprime un point dans le temps.
-#* ''Tanpèt la gen pou rive sou Ayiti demen '''a''' midi.''
-#: La tempête arrivera sur Haïti demain à midi.
+#* {{exemple | lang=ht
+ | Tanpèt la gen pou rive sou Ayiti demen '''a''' midi.
+ | La tempête arrivera sur Haïti demain à midi.}}
 #* '''''A''' kilè w’ap vini?'' – A nèvè.
 #: À quelle heure viens-tu ? – À neuf heures.
 # {{régionalisme}} [[de#fr|De]].
-#* ''Tou le twa pitit '''a''' Jan yo fini lekòl yo.''
-#: Les trois enfants [/petits] de Jan ont fini l’école.
+#* {{exemple | lang=ht
+ | Tou le twa pitit '''a''' Jan yo fini lekòl yo.
+ | Les trois enfants [/petits] de Jan ont fini l’école.}}
 
 ==== {{S|notes}} ====
 * Le sens 2. est utilisé régionalement dans le nord d’Haïti.
@@ -809,7 +905,7 @@ __TOC__
 
 === {{S|article défini|gcf-mq}} ===
 '''a''' {{pron||gcf-mq}}
-# [[la|La]]. {{usage}} cette forme s’utilise en fin de phrase, aprés une voyelle, lorsque le sujet est lui même suivi d'un article défini. 
+# [[la|La]]. {{usage}} cette forme s’utilise en fin de phrase, aprés une voyelle, lorsque le sujet est lui même suivi d'un article défini.
 #* {{exemple|lang=gcf-mq}}
 
 ==== {{S|variantes}} ====
@@ -830,7 +926,7 @@ __TOC__
 == {{langue|dalécarlien}} ==
 === {{S|lettre|dalécarlien}} ===
 {{lettre|nom=|lang=dalécarlien}}
-'''a''' {{pron||lang=dalécarlien}} {{minus}}
+'''a''' {{pron||dalécarlien}} {{minus}}
 # Première lettre de l’alphabet [[dalécarlien]].
 
 == {{langue|da}} ==
@@ -839,7 +935,7 @@ __TOC__
 
 === {{S|lettre|da}} ===
 {{lettre|nom=|lang=da}}
-'''a''' {{pron|ˈæˀ|lang=da}} {{minus}}
+'''a''' {{pron|ˈæˀ|da}} {{minus}}
 # Première lettre de l’alphabet [[danois]].
 
 === {{S|nom|da}} ===
@@ -896,37 +992,47 @@ __TOC__
 {{lettre|pron=a|lang=es}}
 '''a''' {{f}} {{invar}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] espagnol.
-#* ''Eso es una '''a'''.''
-#*: Ceci est un a.
+#* {{exemple | lang=es
+ | Eso es una '''a'''.
+ | Ceci est un a.}}
 
 === {{S|préposition|es}} ===
 '''a''' {{pron|a|es}}
 # [[à#fr|À]], [[au]], [[le]], [[de]], [[par]]. Indique une [[situation]], un [[lieu]], un [[mouvement]].
-#* ''¿Vamos '''a''' la playa?''
-#*: On va à la plage ?
-#* '''''A''' la derecha.''
-#*: À droite.
+#* {{exemple | lang=es
+ | ¿Vamos '''a''' la playa?
+ | On va à la plage ?}}
+#* {{exemple | lang=es
+ | '''A''' la derecha.
+ | À droite.}}
 # Indique un [[destinataire]].
-#* ''Pregunte '''a''' la gente.''
-#*: Demande aux gens.
+#* {{exemple | lang=es
+ | Pregunte '''a''' la gente.
+ | Demande aux gens.}}
 # Indique un [[moment]], une [[date]].
-#* '''''A''' las diez.''
-#*: À dix heures.
-#* ''Madrid, '''a''' 12 de enero.''
-#*: Madrid, le 12 janvier.
+#* {{exemple | lang=es
+ | '''A''' las diez.
+ | À dix heures.}}
+#* {{exemple | lang=es
+ | Madrid, '''a''' 12 de enero.
+ | Madrid, le 12 janvier.}}
 # Indique une [[utilisation]].
 #* '''''A''' pie''.
 #*: À pied.
-#* '''''A''' sangre frío.''
-#*: De Sang froid.
+#* {{exemple | lang=es
+ | '''A''' sangre frío.
+ | De Sang froid.}}
 # Indique un [[prix]].
-#* ''Tomates '''a''' un euro el kilo.''
-#*: Tomates à un euro le kilo.
+#* {{exemple | lang=es
+ | Tomates '''a''' un euro el kilo.
+ | Tomates à un euro le kilo.}}
 # Indique une [[évaluation]].
-#* ''De dos '''a''' tres meses.''
-#*: De deux à trois mois.
-#* '''''A''' docenas.''
-#*: Par douzaines.
+#* {{exemple | lang=es
+ | De dos '''a''' tres meses.
+ | De deux à trois mois.}}
+#* {{exemple | lang=es
+ | '''A''' docenas.
+ | Par douzaines.}}
 #* ''Dos '''a''' dos''.
 #*: Deux par deux.
 # Indique le [[COD]] pour la personne déterminée.
@@ -939,11 +1045,13 @@ __TOC__
 :: Mais : ''Encontré alguien.'' ou ''He encontrado alguien.'' — J’ai rencontré quelqu’un.
 
 === {{S|prononciation}} ===
+* {{écouter|lang=es|Espagne|audio=Letter a es es.flac}}
 * {{écouter|lang=es|{{AM|nocat=1}}|audio=Es-am-lat-a.ogg}}
 * {{écouter|lang=es|France|audio=LL-Q1321 (spa)-Anonymât (Kvardek du)-a.wav}}
 * {{écouter|lang=es|France (Paris)||audio=LL-Q1321 (spa)-Eavqwiki-a.wav}}
 * {{écouter|lang=es|||audio=LL-Q1321 (spa)-Rodelar-a.wav}}
 * {{écouter|lang=es|Allemagne (Berlin)||audio=LL-Q1321 (spa)-Guergana-a.wav}}
+* {{écouter|Lima (Pérou)||lang=es|audio=LL-Q1321 (spa)-Rodrigo5260-a.wav}}
 
 == {{langue|eo}} ==
 {{alphabet espéranto}}
@@ -992,8 +1100,9 @@ __TOC__
 {{lettre|pron=ɑː|nom=aa|lang=fi}}
 '''a''' {{pron|ɑː|fi}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] ; lettre unique représente le son {{pron|ɑ|fi}} et lettre double le son {{pron|ɑː|fi}}.
-#* ''Sanassa "tasamaa" on neljä a:ta.''
-#*: Le mot «&nbsp;tasamaa&nbsp;» (plaine) contient quatre a.
+#* {{exemple | lang=fi
+ | Sanassa "tasamaa" on neljä a:ta.
+ | Le mot «&nbsp;tasamaa&nbsp;» (plaine) contient quatre a.}}
 
 == {{langue|vls}} ==
 === {{S|lettre|vls}} ===
@@ -1132,6 +1241,10 @@ __TOC__
 # {{attestation Loire-Atlantique}} {{attestation Morbihan sud}} {{attestation Goëlo}} [[pronom|Pronom]] de la [[troisième personne du singulier]], équivalent de ''[[elle]]''. {{note}} Utilisé exclusivement en tant que sujet et devant une consonne.
 # {{attestation Loire-Atlantique}} {{attestation Morbihan sud}} {{attestation Goëlo}} [[pronom|Pronom]] de la [[troisième personne du pluriel]], équivalent de ''[[elles]]''. {{note}} Utilisé exclusivement en tant que sujet et devant une consonne.
 
+=== {{S|conjonction de coordination|gallo}} ===
+'''a''' {{pron|a|gallo}}
+# {{Joué-sur-Erdre|par=oui}} [[et|Et]].
+
 === {{S|verbe|gallo|flexion}} ===
 '''a''' {{pron||gallo}} {{gallo-graphie ABCD}} {{gallo-graphie ELG}} {{gallo-graphie MOGA}}
 # ''Troisième personne du singulier du présent de l’indicatif du verbe'' {{lien|avair|gallo}} ''(ABCD)'' / {{lien|aveir|gallo}} ''(ELG)''.
@@ -1142,18 +1255,66 @@ __TOC__
 * {{R:Dagnet|ortho=a|p=439}}
 * {{R:Orain|ortho=avoir|p=5}}
 * {{lien web|url=http://web.archive.org/web/20071020044600/http://www.maezoe.com/maezoe-fr.htm|titre=Grammaire du gallo : les adjectifs et pronoms démonstratifs|site=maezoe.com (archivé)|consulté le=29 juillet 2019}}
+* Charles Crépeau, ''Gallo : termes attestés à Joué-sur-Erdre et aux Touches'', 2023, page 2
+
+== {{langue|gallo-italique de Basilicate}} ==
+=== {{S|étymologie}} ===
+: (''Article défini'') Du {{étyl|la|gallo-italique de Basilicate|illam}}.
+: (''Pronom personnel'') {{aphérèse|gallo-italique de Basilicate|de=la}}.
+: (''Préposition 1'') Du {{étyl|la|gallo-italique de Basilicate|ad}}.
+: (''Préposition 2'') {{aphérèse|gallo-italique de Basilicate|de=la}}.
+: (''Conjonction de coordination'') Du {{étyl|la|gallo-italique de Basilicate|ac}}.
+
+=== {{S|lettre|gallo-italique de Basilicate}} ===
+{{lettre|lang=gallo-italique de Basilicate|pron=ˈa}}
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}}
+# Première lettre de l’alphabet gallo-italique de Basilicate.
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|article défini|gallo-italique de Basilicate}} ===
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}} {{f}}
+# {{Pignola|gallo-italique de Basilicate}} [[la#fr|La]].
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|pronom personnel|gallo-italique de Basilicate}} ===
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}} {{f}}
+# {{Pignola|gallo-italique de Basilicate}} [[la#fr|La]].
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|préposition|gallo-italique de Basilicate}} ===
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}}
+# {{Pignola|gallo-italique de Basilicate}} [[à#fr|À]].
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|préposition|gallo-italique de Basilicate}} ===
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}}
+# {{Pignola|gallo-italique de Basilicate}} [[de#fr|De]].
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|conjonction de coordination|gallo-italique de Basilicate}} ===
+'''a''' {{pron|ˈa|gallo-italique de Basilicate}} {{f}}
+# {{Pignola|gallo-italique de Basilicate}} [[et#fr|Et]].
+#* {{exemple|lang=gallo-italique de Basilicate}}
+
+=== {{S|références}} ===
+* {{R:Rizza}}
 
 == {{langue|gallo-italique de Sicile}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|gallo-italique de Sicile}}
 
 === {{S|préposition|gallo-italique de Sicile}} ===
-'''a''' {{pron|ˈa|gallo-italique de Sicile}}
+'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Foti}} {{Vigo}} {{Vasi}} {{Rubino}} {{Di Pietro}}
 # {{San Fratello|gallo-italique de Sicile}} [[à#fr|À]].
 #* {{exemple|lang=gallo-italique de Sicile}}
 
+=== {{S|conjonction|gallo-italique de Sicile}} ===
+'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Foti}} {{Vigo}} {{Vasi}} {{Rubino}} {{Di Pietro}}
+# {{San Fratello|gallo-italique de Sicile}} Conjonction qui introduit une subordonnée avec un verbe à l’infinitif.
+#* {{exemple|lang=gallo-italique de Sicile}}
+
 === {{S|références}} ===
-* Giuseppe Foti, ''[http://dspace.unict.it/bitstream/10761/3874/1/FTOGPP70T13G273B-GIUSEPPE%20FOTI%20-%20VOCABOLARIO%20DEL%20DIALETTO%20GALLOITALICO%20DI%20SANFRATELLO.pdf VOCABOLARIO DEL DIALETTO GALLOITALICO DI SAN FRATELLO]''
+* {{R:Foti}}
 
 == {{langue|cy}} ==
 === {{S|étymologie}} ===
@@ -1179,9 +1340,9 @@ __TOC__
 === {{S|pronom|ggu}} ===
 '''a''' {{pron||ggu}}
 # [[elle#fr|Elle]].
-#* {{exemple |Lopc é '''a''' lā. |sens=Elle est malade. |lang=ggu}}
+#* {{exemple |Lopc é '''a''' lā. |sens='''Elle''' est malade. |lang=ggu}}
 # [[lui#fr|Lui]].
-#* {{exemple |Ya nɩ '''a''' pɔ yakéɛ wawo '''a''' nɩn. |sens=Il lui a demandé d’aller au maquis avec lui. |lang=ggu}}
+#* {{exemple |Ya nɩ '''a''' pɔ yakéɛ wawo '''a''' nɩn. |sens=Il '''lui''' a demandé d’aller au maquis avec lui. |lang=ggu}}
 
 === {{S|adverbe|ggu}} ===
 '''a''' {{pron|a|ggu}}
@@ -1282,7 +1443,7 @@ __TOC__
 '''a''' {{pron|a|it}}
 # [[à|À]] (devant un [[complément circonstanciel]] de [[lieu]], ou indiquant la [[provenance]] ou de [[temps]], ou de [[manière]], ou de [[moyen]], ou d’[[agent]], ou un [[complément d’attribution]], ou un [[complément d’objet indirect]], ou qui indique une [[action]] faite [[conjointement]] par [[plusieurs]] personnes (quand suivi d’un nombre), ou qui introduit un [[complément du nom]], ou qui introduit une [[locution adverbiale]], ou qui indique l’[[opposition]], et prend le sens de « [[contre]] », ou qui indique la [[succession]] ou la [[progression]], et prend le sens de « [[après]] ».
 #* ''Goccia '''a''' goccia'' → l’une après l’autre.
-#* ''Passo '''a''' passo.''
+#* {{exemple | lang=it | Passo '''a''' passo.}}
 
 #* {{Lang|it|''Abita '''a''' Roma.''}}
 #*: Il habite à Rome. Elle habite à Rome. (selon le contexte)
@@ -1290,8 +1451,17 @@ __TOC__
 ==== {{S|vocabulaire}} ====
 {{contractions/it}}
 
+=== {{S|nom|it}} ===
+{{it-inv|ˈa}}
+'''a''' {{pron|ˈa|it}} {{f}}
+# [[a#fr|A]], nom de la première lettre de l’alphabet cyrillique.
+#* {{exemple|lang=it}}
+
 === {{S|prononciation}} ===
 * {{écouter|Italie|a|audio=It-a.ogg|lang=it}}
+* {{écouter|Monopoli (Italie)||lang=it|audio=LL-Q652 (ita)-XANA000-a.wav}}
+
+[[Catégorie:Mots sans consonne en italien]]
 
 == {{langue|ki}} ==
 === {{S|particule|ki}} ===
@@ -1310,22 +1480,27 @@ __TOC__
 '''a''' {{pron|a|avk}}
 # [[sans#fr|Sans]].
 ## La préposition '''a''' introduit un complément circonstanciel. Son emploi est assez rare car souvent concurrencé par des formes adjectivées ou adverbialisées avec le suffixe '''''[[-iskaf#avk|-iskaf]]''''' ou, adverbialement, '''''-iskon'''''.
-##* ''In '''a kuba''' mu bata ja al kobar.''
-##: Il a travaillé '''sans salaire''' pour cette entreprise.
+##* {{exemple | lang=avk | tête = ##*
+ | In '''a kuba''' mu bata ja al kobar.
+ | Il a travaillé '''sans salaire''' pour cette entreprise.}}
 ## La préposition '''a''' introduit un complément de nom.
-##* ''Aal '''a imwa'''.''
-##: Un arbre '''sans fleurs''' (qui ne porte pas de fleurs).
+##* {{exemple | lang=avk | tête = ##*
+ | Aal '''a imwa'''.
+ | Un arbre '''sans fleurs''' (qui ne porte pas de fleurs).}}
 ## Emploi de '''a''' en tant que complément attributif.
-##* ''In tir '''a gom'''.''
-##: Il est '''sans bonnet'''.
+##* {{exemple | lang=avk | tête = ##*
+ | In tir '''a gom'''.
+ | Il est '''sans bonnet'''.}}
 
 ==== {{S|antonymes}} ====
 * [[dem#avk|dem]]
 
 === {{S|nom|avk}} ===
-# [[lettre|Lettre]] A.
-#*''Suteteson va bloskakirafa '''a''', va « alt » uzadjo vulé ise va ino dun vulé viele va decem-tev-sane nujisuté.'' {{source|1=[https://youtu.be/bLHY8OBrXoo?list=PLwgDqDH7vmpTqraYZXZ3xtpwFl61-L0Vg&t=35 vidéo]}}
-#*:Pour écrire un a accentué, je maintiens enfoncée la touche « alt » pendant que je fais semblant d'écrire le numéro cent-soixante.
+# [[lettre#fr|Lettre]] A.
+#* {{exemple | lang=avk
+ | Suteteson va bloskakirafa '''a''', va « alt » uzadjo vulé ise va ino dun vulé viele va decem-tev-sane nujisuté.
+ | Pour écrire un a accentué, je maintiens enfoncée la touche « alt » pendant que je fais semblant d'écrire le numéro cent-soixante.
+ | source=[https://youtu.be/bLHY8OBrXoo?list=PLwgDqDH7vmpTqraYZXZ3xtpwFl61-L0Vg&t=35 vidéo], Luce Vergneaux, ''Sutera Va Tcalek Ke Kotava'', 2021}}
 
 ==== {{S|dérivés}} ====
 * [[aoda]]
@@ -1336,7 +1511,7 @@ __TOC__
 * [[anek]]
 
 === {{S|prononciation}} ===
-* {{écouter|lang=avk|France|a|audio=A (yaz).wav}}
+* {{écouter|lang=avk|France|a|audio=Avk-a (yaz, preposition).wav}}
 
 === {{S|références}} ===
 * {{Kotapedia|a}} (préposition)
@@ -1367,7 +1542,6 @@ __TOC__
 
 == {{langue|lld}} ==
 {{ébauche|lld}}
-
 === {{S|étymologie}} ===
 : {{ébauche-étym|lld}}
 
@@ -1390,7 +1564,7 @@ __TOC__
 
 === {{S|préposition|la}} ===
 '''ā''' {{pron|a|la}} + [[ablatif]] ; variante de [[ab|ăb]] devant toutes les consonnes, à l'[[exception]] du H.
-# {{variante de|ab}}, devenu ''ā'' devant les [[consonnes]].
+# {{variante de|ab|la}}, devenu ''ā'' devant les [[consonnes]].
 #* ''Epistula '''a''' meo patre''.
 #*: Une lettre venant de mon père.
 
@@ -1461,7 +1635,7 @@ __TOC__
 : De l’{{étyl|fro|frm|a}} (forme du verbe ''avoir'').
 
 === {{S|préposition|frm}} ===
-'''a''' {{pron||frm}}
+'''a''' {{pron-recons||frm}}
 # [[à|À]].
 
 ==== {{S|variantes}} ====
@@ -1471,7 +1645,7 @@ __TOC__
 * {{L|fr}} : {{lien|à|fr}}
 
 === {{S|verbe|frm|flexion}} ===
-'''a''' {{pron||frm}}
+'''a''' {{pron-recons||frm}}
 # ''Troisième personne du singulier du présent de l’indicatif de'' {{lien|avoir|frm}}.
 
 ==== {{S|dérivés autres langues}} ====
@@ -1529,11 +1703,13 @@ __TOC__
 === {{S|interjection|nci}} ===
 '''a''' {{pron||nci}}
 # [[oh|Oh]] !
-#* '''''a''' ca nelleh axcan ca omotoptenqueh, ca omopetlacaltenqueh in teteoh, in tlamacazqueh''
-#*: Oh ! Voici qu’en vérité, aujourd’hui, ils se sont enfermés dans leurs coffres, dans leurs caisses, les dieux pourvoyeurs.
+#* {{exemple | lang=nci
+ | '''a''' ca nelleh axcan ca omotoptenqueh, ca omopetlacaltenqueh in teteoh, in tlamacazqueh
+ | Oh ! Voici qu’en vérité, aujourd’hui, ils se sont enfermés dans leurs coffres, dans leurs caisses, les dieux pourvoyeurs.}}
 # [[hé|Hé]] !
-#* ''atl '''a''', xiccaqui '''a'''''
-#*: De l’eau, hé ! Écoute, hé !
+#* {{exemple | lang=nci
+ | atl '''a''', xiccaqui '''a'''
+ | De l’eau, hé ! Écoute, hé !}}
 
 === {{S|références}} ===
 * {{R:NAH-SIM}}
@@ -1558,22 +1734,26 @@ __TOC__
 {{nl-nom|n.s=a|n.pl=a’s|dim.s=a’tje|dim.pl=a’tjes}}
 '''a''' {{pron|aː|nl}} {{f}} / {{m}}
 # {{lexique|linguistique|nl}} Première lettre de l’alphabet.
-#* ''De '''A''' van Anna''
-#*: A comme Anatole.
+#* {{exemple | lang=nl
+ | De '''A''' van Anna
+ | A comme Anatole.}}
 # Ce qui est nommé en premier, premier élément d'une liste.
-#* ''Van '''a''' tot z''
-#*: De A à Z, de A jusqu’à Z, de bout en bout.
-#* ''Van '''A''' tot Z vertellen''
-#* ''Wie '''A''' zegt moet ook B zeggen''
-#*: Qui dit A doit dire B.
+#* {{exemple | lang=nl
+ | Van '''a''' tot z
+ | De A à Z, de A jusqu’à Z, de bout en bout.}}
+#* {{exemple | lang=nl | Van '''A''' tot Z vertellen}}
+#* {{exemple | lang=nl
+ | Wie '''A''' zegt moet ook B zeggen
+ | Qui dit A doit dire B.}}
 #*: Il faut avoir l’esprit de suite.
 #*: Il faut achever ce qu’on a commencé.
 #*: Raconter par le menu, en détail.
 # {{lexique|musique|nl}} Ton musical standard de 440 Hz.
 # {{lexique|musique|nl}} Dixième ton de l’échelle chromatique et sixième ton de l’échelle diatonique.
 # {{lexique|musique|nl}} [[la|La]], [[la]] [[mineur]].
-#* ''De '''a''' aangeven''
-#*: Donner le la.
+#* {{exemple | lang=nl
+ | De '''a''' aangeven
+ | Donner le la.}}
 
 ==== {{S|synonymes}} ====
 * {{term|Sens 4}} {{lien|la|nl}}
@@ -1604,19 +1784,19 @@ __TOC__
 : {{term|Préposition}} Du {{étyl|la|oc|ad|sens=vers, en direction de}}.
 
 === {{S|lettre|oc}} ===
-{{lettre|pron=a|lang=oc}}
+{{lettre|pron=a|p2=o̯|lang=oc}}
 '''a''' {{phon|a|oc}} ou {{phon|o̯|oc}} {{f}} {{oc-norme classique}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet latin]] de l’occitan.
 
 ==== {{S|notes}} ====
 * Le a tonique ouvert (parfois noté à) se prononce {{phon|a|oc}}
-#* {{exemple|lang=oc|Cantarà ({{pron|canta'ɾa|oc}}).|Il chantera.}}
-#* {{exemple|lang=oc|Lo papà ({{pron|lu pa'pa|oc}}).|Le papa.}}
-#* {{exemple|lang=oc|Lo baldràs ({{pron|lu bal'ðɾas|oc}}).|Le bourbier.}}
+#* {{exemple|lang=oc|Cantarà ({{pron|cantaˈɾa|oc}}).|Il chantera.}}
+#* {{exemple|lang=oc|Lo papà ({{pron|lu paˈpa|oc}}).|Le papa.}}
+#* {{exemple|lang=oc|Lo baldràs ({{pron|lu balˈðɾas|oc}}).|Le bourbier.}}
 * Le a atone ou tonique fermé (parfois noté á) se prononce {{phon|o̯|oc}} ou {{phon|ɔ|oc}}
-#* {{exemple|lang=oc|Lo papa ({{pron|lu pa'po̯|oc}}).|Le pape.}}
-#* {{exemple|lang=oc|La baldra ({{pron|la bal'ðɾo̯|oc}}).|La boue.}}
-#* {{exemple|lang=oc|Une femna ({{pron|uno̯ 'fenno̯|oc}}).|Une femme.}}
+#* {{exemple|lang=oc|Lo papa ({{pron|lu ˈpapo̯|oc}}).|Le pape.}}
+#* {{exemple|lang=oc|La baldra ({{pron|la balˈðɾo̯|oc}}).|La boue.}}
+#* {{exemple|lang=oc|Une femna ({{pron|uno̯ ˈfenno̯|oc}}).|Une femme.}}
 #* {{exemple|lang=oc|Aviá un can ({{pron|aβio̯ un ko̯|oc}}).|Il avait un chien.}} (le a de can est généralement fermé)
 
 ==== {{S|variantes orthographiques}} ====
@@ -1627,7 +1807,54 @@ __TOC__
 * [[à#oc|à]] (voyelle ouverte tonique : {{pron|a|oc}})
 #* {{exemple|lang=oc|cataràs ({{pron|kataˈɾas|oc}}).|gros chat.}}
 #* {{exemple|lang=oc|cantaràs ({{pron|kantaˈɾas|oc}}).|tu chanteras.}}
-#* {{exemple|lang=oc|clapàs ({{pron|kla'pas|oc}}).|gros tas de pierres.}}
+#* {{exemple|lang=oc|clapàs ({{pron|klaˈpas|oc}}).|gros tas de pierres.}}
+
+{| class="wikitable" style="clear:both; margin:0.5em auto 0.5em auto; border-collapse:collapse; background:GhostWhite; padding:0.5em; text-align:center"
+|- style="vertical-align: top;"
+| style="width:14.28%;" | {{lien m|a|oc}} {{lien m|A|oc}}<br />({{lien m|a|oc}})
+| style="width:14.28%;" | {{lien m|b|oc}} {{lien m|B|oc}}<br />({{lien m|be|oc}})
+| style="width:14.28%;" | {{lien m|c|oc}} {{lien m|C|oc}}<br />({{lien m|ce|oc}})
+| style="width:14.28%;" | {{lien m|d|oc}} {{lien m|D|oc}}<br />({{lien m|de|oc}})
+| style="width:14.28%;" | {{lien m|e|oc}} {{lien m|E|oc}}<br />({{lien m|e|oc}})
+| style="width:14.28%;" | {{lien m|f|oc}} {{lien m|F|oc}}<br />({{lien m|èfa|eo}})
+|- style="vertical-align: top;"
+| {{lien m|g|oc}} {{lien m|G|oc}}<br />({{lien m|ge|oc}})
+| {{lien m|h|oc}} {{lien m|H|oc}}<br />({{lien m|acha|oc}})
+| {{lien m|i|oc}} {{lien m|I|oc}}<br />({{lien m|i|oc}})
+| {{lien m|j|oc}} {{lien m|J|oc}}<br />({{lien m|gi|oc}})
+| {{lien m|l|oc}} {{lien m|L|oc}}<br />({{lien m|èlla|oc}})
+| {{lien m|m|oc}} {{lien m|M|oc}}<br />({{lien m|èmma|oc}})
+|- style="vertical-align: top;"
+| {{lien m|n|oc}} {{lien m|N|oc}}<br />({{lien m|ènna|oc}})
+| {{lien m|o|oc}} {{lien m|O|oc}}<br />({{lien m|o|oc}})
+| {{lien m|p|oc}} {{lien m|P|oc}}<br />({{lien m|pe|oc}})
+| {{lien m|q|oc}} {{lien m|Q|oc}}<br />({{lien m|cu|oc}})
+| {{lien m|r|oc}} {{lien m|R|oc}}<br />({{lien m|èrra|oc}})
+| {{lien m|s|oc}} {{lien m|S|oc}}<br />({{lien m|èssa|oc}})
+|- style="vertical-align: top;"
+| {{lien m|t|oc}} {{lien m|T|oc}}<br />({{lien m|te|oc}})
+| {{lien m|u|oc}} {{lien m|U|oc}}<br />({{lien m|u|oc}})
+| {{lien m|v|oc}} {{lien m|V|oc}}<br />({{lien m|ve bassa|oc}})
+| {{lien m|x|oc}} {{lien m|X|oc}}<br />({{lien m|ixa|oc}})
+| {{lien m|z|oc}} {{lien m|Z|oc}}<br />({{lien m|izèda|oc}})
+|- style="vertical-align: top;"
+| {{lien m|k|oc}} {{lien m|K|oc}}<br />({{lien m|ca|oc}})
+| {{lien m|w|oc}} {{lien m|W|oc}}<br />({{lien m|dobla ve|oc}})
+| {{lien m|y|oc}} {{lien m|Y|oc}}<br />({{lien m|i grèca|oc}})
+|- style="vertical-align: top;"
+| {{lien m|á|oc}} {{lien m|Á|oc}}
+| {{lien m|à|oc}} {{lien m|À|oc}}
+| {{lien m|é|oc}} {{lien m|É|oc}}
+| {{lien m|è|oc}} {{lien m|È|oc}}
+| {{lien m|ó|oc}} {{lien m|Ó|oc}}
+| {{lien m|ò|oc}} {{lien m|Ò|oc}}
+|- style="vertical-align: top;"
+| {{lien m|í|oc}} {{lien m|Í|oc}}
+| {{lien m|ï|oc}} {{lien m|Ï|oc}}
+| {{lien m|ú|oc}} {{lien m|Ú|oc}}
+| {{lien m|ü|oc}} {{lien m|Ü|oc}}
+| {{lien m|ç|oc}} {{lien m|Ç|oc}}
+|}
 
 === {{S|interjection|oc}} ===
 '''a''' {{phon|a|oc}} {{oc-norme classique}}
@@ -1637,13 +1864,24 @@ __TOC__
 === {{S|préposition|oc}} ===
 '''a''' {{phon|a|oc}} {{oc-norme classique}}
 # [[à|À]].
-#* {{exemple|lang=oc|M'en vau '''a''' Albi.|Je m'en vais à Albi.}} - {{S|notes}} - Pour éviter le hiatus, on prononce : ''M'en vau '''as''' Albi''.
-#* {{exemple|lang=oc|L'ai vist '''a''' ton paire.|Ton père, je l'ai vu.}}
+#* {{exemple|lang=oc|M'en vau '''a''' Albi.|Je m'en vais à Albi.}} (''indique la direction'') - {{S|notes}} - Pour éviter le hiatus, on prononce : ''M'en vau '''as''' Albi''.
 #* {{exemple|lang=oc|Sentir '''a''' mosit.|Sentir le moisi.}}
+#* {{exemple|lang=oc|Los pichons son '''a''' l’escola.|Les enfanrts sont à l’école.}} (''indique la situation'')
+#* {{exemple|lang=oc|Prestar un libre '''a''' un amic.|Prêter un livre à un ami.}} (''indique l’attribution'')
 #* {{exemple|lang=oc|Manquèt '''a''' se copar la camba.|Il a failli se couper la jambe.}}
 #* {{exemple|lang=oc|Tornèt '''a''' pujar.|Il remonta.}}
 # [[en train de]].
-#* {{exemple|lang=oc|Son '''a''' trabalhar.|Ils sont en train de travailler.}}
+#* {{exemple|lang=oc|Son '''a''' trabalhar.|Ils sont en train de travailler.}} (''action qui dure'')
+
+==== {{S|notes}} ====
+* La préposition ''a'' se met devant un accusatif nom de personne ou l'idéfini ''tot'', ''tota'', quand cet accusatif est annoncé par un pronom personnel avant le verbe conjugué.
+#* {{exemple|lang=oc|Los devèm respectar '''als''' ancians.|Nous devons les respecter, les personnes âgées.}}
+#* {{exemple|lang=oc|L’ai vist '''a''' ton paire.|Ton père, je l’ai vu.}}
+#* {{exemple|lang=oc|Aviái enveja de los escanar '''a''' totes.|J’avais envie de les étrangler tous les deux.}}
+#* {{exemple|lang=oc|Las coneissi '''a''' totas doas.|Je les connais toutes les deux (''féminin'').}}
+* La préposition ''a'' suivie d’un infinitif traduit une obligation ou une nécessité.
+#* {{exemple|lang=oc|Aquò que aviá '''a''' far.|Ce qu’il avait à faire.}}
+#* {{exemple|lang=oc|Es una fòrma '''a''' defugir.|C’est une tournure à éviter.}}
 
 ==== {{S|dérivés}} ====
 * [[al#oc|al]], [[als#oc|als]]
@@ -1701,12 +1939,9 @@ __TOC__
 '''a''' {{pron||ff}}
 # Première [[lettre]] de l’[[alphabet]].
 
-=== {{S|écriture}} ===
-* [[𞤢]]
-
 === {{S|pronom personnel|ff}} ===
-'''a''' {{pron|a|ff}} ''(forme courte)''
-# [[tu|Tu]].
+'''a''' {{pron|a|ff}}
+# {{term|forme courte}} [[tu|Tu]]. {{usage}} cette forme est utilisée pour les verbes au parfait, à l'imperfectif et pour la négation.
 
 === {{S|écriture}} ===
 * [[𞤢]]
@@ -1714,7 +1949,11 @@ __TOC__
 ==== {{S|dérivés}} ====
 * [[an#ff|an]] (''emphatique'' : « Toi, tu … »)
 * [[aɗa#ff|aɗa]] (''forme longue'')
+* [[haɗa#ff|haɗa]] (''forme longue'')
 * [[ma#ff|ma]]
+
+=== {{S|références}} ===
+* {{R:Diallo2015|p=3 et 7}}
 
 == {{langue|fpe}} ==
 === {{S|étymologie}} ===
@@ -1723,8 +1962,10 @@ __TOC__
 === {{S|pronom personnel|fpe}} ===
 '''a''' {{pron||fpe}}
 # [[je|Je]].
-#* '''''A''' mɔs gó Alemania wán dé.'' {{source|1={{R:Yakpo2009|p=171}}}}
-#*: Je dois vraiment aller en Allemagne un jour.
+#* {{exemple | lang=fpe
+ | '''A''' mɔs gó Alemania wán dé.
+ | Je dois vraiment aller en Allemagne un jour.
+ | source=1={{R:Yakpo2009|p=171}}}}
 
 === {{S|références}} ===
 * {{R:Yakpo2009|p=7}}
@@ -1754,8 +1995,9 @@ __TOC__
 === {{S|préposition|pln}} ===
 '''a''' {{pron|a|pln}}
 # [[en|En]], [[dans]], à l’[[intérieur]] de.
-#* ''Puekko ta '''a''' kusina.''
-#*: Le cochon est dans la cuisine.
+#* {{exemple | lang=pln
+ | Puekko ta '''a''' kusina.
+ | Le cochon est dans la cuisine.}}
 
 ==== {{S|synonymes}} ====
 * [[en]] (ré-importé de l'espagnol)
@@ -1764,7 +2006,6 @@ __TOC__
 * {{R:Schwegler}}
 
 == {{langue|pms}} ==
-
 === {{S|étymologie}} ===
 : Du {{étyl|la|pms|mot=ad}}.
 
@@ -1778,18 +2019,24 @@ __TOC__
 # Première lettre de l’alphabet piémontais.
 
 == {{langue|pl}} ==
-
 === {{S|étymologie}} ===
-: Du {{étyl|cu|pl|mot=ⰰ|tr=a|sens=}} qui donne aussi le russe {{lien|а|ru|tr=a|sens=et, mais}}, le tchèque {{lien|''a''|cs|sens=et}}.
+: Du {{étyl|cu|pl|mot=ⰰ|tr=a|sens=}}{{R|SEJP|a}} qui donne aussi le russe {{lien|а|ru|tr=a|sens=et, mais}}, le tchèque {{lien|''a''|cs|sens=et}}.
 
 === {{S|conjonction de coordination|pl}} ===
 '''a''' {{pron|a|pl}}
 # [[et#fr|Et]].
-#*'''''A''' ty?'' Et toi ?
-#*''Walka między dobrem '''a''' złem,'' la guerre entre le bien et le mal.
+#*{{exemple|'''A''' ty?|Et toi ?|lang=pl}}
+#*{{exemple|Walka między dobrem '''a''' złem.|La guerre entre le bien et le mal.|lang=pl}}
+
+==== {{S|notes}} ====
+* À part ''a'' et ses composés (''{{lien|acz|pl}}, {{lien|ale|pl}}, {{lien|ać|pl}}, {{lien|aż|pl}}''), tous les mots commençant par ''a-'' sont des emprunts récents aux langues germaniques ou latines{{R|SEJP|a-}}.
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=pl|audio=Pl-a.ogg}}
+* {{écouter|||lang=pl|audio=LL-Q809 (pol)-Krokus-a.wav}}
+* {{écouter|Będzin (Pologne)||lang=pl|audio=LL-Q809 (pol)-Olaf-a.wav}}
 
 === {{S|références}} ===
-* {{Source-wikt|pl|a}}
 {{Références}}
 
 == {{langue|pt}} ==
@@ -1805,14 +2052,16 @@ __TOC__
 === {{S|article défini|pt}} ===
 '''a''' {{pron|a|pt}}
 # Féminin singulier de ''[[o#pt|o]]'' (« [[le]] »). Détermine un groupe nominal féminin singulier.
-#* '''''A''' casa é branca.''
-#*: La maison est blanche.
+#* {{exemple | lang=pt
+ | '''A''' casa é branca.
+ | La maison est blanche.}}
 
 === {{S|pronom personnel|pt}} ===
 '''a''' {{pron|a|pt}} ''troisième personne du singulier''
 # [[la|La]], féminin singulier de ''[[o#pt|o]]'' (« [[le]] »). Représente un groupe nominal féminin singulier complément d’objet direct.
-#* ''Eu '''a''' reconheço.''
-#*: Je la reconnais.
+#* {{exemple | lang=pt
+ | Eu '''a''' reconheço.
+ | Je la reconnais.}}
 # [[vous|Vous]] ([[vouvoiement]]).
 
 ==== {{S|notes}} ====
@@ -1822,7 +2071,7 @@ __TOC__
 {{pronoms personnels/pt}}
 
 === {{S|pronom démonstratif|pt}} ===
-'''a''' {{pron|a|pt}} {{fsing}}
+'''a''' {{pron|a|pt}} {{f}} {{s}}
 # [[celle|Celle]].
 
 ==== {{S|dérivés}} ====
@@ -1835,6 +2084,7 @@ __TOC__
 # Indique une [[situation]], un [[lieu]], un [[mouvement]].
 #* ''[[vamos|Vamos]] à [[praia]]?'' — On va à la [[plage]] ? (Note - pt: [[à]] = fr: [[à la]], en: [[to the]] – pt: à – pluriel = [[às]]
 #* '''''À''' direita.'' — À [[droite]].
+#* {{exemple|A primeira nau de regresso da viagem de Vasco da Gama chegou '''a''' Portugal, produzindo grande entusiasmo, em julho de 1499.|lang=pt|sens=Le premier navire revenant du voyage de Vasco de Gama est arrivé au Portugal en juillet 1499, suscitant un grand enthousiasme.|source={{ouvrage|auteur=Boris Fausto|titre=História concisa do Brasil|année=2016|éditeur=edusp|url=}}}}
 # Indique un [[destinataire]].
 #* ''Pergunte à gente.'' — Demande aux gens.
 # Indique un [[moment]].
@@ -1853,10 +2103,21 @@ __TOC__
 {{contractions/pt}}
 
 === {{S|prononciation}} ===
-* {{écouter|lang=pt|Portugal (Porto)||audio=LL-Q5146 (por)-Santamarcanda-a.wav}}
-* {{écouter|lang=pt|États-Unis||audio=LL-Q5146 (por)-Nelson Ricardo 2500-a.wav}}
-* {{écouter|Yangsan (Corée du Sud)||lang=pt|audio=LL-Q5146 (por)-Juliano P. Junho (Jjunho)-a.wav}}
-* {{écouter|Brésil||lang=pt|audio=LL-Q5146 (por)-Sillim-a.wav}}
+* Lisbonne : {{pron|ɐ|pt}} (langue standard), {{pron|ɐ|pt}} (langage familier)
+* São Paulo : {{pron|a|pt}} (langue standard), {{pron|a|pt}} (langage familier)
+* Rio de Janeiro : {{pron|a|pt}} (langue standard), {{pron|a|pt}} (langage familier)
+* Maputo : {{pron|ɐ|pt}} (langue standard), {{pron|ɐ|pt}} (langage familier)
+* Luanda : {{pron|a|pt}}
+* Dili : {{pron|ə|pt}}
+* {{écouter|lang=pt|Brésil|audio=Pt-br-a.ogg}}
+* {{écouter|Porto (Portugal)|ɐ|lang=pt|audio=LL-Q5146 (por)-Santamarcanda-a.wav}}
+* {{écouter|États-Unis|ɐ|lang=pt|audio=LL-Q5146 (por)-Nelson Ricardo 2500-a.wav}}
+* {{écouter|Yangsan (Corée du Sud)|ɐ|lang=pt|audio=LL-Q5146 (por)-Juliano P. Junho (Jjunho)-a.wav}}
+* {{écouter|Brésil|a|lang=pt|audio=LL-Q5146 (por)-Sillim-a.wav}}
+* {{écouter|Lisbonne (Portugal)||niveau=moyen|lang=pt|audio=LL-Q5146 (por)-Adélaïde Calais WMFr-a.wav}}
+
+=== {{S|références}} ===
+* {{R:DicionárioFonético|a|id=1}}
 
 == {{langue|qua}} ==
 === {{S|étymologie}} ===
@@ -1876,6 +2137,15 @@ __TOC__
 {{ro-art-décl|type=génitival|nms=al|nfs=a|nmp=ai|nfp=ale|dms=alui|dfs=alei|dmp=alor|dfp=alor}}
 '''a''' {{pron|a|ro}} {{f}} {{s}}
 # Forme féminin singulier {{nominatif|ro}} et {{accusatif|ro}} de l’article génitival [[al#ro|al]].
+
+== {{langue|sc}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|sc}}
+
+=== {{S|préposition|sc}} ===
+'''a''' {{pron|ˈa|sc}}
+# [[à#fr|À]].
+#* {{exemple|lang=sc}}
 
 == {{langue|sco}} ==
 === {{S|étymologie}} ===
@@ -1995,9 +2265,245 @@ __TOC__
 '''a''' {{pron|ˈa|scn}}
 # Première lettre de l’alphabet sicilien.
 
-=== {{S|préposition|scn}} ===
+==== {{S|dérivés}} ====
+* {{lien|di l’A fina â Z|scn}}
+
+=== {{S|préposition|scn|num=1}} ===
 '''a''' {{pron|ˈa|scn}}
 # [[à#fr|À]].
+#* {{exemple|lang=scn}}
+
+=== {{S|préposition|scn|num=2}} ===
+'''a''' {{pron|ˈa|scn}} {{f}}
+# [[à la#fr|À la]].
+#* {{exemple|lang=scn}}
+
+==== {{S|variantes orthographiques}} ====
+* {{lien|â|scn}}
+* {{lien|a a|scn}}
+* {{lien|a la|scn}}
+* {{lien|ala|scn}}
+* {{lien|alla|scn}}
+
+==== {{S|dérivés}} ====
+{{(}}
+* {{lien|a bestiali|scn}}
+* {{lien|a birbantisca|scn}}
+* {{lien|a bistiali|scn}}
+* {{lien|a bon’ura|scn}}
+* {{lien|a brètuni|scn}}
+* {{lien|a buffunisca|scn}}
+* {{lien|a bùlgara|scn}}
+* {{lien|a buon’ura|scn}}
+* {{lien|a burginsàtica|scn}}
+* {{lien|a burgisa|scn}}
+* {{lien|a burgisi|scn}}
+* {{lien|a burgisisca|scn}}
+* {{lien|a cacciatura|scn}}
+* {{lien|a cacciaturisca|scn}}
+* {{lien|a campanazza|scn}}
+* {{lien|a campagnola|scn}}
+* {{lien|a campìa|scn}}
+* {{lien|a campirisca|scn}}
+* {{lien|a canadisa|scn}}
+* {{lien|a canadisi|scn}}
+* {{lien|a canina|scn}}
+* {{lien|a cantunisa|scn}}
+* {{lien|a cantunisi|scn}}
+* {{lien|a cavaddhina|scn}}
+* {{lien|a cavaddina|scn}}
+* {{lien|a cavaḍḍina|scn}}
+* {{lien|a cavaddrina|scn}}
+* {{lien|a cinisa|scn}}
+* {{lien|a cinisi|scn}}
+* {{lien|a cita|scn}}
+* {{lien|a condizioni di|scn}}
+* {{lien|a cundannè|scn}}
+* {{lien|a cunfidata|scn}}
+* {{lien|a cuntadina|scn}}
+* {{lien|a cuntraria|scn}}
+* {{lien|a curtiggiana|scn}}
+* {{lien|a diavulina|scn}}
+* {{lien|a dijuna|scn}}
+* {{lien|a dritta|scn}}
+* {{lien|a duzzinali|scn}}
+* {{lien|a facci mia|scn}}
+* {{lien|a facci sua|scn}}
+* {{lien|a facci tua|scn}}
+* {{lien|a fasesa|scn}}
+* {{lien|a filosofica|scn}}
+* {{lien|a fini|scn}}
+* {{lien|a finuta|scn}}
+* {{lien|a francisa|scn}}
+* {{lien|a francisi|scn}}
+* {{lien|a furnarisca|scn}}
+* {{lien|a giappunisa|scn}}
+* {{lien|a giappunisi|scn}}
+* {{lien|a granni|scn}}
+* {{lien|a grassa|scn}}
+* {{lien|a greca|scn}}
+* {{lien|a grossa|scn}}
+* {{lien|a grussulana|scn}}
+* {{lien|a jurnata|scn}}
+* {{lien|a juta|scn}}
+* {{lien|a larga|scn}}
+* {{lien|a libbera|scn}}
+* {{lien|a lìgura|scn}}
+* {{lien|a lìguri|scn}}
+* {{lien|a liò|scn}}
+* {{lien|a livata|scn}}
+* {{lien|a luntana|scn}}
+* {{lien|a malandrinisca|scn}}
+* {{lien|a maltisa|scn}}
+* {{lien|a maltisi|scn}}
+* {{lien|a malura|scn}}
+* {{lien|a mancusa|scn}}
+* {{lien|a manu|scn}}
+* {{lien|a marinarisca|scn}}
+* {{lien|a ’mbersa|scn}}
+* {{lien|a mègghiu|scn}}
+* {{lien|a milanisa|scn}}
+* {{lien|a milanisi|scn}}
+* {{lien|a militari|scn}}
+* {{lien|a mircantisca|scn}}
+* {{lien|a miricana|scn}}
+* {{lien|a moda|scn}}
+* {{lien|a moderna|scn}}
+* {{lien|a ’mpirnicheja|scn}}
+* {{lien|a ’mprescia|scn}}
+* {{lien|a ’mpressa|scn}}
+* {{lien|a muntagnisa|scn}}
+* {{lien|a muntagnisi|scn}}
+* {{lien|a murera|scn}}
+* {{lien|a napulitana|scn}}
+* {{lien|a nghisa|scn}}
+* {{lien|a nglisa|scn}}
+* {{lien|a ngrisa|scn}}
+* {{lien|a nghisi|scn}}
+* {{lien|a nglisi|scn}}
+* {{lien|a ngrisi|scn}}
+* {{lien|a ninna|scn}}
+* {{lien|a nobbilisca|scn}}
+* {{lien|a nubbilisca|scn}}
+* {{lien|a nuda|scn}}
+* {{lien|a nurmanna|scn}}
+* {{lien|a nurviggisa|scn}}
+* {{lien|a nurviggisi|scn}}
+* {{lien|a palirmitana|scn}}
+* {{lien|a para|scn}}
+* {{lien|a pariggina|scn}}
+* {{lien|a parti|scn}}
+* {{lien|a pastetta|scn}}
+* {{lien|a pasturali|scn}}
+* {{lien|a patriarcali|scn}}
+* {{lien|a pazzìa|scn}}
+* {{lien|a pazzigna|scn}}
+* {{lien|a pazzisca|scn}}
+* {{lien|a pazzòtica|scn}}
+* {{lien|a piduna|scn}}
+* {{lien|a piemuntisa|scn}}
+* {{lien|a piemuntisi|scn}}
+* {{lien|a pirsiana|scn}}
+* {{lien|a polacca|scn}}
+* {{lien|a posta|scn}}
+* {{lien|a prima|scn}}
+* {{lien|a pruvenzali|scn}}
+* {{lien|a pruvinzali|scn}}
+* {{lien|a purcigna|scn}}
+* {{lien|a purtuchisa|scn}}
+* {{lien|a purtuchisi|scn}}
+* {{lien|a purtughisa|scn}}
+* {{lien|a purtughisi|scn}}
+* {{lien|a rasa|scn}}
+* {{lien|a reali|scn}}
+* {{lien|a ricota|scn}}
+* {{lien|a rifriscata|scn}}
+* {{lien|a rinfusa|scn}}
+* {{lien|a roccocò|scn}}
+* {{lien|a riversa|scn}}
+* {{lien|a romana|scn}}
+* {{lien|a Rossini|scn}}
+* {{lien|a rumana|scn}}
+* {{lien|a russa|scn}}
+* {{lien|a sanfasò|scn}}
+* {{lien|a sbrijata|scn}}
+* {{lien|a scaduta|scn}}
+* {{lien|a scampata|scn}}
+* {{lien|a scapiddata|scn}}
+* {{lien|a scapiḍḍata|scn}}
+* {{lien|a scapiddhata|scn}}
+* {{lien|a scapiddrata|scn}}
+* {{lien|a scarciunisca|scn}}
+* {{lien|a scarmigghiata|scn}}
+* {{lien|a scarricata|scn}}
+* {{lien|a scarsa|scn}}
+* {{lien|a sciorta|scn}}
+* {{lien|a sculàstica|scn}}
+* {{lien|a scuperta|scn}}
+* {{lien|a scurata|scn}}
+* {{lien|a scurdata|scn}}
+* {{lien|a scuzzisa|scn}}
+* {{lien|a scuzzisi|scn}}
+* {{lien|a sdiminticata|scn}}
+* {{lien|a sdirrera|scn}}
+* {{lien|a sdirrutta|scn}}
+* {{lien|a sdossa|scn}}
+* {{lien|a sequela|scn}}
+* {{lien|a sfilata|scn}}
+* {{lien|a sfuggita|scn}}
+* {{lien|a sfujuta|scn}}
+* {{lien|a sganghesa|scn}}
+* {{lien|a sgherra|scn}}
+* {{lien|a siciliana|scn}}
+* {{lien|a sò|scn}}
+* {{lien|a spadda|scn}}
+* {{lien|a spaḍḍa|scn}}
+* {{lien|a spagnola|scn}}
+* {{lien|a spagnuola|scn}}
+* {{lien|a spinzirata|scn}}
+* {{lien|a spreparata|scn}}
+* {{lien|a sprovista|scn}}
+* {{lien|a stacca|scn}}
+* {{lien|a stranìa|scn}}
+* {{lien|a strasatta|scn}}
+* {{lien|a sua|scn}}
+* {{lien|a sulicchialora|scn}}
+* {{lien|a sulicchiarìa|scn}}
+* {{lien|a surdatisca|scn}}
+* {{lien|a suttili|scn}}
+* {{lien|a svidisa}}
+* {{lien|a svidisi|scn}}
+* {{lien|a taliana|scn}}
+* {{lien|a thailannisa|scn}}
+* {{lien|a thailannisi|scn}}
+* {{lien|a tidisca|scn}}
+* {{lien|a tosca|scn}}
+* {{lien|a traditura|scn}}
+* {{lien|a traditurisca|scn}}
+* {{lien|a tudisca|scn}}
+* {{lien|a tunna|scn}}
+* {{lien|a turca|scn}}
+* {{lien|a turchigna|scn}}
+* {{lien|a turchisca|scn}}
+* {{lien|a turnata|scn}}
+* {{lien|a vastasisca|scn}}
+* {{lien|a via|scn}}
+* {{lien|a viḍḍanisca|scn}}
+* {{lien|a viddanisca|scn}}
+* {{lien|a vintura|scn}}
+* {{lien|a vinuta|scn}}
+* {{lien|a vista|scn}}
+* {{lien|a vistiali|scn}}
+* {{lien|a vita|scn}}
+* {{lien|a vota|scn}}
+* {{lien|a vutata|scn}}
+{{)}}
+
+==== {{S|vocabulaire}} ====
+* {{contractions/scn}}
+
+=== {{S|prononciation}} ===
+* {{écouter|Gela (Italie)||lang=scn|audio=LL-Q33973 (scn)-XANA000-a.wav}}
 
 === {{S|références}} ===
 * {{R:Traina}}
@@ -2027,7 +2533,6 @@ __TOC__
 '''a''' {{pron|a|sl}}
 # {{lexique|grammaire|sl}} Particule interrogative.
 
-
 == {{langue|ses}} ==
 === {{S|étymologie}} ===
 : {{ébauche-étym|ses}}
@@ -2035,7 +2540,6 @@ __TOC__
 === {{S|pronom personnel|ses}} ===
 '''a''' {{pron||ses}}
 # Pronom de la [[troisième personne]] du [[singulier]] (sans distinction de genre ; sujet ou objet); [[il]], [[elle]]; [[le]], [[la]], [[lui]].
-
 
 == {{langue|ty}} ==
 === {{S|étymologie}} ===
@@ -2049,7 +2553,6 @@ __TOC__
 
 === {{S|références}} ===
 * {{R:AcadémieTahitienne|a}}
-
 
 == {{langue|cs}} ==
 === {{S|étymologie}} ===
@@ -2074,17 +2577,23 @@ __TOC__
 === {{S|prononciation}} ===
 * {{écouter|lang=cs|République tchèque|a|audio=Cs-a.ogg}}
 * {{écouter|Hradec Králové (Tchéquie)||lang=cs|audio=LL-Q9056 (ces)-HondaCivic175-a.wav}}
+* {{écouter|Tchéquie||lang=cs|audio=LL-Q9056 (ces)-Akronos123-a.wav}}
 
 === {{S|références}} ===
 * {{R:ÚJČ}}
 
-== {{langue|tokipona}} ==
+== {{langue|tok}} ==
 === {{S|étymologie}} ===
-: {{ébauche-étym|tokipona}}
+: {{ébauche-étym|tok}}
 
-=== {{S|interjection|tokipona}} ===
-'''a''' {{pron||tokipona}}
+=== {{S|interjection|tok}} ===
+'''a''' {{pron||tok}}
 # [[ah|Ah]], [[euh]], [[ha]], [[hi]], [[hé]],...
+
+=== {{S|prononciation}} ===
+* {{écouter|Toulouse (France)||niveau=bon|lang=tok|audio=LL-Q36846-Lepticed7-a.wav}}
+* {{écouter|||niveau=moyen|lang=tok|audio=LL-Q36846 (tok)-John Gordon Reid-a.wav}}
+* {{écouter|Bandung (Indonésie)||niveau=moyen|lang=tok|audio=LL-Q36846 (tok)-A. D. Prakasa-a.wav}}
 
 == {{langue|tpw}} ==
 === {{S|étymologie}} ===
@@ -2098,6 +2607,11 @@ __TOC__
 
 === {{S|références}} ===
 * Antônio Gonçalves Dias, ''Diccionario da lingua tupy : chamada lingua geral dos indigenas do Brazil'', 1858.
+
+== {{langue|tr}} ==
+=== {{S|lettre|tr}} ===
+{{lettre|pron=a:|nom=a|lang=tr}}'''a''' {{pron|a|fr}}
+# Première lettre de l'[[alphabet]] [[turc]]. ([[minuscule]])
 
 == {{langue|ang}} ==
 === {{S|étymologie}} ===
@@ -2120,7 +2634,7 @@ __TOC__
 
 == {{langue|sga}} ==
 === {{S|étymologie}} ===
-: {{laé|sga|article défini}} {{laé|sga|pronom}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|sindom|proto-celtique}}. 
+: {{laé|sga|article défini}} {{laé|sga|pronom}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|sindom|proto-celtique}}.
 : {{laé|sga|pronom possessif}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|esyo|proto-celtique}} (masculin et neutre), {{recons|lang-mot-vedette=sga|esyās|proto-celtique}} (féminin), et {{recons|lang-mot-vedette=sga|esōm|proto-celtique}} (pluriel), de l’{{étyl|ine-pie|sga}} {{recons|lang-mot-vedette=sga|ésyo|ine-pie}}, génitif singulier de {{recons|lang-mot-vedette=sga|ís|proto-celtique}} et {{recons|lang-mot-vedette=sga|íd|proto-celtique}} ; à comparer au gallois ''{{lien|ei|cy}}''.
 : {{laé|sga|part}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|ō|proto-celtique}} {{étyl|ine-pie|sga}} {{recons|lang-mot-vedette=sga|ō|ine-pie}}.
 : {{laé|sga|prép}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|exs|proto-celtique}}.
@@ -2214,7 +2728,7 @@ __TOC__
 : {{ébauche-étym|obt}}
 
 === {{S|conjonction|obt}} ===
-'''a''' {{pron||obt}}
+'''a''' {{pron-recons||obt}}
 # [[et|Et]].
 
 ==== {{S|variantes}} ====
@@ -2223,11 +2737,11 @@ __TOC__
 * {{lien|hac|obt}}
 
 === {{S|interjection|obt}} ===
-'''a''' {{pron||obt}}
+'''a''' {{pron-recons||obt}}
 # Interjection exclamative, [[ha]].
 
 === {{S|préposition|obt}} ===
-'''a''' {{pron||obt}}
+'''a''' {{pron-recons||obt}}
 # Préposition marquant l’ablatif.
 # [[avec|Avec]].
 
@@ -2235,11 +2749,11 @@ __TOC__
 * {{lien|ag|obt}}
 
 === {{S|particule|obt}} ===
-'''a''' {{pron||obt}}
+'''a''' {{pron-recons||obt}}
 # Particule verbale.
 
 === {{S|pronom relatif|obt}} ===
-'''a''' {{pron||obt}}
+'''a''' {{pron-recons||obt}}
 # [[qui|Qui]].
 
 === {{S|références}} ===
@@ -2249,15 +2763,27 @@ __TOC__
 === {{S|étymologie}} ===
 : {{ébauche-étym|vo}}
 
+=== {{S|lettre|vo}} ===
+{{lettre}}
+'''a''' {{pron|a|vo}}
+# Première [[lettre]] [[minuscule]] et première [[voyelle]] de l’alphabet.
+#* {{exemple|lang=vo}}
+
+==== {{S|vocabulaire}} ====
+{{alphabet volapük}}
+
 === {{S|préposition|vo}} ===
 '''a''' {{pron|a|vo}}
 # Préposition à sens distributif, dont les traductions sont diverses : [[à]] (chacun, pièce), [[pour]].
-#* ''Balats lul '''a''' yurodazims deg.''
-#*: Cinq à dix centimes pièce.
-#* ''Yurods deg '''a''' pösod bal.''
-#*: Dix euros par tête de pipe, dix euros par personne.
-#* ''Degtelat bal '''a''' yurods tel.''
-#*: Une douzaine pour deux euros.
+#* {{exemple|lang=vo
+ |Balats lul '''a''' yurodazims deg.
+ |Cinq à dix centimes pièce.}}
+#* {{exemple|lang=vo
+ |Yurods deg '''a''' pösod bal.
+ |Dix euros par tête de pipe, dix euros par personne.}}
+#* {{exemple|lang=vo
+ |Degtelat bal '''a''' yurods tel.
+ |Une douzaine pour deux euros.}}
 
 == {{langue|dje}} ==
 === {{S|étymologie}} ===

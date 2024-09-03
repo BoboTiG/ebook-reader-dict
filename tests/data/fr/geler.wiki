@@ -5,27 +5,35 @@
 === {{S|verbe|fr}} ===
 '''geler''' {{pron|ʒə.le|fr}} {{t|fr}} {{conj|grp=1|fr}}
 # [[durcir|Durcir]], [[rendre]] [[solide]] par le [[froid]], [[transformer]] en [[glace]].
-#* ''Le froid '''a gelé''' l’eau du bassin. Il fait un si grand froid que l’huile se '''gèle''' dans la bouteille.''
+#* {{exemple|Moi, je porte en mon sein joyeux un beau jardin tout parfumé que l’été ne peut brûler, que l’automne ne peut flétrir, que l’hiver ne peut '''geler'''.|lang=fr|source={{w|Marguerite Burnat-Provins}}, ''{{WS|Le Livre pour toi}}'', [https://fr.wikisource.org/wiki/Le_Livre_pour_toi/Je_me_suis_couch%C3%A9_dans_un_pr%C3%A9_jauni LIV. « Tu descends dans le sommeil »], E. Sansot et Cie, 1907, page 111}}
+#* {{exemple | lang=fr | Le froid '''a gelé''' l’eau du bassin. Il fait un si grand froid que l’huile se '''gèle''' dans la bouteille.}}
 # [[pénétrer|Pénétrer]] par un froid [[excessif]].
-#* ''Le froid lui '''gela''' les doigts, le bout des oreilles.''
+#* {{exemple | lang=fr | Le froid lui '''gela''' les doigts, le bout des oreilles.}}
 # {{lexique|médecine|fr}} [[détériorer|Détériorer]] les [[membres]] par le [[froid]].
-#* ''Il '''a eu''' les pieds et les mains '''gelées'''.''
+#* {{exemple | lang=fr | Il '''a eu''' les pieds et les mains '''gelées'''.}}
 # {{spécialement|fr}} {{lexique|agriculture|fr}} [[endommager|Endommager]] les [[arbre]]s [[fruitier]]s, surtout lorsqu’ils sont en [[bouton]]s ou en [[fleur]]s, par le froid.
-#* ''Le froid '''a gelé''' mes vignes. Tous les poiriers '''ont été gelés'''.''
-# {{exagération|fr}} Faire [[souffrir]] du froid.
-#* ''L’air qui vient par cette porte nous '''gèle'''. Vous avez les mains si froides que vous me '''gelez'''.''
+#* {{exemple | lang=fr | Le froid '''a gelé''' mes vignes. Tous les poiriers '''ont été gelés'''.}}
+# {{par hyperbole|fr}} Faire [[souffrir]] du froid.
+#* {{exemple | lang=fr | L’air qui vient par cette porte nous '''gèle'''. Vous avez les mains si froides que vous me '''gelez'''.}}
 # {{figuré|fr}} {{familier|fr}} Avoir un [[accueil]] qui est [[extrêmement]] froid.
-#* ''Cet homme '''gèle''' ceux qui l’abordent.''
+#* {{exemple | lang=fr | Cet homme '''gèle''' ceux qui l’abordent.}}
 # {{figuré|fr}} [[bloquer|Bloquer]] un [[processus]].
-#* ''Il soutient les efforts d’Antonio Guterres, le secrétaire général de l’ONU, pour '''geler''' les combats autour de la centrale nucléaire ukrainienne de Zaporijia.'' {{source|journal ''Sud-Ouest'', édition ''Charente-Maritime / Charente'', 20 août 2022, page 4}}
+#* {{exemple | lang=fr
+ | Il soutient les efforts d’Antonio Guterres, le secrétaire général de l’ONU, pour '''geler''' les combats autour de la centrale nucléaire ukrainienne de Zaporijia.
+ | source=journal ''Sud-Ouest'', édition ''Charente-Maritime / Charente'', 20 août 2022, page 4}}
 # {{Québec|fr}} {{familier|fr}} [[être défoncé]], être [[drogué]].
-#* ''Il a tant fumé de cannabis qu'il est totalement '''gelé'''.''
+#* {{exemple | lang=fr | Il a tant fumé de cannabis qu'il est totalement '''gelé'''.}}
 # {{intransitif|fr}} Se [[durcir]] par le [[froid]], ou [[subir]] l’[[action]] du froid.
-#* ''Un rude hiver s’est abattu sur la campagne bourguignonne : les quelques arpents de vigne qui font vivre la famille '''ont gelé'''.'' {{source|Rosa Moussaoui, ''Zéphyrin Camélinat (1840-1932) Un long chemin,  de la commune au communisme'', dans {{w|L'Humanité}}, 7 septembre 2011}}
+#* {{exemple | lang=fr
+ | Un rude hiver s’est abattu sur la campagne bourguignonne : les quelques arpents de vigne qui font vivre la famille '''ont gelé'''.
+ | source=Rosa Moussaoui, ''Zéphyrin Camélinat (1840-1932) Un long chemin, de la commune au communisme'', dans {{w|L'Humanité}}, 7 septembre 2011}}
+#* ''Vous ne '''gèlerez''' pas cet hiver, mes mignons…' {{source|Françoise Bourdin, ''Dans les pas d’Ariane'', Belfond, 2011, chapitre 5}}
 # {{impersonnel|fr}} - faire plus froid que 0 <sup>o</sup>C.
-#* ''J’ai grimpé avec le pilote à mon poste dans les barres de perroquet ; il '''gelait''' et nous remontions vers le Nord, les voiles serrées, contre un vent coupant et froid.'' {{source|{{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
-# {{intransitif|fr}} {{exagération|fr}} {{courant|fr}} Avoir [[extrêmement]] froid, [[subir]] une [[sensation]] de froid [[intense]].
-#* ''Cette chambre est si froide qu’on y '''gèle'''.''
+#* {{exemple | lang=fr
+ | J’ai grimpé avec le pilote à mon poste dans les barres de perroquet ; il '''gelait''' et nous remontions vers le Nord, les voiles serrées, contre un vent coupant et froid.
+ | source={{w|Jean-Baptiste Charcot}}, ''Dans la mer du Groenland'', 1928}}
+# {{intransitif|fr}} {{par hyperbole|fr}} {{courant|fr}} Avoir [[extrêmement]] froid, [[subir]] une [[sensation]] de froid [[intense]].
+#* {{exemple | lang=fr | Cette chambre est si froide qu’on y '''gèle'''.}}
 
 ==== {{S|synonymes}} ====
 * [[glacer]]
@@ -47,29 +55,34 @@
 * [[gel]]
 * [[gelure]]
 
+==== {{S|phrases}} ====
+* [[janvier frileux gèle la merlesse sur les œufs]]
+
 ==== {{S|traductions}} ====
 {{trad-début|Durcir, rendre solide par le froid, transformer en glace. ''(Sens général).''}}
 * {{T|af}} : {{trad-|af|vries}}
-* {{T|de}} : {{trad+|de|frieren}}, {{trad+|de|einfrieren}}
+* {{T|de}} : {{trad+|de|frieren}}, {{trad+|de|einfrieren}}, {{trad+|de|eisen}}
 * {{T|en}} : to {{trad+|en|freeze}}
 * {{T|ang}} : {{trad-|ang|freosan}}
-* {{T|az}} : {{trad+|az|dondurmaq}}
+* {{T|az}} : {{trad-|az|dondurmaq}}
 * {{T|eu}} : {{trad-|eu|hormatu}}, {{trad-|eu|izoztu}}, {{trad-|eu|leitu}}
 * {{T|be}} : {{trad-|be|марозіць|R=marozits’}}
 * {{T|ht}} : {{trad|ht|fè glas}}
 * {{T|da}} : {{trad+|da|fryse}}
 * {{T|es}} : {{trad+|es|congelar}} ; {{trad+|es|helar}}
 * {{T|eo}} : {{trad-|eo|frosti}}
-* {{T|fo}} : {{trad-|fo|frysta}}
+* {{T|fo}} : {{trad+|fo|frysta}}
 * {{T|fi}} : {{trad+|fi|pakastaa}}
 * {{T|fy}} : {{trad-|fy|frieze}}
 * {{T|gallo}} : {{trad|gallo|guerouer}}
 * {{T|el}} : {{trad+|el|παγώνω|R=pagóno}}
 * {{T|io}} : {{trad+|io|frostar}}
 * {{T|it}} : {{trad+|it|congelare}}
+* {{T|avk}} : {{trad|avk|oprar}}
+* {{T|lep}} : {{trad|lep|ᰀᰤᰦᰵ}}, {{trad|lep|ᰂᰬᰭ}}
 * {{T|nl}} : {{trad+|nl|bevriezen}}
 * {{T|normand}} : {{trad|normand|gelaer}}
-* {{T|oc}} : {{trad+|oc|gelar}}
+* {{T|oc}} : {{trad+|oc|gelar}}, {{trad+|oc|torrar}}
 * {{T|pcd}} : {{trad|pcd|frimer}}, {{trad|pcd|injéler}}, {{trad|pcd|jéler}}, {{trad|pcd|jler}}
 * {{T|pl}} : {{trad+|pl|mrozić}}
 * {{T|pt}} : {{trad+|pt|gelar}}, {{trad+|pt|congelar}}
@@ -77,17 +90,23 @@
 * {{T|ru}} : {{trad+|ru|морозить|R=morozit’}}
 * {{T|se}} : {{trad|se|buolaštit}}, {{trad|se|galmmihit}}, {{trad|se|galbmot}}
 * {{T|sr}} : {{trad+|sr|заледити}}, {{trad+|sr|смрзнути}}
+* {{T|solrésol}} : {{trad|solrésol|lasolsol}}
 * {{T|sv}} : {{trad+|sv|frysa}}
 * {{T|uk}} : {{trad-|uk|заморожувати|R=zamorojouvaty}} ; {{trad-|uk|заморожуватися|R=zamorojouvatisia}}
 {{trad-fin}}
 
 {{trad-début|Se durcir par le froid, ou subir l’action du froid.}}
 * {{T|az}} : {{trad+|az|donmaq}}
+* {{T|avk}} : {{trad|avk|tapé}}
+* {{T|se}} : {{trad|se|jiekŋut}}
+* {{T|solrésol}} : {{trad|solrésol|lasolsol}}
 {{trad-fin}}
 
 {{trad-début|Faire plus froid que zéro Celsius}}
 * {{T|de}} : {{trad+|de|durchfrieren}}
+* {{T|avk}} : {{trad|avk|tapar}}
 * {{T|nl}} : {{trad+|nl|vriezen}}
+* {{T|solrésol}} : {{trad|solrésol|lasolsol}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===
@@ -115,45 +134,33 @@
 * {{écouter|lang=fr|||audio=LL-Q150 (fra)-Fabe56-geler.wav}}
 * {{écouter|Mulhouse (France)||lang=fr|audio=LL-Q150 (fra)-Mathieu Kappler-geler.wav}}
 * {{écouter|||lang=fr|audio=LL-Q150 (fra)-Sagnamadr-geler.wav}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* {{écouter|Quimper (France)||lang=fr|audio=LL-Q150 (fra)-Llegoff29-geler.wav}}
+* {{écouter|Grenoble (France)||lang=fr|audio=LL-Q150 (fra)-Opsylac-geler.wav}}
+* {{écouter|canton du Valais (Suisse)||lang=fr|audio=LL-Q150 (fra)-LuneMarine (DSwissK)-geler.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-geler.wav}}
 
 ==== {{S|homophones|fr}} ====
 * [[gelée]]
 
 === {{S|anagrammes}} ===
-* [[léger]]
-* [[regel]]
-* [[règle]], [[Règle]], [[réglé]]
+{{voir anagrammes|fr}}
 
 === {{S|références}} ===
 * {{R:DAF8}}
 
 [[Catégorie:Verbes ergatifs en français]]
+
+== {{langue|de}} ==
+=== {{S|adjectif|de|flexion}} ===
+'''geler''' {{pron|ˈɡeːlɐ|de}}
+# ''Datif féminin singulier de la déclinaison forte de'' {{lien|gel|de}}.
+# ''Génitif féminin singulier de la déclinaison forte de'' {{lien|gel|de}}.
+# ''Génitif pluriel (à tous les genres) de la déclinaison forte de'' {{lien|gel|de}}.
+# ''Nominatif masculin singulier de la déclinaison forte de'' {{lien|gel|de}}.
+# ''Nominatif masculin singulier de la déclinaison mixte de'' {{lien|gel|de}}.
+
+=== {{S|prononciation}} ===
+* {{écouter|Berlin|ˈɡeːlɐ|lang=de|audio=De-geler.ogg}}
 
 == {{langue|nl}} ==
 === {{S|adjectif|nl|flexion}} ===
