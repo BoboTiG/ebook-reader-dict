@@ -15,7 +15,7 @@ from wikidict.utils import process_templates
             ["/æb/"],
             ["Abbreviation of <i>abdominal</i> <i>muscles</i>."],
             [
-                "ISO 639-1 code <b>1</b>",
+                "(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.",
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
                 "<i>Abbreviation of</i> <b>abortion</b>.",

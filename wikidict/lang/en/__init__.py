@@ -340,7 +340,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     )
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)

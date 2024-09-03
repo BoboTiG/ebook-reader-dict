@@ -104,7 +104,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
 
 
-def render_wikilink(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_wikilink(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_wikilink("w", [], defaultdict(str))
     ''

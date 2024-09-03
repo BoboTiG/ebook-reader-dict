@@ -290,7 +290,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     if should_lower_next_templates := template[0] == "csem":
         template = template[1:]

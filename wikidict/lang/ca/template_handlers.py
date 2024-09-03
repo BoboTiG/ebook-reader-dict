@@ -20,7 +20,7 @@ def parse_index_parameters(data: DefaultDict[str, str], i: int) -> str:
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
-def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
     '<i>cap</i> i <i>vespre</i>'
@@ -100,7 +100,7 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
     '<i>forma augmentativa de</i> <b>Candelera</b>'
@@ -129,7 +129,7 @@ def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     return phrase
 
 
-def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
     'm.'
@@ -179,7 +179,7 @@ def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     )
 
 
-def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
     '<i>(argot casteller)</i>'
@@ -213,7 +213,7 @@ def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     return term(res.strip())
 
 
-def render_sigles_de(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_sigles_de(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
@@ -247,7 +247,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: Tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data)
+    return template_mapping[tpl](tpl, parts, data, word=word)

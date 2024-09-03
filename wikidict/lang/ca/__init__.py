@@ -261,7 +261,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     from .general import cal_apostrofar
 

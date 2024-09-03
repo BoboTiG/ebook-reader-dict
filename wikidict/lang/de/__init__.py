@@ -260,7 +260,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return italic(f"{markierung}{template[1] if len(template) > 1 else ''}")
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     # note: this should be used for variants only
     if template[0].startswith(
