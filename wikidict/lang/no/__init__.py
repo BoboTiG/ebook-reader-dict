@@ -186,7 +186,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     extract_keywords_from(parts)

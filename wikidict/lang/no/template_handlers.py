@@ -9,7 +9,7 @@ from ...user_functions import (
 from .langs import langs
 
 
-def render_avledet(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_avledet(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_avledet("avledet", ["gml", "no", "abbedie"], defaultdict(str))
     'middelnedertysk <i>abbedie</i>'
@@ -19,7 +19,7 @@ def render_avledet(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> s
     return f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
 
 
-def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_lant("lånt", ["en", "no", "latte"], defaultdict(str))
     'engelsk <i>latte</i>'
@@ -46,7 +46,7 @@ def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_sammensetning("sammensetning", ["bonde", "vett"], defaultdict(str))
     '<i>bonde</i> + <i>vett</i>'
@@ -65,7 +65,7 @@ def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str]
     return concat(phrase_parts, " + ")
 
 
-def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_term("term", ["ord"], defaultdict(str))
     '<i>ord</i>'
@@ -104,7 +104,7 @@ def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_ursprak(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_ursprak(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_ursprak("proto", ["indoeuropeisk", "klek-", "", "kleg-", "å rope/skrike"], defaultdict(str))
     'urindoeuropeisk *klek-, *kleg- («å rope/skrike»)'
@@ -140,7 +140,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: Tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data)
+    return template_mapping[tpl](tpl, parts, data, word=word)
