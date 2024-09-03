@@ -661,6 +661,24 @@ def render_ipa_char(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> 
     return concat(parts, ", ")
 
 
+def render_iso_639(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+    """
+    >>> render_iso_639("ISO 639", ["ja"], defaultdict(str, {}))
+    'ISO 639-1 code <b>ja</b>'
+    >>> render_iso_639("ISO 639", ["", "crk"], defaultdict(str, {}))
+    'ISO 639-2 code <b>crk</b>'
+    >>> render_iso_639("ISO 639", ["", "", "zho"], defaultdict(str, {}))
+    'ISO 639-3 code <b>zho</b>'
+    >>> render_iso_639("ISO 639", ["zh", "", "zho"], defaultdict(str, {"ref": "1"}))
+    'ISO 639-1 code <b>zh</b>, ISO 639-3 code <b>zho</b>'
+    """
+    codes = []
+    for idx, part in enumerate(parts, 1):
+        if part:
+            codes.append(f"ISO 639-{idx} code {strong(part)}")
+    return ", ".join(codes)
+
+
 def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     """
     >>> render_label("label", ["en" , "Australia", "slang"], defaultdict(str, {"nocat":"1"}))
@@ -1341,6 +1359,7 @@ template_mapping = {
     "ic": render_ipa_char,
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
+    "ISO 639": render_iso_639,
     "inh": render_foreign_derivation,
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
