@@ -10,13 +10,13 @@
 ==Substantivo==
 {{paroxítona|bai|a|no}}
 # [[natural]] ou [[habitante]] do Estado da [[Bahia]], [[Brasil]]
-# {{escopo|pt|São Paulo|Brasil|popular|pejorativo|insulto étnico}} [[pessoa]] que se [[vestir|veste]] de maneira incomum ou [[brega]]; fora da moda
+# {{escopo|pt|São Paulo|Brasil|popular|pejorativo|racismo}} [[pessoa]] que se [[vestir|veste]] de maneira incomum ou [[brega]]; fora da moda
 
 ===Expressões===
 * '''[[rodar a baiana]]''': 
 
-== Etimologia ==
-Derivado de [[Bahia]], mais o sufixo ano, com perda do H.
+=={{etimologia|pt}}==
+: Derivado de [[Bahia]], mais o sufixo ano, com perda do H.
 
 =={{pronúncia|pt}}==
 ===Brasil===
@@ -36,6 +36,17 @@ Derivado de [[Bahia]], mais o sufixo ano, com perda do H.
 
 ===Na Wikipédia===
 * [[:w:Bahia|Bahia]]
+
+==Ligações externas==
+* {{Aulete}}
+* {{Michaelis}}
+* {{Dicio}}
+* {{DicioAberto}}
+* {{DLPO}}
+* {{Infopédia}}
+* {{PLP}}
+* {{VOLPABL}}
+* {{Forvo|baiano|pt}}
 
 [[Categoria:Adjetivo (Português)]]
 [[Categoria:Substantivo (Português)]]

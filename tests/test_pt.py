@@ -33,7 +33,7 @@ from wikidict.utils import process_templates
             [
                 "do Estado da Bahia, Brasil",
                 "natural ou habitante do Estado da Bahia, Brasil",
-                "<i>(São Paulo, Brasil, popular, pejorativo e insulto étnico)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
+                "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
             ],
         ),
         (
@@ -43,7 +43,7 @@ from wikidict.utils import process_templates
             ["Do latim <i>caprunu</i> “cabra”."],
             [
                 "<i>(Pecuária)</i> de cabras:",
-                "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
+                "<i>(Brasil)</i> marido de mulher adúltera",
                 "indica estrondo",
             ],
         ),
@@ -63,10 +63,10 @@ from wikidict.utils import process_templates
             [],
             ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
             [
+                "vide dezessete",
                 "o número dezassete (17, XVII)",
                 "nota correspondente a dezassete valores",
                 "pessoa ou coisa que apresenta o número dezassete numa ordenação",
-                "vide dezessete",
             ],
         ),
         (

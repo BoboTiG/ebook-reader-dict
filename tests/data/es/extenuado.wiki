@@ -1,20 +1,23 @@
 == {{lengua|es}} ==
-{{pron-graf|fone=eks.teˈnwa.ðo}}
+{{pron-graf}}
 
-=== Adjetivo ===
+=== Etimología 1 ===
+{{etimología}}.
+
+==== {{adjetivo|es}} ====
 {{inflect.es.adj.reg|extenuad}}
-
 ;1: {{plm|cansado}}, [[debilitado]].
-:*'''Ejemplo:'''
-::* "La naturaleza parecía suspirar y rendirse ''extenuada''". {{cita libro|nombre=María Luisa|apellidos=Bombal|título=La Última Niebla|capítulo=La Historia de María Griselda|fecha=1987|editorial=Revista VEA|páginas=81}}
-
+{{ejemplo|La naturaleza parecía suspirar y rendirse ''extenuada''.|título=La Última Niebla|capítulo=La Historia de María Griselda|fecha=1987|editorial=Revista VEA|páginas=81|c=libro|a=María Luisa Bombal}}
 ;2: Se dice de un individuo: sin energía, debido a un gran esfuerzo físico o mental.
-:*'''Ejemplo:'''
-::* "—Ana María, más vale no seguir el viaje. Los caballos están ''extenuados''. El coche no tiene faroles. Esperemos que amanezca.". {{cita libro|nombre=María Luisa|apellidos=Bombal|título=La Última Niebla/La Amortajada|capítulo=La Amortajada|fecha=2012|editorial=Planeta|páginas=145}}
+{{ejemplo|—Ana María, más vale no seguir el viaje. Los caballos están ''extenuados''. El coche no tiene faroles. Esperemos que amanezca.|título=La Última Niebla/La Amortajada|capítulo=La Amortajada|fecha=2012|editorial=Planeta|páginas=145|c=libro|a=María Luisa Bombal}}
 
-=== Forma verbal ===
+==== Traducciones ====
+{{trad-arriba}}
+{{trad-abajo}}
 
-;3: {{participio|extenuar}} (debilitar o debilitarse).
+=== Forma flexiva ===
+==== Forma verbal ====
+;1: {{participio|extenuar}} (debilitar o debilitarse).
 
 == Referencias y notas ==
 <references />

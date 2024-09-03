@@ -9,8 +9,15 @@
 [[Fichier:Candyfloss (4825597893).jpg|vignette|'''Barbe à papa'''.]]
 '''barbe à papa''' {{pron|baʁ.b‿a pa.pa|fr}} {{f}}
 # {{confiserie|fr}} [[confiserie|Confiserie]] que l’on trouve en général dans les [[fête foraine|fêtes foraines]], composée de [[sucre]] [[chauffer|chauffé]] et [[étirer|étiré]] jusqu’à former des fils, enroulés ensuite autour d’une baguette.
-#* ''Manèges à sensations, chenille, tir à la carabine, et autres pêches aux canards se côtoient pour le plus grand bonheur de milliers de visiteurs venus en masse participer à cette fabuleuse fête où les cris de joie et de peur se mêlent aux odeurs alléchantes des '''barbes à papa''' et pommes d'amour.'' {{source|guide {{w|Petit Futé}} ''Bourgogne 2010'', page324}}
-#* ''Au Luxembourg, elle s’écœura de '''barbe à papa'''.'' {{source|Éric Neuhoff, ''La Petite Française'', Albin Michel, 1997, page 129}}
+#* {{exemple | lang=fr
+ | Manèges à sensations, chenille, tir à la carabine, et autres pêches aux canards se côtoient pour le plus grand bonheur de milliers de visiteurs venus en masse participer à cette fabuleuse fête où les cris de joie et de peur se mêlent aux odeurs alléchantes des '''barbes à papa''' et pommes d'amour.
+ | source=guide {{w|Petit Futé}} ''Bourgogne 2010'', page324}}
+#* {{exemple | lang=fr
+ | Au Luxembourg, elle s’écœura de '''barbe à papa'''.
+ | source=Éric Neuhoff, ''La Petite Française'', Albin Michel, 1997, page 129}}
+#* {{exemple | lang=fr
+ | Je me souviens que l’un d’eux a souri, il trouvait amusant qu’un clown soit allergique à la '''barbe à papa'''.
+ | source={{w|Tatiana Arfel}}, ''L’Attente du soir'', chap. 6, Éd. José Corti, coll. « Les Massicotés », 6<sup>e</sup> éd., Paris, 2018 (2008), page 85}}
 
 ==== {{S|variantes orthographiques}} ====
 * [[barbe-à-papa]]
@@ -40,7 +47,9 @@
 * {{T|lb}} : {{trad+|lb|Zockerwatt|f}}
 * {{T|nl}} : {{trad+|nl|suikerspin|f}}
 * {{T|oc}} : {{trad-|oc|barba a papà}}
+* {{T|ryu}} : {{trad|ryu|あみぐゎー}}, {{trad|ryu|あっぷり}}, {{trad|ryu|あっぷりぐゎー}}
 * {{T|fa}} : {{trad+|fa|پشمک}}
+* {{T|pcd}} : {{trad|pcd|bàrpe à-papå|f}}
 * {{T|pl}} : {{trad+|pl|wata cukrowa}}
 * {{T|pt}} : {{trad+|pt|algodão-doce}}
 * {{T|ru}} : {{trad+|ru|сахарная вата|R=sakharnaia vata}}

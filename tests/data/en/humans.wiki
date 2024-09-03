@@ -6,10 +6,13 @@
 
 # {{plural of|en|human}}
 
+===Verb===
+{{head|en|verb form}}
+
+# {{en-third-person singular of|human}}
+
 ===Anagrams===
 * {{anagrams|en|a=ahmnsu|Hamsun|Husman|Shuman|husman}}
-
-----
 
 ==Catalan==
 
@@ -21,8 +24,6 @@
 {{head|ca|noun form}}
 
 # {{plural of|ca|humà}}
-
-----
 
 ==Latin==
 

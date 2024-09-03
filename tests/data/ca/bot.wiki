@@ -1,11 +1,11 @@
 == {{-ca-}} ==
-{{ca-pron|ó}}
-{{àudio|LL-Q7026 (cat)-Toniher-bot.wav|lang=ca}}
-{{-etimologia-}}
-:: Per la forma de bóta: del llatí vulgar {{terme|la|buttis|trad=bóta}}, {{etim-s|ca|XIII}}.[[Categoria:Derivats del llatí al català]]
-:: Per l’acció de botar: de {{comp|ca|botar|+Ø}}, segle XV.
-:: Nàutica: del francès antic {{terme|fro|ca|bot}}, segle XVII, de l’anglès antic {{terme|ang|bat|trad=barca petita}}, actualment {{terme|en|boat}}.[[Categoria:Derivats del francès antic al català]]
-:: Informàtica: afèresi de {{terme|ca|robot}}, calc de l’anglès {{terme|en|bot}}, segle XX.
+{{ca-pron|ó
+|f-centr=LL-Q7026 (cat)-Toniher-bot.wav
+}}
+{{-etimologia-|la|ca}} [1] Per la forma de bóta: del llatí vulgar {{m|la|buttis|trad=bóta}}, {{etim-s|ca|XIII}}.
+{{-etimologia-}} [2] Per l’acció de botar: de {{comp|ca|botar|+Ø}}, segle XV.
+{{-etimologia-}} [3] Nàutica: {{del-lang|fro|ca|bot}}, segle XVII, {{del-lang|ang|ca|bat|trad=barca petita}}, actualment {{m|en|boat}}.
+{{-etimologia-}} [4] Informàtica: afèresi de {{m|ca|robot}}, calc de l’anglès {{m|en|bot}}, segle XX.
 
 === Nom ===
 {{ca-nom|m}}
@@ -30,36 +30,36 @@ Fitxer:Sunfish2.jpg|Peix ''Mola mola''
 * {{q|peix mòlid}}: [[peixos]] > [[mòlids]]
 * {{q|Chilomycterus reticulatus}}: [[peixos]] > [[diodòntids]]
 
+{{-comp-}}
+* [[ploure a bots i barrals]]
+
 {{-trad-}}
-{{inici|Recipient de cuir}}
+{{t-inici|Recipient de cuir}}
 * {{de}}: {{trad|de|Weinschlauch|m}}
 * {{en}}: {{trad|en|wineskin}}
 * {{hy}}: {{trad|hy|տիկ}}
 * {{es}}: {{trad|es|odre|m}}
 * {{fr}}: {{trad|fr|outre}}
-* {{grc}}: {{trad|grc|ἀσκός |m}}
-* {{is}}: {{trad|is|vínbelgur |m}}
+* {{grc}}: {{trad|grc|ἀσκός|m}}
+* {{is}}: {{trad|is|vínbelgur|m}}
 * {{it}}: {{trad|it|otre|m}}
-{{mig}}
-* {{nl}}: {{trad|nl|wijnzak |m}}
-* {{no}}: {{trad|no|vinsekk |m}}
-* {{pl}}: {{trad|pl|bukłak |m}}
+* {{nl}}: {{trad|nl|wijnzak|m}}
+* {{no}}: {{trad|no|vinsekk|m}}
+* {{pl}}: {{trad|pl|bukłak|m}}
 * {{pt}}: {{trad|pt|borracha|f}}
-* {{ru}}: {{trad|ru|бурдю́к |m}}
-* {{sh}}: {{trad|sh| mješina |f}}
-* {{sv}}: {{trad|sv|lägel |c}}
+* {{ru}}: {{trad|ru|бурдю́к|m}}
+* {{sh}}: {{trad|sh|mješina|f}}
+* {{sv}}: {{trad|sv|lägel|c}}
 * {{uk}}: {{trad|uk|бурдюк|m}}
-{{final}}
+{{t-final}}
 
-{{inici|Peix mòlid}}
+{{t-inici|Peix mòlid}}
 * {{en}}: {{trad|en|ocean sunfish}}, {{trad|en|sunfish}}
+* {{ast}}: {{trad|ast|rueda}}
 * {{es}}: {{trad|es|mola}}, {{trad|es|muela}}, {{trad|es|muela de molino}}, {{trad|es|pez ballesta}}, {{trad|es|pez luna}}, {{trad|es|pez-luna}}, {{trad|es|rodador}}, {{trad|es|rueda marina}}
-{{mig}}
 * {{da}}: {{trad|da|klumpfisk|c}}
 * {{fr}}: {{trad|fr|môle}}, {{trad|fr|poisson lune}}, {{trad|fr|poisson-lune}}
-{{final}}
-
-{{catllengua|ca|Peixos}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m}}
@@ -72,58 +72,55 @@ Fitxer:NwFusionTapM.jpg|Bot d’una ballarina
 Fitxer:EVD-baloncesto-053.jpg|Bot de pilota de bàsquet
 </gallery>
 
-{{-comp-}}
-* [[ball de bot]]: Conjunt de balls tradicionals de Mallorca
-* [[pegar un bot]]: Anar a un lloc breument o de seguida {{q|col·loquial|mallorquí}}
-#: {{ex-us|ca|Si pots, pega un bot a sa botiga abans de que tanquin.}}
-* [[pegar bot]]: Botar {{q|col·loquial|mallorquí}}
-#: {{ex-us|ca|De sa retgirada, va pegar bot a sa paret i no el tornàrem a veure.}}
-
 {{-der-}}
 * [[botir]]
 
+{{-comp-}}
+* [[ball de bot]]: Conjunt de balls tradicionals de Mallorca
+* [[pegar un bot]]: Anar a un lloc breument o de seguida {{q|col·loquial|mallorquí}}
+*: {{ex-us|ca|Si pots, pega un bot a sa botiga abans que tanquin.}}
+* [[pegar bot]]: Botar {{q|col·loquial|mallorquí}}
+*: {{ex-us|ca|De sa retgirada, va pegar bot a sa paret i no el tornàrem a veure.}}
+
 {{-trad-}}
-{{inici|Salt}}
-* {{de}}: {{trad|de|Sprung |m}}
+{{t-inici|Salt}}
+* {{de}}: {{trad|de|Sprung|m}}
 * {{en}}: {{trad|en|jump}}, {{trad|en|bound}}
 * {{eu}}: {{trad|eu|jauzi}}
-* {{bg}}: {{trad|bg| скок |m}}
+* {{bg}}: {{trad|bg|скок|m}}
 * {{es}}: {{trad|es|bote}}
-* {{fi}}: {{trad|fi|hyppy }}
+* {{fi}}: {{trad|fi|hyppy}}
 * {{fr}}: {{trad|fr|bond}}, {{trad|fr|saut|m}}
-* {{el}}: {{trad|el| άλμα |n}}
-{{mig}}
-* {{grc}}: {{trad|grc|πήδημα |n}}
+* {{el}}: {{trad|el|άλμα|n}}
+* {{grc}}: {{trad|grc|πήδημα|n}}
 * {{hu}}: {{trad|hu|ugrás}}
 * {{it}}: {{trad|it|balzo|m}}
 * {{csc}}: {{trad|csc|SALTAR}}
 * {{nl}}: {{trad|nl|sprong}}
 * {{pt}}: {{trad|pt|salto|m}}
-* {{ru}}: {{trad|ru|прыжо́к |m}}
+* {{ru}}: {{trad|ru|прыжо́к|m}}
 * {{sv}}: {{trad|sv|hopp|n}}
-{{final}}
+{{t-final}}
 
-{{inici|Moviment elàstic}}
+{{t-inici|Moviment elàstic}}
 * {{en}}: {{trad|en|bounce}}, {{trad|en|bound}}
 * {{es}}: {{trad|es|bote}}
-{{mig}}
 * {{fr}}: {{trad|fr|bond}}, {{trad|fr|rebond}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m}}
 
-[[Fitxer:ORŁ 0033 ubt.JPEG|thumb|]]
+[[Fitxer:ORŁ 0033 ubt.JPEG|miniatura|]]
 # [[embarcació|Embarcació]] petita sense [[coberta]].
 
 {{-trad-}}
-{{inici|Embarcació petita}}
+{{t-inici|Embarcació petita}}
 * {{en}}: {{trad|en|boat}}
 * {{es}}: {{trad|es|bote}}
-{{mig}}
 * {{da}}: {{trad|da|båd|c}}
 * {{fr}}: {{trad|fr|canot}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m}}
@@ -134,12 +131,11 @@ Fitxer:EVD-baloncesto-053.jpg|Bot de pilota de bàsquet
 * [[robot]]
 
 {{-trad-}}
-{{inici|Programa informàtic}}
+{{t-inici|Programa informàtic}}
 * {{en}}: {{trad|en|bot}}
 * {{es}}: {{trad|es|bot}}
-{{mig}}
 * {{fr}}: {{trad|fr|bot}}
-{{final}}
+{{t-final}}
 
 === Verb ===
 {{ca-verb-forma}}
@@ -155,7 +151,7 @@ Fitxer:EVD-baloncesto-053.jpg|Bot de pilota de bàsquet
 
 == {{-en-}} ==
 {{-pronafi-}} {{pron|en|/bɒt/}} {{àudio simple|en-us-bot.ogg|àudio (EUA)}}
-{{-etimologia-}} Afèresi de {{terme|en|robot}}.
+{{-etimologia-}} Afèresi de {{m|en|robot}}.
 
 === Nom ===
 {{en-nom}}

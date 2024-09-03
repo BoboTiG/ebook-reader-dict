@@ -5,11 +5,20 @@
 === {{S|verbe|fr}} ===
 '''colliger''' {{pron|kɔ.li.ʒe|fr}} {{t|fr}} {{conj|grp=1|fr}}
 # Réunir des [[élément]]s, des [[extrait]]s de [[document]]s dans le but de réaliser une [[anthologie]], une [[synthèse]].
-#* ''Plus immédiatement, un dépouillement systématique des collections linguistiques rassemblées dans les grands centres de recherche arctique […] m’a permis de '''colliger''' une bonne partie des documents utilisés ici.'' {{source|{{w|Louis-Jacques Dorais}}, ''La Parole Inuit'', 1995, Avant-propos}}
+#* {{exemple|lang=fr|— Qu’est devenu, dit-il, l’âge d’or des bouquinistes en plein vent ? C’est ici pourtant que mon illustre ami Barbier '''avoit colligé''' tant de trésors, qu’il étoit parvenu à en composer une bibliographie spéciale de quelques milliers d’articles.|source={{w|Charles Nodier}}, ''Le Bibliomane'', 1868}}
+#* {{exemple | lang=fr
+ | Plus immédiatement, un dépouillement systématique des collections linguistiques rassemblées dans les grands centres de recherche arctique […] m’a permis de '''colliger''' une bonne partie des documents utilisés ici.
+ | source={{w|Louis-Jacques Dorais}}, ''La Parole Inuit'', 1995, Avant-propos}}
 # {{par extension|fr}} Recueillir ou [[rassembler]] des [[élément]]s de même nature.
-#* ''Les louis d’or portant le millésime de l’année 1723 furent appelés mirlitons, et sont encore ainsi nommés par les numismates érudits, qui les '''colligent''' et vénèrent à cause de cette singularité.'' {{source|« ''Le Mirliton'' », dans le ''Petit courrier des dames : Journal des modes'', du 5 avril 1849, tome 56, Paris : Imprimerie Dondet-Dupré}}
-#* ''Il y avait là Godefroy Cavaignac, Coppée, Dausset, Syveton et une nuée de secrétaires, occupés à '''colliger''' les télégrammes des provinces.'' {{source|{{w|Léon Daudet}}, ''Souvenirs des milieux littéraires, politiques, artistiques et médicaux/Salons et Journaux'', Grasset, 1917, réédition Le Livre de Poche, page 266}}
-#* ''Selon les données '''colligées''' par le ministère de l’Immigration et des Communautés culturelles, les taux de présence sont en deçà de 20 % dans le cas des immigrants investisseurs venant de la Corée du Sud (12 %), de la Chine (16  %) et de l’Iran (19 %).'' {{source|Gilbert {{pc|Leduc}}, « Immigration au Québec: une porte d’entrée pour ailleurs », ''La Presse.ca'', 2 août 2013}}
+#* {{exemple | lang=fr
+ | Les louis d’or portant le millésime de l’année 1723 furent appelés mirlitons, et sont encore ainsi nommés par les numismates érudits, qui les '''colligent''' et vénèrent à cause de cette singularité.
+ | source=« ''Le Mirliton'' », dans le ''Petit courrier des dames : Journal des modes'', du 5 avril 1849, tome 56, Paris : Imprimerie Dondet-Dupré}}
+#* {{exemple | lang=fr
+ | Il y avait là Godefroy Cavaignac, Coppée, Dausset, Syveton et une nuée de secrétaires, occupés à '''colliger''' les télégrammes des provinces.
+ | source={{w|Léon Daudet}}, ''Souvenirs des milieux littéraires, politiques, artistiques et médicaux/Salons et Journaux'', Grasset, 1917, réédition Le Livre de Poche, page 266}}
+#* {{exemple | lang=fr
+ | Selon les données '''colligées''' par le ministère de l’Immigration et des Communautés culturelles, les taux de présence sont en deçà de 20 % dans le cas des immigrants investisseurs venant de la Corée du Sud (12 %), de la Chine (16  %) et de l’Iran (19 %).
+ | source=Gilbert Leduc, « Immigration au Québec : une porte d’entrée pour ailleurs », ''La Presse.ca'', 2 août 2013}}
 #* {{exemple|Mais pour les nombreux pays qui ne se sont pas dotés de registres d’état civil, '''colligeant''' naissances et décès ? Les auteurs ont eu recours à la modélisation, à partir des données fragmentaires dont ils pouvaient disposer – par exemple, des études réalisées sur des échantillons de populations.|source={{Lien web |auteur=Florence Rosier |url=https://www.lemonde.fr/planete/article/2022/03/11/covid-19-la-mortalite-globale-serait-bien-plus-de-trois-fois-superieure-aux-chiffres-officiels_6117063_3244.html |titre=Covid-19 : la mortalité globale serait bien plus de trois fois supérieure aux chiffres officiels |éditeur=''Le Monde'' |en ligne le=11 mars 2022}}|lang=fr}}
 
 ==== {{S|synonymes}} ====
@@ -26,6 +35,7 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Lyon)|audio=LL-Q150 (fra)-Lyokoï-colliger.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-colliger.wav}}
 
 === {{S|références}} ===
 *{{Import:DAF8}}

@@ -1,6 +1,6 @@
 == {{-ca-}} ==
 {{ca-pron}}
-{{-etimologia-}} Del llatí {{terme|la|hibernaculum}}.
+{{-etimologia-}} Del llatí {{m|la|hibernaculum}}.
 
 === Nom ===
 {{ca-nom|m}}
@@ -12,13 +12,12 @@
 #: {{ex-cit|ca|—Segur que la teva família no... voldrà fer servir aquest lloc? —No, ningú ve a seure a l''''hivernacle''' als matins. —D'acord. |ref=Alice Oseman (trad. Lluís Delgado), ''Heartstopper 2: La meva persona favorita'' (pàg. 340), jul. 2020.}}
 
 {{-trad-}}
-{{inici}}
+{{t-inici}}
 * {{en}}: {{trad|en|conservatory}}
 * {{es}}: {{trad|es|invernadero}}
-{{mig}}
 * {{fr}}: {{trad|fr|serre}}
 * {{it}}: {{trad|it|serra}}
-{{final}}
+{{t-final}}
 
 === Miscel·lània ===
 * {{ca-sil}}

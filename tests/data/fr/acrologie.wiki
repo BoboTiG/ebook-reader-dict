@@ -6,9 +6,11 @@
 {{fr-rég|a.kʁɔ.lɔ.ʒi}}
 '''acrologie''' {{pron|a.kʁɔ.lɔ.ʒi|fr}} {{f}}
 # {{lexique|linguistique|fr}} {{rare|fr}} [[système|Système]] [[graphique]] qui consiste à [[peindre]], pour représenter les [[idée]]s, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le [[langage]] ordinaire.
-#* ''Le disque désigne donc le SOLEIL, le sceptre à tête de chacal, l’idée de GARDIEN, et le scarabée avec les trois traits au dessous, les MONDES. Or en égyptien, le chacal s’appelle ouônch et un gardien ourit. Ces deux mots commencent par la même lettre, ainsi il y a '''acrologie'''.'' {{source|1={{w|Julius Klaproth}}, ''[//books.google.fr/books?id=FPUtAAAAYAAJ&pg=PA84&lpg=PA84&dq=acrologie&source=bl&ots=MkV_YLaxvR&sig=1FTDvSzYFjMfJcZPGLpO-eDcxEQ&hl=fr&sa=X&ei=B8HDUImHK8WzhAfDtYHYBQ&redir_esc=y Lettre sur la découverte des hiéroglyphes acrologiques]'', 1827, page 80}}
+#* {{exemple | lang=fr
+ | Le disque désigne donc le SOLEIL, le sceptre à tête de chacal, l’idée de GARDIEN, et le scarabée avec les trois traits au dessous, les MONDES. Or en égyptien, le chacal s’appelle ouônch et un gardien ourit. Ces deux mots commencent par la même lettre, ainsi il y a '''acrologie'''.
+ | source={{w|Julius Klaproth}}, ''[//books.google.fr/books?id=FPUtAAAAYAAJ&pg=PA84&lpg=PA84&dq=acrologie&source=bl&ots=MkV_YLaxvR&sig=1FTDvSzYFjMfJcZPGLpO-eDcxEQ&hl=fr&sa=X&ei=B8HDUImHK8WzhAfDtYHYBQ&redir_esc=y Lettre sur la découverte des hiéroglyphes acrologiques]'', 1827, page 80}}
 # {{lexique|linguistique|fr}} {{par extension|fr}} {{rare|fr}} Se dit lorsque [[deux]] [[terme]]s commencent par la même [[lettre]] et qu’ils sont [[apparenté]]s par le [[sens]].
-#* ''Nature et Nèfle sont une '''acrologie'''.''
+#* {{exemple | lang=fr | Nature et Nèfle sont une '''acrologie'''.}}
 # {{lexique|philosophie|fr}} {{très rare|fr}} [[recherche|Recherche]] ou [[exposition]] des [[principe]]s [[suprême]]s, ou du [[mieux]] [[absolu]].
 # {{lexique|sport|fr}} [[étude|Étude]] ou [[pratique]] de l’[[acrobatie]].
 
@@ -25,9 +27,10 @@
 * {{pron-rimes|a.kʁɔ.lɔ.ʒi|fr}}
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-acrologie.wav}}
 * {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-WikiLucas00-acrologie.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-acrologie.wav}}
 
 === {{S|anagrammes}} ===
-* [[coloriage]]
+{{voir anagrammes|fr}}
 
 === {{S|références}} ===
 * A. D. Demoustier, Manuel Lexique philologique, didactique et polytechnique, page 20, 1844

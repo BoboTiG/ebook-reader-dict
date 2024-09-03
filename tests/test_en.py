@@ -13,10 +13,10 @@ from wikidict.utils import process_templates
         (
             "ab",
             ["/æb/"],
-            ["Abbreviation of <i>abdominal</i> <i>muscles</i>."],
+            [],
             [
                 "(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.",
-                "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
+                "<i>(informal)</i> <i>Clipping of</i> <b>abdominal muscle</b>. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
                 "<i>Abbreviation of</i> <b>abortion</b>.",
                 "<i>(US)</i> The early stages of; the beginning process; the start.",
@@ -31,13 +31,13 @@ from wikidict.utils import process_templates
             ["/kʊm/", "/kʌm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
-                "<i>Used in indicating a thing with two roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
-                "<i>Used in indicating a thing with two or more roles, functions, or natures, or a thing that has changed from one to another.</i>",  # noqa
-                "<i>(colloquial, vulgar)</i> Semen.",
-                "<i>(colloquial, vulgar)</i> Female ejaculatory discharge.",
-                "<i>(colloquial, vulgar)</i> An ejaculation.",
-                "<i>(slang)</i> To have an orgasm, to feel the sensation of an orgasm.",
-                "<i>(slang)</i> To ejaculate.",
+                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.</i>",  # noqa
+                "<i>(colloquial, often vulgar)</i> Semen.",
+                "<i>(colloquial, often vulgar)</i> Female ejaculatory discharge.",
+                "<i>(colloquial, often vulgar)</i> An ejaculation.",
+                "<i>Abbreviation of</i> <b>cubic metre</b>.",
+                "<i>(slang, often vulgar)</i> To have an orgasm, to feel the sensation of an orgasm.",
+                "<i>(slang, often vulgar)</i> To ejaculate.",
                 "<i>Eye dialect spelling of</i> <b>come</b> (“move from further to nearer; arrive”).",
                 "<i>Clipping of</i> <b>cumulative</b>.",
             ],
@@ -62,11 +62,12 @@ from wikidict.utils import process_templates
         (
             "it's",
             ["/ɪts/"],
-            ["Contraction of ‘it is’ or ‘it has’."],
+            ["Contraction of ‘it is’, ‘it has’ or 'it was'."],
             [
                 "<i>Contraction of</i> <b>it is</b>.",
                 "<i>Contraction of</i> <b>it has</b>.",
-                "<i>(dialectal, African-American Vernacular)</i> There's, there is; there're, there are.",  # noqa
+                "<i>Contraction of</i> <b>it was</b>.",
+                "<i>(dialectal)</i> There's, there is; there're, there are.",  # noqa
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
@@ -74,25 +75,29 @@ from wikidict.utils import process_templates
         ),
         (
             "Mars",
-            ["/ˈmɑɹz/", "/ˈmɑːz/"],
+            ["/maɹs/", "/mɑ˞s/", "/ˈmɑɹz/", "/ˈmɑːz/"],
             [
-                "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>. <i>𐌌𐌀𐌌𐌄𐌓𐌔</i> was his Oscan name. He was also known as <i>Marmor</i>, <i>Marmar</i> and <i>Maris</i>, the latter from the Etruscan deity Maris."  # noqa
+                "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>."  # noqa
             ],
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
                 "<i>(Roman mythology)</i> The Roman god of war.",
                 "<i>(poetic)</i> War; a personification of war.",
-                "The Mars Bar, a brand of chocolate bar with caramel and nougat filling.",
+                "The Mars bar, a brand of chocolate bar with caramel and nougat filling.",
+                "A village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine",
+                "<i>(heraldry, rare)</i> Cap (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",  # noqa
+                "<i>(obsolete, alchemy, chemistry)</i> Iron.",
                 "<i>Alternative form of</i> <b>Mas</b>",
             ],
             [],
         ),
-        ("memoized", [], [], [], ["memoize"]),
+        ("memoized", [], [], ["<i>inflection of:</i> <b>memoize</b> (“ed-form”)"], []),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
             [
-                "Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carry”) + <i>manteau</i> (“coat”)."  # noqa
+                "<i>Etymid</i> <b>luggage</b>",
+                "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",  # noqa
             ],
             [
                 "A large travelling case usually made of leather, and opening into two equal sections.",
@@ -101,18 +106,21 @@ from wikidict.utils import process_templates
                 "<i>(linguistics)</i> A portmanteau word.",
                 "A portmanteau film.",
                 "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
-                "To make a portmanteau word.",
+                "<i>(transitive)</i> To create a portmanteau word.",
             ],
             [],
         ),
         (
             "someone",
             ["/ˈsʌmwʌn/"],
-            ["From <i>some</i>&nbsp;+&nbsp;<i>one</i>."],
             [
-                "some person.",
+                "From Middle English <i>sum on</i>, <i>sum one</i>, <i>sum oon</i>, equivalent to <i>some</i>&nbsp;+&nbsp;<i>one</i>.",
+                "<i>Etymon</i> <b>inh</b>",
+            ],
+            [
+                "One or some person of unspecified or indefinite identity.",
                 "A partially specified but unnamed person.",
-                "an important person",
+                "An important person.",
             ],
             [],
         ),
@@ -125,19 +133,30 @@ from wikidict.utils import process_templates
                 "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",  # noqa
             ],
             [
-                "<i>Definite grammatical article that implies necessarily that an entity it hints at is presupposed; something already mentioned, or completely specified later in that same sentence, or assumed already completely specified.</i> <small>[from 10th c.]</small>",  # noqa
-                "<i>Used before a noun modified by a restrictive relative clause, indicating that the noun refers to a single referent defined by the relative clause.</i>",  # noqa
-                "<i>Used before an object considered to be unique, or of which there is only one at a time.</i> <small>[from 10th c.]</small>",  # noqa
-                "<i>Used before a superlative or an ordinal number modifying a noun, to indicate that the noun refers to a single item.</i>",  # noqa
-                "<i>Added to a superlative or an ordinal number to make it into a substantive.</i> <small>[from 9th c.]</small>",  # noqa
-                "<i>Introducing a singular term to be taken generically: preceding a name of something standing for a whole class.</i> <small>[from 9th c.]</small>",  # noqa
-                "<i>Used before an adjective, indicating all things (especially persons) described by that adjective.</i> <small>[from 9th c.]</small>",  # noqa
-                "<i>Used to indicate a certain example of (a noun) which is usually of most concern or most common or familiar.</i> <small>[from 12th c.]</small>",  # noqa
-                "<i>Used before a body part (especially of someone previously mentioned), as an alternative to a possessive pronoun.</i> <small>[from 12th c.]</small>",  # noqa
-                "<i>When stressed, indicates that it describes an object which is considered to be best or exclusively worthy of attention.</i> <small>[from 18th c.]</small>",  # noqa
-                "<i>With a comparative or with <i>more</i> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",  # noqa
-                "<i>With a comparative, and often with <i>for it</i>, indicates a result more like said comparative. This can be negated with <i>none</i>.</i>",  # noqa
+                "<i>Used before a noun phrase, including a simple noun</i>",
+                (
+                    "<i>The definite grammatical article that implies necessarily that the noun phrase it immediately precedes is definitely identifiable</i>",
+                    (
+                        "<i>because it has already been mentioned, is to be completely specified in the same sentence, or very shortly thereafter.</i> <small>[from 10th c.]</small>",
+                        "<i>because it is presumed to be definitely known in context or from shared knowledge</i>",
+                    ),
+                    "<i>When stressed, indicates that it describes something which is considered to be best or exclusively worthy of attention.</i> <small>[from 18th c.]</small>",
+                    "<i>Used before a noun phrase beginning with superlative or comparative adjective or an ordinal number, indicating that the noun refers to a single item.</i>",
+                    "<i>Introducing a singular term to be taken generically: preceding a name of something standing for a whole class.</i> <small>[from 9th c.]</small>",
+                    "<i>Used with the plural of a surname to indicate the entire family.</i>",
+                ),
+                "<i>Used with an adjective</i>",
+                (
+                    "<i>Added to a superlative or an ordinal number to make it into a substantive.</i> <small>[from 9th c.]</small>",
+                    "<i>Used before an adjective, indicating all things (especially persons) described by that adjective.</i> <small>[from 9th c.]</small>",
+                    "<i>Used before an demonym to refer to people of a given country collectively.</i>",
+                ),
+                "<i>With a comparative or with <i>more</i> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",
+                "<i>With a comparative, and often with <i>for it</i>, indicates a result more like said comparative. This can be negated with <i>none</i>.</i>",
+                "<i>(with a superlative adjective)</i> Beyond all others.",
                 "For each; per.",
+                "<i>Obsolete form of</i> <b>thee</b>.",
+                "A topology name.",
             ],
             [],
         ),
@@ -147,11 +166,13 @@ from wikidict.utils import process_templates
             ["Onomatopoeic."],
             [
                 "micrometer; variant of μm used when the character μ is unavailable",
-                "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
+                "<i>Expression of hesitation, uncertainty or space filler in conversation</i>.",
                 "<i>(chiefly US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
+                "<i>(US)</i> <i>An expression to forcefully call attention to something wrong.</i>",
+                "<i>(UK, childish)</i> An expression of shocked disapproval used by a child who witnesses forbidden behavior.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
                 "<i>Alternative form of</i> <b>umbe</b>",
-                "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",  # noqa
+                "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",
             ],
             [],
         ),
@@ -159,13 +180,14 @@ from wikidict.utils import process_templates
             "us",
             ["/əs/", "/əz/", "/ʌs/", "/ʌz/"],
             [
-                "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”)."  # noqa
+                "<i>Etymon</i> <b>inh</b>",
+                "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). The compensatory lengthening was lost in Middle English due to the word being unstressed while being used. Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",
             ],
             [
                 "<i>(personal)</i> Me and at least one other person; the objective case of <b>we</b>.",
                 "<i>(Commonwealth, colloquial, chiefly with <i>give</i>)</i> Me.",
                 "<i>(Northern England)</i> Our.",
-                "<i>(Geordie)</i> Me (in all contexts).",
+                "<i>(Northumbria)</i> Me (in all contexts).",
                 "The speakers/writers, or the speaker/writer and at least one other person.",
                 "<i>Alternative spelling of</i> <b>µs</b>: microsecond",
                 "<i>(rare)</i> <i>Alternative form of</i> <b>u's</b>.",
@@ -176,51 +198,59 @@ from wikidict.utils import process_templates
             "water",
             [
                 "/ˈwoːtə/",
-                "/ˈwætəɹ/",
+                "/ˈwætə/",
                 "/ˈwɑtəɹ/",
                 "/ˈwɒtə/",
                 "/ˈwɒtəɹ/",
+                "/ˈwɔtə/",
                 "/ˈwɔtər/",
                 "/ˈwɔtəɹ/",
+                "/ˈwɔɹtəɹ/",
                 "/ˈwɔːtə/",
+                "/ˈwɔːtəɹ/",
                 "/ˈwʊtəɹ/",
             ],
             [
-                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",  # noqa
-                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",  # noqa
+                "<i>Etymon</i> <b>inh</b>",
+                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”). The development of the /ɔː/ vowel instead of expected */weɪtə(r)/ is irregular and has not been conclusively explained (compare father).",
+                "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",
             ],
             [
-                "<i>(uncountable)</i> A substance (of molecular formula H<sub>2</sub>O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",  # noqa
+                "<i>(uncountable)</i> A substance (of molecular formula H<sub>2</sub>O) found at room temperature and pressure as a clear liquid; it is present naturally as rain, and found in rivers, lakes and seas; its solid form is ice and its gaseous form is steam.",
                 (
                     "<i>(uncountable, in particular)</i> The liquid form of this substance: liquid H<sub>2</sub>O.",
                     "<i>(countable)</i> A serving of liquid water.",
                 ),
-                "<i>(alchemy, philosophy)</i> The aforementioned liquid, considered one of the Classical elements or basic elements of alchemy.",  # noqa
+                "<i>(alchemy, philosophy)</i> The aforementioned liquid, considered one of the Classical elements or basic elements of alchemy.",
                 "<i>(uncountable or in the plural)</i> Water in a body; an area of open water.",
-                "<i>(poetic, archaic or dialectal)</i> A body of water, almost always a river.",
+                "<i>(poetic, archaic or dialectal)</i> A body of water, almost always a river, sometimes a lake or reservoir, especially in the names given to such bodies.",
                 "A combination of water and other substance(s).",
                 (
                     "<i>(sometimes countable)</i> Mineral water.",
                     "<i>(countable, often in the plural)</i> Spa water.",
                     "<i>(pharmacy)</i> A solution in water of a gaseous or readily volatile substance.",
                     "Urine. <small>[from 15th c.]</small>",
-                    'Amniotic fluid or the amniotic sac containing it. (<i>Used only in the plural in the UK but often also in the singular in North America. (The Merriam-Webster Medical Dictionary says "often used in plural; also: bag of waters".)</i>)',  # noqa
+                    "Amniotic fluid or the amniotic sac containing it. (<i>Used only in the plural in the UK but often also in the singular in North America.</i>)",
                     "<i>(colloquial, medicine)</i> Fluids in the body, especially when causing swelling.",
                 ),
-                "<i>(figuratively, in the plural or in the singular)</i> A state of affairs; conditions; usually with an adjective indicating an adverse condition.",  # noqa
+                "<i>(business, often attributive)</i> The water supply, as a service or utility.",
+                "<i>(figuratively, in the plural or in the singular)</i> A state of affairs; conditions; usually with an adjective indicating an adverse condition.",
                 "<i>(colloquial, figuratively)</i> A person's intuition.",
                 "<i>(uncountable, dated, finance)</i> Excess valuation of securities.",
-                "The limpidity and lustre of a precious stone, especially a diamond.",
-                "A wavy, lustrous pattern or decoration such as is imparted to linen, silk, metals, etc.",
+                "A particular quality or appearance suggestive of water:",
+                (
+                    "The limpidity and lustre of a precious stone, especially a diamond.",
+                    "A wavy, lustrous pattern or decoration such as is imparted to linen, silk, metals, etc.",
+                ),
                 "<i>(transitive)</i> To pour water into the soil surrounding (plants).",
                 "<i>(transitive)</i> To wet or supply with water; to moisten; to overflow with water; to irrigate.",
                 "<i>(transitive)</i> To provide (animals) with water for drinking.",
                 "<i>(intransitive)</i> To get or take in water.",
                 "<i>(transitive, colloquial)</i> To urinate onto.",
                 "<i>(transitive)</i> To dilute.",
-                "<i>(transitive, dated, finance)</i> To overvalue (securities), especially through deceptive accounting.",  # noqa
-                "<i>(intransitive)</i> To fill with or secrete water.",
-                "<i>(transitive)</i> To wet and calender, as cloth, so as to impart to it a lustrous appearance in wavy lines; to diversify with wavelike lines.",  # noqa
+                "<i>(transitive, dated, finance)</i> To overvalue (securities), especially through deceptive accounting.",
+                "<i>(intransitive)</i> To fill with or secrete water or similar liquid.",
+                "<i>(transitive)</i> To wet and calender, as cloth, so as to impart to it a lustrous appearance in wavy lines; to diversify with wavelike lines.",
             ],
             [],
         ),
@@ -231,31 +261,31 @@ from wikidict.utils import process_templates
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."  # noqa
             ],
             [
-                "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",  # noqa
+                "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",
                 (
-                    "The smallest discrete unit of spoken language with a particular meaning, composed of one or more phonemes and one or more morphemes",  # noqa
-                    "The smallest discrete unit of written language with a particular meaning, composed of one or more letters or symbols and one or more morphemes",  # noqa
-                    "A discrete, meaningful unit of language approved by an authority or native speaker (<i>compare non-word</i>).",  # noqa
+                    "The smallest discrete unit of spoken language with a particular meaning, composed of one or more phonemes and one or more morphemes",
+                    "The smallest discrete unit of written language with a particular meaning, composed of one or more letters or symbols and one or more morphemes",
+                    "A discrete, meaningful unit of language approved by an authority or native speaker (<i>compare non-word</i>).",
                 ),
                 "Something like such a unit of language:",
                 (
-                    "A sequence of letters, characters, or sounds, considered as a discrete entity, though it does not necessarily belong to a language or have a meaning",  # noqa
-                    "<i>(telegraphy)</i> A unit of text equivalent to five characters and one space. <small>[from 19th c.]</small>",  # noqa
-                    "<i>(computing)</i> A fixed-size group of bits handled as a unit by a machine and which can be stored in or retrieved from a typical register (so that it has the same size as such a register). <small>[from 20th c.]</small>",  # noqa
-                    "<i>(computer science)</i> A finite string that is not a command or operator. <small>[from 20th or 21st c.]</small>",  # noqa
+                    "A sequence of letters, characters, or sounds, considered as a discrete entity, though it does not necessarily belong to a language or have a meaning.",
+                    "<i>(telegraphy)</i> A unit of text equivalent to five characters and one space. <small>[from 19th c.]</small>",
+                    "<i>(computing)</i> A fixed-size group of bits handled as a unit by a machine and which can be stored in or retrieved from a typical register (so that it has the same size as such a register). <small>[from 20th c.]</small>",
+                    "<i>(computer science)</i> A finite string that is not a command or operator. <small>[from 20th or 21st c.]</small>",
                     "<i>(group theory)</i> A group element, expressed as a product of group elements.",
                 ),
                 "The fact or act of speaking, as opposed to taking action. <small>[from 9th c]</small>.",
-                "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",  # noqa
-                "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",  # noqa
+                "<i>(now rare outside certain phrases)</i> Something that someone said; a comment, utterance; speech. <small>[from 10th c.]</small>",
+                "<i>(obsolete outside certain phrases)</i> A watchword or rallying cry, a verbal signal (even when consisting of multiple words).",
                 "<i>(obsolete)</i> A proverb or motto.",
-                "<i>(uncountable)</i> News; tidings <small>[from 10th c.]</small>",
+                "<i>(uncountable)</i> News; tidings. <small>[from 10th c.]</small>",
                 "An order; a request or instruction; an expression of will. <small>[from 10th c.]</small>",
                 "A promise; an oath or guarantee. <small>[from 10th c.]</small>",
                 "A brief discussion or conversation. <small>[from 15th c.]</small>",
                 "<i>(meiosis)</i> A minor reprimand.",
                 "<i>(in the plural)</i> <i>See</i> <b>words</b>.",
-                "<i>(theology, sometimes <b>Word</b>)</i> Communication from God; the message of the Christian gospel; the Bible, Scripture. <small>[from 10th c.]</small>",  # noqa
+                "<i>(theology, sometimes <b>Word</b>)</i> Communication from God; the message of the Christian gospel; the Bible, Scripture. <small>[from 10th c.]</small>",
                 "<i>(theology, sometimes <b>Word</b>)</i> Logos, Christ. <small>[from 8th c.]</small>",
                 "<i>(transitive)</i> To say or write (something) using particular words; to phrase (something).",
                 "<i>(transitive, obsolete)</i> To flatter with words, to cajole.",
@@ -263,8 +293,8 @@ from wikidict.utils import process_templates
                 "<i>(transitive, rare)</i> To conjure with a word.",
                 "<i>(intransitive, archaic)</i> To speak, to use words; to converse, to discourse.",
                 "<i>Alternative form of</i> <b>worth</b> (“to become”).",
-                '<i>(slang, African-American Vernacular)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',  # noqa
-                "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",  # noqa
+                '<i>(slang)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',
+                "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",
             ],
             [],
         ),

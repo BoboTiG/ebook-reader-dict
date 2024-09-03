@@ -5,11 +5,11 @@
 : {{ébauche-étym|fr}}
 
 === {{S|nom|fr|num=1}} ===
-'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|kɔ.ʁo|fr}} {{m}} {{pluriel ?|fr}}
 # [[langue|Langue]] [[tibéto-birman|tibéto-birmane]] parlée dans l’Arunachal Pradesh ([[Inde]])
 
 === {{S|nom|fr|num=2}} ===
-'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|kɔ.ʁo|fr}} {{m}} {{pluriel ?|fr}}
 # [[langue|Langue]] [[malayo-polynésien|malayo-polynésienne]] parlée dans les îles de l'Amirauté ([[Papouasie-Nouvelle-Guinée]])
 
 ==== {{S|traductions}} ====
@@ -17,18 +17,24 @@
 {{trad-fin}}
 
 === {{S|nom|fr|num=3}} ===
-'''koro''' {{pron|lang=fr|kɔ.ʁo}} {{m}} {{pluriel ?|fr}}
+'''koro''' {{pron|kɔ.ʁo|fr}} {{m}} {{pluriel ?|fr}}
 # Forme d'[[hystérie]] de nature sexuelle propre aux humains mâles.
-#* ''Elles présentent la particularité de toucher exclusivement un sexe : l’amok ne touche que les hommes, et le latah que les femmes. Quant au '''koro''', il est aussi réservé aux hommes, pour une raison évidente cette fois : il se définit par des troubles de la perception du pénis.'' {{source|{{w|La Recherche}}, vol. 5, Société d'éditions scientifiques, 1974, p. 1058}}
-#* ''A Singapour, en 1967, au moment même où la chute de la fécondité atteint sa vitesse maximale, se déclenche une épidemie de '''''Koro''''', manifestation hystérique spécifiquement masculine. Les individus touchés craignent et perçoivent une rétraction de leur pénis, qui menace, disent-ils, de disparaître dans l'abdomen.'' {{source|{{w|Emmanuel Todd}}, ''Le Fou et le Prolétaire'', 1979, réédition revue et augmentée, Paris : Le Livre de Poche, 1980, page 22}}
-#* ''Érigé en syndrome psychiatrique, le '''''koro''''' rassemble une nébuleuse de troubles que l'on retrouve très largement en Asie du Sud sous différentes variantes. […]. En Asie du Sud-Est, le '''''koro''''' donne lieu à de véritables épidémies collectives qui sévissent de manière périodique en Thaïlande, en Indonésie ou encore à Singapour.'' {{source|Julien Bonhomme, ''Les voleurs de sexe: anthropologie d'une rumeur africaine'', éd. du Seuil, 2009, chap.1, page 25}}
+#* {{exemple | lang=fr
+ | Elles présentent la particularité de toucher exclusivement un sexe : l’amok ne touche que les hommes, et le latah que les femmes. Quant au '''koro''', il est aussi réservé aux hommes, pour une raison évidente cette fois : il se définit par des troubles de la perception du pénis.
+ | source={{w|La Recherche}}, vol. 5, Société d'éditions scientifiques, 1974, p. 1058}}
+#* {{exemple | lang=fr
+ | A Singapour, en 1967, au moment même où la chute de la fécondité atteint sa vitesse maximale, se déclenche une épidemie de '''''Koro''''', manifestation hystérique spécifiquement masculine. Les individus touchés craignent et perçoivent une rétraction de leur pénis, qui menace, disent-ils, de disparaître dans l'abdomen.
+ | source={{w|Emmanuel Todd}}, ''Le Fou et le Prolétaire'', 1979, réédition revue et augmentée, Paris : Le Livre de Poche, 1980, page 22}}
+#* {{exemple | lang=fr
+ | Érigé en syndrome psychiatrique, le '''''koro''''' rassemble une nébuleuse de troubles que l'on retrouve très largement en Asie du Sud sous différentes variantes. […]. En Asie du Sud-Est, le '''''koro''''' donne lieu à de véritables épidémies collectives qui sévissent de manière périodique en Thaïlande, en Indonésie ou encore à Singapour.
+ | source=Julien Bonhomme, ''Les voleurs de sexe: anthropologie d'une rumeur africaine'', éd. du Seuil, 2009, chap.1, page 25}}
 
 ==== {{S|traductions}} ====
 {{trad-début}}
 {{trad-fin}}
 
 === {{S|anagrammes}} ===
-* [[orok]]
+{{voir anagrammes|fr}}
 
 === {{S|voir aussi}} ===
 * {{WP}}
@@ -71,19 +77,21 @@
 === {{S|nom|eo}} ===
 {{eo-flexions|'ko.ro}}
 [[Fichier:Love Heart SVG.svg|thumb|right|'''koro''' (3)]]
-'''koro''' {{pron|ˈko.ro|eo}} {{eo-motrac|racn=2284|t=oF|der=1}}
+'''koro''' {{pron|ˈko.ro|eo}} {{eo-motrac|racn=2284|t=oF|dér=1}}
 # {{lexique|anatomie|eo}} [[cœur|Cœur]].
-#* ''La sango alfluas al la '''koro'''.''
-#*:Le sang afflue au cœur.
+#* {{exemple | lang=eo
+ | La sango alfluas al la '''koro'''.
+ | Le sang afflue au cœur.}}
 # [[cœur|Cœur]] (siège des [[sentiment]]s).
-#* ''For de l’ okuloj, for de la '''koro'''.''
-#*:Loin des yeux, loin du cœur.
+#* {{exemple | lang=eo
+ | For de l’ okuloj, for de la '''koro'''.
+ | Loin des yeux, loin du cœur.}}
 # [[cœur|Cœur]] (forme géométrique).
 # [[cœur|Cœur]], [[noyau]], [[centre]].
 #* {{exemple|lang=eo
-   |Ekbatis la '''koro''' de l’ Tero kaj fariĝis la unua Printempo.
-   |Le cœur de la Terre commençait à battre et le premier Printemps advint.
-   |source=Julio Baghy, ''Dancu Marionetoj!''}}
+  |Ekbatis la '''koro''' de l’ Tero kaj fariĝis la unua Printempo.
+  |Le cœur de la Terre commençait à battre et le premier Printemps advint.
+  |source=Julio Baghy, ''Dancu Marionetoj!''}}
 
 ==== {{S|synonymes}} ====
 * {{lien|kerno|eo}} (4)
@@ -101,14 +109,14 @@
 * {{lien|tutkore|eo}}
 {{)}}
 
-==== {{S|paronymes}} ====
-* {{lien|kero|eo}} {{eo-motrac|racn=2048|par=1}} : {{lien|cœur|fr}} (jeu de cartes)
-
 === {{S|prononciation}} ===
 * {{écouter|lang=eo|Pays-Bas (partie continentale) (Wijchen)|audio=LL-Q143 (epo)-Robin van der Vliet-koro.wav}}
 * {{écouter|lang=eo|Brésil|audio=LL-Q143 (epo)-NMaia-koro.wav}}
 * {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-koro.wav}}
 * {{écouter|lang=eo|France (Vosges)||audio=LL-Q143 (epo)-Poslovitch-koro.wav}}
+
+==== {{S|paronymes}} ====
+* {{lien|kero|eo}} {{eo-motrac|racn=2048|par=1}} : {{lien|cœur|fr}} (jeu de cartes)
 
 === {{S|voir aussi}} ===
 * {{WP|koro|lang=eo}}
@@ -125,9 +133,9 @@
 : Composé de ''[[kor-]]'' et ''[[-o]]'' « substantif ».
 
 === {{S|nom|io}} ===
-{{io-rég|}}
+{{io-rég}}
 {{io-rég|ˈkɔ.r}}
-'''koro''' {{pron|ˈkɔ.rɔ|lang=io}}
+'''koro''' {{pron|ˈkɔ.rɔ|io}}
 # [[chœur|Chœur]] (de [[chanteur]]s).
 
 === {{S|anagrammes}} ===
@@ -151,8 +159,9 @@
 === {{S|nom|sba}} ===
 '''koro''' {{pron||sba}}
 # [[âne|Âne]].
-#* '''''koro''' leum ma''
-#*: mon âne
+#* {{exemple | lang=sba
+ | '''koro''' leum ma
+ | mon âne}}
 
 === {{S|prononciation}} ===
 {{ébauche-pron-audio|sba}}
@@ -180,4 +189,5 @@
 # [[chou|Chou]].
 
 [[Catégorie:Aliments en sranan]]
-[[Catégorie:Racines de l’espéranto]]
+[[Catégorie:Racines en espéranto]]
+[[Catégorie:Légumes en sranan]]

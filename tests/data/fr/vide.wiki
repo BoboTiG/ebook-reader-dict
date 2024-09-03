@@ -1,0 +1,393 @@
+{{voir/vide}}
+
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: De l’{{étyl|fro|fr|mot=vuit}} (m.), ''[[vuide]]'' (f.), du bas-latin ''[[vocitu]]'', croisement du latin ''[[vocivus|vocīvus]]'', variante de ''[[vacivus|vacīvus]]'', et de ''[[vacatus]]'', participe passé de ''[[vacare]]'', de ''[[vacuus]]'' ; cf. catalan ''[[buit]]'', italien ''[[vuoto]]'', occitan ''[[vuèg]]''.
+
+=== {{S|adjectif|fr}} ===
+{{fr-rég|mf=oui|vid}}
+'''vide''' {{pron|vid|fr}} {{mf}}
+[[File:Empty guest room.jpg|vignette|Un homme assis dans une pièce '''vide''' (1).]]
+# Qui ne [[contenir|contient]] [[rien]] ; qui est [[totalement]] [[dépourvoir|dépourvu]] de.
+#* {{exemple | lang=fr
+ | Ces lieux communs mythologiques et ce cliquetis de mots sonores, mais à peu près '''vides''' de sens, plurent au roi Sighebert et à ceux des seigneurs Francs qui, comme lui, comprenaient quelque peu la poésie latine.
+ | source={{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', 1{{er}} récit : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833, éditions Union Générale d’Édition, 1965}}
+#* {{exemple | lang=fr | Place, espace '''vide'''.}}
+#* {{exemple | lang=fr | La bouteille est à moitié '''vide'''.}}
+#* {{exemple | lang=fr | Il a le ventre '''vide''', l’estomac '''vide'''.}}
+#* {{exemple | lang=fr | Il n’y a plus rien dans la maison, elle est '''vide'''.}}
+#* ''{{figuré|fr}} Avoir la tête '''vide''', le cerveau '''vide''','' éprouver la faiblesse de tête que produisent le manque de nourriture, la
+#* {{figuré|fr}} ''Le cœur '''vide''''' se dit pour exprimer le Manque d’affection et de sentiments.
+#* {{exemple | lang=fr | Ces discours amusent l’oreille et laissent le cœur '''vide'''.}}
+#* {{familier|fr}} ''Moment '''vide''''' : moment libre d’occupation.
+#* {{exemple | lang=fr | Il y a des moments '''vides''' dans la journée, qu’on ferait bien de remplir par quelque occupation.}}
+#* ''Existence '''vide''','' Existence qui n’est pas occupée.
+#* ''Époque '''vide''','' époque qui n’a été signalée par aucun événement remarquable.
+#* ''Un discours, un ouvrage '''vide''' de sens, de raison'' : où il n’y a ni sens ni raison, où il n’y a rien de solide.
+# {{lexique|théâtre|fr}} Sans acteur pendant un moment.
+#* ''Le théâtre, la scène est '''vide''', reste '''vide''''' se dit lorsque, dans le courant d’un acte, il ne reste aucun acteur sur la scène.
+#* ''Une scène '''vide''', un acte '''vide''''' se dit d’une Scène, d’un acte sans événement, sans action, sans incident.
+# {{lexique|mathématiques|fr}} [[égal|Égal]] à l’[[ensemble vide]].
+#* {{exemple | lang=fr | Par suite de sa définition, un corps est nécessairement non '''vide'''.}}
+
+==== {{S|synonymes}} ====
+{{(}}
+* [[abandonné]]
+* [[aride]]
+* [[creux]]
+* [[dégarni]]
+* [[dénudé]]
+* [[dénué]]
+* [[dépouillé]]
+* [[désert]]
+* [[impeuplé]]
+* [[inhabité]]
+* [[inoccupé]]
+* [[mort]]
+* [[nu]]
+* [[nul]]
+* [[stérile]]
+* [[vacant]]
+* [[vain]]
+{{)}}
+
+==== {{S|dérivés}} ====
+{{(}}
+* [[avoir le regard vide]]
+* [[avoir le ventre vide]]
+* [[les mains vides]]
+* [[mot vide]]
+* [[ultravide]]
+* [[vide absolu]]
+* [[vide de sens]]
+{{)}}
+
+==== {{S|traductions}} ====
+{{trad-début|Qui ne contient rien|1}}
+* {{T|af}} : {{trad-|af|vakant}}, {{trad-|af|behoeftig}}, {{trad-|af|berooid}}, {{trad+|af|pap}}
+* {{T|sq}} : {{trad+|sq|çmbush}}
+* {{T|de}} : {{trad+|de|leer}}
+* {{T|en}} : {{trad+|en|empty}}
+* {{T|ar}} : {{trad-|ar|فراغ|m|tr=farag}}
+* {{T|ast}} : {{trad+|ast|baleru}}, {{trad+|ast|vacíu}}
+* {{T|az}} : {{trad+|az|boş}}
+* {{T|eu}} : {{trad-|eu|huts}}
+* {{T|br}} : {{trad-|br|goullo}}, {{trad-|br|flak}}
+* {{T|ca}} : {{trad+|ca|buit}}
+* {{T|shy}} : {{trad+|shy|d ilem}}
+* {{T|zh}} : {{trad+|zh|空}}
+* {{T|ko}} : {{trad+|ko|빈|R=bin}}
+* {{T|hr}} : {{trad-|hr|prazan}}
+* {{T|da}} : {{trad+|da|tom}}
+* {{T|es}} : {{trad+|es|vacío}}
+* {{T|eo}} : {{trad-|eo|vaka}}, {{trad-|eo|senhava}}, {{trad-|eo|malplena}}
+* {{T|fo}} : {{trad-|fo|leysur}}, {{trad-|fo|tómur}}, {{trad-|fo|ósettur}}, {{trad-|fo|tómur}}
+* {{T|fi}} : {{trad+|fi|tyhjä}}
+* {{T|vls}} : {{trad|vls|ydel}}
+* {{T|fy}} : {{trad-|fy|fakant}}, {{trad+|fy|leech}}
+* {{T|gl}} : {{trad+|gl|baleiro}}
+* {{T|ka}} : {{trad-|ka|ცარიელი|tr=c'arieli}}
+* {{T|grc}} : {{trad|grc|κενός}}
+* {{T|hbo}} : {{trad|hbo|ריק|dif=רֵיק|m}}
+* {{T|hu}} : {{trad+|hu|üres}}
+* {{T|io}} : {{trad+|io|vakua}}
+* {{T|is}} : {{trad+|is|tómur}}
+* {{T|it}} : {{trad+|it|spoglio}}, {{trad+|it|vuoto}}
+* {{T|ja}} : {{trad+|ja|虚しい|tr=munashī}}
+* {{T|chn}} : {{trad|chn|wagh}}, {{trad|chn|weght}}
+* {{T|fsl}} : {{wikisign}}
+* {{T|la}} : {{trad-|la|inanis}}, {{trad-|la|vacuus}}
+* {{T|ms}} : {{trad+|ms|kosong}}, {{trad+|ms|leher}}
+* {{T|mg}} : {{trad+|mg|foana}}
+* {{T|maj}} : {{trad|maj|tiya}}
+* {{T|mvf}} : {{trad|mvf|ᠬᠣᠭᠣᠰᠣᠨ|R=qoγoson}}
+* {{T|frm}} : {{trad|frm|vuyde}}
+* {{T|nl}} : {{trad+|nl|leeg}}, {{trad+|nl|ledig}}, {{trad+|nl|lens}}, {{trad+|nl|loos}}, {{trad+|nl|onbezet}}, {{trad+|nl|opengevallen}}, {{trad+|nl|vacant}}, {{trad+|nl|behoeftig}}, {{trad+|nl|berooid}}, {{trad+|nl|nooddruftig}}, {{trad+|nl|hol}}
+* {{T|niv}} : {{trad|niv|ӿоньӻа}}
+* {{T|normand}} : {{trad|normand|veude}}
+* {{T|no}} : {{trad-|no|vakant}}, {{trad+|no|tom}}
+* {{T|oc}} : {{trad+|oc|vuèg}}, {{trad+|oc|void}}
+* {{T|pap}} : {{trad|pap|bashí}}
+* {{T|myp}} : {{trad|myp|xasí}}
+* {{T|pdt}} : {{trad|pdt|ladich}}
+* {{T|plodarisch}} : {{trad|plodarisch|laar}}
+* {{T|poitevin-saintongeais}} : {{trad|poitevin-saintongeais|racàud}}
+* {{T|pl}} : {{trad+|pl|próżny}}
+* {{T|pt}} : {{trad+|pt|vazio}}, {{trad+|pt|vacante}}, {{trad+|pt|vago}}, {{trad+|pt|vácuo}}
+* {{T|ro}} : {{trad-|ro|vidat|m}}, {{trad-|ro|goală|f}}, {{trad+|ro|gol|m}}
+* {{T|ru}} : {{trad+|ru|пустой|R=pustój}}, {{trad+|ru|порожний}}, {{trad+|ru|незанятый}}
+* {{T|salentin}} : {{trad|salentin|acanti}}
+* {{T|se}} : {{trad|se|guorus}}
+* {{T|sa}} : {{trad-|sa|-Sunya}}
+* {{T|szw}} : {{trad|szw|məmowɛl}}
+* {{T|zdj}} : {{trad|zdj|-ruvu}}
+* {{T|scn}} : {{trad+|scn|vacanti}}
+* {{T|srn}} : {{trad|srn|leygi}}, {{trad|srn|popo}}, {{trad|srn|soso}}
+* {{T|sv}} : {{trad+|sv|tom}}
+* {{T|sw}} : {{trad-|sw|-tupu}}
+* {{T|cs}} : {{trad+|cs|prázdný}}
+* {{T|tr}} : {{trad+|tr|açık}}, {{trad+|tr|boş}}
+* {{T|vi}} : {{trad+|vi|trống}}
+* {{T|wa}} : {{trad+|wa|vude|mf}}, {{trad+|wa|vû|m}}
+{{trad-fin}}
+
+{{trad-début|Sans acteur pendant un moment.|2}}
+{{trad-fin}}
+
+=== {{S|nom|fr}} ===
+{{fr-rég|vid}}
+'''vide''' {{pron|vid|fr}} {{m}}
+# [[espace|Espace]] ne [[contenir|contenant]] [[rien]] de [[palpable]].
+#* […]'' j’eus comme un étourdissement, et je dus m’accrocher fortement aux rebords de la croisée, pour n’être pas précipité dans le '''vide''' ''[…] {{source|{{w|Octave Mirbeau}}, ''{{ws|La_Pipe_de_cidre_(recueil)/Le_Colporteur|Le Colporteur}}'', 1886}}
+#* {{exemple|Où es-tu, quand mes mains en révolte te cherchent et ne rencontrent que le '''vide''' ?|lang=fr|source={{w|Marguerite Burnat-Provins}}, ''{{WS|Le Livre pour toi}}'', [https://fr.wikisource.org/wiki/Le_Livre_pour_toi/O%C3%B9_es-tu_%3F XCIV. « Où es-tu ? »], E. Sansot et Cie, 1907, page 193}}
+#* {{exemple | lang=fr
+ | Une corde, munie d’une sorte de ralingue, avait été lancée par-dessus le '''vide''' et s’était accrochée à un fragment de garde-fou.
+ | source={{Citation/H. G. Wells/La Guerre dans les airs/1921|370}}}}
+#* {{exemple | lang=fr | Il est interdit aux notaires de laisser du '''vide''' dans la minute de leurs actes.}}
+# {{lexique|physique|fr}} [[lieu|Lieu]] où il n’y a pas de [[matière]], qui ne [[contenir|contient]] pas d’air.
+#* {{exemple | lang=fr
+ | Quelle que soit la méthode de synthèse utilisée, l’alcool γ-acétopropylique se sépare et se purifie par distillation sous '''vide''' (78-80°/5 mm Hg).
+ | source=''Bulletin de la Société chimique de France'', 1966, page 1813}}
+#* {{exemple | lang=fr
+ | Au delà de 10{{e|7}} Hz, la masse des électrons est elle-même trop importante pour que ceux-ci puissent suivre l’excitation, et le matériau a alors un comportement diélectrique semblable à celui du '''vide'''.
+ | source=Jean-Marie Haussonne, ''Céramiques pour l'électronique et l'électrotechnique'', Presses polytechniques et universitaires romandes, 2002, page 31}}
+# {{lexique|architecture|fr}} Toute [[ouverture]] ou [[baie]] dans un mur, de tout [[espacer|espace]] qui n’est pas [[occuper|occupé]] par une [[construction]].
+#* {{exemple | lang=fr | La façade du Palais des doges présente cette particularité que les pleins sont au-dessus des '''vides'''.}}
+#* ''Ce mur pousse au '''vide''','' Il perd son aplomb, Il déverse ou fait ventre.
+# {{figuré|fr}} [[sentiment|Sentiment]] de [[manque]], par [[rapport]] aux personnes ou aux [[occupation]]s dont on [[venir|vient]] d’être [[privé]].
+#* {{exemple | lang=fr
+ | Et les muges ? Pauvres muges ! On leur a fait tellement de tort avec la pollution et le mazout que les amateurs de muges aux olives sont plutôt rares. C'est un grand '''vide''' dans les traditions que la disparition de ce poisson appelé « mulet » dans le reste de la France.
+ | source=Christiane Maréchal ''raconte la Provence calendale: Noël, Étrennes, les Rois'', Éditions de Provence, 1996, page 27}}
+#* {{exemple | lang=fr
+ | Notre foyer s'équipait, se suréquipait de tous les appareils et gadgets qui simplifient la vie domestique. Grille-pain, brosse à dents électrique, chaîne 2 × 100 watts et autres remparts illusoires contre le '''vide''' de l'existence.
+ | source=Jean-Marie Callens, « ''Morituri te salutant'' », dans ''Des nouvelles de Palaiseau'', HB éditions, 1994}}
+#* ''Faire le '''vide''' autour de quelqu’un,'' L’isoler.
+#* ''{{par analogie|fr}} Cet orateur fait le '''vide''' dans la salle où il parle,'' Il décourage, il fait fuir les auditeurs.
+# {{figuré|fr}} [[vanité|Vanité]], [[vacuité]], [[néant]].
+#* {{exemple | lang=fr
+ | Favrolles prend la parole. Son '''vide''' intérieur, son inconscience braillarde se masquent sous l’énergie de ses propositions.
+ | source={{w|Léon Trotsky}}, ''Le drame du prolétariat français'', 1922, annexe à l’édition de 1964 de Littérature et Révolution (les Lettres Nouvelles, éditeur)}}
+#* {{exemple | lang=fr
+ | Si nous prenons quelques instants pour nous demander quel est le sens réel que nous souhaitons donner à notre vie, nous faisons face à un '''vide'''.
+ | source={{ouvrage |prénom=Sébastien |nom=Bohler |titre=Où est le sens ? |éditeur=Robert Laffont |lieu=Paris |année=2020}}, page 12}}
+#* {{exemple | lang=fr
+ | Le grand '''vide''' silencieux qu'on imagine à la naissance ou à la fin du monde.
+ | source=François Leblanc, « Jasper », ''Sabord'' n° 107, juin 2017, page 23}}
+# {{lexique|sylviculture|fr}} Espace sans arbres.
+#* {{exemple | lang=fr
+ | La grande surface de '''vides''' à reconstituer comprend les '''vides''' dus à la tempête, mais également les '''vides''' liés au non-reboisement des plateaux d’altitude en raison de la surdensité de cervidés.
+ | source={{W|Office national des forêts}}, révision d’aménagement forestier 2008-2027 de la forêt domaniale du Val-de-Senones|lien=http://www1.onf.fr/lire_voir_ecouter/sommaire/amenagements/++oid++37f8/@@display_planning.html}}
+
+==== {{S|synonymes}} ====
+{{(}}
+* [[case]]
+* [[cavité]]
+* [[creux]]
+* [[désert]]
+* [[ennui]]
+* [[espace]]
+* [[excavation]]
+* [[inanité]]
+* [[lacune]]
+* [[manque]]
+* [[néant]]
+* [[omission]]
+* [[ouverture]]
+* [[perte]]
+* [[privation]]
+* [[rien]]
+* [[trou]]
+* [[vacance]]
+* [[vacuité]]
+* [[zéro]]
+{{)}}
+
+==== {{S|dérivés}} ====
+{{(}}
+* [[à vide]]
+* [[coefficient de vide]]
+* [[fluctuation quantique du vide]]
+* [[laisser un vide]]
+* [[pompe à vide]]
+* [[se jeter dans le vide]]
+* [[sous vide]]
+* [[technique du vide]]
+* [[technologie du vide]]
+* [[tube à vide]]
+{{)}}
+
+==== {{S|phrases}} ====
+* [[la nature a horreur du vide]]
+
+==== {{S|traductions}} ====
+{{trad-début|Espace vide|1}}
+* {{T|de}} : {{trad+|de|Leere|f}}
+* {{T|en}} : {{trad+|en|emptiness}}, {{trad+|en|empty|dif=empty space}}, {{trad+|en|void}} ; {{trad+|en|gap}} ''(brèche)''
+* {{T|es}} : {{trad+|es|vacío|m}}
+* {{T|shy}} : {{trad+|shy|ḍḍelf}}
+* {{T|pl}} : {{trad+|pl|próżnia}}
+* {{T|sv}} : {{trad+|sv|tomrum|n}}
+{{trad-fin}}
+
+{{trad-début|{{info lex|physique}} Lieu où il n’y a pas de matière, qui ne contient pas d’air|2}}
+* {{T|en}} : {{trad+|en|vacuum}}
+* {{T|pl}} : {{trad+|pl|próżnia}}
+* {{T|sv}} : {{trad+|sv|tomrum|n}}
+{{trad-fin}}
+
+{{trad-début|{{info lex|architecture}} Toute ouverture ou baie dans un mur, de tout espace qui n’est pas occupé par une construction|3}}
+{{trad-fin}}
+
+{{trad-début|{{figuré|nocat=1}} Sentiment de manque, par rapport aux personnes ou aux occupations dont on vient d’être privé|4}}
+* {{T|en}} : {{trad+|en|emptiness}}
+{{trad-fin}}
+
+{{trad-début|{{figuré|nocat=1}} Vanité, vacuité, néant|5}}
+* {{T|en}} : {{trad+|en|emptiness}}
+* {{T|ryu}} : {{trad|ryu|あだ}}
+{{trad-fin}}
+
+{{trad-début|{{info lex|sylviculture}} Espace sans arbres.|6}}
+{{trad-fin}}
+
+{{trad-début|Traductions à trier}}
+* {{T|de|trier}} : {{trad+|de|Leere|f}}
+* {{T|ca|trier}} : {{trad+|ca|buit}}
+* {{T|es|trier}} : {{trad+|es|vacío}}
+* {{T|eo|trier}} : {{trad-|eo|vakuo}}
+* {{T|gl|trier}} : {{trad+|gl|baleiro}}
+* {{T|hbo|trier}} : {{trad|hbo|בהו|dif=בֹּהו|m}}
+* {{T|io|trier}} : {{trad+|io|vakuo}}
+* {{T|nl|trier}} : {{trad+|nl|vacuüm|n}}, {{trad+|nl|leegte|f}}
+* {{T|oc|trier}} : {{trad+|oc|vuèg}}
+* {{T|ro|trier}} : {{trad+|ro|gol}}, {{trad+|ro|vid}}, {{trad-|ro|vacum}}
+{{trad-fin}}
+
+=== {{S|verbe|fr|flexion}} ===
+{{fr-verbe-flexion|vider|ind.p.1s=oui|ind.p.3s=oui|sub.p.1s=oui|sub.p.3s=oui|imp.p.2s=oui}}
+'''vide''' {{pron|vid|fr}}
+# ''Première personne du singulier du présent de l’indicatif de'' [[vider]].
+# ''Troisième personne du singulier du présent de l’indicatif de'' [[vider]].
+# ''Première personne du singulier du présent du subjonctif de'' [[vider]].
+# ''Troisième personne du singulier du présent du subjonctif de'' [[vider]].
+# ''Deuxième personne du singulier de l’impératif de'' [[vider]].
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=fr|France <!-- précisez svp la ville ou la région -->|vid|audio=Fr-vide.ogg}}
+* {{écouter|lang=fr|France (Grenoble)||audio=LL-Q150 (fra)-Tamahashi-vide.wav}}
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-vide.wav}}
+* {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-WikiLucas00-vide.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-vide.wav}}
+* {{écouter|Céret (France)|vid|lang=fr|audio=LL-Q150 (fra)-Fabricio Cardenas (Culex)-vide.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
+
+=== {{S|références}} ===
+* {{R:DAF8}}
+
+== {{langue|da}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|da}}
+
+=== {{S|verbe|da}} ===
+'''vide''' {{pron||da}}
+# [[savoir|Savoir]].
+
+== {{langue|eo}} ==
+=== {{S|étymologie}} ===
+: {{eo-étym|vid/|-e}}
+
+=== {{S|adverbe|eo}} ===
+'''vide''' {{pron|ˈvi.de|eo}}
+# [[visuellement|Visuellement]].
+
+==== {{S|apparentés}} ====
+{{liste dérivés racine|eo|vid}}
+
+=== {{S|prononciation}} ===
+* {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-vide.wav}}
+
+=== {{S|anagrammes}} ===
+* {{lien|devi|eo}}
+
+== {{langue|gl}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|gl}}
+
+=== {{S|nom|gl}} ===
+'''vide''' [{{pron||gl}}
+# [[vigne|Vigne]].
+
+==== {{S|synonymes}} ====
+* [[cepa]]
+* [[bacelo]]
+* [[videira]]
+* [[vidra]]
+
+== {{langue|it}} ==
+=== {{S|verbe|it|flexion}} ===
+{{it-verbe-flexion|ind.ps.3s=oui|vedere}}
+'''vide''' {{pron|ˈvi.de|it}}
+# ''Troisième personne du singulier du passé simple de'' [[vedere#it|vedere]].
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|it}}
+
+== {{langue|nl}} ==
+=== {{S|étymologie}} ===
+: Emprunt au français.
+
+=== {{S|nom|nl}} ===
+'''vide''' {{pron||nl}} {{n}}/{{f}}
+# {{lexique|architecture|nl}} [[espace|Espace]] [[ouvert]], [[espace]] [[#fr|vide]], [[dégagement]].
+
+=== {{S|taux de reconnaissance}} ===
+{{nl-taux|71,4|63,4|pourB=63|pourNL=71}}
+
+=== {{S|prononciation}} ===
+* {{écouter|||lang=nl|audio=Nl-vide.ogg}}
+
+=== {{S|références}} ===
+{{Références}}
+
+== {{langue|pt}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|pt}}
+
+=== {{S|nom|pt}} ===
+{{pt-accord-mf|s=vide|ps=|p=vides|pp=}}
+'''vide''' {{pron|vˈi.dɨ|pt}} (Lisbonne) {{pron|vˈi.dʒi|pt}} (São Paulo) {{f}}
+# [[vigne#fr|Vigne]].
+#* {{exemple|lang=pt}}
+
+==== {{S|synonymes}} ====
+* [[parreira#pt|parreira]]
+* [[videira#pt|videira]]
+* [[vinha#pt|vinha]]
+
+=== {{S|anagrammes}} ===
+* {{lien|devi|pt}}
+
+=== {{S|prononciation}} ===
+* Lisbonne: {{pron|vˈi.dɨ|pt}} (langue standard), {{pron|vˈid|pt}} (langage familier)
+* São Paulo: {{pron|vˈi.dʒi|pt}} (langue standard), {{pron|vˈi.di|pt}} (langage familier)
+* Rio de Janeiro: {{pron|vˈi.dʒɪ|pt}} (langue standard), {{pron|vˈi.dʒɪ|pt}} (langage familier)
+* Maputo: {{pron|vˈi.dɨ|pt}} (langue standard), {{pron|vˈi.dːɨ|pt}} (langage familier)
+* Luanda: {{pron|vˈi.dɨ|pt}}
+* Dili: {{pron|vˈi.dɨ|pt}}
+
+=== {{S|références}} ===
+* {{R:DicionárioFonético|vide|id=31336}}
+
+== {{langue|sv}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|sv}}
+
+=== {{S|nom|sv}} ===
+{{sv-nom-n-n}}
+'''vide''' {{pron||sv}} {{n}}
+# {{plantes|sv}} [[saule|Saule]] (arbre).
+
+==== {{S|synonymes}} ====
+* [[pil]]

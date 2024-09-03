@@ -129,7 +129,7 @@ Menes at stamme fra [[indoeuropæisk]] sprog ''[[ḱʷn̥tós]]'', fra ''[[ḱw�
 *{{zh}}: {{ZHchar|[[犬]]}} (quǎn)
 * {{ko}}: {{t|ko|개}} (gæ)
 * {{hr}}: {{t|hr|pas|m}}
-* {{ku}}: {{t|ku|se|m}}
+* {{O|ku|se|m}}
 *{{lld}}: [[cian]]
 * {{lo}}: {{t|lo|ໝາ}} (maa)
 * {{la}}: {{t|la|canis|c}}

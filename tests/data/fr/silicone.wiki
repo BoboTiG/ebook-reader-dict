@@ -7,18 +7,33 @@
 === {{S|nom|fr}} ===
 {{fr-rég|si.li.kon}}
 '''silicone''' {{pron|si.li.kon|fr}} {{f}} (composé de silicium de formule R2SiO) {{m}} (polymère).
+[[File:Silicone resin.svg|thumb|Aspect schématique d'un '''silicone'''. (sens 1)]]
 [[File:Etanchéification de la bouche d'entrée des déchets et sortie du gaz.jpg|thumb|Réalisation d'un joint au silicone en cartouche. (sens 2)]]
-# {{lexique|chimie|fr}} [[composé|Composé]] [[inorganique]] formés d’une chaine [[silicium]]-[[oxygène]] (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
-#* ''Avec ou sans couvercles, en petits cubes ou en forme de cœur, de fleur ou de licorne, les bacs à glaçons sont bien souvent proposés en '''silicone''' ou en plastique.'' {{source|Katia Cosse, ''50 règles d’or pour vivre sans plastique'', 2020, page 59}}
-#* ''Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.'' {{source|Kyra Davis, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
-#* ''Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »'' {{source|Alain Babanini, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
+# {{lexique|chimie|fr}} [[composé|Composé]] [[inorganique]] formés d’une chaine [[silicium]]-[[oxygène]] (ou [[siloxane]]) […-Si-O-Si-O-Si-O-…] dans laquelle des groupes [R] se fixent, sur les atomes de silicium.
+#* {{exemple | lang=fr
+ | Avec ou sans couvercles, en petits cubes ou en forme de cœur, de fleur ou de licorne, les bacs à glaçons sont bien souvent proposés en '''silicone''' ou en plastique.
+ | source=Katia Cosse, ''50 règles d’or pour vivre sans plastique'', 2020, page 59}}
+#* {{exemple | lang=fr
+ | Ce n’est pas parce qu’on s’habille en L.A. Gear et qu’on s’injecte de la '''silicone''' qu’on est plus porté sur le crime que le reste de la population.
+ | source=Kyra Davis, ''Sexe, meurtres et cappuccino'', Harlequin, 2007}}
+#* {{exemple | lang=fr
+ | Paul supputa à l’homme une petite bistouquette quand, au spectacle d’un pénis imposant sans rien devoir à l’adjonction de la '''silicone''', le flambard exposa : « Il vaut mieux un petite courageuse qu’une grosse fainéante ! »
+ | source=Alain Babanini, ''Le Collecteur des quotidiens'', [[à compte d’auteur]] (Lulu.com), p.10}}
 # {{par extension|fr}} [[mastic|Mastic]] à base de ce composé et vendu généralement en [[cartouche]].
-#* ''Un entretien régulier (plaques de cuisson, four, filtre de hotte, robinetterie, baignoire et douche avec leurs joints '''silicone''', cuvette wc, tapis, carrelage, spots, portes, châssis...) conserve l'immeuble en meilleur état et vous.'' {{source|Pierre Jammar , ''Tout savoir sur les dégâts locatifs'', Éd. Édipro, 2014}}
+#* {{exemple | lang=fr
+ | Un entretien régulier (plaques de cuisson, four, filtre de hotte, robinetterie, baignoire et douche avec leurs joints '''silicone''', cuvette wc, tapis, carrelage, spots, portes, châssis...) conserve l'immeuble en meilleur état et vous.
+ | source=Pierre Jammar , ''Tout savoir sur les dégâts locatifs'', Éd. Édipro, 2014}}
 ## {{par extension|fr}} Nom donné abusivement par le grand [[public#fr-nom-2|public]] à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa [[composition]].
-##* ''La cellule est souvent constituée de panneaux modulaires en acier inoxydable dont l'étanchéité est assurée par joints au '''silicone'''.'' {{source| Camille Knockaert, ''Le fumage du poisson'', Éd. Ifremer, 2002}}
+##* {{exemple | lang=fr
+ | La cellule est souvent constituée de panneaux modulaires en acier inoxydable dont l'étanchéité est assurée par joints au '''silicone'''.
+ | source= Camille Knockaert, ''Le fumage du poisson'', Éd. Ifremer, 2002}}
+
+==== {{S|synonymes}} ====
+* [[polysiloxane]]
 
 
 ==== {{S|dérivés}} ====
+* [[pistolet à silicone]]
 * [[siliconage]]
 * [[siliconé]]
 * [[siliconer]]
@@ -46,6 +61,9 @@
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-Lyokoï-silicone.wav}}
 
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
+
 === {{S|voir aussi}} ===
 * {{Wikipédia}}
 
@@ -67,6 +85,7 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=en|Royaume-Uni (Sud de l'Angleterre)||audio=LL-Q1860 (eng)-Vealhurl-silicone.wav}}
+* {{écouter|Texas (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Wodencafe-silicone.wav}}
 
 === {{S|voir aussi}} ===
 * {{Wikipédia|lang=en}}
@@ -79,10 +98,13 @@
 === {{S|adjectif|it}} ===
 {{it-flexion|si.li.ˈko.n}}
 '''silicone''' {{pron|si.li.ˈko.ne|it}} {{m}}
-# {{lexique|chimie|it}} [[#fr|Silicone]], composés inorganiques formés d’une chaîne silicium-oxygène {{}} (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
+# {{lexique|chimie|it}} [[#fr|Silicone]], composés inorganiques formés d’une chaîne silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.
 
 ==== {{S|dérivés}} ====
 * {{lien|siliconare|it|sens=siliconer}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|it}}
 
 === {{S|voir aussi}} ===
 * {{WP|lang=it}}

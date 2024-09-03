@@ -11,22 +11,33 @@
 
 === {{S|adjectif|fr}} ===
 {{fr-rég|bat|mf=1}}
-'''bath''' {{pron|bat|fr}} {{mf|fr}}
+'''bath''' {{pron|bat|fr}}
 # {{argot|fr}} {{désuet|fr}} [[super|Super]] ; [[bon]] ; [[agréable]].
 #* ''– C’est rien '''bath''' !<br
 />– Mince alors, on en a de la chance !'' {{source|{{w|Léon Frapié}}, ''Le sou'', dans ''Les contes de la maternelle'', 1910, éditions Self, 1945, page 180}}
 #* ''– Je suis content… Et toi, Polyte, t’as plus mal au pied ?<br
 />– Ah ! non ! … C’est trop '''bath''' !'' {{source|{{w|Léon Frapié}}, ''Le sou'', dans ''Les contes de la maternelle'', 1910, éditions Self, 1945, page 181}}
-#* ''T’es '''bath''', la Caille. Ta peau, c’est du satin. J’suis folle ! Ta peau me brûle et tes mirettes… Oh ! tes mirettes !…'' {{source|{{Citation/Francis Carco/Jésus-la-Caille/1914|II}}}}
-#* ''— Pige-moi cet horizon, si c’est '''bath''' !'' {{source|{{w|Jules Romains}}, ''{{ws|Les Copains/Chapitre 4|Les Copains}}'', 1922, réédition Le Livre de Poche, page 104}}
-#* ''Vous êtes bien '''bath'''. Ça me plairait drôlement d’être comme vous. Vzêtes drôlement bien roulée. Et d’une élégance avec ça.'' {{source|{{w|Raymond Queneau}}, ''{{w|Zazie dans le métro}}'', chapitre 13, Gallimard, 1959}}
+#* {{exemple | lang=fr
+ | T’es '''bath''', la Caille. Ta peau, c’est du satin. J’suis folle ! Ta peau me brûle et tes mirettes… Oh ! tes mirettes !…
+ | source={{Citation/Francis Carco/Jésus-la-Caille/1914|II}}}}
+#* {{exemple | lang=fr
+ | — Pige-moi cet horizon, si c’est '''bath''' !
+ | source={{w|Jules Romains}}, ''{{ws|Les Copains/Chapitre 4|Les Copains}}'', 1922, réédition Le Livre de Poche, page 104}}
+#* {{exemple | lang=fr
+ | Vous êtes bien '''bath'''. Ça me plairait drôlement d’être comme vous. Vzêtes drôlement bien roulée. Et d’une élégance avec ça.
+ | source={{w|Raymond Queneau}}, ''{{w|Zazie dans le métro}}'', Gallimard, 1959, chapitre 13}}
 #* {{exemple|lang=fr|Pour tout bagage on a sa gueule<br
 />Quand elle est '''bath''' ça va tout seul<br
 />Quand elle est moche on s'habitue<br
 />On s' dit qu'on est pas mal foutu|source={{w|Léo Ferré}}, extrait de la chanson ''{{w|Vingt ans}}'', 1961}}
 #* ''Ainsi, défilèrent consécutivement les qualificatifs de ''dément'', ''délirant'', ''chouette'', '''''bath''''', et ''pas mal''. On pouvait tout aussi bien dire d'une fille qu'elle était ''chouette'' et d'une capitale étrangère visitée à Pâques que c'était ''pas mal. {{source|{{w|Philippe Labro}}, ''Des Feux mal éteints'', Éditions Gallimard, 1967, 2014, chapitre 2}}
-#* ''T'es OK, t'es '''bath''', t'es in'' {{source|{{w|Ottawan}}, ''{{w|T'es OK}}''}}
-#*''Moi, j'adore les acteurs. J'adore les acteurs. C'est chouette les acteurs. C'est '''bath''' les acteurs. C'est eux qui traduisent tout quand même.'' {{source|Jean Gabin, interviewé par Robert Chazal pour l'émission télévisée ''Pour le cinéma'', 6 décembre 1970}}
+#* {{exemple | lang=fr
+ | T'es OK, t'es '''bath''', t'es in
+ | source={{w|Ottawan}}, ''{{w|T'es OK}}''}}
+#* {{exemple | lang=fr
+ | Moi, j'adore les acteurs. J'adore les acteurs. C'est chouette les acteurs. C'est '''bath''' les acteurs. C'est eux qui traduisent tout quand même.
+ | source=Jean Gabin, interviewé par Robert Chazal pour l'émission télévisée ''Pour le cinéma'', 6 décembre 1970}}
+#* {{exemple|lang=fr|Alors, la Marne, c’est '''''bath''''' ? » '''Bath''', un mot des années 60 qu’on n’emploie plus. Peut-être l’a-t-il entendu prononcer par son père. Milan répond : « Oui, c’est très '''bath'''. »|source={{w|Jean-Paul Kauffmann}}, ''Remonter la Marne'', Fayard, 2013, Le Livre de Poche, page 197}}
 
 ==== {{S|notes}} ====
 : Cité dès 1846, toujours en vogue dans les années 1970.
@@ -62,13 +73,13 @@
 === {{S|nom|fr|num=1}} ===
 {{fr-rég|bat}}
 '''bath''' {{pron|bat|fr}} {{m}}
-# [[Papier]] à lettre de provenance [[anglais]]e, de belle [[qualité]], qui a joui d’une grande [[vogue]] au {{siècle2|XIX}} siècle.
+# [[papier#fr|Papier]] à lettre de provenance [[anglais]]e, de belle [[qualité]], qui a joui d’une grande [[vogue]] au {{siècle2|XIX}} siècle.
 
 ==== {{S|dérivés}} ====
 * [[papier de Bath]]
 
 === {{S|nom|fr|num=2}} ===
-{{fr-rég|bat|p2=bathim|pp2=ba.tim}}
+{{fr-rég|bat|p2=bathim|p2p=ba.tim}}
 '''bath''' {{pron|bat|fr}} {{m}}
 # Mesure des liquides chez les Hébreux, valant 18,08 [[litre]]s{{R|Littré}} puis plus tard environ 38,88 litres.
 #* ''Le '''bath''' représentait le cube de la demi-coudée royale, et était égal à l’épha, mesure de grains. On prétend qu’il y avait en outre un ''petit '''bath''''', égal au cube de la demi-coudée naturelle = 2.507 gallons = 11.39 litres.<br
@@ -81,15 +92,14 @@
 {{trad-fin}}
 
 === {{S|prononciation}} ===
+* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-bath.wav}}
+
 ==== {{S|homophones|fr}} ====
 * [[baht]]
 * [[batte]], [[battent]], [[battes]]
 
-=== {{S|prononciation}} ===
-* {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-bath.wav}}
-
 === {{S|anagrammes}} ===
-* [[baht]]
+{{voir anagrammes|fr}}
 
 === {{S|voir aussi}} ===
 * {{WP}}
@@ -123,6 +133,7 @@
 ** {{écouter|États-Unis (Californie)|bæθ|audio=En-us-bath.ogg|lang=en}}
 * {{écouter|lang=en|Suisse (Genève)|bɑːθ|audio=LL-Q1860 (eng)-Nattes à chat-bath.wav}}
 * {{écouter|Canada||lang=en|audio=LL-Q1860 (eng)-Ajshul-bath.wav}}
+* {{écouter|Connecticut (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Grendelkhan-bath.wav}}
 
 === {{S|anagrammes}} ===
 * {{lien|baht|en}}

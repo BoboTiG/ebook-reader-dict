@@ -12,10 +12,10 @@
 # [[pessoa]] de origem do Estado de São Paulo, Brasil
 # artigo ou objeto do Estado de São Paulo
 
-=={{pronúncia|pt}}==
+=={{Pronúncia|pt}}==
 ===Brasil===
 ====Paulistana e Caipira====
-* [[AFI]]: {{IPA|/paw.ˈlis.tə/|lang=pt}} 
+* [[AFI]]: {{IPA|/paw.ˈlis.tə/|id=pt}} 
 * [[SAMPA]]: /paw."lis.ta/
 
 ==Ver também==

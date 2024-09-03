@@ -1,32 +1,34 @@
 {{also|mars|MARS|mârs|marš|Марс|марс}}
 ==English==
 {{wp|Mars (mythology)|mul=Mars (planet)}}
-[[File:Mars symbol (fixed width).svg|thumb|Mars planetary symbol]]
-[[File:Mars_23_aug_2003_hubble.jpg|right|thumb|220px|Mars (planet)]]
+[[File:Mars_23_aug_2003_hubble.jpg|right|thumb|Mars (planet)]]
+[[File:Mars symbol (outline).svg|thumb|Mars's planetary symbol {{angbr|[[♂]]}}]]
 
 ===Pronunciation===
-* {{a|RP}} {{IPA|en|/ˈmɑːz/}}
-* {{a|GA}} {{IPA|en|/ˈmɑɹz/}}
+* {{IPA|en|/ˈmɑːz/|a=RP}}
+* {{IPA|en|/ˈmɑɹz/|a=GA}}
 * {{rhymes|en|ɑː(ɹ)z|s=1}}
-* {{audio|en|en-us-mars.ogg|Audio (US)}}
+* {{audio|en|en-us-mars.ogg|a=US}}
 
 ===Etymology 1===
-From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin (older than 75 {{BC}}) {{m|la|Māvors}}. {{m|osc|𐌌𐌀𐌌𐌄𐌓𐌔}} was his [[w:Oscan language|Oscan]] name. He was also known as ''Marmor'', ''Marmar'' and ''Maris'', the latter from the Etruscan deity [[Maris]].
+From {{inh-lite|en|enm|Mars}}, from {{der-lite|en|la|Mars|Mārs|god of war}}, from older Latin (older than 75 {{BC}}) {{m-lite|la|Mavors|Māvors}}.
 
 ====Proper noun====
-{{en-proper noun}}
+{{en-proper noun|+|plqual=rare}}
 
 # {{senseid|en|Q111}} {{lb|en|astronomy}} The fourth planet in the [[solar system]]. Symbol: '''[[♂]]'''
 #: {{ux|en|'''Mars''' has two moons, Deimos and Phobos.}}
+#* {{quote-book|en|author={{w|John Wyndham}} [pseudonym; John Wyndham Parkes Lucas Beynon Harris]|chapter=Phase One|title=w:The Kraken Wakes|location=Harmondsworth, Middlesex|publisher=[[w:Penguin Books|Penguin Books Ltd]]|year=1953|year_published=1966|page=12|passage=‘There’s another one. There can’t be two '''Marses''',’ said Phyllis. / And sure enough there was. A smaller red point, a little up from, and to the right of, the first.}}
+#* {{quote-book|en|author=[[w:Philip K. Dick|Philip K[indred] Dick]]|chapter=[To Carol Carr]|title=The Selected Letters of Philip K. Dick|volume=!1 (1938–1971)|location=Grass Valley, Calif.|publisher=Underwood Books|date=30 November 1964|year_published=1996|page=136|pageurl=https://archive.org/details/philip-k.-dick-the-selected-letters-of-philip-k.-dick-1938-1971-volume-1-underwood-books-1997/page/136/mode/1up|isbn=1-887424-20-2|passage=Well, see, we’re building a steam-driven solar system from a kit. (Cheaper than the Japanese miniaturized, transistorized models, which have two '''Marses''' and no Earth sometimes.)}}
+#* {{quote-book|en|author=[[w:Ian Watson (author)|Ian Watson]]|chapter=Mummy-cloth|title=The Martian Inca|location=London|publisher=w:Victor Gollancz Ltd|year=1977|section=section four|page=47|pageurl=https://archive.org/details/martianinca0000wats/page/47/mode/1up|passage=The planet '''Mars''', seen by Cro-Magnon eyes, presumably was a blue summer world with air and water. Winter '''Mars''', seen by modem man, a red ice-capped desert. Two '''Marses''' coincided briefly in his mind’s eye, then rushed apart into endless cycles of Red and Blue … Human fingers intended to halt '''Mars''' at the moment of perfection, and hold a whole world there!}}
 #* {{quote-web
 |en
 |date=22 September 2018
-|last=Carruthers
-|first=Marissa
+|author=Marissa Carruthers
 |title=Five of the best places to go off grid in Asia, get back to nature and away from office phone calls
 |archiveurl=https://web.archive.org/web/20180923131304/https://www.scmp.com/lifestyle/travel-leisure/article/2165203/five-best-places-go-grid-asia-get-back-nature-and-away
 |archivedate=23 September 2018
-|work={{w|South China Morning Post}}
+|work=w:South China Morning Post
 |section=Travel & Leisure
 |text=With its '''Mars'''-like landscape, visiting Gurbantunggut Desert feels like escaping to another world.}}
 # {{senseid|en|Q112}} {{lb|en|Roman god}} The [[Roman]] [[god]] of [[war]].
@@ -36,15 +38,16 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 #: {{ux|en|In the first half of the twentieth century, '''Mars''' devastated Europe.}}
 #* {{quote-book|en|passage='''Mars''' rode upon the storm of horror and drank his fill of pain and blood. When the Serbian Army retreated before the foe, four times its own strength, it went backward facing the enemy and fighting every step of the way.|title=A Nation at Bay: What an American Woman Saw and Did in Suffering Serbia|page=57|author=Ruth Stanley Farnam|year=1918}}
 #* {{quote-journal|en|passage=A relieved world then will eagerly turn to the task of reclaiming the destruction wrought by '''Mars''' ... A tremendous task, filled with infinite possibilities ... A profitable task, according to how well you are prepared to do your part in the rehabilitation ...|magazine=Engineering and Mining Journal|volume=145|page=54|year=1944|author=McGraw-Hill}}
-#* {{quote-book|en|passage=The plague, inevitable companion of '''Mars''', ravaged the populace.|title=Jacques Callot: Prints & Related Drawings, Issue 21|author=Helen Diane Russell, Jeffrey Blanchard|year=1975|page=10}}
+#* {{quote-book|en|passage=The plague, inevitable companion of '''Mars''', ravaged the populace.|title=Jacques Callot: Prints & Related Drawings, Issue 21|author=Helen Diane Russell; Jeffrey Blanchard|year=1975|page=10}}
 
 =====Synonyms=====
 * {{s|astronomy|astrology}} [[♂]]
 
 =====Derived terms=====
-* {{l|en|Marsling}}
-* {{l|en|martial}}
-* {{l|en|Martian}}
+* {{l-lite|en|Marsling}}
+* {{l-lite|en|martial}}
+* {{l-lite|en|Martian}}
+*{{l|en|plain of Mars}}
 
 =====Translations=====
 {{trans-top|id=Q111|planet}}{{multitrans|data=
@@ -52,6 +55,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Albanian: {{tt+|sq|Marsi|m}}, {{tt|sq|Mars|m}} {{q|indefinite}}
 * Amharic: {{tt|am|ማርስ}}
 * Arabic: {{tt|ar|الْمِرِّيخ|m}}
+*: South Levantine Arabic: {{tt|ajp|المريخ|tr=il-marrīḵ}}
 * Armenian: {{tt+|hy|Մարս}}, {{tt|hy|Հրատ}}
 * Assamese: {{tt|as|মঙ্গল}}
 * Assyrian Neo-Aramaic: {{tt|aii|ܢܸܪܓܲܠ|m|tr=nirgāl}}
@@ -64,13 +68,16 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Breton: {{tt+|br|Meurzh|m}}
 * Bulgarian: {{tt|bg|Марс|m}}
 * Burmese: {{tt+|my|အင်္ဂါ}}
+* Carpathian Rusyn: {{tt|rue|Марс|m}}
 * Catalan: {{tt+|ca|Mart|m}}
 * Cherokee: {{tt|chr|ᎹᏏ}}
 * Chinese:
 *: Cantonese: {{tt|yue|火星|tr=fo2 sing1}}
+*: Eastern Min: {{t|cdo|火星}}
+*: Hakka: {{t|hak|火星|tr=Fó-sên}}
+*: Hokkien: {{tt+|nan-hbl|火星|tr=hóe-chheⁿ, hé-chhiⁿ}}
 *: Mandarin: {{tt+|cmn|火星|tr=Huǒxīng}}
-*: Min Nan: {{tt+|nan|火星|tr=hóe-chheⁿ, hé-chhiⁿ}}
-*: Wu: {{tt|wuu|火星|tr=hu xin}}
+*: Wu: {{tt|wuu|火星}}
 * Chuvash: {{tt|cv|Марс}}
 * Coptic: {{tt|cop|ⲙⲟⲗⲟⲭ}}
 * Cornish: {{tt|kw|Meurth|m}}
@@ -88,7 +95,7 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Georgian: {{tt|ka|მარსი}}
 * German: {{tt+|de|Mars|m}}
 * Greek: {{tt+|el|Άρης|m}}
-*: Ancient: {{tt|grc|Τόλμα|f}}, {{tt|grc|Πυρόεις|m}}, {{tt|grc|Ηρακλής|f}}
+*: Ancient: {{tt|grc|Τόλμα|f}}, {{tt|grc|Πυρόεις|m}}, {{tt|grc|Ηρακλής|m}}
 * Gujarati: {{tt|gu|મંગળ}}
 * Haitian Creole: {{tt|ht|Mas}}
 * Hawaiian: {{tt|haw|Hōkū‘ula}}
@@ -101,28 +108,29 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Interlingua: {{tt|ia|Marte}}
 * Irish: {{tt+|ga|Mars|m}}, {{tt+|ga|Máirt|m}}
 * Italian: {{tt+|it|Marte|m}}
-* Japanese: {{tt+|ja|火星|tr=かせい, Kasei}}, {{tt|ja|マーズ|tr=Māzu}}, {{tt|ja|マース|tr=Māsu}}, {{tt|ja|マルス|tr=Marusu}}
+* Japanese: {{tt+|ja|火星|tr=かせい, Kasei}}, {{tt+|ja|マーズ|tr=Māzu}}, {{tt|ja|マース|tr=Māsu}}, {{tt|ja|マルス|tr=Marusu}}
 * Javanese: {{tt+|jv|jaka bèlèk}}
 * Kalmyk: {{tt|xal|Мигмр}}
 * Kannada: {{tt+|kn|ಮಂಗಳ}}
 * Kashubian: {{tt|csb|Mars|m}}
-* Kazakh: {{tt|kk|Қызылжұлдыз}}, {{tt|kk|Аңырақай}}, {{tt+|kk|Марс}}
+* Kazakh: {{tt|kk|Қызылжұлдыз}}, {{tt|kk|Аңырақай}}, {{tt|kk|Марс}}
 * Khmer: {{tt+|km|អង្គារ}}
 * Klamath-Modoc: {{tt|kla|taktakl̓i}}
+* Kodava: {{tt|kfa|ಚೌವ}}
 * Korean: {{tt+|ko|^화성(火星)}}
 * Kurdish:
-*: Central Kurdish: {{tt+|ckb|بارام}}, {{tt+|ckb|بەھرام}}
+*: Central Kurdish: {{tt+|ckb|بارام}}, {{tt|ckb|بەھرام}}, {{t+|ckb|مەریخ}}
 *: Northern Kurdish: {{tt+|kmr|Behram}}, {{tt+|kmr|Mars}}, {{tt+|kmr|Merîx}}
 * Kyrgyz: {{tt|ky|Марс}}
 * Lao: {{tt|lo|ອັງຄານ}}, {{tt+|lo|ດາວອັງຄານ}}
-{{trans-mid}}
 * Latin: {{tt+|la|Mārs|m}}
 * Latvian: {{tt|lv|Marss|m}}
-* Lithuanian: {{tt+|lt|Marsas|m}}, {{t|lt|Žiezdrė|f}}
-* Lü: {{t|khb|ᦡᦱᧁᦺᦝ}}
+* Lithuanian: {{tt+|lt|Marsas|m}}, {{tt|lt|Žiezdrė|f}}
+* Lü: {{tt|khb|ᦡᦱᧁᦺᦝ}}
 * Macedonian: {{tt|mk|Марс|m}}
 * Malay: {{tt+|ms|Marikh}}, {{tt|ms|Mars}}
 * Malayalam: {{tt+|ml|ചൊവ്വ}}
+* Malecite-Passamaquoddy: {{t|pqm|mehqahtuwet|an}}
 * Maltese: {{tt|mt|Mars}}, {{tt|mt|Marte|m}}
 * Manchu: {{tt|mnc|ᡨᡠ᠋ᠸᠠ ᡠᠰᡳ᠍ᡥᠠ}}
 * Manx: {{tt|gv|Mart|m}}
@@ -133,19 +141,22 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 *: Cyrillic: {{tt+|mn|Ангараг}}, {{tt+|mn|Марс}}
 *: Mongolian: {{tt|mn|ᠠᠩᠭᠠᠷᠠᠭ}}, {{tt|mn|ᠮᠠᠷᠰ}}
 * Navajo: {{tt|nv|Máaz}}
-* Norwegian: {{tt+|no|Mars}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|Mars|m}}
+* Occitan: {{t+|oc|Mart|m}}
+* Odia: {{tt+|or|ମଙ୍ଗଳ}}
 * Old Church Slavonic:
 *: Cyrillic: {{tt|cu|Арисъ|m}}
-* Oriya: {{tt+|or|ମଙ୍ଗଳ}}
 * Ossetian: {{tt|os|Марс}}
-* Pashto: {{tt|ps|مريخ|m|tr=maríx}}
-* Persian: {{tt+|fa|مریخ|tr=merrix}}, {{tt+|fa|بهرام|tr=bahrâm}}
+* Pashto: {{tt|ps|مريخ|m|tr=marix}}
+* Persian:
+*: Dari: {{tt+|prs|مِرِّیخ}}, {{tt+|prs|بَهْرَام}}, {{tt+|prs|مَارْس}}
+*: Iranian Persian: {{tt+|fa-ira|مِرّیخ}}, {{tt+|fa-ira|بَهْرام}}, {{tt+|fa-ira|مارْس}}
 * Polish: {{tt+|pl|Mars|m}}
 * Portuguese: {{tt+|pt|Marte|m}}
 * Punjabi: {{tt|pa|ਮੰਗਲ}}
 * Romanian: {{tt|ro|Маrte|m}}
 * Russian: {{tt+|ru|Марс|m}}
-* Rusyn: {{tt|rue|Марс|m}}
 * Sanskrit: {{tt+|sa|मङ्गल}}, {{tt+|sa|रुधिर|m}}
 * Santali: {{tt|sat|ᱴᱤᱨᱟᱹ ᱮᱸᱜᱮᱞ}}
 * Scottish Gaelic: {{tt|gd|Màrs|m}}
@@ -170,8 +181,8 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Tibetan: {{tt|bo|མིག་དམར}}
 * Turkish: {{tt+|tr|Mars}}, {{tt|tr|Kızıl Gezegen}}, {{tt|tr|Kızıldız}}, {{tt+|tr|Bakırsokum}}, {{tt+|tr|Merih}} {{q|archaic}}, {{tt+|tr|Sakıt}} {{q|archaic}}
 * Turkmen: {{tt|tk|Mars}}, {{tt|tk|Myrryh}}
-* Ukrainian: {{tt|uk|Марс|m}}
-* Urdu: {{tt|ur|مریخ|m|tr=mirrīx}}, {{tt+|ur|منگل|tr=mangal}}
+* Ukrainian: {{tt+|uk|Марс|m}}
+* Urdu: {{tt|ur|مِرِّیخ|m}}, {{tt+|ur|مَن٘گَل|m}}, {{t|ur|بَہْرام|m}}
 * Uyghur: {{tt|ug|مارس}}, {{tt|ug|مېرىخ}}
 * Uzbek: {{tt|uz|Mars}}, {{tt|uz|Mirrix}} {{q|obsolete}}
 * Vietnamese: {{tt|vi|sao Hoả}} (―{{tt+|vi|火}}), {{tt+|vi|Hoả tinh}} ({{tt|vi|火星}})
@@ -181,10 +192,9 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Yiddish: {{tt|yi|מאדים|alt=מאַדים|m}}, {{tt|yi|מאַרס|m}}
 * Zhuang: {{tt|za|Ndaundeiqfeiz}}
 * Zulu: {{tt|zu|uMasi}}
-}}
 {{trans-bottom}}
 
-{{trans-top|id=Q112|god of war}}{{multitrans|data=
+{{trans-top|id=Q112|god of war}}
 * Afrikaans: {{tt|af|Mars}}
 * Arabic: {{tt+|ar|مَارِس|m}}
 * Armenian: {{tt+|hy|Մարս}}
@@ -197,7 +207,8 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Catalan: {{tt+|ca|Mart|m}}
 * Cherokee: {{tt|chr|ᎹᏏ}}
 * Chinese:
-*: Mandarin: {{tt+|cmn|戰神}}, {{tt+|cmn|战神|tr=Zhànshén}}, {{tt|cmn|瑪爾斯}}, {{tt|cmn|玛尔斯|tr=Mǎ'ěrsī}}
+*: Cantonese: {{t|yue|戰神}}, {{t|yue|瑪斯}}
+*: Mandarin: {{tt+|cmn|戰神|tr=Zhànshén}}, {{tt+|cmn|瑪爾斯|tr=Mǎ'ěrsī}}
 * Cornish: {{tt|kw|Meurth|m}}
 * Czech: {{tt+|cs|Mars|m}}
 * Danish: {{tt+|da|Mars|c}}
@@ -219,14 +230,13 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Indonesian: {{tt+|id|Mars}}
 * Irish: {{tt+|ga|Mars|m}}
 * Italian: {{tt+|it|Marte|m}}
-* Japanese: {{tt|ja|マールス|tr=Mārusu}}
-* Kazakh: {{tt+|kk|Марс}}
+* Japanese: {{tt+|ja|マールス|tr=Mārusu}}
+* Kazakh: {{tt|kk|Марс}}
 * Khmer: {{tt+|km|អង្គារ}}
 * Korean: {{tt+|ko|^마르스}}
 * Kurdish:
 *: Central Kurdish: {{tt+|ckb|بارام}}
 *: Northern Kurdish: {{tt+|kmr|Mars}}
-{{trans-mid}}
 * Kyrgyz: {{tt|ky|Марс}}
 * Latin: {{tt+|la|Mārs|m}}
 * Latvian: {{tt|lv|Marss|m}}
@@ -238,9 +248,13 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Mongolian:
 *: Cyrillic: {{tt+|mn|Марс}}
 *: Mongolian: {{tt|mn|ᠮᠠᠷᠰ}}
+* Norwegian:
+*: Bokmål: {{tt+|nb|Mars|m}}
 * Old Church Slavonic:
 *: Cyrillic: {{tt|cu|Арисъ|m}}
-* Persian: {{tt+|fa|بهرام|tr=bahrâm}}
+* Persian:
+*: Dari: {{tt+|prs|مَارْس}}
+*: Iranian Persian: {{tt+|fa-ira|مارْس}}
 * Polish: {{tt+|pl|Mars|m}}
 * Portuguese: {{tt+|pt|Marte|m}}
 * Romanian: {{tt|ro|Маrte}}
@@ -257,35 +271,57 @@ From {{inh|en|enm|Mars}}, from {{der|en|la|Mārs||god of war}}, from older Latin
 * Thai: {{tt|th|มาร์ส}}
 * Turkish: {{tt+|tr|Mars}}
 * Turkmen: {{tt|tk|Mars}}
-* Ukrainian: {{tt|uk|Марс|m}}
-* Urdu: {{tt|ur|مارس|m}}
+* Ukrainian: {{tt+|uk|Марс|m}}
+* Urdu: {{tt|ur|مارْس|m}}
 * Uzbek: {{tt|uz|Mars}}
 * Vietnamese: {{tt|vi|thần chiến tranh}}
 * Welsh: {{tt+|cy|Mawrth|m}}
 * Yiddish: {{tt|yi|מאַרס|m}}
 * Zulu: {{tt|zu|uMasi}}
-}}
 {{trans-bottom}}
+}}
+
+====Noun====
+{{en-noun|-}}
+
+# {{lb|en|tincture|rare}} {{cap|gules}} {{gloss|red}}, in the [[postmedieval]] practice of [[blazon]]ing the tinctures of certain sovereigns' (especially British monarchs') coats as planets.
+#* {{quote-text|en|year=1693|author=Richard Blome|title=The Art of Heraldry, in two parts ... second edition ...|pages=76-77
+|passage=4. ''Luna'', a ''Mantle'' of ''Estate'', ''Mars'' doubled Ermine, ouched ''Sol'', garnished with Strings fastned thereunto fretways dependent, and tasselled of the same. [...] These Arms do belong to the Town of ''Beckbock'' in ''Wales''. 5. ''Jupiter'', a ''Mace'' of ''Majestry'' in ''Bend Sol''. [...] 12. ''Venus'', a ''Staff'' in Pale ''Sol'', and thereupon a ''Cross Pattee'', ''Luna'' surmounted off a ''Pall'' of the last, charged with 4. like Crosses fitched Saturn, edged and stringed as the second. This ''Coat'' belongs to the ''Archiepiscopal See of Canterbury'', to whose place it appertains to Crown and Inaugurate the Kings of ''England''.}}
+#* {{quote-book|en|year=1718|author=Samuel Kent|title=The Grammar of Heraldry [...] Second Edition
+|text=George [...] I''st.'' Mars, three Lions passant guardant in Pale Sol, for the Arms of ''England'', Impal'd with ''Scotland'', i.e. Sol, a Lion rampant within a double Tressure counterflory Mars. 2d. Jupiter, three Fleurs de Lis Sol, for the Arms of ''France''. 3d. Jupiter, an Irish Harp Sol, stringed Luna, for ''Ireland''. 4th. Seme party per Pale, and per Chevron enarche, in the Ist Mars, two Lions passant guardant Sol, for ''Brunswick''. In the 2d Partition Sol, semy of Hearts Mars, and a Lion rampant Jupiter, armed and langued of the First, for ''Luneburg''. The base is Mars, a Horse currant Luna, over these last on an Inescocheon, Constantine's Crown. All within the Garter. Above the whole a Helmet suitable to his Majesty's Royal Jurisdiction, upon the same a rich Mantle of Cloth of Gold, doubled Ermine, a{{nb...}}}}
+#* {{quote-book|en|year=1735|author=Francis Nichols|title=The Irish Compendium [...] vol. III of the British Compendium, second edition|page=80
+|text=8. Tierce in Mantle, first Mars, two Lions passant-guardant in pale, Sol, for Brunswick; 2d Sol, Semi of Hearts proper, a Lion rampant Jupiter, for Lunenburgh; 3d, ente en Point, Mars, an Horse currant Luna, for Saxony. Note, these Ensigns (which are the paternal Coat of his Majesty King George) I have added as an Example, to shew the Form of what foreign Heralds term Tierce in Mantle, ente en Pointe, &c. {{...}} }}
+#* {{quote-book|en|year=1737|author=Benjamin Martin|title=Bibliotheca Technologica: Or, a Philological Library|page=631
+|passage=ARMS. QUARTERLY, in the first grand Quarter ''Mars'', three Lions passant-guardant in Pale, ''Sol''; the ''Imperial Ensigns'' of ''England'', impaled with the ''Royal Arms'' of ''Scotland'', which are ''Sol'', a Lion rampant within a double Tressure flower'd and counterflower'd with Fleurs-de-lis, ''Mars''. The second Quarter is the ''Royal Arms'' of ''France'', viz. ''Jupiter'', three Fleurs-de-lis, ''Sol''. The third, the ''Ensign'' of ''Ireland'', which is, ''Jupiter'', an Harp ''Sol'', stringed ''Luna''.}}
+# {{lb|en|obsolete|alchemy|chemistry}} [[iron|Iron]].
 
 ====See also====
 * {{list:planets of the Solar System/en}}
-* {{l|en|Phobos}}, {{l|en|Deimos}}
+* {{l-lite|en|Phobos}}, {{l-lite|en|Deimos}}
 {{table:Solar System/en}}
 
 ===Etymology 2===
-After {{w|Frank C. Mars}}, who founded the company that produces these chocolate bars.
+[[File:MBar 700.jpg|thumb|UK-style Mars bar]]
+
+After {{w|Franklin Clarence Mars}}, who founded the company that produces these chocolate bars. His surname is possibly a variant of {{m|en|Marrs}},<ref>{{R:en:DAFN}}</ref> itself from {{m|en|Marr}} with post-medieval excrescent ''-s''.<ref>{{R:en:DAFN|Marrs}}</ref>
 
 ====Proper noun====
 {{en-proper noun}}
 
-# The {{w|Mars Bar}}, a [[brand]] of [[chocolate]] [[bar]] with [[caramel]] and [[nougat]] [[filling]].
+# The {{w|Mars bar}}, a [[brand]] of [[chocolate]] [[bar]] with [[caramel]] and [[nougat]] [[filling]].
 #* {{quote-book|en|year=1985|author=Michael Collier|title=Longest Day|page=206|passage=Easily eight foot tall, each was big, brown and glutinous - like giant '''Mars''' Bars squeezed and welded into nightmarish sculptures.}}
+
+=====Derived terms=====
+* {{l|en|Mars Bar party}}
+
+=====Related terms=====
+* {{l|en|M&M}}
 
 =====Translations=====
 {{trans-top|brand of chocolate bar}}{{multitrans|data=
 * Armenian: {{tt+|hy|Մարս}}
 * Chinese:
-*: Mandarin: {{t|cmn|[[瑪氏]][[巧克力棒]]}}, {{t|cmn|[[玛氏]][[巧克力棒]]|tr=Mǎshì qiǎokèlìbàng}}
+*: Mandarin: {{tt|cmn|[[瑪氏]][[巧克力棒]]|tr=Mǎshì qiǎokèlìbàng}}
 * Czech: {{tt+|cs|Mars|m}}
 * Dutch: {{tt+|nl|Mars|m}}
 * Estonian: {{tt+|et|Mars}}
@@ -294,57 +330,76 @@ After {{w|Frank C. Mars}}, who founded the company that produces these chocolate
 * French: {{tt+|fr|Mars|m}}
 * German: {{tt+|de|Mars|n}}
 * Hebrew: {{tt|he|מארס|tr=mars}}
-{{trans-mid}}
 * Hindi: {{tt|hi|मार्स|m}}
 * Hungarian: {{tt+|hu|Mars}}
 * Italian: {{tt+|it|Mars|m}}
 * Korean: {{tt+|ko|^마르스}}
-* Latvian: {{tt|lv|Mars}}
+* Latvian: {{tt+|lv|Mars}}
 * Macedonian: {{tt|mk|Марс|m}}
 * Marathi: {{tt|mr|मार्स|m}}
 * Polish: {{tt+|pl|Mars|m}}
 * Romanian: {{tt+|ro|Mars}}
 * Russian: {{tt+|ru|Марс|m}}
 * Swedish: {{tt+|sv|Mars}}
-}}
 {{trans-bottom}}
 
 {{checktrans-top}}
-* Latin: {{t+check|la|Mars|m}} (1, 2, 3)
-* Slovak: {{t-check|sk|Mars|m}} (1, 2)
-{{trans-mid}}
-* Welsh: {{t+check|cy|Mawrth|m}}
+* Latin: {{tt+check|la|Mars|m}} (1, 2, 3)
+* Slovak: {{tt-check|sk|Mars|m}} (1, 2)
+* Welsh: {{tt+check|cy|Mawrth|m}}
 {{trans-bottom}}
+}}
 
 ===Etymology 3===
-Alternative forms.
+From {{bor|en|uk|Марс}}.
+
+====Pronunciation====
+* {{IPA|en|/maɹs/|/mɑ˞s/}}
+
+====Proper noun====
+{{en-proper noun}}
+
+# {{place|en|village|urban hromada:suf/Semenivka|raion/Novhorod-Siverskyi|obl/Chernihiv|c/Ukraine}}
+
+=====Translations=====
+{{trans-top|village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine}}
+* Ukrainian: {{t+|uk|Марс|m-in}}
+{{trans-bottom}}
+
+====Further reading====
+* {{pedia|Mars, Chernihiv Oblast}}
+
+===Etymology 4===
+{{nonlemma}}
 
 ====Noun====
 {{en-noun|?}}
 
 # {{alternative form of|en|Mas}}
 
+===References===
+<references/>
+
 ===Anagrams===
-* {{anagrams|en|a=amrs|ARMs|ASMR|ASRM|M.R.A.S.|MRAs|MRSA|MSAR|Masr|RAMs|Rams|SARM|SRAM|arms|mas'r|rams|rasm}}
+* {{anagrams|en|a=amrs|M.R.A.S.|S/MAR|MRAs|SARM|MRSA|mas'r|ASMR|MSAR|Rams|RAMs|Masr|AMRs|ASRM|rasm|arms|ARMs|SRAM|rams}}
 
 [[Category:English eponyms]]
 {{c|en|Mars (planet)}}
 {{topics|en|Planets of the Solar System}}
 
-----
-
 ==Afrikaans==
 
 ===Etymology===
-From {{inh|af|nl|Mars}}.
+From {{inh-lite|af|nl|Mars}}.
 
 ===Pronunciation===
 * {{hyphenation|af|Mars}}
 
 ===Proper noun===
 {{af-proper noun}}
-# {{senseid|af|Q111}} {{lb|af|astronomy}} {{l|en|[[Mars]]}}
-# {{senseid|af|Q112}} {{lb|af|Roman god}} {{l|en|[[Mars]]}}
+
+# {{senseid|af|Q111}} {{lb|af|astronomy}} {{l-lite|en|Mars}}
+# {{senseid|af|Q112}} {{lb|af|Roman god}} {{l-lite|en|Mars}}
 
 ===See also===
 * {{list:planets of the Solar System/af}}
@@ -352,98 +407,87 @@ From {{inh|af|nl|Mars}}.
 {{topics|af|Planets of the Solar System}}
 {{topics|af|Roman deities}}
 
-----
-
 ==Czech==
+{{swp|Mars (mytologie)|lang=cs}}
+{{swp|Mars (planeta)|lang=cs}}
 
 ===Pronunciation===
 * {{cs-IPA}}
-* {{audio|cs|Cs-Mars.ogg|Audio}}
+* Oblique cases of the inanimate sense are pronounced {{IPAchar|/marz-/}}.
+* {{audio|cs|Cs-Mars.ogg}}
 * {{rhymes|cs|ars|s=1}}
 
 ===Proper noun===
-{{cs-proper noun|g=m}}
+{{cs-proper noun|m-in|adj=marsovský|adj2=marťanský|adj3=martský|dem=Marťan}}
 
-# {{senseid|cs|Q111}}{{topics|cs|Planets of the Solar System}}{{label|cs|inanimate}} {{l|en|Mars}}, the fourth planet in the [[solar system]]
-# {{senseid|cs|Q112}}{{topics|cs|Roman deities}}{{label|cs|animate}} {{l|en|Mars}}, the [[Roman]] [[god]] of [[war]]
+# {{senseid|cs|Q111}}{{C|cs|Planets of the Solar System}}{{label|cs|inanimate}} {{l-lite|en|Mars}}, the fourth planet in the [[solar system]]
 
 ====Declension====
-; animate
-{{cs-decl-noun-sg|Mars|Marta|{{l|cs|Martovi}}, {{l|cs|Martu}}|Marta|Marte|{{l|cs|Martovi}}, {{l|cs|Martu}}|Martem}}
+{{cs-ndecl|m.sg}}
 
-; inanimate
-{{cs-decl-noun-sg|Mars|Marsu|Marsu|Mars|Marse|Marsu|Marsem}}
+===Proper noun===
+{{cs-proper noun|m-an|adj=Marsův|adj2=Martův}}
 
-====Derived terms====
-* {{l|cs|marsovský}}
-* {{l|cs|Marsův}}
-* {{l|cs|Marťan}}
-* {{l|cs|marťanský}}
-* {{l|cs|martský}}
-* {{l|cs|Martův}}
+# {{senseid|cs|Q112}} {{lb|cs|Roman god|animate}} {{l-lite|en|Mars}}, the [[Roman]] [[god]] of [[war]]
+
+====Declension====
+{{cs-ndecl|m.an.sg.decllemma:Mart}}
 
 ===See also===
 {{table:Solar System/cs}}
 
 ===Further reading===
-* {{pedia|Mars (mytologie)|lang=cs}}
-* {{pedia|Mars (planeta)|lang=cs}}
-* {{R:PSJC}}
-* {{R:SSJC}}
-* {{R:Nase rec|author=Jitka Štindlová| title=Zaměřil dalekohled na Jupiter nebo na Jupitera? |url=http://nase-rec.ujc.cas.cz/archiv.php?art=5229 |year =1966 |volume=49 |number=4}}
+* {{R:cs:PSJC}}
+* {{R:cs:SSJC}}
+* {{R:cs:IJP}}
+* {{R:cs:Nase rec|author=Jitka Štindlová| title=Zaměřil dalekohled na Jupiter nebo na Jupitera? |url=http://nase-rec.ujc.cas.cz/archiv.php?art=5229 |year =1966 |volume=49 |number=4}}
 
-[[Category:Czech eponyms]]
-{{topics|cs|Mars (planet)}}
-
-----
+{{cln|cs|eponyms}}
+{{C|cs|Mars (planet)}}
 
 ==Danish==
 
 ===Proper noun===
 {{da-proper noun}}
 
-# {{senseid|da|Q111}}{{topics|da|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|da|Q111}}{{C|da|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 
 ===See also===
 {{list:planets of the Solar System/da}}
 
-----
-
 ==Dutch==
 {{wp|lang=nl}}
 
-===Etymology 1===
-From {{bor|nl|la|Mārs}}.
-
-====Pronunciation====
+===Pronunciation===
 * {{IPA|nl|/mɑrs/}}
-* {{audio|nl|Nl-Mars.ogg|Audio}}
+* {{audio|nl|Nl-Mars.ogg}}
 * {{hyphenation|nl|Mars}}
 * {{rhymes|nl|ɑrs|s=1}}
 * {{homophones|nl|mars}}
 
+===Etymology 1===
+From {{bor-lite|nl|la|Mars|Mārs}}.
+
 ====Proper noun====
 {{nl-proper noun|m}}
 
-# {{senseid|nl|Q111}}{{topics|nl|Planets of the Solar System}}{{lb|nl|astronomy}} {{l|en|Mars}} (planet)
+# {{senseid|nl|Q111}}{{topics|nl|Planets of the Solar System}}{{lb|nl|astronomy}} {{l-lite|en|Mars}} (planet)
 # {{senseid|nl|Q112}}{{topics|nl|Roman deities}}[[#English|Mars]] (Roman god)
 
 =====Related terms=====
-* {{l|nl|Maarten}}, {{l|nl|Martijn}}, {{l|nl|Martin}}, {{l|nl|Martinus}}
-* {{l|nl|Maartje}}, {{l|nl|Martine}}, {{l|nl|Martina}}
+* {{l-lite|nl|Maarten}}, {{l-lite|nl|Martijn}}, {{l-lite|nl|Martin}}, {{l-lite|nl|Martinus}}
+* {{l-lite|nl|Maartje}}, {{l-lite|nl|Martine}}, {{l-lite|nl|Martina}}
 
 ===Etymology 2===
-First attested as ''mersche'' in 1307. Derived from {{m|nl|meers|t=land next to water, swampland, pasture}}.
-
-====Pronunciation====
-* {{hyphenation|nl|Mars}}
+First attested as ''mersche'' in 1307. Derived from {{m-lite|nl|meers||land next to water, swampland, pasture}}.
 
 ====Proper noun====
 {{nl-proper noun|n}}
 
 # {{place|nl|neighbourhood|c/Land van Cuijk|p/Noord-Brabant|c/Netherlands}}.
 
-----
+===References===
+* {{R:nl:NPV}}
 
 ==Estonian==
 
@@ -453,10 +497,8 @@ First attested as ''mersche'' in 1307. Derived from {{m|nl|meers|t=land next to 
 ===Proper noun===
 {{et-proper noun}}
 
-# {{senseid|et|Q111}}{{topics|et|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|et|Q111}}{{topics|et|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|et|Q112}}{{topics|et|Roman deities}}[[#English|Mars]] (Roman god)
-
-----
 
 ==Ewe==
 
@@ -464,17 +506,15 @@ First attested as ''mersche'' in 1307. Derived from {{m|nl|meers|t=land next to 
 * {{IPA|ee|/ˈmʌɹs/}}
 
 ===Proper noun===
-{{head|ee|proper noun}}
+{{head-lite|ee|proper nouns}}
 
 # {{topics|ee|Months}}[[March]]
 #: {{syn|ee|Tedoxe}}
 
-----
-
 ==Faroese==
 
 ===Etymology===
-From {{bor|fo|la|Mārs}}.
+From {{bor-lite|fo|la|Mars|Mārs}}.
 
 ===Pronunciation===
 * {{IPA|fo|/maʂː/}}
@@ -482,9 +522,9 @@ From {{bor|fo|la|Mārs}}.
 * {{homophones|fo|mars}}
 
 ===Proper noun===
-{{head|fo|proper noun|g=m}}
+{{head-lite|fo|proper nouns|g=m}}
 
-# {{senseid|fo|Q111}}{{topics|fo|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|fo|Q111}}{{topics|fo|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|fo|Q112}}{{topics|fo|Roman deities}}[[#English|Mars]] (Roman god)
 
 ====Declension====
@@ -493,9 +533,10 @@ From {{bor|fo|la|Mārs}}.
 ===See also===
 * {{list:planets of the Solar System/fo}}
 
-----
-
 ==Finnish==
+
+===Etymology===
+From {{der-lite|fi|la|Mars|Mārs}}.
 
 ===Pronunciation===
 {{fi-pronunciation}}
@@ -503,36 +544,35 @@ From {{bor|fo|la|Mārs}}.
 ===Proper noun===
 {{fi-proper noun}}
 
-# {{senseid|fi|Q111}}{{topics|fi|Planets of the Solar System}}[[#English|Mars]] (planet)
-# {{senseid|fi|Q112}}{{topics|fi|Roman deities}}[[#English|Mars]] (Roman god)
+# {{senseid|fi|Q111}}{{topics|fi|Planets of the Solar System}}[[#English|Mars]] {{gloss|planet}}
+# {{senseid|fi|Q112}}{{topics|fi|Roman deities}}[[#English|Mars]] {{gloss|Roman god}}
+# {{surname|fi}}
 
 ====Declension====
-{{fi-decl-risti|n=sg|Mars|||a|i=0}}
+{{fi-decl-risti|Mars|||a|i=0}}
 
 ====Derived terms====
-* {{l|fi|marsilainen}}
+{{col-auto|fi
+|marsilainen
+}}
 
 ===See also===
 {{table:Solar System/fi}}
 
-----
-
 ==French==
 
 ===Etymology===
-From {{uder|fr|la|Mārs}}.
+Circa 1150, from {{uder|fr|la|Mārs}}.
 
 ===Pronunciation===
-* {{fr-IPA|Marce}}
-* {{audio|fr|Fr-Mars.ogg|Audio}}
+* {{fr-IPA|[s:s_]}}
+* {{audio|fr|Fr-Mars.ogg}}
 
 ===Proper noun===
 {{fr-proper noun|m}}
 
-# {{senseid|fr|Q111}}{{C|fr|Planets of the Solar System}}{{l|en|Mars}} (planet)
-# {{senseid|fr|Q112}}{{C|fr|Roman deities}}[[#English|Mars]] (Roman god)
-
-----
+# {{senseid|fr|Q111}}{{C|fr|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
+# {{senseid|fr|Q112}}{{C|fr|Roman deities}}{{l|en|Mars}} (Roman god)
 
 ==German==
 
@@ -541,7 +581,7 @@ From {{uder|fr|la|Mārs}}.
 
 ====Pronunciation====
 * {{IPA|de|/ˈmaʁs/}}
-* {{audio|de|De-Mars2.ogg|Audio}}
+* {{audio|de|De-Mars2.ogg}}
 * {{hyphenation|de|Mars}}
 
 ====Proper noun====
@@ -558,13 +598,13 @@ From {{uder|fr|la|Mārs}}.
 # {{senseid|de|Q111}} {{C|de|Planets of the Solar System}} {{lb|de|astronomy}} [[#English|Mars]]
 
 ====Derived terms====
-* {{l|de|Marsoberfläche}}
+* {{l-lite|de|Marsoberfläche}}
 
-=====Declension=====
+====Declension====
 {{de-ndecl|m,-.sg}}
 
 ===Etymology 2===
-From {{der|de|nds}}.
+From {{der-lite|de|nds}}.
 
 ====Noun====
 {{de-noun|m,-}} ''or''<br />
@@ -587,13 +627,11 @@ From {{der|de|nds}}.
 
 {{cln|de|eponyms}}
 
-----
-
 ==Hungarian==
 {{swp|lang=hu}}
 
 ===Etymology===
-From {{bor|hu|la|Mārs}}.
+From {{bor-lite|hu|la|Mars|Mārs}}.
 
 ===Pronunciation===
 * {{hu-IPA}}
@@ -601,27 +639,25 @@ From {{bor|hu|la|Mārs}}.
 * {{rhymes|hu|ɒrʃ|s=1}}
 
 ===Proper noun===
-{{head|hu|proper noun}}
+{{head-lite|hu|proper nouns}}
 
-# {{senseid|hu|Q111}}{{topics|hu|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|hu|Q111}}{{topics|hu|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|hu|Q112}}{{topics|hu|Roman deities}}[[#English|Mars]] (Roman god)
 
 ====Declension====
 {{hu-infl-nom|Marso|o|n=sg}}{{hu-pos-otok|Mars||ai|n=sg}}
 
 ====Derived terms====
-* {{l|hu|marsi}}
+* {{l-lite|hu|marsi}}
 {{col4|hu|title=Compound words
 |marslakó
 |Mars-lakó
 }}
 
-----
-
 ==Icelandic==
 
 ===Etymology===
-From {{bor|is|la|Mārs}}.
+From {{bor-lite|is|la|Mars|Mārs}}.
 
 ===Pronunciation===
 * {{IPA|is|/ˈmar̥s/}}
@@ -629,10 +665,10 @@ From {{bor|is|la|Mārs}}.
 * {{homophones|is|mars}}
 
 ===Proper noun===
-{{head|is|proper noun|g=m}}
+{{head-lite|is|proper nouns|g=m}}
 
-# {{senseid|is|Q111}}{{topics|is|Planets of the Solar System}}{{l|en|Mars}} (planet)
-# {{senseid|is|Q112}}{{topics|is|Roman deities}}[[#English|Mars]] (Roman god)
+# {{senseid|is|Q111}}{{C|is|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
+# {{senseid|is|Q112}}{{C|is|Roman deities}}{{l|en|Mars}} (Roman god)
 
 ====Declension====
 {{is-decl-noun-m-s1|M|a|rs|pl=-|def=-}}
@@ -640,17 +676,15 @@ From {{bor|is|la|Mārs}}.
 ===See also===
 {{table:Solar System/is}}
 
-----
-
 ==Irish==
 
 ===Etymology===
-From {{bor|ga|la|Mārs}}.
+From {{bor-lite|ga|la|Mars|Mārs}}.
 
 ===Proper noun===
 {{ga-proper noun|m|~a}}
 
-# {{senseid|ga|Q111}}{{topics|ga|Planets of the Solar System}}{{l|en|Mars}} {{q|planet}}
+# {{senseid|ga|Q111}}{{topics|ga|Planets of the Solar System}}{{l-lite|en|Mars}} {{q|planet}}
 #: {{syn|ga|Máirt}}
 # {{senseid|ga|Q112}}{{topics|ga|Roman deities}}[[#English|Mars]] {{q|Roman god}}
 
@@ -668,12 +702,10 @@ From {{bor|ga|la|Mārs}}.
 * {{R:ga:EID}}
 * {{R:ga:NEID}}
 
-----
-
 ==Latin==
 
 ===Etymology===
-From {{der|la|itc-ola|Māvors}}, from {{inh|la|itc-pro|*Māwortis}}. ''Mamers'' was his [[w:Oscan language|Oscan]] name. He was also known as ''Marmor'', ''Marmar'' and ''Maris'', the latter from the Etruscan deity [[Maris]].
+From {{der-lite|la|itc-ola|Mavors|Māvors}}, from {{inh-lite|la|itc-pro|sc=Latn|*Māwortis}},<ref>Walde, Alois & Hofmann, Johann Baptist. 1954. ''Lateinisches etymologisches Wörterbuch'', 2nd vol. (M-Z), 3rd edition, pp. 43-45.</ref> or from {{inh|la|itc-pro|*Māmart-}}. If ''Māvors'' indeed comes from ''*Māmart-'', the apparent change */-m-/ to */-w-/ is a unique and isolated change.<ref>de Vaan, Michiel. 2008. ''Etymological Dictionary of Latin and the other Italic Languages'', p. 366. </ref> ''Mamers'' was his [[w:Oscan language|Oscan]] name. He was also known as ''Marmor'', ''Marmar'' and ''Maris'', the latter from the Etruscan deity [[Maris]]. See also the [[w:Lapis Satricanus|Lapis Satricanus]], where 𐌌𐌀𐌌𐌀𐌓𐌕𐌄𐌆 (''Mamartei'') is attested. Possibly also related to {{ncog|sa|मरुत्|t={{w|Maruts}}, violent storm-gods}}.<ref>{{R:sa:EWAia|vol=2|page=322}}</ref>
 
 ===Pronunciation===
 * {{la-IPA|Mārs}}
@@ -681,11 +713,12 @@ From {{der|la|itc-ola|Māvors}}, from {{inh|la|itc-pro|*Māwortis}}. ''Mamers'' 
 ===Proper noun===
 {{la-proper noun|Mārs<3>|g=m}}
 
-# {{senseid|la|Q111}}{{topics|la|Planets of the Solar System}}{{l|en|Mars}} (planet)
-# {{senseid|la|Q112}}{{topics|la|Roman deities}}[[#English|Mars]] (Roman god)
+# {{lb|la|Roman god}} [[#English|Mars]] {{q|[[god]] of [[war]]}}
+# {{lb|la|astronomy}} [[#English|Mars]] {{q|[[planet]]}}
+# {{lb|la|alchemy|chemistry}} [[iron]]
 
 ====Usage notes====
-The name of the god could, through {{m|la|interpretatio romana}}, serve to replace the name of a war god in a foreign language. Thus [[w:Saxo Grammaticus|Saxo Grammaticus]], for example, uses the term to refer to the Norse god [[Odin]], alternating it with the borrowed form {{m|la|Ōthinus}}.
+The name of the god could, through {{m-lite|la|interpretatio romana}}, serve to replace the name of a war god in a foreign language. Thus [[w:Saxo Grammaticus|Saxo Grammaticus]], for example, uses the term to refer to the Norse god [[Odin]], alternating it with the borrowed form {{m-lite|la|Othinus|Ōthinus}}.
 
 ====Declension====
 {{la-ndecl|Mārs<3>}}
@@ -694,7 +727,7 @@ The name of the god could, through {{m|la|interpretatio romana}}, serve to repla
 {{la-noun|Mārs<3.both>|g=m}}
 
 # [[war]], [[battle]], [[conflict]]
-#: {{uxi|la|{{l|la|aequatus|aequato}} '''Marte'''|made equal the battle}}
+#: {{uxi|la|{{l-lite|la|aequatus|aequato}} '''Marte'''|made equal the battle}}
 
 ====Declension====
 {{la-ndecl|Mārs<3.both>}}
@@ -713,68 +746,64 @@ The name of the god could, through {{m|la|interpretatio romana}}, serve to repla
 }}
 
 ====Descendants====
-* {{desc|enm|Mars|bor=1}}
 * {{desc|fr|Mars}}
 * {{desc|it|Marte}}
 * {{desc|pt|Marte}}
 * {{desc|ro|Marte}}
+* {{desc|scn|Marti}}
 * {{desc|es|Marte}}
+* {{desc|enm|Mars|bor=1}}
 
 ===References===
+<references/>
 * [https://www.dizionario-latino.com/dizionario-latino-italiano.php?lemma=MARS100 Dizionario-latino, Olivetti]
-
-----
 
 ==Latvian==
 
 ===Proper noun===
-{{head|lv|proper noun form|g=m}}
+{{head-lite|lv|proper noun forms|g=m}}
 
-# {{lv-inflection of|Marss|voc|s|||proper}}
-
-----
+# {{infl of|lv|Marss||voc|s}}
 
 ==Middle English==
 
 ===Etymology===
-From {{bor|enm|la|Mārs}}.
+From {{bor-lite|enm|la|Mars|Mārs}}.
 
 ===Pronunciation===
 * {{IPA|enm|/mars/}}
 
 ===Proper noun===
-{{head|enm|proper noun}}
+{{head-lite|enm|proper nouns}}
 
 # {{topics|enm|Roman deities}} The [[Roman]] god governing war; [[Mars]].
 # {{topics|enm|Planets of the Solar System}} The red-coloured planet visible to the naked eye: [[Mars]].
 
 ====Synonyms====
-* {{l|enm|Marte}}
+* {{l-lite|enm|Marte}}
 
 ====Related terms====
-* {{l|enm|marcyan}}
+* {{l-lite|enm|marcyan}}
 
 ====Descendants====
 * {{desc|en|Mars}}
 
 ===See also===
-* {{l|enm|mars}}
+* {{l-lite|enm|mars}}
 
 ===References===
 * {{R:MED Online|entry= Mars |pos=n |id=MED26954 |accessdate=14 June 2018}}
 
-----
-
 ==Northern Sami==
 
 ===Etymology===
-From {{bor|se|no|Mars}}.
+From {{bor-lite|se|no|Mars}}.
 
 ===Pronunciation===
 {{rfp|se}}
 
 ===Proper noun===
-{{head|se|proper noun}}
+{{head-lite|se|proper nouns}}
 
 # {{senseid|se|Q111}}{{topics|se|Planets of the Solar System}}[[#English|Mars]] {{gloss|planet}}
 
@@ -787,8 +816,6 @@ From {{bor|se|no|Mars}}.
 ===Further reading===
 * {{R:Álgu|}}
 
-----
-
 ==Norwegian==
 
 ===Pronunciation===
@@ -797,36 +824,41 @@ From {{bor|se|no|Mars}}.
 ===Proper noun===
 {{no-proper noun}}
 
-# {{senseid|no|Q111}}{{topics|no|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|no|Q111}}{{topics|no|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|no|Q112}}{{topics|no|Roman deities}}[[#English|Mars]] (Roman god)
 
 ===See also===
 * {{list:planets of the Solar System/no}}
 
-----
-
 ==Polish==
-{{wp|lang=pl||Mars (astronomia)}}
-{{wp|lang=pl|Mars (mitologia)}}
+{{wp|lang=pl}}
+{{Wiktionary:Picture dictionary/pl:Solar System}}
 
 ===Pronunciation===
-{{pl-p|a=Pl-Mars.ogg|h=mars}}
+{{pl-p|a=Pl-Mars.ogg|a2=LL-Q809 (pol)-Gower-Mars.wav|ac=Audio 1|ac2=Audio 2}}
 
 ===Etymology 1===
-{{bor+|pl|la|Mārs}}.
+{{dercat|pl|itc-ola}}
+{{lbor|pl|la|Mārs}}. {{dbt|pl|marzec}}.
 
 ====Proper noun====
-{{pl-noun|m-pr}}
+{{pl-prop|m-pr|adj=marsowy}}
 
-# {{lb|pl|Roman mythology}} {{l|en|Mars}} {{gl|the Roman god of war}}
-# {{lb|pl|astronomy}} {{l|en|Mars}} {{gl|the fourth [[planet]] from the Sun}}
+# {{lb|pl|Roman god}} {{l-lite|en|Mars}} {{gl|Roman god of war}}
 
 =====Declension=====
 {{pl-decl-noun-m-pr|tantum=s}}
 
+====Proper noun====
+{{pl-prop|m-anml|adj=marsjański}}
+
+# {{l-lite|en|Mars}} {{gl|the fourth planet from the Sun}}
+
+=====Declension=====
+{{pl-decl-noun-m-anml|tantum=s}}
+
 =====Derived terms=====
-{{col3|pl|title=god|marsowy}}
-{{col3|pl|title=planet|Marsjanin|Marsjanka|marsjański}}
+{{col-auto|pl|title=nouns|Marsjanin|Marsjanka}}
 
 ====See also====
 {{table:Solar System/pl}}
@@ -834,23 +866,21 @@ From {{bor|se|no|Mars}}.
 {{wp|lang=pl|Mars (baton)}}
 
 ===Etymology 2===
-After {{w|Frank C. Mars}} founder of {{w|Mars, Incorporated}}.
+After {{w|Franklin Clarence Mars}} founder of {{w|Mars, Incorporated}}.
 
-====Proper noun====
-{{pl-noun|m-an}}
+====Noun====
+{{pl-noun|m-anml}}
 
-# {{l|en|Mars|Mars bar}} {{gl|the [[chocolate bar]] with caramel and nougat filling}}
+# {{l-lite|en|Mars|Mars bar}} {{gl|chocolate bar with caramel and nougat filling}}
 
 =====Declension=====
-{{pl-decl-noun-m-an}}
+{{pl-decl-noun-m-anml}}
 
 ===Further reading===
 * {{R:pl:WSJP}}
 * {{R:pl:PWN}}
 
-{{C|pl|Celestial bodies|Planets of the Solar System|Roman deities|Maize (plant)|Snacks}}
-
-----
+{{C|pl|Planets of the Solar System|Snacks}}
 
 ==Serbo-Croatian==
 
@@ -860,8 +890,8 @@ After {{w|Frank C. Mars}} founder of {{w|Mars, Incorporated}}.
 ===Proper noun===
 {{sh-proper noun|g=m|head=Mȁrs}}
 
-# {{senseid|sh|Q111}}{{topics|sh|Planets of the Solar System}}{{l|en|Mars}} (planet)
-# {{senseid|sh|Q112}}{{topics|sh|Roman deities}}[[#English|Mars]] (Roman god)
+# {{senseid|sh|Q111}}{{C|sh|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
+# {{senseid|sh|Q112}}{{C|sh|Roman deities}}{{l|en|Mars}} (Roman god)
 
 ====Declension====
 {{sh-decl-noun-unc
@@ -874,8 +904,6 @@ After {{w|Frank C. Mars}} founder of {{w|Mars, Incorporated}}.
 |Marsem
 }}
 
-----
-
 ==Slovene==
 
 ===Pronunciation===
@@ -884,7 +912,7 @@ After {{w|Frank C. Mars}} founder of {{w|Mars, Incorporated}}.
 ===Proper noun===
 {{sl-proper noun|Mȃrs|m-an}}
 
-# {{senseid|sl|Q111}}{{topics|sl|Planets of the Solar System}}{{l|en|Mars}} (planet)
+# {{senseid|sl|Q111}}{{topics|sl|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|sl|Q112}}{{topics|sl|Roman deities}}[[#English|Mars]] (Roman god)
 
 ====Inflection====
@@ -896,33 +924,30 @@ God (or sometimes the planet):
 ===See also===
 {{list:planets of the Solar System/sl}}
 
-----
-
 ==Swedish==
 
 ===Pronunciation===
 * {{IPA|sv|/mars/}}
+* {{audio|sv|LL-Q9027 (swe)-Moonhouse-Mars.wav}}
 
 ===Proper noun===
 {{sv-proper noun|c}}
 
-# {{senseid|sv|Q111}}{{topics|sv|Planets of the Solar System}}{{l|en|Mars}} (planet)
-# {{senseid|sv|Q112}}{{topics|sv|Roman deities}}[[#English|Mars]] (Roman god)
+# {{senseid|sv|Q111}}{{C|sv|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
+# {{senseid|sv|Q112}}{{C|sv|Roman deities}}{{l|en|Mars}} (Roman god)
 
 ===See also===
-* {{l|sv|mars}} {{q|the month}}
+* {{l-lite|sv|mars}} {{q|the month}}
 
 ===Anagrams===
 * {{anagrams|sv|a=amrs|arms|rams}}
-
-----
 
 ==Tatar==
 
 ===Proper noun===
 {{tt-pos|proper noun|l}}
 
-# {{senseid|tt|Q111}}{{topics|tt|Planets of the Solar System}}{{l|en|Mars}} {{gloss|planet}}
+# {{senseid|tt|Q111}}{{topics|tt|Planets of the Solar System}}{{l-lite|en|Mars}} {{gloss|planet}}
 
 ====Declension====
 {{tt-latin-noun|nıñ|qa|nı|ta|tan}}
@@ -930,19 +955,28 @@ God (or sometimes the planet):
 ===References===
 * [https://web.archive.org/web/20060901030349/http://www.azatliq.org/programs/science/tb/2006/08/47EF8795-68A1-49B3-8AFF-1E0ED846A2D1.asp 8 klassik planetağa qarıy, menä alar: Merkuri, Venera, Cir, Mars, Yupiter, Saturn, Uran häm Neptun. Pluto xäzer başqa kategoriädä, ul kärlä planeta... ]
 
-----
-
 ==Tok Pisin==
 
 ===Etymology===
-From {{der|tpi|en|March}}.
+From {{der-lite|tpi|en|March}}.
 
 ===Proper noun===
-{{head|tpi|proper noun}}
+{{head-lite|tpi|proper nouns}}
 
-# {{topics|tpi|Months}}[[March]]
+# [[March]]
 
-----
+====See also====
+{{list:Gregorian calendar months/tpi}}
+
+==Turkish==
+
+===Proper noun===
+{{tr-proper noun}}
+
+# [[Mars]] (planet)
+#: {{syn|tr|Merih}}
+
+{{topics|tr|Planets of the Solar System}}
 
 ==West Frisian==
 
@@ -961,8 +995,6 @@ From {{der|tpi|en|March}}.
 ===Further reading===
 * {{R:WFT|61349|III}}
 
-----
-
 ==Wolof==
 
 ===Noun===
@@ -973,7 +1005,6 @@ From {{der|tpi|en|March}}.
 ===References===
 {{cite-book
 |author=Omar Ka
-|chapter=
 |title=Nanu Dégg Wolof
 |publisher=National African Language Resource Center
 |year=2018

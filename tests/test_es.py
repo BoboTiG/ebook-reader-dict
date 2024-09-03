@@ -12,7 +12,7 @@ from wikidict.utils import process_templates
     [
         (
             "-acho",
-            ["[ˈa.t͡ʃo]"],
+            [],
             ["Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>."],
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
@@ -31,9 +31,9 @@ from wikidict.utils import process_templates
         ),
         (
             "comer",
-            ["[koˈmeɾ]"],
+            [],
             [
-                'Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i> ("devorar"), formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
+                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
             ],
             [
                 "Ingerir o tomar alimentos.",
@@ -49,17 +49,8 @@ from wikidict.utils import process_templates
             [],
         ),
         (
-            "es decir",
-            ["[es.ðeˈθiɾ]"],
-            [],
-            [
-                "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
-            ],
-            [],
-        ),
-        (
             "entrada",
-            ["[en̪ˈtɾa.ða]"],
+            [],
             ["De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."],
             [
                 "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
@@ -97,7 +88,7 @@ from wikidict.utils import process_templates
         ),
         (
             "extenuado",
-            ["[eks.teˈnwa.ðo]"],
+            [],
             [],
             [
                 "Cansado, debilitado.",
@@ -115,25 +106,25 @@ from wikidict.utils import process_templates
                 "Que está aún por ocurrir o hacerse efectivo.",
                 "Tiempo que aún no ha llegado.",
                 "<i>(Lingüística)</i>: Tiempo verbal que expresa una acción que aún no ha sido realizada.",
-                "Novio o prometido de una mujer a la que va a desposar. <i>El femenino es</i> futura.",
+                "Novio o prometido de una mujer a la que va a desposar.",
             ],
             [],
         ),
         (
             "gracias",
-            ["[ˈgɾa.sjas]", "[ˈgɾa.θjas]"],
+            [],
             [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
-                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>",
+                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>.",
             ],
             [],
         ),
         (
             "hasta",
-            ["[ˈas.ta]"],
+            [],
             [
-                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
+                'Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ("a") <i>ista</i> ("esta").',
             ],
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
@@ -149,24 +140,24 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            ["De hocicar"],
+            ["Del endo <i>hocicar</i>."],
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
                 "Cara.",
                 "Gesto que denota enojo o enfado.",
                 "Forma despectiva para referirse a la boca de alguien.",
-                "Boca de una persona, especialmente de la que dice malas palabras",
+                "Boca de una persona, especialmente de la que dice malas palabras.",
             ],
             [],
         ),
         (
             "los",
-            ["[los]", "[lɔʰ]"],
-            ['Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'],
+            [],
+            ["Del latín <i>illōs</i>, acusativo masculino plural del latín <i>ille</i>."],
             [
-                "<i>Artículo determinado masculino plural.</i>",
-                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",
+                "<i>Artículo determinado masculino plural.</i>.",
+                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>.",
             ],
             [],
         ),
@@ -174,12 +165,12 @@ from wikidict.utils import process_templates
             "Mús.",
             [],
             [],
-            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
+            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música."],
             [],
         ),
         (
             "ruego",
-            ["[ˈrwe.ɰo]"],
+            [],
             [],
             [
                 "Súplica, petición hecha con el fin de alcanzar lo que se pide.",
@@ -198,8 +189,8 @@ from wikidict.utils import process_templates
         ),
         (
             "uni-",
-            ["[ˈu.ni]"],
-            ['Del latín <i>uni-</i>, de <i>unus</i> ("uno")'],
+            [],
+            ["Del latín <i>uni-</i>, del latín <i>unus</i>."],
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
             ],

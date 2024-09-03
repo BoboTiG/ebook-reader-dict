@@ -1,65 +1,29 @@
-{{desambiguación|Acho|acho|achó|}}
+{{desambiguación|Acho|acho|achó}}
+
 == {{lengua|es}} ==
-{{pron-graf|fone=ˈa.t͡ʃo}}
+{{pron-graf}}
 
-=== Etimología ===
-{{etimología|la|-aceus|alt=-acĕus}}.<ref name=drae>{{DRAE}}</ref> De allí también ''[[-áceo]]''.
+=== Etimología 1 ===
+{{etimología|la|-aceus|alt=-acĕus}}.<ref name="drae">{{DRAE2001}}</ref> De allí también ''[[-áceo]]''.
 
-=== {{sufijo|es|alf=acho}} ===
+==== {{sufijo|es|alf=acho}} ====
 {{inflect.es.adj.reg|-ach}}
-
-;1:{{impropia|Forma [[aumentativo]]s, a veces [[despectivo]]s, a partir de [[adjetivo]]s y [[sustantivo]]s}}.
-{{uso}} A veces se combina con {{l+|es|-ar|num=2}} formando ''[[-aracho]]'': "[[vivaracho]]", "[[dicharacho]]".
+;1: {{impropia|Forma [[aumentativo]]s, a veces [[despectivo]]s, a partir de [[adjetivo]]s y [[sustantivo]]s}}.
+{{uso|a veces se combina con -ar formando ''-aracho'': "vivaracho"|"dicharacho"}}
 :::También se combina con ''[[-uelo]]'', formando ''[[-achuelo]]'': [[riachuelo]].
 :*'''Relacionados''': {{l|es|-aco|num=2}}, [[-ajo]], [[-arro]], [[-ejo]], [[-ete]], [[-ico]], [[-ijo]], [[-illo]], [[-ito]], [[-ín]], [[-ino]], [[-iño]], [[-izno]], [[-ón]], [[-ote]], [[-rro]], [[-uco]], [[-ucho]], [[-uelo]], [[-ujo]], [[-ulo]] ''(diminutivos, aumentativos y despectivos)''
-:*'''Ejemplos:'''
-::* ''(despectivos)'': [[amigo]] → [[amigacho]] ([[amigote]], [[amiguete]]).
-::* ''(sin despectivo ni aumentativo)'': [[verde]] → [[verdacho]]
-::* ''(meramente aumentativo)'': [[bomba]] → [[bombacho]]
+{{ejemplo|''(despectivos)'': [[amigo]] → [[amigacho]] ([[amigote]], [[amiguete]]).}}
+{{ejemplo|''(sin despectivo ni aumentativo)'': [[verde]] → [[verdacho]].}}
+{{ejemplo|''(meramente aumentativo)'': [[bomba]] → [[bombacho]].}}
+{{derivad|aguacha|amigacho|barbicacho|bocacha|cocacho|dicharacho|hilacha|hornacho|libracho|mamarracho|mandracho|picacho|poblacho|riacho|ricacho|tablacho|terminacho|vivaracho|velacho|vulgacho}}
 
-{{rel-arriba|Derivados con «-acho» y «-acha»}}
-* [[aguacha]]
-* [[amigacho]]
-* [[barbicacho]]
-* [[bocacha]]
-* [[cocacho]]
-* [[dicharacho]]
-* [[hilacha]]
-* [[hornacho]]
-* [[libracho]]
-* [[mamarracho]]
-{{rel-centro}}
-* [[mandracho]]
-* [[picacho]]
-* [[poblacho]]
-* [[riacho]]
-* [[ricacho]]
-* [[tablacho]]
-* [[terminacho]]
-* [[vivaracho]]
-* [[velacho]]
-* [[vulgacho]]
-{{rel-abajo}}
-
-=== Véase también ===
+==== Véase también ====
 * [[:Categoría:ES:Palabras con el sufijo -acho|Palabras con el sufijo -acho en ''Wikcionario'']].
 * {{Wikipedia|Gram%C3%A1tica_del_espa%C3%B1ol#Sufijos|'''Sufijos del español'''}}.
 
-=== Traducciones ===
+==== Traducciones ====
 {{trad afijo|su}}
 {{trad-arriba}}
-<!-- formato: {{t+|idioma|<acepción#>|palabra}} p. ej. {{t+|it|1|a tempo}} -->
-<!--{{t+|de|}}-->
-<!--{{t+|ar|}}-->
-<!--{{t+|bg|}}-->
-<!--{{t+|ca|}}-->
-<!--{{t+|eo|}}-->
-{{trad-centro}}
-<!--{{t+|it|}}-->
-<!--{{t+|ja|}}-->
-<!--{{t+|nl|}}-->
-<!--{{t+|pl|}}-->
-<!--{{t+|pt|}}-->
 {{trad-abajo}}
 
 == Referencias y notas ==

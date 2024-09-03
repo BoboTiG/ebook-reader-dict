@@ -18,16 +18,13 @@
 dal [[latino]] ''[[cum]]'' e ''[[dividere]]''; l'attuale uso improprio del verbo ''condividere'' è dovuto alla diffusione dei [[social network]] negli anni 2000 e 2010
 
 {{-sin-}}
-*avere in comune, [[approvare]], [[possedere]], [[dividere]], [[spartire]]
-*[[concordare]]
-* {{Fig}} [[approvare]], [[partecipare]], [[aderire]]
-* [[compartecipare]]
+* [[aderire]], [[appoggiare]], [[approvare]], [[concordare]] esprimere adesione, essere solidale, essere d’accordo,  [[partecipare]], [[sostenere]],  
+*avere in comune, [[compartecipare]] [[possedere]], [[dividere]], [[spartire]]
 * {{Est}} {{Fig}} [[accettare]], [[accogliere]]
 
 {{-ant-}}
-*[[separare]],   [[discordare]], [[dissentire]]
-* {{Est}} {{Fig}} [[ribellarsi]], [[intralciare]]
-*[[contrariare]]
+*[[avversare]], [[combattere]], [[contrariare]], [[contrastare]], [[discordare]], [[dissentire]], [[intralciare]], [[osteggiare]],   [[separare]], 
+* {{Est}} {{Fig}} [[ribellarsi]], 
 *''(informatica)'' [[pubblicare]]
 
 {{-der-}}
@@ -60,6 +57,6 @@ dal [[latino]] ''[[cum]]'' e ''[[dividere]]''; l'attuale uso improprio del verbo
 * {{Fonte|gar}}
 * {{Fonte|sin-co}}
 * {{Fonte|dem}}
-*AA.VV., ''Dizionario sinonimi e contrari, Mariotti, 2006, pagina 134
+*AA.VV., ''Dizionario sinonimi e contrari'', Mariotti, 2006, pagina 134
 
 [[Categoria:Internet-IT|condividere]]
