@@ -15,6 +15,7 @@ from wikidict.utils import process_templates
             ["/æb/"],
             ["Abbreviation of <i>abdominal</i> <i>muscles</i>."],
             [
+                "ISO 639-1 code <b>1</b>",
                 "<i>(informal)</i> abdominal muscle. <small>[Mid 20<sup>th</sup> century.]</small>",
                 "<i>(slang)</i> An abscess caused by injecting an illegal drug, usually heroin.",
                 "<i>Abbreviation of</i> <b>abortion</b>.",
@@ -145,6 +146,7 @@ from wikidict.utils import process_templates
             ["/əːm/", "/ʌm/"],
             ["Onomatopoeic."],
             [
+                "micrometer; variant of μm used when the character μ is unavailable",
                 "<i>Expression of hesitation, uncertainty or space filler in conversation</i>. See uh.",
                 "<i>(chiefly US)</i> <i>Dated spelling of</i> <b>mmm</b>.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
