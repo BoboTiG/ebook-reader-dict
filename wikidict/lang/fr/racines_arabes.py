@@ -25,7 +25,8 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "s'isoler",
         "ar-ta*a*²a*a": "s'isoler",
         "ar-ta*â*a*a": "",
-    },  # 19
+        "ar-t²i2â3ũ": "réunion",
+    },  # 20
     "ar-'Sl": {
         "aa_sens": "racine, soir",
         "ar-**a*²a": "",

@@ -8827,7 +8827,7 @@ langs = {
     "wbt": "Wanman",
     "wbv": "Wajarri",
     "wbw": "Woi",
-    "wca": "Yanomámi",
+    "wca": "Yanomam",
     "wci": "Waci Gbe",
     "wdd": "Wandji",
     "wdg": "Wadaginam",
