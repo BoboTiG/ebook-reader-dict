@@ -264,6 +264,7 @@ labels = {
     "incel slang": "incel slang",
     "inchoative": "inchoative",
     "including": "including",
+    "incomparable": "not comparable",
     "indef": "indefinite",
     "indefinite": "indefinite",
     "indicative": "indicative",
@@ -458,6 +459,7 @@ labels = {
     "solemn": "solemn",
     "sometimes": "sometimes",
     "somewhat": "somewhat",
+    "songs": "used only in songs",
     "stative": "stative",
     "stative verb": "stative",
     "stenoscript": "stenoscript",
@@ -486,6 +488,7 @@ labels = {
     "synecdochic": "synecdochically",
     "synecdochical": "synecdochically",
     "synecdochically": "synecdochically",
+    "tales": "used only in tales",
     "technical": "technical",
     "telic": "telic",
     "terminative": "terminative",
@@ -513,6 +516,8 @@ labels = {
     "uncountable": "uncountable",
     "unergative": "unergative",
     "university slang": "university slang",
+    "used only in songs": "used only in songs",
+    "used only in tales": "used only in tales",
     "usually": "usually",
     "usually in plural": "usually in the plural",
     "usually in the negative": "chiefly in the negative",
@@ -538,7 +543,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 533
+}  # 538
 
 label_syntaxes = {
     "&": {
