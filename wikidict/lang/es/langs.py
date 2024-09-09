@@ -3015,7 +3015,7 @@ langs = {
     "kaq": "capanahua",
     "kar-pro": "protokarénico",
     "kav": "katukina",
-    "kaw": "cavi",
+    "kaw": "kawi",
     "kax": "kao",
     "kay": "kamayurá",
     "kba": "kalarko",

@@ -16,6 +16,7 @@ labels = {
     ":": ":",
     ";": ";",
     "ACG": "ACG",
+    "Americanist_phonetic_notation": "NAPA",
     "Ante-Classical": "pre-Classical",
     "Ante-classical": "pre-Classical",
     "Anteclassical": "pre-Classical",
@@ -42,6 +43,7 @@ labels = {
     "LGBT slang": "LGBTQ slang",
     "LGBTQ slang": "LGBTQ slang",
     "Lubunyaca": "Lubunyaca",
+    "NAPA": "NAPA",
     "NNES": "non-native speakers’ English",
     "NNS": "non-native speakers",
     "NNSE": "non-native speakers’ English",
@@ -60,8 +62,10 @@ labels = {
     "Thieves' Cant": "criminal slang",
     "Twitch-speak": "Twitch-speak",
     "UK slang": "British slang",
+    "UPA": "UPA",
     "University of Cambridge slang": "Cambridge University slang",
     "University of Oxford slang": "Oxford University slang",
+    "Uralic Phonetic Alphabet": "UPA",
     "_": "",
     "abbreviation": "abbreviation",
     "abstract noun": "abstract",
@@ -543,7 +547,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 538
+}  # 542
 
 label_syntaxes = {
     "&": {
@@ -7682,6 +7686,7 @@ labels_subvarieties = {
     "reflexive": "reflexive with {{m|mk|се|tr=-}}",
     "reflexive-sa": "reflexive with {{m|zlw-osk|sa}}",
     "reflexive-se": "reflexive with {{m|zlw-ocs|sě}}",
+    "reflexive-seg": "reflexive with {{m|fo|seg}}",
     "reflexive-sej": "reflexive with {{m|hsb|sej}}",
     "reflexive-si": "reflexive with {{m|sk|si}}",
     "reflexive-sie": "reflexive with {{m|zlw-opl|się}}",
@@ -8347,5 +8352,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,135
+}  # 6,136
 # END

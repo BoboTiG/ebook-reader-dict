@@ -3390,6 +3390,7 @@ langs = {
     "ine-ana-pro": "Proto-Anatolian",
     "ine-bsl": "Balto-Slavic",
     "ine-bsl-pro": "Proto-Balto-Slavic",
+    "ine-kal": "Kalašma",
     "ine-luw": "Luwic",
     "ine-pae": "Paeonian",
     "ine-pro": "Proto-Indo-European",
@@ -9816,7 +9817,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,811
+}  # 9,812
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
