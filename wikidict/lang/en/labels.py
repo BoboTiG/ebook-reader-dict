@@ -4217,7 +4217,7 @@ labels_subvarieties = {
     "Judean Aramaic": "Jewish Palestinian Aramaic",
     "Judeo-Arabic": "Judeo-Arabic",
     "Jugha": "Julfa",
-    "Jukonda": "Jukonda",
+    "Jukonda": "Yukonda",
     "Julfa": "Julfa",
     "Jungbabylonisch": "Standard Babylonian",
     "Jungmun": "Jungmun",
@@ -5514,6 +5514,8 @@ labels_subvarieties = {
     "Palatinate German": "Palatine",
     "Palatine": "Palatine",
     "Palatine German": "Palatine",
+    "Palazzo": "Palazzo Adriano",
+    "Palazzo Adriano": "Palazzo Adriano",
     "Palembang": "Palembang",
     "Palencia": "Palencia",
     "Palencian": "Palencia",
@@ -5525,6 +5527,7 @@ labels_subvarieties = {
     "Palestinian": "Palestine",
     "Palestinian Hebrew": "Palestinian Hebrew",
     "Palestinian Syriac": "Christian Palestinian Aramaic",
+    "Pallaci": "Palazzo Adriano",
     "Palmyrene": "Palmyrene",
     "Palmyrene Aramaic": "Palmyrene",
     "Palra d'El Rebollal": "Palra d'El Rebollal",
@@ -7126,7 +7129,7 @@ labels_subvarieties = {
     "Yukarıdurak": "Zhilen-Mzghem",
     "Yukjin": "Yukjin",
     "Yukon": "Yukon",
-    "Yukonda": "Jukonda",
+    "Yukonda": "Yukonda",
     "Yusufeli Yaylalar": "Yusufeli Yaylalar",
     "Yàgbà": "Yagba",
     "Yéwa": "Yewa",
@@ -8352,5 +8355,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,136
+}  # 6,139
 # END
