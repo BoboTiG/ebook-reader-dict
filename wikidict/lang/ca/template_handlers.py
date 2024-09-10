@@ -179,6 +179,24 @@ def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str 
     )
 
 
+def render_grafia(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+    """
+    >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str))
+    '<i>Grafia obsoleta des del 2016 de</i> adeu.'
+    >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str, {"alt": "ade"}))
+    '<i>Grafia obsoleta des del 2016 de</i> ade.'
+    """
+    result = "Grafia"
+    parts.pop(0)
+    text = parts.pop(0) if parts else ""
+    w = parts.pop(0) if parts else ""
+    result += f" {text}" if text else ""
+    result += " de"
+    result = italic(result)
+    result += f" {data['alt']}." if data["alt"] else f" {w}."
+    return result
+
+
 def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
@@ -236,6 +254,7 @@ template_mapping = {
     "forma-pron": render_forma,
     "forma-super": render_forma,
     "g": render_g,
+    "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
     "sigles de": render_sigles_de,
