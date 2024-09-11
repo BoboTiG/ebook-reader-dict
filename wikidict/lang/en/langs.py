@@ -2506,6 +2506,7 @@ langs = {
     "eze": "Uzekwe",
     "fa": "Persian",
     "fa-cls": "Classical Persian",
+    "fa-ear": "Early New Persian",
     "fa-ira": "Iranian Persian",
     "faa": "Fasu",
     "fab": "Annobonese",
@@ -3343,6 +3344,7 @@ langs = {
     "inc-ata": "Takka Apabhramsa",
     "inc-avr": "Vracada Apabhramsa",
     "inc-bhi": "Bhil",
+    "inc-bih": "Bihari",
     "inc-cen": "Central Indo-Aryan",
     "inc-chi": "Chitrali",
     "inc-dar": "Dardic",
@@ -3376,7 +3378,7 @@ langs = {
     "inc-oor": "Old Odia",
     "inc-opa": "Old Punjabi",
     "inc-pah": "Pahari",
-    "inc-pan": "Punjabi-Lahnda",
+    "inc-pan": "Punjabic",
     "inc-pas": "Pashayi",
     "inc-pro": "Proto-Indo-Aryan",
     "inc-raj": "Rajasthani",
@@ -9817,7 +9819,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,812
+}  # 9,814
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

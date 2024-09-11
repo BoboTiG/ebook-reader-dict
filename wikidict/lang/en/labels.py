@@ -412,7 +412,7 @@ labels = {
     "productive": "productive",
     "profane": "vulgar",
     "profanity": "swear word",
-    "pronominal": "takes a reflexive pronoun",
+    "pronominal": "pronominal",
     "proprietary eponym": "genericized trademark",
     "proscribed": "proscribed",
     "public school slang": "school slang",
