@@ -1,5 +1,7 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 
+from __future__ import annotations
+
 import copy
 import os
 import re
