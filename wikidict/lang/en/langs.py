@@ -3381,7 +3381,6 @@ langs = {
     "inc-pan": "Punjabic",
     "inc-pas": "Pashayi",
     "inc-pro": "Proto-Indo-Aryan",
-    "inc-raj": "Rajasthani",
     "inc-rom": "Romani",
     "inc-shn": "Shinaic",
     "inc-snd": "Sindhi",
@@ -9819,7 +9818,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,814
+}  # 9,813
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

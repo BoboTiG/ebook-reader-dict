@@ -44,9 +44,9 @@ labels = {
     "LGBTQ slang": "LGBTQ slang",
     "Lubunyaca": "Lubunyaca",
     "NAPA": "NAPA",
-    "NNES": "non-native speakers’ English",
+    "NNES": "non-native speakers' English",
     "NNS": "non-native speakers",
-    "NNSE": "non-native speakers’ English",
+    "NNSE": "non-native speakers' English",
     "Oxbridge slang": "Oxbridge slang",
     "Oxford University slang": "Oxford University slang",
     "Oxon slang": "Oxford University slang",
@@ -345,7 +345,7 @@ labels = {
     "nominalization": "nominalized",
     "nominalized": "nominalized",
     "non-native speakers": "non-native speakers",
-    "non-native speakers' English": "non-native speakers’ English",
+    "non-native speakers' English": "non-native speakers' English",
     "non-standard": "nonstandard",
     "non-standard form": "nonstandard form",
     "nonce": "nonce word",
@@ -503,7 +503,6 @@ labels = {
     "thieves cant": "criminal slang",
     "thieves'": "criminal slang",
     "thieves' cant": "criminal slang",
-    "thieves’ cant": "criminal slang",
     "tone indicator": "tone indicator",
     "trademark": "trademark",
     "trans slang": "transger slang",
@@ -547,7 +546,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 542
+}  # 541
 
 label_syntaxes = {
     "&": {
@@ -3077,7 +3076,7 @@ labels_subvarieties = {
     "Cerasus": "Kerasounta",
     "Cervia": "Cervia",
     "Cesena": "Cesena",
-    "Ceylon": "Ceylon",
+    "Ceylon": "Sri Lanka",
     "Chad": "Chad",
     "Chadhda": "India",
     "Chadian": "Chad",
@@ -4747,6 +4746,7 @@ labels_subvarieties = {
     "Malang-Pasuruhan": "Malang-Pasuruhan",
     "Malatia": "Malatya",
     "Malatya": "Malatya",
+    "Malaya Tamil": "Malaysia",
     "Malayeri": "Malayeri",
     "Malaysia": "Malaysia",
     "Malaysian": "Malaysia",
@@ -5703,6 +5703,8 @@ labels_subvarieties = {
     "Pskov": "Pskov",
     "Psїsara": "Hirara",
     "Puadhi": "Puadhi",
+    "Puducherry": "Puducherry",
+    "Puducherry Tamil": "Puducherry",
     "Puerto Rican": "Puerto Rico",
     "Puerto Rico": "Puerto Rico",
     "Pulaar": "Pulaar",
@@ -7190,6 +7192,8 @@ labels_subvarieties = {
     "aln": "Gheg",
     "alq": "Algonquin",
     "als": "Tosk",
+    "altsp": "alternative spelling",
+    "altsps": "alternative spellings",
     "anl": "Angelmål",
     "ante-Classical": "pre-Classical",
     "ante-Classical lemma": "pre-Classical",
@@ -7639,6 +7643,7 @@ labels_subvarieties = {
     "post-1990": "post-1990 spelling",
     "post-1990 spelling": "post-1990 spelling",
     "post-Augustan": "post-Augustan",
+    "post-Classical": "Modern Standard Arabic",
     "post-classical": "post-classical",
     "południowokresowy": "Southern Borderlands",
     "pre-1815": "pre-1815",
@@ -8355,5 +8360,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,139
+}  # 6,145
 # END
