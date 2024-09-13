@@ -50,6 +50,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{com|hjemme|værn|langa=da}}", "hjemme + værn"),
         ("{{compound|hjemme|værn|langa=da}}", "hjemme + værn"),
         ("{{en}}", "Engelsk"),
         ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
