@@ -58,7 +58,6 @@ templates_ignored = (
     "de",
     "dm",
     "-syn-",
-    "etyl",
     "wikipedia",
     "Wikipedia",
     "infl",
@@ -75,8 +74,6 @@ templates_multi = {
     "data": "'(' + italic('data') + ')'",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
-    # {{en}}
-    "en": "'Engelsk'",
     # {{form of|imperative form|bjerge|lang=da}}
     "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{fysik}}
@@ -91,8 +88,6 @@ templates_multi = {
     "prefix": "parts[1] + '- + ' + parts[2]",
     # {{suffix|Norden|isk|lang=da}}
     "suffix": "parts[1] + ' + -' + parts[2]",
-    # {{term|mouse|lang=en}}
-    "term": "parts[1] + superscript('(' + parts[-1].lstrip('=lang') + ')')",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{u|de|Reis}}
@@ -134,3 +129,48 @@ def find_pronunciations(code: str) -> list[str]:
     matches = re.findall(pattern, code) or []
 
     return [item for sublist in matches for item in sublist.split("|") if item]
+
+
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["en"], "da")
+        'Engelsk'
+        >>> last_template_handler(["unknown"], "da")
+        '##opendoublecurly##unknown##closedoublecurly##'
+
+        >>> last_template_handler(["etyl", "fr", "da"], "da")
+        'fransk'
+        >>> last_template_handler(["etyl", "non", "da"], "da")
+        'oldnordisk'
+
+        >>> last_template_handler(["term", "mouse", "lang=en"], "da")
+        'mouse'
+        >>> last_template_handler(["term", "cabotage", "", "kysttransport", "lang=fr"], "da")
+        'cabotage (“‘kysttransport’”)'
+        >>> last_template_handler(["term", "αὐτός", "autós", "selv", "lang=grc"], "da")
+        'autós (“‘selv’”)'
+    """
+    from ...lang import defaults
+    from ...user_functions import capitalize, extract_keywords_from, term
+    from .langs import langs
+
+    tpl, *parts = template
+    extract_keywords_from(parts)
+
+    if tpl == "etyl":
+        return langs[parts[0]]
+
+    if tpl == "term":
+        if len(parts) == 3:
+            return f"{parts[1] or parts[0]} (“‘{parts[2]}’”)"
+        return parts[0]
+
+    if len(parts) == 1:
+        return term(tpl)
+
+    if not parts and (lang := langs.get(tpl)):
+        return capitalize(lang)
+
+    return defaults.last_template_handler(template, locale, word=word)
