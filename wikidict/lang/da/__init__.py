@@ -68,7 +68,6 @@ templates_multi = {
     # {{abbreviation of|lang=da|pansret mandskabsvogn}}
     "abbreviation of": "italic('Forkortelser på') + ' ' + strong(next(p for p in parts[1:] if '=' not in p))",
     # {{compound|hjemme|værn|lang=da}}
-    "com": "' + '.join(p for p in parts[1:] if '=' not in p)",
     "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
@@ -91,7 +90,6 @@ templates_multi = {
     # {{prefix|hoved|gade|lang=da}}
     "prefix": "parts[1] + '- + ' + parts[2]",
     # {{suffix|Norden|isk|lang=da}}
-    "suf": "parts[1] + ' + -' + parts[2]",
     "suffix": "parts[1] + ' + -' + parts[2]",
     # {{term|mouse|lang=en}}
     "term": "parts[1] + superscript('(' + parts[-1].lstrip('=lang') + ')')",
@@ -102,7 +100,9 @@ templates_multi = {
 }
 # Aliases
 templates_multi["abbr of"] = templates_multi["abbreviation of"]
+templates_multi["com"] = templates_multi["compound"]
 templates_multi["init of"] = templates_multi["initialism of"]
+templates_multi["suf"] = templates_multi["suffix"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
