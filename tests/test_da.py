@@ -58,6 +58,7 @@ def test_parse_word(
         ("{{init of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
         ("{{initialism of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
+        ("{{suf|Norden|isk|lang=da}}", "Norden + -isk"),
         ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
         ("{{term|mouse|lang=en}}", "mouse<sup>(en)</sup>"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),

@@ -89,6 +89,7 @@ templates_multi = {
     # {{prefix|hoved|gade|lang=da}}
     "prefix": "parts[1] + '- + ' + parts[2]",
     # {{suffix|Norden|isk|lang=da}}
+    "suf": "parts[1] + ' + -' + parts[2]",
     "suffix": "parts[1] + ' + -' + parts[2]",
     # {{term|mouse|lang=en}}
     "term": "parts[1] + superscript('(' + parts[-1].lstrip('=lang') + ')')",
