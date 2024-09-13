@@ -30,6 +30,7 @@ from wikidict.utils import process_templates
             [],
         ),
         ("skulle", [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
+        ("PMV", [], ["<i>(militær)</i> <i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"], []),
     ],
 )
 def test_parse_word(
@@ -50,6 +51,8 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{abbr of|lang=da|pansret mandskabsvogn}}", "<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"),
+        ("{{abbreviation of|lang=da|pansret mandskabsvogn}}", "<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"),
         ("{{com|hjemme|værn|langa=da}}", "hjemme + værn"),
         ("{{compound|hjemme|værn|langa=da}}", "hjemme + værn"),
         ("{{en}}", "Engelsk"),

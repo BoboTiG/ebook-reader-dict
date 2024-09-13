@@ -1,0 +1,12 @@
+{{=da=}}
+{{-alt-}}
+[[pmv]]
+{{-noun-|da}}
+{{pn}} {{c}}
+# {{militær|engelsk}} {{abbr of|lang=da|pansret mandskabsvogn}}
+{{-trans-}}
+{{trans-top|Oversættelser}}
+*{{en}}: {{t|en|APC}}
+{{trans-bottom}}
+{{-ref-}}
+*{{DDO}}

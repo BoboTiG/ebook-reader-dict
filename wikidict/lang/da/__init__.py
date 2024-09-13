@@ -65,6 +65,8 @@ templates_ignored = (
 )
 
 templates_multi = {
+    # {{abbreviation of|lang=da|pansret mandskabsvogn}}
+    "abbreviation of": "italic('Forkortelser på') + ' ' + strong(next(p for p in parts[1:] if '=' not in p))",
     # {{compound|hjemme|værn|lang=da}}
     "com": "' + '.join(p for p in parts[1:] if '=' not in p)",
     "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
@@ -99,6 +101,7 @@ templates_multi = {
     "u": "parts[-1] + superscript('(' + parts[1] + ')')",
 }
 # Aliases
+templates_multi["abbr of"] = templates_multi["abbreviation of"]
 templates_multi["init of"] = templates_multi["initialism of"]
 
 # Release content on GitHub
