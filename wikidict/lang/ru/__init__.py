@@ -26,8 +26,29 @@ sections = (
     "В значении вспомогательного глагола или связки",  # for verbs with aux
 )
 
+# Variants
+variant_titles = ("Значение",)
+variant_templates = ("{{прич.",)
+
+# Some definitions are not good to keep (plural, gender, ... )
+definitions_to_ignore = (
+    #
+    # For variants
+    #
+    "прич.",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("семантика",)
+
+
+# Templates more complex to manage.
+templates_multi = {
+    #
+    # For variants
+    #
+    "прич.": "parts[1]",
+}
 
 
 # Release content on GitHub
@@ -78,17 +99,28 @@ def find_pronunciations(
 
 
 def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["en"], "ru")
+        'Английский '
+
+        >>> last_template_handler(["выдел", "foo"], "ru")
+        'foo'
+    """
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
-    if lookup_template(template[0]):
-        return render_template(word, template)
-
     tpl, *parts = template
+
+    if lookup_template(tpl):
+        return render_template(word, template)
 
     if tpl == "выдел":
         return parts[0]
 
-    # This is a country in the current locale
-    return langs[tpl] if tpl in langs else default(template, locale, word=word)
+    if lang := langs.get(tpl):
+        return lang
+
+    return default(template, locale, word=word)

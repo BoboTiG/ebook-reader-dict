@@ -7,9 +7,9 @@ from ...user_functions import extract_keywords_from
 from .. import defaults
 
 
-# for etymology content, need to run code to get text from other wiktionary page
 def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
-    # Fetching that endpoint for 1.3+ milion of words is not a solution, skipping for now.
+    """For etymology content, need to run code to get text from other wiktionary page."""
+    # Fetching that endpoint for 1.3+ million of words is not a solution, skipping for now.
     return ""
     if not parts or not (etyl := parts[0].split("|")[0]):
         return ""
