@@ -3,11 +3,11 @@
 import os
 import re
 from collections import namedtuple
+from collections.abc import Callable
 from contextlib import suppress
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
-from typing import Callable, List, Match, Union
 
 import regex
 import requests
@@ -37,7 +37,7 @@ from .user_functions import *  # noqa
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
-NOW = datetime.now(tz=timezone.utc)
+NOW = datetime.now(tz=UTC)
 MAGIC_WORDS = {
     "CURRENTYEAR": str(NOW.year),
     "CURRENTMONTH": NOW.strftime("%m"),
@@ -70,7 +70,7 @@ def process_special_pipe_template(text: str) -> str:
     return text
 
 
-def convert_gender(genders: List[str]) -> str:
+def convert_gender(genders: list[str]) -> str:
     """Return the HTML code to include for gender(s) of a word."""
     if not genders:
         return ""
@@ -78,7 +78,7 @@ def convert_gender(genders: List[str]) -> str:
     return f" {', '.join(genders)}."
 
 
-def convert_pronunciation(pronunciations: List[str]) -> str:
+def convert_pronunciation(pronunciations: list[str]) -> str:
     """Return the HTML code to include for pronunciation(s) of a word."""
     return f" {', '.join(pronunciations)}" if pronunciations else ""
 
@@ -525,7 +525,7 @@ def formula_to_svg(formula: str, cat: str = "tex") -> str:
     return svg.optimize(svg_raw)
 
 
-def convert_math(match: Union[str, Match[str]], word: str) -> str:
+def convert_math(match: str | re.Match[str], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
@@ -535,7 +535,7 @@ def convert_math(match: Union[str, Match[str]], word: str) -> str:
         return formula
 
 
-def convert_chem(match: Union[str, Match[str]], word: str) -> str:
+def convert_chem(match: str | re.Match[str], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
@@ -545,7 +545,7 @@ def convert_chem(match: Union[str, Match[str]], word: str) -> str:
         return formula
 
 
-def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
+def convert_hiero(match: str | re.Match[str], word: str) -> str:
     """Convert hiretoglyph symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     return render_hiero(expr)

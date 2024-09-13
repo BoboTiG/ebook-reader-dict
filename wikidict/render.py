@@ -5,10 +5,11 @@ import multiprocessing
 import os
 import re
 from collections import defaultdict
+from collections.abc import Callable
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import Callable, Dict, List, Pattern, Tuple, cast
+from typing import cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -40,15 +41,15 @@ from .utils import process_templates, table2html, uniq
 wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 
 
-Sections = Dict[str, List[wtp.Section]]
+Sections = dict[str, list[wtp.Section]]
 
 # Multiprocessing shared globals, init in render() see #1054
 MANAGER = ""
 LOCK = multiprocessing.Lock()
-MISSING_TPL_SEEN: List[str] = []
+MISSING_TPL_SEEN: list[str] = []
 
 
-def find_definitions(word: str, parsed_sections: Sections, locale: str) -> List[Definitions]:
+def find_definitions(word: str, parsed_sections: Sections, locale: str) -> list[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
@@ -67,11 +68,11 @@ def find_definitions(word: str, parsed_sections: Sections, locale: str) -> List[
 
 def es_replace_defs_list_with_numbered_lists(
     lst: wtp.WikiList,
-    regex_item: Pattern[str] = re.compile(
+    regex_item: re.Pattern[str] = re.compile(
         r"(^|\\n);\d+[ |:]+",
         flags=re.MULTILINE,
     ),
-    regex_subitem: Pattern[str] = re.compile(
+    regex_subitem: re.Pattern[str] = re.compile(
         r"(^|\\n):;\s*[a-z]:+\s+",
         flags=re.MULTILINE,
     ),
@@ -84,9 +85,9 @@ def es_replace_defs_list_with_numbered_lists(
     return regex_subitem.sub(r"\1## ", res)
 
 
-def find_section_definitions(word: str, section: wtp.Section, locale: str) -> List[Definitions]:
+def find_section_definitions(word: str, section: wtp.Section, locale: str) -> list[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
-    definitions: List[Definitions] = []
+    definitions: list[Definitions] = []
 
     # do not look for definitions in french verb form section
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
@@ -117,7 +118,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> Li
                 definitions.append(definition)
 
                 # ... And its eventual sub-definitions
-                subdefinitions: List[SubDefinitions] = []
+                subdefinitions: list[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
                         subdefinition = process_templates(word, subcode, locale)
@@ -125,7 +126,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> Li
                             continue
 
                         subdefinitions.append(subdefinition)
-                        subsubdefinitions: List[str] = []
+                        subsubdefinitions: list[str] = []
                         for subsublist in sublist.sublists(i=idx2, pattern=sublist_patterns[locale]):
                             for subsubcode in subsublist.items:
                                 if subsubdefinition := process_templates(word, subsubcode, locale):
@@ -138,9 +139,9 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> Li
     return definitions
 
 
-def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> List[Definitions]:
+def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[Definitions]:
     """Find the etymology."""
-    definitions: List[Definitions] = []
+    definitions: list[Definitions] = []
     etyl: str
 
     if locale in {"ca", "no"}:
@@ -203,7 +204,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> List[
                 tableindex += 1
             else:
                 definitions.append(process_templates(word, section_item, locale))
-                subdefinitions: List[SubDefinitions] = []
+                subdefinitions: list[SubDefinitions] = []
                 for sublist in section.sublists(i=idx):
                     subdefinitions.extend(process_templates(word, subcode, locale) for subcode in sublist.items)
 
@@ -213,7 +214,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> List[
     return definitions
 
 
-def _find_genders(top_sections: List[wtp.Section], func: Callable[[str], List[str]]) -> List[str]:
+def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
     """Find the genders."""
     for top_section in top_sections:
         if result := func(top_section.contents):
@@ -221,7 +222,7 @@ def _find_genders(top_sections: List[wtp.Section], func: Callable[[str], List[st
     return []
 
 
-def _find_pronunciations(top_sections: List[wtp.Section], func: Callable[[str], List[str]]) -> List[str]:
+def _find_pronunciations(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
     """Find pronunciations."""
     results = []
     for top_section in top_sections:
@@ -230,7 +231,7 @@ def _find_pronunciations(top_sections: List[wtp.Section], func: Callable[[str], 
     return sorted(uniq(results))
 
 
-def find_all_sections(code: str, locale: str) -> Tuple[List[wtp.Section], List[Tuple[str, wtp.Section]]]:
+def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[tuple[str, wtp.Section]]]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
@@ -274,18 +275,16 @@ def find_all_sections(code: str, locale: str) -> Tuple[List[wtp.Section], List[T
 
     # Get _all_ sections without any filtering
     all_sections.extend(
-        (
-            (section.title.strip(), section)
-            for top_section in top_sections
-            for sublevel in section_sublevels[locale]
-            for section in top_section.get_sections(include_subsections=False, level=sublevel)
-        )
+        (section.title.strip(), section)
+        for top_section in top_sections
+        for sublevel in section_sublevels[locale]
+        for section in top_section.get_sections(include_subsections=False, level=sublevel)
     )
 
     return top_sections, all_sections
 
 
-def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
+def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
     wanted = sections[locale]
@@ -297,7 +296,7 @@ def find_sections(code: str, locale: str) -> Tuple[List[wtp.Section], Sections]:
     return top_sections, ret
 
 
-def add_potential_variant(word: str, tpl: str, locale: str, variants: List[str]) -> None:
+def add_potential_variant(word: str, tpl: str, locale: str, variants: list[str]) -> None:
     if (variant := process_templates(word, tpl, locale)) and variant != word:
         variants.append(variant)
 
@@ -400,7 +399,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     genders = []
     etymology = []
-    variants: List[str] = []
+    variants: list[str] = []
 
     # Etymology
     for section in etyl_section[locale]:
@@ -429,15 +428,15 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     return Word(prons, genders, etymology, definitions, variants)
 
 
-def load(file: Path) -> Dict[str, str]:
+def load(file: Path) -> dict[str, str]:
     """Load the JSON file containing all words and their details."""
     with file.open(encoding="utf-8") as fh:
-        words: Dict[str, str] = json.load(fh)
+        words: dict[str, str] = json.load(fh)
     print(f">>> Loaded {len(words):,} words from {file}", flush=True)
     return words
 
 
-def render_word(w: List[str], words: Words, locale: str) -> None:
+def render_word(w: list[str], words: Words, locale: str) -> None:
     word, code = w
     try:
         details = parse_word(word, code, locale)
@@ -448,14 +447,14 @@ def render_word(w: List[str], words: Words, locale: str) -> None:
             words[word] = details
 
 
-def render(in_words: Dict[str, str], locale: str, workers: int) -> Words:
+def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
     # Skip not interesting words early as the parsing is quite heavy
     sections = head_sections[locale]
     in_words = {word: code for word, code in in_words.items() if any(head_section in code for head_section in sections)}
 
     MANAGER = multiprocessing.Manager()
     MISSING_TPL_SEEN = MANAGER.list()  # noqa:F841
-    results: Words = cast(Dict[str, Word], MANAGER.dict())
+    results: Words = cast(dict[str, Word], MANAGER.dict())
 
     with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
@@ -487,7 +486,7 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
         return 1
 
     print(f">>> Loading {file} ...", flush=True)
-    in_words: Dict[str, str] = load(file)
+    in_words: dict[str, str] = load(file)
 
     workers = workers or multiprocessing.cpu_count()
     words = render(in_words, locale, workers)

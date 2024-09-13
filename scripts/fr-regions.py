@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 from scripts_utils import get_soup
 
 ROOT = "https://fr.wiktionary.org"
@@ -8,7 +6,7 @@ NEXTPAGE_TEXT = "page suivante"
 ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
 
 
-def process_regions_page(url: str, results: Dict[str, str]) -> str:
+def process_regions_page(url: str, results: dict[str, str]) -> str:
     soup = get_soup(url)
 
     nextpage = ""
@@ -28,7 +26,7 @@ def process_regions_page(url: str, results: Dict[str, str]) -> str:
     return nextpage
 
 
-def process_alias_page(model: str, region: str, results: Dict[str, str]) -> None:
+def process_alias_page(model: str, region: str, results: dict[str, str]) -> None:
     url = ALIAS_URL.format(model)
     soup = get_soup(url)
     ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
@@ -41,8 +39,8 @@ def process_alias_page(model: str, region: str, results: Dict[str, str]) -> None
         results[alias] = region
 
 
-results: Dict[str, str] = {}
-aliases: List[str] = []
+results: dict[str, str] = {}
+aliases: list[str] = []
 
 # Fetch models first
 next_page_url = START_URL

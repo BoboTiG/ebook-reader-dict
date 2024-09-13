@@ -1,7 +1,6 @@
 """Danish language."""
 
 import re
-from typing import List
 
 # Float number separator
 float_separator = ","
@@ -119,7 +118,7 @@ Tilgængelige filer:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(code: str) -> List[str]:
+def find_pronunciations(code: str) -> list[str]:
     """
     >>> find_pronunciations("")
     []

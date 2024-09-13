@@ -1,7 +1,6 @@
 """Norwegian language."""
 
 import re
-from typing import List, Pattern
 
 from ...user_functions import flatten, uniq
 
@@ -136,8 +135,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -146,7 +145,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}")
     ['[anomali:´]']
     """
-    result: List[str] = []
+    result: list[str] = []
     for f in pattern.findall(code):
         fsplit = f.split("|")
         for fs in fsplit:

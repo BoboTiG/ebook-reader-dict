@@ -4,9 +4,9 @@ Ce modèle montre les sons ou les phonèmes du mot coréen.
 """
 
 import math
-from re import sub
+from collections.abc import Callable
+from re import Match, sub
 from types import SimpleNamespace
-from typing import Callable, Match
 
 # https://fr.wiktionary.org/wiki/Module:ko-hangeul/data (2018-05-26T03:08:13)
 hangeul = SimpleNamespace(

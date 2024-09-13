@@ -1,7 +1,6 @@
 """Romanian language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 
@@ -187,8 +186,8 @@ wiktionary = "Wikționar (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"gen={{([fmsingp]+)(?: \?\|)*}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"gen={{([fmsingp]+)(?: \?\|)*}"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -200,7 +199,7 @@ def find_genders(
     return uniq(flatten(pattern.findall(code)))
 
 
-def find_pronunciations(code: str) -> List[str]:
+def find_pronunciations(code: str) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -219,7 +218,7 @@ def find_pronunciations(code: str) -> List[str]:
     return uniq(flatten(res))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

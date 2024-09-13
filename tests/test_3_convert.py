@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from typing import Type
 from unittest.mock import patch
 from zipfile import ZipFile
 
@@ -156,7 +155,7 @@ def test_no_json_file() -> None:
         (convert.KoboFormat, "dicthtml-fr-fr-noetym.zip", False),
     ],
 )
-def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
@@ -187,7 +186,7 @@ def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: st
         "test_generate_primary_dict[DictFileFormat-dict-fr-fr-noetym.df]",
     ]
 )
-def test_generate_secondary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(
         formatter,
@@ -235,7 +234,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
     ],
 )
 def test_word_rendering(
-    formatter: Type[convert.BaseFormat],
+    formatter: type[convert.BaseFormat],
     include_etymology: bool,
     expected: str,
 ) -> None:

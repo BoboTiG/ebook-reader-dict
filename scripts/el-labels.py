@@ -1,11 +1,10 @@
 import re
-from typing import Dict, Union
 
 from scripts_utils import get_soup
 
 url = "https://el.wiktionary.org/wiki/Module:labels/data"
 lines = get_soup(url).find("div", "mw-highlight-lines").text.splitlines()
-labels: Dict[str, Union[str, bool]] = {}
+labels: dict[str, str | bool] = {}
 remove_trailing_comma = re.compile(r"},\s*#?.*$").sub
 
 code = ""

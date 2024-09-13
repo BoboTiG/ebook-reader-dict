@@ -2,7 +2,7 @@
 
 from importlib import import_module
 from pathlib import Path
-from typing import Any, Dict, Tuple, TypeVar
+from typing import Any, TypeVar
 
 from . import defaults
 
@@ -13,7 +13,7 @@ ALL_LOCALES = {
 }
 
 Arg = TypeVar("Arg")
-PopulatedDict = Dict[str, Any]
+PopulatedDict = dict[str, Any]
 
 
 def _populate(attr: str) -> PopulatedDict:
@@ -28,40 +28,40 @@ def _populate(attr: str) -> PopulatedDict:
 
 
 # Float number separator
-float_separator: Dict[str, str] = _populate("float_separator")
+float_separator: dict[str, str] = _populate("float_separator")
 
 # Thousads separator
-thousands_separator: Dict[str, str] = _populate("thousands_separator")
+thousands_separator: dict[str, str] = _populate("thousands_separator")
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns: Dict[str, Tuple[str, ...]] = _populate("section_patterns")
-sublist_patterns: Dict[str, Tuple[str, ...]] = _populate("sublist_patterns")
-section_level: Dict[str, int] = _populate("section_level")
-section_sublevels: Dict[str, Tuple[int, ...]] = _populate("section_sublevels")
-head_sections: Dict[str, Tuple[str, ...]] = _populate("head_sections")
-etyl_section: Dict[str, Tuple[str]] = _populate("etyl_section")
-sections: Dict[str, Tuple[str, ...]] = _populate("sections")
+section_patterns: dict[str, tuple[str, ...]] = _populate("section_patterns")
+sublist_patterns: dict[str, tuple[str, ...]] = _populate("sublist_patterns")
+section_level: dict[str, int] = _populate("section_level")
+section_sublevels: dict[str, tuple[int, ...]] = _populate("section_sublevels")
+head_sections: dict[str, tuple[str, ...]] = _populate("head_sections")
+etyl_section: dict[str, tuple[str]] = _populate("etyl_section")
+sections: dict[str, tuple[str, ...]] = _populate("sections")
 
 # Variants
 # Section titles considered interesting to look variants into
-variant_titles: Dict[str, Tuple[str, ...]] = _populate("variant_titles")
+variant_titles: dict[str, tuple[str, ...]] = _populate("variant_titles")
 # Template names considered interesting to look variants into
-variant_templates: Dict[str, Tuple[str, ...]] = _populate("variant_templates")
+variant_templates: dict[str, tuple[str, ...]] = _populate("variant_templates")
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore: Dict[str, Tuple[str, ...]] = _populate("definitions_to_ignore")
+definitions_to_ignore: dict[str, tuple[str, ...]] = _populate("definitions_to_ignore")
 
 # Templates replacements: wikicode -> text conversion
 
 # Templates to ignore: the text will be deleted.
-templates_ignored: Dict[str, Tuple[str, ...]] = _populate("templates_ignored")
+templates_ignored: dict[str, tuple[str, ...]] = _populate("templates_ignored")
 
 # Templates that will be completed/replaced using italic style.
 # Ex: {{absol}} -> <i>(Absolument)</i>
 # Ex: {{absol|fr}} -> <i>(Absolument)</i>
 # Ex: {{absol|fr|123}} -> <i>(Absolument)</i>
 # Ex: {{absol|fr|123|...}} -> <i>(Absolument)</i>
-templates_italic: Dict[str, Dict[str, str]] = _populate("templates_italic")
+templates_italic: dict[str, dict[str, str]] = _populate("templates_italic")
 
 # Templates more complex to manage. More work is needed.
 # The code on the right will be passed to a function that will execute it.
@@ -76,17 +76,17 @@ templates_italic: Dict[str, Dict[str, str]] = _populate("templates_italic")
 #   - *parts* will contain the list ["comparatif de", "bien", "fr", "adv"].
 #
 # You can access to *tpl* and *parts* to apply changes and get the result wanted.
-templates_multi: Dict[str, Dict[str, str]] = _populate("templates_multi")
+templates_multi: dict[str, dict[str, str]] = _populate("templates_multi")
 
 # Templates that will be completed/replaced using custom style.
-templates_other: Dict[str, Dict[str, str]] = _populate("templates_other")
+templates_other: dict[str, dict[str, str]] = _populate("templates_other")
 
 # The full release description on GitHub:
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/$LOCALE
-release_description: Dict[str, str] = _populate("release_description")
+release_description: dict[str, str] = _populate("release_description")
 
 # Dictionary name that will be printed below each definition
-wiktionary: Dict[str, str] = _populate("wiktionary")
+wiktionary: dict[str, str] = _populate("wiktionary")
 
 # Function to find gender(s)
 find_genders = _populate("find_genders")

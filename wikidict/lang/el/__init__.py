@@ -2,7 +2,6 @@
 
 import re
 from collections import defaultdict
-from typing import Dict, List, Pattern, Tuple, Union
 
 from ...user_functions import extract_keywords_from, italic, term, uniq
 from .langs import langs
@@ -75,7 +74,7 @@ templates_ignored = (
 )
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {
+templates_multi: dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
 }
@@ -116,9 +115,9 @@ _genders = {
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{{([^{}]*)}}"),
+    pattern: re.Pattern[str] = re.compile(r"{{([^{}]*)}}"),
     line_pattern: str = "'''{{PAGENAME}}''' ",
-) -> List[str]:
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -143,8 +142,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -158,11 +157,11 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)) -> str:
+def text_language(lang_donor_iso: str, myargs: dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
     """  # noqa
-    lang: Dict[str, Union[str, bool]] = langs[lang_donor_iso]
+    lang: dict[str, str | bool] = langs[lang_donor_iso]
     lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
     lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική
     if lang_donor != "" and lang_donor_frm != "":
@@ -182,7 +181,7 @@ def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)
     return mytext
 
 
-def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
+def labels_output(text_in: str, args: dict[str, str] = defaultdict(str)) -> str:
     """
     from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
     """
@@ -220,7 +219,7 @@ def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
     return mytext
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

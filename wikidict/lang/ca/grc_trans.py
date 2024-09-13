@@ -1,6 +1,5 @@
 import re
 import unicodedata
-from typing import Dict, List, Union
 
 data = {}
 
@@ -39,12 +38,12 @@ info = {}
 vowel_t = {"vowel": True}
 iota_t = {"vowel": True, "offglide": True}
 upsilon_t = {"vowel": True, "offglide": True}
-rho_t: Dict[str, bool] = {}
+rho_t: dict[str, bool] = {}
 diacritic_t = {"diacritic": True}
 breathing_t = {"diacritic": True}
 
 
-def add_info(characters: Union[str, List[str]], t: Dict[str, bool]) -> None:
+def add_info(characters: str | list[str], t: dict[str, bool]) -> None:
     if isinstance(characters, str):
         for character in characters:  # TODO filter utf-8 chars ?
             info[character] = t
@@ -65,7 +64,7 @@ def decompose(text: str) -> str:
     return unicodedata.normalize("NFD", text)
 
 
-def set_list(li: List[str], i: int, v: str) -> None:
+def set_list(li: list[str], i: int, v: str) -> None:
     try:
         li[i] = v
     except IndexError:
@@ -74,9 +73,9 @@ def set_list(li: List[str], i: int, v: str) -> None:
         li[i] = v
 
 
-def make_tokens(text: str) -> List[str]:
-    tokens: List[str] = []
-    prev_info: Dict[str, bool] = {}
+def make_tokens(text: str) -> list[str]:
+    tokens: list[str] = []
+    prev_info: dict[str, bool] = {}
     token_i, vowel_count = 0, 0
     prev = None
     for character in decompose(text):  # TODO filter non UTF8 ?
@@ -177,7 +176,7 @@ tt = {
 }
 
 
-def gsub(pattern: str, replacements: Dict[str, str], string: str) -> str:
+def gsub(pattern: str, replacements: dict[str, str], string: str) -> str:
     def replace(match: re.Match[str]) -> str:
         return replacements.get(match.group(0), match.group(0))
 

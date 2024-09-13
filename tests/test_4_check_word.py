@@ -1,5 +1,6 @@
+from collections.abc import Callable
 from threading import Lock
-from typing import Any, Callable
+from typing import Any
 from unittest.mock import patch
 
 import pytest

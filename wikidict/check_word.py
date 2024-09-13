@@ -1,5 +1,7 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 
+from __future__ import annotations
+
 import copy
 import os
 import re
@@ -7,7 +9,6 @@ import urllib.parse
 from functools import partial
 from threading import Lock
 from time import sleep
-from typing import List, Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -27,8 +28,8 @@ MAX_RETRIES = 5  # count
 SLEEP_TIME = 5  # time, seconds
 
 
-def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[str]:
-    results: List[str] = []
+def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[str]:
+    results: list[str] = []
     clean_text = get_text(parsed_html)
 
     # It's all good!
@@ -333,9 +334,9 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
+def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
     errors = 0
-    results: List[str] = []
+    results: list[str] = []
     details = get_word(word, locale)
     if not details.etymology and not details.definitions:
         return errors

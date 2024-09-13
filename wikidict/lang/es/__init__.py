@@ -1,7 +1,6 @@
 """Spanish language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 from .campos_semanticos import campos_semanticos
@@ -214,9 +213,9 @@ wiktionary = "Wikcionario (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern1: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
-    pattern2: Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
-) -> List[str]:
+    pattern1: re.Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
+    pattern2: re.Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -233,7 +232,7 @@ def find_pronunciations(
     return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -303,7 +302,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     data = extract_keywords_from(parts)
 
     if lookup_italic(template[0], locale, empty_default=True):
-        phrase_a: List[str] = []
+        phrase_a: list[str] = []
         parts.insert(0, tpl)
         added = set()
         append_to_last = False

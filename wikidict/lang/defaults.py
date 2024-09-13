@@ -2,7 +2,6 @@
 
 import re
 from collections import defaultdict  # noqa
-from typing import DefaultDict, Dict, List, Pattern, Tuple
 
 # Float number separator
 float_separator = ""
@@ -19,42 +18,42 @@ head_sections = ("",)
 etyl_section = ("",)
 
 # Variants
-variant_titles: Tuple[str, ...] = ()
-variant_templates: Tuple[str, ...] = ()
+variant_titles: tuple[str, ...] = ()
+variant_templates: tuple[str, ...] = ()
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore: Tuple[str, ...] = ()
+definitions_to_ignore: tuple[str, ...] = ()
 
 # Templates to ignore: the text will be deleted.
-templates_ignored: Tuple[str, ...] = ()
+templates_ignored: tuple[str, ...] = ()
 
 # Templates that will be completed/replaced using italic style.
-templates_italic: Dict[str, str] = {}
+templates_italic: dict[str, str] = {}
 
 # More complex templates that will be completed/replaced using custom style.
-templates_multi: Dict[str, str] = {}
+templates_multi: dict[str, str] = {}
 
 # Templates that will be completed/replaced using custom style.
-templates_other: Dict[str, str] = {}
+templates_other: dict[str, str] = {}
 
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r""),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r""),
+) -> list[str]:
     """Function used to find genders within `code`."""
     return []
 
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r""),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r""),
+) -> list[str]:
     """Function used to find pronunciations within `code`."""
     return []
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -104,7 +103,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
 
 
-def render_wikilink(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_wikilink("w", [], defaultdict(str))
     ''

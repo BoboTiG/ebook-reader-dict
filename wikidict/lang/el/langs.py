@@ -4,9 +4,7 @@ Auto-generated with `python -m scripts`.
 """
 
 # START
-from typing import Dict, Union
-
-langs: Dict[str, Dict[str, Union[str, bool]]] = {
+langs: dict[str, dict[str, str | bool]] = {
     "-": {
         "name": "διάφορες γλώσσες",
         "frm": "διάφορες γλώσσες",

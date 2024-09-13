@@ -51,8 +51,7 @@ languages = {
     }
     for key in Languages.keys()  # type: ignore[name-defined] # noqa
 }
-print("from typing import Dict, Union")
-print("langs:Dict[str, Dict[str, Union[str, bool]]] = {")
+print("langs: dict[str, dict[str, str | bool]] = {")
 for key, value in sorted(languages.items()):
     print(f'    "{key}": {value},')
 print(f"}}  # {len(languages):,}")
