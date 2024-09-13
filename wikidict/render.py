@@ -148,6 +148,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
 
+    elif locale == "da":
+        if def_list := parsed_section.get_lists(pattern=("#",)):
+            return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
+        return [process_templates(word, parsed_section.contents, locale)]
+
     elif locale == "en":
         items = [
             item
@@ -181,14 +186,10 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
                 etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
         definitions.append(process_templates(word, etyl, locale))
         return definitions
+
     elif locale == "ru":
         section_title = parsed_section.title.strip()
         if section_title == "Этимология":
-            definitions.append(process_templates(word, parsed_section.contents, locale))
-        return definitions
-    elif locale == "da":
-        section_title = parsed_section.title.strip()
-        if section_title in {"{{etym}}", "Etymologi"}:
             definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
 

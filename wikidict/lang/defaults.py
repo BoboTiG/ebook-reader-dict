@@ -79,10 +79,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     # {{tpl|item}} -> <i>(Templatet gf)</i>
     if len(template) == 2:
-        ret = lookup_italic(tpl, locale)
-        if locale != "da":
-            ret = capitalize(ret)
-        return term(ret)
+        return term(capitalize(lookup_italic(tpl, locale)))
 
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))

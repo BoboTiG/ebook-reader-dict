@@ -11,6 +11,7 @@ FILES = {
     "all-namespaces.py": "wikidict/namespaces.py",
     "ca-labels.py": "wikidict/lang/ca/labels.py",
     "ca-langs.py": "wikidict/lang/ca/langs.py",
+    "da-langs.py": "wikidict/lang/da/langs.py",
     "de-abk.py": "wikidict/lang/de/abk.py",
     "de-langs.py": "wikidict/lang/de/langs.py",
     "de-lang_adjs.py": "wikidict/lang/de/lang_adjs.py",
