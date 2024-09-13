@@ -34,7 +34,7 @@ jobs:
         id: update-data
         run: |
           python -m scripts
-          ./check.sh || true
+          ./check.sh
 
       - name: Push changes
         uses: Automattic/action-commit-to-branch@master
