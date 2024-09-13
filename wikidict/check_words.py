@@ -6,7 +6,6 @@ from functools import partial
 from pathlib import Path
 from random import sample
 from threading import Lock
-from typing import List
 
 from . import check_word, render
 
@@ -19,7 +18,7 @@ def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    all_words: List[str] = []
+    all_words: list[str] = []
     if input:
         with open(input) as fp:
             all_words = fp.read().splitlines()

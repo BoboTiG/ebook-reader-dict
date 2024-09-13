@@ -1,5 +1,4 @@
 import re
-from typing import Dict
 
 from scripts_utils import get_content
 
@@ -41,8 +40,8 @@ def process_display(display: str) -> str:
     return display
 
 
-labels: Dict[str, str] = {}
-syntaxes: Dict[str, Dict[str, bool]] = {}
+labels: dict[str, str] = {}
+syntaxes: dict[str, dict[str, bool]] = {}
 
 for k, v in etiqueta.items():  # type: ignore # noqa
     if mostra := v.get("mostra"):

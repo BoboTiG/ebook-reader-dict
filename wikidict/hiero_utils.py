@@ -1,19 +1,18 @@
 import re
-from typing import List
 
 from .hiero import wh_files, wh_hiero, wh_phonemes, wh_prefabs
 
 
 class HieroTokenizer:
-    delimiters: List[str] = []
-    tokenDelimiters: List[str] = []
+    delimiters: list[str] = []
+    tokenDelimiters: list[str] = []
 
-    singleChars: List[str] = []
+    singleChars: list[str] = []
 
     text: str = ""
-    blocks: List[List[str]] = []
+    blocks: list[list[str]] = []
 
-    currentBlock: List[str]
+    currentBlock: list[str]
     token: str = ""
 
     def __init__(self, text: str):
@@ -26,7 +25,7 @@ class HieroTokenizer:
         self.singleChars = ["!"]
 
     # Split text into blocks, then split blocks into items
-    def tokenize(self) -> List[List[str]]:
+    def tokenize(self) -> list[list[str]]:
         self.blocks = []
         self.currentBlock = []
         self.token = ""

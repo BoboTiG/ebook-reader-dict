@@ -1,7 +1,6 @@
 """Italian language."""
 
 import re
-from typing import Dict, List, Pattern, Tuple
 
 from ...user_functions import uniq
 
@@ -76,7 +75,7 @@ templates_ignored = (
 )
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {
+templates_multi: dict[str, str] = {
     # {{Accr}}
     "Accr": "small(f'({italic(\"accrescitivo\")})')",
     "accr": "small(f'({italic(\"accrescitivo\")})')",
@@ -223,8 +222,8 @@ wiktionary = "Wikizionario (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -236,8 +235,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{IPA\|(/[^/]+/)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{IPA\|(/[^/]+/)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -247,7 +246,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

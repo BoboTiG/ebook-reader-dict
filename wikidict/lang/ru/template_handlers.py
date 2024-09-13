@@ -1,4 +1,4 @@
-from typing import DefaultDict, List, Tuple
+from collections import defaultdict
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,7 +8,7 @@ from .. import defaults
 
 
 # for etymology content, need to run code to get text from other wiktionary page
-def get_etymology(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     # Fetching that endpoint for 1.3+ milion of words is not a solution, skipping for now.
     return ""
     if not parts or not (etyl := parts[0].split("|")[0]):
@@ -20,7 +20,7 @@ def get_etymology(tpl: str, parts: List[str], data: DefaultDict[str, str], word:
     return str(content.getText())
 
 
-def get_example(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def get_example(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     # if len(parts) > 0:
     #     return ". (Пример: " + parts[0] + ")"
     # elif "текст" in data.keys():
@@ -28,11 +28,11 @@ def get_example(tpl: str, parts: List[str], data: DefaultDict[str, str], word: s
     return ""
 
 
-def get_definition(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     return str(data["определение"] + data["примеры"])
 
 
-def get_note(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     return f"({parts[0]})"
 
 
@@ -50,7 +50,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(word: str, template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
     return template_mapping[tpl](tpl, parts, data, word=word)

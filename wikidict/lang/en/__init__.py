@@ -1,7 +1,6 @@
 """English language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 from .labels import labels, labels_regional, labels_subvarieties, labels_topical
@@ -264,8 +263,8 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -283,7 +282,7 @@ def find_pronunciations(
     return uniq(flatten(pattern.findall(code)))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

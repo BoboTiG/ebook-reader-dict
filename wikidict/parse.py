@@ -3,8 +3,8 @@
 import json
 import os
 from collections import defaultdict
+from collections.abc import Generator
 from pathlib import Path
-from typing import Dict, Generator, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
@@ -32,7 +32,7 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
             root.clear()
 
 
-def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
+def xml_parse_element(element: Element, locale: str) -> tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
     if revision.tag == "{http://www.mediawiki.org/xml/export-0.11/}restrictions":
@@ -59,9 +59,9 @@ def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
     return word, code
 
 
-def process(file: Path, locale: str) -> Dict[str, str]:
+def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
-    words: Dict[str, str] = defaultdict(str)
+    words: dict[str, str] = defaultdict(str)
 
     print(f">>> Processing {file} ...", flush=True)
     for element in xml_iter_parse(file):
@@ -72,7 +72,7 @@ def process(file: Path, locale: str) -> Dict[str, str]:
     return words
 
 
-def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
+def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     """Persist data."""
     raw_data = output_dir / f"data_wikicode-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:

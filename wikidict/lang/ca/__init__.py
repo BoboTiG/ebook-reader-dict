@@ -1,7 +1,6 @@
 """Catalan language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
 from .grc_trans import transliterate as transliterate_grc
@@ -131,8 +130,8 @@ wiktionary = "Viccionari (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -146,8 +145,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -163,7 +162,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

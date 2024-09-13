@@ -1,7 +1,6 @@
 """Portuguese language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
 from .escopos import escopos
@@ -190,8 +189,8 @@ wiktionary = "Wikcionário (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{([fm]+)}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{([fm]+)}"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -205,8 +204,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -218,7 +217,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 

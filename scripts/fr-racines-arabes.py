@@ -1,5 +1,4 @@
 import re
-from typing import Dict
 
 from scripts_utils import get_content, get_soup
 
@@ -10,7 +9,7 @@ RACINE_URL = "https://fr.wiktionary.org/wiki/Mod%C3%A8le:{}?action=raw"
 STRIP_COMMENT = re.compile(r"<!-- \(\w+\)[^\-]+-->").sub
 
 
-def process_category_page(url: str, results: Dict[str, Dict[str, str]]) -> str:
+def process_category_page(url: str, results: dict[str, dict[str, str]]) -> str:
     soup = get_soup(url)
     nextpage = ""
     nextpage_div = soup.find(id="mw-pages")
@@ -29,7 +28,7 @@ def process_category_page(url: str, results: Dict[str, Dict[str, str]]) -> str:
     return nextpage
 
 
-def process_root(tpl: str, results: Dict[str, Dict[str, str]]) -> None:
+def process_root(tpl: str, results: dict[str, dict[str, str]]) -> None:
     url = RACINE_URL.format(tpl)
     data = get_content(url)
     tpl_dict = {}
@@ -48,7 +47,7 @@ def process_root(tpl: str, results: Dict[str, Dict[str, str]]) -> None:
 
 
 next_page_url = START_URL
-results: Dict[str, Dict[str, str]] = {}
+results: dict[str, dict[str, str]] = {}
 
 while next_page_url:
     next_page_url = process_category_page(next_page_url, results)

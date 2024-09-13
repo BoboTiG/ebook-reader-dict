@@ -1,8 +1,8 @@
 import bz2
 import os
 import sys
+from collections.abc import Callable, Generator
 from pathlib import Path
-from typing import Callable, Generator
 from xml.sax.saxutils import escape
 
 import pytest

@@ -1,5 +1,3 @@
-from typing import Dict
-
 from scripts_utils import get_soup
 
 ROOT = "https://it.wiktionary.org"
@@ -7,7 +5,7 @@ START_URL = f"{ROOT}/wiki/Categoria:Template_lingua_testo"
 NEXTPAGE_TEXT = "pagina successiva"
 
 
-def process_page(url: str, results: Dict[str, str]) -> str:
+def process_page(url: str, results: dict[str, str]) -> str:
     soup = get_soup(url)
 
     nextpage = ""
@@ -30,7 +28,7 @@ def process_page(url: str, results: Dict[str, str]) -> str:
     return nextpage
 
 
-results: Dict[str, str] = {}
+results: dict[str, str] = {}
 
 next_page_url = START_URL
 while next_page_url:

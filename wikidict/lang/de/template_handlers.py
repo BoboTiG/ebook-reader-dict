@@ -1,5 +1,4 @@
 from collections import defaultdict  # noqa
-from typing import DefaultDict, List, Tuple
 
 from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
@@ -87,7 +86,7 @@ bibel_names = {
 }
 
 
-def render_bibel(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
     'Matthäus 1,1'
@@ -105,7 +104,7 @@ def render_bibel(tpl: str, parts: List[str], data: DefaultDict[str, str], word: 
     return phrase
 
 
-def render_foreign_lang(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
     'בַּיִת כְּנֶסֶת'
@@ -151,7 +150,7 @@ def render_foreign_lang(tpl: str, parts: List[str], data: DefaultDict[str, str],
     return phrase
 
 
-def render_foreign_lang_simple(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
     'أَحْمَدُ بْنُ حَنْبَلٍ'
@@ -228,7 +227,7 @@ no_commas = (
 )
 
 
-def render_K(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_K("K", ["Sport"], defaultdict(str))
     '<i>Sport:</i>'
@@ -281,7 +280,7 @@ def render_K(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str 
     return italic(f"{phrase}{ft}:")
 
 
-def render_ref_dejure(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
     '54 InsO'
@@ -337,7 +336,7 @@ def render_ref_dejure(tpl: str, parts: List[str], data: DefaultDict[str, str], w
             assert 0, parts
 
 
-def render_Ut(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
     '<i>διάλογος (diálogos)</i>'
@@ -351,7 +350,7 @@ def render_Ut(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str
     return italic(phrase)
 
 
-def render_Uxx4(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Uxx4("Üxx4", ["ar", "مسجد"], defaultdict(str, {"v":"مَسْجِد", "d":"masğid", "b":"Moschee"}))
     'مَسْجِد (DMG: masğid) ‚Moschee‘'
@@ -390,7 +389,7 @@ def render_Uxx4(tpl: str, parts: List[str], data: DefaultDict[str, str], word: s
     return phrase
 
 
-def render_Uxx5(tpl: str, parts: List[str], data: DefaultDict[str, str], word: str = "") -> str:
+def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
     'ἀνήρ, ἀνδρός (anḗr, andrós)'
@@ -419,7 +418,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(word: str, template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
     return template_mapping[tpl](tpl, parts, data, word=word)
