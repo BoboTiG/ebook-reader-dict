@@ -671,13 +671,22 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word
     'ISO 639-3 code <b>zho</b>'
     >>> render_iso_639("ISO 639", ["zh", "", "zho"], defaultdict(str, {"ref": "1"}))
     'ISO 639-1 code <b>zh</b>, ISO 639-3 code <b>zho</b>'
-    >>> render_iso_639("{{ISO 639|3|}}", ["3", "Ambonese Malay"], defaultdict(str, {}))
+    >>> render_iso_639("ISO 639", ["3", "Ambonese Malay"], defaultdict(str, {}))
     '(<i>international standards</i>) <i>ISO 639-3 language code for</i> <b>Ambonese Malay</b>.'
-    >>> render_iso_639("{{ISO 639|3|}}", ["1"], defaultdict(str, {}), word="ab")
+    >>> render_iso_639("ISO 639", ["1"], defaultdict(str, {}), word="ab")
     '(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.'
+    >>> render_iso_639("ISO 639", ["3", "Asa language", "Asa"], defaultdict(str, {"obs": "1"}), word="aam")
+    '(<i>international standards, obsolete</i>) <i>Former ISO 639-3 language code for</i> <b>Asa</b>.'
+    >>> render_iso_639("ISO 639", ["3", "Ari language (New Guinea)", "Ari"], defaultdict(str, {"dab": "New Guinea"}), word="aac")
+    '(<i>international standards</i>) <i>ISO 639-3 language code for</i> <b>Ari</b> (New Guinea).'
     """
     if parts[0].isdigit():
-        return f"({italic('international standards')}) {italic('ISO 639-' + parts[0] + ' language code for')} {strong(parts[1] if len(parts) == 2 else langs[word])}."
+        phrase = f"({italic('international standards' + (', obsolete' if data['obs'] else ''))}) "
+        phrase += f"{italic(('Former ' if data['obs'] else '') + 'ISO 639-' + parts[0] + ' language code for')} "
+        phrase += strong(parts[-1] if len(parts) > 1 else langs[word])
+        if dab := data["dab"]:
+            phrase += f" ({dab})"
+        return f"{phrase}."
 
     codes = []
     for idx, part in enumerate(parts, 1):
