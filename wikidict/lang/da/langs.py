@@ -62,6 +62,7 @@ langs = {
     "egy": "egyptisk",
     "el": "græsk",
     "en": "engelsk",
+    "enm": "middelengelsk",
     "eo": "esperanto",
     "es": "spansk",
     "et": "estisk",
@@ -270,5 +271,5 @@ langs = {
     "zlw-slv": "slovincinsk",
     "zu": "zulu",
     "zza": "zazaki",
-}  # 265
+}  # 266
 # END

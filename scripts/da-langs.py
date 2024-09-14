@@ -8,6 +8,7 @@ pattern = re.compile(r'data\["([^"]+)"\]\s+=\s+\{\s+name\s+=\s+"([^"]+)",')
 langs = re.findall(pattern, soup)
 
 # Missing langs
+langs.append(("enm", "middelengelsk"))
 langs.append(("non", "oldnordisk"))
 
 print("langs = {")
