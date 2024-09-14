@@ -149,6 +149,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'cabotage (“‘kysttransport’”)'
         >>> last_template_handler(["term", "αὐτός", "autós", "selv", "lang=grc"], "da")
         'autós (“‘selv’”)'
+        >>> last_template_handler(["term", "μέτρον", "", "tr=metron", "mål", "lang=grc}}"], "da")
+        'μέτρον (metron), (“‘mål’”)'
+        >>> last_template_handler(["term", "الجزائر", "Al Jazaïr", "tr=Øerne", "lang=ar}}"], "da")
+        'Al Jazaïr (Øerne)'
 
         >>> last_template_handler(["u", "de", "Reis"], "da")
         'Reis'
@@ -162,14 +166,19 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     from .langs import langs
 
     tpl, *parts = template
-    extract_keywords_from(parts)
+    data = extract_keywords_from(parts)
 
     if tpl == "etyl":
         return langs[parts[0]]
 
     if tpl == "term":
-        if len(parts) == 3:
-            return f"{parts[1] or parts[0]} (“‘{parts[2]}’”)"
+        match len(parts):
+            case 1:
+                return parts[0]
+            case 2:
+                return f"{parts[1] or parts[0]}{' (' + data['tr'] + ')' if data['tr'] else ''}"
+            case 3:
+                return f"{parts[1] or parts[0]}{' (' + data['tr'] + '),' if data['tr'] else ''} (“‘{parts[2]}’”)"
         return parts[0]
 
     if tpl == "u":
