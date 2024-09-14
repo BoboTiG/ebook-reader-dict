@@ -71,6 +71,8 @@ def test_parse_word(
     [
         ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
         ("{{fysik}}", "(<i>fysik</i>)"),
+        ("{{genitivform af}}", "<i>genitivform af</i>"),
+        ("{{genitivsform af}}", "<i>genitivform af</i>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
         ("{{ZHchar|北京}}", "北京"),

@@ -74,6 +74,10 @@ templates_multi = {
     "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
+    # {{genitivsform af}}
+    "genitivform af": "italic('genitivform af')",
+    # {{genitivsform af}}
+    "genitivsform af": "italic('genitivform af')",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
