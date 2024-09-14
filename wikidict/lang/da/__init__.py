@@ -84,6 +84,8 @@ templates_multi = {
     "suffix": "parts[1] + ' + -' + parts[2]",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
+    # {{ZHchar|北京}}
+    "ZHchar": "parts[-1]",
 }
 
 # Release content on GitHub

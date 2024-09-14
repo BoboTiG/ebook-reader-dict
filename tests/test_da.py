@@ -73,6 +73,7 @@ def test_parse_word(
         ("{{fysik}}", "(<i>fysik</i>)"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
+        ("{{ZHchar|北京}}", "北京"),
     ],
 )
 def test_process_template(wikicode: str, expected: str) -> None:
