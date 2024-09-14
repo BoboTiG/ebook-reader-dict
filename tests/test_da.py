@@ -72,7 +72,6 @@ def test_parse_word(
         ("{{suf|Norden|isk|lang=da}}", "Norden + -isk"),
         ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
-        ("{{u|de|Reis}}", "Reis<sup>(de)</sup>"),
     ],
 )
 def test_process_template(wikicode: str, expected: str) -> None:

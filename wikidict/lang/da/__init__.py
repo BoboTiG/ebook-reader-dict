@@ -90,8 +90,6 @@ templates_multi = {
     "suffix": "parts[1] + ' + -' + parts[2]",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
-    # {{u|de|Reis}}
-    "u": "parts[-1] + superscript('(' + parts[1] + ')')",
 }
 # Aliases
 templates_multi["abbr of"] = templates_multi["abbreviation of"]
@@ -151,9 +149,16 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'cabotage (“‘kysttransport’”)'
         >>> last_template_handler(["term", "αὐτός", "autós", "selv", "lang=grc"], "da")
         'autós (“‘selv’”)'
+
+        >>> last_template_handler(["u", "de", "Reis"], "da")
+        'Reis'
+        >>> last_template_handler(["u", "gml", "-maker", "", "person der frembringer eller tilvirker noget"], "da")
+        '<i>-maker</i> (“‘person der frembringer eller tilvirker noget’”)'
+        >>> last_template_handler(["u", "en", "-ing", ""], "da")
+        '<i>-ing</i>'
     """
     from ...lang import defaults
-    from ...user_functions import capitalize, extract_keywords_from, term
+    from ...user_functions import capitalize, extract_keywords_from, italic, term
     from .langs import langs
 
     tpl, *parts = template
@@ -166,6 +171,15 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         if len(parts) == 3:
             return f"{parts[1] or parts[0]} (“‘{parts[2]}’”)"
         return parts[0]
+
+    if tpl == "u":
+        match len(parts):
+            case 2:
+                return parts[1]
+            case 3:
+                return italic(parts[1])
+            case 4:
+                return f"{italic(parts[1])} (“‘{parts[3]}’”)"
 
     if len(parts) == 1:
         return term(tpl)
