@@ -4756,6 +4756,7 @@ labels_subvarieties = {
     "Mallorca": "Mallorca",
     "Mallorcan": "Mallorca",
     "Malta": "Malta",
+    "Maltese": "Malta",
     "Malwa": "Malwai",
     "Malwai": "Malwai",
     "Mamluk": "Mamluk-Kipchak",
@@ -8360,5 +8361,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,145
+}  # 6,146
 # END
