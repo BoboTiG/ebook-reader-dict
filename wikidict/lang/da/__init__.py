@@ -54,6 +54,8 @@ templates_ignored = (
 )
 
 templates_multi = {
+    # {{c}}
+    "c": "italic('fælleskøn')",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
@@ -76,10 +78,14 @@ templates_multi = {
     "genitivform af": "italic('genitivform af')",
     # {{genitivsform af}}
     "genitivsform af": "italic('genitivform af')",
+    # {{imperativ af}}
+    "imperativ af": "italic('imperativ af')",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
     "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{n}}
+    "n": "italic('intetkøn')",
     # {{prefix|hoved|gade|lang=da}}
     "prefix": "parts[1] + '- + ' + parts[2]",
     # {{suffix|Norden|isk|lang=da}}
