@@ -46,7 +46,7 @@ from wikidict.utils import process_templates
             [],
         ),
         ("skulle", [], [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
-        ("PMV", [], [], ["<i>(militær)</i> <i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"], []),
+        ("PMV", [], [], ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"], []),
     ],
 )
 def test_parse_word(

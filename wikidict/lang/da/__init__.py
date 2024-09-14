@@ -128,9 +128,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '##opendoublecurly##unknown##closedoublecurly##'
 
         >>> last_template_handler(["abbreviation of", "lang=da", "pansret mandskabsvogn"], "da")
-        '<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>'
+        '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
         >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
-        '<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>'
+        '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
 
         >>> last_template_handler(["compound", "hjemme", "værn", "langa=da"], "da")
         'hjemme + værn'
@@ -178,7 +178,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     data = extract_keywords_from(parts)
 
     if tpl in {"abbreviation of", "abbr of"}:
-        return f"{italic('Forkortelser på')} {strong(parts[-1])}"
+        return f"{italic('Forkortelse af')} {strong(parts[-1])}"
 
     if tpl in {"compound", "com"}:
         return " + ".join(parts)
