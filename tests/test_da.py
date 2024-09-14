@@ -69,17 +69,9 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{abbr of|lang=da|pansret mandskabsvogn}}", "<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"),
-        ("{{abbreviation of|lang=da|pansret mandskabsvogn}}", "<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>"),
-        ("{{com|hjemme|værn|langa=da}}", "hjemme + værn"),
-        ("{{compound|hjemme|værn|langa=da}}", "hjemme + værn"),
         ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
         ("{{fysik}}", "(<i>fysik</i>)"),
-        ("{{init of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
-        ("{{initialism of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
-        ("{{suf|Norden|isk|lang=da}}", "Norden + -isk"),
-        ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
     ],
 )

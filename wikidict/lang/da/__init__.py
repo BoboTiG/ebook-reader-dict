@@ -64,10 +64,6 @@ templates_ignored = (
 )
 
 templates_multi = {
-    # {{abbreviation of|lang=da|pansret mandskabsvogn}}
-    "abbreviation of": "italic('Forkortelser på') + ' ' + strong(next(p for p in parts[1:] if '=' not in p))",
-    # {{compound|hjemme|værn|lang=da}}
-    "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
@@ -78,8 +74,6 @@ templates_multi = {
     "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
-    # {{initialism of|lang=da|København}}
-    "initialism of": "italic('Initialforkortelse af') + ' ' + strong(parts[-1])",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
@@ -91,11 +85,6 @@ templates_multi = {
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
 }
-# Aliases
-templates_multi["abbr of"] = templates_multi["abbreviation of"]
-templates_multi["com"] = templates_multi["compound"]
-templates_multi["init of"] = templates_multi["initialism of"]
-templates_multi["suf"] = templates_multi["suffix"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
@@ -138,10 +127,25 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["unknown"], "da")
         '##opendoublecurly##unknown##closedoublecurly##'
 
+        >>> last_template_handler(["abbreviation of", "lang=da", "pansret mandskabsvogn"], "da")
+        '<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>'
+        >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
+        '<i>Forkortelser på</i> <b>pansret mandskabsvogn</b>'
+
+        >>> last_template_handler(["compound", "hjemme", "værn", "langa=da"], "da")
+        'hjemme + værn'
+        >>> last_template_handler(["com", "hjemme", "værn", "langa=da"], "da")
+        'hjemme + værn'
+
         >>> last_template_handler(["etyl", "fr", "da"], "da")
         'fransk'
         >>> last_template_handler(["etyl", "non", "da"], "da")
         'oldnordisk'
+
+        >>> last_template_handler(["initialism of", "lang=da", "København"], "da")
+        '<i>Initialforkortelse af</i> <b>København</b>'
+        >>> last_template_handler(["init of", "København", "lang=da"], "da")
+        '<i>Initialforkortelse af</i> <b>København</b>'
 
         >>> last_template_handler(["term", "mouse", "lang=en"], "da")
         'mouse'
@@ -154,6 +158,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["term", "الجزائر", "Al Jazaïr", "tr=Øerne", "lang=ar}}"], "da")
         'Al Jazaïr (Øerne)'
 
+        >>> last_template_handler(["suffix", "Norden", "isk", "lang=da"], "da")
+        'Norden + -isk'
+        >>> last_template_handler(["suf", "Norden", "isk", "lang=da"], "da")
+        'Norden + -isk'
+
         >>> last_template_handler(["u", "de", "Reis"], "da")
         'Reis'
         >>> last_template_handler(["u", "gml", "-maker", "", "person der frembringer eller tilvirker noget"], "da")
@@ -162,14 +171,23 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>-ing</i>'
     """
     from ...lang import defaults
-    from ...user_functions import capitalize, extract_keywords_from, italic, term
+    from ...user_functions import capitalize, extract_keywords_from, italic, strong, term
     from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
 
+    if tpl in {"abbreviation of", "abbr of"}:
+        return f"{italic('Forkortelser på')} {strong(parts[-1])}"
+
+    if tpl in {"compound", "com"}:
+        return " + ".join(parts)
+
     if tpl == "etyl":
         return langs[parts[0]]
+
+    if tpl in {"initialism of", "init of"}:
+        return f"{italic('Initialforkortelse af')} {strong(parts[-1])}"
 
     if tpl == "term":
         match len(parts):
@@ -180,6 +198,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             case 3:
                 return f"{parts[1] or parts[0]}{' (' + data['tr'] + '),' if data['tr'] else ''} (“‘{parts[2]}’”)"
         return parts[0]
+
+    if tpl in {"suffix", "suf"}:
+        return f"{parts[0]} + -{parts[1]}"
 
     if tpl == "u":
         match len(parts):
