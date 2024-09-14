@@ -1,0 +1,21 @@
+{{også|Bakterie}}
+{{=da=}}
+{{-noun-|da}}
+{{pn}} {{c}}
+#  (mikrobiologi) en [[encellet]] [[mikroskopisk]] [[organisme]] uden [[cellekerne]]
+{{-etym-}}
+: fra latin ''bacterium'', latinisering af græsk ''bakterion'' (βακτήριον - lille stav), diminutiv af ''baktron'' (βάκτρον - stav)
+{{-syn-}}
+* [[bacille]] (ældre sprogbrug)
+{{-decl-}}
+{{da-noun|en|bakterie|bakterien|bakterier|bakterierne}}
+{{-trans-}}
+{{(}}
+:*{{en}}: {{trad|en|bacterium}}
+:*{{el}}: {{trad|el|βακτηρίδιο}}
+:*{{nl}}: {{trad|nl|bacterie}}
+{{-}}
+:*{{pl}}: {{t|pl|bakteria|f}}
+:*{{sv}}: {{t|sv|bakterie|c}}
+:*{{de}}: {{t|de|Bakterie|f}}
+{{)}}

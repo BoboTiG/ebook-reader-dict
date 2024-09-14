@@ -11,6 +11,15 @@ from wikidict.utils import process_templates
     "word, pronunciations, etymology, definitions, variants",
     [
         (
+            "bakterie",
+            [],
+            [
+                "fra latin <i>bacterium</i>, latinisering af græsk <i>bakterion</i> (βακτήριον\xa0- lille stav), diminutiv af <i>baktron</i> (βάκτρον - stav)"
+            ],
+            ["(mikrobiologi) en encellet mikroskopisk organisme uden cellekerne"],
+            [],
+        ),
+        (
             "hund",
             ["[ˈhunə-]", "[ˈhunˀ]"],
             [

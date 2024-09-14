@@ -149,7 +149,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         return definitions
 
     elif locale == "da":
-        if def_list := parsed_section.get_lists(pattern=("#",)):
+        if def_list := parsed_section.get_lists(pattern=("#", ":")):
             return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
         return [process_templates(word, parsed_section.contents, locale)]
 
