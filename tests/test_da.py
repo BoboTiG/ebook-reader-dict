@@ -75,6 +75,7 @@ def test_parse_word(
         ("{{genitivsform af}}", "<i>genitivform af</i>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
+        ("{{URchar|الكحل}}", "الكحل"),
         ("{{ZHchar|北京}}", "北京"),
     ],
 )
