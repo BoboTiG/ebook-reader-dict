@@ -257,6 +257,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
         ''
+        >>> clean("[[fil:ISO 7010 E002 new.svg|thumb|right|160px|piktogram nødudgang]]", locale="da")
+        ''
         >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
         ''
         >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
@@ -347,7 +349,7 @@ def clean(text: str, locale: str = "en") -> str:
     # Namespaces
     # [[File:...|...]] -> ''
     pattern = "|".join(iter(namespaces[locale] + namespaces["en"]))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
+    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text, flags=re.IGNORECASE)
 
     # Links
     # Internal: [[{{a|b}}]] -> {{a|b}}
