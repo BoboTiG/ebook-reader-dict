@@ -41,16 +41,6 @@ sections = (
     "-adj-",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    "da-noun-2",
-    "da-noun-3",
-    "da-noun-4",
-    "da-noun-5",
-    "da-noun-6",
-    "da-noun-7",
-)
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "definition mangler",
@@ -68,6 +58,14 @@ templates_multi = {
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
     "data": "'(' + italic('data') + ')'",
+    # {{da-noun-N}}
+    "da-noun-1": "italic('bestemt entalsform af')",
+    "da-noun-2": "italic('ubestemt flertalsform af')",
+    "da-noun-3": "italic('bestemt flertalsform af')",
+    "da-noun-4": "italic('genitiv ubestemt entalsform af')",
+    "da-noun-5": "italic('genitiv bestemt entalsform af')",
+    "da-noun-6": "italic('genitiv ubestemt flertalsform af')",
+    "da-noun-7": "italic('genitiv bestemt flertalsform af')",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
     # {{form of|imperative form|bjerge|lang=da}}
