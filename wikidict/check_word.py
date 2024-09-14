@@ -104,6 +104,12 @@ def filter_html(html: str, locale: str) -> str:
             ):
                 a.decompose()
 
+    elif locale == "da":
+        for sup in bs.find_all("sup"):
+            id = sup.get("id", "")
+            if id.startswith("cite_"):
+                sup.decompose()
+
     elif locale == "de":
         # <sup>☆</sup>
         for sup in bs.find_all("sup", string="☆"):
@@ -135,11 +141,13 @@ def filter_html(html: str, locale: str) -> str:
             for a in bs.find_all("a", href=True):
                 if a["href"].startswith("#"):
                     a.decompose()
+
     elif locale == "el":
         for sup in bs.find_all("sup"):
             id = sup.get("id", "")
             if id.startswith("cite_"):
                 sup.decompose()
+
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
