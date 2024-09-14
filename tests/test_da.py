@@ -69,7 +69,8 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
+        ("{{alternativ stavemåde af|mexicansk spansk}}", "<i>alternativ stavemåde af</i> <b>mexicansk spansk</b>"),
+        ("{{form of|imperative form|bjerge|lang=da}}", "<i>Imperative form af</i> <b>bjerge</b>"),
         ("{{fysik}}", "(<i>fysik</i>)"),
         ("{{genitivform af}}", "<i>genitivform af</i>"),
         ("{{genitivsform af}}", "<i>genitivform af</i>"),

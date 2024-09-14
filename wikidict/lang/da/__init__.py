@@ -43,23 +43,40 @@ sections = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
-    "definition mangler",
+    "da-car-numbers",
     "da-v-pres",
     "de",
+    "definition mangler",
     "dm",
+    "infl",
+    "Personlige pronominer på dansk",
+    "pn",
     "-syn-",
     "wikipedia",
     "Wikipedia",
-    "infl",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "botanik": "botanik",
+    "geologi": "geologi",
+    "grøntsag": "grøntsag",
+    "internet": "internet",
+    "plante": "plante",
+}
+
 templates_multi = {
+    # {{alternativ stavemåde af|}}
+    "alternativ stavemåde af": "italic(parts[0]) + ' ' + strong(parts[1])",
     # {{c}}
     "c": "italic('fælleskøn')",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
     "data": "'(' + italic('data') + ')'",
+    # {{da-adj-N}}
+    "da-adj-1": "italic('intetkønsform af')",
+    "da-adj-2": "italic('bestemt og flertal af')",
     # {{da-noun-N}}
     "da-noun-1": "italic('bestemt entalsform af')",
     "da-noun-2": "italic('ubestemt flertalsform af')",
@@ -70,8 +87,10 @@ templates_multi = {
     "da-noun-7": "italic('genitiv bestemt flertalsform af')",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
+    # {{flertal af}}
+    "flertal af": "italic('flertalsform af')",
     # {{form of|imperative form|bjerge|lang=da}}
-    "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
+    "form of": "italic(capitalize(parts[1]) + ' af') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
     # {{genitivsform af}}
@@ -86,14 +105,16 @@ templates_multi = {
     "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{n}}
     "n": "italic('intetkøn')",
-    # {{prefix|hoved|gade|lang=da}}
-    "prefix": "parts[1] + '- + ' + parts[2]",
-    # {{suffix|Norden|isk|lang=da}}
-    "suffix": "parts[1] + ' + -' + parts[2]",
+    # {{p}}
+    "p": "italic('flertal')",
+    # {{præteritum participium af}}
+    "præteritum participium af": "italic('præteritum participium af')",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{URchar|الكحل}}
     "URchar": "parts[-1]",
+    # {{w|Pierre Curie|Pierre}}
+    "w": "parts[1]",
     # {{ZHchar|北京}}
     "ZHchar": "parts[-1]",
 }
@@ -159,6 +180,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["init of", "København", "lang=da"], "da")
         '<i>Initialforkortelse af</i> <b>København</b>'
 
+        >>> last_template_handler(["prefix", "hoved", "gade", "lang=da"], "da")
+        'hoved- + gade'
+
         >>> last_template_handler(["term", "mouse", "lang=en"], "da")
         'mouse'
         >>> last_template_handler(["term", "cabotage", "", "kysttransport", "lang=fr"], "da")
@@ -183,7 +207,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>-ing</i>'
     """
     from ...lang import defaults
-    from ...user_functions import capitalize, extract_keywords_from, italic, strong, term
+    from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
     from .langs import langs
 
     tpl, *parts = template
@@ -193,13 +217,16 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return f"{italic('Forkortelse af')} {strong(parts[-1])}"
 
     if tpl in {"compound", "com"}:
-        return " + ".join(parts)
+        return concat(parts, sep=" + ")
 
     if tpl == "etyl":
         return langs[parts[0]]
 
     if tpl in {"initialism of", "init of"}:
         return f"{italic('Initialforkortelse af')} {strong(parts[-1])}"
+
+    if tpl == "prefix":
+        return f"{parts[0]}- + {parts[1]}"
 
     if tpl == "term":
         match len(parts):
