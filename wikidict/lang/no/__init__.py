@@ -176,6 +176,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["etyl", "non", "no"], "no")
         'norrønt'
+        >>> last_template_handler(["etyl", "vulgærlatin", "no"], "no")
+        'vulgærlatin'
         >>> last_template_handler(["term", "ord"], "no")
         '<i>ord</i>'
 
@@ -197,6 +199,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return term(tpl)
 
     if tpl == "etyl":
-        return langs[parts[0]]
+        return langs.get(parts[0], parts[0])
 
     raise ValueError(f"Unhandled template: {word=}, {template=}")
