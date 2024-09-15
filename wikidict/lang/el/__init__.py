@@ -250,8 +250,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["ουσ"], "el")
         '(<i>ουσιαστικοποιημένο</i>)'
 
+        >>> last_template_handler(["ετυμ", "ine-pro"], "el")
+        'πρωτοϊνδοευρωπαϊκή'
     """
+    from ...user_functions import italic
     from ..defaults import last_template_handler as default
+    from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -299,7 +303,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl == "βλφρ":
-        phrase = "<i>δείτε την έκφραση</i>"
+        phrase = italic("δείτε την έκφραση")
         if not data["0"]:
             phrase += ":"
         return phrase
@@ -322,6 +326,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if tpl in ["ετ", "ετικέτα"]:
         data["label"] = parts[0]
         return labels_output(data.get("text", ""), data)
+
+    if tpl == "ετυμ":
+        return str(langs[parts[0]]["name"])
 
     if tpl == "λόγιο":
         data["label"] = tpl
