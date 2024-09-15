@@ -144,11 +144,15 @@ def find_pronunciations(
     ['/ɡrœn/', '[grøn:]']
     >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}")
     ['[anomali:´]']
+    >>> find_pronunciations("{{IPA|['klɑɾ]||['kɽɑɾ] (tykk ''L'' (østnorsk)|språk=no}}")
+    ["['klɑɾ]"]
     """
     result: list[str] = []
     for f in pattern.findall(code):
         fsplit = f.split("|")
         for fs in fsplit:
+            if not fs:
+                continue
             if (fs[0] == "[" and fs[-1] == "]") or (fs[0] == "/" and fs[-1] == "/"):
                 result.append(fs)
     return result
