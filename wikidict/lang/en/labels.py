@@ -2027,6 +2027,7 @@ labels_topical = {
     "vegetables": "vegetable",
     "vehicle": "vehicles",
     "vehicles": "vehicles",
+    "veterinary disease": "veterinary medicine",
     "veterinary medicine": "veterinary medicine",
     "video compression": "video compression",
     "video game": "video games",
@@ -2082,7 +2083,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,240
+}  # 1,241
 
 labels_regional = {
     "AU": "Australia",
@@ -5425,6 +5426,7 @@ labels_subvarieties = {
     "Old Navarrese": "Old Navarrese",
     "Old Neuchâtelois": "Old Neuchâtelois",
     "Old Northern French": "Old Northern French",
+    "Old Pskovian": "Old Pskovian",
     "Old Russian": "Middle Russian",
     "Old Savoyard": "Old Savoyard",
     "Old Scots": "Early Scots",
@@ -5701,7 +5703,8 @@ labels_subvarieties = {
     "Pshauri": "Pshavi",
     "Pshavi": "Pshavi",
     "Pshavian": "Pshavi",
-    "Pskov": "Pskov",
+    "Pskov": "Old Pskovian",
+    "Pskovian": "Old Pskovian",
     "Psїsara": "Hirara",
     "Puadhi": "Puadhi",
     "Puducherry": "Puducherry",
@@ -7705,7 +7708,7 @@ labels_subvarieties = {
     "reflexive-sobie": "reflexive with {{m|zlw-opl|sobie}}",
     "reflexive-szie": "reflexive with {{m|zlw-mas|szie}}",
     "reflexive-sã": "reflexive with {{m|zlw-slv|sã}}",
-    "reflexive-sę": "reflexive with {{m|sla-pro|*sę}}",
+    "reflexive-sę": "reflexive with {{m|zle-ono|сѧ}}",
     "reflexive-sě": "reflexive with {{m|zlw-ocs|sě}}",
     "reinteg": "reintegrationist",
     "reintegrationist": "reintegrationist",
@@ -8361,5 +8364,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,146
+}  # 6,148
 # END
