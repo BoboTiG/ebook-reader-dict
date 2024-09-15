@@ -48,12 +48,14 @@ templates_ignored = (
     "audio",
     "definisjon mangler",
     "etymologi mangler",
+    "Etymologi mangler",
     "IPA",
     "lyd",
     "mangler definisjon",
     "mangler etymologi",
     "norm",
     "suffiks/oversikt",
+    "trenger referanse",
 )
 
 # Templates more complex to manage.
