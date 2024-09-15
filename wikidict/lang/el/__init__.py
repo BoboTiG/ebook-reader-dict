@@ -131,12 +131,14 @@ def find_genders(
     ['θηλυκό ή ουδέτερο', 'άκλιτο']
     >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}")
     ['αρσενικό ή ουδέτερο', 'άκλιτο', 'ακρωνύμιο']
+    >>> find_genders("'''{{PAGENAME}}''' {{α}} ({{ετ|ιδιωματικό|0=-}}, Κάλυμνος)")
+    ['αρσενικό']
     """
     return [
-        _genders[gender.split("|")[0]]
+        g
         for line in code.splitlines()
         for gender in pattern.findall(line[len(line_pattern) :])
-        if line.startswith(line_pattern)
+        if line.startswith(line_pattern) and (g := _genders.get(gender.split("|")[0]))
     ]
 
 
