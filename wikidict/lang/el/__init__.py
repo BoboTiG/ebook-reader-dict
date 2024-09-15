@@ -77,6 +77,8 @@ templates_ignored = (
 templates_multi: dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
+    # {{ετικ|γαστρονομία|τρόφιμα|γλυκά}}
+    "ετικ": "'(' + ', '.join(italic(p) for p in parts[1:]) + ')'",
 }
 
 

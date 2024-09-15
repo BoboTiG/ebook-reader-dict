@@ -47,7 +47,10 @@ def test_parse_word(
 
 @pytest.mark.parametrize(
     "wikicode, expected",
-    [("{{resize|Βικιλεξικό|140}}", '<span style="font-size:140%;">Βικιλεξικό</span>')],
+    [
+        ("{{resize|Βικιλεξικό|140}}", '<span style="font-size:140%;">Βικιλεξικό</span>'),
+        ("{{ετικ|γαστρονομία|τρόφιμα|γλυκά}}", "(<i>γαστρονομία</i>, <i>τρόφιμα</i>, <i>γλυκά</i>)"),
+    ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
     """Test templates handling."""
