@@ -43,6 +43,16 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "krokodille",
+            [],
+            ["m"],
+            [
+                "Fra middelalderlatin <i>cocodrillus</i> («krokodille»), fra gammelgresk κροκόδειλος (<i>krokodeilos</i>)"
+            ],
+            ["stort reptil, lever i og nær vann. <i>(lat. Crocodylia)</i>"],
+            [],
+        ),
+        (
             "lumpen",
             [],
             [],

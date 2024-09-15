@@ -144,11 +144,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
     definitions: list[Definitions] = []
     etyl: str
 
-    if locale in {"ca", "no"}:
+    if locale == "ca":
         definitions.append(process_templates(word, parsed_section.contents, locale))
         return definitions
 
-    elif locale == "da":
+    elif locale in {"da", "no"}:
         if def_list := parsed_section.get_lists(pattern=("#", ":")):
             return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
         return [process_templates(word, parsed_section.contents, locale)]
