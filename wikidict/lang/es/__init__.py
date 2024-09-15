@@ -140,7 +140,7 @@ templates_multi = {
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{coord|04|39|N|74|03|O|type:country}}
-    "coord": "coord(parts[1:], 'es')",
+    "coord": "coord(parts[1:], locale='es')",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
     # {{definición impropia|Utilizado para especificar...}}

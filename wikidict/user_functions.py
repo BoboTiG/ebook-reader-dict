@@ -169,20 +169,33 @@ def concat(
     r = [p for p in result if p]
     if last_sep is None or last_sep == sep or len(r) == 1:
         return sep.join(r)
-    else:
-        return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
+    return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
-def coord(values: list[str], locale: str = "en") -> str:
+def coord(raw_values: list[str], locale: str = "en") -> str:
     """
     Format lon/lat coordinates.
 
-        >>> coord(["04", "39", "N", "74", "03", "O", "type:country"])
+        >>> coord(["19.707", "-101.204"])
+        '19.707, -101.204'
+        >>> coord(["04", "39", "N", "74", "03", "O", "type:country", "display=inline,title"])
         '04°39′N 74°03′O'
+        >>> coord(["04", "39", "15", "N", "74", "03", "17", "W"], locale="es")
+        '04°39′15″N 74°03′17″O'
     """
-    if locale == "es" and values[5] == "W":
-        values[5] = "O"
-    return "{}°{}′{} {}°{}′{}".format(*values)
+    values = [value for value in raw_values if ":" not in value and "=" not in value]
+
+    match len(values):
+        case 2:
+            fmt = "{}, {}"
+        case 6:
+            fmt = "{}°{}′{} {}°{}′{}"
+        case 8:
+            fmt = "{}°{}′{}″{} {}°{}′{}″{}"
+
+    if locale == "es" and values[-1] == "W":
+        values[-1] = "O"
+    return fmt.format(*values)
 
 
 def eval_expr(expr: str) -> str:
@@ -540,7 +553,7 @@ def term(text: str) -> str:
     """
     if not text:
         return ""
-    elif text.startswith("<i>("):
+    if text.startswith("<i>("):
         return text
     return italic(parenthesis(text))
 
