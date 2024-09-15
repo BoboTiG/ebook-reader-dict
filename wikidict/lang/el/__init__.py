@@ -77,6 +77,8 @@ templates_ignored = (
 templates_multi: dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
+    # {{ετικ|γαστρονομία|τρόφιμα|γλυκά}}
+    "ετικ": "'(' + ', '.join(italic(p) for p in parts[1:]) + ')'",
 }
 
 
@@ -254,8 +256,23 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["ετυμ", "ine-pro"], "el")
         'πρωτοϊνδοευρωπαϊκή'
+
+        >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
+        '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
+        >>> last_template_handler(["γρ", "ελαιόδενδρο", "μορφή"], "el")
+        '<i>άλλη μορφή του</i> <b>ελαιόδενδρο</b>'
+        >>> last_template_handler(["γρ", "ελαιόδενδρο", "πολυ", "εμφ=ελαιόδενδρο(ν)"], "el")
+        '<i>πολυτονική γραφή του</i> <b>ελαιόδενδρο(ν)</b>'
+        >>> last_template_handler(["γρ", "ποιέω", "ασυν", "grc"], "el")
+        '<i>ασυναίρετη μορφή του</i> <b>ποιέω</b>'
+        >>> last_template_handler(["γρ", "ποιέω", "ασυν", "grc", "εμφ=ποι-έω"], "el")
+        '<i>ασυναίρετη μορφή του</i> <b>ποι-έω</b>'
+        >>> last_template_handler(["γρ", "colour", "", "en"], "el")
+        '<i>άλλη γραφή του</i> <b>colour</b>'
+        >>> last_template_handler(["γρ", "colour", "freestyle text", "en"], "el")
+        '<i>freestyle text</i> <b>colour</b>'
     """
-    from ...user_functions import italic
+    from ...user_functions import italic, strong
     from ..defaults import last_template_handler as default
     from .langs import langs
 
@@ -339,5 +356,23 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if tpl == "ουσ":
         text = italic("ουσιαστικοποιημένο")
         return text if data["0"] else f"({text})"
+
+    if tpl == "γρ":
+        desc = parts[1] if len(parts) > 1 else ""
+        desc = {
+            "": "άλλη γραφή του",
+            "απλοπ": "απλοποιημένη γραφή του",
+            "μη απλοπ": "απλοποιημένη γραφή του",
+            "ασυν": "ασυναίρετη μορφή του",
+            "ετυμ": "ετυμολογική γραφή του",
+            "μονο": "μονοτονική γραφή του",
+            "μορφή": "άλλη μορφή του",
+            "πολυ": "πολυτονική γραφή του",
+            "πολ": "πολυτονική γραφή του",
+            "παρωχ": "παρωχημένη γραφή του",
+            "σνρ": "συνηρημένη μορφή του",
+            "συνων": "συνώνυμο του",
+        }.get(desc, desc)
+        return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 
     return default(template, locale, word)
