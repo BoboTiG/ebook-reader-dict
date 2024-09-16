@@ -56,7 +56,7 @@ from wikidict.utils import process_templates
             "lumpen",
             [],
             [],
-            [""],
+            [],
             ["tarvelig, nedrig"],
             ["lump"],
         ),

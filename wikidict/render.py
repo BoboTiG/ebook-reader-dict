@@ -93,11 +93,11 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
     if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
 
-    if locale == "es" and section.title.strip().startswith(("Forma adjetiva", "Forma verbal")):
-        return definitions
-
-    if locale == "es" and (lists := section.get_lists(pattern="[:;]")):
-        section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
+    if locale == "es":
+        if section.title.strip().startswith(("Forma adjetiva", "Forma verbal")):
+            return definitions
+        if lists := section.get_lists(pattern="[:;]"):
+            section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
@@ -110,8 +110,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
                 definition = process_templates(word, code, locale)
 
                 # Skip empty definitions
-                # [SV] Skip almost empty definitions
-                if not definition or (locale == "sv" and len(definition) < 2):
+                if not definition:
                     continue
 
                 # Keep the definition ...
@@ -141,78 +140,82 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
 
 def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[Definitions]:
     """Find the etymology."""
-    definitions: list[Definitions] = []
-    etyl: str
+    match locale:
+        case "ca":
+            if etyl := process_templates(word, parsed_section.contents, locale):
+                return [etyl]
 
-    if locale == "ca":
-        definitions.append(process_templates(word, parsed_section.contents, locale))
-        return definitions
+        case "da" | "no":
+            if def_list := parsed_section.get_lists(pattern=("#", ":")):
+                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
 
-    elif locale in {"da", "no"}:
-        if def_list := parsed_section.get_lists(pattern=("#", ":")):
-            return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
-        return [process_templates(word, parsed_section.contents, locale)]
+        case "de":
+            if def_list := parsed_section.get_lists(pattern=(":")):
+                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
 
-    elif locale == "en":
-        items = [
-            item
-            for item in parsed_section.get_lists(pattern=("",))[0].items
-            if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
-        ]
-        for item in items:
-            if etyl := process_templates(word, item, locale):
-                definitions.append(etyl)
-        return definitions
+        case "el":
+            if def_list := parsed_section.get_lists(pattern=(": ",)):
+                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
 
-    elif locale in {"es", "it", "ro"}:
-        items = [item.strip() for item in parsed_section.get_lists(pattern=("",))[0].items[1:]]
-        for item in items:
-            if (etyl := process_templates(word, item, locale)) and etyl != ".":
-                definitions.append(etyl)
-        return definitions
+        case "en":
+            return [
+                etyl
+                for item in parsed_section.get_lists(pattern=("",))[0].items
+                if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
+                and (etyl := process_templates(word, item, locale))
+            ]
 
-    elif locale == "pt":
-        section_title = parsed_section.title.strip()
-        if section_title == "{{etimologia|pt}}":
-            try:
-                etyl = parsed_section.get_lists()[0].items[0]
-            except IndexError:
-                etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        else:
-            # "Etimologia" title section
-            try:
-                etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
-            except IndexError:
-                etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-        definitions.append(process_templates(word, etyl, locale))
-        return definitions
+        case "es" | "it" | "ro":
+            return [
+                etyl
+                for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
+                if (etyl := process_templates(word, item, locale)) and etyl != "."
+            ]
 
-    elif locale == "ru":
-        section_title = parsed_section.title.strip()
-        if section_title == "Этимология":
-            definitions.append(process_templates(word, parsed_section.contents, locale))
-        return definitions
+        case "fr":
+            definitions: list[Definitions] = []
+            tables = parsed_section.tables
+            tableindex = 0
+            for section in parsed_section.get_lists():
+                for idx, section_item in enumerate(section.items):
+                    if any(ignore_me in section_item.lower() for ignore_me in definitions_to_ignore[locale]):
+                        continue
+                    if section_item == ' {| class="wikitable"':
+                        phrase = table2html(word, locale, tables[tableindex])
+                        definitions.append(phrase)
+                        tableindex += 1
+                    else:
+                        definitions.append(process_templates(word, section_item, locale))
+                        subdefinitions: list[SubDefinitions] = []
+                        for sublist in section.sublists(i=idx):
+                            subdefinitions.extend(process_templates(word, subcode, locale) for subcode in sublist.items)
+                        if subdefinitions:
+                            definitions.append(tuple(subdefinitions))
+            return definitions
 
-    tables = parsed_section.tables
-    tableindex = 0
-    for section in parsed_section.get_lists():
-        for idx, section_item in enumerate(section.items):
-            if any(ignore_me in section_item.lower() for ignore_me in definitions_to_ignore[locale]):
-                continue
-            if section_item == ' {| class="wikitable"':
-                phrase = table2html(word, locale, tables[tableindex])
-                definitions.append(phrase)
-                tableindex += 1
+        case "pt":
+            section_title = parsed_section.title.strip()
+            if section_title == "{{etimologia|pt}}":
+                try:
+                    etyl = parsed_section.get_lists()[0].items[0]
+                except IndexError:
+                    etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
             else:
-                definitions.append(process_templates(word, section_item, locale))
-                subdefinitions: list[SubDefinitions] = []
-                for sublist in section.sublists(i=idx):
-                    subdefinitions.extend(process_templates(word, subcode, locale) for subcode in sublist.items)
+                # "Etimologia" title section
+                try:
+                    etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
+                except IndexError:
+                    etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
+            if etyl := process_templates(word, etyl, locale):
+                return [etyl]
 
-                if subdefinitions:
-                    definitions.append(tuple(subdefinitions))
+        case "ru":
+            if etyl := process_templates(word, parsed_section.contents, locale):
+                return [etyl]
 
-    return definitions
+    if etyl := process_templates(word, parsed_section.contents, locale):
+        return [etyl]
+    return []
 
 
 def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
