@@ -259,7 +259,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["etimo", "la", "duos", "(duōs)"], "pt")
         '<i>duos</i> (duōs)'
         >>> last_template_handler(["etimo", "grc", "ἄντρον", "transcr=ánton", "trad=caverna"], "pt")
-        '<i>ἄντρον</i> (ánton) “caverna”'
+        '<i>ἄντρον</i> ánton “caverna”'
         >>> last_template_handler(["etimo", "la", "nomen substantivum", "", "nome autônomo"], "pt")
         '<i>nomen substantivum</i> “nome autônomo”'
 
@@ -402,15 +402,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         phrase = italic(parts.pop(0))  # The etimo
         if parts:  # Implicit transcr
             if transcr := parts.pop(0):
-                if transcr[0] != "(":
-                    transcr = parenthesis(transcr)
                 phrase += f" {transcr}"
         if parts:  # Implicit trad
             phrase += f" “{parts.pop(0)}”"
 
         if transcr := data["transcr"]:
-            if transcr[0] != "(":
-                transcr = parenthesis(transcr)
             phrase += f" {transcr}"
         if data["trad"]:
             phrase += f" “{data['trad']}”"
