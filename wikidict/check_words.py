@@ -11,17 +11,20 @@ from . import check_word, render
 
 
 def local_check(word: str, locale: str, lock: Lock) -> int:
-    return check_word.check_word(word, locale, lock=lock)
+    try:
+        return check_word.check_word(word, locale, lock=lock)
+    except Exception as exc:
+        print(word, str(exc), flush=True)
+        return 1
 
 
-def main(locale: str, count: int, random: bool, offset: str, input: str) -> int:
+def main(locale: str, count: int, random: bool, offset: str, input_file: str) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     all_words: list[str] = []
-    if input:
-        with open(input) as fp:
-            all_words = fp.read().splitlines()
+    if input_file:
+        all_words = Path(input_file).read_text().splitlines()
     else:
         file = render.get_latest_json_file(output_dir)
         if not file:
