@@ -1,10 +1,10 @@
 """Get and render N words; then compare with the rendering done on the Wiktionary to catch errors."""
 
 import os
+import random
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
-from random import sample
 from threading import Lock
 
 from . import check_word, render
@@ -14,43 +14,55 @@ def local_check(word: str, locale: str, lock: Lock) -> int:
     return check_word.check_word(word, locale, lock=lock)
 
 
-def main(locale: str, count: int, random: bool, offset: str, input_file: str) -> int:
-    """Entry point."""
+def get_words_to_tackle(
+    locale: str,
+    *,
+    count: int = 100,
+    is_random: bool = False,
+    offset: str = "",
+    input_file: str = "",
+) -> list[str]:
+    words: list[str] = []
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    all_words: list[str] = []
     if input_file:
-        all_words = Path(input_file).read_text().splitlines()
+        words = Path(input_file).read_text().splitlines()
     else:
-        file = render.get_latest_json_file(output_dir)
-        if not file:
+        output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+        if not (file := render.get_latest_json_file(output_dir)):
             print(">>> No dump found. Run with --parse first ... ", flush=True)
-            return 1
+            return []
 
         print(f">>> Loading {file} ...", flush=True)
-        all_words = list(render.load(file).keys())
+        words = list(render.load(file).keys())
 
     if count == -1:
-        count = len(all_words)
+        count = len(words)
 
     if offset:
         if offset.isnumeric():  # offset = "42"
-            offset_int = int(offset)
-            all_words = all_words[offset_int:]
+            words = words[int(offset) :]
         else:  # offset = "some word"
-            for i, word in enumerate(all_words):
+            for i, word in enumerate(words):
                 if word == offset:
-                    all_words = all_words[i:]
+                    words = words[i:]
                     break
 
-    all_words = all_words[: min(count, len(all_words))]
+    if is_random:
+        words = random.sample(words, min(count, len(words)))
+    elif count < len(words):
+        words = words[: min(count, len(words))]
 
-    if random:
-        all_words = sample(all_words, count)
+    return words
+
+
+def main(locale: str, count: int, is_random: bool, offset: str, input_file: str) -> int:
+    """Entry point."""
+
+    words = get_words_to_tackle(locale, count=count, is_random=is_random, offset=offset, input_file=input_file)
 
     lock = Lock()
     with ThreadPoolExecutor(10) as pool:
-        err = pool.map(partial(local_check, locale=locale, lock=lock), all_words)
+        err = pool.map(partial(local_check, locale=locale, lock=lock), words)
 
     errors = sum(err)
     if errors:
