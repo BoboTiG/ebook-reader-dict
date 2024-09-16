@@ -325,6 +325,7 @@ labels = {
     "mnemonic": "mnemonic",
     "modal": "modal",
     "mostly": "chiefly",
+    "multiplicity slang": "{{l|en|multiplicity|id=multiple personalities}} slang",
     "narrow": "strictly",
     "narrowly": "strictly",
     "nativising coinage": "nativising coinage",
@@ -546,7 +547,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 541
+}  # 542
 
 label_syntaxes = {
     "&": {
@@ -1672,6 +1673,7 @@ labels_topical = {
     "motorcycling": "motorcycling",
     "motorsport": "motor racing",
     "motorsports": "motor racing",
+    "multiplicity": "{{l|en|multiplicity|id=multiple personalities}}",
     "muscle": "anatomy",
     "mushroom": "mycology",
     "mushrooms": "mycology",
@@ -2083,7 +2085,7 @@ labels_topical = {
     "zoology": "zoology",
     "zootomy": "zootomy",
     "Ásatrú": "Germanic paganism",
-}  # 1,241
+}  # 1,242
 
 labels_regional = {
     "AU": "Australia",
