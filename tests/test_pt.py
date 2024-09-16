@@ -10,6 +10,17 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, genders, etymology, definitions",
     [
+        (
+            "-a",
+            [],
+            [],
+            [
+                "De <b>1</b>: desinência nominal feminina acrescentada no português moderno a palavras anteriormente comuns-de-dois, como portuguesa (e praticamente o padrão <i>-ês</i> [masculino]:-esa [feminino]), espanhol(a), senhor(a).",
+                "De <b>4</b>: da vogal temática da 1ª conjugação latina.",
+                "De <b>5</b>: da desinência do plural neutro latino",
+            ],
+            [],
+        ),
         ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
             "alguém",

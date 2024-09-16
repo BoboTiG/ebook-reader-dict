@@ -187,7 +187,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         case "it":
             items = get_items(("",), skip=("=== {{etim",))
         case "pt":
-            items = get_items((r"[:]",))
+            items = get_items((r"[:]", r"\*"))
         case "ro":
             items = get_items(("",), skip=("=== {{etimologie",))
 
