@@ -11,11 +11,7 @@ from . import check_word, render
 
 
 def local_check(word: str, locale: str, lock: Lock) -> int:
-    try:
-        return check_word.check_word(word, locale, lock=lock)
-    except Exception as exc:
-        print(word, str(exc), flush=True)
-        return 1
+    return check_word.check_word(word, locale, lock=lock)
 
 
 def main(locale: str, count: int, random: bool, offset: str, input_file: str) -> int:
