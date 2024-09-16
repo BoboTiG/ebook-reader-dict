@@ -140,38 +140,30 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
 
 def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[Definitions]:
     """Find the etymology."""
+
+    def get_items(patterns: tuple[str, ...], *, skip: tuple[str, ...] | None = None) -> list[str]:
+        items: list[str]
+        try:
+            items = parsed_section.get_lists(pattern=patterns)[0].items
+        except IndexError:
+            items = [parsed_section.contents]
+        else:
+            if skip:
+                items = [item for item in items if not item.lstrip().lower().startswith(skip)]
+        return items
+
+    items = [parsed_section.contents]
     match locale:
-        case "ca":
-            if etyl := process_templates(word, parsed_section.contents, locale):
-                return [etyl]
-
         case "da" | "no":
-            if def_list := parsed_section.get_lists(pattern=("#", ":")):
-                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
-
+            items = get_items(("#", ":"))
         case "de":
-            if def_list := parsed_section.get_lists(pattern=(":")):
-                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
-
+            items = get_items((":",))
         case "el":
-            if def_list := parsed_section.get_lists(pattern=(": ",)):
-                return [etyl for item in def_list[0].items if (etyl := process_templates(word, item, locale))]
-
+            items = get_items((": ",))
         case "en":
-            return [
-                etyl
-                for item in parsed_section.get_lists(pattern=("",))[0].items
-                if not item.lstrip().startswith(("===Etymology", "{{PIE root"))
-                and (etyl := process_templates(word, item, locale))
-            ]
-
-        case "es" | "it" | "ro":
-            return [
-                etyl
-                for item in parsed_section.get_lists(pattern=("",))[0].items[1:]
-                if (etyl := process_templates(word, item, locale)) and etyl != "."
-            ]
-
+            items = get_items(("",), skip=("===etymology", "{{pie root"))
+        case "es":
+            items = get_items(("",), skip=("=== etimología",))
         case "fr":
             definitions: list[Definitions] = []
             tables = parsed_section.tables
@@ -192,26 +184,14 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
                         if subdefinitions:
                             definitions.append(tuple(subdefinitions))
             return definitions
-
+        case "it":
+            items = get_items(("",), skip=("=== {{etim",))
         case "pt":
-            section_title = parsed_section.title.strip()
-            if section_title == "{{etimologia|pt}}":
-                try:
-                    etyl = parsed_section.get_lists()[0].items[0]
-                except IndexError:
-                    etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-            else:
-                # "Etimologia" title section
-                try:
-                    etyl = parsed_section.get_lists(pattern=("^:",))[0].items[0]
-                except IndexError:
-                    etyl = parsed_section.get_lists(pattern=("",))[0].items[1]
-            if etyl := process_templates(word, etyl, locale):
-                return [etyl]
+            items = get_items((r"[:]",))
+        case "ro":
+            items = get_items(("",), skip=("=== {{etimologie",))
 
-    if etyl := process_templates(word, parsed_section.contents, locale):
-        return [etyl]
-    return []
+    return [etyl for item in items if (etyl := process_templates(word, item, locale)) and len(etyl) > 1]
 
 
 def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
