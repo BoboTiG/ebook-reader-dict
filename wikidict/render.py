@@ -209,10 +209,6 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
             if etyl := process_templates(word, etyl, locale):
                 return [etyl]
 
-        case "ru":
-            if etyl := process_templates(word, parsed_section.contents, locale):
-                return [etyl]
-
     if etyl := process_templates(word, parsed_section.contents, locale):
         return [etyl]
     return []
