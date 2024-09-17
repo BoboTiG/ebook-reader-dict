@@ -7,6 +7,7 @@ Auto-generated with `python -m scripts`.
 lang_adjs = {
     "AE": "US-amerikanisch",
     "BE": "britisch",
+    "abq.": "abasinisch",
     "aengl.": "altenglisch",
     "afrz.": "altfranzösisch",
     "agr.": "altgriechisch",
@@ -75,7 +76,7 @@ lang_adjs = {
     "tr.": "türkisch",
     "wen.": "sorbisch",
     "österr.": "österreichisch",
-}  # 70
+}  # 71
 # END
 
 lang_adjs["germ."] = "germanisch"

@@ -2521,6 +2521,7 @@ labels_subvarieties = {
     "Armeno-Turkish": "Armeno-Turkish",
     "Armeno–Turkish": "Armeno-Turkish",
     "Armn": "17th c. Armenian dictionary",
+    "Arrah": "Arrah",
     "Arran": "Arran",
     "Artanuj": "Ardanuç",
     "Artashen": "Artasheni",
@@ -6112,6 +6113,7 @@ labels_subvarieties = {
     "Seville": "Seville",
     "Sh-dial": "Sh-dialects",
     "Shah": "Shahbazgarhi",
+    "Shahabad": "Arrah",
     "Shahbazgarhi": "Shahbazgarhi",
     "Shahbuz": "Shahbuz",
     "Shahpuri": "Shahpuri",
@@ -8366,5 +8368,5 @@ labels_subvarieties = {
     "한림읍": "Hallim",
     "화순": "Hwasun",
     "화순리": "Hwasun",
-}  # 6,148
+}  # 6,150
 # END
