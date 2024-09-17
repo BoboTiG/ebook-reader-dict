@@ -1,6 +1,6 @@
 import re
 
-from scripts_utils import get_soup
+from scripts_utils import get_content, get_soup
 
 
 def process_display(display: str) -> str:
@@ -62,9 +62,7 @@ def dialect_handler(text: str) -> dict[str, str]:
 
 
 def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print_result: bool = True) -> dict[str, str]:
-    soup = get_soup(url)
-    div = soup.find("div", {"class": "mw-highlight-lines"})
-    text = div.text
+    text = get_content(f"{url}?action=raw")
 
     if text.startswith("local data = require"):
         return dialect_handler(text)
@@ -150,6 +148,7 @@ repl = sorted(
         "omit_postSpace",
         "othercat",
         "parent",
+        "parent_label",
         "plain_categories",
         "pos_categories",
         "prep",
@@ -242,7 +241,7 @@ for li in div.findAll("li"):
     if li.text.endswith("documentation"):
         continue
 
-    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith(("/zh", "/zh/functions")):
+    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith("/zh/functions"):
         continue
 
     stop_line = "################## accent qualifiers" if page_url.endswith("/en") else "return"
