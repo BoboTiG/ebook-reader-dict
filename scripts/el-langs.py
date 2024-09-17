@@ -51,6 +51,13 @@ languages = {
     }
     for key in Languages.keys()  # type: ignore[name-defined] # noqa
 }
+
+# Aliases found in https://el.wiktionary.org/wiki/Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1#L-182--L-185
+languages["αρχ"] = languages["grc"]
+languages["ελν"] = languages["grc-koi"]
+languages["κοι"] = languages["grc-koi"]
+languages["μσν"] = languages["gkm"]
+
 print("langs: dict[str, dict[str, str | bool]] = {")
 for key, value in sorted(languages.items()):
     print(f'    "{key}": {value},')

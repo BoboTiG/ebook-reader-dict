@@ -260,6 +260,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["ετυμ", "ine-pro"], "el")
         'πρωτοϊνδοευρωπαϊκή'
+        >>> last_template_handler(["ετυμ", "gkm"], "el")
+        'μεσαιωνική ελληνική'
+        >>> last_template_handler(["ετυμ", "μσν"], "el")
+        'μεσαιωνική ελληνική'
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -352,7 +356,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return labels_output(data.get("text", ""), data)
 
     if tpl == "ετυμ":
-        return str(langs[parts[0]]["name"])
+        return str(langs[parts[0]]["frm"])
 
     if tpl == "λόγιο":
         data["label"] = tpl
