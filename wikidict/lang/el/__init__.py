@@ -241,6 +241,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '(διαχρονικό δάνειο) <i>αρχαία ελληνική</i> νήδυμος'
         >>> last_template_handler(["λδδ", "grc-koi", "el"], "el")
         '(διαχρονικό δάνειο) <i>ελληνιστική κοινή</i>'
+        >>> last_template_handler(["λδδ", "0=-", "grc-koi", "el", "τεχνικός"], "el")
+        '<i>ελληνιστική κοινή</i> τεχνικός'
 
         >>> last_template_handler(["λ", "ἡδύς", "grc"], "el")
         'ἡδύς'
@@ -342,7 +344,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl in ["λδδ", "dlbor"]:
-        phrase = "(διαχρονικό δάνειο) "
+        phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
         phrase += text_language(parts[0], data)
         if rest := data["1"] or parts[2] if len(parts) > 2 else "":
             phrase += f" {rest}"
