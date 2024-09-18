@@ -68,8 +68,8 @@ def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print
         return dialect_handler(text)
 
     text = clean_lua_text(text)
-    text = text.replace('" .. ', '" + ')
-    text = text.replace(' .. "', ' + "')
+    text = text.replace('" .. ', '" + ').replace('" ..\n', '" + ')
+    text = text.replace(' .. "', ' + "').replace(' ..\n"', ' + "')
 
     text = re.sub(r"function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", text)
     text = text.replace("for _, v in ipairs(b) do", "\n    for v in b:\n        ")
@@ -241,7 +241,7 @@ for li in div.findAll("li"):
     if li.text.endswith("documentation"):
         continue
 
-    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith("/zh/functions"):
+    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith(("example", "/functions")):
         continue
 
     stop_line = "################## accent qualifiers" if page_url.endswith("/en") else "return"
