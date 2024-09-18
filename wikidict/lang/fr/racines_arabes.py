@@ -7711,9 +7711,11 @@ racines_schemes_arabes = {
         "ar-*i**ũ": "pied",
         "ar-*i*a*@ũ": "{{p}} hommes",
         "ar-*i*a*ũ": "{{p}} lits de torrent",
+        "ar-*i*â*iy²ũ": "pour hommes",
         "ar-*i*â*âtũ": "{{p}} hommes",
         "ar-*i*â*ũ": "{{p}} hommes",
         "ar-*ta*a*a": "agir à sa tête",
+        "ar-*ti*â*iy²ũ": "improvisé",
         "ar-*ti*â*ũ": "improvisation",
         "ar-*u**@ũ": "virilité",
         "ar-*u**ânũ": "{{p}} piétons",
@@ -7751,7 +7753,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "aller à pied",
         "ar-ta*â*a*a": "",
         "ar-ta*â*î*u": "cerfeuil",
-    },  # 64
+    },  # 66
     "ar-rkb": {
         "aa_sens": "monter, assembler",
         "ar-**a*²a": "",
