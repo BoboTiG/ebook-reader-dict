@@ -58,13 +58,13 @@
 
 ;1: {{plm|futuro}}.
 {{antónimo|leng=it|passato|scorso}}
-{{ejemplo|[...] Quale sarà il ruolo '''futuro''' del Parlamento europeo? Che ne sarà del ruolo e della struttura dei diversi Consigli? [...]|traducción=[...] ¿Cuál será el rol '''futuro''' del Parlamento europeo? ¿Qué será del rol de la estructura de los diversos Consejos? [...]|título=Dichiarazione di Laeken sul futuro dell'Unione Europea|año=2001|URL=https://it.wikisource.org/wiki/Dichiarazione_di_Laeken_sul_futuro_dell%27Unione_Europea|autor=Unione Europea}}
+{{ejemplo|[...] Quale sarà il ruolo '''futuro''' del Parlamento europeo? Che ne sarà del ruolo e della struttura dei diversi Consigli? [...]|c=libro|u=https://it.wikisource.org/wiki/Dichiarazione_di_Laeken_sul_futuro_dell%27Unione_Europea|trad=[...] ¿Cuál será el rol '''futuro''' del Parlamento europeo? ¿Qué será del rol de la estructura de los diversos Consejos? [...]|t=Dichiarazione di Laeken sul futuro dell'Unione Europea|a=Unione Europea|f=2001}}
 
 === {{sustantivo masculino|it}} ===
 ;2: {{plm|futuro}}, {{l|es|porvenir}}.
 {{sinónimo|leng=it|avvenire}}
 {{antónimo|leng=it|passato}}
-{{ejemplo|Quel vecchio che non ha presente né '''futuro''', non è privo perciò di vita|traducción=Aquel viejo que no tiene presente ni '''futuro''', no por ello está privado de vida|nombre=Giacomo|apellidos=Leopardi|año=1898|título=Pensieri di varia filosofia e di bella letteratura|URL=https://it.wikisource.org/wiki/Pensieri_di_varia_filosofia_e_di_bella_letteratura/277}}
+{{ejemplo|Quel vecchio che non ha presente né '''futuro''', non è privo perciò di vita|c=libro|u=https://it.wikisource.org/wiki/Pensieri_di_varia_filosofia_e_di_bella_letteratura/277|a1=Giacomo Leopardi|trad=Aquel viejo que no tiene presente ni '''futuro''', no por ello está privado de vida|t=Pensieri di varia filosofia e di bella letteratura|f=1898}}
 
 ;3 {{csem|lingüística|leng=it}}: {{plm|futuro}}.
 {{antónimo|leng=it|passato|preterito}}

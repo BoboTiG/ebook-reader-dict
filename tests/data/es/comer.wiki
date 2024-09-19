@@ -13,23 +13,23 @@
 {{hiperónimo|alimentarse|ingerir}}.
 {{hipónimo|desayunar|almorzar|cenar|merendar}}.
 {{relacionado|beber}}.
-{{ejemplo|Si no ''comes'' en varias semanas, morirás de inanición.}}
+{{ejemplo|Si no comes en varias semanas, morirás de inanición.}}
 ;2: {{plm|tomar}} la principal [[comida]] del [[día]].
 {{sinónimo|yantar|nota=anticuado|almorzar}}.
-{{ejemplo|He quedado para ''comer.}}
+{{ejemplo|He quedado para comer.}}
 
 ==== {{verbo transitivo|es}} ====
 ;3: {{plm|malgastar}} [[bien]]es o [[recurso]]s.
-{{ejemplo|La mala gestión se ''comió'' las ganancias.}}
+{{ejemplo|La mala gestión se comió las ganancias.}}
 ;4: {{plm|corroer}} o [[consumir]].
-{{ejemplo|El orín se ''comió'' la baranda del barco.}}
-{{ejemplo|Le ''comen'' los celos.}}
+{{ejemplo|El orín se comió la baranda del barco.}}
+{{ejemplo|Le comen los celos.}}
 ;5: Producir [[comezón]].
 ;6 {{csem|juegos}}: En los juegos de mesa, [[eliminar]] una [[pieza]] del contrario.
-{{ejemplo|Se ''comió'' el caballo con la torre.}}
+{{ejemplo|Se comió el caballo con la torre.}}
 ;7: {{plm|omitir}} elementos de [[información]] cuando se habla o escribe.
 {{uso|utcp}}: ''[[comerse]]''
-{{ejemplo|No habla bien, se ''come'' las terminaciones.}}
+{{ejemplo|No habla bien, se come las terminaciones.}}
 ;8: Llevar [[encoger|encogidas]] algunas prendas de ropa, como los [[calcetín|calcetines]].
 {{uso|utcp}}: ''[[comerse]]''
 ;9: Tener relaciones sexuales con alguien.
@@ -159,7 +159,7 @@
 ;1: {{plm}}<sub>1-7, 9</sub>.
 {{relacionado|leng=pt|almoçar|boiar|cear|comensal|comestível|ingerir|jantar|morder|nham|papar|trincar}}
 ;2: {{plm|tomar}} (por).
-{{ejemplo|Você me ''come'' por tola.|trad=Me ''tomas'' por tonta.}}
+{{ejemplo|Você me come por tola.|trad=Me tomas por tonta.}}
 
 ==== Conjugación ====
 {{pt.v.conj.er|com}}

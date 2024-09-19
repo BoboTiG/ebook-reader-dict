@@ -1,8 +1,8 @@
 {{desambiguación|tres-|treš|très|très-|trés|três|trěś|třes|třeš}}
 
 == {{lengua|es}} ==
+{{swadesh|es|024tres}}
 {{pron-graf|1audio1=LL-Q1321 (spa)-Rodelar-tres.wav|p1=gres|p2=res|p3=tras|p4=tris}}
-{{swadesh|es|es}}
 
 === Etimología 1 ===
 {{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este  {{etim|ine-pro|*tréyes}}. Cognado  {{etim|lad|tres}}.
@@ -139,7 +139,7 @@
 {{t|yua|a1=1|t1=óox}}
 {{t|mn|a1=1|t1=гурав}}
 {{t|nhn|a1=1|t1=yei}}
-{{t|nci|a1=1|t1=eyi|t2=yei}}
+{{t|nci|a1=1|t1=eyi yei}}
 {{t|ngu|a1=1|t1=yeyi}}
 {{t|nch|a1=1|t1=eyi}}
 {{t|nhw|a1=1|t1=eyi}}
@@ -216,8 +216,8 @@
 {{trad-abajo}}
 
 == {{lengua|ca}} ==
+{{swadesh|ca|024tres}}
 {{pron-graf|leng=ca}}
-{{swadesh|ca|ca}}
 
 === Etimología 1 ===
 {{etimología|leng=ca|roa-oca|tres|tres}}, y este {{etim|leng=ca|la|tres}}.
@@ -297,8 +297,8 @@
 ;1 {{csem|números|leng=roa-opt}}: {{plm}}.
 
 == {{lengua|gl}} ==
+{{swadesh|gl|024tres}}
 {{pron-graf|leng=gl|1audio1=Gl-tres.ogg}}
-{{swadesh|gl|gl}}
 
 === Etimología 1 ===
 {{etimología|leng=gl|roa-opt|tres|tres}}, y este {{etim|leng=gl|la|tres}}.
@@ -499,8 +499,8 @@
 ;1 {{csem|números|leng=roa-oan}}: {{plm}}.
 
 == {{lengua|oc}} ==
+{{swadesh|oc|024tres}}
 {{pron-graf|leng=oc|1fone1=tres}}
-{{swadesh|oc|oc}}
 
 === Etimología 1 ===
 {{etimología|leng=oc|pro|tres|tres}}, y este {{etim|leng=oc|la|tres}}.

@@ -108,10 +108,7 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 # use capital letter first, if lower, then see lowercase_italic
 templates_italic = {
-    **campos_semanticos,
     "afectado": "Literario",
-    "ciudades": "Geografía",
-    "poblaciones": "Geografía (poblaciones)",
     "coloquial": "Coloquial",
     "Coloquial": "Coloquial",
     "elevado": "Literario",
@@ -122,7 +119,6 @@ templates_italic = {
     "literario": "Literario",
     "lunf": "Lunfardismo",
     "poético": "Literario",
-    "regiones": "Geografía",
     "rpl": "Río de la Plata",
     "rur": "Rural",
     "rural": "Rural",
@@ -236,30 +232,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["Arqueología"], "es")
-        '<i>(Arqueología)</i>'
-        >>> last_template_handler(["Anatomía", "y" , "Zootomía"], "es")
-        '<i>(Anatomía y Zootomía)</i>'
-        >>> last_template_handler(["Angiología", "Endocrinología" , "Fisiología", "Medicina"], "es")
-        '<i>(Angiología, Endocrinología, Fisiología, Medicina)</i>'
-        >>> last_template_handler(["moluscos", "y" , "alimentos"], "es")
-        '<i>(Zoología y Gastronomía (alimentos))</i>'
-        >>> last_template_handler(["cultura", "historia", "y", "lingüística"], "es")
-        '<i>(Cultura, Historia y Lingüística)</i>'
-        >>> last_template_handler(["Arte", "," , "Arquitectura"], "es")
-        '<i>(Arte, Arquitectura)</i>'
-        >>> last_template_handler(["Botánica", "leng=es"], "es")
-        '<i>(Botánica)</i>'
-        >>> last_template_handler(["deporte", "nota=fútbol"], "es")
-        '<i>(Deporte (fútbol))</i>'
-        >>> last_template_handler(["Fonética", "Fonética"], "es")
-        '<i>(Lingüística (fonética), Fonética)</i>'
-        >>> last_template_handler(["rur"], "es")
-        '<i>(Rural)</i>'
-        >>> last_template_handler(["rur", "deporte"], "es")
-        '<i>(Rural, Deporte)</i>'
-        >>> last_template_handler(["deporte", "rur"], "es")
-        '<i>(Deporte, rural)</i>'
         >>> last_template_handler(["default"], "es")
         '##opendoublecurly##default##closedoublecurly##'
 
@@ -269,10 +241,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["csem", "economía", "numismática"], "es")
         '<i>(Economía, numismática)</i>'
         >>> last_template_handler(["csem", "adjetivo de verbo", "rondar", "ronda"], "es")
-        'Adjetivo de verbo, rondar, ronda'
+        '<i>(Adjetivo de verbo, rondar, ronda)</i>'
         >>> last_template_handler(["csem", "leng=es", "derecho", "deporte"], "es")
         '<i>(Derecho, deporte)</i>'
-
 
         >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
         'apropiado'
@@ -291,15 +262,23 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    if should_lower_next_templates := template[0] == "csem":
-        template = template[1:]
-        if "=" in template[0]:
-            template_list = list(template)
-            template_list[0], template_list[1] = template_list[1], template_list[0]
-            template = tuple(template_list)
-
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "csem":
+        return italic(
+            "("
+            + capitalize(
+                concat(
+                    [
+                        campos_semanticos.get(part.title()) or campos_semanticos.get(part.lower()) or part
+                        for part in parts
+                    ],
+                    sep=", ",
+                ).lower()
+            )
+            + ")"
+        )
 
     if lookup_italic(template[0], locale, empty_default=True):
         phrase_a: list[str] = []
@@ -322,8 +301,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
                         local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
                     local_phrase = part
-            # some italic templates are in lower case if after the first one...
-            if index > 1 and (local_phrase in lowercase_italic or should_lower_next_templates):
+            if index > 1 and local_phrase in lowercase_italic:
                 local_phrase = local_phrase.lower()
             if append_to_last:
                 phrase_a[-1] += local_phrase
@@ -334,9 +312,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if lang := langs.get(template[0]):
         return capitalize(lang)
-
-    if should_lower_next_templates:
-        return capitalize(concat(list(template), ", "))
 
     # note: this should be used for variants only
     if tpl in (

@@ -31,7 +31,6 @@
 ==== {{S|synonymes}} ====
 * [[polysiloxane]]
 
-
 ==== {{S|dérivés}} ====
 * [[pistolet à silicone]]
 * [[siliconage]]
@@ -91,7 +90,6 @@
 * {{Wikipédia|lang=en}}
 
 == {{langue|it}} ==
-
 === {{S|étymologie}} ===
 : {{ébauche-étym|it}}
 

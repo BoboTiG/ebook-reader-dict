@@ -31,4 +31,4 @@
 {{trad-abajo}}
 
 == Referencias y notas ==
-{{listaref}}
+<references />

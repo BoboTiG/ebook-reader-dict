@@ -9,29 +9,29 @@
 ==== {{preposición|es}} ====
 ;1: Preposición que indica el [[fin]] o [[término]] de una actividad, sea en sentido [[locativo]], [[cronológico]] o [[cuantitativo]].
 {{sinónimo|a|entro|enta}}.
-{{ejemplo|Papeleras: un intendente uruguayo fue ''hasta'' el corte de ruta para dialogar con los manifestantes.|c=pagina|t=Papeleras|f=2007-03-10|u=https://web.archive.org/web/20070310182313/http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm}}
-{{ejemplo|Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas ''hasta'' entonces desconocidas.|c=pagina|t=Página/12|u=http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html}}
+{{ejemplo|Papeleras: un intendente uruguayo fue hasta el corte de ruta para dialogar con los manifestantes.|c=pagina|t=Papeleras|f=2007-03-10|u=https://web.archive.org/web/20070310182313/http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm}}
+{{ejemplo|Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas hasta entonces desconocidas.|c=pagina|t=Página/12|u=http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html}}
 ;2: Seguida de ''[[cuando]]'' o de un [[gerundio]], preposición que indica valor [[inclusivo]].
-{{ejemplo|Es un fumador empedernido, fuma ''hasta'' cuando se ducha. Es un fumador empedernido, fuma ''hasta'' duchándose.}}
+{{ejemplo|Es un fumador empedernido, fuma hasta cuando se ducha. Es un fumador empedernido, fuma hasta duchándose.}}
 ;3: Seguida de ''[[que]]'', preposición que indica valor [[exclusivo]].
-{{ejemplo|Conversan ''hasta'' que llega el profesor.}}
+{{ejemplo|Conversan hasta que llega el profesor.}}
 
 ==== {{adverbio|es}} ====
 ;4: Indica que pese a las circunstancias ocurre el hecho.
 {{sinónimo|aun|inclusive|incluso}}.
-{{ejemplo|Su salud es delicada, se resfría ''hasta'' en verano.}}
-{{ejemplo|El comisario, un empleado serio y humilde, sabía que el rigor cívico del maestro exasperaba ''hasta'' a sus amigos más próximos, y estaba sorprendido por la facilidad con que saltaba por encima de los trámites legales para apresurar el entierro.|c=libro|u=w:El|a=Gabriel García Márquez|t=amor en los tiempos del cólera|f=1985}}
+{{ejemplo|Su salud es delicada, se resfría hasta en verano.}}
+{{ejemplo|El comisario, un empleado serio y humilde, sabía que el rigor cívico del maestro exasperaba hasta a sus amigos más próximos, y estaba sorprendido por la facilidad con que saltaba por encima de los trámites legales para apresurar el entierro.|c=libro|u=w:El|a=Gabriel García Márquez|t=amor en los tiempos del cólera|f=1985}}
 ;5: Indica que una situación eventual o hipotética no impide que ocurra el hecho.
-{{ejemplo|Hasta'' en medio de un funeral, encuentra motivos para reírse.}}
+{{ejemplo|Hasta en medio de un funeral, encuentra motivos para reírse.}}
 ;6: Indica el comienzo de una acción o cuando ocurrirá.
 {{ámbito|México|América Central|Ecuador|Chiloé}}.
 {{sinónimo|desde}}, no [[antes]] de, [[recién]]
-{{ejemplo|Nos vemos ''hasta'' el lunes.}}
+{{ejemplo|Nos vemos hasta el lunes.}}
 
 ==== {{sustantivo femenino|es}} ====
 {{inflect.es.sust.reg}}
 ;7: {{grafía obsoleta|asta}}.
-{{ejemplo|Arrojábanles un dardo, que es una '''hasta''' larga, á cuya extremidad hay asegurado un hueso grande y afilado que penetra como una espada.}}
+{{ejemplo|Arrojábanles un dardo, que es una hasta larga, á cuya extremidad hay asegurado un hueso grande y afilado que penetra como una espada.}}
 
 ==== Locuciones ====
 * [[hasta atrás]]
@@ -127,7 +127,7 @@
 {{inflect.la.sust.1|hast}}
 ;1 {{csem|armas|leng=la}}: {{plm|asta}}.
 {{hipónimo|leng=la|pilum}}.
-{{ejemplo|Petere aliquem '''hasta'''. (Asaltar alguien con asta.).}}
+{{ejemplo|Petere aliquem hasta. (Asaltar alguien con asta.).}}
 
 ==== Información adicional ====
 {{trad-arriba|Cognados latinos}}
