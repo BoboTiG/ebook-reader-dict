@@ -513,7 +513,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return f"{parts[1]} {parts[2]}"
 
     # This is a country in the current locale
-    if tpl in langs:
-        return langs[tpl].capitalize()
+    if lang := langs.get(tpl):
+        return lang.capitalize()
 
     return default(template, locale, word=word)
