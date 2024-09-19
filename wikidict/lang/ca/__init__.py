@@ -192,6 +192,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         "De l'anglès"
         >>> last_template_handler(["etim-lang", "grc", "ca", "φαιός", "trad=gris"], "ca")
         'Del grec antic <i>φαιός</i> (<i>phaiós</i>, «gris»)'
+        >>> last_template_handler(["etim-lang", "ar", "ca", "برج", "alt=البرج", "trans=al-burj", "trad=la torre"], "ca")
+        "De l'àrab <i>البرج</i> (<i>al-burj</i>, «la torre»)"
 
         >>> last_template_handler(["del-lang", "la", "ca", "verba"], "ca")
         'del llatí <i>verba</i>'
@@ -325,7 +327,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             phrase += f"{lang}"
             word = ""
             if len(parts) > 2:
-                word = parts[2]
+                word = data["alt"] or parts[2]
                 if len(parts) > 3:
                     phrase += f" {italic(parts[3])}"
                 else:
