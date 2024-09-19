@@ -102,7 +102,7 @@ def filter_html(html: str, locale: str) -> str:
                 and a["href"] != "#ca"
                 and "mw-selflink-fragment" not in a.get("class", [])
             ):
-                a.decompose()
+                a.replaceWith(a.text)
 
     elif locale == "da":
         for sup in bs.find_all("sup"):
