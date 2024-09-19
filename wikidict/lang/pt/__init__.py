@@ -274,6 +274,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["étimo", "grc", "ἄντρον", "transl=ánton", "sign=caverna"], "pt")
         '<i>ἄντρον</i> <i>(ánton)</i> (“caverna”)'
 
+        >>> last_template_handler(["étimo junção", "a-", "canela", "-ar"], "pt")
+        'De <i>a-</i> + <i>canela</i> + <i>-ar</i>.'
+        >>> last_template_handler(["étimo junção", "a-", "canela", "-ar", "ponto=não"], "pt")
+        'De <i>a-</i> + <i>canela</i> + <i>-ar</i>'
+        >>> last_template_handler(["étimo junção", "palavra1", "r1=problemát(ico)", "palavra2", 'tr2="tradução da palavra2"', "言葉３", "tr3=kotoba3", "id=XX"], "pt")
+        'De <i>problemát(ico)</i> + <i>palavra2</i> (<i>"tradução da palavra2"</i>) + <i>言葉３</i> (<i>kotoba3</i>).'
+
         >>> last_template_handler(["etm", "la", "pt"], "pt")
         'latim'
 
@@ -421,6 +428,15 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         if data["sign"]:
             phrase += f" (“{data['sign']}”)"
         return phrase
+
+    if tpl == "étimo junção":
+        étimo_junção_res: list[str] = []
+        for étimo_junção_idx, part in enumerate(parts, 1):
+            text = italic(data[f"r{étimo_junção_idx}"] or part)
+            if trans := data[f"tr{étimo_junção_idx}"]:
+                text += f" ({italic(trans)})"
+            étimo_junção_res.append(text)
+        return f"De {concat(étimo_junção_res, sep=' + ')}{'' if data['ponto'] == 'não' else '.'}"
 
     if tpl == "etm":
         return langs[parts[0]].lower()
