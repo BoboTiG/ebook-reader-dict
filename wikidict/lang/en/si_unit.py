@@ -1,5 +1,8 @@
 """
 List of SI unit, their types, prefixes and symbols.
+
+Source: https://en.wiktionary.org/w/index.php?title=Template:SI-unit&action=raw
+Updated: 2024-06-15
 """
 
 unit_to_type = {
@@ -12,7 +15,7 @@ unit_to_type = {
     "metre": "length",
     "mole": "amount of substance",
     "second": "time",
-    "coulum": "charge",
+    "coulumb": "charge",
     "farad": "capacitance",
     "hertz": "frequency",
     "joule": "energy",
@@ -25,6 +28,8 @@ unit_to_type = {
 }
 
 prefix_to_exp = {
+    "quecto": "-30",
+    "ronto": "-27",
     "yocto": "-24",
     "zepto": "-21",
     "atto": "-18",
@@ -32,9 +37,11 @@ prefix_to_exp = {
     "pico": "-12",
     "nano": "-9",
     "micro": "-6",
-    "mili": "-3",
+    "milli": "-3",
     "centi": "-2",
     "deci": "-1",
+    "hecto": "2",
+    "deca": "1",
     "kilo": "3",
     "mega": "6",
     "giga": "9",
@@ -43,9 +50,13 @@ prefix_to_exp = {
     "exa": "18",
     "zetta": "21",
     "yotta": "24",
+    "ronna": "27",
+    "quetta": "30",
 }
 
 prefix_to_symbol = {
+    "quecto": "q",
+    "ronto": "r",
     "yocto": "y",
     "zepto": "z",
     "atto": "a",
@@ -66,6 +77,8 @@ prefix_to_symbol = {
     "exa": "E",
     "zetta": "Z",
     "yotta": "Y",
+    "ronna": "R",
+    "quetta": "Q",
 }
 
 unit_to_symbol = {
@@ -78,7 +91,7 @@ unit_to_symbol = {
     "metre": "m",
     "mole": "mol",
     "second": "s",
-    "coulum": "C",
+    "couloumb": "C",
     "farad": "F",
     "hertz": "Hz",
     "joule": "J",
