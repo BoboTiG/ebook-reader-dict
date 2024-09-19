@@ -45,6 +45,7 @@ variant_titles = (
 )
 variant_templates = (
     "{{ca-forma-conj",
+    "{{forma-a",
     "{{forma-p",
     "{{forma-f",
 )
@@ -60,6 +61,7 @@ definitions_to_ignore = (
     # For variants
     #
     "ca-forma-conj",
+    "forma-a",
     "forma-f",
     "forma-p",
 )
@@ -91,6 +93,8 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e-propi|ca|grèvol}}
     "e-propi": "strong(parts[-1])",
+    # {{forma-a|ca|Bielorússia}}
+    "forma-a": "parts[-1]",
     # {{forma-f|ca|halloweenià}}
     "forma-f": "parts[-1]",
     # {{forma-p|ca|experta}}

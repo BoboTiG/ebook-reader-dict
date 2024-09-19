@@ -211,9 +211,8 @@ from wikidict.utils import process_templates
                 "<i>Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.</i>",  # noqa
                 'Acusatiu del masculí singular del pronom personal "ell".',
                 'Substitueix el complement directe quan aquest porta l\'article "el".',
-                "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
-            [],
+            ["ela"],
         ),
         (
             "expertes",
