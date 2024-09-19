@@ -134,11 +134,11 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 * {{sense|basic elements}} {{l|en|earth}}, {{l|en|air}}/[[wind#Noun|wind]], [[fire#Noun|fire]]; [[wood]], [[metal]]; [[void#Noun|void]]/[[ether]]
 
 =====Derived terms=====
-{{col4|en|Allan Water|Boundary Waters
+{{col4|en|Allan Water|Boundary Waters|Two Waters
 |American Water Spaniel
 |American water spaniel
 |Apollinaris water
-|Ashford-in-the-Water
+|Ashford-in-the-Water|water cremation|water fairy|water jug|water sprite
 |Atwater
 |Australian water dragon
 |Barbados water
@@ -815,6 +815,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |water potential
 |water power
 |water pox
+|water pressure
 |water primrose
 |water prince
 |water privilege
@@ -1479,6 +1480,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 
 ===Etymology===
 {{root|af|ine-pro|*wed-}}
+{{etymon|af|id=liquid|inh|nl>water>liquid|tree=1}}
 From {{inh|af|nl|water}}, from {{inh|af|dum|wāter}}, from {{inh|af|odt|watar}}, from {{inh|af|gmw-pro|*watar}}, from {{inh|af|gem-pro|*watōr}}, from {{inh|af|ine-pro|*wódr̥}}.
 
 ===Pronunciation===
@@ -1520,6 +1522,7 @@ From {{inh|af|nl|water}}, from {{inh|af|dum|wāter}}, from {{inh|af|odt|watar}},
 
 ===Etymology 1===
 {{root|nl|ine-pro|*wed-}}
+{{etymon|nl|id=liquid|inh|dum>wāter>liquid|tree=1}}
 From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*watar}}, from {{inh|nl|gem-pro|*watōr}}, from {{inh|nl|ine-pro|*wódr̥}}.
 
 ====Noun====
@@ -1622,6 +1625,7 @@ From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*wa
 |watervogel
 |watervrees
 |waterweegbree
+|waterwerk
 |waterzooi
 |waterzuring
 |wijwater
@@ -1647,7 +1651,7 @@ From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*wa
 ====Verb====
 {{head|nl|verb form}}
 
-# {{infl of|nl|wateren||1|s|pres|ind|;|imp}}
+# {{infl of|nl|wateren||1|s|pres|ind|;|2-inv|;|imp}}
 
 ===Further reading===
 * {{R:Van Dale online}}
@@ -1727,6 +1731,7 @@ From {{inh|nds-nl|osx|watar}}.
 
 ===Etymology===
 {{root|li|ine-pro|*wed-}}
+{{etymon|li|id=liquid|inh|dum>wāter>liquid|tree=1}}
 From {{inh|li|dum|wāter}}, from {{inh|li|odt|watar}}, from {{inh|li|gmw-pro|*watar}}, from {{inh|li|gem-pro|*watōr}}, from {{inh|li|ine-pro|*wódr̥}}.
 
 ===Noun===
@@ -1745,6 +1750,7 @@ From {{inh|li|dum|wāter}}, from {{inh|li|odt|watar}}, from {{inh|li|gmw-pro|*wa
 
 ===Etymology===
 {{root|dum|ine-pro|*wed-}}
+{{etymon|dum|id=liquid|inh|odt>watar>water|tree=1}}
 From {{inh|dum|odt|watar}}.
 
 ===Pronunciation===

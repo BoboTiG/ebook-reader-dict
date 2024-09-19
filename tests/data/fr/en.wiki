@@ -191,7 +191,7 @@
 * {{T|is}} : {{trad+|is|um}}, {{trad+|is|á}}, {{trad+|is|að}}, {{trad+|is|i}}, {{trad+|is|til}}
 * {{T|it}} : {{trad+|it|a}}, {{trad+|it|dentro}}, {{trad+|it|a}}
 * {{T|la}} : {{trad+|la|a}}, {{trad+|la|ab}}, {{trad-|la|abs}}, {{trad+|la|ad}}
-* {{T|ms}} : {{trad+|ms|di}}, {{trad-|ms|ke}}, {{trad-|ms|kepada}}
+* {{T|ms}} : {{trad+|ms|di}}, {{trad+|ms|ke}}, {{trad+|ms|kepada}}
 * {{T|yua}} : {{trad|yua|ich}}, {{trad|yua|ichil}}
 * {{T|nl}} : {{trad+|nl|aan}}, {{trad+|nl|aangaande}}, {{trad+|nl|betreffende}}, {{trad+|nl|bij}}, {{trad+|nl|met}}, {{trad+|nl|over}}, {{trad+|nl|van}}, {{trad+|nl|in}}, {{trad+|nl|jegens}}, {{trad+|nl|om}}, {{trad+|nl|op}}, {{trad+|nl|te}}, {{trad+|nl|tot}}, {{trad+|nl|voor}}, {{trad+|nl|binnen}}, {{trad+|nl|per}}, {{trad+|nl|op}}, {{trad+|nl|naar}}, {{trad+|nl|tegen}}
 * {{T|no}} : {{trad+|no|om}}, {{trad+|no|over}}, {{trad+|no|på}}, {{trad+|no|i}}, {{trad+|no|til}}
@@ -199,7 +199,7 @@
 * {{T|pap}} : {{trad|pap|den}}, {{trad|pap|na}}, {{trad|pap|pa}}
 * {{T|pms}} : {{trad|pms|ën}}
 * {{T|pl}} : {{trad+|pl|o}}, {{trad+|pl|w}}, {{trad+|pl|ku}}, {{trad+|pl|do}}
-* {{T|pt}} : {{trad+|pt|em}}, {{trad+|pt|acerca de}}, {{trad+|pt|a respeito de}}, {{trad-|pt|quanto a}}, {{trad+|pt|a}}, {{trad+|pt|ao}}, {{trad+|pt|com}}, {{trad-|pt|dentro de}}, {{trad+|pt|para}}
+* {{T|pt}} : {{trad+|pt|em}}, {{trad+|pt|acerca de}}, {{trad+|pt|a respeito de}}, {{trad+|pt|quanto a}}, {{trad+|pt|a}}, {{trad+|pt|ao}}, {{trad+|pt|com}}, {{trad-|pt|dentro de}}, {{trad+|pt|para}}
 * {{T|ro}} : {{trad+|ro|apropo}}, {{trad+|ro|despre}}, {{trad+|ro|în}}, {{trad+|ro|prin}}, {{trad+|ro|către}}, {{trad+|ro|la}}, {{trad+|ro|spre}}
 * {{T|ru}} : {{trad+|ru|о}}, {{trad+|ru|в}}, {{trad+|ru|на}}, {{trad+|ru|в}}, {{trad+|ru|к}}
 * {{T|sv}} : {{trad+|sv|om}}, {{trad+|sv|över}}, {{trad+|sv|på}}, {{trad+|sv|i}}, {{trad+|sv|till}}
@@ -556,6 +556,7 @@
 
 
 [[Catégorie:catalan oriental]]
+
 == {{langue|ht}} ==
 === {{S|étymologie}} ===
 : Du {{étyl|fr|ht|mot=un}}.
@@ -931,7 +932,7 @@ Académiques:
 === {{S|étymologie}} ===
 : {{lien-ancre-étym|oc|pronom}} : Du {{étyl|la|oc|inde|dif=ĭnde}}.
 : {{lien-ancre-étym|oc|préposition}} : Du {{étyl|la|oc|in|dif=ĭn}}.
-: {{lien-ancre-étym|oc|nom}}  Du {{étyl|la|oc|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
+: {{lien-ancre-étym|oc|nom}} Du {{étyl|la|oc|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
 
 === {{S|pronom|oc}} ===
 '''en''' {{pron|en|oc}} {{oc-norme classique}} {{m}}

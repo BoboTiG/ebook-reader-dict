@@ -178,7 +178,7 @@ from wikidict.utils import process_templates
         ),
         (
             "us",
-            ["/əs/", "/əz/", "/ʌs/", "/ʌz/"],
+            ["/əs/", "/əz/", "/ʊs/", "/ʌs/", "/ʌz/"],
             [
                 "<i>Etymon</i> <b>inh</b>",
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). The compensatory lengthening was lost in Middle English due to the word being unstressed while being used. Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",
@@ -261,7 +261,7 @@ from wikidict.utils import process_templates
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."  # noqa
             ],
             [
-                "The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",
+                "<i>(semantics)</i> The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",
                 (
                     "The smallest discrete unit of spoken language with a particular meaning, composed of one or more phonemes and one or more morphemes",
                     "The smallest discrete unit of written language with a particular meaning, composed of one or more letters or symbols and one or more morphemes",

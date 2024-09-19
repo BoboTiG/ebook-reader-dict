@@ -19,6 +19,8 @@
 ====Översättningar====
 {{ö-topp|små korn sten}}
 *acehnesiska: {{ö|ace|anoë}}
+*amhariska: {{ö|am|አሸዋ}}
+*azerbajdzjanska: {{ö+|az|qum}}
 *bokmål: {{ö+|no|sand}}
 *engelska: {{ö+|en|sand}}
 *finska: {{ö+|fi|hiekka}}
@@ -31,7 +33,9 @@
 *nederländska: {{ö+|nl|zand|n}}
 *polska: {{ö+|pl|piasek|m}}
 *ryska: {{ö+|ru|песок|m|tr=pesók}}
+*somaliska: {{ö+|so|ciid}}
 *spanska: {{ö+|es|arena|f}}
+*tigrinska: {{ö+|ti|ሑጻ}}
 *turkiska: {{ö+|tr|kum}}
 *tyska: {{ö+|de|Sand|m}}
 *ukrainska: {{ö+|uk|пісо́к|m}}

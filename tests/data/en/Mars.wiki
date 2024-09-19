@@ -484,7 +484,7 @@ First attested as ''mersche'' in 1307. Derived from {{m-lite|nl|meers||land next
 ====Proper noun====
 {{nl-proper noun|n}}
 
-# {{place|nl|neighbourhood|c/Land van Cuijk|p/Noord-Brabant|c/Netherlands}}.
+# {{place|nl|neighbourhood|c/Land van Cuijk|p/North Brabant|c/Netherlands}}
 
 ===References===
 * {{R:nl:NPV}}
@@ -928,6 +928,7 @@ God (or sometimes the planet):
 
 ===Pronunciation===
 * {{IPA|sv|/mars/}}
+* {{IPA|sv|/maʂː/}}
 * {{audio|sv|LL-Q9027 (swe)-Moonhouse-Mars.wav}}
 
 ===Proper noun===

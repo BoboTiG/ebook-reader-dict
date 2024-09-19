@@ -33,8 +33,8 @@ En el sentido empresarial, prestado {{etim|leng=en|de|Kartell}}, utilizado por p
 {{inflect.en.sust}}
 
 ;1 {{csem|leng=en|economía}}: Un grupo de empresas o naciones que se confabulan para limitar la competencia dentro de una industria o mercado: [[cartel]], [[cártel]].
-{{ejemplo|drug '''cartel'''}}
-{{ejemplo|car '''cartel'''}}
+{{ejemplo|drug cartel}}
+{{ejemplo|car cartel}}
 
 ;2 {{csem|leng=en|historia|política}}: Una combinación de grupos políticos (en particular partidos) para una acción común.
 

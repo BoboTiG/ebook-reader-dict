@@ -21,3 +21,12 @@
 
 [[Categoria:Pospositivo (Português)]]
 [[Categoria:Entrada de étimo latino (Português)]]
+
+
+={{-vo-}}=
+==Sufixo==
+'''-a'''
+# designativo do [[caso]] [[genitivo]], coloca-se junto e imediatamente após a palavra no caso [[nominativo]].
+#: Ex.: '''[[buk]]''' &rarr; '''buka''' ''(livro &rarr; de/do livro)''.
+
+[[Categoria:Sufixo (Volapuque)|a]]

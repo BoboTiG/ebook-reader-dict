@@ -24,7 +24,7 @@
 
 =====Usage notes=====
 Also used in some British place names and [[civil parish]] names, see table below
-{{col-auto|en|Chorlton-cum-Hardy|Suffield-cum-Everley|Aldringham cum Thorpe|Ash-cum-Ridley|Hannah cum Hagnaby|Warmfield cum Heath| Clapham cum Newby|Burton-cum-Walden|Holywell-cum-Needingworth|Sutton cum Duckmanton}}
+{{col-auto|en|Chorlton-cum-Hardy|Suffield-cum-Everley|Aldringham cum Thorpe|Ash-cum-Ridley|Hannah cum Hagnaby|Warmfield cum Heath| Clapham cum Newby|Burton-cum-Walden|Holywell-cum-Needingworth|Sutton cum Duckmanton| Elloughton-cum-Brough|Raithby cum Maltby|Woodford cum Membris}}
 
 =====Translations=====
 {{trans-top}}
@@ -54,6 +54,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 # {{lb|en|colloquial|often|_|vulgar}} [[semen|Semen]].
 #: {{syn|en|jizz|spunk|q2=chiefly UK|spooge|q3=US|nut|skeet|junk|Thesaurus:semen}}
 #* {{quote-book|en|author=w:John Rechy|title=The Sexual Outlaw|year=1977|publisher=Dell|location=New York|page=73|pageurl=https://archive.org/details/sexualoutlawdocu00rech/page/73/mode/1up|isbn=978-0-440-17667-1|passage=Jim descends into the murky tunnel; the faint odor of '''cum''' permeates the air.}}
+#* {{quote-journal|en|date=24 Dec 89|volume=17|number=24|journal=Gay Community News|page=9|author=Read Weaver|title=Queers For Years|text=Licking a friend's '''cum''' off another friend's belly.}}
 #* {{quote-av|en|speaker=Norm Macdonald|title=Norm Macdonald Live|year=2014|season=2|number=3|passage=This week I learned that '''cum''' tastes like nickels.}}
 # {{lb|en|colloquial|often|_|vulgar}} Female ejaculatory discharge.
 # {{lb|en|colloquial|often|_|vulgar}} An [[ejaculation]].
@@ -92,7 +93,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 {{trans-top|slang: semen}}
 * Armenian: {{t+|hy|թոխում}}
 * Asturian: {{t|ast|llimu|m}}, {{t+|ast|espelma|f}}, {{t+|ast|semen|m}}
-* Belarusian: {{t+|be|спэрма|f}}, {{t+|be|кнура|f}} {{qualifier|vulgar}}
+* Belarusian: {{t|be|спэрма|f}}, {{t|be|кнура|f}} {{qualifier|vulgar}}
 * Bengali: {{t+|bn|মাল}}
 * Catalan: {{t+|ca|llet|f}}, {{t|ca|lleterada|f}}, {{t+|ca|escorreguda|f}}, {{t+|ca|semen|m}}, {{t+|ca|sement|f}}, {{t+|ca|esperma}}
 * Chinese:
@@ -417,6 +418,14 @@ From {{inh|la|itc-ola|quom}}, from {{der|la|ine-pro|*kʷóm}}, accusative of {{m
 * {{R:Gaffiot}}
 * {{R:M&A}}
 
+==Linngithigh==
+{{cardinalbox|lnj|2|3|4|odhithigh||adv=cumodh}}
+
+===Numeral===
+{{head|lnj|numeral}}
+
+# [[three]]
+
 ==Manx==
 
 ===Etymology 1===
@@ -443,6 +452,16 @@ From {{inh|gv|mga|cummaid}}, a denominative verb from {{m|mga|cumma}}, itself fr
 
 ===Mutation===
 {{gv-mut-cons|c|um}}
+
+==Old English==
+
+===Pronunciation===
+* {{ang-IPA|cum}}
+
+===Verb===
+{{head|ang|verb form}}
+
+# {{infl of|ang|cuman||s|impr}}
 
 ==Old French==
 

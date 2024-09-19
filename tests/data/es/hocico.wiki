@@ -10,15 +10,15 @@
 ;2 {{csem|anatomía}}: {{plm}} de una persona cuando tiene muy [[abultado]]s los [[labio]]s.
 ;3: {{plm|cara}}.
 {{uso|familiar}}.
-{{ejemplo|Félix tiene buen ''hocico''.}}
+{{ejemplo|Félix tiene buen hocico.}}
 ;4: {{plm|gesto}} que [[denotar|denota]] [[enojo]] o [[enfado]].
 ;5: Forma despectiva para referirse a la boca de alguien.
 {{ámbito|Chile}}.
 {{uso|despectivo|malsonante}}
-{{ejemplo|Te voy a dar un [[combo]] en l'''hocico''.}}
-{{ejemplo|Tení' el ''hocico'' [[hediondo]].}}
-{{ejemplo|Tengo el ''hocico'' p'a la cag'á.}}
-{{ejemplo|¿Querí que te de una patá en el ''hocico''?}}
+{{ejemplo|Te voy a dar un [[combo]] en lhocico.}}
+{{ejemplo|Tení' el hocico [[hediondo]].}}
+{{ejemplo|Tengo el hocico p'a la cag'á.}}
+{{ejemplo|¿Querí que te de una patá en el hocico?}}
 ;6: Boca de una persona, especialmente de la que dice malas palabras.
 {{uso|coloquial}}.
 {{ámbito|México}}.
