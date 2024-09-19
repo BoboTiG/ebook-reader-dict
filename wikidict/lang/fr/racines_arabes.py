@@ -4725,7 +4725,7 @@ racines_schemes_arabes = {
         "ar-*a**@ũ": "habitude",
         "ar-*a**ũ": "vagin d'une femelle",
         "ar-*a*a*@ũ": "({{p}}) ouvriers",
-        "ar-*a*a*a-a": "agir",
+        "ar-*a*a*a-a": "faire",
         "ar-*a*i*@ũ": "action, acte",
         "ar-*a*â*i": "fais !",
         "ar-*a*â*ũ": "œuvre",

@@ -4851,7 +4851,7 @@ langs = {
     "ses": "songhaï koyraboro senni",
     "set": "sentani",
     "seu": "serui-laut",
-    "sev": "sénoufo de Nyarafolo",
+    "sev": "sénoufo nyarafolo",
     "sew": "sewa bay",
     "sey": "secoya",
     "sez": "senthang chin",
