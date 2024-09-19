@@ -200,6 +200,8 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
     '<i>(argot casteller)</i>'
+    >>> render_label("marca", ["ca", "castells", ""], defaultdict(str))
+    '<i>(argot casteller)</i>'
     >>> render_label("marca", ["ca", "medicina"], defaultdict(str))
     '<i>(medicina)</i>'
     >>> render_label("marca", ["ca", "neologisme", "humorístic", "i", "a vegades", "despectiu"], defaultdict(str))
@@ -212,6 +214,9 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     omit_postComma = True
 
     for label in parts[1:]:
+        if not label:
+            continue
+
         omit_preComma = omit_postComma
         omit_postComma = False
 
