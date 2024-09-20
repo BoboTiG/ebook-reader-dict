@@ -503,9 +503,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return f"{part1} {cmpl1} ou {part2} {cmpl2}"
 
     if tpl == "trad":
-        lang = parts.pop(0)
-        phrase = langs[lang].title()
-        phrase += "&nbsp;: " if lang == "fr" else ": "
+        trad_lang = parts.pop(0)
+        phrase = langs[trad_lang].title()
+        phrase += "&nbsp;: " if trad_lang == "fr" else ": "
         phrase += concat(parts, sep=", ")
         return phrase
 
