@@ -103,6 +103,7 @@ templates_ignored = (
     "revisar línea",
     "revisión",
     "sin referencias",
+    "t",
     "uso",
 )
 
