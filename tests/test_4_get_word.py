@@ -3,31 +3,38 @@ import pytest
 from wikidict import get_word
 
 
+@pytest.mark.webtest
 def test_simple() -> None:
     # The word exists and contains subsublists.
     assert get_word.main("fr", "base") == 0
 
 
+@pytest.mark.webtest
 def test_get_random_word() -> None:
     assert get_word.main("fr", "") == 0
 
 
+@pytest.mark.webtest
 def test_subdefinitions() -> None:
     assert get_word.main("fr", "mesure") == 0
 
 
+@pytest.mark.webtest
 def test_raw() -> None:
     assert get_word.main("fr", "marron", raw=True) == 0
 
 
+@pytest.mark.webtest
 def test_word_with_variants() -> None:
     assert get_word.main("fr", "suis") == 0
 
 
+@pytest.mark.webtest
 def test_word_not_found() -> None:
     assert get_word.main("fr", "mutinerssssssss") == 0
 
 
+@pytest.mark.webtest
 @pytest.mark.parametrize(
     ("locale", "word", "pronunciations"),
     [
@@ -39,6 +46,7 @@ def test_locale_pronunciations(locale: str, word: str, pronunciations: list[str]
     assert details.pronunciations == pronunciations
 
 
+@pytest.mark.webtest
 @pytest.mark.parametrize(
     ("locale", "word", "etymology_len"),
     [

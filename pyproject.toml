@@ -27,6 +27,9 @@ addopts = """
     --strict-markers
     -vvv
 """
+markers = """
+    webtest: an internet connection is required for that test.
+"""
 
 [tool.ruff]
 exclude = [

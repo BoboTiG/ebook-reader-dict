@@ -44,7 +44,11 @@ $ python -m pip install -r requirements-tests.txt
 Run tests:
 
 ```console
+# All tests
 $ python -m pytest --doctest-modules wikidict tests
+
+# Skip those requiring a working internet connection
+$ python -m pytest --doctest-modules wikidict tests -m "not webtest"
 ```
 
 Run linters, and quality checkers, before submitting a pull-request:
