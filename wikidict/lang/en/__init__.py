@@ -50,6 +50,7 @@ variant_templates = (
     "{{en-superlative",
     "{{en-third",
     "{{en-tpso",
+    "{{infl of",
     "{{plural of",
 )
 
@@ -68,6 +69,7 @@ definitions_to_ignore = (
     "en-third-person singular of",
     "en-third person singular of",
     "en-third-person_singular_of",
+    "infl of",
     "plural of",
 )
 
@@ -234,6 +236,8 @@ templates_multi = {
     "en-third-person_singular_of": "parts[1]",
     # {{en-third person singular of|term}}
     "en-third person singular of": "parts[1]",
+    # {{infl of|en|cling||ing-form}}
+    "infl of": "parts[2]",
     # {{plural of|en|human}}
     "plural of": "parts[-1]",
 }
