@@ -500,7 +500,7 @@ class StarDictFormat(ConverterFromDictFile):
 
     target_format = "stardict"
     target_suffix = "ifo"
-    final_file = f"{DictFileFormat.output_file}.zip"
+    final_file = "dict-{locale}-{locale}.zip"
     glossary_options = {"dictzip": True}
 
 
