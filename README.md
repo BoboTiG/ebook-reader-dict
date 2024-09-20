@@ -24,7 +24,7 @@
 
 Setup a virtual environment:
 
-```console
+```bash
 $ python3.12 -m venv venv
 
 # For Linux and Mac users
@@ -36,14 +36,14 @@ $ . venv/Scripts/activate
 
 Install, or update, dependencies:
 
-```console
+```bash
 $ python -m pip install -U pip
 $ python -m pip install -r requirements-tests.txt
 ```
 
 Run tests:
 
-```console
+```bash
 # All tests
 $ python -m pytest --doctest-modules wikidict tests
 
@@ -53,7 +53,7 @@ $ python -m pytest --doctest-modules wikidict tests -m "not webtest"
 
 Run linters, and quality checkers, before submitting a pull-request:
 
-```console
+```bash
 $ ./check.sh
 ```
 
