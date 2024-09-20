@@ -1,4 +1,4 @@
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
@@ -124,7 +124,7 @@ def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str],
 
     >>> render_foreign_lang("Urdu", ["فن"], defaultdict(str, {"b": "Kunst", "d": "fann", "v": "فَنّ"}))
     'فَنّ, DMG: fann, „Kunst“'
-    """  # noqa
+    """
     phrase = data["v"] or parts.pop(0)
 
     as_ü_template = "Ü" in parts
@@ -161,7 +161,7 @@ def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str
 
     >>> render_foreign_lang_simple("Farsi", ["آیتالله"], defaultdict(str, {"b": "Geschöpf", "d" :"ǧānvar", "v": "جَانْوَر"}))
     'جَانْوَر (DMG: ǧānvar) ‚Geschöpf‘'
-    """  # noqa
+    """
     phrase = data["v"] or parts.pop(0)
     if data["d"]:
         phrase += f" (DMG: {data['d']})"
@@ -251,7 +251,7 @@ def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     '<i>landschaftlich:</i>'
     >>> render_K("K", ["Süddeutschland", "und", "Österreich", "sonst", "veraltete Schreibweise"], defaultdict(str))
     '<i>Süddeutschland und Österreich, sonst veraltete Schreibweise:</i>'
-    """  # noqa
+    """
     conjonctions = ("oder", "respektive", "sowie", "und")
     conjonctions_start = (*conjonctions, *no_commas)
     phrase = ""

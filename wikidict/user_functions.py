@@ -89,7 +89,7 @@ def chinese(parts: list[str], data: defaultdict[str, str], laquo: str = "“", r
         '*班長 (<i>bānzhǎng</i>, “team leader”)'
         >>> chinese(["木蘭"], defaultdict(str, {"tr": "Mùlán", "lit": "magnolia"}))
         '木蘭 (<i>Mùlán</i>, literally “magnolia”)'
-    """  # noqa
+    """
     phrase = parts.pop(0).replace("/", "／")
     tr = data["tr"] or (parts.pop(0) if parts else "")
     gl = data["gloss"] or (parts.pop(0) if parts else "")
@@ -254,7 +254,7 @@ def extract_keywords_from(parts: list[str]) -> defaultdict[str, str]:
         defaultdict(<class 'str'>, {})
         >>> extract_keywords_from(["foo", "bar='baz'"])
         defaultdict(<class 'str'>, {'bar': "'baz'"})
-    """  # noqa
+    """
     data = defaultdict(str)
     for part in parts.copy():
         if "=" in part:

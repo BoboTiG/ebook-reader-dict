@@ -1,4 +1,4 @@
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 from ...user_functions import (
     capitalize,
@@ -206,7 +206,7 @@ def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     'del árabe <i>كنية</i> (<i>kunyah</i>, "sobrenombre honorífico")'
     >>> render_etim("etim", ["grc", "ἱδρώς", "sudor"], defaultdict(str))
     'del griego antiguo <i>ἱδρώς</i> ("sudor")'
-    """  # noqa
+    """
     result = f"del {normalizar_nombre(parts[0])}"
     lplus = render_l(
         "l+",
@@ -320,7 +320,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     'Incierta'
     >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
     'Epónimo de la ciudad alemana de Berlín'
-    """  # noqa
+    """
 
     def call_l_single_part(part: str, index: int) -> str:
         sindex = str(index) if index > 1 else ""
@@ -586,7 +586,7 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     '<i>Grafía poco usada de</i> exudar'
     >>> render_grafia("grafía", ["psicológico"], defaultdict(str, {"texto": "Grafía rara de", "texto_pos": "(por ejemplo)"}))
     '<i>Grafía rara de</i> psicológico <i>(por ejemplo)</i>'
-    """  # noqa
+    """
     if data["texto"]:
         start = data["texto"]
     else:

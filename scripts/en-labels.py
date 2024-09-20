@@ -53,7 +53,7 @@ def dialect_handler(text: str) -> dict[str, str]:
 
     exec(text_dialect, globals())
     results: dict[str, str] = {}
-    for k, v in labels.items():  # type: ignore # noqa
+    for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
         results[k] = k
         for alt in v.get("alts", []):
             results[alt] = k
@@ -89,14 +89,14 @@ def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print
     exec(code, globals())
     results: dict[str, str] = {}
 
-    for k, v in labels.items():  # type: ignore # noqa
+    for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
         if k == "deprecated label":
             continue
         label_v = v
         label_k = k
         aliases = []
         if isinstance(v, str):
-            label_v = labels.get(v, v)  # type: ignore # noqa
+            label_v = labels.get(v, v)  # type: ignore[name-defined] # noqa: F821
             if label_v != v:
                 label_k = v
         if isinstance(label_v, str):
@@ -190,10 +190,10 @@ for key, value in sorted(results_data.items()):
 print(f"}}  # {len(results_data):,}")
 
 syntaxes: dict[str, dict[str, bool]] = {}
-for k, v in labels.items():  # type: ignore # noqa
+for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
     label_v = v
     if isinstance(v, str):
-        label_v = labels.get(v)  # type: ignore # noqa
+        label_v = labels.get(v)  # type: ignore[name-defined] # noqa: F821
     if not label_v:
         continue
     omit_preComma = label_v.get("omit_preComma")
@@ -218,9 +218,9 @@ for k, v in labels.items():  # type: ignore # noqa
 
 print()
 print("label_syntaxes = {")
-for key, value in sorted(syntaxes.items()):  # type: ignore
+for key, value in sorted(syntaxes.items()):  # type: ignore[assignment]
     print(f'    "{key}": {{')
-    for k, v in value.items():  # type: ignore
+    for k, v in value.items():  # type: ignore[attr-defined]
         print(f'        "{k}": {v},')
     print("    },")
 print(f"}}  # {len(syntaxes):,}")

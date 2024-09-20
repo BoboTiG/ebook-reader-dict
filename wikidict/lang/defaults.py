@@ -1,7 +1,7 @@
 """Defaults values for locales without specific needs."""
 
 import re
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 # Float number separator
 float_separator = ""
@@ -117,7 +117,7 @@ def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     "Pavel Vladimirovitch <span style='font-variant:small-caps'>Ieremeïev</span>"
     >>> render_wikilink("w", ["mitrospin obscur 0", "mitrospin obscur 1", "(''Mitrospingus cassinii'')"], defaultdict(str))
     'mitrospin obscur 1'
-    """  # noqa
+    """
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
     if wiki_data := {k: v for k, v in data.items() if k != "lang"}:
         return "".join(f"{k}={v}" for k, v in wiki_data.items())

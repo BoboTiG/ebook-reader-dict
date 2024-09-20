@@ -31,4 +31,4 @@ def set(formula: str, svg_raw: str) -> None:
 
 def optimize(svg_raw: str) -> str:
     """Optimize a given SVG."""
-    return scourString(svg_raw, options=SCOUR_OPTIONS)  # type: ignore
+    return str(scourString(svg_raw, options=SCOUR_OPTIONS))

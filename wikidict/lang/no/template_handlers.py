@@ -1,4 +1,4 @@
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 from ...user_functions import (
     concat,

@@ -126,7 +126,7 @@ Fitxers disponibles:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualitzat el {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Viccionari (ɔ) {year}"
@@ -244,7 +244,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula", "pos=gentilici"], "ca")
         '<i>λόγος</i> (<i>lógos</i>, «paraula», gentilici)'
-        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
+        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca")
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
         >>> last_template_handler(["trad", "es", "manzana"], "ca")

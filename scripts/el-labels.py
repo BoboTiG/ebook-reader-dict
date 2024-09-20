@@ -25,7 +25,7 @@ exec(code, globals())
 print("labels = {")
 for k, v in labels.items():
     print(f'    "{k}": {{')
-    for k, v in v.items():  # type: ignore
+    for k, v in v.items():  # type: ignore[union-attr]
         if k in ["link", "linkshow"]:
             print(f'        "{k}": "{v}",')
     print("    },")

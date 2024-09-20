@@ -43,7 +43,7 @@ def process_display(display: str) -> str:
 labels: dict[str, str] = {}
 syntaxes: dict[str, dict[str, bool]] = {}
 
-for k, v in etiqueta.items():  # type: ignore # noqa
+for k, v in etiqueta.items():  # type: ignore[name-defined] # noqa: F821
     if mostra := v.get("mostra"):
         labels[k] = process_display(mostra)
     elif "omit_preComma" in v or "omit_postComma" in v:
@@ -52,10 +52,10 @@ for k, v in etiqueta.items():  # type: ignore # noqa
             "omit_preComma": bool(v.get("omit_preComma", False)),
         }
 
-for k, v in alternativa.items():  # type: ignore # noqa
+for k, v in alternativa.items():  # type: ignore[name-defined] # noqa: F821
     labels[k] = v
 
-for k, v in etiqueta.items():  # type: ignore # noqa
+for k, v in etiqueta.items():  # type: ignore[name-defined] # noqa: F821
     if "omit_preComma" not in v:
         continue
     syntaxes[k] = {

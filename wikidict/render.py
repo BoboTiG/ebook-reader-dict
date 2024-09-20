@@ -29,7 +29,8 @@ from .lang import (
     variant_titles,
 )
 from .stubs import Definitions, SubDefinitions, Word, Words
-from .utils import process_templates, table2html, uniq
+from .user_functions import uniq
+from .utils import process_templates, table2html
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -63,7 +64,7 @@ def find_definitions(word: str, parsed_sections: Sections, locale: str) -> list[
 
     # Remove duplicates
     seen = set()
-    return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore
+    return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore[func-returns-value]
 
 
 def es_replace_defs_list_with_numbered_lists(
@@ -433,7 +434,7 @@ def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
     in_words = {word: code for word, code in in_words.items() if any(head_section in code for head_section in sections)}
 
     MANAGER = multiprocessing.Manager()
-    MISSING_TPL_SEEN = MANAGER.list()  # noqa:F841
+    MISSING_TPL_SEEN = MANAGER.list()  # noqa: F841
     results: Words = cast(dict[str, Word], MANAGER.dict())
 
     with multiprocessing.Pool(processes=workers) as pool:

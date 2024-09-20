@@ -433,7 +433,7 @@ class StarDictFormat(DictFileFormat):
         def noop_gc_collect() -> None:  # pragma: nocover
             pass
 
-        gc.collect = noop_gc_collect  # type: ignore
+        gc.collect = noop_gc_collect  # type: ignore[assignment]
 
     def _convert(self) -> None:
         """Convert the DictFile to StarDict."""

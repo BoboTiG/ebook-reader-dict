@@ -214,7 +214,7 @@ File disponibili:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Aggiornato il {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikizionario (ɔ) {year}"

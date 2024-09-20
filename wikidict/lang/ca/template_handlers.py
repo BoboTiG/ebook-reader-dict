@@ -1,4 +1,4 @@
-from collections import defaultdict  # noqa
+from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
 from .general import cal_apostrofar
@@ -111,7 +111,7 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
     >>> render_forma("sinònim", ["mul", "Miathyria"], defaultdict(str, {"glossa": "gènere de libèl·lules"}))
     '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
-    """  # noqa
+    """
     formas = {
         "forma-a": "forma alternativa de",
         "forma-augm": "forma augmentativa de",
@@ -208,7 +208,7 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     '<i>(neologisme, humorístic i a vegades, despectiu)</i>'
     >>> render_label("marca", ["ca", "pronominal", "valencià", "_", "col·loquial"], defaultdict(str))
     '<i>(pronominal, valencià col·loquial)</i>'
-    """  # noqa
+    """
     res = ""
     omit_preComma = False
     omit_postComma = True
@@ -241,7 +241,7 @@ def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
     >>> render_sigles_de("sigles de", ["ca", "North Atlantic Treaty Organization"], defaultdict(str, {"t": "OTAN"}))
     '<i>Sigles de</i> <b>North Atlantic Treaty Organization</b> («OTAN»)'
-    """  # noqa
+    """
     phrase = f"{italic('Sigles de')} {strong(parts[-1])}"
     if data["t"]:
         phrase += f" («{data['t']}»)"

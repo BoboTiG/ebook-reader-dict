@@ -1,5 +1,5 @@
 import re
-from collections import defaultdict  # noqa
+from collections import defaultdict
 from typing import TypedDict
 
 from ...transliterator import transliterate
@@ -175,7 +175,7 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], word
     'Coined by American scientist Josiah W. Gibbs'
     >>> render_coinage("coin", [], defaultdict(str, {"1":"en", "2":"Charles Rice"}))
     'Coined by Charles Rice'
-    """  # noqa
+    """
     if parts:
         parts.pop(0)  # Remove the language
     p = data["alt"] or data["2"] or (parts.pop(0) if parts else "unknown") or "unknown"
@@ -373,7 +373,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'English'
     >>> render_foreign_derivation("m+", ["ja", "力車"], defaultdict(str, {"tr":"rikisha"}))
     'Japanese <i>力車</i> (<i>rikisha</i>)'
-    """  # noqa
+    """
     # Short path for the {{m|en|WORD}} template
     if tpl in {"m", "m-lite"} and len(parts) == 2 and parts[0] == "en" and not data:
         word = parts[1]
@@ -534,7 +534,7 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], w
     >>> render_given_name("given name", ["da", "male"], defaultdict(str, {"usage":"traditionally popular", "eq": "Nicholas", "from":"la:Nīcolāī<pos:genitive>", "from2":"ru:Никола́й"}))
     '<i>A male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
 
-    """  # noqa
+    """
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
     gender += f' or {data["or"]}' if data["or"] else ""
@@ -636,7 +636,7 @@ def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[s
     '<i>A male given name of historical usage, notably borne by Saint Abundius, an early Christian bishop</i>'
     >>> render_historical_given_name("historical given name", ["en" , "male"], defaultdict(str, {"eq": "John", "A":""}))
     '<i>male given name of historical usage, equivalent to English <b>John</b></i>'
-    """  # noqa
+    """
     data["1"] or (parts.pop(0) if parts else "")
     sex = data["2"] or (parts.pop(0) if parts else "")
     desc = data["3"] or (parts.pop(0) if parts else "")
@@ -818,7 +818,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
     >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
     '<i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
-    >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))  # noqa
+    >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))
     'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
     >>> render_morphology("blend", ["en"], defaultdict(str))
     'Blend'
@@ -841,7 +841,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
     'Doublet of <i>ヴィエンヌ</i> (<i>Viennu</i>, “Vienne”) and <i>ウィーン</i> (<i>Wīn</i>)'
     >>> render_morphology("dbt", ["ru" , "ру́сский"], defaultdict(str, {"tr1":"rúkij", "t1":"R", "g1":"m", "pos1":"n", "lit1":"R"}))
     'Doublet of <i>ру́сский</i> <i>m</i> (<i>rúkij</i>, “R”, n, literally “R”)'
-    """  # noqa
+    """
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
         if tpl in {"pre", "prefix", "con", "confix"} and i == 1:
@@ -958,7 +958,7 @@ def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], 
     'Patrick Swayze'
     >>> render_named_after("named-after", ["en"], defaultdict(str))
     'Named after an unknown person'
-    """  # noqa
+    """
     parts.pop(0)  # Remove the language
     p = parts.pop(0) if parts else ""
     p = p or "an unknown person"
@@ -1080,7 +1080,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     'A city in Georgia, United States'
     >>> render_place("place", ["en", "river", "in", "England", ", forming the boundary between", "co/Derbyshire", "and", "co/Staffordshire"], defaultdict(str))
     'A river in England, forming the boundary between Derbyshire and Staffordshire'
-    """  # noqa
+    """
     parts.pop(0)  # Remove the language
     phrase = ""
     i = 1
@@ -1191,19 +1191,19 @@ def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     category = data["3"] or (parts.pop(0) if parts else "")
     alt = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."  # noqa
+    return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."
 
 
 def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_si_unit_abb("SI-unit-abb", ["femto", "mole", "amount of substance"], defaultdict(str))
     '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>-15</sup> moles'
-    """  # noqa
+    """
     prefix = data["1"] or (parts.pop(0) if parts else "")
     unit = data["2"] or (parts.pop(0) if parts else "")
     category = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"  # noqa
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"
 
 
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:

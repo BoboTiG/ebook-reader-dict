@@ -95,9 +95,9 @@ templates_multi = {
     # {{fp}}
     "fp": "italic('feminino plural')",
     # {{grafiaPtbr|autocrómico}}
-    "grafiaPtbr": "f'{italic(f\"Grafia usada no Brasil. Nos restantes países da CPLP escreve-se {strong(parts[-1])}\")}'",  # noqa
+    "grafiaPtbr": "f'{italic(f\"Grafia usada no Brasil. Nos restantes países da CPLP escreve-se {strong(parts[-1])}\")}'",
     # {{grafiaPtpt|a}}
-    "grafiaPtpt": "f'{italic(f\"Grafia usada em todos os países falantes de língua portuguesa exceto no Brasil, onde se escreve {strong(parts[-1])}\")}'",  # noqa
+    "grafiaPtpt": "f'{italic(f\"Grafia usada em todos os países falantes de língua portuguesa exceto no Brasil, onde se escreve {strong(parts[-1])}\")}'",
     # {{l|pt|usar|usar}}",
     "l": "parts[-1]",
     # {{l.o.|jurídico|jurídica}}
@@ -154,9 +154,9 @@ templates_multi = {
     # {{s/p}}
     "s/p": "italic('sem plural')",
     # {{signBr|a}}
-    "signBr": "f'{italic(f\"Este significado é de uso comum no Brasil. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",  # noqa
+    "signBr": "f'{italic(f\"Este significado é de uso comum no Brasil. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",
     # {{signPt|a}}
-    "signPt": "f'{italic(f\"Este significado é de uso comum em Portugal. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",  # noqa
+    "signPt": "f'{italic(f\"Este significado é de uso comum em Portugal. Um semelhante pode ser encontrado em: {strong(parts[-1])}\")}'",
     # {{varort|tenu-|pt}}
     "varort": 'f"variante ortográfica de {strong(parts[1])}"',
 }
@@ -181,7 +181,7 @@ Arquivos disponíveis:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualizado em {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionário (ɔ) {year}"
@@ -235,7 +235,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
         'chimica f.'
-    """  # noqa
+    """
     from ..defaults import last_template_handler as default
     from .codelangs import codelangs
     from .langs import langs

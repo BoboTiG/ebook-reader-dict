@@ -95,7 +95,7 @@ release_description = """\
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Βικιλεξικό (ɔ) {year}"
@@ -164,7 +164,7 @@ def find_pronunciations(
 def text_language(lang_donor_iso: str, myargs: dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
-    """  # noqa
+    """
     lang: dict[str, str | bool] = langs[lang_donor_iso]
     lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
     lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική

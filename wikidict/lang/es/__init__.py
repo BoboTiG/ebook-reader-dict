@@ -128,9 +128,9 @@ templates_italic = {
 # Templates more complex to manage.
 templates_multi = {
     # {{adjetivo de sustantivo|el mundo árabe}}
-    "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',  # noqa
+    "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',
     # {{adjetivo de padecimiento|alergia}}
-    "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',  # noqa
+    "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',
     # {{color|#DDB88E|espacio=6}}
     "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
     # {{contexto|Educación}}
@@ -142,8 +142,8 @@ templates_multi = {
     # {{definición impropia|Utilizado para especificar...}}
     "definición impropia": "italic(parts[1])",
     # {{DRAE}}
-    "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
-    "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
+    "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
+    "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     # {{etimología2|de [[hocicar]]}}
     "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
@@ -201,7 +201,7 @@ Archivos disponibles:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Actualizado el {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionario (ɔ) {year}"
@@ -223,7 +223,7 @@ def find_pronunciations(
     ['[ˈrwe.ɰo]']
     >>> find_pronunciations("{{pronunciación|[ los ] o [ lɔʰ ]<ref>[l.htm l.htm] C</ref>}}")
     ['[los]', '[lɔʰ]']
-    """  # noqa
+    """
     pattern = pattern2 if "{pronunciación|" in code else pattern1
     return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 

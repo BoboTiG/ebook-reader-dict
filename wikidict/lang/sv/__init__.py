@@ -140,7 +140,7 @@ Tillgängliga filer:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Uppdaterad på {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -207,7 +207,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["tagg", "bildligt", "reflexivt"], "sv", word="etsa")
         '<i>(bildligt, reflexivt: <b>etsa sig</b>)</i>'
 
-    """  # noqa
+    """
     from ...user_functions import extract_keywords_from, italic, strong, term
     from ..defaults import last_template_handler as default
 

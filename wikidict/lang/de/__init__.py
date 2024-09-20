@@ -80,7 +80,7 @@ templates_multi = {
     # {{IPA-Text|māʔ}}
     "IPA-Text": "parts[1]",
     # {{Kontamination|<Präfix>|<Wort 1>|<Suffix>|<Wort 2>}}
-    "Kontamination": "f'Kontamination, zusammengesetzt aus „{parts[1]}-“ (von {parts[2]}) und „-{parts[3]}“ (von {parts[4]})'",  # noqa
+    "Kontamination": "f'Kontamination, zusammengesetzt aus „{parts[1]}-“ (von {parts[2]}) und „-{parts[3]}“ (von {parts[4]})'",
     # {{Koptisch|{{Ü|cop|ⲉⲙⲟⲩ}}}}
     "Koptisch": "parts[-1]",
     # {{L|at||en}}
@@ -113,7 +113,7 @@ templates_multi = {
     "Polytonisch": "parts[-1]",
     # {{Ref-behindthename|Alan}}
     "Ref-behindthename": "f'behindthename.com „{word}“'",
-    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",  # noqa
+    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",
     # {{Ü|pl|dzień}}
     "Ü": "parts[-1]",
     # {{Unicode|kɔ}}
@@ -196,7 +196,7 @@ Verfügbare Wörterbuch-Formate:
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Letzte Aktualisierung: {creation_date}.</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -226,7 +226,7 @@ def find_pronunciations(
     ['[ˈʁɪndɐˌsteːk]']
     >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}")
     ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
-    """  # noqa
+    """
     return [f"[{p}]" for p in uniq(pattern.findall(code))]
 
 
@@ -242,7 +242,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     'französisch:'
     >>> last_template_handler(["fr"], "de")
     'Französisch'
-    """  # noqa
+    """
     from ...user_functions import italic
     from ..defaults import last_template_handler as default
     from .lang_adjs import lang_adjs

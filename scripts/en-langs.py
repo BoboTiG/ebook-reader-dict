@@ -54,7 +54,7 @@ def read_all_lines_etym(lines: list[str]) -> dict[str, dict[str, str]]:
 
         concat += result + "\n"
     exec(concat, globals())
-    return m  # type: ignore # noqa
+    return m  # type: ignore[name-defined, no-any-return] # noqa: F821
 
 
 def read_all_lines_lang(lines: list[str]) -> dict[str, str]:

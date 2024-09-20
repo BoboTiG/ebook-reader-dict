@@ -354,7 +354,7 @@ def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore
+                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore[arg-type]
                     results.extend(r)
             else:
                 r = check_mute(text, etymology, "\n !! Etymology")

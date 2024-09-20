@@ -64,7 +64,7 @@ release_description = """\
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 
 <sub>Обновлено по {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Викисловарь (ɔ) {year}"

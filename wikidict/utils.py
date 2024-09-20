@@ -33,7 +33,7 @@ from .lang import (
     thousands_separator,
 )
 from .namespaces import namespaces
-from .user_functions import *  # noqa
+from .user_functions import *  # noqa: F403
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
@@ -303,7 +303,7 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
         ''
-    """  # noqa
+    """
 
     # Speed-up lookup
     sub = re.sub
@@ -443,7 +443,7 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("tasse", "<i>س tas'</i>", "fr")
         "س tas'"
 
-    """  # noqa
+    """
 
     sub = re.sub
 
@@ -498,7 +498,7 @@ def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -
         - https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
         - https://github.com/wikimedia/restbase/blob/ecef17bda6f4efc0d6e187fb05b1eeb389bf7120/sys/mathoid.js#L33
         - https://phabricator.wikimedia.org/diffusion/GMAT/browse/master/lib/math.js
-    """  # noqa
+    """
 
     if cat == "chem":
         formula = f"\\ce{{{formula}}}"
@@ -630,7 +630,7 @@ def transform(word: str, template: str, locale: str) -> str:
     # Apply transformations
 
     with suppress(KeyError):
-        return eval(templates_multi[locale][tpl])  # type: ignore
+        return str(eval(templates_multi[locale][tpl]))
 
     if len(parts) == 1:
         with suppress(KeyError):
