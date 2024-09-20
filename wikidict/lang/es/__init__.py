@@ -87,6 +87,7 @@ templates_ignored = (
     "clear",
     "definición",
     "definición imprecisa",
+    "ejemplo",
     "ejemplo requerido",
     "elemento químico",
     "inflect.es.sust.invariante",
