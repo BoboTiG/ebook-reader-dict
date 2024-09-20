@@ -91,7 +91,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("memoized", [], [], ["<i>inflection of:</i> <b>memoize</b> (“ed-form”)"], []),
+        ("memoized", [], [], [], ["memoize"]),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
