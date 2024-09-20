@@ -246,14 +246,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     tpl, *parts = template
 
-    if tpl == "codelang":
-        return codelangs[parts[0]]
-
-    if tpl == "etm":
-        return langs[parts[0]].lower()
-
-    if tpl == "xlatio":
-        return f"{parts[1]} {parts[2]}"
+    match tpl:
+        case "codelang":
+            return codelangs[parts[0]]
+        case "etm":
+            return langs[parts[0]].lower()
+        case "xlatio":
+            return f"{parts[1]} {parts[2]}"
 
     # This is a country in the current locale
     if lang := langs.get(tpl):
