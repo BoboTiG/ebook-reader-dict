@@ -3134,6 +3134,7 @@ langs = {
     "mbk": "malol",
     "mbl": "maxakalí",
     "mbn": "macaguán",
+    "mbo": "mbo (Cameroun)",
     "mbp": "damana",
     "mbq": "maisin",
     "mbr": "nukak",
@@ -6464,5 +6465,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,459
+}  # 6,460
 # END

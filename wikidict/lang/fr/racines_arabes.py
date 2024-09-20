@@ -4734,13 +4734,14 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "inventer une calomnie",
         "ar-*â*i*@ũ": "prostituée",
         "ar-*â*i*ũ": "auteur, agent",
+        "ar-a**a*a": "faire faire",
         "ar-a**â*ũ": "{{p}} actes",
         "ar-ma**û*ũ": "nom régit par un autre ; participe passif",
         "ar-mu*ta*a*ũ": "affaire importante",
         "ar-n*a*a*a": "être fait, être dépité",
         "ar-n*i*â*ũ": "mauvaise humeur, dépit",
         "ar-ta*â*î*u": "pied d'un mètre",
-    },  # 19
+    },  # 20
     "ar-fCl": {
         "aa_sens": "découragement",
         "ar-***ũ": "",

@@ -13,6 +13,7 @@ labels = {
     "2channel slang": "2channel slang",
     "4chan": "4chan",
     "4chan lgbt": "4chan /lgbt/ slang",
+    "4chan slang": "4chan",
     ":": ":",
     ";": ";",
     "ACG": "ACG",
@@ -547,7 +548,7 @@ labels = {
     "youth slang": "youth slang",
     "–": "–",
     "—": "—",
-}  # 542
+}  # 543
 
 label_syntaxes = {
     "&": {
