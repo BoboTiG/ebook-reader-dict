@@ -17,6 +17,7 @@ Fichiers disponibles :
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
 
 Mis à jour le"""
 
@@ -81,6 +82,12 @@ def test_simple() -> None:
     assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
+    # DICT.org
+    assert (output_dir / "dictorg-fr-fr.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dictorg-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Kobo
     assert (output_dir / "dicthtml-fr-fr-noetym.zip").is_file()
@@ -178,6 +185,8 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
         (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2", True),
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
+        (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
+        (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
     ],
 )
 @pytest.mark.dependency(

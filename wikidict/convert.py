@@ -1,23 +1,24 @@
 """Convert rendered data to working dictionaries."""
 
 import bz2
+import gc
 import gzip
 import hashlib
 import json
 import os
+import shutil
 from collections import defaultdict
 from collections.abc import Generator
-from contextlib import suppress
 from datetime import date
 from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
-from shutil import rmtree
 from typing import Any
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from jinja2 import Template
 from marisa_trie import Trie
+from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
 from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS
 from .lang import wiktionary
@@ -209,6 +210,7 @@ class KoboFormat(BaseFormat):
         release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
+        release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
         release = release.replace("</sub>", "")
@@ -317,8 +319,7 @@ class KoboFormat(BaseFormat):
 
         # Clean-up before we start
         tmp_dir = self.output_dir / "tmp"
-        with suppress(FileNotFoundError):
-            rmtree(tmp_dir)
+        shutil.rmtree(tmp_dir, ignore_errors=True)
         tmp_dir.mkdir()
 
         # Files to add to the final archive
@@ -423,58 +424,58 @@ class DictFileFormat(BaseFormat):
         return template.render(**kwargs) + "\n\n"
 
 
-class StarDictFormat(DictFileFormat):
-    """Save the data into a StarDict file."""
+class ConverterFromDictFile(DictFileFormat):
+    target_format = ""
+    target_suffix = ""
+    final_file = ""
+    glossary_options: dict[str, str | bool] = {}
 
     def _patch_gc(self) -> None:
         """Bypass performances issues when calling PyGlossary from Python."""
-        import gc
 
         def noop_gc_collect() -> None:  # pragma: nocover
             pass
 
         gc.collect = noop_gc_collect  # type: ignore[assignment]
 
-    def _convert(self) -> None:
-        """Convert the DictFile to StarDict."""
-        from pyglossary.glossary_v2 import ConvertArgs, Glossary
+    def _cleanup(self) -> None:
+        shutil.rmtree(self.output_dir_tmp, ignore_errors=True)
 
+    @property
+    def output_dir_tmp(self) -> Path:
+        return self.output_dir / self.target_format
+
+    def _convert(self) -> None:
+        """Convert the DictFile to the target format."""
         Glossary.init()
         glos = Glossary()
+        glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
-        # Pretty print the source
-        source = wiktionary[self.locale].format(year=date.today().year)
-        glos.setInfo("description", source)
+        glos.setInfo("description", wiktionary[self.locale].format(year=date.today().year))
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
         glos.setInfo("website", GH_REPOS)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
-        res = glos.convert(
+
+        self.output_dir_tmp.mkdir()
+        assert glos.convert(
             ConvertArgs(
-                inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
-                outputFilename=str(self.output_dir / "dict-data.ifo"),
-                writeOptions={"dictzip": True},
+                str(self.dictionnary_file(DictFileFormat.output_file)),
+                outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
+                writeOptions=self.glossary_options,
                 sqlite=True,
             )
-        )
-        assert res, "Conversion failed!"
-
-    def _cleanup(self) -> None:
-        import shutil
-
-        for file in self.output_dir.glob("dict-data.*"):
-            file.unlink()
-        with suppress(FileNotFoundError):
-            shutil.rmtree(self.output_dir / "res")
+        ), "Conversion failed!"
 
     def process(self) -> None:
         self._cleanup()
         self._patch_gc()
         self._convert()
 
-        final_file = self.dictionnary_file(DictFileFormat.output_file).with_suffix(".zip")
+        final_file = self.dictionnary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            for file in self.output_dir.glob("dict-data.*"):
+            for file in self.output_dir_tmp.glob("dict-data.*"):
                 fh.write(file, arcname=file.name)
+
             for entry in self.output_dir.glob("res/*"):
                 fh.write(entry, arcname=f"res/{entry.name}")
 
@@ -485,12 +486,29 @@ class StarDictFormat(DictFileFormat):
         self.summary(final_file)
 
 
+class DictOrgFormat(ConverterFromDictFile):
+    """Save the data into a DICT.org file."""
+
+    target_format = "dict.org"
+    target_suffix = "index"
+    final_file = "dictorg-{locale}-{locale}.zip"
+    glossary_options = {"dictzip": True, "install": False}
+
+
+class StarDictFormat(ConverterFromDictFile):
+    """Save the data into a StarDict file."""
+
+    target_format = "stardict"
+    target_suffix = "ifo"
+    final_file = f"{DictFileFormat.output_file}.zip"
+    glossary_options = {"dictzip": True}
+
+
 class BZ2DictFileFormat(BaseFormat):
     def process(self) -> None:
         df_file = self.dictionnary_file(DictFileFormat.output_file)
         bz2_file = df_file.with_suffix(".df.bz2")
         bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
-
         return self.summary(bz2_file)
 
 
@@ -500,7 +518,7 @@ def get_primary_formaters() -> list[type[BaseFormat]]:
 
 def get_secondary_formaters() -> list[type[BaseFormat]]:
     """Formaters that require files generated by `get_primary_formaters()`."""
-    return [StarDictFormat, BZ2DictFileFormat]
+    return [StarDictFormat, BZ2DictFileFormat, DictOrgFormat]
 
 
 def run_formatter(
