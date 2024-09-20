@@ -17,15 +17,17 @@ disponibile. <!-- → [board](screenshot-.png)-->
 
 ### Versiunea Completă
 
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-ro-ro.zip) (dicthtml-ro-ro.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro.zip) (dict-ro-ro.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro.df.bz2) (dict-ro-ro.df.bz2)
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dicthtml-ro-ro.zip) (dicthtml-ro-ro.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dict-ro-ro.zip) (dict-ro-ro.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dict-ro-ro.df.bz2) (dict-ro-ro.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dictorg-ro-ro.zip) (dictorg-ro-ro.zip)
 
 ### Versiune Fără Etimologie
 
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-ro-ro-noetym.zip) (dicthtml-ro-ro-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro-noetym.zip) (dict-ro-ro-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-ro-ro-noetym.df.bz2) (dict-ro-ro-noetym.df.bz2)
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dicthtml-ro-ro-noetym.zip) (dicthtml-ro-ro-noetym.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dict-ro-ro-noetym.zip) (dict-ro-ro-noetym.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dict-ro-ro-noetym.df.bz2) (dict-ro-ro-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ro/dictorg-ro-ro-noetym.zip) (dictorg-ro-ro-noetym.zip)
 
 ## Instalare
 

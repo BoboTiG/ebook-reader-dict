@@ -16,6 +16,7 @@ import wikitextparser
 from . import svg
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
+    DOWNLOAD_URL_DICTORGFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
     WIKIMEDIA_HEADERS,
@@ -110,6 +111,7 @@ def format_description(locale: str, output_dir: Path) -> str:
 
     # Download links
     url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
+    url_dictorgfile = DOWNLOAD_URL_DICTORGFILE.format(locale)
     url_kobo = DOWNLOAD_URL_KOBO.format(locale)
     url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
 
