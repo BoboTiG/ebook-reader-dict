@@ -302,6 +302,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
+    elif locale == "en":
+        # Remove tables (cf issue #2073)
+        code = re.sub(r"\{\|.*?\|\}", "", code, flags=re.DOTALL)
+
     elif locale == "it":
         if "{{Tabs" not in code:
             # Hack for a fake variants to support more of them

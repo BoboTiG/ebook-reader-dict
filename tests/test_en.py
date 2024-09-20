@@ -125,6 +125,30 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "scourge",
+            ["/skɜɹd͡ʒ/", "/skɜːd͡ʒ/"],
+            [
+                "in a museum.",
+                "From Middle English <i>scourge</i> (“a lash, whip, scourge; affliction, calamity; person who causes affliction or calamity; shoot of a vine”), and then either:",
+            ],
+            [
+                "<i>(weaponry, chiefly historical)</i> A whip, often made of leather and having multiple tails; a lash.",
+                "<i>(figurative)</i>",
+                (
+                    "A person or thing regarded as an agent of divine punishment.",
+                    "A source of persistent (and often widespread) pain and suffering or trouble, such as a cruel ruler, disease, pestilence, or war.",
+                ),
+                "To strike (a person, an animal, etc.) with a scourge <i>(noun <i>Senseno</i> <b>whip</b>)</i> or whip; to flog, to whip.",
+                "To drive, or force (a person, an animal, etc.) to move, with or as if with a scourge or whip.",
+                (
+                    "To punish (a person, an animal, etc.); to chastise.",
+                    "To cause (someone or something) persistent (and often widespread) pain and suffering or trouble; to afflict, to torment.",
+                    "<i>(Early Scots, agriculture)</i> Of a crop or a farmer: to deplete the fertility of (land or soil).",
+                ),
+            ],
+            [],
+        ),
+        (
             "the",
             ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
             [
