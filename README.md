@@ -25,36 +25,36 @@
 Setup a virtual environment:
 
 ```bash
-$ python3.12 -m venv venv
+python3.12 -m venv venv
 
 # For Linux and Mac users
-$ . venv/bin/activate
+. venv/bin/activate
 
 # For Windows users
-$ . venv/Scripts/activate
+. venv/Scripts/activate
 ```
 
 Install, or update, dependencies:
 
 ```bash
-$ python -m pip install -U pip
-$ python -m pip install -r requirements-tests.txt
+python -m pip install -U pip
+python -m pip install -r requirements-tests.txt
 ```
 
 Run tests:
 
 ```bash
 # All tests
-$ python -m pytest --doctest-modules wikidict tests
+python -m pytest --doctest-modules wikidict tests
 
 # Skip those requiring a working internet connection
-$ python -m pytest --doctest-modules wikidict tests -m "not webtest"
+python -m pytest --doctest-modules wikidict tests -m "not webtest"
 ```
 
 Run linters, and quality checkers, before submitting a pull-request:
 
 ```bash
-$ ./check.sh
+./check.sh
 ```
 
 ## Contributors ✨
