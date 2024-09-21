@@ -290,6 +290,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     ''
     >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}', "en")
     '{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}'
+    >>> adjust_wikicode("<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>", "en")
+    '<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>'
 
     >>> adjust_wikicode("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']][[something|else]]", "fr")
     '[[something|else]]'
@@ -340,7 +342,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{=da=}} -> =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
-    if locale == "de":
+    elif locale == "de":
         # {{Bedeutungen}} -> === {{Bedeutungen}} ===
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
@@ -352,13 +354,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{!}} -> "|"
         code = code.replace("{{!}}", "|")
 
+    elif locale == "en":
+        # Remove tables (cf issue #2073)
+        code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
+
     elif locale == "es":
         # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
-
-    elif locale == "en":
-        # Remove tables (cf issue #2073)
-        code = re.sub(r"\{\|.*?\|\}", "", code, flags=re.DOTALL)
 
     elif locale == "it":
         if "{{Tabs" not in code:
