@@ -4031,6 +4031,7 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "dépouiller",
         "ar-*u**@ũ": "bracelet de pied",
         "ar-*u**ũ": "froment",
+        "ar-*â**ũ": "vertueux",
         "ar-*â*a*a": "être bienfaisant",
         "ar-*â*i*ũ": "vertueux",
         "ar-a**a*a": "acomplir",
@@ -4041,7 +4042,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être obéissant",
         "ar-ta*â*a*a": "se faire réciproquement du bien",
-    },  # 26
+    },  # 27
     "ar-bwb": {
         "aa_sens": "porte",
         "ar-***ũ": "",
