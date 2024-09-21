@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - uses: actions/cache@v4
         id: cache
@@ -34,7 +34,7 @@ jobs:
         id: update-data
         run: |
           python -m scripts
-          ./check.sh || true
+          ./check.sh
 
       - name: Push changes
         uses: Automattic/action-commit-to-branch@master

@@ -3,4 +3,4 @@
 ===Verb===
 {{head|en|verb form}}
 
-# {{en-past of|memoize}}
+# {{infl of|en|memoize||ed-form}}

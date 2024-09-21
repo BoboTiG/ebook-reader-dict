@@ -20,12 +20,14 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dicthtml-es-es.zip) (dicthtml-es-es.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es.zip) (dict-es-es.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es.df.bz2) (dict-es-es.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dictorg-es-es.zip) (dictorg-es-es.zip)
 
 ### Versión sin etimología
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dicthtml-es-es-noetym.zip) (dicthtml-es-es-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es-noetym.zip) (dict-es-es-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dict-es-es-noetym.df.bz2) (dict-es-es-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/es/dictorg-es-es-noetym.zip) (dictorg-es-es-noetym.zip)
 
 ## Instalación
 

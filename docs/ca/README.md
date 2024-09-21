@@ -20,12 +20,14 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dicthtml-ca-ca.zip) (dicthtml-ca-ca.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.zip) (dict-ca-ca.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.df.bz2) (dict-ca-ca.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dictorg-ca-ca.zip) (dictorg-ca-ca.zip)
 
 ### Versió sense etimologia
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dicthtml-ca-ca-noetym.zip) (dicthtml-ca-ca-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca-noetym.zip) (dict-ca-ca-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca-noetym.df.bz2) (dict-ca-ca-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dictorg-ca-ca-noetym.zip) (dictorg-ca-ca-noetym.zip)
 
 ## Instal·lació
 

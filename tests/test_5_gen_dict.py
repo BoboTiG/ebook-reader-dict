@@ -8,6 +8,7 @@ import pytest
 from wikidict import gen_dict
 
 
+@pytest.mark.webtest
 @pytest.mark.parametrize(
     "locale, words",
     [

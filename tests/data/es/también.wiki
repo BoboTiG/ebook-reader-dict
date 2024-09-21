@@ -5,42 +5,39 @@
 {{etimología|compuesto|tan|bien}}
 
 === {{adverbio de afirmación|es}} ===
-
 ;1: {{impropia|Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada}}.
-{{sinónimos|igualmente|asimismo|de igual modo}}.
+{{sinónimos|igualmente|asimismo|de igual modo|incluso|al igual|paralelamente|encima|igualmente}}.
 
 ;2: {{impropia|Usado para [[añadir]] algo a lo anteriormente mencionado}}.
 {{sinónimos|además|en añadidura}}.
 
-{{clear}}
-
 === Traducciones ===
 {{trad-arriba}}
-{{t+|de|auch}}
-{{t+|bg|също|,|също така|,|също и}}
-{{t+|da|også}}
-{{t+|sl|1|tudi}}
-{{t+|eo|ankaŭ}}
-{{t+|eu|ere}}
-{{t+|fi|myös|,|-kin}}
-{{t+|fr|1-2|aussi}}
-{{t+|fy|ek}}
-{{t+|hu|is}}
-{{t+|el|και}}
-{{trad-centro}}
-{{t+|yua|la’tene}}
-{{t+|id|juga|,|pula}}
-{{t+|en|1|too|,|1-2|also}}
-{{t+|it|1|anche}}
-{{t+|nl|ook}}
-{{t+|no|også}}
-{{t+|pap|tambe}}
-{{t+|pl|też}}
-{{t+|pt|também}}
-{{t+|sa|अपि}}
-{{t+|su|ogé}}
-{{t+|sv|också}}
-{{t+|wa|eto}}
+{{t|de|t1=auch}}
+{{t|ast|t1=tamién}}
+{{t|bg|t1=също|t2=също така|t3=също и}}
+{{t|da|t1=også}}
+{{t|sl|a1=1|t1=tudi}}
+{{t|eo|t1=ankaŭ}}
+{{t|eu|t1=ere}}
+{{t|fi|t1=myös|t2=-kin}}
+{{t|fr|a1=1-2|t1=aussi}}
+{{t|fy|t1=ek}}
+{{t|hu|t1=is}}
+{{t|el|t1=και}}
+{{t|yua|t1=la’tene}}
+{{t|id|t1=juga|t2=pula}}
+{{t|en|a1=1|t1=too|a2=1-2|t2=also}}
+{{t|it|a1=1|t1=anche}}
+{{t|nl|t1=ook}}
+{{t|no|t1=også}}
+{{t|pap|t1=tambe}}
+{{t|pl|t1=też}}
+{{t|pt|t1=também}}
+{{t|sa|t1=अपि}}
+{{t|su|t1=ogé}}
+{{t|sv|t1=också}}
+{{t|wa|t1=eto}}
 {{trad-abajo}}
 
 == Referencias y notas ==

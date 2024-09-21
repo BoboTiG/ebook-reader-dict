@@ -1,0 +1,200 @@
+==English==
+{{was wotd|2024|February|1}}
+
+===Pronunciation===
+* {{IPA|en|/skɜːd͡ʒ/|a=RP}}
+* {{IPA|en|/skɜɹd͡ʒ/|[skɔɹd͡ʒ]|a=GA}}
+* {{audio|en|En-us-scourge.ogg|a=GA}}
+* {{rhymes|en|ɜː(ɹ)dʒ|s=1}}
+
+===Etymology 1===
+{| class="floatright"
+|-
+| {{PIE word|en|h₁eǵʰs}}
+| {{PIE word|en|ḱóm}}
+|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}
+[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]]
+
+From {{inh|en|enm|scourge|t=a lash, whip, scourge; affliction, calamity; person who causes affliction or calamity; shoot of a vine}},<ref>{{R:MED Online|entry=scǒurǧe|pos=n|id=MED39002}}</ref> and then either:
+
+* from {{der|en|xno|scorge}}, {{m|xno|escorge}}, {{m|xno|escurge}}, or {{der|en|fro|scurge}}, {{m|fro|escourge}}, {{m|fro|escorge}}, {{m|fro|escorgiee}}, {{m|fro|escurge}} (modern {{cog|fr|escourgée|t=(''archaic'') whip made of leather strips}}), either:
+** from {{der|en|VL.|*excoriāta|t=strip of hide; a scourge}}, from {{der|en|LL.|excoriāre}}, the {{glossary|present}} {{glossary|active}} {{glossary|infinitive}} of {{m|LL.|excoriō|t=to strip the skin from, to skin}}, from {{der|en|la|ex-|pos={{glossary|prefix}} meaning ‘away; out’}} + {{m|la|corium|t=skin; hide, leather}} (ultimately from {{der|en|ine-pro|*(s)ker-|t=to cut off, sever; to divide, separate}});<ref>{{R:OED Online|pos=n|id=2525733037|date=July 2023}}</ref> or
+** from {{der|en|la|ex-|pos={{glossary|intensifying}} prefix}} + {{m|la|corrigia|t=a whip}} (from {{m|la|corrigō|t=to make right, correct; to reform}}, ultimately from {{der|en|ine-pro|*h₃reǵ-|t=to righten; to straighten}});<ref>{{R:Lexico|pos=n}}</ref> or
+* from {{der|en|enm|scourgen|pos=verb}} (see [[#Etymology 2|etymology 2]]).
+
+{{rel-top|cognates}}
+* {{cog|it|scuriada}}, {{m|it|scuriata}}
+{{rel-bottom}}
+
+====Noun====
+{{en-noun}}
+
+# {{senseid|en|whip}}{{lb|en|weaponry|chiefly|historical}} A [[whip#Noun|whip]], often [[make#Verb|made]] of [[leather#Noun|leather]] and having [[multiple#Adjective|multiple]] [[tail#Noun|tails]]; a [[lash#Noun|lash]].
+#: {{ux|en|He flogged him with a '''scourge'''.}}
+#* {{RQ:Coverdale Bible|book=Psalms|chapter=88|verses=31–32|folio=xxvij|verso=1|column=1|passage=Yf they breake myne ordinaunces, and kepe not my commaundementes. I vil vyſet their offences with the rodde, and their ſynnes with '''ſcourges'''.|footer=[[w:Psalms|Psalm]] 89 in modern versions of the Bible.}}
+#* {{RQ:Douay Bible|OT1|2 Paralipomenon|10|11|page=886|passage=My father layd vpon you a heauie yoke, vvhich I vvil make heauier: my father bette you vvith '''ſcourges''', but I vvil beate you vvith ſcorpions.|footer=[[w:Books of Kings|1 Kings]] 12 in modern versions of the Bible.}}
+#* {{RQ:Homer Chapman Odysseys|year=1857|book=6|lines=111–113|page=136|passage=Up to coach then goes / Th' observed Maid, takes both the '''scourge''' and reins, / And to her side her handmaid straight attains.}}
+#* {{RQ:Thomson Winter|year=1768|page=204|lines=1059–1061|passage=[H]eaven-born truth, / And moderation fair, vvere the red marks / Of ſuperſtition's '''ſcourge''': {{...}}|footer=A figurative use.}}
+#* {{RQ:Tennyson Poems 1842|volume=II|poem=St. Simeon Stylites|page=61|passage=Mortify / Your flesh, like me, with '''scourges''' and with thorns; / Smite, shrink not, spare not.}}
+#* {{quote-book|en|author=Rollo Ahmed|chapter=The Church and Monastic Black Magic|title=The Black Art|location=London|publisher=Senate, Studio Editions<!--Originally John Long-->|year=1936|year_published=1994|page=99|pageurl=https://archive.org/details/soi-book-collection-3/kupdf.net_rollo-ahmed-the-black-art/page/n48/mode/1up|isbn=978-1-85958-048-6|passage=Another strange manifestation of collective mental abnormality, though not directly connected with sorcery, was the Brotherhood of Flagellants. {{...}} These men lashed themselves and each other unmercifully with knotted leather '''scourges''' until the blood ran, two or three times daily.}}
+# {{lb|en|figurative}}
+## A [[person#Noun|person]] or [[thing]] [[regard#Verb|regarded]] as an [[agent]] of [[divine#Adjective|divine]] [[punishment]].
+##* {{RQ:Marlorat Golding Revelation|chapter=2|verse=3|folio=32|verso=1|passage=And therfore the faithfull had neede of inuincible conſtancie and incredible pacience, that they may know them to be gods '''squorges''', and the inſtrumentes of his wrath, {{...}}}}
+##* {{RQ:Coryat Crudities|chapter=My Obseruations of the Most Glorious, Peerelesse, and Mayden Citie of Venice:{{nb...|I Call It Mayden because It was Neuer Conquered.}}|lines=14–18|page=162|passage=Againe not long after this euen ſhortly after the death of ''[[w:Alaric I|Alaricus]]'' came that ''Flagellum Dei'' that '''ſcourge''' of God into Italy, ''{{w|Attila}}'' King of the Hunnes, and ſpoyled the country vvith maruailous hoſtility in the time of the Emperour ''[[w:Marcian|Martian]]''.}}
+##* {{RQ:Gibbon Roman Empire|volume=III|chapter=The Character, Conquests, and Court of Attila, King of the Huns—Death of [[w:Theodosius II|Theodosius the Younger]]—Elevation of {{w|Marcian}} to the Empire of the East|page=368|passage=[I]f {{w|Attila}} equalled the hoſtile ravages of [[w:Timur|Tamerlane]], either the Tartar or the Hun might deſerve the epithet of the {{small|'''Scourge''' of God}}.}}
+##* {{RQ:Shelley Cenci|scene=i|page=48|passage=[H]e, / As he is wont, came to upbraid and curse, / Mocking our poverty, and telling us / Such was God's '''scourge''' for disobedient sons.}}
+##* {{RQ:Lawrence Porcupine|page=157|passage=Yet true destructive power is power just the same as constructive. Even {{w|Attila}}, the '''Scourge''' of God, who helped to scourge the Roman world out of existence, was great with power. He was the '''scourge''' of ''God''; not the '''scourge''' of the League of Nations, hired and paid in cash.}}
+## A [[source#Noun|source]] of [[persistent]] (and often [[widespread]]) [[pain#Noun|pain]] and [[suffering#Noun|suffering]] or [[trouble#Noun|trouble]], such as a [[cruel#Adjective|cruel]] [[ruler]], [[disease#Noun|disease]], [[pestilence]], or [[war#Noun|war]].
+##: {{ux|en|Graffiti is the '''scourge''' of building owners everywhere.}}
+##* {{RQ:Shakespeare Henry 6-1|act=IV|scene=ii|page=111|column=2|passage=Thou ominous and fearefull Ovvle of death, / Our Nations terror, and their bloody '''ſcourge''', / The period of thy Tyranny approacheth, / On vs thou canſt not enter but by death: {{...}}}}
+##* {{RQ:Shakespeare Richard 3 Q1|act=I|scene=iv|sig=&#91;C4&#93;|verso=1|page=32|passage=[W]hat '''ſcourge''' for periury, / Can this darke monarchy afford falſe Clarence, {{...}}}}
+##* {{RQ:Montaigne Florio Essayes|book=III|chapter=Of Experience|page=661|passage=Intemperance is the plague of ſenſualitie; and temperance is not her '''ſcourge''', but rather her ſeaſoning.}}
+##* {{RQ:Shakespeare Coriolanus|act=II|scene=iii|page=12|column=2|passage=You haue bin a '''ſcourge''' to her enemies, you haue bin a Rod to her Friends, you haue not indeede loued the Common people.}}
+##* {{RQ:Thomson Winter|year=1768|page=181|lines=466–469|passage=[[w:Cimon|{{smallcaps|Cimon}}]] {{...}} vvhoſe genius, riſing ſtrong, / Shook off the load of young debauch; abroad / The '''ſcourge''' of ''Perſian'' pride, at home the friend / Of every vvorth and every ſplendid art; {{...}}}}
+##* {{RQ:Mary Shelley Frankenstein|volume=II|chapter=I|page=30|passage=On you it rests, whether I quit for ever the neighbourhood of man, and lead a harmless life, or become the '''scourge''' of your fellow-creatures, and the author of your own speedy ruin.}}
+##* {{RQ:Shelley Poetical Works|edition=revised|volume=II|poem=Charles I|scene=ii|page=385|passage={{...}} I speak it not / As loving parliaments, which, as they have been / In the right hand of bold bad mighty kings / The '''scourges''' of the bleeding Church, I hate.}}
+##* {{RQ:Ouida In Maremma|volume=I|chapter=II|page=23|passage=[H]e had become a monster of cruelty, having in him the same temper as of old made the tyrants of Padova and Verona and Brescia the '''scourges''' of their generation.}}
+##* {{RQ:Economist|title=Towards the end of poverty|archiveurl=https://web.archive.org/web/20230526160410/https://www.economist.com/leaders/2013/06/01/towards-the-end-of-poverty|date=1 June 2013|volume=407|issue=8838|page=11|passage=America's poverty line is $63 a day for a family of four. In the richer parts of the emerging world $4 a day is the poverty barrier. But poverty's '''scourge''' is fiercest below $1.25{{nb...}}: people below that level live lives that are poor, nasty, brutish and short.}}
+
+=====Hyponyms=====
+* {{l|en|knout}}
+* {{l|en|cat}}
+* {{l|en|cat-o'-nine-tails}}, {{l|en|cat o' nine tails}}
+
+=====Translations=====
+{{trans-top|whip, often made of leather and having multiple tails}}
+* Arabic: {{t|ar|سوط}}
+* Bashkir: {{t|ba|ҡамсы}}
+* Bulgarian: {{t+|bg|бич|m}}, {{t+|bg|камшик|m}}
+* Czech: {{t+|cs|bič|m}}, {{t|cs|důtky}}, {{t+|cs|karabáč|m}}
+* Danish: {{t|da|svøbe|c}}
+* Dutch: {{t+|nl|gesel}}
+* Esperanto: {{t|eo|skurĝo}}
+* Finnish: {{t+|fi|piiska}}, {{t+|fi|ruoska}}
+* French: {{t+|fr|écourgée|f}}, {{t+|fr|fouet|m}}
+* Galician: {{t|gl|flaxelo}}
+* German: {{t+|de|Geißel}}, {{t+|de|Peitsche|f}}
+* Greek: {{t+|el|μαστίγιο|n}}
+*: Ancient Greek: {{t|grc|μάστιξ|f}}
+* Hebrew: {{t+|he|מגלב|m|tr=maglév}}, {{t+|he|שוט|m|tr=shot}}
+* Irish: {{t|ga|sciúirse|m}}
+* Italian: {{t|it|scuriada|f}}, {{t|it|scuriata|f}}
+* Latin: {{t|la|verber|n}}
+* Macedonian: {{t|mk|бич|m}}, {{t|mk|ка́мшик|m}}
+* Norwegian:
+*: Bokmål: {{t+|no|svøpe|m}}
+* Portuguese: {{t+|pt|açoite|m}}, {{t+|pt|flagelo|m}}
+* Russian: {{t+|ru|бич|m}}, {{t+|ru|плеть|f}}
+* Spanish: {{t+|es|flagelo|m}}
+* Swedish: {{t+|sv|gissel|n}}
+{{trans-bottom}}
+
+{{trans-top|person or thing regarded as an agent of divine punishment}}
+* Finnish: {{t+|fi|vitsaus}}
+* Galician: {{t|gl|azoute}}
+* Macedonian: {{t-needed|mk}}
+{{trans-bottom}}
+
+{{trans-top|source of persistent (and often widespread) pain and suffering or trouble}}
+* Arabic: {{t+|ar|وباء}}, {{t|ar|بَلْوَى}}
+* Armenian: {{t+|hy|պատուհաս}}
+* Bashkir: {{t|ba|бәлә}}
+* Bulgarian: {{t+|bg|беда|f}}, {{t+|bg|бедствие|n}}
+* Czech: {{t|cs|metla|f}}, {{t+|cs|mor|m}}, {{t+|cs|pohroma|f}}, {{t+|cs|bič|m}}, {{t|cs|zhouba|f}}
+* Danish: {{t|da|svøbe|c}}
+* Dutch: {{t+|nl|plaag}}, {{t+|nl|schrik}}, {{t+|nl|gesel|m}}
+* Finnish: {{t|fi|kirot|p}}, {{t|fi|maanvaiva}}, {{t+|fi|riesa}}, {{t+|fi|vitsaus}}
+* French: {{t+|fr|fléau|m}}
+* Galician: {{t|gl|azoute}}, {{t|gl|flaxelo}}
+* German: {{t+|de|Bürde|f}}, {{t+|de|Geißel}}, {{t+|de|Heimsuchung|f}}, {{t+|de|Last|f}}, {{t+|de|Pest|f}}, {{t+|de|Plage}}
+* Greek: {{t+|el|μάστιγα|f}}
+*: Ancient Greek: {{t|grc|μάστιξ|f}}
+* Hebrew: {{t+|he|פגע|m|tr=péga}}, {{t|he|מפגע|m|tr=mifgá}}
+* Irish: {{t|ga|sciúirse|m}}
+* Italian: {{t+|it|piaga|f}}, {{t+|it|flagello|m}}
+* Latin: {{t|la|pestis|f}}
+* Macedonian: {{t|mk|не́среќа|f}}, {{t|mk|по́мор|m}}
+* Norwegian:
+*: Bokmål: {{t+|no|svøpe|m}}
+* Polish: {{t|pl|bicz boży|m}}
+* Portuguese: {{t+|pt|flagelo|m}}, {{t+|pt|tormento|m}}
+* Romanian: {{t+|ro|flagel}}
+* Russian: {{t+|ru|беда́|f}}, {{t+|ru|бе́дствие|n}}, {{t+|ru|бич|m}}, {{t+|ru|ка́ра|f}}
+* Spanish: {{t+|es|azote|m}}, {{t+|es|flagelo|m}}
+* Swedish: {{t+|sv|gissel|n}}, {{t+|sv|plåga|c}}
+{{trans-bottom}}
+
+===Etymology 2===
+From {{inh|en|enm|scourgen|t=to whip, scourge; to afflict; to punish}},<ref>{{R:MED Online|entry=
+scǒurǧen|pos=v|id=MED39003}}</ref> and then either:
+
+* from {{m|enm|scourge|pos=noun}} + {{m|enm|-en|pos={{glossary|suffix}} forming {{glossary|infinitive}}s of {{glossary|verb}}s}};<ref>{{R:MED Online|entry=-en|pos=''suf.''(3)|noformat=1|id=MED13518}}</ref> or
+* from {{der|en|xno|escorger}}, and {{der|en|fro|escorgier|t=to whip, to scourge}}, which are either:
+** from {{der|en|xno|scorge}}, {{m|xno|escorge|pos=noun}}, etc., or {{der|en|fro|scurge}}, {{m|fro|escourge|pos=noun}}, etc. + {{m|fro|-er|pos=suffix forming infinitives of first-{{glossary|conjugation}} verbs}};<ref name="OED">{{R:OED Online|pos=v|id=2537771875|date=September 2023}}</ref> or
+** from {{der|en|VL.|*excorrigiō}}, from {{der|en|la|ex-|pos={{glossary|intensifying}} prefix}} + {{m|la|corrigia|t=a whip}};<ref>{{R:Lexico|pos=v}}</ref> or
+** directly from {{der|en|LL.|excoriāre}}.<ref name="OED"/>
+
+See further at [[#Etymology 1|etymology 1]].
+
+====Verb====
+{{en-verb}} {{term-label|en|transitive}}
+
+# To [[strike#Verb|strike]] (a [[person#Noun|person]], an [[animal]], etc.) with a [[scourge#Noun|scourge]] ''(noun {{senseno|en|whip}})'' or [[whip#Noun|whip]]; to [[flog#Verb|flog]], to [[whip#Verb|whip]].
+#: {{synonyms|en|Thesaurus:whip}}
+#* {{RQ:Shakespeare Henry 6-1|act=I|scene=i|page=96|column=1|passage=Hvng be y&#868; heauens vvith black, yield day to night; / Comets importing change of Times and States, / Brandiſh your cryſtall Treſſes in the Skie, / And vvith them '''ſcourge''' the bad reuolting Stars, / That haue conſented vnto ''Henries'' Death: / King [[w:Henry V of England|''Henry'' the Fift]], too famous to liue long, / England ne're loſt a King of ſo much vvorth.|footer=A figurative use.}}
+#* {{RQ:Montaigne Florio Essayes|book=I|chapter=That the Taste of Goods or Evilles doth Greatly Depend on the Opinion We Have of Them|page=133|passage=Doe vve not vpon every good-friday, in ſundrie places, ſee a great number of men and vvomen, '''ſcourge''' and beate themſelves ſo long till they bruſe and teare their fleſh, even to the bones? I have often ſeene it my ſelfe, and that vvithout enchantment.}}
+#* {{RQ:Defoe New Voyage|part=I|page=95|passage={{...}} I cauſed him to be brought to the Geers, vvith a Halter about his Neck, and be ſoundly vvhipp'd; and indeed our People did '''ſcourge''' him ſeverely from Head to Foot; {{...}}}}
+#* {{RQ:Shelley Poetical Works|edition=revised|volume=II|poem=Charles I|scene=ii|page=383|passage=For the waves never menace heaven until / '''Scourged''' by the wind's invisible tyranny}}
+#* {{RQ:Thoreau Yankee|pages=108–109|pageref=108|passage=If they vote, they do not send men to Congress on errands of humanity; but while their brothers and sisters are being '''scourged''' and hung for loving liberty, while—I might here insert all that slavery implies and is,—it is the mismanagement of wood and iron and stone and gold which concerns them.}}
+#* {{RQ:Bulwer-Lytton Pausanias|chapter=I|page=137|passage="Nay, nay, let him pass," said the young Chian, Antagoras; "he will get '''scourged''' if he is too late. Perhaps, like the Persians, Pausanias wears false hair, and wishes the slave to dress it in honour of us."}}
+#* {{quote-book|en|author=[[w:Augustine David Crake|A[ugustine] D[avid] Crake]]|chapter=Witness to Jesus|title=The Victor’s Laurel. A Tale of School-life during the Tenth Persecution in Italy|location=Oxford, Oxfordshire&#59; London|publisher=Mowbray & Co.|year=1892|page=112|pageurl=https://books.google.com/books?id=KFBEAQAAMAAJ&pg=PA112|oclc=229105259|passage=The more thou '''scourgest''' me, the deeper thou '''scourgest''' my religion into me; there is One Whose Love assuages the pain.}}
+# To [[drive#Verb|drive]], or [[force#Verb|force]] (a person, an animal, etc.) to [[move#Verb|move]], with or as if with a scourge or whip.
+#* {{RQ:Milton Paradise Lost|book=IV|lines=913–917|page=121|passage=So judge thou ſtill, preſumptuous, till the wrauth, / Which thou incurr'ſt by flying, meet thy flight / Seavenfold, and '''ſcourge''' that wiſdom back to Hell, / Which taught thee yet no better, that no pain / Can equal anger infinite provok't.|year=1873}}
+#* {{RQ:Landor Count Julian|scene=ii|page=96|passage=Thou knowest not, and mayst thou never know, / How bitter is the tear that firy shame / '''Scourges''' and tortures from the soldier's eye.}}
+# {{lb|en|figurative}}
+## To [[punish]] (a person, an animal, etc.); to [[chastise]].
+##* {{quote-book|en|chapter=The Primer: Or Book of Private Prayer, Needful to be Used of All Christians. {{...|Authorised and Set Forth by Order of King Edward VI.}} [Sundry Godly Prayers for Divers Purposes.]|editor=Joseph Ketley|title=The Two Liturgies, A.D. 1549, and A.D. 1552: With Other Documents Set Forth by Authority in the Reign of King {{w|Edward VI}}.{{nb...|Viz. the Order of Communion, 1548. The Primer, 1553. The Catechism and Articles, 1553. Catechismus Brevis, 1553.}}|location=Cambridge, Cambridgeshire|publisher={{...|Printed at the}} [[w:Cambridge University Press|University Press]]|year=1553|year_published=1844|page=474|pageurl=https://books.google.com/books?id=Mdq9S5CXzawC&pg=PA474|oclc=1113904307|passage=''For a Patient and Thankful Heart in Sickness.'' Whom thou lovest, O Lord, him dost thou chasten, yea, every son that thou receivest, thou '''scourgest''', and in so doing thou offerest thyself unto him, as a father unto his son. For what son is whom the father chasteneth not?}}
+##* {{RQ:Shakespeare Henry 4-1 Q1|act=V|scene=ii|sig=&#91;I4&#93;|page=77|passage=He cals vs rebels, traitors, and vvill '''ſcourge''' / VVith haughtie armes this hatefull name in vs.}}
+##* {{RQ:Dekker Dramatic Works|volume=II|title=Whore of Babylon|page=256|passage=You ſhall with rods of iron '''ſcourge''' theſe treaſons.}}
+##* {{RQ:Donne Works|volume=III|chapter=Sermon LXXVII|page=413|passage=[T]he purgatory is before the indulgence, the correction is before mercy. ''He '''scourgeth''' every son whom he receiveth''; first he '''scourges''' him, and then he receives him; {{...}} as long as his love lasts, he corrects us, and as long as he corrects us, he loves us.}}
+##* {{RQ:Bulwer-Lytton Rienzi|volume=I|chapter=The Brawl|page=42|passage=Look at thy followers and clients: are they not cutting the throats of humble men by way of vengeance for the crime of a great one? But that is the way one patrician always '''scourges''' the insolence of another.}}
+##* {{quote-book|en|author=S[aint] Augustine [''i.e.'', {{w|Augustine of Hippo}}]|translator=[[w:Edward Bouverie Pusey|E[dward] B[ouverie] Pusey]]|chapter=The Third Book|title=[[w:Confessions (Augustine)|The Confessions of S. Augustine.{{nb...|Revised from a Former Translation, by the Rev. E. B. Pusey, D.D. With Illustrations from S. Augustine Himself.}}]]|series=[[w:Library of the Fathers|Library of the Fathers of the Holy Catholic Church,{{nb...|anterior to the Division of the East and West}}]]|seriesvolume=I|location=Oxford, Oxfordshire|publisher=[[w:John Henry Parker (writer)|John Henry Parker]]; London: [[w:Rivington (publishers)|J. G. F. and J. Rivington]]|year=1840|section=paragraph [III].5|page=31|pageurl=https://books.google.com/books?id=eIzYAAAAMAAJ&pg=PA31|oclc=63237831|passage=Upon how grievous iniquities consumed I myself, pursuing a sacrilegious curiosity, that having forsaken Thee, it might bring me to the treacherous abyss, and the beguiling service of devils, to whom I sacrific ed my evil actions, and in all these things thou didst '''scourge''' me! I dared even, while Thy solemnities were celebrated within the walls of Thy Church, to desire, and to compass a business, deserving death for its fruits, for which Thou '''scourgedst''' me with grievous punishments, {{...}}}}
+##* {{RQ:Hardy Ethelberta|volume=II|chapter=Lychworth (continued)—The Anglebury Highway|page=282|passage=God has got me in his power at last, and is going to '''scourge''' me for my bad doings—that's what is seems like.}}
+##* {{quote-book|en|author=w:Homer|chapter=Book I|translator=James A. Martling|title=[[w:Iliad|The Iliad of Homer.{{nb...|Translated into English Hexameters, Verse for Verse.}}]]|location=St. Louis, Mo.|publisher=The R. P. Studley Company,{{nb...|printers and binders, 221 North Main.}}|year=1877|lines=453–454|page=19|pageurl=https://books.google.com/books?id=0UVbAAAAQAAJ&pg=PA19|oclc=20739436|passage=Once thou verily hearkened unto my prayer aforetime, / Honoring me, and severely '''scourgedst''' the host of the Grecians!}}
+## To [[cause#Verb|cause]] (someone or something) [[persistent]] (and often [[widespread]]) [[pain#Noun|pain]] and [[suffering#Noun|suffering]] or [[trouble#Noun|trouble]]; to [[afflict]], to [[torment#Verb|torment]].
+##* {{RQ:Milton Smectymnuus|page=185|passage=And that the Remonſtrant cannot vvaſh his hands of all the cruelties exercis'd by the Prelats, is paſt doubting. They '''ſcourg'd''' the Confeſſors of the Goſpel, and he held the Scourgers garments.}}
+##* {{quote-journal|en|title=The Last Days of the Plantagenets. [[w:Henry III of England|Henry III]].—Part II.|editor=A[lexander] D. Paterson|journal=The Anglo American|location=New York, N.Y.|publisher=E. L. Garvin & Co.|date=13 April 1844|volume=2|issue=25|pages=594–595|pageurl=https://archive.org/details/sim_anglo-american-a-journal-of-literature-news-politics_the-anglo-america_1844-04-13_2_25/page/595/mode/1up|oclc=7185404|passage=Thou hast, thyself, broken all laws, dissolved every tie; thou bruisest, '''scourgest''', robbest this thy noble kingdom of England, and shall we not have at least the poor liberty to rail.}}
+## {{lb|en|Scotland|agriculture}} Of a [[crop#Noun|crop]] or a [[farmer]]: to [[deplete]] the [[fertility]] of ([[land#Noun|land]] or [[soil#Noun|soil]]).
+
+=====Conjugation=====
+{{en-conj|old=1|stem=scourg}}
+
+=====Derived terms=====
+* {{l|en|scourged|pos=adjective}}
+* {{l|en|scourger}}
+* {{l|en|scourging|pos=adjective, noun}}
+* {{l|en|scourgingly}}
+
+=====Translations=====
+{{trans-see|to strike (a person, an animal, etc.) with a scourge|flog|whip}}
+{{trans-see|to drive, or force (a person, an animal, etc.) to move, with or as if with a scourge or whip|drive}}
+{{trans-see|to punish (a person, an animal, etc.)|chastise|punish}}
+{{trans-see|to cause (someone or something) persistent (and often widespread) pain and suffering or trouble|afflict|torment}}
+
+{{trans-top|of a crop or a farmer: to deplete the fertility of (land or soil)}}
+* Finnish: {{t+|fi|köyhdyttää}}
+* Macedonian: {{t-needed|mk}}
+{{trans-bottom}}
+
+===References===
+<references/>
+
+===Further reading===
+* {{pedia}}
+* {{R:Britannica 1911|Scourge}}
+* {{R:Online Etymology Dictionary}}
+
+===Anagrams===
+* {{anagrams|en|a=cegorsu|scrouge}}
+
+[[Category:en:Violence]]

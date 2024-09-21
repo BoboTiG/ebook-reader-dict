@@ -15,16 +15,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      - uses: actions/cache@v4
-        id: cache
-        with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ hashFiles('requirements.txt', 'requirements-tests.txt') }}
+          python-version: "3.12"
+          cache: pip
 
       - name: Install requirements
-        if: steps.cache.outputs.cache-hit != 'true'
         run: python -m pip install -r requirements-tests.txt
 
       - name: Quality checks, and linters
@@ -35,7 +29,7 @@ jobs:
 
       - name: Automerge
         if: github.actor == 'dependabot[bot]'
-        uses: pascalgn/automerge-action@v0.16.2
+        uses: pascalgn/automerge-action@v0.16.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_LABELS: automerge,!DO_NOT_MERGE

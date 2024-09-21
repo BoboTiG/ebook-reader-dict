@@ -1,7 +1,7 @@
 """Greek language."""
+
 import re
 from collections import defaultdict
-from typing import Dict, List, Pattern, Tuple, Union
 
 from ...user_functions import extract_keywords_from, italic, term, uniq
 from .langs import langs
@@ -31,8 +31,6 @@ sections = (
     "{{σύνδεσμος|el}",
     "{{συντομομορφή}",
     "{{συντομομορφή|el}",
-    "{{κύριο όνομα}",
-    "{{κύριο όνομα|el}",
     "{{αριθμητικό}",
     "{{αριθμητικό|el}",
     "{{άρθρο}",
@@ -47,6 +45,12 @@ sections = (
     "{{επιφώνημα|el}",
     "{{ρηματική έκφραση}",
     "{{επιρρηματική έκφραση}",
+    "{{φράση}",
+    "{{φράση|el}",
+    "{{έκφραση}",
+    "{{έκφραση|el}",
+    "{{παροιμία}",
+    "{{παροιμία|el}",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -70,9 +74,11 @@ templates_ignored = (
 )
 
 # Templates more complex to manage.
-templates_multi: Dict[str, str] = {
+templates_multi: dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
+    # {{ετικ|γαστρονομία|τρόφιμα|γλυκά}}
+    "ετικ": "'(' + ', '.join(italic(p) for p in parts[1:]) + ')'",
 }
 
 
@@ -87,9 +93,10 @@ release_description = """\
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
 
 <sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Βικιλεξικό (ɔ) {year}"
@@ -111,9 +118,9 @@ _genders = {
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{{([^{}]*)}}"),
+    pattern: re.Pattern[str] = re.compile(r"{{([^{}]*)}}"),
     line_pattern: str = "'''{{PAGENAME}}''' ",
-) -> List[str]:
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -127,19 +134,21 @@ def find_genders(
     ['θηλυκό ή ουδέτερο', 'άκλιτο']
     >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}")
     ['αρσενικό ή ουδέτερο', 'άκλιτο', 'ακρωνύμιο']
+    >>> find_genders("'''{{PAGENAME}}''' {{α}} ({{ετ|ιδιωματικό|0=-}}, Κάλυμνος)")
+    ['αρσενικό']
     """
     return [
-        _genders[gender.split("|")[0]]
+        g
         for line in code.splitlines()
         for gender in pattern.findall(line[len(line_pattern) :])
-        if line.startswith(line_pattern)
+        if line.startswith(line_pattern) and (g := _genders.get(gender.split("|")[0]))
     ]
 
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -153,11 +162,11 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)) -> str:
+def text_language(lang_donor_iso: str, myargs: dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
-    """  # noqa
-    lang: Dict[str, Union[str, bool]] = langs[lang_donor_iso]
+    """
+    lang: dict[str, str | bool] = langs[lang_donor_iso]
     lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
     lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική
     if lang_donor != "" and lang_donor_frm != "":
@@ -177,7 +186,7 @@ def text_language(lang_donor_iso: str, myargs: Dict[str, str] = defaultdict(str)
     return mytext
 
 
-def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
+def labels_output(text_in: str, args: dict[str, str] = defaultdict(str)) -> str:
     """
     from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
     """
@@ -200,18 +209,22 @@ def labels_output(text_in: str, args: Dict[str, str] = defaultdict(str)) -> str:
     if not label or label is None:
         return ""
     nodisplay = args["nodisplay"] or args["000"]
-    if nodisplay == "" and data.get(label, {}).get("link") != "πατρότητα":
+
+    if not nodisplay:
         if term != "":
             mytext = term
         elif text != "":
             mytext = text
-        else:
-            mytext = f"{show}" if show != "" else f'{italic(data[label]["linkshow"])}'
-        mytext = mytext if noparenthesis != "" else f"({mytext})"
+        elif all_labels := data.get(label):
+            if isinstance(all_labels, list):
+                all_labels = all_labels[0]
+            if all_labels.get("link") not in {None, "πατρότητα"}:
+                mytext = show or f'{italic(all_labels["linkshow"])}'
+        mytext = mytext if noparenthesis else f"({mytext})"
     return mytext
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -227,10 +240,18 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["λδδ", "grc", "el", "νήδυμος"], "el")
         '(διαχρονικό δάνειο) <i>αρχαία ελληνική</i> νήδυμος'
+        >>> last_template_handler(["λδδ", "grc-koi", "el"], "el")
+        '(διαχρονικό δάνειο) <i>ελληνιστική κοινή</i>'
+        >>> last_template_handler(["λδδ", "0=-", "grc-koi", "el", "τεχνικός"], "el")
+        '<i>ελληνιστική κοινή</i> τεχνικός'
 
         >>> last_template_handler(["λ", "ἡδύς", "grc"], "el")
         'ἡδύς'
+        >>> last_template_handler(["λ"], "el", word="Ινδία")
+        'Ινδία'
 
+        >>> last_template_handler(["ετ"], "el")
+        ''
         >>> last_template_handler(["ετ", "ιατρική"], "el")
         '(<i>ιατρική</i>)'
         >>> last_template_handler(["ετ", "ιατρική", "0=-"], "el")
@@ -242,8 +263,31 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["ουσ"], "el")
         '(<i>ουσιαστικοποιημένο</i>)'
 
+        >>> last_template_handler(["ετυμ", "ine-pro"], "el")
+        'πρωτοϊνδοευρωπαϊκή'
+        >>> last_template_handler(["ετυμ", "gkm"], "el")
+        'μεσαιωνική ελληνική'
+        >>> last_template_handler(["ετυμ", "μσν"], "el")
+        'μεσαιωνική ελληνική'
+
+        >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
+        '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
+        >>> last_template_handler(["γρ", "ελαιόδενδρο", "μορφή"], "el")
+        '<i>άλλη μορφή του</i> <b>ελαιόδενδρο</b>'
+        >>> last_template_handler(["γρ", "ελαιόδενδρο", "πολυ", "εμφ=ελαιόδενδρο(ν)"], "el")
+        '<i>πολυτονική γραφή του</i> <b>ελαιόδενδρο(ν)</b>'
+        >>> last_template_handler(["γρ", "ποιέω", "ασυν", "grc"], "el")
+        '<i>ασυναίρετη μορφή του</i> <b>ποιέω</b>'
+        >>> last_template_handler(["γρ", "ποιέω", "ασυν", "grc", "εμφ=ποι-έω"], "el")
+        '<i>ασυναίρετη μορφή του</i> <b>ποι-έω</b>'
+        >>> last_template_handler(["γρ", "colour", "", "en"], "el")
+        '<i>άλλη γραφή του</i> <b>colour</b>'
+        >>> last_template_handler(["γρ", "colour", "freestyle text", "en"], "el")
+        '<i>freestyle text</i> <b>colour</b>'
     """
+    from ...user_functions import italic, strong
     from ..defaults import last_template_handler as default
+    from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -260,6 +304,42 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             phrase += ":"
         return phrase
 
+    if tpl == "μτφρ":
+        phrase = "μεταφορικά"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "αρχ":
+        phrase = "αρχαία ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "μσν":
+        phrase = "μεσαιωνική ελληνική"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "μτβ":
+        phrase = "μεταβατικό"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "αμτβ":
+        phrase = "αμετάβατο"
+        if not data["0"]:
+            phrase = term(phrase)
+        return phrase
+
+    if tpl == "βλφρ":
+        phrase = italic("δείτε την έκφραση")
+        if not data["0"]:
+            phrase += ":"
+        return phrase
+
     if tpl == "κτεπε":
         phrase = "κατʼ επέκταση"
         if not data["0"]:
@@ -267,17 +347,23 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl in ["λδδ", "dlbor"]:
-        phrase = "(διαχρονικό δάνειο) "
+        phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
         phrase += text_language(parts[0], data)
-        phrase += f" {data['1'] or parts[2]}"
+        if rest := data["1"] or parts[2] if len(parts) > 2 else "":
+            phrase += f" {rest}"
         return phrase
 
     if tpl in ["λ", "l", "link"]:
-        return parts[0]
+        return parts[0] if parts else word
 
     if tpl in ["ετ", "ετικέτα"]:
+        if not parts:
+            return ""
         data["label"] = parts[0]
         return labels_output(data.get("text", ""), data)
+
+    if tpl == "ετυμ":
+        return str(langs[parts[0]]["frm"])
 
     if tpl == "λόγιο":
         data["label"] = tpl
@@ -286,5 +372,23 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     if tpl == "ουσ":
         text = italic("ουσιαστικοποιημένο")
         return text if data["0"] else f"({text})"
+
+    if tpl == "γρ":
+        desc = parts[1] if len(parts) > 1 else ""
+        desc = {
+            "": "άλλη γραφή του",
+            "απλοπ": "απλοποιημένη γραφή του",
+            "μη απλοπ": "απλοποιημένη γραφή του",
+            "ασυν": "ασυναίρετη μορφή του",
+            "ετυμ": "ετυμολογική γραφή του",
+            "μονο": "μονοτονική γραφή του",
+            "μορφή": "άλλη μορφή του",
+            "πολυ": "πολυτονική γραφή του",
+            "πολ": "πολυτονική γραφή του",
+            "παρωχ": "παρωχημένη γραφή του",
+            "σνρ": "συνηρημένη μορφή του",
+            "συνων": "συνώνυμο του",
+        }.get(desc, desc)
+        return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 
     return default(template, locale, word)

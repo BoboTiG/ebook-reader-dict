@@ -1,20 +1,43 @@
-import re
-from operator import itemgetter
+from scripts_utils import get_soup
 
-from scripts_utils import get_content
+ROOT_URL = "https://pt.wiktionary.org"
+START_URL = f"{ROOT_URL}/wiki/Categoria:!Predefinição_ISO_639"
+NEXTPAGE_TEXT = "página seguinte"
 
-url1 = "https://pt.wiktionary.org/wiki/Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/A-L"
-url2 = "https://pt.wiktionary.org/wiki/Wikcion%C3%A1rio:Lista_de_l%C3%ADnguas/c%C3%B3digos/M-Z"
-content1 = get_content(url1)
-content2 = get_content(url2)
-content = content1 + content2
 
-pattern = r"<li><a[^>]+>([^\<]+)</a>: <a[^>]+>([^\<]+)</a>"
-matches = re.findall(pattern, content)
-seen = set()
+def process_page(page_url: str, languages: dict[str, str]) -> str:
+    soup = get_soup(page_url)
+
+    nextpage = ""
+    nextpage_div = soup.find(id="mw-pages")
+    last_link = nextpage_div.find_all("a")[-1]
+    if NEXTPAGE_TEXT == last_link.text:
+        nextpage = ROOT_URL + last_link.get("href")
+
+    content = nextpage_div.find("div", {"class": "mw-category"})
+    lis = content.findAll("li")
+    for li in lis:
+        link = li.find("a")["href"]
+        li_url = ROOT_URL + link
+        key = li.text.split(":")[1]
+        if sub_soup := get_soup(li_url):
+            if parser_ouput := sub_soup.find("div", {"class": "mw-parser-output"}):
+                content = parser_ouput.find("p", recursive=False)
+                value = content.text
+                if value_html := content.find("b"):
+                    value = value_html.text
+                languages[key] = value.strip()
+    return nextpage
+
+
+next_page_url = START_URL
+languages: dict[str, str] = {}
+
+while next_page_url:
+    next_page_url = process_page(next_page_url, languages)
+
+assert len(languages)
 print("langs = {")
-for lang, iso in sorted(matches, key=itemgetter(1)):
-    if iso not in seen:
-        print(f'    "{iso}": "{lang}",')
-        seen.add(iso)
-print(f"}}  # {len(seen):,}")
+for key, value in sorted(languages.items()):
+    print(f'    "{key}": "{value}",')
+print(f"}}  # {len(languages):,}")

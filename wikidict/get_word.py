@@ -1,4 +1,5 @@
 """Get and render a word."""
+
 import os
 import re
 
@@ -48,7 +49,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore
+                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
             else:
                 print(strip_html(etymology))
         print("\n")

@@ -6,6 +6,7 @@ Current version: 25 août 2023 11:50
     https://fr.wiktionary.org/w/index.php?title=Module:arabe&oldid=32695780
 
 """
+
 import unicodedata
 from re import sub
 
@@ -904,8 +905,8 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
             nature2 = nature(scheme, position2)
 
             # initiale d'une syllabe ouverte, donc 2 porte une voyelle courte et 3 une voyelle.
-            # contraction sur les verbes (var~=""), formes verbales, ou sur les noms (var=="") dont l'infixe n'est pas de la forme *v*v* (voyelle courte avant la deuxième radicale). # noqa
-            # le cas des noms n'est pas très clair, mais on constate que les **v* sont contractés, et certains *v*v* ne le sont pas, on suppose que ce qui apparaissent contractés sont des *v** d'origine (?) # noqa
+            # contraction sur les verbes (var~=""), formes verbales, ou sur les noms (var=="") dont l'infixe n'est pas de la forme *v*v* (voyelle courte avant la deuxième radicale).
+            # le cas des noms n'est pas très clair, mais on constate que les **v* sont contractés, et certains *v*v* ne le sont pas, on suppose que ce qui apparaissent contractés sont des *v** d'origine (?)
             if nature2 == "io" and (var != "" or var == "" and scheme[position2 - 1] not in "aiu"):
                 if est_voyelle(scheme[position2 - 1]):  # ie, la première radicale est vocalisée
                     # alors on peut supprimer la deuxième radicale
@@ -963,7 +964,7 @@ def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cov
 
     # Inversement, les verbes où la troisième radicale est redoublée dans le schème doivent se
     # conjuguer comme des sourds
-    # ie, si le schème contient un µµ ou un µ² devant une consonne il faut séparer les deux, et boucher le trou avec un "a" pour ne pas avoir trois consonnes d'affilée. # noqa
+    # ie, si le schème contient un µµ ou un µ² devant une consonne il faut séparer les deux, et boucher le trou avec un "a" pour ne pas avoir trois consonnes d'affilée.
     if scheme.find("µµ") > -1 or scheme.find("µ²") > -1:
         scheme = sub(r"µ²", "µµ", scheme, count=1)  # homogénéisation des cas
         position3 = scheme.find("µµ")

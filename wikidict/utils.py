@@ -3,11 +3,11 @@
 import os
 import re
 from collections import namedtuple
+from collections.abc import Callable
 from contextlib import suppress
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
-from typing import Callable, List, Match, Union
 
 import regex
 import requests
@@ -16,6 +16,7 @@ import wikitextparser
 from . import svg
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
+    DOWNLOAD_URL_DICTORGFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
     WIKIMEDIA_HEADERS,
@@ -32,12 +33,11 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
-from .namespaces import namespaces
-from .user_functions import *  # noqa
+from .user_functions import *  # noqa: F403
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
-NOW = datetime.now(tz=timezone.utc)
+NOW = datetime.now(tz=UTC)
 MAGIC_WORDS = {
     "CURRENTYEAR": str(NOW.year),
     "CURRENTMONTH": NOW.strftime("%m"),
@@ -70,7 +70,7 @@ def process_special_pipe_template(text: str) -> str:
     return text
 
 
-def convert_gender(genders: List[str]) -> str:
+def convert_gender(genders: list[str]) -> str:
     """Return the HTML code to include for gender(s) of a word."""
     if not genders:
         return ""
@@ -78,7 +78,7 @@ def convert_gender(genders: List[str]) -> str:
     return f" {', '.join(genders)}."
 
 
-def convert_pronunciation(pronunciations: List[str]) -> str:
+def convert_pronunciation(pronunciations: list[str]) -> str:
     """Return the HTML code to include for pronunciation(s) of a word."""
     return f" {', '.join(pronunciations)}" if pronunciations else ""
 
@@ -89,7 +89,7 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    if "CI" in os.environ:
+    if "CI" in os.environ:  # pragma: nocover
         print(f"🎯 {word = }")
     return word
 
@@ -110,6 +110,7 @@ def format_description(locale: str, output_dir: Path) -> str:
 
     # Download links
     url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
+    url_dictorgfile = DOWNLOAD_URL_DICTORGFILE.format(locale)
     url_kobo = DOWNLOAD_URL_KOBO.format(locale)
     url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
 
@@ -230,6 +231,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
         ''
+        >>> clean("<ref>")
+        ''
         >>> clean("''italic''")
         '<i>italic</i>'
         >>> clean("'''strong'''")
@@ -247,26 +250,14 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
-        '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")
-        ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
-        ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
-        ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
-        ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
-        ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
-        ''
-        >>> clean("[[Stó:lō]]", locale="fr")
-        'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
         '-[e]au'
+        >>> clean("[[Stó:lō]]", locale="fr")
+        'Stó:lō'
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
+        '10{{e|&minus;6}} gray'
 
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
@@ -299,7 +290,7 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
         ''
-    """  # noqa
+    """
 
     # Speed-up lookup
     sub = re.sub
@@ -320,6 +311,8 @@ def clean(text: str, locale: str = "en") -> str:
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
     # <ref name="CFC"><tag>...</tag></ref> -> ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
+    # <ref> -> ''
+    text = text.replace("<ref>", "")
 
     # HTML
     # <-- foo --> -> ''
@@ -340,11 +333,6 @@ def clean(text: str, locale: str = "en") -> str:
     # Local links
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
-    # Namespaces
-    # [[File:...|...]] -> ''
-    pattern = "|".join(iter(namespaces[locale] + namespaces["en"]))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
-
     # Links
     # Internal: [[{{a|b}}]] -> {{a|b}}
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
@@ -359,18 +347,15 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("[[", "").replace("]]", "")
 
     # Tables
-    text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
+    # {|foo..|}
+    text = sub(r"{\|[^}]+\|}", "", text)
 
     # Headings
-    text = sub(
-        r"^=+\s?([^=]+)\s?=+",
-        lambda matches: matches.group(1).strip(),
-        text,
-        flags=re.MULTILINE,
-    )  # == a == -> a
+    # == a == -> a
+    text = sub(r"^=+\s?([^=]+)\s?=+", lambda matches: matches.group(1).strip(), text)
 
     # Lists
-    text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
+    text = sub(r"^\*+\s?", "", text)
 
     # Magic words
     text = sub(r"__[A-Z]+__", "", text)  # __TOC__
@@ -422,12 +407,12 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
-        <math> ERROR with \frac in [test]
+        <math> ERROR with '\\frac' in [test]: KeyError('success')
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
-        <chem> ERROR with C10HX\xz14N2O4 in [test]
+        <chem> ERROR with 'C10HX\\xz14N2O4' in [test]: KeyError('success')
         'C10HX\\xz14N2O4'
         >>> process_templates("test", r"<hiero>R11</hiero>", "fr")
         '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
@@ -437,12 +422,13 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("tasse", "<i>س tas'</i>", "fr")
         "س tas'"
 
-    """  # noqa
+    """
 
     sub = re.sub
 
     # Clean-up the code
-    text = callback(wikicode, locale)
+    if not (text := callback(wikicode, locale)):
+        return ""
 
     # {{foo}}
     # {{foo|bar}}
@@ -491,7 +477,7 @@ def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -
         - https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
         - https://github.com/wikimedia/restbase/blob/ecef17bda6f4efc0d6e187fb05b1eeb389bf7120/sys/mathoid.js#L33
         - https://phabricator.wikimedia.org/diffusion/GMAT/browse/master/lib/math.js
-    """  # noqa
+    """
 
     if cat == "chem":
         formula = f"\\ce{{{formula}}}"
@@ -520,27 +506,27 @@ def formula_to_svg(formula: str, cat: str = "tex") -> str:
     return svg.optimize(svg_raw)
 
 
-def convert_math(match: Union[str, Match[str]], word: str) -> str:
+def convert_math(match: str | re.Match[str], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula)
-    except Exception:
-        print(f"<math> ERROR with {formula} in [{word}]", flush=True)
+    except Exception as exc:
+        print(f"<math> ERROR with {formula!r} in [{word}]: {exc!r}", flush=True)
         return formula
 
 
-def convert_chem(match: Union[str, Match[str]], word: str) -> str:
+def convert_chem(match: str | re.Match[str], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula, cat="chem")
-    except Exception:
-        print(f"<chem> ERROR with {formula} in [{word}]", flush=True)
+    except Exception as exc:
+        print(f"<chem> ERROR with {formula!r} in [{word}]: {exc!r}", flush=True)
         return formula
 
 
-def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
+def convert_hiero(match: str | re.Match[str], word: str) -> str:
     """Convert hiretoglyph symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     return render_hiero(expr)
@@ -623,7 +609,7 @@ def transform(word: str, template: str, locale: str) -> str:
     # Apply transformations
 
     with suppress(KeyError):
-        return eval(templates_multi[locale][tpl])  # type: ignore
+        return str(eval(templates_multi[locale][tpl]))
 
     if len(parts) == 1:
         with suppress(KeyError):

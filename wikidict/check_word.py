@@ -1,11 +1,14 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
+
+from __future__ import annotations
+
 import copy
 import os
 import re
+import urllib.parse
 from functools import partial
 from threading import Lock
 from time import sleep
-from typing import List, Optional
 
 import requests
 from bs4 import BeautifulSoup
@@ -25,8 +28,8 @@ MAX_RETRIES = 5  # count
 SLEEP_TIME = 5  # time, seconds
 
 
-def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[str]:
-    results: List[str] = []
+def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[str]:
+    results: list[str] = []
     clean_text = get_text(parsed_html)
 
     # It's all good!
@@ -93,8 +96,19 @@ def filter_html(html: str, locale: str) -> str:
                 i.decompose()
         # Filter out anchors as they are ignored from templates
         for a in bs.find_all("a", href=True):
-            if a["href"].startswith("#"):
-                a.decompose()
+            if (
+                a["href"].startswith("#")
+                and not a["href"].startswith("#ca#")
+                and a["href"] != "#ca"
+                and "mw-selflink-fragment" not in a.get("class", [])
+            ):
+                a.replaceWith(a.text)
+
+    elif locale == "da":
+        for sup in bs.find_all("sup"):
+            id = sup.get("id", "")
+            if id.startswith("cite_"):
+                sup.decompose()
 
     elif locale == "de":
         # <sup>☆</sup>
@@ -127,11 +141,13 @@ def filter_html(html: str, locale: str) -> str:
             for a in bs.find_all("a", href=True):
                 if a["href"].startswith("#"):
                     a.decompose()
+
     elif locale == "el":
         for sup in bs.find_all("sup"):
             id = sup.get("id", "")
             if id.startswith("cite_"):
                 sup.decompose()
+
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
@@ -281,7 +297,7 @@ def get_text(html: str) -> str:
 
 def craft_url(word: str, locale: str, raw: bool = False) -> str:
     """Craft the *word* URL for the given *locale*."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}"
+    url = f"https://{locale}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
     if raw:
         url += "&action=raw"
     return url
@@ -301,8 +317,12 @@ def get_url_content(url: str) -> str:
         except RequestException as err:
             wait_time = 1
             resp = err.response
-            if resp is not None and resp.status_code == 429:
-                wait_time = int(resp.headers.get("retry-after") or "1")
+            if resp is not None:
+                if resp.status_code == 429:
+                    wait_time = int(resp.headers.get("retry-after") or "1")
+                elif resp.status_code == 404:
+                    print(err)
+                    return "404"
             sleep(wait_time * SLEEP_TIME)
             retry += 1
     raise RuntimeError(f"Sorry, too many tries for {url!r}")
@@ -322,9 +342,9 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
+def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
     errors = 0
-    results: List[str] = []
+    results: list[str] = []
     details = get_word(word, locale)
     if not details.etymology and not details.definitions:
         return errors
@@ -334,7 +354,7 @@ def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore
+                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore[arg-type]
                     results.extend(r)
             else:
                 r = check_mute(text, etymology, "\n !! Etymology")

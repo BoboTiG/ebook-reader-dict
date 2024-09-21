@@ -1,16 +1,18 @@
 ={{-pt-}}=
 ==Abreviatura==
-{{dica de uso|1='''etc.''' equivale a "<u>e</u> outras coisas.", logo, não se deve utilizar a conjunção <u>e</u> ou vírgula antes de etc.
+{{dica de uso|1='''etc''' equivale a "<u>e</u> outras coisas.", logo, não se deve utilizar a conjunção <u>e</u> ou vírgula antes de etc.
 *Exemplo: 
-**<font style="color:green;">correto</font>: amor, felicidade etc.
-**<font style="color:red;">errado</font>: amor, felicidade, e etc.
+**<span style="color:green;">correto</span>: amor, felicidade etc.
+**<span style="color:red;">errado</span>: amor, felicidade, e etc.
 
 
 Além disso, não deve ser usado para dizer "e outras pessoas". Para esses casos, usa-se <b>[[et al.]]</b>, abreviatura de <b>"et alii"</b> ("e outras pessoas", em latim)
 }}
-'''etc.'''
+'''etc'''
 # [[abreviação]] do latim ''et cetera'', que significa "e outros", "e os restantes" e "e outras coisas mais"
 
+==={{-varort-}}===
+* [[&c]]
 
 ===Tradução===
 {{tradini}}

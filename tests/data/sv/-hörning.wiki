@@ -1,21 +1,25 @@
+{{se även|-horning}}
+
 ==Svenska==
 ===Efterled===
 {{efterled|sv}}
 '''-hörning''' (''suffix'')
 #{{tagg|geometri|vardagligt}} ''suffix för [[månghörning]]ar''
-#:{{etymologi|Av ''[[hörn]]'' och ''[[-ing]]''.}}
-#:''fem'''hörning''''', ''sex'''hörning''''' osv.
+#:{{etymologi|Av ''[[hörn]]'' + ''[[-ing]]''.}}
 #:{{synonymer|[[-gon]]}}
+#:{{sammansättningar|[[femhörning]], [[fyrhörning]], [[hundrahörning]], [[månghörning]], [[niohörning]], [[sexhörning]], [[sjuhörning]], [[sjuttonhörning]], [[tiohörning]], [[trehörning]], [[åttahörning]]}}
+#:{{användning|Mer formellt talar man om [[polygon]]er i stället för [[månghörningar]], och då används suffixet ''[[-gon]]'', fast då med de likaså mer formella icke-svenska förleden: ''[[pentagon]]'', ''[[hexagon]]'' osv.}}
 #''suffix i ord som har med [[djur]]s [[horn]] att göra''
-#:{{etymologi|Av ''[[horn]]'' och ''[[-ing]]'' med omljud.}}
-#:''en'''hörning'''''
-#:''nos'''hörning'''''
-
-====Användning====
-Mer formellt talar man om [[polygon]]er i stället för [[månghörningar]], och då används suffixet [[-gon]], fast då med de likaså mer formella icke-svenska förleden: ''pentagon'', ''hexagon'' osv.
+#:{{etymologi|Av ''[[horn]]'' + ''[[-ing]]'' med omljud.}}
+#:{{sammansättningar|[[enhörning]], [[noshörning]]}}
+#:{{jämför|[[-horning]]}}
 
 ====Översättningar====
 {{ö-topp|suffix för månghörningar}}
 *finska: {{ö+|fi|-kulmio}}
 *nederländska: {{ö|nl|-hoek}}
+{{ö-botten}}
+
+{{ö-topp|suffix i ord som har med djurs horn att göra}}
+*isländska: {{ö+|is|hyrningur}}
 {{ö-botten}}

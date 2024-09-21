@@ -1,7 +1,6 @@
 import re
-from typing import Dict, Tuple
 
-from scripts_utils import get_soup
+from scripts_utils import get_content, get_soup
 
 
 def process_display(display: str) -> str:
@@ -25,62 +24,52 @@ def clean_lua_text(text: str) -> str:
     text = text.replace("end", "")
     text = text.replace("true", "True")
     text = text.replace("false", "False")
-    text = text.replace("--", "#")
-    return text
+    return text.replace("--", "#")
 
 
-def dialect_handler(text: str) -> Dict[str, str]:
+def dialect_handler(text: str) -> dict[str, str]:
     lines = text.split("\n")
     line1 = lines[0]
-    match = re.search(r'"([^"]*)"', line1)
-    if match:
-        href = match.group(1)
-        dialect_url = f"https://en.wiktionary.org/wiki/{href}"
-        soup = get_soup(dialect_url)
-        div = soup.find("div", {"class": "mw-highlight-lines"})
-        text_dialect = div.text
-        text_dialect = clean_lua_text(text_dialect)
-        code = ""
-        for line in text_dialect.split("\n"):
-            if line.strip().startswith("aliases = "):
-                break
-            else:
-                code += line + "\n"
-        text_dialect = code
-        text_dialect = text_dialect.replace('["', '"')
-        text_dialect = text_dialect.replace('"] =', '" :')
-        text_dialect = text_dialect.replace('"}', '"]')
-        for r in ["alts", "link", "plain_categories"]:
-            text_dialect = re.sub(rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect)
-        text_dialect = text_dialect.replace('{"', '["')
-        exec(text_dialect, globals())
-        results: Dict[str, str] = {}
-        for k, v in labels.items():  # type: ignore # noqa
-            results[k] = k
-            for alt in v.get("alts", []):
-                results[alt] = k
-        return results
-    else:
+    if not (match := re.search(r'"([^"]*)"', line1)):
         return {}
 
-
-def process_page(
-    url: str,
-    repl: Tuple[str, ...],
-    stop_line: str,
-    var_name: str,
-    print_result: bool = True,
-) -> Dict[str, str]:
-    soup = get_soup(url)
+    soup = get_soup(f"https://en.wiktionary.org/wiki/{match[1]}")
     div = soup.find("div", {"class": "mw-highlight-lines"})
-    text = div.text
+    text_dialect = div.text
+    text_dialect = clean_lua_text(text_dialect)
+    code = ""
+    for line in text_dialect.split("\n"):
+        if line.strip().startswith("aliases = "):
+            break
+        code += line + "\n"
+
+    text_dialect = code
+    text_dialect = text_dialect.replace('["', '"')
+    text_dialect = text_dialect.replace('"] =', '" :')
+    text_dialect = text_dialect.replace('"}', '"]')
+    for r in ["alts", "link", "plain_categories"]:
+        text_dialect = re.sub(rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect)
+    text_dialect = text_dialect.replace('{"', '["')
+
+    exec(text_dialect, globals())
+    results: dict[str, str] = {}
+    for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
+        results[k] = k
+        for alt in v.get("alts", []):
+            results[alt] = k
+
+    return results
+
+
+def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print_result: bool = True) -> dict[str, str]:
+    text = get_content(f"{url}?action=raw")
+
     if text.startswith("local data = require"):
         return dialect_handler(text)
-    text = text.replace("local ", "")
-    text = text.replace("end", "")
-    text = text.replace("true", "True")
-    text = text.replace("false", "False")
-    text = text.replace("--", "#")
+
+    text = clean_lua_text(text)
+    text = text.replace('" .. ', '" + ').replace('" ..\n', '" + ')
+    text = text.replace(' .. "', ' + "').replace(' ..\n"', ' + "')
 
     text = re.sub(r"function\s+(\w+\([\w|\,|\s]+\))", "def \\g<1>:", text)
     text = text.replace("for _, v in ipairs(b) do", "\n    for v in b:\n        ")
@@ -98,16 +87,16 @@ def process_page(
             code += line + "\n"
 
     exec(code, globals())
-    results: Dict[str, str] = {}
+    results: dict[str, str] = {}
 
-    for k, v in labels.items():  # type: ignore # noqa
+    for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
         if k == "deprecated label":
             continue
         label_v = v
         label_k = k
         aliases = []
         if isinstance(v, str):
-            label_v = labels.get(v, v)  # type: ignore # noqa
+            label_v = labels.get(v, v)  # type: ignore[name-defined] # noqa: F821
             if label_v != v:
                 label_k = v
         if isinstance(label_v, str):
@@ -116,12 +105,12 @@ def process_page(
             display = label_v.get("display", label_k)
             aliases = label_v.get("aliases", [])
         display = process_display(display)
-        results[k] = display
+        results[k] = display.replace('"', "'")
 
         if isinstance(aliases, str):
             aliases = [aliases]
         for a in aliases:
-            results[a] = display
+            results[a] = display.replace('"', "'")
 
     if print_result:
         print(f"{var_name} = {{")
@@ -131,49 +120,80 @@ def process_page(
     return results
 
 
-url = "https://en.wiktionary.org/wiki/Module:labels/data"
-repl = (
-    "deprecated_aliases",
-    "special_display",
-    "aliases",
-    "alias_of",
-    "category",
-    "labels",
-    "deprecated",
-    "display",
-    "glossary",
-    "language",
-    "omit_preComma",
-    "omit_postComma",
-    "omit_preSpace",
-    "plain_categories",
-    "pos_categories",
-    "regional_categories",
-    "sense_categories",
-    "topical_categories",
-    "track",
-    "wikipedia",
-    "Wikipedia",
-    "Wiktionary",
+repl = sorted(
+    [
+        "accent_display",
+        "accent_Wikipedia",
+        "addl",
+        "aliases",
+        "alias_of",
+        "category",
+        "country",
+        "labels",
+        "def",
+        "deprecated",
+        "deprecated_aliases",
+        "display",
+        "form_of_display",
+        "from",
+        "fulldef",
+        "glossary",
+        "langs",
+        "language",
+        "nolink",
+        "noreg",
+        "omit_preComma",
+        "omit_postComma",
+        "omit_preSpace",
+        "omit_postSpace",
+        "othercat",
+        "parent",
+        "parent_label",
+        "plain_categories",
+        "pos_categories",
+        "prep",
+        "region",
+        "regional_categories",
+        "sense_categories",
+        "special_display",
+        "the",
+        "topical_categories",
+        "track",
+        "type",
+        "verb",
+        "Wikidata",
+        "wikipedia",
+        "Wikipedia",
+        "Wiktionary",
+    ],
+    key=len,
+    reverse=True,
 )
-stop_line = "return labels"
-var_name = "labels"
-results_data: Dict[str, str] = {}
-results_data |= process_page(url, repl, stop_line, "", print_result=False)
 
-url = "https://en.wiktionary.org/wiki/Module:labels/data/qualifiers"
-stop_line = "return require("
-results_data |= process_page(url, repl, stop_line, "", print_result=False)
-print(f"{var_name} = {{")
+results_data: dict[str, str] = process_page(
+    "https://en.wiktionary.org/wiki/Module:labels/data",
+    repl,
+    "return labels",
+    "",
+    print_result=False,
+)
+results_data |= process_page(
+    "https://en.wiktionary.org/wiki/Module:labels/data/qualifiers",
+    repl,
+    "return require(",
+    "",
+    print_result=False,
+)
+print("labels = {")
 for key, value in sorted(results_data.items()):
     print(f'    "{key}": "{value}",')
 print(f"}}  # {len(results_data):,}")
 
-syntaxes: Dict[str, Dict[str, bool]] = {}
-for k, v in labels.items():  # type: ignore # noqa
+syntaxes: dict[str, dict[str, bool]] = {}
+for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
     label_v = v
     if isinstance(v, str):
-        label_v = labels.get(v)  # type: ignore # noqa
+        label_v = labels.get(v)  # type: ignore[name-defined] # noqa: F821
     if not label_v:
         continue
     omit_preComma = label_v.get("omit_preComma")
@@ -198,47 +218,37 @@ for k, v in labels.items():  # type: ignore # noqa
 
 print()
 print("label_syntaxes = {")
-for key, value in sorted(syntaxes.items()):  # type: ignore
+for key, value in sorted(syntaxes.items()):  # type: ignore[assignment]
     print(f'    "{key}": {{')
-    for k, v in value.items():  # type: ignore
+    for k, v in value.items():  # type: ignore[attr-defined]
         print(f'        "{k}": {v},')
     print("    },")
 print(f"}}  # {len(syntaxes):,}")
 
 print()
 
-url = "https://en.wiktionary.org/wiki/Module:labels/data/topical"
-stop_line = "return"
-var_name = "labels_topical"
-process_page(url, repl, stop_line, var_name)
-
+process_page("https://en.wiktionary.org/wiki/Module:labels/data/topical", repl, "return", "labels_topical")
 print()
 
-url = "https://en.wiktionary.org/wiki/Module:labels/data/regional"
-stop_line = "return labels"
-var_name = "labels_regional"
-process_page(url, repl, stop_line, var_name)
-
+process_page("https://en.wiktionary.org/wiki/Module:labels/data/regional", repl, "return labels", "labels_regional")
 print()
 
 # labels_subvarieties
-root_url = "https://en.wiktionary.org"
-url = "https://en.wiktionary.org/wiki/Special:PrefixIndex/Module:labels/data/lang/"
-
-soup = get_soup(url)
+soup = get_soup("https://en.wiktionary.org/wiki/Special:PrefixIndex/Module:labels/data/lang/")
 div = soup.find("div", {"class": "mw-prefixindex-body"})
-lis = div.findAll("li")
-results: Dict[str, str] = {}
-for li in lis:
-    if not li.text.endswith("documentation"):
-        href = li.find("a")["href"]
-        page_url = root_url + href
-        stop_line = "return"
-        var_name = "labels_subvarieties"
-        results |= process_page(page_url, repl, stop_line, var_name, print_result=False)
+results: dict[str, str] = {}
+for li in div.findAll("li"):
+    if li.text.endswith("documentation"):
+        continue
 
-print(f"{var_name} = {{")
+    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith(("example", "/functions")):
+        continue
+
+    stop_line = "################## accent qualifiers" if page_url.endswith("/en") else "return"
+    results |= process_page(page_url, repl, stop_line, "labels_subvarieties", print_result=False)
+
+print("labels_subvarieties = {")
 for key, value in sorted(results.items()):
-    if len(key) < 62:  # if it's too long, it's not useful
+    if len(key) < 62 and len(key):  # if it's too long, it's not useful
         print(f'    "{key}": "{value}",')
 print(f"}}  # {len(results):,}")

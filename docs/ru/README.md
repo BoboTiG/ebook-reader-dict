@@ -16,12 +16,14 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dicthtml-ru-ru.zip) (dicthtml-ru-ru.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru.zip) (dict-ru-ru.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru.df.bz2) (dict-ru-ru.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dictorg-ru-ru.zip) (dictorg-ru-ru.zip)
 
 ### Версии без этимологии
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dicthtml-ru-ru-noetym.zip) (dicthtml-ru-ru-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru-noetym.zip) (dict-ru-ru-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru-noetym.df.bz2) (dict-ru-ru-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dictorg-ru-ru-noetym.zip) (dictorg-ru-ru-noetym.zip)
 
 ## Установка
 

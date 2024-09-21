@@ -1,47 +1,44 @@
 == {{lengua|es}} ==
-{{pron-graf|fone=koˈmeɾ|audio=LL-Q1321 (spa)-Rodelar-comer.wav}}
+{{pron-graf|1audio1=LL-Q1321 (spa)-Rodelar-comer.wav}}
+[[Categoría:ES:Segunda conjugación]]
 
-=== Etimología ===
-{{etimología|la|comedere|diacrítico=comedĕre}}, infinitivo de {{l+|la|comedo|comedō|glosa=devorar}}, formado a partir {{l+|la|cum|glosa=con}} y {{l+|la|edo|edō|glosa=comer}}.
+=== Etimología 1 ===
+{{etimología|la|comedere|diacrítico=comedĕre}}, infinitivo {{etim|la|comedo}}, formado a partir {{l+|la|cum|glosa=con}} y {{l+|la|edo|edō|glosa=comer}}.
 
-=== {{verbo intransitivo|es}} ===
+==== {{verbo intransitivo|es}} ====
 [[Archivo:Njam Njam!.jpg|thumb|chica comiendo (1)]]
-
 ;1: {{plm|ingerir}} o tomar [[alimento]]s.
 {{uso|utct|utcp}}.
 {{sinónimos|meterse entre pecho y espalda|nota=coloquial}}.
 {{hiperónimo|alimentarse|ingerir}}.
 {{hipónimo|desayunar|almorzar|cenar|merendar}}.
 {{relacionado|beber}}.
-{{ejemplo|Si no ''comes'' en varias semanas, morirás de inanición.}}
-
+{{ejemplo|Si no comes en varias semanas, morirás de inanición.}}
 ;2: {{plm|tomar}} la principal [[comida]] del [[día]].
 {{sinónimo|yantar|nota=anticuado|almorzar}}.
-{{ejemplo|He quedado para ''comer''.}}
+{{ejemplo|He quedado para comer.}}
 
-=== {{verbo transitivo|es}} ===
+==== {{verbo transitivo|es}} ====
 ;3: {{plm|malgastar}} [[bien]]es o [[recurso]]s.
-{{ejemplo|La mala gestión se ''comió'' las ganancias.}}
+{{ejemplo|La mala gestión se comió las ganancias.}}
 ;4: {{plm|corroer}} o [[consumir]].
-:*'''Ejemplos:'''
-::* "El orín se ''comió'' la baranda del barco."
-::* "Le ''comen'' los celos."
+{{ejemplo|El orín se comió la baranda del barco.}}
+{{ejemplo|Le comen los celos.}}
 ;5: Producir [[comezón]].
-;6 {{juegos}}: En los juegos de mesa, [[eliminar]] una [[pieza]] del contrario.
-{{ejemplo|Se ''comió'' el caballo con la torre.}}
+;6 {{csem|juegos}}: En los juegos de mesa, [[eliminar]] una [[pieza]] del contrario.
+{{ejemplo|Se comió el caballo con la torre.}}
 ;7: {{plm|omitir}} elementos de [[información]] cuando se habla o escribe.
 {{uso|utcp}}: ''[[comerse]]''
-{{ejemplo|No habla bien, se ''come'' las terminaciones.}}
+{{ejemplo|No habla bien, se come las terminaciones.}}
 ;8: Llevar [[encoger|encogidas]] algunas prendas de ropa, como los [[calcetín|calcetines]].
 {{uso|utcp}}: ''[[comerse]]''
 ;9: Tener relaciones sexuales con alguien.
 {{ámbito|Chile|Colombia|México|Perú|nota2=más común como pronominal}}
 {{uso|coloquial|malsonante|utcp}}: ''[[comerse]]'' (a alguien)
+{{ejemplo|¡No me digas! Así que estos dos gafos [[comerse|se comen]] a escondidas.}}
 
-{{clear}}
-
-=== Locuciones ===
-{{rel-arriba|Locuciones con «comer»}}
+==== Locuciones ====
+{{trad-arriba|Locuciones con «comer»}}
 * [[comer cuentos]]: creer cosas falsas o dejarse engañar (Cuba, Venezuela)
 * [[comer la color]] o [[comerle la color]] a alguien.
 * [[comerse los unos a los otros]]: tener gran discordia.
@@ -49,108 +46,122 @@
 * [[comer y callar]]: obedecer sin rechistar.
 * [[lo comido por lo servido]]: indica que los gastos y beneficios de una actividad han quedado igualados.
 * [[morder la mano que te da de comer]]
-{{rel-centro}}
 * [[perder el comer]]: perder el apetito
 * [[quitárselo de su comer|quitárselo alguien de su comer]]: [[quitárselo de la boca]]
 * [[ser de buen comer]]: comer mucho.
 * [[ser pan comido]]: ser muy fácil.
 * [[sin comerlo ni beberlo]]: sin haber tenido parte en el asunto.
 * [[tener qué comer|tener alguien qué comer]]: tener asegurado su alimento y subsistencia.
-{{rel-abajo}}
 * [[comer comida]]: tener mala racha en un videojuego.
-{{rel-abajo}}
+{{trad-abajo}}
 
-=== Refranes ===
+==== Refranes ====
 * [[el comer y el rascar, todo está en empezar]]
 * [[a comer y a misa, una vez no más se avisa]]
 * [[el que se pica es porque ají come]]: sentirse aludido ante un comentario o una acción específica (Venezuela).
 
-=== Conjugación ===
+==== Conjugación ====
 {{es.v.conj.er|com}}
-[[Categoría:ES:Segunda conjugación]]
 
-=== Información adicional ===
+==== Información adicional ====
 {{derivad|comecome|comedero|comedor|comemierda|comensal|comensalía|comestible|comezón|comible|comida|comidero|comidilla|comido|comilitona|comilón|comilona}}
 
-=== Véase también ===
+==== Véase también ====
 * [[comerse]]
 {{w}}
 {{Wikiquote}}
 
-{{clear}}
-
-=== Traducciones ===
+==== Traducciones ====
 {{trad-arriba}}
-{{t+|ain|1|エ|tr|e|nota|tr.|,|1|イペ|tr|ipe|nota|intr.}}
-{{t+|de|1-2|essen|,|1-3|verzehren|,|4|zerfressen|,|4|zernagen|,|6|schlagen|,|7|verschlucken}}
-{{t+|ast|?|xintar}}
-{{t+|ay|?|manqʼayaña}}
-{{t+|az|1|yemək}}
-{{t+|bg|?|ям}} (iam)
-{{t+|ca|1-2|menjar}}
-{{t+|cs|?|jíst}}
-{{t+|chr|1|ᎠᎩᏍᏗ|tr|agisdi}}
-{{t+|cap|1|lul-z}}
-{{t+|da|?|spise}}
-{{t+|sl|?|jesti}}
-{{t+|eo|?|manĝi}}
-{{t+|eu|1-4|jan|,|2|bazkaldu}}
-{{t+|fr|1-2|manger|,|2|déjeuner}}
-{{t+|el|?|τρώω}} (trṓō) ''o'' {{trad|el|τρώγω}} (trṓgō)
-{{t+|gn|?|u}}
-{{t+|en|1|eat|,|2|nl|to|have lunch|,|6|capture}}
-{{t+|he|אכל|tr=akhál|sc=Hebr}}
-{{t+|hu|1|eszik}}
-{{trad-centro}}
-{{t+|it|1-2|mangiare|,|2|pranzare}}
-{{t+|alc|1|jeféjes}}
-{{t+|kuz|1|holmtur}}
-{{t+|ku|1|xwarin}}
-{{t+|zh|?|吃|tr|chī}}
-{{t+|arn|1|in}}
-{{t+|ja|1|食事する|,|食べる}}
-{{t+|yua|?|janal}}
-{{t+|mn|идэх}}
-{{t+|nci|?|cua}}
-{{t+|nl|?|eten}}
-{{t+|no|?|spise|, |ete}}
-{{t+|nn|?|ete}}
-{{t+|pl|1|jeść}}
-{{t+|pt|1-7, 9|comer}}
-{{t+|quz|?|mikhuy}}
-{{t+|ru|?|есть}} (estʹ)
-{{t+|sa|1|खादति}}
-{{t+|sv|?|äta}}
-{{t+|tr|?|yemek}}
-{{t+|yag|1|atáma}}
+{{t|af|t1=eet}}
+{{t|ay|i1=s|t1=manqʼayaña}}
+{{t|ain|a1=1|t1=エ|tl1=e|nota1=tr.|a2=1|t2=イペ|tl2=ipe|nota2=intr.}}
+{{t|sh|t1=jesti|t2=јести}}
+{{t|sq|t1=ha}}
+{{t|de|a1=1-2|t1=essen|a2=1-3|t2=verzehren|a3=4|t3=zerfressen|a4=4|t4=zernagen|a5=6|t5=schlagen|a6=7|t6=verschlucken}}
+{{t|ast|a1=1-2|t1=comer|a2=2|t2=xintar}}
+{{t|az|a1=1|t1=yemək}}
+{{t|br|t1=debriñ}}
+{{t|bg|i1=s|t1=ям}}
+{{t|ca|a1=1-2|t1=menjar}}
+{{t|cs|i1=s|t1=jíst}}
+{{t|chr|a1=1|t1=ᎠᎩᏍᏗ|tl1=agisdi}}
+{{t|cap|a1=1|t1=lul-z}}
+{{t|da|i1=s|t1=spise}}
+{{t|sk|t1=jesť}}
+{{t|sl|i1=s|t1=jesti}}
+{{t|eo|i1=s|t1=manĝi}}
+{{t|et|t1=sööma}}
+{{t|eu|a1=1-4|t1=jan|a2=2|t2=bazkaldu}}
+{{t|fo|t1=eta}}
+{{t|fi|t1=syödä}}
+{{t|fr|a1=1-2|t1=manger|a2=2|t2=déjeuner}}
+{{t|cy|t1=bwyta}}
+{{t|gl|t1=comer}}
+{{t|el|i1=s|t1=τρώω}}
+{{t|el|t1=τρώγω}}
+{{t|gn|i1=s|t1=u}}
+{{t|he|t1=אכל}}
+{{t|hu|a1=1|t1=eszik}}
+{{t|en|a1=1|t1=eat|a2=2|nl2=s|t2=to|t3=have lunch|a4=6|t4=capture}}
+{{t|is|t1=borđa}}
+{{t|it|a1=1-2|t1=mangiare|a2=2|t2=pranzare}}
+{{t|ja|a1=1|t1=食事する|t2=食べる}}
+{{t|lad|t1=komer}}
+{{t|la|t1=edō}}
+{{t|lv|t1=ēst}}
+{{t|lt|t1=valgyti}}
+{{t|alc|a1=1|t1=jeféjes}}
+{{t|kuz|a1=1|t1=holmtur}}
+{{t|ku|a1=1|t1=xwarin}}
+{{t|zh|i1=s|t1=吃|tl1=chī}}
+{{t|arn|a1=1|t1=in}}
+{{t|yua|i1=s|t1=janal}}
+{{t|mn|t1=идэх}}
+{{t|nci|i1=s|t1=cua}}
+{{t|nl|i1=s|t1=eten}}
+{{t|no|i1=s|t1=spise|t2=ete}}
+{{t|nn|i1=s|t1=ete|t2=eta}}
+{{t|oc|t1=manjar}}
+{{t|pl|a1=1|t1=jeść}}
+{{t|pt|a1=1-7, 9|t1=comer}}
+{{t|quz|i1=s|t1=mikhuy}}
+{{t|rm|t1=mangiar}}
+{{t|ro|t1=mânca}}
+{{t|ru|i1=s|t1=есть}}
+{{t|sa|a1=1|t1=खादति}}
+{{t|sv|i1=s|t1=äta}}
+{{t|sw|t1=kula}}
+{{t|tr|i1=s|t1=yemek}}
+{{t|uk|t1=їсти}}
+{{t|vec|t1=magnar}}
+{{t|yag|a1=1|t1=atáma}}
+{{t|yi|t1=עסן}}
 {{trad-abajo}}
 
 == {{lengua|gl}} ==
 {{pron-graf|leng=gl}}
 
-=== Etimología ===
-{{etimología|la|comedere|diacrítico=comedĕre|leng=gl}}
+=== Etimología 1 ===
+{{etimología|la|comedere|diacrítico=comedĕre|leng=gl}}.
 
-=== {{verbo|gl}} ===
+==== {{verbo|gl}} ====
 ;1: {{plm}}.
-{{hipónimo|leng=gl|xantar}}.
+{{hipónimo|leng=gl|xantar}}
 
 == {{lengua|pt}} ==
-{{pron-graf|leng=pt|fone=kuˈmeɾ}}
+{{pron-graf|leng=pt}}
 
-=== Etimología ===
-{{etimología|la|comedere|diacrítico=comedĕre|leng=pt}}
+=== Etimología 1 ===
+{{etimología|la|comedere|diacrítico=comedĕre|leng=pt}}.
 
-=== {{verbo transitivo|pt}} e intransitivo ===
-[[Categoría:PT:Verbos intransitivos]]
-
+==== {{verbo transitivo|pt}} e intransitivo ====
 ;1: {{plm}}<sub>1-7, 9</sub>.
 {{relacionado|leng=pt|almoçar|boiar|cear|comensal|comestível|ingerir|jantar|morder|nham|papar|trincar}}
-
 ;2: {{plm|tomar}} (por).
-:*'''Ejemplo:''' "Você me ''come'' por tola" ''(Me ''tomas'' por tonta).''
+{{ejemplo|Você me come por tola.|trad=Me tomas por tonta.}}
 
-=== Conjugación ===
+==== Conjugación ====
 {{pt.v.conj.er|com}}
 
 == Referencias y notas ==

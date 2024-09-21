@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -12,7 +12,7 @@ from wikidict.utils import process_templates
     [
         (
             "-ass-",
-            ["/as/"],
+            [],
             [],
             ["Del sufix <i>-às</i> amb valor augmentatiu."],
             ["Infix que afegeix un matís augmentatiu."],
@@ -22,7 +22,7 @@ from wikidict.utils import process_templates
             "-itzar",
             [],
             [],
-            ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i>."],
+            ["Del llatí <i>-izare</i>, del grec antic <i>-ίζειν</i> (<i>-ízein</i>)."],
             [
                 "<i>Aplicat a un substantiu o adjectiu forma un verb que expressa la seva realització o convertir-se'n.</i>",  # noqa
             ],
@@ -30,12 +30,12 @@ from wikidict.utils import process_templates
         ),
         (
             "AFI",
-            ["/ˈa.fi/"],
             [],
-            ["sigles"],
+            [],
+            [],
             [
-                "(<i>m</i>) Alfabet Fonètic Internacional.",
-                "(<i>f</i>) Associació Fonètica Internacional.",
+                "<i>(masculí)</i> <i>Sigles de</i> <b>Alfabet Fonètic Internacional</b>",
+                "<i>(femení)</i> <i>Sigles de</i> <b>Associació Fonètica Internacional</b>",
             ],
             [],
         ),
@@ -59,7 +59,7 @@ from wikidict.utils import process_templates
             "bot",
             [],
             ["m"],
-            [""],
+            ["[1] Per la forma de bóta: del llatí vulgar <i>buttis</i> («bóta»), segle XIII."],
             [
                 "Recipient de cuir, originalment de boc per a contenir vi.",
                 "sac de gemecs",
@@ -111,15 +111,15 @@ from wikidict.utils import process_templates
         ),
         (
             "cas",
-            ["/ˈkas/"],
+            [],
             ["m"],
             ["Del llatí <i>casus</i>."],
             [
                 "Situació particular que es produeix entre les diverses possibles.",
                 "Objecte d'estudi d'alguna disciplina.",
-                "Cadascuna de les formes que presenta una paraula segons la seva declinació, que marca la funció sintàctica.",  # noqa
-                "Atenció, cura (<i>fer cas</i>).",
-                "Contracció entre el nom <i>casa</i> i l'article salat <i>es</i> quan és usat com un article personal. S'utilitza tan per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.",  # noqa
+                "<i>(lingüística)</i> Categoria gramatical que marca la funció sintàctica d’un mot.",
+                "Atenció, cura.",
+                "Contracció entre el nom <i>casa</i> i l'article salat <i>es</i> quan és usat com un article personal. S'utilitza tant per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.",  # noqa
             ],
             ["casar"],
         ),
@@ -192,7 +192,7 @@ from wikidict.utils import process_templates
             "disset",
             [],
             ["m", "f"],
-            ["Del llatí <i>decem</i> <i>et</i> <i>septem</i> («deu i set»)."],
+            ["Del llatí <i>decem et septem</i> (literalment «deu i set»)."],
             [
                 "<i>(cardinal)</i> Nombre enter situat entre el setze i el divuit.",
                 "<i>(valor ordinal)</i> Dissetè, dissetena.",
@@ -208,16 +208,15 @@ from wikidict.utils import process_templates
             [],
             [
                 "Codi de llengua ISO 639-1 del grec modern.",
-                "Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.",  # noqa
+                "<i>Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.</i>",  # noqa
                 'Acusatiu del masculí singular del pronom personal "ell".',
                 'Substitueix el complement directe quan aquest porta l\'article "el".',
-                "<i>(obsolet)</i> <i>forma alternativa de</i> <b>ela</b>",
             ],
-            [],
+            ["ela"],
         ),
         (
             "expertes",
-            ["/əksˈpɛr.təs/"],
+            [],
             [],
             [],
             [],
@@ -233,7 +232,7 @@ from wikidict.utils import process_templates
             [],
         ),
         ("Mn.", [], [], [], ["mossèn com a tractament davant el nom"], []),
-        ("PMF", ["/ˌpeˈe.məˌe.fə/"], [], [], ["Preguntes Més Freqüents."], []),
+        ("PMF", [], [], [], ["<i>Sigles de</i> <b>preguntes més freqüents</b>"], []),
         ("pen", [], [], [], [], ["penar"]),
         (
             "si",
@@ -242,10 +241,10 @@ from wikidict.utils import process_templates
             [],
             [
                 "Codi de llengua ISO 639-1 del singalès.",
-                "Cavitat interna del cos",
-                "(<i>per extensió</i>) Part interna d'una cosa",
-                "Setena nota musical de l'escala",
-                "Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.",
+                "Cavitat interna del cos.",
+                "<i>(per extensió)</i> Part interna d'una cosa.",
+                "Setena nota musical de l'escala.",
+                "<i>Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.</i>",
             ],
             [],
         ),
@@ -253,11 +252,11 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    genders: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    genders: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""

@@ -10,52 +10,53 @@
 [[Categoria:Codis de llengua]]
 
 == {{-ca-}} ==
-{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}
-{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-el.wav|lang=ca|accent=or}}
+{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/
+|f-centr=LL-Q7026 (cat)-Unjoanqualsevol-el.wav
+}}
 {{homòfons|ca|al|q1=oriental}}
+{{-etimologia-}} {{Del-lang|roa-oca|ca|lo}}, per {{fals tall|ca|[[·l#roa-oca|·l]]}}, forma reduïda darrere d’una {{m|ca||e}}, {{etim-s|ca|XIV}}. Per exemple: {{m|ca||que lo > que·l > qu’el > que el; de lo > del; e lo > e·l > i el}}.
 
 === Article ===
 {{entrada|ca|article|plural|els|femení|la}}
 
-# Article determinat [[masculí]] singular que serveix per actualitzar i concretar el contingut del [[substantiu]] que acompanya.
+# {{def-meta|Article determinat [[masculí]] singular que serveix per actualitzar i concretar el contingut del [[substantiu]] que acompanya.}}
 #: {{ex-us|ca|'''El''' mosquit tigre fa '''el''' relleu diürn al mosquit tradicional.}}
 
 {{-sin-}}
-* [[l']] ''(forma apostrofada)''
-* [[lo]], [[l']] ''(en les variants occidentals)''
-* [[es]], [[s']] ''(en parlar salat)''
-* [[so]], [[s']] ''(usat a [[Mallorca]] i les [[Pitiüses]], sempre darrere la preposició [[amb]])''
-* [[en]], [[n']] ''(usat exclusivament davant noms propis o sobrenoms de persona)''
+* [[l']] {{q|forma apostrofada}}
+* [[lo]], [[l']] {{q|dialectal}}
+* [[es]], [[s']] {{q|salat}}
+* [[so]], [[s']] {{q|mallorquí i eivissenc en certs contextos}}
+* [[en]], [[n']] {{q|davant noms o sobrenoms de persona}}
 
 {{-var-}}
-* {{q|arcaismes}} [['l]] ''(forma apostrofada a l'esquerra)''
+* [['l]] {{q|arcaisme|forma apostrofada enclítica}}
 
 {{-rel-}}
 * Contraccions: [[al]], [[cal]], [[del]], [[pel]]
 * Article indeterminat: [[un]]
 
-==== Notes d'ús ====
-* S’apostrofada davant de vocal o davant de la ''h'', llevat de vocal amb so [[semivocàlic]] (quan fa diftong).
-*: '''''l&#39;'''[[oceà]]'', '''''el''' [[iot]]''.
+{{-notes-}}
+* S’apostrofa davant de vocal o davant de la ''h'', llevat de vocal amb so [[semivocàlic]] (quan fa diftong).
+*: {{ex-us|ca|'''l’'''[[oceà]], '''el''' [[iot]]}}
 * També s'utilitza la forma apostrofada davant sigles, independentment de com s'escriuen, si en pronunciar-les aquestes també tenen un so inicial de vocal.
-*: '''''l&#39;'''[[RSS]]''.
+*: {{ex-us|ca|'''l’'''[[RSS]]}}
 * En alguns topònims s’usa article dins d’un context llevat d'algunes situacions aïllades com les enumeracions.
-*: '''''El''' [[Caire]] és una ciutat misteriosa''.
+*: {{ex-us|ca|'''El''' [[Caire]] és una ciutat misteriosa.}}
 * Tots els topònims han de portar l'article quan aquest s'acompanya d'algun complement. L'article també pot ser indeterminat.
-*: ''[[Montjuïc]]'', '''''el''' Montjuïc de l'[[olimpíada]]'', '''''un''' Montjuïc com cal''.
+*: {{ex-us|ca|[[Montjuïc]], '''el''' Montjuïc de l'[[olimpíada]], '''un''' Montjuïc com cal.}}
 
 {{-trad-}}
-{{inici|Article determinat masculí singular}}
+{{t-inici|Article determinat masculí singular}}
 * {{en}}: {{trad|en|the|n}}
 * {{es}}: {{trad|es|el|m}}
 * {{fr}}: {{trad|fr|le|m}}
 * {{gl}}: {{trad|gl|o}}
-{{mig}}
 * {{oc}}: {{trad|oc|lo}}, {{trad|oc|eth}} {{q|gascó pirinenc}}
 * {{pt}}: {{trad|pt|o}}
 * {{ro}}: {{trad|ro|-l|m-n}}, {{trad|ro|cel|m-n}}
 * {{scn}}: {{trad|scn|u|m}}
-{{final}}
+{{t-final}}
 
 === Pronom ===
 {{entrada|ca|pronom|reforçada||elidida|l'|plena|lo|reduïda|'l}}
@@ -68,17 +69,16 @@
 {{-rel-}}
 {{ca-pronoms personals|el}}
 
-==== Notes d'ús ====
+{{-notes-}}
 * Quan s'escriu darrere el verb se separa d'aquest amb un guió i pren la forma ''[[lo]]'': ''-lo''.
 * Només s'apostrofa si al seu costat hi ha un so vocàlic (però no un so [[semivocàlic]]).
 * La forma [[apostrofada]], quan correspon, pren la forma ''[[l']]'' quan la paraula associada està a la seva dreta, o bé, ''[['l]]'' quan la paraula associada està a la seva esquerra.
 
 {{-trad-}}
-{{inici|Pronom personal, acusatiu, masculí i singular}}
+{{t-inici|Pronom personal, acusatiu, masculí i singular}}
 * {{es}}: {{trad|es|lo}}
-{{mig}}
 * {{fr}}: {{trad|fr|le}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|f}}

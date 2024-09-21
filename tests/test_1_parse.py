@@ -1,7 +1,7 @@
 import bz2
 import os
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable
 from unittest.mock import patch
 
 from wikidict import parse
@@ -32,7 +32,7 @@ def test_parse_restricted_word(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
-<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="fr">
 <page>
     <title>cunnilingus</title>
     <ns>0</ns>
@@ -72,7 +72,7 @@ def test_parse_redirected_word(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
-<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="fr">
 <page>
     <title>MediaWiki:Sitetitle</title>
     <ns>8</ns>
@@ -90,7 +90,7 @@ def test_parse_word_without_wikicode(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
-<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="fr">
 <page>
     <title>MediaWiki</title>
     <ns>8</ns>
@@ -120,7 +120,7 @@ def test_parse_word_with_colons(tmp_path: Path) -> None:
     file = tmp_path / "page.xml"
     file.write_text(
         """\
-<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="fr">
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="fr">
 <page>
     <title>MediaWiki:Sitetitle</title>
     <ns>8</ns>

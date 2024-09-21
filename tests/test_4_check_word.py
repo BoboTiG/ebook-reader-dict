@@ -1,5 +1,6 @@
+from collections.abc import Callable
 from threading import Lock
-from typing import Any, Callable
+from typing import Any
 from unittest.mock import patch
 
 import pytest
@@ -64,6 +65,7 @@ def test_simple(craft_urls: Callable[[str, str], str]) -> None:
     assert check_word.main("fr", "42") == 0
 
 
+@pytest.mark.webtest
 def test_get_random_word() -> None:
     assert check_word.main("fr", "") == 0
 
@@ -97,8 +99,8 @@ def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
 
 @responses.activate
 def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> None:
-    craft_urls("fr", "<vide>")
-    assert check_word.main("fr", "<vide>") == 0
+    craft_urls("fr", "vide")
+    assert check_word.main("fr", "vide") == 0
 
 
 @pytest.mark.parametrize(
@@ -109,6 +111,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             "ca",
             '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',  # noqa
             "",
+        ],
+        # CA - anchors
+        [
+            "ca",
+            '<li>Una persona <a href="#Adjectiu">milionària</a>.</li>',
+            "Unapersonamilionària.",
         ],
         # DE - star
         [

@@ -1,9 +1,10 @@
 """Retrieve Wiktionary data."""
+
 import bz2
 import os
 import re
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable, List
 
 import requests
 from requests.exceptions import HTTPError
@@ -47,7 +48,7 @@ def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     return output
 
 
-def fetch_snapshots(locale: str) -> List[str]:
+def fetch_snapshots(locale: str) -> list[str]:
     """Fetch available snapshots.
     Return a list of sorted dates.
     """

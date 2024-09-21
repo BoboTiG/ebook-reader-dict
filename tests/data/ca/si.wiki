@@ -10,76 +10,73 @@
 [[Categoria:Codis de llengua]]
 
 == {{-ca-}} ==
-{{ca-pron}}
-{{àudio|LL-Q7026 (cat)-Unjoanqualsevol-si.wav|lang=ca}}
-{{-etimologia-|la|ca}}
-:*: Conjunció: del llatí {{terme|la|sī}}, {{etim-s|ca|XII}}
-:*: Nom: del llatí {{terme|la|sĭnus}}, segle XIII
-:*: Nota musical: de les inicials llatines {{terme|la|sancte|Sancte}} {{terme|la|Ioannes}} de l'himne ''Ut queant laxis'' de [[w:Pau el Diaca|Pau el Diaca]] d'on es va extraure l'escala musical.
+{{ca-pron
+|f-centr=LL-Q7026 (cat)-Unjoanqualsevol-si.wav
+}}
+{{-etimologia-}} [1] Conjunció: {{del-lang|la|ca|sī}}, {{etim-s|ca|XII}}.
+{{-etimologia-}} [2] Nom: del llatí {{m|la|sĭnus}}, segle XIII. Doblet del cultisme {{doblet|ca|sinus}}.
+{{-etimologia-}} [3] Nota musical: de les inicials llatines {{m|la|sancte|Sancte}} {{m|la|Ioannes}} de l'himne ''Ut queant laxis'' de [[w:Pau el Diaca|Pau el Diaca]] d'on es va extraure l'escala musical, segle XIII.
+{{-etimologia-}} [4] Pronom: del llatí {{m|la|sibī}}, datiu de {{m|la|ille|t=ell}}.
 
 === Conjunció ===
 {{entrada|ca|conjunció}}
 
-# Nexe condicional que introdueix un supòsit, una premissa.
+# {{def-meta|Nexe condicional que introdueix un supòsit, una premissa.}}
 
 {{-trad-}}
-{{inici|Conjunció}}
+{{t-inici|Conjunció}}
 * {{de}}: {{trad|de|wenn}}, {{trad|de|falls}}
 * {{en}}: {{trad|en|if}}, {{trad|en|whether}}
 * {{es}}: {{trad|es|si}}
 * {{sl}}: {{trad|sl|če}}
-{{mig}}
 * {{fr}}: {{trad|fr|si}}
 * {{hi}}: {{trad|hi|अगर}}, {{trad|hi|यदि}}
 * {{nl}}: {{trad|nl|indien}}, {{trad|nl|als}}
 * {{ru}}: {{trad|ru|если}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m|p=sins}}
 
-# Cavitat interna del cos
-# (''per extensió'') Part interna d'una cosa
+# Cavitat interna del cos.
+# {{marca|ca|per extensió}} Part interna d'una cosa.
 
 {{-sin-}}
-* [[bust]], [[pit]], [[sina]], [[tòrax]].
-* [[mare]], [[matriu]].
+* [[bust]], [[pit]], [[sina]], [[tòrax]]
+* [[mare]], [[matriu]]
 
 {{-trad-}}
-{{inici|Cavitat interna}}
+{{t-inici|Cavitat interna}}
 * {{en}}: {{trad|en|cavity}}, {{trad|en|womb}}
 * {{es}}: {{trad|es|seno}}
-{{mig}}
 * {{fr}}: {{trad|fr|sinus}}
 * {{it}}: {{trad|it|seno}}
-{{final}}
+{{t-final}}
 
-{{inici|Part interna}}
+{{t-inici|Part interna}}
 * {{en}}: {{trad|en|heart}}
 * {{es}}: {{trad|es|seno}}
-{{mig}}
 * {{fr}}: {{trad|fr|sein}}
 * {{it}}: {{trad|it|seno}}
-{{final}}
+{{t-final}}
 
 === Nom ===
 {{ca-nom|m}}
 
-# Setena [[nota]] musical de l'escala
+# Setena [[nota]] musical de l'escala.
 
 {{-trad-}}
-{{inici|Nota musical}}
+{{t-inici|Nota musical}}
 * {{en}}: {{trad|en|B}}
 * {{es}}: {{trad|es|si}}
-{{mig}}
 * {{fr}}: {{trad|fr|si}}
 * {{it}}: {{trad|it|si}}
-{{final}}
+{{t-final}}
 
 === Pronom ===
 {{entrada|ca|pronom}}
 
-# Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.
+# {{def-meta|Forma del pronom reflexiu de tercera persona quan s'usa darrere de preposicions.}}
 
 {{-rel-}}
 {{ca-pronoms personals}}
@@ -90,8 +87,14 @@
 === Vegeu també ===
 * {{ca-dicc|diec|gdlc|optimot}}
 
+{{catllengua|ca|música|anatomia}}
+
 == {{-es-}} ==
-{{es-pron}}
+{{es-pron|q=conjunció, àton}}
+{{es-pron|q=nom}}
+{{homòfons|es|sí}}
+{{-etimologia-}} Conjunció: {{del-lang|la|es|si}}.
+{{-etimologia-}} Nom: {{del-lang|la|es|[[sancte|Sancte]] [[Ioannes]]|t=Sant Joan}}, les dues primeres paraules del quart vers de l'himne ''{{w|Ut queant laxis}}''.
 
 === Conjunció ===
 {{entrada|es|conj}}
@@ -102,6 +105,15 @@
 {{es-nom|m}}
 
 # {{e|ca|si}} {{q|nota musical}}
+
+=== Miscel·lània ===
+* {{es-sil}}
+
+=== Vegeu també ===
+* {{Viquipèdia|lang=es|Si (nota)}}
+* {{DRAE}}
+
+{{catllengua|es|música}}
 
 == {{-fr-}} ==
 {{-pronafi-}} {{pron|fr|/si/}}
@@ -115,7 +127,7 @@
 {{entrada|fr|adv}}
 
 # [[tan]]
-# [[sí]] (''expressant desacord a una sentència o pregunta negativa'')
+# [[sí]] {{q|expressant desacord a una sentència o pregunta negativa}}
 
 {{-rel-}}
 * {{e|fr|oui}}
@@ -123,7 +135,9 @@
 === Nom ===
 {{fr-nom|m-i}}
 
-# {{e|ca|si}} (nota musical)
+# [[#ca|si]] {{q|nota musical}}
+
+{{catllengua|fr|música}}
 
 == {{-la-}} ==
 {{la-pron|sī}}
@@ -131,8 +145,26 @@
 === Conjunció ===
 {{entrada|la|conj}}
 
-# [[si#ca|si]] (nexe condicional).
+# [[#ca|si]] {{q|nexe condicional}}
 #: {{ex-us|la|'''Si''' versus horum duorum poetarum neglegetis, magna parte litterarum carebitis.‎|Si ignores els versos d'aquests dos poetes, mancarà una gran part de la literatura.}}
+
+== {{-rom-}} ==
+
+=== Verb ===
+{{rom-entrada|verb}}
+
+# [[ésser]], [[ser]]
+# {{marca|rom|seguit d’acusatiu}} [[tenir]]
+
+{{-ant-}}
+* {{e|rom|naj}}
+
+{{-desc-}}
+* Caló català: {{e|rmq-x-ca|sinar|tr=siná}}, {{e|rmq-x-ca|sinyar|tr=sinjá}}, {{e|rmq-x-ca|sinelar|tr=sinəlà}}
+* Caló espanyol: {{e|rmq-x-es|sinar|tr=sinár}}, {{e|rmq-x-es|sinelar|tr=sinelár}}
+
+=== Vegeu també ===
+* {{Cizmich-Adiego}}
 
 == {{-scn-}} ==
 

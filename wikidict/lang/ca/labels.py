@@ -63,6 +63,7 @@ labels = {
     "Balears": "balear",
     "Empordà": "empordanès",
     "GLBT": "LGBTI",
+    "Garrotxa": "garrotxí",
     "Gaston Waringhien": "Gaston Waringhien",
     "Girona": "gironí",
     "Kálmán Kalocsay": "Kálmán Kalocsay",
@@ -138,6 +139,7 @@ labels = {
     "neologisme": "neologisme",
     "nicaragüenc": "Nicaragua",
     "nicaragüeny": "Nicaragua",
+    "nom+adj": "també substantivat",
     "obsolet": "obsolet",
     "ortografia 2016": "ortografia del 2016",
     "panameny": "Panamà",
@@ -162,5 +164,5 @@ labels = {
     "vulgarisme": "vulgarisme",
     "vulgarment": "vulgarisme",
     "xilè": "Xile",
-}  # 102
+}  # 104
 # END

@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from typing import Type
 from unittest.mock import patch
 from zipfile import ZipFile
 
@@ -18,6 +17,7 @@ Fichiers disponibles :
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
 
 Mis à jour le"""
 
@@ -83,6 +83,12 @@ def test_simple() -> None:
     assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
+    # DICT.org
+    assert (output_dir / "dictorg-fr-fr.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dictorg-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
     # Kobo
     assert (output_dir / "dicthtml-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dicthtml-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
@@ -97,8 +103,8 @@ def test_simple() -> None:
             "INSTALL.txt",
             "aa.html",
             "ac.html",
-            "au.html",
             "ba.html",
+            "bo.html",
             "ch.html",
             "co.html",
             "de.html",
@@ -156,7 +162,7 @@ def test_no_json_file() -> None:
         (convert.KoboFormat, "dicthtml-fr-fr-noetym.zip", False),
     ],
 )
-def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
@@ -179,6 +185,8 @@ def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: st
         (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2", True),
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
+        (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
+        (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
     ],
 )
 @pytest.mark.dependency(
@@ -187,7 +195,7 @@ def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: st
         "test_generate_primary_dict[DictFileFormat-dict-fr-fr-noetym.df]",
     ]
 )
-def test_generate_secondary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(
         formatter,
@@ -235,7 +243,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
     ],
 )
 def test_word_rendering(
-    formatter: Type[convert.BaseFormat],
+    formatter: type[convert.BaseFormat],
     include_etymology: bool,
     expected: str,
 ) -> None:

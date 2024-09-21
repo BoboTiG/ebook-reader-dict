@@ -43,16 +43,22 @@ for line in textarea.text.split("\n"):
 exec(script)
 languages = {
     key: {
-        "name": Languages[key].get("name", ""),  # type: ignore[name-defined] # noqa
-        "frm": Languages[key].get("frm", ""),  # type: ignore[name-defined] # noqa
-        "from": Languages[key].get("from", ""),  # type: ignore[name-defined] # noqa
-        "apo": Languages[key].get("apo", ""),  # type: ignore[name-defined] # noqa
-        "family": Languages[key].get("family", ""),  # type: ignore[name-defined] # noqa
+        "name": Languages[key].get("name", ""),  # type: ignore[name-defined] # noqa: F821
+        "frm": Languages[key].get("frm", ""),  # type: ignore[name-defined] # noqa: F821
+        "from": Languages[key].get("from", ""),  # type: ignore[name-defined] # noqa: F821
+        "apo": Languages[key].get("apo", ""),  # type: ignore[name-defined] # noqa: F821
+        "family": Languages[key].get("family", ""),  # type: ignore[name-defined] # noqa: F821
     }
-    for key in Languages.keys()  # type: ignore[name-defined] # noqa
+    for key in Languages.keys()  # type: ignore[name-defined] # noqa: F821
 }
-print("from typing import Dict, Union")
-print("langs:Dict[str, Dict[str, Union[str, bool]]] = {")
+
+# Aliases found in https://el.wiktionary.org/wiki/Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1#L-182--L-185
+languages["αρχ"] = languages["grc"]
+languages["ελν"] = languages["grc-koi"]
+languages["κοι"] = languages["grc-koi"]
+languages["μσν"] = languages["gkm"]
+
+print("langs: dict[str, dict[str, str | bool]] = {")
 for key, value in sorted(languages.items()):
     print(f'    "{key}": {value},')
 print(f"}}  # {len(languages):,}")

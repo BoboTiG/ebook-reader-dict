@@ -6,10 +6,8 @@ Current version: 13 février 2021 21:12
     https://fr.wiktionary.org/w/index.php?title=Module:ar-translit&oldid=29172743
 """
 
-
 import re
 import string
-from typing import List
 
 zwnj = "‌"  # zero-width non-joiner
 alif_madda = "آ"
@@ -153,7 +151,7 @@ space_like_class = f"[{space_like}]"
 numbers = "١٢٣٤٥٦٧٨٩٠"
 
 
-before_diacritic_checking_subs: List[List[str]] = [
+before_diacritic_checking_subs: list[list[str]] = [
     # transformations prior to checking for diacritics #######
     # convert llh for allāh into ll+shadda+dagger-alif+h
     ["لله", "للّٰه"],

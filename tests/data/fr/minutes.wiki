@@ -5,7 +5,9 @@
 {{fr-rég|mi.nyt|s=minute}}
 '''minutes''' {{pron|mi.nyt|fr}} {{f}}
 # ''Pluriel de'' [[minute]].
-#* ''Quelques '''minutes''' avant la fin de la première mi-temps, un joueur de Bordeaux crochète un Marseillais dans la surface de réparation. Je siffle le penalty indiscutable.'' {{source|Christophe Donner, ''Mon oncle'', Grasset, 1995}}
+#* {{exemple | lang=fr
+ | Quelques '''minutes''' avant la fin de la première mi-temps, un joueur de Bordeaux crochète un Marseillais dans la surface de réparation. Je siffle le penalty indiscutable.
+ | source=Christophe Donner, ''Mon oncle'', Grasset, 1995}}
 
 === {{S|verbe|fr|flexion}} ===
 {{fr-verbe-flexion|minuter|ind.p.2s=oui|sub.p.2s=oui}}
@@ -19,15 +21,11 @@
 * {{écouter|lang=fr|France||audio=LL-Q150 (fra)-Mecanautes-minutes.wav}}
 
 
-
-
-
 ==== {{S|homophones|fr}} ====
 * [[minutent]] {{cf|minuter}}
 
 === {{S|anagrammes}} ===
-* {{lien|munîtes}}
-* {{lien|mutines}}, {{lien|mutinés}}
+{{voir anagrammes|fr}}
 
 == {{langue|en}} ==
 === {{S|étymologie}} ===
@@ -36,7 +34,7 @@
 === {{S|nom|en}} ===
 '''minutes''' {{pron|ˈmɪn.ɪts|en}} {{au pluriel uniquement|en}}
 # [[compte-rendu|Compte-rendu]], [[procès-verbal]].
-#* ''The elected secretary will take the '''minutes''' of the meeting.''
+#* {{exemple | lang=en | The elected secretary will take the '''minutes''' of the meeting.}}
 
 === {{S|nom|en|flexion}} ===
 {{en-nom-rég|sing=minute|ˈmɪn.ɪt}}
@@ -50,3 +48,5 @@
 === {{S|prononciation}} ===
 * {{écouter|lang=en|États-Unis <!-- précisez svp la ville ou la région -->|ˈmɪn.ɪts|audio=En-us-minutes.ogg}}
 * {{écouter|lang=en|Royaume-Uni (Londres)|ˈmɪn.ɪts|audio=LL-Q1860 (eng)-Back ache-minutes.wav}}
+* {{écouter|Texas (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Wodencafe-minutes.wav}}
+* {{écouter|Connecticut (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Grendelkhan-minutes.wav}}

@@ -1,6 +1,6 @@
 """Spanish language."""
+
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 from .campos_semanticos import campos_semanticos
@@ -14,7 +14,7 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{lengua|es}}",)
 section_sublevels = (4, 3)
-etyl_section = ("Etimología",)
+etyl_section = ("Etimología", "Etimología 1")
 sections = (
     "Abreviaturas",
     "Adjetivo",
@@ -87,7 +87,10 @@ templates_ignored = (
     "clear",
     "definición",
     "definición imprecisa",
+    "ejemplo",
     "ejemplo requerido",
+    "elemento químico",
+    "inflect.es.sust.ad-lib",
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
@@ -96,20 +99,19 @@ templates_ignored = (
     "picdiclabel",
     "préstamo",
     "pron-graf",
+    "referencia",
     "relacionado",
     "revisar línea",
     "revisión",
     "sin referencias",
+    "t",
     "uso",
 )
 
 # Templates that will be completed/replaced using italic style.
 # use capital letter first, if lower, then see lowercase_italic
 templates_italic = {
-    **campos_semanticos,
     "afectado": "Literario",
-    "ciudades": "Geografía",
-    "poblaciones": "Geografía (poblaciones)",
     "coloquial": "Coloquial",
     "Coloquial": "Coloquial",
     "elevado": "Literario",
@@ -120,7 +122,6 @@ templates_italic = {
     "literario": "Literario",
     "lunf": "Lunfardismo",
     "poético": "Literario",
-    "regiones": "Geografía",
     "rpl": "Río de la Plata",
     "rur": "Rural",
     "rural": "Rural",
@@ -130,22 +131,22 @@ templates_italic = {
 # Templates more complex to manage.
 templates_multi = {
     # {{adjetivo de sustantivo|el mundo árabe}}
-    "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',  # noqa
+    "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',
     # {{adjetivo de padecimiento|alergia}}
-    "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',  # noqa
+    "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',
     # {{color|#DDB88E|espacio=6}}
     "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{coord|04|39|N|74|03|O|type:country}}
-    "coord": "coord(parts[1:], 'es')",
+    "coord": "coord(parts[1:], locale='es')",
     # {{datación|xv}}
     "datación": 'f"Atestiguado desde el siglo {parts[-1]}"',
     # {{definición impropia|Utilizado para especificar...}}
     "definición impropia": "italic(parts[1])",
     # {{DRAE}}
-    "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
-    "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',  # noqa
+    "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
+    "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     # {{etimología2|de [[hocicar]]}}
     "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
@@ -164,7 +165,7 @@ templates_multi = {
     # {{redirección suave|protocelta}}
     "redirección suave": "f\"{italic('Véase')} {parts[1]}\"",
     # {{-sub|4}}
-    "-sub": "subscript(parts[1])",
+    "-sub": "subscript(parts[1] if len(parts) > 1 else '{{{1}}}')",
     # {{subíndice|5}}
     "subíndice": "subscript(parts[1])",
     # {{-sup|2}}
@@ -201,9 +202,10 @@ Archivos disponibles:
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
 
 <sub>Actualizado el {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wikcionario (ɔ) {year}"
@@ -211,9 +213,9 @@ wiktionary = "Wikcionario (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern1: Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
-    pattern2: Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
-) -> List[str]:
+    pattern1: re.Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
+    pattern2: re.Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -225,44 +227,27 @@ def find_pronunciations(
     ['[ˈrwe.ɰo]']
     >>> find_pronunciations("{{pronunciación|[ los ] o [ lɔʰ ]<ref>[l.htm l.htm] C</ref>}}")
     ['[los]', '[lɔʰ]']
-    """  # noqa
+    """
     pattern = pattern2 if "{pronunciación|" in code else pattern1
     return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["Arqueología"], "es")
-        '<i>(Arqueología)</i>'
-        >>> last_template_handler(["Anatomía", "y" , "Zootomía"], "es")
-        '<i>(Anatomía y Zootomía)</i>'
-        >>> last_template_handler(["Angiología", "Endocrinología" , "Fisiología", "Medicina"], "es")
-        '<i>(Angiología, Endocrinología, Fisiología, Medicina)</i>'
-        >>> last_template_handler(["moluscos", "y" , "alimentos"], "es")
-        '<i>(Zoología y Gastronomía (alimentos))</i>'
-        >>> last_template_handler(["cultura", "historia", "y", "lingüística"], "es")
-        '<i>(Cultura, Historia y Lingüística)</i>'
-        >>> last_template_handler(["Arte", "," , "Arquitectura"], "es")
-        '<i>(Arte, Arquitectura)</i>'
-        >>> last_template_handler(["Botánica", "leng=es"], "es")
-        '<i>(Botánica)</i>'
-        >>> last_template_handler(["deporte", "nota=fútbol"], "es")
-        '<i>(Deporte (fútbol))</i>'
-        >>> last_template_handler(["Fonética", "Fonética"], "es")
-        '<i>(Lingüística (fonética), Fonética)</i>'
-        >>> last_template_handler(["rur"], "es")
-        '<i>(Rural)</i>'
-        >>> last_template_handler(["rur", "deporte"], "es")
-        '<i>(Rural, Deporte)</i>'
-        >>> last_template_handler(["deporte", "rur"], "es")
-        '<i>(Deporte, rural)</i>'
         >>> last_template_handler(["default"], "es")
         '##opendoublecurly##default##closedoublecurly##'
 
         >>> last_template_handler(["en"], "es")
         'Inglés'
+
+        >>> last_template_handler(["csem", "economía", "numismática"], "es")
+        '<i>(Economía, numismática)</i>'
+        >>> last_template_handler(["csem", "adjetivo de verbo", "rondar", "ronda"], "es")
+        '<i>(Adjetivo de verbo, rondar, ronda)</i>'
+        >>> last_template_handler(["csem", "leng=es", "derecho", "deporte"], "es")
+        '<i>(Derecho, deporte)</i>'
 
         >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
         'apropiado'
@@ -279,13 +264,28 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
 
+    if tpl == "csem":
+        return italic(
+            "("
+            + capitalize(
+                concat(
+                    [
+                        campos_semanticos.get(part.title()) or campos_semanticos.get(part.lower()) or part
+                        for part in parts
+                    ],
+                    sep=", ",
+                ).lower()
+            )
+            + ")"
+        )
+
     if lookup_italic(template[0], locale, empty_default=True):
-        phrase_a: List[str] = []
+        phrase_a: list[str] = []
         parts.insert(0, tpl)
         added = set()
         append_to_last = False
@@ -305,7 +305,6 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
                         local_phrase += f' ({data[f"nota{sindex}"]})'
                 else:
                     local_phrase = part
-            # some italic templates are in lower case if after the first one...
             if index > 1 and local_phrase in lowercase_italic:
                 local_phrase = local_phrase.lower()
             if append_to_last:

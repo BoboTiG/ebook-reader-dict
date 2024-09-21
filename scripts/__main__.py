@@ -4,10 +4,14 @@ import sys
 import threading
 from pathlib import Path
 
+# TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
+from ruff_api import FormatOptions, format_string
+
 FILES = {
     "all-namespaces.py": "wikidict/namespaces.py",
     "ca-labels.py": "wikidict/lang/ca/labels.py",
     "ca-langs.py": "wikidict/lang/ca/langs.py",
+    "da-langs.py": "wikidict/lang/da/langs.py",
     "de-abk.py": "wikidict/lang/de/abk.py",
     "de-langs.py": "wikidict/lang/de/langs.py",
     "de-lang_adjs.py": "wikidict/lang/de/lang_adjs.py",
@@ -27,40 +31,58 @@ FILES = {
     "fr-temps-geologiques.py": "wikidict/lang/fr/temps_geologiques.py",
     "it-codelangs.py": "wikidict/lang/it/codelangs.py",
     "it-langs.py": "wikidict/lang/it/langs.py",
-    "no-codelangs.py": "wikidict/lang/no/codelangs.py",
+    "no-langs.py": "wikidict/lang/no/langs.py",
     "pt-codelangs.py": "wikidict/lang/pt/codelangs.py",
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
 }
 
+# En error will be raised when the percentage of deletions from the new content
+# compared to the original content is higher than this constant.
+MAX_PERCENT_DELETIONS = 1 / 100
 
-def replace(file: str, data: str) -> bool:
+
+class MarkersNotFoundError(ValueError):
+    def __str__(self) -> str:
+        return "Markers not found."
+
+
+class TooManyDeletionsError(ValueError):
+    def __init__(self, old: int, new: int) -> None:
+        self.old = old
+        self.new = new
+
+    def __str__(self) -> str:
+        return f"Too many deletions ({self.new - self.old:,}), please check manually."
+
+
+def replace(file: str, data: str) -> None:
     """Update contents in the file, even if there was no change."""
     path = Path(file)
     original_content = path.read_text()
-    start = original_content.find("# START")
-    end = original_content.find("# END")
-    if start == -1 or end == -1:
-        return False
 
-    path.write_text(f"{original_content[:start]}# START\n{data}{original_content[end:]}")
-    return True
+    start_marker, end_marker = "# START", "# END"
+    if (start := original_content.find(start_marker)) < 0 or (end := original_content.find(end_marker)) < 0:
+        raise MarkersNotFoundError()
+
+    new_content = f"{original_content[:start]}{start_marker}\n{data}{original_content[end:]}"
+    new_content = format_string(__file__, new_content, options=FormatOptions(line_width=120))
+    percent_deletions = 1 - len(new_content.splitlines()) / len(original_content.splitlines())
+    if percent_deletions > MAX_PERCENT_DELETIONS:
+        raise TooManyDeletionsError(len(original_content.splitlines()), len(new_content.splitlines()))
+
+    path.write_text(new_content)
 
 
 def process_script(script: str, file: str, errors: dict[str, str]) -> None:
     """Process one script."""
     try:
-        data = subprocess.check_output(["python", f"scripts/{script}"], text=True)
-    except subprocess.CalledProcessError as exc:
+        replace(file, subprocess.check_output(["python", f"scripts/{script}"], text=True))
+    except Exception as exc:
         errors[script] = str(exc)
-        return
-
-    if replace(file, data):
+    else:
         print(f"Processed {script} with success.", flush=True)
-        return
-
-    errors[script] = "Processing error"
 
 
 def set_output(errors: int) -> None:
@@ -91,7 +113,6 @@ def main() -> int:
             print(error)
             print()
 
-    print("\nFriendly reminder: run ./check.sh")
     return 0
 
 

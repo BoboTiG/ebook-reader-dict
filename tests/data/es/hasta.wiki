@@ -1,47 +1,39 @@
 {{desambiguación|Hasta}}
 
 == {{lengua|es}} ==
-{{pron-graf|fone=ˈas.ta|h=asta|g=asta|gnota=obsoleta}}
+{{pron-graf|h1=asta|g1=asta|gnota1=obsoleta}}
 
-=== Etimología ===
-{{etimología|osp|fasta}}, del más antiguo {{l+|osp|hata}}, {{l+|osp|fata}}, quizá préstamo del árabe {{l+|ar|حتى|tr=ḥatta}}<ref name="DRAE">{{DRAE2001}}</ref>, o del latín {{l+|la|ad|glosa=a}} {{l+|la|ista|glosa=esta}}, o de ambos.
+=== Etimología 1 ===
+{{etimología|osp|fasta}},  {{etim|osp|hata}}, {{l+|osp|fata}}, {{etim|ar|حتى|tr=ḥattā}}<ref name="DRAE">{{DRAE2001}}</ref>, influido por el latín {{l+|la|ad|glosa=a}} {{l+|la|ista|glosa=esta}}.
 
-=== {{preposición|es}} ===
+==== {{preposición|es}} ====
 ;1: Preposición que indica el [[fin]] o [[término]] de una actividad, sea en sentido [[locativo]], [[cronológico]] o [[cuantitativo]].
 {{sinónimo|a|entro|enta}}.
-:*'''Ejemplos:'''"Papeleras: un intendente uruguayo fue ''hasta'' el corte de ruta para dialogar con los manifestantes" [http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm Diario ''Clarín''], 20 de enero de 2006. "Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas ''hasta'' entonces desconocidas." [http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html ''Pa´gina/12''], 3 de octubre de 2006
-
+{{ejemplo|Papeleras: un intendente uruguayo fue hasta el corte de ruta para dialogar con los manifestantes.|c=pagina|t=Papeleras|f=2007-03-10|u=https://web.archive.org/web/20070310182313/http://www.clarin.com/diario/2006/01/20/um/m-01127710.htm}}
+{{ejemplo|Muchos viajes siguieron a estas primeras búsquedas de geografías y culturas hasta entonces desconocidas.|c=pagina|t=Página/12|u=http://www.pagina12.com.ar/diario/suplementos/turismo/9-908-2006-10-03.html}}
 ;2: Seguida de ''[[cuando]]'' o de un [[gerundio]], preposición que indica valor [[inclusivo]].
-:*'''Ejemplos:''' Es un fumador empedernido, fuma ''hasta'' cuando se ducha. Es un fumador empedernido, fuma ''hasta'' duchándose.
-
+{{ejemplo|Es un fumador empedernido, fuma hasta cuando se ducha. Es un fumador empedernido, fuma hasta duchándose.}}
 ;3: Seguida de ''[[que]]'', preposición que indica valor [[exclusivo]].
-{{ejemplo}} Conversan ''hasta'' que llega el profesor.
+{{ejemplo|Conversan hasta que llega el profesor.}}
 
-=== {{adverbio|es}} ===
+==== {{adverbio|es}} ====
 ;4: Indica que pese a las circunstancias ocurre el hecho.
 {{sinónimo|aun|inclusive|incluso}}.
-:*'''Ejemplos:'''
-::* "Su salud es delicada, se resfría ''hasta'' en verano."
-::* "El comisario, un empleado serio y humilde, sabía que el rigor cívico del maestro exasperaba ''hasta'' a sus amigos más próximos, y estaba sorprendido por la facilidad con que saltaba por encima de los trámites legales para apresurar el entierro." {{cita libro|apellidos=García Márquez|
-nombre=Gabriel|
-año=1985|
-título=[[w:El amor en los tiempos del cólera]]}}
-
+{{ejemplo|Su salud es delicada, se resfría hasta en verano.}}
+{{ejemplo|El comisario, un empleado serio y humilde, sabía que el rigor cívico del maestro exasperaba hasta a sus amigos más próximos, y estaba sorprendido por la facilidad con que saltaba por encima de los trámites legales para apresurar el entierro.|c=libro|u=w:El|a=Gabriel García Márquez|t=amor en los tiempos del cólera|f=1985}}
 ;5: Indica que una situación eventual o hipotética no impide que ocurra el hecho.
-{{ejemplo}} "''Hasta'' en medio de un funeral, encuentra motivos para reírse."
-
+{{ejemplo|Hasta en medio de un funeral, encuentra motivos para reírse.}}
 ;6: Indica el comienzo de una acción o cuando ocurrirá.
 {{ámbito|México|América Central|Ecuador|Chiloé}}.
 {{sinónimo|desde}}, no [[antes]] de, [[recién]]
-{{ejemplo}} "Nos vemos ''hasta'' el lunes."
+{{ejemplo|Nos vemos hasta el lunes.}}
 
-=== {{sustantivo femenino|es}} ===
+==== {{sustantivo femenino|es}} ====
 {{inflect.es.sust.reg}}
-
 ;7: {{grafía obsoleta|asta}}.
-{{ejemplo}} arrojábanles un dardo, que es una '''hasta''' larga, á cuya extremidad hay asegurado un hueso grande y afilado que penetra como una espada.
+{{ejemplo|Arrojábanles un dardo, que es una hasta larga, á cuya extremidad hay asegurado un hueso grande y afilado que penetra como una espada.}}
 
-=== Locuciones ===
+==== Locuciones ====
 * [[hasta atrás]]
 * ¿[[hasta cuándo]]?
 * [[hasta la coronilla]]
@@ -51,47 +43,31 @@ título=[[w:El amor en los tiempos del cólera]]}}
 * [[hasta los tequeteques]]: saturado, demasiado lleno (Venezuela, coloquial)
 * [[hasta la vista]]
 
-=== Véase también ===
+==== Véase también ====
 * [[desde]], que indica origen o inicio
-<!-- marcusbeli.urbenalia.com/AdminWHF/trasfond/trasarme.htm no menciona esta arma -->
-<!--
-{{ES}}
-{{Lema||2}}
 
-==={{sustantivo femenino|es}}===
-;1:Especie de [[lanza]] o [[venablo]] usada por los antiguos romanos.
-
- (faltan referencias)
-
--->
-
-{{clear}}
-
-=== Traducciones ===
+==== Traducciones ====
 {{trad-arriba}}
-{{t+|ain|1|エン|エㇴ|ウン|ウㇴ|エネ|エコタ|オルン|オルㇴ}}
-{{t+|br|beket|,|betek}}
-{{t+|ca|fins}}
-{{trad-centro}}
-{{t+|eo|ĝis}}
-{{t+|id|hingga|,|sehingga}}
-{{t+|en|until|,|up to|,|even}}
-{{t+|ms|1-5|sehingga|6|hingga|,|هيڠݢ}}
+{{t|ain|a1=1|t1=エン|t2=エㇴ|t3=ウン|t4=ウㇴ|t5=エネ|t6=エコタ|t7=オルン|t8=オルㇴ}}
+{{t|br|t1=beket|t2=betek}}
+{{t|ca|t1=fins}}
+{{t|eo|t1=ĝis}}
+{{t|id|t1=hingga|t2=sehingga}}
+{{t|en|t1=until|t2=up to|t3=even}}
+{{t|ms|a1=1-5|t1=sehingga|a2=6|t2=hingga|t3=هيڠݢ}}
 {{trad-abajo}}
 
 == {{lengua|ast}} ==
 {{pron-graf|leng=ast}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=ast|roa-ole|ffasta||roa-ole|fasta}}.
 
-=== {{preposición|ast}} ===
+==== {{preposición|ast}} ====
 ;1: {{plm}}.
 
-{{clear}}
-
-=== Locuciones ===
-{{rel-arriba}}
+==== Locuciones ====
+{{trad-arriba|locuciones}}
 *{{l+|ast|hasta arriba}}<ref name="DALA">{{DALA}}</ref>
 *{{l+|ast|hasta cantar el gochu}}<ref name="DALA" />
 *{{l+|ast|hasta cantar la gocha}}<ref name="DALA" />
@@ -99,7 +75,6 @@ título=[[w:El amor en los tiempos del cólera]]}}
 *{{l+|ast|hasta la muerte}}<ref name="DALA" />
 *{{l+|ast|hasta les armeñes}}<ref name="DALA" />
 *{{l+|ast|hasta les narices}}<ref name="DALA" />
-{{rel-centro}}
 *{{l+|ast|hasta llueu}}<ref name="DALA" />
 *{{l+|ast|hasta los coyones}}<ref name="DALA" />
 *{{l+|ast|hasta los güevos}}<ref name="DALA" />
@@ -107,120 +82,109 @@ título=[[w:El amor en los tiempos del cólera]]}}
 *{{l+|ast|hasta mañana}}<ref name="DALA" />
 *{{l+|ast|hasta más tarde}}<ref name="DALA" />
 *{{l+|ast|hasta nunca}}<ref name="DALA" />
-{{rel-abajo}}
+{{trad-abajo}}
 
 == {{lengua|fax}} ==
 {{pron-graf|leng=fax}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=fax|es|hasta}}.
 
-=== {{preposición|fax}} ===
+==== {{preposición|fax}} ====
 ;1: {{plm}} (un número).
-
 ;2: {{plm}} (un tiempo).
 
 == {{lengua|gl}} ==
 {{pron-graf|leng=gl}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=gl|la|hasta|alt=hastam|asta}}.
 
-=== {{sustantivo femenino|gl}} ===
+==== {{sustantivo femenino|gl}} ====
 {{inflect.gl.sust.reg}}
-
-;1 {{armas|leng=gl}}: {{plm|asta}}.
+;1 {{csem|armas|leng=gl}}: {{plm|asta}}.
 {{sinónimo|leng=gl|mastro}}.<ref name="DRAG">{{DRAG}}</ref>
+;2 {{csem|zoología|leng=gl}}: {{plm|cuerno}}.
 
-;2 {{zoología|leng=gl}}: {{plm|cuerno}}.
-
-=== Véase también ===
-{{w|leng=gl}}.
+==== Véase también ====
+{{w|leng=gl}}
 
 == {{lengua|it}} ==
 {{pron-graf|leng=it}}
 
-=== {{sustantivo femenino|it}} ===
+=== Etimología 1 ===
+==== {{sustantivo femenino|it}} ====
 {{inflect.it.sust.reg|hast|a}}
-
 ;1: {{grafía obsoleta|leng=it|asta}}.
 
 == {{lengua|la}} ==
-{{pron-graf|ˈhas.ta|leng=la|audio=la-cls-hasta.ogg}}
+{{pron-graf|leng=la|1audio1=la-cls-hasta.ogg}}
 
-=== Etimología ===
-{{etimología|leng=la}}
+=== Etimología 1 ===
+{{etimología|leng=la}}.
 
-=== {{sustantivo femenino|la}} ===
+==== {{sustantivo femenino|la}} ====
 {{inflect.la.sust.1|hast}}
-
-;1 {{armas|leng=la}}: {{plm|asta}}.
+;1 {{csem|armas|leng=la}}: {{plm|asta}}.
 {{hipónimo|leng=la|pilum}}.
-{{ejemplo}} Petere aliquem '''hasta'''. (Asaltar alguien con asta.)
+{{ejemplo|Petere aliquem hasta. (Asaltar alguien con asta.).}}
 
-{{clear}}
-
-=== Información adicional ===
-{{rel-arriba|Cognados latinos}}
+==== Información adicional ====
+{{trad-arriba|Cognados latinos}}
 *{{l+|la|hastarius|hastārius}}
 *{{l+|la|hastatus|hastātus}}
-{{rel-centro}}
 *{{l+|la|hastile|hastīle}}
-{{rel-abajo}}
-
-{{derivados|des=x}}
-{{desc|sq|heshtë}}
-{{desc|es|asta}}
-{{centro}}
-{{desc|fro|haste}}
-{{desc|it|asta}}
-{{desc|pt|hasta|haste}}
-{{abajo}}
+{{trad-abajo}}
+{{trad-arriba|descendientes}}
+{{d|sq|d1=heshtë}}
+{{d|es|d1=asta}}
+{{d|fro|d1=haste}}
+{{d|it|d1=asta}}
+{{d|pt|d1=hasta|d2=haste}}
+{{trad-abajo}}
 
 == {{lengua|nov}} ==
 {{pron-graf|leng=nov}}
 
-=== Etimología ===
-{{etimología|leng=nov}}
+=== Etimología 1 ===
+{{etimología|leng=nov}}.
 
-=== {{verbo|nov}} ===
+==== {{verbo|nov}} ====
 ;1: {{plm|adelantear}}.
 
 == {{lengua|pt}} ==
-{{pron-graf|ˈas.ta|leng=pt|pron=Brasil|2fone=ˈaʃ.tɐ|2pron=Portugal}}
+{{pron-graf|leng=pt}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=pt|la|hasta|alt=hastam|asta}}.
 
-=== {{sustantivo femenino|pt}} ===
+==== {{sustantivo femenino|pt}} ====
 {{inflect.pt.sust.reg}}
-
-;1 {{armas|leng=pt}}: {{plm|asta}}.
+;1 {{csem|armas|leng=pt}}: {{plm|asta}}.
 {{hipónimo|leng=pt|chuço|dardo||javalina|pilo}}.
-
-;2: {{plm|almoneda}}, {{l|es|aucción}}, {{l|es|remate}}, {{l|es|subasta}}
+;2: {{plm|almoneda}}, {{l|es|aucción}}, {{l|es|remate}}, {{l|es|subasta}}.
 {{sinónimo|leng=pt|leilão}}.
 
-=== Información adicional ===
+==== Información adicional ====
 {{derivad|leng=pt|haste|hastear}}.
 
-=== Véase también ===
-{{w|leng=pt}}.
+==== Véase también ====
+{{w|leng=pt}}
 
 == {{lengua|tr}} ==
 {{pron-graf|leng=tr}}
 
-=== Etimología ===
+=== Etimología 1 ===
 {{etimología|leng=tr}}.
 
-=== {{adjetivo|tr}} ===
+==== {{adjetivo|tr}} ====
 ;1: {{plm|enfermo}}.
 
-=== {{sustantivo|tr}} ===
+==== {{sustantivo|tr}} ====
 ;2: {{plm|enfermo}}, {{l|es|paciente}}.
 
-=== Información adicional ===
-{{derivad|leng=tr|hastalık}}.
+==== Información adicional ====
+{{derivad|leng=tr|hastalık}}
 
 == Referencias y notas ==
 <references />

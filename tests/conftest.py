@@ -1,8 +1,8 @@
 import bz2
 import os
 import sys
+from collections.abc import Callable, Generator
 from pathlib import Path
-from typing import Callable, Generator
 from xml.sax.saxutils import escape
 
 import pytest
@@ -10,7 +10,7 @@ import pytest
 os.environ["CWD"] = str(Path(__file__).parent)
 
 
-XML = '<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xml:lang="{locale}">'
+XML = '<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="{locale}">'
 PAGE_XML = """<page>
     <title>{word}</title>
     <ns>0</ns>
@@ -54,7 +54,7 @@ def craft_data() -> Callable[[str], bytes]:
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
         for file in data_dir.glob("*.wiki"):
-            if file.stem == "<vide>":
+            if file.stem == "vide":
                 continue
 
             revision = 42

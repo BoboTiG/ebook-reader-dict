@@ -1,8 +1,9 @@
 -r requirements.txt
-mypy==1.8.0
-pytest==7.4.4
-pytest-cov==4.1.0 
+mypy==1.11.2
+pytest==8.3.3
+pytest-cov==5.0.0 
 pytest-dependency==0.6.0
-responses==0.24.1
-ruff==0.1.14
-types-requests==2.31.0.20240106
+responses==0.25.3
+ruff==0.6.6
+ruff-api==0.0.8
+types-requests==2.32.0.20240914

@@ -1,5 +1,4 @@
 == {{-ca-}} ==
-{{ca-pron|/as/}}
 {{-etimologia-}} Del sufix {{m|ca|-às}} amb valor augmentatiu.
 
 === Infix ===
@@ -8,7 +7,7 @@
 # Infix que afegeix un [[matís]] [[augmentatiu]].
 
 ==== Notes d'us ====
-* Es sol utilitzar per formar verbs a partir de verbs de la primera conjugació resultant la terminació ''-assar''.
+* Se sol utilitzar per formar verbs a partir de verbs de la primera conjugació resultant la terminació ''-assar''.
 * Alguns verbs acabats en ''-assar'' estan formats per un radical en ''-às'', ''-assa'', ''-aç'' més la desinència ''-ar''.
 
 {{-der-}}

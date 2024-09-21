@@ -37,6 +37,10 @@ form_of_templates = {
         "text": "agent noun of",
         "dot": False,
     },
+    "an of": {
+        "text": "agent noun of",
+        "dot": False,
+    },
     "alternative case form of": {
         "text": "Alternative letter-case form of",
         "dot": False,
@@ -246,11 +250,11 @@ form_of_templates = {
         "dot": True,
     },
     "diminutive of": {
-        "text": "Diminutive of",
+        "text": "diminutive of",
         "dot": False,
     },
     "dim of": {
-        "text": "Diminutive of",
+        "text": "diminutive of",
         "dot": False,
     },
     "eclipsis of": {
@@ -381,6 +385,14 @@ form_of_templates = {
         "text": "Informal form of",
         "dot": True,
     },
+    "if form": {
+        "text": "Informal form of",
+        "dot": True,
+    },
+    "informal": {
+        "text": "Informal form of",
+        "dot": True,
+    },
     "informal spelling of": {
         "text": "Informal spelling of",
         "dot": True,
@@ -403,6 +415,10 @@ form_of_templates = {
     },
     "lenition of": {
         "text": "Lenited form of",
+        "dot": True,
+    },
+    "literary form of": {
+        "text": "literary form of",
         "dot": True,
     },
     "masculine noun of": {
@@ -537,11 +553,27 @@ form_of_templates = {
         "text": "Obsolete form of",
         "dot": True,
     },
+    "obs form of": {
+        "text": "Obsolete form of",
+        "dot": True,
+    },
+    "obsolete form": {
+        "text": "Obsolete form of",
+        "dot": True,
+    },
     "obsolete spelling of": {
         "text": "Obsolete spelling of",
         "dot": False,
     },
     "obs sp": {
+        "text": "Obsolete spelling of",
+        "dot": False,
+    },
+    "obs sp of": {
+        "text": "Obsolete spelling of",
+        "dot": False,
+    },
+    "obsolete spelling": {
         "text": "Obsolete spelling of",
         "dot": False,
     },
@@ -677,6 +709,10 @@ form_of_templates = {
         "text": "Short for",
         "dot": True,
     },
+    "short form of": {
+        "text": "Short for",
+        "dot": True,
+    },
     "singular of": {
         "text": "singular of",
         "dot": False,
@@ -761,7 +797,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 189
+}  # 198
 # END
 
 

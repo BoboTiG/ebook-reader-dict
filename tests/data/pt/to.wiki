@@ -10,11 +10,11 @@
 
 ={{-da-}}=
 ==Numeral==
-'''to''', {{gramática|card|lang=da}}
+'''to''', {{gramática|card|id=da}}
 # [[dois]]
 
-=={{etimologia|da}}==
-{{llietimo|non|tvá|da}}
+=={{Etimologia|da}}==
+{{etimo2|non|tvá|da}}
 
 [[Categoria:Numeral (Dinamarquês)]]
 
@@ -35,37 +35,35 @@
 
 
 ={{-ja-}}=
-==Transliteração==
+={{-ja-}}=
+=={{Transliteração|ja}}==
 '''to'''
-# transliteração de [[と]]
+# transliteração de '''[[と]]''' e '''[[ト]]'''
 
-[[Categoria:Transliteração (Japonês)]]
-
-
-={{-no-}}=
+={{-nb-}}=
 ==Numeral==
-'''to''', {{gramática|card|lang=no}}
+'''to''', {{gramática|card|id=nb}}
 # [[dois]]
 
-=={{etimologia|no}}==
-{{llietimo|non|tvá|no}}
+=={{Etimologia|nb}}==
+{{etimo2|non|tvá|nb}}
 
-[[Categoria:Numeral (Norueguês)]]
+[[Categoria:Numeral (Norueguês Bokmål)]]
 
 
 ={{-pl-}}=
 ==Pronome adjetivo==
-'''to''', {{gramática|dem|n|lang=pl}}
-# nominativo neutro singular de {{link opcional|ten|pl}}
-{{avi-for-fle|ten}}
+'''to''', {{gramática|dem|n|id=pl}}
+# nominativo neutro singular de {{link idioma|ten|pl}}
+{{aviso.flexão|ten}}
 
 ==Pronome substantivo==
-'''to''', {{gramática|dem|n|lang=pl}}
+'''to''', {{gramática|dem|n|id=pl}}
 # {{escopo2|coisa ou assunto de que se fala}} [[isto]], [[isso]], [[aquilo]]
-# {{tradex|pl|Co '''to''' jest?|O que é isso?}}
-# {{tradex|pl|'''To''' jest książka.|Isto é um livro.}}
-# {{tradex|pl|Nie wiem, jak '''to''' mogło się zdarzyć. '''To''' nigdy się nie powtórzy.|Não sei como aquilo pôde acontecer. Aquilo nunca irá se repetir.}}
-# {{tradex|pl|'''Tego''' można było uniknąć.|Isso poderia ter sido evitado.}}
+#* {{tradex|pl|Co '''to''' jest?|O que é isso?}}
+#* {{tradex|pl|'''To''' jest książka.|Isto é um livro.}}
+#* {{tradex|pl|Nie wiem, jak '''to''' mogło się zdarzyć. '''To''' nigdy się nie powtórzy.|Não sei como aquilo pôde acontecer. Aquilo nunca irá se repetir.}}
+#* {{tradex|pl|'''Tego''' można było uniknąć.|Isso poderia ter sido evitado.}}
 
 ===Declinação===
 {{decl.pl.subst.sing|n=to|g=tego|d=temu|a=to|i=tym|l=tym|v=–}}
@@ -76,12 +74,12 @@
 #* ''Od kiedy '''to''' mieszkacie tutaj?''
 #* ''Kogo '''to''' ja widzę!''
 # {{escopo2|partícula que conecta uma palavra ou expressão com a definição, explicação ou esclarecimento desta palavra}} [[é#Forma verbal|é]]
-# {{tradex|pl|Arytmetyka '''to''' dział matematyki, który zajmuje się liczbami i operacjami na nich.|A aritmética é o ramo da matemática que estuda os números e as operações com eles.}}
+#* {{tradex|pl|Arytmetyka '''to''' dział matematyki, który zajmuje się liczbami i operacjami na nich.|A aritmética é o ramo da matemática que estuda os números e as operações com eles.}}
 
 ==Conjunção==
 '''to'''
 # [[então]]
-# {{tradex|pl|Jeżeli x{{=}}y i y{{=}}z, '''to''' x{{=}}z.|Se x{{=}}y e y{{=}}z, então x{{=}}z.}}
+#* {{tradex|pl|Jeżeli x{{=}}y i y{{=}}z, '''to''' x{{=}}z.|Se x{{=}}y e y{{=}}z, então x{{=}}z.}}
 
 [[Categoria:Pronome (Polonês)]]
 [[Categoria:Partícula (Polonês)]]

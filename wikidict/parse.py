@@ -1,9 +1,10 @@
 """Parse and store raw Wiktionary data."""
+
 import json
 import os
 from collections import defaultdict
+from collections.abc import Generator
 from pathlib import Path
-from typing import Dict, Generator, Tuple
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
@@ -21,7 +22,7 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
     start_tag = None
 
     for event, element in doc:
-        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.10/}page":
+        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.11/}page":
             start_tag = element.tag
         elif start_tag is not None and event == "end" and element.tag == start_tag:
             yield element
@@ -31,19 +32,19 @@ def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
             root.clear()
 
 
-def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
+def xml_parse_element(element: Element, locale: str) -> tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
     revision = element[3]
-    if revision.tag == "{http://www.mediawiki.org/xml/export-0.10/}restrictions":
+    if revision.tag == "{http://www.mediawiki.org/xml/export-0.11/}restrictions":
         # When a word is "restricted", then the revision comes just after
         revision = element[4]
-    elif not revision:
+    elif not len(revision):
         # This is a "redirect" page, not interesting.
         return "", ""
 
     # The Wikicode can be at different indexes, but not ones lower than 5
     for info in revision[5:]:
-        if info.tag == "{http://www.mediawiki.org/xml/export-0.10/}text":
+        if info.tag == "{http://www.mediawiki.org/xml/export-0.11/}text":
             code = info.text or ""
             break
     else:
@@ -58,9 +59,9 @@ def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
     return word, code
 
 
-def process(file: Path, locale: str) -> Dict[str, str]:
+def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
-    words: Dict[str, str] = defaultdict(str)
+    words: dict[str, str] = defaultdict(str)
 
     print(f">>> Processing {file} ...", flush=True)
     for element in xml_iter_parse(file):
@@ -71,7 +72,7 @@ def process(file: Path, locale: str) -> Dict[str, str]:
     return words
 
 
-def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
+def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     """Persist data."""
     raw_data = output_dir / f"data_wikicode-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:

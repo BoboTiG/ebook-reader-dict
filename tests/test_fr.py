@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -29,12 +29,19 @@ from wikidict.utils import process_templates
             "a",
             ["\\a\\", "\\ɑ\\"],
             ["m"],
-            [],
+            [
+                "<i>(Symbole 2)</i> Abréviation de <i><b>a</b>tto-</i>.",
+                "<i>(Symbole 3)</i> Abréviation de <i><b>a</b>re</i>.",
+                "<i>(Symbole 4)</i> <i>(Abréviation)</i> du latin <i><b>a</b>nnum</i> («&nbsp;année&nbsp;»).",
+                "<i>(Symbole 6)</i> Abréviation de <i>accélération</i>.",
+            ],
             [
                 r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",  # noqa
-                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe atto- (&times;10<sup>&minus;18</sup>).",  # noqa
-                "<i>(Métrologie)</i> Symbole de l’are, une unité de surface non SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
-                "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’année (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
+                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe <b>atto-</b> (&times;10<sup>&minus;18</sup>).",  # noqa
+                "<i>(Métrologie)</i> Symbole de l’<b>are</b>, une unité de mesure de surface en dehors SI. Elle prend souvent le préfixe h pour former ha (hectare).",  # noqa
+                "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’<b>année</b> (365,25 jours de 86,4 ks), du latin <i>annum</i>.",  # noqa
+                "<i>(Chimie)</i> Symbole de l’activité chimique d’un composant.",
+                "<i>(Physique, Mécanique)</i> Symbole de l’accélération en tant que grandeur physique (uSI : mètre par seconde carré, m/s², m⋅s⁻² ; unité usuelle : g).",
                 "Première lettre et première voyelle de l’alphabet français.",
                 r"Le son \a\ ou \ɑ\ de cette lettre. <b>Note&nbsp;:</b> Le français parisien a perdu la distinction entre les deux.",  # noqa
                 "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",  # noqa
@@ -56,7 +63,7 @@ from wikidict.utils import process_templates
         (
             "42",
             ["\\ka.ʁɑ̃t.dø\\"],
-            ["msing"],
+            ["m", "s"],
             [],
             [
                 "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",  # noqa
@@ -72,7 +79,7 @@ from wikidict.utils import process_templates
             "accueil",
             ["\\a.kœj\\"],
             ["m"],
-            ["<u><i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>.</u>"],
+            ["<i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>."],
             [
                 "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",  # noqa
                 "Lieu où sont accueillies les personnes.",
@@ -98,14 +105,13 @@ from wikidict.utils import process_templates
             [],
         ),
         (
-            "aux",
+            "-aux",
             ["\\o\\"],
-            ["mf", "p"],
             [],
             [
-                "<i>(Linguistique)</i> Code ISO 639-3 de l’aurá.",
-                "<i>Contraction obligatoire de la préposition </i>à<i> et de l'article défini </i>les<i>.</i>",
+                "Ayant dans le passé la forme « -als », au cours du XII<sup>e</sup> siècle, le « l » précédant une autre consonne se modifia en « u », comme dans « colp – coup, altre – autre ». Étant suivi d'une consonne uniquement au pluriel, la terminaison « -als » pris la forme de « aus ». Le « x » provient des manuscrits, qui étaient extrêmement chers à l'époque, il va de soi qu'on voulut y mettre le plus de texte possible. S'inspirant du latin où « us » s'écrivait « x », on obtint ainsi la forme « -ax ». Le « u » vient s'ajouter plus tard pour s'accorder à la prononciation [o]."
             ],
+            [],
             [],
         ),
         (
@@ -173,7 +179,7 @@ from wikidict.utils import process_templates
             ["\\bɔ.ɡɔ.ta.nɛ\\"],
             ["m", "sp"],
             ["Du nom Bogota avec le préfixe -ais."],
-            [],
+            ["Habitant de Bogota."],
             [],
         ),
         (
@@ -181,7 +187,7 @@ from wikidict.utils import process_templates
             ["\\ʃa.kyn\\"],
             ["s"],
             [],
-            [],
+            ["<i>Féminin (singulier) de</i> chacun."],
             ["chacun"],
         ),
         (
@@ -270,7 +276,9 @@ from wikidict.utils import process_templates
             "éperon",
             ["\\e.pʁɔ̃\\"],
             ["m"],
-            ["De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>."],
+            [
+                "De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>\xa0; apparenté notamment, dans les langues germaniques, à l’allemand <i>Sporn</i>, l’anglais <i>spur</i>, le néerlandais <i>spoor</i> et le suédois <i>sporre</i>."
+            ],
             [
                 "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",  # noqa
                 "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",  # noqa
@@ -339,10 +347,12 @@ from wikidict.utils import process_templates
             "naguère",
             ["\\na.ɡɛʁ\\"],
             [],
-            ["De <i>il n’y a guère</i> (de temps). Voir aussi <i>na</i>."],
             [
-                "Récemment ; il y a peu.",
-                "<i>(Désuet)</i> Peu de temps auparavant.",
+                "De <i>il n’y a guère</i> (de temps). À comparer avec le wallon «\xa0nawaire\xa0» (même sens).Voir aussi <i>na</i>."
+            ],
+            [
+                "<i>(Désuet)</i> Récemment ; il y a peu.",
+                "<i>(Désuet)</i> Peu de temps auparavant ; auparavant.",
                 "Il y a longtemps. <b>Note&nbsp;:</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",  # noqa
             ],
             [],
@@ -382,7 +392,7 @@ from wikidict.utils import process_templates
             [
                 "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",  # noqa
                 "<i>(Sens figuré)</i> Qui s’est encore envenimé.",
-                "S’emploie quelquefois comme nom masculin.",
+                "Goût et odeur désagréable, en parlant de corps gras.",
                 "<i>Variante de</i> ranche.",
             ],
             ["rancer"],
@@ -392,7 +402,7 @@ from wikidict.utils import process_templates
             ["\\sa.pʁis.ti\\"],
             [],
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
-            ["Pour marquer l’étonnement."],
+            ["Pour marquer l’étonnement ou l'énervement."],
             [],
         ),
         (
@@ -403,7 +413,7 @@ from wikidict.utils import process_templates
                 "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i>, avec le suffixe <i>-one</i>."  # noqa
             ],
             [
-                "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (…-Si-O-Si-O-Si-O-…) sur laquelle des groupes se fixent, sur les atomes de silicium.",  # noqa
+                "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (ou siloxane) […-Si-O-Si-O-Si-O-…] dans laquelle des groupes [R] se fixent, sur les atomes de silicium.",
                 "<i>(Par extension)</i> Mastic à base de ce composé et vendu généralement en cartouche.",
                 (
                     "<i>(Par extension)</i> Nom donné abusivement par le grand public à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa composition.",  # noqa
@@ -435,11 +445,11 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    genders: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    genders: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -565,6 +575,7 @@ def test_parse_word(
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),
+        ("{{WSP}}", ""),
         ("{{WSP|Panthera leo}}", "<i>Panthera leo</i>"),
         ("{{x10|9}}", "×10<sup>9</sup>"),
         ("{{x10}}", "×10"),

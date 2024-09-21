@@ -1,0 +1,62 @@
+{{wikipediaartikkel}}
+==Norsk==
+[[Fil:NileCrocodile.jpg|thumb|En Nil-'''krokodille''']]
+===Substantiv===
+{{no-sub|m}}
+
+# stort reptil, lever i og nær vann. ''([[w:Latin|lat.]] Crocodylia)''
+[[kategori:no:Krypdyr]]
+
+====Etymologi====
+:Fra {{etyl|middelalderlatin|no}} {{term|cocodrillus||krokodille|språk=la}}, fra {{etyl|grc|no}} {{term|κροκόδειλος||sc=polytonic|tr=krokodeilos|språk=grc}}
+
+====Se også====
+* [[alligator]]
+* [[kaiman]]
+
+====Avledede termer====
+* [[krokodilletåre]]r
+
+====Uttale====
+{{uttale mangler|språk=no}}
+{{lydfil mangler|språk=no}}
+
+====Grammatikk====
+{{no-sub-m1e|krokodill}}
+
+====Oversettelser====
+{{overs-topp|reptil}}
+* {{overs|ar|تمساح|m|tr=timsaaH}}
+* {{overs|da|krokodille|c}}
+* {{overs|en|crocodile|c}}
+* {{overs|fi|krokotiili}}
+* {{overs|fr|crocodile|m}}
+* {{overs|ja|鰐|tr=わに, wani}}, {{o|ja|ワニ|tr=wani}}
+* {{overs|la|crocodilus|m}}
+* {{overs|cmn|鱷魚|sc=Hani}}, {{o|cmn|鳄鱼|tr=èyú|sc=Hani}}
+{{overs-midt}}
+* {{overs|nl|krokodil}}
+* {{overs-mangler|pt}}
+* {{overs|ru|крокодил|m|tr=krokodíl}}
+* {{overs|es|cocodrilo|m}}
+* {{overs|sv|krokodil|c}}
+*{{overs|tr|timsah}}
+* {{overs|de|Krokodil|n}}
+* {{overs|vi|cá sấu|xs=Vietnamese}}
+* {{overs|wo|jasig|alt=jasig ji}}
+{{overs-bunn}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB}}
+
+
+----
+
+==Dansk==
+===Substantiv===
+{{wikipedia|språk=da}}
+{{da-sub|c}}
+
+# [[#Norsk|krokodille]]
+[[kategori:da:Krypdyr]]

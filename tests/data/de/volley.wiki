@@ -33,10 +33,9 @@
 :[1] [[ein#Artikel|einen]] [[Schuss]] ''volley'' ([[in#in (Deutsch)|in]] [[ein#Artikel|ein]] [[Tor]]) [[verwandeln]]
 
 ==== {{Übersetzungen}} ====
-{{Ü-Tabelle|Ü-links=
-*{{en}}: [1] ''je nach Kontext:'' {{L|at||en}} {{L|the||en}} {{Ü|en|volley}}, {{L|on||en}} {{L|the||en}} {{Ü|en|volley}}
-*{{fr}}: [1] ''je nach Kontext:'' {{L|à||fr}} {{L|la||fr}} {{Ü|fr|volée}}, {{L|de||fr}} {{Ü|fr|volée}}, {{L|en||fr}} {{Ü|fr|volée}}
-|Ü-rechts=
+{{Ü-Tabelle|1|G=aus der Luft angenommen und abgespielt, ohne vorherige Bodenberührung des Sportgeräts|Ü-Liste=
+*{{en}}: ''je nach Kontext:'' {{Ü|en|at the volley|L=E}}, {{Ü|en|on the volley|L=E}}
+*{{fr}}: ''je nach Kontext:'' {{Ü|fr|à la volée|L=E}}, {{Ü|fr|de volée|L=E}}, {{Ü|fr|en volée|L=E}}
 }}
 
 {{Referenzen}}
@@ -86,17 +85,22 @@
 :[[volleyball]]
 
 ==== {{Übersetzungen}} ====
-{{Ü-Tabelle|Ü-links=
-*{{de}}: [1] {{Ü|de|Salve}}; [2] {{Ü|de|Hagel}}, {{Ü|de|Flut}}; [3] {{Ü|de|Volley}}
-|Ü-rechts=
-*{{fr}}: [1] {{Ü|fr|volée}}
+{{Ü-Tabelle|1|G=zeitgleich abgefeuerte Geschosse|Ü-Liste=
+*{{de}}: {{Ü|de|Salve}}
+*{{fr}}: {{Ü|fr|volée}}
+}}
+
+{{Ü-Tabelle|2|G=Vielzahl gleichzeitiger Äußerungen|Ü-Liste=
+*{{de}}: {{Ü|de|Hagel}}, {{Ü|de|Flut}}
+}}
+
+{{Ü-Tabelle|3|G=Schlag oder Schuss eines Balls vor dessen Berührung des Bodens|Ü-Liste=
+*{{de}}: {{Ü|de|Volley}}
 }}
 
 {{Referenzen}}
 :[1, 3] {{Wikipedia|spr=en}}
-:[1–3] {{Ref-Oxford}}
 :[1–3] {{Ref-Cambridge}}
-:[1–3] {{Ref-Macmillan}}
 :[1–3] {{Ref-Longman|volley_1}}
 :[1–3] {{Ref-MWD}}
 :[1–3] {{Ref-Dictionary}}

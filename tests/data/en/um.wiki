@@ -1,12 +1,10 @@
-{{also|Um|UM|.um|-um-|'um|um-|-um|Appendix:Variations of "um"}}
+{{also|Appendix:Variations of "um"}}
 ==Translingual==
 
 ===Symbol===
 {{mul-symbol}}
 
 # [[micrometer]]; variant of [[μm]] used when the character [[μ]] is unavailable
-
-----
 
 ==English==
 {{wikipedia|Speech disfluency}}
@@ -15,32 +13,39 @@
 {{onomatopoeic|en}}.
 
 ====Alternative forms====
-* {{alt|en|umm|uhm|hum}}
+* {{alt|en|umm|uhm|hum|erm}}
 
 ====Pronunciation====
 * {{IPA|en|/ʌm/|/əːm/}}
-* {{audio|en|en-us-um.ogg|Audio (US)}}
+* {{audio|en|en-us-um.ogg|a=US}}
 * {{rhymes|en|ʌm|s=1}} (when stressed, or as a verb)
 Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 
 ====Interjection====
 {{en-interj}}
 
-# {{non-gloss definition|[[expression|Expression]] of [[hesitation]], [[uncertainty]] or space [[filler]] in [[conversation]]}}. See [[uh]].
-#: '''''Um''', I don’t know.''
-#: ''Let’s see... '''um'''... how about this?''
-#* '''2002''', ''Newsweek'' (volume 140, page lxxx)
-#*: It's a great test of the claims of open-source gurus, who say that a self-motivated community can outcode any team working for a single employer—like, '''um''', Microsoft.
+# {{non-gloss definition|[[expression|Expression]] of [[hesitation]], [[uncertainty]] or space [[filler]] in [[conversation]]}}.
+#: {{syn|en|er|hmm|uh}}
+#: {{ux|en|'''Um''', I don’t know.}}
+#: {{ux|en|Let’s see... '''um'''... how about this?}}
+#* {{quote-text|en|year=2002|title=Newsweek|volume=140|page=lxxx
+|passage=It's a great test of the claims of open-source gurus, who say that a self-motivated community can outcode any team working for a single employer—like, '''um''', Microsoft.}}
 # {{lb|en|chiefly|American}} {{dated spelling of|en|mmm}}
-#* '''1963''', {{w|Kurt Vonnegut}}, ''Cat's Cradle'', Dell Publishing Co., Inc., page 65:
-#*: "About the same, wherever you go," he agreed.
-#*: "'''Um'''," I said.
+#* {{quote-book|en|year=1963|author=w:Kurt Vonnegut|title=Cat's Cradle|publisher=Dell Publishing Co., Inc.|page=65
+|passage="About the same, wherever you go," he agreed.<br>"'''Um'''," I said.}}
+# {{lb|en|US}} {{non-gloss definition|An expression to forcefully call attention to something wrong.}}
+#: {{ux|en|'''Um''', excuse me!}}
+# {{lb|en|UK|childish}} An expression of shocked disapproval used by a child who witnesses forbidden behavior.
+#* {{quote-text|en|year=2011|author=Kimberly Willis Holt|title=Piper Reed, Clubhouse Queen
+|passage=While I was in her room, Sam walked by and said, “'''Um''', I'm telling!”<br>“You're telling what?” I asked.<br>“You're reading Tori's journal,” she said.}}
+#* {{quote-book|en|year=2021|author=Sarah Strangeways|title=The Gingerbread House|page=13
+|passage=Mair used to look after Laura. If anyone threatened to tease her, Mair would stand up straight, point her finger at the enemy and shout, ''''Um'''! I'm ''telling'' on you!'}}
 
 ====Verb====
 {{en-verb}}
 
 # {{lb|en|intransitive}} To make the ''um'' sound to express uncertainty or hesitancy.
-#* {{quote-book|en|2007|Michael Erard|Um... Slips, Stumbles, and Verbal Blunders, and What They Mean||136|Meanwhile, in the popular mind '''umming''' was simply a bad habit, akin to spitting or picking one’s nose.}}
+#* {{quote-book|en|year=2007|author=Michael Erard|title=Um... Slips, Stumbles, and Verbal Blunders, and What They Mean|page=136|text=Meanwhile, in the popular mind '''umming''' was simply a bad habit, akin to spitting or picking one’s nose.}}
 
 ===Etymology 2===
 From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, from {{der|en|gem-pro|*umbi|t=around}}, from {{der|en|ine-pro|*h₂m̥bʰi|t=round about, around}}. Cognate with {{cog|ang|ymbe|t=around}}, {{cog|fy|om||around}}, {{cog|nl|om||around}}, {{cog|de|um||around}}. More at {{l|en|umbe}}.
@@ -59,17 +64,21 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 {{en-part}}
 
 # {{lb|en|dated|sometimes|humorous|often|offensive}} {{n-g|An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.}}
-#: ''He '''um''' Growling Bear. He '''um''' heap big chief.''
-#* {{quote-journal|en|1871||Grand camp meeting on Bear River|The Keepapitchinin||3|“me heap brave—me talk to '''um''' white man so{{...}} me good injun, like '''um''' white man, ''mebbe so'', ugh!”|url=https://books.google.com/books?id=GEFOAAAAYAAJ&pg=PP3|volume=III}}
+#: {{ux|en|He '''um''' Growling Bear. He '''um''' heap big chief.}}
+#* {{quote-journal|en|year=1871|title=Grand camp meeting on Bear River|journal=The Keepapitchinin|page=3|text=“me heap brave—me talk to '''um''' white man so{{...}} me good injun, like '''um''' white man, ''mebbe so'', ugh!”|url=https://books.google.com/books?id=GEFOAAAAYAAJ&pg=PP3|volume=III}}
+
+===See also===
+{{col2|en|um-hum}}
 
 ===Anagrams===
 * {{anagrams|en|a=mu|-mu-|MU|Mu|mu}}
 
 [[Category:English two-letter words]]
 
-----
-
 ==Czech==
+
+===Etymology===
+{{inh+|cs|sla-pro|*umъ}}
 
 ===Pronunciation===
 * {{cs-IPA}}
@@ -77,12 +86,12 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 * {{rhymes|cs|um|s=1}}
 
 ===Noun===
-{{cs-noun|g=m-in}}
+{{cs-noun|m-in}}
 
 # [[skill]], [[art]]
 
 ====Declension====
-{{cs-decl-noun-auto|mi||u|m}}
+{{cs-ndecl|m.locě:u}}
 
 ===See also===
 * {{l|cs|schopnost}}
@@ -90,10 +99,9 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 * {{l|cs|umění}}
 
 ===Further reading===
-* {{R:PSJC}}
-* {{R:SSJC}}
-
-----
+* {{R:cs:PSJC}}
+* {{R:cs:SSJC}}
+* {{R:cs:IJP}}
 
 ==East Makian==
 
@@ -104,8 +112,6 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 
 ===References===
 * C. L. Voorhoeve, ''The Makian Languages and Their Neighbours'' (1982)
-
-----
 
 ==Elfdalian==
 
@@ -123,8 +129,6 @@ From {{inh|ovd|non|um}}, from {{inh|ovd|gem-pro|*umbi}}. Cognate with {{cog|sv|o
 # [[around]]
 # [[about]] {{gloss|a subject}}
 
-----
-
 ==Faroese==
 
 ===Etymology===
@@ -136,18 +140,32 @@ From {{inh|fo|non|umb}}, from {{inh|fo|gem-pro|*umbi}}, from {{inh|fo|ine-pro|*h
 ===Preposition===
 {{fo-prep}}
 
-# {{qualifier|with accusative}} [[around]]
-# {{qualifier|with accusative}} [[about]]
-# {{qualifier|with accusative}} [[during]]
-# {{qualifier|with accusative}} [[through]]
-# {{qualifier|with accusative}} [[over]]
+# [[around]] {{+obj|fo|acc}}
+# [[about]] {{+obj|fo|acc}}
+# [[during]] {{+obj|fo|acc}}
+# [[through]] {{+obj|fo|acc}}
+# [[over]] {{+obj|fo|acc}}
 
 ===Conjunction===
 {{head|fo|conjunction}}
 
 # [[whether]], [[if]]
 
-----
+==Galician==
+{{number box|gl}}
+
+===Numeral===
+{{head|gl|cnum|g=m|feminine|umha|or|uma|[[Appendix:Reintegrationism|reintegrationist]] norm}}
+
+# {{cln|gl|cardinal numbers}} [[one]]
+
+====Usage notes====
+The numeral ''um'' and its feminine forms {{m-lite|gl|umha}} and {{m-lite|gl|uma}} can form contractions with the prepositions {{m-lite|gl|com||with}}, {{m-lite|gl|de||of, from}}, and {{m-lite|gl|em||in}}.
+
+====Derived terms====
+* {{l-lite|gl|cum}}, {{l-lite|gl|cumha}}, {{l-lite|gl|cuma}}
+* {{l-lite|gl|dum}}, {{l-lite|gl|dumha}}, {{l-lite|gl|duma}}
+* {{l-lite|gl|num}}, {{l-lite|gl|numha}}, {{l-lite|gl|numa}}
 
 ==German==
 
@@ -162,21 +180,25 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 
 ===Pronunciation===
 * {{IPA|de|/ʊm/}}
-* {{audio|de|De-um.ogg|audio (Germany)}}
-* {{audio|de|De-at-um.ogg|audio (Austria)}}
+* {{audio|de|De-um.ogg}}
+* {{audio|de|De-um3.ogg}}
+* {{audio|de|De-at-um.ogg|a=Austria}}
 * {{rhymes|de|ʊm}}
 
 ===Preposition===
-{{head|de|preposition}} {{tlb|de|with accusative}}
+{{head|de|preposition}} {{+obj|de|acc}}
 
 # [[about]]
 #: {{uxi|de|Es geht '''um''' den Kuchen.|It's about the pie.}}
 # [[around]]
-#: {{ux|de|'''Um''' die Ecke|around the corner}}
+#: {{uxi|de|'''Um''' die Ecke|around the corner}}
 # [[at]], [[by]] {{qual|when relating to time}}
-#: {{ux|de|'''Um''' acht Uhr reisen wir ab|At eight o’clock we depart}}
+#: {{uxi|de|'''Um''' acht Uhr reisen wir ab|At eight o’clock we depart}}
 # [[by]] {{qual|percentage difference}}
 #: {{uxi|de|Die Verkaufsmengen gingen '''um''' 6% zurück.|Sales in volume has decreased by 6%.}}
+# {{lb|de|Austria}} [[for]] {{qual|amount of money}}
+#: {{uxi|de|'''Um''' einen Euro bekommt man heute nicht besonders viel.|You can't buy much for one euro these days.}}
+#: {{uxi|de|Heute im Sonderangebot '''um''' nur 99 Euro.|Special offer today for only 99 euros.}}
 
 ====Derived terms====
 * ('''''um''' + das'') {{l|de|ums}}
@@ -201,8 +223,6 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 
 ====Derived terms====
 {{col3|de|um meinetwillen|um euretwillen|um Ihretwillen|um deinetwillen|um ihretwillen|um seinetwillen}}
-
-----
 
 ==Hunsrik==
 
@@ -229,12 +249,10 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 ===Further reading===
 * [http://www.hunsrik.org/Lexi/SearchResult?searchStr=aan Online Hunsrik Dictionary]
 
-----
-
 ==Icelandic==
 
 ===Alternative forms===
-* {{l|is|umb}}
+* {{alt|is|umb}}
 
 ===Etymology===
 From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
@@ -252,23 +270,23 @@ From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 * {{l|is|vera um og ó}}
 
 ===Preposition===
-{{head|is|preposition}}
+{{head|is|preposition}} {{+obj|is|acc}}
 
-# {{qualifier|with accusative}} [[about]], [[concerning]]
+# [[about]], [[concerning]]
 #: {{ux|is|'''Um''' hvað ertu að tala?|What are you talking '''about'''?}}
 #: {{ux|is|Spurning '''um''' líf og dauða.|A question '''of''' life and death.}}
-# {{qualifier|with accusative}} [[through]], [[around]], [[across]]
+# [[through]], [[around]], [[across]]
 #: {{ux|is|Áin rennur '''um''' dalinn.|The river runs '''through''' the valley.}}
 #: {{ux|is|Að fara út '''um''' gluggann.|To go out '''through''' the window.}}
 #: {{ux|is|Vestur '''um''' haf.|West '''across''' the sea.}}
-# {{qualifier|with accusative}} [[throughout]], [[over]], [[around]]
+# [[throughout]], [[over]], [[around]]
 #: {{ux|is|Við förum '''um''' alla sveitina.|We'll go '''throughout''' the district.}}
 #: {{ux|is|Hann var breiður '''um''' herðar.|He was broad '''across''' the shoulders.}}
 #: {{ux|is|Hún hafði klút '''um''' hálsinn.|She had a scarf '''around''' her neck.}}
-# {{qualifier|with accusative}} [[during]], [[for]], [[in]], [[at]]
+# [[during]], [[for]], [[in]], [[at]]
 #: {{ux|is|Hvenær gerðist þetta?'' - ''Þetta gerðist '''um''' sumarið.|When did this happen? - It happened '''during''' the summer.}}
 #: {{ux|is|Ég fór '''um''' nóttina.|I went '''during''' the night.}}
-# {{qualifier|with accusative}} [[approximately]], [[about]], [[around]]
+# [[approximately]], [[about]], [[around]]
 #: {{ux|is|Pokinn er '''um''' fjögur kíló.|The bag is '''around''' four kilos.}}
 
 ====Usage notes====
@@ -302,22 +320,18 @@ From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 |{{l|is|víða um land|t=all over the country}}
 }}
 
-----
-
 ==Indo-Portuguese==
 
 ===Etymology===
-From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnus}}, from {{der|idb|ine-pro|*óynos}}.
+From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnus}}, from {{der|idb|ine-pro|*h₁óynos}}.
 
 ===Article===
 {{head|idb|article}}
 
 # {{l|en|a}} {{gloss|the indefinite article}}
-#* '''1883''', Hugo Schuchardt, ''Kreolische Studien'', volume 3:
-#*: '''Um''' homm tinh doiz filh:
-#*:: '''A''' man had two sons:
-
-----
+#* {{quote-text|idb|year=1883|author=Hugo Schuchardt|title=Kreolische Studien|volume=3
+|passage='''Um''' homm tinh doiz filh:
+|translation='''A''' man had two sons:}}
 
 ==Irish==
 
@@ -326,7 +340,7 @@ From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnu
 
 ===Etymology===
 {{root|ga|ine-pro|*h₂ent-}}
-From {{inh|ga|sga|imb}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
+From {{inh|ga|sga|imb|id=around}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
 
 ===Pronunciation===
 * {{IPA|ga|/ʊmˠ/}}
@@ -352,8 +366,6 @@ From {{inh|ga|sga|imb}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h
 ===Further reading===
 * {{R:ga:Ó Dónaill}}
 
-----
-
 ==Khasi==
 
 ===Etymology===
@@ -367,8 +379,6 @@ Probably cognate to {{cog|uuu|ʔóm}}.
 ===References===
 * H. Roberts, ''A Grammar of the Khasi Language''
 
-----
-
 ==Livonian==
 
 ===Pronunciation===
@@ -377,10 +387,7 @@ Probably cognate to {{cog|uuu|ʔóm}}.
 ===Verb===
 {{head|liv|verb form|head=u'm}}
 
-# {{liv-conjugation of|1st|sg|pr|vȱlda}}
-# {{liv-conjugation of|3rd|sg|pr|vȱlda}}
-
-----
+# {{verb form of|liv|vȱlda||1//3|s|pres|ind}}
 
 ==Lote==
 
@@ -392,8 +399,6 @@ Probably cognate to {{cog|uuu|ʔóm}}.
 ===References===
 * Greg Pearson, René van den Berg, ''[https://web.archive.org/web/20180625141638/http://www-01.sil.org/pacific/png/pubs/928474523806/Lote_grammar_sketch.pdf#page=87 Lote Grammar Sketch]'' (2008)
 
-----
-
 ==Luxembourgish==
 
 ===Contraction===
@@ -402,15 +407,13 @@ Probably cognate to {{cog|uuu|ʔóm}}.
 # contraction of {{l|lb|op}} + {{l|lb|dem}}; on the, at the, to the
 # contraction of {{l|lb|un}} + {{l|lb|dem}}
 
-----
-
 ==Mòcheno==
 
 ===Etymology===
 {{root|mhn|ine-pro|*h₂ent-}}
 From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{inh|mhn|gmw-pro|*umbi}}, from {{inh|mhn|gem-pro|*umbi||around, about}}. Cognate with {{cog|de|um}}, {{cog|en|umbe}}.
 
-===Noun===
+===Preposition===
 {{head|mhn|preposition}} {{tlb|mhn|+ accusative}}
 
 # [[about]], [[around]]
@@ -419,8 +422,6 @@ From {{inh|mhn|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|mhn|goh|umbi}}, from {{in
 
 ===References===
 * {{R:CLM}}
-
-----
 
 ==Norwegian Nynorsk==
 
@@ -438,8 +439,6 @@ From {{inh|nn|non|um}}.
 ===References===
 * {{R:Aasen}}
 
-----
-
 ==Old Norse==
 
 ===Alternative forms===
@@ -452,11 +451,18 @@ From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {
 ===Preposition===
 {{head|non|preposition}}
 
-# {{q|with accusative}} [[about]], [[concerning]]
-# {{q|with accusative}} [[round]], [[past]], [[beyond]]
-# {{q|with accusative}} [[over]], [[across]], [[along]]
-# {{q|with accusative}} [[during]], [[at]] a point in time
-# {{q|with accusative}} [[because]] [[of]], [[for]]
+# [[about]], [[concerning]] {{+obj|non|acc}}
+# [[round]], [[past]], [[beyond]] {{+obj|non|acc}}
+# [[over]], [[across]], [[along]] {{+obj|non|acc}}
+# [[during]], [[at]] a point in time {{+obj|non|acc}}
+# [[because]] [[of]], [[for]] {{+obj|non|acc}}
+
+===Particle===
+{{head|non|particle}}
+
+# {{non-gloss definition|([[w:Poetic Edda]]) indicates that the verbal action is completed, compare English “[[through]]” as in “[[read]] [[through]]”. For semantic development, compare adjectival usage of German [[um#German|um]].}}
+#* ''[[w:Völuspá|Vǫluspá]]'', verse 2, lines 1-2, in '''1860''', T. Möbius, ''Edda Sæmundar hins fróða: mit einem Anhang zum Theil bisher ungedruckter Gedichte''. Leipzig, page [https://archive.org/stream/eddasmundarhins00mbgoog#page/n22 1]:
+#*: {{quote|non|Ek man jǫtna / ár '''um''' borna, {{...}}|I remember giants / born long ago,{{...}}}}
 
 ====Descendants====
 {{top2}}
@@ -472,8 +478,7 @@ From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {
 
 ===References===
 * {{R:Zoega}}
-
-----
+* {{R:Fritzner}}
 
 ==Pennsylvania German==
 
@@ -484,8 +489,6 @@ Compare {{cog|de|um}}, {{cog|nl|om}}, {{cog|ang|ymb}}.
 {{head|pdc|preposition}}
 
 # [[around]]
-
-----
 
 ==Pnar==
 
@@ -500,15 +503,14 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 
 # [[water]]
 
-----
-
 ==Polish==
 
 ===Etymology===
-{{inh+|pl|sla-pro|*ũmъ}}, from {{der|pl|ine-bsl-pro|*aum-}}, from {{der|pl|ine-pro||*h₂ew-m-}}, from the root {{m|ine-pro|*h₂ew-||to perceive, be aware of}}. Akin to {{cog|lt|aumuõ}}.
+{{dercat|pl|ine-bsl-pro|ine-pro|inh=2}}
+{{inh+|pl|sla-pro|*ũmъ}}.
 
 ===Pronunciation===
-{{pl-p}}
+{{pl-p|hh=-um}}
 
 ===Noun===
 {{pl-noun|m-in}}
@@ -520,24 +522,18 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 {{pl-decl-noun-m-in}}
 
 ====Derived terms====
-{{col3|pl|title=adjectives|umny|umowy}}
-{{col3|pl|title=noun|umność}}
+{{col-auto|pl|title=adjectives|umny|umowy}}
+{{col-auto|pl|title=noun|umność}}
 
 ====Related terms====
-{{col3|pl|title=adjectives|rozumny|umysłowy}}
-{{col3|pl|title=nouns|umiejętność|umysłowość}}
-{{col3|pl|title=verbs|
-[[rozumieć]] {{g|impf}}|
-[[umieć]] {{g|impf}}
-}}
+{{col-auto|pl|title=adjectives|rozumny|umysłowy}}
+{{col-auto|pl|title=nouns|umiejętność|umysłowość}}
+{{col-auto|pl|title=verbs|rozumieć<g:impf>|umieć<g:impf>}}
 
 ===Further reading===
-* {{R:pl:WSJP}}
 * {{R:pl:PWN}}
 
 {{C|pl|Thinking}}
-
-----
 
 ==Portuguese==
 {{number box|pt}}
@@ -546,11 +542,11 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 * {{alt|pt|hum||obsolete}}
 
 ===Etymology===
-From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*óynos|t=one}}. {{doublet|pt|uno}}.
+{{inh+|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|unus|ūnum|t=one}}, from {{inh|pt|itc-ola|oinos}}, from {{inh|pt|itc-pro|*oinos}}, from {{inh|pt|ine-pro|*h₁óynos|t=one}}. {{doublet|pt|uno}}.
 
 ===Pronunciation===
-{{pt-IPA}}
-* {{audio|pt|PT-BR-um.ogg|Audio (Brazil)}}
+{{pt-IPA|úm<q:numeral>,um<q:article>}}
+* {{audio|pt|PT-BR-um.ogg|a=Brazil}}
 * {{rhymes|pt|ũ|s=1}}
 * {{hyph|pt|um}}
 
@@ -562,6 +558,9 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 
 ====Quotations====
 {{seeCites|pt}}
+
+====Related terms====
+{{rel4|pt|único|união|unir|adunar|aunar|coadunar|unidade|unânime|unanimidade|uni-|não|nulo|anular}}
 
 ====Descendants====
 * {{desc|idb|um}}
@@ -578,7 +577,6 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ##: {{uxi|pt|'''Uns''' carros, '''umas''' casas.|'''A few''' cars, '''a few''' houses.}}
 ##: {{syn|pt|alguns}}
 ## {{senseid|pt|a bit of}} {{lb|pt|with uncountable nouns}} [[a bit]] of
-##: {{ux|pt|Comi '''uma''' pipoca antes de dormir.|I ate '''a bit of''' popcorn before going to sleep.}}
 ##: {{syn|pt|um pouco de}}
 ## {{senseid|pt|quite a}} {{lb|pt|usually in the feminine|pronounced slowly, emphatically and with a high intonation}} {{n-g|indicates that what follows is exceptional}}; [[quite]] a; [[quite]] the
 ##: {{ux|pt|Ontem de noite caiu '''''uma''''' chuva.|We had '''quite a''' rain last night.}}
@@ -594,7 +592,7 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 ===Noun===
 {{pt-noun|m}}
 
-# {{senseid|pt|the digit 1}} The figure or digit "1": [[one]]
+# {{senseid|pt|the digit 1}} the figure or digit "1": [[one]]
 #: {{uxi|pt|O '''um''' parece o sete sem gravata no pescoço.|The one looks like the seven with no tie at its neck.}}
 
 ====Quotations====
@@ -605,13 +603,11 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 
 # {{senseid|pt|someone}} a person; [[one]]; [[someone]]
 #: {{uxi|pt|Chegou-me '''um''' e disse: "Olá!"|One came to me and said: "Hello!"}}
-# {{senseid|pt|previously mentioned element}} Element(s) of a previously mentioned class: [[one]]; [[some]] (in plural)
+# {{senseid|pt|previously mentioned element}} element(s) of a previously mentioned class: [[one]]; [[some]] (in the plural)
 #: {{uxi|pt|Comprei '''uns''' e me decepcionei.|I bought some and got disappointed.}}
 
 ====Quotations====
 {{seeCites|pt}}
-
-----
 
 ==Romansch==
 
@@ -619,18 +615,16 @@ From {{inh|pt|roa-opt|ũu|t=one; a}}, from {{inh|pt|la|ūnus|t=one}}, from {{inh
 From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling}}.
 
 ===Noun===
-{{head|rm|noun|g=m|plural|umens}}
+{{rm-noun|m|pl=umens}}
 
 # [[man]]
+#: {{coordinate terms|rm|dunna}}
 # [[husband]]
-
-====Coordinate terms====
-* {{l|rm|dunna}}
+#: {{syn|rm|cunsort|q1=Sutsilvan}}
+#: {{coordinate terms|rm|dunna}}
 
 [[Category:rm:Family]]
 [[Category:rm:People]]
-
-----
 
 ==Sawai==
 
@@ -645,8 +639,6 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 ===Further reading===
 * Donald A. Burquest, Wyn D. Laidig, ''Phonological Studies in Four Languages of Maluku'' (1992)
 
-----
-
 ==Scots==
 
 ===Pronunciation===
@@ -660,12 +652,10 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 ====See also====
 * {{l|sco|hei}}
 
-----
-
 ==Serbo-Croatian==
 
 ===Etymology===
-From {{inh|sh|sla-pro|*umъ}}.
+{{inh+|sh|sla-pro|*umъ}}.
 
 ===Pronunciation===
 * {{IPA|sh|/ûːm/}}
@@ -688,25 +678,23 @@ From {{inh|sh|sla-pro|*umъ}}.
 |umom|umovima
 }}
 
-----
-
 ==Slovak==
 
 ===Etymology===
-From {{inh|sk|sla-pro|*umъ}}.
+{{inh+|sk|sla-pro|*umъ}}.
 
 ===Pronunciation===
 * {{IPA|sk|/ˈum/}}
 
 ===Noun===
-{{sk-noun|g=m|gen=umu|pl=umy|genpl=umov|decl=dub}}
+{{sk-noun|m-in}}
 
 # [[mind]]
 # [[intellect]]
 # [[wit]]
 
 ====Declension====
-{{sk-decl-noun|um|umu|umu|um|ume|umom|umy|umov|umom|umy|umoch|umami}}
+{{sk-decl-noun-dub|um|u}}
 
 ====Synonyms====
 * {{l|sk|rozum|g=m}}
@@ -714,9 +702,11 @@ From {{inh|sk|sla-pro|*umъ}}.
 * {{l|sk|zmysel|g=m}}
 
 ====Derived terms====
-* {{l|sk|umový}}
 * {{l|sk|umček}}
+* {{l|sk|umný}}
+* {{l|sk|umový}}
 
 ===References===
-* {{R:SDK}}
+* {{R:sk:SDK}}
+
 [[Category:English filled pauses]]

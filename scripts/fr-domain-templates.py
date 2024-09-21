@@ -1,14 +1,12 @@
-from typing import Dict
-
 from scripts_utils import get_soup
 
 ROOT = "https://fr.wiktionary.org"
 START_URL = "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_de_th%C3%A9matique"
 NEXTPAGE_TEXT = "page suivante"
-ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"  # noqa
+ALIAS_URL = "https://fr.wiktionary.org/w/index.php?title=Sp%C3%A9cial:Pages_li%C3%A9es/Mod%C3%A8le:{}&limit=10&hidetrans=1&hidelinks=1"
 
 
-def process_category_page(url: str, results: Dict[str, str]) -> str:
+def process_category_page(url: str, results: dict[str, str]) -> str:
     soup = get_soup(url)
 
     nextpage = ""
@@ -31,7 +29,7 @@ def process_category_page(url: str, results: Dict[str, str]) -> str:
     return nextpage
 
 
-def process_alias_page(key: str, value: str, results: Dict[str, str]) -> None:
+def process_alias_page(key: str, value: str, results: dict[str, str]) -> None:
     url = ALIAS_URL.format(key)
     soup = get_soup(url)
     ul = soup.find("ul", {"id": ["mw-whatlinkshere-list"]})
@@ -45,7 +43,7 @@ def process_alias_page(key: str, value: str, results: Dict[str, str]) -> None:
 
 
 next_page_url = START_URL
-results: Dict[str, str] = {}
+results: dict[str, str] = {}
 
 while next_page_url:
     next_page_url = process_category_page(next_page_url, results)

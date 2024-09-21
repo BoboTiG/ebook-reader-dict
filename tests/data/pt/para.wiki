@@ -26,7 +26,7 @@
 # terceira pessoa do singular do presente do indicativo do verbo [[parar]]
 # segunda pessoa do singular do imperativo do verbo [[parar]]
 
-{{avi-for-fle|parar}}
+{{aviso.flexão|parar}}
 
 ==={{-varort-}}===
 * {{escopo2|Anterior ao AO 1990}} [[pára]]
@@ -37,6 +37,17 @@
 ===Portugal===
 * AFI: {{AFI|/ˈpɐ.ɾɐ/}}
 
+==Ligações externas==
+* {{Aulete}}
+* {{Michaelis}}
+* {{Dicio}}
+* {{DicioAberto}}
+* {{DLPO}}
+* {{Infopédia}}
+* {{PLP}}
+* {{VOLPABL}}
+* {{Forvo|para|pt}}
+
 [[Categoria:Preposição (Português)]]
 [[Categoria:Forma verbal (Português)]]
 [[Categoria:Tempo (Português)]]
@@ -45,7 +56,7 @@
 ={{-ast-}}=
 ==Substantivo<sup>1</sup>==
 {{flex.ast|fs=para|fp=pares}}
-{{paroxítona|pa|ra|lang=ast}}, {{g|f}}
+{{paroxítona|pa|ra|id=ast}}, {{gramática|f}}
 # [[parada]], ação de [[parar]]
 
 ==={{etimologia|ast}}===
@@ -53,7 +64,7 @@
 
 ==Substantivo<sup>2</sup>==
 {{flex.ast|fs=para|fp=pares}}
-{{paroxítona|pa|ra|lang=ast}}, {{g|f}}
+{{paroxítona|pa|ra|id=ast}}, {{gramática|f}}
 # no direito [[consuetudinário]], prerrogativa que permite a qualquer pessoa de uma comunidade [[usufruir]] de um bem comum ou de uma parte, alternando com outras
 # [[faixa]] de [[terreno]] agrícola ou de um prado; parte de um terreno agrícola
 # [[grupo]] de pessoas que juntas [[maçar|maçam]] as maçãs para a [[sidra]]
@@ -66,24 +77,15 @@
 
 [[Categoria:Substantivo (Asturiano)]]
 
+
 ={{-gl-}}=
-==Forma verbal==
-{{paroxítona|pa|ra|lang=gl}}
-# terceira pessoa do singular do presente indicativo do verbo ''[[parar#{{gl}}|parar]]''
-# segunda pessoa do singular do imperativo afirmativo do verbo ''[[parar#{{gl}}|parar]]''
-# primeira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
-# terceira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
-# terceira pessoa do singular do imperativo afirmativo do verbo ''[[parir#{{gl}}|parir]]''
-
-{{avi-for-fle|parar}}
-
 ==Preposição==
-{{paroxítona|pa|ra|lang=gl}}
+{{paroxítona|pa|ra|id=gl}}
 # [[para#{{pt}}|para]]
 
 ==Substantivo==
 {{flex.gl|fs=para|fp=paras}}
-{{paroxítona|pa|ra|lang=gl}}, {{g|f|lang=gl}}
+{{paroxítona|pa|ra|id=gl}}, {{g|f|id=gl}}
 # casca, pele exterior tirada de um fruto, ou tubérculo, casca do [[queijo]]
 # [[apara]] da madeira
 # [[pasta]] entre as [[mó]]s do moinho, que faz o grão novo ao ser moído para farinha, por estar ainda com umidade
@@ -92,12 +94,23 @@
 * De '''1''' (casca): [[prana#{{gl}}|prana]]
 * De '''3''': [[bouta#{{gl}}|bouta]]
 
+==Forma verbal==
+{{paroxítona|pa|ra|id=gl}}
+# terceira pessoa do singular do presente indicativo do verbo ''[[parar#{{gl}}|parar]]''
+# segunda pessoa do singular do imperativo afirmativo do verbo ''[[parar#{{gl}}|parar]]''
+# primeira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
+# terceira pessoa do singular do presente subjuntivo do verbo ''[[parir#{{gl}}|parir]]''
+# terceira pessoa do singular do imperativo afirmativo do verbo ''[[parir#{{gl}}|parir]]''
+
+{{aviso.flexão|parar}}
+
 =={{etimologia|gl}}==
 : Da mesma origem que [[apara]]. Confronte-se com o húngaro {{etimo|hu|para}} "[[cortiça]], casca de árvore".
 
 [[Categoria:Preposição (Galego)]]
 [[Categoria:Substantivo (Galego)]]
 [[Categoria:Forma verbal (Galego)]]
+
 
 ={{-mwl-}}=
 ==Preposição==

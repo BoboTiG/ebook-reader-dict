@@ -1,5 +1,4 @@
 import re
-from typing import Dict
 
 from scripts_utils import get_content, get_soup
 
@@ -10,16 +9,15 @@ RACINE_URL = "https://fr.wiktionary.org/wiki/Mod%C3%A8le:{}?action=raw"
 STRIP_COMMENT = re.compile(r"<!-- \(\w+\)[^\-]+-->").sub
 
 
-def process_category_page(url: str, results: Dict[str, Dict[str, str]]) -> str:
+def process_category_page(url: str, results: dict[str, dict[str, str]]) -> str:
     soup = get_soup(url)
-
     nextpage = ""
     nextpage_div = soup.find(id="mw-pages")
     last_link = nextpage_div.find_all("a")[-1]
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT + last_link.get("href")
 
-    content_div = soup.find("div", "mw-category-generated")
+    content_div = soup.find(id="mw-pages")
     for li in content_div.find_all("li"):
         tpl_title = li.find("a").get("title")
         if " " in tpl_title or "/" in tpl_title or "ar-racine" in tpl_title:
@@ -30,7 +28,7 @@ def process_category_page(url: str, results: Dict[str, Dict[str, str]]) -> str:
     return nextpage
 
 
-def process_root(tpl: str, results: Dict[str, Dict[str, str]]) -> None:
+def process_root(tpl: str, results: dict[str, dict[str, str]]) -> None:
     url = RACINE_URL.format(tpl)
     data = get_content(url)
     tpl_dict = {}
@@ -49,7 +47,7 @@ def process_root(tpl: str, results: Dict[str, Dict[str, str]]) -> None:
 
 
 next_page_url = START_URL
-results: Dict[str, Dict[str, str]] = {}
+results: dict[str, dict[str, str]] = {}
 
 while next_page_url:
     next_page_url = process_category_page(next_page_url, results)

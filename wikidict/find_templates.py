@@ -1,25 +1,28 @@
 """DEBUG: find all templates in use."""
+
 import os
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List
 
 from .lang import sections
-from .render import find_all_sections, find_sections, get_latest_json_file, load
+from .render import adjust_wikicode, find_all_sections, find_sections, get_latest_json_file, load
 
 
-def find_titles(code: str, locale: str) -> List[str]:
+def find_titles(code: str, locale: str) -> list[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
     _, all_sections = find_all_sections(code, locale)
     return [title for title, _ in all_sections]
 
 
-def find_templates(in_words: Dict[str, str], locale: str) -> None:
+def find_templates(in_words: dict[str, str], locale: str) -> None:
     found_sections = defaultdict(list)
-    templates: Dict[str, str] = {}
+    templates: dict[str, str] = {}
     locale_sections = sections[locale]
     for in_word, code in in_words.items():
+        if locale == "da":
+            code = adjust_wikicode(code, locale)
+
         for title in find_titles(code, locale):
             found_sections[title].append(in_word)
 
@@ -66,7 +69,7 @@ def main(locale: str) -> int:
         return 1
 
     print(f">>> Loading {file} ...", flush=True)
-    in_words: Dict[str, str] = load(file)
+    in_words: dict[str, str] = load(file)
 
     print(">>> Working, please be patient ...", flush=True)
     find_templates(in_words, locale)

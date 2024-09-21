@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -12,10 +12,21 @@ from wikidict.utils import process_templates
     [
         (
             "-acho",
-            ["[ˈa.t͡ʃo]"],
+            [],
             ["Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>."],
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
+            ],
+            [],
+        ),
+        (
+            "bicicleta",
+            [],
+            [
+                'Del francés <i>bicyclette</i> y este diminutivo del francés <i>bicycle</i>, formado sobre el modelo del francés <i>tricycle</i>, del latín <i>bis</i>) y <i>-cycle</i> ( del latín <i>cyclus</i>, del griego <i>κύκλος</i> (<i>kýklos</i>, "círculo; rueda")).'
+            ],
+            [
+                "<i>(Vehículos, ciclismo)</i>: Vehículo, comúnmente de dos ruedas iguales, propulsado mediante la aplicación de la fuerza de las piernas sobre los pedales que la transmiten hacia los piñones y una cadena moviendo la rueda trasera."
             ],
             [],
         ),
@@ -31,9 +42,9 @@ from wikidict.utils import process_templates
         ),
         (
             "comer",
-            ["[koˈmeɾ]"],
+            [],
             [
-                'Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i> ("devorar"), formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
+                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
             ],
             [
                 "Ingerir o tomar alimentos.",
@@ -41,7 +52,7 @@ from wikidict.utils import process_templates
                 "Malgastar bienes o recursos.",
                 "Corroer o consumir.",
                 "Producir comezón.",
-                "<i>(Juego)</i>: En los juegos de mesa, eliminar una pieza del contrario.",
+                "<i>(Juegos)</i>: En los juegos de mesa, eliminar una pieza del contrario.",
                 "Omitir elementos de información cuando se habla o escribe.",
                 "Llevar encogidas algunas prendas de ropa, como los calcetines.",
                 "Tener relaciones sexuales con alguien.",
@@ -49,17 +60,8 @@ from wikidict.utils import process_templates
             [],
         ),
         (
-            "es decir",
-            ["[es.ðeˈθiɾ]"],
-            [],
-            [
-                "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
-            ],
-            [],
-        ),
-        (
             "entrada",
-            ["[en̪ˈtɾa.ða]"],
+            [],
             ["De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."],
             [
                 "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
@@ -97,7 +99,7 @@ from wikidict.utils import process_templates
         ),
         (
             "extenuado",
-            ["[eks.teˈnwa.ðo]"],
+            [],
             [],
             [
                 "Cansado, debilitado.",
@@ -115,25 +117,25 @@ from wikidict.utils import process_templates
                 "Que está aún por ocurrir o hacerse efectivo.",
                 "Tiempo que aún no ha llegado.",
                 "<i>(Lingüística)</i>: Tiempo verbal que expresa una acción que aún no ha sido realizada.",
-                "Novio o prometido de una mujer a la que va a desposar. <i>El femenino es</i> futura.",
+                "Novio o prometido de una mujer a la que va a desposar.",
             ],
             [],
         ),
         (
             "gracias",
-            ["[ˈgɾa.sjas]", "[ˈgɾa.θjas]"],
+            [],
             [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
-                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>",
+                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>.",
             ],
             [],
         ),
         (
             "hasta",
-            ["[ˈas.ta]"],
+            [],
             [
-                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
+                'Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ("a") <i>ista</i> ("esta").',
             ],
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
@@ -149,24 +151,24 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            ["De hocicar"],
+            ["Del endo <i>hocicar</i>."],
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
                 "Cara.",
                 "Gesto que denota enojo o enfado.",
                 "Forma despectiva para referirse a la boca de alguien.",
-                "Boca de una persona, especialmente de la que dice malas palabras",
+                "Boca de una persona, especialmente de la que dice malas palabras.",
             ],
             [],
         ),
         (
             "los",
-            ["[los]", "[lɔʰ]"],
-            ['Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'],
+            [],
+            ["Del latín <i>illōs</i>, acusativo masculino plural del latín <i>ille</i>."],
             [
-                "<i>Artículo determinado masculino plural.</i>",
-                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",
+                "<i>Artículo determinado masculino plural.</i>.",
+                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>.",
             ],
             [],
         ),
@@ -174,12 +176,12 @@ from wikidict.utils import process_templates
             "Mús.",
             [],
             [],
-            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
+            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música."],
             [],
         ),
         (
             "ruego",
-            ["[ˈrwe.ɰo]"],
+            [],
             [],
             [
                 "Súplica, petición hecha con el fin de alcanzar lo que se pide.",
@@ -198,8 +200,8 @@ from wikidict.utils import process_templates
         ),
         (
             "uni-",
-            ["[ˈu.ni]"],
-            ['Del latín <i>uni-</i>, de <i>unus</i> ("uno")'],
+            [],
+            ["Del latín <i>uni-</i>, del latín <i>unus</i>."],
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
             ],
@@ -218,10 +220,10 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -244,21 +246,11 @@ def test_parse_word(
             "{{adjetivo de sustantivo|chamán o al chamanismo|al}}",
             "Que pertenece o concierne al chamán o al chamanismo",
         ),
-        ("{{Anatomía|y|Zootomía}}", "<i>(Anatomía y Zootomía)</i>"),
-        (
-            "{{Angiología|Endocrinología|Fisiología|Medicina}}",
-            "<i>(Angiología, Endocrinología, Fisiología, Medicina)</i>",
-        ),
-        ("{{Arqueología}}", "<i>(Arqueología)</i>"),
-        ("{{Arqueología|y|Geología}}", "<i>(Arqueología y Geología)</i>"),
-        ("{{ciudades}}", "<i>(Geografía)</i>"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
         ("{{etimología2|...}}", ""),
-        ("{{física}}", "<i>(Física)</i>"),
-        ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
         ("{{formatnum:22905}}", "22 905"),
         (
@@ -267,15 +259,10 @@ def test_parse_word(
         ),
         ("{{l|es|tamo}}", "tamo"),
         ("{{l+|pt|freguesia}}", "<i>freguesia</i>"),
-        ("{{moluscos}}", "<i>(Zoología)</i>"),
-        ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía (alimentos))</i>"),
-        ("{{psicología}}", "<i>(Psicología)</i>"),
         ("{{neologismo|feminismo}}", "<b>Neologismo, Feminismo</b>"),
         ("{{nombre científico}}", "<sup>nombre científico</sup>"),
         ("{{plm|cansado}}", "Cansado"),
-        ("{{psicología|lgbt}}", "<i>(Psicología, LGBT)</i>"),
         ("{{redirección suave|protocelta}}", "<i>Véase</i> protocelta"),
-        ("{{regiones|tipo=topónimos|p=México}}", "<i>(Geografía)</i>"),
         ("{{-sub|4}}", "<sub>4</sub>"),
         ("{{subíndice|5}}", "<sub>5</sub>"),
         ("{{-sup|2}}", "<sup>2</sup>"),

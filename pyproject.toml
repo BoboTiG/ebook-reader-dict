@@ -27,6 +27,9 @@ addopts = """
     --strict-markers
     -vvv
 """
+markers = """
+    webtest: an internet connection is required for that test.
+"""
 
 [tool.ruff]
 exclude = [
@@ -44,8 +47,8 @@ indent-width = 4
 target-version = "py311"
 
 [tool.ruff.lint]
-extend-select = ["I"]
 fixable = ["ALL"]
+extend-select = ["F", "I", "U"]
 
 [tool.ruff.format]
 quote-style = "double"

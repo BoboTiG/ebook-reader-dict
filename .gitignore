@@ -73,6 +73,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+.ruff_cache/
 
 # Translations
 *.mo
@@ -150,3 +151,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Intellij IDEA
+.idea

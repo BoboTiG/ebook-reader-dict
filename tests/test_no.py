@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -43,10 +43,20 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "krokodille",
+            [],
+            ["m"],
+            [
+                "Fra middelalderlatin <i>cocodrillus</i> («krokodille»), fra gammelgresk κροκόδειλος (<i>krokodeilos</i>)"
+            ],
+            ["stort reptil, lever i og nær vann. <i>(lat. Crocodylia)</i>"],
+            [],
+        ),
+        (
             "lumpen",
             [],
             [],
-            [""],
+            [],
             ["tarvelig, nedrig"],
             ["lump"],
         ),
@@ -54,11 +64,11 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    genders: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    genders: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""

@@ -1,8 +1,9 @@
 # eBook Reader Dictionaries
 
-[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml) [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml)
+[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/workflows/Update%20dictionaries/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions?query=workflow%3A%22Update+dictionaries%22) [![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml) [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml) [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 - [Catalan](docs/ca/README.md)
+- [Danish](docs/da/README.md)
 - [English](docs/en/README.md)
 - [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
 - [German](docs/de/README.md)
@@ -18,40 +19,48 @@
 ## Users
 
 - [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
-- [FR] [Dico alto](https://dicoalto.com/) by [Snawei](https://fr.wiktionary.org/wiki/Utilisateur:Snawei)
 
 ## Development
 
 Setup a virtual environment:
 
-```console
-$ python -m venv venv
-$ . venv/bin/activate
+```bash
+python3.12 -m venv venv
+
+# For Linux and Mac users
+. venv/bin/activate
+
+# For Windows users
+. venv/Scripts/activate
 ```
 
 Install, or update, dependencies:
 
-```console
-$ python -m pip install -U pip
-$ python -m pip install -r requirements-tests.txt
+```bash
+python -m pip install -U pip
+python -m pip install -r requirements-tests.txt
 ```
 
 Run tests:
 
-```console
-$ python -m pytest --doctest-modules wikidict tests
+```bash
+# All tests
+python -m pytest --doctest-modules wikidict tests
+
+# Skip those requiring a working internet connection
+python -m pytest --doctest-modules wikidict tests -m "not webtest"
 ```
 
 Run linters, and quality checkers, before submitting a pull-request:
 
-```console
-$ ./check.sh
+```bash
+./check.sh
 ```
 
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -79,6 +88,8 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
     </tr>
     <tr>
       <td align="center" valign="top" width="16.66%"><a href="http://blog.yue-dongchen.xyz"><img src="https://avatars.githubusercontent.com/u/38829129?v=4?s=100" width="100px;" alt="Dongchen Yue &#124; 岳东辰"/><br /><sub><b>Dongchen Yue &#124; 岳东辰</b></sub></a><br /><a href="#translation-yue-dongchen" title="Translation">🌍</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://larssonjohan.com"><img src="https://avatars.githubusercontent.com/u/13087841?v=4?s=100" width="100px;" alt="Johan Larsson"/><br /><sub><b>Johan Larsson</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=jolars" title="Code">💻</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/kyxap"><img src="https://avatars.githubusercontent.com/u/3080529?v=4?s=100" width="100px;" alt="kyxap"/><br /><sub><b>kyxap</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=kyxap" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

@@ -4,15 +4,14 @@
 
 === {{S|adjectif|fr}} ===
 {{fr-accord-f|dubitati|dy.bi.ta.ti}}
-'''dubitatif''' {{pron|dy.bi.ta.tif|fr}} 
+'''dubitatif''' {{pron|dy.bi.ta.tif|fr}}
 # Qui sert à [[exprimer]] le [[doute]].
-#* '' M. Cavard se réserve en donnant à sa phrase une forme '''dubitative''' qui ne trompe pas son auditeur.'' {{source|{{w|Joseph Caillaux}}, ''Mes Mémoires, I, Ma jeunesse orgueilleuse'', 1942}}
-#* ''Gui, se détournant à peine, entrevit les sourires de Berry et de Bourgogne, la lippe '''dubitative''' d'Orléans - qu'on n'avait guère vu car la rumeur courait qu'il fréquentait les bordeaux de la ville -, les lèvres pincées d'Olivier de Clisson.'' {{source|{{w|Pierre Naudin}}, ''Les fureurs de l'été'', éditions Aubéron, 1999, page 328}}
+#*{{exemple|lang=fr|M. Cavard se réserve en donnant à sa phrase une forme '''dubitative''' qui ne trompe pas son auditeur.|source={{ouvrage|prénom=Joseph|nom=Caillaux|nolien=|titre=Mes Mémoires, I, Ma jeunesse orgueilleuse|année=1942}}}}
+#*{{exemple|lang=fr|Gui, se détournant à peine, entrevit les sourires de Berry et de Bourgogne, la lippe '''dubitative''' d'Orléans {{incise|qu'on n'avait guère vu car la rumeur courait qu'il fréquentait les bordeaux de la ville}}, les lèvres pincées d'Olivier de Clisson.|source={{ouvrage|prénom=Pierre|nom=Naudin|nolien=|titre=Les fureurs de l'été|éditeur=éditions Aubéron|année=1999|page=328}}}}
 # Qui éprouve un doute.
-#* ''A Acy-Romance (Ardennes), la découverte de trois corps momifiés, inhumés en position dite de Boudha dans des petites fosses profondes de 80 cm laissent les archéologues '''dubitatifs'''.'' {{source|Bernard Rio, ''L'arbre philosophal'', L’Age d’Homme, 2001, page 267}}
-#* ''Si je partage, pour une large part, le tableau de notre situation actuelle qui est présentée dans cet essai, je demeure en revanche plus circonspect, voire franchement '''dubitatif''', devant certaines solutions proposées au problèmes de l'injustice.'' {{source|Daniel D. Jacques, « Justice et liberté », in ''[[w:Argument (revue)|Argument]]'', vol. 19, n° 1, automne-hiver 2017, page 138}}
-#* ''Si j’étais un artiste, je serais, disons, '''dubitatif'''.<br
-/> Pourquoi François Legault a refusé de rouvrir les salles de spectacle en novembre, alors que le directeur de la Santé publique disait qu’il n’y avait aucun problème à le faire ?'' {{source|{{w|Richard Martineau}}, ''Le bon flic Arruda et le mauvais flic Legault'', Le Journal de Québec, 24 février 2021}}
+#*{{exemple|lang=fr|À Acy-Romance (Ardennes), la découverte de trois corps momifiés, inhumés en position dite de Boudha dans des petites fosses profondes de {{unité|80|cm}} laissent les archéologues '''dubitatifs'''.|source={{ouvrage|prénom=Bernard|nom=Rio|nolien=|titre=L'arbre philosophal|éditeur=L’Age d’Homme|année=2001|page=267}}}}
+#*{{exemple|lang=fr|Si je partage, pour une large part, le tableau de notre situation actuelle qui est présentée dans cet essai, je demeure en revanche plus circonspect, voire franchement '''dubitatif''', devant certaines solutions proposées au problèmes de l’injustice.|source={{périodique|prénom=Daniel D.|nom=Jacques|nolien=|titre=Justice et liberté|revue={{w|Argument (revue)|Argument}}|no=1|date=automne-hiver 2017|vol=19|pages=138}}}}
+#* {{exemple|lang=fr|Si j’étais un artiste, je serais, disons, '''dubitatif'''.<br/>Pourquoi François Legault a refusé de rouvrir les salles de spectacle en novembre, alors que le directeur de la Santé publique disait qu’il n’y avait aucun problème à le faire ?|source={{périodique|prénom= Richard|nom=Martineau|nolien=|titre=Le bon flic Arruda et le mauvais flic Legault|journal={{w|Le Journal de Québec}}|date=24 février 2021}}}}
 
 ==== {{S|dérivés}} ====
 {{(}}
@@ -29,11 +28,14 @@
 * {{T|io}} : {{trad-|io|dubitala}}
 * {{T|it}} : {{trad-|it|dubitativo}}
 * {{T|nl}} : {{trad+|nl|twijfelend}}, {{trad+|nl|sceptisch}}
+* {{T|oc}} : {{trad-|oc|dubitatiu|m}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|Suisse (canton du Valais)|audio=LL-Q150 (fra)-DSwissK-dubitatif.wav}}
 * {{écouter|lang=fr|Canada (Shawinigan)||audio=LL-Q150 (fra)-DenisdeShawi-dubitatif.wav}}
+* {{écouter|Cornimont (France)||lang=fr|audio=LL-Q150 (fra)-Poslovitch-dubitatif.wav}}
+* {{écouter|Lyon (France)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-dubitatif.wav}}
 
 === {{S|voir aussi}} ===
 * {{Le Dico des Ados}}

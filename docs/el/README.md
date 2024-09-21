@@ -25,12 +25,14 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dicthtml-el-el.zip) (dicthtml-el-el.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dict-el-el.zip) (dict-el-el.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dict-el-el.df.bz2) (dict-el-el.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dictorg-el-el.zip) (dictorg-el-el.zip)
 
 ### Etymology-Free Version
 
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dicthtml-el-el-noetym.zip) (dicthtml-el-el-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dict-el-el-noetym.zip) (dict-el-el-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dict-el-el-noetym.df.bz2) (dict-el-el-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/el/dictorg-el-el-noetym.zip) (dictorg-el-el-noetym.zip)
 
 ## Installation
 

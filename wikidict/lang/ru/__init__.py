@@ -1,6 +1,6 @@
 """Russian language."""
+
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 
@@ -26,8 +26,29 @@ sections = (
     "В значении вспомогательного глагола или связки",  # for verbs with aux
 )
 
+# Variants
+variant_titles = ("Значение",)
+variant_templates = ("{{прич.",)
+
+# Some definitions are not good to keep (plural, gender, ... )
+definitions_to_ignore = (
+    #
+    # For variants
+    #
+    "прич.",
+)
+
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("семантика",)
+
+
+# Templates more complex to manage.
+templates_multi = {
+    #
+    # For variants
+    #
+    "прич.": "parts[1]",
+}
 
 
 # Release content on GitHub
@@ -41,9 +62,10 @@ release_description = """\
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
 
 <sub>Обновлено по {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Викисловарь (ɔ) {year}"
@@ -51,8 +73,8 @@ wiktionary = "Викисловарь (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -65,8 +87,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -77,15 +99,29 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["en"], "ru")
+        'Английский '
+
+        >>> last_template_handler(["выдел", "foo"], "ru")
+        'foo'
+    """
     from ..defaults import last_template_handler as default
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
-    if lookup_template(template[0]):
-        return render_template(template)
-
     tpl, *parts = template
 
-    # This is a country in the current locale
-    return langs[tpl] if tpl in langs else default(template, locale, word=word)
+    if lookup_template(tpl):
+        return render_template(word, template)
+
+    if tpl == "выдел":
+        return parts[0]
+
+    if lang := langs.get(tpl):
+        return lang
+
+    return default(template, locale, word=word)

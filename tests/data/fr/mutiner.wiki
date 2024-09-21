@@ -1,15 +1,15 @@
-=={{langue|fr}}==
+== {{langue|fr}} ==
 === {{S|étymologie}} ===
 : {{dénominal|de=mutin|lang=fr|m=1}}.
 
 === {{S|verbe|fr}} ===
 '''mutiner''' {{pron|my.ti.ne|fr}} {{prnl|nocat}} {{conj|grp=1|fr}} {{lien pronominal||fr|exclusivement=oui}}
 # Se [[porter]] à la [[sédition]], à la [[révolte]].
-#* ''Des troupes '''mutinées'''.''
+#* {{exemple | lang=fr | Des troupes '''mutinées'''.}}
 #* {{absolument|fr}} ''Le peuple se '''mutinait'''.''
-#* ''Cet ordre rigoureux fit '''mutiner''' le peuple.''
+#* {{exemple | lang=fr | Cet ordre rigoureux fit '''mutiner''' le peuple.}}
 # [[enfant|Enfant]] qui se [[dépiter|dépite]] et [[manque]] à l’[[obéissance]].
-#* ''Cet enfant se '''mutine''' à chaque instant.''
+#* {{exemple | lang=fr | Cet enfant se '''mutine''' à chaque instant.}}
 # {{poétique|fr}} …
 #* ''Les flots, les vents '''mutinés''','' Les flots agités, les vents impétueux.
 
@@ -42,6 +42,10 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Lyon)||audio=LL-Q150 (fra)-Lyokoï-mutiner.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-mutiner.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
 
 === {{S|références}} ===
 *{{Import:DAF8}}
