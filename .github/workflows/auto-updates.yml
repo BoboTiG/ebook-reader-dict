@@ -71,3 +71,5 @@ jobs:
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2.sha256
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
+            data/${{ matrix.locale }}/dictorg-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+            data/${{ matrix.locale }}/dictorg-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
