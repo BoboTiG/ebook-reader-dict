@@ -33,7 +33,6 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
-from .namespaces import namespaces
 from .user_functions import *  # noqa: F403
 
 # Magic words (small part, only data/time related)
@@ -90,7 +89,7 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    if "CI" in os.environ:
+    if "CI" in os.environ:  # pragma: nocover
         print(f"🎯 {word = }")
     return word
 
@@ -251,28 +250,14 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
-        '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")
-        ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
-        ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
-        ''
-        >>> clean("[[fil:ISO 7010 E002 new.svg|thumb|right|160px|piktogram nødudgang]]", locale="da")
-        ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
-        ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
-        ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
-        ''
-        >>> clean("[[Stó:lō]]", locale="fr")
-        'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
         '-[e]au'
+        >>> clean("[[Stó:lō]]", locale="fr")
+        'Stó:lō'
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
+        '10{{e|&minus;6}} gray'
 
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
@@ -348,11 +333,6 @@ def clean(text: str, locale: str = "en") -> str:
     # Local links
     text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
 
-    # Namespaces
-    # [[File:...|...]] -> ''
-    pattern = "|".join(iter(namespaces[locale] + namespaces["en"]))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text, flags=re.IGNORECASE)
-
     # Links
     # Internal: [[{{a|b}}]] -> {{a|b}}
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
@@ -367,18 +347,15 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("[[", "").replace("]]", "")
 
     # Tables
-    text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
+    # {|foo..|}
+    text = sub(r"{\|[^}]+\|}", "", text)
 
     # Headings
-    text = sub(
-        r"^=+\s?([^=]+)\s?=+",
-        lambda matches: matches.group(1).strip(),
-        text,
-        flags=re.MULTILINE,
-    )  # == a == -> a
+    # == a == -> a
+    text = sub(r"^=+\s?([^=]+)\s?=+", lambda matches: matches.group(1).strip(), text)
 
     # Lists
-    text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
+    text = sub(r"^\*+\s?", "", text)
 
     # Magic words
     text = sub(r"__[A-Z]+__", "", text)  # __TOC__

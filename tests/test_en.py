@@ -128,7 +128,6 @@ from wikidict.utils import process_templates
             "scourge",
             ["/skɜɹd͡ʒ/", "/skɜːd͡ʒ/"],
             [
-                "in a museum.",
                 "From Middle English <i>scourge</i> (“a lash, whip, scourge; affliction, calamity; person who causes affliction or calamity; shoot of a vine”), and then either:",
             ],
             [

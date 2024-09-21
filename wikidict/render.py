@@ -28,6 +28,7 @@ from .lang import (
     variant_templates,
     variant_titles,
 )
+from .namespaces import namespaces
 from .stubs import Definitions, SubDefinitions, Word, Words
 from .user_functions import uniq
 from .utils import process_templates, table2html
@@ -283,8 +284,61 @@ def add_potential_variant(word: str, tpl: str, locale: str, variants: list[str])
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
-    """Sometimes we need to adapt the Wikicode."""
-    code = re.sub(r"(<!--.*?-->)", "", code, flags=re.DOTALL)
+    r"""Sometimes we need to adapt the Wikicode.
+
+    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}', "en")
+    ''
+    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}', "en")
+    '{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}'
+
+    >>> adjust_wikicode("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']][[something|else]]", "fr")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]][[something|else]]", "en")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]][[something|else]]", "en")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[fil:ISO 7010 E002 new.svg|thumb|right|160px|piktogram nødudgang]][[something|else]]", "da")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[Catégorie:Localités d’Afrique du Sud en français]][[something|else]]", "fr")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]][[something|else]]", "es")
+    '[[something|else]]'
+    >>> adjust_wikicode("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]][[something|else]]", "es")
+    '][[something|else]]'
+    >>> adjust_wikicode("[[Archivo:Diagrama bicicleta.svg|400px|miniaturadeimagen|'''Partes de una bicicleta:'''<br>\n[[asiento]] o [[sillín]], [[cuadro]]{{-sub|8}}, [[potencia]], [[puño]]{{-sub|4}}, [[cuerno]], [[manubrio]], [[telescopio]], [[horquilla]], [[amortiguador]], [[frenos]], [[tijera]], [[rueda]], [[rayos]], [[buje]], [[llanta]], [[cubierta]], [[válvula]], [[pedal]], [[viela]], [[cambio]], [[plato]]{{-sub|5}} o [[estrella]], [[piñón]], [[cadena]], [[tija]], [[tubo de asiento]], [[vaina]].]]\n\n[[something|else]]", "es")
+    '\n\n[[something|else]]'
+    >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
+    '[[something|else]]'
+    """
+
+    # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
+    # [[File:...|...]] -> ''
+    all_namespaces = set()
+    for namespace in namespaces[locale] + namespaces["en"]:
+        all_namespaces.add(namespace)
+        all_namespaces.add(namespace.lower())
+    pattern = "|".join(iter(all_namespaces))
+    code = re.sub(
+        # Courtesy of Casimir et Hippolyte from https://stackoverflow.com/q/79006887/1117028
+        rf"""
+        \[\[ (?:{pattern}):
+        [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
+            (?:
+                \[\[
+                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )*
+                ]]
+                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
+            )*
+        ]]
+        """,
+        "",
+        code,
+        flags=re.VERBOSE,
+    )
+
+    if locale == "da":
+        # {{=da=}} -> =={{da}}==
+        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     if locale == "de":
         # {{Bedeutungen}} -> === {{Bedeutungen}} ===
@@ -365,10 +419,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{!}} -> "|"
         code = code.replace("{{!}}", "|")
-
-    if locale == "da":
-        # {{=da=}} -> =={{da}}==
-        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     return code
 
