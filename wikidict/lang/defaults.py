@@ -80,8 +80,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    # {{tpl|item1|item2|...}} -> ''
-    if len(template) > 2:
+    # {{tpl|item|...}} -> ''
+    if len(template) > 1:
         from ..render import LOCK, MISSING_TPL_SEEN
 
         with LOCK:
@@ -96,7 +96,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     # {{template}}
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
-    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
+    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 
 def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
