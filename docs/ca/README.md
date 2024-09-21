@@ -20,7 +20,7 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dicthtml-ca-ca.zip) (dicthtml-ca-ca.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.zip) (dict-ca-ca.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dict-ca-ca.df.bz2) (dict-ca-ca.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-ca-ca.zip) (dictorg-ca-ca.zip)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ca/dictorg-ca-ca.zip) (dictorg-ca-ca.zip)
 
 ### Versió sense etimologia
 
