@@ -208,4 +208,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if tpl == "etyl":
         return langs.get(parts[0], parts[0])
 
-    raise ValueError(f"Unhandled template: {word=}, {template=}")
+    raise ValueError(f"Unhandled {template=} {word=}")

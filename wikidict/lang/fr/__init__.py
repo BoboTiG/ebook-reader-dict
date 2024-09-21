@@ -988,7 +988,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         person,
         term,
     )
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
@@ -1015,8 +1015,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
 
     if tpl == "code langue":
-        lang = parts[0]
-        return next((code for code, l10n in langs.items() if l10n == lang), "")
+        code_lang = parts[0]
+        return next((code for code, l10n in langs.items() if l10n == code_lang), "")
 
     if tpl == "diminutif":
         phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
@@ -1128,4 +1128,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
 
     # This is a country in the current locale
-    return langs[tpl] if tpl in langs else default(template, locale, word=word)
+    if lang := langs.get(tpl):
+        return lang
+
+    return defaults.last_template_handler(template, locale, word=word)

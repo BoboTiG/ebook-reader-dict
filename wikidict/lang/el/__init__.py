@@ -286,7 +286,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>freestyle text</i> <b>colour</b>'
     """
     from ...user_functions import italic, strong
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .langs import langs
 
     tpl, *parts = template
@@ -391,4 +391,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         }.get(desc, desc)
         return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 
-    return default(template, locale, word)
+    return defaults.last_template_handler(template, locale, word=word)

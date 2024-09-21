@@ -259,7 +259,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         italic,
         lookup_italic,
     )
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
@@ -332,4 +332,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     ):
         return parts[0]
 
-    return default(template, locale, word)
+    return defaults.last_template_handler(template, locale, word=word)

@@ -237,7 +237,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
         'chimica f.'
     """
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .codelangs import codelangs
     from .langs import langs
     from .template_handlers import lookup_template, render_template
@@ -259,4 +259,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if lang := langs.get(tpl):
         return lang.capitalize()
 
-    return default(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word)
