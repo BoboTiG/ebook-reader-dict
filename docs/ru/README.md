@@ -23,7 +23,7 @@
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dicthtml-ru-ru-noetym.zip) (dicthtml-ru-ru-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru-noetym.zip) (dict-ru-ru-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dict-ru-ru-noetym.df.bz2) (dict-ru-ru-noetym.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dictorg-ru-ru-noetym.) (dictorg-ru-ru-noetym.zip)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/ru/dictorg-ru-ru-noetym.zip) (dictorg-ru-ru-noetym.zip)
 
 ## Установка
 
