@@ -336,6 +336,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
         flags=re.VERBOSE,
     )
 
+    if locale == "da":
+        # {{=da=}} -> =={{da}}==
+        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
     if locale == "de":
         # {{Bedeutungen}} -> === {{Bedeutungen}} ===
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
@@ -415,10 +419,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{!}} -> "|"
         code = code.replace("{{!}}", "|")
-
-    if locale == "da":
-        # {{=da=}} -> =={{da}}==
-        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     return code
 

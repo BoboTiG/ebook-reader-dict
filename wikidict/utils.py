@@ -89,7 +89,7 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    if "CI" in os.environ:
+    if "CI" in os.environ:  # pragma: nocover
         print(f"🎯 {word = }")
     return word
 

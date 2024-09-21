@@ -20,6 +20,17 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "bicicleta",
+            [],
+            [
+                'Del francés <i>bicyclette</i> y este diminutivo del francés <i>bicycle</i>, formado sobre el modelo del francés <i>tricycle</i>, del latín <i>bis</i>) y <i>-cycle</i> ( del latín <i>cyclus</i>, del griego <i>κύκλος</i> (<i>kýklos</i>, "círculo; rueda")).'
+            ],
+            [
+                "<i>(Vehículos, ciclismo)</i>: Vehículo, comúnmente de dos ruedas iguales, propulsado mediante la aplicación de la fuerza de las piernas sobre los pedales que la transmiten hacia los piñones y una cadena moviendo la rueda trasera."
+            ],
+            [],
+        ),
+        (
             "cartel",
             [],
             ["Del occitano <i>cartel</i>."],

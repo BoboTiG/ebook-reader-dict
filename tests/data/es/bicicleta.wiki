@@ -1,0 +1,103 @@
+== {{lengua|es}} ==
+{{pron-graf|1audio1=LL-Q1321 (spa)-AdrianAbdulBaha-bicicleta.wav|1aunota1=Colombia}}
+
+=== Etimología 1 ===
+{{etimología|fr|bicyclette}} y este diminutivo {{etim|fr|bicycle}}<ref>{{DAF8|bicyclette}}</ref>, formado sobre el modelo  {{etim|fr|tricycle}}<ref>{{DAF8|bicycle}}</ref>,  {{etim|la|bis}}) y {{l+|fr|-cycle}} ( {{etim|la|cyclus}}, del griego {{l+|grc|κύκλος|tr=kýklos|glosa=círculo|glosa-alt=círculo; rueda}}).
+[[Archivo:Diagrama bicicleta.svg|400px|miniaturadeimagen|'''Partes de una bicicleta:'''<br>
+asiento o sillín, cuadro{{-sub|8}}, potencia, puño{{-sub|4}}, cuerno, manubrio, telescopio, horquilla, amortiguador, frenos, tijera, rueda, rayos, buje, llanta, cubierta, válvula, pedal, viela, cambio, plato{{-sub|5}} o estrella, piñón, cadena, tija, tubo de asiento, vaina.]]
+
+==== {{sustantivo femenino|es}} ====
+{{inflect.es.sust.reg}}
+;1 {{csem|vehículos|ciclismo}}: {{plm|vehículo}}, comúnmente de dos [[rueda]]s iguales, propulsado mediante la aplicación de la fuerza de las piernas sobre los [[pedal]]es que la transmiten hacia los [[piñón|piñones]] y una [[cadena]] moviendo la rueda trasera.
+{{sinónimo|bici|velocípedo}}
+{{hipónimo|tándem|triciclo}}
+{{ejemplos|Con la ''bicicleta'' ha dado el hombre una lección á la misma Naturaleza, tan sabia en otras ocasiones. Empezó la invención humana con tanteos, pero la Naturaleza no hizo más; que, á la verdad, antes de llegar al bípedo se ensayó en el cuadrúpedo; á la manera que el hombre construyó carros de cuatro ruedas ó de dos apareadas hasta llegar á colocarlas en el mismo plano}}{{referencia|c=libro|t=José Echegaray|a=José Echegaray|f=1990|p=556}}
+
+==== Locuciones ====
+{{trad-arriba|Locuciones con «bicicleta»}}
+* [[bicicleta de montaña]]
+* [[bicicleta estática]]
+* [[bicicleta fija]]
+* [[bicicleta financiera]]
+* [[hacer una bicicleta]]
+{{trad-abajo}}
+
+==== Véase también ====
+{{W}}
+
+==== Traducciones ====
+{{trad-arriba}}
+{{t|sq|a1=1|t1=biçikletë|g1=f}}
+{{t|de|a1=1|t1=Fahrrad|g1=n}}
+{{t|an|a1=1|t1=bezicleta|g1=f}}
+{{t|bn|a1=1|t1=বাইসাইকেল|t2=সাইকেল|tl2=saikel}}
+{{t|br|a1=1|t1=marc'h-houarn|g1=m|t2=bilo|t3=divroderez|t4=bisiklet|g4=m}}
+{{t|ca|a1=1|t1=bicicleta|g1=f}}
+{{t|sl|a1=1|t1=kolo|g1=n|t2=dvokolo|g2=n|t3=bicikel}}
+{{t|eu|a1=1|t1=bizikleta|t2=txirrindu}}
+{{t|fj|a1=1|t1=basikeli}}
+{{t|fr|a1=1|t1=vélo|t2=bicyclette}}
+{{t|ka|a1=1|t1=ველოსიპედი}}
+{{t|el|a1=1|t1=ποδήλατο|g1=n}}
+{{t|he|a1=1|t1=אופניים}}
+{{t|hu|a1=1|t1=kerékpár|t2=bicikli}}
+{{t|id|a1=1|t1=sepeda}}
+{{t|en|a1=1|t1=bicycle}}
+{{t|ga|a1=1|t1=rothar}}
+{{t|it|a1=1|t1=bicicletta|g1=f}}
+{{t|ja|a1=1|t1=自転車|t2=チャリンコ|tl2={{l|ja|charinko}}
+{{l|ja|chari}}}}
+{{t|lo|a1=1|t1=ລົດຖີບ}}
+{{t|ms|a1=1|t1=basikal}}
+{{t|mg|a1=1|t1=bisikilety}}
+{{t|yua|a1=1|t1=tʼíinchakʼ balakʼ ook}}
+{{t|nl|a1=1|t1=fiets|g1=f|t2=rijwiel|g2=n}}
+{{t|pl|a1=1|t1=rower|g1=m}}
+{{t|pt|a1=1|t1=bicicleta|g1=f}}
+{{t|sv|a1=1|t1=cykel|t2=bicykel}}
+{{t|tl|a1=1|t1=bisikleta}}
+{{t|tr|a1=1|t1=bisiklet}}
+{{t|vo|a1=1|t1=saikul}}
+{{trad-abajo}}
+
+== {{lengua|ca}} ==
+{{pron-graf|leng=ca}}
+
+=== Etimología 1 ===
+{{etimología|leng=ca}}.
+
+==== {{sustantivo femenino|ca}} ====
+{{inflect.ca.sust.reg|biciclet|a}}
+;1 {{csem|vehículos|leng=ca}}: {{plm}}.
+
+==== Véase también ====
+{{w|idioma=ca}}
+
+== {{lengua|gl}} ==
+{{pron-graf|leng=gl}}
+
+=== Etimología 1 ===
+{{etimología|leng=gl}}.
+
+==== {{sustantivo femenino|gl}} ====
+{{inflect.gl.sust.reg}}
+;1 {{csem|vehículos|leng=gl}}: {{plm}}.
+
+==== Véase también ====
+{{w|idioma=gl}}
+
+== {{lengua|pt}} ==
+{{pron-graf|leng=pt}}
+
+=== Etimología 1 ===
+{{etimología|leng=pt}}.
+
+==== {{sustantivo femenino|pt}} ====
+{{inflect.pt.sust.reg}}
+;1 {{csem|vehículos|leng=pt}}: {{plm}}.
+
+==== Véase también ====
+{{w|idioma=pt}}
+
+== Referencias y notas ==
+<references />
