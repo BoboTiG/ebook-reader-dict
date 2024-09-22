@@ -211,10 +211,10 @@ def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: 
 
 FORMATTED_WORD_KOBO = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><p>etyl 1</p><ol><li>setyl 1</li></ol><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
-"""  # noqa
+"""
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
-"""  # noqa
+"""
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
@@ -222,7 +222,7 @@ FORMATTED_WORD_DICTFILE = """\
 <html><p>etyl 1</p><ol><li>setyl 1</li></ol><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
-"""  # noqa
+"""
 FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
@@ -230,7 +230,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
-"""  # noqa
+"""
 
 
 @pytest.mark.parametrize(

@@ -280,7 +280,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     """
     from ...user_functions import italic, parenthesis, strong
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .codelangs import codelangs
     from .langs import langs
 
@@ -315,4 +315,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if lang := langs.get(tpl, ""):
         return lang
 
-    return default(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word)

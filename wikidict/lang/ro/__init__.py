@@ -236,4 +236,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return parts[-1]
 
     # Given the tiny number of used templates, it's easier to raise an error instead of relying on the default handler
-    assert 0, template
+    raise ValueError(f"Unhandled {template=} {word=}")

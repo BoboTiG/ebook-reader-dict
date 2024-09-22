@@ -1,5 +1,8 @@
+import logging
 import re
 import unicodedata
+
+log = logging.getLogger(__name__)
 
 data = {}
 
@@ -80,9 +83,6 @@ def make_tokens(text: str) -> list[str]:
     prev = None
     for character in decompose(text):  # TODO filter non UTF8 ?
         curr_info = info.get(character, {})
-        # print(character)
-        # print(curr_info)
-        # print(prev_info)
         if curr_info.get("vowel"):
             vowel_count += 1
             if prev and (
@@ -104,7 +104,6 @@ def make_tokens(text: str) -> list[str]:
                 if character == diaeresis:
                     previous_vowel = ""
                     vowel_with_diaeresis = ""
-                    # print("jere = " + tokens[token_i])
                     if matches := re.match("^(" + basic_Greek + ")(" + basic_Greek + ".+)", tokens[token_i]):
                         previous_vowel, vowel_with_diaeresis = matches.groups()
                     if previous_vowel:
@@ -113,9 +112,9 @@ def make_tokens(text: str) -> list[str]:
                         token_i += 1
             elif prev_info == rho_t:
                 if curr_info != breathing_t:
-                    print(f"The character {prev} in {text} should not have the accent {character} on it.")
+                    log.error("The character %s in %s should not have the accent {character} on it.", prev, text)
             else:
-                print(f"The character {prev} cannot have a diacritic on it.")
+                log.error("The character %s cannot have a diacritic on it.", prev)
         else:
             vowel_count = 0
             if prev:
@@ -123,7 +122,6 @@ def make_tokens(text: str) -> list[str]:
             set_list(tokens, token_i, (tokens[token_i] if token_i < len(tokens) else "") + character)
         prev = character
         prev_info = curr_info
-    # print(tokens)
     return tokens
 
 
@@ -267,7 +265,6 @@ def transliterate(text: str) -> str:
     output = []
     for i in range(len(tokens)):
         token = tokens[i]
-        # print("token = " + token)
         translit = gsub(UTF8_char, tt, token.lower())
         for char, repl in tt.items():
             translit = translit.replace(char, repl)

@@ -164,6 +164,9 @@ templates_multi = {
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
     # {{Latn-def-lite|en|name|O|o}}
     "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
+    # {{monospace|#!}}
+    "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
+    "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{n-g-lite|Definite grammatical ...}}
@@ -174,6 +177,8 @@ templates_multi = {
     "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{nobr|1=[ ...=C=C=C=... ]}}
+    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
@@ -182,6 +187,8 @@ templates_multi = {
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{non gloss definition|Definite grammatical ...}}
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
+    # {{nowrap|1=[ ...=C=C=C=... ]}}
+    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{q-lite|Used only ...}}
@@ -322,27 +329,19 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["cens sp", "en", "bitch"], "en")
         '<i>Censored spelling of</i> <b>bitch</b>.'
 
+        >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
+        '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>.'
+
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
 
     """
 
-    from ...user_functions import (
-        capitalize,
-        chinese,
-        extract_keywords_from,
-        italic,
-        strong,
-    )
+    from ...user_functions import capitalize, chinese, extract_keywords_from, italic, strong
     from .. import defaults
     from .form_of import form_of_templates
     from .langs import langs
-    from .template_handlers import (
-        gloss_tr_poss,
-        join_names,
-        lookup_template,
-        render_template,
-    )
+    from .template_handlers import gloss_tr_poss, join_names, lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(word, template)
@@ -382,7 +381,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
                 "pronunciation spelling of",
                 "pronunciation variant of",
             ):
-                ender = italic(f", representing {fromtext} {langs[lang]}")
+                ender = italic(f", representing {templates_italic.get(data['from'], fromtext)} {langs[lang]}")
             if not ender:
                 starter = f"{fromtext} {from_suffix}"
                 starter = capitalize(starter) if cap else starter

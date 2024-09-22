@@ -210,7 +210,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     """
     from ...user_functions import extract_keywords_from, italic, strong, term
-    from ..defaults import last_template_handler as default
+    from .. import defaults
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -237,4 +237,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             words.append(data["text"])
         return term(", ".join(words))
 
-    return default(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word)

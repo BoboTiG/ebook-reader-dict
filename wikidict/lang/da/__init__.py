@@ -207,8 +207,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["u", "en", "-ing", ""], "da")
         '<i>-ing</i>'
     """
-    from ...lang import defaults
     from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
+    from .. import defaults
     from .langs import langs
 
     tpl, *parts = template

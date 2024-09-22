@@ -1,6 +1,7 @@
 """Render templates from raw data."""
 
 import json
+import logging
 import multiprocessing
 import os
 import re
@@ -49,6 +50,8 @@ Sections = dict[str, list[wtp.Section]]
 MANAGER = ""
 LOCK = multiprocessing.Lock()
 MISSING_TPL_SEEN: list[str] = []
+
+log = logging.getLogger(__name__)
 
 
 def find_definitions(word: str, parsed_sections: Sections, locale: str) -> list[Definitions]:
@@ -469,7 +472,7 @@ def load(file: Path) -> dict[str, str]:
     """Load the JSON file containing all words and their details."""
     with file.open(encoding="utf-8") as fh:
         words: dict[str, str] = json.load(fh)
-    print(f">>> Loaded {len(words):,} words from {file}", flush=True)
+    log.info(">>> Loaded %d words from %s", len(words), file)
     return words
 
 
@@ -478,7 +481,7 @@ def render_word(w: list[str], words: Words, locale: str) -> None:
     try:
         details = parse_word(word, code, locale)
     except Exception:  # pragma: nocover
-        print(f"ERROR with {word!r}", flush=True)
+        log.exception("ERROR with %r", word)
     else:
         if details.definitions or details.variants:
             words[word] = details
@@ -504,7 +507,7 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-    print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
+    log.info(">>> Saved %d words into %s", len(words), raw_data)
 
 
 def get_latest_json_file(output_dir: Path) -> Path | None:
@@ -519,10 +522,10 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --parse first ... ", flush=True)
+        log.error(">>> No dump found. Run with --parse first ... ")
         return 1
 
-    print(f">>> Loading {file} ...", flush=True)
+    log.info(">>> Loading %s ...", file)
     in_words: dict[str, str] = load(file)
 
     workers = workers or multiprocessing.cpu_count()
@@ -533,5 +536,5 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
-    print(">>> Render done!", flush=True)
+    log.info(">>> Render done!")
     return 0

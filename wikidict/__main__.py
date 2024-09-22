@@ -42,6 +42,8 @@ Options:
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
 """
 
+import logging
+import os
 import sys
 
 from docopt import docopt
@@ -49,6 +51,7 @@ from docopt import docopt
 
 def main() -> int:  # pragma: nocover
     """Main entry point."""
+    logging.basicConfig(level=logging.DEBUG if "DEBUG" in os.environ else logging.INFO)
 
     args = docopt(__doc__)
 

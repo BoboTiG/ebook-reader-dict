@@ -1,6 +1,7 @@
 """Retrieve Wiktionary data."""
 
 import bz2
+import logging
 import os
 import re
 from collections.abc import Callable
@@ -11,20 +12,13 @@ from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
 
+log = logging.getLogger(__name__)
+
 
 def callback_progress(text: str, done: int, last: bool) -> None:
     """Progression callback. Used when fetching the Wiktionary dump and when extracting it."""
-    msg = f"{text}OK [{done:,} bytes]\n" if last else f"{text}{done:,} bytes"
-    print(f"\r{msg}", end="", flush=True)
-
-
-def callback_progress_ci(text: str, done: int, last: bool) -> None:
-    """
-    Progression callback. Used when fetching the Wiktionary dump and when extracting it.
-    This version is targeting the CI, it prints less lines and it is easier to follow.
-    """
-    msg = f". OK [{done:,} bytes]\n" if last else "."
-    print(msg, end="", flush=True)
+    size = f"OK [{done:,} bytes]" if last else f"{done:,} bytes"
+    log.debug("%s: %s", text, size)
 
 
 def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
@@ -33,8 +27,8 @@ def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     if output.is_file():
         return output
 
-    msg = f">>> Uncompressing into {output.name}: "
-    print(msg, end="", flush=True)
+    msg = f">>> Uncompressing into {output.name}"
+    log.info(msg)
 
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
@@ -70,8 +64,8 @@ def fetch_pages(date: str, locale: str, output_dir: Path, callback: Callable[[st
         return output
 
     url = DUMP_URL.format(locale, date)
-    msg = f">>> Fetching {url}: "
-    print(msg, end="", flush=True)
+    msg = f">>> Fetching {url}"
+    log.info(msg)
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
@@ -95,23 +89,17 @@ def main(locale: str) -> int:
     snapshots = fetch_snapshots(locale)
     snapshot = snapshots[-1]
 
-    # The output style is different if run from a workflow
-    # Note: "CI" is automatically set in every GitHub workflow
-    # https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables
-    cb = callback_progress_ci if "CI" in os.environ else callback_progress
-
     # Fetch and uncompress the snapshot file
     try:
-        file = fetch_pages(snapshot, locale, output_dir, cb)
+        file = fetch_pages(snapshot, locale, output_dir, callback_progress)
     except HTTPError:
         (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
-        print("FAIL", flush=True)
-        print(">>> Wiktionary dump is ongoing ... ", flush=True)
-        print(">>> Will use the previous one.", flush=True)
+        log.exception(">>> Wiktionary dump is ongoing ... ")
+        log.info(">>> Will use the previous one.")
         snapshot = snapshots[-2]
-        file = fetch_pages(snapshot, locale, output_dir, cb)
+        file = fetch_pages(snapshot, locale, output_dir, callback_progress)
 
-    decompress(file, cb)
+    decompress(file, callback_progress)
 
-    print(">>> Retrieval done!", flush=True)
+    log.info(">>> Retrieval done!")
     return 0

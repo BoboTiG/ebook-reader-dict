@@ -26,6 +26,85 @@ from .places import (
 from .si_unit import prefix_to_exp, prefix_to_symbol, unit_to_symbol, unit_to_type
 
 
+def gender_number_specs(parts: str) -> str:
+    """
+    Source: https://en.wiktionary.org/wiki/Module:gender_and_number
+
+    >>> gender_number_specs("m")
+    '<i>m</i>'
+    >>> gender_number_specs("m-p")
+    '<i>m pl</i>'
+    >>> gender_number_specs("m-an-p")
+    '<i>m anim pl</i>'
+    >>> gender_number_specs("?-p")
+    '<i>? pl</i>'
+    >>> gender_number_specs("?!-an-s")
+    '<i>gender unattested anim sg</i>'
+    >>> gender_number_specs("mfbysense-p")
+    '<i>m pl or f pl by sense</i>'
+    >>> gender_number_specs("mfequiv-s")
+    '<i>m sg or f sg same meaning</i>'
+    >>> gender_number_specs("mfequiv")
+    '<i>m or f same meaning</i>'
+    >>> gender_number_specs("biasp-s")
+    '<i>impf sg or pf sg</i>'
+    """
+    specs = {
+        # Genders
+        "m": "m",
+        "n": "n",
+        "f": "f",
+        "gneut": "gender-neutral",
+        "g!": "gender unattested",
+        "c": "c",
+        # Numbers
+        "s": "sg",
+        "d": "du",
+        "num!": "number unattested",
+        "p": "pl",
+        # Animacy
+        "an": "anim",
+        "in": "inan",
+        "an!": "animacy unattested",
+        "pr": "pers",
+        "anml": "animal",
+        "np": "npers",
+        # Virility
+        "vr": "vir",
+        "nv": "nvir",
+        # Aspect
+        "pf": "pf",
+        "impf": "impf",
+        "asp!": "aspect unattested",
+        # Other
+        "?": "?",
+        "?!": "gender unattested",
+    }
+    specs_combined = {
+        "biasp": [specs["impf"], specs["pf"]],
+        "mf": [specs["m"], specs["f"]],
+        "mfbysense": [specs["m"], specs["f"]],
+        "mfequiv": [specs["m"], specs["f"]],
+    }
+    result = []
+
+    for part in parts.split("-"):
+        if part in specs_combined:
+            combinations = specs_combined[parts.split("-")[0]]
+            spec = specs[parts.split("-")[1]] if "-" in parts else ""
+            res = " or ".join(f"{a} {b}".strip() for a, b in zip(combinations, [spec] * len(combinations), strict=True))
+            if "sense" in part:
+                res += " by sense"
+            elif "equiv" in part:
+                res += " same meaning"
+            result.append(res)
+            return italic(" or ".join(result))
+        else:
+            result.append(specs[part])
+
+    return italic(" ".join(result))
+
+
 def join_names(
     data: defaultdict[str, str],
     key: str,
@@ -117,6 +196,24 @@ def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     nodot = data["nodot"] in ("1", "yes") or tpl in {"CE", "BCE"}
     text = "C.E." if tpl in {"C.E.", "CE", "A.D.", "AD"} else "B.C.E."
     return small(text.replace(".", "")) if nodot else small(text)
+
+
+def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_cap("cap", ["beef"], defaultdict(str))
+    'Beef'
+    >>> render_cap("cap", ["common cold"], defaultdict(str))
+    'Common cold'
+    >>> render_cap("cap", ["bracket", "s"], defaultdict(str))
+    'Brackets'
+
+    # We need to be able to transcript here
+    # >>> render_cap("cap", ["σκύλαξ"], defaultdict(str, {"lang": "grc"}))
+    # 'Σκύλαξ (Skúlax)'
+    # >>> render_cap("cap", ["кот", "а́"], defaultdict(str, {"lang": "ru"}))
+    # 'Кота́ (Kotá)'
+    """
+    return f"{capitalize(''.join(parts))}"
 
 
 def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
@@ -219,23 +316,23 @@ def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], word:
 def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_etydate("etydate", ["1880"], defaultdict(str))
-    'First attested in 1880.'
-    >>> render_etydate("etydate", ["1880"], defaultdict(str, {"nodot": "1", "nocap": "1"}))
+    'First attested in 1880'
+    >>> render_etydate("etydate", ["1880"], defaultdict(str, {"nocap": "1"}))
     'first attested in 1880'
     >>> render_etydate("etydate", ["first half of the 19th century"], defaultdict(str))
-    'First attested in the first half of the 19th century.'
+    'First attested in the first half of the 19th century'
     >>> render_etydate("etydate", ["c", "1900"], defaultdict(str))
-    'First attested in <i>c.</i> 1900.'
+    'First attested in <i>c.</i> 1900'
     >>> render_etydate("etydate", ["c", "1900", "2000"], defaultdict(str))
-    'First attested in <i>c.</i> 1900, but in common usage only as of 2000.'
+    'First attested in <i>c.</i> 1900, but in common usage only as of 2000'
     >>> render_etydate("etydate", ["c", "1900", "first half of the 21st century"], defaultdict(str))
-    'First attested in <i>c.</i> 1900, but in common usage only as of the first half of the 21st century.'
+    'First attested in <i>c.</i> 1900, but in common usage only as of the first half of the 21st century'
     >>> render_etydate("etydate", ["r", "1900", "1910"], defaultdict(str))
-    'First attested in 1900–1910.'
+    'First attested in 1900–1910'
     >>> render_etydate("etydate", ["r", "1900", "1910", "1980"], defaultdict(str))
-    'First attested in 1900–1910, but in common usage only as of 1980.'
+    'First attested in 1900–1910, but in common usage only as of 1980'
     >>> render_etydate("etydate", ["r", "1900", "1910", "first half of the 19st century"], defaultdict(str))
-    'First attested in 1900–1910, but in common usage only as of the first half of the 19st century.'
+    'First attested in 1900–1910, but in common usage only as of the first half of the 19st century'
     """
 
     def render_etydate_l2(parts: list[str]) -> str:
@@ -250,7 +347,6 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word
                 phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
         return phrase
 
-    nodot = data["nodot"] in ("1", "yes")
     nocap = data["nocap"] in ("1", "yes")
     phrase = ("f" if nocap else "F") + "irst attested in "
     if parts[0] == "c":
@@ -270,7 +366,6 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word
                 phrase += render_etydate_l2(parts[3:])
         else:
             phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
-    phrase += "" if nodot else "."
     return phrase
 
 
@@ -468,7 +563,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     elif word:
         phrase += f" {italic(word)}"
     if data["g"]:
-        phrase += f' {italic(data["g"])}'
+        phrase += f' {gender_number_specs(data["g"])}'
     trans = "" if data["tr"] else transliterate(dst_locale, word)
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
@@ -896,7 +991,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
         chunk = chunk.split("#")[0] if chunk else ""
         chunk = data[f"alt{si}"] or chunk
         p_dic["chunk"] = chunk
-        p_dic["g"] = data[f"g{si}"]
+        p_dic["g"] = gender_number_specs(gender) if (gender := data[f"g{si}"]) else ""
         p_dic["tr"] = data[f"tr{si}"]
         p_dic["t"] = data[f"t{si}"] or data[f"gloss{si}"]
         p_dic["pos"] = data[f"pos{si}"]
@@ -916,7 +1011,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
         if chunk:
             chunk = italic(chunk)
         if c["g"]:
-            chunk += " " + italic(c["g"])
+            chunk += " " + c["g"]
         local_phrase = []
         if c["tr"]:
             result = c["tr"]
@@ -1343,6 +1438,7 @@ template_mapping = {
     "bor+": render_foreign_derivation,
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
+    "cap": render_cap,
     "calque": render_foreign_derivation,
     "century": render_century,
     "C.E.": render_bce,

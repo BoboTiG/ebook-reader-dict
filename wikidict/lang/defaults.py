@@ -1,7 +1,10 @@
 """Defaults values for locales without specific needs."""
 
+import logging
 import re
 from collections import defaultdict
+
+log = logging.getLogger(__name__)
 
 # Float number separator
 float_separator = ""
@@ -82,15 +85,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     # {{tpl|item|...}} -> ''
     if len(template) > 1:
-        from ..render import LOCK, MISSING_TPL_SEEN
+        from ..render import MISSING_TPL_SEEN
 
-        with LOCK:
-            if tpl not in MISSING_TPL_SEEN:
-                MISSING_TPL_SEEN.append(tpl)
-                print(
-                    f" !! Missing {tpl!r} template support for word {word!r}",
-                    flush=True,
-                )
+        if tpl not in MISSING_TPL_SEEN:
+            MISSING_TPL_SEEN.append(tpl)
+            log.warning(" !! Missing %r template support for word %r", tpl, word)
         return ""
 
     # {{template}}

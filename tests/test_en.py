@@ -31,7 +31,7 @@ from wikidict.utils import process_templates
             ["/kʊm/", "/kʌm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
-                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.</i>",  # noqa
+                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.</i>",
                 "<i>(colloquial, often vulgar)</i> Semen.",
                 "<i>(colloquial, often vulgar)</i> Female ejaculatory discharge.",
                 "<i>(colloquial, often vulgar)</i> An ejaculation.",
@@ -47,12 +47,12 @@ from wikidict.utils import process_templates
             "efficient",
             ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
             [
-                "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <i>effect</i>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."  # noqa
+                "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <i>effect</i>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."
             ],
             [
-                "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",  # noqa
-                "expressing the proportion of consumed energy that was successfully used in a process; the ratio of useful output to total input",  # noqa
-                "causing effects, producing results; bringing into being; initiating change (rare except in philosophical and legal expression <i>efficient cause</i> = causative factor or agent)",  # noqa
+                "making good, thorough, or careful use of resources; not consuming extra. Especially, making good use of time or energy",
+                "expressing the proportion of consumed energy that was successfully used in a process; the ratio of useful output to total input",
+                "causing effects, producing results; bringing into being; initiating change (rare except in philosophical and legal expression <i>efficient cause</i> = causative factor or agent)",
                 "<i>(proscribed, old use)</i> effective, efficacious",
                 "<i>(obsolete)</i> a cause; something that causes an effect",
             ],
@@ -67,7 +67,7 @@ from wikidict.utils import process_templates
                 "<i>Contraction of</i> <b>it is</b>.",
                 "<i>Contraction of</i> <b>it has</b>.",
                 "<i>Contraction of</i> <b>it was</b>.",
-                "<i>(dialectal)</i> There's, there is; there're, there are.",  # noqa
+                "<i>(dialectal)</i> There's, there is; there're, there are.",
                 "<i>Obsolete form of</i> <b>its</b>.",
                 "<i>Misspelling of</i> <b>its</b>.",
             ],
@@ -77,7 +77,7 @@ from wikidict.utils import process_templates
             "Mars",
             ["/maɹs/", "/mɑ˞s/", "/ˈmɑɹz/", "/ˈmɑːz/"],
             [
-                "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>."  # noqa
+                "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>."
             ],
             [
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
@@ -85,7 +85,7 @@ from wikidict.utils import process_templates
                 "<i>(poetic)</i> War; a personification of war.",
                 "The Mars bar, a brand of chocolate bar with caramel and nougat filling.",
                 "A village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine",
-                "<i>(heraldry, rare)</i> Cap (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",  # noqa
+                "<i>(heraldry, rare)</i> Gules (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",
                 "<i>(obsolete, alchemy, chemistry)</i> Iron.",
                 "<i>Alternative form of</i> <b>Mas</b>",
             ],
@@ -97,7 +97,7 @@ from wikidict.utils import process_templates
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
             [
                 "<i>Etymid</i> <b>luggage</b>",
-                "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",  # noqa
+                "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",
             ],
             [
                 "A large travelling case usually made of leather, and opening into two equal sections.",
@@ -105,7 +105,7 @@ from wikidict.utils import process_templates
                 "<i>(archaic)</i> A hook on which to hang clothing.",
                 "<i>(linguistics)</i> A portmanteau word.",
                 "A portmanteau film.",
-                "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",  # noqa
+                "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",
                 "<i>(transitive)</i> To create a portmanteau word.",
             ],
             [],
@@ -151,9 +151,9 @@ from wikidict.utils import process_templates
             "the",
             ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
             [
-                "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
-                "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
-                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",  # noqa
+                "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",
+                "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>pl</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",
+                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",
             ],
             [
                 "<i>Used before a noun phrase, including a simple noun</i>",
@@ -281,7 +281,7 @@ from wikidict.utils import process_templates
             "word",
             ["/wɜːd/", "/wɝd/"],
             [
-                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."  # noqa
+                "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."
             ],
             [
                 "<i>(semantics)</i> The smallest unit of language that has a particular meaning and can be expressed by itself; the smallest discrete, meaningful unit of language. (<i>contrast <i>morpheme</i>.</i>)",
@@ -346,27 +346,12 @@ def test_parse_word(
         ("{{1|influenza}}", "Influenza"),
         ("{{abbr of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>."),
         ("{{abbreviation of|en|abortion}}", "<i>Abbreviation of</i> <b>abortion</b>."),
-        (
-            "{{alt case|en|angstrom}}",
-            "<i>Alternative letter-case form of</i> <b>angstrom</b>",
-        ),
+        ("{{alt case|en|angstrom}}", "<i>Alternative letter-case form of</i> <b>angstrom</b>"),
         ("{{alt form|enm|theen}}", "<i>Alternative form of</i> <b>theen</b>"),
-        (
-            "{{alt form|enm|a|pos=indefinite article}}",
-            "<i>Alternative form of</i> <b>a</b> (indefinite article)",
-        ),
-        (
-            "{{alt form|enm|worth|t=to become}}",
-            "<i>Alternative form of</i> <b>worth</b> (“to become”)",
-        ),
-        (
-            "{{alternative form of|enm|theen}}",
-            "<i>Alternative form of</i> <b>theen</b>",
-        ),
-        (
-            "{{alternative spelling of|en|µs}}",
-            "<i>Alternative spelling of</i> <b>µs</b>",
-        ),
+        ("{{alt form|enm|a|pos=indefinite article}}", "<i>Alternative form of</i> <b>a</b> (indefinite article)"),
+        ("{{alt form|enm|worth|t=to become}}", "<i>Alternative form of</i> <b>worth</b> (“to become”)"),
+        ("{{alternative form of|enm|theen}}", "<i>Alternative form of</i> <b>theen</b>"),
+        ("{{alternative spelling of|en|µs}}", "<i>Alternative spelling of</i> <b>µs</b>"),
         ("{{C.|20}}", "20th c."),
         ("{{C.|21|st}}", "21st c."),
         ("{{circa2|1850s}}", "<i>circa</i> 1850s"),
@@ -374,63 +359,31 @@ def test_parse_word(
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>."),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>."),
-        (
-            "{{form of|en|obsolete emphatic|ye}}",
-            "<i>obsolete emphatic of</i> <b>ye</b>",
-        ),
+        ("{{form of|en|obsolete emphatic|ye}}", "<i>obsolete emphatic of</i> <b>ye</b>"),
         ("{{gloss|liquid H<sub>2</sub>O}}", "(liquid H<sub>2</sub>O)"),
         ("{{glossary|inflected}}", "inflected"),
         ("{{glossary|inflected|Inflected}}", "Inflected"),
-        (
-            "{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}",
-            "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>",
-        ),
+        ("{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}", "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>"),
         ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
-        (
-            "{{Latn-def|en|name|O|o}}",
-            "<i>The name of the Latin-script letter</i> <b>O</b>.",
-        ),
-        (
-            "{{n-g|Definite grammatical}}",
-            "<i>Definite grammatical</i>",
-        ),
-        (
-            "{{ngd|Definite grammatical}}",
-            "<i>Definite grammatical</i>",
-        ),
-        (
-            "{{non-gloss definition|Definite grammatical}}",
-            "<i>Definite grammatical</i>",
-        ),
-        (
-            "{{non-gloss definition|1=Definite grammatical}}",
-            "<i>Definite grammatical</i>",
-        ),
-        (
-            "{{q|formal|used only in the plural}}",
-            "(<i>formal</i>, <i>used only in the plural</i>)",
-        ),
-        (
-            "{{qual|Used only in the plural in the UK}}",
-            "(<i>Used only in the plural in the UK</i>)",
-        ),
-        (
-            "{{qualifier|Used only in the plural in the UK}}",
-            "(<i>Used only in the plural in the UK</i>)",
-        ),
+        ("{{Latn-def|en|name|O|o}}", "<i>The name of the Latin-script letter</i> <b>O</b>."),
+        ("{{mono|#!}}", '<span style="font-family:monospace">#!</span>'),
+        ("{{monospace|#!}}", '<span style="font-family:monospace">#!</span>'),
+        ("{{n-g|Definite grammatical}}", "<i>Definite grammatical</i>"),
+        ("{{ngd|Definite grammatical}}", "<i>Definite grammatical</i>"),
+        ("{{nobr|1=[ ...=C=C=C=... ]}}", '<span style="white-space:nowrap">[...=C=C=C=...</span>'),
+        ("{{non-gloss definition|Definite grammatical}}", "<i>Definite grammatical</i>"),
+        ("{{non-gloss definition|1=Definite grammatical}}", "<i>Definite grammatical</i>"),
+        ("{{nowrap|1=[ ...=C=C=C=... ]}}", '<span style="white-space:nowrap">[...=C=C=C=...</span>'),
+        ("{{q|formal|used only in the plural}}", "(<i>formal</i>, <i>used only in the plural</i>)"),
+        ("{{qual|Used only in the plural in the UK}}", "(<i>Used only in the plural in the UK</i>)"),
+        ("{{qualifier|Used only in the plural in the UK}}", "(<i>Used only in the plural in the UK</i>)"),
         ("{{sense|man of beastly nature}}", "(<i>man of beastly nature</i>) :"),
         ("{{smc|ah}}", "<span style='font-variant:small-caps'>ah</span>"),
         ("{{sub|KI}}", "<sub>KI</sub>"),
         ("{{sup|KI}}", "<sup>KI</sup>"),
         ("{{synonym of|en|drip tip}}", "<i>Synonym of</i> <b>drip tip</b>"),
-        (
-            "{{taxfmt|Gadus macrocephalus|species|ver=170710}}",
-            "<i>Gadus macrocephalus</i>",
-        ),
-        (
-            "{{taxlink|Gadus macrocephalus|species|ver=170710}}",
-            "<i>Gadus macrocephalus</i>",
-        ),
+        ("{{taxfmt|Gadus macrocephalus|species|ver=170710}}", "<i>Gadus macrocephalus</i>"),
+        ("{{taxlink|Gadus macrocephalus|species|ver=170710}}", "<i>Gadus macrocephalus</i>"),
         ("{{uder|en|fro|jargon}}", "Old French <i>jargon</i>"),
     ],
 )

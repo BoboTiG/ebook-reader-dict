@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import copy
+import logging
 import os
 import re
 import urllib.parse
 from functools import partial
-from threading import Lock
 from time import sleep
 
 import requests
@@ -27,16 +27,15 @@ no_spaces = partial(_replace_noisy_chars, "")
 MAX_RETRIES = 5  # count
 SLEEP_TIME = 5  # time, seconds
 
+log = logging.getLogger(__name__)
 
-def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[str]:
-    results: list[str] = []
+
+def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> str:
     clean_text = get_text(parsed_html)
 
     # It's all good!
     if contains(clean_text, wiktionary_text):
-        return results
-
-    results.append(category + wiktionary_text)
+        return ""
 
     # Try to highlight the bad text
     pattern = clean_text[:-1].rstrip()
@@ -46,21 +45,17 @@ def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[st
             continue
 
         idx = len(pattern)
-        results.append(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m")
-        break
-    else:
-        # No highlight possible, just output the whole sentence
-        results.append(clean_text)
+        return f"[{category}] {clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m"
 
-    return results
+    # No highlight possible, just output the whole sentence
+    return f"[{category}] {clean_text}"
 
 
 def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     """Run checks and return the error count to increment."""
     results = check_mute(wiktionary_text, parsed_html, category)
-    for r in results:
-        print(r, flush=True)
-    return len(results) // 2
+    log.error("Diff:\n%s", results)
+    return bool(results)
 
 
 def contains(pattern: str, text: str) -> bool:
@@ -321,7 +316,7 @@ def get_url_content(url: str) -> str:
                 if resp.status_code == 429:
                     wait_time = int(resp.headers.get("retry-after") or "1")
                 elif resp.status_code == 404:
-                    print(err)
+                    log.error(err)
                     return "404"
             sleep(wait_time * SLEEP_TIME)
             retry += 1
@@ -342,7 +337,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
+def check_word(word: str, locale: str) -> int:
     errors = 0
     results: list[str] = []
     details = get_word(word, locale)
@@ -354,38 +349,31 @@ def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore[arg-type]
-                    results.extend(r)
-            else:
-                r = check_mute(text, etymology, "\n !! Etymology")
-                results.extend(r)
+                    if r := check_mute(text, sub_etymology, f"Etymology {i}"):  # type: ignore[arg-type]
+                        results.append(r)
+            elif r := check_mute(text, etymology, "Etymology"):
+                results.append(r)
 
-    index = 1
-    for definition in details.definitions:
-        message = f"\n !! Definition n°{index}"
+    for index, definition in enumerate(details.definitions, 1):
+        message = f"Definition n°{index:02d}"
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
                     for rn, subsubdef in enumerate(subdef, 1):
-                        r = check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}")
-                        results.extend(r)
-                else:
-                    r = check_mute(text, subdef, f"{message}.{a}")
-                    results.extend(r)
-        else:
-            r = check_mute(text, definition, message)
-            results.extend(r)
-            index += 1
-    # print with lock if any
+                        if r := check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"):
+                            results.append(r)
+                elif r := check_mute(text, subdef, f"{message}.{a}"):
+                    results.append(r)
+        elif r := check_mute(text, definition, message):
+            results.append(r)
+
     if results:
-        errors = len(results) // 2
-        if lock:
-            lock.acquire()
+        errors = len(results)
         for result in results:
-            print(result, flush=True)
-        print(f"\n >>> [{word}] - Errors:", errors, flush=True)
-        if lock:
-            lock.release()
+            log.error(result)
+        log.warning(">>> [%s] - Errors: %s", word, errors)
+    else:
+        log.debug(">>> [%s] - OK", word)
 
     return errors
 

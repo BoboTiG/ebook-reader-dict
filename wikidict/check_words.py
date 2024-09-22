@@ -1,17 +1,19 @@
 """Get and render N words; then compare with the rendering done on the Wiktionary to catch errors."""
 
+import logging
 import os
 import random
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
-from threading import Lock
 
 from . import check_word, render
 
+log = logging.getLogger(__name__)
 
-def local_check(word: str, locale: str, lock: Lock) -> int:
-    return check_word.check_word(word, locale, lock=lock)
+
+def local_check(word: str, locale: str) -> int:
+    return check_word.check_word(word, locale)
 
 
 def get_words_to_tackle(
@@ -29,10 +31,10 @@ def get_words_to_tackle(
     else:
         output_dir = Path(os.getenv("CWD", "")) / "data" / locale
         if not (file := render.get_latest_json_file(output_dir)):
-            print(">>> No dump found. Run with --parse first ... ", flush=True)
+            log.error(">>> No dump found. Run with --parse first ... ")
             return []
 
-        print(f">>> Loading {file} ...", flush=True)
+        log.info(">>> Loading %s ...", file)
         words = list(render.load(file).keys())
 
     if count == -1:
@@ -60,12 +62,10 @@ def main(locale: str, count: int, is_random: bool, offset: str, input_file: str)
 
     words = get_words_to_tackle(locale, count=count, is_random=is_random, offset=offset, input_file=input_file)
 
-    lock = Lock()
     with ThreadPoolExecutor(10) as pool:
-        err = pool.map(partial(local_check, locale=locale, lock=lock), words)
+        err = pool.map(partial(local_check, locale=locale), words)
 
-    errors = sum(err)
-    if errors:
-        print("\n >>> TOTAL Errors:", errors, flush=True)
+    if errors := sum(err):
+        log.warning(">>> TOTAL Errors: %d", errors)
 
     return errors
