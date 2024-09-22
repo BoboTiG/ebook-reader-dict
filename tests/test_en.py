@@ -96,7 +96,6 @@ from wikidict.utils import process_templates
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
             [
-                "<i>Etymid</i> <b>luggage</b>",
                 "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",
             ],
             [
@@ -115,7 +114,6 @@ from wikidict.utils import process_templates
             ["/ˈsʌmwʌn/"],
             [
                 "From Middle English <i>sum on</i>, <i>sum one</i>, <i>sum oon</i>, equivalent to <i>some</i>&nbsp;+&nbsp;<i>one</i>.",
-                "<i>Etymon</i> <b>inh</b>",
             ],
             [
                 "One or some person of unspecified or indefinite identity.",
@@ -203,7 +201,6 @@ from wikidict.utils import process_templates
             "us",
             ["/əs/", "/əz/", "/ʊs/", "/ʌs/", "/ʌz/"],
             [
-                "<i>Etymon</i> <b>inh</b>",
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). The compensatory lengthening was lost in Middle English due to the word being unstressed while being used. Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",
             ],
             [
@@ -234,7 +231,6 @@ from wikidict.utils import process_templates
                 "/ˈwʊtəɹ/",
             ],
             [
-                "<i>Etymon</i> <b>inh</b>",
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”). The development of the /ɔː/ vowel instead of expected */weɪtə(r)/ is irregular and has not been conclusively explained (compare father).",
                 "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",
             ],
