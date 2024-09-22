@@ -109,6 +109,7 @@ templates_ignored = (
     "root",
     "slim-wikipedia",
     "senseid",
+    "senseno",
     "seeCites",
     "swp",
     "tea room",

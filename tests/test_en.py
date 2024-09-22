@@ -135,7 +135,7 @@ from wikidict.utils import process_templates
                     "A person or thing regarded as an agent of divine punishment.",
                     "A source of persistent (and often widespread) pain and suffering or trouble, such as a cruel ruler, disease, pestilence, or war.",
                 ),
-                "To strike (a person, an animal, etc.) with a scourge <i>(noun <i>Senseno</i> <b>whip</b>)</i> or whip; to flog, to whip.",
+                "To strike (a person, an animal, etc.) with a scourge <i>(noun )</i> or whip; to flog, to whip.",
                 "To drive, or force (a person, an animal, etc.) to move, with or as if with a scourge or whip.",
                 (
                     "To punish (a person, an animal, etc.); to chastise.",
