@@ -351,12 +351,10 @@ def check_word(word: str, locale: str) -> int:
                 for i, sub_etymology in enumerate(etymology, 1):
                     if r := check_mute(text, sub_etymology, f"Etymology {i}"):  # type: ignore[arg-type]
                         results.append(r)
-            else:
-                if r := check_mute(text, etymology, "Etymology"):
-                    results.append(r)
+            elif r := check_mute(text, etymology, "Etymology"):
+                results.append(r)
 
-    index = 1
-    for definition in details.definitions:
+    for index, definition in enumerate(details.definitions, 1):
         message = f"Definition n°{index:02d}"
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
@@ -366,10 +364,8 @@ def check_word(word: str, locale: str) -> int:
                             results.append(r)
                 elif r := check_mute(text, subdef, f"{message}.{a}"):
                     results.append(r)
-        else:
-            if r := check_mute(text, definition, message):
-                results.append(r)
-            index += 1
+        elif r := check_mute(text, definition, message):
+            results.append(r)
 
     if results:
         errors = len(results)
