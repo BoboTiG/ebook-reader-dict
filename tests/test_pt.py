@@ -44,7 +44,7 @@ from wikidict.utils import process_templates
             [
                 "do Estado da Bahia, Brasil",
                 "natural ou habitante do Estado da Bahia, Brasil",
-                "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
+                "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",
             ],
         ),
         (
@@ -86,7 +86,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
-                'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',  # noqa
+                'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',
             ],
         ),
         (
@@ -94,7 +94,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
-                "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."  # noqa
+                "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."
             ],
             [
                 "que segue um princípio",
@@ -110,7 +110,7 @@ from wikidict.utils import process_templates
             ["Do grego antigo <i>νέος</i>."],
             [
                 "exprime a ideia de <i>novo</i>",
-                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
+                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",
             ],
         ),
         (

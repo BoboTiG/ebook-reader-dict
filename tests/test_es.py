@@ -44,7 +44,7 @@ from wikidict.utils import process_templates
             "comer",
             [],
             [
-                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
+                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'
             ],
             [
                 "Ingerir o tomar alimentos.",
@@ -64,7 +64,7 @@ from wikidict.utils import process_templates
             [],
             ["De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."],
             [
-                "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
+                "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",
                 "<i>(Gastronomía)</i>: Plato que se sirve al comienzo de la comida.",
                 "<i>(Lingüística)</i>:",
                 (
@@ -73,23 +73,23 @@ from wikidict.utils import process_templates
                 ),
                 "Espacio por donde se tiene acceso a un lugar, especialmente algún edificio o propiedad.",
                 "Acción o efecto de entrar a un lugar.",
-                "Evento o acto que se realiza para recibir a un nuevo miembro en alguna institución, organización, empresa, cargo, empleo o dignidad.",  # noqa
-                "Salón, sala o estancia que se encuentra junto a la puerta principal de un edificio, especialmente un hotel o una vivienda.",  # noqa
+                "Evento o acto que se realiza para recibir a un nuevo miembro en alguna institución, organización, empresa, cargo, empleo o dignidad.",
+                "Salón, sala o estancia que se encuentra junto a la puerta principal de un edificio, especialmente un hotel o una vivienda.",
                 "Oportunidad para hacer o lograr algo.",
-                "Conjunto de personas que pagan por entrar a un espectáculo o evento y, por extensión, cantidad de dinero recaudado en tal evento.",  # noqa
+                "Conjunto de personas que pagan por entrar a un espectáculo o evento y, por extensión, cantidad de dinero recaudado en tal evento.",
                 "Comienzo de una obra de literatura, de música, etc.",
                 "Amistad o acogida que recibe alguien en una familia.",
                 "En ciertos juegos de naipes, acción de indicar qué cartas se guardan y por qué.",
-                "Autorización para ingresar en ciertos recintos reservados, tales como oficinas, recámaras, etc., en especial de palacios o sitios de gobierno.",  # noqa
+                "Autorización para ingresar en ciertos recintos reservados, tales como oficinas, recámaras, etc., en especial de palacios o sitios de gobierno.",
                 "<i>(Anatomía)</i>: Zona sin cabello en la parte superior de la frente.",
                 "<i>(Comercio)</i>: Cantidad de dinero que ingresa en una caja o cuenta.",
-                "<i>(Comercio)</i>: Anotación o partida en el haber que indica dinero entrante (el aumento de un activo o la disminución de un pasivo).",  # noqa
+                "<i>(Comercio)</i>: Anotación o partida en el haber que indica dinero entrante (el aumento de un activo o la disminución de un pasivo).",
                 "<i>(Comercio)</i>: Cuota inicial; primer pago que se hace en la compra de algo a crédito o a plazos.",
-                "<i>(Milicia)</i>: Ingreso inicial de una tropa, un enemigo, etc., en el proceso de invadir un territorio.",  # noqa
+                "<i>(Milicia)</i>: Ingreso inicial de una tropa, un enemigo, etc., en el proceso de invadir un territorio.",
                 "Días iniciales de un periodo (un año, un mes, una temporada, una estación, etc.).",
                 "<i>(Deporte)</i>: Enfrentamiento o pase inicial entre contrarios.",
                 "<i>(Béisbol)</i>: Cada división de un partido, en que uno de los equipos tiene el turno para batear.",
-                "<i>(Arquitectura)</i>: Extremo o punta de un travesaño o madero que está metido en una pared o asentado sobre una solera.",  # noqa
+                "<i>(Arquitectura)</i>: Extremo o punta de un travesaño o madero que está metido en una pared o asentado sobre una solera.",
                 "<i>(Ingeniería)</i>: Turno o periodo en que trabaja un grupo de operarios.",
                 "<i>(Música)</i>: Momento en que una voz o instrumento comienza a intervenir en una pieza musical.",
                 "Castigo con golpes; tunda, zurra, pela.",
@@ -111,7 +111,7 @@ from wikidict.utils import process_templates
             "futuro",
             ["[fuˈtu.ɾo]"],
             [
-                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'  # noqa
+                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'
             ],
             [
                 "Que está aún por ocurrir o hacerse efectivo.",
@@ -138,7 +138,7 @@ from wikidict.utils import process_templates
                 'Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ("a") <i>ista</i> ("esta").',
             ],
             [
-                "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
+                "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",
                 "Seguida de <i>cuando</i> o de un gerundio, preposición que indica valor inclusivo.",
                 "Seguida de <i>que</i>, preposición que indica valor exclusivo.",
                 "Indica que pese a las circunstancias ocurre el hecho.",
@@ -153,7 +153,7 @@ from wikidict.utils import process_templates
             [],
             ["Del endo <i>hocicar</i>."],
             [
-                "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
+                "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
                 "Cara.",
                 "Gesto que denota enojo o enfado.",
@@ -193,7 +193,7 @@ from wikidict.utils import process_templates
             ["[tamˈbjen]"],
             ["Compuesto de <i>tan</i> y <i>bien</i>"],
             [
-                "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
+                "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",
                 "<i>Usado para añadir algo a lo anteriormente mencionado</i>.",
             ],
             [],
