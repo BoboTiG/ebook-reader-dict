@@ -178,9 +178,7 @@ templates_multi = {
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
     # {{nobr|1=[ ...=C=C=C=... ]}}
-    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
-    # {{nowrap|1=[ ...=C=C=C=... ]}}
-    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
+    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
@@ -189,6 +187,8 @@ templates_multi = {
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{non gloss definition|Definite grammatical ...}}
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
+    # {{nowrap|1=[ ...=C=C=C=... ]}}
+    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{q-lite|Used only ...}}
