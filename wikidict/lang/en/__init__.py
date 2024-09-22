@@ -329,6 +329,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["cens sp", "en", "bitch"], "en")
         '<i>Censored spelling of</i> <b>bitch</b>.'
 
+        >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
+        '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>.'
+
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
 
@@ -377,7 +380,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
                 "pronunciation spelling of",
                 "pronunciation variant of",
             ):
-                ender = italic(f", representing {fromtext} {langs[lang]}")
+                ender = italic(f", representing {templates_italic.get(data['from'], fromtext)} {langs[lang]}")
             if not ender:
                 starter = f"{fromtext} {from_suffix}"
                 starter = capitalize(starter) if cap else starter
