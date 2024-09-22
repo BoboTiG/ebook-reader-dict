@@ -85,7 +85,7 @@ from wikidict.utils import process_templates
                 "<i>(poetic)</i> War; a personification of war.",
                 "The Mars bar, a brand of chocolate bar with caramel and nougat filling.",
                 "A village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine",
-                "<i>(heraldry, rare)</i> Cap (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",
+                "<i>(heraldry, rare)</i> Gules (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",
                 "<i>(obsolete, alchemy, chemistry)</i> Iron.",
                 "<i>Alternative form of</i> <b>Mas</b>",
             ],

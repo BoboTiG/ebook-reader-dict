@@ -334,21 +334,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     """
 
-    from ...user_functions import (
-        capitalize,
-        chinese,
-        extract_keywords_from,
-        italic,
-        strong,
-    )
+    from ...user_functions import capitalize, chinese, extract_keywords_from, italic, strong
     from .form_of import form_of_templates
     from .langs import langs
-    from .template_handlers import (
-        gloss_tr_poss,
-        join_names,
-        lookup_template,
-        render_template,
-    )
+    from .template_handlers import gloss_tr_poss, join_names, lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(word, template)

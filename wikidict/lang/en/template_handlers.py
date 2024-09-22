@@ -198,6 +198,24 @@ def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     return small(text.replace(".", "")) if nodot else small(text)
 
 
+def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_cap("cap", ["beef"], defaultdict(str))
+    'Beef'
+    >>> render_cap("cap", ["common cold"], defaultdict(str))
+    'Common cold'
+    >>> render_cap("cap", ["bracket", "s"], defaultdict(str))
+    'Brackets'
+
+    # We need to be able to transcript here
+    # >>> render_cap("cap", ["σκύλαξ"], defaultdict(str, {"lang": "grc"}))
+    # 'Σκύλαξ (Skúlax)'
+    # >>> render_cap("cap", ["кот", "а́"], defaultdict(str, {"lang": "ru"}))
+    # 'Кота́ (Kotá)'
+    """
+    return f"{capitalize(''.join(parts))}"
+
+
 def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_century("century", ["17"], defaultdict(str))
@@ -1420,6 +1438,7 @@ template_mapping = {
     "bor+": render_foreign_derivation,
     "borrowed": render_foreign_derivation,
     "cal": render_foreign_derivation,
+    "cap": render_cap,
     "calque": render_foreign_derivation,
     "century": render_century,
     "C.E.": render_bce,
