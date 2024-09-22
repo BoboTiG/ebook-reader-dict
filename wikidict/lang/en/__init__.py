@@ -177,6 +177,10 @@ templates_multi = {
     "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{nobr|1=[ ...=C=C=C=... ]}}
+    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
+    # {{nowrap|1=[ ...=C=C=C=... ]}}
+    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
