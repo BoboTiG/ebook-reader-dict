@@ -5,6 +5,7 @@ import gc
 import gzip
 import hashlib
 import json
+import logging
 import os
 import shutil
 from collections import defaultdict
@@ -134,6 +135,8 @@ WORD_TPL_DICTFILE = Template(
 # Dictionnary file suffix for etymology-free files
 NO_ETYMOLOGY_SUFFIX = "-noetym"
 
+log = logging.getLogger(__name__)
+
 
 class BaseFormat:
     """Base class for all dictionaries."""
@@ -184,10 +187,10 @@ class BaseFormat:
         checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
         checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        print(f">>> Crafted {checksum_file.name} ({checksum})", flush=True)
+        log.info(">>> Crafted %s (%s)", checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
+        log.info(">>> Generated %s (%d bytes)", file.name, file.stat().st_size)
         self.compute_checksum(file)
 
 
@@ -543,10 +546,10 @@ def run_formatter(
 
 def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
-    print(f">>> Loading {file} ...", flush=True)
+    log.info(">>> Loading %s ...", file)
     with file.open(encoding="utf-8") as fh:
         words: Words = {key: Word(*values) for key, values in json.load(fh).items()}
-    print(f">>> Loaded {len(words):,} words from {file}", flush=True)
+    log.info(">>> Loaded %d words from %s", len(words), file)
     return words
 
 
@@ -594,11 +597,10 @@ def distribute_workload(
 
 def main(locale: str) -> int:
     """Entry point."""
-
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --render first ... ", flush=True)
+        log.error(">>> No dump found. Run with --render first ... ")
         return 1
 
     # Get all words from the database
