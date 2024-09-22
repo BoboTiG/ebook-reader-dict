@@ -164,6 +164,9 @@ templates_multi = {
     "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
     # {{Latn-def-lite|en|name|O|o}}
     "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
+    # {{monospace|#!}}
+    "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
+    "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{n-g-lite|Definite grammatical ...}}
@@ -174,6 +177,10 @@ templates_multi = {
     "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{nobr|1=[ ...=C=C=C=... ]}}
+    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
+    # {{nowrap|1=[ ...=C=C=C=... ]}}
+    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}]</span>\'',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
