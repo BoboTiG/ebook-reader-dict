@@ -152,7 +152,7 @@ from wikidict.utils import process_templates
             ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",  # noqa
-                "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>p</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
+                "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>pl</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",  # noqa
                 "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",  # noqa
             ],
             [

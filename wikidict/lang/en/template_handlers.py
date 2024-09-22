@@ -26,6 +26,85 @@ from .places import (
 from .si_unit import prefix_to_exp, prefix_to_symbol, unit_to_symbol, unit_to_type
 
 
+def gender_number_specs(parts: str) -> str:
+    """
+    Source: https://en.wiktionary.org/wiki/Module:gender_and_number
+
+    >>> gender_number_specs("m")
+    '<i>m</i>'
+    >>> gender_number_specs("m-p")
+    '<i>m pl</i>'
+    >>> gender_number_specs("m-an-p")
+    '<i>m anim pl</i>'
+    >>> gender_number_specs("?-p")
+    '<i>? pl</i>'
+    >>> gender_number_specs("?!-an-s")
+    '<i>gender unattested anim sg</i>'
+    >>> gender_number_specs("mfbysense-p")
+    '<i>m pl or f pl by sense</i>'
+    >>> gender_number_specs("mfequiv-s")
+    '<i>m sg or f sg same meaning</i>'
+    >>> gender_number_specs("mfequiv")
+    '<i>m or f same meaning</i>'
+    >>> gender_number_specs("biasp-s")
+    '<i>impf sg or pf sg</i>'
+    """
+    specs = {
+        # Genders
+        "m": "m",
+        "n": "n",
+        "f": "f",
+        "gneut": "gender-neutral",
+        "g!": "gender unattested",
+        "c": "c",
+        # Numbers
+        "s": "sg",
+        "d": "du",
+        "num!": "number unattested",
+        "p": "pl",
+        # Animacy
+        "an": "anim",
+        "in": "inan",
+        "an!": "animacy unattested",
+        "pr": "pers",
+        "anml": "animal",
+        "np": "npers",
+        # Virility
+        "vr": "vir",
+        "nv": "nvir",
+        # Aspect
+        "pf": "pf",
+        "impf": "impf",
+        "asp!": "aspect unattested",
+        # Other
+        "?": "?",
+        "?!": "gender unattested",
+    }
+    specs_combined = {
+        "biasp": [specs["impf"], specs["pf"]],
+        "mf": [specs["m"], specs["f"]],
+        "mfbysense": [specs["m"], specs["f"]],
+        "mfequiv": [specs["m"], specs["f"]],
+    }
+    result = []
+
+    for part in parts.split("-"):
+        if part in specs_combined:
+            combinations = specs_combined[parts.split("-")[0]]
+            spec = specs[parts.split("-")[1]] if "-" in parts else ""
+            res = " or ".join(f"{a} {b}".strip() for a, b in zip(combinations, [spec] * len(combinations), strict=True))
+            if "sense" in part:
+                res += " by sense"
+            elif "equiv" in part:
+                res += " same meaning"
+            result.append(res)
+            return italic(" or ".join(result))
+        else:
+            result.append(specs[part])
+
+    return italic(" ".join(result))
+
+
 def join_names(
     data: defaultdict[str, str],
     key: str,
@@ -468,7 +547,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     elif word:
         phrase += f" {italic(word)}"
     if data["g"]:
-        phrase += f' {italic(data["g"])}'
+        phrase += f' {gender_number_specs(data["g"])}'
     trans = "" if data["tr"] else transliterate(dst_locale, word)
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
@@ -896,7 +975,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
         chunk = chunk.split("#")[0] if chunk else ""
         chunk = data[f"alt{si}"] or chunk
         p_dic["chunk"] = chunk
-        p_dic["g"] = data[f"g{si}"]
+        p_dic["g"] = gender_number_specs(gender) if (gender := data[f"g{si}"]) else ""
         p_dic["tr"] = data[f"tr{si}"]
         p_dic["t"] = data[f"t{si}"] or data[f"gloss{si}"]
         p_dic["pos"] = data[f"pos{si}"]
@@ -916,7 +995,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
         if chunk:
             chunk = italic(chunk)
         if c["g"]:
-            chunk += " " + italic(c["g"])
+            chunk += " " + c["g"]
         local_phrase = []
         if c["tr"]:
             result = c["tr"]
