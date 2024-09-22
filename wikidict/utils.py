@@ -265,6 +265,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("[https://fr.wikipedia.org/wiki/Gerardus_Johannes_Mulder Gerardus Johannes Mulder]")
         'Gerardus Johannes Mulder'
+        >>> clean("[//www.nps.gov/ande/historyculture/myth-shebang.htm the US National Park Service]")
+        'the US National Park Service'
         >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
         'à la place en 1997'
         >>> clean("[[http://www.tv5monde.com/cms/chaine-francophone/lf/Merci-Professeur/p-17081-Une-peur-bleue.htm?episode=10 Voir aussi l’explication de Bernard Cerquiglini en images]]")
@@ -346,6 +348,8 @@ def clean(text: str, locale: str = "en") -> str:
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
     # External: [http://example.com Some text] -> 'Some text'
     text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
+    # External: [//example.com Some text] -> 'Some text'
+    text = sub(r"\[//[^\s]+\s([^\]]+)\]", r"\1", text)
     text = text.replace("[[", "").replace("]]", "")
 
     # Tables
