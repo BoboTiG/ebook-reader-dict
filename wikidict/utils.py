@@ -1,5 +1,6 @@
 """Utilities for internal use."""
 
+import logging
 import os
 import re
 from collections import namedtuple
@@ -62,6 +63,8 @@ SPECIAL_TEMPLATES = {
 OPEN_DOUBLE_CURLY = "##opendoublecurly##"
 CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 
+log = logging.getLogger(__name__)
+
 
 def process_special_pipe_template(text: str) -> str:
     splitter = SPECIAL_TEMPLATES["{{!}}"].placeholder
@@ -89,8 +92,7 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    if "CI" in os.environ:  # pragma: nocover
-        print(f"🎯 {word = }")
+    log.debug("🎯 word = %r", word)
     return word
 
 
@@ -397,7 +399,6 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("foo", "{{unknown}}", "fr")
         '{{unknown}}'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
-         !! Missing 'foo' template support for word 'foo'
         ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
@@ -407,12 +408,10 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
-        <math> ERROR with '\\frac' in [test]: KeyError('success')
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
-        <chem> ERROR with 'C10HX\\xz14N2O4' in [test]: KeyError('success')
         'C10HX\\xz14N2O4'
         >>> process_templates("test", r"<hiero>R11</hiero>", "fr")
         '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
@@ -511,8 +510,8 @@ def convert_math(match: str | re.Match[str], word: str) -> str:
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula)
-    except Exception as exc:
-        print(f"<math> ERROR with {formula!r} in [{word}]: {exc!r}", flush=True)
+    except Exception:
+        log.exception("<math> ERROR with %r in [%s]", formula, word)
         return formula
 
 
@@ -521,8 +520,8 @@ def convert_chem(match: str | re.Match[str], word: str) -> str:
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula, cat="chem")
-    except Exception as exc:
-        print(f"<chem> ERROR with {formula!r} in [{word}]: {exc!r}", flush=True)
+    except Exception:
+        log.exception("<chem> ERROR with %r in [%s]", formula, word)
         return formula
 
 
@@ -558,7 +557,6 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
-         !! Missing 'conj' template support for word 'foo'
         ''
 
         >>> # Magic words

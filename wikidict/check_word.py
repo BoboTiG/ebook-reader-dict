@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import copy
+import logging
 import os
 import re
 import urllib.parse
 from functools import partial
-from threading import Lock
 from time import sleep
 
 import requests
@@ -26,6 +26,8 @@ no_spaces = partial(_replace_noisy_chars, "")
 # Retry mechanism
 MAX_RETRIES = 5  # count
 SLEEP_TIME = 5  # time, seconds
+
+log = logging.getLogger(__name__)
 
 
 def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[str]:
@@ -58,8 +60,7 @@ def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> list[st
 def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     """Run checks and return the error count to increment."""
     results = check_mute(wiktionary_text, parsed_html, category)
-    for r in results:
-        print(r, flush=True)
+    log.error("Diff:\n%s", "\n".join(results))
     return len(results) // 2
 
 
@@ -321,7 +322,7 @@ def get_url_content(url: str) -> str:
                 if resp.status_code == 429:
                     wait_time = int(resp.headers.get("retry-after") or "1")
                 elif resp.status_code == 404:
-                    print(err)
+                    log.error(err)
                     return "404"
             sleep(wait_time * SLEEP_TIME)
             retry += 1
@@ -342,7 +343,7 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
+def check_word(word: str, locale: str) -> int:
     errors = 0
     results: list[str] = []
     details = get_word(word, locale)
@@ -376,16 +377,14 @@ def check_word(word: str, locale: str, lock: Lock | None = None) -> int:
             r = check_mute(text, definition, message)
             results.extend(r)
             index += 1
-    # print with lock if any
+
     if results:
         errors = len(results) // 2
-        if lock:
-            lock.acquire()
         for result in results:
-            print(result, flush=True)
-        print(f"\n >>> [{word}] - Errors:", errors, flush=True)
-        if lock:
-            lock.release()
+            log.error(result)
+        log.warning(">>> [%s] - Errors: %s", word, errors)
+    else:
+        log.debug(">>> [%s] - OK", word)
 
     return errors
 

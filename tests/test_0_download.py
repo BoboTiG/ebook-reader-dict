@@ -1,7 +1,7 @@
+import logging
 import os
 from collections.abc import Callable
 from pathlib import Path
-from typing import Any
 
 import pytest
 import responses
@@ -136,21 +136,10 @@ def test_ongoing_dump(craft_data: Callable[[str], bytes]) -> None:
     assert not (output_dir / "pages-20200514.xml.bz2").is_file()
 
 
-def test_progress_callback_normal(capsys: pytest.CaptureFixture[Any]) -> None:
-    download.callback_progress("Some text: ", 42 * 1024, False)
-    captured = capsys.readouterr()
-    assert captured.out == "\rSome text: 43,008 bytes"
+def test_progress_callback(caplog: pytest.LogCaptureFixture) -> None:
+    with caplog.at_level(logging.DEBUG):
+        download.callback_progress("Some text", 42 * 1024, False)
+        download.callback_progress("Some text", 42 * 1024, True)
 
-    download.callback_progress("Some text: ", 42 * 1024, True)
-    captured = capsys.readouterr()
-    assert captured.out == "\rSome text: OK [43,008 bytes]\n"
-
-
-def test_progress_callback_ci(capsys: pytest.CaptureFixture[Any]) -> None:
-    download.callback_progress_ci("Some text: ", 42 * 1024, False)
-    captured = capsys.readouterr()
-    assert captured.out == "."
-
-    download.callback_progress_ci("Some text: ", 42 * 1024, True)
-    captured = capsys.readouterr()
-    assert captured.out == ". OK [43,008 bytes]\n"
+    assert caplog.records[0].getMessage() == "Some text: 43,008 bytes"
+    assert caplog.records[1].getMessage() == "Some text: OK [43,008 bytes]"

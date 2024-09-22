@@ -1,6 +1,7 @@
 """Parse and store raw Wiktionary data."""
 
 import json
+import logging
 import os
 from collections import defaultdict
 from collections.abc import Generator
@@ -9,6 +10,8 @@ from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
 from .lang import head_sections
+
+log = logging.getLogger(__name__)
 
 
 def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
@@ -63,7 +66,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: dict[str, str] = defaultdict(str)
 
-    print(f">>> Processing {file} ...", flush=True)
+    log.info(">>> Processing %s ...", file)
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
         if word and code and ":" not in word:
@@ -78,7 +81,7 @@ def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
+    log.info(">>> Saved %s words into %s", len(words), raw_data)
 
 
 def get_latest_xml_file(output_dir: Path) -> Path | None:
@@ -93,12 +96,12 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_xml_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --download first ... ", flush=True)
+        log.error(">>> No dump found. Run with --download first ... ")
         return 1
 
     date = file.stem.split("-")[1]
     if not (output_dir / f"data_wikicode-{date}.json").is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    print(">>> Parse done!", flush=True)
+    log.info(">>> Parse done!")
     return 0

@@ -1,5 +1,4 @@
 from collections.abc import Callable
-from threading import Lock
 from typing import Any
 from unittest.mock import patch
 
@@ -89,12 +88,11 @@ def test_subsublist(craft_urls: Callable[[str, str], str]) -> None:
 
 
 @responses.activate
-def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
+def test_error(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
-        lock = Lock()
-        assert check_word.check_word("42", "fr", lock=lock) > 0
+        assert check_word.check_word("42", "fr") > 0
 
 
 @responses.activate
@@ -443,13 +441,13 @@ def test_check_highlighting(
     parsed_html: str,
     ret_code: int,
     is_highlighted: bool,
-    capsys: pytest.CaptureFixture[Any],
+    caplog: pytest.LogCaptureFixture,
 ) -> None:
     error = check_word.check(wiktionary_text, parsed_html, "Test")
     assert error == ret_code
     if is_highlighted:
-        stdout = capsys.readouterr()[0]
-        assert "\033[31m" in stdout
+        errors = "\n".join(m.getMessage() for m in caplog.records)
+        assert "\033[31m" in errors
 
 
 def test_get_url_content_timeout_error(monkeypatch: pytest.MonkeyPatch) -> None:
