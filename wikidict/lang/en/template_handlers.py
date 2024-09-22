@@ -298,23 +298,23 @@ def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], word:
 def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_etydate("etydate", ["1880"], defaultdict(str))
-    'First attested in 1880.'
-    >>> render_etydate("etydate", ["1880"], defaultdict(str, {"nodot": "1", "nocap": "1"}))
+    'First attested in 1880'
+    >>> render_etydate("etydate", ["1880"], defaultdict(str, {"nocap": "1"}))
     'first attested in 1880'
     >>> render_etydate("etydate", ["first half of the 19th century"], defaultdict(str))
-    'First attested in the first half of the 19th century.'
+    'First attested in the first half of the 19th century'
     >>> render_etydate("etydate", ["c", "1900"], defaultdict(str))
-    'First attested in <i>c.</i> 1900.'
+    'First attested in <i>c.</i> 1900'
     >>> render_etydate("etydate", ["c", "1900", "2000"], defaultdict(str))
-    'First attested in <i>c.</i> 1900, but in common usage only as of 2000.'
+    'First attested in <i>c.</i> 1900, but in common usage only as of 2000'
     >>> render_etydate("etydate", ["c", "1900", "first half of the 21st century"], defaultdict(str))
-    'First attested in <i>c.</i> 1900, but in common usage only as of the first half of the 21st century.'
+    'First attested in <i>c.</i> 1900, but in common usage only as of the first half of the 21st century'
     >>> render_etydate("etydate", ["r", "1900", "1910"], defaultdict(str))
-    'First attested in 1900–1910.'
+    'First attested in 1900–1910'
     >>> render_etydate("etydate", ["r", "1900", "1910", "1980"], defaultdict(str))
-    'First attested in 1900–1910, but in common usage only as of 1980.'
+    'First attested in 1900–1910, but in common usage only as of 1980'
     >>> render_etydate("etydate", ["r", "1900", "1910", "first half of the 19st century"], defaultdict(str))
-    'First attested in 1900–1910, but in common usage only as of the first half of the 19st century.'
+    'First attested in 1900–1910, but in common usage only as of the first half of the 19st century'
     """
 
     def render_etydate_l2(parts: list[str]) -> str:
@@ -329,7 +329,6 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word
                 phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
         return phrase
 
-    nodot = data["nodot"] in ("1", "yes")
     nocap = data["nocap"] in ("1", "yes")
     phrase = ("f" if nocap else "F") + "irst attested in "
     if parts[0] == "c":
@@ -349,7 +348,6 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word
                 phrase += render_etydate_l2(parts[3:])
         else:
             phrase += parts[0] if re.match(r"\d+$", parts[0]) else f"the {parts[0]}"
-    phrase += "" if nodot else "."
     return phrase
 
 
