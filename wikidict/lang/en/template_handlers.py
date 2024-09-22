@@ -15,7 +15,7 @@ from ...user_functions import (
     term,
 )
 from .. import defaults
-from .labels import label_syntaxes
+from .labels import syntaxes
 from .langs import langs
 from .places import (
     placetypes_aliases,
@@ -817,6 +817,7 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     """
     if len(parts) == 2:
         return term(lookup_italic(parts[1], "en"))
+
     res = ""
     omit_preComma = False
     omit_postComma = True
@@ -829,7 +830,7 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
         omit_preSpace = omit_postSpace
         omit_postSpace = False
 
-        syntax = label_syntaxes.get(label)
+        syntax = syntaxes.get(label)
 
         omit_comma = omit_preComma or (syntax["omit_preComma"] if syntax else False)
         omit_postComma = syntax["omit_postComma"] if syntax else False

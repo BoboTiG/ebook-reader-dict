@@ -3,7 +3,7 @@
 import re
 
 from ...user_functions import flatten, uniq
-from .labels import labels, labels_regional, labels_subvarieties, labels_topical
+from .labels import labels
 
 # Float number separator
 float_separator = "."
@@ -127,10 +127,7 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
-    **labels_subvarieties,
     **labels,
-    **labels_regional,
-    **labels_topical,
 }
 
 # Templates more complex to manage.

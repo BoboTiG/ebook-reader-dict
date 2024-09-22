@@ -1,6 +1,6 @@
 import re
 
-from scripts_utils import get_content, get_soup
+from scripts_utils import get_content
 
 
 def process_display(display: str) -> str:
@@ -27,46 +27,8 @@ def clean_lua_text(text: str) -> str:
     return text.replace("--", "#")
 
 
-def dialect_handler(text: str) -> dict[str, str]:
-    lines = text.split("\n")
-    line1 = lines[0]
-    if not (match := re.search(r'"([^"]*)"', line1)):
-        return {}
-
-    soup = get_soup(f"https://en.wiktionary.org/wiki/{match[1]}")
-    div = soup.find("div", {"class": "mw-highlight-lines"})
-    text_dialect = div.text
-    text_dialect = clean_lua_text(text_dialect)
-    code = ""
-    for line in text_dialect.split("\n"):
-        if line.strip().startswith("aliases = "):
-            break
-        code += line + "\n"
-
-    text_dialect = code
-    text_dialect = text_dialect.replace('["', '"')
-    text_dialect = text_dialect.replace('"] =', '" :')
-    text_dialect = text_dialect.replace('"}', '"]')
-    for r in ["alts", "link", "plain_categories"]:
-        text_dialect = re.sub(rf"[ \t]+{r}[\s]*= ", f'            "{r}":', text_dialect)
-    text_dialect = text_dialect.replace('{"', '["')
-
-    exec(text_dialect, globals())
-    results: dict[str, str] = {}
-    for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
-        results[k] = k
-        for alt in v.get("alts", []):
-            results[alt] = k
-
-    return results
-
-
-def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print_result: bool = True) -> dict[str, str]:
+def process_page(url: str, repl: list[str], stop_line: str) -> dict[str, str]:
     text = get_content(f"{url}?action=raw")
-
-    if text.startswith("local data = require"):
-        return dialect_handler(text)
-
     text = clean_lua_text(text)
     text = text.replace('" .. ', '" + ').replace('" ..\n', '" + ')
     text = text.replace(' .. "', ' + "').replace(' ..\n"', ' + "')
@@ -112,11 +74,6 @@ def process_page(url: str, repl: list[str], stop_line: str, var_name: str, print
         for a in aliases:
             results[a] = display.replace('"', "'")
 
-    if print_result:
-        print(f"{var_name} = {{")
-        for key, value in sorted(results.items()):
-            print(f'    "{key}": "{value}",')
-        print(f"}}  # {len(results):,}")
     return results
 
 
@@ -170,24 +127,22 @@ repl = sorted(
     reverse=True,
 )
 
-results_data: dict[str, str] = process_page(
-    "https://en.wiktionary.org/wiki/Module:labels/data",
-    repl,
-    "return labels",
-    "",
-    print_result=False,
-)
-results_data |= process_page(
-    "https://en.wiktionary.org/wiki/Module:labels/data/qualifiers",
-    repl,
-    "return require(",
-    "",
-    print_result=False,
-)
+results: dict[str, str] = {}
+urls = [
+    ("https://en.wiktionary.org/wiki/Module:labels/data", "return labels"),
+    ("https://en.wiktionary.org/wiki/Module:labels/data/lang/en", "################## accent qualifiers"),
+    ("https://en.wiktionary.org/wiki/Module:labels/data/regional", "return labels"),
+    ("https://en.wiktionary.org/wiki/Module:labels/data/topical", "return"),
+]
+for url, pattern in urls:
+    results |= process_page(url, repl, pattern)
+qualifiers = process_page("https://en.wiktionary.org/wiki/Module:labels/data/qualifiers", repl, "return require(")
+results |= qualifiers
 print("labels = {")
-for key, value in sorted(results_data.items()):
-    print(f'    "{key}": "{value}",')
-print(f"}}  # {len(results_data):,}")
+for key, value in sorted(results.items()):
+    if len(key) < 62 and len(key):  # if it's too long, it's not useful
+        print(f'    "{key}": "{value}",')
+print(f"}}  # {len(results):,}")
 
 syntaxes: dict[str, dict[str, bool]] = {}
 for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
@@ -217,38 +172,10 @@ for k, v in labels.items():  # type: ignore[name-defined] # noqa: F821
         }
 
 print()
-print("label_syntaxes = {")
+print("syntaxes = {")
 for key, value in sorted(syntaxes.items()):  # type: ignore[assignment]
     print(f'    "{key}": {{')
     for k, v in value.items():  # type: ignore[attr-defined]
         print(f'        "{k}": {v},')
     print("    },")
 print(f"}}  # {len(syntaxes):,}")
-
-print()
-
-process_page("https://en.wiktionary.org/wiki/Module:labels/data/topical", repl, "return", "labels_topical")
-print()
-
-process_page("https://en.wiktionary.org/wiki/Module:labels/data/regional", repl, "return labels", "labels_regional")
-print()
-
-# labels_subvarieties
-soup = get_soup("https://en.wiktionary.org/wiki/Special:PrefixIndex/Module:labels/data/lang/")
-div = soup.find("div", {"class": "mw-prefixindex-body"})
-results: dict[str, str] = {}
-for li in div.findAll("li"):
-    if li.text.endswith("documentation"):
-        continue
-
-    if (page_url := f"https://en.wiktionary.org{li.find('a')['href']}").endswith(("example", "/functions")):
-        continue
-
-    stop_line = "################## accent qualifiers" if page_url.endswith("/en") else "return"
-    results |= process_page(page_url, repl, stop_line, "labels_subvarieties", print_result=False)
-
-print("labels_subvarieties = {")
-for key, value in sorted(results.items()):
-    if len(key) < 62 and len(key):  # if it's too long, it's not useful
-        print(f'    "{key}": "{value}",')
-print(f"}}  # {len(results):,}")

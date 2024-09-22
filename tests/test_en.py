@@ -140,7 +140,7 @@ from wikidict.utils import process_templates
                 (
                     "To punish (a person, an animal, etc.); to chastise.",
                     "To cause (someone or something) persistent (and often widespread) pain and suffering or trouble; to afflict, to torment.",
-                    "<i>(Early Scots, agriculture)</i> Of a crop or a farmer: to deplete the fertility of (land or soil).",
+                    "<i>(Scotland, agriculture)</i> Of a crop or a farmer: to deplete the fertility of (land or soil).",
                 ),
             ],
             [],
