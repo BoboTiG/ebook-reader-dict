@@ -82,6 +82,8 @@ templates_ignored = (
     "cln",
     "dercat",
     "elements",
+    "etymid",
+    "etymon",
     "etystub",
     "examples",
     "Image requested",
