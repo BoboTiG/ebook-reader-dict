@@ -407,6 +407,47 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "passer au féminin",
         "ar-ta*â*a*a": "",
     },  # 20
+    "ar-'nw": {
+        "aa_sens": "temps",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-i": "mûrir",
+        "ar-*a*a*ũ": "période",
+        "ar-*a*i*a-a": "tarder",
+        "ar-*a*²a*a": "tarder",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} douce",
+        "ar-*â*i*ũ": "doux",
+        "ar-a**a*@ũ": "patience",
+        "ar-a**a*a": "retarder",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "attendre",
+        "ar-ta*a*²a*a": "être lent",
+        "ar-ta*a*²u*ũ": "lenteur",
+        "ar-ta*â*a*a": "",
+    },  # 18
+    "ar-'ny": {
+        "aa_sens": "attendre",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "mûrissement",
+        "ar-*a*a*a-i": "mûrir",
+        "ar-*a*a*ũ": "période",
+        "ar-*a*i*a-a": "tarder",
+        "ar-*a*²a*a": "tarder",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} douce",
+        "ar-*â*i*ũ": "doux",
+        "ar-a**a*@ũ": "patience",
+        "ar-a**a*a": "retarder",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "attendre",
+        "ar-ta*a*²a*a": "être lent",
+        "ar-ta*a*²u*ũ": "lenteur",
+        "ar-ta*â*a*a": "",
+    },  # 19
     "ar-'rD": {
         "aa_sens": "poudre, terre, territoire",
         "ar-*a**iy²ũ": "artichaud",
@@ -9363,5 +9404,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 321
+}  # 323
 # END
