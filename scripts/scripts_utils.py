@@ -1,9 +1,12 @@
+import warnings
 from time import sleep
 from typing import Any
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from requests.exceptions import HTTPError, RequestException
+
+warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 
 def get_content(url: str, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | dict[str, Any]:

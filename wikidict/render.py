@@ -314,6 +314,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '\n\n[[something|else]]'
     >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
     '[[something|else]]'
+
+    >>> adjust_wikicode("----", "no")
+    ''
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -375,6 +378,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
                 code,
                 flags=re.MULTILINE,
             )
+
+    elif locale == "no":
+        code = code.replace("----", "")
 
     elif locale == "ro":
         locale = "ron"

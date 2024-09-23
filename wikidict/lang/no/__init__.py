@@ -3,6 +3,7 @@
 import re
 
 from ...user_functions import flatten, uniq
+from .labels import labels
 
 # Float number separator
 float_separator = ","
@@ -60,7 +61,10 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
-    "tre": "tresort",
+    **labels,
+    "internett": "Internett",
+    "Internett": "Internett",
+    "målenhet": "måleenhet",
 }
 
 
@@ -102,6 +106,9 @@ templates_multi = {
     # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
     "no-verb-bøyningsform": "parts[2]",
 }
+
+# Templates that will be completed/replaced using custom text.
+templates_other = {"l.": "latin"}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
@@ -179,7 +186,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>(jus)</i>'
         >>> last_template_handler(["jus", "no"], "no")
         '<i>(jus)</i>'
-        >>> last_template_handler(["jus", "no"], "nrm")
+        >>> last_template_handler(["jus", "no"], "no")
         '<i>(jus)</i>'
 
         >>> last_template_handler(["kontekst", "fobi", "utellelig", "kat=no:Fobier", "kat2=no:Masseord"], "no")
@@ -213,5 +220,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if italic_tpl := lookup_italic(tpl, locale, empty_default=True):
         return term(italic_tpl)
+
+    if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
+        return term(tpl)
 
     raise ValueError(f"Unhandled {template=} {word=}")
