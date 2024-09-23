@@ -92,7 +92,10 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    log.debug("🎯 word = %r", word)
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"word={word}\n".encode())
+
     return word
 
 

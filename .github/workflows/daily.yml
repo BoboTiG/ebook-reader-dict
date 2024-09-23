@@ -46,7 +46,7 @@ jobs:
 
       - name: Get a random word
         id: get-word
-        run: python -Wd -m wikidict ${{ matrix.locale }} --get-word=''
+        run: python -Wd -m wikidict ${{ matrix.locale }} --get-word='' --raw
 
       - name: Check that random word
-        run: python -Wd -m wikidict ${{ matrix.locale }} --check-word=${{ steps.get-word.outputs.word }}
+        run: python -Wd -m wikidict ${{ matrix.locale }} --check-word="${{ steps.get-word.outputs.word }}"
