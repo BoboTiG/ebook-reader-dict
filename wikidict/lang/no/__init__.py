@@ -58,6 +58,12 @@ templates_ignored = (
     "trenger referanse",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "tre": "tresort",
+}
+
+
 # Templates more complex to manage.
 templates_multi = {
     # {{alternativ skrivemåte|be}}
@@ -189,7 +195,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>ord</i>'
 
     """
-    from ...user_functions import concat, extract_keywords_from, term
+    from ...user_functions import concat, extract_keywords_from, lookup_italic, term
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
@@ -199,13 +205,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     tpl, *parts = template
     extract_keywords_from(parts)
 
-    if tpl in {"kontekst", "tema"}:
-        return term(concat(parts, sep=", "))
+    match tpl:
+        case "etyl":
+            return langs.get(parts[0], parts[0])
+        case "kontekst" | "tema":
+            return term(concat(parts, sep=", "))
 
-    if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
-        return term(tpl)
-
-    if tpl == "etyl":
-        return langs.get(parts[0], parts[0])
+    if italic_tpl := lookup_italic(tpl, locale, empty_default=True):
+        return term(italic_tpl)
 
     raise ValueError(f"Unhandled {template=} {word=}")
