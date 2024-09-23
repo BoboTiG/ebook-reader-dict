@@ -173,21 +173,14 @@ print(f"}}  # {len(results):,}")
 syntaxes: dict[str, dict[str, bool]] = {}
 qualifiers = process_qualifiers_page("https://en.wiktionary.org/wiki/Module:labels/data/qualifiers")
 for label, values in qualifiers.items():
-    omit_pre_comma = values.get("omit_preComma")
-    omit_post_comma = values.get("omit_postComma")
-    omit_pre_space = values.get("omit_preSpace")
-    if any((omit_post_comma, omit_pre_comma, omit_pre_space)):
-        for alias in values.get("aliases", []):  # type: ignore[union-attr]
-            syntaxes[alias] = {
-                "omit_postComma": bool(omit_post_comma),
-                "omit_preComma": bool(omit_pre_comma),
-                "omit_preSpace": bool(omit_pre_space),
-            }
-        syntaxes[label] = {
-            "omit_postComma": bool(omit_post_comma),
-            "omit_preComma": bool(omit_pre_comma),
-            "omit_preSpace": bool(omit_pre_space),
-        }
+    qual = {
+        "omit_post_comma": bool(values.get("omit_postComma")),
+        "omit_pre_comma": bool(values.get("omit_preComma")),
+        "omit_pre_space": bool(values.get("omit_preSpace")),
+    }
+    syntaxes[label] = qual
+    for alias in values.get("aliases", []):  # type: ignore[union-attr]
+        syntaxes[alias] = qual
 print("\nsyntaxes = {")
 for key, value in sorted(syntaxes.items()):  # type: ignore[assignment]
     print(f'    "{key}": {{')

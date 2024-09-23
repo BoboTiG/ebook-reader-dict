@@ -832,9 +832,9 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
 
         syntax = syntaxes.get(label)
 
-        omit_comma = omit_pre_comma or (syntax["omit_preComma"] if syntax else False)
-        omit_post_comma = syntax["omit_postComma"] if syntax else False
-        omit_space = omit_pre_space or (syntax["omit_preSpace"] if syntax else False)
+        omit_comma = omit_pre_comma or (syntax["omit_pre_comma"] if syntax else False)
+        omit_post_comma = syntax["omit_post_comma"] if syntax else False
+        omit_space = omit_pre_space or (syntax["omit_pre_space"] if syntax else False)
 
         if label_display := lookup_italic(label, "en"):
             if res:
