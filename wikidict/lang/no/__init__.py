@@ -62,6 +62,9 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **labels,
+    "internett": "Internett",
+    "Internett": "Internett",
+    "målenhet": "måleenhet",
 }
 
 
@@ -103,6 +106,9 @@ templates_multi = {
     # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
     "no-verb-bøyningsform": "parts[2]",
 }
+
+# Templates that will be completed/replaced using custom text.
+templates_other = {"l.": "latin"}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
