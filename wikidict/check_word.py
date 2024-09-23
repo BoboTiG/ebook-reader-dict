@@ -262,6 +262,11 @@ def filter_html(html: str, locale: str) -> str:
             if small.find("a", {"title": "Wikipedia"}) or small.find("a", {"title": "Wikiquote"}):
                 small.decompose()
 
+    elif locale == "no":
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     elif locale == "pt":
         # Issue 600: remove superscript locales
         for sup in bs.find_all("sup"):
