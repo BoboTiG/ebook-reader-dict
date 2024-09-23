@@ -819,22 +819,22 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
         return term(lookup_italic(parts[1], "en"))
 
     res = ""
-    omit_preComma = False
-    omit_postComma = True
-    omit_preSpace = False
-    omit_postSpace = True
+    omit_pre_comma = False
+    omit_post_comma = True
+    omit_pre_space = False
+    omit_post_space = True
 
     for label in parts[1:]:
-        omit_preComma = omit_postComma
-        omit_postComma = False
-        omit_preSpace = omit_postSpace
-        omit_postSpace = False
+        omit_pre_comma = omit_post_comma
+        omit_post_comma = False
+        omit_pre_space = omit_post_space
+        omit_post_space = False
 
         syntax = syntaxes.get(label)
 
-        omit_comma = omit_preComma or (syntax["omit_preComma"] if syntax else False)
-        omit_postComma = syntax["omit_postComma"] if syntax else False
-        omit_space = omit_preSpace or (syntax["omit_preSpace"] if syntax else False)
+        omit_comma = omit_pre_comma or (syntax["omit_preComma"] if syntax else False)
+        omit_post_comma = syntax["omit_postComma"] if syntax else False
+        omit_space = omit_pre_space or (syntax["omit_preSpace"] if syntax else False)
 
         if label_display := lookup_italic(label, "en"):
             if res:
