@@ -14,8 +14,13 @@ def render_avledet(tpl: str, parts: list[str], data: defaultdict[str, str], word
     'middelnedertysk <i>abbedie</i>'
     >>> render_avledet("avledet", ["middelalderlatin", "no", "abbatia"], defaultdict(str))
     'middelalderlatin <i>abbatia</i>'
+    >>> render_avledet("avledet", ["la", "no", "approbatio", "", "godkjennelse"], defaultdict(str))
+    'latin <i>approbatio</i> («godkjennelse»)'
     """
-    return f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
+    phrase = f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
+    if len(parts) > 4:
+        phrase += f" («{parts[4]}»)"
+    return phrase
 
 
 def render_lant(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
