@@ -11,6 +11,22 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "aberrasjon",
+            [],
+            ["m"],
+            [
+                "Fra latin <i>aberrātiō</i> («lindring, avvikelse») , fra <i>aberrō</i> («gå unna/bort, gå vill»), fra <i>ab</i> («bort») + <i>errō</i> («vandre/gå»).",
+                "Se aberrate.",
+            ],
+            [
+                "avvik, avvikelse",
+                "<i>(astronomi)</i> avvik i en stjernes avbildede posisjon relativ til dens sanne posisjon.",
+                "<i>(optikk)</i> avbildningsfeil i linser og speil.",
+                "<i>(biologi)</i> endring i et kromosom mens celledeling pågår.",
+            ],
+            [],
+        ),
+        (
             "bare",
             [],
             [],
@@ -108,7 +124,7 @@ def test_parse_word(
         ),
         (
             "{{tidligere skrivemåte|no|naturlig tall}}",
-            "<i>tidligere skrivemåte av</i> <b>naturlig tall</b>",
+            "<i>tidligere skriveform av</i> <b>naturlig tall</b>",
         ),
         ("{{urspråk|germansk|daigjōn}}", "urgermansk *daigjōn"),
         ("{{vokabular|overført}}", "<i>(overført)</i>"),

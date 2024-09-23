@@ -159,7 +159,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
 
     items = [parsed_section.contents]
     match locale:
-        case "da" | "no":
+        case "da":
             items = get_items(("#", ":"))
         case "de":
             items = get_items((":",))
@@ -191,6 +191,8 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
             return definitions
         case "it":
             items = get_items(("",), skip=("=== {{etim",))
+        case "no":
+            items = get_items(("#", ":", r"\*"))
         case "pt":
             items = get_items((r"[:]", r"\*"))
         case "ro":

@@ -55,6 +55,9 @@ templates_ignored = (
     "mangler definisjon",
     "mangler etymologi",
     "norm",
+    "o-begge/båe",
+    "o-nå/nu/no",
+    "o-hvem/kven",
     "suffiks/oversikt",
     "trenger referanse",
 )
@@ -62,9 +65,12 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **labels,
+    "ikkekomp": "ingen komparativ eller superlativ",
     "internett": "Internett",
     "Internett": "Internett",
+    "klær": "klesplagg",
     "målenhet": "måleenhet",
+    "militær": "militært",
 }
 
 
@@ -78,6 +84,10 @@ templates_multi = {
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
     # {{l|lt|duktė}}
     "l": "parts[-1]",
+    # {{m}}
+    "m": "italic(parts[0])",
+    # {{n}}
+    "n": "italic(parts[0])",
     # {{opphav|norrønt|språk=no}
     "opphav": "parts[1]",
     # {{prefiks|a|biotisk|språk=no}}
@@ -91,7 +101,7 @@ templates_multi = {
     # {{tidligere skriveform|no|kunstnarleg}}
     "tidligere skriveform": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
-    "tidligere skrivemåte": "f\"{italic('tidligere skrivemåte av')} {strong(parts[-1])}\"",
+    "tidligere skrivemåte": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
     #
@@ -108,7 +118,15 @@ templates_multi = {
 }
 
 # Templates that will be completed/replaced using custom text.
-templates_other = {"l.": "latin"}
+templates_other = {
+    "it": "italiensk",
+    "l.": "latin",
+    "L.": "latin",
+    "la": "latin",
+    "lty.": "nedertysk/lavtysk",
+    "nn": "nynorsk",
+    "tr": "tyrkisk",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
@@ -191,6 +209,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["kontekst", "fobi", "utellelig", "kat=no:Fobier", "kat2=no:Masseord"], "no")
         '<i>(fobi, utellelig)</i>'
+        >>> last_template_handler(["kontekst", "jus", "utellelig", "kat=no:Jus", "kat2=no:Masseord", "nesten alltid i ubestemt form", "foreldet, nå kun i uttrykket «tort og svie»", "språk=no"], "no")
+        '<i>(jus, utellelig, nesten alltid i ubestemt form)</i>'
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
@@ -216,7 +236,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         case "etyl":
             return langs.get(parts[0], parts[0])
         case "kontekst" | "tema":
-            return term(concat(parts, sep=", "))
+            return term(concat(parts[:3], sep=", "))
 
     if italic_tpl := lookup_italic(tpl, locale, empty_default=True):
         return term(italic_tpl)
