@@ -66,7 +66,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: dict[str, str] = defaultdict(str)
 
-    log.info(">>> Processing %s ...", file)
+    log.info("Processing %s ...", file)
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
         if word and code and ":" not in word:
@@ -81,7 +81,7 @@ def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    log.info(">>> Saved %s words into %s", len(words), raw_data)
+    log.info("Saved %s words into %s", len(words), raw_data)
 
 
 def get_latest_xml_file(output_dir: Path) -> Path | None:
@@ -96,12 +96,12 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_xml_file(output_dir)
     if not file:
-        log.error(">>> No dump found. Run with --download first ... ")
+        log.error("No dump found. Run with --download first ... ")
         return 1
 
     date = file.stem.split("-")[1]
     if not (output_dir / f"data_wikicode-{date}.json").is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    log.info(">>> Parse done!")
+    log.info("Parse done!")
     return 0

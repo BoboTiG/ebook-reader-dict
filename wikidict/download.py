@@ -27,7 +27,7 @@ def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     if output.is_file():
         return output
 
-    msg = f">>> Uncompressing into {output.name}"
+    msg = f"Uncompressing into {output.name}"
     log.info(msg)
 
     comp = bz2.BZ2Decompressor()
@@ -64,7 +64,7 @@ def fetch_pages(date: str, locale: str, output_dir: Path, callback: Callable[[st
         return output
 
     url = DUMP_URL.format(locale, date)
-    msg = f">>> Fetching {url}"
+    msg = f"Fetching {url}"
     log.info(msg)
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
@@ -94,12 +94,12 @@ def main(locale: str) -> int:
         file = fetch_pages(snapshot, locale, output_dir, callback_progress)
     except HTTPError:
         (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
-        log.exception(">>> Wiktionary dump is ongoing ... ")
-        log.info(">>> Will use the previous one.")
+        log.exception("Wiktionary dump is ongoing ... ")
+        log.info("Will use the previous one.")
         snapshot = snapshots[-2]
         file = fetch_pages(snapshot, locale, output_dir, callback_progress)
 
     decompress(file, callback_progress)
 
-    log.info(">>> Retrieval done!")
+    log.info("Retrieval done!")
     return 0

@@ -31,10 +31,10 @@ def get_words_to_tackle(
     else:
         output_dir = Path(os.getenv("CWD", "")) / "data" / locale
         if not (file := render.get_latest_json_file(output_dir)):
-            log.error(">>> No dump found. Run with --parse first ... ")
+            log.error("No dump found. Run with --parse first ... ")
             return []
 
-        log.info(">>> Loading %s ...", file)
+        log.info("Loading %s ...", file)
         words = list(render.load(file).keys())
 
     if count == -1:
@@ -66,6 +66,6 @@ def main(locale: str, count: int, is_random: bool, offset: str, input_file: str)
         err = pool.map(partial(local_check, locale=locale), words)
 
     if errors := sum(err):
-        log.warning(">>> TOTAL Errors: %d", errors)
+        log.warning("TOTAL Errors: %d", errors)
 
     return errors

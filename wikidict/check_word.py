@@ -371,9 +371,9 @@ def check_word(word: str, locale: str) -> int:
         errors = len(results)
         for result in results:
             log.error(result)
-        log.warning(">>> [%s] - Errors: %s", word, errors)
+        log.warning("[%s] - Errors: %s", word, errors)
     else:
-        log.debug(">>> [%s] - OK", word)
+        log.debug("[%s] - OK", word)
 
     return errors
 

@@ -187,10 +187,10 @@ class BaseFormat:
         checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
         checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        log.info(">>> Crafted %s (%s)", checksum_file.name, checksum)
+        log.info("Crafted %s (%s)", checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        log.info(">>> Generated %s (%d bytes)", file.name, file.stat().st_size)
+        log.info("Generated %s (%d bytes)", file.name, file.stat().st_size)
         self.compute_checksum(file)
 
 
@@ -546,10 +546,10 @@ def run_formatter(
 
 def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
-    log.info(">>> Loading %s ...", file)
+    log.info("Loading %s ...", file)
     with file.open(encoding="utf-8") as fh:
         words: Words = {key: Word(*values) for key, values in json.load(fh).items()}
-    log.info(">>> Loaded %d words from %s", len(words), file)
+    log.info("Loaded %d words from %s", len(words), file)
     return words
 
 
@@ -600,7 +600,7 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        log.error(">>> No dump found. Run with --render first ... ")
+        log.error("No dump found. Run with --render first ... ")
         return 1
 
     # Get all words from the database

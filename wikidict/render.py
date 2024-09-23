@@ -472,7 +472,7 @@ def load(file: Path) -> dict[str, str]:
     """Load the JSON file containing all words and their details."""
     with file.open(encoding="utf-8") as fh:
         words: dict[str, str] = json.load(fh)
-    log.info(">>> Loaded %d words from %s", len(words), file)
+    log.info("Loaded %d words from %s", len(words), file)
     return words
 
 
@@ -507,7 +507,7 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-    log.info(">>> Saved %d words into %s", len(words), raw_data)
+    log.info("Saved %d words into %s", len(words), raw_data)
 
 
 def get_latest_json_file(output_dir: Path) -> Path | None:
@@ -522,10 +522,10 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        log.error(">>> No dump found. Run with --parse first ... ")
+        log.error("No dump found. Run with --parse first ... ")
         return 1
 
-    log.info(">>> Loading %s ...", file)
+    log.info("Loading %s ...", file)
     in_words: dict[str, str] = load(file)
 
     workers = workers or multiprocessing.cpu_count()
@@ -536,5 +536,5 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
-    log.info(">>> Render done!")
+    log.info("Render done!")
     return 0

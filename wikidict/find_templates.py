@@ -51,13 +51,13 @@ def find_templates(in_words: dict[str, str], locale: str) -> None:
                     f.write(f"    - {entry!r}\n")
             else:
                 f.write(f"    - {entries[0]!r}\n")
-    log.info(">>> File sections.txt created.")
+    log.info("File sections.txt created.")
 
     if templates:
         with open("templates.txt", "w", encoding="utf-8") as f:
             for template, entry in sorted(templates.items()):
                 f.write(f"{entry!r} => {template!r}\n")
-        log.info(">>> File templates.txt created.")
+        log.info("File templates.txt created.")
     else:
         log.warning("No templates found.")
 
@@ -68,12 +68,12 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        log.error(">>> No dump found. Run with --parse first ... ")
+        log.error("No dump found. Run with --parse first ... ")
         return 1
 
-    log.info(">>> Loading %s ...", file)
+    log.info("Loading %s ...", file)
     in_words: dict[str, str] = load(file)
 
-    log.info(">>> Working, please be patient ...")
+    log.info("Working, please be patient ...")
     find_templates(in_words, locale)
     return 0
