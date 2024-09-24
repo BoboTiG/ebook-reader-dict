@@ -66,6 +66,6 @@ def main(locale: str, count: int, is_random: bool, offset: str, input_file: str)
         err = pool.map(partial(local_check, locale=locale), words)
 
     if errors := sum(err):
-        log.warning("TOTAL Errors: %d", errors)
+        log.warning("TOTAL Errors: %s", f"{errors:,}")
 
     return errors

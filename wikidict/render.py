@@ -480,7 +480,7 @@ def load(file: Path) -> dict[str, str]:
     """Load the JSON file containing all words and their details."""
     with file.open(encoding="utf-8") as fh:
         words: dict[str, str] = json.load(fh)
-    log.info("Loaded %d words from %s", len(words), file)
+    log.info("Loaded %s words from %s", f"{len(words):,}", file)
     return words
 
 
@@ -515,7 +515,7 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-    log.info("Saved %d words into %s", len(words), raw_data)
+    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
 
 
 def get_latest_json_file(output_dir: Path) -> Path | None:

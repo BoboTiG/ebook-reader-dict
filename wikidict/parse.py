@@ -81,7 +81,7 @@ def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    log.info("Saved %s words into %s", len(words), raw_data)
+    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
 
 
 def get_latest_xml_file(output_dir: Path) -> Path | None:

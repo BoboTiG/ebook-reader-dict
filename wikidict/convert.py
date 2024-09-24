@@ -549,7 +549,7 @@ def load(file: Path) -> Words:
     log.info("Loading %s ...", file)
     with file.open(encoding="utf-8") as fh:
         words: Words = {key: Word(*values) for key, values in json.load(fh).items()}
-    log.info("Loaded %d words from %s", len(words), file)
+    log.info("Loaded %s words from %s", f"{len(words):,}", file)
     return words
 
 
