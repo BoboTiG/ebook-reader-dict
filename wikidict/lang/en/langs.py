@@ -698,7 +698,7 @@ langs = {
     "aww": "Awun",
     "awx": "Awara",
     "awy": "Edera Awyu",
-    "axb": "Abipon",
+    "axb": "Abipón",
     "axe": "Ayerrerenge",
     "axg": "Mato Grosso Arára",
     "axk": "Aka (Central Africa)",
@@ -7153,6 +7153,7 @@ langs = {
     "sai-gam": "Gamela",
     "sai-gay": "Gayón",
     "sai-gmo": "Guamo",
+    "sai-gua": "Guachí",
     "sai-guc": "Guaicuruan",
     "sai-gue": "Güenoa",
     "sai-guh": "Guahiban",
@@ -9818,7 +9819,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,813
+}  # 9,814
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

@@ -2059,6 +2059,7 @@ labels = {
     "psychotherapy": "psychotherapy",
     "public school slang": "school slang",
     "publishing": "publishing",
+    "puerile": "childish",
     "pulmonology": "pulmonology",
     "purism": "puristic",
     "puristic": "puristic",
@@ -2469,7 +2470,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,464
+}  # 2,465
 
 syntaxes = {
     "&": {
