@@ -2506,6 +2506,38 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'infiltrer",
         "ar-ta*â*a*a": "chercher à s'enlever mutuellement",
     },  # 25
+    "ar-Ryr": {
+        "aa_sens": "échange, jalousie",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "jalousie",
+        "ar-*a**ũ": "changement",
+        "ar-*a*a*a-a": "être jaloux",
+        "ar-*a*a*a-i": "procurer",
+        "ar-*a*a*ũ": "jalousie",
+        "ar-*a*²a*a": "changer",
+        "ar-*a*â*ũ": "apport",
+        "ar-*a*û*ũ": "jaloux",
+        "ar-*i**@ũ": "subsistance",
+        "ar-*i**ũ": "jalousie",
+        "ar-*i*a*ũ": "vicissitudes",
+        "ar-*i*â*ũ": "marque distinctive",
+        "ar-*ta*a*a": "s'approvisionner",
+        "ar-*â*a*a": "faire échange",
+        "ar-a**a*a": "rendre jaloux",
+        "ar-ma**i*ũ": "arrosé",
+        "ar-ma**û*ũ": "arrosé",
+        "ar-mi**â*ũ": "jaloux",
+        "ar-mu*a*²a*ũ": "changé",
+        "ar-mu*â*a*@ũ": "commerce",
+        "ar-muta*a*²a*ũ": "qui change",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "changement",
+        "ar-ta*a*²a*a": "être changé",
+        "ar-ta*a*²u*ũ": "changement",
+        "ar-ta*â*a*a": "se jalouser",
+    },  # 30
     "ar-Rzl": {
         "aa_sens": "embobiner, marivauder",
         "ar-***ũ": "",
@@ -9399,5 +9431,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 323
+}  # 324
 # END
