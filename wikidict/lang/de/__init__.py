@@ -53,6 +53,11 @@ templates_ignored = (
     "Ref-Bibel",
     "Ref-Duden",
     "Ref-DWDS",
+    "Ref-Georges",
+    "Ref-LSJ",
+    "Ref-Pape",
+    "Ref-Pfeifer",
+    "Ref-wissen.de",
     "Wikipedia",
 )
 
