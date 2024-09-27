@@ -37,6 +37,7 @@ templates_ignored = (
     "Audio",
     "Bpur",
     "Fremdsprachige Beispiele",
+    "GBS",
     "Herkunft fehlt",
     "Herkunft unbelegt",
     "Hintergrundfarbe",
