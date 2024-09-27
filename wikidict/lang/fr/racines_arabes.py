@@ -2525,6 +2525,7 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "s'approvisionner",
         "ar-*â*a*a": "faire échange",
         "ar-a**a*a": "rendre jaloux",
+        "ar-a**â*ũ": "{{p}} changements",
         "ar-ma**i*ũ": "arrosé",
         "ar-ma**û*ũ": "arrosé",
         "ar-mi**â*ũ": "jaloux",
@@ -2537,7 +2538,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être changé",
         "ar-ta*a*²u*ũ": "changement",
         "ar-ta*â*a*a": "se jalouser",
-    },  # 30
+    },  # 31
     "ar-Rzl": {
         "aa_sens": "embobiner, marivauder",
         "ar-***ũ": "",
