@@ -361,7 +361,6 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     keys_eol = {"Autor": ":", "Herausgeber": ":", "Sammelwerk": ".", "Tag": ".", "Titel": ".", "WerkErg": "."}
     keys_ignored = {"Online", "Originalsprache", "Originaltitel"}
     months = [
-        "",
         "Januar",
         "Februar",
         "März",
@@ -384,7 +383,7 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
         if prefix := keys_prefix.get(key):
             phrase += f" {prefix} {value}"
         elif key == "Monat" and data["Monat"].isdigit():
-            phrase += f" {months[int(data['Monat'])]}"
+            phrase += f" {months[int(data['Monat']) - 1]}"
         else:
             phrase += f" {italic(value) if key in keys_italic else value}"
         if key == "Jahr" and "Originaltitel" in data:
