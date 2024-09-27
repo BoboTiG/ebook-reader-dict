@@ -369,9 +369,9 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
         "Juni",
         "Juli",
         "August",
-        " September",
-        " Oktober",
-        " November",
+        "September",
+        "Oktober",
+        "November",
         "Dezember",
     ]
 
