@@ -407,6 +407,7 @@ template_mapping = {
     "Ref-dejure": render_ref_dejure,
     "Urdu": render_foreign_lang,
     "Üt": render_Ut,
+    "Ü?": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
     "Üxx4?": render_Uxx4,
