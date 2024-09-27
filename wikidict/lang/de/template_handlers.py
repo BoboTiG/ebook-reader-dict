@@ -363,7 +363,7 @@ def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], w
         case "Keyser":
             kwargs |= {"Verlag": "Keysersche Verlagsbuchhandlung", "Ort": "München", "Jahr": "1967"}
         case "Suhrkamp":
-            # Note: We cannot add the "ISBN" key here, even if it's the same for both A=1 and A=6 because the order of items in he dict matters.
+            # Note: We cannot add the "ISBN" key here, even if it's the same for both A=1 and A=6, because the order of items in the dict matters.
             kwargs |= {"Verlag": "Suhrkamp", "Ort": "Frankfurt"}
             match data["A"]:
                 case "1":
