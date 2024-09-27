@@ -336,6 +336,44 @@ def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], w
             assert 0, parts
 
 
+def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Gondrom"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Gondrom Verlag, Bindlach 1991, 1993, 2004, ISBN 3-8112-0294-4'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Keyser"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Keysersche Verlagsbuchhandlung, München 1967'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Suhrkamp", "A": "1"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Suhrkamp, Frankfurt 1., 1972, ISBN 3-518-36565-7'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Suhrkamp", "A": "6"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Suhrkamp, Frankfurt 2.-6., 1976-1981, ISBN 3-518-36565-7'
+    """
+    kwargs = {
+        "Autor": "Hans Bahlow",
+        "Titel": "Deutsches Namenlexikon",
+        "TitelErg": "Familien- und Vornamen nach Ursprung und Sinn erklärt",
+    }
+    match data["V"]:
+        case "Gondrom":
+            kwargs |= {
+                "Verlag": "Gondrom Verlag",
+                "Ort": "Bindlach",
+                "Jahr": "1991, 1993, 2004",
+                "ISBN": "3-8112-0294-4",
+            }
+        case "Keyser":
+            kwargs |= {"Verlag": "Keysersche Verlagsbuchhandlung", "Ort": "München", "Jahr": "1967"}
+        case "Suhrkamp":
+            # Note: We cannot add the "ISBN" key here, even if it's the same for both A=1 and A=6 because the order of items in he dict matters.
+            kwargs |= {"Verlag": "Suhrkamp", "Ort": "Frankfurt"}
+            match data["A"]:
+                case "1":
+                    kwargs |= {"Auflage": "1.", "Jahr": "1972", "ISBN": "3-518-36565-7"}
+                case "6":
+                    kwargs |= {"Auflage": "2.-6.", "Jahr": "1976-1981", "ISBN": "3-518-36565-7"}
+
+    return render_literatur("Literatur", [], defaultdict(str, kwargs))
+
+
 def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Aspekte modernen Wikipädisierens", "Herausgeber": "Bernd Beispiel", "Sammelwerk": "Soziologie der Wikipädianer", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5", "Seiten": "213–278"}))
@@ -358,7 +396,15 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     keys_italic = {"Sammelwerk", "Titel"}
     keys_prefix = {"Herausgeber": "In:", "Nummer": "Nummer", "ISBN": "ISBN", "ISSN": "ISSN", "Seiten": "Seite"}
     keys_suffix = {"Herausgeber": "(Herausgeber)"}
-    keys_eol = {"Autor": ":", "Herausgeber": ":", "Sammelwerk": ".", "Tag": ".", "Titel": ".", "WerkErg": "."}
+    keys_eol = {
+        "Autor": ":",
+        "Herausgeber": ":",
+        "Sammelwerk": ".",
+        "Tag": ".",
+        "Titel": ".",
+        "TitelErg": ".",
+        "WerkErg": ".",
+    }
     keys_ignored = {"Online", "Originalsprache", "Originaltitel"}
     months = [
         "Januar",
@@ -464,6 +510,7 @@ template_mapping = {
     "Farsi": render_foreign_lang_simple,
     "Hebr": render_foreign_lang,
     "K": render_K,
+    "Lit-Bahlow": render_lit_bahlow,
     "Literatur": render_literatur,
     "Paschto": render_foreign_lang,
     "Ref-dejure": render_ref_dejure,
