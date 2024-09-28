@@ -18,9 +18,7 @@ RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 
 
 def xml_iter_parse(file: Path) -> Generator[str, None, None]:
-    """Efficient XML parsing for big files.
-    Elements are yielded when they meet the "page" tag.
-    """
+    """Efficient XML parsing for big files."""
     element: list[str] = []
     is_element = False
 
@@ -38,7 +36,7 @@ def xml_iter_parse(file: Path) -> Generator[str, None, None]:
 
 
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
-    """Parse the *element* to retrieve the word and its definitions."""
+    """Parse the XML `element` to retrieve the word and its definitions."""
     for match in RE_TEXT(element):
         code = match[1]
         break
