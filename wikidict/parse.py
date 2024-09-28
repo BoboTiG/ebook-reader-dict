@@ -3,62 +3,53 @@
 import json
 import logging
 import os
+import re
 from collections import defaultdict
 from collections.abc import Generator
 from pathlib import Path
-from xml.etree import ElementTree
-from xml.etree.ElementTree import Element
 
 from .lang import head_sections
 
 log = logging.getLogger(__name__)
 
+RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
+RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 
-def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
+
+def xml_iter_parse(file: Path) -> Generator[str, None, None]:
     """Efficient XML parsing for big files.
     Elements are yielded when they meet the "page" tag.
     """
+    element: list[str] = []
+    is_element = False
 
-    doc = ElementTree.iterparse(file, events=("start", "end"))
-    _, root = next(doc)
-
-    start_tag = None
-
-    for event, element in doc:
-        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.11/}page":
-            start_tag = element.tag
-        elif start_tag is not None and event == "end" and element.tag == start_tag:
-            yield element
-            start_tag = None
-
-            # Keep memory low
-            root.clear()
+    with file.open(encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if line == "<page>":
+                is_element = True
+            elif line == "</page>":
+                yield "\n".join(element)
+                element = []
+                is_element = False
+            elif is_element:
+                element.append(line)
 
 
-def xml_parse_element(element: Element, locale: str) -> tuple[str, str]:
+def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the *element* to retrieve the word and its definitions."""
-    revision = element[3]
-    if revision.tag == "{http://www.mediawiki.org/xml/export-0.11/}restrictions":
-        # When a word is "restricted", then the revision comes just after
-        revision = element[4]
-    elif not len(revision):
-        # This is a "redirect" page, not interesting.
-        return "", ""
-
-    # The Wikicode can be at different indexes, but not ones lower than 5
-    for info in revision[5:]:
-        if info.tag == "{http://www.mediawiki.org/xml/export-0.11/}text":
-            code = info.text or ""
-            break
+    for match in RE_TEXT(element):
+        code = match[1]
+        break
     else:
         # No Wikicode, maybe an unfinished page.
         return "", ""
 
-    # no interesting head section, a foreign word?
+    # No interesting head section, a foreign word?
     if all(section not in code for section in head_sections[locale]):
         return "", ""
 
-    word = element[0].text or ""  # title
+    word = next(RE_TITLE(element))[1]
     return word, code
 
 

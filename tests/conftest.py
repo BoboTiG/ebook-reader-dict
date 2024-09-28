@@ -53,7 +53,7 @@ def craft_data() -> Callable[[str], bytes]:
     def _craft_data(locale: str) -> bytes:
         data_dir = Path(os.environ["CWD"]) / "data" / locale
         content = XML.format(locale=locale)
-        for file in data_dir.glob("*.wiki"):
+        for file in sorted(data_dir.glob("*.wiki")):
             if file.stem == "vide":
                 continue
 
