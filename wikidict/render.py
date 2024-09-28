@@ -311,7 +311,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]][[something|else]]", "es")
     '[[something|else]]'
     >>> adjust_wikicode("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]][[something|else]]", "es")
-    '][[something|else]]'
+    '[[something|else]]'
     >>> adjust_wikicode("[[Archivo:Diagrama bicicleta.svg|400px|miniaturadeimagen|'''Partes de una bicicleta:'''<br>\n[[asiento]] o [[sillín]], [[cuadro]]{{-sub|8}}, [[potencia]], [[puño]]{{-sub|4}}, [[cuerno]], [[manubrio]], [[telescopio]], [[horquilla]], [[amortiguador]], [[frenos]], [[tijera]], [[rueda]], [[rayos]], [[buje]], [[llanta]], [[cubierta]], [[válvula]], [[pedal]], [[viela]], [[cambio]], [[plato]]{{-sub|5}} o [[estrella]], [[piñón]], [[cadena]], [[tija]], [[tubo de asiento]], [[vaina]].]]\n\n[[something|else]]", "es")
     '\n\n[[something|else]]'
     >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
@@ -329,16 +329,24 @@ def adjust_wikicode(code: str, locale: str) -> str:
         all_namespaces.add(namespace.lower())
     pattern = "|".join(iter(all_namespaces))
     code = re.sub(
-        # Courtesy of Casimir et Hippolyte from https://stackoverflow.com/q/79006887/1117028
+        # Courtesy of Casimir et Hippolyte & Wiktor Stribiżew from https://stackoverflow.com/q/79006887/1117028
         rf"""
-        \[\[ (?:{pattern}):
-        [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
-            (?:
-                \[\[
-                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )*
-                ]]
-                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
-            )*
+        # Match [[
+        \[\[
+
+        # Namespace followed by :
+        (?:{pattern}):
+
+        # Match any chars other than [ and ], or any ] that is not immediately followed with another ], or a [
+        # that is not immediately followed with [ or one or more digits + ]
+        [^][]*(?:](?!])[^][]*|\[(?!\[|\d+\])[^][]*)*
+
+        # Match zero or more occurrences of either [+digit(s)+], or strings between [[ and ]] and then any chars
+        # other than [ and ], or any ] that is not immediately followed with another ], or a [ that is not immediately
+        # followed with [ or one or more digits + ]
+        (?:(?:\[\d+\]|\[\[[^][]*(?:](?!])[^][]*|\[(?!\[)[^][]*)*\]\])[^][]*(?:](?!])[^][]*|\[(?!\[|\d+\])[^][]*)*)*
+
+        # Match ]]
         ]]
         """,
         "",
