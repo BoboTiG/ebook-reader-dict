@@ -6542,6 +6542,10 @@ langs = {
     "pkt": "Maleng",
     "pku": "Paku",
     "pl": "Polish",
+    "pl-gor": "Goral",
+    "pl-gre": "Greater Polish",
+    "pl-les": "Lesser Polish",
+    "pl-mas": "Masovian Polish",
     "pla": "Miani",
     "plb": "Polonombauk",
     "plc": "Central Palawano",
@@ -9819,7 +9823,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,814
+}  # 9,818
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

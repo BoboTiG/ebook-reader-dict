@@ -2511,6 +2511,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jalousie",
+        "ar-*a**u": "autre que",
         "ar-*a**ũ": "changement",
         "ar-*a*a*a-a": "être jaloux",
         "ar-*a*a*a-i": "procurer",
@@ -2538,7 +2539,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être changé",
         "ar-ta*a*²u*ũ": "changement",
         "ar-ta*â*a*a": "se jalouser",
-    },  # 31
+    },  # 32
     "ar-Rzl": {
         "aa_sens": "embobiner, marivauder",
         "ar-***ũ": "",

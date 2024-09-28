@@ -10,6 +10,7 @@ labels = {
     "-": "-",
     "1811": "archaic, slang",
     "2ch slang": "2channel slang",
+    "2channel": "2channel slang",
     "2channel slang": "2channel slang",
     "4chan": "4chan",
     "4chan lgbt": "4chan /lgbt/ slang",
@@ -2470,7 +2471,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,465
+}  # 2,466
 
 syntaxes = {
     "&": {
