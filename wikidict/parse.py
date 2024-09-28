@@ -7,6 +7,7 @@ import re
 from collections import defaultdict
 from collections.abc import Generator
 from pathlib import Path
+from xml.sax.saxutils import unescape
 
 from .lang import head_sections
 
@@ -61,7 +62,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
         if word and code and ":" not in word:
-            words[word] = code
+            words[unescape(word)] = unescape(code)
 
     return words
 
