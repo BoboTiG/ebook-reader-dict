@@ -13,49 +13,38 @@ from .lang import head_sections
 
 log = logging.getLogger(__name__)
 
-RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
+RE_TEXT = re.compile(r"<text[^>]+>(.*)</text>", flags=re.DOTALL).finditer
 RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 
 
 def xml_iter_parse(file: Path) -> Generator[str, None, None]:
     """Efficient XML parsing for big files."""
     element: list[str] = []
-    is_title_found = False
-    is_inside_text = False
+    is_element = False
 
     with file.open(encoding="utf-8") as fh:
         for line in fh:
-            if not is_title_found:
-                if "<title" in line:
-                    element.append(line)
-                    is_title_found = True
-            elif is_inside_text:
-                element.append(line)
-                if "/text>" in line:
+            if is_element:
+                if "/page>" in line:
                     yield "".join(element)
-                    is_title_found = False
-                    is_inside_text = False
                     element = []
-            elif "<text" in line:
-                element.append(line)
-                is_inside_text = True
+                    is_element = False
+                else:
+                    element.append(line)
+            elif "<page" in line:
+                is_element = True
 
 
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
-    for match in RE_TEXT(element):
-        code = match[1]
-        break
-    else:
-        # No Wikicode, maybe an unfinished page.
-        return "", ""
+    title_match = next(RE_TITLE(element, endpos=128))
+    for text_match in RE_TEXT(element, pos=element.find("<text ", title_match.endpos)):
+        wikicode = text_match[1]
+        if any(section in wikicode for section in head_sections[locale]):
+            return title_match[1], wikicode
 
-    # No interesting head section, a foreign word?
-    if all(section not in code for section in head_sections[locale]):
-        return "", ""
-
-    word = next(RE_TITLE(element))[1]
-    return word, code
+    # No Wikicode; unfinished page; no interesting head section; a foreign word, etc. Who knows?
+    return "", ""
 
 
 def process(file: Path, locale: str) -> dict[str, str]:
