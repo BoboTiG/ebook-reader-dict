@@ -20,19 +20,25 @@ RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 def xml_iter_parse(file: Path) -> Generator[str, None, None]:
     """Efficient XML parsing for big files."""
     element: list[str] = []
-    is_element = False
+    is_title_found = False
+    is_inside_text = False
 
     with file.open(encoding="utf-8") as fh:
         for line in fh:
-            line = line.strip()
-            if line == "<page>":
-                is_element = True
-            elif line == "</page>":
-                yield "\n".join(element)
-                element = []
-                is_element = False
-            elif is_element:
+            if not is_title_found:
+                if "<title" in line:
+                    element.append(line)
+                    is_title_found = True
+            elif is_inside_text:
                 element.append(line)
+                if "/text>" in line:
+                    yield "".join(element)
+                    is_title_found = False
+                    is_inside_text = False
+                    element = []
+            elif "<text" in line:
+                element.append(line)
+                is_inside_text = True
 
 
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
