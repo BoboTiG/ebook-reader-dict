@@ -11,7 +11,7 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
+head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}", "{{Sprache|International}}", "{{sprache|international}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
@@ -19,6 +19,7 @@ sections = (
     "{{Aussprache}",
     "{{Bedeutungen}",
     "{{Grundformverweis ",
+    "{{Wortart|Symbol|International}",
 )
 
 # Variants

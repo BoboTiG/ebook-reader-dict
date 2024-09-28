@@ -11,6 +11,17 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "@",
+            [],
+            [],
+            [],
+            [
+                "<i>Informatik (seit 1972):</i> das At; notwendiger Bestandteil und Trennzeichen zwischen Benutzername und Domainname bei E-Mail-Adressen",
+                "<i>Informatik:</i> das At; Syntax-Bestandteil einiger Programmiersprachen (beispielsweise als Präfix vor Array-Variablen in der Programmiersprache Perl)",
+            ],
+            [],
+        ),
+        (
             "CIA",
             ["[siːaɪ̯ˈɛɪ̯]"],
             ["mf"],
