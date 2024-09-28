@@ -37,7 +37,7 @@ def xml_iter_parse(file: Path) -> Generator[str, None, None]:
 
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
-    title_match = next(RE_TITLE(element, endpos=256))
+    title_match = next(RE_TITLE(element))
     for text_match in RE_TEXT(element, pos=element.find("<text ", title_match.endpos)):
         wikicode = text_match[1]
         if any(section in wikicode for section in head_sections[locale]):
