@@ -159,7 +159,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
 
     items = [parsed_section.contents]
     match locale:
-        case "da" | "no":
+        case "da":
             items = get_items(("#", ":"))
         case "de":
             items = get_items((":",))
@@ -191,6 +191,8 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
             return definitions
         case "it":
             items = get_items(("",), skip=("=== {{etim",))
+        case "no":
+            items = get_items(("#", ":", r"\*"))
         case "pt":
             items = get_items((r"[:]", r"\*"))
         case "ro":
@@ -309,11 +311,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]][[something|else]]", "es")
     '[[something|else]]'
     >>> adjust_wikicode("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]][[something|else]]", "es")
-    '][[something|else]]'
+    '[[something|else]]'
     >>> adjust_wikicode("[[Archivo:Diagrama bicicleta.svg|400px|miniaturadeimagen|'''Partes de una bicicleta:'''<br>\n[[asiento]] o [[sillín]], [[cuadro]]{{-sub|8}}, [[potencia]], [[puño]]{{-sub|4}}, [[cuerno]], [[manubrio]], [[telescopio]], [[horquilla]], [[amortiguador]], [[frenos]], [[tijera]], [[rueda]], [[rayos]], [[buje]], [[llanta]], [[cubierta]], [[válvula]], [[pedal]], [[viela]], [[cambio]], [[plato]]{{-sub|5}} o [[estrella]], [[piñón]], [[cadena]], [[tija]], [[tubo de asiento]], [[vaina]].]]\n\n[[something|else]]", "es")
     '\n\n[[something|else]]'
     >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
     '[[something|else]]'
+
+    >>> adjust_wikicode("----", "no")
+    ''
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -324,16 +329,24 @@ def adjust_wikicode(code: str, locale: str) -> str:
         all_namespaces.add(namespace.lower())
     pattern = "|".join(iter(all_namespaces))
     code = re.sub(
-        # Courtesy of Casimir et Hippolyte from https://stackoverflow.com/q/79006887/1117028
+        # Courtesy of Casimir et Hippolyte & Wiktor Stribiżew from https://stackoverflow.com/q/79006887/1117028
         rf"""
-        \[\[ (?:{pattern}):
-        [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
-            (?:
-                \[\[
-                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )*
-                ]]
-                [^][]* (?: ] (?! ] ) [^][]* | \[ (?! \[ ) [^][]* )* 
-            )*
+        # Match [[
+        \[\[
+
+        # Namespace followed by :
+        (?:{pattern}):
+
+        # Match any chars other than [ and ], or any ] that is not immediately followed with another ], or a [
+        # that is not immediately followed with [ or one or more digits + ]
+        [^][]*(?:](?!])[^][]*|\[(?!\[|\d+\])[^][]*)*
+
+        # Match zero or more occurrences of either [+digit(s)+], or strings between [[ and ]] and then any chars
+        # other than [ and ], or any ] that is not immediately followed with another ], or a [ that is not immediately
+        # followed with [ or one or more digits + ]
+        (?:(?:\[\d+\]|\[\[[^][]*(?:](?!])[^][]*|\[(?!\[)[^][]*)*\]\])[^][]*(?:](?!])[^][]*|\[(?!\[|\d+\])[^][]*)*)*
+
+        # Match ]]
         ]]
         """,
         "",
@@ -375,6 +388,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
                 code,
                 flags=re.MULTILINE,
             )
+
+    elif locale == "no":
+        code = code.replace("----", "")
 
     elif locale == "ro":
         locale = "ron"
@@ -472,7 +488,7 @@ def load(file: Path) -> dict[str, str]:
     """Load the JSON file containing all words and their details."""
     with file.open(encoding="utf-8") as fh:
         words: dict[str, str] = json.load(fh)
-    log.info(">>> Loaded %d words from %s", len(words), file)
+    log.info("Loaded %s words from %s", f"{len(words):,}", file)
     return words
 
 
@@ -507,7 +523,7 @@ def save(snapshot: str, words: Words, output_dir: Path) -> None:
     raw_data = output_dir / f"data-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-    log.info(">>> Saved %d words into %s", len(words), raw_data)
+    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
 
 
 def get_latest_json_file(output_dir: Path) -> Path | None:
@@ -522,10 +538,10 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        log.error(">>> No dump found. Run with --parse first ... ")
+        log.error("No dump found. Run with --parse first ... ")
         return 1
 
-    log.info(">>> Loading %s ...", file)
+    log.info("Loading %s ...", file)
     in_words: dict[str, str] = load(file)
 
     workers = workers or multiprocessing.cpu_count()
@@ -536,5 +552,5 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
-    log.info(">>> Render done!")
+    log.info("Render done!")
     return 0

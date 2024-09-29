@@ -1,0 +1,43 @@
+{{Abschnitte fehlen|Deutsch}}
+== @ ({{Sprache|International}}) ==
+{{überarbeiten|Die im Folgenden genannten (angeblich ''[[international]]en'') ''[[Hilfe:Synonyme|Synonyme]]'' (wie bspw. „[[Affenohr]]“, „[[Affenschaukel]]“ und „[[Klammeraffe]]“, siehe ggf. auch unter {{Ref-Duden|__at_Zeichen_E_Mails|@}}) in einem eigenen (Deutsch-)Abschnitt einarbeiten und/oder die (deutschsprachigen) ''Synonyme'' entsprechend (also als ''international'' anerkannt) [[Hilfe:Belege|belegen]].|International}}
+=== {{Wortart|Symbol|International}} ===
+
+{{Symbol Übersicht
+|Bezeichnung=commercial at
+|Block=Basis-Lateinisch
+|Nummer=0040
+|TeX1=  \@
+|TeX-Ref=ja
+|HTML-dez=&amp;#64;
+|HTML-hex=&amp;#x0040;
+|Morse= · − − · − ·
+|Bild=At sign.svg|mini|1|das At-Zeichen
+}}
+
+{{Bedeutungen}}
+:[1] ''[[Informatik]] (seit 1972):'' das [[At]]; [[notwendig]]er [[Bestandteil]] und [[Trennzeichen]] zwischen [[Benutzername]] und [[Domain]]name bei [[E-Mail-Adresse]]n
+:[2] ''Informatik:'' das [[At]]; [[Syntax]]-Bestandteil einiger [[Programmiersprache]]n (beispielsweise als Präfix vor [[Array]]-Variablen in der Programmiersprache [[Perl]])
+
+{{QS Herkunft|fehlt}}
+
+{{Synonyme}}
+:[1] [[At]], [[At-Symbol]], [[At-Zeichen]], [[at sign]], [[Ad-Zeichen]], [[Ad]], [[Affenschwanz]], [[Affenohr]], [[Affenschaukel]], [[Alef]], [[Astat]], [[Klammeraffe]]
+
+{{Beispiele}}
+:[1] Die E-Mail-Adresse lautet abcde''@''xyz.de.
+:[2] <code>my ''@''teile = split m[/], $unixpfad;</code>
+
+==== {{Übersetzungen}} ====
+{{Ü-Tabelle|*|G=Übersetzungen umgeleitet|Ü-Liste=
+:{{Übersetzungen umleiten|1|At-Zeichen|}}
+}}
+
+{{Referenzen}}
+:[1, 2] {{Wikipedia|At-Zeichen}}, Weiterleitung von [[w:@|@]]
+:[1] {{Lit-Duden: Rechtschreibung|V=|A=24}}, Seite 151
+
+{{Quellen}}
+
+{{Ähnlichkeiten}}
+:[[§]], [[&]], [[a]], [[e]], [[€]]

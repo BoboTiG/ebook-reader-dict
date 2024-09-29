@@ -7,17 +7,20 @@ import logging
 import os
 import re
 import urllib.parse
+import warnings
 from functools import partial
 from time import sleep
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from requests.exceptions import RequestException
 
 from .render import MISSING_TPL_SEEN, parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
 from .utils import get_random_word
+
+warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 # Remove all kind of spaces and some unicode characters
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
@@ -262,6 +265,11 @@ def filter_html(html: str, locale: str) -> str:
             if small.find("a", {"title": "Wikipedia"}) or small.find("a", {"title": "Wikiquote"}):
                 small.decompose()
 
+    elif locale == "no":
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     elif locale == "pt":
         # Issue 600: remove superscript locales
         for sup in bs.find_all("sup"):
@@ -371,9 +379,9 @@ def check_word(word: str, locale: str) -> int:
         errors = len(results)
         for result in results:
             log.error(result)
-        log.warning(">>> [%s] - Errors: %s", word, errors)
+        log.warning("[%s] - Errors: %s", word, errors)
     else:
-        log.debug(">>> [%s] - OK", word)
+        log.debug("[%s] - OK", word)
 
     return errors
 

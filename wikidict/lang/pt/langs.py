@@ -651,6 +651,7 @@ langs = {
     "ktk": "Kaniet",
     "ktn": "Caritiana",
     "kto": "Kuot",
+    "ktu": "Kituba",
     "ku": "Curdo",
     "kud": "Auhelawa",
     "kum": "Kumyk",
@@ -1487,5 +1488,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,482
+}  # 1,483
 # END

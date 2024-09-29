@@ -320,11 +320,11 @@ def italic(text: str) -> str:
     return f"<i>{text}</i>"
 
 
-def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
+def lookup_italic(tpl: str, locale: str, empty_default: bool = False) -> str:
     """
-    Find the *word* from the *templates_italic* table of the given *locale*.
+    Find the *tpl* from the *templates_italic* table of the given *locale*.
 
-    If the *word* is not found, it is returned as-is.
+    If the *tpl* is not found, it is returned as-is.
 
         >>> lookup_italic("", "fr")
         ''
@@ -339,12 +339,12 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
     """
     from .lang import templates_italic
 
-    default = "" if empty_default else word
-    looking_for = word
+    default = "" if empty_default else tpl
+    looking_for = tpl
 
     if locale == "pt":
-        looking_for = capitalize(word)
-        default = word
+        looking_for = capitalize(tpl)
+        default = tpl
 
     return templates_italic[locale].get(looking_for, default)
 

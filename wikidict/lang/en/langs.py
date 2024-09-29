@@ -698,7 +698,7 @@ langs = {
     "aww": "Awun",
     "awx": "Awara",
     "awy": "Edera Awyu",
-    "axb": "Abipon",
+    "axb": "Abipón",
     "axe": "Ayerrerenge",
     "axg": "Mato Grosso Arára",
     "axk": "Aka (Central Africa)",
@@ -4437,7 +4437,7 @@ langs = {
     "lel": "Lele (Congo)",
     "lem": "Nomaande",
     "len": "Honduran Lenca",
-    "leo": "Leti (Cameroon)",
+    "leo": "Mengisa",
     "lep": "Lepcha",
     "leq": "Lembena",
     "ler": "Lenkau",
@@ -4645,7 +4645,7 @@ langs = {
     "ltc-ear": "Early Middle Chinese",
     "ltc-lat": "Late Middle Chinese",
     "ltg": "Latgalian",
-    "lti": "Leti (Indonesia)",
+    "lti": "Leti",
     "ltn": "Latundê",
     "lto": "Olutsotso",
     "lts": "Lutachoni",
@@ -6542,6 +6542,10 @@ langs = {
     "pkt": "Maleng",
     "pku": "Paku",
     "pl": "Polish",
+    "pl-gor": "Goral",
+    "pl-gre": "Greater Polish",
+    "pl-les": "Lesser Polish",
+    "pl-mas": "Masovian Polish",
     "pla": "Miani",
     "plb": "Polonombauk",
     "plc": "Central Palawano",
@@ -7153,6 +7157,7 @@ langs = {
     "sai-gam": "Gamela",
     "sai-gay": "Gayón",
     "sai-gmo": "Guamo",
+    "sai-gua": "Guachí",
     "sai-guc": "Guaicuruan",
     "sai-gue": "Güenoa",
     "sai-guh": "Guahiban",
@@ -9714,7 +9719,6 @@ langs = {
     "zls": "South Slavic",
     "zlw": "West Slavic",
     "zlw-lch": "Lechitic",
-    "zlw-mas": "Masurian",
     "zlw-mpl": "Middle Polish",
     "zlw-ocs": "Old Czech",
     "zlw-opl": "Old Polish",
@@ -9818,7 +9822,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,813
+}  # 9,817
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

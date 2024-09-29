@@ -92,7 +92,10 @@ def get_random_word(locale: str) -> str:
     with requests.get(url) as req:
         word = str(req.json()["query"]["random"][0]["title"])
 
-    log.debug("🎯 word = %r", word)
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"word={word}\n".encode())
+
     return word
 
 
@@ -225,6 +228,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>")
         'bla bla bla'
+        >>> clean("<ref>{{Lit-Pfeifer: Etymologisches Wörterbuch|A=8}}, Seite 1551, Eintrag „Wein“<br />siehe auch: {{Literatur | Online=zitiert nach {{GBS|uEQtBgAAQBAJ|PA76|Hervorhebung=Wein}} | Autor=Corinna Leschber| Titel=„Wein“ und „Öl“ in ihren mediterranen Bezügen, Etymologie und Wortgeschichte | Verlag=Frank & Timme GmbH | Ort= | Jahr=2015 | Seiten=75–81 | Band=Band 24 von Forum: Rumänien, Culinaria balcanica, herausgegeben von Thede Kahl, Peter Mario Kreuter, Christina Vogel | ISBN=9783732901388}}.")
+        ''
         >>> clean('<ref name="CFC" />')
         ''
         >>> clean('<ref name="CFC">{{Import:CFC}}</ref>')
@@ -234,6 +239,8 @@ def clean(text: str, locale: str = "en") -> str:
         >>> clean("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
         ''
         >>> clean("<ref>")
+        ''
+        >>> clean("</ref>")
         ''
         >>> clean("''italic''")
         '<i>italic</i>'
@@ -311,12 +318,14 @@ def clean(text: str, locale: str = "en") -> str:
     # Parser hooks
     # <ref name="CFC"/> -> ''
     text = sub(r"<ref[^>]*/>", "", text)
+    # <ref>foo -> ''
     # <ref>foo</ref> -> ''
     # <ref name="CFC">{{Import:CFC}}</ref> -> ''
     # <ref name="CFC"><tag>...</tag></ref> -> ''
-    text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
+    text = sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", text)
     # <ref> -> ''
-    text = text.replace("<ref>", "")
+    # </ref> -> ''
+    text = text.replace("<ref>", "").replace("</ref>", "")
 
     # HTML
     # <-- foo --> -> ''
