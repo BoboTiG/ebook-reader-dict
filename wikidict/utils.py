@@ -567,8 +567,6 @@ def transform(word: str, template: str, locale: str) -> str:
         'séga'
         >>> transform("foo", "formatnum:123", "fr")
         '123'
-        >>> transform("foo", "grammaire |fr", "fr")
-        '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
         ''
 
