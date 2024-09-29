@@ -13,7 +13,7 @@ from .lang import head_sections
 
 log = logging.getLogger(__name__)
 
-RE_TEXT = re.compile(r"<text[^>]+>(.*)</text>", flags=re.DOTALL).finditer
+RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
 RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 
 
@@ -38,7 +38,7 @@ def xml_iter_parse(file: Path) -> Generator[str, None, None]:
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
     title_match = next(RE_TITLE(element))
-    for text_match in RE_TEXT(element, pos=element.find("<text ", title_match.endpos)):
+    for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
         wikicode = text_match[1]
         if any(section in wikicode for section in head_sections[locale]):
             return title_match[1], wikicode
