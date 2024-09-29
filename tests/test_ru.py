@@ -106,6 +106,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{зоол.|ru}}", "<i>зоол.</i>"),
         ("{{этимология:страница|да}}", ""),
     ],
 )
