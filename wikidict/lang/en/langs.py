@@ -9719,7 +9719,6 @@ langs = {
     "zls": "South Slavic",
     "zlw": "West Slavic",
     "zlw-lch": "Lechitic",
-    "zlw-mas": "Masurian",
     "zlw-mpl": "Middle Polish",
     "zlw-ocs": "Old Czech",
     "zlw-opl": "Old Polish",
@@ -9823,7 +9822,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,818
+}  # 9,817
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

@@ -657,6 +657,7 @@ regions = {
     "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
+    "mantois": "Mantois",
     "nord de l’Angleterre": "Nord de l’Angleterre",
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
@@ -678,7 +679,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 673
+}  # 674
 # END
 
 # handled differently
