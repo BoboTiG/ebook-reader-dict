@@ -45,6 +45,8 @@ templates_ignored = ("семантика", "unfinished")
 templates_multi = {
     # {{зоол.|ru}}
     "зоол.": "italic('зоол.')",
+    # {{сленг|ru}}
+    "сленг": "italic('сленг')",
     #
     # For variants
     #
