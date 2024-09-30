@@ -25,7 +25,7 @@
 
 ## Development
 
-Setup a virtual environment:
+Set up a virtual environment:
 
 ```bash
 python3.12 -m venv venv
@@ -60,7 +60,7 @@ Run linters, and quality checkers, before submitting a pull-request:
 ./check.sh
 ```
 
-## Contributors ✨
+## Contributors 💖
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
@@ -103,3 +103,24 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Stars ✨
+
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="
+      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date&theme=dark
+    "
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="
+      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date
+    "
+  />
+  <img
+    alt="Star History Chart"
+    src="https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date"
+  />
+</picture>
