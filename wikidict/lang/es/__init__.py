@@ -91,6 +91,7 @@ templates_ignored = (
     "ejemplo requerido",
     "elemento químico",
     "inflect.es.sust.ad-lib",
+    "inflect.es.sust.agudo-cons",
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
