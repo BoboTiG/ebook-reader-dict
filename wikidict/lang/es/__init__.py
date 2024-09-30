@@ -28,6 +28,7 @@ sections = (
     "Forma adjetiva y de participio",  # for variants, see render.find_section_definitions
     "Forma verbal",  # for variants, see render.find_section_definitions
     "{{interjección",
+    "{{locución",
     "{{onomatopeya",
     "{{prefijo",
     "{{preposición",

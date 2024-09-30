@@ -31,6 +31,15 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "buque_mercante",
+            [],
+            [],
+            [
+                "<i>(Náutica, comercio)</i>: Buque que pertenece a persona o empresa particular, y que se emplea en la conducción de pasajeros y mercancías."
+            ],
+            [],
+        ),
+        (
             "cartel",
             [],
             ["Del occitano <i>cartel</i>."],
