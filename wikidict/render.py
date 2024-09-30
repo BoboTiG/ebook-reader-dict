@@ -319,6 +319,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("----", "no")
     ''
+
+    >>> adjust_wikicode("<!-- {{sco}} -->", "fr")
+    ''
+    >>> adjust_wikicode("<!--<i>sco</i> -->", "fr")
+    ''
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -353,6 +358,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code,
         flags=re.VERBOSE,
     )
+
+    # HTML comments
+    # <!-- foo --> -> ''
+    code = re.sub(r"<!--(?:.+-->)?", "", code)
 
     if locale == "da":
         # {{=da=}} -> =={{da}}==

@@ -279,10 +279,6 @@ def clean(text: str, locale: str = "en") -> str:
         >>> clean("[[http://www.tv5monde.com/cms/chaine-francophone/lf/Merci-Professeur/p-17081-Une-peur-bleue.htm?episode=10 Voir aussi l’explication de Bernard Cerquiglini en images]]")
         ''
 
-        >>> clean("<!-- {{sco}} -->")
-        ''
-        >>> clean("<!-- <i>sco</i> -->")
-        ''
         >>> clean('<ref name="Marshall 2001"><sup>he</sup></ref>')
         ''
         >>> clean("<nowiki/>")
@@ -328,8 +324,6 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("<ref>", "").replace("</ref>", "")
 
     # HTML
-    # <-- foo --> -> ''
-    text = sub(r"<!--(?:.+-->)?", "", text)
     # Source: https://github.com/5j9/wikitextparser/blob/b24033b/wikitextparser/_wikitext.py#L83
     text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
     # ''foo'' -> <i>foo></i>
