@@ -3343,6 +3343,7 @@ langs = {
     "inc-ash": "Ashokan Prakrit",
     "inc-ata": "Takka Apabhramsa",
     "inc-avr": "Vracada Apabhramsa",
+    "inc-bas": "Bengali–Assamese",
     "inc-bhi": "Bhil",
     "inc-bih": "Bihari",
     "inc-cen": "Central Indo-Aryan",
@@ -3350,6 +3351,7 @@ langs = {
     "inc-dar": "Dardic",
     "inc-dre": "Eastern Dardic",
     "inc-eas": "Eastern Indo-Aryan",
+    "inc-hal": "Halbic",
     "inc-hie": "Eastern Hindi",
     "inc-hiw": "Western Hindi",
     "inc-hnd": "Hindustani",
@@ -3385,6 +3387,7 @@ langs = {
     "inc-shn": "Shinaic",
     "inc-snd": "Sindhi",
     "inc-sou": "Southern Indo-Aryan",
+    "inc-tha": "Tharu",
     "inc-wes": "Western Indo-Aryan",
     "ine": "Indo-European",
     "ine-ana": "Anatolian",
@@ -9822,7 +9825,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,817
+}  # 9,820
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
