@@ -2512,11 +2512,14 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*a**@ũ": "jalousie",
         "ar-*a**u": "autre que",
+        "ar-*a**ânu": "jaloux",
+        "ar-*a**é": "jalouse",
         "ar-*a**ũ": "changement",
         "ar-*a*a*a-a": "être jaloux",
         "ar-*a*a*a-i": "procurer",
         "ar-*a*a*ũ": "jalousie",
         "ar-*a*²a*a": "changer",
+        "ar-*a*â*é": "{{p}} jalouses",
         "ar-*a*â*ũ": "apport",
         "ar-*a*û*ũ": "jaloux",
         "ar-*i**@ũ": "subsistance",
@@ -2524,6 +2527,7 @@ racines_schemes_arabes = {
         "ar-*i*a*ũ": "vicissitudes",
         "ar-*i*â*ũ": "marque distinctive",
         "ar-*ta*a*a": "s'approvisionner",
+        "ar-*u*â*é": "{{p}} jaloux",
         "ar-*â*a*a": "faire échange",
         "ar-a**a*a": "rendre jaloux",
         "ar-a**â*ũ": "{{p}} changements",
@@ -2539,7 +2543,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être changé",
         "ar-ta*a*²u*ũ": "changement",
         "ar-ta*â*a*a": "se jalouser",
-    },  # 32
+    },  # 36
     "ar-Rzl": {
         "aa_sens": "embobiner, marivauder",
         "ar-***ũ": "",
