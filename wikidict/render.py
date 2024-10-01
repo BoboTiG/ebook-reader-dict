@@ -327,7 +327,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
-    # [[File:...|...]] -> ''
+    # [[File:...|...]] → ''
     all_namespaces = set()
     for namespace in namespaces[locale] + namespaces["en"]:
         all_namespaces.add(namespace)
@@ -360,15 +360,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
 
     # HTML comments
-    # <!-- foo --> -> ''
+    # <!-- foo --> → ''
     code = re.sub(r"<!--(?:.+-->)?", "", code)
 
     if locale == "da":
-        # {{=da=}} -> =={{da}}==
+        # {{=da=}} → =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     elif locale == "de":
-        # {{Bedeutungen}} -> === {{Bedeutungen}} ===
+        # {{Bedeutungen}} → === {{Bedeutungen}} ===
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # Definition lists are not well supported by the parser, replace them by numbered lists
@@ -376,7 +376,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         #       contains an empty item.
         code = re.sub(r":\[\d+\][ ]*", "# ", code)
 
-        # {{!}} -> "|"
+        # {{!}} → "|"
         code = code.replace("{{!}}", "|")
 
     elif locale == "en":
@@ -384,7 +384,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
 
     elif locale == "es":
-        # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
+        # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale == "it":
@@ -404,7 +404,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale == "ro":
         locale = "ron"
 
-        # {{-avv-|ANY|ANY}} -> === {{avv|ANY|ANY}} ===
+        # {{-avv-|ANY|ANY}} → === {{avv|ANY|ANY}} ===
         code = re.sub(
             r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
             r"=== {{\1|\2|\3}} ===",
@@ -414,17 +414,17 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # Try to convert old Wikicode
         if "==Romanian==" in code:
-            # ==Romanian== -> == {{limba|ron}} ==
+            # ==Romanian== → == {{limba|ron}} ==
             code = code.replace("==Romanian==", "== {{limba|ron}} ==")
 
-            # ===Adjective=== -> === {{Adjective}} ===
+            # ===Adjective=== → === {{Adjective}} ===
             code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-        # ===Verb tranzitiv=== -> === {{Verb tranzitiv}} ===
+        # ===Verb tranzitiv=== → === {{Verb tranzitiv}} ===
         code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # Hack for a fake variants support because RO doesn't use templates most of the time
-        # `#''forma de feminin singular pentru'' [[frumos]].` -> `# {{forma de feminin singular pentru|frumos}}`
+        # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{forma de feminin singular pentru|frumos}}`
         code = re.sub(
             r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
             r"\1{{\2|\3}}",
@@ -433,7 +433,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         )
 
     if locale in {"it", "ron", "da"}:
-        # {{-avv-|it}} -> === {{avv}} ===
+        # {{-avv-|it}} → === {{avv}} ===
         code = re.sub(
             rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
             r"=== {{\1}} ===",
@@ -441,13 +441,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
             flags=re.MULTILINE,
         )
 
-        # {{-avv-|ANY}} -> === {{avv|ANY}} ===
+        # {{-avv-|ANY}} → === {{avv|ANY}} ===
         code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
-        # {{-avv-}} -> === {{avv}} ===
+        # {{-avv-}} → === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-        # {{!}} -> "|"
+        # {{!}} → "|"
         code = code.replace("{{!}}", "|")
 
     return code

@@ -312,46 +312,46 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("\n", "")
 
     # Parser hooks
-    # <ref name="CFC"/> -> ''
+    # <ref name="CFC"/> → ''
     text = sub(r"<ref[^>]*/>", "", text)
-    # <ref>foo -> ''
-    # <ref>foo</ref> -> ''
-    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    # <ref name="CFC"><tag>...</tag></ref> -> ''
+    # <ref>foo → ''
+    # <ref>foo</ref> → ''
+    # <ref name="CFC">{{Import:CFC}}</ref> → ''
+    # <ref name="CFC"><tag>...</tag></ref> → ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", text)
-    # <ref> -> ''
-    # </ref> -> ''
+    # <ref> → ''
+    # </ref> → ''
     text = text.replace("<ref>", "").replace("</ref>", "")
 
     # HTML
     # Source: https://github.com/5j9/wikitextparser/blob/b24033b/wikitextparser/_wikitext.py#L83
     text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
-    # ''foo'' -> <i>foo></i>
+    # ''foo'' → <i>foo></i>
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
-    # <br> / <br /> -> ''
+    # <br> / <br /> → ''
     text = sub(r"<br[^>]+/?>", "", text)
 
-    # <nowiki/> -> ''
+    # <nowiki/> → ''
     text = text.replace("<nowiki/>", "")
 
     # <gallery>
     text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
 
     # Local links
-    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
+    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] → a
 
     # Links
-    # Internal: [[{{a|b}}]] -> {{a|b}}
+    # Internal: [[{{a|b}}]] → {{a|b}}
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
-    # Internal: [[a|b]] -> b
+    # Internal: [[a|b]] → b
     text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)
-    # External: [[http://example.com Some text]] -> ''
+    # External: [[http://example.com Some text]] → ''
     text = sub(r"\[\[https?://[^\s]+\s[^\]]+\]\]", "", text)
-    # External: [http://example.com] -> ''
+    # External: [http://example.com] → ''
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # External: [http://example.com Some text] -> 'Some text'
+    # External: [http://example.com Some text] → 'Some text'
     text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
-    # External: [//example.com Some text] -> 'Some text'
+    # External: [//example.com Some text] → 'Some text'
     text = sub(r"\[//[^\s]+\s([^\]]+)\]", r"\1", text)
     text = text.replace("[[", "").replace("]]", "")
 
@@ -360,7 +360,7 @@ def clean(text: str, locale: str = "en") -> str:
     text = sub(r"{\|[^}]+\|}", "", text)
 
     # Headings
-    # == a == -> a
+    # == a == → a
     text = sub(r"^=+\s?([^=]+)\s?=+", lambda matches: matches.group(1).strip(), text)
 
     # Lists
@@ -377,15 +377,15 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace(" ]", "")
 
     # Remove empty HTML tags
-    # <sup></sup> -> ''
+    # <sup></sup> → ''
     text = sub(r"<([^>]+)></\1>", "", text)
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
-    # <<bar>> -> foo
-    # <<foo/bar>> -> bar
+    # <<bar>> → foo
+    # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
