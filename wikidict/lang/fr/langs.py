@@ -1884,6 +1884,7 @@ langs = {
     "grc": "grec ancien",
     "grd": "guruntum",
     "grec cargésien": "grec cargésien",
+    "grec chypriote": "grec chypriote",
     "grg": "madi",
     "grh": "gbiri-niragu",
     "gri": "ghari",
@@ -6465,5 +6466,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,460
+}  # 6,461
 # END
