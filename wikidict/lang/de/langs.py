@@ -499,6 +499,7 @@ langs = {
     "rn": "Kirundi",
     "ro": "Rumänisch",
     "rom": "Romani",
+    "rsk": "Pannonisch-Russinisch",
     "ru": "Russisch",
     "rue": "Karpato-Russinisch",
     "ruo": "Istrorumänisch",
@@ -688,5 +689,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 683
+}  # 684
 # END

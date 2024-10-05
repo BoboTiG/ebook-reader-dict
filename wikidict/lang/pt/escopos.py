@@ -318,6 +318,7 @@ escopos = {
     "Porto": "Porto",
     "Porto Rico": "Porto Rico",
     "Portugal": "Portugal",
+    "Portuguesismo": "portuguesismo",
     "Português brasileiro": "Brasil",
     "Português lusitano": "Portugal",
     "Pouco comum": "pouco comum",
@@ -438,5 +439,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 433
+}  # 434
 # END
