@@ -1906,6 +1906,7 @@ labels = {
     "often": "often",
     "oil drilling": "oil industry",
     "oil industry": "oil industry",
+    "old-fashioned": "dated",
     "oncology": "oncology",
     "online": "Internet",
     "online games": "online gaming",
@@ -2475,7 +2476,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,470
+}  # 2,471
 
 syntaxes = {
     "&": {
