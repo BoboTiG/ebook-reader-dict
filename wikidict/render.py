@@ -47,9 +47,8 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 Sections = dict[str, list[wtp.Section]]
 
 # Multiprocessing shared globals, init in render() see #1054
-MANAGER = ""
-LOCK = multiprocessing.Lock()
-MISSING_TPL_SEEN: list[str] = []
+MANAGER = multiprocessing.Manager()
+MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
 
 log = logging.getLogger(__name__)
 
@@ -513,16 +512,26 @@ def render_word(w: list[str], words: Words, locale: str) -> None:
 
 
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
-    # Skip not interesting words early as the parsing is quite heavy
-    sections = head_sections[locale]
-    in_words = {word: code for word, code in in_words.items() if any(head_section in code for head_section in sections)}
-
-    MANAGER = multiprocessing.Manager()
-    MISSING_TPL_SEEN = MANAGER.list()  # noqa: F841
     results: Words = cast(dict[str, Word], MANAGER.dict())
 
     with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
+
+    if MISSING_TEMPLATES:
+        missings_counts: dict[str, int] = defaultdict(int)
+        missings: dict[str, list[str]] = defaultdict(list)
+        for tpl, word in MISSING_TEMPLATES:
+            missings_counts[tpl] += 1
+            missings[tpl].append(word)
+        for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
+            words = missings[tpl]
+            log.warning(
+                "Missing %r template support (%s times), example in: %s",
+                tpl,
+                f"{len(words):,}",
+                ", ".join(f'"{word}"' for word in words[:3]),
+            )
+        log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
 
     return results.copy()
 

@@ -89,17 +89,15 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     # {{tpl|item1|item2|...}} -> ''
     if len(template) > 2:
-        from ..render import MISSING_TPL_SEEN
+        from ..render import MISSING_TEMPLATES
 
-        if tpl not in MISSING_TPL_SEEN:
-            MISSING_TPL_SEEN.append(tpl)
-            log.warning(" !! Missing %r template support for word %r", tpl, word)
+        MISSING_TEMPLATES.append((tpl, word))
         return ""
 
     # {{template}}
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
-    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}" if tpl else ""
+    return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 
 def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
