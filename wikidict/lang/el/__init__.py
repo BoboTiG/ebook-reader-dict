@@ -292,8 +292,25 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'μαλλί + -ης'
         >>> last_template_handler(["πρόσφ", "μαλλί", ".1=μαλλ(ί)", "-ης"], "el")
         'μαλλ(ί) + -ης'
+
+        >>> last_template_handler(["βλ"], "el")
+        '<i>→ δείτε τη λέξη</i>'
+        >>> last_template_handler(["βλ", "και=1"], "el")
+        '<i>→ και δείτε τη λέξη</i>'
+        >>> last_template_handler(["βλ", "και=2"], "el")
+        '<i>→ δείτε και τη λέξη</i>'
+        >>> last_template_handler(["βλ", "πθ=1"], "el")
+        '<i>→ δείτε παράθεμα στο</i>'
+        >>> last_template_handler(["βλ", "πθ=1", "και=2"], "el")
+        '<i>→ δείτε και παράθεμα στο</i>'
+        >>> last_template_handler(["βλ", "όρος=1"], "el")
+        '<i>→ δείτε τους όρους</i>'
+        >>> last_template_handler(["βλ", "όρος=..."], "el")
+        '<i>→ δείτε ...</i>'
+        >>> last_template_handler(["βλ", "όρος=1", "γλ=en", "a", "b", "c"], "el")
+        '<i>→ δείτε τους όρους</i> a, b<i> και </i>c'
     """
-    from ...user_functions import italic, strong
+    from ...user_functions import concat, italic, strong
     from .. import defaults
     from .langs import langs
 
@@ -406,6 +423,27 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         words = []
         for idx, part in enumerate(parts, 1):
             words.append(data[f".{idx}"] or part)
-        return " + ".join(words)
+        return concat(words, sep=" + ")
+
+    if tpl == "βλ":
+        text = "→"
+        no_prefix = "πθ" not in data and "όρος" not in data
+
+        if data["και"] == "1":
+            text += " και"
+        if data["0"] != "-":
+            text += " δείτε"
+        if data["και"] == "2":
+            text += " και"
+        if no_prefix:
+            text += " τις λέξεις" if len(parts) > 1 else " τη λέξη"
+
+        if data["πθ"]:
+            text += " παράθεμα στο"
+        elif όρος := data["όρος"]:
+            text += f" {'τους όρους' if όρος == '1' else όρος}"
+
+        following = (" " + concat(parts, sep=", ", last_sep=italic(" και "))) if parts else ""
+        return f"{italic(text)}{following}"
 
     return defaults.last_template_handler(template, locale, word=word)
