@@ -88,6 +88,8 @@ templates_ignored = (
     "clear",
     "definición",
     "definición imprecisa",
+    "dicvis",
+    "dicvisdesc",
     "ejemplo",
     "ejemplo requerido",
     "elemento químico",
