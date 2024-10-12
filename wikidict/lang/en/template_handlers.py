@@ -1371,6 +1371,19 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
 
 
+def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_taxon("taxon", ["genus", "family", "Elephantidae"], defaultdict(str, {}))
+    'A taxonomic genus within the family Elephantidae.'
+    >>> render_taxon("taxon", ["genus", "family", "Elephantidae", "mammoth"], defaultdict(str, {}))
+    'A taxonomic genus within the family Elephantidae&nbsp;– mammoth.'
+    """
+    text = f"A taxonomic {parts[0]} within the {parts[1]} {parts[2]}"
+    if len(parts) > 3:
+        text += f"&nbsp;– {parts[3]}"
+    return f"{text}."
+
+
 def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_uncertain("unc", ["en"], defaultdict(str))
@@ -1529,6 +1542,7 @@ template_mapping = {
     "surface analysis": render_surface_analysis,
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
+    "taxon": render_taxon,
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,
     "ubor": render_foreign_derivation,
