@@ -32,7 +32,7 @@ from .lang import (
 from .namespaces import namespaces
 from .stubs import Definitions, SubDefinitions, Word, Words
 from .user_functions import uniq
-from .utils import process_templates, table2html
+from .utils import check_for_missing_templates, process_templates, table2html
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -517,22 +517,6 @@ def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
     with multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
-    if MISSING_TEMPLATES:
-        missings_counts: dict[str, int] = defaultdict(int)
-        missings: dict[str, list[str]] = defaultdict(list)
-        for tpl, word in MISSING_TEMPLATES:
-            missings_counts[tpl] += 1
-            missings[tpl].append(word)
-        for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
-            words = missings[tpl]
-            log.warning(
-                "Missing %r template support (%s times), example in: %s",
-                tpl,
-                f"{len(words):,}",
-                ", ".join(f'"{word}"' for word in words[:3]),
-            )
-        log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
-
     return results.copy()
 
 
@@ -566,6 +550,8 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
+
+    check_for_missing_templates()
 
     date = file.stem.split("-")[1]
     save(date, words, output_dir)

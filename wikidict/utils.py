@@ -3,7 +3,7 @@
 import logging
 import os
 import re
-from collections import namedtuple
+from collections import defaultdict, namedtuple
 from collections.abc import Callable
 from contextlib import suppress
 from datetime import UTC, datetime
@@ -64,6 +64,29 @@ OPEN_DOUBLE_CURLY = "##opendoublecurly##"
 CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 
 log = logging.getLogger(__name__)
+
+
+def check_for_missing_templates() -> bool:
+    from .render import MISSING_TEMPLATES
+
+    if not (missing_templates := list(MISSING_TEMPLATES)):
+        return False
+
+    missings_counts: dict[str, int] = defaultdict(int)
+    missings: dict[str, list[str]] = defaultdict(list)
+    for tpl, word in missing_templates:
+        missings_counts[tpl] += 1
+        missings[tpl].append(word)
+    for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
+        words = missings[tpl]
+        log.warning(
+            "Missing %r template support (%s times), example in: %s",
+            tpl,
+            f"{len(words):,}",
+            ", ".join(f'"{word}"' for word in words[:3]),
+        )
+    log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
+    return True
 
 
 def process_special_pipe_template(text: str) -> str:
