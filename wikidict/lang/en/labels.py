@@ -8,7 +8,6 @@ labels = {
     "&": "and",
     "+": "with",
     "-": "-",
-    "1811": "archaic, slang",
     "2ch slang": "2channel slang",
     "2channel": "2channel slang",
     "2channel slang": "2channel slang",
@@ -205,7 +204,6 @@ labels = {
     "Church of England": "Church of England",
     "Church of the East": "Church of the East",
     "Cincinnati": "Cincinnati",
-    "Classic 1811 Dictionary of the i Tongue": "archaic, slang",
     "Classical": "Classical",
     "Cockney": "Cockney",
     "Cockney rhyming slang": "Cockney rhyming slang",
@@ -2476,7 +2474,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,471
+}  # 2,469
 
 syntaxes = {
     "&": {
