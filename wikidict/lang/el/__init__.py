@@ -285,6 +285,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>άλλη γραφή του</i> <b>colour</b>'
         >>> last_template_handler(["γρ", "colour", "freestyle text", "en"], "el")
         '<i>freestyle text</i> <b>colour</b>'
+
+        >>> last_template_handler(["πρόσφ", "μαλλί", "-ης"], "el")
+        'μαλλί + -ης'
+        >>> last_template_handler(["πρόσφ", "μαλλί", ".1=μαλλ(ί)", "-ης"], "el")
+        'μαλλ(ί) + -ης'
     """
     from ...user_functions import italic, strong
     from .. import defaults
@@ -391,5 +396,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             "συνων": "συνώνυμο του",
         }.get(desc, desc)
         return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
+
+    if tpl in {"πρόσφ", "προσφ"}:
+        words = []
+        for idx, part in enumerate(parts, 1):
+            words.append(data[f".{idx}"] or part)
+        return " + ".join(words)
 
     return defaults.last_template_handler(template, locale, word=word)
