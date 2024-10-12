@@ -265,13 +265,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '(<i>ουσιαστικοποιημένο</i>)'
 
         >>> last_template_handler(["ετυμ", "ine-pro"], "el")
-        'πρωτοϊνδοευρωπαϊκή'
+        '<i>πρωτοϊνδοευρωπαϊκή</i>'
         >>> last_template_handler(["ετυμ", "gkm"], "el")
-        'μεσαιωνική ελληνική'
+        '<i>μεσαιωνική ελληνική</i>'
         >>> last_template_handler(["ετυμ", "μσν"], "el")
-        'μεσαιωνική ελληνική'
+        '<i>μεσαιωνική ελληνική</i>'
         >>> last_template_handler(["ετυμ", "grc", "el", "ἔλαιον"], "el")
-        'αρχαία ελληνική ἔλαιον'
+        '<i>αρχαία ελληνική</i> ἔλαιον'
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -388,7 +388,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return labels_output(data.get("text", ""), data)
 
     if tpl == "ετυμ":
-        text = f"{langs[parts[0]]['frm']}"
+        text = italic(str(langs[parts[0]]["frm"]))
         if len(parts) > 2:
             text += f" {parts[2]}"
         return text
