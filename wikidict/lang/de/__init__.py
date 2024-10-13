@@ -197,12 +197,11 @@ release_description = """\
 Anzahl Worte: {words_count}
 Wiktionary-Dump vom: {dump_date}
 
-Verfügbare Wörterbuch-Formate:
+Vollständige version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Version ohne etymologien:
+{download_links_noetym}
 
 <sub>Letzte Aktualisierung: {creation_date}.</sub>
 """

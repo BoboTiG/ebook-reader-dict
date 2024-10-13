@@ -125,12 +125,11 @@ release_description = """\
 Ordtælling: {words_count}
 Dump Wiktionary: {dump_date}
 
-Tilgængelige filer:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Etymology-free version:
+{download_links_noetym}
 
 <sub>Opdateret den {creation_date}</sub>
 """

@@ -207,12 +207,11 @@ release_description = """\
 Numero di parole: {words_count}
 Export Wiktionary: {dump_date}
 
-File disponibili:
+Versione completa:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Versione senza etimologia:
+{download_links_noetym}
 
 <sub>Aggiornato il {creation_date}</sub>
 """

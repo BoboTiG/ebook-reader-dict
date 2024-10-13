@@ -136,11 +136,18 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    # Download links
-    url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
-    url_dictorgfile = DOWNLOAD_URL_DICTORGFILE.format(locale)
-    url_kobo = DOWNLOAD_URL_KOBO.format(locale)
-    url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
+    download_links_full = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "")}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
+""".strip()
+    download_links_noetym = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "-noetym")}) (dicthtml-{locale}-{locale}-noetym.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "-noetym")}) (dictorg-{locale}-{locale}-noetym.zip)
+""".strip()
 
     creation_date = NOW.isoformat()
     return release_description[locale].format(**locals())

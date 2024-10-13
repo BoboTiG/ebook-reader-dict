@@ -13,19 +13,7 @@
 
 ## Downloads
 
-### Full Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dicthtml-da-da.zip) (dicthtml-da-da.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dict-da-da.zip) (dict-da-da.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dict-da-da.df.bz2) (dict-da-da.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dictorg-da-da.zip) (dictorg-da-da.zip)
-
-### Etymology-Free Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dicthtml-da-da-noetym.zip) (dicthtml-da-da-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dict-da-da-noetym.zip) (dict-da-da-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dict-da-da-noetym.df.bz2) (dict-da-da-noetym.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/da/dictorg-da-da-noetym.zip) (dict-da-da-noetym.zip)
+https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
 
 ## Installation
 

@@ -736,12 +736,11 @@ release_description = """\
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-Fichiers disponibles :
+Version complète :
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Version sans étymologies :
+{download_links_noetym}
 
 <sub>Mis à jour le {creation_date}</sub>
 """

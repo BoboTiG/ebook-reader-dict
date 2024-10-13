@@ -119,12 +119,11 @@ release_description = """\
 Les paraules compten: {words_count}
 Abocador Viccionari: {dump_date}
 
-Fitxers disponibles:
+Versió completa:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Versió sense etimologia:
+{download_links_noetym}
 
 <sub>Actualitzat el {creation_date}</sub>
 """

@@ -133,12 +133,11 @@ release_description = """\
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
-Tillgängliga filer:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Etymology-Free Version:
+{download_links_noetym}
 
 <sub>Uppdaterad på {creation_date}</sub>
 """

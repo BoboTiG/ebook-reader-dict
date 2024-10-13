@@ -60,12 +60,11 @@ release_description = """\
 Количество слов : {words_count}
 Экспорт Викисловаря : {dump_date}
 
-Доступные файлы :
+Полные версии :
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Версии без этимологии :
+{download_links_noetym}
 
 <sub>Обновлено по {creation_date}</sub>
 """

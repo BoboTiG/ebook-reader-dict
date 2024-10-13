@@ -171,12 +171,19 @@ release_description = """\
 Număr de cuvinte: {words_count}
 Extragerea datelor din Wikționar: {dump_date}
 
-Fișiere disponibile:
+Versiunea completă:
 
 - [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
 - [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
 - [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
 - [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+
+Versiune fără etimologie:
+
+- [Kobo]({url_kobo_noetym}) (dicthtml-{locale}-{locale}-noetym.zip)
+- [StarDict]({url_stardict_noetym}) (dict-{locale}-{locale}-noetym.zip)
+- [DictFile]({url_dictfile_noetym}) (dict-{locale}-{locale}-noetym.df.bz2)
+- [DICT.org]({url_dictorgfile_noetym}) (dictorg-{locale}-{locale}-noetym.zip)
 
 <sub>Ultima actualizare în {creation_date}</sub>
 """
