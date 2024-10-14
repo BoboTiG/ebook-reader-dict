@@ -15,10 +15,10 @@ import requests
 from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from requests.exceptions import RequestException
 
-from .render import MISSING_TPL_SEEN, parse_word
+from .render import parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
-from .utils import get_random_word
+from .utils import check_for_missing_templates, get_random_word
 
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
@@ -393,4 +393,5 @@ def main(locale: str, word: str) -> int:
     word = word or get_random_word(locale)
 
     res = check_word(word, locale)
-    return 1 if "CI" in os.environ and MISSING_TPL_SEEN else res
+    res_missing_tpl = check_for_missing_templates()
+    return 1 if "CI" in os.environ and res_missing_tpl else res

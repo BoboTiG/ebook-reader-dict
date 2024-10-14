@@ -36,6 +36,36 @@ def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     return f"({parts[0]})"
 
 
+def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_кавычки("кавычки", ["en", "love"], defaultdict(str))
+    '“love”'
+    """
+    match parts[0]:
+        case "da":
+            return f"»{parts[1]}«"
+        case "de":
+            return f"„{parts[1]}“"
+        case "el":
+            return f"“{parts[1]}„"
+        case "en":
+            return f"“{parts[1]}”"
+        case "es" | "ru" | "sr":
+            return f"«{parts[1]}»"
+        case "fi":
+            return f"”{parts[1]}”"
+        case "fr":
+            return f"«&nbsp;{parts[1]}&nbsp;»"
+        case "ja" | "zh":
+            return f"「{parts[1]}」"
+        case "pl":
+            return f"„{parts[1]}”"
+        case "sv":
+            return f"’{parts[1]}’"
+
+    return f'"{parts[1]}"'
+
+
 template_mapping = {
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
@@ -43,6 +73,7 @@ template_mapping = {
     "пример": get_example,
     "значение": get_definition,
     "помета": get_note,
+    "кавычки": render_кавычки,
 }
 
 

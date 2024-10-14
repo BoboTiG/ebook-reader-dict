@@ -174,12 +174,11 @@ release_description = """\
 As palavras contam: {words_count}
 Exportação Wikcionário: {dump_date}
 
-Arquivos disponíveis:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Etymology-free version:
+{download_links_noetym}
 
 <sub>Actualizado em {creation_date}</sub>
 """

@@ -8,7 +8,6 @@ labels = {
     "&": "and",
     "+": "with",
     "-": "-",
-    "1811": "archaic, slang",
     "2ch slang": "2channel slang",
     "2channel": "2channel slang",
     "2channel slang": "2channel slang",
@@ -205,7 +204,6 @@ labels = {
     "Church of England": "Church of England",
     "Church of the East": "Church of the East",
     "Cincinnati": "Cincinnati",
-    "Classic 1811 Dictionary of the i Tongue": "archaic, slang",
     "Classical": "Classical",
     "Cockney": "Cockney",
     "Cockney rhyming slang": "Cockney rhyming slang",
@@ -1318,6 +1316,7 @@ labels = {
     "excluding": "excluding",
     "exercise": "exercise",
     "expletive": "swear word",
+    "expressive": "expressive",
     "extremely": "extremely",
     "eye color": "eye color",
     "eye dialect": "eye dialect",
@@ -1867,6 +1866,7 @@ labels = {
     "nonrhotic": "non-rhotic",
     "nonstandard": "nonstandard",
     "nonstandard form": "nonstandard form",
+    "normative": "prescriptive",
     "north England": "Northern England",
     "northern England": "Northern England",
     "northern US": "Northern US",
@@ -1904,6 +1904,7 @@ labels = {
     "often": "often",
     "oil drilling": "oil industry",
     "oil industry": "oil industry",
+    "old-fashioned": "dated",
     "oncology": "oncology",
     "online": "Internet",
     "online games": "online gaming",
@@ -2029,6 +2030,8 @@ labels = {
     "preclassical": "pre-Classical",
     "predicative": "predicative",
     "predicatively": "predicatively",
+    "prescribed": "prescriptive",
+    "prescriptive": "prescriptive",
     "primarily": "chiefly",
     "printing": "printing",
     "prison slang": "prison slang",
@@ -2091,7 +2094,7 @@ labels = {
     "reciprocal": "reciprocal",
     "recreational mathematics": "recreational mathematics",
     "reflexive": "reflexive",
-    "reflexive pronoun": "reflexive",
+    "reflexive pronoun": "reflexive pronoun",
     "regal": "royal",
     "regex": "regular expressions",
     "regional": "regional",
@@ -2471,7 +2474,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,466
+}  # 2,469
 
 syntaxes = {
     "&": {

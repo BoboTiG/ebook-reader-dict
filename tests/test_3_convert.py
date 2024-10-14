@@ -12,12 +12,17 @@ from wikidict.stubs import Word
 EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
-Fichiers disponibles :
-
+Version complète :
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
 - [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
+
+Version sans étymologies :
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
 
 Mis à jour le"""
 
@@ -144,6 +149,7 @@ def test_simple() -> None:
 
         # Check content of INSTALL.txt
         install_txt = fh.read("INSTALL.txt").decode()
+        print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
 
@@ -210,7 +216,7 @@ def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: 
 
 
 FORMATTED_WORD_KOBO = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><p>etyl 1</p><ol><li>setyl 1</li></ol><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
@@ -219,7 +225,7 @@ FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
 & Multiple Etymology
-<html><p>etyl 1</p><ol><li>setyl 1</li></ol><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
+<html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol></html>\
 
 
 """

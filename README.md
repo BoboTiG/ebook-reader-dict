@@ -5,19 +5,19 @@
 [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-- [Catalan](docs/ca/README.md)
-- [Danish](docs/da/README.md)
-- [English](docs/en/README.md)
-- [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-- [German](docs/de/README.md)
-- [Greek](docs/el/README.md)
-- [Italian](docs/it/README.md)
-- [Norway](docs/el/README.md)
-- [Portuguese](docs/pt/README.md)
-- [Romanian](docs/ro/README.md)
-- [Russian](docs/ru/README.md)
-- [Spanish](docs/es/README.md)
-- [Swedish](docs/sv/README.md)
+1. <small>`[CA]`</small> [Catalan](docs/ca/README.md)
+1. <small>`[DA]`</small> [Danish](docs/da/README.md)
+1. <small>`[DE]`</small> [German](docs/de/README.md)
+1. <small>`[EL]`</small> [Greek](docs/el/README.md)
+1. <small>`[EN]`</small> [English](docs/en/README.md)
+1. <small>`[ES]`</small> [Spanish](docs/es/README.md)
+1. <small>`[FR]`</small> [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[IT]`</small> [Italian](docs/it/README.md)
+1. <small>`[NO]`</small> [Norway](docs/el/README.md)
+1. <small>`[PT]`</small> [Portuguese](docs/pt/README.md)
+1. <small>`[RO]`</small> [Romanian](docs/ro/README.md)
+1. <small>`[RU]`</small> [Russian](docs/ru/README.md)
+1. <small>`[SV]`</small> [Swedish](docs/sv/README.md)
 
 ## Users
 
@@ -25,7 +25,7 @@
 
 ## Development
 
-Setup a virtual environment:
+Set up a virtual environment:
 
 ```bash
 python3.12 -m venv venv
@@ -60,7 +60,7 @@ Run linters, and quality checkers, before submitting a pull-request:
 ./check.sh
 ```
 
-## Contributors ✨
+## Contributors 💖
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
@@ -103,3 +103,24 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Stars ✨
+
+<picture>
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="
+      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date&theme=dark
+    "
+  />
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="
+      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date
+    "
+  />
+  <img
+    alt="Star History Chart"
+    src="https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date"
+  />
+</picture>

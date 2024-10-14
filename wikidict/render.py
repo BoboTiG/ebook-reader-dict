@@ -32,7 +32,7 @@ from .lang import (
 from .namespaces import namespaces
 from .stubs import Definitions, SubDefinitions, Word, Words
 from .user_functions import uniq
-from .utils import process_templates, table2html
+from .utils import check_for_missing_templates, process_templates, table2html
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
@@ -47,9 +47,8 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 Sections = dict[str, list[wtp.Section]]
 
 # Multiprocessing shared globals, init in render() see #1054
-MANAGER = ""
-LOCK = multiprocessing.Lock()
-MISSING_TPL_SEEN: list[str] = []
+MANAGER = multiprocessing.Manager()
+MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
 
 log = logging.getLogger(__name__)
 
@@ -319,10 +318,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("----", "no")
     ''
+
+    >>> adjust_wikicode("<!-- {{sco}} -->", "fr")
+    ''
+    >>> adjust_wikicode("<!--<i>sco</i> -->", "fr")
+    ''
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
-    # [[File:...|...]] -> ''
+    # [[File:...|...]] → ''
     all_namespaces = set()
     for namespace in namespaces[locale] + namespaces["en"]:
         all_namespaces.add(namespace)
@@ -354,12 +358,16 @@ def adjust_wikicode(code: str, locale: str) -> str:
         flags=re.VERBOSE,
     )
 
+    # HTML comments
+    # <!-- foo --> → ''
+    code = re.sub(r"<!--(?:.+-->)?", "", code)
+
     if locale == "da":
-        # {{=da=}} -> =={{da}}==
+        # {{=da=}} → =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     elif locale == "de":
-        # {{Bedeutungen}} -> === {{Bedeutungen}} ===
+        # {{Bedeutungen}} → === {{Bedeutungen}} ===
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # Definition lists are not well supported by the parser, replace them by numbered lists
@@ -367,7 +375,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         #       contains an empty item.
         code = re.sub(r":\[\d+\][ ]*", "# ", code)
 
-        # {{!}} -> "|"
+        # {{!}} → "|"
         code = code.replace("{{!}}", "|")
 
     elif locale == "en":
@@ -375,7 +383,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
 
     elif locale == "es":
-        # {{ES|xxx|núm=n}} -> == {{lengua|es}} ==
+        # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale == "it":
@@ -395,7 +403,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale == "ro":
         locale = "ron"
 
-        # {{-avv-|ANY|ANY}} -> === {{avv|ANY|ANY}} ===
+        # {{-avv-|ANY|ANY}} → === {{avv|ANY|ANY}} ===
         code = re.sub(
             r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
             r"=== {{\1|\2|\3}} ===",
@@ -405,17 +413,17 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # Try to convert old Wikicode
         if "==Romanian==" in code:
-            # ==Romanian== -> == {{limba|ron}} ==
+            # ==Romanian== → == {{limba|ron}} ==
             code = code.replace("==Romanian==", "== {{limba|ron}} ==")
 
-            # ===Adjective=== -> === {{Adjective}} ===
+            # ===Adjective=== → === {{Adjective}} ===
             code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-        # ===Verb tranzitiv=== -> === {{Verb tranzitiv}} ===
+        # ===Verb tranzitiv=== → === {{Verb tranzitiv}} ===
         code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # Hack for a fake variants support because RO doesn't use templates most of the time
-        # `#''forma de feminin singular pentru'' [[frumos]].` -> `# {{forma de feminin singular pentru|frumos}}`
+        # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{forma de feminin singular pentru|frumos}}`
         code = re.sub(
             r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
             r"\1{{\2|\3}}",
@@ -424,7 +432,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         )
 
     if locale in {"it", "ron", "da"}:
-        # {{-avv-|it}} -> === {{avv}} ===
+        # {{-avv-|it}} → === {{avv}} ===
         code = re.sub(
             rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
             r"=== {{\1}} ===",
@@ -432,13 +440,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
             flags=re.MULTILINE,
         )
 
-        # {{-avv-|ANY}} -> === {{avv|ANY}} ===
+        # {{-avv-|ANY}} → === {{avv|ANY}} ===
         code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
-        # {{-avv-}} -> === {{avv}} ===
+        # {{-avv-}} → === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-        # {{!}} -> "|"
+        # {{!}} → "|"
         code = code.replace("{{!}}", "|")
 
     return code
@@ -504,12 +512,6 @@ def render_word(w: list[str], words: Words, locale: str) -> None:
 
 
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
-    # Skip not interesting words early as the parsing is quite heavy
-    sections = head_sections[locale]
-    in_words = {word: code for word, code in in_words.items() if any(head_section in code for head_section in sections)}
-
-    MANAGER = multiprocessing.Manager()
-    MISSING_TPL_SEEN = MANAGER.list()  # noqa: F841
     results: Words = cast(dict[str, Word], MANAGER.dict())
 
     with multiprocessing.Pool(processes=workers) as pool:
@@ -548,6 +550,8 @@ def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
     words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
+
+    check_for_missing_templates()
 
     date = file.stem.split("-")[1]
     save(date, words, output_dir)

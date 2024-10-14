@@ -3,7 +3,7 @@
 import logging
 import os
 import re
-from collections import namedtuple
+from collections import defaultdict, namedtuple
 from collections.abc import Callable
 from contextlib import suppress
 from datetime import UTC, datetime
@@ -66,6 +66,29 @@ CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 log = logging.getLogger(__name__)
 
 
+def check_for_missing_templates() -> bool:
+    from .render import MISSING_TEMPLATES
+
+    if not (missing_templates := list(MISSING_TEMPLATES)):
+        return False
+
+    missings_counts: dict[str, int] = defaultdict(int)
+    missings: dict[str, list[str]] = defaultdict(list)
+    for tpl, word in missing_templates:
+        missings_counts[tpl] += 1
+        missings[tpl].append(word)
+    for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
+        words = missings[tpl]
+        log.warning(
+            "Missing %r template support (%s times), example in: %s",
+            tpl,
+            f"{len(words):,}",
+            ", ".join(f'"{word}"' for word in words[:3]),
+        )
+    log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
+    return True
+
+
 def process_special_pipe_template(text: str) -> str:
     splitter = SPECIAL_TEMPLATES["{{!}}"].placeholder
     if splitter in text:
@@ -113,11 +136,18 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    # Download links
-    url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
-    url_dictorgfile = DOWNLOAD_URL_DICTORGFILE.format(locale)
-    url_kobo = DOWNLOAD_URL_KOBO.format(locale)
-    url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
+    download_links_full = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "")}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
+""".strip()
+    download_links_noetym = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "-noetym")}) (dicthtml-{locale}-{locale}-noetym.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "-noetym")}) (dictorg-{locale}-{locale}-noetym.zip)
+""".strip()
 
     creation_date = NOW.isoformat()
     return release_description[locale].format(**locals())
@@ -279,10 +309,6 @@ def clean(text: str, locale: str = "en") -> str:
         >>> clean("[[http://www.tv5monde.com/cms/chaine-francophone/lf/Merci-Professeur/p-17081-Une-peur-bleue.htm?episode=10 Voir aussi l’explication de Bernard Cerquiglini en images]]")
         ''
 
-        >>> clean("<!-- {{sco}} -->")
-        ''
-        >>> clean("<!-- <i>sco</i> -->")
-        ''
         >>> clean('<ref name="Marshall 2001"><sup>he</sup></ref>')
         ''
         >>> clean("<nowiki/>")
@@ -316,48 +342,46 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("\n", "")
 
     # Parser hooks
-    # <ref name="CFC"/> -> ''
+    # <ref name="CFC"/> → ''
     text = sub(r"<ref[^>]*/>", "", text)
-    # <ref>foo -> ''
-    # <ref>foo</ref> -> ''
-    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    # <ref name="CFC"><tag>...</tag></ref> -> ''
+    # <ref>foo → ''
+    # <ref>foo</ref> → ''
+    # <ref name="CFC">{{Import:CFC}}</ref> → ''
+    # <ref name="CFC"><tag>...</tag></ref> → ''
     text = sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", text)
-    # <ref> -> ''
-    # </ref> -> ''
+    # <ref> → ''
+    # </ref> → ''
     text = text.replace("<ref>", "").replace("</ref>", "")
 
     # HTML
-    # <-- foo --> -> ''
-    text = sub(r"<!--(?:.+-->)?", "", text)
     # Source: https://github.com/5j9/wikitextparser/blob/b24033b/wikitextparser/_wikitext.py#L83
     text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
-    # ''foo'' -> <i>foo></i>
+    # ''foo'' → <i>foo></i>
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
-    # <br> / <br /> -> ''
+    # <br> / <br /> → ''
     text = sub(r"<br[^>]+/?>", "", text)
 
-    # <nowiki/> -> ''
+    # <nowiki/> → ''
     text = text.replace("<nowiki/>", "")
 
     # <gallery>
     text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
 
     # Local links
-    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
+    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] → a
 
     # Links
-    # Internal: [[{{a|b}}]] -> {{a|b}}
+    # Internal: [[{{a|b}}]] → {{a|b}}
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
-    # Internal: [[a|b]] -> b
+    # Internal: [[a|b]] → b
     text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)
-    # External: [[http://example.com Some text]] -> ''
+    # External: [[http://example.com Some text]] → ''
     text = sub(r"\[\[https?://[^\s]+\s[^\]]+\]\]", "", text)
-    # External: [http://example.com] -> ''
+    # External: [http://example.com] → ''
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # External: [http://example.com Some text] -> 'Some text'
+    # External: [http://example.com Some text] → 'Some text'
     text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
-    # External: [//example.com Some text] -> 'Some text'
+    # External: [//example.com Some text] → 'Some text'
     text = sub(r"\[//[^\s]+\s([^\]]+)\]", r"\1", text)
     text = text.replace("[[", "").replace("]]", "")
 
@@ -366,7 +390,7 @@ def clean(text: str, locale: str = "en") -> str:
     text = sub(r"{\|[^}]+\|}", "", text)
 
     # Headings
-    # == a == -> a
+    # == a == → a
     text = sub(r"^=+\s?([^=]+)\s?=+", lambda matches: matches.group(1).strip(), text)
 
     # Lists
@@ -383,15 +407,15 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace(" ]", "")
 
     # Remove empty HTML tags
-    # <sup></sup> -> ''
+    # <sup></sup> → ''
     text = sub(r"<([^>]+)></\1>", "", text)
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
-    # <<bar>> -> foo
-    # <<foo/bar>> -> bar
+    # <<bar>> → foo
+    # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 

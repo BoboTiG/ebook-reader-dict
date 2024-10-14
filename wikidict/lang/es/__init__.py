@@ -28,6 +28,7 @@ sections = (
     "Forma adjetiva y de participio",  # for variants, see render.find_section_definitions
     "Forma verbal",  # for variants, see render.find_section_definitions
     "{{interjección",
+    "{{locución",
     "{{onomatopeya",
     "{{prefijo",
     "{{preposición",
@@ -87,10 +88,13 @@ templates_ignored = (
     "clear",
     "definición",
     "definición imprecisa",
+    "dicvis",
+    "dicvisdesc",
     "ejemplo",
     "ejemplo requerido",
     "elemento químico",
     "inflect.es.sust.ad-lib",
+    "inflect.es.sust.agudo-cons",
     "inflect.es.sust.invariante",
     "inflect.es.sust.reg",
     "marcar sin referencias",
@@ -148,7 +152,7 @@ templates_multi = {
     "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     # {{etimología2|de [[hocicar]]}}
-    "etimología2": "capitalize(parts[1]) if (len(parts) > 1 and parts[1] != '...') else ''",
+    "etimología2": "parts[1] if (len(parts) > 1 and parts[1] != '...') else ''",
     # {{formatnum:22905}}
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{impropia|Utilizado para especificar...}}
@@ -197,12 +201,11 @@ release_description = """\
 Número de palabras: {words_count}
 exportación Wikcionario: {dump_date}
 
-Archivos disponibles:
+Versión completa:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({url_dictorgfile}) (dictorg-{locale}-{locale}.zip)
+Versión sin etimología:
+{download_links_noetym}
 
 <sub>Actualizado el {creation_date}</sub>
 """

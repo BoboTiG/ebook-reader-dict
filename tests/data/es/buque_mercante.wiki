@@ -1,0 +1,25 @@
+{{desambiguación|}}<!-- si hay términos que se diferencian de este solo en una tilde o diacrítico -->
+== {{lengua|es}} ==
+{{pron-graf}} <!--- En el caso del español u otro idioma regular (consultar Plantilla:pron-graf), la plantilla se deja en blanco y la pronunciación se generará automáticamente. Si la palabra es irregular, use el parámetro |ayuda. Ejemplo: rally -> {{pron-graf|ayuda=ralí}}. Si el idioma es considerado irregular, como el inglés, especifique en la plantilla cada transcripción fonética manualmente. Adicionalmente se puede especificar si hay alguna transliteración, grafía alternativa, etc. -->
+
+=== Etimología ===
+{{etimología}}. <!-- Para una palabra de otro idioma, utilice {{etimología|(CÓDIGO DE IDIOMA)|(PALABRA)|(SIGNIFICADO)}}. Para elegir otra opción u otro tipo de etimología, consulte la página Plantilla:etimología --> 
+
+==== {{locución|es|sustantivo masculino}} ==== <!-- algunas otras opciones: {{sustantivo femenino|es}}, {{sustantivo masculino y femenino|es}}, {{sustantivo propio|es}} -->
+{{inflect.es.sust.ad-lib|buque mercante|buques mercantes}}
+
+<!-- definiciones: borrar todo lo que no sea necesario -->
+;1 {{csem|náutica|comercio}}: {{plm|buque}} que pertenece a persona o empresa [[particular]], y que se emplea en la conducción de pasajeros y mercancías.<ref name="drae1925">{{DLE1925||buque}}</ref>
+{{hipónimo|petrolero|crucero|portacontenedores|gasero|granelero}}
+
+==== Véase también ====
+{{w}}
+
+==== Traducciones ====
+{{trad-arriba}}
+<!-- formato: {{t|idioma|t1=(traducción1)|t2=(traducción2|...(hay más opciones))}} p. ej. {{t|fr|t1=chose|a1=1|g1=f}} (ver más ejemplos en Plantilla:t/doc) -->
+{{trad-abajo}}
+
+<!-- si va a insertar una nueva sección de etimología o de idioma, por favor, hágalo ↑  arriba ↑  de esta línea. NO BORRE LO QUE ESTÁ DEBAJO, GRACIAS. -->
+== Referencias y notas ==
+<references />

@@ -31,6 +31,15 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "buque_mercante",
+            [],
+            [],
+            [
+                "<i>(Náutica, comercio)</i>: Buque que pertenece a persona o empresa particular, y que se emplea en la conducción de pasajeros y mercancías."
+            ],
+            [],
+        ),
+        (
             "cartel",
             [],
             ["Del occitano <i>cartel</i>."],
@@ -251,6 +260,7 @@ def test_parse_word(
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
         ("{{etimología2|...}}", ""),
+        ("{{etimología2|alteración del más antiguo}}", "alteración del más antiguo"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
         ("{{formatnum:22905}}", "22 905"),
         (

@@ -535,6 +535,7 @@ def test_parse_word(
             "{{par ext}} ou {{figuré|fr}}",
             "<i>(Par extension)</i> ou <i>(Sens figuré)</i>",
         ),
+        ("{{Pas clair}}", "<small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>"),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
             "<u>Les seigneurs du Moyen Âge pouvaient « battre monnaie »</u><small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>",
