@@ -214,7 +214,9 @@ from wikidict.utils import process_templates
             [],
             ["m"],
             [
-                "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire »."
+                "<i>(Commerce international)</i> <i>(1936)</i> Terme créé par la Chambre de commerce internationale. Sigle de l’anglais <i>delivered ex ship</i>; « rendu par navire ».",
+                "<i>(Nom commun 1)</i> Sigle pour <b>d</b>i<b>é</b>thyl<b>s</b>tilbestrol.",
+                "<i>(Nom commun 2)</i> Sigle.",
             ],
             [
                 "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",

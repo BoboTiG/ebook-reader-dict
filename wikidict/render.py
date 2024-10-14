@@ -366,6 +366,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{=da=}} → =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
+        # Transform sub-locales into their own section to prevent mixing stuff
+        # {{-no-}} → =={{no}}==
+        # {{-sv-}} → =={{sv}}==
+        code = re.sub(r"\{\{-((?:no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
     elif locale == "de":
         # {{Bedeutungen}} → === {{Bedeutungen}} ===
         code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
@@ -431,14 +436,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
             flags=re.MULTILINE,
         )
 
-    if locale in {"it", "ron", "da"}:
+    if locale in {"da", "it", "ron"}:
         # {{-avv-|it}} → === {{avv}} ===
-        code = re.sub(
-            rf"^\{{\{{-(.+)-\|{locale}\}}\}}",
-            r"=== {{\1}} ===",
-            code,
-            flags=re.MULTILINE,
-        )
+        code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
         # {{-avv-|ANY}} → === {{avv|ANY}} ===
         code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
@@ -467,8 +467,8 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
 
     # Etymology
     for section in etyl_section[locale]:
-        if etyl_data := parsed_sections.pop(section, []):
-            etymology = find_etymology(word, locale, etyl_data[0])
+        for etyl_data in parsed_sections.pop(section, []):
+            etymology.extend(find_etymology(word, locale, etyl_data))
 
     definitions = find_definitions(word, parsed_sections, locale)
 
