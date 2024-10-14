@@ -61,7 +61,6 @@ WORD_TPL_KOBO = Template(
             {% endfor %}
         </ol>
         {% if etymologies %}
-            <br/>
             {% for etymology in etymologies %}
                 {% if etymology is string %}
                     <p>{{ etymology }}</p>
@@ -114,7 +113,6 @@ WORD_TPL_DICTFILE = Template(
     {%- endfor -%}
 </ol>
 {%- if etymologies -%}
-    <br/>
     {%- for etymology in etymologies -%}
         {%- if etymology is string -%}
             <p>{{ etymology }}</p>
