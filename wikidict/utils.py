@@ -73,12 +73,12 @@ def check_for_missing_templates() -> bool:
         return False
 
     missings_counts: dict[str, int] = defaultdict(int)
-    missings: dict[str, list[str]] = defaultdict(list)
+    missings: dict[str, set[str]] = defaultdict(set)
     for tpl, word in missing_templates:
         missings_counts[tpl] += 1
-        missings[tpl].append(word)
+        missings[tpl].add(word)
     for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
-        words = missings[tpl]
+        words = sorted(missings[tpl])
         log.warning(
             "Missing %r template support (%s times), example in: %s",
             tpl,
