@@ -45,15 +45,6 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         "\n",
     )
 
-    if details.etymology:
-        for etymology in details.etymology:
-            if isinstance(etymology, tuple):
-                for i, sub_etymology in enumerate(etymology, 1):
-                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
-            else:
-                print(strip_html(etymology))
-        print("\n")
-
     index = 1
     for definition in details.definitions:
         if isinstance(definition, tuple):
@@ -70,8 +61,17 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
             print(f"{index}.".rjust(4), strip_html(definition))
             index = index + 1
 
+    if details.etymology:
+        print("\n")
+        for etymology in details.etymology:
+            if isinstance(etymology, tuple):
+                for i, sub_etymology in enumerate(etymology, 1):
+                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
+            else:
+                print(strip_html(etymology))
+
     if details.variants:
-        print("[variants]", ", ".join(iter(details.variants)))
+        print("\n[variants]", ", ".join(iter(details.variants)))
 
 
 def set_output(locale: str, word: str) -> None:
