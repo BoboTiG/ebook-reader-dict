@@ -107,7 +107,7 @@ from wikidict.utils import process_templates
                 "<i>(interrogatiu, condicional)</i> Alguna mena de.",
                 "cap a",
             ],
-            ["cabre"],
+            ["cabre", "capar"],
         ),
         (
             "cas",
@@ -121,7 +121,7 @@ from wikidict.utils import process_templates
                 "Atenció, cura.",
                 "Contracció entre el nom <i>casa</i> i l'article salat <i>es</i> quan és usat com un article personal. S'utilitza tant per referir-se a un habitatge com a una família. Sempre s'escriu davant de nom o de sobrenom.",
             ],
-            ["casar"],
+            ["ca", "casar"],
         ),
         (
             "Castell",

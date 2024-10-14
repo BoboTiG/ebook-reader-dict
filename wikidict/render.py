@@ -482,10 +482,11 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         for title, parsed_section in parsed_sections.items():
             if not title.startswith(interesting_titles):
                 continue
-            for tpl in parsed_section[0].templates:
-                tpl = str(tpl)
-                if tpl.startswith(interesting_templates):
-                    add_potential_variant(word, tpl, locale, variants)
+            for parsed in parsed_section:
+                for tpl in parsed.templates:
+                    tpl = str(tpl)
+                    if tpl.startswith(interesting_templates):
+                        add_potential_variant(word, tpl, locale, variants)
         if variants:
             variants = sorted(set(variants))
 
