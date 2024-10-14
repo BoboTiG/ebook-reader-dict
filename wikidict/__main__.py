@@ -25,6 +25,7 @@ Options:
                                 - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
+                                - "data/$LOCALE/dictorg-$LOCALE-$LOCALE.zip": DICT.org format.
   --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
                             --random            Randomly if --random
