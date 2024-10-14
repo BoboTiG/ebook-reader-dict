@@ -1,7 +1,6 @@
 """Danish language."""
 
 import re
-from typing import List
 
 # Float number separator
 float_separator = ","
@@ -42,60 +41,82 @@ sections = (
     "-adj-",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    "da-noun-2",
-    "da-noun-3",
-    "da-noun-4",
-    "da-noun-5",
-    "da-noun-6",
-    "da-noun-7",
-)
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
-    "definition mangler",
+    "da-car-numbers",
     "da-v-pres",
     "de",
+    "definition mangler",
     "dm",
+    "infl",
+    "Personlige pronominer på dansk",
+    "pn",
     "-syn-",
-    "etyl",
     "wikipedia",
     "Wikipedia",
-    "infl",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "botanik": "botanik",
+    "geologi": "geologi",
+    "grøntsag": "grøntsag",
+    "internet": "internet",
+    "plante": "plante",
+}
+
 templates_multi = {
-    # {{compound|hjemme|værn|lang=da}}
-    "compound": "' + '.join(p for p in parts[1:] if '=' not in p)",
+    # {{alternativ stavemåde af|}}
+    "alternativ stavemåde af": "italic(parts[0]) + ' ' + strong(parts[1])",
+    # {{c}}
+    "c": "italic('fælleskøn')",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
     "data": "'(' + italic('data') + ')'",
+    # {{da-adj-N}}
+    "da-adj-1": "italic('intetkønsform af')",
+    "da-adj-2": "italic('bestemt og flertal af')",
+    # {{da-noun-N}}
+    "da-noun-1": "italic('bestemt entalsform af')",
+    "da-noun-2": "italic('ubestemt flertalsform af')",
+    "da-noun-3": "italic('bestemt flertalsform af')",
+    "da-noun-4": "italic('genitiv ubestemt entalsform af')",
+    "da-noun-5": "italic('genitiv bestemt entalsform af')",
+    "da-noun-6": "italic('genitiv ubestemt flertalsform af')",
+    "da-noun-7": "italic('genitiv bestemt flertalsform af')",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
-    # {{en}}
-    "en": "'Engelsk'",
+    # {{flertal af}}
+    "flertal af": "italic('flertalsform af')",
     # {{form of|imperative form|bjerge|lang=da}}
-    "form of": "italic(parts[1] + ' of') + ' ' + strong(parts[2])",
+    "form of": "italic(capitalize(parts[1]) + ' af') + ' ' + strong(parts[2])",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
-    # {{initialism of|lang=da|København}}
-    "initialism of": "italic('Initialforkortelse af') + ' ' + strong(parts[-1])",
+    # {{genitivsform af}}
+    "genitivform af": "italic('genitivform af')",
+    # {{genitivsform af}}
+    "genitivsform af": "italic('genitivform af')",
+    # {{imperativ af}}
+    "imperativ af": "italic('imperativ af')",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
     "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{prefix|hoved|gade|lang=da}}
-    "prefix": "parts[1] + '- + ' + parts[2]",
-    # {{suffix|Norden|isk|lang=da}}
-    "suffix": "parts[1] + ' + -' + parts[2]",
-    # {{term|mouse|lang=en}}
-    "term": "parts[1] + superscript('(' + parts[-1].lstrip('=lang') + ')')",
+    # {{n}}
+    "n": "italic('intetkøn')",
+    # {{p}}
+    "p": "italic('flertal')",
+    # {{præteritum participium af}}
+    "præteritum participium af": "italic('præteritum participium af')",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
-    # {{u|de|Reis}}
-    "u": "parts[-1] + superscript('(' + parts[1] + ')')",
+    # {{URchar|الكحل}}
+    "URchar": "parts[-1]",
+    # {{w|Pierre Curie|Pierre}}
+    "w": "parts[1]",
+    # {{ZHchar|北京}}
+    "ZHchar": "parts[-1]",
 }
 
 # Release content on GitHub
@@ -104,20 +125,20 @@ release_description = """\
 Ordtælling: {words_count}
 Dump Wiktionary: {dump_date}
 
-Tilgængelige filer:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Etymology-free version:
+{download_links_noetym}
 
 <sub>Opdateret den {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(code: str) -> List[str]:
+def find_pronunciations(code: str) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -128,3 +149,111 @@ def find_pronunciations(code: str) -> List[str]:
     matches = re.findall(pattern, code) or []
 
     return [item for sublist in matches for item in sublist.split("|") if item]
+
+
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["en"], "da")
+        'Engelsk'
+        >>> last_template_handler(["unknown"], "da")
+        '##opendoublecurly##unknown##closedoublecurly##'
+
+        >>> last_template_handler(["abbreviation of", "lang=da", "pansret mandskabsvogn"], "da")
+        '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
+        >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
+        '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
+
+        >>> last_template_handler(["compound", "hjemme", "værn", "langa=da"], "da")
+        'hjemme + værn'
+        >>> last_template_handler(["com", "hjemme", "værn", "langa=da"], "da")
+        'hjemme + værn'
+
+        >>> last_template_handler(["etyl", "fr", "da"], "da")
+        'fransk'
+        >>> last_template_handler(["etyl", "non", "da"], "da")
+        'oldnordisk'
+
+        >>> last_template_handler(["initialism of", "lang=da", "København"], "da")
+        '<i>Initialforkortelse af</i> <b>København</b>'
+        >>> last_template_handler(["init of", "København", "lang=da"], "da")
+        '<i>Initialforkortelse af</i> <b>København</b>'
+
+        >>> last_template_handler(["prefix", "hoved", "gade", "lang=da"], "da")
+        'hoved- + gade'
+
+        >>> last_template_handler(["term", "mouse", "lang=en"], "da")
+        'mouse'
+        >>> last_template_handler(["term", "cabotage", "", "kysttransport", "lang=fr"], "da")
+        'cabotage (“‘kysttransport’”)'
+        >>> last_template_handler(["term", "αὐτός", "autós", "selv", "lang=grc"], "da")
+        'autós (“‘selv’”)'
+        >>> last_template_handler(["term", "μέτρον", "", "tr=metron", "mål", "lang=grc}}"], "da")
+        'μέτρον (metron), (“‘mål’”)'
+        >>> last_template_handler(["term", "الجزائر", "Al Jazaïr", "tr=Øerne", "lang=ar}}"], "da")
+        'Al Jazaïr (Øerne)'
+
+        >>> last_template_handler(["suffix", "Norden", "isk", "lang=da"], "da")
+        'Norden + -isk'
+        >>> last_template_handler(["suf", "Norden", "isk", "lang=da"], "da")
+        'Norden + -isk'
+
+        >>> last_template_handler(["u", "de", "Reis"], "da")
+        'Reis'
+        >>> last_template_handler(["u", "gml", "-maker", "", "person der frembringer eller tilvirker noget"], "da")
+        '<i>-maker</i> (“‘person der frembringer eller tilvirker noget’”)'
+        >>> last_template_handler(["u", "en", "-ing", ""], "da")
+        '<i>-ing</i>'
+    """
+    from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
+    from .. import defaults
+    from .langs import langs
+
+    tpl, *parts = template
+    data = extract_keywords_from(parts)
+
+    if tpl in {"abbreviation of", "abbr of"}:
+        return f"{italic('Forkortelse af')} {strong(parts[-1])}"
+
+    if tpl in {"compound", "com"}:
+        return concat(parts, sep=" + ")
+
+    if tpl == "etyl":
+        return langs[parts[0]]
+
+    if tpl in {"initialism of", "init of"}:
+        return f"{italic('Initialforkortelse af')} {strong(parts[-1])}"
+
+    if tpl == "prefix":
+        return f"{parts[0]}- + {parts[1]}"
+
+    if tpl == "term":
+        match len(parts):
+            case 1:
+                return parts[0]
+            case 2:
+                return f"{parts[1] or parts[0]}{' (' + data['tr'] + ')' if data['tr'] else ''}"
+            case 3:
+                return f"{parts[1] or parts[0]}{' (' + data['tr'] + '),' if data['tr'] else ''} (“‘{parts[2]}’”)"
+        return parts[0]
+
+    if tpl in {"suffix", "suf"}:
+        return f"{parts[0]} + -{parts[1]}"
+
+    if tpl == "u":
+        match len(parts):
+            case 2:
+                return parts[1]
+            case 3:
+                return italic(parts[1])
+            case 4:
+                return f"{italic(parts[1])} (“‘{parts[3]}’”)"
+
+    if len(parts) == 1:
+        return term(tpl)
+
+    if not parts and (lang := langs.get(tpl)):
+        return capitalize(lang)
+
+    return defaults.last_template_handler(template, locale, word=word)

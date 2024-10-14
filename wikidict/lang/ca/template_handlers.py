@@ -1,5 +1,4 @@
-from collections import defaultdict  # noqa
-from typing import DefaultDict, List, Tuple
+from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
 from .general import cal_apostrofar
@@ -7,7 +6,7 @@ from .labels import label_syntaxes, labels
 from .langs import langs
 
 
-def parse_index_parameters(data: DefaultDict[str, str], i: int) -> str:
+def parse_index_parameters(data: defaultdict[str, str], i: int) -> str:
     toadd = []
     if tr := data.get(f"tr{i}", ""):
         toadd.append(italic(tr))
@@ -20,7 +19,7 @@ def parse_index_parameters(data: DefaultDict[str, str], i: int) -> str:
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
-def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
     '<i>cap</i> i <i>vespre</i>'
@@ -100,7 +99,7 @@ def render_comp(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
     '<i>forma augmentativa de</i> <b>Candelera</b>'
@@ -112,7 +111,7 @@ def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
     >>> render_forma("sinònim", ["mul", "Miathyria"], defaultdict(str, {"glossa": "gènere de libèl·lules"}))
     '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
-    """  # noqa
+    """
     formas = {
         "forma-a": "forma alternativa de",
         "forma-augm": "forma augmentativa de",
@@ -129,7 +128,7 @@ def render_forma(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     return phrase
 
 
-def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
     'm.'
@@ -179,9 +178,29 @@ def render_g(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     )
 
 
-def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str))
+    '<i>Grafia obsoleta des del 2016 de</i> adeu.'
+    >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str, {"alt": "ade"}))
+    '<i>Grafia obsoleta des del 2016 de</i> ade.'
+    """
+    result = "Grafia"
+    parts.pop(0)
+    text = parts.pop(0) if parts else ""
+    w = parts.pop(0) if parts else ""
+    result += f" {text}" if text else ""
+    result += " de"
+    result = italic(result)
+    result += f" {data['alt']}." if data["alt"] else f" {w}."
+    return result
+
+
+def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
+    '<i>(argot casteller)</i>'
+    >>> render_label("marca", ["ca", "castells", ""], defaultdict(str))
     '<i>(argot casteller)</i>'
     >>> render_label("marca", ["ca", "medicina"], defaultdict(str))
     '<i>(medicina)</i>'
@@ -189,12 +208,15 @@ def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     '<i>(neologisme, humorístic i a vegades, despectiu)</i>'
     >>> render_label("marca", ["ca", "pronominal", "valencià", "_", "col·loquial"], defaultdict(str))
     '<i>(pronominal, valencià col·loquial)</i>'
-    """  # noqa
+    """
     res = ""
     omit_preComma = False
     omit_postComma = True
 
     for label in parts[1:]:
+        if not label:
+            continue
+
         omit_preComma = omit_postComma
         omit_postComma = False
 
@@ -213,13 +235,13 @@ def render_label(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     return term(res.strip())
 
 
-def render_sigles_de(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
     >>> render_sigles_de("sigles de", ["ca", "North Atlantic Treaty Organization"], defaultdict(str, {"t": "OTAN"}))
     '<i>Sigles de</i> <b>North Atlantic Treaty Organization</b> («OTAN»)'
-    """  # noqa
+    """
     phrase = f"{italic('Sigles de')} {strong(parts[-1])}"
     if data["t"]:
         phrase += f" («{data['t']}»)"
@@ -236,6 +258,7 @@ template_mapping = {
     "forma-pron": render_forma,
     "forma-super": render_forma,
     "g": render_g,
+    "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
     "sigles de": render_sigles_de,
@@ -247,7 +270,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data)
+    return template_mapping[tpl](tpl, parts, data, word=word)

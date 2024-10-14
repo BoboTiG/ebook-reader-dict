@@ -1,6 +1,6 @@
 from scripts_utils import get_content
 
-url = "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-localenames-full/main/it/languages.json"  # noqa
+url = "https://raw.githubusercontent.com/unicode-org/cldr-json/main/cldr-json/cldr-localenames-full/main/it/languages.json"
 content = get_content(url, as_json=True)
 codelangs = content["main"]["it"]["localeDisplayNames"]["languages"]
 

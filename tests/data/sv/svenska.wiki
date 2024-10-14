@@ -7,7 +7,7 @@
 '''svenska'''
 *{{uttal|sv|ljud=Sv-svenska.ogg}}
 #{{tagg|kat=språk}} nordiskt [[språk]] som talas i [[Sverige]] och [[Finland]] ([[officiellt]] i båda länderna)
-#:{{etymologi|Belagt sedan 1300-talet, som {{härledning|sv|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref>}}
+#:{{etymologi|Belagt sedan 1300-talet, som {{härledning|sv|gmq-fsv|svænska}}.<ref name="so">{{källa-so|svenska|2021-02-06}}</ref><ref>{{källa-smssup|0861|svänska}}</ref>}}
 #:{{sammansättningar|[[svensklektion]], [[svensklärare]]}}
 #{{tagg|kat=nationaliteter}} [[svensk]] [[kvinna]]
 #:{{etymologi|Belagt sedan 1773.<ref name="so"></ref>}}
@@ -28,10 +28,10 @@
 *baskiska: {{ö+|eu|suediera}}
 *bayerska: {{ö|bar|Schwedisch}}
 *belarusiska: {{ö|be|шве́дская мо́ва|f|tr=švjédskaja móva}}, {{ö|be|шве́дская|f|tr=švjédskaja}}
-*bengali: {{ö|bn|সুয়েডীয় ভাষা}}
+*bengali: {{ö+|bn|সুয়েডীয় ভাষা}}
 *bokmål: {{ö+|no|svensk|m}}
-*bosniska: {{ö+|bs|švedski|m}}
-*bretonska: {{ö|br|svedeg}}
+*bosniska: {{ö|bs|švedski|m}}
+*bretonska: {{ö+|br|svedeg}}
 *bulgariska: {{ö|bg|шведски език}}, {{ö|bg|шведски}}
 *burjatiska: {{ö|bxr|швед хэлэн}}
 *cherokesiska: {{ö|chr|ᎠᏂᏍᏫᏗ}}
@@ -47,7 +47,7 @@
 *frankoprovensalska: {{ö|frp|suèdouès}}
 *franska: {{ö+|fr|suédois|m}}
 *frisiska: {{ö+|fy|Sweedsk}}
-*färöiska: {{ö|fo|svenskt}}
+*färöiska: {{ö+|fo|svenskt}}
 *galiciska: {{ö+|gl|sueco|m}}
 *georgiska: {{ö+|ka|შვედური|tr=šveduri}}, {{ö|ka|შვედური ენა|tr=šveduri ena}}
 *grekiska: {{ö+|el|σουηδικά|n|p|tr=souidiká}}
@@ -88,18 +88,18 @@
 *latin: {{ö|la|lingua Suecica|f}}
 *lettiska: {{ö|lv|zviedru valoda|f}}, {{ö|lv|zviedru}}
 *liguriska: {{ö|lij|svedeise}}
-*limburgiska: {{ö+|li|Zwieëdsj}}, {{ö+|li|Zwèdsj|n|n}}
+*limburgiska: {{ö|li|Zwieëdsj}}, {{ö|li|Zwèdsj|n|n}}
 *litauiska: {{ö+|lt|švedų kalba}}
 *lulesamiska: {{ö|smj|svierigadárro}}
-*luxemburgiska: {{ö+|lb|Schwedesch}}
+*luxemburgiska: {{ö|lb|Schwedesch}}
 *lågskotska: {{ö|sco|swaddish}}
 *lågsorbiska: {{ö|dsb|šwedšćina}}
 *lågtyska: {{ö+|nds|Zweeds}}
 *makedonska: {{ö|mk|шведски јазик}}, {{ö|mk|шведски}}
-*malagassiska: {{ö|mg|soedoa}}
+*malagassiska: {{ö+|mg|soedoa}}
 *malajiska: {{ö|ms|bahasa Sweden}}
 *malayalam: {{ö|ml|സ്വീഡിഷ് ഭാഷ}}
-*maltesiska: {{ö|mt|Żvediż}}
+*maltesiska: {{ö+|mt|Żvediż}}
 *manx: {{ö|gv|Soolynnish}}
 *maori: {{ö|mi|reo Huitene}}
 *marathi: {{ö|mr|स्वीडिश भाषा}}
@@ -125,6 +125,7 @@
 *ryska: {{ö+|ru|шведский язык|m}}
 *rätoromanska: {{ö|rm|svedaisa}}
 *samoanska: {{ö|sm|fa'asuetena}}
+*sango: {{ö+|sg|Sueduäa}}
 *sardiska: {{ö|sc|isvedesu}}
 *saterfrisiska: {{ö|stq|Swedisk}}
 *schlesiska: {{ö|szl|szwedzko}}, {{ö|szl|szwedzko godka}}
@@ -133,7 +134,7 @@
 *sindhi: {{ö|sd|سويڊش ٻولي}}
 *skotsk gäliska: {{ö|gd|Suainis|f}}
 *slovakiska: {{ö+|sk|švédčina|f}}
-*slovenska: {{ö|sl|švédščina|f}}
+*slovenska: {{ö+|sl|švédščina|f}}
 *somaliska: {{ö|so|Af-Iswiidhan}}
 *sorani: {{ö|ckb|زمانی سوێدی}}
 *spanska: {{ö+|es|sueco|m}}
@@ -152,7 +153,7 @@
 *tyska: {{ö+|de|Schwedisch|n}}
 *udmurtiska: {{ö|udm|швед}}, {{ö|udm|швед кыл}}
 *uiguriska: {{ö|ug|شۋېتسىيە تىلى}}
-*ukrainska: {{ö|uk|шведська мова|f}}
+*ukrainska: {{ö+|uk|шведська мова|f}}
 *ungerska: {{ö+|hu|svéd}}
 *urdu: {{ö|ur|سونسکا}}
 *uzbekiska: {{ö|uz|shved tili}}
@@ -164,7 +165,7 @@
 *västpanjabi: {{ö+|pnb|سونسکا}}
 *waray-waray: {{ö|war|Suweko}}
 *yoruba: {{ö|yo|Èdè Sweden}}
-*zazaiska: {{ö|diq|Swêdki}}
+*zazaiska: {{ö+|diq|Swêdki}}
 *zulu: {{ö|zu|IsiSwidishi}}
 *älvdalska: {{ö|ovd|swenska|f}}
 *östmariska: {{ö|mhr|швед йылме}}

@@ -162,6 +162,7 @@ escopos = {
     "Espírito Santo": "Espírito Santo",
     "Estado-unidense": "Estados Unidos",
     "Estados Unidos": "Estados Unidos",
+    "Estados Unidos da América": "Estados Unidos",
     "Estadunidense": "Estados Unidos",
     "Estremadura": "Estremadura",
     "Etnia": "etnologia",
@@ -176,8 +177,8 @@ escopos = {
     "Formal": "poético",
     "Francesismo": "francesismo",
     "França": "França",
-    "Fruta": "fruto",
-    "Fruto": "fruto",
+    "Fruta": "fruta",
+    "Fruto": "fruta",
     "Funchal": "Funchal",
     "GO": "Goiás",
     "Gales": "País de Gales",
@@ -317,6 +318,7 @@ escopos = {
     "Porto": "Porto",
     "Porto Rico": "Porto Rico",
     "Portugal": "Portugal",
+    "Portuguesismo": "portuguesismo",
     "Português brasileiro": "Brasil",
     "Português lusitano": "Portugal",
     "Pouco comum": "pouco comum",
@@ -437,5 +439,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 432
+}  # 434
 # END

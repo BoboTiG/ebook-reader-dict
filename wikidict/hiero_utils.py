@@ -1,19 +1,18 @@
 import re
-from typing import List
 
 from .hiero import wh_files, wh_hiero, wh_phonemes, wh_prefabs
 
 
 class HieroTokenizer:
-    delimiters: List[str] = []
-    tokenDelimiters: List[str] = []
+    delimiters: list[str] = []
+    tokenDelimiters: list[str] = []
 
-    singleChars: List[str] = []
+    singleChars: list[str] = []
 
     text: str = ""
-    blocks: List[List[str]] = []
+    blocks: list[list[str]] = []
 
-    currentBlock: List[str]
+    currentBlock: list[str]
     token: str = ""
 
     def __init__(self, text: str):
@@ -26,7 +25,7 @@ class HieroTokenizer:
         self.singleChars = ["!"]
 
     # Split text into blocks, then split blocks into items
-    def tokenize(self) -> List[List[str]]:
+    def tokenize(self) -> list[list[str]]:
         self.blocks = []
         self.currentBlock = []
         self.token = ""
@@ -102,7 +101,7 @@ MAX_HEIGHT = int(44 * ERD_FACTOR)
 TD_STYLE = "padding: 0; text-align: center; vertical-align: middle; font-size:1em;"
 TABLE_STYLE = "border: 0; border-spacing: 0; font-size:1em;"
 TABLE_START = f'<table class="mw-hiero-table" style="{TABLE_STYLE}">'
-MIRROR_STYLE = "-webkit-transform: scaleX( -1 ); -moz-transform: scaleX( -1 ); -ms-transform: scaleX( -1 ); -o-transform: scaleX( -1 ); transform: scaleX( -1 ); filter: FlipH; -ms-filter: 'FlipH';"  # noqa
+MIRROR_STYLE = "-webkit-transform: scaleX( -1 ); -moz-transform: scaleX( -1 ); -ms-transform: scaleX( -1 ); -o-transform: scaleX( -1 ); transform: scaleX( -1 ); filter: FlipH; -ms-filter: 'FlipH';"
 
 
 def isMirrored(glyph: str) -> bool:
@@ -114,7 +113,7 @@ def extractCode(glyph: str) -> str:
 
 
 def renderVoidBlock(width: int) -> str:
-    return f'<table class="mw-hiero-table" style="width: {width}px; {TABLE_STYLE}"><tr><td style="{TD_STYLE}">&#160;</td></tr></table>'  # noqa
+    return f'<table class="mw-hiero-table" style="width: {width}px; {TABLE_STYLE}"><tr><td style="{TD_STYLE}">&#160;</td></tr></table>'
 
 
 def renderGlyphImage(glyph: str, height: int, margin: int, moreStyle: str) -> str:
@@ -193,7 +192,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><table class="mw-hiero-table"...'
     >>> render_hiero("Ca1a")
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
-    """  # noqa
+    """
 
     html = ""
 
@@ -220,11 +219,11 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
                 # start cartouche
                 contentHtml += f'<td style="{TD_STYLE}">{renderGlyph(code[0])}</td>'
                 is_cartouche = True
-                contentHtml += f'<td style="{TD_STYLE}">{TABLE_START}<tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr><tr><td style="{TD_STYLE}">{TABLE_START}<tr>'  # noqa
+                contentHtml += f'<td style="{TD_STYLE}">{TABLE_START}<tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr><tr><td style="{TD_STYLE}">{TABLE_START}<tr>'
 
             elif ">" in code[0]:
                 # end cartouche
-                contentHtml += f'</tr></table></td></tr><tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr></table></td>'  # noqa
+                contentHtml += f'</tr></table></td></tr><tr><td class="mw-hiero-box" style="background: #000; height:{CARTOUCHE_WIDTH}px; {TD_STYLE}"></td></tr></table></td>'
                 is_cartouche = False
                 contentHtml += f'<td style="{TD_STYLE}">{renderGlyph(code[0])}</td>'
 
@@ -296,6 +295,6 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
     style = ""
     if scale != 100:
         ratio = scale / 100
-        style = f"-ms-transform: scale({ratio},{ratio}); -webkit-transform: scale({ratio},{ratio}); -o-transform: scale({ratio},{ratio}); transform: scale({ratio},{ratio});"  # noqa
+        style = f"-ms-transform: scale({ratio},{ratio}); -webkit-transform: scale({ratio},{ratio}); -o-transform: scale({ratio},{ratio}); transform: scale({ratio},{ratio});"
 
-    return f'<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style="{style} {TABLE_STYLE}"><tr><td style="{TD_STYLE}">\n{html}\n</td></tr></table>'  # noqa
+    return f'<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style="{style} {TABLE_STYLE}"><tr><td style="{TD_STYLE}">\n{html}\n</td></tr></table>'

@@ -1,12 +1,6 @@
-{{se även|Auto|autó}}
+{{se även|Auto|autó|auto-}}
 
 ==Svenska==
-===Affix===
-{{affix|sv}}
-'''auto-''' ''(prefix)''
-#[[automatisk]]; [[självgående]]
-#:{{sammansättningar|[[autoläge]]}}
-
 ===Substantiv===
 {{subst|sv}}
 '''auto'''
@@ -37,7 +31,7 @@
 
 ==Spanska==
 ===Substantiv===
-{{subst|es}}
+{{es-subst-m-s}}
 '''auto''' {{m}}
 #{{tagg|kat=fordon|språk=es}} [[bil]]
 #:{{etymologi|Avkortning av ''[[automóvil]]'', av {{härledning|es|grc|αὐτός|själv}}.}}

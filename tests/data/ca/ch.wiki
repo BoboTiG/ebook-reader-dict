@@ -3,7 +3,7 @@
 == {{-mul-}} ==
 
 === Símbol ===
-{{lema|mul|símbol}}
+{{entrada|mul|símbol}}
 
 # Codi de llengua [[w:ISO 639-1|ISO 639-1]] del [[chamorro]].
 
@@ -12,7 +12,7 @@
 == {{-ca-}} ==
 
 === Lletra ===
-{{lema|ca|lletra}}
+{{entrada|ca|lletra}}
 
 # {{marca|ca|arcaic}} Especialment a final de mot, dígraf amb una consonant muda per remarcar la grafia d’una oclusiva velar sorda {{IPAchar|[k]}} i no pas una de sonora {{IPAchar|[ɡ]}}.
 
@@ -28,7 +28,7 @@
 == {{-es-}} ==
 
 === Lletra ===
-{{lema|es|lletra}}
+{{entrada|es|lletra}}
 
 # Dígraf ''{{e|es|c}}''+''{{e|es|h}}''.
 

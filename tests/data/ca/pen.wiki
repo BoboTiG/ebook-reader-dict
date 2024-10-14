@@ -21,6 +21,14 @@
 # [[bolígraf]]
 # Àrea encerclada utilitzada per a contenir animals domèstics, especialment [[bestiar]]; [[corral]].
 
+== {{-rmq-x-ca-}} ==
+{{rmq-x-ca-pron}}
+
+=== Verb ===
+{{entrada|rmq-x-ca|verb-forma}}
+
+# {{forma-conj|rmq-x-ca|penar|forma obliqua|imp}}
+
 == {{-nl-}} ==
 {{pronafi|nl|/pɛn/}}
 

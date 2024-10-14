@@ -1,22 +1,26 @@
 """Get and render a word; then compare with the rendering done on the Wiktionary to catch errors."""
 
+from __future__ import annotations
+
 import copy
+import logging
 import os
 import re
 import urllib.parse
+import warnings
 from functools import partial
-from threading import Lock
 from time import sleep
-from typing import List, Optional
 
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from requests.exceptions import RequestException
 
-from .render import MISSING_TPL_SEEN, parse_word
+from .render import parse_word
 from .stubs import Word
 from .user_functions import color, int_to_roman
-from .utils import get_random_word
+from .utils import check_for_missing_templates, get_random_word
+
+warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 # Remove all kind of spaces and some unicode characters
 _replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
@@ -26,16 +30,15 @@ no_spaces = partial(_replace_noisy_chars, "")
 MAX_RETRIES = 5  # count
 SLEEP_TIME = 5  # time, seconds
 
+log = logging.getLogger(__name__)
 
-def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[str]:
-    results: List[str] = []
+
+def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> str:
     clean_text = get_text(parsed_html)
 
     # It's all good!
     if contains(clean_text, wiktionary_text):
-        return results
-
-    results.append(category + wiktionary_text)
+        return ""
 
     # Try to highlight the bad text
     pattern = clean_text[:-1].rstrip()
@@ -45,21 +48,17 @@ def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> List[st
             continue
 
         idx = len(pattern)
-        results.append(f"{clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m")
-        break
-    else:
-        # No highlight possible, just output the whole sentence
-        results.append(clean_text)
+        return f"[{category}] {clean_text[:idx]}\033[31m{clean_text[idx:]}\033[0m"
 
-    return results
+    # No highlight possible, just output the whole sentence
+    return f"[{category}] {clean_text}"
 
 
 def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
     """Run checks and return the error count to increment."""
     results = check_mute(wiktionary_text, parsed_html, category)
-    for r in results:
-        print(r, flush=True)
-    return len(results) // 2
+    log.error("Diff:\n%s", results)
+    return bool(results)
 
 
 def contains(pattern: str, text: str) -> bool:
@@ -101,7 +100,13 @@ def filter_html(html: str, locale: str) -> str:
                 and a["href"] != "#ca"
                 and "mw-selflink-fragment" not in a.get("class", [])
             ):
-                a.decompose()
+                a.replaceWith(a.text)
+
+    elif locale == "da":
+        for sup in bs.find_all("sup"):
+            id = sup.get("id", "")
+            if id.startswith("cite_"):
+                sup.decompose()
 
     elif locale == "de":
         # <sup>☆</sup>
@@ -134,11 +139,13 @@ def filter_html(html: str, locale: str) -> str:
             for a in bs.find_all("a", href=True):
                 if a["href"].startswith("#"):
                     a.decompose()
+
     elif locale == "el":
         for sup in bs.find_all("sup"):
             id = sup.get("id", "")
             if id.startswith("cite_"):
                 sup.decompose()
+
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
@@ -258,6 +265,11 @@ def filter_html(html: str, locale: str) -> str:
             if small.find("a", {"title": "Wikipedia"}) or small.find("a", {"title": "Wikiquote"}):
                 small.decompose()
 
+    elif locale == "no":
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     elif locale == "pt":
         # Issue 600: remove superscript locales
         for sup in bs.find_all("sup"):
@@ -312,7 +324,7 @@ def get_url_content(url: str) -> str:
                 if resp.status_code == 429:
                     wait_time = int(resp.headers.get("retry-after") or "1")
                 elif resp.status_code == 404:
-                    print(err)
+                    log.error(err)
                     return "404"
             sleep(wait_time * SLEEP_TIME)
             retry += 1
@@ -333,9 +345,9 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
+def check_word(word: str, locale: str) -> int:
     errors = 0
-    results: List[str] = []
+    results: list[str] = []
     details = get_word(word, locale)
     if not details.etymology and not details.definitions:
         return errors
@@ -345,38 +357,31 @@ def check_word(word: str, locale: str, lock: Optional[Lock] = None) -> int:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    r = check_mute(text, sub_etymology, f"\n !! Etymology {i}")  # type: ignore
-                    results.extend(r)
-            else:
-                r = check_mute(text, etymology, "\n !! Etymology")
-                results.extend(r)
+                    if r := check_mute(text, sub_etymology, f"Etymology {i}"):  # type: ignore[arg-type]
+                        results.append(r)
+            elif r := check_mute(text, etymology, "Etymology"):
+                results.append(r)
 
-    index = 1
-    for definition in details.definitions:
-        message = f"\n !! Definition n°{index}"
+    for index, definition in enumerate(details.definitions, 1):
+        message = f"Definition n°{index:02d}"
         if isinstance(definition, tuple):
             for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
                 if isinstance(subdef, tuple):
                     for rn, subsubdef in enumerate(subdef, 1):
-                        r = check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}")
-                        results.extend(r)
-                else:
-                    r = check_mute(text, subdef, f"{message}.{a}")
-                    results.extend(r)
-        else:
-            r = check_mute(text, definition, message)
-            results.extend(r)
-            index += 1
-    # print with lock if any
+                        if r := check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"):
+                            results.append(r)
+                elif r := check_mute(text, subdef, f"{message}.{a}"):
+                    results.append(r)
+        elif r := check_mute(text, definition, message):
+            results.append(r)
+
     if results:
-        errors = len(results) // 2
-        if lock:
-            lock.acquire()
+        errors = len(results)
         for result in results:
-            print(result, flush=True)
-        print(f"\n >>> [{word}] - Errors:", errors, flush=True)
-        if lock:
-            lock.release()
+            log.error(result)
+        log.warning("[%s] - Errors: %s", word, errors)
+    else:
+        log.debug("[%s] - OK", word)
 
     return errors
 
@@ -388,4 +393,5 @@ def main(locale: str, word: str) -> int:
     word = word or get_random_word(locale)
 
     res = check_word(word, locale)
-    return 1 if "CI" in os.environ and MISSING_TPL_SEEN else res
+    res_missing_tpl = check_for_missing_templates()
+    return 1 if "CI" in os.environ and res_missing_tpl else res

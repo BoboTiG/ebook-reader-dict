@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -10,6 +10,22 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, genders, etymology, definitions, variants",
     [
+        (
+            "aberrasjon",
+            [],
+            ["m"],
+            [
+                "Fra latin <i>aberrātiō</i> («lindring, avvikelse») , fra <i>aberrō</i> («gå unna/bort, gå vill»), fra <i>ab</i> («bort») + <i>errō</i> («vandre/gå»).",
+                "Se aberrate.",
+            ],
+            [
+                "avvik, avvikelse",
+                "<i>(astronomi)</i> avvik i en stjernes avbildede posisjon relativ til dens sanne posisjon.",
+                "<i>(optikk)</i> avbildningsfeil i linser og speil.",
+                "<i>(biologi)</i> endring i et kromosom mens celledeling pågår.",
+            ],
+            [],
+        ),
         (
             "bare",
             [],
@@ -43,10 +59,20 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "krokodille",
+            [],
+            ["m"],
+            [
+                "Fra middelalderlatin <i>cocodrillus</i> («krokodille»), fra gammelgresk κροκόδειλος (<i>krokodeilos</i>)"
+            ],
+            ["stort reptil, lever i og nær vann. <i>(lat. Crocodylia)</i>"],
+            [],
+        ),
+        (
             "lumpen",
             [],
             [],
-            [""],
+            [],
             ["tarvelig, nedrig"],
             ["lump"],
         ),
@@ -54,11 +80,11 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    genders: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    genders: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -98,7 +124,7 @@ def test_parse_word(
         ),
         (
             "{{tidligere skrivemåte|no|naturlig tall}}",
-            "<i>tidligere skrivemåte av</i> <b>naturlig tall</b>",
+            "<i>tidligere skriveform av</i> <b>naturlig tall</b>",
         ),
         ("{{urspråk|germansk|daigjōn}}", "urgermansk *daigjōn"),
         ("{{vokabular|overført}}", "<i>(overført)</i>"),

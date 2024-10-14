@@ -432,6 +432,7 @@ langs = {
     "prg": "antico",
     "ps": "pashto",
     "pt": "portoghese",
+    "pt-br": "BR",
     "pwg": "gapapaiwa",
     "qu": "quechua",
     "quc": "k'iche'",
@@ -554,5 +555,5 @@ langs = {
     "zh-yue": "cantonese",
     "zu": "zulu",
     "zza": "zazaki",
-}  # 549
+}  # 550
 # END

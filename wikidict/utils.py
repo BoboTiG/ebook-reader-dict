@@ -1,13 +1,14 @@
 """Utilities for internal use."""
 
+import logging
 import os
 import re
-from collections import namedtuple
+from collections import defaultdict, namedtuple
+from collections.abc import Callable
 from contextlib import suppress
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
-from typing import Callable, List, Match, Union
 
 import regex
 import requests
@@ -16,6 +17,7 @@ import wikitextparser
 from . import svg
 from .constants import (
     DOWNLOAD_URL_DICTFILE,
+    DOWNLOAD_URL_DICTORGFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
     WIKIMEDIA_HEADERS,
@@ -32,12 +34,11 @@ from .lang import (
     templates_other,
     thousands_separator,
 )
-from .namespaces import namespaces
-from .user_functions import *  # noqa
+from .user_functions import *  # noqa: F403
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words
-NOW = datetime.now(tz=timezone.utc)
+NOW = datetime.now(tz=UTC)
 MAGIC_WORDS = {
     "CURRENTYEAR": str(NOW.year),
     "CURRENTMONTH": NOW.strftime("%m"),
@@ -62,6 +63,31 @@ SPECIAL_TEMPLATES = {
 OPEN_DOUBLE_CURLY = "##opendoublecurly##"
 CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 
+log = logging.getLogger(__name__)
+
+
+def check_for_missing_templates() -> bool:
+    from .render import MISSING_TEMPLATES
+
+    if not (missing_templates := list(MISSING_TEMPLATES)):
+        return False
+
+    missings_counts: dict[str, int] = defaultdict(int)
+    missings: dict[str, list[str]] = defaultdict(list)
+    for tpl, word in missing_templates:
+        missings_counts[tpl] += 1
+        missings[tpl].append(word)
+    for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
+        words = missings[tpl]
+        log.warning(
+            "Missing %r template support (%s times), example in: %s",
+            tpl,
+            f"{len(words):,}",
+            ", ".join(f'"{word}"' for word in words[:3]),
+        )
+    log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
+    return True
+
 
 def process_special_pipe_template(text: str) -> str:
     splitter = SPECIAL_TEMPLATES["{{!}}"].placeholder
@@ -70,7 +96,7 @@ def process_special_pipe_template(text: str) -> str:
     return text
 
 
-def convert_gender(genders: List[str]) -> str:
+def convert_gender(genders: list[str]) -> str:
     """Return the HTML code to include for gender(s) of a word."""
     if not genders:
         return ""
@@ -78,7 +104,7 @@ def convert_gender(genders: List[str]) -> str:
     return f" {', '.join(genders)}."
 
 
-def convert_pronunciation(pronunciations: List[str]) -> str:
+def convert_pronunciation(pronunciations: list[str]) -> str:
     """Return the HTML code to include for pronunciation(s) of a word."""
     return f" {', '.join(pronunciations)}" if pronunciations else ""
 
@@ -90,7 +116,9 @@ def get_random_word(locale: str) -> str:
         word = str(req.json()["query"]["random"][0]["title"])
 
     if "CI" in os.environ:
-        print(f"🎯 {word = }")
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"word={word}\n".encode())
+
     return word
 
 
@@ -108,10 +136,18 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    # Download links
-    url_dictfile = DOWNLOAD_URL_DICTFILE.format(locale)
-    url_kobo = DOWNLOAD_URL_KOBO.format(locale)
-    url_stardict = DOWNLOAD_URL_STARDICT.format(locale)
+    download_links_full = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "")}) (dict-{locale}-{locale}.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
+""".strip()
+    download_links_noetym = f"""
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "-noetym")}) (dicthtml-{locale}-{locale}-noetym.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "-noetym")}) (dictorg-{locale}-{locale}-noetym.zip)
+""".strip()
 
     creation_date = NOW.isoformat()
     return release_description[locale].format(**locals())
@@ -222,6 +258,8 @@ def clean(text: str, locale: str = "en") -> str:
         ''
         >>> clean("<ref>{{Import:CFC}}</ref>bla bla bla <ref>{{Import:CFC}}</ref>")
         'bla bla bla'
+        >>> clean("<ref>{{Lit-Pfeifer: Etymologisches Wörterbuch|A=8}}, Seite 1551, Eintrag „Wein“<br />siehe auch: {{Literatur | Online=zitiert nach {{GBS|uEQtBgAAQBAJ|PA76|Hervorhebung=Wein}} | Autor=Corinna Leschber| Titel=„Wein“ und „Öl“ in ihren mediterranen Bezügen, Etymologie und Wortgeschichte | Verlag=Frank & Timme GmbH | Ort= | Jahr=2015 | Seiten=75–81 | Band=Band 24 von Forum: Rumänien, Culinaria balcanica, herausgegeben von Thede Kahl, Peter Mario Kreuter, Christina Vogel | ISBN=9783732901388}}.")
+        ''
         >>> clean('<ref name="CFC" />')
         ''
         >>> clean('<ref name="CFC">{{Import:CFC}}</ref>')
@@ -231,6 +269,8 @@ def clean(text: str, locale: str = "en") -> str:
         >>> clean("<ref>D'après ''Dictionnaire du tapissier : critique et historique de l’ameublement français, depuis les temps anciens jusqu’à nos jours'', par J. Deville, page 32 ({{Gallica|http://gallica.bnf.fr/ark:/12148/bpt6k55042642/f71.image}})</ref>")
         ''
         >>> clean("<ref>")
+        ''
+        >>> clean("</ref>")
         ''
         >>> clean("''italic''")
         '<i>italic</i>'
@@ -249,40 +289,26 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("[[{{nom langue|gcr}}]]")
         '{{nom langue|gcr}}'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
-        '10{{e|&minus;6}} gray'
-        >>> clean("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']]", locale="fr")
-        ''
-        >>> clean("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]]", locale="en")
-        ''
-        >>> clean("[[File:1864 Guernesey 8 Doubles.jpg|thumb|Pièce de 8 doubles (île de [[Guernesey]], 1864).]]", locale="en")
-        ''
-        >>> clean("[[Catégorie:Localités d’Afrique du Sud en français]]", locale="fr")
-        ''
-        >>> clean("[[Archivo:Striped_Woodpecker.jpg|thumb|[1] macho.]]", locale="es")
-        ''
-        >>> clean("[[Archivo:Mezquita de Córdoba - Celosía 006.JPG|thumb|[1]]]", locale="es")
-        ''
-        >>> clean("[[Stó:lō]]", locale="fr")
-        'Stó:lō'
         >>> clean("[[a|b]]")
         'b'
         >>> clean("[[-au|-[e]au]]")
         '-[e]au'
+        >>> clean("[[Stó:lō]]", locale="fr")
+        'Stó:lō'
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
+        '10{{e|&minus;6}} gray'
 
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
         ''
         >>> clean("[https://fr.wikipedia.org/wiki/Gerardus_Johannes_Mulder Gerardus Johannes Mulder]")
         'Gerardus Johannes Mulder'
+        >>> clean("[//www.nps.gov/ande/historyculture/myth-shebang.htm the US National Park Service]")
+        'the US National Park Service'
         >>> clean("<sup>[http://www.iupac.org/6612x2419.pdf]</sup> à la [[place]] en 1997<sup>[http://www.iupac.org/6912x2471.pdf]</sup>")
         'à la place en 1997'
         >>> clean("[[http://www.tv5monde.com/cms/chaine-francophone/lf/Merci-Professeur/p-17081-Une-peur-bleue.htm?episode=10 Voir aussi l’explication de Bernard Cerquiglini en images]]")
         ''
 
-        >>> clean("<!-- {{sco}} -->")
-        ''
-        >>> clean("<!-- <i>sco</i> -->")
-        ''
         >>> clean('<ref name="Marshall 2001"><sup>he</sup></ref>')
         ''
         >>> clean("<nowiki/>")
@@ -301,7 +327,7 @@ def clean(text: str, locale: str = "en") -> str:
 
         >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
         ''
-    """  # noqa
+    """
 
     # Speed-up lookup
     sub = re.sub
@@ -316,65 +342,59 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace("\n", "")
 
     # Parser hooks
-    # <ref name="CFC"/> -> ''
+    # <ref name="CFC"/> → ''
     text = sub(r"<ref[^>]*/>", "", text)
-    # <ref>foo</ref> -> ''
-    # <ref name="CFC">{{Import:CFC}}</ref> -> ''
-    # <ref name="CFC"><tag>...</tag></ref> -> ''
-    text = sub(r"<ref[^>]*/?>[\s\S]*?</ref>", "", text)
-    # <ref> -> ''
-    text = text.replace("<ref>", "")
+    # <ref>foo → ''
+    # <ref>foo</ref> → ''
+    # <ref name="CFC">{{Import:CFC}}</ref> → ''
+    # <ref name="CFC"><tag>...</tag></ref> → ''
+    text = sub(r"<ref[^>]*/?>[\s\S]*?(?:</ref>|$)", "", text)
+    # <ref> → ''
+    # </ref> → ''
+    text = text.replace("<ref>", "").replace("</ref>", "")
 
     # HTML
-    # <-- foo --> -> ''
-    text = sub(r"<!--(?:.+-->)?", "", text)
     # Source: https://github.com/5j9/wikitextparser/blob/b24033b/wikitextparser/_wikitext.py#L83
     text = sub2(r"'''(\0*+[^'\n]++.*?)(?:''')", "<b>\\1</b>", text)
-    # ''foo'' -> <i>foo></i>
+    # ''foo'' → <i>foo></i>
     text = sub2(r"''(\0*+[^'\n]++.*?)(?:'')", "<i>\\1</i>", text)
-    # <br> / <br /> -> ''
+    # <br> / <br /> → ''
     text = sub(r"<br[^>]+/?>", "", text)
 
-    # <nowiki/> -> ''
+    # <nowiki/> → ''
     text = text.replace("<nowiki/>", "")
 
     # <gallery>
     text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
 
     # Local links
-    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] -> a
-
-    # Namespaces
-    # [[File:...|...]] -> ''
-    pattern = "|".join(iter(namespaces[locale] + namespaces["en"]))
-    text = sub(rf"\[\[(?:{pattern}):.+?(?=\]\])\]\]*", "", text)
+    text = sub(r"\[\[([^||:\]]+)\]\]", "\\1", text)  # [[a]] → a
 
     # Links
-    # Internal: [[{{a|b}}]] -> {{a|b}}
+    # Internal: [[{{a|b}}]] → {{a|b}}
     text = sub(r"\[\[({{[^}]+}})\]\]", "\\1", text)
-    # Internal: [[a|b]] -> b
+    # Internal: [[a|b]] → b
     text = sub(r"\[\[[^|]+\|(.+?(?=\]\]))\]\]", "\\1", text)
-    # External: [[http://example.com Some text]] -> ''
+    # External: [[http://example.com Some text]] → ''
     text = sub(r"\[\[https?://[^\s]+\s[^\]]+\]\]", "", text)
-    # External: [http://example.com] -> ''
+    # External: [http://example.com] → ''
     text = sub(r"\[https?://[^\s\]]+\]", "", text)
-    # External: [http://example.com Some text] -> 'Some text'
+    # External: [http://example.com Some text] → 'Some text'
     text = sub(r"\[https?://[^\s]+\s([^\]]+)\]", r"\1", text)
+    # External: [//example.com Some text] → 'Some text'
+    text = sub(r"\[//[^\s]+\s([^\]]+)\]", r"\1", text)
     text = text.replace("[[", "").replace("]]", "")
 
     # Tables
-    text = sub(r"{\|[^}]+\|}", "", text)  # {|foo..|}
+    # {|foo..|}
+    text = sub(r"{\|[^}]+\|}", "", text)
 
     # Headings
-    text = sub(
-        r"^=+\s?([^=]+)\s?=+",
-        lambda matches: matches.group(1).strip(),
-        text,
-        flags=re.MULTILINE,
-    )  # == a == -> a
+    # == a == → a
+    text = sub(r"^=+\s?([^=]+)\s?=+", lambda matches: matches.group(1).strip(), text)
 
     # Lists
-    text = sub(r"^\*+\s?", "", text, flags=re.MULTILINE)
+    text = sub(r"^\*+\s?", "", text)
 
     # Magic words
     text = sub(r"__[A-Z]+__", "", text)  # __TOC__
@@ -387,15 +407,15 @@ def clean(text: str, locale: str = "en") -> str:
     text = text.replace(" ]", "")
 
     # Remove empty HTML tags
-    # <sup></sup> -> ''
+    # <sup></sup> → ''
     text = sub(r"<([^>]+)></\1>", "", text)
 
     # Remove extra spaces
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
-    # <<bar>> -> foo
-    # <<foo/bar>> -> bar
+    # <<bar>> → foo
+    # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
@@ -416,7 +436,6 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("foo", "{{unknown}}", "fr")
         '{{unknown}}'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
-         !! Missing 'foo' template support for word 'foo'
         ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
@@ -426,12 +445,10 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<math>\frac</math>", "fr")
-        <math> ERROR with \frac in [test]
         '\\frac'
         >>> process_templates("", r"<chem>C10H14N2O4</chem>", "fr") # doctest: +ELLIPSIS
         '<svg ...'
         >>> process_templates("test", r"<chem>C10HX\xz14N2O4</chem>", "fr")
-        <chem> ERROR with C10HX\xz14N2O4 in [test]
         'C10HX\\xz14N2O4'
         >>> process_templates("test", r"<hiero>R11</hiero>", "fr")
         '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
@@ -441,7 +458,7 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("tasse", "<i>س tas'</i>", "fr")
         "س tas'"
 
-    """  # noqa
+    """
 
     sub = re.sub
 
@@ -496,7 +513,7 @@ def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -
         - https://github.com/maxbuchan/viv/blob/d9dc1f95348b458e0251bcf908084f2e0b8baf1f/apps/mediawiki/htdocs/extensions/Math/math/texutil.ml#L513
         - https://github.com/wikimedia/restbase/blob/ecef17bda6f4efc0d6e187fb05b1eeb389bf7120/sys/mathoid.js#L33
         - https://phabricator.wikimedia.org/diffusion/GMAT/browse/master/lib/math.js
-    """  # noqa
+    """
 
     if cat == "chem":
         formula = f"\\ce{{{formula}}}"
@@ -525,27 +542,27 @@ def formula_to_svg(formula: str, cat: str = "tex") -> str:
     return svg.optimize(svg_raw)
 
 
-def convert_math(match: Union[str, Match[str]], word: str) -> str:
+def convert_math(match: str | re.Match[str], word: str) -> str:
     """Convert mathematics symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula)
     except Exception:
-        print(f"<math> ERROR with {formula} in [{word}]", flush=True)
+        log.exception("<math> ERROR with %r in [%s]", formula, word)
         return formula
 
 
-def convert_chem(match: Union[str, Match[str]], word: str) -> str:
+def convert_chem(match: str | re.Match[str], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     try:
         return formula_to_svg(formula, cat="chem")
     except Exception:
-        print(f"<chem> ERROR with {formula} in [{word}]", flush=True)
+        log.exception("<chem> ERROR with %r in [%s]", formula, word)
         return formula
 
 
-def convert_hiero(match: Union[str, Match[str]], word: str) -> str:
+def convert_hiero(match: str | re.Match[str], word: str) -> str:
     """Convert hiretoglyph symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     return render_hiero(expr)
@@ -577,7 +594,6 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
-         !! Missing 'conj' template support for word 'foo'
         ''
 
         >>> # Magic words
@@ -628,7 +644,7 @@ def transform(word: str, template: str, locale: str) -> str:
     # Apply transformations
 
     with suppress(KeyError):
-        return eval(templates_multi[locale][tpl])  # type: ignore
+        return str(eval(templates_multi[locale][tpl]))
 
     if len(parts) == 1:
         with suppress(KeyError):

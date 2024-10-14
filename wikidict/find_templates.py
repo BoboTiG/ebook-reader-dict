@@ -1,24 +1,26 @@
 """DEBUG: find all templates in use."""
 
+import logging
 import os
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List
 
 from .lang import sections
 from .render import adjust_wikicode, find_all_sections, find_sections, get_latest_json_file, load
 
+log = logging.getLogger(__name__)
 
-def find_titles(code: str, locale: str) -> List[str]:
+
+def find_titles(code: str, locale: str) -> list[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
     _, all_sections = find_all_sections(code, locale)
     return [title for title, _ in all_sections]
 
 
-def find_templates(in_words: Dict[str, str], locale: str) -> None:
+def find_templates(in_words: dict[str, str], locale: str) -> None:
     found_sections = defaultdict(list)
-    templates: Dict[str, str] = {}
+    templates: dict[str, str] = {}
     locale_sections = sections[locale]
     for in_word, code in in_words.items():
         if locale == "da":
@@ -37,7 +39,7 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
                 templates[template] = in_word
 
     if not found_sections:
-        print("No sections found.", flush=True)
+        log.warning("No sections found.")
         return
 
     with open("sections.txt", "w", encoding="utf-8") as f:
@@ -49,15 +51,15 @@ def find_templates(in_words: Dict[str, str], locale: str) -> None:
                     f.write(f"    - {entry!r}\n")
             else:
                 f.write(f"    - {entries[0]!r}\n")
-    print(">>> File sections.txt created.", flush=True)
+    log.info("File sections.txt created.")
 
     if templates:
         with open("templates.txt", "w", encoding="utf-8") as f:
             for template, entry in sorted(templates.items()):
                 f.write(f"{entry!r} => {template!r}\n")
-        print(">>> File templates.txt created.")
+        log.info("File templates.txt created.")
     else:
-        print("No templates found.", flush=True)
+        log.warning("No templates found.")
 
 
 def main(locale: str) -> int:
@@ -66,12 +68,12 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --parse first ... ", flush=True)
+        log.error("No dump found. Run with --parse first ... ")
         return 1
 
-    print(f">>> Loading {file} ...", flush=True)
-    in_words: Dict[str, str] = load(file)
+    log.info("Loading %s ...", file)
+    in_words: dict[str, str] = load(file)
 
-    print(">>> Working, please be patient ...", flush=True)
+    log.info("Working, please be patient ...")
     find_templates(in_words, locale)
     return 0

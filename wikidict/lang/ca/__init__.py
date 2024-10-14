@@ -1,7 +1,6 @@
 """Catalan language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
 from .grc_trans import transliterate as transliterate_grc
@@ -46,6 +45,7 @@ variant_titles = (
 )
 variant_templates = (
     "{{ca-forma-conj",
+    "{{forma-a",
     "{{forma-p",
     "{{forma-f",
 )
@@ -61,6 +61,7 @@ definitions_to_ignore = (
     # For variants
     #
     "ca-forma-conj",
+    "forma-a",
     "forma-f",
     "forma-p",
 )
@@ -92,6 +93,8 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e-propi|ca|grèvol}}
     "e-propi": "strong(parts[-1])",
+    # {{forma-a|ca|Bielorússia}}
+    "forma-a": "parts[-1]",
     # {{forma-f|ca|halloweenià}}
     "forma-f": "parts[-1]",
     # {{forma-p|ca|experta}}
@@ -116,14 +119,14 @@ release_description = """\
 Les paraules compten: {words_count}
 Abocador Viccionari: {dump_date}
 
-Fitxers disponibles:
+Versió completa:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Versió sense etimologia:
+{download_links_noetym}
 
 <sub>Actualitzat el {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Viccionari (ɔ) {year}"
@@ -131,8 +134,8 @@ wiktionary = "Viccionari (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -146,8 +149,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -163,7 +166,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -189,6 +192,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         "De l'anglès"
         >>> last_template_handler(["etim-lang", "grc", "ca", "φαιός", "trad=gris"], "ca")
         'Del grec antic <i>φαιός</i> (<i>phaiós</i>, «gris»)'
+        >>> last_template_handler(["etim-lang", "ar", "ca", "برج", "alt=البرج", "trans=al-burj", "trad=la torre"], "ca")
+        "De l'àrab <i>البرج</i> (<i>al-burj</i>, «la torre»)"
 
         >>> last_template_handler(["del-lang", "la", "ca", "verba"], "ca")
         'del llatí <i>verba</i>'
@@ -239,7 +244,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula", "pos=gentilici"], "ca")
         '<i>λόγος</i> (<i>lógos</i>, «paraula», gentilici)'
-        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca") # noqa
+        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca")
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
         >>> last_template_handler(["trad", "es", "manzana"], "ca")
@@ -261,7 +266,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     from .general import cal_apostrofar
 
@@ -322,7 +327,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             phrase += f"{lang}"
             word = ""
             if len(parts) > 2:
-                word = parts[2]
+                word = data["alt"] or parts[2]
                 if len(parts) > 3:
                     phrase += f" {italic(parts[3])}"
                 else:

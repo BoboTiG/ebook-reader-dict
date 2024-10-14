@@ -19,5 +19,3 @@ print("langs = {")
 for t, r in sorted(langs.items()):
     print(f'    "{t}": "{r}",')
 print(f"}}  # {len(langs):,}")
-
-print()

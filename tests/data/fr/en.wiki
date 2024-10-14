@@ -11,61 +11,69 @@
 : ''([[en#fr-adv|Adverbe]], [[en#fr-pronom-pers|Pronom personnel]])'' Du {{étyl|la|fr|mot=inde|sens=de là}}.
 
 === {{S|préposition|fr}} ===
-'''en''' {{pron|ɑ̃|fr}}
+{{fr-inv}}
+'''en''' {{pron|ɑ̃|fr}} {{invar|fr}}
 # Préposition utilisée après certains verbes.
-#* ''Croire '''en''' Dieu.''
-#* ''Mise '''en''' œuvre.''
+#* {{exemple | lang=fr | Croire '''en''' Dieu.}}
+#* {{exemple | lang=fr | Mise '''en''' œuvre.}}
 # Préposition qui permet de préciser une matière.
-#* ''Un évier '''en''' émail.''
+#* {{exemple | lang=fr | Un évier '''en''' émail.}}
 # Préposition qui indique le [[lieu]].
-#* ''Être '''en''' France.'' — ''Aller '''en''' Amérique.''
+#* {{exemple | lang=fr | Être '''en''' France.'' — ''Aller '''en''' Amérique.}}
 #* ''Mettre quelqu’un '''en''' prison.''<br
 />{{note}} Souvent l’idée de relation avec l’intérieur d’un lieu s’affaiblit, ou même s’efface entièrement, et '''''en''''' paraît alors équivaloir aux prépositions ''[[à]]'', ''[[vers]]'' ou ''[[sur]]''.
-#* ''Marcher '''en''' tête.''
-#* ''Mettre '''en''' ligne.''
+#* {{exemple | lang=fr | Marcher '''en''' tête.}}
+#* {{exemple | lang=fr | Mettre '''en''' ligne.}}
 # Préposition qui a divers [[emploi]]s spéciaux, et [[précéder|précède]] très souvent un mot qui indique ou [[déterminer|détermine]] l’[[état]] [[absolu]] ou [[relatif]], la manière d’être, la [[disposition]], la [[modification]] d’une personne ou d’une chose.
-#* ''Un habit '''en''' lambeaux.''
-#* ''Teindre, colorer '''en''' bleu, '''en''' rouge.''
+#* {{exemple | lang=fr | Un habit '''en''' lambeaux.}}
+#* {{exemple | lang=fr | Teindre, colorer '''en''' bleu, '''en''' rouge.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique ou détermine à quoi une personne est [[occuper|occupée]], [[appliquer|appliquée]].
-#* ''Être '''en''' affaire, '''en''' prières.''
+#* {{exemple | lang=fr | Être '''en''' affaire, '''en''' prières.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique ou détermine le [[résultat]] d’un [[changement]] de [[nature]].
-#* ''Narcisse fut métamorphosé '''en''' fleur.''
-#* ''Éclater '''en''' sanglots.''
+#* {{exemple | lang=fr | Narcisse fut métamorphosé '''en''' fleur.}}
+#* {{exemple | lang=fr | Éclater '''en''' sanglots.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique la forme.
-#* ''Des arbres taillés '''en''' buisson.'' — ''Une fenêtre '''en''' ogive.''
+#* {{exemple | lang=fr | Des arbres taillés '''en''' buisson.'' — ''Une fenêtre '''en''' ogive.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique le [[genre]] de [[culture]].
-#* ''Cet hectare est '''en''' vignes.'' — ''Ce terrain a été mis '''en''' potager, est '''en''' potager.''
+#* {{exemple | lang=fr | Cet hectare est '''en''' vignes.'' — ''Ce terrain a été mis '''en''' potager, est '''en''' potager.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique le [[mode]] de [[division]].
-#* ''Diviser '''en''' deux, '''en''' trois, etc.''
-#* ''Une comédie '''en''' cinq actes.''
+#* {{exemple | lang=fr | Diviser '''en''' deux, '''en''' trois, etc.}}
+#* {{exemple | lang=fr | Une comédie '''en''' cinq actes.}}
 # Préposition qui [[introduire|introduit]] le mot qui indique l’[[espèce]] de [[vêtement]] qu’une personne a sur elle.
-#* ''Être '''en''' uniforme.'' — ''Être '''en''' pantoufles.''
+#* {{exemple|[…]elle entendit le grincement d'une porte qu'on ouvre et le bruit d'un verrou tiré et Yavdokia '''en''' chemise et les yeux gros de sommeil apparut enfin sur le seuil : […]. |source=''Le récit ukrainien soviétique'', traduit de l'ukrainien, Kiev : Éditions Dnipro 1982, p. 454|lang=fr}}
+#* {{exemple | lang=fr | Être '''en''' uniforme.'' — ''Être '''en''' pantoufles.}}
 # Préposition qui [[introduire|introduit]] le mot qui détermine à quoi est relative, à quoi est [[restreindre|restreinte]], ou de [[quel]] point de vue est [[considérer|considérée]] la chose, la [[qualité]], l’[[action]], etc., dont il s’[[agir|agit]].
-#* ''Bon '''en''' mathématiques.'' — ''Docteur '''en''' médecine.''
-#* ''Une terre fertile '''en''' blé.''
+#* {{exemple | lang=fr | Bon '''en''' mathématiques.'' — ''Docteur '''en''' médecine.}}
+#* {{exemple | lang=fr | Une terre fertile '''en''' blé.}}
 # Préposition qui sert à marquer la [[conformité]].
-#* '''''En''' bonne règle.'' — ''Je vous le dis '''en''' vérité.''
+#* {{exemple | lang=fr | '''En''' bonne règle.'' — ''Je vous le dis '''en''' vérité.}}
 # Préposition qui sert à indiquer la manière dont se fait une action.
-#* ''Je vous expliquerai la chose '''en''' deux mots.''
-#* ''Ils s’y rendirent '''en''' toute hâte.''
+#* {{exemple | lang=fr | Je vous expliquerai la chose '''en''' deux mots.}}
+#* {{exemple | lang=fr | Ils s’y rendirent '''en''' toute hâte.}}
 # Préposition qui sert à indiquer le [[langage]] ou le genre d’[[écriture]] qu’on emploie.
-#* ''Écrire un ouvrage '''en''' grec, '''en''' français, '''en''' latin, etc.''
-#* ''Ils s’entretenaient '''en''' anglais.''
+#* {{exemple | lang=fr | Écrire un ouvrage '''en''' grec, '''en''' français, '''en''' latin, etc.}}
+#* {{exemple | lang=fr | Ils s’entretenaient '''en''' anglais.}}
 # Préposition qui sert à indiquer la [[destination]].
-#* ''Mettre '''en''' vente.''
-#* ''Donner '''en''' otage.''
+#* {{exemple | lang=fr | Mettre '''en''' vente.}}
+#* {{exemple | lang=fr | Donner '''en''' otage.}}
 # Préposition qui sert à indiquer le [[motif]] qui fait agir ou La fin qu’on se [[proposer|propose]].
-#* '''''En''' vue de lui plaire.''
+#* {{exemple | lang=fr | '''En''' vue de lui plaire.}}
 # Préposition qui sert à [[marquer]] le [[rapport]] au [[temps]] et signifie [[durant]], pendant.
-#* '''''En''' hiver.'' — '''''En''' votre absence.'' — '''''En''' temps de paix.''
+#* {{exemple | lang=fr | '''En''' hiver.'' — '''''En''' votre absence.'' — '''''En''' temps de paix.}}
 # Préposition qui sert à préciser un [[moyen de transport]]. {{note}} Traditionnellement, on utilise ''en'' pour des moyens de transport dans lesquels on se trouve (''en voiture'', par exemple), et ''à'' pour ceux qu’on enfourche, sur le modèle de ''à cheval''. Mais il semble y avoir une tendance à la simplification, par l’utilisation de ''en'' pour tous les moyens de transport mécaniques (on dit maintenant ''en vélo'' aussi bien que ''à vélo''). Cela peut expliquer que, pour des noms récents comme ''VTT'', on emploie toujours ''en''.
-#* ''Je suis allé en Corse '''en''' avion, mais je suis revenu '''en''' bateau.''
-# Préposition qui sert à former un [[gérondif]] qui marque le [[temps]], la [[durée]].
-#* ''Elle avait épousé un beau garçon sans fortune, mort au commencement de 1809, '''en''' lui laissant deux enfants très-jeunes avec une quantité de dettes.'' {{source|{{w|Gustave Flaubert}}, ''{{ws|Trois Contes (Flaubert)|Trois Contes}}'', 1877}}
-#* ''Lambert hochait la tête '''en''' souriant.'' {{source|Beauvoir, ''Mandarins'', 1954}}
-#* '''''En''' allant à l’université, j’ai rencontré une belle fille.''
+#* {{exemple | lang=fr | Je suis allé en Corse '''en''' avion, mais je suis revenu '''en''' bateau.}}
+# (Suivi du participe présent) Préposition qui sert à former un [[gérondif]] qui marque le [[temps]], la [[durée]].
+#* {{exemple | lang=fr
+ | Elle avait épousé un beau garçon sans fortune, mort au commencement de 1809, '''en''' lui laissant deux enfants très-jeunes avec une quantité de dettes.
+ | source={{w|Gustave Flaubert}}, ''{{ws|Trois Contes (Flaubert)|Trois Contes}}'', 1877}}
+#* {{exemple | lang=fr
+ | Lambert hochait la tête '''en''' souriant.
+ | source=Beauvoir, ''Mandarins'', 1954}}
+#* {{exemple | lang=fr | '''En''' allant à l’université, j’ai rencontré une belle fille.}}
 # Préposition qui remplace, en évitant la répétition, le nom placé avant, en tant que « en » marqueur du participe présent suivant un « en » préposition.
-#* ''Cependant, si je touche le tranchant de cette plante en me rappelant que je suis dans un rêve – pas en me le rappelant uniquement dans ma tête, mais aussi '''en''' '''en''' sentant la réalité de tout mon être : dans mon sentiment et dans mon corps –, alors je mets en relation la réalité existant en dehors du rêve avec la réalité interne au rêve.'' {{source|Daniel-Philippe de Sudres, ''Le rêve d'Audrey'', 1999, réed. augm. 2017}}
+#* {{exemple | lang=fr
+ | Cependant, si je touche le tranchant de cette plante en me rappelant que je suis dans un rêve – pas en me le rappelant uniquement dans ma tête, mais aussi '''en''' '''en''' sentant la réalité de tout mon être : dans mon sentiment et dans mon corps –, alors je mets en relation la réalité existant en dehors du rêve avec la réalité interne au rêve.
+ | source=Daniel-Philippe de Sudres, ''Le rêve d'Audrey'', 1999, réed. augm. 2017}}
 # Préposition qui remplace ''[[à la]]'' ou ''[[à l’]]'' du [[locatif]] du nom d’un pays ou d’un continent. Cet usage est parallèle à la [[suppression]] de l’[[article]] dans ''[[de la]]'' ou ''[[de l’]]'' de l’[[ablatif]] correspondant{{réf|1}}. Il y a d’autres noms qui suivent cette règle, comme les noms des saisons.
 :{| class="wikitable" border="1"
 ! colspan="2" | !! Consonne !! Voyelle<ref>Ou un « h » muet, comme [[Haïti]]</ref>
@@ -90,6 +98,7 @@
 {{trad-début|Utilisé après certains verbes}}
 * {{T|de}} : {{trad+|de|an}}, {{trad+|de|in}} (jeweils abhängig vom Verb)
 * {{T|eo}} : {{trad+|eo|je}}
+* {{T|pt}} : {{trad+|pt|em}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser une matière}}
@@ -101,6 +110,7 @@
 * {{T|avk}} : {{trad|avk|kum}}
 * {{T|pcd}} : {{trad|pcd|in}}
 * {{T|zdj}} : {{trad|zdj|-a}}
+* {{T|solrésol}} : {{trad|solrésol|misisim'i}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser un thème}}
@@ -108,12 +118,14 @@
 * {{T|en}} : {{trad+|en|at}}
 * {{T|vls}} : {{trad|vls|int}}
 * {{T|pcd}} : {{trad|pcd|in}}
+* {{T|solrésol}} : {{trad|solrésol|misisim'i}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser une couleur}}
 * {{T|de}} : {{trad+|de|in}} (in der Regel nicht angegeben)
 * {{T|ia}} : {{trad+|ia|in}}
 * {{T|pcd}} : {{trad|pcd|in}}
+* {{T|solrésol}} : {{trad|solrésol|misisim'i}}
 {{trad-fin}}
 
 {{trad-début|Permet de préciser un moyen de transport}}
@@ -121,6 +133,7 @@
 * {{T|en}} : {{trad+|en|by}}
 * {{T|avk}} : {{trad|avk|kan}}
 * {{T|pcd}} : {{trad|pcd|in}}
+* {{T|solrésol}} : {{trad|solrésol|misisim'i}}
 {{trad-fin}}
 
 {{trad-début|Devant une année}}
@@ -133,6 +146,7 @@
 * {{T|pcd}} : {{trad|pcd|in}}
 * {{T|pdt}} : {{trad|pdt|en}}
 * {{T|zdj}} : {{trad|zdj|tarehi}}
+* {{T|solrésol}} : {{trad|solrésol|misisim'i}}
 * {{T|sw}} : {{trad-|sw|tarihi}}, {{trad-|sw|tarikhi}}
 {{trad-fin}}
 
@@ -177,7 +191,7 @@
 * {{T|is}} : {{trad+|is|um}}, {{trad+|is|á}}, {{trad+|is|að}}, {{trad+|is|i}}, {{trad+|is|til}}
 * {{T|it}} : {{trad+|it|a}}, {{trad+|it|dentro}}, {{trad+|it|a}}
 * {{T|la}} : {{trad+|la|a}}, {{trad+|la|ab}}, {{trad-|la|abs}}, {{trad+|la|ad}}
-* {{T|ms}} : {{trad+|ms|di}}, {{trad-|ms|ke}}, {{trad-|ms|kepada}}
+* {{T|ms}} : {{trad+|ms|di}}, {{trad+|ms|ke}}, {{trad+|ms|kepada}}
 * {{T|yua}} : {{trad|yua|ich}}, {{trad|yua|ichil}}
 * {{T|nl}} : {{trad+|nl|aan}}, {{trad+|nl|aangaande}}, {{trad+|nl|betreffende}}, {{trad+|nl|bij}}, {{trad+|nl|met}}, {{trad+|nl|over}}, {{trad+|nl|van}}, {{trad+|nl|in}}, {{trad+|nl|jegens}}, {{trad+|nl|om}}, {{trad+|nl|op}}, {{trad+|nl|te}}, {{trad+|nl|tot}}, {{trad+|nl|voor}}, {{trad+|nl|binnen}}, {{trad+|nl|per}}, {{trad+|nl|op}}, {{trad+|nl|naar}}, {{trad+|nl|tegen}}
 * {{T|no}} : {{trad+|no|om}}, {{trad+|no|over}}, {{trad+|no|på}}, {{trad+|no|i}}, {{trad+|no|til}}
@@ -185,7 +199,7 @@
 * {{T|pap}} : {{trad|pap|den}}, {{trad|pap|na}}, {{trad|pap|pa}}
 * {{T|pms}} : {{trad|pms|ën}}
 * {{T|pl}} : {{trad+|pl|o}}, {{trad+|pl|w}}, {{trad+|pl|ku}}, {{trad+|pl|do}}
-* {{T|pt}} : {{trad+|pt|em}}, {{trad+|pt|acerca de}}, {{trad+|pt|a respeito de}}, {{trad-|pt|quanto a}}, {{trad+|pt|a}}, {{trad+|pt|ao}}, {{trad+|pt|com}}, {{trad-|pt|dentro de}}, {{trad+|pt|para}}
+* {{T|pt}} : {{trad+|pt|em}}, {{trad+|pt|acerca de}}, {{trad+|pt|a respeito de}}, {{trad+|pt|quanto a}}, {{trad+|pt|a}}, {{trad+|pt|ao}}, {{trad+|pt|com}}, {{trad-|pt|dentro de}}, {{trad+|pt|para}}
 * {{T|ro}} : {{trad+|ro|apropo}}, {{trad+|ro|despre}}, {{trad+|ro|în}}, {{trad+|ro|prin}}, {{trad+|ro|către}}, {{trad+|ro|la}}, {{trad+|ro|spre}}
 * {{T|ru}} : {{trad+|ru|о}}, {{trad+|ru|в}}, {{trad+|ru|на}}, {{trad+|ru|в}}, {{trad+|ru|к}}
 * {{T|sv}} : {{trad+|sv|om}}, {{trad+|sv|över}}, {{trad+|sv|på}}, {{trad+|sv|i}}, {{trad+|sv|till}}
@@ -194,26 +208,42 @@
 {{trad-fin}}
 
 === {{S|pronom personnel|fr}} ===
-'''en''' {{pron|ɑ̃|fr}} {{invariable}}
+{{fr-inv}}
+'''en''' {{pron|ɑ̃|fr}} {{invariable|fr}}
 # {{term|remplaçant un [[COI]] avec [[de#fr-prép|de]]}} De ça.
-#* ''J''''en''' ai été informé. — Je n''''en''' sais rien.''
-#* ''Sans les digues élevées et solidement établies qui l''''en''' garantissent, la Camargue serait submergée par le Rhône plusieurs fois durant le cours du printemps, […].'' {{source|M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l’agriculture française'', 2{{e}} série, tome 34, Paris : chez Madame Huzard, avril 1826, page 77}}
+#* {{exemple | lang=fr | J''''en''' ai été informé. — Je n''''en''' sais rien.}}
+#* {{exemple | lang=fr
+ | Sans les digues élevées et solidement établies qui l''''en''' garantissent, la Camargue serait submergée par le Rhône plusieurs fois durant le cours du printemps, […].
+ | source=M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l’agriculture française'', 2{{e}} série, tome 34, Paris : chez Madame Huzard, avril 1826, page 77}}
 #* {{exemple|lang=fr|Il m’'''en''' écrira avant huit jours ! répétait-elle en agitant sur son oreiller sa grosse tête pleine de projets.|source={{w|George Sand}}, ''{{w|Jeanne (roman)|Jeanne}}'', 1844}}
-#* ''L’affaire fit beaucoup de bruit. À l’heure de l’anisette, les officiers d l’état-major '''en''' discutaient !'' {{source|{{w|Bachaga Boualam}}, ''Les Harkis au service de la France'', France-Empire, 1963, page 47}}
+#* {{exemple | lang=fr
+ | L’affaire fit beaucoup de bruit. À l’heure de l’anisette, les officiers d l’état-major '''en''' discutaient !
+ | source={{w|Bachaga Boualam}}, ''Les Harkis au service de la France'', France-Empire, 1963, page 47}}
 # {{term|remplaçant un nom sans [[déterminant]] ou un nom indéfini du [[COD]] ou du sujet de la [[copule]]}} Personne, chose de cette espèce, d’entre eux, d’entre elles. {{usage}} Utilisé tout seul ou avec une quantification.
 #* ''Lucien : Dis donc, Charlot, as-tu un sou ?<br />Charlot : Oui, j''''en''' ai deux ; pour quoi faire ?'' {{source|Comtesse de Ségur, ''[[s:Comédies et proverbes/Le Forçat|Le Forçat]]'', 1869}}
 #* ''— Halte ! Avez-vous des allumettes ?<br />— Des allumettes ! Quelles allumettes ?<br />— Fumez-vous ?<br />— Ah ! oui, j''''en''' ai ; les voilà, les voilà… Attendez.'' {{source|Fédor Dostoïevski, ''[[s:La Femme d’un autre|La Femme d’un autre]]'', traduit par Ely Halpérine-Kaminsky, 1888}}
 #* ''Lady Caroline : On m’a dit que vous n’aviez pas de manoir, en Amérique ?<br />Hester : Nous n''''en''' avons pas beaucoup.'' {{source|Oscar Wilde, ''[[s:Une femme sans importance|Une femme sans importance]]'', traduit par Imago Visentin, 1893}}
 # {{term|remplaçant un nom avec [[de#fr-prép|de]] dans le [[COD]], dans le sujet de la [[copule]] ou dans l’[[attribut]]}} De ça. {{usage}} Pour une personne, on utilise ''de lui'', ''d’elle'', etc. ou un [[adjectif possessif]].
-#* ''Ces deux enfants-là sont beaux et bien faits ; ils n’ont point de défauts sur le corps, et j''''en''' suis content.'' {{source|George Sand, ''[[s:La Petite Fadette|La Petite Fadette]]'', 1849}}
-#* ''Cette lettre, j''''en''' sais le contenu également.'' {{source|Alexandre Dumas, ''[[s:Joseph Balsamo|Joseph Balsamo]]'', [[s:Joseph Balsamo/Chapitre LXXXVI|Chapitre LXXXVI]], 1872}}
-#* ''Le ''Contrat social'' diffère nettement de tous les autres ouvrages de Rousseau. […] Et le style '''en''' est tout nouveau : […] ; le ton, au contraire, '''en''' est grave, précis ; […]'' {{source|Georges Beaulavon, [[s:Du contrat social/Édition Beaulavon 1903/Texte entier|''Introduction du contrat social'']], 1903}}
+#* {{exemple | lang=fr
+ | Ces deux enfants-là sont beaux et bien faits ; ils n’ont point de défauts sur le corps, et j''''en''' suis content.
+ | source=George Sand, ''[[s:La Petite Fadette|La Petite Fadette]]'', 1849}}
+#* {{exemple | lang=fr
+ | Cette lettre, j''''en''' sais le contenu également.
+ | source=Alexandre Dumas, ''[[s:Joseph Balsamo|Joseph Balsamo]]'', [[s:Joseph Balsamo/Chapitre LXXXVI|Chapitre LXXXVI]], 1872}}
+#* {{exemple | lang=fr
+ | Le ''Contrat social'' diffère nettement de tous les autres ouvrages de Rousseau. […] Et le style '''en''' est tout nouveau : […] ; le ton, au contraire, '''en''' est grave, précis ; […]
+ | source=Georges Beaulavon, [[s:Du contrat social/Édition Beaulavon 1903/Texte entier|''Introduction du contrat social'']], 1903}}
+
+==== {{S|dérivés}} ====
+{{(}}
+* [[qu’en-dira-t-on]]
+{{)}}
 
 === {{S|adverbe|fr}} ===
-'''en''' {{pron|ɑ̃|fr}} {{adverbe de lieu|fr}}
-[[Catégorie: Adverbes de lieu en français]]
+{{fr-inv}}
+'''en''' {{pron|ɑ̃|fr}} {{invariable|fr}} {{adverbe de lieu|fr}}
 # De ce lieu. De là. De ce [[côté]]-là
-#* ''La piscine ? J''''en''' viens !''
+#* {{exemple | lang=fr | La piscine ? J''''en''' viens !}}
 
 ==== {{S|variantes}} ====
 * [[z’en]]
@@ -236,6 +266,17 @@
 * {{T|nl}} : {{trad+|nl|ervan}}
 {{trad-fin}}
 
+=== {{S|nom|fr}} ===
+{{fr-rég|ɛn}}
+'''en''' {{pron|ɛn|fr}} {{m}}
+# Quinzième [[lettre]] de l’alphabet cyrillique, {{lien|н|ru}}.
+#* {{exemple|lang=fr}}
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|it}} : {{trad+|it|en|f}}
+{{trad-fin}}
+
 === {{S|prononciation}} ===
 * {{pron|ɑ̃|fr}}
 ** {{pron-rimes|ɑ̃|fr}}
@@ -248,12 +289,13 @@
 ** {{écouter|lang=fr|France (Toulouse)|ɑŋ|audio=LL-Q150 (fra)-Lepticed7-en.wav}}
 * Canada : {{pron|ã|fr}}
 {{note}} En français canadien, dépendamment de sa place dans la phrase, la voyelle peut être longue ou courte : dans « Je m’en vais/vas », la voyelle est longue car le verbe est monosyllabique : {{phon|ʒ(ə).mãː.vɛ|fr}} ou {{phon|ʒ(ə).mãː.vɑ|fr}}.{{référence nécessaire|lang=fr}}
+* {{écouter|Lyon (France)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-en.wav}}
 
 ==== {{S|homophones|fr}} ====
 * [[an]]
 
 === {{S|anagrammes}} ===
-* [[ne]], [[né]]
+{{voir anagrammes|fr}}
 
 === {{S|voir aussi}} ===
 * {{Le Dico des Ados}}
@@ -261,6 +303,7 @@
 === {{S|références}} ===
 * {{R:DAF8}}
 * {{RÉF|1}} Philip H. Miller, Geoffrey K. Pullum, Arnold M. Zwicky, [//www.stanford.edu/~zwicky/4PPFS.pdf “The Principle of Phonology-Free Syntax: four apparent counterexamples in French”], ''Journal of linguistics'', volume 33, nº 1, 1997, pages 67-90.
+{{Références}}
 
 == {{langue|fro}} ==
 === {{S|étymologie}} ===
@@ -269,8 +312,12 @@
 === {{S|préposition|fro}} ===
 '''en''' {{pron||fro}}
 # [[en#fr|En]], [[dans]].
-#* ''L’autrier '''en''' cel autre païs'' {{source|''[[:s:L’autrier avint en cel autre païs|L’autrier avint en cel autre païs]]'', Conon de Béthune, v. 1, circa 1200}}
-#* '''''En''' toi doivent avoir pecheour grant fiance'' {{source|''Une loenge de Nostre Dame'', [[manuscrit|ms.]] 12467 de la {{w|BnF}}, v. 30}}
+#* {{exemple | lang=fro
+ | L’autrier '''en''' cel autre païs
+ | source=''[[:s:L’autrier avint en cel autre païs|L’autrier avint en cel autre païs]]'', Conon de Béthune, v. 1, circa 1200}}
+#* {{exemple | lang=fro
+ | '''En''' toi doivent avoir pecheour grant fiance
+ | source=''Une loenge de Nostre Dame'', [[manuscrit|ms.]] 12467 de la {{w|BnF}}, v. 30}}
 
 ==== {{S|notes}} ====
 : Pour un endroit en ancien français, on utilise ''en'' au lieu de ''{{lien|dens|fro}}''.
@@ -313,9 +360,6 @@
 ==== {{S|variantes}} ====
 * [[ent]]
 
-=== {{S|voir aussi}} ===
-* {{Le Dico des Ados}}
-
 === {{S|références}} ===
 * {{R:Raynouard}}
 
@@ -329,9 +373,6 @@
 === {{S|préposition|angevin}} ===
 '''en''' {{pron||angevin}}
 # ''Variante de'' {{lien|à|angevin}} ''(pour indiquer la matière)''. {{usage}} il s’utilise principalement devant « paille » ou « ardoise ».
-
-=== {{S|voir aussi}} ===
-* {{Le Dico des Ados}}
 
 === {{S|références}} ===
 * {{R:VerrierOnillon|p=2|vue=42}}
@@ -352,7 +393,7 @@
 * {{lien|em|en}}
 
 === {{S|prononciation}} ===
-* {{écouter|États-Unis (Nouveau-Mexique)||lang=en|audio=LL-Q1860 (eng)-Arlo Barnes-en.wav}}
+* {{écouter|Austin (États-Unis)||lang=en|audio=LL-Q1860 (eng)-StuckInLagToad-en.wav}}
 
 == {{langue|xno}} ==
 === {{S|étymologie}} ===
@@ -377,6 +418,10 @@
 * [[ensiz]]
 * [[ensizlik]]
 
+=== {{S|prononciation}} ===
+* {{écouter|Azerbaïdjan||niveau=débutant|lang=az|audio=Az-az-en.ogg}}
+* {{écouter|Bakou (Azerbaïdjan)||niveau=débutant|lang=az|audio=LL-Q9292 (aze)-Zardabi Bakuvi-en.wav}}
+
 === {{S|références}} ===
 {{références}}
 
@@ -400,9 +445,38 @@
 * {{R:GvhB|p=9}}
 
 == {{langue|br}} ==
-=== {{S|préposition|br|flexion}} ===
-'''en''' {{pron|ɛ̃n|br}}
-# ''Forme de la préposition ''[[e#br-prép|e]]'' devant une voyelle ou un h muet.
+=== {{S|préposition|br|flexion|num=1}} ===
+'''en''' {{pron|en|br}}
+# ''Forme de la préposition'' {{lien|e|br|prép}} (« [[dans]] ») devant une voyelle ou un h muet.
+#* {{exemple | lang=br
+ | '''En''' ur stad truezus emaocʼh ho-taou […].
+ | Vous être tous les deux dans un sale état.
+ | source={{Citation/Jakez Riou/An ti satanazet/1944|22}}}}
+#* {{exemple | lang=br
+ | Lod a lavar oa degouezhet warnezhañ, '''en''' e balez, e-pad m’edo '''en''' e gambr o skrivañ e alioù diwezhañ hag e gimiad da dud e eskopti, pevar archer warn-ugent degaset eus a Vontroulez evit e gercʼhat d’ar prizon.
+ | Certains disent qu’étaient tombés sur lui, dans son palais, pendant qu’il écrivait dans sa chambre ses derniers conseils et ses adieux aux gens de son évêché, vingt-quatre gendarmes envoyés de Morlaix pour le conduire en prison.
+ | source={{Citation/Lan Inizan/Emgann Kergidu/1977|1|19}}}}
+
+=== {{S|préposition|br|flexion|num=2}} ===
+'''en''' {{pron|ɛn|br}}
+# [[préposition|Préposition]] [[contracté]]e, [[formé]]e de la préposition ''{{lien|e|br|prép}}'' (« [[dans]] ») et de l’article défini ''{{lien|an|br}}'' (« [[le]]/[[la]]/[[les]] ») devant les consonnes ''d'', ''h'', ''n'', ''t'' et les voyelles.
+#* {{exemple | lang=br
+ | Piv an desketañ '''en''' ti ?
+ | Qui est le plus instruit dans la maison ?
+ | source={{Citation/Jakez Riou/An ti satanazet/1944|7}}}}
+#* {{exemple | lang=br
+ | Diouzhtu m’ en devoe harp d’ e dreid '''en''' douar, Kleze, hep diskregiñ tamm eus ar gaoued, a dennas eus e cʼhodell louzoù ar gornandonez kozh hag a lakaas anezho dindan fri ar re a oa marv eno.
+ | Aussitôt qu’il eut pris pied, Clézé, sans se dessaisir un seul instant de la cage, tira de sa poche l’onguent que lui avait donné la vieille naine et le fit sentir à tous ceux qui étaient là étendus morts.
+ | source={{Citation/Troude ha Milin/Labous ar Wirionez/1950|25}}}}
+
+==== {{S|variantes}} ====
+* {{lien|el|br|flex-prép}} (''devant un l'')
+* {{lien|er|br|flex-prép}} (''devant une consonne autre que d, h, l, n et t'')
+
+=== {{S|prononciation}} ===
+;Préposition 1
+* {{écouter|Riantec (France)||niveau=bon|lang=br|audio=LL-Q12107 (bre)-Blevstoub-en.wav}}
+* {{écouter|Bretagne (France)||niveau=bon|lang=br|audio=LL-Q12107 (bre)-Ltranvz-en.wav}}
 
 === {{S|anagrammes}} ===
 * {{lien|ne|br}}
@@ -417,12 +491,15 @@
 === {{S|pronom personnel|ca}} ===
 '''en''' {{pron|en|ca}} {{n}}
 # [[en#fr|En]], de cela de là.
-#* ''Ja '''en''' tenim prou!''
-#*: Nous en avons assez !
-#* '''''En''' vols?''
-#*: En veux-tu ?
-#* ''Tu hi vas i jo '''en''' vinc''
-#*: Toi tu y vas et moi j’en viens
+#* {{exemple | lang=ca
+ | Ja '''en''' tenim prou!
+ | Nous en avons assez !}}
+#* {{exemple | lang=ca
+ | '''En''' vols?
+ | En veux-tu ?}}
+#* {{exemple | lang=ca
+ | Tu hi vas i jo '''en''' vinc
+ | Toi tu y vas et moi j’en viens}}
 
 ==== {{S|variantes}} ====
 * {{lien|n’|ca}}
@@ -446,8 +523,9 @@
 === {{S|article défini|ca}} ===
 '''en''' {{pron|en|ca}} {{m}} {{équiv-pour|une femme|na|lang=ca}}
 # {{archaïsme|ca}} {{baléare|ca}} {{Alghero|ca}} [[monsieur|Monsieur]], appellation [[courtoise]] ou [[honorifique]] de quelqu’un.
-#* ''Jo penso que els valencians han de seguir l’exemple d''''en''' Sanchis i companyia, que és marxar de la seva terra i deixar-la pels espanyols així segur milloren.'' {{source|[http://www.racocatala.cat/forums/fil/169740/vicent-sanchis-si-valencians-tornen-votar-pp-s-accepten-sucidi Racó català - Forums - Vicent Sanchis: "Si els valencians tornen a votar el PP és que accepten el suïcidi"]}}
-[[Catégorie:catalan oriental]]
+#* {{exemple | lang=ca
+ | Jo penso que els valencians han de seguir l’exemple d''''en''' Sanchis i companyia, que és marxar de la seva terra i deixar-la pels espanyols així segur milloren.
+ | source=[http://www.racocatala.cat/forums/fil/169740/vicent-sanchis-si-valencians-tornen-votar-pp-s-accepten-sucidi Racó català - Forums - Vicent Sanchis: "Si els valencians tornen a votar el PP és que accepten el suïcidi"]}}
 
 ==== {{S|variantes}} ====
 * {{lien|n’|ca}}
@@ -470,11 +548,14 @@
 * [[monsènyer]]
 * [[senyor]]
 
+=== {{S|prononciation}} ===
+* {{écouter|lang=ca|Espagne (Manresa)||audio=LL-Q7026 (cat)-Unjoanqualsevol-en.wav}}
+
 ==== {{S|homophones|ca}} ====
 * {{lien|amb|ca}} (valencien)
 
-=== {{S|prononciation}} ===
-* {{écouter|lang=ca|Espagne (Manresa)||audio=LL-Q7026 (cat)-Unjoanqualsevol-en.wav}}
+
+[[Catégorie:catalan oriental]]
 
 == {{langue|ht}} ==
 === {{S|étymologie}} ===
@@ -483,6 +564,7 @@
 === {{S|adjectif numéral|ht}} ===
 '''en''' {{pron|ɛ̃|ht}}
 # [[un#fr|Un]].
+# {{exemple|lang=ht}}
 
 {{Liste|avant=[[zewo#ht|zewo]]|après=[[de#ht|de]]|liste=[[:Catégorie:Cardinaux en créole haïtien|Cardinaux en créole haïtien]]}}
 
@@ -539,28 +621,37 @@
 === {{S|préposition|es}} ===
 '''en''' {{pron|en|es}}
 # [[dans#fr|Dans]], [[à]], [[sur]].
-#* ''Estoy '''en''' casa.''
-#*: Je suis à la maison.
-#* '''''en''' esta página''
-#*: Sur cette page
+#* {{exemple | lang=es
+ | Estoy '''en''' casa.
+ | Je suis à la maison.}}
+#* {{exemple | lang=es
+ | '''en''' esta página
+ | Sur cette page}}
 # [[dans|Dans]], en (un temps).
-#* '''''en''' la antigüedad''
-#*: dans l’Antiquité
-#* '''''en''' 1999''
-#*: en 1999
+#* {{exemple | lang=es
+ | '''en''' la antigüedad
+ | dans l’Antiquité}}
+#* {{exemple | lang=es
+ | '''en''' 1999
+ | en 1999}}
 # [[en#fr|En]], dans (une langue).
-#* ''No conozco esta palabra '''en''' francés''
-#*: Je ne connais pas ce mot en français
-#* '''''en''' todos los idiomas''
-#*: dans toutes les langues
+#* {{exemple | lang=es
+ | No conozco esta palabra '''en''' francés
+ | Je ne connais pas ce mot en français}}
+#* {{exemple | lang=es
+ | '''en''' todos los idiomas
+ | dans toutes les langues}}
 # (''Utilisé après certains verbes et traduits par différentes prépositions en français'').
-#* ''Pienso '''en''' tí''
-#*: Je pense à toi
+#* {{exemple | lang=es
+ | Pienso '''en''' tí
+ | Je pense à toi}}
 # (''Utilisé dans différentes expressions'').
-#* '''''en''' el sentido''
-#*: dans le sens
-#* '''''en''' nuestro afán''
-#*: dans notre désir.
+#* {{exemple | lang=es
+ | '''en''' el sentido
+ | dans le sens}}
+#* {{exemple | lang=es
+ | '''en''' nuestro afán
+ | dans notre désir.}}
 
 ==== {{S|dérivés}} ====
 * {{lien|en silencio|es}}
@@ -579,7 +670,7 @@
 : Du {{étyl|fr|eo|mot=en}}.
 
 === {{S|préposition|eo}} ===
-'''en''' {{pron|en|eo}} {{eo-motrac|racn=1045|t=xF|der=1}}
+'''en''' {{pron|en|eo}} {{eo-motrac|racn=1045|t=xF|dér=1}}
 # [[en#fr|En]], [[dans]], à l’intérieur [[de]].
 
 ==== {{S|dérivés}} ====
@@ -590,13 +681,15 @@ Académiques:
 * {{lien|enterigi|eo}} {{eo-comprac|racn=5226|par=1}} : {{lien|ensevelir|fr}}, {{lien|enterrer|fr}}
 
 === {{S|prononciation}} ===
+* {{écouter|lang=eo|audio=Eo-en.ogg}}
 * {{écouter|lang=eo|Pays-Bas (partie continentale) (Wijchen)|audio=LL-Q143 (epo)-Robin van der Vliet-en.wav}}
 * {{écouter|lang=eo|Brésil|audio=LL-Q143 (epo)-NMaia-en.wav}}
 * {{écouter|lang=eo|France (Toulouse)|audio=LL-Q143 (epo)-Lepticed7-en.wav}}
 * {{écouter|lang=eo|France (Vosges)||audio=LL-Q143 (epo)-Poslovitch-en.wav}}
+* {{écouter|Białystok (Pologne)||niveau=bon|lang=eo|audio=LL-Q143 (epo)-Wierzbowski-en.wav}}
 
-=== {{S|voir aussi}} ===
-* {{Le Dico des Ados}}
+=== {{S|anagrammes}} ===
+* {{lien|ne|eo}}
 
 === {{S|références}} ===
 ==== {{S|bibliographie}} ====
@@ -604,9 +697,6 @@ Académiques:
 * {{R:PIV}}
 * {{R:Retavort|rac=en}}
 * {{R:AkadUniVort|rac1="en"|UVn1=1045|cat=UV}}
-
-=== {{S|anagrammes}} ===
-* {{lien|ne|eo}}
 
 == {{langue|fi}} ==
 === {{S|verbe|fi|flexion}} ===
@@ -684,6 +774,18 @@ Académiques:
 === {{S|références}} ===
 * {{lien web|auteur=Chubri|url=http://www.chubri-galo.bzh/chubri-galo_actualites_archives-actualites_chubendret-communes-des-cotes-d-armor-et-de-loire-atlantique_gl.htm|site=Chubri|titre=Pourr lé cmenn dé Côtt d’Ahaot e d la Louérr Atlauntiq, ChubEndret contt bin davantaïj de non, mézë|date=31 octobre 2018}}
 
+== {{langue|it}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|it}}
+
+=== {{S|nom|it}} ===
+{{it-inv}}
+'''en''' {{pron||it}} {{f}}
+# [[en#fr|En]].
+#* {{exemple|lang=it}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|it}}
 
 == {{langue|avk}} ==
 === {{S|étymologie}} ===
@@ -692,8 +794,10 @@ Académiques:
 === {{S|particule|avk}} ===
 '''en''' {{pron|ɛn|avk}} <small>ou</small> {{pron|en|avk}}
 # [[oui|Oui]], [[en effet]] (affirmation), [[en vérité]].
-#*'''''En''' zolonafa da beripkirafa troyta dizvenyet.'' {{source|1=[https://youtu.be/icwH8vz3k-w?list=PLwgDqDH7vmpTqraYZXZ3xtpwFl61-L0Vg&t=354 vidéo]}}
-#*:Il est vraiment important de bien observer le parterre embroussaillé.
+#* {{exemple | lang=avk
+ | '''En''' zolonafa da beripkirafa troyta dizvenyet.
+ | Il est vraiment important de bien observer le parterre embroussaillé.
+ | source=1=[https://youtu.be/icwH8vz3k-w?list=PLwgDqDH7vmpTqraYZXZ3xtpwFl61-L0Vg&t=354 vidéo]}}
 
 ==== {{S|dérivés}} ====
 * {{lien|edeen|avk}}
@@ -711,7 +815,7 @@ Académiques:
 === {{S|références}} ===
 * {{Kotapedia|en}} (particule)
 *{{Kotapedia|h_e}} (forme de verbe)
-*{{R:avk-grammaire|p=26}}
+*{{R:avk-grammaire|p=27}}
 {{Références}}
 [[Catégorie:Mots en kotava suffixés avec -n]]
 [[Catégorie:Mots en kotava répertoriés sur Kotapedia]]
@@ -723,30 +827,42 @@ Académiques:
 === {{S|interjection|la}} ===
 '''ēn''' {{pron||la}}
 # [[là|Là]], [[voilà]].
-#* '''''en''' aras.''
-#*: les autels là.
-#* ''[[ellum]] (= '''en''' illum), [[ellam]] ('''en''' illam)''
-#*: lui, là, celui-là, le voilà ; elle là, celle-là, la voici.
-#* ''consul '''en''' hic est.''
-#*: tiens! voilà le consul !
-#* '''''en''' cui tuos liberos committas!'' Cic. Verr. 2
-#*: voilà donc l’homme à qui tu confierais tes enfants !
-#* ''Ce Rémo qui, appuyé au miroir, s’y regarde mourir, ce jeune lettré, latiniste lui aussi jusqu’au bout, qui accueille un voisin que les domestiques effarés sont allés chercher par la mélancolique exclamation virgilienne : « '''''En''' morior ! '' », exhalée avec son dernier souffle, […]'' {{source|{{w|Marguerite Yourcenar}}, ''{{w|Souvenirs pieux}}'', 1974, collection Folio, pages 187-188}}
+#* {{exemple | lang=la
+ | '''en''' aras.
+ | les autels là.}}
+#* {{exemple | lang=la
+ | 1= [[ellum]] (= '''en''' illum), [[ellam]] ('''en''' illam)
+ | lui, là, celui-là, le voilà ; elle là, celle-là, la voici.}}
+#* {{exemple | lang=la
+ | consul '''en''' hic est.
+ | tiens! voilà le consul !}}
+#* {{exemple | lang=la
+ | '''en''' cui tuos liberos committas!
+ | voilà donc l’homme à qui tu confierais tes enfants !
+ | source=Cic. Verr. 2}}
+#* {{exemple | lang=la
+ | Ce Rémo qui, appuyé au miroir, s’y regarde mourir, ce jeune lettré, latiniste lui aussi jusqu’au bout, qui accueille un voisin que les domestiques effarés sont allés chercher par la mélancolique exclamation virgilienne : « '''''En''' morior ! '' », exhalée avec son dernier souffle, […]
+ | source={{w|Marguerite Yourcenar}}, ''{{w|Souvenirs pieux}}'', 1974, collection Folio, pages 187-188}}
 # [[eh bien|Eh bien]], [[allons]] ! suivi de l’impératif.
-#* '''''en''' age, segnes rumpe moras,'' Virg. G. 3
-#*: allons ! plus de retard !
+#* {{exemple | lang=la
+ | '''en''' age, segnes rumpe moras
+ | allons ! plus de retard !
+ | source=Virg. G. 3}}
 # [[voyons|Voyons]], eh bien, allons.
-#* '''''en''' quid ago?''
-#*: voyons ! qu’est-ce que je fais ?
-#* '''''en''' quo fretus sim ?'' Ter.
-#*: eh bien, à qui me confier ?
+#* {{exemple | lang=la
+ | '''en''' quid ago?
+ | voyons ! qu’est-ce que je fais ?}}
+#* {{exemple | lang=la
+ | '''en''' quo fretus sim ?
+ | eh bien, à qui me confier ?
+ | source=Ter.}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|la}}
 
 === {{S|références}} ===
 * {{R:Gaffiot}}
 * {{RÉF}} {{R:L&S}}
-
-=== {{S|anagrammes}} ===
-* {{lien|ne|la}}
 
 == {{langue|lim}} ==
 === {{S|étymologie}} ===
@@ -760,6 +876,23 @@ Académiques:
 * {{ouvrage|auteur=Mathilde Jansen, Nicoline van der Sijs, Fieke van der Gucht, Johan De Caluwe|titre=Atlas van de Nederlandse Taal|éditeur=Lannoo|date=2017|passage=137}}
 
 * {{lien web|auteur=Roger Weijenberg et al.|titre=Grammaticaol structuur|url=https://www.mestreechtertaol.nl/grammatica/structuur|site=Mestreechter Taol}}
+
+== {{langue|lb}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|lb}}
+=== {{S|prononciation}} ===
+* {{écouter|lang=lb|audio=Lb-en.ogg}}
+=== {{S|article indéfini|lb}} ===
+{{lb-art-indéfinis}}
+'''en''' {{pron|ən|lb}}
+# [[un|Un]], [[une]].
+
+=== {{S|pronom personnel|lb}} ===
+{{lb-pron-personnels}}
+'''en''' {{pron|ən|lb}}
+# [[il|Il]].
+# [[le|Le]].
+# [[leur|Leur]], [[eux]], [[elles]].
 
 == {{langue|nl}} ==
 === {{S|étymologie}} ===
@@ -797,17 +930,18 @@ Académiques:
 == {{langue|oc}} ==
 {{ébauche|oc}}
 === {{S|étymologie}} ===
-: 1 : Du {{étyl|la|oc|inde|dif=ĭnde}}.
-: 2 : Du {{étyl|la|oc|in|dif=ĭn}}.
-: 3 : Du {{étyl|la|oc|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
+: {{lien-ancre-étym|oc|pronom}} : Du {{étyl|la|oc|inde|dif=ĭnde}}.
+: {{lien-ancre-étym|oc|préposition}} : Du {{étyl|la|oc|in|dif=ĭn}}.
+: {{lien-ancre-étym|oc|nom}} Du {{étyl|la|oc|domine|dif=dŏmĭne}} ; le terme est issu d’importantes corruptions successives.
 
 === {{S|pronom|oc}} ===
 '''en''' {{pron|en|oc}} {{oc-norme classique}} {{m}}
 # [[en#fr|En]], de cela de là.
 #* {{exemple|lang=oc|Ja '''en''' tenèm pro !|Nous en avons assez !}}
 #* {{exemple|lang=oc|'''En''' vòls ?|En veux-tu ?}}
-#* ''Tu hi vas i jo '''en''' vinc''
-#*: Toi tu y vas et moi j’en viens
+#* {{exemple | lang=oc
+ | Tu hi vas i jo '''en''' vinc
+ | Toi tu y vas et moi j’en viens}}
 #* {{exemple|lang=oc|Ne vèni just, mas m’'''en''' vau.|J'en viens juste, mais je m’en vais.}}
 
 ==== {{S|variantes}} ====
@@ -834,14 +968,18 @@ Académiques:
 
 === {{S|préposition|oc}} ===
 '''en''' {{pron|en|oc}} {{oc-norme classique}}
+; Préposition de lieu :
 # [[en#fr|En]], [[dans]], [[à]].
 #* {{exemple|lang=oc|'''En''' preson.|En prison.}}
+#* {{exemple|lang=oc|Anar '''en''' qualqua part.|Aller quelque part.}}
 #* {{exemple|lang=oc|'''En''' Camargue.|Dans la Camargue.}}
 #* {{exemple|lang=oc|'''En''' Crau.|Dans la Crau.}}
+#* {{exemple|lang=oc|'''En''' Avinhon.|À Avignon.}}
+; Préposition de temps :
 #* {{exemple|lang=oc|'''En''' estiu.|En été.}}
+; Moyen, état :
 #* {{exemple|lang=oc|'''En''' cantant.|En chantant.}}
 #* {{exemple|lang=oc|Anar '''en''' bicicleta.|Aller à bicyclette.}}
-#* {{exemple|lang=oc|Anar '''en''' qualqua part.|Aller quelque part.}}
 #* {{exemple|lang=oc|Bon '''en''' ren.|Bon à rien.}}
 
 ==== {{S|dérivés}} ====
@@ -877,7 +1015,10 @@ Académiques:
 * {{écouter|lang=oc|France (Béarn)|audio=LL-Q14185 (oci)-Davidgrosclaude-en.wav}}
 
 === {{S|références}} ===
+* {{R:Lo Congrès}}
 * {{R:Cantalausa}}
+* {{R:Laux-dict-oc-fr}}
+* {{R:Ubaud}}
 
 == {{langue|pln}} ==
 === {{S|étymologie}} ===
@@ -886,10 +1027,12 @@ Académiques:
 === {{S|préposition|pln}} ===
 '''en''' {{pron|ɛn|pln}}
 # [[en|En]], [[dans]], à l’[[intérieur]] de.
-#*''Lusy ta '''en''' el kuarto grao.''
-#*:Lucy est dans la quatrième classe
-#*''Ele a kondá-mi ke ané asé ta bibí '''en''' Benesuela aola.''
-#*: Il/Elle m’ont raconté qu’ils vivent maintenante au Venezuela.
+#* {{exemple | lang=pln
+ | Lusy ta '''en''' el kuarto grao.
+ | Lucy est dans la quatrième classe}}
+#* {{exemple | lang=pln
+ | Ele a kondá-mi ke ané asé ta bibí '''en''' Benesuela aola.
+ | Il/Elle m’ont raconté qu’ils vivent maintenante au Venezuela.}}
 
 ==== {{S|synonymes}} ====
 * [[a]] (plus "palenquero")
@@ -909,22 +1052,26 @@ Académiques:
 [[Catégorie:Nombres en slovène]]
 
 == {{langue|sv}} ==
+
 === {{S|étymologie}} ===
-: {{ébauche-étym|sv}}
+: {{lien-ancre-étym|sv|nom}} Du {{étyl|non|sv|einir}}.
 
 === {{S|article indéfini|sv}} ===
 '''en''' {{pron||sv}}
 # [[un|Un]], [[une]].
 #* {{exemple|lang=sv}}
 
-=== {{S|prononciation}} ===
-* {{ébauche-pron|sv}}
-** {{écouter|lang=sv|Suède (Gotland)||audio=Sv-en.ogg}}
-
 === {{S|nom|sv}} ===
 '''en''' {{pron||sv}} {{c}}
 # {{info lex|botanique}} [[genévrier|Genévrier]] (''Juniperus communis'').
 #* {{exemple|lang=sv}}
+
+=== {{S|prononciation}} ===
+* {{ébauche-pron|sv}}
+** {{écouter|lang=sv|Suède (Gotland)||audio=Sv-en.ogg}}
+
+=== {{S|références}} ===
+* {{Ouvrage|prénom1=Ante|nom1=Aikio|titre=Uralic Etymological Dictionary|année=2020|lire en ligne=https://www.academia.edu/41659514/URALIC_ETYMOLOGICAL_DICTIONARY_draft_version_of_entries_A_%C4%86_|page=8-9}}
 
 [[Catégorie:Plantes en suédois]]
 
@@ -939,13 +1086,18 @@ Académiques:
 === {{S|anagrammes}} ===
 * {{lien|ne|crh}}
 
-== {{langue|tokipona}} ==
+== {{langue|tok}} ==
 === {{S|étymologie}} ===
-: {{ébauche-étym|tokipona}}
+: {{ébauche-étym|tok}}
 
-=== {{S|nom|tokipona}} ===
-'''en''' {{pron||tokipona}}
+=== {{S|nom|tok}} ===
+'''en''' {{pron||tok}}
 # [[et|Et]].
 
 ==== {{S|vocabulaire}} ====
-* {{lien|anu|tokipona}}
+* {{lien|anu|tok}}
+
+=== {{S|prononciation}} ===
+* {{écouter|Toulouse (France)||niveau=bon|lang=tok|audio=LL-Q36846-Lepticed7-en.wav}}
+* {{écouter|||niveau=moyen|lang=tok|audio=LL-Q36846 (tok)-John Gordon Reid-en.wav}}
+* {{écouter|Bandung (Indonésie)||niveau=moyen|lang=tok|audio=LL-Q36846 (tok)-A. D. Prakasa-en.wav}}

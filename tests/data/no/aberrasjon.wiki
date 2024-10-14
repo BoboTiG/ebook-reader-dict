@@ -1,0 +1,49 @@
+==Norsk==
+{{wikipediaartikkel}}
+===Substantiv===
+{{no-sub|m}}
+
+#avvik, avvikelse
+#{{astronomi|no}} avvik i en stjernes avbildede posisjon relativ til dens sanne posisjon.
+#{{optikk|no}} avbildningsfeil i [[linse]]r og [[speil]].
+#{{biologi|no}} endring i et kromosom mens celledeling pågår.
+
+====Etymologi====
+* Fra {{etyl|la|no}} {{term|aberratio|aberrātiō|lindring, avvikelse|lang=la}} <ref>[http://dictionary.reference.com/browse/aberration Aberration hos Dictionary.com]</ref>, fra {{term|aberro|aberrō|gå unna/bort, gå vill|lang=la}}, fra {{term|ab||bort|lang=la}} + {{term|erro|errō|vandre/gå|lang=la}}<ref>{{reference-book | last = Dobbie | first = Elliott K. | coauthors = Dunmore, C. William, et al. | editor = Barnhart, Robert K.| title = Chambers Dictionary of Etymology | origyear = 1998 | year = 2004 | publisher = Chambers Harrap Publishers Ltd | location = Edinburgh, Scotland | isbn =0550142304 | pages = 2}}</ref>.
+* Se [[aberrate]].
+
+====Uttale====
+{{lyd|LL-Q9043 (nor)-Teodor605-aberrasjon.wav|språk=no|Lyd (Oslouttale)}}
+{{uttale mangler|språk=no}}
+
+====Grammatikk====
+{{no-sub-m1|aberrasjon}}
+{{ordbank|OK}}
+
+====Oversettelser====
+{{overs-topp|avvik}}
+* {{overs|da|aberration|c}}
+* {{overs|en|aberration|c}}
+* {{overs-mangler|fi}}
+* {{overs|fr|aberration|f}}
+* {{overs|it|aberrazione|f}}
+{{overs-midt}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+* {{overs|sv|aberration|c}}
+* {{overs|de|Aberration|f}}
+{{overs-bunn}}
+{{overs-topp|astronomi}}
+* {{overs|fr|aberration|f}}
+{{overs-midt}}
+{{overs-bunn}}
+{{overs-topp|optikk}}
+* {{overs|fr|aberration|f}}
+{{overs-midt}}
+* {{overs|sv|aberration|c}}
+{{overs-bunn}}
+
+===Referanser===
+<references/>
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB}}

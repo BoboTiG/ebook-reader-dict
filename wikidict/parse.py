@@ -1,84 +1,72 @@
 """Parse and store raw Wiktionary data."""
 
 import json
+import logging
 import os
+import re
 from collections import defaultdict
+from collections.abc import Generator
 from pathlib import Path
-from typing import Dict, Generator, Tuple
-from xml.etree import ElementTree
-from xml.etree.ElementTree import Element
+from xml.sax.saxutils import unescape
 
 from .lang import head_sections
 
+log = logging.getLogger(__name__)
 
-def xml_iter_parse(file: Path) -> Generator[Element, None, None]:
-    """Efficient XML parsing for big files.
-    Elements are yielded when they meet the "page" tag.
-    """
-
-    doc = ElementTree.iterparse(file, events=("start", "end"))
-    _, root = next(doc)
-
-    start_tag = None
-
-    for event, element in doc:
-        if start_tag is None and event == "start" and element.tag == "{http://www.mediawiki.org/xml/export-0.11/}page":
-            start_tag = element.tag
-        elif start_tag is not None and event == "end" and element.tag == start_tag:
-            yield element
-            start_tag = None
-
-            # Keep memory low
-            root.clear()
+RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
+RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
 
 
-def xml_parse_element(element: Element, locale: str) -> Tuple[str, str]:
-    """Parse the *element* to retrieve the word and its definitions."""
-    revision = element[3]
-    if revision.tag == "{http://www.mediawiki.org/xml/export-0.11/}restrictions":
-        # When a word is "restricted", then the revision comes just after
-        revision = element[4]
-    elif not len(revision):
-        # This is a "redirect" page, not interesting.
-        return "", ""
+def xml_iter_parse(file: Path) -> Generator[str, None, None]:
+    """Efficient XML parsing for big files."""
+    element: list[str] = []
+    is_element = False
 
-    # The Wikicode can be at different indexes, but not ones lower than 5
-    for info in revision[5:]:
-        if info.tag == "{http://www.mediawiki.org/xml/export-0.11/}text":
-            code = info.text or ""
-            break
-    else:
-        # No Wikicode, maybe an unfinished page.
-        return "", ""
-
-    # no interesting head section, a foreign word?
-    if all(section not in code for section in head_sections[locale]):
-        return "", ""
-
-    word = element[0].text or ""  # title
-    return word, code
+    with file.open(encoding="utf-8") as fh:
+        for line in fh:
+            if is_element:
+                if "/page>" in line:
+                    yield "".join(element)
+                    element = []
+                    is_element = False
+                else:
+                    element.append(line)
+            elif "<page" in line:
+                is_element = True
 
 
-def process(file: Path, locale: str) -> Dict[str, str]:
+def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
+    """Parse the XML `element` to retrieve the word and its definitions."""
+    title_match = next(RE_TITLE(element))
+    for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
+        wikicode = text_match[1]
+        if any(section in wikicode for section in head_sections[locale]):
+            return title_match[1], wikicode
+
+    # No Wikicode; unfinished page; no interesting head section; a foreign word, etc. Who knows?
+    return "", ""
+
+
+def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
-    words: Dict[str, str] = defaultdict(str)
+    words: dict[str, str] = defaultdict(str)
 
-    print(f">>> Processing {file} ...", flush=True)
+    log.info("Processing %s ...", file)
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
         if word and code and ":" not in word:
-            words[word] = code
+            words[unescape(word)] = unescape(code)
 
     return words
 
 
-def save(snapshot: str, words: Dict[str, str], output_dir: Path) -> None:
+def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
     """Persist data."""
     raw_data = output_dir / f"data_wikicode-{snapshot}.json"
     with raw_data.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    print(f">>> Saved {len(words):,} words into {raw_data}", flush=True)
+    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
 
 
 def get_latest_xml_file(output_dir: Path) -> Path | None:
@@ -93,12 +81,12 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_xml_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --download first ... ", flush=True)
+        log.error("No dump found. Run with --download first ... ")
         return 1
 
     date = file.stem.split("-")[1]
     if not (output_dir / f"data_wikicode-{date}.json").is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    print(">>> Parse done!", flush=True)
+    log.info("Parse done!")
     return 0

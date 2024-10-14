@@ -1,9 +1,9 @@
 """Norwegian language."""
 
 import re
-from typing import List, Pattern
 
 from ...user_functions import flatten, uniq
+from .labels import labels
 
 # Float number separator
 float_separator = ","
@@ -49,13 +49,30 @@ templates_ignored = (
     "audio",
     "definisjon mangler",
     "etymologi mangler",
+    "Etymologi mangler",
     "IPA",
     "lyd",
     "mangler definisjon",
     "mangler etymologi",
     "norm",
+    "o-begge/båe",
+    "o-nå/nu/no",
+    "o-hvem/kven",
     "suffiks/oversikt",
+    "trenger referanse",
 )
+
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    **labels,
+    "ikkekomp": "ingen komparativ eller superlativ",
+    "internett": "Internett",
+    "Internett": "Internett",
+    "klær": "klesplagg",
+    "målenhet": "måleenhet",
+    "militær": "militært",
+}
+
 
 # Templates more complex to manage.
 templates_multi = {
@@ -67,6 +84,10 @@ templates_multi = {
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
     # {{l|lt|duktė}}
     "l": "parts[-1]",
+    # {{m}}
+    "m": "italic(parts[0])",
+    # {{n}}
+    "n": "italic(parts[0])",
     # {{opphav|norrønt|språk=no}
     "opphav": "parts[1]",
     # {{prefiks|a|biotisk|språk=no}}
@@ -80,7 +101,7 @@ templates_multi = {
     # {{tidligere skriveform|no|kunstnarleg}}
     "tidligere skriveform": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{tidligere skrivemåte|no|naturlig tall}}
-    "tidligere skrivemåte": "f\"{italic('tidligere skrivemåte av')} {strong(parts[-1])}\"",
+    "tidligere skrivemåte": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
     #
@@ -96,20 +117,31 @@ templates_multi = {
     "no-verb-bøyningsform": "parts[2]",
 }
 
+# Templates that will be completed/replaced using custom text.
+templates_other = {
+    "it": "italiensk",
+    "l.": "latin",
+    "L.": "latin",
+    "la": "latin",
+    "lty.": "nedertysk/lavtysk",
+    "nn": "nynorsk",
+    "tr": "tyrkisk",
+}
+
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
 release_description = """\
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
-Tillgängliga filer:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Etymology-free version:
+{download_links_noetym}
 
 <sub>Uppdaterad på {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -136,8 +168,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -145,11 +177,15 @@ def find_pronunciations(
     ['/ɡrœn/', '[grøn:]']
     >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}")
     ['[anomali:´]']
+    >>> find_pronunciations("{{IPA|['klɑɾ]||['kɽɑɾ] (tykk ''L'' (østnorsk)|språk=no}}")
+    ["['klɑɾ]"]
     """
-    result: List[str] = []
+    result: list[str] = []
     for f in pattern.findall(code):
         fsplit = f.split("|")
         for fs in fsplit:
+            if not fs:
+                continue
             if (fs[0] == "[" and fs[-1] == "]") or (fs[0] == "/" and fs[-1] == "/"):
                 result.append(fs)
     return result
@@ -167,37 +203,44 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>(jus)</i>'
         >>> last_template_handler(["jus", "no"], "no")
         '<i>(jus)</i>'
-        >>> last_template_handler(["jus", "no"], "nrm")
+        >>> last_template_handler(["jus", "no"], "no")
         '<i>(jus)</i>'
 
         >>> last_template_handler(["kontekst", "fobi", "utellelig", "kat=no:Fobier", "kat2=no:Masseord"], "no")
         '<i>(fobi, utellelig)</i>'
+        >>> last_template_handler(["kontekst", "jus", "utellelig", "kat=no:Jus", "kat2=no:Masseord", "nesten alltid i ubestemt form", "foreldet, nå kun i uttrykket «tort og svie»", "språk=no"], "no")
+        '<i>(jus, utellelig, nesten alltid i ubestemt form)</i>'
         >>> last_template_handler(["tema", "matematikk", "fysikk", "språk=no"], "no")
         '<i>(matematikk, fysikk)</i>'
 
         >>> last_template_handler(["etyl", "non", "no"], "no")
         'norrønt'
+        >>> last_template_handler(["etyl", "vulgærlatin", "no"], "no")
+        'vulgærlatin'
         >>> last_template_handler(["term", "ord"], "no")
         '<i>ord</i>'
 
-    """  # noqa
-    from ...user_functions import concat, extract_keywords_from, term
+    """
+    from ...user_functions import concat, extract_keywords_from, lookup_italic, term
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     extract_keywords_from(parts)
 
-    if tpl in {"kontekst", "tema"}:
-        return term(concat(parts, sep=", "))
+    match tpl:
+        case "etyl":
+            return langs.get(parts[0], parts[0])
+        case "kontekst" | "tema":
+            return term(concat(parts[:3], sep=", "))
+
+    if italic_tpl := lookup_italic(tpl, locale, empty_default=True):
+        return term(italic_tpl)
 
     if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
         return term(tpl)
 
-    if tpl == "etyl":
-        return langs[parts[0]]
-
-    raise ValueError(f"Unhandled template: {word=}, {template=}")
+    raise ValueError(f"Unhandled {template=} {word=}")

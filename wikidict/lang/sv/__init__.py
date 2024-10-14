@@ -1,7 +1,6 @@
 """Swedish language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
 
@@ -134,14 +133,14 @@ release_description = """\
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
-Tillgängliga filer:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Etymology-Free Version:
+{download_links_noetym}
 
 <sub>Uppdaterad på {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -149,18 +148,22 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}]+)}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}|]+)}?\|?"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
     >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
     ['/eːn/, /ɛn/, /en/']
+    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}")
+    ['/en/']
+    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}")
+    ['/ɛn/']
     """
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -204,9 +207,9 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["tagg", "bildligt", "reflexivt"], "sv", word="etsa")
         '<i>(bildligt, reflexivt: <b>etsa sig</b>)</i>'
 
-    """  # noqa
+    """
     from ...user_functions import extract_keywords_from, italic, strong, term
-    from ..defaults import last_template_handler as default
+    from .. import defaults
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -233,4 +236,4 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
             words.append(data["text"])
         return term(", ".join(words))
 
-    return default(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word)

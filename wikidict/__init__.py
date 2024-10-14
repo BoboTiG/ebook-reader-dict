@@ -6,9 +6,9 @@ You can always get the latest version of this module at:
 """
 
 __version__ = "4.0.0"
-__author__ = "Mickaël 'Tiger-222' Schoentgen"
-__copyright__ = """
-Copyright (c) 2020-2024, Mickaël 'Tiger-222' Schoentgen
+__author__ = "Mickaël Schoentgen"
+__copyright__ = f"""
+Copyright (c) 2020-2024, {__author__}
 
 Permission to use, copy, modify, and distribute this software and its
 documentation for any purpose and without fee or royalty is hereby

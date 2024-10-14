@@ -6,11 +6,39 @@
 # {{lexique|linguistique|conv}} Code {{w|ISO 639-3}} de l’[[etkywan]].
 
 === {{S|voir aussi}} ===
-{{Autres projets
-|w=ICH}}
+* {{Wikipédia|ICH}}
 
 === {{S|références}} ===
 * {{Lien 639-3|ich}}
+== {{langue|en}} ==
+=== {{S|étymologie}} ===
+: Du {{étyl|enm|en|ich}}, du {{étyl|ang|en}} [[ic|iċ]], du {{étyl|proto-germanique|de}} {{recons|lang-mot-vedette=en|[[Reconstruction:proto-germanique/*ik|ik]]}}, de l’indo-européen {{recons|lang-mot-vedette=de|éǵh₂}}.
+
+=== {{S|pronom personnel|en}} ===
+'''ich''' {{pron|iːt͡ʃ|en}} ou {{pron|ɪt͡ʃ|en}} {{s}}
+# {{archaïsme|en}} [[je|Je]] (première personne du singulier [[nominatif]]).
+#* {{exemple | lang=en
+ | Dost thinke ''''ch'''ill labor to be poore, No no, '''ich''' haue a-doe..'''Ich''' will a plundering too.
+ | source=The Somersetshire Man's Complaint, Thomas Davies, 1645''}}
+#* {{exemple | lang=en
+ | My maysters, '''ich''' am an old man, and halfe blinde, […]
+ | source=The fraternitye of vacabondes, John Awdelay, 1561''}}
+#* {{exemple | lang=en
+ | Behold," she sayd, "and se How bright I am of ble! '''Ich''' am not cast away, That can my husband say, [...]
+ | source=Elynour Rummyng, John Skelton, 1529''}}
+==== {{S|notes}} ====
+: ''Ich'' était la forme du pronom ''I'' utilisée dans les dialectes du West Country, West Midlands, et Kent. Il a commencé à disparaître de l'anglais écrit au début du Chancery Standard au 15e siècle, recevant des utilisations jusqu’au milieu du 19e siècle.
+: La forme dialectale du Nord ''ik'' (dérivant de la même racine) a également disparu de l'écrit lors du début du Chancery Standard au 15e siècle.
+
+==== {{S|dérivés}} ====
+* [[chill]]
+* [[cham]]
+* [[nich]]
+
+=== {{S|prononciation}} ===
+* {{écouter|||lang=en|audio=LL-Q1860 (eng)-Persent101-ich.wav}}
+=== {{S|références}} ===
+[https://en.wiktionary.org/wiki/ich ''ich''] in [https://en.wiktionary.org/ ''English Wiktionary'']
 
 == {{langue|de}} ==
 === {{S|étymologie}} ===
@@ -19,18 +47,19 @@
 === {{S|pronom personnel|de}} ===
 '''ich''' {{pron|ɪç|de}} {{nominatif|de}}
 # [[je|Je]] : première personne du singulier au nominatif.
-#*''Wenn '''ich''' spreche, hörst du mich an.''
-#*:Quand je parle, tu m'écoutes.
+#* {{exemple | lang=de
+ | Wenn '''ich''' spreche, hörst du mich an.
+ | Quand je parle, tu m'écoutes.}}
 # [[moi|Moi]].
-#* ''Wer will mit mir spielen? '''Ich'''!''
-#*:Qui veut jouer avec moi ? Moi !
+#* {{exemple | lang=de
+ | Wer will mit mir spielen? '''Ich'''!
+ | Qui veut jouer avec moi ? Moi !}}
 
 ==== {{S|vocabulaire}} ====
 {{pronoms personnels/de}}
 
 === {{S|prononciation}} ===
 * {{pron|ɪç|de}}
-* {{écouter|lang=de|Autriche|ɪç|audio=De-at-ich.ogg}}
 * {{écouter|lang=de|Allemagne|ɪç|audio=De-ich.ogg}}
 * {{écouter|lang=de|Allemagne (Berlin)|ɪç|audio=LL-Q188 (deu)-Lucas Werkmeister-ich.wav}}
 * {{écouter|lang=de|Suisse (Genève)|ɪç|audio=LL-Q188 (deu)-Nattes à chat-ich.wav}}
@@ -38,6 +67,21 @@
 * {{écouter|lang=de|Allemagne (Berlin)|ɪç|audio=LL-Q188 (deu)-Sebastian Wallroth-ich.wav}}
 * {{écouter|lang=de|||audio=LL-Q188 (deu)-Student16 de-ich.wav}}
 * {{écouter|lang=de|Allemagne||audio=LL-Q188 (deu)-Natschoba-ich.wav}}
+* {{écouter|||lang=de|audio=LL-Q188 (deu)-Djknusper-ich.wav}}
+* {{écouter|lang=de|Berlin|ɪç|audio=De-ich2.ogg}}
+* {{écouter|lang=de|Autriche|ɪç|audio=De-at-ich.ogg}}
+
+== {{langue|lac}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|lac}}
+
+=== {{S|nom|lac}} ===
+[[Fichier:Human eye with limbal ring, anterior view.jpg|vignette|ich]]
+'''ich''' {{pron||lac}}
+# {{lexique|anatomie|lac}} [[œil#Nom_commun_1|Œil]].
+
+=== {{S|références}} ===
+* {{R:BaerLAC}}
 
 == {{langue|lim}} ==
 === {{S|étymologie}} ===
@@ -74,7 +118,7 @@
 === {{S|adjectif possessif|pl}} ===
 '''ich''' {{pron|ix|pl}}
 # [[leur#fr|Leur]].
-#*
+#* {{exemple|lang=pl}}
 
 ==== {{S|variantes}} ====
 * {{lien|nich|pl}} après une préposition.

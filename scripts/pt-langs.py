@@ -1,5 +1,3 @@
-from typing import Dict
-
 from scripts_utils import get_soup
 
 ROOT_URL = "https://pt.wiktionary.org"
@@ -7,7 +5,7 @@ START_URL = f"{ROOT_URL}/wiki/Categoria:!Predefinição_ISO_639"
 NEXTPAGE_TEXT = "página seguinte"
 
 
-def process_page(page_url: str, languages: Dict[str, str]) -> str:
+def process_page(page_url: str, languages: dict[str, str]) -> str:
     soup = get_soup(page_url)
 
     nextpage = ""
@@ -33,7 +31,7 @@ def process_page(page_url: str, languages: Dict[str, str]) -> str:
 
 
 next_page_url = START_URL
-languages: Dict[str, str] = {}
+languages: dict[str, str] = {}
 
 while next_page_url:
     next_page_url = process_page(next_page_url, languages)

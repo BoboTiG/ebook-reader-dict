@@ -8,7 +8,7 @@ import requests
 from .render import parse_word
 from .stubs import Word
 from .user_functions import int_to_roman
-from .utils import convert_gender, convert_pronunciation, get_random_word
+from .utils import check_for_missing_templates, convert_gender, convert_pronunciation, get_random_word
 
 
 def get_word(word: str, locale: str) -> Word:
@@ -49,7 +49,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
                 for i, sub_etymology in enumerate(etymology, 1):
-                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore
+                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
             else:
                 print(strip_html(etymology))
         print("\n")
@@ -89,4 +89,5 @@ def main(locale: str, word: str, raw: bool = False) -> int:
 
     set_output(locale, word)
     get_and_parse_word(word, locale, raw)
+    check_for_missing_templates()
     return 0

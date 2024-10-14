@@ -5,5 +5,6 @@
 # ''Troisième personne du pluriel du présent de l’indicatif de'' [[geler]].
 # ''Troisième personne du pluriel du présent du subjonctif de'' [[geler]].
 
+=== {{S|prononciation}} ===
 ==== {{S|homophones|fr}} ====
 * [[gel]]

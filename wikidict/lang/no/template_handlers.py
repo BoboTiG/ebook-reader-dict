@@ -1,5 +1,4 @@
-from collections import defaultdict  # noqa
-from typing import DefaultDict, List, Tuple
+from collections import defaultdict
 
 from ...user_functions import (
     concat,
@@ -9,17 +8,34 @@ from ...user_functions import (
 from .langs import langs
 
 
-def render_avledet(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_avledet(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_avledet("avledet", ["gml", "no", "abbedie"], defaultdict(str))
     'middelnedertysk <i>abbedie</i>'
     >>> render_avledet("avledet", ["middelalderlatin", "no", "abbatia"], defaultdict(str))
     'middelalderlatin <i>abbatia</i>'
+    >>> render_avledet("avledet", ["la", "no", "approbatio", "", "godkjennelse"], defaultdict(str))
+    'latin <i>approbatio</i> («godkjennelse»)'
+    >>> render_avledet("avledet", ["la", "no", "Februarius", "Februārius"], defaultdict(str))
+    'latin <i>Februārius</i>'
+    >>> render_avledet("avledet", ["grc", "no", "σχηματικός", "", "som hører til månefaser"], defaultdict(str, {"tr":"skhematikos"}))
+    'gammelgresk σχηματικός (<i>skhematikos</i>, «som hører til månefaser»)'
     """
-    return f"{langs.get(parts[0], parts[0])} {italic(parts[2])}"
+    in_parenthesis = []
+    if tr := data["tr"]:
+        in_parenthesis.append(italic(tr))
+    if len(parts) > 4:
+        in_parenthesis.append(f"«{parts[4]}»")
+
+    phrase = f"{langs.get(parts[0], parts[0])} "
+    trad = parts[3] if len(parts) > 3 and parts[3] else parts[2]
+    phrase += trad if tr else italic(trad)
+    if in_parenthesis:
+        phrase += f" ({', '.join(in_parenthesis)})"
+    return phrase
 
 
-def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_lant(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_lant("lånt", ["en", "no", "latte"], defaultdict(str))
     'engelsk <i>latte</i>'
@@ -46,7 +62,7 @@ def render_lant(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_sammensetning(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_sammensetning("sammensetning", ["bonde", "vett"], defaultdict(str))
     '<i>bonde</i> + <i>vett</i>'
@@ -65,7 +81,7 @@ def render_sammensetning(tpl: str, parts: List[str], data: DefaultDict[str, str]
     return concat(phrase_parts, " + ")
 
 
-def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_term("term", ["ord"], defaultdict(str))
     '<i>ord</i>'
@@ -104,7 +120,7 @@ def render_term(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_ursprak(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_ursprak(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_ursprak("proto", ["indoeuropeisk", "klek-", "", "kleg-", "å rope/skrike"], defaultdict(str))
     'urindoeuropeisk *klek-, *kleg- («å rope/skrike»)'
@@ -140,7 +156,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data)
+    return template_mapping[tpl](tpl, parts, data, word=word)

@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -8,35 +8,53 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, definitions, variants",
+    "word, pronunciations, etymology, definitions, variants",
     [
+        (
+            "bakterie",
+            [],
+            [
+                "fra latin <i>bacterium</i>, latinisering af græsk <i>bakterion</i> (βακτήριον\xa0- lille stav), diminutiv af <i>baktron</i> (βάκτρον - stav)"
+            ],
+            ["(mikrobiologi) en encellet mikroskopisk organisme uden cellekerne"],
+            [],
+        ),
         (
             "hund",
             ["[ˈhunə-]", "[ˈhunˀ]"],
+            [
+                "Menes at stamme fra indoeuropæisk sprog <i>ḱʷn̥tós</i>, fra <i>ḱwṓ</i> og derfra videre til germansk sprog <i>*hundaz</i> og fra oldnordisk hundr."
+            ],
             [
                 "(<i>zoologi</i>): et pattedyr af underarten <i>Canis lupus familiaris</i>.",
                 "(<i>slang</i>): 100 DKK-seddel (bruges ikke i flertal)",
             ],
             [],
         ),
-        ("jørme", [], ["vrimle, myldre; sværme"], []),
+        ("jørme", [], [], ["vrimle, myldre; sværme"], []),
         (
             "mus",
             [],
+            [
+                "Fra oldnordisk mús.",
+                "Fra engelsk mouse.",
+            ],
             [
                 "(<i>zoologi</i>) pattedyr",
                 "(<i>data</i>) en enhed som tilsluttes computere",
             ],
             [],
         ),
-        ("skulle", [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
+        ("skulle", [], [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
+        ("PMV", [], [], ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"], []),
     ],
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -44,22 +62,22 @@ def test_parse_word(
     details = parse_word(word, code, "da", force=True)
     assert pronunciations == details.pronunciations
     assert definitions == details.definitions
+    assert etymology == details.etymology
     assert variants == details.variants
 
 
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("{{compound|hjemme|værn|langa=da}}", "hjemme + værn"),
-        ("{{en}}", "Engelsk"),
-        ("{{form of|imperative form|bjerge|lang=da}}", "<i>imperative form of</i> <b>bjerge</b>"),
+        ("{{alternativ stavemåde af|mexicansk spansk}}", "<i>alternativ stavemåde af</i> <b>mexicansk spansk</b>"),
+        ("{{form of|imperative form|bjerge|lang=da}}", "<i>Imperative form af</i> <b>bjerge</b>"),
         ("{{fysik}}", "(<i>fysik</i>)"),
-        ("{{initialism of|lang=da|København}}", "<i>Initialforkortelse af</i> <b>København</b>"),
+        ("{{genitivform af}}", "<i>genitivform af</i>"),
+        ("{{genitivsform af}}", "<i>genitivform af</i>"),
         ("{{label|militær|våben}}", "(<i>militær</i>, <i>våben</i>)"),
-        ("{{suffix|Norden|isk|lang=da}}", "Norden + -isk"),
-        ("{{term|mouse|lang=en}}", "mouse<sup>(en)</sup>"),
         ("{{trad|en|limnology}}", "limnology<sup>(en)</sup>"),
-        ("{{u|de|Reis}}", "Reis<sup>(de)</sup>"),
+        ("{{URchar|الكحل}}", "الكحل"),
+        ("{{ZHchar|北京}}", "北京"),
     ],
 )
 def test_process_template(wikicode: str, expected: str) -> None:

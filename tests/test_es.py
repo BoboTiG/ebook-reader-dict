@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -12,10 +12,30 @@ from wikidict.utils import process_templates
     [
         (
             "-acho",
-            ["[ˈa.t͡ʃo]"],
+            [],
             ["Del latín <i>-acĕus</i>. De allí también <i>-áceo</i>."],
             [
                 "<i>Forma aumentativos, a veces despectivos, a partir de adjetivos y sustantivos</i>.",
+            ],
+            [],
+        ),
+        (
+            "bicicleta",
+            [],
+            [
+                'Del francés <i>bicyclette</i> y este diminutivo del francés <i>bicycle</i>, formado sobre el modelo del francés <i>tricycle</i>, del latín <i>bis</i>) y <i>-cycle</i> ( del latín <i>cyclus</i>, del griego <i>κύκλος</i> (<i>kýklos</i>, "círculo; rueda")).'
+            ],
+            [
+                "<i>(Vehículos, ciclismo)</i>: Vehículo, comúnmente de dos ruedas iguales, propulsado mediante la aplicación de la fuerza de las piernas sobre los pedales que la transmiten hacia los piñones y una cadena moviendo la rueda trasera."
+            ],
+            [],
+        ),
+        (
+            "buque_mercante",
+            [],
+            [],
+            [
+                "<i>(Náutica, comercio)</i>: Buque que pertenece a persona o empresa particular, y que se emplea en la conducción de pasajeros y mercancías."
             ],
             [],
         ),
@@ -31,9 +51,9 @@ from wikidict.utils import process_templates
         ),
         (
             "comer",
-            ["[koˈmeɾ]"],
+            [],
             [
-                'Del latín <i>comedĕre</i>, infinitivo de <i>comedō</i> ("devorar"), formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'  # noqa
+                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'
             ],
             [
                 "Ingerir o tomar alimentos.",
@@ -49,20 +69,11 @@ from wikidict.utils import process_templates
             [],
         ),
         (
-            "es decir",
-            ["[es.ðeˈθiɾ]"],
-            [],
-            [
-                "<i>Úsase para introducir una aclaración, explicación o definición de lo precedente</i>",
-            ],
-            [],
-        ),
-        (
             "entrada",
-            ["[en̪ˈtɾa.ða]"],
+            [],
             ["De <i>entrado</i> (<i>participio de <i>entrar</i></i>) y el sufijo flexivo <i>-a</i> para el femenino."],
             [
-                "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",  # noqa
+                "Ticket o boleto; credencial, billete o documento que autoriza a entrar en un evento, espectáculo o lugar.",
                 "<i>(Gastronomía)</i>: Plato que se sirve al comienzo de la comida.",
                 "<i>(Lingüística)</i>:",
                 (
@@ -71,23 +82,23 @@ from wikidict.utils import process_templates
                 ),
                 "Espacio por donde se tiene acceso a un lugar, especialmente algún edificio o propiedad.",
                 "Acción o efecto de entrar a un lugar.",
-                "Evento o acto que se realiza para recibir a un nuevo miembro en alguna institución, organización, empresa, cargo, empleo o dignidad.",  # noqa
-                "Salón, sala o estancia que se encuentra junto a la puerta principal de un edificio, especialmente un hotel o una vivienda.",  # noqa
+                "Evento o acto que se realiza para recibir a un nuevo miembro en alguna institución, organización, empresa, cargo, empleo o dignidad.",
+                "Salón, sala o estancia que se encuentra junto a la puerta principal de un edificio, especialmente un hotel o una vivienda.",
                 "Oportunidad para hacer o lograr algo.",
-                "Conjunto de personas que pagan por entrar a un espectáculo o evento y, por extensión, cantidad de dinero recaudado en tal evento.",  # noqa
+                "Conjunto de personas que pagan por entrar a un espectáculo o evento y, por extensión, cantidad de dinero recaudado en tal evento.",
                 "Comienzo de una obra de literatura, de música, etc.",
                 "Amistad o acogida que recibe alguien en una familia.",
                 "En ciertos juegos de naipes, acción de indicar qué cartas se guardan y por qué.",
-                "Autorización para ingresar en ciertos recintos reservados, tales como oficinas, recámaras, etc., en especial de palacios o sitios de gobierno.",  # noqa
+                "Autorización para ingresar en ciertos recintos reservados, tales como oficinas, recámaras, etc., en especial de palacios o sitios de gobierno.",
                 "<i>(Anatomía)</i>: Zona sin cabello en la parte superior de la frente.",
                 "<i>(Comercio)</i>: Cantidad de dinero que ingresa en una caja o cuenta.",
-                "<i>(Comercio)</i>: Anotación o partida en el haber que indica dinero entrante (el aumento de un activo o la disminución de un pasivo).",  # noqa
+                "<i>(Comercio)</i>: Anotación o partida en el haber que indica dinero entrante (el aumento de un activo o la disminución de un pasivo).",
                 "<i>(Comercio)</i>: Cuota inicial; primer pago que se hace en la compra de algo a crédito o a plazos.",
-                "<i>(Milicia)</i>: Ingreso inicial de una tropa, un enemigo, etc., en el proceso de invadir un territorio.",  # noqa
+                "<i>(Milicia)</i>: Ingreso inicial de una tropa, un enemigo, etc., en el proceso de invadir un territorio.",
                 "Días iniciales de un periodo (un año, un mes, una temporada, una estación, etc.).",
                 "<i>(Deporte)</i>: Enfrentamiento o pase inicial entre contrarios.",
                 "<i>(Béisbol)</i>: Cada división de un partido, en que uno de los equipos tiene el turno para batear.",
-                "<i>(Arquitectura)</i>: Extremo o punta de un travesaño o madero que está metido en una pared o asentado sobre una solera.",  # noqa
+                "<i>(Arquitectura)</i>: Extremo o punta de un travesaño o madero que está metido en una pared o asentado sobre una solera.",
                 "<i>(Ingeniería)</i>: Turno o periodo en que trabaja un grupo de operarios.",
                 "<i>(Música)</i>: Momento en que una voz o instrumento comienza a intervenir en una pieza musical.",
                 "Castigo con golpes; tunda, zurra, pela.",
@@ -97,7 +108,7 @@ from wikidict.utils import process_templates
         ),
         (
             "extenuado",
-            ["[eks.teˈnwa.ðo]"],
+            [],
             [],
             [
                 "Cansado, debilitado.",
@@ -109,34 +120,34 @@ from wikidict.utils import process_templates
             "futuro",
             ["[fuˈtu.ɾo]"],
             [
-                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'  # noqa
+                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'
             ],
             [
                 "Que está aún por ocurrir o hacerse efectivo.",
                 "Tiempo que aún no ha llegado.",
                 "<i>(Lingüística)</i>: Tiempo verbal que expresa una acción que aún no ha sido realizada.",
-                "Novio o prometido de una mujer a la que va a desposar. <i>El femenino es</i> futura.",
+                "Novio o prometido de una mujer a la que va a desposar.",
             ],
             [],
         ),
         (
             "gracias",
-            ["[ˈgɾa.sjas]", "[ˈgɾa.θjas]"],
+            [],
             [],
             [
                 "<i>Úsase para expresar agradecimiento</i>.",
-                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>",
+                "<i>Irónicamente expresa desagrado, desprecio o enfado</i>.",
             ],
             [],
         ),
         (
             "hasta",
-            ["[ˈas.ta]"],
+            [],
             [
-                'Del castellano antiguo <i>fasta</i>, del más antiguo <i>hata</i>, <i>fata</i>, quizá préstamo del árabe حتى (<i>ḥatta</i>), o del latín <i>ad</i> ("a") <i>ista</i> ("esta"), o de ambos.'  # noqa
+                'Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ("a") <i>ista</i> ("esta").',
             ],
             [
-                "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",  # noqa
+                "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",
                 "Seguida de <i>cuando</i> o de un gerundio, preposición que indica valor inclusivo.",
                 "Seguida de <i>que</i>, preposición que indica valor exclusivo.",
                 "Indica que pese a las circunstancias ocurre el hecho.",
@@ -149,24 +160,24 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            ["De hocicar"],
+            ["Del endo <i>hocicar</i>."],
             [
-                "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",  # noqa
+                "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
                 "Cara.",
                 "Gesto que denota enojo o enfado.",
                 "Forma despectiva para referirse a la boca de alguien.",
-                "Boca de una persona, especialmente de la que dice malas palabras",
+                "Boca de una persona, especialmente de la que dice malas palabras.",
             ],
             [],
         ),
         (
             "los",
-            ["[los]", "[lɔʰ]"],
-            ['Del latín <i>illōs</i>, acusativo masculino plural de <i>ille</i> ("ese")'],
+            [],
+            ["Del latín <i>illōs</i>, acusativo masculino plural del latín <i>ille</i>."],
             [
-                "<i>Artículo determinado masculino plural.</i>",
-                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>",
+                "<i>Artículo determinado masculino plural.</i>.",
+                "<i>Pronombre personal masculino de objeto directo (acusativo), tercera persona del plural.</i>.",
             ],
             [],
         ),
@@ -174,12 +185,12 @@ from wikidict.utils import process_templates
             "Mús.",
             [],
             [],
-            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música"],
+            ["<i>Abreviatura lexicográfica convencional de la palabra</i> música."],
             [],
         ),
         (
             "ruego",
-            ["[ˈrwe.ɰo]"],
+            [],
             [],
             [
                 "Súplica, petición hecha con el fin de alcanzar lo que se pide.",
@@ -191,15 +202,15 @@ from wikidict.utils import process_templates
             ["[tamˈbjen]"],
             ["Compuesto de <i>tan</i> y <i>bien</i>"],
             [
-                "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",  # noqa
+                "<i>Utilizado para especificar que una o varias cosas son similares, o que comparten atributos con otra previamente nombrada</i>.",
                 "<i>Usado para añadir algo a lo anteriormente mencionado</i>.",
             ],
             [],
         ),
         (
             "uni-",
-            ["[ˈu.ni]"],
-            ['Del latín <i>uni-</i>, de <i>unus</i> ("uno")'],
+            [],
+            ["Del latín <i>uni-</i>, del latín <i>unus</i>."],
             [
                 "<i>Elemento compositivo que significa</i> uno. un único, relativo a uno solo.",
             ],
@@ -218,10 +229,10 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
-    variants: List[str],
+    pronunciations: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -244,21 +255,12 @@ def test_parse_word(
             "{{adjetivo de sustantivo|chamán o al chamanismo|al}}",
             "Que pertenece o concierne al chamán o al chamanismo",
         ),
-        ("{{Anatomía|y|Zootomía}}", "<i>(Anatomía y Zootomía)</i>"),
-        (
-            "{{Angiología|Endocrinología|Fisiología|Medicina}}",
-            "<i>(Angiología, Endocrinología, Fisiología, Medicina)</i>",
-        ),
-        ("{{Arqueología}}", "<i>(Arqueología)</i>"),
-        ("{{Arqueología|y|Geología}}", "<i>(Arqueología y Geología)</i>"),
-        ("{{ciudades}}", "<i>(Geografía)</i>"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
         ("{{etimología2|...}}", ""),
-        ("{{física}}", "<i>(Física)</i>"),
-        ("{{física|óptica}}", "<i>(Física, Óptica)</i>"),
+        ("{{etimología2|alteración del más antiguo}}", "alteración del más antiguo"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
         ("{{formatnum:22905}}", "22 905"),
         (
@@ -267,15 +269,10 @@ def test_parse_word(
         ),
         ("{{l|es|tamo}}", "tamo"),
         ("{{l+|pt|freguesia}}", "<i>freguesia</i>"),
-        ("{{moluscos}}", "<i>(Zoología)</i>"),
-        ("{{moluscos|y|alimentos}}", "<i>(Zoología y Gastronomía (alimentos))</i>"),
-        ("{{psicología}}", "<i>(Psicología)</i>"),
         ("{{neologismo|feminismo}}", "<b>Neologismo, Feminismo</b>"),
         ("{{nombre científico}}", "<sup>nombre científico</sup>"),
         ("{{plm|cansado}}", "Cansado"),
-        ("{{psicología|lgbt}}", "<i>(Psicología, LGBT)</i>"),
         ("{{redirección suave|protocelta}}", "<i>Véase</i> protocelta"),
-        ("{{regiones|tipo=topónimos|p=México}}", "<i>(Geografía)</i>"),
         ("{{-sub|4}}", "<sub>4</sub>"),
         ("{{subíndice|5}}", "<sub>5</sub>"),
         ("{{-sup|2}}", "<sup>2</sup>"),

@@ -14,17 +14,7 @@
 
 ## Downloads
 
-### Full Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dicthtml-pt-pt.zip) (dicthtml-pt-pt.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dict-pt-pt.zip) (dict-pt-pt.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dict-pt-pt.df.bz2) (dict-pt-pt.df.bz2)
-
-### Etymology-Free Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dicthtml-pt-pt-noetym.zip) (dicthtml-pt-pt-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dict-pt-pt-noetym.zip) (dict-pt-pt-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/pt/dict-pt-pt-noetym.df.bz2) (dict-pt-pt-noetym.df.bz2)
+https://github.com/BoboTiG/ebook-reader-dict/releases/tag/pt
 
 ## Installation
 

@@ -1,7 +1,6 @@
 """German language (Deutsch)."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import uniq
 
@@ -12,7 +11,7 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}")
+head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}", "{{Sprache|International}}", "{{sprache|international}}")
 etyl_section = ("{{Herkunft}}",)
 sections = (
     *etyl_section,
@@ -20,6 +19,7 @@ sections = (
     "{{Aussprache}",
     "{{Bedeutungen}",
     "{{Grundformverweis ",
+    "{{Wortart|Symbol|International}",
 )
 
 # Variants
@@ -38,6 +38,7 @@ templates_ignored = (
     "Audio",
     "Bpur",
     "Fremdsprachige Beispiele",
+    "GBS",
     "Herkunft fehlt",
     "Herkunft unbelegt",
     "Hintergrundfarbe",
@@ -45,6 +46,7 @@ templates_ignored = (
     "IA",
     "IPA",
     "Lautschrift",
+    "Lit-Pfeifer",
     "QS Bedeutung",
     "QS Bedeutungen",
     "QS_Bedeutungen",
@@ -54,6 +56,11 @@ templates_ignored = (
     "Ref-Bibel",
     "Ref-Duden",
     "Ref-DWDS",
+    "Ref-Georges",
+    "Ref-LSJ",
+    "Ref-Pape",
+    "Ref-Pfeifer",
+    "Ref-wissen.de",
     "Wikipedia",
 )
 
@@ -81,7 +88,7 @@ templates_multi = {
     # {{IPA-Text|māʔ}}
     "IPA-Text": "parts[1]",
     # {{Kontamination|<Präfix>|<Wort 1>|<Suffix>|<Wort 2>}}
-    "Kontamination": "f'Kontamination, zusammengesetzt aus „{parts[1]}-“ (von {parts[2]}) und „-{parts[3]}“ (von {parts[4]})'",  # noqa
+    "Kontamination": "f'Kontamination, zusammengesetzt aus „{parts[1]}-“ (von {parts[2]}) und „-{parts[3]}“ (von {parts[4]})'",
     # {{Koptisch|{{Ü|cop|ⲉⲙⲟⲩ}}}}
     "Koptisch": "parts[-1]",
     # {{L|at||en}}
@@ -114,7 +121,7 @@ templates_multi = {
     "Polytonisch": "parts[-1]",
     # {{Ref-behindthename|Alan}}
     "Ref-behindthename": "f'behindthename.com „{word}“'",
-    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",  # noqa
+    "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",
     # {{Ü|pl|dzień}}
     "Ü": "parts[-1]",
     # {{Unicode|kɔ}}
@@ -190,14 +197,14 @@ release_description = """\
 Anzahl Worte: {words_count}
 Wiktionary-Dump vom: {dump_date}
 
-Verfügbare Wörterbuch-Formate:
+Vollständige version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Version ohne etymologien:
+{download_links_noetym}
 
 <sub>Letzte Aktualisierung: {creation_date}.</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -205,8 +212,8 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r",\s+{{([fmnu]+)}}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r",\s+{{([fmnu]+)}}"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -218,8 +225,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -227,11 +234,11 @@ def find_pronunciations(
     ['[ˈʁɪndɐˌsteːk]']
     >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}")
     ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
-    """  # noqa
+    """
     return [f"[{p}]" for p in uniq(pattern.findall(code))]
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -243,7 +250,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
     'französisch:'
     >>> last_template_handler(["fr"], "de")
     'Französisch'
-    """  # noqa
+    """
     from ...user_functions import italic
     from ..defaults import last_template_handler as default
     from .lang_adjs import lang_adjs
@@ -260,7 +267,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return italic(f"{markierung}{template[1] if len(template) > 1 else ''}")
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     # note: this should be used for variants only
     if template[0].startswith(

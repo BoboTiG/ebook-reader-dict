@@ -1,10 +1,9 @@
 """English language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
-from .labels import labels, labels_regional, labels_subvarieties, labels_topical
+from .labels import labels
 
 # Float number separator
 float_separator = "."
@@ -13,7 +12,7 @@ float_separator = "."
 thousands_separator = ","
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("==English==", "english")
+head_sections = ("==English==", "english", "===Translingual===", "translingual")
 section_sublevels = (4, 3)
 etyl_section = ("Etymology", "Etymology 1")
 sections = (
@@ -51,6 +50,7 @@ variant_templates = (
     "{{en-superlative",
     "{{en-third",
     "{{en-tpso",
+    "{{infl of",
     "{{plural of",
 )
 
@@ -69,6 +69,7 @@ definitions_to_ignore = (
     "en-third-person singular of",
     "en-third person singular of",
     "en-third-person_singular_of",
+    "infl of",
     "plural of",
 )
 
@@ -81,6 +82,8 @@ templates_ignored = (
     "cln",
     "dercat",
     "elements",
+    "etymid",
+    "etymon",
     "etystub",
     "examples",
     "Image requested",
@@ -106,6 +109,7 @@ templates_ignored = (
     "root",
     "slim-wikipedia",
     "senseid",
+    "senseno",
     "seeCites",
     "swp",
     "tea room",
@@ -123,10 +127,7 @@ templates_ignored = (
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
-    **labels_subvarieties,
     **labels,
-    **labels_regional,
-    **labels_topical,
 }
 
 # Templates more complex to manage.
@@ -140,13 +141,13 @@ templates_multi = {
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
     # {{en-archaic third-person singular of|term}}
-    "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",  # noqa
+    "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",
     # {{en-comparative of|term}}
     "en-comparative of": "italic('comparative form of') + f' {strong(parts[1])}' + ': more ' + parts[1]",
     # {{en-archaic second-person singular of|term}}
-    "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",  # noqa
+    "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",
     # {{en-archaic second-person singular past of|term}}
-    "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",  # noqa
+    "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",
     # {{gl|liquid H<sub>2</sub>O}}
     "gl": "parenthesis(parts[1])",
     # {{gloss|liquid H<sub>2</sub>O}}
@@ -160,9 +161,12 @@ templates_multi = {
     # {{lang|fr|texte}}
     "lang": "parts[-1]",
     # {{Latn-def|en|name|O|o}}
-    "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
+    "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
     # {{Latn-def-lite|en|name|O|o}}
-    "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",  # noqa
+    "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
+    # {{monospace|#!}}
+    "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
+    "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{n-g-lite|Definite grammatical ...}}
@@ -173,6 +177,8 @@ templates_multi = {
     "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{nobr|1=[ ...=C=C=C=... ]}}
+    "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
@@ -181,6 +187,8 @@ templates_multi = {
     "non-gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{non gloss definition|Definite grammatical ...}}
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
+    # {{nowrap|1=[ ...=C=C=C=... ]}}
+    "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{q-lite|Used only ...}}
@@ -209,6 +217,8 @@ templates_multi = {
     "sub": "subscript(parts[1])",
     # {{sup|KI}}
     "sup": "superscript(parts[1])",
+    # {{taxfmt|Gadus macrocephalus|species|ver=170710}}
+    "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
     #
@@ -233,6 +243,8 @@ templates_multi = {
     "en-third-person_singular_of": "parts[1]",
     # {{en-third person singular of|term}}
     "en-third person singular of": "parts[1]",
+    # {{infl of|en|cling||ing-form}}
+    "infl of": "parts[2]",
     # {{plural of|en|human}}
     "plural of": "parts[-1]",
 }
@@ -247,14 +259,14 @@ release_description = """\
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 
-Available files:
+Full version:
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Etymology-free version:
+{download_links_noetym}
 
 <sub>Updated on {creation_date}</sub>
-"""  # noqa
+"""
 
 # Dictionary name that will be printed below each definition
 wiktionary = "Wiktionary (ɔ) {year}"
@@ -262,8 +274,8 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -281,7 +293,7 @@ def find_pronunciations(
     return uniq(flatten(pattern.findall(code)))
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -316,29 +328,21 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["cens sp", "en", "bitch"], "en")
         '<i>Censored spelling of</i> <b>bitch</b>.'
 
+        >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
+        '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>.'
+
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
 
-    """  # noqa
+    """
 
-    from ...user_functions import (
-        capitalize,
-        chinese,
-        extract_keywords_from,
-        italic,
-        strong,
-    )
+    from ...user_functions import capitalize, chinese, extract_keywords_from, italic, strong
     from .form_of import form_of_templates
     from .langs import langs
-    from .template_handlers import (
-        gloss_tr_poss,
-        join_names,
-        lookup_template,
-        render_template,
-    )
+    from .template_handlers import gloss_tr_poss, join_names, lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -375,7 +379,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
                 "pronunciation spelling of",
                 "pronunciation variant of",
             ):
-                ender = italic(f", representing {fromtext} {langs[lang]}")
+                ender = italic(f", representing {templates_italic.get(data['from'], fromtext)} {langs[lang]}")
             if not ender:
                 starter = f"{fromtext} {from_suffix}"
                 starter = capitalize(starter) if cap else starter

@@ -1,7 +1,6 @@
 """French language."""
 
 import re
-from typing import List, Pattern, Tuple
 
 from ...user_functions import flatten, uniq
 from .ar_pronunciation import toIPA
@@ -587,7 +586,7 @@ templates_multi = {
     # {{o}}
     "o": "superscript('o')",
     # {{Pas clair|...}}
-    "Pas clair": 'f\'{underline(parts[1])}{small("&nbsp;")}{superscript(italic(strong("Pas clair")))}\'',
+    "Pas clair": 'f\'{underline(parts[1]) if len(parts) > 1 else ""}{small("&nbsp;")}{superscript(italic(strong("Pas clair")))}\'',
     # {{petites capitales|Dupont}}
     "petites capitales": "small_caps(parts[1])",
     # {{pc|Dupont}}
@@ -605,7 +604,7 @@ templates_multi = {
     # {{provinces|fr|d’Espagne}}
     "provinces": "term('Géographie')",
     # {{R:Littré|anonacée}})
-    "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",  # noqa
+    "R:Littré": "f'«&nbsp;{parts[-1]}&nbsp;», dans <i>Émile Littré, Dictionnaire de la langue française</i>, 1872–1877'",
     # {{R:Tosti|Turgeon}})
     "R:Tosti": "f'«&nbsp;{parts[-1]}&nbsp;» dans Jean {small_caps(\"Tosti\")}, <i>Les noms de famille</i>'",
     # {{RFC|5322}}
@@ -644,7 +643,7 @@ templates_multi = {
     # {{wsp|Brassicaceae}}
     "wsp": "parts[2] if len(parts) > 2 else parts[1]",
     # {{WSP|Panthera leo}}
-    "WSP": "italic(parts[1])",
+    "WSP": "italic(parts[1]) if len(parts) > 1 else ''",
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
 }
@@ -662,7 +661,7 @@ templates_other = {
     "c": "<i>commun</i>",
     "collectif": "<i>collectif</i>",
     "commun": "<i>commun</i>",
-    "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",  # noqa
+    "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",
     "dépendant": "<i>dépendant</i>",
     "déterminé": "déterminé",
     "f": "<i>féminin</i>",
@@ -685,7 +684,7 @@ templates_other = {
     "invar": "<i>invariable</i>",
     "invariable": "<i>invariable</i>",
     "invisible": "",
-    "la-note-ij": "Le ‹&nbsp;j&nbsp;›, absent du latin classique, traduit le ‹&nbsp;i&nbsp;› devant une voyelle dans la tradition scholastique française. Cf. «&nbsp;j en latin&nbsp;».",  # noqa
+    "la-note-ij": "Le ‹&nbsp;j&nbsp;›, absent du latin classique, traduit le ‹&nbsp;i&nbsp;› devant une voyelle dans la tradition scholastique française. Cf. «&nbsp;j en latin&nbsp;».",
     "liaison": "‿",
     "m": "<i>masculin</i>",
     "masculin": "<i>masculin</i>",
@@ -701,11 +700,11 @@ templates_other = {
     "non standard": "⚠ Il s’agit d’un terme utilisé qui n’est pas d’un usage standard.",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note&nbsp;:</b>",
-    "note-fr-féminin-homme": "<i>Ce mot féminin n’a pas de masculin correspondant, et il peut désigner des hommes.</i>",  # noqa
-    "note-fr-masculin-femme": "<i>Ce mot masculin n'a pas de féminin correspondant, et il peut désigner des femmes.</i>",  # noqa
-    "note-gentilé": "Ce mot est un gentilé. Un gentilé désigne les habitants d’un lieu, les personnes qui en sont originaires ou qui le représentent (par exemple, les membres d’une équipe sportive).",  # noqa
-    "note-majuscule-taxo": "En biologie, le genre, premier mot du nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. Par exemple : Homme moderne : <i>Homo sapiens</i>, famille : Hominidae. Quand ils utilisent des noms en français, ainsi que dans d’autres langues, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs à l’espèce (par exemple : <i>les Hominidés</i>, ou <i>les hominidés</i>).",  # noqa
-    "note-majuscule-taxon": "En biologie, le genre, premier mot du nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. Par exemple : Homme moderne : <i>Homo sapiens</i>, famille : Hominidae. Quand ils utilisent des noms en français, ainsi que dans d’autres langues, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs à l’espèce (par exemple : <i>les Hominidés</i>, ou <i>les hominidés</i>)",  # noqa
+    "note-fr-féminin-homme": "<i>Ce mot féminin n’a pas de masculin correspondant, et il peut désigner des hommes.</i>",
+    "note-fr-masculin-femme": "<i>Ce mot masculin n'a pas de féminin correspondant, et il peut désigner des femmes.</i>",
+    "note-gentilé": "Ce mot est un gentilé. Un gentilé désigne les habitants d’un lieu, les personnes qui en sont originaires ou qui le représentent (par exemple, les membres d’une équipe sportive).",
+    "note-majuscule-taxo": "En biologie, le genre, premier mot du nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. Par exemple : Homme moderne : <i>Homo sapiens</i>, famille : Hominidae. Quand ils utilisent des noms en français, ainsi que dans d’autres langues, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs à l’espèce (par exemple : <i>les Hominidés</i>, ou <i>les hominidés</i>).",
+    "note-majuscule-taxon": "En biologie, le genre, premier mot du nom binominal et les autres noms scientifiques (en latin) prennent toujours une majuscule. Par exemple : Homme moderne : <i>Homo sapiens</i>, famille : Hominidae. Quand ils utilisent des noms en français, ainsi que dans d’autres langues, les naturalistes mettent fréquemment une majuscule aux noms de taxons supérieurs à l’espèce (par exemple : <i>les Hominidés</i>, ou <i>les hominidés</i>)",
     "peu attesté": "⚠ Ce terme est très peu attesté.",
     "o": "<i>neutre</i>",
     "p": "<i>pluriel</i>",
@@ -725,7 +724,7 @@ templates_other = {
     "t": "<i>transitif</i>",
     "tr-dir": "<i>transitif direct</i>",
     "tr-indir": "<i>transitif indirect</i>",
-    "uplet/étym": "Tiré de la fin du suffixe <i>-uple</i> qu’on retrouve dans quintuple, sextuple, qui exprime une multiplication, dérivé du latin <i>-plus</i>.",  # noqa
+    "uplet/étym": "Tiré de la fin du suffixe <i>-uple</i> qu’on retrouve dans quintuple, sextuple, qui exprime une multiplication, dérivé du latin <i>-plus</i>.",
     "usage": "<b>Note d’usage&nbsp;:</b>",
     "vlatypas-pivot": "v’là-t-i’ pas",
 }
@@ -737,14 +736,14 @@ release_description = """\
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
-Fichiers disponibles :
+Version complète :
+{download_links_full}
 
-- [Kobo]({url_kobo}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({url_stardict}) (dict-{locale}-{locale}.zip)
-- [DictFile]({url_dictfile}) (dict-{locale}-{locale}.df.bz2)
+Version sans étymologies :
+{download_links_noetym}
 
 <sub>Mis à jour le {creation_date}</sub>
-"""  # noqa
+"""
 
 # Le nom du dictionnaire qui sera affiché en-dessous de chaque définition
 wiktionary = "Wiktionnaire (ɔ) {year}"
@@ -752,8 +751,8 @@ wiktionary = "Wiktionnaire (ɔ) {year}"
 
 def find_genders(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
+) -> list[str]:
     """
     >>> find_genders("")
     []
@@ -767,8 +766,8 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
-    pattern: Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
-) -> List[str]:
+    pattern: re.Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
@@ -786,7 +785,7 @@ def find_pronunciations(
     return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
 
 
-def last_template_handler(template: Tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -979,7 +978,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["zh-l", "餃子/饺子", "jiǎozi", "jiaozi bouillis"], "fr")
         '餃子／饺子 (<i>jiǎozi</i>, «&nbsp;jiaozi bouillis&nbsp;»)'
 
-    """  # noqa
+    """
     from ...user_functions import (
         capitalize,
         chinese,
@@ -988,12 +987,12 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         person,
         term,
     )
-    from ..defaults import last_template_handler as default
+    from .. import defaults
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
-        return render_template(template)
+        return render_template(word, template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -1015,8 +1014,8 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return f"<br/>«&nbsp;{parts[0]}&nbsp;»<br/>"
 
     if tpl == "code langue":
-        lang = parts[0]
-        return next((code for code, l10n in langs.items() if l10n == lang), "")
+        code_lang = parts[0]
+        return next((code for code, l10n in langs.items() if l10n == code_lang), "")
 
     if tpl == "diminutif":
         phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
@@ -1093,7 +1092,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         )
 
     if tpl == "ar-mot":
-        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'  # noqa
+        return f'<span style="line-height: 0px;"><span style="font-size:larger">{arabiser(parts[0])}</span></span> <small>({parts[0]})</small>'
 
     if tpl == "ar-racine/nom":
         from .racines_arabes import racines_schemes_arabes
@@ -1128,4 +1127,7 @@ def last_template_handler(template: Tuple[str, ...], locale: str, word: str = ""
         return chinese(parts, data, laquo="«&nbsp;", raquo="&nbsp;»")
 
     # This is a country in the current locale
-    return langs[tpl] if tpl in langs else default(template, locale, word=word)
+    if lang := langs.get(tpl):
+        return lang
+
+    return defaults.last_template_handler(template, locale, word=word)

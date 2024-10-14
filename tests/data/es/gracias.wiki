@@ -1,105 +1,102 @@
 == {{lengua|es}} ==
-{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}
+{{pron-graf|1audio1=Gracias (español).ogg}}
 
-===Forma sustantiva femenina===
-{{inflect.es.sust.reg|gracia}}
+=== Etimología 1 ===
+{{etimología}}.
 
-;1: {{forma sustantivo plural|gracia}}
-:*'''Ejemplos:'''
-::"E desta guisa honró el Rey a todos los grandes señores e donzellas sus parientas, de que mucha honra cobró así de gelo tener por gran bondad los de España por fazer tanto bien a su linage, como de la honra que alcançó por todo el mundo, porque tales señores como éstos quisieron tomar de tan buena voluntad sus ''gracias'' del Rey, e obligarse de lo servir todos." de Corral, Pedro (2001 [1430]) ''Crónica del rey don Rodrigo, postrimero rey de los godos''. Madrid: Castalia, t. I, p. 285
-::"Él, sus consejeros y los vecinos más caracterizados de la ciudad, se confesaron y comulgaron para ganar aquellas ''gracias'' espirituales y tener al cielo propicio en los acuerdos que iban a tomarse." Barros Arana, Diego (2003 [1885]) ''Historial general de Chile''. Alicante: Universidad de Alicante, t. IV, p. 30
-
-==={{interjección|es}}===
-
-;2: {{impropia|Úsase para expresar agradecimiento}}.
+==== {{interjección|es}} ====
+;1: {{impropia|Úsase para expresar agradecimiento}}.
 {{relacionado|de nada|muchas gracias|muchísimas gracias}}.
-:*'''Ejemplos:'''
-::"Madre bendita, ¡qué deseo traigo! ''Gracias'' a Dios que te me dejó ver." de Rojas, Fernando (2000 [1502]) ''La Celestina. Tragicomedia de Calisto y Melibea''. Barcelona: Crítica, p. 48
-::"—¡Cómo no, pues, Juan de la Verdá! —le dijo el rey—. Cásate con ella y el palacio que le gané a mi vecino te quedarás tú con él.<br/>— Muchas ''gracias'', mi rey." Vivanco, Osvaldo (1992 [1971]) “Juan de la Verdad”. En: ''Cuentos folklóricos chilenos de raíces hispánicas'' (Pino Saavedra, Yolando, ed.). Santiago de Chile: Universitaria.
-
-;3: {{impropia|Irónicamente expresa desagrado, desprecio o enfado}}
+{{ejemplo|Madre bendita, ¡qué deseo traigo! ''Gracias'' a Dios que te me dejó ver.|c=libro|t=La Celestina|a=Fernando de Rojas|f=1841|p=48}}
+{{ejemplo|—¡Cómo no, pues, Juan de la Verdá! —le dijo el rey—. Cásate con ella y el palacio que le gané a mi vecino te quedarás tú con él.<br/>— Muchas ''gracias'', mi rey.|c=libro|t=Nuevos cuentos folklóricos de Chile de raíces hispánicas|a=Yolando Pino Saavedra|f=1992}}
+;2: {{impropia|Irónicamente expresa desagrado, desprecio o enfado}}.
 {{uso|coloquial|irónico}}
+{{ejemplo requerido}}
 
-[[CategorÍa:ES:Términos irónicos]]
-
-==Véase también==
+==== Véase también ====
 {{w}}
-<br clear="all">
-==Traducciones==
+
+==== Traducciones ====
 {{trad-arriba}}
-{{t+|sq|2|faleminderit}}
-{{t+|de|2|danke}}
-{{t+|ar|2|شكرا|tr|šukran}}
-{{t+|hy|2|շնորհակալ եմ|tr|šnorhagal em}}
-{{t+|bn|2|ধন্যবাদ|tr|dhônnôbad}}
-{{t+|br|2|trugarekaat|,|trugarez|f}}
-{{t+|bg|2|благодаря|tr|blagodarâ}}
-{{t+|yue|2|多謝|tr|dō ze}}
-{{t+|ca|2|gràcies}}
-{{t+|cs|2|děkuji}} 
-{{t+|ko|2|감사합니다|tr|gham-sa-han-ni-da}}
-{{t+|hr|2|hvala}}
-{{t+|da|2|tak}}
-{{t+|dv|2|ޝުކުރިއްޔާ|tr|shukuriyyaa}}
-{{t+|sk|2|ďakujem}}
-{{t+|sl|2|hvala}}
-{{t+|eo|2|dankon}}
-{{t+|eu|2|eskerrik asko}}
-{{t+|fo|2|takk}}
-{{t+|fi|2|kiitos}}
-{{t+|fr|2|merci}}
-{{t+|gl|2|grazas}}
-{{t+|ka|2|მადლობ|tr=[[madlob]]}} 
-{{t+|el|2|ευχαριστώ|tr|eukharistó}}
-{{t+|gn|2|aguyje}}
-{{t+|he|2|תודה|tr|todá}}
-{{t+|hi|2|धन्यवाद|tr|dhanyavād}}
-{{t+|hu|2|köszönöm}}
-{{t+|id|2|terima kasih}}
-{{t+|en|2|thanks|,|thank you|,|cheers|nota|informal}}
-{{t+|ga|2|go raibh maith agat}}
-{{t+|is|2|takk}}
-{{t+|it|2|grazie}}
-{{t+|ja|2|ありがとう|ありがとうございます|,|どうも|,|どうもありがとうございます}}
-{{trad-centro}}
-{{t+|kuz|2|patta}}
-{{t+|la|2|gratias ago}}
-{{t+|lut|2|hiskʼʷuʔ|glosa=a una mujer|,|2|hišǝbǝʔ|glosa2=a un hombre}}.
-{{t+|mk|2|благодарам|tr|blagodaram}}
-{{t+|ms|2|terima kasih}}
-{{t+|mg|2|misaotra}}
-{{t+|mt|2|grazzi}}
-{{t+|zh|2|謝謝|,|谢谢|tr|xièxie|,|多谢|tr|duōxiè}}
-{{t+|mn|2|баярлалаа|tr|baârlalā}} 
-{{t+|nhn|2|tlazohcamati}}
-{{t+|nci|2|tlazohcamati}}
-{{t+|nch|2|tlaxkamati}}
-{{t+|nl|2|bedankt|,|dank u}}
-{{t+|no|2|takk}}
-{{t+|nn|2|takk}}
-{{t+|ote|2|jämadi}}
-{{t+|pap|2|danki}}
-{{t+|fa|2|با تشکر|tr|mo-teh-shaker-am}}
-{{t+|pl|2|dziękuję}} 
-{{t+|pt|2|obrigado|,|obrigada}}
-{{t+|quh|2|añaychay}}
-{{t+|quz|2|yusulpayki}}
-{{t+|rap|2|maururu}}
-{{t+|ro|2|mulțumesc}}
-{{t+|ru|2|спасибо|tr|spasibo}}
-{{t+|sr|2|хвала|tr|hvala}}
-{{t+|sv|2|tack}}
-{{t+|sw|2|asante}}
-{{t+|tl|2|salamat}}
-{{t+|th|2|ขอบคุณ|tr|kòp-kuun}}
-{{t+|tr|2|teşekkür ederim}}
-{{t+|ur|2|تھنکس|tr|šukriyā}}
-{{t+|vi|2|cảm ơn}}
-{{t+|yi|2|אַ דאַנק|tr|a dank}} 
-{{t+|zu|2|ngiyabonga}} 
+{{t|sh|a1=2|t1=hvala|a2=2|t2=хвала|tl2=hvala}}
+{{t|sq|a1=2|t1=faleminderit}}
+{{t|de|a1=2|t1=danke}}
+{{t|ar|a1=2|t1=شكرا|tl1=šukran}}
+{{t|hy|a1=2|t1=շնորհակալ եմ|tl1=šnorhagal em}}
+{{t|ast|a1=1|t1=gracies}}
+{{t|bn|a1=2|t1=ধন্যবাদ|tl1=dhônnôbad}}
+{{t|br|a1=2|t1=trugarekaat|t2=trugarez|g2=f}}
+{{t|bg|a1=2|t1=благодаря|tl1=blagodarâ}}
+{{t|yue|a1=2|t1=多謝|tl1=dō ze}}
+{{t|ca|a1=2|t1=gràcies}}
+{{t|cs|a1=2|t1=děkuji}}
+{{t|ko|a1=2|t1=감사합니다|tl1=gham-sa-han-ni-da}}
+{{t|da|a1=2|t1=tak}}
+{{t|dv|a1=2|t1=ޝުކުރިއްޔާ|tl1=shukuriyyaa}}
+{{t|sk|a1=2|t1=ďakujem}}
+{{t|sl|a1=2|t1=hvala}}
+{{t|eo|a1=2|t1=dankon}}
+{{t|eu|a1=2|t1=eskerrik asko}}
+{{t|ext|a1=1|t1=agralecíu|g1=m|t2=agraecíu|g2=m|t3=gracias|g3=f|a3=2|t4=gracias|g4=f}}
+{{t|fo|a1=2|t1=takk}}
+{{t|fi|a1=2|t1=kiitos}}
+{{t|fr|a1=2|t1=merci}}
+{{t|gl|a1=2|t1=grazas}}
+{{t|ka|a1=2|t1=მადლობ}}
+{{t|el|a1=2|t1=ευχαριστώ|tl1=eukharistó}}
+{{t|gn|a1=2|t1=aguyje}}
+{{t|he|a1=2|t1=תודה|tl1=todá}}
+{{t|hi|a1=2|t1=धन्यवाद|tl1=dhanyavād}}
+{{t|hu|a1=2|t1=köszönöm}}
+{{t|id|a1=2|t1=terima kasih}}
+{{t|en|a1=2|t1=thanks|t2=thank you|t3=cheers|nota3=informal}}
+{{t|ga|a1=2|t1=go raibh maith agat}}
+{{t|is|a1=2|t1=takk}}
+{{t|it|a1=2|t1=grazie}}
+{{t|ja|a1=2|t1=ありがとう|t2=ありがとうございます|t3=どうも|t4=どうもありがとうございます}}
+{{t|kuz|a1=2|t1=patta}}
+{{t|la|a1=2|t1=gratias ago}}
+{{t|lut|a1=2|t1=hiskʼʷuʔ|a2=2|t2=hišǝbǝʔ}}
+{{t|mk|a1=2|t1=благодарам|tl1=blagodaram}}
+{{t|ms|a1=2|t1=terima kasih}}
+{{t|mg|a1=2|t1=misaotra}}
+{{t|mt|a1=2|t1=grazzi}}
+{{t|zh|a1=2|t1=謝謝|t2=谢谢|tl2=xièxie|t3=多谢|tl3=duōxiè}}
+{{t|mn|a1=2|t1=баярлалаа|tl1=baârlalā}}
+{{t|nhn|a1=2|t1=tlazohcamati}}
+{{t|nci|a1=2|t1=tlazohcamati}}
+{{t|nch|a1=2|t1=tlaxkamati}}
+{{t|nl|a1=2|t1=bedankt|t2=dank u}}
+{{t|no|a1=2|t1=takk}}
+{{t|nn|a1=2|t1=takk}}
+{{t|oc|t1=mercés}}
+{{t|ote|a1=2|t1=jämadi}}
+{{t|pap|a1=2|t1=danki}}
+{{t|fa|a1=2|t1=با تشکر|tl1=mo-teh-shaker-am}}
+{{t|pl|a1=2|t1=dziękuję}}
+{{t|pt|a1=2|t1=obrigado|t2=obrigada}}
+{{t|quh|a1=2|t1=añaychay}}
+{{t|quz|a1=2|t1=yusulpayki}}
+{{t|qwh|a1=1|t1=payllaa}}
+{{t|rap|a1=2|t1=maururu}}
+{{t|ro|a1=2|t1=mulțumesc}}
+{{t|ru|a1=2|t1=спасибо|tl1=spasibo}}
+{{t|sv|a1=2|t1=tack}}
+{{t|sw|a1=2|t1=asante}}
+{{t|tl|a1=2|t1=salamat}}
+{{t|th|a1=2|t1=ขอบคุณ|tl1=kòp-kuun}}
+{{t|tr|a1=2|t1=teşekkür ederim}}
+{{t|ur|a1=2|t1=تھنکس|tl1=šukriyā}}
+{{t|vi|a1=2|t1=cảm ơn}}
+{{t|yi|a1=2|t1=אַ דאַנק|tl1=a dank}}
+{{t|zu|a1=2|t1=ngiyabonga}}
 {{trad-abajo}}
 
-<!-- si vas a insertar una nueva sección de etimología o de idioma, por favor hazlo ↑  arriba ↑  de esta línea. Por favor no borres esta línea ni las dos siguientes-->
+=== Forma flexiva ===
+==== Forma sustantiva ====
+;1: {{forma sustantivo plural|gracia}}.
+{{ejemplo|E desta guisa honró el Rey a todos los grandes señores e donzellas sus parientas, de que mucha honra cobró así de gelo tener por gran bondad los de España por fazer tanto bien a su linage, como de la honra que alcançó por todo el mundo, porque tales señores como éstos quisieron tomar de tan buena voluntad sus '''''gracias''''' del Rey, e obligarse de lo servir todos.|c=libro|t=Cronica del rey don Rodrigo|a=Pedro de Corral|f=1587|p=285}}
+{{ejemplo|Él, sus consejeros y los vecinos más caracterizados de la ciudad, se confesaron y comulgaron para ganar aquellas '''''gracias''''' espirituales y tener al cielo propicio en los acuerdos que iban a tomarse.|c=libro|t=Historia general de Chile|a=Diego Barros Arana|f=1999|editorial=Editorial Universitaria|isbn=9789561115590|p=30}}
 
-= <small>Referencias y notas</small> =
+== Referencias y notas ==
 <references />

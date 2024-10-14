@@ -1,4 +1,4 @@
-from typing import Callable, List
+from collections.abc import Callable
 
 import pytest
 
@@ -10,6 +10,17 @@ from wikidict.utils import process_templates
 @pytest.mark.parametrize(
     "word, pronunciations, genders, etymology, definitions",
     [
+        (
+            "-a",
+            [],
+            [],
+            [
+                "De <b>1</b>: desinência nominal feminina acrescentada no português moderno a palavras anteriormente comuns-de-dois, como portuguesa (e praticamente o padrão <i>-ês</i> [masculino]:-esa [feminino]), espanhol(a), senhor(a).",
+                "De <b>4</b>: da vogal temática da 1ª conjugação latina.",
+                "De <b>5</b>: da desinência do plural neutro latino",
+            ],
+            [],
+        ),
         ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
         (
             "alguém",
@@ -33,7 +44,7 @@ from wikidict.utils import process_templates
             [
                 "do Estado da Bahia, Brasil",
                 "natural ou habitante do Estado da Bahia, Brasil",
-                "<i>(São Paulo, Brasil, popular, pejorativo e insulto étnico)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",  # noqa
+                "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",
             ],
         ),
         (
@@ -43,7 +54,7 @@ from wikidict.utils import process_templates
             ["Do latim <i>caprunu</i> “cabra”."],
             [
                 "<i>(Pecuária)</i> de cabras:",
-                "<i>(Regionalismo, Brasil)</i> marido de mulher adúltera",
+                "<i>(Brasil)</i> marido de mulher adúltera",
                 "indica estrondo",
             ],
         ),
@@ -63,10 +74,10 @@ from wikidict.utils import process_templates
             [],
             ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
             [
+                "vide dezessete",
                 "o número dezassete (17, XVII)",
                 "nota correspondente a dezassete valores",
                 "pessoa ou coisa que apresenta o número dezassete numa ordenação",
-                "vide dezessete",
             ],
         ),
         (
@@ -75,7 +86,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
-                'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',  # noqa
+                'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',
             ],
         ),
         (
@@ -83,7 +94,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
-                "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."  # noqa
+                "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."
             ],
             [
                 "que segue um princípio",
@@ -99,7 +110,7 @@ from wikidict.utils import process_templates
             ["Do grego antigo <i>νέος</i>."],
             [
                 "exprime a ideia de <i>novo</i>",
-                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",  # noqa
+                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",
             ],
         ),
         (
@@ -148,10 +159,10 @@ from wikidict.utils import process_templates
 )
 def test_parse_word(
     word: str,
-    pronunciations: List[str],
-    genders: List[str],
-    etymology: List[Definitions],
-    definitions: List[Definitions],
+    pronunciations: list[str],
+    genders: list[str],
+    etymology: list[Definitions],
+    definitions: list[Definitions],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""

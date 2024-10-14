@@ -2,7 +2,7 @@
 
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-: {{refnec|lang=fr|{{siècle|XII}} {{déverbal|de=accueillir|lang=fr|m=1}}.}}
+: {{siècle|XII}} {{déverbal|de=accueillir|lang=fr|m=1}}.
 
 === {{S|nom|fr}} ===
 {{fr-rég|a.kœj}}
@@ -24,10 +24,12 @@
 {{(}}
 * [[accueil de loisirs]]
 * [[agent d’accueil]]
+* [[comité d’accueil]]
 * [[émission d’accueil]]
 * [[faire bon accueil]]
 * [[faire mauvais accueil]]
 * [[famille d’accueil]]
+* [[multi-accueils]]
 * [[page d’accueil]]
 * [[plage d’accueil]]
 * [[station d’accueil]]
@@ -35,23 +37,29 @@
 
 ==== {{S|apparentés}} ====
 * [[accueillir]]
+* [[accueillage]]
 * [[accueillant]]
 
 ==== {{S|synonymes}} ====
-* [[home]] ''(site web)'' ''{{angl|nocat=1}}
-* [[main page]] ''(site web)'' {{angl|nocat=1}}
+* [[home]] ''(site web)'' {{anglicisme|nocat=1}}
+* [[main page]] ''(site web)'' {{anglicisme|nocat=1}}
 * [[page d’accueil]] ''(site web)''
 
 ==== {{S|traductions}} ====
 {{trad-début|Cérémonie|1}}
 * {{T|de}} : {{trad+|de|Aufnahme|f}}, {{trad+|de|Empfang|m}}
 * {{T|en}} : {{trad+|en|welcome}} {{vieilli|nocat=1}}, {{trad+|en|reception}}, {{trad+|en|acceptance}}
+* {{T|ar}} : {{trad-|ar|إِسْتِقْبَال|tr=istiqbèl}}
 * {{T|ary}} : {{trad|ary|إستقبال}}
+* {{T|ca}} : {{trad+|ca|tractament}}
 * {{T|hr}} : {{trad-|hr|prijam}}, {{trad-|hr|prijem}}, {{trad-|hr|doček}}
 * {{T|it}} : {{trad+|it|accoglienza|f}}
 * {{T|avk}} : {{trad|avk|emudera}}
 * {{T|mg}} : {{trad+|mg|fandraisana}}
+* {{T|cmn}} : {{trad+|zh|迎接|tr=yíngjiē|tradi=迎接}}, {{trad+|zh|接待|tr=jiēdài}}
 * {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|ontvangst|f}}
+* {{T|oc}} : {{trad+|oc|acuèlh}}, {{trad+|oc|tractament}}
+* {{T|pcd}} : {{trad|pcd|acoil}}
 * {{T|pt}} : {{trad+|pt|recepção|f}}, {{trad+|pt|acolhida|f}}
 * {{T|ro}} : {{trad+|ro|primire|f}}, {{trad-|ro|întampinare}}
 * {{T|ru}} : {{trad+|ru|приветствие|tr=privetstviye}}
@@ -68,6 +76,7 @@
 * {{T|da}} : {{trad+|da|reception|c}}
 * {{T|es}} : {{trad+|es|recepción}}
 * {{T|avk}} : {{trad|avk|emudexo}}
+* {{T|cmn}} : {{trad-|zh|接待处|tr=jiēdàichù|tradi=接待處}}, {{trad+|zh|柜台|tr=guìtái|tradi=櫃檯}}, {{trad+|zh|前台|tr=qiántái|tradi=前臺}}
 * {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|balie|f}}, {{trad+|nl|receptie|f}}
 * {{T|pt}} : {{trad+|pt|recepção}}
 * {{T|ru}} : {{trad+|ru|приём}}
@@ -75,16 +84,23 @@
 {{trad-fin}}
 
 {{trad-début|Fait d’accueillir|3}}
+* {{T|af}} : {{trad-|af|aanvaarding}}
 * {{T|de}} : {{trad+|de|Aufnahme|f}}, {{trad+|de|Unterbringung|f}}, {{trad+|de|Beherbergung|f}}
 * {{T|en}} : {{trad+|en|reception}}
+* {{T|es}} : {{trad+|es|acogida}}, {{trad+|es|recepción}}, {{trad+|es|aceptación}}, {{trad+|es|admisión}}
 * {{T|az}} : {{trad+|az|qəbul}}
-* {{T|eu}} : {{trad+|eu|harrera}}
+* {{T|eu}} : {{trad+|eu|harrera}}, {{trad-|eu|abegi}}
+* {{T|ca}} : {{trad+|ca|acull|m}}, {{trad+|ca|acolliment|m}}, {{trad-|ca|acollença|f}}, {{trad+|ca|recepció|f}}, {{trad+|ca|acceptació|f}}, {{trad+|ca|admissió|f}}
 * {{T|hr}} : {{trad-|hr|prihvat}}
+* {{T|es}} : {{trad+|es|recepción|f}}, {{trad+|es|recepción|f}}
 * {{T|it}} : {{trad+|it|accoglienza|f}}
 * {{T|avk}} : {{trad|avk|emudera}}
+* {{T|cmn}} : {{trad+|zh|接待|tr=jiēdài}}
 * {{T|nl}} : {{trad+|nl|onthaal|n}}, {{trad+|nl|ontvangst|m}}
 * {{T|pln}} : {{trad|pln|atendimiento}}
-* {{T|pt}} : {{trad+|pt|recepção}}
+* {{T|pt}} : {{trad+|pt|acolhida}}, {{trad+|pt|acolhimento}}, {{trad+|pt|recepção}}, {{trad+|pt|admissão}}, {{trad+|pt|aceitação}}
+* {{T|oc|}} : {{trad+|oc|acuèlh}}
+* {{T|pcd|}} : {{trad|pcd|aceùy}}
 * {{T|ro}} : {{trad-|ro|a întampina}}, {{trad-|ro|a primi}}
 * {{T|cs}} : {{trad-|cs|hoštění}}, {{trad+|cs|pohoštění}}
 {{cf|lang=fr|accueillir}}
@@ -94,22 +110,16 @@
 {{trad-début}}
 * {{T|af|trier}} : {{trad-|af|ontvangs}}, {{trad-|af|tuis}}
 * {{T|de|trier}} : {{trad+|de|Empfang|m}}, {{trad+|de|Annahme}}, {{trad+|de|Aufnahme}}, {{trad+|de|Zusage}}, {{trad-|de|Entgegennahme}}, {{trad+|de|Akzept}}
-* {{T|ca|trier}} : {{trad-|ca|acollença}}, {{trad+|ca|acollida}}, {{trad+|ca|acolliment}}, {{trad+|ca|acull}}
 * {{T|ht|trier}} : {{trad|ht|bèlantre}}
-* {{T|es|trier}} : {{trad+|es|acogida}}, {{trad+|es|aceptación}}, {{trad+|es|admisión}}
 * {{T|eo|trier}} : {{trad-|eo|bonvenon}}, {{trad-|eo|akcepto}}
 * {{T|fi|trier}} : {{trad+|fi|hyväksyminen}}
 * {{T|fy|trier}} : {{trad-|fy|oanfurdigjen}}
 * {{T|hu|trier}} : {{trad+|hu|elfogadás}}
 * {{T|id|trier}} : {{trad+|id|sambutan}}, {{trad+|id|rumah}}
-* {{T|it|trier}} : {{trad+|it|accoglienza}}, {{trad+|it|accoglimento}}
 * {{T|la|trier}} : {{trad-|la|acceptatio}}
 * {{T|ms|trier}} : {{trad-|ms|penerimaan}}
 * {{T|mg}} : {{trad+|mg|fandraisana}}
 * {{T|nl|trier}} : {{trad+|nl|ontvangst}}, {{trad+|nl|acceptatie}}, {{trad+|nl|aanneming}}, {{trad+|nl|aanvaarding}}
-* {{T|oc|trier}} : {{trad+|oc|acuèlh}}
-* {{T|pcd|trier}} : {{trad|pcd|aceùy}}
-* {{T|pt|trier}} : {{trad+|pt|bem-vindo}}, {{trad+|pt|aceitação}}, {{trad+|pt|acolhida}}, {{trad+|pt|acolhimento}}, {{trad+|pt|admissão}}
 * {{T|scn}} : {{trad-|scn|accogghimentu|m}}, {{trad-|scn|accoglimentu|m}}, {{trad-|scn|accugghimentu|m}}
 {{trad-fin}}
 
@@ -118,6 +128,7 @@
 * {{pron|a.kœj|fr}}
 ** {{écouter|lang=fr|France (Paris)|titre=un accueil|ɛ̃.n‿a.kœj|audio=Fr-accueil.ogg}}
 ** {{écouter|lang=fr|France (Vosges)|a.kœj|audio=LL-Q150 (fra)-LoquaxFR-accueil.wav}}
+* {{écouter|Saint-Laurent-de-Cerdans (France)||lang=fr|audio=LL-Q150 (fra)-Helenou66-accueil.wav}}
 
 === {{S|anagrammes}} ===
 {{voir anagrammes|fr}}
@@ -127,5 +138,5 @@
 
 === {{S|références}} ===
 * {{R:TLFi}}
-* {{Import:DAF8}}
+* {{R:DAF8}}
 * Petit Robert 1, dictionnaire de la langue française,1990.

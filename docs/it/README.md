@@ -12,17 +12,7 @@
 
 ## Download
 
-### Versione Completa
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dicthtml-it-it.zip) (dicthtml-it-it.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it.zip) (dict-it-it.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it.df.bz2) (dict-it-it.df.bz2)
-
-### Versione senza Etimologia
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dicthtml-it-it-noetym.zip) (dicthtml-it-it-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it-noetym.zip) (dict-it-it-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/it/dict-it-it-noetym.df.bz2) (dict-it-it-noetym.df.bz2)
+https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it
 
 ## Installazione
 

@@ -18,8 +18,8 @@ def fetch_and_store_if_updated(file: Path, url: str) -> None:
 def main() -> int:
     url_fmt = "https://{}.wiktionary.org/w/index.php?title={}&action=raw"
     folder = Path(__file__).parent / "data"
-    for locale in folder.iterdir():
-        for file in locale.glob("*.wiki"):
+    for locale in sorted(folder.iterdir()):
+        for file in sorted(locale.glob("*.wiki")):
             url = url_fmt.format(locale.name, file.stem)
             fetch_and_store_if_updated(file, url)
 

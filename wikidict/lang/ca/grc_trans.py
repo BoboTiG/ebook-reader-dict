@@ -1,6 +1,8 @@
+import logging
 import re
 import unicodedata
-from typing import Dict, List, Union
+
+log = logging.getLogger(__name__)
 
 data = {}
 
@@ -39,12 +41,12 @@ info = {}
 vowel_t = {"vowel": True}
 iota_t = {"vowel": True, "offglide": True}
 upsilon_t = {"vowel": True, "offglide": True}
-rho_t: Dict[str, bool] = {}
+rho_t: dict[str, bool] = {}
 diacritic_t = {"diacritic": True}
 breathing_t = {"diacritic": True}
 
 
-def add_info(characters: Union[str, List[str]], t: Dict[str, bool]) -> None:
+def add_info(characters: str | list[str], t: dict[str, bool]) -> None:
     if isinstance(characters, str):
         for character in characters:  # TODO filter utf-8 chars ?
             info[character] = t
@@ -65,7 +67,7 @@ def decompose(text: str) -> str:
     return unicodedata.normalize("NFD", text)
 
 
-def set_list(li: List[str], i: int, v: str) -> None:
+def set_list(li: list[str], i: int, v: str) -> None:
     try:
         li[i] = v
     except IndexError:
@@ -74,16 +76,13 @@ def set_list(li: List[str], i: int, v: str) -> None:
         li[i] = v
 
 
-def make_tokens(text: str) -> List[str]:
-    tokens: List[str] = []
-    prev_info: Dict[str, bool] = {}
+def make_tokens(text: str) -> list[str]:
+    tokens: list[str] = []
+    prev_info: dict[str, bool] = {}
     token_i, vowel_count = 0, 0
     prev = None
     for character in decompose(text):  # TODO filter non UTF8 ?
         curr_info = info.get(character, {})
-        # print(character)
-        # print(curr_info)
-        # print(prev_info)
         if curr_info.get("vowel"):
             vowel_count += 1
             if prev and (
@@ -105,7 +104,6 @@ def make_tokens(text: str) -> List[str]:
                 if character == diaeresis:
                     previous_vowel = ""
                     vowel_with_diaeresis = ""
-                    # print("jere = " + tokens[token_i])
                     if matches := re.match("^(" + basic_Greek + ")(" + basic_Greek + ".+)", tokens[token_i]):
                         previous_vowel, vowel_with_diaeresis = matches.groups()
                     if previous_vowel:
@@ -114,9 +112,9 @@ def make_tokens(text: str) -> List[str]:
                         token_i += 1
             elif prev_info == rho_t:
                 if curr_info != breathing_t:
-                    print(f"The character {prev} in {text} should not have the accent {character} on it.")
+                    log.error("The character %s in %s should not have the accent {character} on it.", prev, text)
             else:
-                print(f"The character {prev} cannot have a diacritic on it.")
+                log.error("The character %s cannot have a diacritic on it.", prev)
         else:
             vowel_count = 0
             if prev:
@@ -124,7 +122,6 @@ def make_tokens(text: str) -> List[str]:
             set_list(tokens, token_i, (tokens[token_i] if token_i < len(tokens) else "") + character)
         prev = character
         prev_info = curr_info
-    # print(tokens)
     return tokens
 
 
@@ -177,7 +174,7 @@ tt = {
 }
 
 
-def gsub(pattern: str, replacements: Dict[str, str], string: str) -> str:
+def gsub(pattern: str, replacements: dict[str, str], string: str) -> str:
     def replace(match: re.Match[str]) -> str:
         return replacements.get(match.group(0), match.group(0))
 
@@ -268,7 +265,6 @@ def transliterate(text: str) -> str:
     output = []
     for i in range(len(tokens)):
         token = tokens[i]
-        # print("token = " + token)
         translit = gsub(UTF8_char, tt, token.lower())
         for char, repl in tt.items():
             translit = translit.replace(char, repl)

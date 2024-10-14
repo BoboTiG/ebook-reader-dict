@@ -23,7 +23,7 @@
 # [[uma]]
 
 =={{etimologia|roa-gpm}}==
-{{llietimo|la|una|roa-gpm}}
+{{etimo2|la|una|roa-gpm}}
 
 [[Categoria:Artigo (Galego-Português Medieval)]]
 

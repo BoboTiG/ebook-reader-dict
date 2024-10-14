@@ -1,6 +1,6 @@
-# English Dictionary For Your eBook Reader
+# Danish Dictionary For Your eBook Reader
 
-**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://en.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
+**eBook Reader Dictionaries** is a collaborative project using the vast [Wiktionary](https://da.wiktionary.org/) database to create a full dictionary, updated on a daily basis.
 
 ## Interesting Features
 
@@ -13,17 +13,7 @@
 
 ## Downloads
 
-### Full Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-en-da.zip) (dicthtml-da-da.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-da-da.zip) (dict-da-da.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-da-da.df.bz2) (dict-da-da.df.bz2)
-
-### Etymology-Free Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dicthtml-da-da-noetym.zip) (dicthtml-da-da-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-da-da-noetym.zip) (dict-da-da-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/en/dict-da-da-noetym.df.bz2) (dict-da-da-noetym.df.bz2)
+https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
 
 ## Installation
 

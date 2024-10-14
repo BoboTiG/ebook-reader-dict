@@ -1,5 +1,3 @@
-from typing import Dict, List
-
 from scripts_utils import get_content
 
 url = "https://pt.wiktionary.org/w/index.php?title=Predefini%C3%A7%C3%A3o:gram%C3%A1tica/core&action=raw"
@@ -10,8 +8,8 @@ text = text.replace("{{gramática/core/faltagenero|{{{2|}}}}}", "gênero em falt
 text = "".join(line for line in text.splitlines() if line[0] == "|" and line[1] != " ")
 text = text.lstrip("|")
 
-gramaticas: Dict[str, str] = {}
-current_abbr: List[str] = []
+gramaticas: dict[str, str] = {}
+current_abbr: list[str] = []
 
 for p in text.split("|"):
     if "=" in p:

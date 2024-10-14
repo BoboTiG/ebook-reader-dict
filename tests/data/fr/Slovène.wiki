@@ -8,6 +8,13 @@
 {{fr-rég|slɔ.vɛn|mf=oui}}
 '''Slovène''' {{pron|slɔ.vɛn|fr}} {{mf}}
 # {{gentilés|fr|d’Europe}} [[habitant|Habitant]] de la [[Slovénie]].
+#* {{exemple|lang=fr|Les '''Slovènes''' avaient directement basculé – après deux guerres mondiales – des gracieusetés de l’Empire austro-baroque à la bétonification socialiste.|source={{w|Sylvain Tesson}}, ''Blanc'', Gallimard, 2022, page 227-228}}
+#* {{exemple | lang=fr
+ | Il faudra toutefois se mesurer au Marseillais Denis Gargaud-Chanut, champion olympique à Rio en 2016, qui a devancé le '''Slovène''' Benjamin Savsek, champion olympique en titre.
+ | source=journal ''Le Télégramme'', édition Morlaix, 30 juillet 2022, pages sportives, page 6}}
+#* {{exemple | lang=fr
+ | Le '''Slovène''' ne participera ni à Gand-Wevelgem, dimanche, ni à À travers la Flandre, mercredi.
+ | source=journal ''20 minutes'', édition Paris-IDF, 24 mars 2023, page 14}}
 
 ==== {{S|notes}} ====
 : {{note-gentilé|nocat}}
@@ -43,7 +50,7 @@
 * {{T|ru}} : [[словенец]] (slovénec) {{m}}, [[словенка]] (slovénka) {{f}}
 * {{T|sh}} : {{trad-|sh|Словенац}}, {{trad+|sh|Slovenac|m}}, {{trad-|sh|Словенка}}, {{trad-|sh|Slovenka|f}}
 * {{T|sk}} : {{trad-|sk|Slovinec|m}}, {{trad-|sk|Slovinka|f}}
-* {{T|sl}} : {{trad-|sl|slovenec}}, {{trad-|sl|Slovénec|m}}, {{trad-|sl|Slovénka|f}}
+* {{T|sl}} : {{trad|sl|Slovenec|m}}, {{trad-|sl|Slovenka|f}}
 * {{T|sv}} : {{trad+|sv|sloven|m}}, {{trad+|sv|slovenska|f}}
 * {{T|cs}} : {{trad+|cs|Slovinec|m}}, {{trad+|cs|Slovinka|f}}
 * {{T|tr}} : {{trad+|tr|Sloven}}, {{trad+|tr|Slovenyalı}}
@@ -52,3 +59,6 @@
 
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Muntzenheim)|audio=LL-Q150 (fra)-0x010C-Slovène.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}

@@ -4,7 +4,6 @@ Functions that can be used in *templates_multi* of any locale.
 
 import re
 from collections import defaultdict
-from typing import DefaultDict, List
 
 
 def capitalize(text: str) -> str:
@@ -23,7 +22,7 @@ def capitalize(text: str) -> str:
     return f"{text[0].capitalize()}{text[1:]}" if text else ""
 
 
-def century(parts: List[str], century: str) -> str:
+def century(parts: list[str], century: str) -> str:
     """
     Format centuries.
 
@@ -35,7 +34,7 @@ def century(parts: List[str], century: str) -> str:
     return " - ".join(f"{p}{superscript('e')} {century}" for p in parts)
 
 
-def chimy(composition: List[str]) -> str:
+def chimy(composition: list[str]) -> str:
     """
     Format chimy notations.
 
@@ -50,7 +49,7 @@ def chimy(composition: List[str]) -> str:
         >>> chimy(["CH", "2", "&nbsp;=&nbsp;", "CH", "2"])
         'CH<sub>2</sub>CH<sub>2</sub>'
     """
-    data: DefaultDict[str, str] = defaultdict(str)
+    data: defaultdict[str, str] = defaultdict(str)
     i = 1
     for c in composition:
         sArray = c.split("=", 1)
@@ -72,7 +71,7 @@ def chimy(composition: List[str]) -> str:
     return phrase
 
 
-def chinese(parts: List[str], data: DefaultDict[str, str], laquo: str = "“", raquo: str = "”") -> str:
+def chinese(parts: list[str], data: defaultdict[str, str], laquo: str = "“", raquo: str = "”") -> str:
     """
     Format Chinese word or sentence.
 
@@ -90,7 +89,7 @@ def chinese(parts: List[str], data: DefaultDict[str, str], laquo: str = "“", r
         '*班長 (<i>bānzhǎng</i>, “team leader”)'
         >>> chinese(["木蘭"], defaultdict(str, {"tr": "Mùlán", "lit": "magnolia"}))
         '木蘭 (<i>Mùlán</i>, literally “magnolia”)'
-    """  # noqa
+    """
     phrase = parts.pop(0).replace("/", "／")
     tr = data["tr"] or (parts.pop(0) if parts else "")
     gl = data["gloss"] or (parts.pop(0) if parts else "")
@@ -123,10 +122,10 @@ def color(rgb: str) -> str:
 
 
 def concat(
-    parts: List[str],
+    parts: list[str],
     sep: str = "",
     last_sep: str | None = None,
-    indexes: List[int] | None = None,
+    indexes: list[int] | None = None,
     skip: str | None = None,
 ) -> str:
     """
@@ -170,20 +169,33 @@ def concat(
     r = [p for p in result if p]
     if last_sep is None or last_sep == sep or len(r) == 1:
         return sep.join(r)
-    else:
-        return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
+    return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
-def coord(values: List[str], locale: str = "en") -> str:
+def coord(raw_values: list[str], locale: str = "en") -> str:
     """
     Format lon/lat coordinates.
 
-        >>> coord(["04", "39", "N", "74", "03", "O", "type:country"])
+        >>> coord(["19.707", "-101.204"])
+        '19.707, -101.204'
+        >>> coord(["04", "39", "N", "74", "03", "O", "type:country", "display=inline,title"])
         '04°39′N 74°03′O'
+        >>> coord(["04", "39", "15", "N", "74", "03", "17", "W"], locale="es")
+        '04°39′15″N 74°03′17″O'
     """
-    if locale == "es" and values[5] == "W":
-        values[5] = "O"
-    return "{0}°{1}′{2} {3}°{4}′{5}".format(*values)
+    values = [value for value in raw_values if ":" not in value and "=" not in value]
+
+    match len(values):
+        case 2:
+            fmt = "{}, {}"
+        case 6:
+            fmt = "{}°{}′{} {}°{}′{}"
+        case 8:
+            fmt = "{}°{}′{}″{} {}°{}′{}″{}"
+
+    if locale == "es" and values[-1] == "W":
+        values[-1] = "O"
+    return fmt.format(*values)
 
 
 def eval_expr(expr: str) -> str:
@@ -217,7 +229,7 @@ def eval_expr(expr: str) -> str:
     return f"{eval(expr)}"
 
 
-def extract_keywords_from(parts: List[str]) -> DefaultDict[str, str]:
+def extract_keywords_from(parts: list[str]) -> defaultdict[str, str]:
     """
     Given a list of strings, extract strings containing an equal sign ("=").
 
@@ -242,7 +254,7 @@ def extract_keywords_from(parts: List[str]) -> DefaultDict[str, str]:
         defaultdict(<class 'str'>, {})
         >>> extract_keywords_from(["foo", "bar='baz'"])
         defaultdict(<class 'str'>, {'bar': "'baz'"})
-    """  # noqa
+    """
     data = defaultdict(str)
     for part in parts.copy():
         if "=" in part:
@@ -282,16 +294,16 @@ def int_to_roman(number: int) -> str:
     return "".join(result)
 
 
-def flatten(seq: List[str]) -> List[str]:
+def flatten(seq: list[str]) -> list[str]:
     """
     Flatten non-empty items from *seq*.
 
         >>> flatten(["a", ("b", "", "c"), ["d"]])
         ['a', 'b', 'c', 'd']
     """
-    res: List[str] = []
+    res: list[str] = []
     for item in seq:
-        if isinstance(item, (list, tuple)):
+        if isinstance(item, list | tuple):
             res.extend(sitem for sitem in item if sitem)
         elif item:
             res.append(item)
@@ -308,11 +320,11 @@ def italic(text: str) -> str:
     return f"<i>{text}</i>"
 
 
-def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
+def lookup_italic(tpl: str, locale: str, empty_default: bool = False) -> str:
     """
-    Find the *word* from the *templates_italic* table of the given *locale*.
+    Find the *tpl* from the *templates_italic* table of the given *locale*.
 
-    If the *word* is not found, it is returned as-is.
+    If the *tpl* is not found, it is returned as-is.
 
         >>> lookup_italic("", "fr")
         ''
@@ -327,12 +339,12 @@ def lookup_italic(word: str, locale: str, empty_default: bool = False) -> str:
     """
     from .lang import templates_italic
 
-    default = "" if empty_default else word
-    looking_for = word
+    default = "" if empty_default else tpl
+    looking_for = tpl
 
     if locale == "pt":
-        looking_for = capitalize(word)
-        default = word
+        looking_for = capitalize(tpl)
+        default = tpl
 
     return templates_italic[locale].get(looking_for, default)
 
@@ -405,7 +417,7 @@ def parenthesis(text: str) -> str:
     return f"({text})"
 
 
-def person(word: str, parts: List[str]) -> str:
+def person(word: str, parts: list[str]) -> str:
     """
     Format a person name.
 
@@ -438,7 +450,7 @@ def person(word: str, parts: List[str]) -> str:
     return res
 
 
-def sentence(parts: List[str]) -> str:
+def sentence(parts: list[str]) -> str:
     """
     Capitalize the first item in *parts* and concat with the second one.
 
@@ -541,7 +553,7 @@ def term(text: str) -> str:
     """
     if not text:
         return ""
-    elif text.startswith("<i>("):
+    if text.startswith("<i>("):
         return text
     return italic(parenthesis(text))
 
@@ -556,14 +568,14 @@ def underline(text: str) -> str:
     return f"<u>{text}</u>"
 
 
-def uniq(seq: List[str]) -> List[str]:
+def uniq(seq: list[str]) -> list[str]:
     """
     Return *seq* without duplicates.
 
         >>> uniq(["foo", "foo"])
         ['foo']
     """
-    res: List[str] = []
+    res: list[str] = []
     for item in seq:
         if item not in res:
             res.append(item)

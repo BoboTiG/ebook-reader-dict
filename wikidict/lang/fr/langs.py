@@ -478,6 +478,7 @@ langs = {
     "barngala": "barngala",
     "barranbinya": "barranbinya",
     "bas": "bassa (Cameroun)",
+    "bas latin": "bas latin",
     "basco-algonquin": "basco-algonquin",
     "basco-islandais": "basco-islandais",
     "bat": "langues baltes",
@@ -1295,6 +1296,7 @@ langs = {
     "dep": "pidgin du Delaware",
     "der": "deuri",
     "des": "desano",
+    "deu": "allemand",
     "dev": "domung",
     "dez": "bondengese",
     "dga": "dagaare du Sud",
@@ -1507,6 +1509,7 @@ langs = {
     "ele": "elepi",
     "eli": "nding",
     "elk": "elkei",
+    "ell": "grec",
     "elm": "eleme",
     "elo": "elmolo",
     "elu": "elu",
@@ -1578,6 +1581,7 @@ langs = {
     "eudeve": "eudeve",
     "euq": "langues basques",
     "eur": "europanto",
+    "eus": "basque",
     "eve": "évène",
     "evn": "evenki",
     "ewo": "éwondo",
@@ -1689,6 +1693,7 @@ langs = {
     "gallo": "gallo",
     "gallo-italique de Basilicate": "gallo-italique de Basilicate",
     "gallo-italique de Sicile": "gallo-italique de Sicile",
+    "gallo-roman": "gallo-roman",
     "gan": "gan",
     "gao": "gants",
     "gao de Dongkou": "gao de Dongkou",
@@ -1787,6 +1792,7 @@ langs = {
     "gia": "kija",
     "gid": "gidar",
     "gie": "gabogbo",
+    "gih": "githabul",
     "gil": "gilbertin",
     "gim": "gimi",
     "gin": "hinukh",
@@ -1827,6 +1833,7 @@ langs = {
     "gmu": "gumalu",
     "gmv": "gamo",
     "gmw": "langues germaniques occidentales",
+    "gmw-pro": "proto-germanique occidental",
     "gmx": "magoma",
     "gmy": "mycénien",
     "gn": "guarani",
@@ -1842,7 +1849,7 @@ langs = {
     "gno": "gondî du Nord",
     "gnq": "gana",
     "gnu": "gnau",
-    "gnw": "guaraní de Bolivie occidental",
+    "gnw": "guaraní de Bolivie occidentale",
     "goa": "gouro",
     "gob": "playero",
     "god": "godié",
@@ -1877,6 +1884,7 @@ langs = {
     "grc": "grec ancien",
     "grd": "guruntum",
     "grec cargésien": "grec cargésien",
+    "grec chypriote": "grec chypriote",
     "grg": "madi",
     "grh": "gbiri-niragu",
     "gri": "ghari",
@@ -2183,6 +2191,7 @@ langs = {
     "imy": "milyen",
     "inb": "inga",
     "inc": "langues indo-aryennes",
+    "ind": "indonésien",
     "indanga": "indanga",
     "indo-européen commun": "indo-européen commun",
     "ine": "langues indo-européennes",
@@ -2229,6 +2238,7 @@ langs = {
     "isr": "langue des signes israélienne",
     "ist": "istriote",
     "isu": "isu (Menchum)",
+    "isv": "interslave",
     "it": "italien",
     "itb": "itneg de Binongan",
     "itc": "langues italiques",
@@ -2830,6 +2840,18 @@ langs = {
     "laq": "qabiao",
     "lar": "larteh",
     "las": "lama (Togo)",
+    "lat pop": "latin populaire",
+    "latin archaïque": "latin archaïque",
+    "latin classique": "latin classique",
+    "latin contemporain": "latin contemporain",
+    "latin ecclésiastique": "latin ecclésiastique",
+    "latin humaniste": "latin humaniste",
+    "latin impérial": "latin impérial",
+    "latin médiéval": "latin médiéval",
+    "latin néolatin": "latin néolatin",
+    "latin populaire": "latin populaire",
+    "latin tardif": "latin tardif",
+    "latin vulgaire": "latin vulgaire",
     "lau": "laba",
     "lauhut": "lauhut",
     "law": "lauje",
@@ -3114,6 +3136,7 @@ langs = {
     "mbk": "malol",
     "mbl": "maxakalí",
     "mbn": "macaguán",
+    "mbo": "mbo (Cameroun)",
     "mbp": "damana",
     "mbq": "maisin",
     "mbr": "nukak",
@@ -4831,7 +4854,7 @@ langs = {
     "ses": "songhaï koyraboro senni",
     "set": "sentani",
     "seu": "serui-laut",
-    "sev": "sénoufo de Nyarafolo",
+    "sev": "sénoufo nyarafolo",
     "sew": "sewa bay",
     "sey": "secoya",
     "sez": "senthang chin",
@@ -4969,6 +4992,7 @@ langs = {
     "sms": "same skolt",
     "smt": "simte",
     "smu": "somray",
+    "smw": "sumbawa",
     "smy": "semnani",
     "sn": "shona",
     "snc": "sinaugoro",
@@ -6295,6 +6319,7 @@ langs = {
     "ywr": "yawuru",
     "ywt": "lalo central",
     "yww": "yawarawarga",
+    "yxg": "yagara",
     "yxl": "yardliyawarra",
     "yxu": "yuyu",
     "yyu": "yau (province de Sandaun)",
@@ -6443,26 +6468,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,438
+}  # 6,463
 # END
-
-# Missing ones (to be removed when available on the Wiktionary languages pages)
-# For the latin ones see https://fr.wiktionary.org/wiki/Module:%C3%A9tymologie#L-120
-langs["bas latin"] = "bas latin"  # 2020-07-19
-langs["deu"] = "allemand"  # 2020-05-19
-langs["ell"] = "grec"  # 2020-05-19
-langs["eus"] = "basque"  # 2020-05-19
-langs["gallo-roman"] = "gallo-roman"  # 2021-01-24
-langs["ind"] = "indonésien"  # 2020-05-19
-langs["latin archaïque"] = "latin archaïque"  # 2021-01-24
-langs["latin classique"] = "latin classique"  # 2020-07-19
-langs["latin contemporain"] = "latin contemporain"  # 2021-01-24
-langs["latin ecclésiastique"] = "latin ecclésiastique"  # 2020-07-20
-langs["latin humaniste"] = "latin humaniste"  # 2021-01-24
-langs["latin impérial"] = "latin impérial"  # 2020-07-20
-langs["latin médiéval"] = "latin médiéval"  # 2020-07-20
-langs["latin populaire"] = "latin populaire"  # 2020-07-20
-langs["lat pop"] = "latin populaire"  # 2020-11-03
-langs["latin tardif"] = "latin tardif"  # 2020-07-20
-langs["latin vulgaire"] = "latin vulgaire"  # 2020-07-20
-langs["latin néolatin"] = "latin néolatin"  # 2021-01-24

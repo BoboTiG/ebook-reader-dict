@@ -4,11 +4,19 @@
 
 === {{S|interjection|fr}} ===
 '''sapristi'''
-# Pour [[marquer]] l’[[étonnement]].
-#* '''''Sapristi''' ! nous nous abrutissons à la fin ! {{source|{{w|Victor Hugo}}, ''{{w|Quatrevingt-treize}}'', 1874, {{w|Michel Lévy frères}}, tome 3, page 266}}
-#* ''Mais '''sapristi''' vous ne vous doutez donc pas du nombre de crimes qui vous sont reprochés ?'' {{source|{{w|Pierre Souvestre}} et {{w|Marcel Allain}}, ''{{w|Fantômas|Fantômas, La Guêpe rouge}}'', 1912, {{w|Éditions Robert Laffont}}, Bouquins, tome 5, page 642}}
-#* '''''Sapristi''' ! … '''Sapristi''' ! … gémissait le pauvre homme qui ne cessait de chasser, avec sa main, quelque chose d’invisible et qui bourdonnait autour de lui, comme une mouche. '''Sapristi''' ! On ne dit pas ces choses-là à d’honnêtes gens !'' {{source|Chantal Meyer-Plantureux, ''Un siècle de critique dramatique : de Francisque Sarcey à Bertrand Poirot-Delpech'', Éditions Complexe, 2003, page 44}}
-#* '''''Sapristi''' ! s’exclama Stiple comme mentionné au début de ce récit, au comble de son délire, à la fois fascinée et mortifiée par toute la décadence mentale qui était là à l’œuvre.'' {{source|Francis Thievicz, ''Suicide Club et autres curiosités'',  heresie.com, 2013, page 52}}
+# Pour [[marquer]] l’[[étonnement]] ou l'[[énervement]].
+#* {{exemple | lang=fr
+ | '''Sapristi''' ! nous nous abrutissons à la fin !
+ | source={{w|Victor Hugo}}, ''{{w|Quatrevingt-treize}}'', 1874, {{w|Michel Lévy frères}}, tome 3, page 266}}
+#* {{exemple | lang=fr
+ | Mais '''sapristi''' vous ne vous doutez donc pas du nombre de crimes qui vous sont reprochés ?
+ | source={{w|Pierre Souvestre}} et {{w|Marcel Allain}}, ''{{w|Fantômas|Fantômas, La Guêpe rouge}}'', 1912, {{w|Éditions Robert Laffont}}, Bouquins, tome 5, page 642}}
+#* {{exemple | lang=fr
+ | '''Sapristi''' ! … '''Sapristi''' ! … gémissait le pauvre homme qui ne cessait de chasser, avec sa main, quelque chose d’invisible et qui bourdonnait autour de lui, comme une mouche. '''Sapristi''' ! On ne dit pas ces choses-là à d’honnêtes gens !
+ | source=Chantal Meyer-Plantureux, ''Un siècle de critique dramatique : de Francisque Sarcey à Bertrand Poirot-Delpech'', Éditions Complexe, 2003, page 44}}
+#* {{exemple | lang=fr
+ | '''Sapristi''' ! s’exclama Stiple comme mentionné au début de ce récit, au comble de son délire, à la fois fascinée et mortifiée par toute la décadence mentale qui était là à l’œuvre.
+ | source=Francis Thievicz, ''Suicide Club et autres curiosités'',  heresie.com, 2013, page 52}}
 
 ==== {{S|variantes}} ====
 * [[pristi]]
@@ -23,6 +31,7 @@
 === {{S|prononciation}} ===
 * {{pron|sa.pʁis.ti|fr}}
 * {{écouter|lang=fr|France (Orléans)|audio=Prononciation_sapristi.ogg}}
+* {{écouter|Lyon (France)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-sapristi.wav}}
 
 
 [[Catégorie:Interjections en français basées sur la religion catholique]]

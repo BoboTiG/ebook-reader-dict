@@ -1,7 +1,7 @@
 import bz2
 import os
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable
 from unittest.mock import patch
 
 from wikidict import parse

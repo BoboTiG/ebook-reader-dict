@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from typing import Type
 from unittest.mock import patch
 from zipfile import ZipFile
 
@@ -13,11 +12,17 @@ from wikidict.stubs import Word
 EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
-Fichiers disponibles :
-
+Version complète :
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
+
+Version sans étymologies :
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
 
 Mis à jour le"""
 
@@ -83,6 +88,12 @@ def test_simple() -> None:
     assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
+    # DICT.org
+    assert (output_dir / "dictorg-fr-fr.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dictorg-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dictorg-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
     # Kobo
     assert (output_dir / "dicthtml-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dicthtml-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
@@ -98,6 +109,7 @@ def test_simple() -> None:
             "aa.html",
             "ac.html",
             "ba.html",
+            "bo.html",
             "ch.html",
             "co.html",
             "de.html",
@@ -137,6 +149,7 @@ def test_simple() -> None:
 
         # Check content of INSTALL.txt
         install_txt = fh.read("INSTALL.txt").decode()
+        print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
 
@@ -155,7 +168,7 @@ def test_no_json_file() -> None:
         (convert.KoboFormat, "dicthtml-fr-fr-noetym.zip", False),
     ],
 )
-def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
@@ -178,6 +191,8 @@ def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: st
         (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2", True),
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
+        (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
+        (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
     ],
 )
 @pytest.mark.dependency(
@@ -186,7 +201,7 @@ def test_generate_primary_dict(formatter: Type[convert.BaseFormat], filename: st
         "test_generate_primary_dict[DictFileFormat-dict-fr-fr-noetym.df]",
     ]
 )
-def test_generate_secondary_dict(formatter: Type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
     convert.run_formatter(
         formatter,
@@ -202,10 +217,10 @@ def test_generate_secondary_dict(formatter: Type[convert.BaseFormat], filename: 
 
 FORMATTED_WORD_KOBO = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><br/><p>etyl 1</p><ol><li>setyl 1</li></ol></p><var><variant name="multiple etymology"/></var></w>
-"""  # noqa
+"""
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 <w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
-"""  # noqa
+"""
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
@@ -213,7 +228,7 @@ FORMATTED_WORD_DICTFILE = """\
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><br/><p>etyl 1</p><ol><li>setyl 1</li></ol></html>\
 
 
-"""  # noqa
+"""
 FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 :  pron  <i>gender</i>.
@@ -221,7 +236,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
-"""  # noqa
+"""
 
 
 @pytest.mark.parametrize(
@@ -234,7 +249,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
     ],
 )
 def test_word_rendering(
-    formatter: Type[convert.BaseFormat],
+    formatter: type[convert.BaseFormat],
     include_etymology: bool,
     expected: str,
 ) -> None:

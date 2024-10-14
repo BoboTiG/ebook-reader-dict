@@ -1,22 +1,25 @@
 """Convert rendered data to working dictionaries."""
 
 import bz2
+import gc
 import gzip
 import hashlib
 import json
+import logging
 import os
+import shutil
 from collections import defaultdict
-from contextlib import suppress
+from collections.abc import Generator
 from datetime import date
 from functools import partial
 from multiprocessing import Pool
 from pathlib import Path
-from shutil import rmtree
-from typing import Any, Generator, List, Type
+from typing import Any
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from jinja2 import Template
 from marisa_trie import Trie
+from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
 from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS
 from .lang import wiktionary
@@ -131,6 +134,8 @@ WORD_TPL_DICTFILE = Template(
 # Dictionnary file suffix for etymology-free files
 NO_ETYMOLOGY_SUFFIX = "-noetym"
 
+log = logging.getLogger(__name__)
+
 
 class BaseFormat:
     """Base class for all dictionaries."""
@@ -181,10 +186,10 @@ class BaseFormat:
         checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
         checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        print(f">>> Crafted {checksum_file.name} ({checksum})", flush=True)
+        log.info("Crafted %s (%s)", checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        print(f">>> Generated {file.name} ({file.stat().st_size:,} bytes)", flush=True)
+        log.info("Generated %s (%d bytes)", file.name, file.stat().st_size)
         self.compute_checksum(file)
 
 
@@ -207,6 +212,11 @@ class KoboFormat(BaseFormat):
         release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
+        release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
+        release = release.replace(f" (dicthtml-{locale}-{locale}-noetym.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}-noetym.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}-noetym.df.bz2)", "")
+        release = release.replace(f" (dictorg-{locale}-{locale}-noetym.zip)", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
         release = release.replace("</sub>", "")
@@ -216,7 +226,7 @@ class KoboFormat(BaseFormat):
         return file
 
     @staticmethod
-    def craft_index(wordlist: List[str], output_dir: Path) -> Path:
+    def craft_index(wordlist: list[str], output_dir: Path) -> Path:
         """Generate the special file "words" that is an index of all words."""
         output = output_dir / "words"
         trie = Trie(wordlist)
@@ -315,15 +325,14 @@ class KoboFormat(BaseFormat):
 
         # Clean-up before we start
         tmp_dir = self.output_dir / "tmp"
-        with suppress(FileNotFoundError):
-            rmtree(tmp_dir)
+        shutil.rmtree(tmp_dir, ignore_errors=True)
         tmp_dir.mkdir()
 
         # Files to add to the final archive
         to_compress = []
 
         # First, create individual HTML files
-        wordlist: List[str] = []
+        wordlist: list[str] = []
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, tmp_dir))
             wordlist.extend(words.keys())
@@ -421,58 +430,58 @@ class DictFileFormat(BaseFormat):
         return template.render(**kwargs) + "\n\n"
 
 
-class StarDictFormat(DictFileFormat):
-    """Save the data into a StarDict file."""
+class ConverterFromDictFile(DictFileFormat):
+    target_format = ""
+    target_suffix = ""
+    final_file = ""
+    glossary_options: dict[str, str | bool] = {}
 
     def _patch_gc(self) -> None:
         """Bypass performances issues when calling PyGlossary from Python."""
-        import gc
 
         def noop_gc_collect() -> None:  # pragma: nocover
             pass
 
-        gc.collect = noop_gc_collect  # type: ignore
+        gc.collect = noop_gc_collect  # type: ignore[assignment]
+
+    def _cleanup(self) -> None:
+        shutil.rmtree(self.output_dir_tmp, ignore_errors=True)
+
+    @property
+    def output_dir_tmp(self) -> Path:
+        return self.output_dir / self.target_format
 
     def _convert(self) -> None:
-        """Convert the DictFile to StarDict."""
-        from pyglossary.glossary_v2 import ConvertArgs, Glossary
-
+        """Convert the DictFile to the target format."""
         Glossary.init()
         glos = Glossary()
+        glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
-        # Pretty print the source
-        source = wiktionary[self.locale].format(year=date.today().year)
-        glos.setInfo("description", source)
+        glos.setInfo("description", wiktionary[self.locale].format(year=date.today().year))
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
         glos.setInfo("website", GH_REPOS)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
-        res = glos.convert(
+
+        self.output_dir_tmp.mkdir()
+        assert glos.convert(
             ConvertArgs(
-                inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
-                outputFilename=str(self.output_dir / "dict-data.ifo"),
-                writeOptions={"dictzip": True},
+                str(self.dictionnary_file(DictFileFormat.output_file)),
+                outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
+                writeOptions=self.glossary_options,
                 sqlite=True,
             )
-        )
-        assert res, "Conversion failed!"
-
-    def _cleanup(self) -> None:
-        import shutil
-
-        for file in self.output_dir.glob("dict-data.*"):
-            file.unlink()
-        with suppress(FileNotFoundError):
-            shutil.rmtree(self.output_dir / "res")
+        ), "Conversion failed!"
 
     def process(self) -> None:
         self._cleanup()
         self._patch_gc()
         self._convert()
 
-        final_file = self.dictionnary_file(DictFileFormat.output_file).with_suffix(".zip")
+        final_file = self.dictionnary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            for file in self.output_dir.glob("dict-data.*"):
+            for file in self.output_dir_tmp.glob("dict-data.*"):
                 fh.write(file, arcname=file.name)
+
             for entry in self.output_dir.glob("res/*"):
                 fh.write(entry, arcname=f"res/{entry.name}")
 
@@ -483,26 +492,43 @@ class StarDictFormat(DictFileFormat):
         self.summary(final_file)
 
 
+class DictOrgFormat(ConverterFromDictFile):
+    """Save the data into a DICT.org file."""
+
+    target_format = "dict.org"
+    target_suffix = "index"
+    final_file = "dictorg-{locale}-{locale}.zip"
+    glossary_options = {"dictzip": True, "install": False}
+
+
+class StarDictFormat(ConverterFromDictFile):
+    """Save the data into a StarDict file."""
+
+    target_format = "stardict"
+    target_suffix = "ifo"
+    final_file = "dict-{locale}-{locale}.zip"
+    glossary_options = {"dictzip": True}
+
+
 class BZ2DictFileFormat(BaseFormat):
     def process(self) -> None:
         df_file = self.dictionnary_file(DictFileFormat.output_file)
         bz2_file = df_file.with_suffix(".df.bz2")
         bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
-
         return self.summary(bz2_file)
 
 
-def get_primary_formaters() -> List[Type[BaseFormat]]:
+def get_primary_formaters() -> list[type[BaseFormat]]:
     return [KoboFormat, DictFileFormat]
 
 
-def get_secondary_formaters() -> List[Type[BaseFormat]]:
+def get_secondary_formaters() -> list[type[BaseFormat]]:
     """Formaters that require files generated by `get_primary_formaters()`."""
-    return [StarDictFormat, BZ2DictFileFormat]
+    return [StarDictFormat, BZ2DictFileFormat, DictOrgFormat]
 
 
 def run_formatter(
-    cls: Type[BaseFormat],
+    cls: type[BaseFormat],
     locale: str,
     output_dir: Path,
     words: Words,
@@ -523,10 +549,10 @@ def run_formatter(
 
 def load(file: Path) -> Words:
     """Load the big JSON file containing all words and their details."""
-    print(f">>> Loading {file} ...", flush=True)
+    log.info("Loading %s ...", file)
     with file.open(encoding="utf-8") as fh:
         words: Words = {key: Word(*values) for key, values in json.load(fh).items()}
-    print(f">>> Loaded {len(words):,} words from {file}", flush=True)
+    log.info("Loaded %s words from %s", f"{len(words):,}", file)
     return words
 
 
@@ -548,7 +574,7 @@ def get_latest_json_file(output_dir: Path) -> Path | None:
 
 
 def distribute_workload(
-    formaters: List[Type[BaseFormat]],
+    formaters: list[type[BaseFormat]],
     output_dir: Path,
     file: Path,
     locale: str,
@@ -574,11 +600,10 @@ def distribute_workload(
 
 def main(locale: str) -> int:
     """Entry point."""
-
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     file = get_latest_json_file(output_dir)
     if not file:
-        print(">>> No dump found. Run with --render first ... ", flush=True)
+        log.error("No dump found. Run with --render first ... ")
         return 1
 
     # Get all words from the database

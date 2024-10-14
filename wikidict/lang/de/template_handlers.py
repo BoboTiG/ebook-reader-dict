@@ -1,5 +1,4 @@
-from collections import defaultdict  # noqa
-from typing import DefaultDict, List, Tuple
+from collections import defaultdict
 
 from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
@@ -87,7 +86,7 @@ bibel_names = {
 }
 
 
-def render_bibel(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
     'Matthäus 1,1'
@@ -105,7 +104,7 @@ def render_bibel(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str
     return phrase
 
 
-def render_foreign_lang(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
     'בַּיִת כְּנֶסֶת'
@@ -125,7 +124,7 @@ def render_foreign_lang(tpl: str, parts: List[str], data: DefaultDict[str, str])
 
     >>> render_foreign_lang("Urdu", ["فن"], defaultdict(str, {"b": "Kunst", "d": "fann", "v": "فَنّ"}))
     'فَنّ, DMG: fann, „Kunst“'
-    """  # noqa
+    """
     phrase = data["v"] or parts.pop(0)
 
     as_ü_template = "Ü" in parts
@@ -151,7 +150,7 @@ def render_foreign_lang(tpl: str, parts: List[str], data: DefaultDict[str, str])
     return phrase
 
 
-def render_foreign_lang_simple(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
     'أَحْمَدُ بْنُ حَنْبَلٍ'
@@ -162,7 +161,7 @@ def render_foreign_lang_simple(tpl: str, parts: List[str], data: DefaultDict[str
 
     >>> render_foreign_lang_simple("Farsi", ["آیتالله"], defaultdict(str, {"b": "Geschöpf", "d" :"ǧānvar", "v": "جَانْوَر"}))
     'جَانْوَر (DMG: ǧānvar) ‚Geschöpf‘'
-    """  # noqa
+    """
     phrase = data["v"] or parts.pop(0)
     if data["d"]:
         phrase += f" (DMG: {data['d']})"
@@ -228,7 +227,7 @@ no_commas = (
 )
 
 
-def render_K(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_K("K", ["Sport"], defaultdict(str))
     '<i>Sport:</i>'
@@ -252,7 +251,7 @@ def render_K(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     '<i>landschaftlich:</i>'
     >>> render_K("K", ["Süddeutschland", "und", "Österreich", "sonst", "veraltete Schreibweise"], defaultdict(str))
     '<i>Süddeutschland und Österreich, sonst veraltete Schreibweise:</i>'
-    """  # noqa
+    """
     conjonctions = ("oder", "respektive", "sowie", "und")
     conjonctions_start = (*conjonctions, *no_commas)
     phrase = ""
@@ -281,7 +280,7 @@ def render_K(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return italic(f"{phrase}{ft}:")
 
 
-def render_ref_dejure(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
     '54 InsO'
@@ -337,7 +336,114 @@ def render_ref_dejure(tpl: str, parts: List[str], data: DefaultDict[str, str]) -
             assert 0, parts
 
 
-def render_Ut(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Gondrom"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Gondrom Verlag, Bindlach 1991, 1993, 2004, ISBN 3-8112-0294-4'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Keyser"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Keysersche Verlagsbuchhandlung, München 1967'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Suhrkamp", "A": "1"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Suhrkamp, Frankfurt 1., 1972, ISBN 3-518-36565-7'
+    >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Suhrkamp", "A": "6"}))
+    'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Suhrkamp, Frankfurt 2.-6., 1976-1981, ISBN 3-518-36565-7'
+    """
+    kwargs = {
+        "Autor": "Hans Bahlow",
+        "Titel": "Deutsches Namenlexikon",
+        "TitelErg": "Familien- und Vornamen nach Ursprung und Sinn erklärt",
+    }
+    match data["V"]:
+        case "Gondrom":
+            kwargs |= {
+                "Verlag": "Gondrom Verlag",
+                "Ort": "Bindlach",
+                "Jahr": "1991, 1993, 2004",
+                "ISBN": "3-8112-0294-4",
+            }
+        case "Keyser":
+            kwargs |= {"Verlag": "Keysersche Verlagsbuchhandlung", "Ort": "München", "Jahr": "1967"}
+        case "Suhrkamp":
+            # Note: We cannot add the "ISBN" key here, even if it's the same for both A=1 and A=6, because the order of items in the dict matters.
+            kwargs |= {"Verlag": "Suhrkamp", "Ort": "Frankfurt"}
+            match data["A"]:
+                case "1":
+                    kwargs |= {"Auflage": "1.", "Jahr": "1972", "ISBN": "3-518-36565-7"}
+                case "6":
+                    kwargs |= {"Auflage": "2.-6.", "Jahr": "1976-1981", "ISBN": "3-518-36565-7"}
+
+    return render_literatur("Literatur", [], defaultdict(str, kwargs))
+
+
+def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Aspekte modernen Wikipädisierens", "Herausgeber": "Bernd Beispiel", "Sammelwerk": "Soziologie der Wikipädianer", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5", "Seiten": "213–278"}))
+    'Max Mustermann: <i>Aspekte modernen Wikipädisierens</i>. In: Bernd Beispiel (Herausgeber): <i>Soziologie der Wikipädianer</i>. Wikipedia-Press, Musterstadt 2003, ISBN 978-3-9801412-1-5, Seite 213–278'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Semantischer Kollaps bei Löschdiskussionen", "Sammelwerk": "Journal of Wikipedianism", "Band": "Bd. 2", "Nummer": "3", "Jahr": "2006", "Seiten": "17-67"}))
+    'Max Mustermann: <i>Semantischer Kollaps bei Löschdiskussionen</i>. In: <i>Journal of Wikipedianism</i>. Bd. 2, Nummer 3, 2006, Seite 17-67'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Wikipedia wohin?", "Sammelwerk": "FAZ", "Tag": "1", "Monat": "Februar", "Jahr": "2003", "ISSN": "0174-4909", "Seiten": "3"}))
+    'Max Mustermann: <i>Wikipedia wohin?</i>. In: <i>FAZ</i>. 1. Februar 2003, ISSN 0174-4909, Seite 3'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Wikipedia wohin?", "Sammelwerk": "FAZ", "Tag": "1", "Monat": "02", "Jahr": "2003", "ISSN": "0174-4909", "Seiten": "3"}))
+    'Max Mustermann: <i>Wikipedia wohin?</i>. In: <i>FAZ</i>. 1. Februar 2003, ISSN 0174-4909, Seite 3'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Herausgeber": "The Oriental Institute, Chicago", "Titel": "The Assyrian Dictionary of the Oriental Institute of the University of Chicago", "Verlag": "J. J. Augustin, Glückstadt", "Ort": "Chicago, Illinois", "Originalsprache": "en-US"}))
+    'The Oriental Institute, Chicago (Herausgeber): <i>The Assyrian Dictionary of the Oriental Institute of the University of Chicago</i>. J. J. Augustin, Glückstadt, Chicago, Illinois'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "John Doe", "Titel": "Einführung in die Trollerei", "Originaltitel": "Introduction to Trolling", "Originalsprache": "en-US", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5"}))
+    'John Doe: <i>Einführung in die Trollerei</i>. Wikipedia-Press, Musterstadt 2003 (Originaltitel: <i>Introduction to Trolling</i>), ISBN 978-3-9801412-1-5'
+    >>> render_literatur("Literatur", [], defaultdict(str, {"Titel": "Augsburg", "Sammelwerk": "Die Chroniken der deutschen Städte vom vierzehnten bis in's sechzehnte Jahrhundert", "WerkErg": "Auf Veranlassung und mit Unterstützung Seiner Majestaet des Königs von Bayern, Maximilian II. hrsg. durch die Historische Commission bei der Königl. Academie der Wissenschaften", "Band": "LII", "Verlag": "Hirzel", "Ort": "Leipzig", "Jahr": "1866"}))
+    "<i>Augsburg</i>. In: <i>Die Chroniken der deutschen Städte vom vierzehnten bis in's sechzehnte Jahrhundert</i>. Auf Veranlassung und mit Unterstützung Seiner Majestaet des Königs von Bayern, Maximilian II. hrsg. durch die Historische Commission bei der Königl. Academie der Wissenschaften. LII, Hirzel, Leipzig 1866"
+    """
+    phrase = ""
+
+    keys_italic = {"Sammelwerk", "Titel"}
+    keys_prefix = {"Herausgeber": "In:", "Nummer": "Nummer", "ISBN": "ISBN", "ISSN": "ISSN", "Seiten": "Seite"}
+    keys_suffix = {"Herausgeber": "(Herausgeber)"}
+    keys_eol = {
+        "Autor": ":",
+        "Herausgeber": ":",
+        "Sammelwerk": ".",
+        "Tag": ".",
+        "Titel": ".",
+        "TitelErg": ".",
+        "WerkErg": ".",
+    }
+    keys_ignored = {"Online", "Originalsprache", "Originaltitel"}
+    months = [
+        "Januar",
+        "Februar",
+        "März",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "Dezember",
+    ]
+
+    for key, value in data.items():
+        if key in keys_ignored:
+            continue
+        if key == "Sammelwerk" and "Herausgeber" not in data:
+            phrase += " In:"
+        if prefix := keys_prefix.get(key):
+            phrase += f" {prefix} {value}"
+        elif key == "Monat" and data["Monat"].isdigit():
+            phrase += f" {months[int(data['Monat']) - 1]}"
+        else:
+            phrase += f" {italic(value) if key in keys_italic else value}"
+        if key == "Jahr" and "Originaltitel" in data:
+            phrase += f" (Originaltitel: {italic(data['Originaltitel'])})"
+
+        if suffix := keys_suffix.get(key):
+            phrase += f" {suffix}"
+
+        phrase += keys_eol.get(key, "" if key in {"Monat", "Ort"} and "Jahr" in data else ",")
+
+    return phrase.strip(" ,").removeprefix("In: ")
+
+
+def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
     '<i>διάλογος (diálogos)</i>'
@@ -351,7 +457,7 @@ def render_Ut(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return italic(phrase)
 
 
-def render_Uxx4(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Uxx4("Üxx4", ["ar", "مسجد"], defaultdict(str, {"v":"مَسْجِد", "d":"masğid", "b":"Moschee"}))
     'مَسْجِد (DMG: masğid) ‚Moschee‘'
@@ -390,7 +496,7 @@ def render_Uxx4(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
     return phrase
 
 
-def render_Uxx5(tpl: str, parts: List[str], data: DefaultDict[str, str]) -> str:
+def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
     'ἀνήρ, ἀνδρός (anḗr, andrós)'
@@ -404,10 +510,13 @@ template_mapping = {
     "Farsi": render_foreign_lang_simple,
     "Hebr": render_foreign_lang,
     "K": render_K,
+    "Lit-Bahlow": render_lit_bahlow,
+    "Literatur": render_literatur,
     "Paschto": render_foreign_lang,
     "Ref-dejure": render_ref_dejure,
     "Urdu": render_foreign_lang,
     "Üt": render_Ut,
+    "Ü?": render_Ut,
     "Üt?": render_Ut,
     "Üxx4": render_Uxx4,
     "Üxx4?": render_Uxx4,
@@ -419,7 +528,7 @@ def lookup_template(tpl: str) -> bool:
     return tpl in template_mapping
 
 
-def render_template(template: Tuple[str, ...]) -> str:
+def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data)
+    return template_mapping[tpl](tpl, parts, data, word=word)

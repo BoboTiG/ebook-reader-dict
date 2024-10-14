@@ -11,7 +11,7 @@
 ===Räkneord===
 {{räkn|sv}}
 '''en'''
-*{{uttal|sv|ipa=eːn/, /ɛn/, /en}} (vissa dialekter)
+*{{uttal|sv|ipa=eːn}}, {{uttal|sv|ipa=ɛn|uttalslänk=-}}, {{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}
 #talet [[1]], bland annat vid räkning
 #:'''''En''', två, tre...''
 #:''Jag har gjort fyra uppgifter, så nu återstår bara '''en'''.''
@@ -71,7 +71,7 @@
 #:''Det man inte vet skadar '''en''' inte.''
 #{{tagg|vardagligt|dialektalt}} [[man#Svenska|man]]
 #:''Vad kan '''en''' göra åt det?''
-#:{{citat|år=1896|titel=[http://runeberg.org/stanflik/05.html "Fredlös", ur "Stänk och flikar"]|förf=[[w:Gustaf Fröding|Gustaf Fröding]]|[...] det kan '''en''' väl önska, men djävlar anamma, <br/>det gör väl detsamma, <br/>'''en''' föds och föröds, tills '''en''' dör.}}
+#:{{citat|år=1896|titel=[https://runeberg.org/stanflik/05.html "Fredlös", ur "Stänk och flikar"]|förf=[[w:Gustaf Fröding|Gustaf Fröding]]|[...] det kan '''en''' väl önska, men djävlar anamma, <br/>det gör väl detsamma, <br/>'''en''' föds och föröds, tills '''en''' dör.}}
 #:{{citat|år=1963|förf=[[w:Astrid Lindgren|Astrid Lindgren]]|titel=[[w:Emil i Lönneberga|Emil i Lönneberga]]|publ=[[w:Rabén & Sjögren|Rabén & Sjögren]]|”Annars vet man inte att det är soppa”, sa Emil, det vill säga egentligen sa han så här: ”Anners vet '''en''' inte att dä ä söppe.”}}
 #{{tagg|dialektalt|kat=småländska|kat2=västgötska|kat3=östgötska}} [[honom]], 'an
 #:''Har'u sett''''en''' idag?''
@@ -101,16 +101,16 @@
 *bokmål: {{ö|no|einer|m}}
 *bulgariska: {{ö+|bg|хвойна|f|tr=hvójna}}
 *danska: {{ö+|da|ene|u}}, {{ö|da|almindelig ene|u}}
-*engelska: {{ö|en|common juniper}}, {{ö+|en|juniper}}
+*engelska: {{ö+|en|common juniper}}, {{ö+|en|juniper}}
 *finska: {{ö+|fi|kataja}}
 *franska: {{ö+|fr|genévrier commun|m}}, {{ö+|fr|genévrier|m}}, {{ö+|fr|genièvre}}
-*frisiska: {{ö+|fy|jeneverstrúk}}, {{ö+|fy|jeneverbeam}}
+*frisiska: {{ö|fy|jeneverstrúk}}, {{ö|fy|jeneverbeam}}
 *isländska: {{ö|is|einer|m}}, {{ö+|is|einir|m}}
 *italienska: {{ö+|it|ginepro|m}}
 *kymriska: {{ö|cy|merywen}}
 *latin: {{ö|la|juniperus|f}}, {{ö|la|juniperus communis|f}}
-*litauiska: {{ö|lt|kadagys|m}}
-*nederländska: {{ö|nl|jeneverbes}}
+*litauiska: {{ö+|lt|kadagys|m}}
+*nederländska: {{ö+|nl|jeneverbes}}
 *nordsamiska: {{ö|se|reatká}}, {{ö|se|gaskas}}
 *nynorska: {{ö|nn|einer|m}}
 *polska: {{ö+|pl|jałowiec|m}}
@@ -119,7 +119,7 @@
 *spanska: {{ö+|es|enebro|m}}, {{ö|es|enebro común|m}}, {{ö|es|esqueno}}, {{ö|es|sabino}}, {{ö+|es|sabina|f}}
 *tjeckiska: {{ö+|cs|jalovec|m}}
 *turkiska: {{ö+|tr|ardıç}}
-*tyska: {{ö+|de|Heide-Wacholder|m}}
+*tyska: {{ö|de|Heide-Wacholder|m}}
 *ukrainska: {{ö+|uk|яловець|m|tr=jalovéc}}, {{ö+|uk|ялівець|m|tr=jalivécʹ}}
 *ungerska: {{ö+|hu|boróka}}
 *vepsiska: {{ö|vep|kadag}}

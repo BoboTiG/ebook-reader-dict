@@ -7,10 +7,16 @@
 {{fr-rég|ɡʁɛ.fje|pron2=ɡʁe.fje}}
 '''greffier''' {{pron|ɡʁɛ.fje|fr}} <small>ou</small> {{pron|ɡʁe.fje|fr}} {{m}} {{équiv-pour|une femme|greffière|lang=fr}}
 # {{lexique|droit|fr}} [[officier|Officier]] [[public]] [[préposer|préposé]] au [[greffe]].
-#* ''Le '''greffier''' d’une juridiction qui rend une décision impliquant l’obligation pour une personne de s’immatriculer doit notifier cette décision au '''greffier''' du tribunal de commerce dans le ressort duquel l’intéressé a son siège ou son établissement principal.'' {{source|Article L123-3, Code de commerce français}}
-#* ''Le '''greffier''' est la personne responsable des services administratifs d'un tribunal. À ce titre, il remplit principalement des fonctions administratives qui vont de la préparation des audiences à la planification des agendas de la cour, la transcription des témoignages et la formation des jurés.'' {{source|André Émond et Lucie Lauzière, ''Introduction à l'étude du droit'', éditions Wilson & Lafleur, Montréal, 2005, page 198}}
+#* {{exemple | lang=fr
+ | Le '''greffier''' d’une juridiction qui rend une décision impliquant l’obligation pour une personne de s’immatriculer doit notifier cette décision au '''greffier''' du tribunal de commerce dans le ressort duquel l’intéressé a son siège ou son établissement principal.
+ | source=Article L123-3, Code de commerce français}}
+#* {{exemple | lang=fr
+ | Le '''greffier''' est la personne responsable des services administratifs d'un tribunal. À ce titre, il remplit principalement des fonctions administratives qui vont de la préparation des audiences à la planification des agendas de la cour, la transcription des témoignages et la formation des jurés.
+ | source=André Émond et Lucie Lauzière, ''Introduction à l'étude du droit'', éditions Wilson & Lafleur, Montréal, 2005, page 198}}
 # {{figuré|fr}} Celui qui [[prendre note|prend note]] et tient le [[registre]] de ses notes.
-#* ''L’Académie […] était partagée intellectuellement, comme elle l’a toujours été, entre la pensée de n’être que le '''greffier''' de l’usage, qui est sa pensée maîtresse, et un certain désir sourd d’en être un peu le guide, ce qui est, à mon avis, parfaitement légitime.'' {{source|{{w|Émile Faguet}}, ''[[s:Simplification simple de l’orthographe|Simplification simple de l’orthographe]], 1905}}
+#* {{exemple | lang=fr
+ | L’Académie […] était partagée intellectuellement, comme elle l’a toujours été, entre la pensée de n’être que le '''greffier''' de l’usage, qui est sa pensée maîtresse, et un certain désir sourd d’en être un peu le guide, ce qui est, à mon avis, parfaitement légitime.
+ | source={{w|Émile Faguet}}, ''[[s:Simplification simple de l’orthographe|Simplification simple de l’orthographe]], 1905}}
 
 ==== {{S|traductions}} ====
 {{trad-début|Officier public|1}}
@@ -26,6 +32,7 @@
 * {{T|la}} : {{trad-|la|exceptor}}, {{trad-|la|commentariensis}}
 * {{T|nl}} : {{trad+|nl|griffier|m}}
 * {{T|oc}} : {{trad+|oc|grafièr|m}}
+* {{T|pl}} : {{trad+|pl|kancelista}}
 * {{T|pt}} : {{trad-|pt|escriturário judicial|m}}, {{trad-|pt|técnico de justiça|m}}
 * {{T|ro}} : {{trad+|ro|grefier|m}}
 * {{T|ru}} : {{trad+|ru|клерк}}
@@ -35,6 +42,7 @@
 {{fr-rég|ɡʁɛ.fje|pron2=ɡʁe.fje}}
 '''greffier''' {{pron|ɡʁɛ.fje|fr}} <small>ou</small> {{pron|ɡʁe.fje|fr}}
 # {{populaire|fr}} [[chat|Chat]].
+#* {{exemple|Dans le quartier même le mois le plus doux<br>Tu ne risques pas d’entendre miaou<br>Des '''greffiers''' mignons y en a plus bezef<br>Ils sont tous devenus terrine du chef. |source={{w|Pierre Perret}}, ''Le Tord-Boyaux'', 1963 |lang=fr}}
 #* ''Et là, c’est juste la grimace<br
 />D’un matou sénile et pelé<br
 />Mais ses yeux sont tellement zarbis<br
@@ -49,12 +57,17 @@
 === {{S|prononciation}} ===
 * {{écouter|lang=fr|France (Vosges)|ɡʁɛ.fje|audio=LL-Q150 (fra)-Poslovitch-greffier.wav}}
 * {{écouter|lang=fr|France (Vosges)||audio=LL-Q150 (fra)-LoquaxFR-greffier.wav}}
+* {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-greffier.wav}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}
 
 === {{S|voir aussi}} ===
 * {{Wikipédia}}
 
 === {{S|références}} ===
 * {{Import:DAF8}}
+* {{R:Huguet16e|article=greffier|pages=368, tome IV|lien=https://fr.wikisource.org/wiki/Dictionnaire_de_la_langue_fran%C3%A7aise_du_seizi%C3%A8me_si%C3%A8cle/Greffier}}
 * {{R:Littré}}
 * {{R:TLFi}}
 

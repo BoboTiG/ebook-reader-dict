@@ -216,6 +216,7 @@ regions = {
     "Fontainebleau": "Fontainebleau",
     "Forêt d'Othe": "Forêt d'Othe",
     "Fougères": "Fougères",
+    "Fouta-Toro": "Fouta-Toro",
     "Francavilla": "Francavilla Fontana",
     "France": "France",
     "Franche-Comté": "Franche-Comté",
@@ -275,6 +276,8 @@ regions = {
     "Irlande": "Irlande",
     "Islande": "Islande",
     "Israël": "Israël",
+    "Italie centrale": "Italie centrale",
+    "Italie centro-méridionale": "Italie centro-méridionale",
     "Jamaïque": "Jamaïque",
     "Japon": "Japon",
     "Jersey": "Jersey",
@@ -338,6 +341,7 @@ regions = {
     "MU": "Île Maurice",
     "MX": "Mexique",
     "Macey (Aube)": "Macey (Aube",
+    "Macina": "Macina",
     "Macédoine": "Macédoine",
     "Madagascar": "Madagascar",
     "Magavaira": "Magavaira",
@@ -653,6 +657,7 @@ regions = {
     "jersiais": "Jersiais",
     "lyonnais": "Lyonnais",
     "léonard": "Léonard",
+    "mantois": "Mantois",
     "nord de l’Angleterre": "Nord de l’Angleterre",
     "normand insulaire": "Normand insulaire",
     "parler gaga": "Parler gaga",
@@ -674,7 +679,7 @@ regions = {
     "Île-de-France": "Île-de-France",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 669
+}  # 674
 # END
 
 # handled differently

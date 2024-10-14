@@ -19,17 +19,7 @@
 
 ## Downloads
 
-### Full Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dicthtml-no-no.zip) (dicthtml-no-no.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dict-no-no.zip) (dict-no-no.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dict-no-no.df.bz2) (dict-no-no.df.bz2)
-
-### Etymology-Free Version
-
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dicthtml-no-no-noetym.zip) (dicthtml-no-no-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dict-no-no-noetym.zip) (dict-no-no-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/no/dict-no-no-noetym.df.bz2) (dict-no-no-noetym.df.bz2)
+https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
 
 ## Installation
 

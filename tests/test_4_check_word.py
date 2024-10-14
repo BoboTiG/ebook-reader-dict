@@ -1,5 +1,5 @@
-from threading import Lock
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 from unittest.mock import patch
 
 import pytest
@@ -64,6 +64,7 @@ def test_simple(craft_urls: Callable[[str, str], str]) -> None:
     assert check_word.main("fr", "42") == 0
 
 
+@pytest.mark.webtest
 def test_get_random_word() -> None:
     assert check_word.main("fr", "") == 0
 
@@ -87,12 +88,11 @@ def test_subsublist(craft_urls: Callable[[str, str], str]) -> None:
 
 
 @responses.activate
-def test_error_and_lock(craft_urls: Callable[[str, str], str]) -> None:
+def test_error(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
-        lock = Lock()
-        assert check_word.check_word("42", "fr", lock=lock) > 0
+        assert check_word.check_word("42", "fr") > 0
 
 
 @responses.activate
@@ -107,43 +107,49 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         # CA - {{sense accepcions}}
         [
             "ca",
-            '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',  # noqa
+            '<i>a aquesta paraula li falten les accepcions o significats. Podeu <span class="plainlinks"><a class="external text" href="https://ca.wiktionary.org/w/index.php?title=pelegr%C3%AD&amp;action=edit">ajudar</a></span> el Viccionari incorporant-los</i>.',
             "",
+        ],
+        # CA - anchors
+        [
+            "ca",
+            '<li>Una persona <a href="#Adjectiu">milionària</a>.</li>',
+            "Unapersonamilionària.",
         ],
         # DE - star
         [
             "de",
-            "<sup>☆</sup>",  # noqa
+            "<sup>☆</sup>",
             "",
         ],
         # DE - Internet Archive
         [
             "de",
-            '<a rel="nofollow" class="external text" href="http://www.archive.org/stream/dasbuchhenochhrs00flemuoft/page/59/mode/1up">Internet&nbsp;Archive</a>',  # noqa
+            '<a rel="nofollow" class="external text" href="http://www.archive.org/stream/dasbuchhenochhrs00flemuoft/page/59/mode/1up">Internet&nbsp;Archive</a>',
             "",
         ],
         # DE - external links
         [
             "de",
-            '<small class="noprint" title="Luther 2017 bei www.bibleserver.com"></small>',  # noqa
+            '<small class="noprint" title="Luther 2017 bei www.bibleserver.com"></small>',
             "",
         ],
         # DE - lang link in {{Üxx5}}
         [
             "de",
-            '<a href="/w/index.php?title=grc:%E1%BC%80%CE%BD%CE%AE%CF%81&amp;action=edit&amp;redlink=1" class="new" title="grc:ἀνήρ (Seite nicht vorhanden)"><sup>→&nbsp;grc</sup>',  # noqa
+            '<a href="/w/index.php?title=grc:%E1%BC%80%CE%BD%CE%AE%CF%81&amp;action=edit&amp;redlink=1" class="new" title="grc:ἀνήρ (Seite nicht vorhanden)"><sup>→&nbsp;grc</sup>',
             "",
         ],
         # DE - other Wikis
         [
             "de",
-            '<a href="https://en.wiktionary.org/wiki/Special:Search/volley" class="extiw" title="en:Special:Search/volley"><sup class="dewikttm">→&nbsp;en</sup></a>',  # noqa
+            '<a href="https://en.wiktionary.org/wiki/Special:Search/volley" class="extiw" title="en:Special:Search/volley"><sup class="dewikttm">→&nbsp;en</sup></a>',
             "",
         ],
         # DE - Wikipedia: WP template
         [
             "de",
-            '<a href="https://de.wikipedia.org/wiki/Datenkompression" class="extiw" title="w:Datenkompression"><sup>→&nbsp;WP</sup></a>',  # noqa
+            '<a href="https://de.wikipedia.org/wiki/Datenkompression" class="extiw" title="w:Datenkompression"><sup>→&nbsp;WP</sup></a>',
             "",
         ],
         # DE - grey sup link
@@ -335,61 +341,61 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         # IT - numbered external links
         [
             "it",
-            '<a class="external autonumber" href="https://it.wikipedia.org/wiki/Scomber_scombrus">[1]</a>',  # noqa
+            '<a class="external autonumber" href="https://it.wikipedia.org/wiki/Scomber_scombrus">[1]</a>',
             "",
         ],
         # IT - missing definition
         [
             "it",
-            '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',  # noqa
+            '<i>definizione mancante; se vuoi, <span class="plainlinks"><a class="external text" href="https://it.wiktionary.org/w/index.php?title=Upupidi&amp;action=edit">aggiungila</a></span> tu</i>',
             "",
         ],
         # IT - Wikiquote
         [
             "it",
-            '<small>&nbsp;(<a href="/wiki/File:Wikiquote-logo.svg" class="image" title="Wikiquote"><img alt="Wikiquote" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/20px-Wikiquote-logo.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/30px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/40px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" width="20" height="24"></a> <b><a href="https://it.wikiquote.org/wiki/manuale" class="extiw" title="q:manuale">citazioni</a></b>)</small>',  # noqa
+            '<small>&nbsp;(<a href="/wiki/File:Wikiquote-logo.svg" class="image" title="Wikiquote"><img alt="Wikiquote" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/20px-Wikiquote-logo.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/30px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/40px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" width="20" height="24"></a> <b><a href="https://it.wikiquote.org/wiki/manuale" class="extiw" title="q:manuale">citazioni</a></b>)</small>',
             "",
         ],
         # IT - <ref>
         [
             "it",
-            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a>',  # noqa
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a>',
             "",
         ],
         # IT - Wikipedia
         [
             "it",
-            '<small>&nbsp;(<a href="/wiki/File:Wikipedia-logo-v2.svg" class="image" title="Wikipedia"><img alt="Wikipedia" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/20px-Wikipedia-logo-v2.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/30px-Wikipedia-logo-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 2x" data-file-width="103" data-file-height="94" width="20" height="18"></a> <b><a href="https://it.wikipedia.org/wiki/Banda_(araldica)" class="extiw" title="w:Banda (araldica)">approfondimento</a></b>)</small>',  # noqa
+            '<small>&nbsp;(<a href="/wiki/File:Wikipedia-logo-v2.svg" class="image" title="Wikipedia"><img alt="Wikipedia" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/20px-Wikipedia-logo-v2.svg.png" decoding="async" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/30px-Wikipedia-logo-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 2x" data-file-width="103" data-file-height="94" width="20" height="18"></a> <b><a href="https://it.wikipedia.org/wiki/Banda_(araldica)" class="extiw" title="w:Banda (araldica)">approfondimento</a></b>)</small>',
             "",
         ],
         # IT - Wikispecies
         [
             "it",
-            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>)',  # noqa
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>)',
             "",
         ],
         # IT - Wikispecies (ensure next siblings are kept)
         [
             "it",
-            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>);',  # noqa
+            '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>);',
             ";",
         ],
         # PT - superscript locales
         [
             "pt",
-            '<sup>(<a class="extiw" href="https://la.wiktionary.org/wiki/izare" title="la:izare"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
+            '<sup>(<a class="extiw" href="https://la.wiktionary.org/wiki/izare" title="la:izare"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',
             "",
         ],
         # PT - superscript locales (inexistent)
         [
             "pt",
-            '<sup>(<a class="new" href="https://la.wiktionary.org/wiki/izare" title="la:izare (página não existe)"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',  # noqa
+            '<sup>(<a class="new" href="https://la.wiktionary.org/wiki/izare" title="la:izare (página não existe)"><span style="letter-spacing:1px" title="ver no Wikcionário em latim">la</span></a>)</sup>',
             "",
         ],
         # PT - no print
         [
             "pt",
-            '<span class="noprint"><a class="extiw" href="https://sr.wiktionary.org/wiki/%D0%88%D1%83%D0%B3%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%98%D0%B0" title="sr:Југославија"><sup><span style="letter-spacing:1px" title="Clique aqui para ver “Југославија” no Wikcionário em sérvio">(sr)</span></sup></a></span>',  # noqa
+            '<span class="noprint"><a class="extiw" href="https://sr.wiktionary.org/wiki/%D0%88%D1%83%D0%B3%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%98%D0%B0" title="sr:Југославија"><sup><span style="letter-spacing:1px" title="Clique aqui para ver “Југославија” no Wikcionário em sérvio">(sr)</span></sup></a></span>',
             "",
         ],
         # PT - keep anchors
@@ -397,13 +403,13 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         # PT - external links
         [
             "pt",
-            '<small>(<a href="https://la.wiktionary.org/wiki/aer" class="extiw" title="la:aer">ver no Wikcionário em Latim</a>)</small>',  # noqa
+            '<small>(<a href="https://la.wiktionary.org/wiki/aer" class="extiw" title="la:aer">ver no Wikcionário em Latim</a>)</small>',
             "",
         ],
         # SV - <ref>
         [
             "sv",
-            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>',  # noqa
+            '<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>',
             "",
         ],
     ],
@@ -435,13 +441,13 @@ def test_check_highlighting(
     parsed_html: str,
     ret_code: int,
     is_highlighted: bool,
-    capsys: pytest.CaptureFixture[Any],
+    caplog: pytest.LogCaptureFixture,
 ) -> None:
     error = check_word.check(wiktionary_text, parsed_html, "Test")
     assert error == ret_code
     if is_highlighted:
-        stdout = capsys.readouterr()[0]
-        assert "\033[31m" in stdout
+        errors = "\n".join(m.getMessage() for m in caplog.records)
+        assert "\033[31m" in errors
 
 
 def test_get_url_content_timeout_error(monkeypatch: pytest.MonkeyPatch) -> None:
