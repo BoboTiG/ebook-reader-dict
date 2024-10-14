@@ -37,6 +37,8 @@ FILES = {
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
+    "ru-langs.py": "wikidict/lang/ru/langs.py",
+    "ru-langs-short.py": "wikidict/lang/ru/langs_short.py",
 }
 
 # En error will be raised when the percentage of deletions from the new content

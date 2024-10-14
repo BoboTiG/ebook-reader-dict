@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 from ...user_functions import extract_keywords_from
 from .. import defaults
+from .langs_short import langs_short
 
 
 def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
@@ -20,20 +21,37 @@ def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return str(content.getText())
 
 
-def get_example(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
-    # if len(parts) > 0:
-    #     return ". (Пример: " + parts[0] + ")"
-    # elif "текст" in data.keys():
-    #     return ". (Пример: " + data["текст"] + ")"
-    return ""
-
-
 def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     return str(data["определение"] + data["примеры"])
 
 
 def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     return f"({parts[0]})"
+
+
+def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_lang("lang", ["de", "Fahne", "знамя", "знамя2", "знамя3"], defaultdict(str, {"зачин": "зачин", "add": "add,", "add2": "add2", "comment": "comment"}))
+    'зачин нем. Fahne add, add2 «знамя, знамя2, знамя3» (comment)'
+    >>> render_lang("lang", ["de", "Fahne", "знамя"], defaultdict(str, {"скр": "1"}))
+    'Fahne «знамя»'
+    >>> render_lang("lang", ["ru", "зна́мя"], defaultdict(str, {}))
+    'русск. зна́мя'
+    """
+    lang_short = langs_short.get(parts.pop(0), "")
+    text = f"{data['зачин']}"
+    if data["скр"] != "1":
+        text += f" {lang_short}"
+    text += f" {parts.pop(0)}"
+    if add := data["add"]:
+        text += f" {add}"
+    if add := data["add2"]:
+        text += f" {add}"
+    if parts:
+        text += f" «{', '.join(parts)}»"
+    if comment := data["comment"]:
+        text += f" ({comment})"
+    return text.strip()
 
 
 def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
@@ -67,10 +85,10 @@ def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str
 
 
 template_mapping = {
+    "lang": render_lang,
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
     "этимология": get_etymology,
-    "пример": get_example,
     "значение": get_definition,
     "помета": get_note,
     "кавычки": render_кавычки,
