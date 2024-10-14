@@ -92,13 +92,14 @@ templates_multi = {
     # {{doblet|ca|Castellar}}
     "doblet": "italic(parts[-1])",
     # {{e-propi|ca|grèvol}}
-    "e-propi": "strong(parts[-1])",
+    "e-propi": "strong(parts[2])",
     # {{forma-a|ca|Bielorússia}}
-    "forma-a": "parts[-1]",
+    "forma-a": "parts[2]",
     # {{forma-f|ca|halloweenià}}
-    "forma-f": "parts[-1]",
+    "forma-f": "parts[2]",
     # {{forma-p|ca|experta}}
-    "forma-p": "parts[-1]",
+    # {{forma-p|ca|ca|glossa=lletra k}}
+    "forma-p": "parts[2]",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
