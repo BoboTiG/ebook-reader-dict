@@ -39,7 +39,7 @@ definitions_to_ignore = (
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
-templates_ignored = ("семантика", "unfinished")
+templates_ignored = ("unfinished", "семантика", "пример")
 
 # Templates more complex to manage.
 templates_multi = {
@@ -106,7 +106,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["en"], "ru")
-        'Английский '
+        'Английский'
 
         >>> last_template_handler(["выдел", "foo"], "ru")
         'foo'
