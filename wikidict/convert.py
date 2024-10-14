@@ -72,6 +72,7 @@ WORD_TPL_KOBO = Template(
                     </ol>
                 {% endif %}
             {% endfor %}
+            <br/>
         {% endif %}
     </p>
     {% if variants %}
@@ -124,6 +125,7 @@ WORD_TPL_DICTFILE = Template(
             </ol>
         {%- endif -%}
     {%- endfor -%}
+    <br/>
 {%- endif -%}</html>
 """
 )
