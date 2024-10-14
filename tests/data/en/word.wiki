@@ -64,7 +64,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 #* {{quote-book|en|year=c. 1623|year_published=1647|author=John Fletcher; William Rowley|title=w:The Maid in the Mill|edition_plain=published in the first Beaumont and Fletcher folio)|section=scene 3|passage=I have the '''word''' : sentinel, do thou stand; {{...}}}}
 #: {{ux|en|[[mum's the word|mum's the '''word''']]}}
 # {{lb|en|obsolete}} A [[proverb]] or [[motto]].
-#* {{quote-book|en|year=1499|author=w:John Skelton|title=The Bowge of Court|passage=Among all other was wrytten in her trone / In golde letters, this '''worde''', whiche I dyde rede: / ''Garder le fortune que est [[mal|mauelz]] et [[bon|bone]]''.<!--[Prepare for good and ill fortune alike.]-->}}
+#* {{quote-book|en|year=1499|author=w:John Skelton|title=The Bowge of Court|passage=Among all other was wrytten in her trone / In golde letters, this '''worde''', whiche I dyde rede: / ''Garder le fortune que est {{l|fr|mal|mauelz}} et {{l|fr|bon|bone}}''.<!--[Prepare for good and ill fortune alike.]-->}}
 #* {{quote-book|en|year=1599|author=Ben Jonson|title=w:Every Man out of His Humour|passage=Let the '''word''' be 'Not without mustard'. Your crest is very rare, sir.}}
 #* {{quote-book|en|year=1646|author={{w|Joseph Hall (bishop)|Joseph Hall}}|title=The Balm of Gilead|passage=The old '''word''' is, 'What the eye views not, the heart rues not.'}}
 # {{senseid|en|news, tidings}} {{lb|en|uncountable}} [[news|News]]; [[tidings]]. {{defdate|from 10th c.}}
@@ -93,16 +93,14 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 #* {{RQ:Tennyson In Memoriam|XXXVI|56|And so the '''Word''' had breath, and wrought<br>⁠With human hands the creed of creeds<br>⁠In loveliness of perfect deeds,<br>More strong than all poetic thought; {{...}}}}
 
 =====Usage notes=====
-In English and other languages with a tradition of space-delimited writing, it is customary to treat "word" as referring to any sequence of characters delimited by spaces. However, this is not applicable to languages such as [[Chinese]] and [[Japanese]], which are normally written without spaces, or to languages such as [[Vietnamese]], which are written with spaces delimiting [[syllable]]s.
-
-In computing, the size (length) of a word, while being fixed in a particular machine or processor family design, can be different in different designs, for many reasons. See {{w|Word (computer architecture)}} for a full explanation.
+* In English and other languages with a tradition of space-delimited writing, it is customary to treat "word" as referring to any sequence of characters delimited by spaces. However, this is not applicable to languages such as [[Chinese]] and [[Japanese]], which are normally written without spaces, or to languages such as [[Vietnamese]], which are written with spaces delimiting [[syllable]]s. In computing, the size (length) of a word, while being fixed in a particular machine or processor family design, can be different in different designs, for many reasons. See {{w|Word (computer architecture)}} for a full explanation.
 
 =====Synonyms=====
 * [[vocable]]; ''see also'' '''[[Thesaurus:word]]'''
 
 =====Derived terms=====
-{{col4|en|Champernowne word|connecting word|cranberry word|get a word in|in every sense of the word|n-word pass|N-word pass|naughty word|not to put too fine a word on it|pattern word|phantom word|put in a word|re-word|telescope word|thunder word|word balloon|word box|word painter|word vomit|word-mincer|word-picture|word-spelling alphabet| drunk words are sober thoughts|facts speak louder than words|final words|mince one's words|there are no words to describe|words cannot define|words of institution|write as separate words
-|action word|arrowword|backword|fuzzword|ghostword|honeyword|hotword|kiloword|McWord|megaword|midword|overword|patchword|pseudoword|songword|spellword|startword|stopword|syncword|tableword|underword|urword|wanderword|wordaholic|wordcel|wordfact|wordfest|wordfilter|wordfinal|wordinitial|wordlet|wordline|wordmaker|wordmaking|wordmaster|WordNet|wordnik|wordoid|wordology|wordprocess|wordsize|wordster|wordstring
+{{col4|en|Champernowne word|connecting word|cranberry word|get a word in|in every sense of the word|n-word pass|N-word pass|naughty word|not to put too fine a word on it|pattern word|phantom word|put in a word|re-word|telescope word|thunder word|word balloon|word box|word painter|word vomit|word-mincer|word-picture|word-spelling alphabet| drunk words are sober thoughts|facts speak louder than words|final words|mince one's words|write as separate words
+|action word|arrowword|backword|fuzzword|ghostword|honeyword|hotword|kiloword|McWord|megaword|midword|overword|patchword|pseudoword|reduced word|songword|spellword|startword|stopword|syncword|tableword|underword|urword|wanderword|wordaholic|wordcel|wordfact|wordfest|wordfilter|wordfinal|wordinitial|wordlet|wordline|wordmaker|wordmaking|wordmaster|WordNet|wordnik|wordoid|wordology|wordprocess|wordsize|wordster|wordstring
 |afterword
 |a-word
 |babble word
@@ -132,7 +130,6 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |d-word
 |Dyck word
 |empty word
-|famous last words
 |[[fighting word]], [[fighting words]]
 |five-dollar word
 |foreword
@@ -142,6 +139,7 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |from the word go
 |function word
 |f-word
+|full word
 |gainword
 |[[get a word in edgeways]], [[get a word in edgewise]]
 |get the word out
@@ -156,12 +154,10 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |have a word
 |have a word in someone's ear
 |have a word with oneself
-|have words
 |headword
 |household word| bandy words|give the word|two-dollar word|word bubble|word line|word music
 |h-word
 |in a word
-|in so many words
 |interword
 |i-word
 |joey word
@@ -207,7 +203,6 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |protoword
 |purr word
 |put in a good word
-|put words in someone's mouth
 |p-word
 |quadword
 |question word
@@ -225,7 +220,6 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |snarl word
 |spelling word
 |spoken word
-|starword
 |stop word
 |subword
 |swear word
@@ -240,7 +234,6 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |vogue word
 |v-word
 |wake word
-|war of words
 |watchword
 |weasel word
 |wh-word
@@ -308,13 +301,11 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |word salad
 |wordscape
 |word search
-|words fail someone
 |wordshaping
 |wordship
 |wordsmith
 |wordsome
 |words of institution
-|words of one syllable
 |word space
 |word square
 |word-stock
@@ -327,6 +318,7 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 |workword
 |wug word
 |w-word
+|word sound
 |all one word|babble-word|big word|book word|book-word|break one's word|brunch word|buzz word|buzz-word|C-word|choice word|code word|crutch word|D-word|e-word|eye-word|f word|F word|F-word|G-word|gallipot word|gamer word|give one's word|guide word|H-word|hang on every word|how do you pronounce this word|how do you spell this word|Humpty Dumpty word|inkhorn word|j-word|Janus word|keep one's word|key word|key-word|loan word|M-word|mark my word|multi-word expression|N-word|no word of a lie|no word of lie|noise word|not a word of a lie|o-word|one word leads to another|P-word|pass-word|Q-word|q-word|R-word|safe word|SAT word|spread the word|suit the action to the word|T-word|take someone at their word|ten-cent word|true to one's word|u-word|upon my word|V-word|W-word|without a word of a lie|word art|word chain|word family|word gets around|word is|word list|word mark|word name|word nerd|word of honor|word of life|word on the wire|word painting|word play|word sketch|word snake|word to conjure with|word vector|word-blindness|word-bound|word-break|word-deafness|word-for-word|word-formation|word-formational|word-of-mouth|word-salad|word-search|wow word|x-word|you get more with a kind word and a gun than you do with a kind word alone|a picture is worth a thousand words|a picture paints a thousand words|actions speak louder than words|at a loss for words|bag of words|continuous bag of words|eat one's words|empty words|famous last words|fighting words|fine words butter no parsnips|have words|in other words|in so many words|in words of one syllable|last words|lost for words|man of few words|mark my words|mince words|mouth the words|or words to that effect|play on words|play upon words|put into words|put to words|put words in someone's mouth|seven dirty words|small words|swallow one's words|take the words out of someone's mouth|turn of words|twist someone's words|war of words|weigh one's words|woman of few words|words cut deep|words fail someone|words of one syllable}}
 
 =====Descendants=====
@@ -512,6 +504,7 @@ In computing, the size (length) of a word, while being fixed in a particular mac
 * Ossetian: {{tt|os|дзырд}}, {{tt|os|ныхас}}
 * Ottoman Turkish: {{t|ota|لغت|tr=lügat}}
 * Pali: {{t|pi|pada|n}}
+* Pannonian Rusyn: {{t|rsk|слово|n}}
 * Papiamentu: {{tt|pap|palabra|f}}
 * Pashto: {{tt+|ps|لغت|tr=luġat}}, {{tt|ps|کلمه|tr=kalimā}}
 * Persian:
@@ -909,8 +902,8 @@ Variant of {{m|en|worth||to become, turn into, grow, get}}, from {{inh|en|enm|wo
 ===Anagrams===
 * {{anagrams|en|a=dorw|drow}}
 
-[[Category:English autological terms]]
-[[Category:en:Communication]]
+{{cln|en|autological terms}}
+{{C|en|Communication}}
 
 ==Afrikaans==
 
@@ -928,14 +921,13 @@ From {{inh|af|nl|worden}}, from {{inh|af|dum|werden}}, from {{inh|af|odt|werthan
 #: {{ux|af|Ek het ryk '''geword'''.|t=I '''became''' rich.}}
 #: {{ux|af|Ek '''word''' ryk.|t=I '''am becoming''' rich.}}
 #: {{ux|af|Sy '''word''' beter.|t=She '''is getting''' better.}}
-# {{non-gloss definition|Forms the present passive voice when followed by a past participle}}
+# {{non-gloss|Forms the present passive voice when followed by a past participle}}
 #: {{ux|af|Die kat '''word''' gevoer.|t=The cat '''is being''' fed.}}
 
 ====Usage notes====
 * The verb has an archaic preterite '''{{m|af|werd}}''': ''Die kat <u>werd</u> gevoer.'' (“The cat <u>was</u> fed.”) In contemporary Afrikaans the perfect is used instead: ''Die kat <u>is</u> gevoer.''
 
-[[Category:Afrikaans auxiliary verbs]]
-[[Category:Afrikaans irregular verbs]]
+{{cln|af|auxiliary verbs|irregular verbs}}
 
 ==Chinese Pidgin English==
 
@@ -965,7 +957,7 @@ From {{inh|cpi|en|word}}.
 ===Verb===
 {{head|nl|verb form}}
 
-# {{infl of|nl|worden||1|s|pres|ind|;|2-inv|;|imp}}
+# {{infl of|nl|worden||bare-verb}}
 
 ==Middle English==
 
@@ -1016,10 +1008,7 @@ From {{inh|enm|ang|word}}, from {{inh|enm|gmw-pro|*word}}, from {{inh|enm|gem-pr
 
 # {{alt form|enm|werde}}
 
-[[Category:enm:Directives]]
-[[Category:enm:Language]]
-[[Category:enm:Religion]]
-[[Category:enm:Talking]]
+{{C|enm|Directives|Language|Religion|Talking}}
 
 ==Old English==
 

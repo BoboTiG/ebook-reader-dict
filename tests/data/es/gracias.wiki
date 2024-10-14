@@ -7,8 +7,8 @@
 ==== {{interjección|es}} ====
 ;1: {{impropia|Úsase para expresar agradecimiento}}.
 {{relacionado|de nada|muchas gracias|muchísimas gracias}}.
-{{ejemplo|Madre bendita, ¡qué deseo traigo! ''Gracias'' a Dios que te me dejó ver.|c=libro|t=La Celestina|a=Fernando de Rojas|f=1841|p=48}}
-{{ejemplo|—¡Cómo no, pues, Juan de la Verdá! —le dijo el rey—. Cásate con ella y el palacio que le gané a mi vecino te quedarás tú con él.<br/>— Muchas ''gracias'', mi rey.|c=libro|t=Nuevos cuentos folklóricos de Chile de raíces hispánicas|a=Yolando Pino Saavedra|f=1992}}
+{{ejemplo|Madre bendita, ¡qué deseo traigo! ''Gracias'' a Dios que te me dejó ver.|a=Fernando de Rojas|c=libro|f=1841|p=48|t=La Celestina}}
+{{ejemplo|—¡Cómo no, pues, Juan de la Verdá! —le dijo el rey—. Cásate con ella y el palacio que le gané a mi vecino te quedarás tú con él.<br/>— Muchas ''gracias'', mi rey.|a=Yolando Pino Saavedra|c=libro|f=1992|t=Nuevos cuentos folklóricos de Chile de raíces hispánicas}}
 ;2: {{impropia|Irónicamente expresa desagrado, desprecio o enfado}}.
 {{uso|coloquial|irónico}}
 {{ejemplo requerido}}
@@ -18,14 +18,14 @@
 
 ==== Traducciones ====
 {{trad-arriba}}
-{{t|sh|a1=2|t1=hvala|a2=2|t2=хвала|tl2=hvala}}
+{{t|sh|a1=2|a2=2|t1=hvala|t2=хвала|tl2=hvala}}
 {{t|sq|a1=2|t1=faleminderit}}
 {{t|de|a1=2|t1=danke}}
 {{t|ar|a1=2|t1=شكرا|tl1=šukran}}
 {{t|hy|a1=2|t1=շնորհակալ եմ|tl1=šnorhagal em}}
 {{t|ast|a1=1|t1=gracies}}
 {{t|bn|a1=2|t1=ধন্যবাদ|tl1=dhônnôbad}}
-{{t|br|a1=2|t1=trugarekaat|t2=trugarez|g2=f}}
+{{t|br|a1=2|g2=f|t1=trugarekaat|t2=trugarez}}
 {{t|bg|a1=2|t1=благодаря|tl1=blagodarâ}}
 {{t|yue|a1=2|t1=多謝|tl1=dō ze}}
 {{t|ca|a1=2|t1=gràcies}}
@@ -37,7 +37,7 @@
 {{t|sl|a1=2|t1=hvala}}
 {{t|eo|a1=2|t1=dankon}}
 {{t|eu|a1=2|t1=eskerrik asko}}
-{{t|ext|a1=1|t1=agralecíu|g1=m|t2=agraecíu|g2=m|t3=gracias|g3=f|a3=2|t4=gracias|g4=f}}
+{{t|ext|a1=1|a3=2|g1=m|g2=m|g3=f|g4=f|t1=agralecíu|t2=agraecíu|t3=gracias|t4=gracias}}
 {{t|fo|a1=2|t1=takk}}
 {{t|fi|a1=2|t1=kiitos}}
 {{t|fr|a1=2|t1=merci}}
@@ -49,19 +49,19 @@
 {{t|hi|a1=2|t1=धन्यवाद|tl1=dhanyavād}}
 {{t|hu|a1=2|t1=köszönöm}}
 {{t|id|a1=2|t1=terima kasih}}
-{{t|en|a1=2|t1=thanks|t2=thank you|t3=cheers|nota3=informal}}
+{{t|en|a1=2|nota3=informal|t1=thanks|t2=thank you|t3=cheers}}
 {{t|ga|a1=2|t1=go raibh maith agat}}
 {{t|is|a1=2|t1=takk}}
 {{t|it|a1=2|t1=grazie}}
 {{t|ja|a1=2|t1=ありがとう|t2=ありがとうございます|t3=どうも|t4=どうもありがとうございます}}
 {{t|kuz|a1=2|t1=patta}}
 {{t|la|a1=2|t1=gratias ago}}
-{{t|lut|a1=2|t1=hiskʼʷuʔ|a2=2|t2=hišǝbǝʔ}}
+{{t|lut|a1=2|a2=2|t1=hiskʼʷuʔ|t2=hišǝbǝʔ}}
 {{t|mk|a1=2|t1=благодарам|tl1=blagodaram}}
 {{t|ms|a1=2|t1=terima kasih}}
 {{t|mg|a1=2|t1=misaotra}}
 {{t|mt|a1=2|t1=grazzi}}
-{{t|zh|a1=2|t1=謝謝|t2=谢谢|tl2=xièxie|t3=多谢|tl3=duōxiè}}
+{{t|zh|a1=2|t1=謝謝|t2=谢谢|t3=多谢|tl2=xièxie|tl3=duōxiè}}
 {{t|mn|a1=2|t1=баярлалаа|tl1=baârlalā}}
 {{t|nhn|a1=2|t1=tlazohcamati}}
 {{t|nci|a1=2|t1=tlazohcamati}}
@@ -95,8 +95,8 @@
 === Forma flexiva ===
 ==== Forma sustantiva ====
 ;1: {{forma sustantivo plural|gracia}}.
-{{ejemplo|E desta guisa honró el Rey a todos los grandes señores e donzellas sus parientas, de que mucha honra cobró así de gelo tener por gran bondad los de España por fazer tanto bien a su linage, como de la honra que alcançó por todo el mundo, porque tales señores como éstos quisieron tomar de tan buena voluntad sus '''''gracias''''' del Rey, e obligarse de lo servir todos.|c=libro|t=Cronica del rey don Rodrigo|a=Pedro de Corral|f=1587|p=285}}
-{{ejemplo|Él, sus consejeros y los vecinos más caracterizados de la ciudad, se confesaron y comulgaron para ganar aquellas '''''gracias''''' espirituales y tener al cielo propicio en los acuerdos que iban a tomarse.|c=libro|t=Historia general de Chile|a=Diego Barros Arana|f=1999|editorial=Editorial Universitaria|isbn=9789561115590|p=30}}
+{{ejemplo|E desta guisa honró el Rey a todos los grandes señores e donzellas sus parientas, de que mucha honra cobró así de gelo tener por gran bondad los de España por fazer tanto bien a su linage, como de la honra que alcançó por todo el mundo, porque tales señores como éstos quisieron tomar de tan buena voluntad sus '''''gracias''''' del Rey, e obligarse de lo servir todos.|a=Pedro de Corral|c=libro|f=1587|p=285|t=Cronica del rey don Rodrigo}}
+{{ejemplo|Él, sus consejeros y los vecinos más caracterizados de la ciudad, se confesaron y comulgaron para ganar aquellas '''''gracias''''' espirituales y tener al cielo propicio en los acuerdos que iban a tomarse.|a=Diego Barros Arana|c=libro|editorial=Editorial Universitaria|f=1999|isbn=9789561115590|p=30|t=Historia general de Chile}}
 
 == Referencias y notas ==
 <references />

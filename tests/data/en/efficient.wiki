@@ -74,7 +74,7 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 * German: {{t+|de|effizient}}
 * Greek:
 *: Ancient: {{t|grc|δραστικός}}
-* Hebrew: {{t+|he|יעיל|tr=yaeel}}
+* Hebrew: {{t+|he|יָעִיל|tr=ya'íl}}
 * Hungarian: {{t+|hu|gazdaságos}}, {{t+|hu|hatékony}}
 * Icelandic: {{t|is|skilvirkur|m}}, {{t|is|nýtinn|m}}
 * Ido: {{t+|io|efikiva}}
@@ -106,15 +106,19 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 * Italian: {{t+|it|efficiente}}
 * Polish: {{t+|pl|sprawny}}
 * Portuguese: {{t+|pt|eficaz}}
+* Romanian: {{no equivalent translation|ro}} {{t+|ro|randament}}
 * Scottish Gaelic: {{t|gd|èifeachdach}}
 * Tagalog: {{t|tl|episyente}}
 {{trans-bottom}}
 
 {{trans-top|causing effects; producing results}}
+* Aramaic:
+*: Classical Syriac: {{t|syc|ܡܸܫܟ݁ܚܵܢܵܐ|tr=meškəḥānāʾ}}
 * Bulgarian: {{t+|bg|действен}}
 * Finnish: {{t+|fi|tehokas}}
 * Irish: {{t|ga|éifeachtúil}}
 * Portuguese: {{t+|pt|eficaz}}
+* Romanian: {{t+|ro|eficient}}
 * Sanskrit: {{t+|sa|साधन}}
 * Spanish: {{t+|es|eficaz}}
 {{trans-bottom}}

@@ -3,6 +3,7 @@
 
 ===Alternative forms===
 * {{l|en|i's}} {{qualifier|eye dialect}}
+* {{l|en|'t's}} {{qualifier|eye dialect}}
 * {{l|en|it'sa}} {{q|pseudo-Italian}}
 
 ===Pronunciation===
@@ -46,6 +47,7 @@
 * Bengali: {{t|bn|ইহা হয়|sc=Beng}}
 * Catalan: {{t|ca|[[ell]] [[és]]}}
 * Dutch: {{t|nl|[[’t]] [[is]]}}
+* Esperanto: {{t+|eo|estas}}
 * Finnish: {{t|fi|[[se]] [[on]]}}, {{t+|fi|on}}
 * French: {{t+|fr|c'est}}
 * German: {{t|de|[[es]] [[ist]]}}
@@ -104,16 +106,13 @@ From {{compound|en|it|-'s|alt2=-’s|pos2=possessive marker}}.
 
 ==Yola==
 
-===Etymology===
-[[contraction|Contraction]] of {{m|yol|it}} {{m|yol|is}}.
-
 ===Pronunciation===
 * {{IPA|yol|/ɪts/}}
 
 ===Contraction===
 {{head|yol|contraction}}
 
-# [[it]] [[is]]
+# {{contraction of|yol|[[it]] [[is]]}}
 #: {{syn|yol|tis}}
 #* {{quote-book|yol|year=1867|chapter=THE BRIDE'S PORTION|page=102|title=SONGS, ETC. IN THE DIALECT OF FORTH AND BARGY|passage=A portion ich gae her, was ('''it's''' now ich have ee-tolth)|translation=The portion I gave her was ('''it's''' now I have told)}}
 #* {{quote-book|yol|year=1867|chapter=ABOUT AN OLD SOW GOING TO BE KILLED|number=2|page=106|title=SONGS, ETC. IN THE DIALECT OF FORTH AND BARGY|passage=Ich aam a vat hog '''it's''' drue. Aar is ken apan aam.|translation=I am a fat hog, ''''tis''' true. There is ken upon them.}}

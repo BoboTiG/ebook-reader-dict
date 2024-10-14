@@ -24,7 +24,7 @@ Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 ====Interjection====
 {{en-interj}}
 
-# {{non-gloss definition|[[expression|Expression]] of [[hesitation]], [[uncertainty]] or space [[filler]] in [[conversation]]}}.
+# {{non-gloss|[[expression|Expression]] of [[hesitation]], [[uncertainty]] or space [[filler]] in [[conversation]]}}.
 #: {{syn|en|er|hmm|uh}}
 #: {{ux|en|'''Um''', I don’t know.}}
 #: {{ux|en|Let’s see... '''um'''... how about this?}}
@@ -33,7 +33,7 @@ Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 # {{lb|en|chiefly|American}} {{dated spelling of|en|mmm}}
 #* {{quote-book|en|year=1963|author=w:Kurt Vonnegut|title=Cat's Cradle|publisher=Dell Publishing Co., Inc.|page=65
 |passage="About the same, wherever you go," he agreed.<br>"'''Um'''," I said.}}
-# {{lb|en|US}} {{non-gloss definition|An expression to forcefully call attention to something wrong.}}
+# {{lb|en|US}} {{non-gloss|An expression to forcefully call attention to something wrong.}}
 #: {{ux|en|'''Um''', excuse me!}}
 # {{lb|en|UK|childish}} An expression of shocked disapproval used by a child who witnesses forbidden behavior.
 #* {{quote-text|en|year=2011|author=Kimberly Willis Holt|title=Piper Reed, Clubhouse Queen
@@ -73,7 +73,7 @@ From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, f
 ===Anagrams===
 * {{anagrams|en|a=mu|-mu-|MU|Mu|mu}}
 
-[[Category:English two-letter words]]
+{{cln|en|two-letter words}}
 
 ==Czech==
 
@@ -260,7 +260,7 @@ From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 ===Adverb===
 {{head|is|adverb}}
 
-# {{non-gloss definition|used in set phrases}}
+# {{non-gloss|used in set phrases}}
 #: {{ux|is|Það er [[um að gera|'''um''' að gera]] að sofa vel.|The important thing to do is to sleep well.}}
 #: {{ux|is|Hvað er '''um''' að vera?|What's going on?}}
 #: {{ux|is|Eins og '''um''' var talað.|As was agreed.}}
@@ -460,7 +460,7 @@ From {{inh|non|gem-pro|*umbi|t=around, about}}. Cognate with {{cog|ang|ymbe}}, {
 ===Particle===
 {{head|non|particle}}
 
-# {{non-gloss definition|([[w:Poetic Edda]]) indicates that the verbal action is completed, compare English “[[through]]” as in “[[read]] [[through]]”. For semantic development, compare adjectival usage of German [[um#German|um]].}}
+# {{non-gloss|([[w:Poetic Edda]]) indicates that the verbal action is completed, compare English “[[through]]” as in “[[read]] [[through]]”. For semantic development, compare adjectival usage of German [[um#German|um]].}}
 #* ''[[w:Völuspá|Vǫluspá]]'', verse 2, lines 1-2, in '''1860''', T. Möbius, ''Edda Sæmundar hins fróða: mit einem Anhang zum Theil bisher ungedruckter Gedichte''. Leipzig, page [https://archive.org/stream/eddasmundarhins00mbgoog#page/n22 1]:
 #*: {{quote|non|Ek man jǫtna / ár '''um''' borna, {{...}}|I remember giants / born long ago,{{...}}}}
 
@@ -510,7 +510,7 @@ From {{inh|pbv|aav-khs-pro|*ʔum||tree}}. Cognate with {{cog|kha|um}}.
 {{inh+|pl|sla-pro|*ũmъ}}.
 
 ===Pronunciation===
-{{pl-p|hh=-um}}
+{{pl-pr|hh=-um}}
 
 ===Noun===
 {{pl-noun|m-in}}
@@ -623,8 +623,7 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 #: {{syn|rm|cunsort|q1=Sutsilvan}}
 #: {{coordinate terms|rm|dunna}}
 
-[[Category:rm:Family]]
-[[Category:rm:People]]
+{{C|rm|Family|People}}
 
 ==Sawai==
 
@@ -709,4 +708,4 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 ===References===
 * {{R:sk:SDK}}
 
-[[Category:English filled pauses]]
+{{cln|en|filled pauses}}

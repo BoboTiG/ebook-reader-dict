@@ -17,7 +17,7 @@ From {{inh|en|enm|us}}, from {{inh|en|ang|ūs||pos=dative personal pronoun|us}},
 
 # {{lb|en|personal}} [[me|Me]] and at least one other person; the objective case of '''[[we]]'''.
 #* {{RQ:KJV|Luke|1|1|text=Forasmuch as many have taken in hand to set forth in order a declaration of those things which are most surely believed among '''us'''...}}
-#: {{non-gloss definition|Used where "me" would be used instead of "I", e.g. for the pronoun in isolation or as the complement of the copula:}}
+#: {{non-gloss|Used where "me" would be used instead of "I", e.g. for the pronoun in isolation or as the complement of the copula:}}
 #:: {{ux|en|Who's there? &mdash;'''Us'''. (or) &mdash;It's '''us'''.}}
 #:: {{ux|en|Who's going to go? &mdash;'''Us'''. We'll go.}}
 # {{lb|en|Commonwealth|colloquial|chiefly with {{m|en|give}}}} [[me|Me]].
@@ -160,11 +160,7 @@ Derived from the similarity between the letter [[u]] and the Greek letter [[µ]]
 * {{anagrams|en|a=su|SU|Su}}
 
 [[Category:Symbols for SI units]]
-[[Category:English first person pronouns]]
-[[Category:English heteronyms]]
-[[Category:English personal pronouns]]
-[[Category:English plural pronouns]]
-[[Category:English two-letter words]]
+{{cln|en|first person pronouns|heteronyms|personal pronouns|plural pronouns|two-letter words}}
 
 ==Catalan==
 
@@ -224,7 +220,7 @@ From {{inh|gmw-cfr|gmh|uns}}, from {{inh|gmw-cfr|gem-pro|*uns}}, {{m|gem-pro|*un
 ====Pronoun====
 {{head|gmw-cfr|pronoun}}
 
-# {{lb|gmw-cfr|most of|_|Ripuarian|parts of|_|Moselle Franconian}} {{ngd|Dative/accusative first-person plural personal pronoun}}: {{l|en|us}}
+# {{lb|gmw-cfr|most of|_|Ripuarian|parts of|_|Moselle Franconian}} {{ng|Dative/accusative first-person plural personal pronoun}}: {{l|en|us}}
 
 =====Alternative forms=====
 * {{alt|gmw-cfr|uus|uss}}
@@ -242,12 +238,12 @@ From {{inh|fax|roa-opt|os}}, from {{inh|fax|la|illōs}}.
 ====Article====
 {{head|fax|article|g=m-p|singular|u|feminine|a|feminine plural|as}}
 
-# {{lb|fax|Lagarteiru|Valverdeñu}} {{ngd|Masculine plural definite article}}; [[the]]
+# {{lb|fax|Lagarteiru|Valverdeñu}} {{ng|Masculine plural definite article}}; [[the]]
 
 ====Pronoun====
 {{head|fax|pronouns}}
 
-# {{lb|fax|Lagarteiru|Valverdeñu}} {{ngd|Third person plural masculine accusative pronoun}}; [[them]]
+# {{lb|fax|Lagarteiru|Valverdeñu}} {{ng|Third person plural masculine accusative pronoun}}; [[them]]
 
 =====See also=====
 {{fax-personal pronouns}}
@@ -261,7 +257,7 @@ From {{inh|fax|roa-opt|os}}, from {{inh|fax|la|illōs}}.
 ====Article====
 {{head|fax|articles|g=m-p|singular|un|feminine|unha|feminine plural|unhas}}
 
-# {{lb|fax|Lagarteiru}} {{ngd|Masculine singular indefinite article}}; [[some]]
+# {{lb|fax|Lagarteiru}} {{ng|Masculine singular indefinite article}}; [[some]]
 
 ===References===
 * {{R:fax:Diccionariu|276}}

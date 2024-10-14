@@ -88,6 +88,7 @@
 * {{T|gl}} : {{trad+|gl|baleiro}}
 * {{T|ka}} : {{trad-|ka|ცარიელი|tr=c'arieli}}
 * {{T|grc}} : {{trad|grc|κενός}}
+* {{T|griko}} : {{trad|griko|ércero}}
 * {{T|hbo}} : {{trad|hbo|ריק|dif=רֵיק|m}}
 * {{T|hu}} : {{trad+|hu|üres}}
 * {{T|io}} : {{trad+|io|vakua}}
@@ -172,7 +173,7 @@
  | source={{ouvrage |prénom=Sébastien |nom=Bohler |titre=Où est le sens ? |éditeur=Robert Laffont |lieu=Paris |année=2020}}, page 12}}
 #* {{exemple | lang=fr
  | Le grand '''vide''' silencieux qu'on imagine à la naissance ou à la fin du monde.
- | source=François Leblanc, « Jasper », ''Sabord'' n° 107, juin 2017, page 23}}
+ | source=François Leblanc, « Jasper », ''Sabord'' {{n°|107}}, juin 2017, page 23}}
 # {{lexique|sylviculture|fr}} Espace sans arbres.
 #* {{exemple | lang=fr
  | La grande surface de '''vides''' à reconstituer comprend les '''vides''' dus à la tempête, mais également les '''vides''' liés au non-reboisement des plateaux d’altitude en raison de la surdensité de cervidés.

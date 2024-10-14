@@ -74,7 +74,7 @@ First used by {{w|Lewis Carroll}} in ''{{w|Through the Looking-Glass}}'' to desc
 ====Noun====
 {{en-noun|s|portmanteaux}}
 
-# {{lb|en|linguistics}} A [[portmanteau word]].
+# {{lb|en|linguistics}} A word formed by putting two words together and thereby their meaning e.g. [[shrinkflation | shrinkflation.]]
 #: {{syn|en
   |blend<!-- synonym 1 -->
   |id1=word<!-- target id for synonym 1-->
@@ -105,5 +105,5 @@ First used by {{w|Lewis Carroll}} in ''{{w|Through the Looking-Glass}}'' to desc
 ===Further reading===
 * {{pedia|blend word}}
 
-[[Category:English autological terms]]
-[[Category:en:Lewis Carroll]]
+{{cln|en|autological terms}}
+{{C|en|Lewis Carroll}}

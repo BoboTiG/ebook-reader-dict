@@ -197,4 +197,4 @@ See further at [[#Etymology 1|etymology 1]].
 ===Anagrams===
 * {{anagrams|en|a=cegorsu|scrouge}}
 
-[[Category:en:Violence]]
+{{C|en|Violence}}

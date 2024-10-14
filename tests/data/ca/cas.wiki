@@ -4,7 +4,7 @@
 {{ca-pron
 |f-centr=LL-Q7026 (cat)-Marvives-cas.wav
 }}
-{{-etimologia-}} {{Del-lang|la|ca|casus}}.
+{{-etimologia-}} {{Del-lang|la|ca|casus|trad=caiguda, cas fortuït}}, de {{m|la|cadere|trad=caure}}, {{etim-s|ca|XIV}}.
 
 === Nom ===
 {{ca-nom|m|p=casos}}

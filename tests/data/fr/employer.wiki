@@ -10,10 +10,10 @@
  | source={{Citation/Edmond Nivoit/Notions élémentaires sur l’industrie dans le département des Ardennes/1869|119}}}}
 #* {{exemple | lang=fr
  | On sait que l’emploi du fer fut inconnu de toute l’Amérique avant l’arrivée de Colomb. […]. Parfois cependant le fer météorique '''est employé''' accidentellement.
- | source={{w|René Thévenin}} & {{w|Paul Coze}}, ''Mœurs et Histoire des Indiens Peaux-Rouges'', Payot, 1929, 2{{e}} éd., p.18}}
+ | source={{w|René Thévenin}} & {{w|Paul Coze}}, ''Mœurs et Histoire des Indiens Peaux-Rouges'', Payot, 1929, {{2e|éd.}}, p.18}}
 #* {{exemple | lang=fr
  | Tant qu’il n’était pas appelé au loin par la guerre contre les Saxons, les Bretons, ou les Goths de la Septimanie, Chlother '''employait''' son temps à se promener d’un domaine à l’autre.
- | source={{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', 1{{er}} récit : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833–1837}}
+ | source={{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', {{1er|récit}} : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833–1837}}
 #* {{exemple | lang=fr
  | Ces cartouches sont destinées à remplacer les fortes charges de poudre-éclair qu'il serait nécessaire d’'''employer''' pour l’éclairage intensif d'intérieurs, de grottes, de mines, etc., […].
  | source=''Agenda Lumière 1930'', Paris : Société Lumière & librairie Gauthier-Villars, page 413}}
@@ -51,6 +51,7 @@
 * {{T|de}} : {{trad+|de|benutzen}}, {{trad+|de|benützen}}, {{trad+|de|anwenden}}, {{trad+|de|brauchen}}, {{trad+|de|gebrauchen}}, {{trad+|de|verwenden}}, {{trad+|de|verwerten}}
 * {{T|en}} : {{trad+|en|employ}}, {{trad+|en|use}}, {{trad+|en|make use of}}, {{trad-|en|turn to account}}
 * {{T|eu}} : {{trad-|eu|enplegatu}}
+* {{T|br}} : {{trad-|br|arverañ}}, {{trad-|br|implijout}}
 * {{T|ca}} : {{trad+|ca|emprar}}
 * {{T|co}} : {{trad-|co|impiicà}}, {{trad+|co|usà}}, {{trad-|co|servesi}}
 * {{T|da}} : {{trad+|da|benytte}}, {{trad+|da|bruge}}, {{trad-|da|tilbringe}}

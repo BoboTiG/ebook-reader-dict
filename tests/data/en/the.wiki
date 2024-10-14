@@ -6,6 +6,7 @@
 ===Pronunciation===
 * {{qualifier|when stressed}}
 ** {{enPR|''th''ē}}, {{IPA|en|/ˈðiː/}}
+** {{audio|en|en-uk-the-stressed.ogg|a=UK}}
 ** {{audio|en|en-us-the-stressed.ogg|a=US}}
 ** {{rhymes|en|iː|s=1}}
 *** {{qualifier|variant|preconsonantal}} {{enPR|''th''ŭ}}, {{IPA|en|/ˈðʌ/}}
@@ -40,7 +41,7 @@ Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{
 {{head|en|article}}
 
 # {{n-g|Used before a noun phrase, including a simple noun}}
-## {{non-gloss definition|The [[definite]] grammatical [[article]] that implies necessarily that the noun phrase it immediately precedes is definitely identifiable}}
+## {{non-gloss|The [[definite]] grammatical [[article]] that implies necessarily that the noun phrase it immediately precedes is definitely identifiable}}
 ### {{n-g|because it has already been [[mention]]ed, is to be completely [[specify|specified]] in the same sentence, or very shortly thereafter.}} {{defdate|from 10th c.}}
 ###: ''I’m reading '''the''' book Mary reviewed.'' (Compare ''I’m reading '''a''' book Mary reviewed.'')
 ###: ''You live on Main Street, don't you? You know, you should tell the mayor '''the''' street needs cleaning.''
@@ -48,40 +49,40 @@ Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{
 ###: '''''The''' street that runs all the way through my hometown.''
 ###* {{quote-web|1=en|year=2016|url=https://learningenglish.voanews.com/a/lets-learn-english-lesson-5-where-are-you/3168971.html|site=VOA Learning English|passage=I sleep in '''the''' bedroom!|accessdate=12 December 2018|archiveurl=https://web.archive.org/web/20170930001420/https://learningenglish.voanews.com/a/lets-learn-english-lesson-5-where-are-you/3168971.html|archivedate=30 September 2017}}
 ### {{n-g|because it is presumed to be definitely known in context or from shared knowledge}}
-#### {{non-gloss definition|Used before a noun designating something considered to be [[unique]], or of which there is only one at a time.}} {{defdate|from 10th c.}}
+#### {{non-gloss|Used before a noun designating something considered to be [[unique]], or of which there is only one at a time.}} {{defdate|from 10th c.}}
 ####: ''No one knows how many galaxies there are in '''the''' universe.''
 ####: ''God save '''the''' Queen!''
 ####* {{RQ:King James Version|Revelation|1|8|column=2|passage=I am Alpha and Omega, '''the''' beginning and '''the''' ending, saith '''the''' Lord, which is, and which was, and which is to come, '''the''' Almighty.}}
-#### {{non-gloss definition|Used to indicate a certain example of (a noun) which is usually of most concern or most common or familiar.}} {{defdate|from 12th c.}}
+#### {{non-gloss|Used to indicate a certain example of (a noun) which is usually of most concern or most common or familiar.}} {{defdate|from 12th c.}}
 ####: ''No one in '''the''' whole country had seen it before.''
 ####: ''I don't think I'll get to it until '''the''' morning.''
 ####: ''Take me to '''the''' airport/station/hospital/office/park/match/meeting.''
-#### {{non-gloss definition|Used before a body part, a family member, a pet (especially of someone previously mentioned), as an alternative to a [[possessive pronoun]].}} {{defdate|from 12th c.}}
+#### {{non-gloss|Used before a body part, a family member, a pet (especially of someone previously mentioned), as an alternative to a [[possessive pronoun]].}} {{defdate|from 12th c.}}
 ####: ''A stone hit him on '''the''' head.'' (= “A stone hit him on his head.”)
 ####: ''How's '''the''' wife?'' (= "How is your wife?")
 #### {{lb|en|colloquial}} {{n-g|Precedes a familiar nickname or other term of address.}}
 ####:{{usex|en|How's '''the''' Sal today?|footer="How are you, Sal?"}}
 #### {{n-g|Used in many idiomatic expressions and proverbs to refer to common objects, roles, or situations connected with something definite, as by analogy}}
 ####: ''square '''the''' circle; feel '''the''' pinch; beat around '''the''' bush; throw '''the''' baby out with '''the''' bathwater''
-## {{non-gloss definition|When stressed, indicates that it describes something which is considered to be best or exclusively worthy of attention.}} {{defdate|from 18th c.}}
+## {{non-gloss|When stressed, indicates that it describes something which is considered to be best or exclusively worthy of attention.}} {{defdate|from 18th c.}}
 ##: ''That is'' <u>'''the'''</u> ''hospital to go to for heart surgery.''
 ##* {{RQ:Doyle Land of Mist|passage="Good Heavens, man! Why, he is '''''the''''' authority. If you want pure laboratory experiments those are the books."}}
 ##* {{quote-journal|en|date=May 27, 2012| author=Nathan Rabin| title=TV: Review: THE SIMPSONS (CLASSIC): “New Kid On The Block” (season 4, episode 8; originally aired 11/12/1992)| work=The Onion AV Club| url=http://www.avclub.com/articles/new-kid-on-the-block,75341/| passage=“New Kid On The Block” doubles as a terrific showcase for the Sea Captain who, in the grand tradition of Simpsons supporting characters, quickly goes from being a stereotype to an archetype, from being a crusty sea-captain character to '''''the''''' crusty sea-captain character.}}
-## {{non-gloss definition|Used before a noun phrase beginning with [[superlative]] or comparative adjective or an [[ordinal number]],  indicating that the noun refers to a single item.}}
+## {{non-gloss|Used before a noun phrase beginning with [[superlative]] or comparative adjective or an [[ordinal number]],  indicating that the noun refers to a single item.}}
 ##: ''That was '''the''' juiciest apple pie ever.''
 ##: ''May '''the''' better man win.''
-## {{non-gloss definition|Introducing a singular term to be taken [[generically]]: preceding a name of something standing for a whole class.}} {{defdate|from 9th c.}}
+## {{non-gloss|Introducing a singular term to be taken [[generically]]: preceding a name of something standing for a whole class.}} {{defdate|from 9th c.}}
 ##* {{RQ:Mandela Long Walk to Freedom|year=2010|page=536|passage=Stern and God-fearing, '''the''' Afrikaner takes his religion seriously.}}
 ##: '''''The''' downy woodpecker can be found in the same environments as '''the''' hairy woodpecker.''
 ## {{n-g|Used with the plural of a surname to indicate the entire family.}}
 ##: '''''The''' Bushes have held political office for several decades and '''the''' Kennedys longer.''
 # {{n-g|Used with an adjective}}
-## {{non-gloss definition|Added to a superlative or an ordinal number to make it into a substantive.}} {{defdate|from 9th c.}}
+## {{non-gloss|Added to a superlative or an ordinal number to make it into a substantive.}} {{defdate|from 9th c.}}
 ##: ''That apple pie was '''the''' best.''
-## {{non-gloss definition|Used before an adjective, indicating all things (especially persons) described by that adjective.}} {{defdate|from 9th c.}}
+## {{non-gloss|Used before an adjective, indicating all things (especially persons) described by that adjective.}} {{defdate|from 9th c.}}
 ##: ''Feed '''the''' hungry, clothe '''the''' naked, comfort '''the''' afflicted, and afflict '''the''' comfortable.''
 ##: ''One doesn't choose the color of one's chess pieces, '''the''' white are assigned to the player who moves first.''
-## {{non-gloss definition|Used before an [[demonym]] to refer to people of a given [[country]] collectively.}}
+## {{non-gloss|Used before an [[demonym]] to refer to people of a given [[country]] collectively.}}
 ##: '''the''' [[Chinese]]
 ##: '''the''' [[Irish]]
 
@@ -311,7 +312,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Tagalog: {{t+|tl|ang}}
 * Tamil: {{not used|ta}} {{q|demonstratives serve a similar purpose}}
 * Tatar: {{not used|tt}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
-* Thai: {{not used|th}}
+* Thai: {{t|th|เดอะ}}
 * Tok Pisin: {{t|tpi|dispela}}
 * Tongan: {{t|to|te}}
 * Turkish: {{not used|tr}} {{q|use demonstrative adjectives with subjects or the accusative with objects instead}}
@@ -429,12 +430,12 @@ From {{inh|en|enm|the}}, {{m|enm|thy}}, {{m|enm|thi}}, from {{inh|en|ang|þe|þ�
 ====Adverb====
 {{en-adv|-}}
 
-# {{non-gloss definition|1=With a [[comparative]] or with {{m|en|more}} and a verb phrase, establishes a correlation with one or more other such comparatives.}}
+# {{non-gloss|1=With a [[comparative]] or with {{m|en|more}} and a verb phrase, establishes a correlation with one or more other such comparatives.}}
 #: '''''The''' hotter(,) '''the''' better.'' {{gloss|comma usually omitted in such very short expressions}}
 #: '''''The''' more I think about it, '''the''' weaker it looks.''
 #: '''''The''' more money donated, '''the''' more books purchased, and '''the''' more happy children.''
 #: ''It looks weaker and weaker, '''the''' more I think about it.''
-# {{non-gloss definition|1=With a [[comparative]], and often with {{m|en|for it}}, indicates a result more like said comparative. This can be negated with {{m|en|none}}.}}
+# {{non-gloss|1=With a [[comparative]], and often with {{m|en|for it}}, indicates a result more like said comparative. This can be negated with {{m|en|none}}.}}
 #: {{ux|en|It was a difficult time, but I’m '''the''' wiser for it.}}
 #: {{ux|en|It was a difficult time, and I’m {none - not any} '''the''' wiser for it.}}
 #: {{ux|en|I'm much '''the''' wiser for having had a difficult time like that.}}
@@ -542,7 +543,7 @@ This is called the "comparative correlative", but it is also known as the "corre
 ===Anagrams===
 * {{anagrams|en|a=eht|eth-|Eth.|TEH|teh|ETH|Eth|het|EHT|HET|eth|Teh|-eth}}
 
-[[Category:English three-letter words]]
+{{cln|en|three-letter words}}
 
 ==Crimean Gothic==
 
@@ -608,8 +609,7 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 
 # [[tea]]
 
-[[Category:ia:Beverages]]
-[[Category:ia:Tea]]
+{{C|ia|Beverages|Tea}}
 
 ==Irish==
 
@@ -673,7 +673,7 @@ While it is likely that Crimean Gothic retained grammatical gender, de Busbecq's
 ===References===
 * {{cite-text|mwf|year=2003|author=Mark Abley|title=Spoken Here: Travels Among Threatened Languages}}
 
-[[Category:mwf:Anatomy]]
+{{C|mwf|Anatomy}}
 
 ==Old High German==
 
@@ -743,7 +743,7 @@ From {{inh|sco|ang|se}}.
 ===Pronunciation===
 * {{IPA|sco|[ðə]}}
 * {{a|sco|Shetland}} {{IPA|sco|[də]}} {{q|often written {{m|sco|da}}}}
-* {{a|sco|chiefly|North Northern Scots|Northern|_|East Central Scots}} {{IPA|sco|[i]|[ə]}} {{q|often written {{m|sco|ee}} or {{m|sco|'e}}}}
+* {{a|sco|chiefly|North Northern Scots|northern|_|East Central Scots}} {{IPA|sco|[i]|[ə]}} {{q|often written {{m|sco|ee}} or {{m|sco|'e}}}}
 * {{a|sco|some Glasgow speakers}} {{IPA|sco|[rə]}} {{q|often written {{m|sco|ra}}}}
 
 ===Determiner===

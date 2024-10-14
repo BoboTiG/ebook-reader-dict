@@ -361,6 +361,10 @@
 # [[minutieusement|Minutieusement]].
 #* {{exemple|lang=la}}
 
+=== {{S|verbe|la|flexion}} ===
+'''minute''' {{pron||la}}
+# ''Vocatif masculin singulier de'' [[minutus#la|minutus]].
+
 === {{S|références}} ===
 * {{R:Gaffiot}}
 

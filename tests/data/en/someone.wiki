@@ -80,6 +80,7 @@ From {{inh|en|enm|sum on}}, {{m|enm|sum one}}, {{m|enm|sum oon}}, equivalent to 
 * Latvian: {{t+|lv|kāds}}
 * Lenape:
 *: Unami: {{t|unm|awèn}}
+* Lithuanian: {{t|lt|kažkas}}
 * Macedonian: {{t|mk|некој}}
 * Malay: {{t|ms|seseorang}}
 * Marathi: {{t|mr|कोणी}}, {{t|mr|कोणी तरी}}
@@ -149,7 +150,4 @@ From {{inh|en|enm|sum on}}, {{m|enm|sum one}}, {{m|enm|sum oon}}, equivalent to 
 ===Anagrams===
 * {{anagrams|en|a=eemnoos|neosome|onesome}}
 
-[[Category:English compound determinatives]]
-[[Category:English indefinite pronouns]]
-[[Category:English third person pronouns]]
-[[Category:English positive polarity items]]
+{{cln|en|compound determinatives|indefinite pronouns|third person pronouns|positive polarity items}}

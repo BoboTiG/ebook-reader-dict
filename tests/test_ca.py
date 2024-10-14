@@ -113,7 +113,7 @@ from wikidict.utils import process_templates
             "cas",
             [],
             ["m"],
-            ["Del llatí <i>casus</i>."],
+            ["Del llatí <i>casus</i> («caiguda, cas fortuït»), de <i>cadere</i> («caure»), segle XIV."],
             [
                 "Situació particular que es produeix entre les diverses possibles.",
                 "Objecte d'estudi d'alguna disciplina.",
@@ -149,7 +149,7 @@ from wikidict.utils import process_templates
             [],
             ["m"],
             [
-                "D’origen incert, paral·lel al de <i>Catalunya</i>, possiblement metàtesi del llatí <i>lacetani</i> («lacetans»)."
+                "D’origen incert, paral·lel al de <i>Catalunya</i>, segle XII. Potser de <i>*catelanos</i>, metàtesi del llatí <i>Lacetanōs</i>, acusatiu de <i>Lacetani</i> («lacetans»), poble ibèric de la regió central de Catalunya i que podria relacionar-se amb la menció de Ptolomeu dels <i>Καστελανοι</i> o <i>Κατελανοι</i>. Vegeu més informació a <i>Catalunya</i>.",
             ],
             [
                 "Relatiu o pertanyent a Catalunya, als seus habitants o a la llengua catalana.",

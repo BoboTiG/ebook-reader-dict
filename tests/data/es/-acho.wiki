@@ -19,10 +19,10 @@
 
 ==== Véase también ====
 * [[:Categoría:ES:Palabras con el sufijo -acho|Palabras con el sufijo -acho en ''Wikcionario'']].
-* {{Wikipedia|Gram%C3%A1tica_del_espa%C3%B1ol#Sufijos|'''Sufijos del español'''}}.
+* {{Wikipedia|Gram%C3%A1tica_del_espa%C3%B1ol#Sufijos|'''Sufijos del español'''}}
 
 ==== Traducciones ====
-{{trad afijo|su}}
+{{nota traducción afijo|su}}
 {{trad-arriba}}
 {{trad-abajo}}
 

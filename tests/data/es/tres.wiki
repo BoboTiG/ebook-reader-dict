@@ -5,10 +5,11 @@
 {{pron-graf|1audio1=LL-Q1321 (spa)-Rodelar-tres.wav|p1=gres|p2=res|p3=tras|p4=tris}}
 
 === Etimología 1 ===
-{{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este  {{etim|ine-pro|*tréyes}}. Cognado  {{etim|lad|tres}}.
+{{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este {{etim|ine-pro|*tréyes}}. Cognado del ladino {{l+|lad|tres}}.
 
-==== {{adjetivo cardinal|es}} ====
+==== {{adjetivo cardinal|es}} indeclinable ====
 {{inflect.es.adj.invariante}}
+[[Categoría:ES:Adjetivos indeclinables]]
 ;1: {{plm|dos}} y [[uno]].
 ;2: Que ocupa el [[tercer]] lugar en una serie.
 {{sinónimo|tercero}}
@@ -332,8 +333,8 @@
 ;1 {{csem|números|leng=lad}}: {{plm}}.
 
 == {{lengua|la}} ==
-{{pron-graf|leng=la|1audio1=la-cls-tres.ogg}}
-{{la.adj.card|antes1=duo|antes2=II|siga1=quattuor|siga2=IV|Título=III|card=trēs|ord={{l*|la|tertius}}|adv={{l*|la|ter}}|dist={{l*|la|terni|ternī}}, {{l*|la|trini|trīnī}}}}
+{{pron-graf|leng=la|ayuda=trēs|alt=trēs|1audio1=la-cls-tres.ogg}}
+{{numeral latino|antes1=duo|antes2=II|siga1=quattuor|siga2=IV|Título=III|card=trēs|ord={{l*|la|tertius}}|adv={{l*|la|ter}}|dist={{l*|la|terni|ternī}}, {{l*|la|trini|trīnī}}}}
 
 === Etimología 1 ===
 {{etimología|leng=la|itc-pro|*trejes}}, y este {{etim|leng=la|ine-pro|ine=x}}.<ref name="vaan">{{DeVaan|628-29}}</ref> Compárese el sánscrito {{l+|sa|त्रयं|tr=tráya}}, el griego antiguo {{l+|grc|τρεῖς|tr=treis}} y el gótico {{l+|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}.<ref name="vaan" />

@@ -141,6 +141,9 @@ __TOC__
 # {{Québec|fr}} {{familier|fr}} [[elle#fr|Elle]].
 #* ''C’est lui qui, appréciant sa mère, d’un ton de médiocrité satisfaite, disait à Louise Guittard, en se frottant une bosse au front :<br
 />— Pendant qu’'''a''' m’bat, on a la paix.'' {{source|{{w|Léon Frapié}}, ''{{ws|La maternelle/Texte entier|La Maternelle}}'', Librairie Universelle, 1908}}
+#* {{exemple|lang=fr
+ |— Une môme, les mecs… Une môme ! Visez ! '''A''' l’est presque à poil !
+|source={{w|Yves Gibeau}}, ''Allons z’enfants'', 1952}}
 #* ''C’était pendant l’congé d’Noël<br
 />J’voulais déjà m’marier avec elle<br
 />'''A''' m’a appelé tantôt après les nouvelles.'' {{source|Les Cowboys fringants, « Le Quai de Berthier » (chanson), 1998}}
@@ -392,6 +395,7 @@ __TOC__
 ** {{écouter|lang=en|France (Lyon)|əʊ|audio=LL-Q1860 (eng)-Lyokoï-a.wav}}
 * {{pron|ˈeɪ|en}} {{term|accentué}}
 * {{écouter|Connecticut (États-Unis)||lang=en|audio=LL-Q1860 (eng)-Grendelkhan-a.wav}}
+* {{écouter|Afrique du Sud||lang=en|audio=LL-Q1860 (eng)-Robust Footman-a.wav}}
 
 === {{S|références}} ===
 *{{R:Hendrickson1998|p=1}}
@@ -658,7 +662,7 @@ __TOC__
 
 === {{S|verbe|br|flexion}} ===
 '''a''' {{pron|a|br}}
-# ''Forme conjuguée du verbe'' [[mont#br|mont]] ''à la 3{{e}} personne du singulier de l’indicatif présent.''
+# ''Forme conjuguée du verbe'' [[mont#br|mont]] ''à la {{3e|personne}} du singulier de l’indicatif présent.''
 #* {{proverbial|br|nocat=1}} ''A-nebeut-da-nebeut<br />Ez '''a''' da ludu ar bern keuneud.''
 #*: Petit à petit le tas de bois devient cendres.
 
@@ -990,14 +994,16 @@ __TOC__
 
 === {{S|lettre|es}} ===
 {{lettre|pron=a|lang=es}}
-'''a''' {{f}} {{invar}}
+{{es-accord-mf|p=aes|ps=a|pp=ˈa.es}}
+'''a''' {{f}}
 # Première [[lettre]] et première [[voyelle]] de l’[[alphabet]] espagnol.
 #* {{exemple | lang=es
  | Eso es una '''a'''.
  | Ceci est un a.}}
 
 === {{S|préposition|es}} ===
-'''a''' {{pron|a|es}}
+{{es-inv|a}}
+'''a''' {{pron|a|es}} {{invariable|es}}
 # [[à#fr|À]], [[au]], [[le]], [[de]], [[par]]. Indique une [[situation]], un [[lieu]], un [[mouvement]].
 #* {{exemple | lang=es
  | ¿Vamos '''a''' la playa?
@@ -1303,9 +1309,21 @@ __TOC__
 === {{S|étymologie}} ===
 : {{ébauche-étym|gallo-italique de Sicile}}
 
+=== {{S|lettre|gallo-italique de Sicile}} ===
+{{lettre|a|A|ˈa|lang=gallo-italique de Sicile}}
+'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Roccella}}
+# {{Piazza Armerina|gallo-italique de Sicile}} Première lettre de l’alphabet, en minuscule.
+#* {{exemple|lang=gallo-italique de Sicile}}
+
 === {{S|préposition|gallo-italique de Sicile}} ===
-'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Foti}} {{Vigo}} {{Vasi}} {{Rubino}} {{Di Pietro}}
+'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Foti}} {{Vigo}} {{Vasi}} {{Rubino}} {{Di Pietro}} {{Roccella}}
 # {{San Fratello|gallo-italique de Sicile}} [[à#fr|À]].
+#* {{exemple|lang=gallo-italique de Sicile}}
+# {{Piazza Armerina|gallo-italique de Sicile}} [[à la#fr|À la]].
+#* {{exemple|lang=gallo-italique de Sicile}}
+# {{Piazza Armerina|gallo-italique de Sicile}} [[de la#fr|À la]].
+#* {{exemple|lang=gallo-italique de Sicile}}
+# {{Piazza Armerina|gallo-italique de Sicile}} Dans la.
 #* {{exemple|lang=gallo-italique de Sicile}}
 
 === {{S|conjonction|gallo-italique de Sicile}} ===
@@ -1313,8 +1331,14 @@ __TOC__
 # {{San Fratello|gallo-italique de Sicile}} Conjonction qui introduit une subordonnée avec un verbe à l’infinitif.
 #* {{exemple|lang=gallo-italique de Sicile}}
 
+=== {{S|article défini|gallo-italique de Sicile}} ===
+'''a''' {{phon|ˈa|gallo-italique de Sicile}} {{Roccella}}
+# {{Piazza Armerina|gallo-italique de Sicile}} [[la#fr|La]].
+#* {{exemple|lang=gallo-italique de Sicile}}
+
 === {{S|références}} ===
 * {{R:Foti}}
+* {{R:Roccella}}
 
 == {{langue|cy}} ==
 === {{S|étymologie}} ===
@@ -2154,7 +2178,7 @@ __TOC__
 : ''(Prénom personnel)'' Du {{étyl|vieil écossais|sco|ic}}, ''{{lien|ik|vieil écossais}}'', ''{{lien|i|vieil écossais}}'', par diphtongaison puis perte du second élément, issu du {{étyl|ang|sco|ic}}.
 : ''(Adjectif indéfini et adverbe)'' Du {{étyl|non|sco|allr}}.
 : ''(Particule)'' Par assimilation du ''t'' initial à la dentale précédent le ''to'' (/tə/) en {{étyl|vieil écossais|sco}} (le ''to'' est alors souvent précédé d'un participe présent finissant en ''-d'').
-: ''(Préposition n° 1)'' Du {{étyl|ang|sco|an}}.
+: ''(Préposition {{n°|1}})'' Du {{étyl|ang|sco|an}}.
 
 === {{S|lettre|sco}} ===
 {{lettre|pron=|nom=|lang=sco}}

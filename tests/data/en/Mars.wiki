@@ -383,9 +383,8 @@ From {{bor|en|uk|Марс}}.
 ===Anagrams===
 * {{anagrams|en|a=amrs|M.R.A.S.|S/MAR|MRAs|SARM|MRSA|mas'r|ASMR|MSAR|Rams|RAMs|Masr|AMRs|ASRM|rasm|arms|ARMs|SRAM|rams}}
 
-[[Category:English eponyms]]
-{{c|en|Mars (planet)}}
-{{topics|en|Planets of the Solar System}}
+{{cln|en|eponyms}}
+{{C|en|Mars (planet)|Planets of the Solar System}}
 
 ==Afrikaans==
 
@@ -471,8 +470,8 @@ From {{bor-lite|nl|la|Mars|Mārs}}.
 ====Proper noun====
 {{nl-proper noun|m}}
 
-# {{senseid|nl|Q111}}{{topics|nl|Planets of the Solar System}}{{lb|nl|astronomy}} {{l-lite|en|Mars}} (planet)
-# {{senseid|nl|Q112}}{{topics|nl|Roman deities}}[[#English|Mars]] (Roman god)
+# {{senseid|nl|Q111}}{{C|nl|Planets of the Solar System}}{{lb|nl|astronomy}} {{l-lite|en|Mars}} (planet)
+# {{senseid|nl|Q112}}{{C|nl|Roman deities}}{{l|en|Mars}} (Roman god)
 
 =====Related terms=====
 * {{l-lite|nl|Maarten}}, {{l-lite|nl|Martijn}}, {{l-lite|nl|Martin}}, {{l-lite|nl|Martinus}}
@@ -705,7 +704,8 @@ From {{bor-lite|ga|la|Mars|Mārs}}.
 ==Latin==
 
 ===Etymology===
-From {{der-lite|la|itc-ola|Mavors|Māvors}}, from {{inh-lite|la|itc-pro|sc=Latn|*Māwortis}},<ref>Walde, Alois & Hofmann, Johann Baptist. 1954. ''Lateinisches etymologisches Wörterbuch'', 2nd vol. (M-Z), 3rd edition, pp. 43-45.</ref> or from {{inh|la|itc-pro|*Māmart-}}. If ''Māvors'' indeed comes from ''*Māmart-'', the apparent change */-m-/ to */-w-/ is a unique and isolated change.<ref>de Vaan, Michiel. 2008. ''Etymological Dictionary of Latin and the other Italic Languages'', p. 366. </ref> ''Mamers'' was his [[w:Oscan language|Oscan]] name. He was also known as ''Marmor'', ''Marmar'' and ''Maris'', the latter from the Etruscan deity [[Maris]]. See also the [[w:Lapis Satricanus|Lapis Satricanus]], where 𐌌𐌀𐌌𐌀𐌓𐌕𐌄𐌆 (''Mamartei'') is attested. Possibly also related to {{ncog|sa|मरुत्|t={{w|Maruts}}, violent storm-gods}}.<ref>{{R:sa:EWAia|vol=2|page=322}}</ref>
+{{etymon|la|itc-ola>Māvors>Mars|id=god of war}}
+From {{der|la|itc-ola|Mavors|Māvors}}, from {{inh-lite|la|itc-pro|sc=Latn|*Māwortis}},<ref>Walde, Alois & Hofmann, Johann Baptist. 1954. ''Lateinisches etymologisches Wörterbuch'', 2nd vol. (M-Z), 3rd edition, pp. 43-45.</ref> or from {{inh|la|itc-pro|*Māmart-}}. If ''Māvors'' indeed comes from ''*Māmart-'', the apparent change */-m-/ to */-w-/ is a unique and isolated change.<ref>de Vaan, Michiel. 2008. ''Etymological Dictionary of Latin and the other Italic Languages'', p. 366. </ref> ''Mamers'' was his [[w:Oscan language|Oscan]] name. He was also known as ''Marmor'', ''Marmar'' and ''Maris'', the latter from the Etruscan deity [[Maris]]. See also the [[w:Lapis Satricanus|Lapis Satricanus]], where 𐌌𐌀𐌌𐌀𐌓𐌕𐌄𐌆 (''Mamartei'') is attested. Possibly also related to {{ncog|sa|मरुत्|t={{w|Maruts}}, violent storm-gods}}.<ref>{{R:sa:EWAia|vol=2|page=322}}</ref>
 
 ===Pronunciation===
 * {{la-IPA|Mārs}}
@@ -835,7 +835,7 @@ From {{bor-lite|se|no|Mars}}.
 {{Wiktionary:Picture dictionary/pl:Solar System}}
 
 ===Pronunciation===
-{{pl-p|a=Pl-Mars.ogg|a2=LL-Q809 (pol)-Gower-Mars.wav|ac=Audio 1|ac2=Audio 2}}
+{{pl-pr|a=Pl-Mars.ogg;LL-Q809 (pol)-Gower-Mars.wav}}
 
 ===Etymology 1===
 {{dercat|pl|itc-ola}}
@@ -1012,4 +1012,4 @@ From {{der-lite|tpi|en|March}}.
 |page=155
 |isbn=978-1-59703-017-5}}
 
-[[Category:wo:Months]]
+{{C|wo|Months}}

@@ -102,7 +102,7 @@ from wikidict.utils import process_templates
                 "A large travelling case usually made of leather, and opening into two equal sections.",
                 "<i>(Australia, dated)</i> A schoolbag.",
                 "<i>(archaic)</i> A hook on which to hang clothing.",
-                "<i>(linguistics)</i> A portmanteau word.",
+                "<i>(linguistics)</i> A word formed by putting two words together and thereby their meaning e.g. shrinkflation.",
                 "A portmanteau film.",
                 "<i>(attributive, linguistics)</i> Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.",
                 "<i>(transitive)</i> To create a portmanteau word.",

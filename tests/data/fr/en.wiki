@@ -214,7 +214,7 @@
 #* {{exemple | lang=fr | J''''en''' ai été informé. — Je n''''en''' sais rien.}}
 #* {{exemple | lang=fr
  | Sans les digues élevées et solidement établies qui l''''en''' garantissent, la Camargue serait submergée par le Rhône plusieurs fois durant le cours du printemps, […].
- | source=M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l’agriculture française'', 2{{e}} série, tome 34, Paris : chez Madame Huzard, avril 1826, page 77}}
+ | source=M. de Rivière, « ''Mémoire sur la Camargue'' », dans les ''Annales de l’agriculture française'', {{2e|série}}, tome 34, Paris : chez Madame Huzard, avril 1826, page 77}}
 #* {{exemple|lang=fr|Il m’'''en''' écrira avant huit jours ! répétait-elle en agitant sur son oreiller sa grosse tête pleine de projets.|source={{w|George Sand}}, ''{{w|Jeanne (roman)|Jeanne}}'', 1844}}
 #* {{exemple | lang=fr
  | L’affaire fit beaucoup de bruit. À l’heure de l’anisette, les officiers d l’état-major '''en''' discutaient !
@@ -253,6 +253,7 @@
 
 ==== {{S|traductions}} ====
 {{trad-début|De cela}}
+* {{T|gallo-italique de Sicile}} : {{trad|gallo-italique de Sicile|n’}}
 * {{T|it}} : {{trad+|it|ne}}
 * {{T|nl}} : {{trad+|nl|er}}
 * {{T|pcd}} : {{trad|pcd|én-d}}, {{trad|pcd|én_n}}, {{trad|pcd|én-në}}, {{trad|pcd|n-d}}, {{trad|pcd|n-n}}, {{trad|pcd|d-d}}, {{trad|pcd|n-in}}

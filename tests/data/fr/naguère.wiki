@@ -7,7 +7,7 @@
 # {{désuet|fr}} [[récemment#fr|Récemment]] ; il y a peu.
 #* {{exemple | lang=fr
  | A ce spectacle, tous les assistans attendris, émus, électrisés, quoique tous de différens cultes, volèrent dans les bras les uns des autres, et des larmes fraternelles coulèrent où '''naguère''' le fanatisme enflammoit tous les esprits et divisoit tous les cœurs.
- | source=« ''Progrès de la tolérance'' », dans ''La Feuille villageoise'', n° 32, du jeudi 3 mai 1792, Paris : Imprimerie Desenne, page 133}}
+ | source=« ''Progrès de la tolérance'' », dans ''La Feuille villageoise'', {{n°|32}}, du jeudi 3 mai 1792, Paris : Imprimerie Desenne, page 133}}
 #* {{exemple | lang=fr
  | Le long de la route, notre conducteur nous dit avoir '''naguère''' rencontré un ours, le matin, dans la vallée d'Ossau.
  | source=Michelet, ''Journal'', 1835, page 191}}

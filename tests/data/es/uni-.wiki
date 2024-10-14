@@ -16,7 +16,7 @@
 {{w|Prefijos del español}}
 
 ==== Traducciones ====
-{{trad afijo|pre}}
+{{nota traducción afijo|pre}}
 {{trad-arriba}}
 {{t|en|a1=1|t1=uni-}}
 {{t|it|a1=1|t1=uni-}}

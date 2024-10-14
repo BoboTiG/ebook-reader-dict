@@ -14,7 +14,8 @@
 ** {{audio|en|En-US contrastive_water.ogg|a=US,non-cot-caught}}
 * {{IPA|en|/ˈwɑtəɹ/|[ˈwɑɾɚ]|a=cot-caught}}, {{enPR|wätər}}
 ** {{audio|en|En-us-water.ogg|a=US,cot-caught}}
-* {{rhymes|en|ɔːtə(ɹ)|ɒtə(ɹ)|s=2}}
+* {{IPA|en|/ˈwɔːtə/|a=South Africa}}
+* {{rhymes|en|ɔːtə(ɹ)|s=2}}
 * {{hyphenation|en|wa|ter}}
 
 {{rel-top|Other accents and pronunciations}}
@@ -48,6 +49,8 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 
 # {{senseid|en|Q283}}{{lb|en|uncountable}} A substance (of molecular formula H<sub>2</sub>O) found at [[room temperature]] and pressure as a clear [[liquid]]; it is present naturally as [[rain#Noun|rain]], and found in [[river]]s, [[lake]]s and [[sea]]s; its solid form is [[ice#Noun|ice]] and its gaseous form is [[steam#Noun|steam]].
 #: {{ux|en|By the action of electricity, the '''water''' was resolved into its two parts, oxygen and hydrogen.}}
+#* '''1805''' December, Julius Griffiths, "A Journey across the Desert", ''The Monthly Mirror...'', p. 362:
+#*: It is wholly out of the power of language to convey any idea of the blissful enjoyment of obtaining '''water''', after an almost total want of it, during eight and forty hours, in the scorching regions of an Arabian desert, in the month of July.
 #* {{quote-journal|en|year=2013|month=September-October|author=[http://www.americanscientist.org/authors/detail/katie-l-burke Katie L. Burke]| magazine=w:American Scientist| title=[http://www.americanscientist.org/issues/pub/2013/5/in-the-news-47 In the News]| passage=Oxygen levels on Earth skyrocketed 2.4 billion years ago, when cyanobacteria evolved photosynthesis: the ability to convert '''water''' and carbon dioxide into carbohydrates and waste oxygen using solar energy.}}
 ## {{lb|en|uncountable|in particular}} The liquid form of this substance: liquid H<sub>2</sub>O.
 ##: {{ux|en|May I have a glass of '''water'''?}}
@@ -134,15 +137,17 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 * {{sense|basic elements}} {{l|en|earth}}, {{l|en|air}}/[[wind#Noun|wind]], [[fire#Noun|fire]]; [[wood]], [[metal]]; [[void#Noun|void]]/[[ether]]
 
 =====Derived terms=====
-{{col4|en|Allan Water|Boundary Waters|Two Waters
+{{col4|en
+|Allan Water|Boundary Waters|Two Waters
 |American Water Spaniel
 |American water spaniel
 |Apollinaris water
 |Ashford-in-the-Water|water cremation|water fairy|water jug|water sprite
 |Atwater
-|Australian water dragon
+|Australian water dragon|service water|water pie|water wand
 |Barbados water
 |Bourton-on-the-Water
+|Breydon Water
 |Bridgewater
 |Bywater
 |Cairn Water
@@ -1135,7 +1140,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |{{l|en|barley water}}, {{l|en|barley-water}}
 |{{l|en|black water}}, {{l|en|blackwater}}
 |{{l|en|blue water}}, {{l|en|bluewater}}, {{l|en|blue-water}}
-|{{l|en|break water}}, {{l|en|breakwater}}
+|breakwater
 |{{l|en|cold-water}}, {{l|en|cold water}}
 |{{l|en|deep water}}, {{l|en|Deep Water}}, {{l|en|deep-water}}, {{l|en|deepwater}}, {{l|en|Deepwater}}
 |{{l|en|dew water}}, {{l|en|dewwater}}
@@ -1394,7 +1399,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 * Serbo-Croatian:
 *: Roman: {{tt+|sh|pojiti}}, {{tt+|sh|napajati}}
 * Slovene: {{tt|sl|pojiti}}, {{tt|sl|napajati}}
-* Spanish: {{tt|es|[[dar]] [[agua]] a}}
+* Spanish: {{tt|es|[[dar]] [[agua]] a}}, {{t+|es|abrevar}}, {{t+|es|aguar}}
 * Swedish: {{tt+|sv|vattna}}
 * Tagalog: {{tt|tl|magpainom}}, {{tt|tl|painumin}}
 * Telugu: {{tt|te|నీరుపెట్టుట|sc=Telu}}
@@ -1526,7 +1531,7 @@ From {{inh|af|nl|water}}, from {{inh|af|dum|wāter}}, from {{inh|af|odt|watar}},
 From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*watar}}, from {{inh|nl|gem-pro|*watōr}}, from {{inh|nl|ine-pro|*wódr̥}}.
 
 ====Noun====
-{{nl-noun|n|-s|pl2=-@en|watertje}}
+{{nl-noun|n|-s|pl2=-@en|+}}
 
 # {{l|en|water}} {{gloss|H<sub>2</sub>O}}
 #: {{usex|nl|Het '''water''' kookte.|The '''water''' boiled.}}
@@ -1651,7 +1656,7 @@ From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*wa
 ====Verb====
 {{head|nl|verb form}}
 
-# {{infl of|nl|wateren||1|s|pres|ind|;|2-inv|;|imp}}
+# {{infl of|nl|wateren||bare-verb}}
 
 ===Further reading===
 * {{R:Van Dale online}}
@@ -1659,7 +1664,7 @@ From {{inh|nl|dum|wāter}}, from {{inh|nl|odt|watar}}, from {{inh|nl|gmw-pro|*wa
 ===Anagrams===
 * {{l|nl|tarwe}}
 
-{{topics|nl|Water}}
+{{C|nl|Water}}
 
 ==Dutch Low Saxon==
 

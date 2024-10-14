@@ -13,7 +13,7 @@
 ====Preposition====
 {{en-prep}}
 
-# {{non-gloss definition|Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.}}
+# {{non-gloss|Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.}}
 #: {{ux|en|He built a bus-'''cum'''-greenhouse that made a bold statement, but the plants in it didn't live very long.}}
 #: {{ux|en|But instead of being a salesperson '''cum''' barista '''cum''' waitress merely serving the wordsmiths, I'm one of them, reading her latest baby out loud.}}
 #* {{quote-book|en|year=1926-1950|author=w:George Bernard Shaw|title=Collected Letters: 1926-1950|url=http://books.google.com/books?id=UF08AAAAIAAJ|publisher=University of California/Viking|year_published=1985|page=31|passage=He is too good an actor to need that sort of tomfoolery: the effect will be far better if he is a credible mining camp elder-'''cum'''-publican.}}
@@ -24,7 +24,7 @@
 
 =====Usage notes=====
 Also used in some British place names and [[civil parish]] names, see table below
-{{col-auto|en|Chorlton-cum-Hardy|Suffield-cum-Everley|Aldringham cum Thorpe|Ash-cum-Ridley|Hannah cum Hagnaby|Warmfield cum Heath| Clapham cum Newby|Burton-cum-Walden|Holywell-cum-Needingworth|Sutton cum Duckmanton| Elloughton-cum-Brough|Raithby cum Maltby|Woodford cum Membris}}
+{{col-auto|en|Chorlton-cum-Hardy|Suffield-cum-Everley|Aldringham cum Thorpe|Ash-cum-Ridley|Hannah cum Hagnaby|Warmfield cum Heath| Clapham cum Newby|Burton-cum-Walden|Holywell-cum-Needingworth|Sutton cum Duckmanton| Elloughton-cum-Brough|Raithby cum Maltby|Woodford cum Membris|Headon cum Upton}}
 
 =====Translations=====
 {{trans-top}}
@@ -71,7 +71,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 |cumguzzler
 |cumrag
 |cumhole
-|cumdumpster
+|cum dumpster|cumball|cumbrain|cumbrained|cumhungry|cumlike|cummer|cummie|cummy|cumsicle|cumstain|cumthirsty
 |cumshot
 |cumload
 |cumwad
@@ -577,6 +577,9 @@ From {{inh|sco|enm|cumen}}, variant of {{m|enm|comen}}, from {{der|sco|ang|cuman
 {{head|sco|verb}}
 
 # to [[come]]
+
+===References===
+* {{R:DSL|pos=v}}
 
 ==Scottish Gaelic==
 

@@ -5,7 +5,7 @@
 |f-centr=LL-Q7026 (cat)-Unjoanqualsevol-català.wav
 |f-val=LL-Q7026 (cat)-Millars-català.wav
 }}
-{{-etimologia-}} D’origen incert, paral·lel al de {{m|ca|Catalunya}}, possiblement metàtesi del llatí {{m|la|lacetani|trad=lacetans}}.
+{{-etimologia-}} D’origen incert, paral·lel al de {{m|ca|Catalunya}}, {{etim-s|ca|XII}}. Potser de {{m|roa-oca|*catelanos}}, metàtesi del llatí {{m|la|Lacetanōs}}, acusatiu de {{m|la|Lacetani|t=lacetans}},<ref>{{DECat|IX|277|a|57}}</ref> poble ibèric de la regió central de Catalunya i que podria relacionar-se amb la menció de Ptolomeu dels {{m|grc||Καστελανοι}} o {{m|grc||Κατελανοι}}.<ref>{{OnCat|III|337}}</ref> Vegeu més informació a {{m|ca|Catalunya}}.
 
 === Adjectiu ===
 {{ca-adj|m}}
@@ -155,7 +155,6 @@
 * {{vegeu-cat|Català}}
 * {{Viquipèdia}}
 * {{ca-dicc|diec|gdlc|optimot}}
+{{referències}}
 
-{{catllengua|ca|Gentilicis|Llengües}}
-
-{{catllengua|ca|Autologismes}}
+{{catllengua|ca|Gentilicis|Llengües|Autologismes}}
