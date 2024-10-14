@@ -359,18 +359,20 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        # The etymology never pass?!
-        # (
-        #     "pinyin",
-        #     ["\\pin.jin\\"],
-        #     ["m"],
-        #     "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, formé de 拼 <i>pīn</i> (« épeler ») et de 音 <i>yīn</i> (« son »), donc «\xa0épeler les sons\xa0».",
-        #     [
-        #         "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",
-        #         "Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
-        #     ],
-        #     [],
-        # ),
+        (
+            "pinyin",
+            ["\\pin.jin\\"],
+            ["m"],
+            [
+                "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, composé de 拼, <i>pīn</i> («&nbsp;épeler&nbsp;») et de 音, <i>yīn</i> («&nbsp;son&nbsp;»).",
+                "<i>(Nom 2)</i> De l’anglais <i>Pinyin</i>.",
+            ],
+            [
+                "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",
+                "<i>(Linguistique)</i> Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
+            ],
+            [],
+        ),
         (
             "précepte",
             ["\\pʁe.sɛpt\\"],
