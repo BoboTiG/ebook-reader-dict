@@ -27,4 +27,4 @@ for key, value in sorted(m.items()):  # type: ignore[name-defined] # noqa: F821
     if short := value["short"]:
         print(f'    "{key}": "{short}",')
         count += 1
-print(f"}}  # {count:,}")  # type: ignore[name-defined] # noqa: F821
+print(f"}}  # {count:,}")
