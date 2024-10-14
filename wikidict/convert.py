@@ -21,7 +21,7 @@ from jinja2 import Template
 from marisa_trie import Trie
 from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
-from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS
+from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS, NO_ETYMOLOGY_SUFFIX
 from .lang import wiktionary
 from .stubs import Groups, Variants, Word, Words
 from .utils import (
@@ -131,9 +131,6 @@ WORD_TPL_DICTFILE = Template(
 )
 
 
-# Dictionnary file suffix for etymology-free files
-NO_ETYMOLOGY_SUFFIX = "-noetym"
-
 log = logging.getLogger(__name__)
 
 
@@ -213,10 +210,10 @@ class KoboFormat(BaseFormat):
         release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
         release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
         release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dicthtml-{locale}-{locale}-noetym.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}-noetym.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}-noetym.df.bz2)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}-noetym.zip)", "")
+        release = release.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
+        release = release.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
         release = release.replace("`", '"')
         release = release.replace("<sub>", "")
         release = release.replace("</sub>", "")

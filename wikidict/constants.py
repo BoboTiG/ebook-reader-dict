@@ -21,3 +21,6 @@ DOWNLOAD_URL_DICTORGFILE = f"{GH_REPOS}/releases/download/{{0}}/dictorg-{{0}}-{{
 DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}-{{0}}{{1}}.zip"
 DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}{{1}}.zip"
 ASSET_CHECKSUM_ALGO = "sha256"
+
+# Dictionnary file suffix for etymology-free files
+NO_ETYMOLOGY_SUFFIX = "-noetym"

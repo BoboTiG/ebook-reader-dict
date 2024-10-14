@@ -20,6 +20,7 @@ from .constants import (
     DOWNLOAD_URL_DICTORGFILE,
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
+    NO_ETYMOLOGY_SUFFIX,
     WIKIMEDIA_HEADERS,
     WIKIMEDIA_URL_MATH_CHECK,
     WIKIMEDIA_URL_MATH_RENDER,
@@ -143,10 +144,10 @@ def format_description(locale: str, output_dir: Path) -> str:
 - [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
 """.strip()
     download_links_noetym = f"""
-- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "-noetym")}) (dicthtml-{locale}-{locale}-noetym.zip)
-- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.zip)
-- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "-noetym")}) (dict-{locale}-{locale}-noetym.df.bz2)
-- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "-noetym")}) (dictorg-{locale}-{locale}-noetym.zip)
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
+- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)
+- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
 """.strip()
 
     creation_date = NOW.isoformat()
