@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .convert import (
     DictFileFormat,
+    DictOrgFormat,
     KoboFormat,
     StarDictFormat,
     make_variants,
@@ -30,10 +31,14 @@ def main(locale: str, words: str, output: str, format: str = "kobo") -> int:
         datetime.now(tz=UTC).strftime("%Y%m%d"),
     )
 
-    if format == "stardict":
-        run_formatter(DictFileFormat, *args)
-        run_formatter(StarDictFormat, *args)
-    else:
-        run_formatter(KoboFormat, *args)
+    match format:
+        case "dictorg":
+            run_formatter(DictFileFormat, *args)
+            run_formatter(DictOrgFormat, *args)
+        case "stardict":
+            run_formatter(DictFileFormat, *args)
+            run_formatter(StarDictFormat, *args)
+        case _:
+            run_formatter(KoboFormat, *args)
 
     return 0

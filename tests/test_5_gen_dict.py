@@ -17,7 +17,7 @@ from wikidict import gen_dict
         ("fr", "cercle unité"),  # Accentued word + space
     ],
 )
-@pytest.mark.parametrize("format", ["kobo", "stardict"])
+@pytest.mark.parametrize("format", ["kobo", "stardict", "dictorg"])
 def test_gen_dict(locale: str, words: str, format: str, tmp_path: Path) -> None:
     with patch.dict(os.environ, {"CWD": str(tmp_path)}):
         res = gen_dict.main(locale, words, str(uuid4()), format=format)
