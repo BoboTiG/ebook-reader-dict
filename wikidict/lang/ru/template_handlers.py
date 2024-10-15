@@ -37,8 +37,13 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     'Fahne «знамя»'
     >>> render_lang("lang", ["ru", "зна́мя"], defaultdict(str, {}))
     'русск. зна́мя'
+    >>> render_lang("lang", ["el"], defaultdict(str, {}))
+    'греч.'
     """
     lang_short = langs_short.get(parts.pop(0), "")
+    if not parts and not data:
+        return lang_short
+
     text = f"{data['зачин']}"
     if data["скр"] != "1":
         text += f" {lang_short}"
