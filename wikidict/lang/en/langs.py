@@ -9310,6 +9310,7 @@ langs = {
     "xsc-pro": "Proto-Scythian",
     "xsc-sak": "Sakan",
     "xsc-sak-pro": "Proto-Saka",
+    "xsc-sar": "Proto-Sarmatian",
     "xsc-skw": "Saka-Wakhi",
     "xsc-skw-pro": "Proto-Saka-Wakhi",
     "xsd": "Sidetic",
@@ -9825,7 +9826,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,820
+}  # 9,821
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
