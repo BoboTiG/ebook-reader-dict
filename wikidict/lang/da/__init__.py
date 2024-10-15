@@ -45,6 +45,7 @@ sections = (
 templates_ignored = (
     "da-car-numbers",
     "da-v-pres",
+    "da-verb",
     "de",
     "definition mangler",
     "dm",
