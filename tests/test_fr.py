@@ -575,8 +575,6 @@ def test_parse_word(
         ("{{souligner|r}}espiratory", "<u>r</u>espiratory"),
         ("{{sport}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
-        ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
-        ("{{trad-|la|fiducia}}", "fiducia"),
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),

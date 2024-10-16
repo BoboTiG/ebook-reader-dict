@@ -1113,6 +1113,18 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return term(capitalize(data["libellé"] or data["1"] or parts[0]))
 
 
+def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_trad("trad-", ["la", "fiducia"], defaultdict(str))
+    'fiducia'
+    >>> render_trad("trad+", ["conv", "Sitophilus granarius"], defaultdict(str))
+    'Sitophilus granarius'
+    >>> render_trad("trad+", ["es", "bisojo"], defaultdict(str, {"dif": "bis-ojo"}))
+    'bis-ojo'
+    """
+    return data["dif"] or parts[-1]
+
+
 def render_transitif(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_transitif("transitif+", ["fr"], defaultdict(str, {"a1": "de"}))
@@ -1328,6 +1340,8 @@ template_mapping = {
     "term": render_term,
     "terme": render_term,
     "term lien": render_term,
+    "trad-": render_trad,
+    "trad+": render_trad,
     "transitif+": render_transitif,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,

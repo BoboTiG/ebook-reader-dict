@@ -634,9 +634,6 @@ templates_multi = {
     "substantivation de": 'f"Substantivation de {italic(parts[1])}"',
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
-    # {{trad+|conv|Sitophilus granarius}}
-    "trad+": "parts[2]",
-    "trad-": "parts[2]",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
