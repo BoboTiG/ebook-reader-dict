@@ -316,7 +316,11 @@ def italic(text: str) -> str:
 
         >>> italic("foo")
         '<i>foo</i>'
+        >>> italic("<i>foo</i>")
+        '<i>foo</i>'
     """
+    if text.startswith("<i>") and text.endswith("</i>"):
+        return text
     return f"<i>{text}</i>"
 
 
