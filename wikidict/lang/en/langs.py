@@ -8724,7 +8724,7 @@ langs = {
     "vbb": "Southeast Babar",
     "vbk": "Southwestern Bontoc",
     "ve": "Venda",
-    "vec": "Venetian",
+    "vec": "Venetan",
     "ved": "Veddah",
     "vel": "Veluws",
     "vem": "Vemgo-Mabas",

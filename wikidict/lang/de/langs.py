@@ -126,6 +126,7 @@ langs = {
     "ckb": "Sorani",
     "ckt": "Tschuktschisch",
     "cmn": "Mandarin",
+    "cnr": "Montenegrinisch",
     "cnx": "Mittelkornisch",
     "co": "Korsisch",
     "com": "Comanche",
@@ -198,6 +199,7 @@ langs = {
     "gan": "Gan",
     "gay": "Gayo",
     "gcf": "Guadeloupe-Kreolisch",
+    "gcr": "Französisch-Guayana-Kreolisch",
     "gd": "Schottisch-Gälisch",
     "gdq": "Mehri",
     "gem": "Urgermanisch",
@@ -689,5 +691,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 684
+}  # 686
 # END
