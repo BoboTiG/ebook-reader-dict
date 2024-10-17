@@ -1048,6 +1048,7 @@ labels = {
     "canid": "zoology",
     "canoeing": "canoeing",
     "cant": "cant",
+    "capitalised": "capitalized",
     "capitalism": "capitalism",
     "capitalized": "capitalized",
     "carbohydrate": "biochemistry",
@@ -1269,6 +1270,8 @@ labels = {
     "dysphemism": "dysphemistic",
     "dysphemistic": "dysphemistic",
     "earth science": "earth science",
+    "eating disorder": "eating disorders",
+    "eating disorders": "eating disorders",
     "ecclesiastical": "ecclesiastical",
     "ecology": "ecology",
     "economics": "economics",
@@ -2154,8 +2157,12 @@ labels = {
     "sectarian slur": "religious slur",
     "seduction community": "seduction community",
     "seismology": "seismology",
+    "self harm": "self-harm",
     "self-deprecating": "self-deprecatory",
     "self-deprecatory": "self-deprecatory",
+    "self-harm": "self-harm",
+    "self-harm community": "self-harm",
+    "selfharm": "self-harm",
     "semantics": "semantics",
     "semelfactive": "semelfactive",
     "semiconductors": "semiconductors",
@@ -2474,7 +2481,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,469
+}  # 2,476
 
 syntaxes = {
     "&": {
