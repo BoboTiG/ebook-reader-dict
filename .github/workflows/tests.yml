@@ -3,7 +3,7 @@ name: Quality & Tests
 on: pull_request
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -28,10 +28,8 @@ jobs:
         run: python -Wd -m pytest tests --doctest-modules wikidict
 
       - name: Automerge
-        if: github.actor == 'dependabot[bot]'
-        uses: pascalgn/automerge-action@v0.16.4
+        if: ${{ github.actor == 'dependabot[bot]' }}
+        run: gh pr merge --auto --rebase "$PR_URL"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: automerge,!DO_NOT_MERGE
-          MERGE_METHOD: squash
-          MERGE_DELETE_BRANCH: true
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
