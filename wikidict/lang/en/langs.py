@@ -9310,7 +9310,7 @@ langs = {
     "xsc-pro": "Proto-Scythian",
     "xsc-sak": "Sakan",
     "xsc-sak-pro": "Proto-Saka",
-    "xsc-sar": "Proto-Sarmatian",
+    "xsc-sar-pro": "Proto-Sarmatian",
     "xsc-skw": "Saka-Wakhi",
     "xsc-skw-pro": "Proto-Saka-Wakhi",
     "xsd": "Sidetic",

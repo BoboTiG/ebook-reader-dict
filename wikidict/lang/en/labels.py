@@ -252,7 +252,7 @@ labels = {
     "EME": "Early Modern",
     "ES": "Spain",
     "EU": "European Union",
-    "EU politics": "European politics",
+    "EU politics": "EU politics",
     "Early Modern": "Early Modern",
     "Early Modern English": "Early Modern",
     "East Africa": "East Africa",
@@ -335,6 +335,7 @@ labels = {
     "Hispanicism": "Castilianism",
     "Homeric epithet": "Homeric epithet",
     "Hong Kong": "Hong Kong",
+    "Hong Kong politics": "HK politics",
     "Hungary": "Hungary",
     "IE": "Ireland",
     "IP law": "copyright law",
@@ -2481,7 +2482,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,476
+}  # 2,477
 
 syntaxes = {
     "&": {
