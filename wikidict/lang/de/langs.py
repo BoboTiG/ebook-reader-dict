@@ -199,7 +199,7 @@ langs = {
     "gan": "Gan",
     "gay": "Gayo",
     "gcf": "Guadeloupe-Kreolisch",
-    "gcr": "Französisch-Guayana-Kreolisch",
+    "gcr": "Französisch-Guayanisches Kreol",
     "gd": "Schottisch-Gälisch",
     "gdq": "Mehri",
     "gem": "Urgermanisch",
