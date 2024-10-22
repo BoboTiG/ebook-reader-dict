@@ -81,6 +81,10 @@ templates_multi: dict[str, str] = {
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
     # {{ετικ|γαστρονομία|τρόφιμα|γλυκά}}
     "ετικ": "'(' + ', '.join(italic(p) for p in parts[1:]) + ')'",
+    # {{κνε}}
+    "κνε": "italic('κοινή νεοελληνική')",
+    # {{νε}}
+    "νε": "italic('νέα ελληνική')",
 }
 
 

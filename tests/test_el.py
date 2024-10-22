@@ -65,6 +65,8 @@ def test_parse_word(
     [
         ("{{resize|Βικιλεξικό|140}}", '<span style="font-size:140%;">Βικιλεξικό</span>'),
         ("{{ετικ|γαστρονομία|τρόφιμα|γλυκά}}", "(<i>γαστρονομία</i>, <i>τρόφιμα</i>, <i>γλυκά</i>)"),
+        ("{{κνε}}", "<i>κοινή νεοελληνική</i>"),
+        ("{{νε}}", "<i>νέα ελληνική</i>"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:
