@@ -44,41 +44,53 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return f"{italic(text)}{following}"
 
 
-def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
-    >>> render_μτφδ("μτφδ", [], defaultdict(str))
+    >>> render_etym("etym", ["grc", "el", "ἄλαστος"], defaultdict(str))
+    '<i>αρχαία ελληνική</i> ἄλαστος'
+
+    >>> render_etym("μτφδ", [], defaultdict(str))
     '(μεταφραστικό δάνειο)'
-    >>> render_μτφδ("μτφδ", ["en"], defaultdict(str))
+    >>> render_etym("μτφδ", ["en"], defaultdict(str))
     '(μεταφραστικό δάνειο) <i>αγγλική</i>'
-    >>> render_μτφδ("μτφδ", ["en", "el"], defaultdict(str))
+    >>> render_etym("μτφδ", ["en", "el"], defaultdict(str))
     '(μεταφραστικό δάνειο) <i>αγγλική</i>'
-    >>> render_μτφδ("μτφδ", ["en", "el"], defaultdict(str, {"nodisplay": "1"}))
+    >>> render_etym("μτφδ", ["en", "el"], defaultdict(str, {"nodisplay": "1"}))
     ''
-    >>> render_μτφδ("μτφδ", ["en", "el"], defaultdict(str, {"000": "-"}))
+    >>> render_etym("μτφδ", ["en", "el"], defaultdict(str, {"000": "-"}))
     ''
-    >>> render_μτφδ("μτφδ", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
+    >>> render_etym("μτφδ", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
     '(μεταφραστικό δάνειο) <i>αγγλική</i> skyscraper'
-    >>> render_μτφδ("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"text": "1"}))
+    >>> render_etym("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"text": "1"}))
     'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
-    >>> render_μτφδ("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"κειμ": "1"}))
+    >>> render_etym("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"κειμ": "1"}))
     'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
 
-    >>> render_μτφδ("δαν", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
+    >>> render_etym("δαν", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
     '(άμεσο δάνειο) <i>αγγλική</i> skyscraper'
-    >>> render_μτφδ("δαν", ["it", "el", "-are", "-ar(e)"], defaultdict(str))
+    >>> render_etym("δαν", ["it", "el", "-are", "-ar(e)"], defaultdict(str))
     '(άμεσο δάνειο) <i>ιταλική</i> -ar(e)'
 
-    >>> render_μτφδ("λδαν", ["en", "el", "skyscraper"], defaultdict(str))
+    >>> render_etym("λδαν", ["en", "el", "skyscraper"], defaultdict(str))
     '(λόγιο δάνειο) <i>αγγλική</i> skyscraper'
     """
     if data["000"] == "-" or data["nodisplay"] == "1":
         return ""
 
-    phrase = "μεταφραστικό δάνειο" if tpl == "μτφδ" else "άμεσο δάνειο" if tpl == "δαν" else "λόγιο δάνειο"
-    if data["text"] != "1" and data["κειμ"] != "1":
-        phrase = f"({phrase})"
-    else:
-        phrase += f" από {italic('τη')}"
+    phrase = (
+        "μεταφραστικό δάνειο"
+        if tpl == "μτφδ"
+        else "άμεσο δάνειο"
+        if tpl == "δαν"
+        else "λόγιο δάνειο"
+        if tpl == "λδαν"
+        else ""
+    )
+    if tpl != "etym":
+        if data["text"] != "1" and data["κειμ"] != "1":
+            phrase = f"({phrase})"
+        else:
+            phrase += f" από {italic('τη')}"
 
     if parts:
         phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
@@ -87,14 +99,15 @@ def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], wor
         if parts:
             phrase += f" {parts[-1]}"
 
-    return phrase
+    return phrase.strip()
 
 
 template_mapping = {
     "βλ": render_βλ,
-    "δαν": render_μτφδ,
-    "λδαν": render_μτφδ,
-    "μτφδ": render_μτφδ,
+    "etym": render_etym,
+    "δαν": render_etym,
+    "λδαν": render_etym,
+    "μτφδ": render_etym,
 }
 
 
