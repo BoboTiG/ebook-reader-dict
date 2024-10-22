@@ -92,9 +92,11 @@ def main(locale: str) -> int:
     # Fetch and uncompress the snapshot file
     try:
         file = fetch_pages(snapshot, locale, output_dir, callback_progress)
-    except HTTPError:
+    except HTTPError as exc:
         (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
-        log.exception("Wiktionary dump is ongoing ... ")
+        if exc.response.status_code != 404:
+            raise
+        log.info("Wiktionary dump is ongoing ... ")
         log.info("Will use the previous one.")
         snapshot = snapshots[-2]
         file = fetch_pages(snapshot, locale, output_dir, callback_progress)
