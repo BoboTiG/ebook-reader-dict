@@ -46,6 +46,10 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
 
 def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
+    >>> render_μτφδ("μτφδ", [], defaultdict(str))
+    '(μεταφραστικό δάνειο)'
+    >>> render_μτφδ("μτφδ", ["en"], defaultdict(str))
+    '(μεταφραστικό δάνειο) <i>αγγλική</i>'
     >>> render_μτφδ("μτφδ", ["en", "el"], defaultdict(str))
     '(μεταφραστικό δάνειο) <i>αγγλική</i>'
     >>> render_μτφδ("μτφδ", ["en", "el"], defaultdict(str, {"nodisplay": "1"}))
@@ -67,10 +71,12 @@ def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], wor
         phrase = f"({phrase})"
     else:
         phrase += f" από {italic('τη')}"
-    phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
-    parts.pop(0)  # Remove the lang
     if parts:
-        phrase += f" {parts[0]}"
+        phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
+        if parts:
+            parts.pop(0)  # Remove the lang
+        if parts:
+            phrase += f" {parts[0]}"
     return phrase
 
 
