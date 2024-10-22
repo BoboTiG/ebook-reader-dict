@@ -1,7 +1,47 @@
 from collections import defaultdict
 
-from ...user_functions import extract_keywords_from, italic
+from ...user_functions import concat, extract_keywords_from, italic
 from .langs import langs
+
+
+def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_βλ("βλ", [], defaultdict(str))
+    '<i>→ δείτε τη λέξη</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"και": "1"}))
+    '<i>→ και δείτε τη λέξη</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"και": "2"}))
+    '<i>→ δείτε και τη λέξη</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"πθ": "1"}))
+    '<i>→ δείτε παράθεμα στο</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"πθ": "1", "και": "2"}))
+    '<i>→ δείτε και παράθεμα στο</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"όρος": "1"}))
+    '<i>→ δείτε τους όρους</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"όρος": "..."}))
+    '<i>→ δείτε ...</i>'
+    >>> render_βλ("βλ", ["a", "b", "c"], defaultdict(str, {"όρος": "1", "γλ": "en"}))
+    '<i>→ δείτε τους όρους</i> a, b<i> και </i>c'
+    """
+    text = "→"
+    no_prefix = "πθ" not in data and "όρος" not in data
+
+    if data["και"] == "1":
+        text += " και"
+    if data["0"] != "-":
+        text += " δείτε"
+    if data["και"] == "2":
+        text += " και"
+    if no_prefix:
+        text += " τις λέξεις" if len(parts) > 1 else " τη λέξη"
+
+    if data["πθ"]:
+        text += " παράθεμα στο"
+    elif όρος := data["όρος"]:
+        text += f" {'τους όρους' if όρος == '1' else όρος}"
+
+    following = (" " + concat(parts, sep=", ", last_sep=italic(" και "))) if parts else ""
+    return f"{italic(text)}{following}"
 
 
 def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
@@ -35,6 +75,7 @@ def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], wor
 
 
 template_mapping = {
+    "βλ": render_βλ,
     "μτφδ": render_μτφδ,
 }
 
