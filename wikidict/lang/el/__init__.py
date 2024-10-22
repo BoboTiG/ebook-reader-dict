@@ -326,8 +326,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "αρχ":
         phrase = "αρχαία ελληνική"
-        if not data["0"]:
-            phrase = term(phrase)
         return phrase
 
     if tpl == "μσν":
