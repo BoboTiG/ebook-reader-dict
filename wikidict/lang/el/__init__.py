@@ -291,6 +291,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'μαλλί + -ης'
         >>> last_template_handler(["πρόσφ", "μαλλί", ".1=μαλλ(ί)", "-ης"], "el")
         'μαλλ(ί) + -ης'
+
+        >>> last_template_handler(["fr"], "el")
+        'γαλλικά'
     """
     from ...user_functions import concat, italic, strong
     from .. import defaults
@@ -410,5 +413,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         for idx, part in enumerate(parts, 1):
             words.append(data[f".{idx}"] or part)
         return concat(words, sep=" + ")
+
+    # This is a country in the current locale
+    if lang := langs.get(tpl):
+        return str(lang["name"])
 
     return defaults.last_template_handler(template, locale, word=word)
