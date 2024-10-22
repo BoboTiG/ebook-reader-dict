@@ -88,6 +88,10 @@ templates_multi: dict[str, str] = {
     "νε": "italic('νέα ελληνική')",
 }
 
+# Templates that will be completed/replaced using custom style.
+templates_other = {
+    "*": "<big>*</big>",
+}
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
