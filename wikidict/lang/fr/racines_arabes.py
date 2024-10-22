@@ -1992,6 +1992,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "raconter",
         "ar-*a*â*@ũ": "nouveauté",
         "ar-*a*î*ũ": "récit",
+        "ar-*awâ*i*u": "{{p}} changements",
         "ar-*i**ânũ": "événement",
         "ar-*i**ũ": "conteur",
         "ar-*i*â*@ũ": "commencement",
@@ -2003,10 +2004,12 @@ racines_schemes_arabes = {
         "ar-*u*a*â'u": "{{p}} récents",
         "ar-*u*û*ũ": "apparition",
         "ar-*â*a*a": "converser",
+        "ar-*â*i*@ũ": "{{f}} récente",
+        "ar-*â*i*âtũ": "{{p}} changements",
         "ar-*â*i*ũ": "récent",
+        "ar-*î*â*@ũ": "{{p}} changements",
         "ar-a**a*a": "produire",
         "ar-a**â*ũ": "{{p}} traditions",
-        "ar-a**û*ũ": "nouvelle",
         "ar-a*â*î*u": "{{p}} histoires",
         "ar-mu*a*²a*ũ": "digne de foi",
         "ar-mu*a*²i*ũ": "conteur",
@@ -2017,7 +2020,8 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "discuter",
         "ar-ta*a*²u*ũ": "pédérastie",
         "ar-ta*â*a*a": "s'entretenir",
-    },  # 38
+        "ar-u**û*@ũ": "nouvelle",
+    },  # 42
     "ar-Hdd": {
         "aa_sens": "coupant, acéré",
         "ar-*a**ũ": "aiguisé",
