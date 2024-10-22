@@ -292,6 +292,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["πρόσφ", "μαλλί", ".1=μαλλ(ί)", "-ης"], "el")
         'μαλλ(ί) + -ης'
 
+        >>> last_template_handler(["αρχ"], "el")
+        '<i>αρχαία ελληνική</i>'
+        >>> last_template_handler(["αρχ", "ὅπου"], "el")
+        '<i>αρχαία ελληνική</i> ὅπου'
+
         >>> last_template_handler(["fr"], "el")
         'γαλλικά'
     """
@@ -325,7 +330,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl == "αρχ":
-        phrase = "αρχαία ελληνική"
+        phrase = italic("αρχαία ελληνική")
+        if parts:
+            phrase += f" {parts[0]}"
         return phrase
 
     if tpl == "μσν":
