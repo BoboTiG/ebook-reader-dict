@@ -62,26 +62,34 @@ def render_μτφδ(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
     >>> render_μτφδ("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"κειμ": "1"}))
     'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
+
+    >>> render_μτφδ("δαν", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
+    '(άμεσο δάνειο) <i>αγγλική</i> skyscraper'
+    >>> render_μτφδ("δαν", ["it", "el", "-are", "-ar(e)"], defaultdict(str))
+    '(άμεσο δάνειο) <i>ιταλική</i> -ar(e)'
     """
     if data["000"] == "-" or data["nodisplay"] == "1":
         return ""
 
-    phrase = "μεταφραστικό δάνειο"
+    phrase = "μεταφραστικό δάνειο" if tpl == "μτφδ" else "άμεσο δάνειο"
     if data["text"] != "1" and data["κειμ"] != "1":
         phrase = f"({phrase})"
     else:
         phrase += f" από {italic('τη')}"
+
     if parts:
         phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
         if parts:
             parts.pop(0)  # Remove the lang
         if parts:
-            phrase += f" {parts[0]}"
+            phrase += f" {parts[-1]}"
+
     return phrase
 
 
 template_mapping = {
     "βλ": render_βλ,
+    "δαν": render_μτφδ,
     "μτφδ": render_μτφδ,
 }
 
