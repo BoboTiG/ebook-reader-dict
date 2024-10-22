@@ -73,6 +73,9 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
 
     >>> render_etym("λδαν", ["en", "el", "skyscraper"], defaultdict(str))
     '(λόγιο δάνειο) <i>αγγλική</i> skyscraper'
+
+    >>> render_etym("κλη", ["en", "el", "skyscraper"], defaultdict(str))
+    '(κληρονομημένο) <i>αγγλική</i> skyscraper'
     """
     if data["000"] == "-" or data["nodisplay"] == "1":
         return ""
@@ -84,6 +87,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
         if tpl == "δαν"
         else "λόγιο δάνειο"
         if tpl == "λδαν"
+        else "κληρονομημένο"
+        if tpl == "κλη"
         else ""
     )
     if tpl != "etym":
@@ -105,6 +110,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
 template_mapping = {
     "βλ": render_βλ,
     "etym": render_etym,
+    "κλη": render_etym,
     "δαν": render_etym,
     "λδαν": render_etym,
     "μτφδ": render_etym,
