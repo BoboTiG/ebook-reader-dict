@@ -87,16 +87,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    # {{tpl|item1|item2|...}} -> ''
-    if len(template) > 2:
-        from ..render import MISSING_TEMPLATES
-
-        MISSING_TEMPLATES.append((tpl, word))
-        return ""
-
-    # {{template}}
+    from ..render import MISSING_TEMPLATES
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
+    MISSING_TEMPLATES.append((tpl, word))
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 

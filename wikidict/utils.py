@@ -437,7 +437,7 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
         >>> process_templates("foo", "{{unknown}}", "fr")
         '{{unknown}}'
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
-        ''
+        '{{foo}}'
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
         >>> process_templates("EPR=ER", "{{alternative form of|mul|ER{{=}}EPR}}", "en")
@@ -595,7 +595,7 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
         >>> transform("foo", "conj|grp=1|fr", "fr")
-        ''
+        '##opendoublecurly##conj##closedoublecurly##'
 
         >>> # Magic words
         >>> transform("De_Witte", "PAGENAME", "fr")
