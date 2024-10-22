@@ -72,6 +72,7 @@ templates_ignored = (
     "R:TELETERM",
     "κλείδα-ελλ",
     "λείπει η ετυμολογία",
+    "περίοδος",
 )
 
 # Templates more complex to manage.
