@@ -73,6 +73,7 @@ templates_ignored = (
     "κλείδα-ελλ",
     "λείπει η ετυμολογία",
     "περίοδος",
+    "από",
 )
 
 # Templates more complex to manage.
