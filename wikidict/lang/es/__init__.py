@@ -189,6 +189,7 @@ templates_multi = {
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 
 templates_other = {
+    "antropónimo ambiguo": "<i>Nombre de pila tanto de mujer como de varón</i>",
     "onomatopeya": "Onomatopeya",
 }
 
