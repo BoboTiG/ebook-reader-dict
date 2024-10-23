@@ -246,7 +246,7 @@ templates_multi = {
     # {{infl of|en|cling||ing-form}}
     "infl of": "parts[2]",
     # {{plural of|en|human}}
-    "plural of": "parts[-1]",
+    "plural of": "parts[2]",
 }
 
 # Templates that will be completed/replaced using custom text.

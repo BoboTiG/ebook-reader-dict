@@ -370,6 +370,10 @@ def test_parse_word(
         ("{{non-gloss definition|Definite grammatical}}", "<i>Definite grammatical</i>"),
         ("{{non-gloss definition|1=Definite grammatical}}", "<i>Definite grammatical</i>"),
         ("{{nowrap|1=[ ...=C=C=C=... ]}}", '<span style="white-space:nowrap">[...=C=C=C=...</span>'),
+        (
+            "{{plural of|en|Madame|t=title equivalent to ''Mrs.'' or ''Ms.'', used for French-speaking women and (by custom) certain other individuals}}",
+            "Madame",
+        ),
         ("{{q|formal|used only in the plural}}", "(<i>formal</i>, <i>used only in the plural</i>)"),
         ("{{qual|Used only in the plural in the UK}}", "(<i>Used only in the plural in the UK</i>)"),
         ("{{qualifier|Used only in the plural in the UK}}", "(<i>Used only in the plural in the UK</i>)"),
