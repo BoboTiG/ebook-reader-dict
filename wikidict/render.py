@@ -282,9 +282,30 @@ def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
     return top_sections, ret
 
 
-def add_potential_variant(word: str, tpl: str, locale: str, variants: list[str]) -> None:
-    if (variant := process_templates(word, tpl, locale)) and variant != word:
-        variants.append(variant)
+def add_potential_variant(
+    word: str,
+    tpl: str,
+    locale: str,
+    variants: list[str],
+    repl: Callable[[str, str], str] = re.compile(r"(</?[^>]+>)").sub,
+) -> None:
+    """
+    Ensure a variant identical to the word is not taken into account:
+    >>> variants_lst = []
+    >>> add_potential_variant("19e", "{{fr-rég|diz.nœ.vjɛm|s=19{{e}}|p=19{{e|es}}}}", "fr", variants_lst)
+    >>> variants_lst
+    []
+
+    Ensure HTML tags are stripped from variants:
+    >>> variants_lst = []
+    >>> add_potential_variant("19es", "{{fr-rég|diz.nœ.vjɛm|s=19{{e}}|p=19{{e|es}}}}", "fr", variants_lst)
+    >>> variants_lst
+    ['19e']
+    """
+    if (variant := process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
+        if any(char in variant_cleaned for char in "<>|="):
+            log.warning(f"Potential variant issue: {variant=} → {variant_cleaned=} for {word=}")
+        variants.append(variant_cleaned)
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
