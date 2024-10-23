@@ -34,6 +34,7 @@ variant_templates = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "Absatz",
     "Anker",
     "Audio",
     "Bpur",
