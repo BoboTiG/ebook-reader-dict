@@ -112,6 +112,8 @@ templates_multi = {
     "p": "italic('flertal')",
     # {{præteritum participium af}}
     "præteritum participium af": "italic('præteritum participium af')",
+    # {{stavefejl for}}
+    "stavefejl for": "italic('stavefejl for')",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{URchar|الكحل}}
