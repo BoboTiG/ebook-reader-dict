@@ -349,6 +349,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
     ''
     >>> adjust_wikicode("<!--\nsco\n-->", "it")
     ''
+
+    >>> adjust_wikicode("#participio presente di [[amare]]", "it")
+    '#{{verb-flexion|amare}}'
+    >>> adjust_wikicode("# participio presente di [[amare]]", "it")
+    '# {{verb-flexion|amare}}'
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -431,8 +436,16 @@ def adjust_wikicode(code: str, locale: str) -> str:
                 flags=re.MULTILINE,
             )
             # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{verb-flexion|brillantare}}`
+            # terza persona singolare dell'indicativo presente di
             code = re.sub(
-                r"^(#\s?)+\w+ (?:persona plurale de).+ [^\[]+\[\[([^\]]+)\]\]",
+                r"^(#\s?)+\w+ (?:persona (?:singolare|plurale) de).+ [^\[]+\[\[([^\]]+)\]\]",
+                r"\1{{verb-flexion|\2}}",
+                code,
+                flags=re.MULTILINE,
+            )
+            # `# participio presente di [[amare]] → `{{verb-flexion|amare}}`
+            code = re.sub(
+                r"^(#\s?)+participio presente di \[\[([^\]]+)\]\]",
                 r"\1{{verb-flexion|\2}}",
                 code,
                 flags=re.MULTILINE,
