@@ -476,6 +476,28 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 17
+    "ar-'sf": {
+        "aa_sens": "triste",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*ũ": "chagrin",
+        "ar-*a*i*a-a": "être triste",
+        "ar-*a*i*ũ": "affligé",
+        "ar-*a*²a*a": "",
+        "ar-*a*î*@ũ": "{{f}} triste",
+        "ar-*a*î*ũ": "triste",
+        "ar-*a*û*ũ": "triste",
+        "ar-*i*â*ũ": "territoire stérile",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "désolé",
+        "ar-a**a*a": "fâcher",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "regretter",
+        "ar-ta*a*²u*ũ": "regret",
+        "ar-ta*â*a*a": "",
+    },  # 20
     "ar-'sm": {
         "aa_sens": "nommer (voir [[س م و]])",
         "ar-**a*²a": "",
@@ -7956,6 +7978,34 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "sautiller",
         "ar-ta*â*a*a": "se bouger",
     },  # 20
+    "ar-rw3": {
+        "aa_sens": "frayeur",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "frayeur",
+        "ar-*a**ũ": "peur",
+        "ar-*a*a*@ũ": "beauté",
+        "ar-*a*a*a-i": "revenir",
+        "ar-*a*a*a-u": "saisir",
+        "ar-*a*²a*a": "faire peur",
+        "ar-*awâ*i*u": "{{f}} {{p}} saisissantes",
+        "ar-*ta*a*a": "être effrayé",
+        "ar-*u**ũ": "cœur",
+        "ar-*u*â*@ũ": "{{f}} intelligente",
+        "ar-*u*â*ũ": "intelligent",
+        "ar-*u*û*ũ": "terreur",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} saisissante",
+        "ar-*â*i*ũ": "saisissant",
+        "ar-a**a*a": "faire peur",
+        "ar-a**a*u": "qui plaît",
+        "ar-a**â*ũ": "terrible",
+        "ar-mu*a*²a*ũ": "sagace",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "s'effaroucher",
+        "ar-ta*â*a*a": "",
+    },  # 26
     "ar-rwD": {
         "aa_sens": "apprivoiser, exercer, jardiner",
         "ar-***ũ": "",
@@ -9484,5 +9534,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 325
+}  # 327
 # END

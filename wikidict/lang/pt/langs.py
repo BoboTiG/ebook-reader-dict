@@ -978,6 +978,7 @@ langs = {
     "ofs": "Frísio Antigo",
     "oge": "Georgiano Antigo",
     "oj": "Ojibua",
+    "ojp": "Japonês antigo",
     "ojv": "Ontong Java",
     "olo": "Livicoviano",
     "om": "Oromo",
@@ -1488,5 +1489,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,483
+}  # 1,484
 # END
