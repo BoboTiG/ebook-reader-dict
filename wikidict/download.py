@@ -96,7 +96,7 @@ def main(locale: str) -> int:
         (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
         if exc.response.status_code != 404:
             raise
-        log.info("Wiktionary dump is ongoing ... ")
+        log.warning("Wiktionary dump is ongoing ... ")
         log.info("Will use the previous one.")
         snapshot = snapshots[-2]
         file = fetch_pages(snapshot, locale, output_dir, callback_progress)
