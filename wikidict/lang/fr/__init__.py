@@ -223,6 +223,7 @@ templates_italic = {
     "argot typographes": "Argot des typographes",
     "argot voleurs": "Argot des voleurs",
     "astron": "Astronomie",
+    "attestation pays de Retz": "Pays de Retz",
     "au féminin": "Au féminin",
     "au figuré": "Sens figuré",
     "au pluriel": "Au pluriel",
