@@ -196,6 +196,38 @@ def render_contraccion(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
+def render_dle(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_dle("DLE", [], defaultdict(str), word="raulí")
+    '«raulí» en <i>Diccionario de la lengua española</i>. Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. 23.ª ed, Madrid, 2014.'
+    >>> render_dle("DLE", ["titulo"], defaultdict(str, {"fc" : "2024-10-23"}), word="raulí")
+    '«titulo» en <i>Diccionario de la lengua española</i>. Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. 23.ª ed, Madrid, 2014. Consultado: 23 oct 2024.'
+    """
+    phrase = (
+        f"«{parts[0] if parts else word}» en {italic('Diccionario de la lengua española')}. "
+        "Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. "
+        "23.ª ed, Madrid, 2014."
+    )
+    if consulted := data["fc"]:
+        year, month, day = consulted.split("-")
+        month = {
+            "01": "ene",
+            "02": "feb",
+            "03": "mar",
+            "04": "abr",
+            "05": "may",
+            "06": "jun",
+            "07": "jul",
+            "08": "ago",
+            "09": "set",
+            "10": "oct",
+            "11": "noc",
+            "12": "dic",
+        }[month]
+        phrase += f" Consultado: {day} {month} {year}."
+    return phrase
+
+
 def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
@@ -787,6 +819,7 @@ template_mapping = {
     "comparativo": render_comparativo,
     "contracción": render_contraccion,
     "diminutivo": render_aumentativo,
+    "DLE": render_dle,
     "etim": render_etim,
     "etimología": render_etimologia,
     "forma": render_forma,
