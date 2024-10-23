@@ -414,6 +414,7 @@ templates_italic = {
     "poét": "Poétique",
     "polit": "Politique",
     "popu": "Populaire",
+    "populaire": "Populaire",
     "presse": "Journalisme",
     "procédure": "Justice",
     "prog": "Programmation informatique",
