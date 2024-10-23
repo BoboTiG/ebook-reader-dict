@@ -51,6 +51,7 @@ templates_ignored = (
     "dm",
     "infl",
     "Personlige pronominer på dansk",
+    "Possessive pronominer på dansk",
     "pn",
     "rfe",
     "-syn-",
