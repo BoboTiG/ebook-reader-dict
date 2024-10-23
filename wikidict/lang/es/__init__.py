@@ -115,6 +115,7 @@ templates_italic = {
     "coloquial": "Coloquial",
     "Coloquial": "Coloquial",
     "elevado": "Literario",
+    "extranjerismo": "Préstamo no adaptado",
     "figurado": "Figurado",
     "germanía": "Jergal",
     "jergal": "Jergal",
