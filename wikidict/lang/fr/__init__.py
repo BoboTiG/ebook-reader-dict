@@ -702,6 +702,7 @@ templates_other = {
     "non standard": "⚠ Il s’agit d’un terme utilisé qui n’est pas d’un usage standard.",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note&nbsp;:</b>",
+    "notes": "<b>Notes&nbsp;:</b>",
     "note-fr-féminin-homme": "<i>Ce mot féminin n’a pas de masculin correspondant, et il peut désigner des hommes.</i>",
     "note-fr-masculin-femme": "<i>Ce mot masculin n'a pas de féminin correspondant, et il peut désigner des femmes.</i>",
     "note-gentilé": "Ce mot est un gentilé. Un gentilé désigne les habitants d’un lieu, les personnes qui en sont originaires ou qui le représentent (par exemple, les membres d’une équipe sportive).",
