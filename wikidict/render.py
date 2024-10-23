@@ -337,6 +337,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
     '[[something|else]]'
 
+    >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
+    ''
+
     >>> adjust_wikicode("----", "no")
     ''
 
@@ -384,6 +387,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"<!--(?:.+-->)?", "", code)
 
     if locale == "da":
+        # {{(}} .* {{)}}
+        code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
+
         # {{=da=}} → =={{da}}==
         code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
