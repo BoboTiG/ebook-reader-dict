@@ -167,7 +167,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         case "en":
             items = get_items(("",), skip=("===etymology", "{{pie root"))
         case "es":
-            items = get_items(("",), skip=("=== etimología",))
+            items = get_items((r";\d",), skip=("=== etimología",))
         case "fr":
             definitions: list[Definitions] = []
             tables = parsed_section.tables
