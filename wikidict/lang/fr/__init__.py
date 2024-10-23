@@ -382,6 +382,7 @@ templates_italic = {
     "opti": "Optique",
     "ornithol": "Ornithologie",
     "ortho1990": "orthographe rectifiée de 1990",
+    "Ortograf altêrnativ": "Ortograf altêrnativ",
     "POO": "Programmation orientée objet",
     "p-us": "Peu usité",
     "p us": "Peu usité",
