@@ -1,0 +1,39 @@
+=={{-it-}}==
+{{-sost-|it}}
+{{Pn}} ''m'' {{Linkp|brillantini}}
+# piccolo [[foglietto]] di materiale [[lucido]] e [[riflettente]] usato come [[ornamento]] per abiti
+# {{Est}} [[glitter]]
+
+{{-sill-}}
+; bril | lan | tì | no
+
+{{-etim-}}
+da [[brillare]]
+
+{{-verb form-}}
+{{Pn}}
+# terza persona plurale del congiuntivo presente di [[brillantare]]
+# terza persona plurale dell'imperativo di [[brillantare]]
+
+{{-etim-}}
+{{Etim-link|brillantare}}
+
+{{-trad-}}
+{{Trad1|piccolo foglietto di materiale lucido}}
+:* {{en}}:
+{{Trad2}}
+
+{{Trad1|glitter}}
+:* {{en}}: [[glitter]]
+{{Trad2}}
+
+{{Trad1|terza persona plurale del congiuntivo presente di brillantare}}
+:* {{en}}:
+{{Trad2}}
+
+{{Trad1|terza persona plurale dell'imperativo di brillantare}}
+:* {{en}}:
+{{Trad2}}
+
+{{-ref-}}
+* {{Fonte|hoep}}

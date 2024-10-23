@@ -32,6 +32,7 @@ sections = (
     "{{sost}",
     "{{sost form}",
     "{{verb}",
+    "{{verb form}",
 )
 
 # Variants
@@ -39,12 +40,14 @@ variant_titles = (
     "{{agg form",
     "{{sost form",
     "{{suff",
+    "{{verb form",
 )
 variant_templates = (
     "{{femminile di",
     "{{femminile plurale di",
     "{{plurale di",
     "{{Tabs",
+    "{{verb-flexion",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -57,6 +60,7 @@ definitions_to_ignore = (
     "femminile plurale alternativo di",
     "plurale femminile di",
     "plurale di",
+    "verb-flexion",
 )
 
 
@@ -199,6 +203,8 @@ templates_multi: dict[str, str] = {
     "plurale di": "parts[1]",
     # {{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}
     "Tabs": "parts[1]",
+    # {{verb-flexion|term}}
+    "verb-flexion": "parts[1]",
 }
 
 # Release content on GitHub

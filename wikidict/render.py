@@ -423,13 +423,23 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale == "it":
         if "{{Tabs" not in code:
             # Hack for a fake variants to support more of them
-            # `# plurale di [[-ectomia]]`
+            # `# plurale di [[-ectomia]]` → `{{plurale di|-ectomia}}`
             code = re.sub(
                 r"^(#\s?)+((?:femminile|plurale) [^\[]+)\[\[([^\]]+)\]\]",
                 r"\1{{\2|\3}}",
                 code,
                 flags=re.MULTILINE,
             )
+            # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{verb-flexion|brillantare}}`
+            code = re.sub(
+                r"^(#\s?)+\w+ (?:persona plurale de).+ [^\[]+\[\[([^\]]+)\]\]",
+                r"\1{{verb-flexion|\2}}",
+                code,
+                flags=re.MULTILINE,
+            )
+
+        # {{-verb form-}} → === {{verb form}} ===
+        code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     elif locale == "no":
         code = code.replace("----", "")

@@ -11,6 +11,20 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "brillantino",
+            [],
+            ["m"],
+            [
+                "da brillare",
+                "vedi brillantare",
+            ],
+            [
+                "piccolo foglietto di materiale lucido e riflettente usato come ornamento per abiti",
+                "<small>(<i>per estensione</i>)</small> glitter",
+            ],
+            ["brillantare"],
+        ),
+        (
             "condividere",
             ["/kondiˈvidere/"],
             [],
