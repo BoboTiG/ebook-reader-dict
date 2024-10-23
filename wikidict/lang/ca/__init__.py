@@ -45,14 +45,12 @@ variant_titles = (
 )
 variant_templates = (
     "{{ca-forma-conj",
-    "{{forma-a",
-    "{{forma-p",
-    "{{forma-f",
+    "{{forma-",
+    "{{sinònim",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "forma-conj",
     "cognom",
     "prenom",
     "ex-cit",
@@ -61,9 +59,17 @@ definitions_to_ignore = (
     # For variants
     #
     "ca-forma-conj",
+    "forma-",
     "forma-a",
+    "forma-augm",
+    "forma-conj",
+    "forma-dim",
     "forma-f",
+    "forma-inc",
     "forma-p",
+    "forma-pron",
+    "forma-super",
+    "sinònim",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -81,8 +87,6 @@ templates_ignored = (
 templates_multi = {
     # {{AFI|/ˈwujt/}}
     "AFI": "parts[-1]",
-    # {{ca-forma-conj|domdar|part|f|p}}
-    "ca-forma-conj": "parts[1]",
     # {{claudàtors|[[milliarum]]}}
     "claudàtors": 'f"[{parts[1]}]"',
     # {{color|#E01010}}
@@ -93,13 +97,9 @@ templates_multi = {
     "doblet": "italic(parts[-1])",
     # {{e-propi|ca|grèvol}}
     "e-propi": "strong(parts[2])",
-    # {{forma-a|ca|Bielorússia}}
-    "forma-a": "parts[2]",
-    # {{forma-f|ca|halloweenià}}
-    "forma-f": "parts[2]",
-    # {{forma-p|ca|experta}}
-    # {{forma-p|ca|ca|glossa=lletra k}}
-    "forma-p": "parts[2]",
+    # {{etim-s|ca|XIV}}
+    # {{etim-s|ca|XVII|1617}}
+    "etim-s": "('segle ' + parts[2]) if len(parts) == 3 else parts[-1]",
     # {{IPAchar|[θ]}}
     "IPAchar": "parts[-1]",
     # {{pron|hi|/baːzaːr/}}
@@ -108,9 +108,24 @@ templates_multi = {
     "q": "term(concat(parts[1:], sep=', '))",
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
-    # {{etim-s|ca|XIV}}
-    # {{etim-s|ca|XVII|1617}}
-    "etim-s": "('segle ' + parts[2]) if len(parts) == 3 else parts[-1]",
+    #
+    # For variants
+    #
+    # {{ca-forma-conj|domdar|part|f|p}}
+    "ca-forma-conj": "parts[1]",
+    "forma-conj": "parts[1]",
+    # {{forma-|ca|Bielorússia}}
+    # {{forma-XXX|ca|Bielorússia}}
+    "forma-": "parts[2]",
+    "forma-a": "parts[2]",
+    "forma-augm": "parts[2]",
+    "forma-dim": "parts[2]",
+    "forma-f": "parts[2]",
+    "forma-inc": "parts[2]",
+    "forma-p": "parts[2]",
+    "forma-pron": "parts[2]",
+    "forma-super": "parts[2]",
+    "sinònim": "parts[2]",
 }
 
 

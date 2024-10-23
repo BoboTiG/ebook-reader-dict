@@ -99,35 +99,6 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
-    """
-    >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
-    '<i>forma augmentativa de</i> <b>Candelera</b>'
-    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str))
-    '<i>forma alternativa de</i> <b>Candelera</b>'
-    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str, {"alt": "la Candelera"}))
-    '<i>forma alternativa de</i> <b>la Candelera</b>'
-    >>> render_forma("forma-a", ["mul", "I"], defaultdict(str, {"glossa": "1 en números romans"}))
-    '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
-    >>> render_forma("sinònim", ["mul", "Miathyria"], defaultdict(str, {"glossa": "gènere de libèl·lules"}))
-    '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
-    """
-    formas = {
-        "forma-a": "forma alternativa de",
-        "forma-augm": "forma augmentativa de",
-        "forma-dim": "forma diminutiva de",
-        "forma-inc": "forma incorrecta de",
-        "forma-pron": "forma pronominal de",
-        "forma-super": "forma superlativa de",
-        "sinònim": "Sinònim de",
-    }
-    forma = formas.get(tpl, f"forma {parts[0]} de")
-    phrase = f"{italic(forma)} {strong(data['alt'] or parts[-1])}"
-    if data["glossa"]:
-        phrase += f" («{data['glossa']}»)"
-    return phrase
-
-
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
@@ -250,19 +221,11 @@ def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], wo
 
 template_mapping = {
     "comp": render_comp,
-    "forma-": render_forma,
-    "forma-a": render_forma,
-    "forma-augm": render_forma,
-    "forma-dim": render_forma,
-    "forma-inc": render_forma,
-    "forma-pron": render_forma,
-    "forma-super": render_forma,
     "g": render_g,
     "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
     "sigles de": render_sigles_de,
-    "sinònim": render_forma,
 }
 
 
