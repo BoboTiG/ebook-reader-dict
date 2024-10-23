@@ -303,7 +303,7 @@ def add_potential_variant(
     ['19e']
     """
     if (variant := process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
-        if any(char in variant_cleaned for char in "<>|="):
+        if any(char in variant_cleaned for char in "<>|=()"):
             log.warning(f"Potential variant issue: {variant=} → {variant_cleaned=} for {word=}")
         variants.append(variant_cleaned)
 
