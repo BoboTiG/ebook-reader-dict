@@ -77,6 +77,7 @@ templates_ignored = (
     "categoritza",
     "catllengua",
     "CN",
+    "falten accepcions",
     "manquen accepcions",
     "sense accepcions",
     "-etimologia-",
