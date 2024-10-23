@@ -393,6 +393,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # <!-- foo --> → ''
     code = re.sub(r"(?=<!--)([\s\S]*?-->)", "", code)
 
+    # {{!}} → "|"
+    code = code.replace("{{!}}", "|")
+
     if locale == "da":
         # {{(}} .* {{)}}
         code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
@@ -413,9 +416,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
         #       contains an empty item.
         code = re.sub(r":\[\d+\][ ]*", "# ", code)
-
-        # {{!}} → "|"
-        code = code.replace("{{!}}", "|")
 
     elif locale == "en":
         # Remove tables (cf issue #2073)
@@ -497,9 +497,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{-avv-}} → === {{avv}} ===
         code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # {{!}} → "|"
-        code = code.replace("{{!}}", "|")
 
     return code
 
