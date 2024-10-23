@@ -52,6 +52,7 @@ templates_ignored = (
     "infl",
     "Personlige pronominer på dansk",
     "pn",
+    "rfe",
     "-syn-",
     "wikipedia",
     "Wikipedia",
