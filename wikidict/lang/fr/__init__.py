@@ -426,6 +426,7 @@ templates_italic = {
     "prov": "Proverbial",
     "psychia": "Psychiatrie",
     "psychol": "Psychologie",
+    "rare": "Rare",
     "reli": "Religion",
     "réciproque2": "Réciproque",
     "réfléchi": "Réfléchi",
