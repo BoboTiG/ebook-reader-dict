@@ -65,6 +65,7 @@ templates_italic = {
     "geologi": "geologi",
     "grøntsag": "grøntsag",
     "internet": "internet",
+    "patologi": "patologi",
     "plante": "plante",
 }
 
