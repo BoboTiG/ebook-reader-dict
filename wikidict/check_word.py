@@ -255,10 +255,11 @@ def filter_html(html: str, locale: str) -> str:
             a.decompose()
         # Wikispecies
         for img in bs.find_all("img", {"alt": "Wikispecies"}):
-            img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
-            img.next_sibling.next_sibling.replaceWith(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
-            img.next_sibling.replaceWith("")  # space
-            img.previous_sibling.replaceWith("")  # Leading "("
+            if img.next_sibling:
+                img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
+                img.next_sibling.next_sibling.replaceWith(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
+                img.next_sibling.replaceWith("")  # space
+                img.previous_sibling.replaceWith("")  # Leading "("
             img.decompose()
         # Wikipedia, Wikiquote
         for small in bs.find_all("small"):
