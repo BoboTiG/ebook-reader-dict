@@ -101,6 +101,7 @@ templates_multi = {
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
+    "=": "=",
     "dödform": "†",
 }
 
