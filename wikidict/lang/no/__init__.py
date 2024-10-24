@@ -19,6 +19,7 @@ sections = (
     *etyl_section,
     "Adjektiv",
     "Adverb",
+    "Konjunksjon",
     "Substantiv",
     "Verb",
 )
