@@ -85,6 +85,14 @@ from wikidict.utils import process_templates
             ["lump"],
         ),
         (
+            "rasshol",
+            [],
+            [],
+            [],
+            ["Utropsord med samme betydning som substantivet. Brukt som skjellsord."],
+            [],
+        ),
+        (
             "seg",
             [],
             [],
