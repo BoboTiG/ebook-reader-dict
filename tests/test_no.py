@@ -40,6 +40,14 @@ from wikidict.utils import process_templates
             ["bar"],
         ),
         (
+            "én svale gjør ingen sommer",
+            [],
+            [],
+            [],
+            ["Det at noen har vært observert én gang betyr ikke at det er en regel eller et sikkert tegn"],
+            [],
+        ),
+        (
             "funnet",
             [],
             [],
