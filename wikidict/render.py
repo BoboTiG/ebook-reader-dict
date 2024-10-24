@@ -303,7 +303,12 @@ def add_potential_variant(
     ['19e']
     """
     if (variant := process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
-        if any(char in variant_cleaned for char in "<>|=()"):
+        # Example of false positive we try to prevent in the condition:
+        #    [DE] word="Halles (Saale)" variant="Halle (Saale)"
+        #    [EN] word="401(k)s"        variant="401(k)"
+        if any(char in variant_cleaned for char in "<>|=") or (
+            any(char in variant_cleaned for char in "()") and not any(char in word for char in "()")
+        ):
             log.warning(f"Potential variant issue: {variant=} → {variant_cleaned=} for {word=}")
         variants.append(variant_cleaned)
 
