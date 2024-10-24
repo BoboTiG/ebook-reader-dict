@@ -1,0 +1,26 @@
+==Norsk==
+===Preposisjon===
+{{nb-prep}}
+#som ikke har;som [[mangler]]
+
+====Andre skrivemåter====
+{{nynorsk|utan}}
+
+====Uttale====
+(Nord-Trøndelag) IPA: ['ʉː.tⁿn̩]
+
+====Antonymer====
+*[[med]]
+
+====Oversettelser====
+{{overs-topp|som ikke har}}
+*{{overs|en|without}}
+*{{overs|eo|sen}}
+*{{overs|fr|sans}}
+*{{overs|ia|sin}}
+{{overs-midt}}
+*{{overs|pl|bez}}
+*{{overs|es|sin}}
+*{{overs|sv|utan}}
+*{{overs|de|ohne}}
+{{overs-bunn}}

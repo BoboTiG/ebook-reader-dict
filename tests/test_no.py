@@ -85,6 +85,14 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "uten",
+            [],
+            [],
+            [],
+            ["som ikke har;som mangler"],
+            [],
+        ),
+        (
             "verken",
             [],
             [],
