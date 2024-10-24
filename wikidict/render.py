@@ -356,9 +356,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
     ''
 
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
-    '#{{verb-flexion|amare}}'
+    '# {{flexion|amare}}'
     >>> adjust_wikicode("# participio presente di [[amare]]", "it")
-    '# {{verb-flexion|amare}}'
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("#2ª pers. singolare indicativo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("# {{3}} singolare imperativo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("# {{1}}, 2ª pers. e {{3}} singolare congiuntivo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -431,30 +437,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale == "it":
-        if "{{Tabs" not in code:
-            # Hack for a fake variants to support more of them
-            # `# plurale di [[-ectomia]]` → `{{plurale di|-ectomia}}`
-            code = re.sub(
-                r"^(#\s?)+((?:femminile|plurale) [^\[]+)\[\[([^\]]+)\]\]",
-                r"\1{{\2|\3}}",
-                code,
-                flags=re.MULTILINE,
-            )
-            # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{verb-flexion|brillantare}}`
-            # terza persona singolare dell'indicativo presente di
-            code = re.sub(
-                r"^(#\s?)+\w+ (?:persona (?:singolare|plurale) de).+ [^\[]+\[\[([^\]]+)\]\]",
-                r"\1{{verb-flexion|\2}}",
-                code,
-                flags=re.MULTILINE,
-            )
-            # `# participio presente di [[amare]] → `{{verb-flexion|amare}}`
-            code = re.sub(
-                r"^(#\s?)+participio presente di \[\[([^\]]+)\]\]",
-                r"\1{{verb-flexion|\2}}",
-                code,
-                flags=re.MULTILINE,
-            )
+        # Hack for a fake variants to support more of them
+        # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
+        code = re.sub(r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+        # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
+        code = re.sub(r"^#\s?.+(?:singolare|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+        # `# participio presente di [[amare]] → `{{flexion|amare}}`
+        code = re.sub(r"^#\s?participio presente di \[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
 
         # {{-verb form-}} → === {{verb form}} ===
         code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
