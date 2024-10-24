@@ -23,6 +23,7 @@ sections = (
     "Forklaring",
     "Konjunksjon",
     "Substantiv",
+    "Tallord",
     "Verb",
 )
 

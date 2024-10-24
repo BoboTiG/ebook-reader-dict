@@ -1,0 +1,35 @@
+==Norsk==
+===Tallord===
+{{no-tall}}
+
+# ordenstallet til [[tolv]]
+
+====Etymologi====
+Fra {{etyl|non|no}} {{term|tolfti|språk=non}}; {{suffiks|tolv|te|språk=no}}
+
+====Oversettelser====
+{{overs-topp|Ordenstall}}
+*{{overs|da|tolvte}}
+*{{overs|en|twelfth}}
+*{{overs|fr|douzième|m|f}}
+*{{overs|it|dodicesimo|m}}, {{o|it|dodicesima|f}}
+*{{overs|nl|twaalfde}}
+{{overs-midt}}
+*{{overs|pt|duodécimo|m}}, {{o|pt|duodécima|f}}
+*{{overs|es|duodécimo|m}}, {{o|es|duodécima|f}}
+*{{overs|sv|tolfte}}
+*{{overs|de|zwölfte}}
+{{overs-bunn}}
+
+===Referanser===
+*{{R:NAOB}}
+*{{R:Bokmålsordboka-Nynorskordboka}}
+
+==Dansk==
+===Tallord===
+{{da-tall}}
+
+#[[#Norsk|tolvte]]
+
+====Etymologi====
+Fra {{etyl|non|da}} {{term|tolfti|språk=non}}; {{suffiks|tolv|te|språk=da}}
