@@ -1,0 +1,23 @@
+==Norsk==
+===Idiom===
+{{no-verb|tittel=[[slå]] [[to]] [[fluer]] [[i]] [[en]] [[smekk]]}}
+
+#{{idiomatisk|no}} få [[gjøre|gjort]] to ting med én [[handling]]
+
+====Andre former====
+{{andre former|slå to fluer i én smekk|nn=nei|nb=ja|nrm=ja}}
+{{andre former|slå to fluer i ett smekk|nn=nei|nb=ja|nrm=ja}}
+{{andre former|slå to fluger i ein smekk|nn=ja|nb=nei|nrm=nei}}
+{{andre former|slå to fluger i eitt smekk|nn=ja|nb=nei|nrm=nei}}
+
+====Oversettelser====
+{{overs-topp|to gjerninger i én}}
+*{{overs|da|slå to fluer med ét smæk}}
+*{{overs|en|kill two birds with one stone}}
+*{{overs|nl|twee vliegen in een klap slaan}}
+{{overs-midt}}
+*{{overs|sv|slå två flugor i en smäll}}
+*{{overs|de|zwei Fliegen mit einer Klappe schlagen}}
+{{overs-bunn}}
+
+[[Kategori:Idiom med dyr i norsk]]

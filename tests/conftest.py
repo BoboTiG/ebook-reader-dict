@@ -70,7 +70,7 @@ def craft_data() -> Callable[[str], bytes]:
 
 @pytest.fixture(scope="session")
 def page() -> Callable[[str, str], str]:
-    """Return the Wikicode of a word stored into "data/$LOCALE/word.wiki"."""
+    """Return the Wikicode of a word stored into "data/LOCALE/WORD.wiki"."""
 
     def _page(word: str, locale: str) -> str:
         data = Path(os.environ["CWD"]) / "data" / locale
