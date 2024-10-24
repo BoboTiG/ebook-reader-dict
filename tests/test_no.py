@@ -92,6 +92,14 @@ from wikidict.utils import process_templates
             ["Norsk mannsnavn"],
             [],
         ),
+        (
+            "ØNH",
+            [],
+            [],
+            [],
+            ["forkortelse for <i>øre-nese-hals</i>"],
+            [],
+        ),
     ],
 )
 def test_parse_word(
