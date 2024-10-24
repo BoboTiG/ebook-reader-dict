@@ -77,6 +77,14 @@ from wikidict.utils import process_templates
             ["lump"],
         ),
         (
+            "slå to fluer i en smekk",
+            [],
+            [],
+            [],
+            ["<i>(idiomatisk)</i> få gjort to ting med én handling"],
+            [],
+        ),
+        (
             "tolvte",
             [],
             [],
