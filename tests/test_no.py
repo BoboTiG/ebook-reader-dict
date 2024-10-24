@@ -84,6 +84,14 @@ from wikidict.utils import process_templates
             ["danner sammen med eller en konjunksjon som binder sammen to nektinger"],
             ["verk"],
         ),
+        (
+            "Øyvind",
+            [],
+            [],
+            [],
+            ["Norsk mannsnavn"],
+            [],
+        ),
     ],
 )
 def test_parse_word(
