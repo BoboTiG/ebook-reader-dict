@@ -77,6 +77,17 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "liksom",
+            [],
+            [],
+            [],
+            [
+                "Antyder at noe er på lek, at man later som noe.",
+                "Antyder en sammenligning, brukes ofte som et slags fyllord, særlig i muntlig språk.",
+            ],
+            [],
+        ),
+        (
             "lumpen",
             [],
             [],
