@@ -473,6 +473,8 @@ def test_parse_word(
         ("{{1er}}", "1<sup>er</sup>"),
         ("{{1er|mai}}", "1<sup>er</sup>&nbsp;mai"),
         ("{{1re}}", "1<sup>re</sup>"),
+        ("{{2e}}", '2<sup style="font-size:83.33%;line-height:1;">e</sup>'),
+        ("{{12e}}", '12<sup style="font-size:83.33%;line-height:1;">e</sup>'),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
         ("{{attestation pays de Retz}}", "<i>(Pays de Retz)</i>"),

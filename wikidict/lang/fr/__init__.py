@@ -652,6 +652,7 @@ templates_multi = {
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
+    **{f"{idx}e": f'{idx}<sup style="font-size:83.33%;line-height:1;">e</sup>' for idx in range(2, 13)},
     "=": "=",
     "'": "’",
     "absolu": "<i>absolu</i>",
