@@ -22,6 +22,7 @@ sections = (
     "Egennavn",
     "Forklaring",
     "Konjunksjon",
+    "Preposisjon",
     "Substantiv",
     "Tallord",
     "Verb",
