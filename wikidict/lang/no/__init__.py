@@ -20,6 +20,7 @@ sections = (
     "Adjektiv",
     "Adverb",
     "Egennavn",
+    "Forklaring",
     "Konjunksjon",
     "Substantiv",
     "Verb",
