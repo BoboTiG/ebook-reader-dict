@@ -245,38 +245,42 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     >>> last_template_handler(["default"], "de")
     '##opendoublecurly##default##closedoublecurly##'
+
     >>> last_template_handler(["fr."], "de")
     'französisch'
     >>> last_template_handler(["fr.", ":"], "de")
     'französisch:'
     >>> last_template_handler(["fr"], "de")
     'Französisch'
+
+    >>> last_template_handler(["Grundformverweis Konj", "tragen"], "de")
+    'tragen'
+    >>> last_template_handler(["Grundformverweis Dekl", "Abschnitt=Substantiv, m", "Maser"], "de")
+    'Maser'
     """
-    from ...user_functions import italic
+    from ...user_functions import extract_keywords_from, italic
     from ..defaults import last_template_handler as default
     from .lang_adjs import lang_adjs
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
-    if lang_adj := lang_adjs.get(template[0], ""):
-        return f"{lang_adj}{template[1] if len(template) > 1 else ''}"
-
-    if lang := langs.get(template[0], ""):
-        return lang
-
-    if markierung := templates_markierung.get(template[0], ""):
-        return italic(f"{markierung}{template[1] if len(template) > 1 else ''}")
-
     if lookup_template(template[0]):
         return render_template(word, template)
 
+    tpl, *parts = template
+    extract_keywords_from(parts)
+
+    if lang_adj := lang_adjs.get(tpl):
+        return f"{lang_adj}{parts[0] if parts else ''}"
+
+    if lang := langs.get(tpl):
+        return lang
+
+    if markierung := templates_markierung.get(tpl):
+        return italic(f"{markierung}{parts[0] if parts else ''}")
+
     # note: this should be used for variants only
-    if template[0].startswith(
-        (
-            "Grundformverweis ",
-            "Alte Schreibweise",
-        )
-    ):
-        return template[1]
+    if tpl.startswith(("Grundformverweis ", "Alte Schreibweise")):
+        return parts[0]
 
     return default(template, locale, word=word)
