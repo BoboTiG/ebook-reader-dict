@@ -6022,6 +6022,35 @@ racines_schemes_arabes = {
         "ar-u**u*ânũ": "qui aime le jeu",
         "ar-u**û*@ũ": "divertissement",
     },  # 46
+    "ar-l3n": {
+        "aa_sens": "maudire",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "malédiction",
+        "ar-*a**âtũ": "malédiction",
+        "ar-*a**ũ": "imprécation",
+        "ar-*a*a*a-a": "maudire",
+        "ar-*a*²a*a": "tourmenter",
+        "ar-*a*â*iy²@ũ": "malédiction",
+        "ar-*a*î*@ũ": "{{f}} maudite",
+        "ar-*a*î*ũ": "maudit",
+        "ar-*i*â*ũ": "{{p}} malédictions",
+        "ar-*ta*a*a": "se maudire réciproquement",
+        "ar-*u**@ũ": "maudit",
+        "ar-*u*a*@ũ": "maudissant",
+        "ar-*u*a*ũ": "{{p}} maudissants",
+        "ar-*â*a*a": "maudire",
+        "ar-a**a*a": "",
+        "ar-ma**a*@ũ": "latrines",
+        "ar-ma**û*ũ": "maudit",
+        "ar-ma*â*i*u": "{{p}} latrines",
+        "ar-mu*a*²a*ũ": "maudit",
+        "ar-mu*â*a*@ũ": "malédiction",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "se maudire réciproquement",
+    },  # 27
     "ar-lHw": {
         "aa_sens": "barbe, querelle",
         "ar-***ũ": "",
@@ -9534,5 +9563,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 327
+}  # 328
 # END
