@@ -189,8 +189,6 @@ templates_multi: dict[str, str] = {
     #
     # {{flexion|term}}
     "flexion": "parts[1]",
-    # {{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}
-    "Tabs": "parts[1]",
 }
 
 # Release content on GitHub
@@ -269,13 +267,18 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["Sup2", "assoluto", "f sing", "it"], "it", word="massima")
         'superlativo assoluto, femminile singolare di'
 
+        >>> last_template_handler(["Tabs", "muratore", "muratori", "muratrice", "muratore", "f2=muratora", "fp2=muratrici"], "it")
+        'muratore'
+        >>> last_template_handler(["Tabs", "f=tradotta", "m=tradotto", "mp=tradotti", "fp=tradotte"], "it")
+        'tradotto'
     """
-    from ...user_functions import italic, parenthesis, strong
+    from ...user_functions import extract_keywords_from, italic, parenthesis, strong
     from .. import defaults
     from .codelangs import codelangs
     from .langs import langs
 
     tpl, *parts = template
+    data = extract_keywords_from(parts)
     tpl = tpl.lower()
 
     if tpl == "linkf":
@@ -300,10 +303,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         }.get(parts[1])
         return f"superlativo {parts[0]}, {gender} di"
 
+    # For variants
+    if tpl == "tabs":
+        return data["m"] or parts[0]
+
     # This is a country in the current locale
-    if codelang := codelangs.get(tpl, ""):
+    if codelang := codelangs.get(tpl):
         return codelang
-    if lang := langs.get(tpl, ""):
+    if lang := langs.get(tpl):
         return lang
 
     return defaults.last_template_handler(template, locale, word=word)

@@ -96,10 +96,6 @@ def test_parse_word(
     [
         ("{{etim-link|a}}", "vedi a"),
         ("{{Etim-link|a|b|c}}", "vedi b"),
-        (
-            "{{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}",
-            "muratore",
-        ),
         ("{{Vd|mamma}}", "vedi mamma"),
     ],
 )
