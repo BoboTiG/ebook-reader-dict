@@ -101,6 +101,14 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "sviger-",
+            [],
+            [],
+            [],
+            ["som befinner seg i inngiftet familie"],
+            [],
+        ),
+        (
             "tolvte",
             [],
             [],
