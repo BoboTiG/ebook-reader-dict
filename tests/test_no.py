@@ -76,6 +76,14 @@ from wikidict.utils import process_templates
             ["tarvelig, nedrig"],
             ["lump"],
         ),
+        (
+            "verken",
+            [],
+            [],
+            ["Fra gammeldansk: hwærki/hwærkin via dansk: hverken. Jamfør norrønt: hvárki."],
+            ["danner sammen med eller en konjunksjon som binder sammen to nektinger"],
+            ["verk"],
+        ),
     ],
 )
 def test_parse_word(

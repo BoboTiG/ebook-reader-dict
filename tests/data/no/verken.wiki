@@ -1,0 +1,32 @@
+==Norsk==
+===Konjunksjon===
+{{no-kon|tittel=verken — eller — |norm|nb=ja|nn=ja|nrm=nei}}
+
+# danner sammen med [[eller]] en konjunksjon som binder sammen to nektinger
+#:''Han fikk [[verken]] vått '''eller''' tørt.''
+#:''Jeg har [[verken]] tid '''eller''' råd.''
+
+====Faste uttrykk====
+* '''verken''' det ene '''eller''' det andre
+* '''verken''' fugl '''eller''' fisk
+
+====Uttale====
+{{lyd|no-verken.ogg|Lyd (Dialekt: Oslo)}}
+
+====Andre former====
+{{andre former|korkje|nn=ja}}
+{{andre former|hverken|nb=ja|nrm=ja}}
+
+====Etymologi====
+Fra {{opphav|gammeldansk|språk=no}}: [[hwærki]]/[[hwærkin]] via {{opphav|dansk|språk=no}}: [[hverken]]. Jamfør [[norrønt]]: [[hvárki]].
+
+====Oversettelser====
+{{overs-se|konjunksjon|[[hverken]]}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+
+===Substantiv===
+'''{{PAGENAME}}''' {{norm|nb=ja|nrm=ja|nn=ja}}
+
+#{{no-sub-bøyningsform|be|verk|nb=ja|nrm=ja|nn=ja}}
