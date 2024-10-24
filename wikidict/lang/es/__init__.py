@@ -93,6 +93,7 @@ templates_ignored = (
     "ejemplo",
     "ejemplo requerido",
     "elemento químico",
+    "inflect.es.sust.invariante",
     "marcar sin referencias",
     "parónimo",
     "picdic",
