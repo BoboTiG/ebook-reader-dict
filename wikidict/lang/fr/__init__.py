@@ -542,10 +542,6 @@ templates_multi = {
     "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
-    # {{fr-accord-comp|aigre|doux|...}
-    "fr-accord-comp": 'f"{parts[1]}-{parts[2]}"',
-    # {{fr-accord-comp-mf|eau|de-vie|...}
-    "fr-accord-comp-mf": 'f"{parts[1]}-{parts[2]}"',
     # {{fr-accord-oux|d|d}}
     "fr-accord-oux": "parts[1] + 'oux'",
     # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
@@ -860,6 +856,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'aïeul'
         >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
         'attaché de presse'
+        >>> last_template_handler(["fr-accord-comp-mf", "capital", "p1=capitaux", "risque", "ka.pi.tal", "pp1=ka.pi.to", "ʁisk"], "fr")
+        'capital-risque'
         >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
         'carotte'
         >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
@@ -1053,7 +1051,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return singular
 
     if tpl.startswith("fr-accord-"):
-        if not (singular := data["s"] or data["m"] or data["ms"]):
+        if tpl.startswith("fr-accord-comp"):
+            singular = "-".join(parts[: len(parts) // 2])
+        elif not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
             if tpl == "fr-accord-in" and singular == word.rstrip("s"):
                 singular = singular.removesuffix("ne" if data["deux_n"] else "e")
