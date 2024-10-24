@@ -77,6 +77,14 @@ from wikidict.utils import process_templates
             ["lump"],
         ),
         (
+            "tolvte",
+            [],
+            [],
+            ["Fra norrønt <i>tolfti</i>; <i>tolv</i> + -<i>te</i>"],
+            ["ordenstallet til tolv"],
+            [],
+        ),
+        (
             "verken",
             [],
             [],
