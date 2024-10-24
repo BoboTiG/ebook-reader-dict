@@ -77,6 +77,14 @@ from wikidict.utils import process_templates
             ["lump"],
         ),
         (
+            "seg",
+            [],
+            [],
+            ["Av norrønt <i>sik</i>."],
+            ["refleksivt pronomen, tredje person entall og flertall"],
+            [],
+        ),
+        (
             "slå to fluer i en smekk",
             [],
             [],

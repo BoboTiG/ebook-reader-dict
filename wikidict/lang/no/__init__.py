@@ -24,6 +24,7 @@ sections = (
     "Idiom",
     "Konjunksjon",
     "Preposisjon",
+    "Pronomen",
     "Substantiv",
     "Tallord",
     "Verb",
