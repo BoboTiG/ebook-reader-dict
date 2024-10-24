@@ -21,6 +21,7 @@ sections = (
     "Adverb",
     "Egennavn",
     "Forklaring",
+    "Forkortelse",
     "Idiom",
     "Konjunksjon",
     "Ordtak",

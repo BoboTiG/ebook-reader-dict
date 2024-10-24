@@ -133,6 +133,14 @@ from wikidict.utils import process_templates
             ["verk"],
         ),
         (
+            "vg.",
+            [],
+            [],
+            [],
+            ["forkortelse for <i>videregående</i>/<i>videregåande</i>"],
+            [],
+        ),
+        (
             "Øyvind",
             [],
             [],
