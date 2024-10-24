@@ -864,6 +864,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'attaché de presse'
         >>> last_template_handler(["fr-accord-comp-mf", "capital", "p1=capitaux", "risque", "ka.pi.tal", "pp1=ka.pi.to", "ʁisk"], "fr")
         'capital-risque'
+        >>> last_template_handler(["fr-accord-cons", "ɑ̃.da.lu", "z", "s", "ms=andalou"], "fr")
+        'andalou'
+        >>> last_template_handler(["fr-accord-cons", "ɑ̃.da.lu", "z", "s"], "fr")
+        ''
         >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
         'carotte'
         >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
@@ -1057,7 +1061,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return singular
 
     if tpl.startswith("fr-accord-"):
-        if tpl.startswith("fr-accord-comp"):
+        if tpl.startswith("fr-accord-cons"):
+            singular = data["ms"] or ""
+        elif tpl.startswith("fr-accord-comp"):
             singular = "-".join(parts[: len(parts) // 2])
         elif not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
