@@ -1,0 +1,55 @@
+==Norsk==
+===Subjunksjon===
+{{infl|no|subj}} {{norm|nb=ja|nrm=ja|nn=ja}}
+
+#Antyder at noe er på lek, at man [[late]]r som noe.
+#:''Vi fant på masse liksom-ord, og lagde vårt eget språk.''
+#Antyder en sammenligning, brukes ofte som et slags fyllord, særlig i muntlig språk.
+#:''Det var liksom veldig ordentlig.''
+#:''Bark er liksom huden til trærne.''
+
+====Andre former====
+*[[likesom]] {{norm|nb=ja|nrm=ja}}
+*[[lissom]] {{norm|nb=ja|nrm=ja}}
+
+====Oversettelser====
+{{overs-topp|På lek, at man later som noe}}
+* {{overs-mangler|da}}
+* {{overs|en|make believe}}
+* {{overs-mangler|fi}}
+* {{overs-mangler|fr}}
+* {{overs-mangler|it}}
+{{overs-midt}}
+* {{overs-mangler|nl}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+* {{overs|sv|låtsas}}
+* {{overs-mangler|de}}
+{{overs-bunn}}
+
+{{overs-topp|Antyder en sammenligning, at noe ligner på noe}}
+* {{overs-mangler|da}}
+* {{overs-mangler|en}}
+* {{overs-mangler|fi}}
+* {{overs-mangler|fr}}
+* {{overs-mangler|it}}
+{{overs-midt}}
+* {{overs-mangler|nl}}
+* {{overs-mangler|ru}}
+* {{overs-mangler|es}}
+*{{overs|sv|liksom}}
+* {{overs-mangler|de}}
+{{overs-bunn}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB}}
+
+
+----
+
+==Svensk==
+===Konjunksjon===
+{{infl|sv|konj}}
+
+#[[#Norsk|liksom]]
