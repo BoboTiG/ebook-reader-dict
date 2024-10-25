@@ -517,6 +517,7 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
             for etyl_data in parsed_sections.pop(section, []):
                 etymology.extend(find_etymology(word, locale, etyl_data))
 
+    # Definitions
     if parsed_sections:
         definitions = find_definitions(word, parsed_sections, locale)
     elif locale == "no":
@@ -530,20 +531,19 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
         genders = _find_genders(top_sections, find_genders[locale])
 
-    # Find potential variants
-    if parsed_sections:
+    # Variants
+    if parsed_sections and (interesting_titles := variant_titles[locale]):
+        interesting_templates = variant_templates[locale]
         for title, parsed_section in parsed_sections.items():
-            if interesting_titles := variant_titles[locale]:
-                if not title.startswith(interesting_titles):
-                    continue
-                interesting_templates = variant_templates[locale]
-                for parsed in parsed_section:
-                    for tpl in parsed.templates:
-                        tpl = str(tpl)
-                        if tpl.startswith(interesting_templates):
-                            add_potential_variant(word, tpl, locale, variants)
-            if variants:
-                variants = sorted(set(variants))
+            if not title.startswith(interesting_titles):
+                continue
+            for parsed in parsed_section:
+                for tpl in parsed.templates:
+                    tpl = str(tpl)
+                    if tpl.startswith(interesting_templates):
+                        add_potential_variant(word, tpl, locale, variants)
+        if variants:
+            variants = sorted(set(variants))
 
     return Word(prons, genders, etymology, definitions, variants)
 
