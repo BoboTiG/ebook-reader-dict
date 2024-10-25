@@ -1,0 +1,108 @@
+{{se også|Hand|hånd}}
+==Norsk==
+{{wikipediaartikkel|hånd}}
+{{no-sub|nb=f|nn=f}}
+[[kategori: Substantiv i bokmål som ikke er tillatt i riksmål]]
+
+# {{anatomi|no}} [[kroppsdel]] ved enden av [[underarm|underarmen]] som gjør [[menneske|mennesker]] og [[ape|aper]] i stand til å [[gripe]]
+# [[side]]
+#:''Butikken ligger på høyre '''hånd'''.''
+#{{kortspill|no}} kortene en spiller sitter med
+#:''Det var lenge siden jeg hadde hatt en så god '''hånd'''.''
+
+====Andre former====
+{{andre former|hånd|nb=ja|nrm=ja}}
+
+====Synonymer====
+{{kontekst|kropsdel}} [[neve]]<br>
+{{kontekst|retningsangivelse}} [[side]]<br>
+{{kontekst|spillkortterm}} [[kort på hånden]]<br>
+
+====Grammatikk====
+{{nn-sub-start|reg=regelrett substantiv hokjønn}}
+{{no-sub-rad-f1|stamme=hand|ub-flertall=hender|b-flertall=hendene}}
+{{nn-sub-slutt}}[[Kategori:Hunkjønnsord i norsk]]
+
+====Oversettelser====
+{{overs-topp|kroppsdel ved enden av underarmen}}
+*{{overs|en|hand}}
+*{{overs|fr|main|f}}
+*{{overs|nl|hand|m|f}}
+{{overs-midt}}
+*{{overs|es|mano|f}}
+*{{overs|de|Hand|f}}
+{{overs-bunn}}
+
+{{overs-topp|side}}
+*{{overs|en|hand side}}, {{o|en|side}}
+*{{overs|fr|côté|f}}
+*{{overs|nl|hand|m|f}}
+*{{overs|es|lado|m}}
+{{overs-midt}}
+{{overs-bunn}}
+
+{{overs-topp|kortene en spiller sitter med}}
+*{{overs|en|hand}}
+*{{overs|nl|hand|m|f}}
+{{overs-midt}}
+*{{overs|de|Hand|f}}
+{{overs-bunn}}
+
+{{overs-trengersortering}}
+*{{overs|eo|mano}}
+*{{overs|ia|mano}}
+*{{overs|it|mano|f}}
+*{{overs|ca|mà|f}}
+*{{overs|la|manus|f}}
+*{{overs|pt|mão|f}}
+*{{overs|ro|mână|f}}
+{{overs-bunn}}
+
+
+----
+
+==Engelsk==
+{{wikipediaartikkel|språk=en}}
+===Substantiv===
+{{en-sub}}
+
+#{{anatomi|en}} [[hånd]], {{l|no|hand}}
+# ''(klokke)'' {{l|no|viser}}
+
+====Avledede termer====
+* {{l|en|hour hand}}
+* {{l|en|minute hand}}
+* {{l|en|second hand}}
+
+----
+
+==Fransk==
+===Substantiv===
+{{fr-sub|m}}
+
+# {{kontekst|[[sport]]|[[dagligdags]]|kat=fr:Sport|kat2=fr:Dagligdags}} [[håndball]]
+
+
+----
+
+==Nederlandsk==
+{{wikipediaartikkel|språk=nl}}
+===Substantiv===
+{{nl-sub|m|handen|handje|handjes}}
+
+# [[hånd]], [[#Norsk|hand]]
+
+====Uttale====
+:{{lyd|nl-hand.ogg|språk=nl}}
+
+[[Kategori:nl:Anatomi]]
+
+
+----
+
+==Svensk==
+{{wikipediaartikkel|språk=sv}}
+===Substantiv===
+{{sv-sub|c}}
+
+#[[hånd]], [[#Norsk|hand]]
