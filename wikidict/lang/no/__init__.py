@@ -23,6 +23,7 @@ sections = (
     "Forklaring",
     "Forkortelse",
     "Idiom",
+    "Initialord",
     "Interjeksjon",
     "Konjunksjon",
     "Ordtak",

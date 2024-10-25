@@ -106,6 +106,14 @@ from wikidict.utils import process_templates
             ["lump"],
         ),
         (
+            "NS",
+            [],
+            [],
+            [],
+            ["<i>initialord for</i> partiet Nasjonal Samling", "<i>initialord for</i> Norsk Standard"],
+            [],
+        ),
+        (
             "rasshol",
             [],
             [],
