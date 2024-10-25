@@ -12,31 +12,78 @@ float_separator = ","
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns = (r"\#", r"\*")
+section_patterns = (r"#", r"\*", r":#")
 section_level = 1
 section_sublevels = (2,)
-head_sections = ("{{-pt-}}",)
-etyl_section = ("{{etimologia|pt}}", "{{Etimologia|pt}}", "Etimologia")
-sections = (
-    "Abreviatura",
-    "Acrônimo",
-    "Adjetivo",
-    "Advérbio",
-    "Antepositivo",
-    "Artigo",
-    "Contração",
-    *etyl_section,
-    "Forma verbal",
-    "Interjeição",
-    "Numeral",
-    "Prefixo",
-    "Preposição",
-    "Pronome",
-    "Sigla",
-    "Substantivo",
-    "Sufixo",
-    "Verbo",
-)
+head_sections = ("{{-pt-}}", "{{-mult-}}")
+etyl_section = ("{{etimologia|pt}}", "{{etimologia|mult}}", "etimologia")
+_sections = [
+    "abreviação",
+    "abreviatura",
+    "acrônimo",
+    "acrónimo",
+    "adjetivo",
+    "advérbio",
+    "afixo",
+    "antepositivo",
+    "artigo",
+    "caractere",
+    "conjunção",
+    "contração",
+    "elemento de composição",
+    "expressão",
+    "expressão verbal",
+    "expressões",
+    "forma adjetivo",
+    "forma de adjetivo",
+    "forma de advérbio",
+    "forma de expressão verbal",
+    "forma de locução adjetiva",
+    "forma de locução adverbial",
+    "forma de locução pronominal",
+    "forma de locução substantiva",
+    "forma de pronome",
+    "forma de sigla",
+    "forma de substantiva",
+    "forma de substantivo",
+    "forma de sufixo",
+    "forma de verbo",
+    "forma verbal",
+    "frase",
+    "infixo",
+    "interjeição",
+    "interfixo",
+    "letra",
+    "locução",
+    "locução adjetiva",
+    "locução adverbial",
+    "locuçào adverbial",
+    "locução conjuntiva",
+    "locução interjetiva",
+    "locução prepositiva",
+    "locução substantiva",
+    "locução verbal",
+    "numeral",
+    "onomatopeia",
+    "pepb|",
+    "plural",
+    "pospositivo",
+    "prefixo",
+    "preposição",
+    "pronome",
+    "provérbio",
+    "sigla",
+    "símbolo",
+    "subfijo",
+    "substantivo",
+    "sufixo",
+    "topónimo",
+    "verbal",
+    "verbo",
+]
+_sections.extend(f"{{{{{s}" for s in _sections.copy())
+_sections.extend(etyl_section)
+sections = tuple(_sections)
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = ("peçodef",)

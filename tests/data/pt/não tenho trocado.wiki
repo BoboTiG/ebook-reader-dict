@@ -1,0 +1,7 @@
+={{-pt-}}=
+==Frase==
+'''não tenho trocado'''
+# usado por prestador de serviço para informar que não tem dinheiro amiúde que possa servir de troco ao valor pago por cliente
+# usado por cliente de serviço para informar que não tem dinheiro amiúde que possa servir de diferença ao valor maior pretendido para devolução pelo prestador de serviço quando este não tem o valor em moeda exato para devolver ao cliente
+
+[[Categoria:Livro de frases (Português)]]
