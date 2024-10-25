@@ -274,6 +274,7 @@ def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
     wanted = sections[locale]
     top_sections, all_sections = find_all_sections(code, locale)
     for title, section in all_sections:
+        title = title.lower()
         # Filter on interesting sections
         if title.startswith(wanted):
             ret[title].append(section)

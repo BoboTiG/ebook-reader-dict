@@ -8,8 +8,19 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, genders, etymology, definitions",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
+        (
+            "6",
+            [],
+            [],
+            [],
+            [
+                "<i>(internetês)</i> cês",
+                "algarismo indo-arábico que representa o numeral seis",
+            ],
+            [],
+        ),
         (
             "-a",
             [],
@@ -19,15 +30,24 @@ from wikidict.utils import process_templates
                 "De <b>4</b>: da vogal temática da 1ª conjugação latina.",
                 "De <b>5</b>: da desinência do plural neutro latino",
             ],
+            [
+                "desinência nominal feminina",
+                "desinência nominal masculina",
+                "desinência nominal comuns-de-dois",
+                "vogal temática da primeira conjugação portuguesa",
+                "desinência plural masculina em português de latinismos como ultimatum (os "
+                "ultimata), o corpus (os corpora), o genus (os genera) etc.",
+            ],
             [],
         ),
-        ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"]),
+        ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"], []),
         (
             "alguém",
             ["/aɫ.ˈɡɐ̃j̃/"],
             [],
             ["Do latim <i>alĭquem</i>."],
             ["pessoa não identificada"],
+            [],
         ),
         (
             "algo",
@@ -35,6 +55,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
+            [],
         ),
         (
             "baiano",
@@ -46,6 +67,7 @@ from wikidict.utils import process_templates
                 "natural ou habitante do Estado da Bahia, Brasil",
                 "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",
             ],
+            [],
         ),
         (
             "cabrum",
@@ -57,6 +79,7 @@ from wikidict.utils import process_templates
                 "<i>(Brasil)</i> marido de mulher adúltera",
                 "indica estrondo",
             ],
+            [],
         ),
         (
             "COPOM",
@@ -67,6 +90,7 @@ from wikidict.utils import process_templates
                 "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
                 "<i>(Brasil)</i> <b>Co</b>mitê de <b>Po</b>lítica <b>M</b>onetária",
             ],
+            [],
         ),
         (
             "dezassete",
@@ -79,6 +103,7 @@ from wikidict.utils import process_templates
                 "nota correspondente a dezassete valores",
                 "pessoa ou coisa que apresenta o número dezassete numa ordenação",
             ],
+            [],
         ),
         (
             "etc",
@@ -88,6 +113,18 @@ from wikidict.utils import process_templates
             [
                 'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',
             ],
+            [],
+        ),
+        (
+            "giro-",
+            [],
+            [],
+            ["Do grego antigo <i>γῦρος</i> (<i>gyros</i>), pelo latim <i>gyrus</i>."],
+            [
+                "círculo",
+                "redondo",
+            ],
+            [],
         ),
         (
             "-ista",
@@ -102,6 +139,15 @@ from wikidict.utils import process_templates
                 "que usa algo",
                 "que tem uma visão preconceituosa",
             ],
+            [],
+        ),
+        (
+            "Ku",
+            [],
+            [],
+            [],
+            ["símbolo químico do kurtschatóvio"],
+            [],
         ),
         (
             "neo-",
@@ -112,6 +158,26 @@ from wikidict.utils import process_templates
                 "exprime a ideia de <i>novo</i>",
                 "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",
             ],
+            [],
+        ),
+        (
+            "não tenho trocado",
+            [],
+            [],
+            [],
+            [
+                "usado por prestador de serviço para informar que não tem dinheiro amiúde que possa servir de troco ao valor pago por cliente",
+                "usado por cliente de serviço para informar que não tem dinheiro amiúde que possa servir de diferença ao valor maior pretendido para devolução pelo prestador de serviço quando este não tem o valor em moeda exato para devolver ao cliente",
+            ],
+            [],
+        ),
+        (
+            "nomenclaturar",
+            [],
+            [],
+            [],
+            ["fazer a nomenclatura de"],
+            [],
         ),
         (
             "para",
@@ -123,6 +189,7 @@ from wikidict.utils import process_templates
                 "terceira pessoa do singular do presente do indicativo do verbo parar",
                 "segunda pessoa do singular do imperativo do verbo parar",
             ],
+            [],
         ),
         (
             "paulista",
@@ -135,8 +202,18 @@ from wikidict.utils import process_templates
                 "pessoa de origem do Estado de São Paulo, Brasil",
                 "artigo ou objeto do Estado de São Paulo",
             ],
+            [],
         ),
-        ("tenui-", [], [], [], ["variante ortográfica de <b>tenu-</b>"]),
+        (
+            "quebrar galho",
+            [],
+            [],
+            [],
+            ["resolver uma situação difícil ou complicada"],
+            [],
+        ),
+        ("tenui-", [], [], [], ["variante ortográfica de <b>tenu-</b>"], []),
+        ("tique-taque", [], [], [], ["imitativa do som compassado do mecanismo de um relógio a trabalhar"], []),
         (
             "to",
             [],
@@ -146,6 +223,7 @@ from wikidict.utils import process_templates
                 "<i>(antigo)</i> contração do pronome pessoal te com o pronome pessoal ou demonstrativo o",
                 "<i>(Brasil e coloquial)</i> forma aferética (muito comum na linguagem falada) de estou",
             ],
+            [],
         ),
         (
             "ũa",
@@ -153,8 +231,9 @@ from wikidict.utils import process_templates
             [],
             ["Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."],
             ["ortografia antiga de uma"],
+            [],
         ),
-        ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"]),
+        ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"], []),
     ],
 )
 def test_parse_word(
@@ -163,6 +242,7 @@ def test_parse_word(
     genders: list[str],
     etymology: list[Definitions],
     definitions: list[Definitions],
+    variants: list[str],
     page: Callable[[str, str], str],
 ) -> None:
     """Test the sections finder and definitions getter."""
@@ -172,6 +252,7 @@ def test_parse_word(
     assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
+    assert variants == details.variants
 
 
 @pytest.mark.parametrize(
