@@ -26,6 +26,7 @@ sections = (
     "Initialord",
     "Interjeksjon",
     "Konjunksjon",
+    "Ordklasse",
     "Ordtak",
     "Prefiks",
     "Preposisjon",

@@ -66,6 +66,14 @@ from wikidict.utils import process_templates
             ["finne", "funn"],
         ),
         (
+            "Kiberg",
+            [],
+            [],
+            [],
+            ["et tettsted i Vardø kommune i Finnmark"],
+            [],
+        ),
+        (
             "konsentrasjon",
             [],
             ["m"],
