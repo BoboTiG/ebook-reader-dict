@@ -506,7 +506,6 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     genders = []
     etymology = []
-    definitions = []
     variants: list[str] = []
 
     # Etymology
@@ -520,12 +519,15 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     # Definitions
     if parsed_sections:
         definitions = find_definitions(word, parsed_sections, locale)
-    elif locale == "no":
-        # [NO] Some words have no head sections but only a list of definitions at the root of the "top" section
+    elif locale in {"no", "pt"}:
+        # Some words have no head sections but only a list of definitions at the root of the "top" section
+        marker = "===" if locale == "no" else "=="
         for top in top_sections:
             contents = top.contents
-            top.contents = contents[: contents.find("===")]
+            top.contents = contents[: contents.find(marker)]
         definitions = find_definitions(word, {"top": top_sections}, locale)
+    else:
+        definitions = []
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
