@@ -33,6 +33,7 @@ sections = (
     "Prefiks",
     "Preposisjon",
     "Pronomen",
+    "Subjektiv",
     "Subjunksjon",
     "Substantiv",
     "Suffiks",
