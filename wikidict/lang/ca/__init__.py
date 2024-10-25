@@ -16,32 +16,32 @@ thousands_separator = "."
 head_sections = ("{{-ca-}}", "{{-mul-}}")
 etyl_section = ("{{-etimologia-", "{{-etim-", "{{etim-lang")
 sections = (
-    "Abreviatura",
-    "Acrònim",
-    "Adjectiu",
-    "Adverbi",
-    "Article",
-    "Contracció",
-    "Infix",
-    "Interjecció",
-    "Lletra",
-    "Nom",
-    "Numeral",
-    "Prefix",
-    "Preposició",
-    "Pronom",
-    "Sigles",
-    "Sufix",
-    "Símbol",
-    "Verb",
+    "abreviatura",
+    "acrònim",
+    "adjectiu",
+    "adverbi",
+    "article",
+    "contracció",
+    "infix",
+    "interjecció",
+    "lletra",
+    "nom",
+    "numeral",
+    "prefix",
+    "preposició",
+    "pronom",
+    "sigles",
+    "sufix",
+    "símbol",
+    "verb",
     *etyl_section,
 )
 
 # Variants
 variant_titles = (
-    "Adjectiu",
-    "Nom",
-    "Verb",
+    "adjectiu",
+    "nom",
+    "verb",
 )
 variant_templates = (
     "{{ca-forma-conj",

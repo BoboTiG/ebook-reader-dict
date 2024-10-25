@@ -11,21 +11,21 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{{Sprache|Deutsch}}", "{{sprache|deutsch}}", "{{Sprache|International}}", "{{sprache|international}}")
-etyl_section = ("{{Herkunft}}",)
+head_sections = ("{{sprache|deutsch}}", "{{sprache|international}}")
+etyl_section = ("{{herkunft}}",)
 sections = (
     *etyl_section,
-    "{{Alte Schreibweise|",
-    "{{Aussprache}",
-    "{{Bedeutungen}",
-    "{{Grundformverweis ",
-    "{{Wortart|Symbol|International}",
+    "{{alte schreibweise|",
+    "{{aussprache}",
+    "{{bedeutungen}",
+    "{{grundformverweis ",
+    "{{wortart|symbol|international}",
 )
 
 # Variants
 variant_titles = (
-    "{{Grundformverweis ",
-    "{{Alte Schreibweise|",
+    "{{grundformverweis ",
+    "{{alte schreibweise|",
 )
 variant_templates = (
     "{{Grundformverweis ",

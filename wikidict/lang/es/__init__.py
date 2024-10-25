@@ -14,19 +14,19 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{lengua|es}}",)
 section_sublevels = (4, 3)
-etyl_section = ("Etimología", "Etimología 1")
+etyl_section = ("etimología", "etimología 1")
 sections = (
-    "Abreviaturas",
-    "Adjetivo",
+    "abreviaturas",
+    "adjetivo",
     "{{abreviatura",
     "{{adjetivo",
     "{{adverbio",
     "{{artículo",
     "{{conjunción",
     *etyl_section,
-    "Forma adjetiva",  # for variants, see render.find_section_definitions
-    "Forma adjetiva y de participio",  # for variants, see render.find_section_definitions
-    "Forma verbal",  # for variants, see render.find_section_definitions
+    "forma adjetiva",  # for variants, see render.find_section_definitions
+    "forma adjetiva y de participio",  # for variants, see render.find_section_definitions
+    "forma verbal",  # for variants, see render.find_section_definitions
     "{{interjección",
     "{{locución",
     "{{onomatopeya",
@@ -40,8 +40,8 @@ sections = (
 
 # Variants
 variant_titles = (
-    "Forma adjetiva",
-    "Forma verbal",
+    "forma adjetiva",
+    "forma verbal",
 )
 variant_templates = (
     "{{enclítico",

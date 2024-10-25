@@ -12,34 +12,34 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 # https://sv.wiktionary.org/wiki/Wiktionary:Stilguide#Ordklassrubriken
-head_sections = ("==Svenska==", "svenska")
+head_sections = ("==svenska==", "svenska")
 sections = (
-    "Adjektiv",
-    "Adverb",
-    "Affix",
-    "Artikel",
-    "Efterled",
-    "Förkortning",
-    "Förled",
-    "Interjektion",
-    "Konjunktion",
-    "Possessivt pronomen",
-    "Postposition",
-    "Prefix",
-    "Preposition",
-    "Pronomen",
-    "Substantiv",
-    "Suffix",
-    "Verb",
-    "Verbpartikel",
+    "adjektiv",
+    "adverb",
+    "affix",
+    "artikel",
+    "efterled",
+    "förkortning",
+    "förled",
+    "interjektion",
+    "konjunktion",
+    "possessivt pronomen",
+    "postposition",
+    "prefix",
+    "preposition",
+    "pronomen",
+    "substantiv",
+    "suffix",
+    "verb",
+    "verbpartikel",
 )
 
 # Variants
 variant_titles = (
-    "Adjektiv",
-    "Adverb",
-    "Substantiv",
-    "Verb",
+    "adjektiv",
+    "adverb",
+    "substantiv",
+    "verb",
 )
 variant_templates = (
     "{{avledning",
