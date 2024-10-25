@@ -23,6 +23,7 @@ sections = (
     "Egennavn",
     "Forklaring",
     "Forkortelse",
+    "Frase",
     "Idiom",
     "Initialord",
     "Interjeksjon",
