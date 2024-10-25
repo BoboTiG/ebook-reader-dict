@@ -40,7 +40,8 @@ def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     title_match = next(RE_TITLE(element))
     for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
         wikicode = text_match[1]
-        if any(section in wikicode for section in head_sections[locale]):
+        wikicode_lowercase = wikicode.lower()
+        if any(section in wikicode_lowercase for section in head_sections[locale]):
             return title_match[1], wikicode
 
     # No Wikicode; unfinished page; no interesting head section; a foreign word, etc. Who knows?
