@@ -94,6 +94,8 @@ templates_multi = {
     "bøyningsform": "f\"{italic('bøyningsform av')} {strong(parts[-1])}\"",
     # {{feilstaving av|førstvoterende|språk=no}}
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
+    # {{formatnum:8400}}
+    "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{l|lt|duktė}}
     "l": "parts[-1]",
     # {{m}}
