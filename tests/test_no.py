@@ -27,6 +27,16 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "-bar",
+            [],
+            [],
+            ["Fra nedertysk, egentlig «bærende»"],
+            [
+                "suffiks som lager adjektiv av substantiv (<i>fruktbar</i>), verb (<i>sammenlignbar</i>) og adjektiv (<i>åpenbar</i>)"
+            ],
+            [],
+        ),
+        (
             "bare",
             [],
             [],
