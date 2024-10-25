@@ -12,34 +12,34 @@ float_separator = "."
 thousands_separator = ","
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("==English==", "english", "===Translingual===", "translingual")
+head_sections = ("==english==", "english", "===translingual===", "translingual")
 section_sublevels = (4, 3)
-etyl_section = ("Etymology", "Etymology 1")
+etyl_section = ("etymology", "etymology 1")
 sections = (
-    "Adjective",
-    "Adverb",
-    "Article",
-    "Conjunction",
-    "Contraction",
-    "Determiner",
+    "adjective",
+    "adverb",
+    "article",
+    "conjunction",
+    "contraction",
+    "determiner",
     *etyl_section,
-    "Interjection",
-    "Noun",
-    "Numeral",
-    "Particle",
-    "Prefix",
-    "Preposition",
-    "Pronoun",
-    "Proper noun",
-    "Suffix",
-    "Symbol",
-    "Verb",
+    "interjection",
+    "noun",
+    "numeral",
+    "particle",
+    "prefix",
+    "preposition",
+    "pronoun",
+    "proper noun",
+    "suffix",
+    "symbol",
+    "verb",
 )
 
 # Variants
 variant_titles = (
-    "Noun",
-    "Verb",
+    "noun",
+    "verb",
 )
 variant_templates = (
     "{{en-ing",

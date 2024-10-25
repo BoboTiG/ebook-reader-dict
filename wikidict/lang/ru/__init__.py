@@ -14,20 +14,20 @@ thousands_separator = " "
 section_level = 1
 section_sublevels = (3, 4)
 head_sections = "{{-ru-}}"
-etyl_section = ("Этимология",)
+etyl_section = ("этимология",)
 sections = (
     *etyl_section,
-    "Значение",
-    "Семантические свойства",
-    "{{Значение}}",
-    "{{Семантические свойства}}",
-    "Морфологические и синтаксические свойства",
-    "Как самостоятельный глагол",  # for verbs with aux
-    "В значении вспомогательного глагола или связки",  # for verbs with aux
+    "значение",
+    "{{значение}}",
+    "семантические свойства",
+    "{{семантические свойства}}",
+    "морфологические и синтаксические свойства",
+    "как самостоятельный глагол",  # for verbs with aux
+    "в значении вспомогательного глагола или связки",  # for verbs with aux
 )
 
 # Variants
-variant_titles = ("Значение",)
+variant_titles = ("значение",)
 variant_templates = ("{{прич.",)
 
 # Some definitions are not good to keep (plural, gender, ... )

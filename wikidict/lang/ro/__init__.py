@@ -16,8 +16,8 @@ section_sublevels = (3,)
 etyl_section = ("{{etimologie}}",)
 sections = (
     "{{abreviere}",
-    "{{Adjective}",
     "{{adjectiv}",
+    "{{adjective}",
     "{{adverb}",
     "{{articol}",
     "{{conjuncție}",
@@ -38,10 +38,10 @@ sections = (
     "{{pronume}",
     "{{substantiv}",
     "{{sufix}",
-    "{{Verb auxiliar}",
-    "{{Verb copulativ}",
-    "{{Verb predicativ}",
-    "{{Verb tranzitiv}",
+    "{{verb auxiliar}",
+    "{{verb copulativ}",
+    "{{verb predicativ}",
+    "{{verb tranzitiv}",
     "{{verb}",
 )
 
