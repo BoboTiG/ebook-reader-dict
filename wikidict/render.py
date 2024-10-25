@@ -254,9 +254,7 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
 
     # Get interesting top sections
     top_sections = [
-        section
-        for section in parsed.get_sections(include_subsections=True, level=level)
-        if section_title(section.title) in head_sections[locale]
+        section for section in parsed.get_sections(level=level) if section_title(section.title) in head_sections[locale]
     ]
 
     # Get _all_ sections without any filtering
@@ -516,6 +514,10 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
             etymology.extend(find_etymology(word, locale, etyl_data))
 
     definitions = find_definitions(word, parsed_sections, locale)
+
+    if not definitions and locale == "no":
+        # [NO] Some words have no head sections but only a list of definitions at the root of the "top" section
+        definitions = find_definitions(word, {"top": top_sections}, locale)
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, find_pronunciations[locale])
