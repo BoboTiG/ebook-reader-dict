@@ -58,6 +58,14 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "et",
+            [],
+            [],
+            [],
+            ["artikkel for substantiv i ubestemt entall, av intetkjønn"],
+            ["ete"],
+        ),
+        (
             "funnet",
             [],
             [],

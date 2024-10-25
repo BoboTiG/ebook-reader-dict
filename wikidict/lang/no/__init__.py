@@ -19,6 +19,7 @@ sections = (
     *etyl_section,
     "Adjektiv",
     "Adverb",
+    "Artikkel",
     "Egennavn",
     "Forklaring",
     "Forkortelse",
