@@ -506,17 +506,24 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     prons = []
     genders = []
     etymology = []
+    definitions = []
     variants: list[str] = []
 
     # Etymology
-    for section in etyl_section[locale]:
-        for etyl_data in parsed_sections.pop(section, []):
-            etymology.extend(find_etymology(word, locale, etyl_data))
+    if parsed_sections:
+        for section in etyl_section[locale]:
+            if not parsed_sections:
+                break
+            for etyl_data in parsed_sections.pop(section, []):
+                etymology.extend(find_etymology(word, locale, etyl_data))
 
-    definitions = find_definitions(word, parsed_sections, locale)
-
-    if not definitions and locale == "no":
+    if parsed_sections:
+        definitions = find_definitions(word, parsed_sections, locale)
+    elif locale == "no":
         # [NO] Some words have no head sections but only a list of definitions at the root of the "top" section
+        for top in top_sections:
+            contents = top.contents
+            top.contents = contents[: contents.find("===")]
         definitions = find_definitions(word, {"top": top_sections}, locale)
 
     if definitions or force:
@@ -524,18 +531,19 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         genders = _find_genders(top_sections, find_genders[locale])
 
     # Find potential variants
-    if interesting_titles := variant_titles[locale]:
-        interesting_templates = variant_templates[locale]
+    if parsed_sections:
         for title, parsed_section in parsed_sections.items():
-            if not title.startswith(interesting_titles):
-                continue
-            for parsed in parsed_section:
-                for tpl in parsed.templates:
-                    tpl = str(tpl)
-                    if tpl.startswith(interesting_templates):
-                        add_potential_variant(word, tpl, locale, variants)
-        if variants:
-            variants = sorted(set(variants))
+            if interesting_titles := variant_titles[locale]:
+                if not title.startswith(interesting_titles):
+                    continue
+                interesting_templates = variant_templates[locale]
+                for parsed in parsed_section:
+                    for tpl in parsed.templates:
+                        tpl = str(tpl)
+                        if tpl.startswith(interesting_templates):
+                            add_potential_variant(word, tpl, locale, variants)
+            if variants:
+                variants = sorted(set(variants))
 
     return Word(prons, genders, etymology, definitions, variants)
 
