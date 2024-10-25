@@ -196,6 +196,8 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
             items = get_items((r"[:]", r"\*"))
         case "ro":
             items = get_items(("",), skip=("=== {{etimologie",))
+        case "sv":
+            items = re.findall(r"{{etymologi\|(.+)}}\s", parsed_section.contents)
 
     return [etyl for item in items if (etyl := process_templates(word, item, locale)) and len(etyl) > 1]
 
@@ -510,7 +512,10 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
     variants: list[str] = []
 
     # Etymology
-    if parsed_sections:
+    if locale == "sv":
+        for top in top_sections:
+            etymology.extend(find_etymology(word, locale, top))
+    elif parsed_sections:
         for section in etyl_section[locale]:
             if not parsed_sections:
                 break

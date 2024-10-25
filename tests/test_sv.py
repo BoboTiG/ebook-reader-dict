@@ -8,12 +8,19 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, definitions, variants",
+    "word, pronunciations, etymology, definitions, variants",
     [
-        ("auto", [], ["automatiskt läge", "autostart"], []),
+        ("auto", [], [], ["automatiskt läge", "autostart"], []),
         (
             "en",
             ["/en/", "/eːn/", "/ɛn/"],
+            [
+                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
+                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
+                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
+                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
+                "Av {{härledning}}, av {{härledning}}, av {{härledning}}",
+            ],
             [
                 "ungefär; omkring",
                 "obestämd artikel singular utrum",
@@ -27,11 +34,15 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("dufvor", [], [], ["dufva"]),
-        ("harmonierar", [], [], ["harmoniera"]),
+        ("dufvor", [], [], [], ["dufva"]),
+        ("harmonierar", [], [], [], ["harmoniera"]),
         (
             "-hörning",
             [],
+            [
+                "Av <i>hörn</i> + <i>-ing</i>.",
+                "Av <i>horn</i> + <i>-ing</i> med omljud.",
+            ],
             [
                 "<i>(geometri, vardagligt)</i> <i>suffix för månghörningar</i>",
                 "<i>suffix i ord som har med djurs horn att göra</i>",
@@ -42,6 +53,10 @@ from wikidict.utils import process_templates
             "min",
             ["/miːn/", "/mɪn/"],
             [
+                'Fornnordiska <i>mínn</i>, av urgermanska <i>*mīnaz</i> (varav även engelska <i>mine</i>, tyska <i>mein</i>, etc.), av urindoeuropeiska <i>*meino-</i>, från <i>*mei</i> (lokativ av <i>*me-</i>, "mig") och <i>*-no</i>- (adjektivsuffix).',
+                'I svenskan sedan 1631, från franska <i>mine</i> (varav även tyska <i>Miene</i>, engelska <i>mien</i>), av bretonskans <i>min</i>, "mun", "näbb", "nos"',
+            ],
+            [
                 "possessivt pronomen som indikerar ägande av eller tillhörighet till den talande (jag) om det ägda eller tillhörande är i ental och har n-genus; possessivt pronomen i första person singular med huvudordet i singular utrum",
                 "ovanstående i självständig form",
                 "reflexivt possessivt pronomen som syftar tillbaka på och indikerar ägande av eller tillhörighet till subjektet om subjektet är i första person singular (jag) och om det ägda eller tillhörande är i ental och har n-genus; reflexivt possessivt pronomen i första person singular med huvudordet i singular utrum",
@@ -51,10 +66,13 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("og", [], [], []),
+        ("og", [], [], [], []),
         (
             "sand",
             ["/sand/"],
+            [
+                'Av {{härledning}}, av {{härledning}}, av urgermanska <i>*sanda(z)</i>. Besläktat med isländska <i>sandur</i>, norska <i>sand</i> fornengelska <i>sand</i> (engelska <i>sand</i>), fornhögtyska <i>sant</i> (tyska <i>Sand</i>). Ytterst av urindoeuropeiska <i>*sam(a)dho-</i>, motsvarande grekiska ἄμαθος, <i>amathos</i>, "sand"; troligen en uttalsförenkling av <i>*bhsam(a)dho-</i>, av roten <i>*bhes-</i>, med rotbetydelsen "att krossa", "att gnugga". Härigenom besläktat med latin <i>sabulum</i>, grekiska ψάμμος, <i>psammos</i> (varav <i>psammit</i>), båda "sand", och sanskrit <i>bhas</i>, "sönderkrossa".',
+            ],
             [
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
                 "<i>(geologi)</i> jordart med kornstorlek mellan 0,06 och 2 mm",
@@ -64,6 +82,10 @@ from wikidict.utils import process_templates
         (
             "svenska",
             [],
+            [
+                "Belagt sedan 1300-talet, som {{härledning}}.",
+                "Belagt sedan 1773.",
+            ],
             [
                 "nordiskt språk som talas i Sverige och Finland (officiellt i båda länderna)",
                 "svensk kvinna",
@@ -76,6 +98,7 @@ from wikidict.utils import process_templates
 def test_parse_word(
     word: str,
     pronunciations: list[str],
+    etymology: list[Definitions],
     definitions: list[Definitions],
     variants: list[str],
     page: Callable[[str, str], str],
@@ -84,6 +107,7 @@ def test_parse_word(
     code = page(word, "sv")
     details = parse_word(word, code, "sv", force=True)
     assert pronunciations == details.pronunciations
+    assert etymology == details.etymology
     assert definitions == details.definitions
     assert variants == details.variants
 
