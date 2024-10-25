@@ -307,7 +307,7 @@ def add_potential_variant(
         #    [DE] word="Halles (Saale)" variant="Halle (Saale)"
         #    [EN] word="401(k)s"        variant="401(k)"
         if (
-            any(char in variant_cleaned for char in "<>|=")
+            any(char in variant_cleaned for char in "<>|={}")
             or any(char in variant_cleaned for char in "()")
             and all(char not in word for char in "()")
         ):
