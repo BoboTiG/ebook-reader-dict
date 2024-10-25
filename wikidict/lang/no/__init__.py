@@ -31,6 +31,7 @@ sections = (
     "Pronomen",
     "Subjunksjon",
     "Substantiv",
+    "Suffiks",
     "Tallord",
     "Verb",
 )
