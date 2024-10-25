@@ -82,6 +82,14 @@ from wikidict.utils import process_templates
             ["finne", "funn"],
         ),
         (
+            "gjente",
+            [],
+            [],
+            [],
+            ["jente"],
+            [],
+        ),
+        (
             "Kiberg",
             [],
             [],
