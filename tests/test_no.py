@@ -37,6 +37,14 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "bak lås og slå",
+            [],
+            [],
+            [],
+            ["<i>(om straffedømt)</i> i fengsel"],
+            [],
+        ),
+        (
             "bare",
             [],
             [],
