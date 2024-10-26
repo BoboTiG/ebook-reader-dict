@@ -47,6 +47,7 @@ sections = (
 # Variants
 variant_titles = tuple(section for section in sections if section not in etyl_section)
 variant_templates = (
+    "{{bøyingsform",
     "{{no-adj-bøyningsform",
     "{{no-sub-bøyningsform",
     "{{no-verbform av",
@@ -58,6 +59,7 @@ definitions_to_ignore = (
     #
     # For variants
     #
+    "bøyingsform",
     "no-adj-bøyningsform",
     "no-sub-bøyningsform",
     "no-verbform av",
@@ -66,6 +68,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "?",
     "#ifeq",
     "audio",
     "definisjon mangler",
@@ -79,13 +82,20 @@ templates_ignored = (
     "o-begge/båe",
     "o-nå/nu/no",
     "o-hvem/kven",
+    "opprydning",
+    "ordbank",
+    "R",
+    "sitat",
     "suffiks/oversikt",
+    "taxlink",
     "trenger referanse",
 )
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **labels,
+    "biologi": "biologi",
+    "edb": "edb",
     "ikkekomp": "ingen komparativ eller superlativ",
     "internett": "Internett",
     "Internett": "Internett",
@@ -119,6 +129,10 @@ templates_multi = {
     "qualifier": "term(parts[1])",
     # {{suffiks|konsentrere|sjon|språk=no}}
     "suffiks": 'f"{italic(parts[1])} + -{italic(parts[2])}"',
+    # {{Sup|1}}
+    "Sup": "superscript(parts[1])",
+    # {{teleskopord|nei|ja|språk=no}}
+    "teleskopord": 'f"teleskopord sammensatt av {parts[1]} og {parts[2]}"',
     # {{tidligere bøyningsform|no|sub|jul}}
     "tidligere bøyningsform": "f\"{italic('tidligere bøyningsform av')} {strong(parts[-1])}\"",
     # {{tidligere skriveform|no|kunstnarleg}}
@@ -130,6 +144,8 @@ templates_multi = {
     #
     # For variants
     #
+    # {{bøyingsform|no|verb|uttrykke}}
+    "bøyingsform": "parts[-1]",
     # {{no-adj-bøyningsform|b|vis|nb=ja|nrm=ja|nn=ja}}
     "no-adj-bøyningsform": "parts[2]",
     # {{no-verbform av|imperativ|børste|nb=ja}}

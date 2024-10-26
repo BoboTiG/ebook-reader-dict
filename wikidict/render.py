@@ -358,6 +358,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("<!--\nsco\n-->", "it")
     ''
 
+    >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
+    ''
+
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
     >>> adjust_wikicode("# participio presente di [[amare]]", "it")
@@ -453,6 +456,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     elif locale == "no":
         code = code.replace("----", "")
+
+        # <includeonly>...</includeonly> → ''
+        code = re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)
 
     elif locale == "ro":
         locale = "ron"

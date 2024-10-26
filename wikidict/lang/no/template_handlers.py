@@ -72,12 +72,10 @@ def render_sammensetning(tpl: str, parts: list[str], data: defaultdict[str, str]
     '<i>Achter</i> («åtter») + <i>Bahn</i> («bane»)'
     """
     phrase_parts = []
-    i = 1
-    for part in parts:
+    for i, part in enumerate(parts, start=1):
         trindex = f"tr{i}"
         tr = data[trindex]
         phrase_parts.append(f"{italic(part)}" + (f" («{tr}»)" if tr else ""))
-        i += 1
     return concat(phrase_parts, " + ")
 
 
@@ -100,10 +98,8 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     >>> render_term("term", ["ord#Verb", "word"], defaultdict(str))
     '<i>word</i>'
     """
-    term = ""
     phrase = ""
-    if len(parts) > 1:
-        term = parts[1]
+    term = parts[1] if len(parts) > 1 else ""
     term = term or parts[0]
     phrase = term if data["sc"] else italic(term)
 

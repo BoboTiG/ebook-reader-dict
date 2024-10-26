@@ -276,6 +276,8 @@ def test_parse_word(
         ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),
         ("{{qualifier|idiomatisk}}", "<i>(idiomatisk)</i>"),
         ("{{suffiks|konsentrere|sjon|språk=no}}", "<i>konsentrere</i> + -<i>sjon</i>"),
+        ("{{Sup|1}}", "<sup>1</sup>"),
+        ("{{teleskopord|nei|ja|språk=no}}", "teleskopord sammensatt av nei og ja"),
         (
             "{{tidligere bøyningsform|no|sub|jul}}",
             "<i>tidligere bøyningsform av</i> <b>jul</b>",
