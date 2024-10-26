@@ -1,12 +1,9 @@
 """Norwegian language."""
 
-import logging
 import re
 
 from ...user_functions import flatten, uniq
 from .labels import labels
-
-log = logging.getLogger(__name__)
 
 # Float number separator
 float_separator = ","
