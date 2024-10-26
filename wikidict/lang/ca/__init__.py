@@ -271,13 +271,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["trad", "sc=es", "manzana"], "ca")
         'manzana <sup>(es)</sup>'
     """
-    from ...user_functions import (
-        concat,
-        extract_keywords_from,
-        italic,
-        strong,
-        superscript,
-    )
+    from ...user_functions import concat, extract_keywords_from, italic, strong, superscript
     from .. import defaults
     from .langs import grups, langs
     from .template_handlers import lookup_template, render_template
@@ -316,10 +310,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     def format_source(lang: str, lang_name: str, nocap: bool) -> str:
         if lang in grups:
             return "d'un " if nocap else "D'un "
-        else:
-            phrase = "d" if nocap else "D"
-            phrase += "e l'" if cal_apostrofar(lang_name) else "el "
-            return phrase
+        phrase = "d" if nocap else "D"
+        phrase += "e l'" if cal_apostrofar(lang_name) else "el "
+        return phrase
 
     if tpl == "calc semàntic":
         phrase = "calc semàntic "
@@ -345,10 +338,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             word = ""
             if len(parts) > 2:
                 word = data["alt"] or parts[2]
-                if len(parts) > 3:
-                    phrase += f" {italic(parts[3])}"
-                else:
-                    phrase += f" {italic(word)}"
+                phrase += f" {italic(parts[3] if len(parts) > 3 else word)}"
         phrase += parse_other_parameters(parts[0], word)
         return phrase
 

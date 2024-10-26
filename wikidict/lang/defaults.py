@@ -80,10 +80,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         text = parts[1] if len(parts) == 2 else word
         return transliterate(lang, text)
 
-    # {{tpl|item}} -> <i>(Templatet gf)</i>
-    if len(template) == 2:
-        return term(capitalize(lookup_italic(tpl, locale)))
-
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 

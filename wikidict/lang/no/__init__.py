@@ -1,9 +1,12 @@
 """Norwegian language."""
 
+import logging
 import re
 
 from ...user_functions import flatten, uniq
 from .labels import labels
+
+log = logging.getLogger(__name__)
 
 # Float number separator
 float_separator = ","
@@ -242,6 +245,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     """
     from ...user_functions import concat, extract_keywords_from, lookup_italic, term
+    from .. import defaults
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
@@ -263,4 +267,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if not parts or (len(parts) == 1 and parts[0] in {"nb", "nn", "no", "nrm"}):
         return term(tpl)
 
-    raise ValueError(f"Unhandled {template=} {word=}")
+    return defaults.last_template_handler(template, locale, word=word)

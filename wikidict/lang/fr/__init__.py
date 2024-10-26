@@ -996,6 +996,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         chinese,
         extract_keywords_from,
         italic,
+        lookup_italic,
         person,
         term,
     )
@@ -1145,5 +1146,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     # This is a country in the current locale
     if lang := langs.get(tpl):
         return lang
+
+    if len(template) == 2:
+        return term(capitalize(lookup_italic(tpl, locale)))
 
     return defaults.last_template_handler(template, locale, word=word)
