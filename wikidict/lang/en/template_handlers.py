@@ -48,6 +48,8 @@ def gender_number_specs(parts: str) -> str:
     '<i>m or f same meaning</i>'
     >>> gender_number_specs("biasp-s")
     '<i>impf sg or pf sg</i>'
+    >>> gender_number_specs("f,n")
+    '<i>f or n</i>'
     """
     specs = {
         # Genders
@@ -82,6 +84,7 @@ def gender_number_specs(parts: str) -> str:
     }
     specs_combined = {
         "biasp": [specs["impf"], specs["pf"]],
+        "f,n": [specs["f"], specs["n"]],
         "mf": [specs["m"], specs["f"]],
         "mfbysense": [specs["m"], specs["f"]],
         "mfequiv": [specs["m"], specs["f"]],
