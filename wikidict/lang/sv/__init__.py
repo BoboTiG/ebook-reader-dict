@@ -60,6 +60,7 @@ templates_ignored = (
     "?",
     "citat",
     "inget uppslag",
+    "källa-so",
     "konstr",
     "struktur",
     "sv-adj-alt-okomp",
@@ -74,14 +75,28 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{f}}
+    "f": "italic('f')",
     # {{färg|#80FF80|light green}}
     "färg": "color(parts[1])",
+    # {{fpl}}
+    "fpl": "italic('f pl')",
+    # {{ipa|/f/}}
+    "ipa": "parts[-1]",
+    # {{länk|sv|alfa, beta}}
+    "länk": "parts[-1]",
+    # {{länk-ar|عَنَى}}
+    "länk-ar": "parts[-1]",
     # {{länka|etansyra}}
     "länka": "parts[1]",
     # {{led|sv|f|gata}}
     "led": "italic(('förled' if parts[2] == 'f' else 'efterled') + ' tillhörigt ordet') + ' ' + parts[-1]",
+    # {{m}}
+    "m": "italic('m')",
     # {{n}}
     "n": "italic('n')",
+    # {{npl}}
+    "npl": "italic('n pl')",
     # {{ö|en|test}}
     "ö": "parts[-1]",
     # {{ö+|en|test}}
@@ -90,6 +105,12 @@ templates_multi = {
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
     # {{övrigatecken|kolon|:}}
     "övrigatecken": 'f\'"<code>{parts[-1].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</code>"\'',
+    # {{övrigauppslagsord|n:te}}
+    "övrigauppslagsord": "parts[-1]",
+    # {{p}}
+    "p": "italic('pl')",
+    # {{u}}
+    "u": "italic('u')",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
     #
@@ -193,6 +214,18 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["gammalstavning", "ejtagg=1", "sv", "fv", "övergiva"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> övergiva'
 
+        >>> last_template_handler(["härledning", "sv", "gmq-fsv", "nokot sin, nokon sin"], "sv")
+        'fornsvenska <i>nokot sin, nokon sin</i>'
+        >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "kapplöpningsbana, rännarbana"], "sv")
+        'klassisk grekiska <i>ἱππόδρομος</i> (”kapplöpningsbana, rännarbana”)'
+        >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "tr=hippodromos", "kapplöpningsbana, rännarbana"], "sv")
+        'klassisk grekiska <i>ἱππόδρομος</i> (<i>hippodromos</i>, ”kapplöpningsbana, rännarbana”)'
+
+        >>> last_template_handler(["kognat", "en", "hippodrome"], "sv")
+        'engelska <i>hippodrome</i>'
+        >>> last_template_handler(["kognat", "gmq-bot", "tíðend"], "sv")
+        'okänt språk <i>tíðend</i>'
+
         >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
         >>> last_template_handler(["tagg", "biologi", "allmänt"], "sv")
@@ -211,6 +244,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     """
     from ...user_functions import extract_keywords_from, italic, strong, term
     from .. import defaults
+    from .langs import langs
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -227,6 +261,23 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         phrase = "" if data["ejtagg"] == "1" else "(ålderdomligt) "
         cat = f"{phrase}{_gammalstavning.get(parts[1], '')} ersatt av"
         return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
+
+    if tpl == "härledning":
+        parts.pop(0)  # Remove the source lang
+        phrase = langs[parts.pop(0)]
+        phrase += f" {italic(parts.pop(0))}"
+        if (tr := data["tr"]) or parts:
+            phrase += " ("
+            if tr:
+                phrase += italic(tr)
+            if parts:
+                phrase += ", " if tr else ""
+                phrase += f"”{parts.pop(0)}”"
+            phrase += ")"
+        return phrase
+
+    if tpl == "kognat":
+        return f"{langs[parts[0]]} {italic(parts[1])}"
 
     if tpl == "tagg":
         words = [

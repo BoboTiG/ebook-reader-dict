@@ -15,11 +15,11 @@ from wikidict.utils import process_templates
             "en",
             ["/en/", "/eːn/", "/ɛn/"],
             [
-                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
-                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
-                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
-                "Av {{härledning}}, av {{härledning}}, av {{härledning}}, av {{härledning}}",
-                "Av {{härledning}}, av {{härledning}}, av {{härledning}}",
+                "Av fornsvenska <i>ēn</i>, av fornnordiska <i>einn</i>, av urgermanska <i>*ainaz</i>, av urindoeuropeiska <i>*ójnos</i>",
+                "Av fornsvenska <i>ēn</i>, av fornnordiska <i>einn</i>, av urgermanska <i>*ainaz</i>, av urindoeuropeiska <i>*ójnos</i>",
+                "Av fornsvenska <i>ēn</i>, av fornnordiska <i>einn</i>, av urgermanska <i>*ainaz</i>, av urindoeuropeiska <i>*ójnos</i>",
+                "Av fornsvenska <i>ēn</i>, av fornnordiska <i>einn</i>, av urgermanska <i>*ainaz</i>, av urindoeuropeiska <i>*ójnos</i>",
+                "Av fornsvenska <i>ēn</i>, av fornnordiska <i>*æiniʀ</i>, av urgermanska <i>*jainjaz</i>",
             ],
             [
                 "ungefär; omkring",
@@ -71,7 +71,7 @@ from wikidict.utils import process_templates
             "sand",
             ["/sand/"],
             [
-                'Av {{härledning}}, av {{härledning}}, av urgermanska <i>*sanda(z)</i>. Besläktat med isländska <i>sandur</i>, norska <i>sand</i> fornengelska <i>sand</i> (engelska <i>sand</i>), fornhögtyska <i>sant</i> (tyska <i>Sand</i>). Ytterst av urindoeuropeiska <i>*sam(a)dho-</i>, motsvarande grekiska ἄμαθος, <i>amathos</i>, "sand"; troligen en uttalsförenkling av <i>*bhsam(a)dho-</i>, av roten <i>*bhes-</i>, med rotbetydelsen "att krossa", "att gnugga". Härigenom besläktat med latin <i>sabulum</i>, grekiska ψάμμος, <i>psammos</i> (varav <i>psammit</i>), båda "sand", och sanskrit <i>bhas</i>, "sönderkrossa".',
+                'Av fornsvenska <i>sander</i>, av fornnordiska <i>sandr</i>, av urgermanska <i>*sanda(z)</i>. Besläktat med isländska <i>sandur</i>, norska <i>sand</i> fornengelska <i>sand</i> (engelska <i>sand</i>), fornhögtyska <i>sant</i> (tyska <i>Sand</i>). Ytterst av urindoeuropeiska <i>*sam(a)dho-</i>, motsvarande grekiska ἄμαθος, <i>amathos</i>, "sand"; troligen en uttalsförenkling av <i>*bhsam(a)dho-</i>, av roten <i>*bhes-</i>, med rotbetydelsen "att krossa", "att gnugga". Härigenom besläktat med latin <i>sabulum</i>, grekiska ψάμμος, <i>psammos</i> (varav <i>psammit</i>), båda "sand", och sanskrit <i>bhas</i>, "sönderkrossa".',
             ],
             [
                 "sten som blivit till små korn, antingen genom väder och vind eller på konstgjord väg",
@@ -83,7 +83,7 @@ from wikidict.utils import process_templates
             "svenska",
             [],
             [
-                "Belagt sedan 1300-talet, som {{härledning}}.",
+                "Belagt sedan 1300-talet, som fornsvenska <i>svænska</i>.",
                 "Belagt sedan 1773.",
             ],
             [

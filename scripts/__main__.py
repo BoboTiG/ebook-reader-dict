@@ -39,6 +39,7 @@ FILES = {
     "pt-langs.py": "wikidict/lang/pt/langs.py",
     "ru-langs.py": "wikidict/lang/ru/langs.py",
     "ru-langs-short.py": "wikidict/lang/ru/langs_short.py",
+    "sv-langs.py": "wikidict/lang/sv/langs.py",
 }
 
 # En error will be raised when the percentage of deletions from the new content
