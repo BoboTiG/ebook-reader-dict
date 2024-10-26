@@ -7654,7 +7654,7 @@ langs = {
     "xhr": "érnico",
     "xht": "hatti",
     "xhu": "hurrita",
-    "xib": "ibero",
+    "xib": "íbero",
     "xii": "xiri",
     "xil": "ilirio",
     "xir": "xiriâna",
