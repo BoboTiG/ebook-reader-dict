@@ -758,6 +758,8 @@ def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], wor
 
 def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
+    >>> render_iso_639("ISO 639", [], defaultdict(str, {}), word="ysr")
+    '<i>(international standards) language code for</i> <b>Sirenik</b>.'
     >>> render_iso_639("ISO 639", ["ja"], defaultdict(str, {}))
     'ISO 639-1 code <b>ja</b>'
     >>> render_iso_639("ISO 639", ["", "crk"], defaultdict(str, {}))
@@ -775,6 +777,9 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word
     >>> render_iso_639("ISO 639", ["3", "Ari language (New Guinea)", "Ari"], defaultdict(str, {"dab": "New Guinea"}), word="aac")
     '(<i>international standards</i>) <i>ISO 639-3 language code for</i> <b>Ari</b> (New Guinea).'
     """
+    if not parts:
+        return f"{italic('(international standards) language code for')} {strong(langs[word])}."
+
     if parts[0].isdigit():
         phrase = f"({italic('international standards' + (', obsolete' if data['obs'] else ''))}) "
         phrase += f"{italic(('Former ' if data['obs'] else '') + 'ISO 639-' + parts[0] + ' language code for')} "
@@ -783,11 +788,7 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word
             phrase += f" ({dab})"
         return f"{phrase}."
 
-    codes = []
-    for idx, part in enumerate(parts, 1):
-        if part:
-            codes.append(f"ISO 639-{idx} code {strong(part)}")
-    return ", ".join(codes)
+    return ", ".join([f"ISO 639-{idx} code {strong(part)}" for idx, part in enumerate(parts, 1) if part])
 
 
 def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
