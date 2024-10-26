@@ -13,7 +13,7 @@
 1. <small>`[ES]`</small> [Spanish](docs/es/README.md)
 1. <small>`[FR]`</small> [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
 1. <small>`[IT]`</small> [Italian](docs/it/README.md)
-1. <small>`[NO]`</small> [Norway](docs/el/README.md)
+1. <small>`[NO]`</small> [Norway](docs/no/README.md)
 1. <small>`[PT]`</small> [Portuguese](docs/pt/README.md)
 1. <small>`[RO]`</small> [Romanian](docs/ro/README.md)
 1. <small>`[RU]`</small> [Russian](docs/ru/README.md)
