@@ -590,10 +590,15 @@ def transform(word: str, template: str, locale: str) -> str:
 
         >>> transform("séga", "w", "fr")
         'séga'
+
         >>> transform("foo", "formatnum:123", "fr")
         '123'
+        >>> transform("foo", "Lit-Linnartz: Unsere Familiennamen|A=1|B=1", "de")
+        'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
+
         >>> transform("foo", "grammaire |fr", "fr")
         '<i>(Grammaire)</i>'
+
         >>> transform("foo", "conj|grp=1|fr", "fr")
         '##opendoublecurly##conj##closedoublecurly##'
 
@@ -628,8 +633,8 @@ def transform(word: str, template: str, locale: str) -> str:
         "R:DAF6",
         "R:Tosti",
     ):
-        parts_raw = template.split(":")
-        parts = [p.strip() for p in parts_raw]
+        tpl, new_parts_raw = template.split(":", 1)
+        parts = [tpl] + [p.strip() for p in new_parts_raw.split("|")]
         tpl = parts[0]
 
     # Stop early

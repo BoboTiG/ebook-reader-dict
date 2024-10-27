@@ -374,6 +374,14 @@ def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return render_literatur("Literatur", [], defaultdict(str, kwargs))
 
 
+def render_lit_linnartz(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_lit_linnartz("Lit-Linnartz", ["Unsere Familiennamen"], defaultdict(str, {"A": "1", "B": "1"}))
+    'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
+    """
+    return f"Kaspar Linnartz: {italic(parts[0])}. Zehntausend Berufsnamen im Abc erklärt. {data['A']}. Auflage. Band {data['B']}, Ferdinand Dümmler Verlag, Bonn und Berlin 1936"
+
+
 def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
     >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Aspekte modernen Wikipädisierens", "Herausgeber": "Bernd Beispiel", "Sammelwerk": "Soziologie der Wikipädianer", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5", "Seiten": "213–278"}))
@@ -511,6 +519,7 @@ template_mapping = {
     "Hebr": render_foreign_lang,
     "K": render_K,
     "Lit-Bahlow": render_lit_bahlow,
+    "Lit-Linnartz": render_lit_linnartz,
     "Literatur": render_literatur,
     "Paschto": render_foreign_lang,
     "Ref-dejure": render_ref_dejure,

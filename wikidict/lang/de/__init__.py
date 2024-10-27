@@ -37,6 +37,7 @@ templates_ignored = (
     "Absatz",
     "Anker",
     "Audio",
+    "Benutzer",
     "Bpur",
     "Fremdsprachige Beispiele",
     "GBS",
@@ -123,6 +124,8 @@ templates_multi = {
     # {{Ref-behindthename|Alan}}
     "Ref-behindthename": "f'behindthename.com „{word}“'",
     "Ref-Grimm": "f'Jacob Grimm, Wilhelm Grimm: Deutsches Wörterbuch. 16 Bände in 32 Teilbänden. Leipzig 1854–1961 „{word}“'",
+    # {{small|−6}}
+    "small": "small(parts[1])",
     # {{Ü|pl|dzień}}
     "Ü": "parts[-1]",
     # {{Unicode|kɔ}}
