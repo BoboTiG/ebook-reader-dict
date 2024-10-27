@@ -257,6 +257,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     'tragen'
     >>> last_template_handler(["Grundformverweis Dekl", "Abschnitt=Substantiv, m", "Maser"], "de")
     'Maser'
+    >>> last_template_handler(["Grundformverweis Partizipform", "Verb=abbrühen", "Partizip=abgebrüht"], "de")
+    'abbrühen'
+    >>> last_template_handler(["Grundformverweis Konj", "1=bereiten", "Abschnitt=Verb.2C_unregelm.C3.A4.C3.9Fig"], "de")
+    'bereiten'
     """
     from ...user_functions import extract_keywords_from, italic
     from ..defaults import last_template_handler as default
@@ -268,7 +272,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return render_template(word, template)
 
     tpl, *parts = template
-    extract_keywords_from(parts)
+    data = extract_keywords_from(parts)
 
     if lang_adj := lang_adjs.get(tpl):
         return f"{lang_adj}{parts[0] if parts else ''}"
@@ -281,6 +285,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     # note: this should be used for variants only
     if tpl.startswith(("Grundformverweis ", "Alte Schreibweise")):
-        return parts[0]
+        return data["1"] or data["Verb"] or parts[0]
 
     return default(template, locale, word=word)
