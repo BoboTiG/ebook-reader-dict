@@ -37,6 +37,7 @@ FILES = {
     "pt-escopo.py": "wikidict/lang/pt/escopos.py",
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
+    "ru-labels.py": "wikidict/lang/ru/labels.py",
     "ru-langs.py": "wikidict/lang/ru/langs.py",
     "ru-langs-short.py": "wikidict/lang/ru/langs_short.py",
     "sv-langs.py": "wikidict/lang/sv/langs.py",

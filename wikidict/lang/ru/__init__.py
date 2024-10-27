@@ -111,7 +111,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["выдел", "foo"], "ru")
         'foo'
     """
+    from ...user_functions import italic
     from .. import defaults
+    from .labels import labels
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
@@ -122,6 +124,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "выдел":
         return parts[0]
+
+    if label := labels.get(tpl):
+        return italic(label)
 
     if lang := langs.get(tpl):
         return lang
