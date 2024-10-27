@@ -67,6 +67,7 @@ templates_italic = {
     "internet": "internet",
     "patologi": "patologi",
     "plante": "plante",
+    "skeleton": "anatomi",
 }
 
 templates_multi = {
@@ -166,6 +167,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["unknown"], "da")
         '##opendoublecurly##unknown##closedoublecurly##'
 
+        >>> last_template_handler(["skeleton"], "da")
+        '<i>(anatomi)</i>'
+
         >>> last_template_handler(["abbreviation of", "lang=da", "pansret mandskabsvogn"], "da")
         '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
         >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
@@ -212,7 +216,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["u", "en", "-ing", ""], "da")
         '<i>-ing</i>'
     """
-    from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
+    from ...user_functions import capitalize, concat, extract_keywords_from, italic, lookup_italic, strong, term
     from .. import defaults
     from .langs import langs
 
@@ -258,6 +262,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if len(parts) == 1:
         return term(tpl)
+
+    if label := lookup_italic(tpl, locale, empty_default=True):
+        return term(label)
 
     if not parts and (lang := langs.get(tpl)):
         return capitalize(lang)
