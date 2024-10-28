@@ -49,7 +49,7 @@ jobs:
       - name: Parse the dump
         run: python -Wd -m wikidict ${{ matrix.locale }} --parse
 
-      - name: Render templates
+      - name: 📍 Render templates
         run: python -Wd -m wikidict ${{ matrix.locale }} --render
 
       - name: Convert to dictionaries
