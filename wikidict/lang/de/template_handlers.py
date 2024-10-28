@@ -512,6 +512,354 @@ def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return f"{parts[2]} ({parts[1]})"
 
 
+def vorsilbe(s: str) -> str:
+    """
+    Source: https://de.wiktionary.org/wiki/Modul:Verb#L-123 (`function Verb.vorsilbe(s)`)
+    Date  : 2024-10-28 15:11
+    """
+    geslang = len(s)
+    slang = 0
+    vlang = 0
+
+    if s[geslang - 3 : geslang] == "tun":
+        slang = geslang - 3
+    else:
+        if geslang >= 7:
+            slang = geslang - 4
+        else:
+            return ""
+
+    vorne = ""
+    if slang >= 14:
+        vorne = s[:14]
+        if vorne == "hintereinander":
+            vlang = 14
+            return vorne
+
+    if slang >= 13:
+        vorne = s[:13]
+        if vorne in ["durcheinander", "gegeneinander", "nebeneinander", "untereinander", "widereinander"]:
+            vlang = 13
+            return vorne
+
+    if slang >= 12:
+        vorne = s[:12]
+        if vorne == "übereinander":
+            vlang = 12
+            return vorne
+
+    if slang >= 11:
+        vorne = s[:11]
+        if vorne in ["aufeinander", "auseinander", "beieinander", "miteinander", "voneinander"]:
+            vlang = 11
+            return vorne
+
+    if slang >= 10:
+        vorne = s[:10]
+        if vorne in ["aneinander", "dazwischen", "hintenüber", "ineinander", "zueinander"]:
+            vlang = 10
+            return vorne
+
+    if slang >= 9:
+        vorne = s[:9]
+        if vorne in ["gegenüber", "hernieder", "hinterher"]:
+            vlang = 9
+            return vorne
+
+    if slang >= 8:
+        vorne = s[:8]
+        if vorne in [
+            "aufwärts",
+            "beiseite",
+            "dahinter",
+            "drauflos",
+            "einwärts",
+            "entgegen",
+            "herunter",
+            "hindurch",
+            "hinunter",
+            "vornüber",
+            "vorwärts",
+            "zunichte",
+            "zusammen",
+            "zwischen",
+        ]:
+            vlang = 8
+            return vorne
+
+    if slang >= 7:
+        vorne = s[:7]
+        if vorne in [
+            "abwärts",
+            "dagegen",
+            "daneben",
+            "darüber",
+            "entlang",
+            "entzwei",
+            "fürlieb",
+            "herüber",
+            "hierher",
+            "hinüber",
+            "instand",
+            "schwarz",
+            "trocken",
+            "überein",
+            "vorüber",
+            "zurecht",
+            "zuwider",
+        ]:
+            vlang = 7
+            return vorne
+
+    if slang >= 6:
+        vorne = s[:6]
+        if vorne in [
+            "bereit",
+            "einher",
+            "falsch",
+            "fertig",
+            "gerade",
+            "gleich",
+            "herauf",
+            "heraus",
+            "herbei",
+            "herein",
+            "hervor",
+            "hinauf",
+            "hinaus",
+            "hinein",
+            "hintan",
+            "hinter",
+            "hinweg",
+            "kaputt",
+            "nieder",
+            "runter",
+            "scharf",
+            "schutz",
+            "voraus",
+            "vorbei",
+            "vorher",
+            "weiter",
+            "wieder",
+            "zurück",
+        ]:
+            vlang = 6
+            return vorne
+
+    if slang >= 5:
+        vorne = s[:5]
+        if vorne in [
+            "bauch",
+            "bevor",
+            "blond",
+            "breit",
+            "dabei",
+            "dafür",
+            "daher",
+            "dahin",
+            "daran",
+            "davon",
+            "davor",
+            "dicht",
+            "drein",
+            "durch",
+            "empor",
+            "flott",
+            "fremd",
+            "gegen",
+            "glatt",
+            "herab",
+            "heran",
+            "herum",
+            "hinab",
+            "hinan",
+            "hinzu",
+            "klein",
+            "krank",
+            "näher",
+            "reich",
+            "schön",
+            "still",
+            "übrig",
+            "umher",
+            "unter",
+            "voran",
+            "weich",
+        ]:
+            vlang = 5
+            return vorne
+
+    if slang >= 4:
+        vorne = s[:4]
+        if vorne in [
+            "acht",
+            "blau",
+            "bloß",
+            "dazu",
+            "dort",
+            "dran",
+            "fehl",
+            "feil",
+            "fein",
+            "fern",
+            "fest",
+            "fort",
+            "frei",
+            "gelb",
+            "groß",
+            "grün",
+            "heim",
+            "hier",
+            "hoch",
+            "kahl",
+            "kalt",
+            "klar",
+            "kurz",
+            "lieb",
+            "leer",
+            "mies",
+            "miss",
+            "nach",
+            "nass",
+            "raus",
+            "rein",
+            "rück",
+            "satt",
+            "seil",
+            "über",
+            "voll",
+            "wahr",
+            "warm",
+            "weis",
+            "weiß",
+            "wohl",
+        ]:
+            vlang = 4
+            return vorne
+
+    if slang >= 3:
+        vorne = s[:3]
+        if vorne in [
+            "auf",
+            "aus",
+            "bei",
+            "dar",
+            "ein",
+            "ent",
+            "gut",
+            "her",
+            "hin",
+            "los",
+            "mit",
+            "out",
+            "rum",
+            "tot",
+            "ver",
+            "vor",
+            "weg",
+            "zer",
+        ]:
+            vlang = 3
+            return vorne
+
+    if slang >= 2:
+        vorne = s[:2]
+        if vorne in ["ab", "an", "be", "da", "er", "re", "um", "zu"]:
+            vlang = 2
+            return vorne
+
+    return s[:vlang]
+
+
+def render_verbherkunft(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+    """
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str), word="anflunkern")
+    'gebildet aus dem Verbzusatz <i>an</i> und dem Verb <i>flunkern</i>'
+
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Adjektiv", "V": "allein"}), word="alleinstehen")
+    'gebildet aus dem Adjektiv <i>allein</i> als Verbzusatz und dem Verb <i>stehen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Substantiv", "V": "Kopf"}), word="kopfstehen")
+    'gebildet aus dem Substantiv <i>Kopf</i> als Verbzusatz und dem Verb <i>stehen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Partikel"}), word="abaasen")
+    'gebildet aus der Partikel <i>ab</i> als Verbzusatz und dem Verb <i>aasen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Adverb"}), word="antragen")
+    'gebildet aus der Partikel <i>an</i> als Verbzusatz und dem Verb <i>tragen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Präposition"}), word="abflauen")
+    'gebildet aus der Partikel <i>ab</i> als Verbzusatz und dem Verb <i>flauen</i>'
+
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"2": "u"}), word="beruhen")
+    'Derivation (Ableitung) zum Verb <i>ruhen</i> mit dem Derivatem (Ableitungsmorphem) <i>be-</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"2": "u", "V": "de"}), word="defragmentieren")
+    'Derivation (Ableitung) zum Verb <i>fragmentieren</i> mit dem Derivatem (Ableitungsmorphem) <i>de-</i>'
+    """
+    art = data["2"] or (parts[0] if parts else "t")
+    wortart = data["W"]
+    vorspann = data["V"]
+    ableitung = data["A"]
+    wortart2 = data["W2"]
+    strlen = len(word)
+    retp = ""
+    partikel = ""
+    dativ = "dem "
+
+    partikel = vorspann if (vorspann and vorspann >= "A") else vorsilbe(word)
+    vlen = len(partikel)
+    verbname = word[vlen:strlen]
+
+    if art == "t":
+        retp += "gebildet aus "
+        if wortart:
+            if wortart in {"Präposition", "Adverb"}:
+                wortart = "Partikel"
+                dativ = "der "
+            elif wortart in {"Partikel", "Partikelverb", "Interjektion"}:
+                dativ = "der "
+            retp += f"{dativ}{wortart} "
+            retp += f"{italic(partikel)} als Verbzusatz"
+        else:
+            retp += f"dem Verbzusatz {italic(partikel)}"
+
+        if wortart2:  # fiktives Verb
+            retp += f" und der Ableitung zum {wortart2} "
+            retp += f"{italic(ableitung)} durch Konversion"
+        else:
+            retp += f" und dem Verb {italic(verbname)}"
+    elif art == "u":
+        if not vorspann and ableitung:
+            vorspann = ableitung
+            vlen = len(vorspann)
+            verbname = word[vlen:strlen]
+
+        retp = "Derivation (Ableitung) "
+        retp += (
+            f"zum {wortart} {italic(ableitung)} mit "
+            if wortart in {"Adjektiv", "Substantiv", "Verb"}
+            else f"zum Verb {italic(verbname)} mit "
+        )
+        retp += "dem Derivatem (Ableitungsmorphem) "
+
+        if verbname == "eln":
+            retp += "-el und der Flexionsendung -n"
+        elif verbname in {"en", "n"}:
+            retp = "Derivation (Ableitung) "
+            retp += f"vom {wortart} {italic(ableitung)} durch Konversion "
+            retp += f"mit der Flexionsendung {italic(f'-{verbname}')}"
+        elif verbname == "ifizieren":
+            retp += "-ifizier und der Flexionsendung -en"
+        elif verbname == "isieren":
+            retp += "-isier und der Flexionsendung -en"
+        elif verbname == "ieren":
+            retp += "-ier und der Flexionsendung -en"
+        else:
+            if ableitung and word[:vlen].lower() == ableitung.lower():
+                retp = f"untrennbare Zusammensetzung aus {dativ}"
+                retp += f"{wortart} {italic(vorspann)} und dem Verb {italic(verbname)}"
+            else:
+                retp += italic(f"{partikel}-")
+
+    return retp
+
+
 template_mapping = {
     "Arab": render_foreign_lang_simple,
     "Bibel": render_bibel,
@@ -530,6 +878,7 @@ template_mapping = {
     "Üxx4": render_Uxx4,
     "Üxx4?": render_Uxx4,
     "Üxx5": render_Uxx5,
+    "Verbherkunft": render_verbherkunft,
 }
 
 
