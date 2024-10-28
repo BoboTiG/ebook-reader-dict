@@ -94,6 +94,7 @@ templates_ignored = (
     "ejemplo requerido",
     "elemento químico",
     "inflect.es.sust.invariante",
+    "mapa",
     "marcar sin referencias",
     "parónimo",
     "picdic",
@@ -128,6 +129,7 @@ templates_italic = {
     "rur": "Rural",
     "rural": "Rural",
     "slang": "Jergal",
+    "sociedad": "Sociedad",
 }
 
 # Templates more complex to manage.
@@ -136,6 +138,8 @@ templates_multi = {
     "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',
     # {{adjetivo de padecimiento|alergia}}
     "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',
+    # {{cognados|tonina}}
+    "cognados": "f\"{strong('Cognado:')} {parts[1]}\"",
     # {{color|#DDB88E|espacio=6}}
     "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
     # {{contexto|Educación}}
@@ -179,8 +183,12 @@ templates_multi = {
     # {{ucf}}
     # {{ucf|mujer}}
     "ucf": "capitalize(parts[1] if len(parts) > 1 else word)",
-    # {{variante obsoleta|hambre}}"
+    # {{variante informal|cómo estás}}
+    "variante informal": "f\"{italic('Variante informal de')} {parts[1]}\"",
+    # {{variante obsoleta|hambre}}
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
+    # {{variante rara|pecuniario}}
+    "variante rara": "f\"{italic('Variante rara de')} {parts[1]}\"",
     # {{versalita|xx}}
     "versalita": "small_caps(parts[1])",
     # {{verde|*exfollare}}
@@ -192,6 +200,7 @@ lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 templates_other = {
     "antropónimo ambiguo": "<i>Nombre de pila tanto de mujer como de varón</i>",
     "onomatopeya": "Onomatopeya",
+    "sigla": "Sigla",
 }
 
 # Release content on GitHub
