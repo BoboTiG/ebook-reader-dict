@@ -65,7 +65,7 @@ def test_parse_restricted_word(tmp_path: Path) -> None:
 """
     )
 
-    assert parse.process(file, "fr")
+    assert "cunnilingus" in parse.process(file, "fr")
 
 
 def test_parse_redirected_word(tmp_path: Path) -> None:
@@ -145,3 +145,46 @@ def test_parse_word_with_colons(tmp_path: Path) -> None:
     )
 
     assert not parse.process(file, "fr")
+
+
+def test_parse_word_with_templates_lowercased(tmp_path: Path) -> None:
+    file = tmp_path / "page.xml"
+    file.write_text(
+        """\
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.11/" xml:lang="fr">
+<page>
+    <title>restaurang</title>
+    <ns>0</ns>
+    <id>5156</id>
+    <revision>
+      <id>3874635</id>
+      <parentid>3872233</parentid>
+      <timestamp>2023-01-04T18:58:03Z</timestamp>
+      <contributor>
+        <username>Frodlekis</username>
+        <id>762</id>
+      </contributor>
+      <comment>+he: [[מִסְעָדָה]] (assisterat)</comment>
+      <origin>3874635</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="2778" sha1="7k86wfuvisuff9jk6ogymzuk5dgtjfq" xml:space="preserve">{{wikipedia}}
+
+==Svenska==
+===Substantiv===
+{{sv-subst-n-er}}
+'''restaurang'''
+*{{uttal|sv|enkel=,rest(a)u’rang|ipa=ˌrɛst.(a)ɵˈraŋ}}
+#[[inrättning]] där man [[köpa|köper]] [[mat]] som man sedan [[äta|äter]] på plats
+#:{{varianter|[[restaurant]] ''(ålderdomlig stavning)''}}
+#:{{sammansättningar|[[dansrestaurang]], [[fiskrestaurang]], [[gourmetrestaurang]], [[hamburgerrestaurang]], [[kinarestaurang]], [[lunchrestaurang]], [[personalrestaurang]], [[restaurangbesök]], [[restaurangbesökare]], [[restaurangbransch]], [[restaurangchef]], [[restauranggäst]], [[restaurangkedja]], [[restaurangkök]], [[restaurangnota]], [[restaurangskola]], [[restaurangsorl]], [[restaurangvagn]], [[restaurangägare]], [[snabbmatsrestaurang]], [[sushirestaurang]]}}
+#:{{etymologi|Sedan 1865 av {{härledning|sv|fr|restaurant}} med samma betydelse, presensparticip av ''[[restaurer]]'' (”återlagra”), av {{härledning|sv|la|restaurare}}. Stavningen ''restaurang'' är belagd sedan 1889. Stavningen {{?|stavningen?!}} och uttalet ''resturang'' är mycket vanligt sen 1970-talet.}}
+</text>
+      <sha1>7k86wfuvisuff9jk6ogymzuk5dgtjfq</sha1>
+    </revision>
+</page>
+</mediawiki>
+"""
+    )
+
+    assert "restaurang" in parse.process(file, "sv")
