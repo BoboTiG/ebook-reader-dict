@@ -74,6 +74,7 @@ templates_ignored = (
     "λείπει η ετυμολογία",
     "περίοδος",
     "από",
+    "ετυ+",
 )
 
 # Templates more complex to manage.
