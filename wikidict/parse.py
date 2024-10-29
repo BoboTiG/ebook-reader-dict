@@ -16,6 +16,8 @@ log = logging.getLogger(__name__)
 RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
 RE_TITLE = re.compile(r"<title>([^:]*)</title>").finditer
 
+# To list all words not taken into account with current head sections:
+#    DEBUG_PARSE=1 python -m wikidict LOCALE --parse >out.log
 DEBUG_PARSE = "DEBUG_PARSE" in os.environ
 
 

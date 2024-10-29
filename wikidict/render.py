@@ -51,6 +51,13 @@ Sections = dict[str, list[wtp.Section]]
 MANAGER = multiprocessing.Manager()
 MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
 
+# To list all unhandled sections:
+#    DEBUG_SECTIONS=1 python -m wikidict LOCALE --render | sort -u >out.log
+#
+# To make words using a given section to fail:
+#    DEBUG_SECTIONS="SECTION" python -m wikidict LOCALE --render
+# Example with the RO dict, and the "{{unități}}" section:
+#    DEBUG_SECTIONS="{{unități}}" python -m wikidict ro --render
 DEBUG_SECTIONS = os.environ.get("DEBUG_SECTIONS", "0")
 
 log = logging.getLogger(__name__)
