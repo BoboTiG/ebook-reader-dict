@@ -51,6 +51,8 @@ Sections = dict[str, list[wtp.Section]]
 MANAGER = multiprocessing.Manager()
 MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
 
+DEBUG_SECTIONS = "DEBUG_SECTIONS" in os.environ
+
 log = logging.getLogger(__name__)
 
 
@@ -281,6 +283,8 @@ def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
         # Filter on interesting sections
         if title.startswith(wanted):
             ret[title].append(section)
+        elif DEBUG_SECTIONS:
+            print(f"Title section rejected: {title!r}", flush=True)
     return top_sections, ret
 
 
