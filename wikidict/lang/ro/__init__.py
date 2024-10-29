@@ -11,10 +11,11 @@ float_separator = ","
 thousands_separator = "."
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{{limba|ron}}",)
+head_sections = ("{{limba|ron}}", "{{limba|ro}}", "{{limba|conv}}")
 section_sublevels = (3,)
 etyl_section = ("{{etimologie}}",)
 sections = (
+    "{{abr}}",
     "{{abreviere}",
     "{{adjectiv}",
     "{{adjective}",
@@ -23,7 +24,9 @@ sections = (
     "{{conjuncție}",
     "{{cuvânt compus}",
     *etyl_section,
+    "{{expr}}",
     "{{expresie}",
+    "{{expresie|ro",
     "{{interjecție}",
     "{{locuțiune adjectivală}",
     "{{locuțiune adverbială}",
@@ -31,13 +34,17 @@ sections = (
     "{{numeral colectiv}",
     "{{numeral}",
     "{{nume propriu}",
-    "{{nume propriu|ron",
+    "{{nume propriu|ro",
+    "{{nume taxonomic|conv}",
     "{{participiu}",
     "{{prefix}",
     "{{prepoziție}",
     "{{pronume}",
+    "{{pronume|ro",
     "{{substantiv}",
     "{{sufix}",
+    "{{simbol|conv}",
+    "{{unități}}",
     "{{verb auxiliar}",
     "{{verb copulativ}",
     "{{verb predicativ}",

@@ -74,7 +74,32 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        (
+            "Lama",
+            [],
+            [],
+            ["(<i>zool.</i>) gen de animale din familia <i>Camelidae</i>; (<i>spec.</i>) lamă, guanaco"],
+            [],
+        ),
+        (
+            "MHz",
+            [],
+            [],
+            ["simbol pentru megahertz"],
+            [],
+        ),
         ("portocale", ["/por.toˈka.le/"], ["Din <i>portocală</i>."], [], ["portocală"]),
+        (
+            "temperatură",
+            ["/tem.pe.raˈtu.rə/"],
+            ["Din franceză <i>température</i> < latină <i>temperatura</i>."],
+            [
+                "gradul, starea de căldură a unui mediu, a unui corp etc.",
+                "stare fiziologică constantă a corpului animal, reprezentând echilibrul dintre căldura produsă și cea pierdută.",
+                "gradul de căldură ridicată a corpului omenesc, reprezentând un simptom patologic; fierbințeală, febră.",
+            ],
+            [],
+        ),
     ],
 )
 def test_parse_word(
