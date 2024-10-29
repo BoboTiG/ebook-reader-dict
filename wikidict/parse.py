@@ -16,6 +16,8 @@ log = logging.getLogger(__name__)
 RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
 RE_TITLE = re.compile(r"<title>([^:]*)</title>").finditer
 
+DEBUG_PARSE = "DEBUG_PARSE" in os.environ
+
 
 def xml_iter_parse(file: Path) -> Generator[str, None, None]:
     """Efficient XML parsing for big files."""
@@ -43,6 +45,12 @@ def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
             wikicode_lowercase = wikicode.lower()
             if any(section in wikicode_lowercase for section in head_sections[locale]):
                 return title_match[1], wikicode
+
+        if DEBUG_PARSE:
+            try:
+                print(f"{title_match[1]!r}: {wikicode[:200]!r}", flush=True)
+            except UnboundLocalError:
+                print(f"{title_match[1]!r}: NO TEXT", flush=True)
 
     # No Wikicode; unfinished page; no interesting head section; a foreign word, etc. Who knows?
     return "", ""
