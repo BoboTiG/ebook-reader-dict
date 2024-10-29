@@ -1,0 +1,7 @@
+{{=da=}}
+{{-etym-}}
+Fra [[:w:fransk (sprog)|fransk]]: [[-eur]], af [[:w:latin (sprog)|latin]] [[-ator]].
+{{-end-|da}}
+{{pn}}
+#Betegner den, der udfører et arbejde.
+#:''For eksempel [[gravør]]; den der graverer.''

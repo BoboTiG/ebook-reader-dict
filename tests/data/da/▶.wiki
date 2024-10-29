@@ -1,0 +1,8 @@
+{{=mul=}}
+{{-descr-}}
+En trekant som peger til højre
+{{-symb-|mul}}
+{{pn}}
+# knap som bruges til at afspille en video, lyd el. musik
+{{-also2-}}
+{{mul-media-buttons}}

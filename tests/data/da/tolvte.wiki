@@ -1,0 +1,27 @@
+{{=da=}}
+{{-etym-}}
+Fra {{etyl|non|da}} {{term|tolfti|lang=non}}.
+{{-pronun-}}
+*{{IPA|/ˈtɔldə/|lang=da}}
+{{da-ord-numbers}}
+{{-seq-num-|da}}
+{{pn}} (''forkortes'': 12.)
+# nummer [[tolv]] i rækken
+#* før: [[ellevte]]
+#* efter: [[trettende]]
+{{-trans-}}
+{{(}}
+* {{en}}: {{t|en|twelfth}}
+* {{fr}}: {{t|fr|douzième}}
+* {{el}}: {{t|el|δωδέκατος}}
+* {{it}}: {{t|it|dodicesimo}}
+* {{nl}}: {{t|nl|twaalfde}}
+{{-}}
+* {{pt}}: {{t|pt|duodécimo}}
+* {{es}}: {{t|es|duodécimo}}
+* {{O|ru|двенадцатый}}
+* {{O|sv|tolfte}}
+* {{O|de|zwölfte}}
+{{)}}
+{{-ref-}}
+*{{DDO}}

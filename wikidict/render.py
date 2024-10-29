@@ -419,12 +419,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
 
         # {{=da=}} → =={{da}}==
-        code = re.sub(r"\{\{=(\w{2})=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+        code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
         # Transform sub-locales into their own section to prevent mixing stuff
+        # {{-da-}} → =={{da}}==
+        # {{-mul-}} → =={{mul}}==
         # {{-no-}} → =={{no}}==
         # {{-sv-}} → =={{sv}}==
-        code = re.sub(r"\{\{-((?:no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+        code = re.sub(r"\{\{-((?:da|mul|no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     elif locale == "de":
         # {{Bedeutungen}} → === {{Bedeutungen}} ===

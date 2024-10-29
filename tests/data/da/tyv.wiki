@@ -1,0 +1,34 @@
+{{=da=}}
+{{-noun-|da}}
+{{pn}} {{c}}
+#En person, der uretmæssigt tager andre folks ejendele i besiddelse.
+#:''Pas på, at tyven ikke stjæler dine ting, når du går på gaden.''
+{{-decl-}}
+{{da-noun|en|tyv|tyven|tyve|tyvene}}
+{{-expr-}}
+*(når noget bliver gjort uden at nogen får det at vide før det er for sent): Som en '''tyv''' om natten.
+{{-rel-}}
+*[[tyveri]] - den handling tyven begår ved at stjæle
+{{-trans-}}
+{{(}}
+*{{en}}: {{trad|en|thief}}
+*{{fi}}: {{trad|fi|varas}}
+*{{fr}}: {{trad|fr|voleur}}
+*{{fo}}: {{trad|fo|tjóvur}}
+*{{el}}: {{trad|el|κλέφτης}}
+*{{is}}: {{trad|is|þjófur}}
+*{{it}}: {{trad|it|ladro}}
+*{{ku}}: {{trad|ku|diz}}
+*{{nl}}: {{trad|nl|dief}}
+{{-}}
+*{{no}}:
+*:{{nb}}: {{t|no|tyv|m}}, {{t|no|tjuv|m}}
+*:{{nn}}: {{t|nn|tjuv|m}}
+*{{pt}}: {{trad|pt|ladrão}}
+*{{ru}}: {{trad|ru|похититель}}
+*{{es}}: {{trad|es|ladrón}}
+*{{sv}}: {{t|sv|tjuv|c}}
+*{{de}}: {{trad|de|Dieb}}
+{{)}}
+[[Kategori:Forbrydelser på dansk]]
+[[Kategori:Personer på dansk]]

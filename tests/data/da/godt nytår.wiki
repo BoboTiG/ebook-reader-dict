@@ -1,0 +1,20 @@
+{{=da=}}
+{{-frase-|da}}
+{{pn}}
+#En hilsen der siges omkring den 1. januar.
+{{-trans-}}
+{{(}}
+*{{en}}: {{trad|en|happy new year}}
+*{{fo}}: {{trad|fo|gott nýggjár}}
+*{{O|fr|bon nouvel an}}
+*{{O|it|felice anno nuovo}}
+*{{zh}}: {{trad|zh|新年好}} (xīn nián hào), {{trad|zh|恭喜发财}} (gōngxǐ fācái)
+*{{nl}}: {{trad|nl|gelukkig nieuwjaar}}
+{{-}}
+*{{no}}: {{trad|no|godt nytt år}}
+*{{O|pt|feliz ano novo}}
+*{{O|es|feliz año nuevo}}
+*{{sv}}: {{trad|sv|gott nytt år}}
+*{{O|cs|šťastný nový rok}}
+*{{O|de|frohes neues Jahr}}
+{{)}}

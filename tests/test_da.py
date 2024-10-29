@@ -11,12 +11,44 @@ from wikidict.utils import process_templates
     "word, pronunciations, etymology, definitions, variants",
     [
         (
+            "▶",
+            [],
+            [],
+            ["knap som bruges til at afspille en video, lyd el. musik"],
+            [],
+        ),
+        (
             "bakterie",
             [],
             [
                 "fra latin <i>bacterium</i>, latinisering af græsk <i>bakterion</i> (βακτήριον\xa0- lille stav), diminutiv af <i>baktron</i> (βάκτρον - stav)"
             ],
             ["(mikrobiologi) en encellet mikroskopisk organisme uden cellekerne"],
+            [],
+        ),
+        (
+            "disse",
+            [],
+            [],
+            ["Flertal af denne", "ikke noget"],
+            [],
+        ),
+        (
+            "et",
+            [],
+            [],
+            ["intetkøn af en"],
+            [],
+        ),
+        (
+            "her",
+            ["/hɛːˀɒ̯/"],
+            [],
+            [
+                "Stedet hvor vi er nu. Vores placering.",
+                "(<i>radiokommunikation, radiotelefoni</i>) Dette opkalder stammer fra denne opkalder",
+                "bruges som upersonligt subjekt, refererer ofte fremad eller tilbage til et andet led i sætningen.",
+            ],
             [],
         ),
         (
@@ -29,6 +61,13 @@ from wikidict.utils import process_templates
                 "(<i>zoologi</i>): et pattedyr af underarten <i>Canis lupus familiaris</i>.",
                 "(<i>slang</i>): 100 DKK-seddel (bruges ikke i flertal)",
             ],
+            [],
+        ),
+        (
+            "godt nytår",
+            [],
+            [],
+            ["En hilsen der siges omkring den 1. januar."],
             [],
         ),
         ("jørme", [], [], ["vrimle, myldre; sværme"], []),
@@ -45,7 +84,40 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        (
+            "-ør",
+            [],
+            ["Fra fransk: -eur, af latin -ator."],
+            ["Betegner den, der udfører et arbejde."],
+            [],
+        ),
         ("skulle", [], [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
+        (
+            "til",
+            [],
+            [
+                'Indoeuropæisk: *ad (i betydningen: fastsætte, ordne) -> germansk *tila- (i betydningen: mål; jf. tysk: Ziel) -> oldnordisk til. Ordet betyder altså egentlig: "<i>med</i> xxx <i>som mål</i>", hvor xxx kan erstattes af et substantiv (navneord).'
+            ],
+            ["Ordet betegner en retning hen imod eller et tilhørsforhold"],
+            [],
+        ),
+        (
+            "tolvte",
+            ["/ˈtɔldə/"],
+            ["Fra oldnordisk tolfti."],
+            ["nummer tolv i rækken"],
+            [],
+        ),
+        (
+            "tyv",
+            [],
+            [],
+            [
+                "En person, der uretmæssigt tager andre folks ejendele i besiddelse.",
+                "(når noget bliver gjort uden at nogen får det at vide før det er for sent): Som en <b>tyv</b> om natten.",
+            ],
+            [],
+        ),
         ("PMV", [], [], ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"], []),
     ],
 )

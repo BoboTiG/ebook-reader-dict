@@ -1,0 +1,28 @@
+{{-da-}}
+{{-prep-|da}}
+'''til'''
+#Ordet betegner en retning hen imod eller et tilhørsforhold
+#:'''Til''' [[land]]s, til [[vand]]s [[og]] [[i]] [[luft]]en.''
+
+====Syntax====
+Ordet '''til''' styrer [[genitiv]] (ejefald).
+
+{{-ant-}}
+*[[fra]]
+
+{{-etym-}}
+[[indoeuropæisk sprog|Indoeuropæisk]]: *ad (i betydningen: fastsætte, ordne) -> [[germansk sprog|germansk]] *tila- (i betydningen: mål; jf. tysk: Ziel) -> [[oldnordisk sprog|oldnordisk]] til. Ordet betyder altså egentlig: "''med'' xxx ''som mål''", hvor xxx kan erstattes af et substantiv (navneord).
+
+{{-trans-}}
+{{(}}
+* {{en}}: {{t|en|to}}
+* {{O|fr|à}}, {{t|fr|dans}}, {{t|fr|en}}, {{t|fr|pour}}, {{t|fr|chez}}, {{t|fr|de}}, {{t|fr|vers}}
+* {{is}}: {{t|is|til}}
+* {{nl}}: {{t|nl|te}}
+* {{nb}}: {{t|nb|til}}
+{{-}}
+* {{nn}}: {{t|nn|til}}
+* {{pt}}: {{t|pt|para}}
+* {{sv}}: {{t|sv|till}}
+* {{de}}: {{t|de|zu}}, {{t|de|nach}}, {{t|de|bis}}, {{t|de|an}}, {{t|de|für}}
+{{)}}
