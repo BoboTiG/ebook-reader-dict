@@ -222,6 +222,7 @@ escopos = {
     "Irlanda do Norte": "Irlanda",
     "Ironia": "ironia",
     "Irónico": "ironia",
+    "Italianismo": "italianismo",
     "Jamaica": "Jamaica",
     "Jocoso": "ironia",
     "Jornalismo": "mídia",
@@ -439,5 +440,5 @@ escopos = {
     "telheiros": "telheiros",
     "África do Sul": "África do Sul",
     "Índia": "Índia",
-}  # 434
+}  # 435
 # END

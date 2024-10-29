@@ -6027,7 +6027,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "malédiction",
-        "ar-*a**âtũ": "malédiction",
+        "ar-*a**âtũ": "{{p}} malédictions",
         "ar-*a**ũ": "imprécation",
         "ar-*a*a*a-a": "maudire",
         "ar-*a*²a*a": "tourmenter",
@@ -6041,16 +6041,18 @@ racines_schemes_arabes = {
         "ar-*u*a*ũ": "{{p}} maudissants",
         "ar-*â*a*a": "maudire",
         "ar-a**a*a": "",
+        "ar-el*a*î*u": "Satan",
         "ar-ma**a*@ũ": "latrines",
         "ar-ma**û*ũ": "maudit",
         "ar-ma*â*i*u": "{{p}} latrines",
+        "ar-ma0*â*î*u": "{{p}} maudits",
         "ar-mu*a*²a*ũ": "maudit",
         "ar-mu*â*a*@ũ": "malédiction",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se maudire réciproquement",
-    },  # 27
+    },  # 29
     "ar-lHw": {
         "aa_sens": "barbe, querelle",
         "ar-***ũ": "",
