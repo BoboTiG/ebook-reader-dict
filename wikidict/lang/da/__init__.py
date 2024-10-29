@@ -10,6 +10,7 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 section_patterns = (r"\#", r"\*")
+section_sublevels = (3, 4)
 head_sections = ("{{da}}", "dansk", "{{=da=}}", "{{-da-}}", "{{mul}}", "{{=mul=}}", "{{-mul-}}")
 etyl_section = ("{{etym}}", "{{etym2}}", "etymologi", "etymologi 1", "etymologi 2", "etymologi 3", "etymologi 4")
 sections = (
@@ -79,6 +80,7 @@ templates_ignored = (
     "definition mangler",
     "dm",
     "infl",
+    "IPA",
     "Personlige pronominer på dansk",
     "Possessive pronominer på dansk",
     "pn",
@@ -100,8 +102,10 @@ templates_italic = {
 }
 
 templates_multi = {
-    # {{alternativ stavemåde af|}}
+    # {{alternativ stavemåde af|botanizer}}
     "alternativ stavemåde af": "italic(parts[0]) + ' ' + strong(parts[1])",
+    # {{archaic form of|}}
+    "archaic form of": "italic('forældet form af')",
     # {{c}}
     "c": "italic('fælleskøn')",
     # {{confix|cysto|itis|lang=da}}
@@ -123,6 +127,8 @@ templates_multi = {
     "dublet af": "'dublet af ' + strong(parts[-1])",
     # {{flertal af}}
     "flertal af": "italic('flertalsform af')",
+    # {{forældet stavemåde af}}
+    "forældet stavemåde af": "italic('forældet stavemåde af')",
     # {{form of|imperative form|bjerge|lang=da}}
     "form of": "italic(capitalize(parts[1]) + ' af') + ' ' + strong(parts[2])",
     # {{fysik}}
@@ -131,14 +137,22 @@ templates_multi = {
     "genitivform af": "italic('genitivform af')",
     # {{genitivsform af}}
     "genitivsform af": "italic('genitivform af')",
-    # {{imperativ af}}
-    "imperativ af": "italic('imperativ af')",
+    # {{genitiv ental ubestemt af}}
+    "genitiv ental ubestemt af": "italic('genitiv ental ubestemt af')",
+    # {{genitiv ubestemt entalsform af}}
+    "genitiv ubestemt entalsform af": "italic('genitiv ubestemt entalsform af')",
+    # {{imperativ af|være}}
+    "imperativ af": "f\"{italic('imperativ af')} {strong(parts[1])}\"",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
     "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{m}}
+    "m": "italic('hankøn')",
     # {{n}}
     "n": "italic('intetkøn')",
+    # {{only in}}
+    "only in": "italic('bruges kun i frasen')",
     # {{p}}
     "p": "italic('flertal')",
     # {{præteritum participium af}}
@@ -154,6 +168,7 @@ templates_multi = {
     # {{ZHchar|北京}}
     "ZHchar": "parts[-1]",
 }
+templates_multi["imperativ form af"] = templates_multi["imperativ af"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da

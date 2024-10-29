@@ -419,6 +419,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = code.replace("{{!}}", "|")
 
     if locale == "da":
+        code = code.replace("----", "")
+
         # {{(}} .* {{)}}
         code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
 

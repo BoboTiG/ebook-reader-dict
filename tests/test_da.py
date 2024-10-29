@@ -93,6 +93,13 @@ from wikidict.utils import process_templates
         ),
         ("skulle", [], [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
         (
+            "søm",
+            [],
+            ["Fra oldnordisk saumr, fra sýja (<i>at sy</i>).", "Fra oldnordisk saumr <i>hankøn</i>."],
+            ["sammensyning", "spids metalpind med et hoved, beregnet til at sammenføje træstykker til hinanden"],
+            [],
+        ),
+        (
             "til",
             [],
             [
@@ -133,8 +140,8 @@ def test_parse_word(
     code = page(word, "da")
     details = parse_word(word, code, "da", force=True)
     assert pronunciations == details.pronunciations
-    assert definitions == details.definitions
     assert etymology == details.etymology
+    assert definitions == details.definitions
     assert variants == details.variants
 
 
