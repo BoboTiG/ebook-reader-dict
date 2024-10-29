@@ -14,7 +14,7 @@ from .lang import head_sections
 log = logging.getLogger(__name__)
 
 RE_TEXT = re.compile(r"<text[^>]*>(.*)</text>", flags=re.DOTALL).finditer
-RE_TITLE = re.compile(r"<title>(.*)</title>").finditer
+RE_TITLE = re.compile(r"<title>([^:]*)</title>").finditer
 
 
 def xml_iter_parse(file: Path) -> Generator[str, None, None]:
@@ -37,12 +37,12 @@ def xml_iter_parse(file: Path) -> Generator[str, None, None]:
 
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
-    title_match = next(RE_TITLE(element))
-    for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
-        wikicode = text_match[1]
-        wikicode_lowercase = wikicode.lower()
-        if any(section in wikicode_lowercase for section in head_sections[locale]):
-            return title_match[1], wikicode
+    if title_match := next(RE_TITLE(element), None):
+        for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
+            wikicode = text_match[1]
+            wikicode_lowercase = wikicode.lower()
+            if any(section in wikicode_lowercase for section in head_sections[locale]):
+                return title_match[1], wikicode
 
     # No Wikicode; unfinished page; no interesting head section; a foreign word, etc. Who knows?
     return "", ""
@@ -55,7 +55,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
     log.info("Processing %s ...", file)
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, locale)
-        if word and code and ":" not in word:
+        if word and code:
             words[unescape(word)] = unescape(code)
 
     return words

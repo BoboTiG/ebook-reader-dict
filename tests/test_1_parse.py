@@ -136,7 +136,14 @@ def test_parse_word_with_colons(tmp_path: Path) -> None:
         <comment>changement de titre pour meilleur référencement dans les moteurs de recherche</comment>
         <model>wikitext</model>
         <format>text/x-wiki</format>
-        <text bytes="46" xml:space="preserve">Wiktionnaire : dictionnaire libre et universel</text>
+        <text bytes="46" xml:space="preserve">{{voir|Cunnilingus}}
+
+== {{langue|fr}} ==
+=== {{S|nom|fr}} ===
+{{fr-inv|ky.ni.lɛ̃.gys|sp=1}}
+[[Fichier:Édouard-Henri Avril (23).jpg|thumb|Un '''cunnilingus''']]
+'''cunnilingus''' {{pron|ky.ni.lɛ̃.ɡys|fr}} {{m}}, {{sp}}
+# {{sexe|fr}} [[excitation|Excitation]] [[buccal]]e des [[organe]]s [[génitaux]] [[féminins]].</text>
         <sha1>40helna9646ffk0utvwm8bkdlzi1eck</sha1>
     </revision>
 </page>
