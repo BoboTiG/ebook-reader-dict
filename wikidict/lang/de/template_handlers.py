@@ -85,6 +85,257 @@ bibel_names = {
     "Offb": "Offenbarung",
 }
 
+VORSILBE_DATA = [
+    (
+        14,
+        {
+            "hintereinander",
+        },
+    ),
+    (
+        13,
+        {
+            "durcheinander",
+            "gegeneinander",
+            "nebeneinander",
+            "untereinander",
+            "widereinander",
+        },
+    ),
+    (
+        12,
+        {
+            "übereinander",
+        },
+    ),
+    (
+        11,
+        {
+            "aufeinander",
+            "auseinander",
+            "beieinander",
+            "miteinander",
+            "voneinander",
+        },
+    ),
+    (
+        10,
+        {
+            "aneinander",
+            "dazwischen",
+            "hintenüber",
+            "ineinander",
+            "zueinander",
+        },
+    ),
+    (
+        9,
+        {
+            "gegenüber",
+            "hernieder",
+            "hinterher",
+        },
+    ),
+    (
+        8,
+        {
+            "aufwärts",
+            "beiseite",
+            "dahinter",
+            "drauflos",
+            "einwärts",
+            "entgegen",
+            "herunter",
+            "hindurch",
+            "hinunter",
+            "vornüber",
+            "vorwärts",
+            "zunichte",
+            "zusammen",
+            "zwischen",
+        },
+    ),
+    (
+        7,
+        {
+            "abwärts",
+            "dagegen",
+            "daneben",
+            "darüber",
+            "entlang",
+            "entzwei",
+            "fürlieb",
+            "herüber",
+            "hierher",
+            "hinüber",
+            "instand",
+            "schwarz",
+            "trocken",
+            "überein",
+            "vorüber",
+            "zurecht",
+            "zuwider",
+        },
+    ),
+    (
+        6,
+        {
+            "bereit",
+            "einher",
+            "falsch",
+            "fertig",
+            "gerade",
+            "gleich",
+            "herauf",
+            "heraus",
+            "herbei",
+            "herein",
+            "hervor",
+            "hinauf",
+            "hinaus",
+            "hinein",
+            "hintan",
+            "hinter",
+            "hinweg",
+            "kaputt",
+            "nieder",
+            "runter",
+            "scharf",
+            "schutz",
+            "voraus",
+            "vorbei",
+            "vorher",
+            "weiter",
+            "wieder",
+            "zurück",
+        },
+    ),
+    (
+        5,
+        {
+            "bauch",
+            "bevor",
+            "blond",
+            "breit",
+            "dabei",
+            "dafür",
+            "daher",
+            "dahin",
+            "daran",
+            "davon",
+            "davor",
+            "dicht",
+            "drauf",
+            "drein",
+            "durch",
+            "empor",
+            "flott",
+            "fremd",
+            "gegen",
+            "glatt",
+            "herab",
+            "heran",
+            "herum",
+            "hinab",
+            "hinan",
+            "hinzu",
+            "klein",
+            "krank",
+            "näher",
+            "reich",
+            "schön",
+            "still",
+            "übrig",
+            "umher",
+            "unter",
+            "voran",
+            "weich",
+        },
+    ),
+    (
+        4,
+        {
+            "acht",
+            "blau",
+            "bloß",
+            "dazu",
+            "dort",
+            "dran",
+            "fehl",
+            "feil",
+            "fein",
+            "fern",
+            "fest",
+            "fort",
+            "frei",
+            "gelb",
+            "groß",
+            "grün",
+            "heim",
+            "hier",
+            "hoch",
+            "kahl",
+            "kalt",
+            "klar",
+            "kurz",
+            "lieb",
+            "leer",
+            "mies",
+            "miss",
+            "nach",
+            "nass",
+            "raus",
+            "rein",
+            "rück",
+            "satt",
+            "seil",
+            "über",
+            "voll",
+            "wahr",
+            "warm",
+            "weis",
+            "weiß",
+            "wohl",
+        },
+    ),
+    (
+        3,
+        {
+            "auf",
+            "aus",
+            "bei",
+            "dar",
+            "ein",
+            "ent",
+            "gut",
+            "her",
+            "hin",
+            "los",
+            "mit",
+            "out",
+            "rum",
+            "tot",
+            "ver",
+            "vor",
+            "weg",
+            "zer",
+        },
+    ),
+    (
+        2,
+        {
+            "ab",
+            "an",
+            "be",
+            "da",
+            "er",
+            "re",
+            "um",
+            "zu",
+        },
+    ),
+]
+
 
 def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
     """
@@ -512,263 +763,56 @@ def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return f"{parts[2]} ({parts[1]})"
 
 
-def vorsilbe(s: str) -> str:
+def vorsilbe(verb: str) -> str:
     """
-    Source: https://de.wiktionary.org/wiki/Modul:Verb#L-123 (`function Verb.vorsilbe(s)`)
-    Date  : 2024-10-28 15:11
+    Source: https://de.wiktionary.org/w/index.php?title=Modul:Verb&oldid=10137941#L-123 (2024-10-28 21:07)
+
+    >>> vorsilbe("")  # slang >= 14
+    ''
+    >>> vorsilbe("nebeneinanderstehen")  # slang >= 13
+    'nebeneinander'
+    >>> vorsilbe("")  # slang >= 12
+    ''
+    >>> vorsilbe("auseinanderbrechen")  # slang >= 11
+    'auseinander'
+    >>> vorsilbe("zueinanderstehen")  # slang >= 10
+    'zueinander'
+    >>> vorsilbe("gegenüberliegen")  # slang >= 9
+    'gegenüber'
+    >>> vorsilbe("vornüberfallen")  # slang >= 8
+    'vornüber'
+    >>> vorsilbe("schwarzmalen")  # slang >= 7
+    'schwarz'
+    >>> vorsilbe("hineintun")  # slang >= 6
+    'hinein'
+    >>> vorsilbe("übriglassen")  # slang >= 5
+    'übrig'
+    >>> vorsilbe("überzählen")  # slang >= 4
+    'über'
+    >>> vorsilbe("verbeugen")  # slang >= 3
+    'ver'
+    >>> vorsilbe("abfotografieren")  # slang >= 2
+    'ab'
+    >>> vorsilbe("bankrottieren")  # no slang condition taken
+    'bankrottieren'
     """
-    geslang = len(s)
+    length = len(verb)
     slang = 0
-    vlang = 0
+    prefix = ""
 
-    if s[geslang - 3 : geslang] == "tun":
-        slang = geslang - 3
-    else:
-        if geslang >= 7:
-            slang = geslang - 4
-        else:
-            return ""
+    if verb.endswith("tun"):
+        slang = length - 3
+    elif length >= 7:
+        slang = length - 4
 
-    vorne = ""
-    if slang >= 14:
-        vorne = s[:14]
-        if vorne == "hintereinander":
-            vlang = 14
-            return vorne
+    for prefix_len, prefixes in VORSILBE_DATA:
+        if slang >= prefix_len and (prefix := verb[:prefix_len]) in prefixes:
+            if prefix_len in {12, 14}:
+                # TODO: remove when a use case is found and a doctest is added
+                assert 0, f"slang >= {prefix_len}"
+            return prefix
 
-    if slang >= 13:
-        vorne = s[:13]
-        if vorne in ["durcheinander", "gegeneinander", "nebeneinander", "untereinander", "widereinander"]:
-            vlang = 13
-            return vorne
-
-    if slang >= 12:
-        vorne = s[:12]
-        if vorne == "übereinander":
-            vlang = 12
-            return vorne
-
-    if slang >= 11:
-        vorne = s[:11]
-        if vorne in ["aufeinander", "auseinander", "beieinander", "miteinander", "voneinander"]:
-            vlang = 11
-            return vorne
-
-    if slang >= 10:
-        vorne = s[:10]
-        if vorne in ["aneinander", "dazwischen", "hintenüber", "ineinander", "zueinander"]:
-            vlang = 10
-            return vorne
-
-    if slang >= 9:
-        vorne = s[:9]
-        if vorne in ["gegenüber", "hernieder", "hinterher"]:
-            vlang = 9
-            return vorne
-
-    if slang >= 8:
-        vorne = s[:8]
-        if vorne in [
-            "aufwärts",
-            "beiseite",
-            "dahinter",
-            "drauflos",
-            "einwärts",
-            "entgegen",
-            "herunter",
-            "hindurch",
-            "hinunter",
-            "vornüber",
-            "vorwärts",
-            "zunichte",
-            "zusammen",
-            "zwischen",
-        ]:
-            vlang = 8
-            return vorne
-
-    if slang >= 7:
-        vorne = s[:7]
-        if vorne in [
-            "abwärts",
-            "dagegen",
-            "daneben",
-            "darüber",
-            "entlang",
-            "entzwei",
-            "fürlieb",
-            "herüber",
-            "hierher",
-            "hinüber",
-            "instand",
-            "schwarz",
-            "trocken",
-            "überein",
-            "vorüber",
-            "zurecht",
-            "zuwider",
-        ]:
-            vlang = 7
-            return vorne
-
-    if slang >= 6:
-        vorne = s[:6]
-        if vorne in [
-            "bereit",
-            "einher",
-            "falsch",
-            "fertig",
-            "gerade",
-            "gleich",
-            "herauf",
-            "heraus",
-            "herbei",
-            "herein",
-            "hervor",
-            "hinauf",
-            "hinaus",
-            "hinein",
-            "hintan",
-            "hinter",
-            "hinweg",
-            "kaputt",
-            "nieder",
-            "runter",
-            "scharf",
-            "schutz",
-            "voraus",
-            "vorbei",
-            "vorher",
-            "weiter",
-            "wieder",
-            "zurück",
-        ]:
-            vlang = 6
-            return vorne
-
-    if slang >= 5:
-        vorne = s[:5]
-        if vorne in [
-            "bauch",
-            "bevor",
-            "blond",
-            "breit",
-            "dabei",
-            "dafür",
-            "daher",
-            "dahin",
-            "daran",
-            "davon",
-            "davor",
-            "dicht",
-            "drein",
-            "durch",
-            "empor",
-            "flott",
-            "fremd",
-            "gegen",
-            "glatt",
-            "herab",
-            "heran",
-            "herum",
-            "hinab",
-            "hinan",
-            "hinzu",
-            "klein",
-            "krank",
-            "näher",
-            "reich",
-            "schön",
-            "still",
-            "übrig",
-            "umher",
-            "unter",
-            "voran",
-            "weich",
-        ]:
-            vlang = 5
-            return vorne
-
-    if slang >= 4:
-        vorne = s[:4]
-        if vorne in [
-            "acht",
-            "blau",
-            "bloß",
-            "dazu",
-            "dort",
-            "dran",
-            "fehl",
-            "feil",
-            "fein",
-            "fern",
-            "fest",
-            "fort",
-            "frei",
-            "gelb",
-            "groß",
-            "grün",
-            "heim",
-            "hier",
-            "hoch",
-            "kahl",
-            "kalt",
-            "klar",
-            "kurz",
-            "lieb",
-            "leer",
-            "mies",
-            "miss",
-            "nach",
-            "nass",
-            "raus",
-            "rein",
-            "rück",
-            "satt",
-            "seil",
-            "über",
-            "voll",
-            "wahr",
-            "warm",
-            "weis",
-            "weiß",
-            "wohl",
-        ]:
-            vlang = 4
-            return vorne
-
-    if slang >= 3:
-        vorne = s[:3]
-        if vorne in [
-            "auf",
-            "aus",
-            "bei",
-            "dar",
-            "ein",
-            "ent",
-            "gut",
-            "her",
-            "hin",
-            "los",
-            "mit",
-            "out",
-            "rum",
-            "tot",
-            "ver",
-            "vor",
-            "weg",
-            "zer",
-        ]:
-            vlang = 3
-            return vorne
-
-    if slang >= 2:
-        vorne = s[:2]
-        if vorne in ["ab", "an", "be", "da", "er", "re", "um", "zu"]:
-            vlang = 2
-            return vorne
-
-    return s[:vlang]
+    return verb
 
 
 def render_verbherkunft(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
