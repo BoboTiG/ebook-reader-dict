@@ -48,6 +48,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     """
     >>> render_etym("etym", ["grc", "el", "ἄλαστος"], defaultdict(str))
     '<i>αρχαία ελληνική</i> ἄλαστος'
+    >>> render_etym("etym", ["enm", "en", "dene"], defaultdict(str, {"tnl": "κυριολεκτικά: κοιλάδα, τοπωνυμικό για αυτόν που έμενε στις περιοχές Dean, Deen ή Dean της Αγγλίας"}))
+    '<i>μέση αγγλική</i> dene (κυριολεκτικά: κοιλάδα, τοπωνυμικό για αυτόν που έμενε στις περιοχές Dean, Deen ή Dean της Αγγλίας)'
 
     >>> render_etym("μτφδ", [], defaultdict(str))
     '(μεταφραστικό δάνειο)'
@@ -99,10 +101,13 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
 
     if parts:
         phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
-        if parts:
-            parts.pop(0)  # Remove the lang
-        if parts:
-            phrase += f" {parts[-1]}"
+    if parts:
+        parts.pop(0)  # Remove the lang
+    if parts:
+        phrase += f" {parts[-1]}"
+
+    if tnl := data["tnl"]:
+        phrase += f" ({tnl})"
 
     return phrase.strip()
 
