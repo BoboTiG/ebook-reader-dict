@@ -7,6 +7,7 @@ import os
 import re
 from collections import defaultdict
 from collections.abc import Callable
+from contextlib import suppress
 from functools import partial
 from itertools import chain
 from pathlib import Path
@@ -572,19 +573,20 @@ def load(file: Path) -> dict[str, str]:
 
 def render_word(w: list[str], words: Words, locale: str) -> None:
     word, code = w
-    try:
-        details = parse_word(word, code, locale)
-    except Exception:  # pragma: nocover
-        log.exception("ERROR with %r", word)
-    else:
-        if details.definitions or details.variants:
-            words[word] = details
+    with suppress(KeyboardInterrupt):
+        try:
+            details = parse_word(word, code, locale)
+        except Exception:  # pragma: nocover
+            log.exception("ERROR with %r", word)
+        else:
+            if details.definitions or details.variants:
+                words[word] = details
 
 
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
     results: Words = cast(dict[str, Word], MANAGER.dict())
 
-    with multiprocessing.Pool(processes=workers) as pool:
+    with suppress(KeyboardInterrupt), multiprocessing.Pool(processes=workers) as pool:
         pool.map(partial(render_word, words=results, locale=locale), in_words.items())
 
     return results.copy()
