@@ -284,7 +284,7 @@ langs = {
     "hi_Latn": "hinglish",
     "hif": "hindi de Fiji",
     "hil": "híligaynon",
-    "hit": "hittita",
+    "hit": "hitita",
     "hmn": "hmong",
     "hnj": "hmong njua",
     "ho": "hiri motu",

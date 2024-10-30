@@ -5615,6 +5615,7 @@ racines_schemes_arabes = {
         "ar-a**a*a": "faire beaucoup",
         "ar-a**a*iy²ũ": "fréquent",
         "ar-a**a*u": "le plus fréquent",
+        "ar-el*a*î*u": "la plupart",
         "ar-ma**i*ũ": "riche",
         "ar-ma**û*ũ": "dépassé en nombre",
         "ar-mi**â*ũ": "qui parle trop",
@@ -5627,7 +5628,7 @@ racines_schemes_arabes = {
         "ar-ta*aw*a*a": "être très épais",
         "ar-ta*â*a*a": "pulluler",
         "ar-ta*â*u*ũ": "grand nombre",
-    },  # 38
+    },  # 39
     "ar-kHl": {
         "aa_sens": "khôl",
         "ar-***ũ": "",
@@ -7605,6 +7606,42 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "s'appliquer",
         "ar-ta*â*a*a": "s'entre-combattre",
     },  # 33
+    "ar-qwl": {
+        "aa_sens": "dire",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**iy²@ũ": "cohue",
+        "ar-*a*a*@ũ": "langage",
+        "ar-*a*a*a-u": "dire",
+        "ar-*a*a*ũ": "parole",
+        "ar-*a*i*ũ": "roi",
+        "ar-*a*²a*a": "attribuer un propos",
+        "ar-*a*²û*ũ": "loquace",
+        "ar-*a*û*ũ": "loquace",
+        "ar-*i**ũ": "parole",
+        "ar-*ta*a*a": "avoir de l'ascendant",
+        "ar-*u**@ũ": "loquace",
+        "ar-*u**ũ": "parole",
+        "ar-*â*a*a": "converser",
+        "ar-*â*i*ũ": "qui parle",
+        "ar-a**a*a": "attribuer un propos",
+        "ar-ma**u*@ũ": "article",
+        "ar-ma**u*ũ": "prononcé",
+        "ar-ma**û*ũ": "prononcé",
+        "ar-ma*a*a*@ũ": "opinion",
+        "ar-ma*a*a*ũ": "dire",
+        "ar-mi**a*ũ": "langue",
+        "ar-mi**â*ũ": "loquace",
+        "ar-mu*a*²a*ũ": "répété",
+        "ar-mu*â*a*@ũ": "conférence",
+        "ar-mu*â*i*ũ": "contractannt",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "calomnier",
+        "ar-ta*â*a*a": "s'entretenir",
+        "ar-ti**i*@ũ": "loquace",
+        "ar-ti**â*@ũ": "loquace",
+    },  # 34
     "ar-qwm": {
         "aa_sens": "être debout",
         "ar-***ũ": "",
@@ -9565,5 +9602,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 328
+}  # 329
 # END
