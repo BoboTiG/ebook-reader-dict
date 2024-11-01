@@ -92,6 +92,7 @@ racines_schemes_arabes = {
     },  # 16
     "ar-'Xr": {
         "aa_sens": "fin",
+        "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a*a*a-u": "",
         "ar-*a*a*iy²ũ": "dernier, extrême",
@@ -102,10 +103,13 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "tarder, rester derrière",
         "ar-*a*î*ũ": "dernier, récent",
         "ar-*ta*a*a": "",
+        "ar-*u**é": "{{f}} autre",
         "ar-*u*u*ũ": "partie postérieure, fin",
         "ar-*â*a*a": "mettre à la fin",
+        "ar-*â*i*@ũ": "{{f}} dernière",
         "ar-*â*i*ũ": "dernier, fin",
         "ar-a**a*a": "",
+        "ar-a**a*u": "autre",
         "ar-mi**â*ũ": "palmier à dattes hivernales",
         "ar-mu**i*ũ": "partie postérieure",
         "ar-mu*a*²a*ũ": "placé à la fin",
@@ -116,7 +120,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "délai",
         "ar-ta*a*²a*a": "rester en arrière, tarder",
         "ar-ta*â*a*a": "",
-    },  # 25
+    },  # 29
     "ar-'bb": {
         "aa_sens": "bouger, onduler",
         "ar-**a*²a": "",
@@ -175,6 +179,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 36
+    "ar-'by": {
+        "aa_sens": "refuser",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "orgueil",
+        "ar-*a*a*a-a": "refuser",
+        "ar-*a*i*iy²ũ": "orgueilleux",
+        "ar-*a*²a*a": "",
+        "ar-*a*â*ũ": "roseaux",
+        "ar-*i*â*ũ": "refus",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "qui refuse",
+        "ar-a**a*a": "",
+        "ar-ma**û*ũ": "chose pénible",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "refuser",
+        "ar-ta*â*a*a": "",
+    },  # 18
     "ar-'kd": {
         "aa_sens": "ferme, solide",
         "ar-*a*a*a-u": "battre le blé",
@@ -8896,6 +8920,7 @@ racines_schemes_arabes = {
         "ar-*u*û*@ũ": "singularité",
         "ar-*u*û*ũ": "solitude",
         "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} une",
         "ar-*â*i*ũ": "un",
         "ar-2i3@ũ": "isolement",
         "ar-a**a*a": "délaisser",
@@ -8914,7 +8939,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "isolement",
         "ar-ta*â*a*a": "",
         "ar-t²i2â3ũ": "union",
-    },  # 40
+    },  # 41
     "ar-wSl": {
         "aa_sens": "allier, rallier",
         "ar-**a*²a": "",
@@ -9612,5 +9637,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 330
+}  # 331
 # END
