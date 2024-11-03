@@ -940,6 +940,7 @@ labels = {
     "ante-classical": "pre-Classical",
     "anteclassical": "pre-Classical",
     "anthropology": "anthropology",
+    "anti-LGBTQ slur": "anti-LGBTQ slur",
     "antiquated": "archaic",
     "arachnology": "arachnology",
     "archaeological culture": "archaeology",
@@ -1489,6 +1490,7 @@ labels = {
     "history": "history",
     "hockey": "field hockey or ice hockey",
     "homeopathy": "homeopathy",
+    "homophobic": "anti-LGBTQ slur",
     "honorific": "honorific",
     "hormone": "biochemistry",
     "horoscope": "astrology",
@@ -2357,6 +2359,7 @@ labels = {
     "transgender slang": "transgender slang",
     "transitive": "transitive",
     "translation studies": "translation studies",
+    "transphobic": "anti-LGBTQ slur",
     "transport": "transport",
     "transportation": "transport",
     "trap-bath split": "''trap''–''bath'' split",
@@ -2484,7 +2487,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,479
+}  # 2,482
 
 syntaxes = {
     "&": {
