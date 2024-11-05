@@ -1976,6 +1976,7 @@ langs = {
     "hac": "gurani",
     "hachijo": "hachijō",
     "had": "hatam",
+    "hae": "oromo de l’Est",
     "hag": "hanga",
     "hai": "haïda",
     "hak": "hakka",
@@ -6468,5 +6469,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,463
+}  # 6,464
 # END
