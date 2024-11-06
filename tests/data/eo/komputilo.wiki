@@ -1,0 +1,37 @@
+{{vikipedio}}
+
+== Esperanto ==
+=== Substantivo ===
+{{livs|eo|SB|fra=[L:komput(i)]+[I:il]+[U:o]}}
+{{Deklinacio-eo}}
+{{bildodek|ThinkCentre_S50.jpg}}
+{{bildodek|ENIAC-changing_a_tube.jpg|tre granda kaj malnova '''komputilo'''|Raspberry_Pi_4_Model_B_-_Side.jpg|malgranda nova '''komputilo'''}}
+
+===={{Signifoj}}====
+# {{k|eo|F: komputado}} [[maŝino]] aŭ [[elektronikaĵo]] kiu kapablas [[kalkuli]], precipe sen intervenoj de homoj, aŭ rapide trakti, stori, kaj preni larĝajn kvantojn de [[datumo]]
+
+{{Sinonimoj}}
+''(arkaikaj kaj evitendaj)'' [[komputero]], [[komputoro]], [[komputatoro]]
+
+===={{Tradukoj}}====
+{{trad-eko}}
+* angla: {{t|en|computer}}
+* finna: {{t|fi|tietokone}}
+* franca: '''1., 2.''' {{t|fr|calculatrice}} {{g|f}}, {{t|fr|ordinateur}} {{g|m}}
+* germana: '''1., 2.''' {{t|de|Computer}} {{g|m}}, {{t|de|Rechner}} {{g|m}}
+* hispana: '''1., 2.''' {{t|es|ordenador}} {{g|m}}, {{t|es|computadora}} {{g|f}}, {{t|es|computador}} {{g|m}}
+* indonezia: {{t|id|komputer}}
+* kroata: '''1., 2.''' {{t|hr|računalo}}, {{t|hr|kompjuter}}
+{{trad-mezo}}
+* nederlanda: '''1., 2.''' {{t|nl|computer|m}}
+* pola: '''1., 2.''' {{t|pl|komputer}} {{g|m}}
+* portugala: '''1., 2.''' {{t|pt|computador}} {{g|m}}
+* rusa: {{t|ru|компьютер|m}}, {{t|ru|ЭВМ|f}}
+* sveda: {{t|sv|dator|u}}
+{{trad-fino}}
+
+{{Referencoj}}
+* {{ref-PIV}}
+* {{ref-Simpla Vortaro|{{PAGENAME}}}}
+* {{ref-Majstro|{{PAGENAME}}}}
+* {{ref-Tato|eo}}

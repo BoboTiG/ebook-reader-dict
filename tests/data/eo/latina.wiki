@@ -1,0 +1,20 @@
+=={{Lingvo|eo}}==
+
+{{Etimologio}}
+De [[Latino]]
+
+=== Adjektivo ===
+#rilata al [[Latino]].
+
+===={{Tradukoj}}====
+{{trad-eko}}
+* angla: {{t|en|Latin}}
+* franca: {{t|fr|latin}}
+{{trad-mezo}}
+* germana: {{t|de|lateinisch}}
+{{trad-fino}}
+
+{{Referencoj}}
+* {{ref-Majstro|latina}}
+
+[[Kategorio:Radiko latin']]

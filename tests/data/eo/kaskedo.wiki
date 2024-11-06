@@ -1,0 +1,40 @@
+=={{Lingvo|eo}}==
+{{8}}
+==={{Vortospeco|substantivo|eo}}===
+[[Dosiero:Casquette a helice.jpg|thumb|[1] '''''kaskedo''''']]
+{{Deklinacio-eo}}
+
+{{Vorterseparo}}
+:kasked/o.
+
+===={{Signifoj}}====
+:[1] Ĉapo kun viziero, civilvesta aŭ uniforma: ''homoj armitaj en nigraj kaskedetoj{{ref-Grabowski}}; la hotela pordisto levis sian kaskedon.''
+
+{{Ekzemploj}}
+:[1] Volis
+:la ĝardenisto pajlan ĉapelon,
+:la ŝipisto maristan ĉapon,
+:la ĵurnalisto kvadratitan ''kaskedon'',
+:la ĉambristino puntan kufon,
+:la ĝendarmo militistan kepon,
+:la ĉampano [[korko]]n,
+:la ĝemelo du supersignojn,
+:la ĵonglisto tri aŭ kvar...<ref>{{La milito de la ĉapeloj}}</ref>
+
+===={{Tradukoj}}====
+{{trad-eko}}
+*dana: [1] {{t|da|kasket}} {{g|u}}
+
+*franca: [1] {{t|fr|casquette}} {{g|f}}
+{{trad-mezo}}
+
+{{trad-fino}}
+
+{{Referencoj}}
+* {{vikipedenlin|kaskedo}}
+* {{ref-ReVo|kaskedo}}
+* {{ref-PIV}}
+* {{ref-Tato|eo}}
+* {{ref-Simpla Vortaro|kaskedo}}
+
+{{Fontoj}}

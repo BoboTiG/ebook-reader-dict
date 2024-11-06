@@ -10,6 +10,7 @@ namespaces = {
     "de": ["Bild", "Datei", "Image", "Kategorie"],
     "el": ["Image", "Αρχείο", "Εικόνα", "Κατηγορία"],
     "en": ["CAT", "Category", "File", "Image"],
+    "eo": ["Dosiero", "Image", "Kategorio"],
     "es": ["Archivo", "Categoría", "Image", "Imagen"],
     "fr": ["Catégorie", "Fichier", "Image"],
     "it": ["Categoria", "File", "Image", "Immagine"],
