@@ -189,17 +189,17 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(code: str) -> list[str]:
+def find_pronunciations(
+    code: str,
+    pattern: re.Pattern[str] = re.compile(r"\{\{IPA(?:\|(.*?))?\|lang=da\}\}"),
+) -> list[str]:
     """
     >>> find_pronunciations("")
     []
     >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}")
     ['/bɛ̜ːˀ/']
     """
-    pattern = re.compile(r"\{\{IPA(?:\|(.*?))?\|lang=da\}\}", flags=re.MULTILINE)
-    matches = re.findall(pattern, code) or []
-
-    return [item for sublist in matches for item in sublist.split("|") if item]
+    return [item for sublist in (re.findall(pattern, code) or []) for item in sublist.split("|") if item]
 
 
 def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
