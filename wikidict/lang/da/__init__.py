@@ -9,7 +9,7 @@ float_separator = ","
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns = (r"\#", r"\*")
+section_patterns = ("#", r"\*")
 section_sublevels = (3, 4)
 head_sections = ("{{da}}", "dansk", "{{=da=}}", "{{-da-}}", "{{mul}}", "{{=mul=}}", "{{-mul-}}")
 etyl_section = ("{{etym}}", "{{etym2}}", "etymologi", "etymologi 1", "etymologi 2", "etymologi 3", "etymologi 4")

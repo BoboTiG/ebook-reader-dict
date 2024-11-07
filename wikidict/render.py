@@ -108,7 +108,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
         return definitions
 
     if locale == "es":
-        if section.title.strip().startswith(("Forma adjetiva", "Forma verbal")):
+        if section.title.strip().lower().startswith(("forma adjetiva", "forma verbal")):
             return definitions
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)

@@ -12,7 +12,7 @@ float_separator = ","
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns = (r"#", r"\*", r":#")
+section_patterns = ("#", r"\*", ":#")
 section_level = 1
 section_sublevels = (2,)
 head_sections = ("{{-pt-}}", "{{-mult-}}")

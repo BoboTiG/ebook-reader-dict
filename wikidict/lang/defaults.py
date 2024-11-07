@@ -13,8 +13,8 @@ float_separator = ""
 thousands_separator = ""
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns = (r"\#",)
-sublist_patterns = (r"\#",)
+section_patterns = ("#",)
+sublist_patterns = ("#",)
 section_level = 2
 section_sublevels = (3,)
 head_sections = ("",)
