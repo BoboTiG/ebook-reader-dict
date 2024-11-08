@@ -412,95 +412,31 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         text = italic("ουσιαστικοποιημένο")
         return text if data["0"] else f"({text})"
         
-    if tpl == "νεολ":
-        text = italic("νεολογισμός")
-        return text if data["0"] else f"({text})"
-    if tpl == "μπφ":
-        text = italic("μέση-παθητική φωνή του ρήματος")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτβ+αμτβ":
-        text = italic("μεταβατικό και αμετάβατο")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτβ-αμτβ":
-        text = italic("μεταβατικό και αμετάβατο")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτγν":
-        text = italic("ελληνιστική")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτγρ":
-        text = italic("μεταγραφή")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχα":
-        text = italic("μετοχή παθητικού αορίστου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχε":
-        text = italic("μετοχή παθητικού ενεστώτα")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχεα":
-        text = italic("μετοχή ενεργητικού αορίστου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχεε":
-        text = italic("μετοχή ενεργητικού ενεστώτα")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχεμ":
-        text = italic("μετοχή ενεργητικού μέλλοντα")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχεπ":
-        text = italic("μετοχή ενεργητικού παρακειμένου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχμα":
-        text = italic("μετοχή μέσου αορίστου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχπ":
-        text = italic("μετοχή παρακειμένου ")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχπp":
-        text = italic("μετοχή παθητικού παρακειμένου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχπα":
-        text = italic("μετοχή παθητικού αορίστου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχπε":
-        text = italic("μετοχή παθητικού ενεστώτα")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχπμ":
-        text = italic("μετοχή παθητικού μέλλοντα")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχππ":
-        text = italic("μετοχή παθητικού παρακειμένου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχππαναδ":
-        text = italic("μετοχή παθητικού παρακειμένου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μτχχρ":
-        text = italic("μετοχή παθητικού παρακειμένου")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "μυθολ":
-        text = italic("(μυθολογία)")
-        return text if data["0"] else f"({text})"
-
-    if tpl == "παρετυμολογία":
-        text = italic("παρετυμολογία")
+    if text := {
+        "νεολ": "νεολογισμός",
+        "μπφ": "μέση-παθητική φωνή του ρήματος",
+        "μτβ+αμτβ": "μεταβατικό και αμετάβατο",
+        "μτγν": "ελληνιστική",
+        "μτγρ": "μεταγραφή",
+        "μτχα": "μετοχή παθητικού αορίστου",
+        "μτχπα": "μετοχή παθητικού αορίστου",
+        "μτχε": "μετοχή παθητικού ενεστώτα",
+        "μτχπε": "μετοχή παθητικού ενεστώτα",
+        "μτχεα": "μετοχή ενεργητικού αορίστου",
+        "μτχεε": "μετοχή ενεργητικού ενεστώτα",
+        "μτχεμ": "μετοχή ενεργητικού μέλλοντα",
+        "μτχεπ": "μετοχή ενεργητικού παρακειμένου",
+        "μτχμα": "μετοχή μέσου αορίστου",
+        "μτχπ": "μετοχή παρακειμένου",
+        "μτχπμ": "μετοχή παθητικού μέλλοντα",
+        "μτχπp": "μετοχή παθητικού παρακειμένου",
+        "μτχππ": "μετοχή παθητικού παρακειμένου",
+        "μτχππαναδ": "μετοχή παθητικού παρακειμένου",
+        "μτχχρ": "μετοχή παθητικού παρακειμένου",
+        "μυθολ": "μυθολογία",
+        "παρετυμολογία": "παρετυμολογία",
+    }.get(template[0], ""):
+        text = italic(text)
         return text if data["0"] else f"({text})"
 
     if tpl == "γρ":
