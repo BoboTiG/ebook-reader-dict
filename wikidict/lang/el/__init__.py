@@ -75,6 +75,7 @@ templates_ignored = (
     "περίοδος",
     "από",
     "ετυ+",
+    "λείπει ο ορισμός",
 )
 
 # Templates more complex to manage.
@@ -409,6 +410,97 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "ουσ":
         text = italic("ουσιαστικοποιημένο")
+        return text if data["0"] else f"({text})"
+        
+    if tpl == "νεολ":
+        text = italic("νεολογισμός")
+        return text if data["0"] else f"({text})"
+    if tpl == "μπφ":
+        text = italic("μέση-παθητική φωνή του ρήματος")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτβ+αμτβ":
+        text = italic("μεταβατικό και αμετάβατο")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτβ-αμτβ":
+        text = italic("μεταβατικό και αμετάβατο")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτγν":
+        text = italic("ελληνιστική")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτγρ":
+        text = italic("μεταγραφή")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχα":
+        text = italic("μετοχή παθητικού αορίστου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχε":
+        text = italic("μετοχή παθητικού ενεστώτα")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχεα":
+        text = italic("μετοχή ενεργητικού αορίστου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχεε":
+        text = italic("μετοχή ενεργητικού ενεστώτα")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχεμ":
+        text = italic("μετοχή ενεργητικού μέλλοντα")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχεπ":
+        text = italic("μετοχή ενεργητικού παρακειμένου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχμα":
+        text = italic("μετοχή μέσου αορίστου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχπ":
+        text = italic("μετοχή παρακειμένου ")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχπp":
+        text = italic("μετοχή παθητικού παρακειμένου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχπα":
+        text = italic("μετοχή παθητικού αορίστου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχπε":
+        text = italic("μετοχή παθητικού ενεστώτα")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχπμ":
+        text = italic("μετοχή παθητικού μέλλοντα")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχππ":
+        text = italic("μετοχή παθητικού παρακειμένου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχππαναδ":
+        text = italic("μετοχή παθητικού παρακειμένου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μτχχρ":
+        text = italic("μετοχή παθητικού παρακειμένου")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "μυθολ":
+        text = italic("(μυθολογία)")
+        return text if data["0"] else f"({text})"
+
+    if tpl == "παρετυμολογία":
+        text = italic("παρετυμολογία")
         return text if data["0"] else f"({text})"
 
     if tpl == "γρ":
