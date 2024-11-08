@@ -81,10 +81,10 @@ def check_for_missing_templates() -> bool:
     for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
         words = sorted(missings[tpl])
         log.warning(
-            "Missing %r template support (%s times), example in: %s",
+            "Missing `%s` template support (%s times), example in: %s",
             tpl,
             f"{len(words):,}",
-            ", ".join(f'"{word}"' for word in words[:3]),
+            ", ".join(f"`{word}`" for word in words[:3]),
         )
     log.warning("Unhandled templates count: %s", f"{len(missings_counts):,}")
     return True
