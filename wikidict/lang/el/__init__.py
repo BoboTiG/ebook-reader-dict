@@ -411,7 +411,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if tpl == "ουσ":
         text = italic("ουσιαστικοποιημένο")
         return text if data["0"] else f"({text})"
-        
+
     if text := {
         "νεολ": "νεολογισμός",
         "μπφ": "μέση-παθητική φωνή του ρήματος",
