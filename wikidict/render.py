@@ -176,6 +176,8 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
             items = get_items((": ",))
         case "en":
             items = get_items(("",), skip=("===etymology", "{{pie root"))
+        case "eo":
+            items = get_items((":",))
         case "es":
             items = get_items((r";\d",), skip=("=== etimología",))
         case "fr":
@@ -456,6 +458,29 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # Remove tables (cf issue #2073)
         code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
 
+    elif locale == "eo":
+        # Wipe out {{Deklinacio-eo}}
+        code = code.replace("{{Deklinacio-eo}}", "")
+
+        # For variants
+        # {{form-eo}} → # {{form-eo}}
+        code = code.replace("{{form-eo}}", "# {{form-eo}}")
+
+        # {{xxx}} → ==== {{xxx}} ====
+        # {{xx-x}} → ==== {{xx-x}} ====
+        code = re.sub(r"^(\{\{[\w\-]+\}\})", r"==== \1 ====", code, flags=re.MULTILINE)
+
+        # ===={{Tradukoj}}==== → =={{Tradukoj}}==
+        code = re.sub(
+            r"====\s*(\{\{(?:Ekzemploj|Derivaĵoj|Referencoj|Sinonimoj|Tradukoj|Vortfaradoj|trad-\w+)\}\})\s*====",
+            r"== \1 ==",
+            code,
+            flags=re.MULTILINE,
+        )
+
+        # Easier pronunciation
+        code = re.sub(r"==== {{Vorterseparo}} ====\s*:(.+)\s*", r"\n{{PRON|`\1`}}\n", code, flags=re.MULTILINE)
+
     elif locale == "es":
         # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
@@ -551,7 +576,10 @@ def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
         definitions = find_definitions(word, parsed_sections, locale)
     elif locale in {"no", "pt"}:
         # Some words have no head sections but only a list of definitions at the root of the "top" section
-        marker = "===" if locale == "no" else "=="
+        marker = {
+            "no": "===",
+            "pt": "==",
+        }[locale]
         for top in top_sections:
             contents = top.contents
             top.contents = contents[: contents.find(marker)]

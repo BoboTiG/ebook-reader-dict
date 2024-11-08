@@ -155,6 +155,11 @@ def filter_html(html: str, locale: str) -> str:
             if a["href"].lower().startswith(("#cite", "#mw")):
                 a.decompose()
 
+    elif locale == "eo":
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     elif locale == "es":
         # Replace color rectangle
         for span in bs.find_all("span", {"id": "ColorRect"}):
