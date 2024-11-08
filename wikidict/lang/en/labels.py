@@ -287,6 +287,7 @@ labels = {
     "Florida": "Florida",
     "Forteana": "Forteana",
     "France": "France",
+    "Freemasonry": "Freemasonry",
     "French": "France",
     "French politics": "French politics",
     "GA": "General American",
@@ -2487,7 +2488,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,482
+}  # 2,483
 
 syntaxes = {
     "&": {
