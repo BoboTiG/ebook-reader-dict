@@ -116,7 +116,14 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
-        ("", ""),
+        ("{{fina|o}}", "o"),
+        ("{{inte|o}}", "o"),
+        ("{{mems|du}}", "du"),
+        ("{{pref|mis}}", "mis"),
+        ("{{radi|vort}}", "vort"),
+        ("{{sufi|il}}", "il"),
+        ("{{Vortospeco|mona nomo|eo}}", "Mona nomo"),
+        ("{{📷}}", "📷 <i>fotografio kaj kinotekniko</i>"),
     ],
 )
 def test_process_template(wikicode: str, expected: str) -> None:
