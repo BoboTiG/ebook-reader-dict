@@ -3146,6 +3146,7 @@ langs = {
     "hnh": "ǁAni",
     "hni": "Hani",
     "hnj": "Green Hmong",
+    "hnm": "Hainanese",
     "hnn": "Hanunoo",
     "hno": "Northern Hindko",
     "hns": "Caribbean Hindustani",
@@ -4659,6 +4660,7 @@ langs = {
     "lud": "Ludian",
     "lue": "Luvale",
     "luf": "Laua",
+    "luh": "Leizhou Min",
     "lui": "Luiseño",
     "luj": "Luna",
     "luk": "Lunanakha",
@@ -4928,7 +4930,7 @@ langs = {
     "mip": "Apasco-Apoala Mixtec",
     "miq": "Miskito",
     "mir": "Isthmus Mixe",
-    "mis-hkl": "Kelantan Peranakan",
+    "mis-hkl": "Kelantan Peranakan Hokkien",
     "mis-idn": "Idiom Neutral",
     "mis-isa": "Isaurian",
     "mis-jie": "Jie",
@@ -5499,13 +5501,11 @@ langs = {
     "nan-hbl-SG": "Singapore Hokkien",
     "nan-hbl-TW": "Taiwanese Hokkien",
     "nan-hlh": "Hailufeng Min",
-    "nan-hnm": "Hainanese",
     "nan-hou": "Houlu Min",
     "nan-hui": "Hui'an Hokkien",
     "nan-jin": "Jinjiang Hokkien",
     "nan-kin": "Kinmenese Hokkien",
     "nan-lnx": "Longyan Min",
-    "nan-luh": "Leizhou Min",
     "nan-med": "Medan Hokkien",
     "nan-pen": "Penang Hokkien",
     "nan-qia": "Qianlu Min",
@@ -7594,6 +7594,7 @@ langs = {
     "siz": "Siwi",
     "sja": "Epena",
     "sjb": "Sajau Basap",
+    "sjc": "Shaojiang Min",
     "sjd": "Kildin Sami",
     "sje": "Pite Sami",
     "sjg": "Assangori",
@@ -9826,7 +9827,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,821
+}  # 9,822
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
