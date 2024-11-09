@@ -92,7 +92,7 @@ templates_multi: dict[str, str] = {
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
-    "*": "<big>*</big>",
+    "*": "*",
 }
 
 # Release content on GitHub
@@ -101,10 +101,10 @@ release_description = """\
 Αριθμός λέξεων: {words_count}
 Εξαγωγή Βικιλεξικού: {dump_date}
 
-Full version:
+Πλήρης έκδοση:
 {download_links_full}
 
-Etymology-free version:
+Έκδοση χωρίς ετυμολογία:
 {download_links_noetym}
 
 <sub>Ημερομηνία δημιουργίας: {creation_date}</sub>
@@ -273,7 +273,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '(<i>λόγιο</i>)'
 
         >>> last_template_handler(["ουσ"], "el")
-        '(<i>ουσιαστικοποιημένο</i>)'
+        '<i>(ουσιαστικοποιημένο)</i>'
 
         >>> last_template_handler(["ετυμ", "ine-pro"], "el")
         '<i>πρωτοϊνδοευρωπαϊκή</i>'
@@ -328,71 +328,17 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     tpl, *parts = template
     data = extract_keywords_from(parts)
 
-    if tpl == "γραπτηεμφ":
-        phrase = f"η λέξη μαρτυρείται από το {parts[0]}"
-        if not data["0"]:
-            phrase = term(phrase)
-        return phrase
-
-    if tpl == "λενδ":
-        phrase = "λόγιο ενδογενές δάνειο"
-        if not data["0"]:
-            phrase += ":"
-        return phrase
-
-    if tpl == "μτφρ":
-        phrase = "μεταφορικά"
-        if not data["0"]:
-            phrase = term(phrase)
-        return phrase
-
-    if tpl == "αρχ":
-        phrase = italic("αρχαία ελληνική")
-        if parts:
-            phrase += f" {parts[0]}"
-        return phrase
-
-    if tpl == "μσν":
-        phrase = italic("μεσαιωνική ελληνική")
-        if parts:
-            phrase += f" {parts[0]}"
-        return phrase
-
-    if tpl == "μτβ":
-        phrase = "μεταβατικό"
-        if not data["0"]:
-            phrase = term(phrase)
-        return phrase
-
-    if tpl == "αμτβ":
-        phrase = "αμετάβατο"
-        if not data["0"]:
-            phrase = term(phrase)
-        return phrase
-
-    if tpl == "βλφρ":
-        phrase = italic("δείτε την έκφραση")
-        if not data["0"]:
-            phrase += ":"
-        return phrase
-
-    if tpl == "κτεπε":
-        phrase = "κατʼ επέκταση"
-        if not data["0"]:
-            phrase = term(phrase)
-        return phrase
-
-    if tpl in ["λδδ", "dlbor"]:
+    if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
         phrase += text_language(parts[0], data)
         if rest := data["1"] or parts[2] if len(parts) > 2 else "":
             phrase += f" {rest}"
         return phrase
 
-    if tpl in ["λ", "l", "link"]:
+    if tpl in {"λ", "l", "link"}:
         return parts[0] if parts else word
 
-    if tpl in ["ετ", "ετικέτα"]:
+    if tpl in {"ετ", "ετικέτα"}:
         if not parts:
             return ""
         data["label"] = parts[0]
@@ -408,11 +354,30 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         data["label"] = tpl
         return labels_output("", data)
 
-    if tpl == "ουσ":
-        text = italic("ουσιαστικοποιημένο")
-        return text if data["0"] else f"({text})"
+    if text := {
+        "λενδ": "λόγιο ενδογενές δάνειο",
+        "βλφρ": "δείτε την έκφραση",
+    }.get(tpl, ""):
+        if not data["0"]:
+            text += ":"
+        return text
 
     if text := {
+        "αρχ": "αρχαία ελληνική",
+        "μσν": "μεσαιωνική ελληνική",
+    }.get(tpl, ""):
+        phrase = italic(text)
+        if parts:
+            phrase += f" {parts[0]}"
+        return phrase
+
+    if text := {
+        "γραπτηεμφ": f"η λέξη μαρτυρείται από το {parts[0] if parts else ''}",
+        "μτφρ": "μεταφορικά",
+        "κτεπε": "κατʼ επέκταση",
+        "μτβ": "μεταβατικό",
+        "αμτβ": "αμετάβατο",
+        "ουσ": "ουσιαστικοποιημένο",
         "νεολ": "νεολογισμός",
         "μπφ": "μέση-παθητική φωνή του ρήματος",
         "μτβ+αμτβ": "μεταβατικό και αμετάβατο",
@@ -435,9 +400,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         "μτχχρ": "μετοχή παθητικού παρακειμένου",
         "μυθολ": "μυθολογία",
         "παρετυμολογία": "παρετυμολογία",
-    }.get(template[0], ""):
-        text = italic(text)
-        return text if data["0"] else f"({text})"
+    }.get(tpl, ""):
+        return text if data["0"] else term(text)
 
     if tpl == "γρ":
         desc = parts[1] if len(parts) > 1 else ""
