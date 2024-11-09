@@ -124,6 +124,8 @@ templates_ignored = (
 templates_multi = {
     # {{fina|o}}
     "fina": "parts[1]",
+    # {{lite|ŭ}}
+    "lite": "parts[1]",
     # {{inte|o}}
     "inte": "parts[1]",
     # {{mems|du}}

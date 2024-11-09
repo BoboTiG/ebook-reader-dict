@@ -118,6 +118,7 @@ def test_parse_word(
     [
         ("{{fina|o}}", "o"),
         ("{{inte|o}}", "o"),
+        ("{{lite|ŭ}}", "ŭ"),
         ("{{mems|du}}", "du"),
         ("{{pref|mis}}", "mis"),
         ("{{radi|vort}}", "vort"),
