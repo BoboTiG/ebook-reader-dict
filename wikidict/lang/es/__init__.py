@@ -24,9 +24,6 @@ sections = (
     "{{artículo",
     "{{conjunción",
     *etyl_section,
-    "forma adjetiva",  # for variants, see render.find_section_definitions
-    "forma adjetiva y de participio",  # for variants, see render.find_section_definitions
-    "forma verbal",  # for variants, see render.find_section_definitions
     "{{interjección",
     "{{locución",
     "{{onomatopeya",
@@ -36,6 +33,12 @@ sections = (
     "{{sufijo|",
     "{{sustantivo",
     "{{verbo",
+    #
+    # For variants, see render.find_section_definitions()
+    #
+    "forma adjetiva",
+    "forma adjetiva y de participio",
+    "forma verbal",
 )
 
 # Variants
