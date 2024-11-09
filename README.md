@@ -19,6 +19,7 @@
 1. <small>`[RO]`</small> [Romanian](docs/ro/README.md)
 1. <small>`[RU]`</small> [Russian](docs/ru/README.md)
 1. <small>`[SV]`</small> [Swedish](docs/sv/README.md)
+1. <small>`[ZH]`</small> [Chinese](docs/zh/README.md)
 
 ## Users
 

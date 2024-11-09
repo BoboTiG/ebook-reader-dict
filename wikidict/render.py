@@ -267,6 +267,8 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
         return title.replace(" ", "").lower().strip() if title else ""
 
     # Get interesting top sections
+    # for s in parsed.get_sections(level=level):
+    #     print(repr(s))
     top_sections = [
         section for section in parsed.get_sections(level=level) if section_title(section.title) in head_sections[locale]
     ]
