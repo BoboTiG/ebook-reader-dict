@@ -114,7 +114,7 @@ def wtr(cyr: str) -> str:
     # si no hi ha cap accent i alguna ё, accentuem la darrera
     if "ё" in cyr or "Ё" in cyr:
         if AC not in cyr:
-            cyr = ureverse(re.sub("([Ёё])", AC + r"\1", ureverse(cyr), 1))
+            cyr = ureverse(re.sub("([Ёё])", AC + r"\1", ureverse(cyr), count=1))
 
     # ё after a "hushing" consonant becomes o
     cyr = re.sub("([жшчщЖШЧЩ])ё", r"\1o", cyr)

@@ -29,7 +29,7 @@
 Set up a virtual environment:
 
 ```bash
-python3.12 -m venv venv
+python3.13 -m venv venv
 
 # For Linux and Mac users
 . venv/bin/activate

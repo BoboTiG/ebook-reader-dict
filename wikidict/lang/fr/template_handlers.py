@@ -994,7 +994,7 @@ def render_siecle(tpl: str, parts: list[str], data: defaultdict[str, str], word:
         sup = "er" if x.group()[:-1] == "I" else "e"
         return f"{x.group()[:-1]}{superscript(sup)} siècle{x.group()[-1]}"
 
-    parts = [re.sub(r"([IVX]+)([^\s\w<]|\s)", repl, f"{part} ", 1).strip() for part in parts]
+    parts = [re.sub(r"([IVX]+)([^\s\w<]|\s)", repl, f"{part} ", count=1).strip() for part in parts]
 
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
