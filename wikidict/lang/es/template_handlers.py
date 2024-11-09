@@ -390,8 +390,9 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     ):
         phrase = "Acortamiento"
         phrase += f" {data['nota']}" if data["nota"] else ""
-        phrase += " de "
-        phrase += call_l_single_part(parts[0], 1)
+        if parts:
+            phrase += " de "
+            phrase += call_l_single_part(parts[0], 1)
     elif cat in ("calco", "CALC"):
         phrase = (data["por"] or "Por") + " calco"
         phrase += f" {data['nota']}" if data["nota"] else ""
