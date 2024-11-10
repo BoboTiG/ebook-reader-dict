@@ -67,6 +67,7 @@ templates_ignored = (
     "Nodef",
     "Noetim",
     "Noref",
+    "Riflessivo",
     "Trad1",
     "Trad2",
 )
