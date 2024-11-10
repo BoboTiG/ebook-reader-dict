@@ -6,7 +6,7 @@ from scripts_utils import get_soup
 def read_all_lines_etym(lines: list[str]) -> dict[str, dict[str, str]]:
     # remove aliases
     lua_code = "\n".join(lines)
-    lua_code = re.sub(r"aliases\s*=\s*{([^}]*)}", "", lua_code, 0, re.MULTILINE | re.DOTALL)
+    lua_code = re.sub(r"aliases\s*=\s*{([^}]*)}", "", lua_code, count=0, flags=re.MULTILINE | re.DOTALL)
     lines = lua_code.split("\n")
 
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
