@@ -84,6 +84,7 @@ def test_get_random_word_unwanted_word() -> None:
     word = "désiré"
 
     responses.add(responses.GET, url=url, body=body.replace("WORD", "Conjugaison:tchèque/srovnat"))
+    responses.add(responses.GET, url=url, body=body.replace("WORD", "tchèque/srovnat"))
     responses.add(responses.GET, url=url, body=body.replace("WORD", word))
     assert utils.get_random_word("fr") == word
 

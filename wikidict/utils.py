@@ -117,7 +117,7 @@ def get_random_word(locale: str) -> str:
     while True:
         with requests.get(url) as req:
             word = str(req.json()["query"]["random"][0]["title"])
-            if ":" not in word:
+            if ":" not in word and "/" not in word:
                 break
             log.info(f"Got {word=}, trying a new one instead.")
 
