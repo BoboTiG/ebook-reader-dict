@@ -281,6 +281,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     data = extract_keywords_from(parts)
     tpl = tpl.lower()
 
+    if tpl == "fonte":
+        match parts[0]:
+            case "trec":
+                return "AA.VV., <i>Vocabolario Treccani</i> edizione online su <i>treccani.it</i>, Istituto dell'Enciclopedia Italiana"
+
     if tpl == "linkf":
         return parenthesis(
             italic("invariabile") if parts[0] in ("inv", "invariabile") else f"{italic('f.:')} {strong(parts[0])}"
