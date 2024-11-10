@@ -38,7 +38,7 @@ sections = (
 # Variants
 variant_titles = (
     "{{agg form",
-    "{{sost form",
+    "{{sost",
     "{{suff",
     "{{verb form",
 )

@@ -488,7 +488,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale == "it":
         # Hack for a fake variants to support more of them
         # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
-        code = re.sub(r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+        code = re.sub(r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE | re.IGNORECASE)
         # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
         code = re.sub(r"^#\s?.+(?:singolare|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
         # `# participio presente di [[amare]] → `{{flexion|amare}}`
