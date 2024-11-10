@@ -542,8 +542,6 @@ templates_multi = {
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
-    # {{formatnum:-1000000}}
-    "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
     # {{fr-accord-oux|d|d}}

@@ -271,7 +271,6 @@ def test_parse_word(
         ("{{etimología2|...}}", ""),
         ("{{etimología2|alteración del más antiguo}}", "alteración del más antiguo"),
         ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
-        ("{{formatnum:22905}}", "22 905"),
         (
             "{{impropia|Utilizado para especificar...}}",
             "<i>Utilizado para especificar...</i>",

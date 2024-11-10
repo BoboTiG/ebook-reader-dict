@@ -270,7 +270,6 @@ def test_parse_word(
             "{{feilstaving av|førstvoterende|språk=no}}",
             "Feilstaving av førstvoterende.",
         ),
-        ("{{formatnum:8400}}", "8 400"),
         ("{{l|no|god, snill}}", "god, snill"),
         ("{{opphav|norrønt|språk=no}}", "norrønt"),
         ("{{prefiks|a|biotisk|språk=no}}", "<i>a</i>- + <i>biotisk</i>"),

@@ -60,16 +60,29 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
+        >>> last_template_handler(["formatnum", "42000""], "es")
+        '42 000'
+        >>> last_template_handler(["formatnum", "42000""], "it")
+        '42 000'
+        >>> last_template_handler(["formatnum", "42000""], "no")
+        '42 000'
+
         >>> last_template_handler(["transliterator", "ar", "سم"], "fr")
         'sm'
         >>> last_template_handler(["transliterator", "ar"], "fr", word="زب")
         'zb'
     """
     from ..transliterator import transliterate
-    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, term
+    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, number, term
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "formatnum":
+        from . import float_separator as locale_aware_fs
+        from . import thousands_separator as locale_aware_ts
+
+        return number(parts[0], locale_aware_fs[locale], locale_aware_ts[locale])
 
     if tpl == "w":
         return render_wikilink(tpl, parts, data)
