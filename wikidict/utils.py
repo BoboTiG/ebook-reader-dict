@@ -21,6 +21,7 @@ from .constants import (
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_STARDICT,
     NO_ETYMOLOGY_SUFFIX,
+    RANDOM_WORD_URL,
     WIKIMEDIA_HEADERS,
     WIKIMEDIA_URL_MATH_CHECK,
     WIKIMEDIA_URL_MATH_RENDER,
@@ -112,9 +113,13 @@ def convert_pronunciation(pronunciations: list[str]) -> str:
 
 def get_random_word(locale: str) -> str:
     """Retrieve a random word."""
-    url = f"https://{locale}.wiktionary.org/w/api.php?action=query&list=random&format=json"
-    with requests.get(url) as req:
-        word = str(req.json()["query"]["random"][0]["title"])
+    url = RANDOM_WORD_URL.format(locale=locale)
+    while True:
+        with requests.get(url) as req:
+            word = str(req.json()["query"]["random"][0]["title"])
+            if ":" not in word:
+                break
+            log.info(f"Got {word=}, trying a new one instead.")
 
     if "CI" in os.environ:
         with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
