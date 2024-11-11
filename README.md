@@ -18,20 +18,20 @@
 
 ## Downloads
 
-1. <small>`[CA]`</small> [Catalan](releases/tag/ca)
-1. <small>`[DA]`</small> [Danish](releases/tag/da)
-1. <small>`[DE]`</small> [German](releases/tag/de)
-1. <small>`[EL]`</small> [Greek](releases/tag/el)
-1. <small>`[EN]`</small> [English](releases/tag/en)
-1. <small>`[EO]`</small> [Esperanto](releases/tag/eo)
-1. <small>`[ES]`</small> [Spanish](releases/tag/es)
-1. <small>`[FR]`</small> [French](releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-1. <small>`[IT]`</small> [Italian](releases/tag/it)
-1. <small>`[NO]`</small> [Norway](releases/tag/no)
-1. <small>`[PT]`</small> [Portuguese](releases/tag/pt)
-1. <small>`[RO]`</small> [Romanian](releases/tag/ro)
-1. <small>`[RU]`</small> [Russian](releases/tag/ru)
-1. <small>`[SV]`</small> [Swedish](releases/tag/sv)
+1. <small>`[CA]`</small> [Catalan](../../releases/tag/ca)
+1. <small>`[DA]`</small> [Danish](../../releases/tag/da)
+1. <small>`[DE]`</small> [German](../../releases/tag/de)
+1. <small>`[EL]`</small> [Greek](../../releases/tag/el)
+1. <small>`[EN]`</small> [English](../../releases/tag/en)
+1. <small>`[EO]`</small> [Esperanto](../../releases/tag/eo)
+1. <small>`[ES]`</small> [Spanish](../../releases/tag/es)
+1. <small>`[FR]`</small> [French](../../releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[IT]`</small> [Italian](../../releases/tag/it)
+1. <small>`[NO]`</small> [Norway](../../releases/tag/no)
+1. <small>`[PT]`</small> [Portuguese](../../releases/tag/pt)
+1. <small>`[RO]`</small> [Romanian](../../releases/tag/ro)
+1. <small>`[RU]`</small> [Russian](../../releases/tag/ru)
+1. <small>`[SV]`</small> [Swedish](../../releases/tag/sv)
 
 ## Installation
 
