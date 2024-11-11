@@ -32,7 +32,7 @@ tags = {
     "VRH": "kvazauxnepre refleksiva verbo",
     "VTR": "transitiva",
     "ajly": "-ly",
-    "avaÅ­": "-aux",
+    "avaux": "-aux",
     "bas": "baza vortoprovizo",
     "deta": "derivajxo de tabelvorto",
     "dyna": "loka dinamika",

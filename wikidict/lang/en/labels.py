@@ -1569,6 +1569,7 @@ labels = {
     "information science": "information science",
     "information technology": "information technology",
     "information theory": "information theory",
+    "inheritance law": "inheritance law",
     "initialism": "initialism",
     "inorganic chemistry": "inorganic chemistry",
     "inorganic compound": "inorganic chemistry",
@@ -2488,7 +2489,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,483
+}  # 2,484
 
 syntaxes = {
     "&": {

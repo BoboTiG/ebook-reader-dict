@@ -13,7 +13,7 @@ langs = {
     "aae": "Arbëresh Albanian",
     "aaf": "Aranadan",
     "aag": "Ambrak",
-    "aah": "Abu' Arapesh",
+    "aah": "Abu'",
     "aai": "Arifama-Miniafia",
     "aak": "Ankave",
     "aal": "Afade",
