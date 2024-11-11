@@ -39,10 +39,6 @@
 
 Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
 
-## Downstream
-
-- [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
-
 ## Development
 
 Set up a virtual environment:
