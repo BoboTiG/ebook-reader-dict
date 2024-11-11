@@ -5,22 +5,41 @@
 [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-1. <small>`[CA]`</small> [Catalan](docs/ca/README.md)
-1. <small>`[DA]`</small> [Danish](docs/da/README.md)
-1. <small>`[DE]`</small> [German](docs/de/README.md)
-1. <small>`[EL]`</small> [Greek](docs/el/README.md)
-1. <small>`[EN]`</small> [English](docs/en/README.md)
-1. <small>`[EO]`</small> [Esperanto](docs/eo/README.md)
-1. <small>`[ES]`</small> [Spanish](docs/es/README.md)
-1. <small>`[FR]`</small> [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-1. <small>`[IT]`</small> [Italian](docs/it/README.md)
-1. <small>`[NO]`</small> [Norway](docs/no/README.md)
-1. <small>`[PT]`</small> [Portuguese](docs/pt/README.md)
-1. <small>`[RO]`</small> [Romanian](docs/ro/README.md)
-1. <small>`[RU]`</small> [Russian](docs/ru/README.md)
-1. <small>`[SV]`</small> [Swedish](docs/sv/README.md)
+## Features
 
-## Users
+- [Kobo] When selecting a plural word, its singular form will be displayed.
+- [Kobo] When selecting a conjugated verb, its infinitive version will be displayed.
+- [Kobo] When a word is the plural form of another, and also a form of a verb, all versions are displayed.
+- If a word contains several pronunciations, or genders, all are printed.
+- Chemical formulas are converted to SVG.
+- Mathematic formulas are converted to SVG.
+- Hieroglyphs are supported.
+- Tables are supported.
+
+## Downloads
+
+1. <small>`[CA]`</small> [Catalan](releases/tag/ca)
+1. <small>`[DA]`</small> [Danish](releases/tag/da)
+1. <small>`[DE]`</small> [German](releases/tag/de)
+1. <small>`[EL]`</small> [Greek](releases/tag/el)
+1. <small>`[EN]`</small> [English](releases/tag/en)
+1. <small>`[EO]`</small> [Esperanto](releases/tag/eo)
+1. <small>`[ES]`</small> [Spanish](releases/tag/es)
+1. <small>`[FR]`</small> [French](releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[IT]`</small> [Italian](releases/tag/it)
+1. <small>`[NO]`</small> [Norway](releases/tag/no)
+1. <small>`[PT]`</small> [Portuguese](releases/tag/pt)
+1. <small>`[RO]`</small> [Romanian](releases/tag/ro)
+1. <small>`[RU]`</small> [Russian](releases/tag/ru)
+1. <small>`[SV]`</small> [Swedish](releases/tag/sv)
+
+## Installation
+
+### Kobo
+
+Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+
+## Downstream
 
 - [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
 
