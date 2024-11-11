@@ -160,9 +160,12 @@ from wikidict.utils import process_templates
         (
             "rasshol",
             [],
+            ["n"],
             [],
-            [],
-            ["Utropsord med samme betydning som substantivet. Brukt som skjellsord."],
+            [
+                "anus; brukt som skjellsord",
+                "<i>(brukt som skjellsord)</i> utropsord med samme betydning som substantivet",
+            ],
             [],
         ),
         (

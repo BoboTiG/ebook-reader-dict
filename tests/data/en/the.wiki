@@ -34,7 +34,7 @@ The [[eye dialect|typographical pronunciation]] {{IPAchar|/jiː/}} (''"'''[[ye#E
 {{rel-top|replaced words, cognates}}
 Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms ({{m|ang|sē|g=m}}, {{m|ang|sēo|g=f}}, {{m|ang|þæt|g=n}}, {{m|ang|þā|g=p}}); {{m|ang|sē}} is from {{inh|en|gmw-pro|*siz}}, from {{inh|en|gem-pro|*sa}}, ultimately from {{inh|en|ine-pro|*só}}.
 
-Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}} within Germanic and with {{cog|sa|sá|t=the, that}}, {{cog|grc|ὁ|t=the}}, {{cog|txb|se|t=this}} among other Indo-European languages.<ref>{{R:ine:LIPP|volume=2|pages=732-733}}</ref>
+Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{cog|nds-de|de|t=the}}, {{cog|de|der|t=the}}, {{cog|da|de|t=the}}, {{cog|sv|de|t=the}}, {{cog|is|sá|t=that}} within Germanic and with {{cog|sa|स|tr=sá|t=the, that}}, {{cog|grc|ὁ|t=the}}, {{cog|txb|se|t=this}} among other Indo-European languages.<ref>{{R:ine:LIPP|volume=2|pages=732-733}}</ref>
 {{rel-bottom}}
 
 ====Article====
@@ -82,7 +82,7 @@ Cognate with {{cog|stq|die|t=the}}, {{cog|fy|de|t=the}}, {{cog|nl|de|t=the}}, {{
 ## {{non-gloss|Used before an adjective, indicating all things (especially persons) described by that adjective.}} {{defdate|from 9th c.}}
 ##: ''Feed '''the''' hungry, clothe '''the''' naked, comfort '''the''' afflicted, and afflict '''the''' comfortable.''
 ##: ''One doesn't choose the color of one's chess pieces, '''the''' white are assigned to the player who moves first.''
-## {{non-gloss|Used before an [[demonym]] to refer to people of a given [[country]] collectively.}}
+## {{non-gloss|Used before a [[demonym]] to refer to people of a given [[country]] collectively.}}
 ##: '''the''' [[Chinese]]
 ##: '''the''' [[Irish]]
 
@@ -206,7 +206,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 *: Colloquial Finnish : {{t+|fi|se}}
 * French: {{t+|fr|le|m}}, {{t+|fr|la|f}}, {{t+|fr|les|p}}, {{t+|fr|l'}} ''(before a vowel or a mute h)''
 * Friulian: {{t|fur|il}}
-* Galician: {{t+|gl|o}}
+* Galician: {{t+|gl|o}}, {{t+|gl|a|f}}, {{t+|gl|os|m}}, {{t+|gl|as|f-p}}
 * Georgian: {{not used|ka}}
 *: Old Georgian: {{t|oge|იგი}}
 * German: {{t+|de|der|m}}, {{t+|de|die|f|p}}, {{t+|de|das|n}}
@@ -319,7 +319,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Tuvaluan: {{t|tvl|te}}
 * Ukrainian: {{not used|uk}}
 * Urdu: {{not used|ur}}
-* Venetian: {{t+|vec|el}}
+* Venetan: {{t+|vec|el}}
 * Veps: {{t-needed|vep}}
 * Vietnamese: {{not used|vi}}
 * Volapük: {{qualifier|♂♀, animate or inanimate, usually used with non-Volapük words}} {{t+|vo|el}}, {{qualifier|♂}} {{t+|vo|hiel}}, {{qualifier|♂♀}} {{t+|vo|jiel}}
@@ -401,7 +401,7 @@ When used before an adjective which is not followed by a noun, it may refer to a
 * Portuguese: {{t+|pt|o}}
 * Spanish: {{t+|es|el}}
 * Swedish: {{t+|sv|den}} {{qualifier|not always needed}}
-* Venetian: {{t+|vec|el}}
+* Venetan: {{t+|vec|el}}
 {{trans-bottom}}
 
 {{trans-top|used with the name of a member of a class to refer to all things in that class}}
@@ -815,7 +815,7 @@ Cognates include {{cog|dgr|whe}}.
 ====Noun====
 {{vi-noun}}
 
-# a kind of [[silk]] [[gauze]]
+# a kind of [[silk]] [[gauze]], often used to make [[ao dai]]
 
 =====See also=====
 {{vi-der|buồng the|phòng the}}

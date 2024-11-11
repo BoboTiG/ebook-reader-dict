@@ -102,7 +102,7 @@ From {{inh|en|enm|sum on}}, {{m|enm|sum one}}, {{m|enm|sum oon}}, equivalent to 
 * Romani: {{t|rom|varekon}}
 * Romanian: {{t+|ro|cineva}}
 * Russian: {{t+|ru|кто́-то}}, {{t+|ru|кто-нибу́дь}}, {{t+|ru|не́кто}}, {{t+|ru|кто́-либо}}, {{t+|ru|кое-кто́}}
-* Scottish Gaelic: {{t|gd|cuideigin}}, {{qualifier|male}} {{t|gd|duin'-eigin}}, {{qualifier|male}} {{t|gd|feareigin}}, {{qualifier|female}} {{t|gd|tè-eigin}}
+* Scottish Gaelic: {{t+|gd|cuideigin}}, {{qualifier|male}} {{t|gd|duin'-eigin}}, {{qualifier|male}} {{t|gd|feareigin}}, {{qualifier|female}} {{t|gd|tè-eigin}}
 * Serbo-Croatian:
 *: Cyrillic: {{qualifier|Bosnian, Serbian}} {{t|sh|неко|m|sc=Cyrl}}, {{qualifier|Croatian}} {{t|sh|нетко|m|sc=Cyrl}}
 *: Roman: {{qualifier|Bosnian, Serbian}} {{t+|sh|neko|m}}, {{qualifier|Croatian}} {{t|sh|netko|m}}

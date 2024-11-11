@@ -52,7 +52,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ['Element que entra en la composició de paraules amb el sentit de "vida".'],
+            ["Element que entra en la composició de paraules amb el sentit de <i>vida</i>."],
             [],
         ),
         (

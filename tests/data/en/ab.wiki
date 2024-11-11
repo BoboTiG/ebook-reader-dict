@@ -7,6 +7,9 @@
 
 # {{ISO 639|1}}
 
+===See also===
+* {{langcat|ab}}
+
 ==English==
 {{wikipedia}}
 
@@ -284,6 +287,9 @@ From adverbial use of the prefix {{l|de|ab-}} in verbs such as [[abschlagen]], [
 {{head|amf|determiner}}
 
 # {{alternative form of|amf|ábi}}
+
+===References===
+{{R:amf:Petrollino:2016}}
 
 ==Indonesian==
 
@@ -695,6 +701,9 @@ From {{inh|tr|ota|آب|tr=āb|t=water}}, from {{der|tr|fa|آب|tr=âb}}.
 {{tr-noun|ı|lar}}
 
 # {{lb|tr|obsolete|poetic}} [[water]]
+
+====Declension====
+{{tr-infl-noun-c|a|poss=1|pred=1}}
 
 ===References===
 * {{R:tr:Nishanyan|ab}}

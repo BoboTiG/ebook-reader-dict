@@ -29,7 +29,7 @@ Also used in some British place names and [[civil parish]] names, see table belo
 =====Translations=====
 {{trans-top}}
 * Chinese:
-*: Mandarin: {{t+|cmn|兼|tr=jiān}}
+*: Mandarin: {{t+|cmn|兼|tr=jiān}}, {{t+|cmn|暨}}
 * French: {{t+|fr|soit}}
 * Italian: {{t+|it|trattino|m}}
 * Japanese: {{t+|ja|兼|tr=けん, ken}}
@@ -51,7 +51,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 ====Noun====
 {{en-noun|-}}
 
-# {{lb|en|colloquial|often|_|vulgar}} [[semen|Semen]].
+# {{senseid|en|semen}}{{lb|en|colloquial|often|_|vulgar}} [[semen|Semen]].
 #: {{syn|en|jizz|spunk|q2=chiefly UK|spooge|q3=US|nut|skeet|junk|Thesaurus:semen}}
 #* {{quote-book|en|author=w:John Rechy|title=The Sexual Outlaw|year=1977|publisher=Dell|location=New York|page=73|pageurl=https://archive.org/details/sexualoutlawdocu00rech/page/73/mode/1up|isbn=978-0-440-17667-1|passage=Jim descends into the murky tunnel; the faint odor of '''cum''' permeates the air.}}
 #* {{quote-journal|en|date=24 Dec 89|volume=17|number=24|journal=Gay Community News|page=9|author=Read Weaver|title=Queers For Years|text=Licking a friend's '''cum''' off another friend's belly.}}
@@ -123,7 +123,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Norwegian: {{t|no|sperm|m}}, {{t|no|sæd|m}}
 * Polish: {{t+|pl|sperma|f}}, {{t+|pl|nasienie|n}}, {{t+|pl|spust|m}}
 * Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}, {{t+|pt|leite|m}}
-* Romanian: {{t+|ro|sloboz|n}}
+* Romanian: {{t+|ro|sloboz|n}}, {{t+|ro|smecleu|n}}
 * Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча́|f}} {{qualifier|vulgar}}, {{t+|ru|малафья́|f}} {{qualifier|vulgar}}
 * Serbo-Croatian: {{t|sh|svršotina|f}}, {{t|sh|svrš|m}}
 * Sicilian: {{t|scn|sburru|m}}, {{t|scn|ogghiu di sbrigghiu|m}}, {{t|scn|spacchiu|m}}
@@ -158,7 +158,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 # {{lb|en|slang|often|_|vulgar}} To have an [[orgasm]], to feel the sensation of an [[orgasm]].
 #: {{syn|en|climax}}
 #: {{rfex|en}}
-# {{lb|en|slang|often|_|vulgar}} To [[ejaculate]].
+# {{senseid|en|to ejaculate}}{{lb|en|slang|often|_|vulgar}} To [[ejaculate]].
 #: {{syn|en|Thesaurus:ejaculate}}
 #* {{quote-av|en|date=1997-07-14|episode=Visits, Conjugal, and Otherwise|title=[[w:Oz (TV series)|Oz]]|season=1|number=2|actor=Harold Perrineau|role=Augustus Hill|passage=I got no sensation down there, so I don't know when I'm hard, I don't know when I '''cum'''. My wife's gotta tell me.}}
 #* {{quote-song|en|year=2019|title=All Humans Too Late|artist=w:Kae Tempest|album=The Book of Traps and Lessons|passage=Sucking on pork ribs and summoning pornography / So that we can '''cum''' when we fuck / Our partners don’t know us / Our families are strangers}}
@@ -202,7 +202,7 @@ The past tense and past participle variant ''cummed'' is used when the verb is f
 * Malagasy: {{t|mg|mitsitsitra}}, {{t+|mg|mitsitra}}
 * Norwegian: {{t|no|ejakulere}}, {{t|no|sæde}}
 * Polish: {{t|pl|wytryskiwać}}, {{t+|pl|dochodzić|impf}}, {{t+|pl|dojść|pf}}
-* Portuguese: {{t+|pt|ejacular}}, {{t+|pt|gozar}}, {{t+|pt|esporrar}}
+* Portuguese: {{t+|pt|ejacular}}, {{t+|pt|gozar}}, {{t+|pt|esporrar}}, {{t|pt|[[vir|vir-se]]}}
 * Romanian: {{t+|ro|slobozi}}, {{t|ro|își [[da drumul]]}}
 * Russian: {{t+|ru|конча́ть|impf}}, {{t+|ru|ко́нчить|pf}}, {{t+|ru|эякули́ровать|}} {{qualifier|impf or pf}}
 * Serbo-Croatian: {{t+|sh|svršiti}}

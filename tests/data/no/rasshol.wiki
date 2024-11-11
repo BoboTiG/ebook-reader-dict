@@ -1,30 +1,32 @@
 ==Norsk==
-{{no-sub|nb=n|nn=n}}
-[[kategori: Substantiv i bokmål som ikke er tillatt i riksmål]]
+===Substantiv===
+{{nn-sub|n}}
 
-#Betydningen er det samme som for [[anus]]. Brukes for det meste som et [[skjellsord]]. 
+# [[anus]]; brukt som [[skjellsord]]
+
+====Andre former====
+{{andre former|rasshòl|nn=ja|nb=nei|nrm=nei}}
+{{andre former|rasshull|nb=ja|nrm=ja}}
+{{andre former|rasshøl|nb=ja|nrm=nei}}
 
 ====Uttale====
 {{uttale mangler|språk=no}}
 {{lydfil mangler|språk=no}}
 
 ====Grammatikk====
-{{no-sub-n1|nrm=nei}}
-
-====Andre former====
-{{andre former|rasshøl|nb=ja|nrm=nei}}
+{{nn-sub-n1}}
 
 ====Oversettelser====
 {{overs-topp}}
 * {{overs|en|asshole}}
 {{overs-bunn}}
 
-====Område====
-Bokmål og nynorsk, ikke riksmål.
-
 ===Interjeksjon===
 {{infl|no|inter}}
-# [[utropsord|Utropsord]] med samme betydning som substantivet. Brukt som skjellsord.
 
-[[Kategori:Skjellsord]]
+# {{kontekst|brukt som skjellsord|språk=no}} [[utropsord]] med samme betydning som substantivet
 
+[[Kategori:no:Skjellsord]]
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}

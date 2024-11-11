@@ -151,7 +151,7 @@ from wikidict.utils import process_templates
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>pl</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",
-                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",
+                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>स</i> (<i>sá</i>, “the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",
             ],
             [
                 "<i>Used before a noun phrase, including a simple noun</i>",
@@ -170,7 +170,7 @@ from wikidict.utils import process_templates
                 (
                     "<i>Added to a superlative or an ordinal number to make it into a substantive.</i> <small>[from 9th c.]</small>",
                     "<i>Used before an adjective, indicating all things (especially persons) described by that adjective.</i> <small>[from 9th c.]</small>",
-                    "<i>Used before an demonym to refer to people of a given country collectively.</i>",
+                    "<i>Used before a demonym to refer to people of a given country collectively.</i>",
                 ),
                 "<i>With a comparative or with <i>more</i> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",
                 "<i>With a comparative, and often with <i>for it</i>, indicates a result more like said comparative. This can be negated with <i>none</i>.</i>",
@@ -192,7 +192,6 @@ from wikidict.utils import process_templates
                 "<i>(US)</i> <i>An expression to forcefully call attention to something wrong.</i>",
                 "<i>(UK, childish)</i> An expression of shocked disapproval used by a child who witnesses forbidden behavior.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
-                "<i>Alternative form of</i> <b>umbe</b>",
                 "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",
             ],
             [],
@@ -231,7 +230,7 @@ from wikidict.utils import process_templates
                 "/ˈwʊtəɹ/",
             ],
             [
-                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”). The development of the /ɔː/ vowel instead of expected */weɪtə(r)/ is irregular and has not been conclusively explained (compare father).",
+                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",
                 "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",
             ],
             [
@@ -330,6 +329,7 @@ def test_parse_word(
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
+    print(repr(details.etymology))
     assert pronunciations == details.pronunciations
     assert etymology == details.etymology
     assert definitions == details.definitions

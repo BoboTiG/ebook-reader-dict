@@ -34,11 +34,12 @@
 * {{IPA|en|[ˈwoːtə]|a=SAE}}
 * {{IPA|en|/ˈwɔtə/|a=SG,Malaysia}}
 {{rel-bottom}}
+The development of the {{IPAchar|/ɔː/}} vowel instead of expected *{{IPAchar|/weɪtə(r)/}} is irregular and has not been conclusively explained (compare the irregular broadening of ''a'' in [[father]]).
 
 ===Etymology 1===
 {{root|en|ine-pro|*wed-}}
 {{etymon|en|id=liquid|inh|enm>water>liquid|tree=1}}
-From {{inh|en|enm|water}}, from {{inh|en|ang|wæter||water}}, from {{inh|en|gmw-pro|*watar}}, from {{inh|en|gem-pro|*watōr||water}}, from {{inh|en|ine-pro|*wódr̥||water}}. The development of the {{IPAchar|/ɔː/}} vowel instead of expected */weɪtə(r)/ is irregular and has not been conclusively explained (compare [[father]]).
+From {{inh|en|enm|water}}, from {{inh|en|ang|wæter||water}}, from {{inh|en|gmw-pro|*watar}}, from {{inh|en|gem-pro|*watōr||water}}, from {{inh|en|ine-pro|*wódr̥||water}}.
 {{rel-top|cognates}}
 Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|wetter||water}}, {{cog|nl|water||water}}, {{cog|nds|Water||water}}, {{cog|de|Wasser}}, {{cog|non|vatn}} ({{cog|sv|vatten||water}}, {{cog|da|vand||water}}, {{cog|nb|vann||water}}, {{cog|nn|-}} and {{cog|is|vatn||water}}, {{cog|sga|coin fodorne||otters|lit=water-dogs}}, {{cog|la|unda||wave}}, {{cog|lt|vanduõ||water}}, {{cog|ru|вода́||water}}, {{cog|sq|ujë||water}}, {{cog|grc|ὕδωρ||water}}, {{cog|hy|գետ||river}}, {{cog|sa|उदन्|tr=udán||wave, water|sc=Deva}}, {{cog|hit|𒉿𒀀𒋻|tr=wa-a-tar|sc=Xsux}}.
 {{rel-bottom}}
@@ -49,8 +50,8 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 
 # {{senseid|en|Q283}}{{lb|en|uncountable}} A substance (of molecular formula H<sub>2</sub>O) found at [[room temperature]] and pressure as a clear [[liquid]]; it is present naturally as [[rain#Noun|rain]], and found in [[river]]s, [[lake]]s and [[sea]]s; its solid form is [[ice#Noun|ice]] and its gaseous form is [[steam#Noun|steam]].
 #: {{ux|en|By the action of electricity, the '''water''' was resolved into its two parts, oxygen and hydrogen.}}
-#* '''1805''' December, Julius Griffiths, "A Journey across the Desert", ''The Monthly Mirror...'', p. 362:
-#*: It is wholly out of the power of language to convey any idea of the blissful enjoyment of obtaining '''water''', after an almost total want of it, during eight and forty hours, in the scorching regions of an Arabian desert, in the month of July.
+#* {{quote-journal|en|year=1805|month=December|author=Julius Griffiths|title=A Journey across the Desert|journal=The Monthly Mirror|page=362
+|passage=It is wholly out of the power of language to convey any idea of the blissful enjoyment of obtaining '''water''', after an almost total want of it, during eight and forty hours, in the scorching regions of an Arabian desert, in the month of July.}}
 #* {{quote-journal|en|year=2013|month=September-October|author=[http://www.americanscientist.org/authors/detail/katie-l-burke Katie L. Burke]| magazine=w:American Scientist| title=[http://www.americanscientist.org/issues/pub/2013/5/in-the-news-47 In the News]| passage=Oxygen levels on Earth skyrocketed 2.4 billion years ago, when cyanobacteria evolved photosynthesis: the ability to convert '''water''' and carbon dioxide into carbohydrates and waste oxygen using solar energy.}}
 ## {{lb|en|uncountable|in particular}} The liquid form of this substance: liquid H<sub>2</sub>O.
 ##: {{ux|en|May I have a glass of '''water'''?}}
@@ -1696,7 +1697,6 @@ From {{inh|nds-nl|osx|watar}}.
 {{fr-noun|m}}
 
 # [[toilet]], [[bathroom]]
-# {{ellipsis of|fr|water-closet}}
 
 ====Synonyms====
 * {{l|fr|toilettes}}

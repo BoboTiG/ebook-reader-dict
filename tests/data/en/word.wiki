@@ -110,7 +110,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 |breathe a word
 |bug-word
 |buzzword|filler word|one-word|word hole|book of words
-|b-word
+|b-word|y-word
 |byword
 |catchword
 |codeword
@@ -580,7 +580,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Urdu: {{tt|ur|شَبْد|m|m}}, {{tt|ur|بات|f}}, {{tt+|ur|کَلِمَہ|m}}, {{tt+|ur|لُغَت|m}}, {{t+|ur|لَفْظ|m}}
 * Uyghur: {{tt|ug|سۆز}}
 * Uzbek: {{tt+|uz|soʻz}}
-* Venetian: {{tt|vec|paroła|f}}, {{tt|vec|paròła|f}}, {{tt|vec|paròla|f}}
+* Venetan: {{tt|vec|paroła|f}}, {{tt|vec|paròła|f}}, {{tt|vec|paròla|f}}
 * Vietnamese: {{tt+|vi|từ}}, {{tt+|vi|lời}}, {{tt+|vi|nhời}}, {{tt+|vi|tiếng}}
 * Volapük: {{tt+|vo|vöd}}
 * Walloon: {{tt+|wa|mot|m}}
@@ -594,7 +594,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Yagnobi: {{t|yai|гап}}
 * Yakut: {{tt|sah|тыл}}
 * Yiddish: {{tt+|yi|וואָרט|n}}
-* Yoruba: {{tt|yo|ó̩ró̩gbólóhùn kan}}, {{tt|yo|ọ̀rọ̀}}
+* Yoruba: {{tt|yo|ọ̀rọ̀}}
 * Yup'ik: {{tt|esu|qanruyun}}
 * Zazaki: {{tt|zza|çeku|c}}, {{tt+|zza|kelime|c}}, {{tt+|zza|qıse|m}}, {{tt|zza|qısa|f}}
 * Zhuang: {{tt|za|cih}}
@@ -907,6 +907,9 @@ Variant of {{m|en|worth||to become, turn into, grow, get}}, from {{inh|en|enm|wo
 
 ==Afrikaans==
 
+===Alternative forms===
+* {{alt|af|worde||obsolete|see usage notes below}}
+
 ===Etymology===
 From {{inh|af|nl|worden}}, from {{inh|af|dum|werden}}, from {{inh|af|odt|werthan}}, from {{inh|af|gem-pro|*werþaną}}.
 
@@ -918,14 +921,15 @@ From {{inh|af|nl|worden}}, from {{inh|af|dum|werden}}, from {{inh|af|odt|werthan
 {{af-verb}}
 
 # to [[become]]; to [[get]] {{gloss|to change one’s state}}
-#: {{ux|af|Ek het ryk '''geword'''.|t=I '''became''' rich.}}
-#: {{ux|af|Ek '''word''' ryk.|t=I '''am becoming''' rich.}}
-#: {{ux|af|Sy '''word''' beter.|t=She '''is getting''' better.}}
+#: {{uxi|af|Ek het ryk '''geword'''.|t=I '''became''' rich.}}
+#: {{uxi|af|Ek '''word''' ryk.|t=I '''am becoming''' rich.}}
+#: {{uxi|af|Sy '''word''' beter.|t=She '''is getting''' better.}}
 # {{non-gloss|Forms the present passive voice when followed by a past participle}}
-#: {{ux|af|Die kat '''word''' gevoer.|t=The cat '''is being''' fed.}}
+#: {{uxi|af|Die kat '''word''' gevoer.|t=The cat '''is being''' fed.}}
 
 ====Usage notes====
-* The verb has an archaic preterite '''{{m|af|werd}}''': ''Die kat <u>werd</u> gevoer.'' (“The cat <u>was</u> fed.”) In contemporary Afrikaans the perfect is used instead: ''Die kat <u>is</u> gevoer.''
+* The verb has an archaic preterite {{m|af|werd}}: {{m|af||Die kat <u>werd</u> gevoer.|t=The cat <u>was</u> fed.}} In contemporary Afrikaans the perfect is used instead: {{m|af||Die kat <u>is</u> gevoer.}}
+* Until the early 20th century this verb still often distinguished the infinitive {{m|af|worde}} from the present tense {{m|af||word}} (as is now still done with {{m|af|[[wees]] ↔ [[is]]}} and {{m|af|[[hê]] ↔ [[het]]}}): {{m|af||Dit moet verbeter <u>worde</u> en dit <u>word</u> ook verbeter.|t=It must <u>be</u> improved and it <u>is</u> being improved.}}
 
 {{cln|af|auxiliary verbs|irregular verbs}}
 
@@ -1028,6 +1032,7 @@ From {{inh|ang|gmw-pro|*word}}, from {{inh|ang|gem-pro|*wurdą}}.
 {{ang-noun|n|word}}
 
 # [[#English|word]]
+#* {{quote-book|ang|text=''Sē þonne þisne wealsteal · wīse ġeþōhte<br/>ond þis deorce līf · dēope ġeondþenċeð,<br/>frōd in ferðe, · feor oft ġemon<br/>wælsleahta worn, · ond þās '''word''' ācwið:''|t=Then he deeply thinks over this wall-place<br/>and this dark life with wise thought,<br/>shrewd in mind, oft recalls the long bygone<br/>swarm of slaughters, and utters these '''words''':|title=The Wanderer|year=10th century}}
 # [[speech]], [[utterance]], [[statement]]
 # {{lb|ang|grammar}} [[verb]]
 # [[news]], [[information]], [[rumour]]

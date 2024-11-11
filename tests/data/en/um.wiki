@@ -48,17 +48,6 @@ Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
 #* {{quote-book|en|year=2007|author=Michael Erard|title=Um... Slips, Stumbles, and Verbal Blunders, and What They Mean|page=136|text=Meanwhile, in the popular mind '''umming''' was simply a bad habit, akin to spitting or picking one’s nose.}}
 
 ===Etymology 2===
-From {{inh|en|enm|um}}, from {{der|en|non|um}}, {{m|non|umb|t=around, about}}, from {{der|en|gem-pro|*umbi|t=around}}, from {{der|en|ine-pro|*h₂m̥bʰi|t=round about, around}}. Cognate with {{cog|ang|ymbe|t=around}}, {{cog|fy|om||around}}, {{cog|nl|om||around}}, {{cog|de|um||around}}. More at {{l|en|umbe}}.
-
-====Preposition====
-{{en-prep}}
-
-# {{alternative form of|en|umbe}}
-
-=====Alternative forms=====
-* {{l|en|umb}}, {{l|en|umbe}}
-
-===Etymology 3===
 
 ====Particle====
 {{en-part}}
