@@ -37,7 +37,7 @@
 
 ### Kobo
 
-Copy the dictionnary inside the `.kobo/custom-dict/` folder on your eBook reader.
+Copy the dictionary inside the `.kobo/custom-dict/` folder on your eBook reader.
 
 ## Development
 
