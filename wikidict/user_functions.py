@@ -333,8 +333,6 @@ def lookup_italic(tpl: str, locale: str, *, empty_default: bool = False) -> str:
 
         >>> lookup_italic("", "fr")
         ''
-        >>> lookup_italic("absol", "fr")
-        'Absolument'
         >>> lookup_italic("inexistant", "fr")
         'inexistant'
         >>> lookup_italic("alagoas", "pt")

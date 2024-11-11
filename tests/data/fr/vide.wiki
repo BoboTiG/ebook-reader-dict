@@ -11,7 +11,7 @@
 # Qui ne [[contenir|contient]] [[rien]] ; qui est [[totalement]] [[dépourvoir|dépourvu]] de.
 #* {{exemple | lang=fr
  | Ces lieux communs mythologiques et ce cliquetis de mots sonores, mais à peu près '''vides''' de sens, plurent au roi Sighebert et à ceux des seigneurs Francs qui, comme lui, comprenaient quelque peu la poésie latine.
- | source={{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', 1{{er}} récit : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833, éditions Union Générale d’Édition, 1965}}
+ | source={{w|Augustin Thierry}}, ''Récits des temps mérovingiens'', {{1er|récit}} : ''Les quatre fils de Chlother Ier — Leur caractère — Leurs mariages — Histoire de Galeswinthe (561-568)'', 1833, éditions Union Générale d’Édition, 1965}}
 #* {{exemple | lang=fr | Place, espace '''vide'''.}}
 #* {{exemple | lang=fr | La bouteille est à moitié '''vide'''.}}
 #* {{exemple | lang=fr | Il a le ventre '''vide''', l’estomac '''vide'''.}}
@@ -57,6 +57,7 @@
 * [[avoir le ventre vide]]
 * [[les mains vides]]
 * [[mot vide]]
+* [[regarder dans le vide]]
 * [[ultravide]]
 * [[vide absolu]]
 * [[vide de sens]]

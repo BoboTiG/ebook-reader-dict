@@ -26,6 +26,7 @@ FILES = {
     "eo-tags.py": "wikidict/lang/eo/tags.py",
     "es-langs.py": "wikidict/lang/es/langs.py",
     "es-campos-semanticos.py": "wikidict/lang/es/campos_semanticos.py",
+    "fr-contexts.py": "wikidict/lang/fr/contexts.py",
     "fr-domain-templates.py": "wikidict/lang/fr/domain_templates.py",
     "fr-langs.py": "wikidict/lang/fr/langs.py",
     "fr-racines-arabes.py": "wikidict/lang/fr/racines_arabes.py",

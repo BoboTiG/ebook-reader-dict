@@ -83,12 +83,12 @@
 === {{S|références}} ===
 * {{R:BaerLAC}}
 
-== {{langue|lim}} ==
+== {{langue|li}} ==
 === {{S|étymologie}} ===
-: {{ébauche-étym|lim}}
+: {{ébauche-étym|li}}
 
-=== {{S|pronom personnel|lim}} ===
-'''ich''' {{pron||lim}}
+=== {{S|pronom personnel|li}} ===
+'''ich''' {{pron||li}}
 # [[je|Je]].
 
 === {{S|références}} ===

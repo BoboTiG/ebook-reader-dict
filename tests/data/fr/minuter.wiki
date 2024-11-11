@@ -25,8 +25,12 @@
 * [[minutie]], [[minutieux]], [[minutieusement]]
 
 ==== {{S|traductions}} ====
-{{trad-début}}
+{{trad-début||1}}
 * {{T|ro}} : {{trad+|ro|cronometra}}
+{{trad-fin}}
+
+{{trad-début|Rédiger la minute d’un acte ou d’un contrat. |2}}
+* {{T|it}} : {{trad|it|minutare}}
 {{trad-fin}}
 
 === {{S|prononciation}} ===

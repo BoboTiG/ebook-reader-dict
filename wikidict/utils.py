@@ -475,7 +475,7 @@ def process_templates(
     sub = re.sub
 
     # Clean-up the code
-    if not (text := callback(wikicode, locale=locale)):
+    if not (text := callback(wikicode, locale=locale)):  # type: ignore[call-arg]
         return ""
 
     # {{foo}}
@@ -606,9 +606,6 @@ def transform(word: str, template: str, locale: str) -> str:
         '12 345'
         >>> transform("foo", "Lit-Linnartz: Unsere Familiennamen|A=1|B=1", "de")
         'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
-
-        >>> transform("foo", "grammaire |fr", "fr")
-        '<i>(Grammaire)</i>'
 
         >>> transform("foo", "conj|grp=1|fr", "fr")
         '##opendoublecurly##conj##closedoublecurly##'

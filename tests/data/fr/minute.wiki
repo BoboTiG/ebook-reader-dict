@@ -269,6 +269,7 @@
 * {{écouter|lang=fr|Canada (Québec, Mauricie, Shawinigan)(Interjection)|titre=Minute. Menute. Menute! Menute! Attends menute|audio=Une minute.ogg}}
 * {{écouter|||lang=fr|audio=LL-Q150 (fra)-Marie-Sarah (Opsylac)-minute.wav}}
 * {{écouter|Aude (France)||lang=fr|audio=LL-Q150 (fra)-Lepticed7-minute.wav}}
+* {{écouter|Liège (Belgique)||lang=fr|audio=LL-Q150 (fra)-Shareculture-minute.wav}}
 
 === {{S|anagrammes}} ===
 {{voir anagrammes|fr}}

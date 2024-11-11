@@ -21,6 +21,7 @@
 
 ==== {{S|traductions}} ====
 {{trad-début}}
+* {{T|de}} : {{trad+|de|zweifelnd}}, {{trad+|de|skeptisch}}
 * {{T|en}} : {{trad+|en|dubious}}, {{trad+|en|sceptical}} {{Grande-Bretagne|nocat=1}} ou {{trad+|en|skeptical}} {{États-Unis|nocat=1}}
 * {{T|hr}} : {{trad-|hr|dubiozan}}
 * {{T|es}} : {{trad+|es|dubitativo}}

@@ -406,7 +406,9 @@ from wikidict.utils import process_templates
             ["\\sa.pʁis.ti\\"],
             [],
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
-            ["Pour marquer l’étonnement ou l'énervement."],
+            [
+                "<i>(Populaire)</i> <i>(Familier)</i> <i>(Par euphémisme)</i> <i>(Vieilli)</i> Pour marquer l’étonnement ou l'énervement."
+            ],
             [],
         ),
         (
@@ -513,7 +515,6 @@ def test_parse_word(
         ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
         ("{{lien|étrange|fr}}", "étrange"),
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
-        ("{{ling|fr}}", "<i>(Linguistique)</i>"),
         ("{{in|5}}", "<sub>5</sub>"),
         ("{{incise|texte placé en incise}}", "— texte placé en incise —"),
         ("{{incise|texte placé en incise|stop}}", "— texte placé en incise"),
@@ -536,10 +537,6 @@ def test_parse_word(
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
-        (
-            "{{par ext}} ou {{figuré|fr}}",
-            "<i>(Par extension)</i> ou <i>(Sens figuré)</i>",
-        ),
         ("{{Pas clair}}", "<small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>"),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",

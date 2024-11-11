@@ -1155,7 +1155,7 @@ __TOC__
 
 == {{langue|ga}} ==
 === {{S|étymologie}} ===
-: {{term|Pronom possessif}} Du {{étyl|proto-celtique|ga}} {{recons|lang-mot-vedette=ga|esyo|proto-celtique}} (la voyelle finale enclenche la lénition), le proto-celtique féminin {{recons|lang-mot-vedette=ga|esyās|proto-celtique}} et le proto-celtique pluriel {{recons|lang-mot-vedette=ga|esyom|proto-celtique}} (la nasale finale enclenchant l’éclipse). Toutes ces formes sont issues du {{étyl|ine-pie|ga}} {{recons|lang-mot-vedette=ga|éy|ine-pie}}.
+: {{term|Pronom possessif}} Du {{étyl|proto-celtique|ga}} {{recons|lang-mot-vedette=ga|esyo|proto-celtique}} (la voyelle finale enclenche la lénition), le proto-celtique féminin {{recons|lang-mot-vedette=ga|esyās|proto-celtique}} et le proto-celtique pluriel {{recons|lang-mot-vedette=ga|esyom|proto-celtique}} (la nasale finale enclenchant l’éclipse). Toutes ces formes sont issues du {{étyl|indo-européen commun|ga}} {{recons|lang-mot-vedette=ga|éy|indo-européen commun}}.
 : {{term|Préposition}} Originellement, une forme réduire de ''{{lien|do|ga}}''.
 
 === {{S|lettre|ga}} ===
@@ -1187,6 +1187,9 @@ __TOC__
 
 ==== {{S|synonymes}} ====
 * {{term|Sens 2}} {{lien|ar|ga}}
+
+==== {{S|vocabulaire}} ====
+{{ga-particules-verbales}}
 
 === {{S|pronom indéfini|ga}} ===
 '''a''' {{pron||ga}}
@@ -1468,7 +1471,6 @@ __TOC__
 # [[à|À]] (devant un [[complément circonstanciel]] de [[lieu]], ou indiquant la [[provenance]] ou de [[temps]], ou de [[manière]], ou de [[moyen]], ou d’[[agent]], ou un [[complément d’attribution]], ou un [[complément d’objet indirect]], ou qui indique une [[action]] faite [[conjointement]] par [[plusieurs]] personnes (quand suivi d’un nombre), ou qui introduit un [[complément du nom]], ou qui introduit une [[locution adverbiale]], ou qui indique l’[[opposition]], et prend le sens de « [[contre]] », ou qui indique la [[succession]] ou la [[progression]], et prend le sens de « [[après]] ».
 #* ''Goccia '''a''' goccia'' → l’une après l’autre.
 #* {{exemple | lang=it | Passo '''a''' passo.}}
-
 #* {{Lang|it|''Abita '''a''' Roma.''}}
 #*: Il habite à Rome. Elle habite à Rome. (selon le contexte)
 
@@ -1680,7 +1682,7 @@ __TOC__
 : {{ébauche-étym |wlm}}
 : {{laé|wlm|prép|1}} Réduction de ''{{lien|o|wlm}}''.
 : {{laé|wlm|conj}} Du {{étyl|owl|wlm|ha}}.
-: {{laé|wlm|verb}} Du {{étyl|proto-celtique|wlm}} {{recons|lang-mot-vedette=wlm|ageti|proto-celtique}}, troisième personne du singulier du présent de l'indicatif de {{recons|lang-mot-vedette=wlm|ago-|proto-celtique}}, de l’{{étyl|ine-pie|wlm}} {{recons|lang-mot-vedette=wlm|h₂eǵ-|ine-pie}}.
+: {{laé|wlm|verb}} Du {{étyl|proto-celtique|wlm}} {{recons|lang-mot-vedette=wlm|ageti|proto-celtique}}, troisième personne du singulier du présent de l'indicatif de {{recons|lang-mot-vedette=wlm|ago-|proto-celtique}}, de l’{{étyl|indo-européen commun|wlm}} {{recons|lang-mot-vedette=wlm|h₂eǵ-|indo-européen commun}}.
 
 === {{S|particule|wlm|num=1}} ===
 '''a''' {{pron-recons|a|wlm}}
@@ -2139,6 +2141,7 @@ __TOC__
 * {{écouter|Yangsan (Corée du Sud)|ɐ|lang=pt|audio=LL-Q5146 (por)-Juliano P. Junho (Jjunho)-a.wav}}
 * {{écouter|Brésil|a|lang=pt|audio=LL-Q5146 (por)-Sillim-a.wav}}
 * {{écouter|Lisbonne (Portugal)||niveau=moyen|lang=pt|audio=LL-Q5146 (por)-Adélaïde Calais WMFr-a.wav}}
+* {{écouter|São Paulo (Brésil)||lang=pt|audio=LL-Q5146 (por)-JnpoJuwan-a.wav}}
 
 === {{S|références}} ===
 * {{R:DicionárioFonético|a|id=1}}
@@ -2659,8 +2662,8 @@ __TOC__
 == {{langue|sga}} ==
 === {{S|étymologie}} ===
 : {{laé|sga|article défini}} {{laé|sga|pronom}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|sindom|proto-celtique}}.
-: {{laé|sga|pronom possessif}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|esyo|proto-celtique}} (masculin et neutre), {{recons|lang-mot-vedette=sga|esyās|proto-celtique}} (féminin), et {{recons|lang-mot-vedette=sga|esōm|proto-celtique}} (pluriel), de l’{{étyl|ine-pie|sga}} {{recons|lang-mot-vedette=sga|ésyo|ine-pie}}, génitif singulier de {{recons|lang-mot-vedette=sga|ís|proto-celtique}} et {{recons|lang-mot-vedette=sga|íd|proto-celtique}} ; à comparer au gallois ''{{lien|ei|cy}}''.
-: {{laé|sga|part}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|ō|proto-celtique}} {{étyl|ine-pie|sga}} {{recons|lang-mot-vedette=sga|ō|ine-pie}}.
+: {{laé|sga|pronom possessif}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|esyo|proto-celtique}} (masculin et neutre), {{recons|lang-mot-vedette=sga|esyās|proto-celtique}} (féminin), et {{recons|lang-mot-vedette=sga|esōm|proto-celtique}} (pluriel), de l’{{étyl|indo-européen commun|sga}} {{recons|lang-mot-vedette=sga|ésyo|indo-européen commun}}, génitif singulier de {{recons|lang-mot-vedette=sga|ís|proto-celtique}} et {{recons|lang-mot-vedette=sga|íd|proto-celtique}} ; à comparer au gallois ''{{lien|ei|cy}}''.
+: {{laé|sga|part}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|ō|proto-celtique}} {{étyl|indo-européen commun|sga}} {{recons|lang-mot-vedette=sga|ō|indo-européen commun}}.
 : {{laé|sga|prép}} Du {{étyl|proto-celtique|sga}} {{recons|lang-mot-vedette=sga|exs|proto-celtique}}.
 
 === {{S|article défini|sga}} ===

@@ -1,6 +1,6 @@
 == {{langue|fr}} ==
 === {{S|étymologie}} ===
-: Du {{étyl|la|fr|mot=gelare}}.
+: {{circa|1140|lang=fr}}{{R|TLFi}} Du {{étyl|la|fr|mot=gelo|sens=geler|dif=gelare}}{{R|TLFi}}.
 
 === {{S|verbe|fr}} ===
 '''geler''' {{pron|ʒə.le|fr}} {{t|fr}} {{conj|grp=1|fr}}
@@ -82,6 +82,7 @@
 * {{T|lep}} : {{trad|lep|ᰀᰤᰦᰵ}}, {{trad|lep|ᰂᰬᰭ}}
 * {{T|nl}} : {{trad+|nl|bevriezen}}
 * {{T|normand}} : {{trad|normand|gelaer}}
+* {{T|non}} : {{trad|non|frosta}}
 * {{T|oc}} : {{trad+|oc|gelar}}, {{trad+|oc|torrar}}
 * {{T|pcd}} : {{trad|pcd|frimer}}, {{trad|pcd|injéler}}, {{trad|pcd|jéler}}, {{trad|pcd|jler}}
 * {{T|pl}} : {{trad+|pl|mrozić}}
@@ -147,6 +148,7 @@
 
 === {{S|références}} ===
 * {{R:DAF8}}
+{{références}}
 
 [[Catégorie:Verbes ergatifs en français]]
 

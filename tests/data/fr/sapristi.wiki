@@ -4,7 +4,7 @@
 
 === {{S|interjection|fr}} ===
 '''sapristi'''
-# Pour [[marquer]] l’[[étonnement]] ou l'[[énervement]].
+# {{populaire|fr}} {{familier|fr}} {{par euphémisme|fr}} {{vieilli|fr}} Pour [[marquer]] l’[[étonnement]] ou l'[[énervement]].
 #* {{exemple | lang=fr
  | '''Sapristi''' ! nous nous abrutissons à la fin !
  | source={{w|Victor Hugo}}, ''{{w|Quatrevingt-treize}}'', 1874, {{w|Michel Lévy frères}}, tome 3, page 266}}
