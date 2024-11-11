@@ -9,7 +9,7 @@ from . import defaults
 ALL_LOCALES = {
     locale.name: import_module(f"wikidict.lang.{locale.name}")
     for locale in sorted(Path(__file__).parent.glob("*"))
-    if locale.is_dir() and locale.name != "__pycache__"
+    if locale.is_dir() and bool(list(locale.glob("*.py", case_sensitive=True)))
 }
 
 Arg = TypeVar("Arg")
