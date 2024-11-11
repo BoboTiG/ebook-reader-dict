@@ -13,16 +13,18 @@ EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
 Version complète :
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
 - [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.mobi)
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 
 Version sans étymologies :
-- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
-- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
 - [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.mobi)
+- [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
+- [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
 
 Mis à jour le"""
 
@@ -82,12 +84,6 @@ def test_simple() -> None:
     assert (output_dir / "dict-fr-fr-noetym.df.bz2").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.df.bz2.{ASSET_CHECKSUM_ALGO}").is_file()
 
-    # StarDict
-    assert (output_dir / "dict-fr-fr.zip").is_file()
-    assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
-    assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
-    assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
-
     # DICT.org
     assert (output_dir / "dictorg-fr-fr.zip").is_file()
     assert (output_dir / f"dictorg-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
@@ -100,6 +96,18 @@ def test_simple() -> None:
     dicthtml = output_dir / "dicthtml-fr-fr.zip"
     assert dicthtml.is_file()
     assert (output_dir / f"dicthtml-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
+    # Mobi
+    assert (output_dir / "dict-fr-fr.mobi").is_file()
+    assert (output_dir / f"dict-fr-fr.mobi.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.mobi").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.mobi.{ASSET_CHECKSUM_ALGO}").is_file()
+
+    # StarDict
+    assert (output_dir / "dict-fr-fr.zip").is_file()
+    assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Check the Kobo ZIP content
     with ZipFile(dicthtml) as fh:
@@ -187,12 +195,14 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
 @pytest.mark.parametrize(
     "formatter, filename, include_etymology",
     [
-        (convert.StarDictFormat, "dict-fr-fr.zip", True),
-        (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2", True),
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
         (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
         (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
+        (convert.MobiFormat, "dict-fr-fr.mobi", True),
+        (convert.MobiFormat, "dict-fr-fr-noetym.mobi", False),
+        (convert.StarDictFormat, "dict-fr-fr.zip", True),
+        (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
     ],
 )
 @pytest.mark.dependency(

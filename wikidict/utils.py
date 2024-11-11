@@ -19,6 +19,7 @@ from .constants import (
     DOWNLOAD_URL_DICTFILE,
     DOWNLOAD_URL_DICTORGFILE,
     DOWNLOAD_URL_KOBO,
+    DOWNLOAD_URL_MOBI,
     DOWNLOAD_URL_STARDICT,
     NO_ETYMOLOGY_SUFFIX,
     RANDOM_WORD_URL,
@@ -143,16 +144,18 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
     download_links_full = f"""
-- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
 - [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "")}) (dict-{locale}-{locale}.df.bz2)
 - [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
+- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, "")}) (dict-{locale}-{locale}.mobi)
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
 """.strip()
     download_links_noetym = f"""
-- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
-- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
 - [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)
 - [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
+- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)
+- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
+- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
 """.strip()
 
     creation_date = NOW.isoformat()

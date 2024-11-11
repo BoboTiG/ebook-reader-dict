@@ -3,6 +3,7 @@
 *.bz2
 *.df
 *.json
+*.mobi
 *.xml
 *.zip
 dict-data.*
