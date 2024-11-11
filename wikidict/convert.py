@@ -153,6 +153,7 @@ class BaseFormat:
         words: Words,
         variants: Variants,
         snapshot: str,
+        *,
         include_etymology: bool = True,
     ) -> None:
         self.locale = locale
@@ -531,6 +532,7 @@ def run_formatter(
     words: Words,
     variants: Variants,
     snapshot: str,
+    *,
     include_etymology: bool = True,
 ) -> None:
     formater = cls(
@@ -577,6 +579,7 @@ def distribute_workload(
     locale: str,
     words: Words,
     variants: Variants,
+    *,
     include_etymology: bool = True,
 ) -> None:
     """Run formaters in parallel."""

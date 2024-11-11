@@ -42,6 +42,7 @@ templates_other: dict[str, str] = {}
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r""),
 ) -> list[str]:
     """Function used to find genders within `code`."""
@@ -50,21 +51,22 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r""),
 ) -> list[str]:
     """Function used to find pronunciations within `code`."""
     return []
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["formatnum", "42000""], "es")
+        >>> last_template_handler(["formatnum", "42000"], "es")
         '42 000'
-        >>> last_template_handler(["formatnum", "42000""], "it")
+        >>> last_template_handler(["formatnum", "42000"], "it")
         '42 000'
-        >>> last_template_handler(["formatnum", "42000""], "no")
+        >>> last_template_handler(["formatnum", "42000"], "no")
         '42 000'
 
         >>> last_template_handler(["transliterator", "ar", "سم"], "fr")
@@ -103,7 +105,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 
-def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_wikilink("w", [], defaultdict(str))
     ''

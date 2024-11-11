@@ -191,6 +191,7 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"\{\{IPA(?:\|(.*?))?\|lang=da\}\}"),
 ) -> list[str]:
     """
@@ -202,7 +203,7 @@ def find_pronunciations(
     return [item for sublist in (re.findall(pattern, code) or []) for item in sublist.split("|") if item]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -271,7 +272,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return f"{italic('Forkortelse af')} {strong(parts[-1])}"
 
     if tpl in {"compound", "com"}:
-        return concat(parts, sep=" + ")
+        return concat(parts, " + ")
 
     if tpl == "etyl":
         return langs[parts[0]]

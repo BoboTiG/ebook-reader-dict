@@ -240,7 +240,7 @@ def guess_prefix(word: str) -> str:
     return prefix.ljust(2, "a") if all(c.isalpha() and c.islower() for c in prefix) else "11"
 
 
-def clean(text: str, locale: str = "en") -> str:
+def clean(text: str, *, locale: str = "en") -> str:
     r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
@@ -432,7 +432,13 @@ def clean(text: str, locale: str = "en") -> str:
     return text.strip()
 
 
-def process_templates(word: str, wikicode: str, locale: str, callback: Callable[[str, str], str] = clean) -> str:
+def process_templates(
+    word: str,
+    wikicode: str,
+    locale: str,
+    *,
+    callback: Callable[[str, str], str] = clean,  # type: ignore[assignment]
+) -> str:
     r"""Process all templates.
 
     It will also handle the <math> HTML tag as it is not part of the *clean()* function on purpose.
@@ -469,7 +475,7 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
     sub = re.sub
 
     # Clean-up the code
-    if not (text := callback(wikicode, locale)):
+    if not (text := callback(wikicode, locale=locale)):
         return ""
 
     # {{foo}}
@@ -510,7 +516,7 @@ def process_templates(word: str, wikicode: str, locale: str, callback: Callable[
     return text.strip()
 
 
-def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -> str:
+def render_formula(formula: str, *, cat: str = "tex", output_format: str = "svg") -> str:
     """
     Convert mathematic/chemical symbols to a SVG string.
 
@@ -539,7 +545,7 @@ def render_formula(formula: str, cat: str = "tex", output_format: str = "svg") -
         return req.text
 
 
-def formula_to_svg(formula: str, cat: str = "tex") -> str:
+def formula_to_svg(formula: str, *, cat: str = "tex") -> str:
     """Return an optimized SVG file as a string."""
     force = "FORCE_FORMULA_RENDERING" in os.environ
     if force or not (svg_raw := svg.get(formula)):
@@ -596,8 +602,8 @@ def transform(word: str, template: str, locale: str) -> str:
         >>> transform("séga", "w", "fr")
         'séga'
 
-        >>> transform("foo", "formatnum:123", "fr")
-        '123'
+        >>> transform("foo", "formatnum:12345", "fr")
+        '12 345'
         >>> transform("foo", "Lit-Linnartz: Unsere Familiennamen|A=1|B=1", "de")
         'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
 

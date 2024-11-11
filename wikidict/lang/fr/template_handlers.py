@@ -28,7 +28,7 @@ def word_tr_sens(w: str, tr: str, sens: str, use_italic: bool = True) -> str:
     return r
 
 
-def render_1e_attestation(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_1e_attestation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_1e_attestation("1e attestation", [], defaultdict(str, {"date": "1950", "titre": "Les Hirondelles", "lang": "fr"}))
     '<i>(1950)</i> Attesté dans <i>Les Hirondelles</i>'
@@ -46,7 +46,7 @@ def render_1e_attestation(tpl: str, parts: list[str], data: defaultdict[str, str
     return phrase
 
 
-def render_2e(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_2e(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_2e("2e", [], defaultdict(str))
     '2<sup>e</sup>'
@@ -64,7 +64,7 @@ def render_2e(tpl: str, parts: list[str], data: defaultdict[str, str], word: str
     return phrase
 
 
-def render_abreviation(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_abreviation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_abreviation("abréviation", [], defaultdict(str))
     '<i>(Abréviation)</i>'
@@ -94,7 +94,7 @@ def render_abreviation(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_acronyme(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_acronyme(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_acronyme("acronyme", ["fr"], defaultdict(str))
     '<i>(Acronyme)</i>'
@@ -108,7 +108,7 @@ def render_acronyme(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return italic("(Acronyme)")
 
 
-def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_modele_etym("agglutination", [], defaultdict(str, {"m":"1"}))
     'Agglutination'
@@ -166,7 +166,7 @@ def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_apherese(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_apherese(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     render aphérèse and apocope
 
@@ -195,7 +195,7 @@ def render_apherese(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return phrase
 
 
-def render_argot(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_argot(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_argot("argot", ["fr"], defaultdict(str))
     '<i>(Argot)</i>'
@@ -212,7 +212,7 @@ def render_argot(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return term(phrase)
 
 
-def render_au_masculin(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_au_masculin(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_au_masculin("au masculin", [], defaultdict(str))
     '<i>(Au masculin)</i>'
@@ -230,7 +230,7 @@ def render_au_masculin(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return term(phrase)
 
 
-def render_cf(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_cf(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cf("cf", [], defaultdict(str))
     '→ voir'
@@ -255,11 +255,11 @@ def render_cf(tpl: str, parts: list[str], data: defaultdict[str, str], word: str
             s_phrase = p
             s_phrase = process_special_pipe_template(s_phrase)
             s_array.append(italic(s_phrase))
-        phrase += f" {concat(s_array, ', ', ' et ')}"
+        phrase += f" {concat(s_array, ', ', last_sep=' et ')}"
     return phrase
 
 
-def render_cit_ref(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_cit_ref(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cit_ref("cit_réf", ["Dictionnaire quelconque", "2007"], defaultdict(str))
     '<i>Dictionnaire quelconque</i>, 2007'
@@ -303,7 +303,7 @@ def render_cit_ref(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_contexte(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_contexte(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_contexte("C", [], defaultdict(str))
     '(Pas de contexte)'
@@ -325,7 +325,7 @@ def render_contexte(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return term(capitalize(", ".join(parts)) + spec)
 
 
-def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_compose_de("composé de", ["longus", "aevum"], defaultdict(str, {"lang":"la"}))
     'composé de <i>longus</i> et de <i>aevum</i>'
@@ -431,7 +431,7 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], w
         phrase += concat(
             s_array,
             ", ",
-            " et de " if len(s_array) < 3 else " et ",
+            last_sep=" et de " if len(s_array) < 3 else " et ",
         )
 
     if data["sens"]:
@@ -440,7 +440,7 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_date(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_date(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_date("date", [""], defaultdict(str))
     '<i>(Date à préciser)</i>'
@@ -459,7 +459,7 @@ def render_date(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return term(capitalize(date))
 
 
-def render_equiv_pour(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_equiv_pour(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_equiv_pour("équiv-pour", ["un homme", "maître"], defaultdict(str))
     '<i>(pour un homme, on dit</i>&nbsp: maître<i>)</i>'
@@ -488,7 +488,7 @@ def render_equiv_pour(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_etyl(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etyl(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etyl("calque", ["la", "fr"], defaultdict(str))
     'latin'
@@ -561,7 +561,7 @@ def render_etyl(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ko_pron("ko-pron", ["서울"], defaultdict(str))
     '[sʌ.uɭ]'
@@ -660,7 +660,7 @@ def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return f"/{phrase}/" if data["phon"] else f"[{phrase}]"
 
 
-def render_la_verb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_la_verb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_la_verb("la-verb", ["amō", "amare", "amāre", "amavi", "amāvi", "amatum", "amātum"], defaultdict(str))
     '<b>amō</b>, <i>infinitif</i> : amāre, <i>parfait</i> : amāvi, <i>supin</i> : amātum'
@@ -686,7 +686,7 @@ def render_la_verb(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lae("laé", ["fr", "adv"], defaultdict(str))
     '<i>(Adverbe)</i>'
@@ -736,7 +736,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     return term(phrase)
 
 
-def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lang("Lang", ["la", "sine qua non"], defaultdict(str, {"sens": "sans quoi non"}))
     '<i>sine qua non</i> («&nbsp;sans quoi non&nbsp;»)'
@@ -748,7 +748,7 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return word_tr_sens(texte, tr, sens)
 
 
-def render_lien(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lien(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lien("l", ["dies Lunae", "la"], defaultdict(str))
     'dies Lunae'
@@ -771,7 +771,7 @@ def render_lien(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_lien_rouge(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lien_rouge(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lien_rouge("LienRouge", [], defaultdict(str, {"fr":"Comité", "trad":"United Nations", "texte":"COPUOS"}))
     '<i>COPUOS</i>'
@@ -800,7 +800,7 @@ def render_lien_rouge(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return res
 
 
-def render_lien_web(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lien_web(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lien_web("Lien web", [], defaultdict(str, {"titre":"The Weasel-Lobster Race"}))
     '<i>The Weasel-Lobster Race</i>'
@@ -858,7 +858,7 @@ def render_lien_web(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return phrase
 
 
-def render_mot_valise(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_mot_valise(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_mot_valise("mot-valise", ["fr"], defaultdict(str, {"m":"1"}))
     'Mot-valise'
@@ -884,7 +884,7 @@ def render_mot_valise(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_mn_lien(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_mn_lien(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_mn_lien("mn-lien", ["далай", "dalai", "ᠲᠠᠯᠠᠢ"], defaultdict(str))
     'далай (MNS : <i>dalai</i>), ᠲᠠᠯᠠᠢ'
@@ -899,7 +899,7 @@ def render_mn_lien(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_nom_langue(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_nom_langue(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_nom_langue("nom_langue", ["ky"], defaultdict(str))
     'kirghiz'
@@ -907,7 +907,7 @@ def render_nom_langue(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return langs.get(parts[0], parts[0])
 
 
-def render_polytonique(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_polytonique(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_polytonique("polytonique", ["μηρóς", "mêrós", "cuisse"], defaultdict(str))
     'μηρóς, <i>mêrós</i> («&nbsp;cuisse&nbsp;»)'
@@ -930,7 +930,7 @@ def render_polytonique(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_recons(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_recons(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_recons("recons", ["maruos"], defaultdict(str))
     '*<i>maruos</i>'
@@ -949,7 +949,7 @@ def render_recons(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return f"*{phrase}"
 
 
-def render_refnec(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_refnec(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_refnec("recons", [], defaultdict(str, {"lang": "fr"}))
     ''
@@ -959,7 +959,7 @@ def render_refnec(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return underline(parts[0]) if parts else ""
 
 
-def render_siecle(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_siecle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_siecle("siècle", [], defaultdict(str))
     '<i>(Siècle à préciser)</i>'
@@ -999,7 +999,7 @@ def render_siecle(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return term(" – ".join(parts) + (" ?" if data["doute"] else ""))
 
 
-def render_siecle2(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_siecle2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_siecle2("siècle2", ["1"], defaultdict(str))
     "<span style='font-variant:small-caps'>i</span><sup>er</sup>"
@@ -1020,7 +1020,7 @@ def render_siecle2(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return f"{number_string}{superscript(suffix)}"
 
 
-def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sigle("sigle", ["fr"], defaultdict(str))
     '<i>(Sigle)</i>'
@@ -1039,7 +1039,7 @@ def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return phrase
 
 
-def render_suisse(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_suisse(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_suisse("Suisse", ["fr"], defaultdict(str, {"précision":"Fribourg, Valais, Vaud"}))
     '<i>(Suisse : Fribourg, Valais, Vaud)</i>'
@@ -1052,7 +1052,7 @@ def render_suisse(tpl: str, parts: list[str], data: defaultdict[str, str], word:
         return term("Suisse")
 
 
-def render_suppletion(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_suppletion(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_suppletion("supplétion", ["aller"], defaultdict(str))
     'Cette forme dénote une supplétion car son étymologie est distincte de celle de <i>aller</i>'
@@ -1076,7 +1076,7 @@ def render_suppletion(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_t("T", ["oc"], defaultdict(str))
     'Occitan'
@@ -1087,7 +1087,7 @@ def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     return capitalize(langs[lang]) if lang in langs else lang
 
 
-def render_temps_geologiques(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_temps_geologiques(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_temps_geologiques("Temps géologiques", ["givétien"], defaultdict(str))
     '387,7 ± 0,8'
@@ -1099,7 +1099,7 @@ def render_temps_geologiques(tpl: str, parts: list[str], data: defaultdict[str, 
     return times[parts[0]]
 
 
-def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_term("term", ["ne … guère que"], defaultdict(str))
     '<i>(Ne … guère que)</i>'
@@ -1113,7 +1113,7 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return term(capitalize(data["libellé"] or data["1"] or parts[0]))
 
 
-def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_trad("trad-", ["la", "fiducia"], defaultdict(str))
     'fiducia'
@@ -1125,7 +1125,7 @@ def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return data["dif"] or parts[-1]
 
 
-def render_transitif(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_transitif(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_transitif("transitif+", ["fr"], defaultdict(str, {"a1": "de"}))
     '<i>(Transitif avec le complément d’objet introduit par </i><b>de</b><i>)</i>'
@@ -1140,7 +1140,7 @@ def render_transitif(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return f"{italic(phrase)}{strong(complement)}{italic(')')}"
 
 
-def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_unite("unité", ["1234567"], defaultdict(str, {}))
     '1 234 567'
@@ -1210,7 +1210,7 @@ def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return phrase
 
 
-def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variante_ortho("Variante de", ["acupuncture", "fr"], defaultdict(str))
     '<i>Variante de</i> acupuncture'
@@ -1233,7 +1233,7 @@ def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str
     return phrase
 
 
-def render_wikisource(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_wikisource(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_wikisource("ws", ["Les Grenouilles qui demandent un Roi"], defaultdict(str))
     'Les Grenouilles qui demandent un Roi'
@@ -1252,7 +1252,7 @@ def render_wikisource(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_zh_lien(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_zh_lien(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_zh_lien("zh-lien", ["人", "rén"], defaultdict(str))
     '人 (<i>rén</i>)'

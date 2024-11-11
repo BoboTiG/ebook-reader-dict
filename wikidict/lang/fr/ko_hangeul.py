@@ -463,7 +463,7 @@ for finale in plosive:
 # https://fr.wiktionary.org/wiki/Module:ko-hangeul (2019-04-29T12:09:31)
 
 
-def jamos(match: Match[str], floor: Callable[[float], int] = math.floor) -> str:
+def jamos(match: Match[str], *, floor: Callable[[float], int] = math.floor) -> str:
     """Fonction internelle pour décomposer un hangeul en jamos."""
     char = match.group(1)
     code = ord(char)

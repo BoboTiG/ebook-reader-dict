@@ -112,6 +112,7 @@ def join_names(
     data: defaultdict[str, str],
     key: str,
     last_sep: str,
+    *,
     include_langname: bool = False,
     key_alias: str = "",
     prefix: str = "",
@@ -137,10 +138,10 @@ def join_names(
                 else:
                     langnametext = "English " if include_langname else ""
                     var_a.append(langnametext + prefix + var_text + suffix)
-    return concat(var_a, ", ", last_sep) if var_a else ""
+    return concat(var_a, ", ", last_sep=last_sep) if var_a else ""
 
 
-def gloss_tr_poss(data: defaultdict[str, str], gloss: str, trans: str = "") -> str:
+def gloss_tr_poss(data: defaultdict[str, str], gloss: str, *, trans: str = "") -> str:
     local_phrase = []
     phrase = ""
     trts = ""
@@ -167,7 +168,7 @@ def gloss_tr_poss(data: defaultdict[str, str], gloss: str, trans: str = "") -> s
     return phrase
 
 
-def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     if parts:
         parts.pop(0)  # Remove the language
     p = data["alt"] or data["2"] or (parts.pop(0) if parts else "") or ""
@@ -181,13 +182,13 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
     return phrase
 
 
-def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     if data["notext"] in ("1", "yes"):
         return ""
     return data.get("title", title if data["nocap"] in ("1", "yes") else capitalize(title))
 
 
-def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bce("B.C.E.", [], defaultdict(str))
     '<small>B.C.E.</small>'
@@ -201,7 +202,7 @@ def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     return small(text.replace(".", "")) if nodot else small(text)
 
 
-def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cap("cap", ["beef"], defaultdict(str))
     'Beef'
@@ -219,7 +220,7 @@ def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     return f"{capitalize(''.join(parts))}"
 
 
-def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_century("century", ["17"], defaultdict(str))
     '<small>[from 17th c.]</small>'
@@ -253,7 +254,7 @@ def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return small(f"[{phrase}]")
 
 
-def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_clipping("clipping", ["en", "automobile"], defaultdict(str))
     'Clipping of <i>automobile</i>'
@@ -265,7 +266,7 @@ def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return misc_variant("clipping", tpl, parts, data, word=word)
 
 
-def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_coinage("coin", ["en", "Josiah Willard Gibbs"], defaultdict(str))
     'Coined by Josiah Willard Gibbs'
@@ -287,7 +288,7 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], word
             phrase += f" {data['nationality']}"
         elif data["nat"]:
             phrase += f" {data['nat']}"
-        if occ := join_names(data, "occ", " and ", False, "occupation"):
+        if occ := join_names(data, "occ", " and ", include_langname=False, key_alias="occupation"):
             phrase += f" {occ}"
         phrase += " "
     phrase += f"{p}"
@@ -296,11 +297,11 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_contraction(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_contraction(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     return misc_variant("contraction", tpl, parts, data, word=word)
 
 
-def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_dating("ante", ["1880"], defaultdict(str))
     '<i>a.</i> <b>1880</b>,'
@@ -316,7 +317,7 @@ def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return f"{italic(init)} {strong(start)}" + (f" {end}" if end else "") + ","
 
 
-def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etydate("etydate", ["1880"], defaultdict(str))
     'First attested in 1880'
@@ -372,7 +373,7 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
     'Arabic <i>الْعِرَاق</i> (<i>ālʿrāq</i>, “Iraq”)'
@@ -571,12 +572,12 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
 
-    phrase += gloss_tr_poss(data, gloss, trans)
+    phrase += gloss_tr_poss(data, gloss, trans=trans)
 
     return phrase.lstrip()
 
 
-def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_frac("frac", ["39", "47", "127"], defaultdict(str))
     '39<small><sup>47</sup><big>⁄</big><sub>127</sub></small>'
@@ -595,7 +596,7 @@ def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str))
     '<i>A male given name</i>'
@@ -638,7 +639,7 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], w
     gender += f' or {data["or"]}' if data["or"] else ""
     art = data["A"] or "A"
     phrase = f"{art} "
-    dimtext = join_names(data, "dim", " or ", False, "diminutive")
+    dimtext = join_names(data, "dim", " or ", include_langname=False, key_alias="diminutive")
     phrase += "diminutive of the " if dimtext else ""
     phrase += f"{gender} given name"
     phrase += "s" if ", " in dimtext or " or " in dimtext else ""
@@ -706,11 +707,11 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], w
     if lastfrom_seg:
         fromsegs.append(lastfrom_seg)
     if localphrase := [
-        fromseg.get("prefix", "") + concat(fromseg.get("suffixes", []), ", ", " or ") for fromseg in fromsegs
+        fromseg.get("prefix", "") + concat(fromseg.get("suffixes", []), ", ", last_sep=" or ") for fromseg in fromsegs
     ]:
-        phrase += " " + concat(localphrase, ", ", " or ")
+        phrase += " " + concat(localphrase, ", ", last_sep=" or ")
 
-    if meaningtext := join_names(data, "meaning", " or ", False, prefix='"', suffix='"'):
+    if meaningtext := join_names(data, "meaning", " or ", include_langname=False, prefix='"', suffix='"'):
         phrase += f", meaning {meaningtext}"
 
     if data["usage"]:
@@ -722,13 +723,13 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], w
         phrase += f", masculine equivalent {mtext}"
     if ftext := join_names(data, "f", " and "):
         phrase += f", feminine equivalent {ftext}"
-    if eqext := join_names(data, "eq", " and ", True):
+    if eqext := join_names(data, "eq", " and ", include_langname=True):
         phrase += f", equivalent to {eqext}"
 
     return italic(phrase)
 
 
-def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str, {}))
     '<i>A male given name of historical usage, notably borne by Saint Abundius, an early Christian bishop</i>'
@@ -749,7 +750,7 @@ def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[s
     return italic(phrase)
 
 
-def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ipa_char("historical given name", ["[tʃ]"], defaultdict(str, {}))
     '[tʃ]'
@@ -759,7 +760,7 @@ def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return concat(parts, ", ")
 
 
-def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_iso_639("ISO 639", [], defaultdict(str, {}), word="ysr")
     '<i>(international standards) language code for</i> <b>Sirenik</b>.'
@@ -794,7 +795,7 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return ", ".join([f"ISO 639-{idx} code {strong(part)}" for idx, part in enumerate(parts, 1) if part])
 
 
-def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_label("label", ["en" , "Australia", "slang"], defaultdict(str, {"nocat":"1"}))
     '<i>(Australia, slang)</i>'
@@ -849,7 +850,7 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return term(res)
 
 
-def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lit("&lit", ["en", "foo", "bar"], defaultdict(str, {"nodot":"1"}))
     '<i>Used other than figuratively or idiomatically:</i> see <i>foo, bar</i>'
@@ -882,7 +883,7 @@ def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], word: st
     return phrase
 
 
-def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_morphology("affix", ["en"], defaultdict(str, {"alt1":"tisa-","pos1":"unique name","alt2":"-gen-", "t2": "transfer of genetic material (transduced)", "alt3":"-lec-", "t3":"selection and enrichment manipulation", "alt4":"-leu-", "t4":"leukocytes", "alt5":"-cel", "t5":"cellular therapy"}))
     '<i>tisa-</i> (unique name)&nbsp;+&nbsp;<i>-gen-</i> (“transfer of genetic material (transduced)”)&nbsp;+&nbsp;<i>-lec-</i> (“selection and enrichment manipulation”)&nbsp;+&nbsp;<i>-leu-</i> (“leukocytes”)&nbsp;+&nbsp;<i>-cel</i> (“cellular therapy”)'
@@ -1044,7 +1045,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
         sep = "&nbsp;+&nbsp;"
         last_sep = sep
 
-    phrase += concat(a_phrase, sep, last_sep)
+    phrase += concat(a_phrase, sep, last_sep=last_sep)
 
     # special case : {{suffix|en||cide}}
     if tpl in {"suf", "suffix"} and "&nbsp;+&nbsp;" not in phrase:
@@ -1053,7 +1054,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return phrase
 
 
-def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_named_after("named-after", ["en", "Pierre Bézier"], defaultdict(str, {"nationality":"French", "occupation":"Renault engineer", "nocap":"1"}))
     'named after French Renault engineer Pierre Bézier'
@@ -1076,7 +1077,7 @@ def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], 
             phrase += f" {data['nationality']}"
         elif data["nat"]:
             phrase += f" {data['nat']}"
-        if occ := join_names(data, "occ", " and ", False, "occupation"):
+        if occ := join_names(data, "occ", " and ", include_langname=False, key_alias="occupation"):
             phrase += f" {occ}"
         phrase += " "
     phrase += f"{p}"
@@ -1087,7 +1088,7 @@ def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_nb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_nb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_nb("...", [], defaultdict(str))
     ' […] '
@@ -1116,7 +1117,7 @@ def render_nb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str
     return f"{phrase}]{sep if tpl == '...' else ''}"
 
 
-def render_nuclide(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_nuclide(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_nuclide("nuclide", ["2", "1", "H"], defaultdict(str))
     '<sup>2</sup><sub style="margin-left:-1ex;">1</sub>H'
@@ -1137,7 +1138,7 @@ def render_nuclide(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_onomatopoeic(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_onomatopoeic(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str))
     'Onomatopoeic'
@@ -1151,7 +1152,7 @@ def render_onomatopoeic(tpl: str, parts: list[str], data: defaultdict[str, str],
     return misc_variant_no_term("onomatopoeic", tpl, parts, data, word=word)
 
 
-def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_pedlink("pedlink", ["foo"], defaultdict(str))
     'foo'
@@ -1161,7 +1162,7 @@ def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return data["disp"] or parts[0]
 
 
-def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_place("place", ["en", "A country in the Middle East"], defaultdict(str))
     'A country in the Middle East'
@@ -1262,7 +1263,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return capitalize(phrase)
 
 
-def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
     '(<i>metrology</i>) An SI unit of time equal to 10<sup>15</sup> seconds. Symbol: Ps'
@@ -1286,7 +1287,7 @@ def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit_2("SI-unit-2", ["peta", "meter", "length", "metre"], defaultdict(str))
     '(<i>metrology</i>) An SI unit of length equal to 10<sup>15</sup> meters; alternative spelling of <i>petametre</i>.'
@@ -1299,7 +1300,7 @@ def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."
 
 
-def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit_abb("SI-unit-abb", ["femto", "mole", "amount of substance"], defaultdict(str))
     '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>-15</sup> moles'
@@ -1311,7 +1312,7 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"
 
 
-def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
@@ -1321,7 +1322,7 @@ def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, s
     return phrase
 
 
-def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_surname("surname", ["en"], defaultdict(str))
     '<i>A surname</i>'
@@ -1380,7 +1381,7 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
 
 
-def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_taxon("taxon", ["genus", "family", "Elephantidae"], defaultdict(str, {}))
     'A taxonomic genus within the family Elephantidae.'
@@ -1393,7 +1394,7 @@ def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return f"{text}."
 
 
-def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_uncertain("unc", ["en"], defaultdict(str))
     'Uncertain'
@@ -1405,7 +1406,7 @@ def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return misc_variant_no_term("uncertain", tpl, parts, data, word=word)
 
 
-def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_unknown("unk", ["en"], defaultdict(str, { "notext":"1", "nocap":"1"}))
     ''
@@ -1426,7 +1427,7 @@ def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], word
         return "Unknown"
 
 
-def render_vern(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_vern(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_vern("vern", ["Pacific cod"], defaultdict(str))
     'Pacific cod'

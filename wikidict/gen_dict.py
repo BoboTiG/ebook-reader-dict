@@ -16,7 +16,7 @@ from .get_word import get_word
 from .stubs import Variants, Words
 
 
-def main(locale: str, words: str, output: str, format: str = "kobo") -> int:
+def main(locale: str, words: str, output: str, *, format: str = "kobo") -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / output

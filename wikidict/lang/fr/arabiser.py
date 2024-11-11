@@ -695,7 +695,7 @@ def nature(scheme: str, position: int) -> str:  # pragma: no cover
     return f"i{nature(scheme, position + 1)[1]}"
 
 
-def appliquer(scheme: str, racine: str, var: str = "") -> str:  # pragma: no cover
+def appliquer(scheme: str, racine: str, *, var: str = "") -> str:  # pragma: no cover
     if not var:  # ne dit rien
         # from .racines_arabes import racines_arabes
         if scheme == "ar-*i*â*ũ":

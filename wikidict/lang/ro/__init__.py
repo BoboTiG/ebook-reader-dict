@@ -195,6 +195,7 @@ wiktionary = "Wikționar (ɔ) {year}"
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"gen={{([fmsingp]+)(?: \?\|)*}"),
 ) -> list[str]:
     """
@@ -227,7 +228,7 @@ def find_pronunciations(code: str) -> list[str]:
     return uniq(flatten(res))
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

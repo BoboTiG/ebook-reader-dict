@@ -106,7 +106,7 @@ templates_multi = {
     # {{pron|hi|/baːzaːr/}}
     "pron": "', '.join(parts[2:])",
     # {{q|tenir bona planta}}
-    "q": "term(concat(parts[1:], sep=', '))",
+    "q": "term(concat(parts[1:], ', '))",
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
     #
@@ -151,6 +151,7 @@ wiktionary = "Viccionari (ɔ) {year}"
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
 ) -> list[str]:
     """
@@ -166,6 +167,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
 ) -> list[str]:
     """
@@ -183,7 +185,7 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 

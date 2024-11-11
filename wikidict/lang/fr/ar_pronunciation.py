@@ -82,7 +82,7 @@ def closed_syllable_shortening(text: str) -> str:
     )
 
 
-def toIPA(arabic: str = "", tr: str = "") -> str:
+def toIPA(*, arabic: str = "", tr: str = "") -> str:
     """
     >>> toIPA(tr="tilivizyōn")
     'ti.li.viz.joːn'
@@ -102,73 +102,73 @@ def toIPA(arabic: str = "", tr: str = "") -> str:
     >>> toIPA(tr="yawmu l-iṯnayni")
     'jaw.mu l.iθ.naj.ni'
 
-    >>> toIPA("طَبَّ")
+    >>> toIPA(arabic="طَبَّ")
     'tˁab.ba'
-    >>> toIPA("رُوسِيَا")
+    >>> toIPA(arabic="رُوسِيَا")
     'ruː.si.jaː'
-    >>> toIPA("أَنْتَ")
+    >>> toIPA(arabic="أَنْتَ")
     'ʔan.ta'
-    >>> toIPA("ذٰلِكَ")
+    >>> toIPA(arabic="ذٰلِكَ")
     'ðaː.li.ka'
-    >>> toIPA("صَغِير")
+    >>> toIPA(arabic="صَغِير")
     'sˁa.ɣiːr'
-    >>> toIPA("إِصْبَع")
+    >>> toIPA(arabic="إِصْبَع")
     'ʔisˁ.baʕ'
-    >>> toIPA("عَلَى")
+    >>> toIPA(arabic="عَلَى")
     'ʕa.laː'
-    >>> toIPA("جَزِيرَة")
+    >>> toIPA(arabic="جَزِيرَة")
     'd͡ʒa.ziː.ra'
-    >>> toIPA("أَرْبَعَة")
+    >>> toIPA(arabic="أَرْبَعَة")
     'ʔar.ba.ʕa'
-    >>> toIPA("حُبّ")
+    >>> toIPA(arabic="حُبّ")
     'ħubb'
-    >>> toIPA("عَرَبِيّ")
+    >>> toIPA(arabic="عَرَبِيّ")
     'ʕa.ra.bijj'
-    >>> toIPA("خَاصّ")
+    >>> toIPA(arabic="خَاصّ")
     'xaːsˁsˁ'
-    >>> toIPA("خَاصَّة")
+    >>> toIPA(arabic="خَاصَّة")
     'xaːsˁ.sˁa'
 
     lasconic: this one is different in fr and en implementation
     we follow french implementation
-    >>> toIPA("يَوْمُ ٱلِٱثْنَيْنِ")
+    >>> toIPA(arabic="يَوْمُ ٱلِٱثْنَيْنِ")
     'jaw.mu l.iθ.naj.ni'
-    >>> toIPA("تُدُووِلَ")
+    >>> toIPA(arabic="تُدُووِلَ")
     'tu.duː.wi.la'
-    >>> toIPA("اللّٰه")
+    >>> toIPA(arabic="اللّٰه")
     'aɫ.ɫaːh'
-    >>> toIPA("عَبْدُ اللّٰه")
+    >>> toIPA(arabic="عَبْدُ اللّٰه")
     'ʕab.du‿ɫ.ɫaːh'
-    >>> toIPA("لِلّٰه")
+    >>> toIPA(arabic="لِلّٰه")
     'lil.laːh'
-    >>> toIPA("الْمَمْلَكَة الْعَرَبِيَّة السُّعُودِيَّة")
+    >>> toIPA(arabic="الْمَمْلَكَة الْعَرَبِيَّة السُّعُودِيَّة")
     'al.mam.la.ka‿l.ʕa.ra.bij.ja‿s.su.ʕuː.dij.ja'
-    >>> toIPA("مَعَ اَلسَّلَامَة")
+    >>> toIPA(arabic="مَعَ اَلسَّلَامَة")
     'ma.ʕa‿s.sa.laː.ma'
-    >>> toIPA("لٰكِنَّ الرَّئِيسَ كَانَ أَذْكَى مِمَّا تَوَقَّعَ النَّاسُ")
+    >>> toIPA(arabic="لٰكِنَّ الرَّئِيسَ كَانَ أَذْكَى مِمَّا تَوَقَّعَ النَّاسُ")
     'laː.kin.na‿r.ra.ʔiː.sa kaː.na ʔað.kaː mim.maː ta.waq.qa.ʕa‿n.naː.su'
-    >>> toIPA("بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ")
+    >>> toIPA(arabic="بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ")
     'bis.mi‿l.laː.hi‿r.raħ.maː.ni‿r.ra.ħiː.mi'
-    >>> toIPA("إِنْ شَاءَ ٱللَٰهُ")
+    >>> toIPA(arabic="إِنْ شَاءَ ٱللَٰهُ")
     'ʔin ʃaː.ʔa‿ɫ.ɫaː.hu'
-    >>> toIPA("بِٱلْهَنَاءِ وَٱلشِّفَاء")
+    >>> toIPA(arabic="بِٱلْهَنَاءِ وَٱلشِّفَاء")
     'bil.ha.naː.ʔi waʃ.ʃi.faːʔ'
-    >>> toIPA("فِي الْبَيْت")
+    >>> toIPA(arabic="فِي الْبَيْت")
     'fi‿l.bajt'
-    >>> toIPA("مَا ٱسْمُك")
+    >>> toIPA(arabic="مَا ٱسْمُك")
     'ma‿s.muk'
-    >>> toIPA("ذُو الْقَرْنَيْن")
+    >>> toIPA(arabic="ذُو الْقَرْنَيْن")
     'ðu‿l.qar.najn'
-    >>> toIPA("إِلَّا الله")
+    >>> toIPA(arabic="إِلَّا الله")
     'ʔil.la‿ɫ.ɫaːh'
-    >>> toIPA("فِي ٱتِّحَادِنَا")
+    >>> toIPA(arabic="فِي ٱتِّحَادِنَا")
     'fi‿t.ti.ħaː.di.naː'
-    >>> toIPA("فِي الله")
+    >>> toIPA(arabic="فِي الله")
     'fi‿l.laːh'
 
-    >>> toIPA("")
+    >>> toIPA(arabic="")
     ''
-    >>> toIPA("ة")
+    >>> toIPA(arabic="ة")
     ''
 
     """

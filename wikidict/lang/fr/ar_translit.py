@@ -277,9 +277,7 @@ def has_diacritics(text: str) -> bool:
 # FORCE_TRANSLIT causes even non-vocalized text to be transliterated
 # (normally the function checks for non-vocalized text and returns nil,
 # since such text is ambiguous in transliteration).
-def tr(
-    text: str,
-) -> str:
+def tr(text: str) -> str:
     """
     >>> tr("اَلْعَرَبِيَّة‏")
     'al-ʿarabiyya'

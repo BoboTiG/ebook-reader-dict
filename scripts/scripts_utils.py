@@ -9,7 +9,7 @@ from requests.exceptions import HTTPError, RequestException
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 
-def get_content(url: str, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | dict[str, Any]:
+def get_content(url: str, *, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | dict[str, Any]:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:

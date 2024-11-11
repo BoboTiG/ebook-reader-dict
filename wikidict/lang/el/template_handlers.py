@@ -4,7 +4,7 @@ from ...user_functions import concat, extract_keywords_from, italic
 from .langs import langs
 
 
-def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_βλ("βλ", [], defaultdict(str))
     '<i>→ δείτε τη λέξη</i>'
@@ -40,11 +40,11 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     elif όρος := data["όρος"]:
         text += f" {'τους όρους' if όρος == '1' else όρος}"
 
-    following = (" " + concat(parts, sep=", ", last_sep=italic(" και "))) if parts else ""
+    following = (" " + concat(parts, ", ", last_sep=italic(" και "))) if parts else ""
     return f"{italic(text)}{following}"
 
 
-def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etym("etym", ["grc", "el", "ἄλαστος"], defaultdict(str))
     '<i>αρχαία ελληνική</i> ἄλαστος'

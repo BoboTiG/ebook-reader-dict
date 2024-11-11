@@ -130,6 +130,7 @@ _genders = {
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{{([^{}]*)}}"),
     line_pattern: str = "'''{{PAGENAME}}''' ",
 ) -> list[str]:
@@ -159,6 +160,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
 ) -> list[str]:
     """
@@ -174,7 +176,7 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(lang_donor_iso: str, myargs: dict[str, str] = defaultdict(str)) -> str:
+def text_language(lang_donor_iso: str, *, myargs: dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
     """
@@ -198,7 +200,7 @@ def text_language(lang_donor_iso: str, myargs: dict[str, str] = defaultdict(str)
     return mytext
 
 
-def labels_output(text_in: str, args: dict[str, str] = defaultdict(str)) -> str:
+def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> str:
     """
     from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
     """
@@ -236,7 +238,7 @@ def labels_output(text_in: str, args: dict[str, str] = defaultdict(str)) -> str:
     return mytext
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -330,7 +332,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
-        phrase += text_language(parts[0], data)
+        phrase += text_language(parts[0], myargs=data)
         if rest := data["1"] or parts[2] if len(parts) > 2 else "":
             phrase += f" {rest}"
         return phrase
@@ -342,7 +344,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         if not parts:
             return ""
         data["label"] = parts[0]
-        return labels_output(data.get("text", ""), data)
+        return labels_output(data.get("text", ""), args=data)
 
     if tpl == "ετυμ":
         text = italic(str(langs[parts[0]]["frm"]))
@@ -352,7 +354,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "λόγιο":
         data["label"] = tpl
-        return labels_output("", data)
+        return labels_output("", args=data)
 
     if text := {
         "λενδ": "λόγιο ενδογενές δάνειο",
@@ -425,7 +427,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         words = []
         for idx, part in enumerate(parts, 1):
             words.append(data[f".{idx}"] or part)
-        return concat(words, sep=" + ")
+        return concat(words, " + ")
 
     # This is a country in the current locale
     if lang := langs.get(tpl):

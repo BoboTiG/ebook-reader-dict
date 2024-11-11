@@ -54,7 +54,7 @@ def fetch_snapshots(locale: str) -> list[str]:
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
 
-def fetch_pages(date: str, locale: str, output_dir: Path, callback: Callable[[str, int, bool], None]) -> Path:
+def fetch_pages(date: str, locale: str, output_dir: Path, *, callback: Callable[[str, int, bool], None]) -> Path:
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
@@ -91,7 +91,7 @@ def main(locale: str) -> int:
 
     # Fetch and uncompress the snapshot file
     try:
-        file = fetch_pages(snapshot, locale, output_dir, callback_progress)
+        file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
     except HTTPError as exc:
         (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
         if exc.response.status_code != 404:
@@ -99,7 +99,7 @@ def main(locale: str) -> int:
         log.warning("Wiktionary dump is ongoing ... ")
         log.info("Will use the previous one.")
         snapshot = snapshots[-2]
-        file = fetch_pages(snapshot, locale, output_dir, callback_progress)
+        file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
 
     decompress(file, callback_progress)
 

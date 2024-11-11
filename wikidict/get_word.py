@@ -19,7 +19,7 @@ def get_word(word: str, locale: str) -> Word:
     return parse_word(word, code, locale, force=True)
 
 
-def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
+def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     """Get a *word* wikicode, parse it and print it."""
 
     def strip_html(text: str) -> str:
@@ -81,13 +81,13 @@ def set_output(locale: str, word: str) -> None:
             fh.write(f"[{locale.upper()}] {word!r}\n".encode())
 
 
-def main(locale: str, word: str, raw: bool = False) -> int:
+def main(locale: str, word: str, *, raw: bool = False) -> int:
     """Entry point."""
 
     # If *word* is empty, get a random word
     word = word or get_random_word(locale)
 
     set_output(locale, word)
-    get_and_parse_word(word, locale, raw)
+    get_and_parse_word(word, locale, raw=raw)
     check_for_missing_templates()
     return 0

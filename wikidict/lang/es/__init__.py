@@ -163,7 +163,7 @@ templates_multi = {
     # {{interjección|es}}
     "interjección": "strong('Interjección')",
     # {{neologismo|feminismo}}
-    "neologismo": "strong(concat([capitalize(part) for part in parts], sep=', '))",
+    "neologismo": "strong(concat([capitalize(part) for part in parts], ', '))",
     # {{nombre científico}}
     "nombre científico": "superscript(tpl)",
     # {{plm}}
@@ -225,6 +225,7 @@ wiktionary = "Wikcionario (ɔ) {year}"
 
 def find_pronunciations(
     code: str,
+    *,
     pattern1: re.Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
     pattern2: re.Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
 ) -> list[str]:
@@ -244,7 +245,7 @@ def find_pronunciations(
     return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -290,7 +291,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
                         campos_semanticos.get(part.title()) or campos_semanticos.get(part.lower()) or part
                         for part in parts
                     ],
-                    sep=", ",
+                    ", ",
                 ).lower()
             )
             + ")"

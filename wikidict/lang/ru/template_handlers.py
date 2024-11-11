@@ -8,7 +8,7 @@ from .. import defaults
 from .langs_short import langs_short
 
 
-def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """For etymology content, need to run code to get text from other wiktionary page."""
     # Fetching that endpoint for 1.3+ million of words is not a solution, skipping for now.
     return ""
@@ -21,15 +21,15 @@ def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return str(content.getText())
 
 
-def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     return str(data["определение"] + data["примеры"])
 
 
-def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     return f"({parts[0]})"
 
 
-def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lang("lang", ["de", "Fahne", "знамя", "знамя2", "знамя3"], defaultdict(str, {"зачин": "зачин", "add": "add,", "add2": "add2", "comment": "comment"}))
     'зачин нем. Fahne add, add2 «знамя, знамя2, знамя3» (comment)'
@@ -59,7 +59,7 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return text.strip()
 
 
-def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_кавычки("кавычки", ["en", "love"], defaultdict(str))
     '“love”'

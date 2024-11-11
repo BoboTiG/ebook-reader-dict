@@ -42,7 +42,7 @@ class HieroTokenizer:
             elif char == ".":
                 self.dot()
             elif char in self.tokenDelimiters:
-                self.newToken(char)
+                self.newToken(token=char)
             else:
                 self.char(char)
 
@@ -60,7 +60,7 @@ class HieroTokenizer:
 
     # Flushes current token, optionally adds another one
     # @param string|bool token token to add or false
-    def newToken(self, token: str = "") -> None:
+    def newToken(self, *, token: str = "") -> None:
         if self.token:
             self.currentBlock.append(self.token)
             self.token = ""
@@ -135,7 +135,7 @@ def renderGlyphImage(glyph: str, height: int, margin: int, moreStyle: str) -> st
     return result
 
 
-def renderGlyph(glyph: str, height: int = -1) -> str:
+def renderGlyph(glyph: str, *, height: int = -1) -> str:
     moreStyle = MIRROR_STYLE if isMirrored(glyph) else ""
     glyph = extractCode(glyph)
     if glyph == "..":
@@ -154,7 +154,7 @@ def renderGlyph(glyph: str, height: int = -1) -> str:
 # @param bool $is_cartouche true if glyph is inside a cartouche
 # @param int $total total size of a group for multi-glyph block
 # @return int size
-def resizeGlyph(item: str, is_cartouche: bool = False, total: int = 0) -> int:
+def resizeGlyph(item: str, *, is_cartouche: bool = False, total: int = 0) -> int:
     item = extractCode(item)
     glyph = wh_phonemes[item] if item in wh_phonemes else item
 
@@ -174,13 +174,13 @@ def resizeGlyph(item: str, is_cartouche: bool = False, total: int = 0) -> int:
     return MAX_HEIGHT - margin
 
 
-def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
+def render_hiero(hiero: str, *, scale: float = 100, line: bool = False) -> str:
     """
     >>> render_hiero("F99")
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">F99</td></tr></table>\\n</td></tr></table>'
     >>> render_hiero("<-F35-X1-M18-U33-B7->")
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"...'
-    >>> render_hiero("<-F35-X1-M18-U33-B7->!", 250, True)
+    >>> render_hiero("<-F35-X1-M18-U33-B7->!", scale=250, line=True)
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style="-ms-transform: scale(2.5,2.5); -webkit-transform: scale(2.5,2.5); -o-transform: scale(2.5,2.5); transform: scale(2.5,2.5); border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\\n<hr />...'
     >>> render_hiero("anx-G5-zmA:tA:tA-nbty-zmA:tA:tA-sw:t-bit:t-<-zA-ra:.-mn:n-T:w-Htp:t*p->-anx-D:t:N17-!")
     '<table class="mw-hiero-table mw-hiero-outer" dir="ltr" style=" border: 0; border-spacing: 0; font-size:1em;"><tr><td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;">\\n<table class="mw-hiero-table" style="border: 0; border-spacing: 0; font-size:1em;"><tr>\\n<td style="padding: 0; text-align: center; vertical-align: middle; font-size:1em;"><img src="data:image/gif;base64...'
@@ -230,7 +230,9 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
             elif code[0] != "":
                 # assume it's a glyph or '..' or '.'
                 contentHtml += (
-                    f'<td style="{TD_STYLE}">' + renderGlyph(code[0], resizeGlyph(code[0], is_cartouche)) + "</td>"
+                    f'<td style="{TD_STYLE}">'
+                    + renderGlyph(code[0], height=resizeGlyph(code[0], is_cartouche=is_cartouche))
+                    + "</td>"
                 )
 
         # block contains more than 1 glyph
@@ -241,7 +243,9 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
             # test if block exists in the prefabs list
             if prefabs in wh_prefabs:
                 contentHtml += (
-                    f'<td style="{TD_STYLE}">' + renderGlyph(prefabs, resizeGlyph(prefabs, is_cartouche)) + "</td>"
+                    f'<td style="{TD_STYLE}">'
+                    + renderGlyph(prefabs, height=resizeGlyph(prefabs, is_cartouche=is_cartouche))
+                    + "</td>"
                 )
 
             # block must be manually computed
@@ -279,7 +283,7 @@ def render_hiero(hiero: str, scale: float = 100, line: bool = False) -> str:
                         block += " "
                     else:
                         # resize the glyph according to the block total height
-                        block += renderGlyph(t, resizeGlyph(t, is_cartouche, total))
+                        block += renderGlyph(t, height=resizeGlyph(t, is_cartouche=is_cartouche, total=total))
 
                 contentHtml += f'<td style="{TD_STYLE}">{block}</td>'
 

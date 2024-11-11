@@ -13,7 +13,7 @@ from ...user_functions import (
 from .langs import langs
 
 
-def render_escopo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_escopo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_escopo("escopo", ["Pecuária"], defaultdict(str))
     '<i>(Pecuária)</i>'
@@ -33,10 +33,10 @@ def render_escopo(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     '<i>(Catolicismo, cristianismo e cristianismo)</i>'
     """
     words = [lookup_italic(p, "pt") for p in parts if p not in langs]
-    return term(concat(words, sep=", ", last_sep=" e "))
+    return term(concat(words, ", ", last_sep=" e "))
 
 
-def render_etimo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etimo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etimo("etimo", ["la", "myrmecophaga"], defaultdict(str))
     '<i>myrmecophaga</i>'
@@ -69,7 +69,7 @@ def render_etimo(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return phrase
 
 
-def render_etimo2(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etimo2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etimo2("etimo2", ["la", "myrmecophaga", "pt"], defaultdict(str))
     'Do latim <i>myrmecophaga</i>.'
@@ -118,7 +118,7 @@ def render_etimo2(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return phrase
 
 
-def render_étimo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_étimo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_étimo("étimo", ["la", "canem"], defaultdict(str))
     '<i>canem</i>'
@@ -140,7 +140,7 @@ def render_étimo(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return phrase
 
 
-def render_étimo_junção(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_étimo_junção(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_étimo_junção("étimo junção", ["a-", "canela", "-ar"], defaultdict(str))
     'De <i>a-</i> + <i>canela</i> + <i>-ar</i>.'
@@ -155,10 +155,10 @@ def render_étimo_junção(tpl: str, parts: list[str], data: defaultdict[str, st
         if trans := data[f"tr{idx}"]:
             text += f" ({italic(trans)})"
         result.append(text)
-    return f"De {concat(result, sep=' + ')}{'' if data['ponto'] == 'não' else '.'}"
+    return f"De {concat(result, ' + ')}{'' if data['ponto'] == 'não' else '.'}"
 
 
-def render_gramática(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_gramática(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_gramática("gramática", ["m", "incont", "c", "comp", "concr"], defaultdict(str))
     '<i>masculino</i>, <i>incontável</i>, <i>comum</i>, <i>composto</i>, <i>concreto</i>'
@@ -179,7 +179,7 @@ def render_gramática(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return concat(result, ", ")
 
 
-def render_o_or_a(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_o_or_a(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_o_or_a("o/a", ["determinad"], defaultdict(str))
     'determinada'
@@ -193,7 +193,7 @@ def render_o_or_a(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return phrase
 
 
-def render_pbpe_pepb(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_pbpe_pepb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_pbpe_pepb("PBPE", ["estafe", "stafe"], defaultdict(str))
     'estafe <sup>(português do Brasil)</sup> ou stafe <sup>(português europeu)</sup>'
@@ -217,7 +217,7 @@ def render_pbpe_pepb(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return f"{part1} {cmpl1} ou {part2} {cmpl2}"
 
 
-def render_plural(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_plural(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_plural("p", [], defaultdict(str))
     '<i>plural</i>'
@@ -240,7 +240,7 @@ def render_plural(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return parenthesis(phrase)
 
 
-def render_plus_info(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_plus_info(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_plus_info("+info", [], defaultdict(str, {"data": "1871"}))
     '<small>( <i>Datação</i>: 1871; )</small>'
@@ -254,7 +254,7 @@ def render_plus_info(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return small(f"( {phrase} )")
 
 
-def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_trad("trad", ["fr", "surpris"], defaultdict(str))
     'Francês&nbsp;: surpris'
@@ -266,7 +266,7 @@ def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     trad = parts.pop(0)
     phrase = langs[trad].title()
     phrase += "&nbsp;: " if trad == "fr" else ": "
-    phrase += concat(parts, sep=", ")
+    phrase += concat(parts, ", ")
     return phrase
 
 

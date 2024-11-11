@@ -82,6 +82,7 @@ def find_definitions(word: str, parsed_sections: Sections, locale: str) -> list[
 
 def es_replace_defs_list_with_numbered_lists(
     lst: wtp.WikiList,
+    *,
     regex_item: re.Pattern[str] = re.compile(
         r"(^|\\n);\d+[ |:]+",
         flags=re.MULTILINE,
@@ -304,6 +305,7 @@ def add_potential_variant(
     tpl: str,
     locale: str,
     variants: list[str],
+    *,
     repl: Callable[[str, str], str] = re.compile(r"(</?[^>]+>)").sub,
 ) -> None:
     """
@@ -552,7 +554,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     return code
 
 
-def parse_word(word: str, code: str, locale: str, force: bool = False) -> Word:
+def parse_word(word: str, code: str, locale: str, *, force: bool = False) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and gender guessing.
     It is disabled by default to speed-up the overall process, but enabled when
@@ -656,7 +658,7 @@ def get_latest_json_file(output_dir: Path) -> Path | None:
     return sorted(files)[-1] if files else None
 
 
-def main(locale: str, workers: int = multiprocessing.cpu_count()) -> int:
+def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale

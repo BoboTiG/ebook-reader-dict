@@ -566,7 +566,7 @@ templates_multi = {
     # {{info lex|équitation|sport|lang=fr}}
     "info lex": "term(', '.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{ISBN|978-1-23-456789-7|2-876-54301-X}}
-    "ISBN": "'ISBN ' + concat(parts[1:], sep=', ', last_sep=' et ')",
+    "ISBN": "'ISBN ' + concat(parts[1:], ', ', last_sep=' et ')",
     # {{Lang-ar||[[نهر ابراهيم]]|100}}
     "Lang-ar": "parts[2]",
     # {{lexique|philosophie|fr}}
@@ -632,7 +632,7 @@ templates_multi = {
     "souligner": "underline(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "term(capitalize(concat(parts, sep=' ', indexes=[0, 2])))",
+    "sport": "term(capitalize(concat(parts, ' ', indexes=[0, 2])))",
     # {{substantivation de|mettre en exergue}}
     "substantivation de": 'f"Substantivation de {italic(parts[1])}"',
     # {{superlatif de|petit|fr}}
@@ -755,6 +755,7 @@ wiktionary = "Wiktionnaire (ɔ) {year}"
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
 ) -> list[str]:
     """
@@ -770,6 +771,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
 ) -> list[str]:
     """
@@ -789,7 +791,7 @@ def find_pronunciations(
     return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -884,11 +886,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
         'dire'
 
-        >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
+        >>> last_template_handler(["R:TLFi"], "fr", word="pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
+        >>> last_template_handler(["R:TLFi", "pomme"], "fr", word="pedzouille")
         '«&nbsp;pomme&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:DAF6", "pomme"], "fr", "pedzouille")
+        >>> last_template_handler(["R:DAF6", "pomme"], "fr", word="pedzouille")
         '«&nbsp;pomme&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835'
 
         >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45", "texte=article 230-45"], "fr")
@@ -974,7 +976,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["wp"], "fr")
         'sur l’encyclopédie Wikipédia'
-        >>> last_template_handler(["wp"], "fr", "word")
+        >>> last_template_handler(["wp"], "fr", word="word")
         'word sur l’encyclopédie Wikipédia'
         >>> last_template_handler(["wp","Sarcoscypha coccinea"], "fr")
         'Sarcoscypha coccinea sur l’encyclopédie Wikipédia'
@@ -1119,7 +1121,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "ar-terme":
         arab = arabiser(parts[0])
-        return f"{arab} ({italic(parts[0])}) /{toIPA(arab)}/"
+        return f"{arab} ({italic(parts[0])}) /{toIPA(arabic=arab)}/"
 
     if tpl == "rouge":
         prefix_style = "background-" if data["fond"] == "1" else ""

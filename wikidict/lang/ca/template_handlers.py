@@ -19,7 +19,7 @@ def parse_index_parameters(data: defaultdict[str, str], i: int) -> str:
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
-def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
     '<i>cap</i> i <i>vespre</i>'
@@ -99,7 +99,7 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
     'm.'
@@ -145,11 +145,11 @@ def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     }
     return concat(
         [f"{specs[part.split('-')[0]]} {specs[part.split('-')[1]]}" if "-" in part else specs[part] for part in parts],
-        sep=", ",
+        ", ",
     )
 
 
-def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str))
     '<i>Grafia obsoleta des del 2016 de</i> adeu.'
@@ -167,7 +167,7 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return result
 
 
-def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
     '<i>(argot casteller)</i>'
@@ -206,7 +206,7 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return term(res.strip())
 
 
-def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"

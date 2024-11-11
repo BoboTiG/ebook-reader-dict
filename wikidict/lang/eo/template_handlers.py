@@ -5,7 +5,7 @@ from .langs import langs
 from .tags import tags
 
 
-def render_deveno3(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_deveno3(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_deveno3("deveno3", ["eo", "egy", "Aa"], defaultdict(str, {"sg": "granda"}))
     'la egipta antikva vorto " <b>Aa</b> " <sup>→ egy</sup> (= granda)'
@@ -24,7 +24,7 @@ def render_deveno3(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_elpropra("elpropra", ["eo", "P", "Albert Einstein"], defaultdict(str, {"not": "fizikisto"}))
     'la nomo de persono "Albert Einstein" <small>(fizikisto)</small>'
@@ -63,7 +63,7 @@ def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return phrase
 
 
-def render_form(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     Souce: https://eo.wiktionary.org/w/index.php?title=Modulo:meoformo&oldid=1027456
     Date : 2021-12-19 22:43
@@ -95,7 +95,7 @@ def render_form(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return word
 
 
-def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_g("g", ["nm"], defaultdict(str))
     '<i>neŭtra, vira</i>'
@@ -110,7 +110,7 @@ def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     }.get(parts[0], parts[0])
 
 
-def render_hebr(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_hebr(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_hebr("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str, {"d-heb": "bayiṯ k<sup><small>e</small></sup>næsæt", "b": "domo por renkontiĝo"}))
     'בַּיִת כְּנֶסֶת, CHA <i>bayiṯ k<sup><small>e</small></sup>næsæt</i>, „domo por renkontiĝo“'
@@ -131,7 +131,7 @@ def render_hebr(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_k("k", ["mul", "astrologio"], defaultdict(str))
     '<i>(astrologio)</i>'
@@ -188,10 +188,10 @@ def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     else:
         themes = raw_themes
 
-    return term(concat(themes, sep="; "))
+    return term(concat(themes, "; "))
 
 
-def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_t("t", ["id", "roti"], defaultdict(str))
     'roti <sup>→ id</sup>'

@@ -337,7 +337,7 @@ VORSILBE_DATA = [
 ]
 
 
-def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
     'Matthäus 1,1'
@@ -355,7 +355,7 @@ def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return phrase
 
 
-def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
     'בַּיִת כְּנֶסֶת'
@@ -401,7 +401,7 @@ def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str],
     return phrase
 
 
-def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
     'أَحْمَدُ بْنُ حَنْبَلٍ'
@@ -478,7 +478,7 @@ no_commas = (
 )
 
 
-def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_K("K", ["Sport"], defaultdict(str))
     '<i>Sport:</i>'
@@ -531,7 +531,7 @@ def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     return italic(f"{phrase}{ft}:")
 
 
-def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
     '54 InsO'
@@ -587,7 +587,7 @@ def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], w
             assert 0, parts
 
 
-def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Gondrom"}))
     'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Gondrom Verlag, Bindlach 1991, 1993, 2004, ISBN 3-8112-0294-4'
@@ -625,7 +625,7 @@ def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return render_literatur("Literatur", [], defaultdict(str, kwargs))
 
 
-def render_lit_linnartz(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lit_linnartz(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lit_linnartz("Lit-Linnartz", ["Unsere Familiennamen"], defaultdict(str, {"A": "1", "B": "1"}))
     'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
@@ -633,7 +633,7 @@ def render_lit_linnartz(tpl: str, parts: list[str], data: defaultdict[str, str],
     return f"Kaspar Linnartz: {italic(parts[0])}. Zehntausend Berufsnamen im Abc erklärt. {data['A']}. Auflage. Band {data['B']}, Ferdinand Dümmler Verlag, Bonn und Berlin 1936"
 
 
-def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Aspekte modernen Wikipädisierens", "Herausgeber": "Bernd Beispiel", "Sammelwerk": "Soziologie der Wikipädianer", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5", "Seiten": "213–278"}))
     'Max Mustermann: <i>Aspekte modernen Wikipädisierens</i>. In: Bernd Beispiel (Herausgeber): <i>Soziologie der Wikipädianer</i>. Wikipedia-Press, Musterstadt 2003, ISBN 978-3-9801412-1-5, Seite 213–278'
@@ -702,7 +702,7 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return phrase.strip(" ,").removeprefix("In: ")
 
 
-def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
     '<i>διάλογος (diálogos)</i>'
@@ -716,7 +716,7 @@ def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], word: str
     return italic(phrase)
 
 
-def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Uxx4("Üxx4", ["ar", "مسجد"], defaultdict(str, {"v":"مَسْجِد", "d":"masğid", "b":"Moschee"}))
     'مَسْجِد (DMG: masğid) ‚Moschee‘'
@@ -755,7 +755,7 @@ def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
     'ἀνήρ, ἀνδρός (anḗr, andrós)'
@@ -815,7 +815,7 @@ def vorsilbe(verb: str) -> str:
     return verb
 
 
-def render_verbherkunft(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_verbherkunft(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_verbherkunft("Verbherkunft", [], defaultdict(str), word="anflunkern")
     'gebildet aus dem Verbzusatz <i>an</i> und dem Verb <i>flunkern</i>'

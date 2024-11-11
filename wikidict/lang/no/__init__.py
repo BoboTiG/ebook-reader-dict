@@ -183,6 +183,7 @@ wiktionary = "Wiktionary (ɔ) {year}"
 
 def find_genders(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{{n[bon]-sub\|(\w+)}}"),
 ) -> list[str]:
     """
@@ -202,6 +203,7 @@ def find_genders(
 
 def find_pronunciations(
     code: str,
+    *,
     pattern: re.Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
 ) -> list[str]:
     """
@@ -225,7 +227,7 @@ def find_pronunciations(
     return result
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -270,7 +272,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         case "etyl":
             return langs.get(parts[0], parts[0])
         case "kontekst" | "tema":
-            return term(concat(parts[:3], sep=", "))
+            return term(concat(parts[:3], ", "))
 
     if italic_tpl := lookup_italic(tpl, locale, empty_default=True):
         return term(italic_tpl)
