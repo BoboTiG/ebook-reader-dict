@@ -924,7 +924,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if lang := langs.get(tpl):
         return lang
 
-    if len(parts) == 1 and (text := lookup_italic(tpl, locale, empty_default=True)):
-        return term(capitalize(text))
+    if context := lookup_italic(tpl, locale, empty_default=True):
+        return term(capitalize(context))
 
     return defaults.last_template_handler(template, locale, word=word)
