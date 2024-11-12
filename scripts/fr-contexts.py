@@ -54,7 +54,27 @@ def get_contexts() -> dict[str, str]:
     return all_contexts
 
 
-contexts = get_contexts()
+def get_glossaries() -> dict[str, str]:
+    text = get_content("https://fr.wiktionary.org/w/index.php?title=Annexe%3AGlossaire_grammatical&action=raw")
+    text = text[text.find("==A==") : text.find("=== {{S|voir aussi}}")]
+
+    gloss = {}
+
+    for line in text.splitlines():
+        if not line.startswith("* ") or not (key := re.findall(r"\* \{\{[^|]+\|([^|}]+)}} ", line)):
+            continue
+
+        if "Le Wiktionnaire utilise plutôt l’expression" in line:
+            value = re.findall(r"«&nbsp;(.+)&nbsp;»", line)
+        elif not (value := re.findall(r" \[\[[^|]+\|([^]]+)]](?:&nbsp;|\s):", line)):
+            continue
+
+        gloss[key[0]] = value[0]
+
+    return gloss
+
+
+contexts = get_glossaries() | get_contexts()
 print("contexts = {")
 for key, value in sorted(contexts.items()):
     print(f'    "{key}": "{value[0].capitalize()}{value[1:]}",')

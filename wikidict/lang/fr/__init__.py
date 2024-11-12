@@ -207,7 +207,6 @@ templates_italic = {
     "Rwanda": "Rwanda",
     "adj-indéf-avec-de": "Avec de",
     "apposition": "En apposition",
-    "archaïsme": "Archaïsme",
     "argot internet": "Argot Internet",
     "attestation pays de Retz": "Pays de Retz",
     "au figuré": "Sens figuré",
@@ -224,9 +223,6 @@ templates_italic = {
     "idiom": "Idiotisme",
     "idiomatique": "Sens figuré",
     "idiomatisme": "Idiotisme",
-    "impersonnel": "Impersonnel",
-    "improprement": "Usage critiqué",
-    "intrans": "Intransitif",
     "intransitif": "Intransitif",
     "louchébem": "Louchébem",
     "marque": "Marque commerciale",
@@ -244,17 +240,13 @@ templates_italic = {
     "parler bellifontain": "Parler bellifontain",
     "pathologie": "Nosologie",
     "pâtes": "Cuisine",
-    "popu": "Populaire",
-    "populaire": "Populaire",
     "pyrologie": "pyrologie",
-    "réciproque2": "Réciproque",
     "réfléchi": "Réfléchi",
     "réflexif": "Réfléchi",
     "sens propre": "Sens propre",
     "SMS": "Langage SMS",
     "spécifiquement": "Spécifiquement",
     "tr-fam": "Très familier",
-    "trans": "Transitif",
     "transitif": "Transitif",
     "tradit": "orthographe traditionnelle",
     "vieux": "Vieilli",
@@ -925,6 +917,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return lang
 
     if context := lookup_italic(tpl, locale, empty_default=True):
-        return term(capitalize(context))
+        return term(context)
 
     return defaults.last_template_handler(template, locale, word=word)
