@@ -3,7 +3,7 @@
 import re
 from collections import defaultdict
 
-from ...user_functions import extract_keywords_from, italic, term, uniq
+from ...user_functions import italic, uniq
 from .langs import langs
 
 # Float number separator
@@ -327,9 +327,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["fr"], "el")
         'γαλλικά'
     """
-    from ...user_functions import concat, italic, strong
+    from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
-    from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
