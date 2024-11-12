@@ -1,4 +1,6 @@
-from scripts_utils import get_soup
+import re
+
+from scripts_utils import get_content, get_soup
 
 ROOT = "https://fr.wiktionary.org"
 START_URL = "https://fr.wiktionary.org/wiki/Cat%C3%A9gorie:Mod%C3%A8les_r%C3%A9gionaux"
@@ -39,19 +41,28 @@ def process_alias_page(model: str, region: str, results: dict[str, str]) -> None
         results[alias] = region
 
 
-results: dict[str, str] = {}
-aliases: list[str] = []
+def get_regions_models() -> dict[str, str]:
+    regions: dict[str, str] = {}
 
-# Fetch models first
-next_page_url = START_URL
-while next_page_url:
-    next_page_url = process_regions_page(next_page_url, results)
+    # Fetch models first
+    next_page_url = START_URL
+    while next_page_url:
+        next_page_url = process_regions_page(next_page_url, regions)
 
-# Fetch aliases
-for model, region in list(results.items()):
-    process_alias_page(model, region, results)
+    # Fetch aliases
+    for model, region in list(regions.items()):
+        process_alias_page(model, region, regions)
 
+    return regions
+
+
+def get_regions_data() -> dict[str, str]:
+    text = get_content("https://fr.wiktionary.org/wiki/Module:r%C3%A9gions/data?action=raw")
+    return {region: region for region in re.findall(r"t\['([^']+)']", text)}
+
+
+regions = get_regions_data() | get_regions_models()
 print("regions = {")
-for t, r in sorted(results.items()):
-    print(f'    "{t}": "{r}",')
-print(f"}}  # {len(results):,}")
+for key, value in sorted(regions.items()):
+    print(f'    "{key}": "{value}",')
+print(f"}}  # {len(regions):,}")
