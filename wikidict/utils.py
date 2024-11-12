@@ -660,11 +660,11 @@ def transform(word: str, template: str, locale: str) -> str:
     with suppress(KeyError):
         return str(eval(templates_multi[locale][tpl]))
 
+    with suppress(KeyError):
+        return templates_other[locale][tpl]
+
     if len(parts) == 1:
         with suppress(KeyError):
             return f"<i>({templates_italic[locale][tpl]})</i>"
-
-    with suppress(KeyError):
-        return templates_other[locale][tpl]
 
     return str(last_template_handler[locale](parts, locale, word=word))
