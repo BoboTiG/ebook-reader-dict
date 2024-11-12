@@ -132,12 +132,14 @@ variant_templates = (
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
     "habitante",
-    "masculin pluriel",
-    "féminin pluriel",
+    "eo-excl-étyl",
     "''féminin de''",
+    "féminin pluriel",
     "féminin singulier",
+    "Gallica",
     "masculin et féminin pluriel",
     "masculin ou féminin pluriel",
+    "masculin pluriel",
     "pluriel d",
     "pluriel habituel",
     "pluriel inhabituel",
@@ -204,13 +206,22 @@ templates_italic = {
     **domain_templates,
     **regions,
     "adj-indéf-avec-de": "Avec de",
+    "adverbe de lieu": "adverbe de lieu",
+    "adverbe de manière": "adverbe de manière",
+    "adverbe de quantité": "adverbe de quantité",
+    "adverbe de temps": "adverbe de temps",
     "apposition": "En apposition",
+    "argot de la Famille": "Argot de la Famille",
+    "argot de l’université Paris-Cité": "Argot de l’université Paris-Cité",
     "argot internet": "Argot Internet",
+    "argot Internet": "Argot Internet",
+    "argot militaire": "Argot militaire",
+    "argot poilu": "Argot poilu",
+    "argot polytechnicien": "Argot polytechnicien",
     "attestation pays de Retz": "Pays de Retz",
     "au figuré": "Sens figuré",
     "avant 1835": "Archaïque, orthographe d’avant 1835",
-    "cours d'eau": "Géographie",
-    "détroit": "Géographie",
+    "dénombrable": "Dénombrable",
     "diaéthique": "Variation diaéthique",
     "ex-rare": "Extrêmement rare",
     "extrêmement_rare": "Extrêmement rare",
@@ -221,34 +232,45 @@ templates_italic = {
     "idiomatique": "Sens figuré",
     "idiomatisme": "Idiotisme",
     "intransitif": "Intransitif",
+    "langage SMS": "Langage SMS",
     "louchébem": "Louchébem",
     "marque": "Marque commerciale",
     "marque commerciale": "Marque commerciale",
     "marque déposée": "Marque commerciale",
     "militant": "Vocabulaire militant",
     "métaphore": "Sens figuré",
-    "moderne": "Moderne",
+    "nom collectif": "Nom collectif",
     "noms de domaine": "Informatique",
     "nom-déposé": "Marque commerciale",
     "ortho1990": "orthographe rectifiée de 1990",
     "Ortograf altêrnativ": "Ortograf altêrnativ",
     "par analogie": "Par analogie",
     "par litote": "Par litote",
+    "par troponymie": "Par troponymie",
     "parler bellifontain": "Parler bellifontain",
-    "pathologie": "Nosologie",
     "pâtes": "Cuisine",
     "pyrologie": "pyrologie",
+    "réciproque2": "Réciproque",
     "réfléchi": "Réfléchi",
     "réflexif": "Réfléchi",
-    "RSSA-URSS": "Histoire, Communisme, URSS",
+    "RSS-URSS": "Histoire, Communisme, URSS",
     "sens propre": "Sens propre",
-    "SMS": "Langage SMS",
     "spécifiquement": "Spécifiquement",
-    "tr-fam": "Très familier",
     "transitif": "Transitif",
+    "transitif indir": "Transitif indirect",
     "tradit": "orthographe traditionnelle",
-    "vieux": "Vieilli",
+    "très familier": "Très familier",
+    "très très rare": "Très très rare",
 }
+templates_italic["intrans"] = templates_italic["intransitif"]
+templates_italic["m-cour"] = templates_italic["moins courant"]
+templates_italic["un_os"] = templates_italic["un os"]
+templates_italic["popu"] = templates_italic["populaire"]
+templates_italic["prov"] = templates_italic["proverbial"]
+templates_italic["RSSA-URSS"] = templates_italic["RSS-URSS"]
+templates_italic["SMS"] = templates_italic["langage SMS"]
+templates_italic["trans"] = templates_italic["transitif"]
+templates_italic["vieux"] = templates_italic["vieilli"]
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
 # Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
@@ -272,10 +294,14 @@ templates_multi = {
     # {{1re}}
     # {{1re|fois}}
     "1re": "f\"1{superscript('re')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    # {{2e|edition}}
+    **{f"{idx}e": f"f\"{idx}<sup>e</sup>{{'&nbsp;' + parts[1] if len(parts) > 1 else ''}}\"" for idx in range(2, 13)},
     # {{Arabe|ن و ق}}
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
     "Braille": "parts[1]",
+    # {{chiffre romain|15}}
+    "chiffre romain": "int_to_roman(int(parts[1]))",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{circa|1150}}
@@ -315,6 +341,8 @@ templates_multi = {
     "fr-accord-oux": "parts[1] + 'oux'",
     # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
     "fr-accord-t-avant1835": "parts[1]",
+    # {{généralement singulier|fr}}
+    "généralement singulier": "'Ce terme est généralement utilisé au singulier.'",
     # {{graphie|u}}
     "graphie": 'f"‹&nbsp;{parts[1]}&nbsp;›"',
     # {{Ier}}
@@ -339,6 +367,8 @@ templates_multi = {
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
     "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
+    # {{littéral|système de positionnement mondial}}
+    "littéral": "f'Littéralement « {parts[1]} ».'",
     # {{localités|fr|d’Espagne}}
     "localités": "term('Géographie')",
     # {{Mme}}
@@ -352,7 +382,8 @@ templates_multi = {
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{numéro}}
     "numéro": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
-    "n°": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
+    # {{numéros|111-112}}
+    "numéros": 'f\'n{superscript("os")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
     # {{Pas clair|...}}
@@ -414,10 +445,12 @@ templates_multi = {
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
 }
+templates_multi["n°"] = templates_multi["numéro"]
+templates_multi["nº"] = templates_multi["numéro"]
+templates_multi["NO"] = templates_multi["numéro"]
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
-    **{f"{idx}e": f'{idx}<sup style="font-size:83.33%;line-height:1;">e</sup>' for idx in range(2, 13)},
     "=": "=",
     "'": "’",
     "absolu": "<i>absolu</i>",
@@ -485,6 +518,7 @@ templates_other = {
     "prés": "<i>présent</i>",
     "prnl": "<i>pronominal</i>",
     "s": "<i>singulier</i>",
+    "sic": "<small>[sic]</small>",
     "singulare tantum": "<i>au singulier uniquement</i>",
     "sp": "<i>singulier et pluriel identiques</i>",
     "sp ?": "<i>singulier et pluriel identiques ou différenciés (l’usage hésite)</i>",
