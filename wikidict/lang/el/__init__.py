@@ -497,7 +497,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         "συνών": "συνώνυμα",
         "ποιητ": "ποιητικός τύπος",
     }.get(tpl, ""):
-        return text if data["0"] else term(text)
+        return text if data["0"] else italic(text)
 
     if tpl == "γρ":
         desc = parts[1] if len(parts) > 1 else ""
