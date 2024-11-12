@@ -240,6 +240,7 @@ templates_italic = {
     "pyrologie": "pyrologie",
     "réfléchi": "Réfléchi",
     "réflexif": "Réfléchi",
+    "RSSA-URSS": "Histoire, Communisme, URSS",
     "sens propre": "Sens propre",
     "SMS": "Langage SMS",
     "spécifiquement": "Spécifiquement",

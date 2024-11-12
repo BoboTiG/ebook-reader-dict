@@ -74,7 +74,12 @@ def get_glossaries() -> dict[str, str]:
     return gloss
 
 
-contexts = get_glossaries() | get_contexts()
+def get_regionalismes() -> dict[str, str]:
+    text = get_content("https://fr.wiktionary.org/wiki/Mod%C3%A8le:vocabulaire/r%C3%A9gionalisme?action=raw")
+    return {regionalisme: regionalisme for regionalisme in re.findall(r"^:\* \[\[([^]]+)]]", text, flags=re.MULTILINE)}
+
+
+contexts = get_glossaries() | get_contexts() | get_regionalismes()
 print("contexts = {")
 for key, value in sorted(contexts.items()):
     print(f'    "{key}": "{value[0].capitalize()}{value[1:]}",')
