@@ -3510,7 +3510,7 @@ langs = {
     "itw": "Ito",
     "itx": "Itik",
     "ity": "Moyadan Itneg",
-    "itz": "Itzá",
+    "itz": "Itza'",
     "iu": "Inuktitut",
     "ium": "Iu Mien",
     "ivb": "Ibatan",
