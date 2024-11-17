@@ -31,7 +31,7 @@ for line in textarea.text.split("\n"):
     if line.startswith("local"):
         line = line.replace("local ", "")
     else:
-        line = re.sub(regex, subst, line, 0, re.MULTILINE)
+        line = re.sub(regex, subst, line, count=0, flags=re.MULTILINE)
     # line = line.replace("'", '"')
     line = line.replace("false", "False")
     line = line.replace("fals", "False")
