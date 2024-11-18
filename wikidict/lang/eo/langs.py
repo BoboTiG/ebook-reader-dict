@@ -94,6 +94,7 @@ langs = {
     "cv": "ĉuvaŝa",
     "cy": "kimra",
     "da": "dana",
+    "dar": "dargva",
     "de": "germana",
     "diq": "zazaa dimlia",
     "dlm": "dalmata",
@@ -222,6 +223,7 @@ langs = {
     "mak": "makasara",
     "mdf": "mokŝa",
     "mg": "malagasa",
+    "mgy": "mangaraja",
     "mh": "marŝala",
     "mi": "maoria",
     "min": "minankabaŭa",
@@ -416,5 +418,5 @@ langs = {
     "zun": "zuna",
     "zza": "zazaa",
     "zzj": "zuoĵiangzuanga",
-}  # 411
+}  # 413
 # END
