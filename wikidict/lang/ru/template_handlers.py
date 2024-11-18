@@ -3,7 +3,7 @@ from collections import defaultdict
 import requests
 from bs4 import BeautifulSoup
 
-from ...user_functions import extract_keywords_from
+from ...user_functions import extract_keywords_from, italic
 from .. import defaults
 from .langs_short import langs_short
 
@@ -89,6 +89,16 @@ def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str
     return f'"{parts[1]}"'
 
 
+def render_сравн(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_сравн("сравн.", ["злой"], defaultdict(str))
+    '<i>сравн. ст.</i> к прил. злой'
+    >>> render_сравн("сравн.", ["злой"], defaultdict(str, {"к": "нареч"}))
+    '<i>сравн. ст.</i> к нареч. злой'
+    """
+    return f"{italic('сравн. ст.')} к {data['к'] or 'прил'}. {parts[0]}"
+
+
 template_mapping = {
     "lang": render_lang,
     "w": defaults.render_wikilink,
@@ -97,6 +107,7 @@ template_mapping = {
     "значение": get_definition,
     "помета": get_note,
     "кавычки": render_кавычки,
+    "сравн.": render_сравн,
 }
 
 
