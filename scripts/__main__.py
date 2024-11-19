@@ -1,7 +1,7 @@
 import os
 import subprocess
 import sys
-import threading
+from multiprocessing.pool import ThreadPool
 from pathlib import Path
 
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
@@ -102,16 +102,12 @@ def set_output(errors: int) -> None:
 
 def main() -> int:
     """Entry point."""
-    threads = []
     errors: dict[str, str] = {}
+    tasks = [(script, file, errors) for script, file in FILES.items()]
 
-    for script, file in sorted(FILES.items()):
-        th = threading.Thread(target=process_script, args=(script, file, errors))
-        th.start()
-        threads.append(th)
-
-    for th in threads:
-        th.join()
+    with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 4)) as pool:
+        for _ in pool.starmap(process_script, tasks):
+            pass
 
     set_output(len(errors))
 
