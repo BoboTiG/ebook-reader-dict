@@ -112,6 +112,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["выдел", "foo"], "ru")
         'foo'
+
+        >>> last_template_handler(["умласк."], "ru")
+        '<i>уменьш.-ласк.</i>'
+        >>> last_template_handler(["умласк.", "ru"], "ru")
+        '<i>уменьш.-ласк.</i>'
+        >>> last_template_handler(["умласк.", "ru", "подмазка"], "ru")
+        '<i>уменьш.-ласк.</i> к подмазка'
     """
     from ...user_functions import italic
     from .. import defaults
@@ -126,6 +133,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "выдел":
         return parts[0]
+
+    if tpl == "умласк.":
+        text = italic("уменьш.-ласк.")
+        if len(parts) > 1:
+            text += f" к {parts[1]}"
+        return text
 
     if label := labels.get(tpl):
         return italic(label)
