@@ -247,7 +247,7 @@ domain_templates = {
     "porcins": "Zoologie",
     "positions": "Sexualité",
     "poules": "Élevage",
-    "primates": "Zoologie",
+    "primates": "Primatologie",
     "protocoles": "Réseaux",
     "protéines": "Biochimie",
     "proverbe": "Proverbe",
@@ -287,7 +287,7 @@ domain_templates = {
     "sentiments": "Psychologie",
     "serpents": "Herpétologie",
     "signalisations": "Sécurité routière",
-    "singes": "Zoologie",
+    "singes": "Primatologie",
     "soldats": "Militaire",
     "sols": "Pédologie",
     "sous-régions": "Toponyme",
@@ -308,6 +308,7 @@ domain_templates = {
     "toponymes": "Géographie",
     "tortues": "Zoologie",
     "truites": "Ichtyologie",
+    "tumeurs": "Oncologie",
     "un os": "Anatomie",
     "unités": "Métrologie",
     "univers des canards": "Univers des canards de Disney",
@@ -338,5 +339,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 333
+}  # 334
 # END
