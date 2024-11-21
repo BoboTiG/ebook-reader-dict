@@ -25,8 +25,12 @@ def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return str(data["определение"] + data["примеры"])
 
 
-def get_note(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    return f"({parts[0]})"
+def render_помета(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_помета("помета", ["о действии"], defaultdict(str))
+    '<i>о действии</i>'
+    """
+    return italic(parts[0])
 
 
 def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -105,7 +109,7 @@ template_mapping = {
     "W": defaults.render_wikilink,
     "этимология": get_etymology,
     "значение": get_definition,
-    "помета": get_note,
+    "помета": render_помета,
     "кавычки": render_кавычки,
     "сравн.": render_сравн,
 }
