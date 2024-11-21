@@ -2997,6 +2997,46 @@ racines_schemes_arabes = {
         "ar-mu*a**a*ũ": "couvert de mousse",
         "ar-mu*a**i*ũ": "couvert de mousse",
     },  # 9
+    "ar-Tb3": {
+        "aa_sens": "marque",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "édition",
+        "ar-*a**iy²ũ": "naturel",
+        "ar-*a**ũ": "cachet",
+        "ar-*a*a*a-u": "imprimer",
+        "ar-*a*a*ũ": "crasse",
+        "ar-*a*i*a-a": "être sale",
+        "ar-*a*i*ũ": "vicieux",
+        "ar-*a*²a*a": "charger",
+        "ar-*a*²â*ũ": "imprimeur",
+        "ar-*a*²û*ũ": "insecte piqueur",
+        "ar-*a*âyi*u": "{{p}} naturels",
+        "ar-*a*î*@ũ": "naturel",
+        "ar-*a*î*iy²@ũ": "{{f}} naturelle",
+        "ar-*a*î*iy²ũ": "naturel",
+        "ar-*i**ũ": "complet",
+        "ar-*i*²î*ũ": "moelle de palmier",
+        "ar-*i*â*@ũ": "imprimerie",
+        "ar-*i*â*ũ": "coutume",
+        "ar-*ta*a*a": "",
+        "ar-*u**ânũ": "terre sigillée",
+        "ar-*u*i*a": "être façonné",
+        "ar-*â*a*a": "",
+        "ar-*â*a*ũ": "cachet",
+        "ar-*â*i*ũ": "imprimeur",
+        "ar-a**a*a": "",
+        "ar-a**a*u": "très crasseux",
+        "ar-a**â*ũ": "{{p}} complets",
+        "ar-ma**a*ũ": "lieu d'impression",
+        "ar-ma**û*ũ": "marqué",
+        "ar-mu*a*²a*ũ": "bourré",
+        "ar-n*a*a*a": "être imprimé",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "s'habituer",
+        "ar-ta*a*²u*ũ": "habitude",
+        "ar-ta*â*a*a": "",
+    },  # 38
     "ar-Thr": {
         "aa_sens": "pureté",
         "ar-**a*²a": "",
@@ -9637,5 +9677,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 331
+}  # 332
 # END
