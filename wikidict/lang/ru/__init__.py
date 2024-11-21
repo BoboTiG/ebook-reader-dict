@@ -47,10 +47,6 @@ templates_multi = {
     "зоол.": "italic('зоол.')",
     # {{сленг|ru}}
     "сленг": "italic('сленг')",
-    #
-    # For variants
-    #
-    "прич.": "parts[1]",
 }
 
 
@@ -119,14 +115,29 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>уменьш.-ласк.</i>'
         >>> last_template_handler(["умласк.", "ru", "подмазка"], "ru")
         '<i>уменьш.-ласк.</i> к подмазка'
+
+        #
+        # For variants
+        #
+        >>> last_template_handler(["прич.", "зыбить"], "ru")
+        'зыбить'
+        >>> last_template_handler(["прич.", "не=1", "зыбить", "наст", "страд"], "ru")
+        'зыбить'
     """
-    from ...user_functions import italic
+    from ...user_functions import extract_keywords_from, italic
     from .. import defaults
     from .labels import labels
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
+    extract_keywords_from(parts)
+
+    #
+    # For variants
+    #
+    if tpl == "прич.":
+        return parts[0]
 
     if lookup_template(tpl):
         return render_template(word, template)
