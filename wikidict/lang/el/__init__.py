@@ -53,6 +53,10 @@ sections = (
     "{{παροιμία|el}",
 )
 
+# Variants
+variant_titles = sections
+variant_templates = ("{{θηλ του",)
+
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     "{{μορφή ουσιαστικού}",
@@ -63,6 +67,10 @@ definitions_to_ignore = (
     "{{μορφή επιθέτου|el}",
     "{{εκφράσεις}",
     "{{εκφράσεις|el}",
+    #
+    # For variants
+    #
+    "θηλ του",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -96,6 +104,11 @@ templates_multi: dict[str, str] = {
     "κνε": "italic('κοινή νεοελληνική')",
     # {{νε}}
     "νε": "italic('νέα ελληνική')",
+    #
+    # For variants
+    #
+    # {{θηλ του|λέξη}}
+    "θηλ του": "parts[1]",
 }
 
 # Templates that will be completed/replaced using custom style.

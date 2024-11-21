@@ -39,6 +39,14 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        (
+            "τσιγγάνα",
+            [],
+            ["θηλυκό"],
+            [],
+            [],
+            ["τσιγγάνος"],
+        ),
     ],
 )
 def test_parse_word(
