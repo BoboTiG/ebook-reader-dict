@@ -49,6 +49,9 @@ templates_multi = {
     "сленг": "italic('сленг')",
 }
 
+# Templates that will be completed/replaced using custom text.
+templates_other = {"?": "<small>?</small>"}
+
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
@@ -137,7 +140,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     # For variants
     #
     if tpl == "прич.":
-        return parts[0]
+        if (variant := parts[0]) == "<small>?</small>":
+            variant = ""
+        return variant
 
     if lookup_template(tpl):
         return render_template(word, template)
