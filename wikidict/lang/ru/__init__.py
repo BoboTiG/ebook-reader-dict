@@ -50,7 +50,10 @@ templates_multi = {
 }
 
 # Templates that will be completed/replaced using custom text.
-templates_other = {"?": "<small>?</small>"}
+templates_other = {
+    "?": "<small>?</small>",
+    "--": "—",
+}
 
 
 # Release content on GitHub
