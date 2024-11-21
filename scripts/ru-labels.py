@@ -13,6 +13,9 @@ for line in content.splitlines():
         value = v[1] if (v := value_pattern(line)) else key
         labels[key] = value
 
+# Missing aliases
+labels["субст."] = labels["субстантивир."]
+
 print("labels = {")
 for key, value in sorted(labels.items()):
     name = value if isinstance(value, str) else key
