@@ -110,7 +110,7 @@ def main() -> int:
     errors: dict[str, str] = {}
     tasks = [(script, file, errors) for script, file in FILES.items()]
 
-    with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 4)) as pool:
+    with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 2)) as pool:
         for _ in pool.starmap(process_script, tasks):
             pass
 
