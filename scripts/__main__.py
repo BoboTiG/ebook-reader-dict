@@ -3,6 +3,7 @@ import subprocess
 import sys
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
+from time import sleep
 
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
 from ruff_api import FormatOptions, format_string
@@ -91,6 +92,10 @@ def process_script(script: str, file: str, errors: dict[str, str]) -> None:
         errors[script] = str(exc)
     else:
         print(f"Processed {script} with success.", flush=True)
+
+    if "CI" in os.environ:
+        # Relax
+        sleep(5)
 
 
 def set_output(errors: int) -> None:
