@@ -435,6 +435,7 @@ regions = {
     "Malte": "Malte",
     "Manche": "Manche",
     "Mandurie": "Mandurie",
+    "Manitoba": "Manitoba",
     "Marche": "Marche",
     "Marches": "Marches",
     "Marne": "Marne",
@@ -810,5 +811,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 805
+}  # 806
 # END

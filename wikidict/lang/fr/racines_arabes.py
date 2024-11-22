@@ -2998,7 +2998,7 @@ racines_schemes_arabes = {
         "ar-mu*a**i*ũ": "couvert de mousse",
     },  # 9
     "ar-Tb3": {
-        "aa_sens": "marque",
+        "aa_sens": "poinçon",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "édition",
@@ -3030,13 +3030,14 @@ racines_schemes_arabes = {
         "ar-a**â*ũ": "{{p}} complets",
         "ar-ma**a*ũ": "lieu d'impression",
         "ar-ma**û*ũ": "marqué",
+        "ar-mu*a*²a*@ũ": "{{f}} bourrée",
         "ar-mu*a*²a*ũ": "bourré",
         "ar-n*a*a*a": "être imprimé",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "s'habituer",
         "ar-ta*a*²u*ũ": "habitude",
         "ar-ta*â*a*a": "",
-    },  # 38
+    },  # 39
     "ar-Thr": {
         "aa_sens": "pureté",
         "ar-**a*²a": "",
