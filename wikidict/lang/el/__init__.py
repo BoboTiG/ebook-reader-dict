@@ -59,18 +59,15 @@ variant_templates = ("{{θηλ του",)
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "{{μορφή ουσιαστικού}",
-    "{{μορφή ουσιαστικού|el}",
-    "{{μορφή ρήματος}",
-    "{{μορφή ρήματος|el}",
+    "{{μορφή ουσιαστικού",
+    "{{μορφή ρήματος",
     "{{μορφή επιθέτου}",
-    "{{μορφή επιθέτου|el}",
-    "{{εκφράσεις}",
-    "{{εκφράσεις|el}",
+    "{{εκφράσεις",
     #
     # For variants
     #
-    "θηλ του",
+    "{{θηλ του",
+    "{{κλ",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -109,6 +106,10 @@ templates_multi: dict[str, str] = {
     #
     # {{θηλ του|λέξη}}
     "θηλ του": "parts[1]",
+    # {{θηλ του-πτώσειςΟΑΚεν|γκαντέμης}}
+    "θηλ του-πτώσειςΟΑΚεν": "parts[1]",
+    # {{κλ||σχολείο|π=γ|α=π}}
+    "κλ": "next((part for part in parts[1:] if part), '')",
 }
 
 # Templates that will be completed/replaced using custom style.
