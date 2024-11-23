@@ -307,6 +307,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>μεσαιωνική ελληνική</i>'
         >>> last_template_handler(["ετυμ", "grc", "el", "ἔλαιον"], "el")
         '<i>αρχαία ελληνική</i> ἔλαιον'
+        >>> last_template_handler(["ετυμ", "sla"], "el")
+        '<i>σλαβικής προέλευσης</i>'
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -386,7 +388,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return f"({', '.join(italic(aliases.get(part, part)) for part in parts)})"
 
     if tpl == "ετυμ":
-        text = italic(str(langs[parts[0]]["frm"]))
+        text = text_language(parts[0])
         if len(parts) > 2:
             text += f" {parts[2]}"
         return text
