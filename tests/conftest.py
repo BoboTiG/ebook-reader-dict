@@ -34,7 +34,7 @@ PAGE_XML = """
 
 
 @pytest.fixture(autouse=True)
-def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None, None, None]:
+def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None]:
     """Fail on warning."""
 
     yield

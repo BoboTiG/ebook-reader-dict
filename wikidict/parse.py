@@ -21,7 +21,7 @@ RE_TITLE = re.compile(r"<title>([^:]*)</title>").finditer
 DEBUG_PARSE = "DEBUG_PARSE" in os.environ
 
 
-def xml_iter_parse(file: Path) -> Generator[str, None, None]:
+def xml_iter_parse(file: Path) -> Generator[str]:
     """Efficient XML parsing for big files."""
     element: list[str] = []
     is_element = False

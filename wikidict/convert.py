@@ -169,7 +169,7 @@ class BaseFormat:
             file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
         return file
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:  # pragma: nocover
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:  # pragma: nocover
         raise NotImplementedError()
 
     def process(self) -> None:  # pragma: nocover
@@ -239,7 +239,7 @@ class KoboFormat(BaseFormat):
             groups[guess_prefix(word)][word] = details
         return groups
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:
         name: str = kwargs["name"]
         words: Words = kwargs["words"]
         current_words: Words = {word: details}
@@ -403,7 +403,7 @@ class DictFileFormat(BaseFormat):
 
     output_file = "dict-{locale}-{locale}.df"
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
+    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:
         if details.definitions:
             yield self.render_word(
                 WORD_TPL_DICTFILE,
