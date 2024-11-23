@@ -44,6 +44,37 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return f"{italic(text)}{following}"
 
 
+def render_μεγ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_μεγ("μεγ", [], defaultdict(str))
+    '<i>μεγεθυντικό του</i>'
+    >>> render_μεγ("μεγ", ["γυναίκα"], defaultdict(str))
+    '<i>μεγεθυντικό του</i> γυναίκα'
+    >>> render_μεγ("μεγ", ["casa", "ona", "es"], defaultdict(str))
+    'casa + <i>μεγεθυντικό επίθημα</i> -ona'
+    >>> render_μεγ("μεγ", ["casa", "ona", "es", "cas(a)"], defaultdict(str))
+    'cas(a) + <i>μεγεθυντικό επίθημα</i> -ona'
+    >>> render_μεγ("μεγ", ["casa", "ona", "es"], defaultdict(str, {"4": "cas(a)"}))
+    'cas(a) + <i>μεγεθυντικό επίθημα</i> -ona'
+    """
+    if data["4"]:
+        parts[0] = data["4"]
+    elif len(parts) == 4:
+        parts[0] = parts[3]
+
+    prefix = suffix = ""
+    try:
+        prefix, suffix = parts[:2]
+    except ValueError:
+        if parts:
+            prefix = parts[0]
+
+    if suffix:
+        return f"{prefix} + {italic('μεγεθυντικό επίθημα')} -{suffix}"
+
+    return f"{italic('μεγεθυντικό του')} {prefix}".rstrip()
+
+
 def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etym("etym", ["grc", "el", "ἄλαστος"], defaultdict(str))
@@ -119,6 +150,7 @@ template_mapping = {
     "δαν": render_etym,
     "λδαν": render_etym,
     "μτφδ": render_etym,
+    "μεγ": render_μεγ,
 }
 
 
