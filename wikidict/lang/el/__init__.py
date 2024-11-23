@@ -4,6 +4,7 @@ import re
 from collections import defaultdict
 
 from ...user_functions import italic, uniq
+from .aliases import aliases
 from .langs import langs
 
 # Float number separator
@@ -95,8 +96,6 @@ templates_ignored = (
 templates_multi: dict[str, str] = {
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
-    # {{ετικ|γαστρονομία|τρόφιμα|γλυκά}}
-    "ετικ": "'(' + ', '.join(italic(p) for p in parts[1:]) + ')'",
     # {{κνε}}
     "κνε": "italic('κοινή νεοελληνική')",
     # {{νε}}
@@ -226,7 +225,6 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
     """
     from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
     """
-    from .aliases import aliases
     from .labels import labels as data
 
     mytext = ""
@@ -345,6 +343,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>άλλη γραφή του</i> <b>άσος</b>'
         >>> last_template_handler(["γραφή του", "αγάρ", "μορφ"], "el")
         '<i>άλλη μορφή του</i> <b>αγάρ</b>'
+
+        >>> last_template_handler(["ετικ", "γαστρονομία", "τρόφιμα", "γλυκά"], "el")
+        '(<i>γαστρονομία</i>, <i>τρόφιμα</i>, <i>γλυκό</i>)'
+        >>> last_template_handler(["ετικ", "βιολ", "ιατρ"], "el")
+        '(<i>βιολογία</i>, <i>ιατρική</i>)'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -376,6 +379,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
             return ""
         data["label"] = parts[0]
         return labels_output(data.get("text", ""), args=data)
+
+    if tpl == "ετικ":
+        return f"({', '.join(italic(aliases.get(part, part)) for part in parts)})"
 
     if tpl == "ετυμ":
         text = italic(str(langs[parts[0]]["frm"]))
