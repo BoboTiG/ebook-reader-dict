@@ -340,6 +340,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["fr"], "el")
         'γαλλικά'
+
+        >>> last_template_handler(["γραφή του", "άσος"], "el")
+        '<i>άλλη γραφή του</i> <b>άσος</b>'
+        >>> last_template_handler(["γραφή του", "αγάρ", "μορφ"], "el")
+        '<i>άλλη μορφή του</i> <b>αγάρ</b>'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -350,6 +355,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "γραφή του":
+        if len(parts) == 1:
+            parts.append("γραφ")
+        return f"{italic('άλλη ' + parts[1] + 'ή του')} {strong(parts[0])}"
 
     if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
