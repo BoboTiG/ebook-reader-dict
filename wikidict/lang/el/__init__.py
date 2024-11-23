@@ -100,6 +100,8 @@ templates_multi: dict[str, str] = {
     "κνε": "italic('κοινή νεοελληνική')",
     # {{νε}}
     "νε": "italic('νέα ελληνική')",
+    # {{ουδ του|λέξη}}
+    "ουδ του": "italic('ουδέτερο του') + ' ' + strong(parts[1])",
     #
     # For variants
     #
