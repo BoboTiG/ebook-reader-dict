@@ -285,6 +285,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'ἡδύς'
         >>> last_template_handler(["λ"], "el", word="Ινδία")
         'Ινδία'
+        >>> last_template_handler(["l", "Иваново", "ru", "lang=4", "tnl=Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας"], "el")
+        '<i>ρωσική</i> Иваново (Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας)'
 
         >>> last_template_handler(["ετ"], "el")
         ''
@@ -376,7 +378,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return phrase
 
     if tpl in {"λ", "l", "link"}:
-        return parts[0] if parts else word
+        text = f"{text_language(parts[1])} " if data["lang"] else ""
+        text += parts[0] if parts else word
+        if tnl := data["tnl"]:
+            text += f" ({tnl})"
+        return text
 
     if tpl in {"ετ", "ετικέτα"}:
         if not parts:
