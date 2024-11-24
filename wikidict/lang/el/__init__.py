@@ -316,6 +316,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>σλαβικής προέλευσης</i>'
         >>> last_template_handler(["ετυμ", "yua"], "el")
         ''
+        >>> last_template_handler(["ετυμ", "ar", "el", "آجُرّ", "tr=ʾājurr"], "el")
+        '<i>αραβική</i> آجُرّ (ʾājurr)'
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -404,6 +406,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         text = text_language(parts[0])
         if len(parts) > 2:
             text += f" {parts[2]}"
+        if tr := data["tr"]:
+            text += f" ({tr})"
         return text
 
     if tpl == "λόγιο":
