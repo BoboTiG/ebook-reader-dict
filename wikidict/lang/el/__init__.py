@@ -199,28 +199,29 @@ def find_pronunciations(
     return [f"/{p}/" for p in uniq(pattern.findall(code))]
 
 
-def text_language(lang_donor_iso: str, *, myargs: dict[str, str] = defaultdict(str)) -> str:
+def text_language(lang_iso: str, *, args: dict[str, str] = defaultdict(str)) -> str:
     """
     see https://el.wiktionary.org/w/index.php?title=Module:%CE%B5%CF%84%CF%85%CE%BC%CE%BF%CE%BB%CE%BF%CE%B3%CE%AF%CE%B1&oldid=6368956 link_language function
     """
-    lang: dict[str, str | bool] = langs[lang_donor_iso]
-    lang_donor = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
-    lang_donor_frm = str(lang["frm"])  # feminine accusative singular γαλλική
-    if lang_donor != "" and lang_donor_frm != "":
+    lang: dict[str, str | bool] = langs[lang_iso]
+    lang_name = str(lang["name"])  # neuter plural γαλλικά (or fem.sing. μέση γερμανκή)
+    lang_frm = str(lang["frm"])  # feminine accusative singular γαλλική
+    text = ""
+    if lang_name and lang_frm:
         # feminine article + accusative singular τη γαλλική
         lang_donor_apo = str(lang["apo"])
         # προέλευσης από +apota -- FOR FAMILIES: σημιτικής προέλευσης
         lang_donor_from = str(lang["from"])
-        if myargs["root"] == "1" or myargs["ρίζα"] == "1":
-            mytext = f"{italic(lang_donor_frm)} <i>ρίζα</i>"
+        if args["root"] == "1" or args["ρίζα"] == "1":
+            text = f"{italic(lang_frm)} <i>ρίζα</i>"
         elif lang["family"]:
-            mytext = italic(lang_donor_from)
-        elif myargs["text"] == "1" or myargs["κειμ"] == "1":
-            mytext = italic(lang_donor_apo)
+            text = italic(lang_donor_from)
+        elif args["text"] == "1" or args["κειμ"] == "1":
+            text = italic(lang_donor_apo)
         else:
-            mytext = italic(lang_donor_frm)
+            text = italic(lang_frm)
 
-    return mytext
+    return text
 
 
 def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> str:
@@ -311,6 +312,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>αρχαία ελληνική</i> ἔλαιον'
         >>> last_template_handler(["ετυμ", "sla"], "el")
         '<i>σλαβικής προέλευσης</i>'
+        >>> last_template_handler(["ετυμ", "yua"], "el")
+        ''
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -372,7 +375,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
-        phrase += text_language(parts[0], myargs=data)
+        phrase += text_language(parts[0], args=data)
         if rest := data["1"] or parts[2] if len(parts) > 2 else "":
             phrase += f" {rest}"
         return phrase
