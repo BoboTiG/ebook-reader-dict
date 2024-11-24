@@ -169,7 +169,7 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            ["Del endo <i>hocicar</i>."],
+            ["De <i>hocicar</i>."],
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",

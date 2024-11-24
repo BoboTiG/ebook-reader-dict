@@ -352,6 +352,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Incierta'
     >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
     'Epónimo de la ciudad alemana de Berlín'
+    >>> render_etimologia("etimología", ["endo", "chocoano"], defaultdict(str))
+    'De <i>chocoano</i>'
     """
 
     def call_l_single_part(part: str, index: int) -> str:
@@ -376,6 +378,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     glue = data.get("e", "y")
     suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "-"
     word = data.get("alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1]))
+    phrase = ""
 
     cat = parts.pop(0)
     if cat in (
@@ -414,7 +417,6 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
                 },
             ),
         )
-
     elif cat in ("compuesto", "compuesta", "COMP"):
         phrase = capitalize(data["otro"] or "compuesto") + " de "
         phrase += concat(
@@ -426,19 +428,15 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
         texto_prefijo = data.get("texto-prefijo", "prefijo")
         phrase = f"Del {texto_prefijo} "
         part = parts.pop(0)
-        phrase += render_l(
-            "l+",
-            [
-                (data["diacrítico"] or data["alt"] or part) + "-",
-            ],
-            data,
-        )
+        phrase += render_l("l+", [f"{data['diacrítico'] or data['alt'] or part}-"], data)
         index = 2
         for part in parts[:-1]:
             localphrase = call_l_single_part(part, index)
             phrase += f", {localphrase}"
             index = index + 1
         phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
+    elif cat == "endo":
+        phrase = f"De {italic(parts[0])}"
     elif cat in {"epónimo", "EPON"}:
         phrase = "Epónimo"
         if parts:
@@ -544,9 +542,6 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
         if phrase_array:
             phrase += concat(phrase_array, ", ", last_sep=f" {glue} ")
-
-    else:
-        phrase = ""
 
     return phrase
 
