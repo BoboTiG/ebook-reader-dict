@@ -7542,6 +7542,8 @@ langs = {
     "sit-kha": "Kham",
     "sit-kha-pro": "Proto-Kham",
     "sit-khb": "Kho-Bwa",
+    "sit-khc": "Chug-Lish",
+    "sit-khm": "Mey-Sartang",
     "sit-khw": "Western Kho-Bwa",
     "sit-khw-pro": "Proto-Western Kho-Bwa",
     "sit-kic": "Central Kiranti",
@@ -9831,7 +9833,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,826
+}  # 9,828
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

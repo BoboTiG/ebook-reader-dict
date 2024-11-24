@@ -1320,6 +1320,7 @@ labels = {
     "except": "except",
     "except in": "outside",
     "excluding": "excluding",
+    "exclusively": "exclusively",
     "exercise": "exercise",
     "expletive": "swear word",
     "expressive": "expressive",
@@ -2489,7 +2490,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,484
+}  # 2,485
 
 syntaxes = {
     "&": {
@@ -2578,6 +2579,11 @@ syntaxes = {
         "omit_pre_space": False,
     },
     "excluding": {
+        "omit_post_comma": True,
+        "omit_pre_comma": False,
+        "omit_pre_space": False,
+    },
+    "exclusively": {
         "omit_post_comma": True,
         "omit_pre_comma": False,
         "omit_pre_space": False,
@@ -2782,5 +2788,5 @@ syntaxes = {
         "omit_pre_comma": True,
         "omit_pre_space": True,
     },
-}  # 58
+}  # 59
 # END

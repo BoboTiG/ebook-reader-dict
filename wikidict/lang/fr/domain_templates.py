@@ -15,6 +15,7 @@ domain_templates = {
     "Star Wars": "Science-fiction, univers de Star Wars",
     "Tintin": "Univers de Tintin",
     "URSS": "Histoire, Communisme, URSS",
+    "Yougoslavie": "Histoire, Yougoslavie",
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
     "alcools": "Boisson",
@@ -339,5 +340,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 334
+}  # 335
 # END
