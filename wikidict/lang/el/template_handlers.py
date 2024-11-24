@@ -129,6 +129,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '(άμεσο δάνειο) <i>αγγλική</i> skyscraper'
     >>> render_etym("δαν", ["it", "el", "-are", "-ar(e)"], defaultdict(str))
     '(άμεσο δάνειο) <i>ιταλική</i> -ar(e)'
+    >>> render_etym("δαν", ["ota", "el", "آجر"], defaultdict(str, {"tr": "âcürr"}))
+    '(άμεσο δάνειο) <i>οθωμανική τουρκική</i> آجر (âcürr)'
 
     >>> render_etym("λδαν", ["en", "el", "skyscraper"], defaultdict(str))
     '(λόγιο δάνειο) <i>αγγλική</i> skyscraper'
@@ -163,7 +165,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     if parts:
         phrase += f" {parts[-1]}"
 
-    if tnl := data["tnl"]:
+    if tnl := (data["tnl"] or data["tr"]):
         phrase += f" ({tnl})"
 
     return phrase.strip()
