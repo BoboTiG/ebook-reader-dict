@@ -7542,8 +7542,10 @@ langs = {
     "sit-kha": "Kham",
     "sit-kha-pro": "Proto-Kham",
     "sit-khb": "Kho-Bwa",
+    "sit-khb-pro": "Proto-Kho-Bwa",
     "sit-khc": "Chug-Lish",
     "sit-khm": "Mey-Sartang",
+    "sit-khp-pro": "Proto-Puroik",
     "sit-khw": "Western Kho-Bwa",
     "sit-khw-pro": "Proto-Western Kho-Bwa",
     "sit-kic": "Central Kiranti",
@@ -7862,7 +7864,7 @@ langs = {
     "sur": "Mwaghavul",
     "sus": "Susu",
     "sut": "Subtiaba",
-    "suv": "Sulung",
+    "suv": "Puroik",
     "suw": "Sumbwa",
     "sux": "Sumerian",
     "suy": "Suyá",
@@ -9833,7 +9835,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,828
+}  # 9,830
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

@@ -461,7 +461,7 @@ langs = {
     "mla": "tamambo",
     "mn": "mongol",
     "mnc": "manxú",
-    "mni": "manipurí",
+    "mni": "manipuri",
     "moe": "innu-aimun",
     "moh": "mohawk",
     "mos": "moore",
