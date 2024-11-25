@@ -49,7 +49,7 @@ variant_templates = (
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     #
-    # For variants
+    # Variants
     #
     "avledning",
     "böjning",
@@ -114,7 +114,7 @@ templates_multi = {
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
     #
-    # For variants
+    # Variants
     #
     # {{böjning|sv|subst|boll}}
     "böjning": "parts[-1]",

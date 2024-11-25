@@ -51,7 +51,7 @@ variant_templates = (
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     #
-    # For variants
+    # Variants
     #
     "flexion",
 )
@@ -187,7 +187,7 @@ templates_multi: dict[str, str] = {
     "Yprb": "small(f'({italic(\"per iperbole\")})')",
     "yprb": "small(f'({italic(\"per iperbole\")})')",
     #
-    # For variants
+    # Variants
     #
     # {{flexion|term}}
     "flexion": "parts[1]",
@@ -312,7 +312,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         }.get(parts[1])
         return f"superlativo {parts[0]}, {gender} di"
 
-    # For variants
+    # Variants
     if tpl == "tabs":
         return data["m"] or parts[0]
 

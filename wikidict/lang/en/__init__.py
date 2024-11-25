@@ -58,7 +58,7 @@ variant_templates = (
 definitions_to_ignore = (
     "rfdef",
     #
-    # For variants
+    # Variants
     #
     "en-ing",
     "en-irregular plural of",
@@ -222,7 +222,7 @@ templates_multi = {
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
     #
-    # For variants
+    # Variants
     #
     # {{en-ing form of|term}}
     "en-ing form of": "parts[1]",

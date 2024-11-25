@@ -56,7 +56,7 @@ definitions_to_ignore = (
     "ex-cit",
     "ex-us",
     #
-    # For variants
+    # Variants
     #
     "ca-forma-conj",
     "forma-",
@@ -110,7 +110,7 @@ templates_multi = {
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
     #
-    # For variants
+    # Variants
     #
     # {{ca-forma-conj|domdar|part|f|p}}
     "ca-forma-conj": "parts[1]",

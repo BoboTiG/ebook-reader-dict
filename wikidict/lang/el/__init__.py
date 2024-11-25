@@ -56,19 +56,19 @@ sections = (
 
 # Variants
 variant_titles = sections
-variant_templates = ("{{θηλ του",)
+variant_templates = (
+    "{{infl",
+    "{{θηλ του",
+    "{{κλ",
+)
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
+    *variant_templates,
     "{{μορφή ουσιαστικού",
     "{{μορφή ρήματος",
     "{{μορφή επιθέτου}",
     "{{εκφράσεις",
-    #
-    # For variants
-    #
-    "{{θηλ του",
-    "{{κλ",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -110,15 +110,6 @@ templates_multi: dict[str, str] = {
     "νε": "italic('νέα ελληνική')",
     # {{ουδ του|λέξη}}
     "ουδ του": "italic('ουδέτερο του') + ' ' + strong(parts[1])",
-    #
-    # For variants
-    #
-    # {{θηλ του|λέξη}}
-    "θηλ του": "parts[1]",
-    # {{θηλ του-πτώσειςΟΑΚεν|γκαντέμης}}
-    "θηλ του-πτώσειςΟΑΚεν": "parts[1]",
-    # {{κλ||σχολείο|π=γ|α=π}}
-    "κλ": "next((part for part in parts[1:] if part), '')",
 }
 
 # Templates that will be completed/replaced using custom style.
@@ -369,6 +360,18 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '(<i>γαστρονομία</i>, <i>τρόφιμα</i>, <i>γλυκό</i>)'
         >>> last_template_handler(["ετικ", "βιολ", "ιατρ"], "el")
         '(<i>βιολογία</i>, <i>ιατρική</i>)'
+
+        #
+        # Variants
+        #
+        >>> last_template_handler(["infl", "grc", "ε=απρ", "χ=ενε", "γίγνομαι"], "el")
+        'γίγνομαι'
+        >>> last_template_handler(["θηλ του", "λέξη"], "el")
+        'λέξη'
+        >>> last_template_handler(["θηλ του-πτώσειςΟΑΚεν", "γκαντέμης"], "el")
+        'γκαντέμης'
+        >>> last_template_handler(["κλ", "", "σχολείο", "π=γ", "α=π"], "el")
+        'σχολείο'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -584,5 +587,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     # This is a country in the current locale
     if lang := langs.get(tpl):
         return str(lang["name"])
+
+    #
+    # Variants
+    #
+    if tpl.startswith(("infl", "κλ", "θηλ του")):
+        return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word)

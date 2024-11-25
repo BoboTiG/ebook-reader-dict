@@ -34,7 +34,7 @@ sections = (
     "{{sustantivo",
     "{{verbo",
     #
-    # For variants, see render.find_section_definitions()
+    # Variants, see render.find_section_definitions()
     #
     "forma adjetiva",
     "forma adjetiva y de participio",

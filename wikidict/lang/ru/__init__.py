@@ -33,7 +33,7 @@ variant_templates = ("{{прич.",)
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     #
-    # For variants
+    # Variants
     #
     "прич.",
 )
@@ -126,7 +126,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
 
         #
-        # For variants
+        # Variants
         #
         >>> last_template_handler(["прич.", "зыбить"], "ru")
         'зыбить'
@@ -143,7 +143,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     extract_keywords_from(parts)
 
     #
-    # For variants
+    # Variants
     #
     if tpl == "прич.":
         if (variant := parts[0]) == "<small>?</small>":

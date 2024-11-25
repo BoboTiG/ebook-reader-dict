@@ -90,7 +90,7 @@ variant_templates = ("{{form-eo}}",)
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     #
-    # For variants
+    # Variants
     #
     "form-eo",
 )

@@ -464,7 +464,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # Wipe out {{Deklinacio-eo}}
         code = code.replace("{{Deklinacio-eo}}", "")
 
-        # For variants
+        # Variants
         # {{form-eo}} → # {{form-eo}}
         code = code.replace("{{form-eo}}", "# {{form-eo}}")
 

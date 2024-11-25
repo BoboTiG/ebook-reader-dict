@@ -54,7 +54,7 @@ variant_templates = (
 # Templates to ignore: the text will be deleted.
 definitions_to_ignore = (
     #
-    # For variants
+    # Variants
     #
     "bøyingsform",
     "no-adj-bøyningsform",
@@ -137,7 +137,7 @@ templates_multi = {
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
     #
-    # For variants
+    # Variants
     #
     # {{bøyingsform|no|verb|uttrykke}}
     "bøyingsform": "parts[-1]",
