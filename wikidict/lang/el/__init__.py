@@ -73,6 +73,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "cf",
     "el-κλίσ",
     "el-κλίση-'ναός'",
     "el-κλίσ-'μανάβης'",
@@ -102,6 +103,8 @@ templates_ignored = (
 
 # Templates more complex to manage.
 templates_multi: dict[str, str] = {
+    # {{IPAstyle|ˈɑɹ.kən.sɔ}}
+    "IPAstyle": "parts[1]",
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
     # {{κνε}}
@@ -110,6 +113,8 @@ templates_multi: dict[str, str] = {
     "νε": "italic('νέα ελληνική')",
     # {{ουδ του|λέξη}}
     "ουδ του": "italic('ουδέτερο του') + ' ' + strong(parts[1])",
+    # {{αιτ}}
+    "αιτ": "italic(strong('αιτιατική'))",
 }
 
 # Templates that will be completed/replaced using custom style.

@@ -174,7 +174,7 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         case "de":
             items = get_items((":",))
         case "el":
-            items = get_items((": ",))
+            items = get_items((": ", "#"))
         case "en":
             items = get_items(("",), skip=("===etymology", "{{pie root"))
         case "eo":

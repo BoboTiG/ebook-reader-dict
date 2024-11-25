@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from ...user_functions import concat, extract_keywords_from, italic
+from ...user_functions import concat, extract_keywords_from, italic, parenthesis
 from .langs import langs
 
 
@@ -101,6 +101,27 @@ def render_υπο(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return f"{prefix} + {italic('υποκοριστικό επίθημα')} -{suffix}"
 
 
+def render_ελνστ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ελνστ("ελνστ", [], defaultdict(str))
+    '(<i>ελληνιστική κοινή</i>)'
+    >>> render_ελνστ("ελνστ", [], defaultdict(str, {"0": "-"}))
+    '<i>ελληνιστική κοινή</i>'
+    >>> render_ελνστ("ελνστ", [""], defaultdict(str), word="-ης")
+    '(<i>ελληνιστική κοινή</i>) -ης'
+    >>> render_ελνστ("ελνστ", ["πολυχρονία"], defaultdict(str))
+    '(<i>ελληνιστική κοινή</i>) πολυχρονία'
+    """
+    text = italic("ελληνιστική κοινή")
+    if not data["0"]:
+        text = parenthesis(text)
+    if parts:
+        if not parts[0]:
+            parts[0] = word
+        text += f" {parts[0]}"
+    return text
+
+
 def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etym("etym", ["grc", "el", "ἄλαστος"], defaultdict(str))
@@ -180,6 +201,7 @@ template_mapping = {
     "μτφδ": render_etym,
     "μεγ": render_μεγ,
     "υπο": render_υπο,
+    "ελνστ": render_ελνστ,
 }
 
 
