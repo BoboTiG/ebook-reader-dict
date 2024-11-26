@@ -16,6 +16,7 @@ thousands_separator = "."
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("{{-el-}}",)
 etyl_section = ("{{ετυμολογία}}",)
+section_sublevels = (3, 4)
 section_patterns = ("#", r"\*")
 sections = (
     *head_sections,
@@ -54,6 +55,8 @@ sections = (
     "{{έκφραση|el}",
     "{{παροιμία}",
     "{{παροιμία|el}",
+    "{{πρόθημα}",
+    "{{πρόθημα|el}",
 )
 
 # Variants
