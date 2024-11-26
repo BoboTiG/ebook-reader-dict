@@ -7524,6 +7524,7 @@ langs = {
     "sit-alm": "Almora",
     "sit-bai": "Bai",
     "sit-bai-pro": "Proto-Bai",
+    "sit-ban": "Bangru",
     "sit-bdi": "Bodish",
     "sit-bok": "Bokar",
     "sit-cai": "Caijia",
@@ -9835,7 +9836,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,830
+}  # 9,831
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
