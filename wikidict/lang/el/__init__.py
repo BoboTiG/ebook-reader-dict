@@ -28,6 +28,8 @@ sections = (
     "{{επίθετο|el}",
     "{{επίρρημα}",
     "{{επίρρημα|el}",
+    "{{επίθημα}",
+    "{{επίθημα|el}",
     "{{σύνδεσμος}",
     "{{σύνδεσμος|el}",
     "{{συντομομορφή}",
@@ -59,7 +61,7 @@ variant_titles = sections
 variant_templates = (
     "{{infl",
     "{{θηλ του",
-    "{{κλ",
+    "{{κλ|",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
