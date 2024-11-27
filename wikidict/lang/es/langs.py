@@ -4481,7 +4481,7 @@ langs = {
     "mub": "mubi",
     "muc": "mbu'",
     "mud": "mednyj aleut",
-    "mue": "mixta",
+    "mue": "media lengua",
     "mug": "musgu",
     "muh": "mündü",
     "mui": "musi",

@@ -1731,6 +1731,7 @@ labels = {
     "mineral": "mineralogy",
     "mineralogy": "mineralogy",
     "mining": "mining",
+    "misspelling": "misspelling",
     "mnemonic": "mnemonic",
     "mobile phone": "mobile telephony",
     "mobile phones": "mobile telephony",
@@ -2116,6 +2117,7 @@ labels = {
     "religion": "religion",
     "religious slur": "religious slur",
     "repetitive": "repetitive",
+    "respelling": "respelling",
     "retronym": "retronym",
     "reverential": "reverential",
     "reversative": "reversative",
@@ -2490,7 +2492,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,485
+}  # 2,487
 
 syntaxes = {
     "&": {
