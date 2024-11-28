@@ -124,6 +124,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '<i>сленг</i>'
         >>> last_template_handler(["гипокор.", "ru", "Александр"], "ru")
         '<i>гипокор.</i> к Александр'
+        >>> last_template_handler(["эррат.", "ru", "Александр"], "ru")
+        '<i>эррат.</i> от Александр'
 
         #
         # Variants
@@ -168,7 +170,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if label := labels.get(tpl):
         text = italic(label)
         if len(parts) > 1:
-            text += f" к {parts[-1]}"
+            text += f" {'от' if tpl == 'эррат.' else 'к'} {parts[-1]}"
         return text
 
     if lang := langs.get(tpl):
