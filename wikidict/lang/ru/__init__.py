@@ -41,14 +41,6 @@ definitions_to_ignore = (
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("unfinished", "семантика", "пример")
 
-# Templates more complex to manage.
-templates_multi = {
-    # {{зоол.|ru}}
-    "зоол.": "italic('зоол.')",
-    # {{сленг|ru}}
-    "сленг": "italic('сленг')",
-}
-
 # Templates that will be completed/replaced using custom text.
 templates_other = {
     "?": "<small>?</small>",
@@ -125,6 +117,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["аббр.", "ru", "Свободная демократическая партия", "без ссылки=1"], "ru")
         '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
 
+        # Labels
+        >>> last_template_handler(["зоол.", "ru"], "ru")
+        '<i>зоол.</i>'
+        >>> last_template_handler(["сленг", "ru"], "ru")
+        '<i>сленг</i>'
+        >>> last_template_handler(["гипокор.", "ru", "Александр"], "ru")
+        '<i>гипокор.</i> к Александр'
+
         #
         # Variants
         #
@@ -166,7 +166,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return text
 
     if label := labels.get(tpl):
-        return italic(label)
+        text = italic(label)
+        if len(parts) > 1:
+            text += f" к {parts[-1]}"
+        return text
 
     if lang := langs.get(tpl):
         return lang
