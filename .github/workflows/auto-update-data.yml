@@ -1,4 +1,4 @@
-name: Update local-specific data
+name: Update locale-specific data
 
 on:
   schedule:
