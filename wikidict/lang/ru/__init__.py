@@ -41,6 +41,11 @@ definitions_to_ignore = (
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("unfinished", "семантика", "пример")
 
+# Templates more complex to manage.
+templates_multi = {
+    "страд.": "italic('страд.') + ' к' + ((' ' + parts[1]) if len(parts) > 1 else '')",
+}
+
 # Templates that will be completed/replaced using custom text.
 templates_other = {
     "?": "<small>?</small>",
