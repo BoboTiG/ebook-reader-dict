@@ -44,6 +44,7 @@ templates_ignored = ("unfinished", "семантика", "пример")
 # Templates that will be completed/replaced using custom text.
 templates_other = {
     "?": "<small>?</small>",
+    "-": "—",
     "--": "—",
 }
 
