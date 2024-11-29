@@ -253,7 +253,7 @@ langs = {
     "anglo-saxon": "vieil anglais",
     "anh": "nend",
     "ani": "andi",
-    "ank": "ankwé",
+    "ank": "goemai",
     "anm": "anal",
     "ann": "obolo",
     "ano": "andoque",
