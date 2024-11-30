@@ -2258,6 +2258,40 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 24
+    "ar-Hqq": {
+        "aa_sens": "correct",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "vérité",
+        "ar-*a**ũ": "droit",
+        "ar-*a*a*a-u": "éprouver",
+        "ar-*a*a*ũ": "défaut de cheval",
+        "ar-*a*²a*a": "vérifier",
+        "ar-*a*²â*ũ": "fabriquant de boîtes",
+        "ar-*a*î*@ũ": "vérité",
+        "ar-*a*î*iy²ũ": "réel",
+        "ar-*a*î*ũ": "méritant",
+        "ar-*i**@ũ": "droit",
+        "ar-*i**ũ": "vieux chameau",
+        "ar-*ta*a*a": "discuter",
+        "ar-*u**ũ": "épaule",
+        "ar-*u*²a*ũ": "solide",
+        "ar-*u*û*ũ": "{{p}} droits",
+        "ar-*â**@ũ": "inévitable",
+        "ar-*â**ũ": "véritable",
+        "ar-*â*a*a": "contester",
+        "ar-a**a*a": "rendre nécessaire",
+        "ar-a**a*u": "plus digne",
+        "ar-a**â*ũ": "petite boîte",
+        "ar-ma**û*ũ": "digne",
+        "ar-mu*a*²a*ũ": "vérifié",
+        "ar-musta**a*@ũ": "méritant",
+        "ar-n*a*a*a": "être serré",
+        "ar-sta**a*a": "mériter",
+        "ar-ta**î*ũ": "vérification",
+        "ar-ta*a*²a*a": "être persuadé",
+        "ar-ta*â*a*a": "revendiquer",
+    },  # 32
     "ar-HrF": {
         "aa_sens": "labour, sillon",
         "ar-***ũ": "",
@@ -9678,5 +9712,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 332
+}  # 333
 # END
