@@ -732,6 +732,7 @@ regions = {
     "Turquie": "Turquie",
     "Tuvalu": "Tuvalu",
     "Tyneside": "Tyneside",
+    "UA": "Ukraine",
     "UK": "Royaume-Uni",
     "US": "États-Unis",
     "USA": "États-Unis",
@@ -811,5 +812,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 806
+}  # 807
 # END

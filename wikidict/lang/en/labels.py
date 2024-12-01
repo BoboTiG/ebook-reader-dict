@@ -1220,6 +1220,7 @@ labels = {
     "currencies": "numismatics",
     "currency": "numismatics",
     "cybernetics": "cybernetics",
+    "cybersecurity": "cybersecurity",
     "cycle racing": "cycle racing",
     "cycling": "cycling",
     "cypriot": "Cyprus",
@@ -2492,7 +2493,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,487
+}  # 2,488
 
 syntaxes = {
     "&": {
