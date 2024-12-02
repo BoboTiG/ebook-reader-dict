@@ -87,19 +87,21 @@ def main(locale: str) -> int:
 
     # Get the snapshot to handle
     snapshots = fetch_snapshots(locale)
-    snapshot = snapshots[-1]
 
     # Fetch and uncompress the snapshot file
-    try:
-        file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
-    except HTTPError as exc:
-        (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
-        if exc.response.status_code != 404:
-            raise
-        log.warning("Wiktionary dump is ongoing ... ")
-        log.info("Will use the previous one.")
-        snapshot = snapshots[-2]
-        file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
+    for snapshot in snapshots[::-1]:
+        try:
+            file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
+            break
+        except HTTPError as exc:
+            (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
+            if exc.response.status_code != 404:
+                raise
+            log.warning("Wiktionary dump is ongoing ... ")
+            log.info("Will use the previous one.")
+    else:
+        log.error("No Wiktionary dump found!")
+        return 1
 
     decompress(file, callback_progress)
 
