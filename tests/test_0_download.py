@@ -43,9 +43,10 @@ def test_simple(craft_data: Callable[[str], bytes]) -> None:
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
 
-    date = DUMPS[-1]
-    pages_xml = output_dir / f"pages-{date}.xml"
-    pages_bz2 = output_dir / f"pages-{date}.xml.bz2"
+    dump = DUMPS[-1]
+    assert dump == "20200514"
+    pages_xml = output_dir / f"pages-{dump}.xml"
+    pages_bz2 = output_dir / f"pages-{dump}.xml.bz2"
 
     # Clean-up before we start
     cleanup(output_dir)
@@ -54,7 +55,7 @@ def test_simple(craft_data: Callable[[str], bytes]) -> None:
     #   - fetch_snapshots()
     #   - fetch_pages()
     responses.add(responses.GET, BASE_URL.format("fr"), body=WIKTIONARY_INDEX)
-    responses.add(responses.GET, DUMP_URL.format("fr", date), body=craft_data("fr"))
+    responses.add(responses.GET, DUMP_URL.format("fr", dump), body=craft_data("fr"))
 
     # Start the whole process
     assert download.main("fr") == 0
@@ -70,9 +71,10 @@ def test_download_already_done(craft_data: Callable[[str], bytes]) -> None:
 
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
 
-    date = DUMPS[-1]
-    pages_xml = output_dir / f"pages-{date}.xml"
-    pages_bz2 = output_dir / f"pages-{date}.xml.bz2"
+    dump = DUMPS[-1]
+    assert dump == "20200514"
+    pages_xml = output_dir / f"pages-{dump}.xml"
+    pages_bz2 = output_dir / f"pages-{dump}.xml.bz2"
 
     # The BZ2 file was already downloaded
     pages_bz2.write_bytes(craft_data("fr"))
@@ -111,15 +113,18 @@ def test_ongoing_dump(craft_data: Callable[[str], bytes]) -> None:
     # Start the whole process
     assert download.main("fr") == 0
 
-    # Check that files are created
-    assert (output_dir / f"pages-{expected_dump}.xml").is_file()
-    assert (output_dir / f"pages-{expected_dump}.xml.bz2").is_file()
-
-    # Check that files are not created
-    assert not (output_dir / "pages-20200514.xml").is_file()
-    assert not (output_dir / "pages-20200514.xml.bz2").is_file()
-    assert not (output_dir / "pages-20200301.xml").is_file()
-    assert not (output_dir / "pages-20200301.xml.bz2").is_file()
+    # Check files
+    for dump in DUMPS:
+        page_xml = output_dir / f"pages-{dump}.xml"
+        page_bz2 = output_dir / f"pages-{dump}.xml.bz2"
+        if dump == expected_dump:
+            # Check that files are created
+            assert page_xml.is_file()
+            assert page_bz2.is_file()
+        else:
+            # Check that files are not created
+            assert not page_xml.is_file()
+            assert not page_bz2.is_file()
 
 
 @responses.activate
