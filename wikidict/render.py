@@ -381,6 +381,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
+    >>> adjust_wikicode("#participio passato di [[amare]]", "it")
+    '# {{flexion|amare}}'
     >>> adjust_wikicode("# participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
     >>> adjust_wikicode("#2ª pers. singolare indicativo presente del verbo [[amare]]", "it")
@@ -489,6 +491,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     elif locale == "it":
         # Hack for a fake variants to support more of them
+
         # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
         code = re.sub(
             r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]",
@@ -496,10 +499,18 @@ def adjust_wikicode(code: str, locale: str) -> str:
             code,
             flags=re.MULTILINE | re.IGNORECASE,
         )
+
         # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
         code = re.sub(r"^#\s?.+(?:singolare|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+
         # `# participio presente di [[amare]] → `{{flexion|amare}}`
-        code = re.sub(r"^#\s?participio presente di \[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+        # `# participio passato di [[amare]] → `{{flexion|amare}}`
+        code = re.sub(
+            r"^#\s?participio (?:passato|presente) di \[\[([^\]]+)\]\]",
+            r"# {{flexion|\1}}",
+            code,
+            flags=re.MULTILINE,
+        )
 
         # {{-verb form-}} → === {{verb form}} ===
         code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
