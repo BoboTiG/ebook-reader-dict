@@ -2263,7 +2263,8 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "vérité",
-        "ar-*a**ũ": "droit",
+        "ar-*a**ũ": "vérité",
+        "ar-*a*a*a-i": "s'assurer",
         "ar-*a*a*a-u": "éprouver",
         "ar-*a*a*ũ": "défaut de cheval",
         "ar-*a*²a*a": "vérifier",
@@ -2291,7 +2292,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "vérification",
         "ar-ta*a*²a*a": "être persuadé",
         "ar-ta*â*a*a": "revendiquer",
-    },  # 32
+    },  # 33
     "ar-HrF": {
         "aa_sens": "labour, sillon",
         "ar-***ũ": "",
