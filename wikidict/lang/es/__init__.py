@@ -202,6 +202,7 @@ templates_other = {
     "antropónimo ambiguo": "<i>Nombre de pila tanto de mujer como de varón</i>",
     "onomatopeya": "Onomatopeya",
     "sigla": "Sigla",
+    "suma de partes": "<i>Se utiliza como la suma de las partes: consulte las entradas de cada término por separado</i>",
 }
 
 # Release content on GitHub
