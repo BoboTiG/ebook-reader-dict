@@ -179,6 +179,7 @@ templates_ignored = (
     "ébauche-étym",
     "ébauche-exe",
     "exemple",
+    "Gallica",
     "ibid",
     "Import",
     "lire en ligne",
