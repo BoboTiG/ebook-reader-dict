@@ -243,6 +243,7 @@ templates_italic = {
     "nom collectif": "Nom collectif",
     "noms de domaine": "Informatique",
     "nom-déposé": "Marque commerciale",
+    "Nouvelle-Angleterre": "Nouvelle-Angleterre",
     "ortho1990": "orthographe rectifiée de 1990",
     "Ortograf altêrnativ": "Ortograf altêrnativ",
     "par analogie": "Par analogie",
