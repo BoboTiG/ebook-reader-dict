@@ -16,6 +16,7 @@ domain_templates = {
     "Tintin": "Univers de Tintin",
     "URSS": "Histoire, Communisme, URSS",
     "Yougoslavie": "Histoire, Yougoslavie",
+    "additifs": "Alimentaire",
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
     "alcools": "Boisson",
@@ -341,5 +342,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 336
+}  # 337
 # END

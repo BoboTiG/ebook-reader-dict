@@ -1334,7 +1334,7 @@ langs = {
     "cgg": "rukiga",
     "cgk": "chocangacakha",
     "ch": "chamorro",
-    "chb": "chibcha",
+    "chb": "muisca",
     "chc": "catabwa",
     "chd": "tequistlateco alto",
     "chf": "yoko t'aan",
