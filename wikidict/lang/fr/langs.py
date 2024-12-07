@@ -4863,6 +4863,7 @@ langs = {
     "ser": "serrano",
     "ses": "songhaï koyraboro senni",
     "set": "sentani",
+    "seto": "seto",
     "seu": "serui-laut",
     "sev": "sénoufo nyarafolo",
     "sew": "sewa bay",
@@ -6478,5 +6479,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,473
+}  # 6,474
 # END
