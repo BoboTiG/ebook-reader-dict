@@ -16,7 +16,7 @@ domain_templates = {
     "Tintin": "Univers de Tintin",
     "URSS": "Histoire, Communisme, URSS",
     "Yougoslavie": "Histoire, Yougoslavie",
-    "additifs": "Alimentaire",
+    "additifs": "Industrie alimentaire",
     "agrumes": "Botanique",
     "alcaloïdes": "Chimie",
     "alcools": "Boisson",
