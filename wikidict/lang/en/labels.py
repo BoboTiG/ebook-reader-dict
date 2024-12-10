@@ -1892,7 +1892,6 @@ labels = {
     "nt-flapping": "''nt''-flapping",
     "nuclear physics": "nuclear physics",
     "number theory": "number theory",
-    "numeronym": "numeronym",
     "numismatics": "numismatics",
     "nurse merger": "''fern''–''fir''–''fur'' merger",
     "nutrition": "nutrition",
@@ -2493,7 +2492,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,488
+}  # 2,487
 
 syntaxes = {
     "&": {
