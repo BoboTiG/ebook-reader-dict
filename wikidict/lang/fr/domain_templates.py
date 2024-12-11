@@ -223,6 +223,7 @@ domain_templates = {
     "ovins": "Zoologie",
     "padonkaffsky": "Padonkaffsky",
     "padonki": "Padonkaffsky",
+    "pains": "Boulangerie",
     "palmiers": "Botanique",
     "palmipèdes": "Ornithologie",
     "papillons": "Entomologie",
@@ -321,6 +322,7 @@ domain_templates = {
     "vents": "Météorologie",
     "vers": "Zoologie",
     "viandes": "Cuisine",
+    "viennoiseries": "Boulangerie",
     "vins": "Œnologie",
     "virus": "Virologie",
     "voies": "Transport",
@@ -343,5 +345,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 338
+}  # 340
 # END

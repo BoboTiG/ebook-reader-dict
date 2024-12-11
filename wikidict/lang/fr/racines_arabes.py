@@ -2293,7 +2293,7 @@ racines_schemes_arabes = {
         "ar-a**â*ũ": "{{p}} petites boîtes",
         "ar-ma**û*ũ": "digne",
         "ar-mu*a*²a*ũ": "vérifié",
-        "ar-musta**a*@ũ": "méritant",
+        "ar-musta**a*ũ": "méritant",
         "ar-n*a*a*a": "être serré",
         "ar-sta**a*a": "mériter",
         "ar-ta**î*ũ": "vérification",
