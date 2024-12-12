@@ -27,7 +27,7 @@ def read_all_lines_etym(lines: list[str]) -> dict[str, dict[str, str]]:
             continue
         if in_comment:
             continue
-        if line.startswith(("--", "return")):
+        if line.startswith(("--", "return", "end", "local function")):
             continue
         remove_words = ("nil,", "ancestral_to_parent", "remove_diacritics", "remove_exceptions", "m_langdata")
         if any(word in line for word in remove_words):
