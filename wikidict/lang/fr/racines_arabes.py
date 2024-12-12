@@ -1652,6 +1652,45 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "remercier vivement",
         "ar-ta*â*a*a": "",
     },  # 34
+    "ar-Cml": {
+        "aa_sens": "envelopper",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "petite quantité",
+        "ar-*a**ũ": "séparation",
+        "ar-*a*a*a-u": "envelopper",
+        "ar-*a*a*ũ": "petite quantité",
+        "ar-*a*i*a-a": "envelopper",
+        "ar-*a*²a*a": "se mettre au travail",
+        "ar-*a*â*iy²ũ": "septentrional",
+        "ar-*a*â*âtũ": "{{p}} côtés nord",
+        "ar-*a*â*ũ": "côté gauche",
+        "ar-*a*âyi*u": "{{p}} côtés gauches",
+        "ar-*a*î*@ũ": "caractère",
+        "ar-*a*û*ũ": "vent du nord",
+        "ar-*aw*a*ũ": "vent du nord",
+        "ar-*i**@ũ": "se draper",
+        "ar-*i**ũ": "vent du nord",
+        "ar-*i*i*ũ": "rameau à datte",
+        "ar-*i*â*âtũ": "{{p}} vents du nord",
+        "ar-*i*â*ũ": "main gauche",
+        "ar-*ta*a*a": "s'envelopper",
+        "ar-*u*u*ũ": "{{p}} côtés gauches",
+        "ar-*u*û*ũ": "enveloppement",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "général",
+        "ar-a**a*a": "envelopper",
+        "ar-a**u*ũ": "{{p}} mains gauches",
+        "ar-ma**â*@ũ": "contrée du nord",
+        "ar-ma**û*ũ": "qui a reçu le vent du nord",
+        "ar-mi**a*ũ": "manteau enveloppant",
+        "ar-mi**â*@ũ": "manteau enveloppant",
+        "ar-mi**â*ũ": "manteau sans couture",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "être enveloppé",
+        "ar-ta*â*a*a": "",
+    },  # 37
     "ar-Crq": {
         "aa_sens": "orient, dessécher",
         "ar-***ũ": "",
@@ -9720,5 +9759,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 333
+}  # 334
 # END
