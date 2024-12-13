@@ -1728,6 +1728,7 @@ labels = {
     "military ranks": "military",
     "military slang": "military slang",
     "military unit": "military",
+    "milling": "milling",
     "minced oath": "minced oath",
     "mineral": "mineralogy",
     "mineralogy": "mineralogy",
@@ -2492,7 +2493,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,487
+}  # 2,488
 
 syntaxes = {
     "&": {

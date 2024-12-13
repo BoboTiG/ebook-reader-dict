@@ -82,7 +82,7 @@ abk = {
     "metaphor.": "metaphorisch",
     "meton.": "metonymisch",
     "mitteld.": "mitteldeutsch",
-    "mlat.": "mittellateinisch",
+    "mlat.": "mittell^ateinisch",
     "mundartl.": "mundartlich",
     "nDu.": "nur Dual",
     "nPl.": "nur Plural",
