@@ -45,6 +45,11 @@ recognized_placetypes = {
         "display": "London borough",
         "preposition": "of",
     },
+    "Polish colony": {
+        "article": "a",
+        "display": "colony",
+        "preposition": "in",
+    },
     "Roman province": {
         "article": "a",
         "display": "Roman province",
@@ -2160,7 +2165,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 431
+}  # 432
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2218,6 +2223,7 @@ placetypes_aliases = {
     "par": "parish",
     "parmun": "parish municipality",
     "pen": "peninsula",
+    "plcolony": "Polish colony",
     "pref": "prefecture",
     "prefcity": "prefecture-level city",
     "preflcity": "prefecture-level city",
@@ -2250,7 +2256,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 87
+}  # 88
 
 recognized_qualifiers = {
     "abandoned": "abandoned",

@@ -363,6 +363,7 @@ regions = {
     "Kiribati": "Kiribati",
     "Kitigan Zibi": "Kitigan Zibi",
     "Kortemark": "Kortemark",
+    "Kosovo": "Kosovo",
     "Koupuana": "Koupuana",
     "Koweït": "Koweït",
     "Kurdistan": "Kurdistan",
@@ -770,6 +771,7 @@ regions = {
     "Wallis-et-Futuna": "Wallis-et-Futuna",
     "Wallonie": "Wallonie",
     "West Muskerry": "West Muskerry",
+    "XK": "Kosovo",
     "Yonne": "Yonne",
     "Yorkshire": "Yorkshire",
     "Yucatan": "Yucatán",
@@ -812,5 +814,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 807
+}  # 809
 # END

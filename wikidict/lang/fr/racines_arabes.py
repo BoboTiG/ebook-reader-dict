@@ -9308,6 +9308,33 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "naissance",
         "ar-ta*â*a*a": "croître et multiplier",
     },  # 43
+    "ar-wqf": {
+        "aa_sens": "se camper",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "placement",
+        "ar-*a**ũ": "station",
+        "ar-*a*a*a-i": "se camper",
+        "ar-*a*²a*a": "mettre debout",
+        "ar-*a*²â*ũ": "traînant",
+        "ar-*a*î*@ũ": "chose arrêtée",
+        "ar-*i*â*ũ": "assistance",
+        "ar-*ta*a*a": "",
+        "ar-*u*û*ũ": "savoir",
+        "ar-*â*a*a": "assister",
+        "ar-*â*i*ũ": "qui s'arrête",
+        "ar-a**a*a": "placer",
+        "ar-ma**i*ũ": "station",
+        "ar-ma**û*ũ": "interrompu",
+        "ar-mi**a*ũ": "cuillère",
+        "ar-mu*a*²a*ũ": "éprouvé",
+        "ar-mu*â*a*@ũ": "assistance",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "demander d'arrêter",
+        "ar-ta**î*ũ": "marque blanche",
+        "ar-ta*a*²a*a": "s'arrêter",
+        "ar-ta*â*a*a": "se confronter",
+    },  # 25
     "ar-wrd": {
         "aa_sens": "accéder à l’eau ; rose",
         "ar-**â*²a": "être fauve",
@@ -9581,6 +9608,35 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 23
+    "ar-zhd": {
+        "aa_sens": "renoncer",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "quantité",
+        "ar-*a*a*a-a": "s'abstenir",
+        "ar-*a*a*ũ": "aumône",
+        "ar-*a*i*a-a": "être ascète",
+        "ar-*a*u*a": "être ascète",
+        "ar-*a*²a*a": "dégoûter",
+        "ar-*a*â*@ũ": "continence",
+        "ar-*a*â*ũ": "sol perméable",
+        "ar-*a*î*@ũ": "{{f}} maigre",
+        "ar-*a*î*ũ": "maigre",
+        "ar-*da*a*a": "déprécier",
+        "ar-*i*â*ũ": "{{p}} aumônes",
+        "ar-*u**ũ": "abstinence",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "abstinent",
+        "ar-a**a*a": "être dénué",
+        "ar-ma**i*@ũ": "{{f}} pauvre",
+        "ar-ma**i*ũ": "pauvre",
+        "ar-muta*a*²i*ũ": "ascète",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "devenir ascète",
+        "ar-ta*a*²u*ũ": "vie ascétique",
+        "ar-ta*â*a*a": "dédaigner",
+    },  # 27
     "ar-zhr": {
         "aa_sens": "briller, fleurir",
         "ar-**â*²a": "être en fleur",
@@ -9759,5 +9815,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 334
+}  # 336
 # END
