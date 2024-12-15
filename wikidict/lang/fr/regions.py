@@ -600,6 +600,7 @@ regions = {
     "Québec": "Québec",
     "RDC": "Congo-Kinshasa",
     "RDCongo": "Congo-Kinshasa",
+    "RS": "Serbie",
     "Ramerupt": "Ramerupt",
     "Ramonchamp": "Ramonchamp",
     "Rhône-Alpes": "Rhône-Alpes",
@@ -814,5 +815,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 809
+}  # 810
 # END
