@@ -329,9 +329,9 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_etimologia("etimología", ["plural", "vacación", "-es"], defaultdict(str))
     'De <i>vacación</i> y el sufijo flexivo <i>-es</i>'
     >>> render_etimologia("etimología", ["pronominal", "agrupar"], defaultdict(str))
-    'De <i>agrupar</i>, con el pronombre reflexivo átono'
+    'De <i>agrupar</i> con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["pronominal", "espinar"], defaultdict(str, {"num": "1"}))
-    'De <i>espinar<sub>1</sub></i>, con el pronombre reflexivo átono'
+    'De <i>espinar<sub>1</sub></i> con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["regresiva", "controvertido"], defaultdict(str))
     'Por derivación regresiva de <i>controvertido</i>'
     >>> render_etimologia("etimología", ["sánscrito", "गुरू", "maestro"], defaultdict(str, {"transcripción":"gūru"}))
@@ -490,7 +490,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     elif cat == "pronominal":
         data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
         phrase1 = render_l("l+", [parts[0]], data)
-        phrase = f"De {phrase1}, con el pronombre reflexivo átono"
+        phrase = f"De {phrase1} con el pronombre reflexivo átono"
     elif cat in ("derivación regresiva", "regresiva", "REG"):
         phrase = "Por derivación regresiva de "
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
