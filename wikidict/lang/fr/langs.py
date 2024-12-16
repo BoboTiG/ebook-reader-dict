@@ -3169,7 +3169,7 @@ langs = {
     "mcx": "mpiemo",
     "mcy": "watut du Sud",
     "mcz": "mawan",
-    "mda": "mada (Nigéria)",
+    "mda": "mada (Nigeria)",
     "mdb": "morigi",
     "mdc": "male",
     "mdd": "mbum",

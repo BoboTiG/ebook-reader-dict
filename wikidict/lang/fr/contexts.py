@@ -615,6 +615,7 @@ contexts = {
     "quartiers": "Toponyme",
     "québécisme": "Québécisme",
     "rare": "Rare",
+    "registre_vulgaire": "Registre vulgaire",
     "relevé": "Relevé",
     "religieux": "Religieux",
     "religion": "Religion",
@@ -776,5 +777,5 @@ contexts = {
     "états": "État",
     "étymologie": "Étymologie",
     "îles": "Géographie",
-}  # 771
+}  # 772
 # END
