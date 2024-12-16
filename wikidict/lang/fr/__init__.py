@@ -424,6 +424,8 @@ templates_multi = {
     "re": "superscript(parts[1] if len(parts) > 1 else 're')",
     # {{registre|traditionnellement}}
     "registre": "italic(f\"({capitalize(parts[1])})\") if len(parts) > 1 else ''",
+    # {{ruby|泡盛|あわもり}}
+    "ruby": "f'<ruby>{parts[1]}<rt>{parts[2]}</rt></ruby>'",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}

@@ -569,6 +569,7 @@ def test_parse_word(
         ),
         ("{{réf}}", ""),
         ("{{registre|traditionnellement}}", "<i>(Traditionnellement)</i>"),
+        ("{{ruby|泡盛|あわもり}}", "<ruby>泡盛<rt>あわもり</rt></ruby>"),
         ("{{SIC}}", "<sup>[sic]</sup>"),
         ("{{sic !|Bevatron}}", "<sup>[sic : Bevatron]</sup>"),
         ("{{smo}}", "samoan"),
