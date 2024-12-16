@@ -31,7 +31,7 @@ from wikidict.utils import process_templates
             ["/kʊm/", "/kʌm/"],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
-                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.</i>",
+                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or which has changed from one to another.</i>",
                 "<i>(colloquial, often vulgar)</i> Semen.",
                 "<i>(colloquial, often vulgar)</i> Female ejaculatory discharge.",
                 "<i>(colloquial, often vulgar)</i> An ejaculation.",
@@ -83,7 +83,7 @@ from wikidict.utils import process_templates
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
                 "<i>(Roman mythology)</i> The Roman god of war.",
                 "<i>(poetic)</i> War; a personification of war.",
-                "The Mars bar, a brand of chocolate bar with caramel and nougat filling.",
+                "<i>Short for</i> <b>Mars bar</b>, a brand of chocolate bar with caramel and nougat filling.",
                 "A village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine",
                 "<i>(heraldry, rare)</i> Gules (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",
                 "<i>(obsolete, alchemy, chemistry)</i> Iron.",
@@ -183,7 +183,7 @@ from wikidict.utils import process_templates
         ),
         (
             "um",
-            ["/əːm/", "/ʌm/"],
+            ["/ʌm/"],
             ["Onomatopoeic."],
             [
                 "micrometer; variant of μm used when the character μ is unavailable",
@@ -274,7 +274,7 @@ from wikidict.utils import process_templates
         ),
         (
             "word",
-            ["/wɜːd/", "/wɝd/"],
+            ["/wəɹd/", "/wɜːd/", "/wɝd/"],
             [
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."
             ],
@@ -329,7 +329,6 @@ def test_parse_word(
     """Test the sections finder and definitions getter."""
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
-    print(repr(details.etymology))
     assert pronunciations == details.pronunciations
     assert etymology == details.etymology
     assert definitions == details.definitions

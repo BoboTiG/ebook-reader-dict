@@ -41,7 +41,8 @@ Webster's Revised Unabridged Dictionary from 1913 still lists {{m|en|efficient}}
 * {{l|en|inefficient}}
 
 ====Derived terms====
-{{der2|en|Kaldor-Hicks efficient
+{{col-auto|en|ecoefficient|efficiently|efficientness|equiefficient|hyperefficient|nonefficient|superefficient|ultraefficient
+|Kaldor-Hicks efficient
 |efficient cause|energy-efficient|energy efficient
 |subefficient|cost-efficient|efficient market hypothesis}}
 

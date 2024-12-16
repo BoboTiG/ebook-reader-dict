@@ -1,11 +1,11 @@
 == {{lengua|es}} ==
-{{pron-graf}}
+{{pron-graf|pron=no}}
 
 === Etimología 1 ===
-{{etimología}}.
+{{etimología|ONOM}}.
 
 ==== {{onomatopeya|es}} ====
-;1: {{plm|onomatopeya}} que representa el sonido del [[ronquido]]. Se usa para indicar que alguien está [[dormir|dormido]].
+;1: {{plm|onomatopeya}} que representa el sonido de la respiración durante el [[sueño]]. Se usa para indicar que alguien está [[dormir|dormido]].
 {{ejemplo|Tan monocorde fue su discurso que muchos parlamentarios se durmieron, zzz... zzz, y los ronquidos, norrr, norrr, norrr, al final se impusieron a unos tímidos aplausos, plas, plas.|c=pagina|t=La escritura silenciosa|f=2016-03-05|u=https://web.archive.org/web/20160305040815/http://www.juanmarin.net/index.php?aid}}
 
 ==== Véase también ====

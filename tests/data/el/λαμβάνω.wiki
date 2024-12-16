@@ -77,7 +77,7 @@
 <!-- * {{ko}} : {{τ|ko|XXX}} -->
 <!-- * {{ku}} : {{τ|ku|XXX}} -->
 <!-- * {{hr}} : {{τ|hr|XXX}} -->
-* {{de}} : {{τ|de|bekommen}}
+* {{de}} : {{τ|de|bekommen}}, {{τ|de|nehmen}}
 <!-- * {{la}} : {{τ|la|XXX}} -->
 <!-- * {{lt}} : {{τ|lt|XXX}} -->
 <!-- * {{ms}} : {{τ|ms|XXX}} -->

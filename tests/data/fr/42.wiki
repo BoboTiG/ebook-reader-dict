@@ -30,7 +30,7 @@
 
 === {{S|nom propre|fr}} ===
 {{fr-inv|ka.ʁɑ̃t.dø|inv_titre={{m}} {{s}}}}
-'''42''' {{m}} {{s}}
+'''42''' {{pron|ka.ʁɑ̃t.dø|fr}} {{m}} {{s}}
 # {{France|fr}} [[département|Département]] de la [[Loire]].
 #* {{exemple | lang=fr | J’habite dans le '''42'''.}}
 
@@ -44,6 +44,7 @@
 * {{écouter|lang=fr|France (Cesseras)||audio=LL-Q150 (fra)-Guilhelma-42.wav}}
 * {{écouter|France (Lyon)||lang=fr|audio=LL-Q150 (fra)-WikiLucas00-42.wav}}
 * {{écouter|Mulhouse (France)||lang=fr|audio=LL-Q150 (fra)-Mathieu Kappler-42.wav}}
+* {{écouter|Courmayeur (Italie)||niveau=moyen|lang=fr|audio=LL-Q150 (fra)-XANA000-42.wav}}
 
 === {{S|anagrammes}} ===
 {{voir anagrammes|fr}}

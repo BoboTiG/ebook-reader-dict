@@ -14,6 +14,7 @@ From {{inh|en|enm|sum on}}, {{m|enm|sum one}}, {{m|enm|sum oon}}, equivalent to 
 * {{audio|en|en-us-someone.ogg|a=GA}}
 * {{rhymes|en|ʌmwʌn|s=2}}
 * {{hyphenation|en|some|one}}
+* {{rhymes|en|ʌn|s=2}}
 
 ===Pronoun===
 {{en-pron}}

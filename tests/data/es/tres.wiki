@@ -8,6 +8,7 @@
 {{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este {{etim|ine-pro|*tréyes}}. Cognado del ladino {{l+|lad|tres}}.
 
 ==== {{adjetivo cardinal|es}} indeclinable ====
+{{tabla-cardinal|3|ord=tercero|nprev=2|nsig=4|r=III|prev=dos|sig=cuatro}}
 {{inflect.es.adj.invariante}}
 [[Categoría:ES:Adjetivos indeclinables]]
 ;1: {{plm|dos}} y [[uno]].

@@ -47,7 +47,7 @@
 * Bengali: {{t|bn|ইহা হয়|sc=Beng}}
 * Catalan: {{t|ca|[[ell]] [[és]]}}
 * Dutch: {{t|nl|[[’t]] [[is]]}}
-* Esperanto: {{t+|eo|estas}}
+* Esperanto: {{t+|eo|estas}}. {{t+|eo|ĝi estas}}
 * Finnish: {{t|fi|[[se]] [[on]]}}, {{t+|fi|on}}
 * French: {{t+|fr|c'est}}
 * German: {{t|de|[[es]] [[ist]]}}

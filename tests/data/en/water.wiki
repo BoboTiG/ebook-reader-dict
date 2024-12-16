@@ -28,7 +28,7 @@
 * {{IPA|en|/ˈwʊtəɹ/|[ˈwʊɾɚ]|a=Philadelphia,Baltimore}}, {{enPR|wo͝otər}}
 * {{IPA|en|/ˈwɔɹtəɹ/|[ˈwɔɹɾɚ]|a=Western Pennsylvania}}, {{enPR|wôrtər}}
 * {{IPA|en|/ˈwoːtə/|[ˈwoːɾə]|a=Australia,NZ}}
-* {{IPA|en|/ˈwɔːtəɹ/|[ˈwɒːθ̠ɚ]|[wɔːʔəɹ]|a=Ireland}}
+* {{IPA|en|/ˈwɔːtəɹ/|[ˈwɒːθ̠ɚ]|[ˈwɔːʔəɹ]|a=Ireland}}
 * {{IPA|en|[ˈwɔʈə(r)]|[ˈʋɔʈə(r)]|a=InE}}
 * {{IPA|en|[ˈʋaːʈər(ɯ)]|[ˈwaːʈər(ɯ)]|a=Tamil English}}
 * {{IPA|en|[ˈwoːtə]|a=SAE}}
@@ -157,8 +157,10 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |Chinese water deer
 |Chinese water torture
 |Cincinnati water maze
+|Clunie Water
 |Cold Water Creek
 |Cologne water
+|Coniston Water
 |Deep Water
 |Deep Water Bay
 |Derwent Water
@@ -166,6 +168,7 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |Drinkwater
 |Edgewater
 |Egyptian water-lily
+|Elter Water
 |Endrick Water
 |Ettrick Water
 |European water vole
@@ -191,9 +194,11 @@ Cognate with cf, {{cog|frr|weeter||water}}, {{cog|stq|Woater||water}}, {{cog|fy|
 |Moscow Water Dog
 |North Water
 |Portuguese Water Dog
+|Rutland Water
 |Sapele water
 |Shallow Water
 |Shallowater
+|Shee Water
 |Southampton Water
 |Spanish Water Dog
 |Sweetwater
@@ -1335,6 +1340,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 * Italian: {{tt+|it|annaffiare}}
 * Japanese: {{tt|ja|[[水]][[を]][[やる]]|tr=みずをやる, mizu o yaru}}
 * Kapampangan: {{t|pam|magtugtug}}, {{t|pam|tugtugan}}
+* Khiamniungan Naga: {{t|kix|khìam}}
 * Kurdish:
 *: Central Kurdish: {{tt|ckb|ئاودان|tr=awdan}}
 *: Northern Kurdish: {{tt+|kmr|avdan}}
@@ -1388,6 +1394,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 * Indonesian: {{tt|id|beri minum}}
 * Italian: {{tt+|it|abbeverare}}
 * Japanese: {{tt|ja|[[水]][[を]][[やる]]|tr=みずをやる, mizu o yaru}}
+* Khiamniungan Naga: {{t|kix|khìam}}
 * Latvian: {{tt|lv|dzirdīt}}
 * Macedonian: {{t|mk|по́и|impf}}, {{t|mk|на́пои|pf}}
 * Ndzwani Comorian: {{tt|wni|nosa|alt=hunosa}}
@@ -1422,7 +1429,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 * Norwegian: {{tt+|no|tisse}}
 * Portuguese: {{tt+|pt|mijar}}
 * Russian: {{tt+|ru|пи́сать|impf|sc=Cyrl}}, {{tt+|ru|попи́сать|pf|sc=Cyrl}}
-* Spanish: {{tt|es|hacer agua}}
+* Spanish: {{tt+|es|hacer agua}}
 * Swedish: {{tt+|sv|kasta vatten}}
 * Telugu: {{tt+|te|మూత్రవిసర్జన|sc=Telu}}
 * Turkish: {{tt+|tr|işemek}}, {{tt+|tr|çiş yapmak}}
@@ -1451,6 +1458,7 @@ Cognate with {{cog|sco|watter||water}}, {{cog|stq|woaterje|t=to water}}, {{cog|f
 * Hungarian: {{tt+|hu|könnyezik}} {{qualifier|eyes}}, {{tt+|hu|nyáladzik}} {{qualifier|mouth}}
 * Indonesian: {{tt+|id|menangis}}
 * Japanese: {{tt+|ja|濡れる|tr=nureru}} {{qualifier|sexual: to get wet}}, {{tt|ja|[[分泌液]][[を]][[出す]]|tr=bunpitsueki o dasu}} {{qualifier|clinical: to secrete a liquid}}, {{tt|ja|[[水]][[を]][[積み込む]]|tr=mizu o tsumikomu}} {{qualifier|to take on (drinking) water, as a ship in resupply}}
+* Khiamniungan Naga: {{t|kix|khìam}}
 * Maori: {{tt|mi|pītoritoriwai}} {{qualifier|of the eyes due to irritation such as dryness}}, {{tt+|mi|koe}} {{qualifier|of the mouth}}, {{tt|mi|matatoua}} {{qualifier|Of the eyes}}, {{tt|mi|toriwai}} {{qualifier|of the eyes}}
 * Norwegian: {{tt+|no|gråte}}, {{tt|no|felle tårer}}
 * Polish: {{qualifier|eyes}} {{tt+|pl|łzawić}}

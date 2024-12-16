@@ -7,6 +7,7 @@
 ===Pronunciation===
 * {{IPA|en|/wɜːd/|a=RP}}
 * {{enPR|wûrd|a=GA}}, {{IPA|en|/wɝd/}}
+* {{IPA|en|/wəɹd/|[wɚ(ɹ)d]|a=CA}}
 * {{audio|en|en-us-word.ogg|a=US}}
 * {{rhymes|en|ɜː(ɹ)d|s=1}}
 * {{homophones|en|whirred}} {{qualifier|accents with the wine-whine merger}}
@@ -508,8 +509,8 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Papiamentu: {{tt|pap|palabra|f}}
 * Pashto: {{tt+|ps|لغت|tr=luġat}}, {{tt|ps|کلمه|tr=kalimā}}
 * Persian:
-*: Dari: {{tt+|prs|وَاژَه}}, {{tt+|prs|کَلِمَه}}, {{tt+|prs|لُغَت}}
-*: Iranian Persian: {{tt+|fa-ira|واژِه}}, {{tt+|fa-ira|کَلِمِه}}, {{tt+|fa-ira|لُغَت}}
+*: Dari: {{tt|prs|وَاژَه}}, {{tt|prs|کَلِمَه}}, {{tt|prs|لُغَت}}
+*: Iranian Persian: {{tt|fa-ira|واژِه}}, {{tt|fa-ira|کَلِمِه}}, {{tt|fa-ira|لُغَت}}
 * Piedmontese: {{t|pms|mòt|m}}, {{t|pms|vos|f}}, {{tt|pms|paròla|f}}
 * Plautdietsch: {{tt+|pdt|Wuat|n}}
 * Polabian: {{tt|pox|slüvǘ|n}}
@@ -589,6 +590,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * West Frisian: {{tt+|fy|wurd|n}}
 * Western Cham: {{tt|cja|بۉه ڤنوۉئ}}
 * White Hmong: {{tt|mww|lo lus}}
+* Woiwurrung: {{t|wyi|ngol}}
 * Wolof: {{tt+|wo|baat}}
 * Xhosa: {{tt|xh|igama}}
 * Yagnobi: {{t|yai|гап}}
@@ -599,6 +601,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Zazaki: {{tt|zza|çeku|c}}, {{tt+|zza|kelime|c}}, {{tt+|zza|qıse|m}}, {{tt|zza|qısa|f}}
 * Zhuang: {{tt|za|cih}}
 * Zulu: {{tt+|zu|igama|c5|c6}}, {{tt|zu|uhlamvu|c11|c10}}
+* Zyphe: {{t|zyp|bie}}
 {{trans-bottom}}
 
 {{trans-top|telegraphy: unit of text}}
@@ -623,7 +626,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Norwegian:
 *: Bokmål: {{tt+|nb|ord|n}}
 * Persian:
-*: Iranian Persian: {{tt+|fa-ira|واژِه}}
+*: Iranian Persian: {{tt|fa-ira|واژِه}}
 * Portuguese: {{tt+|pt|palavra|f}}
 * Romanian: {{tt+|ro|cuvânt|n}}
 * Russian: {{tt+|ru|сло́во|n}}
@@ -712,7 +715,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Norwegian:
 *: Bokmål: {{tt+|nb|ord|n}}, {{tt+|nb|lovnad|m}}
 * Persian:
-*: Iranian Persian: {{tt+|fa-ira|پِیْمان}}, {{tt+|fa-ira|قُوْل}}
+*: Iranian Persian: {{tt|fa-ira|پِیْمان}}, {{tt|fa-ira|قُوْل}}
 * Polish: {{tt+|pl|słowo|n}}
 * Portuguese: {{tt+|pt|palavra|f}}, {{tt+|pt|promessa|f}}
 * Romanian: {{tt|ro|[[cuvânt]] [[de]] [[onoare]]|n}}
@@ -781,7 +784,7 @@ From {{inh|en|enm|word}}, from {{inh|en|ang|word}}, from {{inh|en|gmw-pro|*word}
 * Norwegian:
 *: Bokmål: {{tt+|nb|ord|n}}
 * Persian:
-*: Iranian Persian: {{tt+|fa-ira|گُفْتار}}
+*: Iranian Persian: {{tt|fa-ira|گُفْتار}}
 * Polish: {{tt|pl|Słowo Boże|n}}
 * Portuguese: {{tt+|pt|verbo}}, {{tt+|pt|palavra|f}}, {{tt|pt|palavra do Senhor|f}}, {{tt|pt|palavra divina|f}}, {{tt|pt|palavra de Deus|f}}
 * Romanian: {{tt+|ro|cuvânt|n}}

@@ -139,6 +139,9 @@
 * {{écouter|Grenoble (France)||lang=fr|audio=LL-Q150 (fra)-Opsylac-geler.wav}}
 * {{écouter|canton du Valais (Suisse)||lang=fr|audio=LL-Q150 (fra)-LuneMarine (DSwissK)-geler.wav}}
 * {{écouter|Somain (France)||lang=fr|audio=LL-Q150 (fra)-Jérémy-Günther-Heinz Jähnick-geler.wav}}
+* {{écouter|Courmayeur (Italie)||niveau=moyen|lang=fr|audio=LL-Q150 (fra)-XANA000-geler.wav}}
+
+
 
 ==== {{S|homophones|fr}} ====
 * [[gelée]]

@@ -53,12 +53,12 @@
 === {{S|verbe|br|flexion}} ===
 {{br-forme-mut|goro|forme=Infinitif}}
 '''koro''' {{pron|ˈkoː.ro|br}}
-# {{mutation de|goro|d|br}} (g > k).
+# {{mutation de|goro|d|br}} (g → k).
 
 === {{S|verbe|br|flexion|num=2}} ===
 {{br-forme-mut|goro}}
 '''koro''' {{pron|ˈkoː.ro|br}}
-# {{mutation de|goro|d|br}} (g > k).
+# {{mutation de|goro|d|br}} (g → k).
 
 == {{langue|cst-cho}} ==
 === {{S|étymologie}} ===

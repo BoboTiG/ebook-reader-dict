@@ -43,11 +43,8 @@ From {{inh-lite|en|enm|Mars}}, from {{der-lite|en|la|Mars|Mārs|god of war}}, fr
 =====Synonyms=====
 * {{s|astronomy|astrology}} [[♂]]
 
-=====Derived terms=====
-* {{l-lite|en|Marsling}}
-* {{l-lite|en|martial}}
-* {{l-lite|en|Martian}}
-*{{l|en|plain of Mars}}
+====Derived terms====
+{{col-auto|en|Marsling|martial|Martian|plain of Mars|crocus of Mars}}
 
 =====Translations=====
 {{trans-top|id=Q111|planet}}{{multitrans|data=
@@ -158,8 +155,8 @@ From {{inh-lite|en|enm|Mars}}, from {{der-lite|en|la|Mars|Mārs|god of war}}, fr
 * Ossetian: {{tt|os|Марс}}
 * Pashto: {{tt|ps|مريخ|m|tr=marix}}
 * Persian:
-*: Dari: {{tt+|prs|مِرِّیخ}}, {{tt+|prs|بَهْرَام}}, {{tt+|prs|مَارْس}}
-*: Iranian Persian: {{tt+|fa-ira|مِرّیخ}}, {{tt+|fa-ira|بَهْرام}}, {{tt+|fa-ira|مارْس}}
+*: Dari: {{tt|prs|مِرِّیخ}}, {{tt|prs|بَهْرَام}}, {{tt|prs|مَارْس}}
+*: Iranian Persian: {{tt|fa-ira|مِرّیخ}}, {{tt|fa-ira|بَهْرام}}, {{tt|fa-ira|مارْس}}
 * Polish: {{tt+|pl|Mars|m}}
 * Portuguese: {{tt+|pt|Marte|m}}
 * Punjabi: {{tt|pa|ਮੰਗਲ}}
@@ -271,8 +268,8 @@ From {{inh-lite|en|enm|Mars}}, from {{der-lite|en|la|Mars|Mārs|god of war}}, fr
 * Old Church Slavonic:
 *: Cyrillic: {{tt|cu|Арисъ|m}}
 * Persian:
-*: Dari: {{tt+|prs|مَارْس}}
-*: Iranian Persian: {{tt+|fa-ira|مارْس}}
+*: Dari: {{tt|prs|مَارْس}}
+*: Iranian Persian: {{tt|fa-ira|مارْس}}
 * Polish: {{tt+|pl|Mars|m}}
 * Portuguese: {{tt+|pt|Marte|m}}
 * Romanian: {{tt|ro|Маrte}}
@@ -319,6 +316,7 @@ From {{inh-lite|en|enm|Mars}}, from {{der-lite|en|la|Mars|Mārs|god of war}}, fr
 {{table:Solar System/en}}
 
 ===Etymology 2===
+{{rfd|en|Brand name that has not entered the general lexicon; see [[WT:BRAND]]}}
 [[File:MBar 700.jpg|thumb|UK-style Mars bar]]
 
 After {{w|Franklin Clarence Mars}}, who founded the company that produces these chocolate bars. His surname is possibly a variant of {{m|en|Marrs}},<ref>{{R:en:DAFN}}</ref> itself from {{m|en|Marr}} with post-medieval excrescent ''-s''.<ref>{{R:en:DAFN|Marrs}}</ref>
@@ -326,8 +324,9 @@ After {{w|Franklin Clarence Mars}}, who founded the company that produces these 
 ====Proper noun====
 {{en-proper noun}}
 
-# The {{w|Mars bar}}, a [[brand]] of [[chocolate]] [[bar]] with [[caramel]] and [[nougat]] [[filling]].
+# {{short for|en|{{w|Mars bar}}|dot=,}} a [[brand]] of [[chocolate]] [[bar]] with [[caramel]] and [[nougat]] [[filling]].
 #* {{quote-book|en|year=1985|author=Michael Collier|title=Longest Day|page=206|passage=Easily eight foot tall, each was big, brown and glutinous - like giant '''Mars''' Bars squeezed and welded into nightmarish sculptures.}}
+#* {{quote-web|en|date=30 November 2024|text=A man who caused an online storm when he found a '''Mars''' bar without its signature ripple has received £2 in compensation.|title=Man who found smooth Mars bar gets £2 compensation|url=https://www.bbc.com/news/articles/cx247dwx1p7o?xtor=AL-72-%5Bpartner%5D-%5Bbbc.news.twitter%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D&at_bbc_team=editorial&at_format=link|author=Nathan Briant|work=BBC}}
 
 =====Derived terms=====
 * {{l|en|Mars Bar party}}
@@ -351,7 +350,7 @@ After {{w|Franklin Clarence Mars}}, who founded the company that produces these 
 * Hindi: {{tt|hi|मार्स|m}}
 * Hungarian: {{tt+|hu|Mars}}
 * Italian: {{tt+|it|Mars|m}}
-* Korean: {{tt+|ko|^마르스}}
+* Korean: {{tt+|ko|^마즈}}
 * Latvian: {{tt+|lv|Mars}}
 * Macedonian: {{tt|mk|Марс|m}}
 * Marathi: {{tt|mr|मार्स|m}}
@@ -501,7 +500,7 @@ First attested as ''mersche'' in 1307. Derived from {{m-lite|nl|meers||land next
 ====Proper noun====
 {{nl-proper noun|n}}
 
-# {{place|nl|neighbourhood|c/Land van Cuijk|p/North Brabant|c/Netherlands}}
+# {{place|nl|neighborhood|c/Land van Cuijk|p/North Brabant|c/Netherlands}}.
 
 ===References===
 * {{R:nl:NPV}}
@@ -685,13 +684,13 @@ From {{bor-lite|is|la|Mars|Mārs}}.
 * {{homophones|is|mars}}
 
 ===Proper noun===
-{{head-lite|is|proper nouns|g=m}}
+{{is-proper noun|@@}}
 
 # {{senseid|is|Q111}}{{C|is|Planets of the Solar System}}{{l-lite|en|Mars}} (planet)
 # {{senseid|is|Q112}}{{C|is|Roman deities}}{{l|en|Mars}} (Roman god)
 
 ====Declension====
-{{is-decl-noun-m-s1|M|a|rs|pl=-|def=-}}
+{{is-ndecl|m.dat-}}
 
 ===See also===
 {{table:Solar System/is}}
@@ -762,6 +761,7 @@ The name of the god could, through {{m-lite|la|interpretatio romana}}, serve to 
 |mārticola
 |mārticultor
 |Mārtigena
+|Mārtīnus
 |mārtiobarbulus
 |mārtius
 }}

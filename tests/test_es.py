@@ -44,8 +44,13 @@ from wikidict.utils import process_templates
             [],
             ["Del occitano <i>cartel</i>."],
             [
-                "Lámina que se expone para dar información mediante palabras o imágenes.",
+                "Lámina en donde se imprime algún mensaje, ya sea con palabras, símbolos o imágenes, y se deja a la vista para difundir información.",
+                "<i>(Política)</i>: Escrito anónimo que se fija sobre un cartel y se deja en un lugar público con mensajes satíricos hacia algún político.",
+                "Escrito que se fija sobre un cartel en un lugar público, en donde se invita a otra persona a una contienda.",
+                "Escrito que se fija sobre un cartel en un lugar público, en donde se extorsiona al enemigo en una negociación, por ejemplo, en lo que respecta a la liberación de prisioneros.",
                 "Prestigio.",
+                "<i>(Pesca)</i>: Red que se usa para la pesca de la sardina.",
+                "<i>Variante de</i> cártel.",
             ],
             [],
         ),
@@ -228,9 +233,9 @@ from wikidict.utils import process_templates
         (
             "zzz",
             [],
-            [],
+            ["Onomatopéyica."],
             [
-                "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
+                "Onomatopeya que representa el sonido de la respiración durante el sueño. Se usa para indicar que alguien está dormido.",
             ],
             [],
         ),

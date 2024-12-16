@@ -24,7 +24,7 @@
 {{overs-topp|avvik}}
 * {{overs|da|aberration|c}}
 * {{overs|en|aberration|c}}
-* {{overs-mangler|fi}}
+* {{overs|fi|poikkeama}}
 * {{overs|fr|aberration|f}}
 * {{overs|it|aberrazione|f}}
 {{overs-midt}}
@@ -34,6 +34,7 @@
 * {{overs|de|Aberration|f}}
 {{overs-bunn}}
 {{overs-topp|astronomi}}
+*{{overs|fi|aberraatio}}
 * {{overs|fr|aberration|f}}
 {{overs-midt}}
 {{overs-bunn}}

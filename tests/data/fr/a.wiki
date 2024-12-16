@@ -171,6 +171,7 @@ __TOC__
 
 ==== {{S|phrases}} ====
 * [[cœur qui soupire n’a pas ce qu’il désire]]
+* [[gentil n’a qu’un œil]]
 * [[la nature a horreur du vide]] ''({{cf|lang=fr|avoir horreur}})''
 * [[la plus belle fille du monde ne peut donner que ce qu’elle a]]
 * [[on n’a rien pour rien]]
@@ -267,7 +268,7 @@ __TOC__
 
 == {{langue|fro}} ==
 === {{S|étymologie}} ===
-: ''(Préposition)'' Du {{étyl|la|fro|mot=ad|sens=à, vers}} et ab (« de, depuis »).
+: ''(Préposition)'' Du {{étyl|la|fro|mot=ad|sens=à, vers}} et {{lien|''ab''|la|sens=de, depuis}}
 : ''(Forme de verbe)'' Du {{étyl|la|fro|mot=habet}}.
 : ''(Interjection)'' Du {{étyl|la|fro|mot=ah}}.
 
@@ -1155,7 +1156,7 @@ __TOC__
 
 == {{langue|ga}} ==
 === {{S|étymologie}} ===
-: {{term|Pronom possessif}} Du {{étyl|proto-celtique|ga}} {{recons|lang-mot-vedette=ga|esyo|proto-celtique}} (la voyelle finale enclenche la lénition), le proto-celtique féminin {{recons|lang-mot-vedette=ga|esyās|proto-celtique}} et le proto-celtique pluriel {{recons|lang-mot-vedette=ga|esyom|proto-celtique}} (la nasale finale enclenchant l’éclipse). Toutes ces formes sont issues du {{étyl|indo-européen commun|ga}} {{recons|lang-mot-vedette=ga|éy|indo-européen commun}}.
+: {{term|Pronom possessif}} Du {{étyl|proto-celtique|ga}} {{recons|lang-mot-vedette=ga|esyo|proto-celtique}} (la voyelle finale enclenche la lénition), le proto-celtique féminin {{recons|lang-mot-vedette=ga|esyās|proto-celtique}} (le -s final enclenchant la prothèse en « h ») et le proto-celtique pluriel {{recons|lang-mot-vedette=ga|esyom|proto-celtique}} (la nasale finale enclenchant l’éclipse). Toutes ces formes sont issues du {{étyl|indo-européen commun|ga}} {{recons|lang-mot-vedette=ga|éy|indo-européen commun}}.
 : {{term|Préposition}} Originellement, une forme réduire de ''{{lien|do|ga}}''.
 
 === {{S|lettre|ga}} ===
@@ -1168,11 +1169,14 @@ __TOC__
 
 === {{S|pronom possessif|ga}} ===
 '''a''' {{pron||ga}}
-# [[son|Son]]. {{note}} enclenche la lénition.
-# [[sa|Sa]]. {{note}} enclenche la prothèse en « h ».
+# [[son|Son]], [[sa]], [[ses]] (à [[lui]]) {{note}} enclenche la lénition.
+# [[son|Son]], [[sa]], [[ses]] (à [[elle]]) {{note}} enclenche la prothèse en « h ».
 # [[leur|Leur]] {{note}} enclenche l'éclipse.
 # {{Connacht|ga}} [[notre|Notre]] {{note}} enclenche l'éclipse.
 # {{Connacht|ga}} [[vos|Vos]] {{note}} enclenche l'éclipse.
+
+==== {{S|vocabulaire}} ====
+{{pronoms_personnels/ga}}
 
 === {{S|adverbe|ga}} ===
 '''a''' {{pron||ga}}
@@ -2158,12 +2162,29 @@ __TOC__
 * {{R:Rankin1982|p=4}}
 
 == {{langue|ro}} ==
+
+=== {{S|étymologie}} ===
+: {{lien-ancre-étym|ro|art}} Du {{étyl|la|ro|illa}}.
+: {{lien-ancre-étym|ro|prép}} Du {{étyl|la|ro|ad}}.
+: {{lien-ancre-étym|ro|verbe}} Du {{étyl|la|ro|habet}}.
 === {{S|article défini|ro|flexion}} ===
-'''a''' {{pron||ro}}
-# Forme féminin pluriel {{datif|ro}} et {{génitif|ro}} de l’article génitival [[al#ro|al]].
 {{ro-art-décl|type=génitival|nms=al|nfs=a|nmp=ai|nfp=ale|dms=alui|dfs=alei|dmp=alor|dfp=alor}}
 '''a''' {{pron|a|ro}} {{f}} {{s}}
 # Forme féminin singulier {{nominatif|ro}} et {{accusatif|ro}} de l’article génitival [[al#ro|al]].
+# {{informel|ro}} Forme du pluriel de l'article génitival [[al#ro|al]] (remplace ''{{lien|ai|ro}}'' et ''{{lien|ale|ro}}'').
+#* {{exemple|Noi nu suntem '''a''' nimănui.|Nous n'appartenons à personne.|source={{W|Carla's Dreams}}, ''{{W|Ne bucurăm în ciuda lor}}'', 2016|lien=https://music.youtube.com/watch?v=hyb94O7OJcM|lang=ro}}
+
+=== {{S|préposition|ro}} ===
+'''a''' {{pron|a|ro}}
+# Introduit un [[infinitif]].
+#* {{exemple|lang=ro|'''a''' cânta ; '''a''' vedea ; '''a''' dori|chanter ; voir ; désirer}}
+# Introduit l'objet d'une comparaison avec certains verbes de sensation :
+#* {{exemple|lang=ro|Moase '''a''' pământ.|Ça sent la terre.}}
+
+=== {{S|verbe|ro|flexion}} ===
+'''a''' {{pron|a|ro}}
+# ''Troisième personne du singulier de l’indicatif présent de'' [[avea#ro|avea]] ''en tant qu'auxiliaire du passé composé.
+#* {{exemple|lang=ro|Te-'''a văzut''' pe tine alergând acasă.|Il t''''a vu''' rentrer chez toi en courant.}}
 
 == {{langue|sc}} ==
 === {{S|étymologie}} ===

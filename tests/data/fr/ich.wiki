@@ -42,7 +42,7 @@
 
 == {{langue|de}} ==
 === {{S|étymologie}} ===
-: Du {{étyl|gmh|de|ich}}, du {{étyl|goh|de|mot=ih}}, du {{étyl|proto-germanique|de}} {{recons|lang-mot-vedette=de|[[Reconstruction:proto-germanique/*ek|ek]]}}, de l’indo-européen {{recons|lang-mot-vedette=de|éǵh₂}}.
+: Du {{étyl|gmh|de|ich}}, du {{étyl|goh|de|ih}}, du {{étyl|proto-germanique occidental|de}} {{recons|lang-mot-vedette=de|ik|proto-germanique occidental}}, du {{étyl|proto-germanique|de}} {{recons|lang-mot-vedette=de|[[Reconstruction:proto-germanique/*ek|ek]]}}, de l’{{étyl|indo-européen commun|de}} {{recons|lang-mot-vedette=de|éǵh₂|indo-européen commun}}.
 
 === {{S|pronom personnel|de}} ===
 '''ich''' {{pron|ɪç|de}} {{nominatif|de}}

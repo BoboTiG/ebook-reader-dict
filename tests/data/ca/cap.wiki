@@ -290,6 +290,7 @@
 * [[capo]], [[cape]], [[capi]]
 
 === Miscel·lània ===
+* {{ca-sil}}
 * {{anagrames|ca|pac}}
 
 === Vegeu també ===
@@ -351,8 +352,8 @@
 === Nom ===
 {{fr-nom|m}}
 
-# [[#ca|cap]] marí
-# {{marca|fr|en desús}} [[#ca|cap]] de persona
+# {{e|ca|cap}} marí
+# {{marca|fr|en desús}} {{e|ca|cap}} de persona
 #: {{ex-us|fr|Armé de pied en '''cap'''.|Armat de cap a peus.}}
 # [[direcció]], [[proa]]
 #: {{ex-us|fr|Avoir le '''cap''' au nord.|Portar direcció nord.}}

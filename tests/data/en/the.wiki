@@ -484,6 +484,7 @@ This is called the "comparative correlative", but it is also known as the "corre
 * Swedish: {{t|sv|[[ju]] + ''comp.'', [[desto]] + ''comp.''}}
 * Thai: {{t+|th|ยิ่ง|tr=yîng}} + ''comp''.
 * Turkish: {{t|tr|[[ne kadar]] + ''comp.'', [[o kadar]] + ''comp.''}}
+* Vietnamese: {{t|vi|[[càng]] + ''comp.'', [[càng]] + ''comp.''}}
 {{trans-bottom}}
 
 {{trans-top|indicating a result like the comparative}}
@@ -813,22 +814,22 @@ Cognates include {{cog|dgr|whe}}.
 {{vi-etym-sino|紗||hv=n|sa}}.
 
 ====Noun====
-{{vi-noun}}
+{{vi-noun|[[絁]], [[𦂛]], [[施]], [[𫄋]]}}
 
 # a kind of [[silk]] [[gauze]], often used to make [[ao dai]]
 
-=====See also=====
-{{vi-der|buồng the|phòng the}}
+=====Derived terms=====
+{{col3|vi|buồng the|phòng the}}
 
 ===Etymology 2===
 
 ====Adjective====
-{{vi-adj|[[𦂛]], [[𫄋]]}}
+{{vi-adj|[[施]]}}
 
 # having a [[strong]] and [[fragrant]] smell or flavor, usually overlaps with what described as "[[minty]]" or "[[citrusy]]" in English
 
-====See also====
-{{vi-der|the mát}}
+=====Derived terms=====
+{{col3|vi|the mát}}
 
 {{topics|vi|Smell}}
 

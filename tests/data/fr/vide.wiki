@@ -227,12 +227,14 @@
 * {{T|en}} : {{trad+|en|emptiness}}, {{trad+|en|empty|dif=empty space}}, {{trad+|en|void}} ; {{trad+|en|gap}} ''(brèche)''
 * {{T|es}} : {{trad+|es|vacío|m}}
 * {{T|shy}} : {{trad+|shy|ḍḍelf}}
+* {{T|eo}} : {{trad-|eo|vakuo}}
 * {{T|pl}} : {{trad+|pl|próżnia}}
 * {{T|sv}} : {{trad+|sv|tomrum|n}}
 {{trad-fin}}
 
 {{trad-début|{{info lex|physique}} Lieu où il n’y a pas de matière, qui ne contient pas d’air|2}}
 * {{T|en}} : {{trad+|en|vacuum}}
+* {{T|eo}} : {{trad-|eo|vakuo}}
 * {{T|pl}} : {{trad+|pl|próżnia}}
 * {{T|sv}} : {{trad+|sv|tomrum|n}}
 {{trad-fin}}
@@ -242,11 +244,12 @@
 
 {{trad-début|{{figuré|nocat=1}} Sentiment de manque, par rapport aux personnes ou aux occupations dont on vient d’être privé|4}}
 * {{T|en}} : {{trad+|en|emptiness}}
+* {{T|eo}} : {{trad-|eo|senhaveco}}
 {{trad-fin}}
 
 {{trad-début|{{figuré|nocat=1}} Vanité, vacuité, néant|5}}
 * {{T|en}} : {{trad+|en|emptiness}}
-* {{T|ryu}} : {{trad|ryu|あだ}}
+* {{T|ryu}} : {{trad|ryu|徒}}, {{trad|ryu|あだ}}
 {{trad-fin}}
 
 {{trad-début|{{info lex|sylviculture}} Espace sans arbres.|6}}

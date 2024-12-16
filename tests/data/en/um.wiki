@@ -16,7 +16,7 @@
 * {{alt|en|umm|uhm|hum|erm}}
 
 ====Pronunciation====
-* {{IPA|en|/ʌm/|/əːm/}}
+* {{IPA|en|/ʌm/}}
 * {{audio|en|en-us-um.ogg|a=US}}
 * {{rhymes|en|ʌm|s=1}} (when stressed, or as a verb)
 Used in [[rhotic]] dialects. Compare to British English {{m|en|erm}}.
@@ -143,6 +143,10 @@ From {{inh|fo|non|umb}}, from {{inh|fo|gem-pro|*umbi}}, from {{inh|fo|ine-pro|*h
 ==Galician==
 {{number box|gl}}
 
+===Pronunciation===
+{{gl-pr|un|audio=Gl-un.ogg}}
+* {{hyphenation|gl|um}}
+
 ===Numeral===
 {{head|gl|cnum|g=m|feminine|umha|or|uma|[[Appendix:Reintegrationism|reintegrationist]] norm}}
 
@@ -155,6 +159,9 @@ The numeral ''um'' and its feminine forms {{m-lite|gl|umha}} and {{m-lite|gl|uma
 * {{l-lite|gl|cum}}, {{l-lite|gl|cumha}}, {{l-lite|gl|cuma}}
 * {{l-lite|gl|dum}}, {{l-lite|gl|dumha}}, {{l-lite|gl|duma}}
 * {{l-lite|gl|num}}, {{l-lite|gl|numha}}, {{l-lite|gl|numa}}
+
+===References===
+* {{R:gl:Estraviz}}
 
 ==German==
 
@@ -247,7 +254,7 @@ From {{inh|de|gmh|umbe}}, {{m|gmh|ümbe}}, from {{inh|de|goh|umbi}}, from {{inh|
 From {{inh|is|non|um}}, from {{inh|is|gem-pro|*umbi|t=around, about}}.
 
 ===Adverb===
-{{head|is|adverb}}
+{{is-adv}}
 
 # {{non-gloss|used in set phrases}}
 #: {{ux|is|Það er [[um að gera|'''um''' að gera]] að sofa vel.|The important thing to do is to sleep well.}}
@@ -332,13 +339,14 @@ From {{der|idb|pt|um|t=a}}, from {{der|idb|roa-opt|ũu}}, from {{der|idb|la|ūnu
 From {{inh|ga|sga|imb|id=around}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|ine-pro|*h₂m̥bʰi|t=round about, around}}.
 
 ===Pronunciation===
-* {{IPA|ga|/ʊmˠ/}}
+* {{IPA|ga|/ʊmˠ/|ref={{R:ga:SjDe|93|section=105}}}}
 
 ===Preposition===
-{{ga-prep|d|l|desc=except of ''b'', ''m'', and ''p''<nowiki/>}}
+{{ga-prep|d|l|desc=except of {{m|ga||b}}, {{m|ga||m}}{{,}} and {{m|ga||p}}}}
 
 # [[about]]
 # [[at]]
+# [[because of]], [[on account of]]
 
 ====Inflection====
 {{ga-prep-infl
@@ -351,6 +359,9 @@ From {{inh|ga|sga|imb|id=around}}, from {{inh|ga|cel-pro|*ambi}}, from {{inh|ga|
 |2pl=umaibh
 |3pl=umpu
 }}
+
+====Derived terms====
+* {{l|ga|uime}}
 
 ===Further reading===
 * {{R:ga:Ó Dónaill}}
@@ -672,7 +683,7 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 {{inh+|sk|sla-pro|*umъ}}.
 
 ===Pronunciation===
-* {{IPA|sk|/ˈum/}}
+* {{sk-IPA}}
 
 ===Noun===
 {{sk-noun|m-in}}
@@ -682,7 +693,7 @@ From {{inh|rm|la|homō}}, ultimately from {{der|rm|ine-pro|*ǵʰmṓ|t=earthling
 # [[wit]]
 
 ====Declension====
-{{sk-decl-noun-dub|um|u}}
+{{sk-ndecl|m-in}}
 
 ====Synonyms====
 * {{l|sk|rozum|g=m}}

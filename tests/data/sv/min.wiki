@@ -6,11 +6,13 @@
 '''min''' (''förenade [[possessiva pronomen]]'')
 *{{uttal|sv|ipa=mɪn}}
 #{{tagg|kat=possessiva pronomen}} [[possessivt pronomen]] som indikerar [[ägande]] av eller [[tillhörighet]] till den [[talande]] ([[jag]]) om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; possessivt pronomen i [[första person]] [[singular]] med [[huvudord]]et i singular [[utrum]]
-#:'''''Min''' [[bologna]] smakar gott.''
+#:'''''Min''' julskinka smakar gott.''
+#:''Mitt headset faller isär, '''min''' musmatta kan snart klassas som odlingsfält och musen brukade vara ihålig.''
 #ovanstående i självständig form
 #:''Du kan få skärmen, men datorn förblir '''min'''.''
 '''min''' (''[[reflexiva possessiva pronomen]]'')
 #[[reflexivt possessivt pronomen]] som syftar tillbaka på och indikerar [[ägande]] av eller [[tillhörighet]] till [[subjekt]]et om subjektet är i första person singular ([[jag]]) och om det ägda eller tillhörande är i [[ental]] och har [[n-genus]]; reflexivt possessivt pronomen i första person singular med huvudordet i singular utrum
+#:''Hon klappar '''min''' katt.''
 #ovanstående i självständig form
 :{{avgränsare}}
 :{{besläktade ord|[[mitt]], [[mina]]}}

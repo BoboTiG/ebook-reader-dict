@@ -7,13 +7,13 @@
 ====Pronunciation====
 * {{IPA|en|/kʌm/|/kʊm/}}<ref name="lexico">{{R:Lexico}}</ref><ref name="dictionary">{{R:Dictionary.com}}</ref><ref name="mw">{{R:MWO}}</ref>
 * {{audio|en|en-uk-cum.ogg|a=UK}}
-* {{audio|en|en-us-cum.ogg|a=US}}
+* {{audio|en|en-us-come.ogg|a=GA}}
 * {{rhymes|en|ʌm|ʊm|s=1}}
 
 ====Preposition====
 {{en-prep}}
 
-# {{non-gloss|Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.}}
+# {{non-gloss|Used in indicating a thing or person which has two or more roles, functions, or natures, or which has changed from one to another.}}
 #: {{ux|en|He built a bus-'''cum'''-greenhouse that made a bold statement, but the plants in it didn't live very long.}}
 #: {{ux|en|But instead of being a salesperson '''cum''' barista '''cum''' waitress merely serving the wordsmiths, I'm one of them, reading her latest baby out loud.}}
 #* {{quote-book|en|year=1926-1950|author=w:George Bernard Shaw|title=Collected Letters: 1926-1950|url=http://books.google.com/books?id=UF08AAAAIAAJ|publisher=University of California/Viking|year_published=1985|page=31|passage=He is too good an actor to need that sort of tomfoolery: the effect will be far better if he is a credible mining camp elder-'''cum'''-publican.}}
@@ -79,6 +79,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 |cumsock
 |cumbucket
 |cum catcher
+|cum cow
 |cum gutters
 |cum guzzler
 |cum receptacle
@@ -123,7 +124,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Norwegian: {{t|no|sperm|m}}, {{t|no|sæd|m}}
 * Polish: {{t+|pl|sperma|f}}, {{t+|pl|nasienie|n}}, {{t+|pl|spust|m}}
 * Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}, {{t+|pt|leite|m}}
-* Romanian: {{t+|ro|sloboz|n}}, {{t+|ro|smecleu|n}}
+* Romanian: {{t+|ro|sloboz|n}}, {{t|ro|smecleu|n}}
 * Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча́|f}} {{qualifier|vulgar}}, {{t+|ru|малафья́|f}} {{qualifier|vulgar}}
 * Serbo-Croatian: {{t|sh|svršotina|f}}, {{t|sh|svrš|m}}
 * Sicilian: {{t|scn|sburru|m}}, {{t|scn|ogghiu di sbrigghiu|m}}, {{t|scn|spacchiu|m}}
@@ -140,7 +141,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Chinese:
 *: Mandarin: {{t+|cmn|潮吹|tr=cháochuī}}, {{t+|cmn|淫水|tr=yǐnshuǐ}}, {{qualifier|slang}} {{t+|cmn|出水|tr=chūshuǐ}}
 * Finnish: {{t|fi|pilluneste}}, {{t|fi|pillumehu}}
-* Japanese: {{t|ja|潮吹き|tr=しおふき, shiofuki}}
+* Japanese: {{t+|ja|潮吹き|tr=しおふき, shiofuki}}
 * Portuguese: {{t+|pt|gozo|m}}
 * Sicilian: {{t|scn|spacchiu|m}}
 * Spanish: {{t+|es|corrida|f}}
@@ -269,6 +270,16 @@ From {{inh|rup|VL.|*quomo}}, from {{inh|rup|la|quōmodo}}.
 # to [[kiss]]
 # to [[smell]] (something)
 
+==Galician==
+
+===Noun===
+{{head|gl|contraction|g=m|feminine|cumha|or|cuma|masculine plural|cums|feminine plural|cumhas|or|cumas}}
+
+# {{gl-reinteg sp|cun}}
+
+===References===
+* {{R:gl:Estraviz}}
+
 ==Irish==
 
 ===Etymology===
@@ -311,7 +322,7 @@ From {{inh|ga|sga|cummaid|t=fashions, shapes, composes, determines; makes, creat
 
 ===Etymology 1===
 {{etymon|la|id=with|inh|itc-ola>com>with}}
-From {{inh|la|itc-ola|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}, {{cog|gem-pro|*hansō}}. More at '''[[Hanse]]'''.
+From {{inh|la|itc-ola|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}.
 
 The ablative is from the PIE comitative-instrumental.
 

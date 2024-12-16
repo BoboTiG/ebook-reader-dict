@@ -227,7 +227,7 @@ from wikidict.utils import process_templates
             "hivernacle",
             [],
             ["m"],
-            ["Del llatí <i>hibernaculum</i>."],
+            ["Del llatí <i>hībernāculum</i>, de <i>hībernō</i> («hivernar»)."],
             ["Cobert per a protegir plantes del vent o del fred extrem."],
             [],
         ),
