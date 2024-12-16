@@ -193,6 +193,7 @@ templates_ignored = (
     "réf",
     "source",
     "Source-wikt",
+    "source-w",
     "trad-exe",
     "trier",
     "vérifier",
