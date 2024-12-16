@@ -292,6 +292,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'De <i>Jesús</i> y el sufijo flexivo <i>a</i> para el femenino'
     >>> render_etimologia("etimología", ["metátesis", "rigoroso"], defaultdict(str))
     'Por metátesis de <i>rigoroso</i>'
+    >>> render_etimologia("etimología", ["fone", "-mos"], defaultdict(str))
+    'Alteración fonética de <i>-mos</i>'
     >>> render_etimologia("etimología", ["fonética", "empeller"], defaultdict(str))
     'Por alteración fonética de <i>empeller</i>'
     >>> render_etimologia("etimología", ["japonés", "片仮名"], defaultdict(str, {"transcripción":"カタカナ, katakana"}))
@@ -462,6 +464,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     ):
         nota = f" {data['nota']}" if data["nota"] else ""
         phrase = f"Por alteración fonética{nota} de {call_l_single_part(parts[0], 1)}"
+    elif cat == "fone":
+        phrase = f"Alteración fonética de {call_l_single_part(parts[0], 1)}"
     elif cat in ("onomatopeya", "onomatopéyico", "onomatopéyica", "ONOM"):
         phrase = "Onomatopéyica"
     elif cat == "plural":
