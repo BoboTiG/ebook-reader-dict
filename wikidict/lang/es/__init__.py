@@ -190,6 +190,8 @@ templates_multi = {
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
     # {{variante rara|pecuniario}}
     "variante rara": "f\"{italic('Variante rara de')} {parts[1]}\"",
+    # {{variante subestándar|-mos}}
+    "variante subestándar": "f\"{italic('Variante subestándar de')} {parts[1]}\"",
     # {{versalita|xx}}
     "versalita": "small_caps(parts[1])",
     # {{verde|*exfollare}}

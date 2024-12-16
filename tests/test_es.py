@@ -293,6 +293,8 @@ def test_parse_word(
             "<i>Variante anticuada de</i> diezmo",
         ),
         ("{{variante obsoleta|hambre}}", "<i>Variante obsoleta de</i> hambre"),
+        ("{{variante rara|pecuniario}}", "<i>Variante rara de</i> pecuniario"),
+        ("{{variante subestándar|-mos}}", "<i>Variante subestándar de</i> -mos"),
         ("{{verde|*exfollare}}", "<i>*exfollare</i>"),
     ],
 )
