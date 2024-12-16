@@ -91,6 +91,7 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **labels,
+    "anatomi": "anatomi",
     "biologi": "biologi",
     "edb": "edb",
     "ikkekomp": "ingen komparativ eller superlativ",
