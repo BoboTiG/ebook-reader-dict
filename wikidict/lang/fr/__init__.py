@@ -223,6 +223,7 @@ templates_italic = {
     "attestation pays de Retz": "Pays de Retz",
     "au figuré": "Sens figuré",
     "avant 1835": "Archaïque, orthographe d’avant 1835",
+    "Canton de La Mure": "Canton de La Mure",
     "dénombrable": "Dénombrable",
     "diaéthique": "Variation diaéthique",
     "ex-rare": "Extrêmement rare",
