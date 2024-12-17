@@ -463,7 +463,7 @@ class ConverterFromDictFile(DictFileFormat):
         self.output_dir_tmp.mkdir()
         glos.convert(
             ConvertArgs(
-                str(self.dictionnary_file(DictFileFormat.output_file)),
+                inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
                 sqlite=True,
