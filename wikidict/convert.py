@@ -461,14 +461,14 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()
-        assert glos.convert(
+        glos.convert(
             ConvertArgs(
                 str(self.dictionnary_file(DictFileFormat.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
                 sqlite=True,
             )
-        ), "Conversion failed!"
+        )
 
     def process(self) -> None:
         self._cleanup()
