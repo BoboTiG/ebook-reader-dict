@@ -3547,6 +3547,43 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "retard, absence",
         "ar-ta*â*a*a": "être d'avis différent",
     },  # 57
+    "ar-Xll": {
+        "aa_sens": "percer",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "vide",
+        "ar-*a**ũ": "vinaigre",
+        "ar-*a*a*a-i": "percer",
+        "ar-*a*a*ũ": "défaut",
+        "ar-*a*²a*a": "s'aigrir",
+        "ar-*a*â*ũ": "milieu",
+        "ar-*a*î*ũ": "ami intime",
+        "ar-*i**ũ": "étui",
+        "ar-*i*a*ũ": "intervalle entre les dents",
+        "ar-*i*â*ũ": "intervalle",
+        "ar-*ta*a*a": "s'aigrir",
+        "ar-*ti*â*ũ": "désordre",
+        "ar-*u**@ũ": "plante douce",
+        "ar-*u**iy²ũ": "qui dévore les plantes douces",
+        "ar-*u**ũ": "ami",
+        "ar-*u*â*@ũ": "amitié sincère",
+        "ar-*u*â*ũ": "dattes mûres",
+        "ar-*u*û*@ũ": "amitié sincère",
+        "ar-*u*û*ũ": "diminution",
+        "ar-*â**ũ": "qui a des hiatus",
+        "ar-*â*a*a": "être amis",
+        "ar-a**a*a": "rendre dépendant",
+        "ar-a**a*u": "misérable",
+        "ar-ma**a*@ũ": "prairie douce",
+        "ar-ma**û*ũ": "percé",
+        "ar-mu**i*ũ": "pauvre",
+        "ar-mu*ta*a*ũ": "altéré",
+        "ar-mu*â*a*ũ": "être ami",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "pénétrer",
+        "ar-ta*â*a*a": "être amis",
+    },  # 35
     "ar-Xlq": {
         "aa_sens": "former, polir",
         "ar-*2aw2a*a": "être égal, uni, poli",
@@ -9313,7 +9350,7 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "placement",
-        "ar-*a**ũ": "station",
+        "ar-*a**ũ": "pause",
         "ar-*a*a*a-i": "se camper",
         "ar-*a*²a*a": "mettre debout",
         "ar-*a*²â*ũ": "traînant",
@@ -9324,9 +9361,12 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "assister",
         "ar-*â*i*ũ": "qui s'arrête",
         "ar-a**a*a": "placer",
+        "ar-a**â*ũ": "{{p}} legs pieux",
         "ar-ma**i*ũ": "station",
         "ar-ma**û*ũ": "interrompu",
+        "ar-ma*â*i*ũ": "{{p}} stations",
         "ar-mi**a*ũ": "cuillère",
+        "ar-mi**â*ũ": "cuillère",
         "ar-mu*a*²a*ũ": "éprouvé",
         "ar-mu*â*a*@ũ": "assistance",
         "ar-n*a*a*a": "",
@@ -9334,7 +9374,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "marque blanche",
         "ar-ta*a*²a*a": "s'arrêter",
         "ar-ta*â*a*a": "se confronter",
-    },  # 25
+    },  # 28
     "ar-wrd": {
         "aa_sens": "accéder à l’eau ; rose",
         "ar-**â*²a": "être fauve",
@@ -9815,5 +9855,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 336
+}  # 337
 # END
