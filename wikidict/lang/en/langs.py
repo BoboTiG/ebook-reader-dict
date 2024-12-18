@@ -1593,8 +1593,6 @@ langs = {
     "ccj": "Kasanga",
     "ccl": "Cutchi-Swahili",
     "ccm": "Malaccan Creole Malay",
-    "ccn": "North Caucasian",
-    "ccn-pro": "Proto-North Caucasian",
     "cco": "Comaltepec Chinantec",
     "ccp": "Chakma",
     "ccr": "Cacaopera",
@@ -9836,7 +9834,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,831
+}  # 9,829
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
