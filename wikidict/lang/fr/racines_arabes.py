@@ -3572,8 +3572,9 @@ racines_schemes_arabes = {
         "ar-*u*û*ũ": "diminution",
         "ar-*â**ũ": "qui a des hiatus",
         "ar-*â*a*a": "être amis",
-        "ar-a**a*a": "rendre dépendant",
+        "ar-a**a*a": "déranger",
         "ar-a**a*u": "misérable",
+        "ar-a**u*ũ": "{{p}} chemins dans le sable",
         "ar-ma**a*@ũ": "prairie douce",
         "ar-ma**û*ũ": "percé",
         "ar-mu**i*ũ": "pauvre",
@@ -3583,7 +3584,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "pénétrer",
         "ar-ta*â*a*a": "être amis",
-    },  # 35
+    },  # 36
     "ar-Xlq": {
         "aa_sens": "former, polir",
         "ar-*2aw2a*a": "être égal, uni, poli",
