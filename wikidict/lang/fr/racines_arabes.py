@@ -3556,10 +3556,14 @@ racines_schemes_arabes = {
         "ar-*a*a*a-i": "percer",
         "ar-*a*a*ũ": "défaut",
         "ar-*a*²a*a": "s'aigrir",
+        "ar-*a*²â*ũ": "vinaigrier",
+        "ar-*a*â*@ũ": "amitié sincère",
         "ar-*a*â*ũ": "milieu",
         "ar-*a*î*ũ": "ami intime",
+        "ar-*i**@ũ": "gaine",
         "ar-*i**ũ": "étui",
         "ar-*i*a*ũ": "intervalle entre les dents",
+        "ar-*i*â*@ũ": "amitié sincère",
         "ar-*i*â*ũ": "intervalle",
         "ar-*ta*a*a": "s'aigrir",
         "ar-*ti*â*ũ": "désordre",
@@ -3574,6 +3578,7 @@ racines_schemes_arabes = {
         "ar-*â*a*a": "être amis",
         "ar-a**a*a": "déranger",
         "ar-a**a*u": "misérable",
+        "ar-a**i*@ũ": "{{p}} épingles",
         "ar-a**u*ũ": "{{p}} chemins dans le sable",
         "ar-ma**a*@ũ": "prairie douce",
         "ar-ma**û*ũ": "percé",
@@ -3584,7 +3589,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "pénétrer",
         "ar-ta*â*a*a": "être amis",
-    },  # 36
+    },  # 41
     "ar-Xlq": {
         "aa_sens": "former, polir",
         "ar-*2aw2a*a": "être égal, uni, poli",
