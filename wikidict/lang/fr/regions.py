@@ -262,6 +262,7 @@ regions = {
     "Finlande": "Finlande",
     "Fondachelli-Fantina": "Fondachelli-Fantina",
     "Fontainebleau": "Fontainebleau",
+    "Forez": "Forez",
     "Forêt d'Othe": "Forêt d'Othe",
     "Fougères": "Fougères",
     "Fouta-Toro": "Fouta-Toro",
@@ -815,5 +816,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 810
+}  # 811
 # END
