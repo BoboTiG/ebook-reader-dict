@@ -341,6 +341,7 @@ regions = {
     "Irlande": "Irlande",
     "Islande": "Islande",
     "Israël": "Israël",
+    "Isère": "Isère",
     "Italie": "Italie",
     "Italie centrale": "Italie centrale",
     "Italie centro-méridionale": "Italie centro-méridionale",
@@ -406,6 +407,7 @@ regions = {
     "Liège": "Liège",
     "Loches-sur-Ource": "Loches-sur-Ource",
     "Loir-et-Cher": "Loir-et-Cher",
+    "Loire": "Loire",
     "Loire-Atlantique": "Loire-Atlantique",
     "Loiret": "Loiret",
     "Lombardie": "Lombardie",
@@ -816,5 +818,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 811
+}  # 813
 # END
