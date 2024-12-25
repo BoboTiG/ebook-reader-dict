@@ -2204,6 +2204,7 @@ labels = {
     "skating": "skating",
     "skeleton": "anatomy",
     "skiing": "skiing",
+    "skydiving": "skydiving",
     "slang": "slang",
     "slightly": "slightly",
     "smoking": "smoking",
@@ -2493,7 +2494,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,488
+}  # 2,489
 
 syntaxes = {
     "&": {
