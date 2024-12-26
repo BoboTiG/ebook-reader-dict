@@ -243,8 +243,6 @@ templates_multi = {
     "en-third-person_singular_of": "parts[1]",
     # {{en-third person singular of|term}}
     "en-third person singular of": "parts[1]",
-    # {{infl of|en|cling||ing-form}}
-    "infl of": "parts[2]",
     # {{plural of|en|human}}
     "plural of": "parts[2]",
 }
@@ -335,6 +333,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
 
+        #
+        # Variants
+        #
+        >>> last_template_handler(["infl of", "en", "cling", "", "ing-form"], "en")
+        'cling'
+        >>> last_template_handler(["infl of", "1=en", "2=cling", "3=", "4=ing-form"], "en")
+        'cling'
+
     """
 
     from ...user_functions import capitalize, chinese, extract_keywords_from, italic, strong
@@ -347,6 +353,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "infl of":
+        return data["2"] or parts[1]
 
     if tpl in form_of_templates:
         template_model = form_of_templates[tpl]
