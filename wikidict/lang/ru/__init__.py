@@ -139,6 +139,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["умласк."], "ru")
         '<i>уменьш.-ласк.</i>'
 
+        >>> last_template_handler(["Унбегаун"], "ru")
+        '<i>Унбегаун Б.-О.</i> Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3.'
+        >>> last_template_handler(["Унбегаун", "сокр=1"], "ru")
+        'Унбегаун'
+
         #
         # Variants
         #
@@ -154,7 +159,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
-    extract_keywords_from(parts)
+    data = extract_keywords_from(parts)
 
     #
     # Variants
@@ -178,6 +183,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "выдел":
         return parts[0]
+
+    if tpl == "Унбегаун":
+        if data["сокр"] == "1":
+            return tpl
+        return f"{italic(tpl + ' Б.-О.')} Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3."
 
     if label := labels.get(tpl):
         if tpl == "умласк.":
