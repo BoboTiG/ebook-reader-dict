@@ -704,6 +704,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "art-déf": "Article défini",
         "article indéfini": "Article indéfini",
         "conj": "Conjonction",
+        "conjonction": "Conjonction",
         "conj-coord": "Conjonction de coordination",
         "interj": "Interjection",
         "interjection": "Interjection",
