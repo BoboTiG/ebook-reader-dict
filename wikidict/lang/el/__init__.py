@@ -120,6 +120,8 @@ templates_multi: dict[str, str] = {
     "ουδ του": "italic('ουδέτερο του') + ' ' + strong(parts[1])",
     # {{αιτ}}
     "αιτ": "italic(strong('αιτιατική'))",
+    # {{λ2||τοπωνύμιο|τοπωνύμια}}
+    "λ2": "parts[-1]",
 }
 
 # Templates that will be completed/replaced using custom style.
