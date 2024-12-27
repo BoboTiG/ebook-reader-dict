@@ -1033,8 +1033,9 @@ labels = {
     "brass instruments": "music",
     "brewing": "brewing",
     "bridge": "bridge",
+    "broad": "loosely",
     "broadcasting": "broadcasting",
-    "broadly": "broadly",
+    "broadly": "loosely",
     "bryology": "bryology",
     "bullfighting": "bullfighting",
     "bureaucratic": "officialese",
@@ -1647,6 +1648,7 @@ labels = {
     "logic": "logic",
     "logical fallacy": "rhetoric",
     "logistics": "logistics",
+    "loose": "loosely",
     "loosely": "loosely",
     "lot-cloth split": "''lot''–''cloth'' split",
     "luge": "luge",
@@ -2004,6 +2006,7 @@ labels = {
     "pluralonly": "plural only",
     "poetic": "poetic",
     "poetry": "poetry",
+    "poi": "poetic",
     "poison": "toxicology",
     "poker": "poker",
     "poker slang": "poker slang",
@@ -2494,7 +2497,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,489
+}  # 2,492
 
 syntaxes = {
     "&": {
