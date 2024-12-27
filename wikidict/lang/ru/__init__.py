@@ -43,6 +43,8 @@ templates_ignored = ("unfinished", "семантика", "пример")
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{t:=|поисковая оптимизация}} →  {{_t_|поисковая оптимизация}} (converted in `render.adjust_wikicode()`)
+    "_t_": 'f"то же, что {parts[1]}"',
     "страд.": "italic('страд.') + ' к' + ((' ' + parts[1]) if len(parts) > 1 else '')",
 }
 
