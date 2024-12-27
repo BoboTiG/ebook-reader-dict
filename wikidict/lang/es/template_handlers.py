@@ -616,6 +616,8 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     '<i>Grafía obsoleta de</i> asta'
     >>> render_grafia("grafía rara", ["exudar"], defaultdict(str))
     '<i>Grafía poco usada de</i> exudar'
+    >>> render_grafia("grafía subestándar", ["ah re"], defaultdict(str))
+    '<i>Grafía subestándar de</i> ah re'
     >>> render_grafia("grafía", ["psicológico"], defaultdict(str, {"texto": "Grafía rara de", "texto_pos": "(por ejemplo)"}))
     '<i>Grafía rara de</i> psicológico <i>(por ejemplo)</i>'
     """
@@ -631,6 +633,8 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
             start += " obsoleta "
         elif tpl == "grafía rara":
             start += " poco usada "
+        elif tpl == "grafía subestándar":
+            start += " subestándar "
         start += "de"
     phrase = f"{italic(start)} "
     phrase += render_l("l", [data["alt"] or parts[0]], data)
@@ -835,6 +839,7 @@ template_mapping = {
     "grafía informal": render_grafia,
     "grafía obsoleta": render_grafia,
     "grafía rara": render_grafia,
+    "grafía subestándar": render_grafia,
     "hipocorístico": render_hipocoristico,
     "IPA": render_afi,
     "l": render_l,
