@@ -96,6 +96,7 @@ templates_ignored = (
     "ejemplo",
     "ejemplo requerido",
     "elemento químico",
+    "FEN",
     "inflect.es.sust.invariante",
     "mapa",
     "marcar sin referencias",
