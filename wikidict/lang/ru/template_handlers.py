@@ -3,7 +3,7 @@ from collections import defaultdict
 import requests
 from bs4 import BeautifulSoup
 
-from ...user_functions import extract_keywords_from, italic
+from ...user_functions import extract_keywords_from, italic, superscript
 from .. import defaults
 from .langs_short import langs_short
 
@@ -82,6 +82,26 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return text.strip()
 
 
+def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_t("t", ["en", "palace"], defaultdict(str, {}))
+    'palace <sup>(en)</sup>'
+    >>> render_t("t", ["en", "hall", "m"], defaultdict(str, {}))
+    'hall <sup>(en)</sup> <i>M.</i>'
+    >>> render_t("t", ["en", "bottle", "f"], defaultdict(str, {}))
+    'bottle <sup>(en)</sup> <i>ж.</i>'
+    >>> render_t("t", ["ja", "会館"], defaultdict(str, {"tr": "kaikan"}))
+    '会館 <sup>(ja)</sup> (kaikan)'
+    """
+    text = f"{parts[1]} {superscript('(' + parts[0] + ')')}"
+    if len(parts) > 2:
+        gender = {"f": "ж", "m": "M"}[parts[2]]
+        text += f" {italic(gender + '.')}"
+    if trans := data["tr"]:
+        text += f" ({trans})"
+    return text
+
+
 def render_кавычки(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_кавычки("кавычки", ["en", "love"], defaultdict(str))
@@ -124,6 +144,7 @@ def render_сравн(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
 template_mapping = {
     "lang": render_lang,
+    "t": render_t,
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
     "этимология": get_etymology,

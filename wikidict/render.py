@@ -552,6 +552,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
             flags=re.MULTILINE,
         )
 
+    elif locale == "ru":
+        # Workaround to prevent "t:=" to be reduced to "t"
+        code = code.replace("{{t:=|", "{{_t_|")
+
     if locale in {"da", "it", "ron"}:
         # {{-avv-|it}} → === {{avv}} ===
         code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
