@@ -8,6 +8,8 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     """
     >>> render_βλ("βλ", [], defaultdict(str))
     '<i>→ δείτε τη λέξη</i>'
+    >>> render_βλ("βλ", [], defaultdict(str, {"0": "-"}))
+    '<i>→ δείτε</i>'
     >>> render_βλ("βλ", [], defaultdict(str, {"και": "1"}))
     '<i>→ και δείτε τη λέξη</i>'
     >>> render_βλ("βλ", [], defaultdict(str, {"και": "2"}))
@@ -24,11 +26,14 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '<i>→ δείτε τους όρους</i> a, b<i> και </i>c'
     """
     text = "→"
-    no_prefix = "πθ" not in data and "όρος" not in data
+    no_prefix = "πθ" not in data and "όρος" not in data and "0"
 
     if data["και"] == "1":
         text += " και"
-    if data["0"] != "-":
+    if data["0"] == "-":
+        text += " δείτε"
+        no_prefix = False
+    elif data["0"] != "-":
         text += " δείτε"
     if data["και"] == "2":
         text += " και"
