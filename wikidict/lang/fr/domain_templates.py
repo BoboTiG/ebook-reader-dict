@@ -98,7 +98,7 @@ domain_templates = {
     "couleurs": "Colorimétrie",
     "cours d'eau": "Géographie",
     "cours d’eau": "Géographie",
-    "couteaux": "Couteaux",
+    "couteaux": "Coutellerie",
     "couverture": "Couvertures",
     "couvertures": "Couvertures",
     "couvre-chefs": "Habillement",
