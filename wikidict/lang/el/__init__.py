@@ -119,6 +119,8 @@ templates_multi: dict[str, str] = {
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
     # {{κνε}}
     "κνε": "italic('κοινή νεοελληνική')",
+    # {{ιε}}
+    "ιε": "italic('πρωτοϊνδοευρωπαϊκή ρίζα')",
     # {{νε}}
     "νε": "italic('νέα ελληνική')",
     # {{ουδ του|λέξη}}
