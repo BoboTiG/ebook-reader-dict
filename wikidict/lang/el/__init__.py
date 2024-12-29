@@ -127,6 +127,8 @@ templates_multi: dict[str, str] = {
     "αιτ": "italic(strong('αιτιατική'))",
     # {{λ2||τοπωνύμιο|τοπωνύμια}}
     "λ2": "parts[-1]",
+    # {{β|lang=fr|Motosacoche}}
+    "β": "parts[-1]",
 }
 
 # Templates that will be completed/replaced using custom style.
