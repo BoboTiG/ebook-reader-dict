@@ -110,6 +110,8 @@ templates_ignored = (
 
 # Templates more complex to manage.
 templates_multi: dict[str, str] = {
+    # {{IPAchar|/ˈsɛləteɪp/}}
+    "IPAchar": "parts[1]",
     # {{IPAstyle|ˈɑɹ.kən.sɔ}}
     "IPAstyle": "parts[1]",
     # {{resize|Βικιλεξικό|140}}

@@ -100,6 +100,7 @@ def test_parse_word(
 @pytest.mark.parametrize(
     "wikicode, expected",
     [
+        ("{{IPAchar|/ˈsɛləteɪp/}}", "/ˈsɛləteɪp/"),
         ("{{IPAstyle|ˈɑɹ.kən.sɔ}}", "ˈɑɹ.kən.sɔ"),
         ("{{resize|Βικιλεξικό|140}}", '<span style="font-size:140%;">Βικιλεξικό</span>'),
         ("{{κνε}}", "<i>κοινή νεοελληνική</i>"),
