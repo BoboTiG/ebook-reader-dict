@@ -308,6 +308,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         '(<i>ιατρική</i>)'
         >>> last_template_handler(["ετ", "ιατρική", "0=-"], "el")
         '<i>ιατρική</i>'
+        >>> last_template_handler(["ετ", "ιατρική", "en"], "el")
+        '<i>ιατρική</i>'
         >>> last_template_handler(["ετ", "ιατρική", "", "ιατρικών όρων", "0=-"], "el")
         'ιατρικών όρων'
 
@@ -421,11 +423,16 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if tpl in {"ετ", "ετικέτα"}:
         if not parts:
             return ""
-        if len(parts) < 2:
+        if len(parts) <= 2:
             data["label"] = parts[0]
         else:
             data["label"] = parts[2]
             data["text"] = parts[2]
+
+        # No parenthesis when more than one part (non-Greek words)
+        if len(parts) > 1 and "0" not in data:
+            data["0"] = "-"
+
         return labels_output(data.get("text", ""), args=data)
 
     if tpl == "ετικ":
