@@ -106,6 +106,7 @@ templates_ignored = (
     "λείπει η μετάφραση",
     "clear",
     "πολυτ γραφή",
+    "wlogo",
 )
 
 # Templates more complex to manage.
