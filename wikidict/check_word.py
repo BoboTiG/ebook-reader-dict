@@ -141,6 +141,10 @@ def filter_html(html: str, locale: str) -> str:
                     a.decompose()
 
     elif locale == "el":
+        # {{audio}} template
+        for span in bs.find_all("span", {"class": "ext-phonos"}):
+            span.parent.decompose()
+
         for sup in bs.find_all("sup"):
             id = sup.get("id", "")
             if id.startswith("cite_"):

@@ -16,6 +16,7 @@ WORD = {
     "ca": "pelegrí",
     "de": "volley",
     "en": "42",
+    "el": "σελοτέιπ",
     "es": "buena",
     "fr": "42",
     "it": "Upupidi",
@@ -188,6 +189,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         [
             "en",
             '<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>',
+            "",
+        ],
+        # EL - {{audio}} template
+        [
+            "el",
+            '<span style="text-align:left;"><span class="ext-phonos"><span><a><span></span><span></span><span></span></a></span><sup><a>ⓘ</a></sup></span></span>&nbsp;<span><sup></sup></span>',
             "",
         ],
         # ES - 2 Historia. --> (Historia)
