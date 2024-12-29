@@ -3548,7 +3548,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "être d'avis différent",
     },  # 57
     "ar-Xll": {
-        "aa_sens": "percer",
+        "aa_sens": "piquer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "vide",
