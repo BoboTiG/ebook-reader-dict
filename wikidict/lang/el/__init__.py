@@ -78,6 +78,7 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "cat",
     "cf",
     "el-κλίσ",
     "el-κλίση-'ναός'",
