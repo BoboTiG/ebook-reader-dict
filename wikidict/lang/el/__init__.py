@@ -131,6 +131,8 @@ templates_multi: dict[str, str] = {
     "λ2": "parts[-1]",
     # {{β|lang=fr|Motosacoche}}
     "β": "parts[-1]",
+    # {{θηλ ισσα|Αβαριτσιώτης|Αβαριτσιώτ(ης)}}
+    "θηλ ισσα": 'f"{parts[-1]} + κατάληξη θηλυκού -ισσα"',
 }
 
 # Templates that will be completed/replaced using custom style.
