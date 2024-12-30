@@ -133,7 +133,23 @@ templates_multi: dict[str, str] = {
     "β": "parts[-1]",
     # {{θηλ ισσα|Αβαριτσιώτης|Αβαριτσιώτ(ης)}}
     "θηλ ισσα": 'f"{parts[-1]} + κατάληξη θηλυκού -ισσα"',
+    # {{θηλ τρια|διευθυντής|διευθυντ(ής)}}
+    "θηλ τρια": 'f"{parts[-1]} + κατάληξη θηλυκού -τρια"',
+    # {{θηλ τρα|ψεύτης|ψεύ(της)}}
+    "θηλ τρα": 'f"{parts[-1]} + κατάληξη θηλυκού -τρα"',
+    # {{θηλ α|Κερκυραίος|Κερκυραί(ος)}}
+    "θηλ α": 'f"{parts[-1]} + κατάληξη θηλυκού -α"',
+    # {{θηλ ιστρια|εγωιστής|εγω(ιστής)}}
+    "θηλ ιστρια": 'f"{parts[-1]} + κατάληξη θηλυκού -ίστρια"',
+    # {{θηλ ού|μερακλής|μερακλ(ής)}}
+    "θηλ ού": 'f"{parts[-1]} + κατάληξη θηλυκού -ού"',
+    # {{θηλ ίνα|μερακλής|μερακλ(ής)}}
+    "θηλ ίνα": 'f"{parts[-1]} + κατάληξη θηλυκού -ίνα"',
+    # {{θηλ ιδα|προστάτης|προστάτ(ης)}}
+    "θηλ ιδα": 'f"{parts[-1]} + κατάληξη θηλυκού -ιδα"',
 }
+# Alias
+templates_multi["ουδ_του"] = templates_multi["ουδ του"]
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
@@ -629,7 +645,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     #
     # Variants
     #
-    if tpl.startswith(("infl", "κλ", "θηλ του")):
+    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του")):
         return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word)
