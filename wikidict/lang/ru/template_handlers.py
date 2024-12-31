@@ -62,6 +62,8 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'русск. зна́мя'
     >>> render_lang("lang", ["el"], defaultdict(str, {}))
     'греч.'
+    >>> render_lang("lang2", ["la", "instrūmentum", "орудие, инструмент"], defaultdict(str, {"ссылка": "instrumentum"}))
+    'лат. instrūmentum «орудие, инструмент»'
     """
     lang_short = langs_short.get(parts.pop(0), "")
     if not parts and not data:
@@ -144,6 +146,7 @@ def render_сравн(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
 template_mapping = {
     "lang": render_lang,
+    "lang2": render_lang,
     "t": render_t,
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
