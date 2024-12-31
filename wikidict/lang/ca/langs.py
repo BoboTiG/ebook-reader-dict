@@ -807,7 +807,7 @@ langs = {
     "zh-yue": "xinès cantonès",
     "zh_Hans": "xinès mandarí (simplificat)",
     "zh_Hant": "xinès mandarí (tradicional)",
-    "zu": "zulu",
+    "zu": "zulú",
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
