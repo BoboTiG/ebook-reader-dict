@@ -144,6 +144,27 @@ def render_сравн(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return f"{italic('сравн. ст.')} к {data['к'] or 'прил'}. {parts[0]}"
 
 
+def render_дат(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_дат("дат", ["18-2", "ru"], defaultdict(str))
+    ''
+    >>> render_дат("дат", ["1989", "ru"], defaultdict(str))
+    ''
+    >>> render_дат("дат", ["2031", "ru"], defaultdict(str))
+    ''
+    >>> render_дат("дат", ["1990", "ru"], defaultdict(str))
+    '1990'
+    >>> render_дат("дат", ["2024", "ru"], defaultdict(str))
+    '2024'
+    >>> render_дат("дат", ["2030", "ru"], defaultdict(str))
+    '2030'
+    """
+    date = parts[0]
+    if len(date) == 4 and date.isdigit() and 1990 <= int(date) <= 2030:
+        return date
+    return ""
+
+
 template_mapping = {
     "lang": render_lang,
     "lang2": render_lang,
@@ -156,6 +177,7 @@ template_mapping = {
     "кавычки": render_кавычки,
     "сравн.": render_сравн,
     "соотн.": render_соотн,
+    "дат": render_дат,
 }
 
 
