@@ -26,7 +26,7 @@ assignees: ''
 
 ## EL
 
-- Unhandled templates count: N (📈 +N since `2024-MM-DD` dump | 📉 -N since `2024-MM-DD` dump)
+- Unhandled templates count: N (📈 +N since `2025-MM-DD` dump | 📉 -N since `2025-MM-DD` dump)
 
 ## EN
 
