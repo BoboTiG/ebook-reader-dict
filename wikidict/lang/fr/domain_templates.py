@@ -12,6 +12,7 @@ domain_templates = {
     "Minecraft": "Jeu vidéo, Minecraft",
     "Oblasts": "Géographie",
     "RDA": "Histoire, Communisme, RDA",
+    "SU": "Histoire, Communisme, URSS",
     "Star Wars": "Science-fiction, univers de Star Wars",
     "Tintin": "Univers de Tintin",
     "URSS": "Histoire, Communisme, URSS",
@@ -345,5 +346,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 340
+}  # 341
 # END
