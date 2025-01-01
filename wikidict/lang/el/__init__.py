@@ -117,6 +117,8 @@ templates_multi: dict[str, str] = {
     "IPAstyle": "parts[1]",
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
+    # {{uni-script|ΛVΛV}}
+    "uni-script": "parts[1]",
     # {{κνε}}
     "κνε": "italic('κοινή νεοελληνική')",
     # {{ιε}}
@@ -154,6 +156,11 @@ templates_multi["ουδ_του"] = templates_multi["ουδ του"]
 # Templates that will be completed/replaced using custom style.
 templates_other = {
     "*": "*",
+    "gag": "γκαγκαούζ",
+    "odt": "παλαιά ολλανδικά",
+    "orv": "αρχαία ανατολική σλαβική γλώσσα",
+    "osp": "παλαιά ισπανική",
+    "oty": "αρχαία ταμίλ",
 }
 
 # Release content on GitHub
@@ -404,6 +411,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["ετικ", "βιολ", "ιατρ"], "el")
         '(<i>βιολογία</i>, <i>ιατρική</i>)'
 
+        >>> last_template_handler(["desc", "el", "πάρτι", "δαν"], "el")
+        '↷ <i>νέα ελληνικά:</i> πάρτι'
+        >>> last_template_handler(["απόγ", "el", "πάρτι", "δαν"], "el")
+        '↷ <i>νέα ελληνικά:</i> πάρτι'
+        >>> last_template_handler(["απόγ", "σύμβολο=δαν"], "el")
+        '↷'
+
         #
         # Variants
         #
@@ -445,6 +459,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         text += parts[0] if parts else word
         if tnl := data["tnl"]:
             text += f" ({tnl})"
+        return text
+
+    if tpl in {"απόγ", "desc"}:
+        text = "↷"
+        if data["σύμβολο"] == "δαν":
+            return text
+        text += f" {italic(str(langs[parts[0]]['name']) + ':')} {parts[1]}"
         return text
 
     if tpl in {"ετ", "ετικέτα"}:
