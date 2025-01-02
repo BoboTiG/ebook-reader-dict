@@ -775,6 +775,7 @@ regions = {
     "Wallis-et-Futuna": "Wallis-et-Futuna",
     "Wallonie": "Wallonie",
     "West Muskerry": "West Muskerry",
+    "XA": "Abkhazie",
     "XK": "Kosovo",
     "Yonne": "Yonne",
     "Yorkshire": "Yorkshire",
@@ -818,5 +819,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 813
+}  # 814
 # END
