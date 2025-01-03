@@ -35,6 +35,7 @@ abk = {
     "alemann.": "alemannisch",
     "allg.": "allgemein",
     "alltagsspr.": "alltagssprachlich",
+    "altlat.": "altlateinisch",
     "amtsspr.": "amtssprachlich",
     "attr.": "attributiv",
     "bair.": "bairisch",
@@ -137,5 +138,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 132
+}  # 133
 # END

@@ -3833,7 +3833,7 @@ langs = {
     "nmk": "namakura",
     "nml": "ndemli",
     "nmm": "manangba",
-    "nmn": "ǃxóõ",
+    "nmn": "taa",
     "nmq": "nambya",
     "nms": "letemboi",
     "nmu": "maidu du Nord-Est",
