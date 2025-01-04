@@ -470,6 +470,7 @@ langs = {
     "phn": "Phönizisch",
     "pi": "Pali",
     "pih": "Pitkern",
+    "pim": "Powhatan",
     "pis": "Pijin",
     "pkp": "Pukapuka",
     "pl": "Polnisch",
@@ -691,5 +692,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 686
+}  # 687
 # END

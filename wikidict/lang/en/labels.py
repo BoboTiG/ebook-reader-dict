@@ -1765,6 +1765,7 @@ labels = {
     "musical instruments": "music",
     "musician": "music",
     "mycology": "mycology",
+    "mysticism": "mysticism",
     "mythological creature": "mythology",
     "mythological creatures": "mythology",
     "mythology": "mythology",
@@ -2497,7 +2498,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,492
+}  # 2,493
 
 syntaxes = {
     "&": {
