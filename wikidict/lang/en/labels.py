@@ -1423,6 +1423,7 @@ labels = {
     "gerontology": "gerontology",
     "ghost": "ghost word",
     "ghost word": "ghost word",
+    "gladiatorial combat": "gladiatorial combat",
     "glassblowing": "glassblowing",
     "glottalisation": "glottalized",
     "glottalised": "glottalized",
@@ -1623,6 +1624,7 @@ labels = {
     "law": "law",
     "law enforcement": "law enforcement",
     "lawn bowls": "bowls",
+    "leatherworking": "leatherworking",
     "leet": "leetspeak",
     "leetspeak": "leetspeak",
     "leftism": "leftism",
@@ -2498,7 +2500,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,493
+}  # 2,495
 
 syntaxes = {
     "&": {

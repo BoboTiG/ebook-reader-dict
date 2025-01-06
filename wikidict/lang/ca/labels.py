@@ -76,7 +76,6 @@ labels = {
     "Mallorca": "mallorquí",
     "Menorca": "menorquí",
     "Penedès": "penedesenc",
-    "Regne Unit": "britànic",
     "República Dominicana": "Rep. Dominicana",
     "Salvador": "El Salvador",
     "additius": "additius",
@@ -164,5 +163,5 @@ labels = {
     "vulgarisme": "vulgarisme",
     "vulgarment": "vulgarisme",
     "xilè": "Xile",
-}  # 104
+}  # 103
 # END
