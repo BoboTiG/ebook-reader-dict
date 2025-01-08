@@ -1662,6 +1662,7 @@ racines_schemes_arabes = {
         "ar-*a*a*ũ": "petite quantité",
         "ar-*a*i*a-a": "envelopper",
         "ar-*a*²a*a": "se mettre au travail",
+        "ar-*a*â*iy²@ũ": "{{f}} septentrionale",
         "ar-*a*â*iy²ũ": "septentrional",
         "ar-*a*â*âtũ": "{{p}} côtés nord",
         "ar-*a*â*ũ": "côté gauche",
@@ -1681,16 +1682,17 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "général",
         "ar-a**a*a": "envelopper",
         "ar-a**u*ũ": "{{p}} mains gauches",
-        "ar-ma**â*@ũ": "contrée du nord",
+        "ar-a**â*ũ": "{{p}} petites quantités",
+        "ar-ma**a*@ũ": "contrée du nord",
         "ar-ma**û*ũ": "qui a reçu le vent du nord",
+        "ar-mi**a*@ũ": "manteau enveloppant",
         "ar-mi**a*ũ": "manteau enveloppant",
-        "ar-mi**â*@ũ": "manteau enveloppant",
         "ar-mi**â*ũ": "manteau sans couture",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "être enveloppé",
         "ar-ta*â*a*a": "",
-    },  # 37
+    },  # 39
     "ar-Crq": {
         "aa_sens": "orient, dessécher",
         "ar-***ũ": "",
@@ -1742,6 +1744,32 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "se mettre au soleil",
         "ar-ta*â*a*a": "",
     },  # 49
+    "ar-Crr": {
+        "aa_sens": "méchanceté",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*@ũ": "séchoir",
+        "ar-**â*ũ": "séchoir",
+        "ar-*a**ũ": "méchanceté",
+        "ar-*a*a*a-u": "être méchant",
+        "ar-*a*²a*a": "diffamer",
+        "ar-*a*â*ũ": "étincelles",
+        "ar-*a*î*@ũ": "aiguille",
+        "ar-*a*î*ũ": "méchant",
+        "ar-*i**@ũ": "mal",
+        "ar-*i*²î*ũ": "très méchant",
+        "ar-*ta*a*a": "ruminer",
+        "ar-*u**é": "{{f}} plus méchante",
+        "ar-*u**ũ": "étincelles",
+        "ar-*u*û*ũ": "{{p}} méchancetés",
+        "ar-*â*a*a": "agir avec méchanceté",
+        "ar-a**a*a": "taxer de malveillance",
+        "ar-a**a*u": "plus méchant",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "posséder de nombreux chameaux",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 24
     "ar-DXm": {
         "aa_sens": "grand, gros",
         "ar-***ũ": "",
@@ -4630,6 +4658,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-*2aw2a*a": "être agité",
         "ar-*a**ũ": "coloquinte, palmier",
+        "ar-*a*a*a-u": "acheter",
         "ar-*a*a*ũ": "prurit",
         "ar-*a*i*a-a": "démanger",
         "ar-*a*i*ũ": "qui a le prurit",
@@ -4645,7 +4674,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être agité",
         "ar-ta*a*²a*a": "faire scission",
         "ar-ta*â*a*a": "se fâcher",
-    },  # 19
+    },  # 20
     "ar-ctw": {
         "aa_sens": "hiver",
         "ar-**a*²a": "",
@@ -9868,5 +9897,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 337
+}  # 338
 # END

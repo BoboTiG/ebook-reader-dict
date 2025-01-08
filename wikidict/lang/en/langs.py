@@ -9729,6 +9729,7 @@ langs = {
     "zle-ort": "Old Ruthenian",
     "zle-ouk": "Old Ukrainian",
     "zls": "South Slavic",
+    "zls-chs": "Church Slavonic",
     "zlw": "West Slavic",
     "zlw-lch": "Lechitic",
     "zlw-mpl": "Middle Polish",
@@ -9834,7 +9835,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,829
+}  # 9,830
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
