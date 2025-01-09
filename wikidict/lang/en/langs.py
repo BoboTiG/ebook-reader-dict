@@ -405,7 +405,7 @@ langs = {
     "anj": "Anor",
     "ank": "Goemai",
     "anl": "Anu",
-    "anm": "Anal",
+    "anm": "Anāl",
     "ann": "Obolo",
     "ano": "Andoque",
     "anp": "Angika",

@@ -675,6 +675,7 @@ langs = {
     "xur": "Urartäisch",
     "xve": "Venetisch",
     "xvo": "Volskisch",
+    "xvs": "Vestinisch",
     "yak": "Yakima",
     "yaq": "Yaqui",
     "yi": "Jiddisch",
@@ -692,5 +693,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 687
+}  # 688
 # END

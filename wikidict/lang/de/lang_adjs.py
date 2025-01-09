@@ -84,8 +84,9 @@ lang_adjs = {
     "th.": "thailändisch",
     "tr.": "türkisch",
     "wen.": "sorbisch",
+    "xvs.": "vestinisch",
     "österr.": "österreichisch",
-}  # 80
+}  # 81
 # END
 
 lang_adjs["germ."] = "germanisch"
