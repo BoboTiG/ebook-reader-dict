@@ -58,7 +58,7 @@ def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
         phrase += f" {italic(ts)}"
 
     if special := data["not"]:
-        phrase += f" {small('('+special+')')}"
+        phrase += f" {small('(' + special + ')')}"
 
     return phrase
 

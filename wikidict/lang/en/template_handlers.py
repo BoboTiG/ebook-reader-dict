@@ -293,7 +293,7 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         phrase += " "
     phrase += f"{p}"
     if data["in"]:
-        phrase += f' in {data["in"]}'
+        phrase += f" in {data['in']}"
     return phrase
 
 
@@ -567,7 +567,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     elif word:
         phrase += f" {italic(word)}"
     if data["g"]:
-        phrase += f' {gender_number_specs(data["g"])}'
+        phrase += f" {gender_number_specs(data['g'])}"
     trans = "" if data["tr"] else transliterate(dst_locale, word)
     if parts:
         gloss = parts.pop(0)  # 5, t=, gloss=
@@ -636,7 +636,7 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *
     """
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
-    gender += f' or {data["or"]}' if data["or"] else ""
+    gender += f" or {data['or']}" if data["or"] else ""
     art = data["A"] or "A"
     phrase = f"{art} "
     dimtext = join_names(data, "dim", " or ", include_langname=False, key_alias="diminutive")
@@ -863,7 +863,7 @@ def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     """
     starter = "Used other than figuratively or idiomatically"
     if data["qualifier"]:
-        phrase = f'{data["qualifier"]} {starter.lower()}'
+        phrase = f"{data['qualifier']} {starter.lower()}"
     else:
         phrase = starter
     parts.pop(0)  # language
@@ -1297,7 +1297,7 @@ def render_si_unit_2(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     category = data["3"] or (parts.pop(0) if parts else "")
     alt = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix+alt)}."
+    return f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}s; alternative spelling of {italic(prefix + alt)}."
 
 
 def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1309,7 +1309,7 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     unit = data["2"] or (parts.pop(0) if parts else "")
     category = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix+unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"
 
 
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:

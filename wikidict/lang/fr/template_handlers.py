@@ -86,9 +86,9 @@ def render_abreviation(tpl: str, parts: list[str], data: defaultdict[str, str], 
 
     phrase = "abréviation" if data["m"] in ("1", "oui") else "Abréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
-        phrase += f' de {italic(data["texte"])}'
+        phrase += f" de {italic(data['texte'])}"
     elif data["de"]:
-        phrase += f' de {italic(data["de"])}'
+        phrase += f" de {italic(data['de'])}"
     else:
         phrase = term("Abréviation")
     return phrase
@@ -189,9 +189,9 @@ def render_apherese(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     auto_cap = data["m"] in ("1", "oui")
     phrase = capitalize(tpl) if auto_cap else tpl
     if data["texte"] and data["nolien"] not in ("1", "oui"):
-        phrase += f' de {italic(data["texte"])}'
+        phrase += f" de {italic(data['texte'])}"
     elif data["de"]:
-        phrase += f' de {italic(data["de"])}'
+        phrase += f" de {italic(data['de'])}"
     return phrase
 
 
@@ -416,8 +416,8 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
             phrase += " préfixe " + word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))
             phrase += " et le suffixe " + word_tr_sens(parts[2], data.get("tr3", ""), data.get("sens3", ""))
         elif b == "1100":
-            phrase += f' du préfixe {word_tr_sens(parts[0], data.get("tr1", ""), data.get("sens1", ""))},'
-            phrase += f' avec le suffixe {word_tr_sens(parts[1], data.get("tr2", ""), data.get("sens2", ""))}'
+            phrase += f" du préfixe {word_tr_sens(parts[0], data.get('tr1', ''), data.get('sens1', ''))},"
+            phrase += f" avec le suffixe {word_tr_sens(parts[1], data.get('tr2', ''), data.get('sens2', ''))}"
 
         if data["sens"]:
             phrase += f", littéralement «&nbsp;{data['sens']}&nbsp;»"
@@ -476,7 +476,7 @@ def render_equiv_pour(tpl: str, parts: list[str], data: defaultdict[str, str], *
     phrase += data.get("texte", "on dit" if len(parts) == 1 else "on peut dire")
     phrase = f"{italic(phrase)}&nbsp: {', '.join(parts)}"
     if "2egenre" in data:
-        phrase2 = f' ; pour {data["2egenre"]}, '
+        phrase2 = f" ; pour {data['2egenre']}, "
         phrase2 += data.get("texte", "on peut dire" if "2egenre2" in data else "on dit")
         parts2: list[str] = []
         for i in range(1, 7):
@@ -873,14 +873,14 @@ def render_mot_valise(tpl: str, parts: list[str], data: defaultdict[str, str], *
     phrase = "Mot-valise" if data["m"] in ("oui", "1") else "mot-valise"
     if data["de"] or data["texte"]:
         if data["nolien"] in ("", "non", "0") and data["texte"]:
-            phrase += f' formé de {italic(data["texte"])}'
+            phrase += f" formé de {italic(data['texte'])}"
         elif data["de"]:
-            phrase += f' formé de {italic(data["de"])}'
+            phrase += f" formé de {italic(data['de'])}"
     if data["de2"] or data["texte2"]:
         if data["nolien"] in ("", "non", "0") and data["texte2"]:
-            phrase += f' et de {italic(data["texte2"])}'
+            phrase += f" et de {italic(data['texte2'])}"
         elif data["de2"]:
-            phrase += f' et de {italic(data["de2"])}'
+            phrase += f" et de {italic(data['de2'])}"
 
     return phrase
 
@@ -1230,7 +1230,7 @@ def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str
         return ""
     phrase = italic("Variante orthographique de" if "ortho" in tpl else "Variante de")
     w = data["dif"] or parts.pop(0)
-    phrase += f' {word_tr_sens(w, data["tr"], data["sens"], use_italic=False)}'
+    phrase += f" {word_tr_sens(w, data['tr'], data['sens'], use_italic=False)}"
     return phrase
 
 

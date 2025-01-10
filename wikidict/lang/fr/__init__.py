@@ -851,7 +851,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return phrase
 
     if tpl in ("ellipse", "par ellipse"):
-        return f'{italic("(Ellipse de")} {data["de"]}{italic(")")}' if data["de"] else term("Par ellipse")
+        return f"{italic('(Ellipse de')} {data['de']}{italic(')')}" if data["de"] else term("Par ellipse")
 
     if tpl == "R:DAF6":
         w = parts[0] if parts else word

@@ -319,7 +319,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
                     added.add(local_phrase)
                     sindex = str(index) if index > 1 else ""
                     if data[f"nota{sindex}"]:
-                        local_phrase += f' ({data[f"nota{sindex}"]})'
+                        local_phrase += f" ({data[f'nota{sindex}']})"
                 else:
                     local_phrase = part
             if index > 1 and local_phrase in lowercase_italic:
@@ -329,7 +329,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
                 append_to_last = False
             else:
                 phrase_a.append(local_phrase)
-        return italic(f'({concat(phrase_a, ", ")})') if phrase_a else ""
+        return italic(f"({concat(phrase_a, ', ')})") if phrase_a else ""
 
     if lang := langs.get(template[0]):
         return capitalize(lang)

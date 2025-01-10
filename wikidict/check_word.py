@@ -153,7 +153,7 @@ def filter_html(html: str, locale: str) -> str:
     elif locale == "en":
         for span in bs.find_all("span"):
             if span.string == "and other forms":
-                span.string += f' {span["title"]}'
+                span.string += f" {span['title']}"
         # other anchors
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#mw")):

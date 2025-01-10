@@ -301,7 +301,7 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
             if isinstance(all_labels, list):
                 all_labels = all_labels[0]
             if all_labels.get("link") not in {None, "πατρότητα"}:
-                mytext = show or f'{italic(all_labels["linkshow"])}'
+                mytext = show or f"{italic(all_labels['linkshow'])}"
         mytext = mytext if noparenthesis else f"({mytext})"
     return mytext
 

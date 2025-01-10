@@ -9069,7 +9069,7 @@ racines_schemes_arabes = {
         "ar-**a*²a": "",
         "ar-**â*ũ": "achèvement",
         "ar-*a**ũ": "complément",
-        "ar-*a*a*a-u": "compléter",
+        "ar-*a*a*a-i": "compléter",
         "ar-*a*a*ũ": "entier",
         "ar-*a*²a*a": "terminer",
         "ar-*a*²â*ũ": "multitude",
@@ -9088,6 +9088,7 @@ racines_schemes_arabes = {
         "ar-*u**ũ": "complément",
         "ar-*u*a*ũ": "amulettes",
         "ar-*u*â*@ũ": "reste",
+        "ar-*u*â*ũ": "complétion",
         "ar-*â**@ũ": "{{f}} achevée",
         "ar-*â**ũ": "terminé",
         "ar-*â*a*a": "lutter pour achever",
@@ -9102,7 +9103,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "complétion",
         "ar-ta*a*²a*a": "être fendu",
         "ar-ta*â*a*a": "se réunir",
-    },  # 38
+    },  # 39
     "ar-trk": {
         "aa_sens": "laisser, abandonner",
         "ar-**a*²a": "",

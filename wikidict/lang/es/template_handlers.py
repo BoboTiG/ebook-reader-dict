@@ -101,7 +101,7 @@ def render_afi(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     >>> render_afi("IPA", ["/oː/"], defaultdict(str))
     '/oː/ <small>(AFI)</small>'
     """
-    return concat(parts, ", ") + f' {small("(AFI)")}'
+    return concat(parts, ", ") + f" {small('(AFI)')}"
 
 
 def render_aumentativo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -167,7 +167,7 @@ def render_comparativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     word = parts[0] if parts else ""
     start = "Comparativo"
     if data["tipo"]:
-        start += f' {data["tipo"]}'
+        start += f" {data['tipo']}"
     if data["i"] or data["irr"] or data["irreg"] or data["irregular"]:
         start += " irregular"
     start += " de"
@@ -572,7 +572,7 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         start = f"Forma del {concat([caso, numero, genero], ' ')} de"
     phrase = f"{italic(capitalize(start))} {parts[0]}"
     if data["texto_pos"]:
-        phrase += f'{data["texto_pos"]}'
+        phrase += f"{data['texto_pos']}"
     return phrase
 
 
@@ -639,7 +639,7 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     phrase = f"{italic(start)} "
     phrase += render_l("l", [data["alt"] or parts[0]], data)
     if data["texto_pos"]:
-        phrase += f' {italic(data["texto_pos"])}'
+        phrase += f" {italic(data['texto_pos'])}"
     return phrase
 
 
@@ -733,7 +733,7 @@ def render_superlativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     if data["glosa"]:
         local_phrase.append(f'"{data["glosa"]}"')
     if local_phrase:
-        phrase += f' ({concat(local_phrase, ", ")})'
+        phrase += f" ({concat(local_phrase, ', ')})"
     if not data["def"] and not parts:
         phrase += f":&nbsp;sumamente {word}"
     return phrase

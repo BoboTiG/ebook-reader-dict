@@ -26,7 +26,7 @@ sections = (
     "noun",
     "personligt prononmen",
     "possessivt prononmen",
-    "possessivt pronomen" "possessivt pronomen (ejestedord)" "præfiks",
+    "possessivt pronomenpossessivt pronomen (ejestedord)præfiks",
     "prefix",
     "pronomen",
     "prœposition",
