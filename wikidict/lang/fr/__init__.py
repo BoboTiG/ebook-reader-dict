@@ -196,6 +196,7 @@ templates_ignored = (
     "source-w",
     "trad-exe",
     "trier",
+    "User",
     "vérifier",
     "voir",
     "voir-conj",
