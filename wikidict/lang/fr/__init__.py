@@ -225,7 +225,7 @@ templates_italic = {
     "avant 1835": "Archaïque, orthographe d’avant 1835",
     "Canton de La Mure": "Canton de La Mure",
     "dénombrable": "Dénombrable",
-    "diaéthique": "Variation diaéthique",
+    "diaéthique": "Variations diaéthiques",
     "ex-rare": "Extrêmement rare",
     "extrêmement_rare": "Extrêmement rare",
     "énallages": "Énallage",

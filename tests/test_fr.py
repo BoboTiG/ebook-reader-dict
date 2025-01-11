@@ -490,7 +490,7 @@ def test_parse_word(
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("{{détroit|fr}}", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
-        ("{{diaéthique|fr}}", "<i>(Variation diaéthique)</i>"),
+        ("{{diaéthique|fr}}", "<i>(Variations diaéthiques)</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("M{{e|me}}", "M<sup>me</sup>"),
         ("du XX{{ème}} siècle", "du XX<sup>e</sup> siècle"),
