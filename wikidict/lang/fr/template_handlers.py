@@ -698,6 +698,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     labels = {
         "adj": "Adjectif",
         "adj-pos": "Adjectif possessif",
+        "adjectif possessif": "Adjectif possessif",
         "adjectif": "Adjectif",
         "adv": "Adverbe",
         "adverbe": "Adverbe",
