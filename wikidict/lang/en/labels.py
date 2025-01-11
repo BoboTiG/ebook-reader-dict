@@ -583,11 +583,13 @@ labels = {
     "Nova Scotia": "Nova Scotia",
     "Nunavut": "Nunavut",
     "OOP": "object-oriented programming",
+    "OSM": "OpenStreetMap",
     "Oceania": "Oceania",
     "Ohio": "Ohio",
     "Oklahoma": "Oklahoma",
     "Old Ukrainian": "Old Ukrainian",
     "Ontario": "Ontario",
+    "OpenStreetMap": "OpenStreetMap",
     "Orcadian": "Orkney",
     "Orkney": "Orkney",
     "Oxbridge": "Oxbridge",
@@ -1940,6 +1942,7 @@ labels = {
     "ornithology": "ornithology",
     "orthodontics": "orthodontics",
     "orthography": "orthography",
+    "osm": "OpenStreetMap",
     "otherwise": "otherwise",
     "outside": "outside",
     "pagan": "paganism",
@@ -2500,7 +2503,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,495
+}  # 2,498
 
 syntaxes = {
     "&": {

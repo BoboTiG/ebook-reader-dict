@@ -8706,6 +8706,7 @@ racines_schemes_arabes = {
     },  # 30
     "ar-slm": {
         "aa_sens": "rester intact ; être livré ; morsure de serpent",
+        "ar-**â*iy²ũ": "islamique",
         "ar-**â*ũ": "le fait de se rendre à Dieu ; islam",
         "ar-*a**ânu": "Salman (prénom) ; meilleure part",
         "ar-*a**é": "({{f}}) plus intacte, plus à l'abri",
@@ -8746,7 +8747,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "faire la paix ; être d'accord",
         "ar-tama**a*a": "se convertir, devenir musulman",
         "ar-u*ay*i*ũ": "artère entre le majeur et l'auriculaire",
-    },  # 41
+    },  # 42
     "ar-smd": {
         "aa_sens": "fumier / redresser",
         "ar-***ũ": "",
@@ -9079,6 +9080,7 @@ racines_schemes_arabes = {
         "ar-*a*î*@ũ": "amulette",
         "ar-*a*î*ũ": "entier",
         "ar-*ayi**@ũ": "achèvement",
+        "ar-*i**@ũ": "amulette",
         "ar-*i**ũ": "hache en fer",
         "ar-*i*a*ũ": "amulettes",
         "ar-*i*â*ũ": "entier",
@@ -9103,7 +9105,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "complétion",
         "ar-ta*a*²a*a": "être fendu",
         "ar-ta*â*a*a": "se réunir",
-    },  # 39
+    },  # 40
     "ar-trk": {
         "aa_sens": "laisser, abandonner",
         "ar-**a*²a": "",
