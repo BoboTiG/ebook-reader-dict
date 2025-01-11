@@ -185,6 +185,8 @@ templates_multi = {
     # {{ucf}}
     # {{ucf|mujer}}
     "ucf": "capitalize(parts[1] if len(parts) > 1 else word)",
+    # {{variante anticuada|arsafraga}}
+    "variante anticuada": "f\"{italic('Variante anticuada de')} {parts[1]}\"",
     # {{variante informal|cómo estás}}
     "variante informal": "f\"{italic('Variante informal de')} {parts[1]}\"",
     # {{variante obsoleta|hambre}}
