@@ -999,6 +999,7 @@ labels = {
     "ball games": "ball games",
     "ball sports": "ball games",
     "ballet": "ballet",
+    "ballistics": "ballistics",
     "banking": "banking",
     "baraminology": "creationism",
     "baseball": "baseball",
@@ -2503,7 +2504,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,498
+}  # 2,499
 
 syntaxes = {
     "&": {

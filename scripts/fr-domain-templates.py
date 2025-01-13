@@ -15,7 +15,14 @@ def process_category_page(url: str, results: dict[str, str]) -> str:
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT + last_link.get("href")
 
-    content_div = soup.find("div", "mw-category-generated")
+    content_div = soup.find(id="mw-subcategories")
+    if content_div:
+        lis = content_div.find_all("li")
+        for li in lis:
+            template_url = ROOT + li.find("a").get("href")
+            process_category_page(template_url, results)
+
+    content_div = soup.find(id="mw-pages")
     lis = content_div.find_all("li")
     for li in lis:
         template_url = ROOT + li.find("a").get("href")
