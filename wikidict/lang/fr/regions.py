@@ -74,6 +74,7 @@ regions = {
     "Azerbaïdjan": "Azerbaïdjan",
     "Açores": "Açores",
     "Aÿ-Champagne": "Aÿ-Champagne",
+    "BA": "Bosnie-Herzégovine",
     "BE": "Belgique",
     "BF": "Burkina Faso",
     "BR": "Brésil",
@@ -819,5 +820,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 814
+}  # 815
 # END
