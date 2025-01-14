@@ -335,6 +335,7 @@ domain_templates = {
     "vête": "Habillement",
     "vêtements": "Habillement",
     "xénarthres": "Mammalogie",
+    "ères du Japon": "Japon",
     "échinodermes": "Échinodermologie",
     "écureuils": "Glirologie",
     "édifices": "Construction",
@@ -347,5 +348,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 342
+}  # 343
 # END
