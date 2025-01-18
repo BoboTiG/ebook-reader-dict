@@ -5822,6 +5822,36 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "supporter la faim",
         "ar-ta*â*a*a": "",
     },  # 17
+    "ar-jwd": {
+        "aa_sens": "perfection",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "soif",
+        "ar-*a**ũ": "générosité",
+        "ar-*a*a*a-u": "être bon",
+        "ar-*a*a*iy²ũ": "safran",
+        "ar-*a*a*ũ": "vanité",
+        "ar-*a*²a*a": "faire bien",
+        "ar-*a*²i*@ũ": "{{f}} excellente",
+        "ar-*a*²i*ũ": "excellent",
+        "ar-*a*â*ũ": "généreux",
+        "ar-*ta*a*a": "",
+        "ar-*u**@ũ": "perfection",
+        "ar-*u**iy²ũ": "Djoudi",
+        "ar-*u**ũ": "générosité",
+        "ar-*u*â*@ũ": "soif",
+        "ar-*â*a*a": "lutter de générosité",
+        "ar-*âyi3ũ": "pluie abondante",
+        "ar-a**a*a": "donner largement",
+        "ar-a**a*u": "plus généreux",
+        "ar-ma**u*ũ": "altéré",
+        "ar-mi**â*ũ": "qui produit de belles choses",
+        "ar-mu**i*ũ": "qui produit de belles choses",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "prospérer",
+        "ar-ta*a*²a*a": "choisir le meilleur",
+        "ar-ta*â*a*a": "lutter de générosité",
+    },  # 28
     "ar-kFr": {
         "aa_sens": "multitude",
         "ar-***ũ": "",
@@ -9949,5 +9979,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 339
+}  # 340
 # END
