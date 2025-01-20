@@ -2454,6 +2454,7 @@ langs = {
     "es-CU": "Cuban Spanish",
     "es-MX": "Mexican Spanish",
     "es-PE": "Peruvian Spanish",
+    "es-PH": "Philippine Spanish",
     "es-PR": "Puerto Rican Spanish",
     "es-US": "United States Spanish",
     "es-VE": "Venezuelan Spanish",
@@ -9835,7 +9836,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,830
+}  # 9,831
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

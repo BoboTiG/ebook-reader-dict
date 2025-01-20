@@ -722,6 +722,7 @@ labels = {
     "Singapore": "Singapore",
     "Singaporean": "Singapore",
     "Singlish": "Singlish",
+    "Sirius-serious": "''mirror''–''nearer'' merger",
     "Skanian": "Scania",
     "Skåne": "Scania",
     "Slavic god": "Slavic mythology",
@@ -1760,6 +1761,7 @@ labels = {
     "mineral": "mineralogy",
     "mineralogy": "mineralogy",
     "mining": "mining",
+    "mirror-nearer": "''mirror''–''nearer'' merger",
     "misspelling": "misspelling",
     "mnemonic": "mnemonic",
     "mobile phone": "mobile telephony",
@@ -1858,6 +1860,7 @@ labels = {
     "non-North American raising": "non-Canadian raising",
     "non-Oxford": "non-Oxford British English",
     "non-Oxford British spelling": "non-Oxford British English",
+    "non-Sirius-serious": "non-''mirror''–''nearer'' merger",
     "non-ae-tensing": "non-æ-tensing",
     "non-caught-cot": "non-''cot''–''caught'' merger",
     "non-cheer-chair": "non-''cheer''–''chair'' merger",
@@ -1882,6 +1885,7 @@ labels = {
     "non-l-vocalisation": "non-''l''-vocalization",
     "non-l-vocalization": "non-''l''-vocalization",
     "non-lot-cloth split": "non-''lot''–''cloth'' split",
+    "non-mirror-nearer": "non-''mirror''–''nearer'' merger",
     "non-native speakers": "non-native speakers",
     "non-native speakers' English": "non-native speakers' English",
     "non-near-square": "non-''cheer''–''chair'' merger",
@@ -2529,7 +2533,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,524
+}  # 2,528
 
 syntaxes = {
     "&": {
