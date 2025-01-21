@@ -5839,11 +5839,14 @@ racines_schemes_arabes = {
         "ar-*u**@ũ": "perfection",
         "ar-*u**iy²ũ": "Djoudi",
         "ar-*u**ũ": "générosité",
+        "ar-*u*a*@ũ": "{{p}} généreux",
+        "ar-*u*a*â'u": "{{p}} généreux",
         "ar-*u*â*@ũ": "soif",
         "ar-*â*a*a": "lutter de générosité",
         "ar-*âyi3ũ": "pluie abondante",
         "ar-a**a*a": "donner largement",
         "ar-a**a*u": "plus généreux",
+        "ar-a**â*ũ": "{{p}} généreux",
         "ar-ma**u*ũ": "altéré",
         "ar-mi**â*ũ": "qui produit de belles choses",
         "ar-mu**i*ũ": "qui produit de belles choses",
@@ -5851,7 +5854,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "prospérer",
         "ar-ta*a*²a*a": "choisir le meilleur",
         "ar-ta*â*a*a": "lutter de générosité",
-    },  # 28
+    },  # 31
     "ar-kFr": {
         "aa_sens": "multitude",
         "ar-***ũ": "",

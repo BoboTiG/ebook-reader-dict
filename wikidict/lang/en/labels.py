@@ -1409,7 +1409,10 @@ labels = {
     "functional group suffix": "organic chemistry",
     "functional programming": "functional programming",
     "furniture": "furniture",
+    "furry": "furry fandom",
+    "furry community": "furry fandom",
     "furry fandom": "furry fandom",
+    "fursuit": "furry fandom",
     "fuzzy logic": "fuzzy logic",
     "g dropping": "''g''-dropping",
     "g-dropping": "''g''-dropping",
@@ -1632,6 +1635,10 @@ labels = {
     "jussive": "jussive",
     "jussive mood": "jussive",
     "karuta": "karuta",
+    "kemona": "furry fandom",
+    "kemono": "furry fandom",
+    "kemonomimi": "furry fandom",
+    "kemonā": "furry fandom",
     "kendo": "kendo",
     "kenning": "kenning",
     "knitting": "knitting",
@@ -2286,6 +2293,8 @@ labels = {
     "spiritualism": "spiritualism",
     "sport": "sports",
     "sports": "sports",
+    "square dance": "square dancing",
+    "square dancing": "square dancing",
     "square-nurse": "''fair''–''fur'' merger",
     "squash": "squash",
     "standard of identity": "standards of identity",
@@ -2533,7 +2542,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,528
+}  # 2,537
 
 syntaxes = {
     "&": {
