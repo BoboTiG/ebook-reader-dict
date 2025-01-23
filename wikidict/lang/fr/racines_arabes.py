@@ -9327,6 +9327,43 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être employé",
         "ar-ta*â*a*a": "",
     },  # 16
+    "ar-wd3": {
+        "aa_sens": "placer",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "tombeau",
+        "ar-*a*a*@ũ": "conque de Vénus",
+        "ar-*a*a*a-a": "poser",
+        "ar-*a*a*ũ": "souris des champs",
+        "ar-*a*u*a": "être calme",
+        "ar-*a*²a*a": "délaisser",
+        "ar-*a*â*@ũ": "calme",
+        "ar-*a*â*ũ": "adieu",
+        "ar-*a*î*@ũ": "dépôt",
+        "ar-*a*î*ũ": "tranquille",
+        "ar-*ta*a*a": "être tranquille",
+        "ar-*â*a*a": "se réconcilier",
+        "ar-*â*i*ã": "tranquillement",
+        "ar-*â*i*ũ": "qui vit tranquillement",
+        "ar-2a3@ũ": "tranquilité",
+        "ar-a**a*a": "déposer",
+        "ar-a**a*u": "blanche gorge",
+        "ar-a**a*ũ": "souris des champs",
+        "ar-ma**û*ũ": "délaissé",
+        "ar-mi**a*@ũ": "habit de travail",
+        "ar-mi**a*ũ": "habit de travail",
+        "ar-mi**â*@ũ": "habit de travail",
+        "ar-mu**i*ũ": "docile",
+        "ar-mu*a*²a*@ũ": "{{f}} déposée",
+        "ar-mu*a*²a*ũ": "confié",
+        "ar-musta**a*ũ": "dépositaire",
+        "ar-muta*a*²i*ũ": "tranquille",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "rendre dépositaire",
+        "ar-ta*a*²a*a": "être déposé",
+        "ar-ta*â*a*a": "faire la paix",
+        "ar-ta*â*u*ũ": "réconciliation",
+    },  # 35
     "ar-whb": {
         "aa_sens": "don",
         "ar-***ũ": "",
@@ -9982,5 +10019,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 340
+}  # 341
 # END
