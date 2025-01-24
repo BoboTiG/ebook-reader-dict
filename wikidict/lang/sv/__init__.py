@@ -267,11 +267,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "belagt":
         year = parts[1]
-        first_letter = "B"
         if len(parts) > 2:
             first_letter = "b"
             suffix = "-talet" if "t" in parts[2] else ""
         else:
+            first_letter = "B"
             suffix = "."
         return f"{first_letter}elagt i språket sedan {year}{suffix}"
 
