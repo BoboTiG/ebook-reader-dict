@@ -627,6 +627,8 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
         start = "Grafía"
         if tpl in {"grafía", "grafia"}:
             start += " alternativa "
+        elif tpl == "grafía anticuada":
+            start += " anticuada "
         elif tpl == "grafía informal":
             start += " informal "
         elif tpl == "grafía obsoleta":
@@ -836,6 +838,7 @@ template_mapping = {
     "gentilicio3": render_gentilicio3,
     "grafia": render_grafia,
     "grafía": render_grafia,
+    "grafía anticuada": render_grafia,
     "grafía informal": render_grafia,
     "grafía obsoleta": render_grafia,
     "grafía rara": render_grafia,
