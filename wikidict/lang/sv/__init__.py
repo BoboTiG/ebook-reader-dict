@@ -208,6 +208,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
         'bero'
 
+        >>> last_template_handler(["belagt", "sv", "2025"], "sv")
+        'Belagt i språket sedan 2025.'
+        >>> last_template_handler(["belagt", "sv", "2025", "n"], "sv")
+        'belagt i språket sedan 2025'
+        >>> last_template_handler(["belagt", "sv", "2025", "nt"], "sv")
+        'belagt i språket sedan 2025-talet'
+
         >>> last_template_handler(["gammalstavning", "sv", "fv", "brev"], "sv")
         '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
         >>> last_template_handler(["gammalstavning", "sv", "m", "Dalarna"], "sv")
@@ -257,6 +264,16 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
             # Delete superfluous letters (till + lada = tilllada, but we need tillada)
             return re.sub(r"(.)(?:\1){2,}", r"\1\1", f"{data['partikel']}{parts[-1]}")
         return parts[-1]
+
+    if tpl == "belagt":
+        year = parts[1]
+        first_letter = "B"
+        if len(parts) > 2:
+            first_letter = "b"
+            suffix = "-talet" if "t" in parts[2] else ""
+        else:
+            suffix = "."
+        return f"{first_letter}elagt i språket sedan {year}{suffix}"
 
     if tpl == "gammalstavning":
         phrase = "" if data["ejtagg"] == "1" else "(ålderdomligt) "
