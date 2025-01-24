@@ -1283,6 +1283,7 @@ labels = {
     "ditransitive": "ditransitive",
     "divination": "divination",
     "diving": "diving",
+    "doll-dole": "''doll''–''dole'' merger",
     "dominoes": "dominoes",
     "dou dizhu": "dou dizhu",
     "dough-door": "''dough''–''door'' merger",
@@ -2542,7 +2543,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,537
+}  # 2,538
 
 syntaxes = {
     "&": {

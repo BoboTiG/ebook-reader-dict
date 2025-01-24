@@ -9341,6 +9341,7 @@ racines_schemes_arabes = {
         "ar-*a*â*ũ": "adieu",
         "ar-*a*î*@ũ": "dépôt",
         "ar-*a*î*ũ": "tranquille",
+        "ar-*i*â*ũ": "réconciliation",
         "ar-*ta*a*a": "être tranquille",
         "ar-*â*a*a": "se réconcilier",
         "ar-*â*i*ã": "tranquillement",
@@ -9356,14 +9357,16 @@ racines_schemes_arabes = {
         "ar-mu**i*ũ": "docile",
         "ar-mu*a*²a*@ũ": "{{f}} déposée",
         "ar-mu*a*²a*ũ": "confié",
+        "ar-mu*â*a*@ũ": "réconciliation",
         "ar-musta**a*ũ": "dépositaire",
         "ar-muta*a*²i*ũ": "tranquille",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "rendre dépositaire",
+        "ar-ta**î*ũ": "délaissement",
         "ar-ta*a*²a*a": "être déposé",
         "ar-ta*â*a*a": "faire la paix",
         "ar-ta*â*u*ũ": "réconciliation",
-    },  # 35
+    },  # 38
     "ar-whb": {
         "aa_sens": "don",
         "ar-***ũ": "",
