@@ -9331,6 +9331,7 @@ racines_schemes_arabes = {
         "aa_sens": "placer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-*a**@ũ": "conque de Vénus",
         "ar-*a**ũ": "tombeau",
         "ar-*a*a*@ũ": "conque de Vénus",
         "ar-*a*a*a-a": "poser",
@@ -9342,7 +9343,6 @@ racines_schemes_arabes = {
         "ar-*a*î*@ũ": "dépôt",
         "ar-*a*î*ũ": "tranquille",
         "ar-*i*â*ũ": "réconciliation",
-        "ar-*ta*a*a": "être tranquille",
         "ar-*â*a*a": "se réconcilier",
         "ar-*â*i*ã": "tranquillement",
         "ar-*â*i*ũ": "qui vit tranquillement",
@@ -9350,6 +9350,7 @@ racines_schemes_arabes = {
         "ar-a**a*a": "déposer",
         "ar-a**a*u": "blanche gorge",
         "ar-a**a*ũ": "souris des champs",
+        "ar-it²a2a3a": "être tranquille",
         "ar-ma**û*ũ": "délaissé",
         "ar-mi**a*@ũ": "habit de travail",
         "ar-mi**a*ũ": "habit de travail",
@@ -9366,7 +9367,7 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être déposé",
         "ar-ta*â*a*a": "faire la paix",
         "ar-ta*â*u*ũ": "réconciliation",
-    },  # 38
+    },  # 39
     "ar-whb": {
         "aa_sens": "don",
         "ar-***ũ": "",
