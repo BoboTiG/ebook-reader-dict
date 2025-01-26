@@ -6233,6 +6233,7 @@ langs = {
     "yiz": "azhe",
     "yka": "yakan",
     "ykg": "youkaguir de la toundra",
+    "ykh": "khamnigan",
     "yki": "yoke",
     "ykm": "yakamul",
     "yko": "yasa",
@@ -6479,5 +6480,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,474
+}  # 6,475
 # END

@@ -688,6 +688,7 @@ labels = {
     "SSB": "Standard Southern British",
     "SSBE": "Standard Southern British",
     "Saskatchewan": "Saskatchewan",
+    "ScE": "Scotland",
     "Scania": "Scania",
     "Scanian": "Scania",
     "Scientology": "Scientology",
@@ -2543,7 +2544,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,538
+}  # 2,539
 
 syntaxes = {
     "&": {
