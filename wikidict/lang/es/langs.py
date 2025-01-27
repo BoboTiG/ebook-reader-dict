@@ -5725,6 +5725,7 @@ langs = {
     "qfa-yen-jie": "jié de China",
     "qfa-yen-pro": "protoyeniseico",
     "qfa-yuk-pro": "protoyucaguira",
+    "qsb-ibe": "algún sustrato ibérico prerromano",
     "qu": "quechua",
     "qua": "quapaw",
     "qub": "quechua del Huallaga",
@@ -8274,5 +8275,5 @@ langs = {
     "zxx": "---n/a---",
     "zyp": "chin zyphe",
     "zza": "zazaki",
-}  # 8,269
+}  # 8,270
 # END
