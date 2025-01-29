@@ -391,6 +391,7 @@ labels = {
     "Jamaican": "Jamaica",
     "Jamaican English": "Jamaica",
     "Japan": "Japan",
+    "Japanese fiction": "Japanese fiction",
     "Japanese god": "Japanese mythology",
     "Japanese mythology": "Japanese mythology",
     "Japanese porn": "Japanese pornography",
@@ -2544,7 +2545,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,539
+}  # 2,540
 
 syntaxes = {
     "&": {
