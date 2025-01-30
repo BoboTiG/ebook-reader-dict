@@ -1942,6 +1942,7 @@ labels = {
     "object-oriented programming": "object-oriented programming",
     "obscene": "vulgar",
     "obsolete": "obsolete",
+    "obsolete element symbol": "chemistry, obsolete",
     "obsolete term": "obsolete term",
     "obstetric": "obstetrics",
     "obstetrics": "obstetrics",
@@ -2353,6 +2354,7 @@ labels = {
     "synecdochic": "synecdochically",
     "synecdochical": "synecdochically",
     "synecdochically": "synecdochically",
+    "systematic element symbol": "chemistry",
     "systematics": "systematics",
     "systems engineering": "systems engineering",
     "systems theory": "systems theory",
@@ -2545,7 +2547,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,540
+}  # 2,542
 
 syntaxes = {
     "&": {

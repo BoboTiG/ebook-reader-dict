@@ -2400,6 +2400,33 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 22
+    "ar-Hrk": {
+        "aa_sens": "mouvoir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*3a3ũ": "haut de la hanche",
+        "ar-*a*a*@ũ": "mouvement",
+        "ar-*a*a*a-u": "frapper",
+        "ar-*a*i*a-a": "être impuissant",
+        "ar-*a*i*ũ": "dégourdi",
+        "ar-*a*u*a": "se mouvoir",
+        "ar-*a*²a*a": "mettre en mouvement",
+        "ar-*a*â*ũ": "mouvement",
+        "ar-*a*î*ũ": "impuissant",
+        "ar-*ta*a*a": "tenir en selle",
+        "ar-*u*3û3ũ": "garrot",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "garrot",
+        "ar-a**a*a": "",
+        "ar-ma**a*ũ": "naissance de l'encolure",
+        "ar-mi**â*ũ": "fourgon à feu",
+        "ar-mu*ya*i*ũ": "ferme en selle",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "marquage des moyelles",
+        "ar-ta*a*²a*a": "se remuer",
+        "ar-ta*â*a*a": "",
+    },  # 25
     "ar-Hrm": {
         "aa_sens": "interdire",
         "ar-***ũ": "",
@@ -10027,5 +10054,5 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 341
+}  # 342
 # END
