@@ -64,7 +64,6 @@ domain_templates = {
     "carnivores": "Mammalogie",
     "cervidés": "Mammalogie",
     "chameaux": "Camélologie",
-    "champignon": "Mycologie",
     "champignons": "Mycologie",
     "charcuteries": "Charcuterie",
     "chats": "Félinologie",
@@ -348,5 +347,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 343
+}  # 342
 # END
