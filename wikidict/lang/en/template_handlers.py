@@ -795,6 +795,24 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return ", ".join([f"ISO 639-{idx} code {strong(part)}" for idx, part in enumerate(parts, 1) if part])
 
 
+def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str, {}))
+    '縄抜け'
+    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ"], defaultdict(str, {}))
+    '縄抜け (なわぬけ)'
+    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ", "nawanuke"], defaultdict(str, {}))
+    '縄抜け (なわぬけ, <i>nawanuke</i>)'
+    """
+    text = parts.pop(0)
+    if parts:
+        if len(parts) == 1:
+            text += f" ({parts[0]})"
+        else:
+            text += f" ({parts[0]}, {italic(parts[1])})"
+    return text
+
+
 def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_label("label", ["en" , "Australia", "slang"], defaultdict(str, {"nocat":"1"}))
@@ -1546,6 +1564,7 @@ template_mapping = {
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
+    "ja-l": render_ja_l,
     "l": render_foreign_derivation,
     "l-lite": render_foreign_derivation,
     "label": render_label,
