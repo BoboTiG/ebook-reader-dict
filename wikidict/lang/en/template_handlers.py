@@ -1054,6 +1054,52 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return phrase
 
 
+def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_name_translit("name translit", ["en", "ka", "შევარდნაძე"], defaultdict(str, {"type":"surname"}))
+    '<i>A transliteration of the Georgian surname</i> <b>შევარდნაძე</b>'
+    >>> render_name_translit("name translit", ["en", "fa", "فرید<tr:farid>"], defaultdict(str, {"type":"male given name"}))
+    '<i>A transliteration of the Persian male given name</i> <b>فرید</b> (<i>farid</i>)'
+    >>> render_name_translit("name translit", ["en", "ru", "Ива́нович<t:son of Ivan>"], defaultdict(str, {"type":"patronymic"}))
+    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (“<i>son of Ivan</i>”)'
+    >>> render_name_translit("name translit", ["pt", "bg", "Ива́нов", "Ивано́в"], defaultdict(str, {"type":"surname"}))
+    '<i>A transliteration of the Bulgarian surname</i> <b>Ива́нов</b> <i>or</i> <b>Ивано́в</b>'
+    >>> render_name_translit("name translit", ["en", "el", "Γιάννης<eq:John>"], defaultdict(str, {"type":"male given name"}))
+    '<i>A transliteration of the Greek male given name</i> <b>Γιάννης</b>, <i>equivalent to John</i>'
+    >>> render_name_translit("name translit", ["fr", "ja"], defaultdict(str, {"type":"female given name"}))
+    '<i>A transliteration of a Japanese female given name</i>'
+    """
+    parts.pop(0)  # Destination lang
+    src_lang = parts.pop(0)  # Source lang
+
+    text = italic(f"A transliteration of {'the' if parts else 'a'} {langs[src_lang]} {data['type']}")
+    if not parts:
+        return text
+
+    what, rest = parts.pop(0), ""
+    if "<" in what:
+        what, rest = what.split("<", 1)
+    text += f" {strong(what)}"
+
+    if rest:
+        kind, value = rest.split(":", 1)
+        value = value.rstrip(">")
+        match kind:
+            case "eq":
+                text += f", {italic('equivalent to ' + value)}"
+            case "t":
+                text += f" (“{italic(value)}”)"
+            case "tr":
+                text += f" ({italic(value)})"
+            case _:
+                assert 0, f"Unhandled {kind=} in render_name_translit()"
+
+    if parts:
+        text += f" {italic('or')} {strong(parts[0])}"
+
+    return text
+
+
 def render_named_after(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_named_after("named-after", ["en", "Pierre Bézier"], defaultdict(str, {"nationality":"French", "occupation":"Renault engineer", "nocap":"1"}))
@@ -1514,6 +1560,7 @@ template_mapping = {
     "m+": render_foreign_derivation,
     "m-lite": render_foreign_derivation,
     "mention": render_foreign_derivation,
+    "name translit": render_name_translit,
     "named-after": render_named_after,
     "nb...": render_nb,
     "nc": render_foreign_derivation,
