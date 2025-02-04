@@ -1090,7 +1090,7 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
     '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
     """
     parts.pop(0)  # Destination lang
-    src_langs = parts.pop(0)  # Source lang
+    src_langs = parts.pop(0)
 
     origins = concat([langs[src_lang] for src_lang in src_langs.split(",")], sep=", ", last_sep=" or ")
     text = italic(f"A transliteration of {'the' if parts else 'a'} {origins} {data['type']}")
