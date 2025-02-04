@@ -537,6 +537,9 @@ regions = {
     "Ontario": "Ontario",
     "Oria": "Oria",
     "Orne": "Orne",
+    "Ossétie": "Ossétie",
+    "Ossétie du Nord": "Ossétie du Nord",
+    "Ossétie du Sud": "Ossétie du Sud",
     "Ostuni": "Ostuni",
     "Otrante": "Otrante",
     "Ouessant": "Ouessant",
@@ -606,6 +609,7 @@ regions = {
     "RDC": "Congo-Kinshasa",
     "RDCongo": "Congo-Kinshasa",
     "RS": "Serbie",
+    "RU-SE": "Ossétie du Nord",
     "Ramerupt": "Ramerupt",
     "Ramonchamp": "Ramonchamp",
     "Rhône-Alpes": "Rhône-Alpes",
@@ -780,6 +784,7 @@ regions = {
     "West Muskerry": "West Muskerry",
     "XA": "Abkhazie",
     "XK": "Kosovo",
+    "XO": "Ossétie du Sud",
     "Yonne": "Yonne",
     "Yorkshire": "Yorkshire",
     "Yucatan": "Yucatán",
@@ -821,5 +826,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 816
+}  # 821
 # END

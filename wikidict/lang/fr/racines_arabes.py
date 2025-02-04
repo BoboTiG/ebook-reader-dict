@@ -2404,7 +2404,7 @@ racines_schemes_arabes = {
         "aa_sens": "mouvoir",
         "ar-***ũ": "",
         "ar-**a*²a": "",
-        "ar-*a**a*ũ": "haut de la hanche",
+        "ar-*a**a*@ũ": "haut de la hanche",
         "ar-*a**û*ũ": "garrot",
         "ar-*a**ũ": "motion",
         "ar-*a*a*@ũ": "mouvement",
@@ -2413,6 +2413,8 @@ racines_schemes_arabes = {
         "ar-*a*i*ũ": "dégourdi",
         "ar-*a*u*a": "se mouvoir",
         "ar-*a*²a*a": "mettre en mouvement",
+        "ar-*a*â*i*u": "{{p}} croupes",
+        "ar-*a*â*î*u": "{{p}} croupes",
         "ar-*a*â*ũ": "mouvement",
         "ar-*a*î*ũ": "impuissant",
         "ar-*ta*a*a": "tenir en selle",
@@ -2427,7 +2429,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "marquage des moyelles",
         "ar-ta*a*²a*a": "se remuer",
         "ar-ta*â*a*a": "",
-    },  # 26
+    },  # 28
     "ar-Hrm": {
         "aa_sens": "interdire",
         "ar-***ũ": "",
@@ -3995,6 +3997,26 @@ racines_schemes_arabes = {
         "ar-ta*a*²u*ũ": "étude détaillée",
         "ar-ta*â*a*a": "",
     },  # 29
+    "ar-bRl": {
+        "aa_sens": "mule",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "mule",
+        "ar-*a*a*@ũ": "{{f}} mule",
+        "ar-*a*a*a-u": "diffamer",
+        "ar-*a*²a*a": "être paresseux",
+        "ar-*a*²â*@ũ": "qui a beaucoup de mulets",
+        "ar-*a*²â*ũ": "muletier",
+        "ar-*i*â*ũ": "{{p}} mules",
+        "ar-*ta*a*a": "",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-ma**û*â'u": "troupeau de mules",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 18
     "ar-bTT": {
         "aa_sens": "découper",
         "ar-***ũ": "",
@@ -10055,5 +10077,32 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se faire des visites",
     },  # 29
-}  # 342
+    "ar-zyt": {
+        "aa_sens": "huile",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-**â*ũ": "abondance d'huile",
+        "ar-*a**ũ": "huile d'olive",
+        "ar-*a*a*a-i": "huiler",
+        "ar-*a*²a*a": "donner de l'huile",
+        "ar-*a*²â*ũ": "marchand d'huile",
+        "ar-*da*a*a": "être enduit d'huile",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "avoir beaucoup d'huile",
+        "ar-ma**i*ũ": "assaisonné d'huile",
+        "ar-ma**û*ũ": "assaisonné d'huile",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "demander de l'huile",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 17
+    "ar-zytn": {
+        "aa_sens": "oliviers",
+        "ar-***ũ": "",
+        "ar-*a**û*@ũ": "olivier",
+        "ar-*a**û*iy²@ũ": "{{f}} d'huile",
+        "ar-*a**û*iy²ũ": "d'huile",
+        "ar-*a**û*ũ": "{{p}} oliviers",
+    },  # 6
+}  # 345
 # END

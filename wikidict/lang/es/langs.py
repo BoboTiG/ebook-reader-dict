@@ -3151,7 +3151,7 @@ langs = {
     "kgl": "kunggari",
     "kgn": "karingani",
     "kgo": "krongo",
-    "kgp": "kaingang",
+    "kgp": "cáingang",
     "kgq": "kamoro",
     "kgr": "abun",
     "kgs": "kumbainggar",
