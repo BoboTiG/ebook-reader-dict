@@ -1086,11 +1086,14 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
     '<i>A transliteration of the Greek male given name</i> <b>Γιάννης</b>, <i>equivalent to John</i>'
     >>> render_name_translit("name translit", ["fr", "ja"], defaultdict(str, {"type":"female given name"}))
     '<i>A transliteration of a Japanese female given name</i>'
+    >>> render_name_translit("name translit", ["en", "bg,mk,sh", "Никола"], defaultdict(str, {"type":"male given name", "eq": "Nicholas"}))
+    '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
     """
     parts.pop(0)  # Destination lang
-    src_lang = parts.pop(0)  # Source lang
+    src_langs = parts.pop(0)  # Source lang
 
-    text = italic(f"A transliteration of {'the' if parts else 'a'} {langs[src_lang]} {data['type']}")
+    origins = concat([langs[src_lang] for src_lang in src_langs.split(",")], sep=", ", last_sep=" or ")
+    text = italic(f"A transliteration of {'the' if parts else 'a'} {origins} {data['type']}")
     if not parts:
         return text
 
@@ -1111,6 +1114,9 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
                 text += f" ({italic(value)})"
             case _:
                 assert 0, f"Unhandled {kind=} in render_name_translit()"
+
+    if eq := data["eq"]:
+        text += f", {italic('equivalent to ' + eq)}"
 
     if parts:
         text += f" {italic('or')} {strong(parts[0])}"
