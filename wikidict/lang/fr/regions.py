@@ -711,7 +711,6 @@ regions = {
     "TD": "Tchad",
     "Tadjikistan": "Tadjikistan",
     "Tahiti": "Tahiti",
-    "Taiwan": "Taïwan",
     "Tanzanie": "Tanzanie",
     "Taormine": "Taormine",
     "Tarn": "Tarn",
@@ -826,5 +825,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 821
+}  # 820
 # END

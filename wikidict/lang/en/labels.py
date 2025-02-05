@@ -476,6 +476,7 @@ labels = {
     "Massachusetts": "Massachusetts",
     "Meitei god": "Meitei mythology",
     "Memphis": "Memphis",
+    "Merry-Murray": "''merry''–''Murray'' merger",
     "Mesopotamian god": "Mesopotamian mythology",
     "Mesopotamian mythology": "Mesopotamian mythology",
     "Methodism": "Methodism",
@@ -1735,6 +1736,7 @@ labels = {
     "meiotic": "meiosis",
     "men's speech": "men's speech",
     "mental health": "mental health",
+    "merry-Murray": "''merry''–''Murray'' merger",
     "metadata": "metadata",
     "metal type": "letterpress typography",
     "metal typesetting": "letterpress typography",
@@ -2547,7 +2549,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,542
+}  # 2,544
 
 syntaxes = {
     "&": {
