@@ -579,6 +579,7 @@ labels = {
     "Northern Midland US": "North Midland US",
     "Northern Territory": "Northern Territory",
     "Northern US": "Northern US",
+    "Northumberland": "Northumberland",
     "Northumbria": "Northumbria",
     "Northumbrian": "Northumbria",
     "Northwest Ontario": "Northwestern Ontario",
@@ -629,6 +630,7 @@ labels = {
     "Philmont": "Philmont Scout Ranch",
     "Philmont Scout Ranch": "Philmont Scout Ranch",
     "Pinyin": "Hanyu Pinyin",
+    "Pitmatic": "Pitmatic",
     "Pittsburgh": "Pittsburgh",
     "Pokemon": "''Pokémon''",
     "Pokémon": "''Pokémon''",
@@ -1099,9 +1101,11 @@ labels = {
     "causative": "causative",
     "causative verb": "causative",
     "caving": "caving",
+    "cell biology": "cytology",
     "cell phone": "mobile telephony",
     "cell phones": "mobile telephony",
     "cellular automata": "cellular automata",
+    "cellular biology": "cytology",
     "ceramics": "ceramics",
     "cheer-chair": "''cheer''–''chair'' merger",
     "cheerleading": "cheerleading",
@@ -2549,7 +2553,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,544
+}  # 2,548
 
 syntaxes = {
     "&": {
