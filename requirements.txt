@@ -3,7 +3,7 @@ docopt==0.6.2
 Jinja2==3.1.5
 marisa-trie==1.2.1
 mistune==3.1.1  # for DictFile reading
-pyglossary==5.0.7
+pyglossary==5.0.8
 python-idzip==0.3.9
 requests==2.32.3
 scour==0.38.2
