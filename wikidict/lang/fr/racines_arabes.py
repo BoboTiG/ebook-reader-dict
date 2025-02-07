@@ -6869,6 +6869,46 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "lire",
         "ar-ta*â*a*a": "",
     },  # 22
+    "ar-mrr": {
+        "aa_sens": "passer / amer / ferme",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "fois",
+        "ar-*a**ũ": "fois",
+        "ar-*a*a*a-a": "être amer",
+        "ar-*a*a*a-u": "passer",
+        "ar-*a*²a*a": "rendre amer",
+        "ar-*a*â*@ũ": "amertume",
+        "ar-*a*î*@ũ": "tresse",
+        "ar-*a*î*ũ": "robuste",
+        "ar-*i**@ũ": "bile",
+        "ar-*i*â*ũ": "{{p}} fois",
+        "ar-*ta*a*a": "passer à côté",
+        "ar-*u**@ũ": "amertume",
+        "ar-*u**iy²ũ": "apéritif",
+        "ar-*u**â'u": "vin amer",
+        "ar-*u**é": "{{f}} amère",
+        "ar-*u**ũ": "amer",
+        "ar-*u*ay*â'u": "plante amère",
+        "ar-*u*î*ũ": "scorsonère",
+        "ar-*u*û*ũ": "passage",
+        "ar-*â**ũ": "passant",
+        "ar-*â*a*a": "accompagner",
+        "ar-*â*û*ũ": "plante amère",
+        "ar-a**a*a": "faire passer",
+        "ar-a**a*u": "plus ferme",
+        "ar-a**a*ũ": "intestins",
+        "ar-ma**a*ũ": "passage",
+        "ar-ma**û*ũ": "bilieux",
+        "ar-mu**a*ũ": "tordu",
+        "ar-mu**i*ũ": "devenu amer",
+        "ar-musta**i*ũ": "durable",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "passer à côté",
+        "ar-sti**â*ũ": "durée",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "devenir amer",
+    },  # 38
     "ar-msw": {
         "aa_sens": "soir",
         "ar-**a*²a": "",
@@ -10104,5 +10144,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 345
+}  # 346
 # END
