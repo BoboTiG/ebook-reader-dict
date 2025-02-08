@@ -771,8 +771,8 @@ def vorsilbe(verb: str) -> str:
     ''
     >>> vorsilbe("nebeneinanderstehen")  # slang >= 13
     'nebeneinander'
-    >>> vorsilbe("")  # slang >= 12
-    ''
+    >>> vorsilbe("übereinanderlegen")  # slang >= 12
+    'übereinander'
     >>> vorsilbe("auseinanderbrechen")  # slang >= 11
     'auseinander'
     >>> vorsilbe("zueinanderstehen")  # slang >= 10
@@ -807,7 +807,7 @@ def vorsilbe(verb: str) -> str:
 
     for prefix_len, prefixes in VORSILBE_DATA:
         if slang >= prefix_len and (prefix := verb[:prefix_len]) in prefixes:
-            if prefix_len in {12, 14}:
+            if prefix_len == 14:
                 # TODO: remove when a use case is found and a doctest is added
                 assert 0, f"slang >= {prefix_len}"
             return prefix
