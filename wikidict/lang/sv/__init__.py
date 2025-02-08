@@ -60,6 +60,7 @@ templates_ignored = (
     "?",
     "citat",
     "inget uppslag",
+    "fakta",
     "källa-so",
     "konstr",
     "struktur",
