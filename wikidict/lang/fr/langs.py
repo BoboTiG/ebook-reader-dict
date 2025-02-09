@@ -875,6 +875,7 @@ langs = {
     "bularnu": "bularnu",
     "bum": "boulou",
     "bun": "sherbro",
+    "buq": "barem",
     "burgonde": "burgonde",
     "bus": "bokobaru",
     "but": "bungain",
@@ -1398,6 +1399,7 @@ langs = {
     "dlm": "dalmate",
     "dma": "duma",
     "dmb": "mombo",
+    "dmc": "gavak",
     "dmd": "madhi madhi",
     "dme": "dugwor",
     "dmk": "domaaki",
@@ -3598,6 +3600,7 @@ langs = {
     "mvm": "muya",
     "mvo": "marovo",
     "mvp": "duri",
+    "mvq": "moere",
     "mvr": "marau",
     "mvt": "mpotovoro",
     "mvv": "murut tagol",
@@ -6540,5 +6543,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,535
+}  # 6,538
 # END
