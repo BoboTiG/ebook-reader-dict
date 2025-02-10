@@ -129,8 +129,10 @@ def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], 
     'déverbal de <i>peko</i>'
     >>> render_modele_etym("déverbal", [], defaultdict(str, {"de":"accueillir", "m":"1"}))
     'Déverbal de <i>accueillir</i>'
+    >>> render_modele_etym("déverbal sans suffixe", [], defaultdict(str))
+    'déverbal'
     >>> render_modele_etym("déverbal sans suffixe", [], defaultdict(str, {"de":"réserver", "m":"1"}))
-    'Déverbal sans suffixe de <i>réserver</i>'
+    'Déverbal de <i>réserver</i>'
 
     >>> render_modele_etym("syncope", ["fr"], defaultdict(str, { "m":"1"}))
     'Syncope'
@@ -146,7 +148,7 @@ def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], 
     >>> render_modele_etym("univerbation", ["fr"], defaultdict(str, {"m":"1", "de":"gens", "texte":"les gens", "de2":"armes", "texte2":"les armes"}))
     'Univerbation de <i>les gens</i> et de <i>les armes</i>'
     """
-    phrase = tpl
+    phrase = tpl.removesuffix(" sans suffixe")
     if data["m"] in ("1", "oui"):
         phrase = capitalize(phrase)
 
