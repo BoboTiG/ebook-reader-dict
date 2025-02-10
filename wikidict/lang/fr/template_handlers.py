@@ -442,6 +442,25 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return phrase
 
 
+def render_composé_alpheratz(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_composé_alpheratz("composé double-flexion", [], defaultdict(str, {"r": "administrat", "sf": "rice", "sm": "eur", "s": "aire"}))
+    '<b>Note :</b> D’après une proposition d’Alpheratz, il est possible d’analyser l’origine de ce mot comme étant dérivé d’une base agenre *<i>administrat</i>- (formée par réanalyse de <i>administrateur</i> et <i>administratrice</i> en tant que <i>administrat</i>- + -<i>eur</i> et <i>administrat</i>- + -<i>rice</i>) et du suffixe -<i>aire</i>.'
+    """
+    racine = data["r"]
+    suff_n = data["s"]
+    suff_m = data["sm"]
+    suff_f = data["sf"]
+    masculin = f"{racine}{suff_m}"
+    féminin = f"{racine}{suff_f}"
+
+    return (
+        f"{strong('Note :')} D’après une proposition d’Alpheratz, il est possible d’analyser l’origine de ce mot comme étant dérivé d’une base agenre *{italic(racine)}-"
+        f" (formée par réanalyse de {italic(masculin)} et {italic(féminin)} en tant que {italic(racine)}- + -{italic(suff_m)}"
+        f" et {italic(racine)}- + -{italic(suff_f)}) et du suffixe -{italic(suff_n)}."
+    )
+
+
 def render_compose_double_flexion(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_compose_double_flexion("composé double-flexion", [], defaultdict(str, {"1": "auteur", "2": "autrice"}))
@@ -1309,6 +1328,7 @@ template_mapping = {
     "contexte": render_contexte,
     "contraction": render_modele_etym,
     "compos": render_compose_de,
+    "composé Alpheratz": render_composé_alpheratz,
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "composé double-flexion": render_compose_double_flexion,
