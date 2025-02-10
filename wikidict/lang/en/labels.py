@@ -1227,7 +1227,12 @@ labels = {
     "criminal slang": "criminal slang",
     "criminology": "criminology",
     "croquet": "croquet",
+    "crossword puzzles": "crosswording",
+    "crosswording": "crosswording",
+    "crosswords": "crosswording",
     "crown green bowls": "bowls",
+    "cruciverbalism": "crosswording",
+    "cryptic crosswords": "crosswording",
     "cryptocurrencies": "cryptocurrencies",
     "cryptocurrency": "cryptocurrencies",
     "cryptography": "cryptography",
@@ -2553,7 +2558,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,548
+}  # 2,553
 
 syntaxes = {
     "&": {

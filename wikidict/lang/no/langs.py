@@ -139,6 +139,7 @@ langs = {
     "kw": "kornisk",
     "ky": "kirgisisk",
     "la": "latin",
+    "la-med": "middelalderlatin",
     "lad": "jødespansk",
     "lb": "luxembourgisk",
     "li": "limburgisk",
@@ -298,5 +299,5 @@ langs = {
     "zh-yue": "kantonesisk",
     "zu": "zulu",
     "zza": "zazaki",
-}  # 293
+}  # 294
 # END
