@@ -159,6 +159,24 @@ def render_дат(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return date if len(date) == 4 and date.isdigit() else ""
 
 
+def render_действие(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_действие("действие", ["изгнать, изгонять"], defaultdict(str))
+    'действие по значению гл. изгнать, изгонять'
+    >>> render_действие("действие", ["изгнать, изгонять", "насильственное удаление откуда-либо"], defaultdict(str))
+    'действие по значению гл. изгнать, изгонять; насильственное удаление откуда-либо'
+    >>> render_действие("действие", ["изгнать, изгонять", "насильственное удаление откуда-либо"], defaultdict(str, {"состояние": "1"}))
+    'действие или состояние по значению гл. изгнать, изгонять; насильственное удаление откуда-либо'
+    """
+    text = "действие "
+    if data["состояние"] == "1":
+        text += "или состояние "
+    text += f"по значению гл. {parts.pop(0)}"
+    if parts:
+        text += f"; {parts[0]}"
+    return text
+
+
 template_mapping = {
     "lang": render_lang,
     "lang2": render_lang,
@@ -172,6 +190,7 @@ template_mapping = {
     "сравн.": render_сравн,
     "соотн.": render_соотн,
     "дат": render_дат,
+    "действие": render_действие,
 }
 
 
