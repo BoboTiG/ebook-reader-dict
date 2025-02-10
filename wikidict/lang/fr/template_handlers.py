@@ -442,6 +442,23 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return phrase
 
 
+def render_compose_double_flexion(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_compose_double_flexion("composé double-flexion", [], defaultdict(str, {"1": "auteur", "2": "autrice"}))
+    'Double-flexion figée formée par contraction de <i>auteur</i> et <i>autrice</i>.'
+    >>> render_compose_double_flexion("composé double-flexion", [], defaultdict(str, {"1": "auteur", "2": "autrice", "c": "·"}))
+    'Double-flexion abrégée formée par contraction de <i>auteur</i> et <i>autrice</i> en utilisant <i>·</i>.'
+    >>> render_compose_double_flexion("composé double-flexion", [], defaultdict(str, {"1": "auteur", "2": "auteure", "c": "(", "c2": ")"}))
+    'Double-flexion abrégée formée par contraction de <i>auteur</i> et <i>auteure</i> en utilisant <i>(</i> et <i>)</i>.'
+    """
+    phrase = f"Double-flexion {'abrégée' if 'c' in data else 'figée'} formée par contraction de {italic(data['1'])} et {italic(data['2'])}"
+    if char1 := data["c"]:
+        phrase += f" en utilisant {italic(char1)}"
+        if char2 := data["c2"]:
+            phrase += f" et {italic(char2)}"
+    return f"{phrase}."
+
+
 def render_date(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_date("date", [""], defaultdict(str))
@@ -1294,6 +1311,7 @@ template_mapping = {
     "compos": render_compose_de,
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
+    "composé double-flexion": render_compose_double_flexion,
     "date": render_date,
     "deet": render_compose_de,
     "déglutination": render_modele_etym,
