@@ -4,6 +4,18 @@ from ...user_functions import concat, extract_keywords_from, italic, parenthesis
 from .langs import langs
 
 
+def render_π(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_π("π", ["λέξη"], defaultdict(str))
+    'λέξη'
+    >>> render_π("π", ["επί-"], defaultdict(str, {".1": "επ"}))
+    'επ'
+    >>> render_π("π", ["-ism", "en", "imsss"], defaultdict(str))
+    'imsss'
+    """
+    return data[".1"] or parts[2 if len(parts) == 3 else 0]
+
+
 def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_βλ("βλ", [], defaultdict(str))
@@ -198,6 +210,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
 
 template_mapping = {
+    "π": render_π,
+    "p": render_π,
     "βλ": render_βλ,
     "etym": render_etym,
     "κλη": render_etym,
