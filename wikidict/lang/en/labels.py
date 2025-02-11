@@ -1014,6 +1014,7 @@ labels = {
     "bacteria": "bacteriology",
     "bacteriology": "bacteriology",
     "badminton": "badminton",
+    "bakeware": "cooking",
     "baking": "baking",
     "ball games": "ball games",
     "ball sports": "ball games",
@@ -1204,6 +1205,10 @@ labels = {
     "copulative": "copulative",
     "copyright": "copyright law",
     "copyright law": "copyright law",
+    "copyright licence": "copyright law",
+    "copyright licences": "copyright law",
+    "copyright license": "copyright law",
+    "copyright licenses": "copyright law",
     "coral science": "marine biology",
     "corporate jargon": "corporate jargon",
     "corporate speak": "corporate jargon",
@@ -1677,6 +1682,8 @@ labels = {
     "lexicography": "lexicography",
     "liberalism": "liberalism",
     "library science": "library science",
+    "licence": "copyright law",
+    "license": "copyright law",
     "lichenology": "lichenology",
     "limnology": "limnology",
     "linear algebra": "linear algebra",
@@ -2558,7 +2565,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,553
+}  # 2,560
 
 syntaxes = {
     "&": {

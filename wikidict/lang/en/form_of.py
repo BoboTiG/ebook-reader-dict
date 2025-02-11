@@ -405,10 +405,6 @@ form_of_templates = {
         "text": "Initialism of",
         "dot": True,
     },
-    "initials of": {
-        "text": "Initialism of",
-        "dot": True,
-    },
     "iterative of": {
         "text": "iterative of",
         "dot": False,
@@ -797,7 +793,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 198
+}  # 197
 # END
 
 
