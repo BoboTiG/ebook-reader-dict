@@ -958,6 +958,7 @@ langs = {
     "nso": "Sepédi",
     "ntu": "Natügu",
     "nuj": "Nyole de Uganda",
+    "nuo": "Nguôn",
     "nuz": "Náuatle de Tlamacazapa",
     "nv": "Navajo",
     "nwi": "Tana do Sudoeste",
@@ -1489,5 +1490,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,484
+}  # 1,485
 # END

@@ -6879,6 +6879,7 @@ racines_schemes_arabes = {
         "ar-*a*i*a-a": "être amer",
         "ar-*a*²a*a": "rendre amer",
         "ar-*a*â*@ũ": "amertume",
+        "ar-*a*âyi*u": "{{p}} tresses solides",
         "ar-*a*î*@ũ": "tresse",
         "ar-*a*î*ũ": "robuste",
         "ar-*i**@ũ": "force",
@@ -6891,7 +6892,7 @@ racines_schemes_arabes = {
         "ar-*u**é": "{{f}} amère",
         "ar-*u**ũ": "amer",
         "ar-*u*ay*â'u": "plante amère",
-        "ar-*u*î*ũ": "scorsonère",
+        "ar-*u*ay*ũ": "scorsonère",
         "ar-*u*û*ũ": "passage",
         "ar-*â**ũ": "passant",
         "ar-*â*a*a": "accompagner",
@@ -6910,7 +6911,7 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "durée",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "devenir amer",
-    },  # 40
+    },  # 41
     "ar-msw": {
         "aa_sens": "soir",
         "ar-**a*²a": "",

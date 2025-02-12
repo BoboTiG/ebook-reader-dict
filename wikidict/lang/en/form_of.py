@@ -705,10 +705,6 @@ form_of_templates = {
         "text": "Short for",
         "dot": True,
     },
-    "short form of": {
-        "text": "Short for",
-        "dot": True,
-    },
     "singular of": {
         "text": "singular of",
         "dot": False,
@@ -793,7 +789,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 197
+}  # 196
 # END
 
 
