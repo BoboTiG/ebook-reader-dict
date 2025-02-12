@@ -172,9 +172,18 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
     >>> render_etym("λδαν", ["en", "el", "skyscraper"], defaultdict(str))
     '(λόγιο δάνειο) <i>αγγλική</i> skyscraper'
+    >>> render_etym("λδαν", ["en", "el", "skyscraper"], defaultdict(str, {"0": "-"}))
+    '<i>αγγλική</i> skyscraper'
 
     >>> render_etym("κλη", ["en", "el", "skyscraper"], defaultdict(str))
     '(κληρονομημένο) <i>αγγλική</i> skyscraper'
+
+    >>> render_etym("σμσδ", ["fr", "el", "-gène"], defaultdict(str))
+    '(σημασιολογικό δάνειο) <i>γαλλική</i> -gène'
+    >>> render_etym("σμσδ", ["fr", "el", "-gène"], defaultdict(str, {"text": "1"}))
+    'σημασιολογικό δάνειο από <i>τη γαλλική</i> -gène'
+    >>> render_etym("σμσδ", ["en", "el", "-genous"], defaultdict(str, {"text": "1"}))
+    'σημασιολογικό δάνειο από <i>την αγγλική</i> -genous'
     """
     if data["000"] == "-" or data["nodisplay"] == "1":
         return ""
@@ -188,16 +197,25 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         if tpl == "λδαν"
         else "κληρονομημένο"
         if tpl == "κλη"
+        else "σημασιολογικό δάνειο"
+        if tpl == "σμσδ"
         else ""
     )
+    key = "frm"
     if tpl != "etym":
-        if data["text"] != "1" and data["κειμ"] != "1":
+        if data["0"] == "-":
+            phrase = ""
+        elif data["text"] != "1" and data["κειμ"] != "1":
             phrase = f"({phrase})"
         else:
-            phrase += f" από {italic('τη')}"
+            phrase += " από"
+            if tpl == "σμσδ":
+                key = "apo"
+            else:
+                phrase += f" {italic('τη')}"
 
     if parts:
-        phrase = f"{phrase} {italic(str(langs[parts.pop(0)]['frm']))}"
+        phrase = f"{phrase} {italic(str(langs[parts.pop(0)][key]))}"
     if parts:
         parts.pop(0)  # Remove the lang
     if parts:
@@ -214,6 +232,7 @@ template_mapping = {
     "p": render_π,
     "βλ": render_βλ,
     "etym": render_etym,
+    "σμσδ": render_etym,
     "κλη": render_etym,
     "δαν": render_etym,
     "λδαν": render_etym,
