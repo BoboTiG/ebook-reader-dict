@@ -769,6 +769,7 @@ labels = {
     "Standard Southern British": "Standard Southern British",
     "Standard Southern British English": "Standard Southern British",
     "Star Wars": "''Star Wars''",
+    "Stenoscript": "Stenoscript",
     "Suffolk": "Suffolk",
     "Sufi Islam": "Sufism",
     "Sufism": "Sufism",
@@ -2325,7 +2326,7 @@ labels = {
     "statistics": "statistics",
     "stative": "stative",
     "stative verb": "stative",
-    "stenoscript": "stenoscript",
+    "stenoscript": "Stenoscript",
     "steroid": "biochemistry",
     "steroid drug": "biochemistry, steroids",
     "steroid hormone": "biochemistry, steroids",
@@ -2565,7 +2566,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,560
+}  # 2,561
 
 syntaxes = {
     "&": {

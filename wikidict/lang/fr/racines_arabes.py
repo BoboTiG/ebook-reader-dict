@@ -6902,16 +6902,17 @@ racines_schemes_arabes = {
         "ar-a**a*ũ": "intestins",
         "ar-a**â*ũ": "{{p}} amers",
         "ar-ma**a*ũ": "passage",
+        "ar-ma**û*@ũ": "{{f}} bileuse",
         "ar-ma**û*ũ": "bilieux",
         "ar-mu**a*ũ": "tordu",
         "ar-mu**i*ũ": "devenu amer",
         "ar-musta**i*ũ": "durable",
         "ar-n*a*a*a": "",
-        "ar-sta**a*a": "passer à côté",
+        "ar-sta**a*a": "être ferme",
         "ar-sti**â*ũ": "durée",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "devenir amer",
-    },  # 41
+    },  # 42
     "ar-msw": {
         "aa_sens": "soir",
         "ar-**a*²a": "",
