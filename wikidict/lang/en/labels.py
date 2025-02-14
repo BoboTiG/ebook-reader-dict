@@ -973,6 +973,7 @@ labels = {
     "archaic second singular past": "archaic",
     "archaic second singular present": "archaic",
     "archaic third singular": "archaic",
+    "archaic-form": "archaic",
     "archaic-verb-form": "archaic",
     "archeological culture": "archaeology",
     "archeological cultures": "archaeology",
@@ -2566,7 +2567,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,561
+}  # 2,562
 
 syntaxes = {
     "&": {
