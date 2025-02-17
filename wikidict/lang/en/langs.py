@@ -1723,7 +1723,7 @@ langs = {
     "cll": "Chala",
     "clm": "Klallam",
     "clo": "Lowland Oaxaca Chontal",
-    "clt": "Lautu Chin",
+    "clt": "Lutuv",
     "clu": "Caluyanun",
     "clw": "Chulym",
     "cly": "Eastern Highland Chatino",
