@@ -8376,7 +8376,7 @@ langs = {
     "tri": "Trió",
     "trj": "Toram",
     "trk": "Turkic",
-    "trk-cmn": "Common Turkic",
+    "trk-cmn-pro": "Proto-Common Turkic",
     "trk-dkh": "Dukhan",
     "trk-kar": "Karluk",
     "trk-kbu": "Kipchak-Bulgar",

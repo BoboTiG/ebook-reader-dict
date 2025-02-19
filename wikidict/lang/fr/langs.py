@@ -277,6 +277,7 @@ langs = {
     "anauyá": "anauyá",
     "anb": "andoa",
     "anc": "angas",
+    "ancien catalan": "ancien catalan",
     "ancien danois": "vieux danois",
     "ancien normand": "ancien normand",
     "ancien suédois": "vieux suédois",
@@ -6543,5 +6544,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,538
+}  # 6,539
 # END

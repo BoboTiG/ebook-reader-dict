@@ -356,6 +356,7 @@ labels = {
     "Indian English": "India",
     "Indian politics": "Indian politics",
     "Indiana": "Indiana",
+    "Indic": "South Asia",
     "Indo-European studies": "Indo-European studies",
     "Indonesia": "Indonesia",
     "Indonesia politics": "Indonesian politics",
@@ -2579,7 +2580,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,574
+}  # 2,575
 
 syntaxes = {
     "&": {
