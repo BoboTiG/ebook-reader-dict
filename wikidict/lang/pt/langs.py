@@ -653,7 +653,7 @@ langs = {
     "kto": "Kuot",
     "ktu": "Kituba",
     "ku": "Curdo",
-    "kud": "Auhelawa",
+    "kud": "'Auhelawa",
     "kum": "Kumyk",
     "kuq": "Karipuna",
     "kuz": "Kunza",

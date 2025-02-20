@@ -22,7 +22,7 @@ def process_page(page_url: str, languages: dict[str, str]) -> str:
         key = li.text.split(":")[1]
         if sub_soup := get_soup(li_url):
             if parser_ouput := sub_soup.find("div", {"class": "mw-parser-output"}):
-                content = parser_ouput.find("p", recursive=False)
+                content = parser_ouput.find("p")
                 value = content.text
                 if value_html := content.find("b"):
                     value = value_html.text
