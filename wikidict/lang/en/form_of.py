@@ -141,6 +141,10 @@ form_of_templates = {
         "text": "Archaic form of",
         "dot": True,
     },
+    "arch form": {
+        "text": "Archaic form of",
+        "dot": True,
+    },
     "archaic inflection of": {
         "text": "Archaic form of",
         "dot": True,
@@ -221,10 +225,6 @@ form_of_templates = {
         "text": "Contraction of",
         "dot": True,
     },
-    "cont of": {
-        "text": "Contraction of",
-        "dot": True,
-    },
     "dated form of": {
         "text": "Dated form of",
         "dot": True,
@@ -242,10 +242,6 @@ form_of_templates = {
         "dot": True,
     },
     "deliberate misspelling of": {
-        "text": "Deliberate misspelling of",
-        "dot": True,
-    },
-    "intentional misspelling of": {
         "text": "Deliberate misspelling of",
         "dot": True,
     },
@@ -385,11 +381,7 @@ form_of_templates = {
         "text": "Informal form of",
         "dot": True,
     },
-    "if form": {
-        "text": "Informal form of",
-        "dot": True,
-    },
-    "informal": {
+    "inf form": {
         "text": "Informal form of",
         "dot": True,
     },
@@ -457,14 +449,6 @@ form_of_templates = {
         "text": "Misspelling of",
         "dot": True,
     },
-    "misspelling form": {
-        "text": "Misspelling of",
-        "dot": True,
-    },
-    "misspell": {
-        "text": "Misspelling of",
-        "dot": True,
-    },
     "mixed mutation of": {
         "text": "Mixed mutation of",
         "dot": True,
@@ -505,15 +489,7 @@ form_of_templates = {
         "text": "Nonstandard form of",
         "dot": True,
     },
-    "nonst form": {
-        "text": "Nonstandard form of",
-        "dot": True,
-    },
-    "ns form": {
-        "text": "Nonstandard form of",
-        "dot": True,
-    },
-    "nonstandard form": {
+    "nstd form": {
         "text": "Nonstandard form of",
         "dot": True,
     },
@@ -521,15 +497,7 @@ form_of_templates = {
         "text": "Nonstandard spelling of",
         "dot": True,
     },
-    "nonstandard sp": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
-    },
-    "nonst sp": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
-    },
-    "ns sp": {
+    "nstd sp": {
         "text": "Nonstandard spelling of",
         "dot": True,
     },
@@ -553,10 +521,6 @@ form_of_templates = {
         "text": "Obsolete form of",
         "dot": True,
     },
-    "obsolete form": {
-        "text": "Obsolete form of",
-        "dot": True,
-    },
     "obsolete spelling of": {
         "text": "Obsolete spelling of",
         "dot": False,
@@ -566,10 +530,6 @@ form_of_templates = {
         "dot": False,
     },
     "obs sp of": {
-        "text": "Obsolete spelling of",
-        "dot": False,
-    },
-    "obsolete spelling": {
         "text": "Obsolete spelling of",
         "dot": False,
     },
@@ -769,7 +729,7 @@ form_of_templates = {
         "text": "Uncommon form of",
         "dot": True,
     },
-    "uncommon form": {
+    "uncom form": {
         "text": "Uncommon form of",
         "dot": True,
     },
@@ -777,7 +737,7 @@ form_of_templates = {
         "text": "Uncommon spelling of",
         "dot": True,
     },
-    "uncommon sp": {
+    "uncom sp": {
         "text": "Uncommon spelling of",
         "dot": True,
     },
@@ -789,7 +749,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 196
+}  # 186
 # END
 
 
