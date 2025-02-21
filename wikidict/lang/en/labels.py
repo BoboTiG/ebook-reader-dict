@@ -956,7 +956,7 @@ labels = {
     "altright": "alt-right",
     "always in the negative": "always in the negative",
     "amateur radio": "amateur radio",
-    "ambitransitive": "transitive, intransitive",
+    "ambitransitive": "ambitransitive",
     "amino acid": "biochemistry",
     "analysis": "mathematical analysis",
     "analytic geometry": "analytic geometry",
@@ -1340,6 +1340,7 @@ labels = {
     "element symbol": "chemistry",
     "elevated": "higher register",
     "elevated register": "higher register",
+    "ellipsis": "by ellipsis",
     "embryology": "embryology",
     "emergency medicine": "emergency medicine",
     "emergency services": "emergency services",
@@ -2108,6 +2109,7 @@ labels = {
     "possessional": "possessional",
     "possessional adjective": "possessional",
     "possessional adjectives": "possessional",
+    "possessive determiner": "possessive",
     "possessive pronoun": "possessive",
     "possibly": "possibly",
     "post": "post",
@@ -2581,7 +2583,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,576
+}  # 2,578
 
 syntaxes = {
     "&": {

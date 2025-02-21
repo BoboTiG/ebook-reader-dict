@@ -6328,6 +6328,7 @@ langs = {
     "oti": "Oti",
     "otk": "Old Turkic",
     "otk-kir": "Old Kirghiz",
+    "otk-ork": "Orkhon Turkic",
     "otl": "Tilapa Otomi",
     "otm": "Eastern Highland Otomi",
     "otn": "Tenango Otomi",
@@ -6911,6 +6912,7 @@ langs = {
     "qwe-pro": "Proto-Quechuan",
     "qwm": "Kipchak",
     "qwm-arm": "Armeno-Kipchak",
+    "qwm-cum": "Cuman",
     "qwm-mam": "Mamluk-Kipchak",
     "qwt": "Kwalhioqua-Tlatskanai",
     "qxq": "Qashqai",
@@ -8376,6 +8378,8 @@ langs = {
     "tri": "Trió",
     "trj": "Toram",
     "trk": "Turkic",
+    "trk-bul-pro": "Proto-Bulgar",
+    "trk-cmn": "Common Turkic",
     "trk-cmn-pro": "Proto-Common Turkic",
     "trk-dkh": "Dukhan",
     "trk-kar": "Karluk",
@@ -8387,6 +8391,7 @@ langs = {
     "trk-nsb": "North Siberian Turkic",
     "trk-oat": "Old Anatolian Turkish",
     "trk-ogr": "Oghur",
+    "trk-ogr-pro": "Proto-Oghur",
     "trk-ogz": "Oghuz",
     "trk-ogz-pro": "Proto-Oghuz",
     "trk-pro": "Proto-Turkic",
@@ -9059,6 +9064,8 @@ langs = {
     "xbm": "Middle Breton",
     "xbn": "Kenaboi",
     "xbo": "Bulgar",
+    "xbo-dan": "Danube Bulgar",
+    "xbo-vol": "Volga Bulgar",
     "xbp": "Bibbulman",
     "xbr": "Kambera",
     "xbw": "Kambiwá",
@@ -9837,7 +9844,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,832
+}  # 9,839
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
