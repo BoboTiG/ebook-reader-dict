@@ -1246,6 +1246,7 @@ labels = {
     "criminal law": "criminal law",
     "criminal slang": "criminal slang",
     "criminology": "criminology",
+    "crochet": "crochet",
     "croquet": "croquet",
     "crossword puzzles": "crosswording",
     "crosswording": "crosswording",
@@ -2583,7 +2584,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,578
+}  # 2,579
 
 syntaxes = {
     "&": {

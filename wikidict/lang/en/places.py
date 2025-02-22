@@ -2347,12 +2347,13 @@ recognized_qualifiers = {
     "tiny": "tiny",
     "traditional": "traditional",
     "unincorporated": "unincorporated",
+    "uninhabited": "uninhabited",
     "urban": "urban",
     "wealthy": "wealthy",
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 93
+}  # 94
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
