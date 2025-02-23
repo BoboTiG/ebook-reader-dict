@@ -216,6 +216,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["del-lang", "la", "ca", "verba"], "ca")
         'del llatí <i>verba</i>'
+        >>> last_template_handler(["del-lang", "la", "ca", "exemplar", "pos=substantiu"], "ca")
+        'del llatí <i>exemplar</i>'
         >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")
         "De l'ibèric <i>baitolo</i>"
         >>> last_template_handler(["Del-lang", "grc", "ca", "ῡ̔οειδής", "trad=en forma d’ípsilon"], "ca")
@@ -303,7 +305,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
             toadd.append(f"«{data['glossa']}»")
         if data["trad"]:
             toadd.append(f"«{data['trad']}»")
-        if data["pos"]:
+        if data["pos"] and tpl not in {"del-lang", "Del-lang"}:
             toadd.append(data["pos"])
         if data["lit"]:
             toadd.append(f"literalment «{data['lit']}»")
