@@ -301,7 +301,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         toadd = []
         if data["trans"]:
             toadd.append(italic(data["trans"]))
-        elif data["tr"] != "-":
+        elif lang and word and data["tr"] != "-":
             if lang == "el":
                 toadd.append(italic(transliterate_el(word)))
             elif lang == "grc":
