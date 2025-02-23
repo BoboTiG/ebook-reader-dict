@@ -4,6 +4,7 @@ import re
 
 from ...transliterator import transliterate
 from ...user_functions import uniq
+from .el_trans import transliterate as transliterate_el
 from .grc_trans import transliterate as transliterate_grc
 from .ru_trans import transliterate as transliterate_ru
 
@@ -301,7 +302,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         if data["trans"]:
             toadd.append(italic(data["trans"]))
         elif data["tr"] != "-":
-            if lang == "grc":
+            if lang == "el":
+                toadd.append(italic(transliterate_el(word)))
+            elif lang == "grc":
                 toadd.append(italic(transliterate_grc(word)))
             elif lang == "ru":
                 toadd.append(italic(transliterate_ru(word)))
