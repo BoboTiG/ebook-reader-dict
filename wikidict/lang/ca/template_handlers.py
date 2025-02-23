@@ -4,18 +4,24 @@ from ...user_functions import concat, extract_keywords_from, italic, strong, ter
 from .general import cal_apostrofar
 from .labels import label_syntaxes, labels
 from .langs import langs
+from .transliterator import transliterate
 
 
-def parse_index_parameters(data: defaultdict[str, str], i: int) -> str:
+def parse_index_parameters(word: str, data: defaultdict[str, str], i: int) -> str:
     toadd = []
+
     if tr := data.get(f"tr{i}", ""):
         toadd.append(italic(tr))
+    elif word and (tr := transliterate(data["lang1"], word)):
+        toadd.append(italic(tr))
+
     if t := data.get(f"t{i}", ""):
         toadd.append(f"«{t}»")
     if pos := data.get(f"pos{i}", ""):
         toadd.append(pos)
     if lit := data.get(f"lit{i}", ""):
         toadd.append(f"literalment «{lit}»")
+
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
@@ -45,9 +51,11 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'llatí <i>germen, -inis</i> i el sufix <i>-al</i>'
     >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt2": "-al, -inis", "lang1": "la"}))
     'llatí <i>germen</i> i el sufix <i>-al, -inis</i>'
+    >>> render_comp("comp", ["ca", "κώδεια", "-ina"], defaultdict(str, {"lang1": "grc", "t1": "calze de la rosella"}))
+    'grec antic <i>κώδεια</i> (<i>kṓdeia</i>, «calze de la rosella») i el sufix <i>-ina</i>'
     """
 
-    def value(word: str, standalone: bool = False) -> str:
+    def value(word: str, *, standalone: bool = False) -> str:
         prefix = ""
         if word.startswith("-"):
             if standalone:
@@ -69,7 +77,7 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     parts.pop(0)
     if not parts:
         phrase = value(word1, standalone=True)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
         return phrase
 
@@ -80,7 +88,7 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         if "lang1" in data:
             phrase = f"{langs[data['lang1']]} "
         phrase += value(word1)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
         if "lang2" in data:
             lang2 = langs[data["lang2"]]
@@ -88,20 +96,21 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             phrase += f"{lang2} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"
-        if others2 := parse_index_parameters(data, 2):
+        if others2 := parse_index_parameters("", data, 2):
             phrase += others2
         return phrase
 
     word3 = parts.pop(0) if parts else ""
     phrase = value(word1)
-    if others := parse_index_parameters(data, 1):
+    if others := parse_index_parameters(word1, data, 1):
         phrase += others
     phrase += f", {value(word2)}"
-    if others2 := parse_index_parameters(data, 2):
+    if others2 := parse_index_parameters("", data, 2):
         phrase += others2
     phrase += f" i {value(word3)}"
-    if others3 := parse_index_parameters(data, 3):
+    if others3 := parse_index_parameters("", data, 3):
         phrase += others3
+
     return phrase
 
 

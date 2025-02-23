@@ -177,7 +177,7 @@ def wtr(cyr: str) -> str:
     return latin
 
 
-def transliterate(text: str) -> str:
+def transliterate(text: str, locale: str = "") -> str:
     """
     >>> transliterate("абха́з")
     'abkhaz'

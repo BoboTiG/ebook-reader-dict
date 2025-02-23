@@ -2,11 +2,8 @@
 
 import re
 
-from ...transliterator import transliterate
 from ...user_functions import uniq
-from .el_trans import transliterate as transliterate_el
-from .grc_trans import transliterate as transliterate_grc
-from .ru_trans import transliterate as transliterate_ru
+from .transliterator import transliterate
 
 # Float number separator
 float_separator = ","
@@ -230,6 +227,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         ''
         >>> last_template_handler(["del-lang", "la", "ca", "-"], "ca")
         ''
+        >>> last_template_handler(["del-lang", "ar", "ca", "مَمْلُوك", "tr=mamlūk", "t=esclau"], "ca")
+        "de l'àrab <i>مَمْلُوك</i> (<i>mamlūk</i>, «esclau»)"
         >>> last_template_handler(["Del-lang", "gem", "ca", "Adroar"], "ca")
         "D'un germànic <i>Adroar</i>"
 
@@ -251,6 +250,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'Δ (<i>D</i>)'
         >>> last_template_handler(["m", "grc", "", "Καστελανοι"], "ca")
         'Καστελανοι (<i>Kastelanoi</i>)'
+        >>> last_template_handler(["m", "ar", "مَلَكَ", "", "tr=malaka", "t=posseir, adquirir"], "ca")
+        '<i>مَلَكَ</i> (<i>malaka</i>, «posseir, adquirir»)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -299,17 +300,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     def parse_other_parameters(lang: str = "", word: str = "") -> str:
         toadd = []
+
         if data["trans"]:
             toadd.append(italic(data["trans"]))
-        elif lang and word and data["tr"] != "-":
-            if lang == "el":
-                toadd.append(italic(transliterate_el(word)))
-            elif lang == "grc":
-                toadd.append(italic(transliterate_grc(word)))
-            elif lang == "ru":
-                toadd.append(italic(transliterate_ru(word)))
-            elif trans := transliterate(lang, word):
-                toadd.append(italic(trans))
+        elif lang and word and data["tr"] != "-" and (trans := transliterate(lang, word)):
+            toadd.append(italic(trans))
+        elif (tr := data["tr"]) and tr != "-":
+            toadd.append(italic(tr))
+
         if data["t"]:
             toadd.append(f"«{data['t']}»")
         if data["glossa"]:
@@ -320,6 +318,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
             toadd.append(data["pos"])
         if data["lit"]:
             toadd.append(f"literalment «{data['lit']}»")
+
         return f" ({concat(toadd, ', ')})" if toadd else ""
 
     def format_source(lang: str, lang_name: str, nocap: bool) -> str:
@@ -370,7 +369,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return phrase
 
     if tpl in {"m", "terme"}:
-        word = parts[2] if len(parts) > 2 else parts[1]
+        word = parts[2] if len(parts) > 2 and parts[2] else parts[1]
         text = word if parts[0] in {"el", "grc"} else italic(word)
         return f"{text}{parse_other_parameters(parts[0], next((part for part in parts[1:] if part), ''))}"
 

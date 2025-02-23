@@ -67,7 +67,7 @@ tt = str.maketrans(
 )
 
 
-def transliterate(text: str) -> str:
+def transliterate(text: str, locale: str = "") -> str:
     """
     >>> transliterate("Υ")
     'I'

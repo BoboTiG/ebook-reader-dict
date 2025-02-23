@@ -182,7 +182,7 @@ def gsub(pattern: str, replacements: dict[str, str], string: str) -> str:
 
 
 # see https://en.wiktionary.org/wiki/Module:grc-translit/testcases for test cases
-def transliterate(text: str) -> str:
+def transliterate(text: str, locale: str = "") -> str:
     """
     >>> transliterate("λόγος")
     'lógos'
