@@ -2,6 +2,7 @@
 
 import re
 
+from ...transliterator import transliterate
 from ...user_functions import uniq
 from .grc_trans import transliterate as transliterate_grc
 from .ru_trans import transliterate as transliterate_ru
@@ -240,9 +241,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["m", "ca", "tardanies", "t=fruits tardans"], "ca")
         '<i>tardanies</i> («fruits tardans»)'
         >>> last_template_handler(["m", "grc", "ὖ"], "ca")
-        '<i>ὖ</i> (<i>ŷ</i>)'
+        'ὖ (<i>ŷ</i>)'
         >>> last_template_handler(["m", "grc", "ἄνῑσον", "ánison"], "ca")
-        '<i>ánison</i> (<i>ánīson</i>)'
+        'ánison (<i>ánīson</i>)'
+        >>> last_template_handler(["m", "el", "Δ"], "ca")
+        'Δ (<i>D</i>)'
+        >>> last_template_handler(["m", "grc", "", "Καστελανοι"], "ca")
+        'Καστελανοι (<i>Kastelanoi</i>)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -260,12 +265,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["terme", "la", "diēs Iovis", "trad=dia de Júpiter"], "ca")
         '<i>diēs Iovis</i> («dia de Júpiter»)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos"], "ca")
-        '<i>λόγος</i> (<i>lógos</i>)'
+        'λόγος (<i>lógos</i>)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula"], "ca")
-        '<i>λόγος</i> (<i>lógos</i>, «paraula»)'
+        'λόγος (<i>lógos</i>, «paraula»)'
         >>> last_template_handler(["terme", "grc", "λόγος", "trans=lógos", "trad=paraula", "pos=gentilici"], "ca")
-        '<i>λόγος</i> (<i>lógos</i>, «paraula», gentilici)'
-        >>> last_template_handler(["term", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca")
+        'λόγος (<i>lógos</i>, «paraula», gentilici)'
+        >>> last_template_handler(["terme", "en", "[[cheap]] as [[chips]]", "lit=tant [[barat]] com les [[patates]]"], "ca")
         '<i>[[cheap]] as [[chips]]</i> (literalment «tant [[barat]] com les [[patates]]»)'
 
         >>> last_template_handler(["trad", "es", "manzana"], "ca")
@@ -293,12 +298,13 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         toadd = []
         if data["trans"]:
             toadd.append(italic(data["trans"]))
-        elif data["tr"] and data["tr"] != "-":
-            toadd.append(italic(data["tr"]))
-        elif lang == "grc" and word and data["tr"] != "-":
-            toadd.append(italic(transliterate_grc(word)))
-        elif lang == "ru" and word and data["tr"] != "-":
-            toadd.append(italic(transliterate_ru(word)))
+        elif data["tr"] != "-":
+            if lang == "grc":
+                toadd.append(italic(transliterate_grc(word)))
+            elif lang == "ru":
+                toadd.append(italic(transliterate_ru(word)))
+            elif trans := transliterate(lang, word):
+                toadd.append(italic(trans))
         if data["t"]:
             toadd.append(f"«{data['t']}»")
         if data["glossa"]:
@@ -334,6 +340,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl in ("del-lang", "Del-lang") and (len(parts) <= 2 or parts[2] == "-"):
         return ""
+
     if tpl in ("etim-lang", "del-lang", "Del-lang"):
         if parts[0] in langs:
             lang = langs[parts[0]]
@@ -357,9 +364,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
             phrase = strong(phrase)
         return phrase
 
-    if tpl in ("m", "terme", "term"):
+    if tpl in {"m", "terme"}:
         word = parts[2] if len(parts) > 2 else parts[1]
-        return f"{italic(word)}{parse_other_parameters(parts[0], parts[1])}"
+        text = word if parts[0] in {"el", "grc"} else italic(word)
+        return f"{text}{parse_other_parameters(parts[0], next((part for part in parts[1:] if part), ''))}"
+
     if tpl == "calc":
         return f"{italic(parts[-1])}{parse_other_parameters(parts[0], parts[-1])}"
 
