@@ -198,6 +198,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["e", "grc", "υ", "tr=-"], "ca")
         'υ'
+        >>> last_template_handler(["e", "el", "δ"], "ca")
+        'δ (<i>d</i>)'
 
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
@@ -336,7 +338,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
 
     if tpl == "e":
-        return f"{parts[-1]}{parse_other_parameters()}"
+        return f"{parts[-1]}{parse_other_parameters(parts[0], parts[1])}"
 
     if tpl in ("del-lang", "Del-lang") and (len(parts) <= 2 or parts[2] == "-"):
         return ""
