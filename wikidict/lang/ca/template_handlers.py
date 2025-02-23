@@ -33,14 +33,18 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '<i>argila</i> i la desinència <i>-ar</i>'
     >>> render_comp("comp", ["ca", "xocar", "+Ø"], defaultdict(str))
     '<i>xocar</i> i la desinència <i>Ø</i>'
-    >>> render_comp("comp", ["ca", "metro-", "-nom"], {"t1": "mesura"})
+    >>> render_comp("comp", ["ca", "metro-", "-nom"], defaultdict(str, {"t1": "mesura"}))
     'prefix <i>metro-</i> («mesura») i el sufix <i>-nom</i>'
-    >>> render_comp("comp", ["ca", "mini-", "pequenas"], {"lang2": "es", "t2": "PIMER"})
+    >>> render_comp("comp", ["ca", "mini-", "pequenas"], defaultdict(str, {"lang2": "es", "t2": "PIMER"}))
     'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
-    >>> render_comp("comp", ["ca", "Birma", "-ia"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "Birma", "-ia"], defaultdict(str, {"lang1": "en"}))
     'anglès <i>Birma</i> i el sufix <i>-ia</i>'
-    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], defaultdict(str, {"lang1": "en"}))
     'prefix <i>a-</i>, <i>casa</i> i el sufix <i>-at</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt1": "germen, -inis", "lang1": "la"}))
+    'llatí <i>germen, -inis</i> i el sufix <i>-al</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt2": "-al, -inis", "lang1": "la"}))
+    'llatí <i>germen</i> i el sufix <i>-al, -inis</i>'
     """
 
     def value(word: str, standalone: bool = False) -> str:
@@ -61,14 +65,16 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
     parts.pop(0)  # Remove the lang
 
-    word1 = parts.pop(0)
+    word1 = data["alt1"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = value(word1, standalone=True)
         if others := parse_index_parameters(data, 1):
             phrase += others
         return phrase
 
-    word2 = parts.pop(0)
+    word2 = data["alt2"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = ""
         if "lang1" in data:
