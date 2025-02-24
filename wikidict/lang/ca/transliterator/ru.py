@@ -1,6 +1,6 @@
 import re
 
-from .general import sil as general_sil
+from ..general import sil as general_sil
 
 
 def wtr(cyr: str) -> str:

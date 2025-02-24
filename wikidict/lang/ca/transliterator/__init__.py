@@ -2,13 +2,14 @@
 Transliterator used across multiple templates.
 """
 
-from .be_trans import transliterate as transliterate_be
-from .ber_trans import transliterate as transliterate_ber
-from .el_trans import transliterate as transliterate_el
-from .grc_trans import transliterate as transliterate_grc
-from .ky_trans import transliterate as transliterate_ky
-from .ru_trans import transliterate as transliterate_ru
-from .zh_trans import transliterate as transliterate_zh
+from .be import transliterate as transliterate_be
+from .ber import transliterate as transliterate_ber
+from .el import transliterate as transliterate_el
+from .grc import transliterate as transliterate_grc
+from .ky import transliterate as transliterate_ky
+from .ru import transliterate as transliterate_ru
+from .uk import transliterate as transliterate_uk
+from .zh import transliterate as transliterate_zh
 
 transliterations = {
     "be": transliterate_be,
@@ -17,6 +18,7 @@ transliterations = {
     "grc": transliterate_grc,
     "ky": transliterate_ky,
     "ru": transliterate_ru,
+    "uk": transliterate_uk,
     "zh": transliterate_zh,
 }
 transliterations["taq"] = transliterations["ber"]
@@ -43,6 +45,8 @@ def transliterate(locale: str, text: str) -> str:
         'kurk'
         >>> transliterate("ru", "абха́з")
         'abkhaz'
+        >>> transliterate("uk", "Украї́на")
+        'Ukraïna'
         >>> transliterate("zh", "汉字")
         'hànzì'
     """

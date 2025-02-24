@@ -1,19 +1,20 @@
 """
-Python conversion of the be-trans module.
+Python conversion of the uk-trans module.
 Link:
-  - https://ca.wiktionary.org/wiki/M%C3%B2dul:be-trans
+  - https://ca.wiktionary.org/wiki/M%C3%B2dul:uk-trans
 
-Current version from 2022-12-19 09:45
-  - https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:be-trans&oldid=2110144
+Current version from 2022-12-19 08:37
+  - https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:uk-trans&oldid=2110141
 """
 
 import re
+
+from . import general
 
 GR = "\u0300"  # grave =  ̀
 AC = "\u0301"  # acute = ˊ
 DI = "\u0308"  # diaeresis = ¨
 
-# Transliteration table
 tab = str.maketrans(
     {
         "А": "A",
@@ -23,11 +24,13 @@ tab = str.maketrans(
         "Ґ": "G",
         "Д": "D",
         "Е": "E",
-        "Ё": "Io",
+        "Є": "Ie",
         "Ж": "J",
         "З": "Z",
-        "І": "I",
+        "И": "I",
         "Й": "I",
+        "І": "I",
+        "Ї": "Ii",
         "К": "K",
         "Л": "L",
         "М": "M",
@@ -38,15 +41,13 @@ tab = str.maketrans(
         "С": "S",
         "Т": "T",
         "У": "U",
-        "Ў": "U",
         "Ф": "F",
         "Х": "Kh",
         "Ц": "Ts",
         "Ч": "Tx",
         "Ш": "X",
-        "Ы": "I",
+        "Щ": "Sx",
         "Ь": "",
-        "Э": "E",
         "Ю": "Iu",
         "Я": "Ia",
         "а": "a",
@@ -56,11 +57,13 @@ tab = str.maketrans(
         "ґ": "g",
         "д": "d",
         "е": "e",
-        "ё": "io",
+        "є": "ie",
         "ж": "j",
         "з": "z",
-        "і": "i",
+        "и": "i",
         "й": "i",
+        "і": "i",
+        "ї": "ii",
         "к": "k",
         "л": "l",
         "м": "m",
@@ -71,90 +74,99 @@ tab = str.maketrans(
         "с": "s",
         "т": "t",
         "у": "u",
-        "ў": "u",
         "ф": "f",
         "х": "kh",
         "ц": "ts",
         "ч": "tx",
         "ш": "x",
-        "ы": "i",
+        "щ": "sx",
         "ь": "",
-        "э": "e",
         "ю": "iu",
         "я": "ia",
         "’": "",
-        "ʹ": "",
+        "'": "",
+        "Ё": "Io",
+        "Ъ": "",
+        "Ы": "I",
+        "Ѣ": "I",
+        "Э": "E",
+        "Ѳ": "F",
+        "Ѵ": "I",
+        "Ѧ": "E",
+        "ё": "io",
+        "ъ": "",
+        "ы": "i",
+        "ѣ": "i",
+        "э": "e",
+        "ѳ": "f",
+        "ѵ": "i",
+        "ѧ": "e",
     }
 )
-non_consonants = "[АЁОУЎЬЭЯЮЕѴаёоуўьэяюеѵAEIOUYĚƐaeiouyěɛʹ’]"
-map_to_je_map = {"Е": "Ie", "е": "ie"}
 
-# Character accent correction
 char_acc = {
     f"A{AC}": "À",
-    f"E{AC}": "É",
+    f"E{AC}": "È",
     f"I{AC}": "Í",
-    f"O{AC}": "Ó",
+    f"O{AC}": "Ò",
     f"U{AC}": "Ú",
     f"a{AC}": "à",
-    f"e{AC}": "é",
+    f"e{AC}": "è",
     f"i{AC}": "í",
     f"i{DI}": "ï",
-    f"o{AC}": "ó",
+    f"o{AC}": "ò",
     f"u{AC}": "ú",
     f"u{DI}": "ü",
 }
 
 
-def map_to_je(match: re.Match[str]) -> str:
-    pre, e = match.groups()
-    return pre + map_to_je_map.get(e, "")
-
-
 def wtr(cyr: str) -> str:
-    contain = re.search
     sub = re.sub
+    contain = re.search
 
     cyr = cyr.replace(GR, AC)
 
-    for pattern in [r"([Вв])в", r"([Жж])ж", r"([Кк])к", r"([Хх])х", r"([Цц])ц", r"([Чч])ч", r"([Шш])ш"]:
+    for pattern in [
+        r"([Вв])в",
+        r"([Гг])г",
+        r"([Жж])ж",
+        r"([Кк])к",
+        r"([Хх])х",
+        r"([Цц])ц",
+        r"([Чч])ч",
+        r"([Шш])ш",
+        r"([Щщ])щ",
+    ]:
         cyr = sub(pattern, r"\1", cyr)
 
-    if ("Ё" in cyr or "ё" in cyr) and AC not in cyr:
-        cyr = sub(r"([Ёё])", rf"{AC}\1", cyr[::-1], 1)[::-1]
-
-    cyr = sub(r"([жшчщЖШЧЩ])ё", r"\1o", cyr)
-    cyr = sub(r"^([Ее])", map_to_je, cyr)
-    cyr = sub(rf"({non_consonants})([Ее])", map_to_je, cyr)
-    cyr = sub(rf"({non_consonants})([Ее])", map_to_je, cyr)
-
     latin = cyr.translate(tab)
-    latin = sub(rf"(i{AC}?)i", r"\1", latin).replace("ll", "l·l")
+    latin = sub(rf"(i{AC}?)i", r"\1", latin)
+    latin = latin.replace("ll", "l·l")
     latin = sub(r"([Gg])([ei])", r"\1u\2", latin)
 
-    sil = sub(rf".{AC}", lambda m: char_acc.get(m[0], m[0]), latin).split("·")
+    sil = general.sil(sub(rf".[{AC}{DI}]", lambda m: char_acc.get(m[0], m[0]), latin)).split("·")
 
-    if contain(r"[ÀàÉéÍíÓóÚú]", sil[-1]):
-        if not (contain(rf"[aeiou]{AC}s?$", latin) or contain(rf"[ei]{AC}n$", latin)):
-            if f"ю{AC}" not in cyr:
+    if len(sil) == 1:
+        latin = latin.replace(AC, "")
+    elif contain(r"[ÀàÈèÍíÒòÚú]", sil[-1]):
+        if not contain(rf"[aeiou]{AC}s?$", latin) and not contain(rf"[ei]{AC}n$", latin):
+            if not contain(rf"ю{AC}", cyr):
                 latin = sub(rf"([aeoiu][iu]){AC}", rf"\1{DI}", latin)
             latin = latin.replace(f"gui{DI}", "gui").replace(AC, "")
-    elif contain(r"[ÀàÉéÍíÓóÚú]", sil[-2]):
+    elif contain(r"[ÀàÈèÍíÒòÚú]", sil[-2]):
         if contain(r"[aeiou]s?$", latin) or contain(r"[ei]n$", latin):
             if not contain(r"[aeiou][iu]$", latin):
                 latin = sub(rf"([aeoiu][iu]){AC}", rf"\1{DI}", latin)
                 latin = latin.replace(f"gui{DI}", "gui").replace(AC, "")
 
     latin = sub(rf".[{AC}{DI}]", lambda m: char_acc.get(m[0], m[0]), latin)
-    latin = sub(r"([AEIOUaeiouÀÉÍÓÚàéíóúü])s([aeiouàéíóú])", r"\1ss\2", latin)
-    latin = sub(r"([AEOUaeouÀÉÓÚàéóúü])x", r"\1ix", latin)
-
-    return latin
+    latin = sub(r"([AEIOUaeiouÀÈÍÒÚàèíïòúü])s([aeiouàèíòú])", r"\1ss\2", latin)
+    return sub(r"([AEOUaeouÀÈÒÚàèòúü])x", r"\1ix", latin)
 
 
 def transliterate(text: str, locale: str = "") -> str:
     """
-    >>> transliterate("Белару́сь")
-    'Belarús'
+    >>> transliterate("Украї́на")
+    'Ukraïna'
     """
     return " ".join(wtr(word) for word in text.split())
