@@ -520,6 +520,11 @@ recognized_placetypes = {
         "display": "county-level city",
         "preposition": "in",
     },
+    "crater lake": {
+        "article": "a",
+        "display": "crater lake",
+        "preposition": "in",
+    },
     "crown dependency": {
         "article": "a",
         "display": "crown dependency",
@@ -2165,7 +2170,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 432
+}  # 433
 
 placetypes_aliases = {
     "CDP": "census-designated place",
