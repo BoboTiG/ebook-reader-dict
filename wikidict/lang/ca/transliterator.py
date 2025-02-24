@@ -6,6 +6,7 @@ from .be_trans import transliterate as transliterate_be
 from .ber_trans import transliterate as transliterate_ber
 from .el_trans import transliterate as transliterate_el
 from .grc_trans import transliterate as transliterate_grc
+from .ky_trans import transliterate as transliterate_ky
 from .ru_trans import transliterate as transliterate_ru
 from .zh_trans import transliterate as transliterate_zh
 
@@ -14,6 +15,7 @@ transliterations = {
     "ber": transliterate_ber,
     "el": transliterate_el,
     "grc": transliterate_grc,
+    "ky": transliterate_ky,
     "ru": transliterate_ru,
     "zh": transliterate_zh,
 }
@@ -37,6 +39,8 @@ def transliterate(locale: str, text: str) -> str:
         'I'
         >>> transliterate("grc", "λόγος")
         'lógos'
+        >>> transliterate("ky", "кырк")
+        'kurk'
         >>> transliterate("ru", "абха́з")
         'abkhaz'
         >>> transliterate("zh", "汉字")
