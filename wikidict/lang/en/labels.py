@@ -689,6 +689,7 @@ labels = {
     "Rubik's cubes": "Rubik's Cube",
     "Rwanda": "Rwanda",
     "Réunion": "Réunion",
+    "SEA": "Southeast Asia",
     "SEO": "SEO",
     "SG": "Singapore",
     "SR Yogyakarta": "Special Region of Yogyakarta",
@@ -1307,6 +1308,7 @@ labels = {
     "dictation": "dictation",
     "differential geometry": "differential geometry",
     "diplomacy": "diplomacy",
+    "dis legomenon": "dis legomenon",
     "disc golf": "disc golf",
     "disease": "pathology",
     "diseases": "pathology",
@@ -1969,6 +1971,7 @@ labels = {
     "now": "now",
     "nowadays": "now",
     "nt-flapping": "''nt''-flapping",
+    "nuclear energy": "nuclear energy",
     "nuclear physics": "nuclear physics",
     "number theory": "number theory",
     "numismatics": "numismatics",
@@ -2584,7 +2587,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,579
+}  # 2,582
 
 syntaxes = {
     "&": {

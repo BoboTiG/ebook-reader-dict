@@ -2447,7 +2447,13 @@ recognized_placenames = {
     "overseas territory/Pitcairn Islands": {"article": "the", "display": ""},
     "overseas territory/South Sandwich Islands": {"article": "the", "display": ""},
     "overseas territory/Turks and Caicos Islands": {"article": "the", "display": ""},
+    "overseas territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "overseas territory/United States Virgin Islands": {"article": "the", "display": ""},
+    "province/Bangka Belitung Islands": {"article": "the", "display": ""},
+    "province/Dinagat Islands": {"article": "the", "display": ""},
+    "province/Riau Islands": {"article": "the", "display": ""},
+    "province/Special Capital Region of Jakarta": {"article": "the", "display": ""},
+    "province/Special Region of Yogyakarta": {"article": "the", "display": ""},
     "region/Balkans": {"article": "the", "display": ""},
     "region/Caribbean": {"article": "the", "display": ""},
     "region/Caucasus": {"article": "the", "display": ""},
@@ -2508,9 +2514,12 @@ recognized_placenames = {
     "territory/Turks and Caicos Islands": {"article": "the", "display": ""},
     "territory/U.S. Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
     "territory/US Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
+    "territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "territory/United States Virgin Islands": {"article": "the", "display": ""},
     "unincorporated territory/Northern Mariana Islands": {"article": "the", "display": ""},
+    "unincorporated territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
+    "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 151
+}  # 160
 # END
