@@ -615,6 +615,11 @@ recognized_placetypes = {
         "display": "division",
         "preposition": "of",
     },
+    "division capital": {
+        "article": "the",
+        "display": "division capital",
+        "preposition": "of",
+    },
     "dome": {
         "article": "a",
         "display": "dome",
@@ -725,9 +730,19 @@ recognized_placetypes = {
         "display": "frazione",
         "preposition": "in",
     },
+    "geographic area": {
+        "article": "a",
+        "display": "geographic area",
+        "preposition": "of",
+    },
     "geographic region": {
         "article": "a",
         "display": "geographic region",
+        "preposition": "of",
+    },
+    "geographical area": {
+        "article": "a",
+        "display": "geographical area",
         "preposition": "of",
     },
     "geographical region": {
@@ -1318,6 +1333,11 @@ recognized_placetypes = {
     "market town": {
         "article": "a",
         "display": "market town",
+        "preposition": "in",
+    },
+    "massif": {
+        "article": "a",
+        "display": "massif",
         "preposition": "in",
     },
     "mediaeval capital": {
@@ -2170,7 +2190,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 433
+}  # 437
 
 placetypes_aliases = {
     "CDP": "census-designated place",

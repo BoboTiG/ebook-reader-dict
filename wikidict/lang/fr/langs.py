@@ -471,7 +471,7 @@ langs = {
     "axb": "abipón",
     "axe": "ayerrerenge",
     "axg": "arara de Mato Grosso",
-    "axx": "xaragure",
+    "axx": "xârâgurè",
     "ay": "aymara",
     "aya": "awar",
     "ayd": "ayabadhu",
