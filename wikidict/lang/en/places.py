@@ -655,6 +655,11 @@ recognized_placetypes = {
         "display": "entity",
         "preposition": "of",
     },
+    "escarpment": {
+        "article": "an",
+        "display": "escarpment",
+        "preposition": "in",
+    },
     "ethnographic region": {
         "article": "an",
         "display": "ethnographic region",
@@ -1615,6 +1620,11 @@ recognized_placetypes = {
         "display": "planned community",
         "preposition": "in",
     },
+    "plateau": {
+        "article": "a",
+        "display": "plateau",
+        "preposition": "of",
+    },
     "polity": {
         "article": "a",
         "display": "polity",
@@ -2063,7 +2073,7 @@ recognized_placetypes = {
     "traditional region": {
         "article": "a",
         "display": "traditional region",
-        "preposition": "in",
+        "preposition": "of",
     },
     "treaty port": {
         "article": "a",
@@ -2190,7 +2200,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 437
+}  # 439
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2293,6 +2303,7 @@ recognized_qualifiers = {
     "beachside": "beachfront",
     "business": "business",
     "cattle": "cattle",
+    "chalk": "chalk",
     "chartered": "chartered",
     "coastal": "coastal",
     "commercial": "commercial",
@@ -2319,9 +2330,11 @@ recognized_qualifiers = {
     "industrial": "industrial",
     "inland": "inland",
     "inner": "inner",
+    "karst": "karst",
     "landlocked": "landlocked",
     "large": "large",
     "left": "left",
+    "limestone": "limestone",
     "logging": "logging",
     "long": "long",
     "low": "low",
@@ -2378,7 +2391,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 94
+}  # 97
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},

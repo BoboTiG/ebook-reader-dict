@@ -7,6 +7,7 @@ Auto-generated with `python -m scripts`.
 domain_templates = {
     "4chan": "Internet, 4chan",
     "Astérix": "Univers d’Astérix",
+    "Genres de plantes en conventions internationales": "Botanique",
     "LGBT": "LGBT",
     "MRC": "Géographie",
     "Minecraft": "Jeu vidéo, Minecraft",
@@ -149,6 +150,7 @@ domain_templates = {
     "fruits": "Botanique",
     "félins": "Félinologie",
     "gastéropodes": "Malacologie",
+    "genres de plantes": "Botanique",
     "genres littéraires": "Littérature",
     "genres musicaux": "Musique",
     "gentilés": "Géographie",
@@ -347,5 +349,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 342
+}  # 344
 # END

@@ -778,6 +778,7 @@ labels = {
     "Sri Lanka": "Sri Lanka",
     "Sri Lankan": "Sri Lanka",
     "St. Louis": "St. Louis",
+    "St. Vincent": "St. Vincent",
     "Standard Southern British": "Standard Southern British",
     "Standard Southern British English": "Standard Southern British",
     "Star Wars": "''Star Wars''",
@@ -2587,7 +2588,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,582
+}  # 2,583
 
 syntaxes = {
     "&": {
