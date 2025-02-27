@@ -1,14 +1,22 @@
+"""
+Python conversion of the ru-trans module.
+Link:
+  - https://ca.wiktionary.org/wiki/M%C3%B2dul:ru-trans
+
+Current version from 2022-09-19 06:55
+  - https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:ru-trans&oldid=2091459
+"""
+
 import re
 
-from ..general import sil as general_sil
+from .. import general
 
+GR = "\u0300"  # grave =  ̀
+AC = "\u0301"  # acute = ˊ
+DI = "\u0308"  # diaeresis = ¨
 
-def wtr(cyr: str) -> str:
-    GR = "\u0300"  # grave =  ̀
-    AC = "\u0301"  # acute = ˊ
-    DI = "\u0308"  # diaeresis = ¨
-
-    tab = {
+tab = str.maketrans(
+    {
         "А": "A",
         "Б": "B",
         "В": "V",
@@ -75,7 +83,6 @@ def wtr(cyr: str) -> str:
         "э": "e",
         "ю": "iu",
         "я": "ia",
-        # archaic, pre-1918 letters
         "І": "I",
         "і": "i",
         "Ѳ": "F",
@@ -84,97 +91,86 @@ def wtr(cyr: str) -> str:
         "ѣ": "e",
         "Ѵ": "I",
         "ѵ": "i",
-        # composed combinations with grave accents map to uncomposed letters
-        # for consistency with other char+grave combinations
-        "ѐ": "e" + GR,
-        "Ѐ": "E" + GR,
-        "ѝ": "i" + GR,
-        "Ѝ": "I" + GR,
+        "ѐ": f"e{GR}",
+        "Ѐ": f"E{GR}",
+        "ѝ": f"i{GR}",
+        "Ѝ": f"I{GR}",
     }
+)
 
-    # FIXME! Doesn't work with ɣ, which gets included in this character set
-    non_consonants = r"[АОУҮЫЭЯЁЮИЕЪЬІѢѴаоуүыэяёюиеъьіѣѵAEIOUYƐaeiouyɛʹʺ\W]"
+non_consonants = r"[АОУҮЫЭЯЁЮИЕЪЬІѢѴаоуүыэяёюиеъьіѣѵAEIOUYƐaeiouyɛʹʺ\W]"
+map_to_je_map = {"Е": "Ie", "е": "ie", "Ѣ": "Ie", "ѣ": "ie"}
+char_acc = {
+    f"A{AC}": "À",
+    f"E{AC}": "É",
+    f"I{AC}": "Í",
+    f"O{AC}": "Ó",
+    f"U{AC}": "Ú",
+    f"a{AC}": "à",
+    f"e{AC}": "é",
+    f"i{AC}": "í",
+    f"i{DI}": "ï",
+    f"o{AC}": "ó",
+    f"u{AC}": "ú",
+    f"u{DI}": "ü",
+}
 
-    def map_to_je(pre: str, e: str = "") -> str:
-        map_to_je_map = {"Е": "Ie", "е": "ie", "Ѣ": "Ie", "ѣ": "ie"}
-        if not e:
-            return map_to_je_map.get(pre, "")
-        return pre + map_to_je_map.get(e, "")
 
-    def ureverse(s: str) -> str:
-        return s[::-1]
+def map_to_je(pre: str, e: str | None = None) -> str:
+    if not e:
+        return map_to_je_map[pre]
+    return f"{pre}{map_to_je_map[e]}"
 
-    cyr = re.sub(GR, AC, cyr)
 
-    # reducció de consonants duplicades no usades en català
-    no_dobles = ["([Вв])в", "([Жж])ж", "([Кк])к", "([Хх])х", "([Цц])ц", "([Чч])ч", "([Шш])ш", "([Щщ])щ"]
-    for regex in no_dobles:
-        cyr = re.sub(regex, r"\1", cyr)
+def wtr(cyr: str) -> str:
+    sub = re.sub
+    contain = re.search
 
-    # si no hi ha cap accent i alguna ё, accentuem la darrera
-    if "ё" in cyr or "Ё" in cyr:
-        if AC not in cyr:
-            cyr = ureverse(re.sub("([Ёё])", AC + r"\1", ureverse(cyr), count=1))
+    cyr = cyr.replace(GR, AC)
 
-    # ё after a "hushing" consonant becomes o
-    cyr = re.sub("([жшчщЖШЧЩ])ё", r"\1o", cyr)
+    for pattern in [
+        r"([Вв])в",
+        r"([Жж])ж",
+        r"([Кк])к",
+        r"([Хх])х",
+        r"([Цц])ц",
+        r"([Чч])ч",
+        r"([Шш])ш",
+        r"([Щщ])щ",
+    ]:
+        cyr = sub(pattern, r"\1", cyr)
 
-    # е after a vowel or at the beginning of a word becomes ie
-    cyr = re.sub(r"^([ЕеѢѣ])", lambda m: map_to_je(m.group()), cyr)
-    cyr = re.sub("(" + non_consonants + ")([ЕеѢѣ])", lambda m: map_to_je(m.group(1), m.group(2)), cyr)
-    # need to do it twice in case of sequences of such vowels
-    cyr = re.sub("(" + non_consonants + ")([ЕеѢѣ])", lambda m: map_to_je(m.group(1), m.group(2)), cyr)
+    if ("ё" in cyr or "Ё" in cyr) and AC not in cyr:
+        cyr = sub(r"([Ёё])", rf"{AC}\1", cyr[::-1], count=1)[::-1]
 
-    latin = "".join(tab.get(char, char) for char in cyr)
+    cyr = sub(r"([жшчщЖШЧЩ])ё", r"\1o", cyr)
+    cyr = sub(r"^([ЕеѢѣ])", lambda m: map_to_je(m[0]), cyr)
+    cyr = sub(rf"({non_consonants})([ЕеѢѣ])", lambda m: map_to_je(m[1], m[2]), cyr)
+    cyr = sub(rf"({non_consonants})([ЕеѢѣ])", lambda m: map_to_je(m[1], m[2]), cyr)
 
-    # simplificació de dues i
-    latin = re.sub(r"(i" + AC + r"?)i", r"\1", latin)
+    latin = cyr.translate(tab)
+    latin = sub(rf"(i{AC}?)i", r"\1", latin)
+    latin = sub(r"([Ll])([Ll])", r"\1·\2", latin)
+    latin = sub(r"([Gg])([ei])", r"\1u\2", latin)
 
-    # doble ela a ela geminada
-    latin = re.sub(r"([Ll])([Ll])", r"\1·\2", latin)
+    sil = general.sil(sub(rf".{AC}", lambda m: char_acc[m[0]], latin)).split("·")
 
-    # correcció gue/gui
-    latin = re.sub(r"([Gg])([ei])", r"\1u\2", latin)
+    if len(sil) == 1:
+        latin = latin.replace(AC, "")
+    elif contain(r"[ÀàÉéÍíÓóÚú]", sil[-1]):
+        if not contain(rf"[aeiou]{AC}s?$", latin) and not contain(rf"[ei]{AC}n$", latin):
+            if f"ю{AC}" not in cyr:
+                latin = sub(rf"([aeoiu][iu]){AC}", rf"\1{DI}", latin)
+            latin = latin.replace(f"gui{DI}", "gui").replace(AC, "")
+    elif contain(r"[ÀàÉéÍíÓóÚú]", sil[-2]):
+        if contain(r"[aeiou]s?$", latin) or contain(r"[ei]n$", latin):
+            if not contain(r"[aeiou][iu]$", latin):
+                latin = sub(rf"([aeoiu][iu]){AC}", rf"\1{DI}", latin)
+                latin = latin.replace(f"gui{DI}", "gui").replace(AC, "")
 
-    # regles d'accentuació en català
-    char_acc = {
-        "A" + AC: "À",
-        "E" + AC: "É",
-        "I" + AC: "Í",
-        "O" + AC: "Ó",
-        "U" + AC: "Ú",
-        "a" + AC: "à",
-        "e" + AC: "é",
-        "i" + AC: "í",
-        "i" + DI: "ï",
-        "o" + AC: "ó",
-        "u" + AC: "ú",
-        "u" + DI: "ü",
-    }
-    latin_with_accent = re.sub(rf".{AC}", lambda match: char_acc[match.group()], latin)
-    sil = general_sil(latin_with_accent).split("·")
-
-    if len(sil) == 1:  # monosíl·laba sense accent
-        latin = re.sub(AC, "", latin)
-    elif re.search("[ÀàÉéÍíÓóÚú]", sil[-1]):  # aguda
-        if not (re.search(r"[aeiou]" + AC + r"s?$", latin) or re.search(r"[ei]" + AC + r"n$", latin)):
-            if "ю" + AC not in cyr:  # hiatus except diphthong iu
-                latin = re.sub(r"([aeoiu][iu])" + AC, r"\1" + DI, latin)
-            latin = re.sub(r"gui" + DI, "gui", latin)
-            latin = re.sub(AC, "", latin)
-    elif re.search("[ÀàÉéÍíÓóÚú]", sil[-2]):  # plana
-        if re.search(r"[aeiou]s?$", latin) or re.search(r"[ei]n$", latin):
-            if not re.search(r"[aeiou][iu]$", latin):
-                latin = re.sub(r"([aeoiu][iu])" + AC, r"\1" + DI, latin)
-                latin = re.sub(r"gui" + DI, "gui", latin)
-                latin = re.sub(AC, "", latin)
-    # accent obert à
-    latin = re.sub(".[" + AC + DI + "]", lambda m: char_acc.get(m.group(), ""), latin)
-
-    # correcció intervocàlica ss, ix
-    latin = re.sub(r"([AEIOUaeiouÀÉÍÓÚàéíóúü])s([aeiouàéíóú])", r"\1ss\2", latin)
-    latin = re.sub(r"([AEOUaeouÀÉÓÚàéóúü])x", r"\1ix", latin)
-    return latin
+    latin = sub(rf".[{AC}{DI}]", lambda m: char_acc[m[0]], latin)
+    latin = sub(r"([AEIOUaeiouÀÉÍÓÚàéíóúü])s([aeiouàéíóú])", r"\1ss\2", latin)
+    return sub(r"([AEOUaeouÀÉÓÚàéóúü])x", r"\1ix", latin)
 
 
 def transliterate(text: str, locale: str = "") -> str:
@@ -200,5 +196,4 @@ def transliterate(text: str, locale: str = "") -> str:
     >>> transliterate("ЯЕ")
     'IaIe'
     """
-    trwords = [wtr(word) for word in text.split()]
-    return " ".join(trwords)
+    return " ".join(wtr(word) for word in text.split())

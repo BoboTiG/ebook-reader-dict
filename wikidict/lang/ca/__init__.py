@@ -286,13 +286,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, superscript
     from .. import defaults
+    from . import general
     from .langs import grups, langs
     from .template_handlers import lookup_template, render_template
 
     if lookup_template(template[0]):
         return render_template(word, template)
-
-    from .general import cal_apostrofar
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -325,7 +324,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         if lang in grups:
             return "d'un " if nocap else "D'un "
         phrase = "d" if nocap else "D"
-        phrase += "e l'" if cal_apostrofar(lang_name) else "el "
+        phrase += "e l'" if general.cal_apostrofar(lang_name) else "el "
         return phrase
 
     if tpl == "calc semàntic":

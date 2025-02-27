@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
-from .general import cal_apostrofar
+from . import general
 from .labels import label_syntaxes, labels
 from .langs import langs
 from .transliterator import transliterate
@@ -92,7 +92,7 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             phrase += others
         if "lang2" in data:
             lang2 = langs[data["lang2"]]
-            phrase += " i l'" if cal_apostrofar(lang2) else " i el "
+            phrase += " i l'" if general.cal_apostrofar(lang2) else " i el "
             phrase += f"{lang2} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"

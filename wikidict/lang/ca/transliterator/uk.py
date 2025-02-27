@@ -9,7 +9,7 @@ Current version from 2022-12-19 08:37
 
 import re
 
-from . import general
+from .. import general
 
 GR = "\u0300"  # grave =  ̀
 AC = "\u0301"  # acute = ˊ
