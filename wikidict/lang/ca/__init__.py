@@ -193,6 +193,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo"], "ca")
         'calc semàntic del castellà <i>pueblo</i>'
+        >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo", "maj=1"], "ca")
+        'Calc semàntic del castellà <i>pueblo</i>'
 
         >>> last_template_handler(["e", "grc", "υ", "tr=-"], "ca")
         'υ'
@@ -328,7 +330,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return phrase
 
     if tpl == "calc semàntic":
-        phrase = "calc semàntic "
+        phrase = "Calc semàntic " if data["maj"] == "1" else "calc semàntic "
         lang = langs[parts[0]]
         phrase += format_source(parts[0], lang, True)
         phrase += f"{lang} "
