@@ -308,8 +308,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     def parse_other_parameters(lang: str = "", word: str = "") -> str:
         toadd = []
+        trad_added = False
 
-        if data["trans"]:
+        if "tr" in data and not data["tr"] and data["trad"] and data["trans"]:
+            toadd.append(f"«{data['trad']}»")
+            trad_added = True
+        elif data["trans"]:
             toadd.append(italic(data["trans"]))
         elif lang and word and data["tr"] != "-" and (trans := transliterate(lang, word)):
             toadd.append(italic(trans))
@@ -318,7 +322,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         if data["t"]:
             toadd.append(f"«{data['t']}»")
-        elif data["trad"]:
+        elif not trad_added and data["trad"]:
             toadd.append(f"«{data['trad']}»")
         if data["glossa"]:
             toadd.append(f"«{data['glossa']}»")
