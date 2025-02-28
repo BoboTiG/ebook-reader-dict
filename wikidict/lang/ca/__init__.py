@@ -234,6 +234,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         ''
         >>> last_template_handler(["del-lang", "ar", "ca", "مَمْلُوك", "tr=mamlūk", "t=esclau"], "ca")
         "de l'àrab <i>مَمْلُوك</i> (<i>mamlūk</i>, «esclau»)"
+        >>> last_template_handler(["del-lang", "zh", "ca", "sc=Hant", "圍棋"], "ca")
+        'del xinès <i>圍棋</i> (<i>围棋, wéiqí</i>)'
         >>> last_template_handler(["Del-lang", "gem", "ca", "Adroar"], "ca")
         "D'un germànic <i>Adroar</i>"
 
