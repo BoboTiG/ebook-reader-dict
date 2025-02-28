@@ -350,9 +350,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "doblet":
         text = italic(parts[-1])
-        if pos := data["pos"]:
-            text += f" ({pos})"
-        return text
+        return f"{text}{parse_other_parameters()}"
 
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
