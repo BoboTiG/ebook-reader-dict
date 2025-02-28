@@ -259,6 +259,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'Καστελανοι (<i>Kastelanoi</i>)'
         >>> last_template_handler(["m", "ar", "مَلَكَ", "", "tr=malaka", "t=posseir, adquirir"], "ca")
         '<i>مَلَكَ</i> (<i>malaka</i>, «posseir, adquirir»)'
+        >>> last_template_handler(["m", "grc", "αἰτία", "t=aitía", "trad=causa"], "ca")
+        'αἰτία (<i>aitía</i>, «aitía»)'
 
         >>> last_template_handler(["lleng", "la", "√ⵎⵣⵖ"], "ca")
         '√ⵎⵣⵖ'
@@ -316,10 +318,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         if data["t"]:
             toadd.append(f"«{data['t']}»")
+        elif data["trad"]:
+            toadd.append(f"«{data['trad']}»")
         if data["glossa"]:
             toadd.append(f"«{data['glossa']}»")
-        if data["trad"]:
-            toadd.append(f"«{data['trad']}»")
         if data["pos"] and tpl not in {"del-lang", "Del-lang"}:
             toadd.append(data["pos"])
         if data["lit"]:
