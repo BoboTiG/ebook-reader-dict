@@ -295,6 +295,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["xib-trans", "ś1i1ka1ŕ5a3"], "ca")  # doctest: +ELLIPSIS
         '<svg ...'
+        >>> last_template_handler(["xib-trans", "*uŕki"], "ca")
+        '<i>*uŕki</i>'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, superscript
     from .. import defaults
@@ -310,6 +312,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     phrase = ""
 
     def parse_other_parameters(lang: str = "", word: str = "") -> str:
+        if word.startswith("*"):
+            return ""
+
         toadd = []
         trad_added = False
 
@@ -368,7 +373,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         if parts[0] in langs:
             lang = langs[parts[0]]
             phrase += format_source(parts[0], lang, tpl == "del-lang")
-            phrase += f"{lang}"
+            phrase += lang
             word = ""
             if len(parts) > 2:
                 word = data["alt"] or parts[2]
@@ -401,9 +406,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return f"{trans} {superscript(f'({src})')}"
 
     if tpl == "xib-trans":
-        from . import xib_utils
-
-        return xib_utils.transliterate(parts[0])
+        if parts[0].startswith("*"):
+            return italic(parts[0])
+        return transliterate("xib", parts[0])
 
     # This is a country in the current locale
     if lang := langs.get(tpl, ""):

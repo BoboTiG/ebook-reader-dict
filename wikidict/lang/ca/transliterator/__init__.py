@@ -2,7 +2,6 @@
 Transliterator used across multiple templates.
 """
 
-from ..xib_utils import transliterate as transliterate_xib
 from .be import transliterate as transliterate_be
 from .ber import transliterate as transliterate_ber
 from .el import transliterate as transliterate_el
@@ -10,6 +9,7 @@ from .grc import transliterate as transliterate_grc
 from .ky import transliterate as transliterate_ky
 from .ru import transliterate as transliterate_ru
 from .uk import transliterate as transliterate_uk
+from .xib import transliterate as transliterate_xib
 from .zh import transliterate as transliterate_zh
 
 transliterations = {
