@@ -93,8 +93,6 @@ templates_multi = {
     "color": "color(parts[1])",
     # {{def-meta|Utilitzat en l'expressió tros de quòniam.}}
     "def-meta": "italic(parts[-1])",
-    # {{doblet|ca|Castellar}}
-    "doblet": "italic(parts[-1])",
     # {{e-propi|ca|grèvol}}
     "e-propi": "strong(parts[2])",
     # {{etim-s|ca|XIV}}
@@ -195,6 +193,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'calc semàntic del castellà <i>pueblo</i>'
         >>> last_template_handler(["calc semàntic", "es", "ca", "pueblo", "maj=1"], "ca")
         'Calc semàntic del castellà <i>pueblo</i>'
+
+        >>> last_template_handler(["doblet", "ca", "Castellar"], "ca")
+        '<i>Castellar</i>'
+        >>> last_template_handler(["doblet", "ca", "mèdic", "pos=adjectiu"], "ca")
+        '<i>mèdic</i> (adjectiu)'
 
         >>> last_template_handler(["e", "grc", "υ", "tr=-"], "ca")
         'υ'
@@ -336,6 +339,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         phrase += f"{lang} "
         phrase += f"{italic(parts[-1])}{parse_other_parameters()}"
         return phrase
+
+    if tpl == "doblet":
+        text = italic(parts[-1])
+        if pos := data["pos"]:
+            text += f" ({pos})"
+        return text
 
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
