@@ -92,6 +92,7 @@ def filter_html(html: str, locale: str) -> str:
                 i.next_sibling.replaceWith(i.next_sibling.text[1:])
                 # And remove the note
                 i.decompose()
+
         # Filter out anchors as they are ignored from templates
         for a in bs.find_all("a", href=True):
             if (
@@ -101,6 +102,10 @@ def filter_html(html: str, locale: str) -> str:
                 and "mw-selflink-fragment" not in a.get("class", [])
             ):
                 a.replaceWith(a.text)
+
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
 
     elif locale == "da":
         for sup in bs.find_all("sup"):
