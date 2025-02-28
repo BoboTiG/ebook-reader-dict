@@ -11,7 +11,9 @@ root = tree.getroot()
 
 languages = {}
 for lang in root.iter("language"):
-    iso = lang.get("type")
+    if lang.get("alt"):
+        continue
+    iso = str(lang.get("type")).lower().replace("_", "-")
     name = lang.text
     languages[iso] = name
 
