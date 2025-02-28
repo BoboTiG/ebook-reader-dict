@@ -143,6 +143,7 @@ forma_de = (
     "forma de plural masculin pentru",
     "forma de plural nearticulat în nominativ-acuzativ și genitiv-dativ pentru",
     "forma de plural nearticulat pentru",
+    "forma de plural neatriculat pentru",
     "forma de plural pentru",
     "forma de singulaar articulat pentru",
     "forma de singular articulat",
