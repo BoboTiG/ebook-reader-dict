@@ -224,8 +224,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'del llatí <i>verba</i>'
         >>> last_template_handler(["del-lang", "la", "ca", "exemplar", "pos=substantiu"], "ca")
         'del llatí <i>exemplar</i>'
-        >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")
-        "De l'ibèric <i>baitolo</i>"
+        >>> last_template_handler(["Del-lang", "xib", "ca", "baitolo"], "ca")  # doctest: +ELLIPSIS
+        'De l\\'ibèric <i>baitolo</i> (<svg ...'
         >>> last_template_handler(["Del-lang", "grc", "ca", "ῡ̔οειδής", "trad=en forma d’ípsilon"], "ca")
         'Del grec antic <i>ῡ̔οειδής</i> (<i>hȳoeidḗs</i>, «en forma d’ípsilon»)'
         >>> last_template_handler(["del-lang", "la", "ca"], "ca")
@@ -290,6 +290,9 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         'manzana <sup>(es)</sup>'
         >>> last_template_handler(["trad", "sc=es", "manzana"], "ca")
         'manzana <sup>(es)</sup>'
+
+        >>> last_template_handler(["xib-trans", "ś1i1ka1ŕ5a3"], "ca")  # doctest: +ELLIPSIS
+        '<svg ...'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, superscript
     from .. import defaults
@@ -310,7 +313,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         if data["trans"]:
             toadd.append(italic(data["trans"]))
         elif lang and word and data["tr"] != "-" and (trans := transliterate(lang, word)):
-            toadd.append(italic(trans))
+            toadd.append(trans if lang == "xib" else italic(trans))
         elif (tr := data["tr"]) and tr != "-":
             toadd.append(italic(tr))
 
@@ -392,6 +395,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         src = data["sc"] or parts.pop(0)
         trans = data["tr"] or parts.pop(0)
         return f"{trans} {superscript(f'({src})')}"
+
+    if tpl == "xib-trans":
+        from . import xib_utils
+
+        return xib_utils.transliterate(parts[0])
 
     # This is a country in the current locale
     if lang := langs.get(tpl, ""):
