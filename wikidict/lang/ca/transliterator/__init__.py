@@ -2,6 +2,7 @@
 Transliterator used across multiple templates.
 """
 
+from ..xib_utils import transliterate as transliterate_xib
 from .be import transliterate as transliterate_be
 from .ber import transliterate as transliterate_ber
 from .el import transliterate as transliterate_el
@@ -19,6 +20,7 @@ transliterations = {
     "ky": transliterate_ky,
     "ru": transliterate_ru,
     "uk": transliterate_uk,
+    "xib": transliterate_xib,
     "zh": transliterate_zh,
 }
 transliterations["taq"] = transliterations["ber"]
@@ -47,6 +49,8 @@ def transliterate(locale: str, text: str) -> str:
         'abkhaz'
         >>> transliterate("uk", "Украї́на")
         'Ukraïna'
+        >>> transliterate("xib", "ba")  # doctest: +ELLIPSIS
+        '<svg ...'
         >>> transliterate("zh", "汉字")
         'hànzì'
     """
