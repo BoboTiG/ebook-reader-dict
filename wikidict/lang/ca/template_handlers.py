@@ -53,9 +53,16 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'llatí <i>germen</i> i el sufix <i>-al, -inis</i>'
     >>> render_comp("comp", ["ca", "κώδεια", "-ina"], defaultdict(str, {"lang1": "grc", "t1": "calze de la rosella"}))
     'grec antic <i>κώδεια</i> (<i>kṓdeia</i>, «calze de la rosella») i el sufix <i>-ina</i>'
+    >>> render_comp("comp", ["ca", "glico-", "raqui-", "-ia"], defaultdict(str))
+    'prefix <i>glico-</i>, el prefix <i>raqui-</i> i el sufix <i>-ia</i>'
     """
 
+    prefix_count = 0
+
     def value(word: str, *, standalone: bool = False) -> str:
+        nonlocal prefix_count
+        prefix_count += 1
+
         prefix = ""
         if word.startswith("-"):
             if standalone:
@@ -63,12 +70,13 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             else:
                 prefix = "l'infix " if word.endswith("-") else "el sufix "
         elif word.endswith("-"):
-            prefix = "prefix "
+            prefix = "prefix " if prefix_count == 1 else "el prefix "
         elif word.startswith("+"):
             prefix = "desinència " if standalone else "la desinència "
             if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
                 word = "Ø"
             word = word.replace("+", "-")
+
         return f"{prefix}{italic(word)}"
 
     parts.pop(0)  # Remove the lang
@@ -85,15 +93,15 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     parts.pop(0)
     if not parts:
         phrase = ""
-        if "lang1" in data:
-            phrase = f"{langs[data['lang1']]} "
+        if lang1 := data["lang1"]:
+            phrase = f"{langs[lang1]} "
         phrase += value(word1)
         if others := parse_index_parameters(word1, data, 1):
             phrase += others
-        if "lang2" in data:
-            lang2 = langs[data["lang2"]]
-            phrase += " i l'" if general.cal_apostrofar(lang2) else " i el "
-            phrase += f"{lang2} {value(word2)}"
+        if lang2 := data["lang2"]:
+            lang = langs[lang2]
+            phrase += " i l'" if general.cal_apostrofar(lang) else " i el "
+            phrase += f"{lang} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"
         if others2 := parse_index_parameters("", data, 2):
