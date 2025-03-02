@@ -640,6 +640,7 @@ regions = {
     "Saint-Christophe-et-Niévès": "Saint-Christophe-et-Niévès",
     "Saint-Domingue": "Haïti",
     "Saint-Georges-sur-Loire": "Saint-Georges-sur-Loire",
+    "Saint-Jean-Soleymieux": "Saint-Jean-Soleymieux",
     "Saint-Marin": "Saint-Marin",
     "Saint-Martin": "Saint-Martin",
     "Saint-Paul-du-Bois": "Saint-Paul-du-Bois",
@@ -826,5 +827,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 821
+}  # 822
 # END

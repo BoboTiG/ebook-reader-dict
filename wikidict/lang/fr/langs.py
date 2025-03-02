@@ -4446,6 +4446,7 @@ langs = {
     "proto-afro-asiatique": "proto-afro-asiatique",
     "proto-albanais": "proto-albanais",
     "proto-algonquien": "proto-algonquien",
+    "proto-algonquien oriental": "proto-algonquien oriental",
     "proto-altaïque": "proto-altaïque",
     "proto-amami": "proto-amami",
     "proto-aslien": "proto-aslien",
@@ -6544,5 +6545,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,539
+}  # 6,540
 # END

@@ -940,6 +940,11 @@ recognized_placetypes = {
         "display": "historical confederation",
         "preposition": "in",
     },
+    "historical constituent country": {
+        "article": "a",
+        "display": "historical constituent country",
+        "preposition": "of",
+    },
     "historical council area": {
         "article": "a",
         "display": "historical council area",
@@ -1028,6 +1033,11 @@ recognized_placetypes = {
     "historical local government district": {
         "article": "a",
         "display": "historical local government district",
+        "preposition": "of",
+    },
+    "historical local government district with borough status": {
+        "article": "a",
+        "display": "historical local government district with borough status",
         "preposition": "of",
     },
     "historical locality": {
@@ -2200,7 +2210,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 439
+}  # 441
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2471,7 +2481,6 @@ recognized_placenames = {
     "external territory/Cocos Islands": {"article": "the", "display": ""},
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
-    "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
     "overseas territory/British Indian Ocean Territory": {"article": "the", "display": ""},
     "overseas territory/British Virgin Islands": {"article": "the", "display": ""},
     "overseas territory/Cayman Islands": {"article": "the", "display": ""},
@@ -2554,5 +2563,5 @@ recognized_placenames = {
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 160
+}  # 159
 # END

@@ -2451,6 +2451,7 @@ langs = {
     "erw": "Erokwanas",
     "es": "Spanish",
     "es-AR": "Rioplatense Spanish",
+    "es-CL": "Chilean Spanish",
     "es-CO": "Colombian Spanish",
     "es-CU": "Cuban Spanish",
     "es-MX": "Mexican Spanish",
@@ -9844,7 +9845,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,839
+}  # 9,840
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
