@@ -89,7 +89,7 @@ def filter_html(html: str, locale: str) -> str:
         for i in bs.find_all("i"):
             if i.text.startswith("a aquesta paraula li falten les accepcions"):
                 # Remove the trailing dot
-                i.next_sibling.replaceWith(i.next_sibling.text[1:])
+                i.next_sibling.replace_with(i.next_sibling.text[1:])
                 # And remove the note
                 i.decompose()
         # Filter out anchors as they are ignored from templates
@@ -100,7 +100,7 @@ def filter_html(html: str, locale: str) -> str:
                 and a["href"] != "#ca"
                 and "mw-selflink-fragment" not in a.get("class", [])
             ):
-                a.replaceWith(a.text)
+                a.replace_with(a.text)
 
     elif locale == "da":
         for sup in bs.find_all("sup"):
@@ -171,7 +171,7 @@ def filter_html(html: str, locale: str) -> str:
                 kv = style.strip().split(":")
                 if len(kv) == 2 and kv[0] == "background":
                     span.previous_sibling.decompose()
-                    span.replaceWith(color(kv[1].strip()))
+                    span.replace_with(color(kv[1].strip()))
         for a in bs.find_all("a", href=True):
             if a["href"].startswith("#cite"):
                 a.decompose()
@@ -233,10 +233,10 @@ def filter_html(html: str, locale: str) -> str:
                 and a.parent.next_sibling
                 and "sur Wikispecies" in a.parent.next_sibling
             ):
-                a.parent.next_sibling.replaceWith("")
+                a.parent.next_sibling.replace_with("")
             # Wikidata
             elif a["title"].startswith("d:") and a.next_sibling and "base de données Wikidata" in a.next_sibling:
-                a.next_sibling.replaceWith("")
+                a.next_sibling.replace_with("")
             # {{LienRouge|lang=en|trad=Reconstruction
             elif "Reconstruction" in a["title"]:
                 a.decompose()
@@ -245,7 +245,7 @@ def filter_html(html: str, locale: str) -> str:
             a.decompose()
         # attention image
         for a in bs.find_all("a", {"title": "alt = attention"}):
-            a.replaceWith("⚠")
+            a.replace_with("⚠")
         # other anchors
         for a in bs.find_all("a", href=True):
             if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
@@ -266,9 +266,9 @@ def filter_html(html: str, locale: str) -> str:
         for img in bs.find_all("img", {"alt": "Wikispecies"}):
             if img.next_sibling:
                 img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
-                img.next_sibling.next_sibling.replaceWith(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
-                img.next_sibling.replaceWith("")  # space
-                img.previous_sibling.replaceWith("")  # Leading "("
+                img.next_sibling.next_sibling.replace_with(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
+                img.next_sibling.replace_with("")  # space
+                img.previous_sibling.replace_with("")  # Leading "("
             img.decompose()
         # Wikipedia, Wikiquote
         for small in bs.find_all("small"):
