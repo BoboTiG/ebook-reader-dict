@@ -211,6 +211,9 @@ class KoboFormat(BaseFormat):
 
         # Sanitization
         release = release.replace(":arrow_right:", "->")
+        release = release.replace("`", '"')
+        release = release.replace("<sub>", "")
+        release = release.replace("</sub>", "")
         # With etymology
         release = release.replace(f" (dict-{locale}-{locale}.mobi)", "")
         release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
@@ -223,9 +226,16 @@ class KoboFormat(BaseFormat):
         release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
         release = release.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
         release = release.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace("`", '"')
-        release = release.replace("<sub>", "")
-        release = release.replace("</sub>", "")
+        # Esperanto is not available for the Kindle
+        if locale == "eo":
+            release = release.replace(
+                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}.mobi)\n",
+                "",
+            )
+            release = release.replace(
+                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)\n",
+                "",
+            )
 
         file = output_dir / "INSTALL.txt"
         file.write_text(release)
@@ -527,7 +537,7 @@ class MobiFormat(ConverterFromDictFile):
 
         Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
 
-    2) No support for the <math> HTML tag, the HTML code adapted to be purged to prevent a hard failure:
+    2) No support for the <math> HTML tag, the HTML code is purged to prevent a hard failure:
 
         Error(htmlprocessor):E32001: Error occured while parsing content. HTML tag that is not supported by Kindle readers found in source  math
 
