@@ -2080,7 +2080,7 @@ langs = {
     "hmb": "songhaï humburi senni",
     "hmd": "miao de Diandongbei",
     "hme": "hmong de Huishui de l’Est",
-    "hmi": "miao du Nord de Huishui",
+    "hmi": "hmong de Huishui du Nord",
     "hmj": "gejia",
     "hml": "miao de Luobohe",
     "hmm": "miao mashan central",

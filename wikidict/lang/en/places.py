@@ -2340,6 +2340,7 @@ recognized_qualifiers = {
     "industrial": "industrial",
     "inland": "inland",
     "inner": "inner",
+    "insular": "insular",
     "karst": "karst",
     "landlocked": "landlocked",
     "large": "large",
@@ -2367,6 +2368,7 @@ recognized_qualifiers = {
     "overseas": "overseas",
     "ox-bow": "ox-bow",
     "oxbow": "oxbow",
+    "peninsular": "peninsular",
     "planned": "planned",
     "railroad": "railroad",
     "railway": "railway",
@@ -2401,7 +2403,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 97
+}  # 99
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
