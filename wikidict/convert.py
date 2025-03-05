@@ -545,11 +545,11 @@ class MobiFormat(ConverterFromDictFile):
 
         Error(htmlprocessor):E32001: Error occured while parsing content. HTML tag that is not supported by Kindle readers found in source  math
 
-    3) Most locales are not properly supported:
+    3) Most locales are not fully supported:
 
         Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
 
-    4) The Greek (EL) locale might be unpropeerly displayed:
+    4) The Greek (EL) locale might be incorrectly displayed:
 
         Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
 
