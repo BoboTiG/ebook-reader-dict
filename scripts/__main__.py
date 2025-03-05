@@ -15,7 +15,7 @@ FILES = {
     "da-langs.py": "wikidict/lang/da/langs.py",
     "de-abk.py": "wikidict/lang/de/abk.py",
     "de-langs.py": "wikidict/lang/de/langs.py",
-    "de-lang_adjs.py": "wikidict/lang/de/lang_adjs.py",
+    "de-lang-adjs.py": "wikidict/lang/de/lang_adjs.py",
     "en-form-of.py": "wikidict/lang/en/form_of.py",
     "el-aliases.py": "wikidict/lang/el/aliases.py",
     "el-labels.py": "wikidict/lang/el/labels.py",
@@ -48,7 +48,8 @@ FILES = {
 }
 
 # En error will be raised when the percentage of deletions from the new content
-# compared to the original content is higher than this constant.
+# compared to the original content is higher than this percent.
+# Note: the behaviour can be skipped by using the `MANUAL=1` envar.
 MAX_PERCENT_DELETIONS = 1 / 100
 
 
@@ -63,7 +64,7 @@ class TooManyDeletionsError(ValueError):
         self.new = new
 
     def __str__(self) -> str:
-        return f"Too many deletions ({self.new - self.old:,}), please check manually."
+        return f"Too many deletions ({self.new - self.old:,}), please check manually using the MANUAL=1 envar."
 
 
 def replace(file: str, data: str) -> None:
@@ -77,9 +78,10 @@ def replace(file: str, data: str) -> None:
 
     new_content = f"{original_content[:start]}{start_marker}\n{data}{original_content[end:]}"
     new_content = format_string(__file__, new_content, options=FormatOptions(line_width=120))
-    percent_deletions = 1 - len(new_content.splitlines()) / len(original_content.splitlines())
-    if percent_deletions > MAX_PERCENT_DELETIONS:
-        raise TooManyDeletionsError(len(original_content.splitlines()), len(new_content.splitlines()))
+    if not os.getenv("MANUAL"):
+        percent_deletions = 1 - len(new_content.splitlines()) / len(original_content.splitlines())
+        if percent_deletions > MAX_PERCENT_DELETIONS:
+            raise TooManyDeletionsError(len(original_content.splitlines()), len(new_content.splitlines()))
 
     path.write_text(new_content)
 

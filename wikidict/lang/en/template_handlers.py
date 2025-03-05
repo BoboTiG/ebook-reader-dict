@@ -830,9 +830,9 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     >>> render_label("lbl", ["en" , "transitive"], defaultdict(str))
     '<i>(transitive)</i>'
     >>> render_label("lbl", ["en" , "ambitransitive"], defaultdict(str))
-    '<i>(transitive, intransitive)</i>'
+    '<i>(ambitransitive)</i>'
     >>> render_label("lbl", ["en" , "ambitransitive", "obsolete"], defaultdict(str))
-    '<i>(transitive, intransitive, obsolete)</i>'
+    '<i>(ambitransitive, obsolete)</i>'
     >>> render_label("lbl", ["en" , "chiefly", "nautical"], defaultdict(str))
     '<i>(chiefly nautical)</i>'
     >>> render_label("lbl", ["en" , "", "nautical"], defaultdict(str))

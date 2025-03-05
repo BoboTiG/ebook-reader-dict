@@ -114,6 +114,10 @@ def filter_html(html: str, locale: str) -> str:
             ):
                 tag.replace_with(tag.text)
 
+        # <ref>
+        for a in bs.find_all("sup", {"class": "reference"}):
+            a.decompose()
+
     elif locale == "da":
         for tag in find_all("sup"):
             if (id_ := str(tag.get("id") or "")) and id_.startswith("cite_"):

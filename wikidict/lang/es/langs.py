@@ -5395,7 +5395,7 @@ langs = {
     "pby": "pyu papú",
     "pca": "popoluca de Santa Inés Ahuatempan",
     "pcb": "pear",
-    "pcc": "bouyei",
+    "pcc": "buyei",
     "pcd": "picardo",
     "pce": "ruching palaung",
     "pcf": "palaiyar",

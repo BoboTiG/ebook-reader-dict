@@ -894,6 +894,7 @@ racines_schemes_arabes = {
         "ar-*i**ũ": "veau",
         "ar-*i*²aw*ũ": "veau",
         "ar-*i*²â*@ũ": "impromptu",
+        "ar-*i*â*ũ": "{{p}} roues",
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "impromptu",
         "ar-*u**ũ": "impromptu",
@@ -907,12 +908,14 @@ racines_schemes_arabes = {
         "ar-*â*i*ũ": "prompt",
         "ar-a**a*a": "stimuler",
         "ar-a**a*u": "le plus empressé",
+        "ar-a**â*ũ": "{{p}} roues",
         "ar-a*â*u*u": "{{p}} petits",
         "ar-elma*â*î*u": "chemins plus courts",
         "ar-ma*a*²i*ũ": "qui avance l'heure",
         "ar-mu**a*ũ": "prématuré",
         "ar-mu**i*ũ": "qui accélère",
         "ar-mu*a*²a*ũ": "accéléré",
+        "ar-mu*â*a*@ũ": "empressement",
         "ar-musta**a*@ũ": "{{f}} qui se presse",
         "ar-musta**i*@ũ": "{{f}} qui se presse",
         "ar-musta**i*ũ": "qui se presse",
@@ -922,7 +925,7 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "précipitation",
         "ar-ta*a*²a*a": "se presser",
         "ar-ta*â*a*a": "lutter de promptitude",
-    },  # 45
+    },  # 48
     "ar-3jm": {
         "aa_sens": "mâcher",
         "ar-***ũ": "",

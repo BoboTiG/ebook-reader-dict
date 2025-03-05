@@ -520,6 +520,11 @@ recognized_placetypes = {
         "display": "county-level city",
         "preposition": "in",
     },
+    "crater lake": {
+        "article": "a",
+        "display": "crater lake",
+        "preposition": "in",
+    },
     "crown dependency": {
         "article": "a",
         "display": "crown dependency",
@@ -610,6 +615,11 @@ recognized_placetypes = {
         "display": "division",
         "preposition": "of",
     },
+    "division capital": {
+        "article": "the",
+        "display": "division capital",
+        "preposition": "of",
+    },
     "dome": {
         "article": "a",
         "display": "dome",
@@ -644,6 +654,11 @@ recognized_placetypes = {
         "article": "an",
         "display": "entity",
         "preposition": "of",
+    },
+    "escarpment": {
+        "article": "an",
+        "display": "escarpment",
+        "preposition": "in",
     },
     "ethnographic region": {
         "article": "an",
@@ -720,9 +735,19 @@ recognized_placetypes = {
         "display": "frazione",
         "preposition": "in",
     },
+    "geographic area": {
+        "article": "a",
+        "display": "geographic area",
+        "preposition": "of",
+    },
     "geographic region": {
         "article": "a",
         "display": "geographic region",
+        "preposition": "of",
+    },
+    "geographical area": {
+        "article": "a",
+        "display": "geographical area",
         "preposition": "of",
     },
     "geographical region": {
@@ -915,6 +940,11 @@ recognized_placetypes = {
         "display": "historical confederation",
         "preposition": "in",
     },
+    "historical constituent country": {
+        "article": "a",
+        "display": "historical constituent country",
+        "preposition": "of",
+    },
     "historical council area": {
         "article": "a",
         "display": "historical council area",
@@ -1003,6 +1033,11 @@ recognized_placetypes = {
     "historical local government district": {
         "article": "a",
         "display": "historical local government district",
+        "preposition": "of",
+    },
+    "historical local government district with borough status": {
+        "article": "a",
+        "display": "historical local government district with borough status",
         "preposition": "of",
     },
     "historical locality": {
@@ -1315,6 +1350,11 @@ recognized_placetypes = {
         "display": "market town",
         "preposition": "in",
     },
+    "massif": {
+        "article": "a",
+        "display": "massif",
+        "preposition": "in",
+    },
     "mediaeval capital": {
         "article": "the",
         "display": "mediaeval capital",
@@ -1589,6 +1629,11 @@ recognized_placetypes = {
         "article": "a",
         "display": "planned community",
         "preposition": "in",
+    },
+    "plateau": {
+        "article": "a",
+        "display": "plateau",
+        "preposition": "of",
     },
     "polity": {
         "article": "a",
@@ -2038,7 +2083,7 @@ recognized_placetypes = {
     "traditional region": {
         "article": "a",
         "display": "traditional region",
-        "preposition": "in",
+        "preposition": "of",
     },
     "treaty port": {
         "article": "a",
@@ -2165,7 +2210,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 432
+}  # 441
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2268,6 +2313,7 @@ recognized_qualifiers = {
     "beachside": "beachfront",
     "business": "business",
     "cattle": "cattle",
+    "chalk": "chalk",
     "chartered": "chartered",
     "coastal": "coastal",
     "commercial": "commercial",
@@ -2294,9 +2340,12 @@ recognized_qualifiers = {
     "industrial": "industrial",
     "inland": "inland",
     "inner": "inner",
+    "insular": "insular",
+    "karst": "karst",
     "landlocked": "landlocked",
     "large": "large",
     "left": "left",
+    "limestone": "limestone",
     "logging": "logging",
     "long": "long",
     "low": "low",
@@ -2319,6 +2368,7 @@ recognized_qualifiers = {
     "overseas": "overseas",
     "ox-bow": "ox-bow",
     "oxbow": "oxbow",
+    "peninsular": "peninsular",
     "planned": "planned",
     "railroad": "railroad",
     "railway": "railway",
@@ -2347,12 +2397,13 @@ recognized_qualifiers = {
     "tiny": "tiny",
     "traditional": "traditional",
     "unincorporated": "unincorporated",
+    "uninhabited": "uninhabited",
     "urban": "urban",
     "wealthy": "wealthy",
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 93
+}  # 99
 
 recognized_placenames = {
     "archipelago/Cyclades": {"article": "the", "display": ""},
@@ -2432,7 +2483,6 @@ recognized_placenames = {
     "external territory/Cocos Islands": {"article": "the", "display": ""},
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
-    "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
     "overseas territory/British Indian Ocean Territory": {"article": "the", "display": ""},
     "overseas territory/British Virgin Islands": {"article": "the", "display": ""},
     "overseas territory/Cayman Islands": {"article": "the", "display": ""},
@@ -2441,7 +2491,13 @@ recognized_placenames = {
     "overseas territory/Pitcairn Islands": {"article": "the", "display": ""},
     "overseas territory/South Sandwich Islands": {"article": "the", "display": ""},
     "overseas territory/Turks and Caicos Islands": {"article": "the", "display": ""},
+    "overseas territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "overseas territory/United States Virgin Islands": {"article": "the", "display": ""},
+    "province/Bangka Belitung Islands": {"article": "the", "display": ""},
+    "province/Dinagat Islands": {"article": "the", "display": ""},
+    "province/Riau Islands": {"article": "the", "display": ""},
+    "province/Special Capital Region of Jakarta": {"article": "the", "display": ""},
+    "province/Special Region of Yogyakarta": {"article": "the", "display": ""},
     "region/Balkans": {"article": "the", "display": ""},
     "region/Caribbean": {"article": "the", "display": ""},
     "region/Caucasus": {"article": "the", "display": ""},
@@ -2502,9 +2558,12 @@ recognized_placenames = {
     "territory/Turks and Caicos Islands": {"article": "the", "display": ""},
     "territory/U.S. Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
     "territory/US Virgin Islands": {"article": "", "display": "territory/United States Virgin Islands"},
+    "territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "territory/United States Virgin Islands": {"article": "the", "display": ""},
     "unincorporated territory/Northern Mariana Islands": {"article": "the", "display": ""},
+    "unincorporated territory/United States Minor Outlying Islands": {"article": "the", "display": ""},
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
+    "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 151
+}  # 159
 # END

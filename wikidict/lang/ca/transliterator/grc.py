@@ -182,7 +182,7 @@ def gsub(pattern: str, replacements: dict[str, str], string: str) -> str:
 
 
 # see https://en.wiktionary.org/wiki/Module:grc-translit/testcases for test cases
-def transliterate(text: str) -> str:
+def transliterate(text: str, locale: str = "") -> str:
     """
     >>> transliterate("λόγος")
     'lógos'
@@ -259,6 +259,7 @@ def transliterate(text: str) -> str:
     """
     if text == "῾":
         return "h"
+
     text = re.sub(r"([^A-Za-z0-9])[;" + "\u037e" + r"]", r"\1?", text)
     text = text.replace("·", ";")
     tokens = make_tokens(text)
@@ -278,7 +279,7 @@ def transliterate(text: str) -> str:
         elif re.match(a_subscript, token):
             translit = re.sub(r"([aA])", r"\1" + macron, translit)
         if rough in token:
-            if token.startswith("Ρ") or token.startswith("ρ"):
+            if token.startswith(("Ρ", "ρ")):
                 translit += "h"
             else:
                 translit = "h" + translit

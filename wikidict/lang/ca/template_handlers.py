@@ -1,21 +1,27 @@
 from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
-from .general import cal_apostrofar
+from . import general
 from .labels import label_syntaxes, labels
 from .langs import langs
+from .transliterator import transliterate
 
 
-def parse_index_parameters(data: defaultdict[str, str], i: int) -> str:
+def parse_index_parameters(word: str, data: defaultdict[str, str], i: int) -> str:
     toadd = []
+
     if tr := data.get(f"tr{i}", ""):
         toadd.append(italic(tr))
+    elif word and (tr := transliterate(data["lang1"], word)):
+        toadd.append(italic(tr))
+
     if t := data.get(f"t{i}", ""):
         toadd.append(f"«{t}»")
     if pos := data.get(f"pos{i}", ""):
         toadd.append(pos)
     if lit := data.get(f"lit{i}", ""):
         toadd.append(f"literalment «{lit}»")
+
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
@@ -33,17 +39,30 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '<i>argila</i> i la desinència <i>-ar</i>'
     >>> render_comp("comp", ["ca", "xocar", "+Ø"], defaultdict(str))
     '<i>xocar</i> i la desinència <i>Ø</i>'
-    >>> render_comp("comp", ["ca", "metro-", "-nom"], {"t1": "mesura"})
+    >>> render_comp("comp", ["ca", "metro-", "-nom"], defaultdict(str, {"t1": "mesura"}))
     'prefix <i>metro-</i> («mesura») i el sufix <i>-nom</i>'
-    >>> render_comp("comp", ["ca", "mini-", "pequenas"], {"lang2": "es", "t2": "PIMER"})
+    >>> render_comp("comp", ["ca", "mini-", "pequenas"], defaultdict(str, {"lang2": "es", "t2": "PIMER"}))
     'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
-    >>> render_comp("comp", ["ca", "Birma", "-ia"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "Birma", "-ia"], defaultdict(str, {"lang1": "en"}))
     'anglès <i>Birma</i> i el sufix <i>-ia</i>'
-    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], defaultdict(str, {"lang1": "en"}))
     'prefix <i>a-</i>, <i>casa</i> i el sufix <i>-at</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt1": "germen, -inis", "lang1": "la"}))
+    'llatí <i>germen, -inis</i> i el sufix <i>-al</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt2": "-al, -inis", "lang1": "la"}))
+    'llatí <i>germen</i> i el sufix <i>-al, -inis</i>'
+    >>> render_comp("comp", ["ca", "κώδεια", "-ina"], defaultdict(str, {"lang1": "grc", "t1": "calze de la rosella"}))
+    'grec antic <i>κώδεια</i> (<i>kṓdeia</i>, «calze de la rosella») i el sufix <i>-ina</i>'
+    >>> render_comp("comp", ["ca", "glico-", "raqui-", "-ia"], defaultdict(str))
+    'prefix <i>glico-</i>, el prefix <i>raqui-</i> i el sufix <i>-ia</i>'
     """
 
-    def value(word: str, standalone: bool = False) -> str:
+    prefix_count = 0
+
+    def value(word: str, *, standalone: bool = False) -> str:
+        nonlocal prefix_count
+        prefix_count += 1
+
         prefix = ""
         if word.startswith("-"):
             if standalone:
@@ -51,51 +70,55 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             else:
                 prefix = "l'infix " if word.endswith("-") else "el sufix "
         elif word.endswith("-"):
-            prefix = "prefix "
+            prefix = "prefix " if prefix_count == 1 else "el prefix "
         elif word.startswith("+"):
             prefix = "desinència " if standalone else "la desinència "
             if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
                 word = "Ø"
             word = word.replace("+", "-")
+
         return f"{prefix}{italic(word)}"
 
     parts.pop(0)  # Remove the lang
 
-    word1 = parts.pop(0)
+    word1 = data["alt1"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = value(word1, standalone=True)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
         return phrase
 
-    word2 = parts.pop(0)
+    word2 = data["alt2"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = ""
-        if "lang1" in data:
-            phrase = f"{langs[data['lang1']]} "
+        if lang1 := data["lang1"]:
+            phrase = f"{langs[lang1]} "
         phrase += value(word1)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
-        if "lang2" in data:
-            lang2 = langs[data["lang2"]]
-            phrase += " i l'" if cal_apostrofar(lang2) else " i el "
-            phrase += f"{lang2} {value(word2)}"
+        if lang2 := data["lang2"]:
+            lang = langs[lang2]
+            phrase += " i l'" if general.cal_apostrofar(lang) else " i el "
+            phrase += f"{lang} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"
-        if others2 := parse_index_parameters(data, 2):
+        if others2 := parse_index_parameters("", data, 2):
             phrase += others2
         return phrase
 
     word3 = parts.pop(0) if parts else ""
     phrase = value(word1)
-    if others := parse_index_parameters(data, 1):
+    if others := parse_index_parameters(word1, data, 1):
         phrase += others
     phrase += f", {value(word2)}"
-    if others2 := parse_index_parameters(data, 2):
+    if others2 := parse_index_parameters("", data, 2):
         phrase += others2
     phrase += f" i {value(word3)}"
-    if others3 := parse_index_parameters(data, 3):
+    if others3 := parse_index_parameters("", data, 3):
         phrase += others3
+
     return phrase
 
 

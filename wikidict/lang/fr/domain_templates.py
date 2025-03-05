@@ -149,6 +149,7 @@ domain_templates = {
     "fruits": "Botanique",
     "félins": "Félinologie",
     "gastéropodes": "Malacologie",
+    "genres de plantes": "Botanique",
     "genres littéraires": "Littérature",
     "genres musicaux": "Musique",
     "gentilés": "Géographie",
@@ -347,5 +348,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 342
+}  # 343
 # END

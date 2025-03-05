@@ -7,9 +7,9 @@
 
 ## Features
 
-- (Kobo) When selecting a plural word, **its singular form** will be displayed.
-- (Kobo) When selecting a conjugated verb, **its infinitive version** will be displayed.
-- (Kobo) When a word is the plural form of another, and also a form of a verb, **all versions** are displayed.
+- (*Kobo devices only*) When selecting a plural word, **its singular form** will be displayed.
+- (*Kobo devices only*) When selecting a conjugated verb, **its infinitive version** will be displayed.
+- (*Kobo devices only*) When a word is the plural form of another, and also a form of a verb, **all versions** are displayed.
 - If a word contains **several pronunciations, or genders**, all are available.
 - **Chemical formulas** are converted to SVG.
 - **Mathematic formulas** are converted to SVG.

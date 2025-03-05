@@ -471,7 +471,7 @@ langs = {
     "axb": "abipón",
     "axe": "ayerrerenge",
     "axg": "arara de Mato Grosso",
-    "axx": "xaragure",
+    "axx": "xârâgurè",
     "ay": "aymara",
     "aya": "awar",
     "ayd": "ayabadhu",
@@ -2080,7 +2080,7 @@ langs = {
     "hmb": "songhaï humburi senni",
     "hmd": "miao de Diandongbei",
     "hme": "hmong de Huishui de l’Est",
-    "hmi": "miao du Nord de Huishui",
+    "hmi": "hmong de Huishui du Nord",
     "hmj": "gejia",
     "hml": "miao de Luobohe",
     "hmm": "miao mashan central",
@@ -4446,6 +4446,7 @@ langs = {
     "proto-afro-asiatique": "proto-afro-asiatique",
     "proto-albanais": "proto-albanais",
     "proto-algonquien": "proto-algonquien",
+    "proto-algonquien oriental": "proto-algonquien oriental",
     "proto-altaïque": "proto-altaïque",
     "proto-amami": "proto-amami",
     "proto-aslien": "proto-aslien",
@@ -6544,5 +6545,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,539
+}  # 6,540
 # END
