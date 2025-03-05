@@ -226,8 +226,8 @@ class KoboFormat(BaseFormat):
         content = content.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
         content = content.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
 
-        # Esperanto is not available for the Kindle
-        if locale == "eo":
+        # Remove Kindle liks for unsupported locales
+        if locale in {"en", "eo"}:
             content = content.replace(
                 f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}.mobi)\n",
                 "",
@@ -537,7 +537,7 @@ class MobiFormat(ConverterFromDictFile):
 
     Incompatibility issues:
 
-    1) No support for several HTML tags, they will be ignored:
+    1) No support for multiple HTML tags, they will be ignored:
 
         Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
 
@@ -557,6 +557,10 @@ class MobiFormat(ConverterFromDictFile):
 
         Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
         Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
+
+    6) The English (EN) locale is working due to a limitation:
+
+        Error(index build):E25006: overflowing character table in UNICODE: in indexes, you can use a total of 256 different characters from the following unicode ranges: U+0000-U+02FF(latin), U+3000-U+30FF(kana), U+FF00-U+FF9F(alt. width latin+kana).
 
     """
 
@@ -585,12 +589,19 @@ class MobiFormat(ConverterFromDictFile):
 
     def process(self) -> None:
         """Filter out unrecognized locales."""
+        if self.locale == "en":
+            log.warning(
+                "English is not yet working due to 'overflowing character table in UNICODE' error, therefore it is not possible to create such a dictionary."
+            )
+            return
+
         if self.locale == "eo":
             log.warning(
                 "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
             )
-        else:
-            super().process()
+            return
+
+        super().process()
 
 
 class StarDictFormat(ConverterFromDictFile):
