@@ -549,7 +549,11 @@ class MobiFormat(ConverterFromDictFile):
 
         Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
 
-    4) The Esperanto (EO) locale is not recognized at all:
+    4) The Greek (EL) locale might be unpropeerly displayed:
+
+        Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
+
+    5) The Esperanto (EO) locale is not recognized at all:
 
         Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
         Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
