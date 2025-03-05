@@ -205,40 +205,44 @@ class KoboFormat(BaseFormat):
         self.save()
 
     @staticmethod
-    def create_install(locale: str, output_dir: Path) -> Path:
-        """Generate the INSTALL.txt file."""
-        release = format_description(locale, output_dir)
+    def sanitize(locale: str, content: str) -> str:
+        """Sanitize the INSTALL.txt file content."""
+        content = content.replace(":arrow_right:", "->")
+        content = content.replace("`", '"')
+        content = content.replace("<sub>", "")
+        content = content.replace("</sub>", "")
 
-        # Sanitization
-        release = release.replace(":arrow_right:", "->")
-        release = release.replace("`", '"')
-        release = release.replace("<sub>", "")
-        release = release.replace("</sub>", "")
         # With etymology
-        release = release.replace(f" (dict-{locale}-{locale}.mobi)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
-        release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}.mobi)", "")
+        content = content.replace(f" (dict-{locale}-{locale}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
+        content = content.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
+        content = content.replace(f" (dictorg-{locale}-{locale}.zip)", "")
+
         # Without etymology
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
-        release = release.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)", "")
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
+        content = content.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        content = content.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+
         # Esperanto is not available for the Kindle
         if locale == "eo":
-            release = release.replace(
+            content = content.replace(
                 f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}.mobi)\n",
                 "",
             )
-            release = release.replace(
+            content = content.replace(
                 f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)\n",
                 "",
             )
 
+        return content
+
+    def create_install(self, locale: str, output_dir: Path) -> Path:
+        """Generate the INSTALL.txt file."""
         file = output_dir / "INSTALL.txt"
-        file.write_text(release)
+        file.write_text(self.sanitize(locale, format_description(locale, output_dir)))
         return file
 
     @staticmethod
