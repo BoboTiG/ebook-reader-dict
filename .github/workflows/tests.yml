@@ -24,6 +24,12 @@ jobs:
       - name: Quality checks, and linters
         run: ./check.sh
 
+      - name: Install kindlegen
+        run: |
+          mkdir -p ~/.local/bin
+          wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_linux/kindlegen -O ~/.local/bin/kindlegen
+          chmod a+x ~/.local/bin/kindlegen
+
       - name: Unit tests
         run: python -Wd -m pytest tests --doctest-modules wikidict
 
