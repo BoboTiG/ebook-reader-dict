@@ -313,9 +313,7 @@ def filter_html(html: str, locale: str) -> str:
         for tag in find_all("img", {"alt": "Wikispecies"}):
             if (next_sibling := tag.next_sibling) and next_sibling.next_sibling:
                 next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
-                next_sibling.next_sibling.replace_with(
-                    NavigableString(next_sibling.next_sibling.text[1:])
-                )  # Trailing ")"
+                next_sibling.next_sibling.replace_with(next_sibling.next_sibling.text[1:])  # Trailing ")"
                 next_sibling.extract()  # Space
                 if tag.previous_sibling:
                     tag.previous_sibling.extract()  # Leading "("
