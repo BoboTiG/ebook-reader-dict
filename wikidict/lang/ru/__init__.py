@@ -45,6 +45,8 @@ templates_ignored = ("??", "L", "Lacuna", "l", "lacuna", "unfinished", "сема
 templates_multi = {
     # {{"|Сработать по Шеремету}}
     '"': 'f"„{parts[1]}“"',
+    # {{===|Атлант}}
+    "===": 'f"то же, что {parts[1]}"',
     # {{wikiref|совершенный вид}}
     "wikiref": "parts[-1]",
     # {{кс|Унбегаун, с. 44}}
