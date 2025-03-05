@@ -23,5 +23,5 @@ WIKIMEDIA_URL_MATH_CHECK = f"{WIKIMEDIA_URL_BASE}/media/math/check/{{type}}"
 WIKIMEDIA_URL_MATH_RENDER = f"{WIKIMEDIA_URL_BASE}/media/math/render/{{format}}/{{hash}}"
 RANDOM_WORD_URL = "https://{locale}.wiktionary.org/w/api.php?action=query&list=random&format=json"
 
-# Dictionnary file suffix for etymology-free files
+# Dictionary file suffix for etymology-free files
 NO_ETYMOLOGY_SUFFIX = "-noetym"

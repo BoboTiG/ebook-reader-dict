@@ -31,7 +31,7 @@ from .utils import (
     guess_prefix,
 )
 
-# Kobo-related dictionnaries
+# Kobo-related dictionaries
 WORD_TPL_KOBO = Template(
     """\
 <w>
@@ -82,7 +82,7 @@ WORD_TPL_KOBO = Template(
 """
 )
 
-# DictFile-related dictionnaries
+# DictFile-related dictionaries
 WORD_TPL_DICTFILE = Template(
     """\
 @ {{ word }}
@@ -163,7 +163,7 @@ class BaseFormat:
         self.snapshot = snapshot
         self.include_etymology = include_etymology
 
-    def dictionnary_file(self, output_file: str) -> Path:
+    def dictionary_file(self, output_file: str) -> Path:
         file = self.output_dir / output_file.format(locale=self.locale)
         if not self.include_etymology:
             file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
@@ -355,7 +355,7 @@ class KoboFormat(BaseFormat):
         source = wiktionary[self.locale].format(year=date.today().year)
 
         # Finally, create the ZIP
-        final_file = self.dictionnary_file(self.output_file)
+        final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             fh.comment = bytes(source, "utf-8")
             for file in to_compress:
@@ -416,7 +416,7 @@ class DictFileFormat(BaseFormat):
             )
 
     def process(self) -> None:
-        file = self.dictionnary_file(self.output_file)
+        file = self.dictionary_file(self.output_file)
         with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
                 fh.writelines(self.handle_word(word, details))
@@ -463,7 +463,7 @@ class ConverterFromDictFile(DictFileFormat):
         self.output_dir_tmp.mkdir()
         glos.convert(
             ConvertArgs(
-                inputFilename=str(self.dictionnary_file(DictFileFormat.output_file)),
+                inputFilename=str(self.dictionary_file(DictFileFormat.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
                 sqlite=True,
@@ -475,7 +475,7 @@ class ConverterFromDictFile(DictFileFormat):
         self._patch_gc()
         self._convert()
 
-        final_file = self.dictionnary_file(self.final_file)
+        final_file = self.dictionary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             for file in self.output_dir_tmp.glob("dict-data.*"):
                 fh.write(file, arcname=file.name)
@@ -510,7 +510,7 @@ class StarDictFormat(ConverterFromDictFile):
 
 class BZ2DictFileFormat(BaseFormat):
     def process(self) -> None:
-        df_file = self.dictionnary_file(DictFileFormat.output_file)
+        df_file = self.dictionary_file(DictFileFormat.output_file)
         bz2_file = df_file.with_suffix(".df.bz2")
         bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
         return self.summary(bz2_file)
