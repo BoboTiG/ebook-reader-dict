@@ -130,11 +130,11 @@ WORD_TPL_DICTFILE = Template(
 """
 )
 
+# Mobi
+COVERS_DIR = Path(__file__).parent.parent / "covers"
+KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
 
 log = logging.getLogger(__name__)
-
-COVER_FILE = Path(__file__).parent.parent / "cover.png"
-KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
 
 
 class BaseFormat:
@@ -526,7 +526,13 @@ class MobiFormat(ConverterFromDictFile):
     target_format = "mobi"
     target_suffix = "mobi"
     final_file = "dict-{locale}-{locale}.mobi"
-    glossary_options = {"cover_path": str(COVER_FILE), "kindlegen_path": str(KINDLEGEN_FILE)}
+    glossary_options = {"cover_path": "", "kindlegen_path": str(KINDLEGEN_FILE)}
+
+    def _convert(self) -> None:
+        """Set the localized cover file."""
+        if (cover := (COVERS_DIR / f"{self.locale}.png")).is_file():
+            self.glossary_options["cover_path"] = str(cover)
+        super()._convert()
 
     def _compress(self) -> Path:
         """For now, we just move the final file to its expected location."""
