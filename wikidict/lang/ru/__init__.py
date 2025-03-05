@@ -45,6 +45,8 @@ templates_ignored = ("L", "Lacuna", "l", "lacuna", "unfinished", "семанти
 templates_multi = {
     # {{"|Сработать по Шеремету}}
     '"': 'f"„{parts[1]}“"',
+    # {{wikiref|совершенный вид}}
+    "wikiref": "parts[-1]",
     # {{кс|Унбегаун, с. 44}}
     "кс": 'f"[{parts[1]}]"',
     # {{t:=|поисковая оптимизация}} →  {{_t_|поисковая оптимизация}} (converted in `render.adjust_wikicode()`)
