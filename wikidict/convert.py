@@ -7,6 +7,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import shutil
 from collections import defaultdict
 from collections.abc import Generator
@@ -130,6 +131,9 @@ WORD_TPL_DICTFILE = Template(
 """
 )
 
+# Mobi
+COVER_FILE = Path(__file__).parent.parent / "cover.png"
+KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
 
 log = logging.getLogger(__name__)
 
@@ -187,7 +191,7 @@ class BaseFormat:
         log.info("Crafted %s (%s)", checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        log.info("Generated %s (%d bytes)", file.name, file.stat().st_size)
+        log.info("Generated %s (%s bytes)", file.name, f"{file.stat().st_size:,}")
         self.compute_checksum(file)
 
 
@@ -201,26 +205,44 @@ class KoboFormat(BaseFormat):
         self.save()
 
     @staticmethod
-    def create_install(locale: str, output_dir: Path) -> Path:
+    def sanitize(locale: str, content: str) -> str:
+        """Sanitize the INSTALL.txt file content."""
+        content = content.replace(":arrow_right:", "->")
+        content = content.replace("`", '"')
+        content = content.replace("<sub>", "")
+        content = content.replace("</sub>", "")
+
+        # With etymology
+        content = content.replace(f" (dict-{locale}-{locale}.mobi)", "")
+        content = content.replace(f" (dict-{locale}-{locale}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
+        content = content.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
+        content = content.replace(f" (dictorg-{locale}-{locale}.zip)", "")
+
+        # Without etymology
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)", "")
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
+        content = content.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        content = content.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+
+        # Remove Kindle liks for unsupported locales
+        if locale in {"en", "eo"}:
+            content = content.replace(
+                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}.mobi)\n",
+                "",
+            )
+            content = content.replace(
+                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)\n",
+                "",
+            )
+
+        return content
+
+    def create_install(self, locale: str, output_dir: Path) -> Path:
         """Generate the INSTALL.txt file."""
-        release = format_description(locale, output_dir)
-
-        # Sanitization
-        release = release.replace(":arrow_right:", "->")
-        release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace("`", '"')
-        release = release.replace("<sub>", "")
-        release = release.replace("</sub>", "")
-
         file = output_dir / "INSTALL.txt"
-        file.write_text(release)
+        file.write_text(self.sanitize(locale, format_description(locale, output_dir)))
         return file
 
     @staticmethod
@@ -470,11 +492,7 @@ class ConverterFromDictFile(DictFileFormat):
             )
         )
 
-    def process(self) -> None:
-        self._cleanup()
-        self._patch_gc()
-        self._convert()
-
+    def _compress(self) -> Path:
         final_file = self.dictionary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             for file in self.output_dir_tmp.glob("dict-data.*"):
@@ -487,7 +505,22 @@ class ConverterFromDictFile(DictFileFormat):
             # testzip() returns the name of the first corrupt file, or None
             assert fh.testzip() is None, fh.testzip()
 
+        return final_file
+
+    def process(self) -> None:
+        self._cleanup()
+        self._patch_gc()
+        self._convert()
+        final_file = self._compress()
         self.summary(final_file)
+
+
+class BZ2DictFileFormat(BaseFormat):
+    def process(self) -> None:
+        df_file = self.dictionary_file(DictFileFormat.output_file)
+        bz2_file = df_file.with_suffix(".df.bz2")
+        bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
+        return self.summary(bz2_file)
 
 
 class DictOrgFormat(ConverterFromDictFile):
@@ -499,6 +532,79 @@ class DictOrgFormat(ConverterFromDictFile):
     glossary_options = {"dictzip": True, "install": False}
 
 
+class MobiFormat(ConverterFromDictFile):
+    """Save the data into a Mobi file.
+
+    Incompatibility issues:
+
+    1) No support for multiple HTML tags, they will be ignored:
+
+        Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
+
+    2) No support for the <math> HTML tag, the HTML code is purged to prevent a hard failure:
+
+        Error(htmlprocessor):E32001: Error occured while parsing content. HTML tag that is not supported by Kindle readers found in source  math
+
+    3) Most locales are not fully supported:
+
+        Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
+
+    4) The Greek (EL) locale might be incorrectly displayed:
+
+        Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
+
+    5) The Esperanto (EO) locale is not recognized at all:
+
+        Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
+        Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
+
+    6) The English (EN) locale is not working due to a limitation:
+
+        Error(index build):E25006: overflowing character table in UNICODE: in indexes, you can use a total of 256 different characters from the following unicode ranges: U+0000-U+02FF(latin), U+3000-U+30FF(kana), U+FF00-U+FF9F(alt. width latin+kana).
+
+    7) Embedded GIF/SVG codes are extracted to their own files, but it's not clear where they are located, so there are no images for now:
+
+        Warning(prcgen):W14010: media file not found /.../mobi/dict-data.mobi/OEBPS/XXX.gif
+
+    """
+
+    target_format = "mobi"
+    target_suffix = "mobi"
+    final_file = "dict-{locale}-{locale}.mobi"
+    glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
+
+    def _cleanup(self) -> None:
+        """Alter the .df file content to remove unsupported HTML tags."""
+        super()._cleanup()
+
+        file = self.dictionary_file(DictFileFormat.output_file)
+        content_old = file.read_text()
+        content_new = re.sub(r"(<math>.+</math>)", "", content_old)
+        if content_old != content_new:
+            file.write_text(content_new)
+
+    def _compress(self) -> Path:
+        """For now, we just move the final file to its expected location."""
+        src = self.output_dir_tmp / f"dict-data.{self.target_suffix}" / "OEBPS" / f"content.{self.target_suffix}"
+        return src.rename(self.dictionary_file(self.final_file))
+
+    def process(self) -> None:
+        """Filter out unrecognized locales."""
+        if self.locale == "en":
+            log.warning(
+                "English is not yet working due to 'overflowing character table in UNICODE' error, therefore it is not possible to create such a dictionary."
+            )
+            return
+
+        if self.locale == "eo":
+            log.warning(
+                "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
+            )
+            return
+
+        super().process()
+
+
 class StarDictFormat(ConverterFromDictFile):
     """Save the data into a StarDict file."""
 
@@ -508,21 +614,18 @@ class StarDictFormat(ConverterFromDictFile):
     glossary_options = {"dictzip": True}
 
 
-class BZ2DictFileFormat(BaseFormat):
-    def process(self) -> None:
-        df_file = self.dictionary_file(DictFileFormat.output_file)
-        bz2_file = df_file.with_suffix(".df.bz2")
-        bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
-        return self.summary(bz2_file)
-
-
 def get_primary_formaters() -> list[type[BaseFormat]]:
     return [KoboFormat, DictFileFormat]
 
 
 def get_secondary_formaters() -> list[type[BaseFormat]]:
     """Formaters that require files generated by `get_primary_formaters()`."""
-    return [StarDictFormat, BZ2DictFileFormat, DictOrgFormat]
+    return [BZ2DictFileFormat, DictOrgFormat, StarDictFormat]
+
+
+def get_tertiary_formaters() -> list[type[BaseFormat]]:
+    """Formaters that require files generated by `get_primary_formaters()` but will likely mess with them."""
+    return [MobiFormat]
 
 
 def run_formatter(
@@ -612,8 +715,13 @@ def main(locale: str) -> int:
 
     # And run formaters, distributing the workload
     args = (output_dir, file, locale, words, variants)
+
     distribute_workload(get_primary_formaters(), *args)
     distribute_workload(get_secondary_formaters(), *args)
+    distribute_workload(get_tertiary_formaters(), *args)
+
     distribute_workload(get_primary_formaters(), *args, include_etymology=False)
     distribute_workload(get_secondary_formaters(), *args, include_etymology=False)
+    distribute_workload(get_tertiary_formaters(), *args, include_etymology=False)
+
     return 0

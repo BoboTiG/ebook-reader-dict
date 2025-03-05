@@ -44,6 +44,12 @@ jobs:
       - name: Install requirements
         run: python -m pip install -r requirements.txt
 
+      - name: Install kindlegen
+        run: |
+          mkdir -p ~/.local/bin
+          wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_linux/kindlegen -O ~/.local/bin/kindlegen
+          chmod a+x ~/.local/bin/kindlegen
+
       - name: Download the latest Wiktionary dump
         run: python -Wd -m wikidict ${{ matrix.locale }} --download
 
@@ -66,11 +72,13 @@ jobs:
           tag_name: ${{ matrix.locale }}
           body_path: release.txt
           files: |
-            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
-            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.df.bz2.sha256
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.mobi
+            data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.mobi.sha256
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip
             data/${{ matrix.locale }}/dict-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
+            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip
+            data/${{ matrix.locale }}/dicthtml-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256
             data/${{ matrix.locale }}/dictorg-${{ matrix.locale }}-${{ matrix.locale }}*.zip
             data/${{ matrix.locale }}/dictorg-${{ matrix.locale }}-${{ matrix.locale }}*.zip.sha256

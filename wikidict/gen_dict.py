@@ -8,6 +8,7 @@ from .convert import (
     DictFileFormat,
     DictOrgFormat,
     KoboFormat,
+    MobiFormat,
     StarDictFormat,
     make_variants,
     run_formatter,
@@ -35,6 +36,9 @@ def main(locale: str, words: str, output: str, *, format: str = "kobo") -> int:
         case "dictorg":
             run_formatter(DictFileFormat, *args)
             run_formatter(DictOrgFormat, *args)
+        case "mobi":
+            run_formatter(DictFileFormat, *args)
+            run_formatter(MobiFormat, *args)
         case "stardict":
             run_formatter(DictFileFormat, *args)
             run_formatter(StarDictFormat, *args)

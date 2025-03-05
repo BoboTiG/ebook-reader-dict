@@ -13,6 +13,7 @@ GH_REPOS = f"https://github.com/{REPOS}"
 DOWNLOAD_URL_DICTFILE = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}{{1}}.df.bz2"
 DOWNLOAD_URL_DICTORGFILE = f"{GH_REPOS}/releases/download/{{0}}/dictorg-{{0}}-{{0}}{{1}}.zip"
 DOWNLOAD_URL_KOBO = f"{GH_REPOS}/releases/download/{{0}}/dicthtml-{{0}}-{{0}}{{1}}.zip"
+DOWNLOAD_URL_MOBI = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}{{1}}.mobi"
 DOWNLOAD_URL_STARDICT = f"{GH_REPOS}/releases/download/{{0}}/dict-{{0}}-{{0}}{{1}}.zip"
 ASSET_CHECKSUM_ALGO = "sha256"
 

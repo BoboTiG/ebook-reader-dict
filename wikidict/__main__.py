@@ -22,9 +22,10 @@ Options:
                             --workers=N         Set the number of multiprocessing workers,
                                                 defaults to the number of CPU in the system.
   --convert                 Convert rendered data to working dictionaries into several files:
-                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
+                                - "data/$LOCALE/dict-$LOCALE-$LOCALE.mobi": Kindle format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
+                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dictorg-$LOCALE-$LOCALE.zip": DICT.org format.
   --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
@@ -37,7 +38,7 @@ Options:
   --gen-dict=WORDS          DEBUG: Generate dictionary for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
-                            --format=FORMAT     Format can be "kobo", "stardict", "dictorg" [default: kobo]
+                            --format=FORMAT     Format can be dictorg, kobo, mobi, stardict [default: kobo]
   --release                 DEV: Generate the description of a GitHub release.
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
