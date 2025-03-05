@@ -39,7 +39,7 @@ definitions_to_ignore = (
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
-templates_ignored = ("unfinished", "семантика", "пример")
+templates_ignored = ("L", "Lacuna", "l", "lacuna", "unfinished", "семантика", "пример")
 
 # Templates more complex to manage.
 templates_multi = {
