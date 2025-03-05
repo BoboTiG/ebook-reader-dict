@@ -562,10 +562,11 @@ class MobiFormat(ConverterFromDictFile):
 
         Error(index build):E25006: overflowing character table in UNICODE: in indexes, you can use a total of 256 different characters from the following unicode ranges: U+0000-U+02FF(latin), U+3000-U+30FF(kana), U+FF00-U+FF9F(alt. width latin+kana).
 
-    """
+    7) Embedded GIF/SVG codes are extracted to their own files, but it's not clear where they are located, so there are no images for now:
 
-    # TODO: images support
-    # Warning(prcgen):W14010: media file not found /.../mobi/dict-data.mobi/OEBPS/db28a816.gif
+        Warning(prcgen):W14010: media file not found /.../mobi/dict-data.mobi/OEBPS/XXX.gif
+
+    """
 
     target_format = "mobi"
     target_suffix = "mobi"
