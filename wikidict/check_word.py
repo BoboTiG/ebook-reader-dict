@@ -10,15 +10,23 @@ import urllib.parse
 import warnings
 from functools import partial
 from time import sleep
+from typing import TYPE_CHECKING
 
 import requests
-from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
+from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning, NavigableString
 from requests.exceptions import RequestException
 
 from .render import parse_word
-from .stubs import Word
 from .user_functions import color, int_to_roman
 from .utils import check_for_missing_templates, get_random_word
+
+if TYPE_CHECKING:
+    from collections.abc import Iterator
+    from typing import Any
+
+    from bs4 import Tag
+
+    from .stubs import Word
 
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
@@ -72,119 +80,138 @@ def filter_html(html: str, locale: str) -> str:
     """Some parts of the Wiktionary HTML."""
     bs = BeautifulSoup(markup=html, features="html.parser")
 
+    def find_all(name: str, *args: Any, **kwargs: Any) -> Iterator[Tag]:
+        yield from bs.find_all(name, *args, **kwargs)  # type: ignore[misc]
+
     # Filter out warnings about obsolete template models used
-    for span in bs.find_all("span", {"id": "FormattingError"}):
-        span.decompose()
+    for tag in find_all("span", {"id": "FormattingError"}):
+        tag.decompose()
 
     # Filter out Wikispecies links
-    for span in bs.find_all("span", {"class": "trad-exposant"}):
-        span.decompose()
+    for tag in find_all("span", {"class": "trad-exposant"}):
+        tag.decompose()
 
     # Filter out result of <math> and <chem>
-    for span in bs.find_all("span", {"class": "mwe-math-element"}):
-        span.decompose()
+    for tag in find_all("span", {"class": "mwe-math-element"}):
+        tag.decompose()
 
     if locale == "ca":
         # {{sense accepcions}}
-        for i in bs.find_all("i"):
-            if i.text.startswith("a aquesta paraula li falten les accepcions"):
+        for tag in find_all("i"):
+            if tag.text.startswith("a aquesta paraula li falten les accepcions") and tag.next_sibling:
                 # Remove the trailing dot
-                i.next_sibling.replace_with(i.next_sibling.text[1:])
-                # And remove the note
-                i.decompose()
+                tag.next_sibling.replace_with(tag.next_sibling.text[1:])
+                tag.decompose()
+
         # Filter out anchors as they are ignored from templates
-        for a in bs.find_all("a", href=True):
+        for tag in find_all("a", href=True):
+            href = str(tag["href"])
             if (
-                a["href"].startswith("#")
-                and not a["href"].startswith("#ca#")
-                and a["href"] != "#ca"
-                and "mw-selflink-fragment" not in a.get("class", [])
+                href.startswith("#")
+                and not href.startswith("#ca#")
+                and href != "#ca"
+                and "mw-selflink-fragment" not in (tag.get("class") or [])
             ):
-                a.replace_with(a.text)
+                tag.replace_with(tag.text)
 
     elif locale == "da":
-        for sup in bs.find_all("sup"):
-            id = sup.get("id", "")
-            if id.startswith("cite_"):
-                sup.decompose()
+        for tag in find_all("sup"):
+            if (id_ := str(tag.get("id") or "")) and id_.startswith("cite_"):
+                tag.decompose()
 
     elif locale == "de":
         # <sup>☆</sup>
-        for sup in bs.find_all("sup", string="☆"):
-            sup.decompose()
+        for tag in find_all("sup", string="☆"):
+            tag.decompose()
+
         # External links
-        for small in bs.find_all("small", {"class": "noprint"}):
-            small.decompose()
+        for tag in find_all("small", {"class": "noprint"}):
+            tag.decompose()
+
         # Internet Archive
-        for a in bs.find_all("a", {"class": "external"}):
-            if "archive.org" in a["href"]:
-                a.decompose()
+        for tag in find_all("a", {"class": "external"}):
+            if "archive.org" in tag["href"]:
+                tag.decompose()
+
         # Lang link in {{Üxx5}}
-        for a in bs.find_all("a"):
-            if (sup := a.find("sup")) and sup.text.startswith("→"):
-                a.decompose()
+        for tag in find_all("a"):
+            if (sub_tag := tag.find("sup")) and tag.text.startswith("→"):
+                sub_tag.decompose()
+
         # Other Wikis
-        for a in bs.find_all("a", {"class": "extiw"}):
+        for tag in find_all("a", {"class": "extiw"}):
             if (
-                ":Special:" not in a["title"]
-                and (a_sup := a.find("sup"))
+                ":Special:" not in tag["title"]
+                and (a_sup := tag.find("sup"))
                 and "WP" in a_sup.text
-                or ":Special:" in a["title"]
+                or ":Special:" in tag["title"]
             ):
-                a.decompose()
-        for sup in bs.find_all("sup"):
-            if sup.get("style", "") == "color:slategray;":
-                sup.decompose()
+                tag.decompose()
+
+        for tag in find_all("sup"):
+            if tag.get("style", "") == "color:slategray;":
+                tag.decompose()
+
             # Filter out anchors as they are ignored from templates
-            for a in bs.find_all("a", href=True):
-                if a["href"].startswith("#"):
-                    a.decompose()
+            for tag in find_all("a", href=True):
+                if str(tag["href"]).startswith("#"):
+                    tag.decompose()
 
     elif locale == "el":
         # {{audio}} template
-        for span in bs.find_all("span", {"class": "ext-phonos"}):
-            span.parent.decompose()
+        for tag in find_all("span", {"class": "ext-phonos"}):
+            if tag.parent:
+                tag.parent.decompose()
 
-        for sup in bs.find_all("sup"):
-            id = sup.get("id", "")
-            if id.startswith("cite_"):
-                sup.decompose()
+        for tag in find_all("sup"):
+            if (id_ := str(tag.get("id", ""))) and id_.startswith("cite_"):
+                tag.decompose()
 
     elif locale == "en":
-        for span in bs.find_all("span"):
-            if span.string == "and other forms":
-                span.string += f" {span['title']}"
-        # other anchors
-        for a in bs.find_all("a", href=True):
-            if a["href"].lower().startswith(("#cite", "#mw")):
-                a.decompose()
+        for tag in find_all("span"):
+            if tag.string == "and other forms":
+                tag.string += f" {tag['title']}"
+
+        # Other anchors
+        for tag in find_all("a", href=True):
+            if str(tag["href"]).lower().startswith(("#cite", "#mw")):
+                tag.decompose()
 
     elif locale == "eo":
         # <ref>
-        for a in bs.find_all("sup", {"class": "reference"}):
-            a.decompose()
+        for tag in find_all("sup", {"class": "reference"}):
+            tag.decompose()
 
     elif locale == "es":
         # Replace color rectangle
-        for span in bs.find_all("span", {"id": "ColorRect"}):
-            for style in span["style"].split(";"):
+        for tag in find_all("span", {"id": "ColorRect"}):
+            for style in str(tag["style"]).split(";"):
                 kv = style.strip().split(":")
-                if len(kv) == 2 and kv[0] == "background":
-                    span.previous_sibling.decompose()
-                    span.replace_with(color(kv[1].strip()))
-        for a in bs.find_all("a", href=True):
-            if a["href"].startswith("#cite"):
-                a.decompose()
-            # cita requerida
-            elif a["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes":
-                a.parent.parent.decompose()
-        # coord output
-        for span in bs.find_all("span", {"class": ["geo-multi-punct", "geo-nondefault"]}):
-            span.decompose()
-        # external autonumber
-        for a in bs.find_all("a", {"class": "external autonumber"}):
-            a.decompose()
-        dts = bs.find_all("dt")
+                if len(kv) == 2 and kv[0] == "background" and tag.previous_sibling:
+                    tag.previous_sibling.decompose()
+                    tag.replace_with(NavigableString(color(kv[1].strip())))
+
+        for tag in find_all("a", href=True):
+            if str(tag["href"]).startswith("#cite"):
+                tag.decompose()
+
+            # Cita requerida
+            elif (
+                tag["href"] == "/wiki/Ayuda:Tutorial_(Ten_en_cuenta)#Citando_tus_fuentes"
+                and tag.parent
+                and tag.parent.parent
+            ):
+                tag.parent.parent.decompose()
+
+        # Coord output
+        for tag in find_all("span", {"class": ["geo-multi-punct", "geo-nondefault"]}):
+            tag.decompose()
+
+        # External autonumber
+        for tag in find_all("a", {"class": "external autonumber"}):
+            tag.decompose()
+
+        dts = find_all("dt")
         for dt in dts:
             dt_array = dt.text.split(" ", 1)
             if len(dt_array) == 2:
@@ -195,8 +222,8 @@ def filter_html(html: str, locale: str) -> str:
                     for da in dt_array_dot[:-1]:
                         dt.string += f"({da})"
                     dt.string += f" {dt_array_dot[-1]}:"
-                else:
-                    # duplicate the definition to cope with both cases above
+                elif dt.parent:
+                    # Duplicate the definition to cope with both cases above
                     newdt = copy.copy(dt)
                     dt.parent.append(newdt)
                     if dd := dt.find_next_sibling("dd"):
@@ -208,97 +235,117 @@ def filter_html(html: str, locale: str) -> str:
 
     elif locale == "fr":
         # Filter out refnec tags
-        for span in bs.find_all("span", {"id": "refnec"}):
-            if span.previous_sibling:
-                span.previous_sibling.decompose()
-            span.decompose()
+        for tag in find_all("span", {"id": "refnec"}):
+            if tag.previous_sibling:
+                tag.previous_sibling.decompose()
+            tag.decompose()
+
         # Cette information a besoin d’être précisée
-        for span in bs.find_all("span", {"title": "Cette information a besoin d’être précisée"}):
-            span.decompose()
+        for tag in find_all("span", {"title": "Cette information a besoin d’être précisée"}):
+            tag.decompose()
+
         # {{invisible}}
-        for span in bs.find_all("span", {"class": "invisible"}):
-            span.decompose()
+        for tag in find_all("span", {"class": "invisible"}):
+            tag.decompose()
+
         # — (Richelet, Dictionnaire français 1680)
-        for span in bs.find_all("span", {"class": "sources"}):
-            span.decompose()
+        for tag in find_all("span", {"class": "sources"}):
+            tag.decompose()
+
         # → consulter cet ouvrage
-        for a in bs.find_all("a", {"class": "external text"}):
-            if "consulter cet ouvrage" in a.text:
-                a.decompose()
-        # liens externes autres Wikis
-        for a in bs.find_all("a", {"class": "extiw"}):
+        for tag in find_all("a", {"class": "external text"}):
+            if "consulter cet ouvrage" in tag.text:
+                tag.decompose()
+
+        # Liens externes autres Wikis
+        for tag in find_all("a", {"class": "extiw"}):
             # Wikispecies
             if (
-                a["title"].startswith("wikispecies")
-                and a.parent.next_sibling
-                and "sur Wikispecies" in a.parent.next_sibling
+                str(tag["title"]).startswith("wikispecies")
+                and tag.parent
+                and tag.parent.next_sibling
+                and "sur Wikispecies" in tag.parent.next_sibling.text
             ):
-                a.parent.next_sibling.replace_with("")
+                tag.parent.next_sibling.extract()
+
             # Wikidata
-            elif a["title"].startswith("d:") and a.next_sibling and "base de données Wikidata" in a.next_sibling:
-                a.next_sibling.replace_with("")
+            elif (
+                str(tag["title"]).startswith("d:")
+                and tag.next_sibling
+                and "base de données Wikidata" in tag.next_sibling.text
+            ):
+                tag.next_sibling.extract()
+
             # {{LienRouge|lang=en|trad=Reconstruction
-            elif "Reconstruction" in a["title"]:
-                a.decompose()
-        # external autonumber
-        for a in bs.find_all("a", {"class": "external autonumber"}):
-            a.decompose()
-        # attention image
-        for a in bs.find_all("a", {"title": "alt = attention"}):
-            a.replace_with("⚠")
-        # other anchors
-        for a in bs.find_all("a", href=True):
-            if a["href"].lower().startswith(("#cite", "#ref", "#voir")):
-                a.decompose()
+            elif "Reconstruction" in tag["title"]:
+                tag.decompose()
+        # External autonumber
+        for tag in find_all("a", {"class": "external autonumber"}):
+            tag.decompose()
+
+        # Attention image
+        for tag in find_all("a", {"title": "alt = attention"}):
+            tag.replace_with(NavigableString("⚠"))
+
+        # Other anchors
+        for tag in find_all("a", href=True):
+            if str(tag["href"]).lower().startswith(("#cite", "#ref", "#voir")):
+                tag.decompose()
 
     elif locale == "it":
         # Numbered external links
-        for a in bs.find_all("a", {"class": "external autonumber"}):
-            a.decompose()
+        for tag in find_all("a", {"class": "external autonumber"}):
+            tag.decompose()
         # Missing definitions
-        for i in bs.find_all("i"):
-            if i.text.startswith("definizione mancante"):
-                i.decompose()
+        for tag in find_all("i"):
+            if tag.text.startswith("definizione mancante"):
+                tag.decompose()
+
         # <ref>
-        for a in bs.find_all("sup", {"class": "reference"}):
-            a.decompose()
+        for tag in find_all("sup", {"class": "reference"}):
+            tag.decompose()
+
         # Wikispecies
-        for img in bs.find_all("img", {"alt": "Wikispecies"}):
-            if img.next_sibling:
-                img.next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
-                img.next_sibling.next_sibling.replace_with(img.next_sibling.next_sibling.text[1:])  # Trailing ")"
-                img.next_sibling.replace_with("")  # space
-                img.previous_sibling.replace_with("")  # Leading "("
-            img.decompose()
+        for tag in find_all("img", {"alt": "Wikispecies"}):
+            if (next_sibling := tag.next_sibling) and next_sibling.next_sibling:
+                next_sibling.next_sibling.decompose()  # <b><a>...</a></b>
+                next_sibling.next_sibling.replace_with(
+                    NavigableString(next_sibling.next_sibling.text[1:])
+                )  # Trailing ")"
+                next_sibling.extract()  # Space
+                if tag.previous_sibling:
+                    tag.previous_sibling.extract()  # Leading "("
+            tag.decompose()
+
         # Wikipedia, Wikiquote
-        for small in bs.find_all("small"):
-            if small.find("a", {"title": "Wikipedia"}) or small.find("a", {"title": "Wikiquote"}):
-                small.decompose()
+        for tag in find_all("small"):
+            if tag.find("a", {"title": "Wikipedia"}) or tag.find("a", {"title": "Wikiquote"}):
+                tag.decompose()
 
     elif locale == "no":
         # <ref>
-        for a in bs.find_all("sup", {"class": "reference"}):
-            a.decompose()
+        for tag in find_all("sup", {"class": "reference"}):
+            tag.decompose()
 
     elif locale == "pt":
-        # Issue 600: remove superscript locales
-        for sup in bs.find_all("sup"):
-            if sup.find("a", {"class": "extiw"}):
-                sup.decompose()
-            if sup.find("a", {"class": "new"}):
-                sup.decompose()
+        # Superscript locales
+        for tag in find_all("sup"):
+            if tag.find("a", {"class": "extiw"}) or tag.find("a", {"class": "new"}):
+                tag.decompose()
+
         # Almost same as previous, but for all items not elligible to be printed
-        for span in bs.find_all("span", {"class": "noprint"}):
-            span.decompose()
+        for tag in find_all("span", {"class": "noprint"}):
+            tag.decompose()
+
         # External links
-        for small in bs.find_all("small"):
-            if small.find("a", {"class": "extiw"}):
-                small.decompose()
+        for tag in find_all("small"):
+            if tag.find("a", {"class": "extiw"}):
+                tag.decompose()
 
     elif locale == "sv":
         # <ref>
-        for a in bs.find_all("sup", {"class": "reference"}):
-            a.decompose()
+        for tag in find_all("sup", {"class": "reference"}):
+            tag.decompose()
 
     return no_spaces(bs.text)
 
