@@ -531,6 +531,15 @@ class MobiFormat(ConverterFromDictFile):
 
         Error(htmlprocessor):E32001: Error occured while parsing content. HTML tag that is not supported by Kindle readers found in source  math
 
+    3) Most locales are not properly supported:
+
+        Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
+
+    4) The Esperanto (EO) locale is not recognized at all:
+
+        Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
+        Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
+
     """
 
     # TODO: images support
@@ -555,6 +564,12 @@ class MobiFormat(ConverterFromDictFile):
         src = self.output_dir_tmp / f"dict-data.{self.target_suffix}" / "OEBPS" / f"content.{self.target_suffix}"
         return src.rename(self.dictionary_file(self.final_file))
 
+    def process(self) -> None:
+        """Filter out unrecognized locales."""
+        if self.locale == "eo":
+            log.warning("Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary.")
+        else:
+            super().process()
 
 class StarDictFormat(ConverterFromDictFile):
     """Save the data into a StarDict file."""
