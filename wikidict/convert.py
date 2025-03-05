@@ -558,7 +558,7 @@ class MobiFormat(ConverterFromDictFile):
         Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
         Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
 
-    6) The English (EN) locale is working due to a limitation:
+    6) The English (EN) locale is not working due to a limitation:
 
         Error(index build):E25006: overflowing character table in UNICODE: in indexes, you can use a total of 256 different characters from the following unicode ranges: U+0000-U+02FF(latin), U+3000-U+30FF(kana), U+FF00-U+FF9F(alt. width latin+kana).
 
