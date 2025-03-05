@@ -92,8 +92,8 @@ table_dual = {
 
 def transliterate(text: str, locale: str = "") -> str:
     """
-    >>> transliterate("ba")  # doctest: +ELLIPSIS
-    '<svg ...'
+    >>> transliterate("ba")
+    '<svg style="width:24px;height:auto;vertical-align:middle" width="16" height="53" viewBox="0 0 16 53" xmlns:xlink="http://www.w3.org/1999/xlink"><path id="path1465" d="m8 8v35" fill="none" stroke="#000" stroke-width="3.5"/></svg>'
     """
     syllabic = {"b", "k", "g", "t", "d"}
     sign = ""
@@ -113,7 +113,7 @@ def transliterate(text: str, locale: str = "") -> str:
             if not (text[i + 1 : i + 2].isdigit() or letter in syllabic):
                 if not (file := table.get(sign.removesuffix("01"))):  # Support both `a1`, and `a101`, keys
                     assert 0, f"Missing xib-trans SVG: {sign!r}"
-                svg = f'{file[:4]} style="width:24px;height:auto;vertical-align:middle" {file[6:]}'
+                svg = f'{file[:4]} style="width:24px;height:auto;vertical-align:middle" {file[5:]}'
                 tr.append(svg)
                 sign = ""
 
