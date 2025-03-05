@@ -143,20 +143,26 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    download_links_full = f"""
-- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, "")}) (dict-{locale}-{locale}.df.bz2)
-- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, "")}) (dictorg-{locale}-{locale}.zip)
-- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, "")}) (dict-{locale}-{locale}.mobi)
-- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, "")}) (dicthtml-{locale}-{locale}.zip)
-- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, "")}) (dict-{locale}-{locale}.zip)
-""".strip()
-    download_links_noetym = f"""
-- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)
-- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
-- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)
-- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
-- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)
-""".strip()
+    _links_full = {
+        "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, '')}) (dict-{locale}-{locale}.df.bz2)",
+        "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, '')}) (dicthtml-{locale}-{locale}.zip)",
+        "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, '')}) (dictorg-{locale}-{locale}.zip)",
+        "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, '')}) (dict-{locale}-{locale}.mobi)",
+        "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, '')}) (dict-{locale}-{locale}.zip)",
+    }
+    _links_etym_free = {
+        "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)",
+        "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
+        "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
+        "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)",
+        "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
+    }
+    if locale in {"en", "eo"}:
+        _links_full.pop("mobi")
+        _links_etym_free.pop("mobi")
+
+    download_links_full = "\n".join(sorted(_links_full.values()))
+    download_links_noetym = "\n".join(sorted(_links_etym_free.values()))
 
     creation_date = NOW.isoformat()
     return release_description[locale].format(**locals())

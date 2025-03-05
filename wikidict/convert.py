@@ -226,17 +226,6 @@ class KoboFormat(BaseFormat):
         content = content.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
         content = content.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
 
-        # Remove Kindle liks for unsupported locales
-        if locale in {"en", "eo"}:
-            content = content.replace(
-                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}.mobi)\n",
-                "",
-            )
-            content = content.replace(
-                f"- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/{locale}/dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)\n",
-                "",
-            )
-
         return content
 
     def create_install(self, locale: str, output_dir: Path) -> Path:
