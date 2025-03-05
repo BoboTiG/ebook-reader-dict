@@ -123,6 +123,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
         >>> last_template_handler(["аббр.", "ru", "Свободная демократическая партия", "без ссылки=1"], "ru")
         '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
+        >>> last_template_handler(["аббр.", "ru", "Свободная демократическая партия", "без ссылки=1", ""], "ru")
+        '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
 
         >>> last_template_handler(["рег."], "ru")
         '<i>рег.</i>'
@@ -181,7 +183,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         return italic(text)
 
     if tpl == "аббр.":
-        return f"{italic('сокр.')} от {italic(parts[-1])}"
+        return f"{italic('сокр.')} от {italic(parts[1])}"
 
     if tpl == "выдел":
         return parts[0]
