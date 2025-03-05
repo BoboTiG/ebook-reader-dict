@@ -22,9 +22,10 @@ Options:
                             --workers=N         Set the number of multiprocessing workers,
                                                 defaults to the number of CPU in the system.
   --convert                 Convert rendered data to working dictionaries into several files:
-                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
+                                - "data/$LOCALE/dict-$LOCALE-$LOCALE.mobi": Kindle format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
+                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dictorg-$LOCALE-$LOCALE.zip": DICT.org format.
   --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
