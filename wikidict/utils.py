@@ -335,6 +335,19 @@ def clean(text: str, *, locale: str = "en") -> str:
 
         >>> clean("<gallery>\nImage: Hydra (creature).jpg|due idre minacciose\nImage: Hydre.jpg|idra minacciosa\nImage: Chateauneuf-Randon de Joyeuse.svg|d'oro, a tre pali d'azzurro; al capo di rosso caricato di tre idre minacciose del campo<br /></gallery>")
         ''
+
+        >>> clean(" <")
+        '<'
+        >>> clean("< ")
+        '&lt;'
+        >>> clean(" < ")
+        '&lt;'
+        >>> clean(" >")
+        '&gt;'
+        >>> clean("> ")
+        '>'
+        >>> clean(" > ")
+        '&gt;'
     """
 
     # Speed-up lookup
@@ -427,6 +440,10 @@ def clean(text: str, *, locale: str = "en") -> str:
     # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
+
+    # Convert single "< ", and " >" to HTML quotes
+    text = sub(r"<\s+", "&lt; ", text)
+    text = sub(r"\s+>", " &gt;", text)
 
     # Restore math formulas
     for idx, formula in enumerate(formulas):

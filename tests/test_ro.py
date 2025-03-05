@@ -92,7 +92,7 @@ from wikidict.utils import process_templates
         (
             "temperatură",
             ["/tem.pe.raˈtu.rə/"],
-            ["Din franceză <i>température</i> < latină <i>temperatura</i>."],
+            ["Din franceză <i>température</i> &lt; latină <i>temperatura</i>."],
             [
                 "gradul, starea de căldură a unui mediu, a unui corp etc.",
                 "stare fiziologică constantă a corpului animal, reprezentând echilibrul dintre căldura produsă și cea pierdută.",
