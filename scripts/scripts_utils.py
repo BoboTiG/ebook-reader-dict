@@ -36,5 +36,5 @@ def get_content(url: str, *, max_retries: int = 5, sleep_time: int = 5, as_json:
 
 
 def get_soup(url: str) -> BeautifulSoup:
-    page = get_content(url)
+    page = str(get_content(url))
     return BeautifulSoup(page, features="html.parser")
