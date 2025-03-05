@@ -548,16 +548,17 @@ class MobiFormat(ConverterFromDictFile):
     target_format = "mobi"
     target_suffix = "mobi"
     final_file = "dict-{locale}-{locale}.mobi"
-    glossary_options = {"cover_path": str(COVER_FILE), "kindlegen_path": str(KINDLEGEN_FILE)}
+    glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
 
     def _cleanup(self) -> None:
         """Alter the .df file content to remove unsupported HTML tags."""
         super()._cleanup()
 
         file = self.dictionary_file(DictFileFormat.output_file)
-        content = file.read_text()
-        content = re.sub(r"(<math>.+</math>)", "", content)
-        file.write_text(content)
+        content_old = file.read_text()
+        content_new = re.sub(r"(<math>.+</math>)", "", content_old)
+        if content_old != content_new:
+            file.write_text(content_new)
 
     def _compress(self) -> Path:
         """For now, we just move the final file to its expected location."""
@@ -567,9 +568,12 @@ class MobiFormat(ConverterFromDictFile):
     def process(self) -> None:
         """Filter out unrecognized locales."""
         if self.locale == "eo":
-            log.warning("Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary.")
+            log.warning(
+                "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
+            )
         else:
             super().process()
+
 
 class StarDictFormat(ConverterFromDictFile):
     """Save the data into a StarDict file."""
