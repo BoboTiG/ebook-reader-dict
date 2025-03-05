@@ -248,6 +248,8 @@ def clean(text: str, *, locale: str = "en") -> str:
 
         >>> clean(r"<math>x \in ]x_0 - \epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \in ]x_0, x_0 + \epsilon[</math>")
         '<math>x \\in ]x_0 - \\epsilon, x_0[</math> och <math>f(x) > f(x_0)</math> för alla <math>x \\in ]x_0, x_0 + \\epsilon[</math>'
+        >>> clean(r'<math style="vertical-align:+0%;">x \in ]x_0 - \epsilon, x_0[</math>')
+        '<math>x \\in ]x_0 - \\epsilon, x_0[</math>'
 
         >>> clean("{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}")
         '{{Lien web|url=http://stella.atilf.fr/few/|titre=Französisches Etymologisches Wörterbuch}}'
@@ -340,6 +342,7 @@ def clean(text: str, *, locale: str = "en") -> str:
     sub2 = regex.sub
 
     # Save <math> formulas to prevent altering them
+    text = re.sub(r"<math [^>]+>([^<]+)</math>", r"<math>\1</math>", text)
     if formulas := re.findall(r"(<math>[^<]+</math>)", text):
         for idx, formula in enumerate(formulas):
             text = text.replace(formula, f"##math{idx}##")
