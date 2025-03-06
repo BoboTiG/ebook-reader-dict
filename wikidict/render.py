@@ -362,6 +362,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '\n\n[[something|else]]'
     >>> adjust_wikicode("[[File:Karwats.jpg|thumb|A scourge ''(noun {{senseno|en|whip}})'' [[exhibit#Verb|exhibited]] in a [[museum#Noun|museum]].]][[something|else]]", "en")
     '[[something|else]]'
+    >>> adjust_wikicode("[[w:Burattino|Burattino]]", "it")
+    '[[Burattino|Burattino]]'
+    >>> adjust_wikicode("[[en:propedeutici]]", "it")
+    ''
 
     >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
     ''
@@ -490,6 +494,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale == "it":
+        # [[w:A|B]] → [[A|B]]
+        code = code.replace("[[w:", "[[")
+
+        # [[en:foo]] → ''
+        code = re.sub(r"(\[\[\w+:\w+\]\])", "", code)
+
         # Hack for a fake variants to support more of them
 
         # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
