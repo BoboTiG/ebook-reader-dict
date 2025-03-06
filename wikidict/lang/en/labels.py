@@ -799,6 +799,7 @@ labels = {
     "TV": "television",
     "Taiwan": "Taiwan",
     "Taiwanese": "Taiwan",
+    "Tanglish": "Tanglish",
     "Tanzania": "Tanzania",
     "Tanzanian": "Tanzania",
     "Taoism": "Taoism",
@@ -2588,7 +2589,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,583
+}  # 2,584
 
 syntaxes = {
     "&": {

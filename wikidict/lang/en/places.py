@@ -158,7 +158,7 @@ recognized_placetypes = {
     "area": {
         "article": "an",
         "display": "area",
-        "preposition": "in",
+        "preposition": "of",
     },
     "arm": {
         "article": "an",
@@ -288,7 +288,7 @@ recognized_placetypes = {
     "built-up area": {
         "article": "a",
         "display": "built-up area",
-        "preposition": "in",
+        "preposition": "of",
     },
     "burgh": {
         "article": "a",
@@ -678,6 +678,11 @@ recognized_placetypes = {
     "federal city": {
         "article": "a",
         "display": "federal city",
+        "preposition": "of",
+    },
+    "federal district": {
+        "article": "a",
+        "display": "federal district",
         "preposition": "of",
     },
     "federal subject": {
@@ -2210,7 +2215,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 441
+}  # 442
 
 placetypes_aliases = {
     "CDP": "census-designated place",
