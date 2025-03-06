@@ -1079,17 +1079,17 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
     >>> render_name_translit("name translit", ["en", "fa", "فرید<tr:farid>"], defaultdict(str, {"type":"male given name"}))
     '<i>A transliteration of the Persian male given name</i> <b>فرید</b> (<i>farid</i>)'
     >>> render_name_translit("name translit", ["en", "ru", "Ива́нович<t:son of Ivan>"], defaultdict(str, {"type":"patronymic"}))
-    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (“<i>son of Ivan</i>”)'
+    '<i>A transliteration of the Russian patronymic</i> <b>Ива́нович</b> (<i>Ivanovič</i>, “<i>son of Ivan</i>”)'
     >>> render_name_translit("name translit", ["pt", "bg", "Ива́нов", "Ивано́в"], defaultdict(str, {"type":"surname"}))
-    '<i>A transliteration of the Bulgarian surname</i> <b>Ива́нов</b> <i>or</i> <b>Ивано́в</b>'
+    '<i>A transliteration of the Bulgarian surname</i> <b>Ива́нов</b> (<i>Ivanov</i>) <i>or</i> <b>Ивано́в</b> (<i>Ivanov</i>)'
     >>> render_name_translit("name translit", ["en", "el", "Γιάννης<eq:John>"], defaultdict(str, {"type":"male given name"}))
     '<i>A transliteration of the Greek male given name</i> <b>Γιάννης</b>, <i>equivalent to John</i>'
     >>> render_name_translit("name translit", ["fr", "ja"], defaultdict(str, {"type":"female given name"}))
     '<i>A transliteration of a Japanese female given name</i>'
     >>> render_name_translit("name translit", ["en", "bg,mk,sh", "Никола"], defaultdict(str, {"type":"male given name", "eq": "Nicholas"}))
-    '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b>, <i>equivalent to Nicholas</i>'
+    '<i>A transliteration of the Bulgarian, Macedonian or Serbo-Croatian male given name</i> <b>Никола</b> (<i>Nikola</i>), <i>equivalent to Nicholas</i>'
     """
-    parts.pop(0)  # Destination lang
+    parts.pop(0)  # Destination language
     src_langs = parts.pop(0)
 
     origins = concat([langs[src_lang] for src_lang in src_langs.split(",")], sep=", ", last_sep=" or ")
@@ -1100,26 +1100,35 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
     what, rest = parts.pop(0), ""
     if "<" in what:
         what, rest = what.split("<", 1)
+
+    transliterated = transliterate(src_langs.split(",", 1)[0], what)
     text += f" {strong(what)}"
 
     if rest:
+        if transliterated:
+            transliterated = f"{italic(transliterated)}, "
+
         kind, value = rest.split(":", 1)
         value = value.rstrip(">")
         match kind:
             case "eq":
                 text += f", {italic('equivalent to ' + value)}"
             case "t":
-                text += f" (“{italic(value)}”)"
+                text += f" ({transliterated}“{italic(value)}”)"
             case "tr":
-                text += f" ({italic(value)})"
+                text += f" ({transliterated}{italic(value)})"
             case _:
                 assert 0, f"Unhandled {kind=} in render_name_translit()"
+    elif transliterated:
+        text += f" ({italic(transliterated)})"
 
     if eq := data["eq"]:
         text += f", {italic('equivalent to ' + eq)}"
 
     if parts:
         text += f" {italic('or')} {strong(parts[0])}"
+        if transliterated:
+            text += f" ({italic(transliterated)})"
 
     return text
 
