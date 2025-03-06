@@ -451,8 +451,7 @@ def clean(text: str, *, locale: str = "en") -> str:
     text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
     # Convert single "< ", and " >" to HTML quotes
-    text = sub(r"<\s+", "&lt; ", text)
-    text = sub(r"\s+>", " &gt;", text)
+    text = text.replace("< ", "&lt; ").replace(" >", " &gt;")
 
     # Restore math formulas
     for idx, formula in enumerate(formulas):
