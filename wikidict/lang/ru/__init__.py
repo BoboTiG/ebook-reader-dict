@@ -140,6 +140,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["рег.", "Латвия"], "ru")
         '<i>рег. (Латвия)</i>'
 
+        >>> last_template_handler(["свойство", "абелев"], "ru")
+        'свойство по значению прилагательного <i>абелев</i>'
+        >>> last_template_handler(["свойство", "погнутый", "состояние=1"], "ru")
+        'свойство или состояние по значению прилагательного <i>погнутый</i>'
+
         # Labels
         >>> last_template_handler(["зоол.", "ru"], "ru")
         '<i>зоол.</i>'
@@ -199,6 +204,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "выдел":
         return parts[0]
+
+    if tpl == "свойство":
+        text = tpl
+        if data["состояние"] == "1":
+            text += " или состояние"
+        return f"{text} по значению прилагательного {italic(parts[0])}"
 
     if tpl == "Унбегаун":
         if data["сокр"] == "1":
