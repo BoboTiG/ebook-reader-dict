@@ -25,6 +25,21 @@ def get_definition(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return str(data["определение"] + data["примеры"])
 
 
+def render_сэ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_сэ("сэ", ["en", "-ing"], defaultdict(str, {"и": "ru"}))
+    'англ. -ing'
+    >>> render_сэ("сэ", ["fr", "Aramis"], defaultdict(str))
+    'франц. Aramis'
+    >>> render_сэ("сэ", ["fr", "pépinière", "питомник"], defaultdict(str, {"и": "ru"}))
+    'франц. pépinière ‘питомник’'
+    """
+    text = f"{langs_short[parts[0]]} {parts[1]}"
+    if len(parts) > 2:
+        text += f" ‘{parts[2]}’"
+    return text
+
+
 def render_помета(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_помета("помета", ["о действии"], defaultdict(str))
@@ -218,6 +233,7 @@ template_mapping = {
     "значение": get_definition,
     "помета": render_помета,
     "кавычки": render_кавычки,
+    "сэ": render_сэ,
     "сравн.": render_сравн,
     "соотн.": render_соотн,
     "дат": render_дат,
