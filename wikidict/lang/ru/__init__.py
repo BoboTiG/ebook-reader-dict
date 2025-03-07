@@ -145,6 +145,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["свойство", "погнутый", "состояние=1"], "ru")
         'свойство или состояние по значению прилагательного <i>погнутый</i>'
 
+        >>> last_template_handler(["нареч.", "адекватный"], "ru")
+        'наречие к <i>адекватный</i>'
+        >>> last_template_handler(["наречие", "адекватный", "в соответствии с чем-либо"], "ru")
+        'наречие к <i>адекватный</i>; в соответствии с чем-либо'
+
         # Labels
         >>> last_template_handler(["зоол.", "ru"], "ru")
         '<i>зоол.</i>'
@@ -204,6 +209,12 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
 
     if tpl == "выдел":
         return parts[0]
+
+    if tpl in {"наречие", "нареч."}:
+        text = f"наречие к {italic(parts[0])}"
+        if len(parts) > 1:
+            text += f"; {parts[1]}"
+        return text
 
     if tpl == "свойство":
         text = tpl
