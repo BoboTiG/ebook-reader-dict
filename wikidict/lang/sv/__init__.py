@@ -250,10 +250,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         >>> last_template_handler(["tagg", "bildligt", "reflexivt"], "sv", word="etsa")
         '<i>(bildligt, reflexivt: <b>etsa sig</b>)</i>'
 
+        >>> last_template_handler(["tr", "ru", "Пётр Ильи́ч Чайко́вский"], "sv")
+        'Pjotr Iljítj Tjajkóvskij'
+
     """
     from ...user_functions import extract_keywords_from, italic, strong, term
     from .. import defaults
     from .langs import langs
+    from .transliterator import transliterate
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
@@ -306,5 +310,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
         if data["text"]:
             words.append(data["text"])
         return term(", ".join(words))
+
+    if tpl == "tr":
+        return transliterate(parts[0], parts[1])
 
     return defaults.last_template_handler(template, locale, word=word)
