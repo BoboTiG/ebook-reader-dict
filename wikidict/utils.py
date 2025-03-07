@@ -367,11 +367,11 @@ def clean(text: str, *, locale: str = "en") -> str:
     sub = re.sub
     sub2 = regex.sub
 
-    # <math style="bla" foo=bar> formula  </math> → <math>formula</math>
-    text = re.sub(r"<math\s+[^>]+>\s*(.+)\s*</math>", r"<math>\1</math>", text)
+    # <math style="bla" foo=bar>formula</math> → <math>formula</math>
+    text = re.sub(r"<math\s+[^>]+>(.+?)</math>", r"<math>\1</math>", text)
 
     # Save <math> formulas to prevent altering them
-    if formulas := re.findall(r"(<math>.+</math>)", text):
+    if formulas := re.findall(r"(<math>.+?</math>)", text):
         for idx, formula in enumerate(formulas):
             text = text.replace(formula, f"##math{idx}##")
 
@@ -535,10 +535,12 @@ def process_templates(
     text = text.replace(OPEN_DOUBLE_CURLY, "{{")
     text = text.replace(CLOSE_DOUBLE_CURLY, "}}")
 
-    # Handle <math> HTML tags
-    text = sub(r"<math>([^<]+)</math>", partial(convert_math, word=word), text)
-    text = sub(r"<chem>([^<]+)</chem>", partial(convert_chem, word=word), text)
-    text = sub(r"<hiero>(.+)</hiero>", partial(convert_hiero, word=word), text)
+    # Handle <chem>, <hiero>, and <math>, HTML tags
+    for tag, func in [("chem", convert_chem), ("hiero", convert_hiero), ("math", convert_math)]:
+        text = sub(rf"<{tag}>(.+?)</{tag}>", partial(func, word=word), text)
+        if f"<{tag}>" in text or f"</{tag}>" in text:
+            print(repr(text))
+            raise ValueError(f"Missed <{tag}> HTML tag in {word!r}")
 
     # Issue #584: move Arabic/Persian characters out of italic tags
     text = sub(r"<i>([^<]*[\u0627-\u064a]+[^<]*)</i>", r"\1", text)
@@ -588,19 +590,11 @@ def formula_to_svg(formula: str, *, cat: str = "tex") -> str:
     return svg.optimize(svg_raw)
 
 
-def convert_math(match: str | re.Match[str], word: str) -> str:
-    """Convert mathematics symbols to a base64 encoded GIF file."""
-    formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
-    try:
-        return formula_to_svg(formula)
-    except Exception:
-        log.exception("<math> ERROR with %r in [%s]", formula, word)
-        return formula
-
-
 def convert_chem(match: str | re.Match[str], word: str) -> str:
     """Convert chemistry symbols to a base64 encoded GIF file."""
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    if "<chem>" in formula or "</chem>" in formula:
+        return formula
     try:
         return formula_to_svg(formula, cat="chem")
     except Exception:
@@ -609,9 +603,23 @@ def convert_chem(match: str | re.Match[str], word: str) -> str:
 
 
 def convert_hiero(match: str | re.Match[str], word: str) -> str:
-    """Convert hiretoglyph symbols to a base64 encoded GIF file."""
+    """Convert hieroglyph symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    if "<hiero>" in expr or "</hiero>" in expr:
+        return expr
     return render_hiero(expr)
+
+
+def convert_math(match: str | re.Match[str], word: str) -> str:
+    """Convert mathematics symbols to a base64 encoded GIF file."""
+    formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
+    if "<math>" in formula or "</math>" in formula:
+        return formula
+    try:
+        return formula_to_svg(formula)
+    except Exception:
+        log.exception("<math> ERROR with %r in [%s]", formula, word)
+        return formula
 
 
 def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:

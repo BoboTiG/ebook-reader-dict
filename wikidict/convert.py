@@ -7,7 +7,6 @@ import hashlib
 import json
 import logging
 import os
-import re
 import shutil
 from collections import defaultdict
 from collections.abc import Generator
@@ -530,7 +529,7 @@ class MobiFormat(ConverterFromDictFile):
 
         Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
 
-    2) No support for the <math> HTML tag, the HTML code is purged to prevent a hard failure:
+    2) [NO MORE VALID] No support for the <math> HTML tag, the HTML code is purged to prevent a hard failure:
 
         Error(htmlprocessor):E32001: Error occured while parsing content. HTML tag that is not supported by Kindle readers found in source  math
 
@@ -561,16 +560,6 @@ class MobiFormat(ConverterFromDictFile):
     target_suffix = "mobi"
     final_file = "dict-{locale}-{locale}.mobi"
     glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
-
-    def _cleanup(self) -> None:
-        """Alter the .df file content to remove unsupported HTML tags."""
-        super()._cleanup()
-
-        file = self.dictionary_file(DictFileFormat.output_file)
-        content_old = file.read_text()
-        content_new = re.sub(r"(<math>.+</math>)", "", content_old)
-        if content_old != content_new:
-            file.write_text(content_new)
 
     def _compress(self) -> Path:
         """For now, we just move the final file to its expected location."""
