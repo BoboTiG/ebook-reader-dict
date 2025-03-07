@@ -903,6 +903,7 @@ racines_schemes_arabes = {
         "ar-*u*ay*ũ": "impromptu",
         "ar-*u*²â*@ũ": "impromptu",
         "ar-*u*²â*ũ": "3ujjûlũ",
+        "ar-*u*û*ũ": "{{p}} veaux",
         "ar-*â*a*a": "expédier",
         "ar-*â*i*@ũ": "{{f}} prompte",
         "ar-*â*i*ũ": "prompt",
@@ -925,7 +926,7 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "précipitation",
         "ar-ta*a*²a*a": "se presser",
         "ar-ta*â*a*a": "lutter de promptitude",
-    },  # 48
+    },  # 49
     "ar-3jm": {
         "aa_sens": "mâcher",
         "ar-***ũ": "",

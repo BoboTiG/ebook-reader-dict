@@ -2412,8 +2412,10 @@ langs = {
     "en-IM": "Manx English",
     "en-IN": "Indian English",
     "en-NNN": "North American English",
+    "en-NZ": "New Zealand English",
     "en-US": "American English",
     "en-US-CA": "California English",
+    "en-ZA": "South African English",
     "en-aae": "Australian Aboriginal English",
     "en-ear": "Early Modern English",
     "en-geo": "Geordie English",
@@ -7024,6 +7026,7 @@ langs = {
     "rnp": "Rongpo",
     "rnw": "Rungwa",
     "ro": "Romanian",
+    "ro-MD": "Moldovan",
     "roa": "Romance",
     "roa-ang": "Angevin",
     "roa-bbn": "Bourbonnais-Berrichon",
@@ -9845,7 +9848,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,840
+}  # 9,843
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
