@@ -161,7 +161,7 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
         # Call the missing templates checker
         check_for_missing_templates()
     finally:
-        # Prevnet leaking false warnings to other tests
+        # Prevent leaking false warnings to other tests
         MISSING_TEMPLATES[:] = []
 
     # Check warnings
