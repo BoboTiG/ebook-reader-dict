@@ -19,7 +19,7 @@ jobs:
           - macos-latest
 
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 5
+    timeout-minutes: 3
 
     steps:
       - uses: actions/checkout@v4
