@@ -154,11 +154,15 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
 """,
     }
 
-    # Render
-    render.render(words, "fr", workers)
+    try:
+        # Render
+        render.render(words, "fr", workers)
 
-    # Call the missing templates checker
-    check_for_missing_templates()
+        # Call the missing templates checker
+        check_for_missing_templates()
+    finally:
+        # Prevent leaking false warnings to other tests
+        MISSING_TEMPLATES[:] = []
 
     # Check warnings
     warnings = [record.getMessage() for record in caplog.get_records("call") if record.levelno == logging.WARNING]
