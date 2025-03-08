@@ -907,26 +907,32 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     '<i>tisa-</i> (unique name)&nbsp;+&nbsp;<i>-gen-</i> (“transfer of genetic material (transduced)”)&nbsp;+&nbsp;<i>-lec-</i> (“selection and enrichment manipulation”)&nbsp;+&nbsp;<i>-leu-</i> (“leukocytes”)&nbsp;+&nbsp;<i>-cel</i> (“cellular therapy”)'
     >>> render_morphology("affix", ["mul", "dys-", "schēma"], defaultdict(str, {"lang1":"NL.","t1":"difficult, impaired, abnormal, bad","lang2":"la", "g2": "f,n", "t2":"shape, form"}))
     'New Latin <i>dys-</i> (“difficult, impaired, abnormal, bad”)&nbsp;+&nbsp;Latin <i>schēma</i> <i>f or n</i> (“shape, form”)'
+    >>> render_morphology("aff", ["en", "'gram<t:Instagram>", "-er<id:occupation>"], defaultdict(str))
+    "<i>'gram</i> and <i>-er</i>"
+
     >>> render_morphology("suffix", ["en", "do", "ing"], defaultdict(str))
     '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
+
     >>> render_morphology("prefix", ["en", "un", "do"], defaultdict(str))
     '<i>un-</i>&nbsp;+&nbsp;<i>do</i>'
     >>> render_morphology("prefix", ["en", "e-", "bus"], defaultdict(str))
     '<i>e-</i>&nbsp;+&nbsp;<i>bus</i>'
-    >>> render_morphology("suffix", ["en", "gabapentin", "-oid"], defaultdict(str))
-    '<i>gabapentin</i>&nbsp;+&nbsp;<i>-oid</i>'
-    >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
-    '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
-    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
-    '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
     >>> render_morphology("prefix", ["en", "toto", "lala" ], defaultdict(str, {"t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
     '<i>alt1-</i> (<i>tr1-</i>, “t1”, pos1)&nbsp;+&nbsp;<i>lala</i>'
-    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
-    '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
     >>> render_morphology("prefix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
     '<i>toto-</i>&nbsp;+&nbsp;<i>alt2</i> (<i>tr2</i>, “t2”, pos2)'
+    >>> render_morphology("pre", ["en", "in", "fare#Etymology_1"], defaultdict(str))
+    '<i>in-</i>&nbsp;+&nbsp;<i>fare</i>'
+
+    >>> render_morphology("suffix", ["en", "gabapentin", "-oid"], defaultdict(str))
+    '<i>gabapentin</i>&nbsp;+&nbsp;<i>-oid</i>'
+    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, { "t1":"t1", "tr1":"tr1", "alt1":"alt1", "pos1":"pos1"}))
+    '<i>alt1</i> (<i>tr1</i>, “t1”, pos1)&nbsp;+&nbsp;<i>-lala</i>'
+    >>> render_morphology("suffix", ["en", "toto", "lala"], defaultdict(str, {"t2":"t2", "tr2":"tr2", "alt2":"alt2", "pos2":"pos2"}))
+    '<i>toto</i>&nbsp;+&nbsp;<i>-alt2</i> (<i>-tr2</i>, “t2”, pos2)'
     >>> render_morphology("suffix", ["en", "", "cide"], defaultdict(str))
     '&nbsp;+&nbsp;<i>-cide</i>'
+
     >>> render_morphology("confix", ["en", "neuro", "genic"], defaultdict(str))
     '<i>neuro-</i>&nbsp;+&nbsp;<i>-genic</i>'
     >>> render_morphology("confix", ["en", "neuro", "gene"], defaultdict(str,{"tr2":"genic"}))
@@ -935,10 +941,12 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     '<i>be-</i>&nbsp;+&nbsp;<i>dew</i>&nbsp;+&nbsp;<i>-ed</i>'
     >>> render_morphology("confix", ["en", "i-", "-tard"], defaultdict(str))
     '<i>i-</i>&nbsp;+&nbsp;<i>-tard</i>'
+
     >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
     >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
     '<i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
+
     >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))
     'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
     >>> render_morphology("blend", ["en"], defaultdict(str))
@@ -979,6 +987,11 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     if not parts:
         return f"{italic(data['2'])}&nbsp;+&nbsp;{italic(data['3'])}"
+
+    for idx in range(len(parts)):
+        part = parts[idx]
+        if "<" in part:
+            parts[idx] = part.split("<", 1)[0]
 
     compound = [
         "af",
