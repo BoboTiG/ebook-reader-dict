@@ -124,6 +124,11 @@ def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
 def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> None:
     """Ensure the "missing templates" feature is working."""
 
+    # Clean-up the global, shared, list of missed templates from other tests
+    from wikidict.render import MISSING_TEMPLATES
+
+    MISSING_TEMPLATES[:] = []
+
     # Craft wikicode with unsupported templates
     words = {
         "a": """

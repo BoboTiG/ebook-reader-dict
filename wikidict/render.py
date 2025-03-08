@@ -48,6 +48,8 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 Sections = dict[str, list[wtp.Section]]
 
 # Multiprocessing shared globals, init in render() see #1054
+# TODO: at some point, we might want to change how we share data between pools (in-memory SQLite, redis, etc.)
+multiprocessing.set_start_method("fork", force=True)
 MANAGER = multiprocessing.Manager()
 MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
 
