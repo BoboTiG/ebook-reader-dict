@@ -75,7 +75,7 @@ def read_all_lines_lang(lines: list[str]) -> dict[str, str]:
 def get_content(url: str) -> list[str]:
     soup = get_soup(url)
     content_div = soup.find("div", "mw-parser-output")
-    content_div = content_div.findChild("div", {"class": "mw-highlight"}, recursive=False)
+    content_div = content_div.find("div", {"class": "mw-highlight"}, recursive=False)
     return str(content_div.text).split("\n")
 
 

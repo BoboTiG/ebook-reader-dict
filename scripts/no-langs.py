@@ -18,7 +18,7 @@ def process_page(page_url: str, languages: dict[str, str]) -> str:
         nextpage = ROOT_URL + last_link.get("href")
 
     content = soup.find("div", {"id": "mw-pages"})
-    lis = content.findAll("li")
+    lis = content.find_all("li")
     for li in lis:
         link = li.find("a")["href"]
         li_url = ROOT_URL + link

@@ -6,7 +6,7 @@ alias_url = "https://de.wiktionary.org/w/index.php?title=Spezial:Linkliste/{}&hi
 soup = get_soup(start_url)
 
 content = soup.find("div", {"class": "mw-category"})
-lis = content.findAll("li")
+lis = content.find_all("li")
 languages = {}
 for li in lis:
     link = li.find("a")["href"]
@@ -19,7 +19,7 @@ for li in lis:
     a_url = alias_url.format(li.text)
     soup_alias = get_soup(a_url)
     if ul_alias := soup_alias.find("ul", {"id": "mw-whatlinkshere-list"}):
-        for alias_li in ul_alias.findAll("li"):
+        for alias_li in ul_alias.find_all("li"):
             alias_text = alias_li.find("a").text
             alias_key = alias_text.split(":")[1]
             languages[alias_key] = value

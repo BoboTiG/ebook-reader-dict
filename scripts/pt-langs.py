@@ -15,7 +15,7 @@ def process_page(page_url: str, languages: dict[str, str]) -> str:
         nextpage = ROOT_URL + last_link.get("href")
 
     content = nextpage_div.find("div", {"class": "mw-category"})
-    lis = content.findAll("li")
+    lis = content.find_all("li")
     for li in lis:
         link = li.find("a")["href"]
         li_url = ROOT_URL + link
