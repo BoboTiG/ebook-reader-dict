@@ -380,6 +380,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("<!--\nsco\n-->", "it")
     ''
 
+    >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
+    ' Qui a rapport avec un type de [[discours]].'
+
     >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
     ''
 
@@ -492,6 +495,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
     elif locale == "es":
         # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
+
+    elif locale == "fr":
+        # <li value="2"> → == ''
+        code = re.sub(r"<li [^>]+>", "", code)
 
     elif locale == "it":
         # [[w:A|B]] → [[A|B]]
