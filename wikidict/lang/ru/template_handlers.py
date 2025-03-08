@@ -31,13 +31,22 @@ def render_сэ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'англ. -ing'
     >>> render_сэ("сэ", ["fr", "Aramis"], defaultdict(str))
     'франц. Aramis'
+    >>> render_сэ("сэ", ["fr"], defaultdict(str))
+    'франц.'
     >>> render_сэ("сэ", ["fr", "pépinière", "питомник"], defaultdict(str, {"и": "ru"}))
     'франц. pépinière ‘питомник’'
+    >>> render_сэ("сэ", ["", "alarm", "тревога"], defaultdict(str, {"скр": "1"}))
+    'alarm ‘тревога’'
     """
-    text = f"{langs_short[parts[0]]} {parts[1]}"
-    if len(parts) > 2:
-        text += f" ‘{parts[2]}’"
-    return text
+    lang = parts.pop(0)
+    texts = []
+    if lang:
+        texts.append(langs_short[lang])
+    if parts:
+        texts.append(parts.pop(0))
+        if parts:
+            texts.append(f"‘{parts[0]}’")
+    return " ".join(texts)
 
 
 def render_помета(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
