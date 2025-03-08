@@ -142,6 +142,8 @@ templates_multi = {
     "adjetivo de sustantivo": '"Que pertenece o concierne " + (f"{parts[2]} " if len(parts) > 2 else "a ") + f"{parts[1]}"',
     # {{adjetivo de padecimiento|alergia}}
     "adjetivo de padecimiento": 'f"Que padece o sufre de {parts[1]}" + (f" o {parts[2]} " if len(parts) > 2 else "")',
+    # {{año de documentación|1250}}
+    "año de documentación": 'f"Uso atestiguado desde {parts[1]}"',
     # {{cognados|tonina}}
     "cognados": "f\"{strong('Cognado:')} {parts[1]}\"",
     # {{color|#DDB88E|espacio=6}}
