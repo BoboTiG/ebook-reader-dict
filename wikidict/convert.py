@@ -6,13 +6,13 @@ import gzip
 import hashlib
 import json
 import logging
+import multiprocessing
 import os
 import shutil
 from collections import defaultdict
 from collections.abc import Generator
 from datetime import date
 from functools import partial
-from multiprocessing import Pool
 from pathlib import Path
 from typing import Any
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -664,7 +664,7 @@ def distribute_workload(
     include_etymology: bool = True,
 ) -> None:
     """Run formaters in parallel."""
-    with Pool(len(formaters)) as pool:
+    with multiprocessing.Pool(len(formaters)) as pool:
         pool.map(
             partial(
                 run_formatter,
@@ -693,6 +693,9 @@ def main(locale: str) -> int:
 
     # And run formaters, distributing the workload
     args = (output_dir, file, locale, words, variants)
+
+    # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
+    multiprocessing.set_start_method("spawn", force=True)
 
     distribute_workload(get_primary_formaters(), *args)
     distribute_workload(get_secondary_formaters(), *args)
