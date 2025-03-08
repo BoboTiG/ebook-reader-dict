@@ -6,9 +6,21 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}-${{ github.event_name }}-${{ github.event_name != 'pull_request' && github.sha || '' }}
+  cancel-in-progress: true
+
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 3
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,17 +36,29 @@ jobs:
       - name: Quality checks, and linters
         run: ./check.sh
 
-      - name: Install kindlegen
+      - name: Install kindlegen (GNU/Linux)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           mkdir -p ~/.local/bin
           wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_linux/kindlegen -O ~/.local/bin/kindlegen
           chmod a+x ~/.local/bin/kindlegen
 
+      - name: Install kindlegen (macOS)
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: |
+          mkdir -p ~/.local/bin
+          wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_mac/kindlegen64 -O ~/.local/bin/kindlegen
+          chmod a+x ~/.local/bin/kindlegen
+
       - name: Unit tests
         run: python -Wd -m pytest tests --doctest-modules wikidict
 
+  automerge:
+    runs-on: ubuntu-latest
+    needs: [tests]
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
       - name: Automerge
-        if: ${{ github.actor == 'dependabot[bot]' }}
         run: gh pr merge --auto --rebase "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
