@@ -249,7 +249,7 @@ def guess_prefix(word: str) -> str:
     return prefix.ljust(2, "a") if all(c.isalpha() and c.islower() for c in prefix) else "11"
 
 
-def clean(text: str, *, locale: str = "en") -> str:
+def clean(text: str) -> str:
     r"""Cleans up the provided Wikicode.
     Removes templates, tables, parser hooks, magic words, HTML tags and file embeds.
     Keeps links.
@@ -314,9 +314,9 @@ def clean(text: str, *, locale: str = "en") -> str:
         'b'
         >>> clean("[[-au|-[e]au]]")
         '-[e]au'
-        >>> clean("[[Stó:lō]]", locale="fr")
+        >>> clean("[[Stó:lō]]")
         'Stó:lō'
-        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]", locale="fr")
+        >>> clean("[[Annexe:Principales puissances de 10|10{{e|&minus;6}}]] [[gray#fr-nom|gray]]")
         '10{{e|&minus;6}} gray'
 
         >>> clean("[http://www.bertrange.fr/bienvenue/historique/]")
@@ -471,7 +471,7 @@ def process_templates(
     wikicode: str,
     locale: str,
     *,
-    callback: Callable[[str, str], str] = clean,  # type: ignore[assignment]
+    callback: Callable[[str], str] = clean,
 ) -> str:
     r"""Process all templates.
 
@@ -509,7 +509,7 @@ def process_templates(
     sub = re.sub
 
     # Clean-up the code
-    if not (text := callback(wikicode, locale=locale)):  # type: ignore[call-arg]
+    if not (text := callback(wikicode)):
         return ""
 
     # {{foo}}
