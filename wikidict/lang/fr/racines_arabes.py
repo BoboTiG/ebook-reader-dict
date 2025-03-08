@@ -892,6 +892,7 @@ racines_schemes_arabes = {
         "ar-*a*û*ũ": "trop pressé",
         "ar-*i**@ũ": "génisse",
         "ar-*i**ũ": "veau",
+        "ar-*i*a*ũ": "{{p}} génisses",
         "ar-*i*²aw*ũ": "veau",
         "ar-*i*²â*@ũ": "impromptu",
         "ar-*i*â*ũ": "{{p}} roues",
@@ -926,7 +927,7 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "précipitation",
         "ar-ta*a*²a*a": "se presser",
         "ar-ta*â*a*a": "lutter de promptitude",
-    },  # 49
+    },  # 50
     "ar-3jm": {
         "aa_sens": "mâcher",
         "ar-***ũ": "",
