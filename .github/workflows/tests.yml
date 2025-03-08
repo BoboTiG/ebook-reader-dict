@@ -29,10 +29,18 @@ jobs:
       - name: Quality checks, and linters
         run: ./check.sh
 
-      - name: Install kindlegen
+      - name: Install kindlegen (GNU/Linux)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           mkdir -p ~/.local/bin
           wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_linux/kindlegen -O ~/.local/bin/kindlegen
+          chmod a+x ~/.local/bin/kindlegen
+
+      - name: Install kindlegen (macOS)
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: |
+          mkdir -p ~/.local/bin
+          wget https://raw.githubusercontent.com/BoboTiG/ebook-reader-dict/refs/heads/kindlegen-backup/kindlegen_mac/kindlegen64 -O ~/.local/bin/kindlegen
           chmod a+x ~/.local/bin/kindlegen
 
       - name: Unit tests
