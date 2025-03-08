@@ -537,7 +537,7 @@ class MobiFormat(ConverterFromDictFile):
 
         Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
 
-    4) The Greek (EL) locale might be incorrectly displayed:
+    4) Greek (EL), and Russian (RU), locales might be incorrectly displayed:
 
         Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
 
