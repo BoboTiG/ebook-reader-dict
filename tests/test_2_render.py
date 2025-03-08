@@ -1,3 +1,4 @@
+import logging
 from collections.abc import Callable
 from pathlib import Path
 from unittest.mock import patch
@@ -7,6 +8,7 @@ from wikitextparser import Section
 
 from wikidict import render
 from wikidict.stubs import Word, Words
+from wikidict.utils import check_for_missing_templates
 
 
 def test_simple() -> None:
@@ -116,3 +118,48 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
 )
 def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
     assert render.adjust_wikicode(code, locale) == expected
+
+
+@pytest.mark.parametrize("workers", [1, 2, 3])
+def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> None:
+    """Ensure the "missing templates" feature is working."""
+
+    # Craft wikicode with unsupported templates
+    words = {
+        "a": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''a'''
+# Première [[lettre]] et première [[voyelle]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0061}}.
+# [[chiffre|Chiffre]] [[hexadécimal]] [[dix]] (minuscule) {{unknown-2|foo|bar|lang=hex}}.
+# {{unknown-3}}
+""",
+        "b": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''b'''
+# Deuxième [[lettre]] et première [[consonne]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0062}}.
+""",
+        "c": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''c'''
+# Troisième [[lettre]] et deuxième [[consonne]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0063}}.
+# {{unknown-3}}
+""",
+    }
+
+    # Render
+    render.render(words, "fr", workers)
+
+    # Call the missing templates checker
+    check_for_missing_templates()
+
+    # Check warnings
+    warnings = [record.getMessage() for record in caplog.get_records("call") if record.levelno == logging.WARNING]
+    assert warnings == [
+        "Missing `unknown-1` template support (3 times), example in: `a`, `b`, `c`",
+        "Missing `unknown-3` template support (2 times), example in: `a`, `c`",
+        "Missing `unknown-2` template support (1 times), example in: `a`",
+        "Unhandled templates count: 3",
+    ]
