@@ -539,7 +539,6 @@ def process_templates(
     for tag, func in [("chem", convert_chem), ("hiero", convert_hiero), ("math", convert_math)]:
         text = sub(rf"<{tag}>(.+?)</{tag}>", partial(func, word=word), text)
         if f"<{tag}>" in text or f"</{tag}>" in text:
-            print(repr(text))
             raise ValueError(f"Missed <{tag}> HTML tag in {word!r}")
 
     # Issue #584: move Arabic/Persian characters out of italic tags
