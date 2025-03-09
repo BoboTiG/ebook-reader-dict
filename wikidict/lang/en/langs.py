@@ -3496,8 +3496,12 @@ langs = {
     "it-CH": "Switzerland Italian",
     "itb": "Binongan Itneg",
     "itc": "Italic",
+    "itc-laf": "Latino-Faliscan",
+    "itc-lan": "Lanuvian",
     "itc-ola": "Old Latin",
+    "itc-pra": "Praenestine",
     "itc-pro": "Proto-Italic",
+    "itc-psa": "Pre-Samnite",
     "itc-sbl": "Osco-Umbrian",
     "itd": "Southern Tidung",
     "ite": "Itene",
@@ -4945,8 +4949,8 @@ langs = {
     "mis-mmn": "Mimi of Nachtigal",
     "mis-phi": "Philistine",
     "mis-rou": "Rouran",
-    "mis-tdl": "Turduli",
-    "mis-tdt": "Turdetani",
+    "mis-tdl": "Turdulian",
+    "mis-tdt": "Turdetanian",
     "mis-tnw": "Tangwang",
     "mis-tuh": "Tuyuhun",
     "mis-tuo": "Tuoba",
@@ -6898,8 +6902,7 @@ langs = {
     "qsb-bal": "Paleo-Balkan",
     "qsb-bma": "the BMAC substrate",
     "qsb-grc": "Pre-Greek",
-    "qsb-ibe": "a pre-Roman substrate of Iberia",
-    "qsb-pyg": "a substrate language originally spoken by the Pygmies",
+    "qsb-ibe": "Paleo-Hispanic",
     "qu": "Quechua",
     "qua": "Quapaw",
     "quc": "K'iche'",
@@ -9105,6 +9108,7 @@ langs = {
     "xet": "Xetá",
     "xeu": "Keoru-Ahia",
     "xfa": "Faliscan",
+    "xfa-cap": "Capenate",
     "xga": "Galatian",
     "xgb": "Gbin",
     "xgd": "Gudang",
@@ -9379,7 +9383,6 @@ langs = {
     "xuj": "Jennu Kurumba",
     "xul": "Ngunawal",
     "xum": "Umbrian",
-    "xum-her": "Hernician",
     "xun": "Unggaranggu",
     "xuo": "Kuo",
     "xup": "Upper Umpqua",
@@ -9848,7 +9851,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,843
+}  # 9,846
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

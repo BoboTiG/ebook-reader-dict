@@ -400,6 +400,11 @@ recognized_placetypes = {
         "display": "civil parish",
         "preposition": "of",
     },
+    "co-capital": {
+        "article": "the",
+        "display": "co-capital",
+        "preposition": "of",
+    },
     "coal town": {
         "article": "a",
         "display": "coal town",
@@ -2215,7 +2220,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 442
+}  # 443
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2411,6 +2416,7 @@ recognized_qualifiers = {
 }  # 99
 
 recognized_placenames = {
+    "administrative region/Occitanie": {"article": "", "display": "administrative region/Occitania"},
     "archipelago/Cyclades": {"article": "the", "display": ""},
     "archipelago/Dodecanese": {"article": "the", "display": ""},
     "autonomous community/Balearic Islands": {"article": "the", "display": ""},
@@ -2460,8 +2466,6 @@ recognized_placenames = {
     "country/Roman Empire": {"article": "the", "display": ""},
     "country/Solomon Islands": {"article": "the", "display": ""},
     "country/Soviet Union": {"article": "the", "display": ""},
-    "country/State of Palestine": {"article": "", "display": "country/Palestine"},
-    "country/Swaziland": {"article": "", "display": "country/Eswatini"},
     "country/Türkiye": {"article": "", "display": "country/Turkey"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
@@ -2500,9 +2504,13 @@ recognized_placenames = {
     "overseas territory/United States Virgin Islands": {"article": "the", "display": ""},
     "province/Bangka Belitung Islands": {"article": "the", "display": ""},
     "province/Dinagat Islands": {"article": "the", "display": ""},
+    "province/Fuchien": {"article": "", "display": "province/Fujian"},
+    "province/Noord-Brabant": {"article": "", "display": "province/North Brabant"},
+    "province/Noord-Holland": {"article": "", "display": "province/North Holland"},
     "province/Riau Islands": {"article": "the", "display": ""},
     "province/Special Capital Region of Jakarta": {"article": "the", "display": ""},
     "province/Special Region of Yogyakarta": {"article": "the", "display": ""},
+    "province/Zuid-Holland": {"article": "", "display": "province/South Holland"},
     "region/Balkans": {"article": "the", "display": ""},
     "region/Caribbean": {"article": "the", "display": ""},
     "region/Caucasus": {"article": "the", "display": ""},
@@ -2513,6 +2521,7 @@ recognized_placenames = {
     "region/North Caucasus": {"article": "the", "display": ""},
     "region/North Savo": {"article": "", "display": "region/Northern Savonia"},
     "region/Northern Ostrobothnia": {"article": "", "display": "region/North Ostrobothnia"},
+    "region/Occitanie": {"article": "", "display": "region/Occitania"},
     "region/Päijät-Häme": {"article": "", "display": "region/Päijänne Tavastia"},
     "region/Russian Far East": {"article": "the", "display": ""},
     "region/South Caucasus": {"article": "the", "display": ""},
@@ -2570,5 +2579,5 @@ recognized_placenames = {
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 159
+}  # 163
 # END

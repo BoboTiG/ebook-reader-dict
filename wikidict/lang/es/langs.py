@@ -2624,7 +2624,7 @@ langs = {
     "huq": "tsat",
     "hur": "halkomelem",
     "hus": "huasteco",
-    "huu": "murui",
+    "huu": "huitoto murui",
     "huv": "huave",
     "huw": "hukumina",
     "hux": "nipode",
@@ -3343,6 +3343,7 @@ langs = {
     "kof": "kubi",
     "kog": "cogui",
     "koh": "koyo",
+    "koi": "komi permio",
     "kok": "konkani (macrolengua)",
     "kol": "kol moderno de Nueva Bretaña",
     "koo": "konzo",
@@ -3375,6 +3376,7 @@ langs = {
     "kps": "tehit",
     "kpt": "karata",
     "kpu": "kafoa",
+    "kpv": "komi ziriano",
     "kpw": "kalam-kobon",
     "kpx": "koiari de las montañas",
     "kpy": "koryak",
@@ -8275,5 +8277,5 @@ langs = {
     "zxx": "---n/a---",
     "zyp": "chin zyphe",
     "zza": "zazaki",
-}  # 8,270
+}  # 8,272
 # END
