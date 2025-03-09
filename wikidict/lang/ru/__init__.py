@@ -56,6 +56,8 @@ templates_multi = {
     "страд.": "italic('страд.') + ' к' + ((' ' + parts[1]) if len(parts) > 1 else '')",
     # {{марр|значение слова или выражения}}
     "марр": 'f"‘{parts[1]}’"',
+    # {{этим-2|{{lang|en|AI|ИИ}}|{{lang|en|artificial intelligence|искусственный интеллект}}|[[тренер]]|{{lang|en|trainer|тренер}}}}
+    "этим-2": 'f"{parts[1]} + {parts[3]}"',
 }
 
 # Templates that will be completed/replaced using custom text.
