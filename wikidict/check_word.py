@@ -404,7 +404,11 @@ def get_wiktionary_page(word: str, locale: str) -> str:
 
 
 def check_word(
-    word: str, locale: str, *, standalone: bool = True, missed_templates: list[tuple[str, str]] | None = None
+    word: str,
+    locale: str,
+    *,
+    standalone: bool = True,
+    missed_templates: list[tuple[str, str]] | None = None,
 ) -> int:
     errors = 0
     results: list[str] = []
