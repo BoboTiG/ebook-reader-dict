@@ -657,7 +657,7 @@ def load(file: Path) -> dict[str, str]:
     return words
 
 
-def render_word(w: list[str], words: Words, locale: str) -> None:
+def render_word(w: list[str], words: Words, locale: str) -> Word | None:
     word, code = w
     with suppress(KeyboardInterrupt):
         try:
@@ -667,6 +667,8 @@ def render_word(w: list[str], words: Words, locale: str) -> None:
         else:
             if details.definitions or details.variants:
                 words[word] = details
+                return details
+    return None
 
 
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:

@@ -7,7 +7,7 @@ import pytest
 from wikitextparser import Section
 
 from wikidict import render
-from wikidict.stubs import Word, Words
+from wikidict.stubs import Word
 from wikidict.utils import check_for_missing_templates
 
 
@@ -31,25 +31,18 @@ def test_empty_json_file(tmp_path: Path) -> None:
 
 
 def test_render_word(page: Callable[[str, str], str]) -> None:
-    word = ["π", page("π", "fr")]
-    words: Words = {}
-    render.render_word(word, words, "fr")
-    assert words["π"]
+    assert render.render_word(["π", page("π", "fr")], {}, "fr")
 
 
 def test_render_word_sv_with_almost_empty_definition(page: Callable[[str, str], str]) -> None:
-    word = ["Götet", page("Götet", "sv")]
-    words: Words = {}
-    render.render_word(word, words, "sv")
-    assert words["Götet"]
+    assert render.render_word(["Götet", page("Götet", "sv")], {}, "sv")
 
 
 def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -> None:
-    words: Words = {}
-    render.render_word(["test", page("tests-definitions", "fr")], words, "fr")
-    word: Word = words["test"]
+    details = render.render_word(["test", page("tests-definitions", "fr")], {}, "fr")
+    assert details
 
-    defs = word.definitions
+    defs = details.definitions
     assert len(defs) == 2
     assert isinstance(defs[0], str)
     assert isinstance(defs[1], tuple)
@@ -130,7 +123,7 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
     MISSING_TEMPLATES[:] = []
 
     # Craft wikicode with unsupported templates
-    words = {
+    in_words = {
         "a": """
 == {{langue|fr}} ==
 === {{S|lettre|fr}} ===
@@ -156,7 +149,7 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
 
     try:
         # Render
-        render.render(words, "fr", workers)
+        words = render.render(in_words, "fr", workers)
 
         # Call the missing templates checker
         check_for_missing_templates()
@@ -172,3 +165,35 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
         "Missing `unknown-2` template support (1 times), example in: `a`",
         "Unhandled templates count: 3",
     ]
+
+    # Check words
+    assert words == {
+        "a": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=[
+                "Première lettre et première voyelle de l’alphabet latin (minuscule). {{unknown-1}}.",
+                "Chiffre hexadécimal dix (minuscule) {{unknown-2}}.",
+                "{{unknown-3}}",
+            ],
+            variants=[],
+        ),
+        "b": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=["Deuxième lettre et première consonne de l’alphabet latin (minuscule). {{unknown-1}}."],
+            variants=[],
+        ),
+        "c": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=[
+                "Troisième lettre et deuxième consonne de l’alphabet latin (minuscule). {{unknown-1}}.",
+                "{{unknown-3}}",
+            ],
+            variants=[],
+        ),
+    }
