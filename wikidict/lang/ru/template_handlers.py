@@ -37,15 +37,19 @@ def render_сэ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'франц. pépinière ‘питомник’'
     >>> render_сэ("сэ", ["", "alarm", "тревога"], defaultdict(str, {"скр": "1"}))
     'alarm ‘тревога’'
+    >>> render_сэ("сэ", ["yue", "海鮮"], defaultdict(str, {"т": "hoi<sup>2</sup> sin<sup>1</sup>"}))
+    '海鮮 (hoi<sup>2</sup> sin<sup>1</sup>)'
     """
     lang = parts.pop(0)
     texts = []
-    if lang:
-        texts.append(langs_short[lang])
+    if lang and (slang := langs_short.get(lang)):
+        texts.append(slang)
     if parts:
         texts.append(parts.pop(0))
         if parts:
             texts.append(f"‘{parts[0]}’")
+    if т := data["т"]:
+        texts.append(f"({т})")
     return " ".join(texts)
 
 
