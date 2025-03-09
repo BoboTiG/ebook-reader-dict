@@ -69,15 +69,13 @@ CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 log = logging.getLogger(__name__)
 
 
-def check_for_missing_templates() -> bool:
-    from .render import MISSING_TEMPLATES
-
-    if not (missing_templates := list(MISSING_TEMPLATES)):
+def check_for_missing_templates(missed_templates: list[tuple[str, str]]) -> bool:
+    if not missed_templates:
         return False
 
     missings_counts: dict[str, int] = defaultdict(int)
     missings: dict[str, set[str]] = defaultdict(set)
-    for tpl, word in missing_templates:
+    for tpl, word in missed_templates:
         missings_counts[tpl] += 1
         missings[tpl].add(word)
     for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
@@ -472,6 +470,7 @@ def process_templates(
     locale: str,
     *,
     callback: Callable[[str], str] = clean,
+    missed_templates: list[tuple[str, str]] | None = None,
 ) -> str:
     r"""Process all templates.
 
@@ -527,7 +526,7 @@ def process_templates(
             if tpl in SPECIAL_TEMPLATES:
                 text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
             # Transform the template
-            text = text.replace(tpl, transform(word, tpl[2:-2], locale))
+            text = text.replace(tpl, transform(word, tpl[2:-2], locale, missed_templates=missed_templates))
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
@@ -636,7 +635,7 @@ def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
     return phrase
 
 
-def transform(word: str, template: str, locale: str) -> str:
+def transform(word: str, template: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
@@ -708,4 +707,4 @@ def transform(word: str, template: str, locale: str) -> str:
         with suppress(KeyError):
             return f"<i>({templates_italic[locale][tpl]})</i>"
 
-    return str(last_template_handler[locale](parts, locale, word=word))
+    return str(last_template_handler[locale](parts, locale, word=word, missed_templates=missed_templates))
