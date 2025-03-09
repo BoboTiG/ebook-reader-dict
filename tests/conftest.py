@@ -42,8 +42,6 @@ def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None]:
     warnings = []
     for warning in recwarn:  # pragma: no cover
         message = str(warning.message)
-        if "use of fork() may lead to deadlocks in the child" in message:
-            continue
         warn = f"{warning.filename}:{warning.lineno} {message}"
         print(warn, file=sys.stderr)
         warnings.append(warn)
