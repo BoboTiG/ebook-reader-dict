@@ -163,7 +163,7 @@ def format_description(locale: str, output_dir: Path) -> str:
         "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)",
         "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
     }
-    if locale in {"en", "eo"}:
+    if locale == "en":
         _links_full.pop("mobi")
         _links_etym_free.pop("mobi")
 
