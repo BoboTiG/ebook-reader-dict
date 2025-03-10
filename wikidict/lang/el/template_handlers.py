@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from ...user_functions import concat, extract_keywords_from, italic, parenthesis
+from ...user_functions import concat, extract_keywords_from, italic, parenthesis, strong
 from .langs import langs
 
 
@@ -227,6 +227,42 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase.strip()
 
 
+def render_παθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_παθ("παθ", [], defaultdict(str))
+    '<i>παθητική φωνή</i>'
+    >>> render_παθ("παθ", [], defaultdict(str, {"μπ": "1"}))
+    '<i>μεσοπαθητική φωνή</i>'
+    >>> render_παθ("παθ", [], defaultdict(str, {"μ": "1"}))
+    '<i>μέση φωνή</i>'
+    >>> render_παθ("παθ", ["λύνω"], defaultdict(str))
+    '<i>παθητική φωνή του ρήματος</i> <b>λύνω</b>'
+    >>> render_παθ("παθ", ["λύω"], defaultdict(str, {"μπ": "1"}))
+    '<i>μεσοπαθητική φωνή του ρήματος</i> <b>λύω</b>'
+    >>> render_παθ("παθ", ["αἱρῶ", "grc"], defaultdict(str, {"μπ": "1", "τύπος": "σνρ"}))
+    '<i>μεσοπαθητική φωνή του συνηρημένου ρήματος</i> <b>αἱρῶ</b>'
+    """
+    phrase = "παθητική φωνή"
+    if data["μπ"] == "1":
+        phrase = "μεσοπαθητική φωνή"
+    elif data["μ"] == "1":
+        phrase = "μέση φωνή"
+
+    if parts:
+        verb = parts[0]
+        if verb:
+            if data["τύπος"] in ("σνρ", "συνηρημένο", "contr", "contracted"):
+                phrase += " του συνηρημένου ρήματος"
+            else:
+                phrase += " του ρήματος"
+            phrase = italic(phrase)
+            phrase += f" {strong(verb)}"
+    else:
+        phrase = italic(phrase)
+
+    return phrase
+
+
 template_mapping = {
     "π": render_π,
     "p": render_π,
@@ -240,6 +276,7 @@ template_mapping = {
     "μεγ": render_μεγ,
     "υπο": render_υπο,
     "ελνστ": render_ελνστ,
+    "παθ": render_παθ,
 }
 
 
