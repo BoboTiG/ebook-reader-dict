@@ -2189,6 +2189,7 @@ langs = {
     "idb": "créole indo-portugais",
     "ide": "idere",
     "idi": "idi",
+    "idiom neutral": "idiom neutral",
     "idt": "idaté",
     "idu": "idoma",
     "ie": "interlingue",
@@ -6545,5 +6546,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,540
+}  # 6,541
 # END

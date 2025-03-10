@@ -2230,6 +2230,7 @@ placetypes_aliases = {
     "aokr": "autonomous okrug",
     "ap": "autonomous province",
     "apref": "autonomous prefecture",
+    "aprov": "autonomous province",
     "ar": "autonomous region",
     "arch": "archipelago",
     "arep": "autonomous republic",
@@ -2242,6 +2243,7 @@ placetypes_aliases = {
     "cdblock": "community development block",
     "cdep": "Crown dependency",
     "cdp": "census-designated place",
+    "clcity": "county-level city",
     "co": "county",
     "cobor": "county borough",
     "colcity": "county-level city",
@@ -2252,6 +2254,7 @@ placetypes_aliases = {
     "dep": "dependency",
     "departmental capital": "department capital",
     "dept": "department",
+    "depterr": "dependent territory",
     "dist": "district",
     "distmun": "district municipality",
     "div": "division",
@@ -2278,10 +2281,12 @@ placetypes_aliases = {
     "par": "parish",
     "parmun": "parish municipality",
     "pen": "peninsula",
+    "plcity": "prefecture-level city",
     "plcolony": "Polish colony",
     "pref": "prefecture",
     "prefcity": "prefecture-level city",
     "preflcity": "prefecture-level city",
+    "prov": "province",
     "r": "region",
     "range": "mountain range",
     "rcomun": "regional county municipality",
@@ -2311,7 +2316,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 88
+}  # 93
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -2492,6 +2497,7 @@ recognized_placenames = {
     "external territory/Cocos Islands": {"article": "the", "display": ""},
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
+    "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
     "overseas territory/British Indian Ocean Territory": {"article": "the", "display": ""},
     "overseas territory/British Virgin Islands": {"article": "the", "display": ""},
     "overseas territory/Cayman Islands": {"article": "the", "display": ""},
@@ -2579,5 +2585,5 @@ recognized_placenames = {
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 163
+}  # 164
 # END

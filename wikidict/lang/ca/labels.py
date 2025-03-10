@@ -136,6 +136,7 @@ labels = {
     "matemàtica": "matemàtiques",
     "mexicà": "Mèxic",
     "neologisme": "neologisme",
+    "neologisme semàntic": "neologisme semàntic",
     "nicaragüenc": "Nicaragua",
     "nicaragüeny": "Nicaragua",
     "nom+adj": "també substantivat",
@@ -163,5 +164,5 @@ labels = {
     "vulgarisme": "vulgarisme",
     "vulgarment": "vulgarisme",
     "xilè": "Xile",
-}  # 103
+}  # 104
 # END
