@@ -1,5 +1,7 @@
 """Convert rendered data to working dictionaries."""
 
+from __future__ import annotations
+
 import bz2
 import gc
 import gzip
@@ -10,11 +12,10 @@ import multiprocessing
 import os
 import shutil
 from collections import defaultdict
-from collections.abc import Generator
 from datetime import date
 from functools import partial
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from jinja2 import Template
@@ -23,13 +24,19 @@ from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
 from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS, NO_ETYMOLOGY_SUFFIX
 from .lang import wiktionary
-from .stubs import Groups, Variants, Word, Words
+from .stubs import Word
 from .utils import (
     convert_gender,
     convert_pronunciation,
     format_description,
     guess_prefix,
 )
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
+    from typing import Any
+
+    from .stubs import Groups, Variants, Words
 
 # Kobo-related dictionaries
 WORD_TPL_KOBO = Template(

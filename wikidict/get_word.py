@@ -1,14 +1,19 @@
 """Get and render a word."""
 
+from __future__ import annotations
+
 import os
 import re
+from typing import TYPE_CHECKING
 
 import requests
 
 from .render import parse_word
-from .stubs import Word
 from .user_functions import int_to_roman
 from .utils import check_for_missing_templates, convert_gender, convert_pronunciation, get_random_word
+
+if TYPE_CHECKING:
+    from .stubs import Word
 
 
 def get_word(word: str, locale: str) -> Word:

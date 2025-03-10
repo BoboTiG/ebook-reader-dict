@@ -1,16 +1,21 @@
 """Retrieve Wiktionary data."""
 
+from __future__ import annotations
+
 import bz2
 import logging
 import os
 import re
-from collections.abc import Callable
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import requests
 from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
 
 log = logging.getLogger(__name__)
 

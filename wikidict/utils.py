@@ -1,14 +1,15 @@
 """Utilities for internal use."""
 
+from __future__ import annotations
+
 import logging
 import os
 import re
 from collections import defaultdict, namedtuple
-from collections.abc import Callable
 from contextlib import suppress
 from datetime import UTC, datetime
 from functools import partial
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 import regex
 import requests
@@ -38,6 +39,11 @@ from .lang import (
     thousands_separator,
 )
 from .user_functions import *  # noqa: F403
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
+    from pathlib import Path
+
 
 # Magic words (small part, only data/time related)
 # https://www.mediawiki.org/wiki/Help:Magic_words

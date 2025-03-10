@@ -1,15 +1,21 @@
 """Parse and store raw Wiktionary data."""
 
+from __future__ import annotations
+
 import json
 import logging
 import os
 import re
 from collections import defaultdict
-from collections.abc import Generator
 from pathlib import Path
+from typing import TYPE_CHECKING
 from xml.sax.saxutils import unescape
 
 from .lang import head_sections
+
+if TYPE_CHECKING:
+    from collections.abc import Generator
+
 
 log = logging.getLogger(__name__)
 

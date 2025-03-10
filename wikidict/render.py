@@ -1,17 +1,18 @@
 """Render templates from raw data."""
 
+from __future__ import annotations
+
 import json
 import logging
 import multiprocessing
 import os
 import re
 from collections import defaultdict
-from collections.abc import Callable
 from contextlib import suppress
 from functools import partial
 from itertools import chain
 from pathlib import Path
-from typing import cast
+from typing import TYPE_CHECKING, cast
 
 import wikitextparser as wtp
 import wikitextparser._spans
@@ -31,9 +32,15 @@ from .lang import (
     variant_titles,
 )
 from .namespaces import namespaces
-from .stubs import Definitions, SubDefinitions, Word, Words
+from .stubs import Word
 from .user_functions import uniq
 from .utils import check_for_missing_templates, process_templates, table2html
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
+
+    from .stubs import Definitions, SubDefinitions, Words
+
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
 #   If the byte_array passed to parse_to_spans contains n WikiLinks, then
