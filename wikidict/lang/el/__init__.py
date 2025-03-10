@@ -166,6 +166,11 @@ templates_other = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
 release_description = """\
+### 🌟 Προκειμένου να ενημερώνεται τακτικά, αυτό το έργο χρειάζεται υποστήριξη- [κάντε κλικ εδώ](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) για να κάνετε δωρεά. 🌟
+
+<br/>
+
+
 Αριθμός λέξεων: {words_count}
 Εξαγωγή Βικιλεξικού: {dump_date}
 

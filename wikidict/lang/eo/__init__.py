@@ -234,6 +234,11 @@ templates_other["Poe."] = templates_other["poe."]
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/eo
 release_description = """\
+### 🌟 Por esti regule ĝisdatigita, ĉi tiu projekto bezonas subtenon; [Alklaku ĉi tie](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) por donaci. 🌟
+
+<br/>
+
+
 Vortoj kalkulas: {words_count}
 Vikivortaro rubejo: {dump_date}
 

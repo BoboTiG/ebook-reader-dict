@@ -196,6 +196,11 @@ templates_multi: dict[str, str] = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it
 release_description = """\
+### 🌟 Per poter essere aggiornato regolarmente, questo progetto ha bisogno di sostegno; [cliccare qui](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) per fare una donazione. 🌟
+
+<br/>
+
+
 Numero di parole: {words_count}
 Export Wiktionary: {dump_date}
 

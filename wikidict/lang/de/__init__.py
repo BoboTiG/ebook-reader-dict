@@ -198,6 +198,11 @@ templates_markierung = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/de
 release_description = """\
+### 🌟 Um regelmäßig aktualisiert werden zu können, benötigt dieses Projekt Unterstützung; [hier klicken](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) um zu spenden. 🌟
+
+<br/>
+
+
 Anzahl Worte: {words_count}
 Wiktionary-Dump vom: {dump_date}
 

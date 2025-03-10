@@ -254,6 +254,11 @@ templates_other = {"nbsp": "&nbsp;"}
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/en
 release_description = """\
+### 🌟 In order to be regularly updated, this project needs support; [click here](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) to donate. 🌟
+
+<br/>
+
+
 Words count: {words_count}
 Wiktionary dump: {dump_date}
 

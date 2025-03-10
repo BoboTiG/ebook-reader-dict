@@ -9,7 +9,12 @@ from wikidict import convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
 from wikidict.stubs import Word
 
-EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
+EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
+
+<br/>
+
+
+Nombre de mots : 42
 Export Wiktionnaire : 2020-12-17
 
 Version complète :

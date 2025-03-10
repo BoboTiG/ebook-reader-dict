@@ -166,6 +166,11 @@ templates_other = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/no
 release_description = """\
+### 🌟 For å kunne oppdateres jevnlig trenger dette prosjektet støtte; [klikk her](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) for å donere. 🌟
+
+<br/>
+
+
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 

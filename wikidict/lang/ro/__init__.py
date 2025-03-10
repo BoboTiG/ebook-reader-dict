@@ -180,6 +180,11 @@ templates_multi = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ro
 release_description = """\
+### 🌟 Pentru a fi actualizat periodic, acest proiect are nevoie de sprijin; [faceți clic aici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pentru a dona. 🌟
+
+<br/>
+
+
 Număr de cuvinte: {words_count}
 Extragerea datelor din Wikționar: {dump_date}
 

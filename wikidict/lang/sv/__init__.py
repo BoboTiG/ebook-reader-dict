@@ -153,6 +153,11 @@ _gammalstavning = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
 release_description = """\
+### 🌟 För att kunna uppdateras regelbundet behöver detta projekt stöd; [klicka här](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) för att donera. 🌟
+
+<br/>
+
+
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 

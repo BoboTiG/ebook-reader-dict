@@ -173,6 +173,11 @@ templates_multi["imperativ form af"] = templates_multi["imperativ af"]
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
 release_description = """\
+### 🌟 For at kunne blive opdateret regelmæssigt har dette projekt brug for støtte; [klik her](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) for at donere. 🌟
+
+<br/>
+
+
 Ordtælling: {words_count}
 Dump Wiktionary: {dump_date}
 

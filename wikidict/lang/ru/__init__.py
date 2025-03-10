@@ -74,6 +74,11 @@ templates_other = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
 release_description = """\
+### 🌟 Для того чтобы этот проект регулярно обновлялся, ему необходима поддержка; [нажмите здесь](https://github.com/BoboTiG/ebook-reader-dict/issues/2339), чтобы сделать пожертвование. 🌟
+
+<br/>
+
+
 Количество слов : {words_count}
 Экспорт Викисловаря : {dump_date}
 

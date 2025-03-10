@@ -548,6 +548,11 @@ templates_other = {
 # Contenu de la release sur GitHub :
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
 release_description = """\
+### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
+
+<br/>
+
+
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
