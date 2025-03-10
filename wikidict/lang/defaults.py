@@ -58,7 +58,13 @@ def find_pronunciations(
     return []
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -98,10 +104,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    from ..render import MISSING_TEMPLATES
+    if missed_templates is not None:
+        missed_templates.append((tpl, word))
+
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
-    MISSING_TEMPLATES.append((tpl, word))
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 

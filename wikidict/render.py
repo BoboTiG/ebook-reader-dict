@@ -54,12 +54,6 @@ wikitextparser._spans.WIKILINK_PARAM_FINDITER = lambda *_: ()
 
 Sections = dict[str, list[wtp.Section]]
 
-# Multiprocessing shared globals, init in render() see #1054
-# TODO: at some point, we might want to change how we share data between pools (in-memory SQLite, redis, etc.)
-multiprocessing.set_start_method("fork", force=True)
-MANAGER = multiprocessing.Manager()
-MISSING_TEMPLATES: list[tuple[str, str]] = cast(list[tuple[str, str]], MANAGER.list())
-
 # To list all unhandled sections:
 #    DEBUG_SECTIONS=1 python -m wikidict LOCALE --render | sort -u >out.log
 #
@@ -72,11 +66,17 @@ DEBUG_SECTIONS = os.environ.get("DEBUG_SECTIONS", "0")
 log = logging.getLogger(__name__)
 
 
-def find_definitions(word: str, parsed_sections: Sections, locale: str) -> list[Definitions]:
+def find_definitions(
+    word: str,
+    parsed_sections: Sections,
+    locale: str,
+    *,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> list[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
-            find_section_definitions(word, section, locale)
+            find_section_definitions(word, section, locale, missed_templates=missed_templates)
             for sections in parsed_sections.values()
             for section in sections
         )
@@ -109,7 +109,13 @@ def es_replace_defs_list_with_numbered_lists(
     return regex_subitem.sub(r"\1## ", res)
 
 
-def find_section_definitions(word: str, section: wtp.Section, locale: str) -> list[Definitions]:
+def find_section_definitions(
+    word: str,
+    section: wtp.Section,
+    locale: str,
+    *,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> list[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: list[Definitions] = []
 
@@ -131,7 +137,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
                     continue
 
                 # Transform and clean the Wikicode
-                definition = process_templates(word, code, locale)
+                definition = process_templates(word, code, locale, missed_templates=missed_templates)
 
                 # Skip empty definitions
                 if not definition:
@@ -144,7 +150,7 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
                 subdefinitions: list[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
-                        subdefinition = process_templates(word, subcode, locale)
+                        subdefinition = process_templates(word, subcode, locale, missed_templates=missed_templates)
                         if not subdefinition:
                             continue
 
@@ -152,7 +158,12 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
                         subsubdefinitions: list[str] = []
                         for subsublist in sublist.sublists(i=idx2, pattern=sublist_patterns[locale]):
                             for subsubcode in subsublist.items:
-                                if subsubdefinition := process_templates(word, subsubcode, locale):
+                                if subsubdefinition := process_templates(
+                                    word,
+                                    subsubcode,
+                                    locale,
+                                    missed_templates=missed_templates,
+                                ):
                                     subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
                             subdefinitions.append(tuple(subsubdefinitions))
@@ -162,7 +173,13 @@ def find_section_definitions(word: str, section: wtp.Section, locale: str) -> li
     return definitions
 
 
-def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[Definitions]:
+def find_etymology(
+    word: str,
+    locale: str,
+    parsed_section: wtp.Section,
+    *,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> list[Definitions]:
     """Find the etymology."""
 
     def get_items(patterns: tuple[str, ...], *, skip: tuple[str, ...] | None = None) -> list[str]:
@@ -203,10 +220,15 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
                         definitions.append(phrase)
                         tableindex += 1
                     else:
-                        definitions.append(process_templates(word, section_item, locale))
+                        definitions.append(
+                            process_templates(word, section_item, locale, missed_templates=missed_templates)
+                        )
                         subdefinitions: list[SubDefinitions] = []
                         for sublist in section.sublists(i=idx):
-                            subdefinitions.extend(process_templates(word, subcode, locale) for subcode in sublist.items)
+                            subdefinitions.extend(
+                                process_templates(word, subcode, locale, missed_templates=missed_templates)
+                                for subcode in sublist.items
+                            )
                         if subdefinitions:
                             definitions.append(tuple(subdefinitions))
             return definitions
@@ -221,7 +243,11 @@ def find_etymology(word: str, locale: str, parsed_section: wtp.Section) -> list[
         case "sv":
             items = re.findall(r"{{etymologi\|(.+)}}\s", parsed_section.contents)
 
-    return [etyl for item in items if (etyl := process_templates(word, item, locale)) and len(etyl) > 1]
+    return [
+        etyl
+        for item in items
+        if (etyl := process_templates(word, item, locale, missed_templates=missed_templates)) and len(etyl) > 1
+    ]
 
 
 def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
@@ -595,7 +621,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     return code
 
 
-def parse_word(word: str, code: str, locale: str, *, force: bool = False) -> Word:
+def parse_word(
+    word: str,
+    code: str,
+    locale: str,
+    *,
+    force: bool = False,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and gender guessing.
     It is disabled by default to speed-up the overall process, but enabled when
@@ -611,17 +644,17 @@ def parse_word(word: str, code: str, locale: str, *, force: bool = False) -> Wor
     # Etymology
     if locale == "sv":
         for top in top_sections:
-            etymology.extend(find_etymology(word, locale, top))
+            etymology.extend(find_etymology(word, locale, top, missed_templates=missed_templates))
     elif parsed_sections:
         for section in etyl_section[locale]:
             if not parsed_sections:
                 break
             for etyl_data in parsed_sections.pop(section, []):
-                etymology.extend(find_etymology(word, locale, etyl_data))
+                etymology.extend(find_etymology(word, locale, etyl_data, missed_templates=missed_templates))
 
     # Definitions
     if parsed_sections:
-        definitions = find_definitions(word, parsed_sections, locale)
+        definitions = find_definitions(word, parsed_sections, locale, missed_templates=missed_templates)
     elif locale in {"no", "pt"}:
         # Some words have no head sections but only a list of definitions at the root of the "top" section
         marker = {
@@ -664,25 +697,39 @@ def load(file: Path) -> dict[str, str]:
     return words
 
 
-def render_word(w: list[str], words: Words, locale: str) -> Word | None:
+def render_word(
+    w: list[str],
+    words: Words,
+    locale: str,
+    *,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> Word | None:
     word, code = w
-    with suppress(KeyboardInterrupt):
-        try:
-            details = parse_word(word, code, locale)
-        except Exception:  # pragma: nocover
-            log.exception("ERROR with %r", word)
-        else:
-            if details.definitions or details.variants:
-                words[word] = details
-                return details
+    try:
+        details = parse_word(word, code, locale, missed_templates=missed_templates)
+    except KeyboardInterrupt:
+        pass
+    except Exception:  # pragma: nocover
+        log.exception("ERROR with %r", word)
+    else:
+        if details.definitions or details.variants:
+            words[word] = details
+            return details
     return None
 
 
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
-    results: Words = cast(dict[str, Word], MANAGER.dict())
+    manager = multiprocessing.Manager()
+    results: Words = cast(dict[str, Word], manager.dict())
+    missed_templates: list[tuple[str, str]] = cast(list[tuple[str, str]], manager.list())
 
     with suppress(KeyboardInterrupt), multiprocessing.Pool(processes=workers) as pool:
-        pool.map(partial(render_word, words=results, locale=locale), in_words.items())
+        pool.map(
+            partial(render_word, words=results, locale=locale, missed_templates=missed_templates),
+            in_words.items(),
+        )
+
+    check_for_missing_templates(list(missed_templates))
 
     return results.copy()
 
@@ -717,8 +764,6 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
-
-    check_for_missing_templates()
 
     date = file.stem.split("-")[1]
     save(date, words, output_dir)

@@ -8,12 +8,13 @@ from functools import partial
 from pathlib import Path
 
 from . import check_word, render
+from .utils import check_for_missing_templates
 
 log = logging.getLogger(__name__)
 
 
-def local_check(word: str, locale: str) -> int:
-    return check_word.check_word(word, locale)
+def local_check(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> int:
+    return check_word.check_word(word, locale, standalone=False, missed_templates=missed_templates)
 
 
 def get_words_to_tackle(
@@ -61,11 +62,14 @@ def main(locale: str, count: int, is_random: bool, offset: str, input_file: str)
     """Entry point."""
 
     words = get_words_to_tackle(locale, count=count, is_random=is_random, offset=offset, input_file=input_file)
+    missed_templates: list[tuple[str, str]] = []
 
-    with ThreadPoolExecutor(10) as pool:
-        err = pool.map(partial(local_check, locale=locale), words)
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        err = pool.map(partial(local_check, locale=locale, missed_templates=missed_templates), words)
 
     if errors := sum(err):
         log.warning("TOTAL Errors: %s", f"{errors:,}")
+
+    check_for_missing_templates(missed_templates)
 
     return errors

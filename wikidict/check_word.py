@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import copy
 import logging
-import os
 import re
 import urllib.parse
 import warnings
@@ -390,11 +389,11 @@ def get_url_content(url: str) -> str:
     raise RuntimeError(f"Sorry, too many tries for {url!r}")
 
 
-def get_word(word: str, locale: str) -> Word:
+def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = craft_url(word, locale, raw=True)
     html = get_url_content(url)
-    return parse_word(word, html, locale)
+    return parse_word(word, html, locale, missed_templates=missed_templates)
 
 
 def get_wiktionary_page(word: str, locale: str) -> str:
@@ -404,12 +403,24 @@ def get_wiktionary_page(word: str, locale: str) -> str:
     return filter_html(html, locale)
 
 
-def check_word(word: str, locale: str) -> int:
+def check_word(
+    word: str,
+    locale: str,
+    *,
+    standalone: bool = True,
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> int:
     errors = 0
     results: list[str] = []
-    details = get_word(word, locale)
+
+    if missed_templates is None:
+        missed_templates = []
+
+    details = get_word(word, locale, missed_templates=missed_templates)
+
     if not details.etymology and not details.definitions:
-        return errors
+        return 0
+
     text = get_wiktionary_page(word, locale)
 
     if details.etymology:
@@ -442,6 +453,9 @@ def check_word(word: str, locale: str) -> int:
     else:
         log.debug("[%s] - OK", word)
 
+    if standalone:
+        errors += int(check_for_missing_templates(missed_templates))
+
     return errors
 
 
@@ -451,6 +465,4 @@ def main(locale: str, word: str) -> int:
     # If *word* is empty, get a random word
     word = word or get_random_word(locale)
 
-    res = check_word(word, locale)
-    res_missing_tpl = check_for_missing_templates()
-    return 1 if "CI" in os.environ and res_missing_tpl else res
+    return check_word(word, locale)

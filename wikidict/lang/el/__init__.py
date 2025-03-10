@@ -311,7 +311,13 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
     return mytext
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -674,4 +680,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του")):
         return parts[-1]
 
-    return defaults.last_template_handler(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
