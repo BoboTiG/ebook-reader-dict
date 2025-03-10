@@ -16,12 +16,12 @@ if TYPE_CHECKING:
     from .stubs import Word
 
 
-def get_word(word: str, locale: str) -> Word:
+def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
-    return parse_word(word, code, locale, force=True)
+    return parse_word(word, code, locale, force=True, missed_templates=missed_templates)
 
 
 def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
@@ -42,7 +42,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         text = text.replace(" .", ".")
         return text
 
-    details = get_word(word, locale)
+    missed_templates: list[tuple[str, str]] = []
+    details = get_word(word, locale, missed_templates=missed_templates)
     print(
         word,
         convert_pronunciation(details.pronunciations).lstrip(),
@@ -78,6 +79,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
+    check_for_missing_templates(missed_templates)
+
 
 def set_output(locale: str, word: str) -> None:
     """It is very specific to GitHub Actions, and will set the job summary with helpful information."""
@@ -94,5 +97,4 @@ def main(locale: str, word: str, *, raw: bool = False) -> int:
 
     set_output(locale, word)
     get_and_parse_word(word, locale, raw=raw)
-    check_for_missing_templates()
     return 0

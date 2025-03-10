@@ -8,7 +8,6 @@ from wikitextparser import Section
 
 from wikidict import render
 from wikidict.stubs import Word
-from wikidict.utils import check_for_missing_templates
 
 
 def test_simple() -> None:
@@ -117,11 +116,6 @@ def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
 def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> None:
     """Ensure the "missing templates" feature is working."""
 
-    # Clean-up the global, shared, list of missed templates from other tests
-    from wikidict.render import MISSING_TEMPLATES
-
-    MISSING_TEMPLATES[:] = []
-
     # Craft wikicode with unsupported templates
     in_words = {
         "a": """
@@ -147,15 +141,8 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
 """,
     }
 
-    try:
-        # Render
-        words = render.render(in_words, "fr", workers)
-
-        # Call the missing templates checker
-        check_for_missing_templates()
-    finally:
-        # Prevent leaking false warnings to other tests
-        MISSING_TEMPLATES[:] = []
+    # Render
+    words = render.render(in_words, "fr", workers)
 
     # Check warnings
     warnings = [record.getMessage() for record in caplog.get_records("call") if record.levelno == logging.WARNING]

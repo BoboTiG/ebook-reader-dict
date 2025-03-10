@@ -125,7 +125,13 @@ def find_pronunciations(
     return uniq(pattern.findall(code))
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, *, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -245,4 +251,4 @@ def last_template_handler(template: tuple[str, ...], locale: str, *, word: str =
     if lang := langs.get(tpl):
         return lang
 
-    return defaults.last_template_handler(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
