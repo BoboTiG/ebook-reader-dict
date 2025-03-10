@@ -173,6 +173,8 @@ class BaseFormat:
         self.snapshot = snapshot
         self.include_etymology = include_etymology
 
+        logging.basicConfig(level=logging.DEBUG)
+
     def dictionary_file(self, output_file: str) -> Path:
         file = self.output_dir / output_file.format(locale=self.locale)
         if not self.include_etymology:
@@ -478,6 +480,14 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()
+
+        # Workaround for Esperanto (EO) not being supported by kindlegen
+        if isinstance(self, MobiFormat) and self.locale == "eo":
+            # According to https://higherlanguage.com/languages-similar-to-esperanto/,
+            # French seems the most similar lang that is available on kindlegen, so French it is.
+            glos.sourceLangName = "French"
+            glos.targetLangName = "French"
+
         glos.convert(
             ConvertArgs(
                 inputFilename=str(self.dictionary_file(DictFileFormat.output_file)),
@@ -548,7 +558,7 @@ class MobiFormat(ConverterFromDictFile):
 
         Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
 
-    5) The Esperanto (EO) locale is not recognized at all:
+    5) [NO MORE VALID] The Esperanto (EO) locale is not recognized at all:
 
         Warning(prcgen):W14024: Unrecognized language code in dc:Language metadata field.
         Error(prcgen):E23006: Language not recognized in metadata. The dc:Language field is mandatory. Aborting.
@@ -578,12 +588,6 @@ class MobiFormat(ConverterFromDictFile):
         if self.locale == "en":
             log.warning(
                 "English is not yet working due to 'overflowing character table in UNICODE' error, therefore it is not possible to create such a dictionary."
-            )
-            return
-
-        if self.locale == "eo":
-            log.warning(
-                "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
             )
             return
 
