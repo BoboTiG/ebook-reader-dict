@@ -173,6 +173,8 @@ class BaseFormat:
         self.snapshot = snapshot
         self.include_etymology = include_etymology
 
+        logging.basicConfig(level=logging.DEBUG)
+
     def dictionary_file(self, output_file: str) -> Path:
         file = self.output_dir / output_file.format(locale=self.locale)
         if not self.include_etymology:
@@ -478,6 +480,12 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()
+
+        # Workaround for Esperanto (EO) not being supported by kindlegen
+        if isinstance(self, MobiFormat) and self.locale == "eo":
+            glos.sourceLangName = "Esperanto"
+            glos.targetLangName = "Italian"
+
         glos.convert(
             ConvertArgs(
                 inputFilename=str(self.dictionary_file(DictFileFormat.output_file)),
@@ -581,11 +589,11 @@ class MobiFormat(ConverterFromDictFile):
             )
             return
 
-        if self.locale == "eo":
-            log.warning(
-                "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
-            )
-            return
+        # if self.locale == "eo":
+        #     log.warning(
+        #         "Esperanto is not a recognized language on Kindle, therefore it is not possible to create such a dictionary."
+        #     )
+        #     return
 
         super().process()
 
