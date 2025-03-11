@@ -441,8 +441,6 @@ templates_multi = {
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
     "sport": "term(capitalize(concat(parts, ' ', indexes=[0, 2])))",
-    # {{substantivation de|mettre en exergue}}
-    "substantivation de": 'f"Substantivation de {italic(parts[1])}"',
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
     # {{wd|Q30092597|Frederick H. Pough}}

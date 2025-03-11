@@ -1079,6 +1079,43 @@ def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_substantivation_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str))
+    'Substantivation de <i>mot</i>'
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str, {"type": "adjectif"}))
+    'Substantivation de l’adjectif <i>mot</i>'
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str, {"type": "infinitif"}))
+    'Substantivation de l’infinitif <i>mot</i>'
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str, {"type": "participe"}))
+    'Substantivation du participe du verbe <i>mot</i>'
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str, {"type": "locution verbale"}))
+    'Substantivation de la locution verbale <i>mot</i>'
+    >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str, {"type": "locution verbale", "sens": "verbeux"}))
+    'Substantivation de la locution verbale <i>mot</i> (« verbeux »)'
+    """
+    text = "Substantivation"
+
+    match type_ := data["type"]:
+        case "adjectif" | "infinitif":
+            text += f" de l’{type_}"
+        case "locution verbale":
+            text += f" de la {type_}"
+        case "participe":
+            text += f" du {type_} du verbe"
+        case "":
+            text += " de"
+        case _:
+            assert 0, f"Unhandled {tpl!r} type {type_!r}."
+
+    text += f" {italic(parts[0])}"
+
+    if sens := data["sens"]:
+        text += f" (« {sens} »)"
+
+    return text
+
+
 def render_suisse(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_suisse("Suisse", ["fr"], defaultdict(str, {"précision":"Fribourg, Valais, Vaud"}))
@@ -1374,6 +1411,7 @@ template_mapping = {
     "sigle": render_sigle,
     "source?": render_refnec,
     "source ?": render_refnec,
+    "substantivation de": render_substantivation_de,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
     "syncope": render_modele_etym,
