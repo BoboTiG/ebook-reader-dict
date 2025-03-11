@@ -245,7 +245,7 @@ templates_italic = {
     "militant": "Vocabulaire militant",
     "métaphore": "Sens figuré",
     "nom collectif": "Nom collectif",
-    "noms de domaine": "Informatique",
+    "noms de domaine": "Internet",
     "nom-déposé": "Marque commerciale",
     "Nouvelle-Angleterre": "Nouvelle-Angleterre",
     "ortho1990": "orthographe rectifiée de 1990",
