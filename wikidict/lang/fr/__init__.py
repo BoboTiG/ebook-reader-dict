@@ -471,7 +471,7 @@ templates_other = {
     "C°": 'C<sup style="font-size:83.33%;line-height:1;">o</sup>',
     "collectif": "<i>collectif</i>",
     "commun": "<i>commun</i>",
-    "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",
+    "convention verbe grc": "<b>Note&nbsp;:</b> Les verbes en grec ancien, d’après l’usage admis dans tous les dictionnaires, sont donnés à la première personne du présent de l’indicatif.",
     "dépendant": "<i>dépendant</i>",
     "déterminé": "déterminé",
     "f": "<i>féminin</i>",
