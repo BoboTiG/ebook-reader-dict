@@ -420,10 +420,7 @@ templates_multi = {
     "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "régio": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "régional": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    "régionalisme": "term(parts[1] if len(parts) > 1 and '=' not in parts[1] else 'Régionalisme')",
     # {{re}}
     "re": "superscript(parts[1] if len(parts) > 1 else 're')",
     # {{registre|traditionnellement}}
@@ -456,6 +453,9 @@ templates_multi = {
 templates_multi["n°"] = templates_multi["numéro"]
 templates_multi["nº"] = templates_multi["numéro"]
 templates_multi["NO"] = templates_multi["numéro"]
+templates_multi["régio"] = templates_multi["régionalisme"]
+templates_multi["région"] = templates_multi["régionalisme"]
+templates_multi["régional"] = templates_multi["régionalisme"]
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
