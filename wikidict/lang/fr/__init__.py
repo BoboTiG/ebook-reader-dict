@@ -250,7 +250,6 @@ templates_italic = {
     "Nouvelle-Angleterre": "Nouvelle-Angleterre",
     "ortho1990": "orthographe rectifiée de 1990",
     "Ortograf altêrnativ": "Ortograf altêrnativ",
-    "par analogie": "Par analogie",
     "par litote": "Par litote",
     "par troponymie": "Par troponymie",
     "parler bellifontain": "Parler bellifontain",
@@ -790,6 +789,11 @@ def last_template_handler(
         >>> last_template_handler(["nucléide", "106", "48", "Cd"], "fr")
         '<span style="white-space:nowrap;"><span style="display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1.2em;font-size:85%;text-align:right;">106<br>48</span>Cd</span>'
 
+        >>> last_template_handler(["par analogie"], "fr")
+        '<i>(Par analogie)</i>'
+        >>> last_template_handler(["par analogie", "de=forme"], "fr")
+        '<i>(Par analogie de forme)</i>'
+
         >>> last_template_handler(["rouge", "un texte"], "fr")
         '<span style="color:red">un texte</span>'
         >>> last_template_handler(["rouge", "texte=un texte"], "fr")
@@ -952,6 +956,12 @@ def last_template_handler(
             'vertical-align:-0.4em;line-height:1.2em;font-size:85%;text-align:right;">'
             f"{parts[0]}<br>{parts[1]}</span>{parts[2]}</span>"
         )
+
+    if tpl == "par analogie":
+        text = "Par analogie"
+        if de := data["de"]:
+            text += f" de {de}"
+        return term(text)
 
     if tpl == "rouge":
         prefix_style = "background-" if data["fond"] == "1" else ""
