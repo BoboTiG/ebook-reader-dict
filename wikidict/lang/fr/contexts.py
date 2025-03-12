@@ -392,7 +392,7 @@ contexts = {
     "imperfectif": "Imperfectif",
     "impersonnel": "Impersonnel",
     "imprimerie": "Imprimerie",
-    "improprement": "Improprement",
+    "improprement": "Usage critiqué",
     "impropriété": "Impropriété",
     "incorrect": "Incorrect",
     "indianisme": "Indianisme",
