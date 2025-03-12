@@ -489,6 +489,7 @@ templates_other = {
     "h muet": "<sup>(h muet)</sup>",
     "i": "<i>intransitif</i>",
     "impers": "<i>impersonnel</i>",
+    "improprement": "<i>(Usage critiqué)</i>",
     "indéterminé": "indéterminé",
     "invar": "<i>invariable</i>",
     "invariable": "<i>invariable</i>",
@@ -867,9 +868,6 @@ def last_template_handler(
 
     if tpl in ("ellipse", "par ellipse"):
         return f"{italic('(Ellipse de')} {data['de']}{italic(')')}" if data["de"] else term("Par ellipse")
-
-    if tpl == "improprement":
-        return term("Usage critiqué")
 
     if tpl == "R:DAF6":
         w = parts[0] if parts else word
