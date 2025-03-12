@@ -473,7 +473,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"(?=<!--)([\s\S]*?-->)", "", code)
 
     # {{!}} → "|"
-    code = code.replace("{{!}}", "|")
+    # code = code.replace("{{!}}", "|")
 
     if locale == "da":
         code = code.replace("----", "")

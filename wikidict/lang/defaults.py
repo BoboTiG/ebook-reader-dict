@@ -101,6 +101,9 @@ def last_template_handler(
         text = parts[1] if len(parts) == 2 else word
         return transliterate(lang, text)
 
+    if tpl == "!":
+        return "|"
+
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 

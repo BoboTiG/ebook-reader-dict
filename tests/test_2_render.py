@@ -89,7 +89,7 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
         (
             "de",
             "{{Bedeutungen}}\n:[1] {{K|Handwerk|Architektur|ft=[[defektives Verb{{!}}defektiv]]}}",
-            "=== {{Bedeutungen}} ===\n# {{K|Handwerk|Architektur|ft=[[defektives Verb|defektiv]]}}",
+            "=== {{Bedeutungen}} ===\n# {{K|Handwerk|Architektur|ft=[[defektives Verb{{!}}defektiv]]}}",
         ),
         (
             "it",
@@ -104,7 +104,7 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
         (
             "it",
             "== {{-it-}} ==\n{{-etim-}}\n{{Vd|nero{{!}}nero}}",
-            "== {{-it-}} ==\n=== {{etim}} ===\n{{Vd|nero|nero}}",
+            "== {{-it-}} ==\n=== {{etim}} ===\n{{Vd|nero{{!}}nero}}",
         ),
     ],
 )
