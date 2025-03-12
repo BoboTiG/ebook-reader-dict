@@ -147,20 +147,19 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
-    _links_full = {
-        "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, '')}) (dict-{locale}-{locale}.df.bz2)",
-        "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, '')}) (dicthtml-{locale}-{locale}.zip)",
-        "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, '')}) (dictorg-{locale}-{locale}.zip)",
-        "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, '')}) (dict-{locale}-{locale}.mobi.zip)",
-        "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, '')}) (dict-{locale}-{locale}.zip)",
-    }
-    _links_etym_free = {
-        "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)",
-        "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
-        "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
-        "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi.zip)",
-        "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, NO_ETYMOLOGY_SUFFIX)}) (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)",
-    }
+    _links_full: dict[str, str] = {}
+    _links_etym_free: dict[str, str] = {}
+    for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
+        obj = _links_full if not etym_suffix else _links_etym_free
+        obj.update(
+            {
+                "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.df.bz2)",
+                "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, etym_suffix)}) (dicthtml-{locale}-{locale}{etym_suffix}.zip)",
+                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, etym_suffix)}) (dictorg-{locale}-{locale}{etym_suffix}.zip)",
+                "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.mobi.zip)",
+                "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.zip)",
+            }
+        )
     if locale == "en":
         _links_full.pop("mobi")
         _links_etym_free.pop("mobi")
