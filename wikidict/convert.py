@@ -173,13 +173,10 @@ class BaseFormat:
         self.snapshot = snapshot
         self.include_etymology = include_etymology
 
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.INFO)
 
     def dictionary_file(self, output_file: str) -> Path:
-        file = self.output_dir / output_file.format(locale=self.locale)
-        if not self.include_etymology:
-            file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
-        return file
+        return self.output_dir / output_file.format(self.locale, "" if self.include_etymology else NO_ETYMOLOGY_SUFFIX)
 
     def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:  # pragma: nocover
         raise NotImplementedError()
@@ -206,7 +203,7 @@ class BaseFormat:
 class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
 
-    output_file = "dicthtml-{locale}-{locale}.zip"
+    output_file = "dicthtml-{0}-{0}{1}.zip"
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
@@ -220,19 +217,12 @@ class KoboFormat(BaseFormat):
         content = content.replace("<sub>", "")
         content = content.replace("</sub>", "")
 
-        # With etymology
-        content = content.replace(f" (dict-{locale}-{locale}.mobi)", "")
-        content = content.replace(f" (dict-{locale}-{locale}.zip)", "")
-        content = content.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
-        content = content.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
-        content = content.replace(f" (dictorg-{locale}-{locale}.zip)", "")
-
-        # Without etymology
-        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.mobi)", "")
-        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        content = content.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
-        content = content.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        content = content.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
+        for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
+            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.mobi.zip)", "")
+            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.df.bz2)", "")
+            content = content.replace(f" (dicthtml-{locale}-{locale}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dictorg-{locale}-{locale}{etym_suffix}.zip)", "")
 
         return content
 
@@ -420,7 +410,7 @@ class KoboFormat(BaseFormat):
 class DictFileFormat(BaseFormat):
     """Save the data into a *.df* DictFile."""
 
-    output_file = "dict-{locale}-{locale}.df"
+    output_file = "dict-{0}-{0}{1}.df"
 
     def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:
         if details.definitions:
@@ -450,7 +440,8 @@ class DictFileFormat(BaseFormat):
 class ConverterFromDictFile(DictFileFormat):
     target_format = ""
     target_suffix = ""
-    final_file = ""
+    final_file = ""  # {0} = locale, {1} etymology-free suffix
+    zip_glob_files = "dict-data.*"
     glossary_options: dict[str, str | bool] = {}
 
     def _patch_gc(self) -> None:
@@ -500,7 +491,7 @@ class ConverterFromDictFile(DictFileFormat):
     def _compress(self) -> Path:
         final_file = self.dictionary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            for file in self.output_dir_tmp.glob("dict-data.*"):
+            for file in self.output_dir_tmp.glob(self.zip_glob_files):
                 fh.write(file, arcname=file.name)
 
             for entry in self.output_dir.glob("res/*"):
@@ -533,7 +524,7 @@ class DictOrgFormat(ConverterFromDictFile):
 
     target_format = "dict.org"
     target_suffix = "index"
-    final_file = "dictorg-{locale}-{locale}.zip"
+    final_file = "dictorg-{0}-{0}{1}.zip"
     glossary_options = {"dictzip": True, "install": False}
 
 
@@ -575,13 +566,16 @@ class MobiFormat(ConverterFromDictFile):
 
     target_format = "mobi"
     target_suffix = "mobi"
-    final_file = "dict-{locale}-{locale}.mobi"
+    final_file = "dict-{0}-{0}{1}.mobi.zip"
+    zip_glob_files = ""  # Will be set in `_compress()`
     glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
 
     def _compress(self) -> Path:
-        """For now, we just move the final file to its expected location."""
+        # Move the relevant file at the top-level data folder, and rename it for more accuracy
         src = self.output_dir_tmp / f"dict-data.{self.target_suffix}" / "OEBPS" / f"content.{self.target_suffix}"
-        return src.rename(self.dictionary_file(self.final_file))
+        file = src.rename(self.dictionary_file(self.final_file.removesuffix(".zip")))
+        self.zip_glob_files = f"../{file.name}"
+        return super()._compress()
 
     def process(self) -> None:
         """Filter out unrecognized locales."""
@@ -599,7 +593,7 @@ class StarDictFormat(ConverterFromDictFile):
 
     target_format = "stardict"
     target_suffix = "ifo"
-    final_file = "dict-{locale}-{locale}.zip"
+    final_file = "dict-{0}-{0}{1}.zip"
     glossary_options = {"dictzip": True}
 
 

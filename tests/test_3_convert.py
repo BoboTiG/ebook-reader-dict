@@ -20,14 +20,14 @@ Export Wiktionnaire : 2020-12-17
 Version complète :
 - [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
-- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.mobi)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.mobi.zip)
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
 
 Version sans étymologies :
 - [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
 - [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
-- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.mobi)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.mobi.zip)
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
 
@@ -103,10 +103,10 @@ def test_simple() -> None:
     assert (output_dir / f"dicthtml-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Mobi
-    assert (output_dir / "dict-fr-fr.mobi").is_file()
-    assert (output_dir / f"dict-fr-fr.mobi.{ASSET_CHECKSUM_ALGO}").is_file()
-    assert (output_dir / "dict-fr-fr-noetym.mobi").is_file()
-    assert (output_dir / f"dict-fr-fr-noetym.mobi.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr.mobi.zip").is_file()
+    assert (output_dir / f"dict-fr-fr.mobi.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.mobi.zip").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.mobi.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # StarDict
     assert (output_dir / "dict-fr-fr.zip").is_file()
