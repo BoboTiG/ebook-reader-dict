@@ -1103,10 +1103,8 @@ def render_substantivation_de(tpl: str, parts: list[str], data: defaultdict[str,
             text += f" de la {type_}"
         case "participe":
             text += f" du {type_} du verbe"
-        case "":
-            text += " de"
         case _:
-            assert 0, f"Unhandled {tpl!r} type {type_!r}."
+            text += " de"
 
     text += f" {italic(parts[0])}"
 
