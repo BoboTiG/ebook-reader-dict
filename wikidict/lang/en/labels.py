@@ -494,6 +494,7 @@ labels = {
     "Midlands": "Midlands",
     "Midwest US": "Midwestern US",
     "Midwestern US": "Midwestern US",
+    "Minecraft": "''Minecraft''",
     "Mississippi": "Mississippi",
     "Missouri": "Missouri",
     "Mmmm": "''Mary''–''marry''–''merry'' merger",
@@ -2589,7 +2590,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,584
+}  # 2,585
 
 syntaxes = {
     "&": {

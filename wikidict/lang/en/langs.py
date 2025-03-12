@@ -7054,15 +7054,16 @@ langs = {
     "roa-git": "Gallo-Italic",
     "roa-ibe": "Ibero-Romance",
     "roa-itd": "Italo-Dalmatian",
+    "roa-iwr": "Italo-Western Romance",
     "roa-leo": "Leonese",
     "roa-lor": "Lorrain",
     "roa-nar": "Navarro-Aragonese",
-    "roa-oan": "Navarro-Aragonese",
     "roa-oca": "Old Catalan",
     "roa-ocr": "Occitano-Romance",
     "roa-oil": "Oïl",
     "roa-oit": "Old Italian",
     "roa-ole": "Old Leonese",
+    "roa-ona": "Old Navarro-Aragonese",
     "roa-opt": "Old Galician-Portuguese",
     "roa-orl": "Orléanais",
     "roa-poi": "Poitevin-Saintongeais",
@@ -9866,7 +9867,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,861
+}  # 9,862
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

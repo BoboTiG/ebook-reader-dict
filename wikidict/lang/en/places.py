@@ -535,6 +535,16 @@ recognized_placetypes = {
         "display": "crown dependency",
         "preposition": "of",
     },
+    "cultural area": {
+        "article": "a",
+        "display": "cultural area",
+        "preposition": "of",
+    },
+    "cultural region": {
+        "article": "a",
+        "display": "cultural region",
+        "preposition": "of",
+    },
     "delegation": {
         "article": "a",
         "display": "delegation",
@@ -2220,7 +2230,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 443
+}  # 445
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2371,6 +2381,7 @@ recognized_qualifiers = {
     "mining": "mining",
     "minor": "minor",
     "modern": "modern",
+    "mythical": "mythical",
     "mythological": "mythological",
     "north": "north",
     "northeast": "northeast",
@@ -2418,7 +2429,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 99
+}  # 100
 
 recognized_placenames = {
     "administrative region/Occitanie": {"article": "", "display": "administrative region/Occitania"},
