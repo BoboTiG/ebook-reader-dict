@@ -868,6 +868,9 @@ def last_template_handler(
     if tpl in ("ellipse", "par ellipse"):
         return f"{italic('(Ellipse de')} {data['de']}{italic(')')}" if data["de"] else term("Par ellipse")
 
+    if tpl == "improprement":
+        return term("Usage critiqué")
+
     if tpl == "R:DAF6":
         w = parts[0] if parts else word
         return f"«&nbsp;{w}&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835"
