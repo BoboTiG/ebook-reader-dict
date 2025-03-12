@@ -36,6 +36,8 @@ from wikidict.utils import process_templates
                 "<i>(Symbole 6)</i> Abréviation de <i>accélération</i>.",
             ],
             [
+                "Première lettre et première voyelle de l’alphabet latin (minuscule). Unicode : U+0061.",
+                "Chiffre hexadécimal dix (minuscule).",
                 r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",
                 "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe <b>atto-</b> (&times;10<sup>&minus;18</sup>).",
                 "<i>(Métrologie)</i> Symbole de l’<b>are</b>, une unité de mesure de surface en dehors SI. Elle prend souvent le préfixe h pour former ha (hectare).",
@@ -55,6 +57,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
+                "Lettre minuscule grecque pi. Seizième lettre et onzième consonne de l’alphabet grec. Unicode : U+03C0.",
                 "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",
                 "<i>(Bases de données)</i> Symbole de la projection.",
             ],

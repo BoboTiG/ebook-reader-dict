@@ -20,7 +20,7 @@ thousands_separator = " "
 # Pour récupérer la liste complète des sections :
 #     python -m wikidict fr --find-templates
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
-head_sections = ("{{langue|fr}}", "{{langue|conv}}")
+head_sections = ("{{langue|fr}}", "{{langue|conv}}", "{{caractère}}")
 etyl_section = ("{{s|étymologie}}",)
 sections = (
     "{{s|abréviations}",
@@ -53,6 +53,7 @@ sections = (
     "{{s|article indéfini|fr}",
     "{{s|article partitif|fr|",
     "{{s|article partitif|fr}",
+    "{{s|caractère}",
     "{{s|conjonction de coordination|fr}",
     "{{s|conjonction|fr|",
     "{{s|conjonction|fr}",

@@ -535,6 +535,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # <li value="2"> → == ''
         code = re.sub(r"<li [^>]+>", "", code)
 
+        # == {{caractère}} == → == '== {{caractère}} ==\n=== {{s|caractère}} ==='
+        code = re.sub(r"(== {{caractère}} ==)", r"\1\n=== {{s|caractère}} ===", code)
+
     elif locale == "it":
         # [[w:A|B]] → [[A|B]]
         code = code.replace("[[w:", "[[")
