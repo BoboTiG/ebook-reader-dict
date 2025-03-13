@@ -129,9 +129,11 @@ def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     "Pavel Vladimirovitch <span style='font-variant:small-caps'>Ieremeïev</span>"
     >>> render_wikilink("w", ["mitrospin obscur 0", "mitrospin obscur 1", "(''Mitrospingus cassinii'')"], defaultdict(str))
     'mitrospin obscur 1'
+    >>> render_wikilink("W", ["Nomenclature de l'UICPA"], defaultdict(str, {"dif": "Nom UICPA"}))
+    "Nomenclature de l'UICPA"
     """
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
-    if wiki_data := {k: v for k, v in data.items() if k != "lang"}:
+    if wiki_data := {k: v for k, v in data.items() if k not in ("lang", "dif")}:
         return "".join(f"{k}={v}" for k, v in wiki_data.items())
 
     try:
