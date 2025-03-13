@@ -639,6 +639,7 @@ langs = {
     "bgj": "bangolan",
     "bgk": "khabit",
     "bgr": "bawm",
+    "bgt": "bughotu",
     "bgu": "mbongno",
     "bgv": "warkay-bipim",
     "bgx": "gagaouze balkanique",
@@ -2590,6 +2591,7 @@ langs = {
     "kjg": "khmu",
     "kjh": "khakasse",
     "kjh-fyk": "kirghiz de Fu-Yu",
+    "kji": "zabana",
     "kjj": "khinalug",
     "kjl": "kham parbate de l’Ouest",
     "kjm": "kháng",
@@ -6546,5 +6548,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,541
+}  # 6,543
 # END

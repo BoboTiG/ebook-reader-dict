@@ -2007,6 +2007,7 @@ labels = {
     "online gaming": "online gaming",
     "only used in songs": "used only in songs",
     "only used in tales": "used only in tales",
+    "onomastics": "onomastics",
     "onomatopoeia": "onomatopoeia",
     "opera": "opera",
     "operating systems": "operating systems",
@@ -2590,7 +2591,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,585
+}  # 2,586
 
 syntaxes = {
     "&": {
