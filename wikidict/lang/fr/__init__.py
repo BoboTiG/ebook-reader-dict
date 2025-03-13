@@ -634,11 +634,11 @@ def last_template_handler(
         ''
 
         >>> last_template_handler(["diminutif", "fr"], "fr")
-        '<i>(diminutif)</i>'
+        '<i>(Diminutif)</i>'
         >>> last_template_handler(["diminutif", "fr", "m=1"], "fr")
         '<i>(Diminutif)</i>'
         >>> last_template_handler(["diminutif", "fr", "de=balle"], "fr")
-        'diminutif de <i>balle</i>'
+        'Diminutif de <i>balle</i>'
 
         >>> last_template_handler(["ellipse"], "fr")
         '<i>(Par ellipse)</i>'
@@ -860,7 +860,8 @@ def last_template_handler(
         return next((code for code, l10n in langs.items() if l10n == code_lang), "")
 
     if tpl == "diminutif":
-        phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
+        # sic see : https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:diminutif&oldid=36661983
+        phrase = "Diminutif" if data["m"] in ("1", "oui") else "Diminutif"
         if data["de"]:
             phrase += f" de {italic(data['de'])}"
         else:
