@@ -84,7 +84,7 @@ def render_abreviation(tpl: str, parts: list[str], data: defaultdict[str, str], 
     if not parts and not data:
         return italic("(Abréviation)")
 
-    phrase = "abréviation" if data["m"] in ("1", "oui") else "Abréviation"
+    phrase = "abréviation" if "m" in data else "Abréviation"
     if data["texte"] and data["nolien"] not in ("1", "oui"):
         phrase += f" de {italic(data['texte'])}"
     elif data["de"]:
@@ -377,6 +377,10 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Dérivé de <i>élever</i>, avec le suffixe <i>-able</i>'
     >>> render_compose_de("composé de", ["litura", "funus"], defaultdict(str, {"lang": "la", "sens1": "", "sens2":"mort au génitif", "sens": ""}))
     'composé de <i>litura</i> et de <i>funus</i> («&nbsp;mort au génitif&nbsp;»)'
+    >>> render_compose_de("composé de", ["au-dessus de", "", "soupçon"], defaultdict(str, {"m": "1"}))
+    'Composé de <i>au-dessus de</i> et <i>soupçon</i>'
+    >>> render_compose_de("composé de", ["＜"], defaultdict(str, {"2": "=", "lang": "conv"}))
+    'composé de <i>＜</i> et de <i>=</i>'
     """
 
     # algorithm from https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:compos%C3%A9_de&action=edit
@@ -426,6 +430,12 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
         return phrase
 
     # Composé
+    for i in range(1, 10):
+        if dt := data[f"{i}"]:
+            parts.insert(i, dt)
+    # remove empty parts at the end.
+    while parts and not parts[-1].strip():
+        parts.pop()
     phrase = ("C" if data["m"] else "c") + ("omposée de " if data["f"] in ("1", "oui", "o", "i") else "omposé de ")
     if s_array := [
         word_tr_sens(part, data[f"tr{number}"], data[f"sens{number}"]) for number, part in enumerate(parts, 1) if part
@@ -433,7 +443,7 @@ def render_compose_de(tpl: str, parts: list[str], data: defaultdict[str, str], *
         phrase += concat(
             s_array,
             ", ",
-            last_sep=" et de " if len(s_array) < 3 else " et ",
+            last_sep=" et de " if len(parts) < 3 else " et ",
         )
 
     if data["sens"]:
