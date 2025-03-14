@@ -725,7 +725,7 @@ def main(locale: str) -> int:
 
     distribute_workload(get_primary_formaters(), *args)
     distribute_workload(get_secondary_formaters(), *args)
-    run_mobi_formater(*args, include_etymology=False)
+    run_mobi_formater(*args)
 
     distribute_workload(get_primary_formaters(), *args, include_etymology=False)
     distribute_workload(get_secondary_formaters(), *args, include_etymology=False)
