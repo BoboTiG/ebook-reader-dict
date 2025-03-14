@@ -605,7 +605,7 @@ def run_mobi_formater(
     snapshot = file.stem.split("-")[1]
 
     # Purge words outside of unicode ranges supported by kindlegen
-    if locale in {"en", "fr", "eo"}:
+    if locale in {"en", "fr"}:
 
         def wanted(
             word: str,
