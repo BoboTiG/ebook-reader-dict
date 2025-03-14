@@ -25,6 +25,7 @@ from pyglossary.glossary_v2 import ConvertArgs, Glossary
 from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS, NO_ETYMOLOGY_SUFFIX
 from .lang import wiktionary
 from .stubs import Word
+from .user_functions import flatten
 from .utils import (
     convert_gender,
     convert_pronunciation,
@@ -604,22 +605,26 @@ def run_mobi_formater(
     snapshot = file.stem.split("-")[1]
 
     # Purge words outside of unicode ranges supported by kindlegen
-    if locale in {"en", "fr"}:
+    if locale in {"en", "fr", "eo"}:
 
         def wanted(
-            char: str,
+            word: str,
+            details: Word,
             *,
             r1: tuple[int, int] = (ord("\u0000"), ord("\u02ff")),
             r2: tuple[int, int] = (ord("\u3000"), ord("\u30ff")),
             r3: tuple[int, int] = (ord("\uff00"), ord("\uff9f")),
         ) -> bool:
-            try:
-                cp = ord(char)
-            except TypeError:
-                return True
-            return r1[0] <= cp <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1]
+            chars = set(word)
+            if isinstance(details.definitions, str):
+                chars.update(details.definitions)
+            elif isinstance(details.definitions, tuple):
+                chars.update(flatten(details.definitions))
+            return all(
+                r1[0] <= (cp := ord(char)) <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1] for char in chars
+            )
 
-        words = {word: details for word, details in words.items() if wanted(word)}
+        words = {word: details for word, details in words.items() if wanted(word, details)}
         log.info("Purged %s words for .mobi", f"{len(words):,}")
         variants = make_variants(words)
 
