@@ -105,6 +105,11 @@ recognized_placetypes = {
         "display": "administrative seat",
         "preposition": "of",
     },
+    "administrative territory": {
+        "article": "an",
+        "display": "administrative territory",
+        "preposition": "of",
+    },
     "administrative village": {
         "article": "an",
         "display": "administrative village",
@@ -878,6 +883,11 @@ recognized_placetypes = {
     "historical administrative region": {
         "article": "a",
         "display": "historical administrative region",
+        "preposition": "of",
+    },
+    "historical administrative territory": {
+        "article": "a",
+        "display": "historical administrative territory",
         "preposition": "of",
     },
     "historical autonomous republic": {
@@ -2230,12 +2240,13 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 445
+}  # 447
 
 placetypes_aliases = {
     "CDP": "census-designated place",
     "acomm": "autonomous community",
     "adr": "administrative region",
+    "adterr": "administrative territory",
     "aobl": "autonomous oblast",
     "aokr": "autonomous okrug",
     "ap": "autonomous province",
@@ -2277,7 +2288,9 @@ placetypes_aliases = {
     "ires": "Indian reservation",
     "isl": "island",
     "lbor": "London borough",
+    "lga": "local government area",
     "lgarea": "local government area",
+    "lgd": "local government district",
     "lgdist": "local government district",
     "metbor": "metropolitan borough",
     "metcity": "metropolitan city",
@@ -2326,7 +2339,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 93
+}  # 96
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -2433,6 +2446,14 @@ recognized_qualifiers = {
 
 recognized_placenames = {
     "administrative region/Occitanie": {"article": "", "display": "administrative region/Occitania"},
+    "administrative territory/Azad Jammu and Kashmir": {
+        "article": "",
+        "display": "administrative territory/Azad Kashmir",
+    },
+    "administrative territory/Islamabad": {
+        "article": "",
+        "display": "administrative territory/Islamabad Capital Territory",
+    },
     "archipelago/Cyclades": {"article": "the", "display": ""},
     "archipelago/Dodecanese": {"article": "the", "display": ""},
     "autonomous community/Balearic Islands": {"article": "the", "display": ""},
@@ -2506,6 +2527,7 @@ recognized_placenames = {
     "dependent territory/Isle of Man": {"article": "the", "display": ""},
     "empire/Roman Empire": {"article": "the", "display": ""},
     "external territory/Cocos Islands": {"article": "the", "display": ""},
+    "federal territory/Islamabad": {"article": "", "display": "federal territory/Islamabad Capital Territory"},
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
@@ -2574,12 +2596,14 @@ recognized_placenames = {
     "state/Mexico": {"article": "", "display": "state/State of Mexico"},
     "state/State of Mexico": {"article": "the", "display": ""},
     "territory/Australian Capital Territory": {"article": "the", "display": ""},
+    "territory/Azad Jammu and Kashmir": {"article": "", "display": "territory/Azad Kashmir"},
     "territory/British Indian Ocean Territory": {"article": "the", "display": ""},
     "territory/British Virgin Islands": {"article": "the", "display": ""},
     "territory/Cayman Islands": {"article": "the", "display": ""},
     "territory/Cocos Islands": {"article": "the", "display": ""},
     "territory/Falkland Islands": {"article": "the", "display": ""},
     "territory/Faroe Islands": {"article": "the", "display": ""},
+    "territory/Islamabad": {"article": "", "display": "territory/Islamabad Capital Territory"},
     "territory/Isle of Man": {"article": "the", "display": ""},
     "territory/Northern Mariana Islands": {"article": "the", "display": ""},
     "territory/Northern Territory": {"article": "the", "display": ""},
@@ -2596,5 +2620,5 @@ recognized_placenames = {
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 164
+}  # 169
 # END
