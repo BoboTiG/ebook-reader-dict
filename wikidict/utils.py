@@ -147,6 +147,7 @@ def format_description(locale: str, output_dir: Path) -> str:
     dump_date = (output_dir / "words.snapshot").read_text().strip()
     dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
 
+    # Format download links
     _links_full: dict[str, str] = {}
     _links_etym_free: dict[str, str] = {}
     for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
@@ -160,14 +161,12 @@ def format_description(locale: str, output_dir: Path) -> str:
                 "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.zip)",
             }
         )
-    if locale == "en":
-        _links_full.pop("mobi")
-        _links_etym_free.pop("mobi")
-
     download_links_full = "\n".join(sorted(_links_full.values()))
     download_links_noetym = "\n".join(sorted(_links_etym_free.values()))
 
+    # Format the creation's date
     creation_date = NOW.isoformat()
+
     return release_description[locale].format(**locals())
 
 
