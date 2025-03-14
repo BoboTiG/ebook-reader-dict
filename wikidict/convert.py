@@ -440,7 +440,7 @@ class DictFileFormat(BaseFormat):
 class DictFileFormatForMobi(DictFileFormat):
     """Save the data into a *.df* DictFile."""
 
-    output_file = "altered-dict-{0}-{0}{1}.df"
+    output_file = f"altered-{DictFileFormat.output_file}"
 
 
 class ConverterFromDictFile(DictFileFormat):
