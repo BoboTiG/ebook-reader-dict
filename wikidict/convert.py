@@ -620,6 +620,11 @@ def run_mobi_formater(
                 chars.update(details.definitions)
             elif isinstance(details.definitions, tuple):
                 chars.update(flatten(details.definitions))
+            if include_etymology:
+                if isinstance(details.etymology, str):
+                    chars.update(details.etymology)
+                elif isinstance(details.etymology, tuple):
+                    chars.update(flatten(details.etymology))
             return all(
                 r1[0] <= (cp := ord(char)) <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1] for char in chars
             )
