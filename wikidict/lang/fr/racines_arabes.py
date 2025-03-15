@@ -878,7 +878,6 @@ racines_schemes_arabes = {
     },  # 32
     "ar-3jl": {
         "aa_sens": "hâte",
-        "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**ânũ": "qui se hâte",
         "ar-*a**é": "{{f}} qui se hâte",
@@ -892,9 +891,11 @@ racines_schemes_arabes = {
         "ar-*a*âyi*u": "{{p}} trop pressés",
         "ar-*a*î*ũ": "qui se dépêche",
         "ar-*a*û*ũ": "trop pressé",
+        "ar-*a2â2î*u": "{{p}} veaux",
         "ar-*i**@ũ": "génisse",
         "ar-*i**ũ": "veau",
         "ar-*i*a*ũ": "{{p}} génisses",
+        "ar-*i*²aw*ũ": "veau",
         "ar-*i*²â*@ũ": "impromptu",
         "ar-*i*â*ũ": "{{p}} roues",
         "ar-*ta*a*a": "",
@@ -914,11 +915,13 @@ racines_schemes_arabes = {
         "ar-a**a*u": "le plus empressé",
         "ar-a**â*ũ": "{{p}} roues",
         "ar-a*â*i*u": "{{p}} petits",
-        "ar-elma*â*î*u": "chemins plus courts",
-        "ar-ma*a*²i*ũ": "qui avance l'heure",
+        "ar-ma*â*î*u": "{{p}} raccourcis",
+        "ar-mi**â*ũ": "raccourci",
         "ar-mu**a*ũ": "prématuré",
+        "ar-mu**i*@ũ": "{{f}} qui hâte.",
         "ar-mu**i*ũ": "qui accélère",
         "ar-mu*a*²a*ũ": "accéléré",
+        "ar-mu*a*²i*ũ": "qui presse",
         "ar-mu*â*a*@ũ": "empressement",
         "ar-musta**a*@ũ": "{{f}} qui se presse",
         "ar-musta**i*@ũ": "{{f}} qui se presse",
@@ -929,7 +932,7 @@ racines_schemes_arabes = {
         "ar-sti**â*ũ": "précipitation",
         "ar-ta*a*²a*a": "se presser",
         "ar-ta*â*a*a": "lutter de promptitude",
-    },  # 52
+    },  # 55
     "ar-3jm": {
         "aa_sens": "mâcher",
         "ar-***ũ": "",
