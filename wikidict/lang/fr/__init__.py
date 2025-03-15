@@ -184,6 +184,7 @@ templates_ignored = (
     "Gallica",
     "ibid",
     "Import",
+    "lettre",
     "lire en ligne",
     "Modèle",
     "Ouvrage",
