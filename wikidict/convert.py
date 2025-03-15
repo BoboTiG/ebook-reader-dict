@@ -646,9 +646,9 @@ def run_mobi_formater(
         threshold = 1
         more_purge = len(stats) > 256
         while len(stats) > 256:
-            log.info("Purging words with uniq characters count <= %d", threshold)
+            log.info("Purging words with uniq characters count at %d", threshold)
             for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
-                if len(related_words) <= threshold:
+                if len(related_words) == threshold:
                     for w in related_words:
                         words.pop(w, None)
                     stats.pop(char)
