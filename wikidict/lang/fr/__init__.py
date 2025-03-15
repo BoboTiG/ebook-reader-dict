@@ -293,6 +293,8 @@ templates_italic["vieux"] = templates_italic["vieilli"]
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
+    # {{+|函}}
+    "+": "parts[1]",
     # {{1|Descendant}}
     "1": "parts[1]",
     # {{1er}}
