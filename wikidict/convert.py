@@ -607,14 +607,7 @@ def run_mobi_formater(
     # Purge words outside of unicode ranges supported by kindlegen
     if locale in {"en", "fr"}:
 
-        def wanted(
-            word: str,
-            details: Word,
-            *,
-            r1: tuple[int, int] = (ord("\u0000"), ord("\u02ff")),
-            r2: tuple[int, int] = (ord("\u3000"), ord("\u30ff")),
-            r3: tuple[int, int] = (ord("\uff00"), ord("\uff9f")),
-        ) -> bool:
+        def all_chars(word: str, details: Word) -> set[str]:
             chars = set(word)
             if isinstance(details.definitions, str):
                 chars.update(details.definitions)
@@ -625,12 +618,46 @@ def run_mobi_formater(
                     chars.update(details.etymology)
                 elif isinstance(details.etymology, tuple):
                     chars.update(flatten(details.etymology))
+            return chars
+
+        def wanted(
+            word: str,
+            details: Word,
+            *,
+            r1: tuple[int, int] = (ord("\u0000"), ord("\u02ff")),
+            r2: tuple[int, int] = (ord("\u3000"), ord("\u30ff")),
+            r3: tuple[int, int] = (ord("\uff00"), ord("\uff9f")),
+        ) -> bool:
             return all(
-                r1[0] <= (cp := ord(char)) <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1] for char in chars
+                r1[0] <= (cp := ord(char)) <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1]
+                for char in all_chars(word, details)
             )
 
+        log.info("Purging words with characters outside supported unicode ranges...")
         words = {word: details for word, details in words.items() if wanted(word, details)}
-        log.info("Purged %s words for .mobi", f"{len(words):,}")
+
+        stats = defaultdict(list)
+        for word, details in words.items():
+            for char in all_chars(word, details):
+                stats[char].append(word)
+
+        log.info("Purged %s words for .mobi (uniq characters count is %d)", f"{len(words):,}", len(stats))
+
+        threshold = 1
+        more_purge = len(stats) > 256
+        while len(stats) > 256:
+            log.info("Purging words with uniq characters count at %d", threshold)
+            for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
+                if len(related_words) == threshold:
+                    for w in related_words:
+                        words.pop(w, None)
+                    stats.pop(char)
+                if len(stats) < 256:
+                    break
+            threshold += 1
+        if more_purge:
+            log.info("Purged %s words for .mobi (uniq characters count is %d)", f"{len(words):,}", len(stats))
+
         variants = make_variants(words)
 
     args = (locale, output_dir, words, variants, snapshot)
