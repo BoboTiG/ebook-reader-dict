@@ -2406,6 +2406,8 @@ recognized_qualifiers = {
     "maritime": "maritime",
     "mediaeval": "mediaeval",
     "medieval": "medieval",
+    "mid-size": "mid-size",
+    "mid-sized": "mid-sized",
     "mining": "mining",
     "minor": "minor",
     "modern": "modern",
@@ -2457,7 +2459,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 100
+}  # 102
 
 recognized_placenames = {
     "administrative region/Occitanie": {"article": "", "display": "administrative region/Occitania"},

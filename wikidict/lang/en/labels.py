@@ -1020,6 +1020,7 @@ labels = {
     "attributive": "attributive",
     "attributively": "attributively",
     "autism": "autism",
+    "auto parts": "automotive",
     "automotive": "automotive",
     "automotives": "automotive",
     "auxiliary": "auxiliary",
@@ -2591,7 +2592,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,586
+}  # 2,587
 
 syntaxes = {
     "&": {
