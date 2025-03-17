@@ -415,6 +415,11 @@ recognized_placetypes = {
         "display": "co-capital",
         "preposition": "of",
     },
+    "coal city": {
+        "article": "a",
+        "display": "coal city",
+        "preposition": "in",
+    },
     "coal town": {
         "article": "a",
         "display": "coal town",
@@ -1920,6 +1925,11 @@ recognized_placetypes = {
         "display": "shire town",
         "preposition": "of",
     },
+    "ski resort city": {
+        "article": "a",
+        "display": "ski resort city",
+        "preposition": "in",
+    },
     "ski resort town": {
         "article": "a",
         "display": "ski resort town",
@@ -2255,7 +2265,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 450
+}  # 452
 
 placetypes_aliases = {
     "CDP": "census-designated place",

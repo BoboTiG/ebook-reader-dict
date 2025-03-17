@@ -6650,7 +6650,6 @@ langs = {
     "poz-abi": "Abai",
     "poz-bal": "Baliledo",
     "poz-bnn": "North Bornean",
-    "poz-bop": "Borneo-Philippines",
     "poz-bre": "East Barito",
     "poz-brw": "West Barito",
     "poz-btk": "Bungku-Tolaki",
@@ -6696,8 +6695,6 @@ langs = {
     "poz-ssw": "South Sulawesi",
     "poz-ssw-pro": "Proto-South Sulawesi",
     "poz-stm": "St. Matthias",
-    "poz-sus": "Sunda-Sulawesi",
-    "poz-sus-pro": "Proto-Sunda-Sulawesi",
     "poz-swa": "North Sarawakan",
     "poz-swa-pro": "Proto-North Sarawak",
     "poz-tem": "Temotu",
@@ -9867,7 +9864,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,862
+}  # 9,859
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
