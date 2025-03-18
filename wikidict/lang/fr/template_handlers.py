@@ -772,6 +772,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "prénom": "Prénom",
         "prép": "Préposition",
         "préposition": "Préposition",
+        "pronom": "Pronom",
         "pronom-pers": "Pronom personnel",
         "suf": "Suffixe",
         "suffixe": "Suffixe",

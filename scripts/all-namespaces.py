@@ -22,3 +22,4 @@ for locale in locales:
 
 print("namespaces =", end=" ")
 print(results)
+print('namespaces["fro"] = namespaces["fr"]')

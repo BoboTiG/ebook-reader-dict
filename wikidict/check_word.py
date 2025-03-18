@@ -236,7 +236,7 @@ def filter_html(html: str, locale: str) -> str:
                     # 2 Coloquial: --> (Coloquial):
                     dt.string += f"({dt_array[1]}):"
 
-    elif locale == "fr":
+    elif locale in {"fr", "fro"}:
         # Filter out refnec tags
         for tag in find_all("span", {"id": "refnec"}):
             if tag.previous_sibling:

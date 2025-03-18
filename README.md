@@ -32,6 +32,7 @@
 1. <small>`[EO]`</small> [Esperanto](../../releases/tag/eo)
 1. <small>`[ES]`</small> [Spanish](../../releases/tag/es)
 1. <small>`[FR]`</small> [French](../../releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[FRO]`</small> [Old French](../../releases/tag/fro)
 1. <small>`[IT]`</small> [Italian](../../releases/tag/it)
 1. <small>`[NO]`</small> [Norway](../../releases/tag/no)
 1. <small>`[PT]`</small> [Portuguese](../../releases/tag/pt)

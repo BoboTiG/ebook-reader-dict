@@ -20,4 +20,5 @@ namespaces = {
     "ru": ["Image", "Изображение", "К", "Категория", "Файл"],
     "sv": ["Bild", "Fil", "Image", "KAT", "Kategori"],
 }
+namespaces["fro"] = namespaces["fr"]
 # END

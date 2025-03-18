@@ -118,7 +118,8 @@ def convert_pronunciation(pronunciations: list[str]) -> str:
 
 def get_random_word(locale: str) -> str:
     """Retrieve a random word."""
-    url = RANDOM_WORD_URL.format(locale=locale)
+    download_locale = "fr" if locale == "fro" else locale
+    url = RANDOM_WORD_URL.format(locale=download_locale)
     while True:
         with requests.get(url) as req:
             word = str(req.json()["query"]["random"][0]["title"])

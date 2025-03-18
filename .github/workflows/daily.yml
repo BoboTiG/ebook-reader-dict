@@ -24,6 +24,7 @@ jobs:
           - "eo"
           - "es"
           - "fr"
+          - "fro"
           - "it"
           - "no"
           - "pt"
