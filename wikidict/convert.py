@@ -601,52 +601,38 @@ def run_mobi_formater(
     *,
     include_etymology: bool = True,
 ) -> None:
-    """Mobi formater."""
-    snapshot = file.stem.split("-")[1]
+    """Mobi formater.
 
-    # Purge words outside of unicode ranges supported by kindlegen
+    For multiple locales we have to remove words if the total count of uniq characters is greater than 256.
+    To do so, we remove words using less used characters until we meet this requirement.
+    """
+
     if locale in {"en", "fr"}:
 
         def all_chars(word: str, details: Word) -> set[str]:
             chars = set(word)
-            if isinstance(details.definitions, str):
-                chars.update(details.definitions)
-            elif isinstance(details.definitions, tuple):
-                chars.update(flatten(details.definitions))
-            if include_etymology:
-                if isinstance(details.etymology, str):
-                    chars.update(details.etymology)
-                elif isinstance(details.etymology, tuple):
-                    chars.update(flatten(details.etymology))
+            if definitions := details.definitions:
+                if isinstance(definitions, str):
+                    chars.update(definitions)
+                elif isinstance(definitions, tuple):
+                    chars.update(flatten(definitions))
+            if etymology := details.etymology:
+                if isinstance(etymology, str):
+                    chars.update(etymology)
+                elif isinstance(etymology, tuple):
+                    chars.update(flatten(etymology))
             return chars
-
-        def wanted(
-            word: str,
-            details: Word,
-            *,
-            r1: tuple[int, int] = (ord("\u0000"), ord("\u02ff")),
-            r2: tuple[int, int] = (ord("\u3000"), ord("\u30ff")),
-            r3: tuple[int, int] = (ord("\uff00"), ord("\uff9f")),
-        ) -> bool:
-            return all(
-                r1[0] <= (cp := ord(char)) <= r1[1] or r2[0] <= cp <= r2[1] or r3[0] <= cp <= r3[1]
-                for char in all_chars(word, details)
-            )
-
-        log.info("Purging words with characters outside supported unicode ranges...")
-        words = {word: details for word, details in words.items() if wanted(word, details)}
 
         stats = defaultdict(list)
         for word, details in words.items():
             for char in all_chars(word, details):
                 stats[char].append(word)
 
-        log.info("Purged %s words for .mobi (uniq characters count is %d)", f"{len(words):,}", len(stats))
-
         threshold = 1
-        more_purge = len(stats) > 256
+        need_removal = len(stats) > 256
+        current_total = len(words)
         while len(stats) > 256:
-            log.info("Purging words with uniq characters count at %d", threshold)
+            log.info("Removing words with uniq characters count at %d (total is %d)", threshold, len(stats))
             for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
                 if len(related_words) == threshold:
                     for w in related_words:
@@ -655,17 +641,18 @@ def run_mobi_formater(
                 if len(stats) < 256:
                     break
             threshold += 1
-        if more_purge:
-            log.info("Purged %s words for .mobi (uniq characters count is %d)", f"{len(words):,}", len(stats))
 
-        variants = make_variants(words)
+        if need_removal:
+            log.info(
+                "Removed %s words from .mobi (total words count is %s, uniq characters count is %d)",
+                f"{current_total - len(words):,}",
+                f"{len(words):,}",
+                len(stats),
+            )
+            variants = make_variants(words)
 
-    args = (locale, output_dir, words, variants, snapshot)
-
-    # Generate the .df file
+    args = (locale, output_dir, words, variants, file.stem.split("-")[1])
     run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
-
-    # Generate the .mobi file
     run_formatter(MobiFormat, *args, include_etymology=include_etymology)
 
 
