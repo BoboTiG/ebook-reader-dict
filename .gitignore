@@ -23,7 +23,7 @@ pywikibot.lwp
 throttle.ctrl
 
 # Python stuff
-.coverage
+.coverage*
 __pycache__/
 .mypy_cache/
 .pytest_cache/
