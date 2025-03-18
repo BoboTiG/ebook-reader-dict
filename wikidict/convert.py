@@ -603,7 +603,7 @@ def run_mobi_formater(
 ) -> None:
     """Mobi formater.
 
-    For severa locales we have to remove words if the total count of uniq characters is greater than 256.
+    For multiple locales we have to remove words if the total count of uniq characters is greater than 256.
     To do so, we remove words using less used characters until we meet this requirement.
     """
 
