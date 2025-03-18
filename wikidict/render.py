@@ -120,7 +120,7 @@ def find_section_definitions(
     definitions: list[Definitions] = []
 
     # do not look for definitions in french verb form section
-    if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
+    if locale in {"fr", "fro"} and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
 
     if locale == "es":
@@ -207,7 +207,7 @@ def find_etymology(
             items = get_items((":",))
         case "es":
             items = get_items((r";\d",), skip=("=== etimología",))
-        case "fr":
+        case "fr" | "fro":
             definitions: list[Definitions] = []
             tables = parsed_section.tables
             tableindex = 0
@@ -531,7 +531,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
-    elif locale == "fr":
+    elif locale in {"fr", "fro"}:
         # <li value="2"> → == ''
         code = re.sub(r"<li [^>]+>", "", code)
 

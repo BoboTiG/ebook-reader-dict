@@ -18,7 +18,8 @@ if TYPE_CHECKING:
 
 def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
+    download_locale = "fr" if locale == "fro" else locale
+    url = f"https://{download_locale}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
     return parse_word(word, code, locale, force=True, missed_templates=missed_templates)

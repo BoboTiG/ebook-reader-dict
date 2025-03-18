@@ -53,7 +53,9 @@ def fetch_snapshots(locale: str) -> list[str]:
     """
     if forced_snapshot := os.environ.get("FORCE_SNAPSHOT"):
         return [forced_snapshot]
-    url = BASE_URL.format(locale)
+
+    download_locale = "fr" if locale == "fro" else locale
+    url = BASE_URL.format(download_locale)
     with requests.get(url) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
@@ -68,7 +70,8 @@ def fetch_pages(date: str, locale: str, output_dir: Path, *, callback: Callable[
     if output.is_file() or output_xml.is_file():
         return output
 
-    url = DUMP_URL.format(locale, date)
+    download_locale = "fr" if locale == "fro" else locale
+    url = DUMP_URL.format(download_locale, date)
     msg = f"Fetching {url}"
     log.info(msg)
 
