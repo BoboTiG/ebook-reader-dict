@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import uniq
+from ...user_functions import unique
 
 # Float number separator
 float_separator = ","
@@ -189,7 +189,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}")
     ['/ɛn/']
     """
-    return [f"/{p}/" for p in uniq(pattern.findall(code))]
+    return [f"/{p}/" for p in unique(pattern.findall(code))]
 
 
 def last_template_handler(

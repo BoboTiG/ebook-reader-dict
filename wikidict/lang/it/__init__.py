@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import uniq
+from ...user_functions import unique
 
 # Float number separator
 float_separator = ","
@@ -228,7 +228,7 @@ def find_genders(
     >>> find_genders("{{Pn}} ''m sing''")
     ['m']
     """
-    return uniq(pattern.findall(code))
+    return unique(pattern.findall(code))
 
 
 def find_pronunciations(
@@ -242,7 +242,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{IPA|/kondiˈvidere/}}")
     ['/kondiˈvidere/']
     """
-    return uniq(pattern.findall(code))
+    return unique(pattern.findall(code))
 
 
 def last_template_handler(

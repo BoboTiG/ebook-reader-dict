@@ -33,7 +33,7 @@ from .lang import (
 )
 from .namespaces import namespaces
 from .stubs import Word
-from .user_functions import uniq
+from .user_functions import unique
 from .utils import check_for_missing_templates, process_templates, table2html
 
 if TYPE_CHECKING:
@@ -264,7 +264,7 @@ def _find_pronunciations(top_sections: list[wtp.Section], func: Callable[[str], 
     for top_section in top_sections:
         if result := func(top_section.contents):
             results.extend(result)
-    return sorted(uniq(results))
+    return sorted(unique(results))
 
 
 def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[tuple[str, wtp.Section]]]:

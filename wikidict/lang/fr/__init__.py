@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 from .ar_pronunciation import toIPA
 from .arabiser import appliquer, arabiser
 from .contexts import contexts
@@ -584,7 +584,7 @@ def find_genders(
     >>> find_genders("'''42''' {{msing}}")
     ['msing']
     """
-    return uniq(flatten(pattern.findall(code)))
+    return unique(flatten(pattern.findall(code)))
 
 
 def find_pronunciations(
@@ -606,7 +606,7 @@ def find_pronunciations(
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
-    return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
+    return [f"\\{p}\\" for p in unique(pattern.findall(line))]
 
 
 def last_template_handler(

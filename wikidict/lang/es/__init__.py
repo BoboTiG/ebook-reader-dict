@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 from .campos_semanticos import campos_semanticos
 
 # Float number separator
@@ -255,7 +255,7 @@ def find_pronunciations(
     ['[los]', '[lɔʰ]']
     """
     pattern = pattern2 if "{pronunciación|" in code else pattern1
-    return [f"[{p}]" for p in uniq(flatten(pattern.findall(code)))]
+    return [f"[{p}]" for p in unique(flatten(pattern.findall(code)))]
 
 
 def last_template_handler(

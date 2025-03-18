@@ -632,7 +632,7 @@ def run_mobi_formater(
         need_removal = len(stats) > 256
         current_total = len(words)
         while len(stats) > 256:
-            log.info("Removing words with uniq characters count at %d (total is %d)", threshold, len(stats))
+            log.info("Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
             for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
                 if len(related_words) == threshold:
                     for w in related_words:
@@ -644,7 +644,7 @@ def run_mobi_formater(
 
         if need_removal:
             log.info(
-                "Removed %s words from .mobi (total words count is %s, uniq characters count is %d)",
+                "Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
                 f"{current_total - len(words):,}",
                 f"{len(words):,}",
                 len(stats),

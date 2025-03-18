@@ -3,7 +3,7 @@
 import re
 from collections import defaultdict
 
-from ...user_functions import italic, uniq
+from ...user_functions import italic, unique
 from .aliases import aliases
 from .langs import langs
 
@@ -246,7 +246,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{ΔΦΑ|el|ˈni.ði.mos}}")
     ['/ˈni.ði.mos/']
     """
-    return [f"/{p}/" for p in uniq(pattern.findall(code))]
+    return [f"/{p}/" for p in unique(pattern.findall(code))]
 
 
 def text_language(lang_iso: str, *, args: dict[str, str] = defaultdict(str)) -> str:

@@ -571,11 +571,11 @@ def underline(text: str) -> str:
     return f"<u>{text}</u>"
 
 
-def uniq(seq: list[str]) -> list[str]:
+def unique(seq: list[str]) -> list[str]:
     """
     Return *seq* without duplicates.
 
-        >>> uniq(["foo", "foo"])
+        >>> unique(["foo", "foo"])
         ['foo']
     """
     res: list[str] = []
@@ -611,5 +611,5 @@ __all__ = (
     "superscript",
     "term",
     "underline",
-    "uniq",
+    "unique",
 )

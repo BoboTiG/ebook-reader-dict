@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 
 # Float number separator
 float_separator = ","
@@ -107,7 +107,7 @@ def find_genders(
     ['f']
     """
     # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
-    return uniq(flatten(pattern.findall(code)))
+    return unique(flatten(pattern.findall(code)))
 
 
 def find_pronunciations(
@@ -122,7 +122,7 @@ def find_pronunciations(
     >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}")
     ['страни']
     """
-    return uniq(pattern.findall(code))
+    return unique(pattern.findall(code))
 
 
 def last_template_handler(

@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 
 # Float number separator
 float_separator = ","
@@ -214,7 +214,7 @@ def find_genders(
     >>> find_genders("{{substantiv-ron|gen={{n}}}}")
     ['n']
     """
-    return uniq(flatten(pattern.findall(code)))
+    return unique(flatten(pattern.findall(code)))
 
 
 def find_pronunciations(code: str) -> list[str]:
@@ -233,7 +233,7 @@ def find_pronunciations(code: str) -> list[str]:
     ):
         res.extend(pattern.findall(code))
 
-    return uniq(flatten(res))
+    return unique(flatten(res))
 
 
 def last_template_handler(

@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 from .labels import labels
 
 # Float number separator
@@ -204,7 +204,7 @@ def find_genders(
     >>> find_genders("{{nb-sub|m}}")
     ['m']
     """
-    return uniq(flatten(pattern.findall(code)))
+    return unique(flatten(pattern.findall(code)))
 
 
 def find_pronunciations(
