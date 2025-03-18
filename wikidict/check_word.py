@@ -358,7 +358,8 @@ def get_text(html: str) -> str:
 
 def craft_url(word: str, locale: str, *, raw: bool = False) -> str:
     """Craft the *word* URL for the given *locale*."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
+    download_locale = "fr" if locale == "fro" else locale
+    url = f"https://{download_locale}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
     if raw:
         url += "&action=raw"
     return url
