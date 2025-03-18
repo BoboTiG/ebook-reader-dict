@@ -14,7 +14,7 @@ EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, 
 <br/>
 
 
-Nombre de mots : 42
+Nombre de mots : 43
 Export Wiktionnaire : 2020-12-17
 
 Version complète :
@@ -109,7 +109,8 @@ def test_simple() -> None:
     assert (output_dir / f"dict-fr-fr-noetym.mobi.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # StarDict
-    assert (output_dir / "dict-fr-fr.zip").is_file()
+    stardict = output_dir / "dict-fr-fr.zip"
+    assert stardict.is_file()
     assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
@@ -126,6 +127,7 @@ def test_simple() -> None:
             "ch.html",
             "co.html",
             "de.html",
+            "dj.html",
             "du.html",
             "ef.html",
             "em.html",
@@ -164,6 +166,21 @@ def test_simple() -> None:
         install_txt = fh.read("INSTALL.txt").decode()
         print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
+
+    # Check the StarDict ZIP content
+    with ZipFile(stardict) as fh:
+        expected = [
+            "dict-data.dict.dz",
+            "dict-data.idx",
+            "dict-data.ifo",
+            "dict-data.syn.dz",
+            "res/db28a816.gif",
+        ]
+        assert sorted(fh.namelist()) == expected
+
+        # testfile returns the name of the first corrupt file, or None
+        errors = fh.testzip()
+        assert errors is None
 
 
 def test_no_json_file() -> None:

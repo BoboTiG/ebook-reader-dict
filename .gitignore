@@ -12,6 +12,7 @@ templates.txt
 /data/
 tests/data/*/dict-data.*
 tests/data/*/INSTALL.txt
+tests/data/*/stardict/
 tests/data/*/words.*
 tests/data/*/res
 tests/data/*/tmp

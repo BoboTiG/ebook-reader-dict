@@ -502,7 +502,7 @@ class ConverterFromDictFile(DictFileFormat):
             for file in self.output_dir_tmp.glob(self.zip_glob_files):
                 fh.write(file, arcname=file.name)
 
-            for entry in self.output_dir.glob("res/*"):
+            for entry in (self.output_dir / self.target_format).glob("res/*"):
                 fh.write(entry, arcname=f"res/{entry.name}")
 
             # Check the ZIP validity
