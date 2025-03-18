@@ -603,8 +603,8 @@ def run_mobi_formater(
 ) -> None:
     """Mobi formater.
 
-    For multiple locales we have to remove words if the total count of uniq characters is greater than 256.
-    To do so, we remove words using less used characters until we meet this requirement.
+    For multiple languages, we need to delete words if the total number of unique characters is greater than 256.
+    To do this, we delete words using the least-used characters until we meet this condition.
     """
 
     if locale in {"en", "fr"}:
