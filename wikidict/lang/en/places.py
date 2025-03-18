@@ -635,11 +635,6 @@ recognized_placetypes = {
         "display": "district municipality",
         "preposition": "of",
     },
-    "districts and autonomous region": {
-        "article": "a",
-        "display": "districts and autonomous region",
-        "preposition": "of",
-    },
     "division": {
         "article": "a",
         "display": "division",
@@ -2190,6 +2185,11 @@ recognized_placetypes = {
         "display": "unitary district",
         "preposition": "in",
     },
+    "unitary territory": {
+        "article": "an",
+        "display": "unitary territory",
+        "preposition": "in",
+    },
     "united township municipality": {
         "article": "a",
         "display": "united township municipality",
@@ -2358,13 +2358,15 @@ placetypes_aliases = {
     "tjarea": "tribal jurisdictional area",
     "twp": "township",
     "twpmun": "township municipality",
+    "uauth": "unitary territory",
     "ucomm": "unincorporated community",
+    "udist": "unitary district",
     "uterr": "union territory",
     "utwpmun": "united township municipality",
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 96
+}  # 98
 
 recognized_qualifiers = {
     "abandoned": "abandoned",

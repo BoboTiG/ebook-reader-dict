@@ -5189,7 +5189,7 @@ racines_schemes_arabes = {
         "aa_sens": "circuler",
         "ar-***ũ": "",
         "ar-**a*²a": "",
-        "ar-*a**@ũ": "période",
+        "ar-*a**@ũ": "état",
         "ar-*a**ũ": "retour",
         "ar-*a*a*@ũ": "notoriété",
         "ar-*a*a*a-u": "tourner",
@@ -5197,6 +5197,7 @@ racines_schemes_arabes = {
         "ar-*a*²a*a": "",
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "infortune",
+        "ar-*u*a*ũ": "{{p}} états",
         "ar-*â*a*a": "faire prospérer",
         "ar-a**a*@ũ": "remplacement",
         "ar-a**a*a": "remplacer",
@@ -5205,7 +5206,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se succéder",
-    },  # 19
+    },  # 20
     "ar-f3l": {
         "aa_sens": "action",
         "ar-*a**@ũ": "habitude",
@@ -8514,6 +8515,7 @@ racines_schemes_arabes = {
         "ar-*i**@ũ": "parterre",
         "ar-*i*â*@ũ": "sport, exercice continuel",
         "ar-*i*â*iy²@ũ": "vie ascétique",
+        "ar-*i*â*iy²âtũ": "mathématiques",
         "ar-*i*â*âtũ": "sciences exactes",
         "ar-*i*â*ũ": "{{p}} jardins",
         "ar-*ta*a*a": "être maîtrisé",
@@ -8527,7 +8529,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être exercé",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "rivaliser",
-    },  # 23
+    },  # 24
     "ar-rwH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",
