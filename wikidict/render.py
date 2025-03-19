@@ -120,7 +120,7 @@ def find_section_definitions(
     definitions: list[Definitions] = []
 
     # do not look for definitions in french verb form section
-    if locale in {"fr", "fro"} and section.title.strip().startswith(f"{{{{S|verbe|{locale}|flexion"):
+    if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
         return definitions
 
     if locale == "es":

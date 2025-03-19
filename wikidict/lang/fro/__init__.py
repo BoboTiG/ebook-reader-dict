@@ -8,10 +8,10 @@ head_sections = ("{{langue|fro}}",)
 sections = tuple(section.replace("fr", "fro") for section in fr.sections)
 variant_titles = tuple(section.replace("fr", "fro") for section in fr.variant_titles)
 variant_templates = tuple(section.replace("fr", "fro") for section in fr.variant_templates)
+definitions_to_ignore = tuple(d for d in fr.definitions_to_ignore if d.startswith("{"))
 
 float_separator = fr.float_separator
 thousands_separator = fr.thousands_separator
-definitions_to_ignore = fr.definitions_to_ignore
 templates_ignored = fr.templates_ignored
 templates_italic = fr.templates_italic
 templates_multi = fr.templates_multi
