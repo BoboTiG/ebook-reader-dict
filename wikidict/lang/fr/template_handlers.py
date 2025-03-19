@@ -122,6 +122,8 @@ def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], 
     'dénominal'
     >>> render_modele_etym("dénominal",[], defaultdict(str, {"de":"psychoanalyze", "m":"1"}))
     'Dénominal de <i>psychoanalyze</i>'
+    >>> render_modele_etym("dénominal",["fr"], defaultdict(str, {"de": "buse", "sens": "trompette"}))
+    'dénominal de <i>buse</i> (« trompette »)'
 
     >>> render_modele_etym("déverbal", [], defaultdict(str))
     'déverbal'
@@ -165,6 +167,10 @@ def render_modele_etym(tpl: str, parts: list[str], data: defaultdict[str, str], 
             phrase += italic(data["texte2"])
         else:
             phrase += italic(data["de2"])
+
+    if sens := data["sens"]:
+        phrase += f" (« {sens} »)"
+
     return phrase
 
 
