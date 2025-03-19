@@ -2,12 +2,12 @@
 
 import re
 
-from ...user_functions import flatten, unique
 from .. import fr
 
 head_sections = ("{{langue|fro}}",)
 sections = tuple(section.replace("fr", "fro") for section in fr.sections)
 variant_titles = tuple(section.replace("fr", "fro") for section in fr.variant_titles)
+variant_templates = tuple(section.replace("fr", "fro") for section in fr.variant_templates)
 
 float_separator = fr.float_separator
 thousands_separator = fr.thousands_separator
@@ -17,10 +17,8 @@ templates_italic = fr.templates_italic
 templates_multi = fr.templates_multi
 templates_other = fr.templates_other
 etyl_section = fr.etyl_section
-variant_templates = fr.variant_templates
 release_description = fr.release_description
 wiktionary = fr.wiktionary
-last_template_handler = fr.last_template_handler
 
 
 def find_genders(
@@ -36,7 +34,7 @@ def find_genders(
     >>> find_genders("'''42''' {{msing}}")
     ['msing']
     """
-    return unique(flatten(pattern.findall(code)))
+    return fr.find_genders(code, pattern=pattern)
 
 
 def find_pronunciations(
@@ -52,10 +50,37 @@ def find_pronunciations(
     >>> find_pronunciations("{{pron|ɑ|fro}}, {{pron|a|fro}}")
     ['\\\\ɑ\\\\', '\\\\a\\\\']
     """
-    if not (match := pattern.search(code)):
-        return []
+    return fr.find_pronunciations(code, pattern=pattern)
 
-    # There is at least one match, we need to get whole line
-    # in order to be able to find multiple pronunciations
-    line = code[match.start() : code.find("\n", match.start())]
-    return [f"\\{p}\\" for p in unique(pattern.findall(line))]
+
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    missed_templates: list[tuple[str, str]] | None = None,
+) -> str:
+    """
+    Will be called in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["fro-accord-ain", "a.me.ʁi.k"], "fro", word="américain")
+        'américain'
+        >>> last_template_handler(["fro-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fro")
+        'attaché de presse'
+        >>> last_template_handler(["fro-rég", "ka.ʁɔt"], "fro", word="carottes")
+        'carotte'
+        >>> last_template_handler(["fro-verbe-flexion", "colliger", "ind.i.3s=oui"], "fro")
+        'colliger'
+
+    """
+    if (tpl := template[0]).startswith(
+        (
+            "fro-verbe-flexion",
+            "fro-accord-rég",
+            "fro-rég",
+            "fro-accord-",
+        )
+    ):
+        template = tuple([tpl.replace("fro-", "fr-"), *template[1:]])
+
+    return fr.last_template_handler(template, "fr", word=word, missed_templates=missed_templates)
