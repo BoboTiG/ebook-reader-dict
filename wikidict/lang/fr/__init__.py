@@ -97,6 +97,8 @@ sections = (
     "{{s|préfixe|conv",
     "{{s|préfixe|fr|",
     "{{s|préfixe|fr}",
+    "{{s|prénom|fr|",
+    "{{s|prénom|fr}",
     "{{s|préposition|fr|",
     "{{s|préposition|fr}",
     "{{s|pronom indéfini|fr}",
