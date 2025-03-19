@@ -47,6 +47,8 @@ sections = (
     "{{s|adverbe|conv",
     "{{s|adverbe|fr|",
     "{{s|adverbe|fr}",
+    "{{s|article|fr|",
+    "{{s|article|fr}",
     "{{s|article défini|fr|",
     "{{s|article défini|fr}",
     "{{s|article indéfini|fr|",
