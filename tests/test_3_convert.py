@@ -14,7 +14,7 @@ EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, 
 <br/>
 
 
-Nombre de mots : 43
+Nombre de mots : 44
 Export Wiktionnaire : 2020-12-17
 
 Version complète :

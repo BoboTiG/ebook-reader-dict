@@ -715,7 +715,7 @@ def render_word(
     except Exception:  # pragma: nocover
         log.exception("ERROR with %r", word)
     else:
-        if details.definitions or details.variants:
+        if details.etymology or details.definitions or details.variants:
             words[word] = details
             return details
     return None
