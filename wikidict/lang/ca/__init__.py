@@ -22,6 +22,7 @@ sections = (
     "article",
     "conjunció",
     "contracció",
+    "forma verbal",
     "infix",
     "interjecció",
     "lletra",
