@@ -488,6 +488,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # {{=da=}} → =={{da}}==
         code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
+        # ===dansk==== → =={{da}}==
+        code = re.sub(r"=+\s*[Dd]ansk\s*=+", r"=={{da}}==", code, flags=re.MULTILINE)
+
         # Transform sub-locales into their own section to prevent mixing stuff
         # {{-da-}} → =={{da}}==
         # {{-mul-}} → =={{mul}}==
