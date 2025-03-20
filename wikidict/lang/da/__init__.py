@@ -40,6 +40,7 @@ sections = (
     "verbum",
     "{{abbr}}",
     "{{abr}}",
+    "{{abr|mul}",
     "{{adj}}",
     "{{adv}}",
     "{{afl}}",
