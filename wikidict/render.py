@@ -63,6 +63,10 @@ Sections = dict[str, list[wtp.Section]]
 #    DEBUG_SECTIONS="{{unități}}" python -m wikidict ro --render
 DEBUG_SECTIONS = os.environ.get("DEBUG_SECTIONS", "0")
 
+# To list all unhandled words:
+#    DEBUG_EMPTY_WORDS=1 python -m wikidict LOCALE --render >out.log 2>&1
+DEBUG_EMPTY_WORDS = "DEBUG_EMPTY_WORDS" in os.environ
+
 log = logging.getLogger(__name__)
 
 
@@ -718,6 +722,10 @@ def render_word(
         if details.etymology or details.definitions or details.variants:
             words[word] = details
             return details
+
+    if DEBUG_EMPTY_WORDS:
+        print(f"Empty {word = }")
+
     return None
 
 
