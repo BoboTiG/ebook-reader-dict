@@ -321,7 +321,7 @@ class KoboFormat(BaseFormat):
 
     def save(self) -> None:
         """
-        Format of resulting dicthtml-LOCALE.zip:
+        Format of resulting dicthtml-LOCALE-LOCALE.zip:
 
             aa.html
             ab.html
@@ -337,7 +337,7 @@ class KoboFormat(BaseFormat):
         tmp_dir.mkdir()
 
         # Files to add to the final archive
-        to_compress = []
+        to_compress: list[Path] = []
 
         # First, create individual HTML files
         wordlist: list[str] = []
@@ -747,12 +747,11 @@ def main(locale: str) -> int:
     # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
     multiprocessing.set_start_method("spawn", force=True)
 
-    distribute_workload(get_primary_formaters(), *args)
-    distribute_workload(get_secondary_formaters(), *args)
-    run_mobi_formater(*args)
-
-    distribute_workload(get_primary_formaters(), *args, include_etymology=False)
-    distribute_workload(get_secondary_formaters(), *args, include_etymology=False)
-    run_mobi_formater(*args, include_etymology=False)
+    # Important: start converting without etymology as the latest INSTALL.txt file will be used to generate
+    # the GitHub release description (and dictionaries without etymology tend to contain less words).
+    for include_etymology in [False, True]:
+        distribute_workload(get_primary_formaters(), *args, include_etymology=include_etymology)
+        distribute_workload(get_secondary_formaters(), *args, include_etymology=include_etymology)
+        run_mobi_formater(*args, include_etymology=include_etymology)
 
     return 0
