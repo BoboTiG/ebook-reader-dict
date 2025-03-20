@@ -12,7 +12,7 @@ thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 # https://sv.wiktionary.org/wiki/Wiktionary:Stilguide#Ordklassrubriken
-head_sections = ("==svenska==", "svenska")
+head_sections = ("svenska",)
 sections = (
     "adjektiv",
     "adverb",
