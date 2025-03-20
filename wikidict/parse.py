@@ -14,7 +14,7 @@ from xml.sax.saxutils import unescape
 from .lang import head_sections
 
 if TYPE_CHECKING:
-    from collections.abc import Generator
+    from collections.abc import Callable, Generator, Iterator
 
 
 log = logging.getLogger(__name__)
@@ -45,13 +45,11 @@ def xml_iter_parse(file: Path) -> Generator[str]:
                 is_element = True
 
 
-def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
+def xml_parse_element(element: str, head_sections_matcher: Callable[[str], Iterator[str]]) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
     if title_match := next(RE_TITLE(element), None):
-        head_sections_match = re.compile(rf"^=*\s*({'|'.join(head_sections[locale])})", flags=re.IGNORECASE | re.MULTILINE).finditer
         for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
-            wikicode = text_match[1]
-            if next(head_sections_match(wikicode), None):
+            if next(head_sections_matcher(wikicode := text_match[1]), None):
                 return title_match[1], wikicode
 
         if DEBUG_PARSE:
@@ -69,8 +67,22 @@ def process(file: Path, locale: str) -> dict[str, str]:
     words: dict[str, str] = defaultdict(str)
 
     log.info("Processing %s ...", file)
+
+    if locale in {"ca", "da", "el", "en", "eo", "it", "no", "pt", "sv"}:
+        # For several locales it is more accurate to use a regexp matcher
+        head_sections_matcher = re.compile(
+            rf"^=*\s*({'|'.join(head_sections[locale])})",
+            flags=re.IGNORECASE | re.MULTILINE,
+        ).finditer
+    else:
+        # While for others, a simple check is better because it is either more accurate, or simply impossible to rely on the former
+        assert locale in {"de", "es", "fr", "fro", "ro", "ru"}
+
+        def head_sections_matcher(wikicode: str) -> Iterator[str]:  # type: ignore[misc]
+            return (s for s in head_sections[locale] if s in wikicode.lower())
+
     for element in xml_iter_parse(file):
-        word, code = xml_parse_element(element, locale)
+        word, code = xml_parse_element(element, head_sections_matcher)  # type: ignore[arg-type]
         if word and code:
             words[unescape(word)] = unescape(code)
 
