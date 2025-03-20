@@ -48,10 +48,10 @@ def xml_iter_parse(file: Path) -> Generator[str]:
 def xml_parse_element(element: str, locale: str) -> tuple[str, str]:
     """Parse the XML `element` to retrieve the word and its definitions."""
     if title_match := next(RE_TITLE(element), None):
+        head_sections_match = re.compile(rf"^=*\s*({'|'.join(head_sections[locale])})", flags=re.IGNORECASE | re.MULTILINE).finditer
         for text_match in RE_TEXT(element, pos=element.find("<text", title_match.endpos)):
             wikicode = text_match[1]
-            wikicode_lowercase = wikicode.lower()
-            if any(section in wikicode_lowercase for section in head_sections[locale]):
+            if next(head_sections_match(wikicode), None):
                 return title_match[1], wikicode
 
         if DEBUG_PARSE:
