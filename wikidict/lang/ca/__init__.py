@@ -37,11 +37,7 @@ sections = (
 )
 
 # Variants
-variant_titles = (
-    "adjectiu",
-    "nom",
-    "verb",
-)
+variant_titles = sections
 variant_templates = (
     "{{ca-forma-conj",
     "{{forma-",
