@@ -68,7 +68,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
 
     log.info("Processing %s ...", file)
 
-    if locale in {"ca", "da", "el", "en", "eo", "it", "no", "pt", "sv"}:
+    if locale in {"ca", "da", "el", "en", "it", "no", "pt", "sv"}:
         # For several locales it is more accurate to use a regexp matcher
         head_sections_matcher = re.compile(
             rf"^=*\s*({'|'.join(head_sections[locale])})",
@@ -76,7 +76,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
         ).finditer
     else:
         # While for others, a simple check is better because it is either more accurate, or simply impossible to rely on the former
-        assert locale in {"de", "es", "fr", "fro", "ro", "ru"}
+        assert locale in {"de", "es", "eo", "fr", "fro", "ro", "ru"}
 
         def head_sections_matcher(wikicode: str) -> Iterator[str]:  # type: ignore[misc]
             return (s for s in head_sections[locale] if s in wikicode.lower())
