@@ -102,8 +102,9 @@ def main(locale: str) -> int:
         return 1
 
     date = file.stem.split("-")[1]
-    if not (output_dir / f"data_wikicode-{date}.json").is_file():
+    output = output_dir / f"data_wikicode-{date}.json"
+    if not output.is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    log.info("Parse done!")
+    log.info("Parse done in %s!", output)
     return 0

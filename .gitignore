@@ -3,6 +3,7 @@
 *.bz2
 *.df
 *.json
+*.log
 *.mobi
 *.xml
 *.zip
