@@ -249,6 +249,27 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return term(res.strip())
 
 
+def render_prenom(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_prenom("prenom", ["ca", "m"], defaultdict(str))
+    '<i>Prenom masculí</i>'
+    >>> render_prenom("prenom", ["ca", "m"], defaultdict(str, {"hip": "Francesc"}))
+    '<i>Prenom masculí hipocorístic de Francesc</i>'
+    >>> render_prenom("prenom", ["fr", "f"], defaultdict(str, {"eq": "Maria"}))
+    '<i>Prenom femení, equivalent al català Maria.</i>'
+    >>> render_prenom("prenom", ["fr", "f"], defaultdict(str, {"eq": "Maria", "punt": ","}))
+    '<i>Prenom femení, equivalent al català Maria,</i>'
+    """
+    gender = {"f": "femení", "m": "masculí", "mf": "masculí i femení"}
+    phrase = f"{tpl.title()} {gender[parts[1]]}"
+    if hip := data["hip"]:
+        phrase += f" hipocorístic de {hip}"
+    if eq := data["eq"]:
+        phrase += f", equivalent al català {eq}"
+        phrase += data["punt"] or "."
+    return italic(phrase)
+
+
 def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
@@ -269,6 +290,7 @@ template_mapping = {
     "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
+    "prenom": render_prenom,
     "sigles de": render_sigles_de,
 }
 
