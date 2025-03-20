@@ -242,6 +242,7 @@ from wikidict.utils import process_templates
             [],
             [
                 "Codi de llengua ISO 639-1 del singalès.",
+                "<i>Nexe condicional que introdueix un supòsit, una premissa.</i>",
                 "Cavitat interna del cos.",
                 "<i>(per extensió)</i> Part interna d'una cosa.",
                 "Setena nota musical de l'escala.",

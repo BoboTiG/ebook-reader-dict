@@ -20,6 +20,7 @@ sections = (
     "adjectiu",
     "adverbi",
     "article",
+    "conjunció",
     "contracció",
     "infix",
     "interjecció",
