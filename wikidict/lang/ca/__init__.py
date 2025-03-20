@@ -33,6 +33,7 @@ sections = (
     "prefix",
     "preposició",
     "pronom",
+    "proverbi",
     "sigles",
     "sufix",
     "símbol",
