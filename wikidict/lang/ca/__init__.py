@@ -46,8 +46,6 @@ variant_templates = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "cognom",
-    "prenom",
     "ex-cit",
     "ex-us",
     #

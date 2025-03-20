@@ -25,6 +25,26 @@ def parse_index_parameters(word: str, data: defaultdict[str, str], i: int) -> st
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
+def render_cognom(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_cognom("cognom", [], defaultdict(str))
+    '<i>Cognom</i>'
+    >>> render_cognom("cognom", ["en", "patronímic"], defaultdict(str))
+    '<i>Cognom d’origen patronímic</i>'
+    >>> render_cognom("cognom", ["es"], defaultdict(str, {"eq": "Llopis"}))
+    '<i>Cognom, equivalent al català Llopis.</i>'
+    >>> render_cognom("cognom", ["es"], defaultdict(str, {"eq": "Llopis", "punt": ","}))
+    '<i>Cognom, equivalent al català Llopis,</i>'
+    """
+    phrase = tpl.title()
+    if len(parts) > 1:
+        phrase += f" d’origen {parts[-1]}"
+    if eq := data["eq"]:
+        phrase += f", equivalent al català {eq}"
+        phrase += data["punt"] or "."
+    return italic(phrase)
+
+
 def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
@@ -243,6 +263,7 @@ def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], *,
 
 
 template_mapping = {
+    "cognom": render_cognom,
     "comp": render_comp,
     "g": render_g,
     "grafia": render_grafia,
