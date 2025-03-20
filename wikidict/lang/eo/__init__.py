@@ -7,7 +7,7 @@ from ...user_functions import unique
 
 float_separator = ","
 
-# Thousads separator
+# Thousands separator
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.

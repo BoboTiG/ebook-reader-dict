@@ -30,7 +30,7 @@ def _populate(attr: str) -> PopulatedDict:
 # Float number separator
 float_separator: dict[str, str] = _populate("float_separator")
 
-# Thousads separator
+# Thousands separator
 thousands_separator: dict[str, str] = _populate("thousands_separator")
 
 # Markers for sections that contain interesting text to analyse.
