@@ -23,6 +23,7 @@ sections = (
     "caràcter",
     "conjunció",
     "contracció",
+    "desinència",
     "forma verbal",
     "frase feta",
     "infix",
