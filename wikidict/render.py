@@ -123,15 +123,15 @@ def find_section_definitions(
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: list[Definitions] = []
 
-    # do not look for definitions in french verb form section
-    if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
-        return definitions
-
     if locale == "es":
         if section.title.strip().lower().startswith(("forma adjetiva", "forma verbal")):
             return definitions
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
+
+    # Do not look for definitions in french verb form section
+    if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
+        return definitions
 
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
