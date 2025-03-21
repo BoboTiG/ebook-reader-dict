@@ -12,6 +12,7 @@ from contextlib import suppress
 from functools import partial
 from itertools import chain
 from pathlib import Path
+from time import monotonic
 from typing import TYPE_CHECKING, cast
 
 import wikitextparser as wtp
@@ -781,6 +782,7 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     in_words: dict[str, str] = load(file)
 
     workers = workers or multiprocessing.cpu_count()
+    start = monotonic()
     words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
@@ -788,5 +790,5 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
-    log.info("Render done!")
+    log.info("Render done in %d sec!", monotonic() - start)
     return 0
