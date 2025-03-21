@@ -1384,6 +1384,28 @@ def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_variante_du_radical_de_kangxi(
+    tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = ""
+) -> str:
+    """
+    >>> render_variante_du_radical_de_kangxi("variante du radical de Kangxi", ["⺁"], defaultdict(str), word="⺁")
+    'Variante du radical de Kangxi 厂. Unicode : U+2E81.'
+    >>> render_variante_du_radical_de_kangxi("variante du radical de Kangxi", [], defaultdict(str), word="⺁")
+    'Variante du radical de Kangxi 厂. Unicode : U+2E81.'
+    >>> render_variante_du_radical_de_kangxi("variante du radical de Kangxi", ["à droite"], defaultdict(str, {"var": "* &#x4e5a; sinogramme"}), word="⺃")
+    'Variante à droite du radical de Kangxi 乙. Unicode : U+2E83.'
+    """
+    from .ko_hangeul.sinogramme import radical_trait
+
+    if parts and parts[0] == word:
+        parts.pop(0)
+
+    text = "Variante"
+    if parts:
+        text += f" {parts[0]}"
+    return f"{text} du radical de Kangxi {radical_trait(word)}. Unicode : U+{hex(ord(word))[2:].upper()}."
+
+
 def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variante_ortho("Variante de", ["acupuncture", "fr"], defaultdict(str))
@@ -1529,6 +1551,7 @@ template_mapping = {
     "transitif+": render_transitif,
     "Variante de": render_variante_ortho,
     "variante de": render_variante_ortho,
+    "variante du radical de Kangxi": render_variante_du_radical_de_kangxi,
     "Variante ortho de": render_variante_ortho,
     "variante ortho de": render_variante_ortho,
     "variante orthographique de": render_variante_ortho,
