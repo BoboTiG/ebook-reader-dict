@@ -8,6 +8,7 @@ import os
 import re
 from collections import defaultdict
 from pathlib import Path
+from time import monotonic
 from typing import TYPE_CHECKING
 from xml.sax.saxutils import unescape
 
@@ -113,10 +114,11 @@ def main(locale: str) -> int:
         log.error("No dump found. Run with --download first ... ")
         return 1
 
+    start = monotonic()
     date = file.stem.split("-")[1]
     output = output_dir / f"data_wikicode-{date}.json"
     if not output.is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    log.info("Parse done in %s!", output)
+    log.info("Parse done into %s in %d seconds", output, monotonic() - start)
     return 0
