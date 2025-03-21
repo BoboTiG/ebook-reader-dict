@@ -1096,6 +1096,22 @@ def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_subst(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_subst("subst", [], defaultdict(str, {"char": "劋", "de": "剿", "char1": "巢", "char2": "喿"}))
+    '劋 : de 剿 où 喿 remplace 巢'
+    >>> render_subst("subst", [], defaultdict(str, {"char": "劋", "de": "剿", "ici": "retrancher, détruire", "char1": "巢", "char2": "喿", "sens": "retrancher, détruire ; rusé"}))
+    '劋 : de 剿 (ici : retrancher, détruire) où 喿 remplace 巢 : retrancher, détruire ; rusé'
+    """
+    text = f"{data['char']} : de {data['de']}"
+    if ici := data["ici"]:
+        text += f" (ici : {ici})"
+    text += f" où {data['char2']} remplace {data['char1']}"
+    if sens := data["sens"]:
+        text += f" : {sens}"
+    return text
+
+
 def render_substantivation_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_substantivation_de("substantivation de", ["mot", "fr"], defaultdict(str))
@@ -1426,6 +1442,7 @@ template_mapping = {
     "sigle": render_sigle,
     "source?": render_refnec,
     "source ?": render_refnec,
+    "subst": render_subst,
     "substantivation de": render_substantivation_de,
     "Suisse": render_suisse,
     "supplétion": render_suppletion,
