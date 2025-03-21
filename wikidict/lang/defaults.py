@@ -86,6 +86,9 @@ def last_template_handler(
     tpl, *parts = template
     data = extract_keywords_from(parts)
 
+    if tpl == "BASEPAGENAME":
+        return word
+
     if tpl == "formatnum":
         from . import float_separator as locale_aware_fs
         from . import thousands_separator as locale_aware_ts
