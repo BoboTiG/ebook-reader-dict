@@ -20,6 +20,7 @@ thousands_separator = " "
 # Pour récupérer la liste complète des sections :
 #     python -m wikidict fr --find-templates
 # Ensuite il faudra purger la liste et il restera les sections ci-dessous.
+section_patterns = ("#", r"\*")
 head_sections = ("{{langue|fr}}", "{{langue|conv}}", "{{caractère}}")
 etyl_section = ("{{s|étymologie}}",)
 sections = (

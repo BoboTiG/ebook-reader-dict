@@ -11,6 +11,16 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "5E",
+            [],
+            [],
+            [],
+            [
+                "Code AITA de la compagnie d’aviation SGA Airlines <i>(<i>Siam General Aviation Company Limited</i></i>, <i>บริษัท สยาม เจนเนอรัล เอวิเอชั่น จำกัด</i>).",
+            ],
+            [],
+        ),
+        (
             "-eresse",
             ["\\(ə).ʁɛs\\"],
             ["f"],
