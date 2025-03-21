@@ -14,7 +14,7 @@ EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, 
 <br/>
 
 
-Nombre de mots : 45
+Nombre de mots : 46
 Export Wiktionnaire : 2020-12-17
 
 Version complète :
@@ -149,6 +149,7 @@ def test_simple() -> None:
             "su.html",
             "te.html",
             "tu.html",
+            "ve.html",
             "words",
             "words.count",
             "words.snapshot",
