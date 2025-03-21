@@ -8124,6 +8124,20 @@ racines_schemes_arabes = {
         "ar-*a*²û*ũ": "immuable",
         "ar-*i*â*ũ": "persévérance",
     },  # 5
+    "ar-r'y": {
+        "aa_sens": "voir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "apercevoir",
+        "ar-*a*²a*a": "simuler",
+        "ar-*ta*a*a": "examiner",
+        "ar-*â*a*a": "consulter",
+        "ar-a**a*a": "montrer",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "désirer voir",
+        "ar-ta*a*²a*a": "paraître",
+        "ar-ta*â*a*a": "apparaître",
+    },  # 12
     "ar-rWH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",
@@ -10208,5 +10222,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 347
+}  # 348
 # END

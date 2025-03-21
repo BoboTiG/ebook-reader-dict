@@ -1419,6 +1419,12 @@ labels = {
     "feminism": "feminism",
     "fencing": "fencing",
     "fern-fir-fur": "''fern''–''fir''–''fur'' merger",
+    "fetish": "paraphilia",
+    "fetishes": "paraphilia",
+    "fetishisation": "paraphilia",
+    "fetishism": "paraphilia",
+    "fetishistic": "paraphilia",
+    "fetishization": "paraphilia",
     "feudalism": "feudalism",
     "fiction": "fiction",
     "fictional": "fiction",
@@ -2048,6 +2054,9 @@ labels = {
     "paleontology": "paleontology",
     "palmistry": "palmistry",
     "palynology": "palynology",
+    "paraphilia": "paraphilia",
+    "paraphilias": "paraphilia",
+    "paraphilic": "paraphilia",
     "parapsychology": "parapsychology",
     "parasitology": "parasitology",
     "part of speech": "grammar",
@@ -2604,7 +2613,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,599
+}  # 2,608
 
 syntaxes = {
     "&": {
