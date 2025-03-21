@@ -1507,6 +1507,7 @@ template_mapping = {
     "étyl": render_etyl,
     "étylp": render_etyl,
     "Étymologie graphique chinoise": render_etym_chinoise,
+    "Etymologie graphique chinoise": render_etym_chinoise,
     "forme reconstruite": render_recons,
     "hangeul unicode": render_ko_translit,
     "ko-pron": render_ko_pron,
