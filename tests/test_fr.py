@@ -124,7 +124,9 @@ from wikidict.utils import process_templates
             [
                 "Ayant dans le passé la forme « -als », au cours du XII<sup>e</sup> siècle, le « l » précédant une autre consonne se modifia en « u », comme dans « colp – coup, altre – autre ». Étant suivi d'une consonne uniquement au pluriel, la terminaison « -als » pris la forme de « aus ». Le « x » provient des manuscrits, qui étaient extrêmement chers à l'époque, il va de soi qu'on voulut y mettre le plus de texte possible. S'inspirant du latin où « us » s'écrivait « x », on obtint ainsi la forme « -ax ». Le « u » vient s'ajouter plus tard pour s'accorder à la prononciation [o]."
             ],
-            [],
+            [
+                "<i>Forme courante du pluriel de</i> -al.",
+            ],
             [],
         ),
         (
@@ -458,6 +460,16 @@ from wikidict.utils import process_templates
                 "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."
             ],
             ["Nom de famille."],
+            [],
+        ),
+        (
+            "venoient",
+            [],
+            [],
+            [],
+            [
+                "<i>Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe</i> venir (on écrit maintenant <i>venaient</i>)."
+            ],
             [],
         ),
     ],

@@ -130,10 +130,6 @@ def find_section_definitions(
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
-    # Do not look for definitions in french verb form section
-    if locale == "fr" and section.title.strip().startswith("{{S|verbe|fr|flexion"):
-        return definitions
-
     if lists := section.get_lists(pattern=section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
@@ -423,6 +419,16 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
     ' Qui a rapport avec un type de [[discours]].'
 
+    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
+    '# {{flexion|pressant}}'
+    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
+    '# {{flexion|anisophylle}}'
+
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
+    '# {{fr-verbe-flexion|venir}}'
+    >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
+    "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
+
     >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
     ''
 
@@ -551,6 +557,37 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
         code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
+
+        # Enhance name variants support
+        # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég}}`
+        forms = "|".join(
+            [
+                "féminin de",
+                "féminin pluriel",
+                "féminin singulier",
+                "masculin et féminin pluriel",
+                "masculin ou féminin pluriel",
+                "masculin pluriel",
+                "pluriel d",
+                "pluriel habituel",
+                "pluriel inhabituel",
+            ]
+        )
+        code = re.sub(
+            rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]]+)]].*",
+            r"# {{flexion|\1}}",
+            code,
+            flags=re.DOTALL | re.IGNORECASE | re.MULTILINE,
+        )
+
+        # Enhance verbs variants support
+        # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
+        code = re.sub(
+            r"^^#\s*'+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
+            rf"# {{{{{locale}-verbe-flexion|\1}}}}",
+            code,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
 
     elif locale == "it":
         # [[w:A|B]] → [[A|B]]
@@ -734,7 +771,7 @@ def render_word(
             return details
 
     if DEBUG_EMPTY_WORDS:
-        print(f"Empty {word = }")
+        print(f"Empty {word = }", flush=True)
 
     return None
 

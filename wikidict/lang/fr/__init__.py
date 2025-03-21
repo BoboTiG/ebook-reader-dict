@@ -63,6 +63,8 @@ sections = (
     "{{s|conjonction|fr}",
     "{{s|erreur|fr|",
     "{{s|erreur|fr}",
+    "{{s|infixe|fr|",
+    "{{s|infixe|fr}",
     "{{s|interfixe|fr}",
     "{{s|interjection|fr|",
     "{{s|interjection|fr}",
@@ -127,11 +129,14 @@ sections = (
 variant_titles = (
     "{{s|adjectif|fr}",
     "{{s|adjectif|fr|flexion",
-    "{{s|pronom indéfini|fr|flexion",
+    "{{s|adjectif indéfini|fr|flexion",
     "{{s|nom|fr|flexion",
+    "{{s|pronom indéfini|fr|flexion",
+    "{{s|suffixe|fr|flexion",
     "{{s|verbe|fr|flexion",
 )
 variant_templates = (
+    "{{flexion",
     "{{fr-accord-",
     "{{fr-rég",
     "{{fr-verbe-flexion",
@@ -139,21 +144,8 @@ variant_templates = (
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
-    "habitante",
     "eo-excl-étyl",
-    "''féminin de''",
-    "féminin pluriel",
-    "féminin singulier",
     "Gallica",
-    "masculin et féminin pluriel",
-    "masculin ou féminin pluriel",
-    "masculin pluriel",
-    "pluriel d",
-    "pluriel habituel",
-    "pluriel inhabituel",
-    "''pluriel''",
-    "{exemple|",
-    # Modèles spéciaux
     "{doute",
     "{ébauche",
     "{ébauche-déc",
@@ -168,6 +160,11 @@ definitions_to_ignore = (
     "{ébauche-trad-exe",
     "{ébauche-trans",
     "{ébauche2-exe",
+    "{exemple|",
+    #
+    # For variants
+    #
+    *variant_templates,
 )
 
 # Modèle à ignorer : le texte sera supprimé.
@@ -482,6 +479,11 @@ templates_multi = {
     "WSP": "italic(parts[1]) if len(parts) > 1 else ''",
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
+    #
+    # For variants
+    #
+    # {{flexion|foo}}
+    "flexion": "parts[-1]",
 }
 templates_multi["n°"] = templates_multi["numéro"]
 templates_multi["nº"] = templates_multi["numéro"]
