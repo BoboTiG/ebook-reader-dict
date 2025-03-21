@@ -730,6 +730,18 @@ def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return f"/{phrase}/" if data["phon"] else f"[{phrase}]"
 
 
+def render_ko_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ko_translit("hangeul unicode", ["힣"], defaultdict(str))
+    'Caractère hangeul <i>hih</i>.'
+    >>> render_ko_translit("hangeul unicode", [], defaultdict(str), word="힣")
+    'Caractère hangeul <i>hih</i>.'
+    """
+    from .ko_hangeul import translit
+
+    return f"Caractère hangeul {italic(translit(parts[0] if parts else word))}."
+
+
 def render_la_verb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_la_verb("la-verb", ["amō", "amare", "amāre", "amavi", "amāvi", "amatum", "amātum"], defaultdict(str))
@@ -1456,7 +1468,9 @@ template_mapping = {
     "étyl": render_etyl,
     "étylp": render_etyl,
     "forme reconstruite": render_recons,
+    "hangeul unicode": render_ko_translit,
     "ko-pron": render_ko_pron,
+    "ko-translit": render_ko_translit,
     "la-verb": render_la_verb,
     "laé": render_lae,
     "lang": render_lang,

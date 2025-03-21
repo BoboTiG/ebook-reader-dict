@@ -539,11 +539,16 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
 
     elif locale in {"fr", "fro"}:
-        # <li value="2"> → == ''
+        # <li value="2"> → ''
         code = re.sub(r"<li [^>]+>", "", code)
 
-        # == {{caractère}} == → == '== {{caractère}} ==\n=== {{s|caractère}} ==='
+        # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
         code = re.sub(r"(== {{caractère}} ==)", r"\1\n=== {{s|caractère}} ===", code)
+
+        # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
+        code = code.replace(
+            "=== {{s|caractère}} ===\n{{hangeul unicode}}", "=== {{s|caractère}} ===\n# {{hangeul unicode}}"
+        )
 
     elif locale == "it":
         # [[w:A|B]] → [[A|B]]

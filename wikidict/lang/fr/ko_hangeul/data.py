@@ -1,14 +1,14 @@
 """
-https://fr.wiktionary.org/wiki/Modèle:ko-pron
-Ce modèle montre les sons ou les phonèmes du mot coréen.
+Python conversion of the ko-hangeul/data module.
+Link:
+  - https://fr.wiktionary.org/wiki/Module:ko-hangeul/data
+
+Current version from 2018-05-26 03:08:13
+  - https://fr.wiktionary.org/w/index.php?title=Module:ko-hangeul/data&oldid=24762761
 """
 
-import math
-from collections.abc import Callable
-from re import Match, sub
 from types import SimpleNamespace
 
-# https://fr.wiktionary.org/wiki/Module:ko-hangeul/data (2018-05-26T03:08:13)
 hangeul = SimpleNamespace(
     # Jamos d’initiale
     initiale=[
@@ -88,7 +88,8 @@ hangeul = SimpleNamespace(
         "ㅎ",
     ],
     # Changements phonologiques de deux consonnes
-    frontiere={  # Article 11
+    frontiere={
+        # Article 11
         "ㄺㄱ": "ㄹ'ㄱ",
         # Article 12-1
         "ㅎㄱ": "ㅋ",
@@ -125,7 +126,7 @@ hangeul = SimpleNamespace(
         "ㅀㅅ": "ㄹ'ㅅ",
         # Article 12-3
         "ㅎㄴ": "ㄴㄴ",
-        "ㄶㄴ": "ㄴㄴ",
+        # "ㄶㄴ": "ㄴㄴ", (duplicate dict key)
         # Article 12-4 : ㄹㅎ, ㄴㅎ, ㅁㅎ et ㅇㅎ sont traités en API
         "ㅎㅇ": "ㅇ",
         # Article 13 : ㅇㅇ est traité en API
@@ -214,8 +215,8 @@ hangeul = SimpleNamespace(
         "ㄾㄴ": "ㄹㄹ",
         "ㅀㄴ": "ㄹㄹ",
         "ㄴㄹ": "ㄹㄹ",
-        "ㄵㄹ": "ㄹㄹ",
-        "ㄶㄹ": "ㄹㄹ",
+        "ㄵㄴ": "ㄹㄹ",
+        "ㄶㄴ": "ㄹㄹ",
         "ㄼㄹ": "ㄹㄹ",
         "ㄽㄹ": "ㄹㄹ",
         "ㄾㄹ": "ㄹㄹ",
@@ -268,9 +269,9 @@ hangeul = SimpleNamespace(
     },
     # Article 23 : consonnes fortes
     forte={"ㄱ": "ㄲ", "ㄷ": "ㄸ", "ㅂ": "ㅃ", "ㅅ": "ㅆ", "ㅈ": "ㅉ"},
+    plosive=["ㄱ", "ㄲ", "ㅋ", "ㄳ", "ㄺ", "ㄷ", "ㅅ", "ㅆ", "ㅈ", "ㅊ", "ㅌ", "ㅂ", "ㅍ", "ㄿ", "ㅄ"],
     # Article 17 : palatalisation
-    # "ㅀ디" n’existe pas
-    palatale={"ㄷㅇ": "ㅈ", "ㅌㅇ": "ㅊ", "ㄾㅇ": "ㄹㅊ", "ㄷㅎ": "ㅊ"},
+    palatale={"ㄷㅇ": "ㅈ", "ㅌㅇ": "ㅊ", "ㄾㅇ": "ㄹㅊ", "ㄷㅎ": "ㅊ"},  # "ㅀ디" n’existe pas
     # ㅈ, ㅉ et ㅊ sont déjà palatales
     non_palatale={"ㅑ": "ㅏ", "ㅒ": "ㅐ", "ㅕ": "ㅓ", "ㅖ": "ㅔ", "ㅛ": "ㅗ", "ㅠ": "ㅜ"},
     # Prononciations modernes sans géminée
@@ -450,232 +451,8 @@ hangeul.indice_voyelle = {v: i for i, v in enumerate(hangeul.voyelle)}
 # Indices des jamos de finale
 hangeul.indice_finale = {v: i for i, v in enumerate(hangeul.finale)}
 
-# Article 23 : consonnes fortes
-plosive = {"ㄱ", "ㄲ", "ㅋ", "ㄳ", "ㄺ", "ㄷ", "ㅅ", "ㅆ", "ㅈ", "ㅊ", "ㅌ", "ㅂ", "ㅍ", "ㄿ", "ㅄ"}
-for finale in plosive:
+for finale in hangeul.plosive:
     for douce, forte in hangeul.forte.items():
         index = f"{finale}{douce}"
         if index not in hangeul.frontiere:
             hangeul.frontiere[index] = f"{hangeul.neutralisation[finale]}'{douce}"
-
-
-# Le reste du code a été retranscrit depuis:
-# https://fr.wiktionary.org/wiki/Module:ko-hangeul (2019-04-29T12:09:31)
-
-
-def jamos(match: Match[str], *, floor: Callable[[float], int] = math.floor) -> str:
-    """Fonction internelle pour décomposer un hangeul en jamos."""
-    char = match.group(1)
-    code = ord(char)
-    return str(
-        hangeul.initiale[floor((code - 0xAC00) / (21 * 28))]
-        + hangeul.voyelle[floor((code - 0xAC00) / 28) % 21]
-        + hangeul.finale[(code - 0xAC00) % 28]
-    )
-
-
-def decompos(text: str) -> str:
-    """Cette fonction décompose des hangeuls en jamos.
-    La barre oblique supprime un rieul précédent s’il y en a.
-    """
-    text = sub(r"([가-힣])", jamos, text)
-    text = sub(r"ㄹ?/", "", text)
-    text = sub(r"[ㄱ-ㅎ]+([ㄱ-ㅎ][ㄱ-ㅎ])", r"\1", text)  # au plus deux consonnes
-    text = sub(r"[ㄱ-ㅎ]+([ㄱ-ㅎ])$", r"\1", text)  # au plus une seule consonne à la fin
-    return text
-
-
-def hangeul_sans_finale(match: Match[str]) -> str:
-    """Fonction internelle."""
-    initiale, voyelle = match.groups()
-    return chr((hangeul.indice_initiale[initiale] - 1) * 21 * 28 + (hangeul.indice_voyelle[voyelle] - 1) * 28 + 0xAC00)
-
-
-def hangeul_avec_finale(match: Match[str]) -> str:
-    """Fonction internelle."""
-    caractere, finale = match.groups()
-    return chr(ord(caractere) + hangeul.indice_finale[finale] - 1)
-
-
-def compos(text: str, conserver: bool) -> str:
-    """Cette fonction supprime tous les clés de prononciation ("'", "-", "." et "s")
-    et elle compose des hangeuls.
-    """
-    if not conserver:
-        # conserver seulement les hangeuls, les jamos et les espaces
-        text = sub(r"[^가-힣ㄱ-ㅣ ]", "", text)
-
-    text = sub(r"([ㄱ-ㅎ])([ㅏ-ㅣ])", hangeul_sans_finale, text)
-    text = sub(r"([가-히])([ㄱ-ㅎ])", hangeul_avec_finale, text)
-    return text
-
-
-def consonne_forte(match: Match[str]) -> str:
-    """Fonction internelle des consonnes fortes."""
-    jamo = match.group(1)
-    return str(hangeul.forte.get(jamo, jamo))
-
-
-def palatale(match: Match[str]) -> str:
-    frontiere, voyelle = match.groups()
-    return str(hangeul.palatale.get(frontiere, frontiere)) + voyelle
-
-
-def non_palatale(match: Match[str]) -> str:
-    consonne, voyelle = match.groups()
-    return f"{consonne}{hangeul.non_palatale.get(voyelle, voyelle)}"
-
-
-def neutralisation(match: Match[str]) -> str:
-    """Fonction internelle de la neutralisation des finales."""
-    jamo = match.group(1)
-    return str(hangeul.neutralisation.get(jamo, jamo))
-
-
-def pron_frontiere(match: Match[str]) -> str:
-    """Fonction internelle pour la prononciation."""
-    finale, initiale, voyelle = match.groups()
-    res = hangeul.frontiere.get(f"{finale}{initiale}", hangeul.neutralisation[finale] + initiale)
-    return f"{res}{voyelle}"
-
-
-def modif_jamo(text: str, pron: bool, changer_oe: bool) -> str:
-    """Cette fonction modifie des hangeuls selon les règles du Standard
-    et les clés de prononciation ("'", "-", "." et "s").
-    """
-    text = decompos(text)
-
-    # apostrophes (Articles 26-29)
-    if pron:  # pour la prononciation
-        text = sub(r"'ㅇ", "ㄴ", text)  # Article 29
-        text = sub(r"'([ㄱㄷㅂㅅㅈ])", consonne_forte, text)  # Articles 26, 27 et 28
-    else:  # pour la romanisation
-        text = sub(r"([^ ])'ㅇ", r"\1ㄴ", text)  # Article 29
-
-    text = sub(r"'", "", text)
-
-    # s (Article 16)
-    text = sub(r"([ㄱ-ㅎ])s", "ㅅ", text)
-
-    # changements phonologiques qu’il faut traiter avant la supression des traits d’union
-    # Article 17
-    text = sub(r"([ㄷㅌㄾ][ㅇㅎ])([ㅣㅕ])", palatale, text)
-    if pron:
-        # Article 4
-        if changer_oe:
-            text = sub(r"ㅚ", "ㅞ", text)
-
-        # Article 5
-        text = sub(r"([ㄱㄹㅁㅎㅍ])ㅖ", r"\1ㅔ", text)  # ㅖ est prononcé ㅔ dans 계, 례, 몌, 혜 et 폐
-        text = sub(r"([ㄱ-ㅆㅈ-ㅎ])ㅢ", r"\1ㅣ", text)  # ㅢ est prononcé ㅣ après une consonne
-        text = sub(r"([ㄱ-ㅣ]ㅇ)ㅢ", r"\1ㅣ", text)  # ㅢ est prononcé ㅣ au milieu du mot ; -의 sera conservé
-
-    # traits d’union et espaces (Articles 20 et 15)
-    text = sub(r"[ㄴㄵㄶ]-ㄹ", "ㄴㄴ", text)  # Article 20
-    if pron:  # pour la prononciation
-        text = sub(r"[ㄴㄵㄶ] ㄹ", "ㄴㄴ", text)  # Article 20
-    else:  # pour la romanisation
-        text = sub(r"([ㄱ-ㅎ])-ㅎ", r"\1#ㅎ", text)  # pour éviter la suppression
-        text = sub(r"([ㄱ-ㅣ]) ", r"\1- ", text)  # pour éviter la suppression
-
-    text = sub(r"([ㄱ-ㅣ])[\- ]", neutralisation, text)  # Article 15
-
-    # fin du mot
-    text = sub(r"([ㄱ-ㅎ])$", neutralisation, text)  # Articles 9, 10 et 11
-
-    # frontières
-    text = sub(r"([ㄱ-ㅎ]?)([ㄱ-ㅎ])([ㅏ-ㅣ])", pron_frontiere, text)
-    if pron:  # pour la prononciation
-        text = sub(r"'([ㄱㄷㅂㅅㅈ])", consonne_forte, text)
-        # Article 5
-        # # ㅈ, ㅉ et ㅊ sont déjà palatales
-        text = sub(r"([ㅈㅉㅊ])([ㅑㅕㅖㅛㅠ])", non_palatale, text)
-    else:  # pour la romanisation
-        text = sub(r"['\-\.]", "", text)  # consonnes fortes pas romanisées
-
-    return text
-
-
-def sans_geminee(match: Match[str]) -> str:
-    frontiere = match.group(1)
-    return str(hangeul.sans_geminee.get(frontiere, frontiere))
-
-
-def phoneme_initiale(match: Match[str]) -> str:
-    initiale, voyelle = match.groups()
-    return f".{hangeul.phoneme_initiale[initiale]}{hangeul.phoneme_voyelle[voyelle]}"
-
-
-def phoneme_finale(match: Match[str]) -> str:
-    finale = match.group(1)
-    return str(hangeul.phoneme_finale[finale])
-
-
-def sonorisation(match: Match[str]) -> str:
-    consonne, voyelle = match.groups()
-    return f".{hangeul.sonorisation[consonne]}{voyelle}"
-
-
-def phoneme(text: str, son: bool, sonore: bool) -> str:
-    """Cette fonction change des hangeuls en phonèmes"""
-    text = modif_jamo(text, True, False)
-
-    # prononciations modernes sans géminée
-    text = sub(r"([ㄱㄷㅂ][ㄲㄸㅆㅉㅃ])", sans_geminee, text)
-    # phonèmes d’une initiale et d’une voyelle
-    text = sub(r"ㅅㅞ", "sjwe", text)  # prononciation populaire de 쉐
-    text = sub(r"([ㄱ-ㅎ])([ㅏ-ㅣ])", phoneme_initiale, text)
-    # phonème d’une finale
-    text = sub(r"([ㄱ-ㅎ])", phoneme_finale, text)
-    # Article 12-4 : ㄹㅎ, ㄴㅎ, ㅁㅎ et ㅇㅎ
-    # Article 13 : ㅇㅇ
-    text = sub(r"([lnmŋ])\.(h?[aeɛijouʌwɯ])", r".\1\2", text)
-
-    # réalisation des phonèmes
-    if son:
-        # sonorisation après une voyelle ou une consonne sonore
-        if not sonore:
-            text = sub(r"^\.", "", text)
-
-        text = sub(r"\.([hkpt]ɕ?)([aeɛijouʌwɯ])", sonorisation, text)
-        # implosives
-        text = sub(r"([kpt])\.(ˀ?[kpt])", r"\1̚.\2", text)  # pas implosive devant ㅅ
-        text = sub(r"([kpt])$", r"\1̚", text)
-        # ㄹㄹ
-        text = sub(r"l\.l", "ɭ.ɭ", text)
-        # ㄹ devant une voyelle
-        text = sub(r"l(h?[aeɛijouʌwɯ])", r"ɾ\1", text)
-        # ㄹ de finale
-        text = sub(r"l", "ɭ", text)
-        # Article 12-4 : ㄹㅎ, ㄴㅎ, ㅁㅎ et ㅇㅎ
-        text = sub(r"([ɾnmŋ])h", r"\1ʱ", text)
-        # distinction perdue entre 에 et 애
-        text = sub(r"[eɛ]", "e̞", text)
-        # palatalisation de 위
-        text = sub(r"wi", "ɥi", text)
-        # palatalisation de ㅅ et ㅆ
-        text = sub(r"sjw", "ʃw", text)  # prononciation populaire de 쉐
-        text = sub(r"sj", "ɕ", text)
-        text = sub(r"si", "ɕi", text)
-        text = sub(r"sɥi", "ʃɥi", text)
-        # palatalisation de ㅎ
-        text = sub(r"hj", "ç", text)
-        text = sub(r"h(ɥ?i)", r"ç\1", text)
-        # palatalisation de ㅋ, ㅌ, ㅍ
-        text = sub(r"([ktp])ʰj", r"\1ç", text)
-        text = sub(r"([ktp])ʰ(ɥ?i)", r"\1ç\2", text)
-        # /w/ après une consonne
-        text = sub(r"([^\.])w", r"\1ʷ", text)
-        # le suffixe -요
-        text = sub(r"o\.$", "o̞", text)
-
-    # suppression des points au début et à la fin
-    text = sub(r"^\.", "", text)
-    text = sub(r"\.$", "", text)
-    return text
-
-
-def roman_finale(match: Match[str]) -> str:
-    """Fonction internelle pour la romanisation des finales"""
-    finale, initiale = match.groups()
-    return f"{hangeul.roman_finale.get(finale, finale)}{initiale or ''}"
