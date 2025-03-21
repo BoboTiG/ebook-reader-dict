@@ -201,7 +201,6 @@ templates_ignored = (
     "R",
     "RÉF",
     "réf",
-    "sinogram-noimg",
     "source",
     "Source-wikt",
     "source-w",

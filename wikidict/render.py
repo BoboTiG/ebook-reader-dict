@@ -551,6 +551,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
             "=== {{s|caractère}} ===\n# {{hangeul unicode}}",
         )
 
+        # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
+        code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
+
     elif locale == "it":
         # [[w:A|B]] → [[A|B]]
         code = code.replace("[[w:", "[[")

@@ -1153,6 +1153,15 @@ def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_sinogram_noimg(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_sinogram_noimg("sinogram-noimg", ["𠔭"], defaultdict(str, {"clefhz1": "八", "clefhz2": "11", "nbthz1": "13", "nbthz2": "13", "m4chz1": "", "m4chz2": "", "unihz": "2052D", "gbhz1": "", "gbhz2": "-", "b5hz1": "", "b5hz2": "-"}))
+    'Codage informatique : <b>Unicode</b> : U+2052D'
+    """
+    uni = f"U+{data['unihz']}"
+    return f"Codage informatique : {strong('Unicode')} : {uni}"
+
+
 def render_subst(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_subst("subst", [], defaultdict(str, {"char": "劋", "de": "剿", "char1": "巢", "char2": "喿"}))
@@ -1502,6 +1511,7 @@ template_mapping = {
     "siècle": render_siecle,
     "siècle2": render_siecle2,
     "sigle": render_sigle,
+    "sinogram-noimg": render_sinogram_noimg,
     "source?": render_refnec,
     "source ?": render_refnec,
     "subst": render_subst,
