@@ -547,7 +547,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
         # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
         code = code.replace(
-            "=== {{s|caractère}} ===\n{{hangeul unicode}}", "=== {{s|caractère}} ===\n# {{hangeul unicode}}"
+            "=== {{s|caractère}} ===\n{{hangeul unicode}}",
+            "=== {{s|caractère}} ===\n# {{hangeul unicode}}",
         )
 
     elif locale == "it":
