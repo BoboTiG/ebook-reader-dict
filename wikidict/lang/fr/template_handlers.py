@@ -1003,6 +1003,22 @@ def render_polytonique(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
+def render_ps(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ps("PS", [], defaultdict(str, {"de": "亘", "clef": "口", "char": "咺"}))
+    'Dérive de 亘, spécifié par 口.'
+    >>> render_ps("PS", [], defaultdict(str, {"de": "亘", "clef": "口", "char": "咺", "pinyin": "xuān", "sens": "enfant qui pleure sans cesse ; être dans l'affliction, pleurer amèrement", "ici": " tout le temps"}))
+    "Dérive de 亘 (tout le temps), spécifié par 口 : enfant qui pleure sans cesse ; être dans l'affliction, pleurer amèrement."
+    """
+    text = f"Dérive de {data['de'].strip()}"
+    if ici := data["ici"].strip():
+        text += f" ({ici})"
+    text += f", spécifié par {data['clef'].strip()}"
+    if sens := data["sens"].strip():
+        text += f" : {sens}"
+    return f"{text}."
+
+
 def render_recons(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_recons("recons", ["maruos"], defaultdict(str))
@@ -1457,6 +1473,7 @@ template_mapping = {
     "parataxe": render_modele_etym,
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
+    "PS": render_ps,
     "recons": render_recons,
     "réf?": render_refnec,
     "réf ?": render_refnec,
