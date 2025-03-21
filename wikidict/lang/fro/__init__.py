@@ -4,6 +4,7 @@ import re
 
 from .. import fr
 
+section_patterns = fr.section_patterns
 head_sections = tuple(section.replace("fr", "fro") for section in fr.head_sections)
 sections = tuple(section.replace("fr", "fro") for section in fr.sections)
 variant_titles = tuple(section.replace("fr", "fro") for section in fr.variant_titles)
