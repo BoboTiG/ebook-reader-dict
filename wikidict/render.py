@@ -543,7 +543,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         code = re.sub(r"<li [^>]+>", "", code)
 
         # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
-        code = re.sub(r"(== {{caractère}} ==)", r"\1\n=== {{s|caractère}} ===", code)
+        code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
 
         # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
         code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)

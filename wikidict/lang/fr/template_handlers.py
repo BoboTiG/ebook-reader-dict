@@ -635,8 +635,10 @@ def render_etym_chinoise(tpl: str, parts: list[str], data: defaultdict[str, str]
     """
     >>> render_etym_chinoise("Étymologie graphique chinoise", [], defaultdict(str, {"racine": "殳", "caractère": "𣪘", "type":  "déformation", "explication": "Ne dérive pas de 皀. Ses formes antiques sont inexpliquées, on les rapproche de 叀.", "sens": "Se rapporte à l’élevage des animaux domestiques."}))
     'Se rapporte à l’élevage des animaux domestiques.'
+    >>> render_etym_chinoise("Étymologie graphique chinoise", [], defaultdict(str, {"racine": "殳", "caractère": "𣪘", "type":  "déformation", "composition": "Se rapporte à l’élevage des animaux domestiques."}))
+    'Se rapporte à l’élevage des animaux domestiques.'
     """
-    return data["sens"]
+    return data["sens"] or data["composition"] or data["explication"]
 
 
 def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1039,6 +1041,17 @@ def render_ps(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: 
     return f"{text}."
 
 
+def render_radical_de_kangxi(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_radical_de_kangxi("radical de Kangxi", [], defaultdict(str), word="⼀")
+    'Radical de Kangxi 一. Unicode : U+2F00.'
+    """
+    from .ko_hangeul.sinogramme import radical_trait
+
+    char = re.sub(r"\d+", "", radical_trait(word))  # Remove trailing numbers
+    return f"Radical de Kangxi {char}. Unicode : U+{hex(ord(word))[2:].upper()}."
+
+
 def render_recons(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_recons("recons", ["maruos"], defaultdict(str))
@@ -1165,9 +1178,20 @@ def render_sinogram_noimg(tpl: str, parts: list[str], data: defaultdict[str, str
     """
     >>> render_sinogram_noimg("sinogram-noimg", ["𠔭"], defaultdict(str, {"clefhz1": "八", "clefhz2": "11", "nbthz1": "13", "nbthz2": "13", "m4chz1": "", "m4chz2": "", "unihz": "2052D", "gbhz1": "", "gbhz2": "-", "b5hz1": "", "b5hz2": "-"}))
     'Codage informatique : <b>Unicode</b> : U+2052D'
+    >>> render_sinogram_noimg("sinogram-noimg", ["𠔭"], defaultdict(str, {"unihz": "340C", "cjhz1": "O", "cjhz2": "人心木", "cjhz3": "OPD"}))
+    'Codage informatique : <b>Unicode</b> : U+340C - <b>Cangjie</b> : 人心木 (OPD)'
     """
-    uni = f"U+{data['unihz']}"
-    return f"Codage informatique : {strong('Unicode')} : {uni}"
+    text = "Codage informatique :"
+    codages = []
+    if unihz := data["unihz"]:
+        codages.append(f"{strong('Unicode')} : U+{unihz}")
+    if cjhz2 := data["cjhz2"]:
+        codage = f"{strong('Cangjie')} : {cjhz2}"
+        if cjhz3 := data["cjhz3"]:
+            codage += f" ({cjhz3})"
+        codages.append(codage)
+
+    return f"{text} {' - '.join(codages)}"
 
 
 def render_subst(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1411,7 +1435,8 @@ def render_variante_du_radical_de_kangxi(
     text = "Variante"
     if parts:
         text += f" {parts[0]}"
-    return f"{text} du radical de Kangxi {radical_trait(word)}. Unicode : U+{hex(ord(word))[2:].upper()}."
+    char = re.sub(r"\d+", "", radical_trait(word))  # Remove trailing numbers
+    return f"{text} du radical de Kangxi {char}. Unicode : U+{hex(ord(word))[2:].upper()}."
 
 
 def render_variante_ortho(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1487,6 +1512,7 @@ template_mapping = {
     "C": render_contexte,
     "calque": render_etyl,
     "cf": render_cf,
+    "chunom": render_sinogram_noimg,
     "cit_réf": render_cit_ref,
     "cit réf": render_cit_ref,
     "contexte": render_contexte,
@@ -1529,6 +1555,7 @@ template_mapping = {
     "polytonique": render_polytonique,
     "Polytonique": render_polytonique,
     "PS": render_ps,
+    "radical de Kangxi": render_radical_de_kangxi,
     "recons": render_recons,
     "réf?": render_refnec,
     "réf ?": render_refnec,

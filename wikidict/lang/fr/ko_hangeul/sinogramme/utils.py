@@ -21,7 +21,7 @@ def code_radical_trait(match: re.Match[str]) -> str:
     page = ord(char) // 0x1000
     if not (tableau := tableau_radical_trait.get(page)):
         tableau = tableau_radical_trait[page] = import_trait(page)
-    return tableau[char].strip("0")
+    return tableau[char]
 
 
 def chaine_radical_trait(text: str) -> str:
