@@ -631,6 +631,14 @@ def render_etyl(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase
 
 
+def render_etym_chinoise(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_etym_chinoise("Étymologie graphique chinoise", [], defaultdict(str, {"racine": "殳", "caractère": "𣪘", "type":  "déformation", "explication": "Ne dérive pas de 皀. Ses formes antiques sont inexpliquées, on les rapproche de 叀.", "sens": "Se rapporte à l’élevage des animaux domestiques."}))
+    'Se rapporte à l’élevage des animaux domestiques.'
+    """
+    return data["sens"]
+
+
 def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ko_pron("ko-pron", ["서울"], defaultdict(str))
@@ -1498,6 +1506,7 @@ template_mapping = {
     "équiv-pour": render_equiv_pour,
     "étyl": render_etyl,
     "étylp": render_etyl,
+    "Étymologie graphique chinoise": render_etym_chinoise,
     "forme reconstruite": render_recons,
     "hangeul unicode": render_ko_translit,
     "ko-pron": render_ko_pron,
