@@ -494,6 +494,22 @@ def render_compose_double_flexion(tpl: str, parts: list[str], data: defaultdict[
     return f"{phrase}."
 
 
+def render_cs(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_cs("CS", [], defaultdict(str, {"char": " 黶 ", "c1": " 厭 ", "c2": " 黑 ", "sens": "tache noire sur la peau, gain de beauté "}))
+    '黶 tache noire sur la peau, gain de beauté, de 厭 et 黑.'
+    >>> render_cs("CS", [], defaultdict(str, {"char": " 黶 ", "c1": " 厭 ", "s1": "dégoût, dégoûtant ", "c2": " 黑 ", "s2": "noir ", "sens": "tache noire sur la peau, gain de beauté "}))
+    '黶 tache noire sur la peau, gain de beauté, de 厭 (dégoût, dégoûtant) et 黑 (noir).'
+    """
+    text = f"{data['char'].strip()} {data['sens'].strip()}, de {data['c1'].strip()}"
+    if s1 := data["s1"].strip():
+        text += f" ({s1})"
+    text += f" et {data['c2'].strip()}"
+    if s2 := data["s2"].strip():
+        text += f" ({s2})"
+    return f"{text}."
+
+
 def render_date(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_date("date", [""], defaultdict(str))
@@ -1413,6 +1429,7 @@ template_mapping = {
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "composé double-flexion": render_compose_double_flexion,
+    "CS": render_cs,
     "date": render_date,
     "deet": render_compose_de,
     "déglutination": render_modele_etym,
