@@ -69,21 +69,18 @@ def process(file: Path, locale: str) -> dict[str, str]:
 
     log.info("Processing %s ...", file)
 
-    if locale in {"ca", "da", "el", "en", "it", "no", "pt", "sv"}:
-        # For several locales it is more accurate to use a regexp matcher
-        head_sections_matcher = re.compile(
-            rf"^=*\s*({'|'.join(head_sections[locale])})",
-            flags=re.IGNORECASE | re.MULTILINE,
-        ).finditer
-    else:
-        # While for others, a simple check is better because it is either more accurate, or simply impossible to rely on the former
-        assert locale in {"de", "es", "eo", "fr", "fro", "ro", "ru"}
-
-        def head_sections_matcher(wikicode: str) -> Iterator[str]:  # type: ignore[misc]
+    if locale == "de":
+        # It is not possible to use a regexp matcher
+        def head_sections_matcher(wikicode: str) -> Iterator[str]:
             return (s for s in head_sections[locale] if s in wikicode.lower())
+    else:
+        head_sections_matcher = re.compile(
+            rf"^=*\s*(?:{'|'.join(hs.replace('{', r'\{').replace('|', r'\|') for hs in head_sections[locale])})",
+            flags=re.IGNORECASE | re.MULTILINE,
+        ).finditer  # type: ignore[assignment]
 
     for element in xml_iter_parse(file):
-        word, code = xml_parse_element(element, head_sections_matcher)  # type: ignore[arg-type]
+        word, code = xml_parse_element(element, head_sections_matcher)
         if word and code:
             words[unescape(word)] = unescape(code)
 
