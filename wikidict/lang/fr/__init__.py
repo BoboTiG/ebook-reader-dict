@@ -112,6 +112,7 @@ sections = (
     "{{s|symbole|conv",
     "{{s|symbole|fr|",
     "{{s|symbole|fr}",
+    "{{s|variante typographique|conv}",
     "{{s|variante typographique|fr|",
     "{{s|variante typographique|fr}",
     "{{s|verbe|fr|loc",
