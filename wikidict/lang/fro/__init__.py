@@ -4,7 +4,7 @@ import re
 
 from .. import fr
 
-head_sections = ("{{langue|fro}}",)
+head_sections = tuple(section.replace("fr", "fro") for section in fr.head_sections)
 sections = tuple(section.replace("fr", "fro") for section in fr.sections)
 variant_titles = tuple(section.replace("fr", "fro") for section in fr.variant_titles)
 variant_templates = tuple(section.replace("fr", "fro") for section in fr.variant_templates)
