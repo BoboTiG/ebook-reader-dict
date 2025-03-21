@@ -1016,6 +1016,19 @@ def render_refnec(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return underline(parts[0]) if parts else ""
 
 
+def render_shuowen(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_shuowen("ShuoWen", ["一"], defaultdict(str))
+    'Ce caractère 一 est une clef du ShuoWen.'
+    >>> render_shuowen("ShuoWen", ["一 ", " 元, 天, 丕, 吏."], defaultdict(str))
+    'Ce caractère 一 est une clef du ShuoWen. Composés mentionnés : 元, 天, 丕, 吏.'
+    """
+    text = f"Ce caractère {parts[0].strip()} est une clef du ShuoWen."
+    if len(parts) > 1:
+        text += f" Composés mentionnés : {parts[1].strip()}"
+    return text
+
+
 def render_siecle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_siecle("siècle", [], defaultdict(str))
@@ -1437,6 +1450,7 @@ template_mapping = {
     "référence nécessaire": render_refnec,
     "Référence nécessaire": render_refnec,
     "reverlanisation": render_modele_etym,
+    "ShuoWen": render_shuowen,
     "siècle": render_siecle,
     "siècle2": render_siecle2,
     "sigle": render_sigle,
