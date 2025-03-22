@@ -296,7 +296,7 @@ def test_word_rendering(
         include_etymology=include_etymology,
     )
 
-    content = next(cls.handle_word("Multiple Etymologies", WORDS["Multiple Etymologies"], WORDS))
+    content = next(cls.handle_word("Multiple Etymologies", WORDS))
     assert content == expected
 
 
@@ -317,7 +317,7 @@ WORDS_VARIANTS_FR = words = {
         genders=[],
         etymology=["<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i>..."],
         definitions=[],
-        variants=["suivre", "être", "foo"],
+        variants=["suivre", "être"],
     ),
     "suivre": Word(
         pronunciations=["\\sɥivʁ\\"],
@@ -351,7 +351,7 @@ WORDS_VARIANTS_ES = {
 
 
 def test_make_variants() -> None:
-    assert convert.make_variants(WORDS_VARIANTS_FR) == {"foo": ["suis"], "suivre": ["suis"], "être": ["suis"]}
+    assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "être": ["suis"]}
     assert convert.make_variants(WORDS_VARIANTS_ES) == {"gastado": ["gastada"], "gastar": ["gastado"]}
 
 
@@ -365,9 +365,13 @@ def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
         "êt": {"être": words["être"]},
     }
 
-    assert "variant" not in "".join(kobo_formater.handle_word("suis", words["suis"], words))
-    assert '<variant name="suis"/></var>' in "".join(kobo_formater.handle_word("être", words["être"], words))
-    assert '<variant name="suis"/></var>' in "".join(kobo_formater.handle_word("suivre", words["suivre"], words))
+    suis = "".join(kobo_formater.handle_word("suis", words))
+    être = "".join(kobo_formater.handle_word("être", words))
+    suivre = "".join(kobo_formater.handle_word("suivre", words))
+    assert suis
+    assert "variant" not in suis
+    assert être[22:] == suis[22:]  # Skip word metadata: '<w><p><a name="être"/>' != '<w><p><a name="suis"/>'
+    assert '<var><variant name="suis"/></var>' in suivre
 
 
 def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
@@ -383,8 +387,9 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
         }
     }
 
-    assert "variant" not in "".join(kobo_formater.handle_word("gastada", words["gastada"], words))
-    assert "variant" not in "".join(kobo_formater.handle_word("gastado", words["gastado"], words))
-    assert '<variant name="gastada"/><variant name="gastado"/></var>' in "".join(
-        kobo_formater.handle_word("gastar", words["gastar"], words)
-    )
+    gastada = "".join(kobo_formater.handle_word("gastada", words))
+    gastado = "".join(kobo_formater.handle_word("gastado", words))
+    gastar = "".join(kobo_formater.handle_word("gastar", words))
+    assert "variant" not in gastada
+    assert "variant" not in gastado
+    assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar

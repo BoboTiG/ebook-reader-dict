@@ -187,37 +187,51 @@ class BaseFormat:
             self.locale, "" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX
         )
 
-    def handle_word(self, word: str, details: Word, words: Words) -> Generator[str]:
-        if not details.definitions:
-            return
+    def handle_word(self, word: str, words: Words) -> Generator[str]:
+        details = words[word]
+        current_words = {word: details}
 
-        variants_final = []
+        if details.variants:
+            # Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
+            # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
+            # As a workaround, we replace etymology + definitions of "suis" with ones from "être", while keeping other "suis" variants as well.
+            # Note: it works for 1 different variant only, the fist one with a different prefix.
+            current_group_prefix = guess_prefix(word)
+            for variant in details.variants:
+                if guess_prefix(variant) != current_group_prefix and (root := self.words.get(variant)):
+                    current_words[variant] = root
+                    break
 
-        if variants := self.variants.get(word, []):
-            # Add variants of empty* variant, only 1 redirection:
-            #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
-            # Note: the process works backward: from gastar up to gastado up to gastada.
-            for variant in variants.copy():
-                if (wv := words.get(variant)) and not wv.definitions:
-                    variants.extend(self.variants.get(variant, []))
+        for current_word, current_details in current_words.items():
+            if not current_details.definitions:
+                continue
 
-            if isinstance(self, KoboFormat):
-                # Variant must be normalized by trimming whitespace and lowercasing it.
-                variants = [variant.lower().strip() for variant in variants]
+            if variants := self.variants.get(current_word, []):
+                # Add variants of empty* variant, only 1 redirection:
+                #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
+                # Note: the process works backward: from gastar up to gastado up to gastada.
+                for variant in variants.copy():
+                    if (wv := words.get(variant)) and not wv.definitions:
+                        variants.extend(self.variants.get(variant, []))
 
-            # Remove potential duplicates, and sort by length then name
-            variants_final = sorted(set(variants), key=lambda s: (len(s), s))
+                # Filter out variants with a different prefix that their word
+                current_group_prefix = guess_prefix(current_word)
+                variants = [variant for variant in variants if guess_prefix(variant) == current_group_prefix]
 
-        yield self.render_word(
-            self.template,
-            word=word,
-            current_word=word,
-            definitions=details.definitions,
-            pronunciation=convert_pronunciation(details.pronunciations),
-            gender=convert_gender(details.genders),
-            etymologies=details.etymology if self.include_etymology else [],
-            variants=variants_final,
-        )
+                if isinstance(self, KoboFormat):
+                    # Variant must be normalized by trimming whitespace and lowercasing it
+                    variants = [variant.lower().strip() for variant in variants]
+
+            yield self.render_word(
+                self.template,
+                word=word,
+                current_word=current_word,
+                definitions=current_details.definitions,
+                pronunciation=convert_pronunciation(current_details.pronunciations),
+                gender=convert_gender(current_details.genders),
+                etymologies=current_details.etymology if self.include_etymology else [],
+                variants=sorted(variants, key=lambda s: (len(s), s)),
+            )
 
     def process(self) -> None:  # pragma: nocover
         raise NotImplementedError()
@@ -352,8 +366,8 @@ class KoboFormat(BaseFormat):
         # Save to uncompressed HTML
         raw_output = output_dir / f"{name}.raw.html"
         with raw_output.open(mode="w", encoding="utf-8") as fh:
-            for word, details in words.items():
-                fh.writelines(self.handle_word(word, details, words))
+            for word in words:
+                fh.writelines(self.handle_word(word, words))
 
         # Compress the HTML with gzip
         output = output_dir / f"{name}.html"
@@ -372,8 +386,8 @@ class DictFileFormat(BaseFormat):
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
         with file.open(mode="w", encoding="utf-8") as fh:
-            for word, details in self.words.items():
-                fh.writelines(self.handle_word(word, details, self.words))
+            for word in self.words:
+                fh.writelines(self.handle_word(word, self.words))
 
         self.summary(file)
 
@@ -584,7 +598,7 @@ def run_mobi_formater(
                         for w in related_words:
                             new_words.pop(w, None)
                         stats.pop(char)
-                    if len(stats) < 256:
+                    if len(stats) <= 256:
                         break
                 threshold += 1
 
