@@ -152,7 +152,7 @@ def format_description(locale: str, output_dir: Path) -> str:
     _links_full: dict[str, str] = {}
     _links_etym_free: dict[str, str] = {}
     for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
-        obj = _links_full if not etym_suffix else _links_etym_free
+        obj = _links_etym_free if etym_suffix else _links_full
         obj.update(
             {
                 "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.df.bz2)",
@@ -608,9 +608,7 @@ def convert_chem(match: str | re.Match[str], word: str) -> str:
 def convert_hiero(match: str | re.Match[str], word: str) -> str:
     """Convert hieroglyph symbols to a base64 encoded GIF file."""
     expr: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
-    if "<hiero>" in expr or "</hiero>" in expr:
-        return expr
-    return render_hiero(expr)
+    return expr if "<hiero>" in expr or "</hiero>" in expr else render_hiero(expr)
 
 
 def convert_math(match: str | re.Match[str], word: str) -> str:
