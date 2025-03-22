@@ -85,13 +85,19 @@ WORD_TPL_KOBO = Template(
         {% endif %}
     </p>
     {% if variants %}
-        {{ variants }}
+        <var>
+        {%- for variant in variants -%}
+            <variant name="{{ variant }}"/>
+        {%- endfor -%}
+        </var>
     {% endif %}
 </w>
 """
 )
 
 # DictFile-related dictionaries
+# Source: https://pgaskin.net/dictutil/dictgen/#dictfile-format
+# Source: https://github.com/hunspell/hunspell/blob/ecc6dbb52025bdf3a766429988e64190d912765f/man/hunspell.1#L93-L139 (for later, in case of issues with other sub-formats)
 WORD_TPL_DICTFILE = Template(
     """\
 @ {{ word }}
@@ -149,14 +155,7 @@ log = logging.getLogger(__name__)
 class BaseFormat:
     """Base class for all dictionaries."""
 
-    __slots__ = {
-        "locale",
-        "output_dir",
-        "snapshot",
-        "words",
-        "variants",
-        "include_etymology",
-    }
+    template = Template("")  # To be set by subclasses
 
     def __init__(
         self,
@@ -188,8 +187,37 @@ class BaseFormat:
             self.locale, "" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX
         )
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:  # pragma: nocover
-        raise NotImplementedError()
+    def handle_word(self, word: str, details: Word, words: Words) -> Generator[str]:
+        if not details.definitions:
+            return
+
+        variants_final = []
+
+        if variants := self.variants.get(word, []):
+            # Add variants of empty* variant, only 1 redirection:
+            #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
+            # Note: the process works backward: from gastar up to gastado up to gastada.
+            for variant in variants.copy():
+                if (wv := words.get(variant)) and not wv.definitions:
+                    variants.extend(self.variants.get(variant, []))
+
+            if isinstance(self, KoboFormat):
+                # Variant must be normalized by trimming whitespace and lowercasing it.
+                variants = [variant.lower().strip() for variant in variants]
+
+            # Remove potential duplicates, and sort by length then name
+            variants_final = sorted(set(variants), key=lambda s: (len(s), s))
+
+        yield self.render_word(
+            self.template,
+            word=word,
+            current_word=word,
+            definitions=details.definitions,
+            pronunciation=convert_pronunciation(details.pronunciations),
+            gender=convert_gender(details.genders),
+            etymologies=details.etymology if self.include_etymology else [],
+            variants=variants_final,
+        )
 
     def process(self) -> None:  # pragma: nocover
         raise NotImplementedError()
@@ -213,6 +241,7 @@ class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
 
     output_file = "dicthtml-{0}-{0}{1}.zip"
+    template = WORD_TPL_KOBO
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
@@ -250,76 +279,6 @@ class KoboFormat(BaseFormat):
         for word, details in words.items():
             groups[guess_prefix(word)][word] = details
         return groups
-
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:
-        name: str = kwargs["name"]
-        words: Words = kwargs["words"]
-        current_words: Words = {word: details}
-
-        # use variant definitions for a word if one variant prefix is different
-        # "suis" listed with the definitions of "être" and "suivre"
-        if details.variants:
-            found_different_prefix = False
-            for variant in details.variants:
-                if guess_prefix(variant) != name:
-                    if root_details := self.words.get(variant):
-                        found_different_prefix = True
-                        break
-            variants_words = {}
-            # if we found one variant, then list them all
-            if found_different_prefix:
-                for variant in details.variants:
-                    if root_details := self.words.get(variant):
-                        variants_words[variant] = root_details
-            if word.endswith("s"):  # crude detection of plural
-                singular = word[:-1]
-                maybe_noun = self.words.get(singular)  # do we have the singular?
-                # make sure we are not redirecting to a verb (je mange, tu manges)
-                # verb form is also a singular noun
-                if isinstance(maybe_noun, Word) and not maybe_noun.variants:
-                    variants_words[singular] = maybe_noun
-                    for variant in details.variants:
-                        if maybe_verb := self.words.get(variant):
-                            variants_words[variant] = maybe_verb
-            if variants_words:
-                current_words = variants_words
-
-        # write to file
-        for current_word, current_details in current_words.items():
-            if not current_details.definitions:
-                continue
-
-            variants = ""
-            if word_variants := self.variants.get(word, []):
-                # add variants of empty* variant, only 1 redirection...
-                # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
-                for v in word_variants.copy():
-                    wv: Word = words.get(v, Word.empty())
-                    if wv and not wv.definitions:
-                        for vv in self.variants.get(v, []):
-                            word_variants.append(vv)
-                word_variants.sort(key=lambda s: (len(s), s))
-                variants = "<var>"
-                for v in word_variants:
-                    # no variant with different prefix
-                    v = v.lower().strip()
-                    if guess_prefix(v) == name:
-                        variants += f'<variant name="{v}"/>'
-                variants += "</var>"
-            # no empty var tag
-            if len(variants) < 15:
-                variants = ""
-
-            yield self.render_word(
-                WORD_TPL_KOBO,
-                word=word,
-                current_word=current_word,
-                definitions=current_details.definitions,
-                pronunciation=convert_pronunciation(current_details.pronunciations),
-                gender=convert_gender(current_details.genders),
-                etymologies=current_details.etymology if self.include_etymology else [],
-                variants=variants,
-            )
 
     def save(self) -> None:  # sourcery skip: extract-method
         """
@@ -394,7 +353,7 @@ class KoboFormat(BaseFormat):
         raw_output = output_dir / f"{name}.raw.html"
         with raw_output.open(mode="w", encoding="utf-8") as fh:
             for word, details in words.items():
-                fh.writelines(self.handle_word(word, details, name=name, words=words))
+                fh.writelines(self.handle_word(word, details, words))
 
         # Compress the HTML with gzip
         output = output_dir / f"{name}.html"
@@ -408,24 +367,13 @@ class DictFileFormat(BaseFormat):
     """Save the data into a *.df* DictFile."""
 
     output_file = "dict-{0}-{0}{1}.df"
-
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:
-        if details.definitions:
-            yield self.render_word(
-                WORD_TPL_DICTFILE,
-                word=word,
-                definitions=details.definitions,
-                pronunciation=convert_pronunciation(details.pronunciations),
-                gender=convert_gender(details.genders),
-                etymologies=details.etymology if self.include_etymology else [],
-                variants=self.variants.get(word, []),
-            )
+    template = WORD_TPL_DICTFILE
 
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
         with file.open(mode="w", encoding="utf-8") as fh:
             for word, details in self.words.items():
-                fh.writelines(self.handle_word(word, details))
+                fh.writelines(self.handle_word(word, details, self.words))
 
         self.summary(file)
 
@@ -688,10 +636,8 @@ def make_variants(words: Words) -> Variants:
     """Group word by variant."""
     variants: Variants = defaultdict(list)
     for word, details in words.items():
-        # Variant must be normalized by trimming whitespace and lowercasing it.
         for variant in details.variants:
-            if variant:
-                variants[variant].append(word)
+            variants[variant].append(word)
     return variants
 
 

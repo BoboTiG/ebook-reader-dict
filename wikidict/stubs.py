@@ -15,10 +15,6 @@ class Word(NamedTuple):
     definitions: list[Definitions]
     variants: list[str]
 
-    @classmethod
-    def empty(cls) -> "Word":
-        return cls([], [], [], [], [])
-
 
 Words = dict[str, Word]
 Groups = dict[str, Words]
