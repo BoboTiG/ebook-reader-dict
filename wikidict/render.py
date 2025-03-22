@@ -305,7 +305,9 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
 
     # Get interesting top sections
     top_sections = [
-        section for section in parsed.get_sections(level=level) if section_title(section.title) in head_sections[locale]
+        section
+        for section in parsed.get_sections(level=level)
+        if section_title(section.title).startswith(head_sections[locale])
     ]
 
     # Get _all_ sections without any filtering
