@@ -42,7 +42,6 @@ from .user_functions import *  # noqa: F403
 
 if TYPE_CHECKING:
     from collections.abc import Callable
-    from pathlib import Path
 
 
 # Magic words (small part, only data/time related)
@@ -134,19 +133,14 @@ def get_random_word(locale: str) -> str:
     return word
 
 
-def format_description(locale: str, output_dir: Path) -> str:
+def format_description(locale: str, words: int, snapshot: str) -> str:
     """Generate the release description."""
 
-    # Get the words count
-    words_count = (output_dir / "words.count").read_text().strip()
-
     # Format the words count
-    thousands_sep = thousands_separator[locale]
-    words_count = f"{int(words_count):,}".replace(",", thousands_sep)
+    words_count = f"{words:,}".replace(",", thousands_separator[locale])
 
     # Format the snapshot's date
-    dump_date = (output_dir / "words.snapshot").read_text().strip()
-    dump_date = f"{dump_date[:4]}-{dump_date[4:6]}-{dump_date[6:8]}"
+    dump_date = f"{snapshot[:4]}-{snapshot[4:6]}-{snapshot[6:8]}"
 
     # Format download links
     _links_full: dict[str, str] = {}

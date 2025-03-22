@@ -22,7 +22,7 @@ from jinja2 import Template
 from marisa_trie import Trie
 from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
-from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS, NO_ETYMOLOGY_SUFFIX
+from . import constants
 from .lang import wiktionary
 from .stubs import Word
 from .user_functions import flatten
@@ -169,15 +169,23 @@ class BaseFormat:
     ) -> None:
         self.locale = locale
         self.output_dir = output_dir
-        self.words = words
-        self.variants = variants
+        self.words = words.copy()
+        self.variants = variants.copy()
         self.snapshot = snapshot
         self.include_etymology = include_etymology
 
         logging.basicConfig(level=logging.INFO)
+        log.info(
+            "[%s] Starting the conversion with %s words, and %s variants ...",
+            type(self).__name__,
+            f"{len(words):,}",
+            f"{len(variants):,}",
+        )
 
     def dictionary_file(self, output_file: str) -> Path:
-        return self.output_dir / output_file.format(self.locale, "" if self.include_etymology else NO_ETYMOLOGY_SUFFIX)
+        return self.output_dir / output_file.format(
+            self.locale, "" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX
+        )
 
     def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str]:  # pragma: nocover
         raise NotImplementedError()
@@ -189,15 +197,14 @@ class BaseFormat:
     def render_word(template: Template, **kwargs: Any) -> str:
         return "".join(line.strip() for line in template.render(**kwargs).splitlines()) + "\n"
 
-    @staticmethod
-    def compute_checksum(file: Path) -> None:
-        checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
-        checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
+    def compute_checksum(self, file: Path) -> None:
+        checksum = hashlib.new(constants.ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
+        checksum_file = file.with_suffix(f"{file.suffix}.{constants.ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        log.info("Crafted %s (%s)", checksum_file.name, checksum)
+        log.info("[%s] Crafted %s (%s)", type(self).__name__, checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        log.info("Generated %s (%s bytes)", file.name, f"{file.stat().st_size:,}")
+        log.info("[%s] Generated %s (%s bytes)", type(self).__name__, file.name, f"{file.stat().st_size:,}")
         self.compute_checksum(file)
 
 
@@ -218,7 +225,7 @@ class KoboFormat(BaseFormat):
         content = content.replace("<sub>", "")
         content = content.replace("</sub>", "")
 
-        for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
+        for etym_suffix in {"", constants.NO_ETYMOLOGY_SUFFIX}:
             content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.mobi.zip)", "")
             content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.zip)", "")
             content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.df.bz2)", "")
@@ -226,12 +233,6 @@ class KoboFormat(BaseFormat):
             content = content.replace(f" (dictorg-{locale}-{locale}{etym_suffix}.zip)", "")
 
         return content
-
-    def create_install(self, locale: str, output_dir: Path) -> Path:
-        """Generate the INSTALL.txt file."""
-        file = output_dir / "INSTALL.txt"
-        file.write_text(self.sanitize(locale, format_description(locale, output_dir)))
-        return file
 
     @staticmethod
     def craft_index(wordlist: list[str], output_dir: Path) -> Path:
@@ -319,7 +320,7 @@ class KoboFormat(BaseFormat):
                 variants=variants,
             )
 
-    def save(self) -> None:
+    def save(self) -> None:  # sourcery skip: extract-method
         """
         Format of resulting dicthtml-LOCALE-LOCALE.zip:
 
@@ -348,26 +349,20 @@ class KoboFormat(BaseFormat):
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, tmp_dir))
 
-        # Add unrelated files, just for history
-        words_count = self.output_dir / "words.count"
-        words_snapshot = self.output_dir / "words.snapshot"
-        words_count.write_text(str(len(wordlist)))
-        words_snapshot.write_text(self.snapshot)
-        to_compress.extend(
-            (
-                words_count,
-                words_snapshot,
-                self.create_install(self.locale, self.output_dir),
-            )
-        )
-
-        # Pretty print the source
-        source = wiktionary[self.locale].format(year=date.today().year)
-
         # Finally, create the ZIP
         final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            fh.comment = bytes(source, "utf-8")
+            # The ZIP's comment will serve as the dictionary signature
+            fh.comment = bytes(wiktionary[self.locale].format(year=date.today().year), "utf-8")
+
+            # Unrelated files, just for history
+            fh.writestr(
+                constants.ZIP_INSTALL,
+                self.sanitize(self.locale, format_description(self.locale, len(self.words), self.snapshot)),
+            )
+            fh.writestr(constants.ZIP_WORDS_COUNT, str(len(self.words)))
+            fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
+
             for file in to_compress:
                 fh.write(file, arcname=file.name)
 
@@ -475,7 +470,7 @@ class ConverterFromDictFile(DictFileFormat):
 
         glos.setInfo("description", wiktionary[self.locale].format(year=date.today().year))
         glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
-        glos.setInfo("website", GH_REPOS)
+        glos.setInfo("website", constants.GH_REPOS)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()
@@ -603,7 +598,7 @@ def run_mobi_formater(
 ) -> None:
     """Mobi formater.
 
-    For multiple languages, we need to delete words if the total number of unique characters is greater than 256.
+    For multiple languages, we need to delete words if the total number of unique unicode characters is greater than 256.
     To do this, we delete words using the least-used characters until we meet this condition.
     """
 
@@ -628,27 +623,29 @@ def run_mobi_formater(
             for char in all_chars(word, details):
                 stats[char].append(word)
 
-        threshold = 1
-        need_removal = len(stats) > 256
-        current_total = len(words)
-        while len(stats) > 256:
-            log.info("Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
-            for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
-                if len(related_words) == threshold:
-                    for w in related_words:
-                        words.pop(w, None)
-                    stats.pop(char)
-                if len(stats) < 256:
-                    break
-            threshold += 1
+        if len(stats) > 256:
+            new_words = words.copy()
+            threshold = 1
+            while len(stats) > 256:
+                log.info(
+                    "[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats)
+                )
+                for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
+                    if len(related_words) == threshold:
+                        for w in related_words:
+                            new_words.pop(w, None)
+                        stats.pop(char)
+                    if len(stats) < 256:
+                        break
+                threshold += 1
 
-        if need_removal:
             log.info(
-                "Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
-                f"{current_total - len(words):,}",
-                f"{len(words):,}",
+                "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+                f"{len(words) - len(new_words):,}",
+                f"{len(new_words):,}",
                 len(stats),
             )
+            words = new_words
             variants = make_variants(words)
 
     args = (locale, output_dir, words, variants, file.stem.split("-")[1])
@@ -747,8 +744,6 @@ def main(locale: str) -> int:
     # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
     multiprocessing.set_start_method("spawn", force=True)
 
-    # Important: start converting without etymology as the latest INSTALL.txt file will be used to generate
-    # the GitHub release description (and dictionaries without etymology tend to contain less words).
     for include_etymology in [False, True]:
         distribute_workload(get_primary_formaters(), *args, include_etymology=include_etymology)
         distribute_workload(get_secondary_formaters(), *args, include_etymology=include_etymology)

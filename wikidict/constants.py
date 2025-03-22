@@ -27,3 +27,8 @@ RANDOM_WORD_URL = "https://{locale}.wiktionary.org/w/api.php?action=query&list=r
 
 # Dictionary file suffix for etymology-free files
 NO_ETYMOLOGY_SUFFIX = "-noetym"
+
+# ZIP files
+ZIP_INSTALL = "INSTALL.txt"
+ZIP_WORDS_COUNT = "words.count"
+ZIP_WORDS_SNAPSHOT = "words.snapshot"

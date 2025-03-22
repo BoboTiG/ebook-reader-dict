@@ -5,7 +5,7 @@ from zipfile import ZipFile
 
 import pytest
 
-from wikidict import convert
+from wikidict import constants, convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
 from wikidict.stubs import Word
 
@@ -119,7 +119,7 @@ def test_simple() -> None:
     with ZipFile(dicthtml) as fh:
         expected = [
             "11.html",
-            "INSTALL.txt",
+            constants.ZIP_INSTALL,
             "aa.html",
             "ac.html",
             "ba.html",
@@ -151,8 +151,8 @@ def test_simple() -> None:
             "tu.html",
             "ve.html",
             "words",
-            "words.count",
-            "words.snapshot",
+            constants.ZIP_WORDS_COUNT,
+            constants.ZIP_WORDS_SNAPSHOT,
             "ép.html",
             "œc.html",
             "πa.html",
@@ -164,7 +164,7 @@ def test_simple() -> None:
         assert errors is None
 
         # Check content of INSTALL.txt
-        install_txt = fh.read("INSTALL.txt").decode()
+        install_txt = fh.read(constants.ZIP_INSTALL).decode()
         print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 

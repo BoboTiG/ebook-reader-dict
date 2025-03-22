@@ -1,10 +1,11 @@
 import os
 from pathlib import Path
 from typing import Any
+from zipfile import ZipFile
 
 import pytest
 
-from wikidict import release
+from wikidict import constants, release
 
 EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
 
@@ -32,16 +33,12 @@ Version sans étymologies :
 
 
 def test_main(capsys: pytest.CaptureFixture[Any]) -> None:
-    # Start the whole process
     output_dir = Path(os.environ["CWD"]) / "data" / "fr"
-    (output_dir / "words.count").write_text("123456789")
-    (output_dir / "words.snapshot").write_text("20200220")
+    with ZipFile(output_dir / "dicthtml-fr-fr.zip", mode="w") as fh:
+        fh.writestr(constants.ZIP_WORDS_COUNT, "123456789")
+        fh.writestr(constants.ZIP_WORDS_SNAPSHOT, "20200220")
 
-    try:
-        assert release.main("fr") == 0
-    finally:
-        (output_dir / "words.count").unlink()
-        (output_dir / "words.snapshot").unlink()
+    assert release.main("fr") == 0
 
     captured = capsys.readouterr()
     print(captured.out)
