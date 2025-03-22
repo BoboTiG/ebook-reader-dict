@@ -15,6 +15,7 @@ from collections import defaultdict
 from datetime import date
 from functools import partial
 from pathlib import Path
+from time import monotonic
 from typing import TYPE_CHECKING
 from zipfile import ZIP_DEFLATED, ZipFile
 
@@ -744,9 +745,11 @@ def main(locale: str) -> int:
     # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
     multiprocessing.set_start_method("spawn", force=True)
 
+    start = monotonic()
     for include_etymology in [False, True]:
         distribute_workload(get_primary_formaters(), *args, include_etymology=include_etymology)
         distribute_workload(get_secondary_formaters(), *args, include_etymology=include_etymology)
         run_mobi_formater(*args, include_etymology=include_etymology)
 
+    log.info("Convert done in %d sec!", monotonic() - start)
     return 0

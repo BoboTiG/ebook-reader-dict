@@ -117,5 +117,5 @@ def main(locale: str) -> int:
     if not output.is_file():
         words = process(file, locale)
         save(date, words, output_dir)
-    log.info("Parse done into %s in %d seconds", output, monotonic() - start)
+    log.info("Parse done into %s in %d seconds!", output, monotonic() - start)
     return 0

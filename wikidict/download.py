@@ -7,6 +7,7 @@ import logging
 import os
 import re
 from pathlib import Path
+from time import monotonic
 from typing import TYPE_CHECKING
 
 import requests
@@ -93,6 +94,8 @@ def main(locale: str) -> int:
     output_dir = Path(os.getenv("CWD", "")) / "data" / locale
     output_dir.mkdir(exist_ok=True, parents=True)
 
+    start = monotonic()
+
     # Get the snapshot to handle
     snapshots = fetch_snapshots(locale)
 
@@ -113,5 +116,5 @@ def main(locale: str) -> int:
 
     decompress(file, callback_progress)
 
-    log.info("Retrieval done!")
+    log.info("Retrieval done in %d seconds!", monotonic() - start)
     return 0
