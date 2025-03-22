@@ -425,6 +425,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|pressant}}'
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
     '# {{flexion|anisophylle}}'
+    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
+    '# {{flexion|antiproton}}'
 
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
     '# {{fr-verbe-flexion|venir}}'
@@ -576,10 +578,10 @@ def adjust_wikicode(code: str, locale: str) -> str:
             ]
         )
         code = re.sub(
-            rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]]+)]].*",
+            rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
             r"# {{flexion|\1}}",
             code,
-            flags=re.DOTALL | re.IGNORECASE | re.MULTILINE,
+            flags=re.IGNORECASE | re.MULTILINE,
         )
 
         # Enhance verbs variants support
