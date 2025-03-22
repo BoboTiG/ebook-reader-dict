@@ -34,7 +34,7 @@ Version sans étymologies :
 Mis à jour le"""
 
 WORDS = {
-    "empty": Word.empty(),
+    "empty": Word([], [], [], [], []),
     "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
     "foos": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]),
     "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
@@ -296,6 +296,100 @@ def test_word_rendering(
         include_etymology=include_etymology,
     )
 
-    kwargs = {"name": "mu", "words": WORDS} if isinstance(cls, convert.KoboFormat) else {}
-    content = next(cls.handle_word("Multiple Etymologies", WORDS["Multiple Etymologies"], **kwargs))
+    content = next(cls.handle_word("Multiple Etymologies", WORDS))
     assert content == expected
+
+
+WORDS_VARIANTS_FR = words = {
+    "être": Word(
+        pronunciations=["\\ɛtʁ\\"],
+        genders=["m"],
+        etymology=["<i>(Date à préciser)</i> Du moyen français <i>estre</i> ..."],
+        definitions=[
+            "Définir un état, une caractéristique du sujet.",
+            "Se situer, se trouver, rester, spécifiant une location, une situation.",
+            "<i>(Absolument)</i> Exister.",
+        ],
+        variants=[],
+    ),
+    "suis": Word(
+        pronunciations=["\\sɥi\\"],
+        genders=[],
+        etymology=["<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i>..."],
+        definitions=[],
+        variants=["suivre", "être"],
+    ),
+    "suivre": Word(
+        pronunciations=["\\sɥivʁ\\"],
+        genders=[],
+        etymology=[
+            "<i>(Date à préciser)</i> Du moyen français...",
+            "Les parentés proches de ce mot incluent, ...",
+        ],
+        definitions=[
+            "Aller ou venir après.",
+            "Aller, continuer d’aller dans une même direction.",
+            ("S’emploie figurément dans le même sens.",),
+        ],
+        variants=[],
+    ),
+}
+WORDS_VARIANTS_ES = {
+    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastado"]),
+    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastar"]),
+    "gastar": Word(
+        pronunciations=[],
+        genders=[],
+        etymology=['Del latín <i>vastāre</i> ("devastar").'],
+        definitions=[
+            "Provocar el consumo, deterioro o destrucción de algo por el uso.",
+            "Digerir, asimilar los alimentos.",
+        ],
+        variants=[],
+    ),
+}
+
+
+def test_make_variants() -> None:
+    assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "être": ["suis"]}
+    assert convert.make_variants(WORDS_VARIANTS_ES) == {"gastado": ["gastada"], "gastar": ["gastado"]}
+
+
+def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    kobo_formater = convert.KoboFormat("fr", tmp_path, words, variants, "20250322")
+
+    assert kobo_formater.make_groups(words) == {
+        "su": {"suis": words["suis"], "suivre": words["suivre"]},
+        "êt": {"être": words["être"]},
+    }
+
+    suis = "".join(kobo_formater.handle_word("suis", words))
+    être = "".join(kobo_formater.handle_word("être", words))
+    suivre = "".join(kobo_formater.handle_word("suivre", words))
+    assert suis
+    assert "variant" not in suis
+    assert être[22:] == suis[22:]  # Skip word metadata: '<w><p><a name="être"/>' != '<w><p><a name="suis"/>'
+    assert '<var><variant name="suis"/></var>' in suivre
+
+
+def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES
+    variants = convert.make_variants(words)
+    kobo_formater = convert.KoboFormat("es", tmp_path, words, variants, "20250322")
+
+    assert kobo_formater.make_groups(words) == {
+        "ga": {
+            "gastada": words["gastada"],
+            "gastado": words["gastado"],
+            "gastar": words["gastar"],
+        }
+    }
+
+    gastada = "".join(kobo_formater.handle_word("gastada", words))
+    gastado = "".join(kobo_formater.handle_word("gastado", words))
+    gastar = "".join(kobo_formater.handle_word("gastar", words))
+    assert "variant" not in gastada
+    assert "variant" not in gastado
+    assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
