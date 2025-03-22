@@ -1176,19 +1176,31 @@ def render_sigle(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
 
 def render_sinogram_noimg(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_sinogram_noimg("sinogram-noimg", ["𠔭"], defaultdict(str, {"clefhz1": "八", "clefhz2": "11", "nbthz1": "13", "nbthz2": "13", "m4chz1": "", "m4chz2": "", "unihz": "2052D", "gbhz1": "", "gbhz2": "-", "b5hz1": "", "b5hz2": "-"}))
-    'Codage informatique : <b>Unicode</b> : U+2052D'
-    >>> render_sinogram_noimg("sinogram-noimg", ["𠔭"], defaultdict(str, {"unihz": "340C", "cjhz1": "O", "cjhz2": "人心木", "cjhz3": "OPD"}))
-    'Codage informatique : <b>Unicode</b> : U+340C - <b>Cangjie</b> : 人心木 (OPD)'
+    >>> render_sinogram_noimg("sinogram-noimg", ["它"], defaultdict(str, {"clefhz1": "宀", "clefhz2": "2", "nbthz1": "1-5", "nbthz2": "5", "m4chz1": "3", "m4chz2": "3071<sub>1</sub>", "unihz": "5B83", "gbhz1": " ", "gbhz2": "-", "b5hz1": "A1", "b5hz2": "A5A6", "cjhz1": "J", "cjhz2": "十心", "cjhz3": "JP"}))
+    'Codage informatique : <b>Unicode</b> : U+5B83 - <b>Big5</b> : A5A6 - <b>Cangjie</b> : 十心 (JP) - <b>Quatre coins</b> : 3071<sub>1</sub>'
     """
     text = "Codage informatique :"
     codages = []
+
     if unihz := data["unihz"]:
         codages.append(f"{strong('Unicode')} : U+{unihz}")
+
+    if b5hz2 := data["b5hz2"]:
+        codage = f"{strong('Big5')} : {b5hz2}"
+        if b5hz3 := data["b5hz3"]:
+            codage += f" ({b5hz3})"
+        codages.append(codage)
+
     if cjhz2 := data["cjhz2"]:
         codage = f"{strong('Cangjie')} : {cjhz2}"
         if cjhz3 := data["cjhz3"]:
             codage += f" ({cjhz3})"
+        codages.append(codage)
+
+    if m4chz2 := data["m4chz2"]:
+        codage = f"{strong('Quatre coins')} : {m4chz2}"
+        if m4chz3 := data["m4chz3"]:
+            codage += f" ({m4chz3})"
         codages.append(codage)
 
     return f"{text} {' - '.join(codages)}"
