@@ -196,6 +196,7 @@ templates_ignored = (
     "ébauche-déf",
     "ébauche-étym",
     "ébauche-exe",
+    "écouter",
     "étymologie-chinoise-SVG",
     "exemple",
     "fr-inv",
