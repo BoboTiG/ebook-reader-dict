@@ -607,7 +607,7 @@ def run_mobi_formater(
     To do this, we delete words using the least-used characters until we meet this condition.
     """
 
-    if locale in {"en", "fr"}:
+    if locale in {"en", "fr", "fro"}:
 
         def all_chars(word: str, details: Word) -> set[str]:
             chars = set(word)
