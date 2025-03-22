@@ -31,12 +31,7 @@ variant_titles = ("значение",)
 variant_templates = ("{{прич.",)
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # Variants
-    #
-    "прич.",
-)
+definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
 
 # Some definitions are not good to keep (plural, gender, ... )
 templates_ignored = ("??", "gb", "etym-lang", "L", "Lacuna", "l", "lacuna", "unfinished", "семантика", "пример")

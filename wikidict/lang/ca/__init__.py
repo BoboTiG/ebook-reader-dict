@@ -15,6 +15,7 @@ thousands_separator = "."
 head_sections = ("{{-ca-}}", "{{-mul-}}")
 etyl_section = ("{{-etimologia-", "{{-etim-", "{{etim-lang")
 sections = (
+    *etyl_section,
     "abreviatura",
     "acrònim",
     "adjectiu",
@@ -39,7 +40,6 @@ sections = (
     "sufix",
     "símbol",
     "verb",
-    *etyl_section,
 )
 
 # Variants
@@ -52,13 +52,9 @@ variant_templates = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
+    *[variant.lstrip("{") for variant in variant_templates],
     "ex-cit",
     "ex-us",
-    #
-    # Variants
-    #
-    "ca-forma-conj",
-    "forma-",
     "forma-a",
     "forma-augm",
     "forma-conj",
@@ -68,7 +64,6 @@ definitions_to_ignore = (
     "forma-p",
     "forma-pron",
     "forma-super",
-    "sinònim",
 )
 
 # Templates to ignore: the text will be deleted.

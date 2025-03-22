@@ -47,13 +47,7 @@ variant_templates = (
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # Variants
-    #
-    "avledning",
-    "böjning",
-)
+definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (

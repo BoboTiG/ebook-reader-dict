@@ -1273,7 +1273,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     >>> render_place("place", ["en", "state", "c/USA"], defaultdict(str))
     'A state of the United States'
     >>> render_place("place", ["en", "city", "c/Republic of Ireland"], defaultdict(str))
-    'A city in Ireland'
+    'A city in Republic of Ireland'
     >>> render_place("place", ["en", "city", "s/Georgia", "c/United States"], defaultdict(str))
     'A city in Georgia, United States'
     >>> render_place("place", ["en", "river", "in", "England", ", forming the boundary between", "co/Derbyshire", "and", "co/Staffordshire"], defaultdict(str))

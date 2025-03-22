@@ -144,6 +144,7 @@ variant_templates = (
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
+    *variant_templates,
     "eo-excl-étyl",
     "Gallica",
     "{doute",
@@ -161,10 +162,6 @@ definitions_to_ignore = (
     "{ébauche-trans",
     "{ébauche2-exe",
     "{exemple|",
-    #
-    # For variants
-    #
-    *variant_templates,
 )
 
 # Modèle à ignorer : le texte sera supprimé.

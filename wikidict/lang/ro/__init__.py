@@ -15,6 +15,7 @@ head_sections = ("{{limba|ron}}", "{{limba|ro}}", "{{limba|conv}}")
 section_sublevels = (3,)
 etyl_section = ("{{etimologie}}",)
 sections = (
+    *etyl_section,
     "{{abr}}",
     "{{abreviere}",
     "{{adjectiv}",
@@ -23,7 +24,6 @@ sections = (
     "{{articol}",
     "{{conjuncție}",
     "{{cuvânt compus}",
-    *etyl_section,
     "{{expr}}",
     "{{expresie}",
     "{{expresie|ro",
@@ -161,7 +161,7 @@ forma_de = (
 )
 
 # Templates to ignore: the text will be deleted.
-definitions_to_ignore = ("adj form of", *forma_de)
+definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates], *forma_de)
 
 # Templates more complex to manage.
 templates_multi = {

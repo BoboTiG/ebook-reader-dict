@@ -52,16 +52,7 @@ variant_templates = (
 )
 
 # Templates to ignore: the text will be deleted.
-definitions_to_ignore = (
-    #
-    # Variants
-    #
-    "bøyingsform",
-    "no-adj-bøyningsform",
-    "no-sub-bøyningsform",
-    "no-verbform av",
-    "no-verb-bøyningsform",
-)
+definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (

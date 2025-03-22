@@ -16,6 +16,7 @@ head_sections = ("{{lengua|es}}",)
 section_sublevels = (4, 3)
 etyl_section = ("etimología", "etimología 1")
 sections = (
+    *etyl_section,
     "abreviaturas",
     "adjetivo",
     "{{abreviatura",
@@ -23,7 +24,6 @@ sections = (
     "{{adverbio",
     "{{artículo",
     "{{conjunción",
-    *etyl_section,
     "{{interjección",
     "{{locución",
     "{{onomatopeya",
@@ -61,23 +61,15 @@ variant_templates = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
+    *variant_templates,
     "antropónimo femenino",
     "antropónimo masculino",
     "apellido",
     "definición imprecisa",
-    "{{infinitivo",
-    "{{enclítico",
     "f.adj2",
     "f.s.p",
-    "{{forma adjetivo",
-    "{{forma adjetivo 2",
-    "{{forma participio",
-    "{{forma pronombre",
-    "{{forma verbo",
     "f.v",
-    "{{gerundio",
     "marcar sin referencias",
-    "{{participio",
 )
 
 # Templates to ignore: the text will be deleted.

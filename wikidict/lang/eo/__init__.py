@@ -88,12 +88,7 @@ variant_titles = sections
 variant_templates = ("{{form-eo}}",)
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # Variants
-    #
-    "form-eo",
-)
+definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (

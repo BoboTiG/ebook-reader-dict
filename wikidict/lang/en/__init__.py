@@ -16,13 +16,13 @@ head_sections = ("english", "translingual")
 section_sublevels = (4, 3)
 etyl_section = ("etymology", "etymology 1")
 sections = (
+    *etyl_section,
     "adjective",
     "adverb",
     "article",
     "conjunction",
     "contraction",
     "determiner",
-    *etyl_section,
     "interjection",
     "noun",
     "numeral",
@@ -56,21 +56,15 @@ variant_templates = (
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    "rfdef",
-    #
-    # Variants
-    #
-    "en-ing",
+    *[variant.lstrip("{") for variant in variant_templates],
     "en-irregular plural of",
     "en-past of",
     "en-simple past of",
     "en-superlative of",
-    "en-tpso",
     "en-third-person singular of",
     "en-third person singular of",
     "en-third-person_singular_of",
-    "infl of",
-    "plural of",
+    "rfdef",
 )
 
 # Templates to ignore: the text will be deleted.
