@@ -1140,6 +1140,11 @@ recognized_placetypes = {
         "display": "historical prefecture",
         "preposition": "of",
     },
+    "historical principality": {
+        "article": "a",
+        "display": "historical principality",
+        "preposition": "in",
+    },
     "historical province": {
         "article": "a",
         "display": "historical province",
@@ -1953,7 +1958,7 @@ recognized_placetypes = {
     "special municipality": {
         "article": "a",
         "display": "special municipality",
-        "preposition": "in",
+        "preposition": "of",
     },
     "special ward": {
         "article": "a",
@@ -2265,7 +2270,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 452
+}  # 453
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2479,17 +2484,12 @@ recognized_placenames = {
         "article": "",
         "display": "administrative territory/Azad Kashmir",
     },
-    "administrative territory/Islamabad": {
-        "article": "",
-        "display": "administrative territory/Islamabad Capital Territory",
-    },
     "archipelago/Cyclades": {"article": "the", "display": ""},
     "archipelago/Dodecanese": {"article": "the", "display": ""},
     "autonomous community/Balearic Islands": {"article": "the", "display": ""},
     "autonomous community/Basque Country": {"article": "the", "display": ""},
     "autonomous community/Canary Islands": {"article": "the", "display": ""},
     "autonomous community/Community of Madrid": {"article": "the", "display": ""},
-    "autonomous community/Valencian Community": {"article": "", "display": "autonomous community/Valencia"},
     "autonomous oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
     "autonomous territory/Faroe Islands": {"article": "the", "display": ""},
     "borough/Bronx": {"article": "the", "display": ""},
@@ -2512,7 +2512,6 @@ recognized_placenames = {
     "country/Comoros": {"article": "the", "display": ""},
     "country/Cook Islands": {"article": "the", "display": ""},
     "country/Czech Republic": {"article": "the", "display": ""},
-    "country/Czechia": {"article": "", "display": "country/Czech Republic"},
     "country/Côte d'Ivoire": {"article": "", "display": "country/Ivory Coast"},
     "country/Democratic Republic of the Congo": {"article": "the", "display": ""},
     "country/Dominican Republic": {"article": "the", "display": ""},
@@ -2524,15 +2523,13 @@ recognized_placenames = {
     "country/Marshall Islands": {"article": "the", "display": ""},
     "country/Netherlands": {"article": "the", "display": ""},
     "country/Philippines": {"article": "the", "display": ""},
-    "country/Republic of Armenia": {"article": "", "display": "country/Armenia"},
-    "country/Republic of Ireland": {"article": "", "display": "country/Ireland"},
-    "country/Republic of Macedonia": {"article": "", "display": "country/North Macedonia"},
-    "country/Republic of North Macedonia": {"article": "", "display": "country/North Macedonia"},
     "country/Republic of the Congo": {"article": "the", "display": ""},
     "country/Roman Empire": {"article": "the", "display": ""},
     "country/Solomon Islands": {"article": "the", "display": ""},
     "country/Soviet Union": {"article": "the", "display": ""},
     "country/Türkiye": {"article": "", "display": "country/Turkey"},
+    "country/U.A.E.": {"article": "", "display": "country/United Arab Emirates"},
+    "country/U.K.": {"article": "", "display": "country/United Kingdom"},
     "country/U.S.": {"article": "", "display": "country/United States"},
     "country/U.S.A.": {"article": "", "display": "country/United States"},
     "country/UAE": {"article": "", "display": "country/United Arab Emirates"},
@@ -2543,7 +2540,6 @@ recognized_placenames = {
     "country/United Kingdom": {"article": "the", "display": ""},
     "country/United States": {"article": "the", "display": ""},
     "country/United States of America": {"article": "", "display": "country/United States"},
-    "country/Vatican": {"article": "", "display": "country/Vatican City"},
     "county borough/Vale of Glamorgan": {"article": "the", "display": ""},
     "county/City of Belfast": {"article": "the", "display": ""},
     "county/City of Derry": {"article": "the", "display": ""},
@@ -2554,9 +2550,9 @@ recognized_placenames = {
     "crown dependency/Isle of Man": {"article": "the", "display": ""},
     "dependency/Isle of Man": {"article": "the", "display": ""},
     "dependent territory/Isle of Man": {"article": "the", "display": ""},
+    "empire/Holy Roman Empire": {"article": "the", "display": ""},
     "empire/Roman Empire": {"article": "the", "display": ""},
     "external territory/Cocos Islands": {"article": "the", "display": ""},
-    "federal territory/Islamabad": {"article": "", "display": "federal territory/Islamabad Capital Territory"},
     "island/North Island": {"article": "the", "display": ""},
     "island/South Island": {"article": "the", "display": ""},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": ""},
@@ -2596,7 +2592,6 @@ recognized_placenames = {
     "region/South Savo": {"article": "", "display": "region/Southern Savonia"},
     "region/Southern Ostrobothnia": {"article": "", "display": "region/South Ostrobothnia"},
     "region/West Bank": {"article": "the", "display": ""},
-    "region/Åland": {"article": "", "display": "region/Åland Islands"},
     "region/Åland Islands": {"article": "the", "display": ""},
     "republic/Altai Republic": {"article": "the", "display": ""},
     "republic/Chechen Republic": {"article": "the", "display": ""},
@@ -2622,7 +2617,6 @@ recognized_placenames = {
     "republic/Tyva Republic": {"article": "", "display": "republic/Tuva Republic"},
     "republic/Udmurt Republic": {"article": "the", "display": ""},
     "state/Mecklenburg-Western Pomerania": {"article": "", "display": "state/Mecklenburg-Vorpommern"},
-    "state/Mexico": {"article": "", "display": "state/State of Mexico"},
     "state/State of Mexico": {"article": "the", "display": ""},
     "territory/Australian Capital Territory": {"article": "the", "display": ""},
     "territory/Azad Jammu and Kashmir": {"article": "", "display": "territory/Azad Kashmir"},
@@ -2632,7 +2626,6 @@ recognized_placenames = {
     "territory/Cocos Islands": {"article": "the", "display": ""},
     "territory/Falkland Islands": {"article": "the", "display": ""},
     "territory/Faroe Islands": {"article": "the", "display": ""},
-    "territory/Islamabad": {"article": "", "display": "territory/Islamabad Capital Territory"},
     "territory/Isle of Man": {"article": "the", "display": ""},
     "territory/Northern Mariana Islands": {"article": "the", "display": ""},
     "territory/Northern Territory": {"article": "the", "display": ""},
@@ -2649,5 +2642,5 @@ recognized_placenames = {
     "unincorporated territory/United States Virgin Islands": {"article": "the", "display": ""},
     "union territory/Andaman and Nicobar Islands": {"article": "the", "display": ""},
     "valley/San Fernando Valley": {"article": "the", "display": ""},
-}  # 169
+}  # 160
 # END

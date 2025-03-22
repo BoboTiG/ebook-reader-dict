@@ -9429,7 +9429,7 @@ langs = {
     "xyt": "Mayi-Thakurti",
     "xyy": "Yorta Yorta",
     "xzh": "Zhang-Zhung",
-    "xzm": "Zemgalian",
+    "xzm": "Semigallian",
     "xzp": "Ancient Zapotec",
     "yaa": "Yaminahua",
     "yab": "Yuhup",
