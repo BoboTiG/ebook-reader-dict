@@ -22,7 +22,8 @@ def main(locale: str, words: str, output: str, *, format: str = "kobo") -> int:
 
     output_dir = Path(os.getenv("CWD", "")) / output
     output_dir.mkdir(parents=True, exist_ok=True)
-    all_words = {word: get_word(word.strip(), locale) for word in words.split(",") if word}
+    words_stripped = [word_stripped for word in words.split(",") if (word_stripped := word.strip())]
+    all_words = {word: get_word(word, locale) for word in words_stripped}
     variants: Variants = make_variants(all_words)
     args: tuple[str, Path, Words, Variants, str] = (
         locale,
