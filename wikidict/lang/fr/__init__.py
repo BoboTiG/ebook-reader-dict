@@ -295,6 +295,8 @@ templates_multi = {
     "1re": "f\"1{superscript('re')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
     # {{2e|edition}}
     **{f"{idx}e": f"f\"{idx}<sup>e</sup>{{'&nbsp;' + parts[1] if len(parts) > 1 else ''}}\"" for idx in range(2, 13)},
+    # {{abréviation discrète|C{{e|ie}}|Compagnie}}
+    "abréviation discrète": "parts[1]",
     # {{Arabe|ن و ق}}
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",

@@ -503,6 +503,7 @@ def test_parse_word(
         ("{{2e}}", "2<sup>e</sup>"),
         ("{{2e|édition}}", "2<sup>e</sup>&nbsp;édition"),
         ("{{12e}}", "12<sup>e</sup>"),
+        ("{{abréviation discrète|C{{e|ie}}|Compagnie}}", "C<sup>ie</sup>"),
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
         ("{{attestation pays de Retz}}", "<i>(Pays de Retz)</i>"),
