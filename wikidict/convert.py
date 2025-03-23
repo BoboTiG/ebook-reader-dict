@@ -194,13 +194,17 @@ class BaseFormat:
         if details.variants:
             # Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
             # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
-            # As a workaround, we replace etymology + definitions of "suis" with ones from "être", while keeping other "suis" variants as well.
-            # Note: it works for 1 different variant only, the fist one with a different prefix.
+            # As a workaround, we yield as many words as there are variants but under the word "suis": at the end, we will have 3 words:
+            #   - "suis" with the content "suis" (itself)
+            #   - "suis" with the content "être"
+            #   - "suis" with the content "suivre"
+            # This works for multiple variants with different prefixes, like in FR with "pu", "pouvoir", and "paître" (3 different prefixes).
             current_group_prefix = guess_prefix(word)
-            for variant in details.variants:
-                if guess_prefix(variant) != current_group_prefix and (root := self.words.get(variant)):
-                    current_words[variant] = root
-                    break
+            found_different_prefix = any(guess_prefix(variant) != current_group_prefix for variant in details.variants)
+            if found_different_prefix:
+                for variant in details.variants:
+                    if root := self.words.get(variant):
+                        current_words[variant] = root
 
         for current_word, current_details in current_words.items():
             if not current_details.definitions:

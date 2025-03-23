@@ -301,6 +301,13 @@ def test_word_rendering(
 
 
 WORDS_VARIANTS_FR = words = {
+    "estre": Word(
+        pronunciations=["\\ɛtʁ\\"],
+        genders=[],
+        etymology=["Emploi du moyen français <i>estre</i>, de l’ancien français <i>estre</i>."],
+        definitions=["<i>(Archaïsme)</i> <i>Ancienne orthographe de</i> être."],
+        variants=[],
+    ),
     "être": Word(
         pronunciations=["\\ɛtʁ\\"],
         genders=["m"],
@@ -317,7 +324,7 @@ WORDS_VARIANTS_FR = words = {
         genders=[],
         etymology=["<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i>..."],
         definitions=[],
-        variants=["suivre", "être"],
+        variants=["suivre", "être", "estre"],
     ),
     "suivre": Word(
         pronunciations=["\\sɥivʁ\\"],
@@ -351,7 +358,7 @@ WORDS_VARIANTS_ES = {
 
 
 def test_make_variants() -> None:
-    assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "être": ["suis"]}
+    assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "estre": ["suis"], "être": ["suis"]}
     assert convert.make_variants(WORDS_VARIANTS_ES) == {"gastado": ["gastada"], "gastar": ["gastado"]}
 
 
@@ -361,17 +368,21 @@ def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
     kobo_formater = convert.KoboFormat("fr", tmp_path, words, variants, "20250322")
 
     assert kobo_formater.make_groups(words) == {
-        "su": {"suis": words["suis"], "suivre": words["suivre"]},
+        "es": {"estre": words["estre"]},
         "êt": {"être": words["être"]},
+        "su": {"suis": words["suis"], "suivre": words["suivre"]},
     }
 
-    suis = "".join(kobo_formater.handle_word("suis", words))
+    estre = "".join(kobo_formater.handle_word("estre", words))
     être = "".join(kobo_formater.handle_word("être", words))
+    suis = "".join(kobo_formater.handle_word("suis", words))
     suivre = "".join(kobo_formater.handle_word("suivre", words))
-    assert suis
-    assert "variant" not in suis
-    assert être[22:] == suis[22:]  # Skip word metadata: '<w><p><a name="être"/>' != '<w><p><a name="suis"/>'
-    assert '<var><variant name="suis"/></var>' in suivre
+    assert estre[23:] in suis  # Skip word metadata: '<w><p><a name="estre"/>'
+    assert être[22:] in suis  # Skip word metadata: '<w><p><a name="être"/>'
+    assert suivre[24:] in suis  # Skip word metadata: '<w><p><a name="suivre"/>'
+    assert "variant" not in estre  # Because group prefixes are differents
+    assert "variant" not in être  # Because group prefixes are differents
+    assert '<var><variant name="suis"/></var>' in suivre  # Because group prefixes are the same
 
 
 def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
