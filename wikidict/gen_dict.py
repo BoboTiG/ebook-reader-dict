@@ -8,10 +8,10 @@ from .convert import (
     DictFileFormat,
     DictOrgFormat,
     KoboFormat,
-    MobiFormat,
     StarDictFormat,
     make_variants,
     run_formatter,
+    run_mobi_formater,
 )
 from .get_word import get_word
 from .stubs import Variants, Words
@@ -22,7 +22,7 @@ def main(locale: str, words: str, output: str, *, format: str = "kobo") -> int:
 
     output_dir = Path(os.getenv("CWD", "")) / output
     output_dir.mkdir(parents=True, exist_ok=True)
-    all_words = {word: get_word(word, locale) for word in words.split(",")}
+    all_words = {word: get_word(word.strip(), locale) for word in words.split(",") if word}
     variants: Variants = make_variants(all_words)
     args: tuple[str, Path, Words, Variants, str] = (
         locale,
@@ -37,8 +37,7 @@ def main(locale: str, words: str, output: str, *, format: str = "kobo") -> int:
             run_formatter(DictFileFormat, *args)
             run_formatter(DictOrgFormat, *args)
         case "mobi":
-            run_formatter(DictFileFormat, *args)
-            run_formatter(MobiFormat, *args)
+            run_mobi_formater(output_dir, Path(f"data-{args[-1]}.json"), locale, all_words, variants)
         case "stardict":
             run_formatter(DictFileFormat, *args)
             run_formatter(StarDictFormat, *args)
