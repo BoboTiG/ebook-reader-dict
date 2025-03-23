@@ -370,18 +370,18 @@ def test_make_variants() -> None:
 def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
     words = WORDS_VARIANTS_FR
     variants = convert.make_variants(words)
-    kobo_formater = convert.KoboFormat("fr", tmp_path, words, variants, "20250322")
+    formatter = convert.KoboFormat("fr", tmp_path, words, variants, "20250322")
 
-    assert kobo_formater.make_groups(words) == {
+    assert formatter.make_groups(words) == {
         "es": {"estre": words["estre"]},
         "êt": {"être": words["être"]},
         "su": {"suis": words["suis"], "suivre": words["suivre"]},
     }
 
-    estre = "".join(kobo_formater.handle_word("estre", words))
-    être = "".join(kobo_formater.handle_word("être", words))
-    suis = "".join(kobo_formater.handle_word("suis", words))
-    suivre = "".join(kobo_formater.handle_word("suivre", words))
+    estre = "".join(formatter.handle_word("estre", words))
+    être = "".join(formatter.handle_word("être", words))
+    suis = "".join(formatter.handle_word("suis", words))
+    suivre = "".join(formatter.handle_word("suivre", words))
     assert estre[23:] in suis  # Skip word metadata: '<w><p><a name="estre"/>'
     assert être[22:] in suis  # Skip word metadata: '<w><p><a name="être"/>'
     assert suivre[24:] in suis  # Skip word metadata: '<w><p><a name="suivre"/>'
@@ -393,9 +393,9 @@ def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
 def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     words = WORDS_VARIANTS_ES
     variants = convert.make_variants(words)
-    kobo_formater = convert.KoboFormat("es", tmp_path, words, variants, "20250322")
+    formatter = convert.KoboFormat("es", tmp_path, words, variants, "20250322")
 
-    assert kobo_formater.make_groups(words) == {
+    assert formatter.make_groups(words) == {
         "ga": {
             "gastada": words["gastada"],
             "gastadan": words["gastadan"],
@@ -404,10 +404,10 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
         }
     }
 
-    gastadan = "".join(kobo_formater.handle_word("gastadan", words))
-    gastada = "".join(kobo_formater.handle_word("gastada", words))
-    gastado = "".join(kobo_formater.handle_word("gastado", words))
-    gastar = "".join(kobo_formater.handle_word("gastar", words))
+    gastadan = "".join(formatter.handle_word("gastadan", words))
+    gastada = "".join(formatter.handle_word("gastada", words))
+    gastado = "".join(formatter.handle_word("gastado", words))
+    gastar = "".join(formatter.handle_word("gastar", words))
     assert "variant" not in gastadan
     assert "variant" not in gastada
     assert "variant" not in gastado
