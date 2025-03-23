@@ -1605,6 +1605,16 @@ recognized_placetypes = {
         "display": "non-metropolitan district",
         "preposition": "of",
     },
+    "non-sovereign kingdom": {
+        "article": "a",
+        "display": "non-sovereign kingdom",
+        "preposition": "in",
+    },
+    "non-sovereign monarchy": {
+        "article": "a",
+        "display": "non-sovereign monarchy",
+        "preposition": "in",
+    },
     "oblast": {
         "article": "an",
         "display": "oblast",
@@ -2050,6 +2060,16 @@ recognized_placetypes = {
         "display": "submerged ghost town",
         "preposition": "in",
     },
+    "subnational kingdom": {
+        "article": "a",
+        "display": "subnational kingdom",
+        "preposition": "in",
+    },
+    "subnational monarchy": {
+        "article": "a",
+        "display": "subnational monarchy",
+        "preposition": "in",
+    },
     "subprefecture": {
         "article": "a",
         "display": "subprefecture",
@@ -2270,7 +2290,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 453
+}  # 457
 
 placetypes_aliases = {
     "CDP": "census-designated place",
