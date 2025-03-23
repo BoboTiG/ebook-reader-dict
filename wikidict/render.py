@@ -430,6 +430,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
     '# {{fr-verbe-flexion|venir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
+    '# {{fr-verbe-flexion|pouvoir}}'
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
 
@@ -588,6 +590,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
         code = re.sub(
             r"^^#\s*'+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
+            rf"# {{{{{locale}-verbe-flexion|\1}}}}",
+            code,
+            flags=re.IGNORECASE | re.MULTILINE,
+        )
+        # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
+        code = re.sub(
+            r"^^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
             rf"# {{{{{locale}-verbe-flexion|\1}}}}",
             code,
             flags=re.IGNORECASE | re.MULTILINE,
