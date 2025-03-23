@@ -198,10 +198,8 @@ class BaseFormat:
             #   - "suis" with the content "suis" (itself)
             #   - "suis" with the content "être"
             #   - "suis" with the content "suivre"
-            # This works for multiple variants with different prefixes, like in FR with "pu", "pouvoir", and "paître" (3 different prefixes).
             current_group_prefix = guess_prefix(word)
-            found_different_prefix = any(guess_prefix(variant) != current_group_prefix for variant in details.variants)
-            if found_different_prefix:
+            if any(guess_prefix(variant) != current_group_prefix for variant in details.variants):
                 for variant in details.variants:
                     if root := self.words.get(variant):
                         current_words[variant] = root
