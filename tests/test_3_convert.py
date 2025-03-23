@@ -342,6 +342,7 @@ WORDS_VARIANTS_FR = words = {
     ),
 }
 WORDS_VARIANTS_ES = {
+    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastada"]),
     "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastado"]),
     "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastar"]),
     "gastar": Word(
@@ -359,7 +360,11 @@ WORDS_VARIANTS_ES = {
 
 def test_make_variants() -> None:
     assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "estre": ["suis"], "être": ["suis"]}
-    assert convert.make_variants(WORDS_VARIANTS_ES) == {"gastado": ["gastada"], "gastar": ["gastado"]}
+    assert convert.make_variants(WORDS_VARIANTS_ES) == {
+        "gastada": ["gastadan"],
+        "gastado": ["gastada"],
+        "gastar": ["gastado"],
+    }
 
 
 def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
@@ -393,14 +398,17 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     assert kobo_formater.make_groups(words) == {
         "ga": {
             "gastada": words["gastada"],
+            "gastadan": words["gastadan"],
             "gastado": words["gastado"],
             "gastar": words["gastar"],
         }
     }
 
+    gastadan = "".join(kobo_formater.handle_word("gastadan", words))
     gastada = "".join(kobo_formater.handle_word("gastada", words))
     gastado = "".join(kobo_formater.handle_word("gastado", words))
     gastar = "".join(kobo_formater.handle_word("gastar", words))
+    assert "variant" not in gastadan
     assert "variant" not in gastada
     assert "variant" not in gastado
     assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
