@@ -241,6 +241,7 @@ templates_italic = {
     "Nouvelle-Angleterre": "Nouvelle-Angleterre",
     "ortho1990": "orthographe rectifiée de 1990",
     "Ortograf altêrnativ": "Ortograf altêrnativ",
+    "oxymore": "Oxymore",
     "par litote": "Par litote",
     "par troponymie": "Par troponymie",
     "parler bellifontain": "Parler bellifontain",
