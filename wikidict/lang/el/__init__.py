@@ -455,7 +455,7 @@ def last_template_handler(
     if tpl == "γραφή του":
         if len(parts) == 1:
             parts.append("γραφ")
-        return f"{italic('άλλη ' + parts[1] + 'ή του')} {strong(parts[0])}"
+        return f"{italic(f'άλλη {parts[1]}ή του')} {strong(parts[0])}"
 
     if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
@@ -666,9 +666,7 @@ def last_template_handler(
         return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 
     if tpl in {"πρόσφ", "προσφ"}:
-        words = []
-        for idx, part in enumerate(parts, 1):
-            words.append(data[f".{idx}"] or part)
+        words = [data[f".{idx}"] or part for idx, part in enumerate(parts, 1)]
         return concat(words, " + ")
 
     # This is a country in the current locale

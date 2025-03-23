@@ -43,10 +43,8 @@ def render_βλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     if data["και"] == "1":
         text += " και"
     if data["0"] == "-":
-        text += " δείτε"
         no_prefix = False
-    elif data["0"] != "-":
-        text += " δείτε"
+    text += " δείτε"
     if data["και"] == "2":
         text += " και"
     if no_prefix:
