@@ -256,7 +256,7 @@ FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 """
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
-:  pron  <i>gender</i>.
+: pron <i>gender</i>.
 & Multiple Etymology
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
 
@@ -264,7 +264,7 @@ FORMATTED_WORD_DICTFILE = """\
 """
 FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
-:  pron  <i>gender</i>.
+: pron <i>gender</i>.
 & Multiple Etymology
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
@@ -304,40 +304,31 @@ WORDS_VARIANTS_FR = words = {
     "estre": Word(
         pronunciations=["\\ɛtʁ\\"],
         genders=[],
-        etymology=["Emploi du moyen français <i>estre</i>, de l’ancien français <i>estre</i>."],
-        definitions=["<i>(Archaïsme)</i> <i>Ancienne orthographe de</i> être."],
+        etymology=[],
+        definitions=["Définition de 'estre'."],
         variants=[],
     ),
     "être": Word(
         pronunciations=["\\ɛtʁ\\"],
         genders=["m"],
-        etymology=["<i>(Date à préciser)</i> Du moyen français <i>estre</i> ..."],
+        etymology=[],
         definitions=[
-            "Définir un état, une caractéristique du sujet.",
-            "Se situer, se trouver, rester, spécifiant une location, une situation.",
-            "<i>(Absolument)</i> Exister.",
+            "Définition de 'être'.",
         ],
         variants=[],
     ),
     "suis": Word(
         pronunciations=["\\sɥi\\"],
         genders=[],
-        etymology=["<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i>..."],
+        etymology=[],
         definitions=[],
         variants=["suivre", "être", "estre"],
     ),
     "suivre": Word(
         pronunciations=["\\sɥivʁ\\"],
         genders=[],
-        etymology=[
-            "<i>(Date à préciser)</i> Du moyen français...",
-            "Les parentés proches de ce mot incluent, ...",
-        ],
-        definitions=[
-            "Aller ou venir après.",
-            "Aller, continuer d’aller dans une même direction.",
-            ("S’emploie figurément dans le même sens.",),
-        ],
+        etymology=[],
+        definitions=["Définition de 'suivre'."],
         variants=[],
     ),
 }
@@ -348,11 +339,8 @@ WORDS_VARIANTS_ES = {
     "gastar": Word(
         pronunciations=[],
         genders=[],
-        etymology=['Del latín <i>vastāre</i> ("devastar").'],
-        definitions=[
-            "Provocar el consumo, deterioro o destrucción de algo por el uso.",
-            "Digerir, asimilar los alimentos.",
-        ],
+        etymology=[],
+        definitions=["Definition of 'gastar'."],
         variants=[],
     ),
 }
@@ -382,10 +370,12 @@ def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
     être = "".join(formatter.handle_word("être", words))
     suis = "".join(formatter.handle_word("suis", words))
     suivre = "".join(formatter.handle_word("suivre", words))
-    assert estre[23:] in suis  # Skip word metadata: '<w><p><a name="estre"/>'
-    assert être[22:] in suis  # Skip word metadata: '<w><p><a name="être"/>'
-    assert suivre[24:] in suis  # Skip word metadata: '<w><p><a name="suivre"/>'
+    assert suis.count('<a name="suis"/>') == 3
+    assert "<b>estre</b>" in suis
+    assert "<b>suivre</b>" in suis
+    assert "<b>être</b>" in suis
     assert "variant" not in estre  # Because group prefixes are differents
+    assert "variant" not in suis  # Because variant == word
     assert "variant" not in être  # Because group prefixes are differents
     assert '<var><variant name="suis"/></var>' in suivre  # Because group prefixes are the same
 
@@ -408,7 +398,42 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     gastada = "".join(formatter.handle_word("gastada", words))
     gastado = "".join(formatter.handle_word("gastado", words))
     gastar = "".join(formatter.handle_word("gastar", words))
-    assert "variant" not in gastadan
-    assert "variant" not in gastada
-    assert "variant" not in gastado
+    assert not gastadan
+    assert not gastada
+    assert not gastado
     assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
+
+
+def test_df_format_variants_different_prefix(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("fr", tmp_path, words, variants, "20250323")
+
+    estre = "".join(formatter.handle_word("estre", words))
+    être = "".join(formatter.handle_word("être", words))
+    suis = "".join(formatter.handle_word("suis", words))
+    suivre = "".join(formatter.handle_word("suivre", words))
+    assert suis.count("@ suis") == 3
+    assert ": <b>estre</b>" in suis
+    assert ": <b>suivre</b>" in suis
+    assert ": <b>être</b>" in suis
+    assert "&" not in estre  # Because group prefixes are differents
+    assert "&" not in suis  # Because variant == word
+    assert "&" not in être  # Because group prefixes are differents
+    assert "& suis" in suivre  # Because group prefixes are the same
+
+
+def test_df_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("es", tmp_path, words, variants, "20250323")
+
+    gastadan = "".join(formatter.handle_word("gastadan", words))
+    gastada = "".join(formatter.handle_word("gastada", words))
+    gastado = "".join(formatter.handle_word("gastado", words))
+    gastar = "".join(formatter.handle_word("gastar", words))
+    assert not gastadan
+    assert not gastada
+    assert not gastado
+    assert "& gastada" in gastar
+    assert "& gastado" in gastar

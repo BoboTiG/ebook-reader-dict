@@ -101,8 +101,11 @@ WORD_TPL_KOBO = Template(
 WORD_TPL_DICTFILE = Template(
     """\
 @ {{ word }}
-{%- if pronunciation or gender %}
-: {{ pronunciation }} {{ gender }}
+{%- if current_word or pronunciation or gender %}
+:
+    {%- if current_word %} <b>{{ current_word }}</b>{%- endif -%}
+    {%- if pronunciation -%}{{ pronunciation }}{%- endif %}
+    {%- if gender -%}{{ gender }}{%- endif -%}
 {%- endif %}
 {%- for variant in variants %}
 & {{ variant }}
@@ -190,21 +193,20 @@ class BaseFormat:
     def handle_word(self, word: str, words: Words) -> Generator[str]:
         details = words[word]
         current_words = {word: details}
+        word_group_prefix = guess_prefix(word)
 
-        if details.variants:
-            # Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
+        if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
+            # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
             # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
             # As a workaround, we yield as many words as there are variants but under the word "suis": at the end, we will have 3 words:
             #   - "suis" with the content "suis" (itself)
             #   - "suis" with the content "être"
             #   - "suis" with the content "suivre"
-            current_group_prefix = guess_prefix(word)
-            if any(guess_prefix(variant) != current_group_prefix for variant in details.variants):
-                for variant in details.variants:
-                    if root := self.words.get(variant):
-                        current_words[variant] = root
+            for variant in details.variants:
+                if root := self.words.get(variant):
+                    current_words[variant] = root
 
-        for current_word, current_details in current_words.items():
+        for current_word, current_details in sorted(current_words.items()):
             if not current_details.definitions:
                 continue
 
@@ -216,9 +218,15 @@ class BaseFormat:
                     if (wv := words.get(variant)) and not wv.definitions:
                         variants.extend(self.variants.get(variant, []))
 
-                # Filter out variants with a different prefix that their word
-                current_group_prefix = guess_prefix(current_word)
-                variants = [variant for variant in variants if guess_prefix(variant) == current_group_prefix]
+                # Filter out variants:
+                #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
+                #   - with a different prefix that their word
+                current_word_group_prefix = guess_prefix(current_word)
+                variants = [
+                    variant
+                    for variant in variants
+                    if variant != word and guess_prefix(variant) == current_word_group_prefix
+                ]
 
                 if isinstance(self, KoboFormat):
                     # Variant must be normalized by trimming whitespace and lowercasing it
@@ -227,7 +235,7 @@ class BaseFormat:
             yield self.render_word(
                 self.template,
                 word=word,
-                current_word=current_word,
+                current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
                 definitions=current_details.definitions,
                 pronunciation=convert_pronunciation(current_details.pronunciations),
                 gender=convert_gender(current_details.genders),
