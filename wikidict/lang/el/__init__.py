@@ -650,6 +650,11 @@ def last_template_handler(
     }.get(tpl, ""):
         return text if data["0"] else italic(text)
 
+    if text := {
+        "καθαρ": "καθαρεύουσα",
+    }.get(tpl, ""):
+        return italic(text) if data["0"] else term(text)
+
     if tpl == "γρ":
         desc = parts[1] if len(parts) > 1 else ""
         desc = {
