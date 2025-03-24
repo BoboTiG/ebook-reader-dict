@@ -115,6 +115,7 @@ langs = {
     "evn": "evenka",
     "ext": "ekstremadura",
     "fa": "persa",
+    "ff": "fulana",
     "fi": "finna",
     "fit": "tornivalfinna",
     "fj": "fiĝia",
@@ -211,6 +212,7 @@ langs = {
     "lfn": "Elefeno",
     "lg": "ganda",
     "li": "limburga",
+    "lmo": "lombarda",
     "ln": "lingala",
     "lo": "laŭa",
     "lt": "litova",
@@ -418,5 +420,5 @@ langs = {
     "zun": "zuna",
     "zza": "zazaa",
     "zzj": "zuoĵiangzuanga",
-}  # 413
+}  # 415
 # END
