@@ -154,6 +154,8 @@ templates_multi: dict[str, str] = {
     "υποκοριστικό του": 'f"υποκοριστικό του {italic(parts[1])}"',
     # {{ο-πλ}}
     "ο-πλ": "italic('ουδέτερο στον πληθυντικό')",
+    # {{πλ|-αίικο}}
+    "πλ": 'f"{italic("πληθυντικός αριθμός του")} {strong(parts[1])}"',
 }
 # Alias
 templates_multi["ουδ_του"] = templates_multi["ουδ του"]
