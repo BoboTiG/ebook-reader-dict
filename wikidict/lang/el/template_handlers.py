@@ -261,6 +261,21 @@ def render_παθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return phrase
 
 
+def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός'
+    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός", "grc"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός'
+    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός", "grc", "καλός (καλόν)"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός (καλόν)'
+    >>> render_ουσεπ_ο("ουσεπ ο", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
+    '<i>ουσιαστικοποιημένο ουδέτερο της μετοχής</i> δεδομένος'
+    """
+    text = f"ουσιαστικοποιημένο ουδέτερο {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
+    return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
+
+
 template_mapping = {
     "π": render_π,
     "p": render_π,
@@ -275,6 +290,7 @@ template_mapping = {
     "υπο": render_υπο,
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
+    "ουσεπ ο": render_ουσεπ_ο,
 }
 
 
