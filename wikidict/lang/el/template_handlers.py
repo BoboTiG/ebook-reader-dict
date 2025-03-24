@@ -276,6 +276,46 @@ def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str]
     return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
 
 
+def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str))
+    '(<i>μαρτυρείται από το</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"0": "-"}))
+    'μαρτυρείται από το'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"nostyle": "1"}))
+    'μαρτυρείται από το'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"ήδη": "1"}))
+    '(<i>ήδη από το</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", ["2025"], defaultdict(str))
+    '(<i>μαρτυρείται από το 2025</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", ["2025"], defaultdict(str, {"+": "η έκφραση"}))
+    '(<i>η έκφραση μαρτυρείται από το 2025</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"αι": "17"}))
+    '(<i>μαρτυρείται από τον 17ο αιώνα</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"αι": "5", ".": "πκε"}))
+    '(<i>μαρτυρείται από τον 5ο αιώνα πκε</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"δεκ": "2025"}))
+    '(<i>μαρτυρείται από τη δεκαετία του 2025</i>)'
+    >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str, {"δεκ": "2025"}))
+    '(<i>μαρτυρείται από τη δεκαετία του 2025</i>)'
+    """
+    text = f"{plus} " if (plus := data["+"]) else ""
+    text += "ήδη" if data["ήδη"] else "μαρτυρείται"
+    text += " από"
+    if αι := data["αι"]:
+        text += f" τον {αι}ο αιώνα"
+    elif δεκ := data["δεκ"]:
+        text += f" τη δεκαετία του {δεκ}"
+    else:
+        text += " το"
+        if parts:
+            text += f" {parts[0]}"
+    if dot := data["."]:
+        text += f" {dot}"
+
+    return text if data["0"] or data["nostyle"] else f"({italic(text)})"
+
+
 template_mapping = {
     "π": render_π,
     "p": render_π,
@@ -291,6 +331,7 @@ template_mapping = {
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
     "ουσεπ ο": render_ουσεπ_ο,
+    "γραπτήεμφ": render_γραπτήεμφ,
 }
 
 
