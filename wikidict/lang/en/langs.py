@@ -429,7 +429,7 @@ langs = {
     "aoi": "Anindilyakwa",
     "aoj": "Mufian",
     "aok": "Arhö",
-    "aol": "Alor",
+    "aol": "Alorese",
     "aom": "Ömie",
     "aon": "Bumbita Arapesh",
     "aor": "Aore",
@@ -7042,15 +7042,20 @@ langs = {
     "roa-can": "Cantabrian",
     "roa-cas": "Castilian",
     "roa-cha": "Champenois",
+    "roa-dal": "Dalmatian Romance",
     "roa-eas": "Eastern Romance",
+    "roa-emr": "Emilian-Romagnol",
     "roa-fcm": "Franc-Comtois",
     "roa-gal": "Gallo",
     "roa-gap": "Galician-Portuguese",
+    "roa-gar": "Gallo-Romance",
     "roa-gib": "Gallo-Italic of Basilicata",
     "roa-gis": "Gallo-Italic of Sicily",
     "roa-git": "Gallo-Italic",
+    "roa-grh": "Gallo-Rhaetian",
     "roa-ibe": "Ibero-Romance",
     "roa-itd": "Italo-Dalmatian",
+    "roa-itr": "Italo-Romance",
     "roa-iwr": "Italo-Western Romance",
     "roa-leo": "Leonese",
     "roa-lor": "Lorrain",
@@ -9836,6 +9841,7 @@ langs = {
     "zrg": "Mirgan",
     "zrn": "Zirenkel",
     "zro": "Záparo",
+    "zrp": "Zarphatic",
     "zrs": "Mairasi",
     "zsa": "Sarasira",
     "zsk": "Kaskean",
@@ -9864,7 +9870,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,859
+}  # 9,865
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

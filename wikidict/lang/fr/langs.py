@@ -947,6 +947,7 @@ langs = {
     "byd": "benyadu’",
     "bye": "pouye",
     "byf": "bété (Nigeria)",
+    "byk": "biao",
     "byn": "bilen",
     "byo": "biyo",
     "byq": "basay",
@@ -2372,6 +2373,7 @@ langs = {
     "jiv": "shuar",
     "jiv-pal": "palta",
     "jiy": "jinuo de Buyuan",
+    "jizhao": "jizhao",
     "jje": "jeju",
     "jjr": "bankal",
     "jka": "kaera",
@@ -6067,6 +6069,7 @@ langs = {
     "xbg": "bunganditj",
     "xbi": "kombio",
     "xbm": "moyen breton",
+    "xbn": "kenaboi",
     "xbr": "kambera",
     "xcb": "cambrien",
     "xce": "celtibère",
@@ -6548,5 +6551,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,543
+}  # 6,546
 # END

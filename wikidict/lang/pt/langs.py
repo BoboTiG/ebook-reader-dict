@@ -1093,7 +1093,7 @@ langs = {
     "rcf": "Crioulo da Reunião",
     "ree": "Rejang Kayan",
     "rgn": "Romanholo",
-    "rhg": "Rohingya",
+    "rhg": "Ruainga",
     "rif": "Tarifit",
     "rkb": "Ricbacta",
     "rkh": "Rakahanga-Manihiki",

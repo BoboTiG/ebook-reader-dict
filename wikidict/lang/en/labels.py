@@ -1116,6 +1116,8 @@ labels = {
     "card games": "card games",
     "card-cord": "''card''–''cord'' merger",
     "cardinal": "cardinal number",
+    "cardinal number": "cardinal number",
+    "cardinal numeral": "cardinal number",
     "cardiology": "cardiology",
     "cards": "card games",
     "caricature Black": "caricatures of Black speech",
@@ -1179,6 +1181,8 @@ labels = {
     "collectible card games": "collectible card games",
     "collectible cards": "collectible card games",
     "collective": "collective",
+    "collective number": "collective number",
+    "collective numeral": "collective number",
     "collectively": "collectively",
     "college slang": "university slang",
     "colloquial": "colloquial",
@@ -1331,6 +1335,8 @@ labels = {
     "dismissal": "dismissal",
     "disparaging": "derogatory",
     "distributive": "distributive",
+    "distributive number": "distributive number",
+    "distributive numeral": "distributive number",
     "ditransitive": "ditransitive",
     "divination": "divination",
     "diving": "diving",
@@ -1460,6 +1466,8 @@ labels = {
     "forestry": "forestry",
     "formal": "formal",
     "fractional": "fractional number",
+    "fractional number": "fractional number",
+    "fractional numeral": "fractional number",
     "freemasonry": "Freemasonry",
     "frequentative": "frequentative",
     "frequently": "frequently",
@@ -1849,6 +1857,9 @@ labels = {
     "motorcycling": "motorcycling",
     "motorsport": "motor racing",
     "motorsports": "motor racing",
+    "multiplicative": "multiplicative number",
+    "multiplicative number": "multiplicative number",
+    "multiplicative numeral": "multiplicative number",
     "multiplicity": "{{l|en|multiplicity|id=multiple personalities}}",
     "multiplicity slang": "{{l|en|multiplicity|id=multiple personalities}} slang",
     "muscle": "anatomy",
@@ -2035,6 +2046,8 @@ labels = {
     "optics": "optics",
     "or": "or",
     "ordinal": "ordinal number",
+    "ordinal number": "ordinal number",
+    "ordinal numeral": "ordinal number",
     "organic chemistry": "organic chemistry",
     "organic compound": "organic chemistry",
     "originally": "originally",
@@ -2616,7 +2629,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,611
+}  # 2,624
 
 syntaxes = {
     "&": {
