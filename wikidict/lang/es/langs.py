@@ -5835,7 +5835,7 @@ langs = {
     "rgr": "resígaro",
     "rgs": "roglai meridional",
     "rgu": "ringgou",
-    "rhg": "rohingya",
+    "rhg": "ruaingá",
     "rhp": "yahang",
     "ria": "reang",
     "rib": "lengua de señas bribri",

@@ -230,6 +230,11 @@ recognized_placetypes = {
         "display": "autonomous republic",
         "preposition": "of",
     },
+    "autonomous territorial unit": {
+        "article": "an",
+        "display": "autonomous territorial unit",
+        "preposition": "of",
+    },
     "autonomous territory": {
         "article": "an",
         "display": "autonomous territory",
@@ -1905,6 +1910,11 @@ recognized_placetypes = {
         "display": "self-administered zone",
         "preposition": "of",
     },
+    "separatist state": {
+        "article": "a",
+        "display": "separatist state",
+        "preposition": "in",
+    },
     "settlement": {
         "article": "a",
         "display": "settlement",
@@ -2290,7 +2300,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 457
+}  # 459
 
 placetypes_aliases = {
     "CDP": "census-designated place",
