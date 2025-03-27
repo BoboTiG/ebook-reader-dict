@@ -2339,6 +2339,7 @@ placetypes_aliases = {
     "dist": "district",
     "distmun": "district municipality",
     "div": "division",
+    "emp": "empire",
     "fpref": "French prefecture",
     "gov": "governorate",
     "govnat": "governorate",
@@ -2401,7 +2402,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 98
+}  # 99
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
