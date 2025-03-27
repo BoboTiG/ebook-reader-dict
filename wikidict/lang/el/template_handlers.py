@@ -261,43 +261,38 @@ def render_παθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return phrase
 
 
-def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+def render_ουσεπ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_ουσεπ_ο("ουσεπ ο", [], defaultdict(str))
-    '<i>ουσιαστικοποιημένο ουδέτερο</i>'
-    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός"], defaultdict(str))
-    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός'
-    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός", "grc"], defaultdict(str))
-    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός'
-    >>> render_ουσεπ_ο("ουσεπ ο", ["καλός", "grc", "καλός (καλόν)"], defaultdict(str))
-    '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός (καλόν)'
-    >>> render_ουσεπ_ο("ουσεπ ο", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
-    '<i>ουσιαστικοποιημένο ουδέτερο της μετοχής</i> δεδομένος'
-    """
-    text = "ουσιαστικοποιημένο ουδέτερο"
-    if parts:
-        text += f" {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
-        return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
-    return italic(text)
-
-
-def render_ουσεπ_α(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_ουσεπ_α("ουσεπ α", [], defaultdict(str))
+    >>> render_ουσεπ("ουσεπ α", [], defaultdict(str))
     '<i>ουσιαστικοποιημένο αρσενικό</i>'
-    >>> render_ουσεπ_α("ουσεπ α", ["καλός"], defaultdict(str))
+    >>> render_ουσεπ("ουσεπ α", ["καλός"], defaultdict(str))
     '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός'
-    >>> render_ουσεπ_α("ουσεπ α", ["καλός", "grc"], defaultdict(str))
+    >>> render_ουσεπ("ουσεπ α", ["καλός", "grc"], defaultdict(str))
     '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός'
-    >>> render_ουσεπ_α("ουσεπ α", ["καλός", "grc", "καλός (καλόν)"], defaultdict(str))
+    >>> render_ουσεπ("ουσεπ α", ["καλός", "grc", "καλός (καλόν)"], defaultdict(str))
     '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός (καλόν)'
-    >>> render_ουσεπ_α("ουσεπ α", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
+    >>> render_ουσεπ("ουσεπ α", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
     '<i>ουσιαστικοποιημένο αρσενικό της μετοχής</i> δεδομένος'
+
+    >>> render_ουσεπ("ουσεπ ο", [], defaultdict(str))
+    '<i>ουσιαστικοποιημένο ουδέτερο</i>'
+
+    >>> render_ουσεπ("ουσεπ θ", [], defaultdict(str))
+    '<i>ουσιαστικοποιημένο θηλυκό</i>'
     """
-    text = "ουσιαστικοποιημένο αρσενικό"
+    text = "ουσιαστικοποιημένο "
+    match tpl.split(" ", 1)[1]:
+        case "θ":
+            text += "θηλυκό"
+        case "α":
+            text += "αρσενικό"
+        case "ο":
+            text += "ουδέτερο"
+
     if parts:
         text += f" {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
         return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
+
     return italic(text)
 
 
@@ -355,8 +350,9 @@ template_mapping = {
     "υπο": render_υπο,
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
-    "ουσεπ ο": render_ουσεπ_ο,
-    "ουσεπ α": render_ουσεπ_α,
+    "ουσεπ θ": render_ουσεπ,
+    "ουσεπ α": render_ουσεπ,
+    "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
 }
 
