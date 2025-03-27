@@ -263,6 +263,8 @@ def render_παθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
 
 def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_ουσεπ_ο("ουσεπ ο", [], defaultdict(str))
+    '<i>ουσιαστικοποιημένο ουδέτερο</i>'
     >>> render_ουσεπ_ο("ουσεπ ο", ["καλός"], defaultdict(str))
     '<i>ουσιαστικοποιημένο ουδέτερο του επιθέτου</i> καλός'
     >>> render_ουσεπ_ο("ουσεπ ο", ["καλός", "grc"], defaultdict(str))
@@ -272,8 +274,11 @@ def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str]
     >>> render_ουσεπ_ο("ουσεπ ο", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
     '<i>ουσιαστικοποιημένο ουδέτερο της μετοχής</i> δεδομένος'
     """
-    text = f"ουσιαστικοποιημένο ουδέτερο {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
-    return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
+    text = "ουσιαστικοποιημένο ουδέτερο"
+    if parts:
+        text += f" {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
+        return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
+    return italic(text)
 
 
 def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
