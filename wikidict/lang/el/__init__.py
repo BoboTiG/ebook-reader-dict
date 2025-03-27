@@ -158,9 +158,13 @@ templates_multi: dict[str, str] = {
     "οπλ": "italic('ουδέτερο, μόνο στον πληθυντικό')",
     # {{πλ|-αίικο}}
     "πλ": 'f"{italic("πληθυντικός αριθμός του")} {strong(parts[1])}"',
+    # {{wsp|Eruca}}
+    "wsp": "parts[-1]",
 }
 # Alias
 templates_multi["ουδ_του"] = templates_multi["ουδ του"]
+templates_multi["Wspecies"] = templates_multi["wsp"]
+templates_multi["Wikispecies"] = templates_multi["wsp"]
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
