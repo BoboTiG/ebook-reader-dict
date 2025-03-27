@@ -281,6 +281,26 @@ def render_ουσεπ_ο(tpl: str, parts: list[str], data: defaultdict[str, str]
     return italic(text)
 
 
+def render_ουσεπ_α(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ουσεπ_α("ουσεπ α", [], defaultdict(str))
+    '<i>ουσιαστικοποιημένο αρσενικό</i>'
+    >>> render_ουσεπ_α("ουσεπ α", ["καλός"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός'
+    >>> render_ουσεπ_α("ουσεπ α", ["καλός", "grc"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός'
+    >>> render_ουσεπ_α("ουσεπ α", ["καλός", "grc", "καλός (καλόν)"], defaultdict(str))
+    '<i>ουσιαστικοποιημένο αρσενικό του επιθέτου</i> καλός (καλόν)'
+    >>> render_ουσεπ_α("ουσεπ α", ["δεδομένος"], defaultdict(str, {"μτχ": "1"}))
+    '<i>ουσιαστικοποιημένο αρσενικό της μετοχής</i> δεδομένος'
+    """
+    text = "ουσιαστικοποιημένο αρσενικό"
+    if parts:
+        text += f" {'της μετοχής' if data['μτχ'] == '1' else 'του επιθέτου'}"
+        return f"{italic(text)} {parts[2 if len(parts) > 2 else 0]}"
+    return italic(text)
+
+
 def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_γραπτήεμφ("γραπτήεμφ", [], defaultdict(str))
@@ -336,6 +356,7 @@ template_mapping = {
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
     "ουσεπ ο": render_ουσεπ_ο,
+    "ουσεπ α": render_ουσεπ_α,
     "γραπτήεμφ": render_γραπτήεμφ,
 }
 
