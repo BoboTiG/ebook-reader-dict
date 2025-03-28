@@ -6,7 +6,6 @@ import logging
 import os
 import re
 from collections import defaultdict, namedtuple
-from contextlib import suppress
 from datetime import UTC, datetime
 from functools import partial
 from typing import TYPE_CHECKING
@@ -689,15 +688,15 @@ def transform(word: str, template: str, locale: str, *, missed_templates: list[t
         return word.replace("_", " ")
 
     # Apply transformations
+    # Note: using `is not None` below to allow templates returning an empty string.
 
-    with suppress(KeyError):
-        return str(eval(templates_multi[locale][tpl]))
+    if (transformer := templates_multi[locale].get(tpl)) is not None:
+        return str(eval(transformer))
 
-    with suppress(KeyError):
-        return templates_other[locale][tpl]
+    if (transformer := templates_other[locale].get(tpl)) is not None:
+        return transformer
 
-    if len(parts) == 1:
-        with suppress(KeyError):
-            return f"<i>({templates_italic[locale][tpl]})</i>"
+    if len(parts) == 1 and (transformer := templates_italic[locale].get(tpl)) is not None:
+        return term(transformer)  # noqa: F405
 
     return str(last_template_handler[locale](parts, locale, word=word, missed_templates=missed_templates))
