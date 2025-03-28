@@ -336,6 +336,18 @@ def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str,
     return text if data["0"] or data["nostyle"] else f"({italic(text)})"
 
 
+def render_πλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πλ("πλ", [], defaultdict(str))
+    '<i>πληθυντικός</i>'
+    >>> render_πλ("πλ", ["-αίικο"], defaultdict(str))
+    '<i>πληθυντικός αριθμός του</i> <b>-αίικο</b>'
+    """
+    if not parts:
+        return italic("πληθυντικός")
+    return f"{italic('πληθυντικός αριθμός του')} {strong(parts[0])}"
+
+
 template_mapping = {
     "π": render_π,
     "p": render_π,
@@ -354,6 +366,7 @@ template_mapping = {
     "ουσεπ α": render_ουσεπ,
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
+    "πλ": render_πλ,
 }
 
 
