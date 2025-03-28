@@ -2373,6 +2373,7 @@ placetypes_aliases = {
     "prov": "province",
     "r": "region",
     "range": "mountain range",
+    "rcm": "regional county municipality",
     "rcomun": "regional county municipality",
     "rdist": "regional district",
     "rep": "republic",
@@ -2402,7 +2403,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 99
+}  # 100
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
