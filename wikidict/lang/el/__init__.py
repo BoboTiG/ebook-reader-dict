@@ -662,6 +662,7 @@ def last_template_handler(
 
     if text := {
         "καθαρ": "καθαρεύουσα",
+        "γενικ": "γενικότερα",
     }.get(tpl, ""):
         return italic(text) if data["0"] else term(text)
 
