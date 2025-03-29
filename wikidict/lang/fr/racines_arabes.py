@@ -8132,6 +8132,7 @@ racines_schemes_arabes = {
         "ar-*a*a*a-u": "apercevoir",
         "ar-*a*²a*a": "simuler",
         "ar-*a*²â*ũ": "qui voit bien",
+        "ar-*a*â*ũ": "spectateur",
         "ar-*ta*a*a": "examiner",
         "ar-*â*a*a": "consulter",
         "ar-a**a*a": "montrer",
@@ -8139,7 +8140,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "désirer voir",
         "ar-ta*a*²a*a": "paraître",
         "ar-ta*â*a*a": "apparaître",
-    },  # 14
+    },  # 15
     "ar-rWH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",

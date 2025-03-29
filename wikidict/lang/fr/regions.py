@@ -30,6 +30,7 @@ regions = {
     "Aisne": "Aisne",
     "Albanie": "Albanie",
     "Alessano": "Alessano",
+    "Alexandrie": "Alexandrie",
     "Alger": "Alger",
     "Algérie": "Algérie",
     "Allemagne": "Allemagne",
@@ -123,6 +124,7 @@ regions = {
     "Brindes": "Brindes",
     "Briollay": "Briollay",
     "Brivadois": "Brivadois",
+    "Bronte": "Bronte",
     "Brunei": "Brunei",
     "Bruxelles": "Bruxelles",
     "Brésil": "Brésil",
@@ -311,6 +313,7 @@ regions = {
     "Gyeongsang": "Gyeongsang",
     "Géorgie": "Géorgie",
     "Gérardmer": "Gérardmer",
+    "Gênes": "Gênes",
     "HK": "Hong Kong",
     "HKG": "Hong Kong",
     "HT": "Haïti",
@@ -828,5 +831,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 823
+}  # 826
 # END

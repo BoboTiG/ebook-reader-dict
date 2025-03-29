@@ -415,6 +415,11 @@ recognized_placetypes = {
         "display": "civil parish",
         "preposition": "of",
     },
+    "claimed political subdivision": {
+        "article": "a",
+        "display": "claimed political subdivision",
+        "preposition": "in",
+    },
     "co-capital": {
         "article": "the",
         "display": "co-capital",
@@ -1288,6 +1293,11 @@ recognized_placetypes = {
     "island country": {
         "article": "an",
         "display": "island country",
+        "preposition": "in",
+    },
+    "island group": {
+        "article": "an",
+        "display": "island group",
         "preposition": "in",
     },
     "island municipality": {
@@ -2300,7 +2310,7 @@ recognized_placetypes = {
         "display": "zone",
         "preposition": "of",
     },
-}  # 459
+}  # 461
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -2417,6 +2427,7 @@ recognized_qualifiers = {
     "cattle": "cattle",
     "chalk": "chalk",
     "chartered": "chartered",
+    "claimed": "claimed",
     "coastal": "coastal",
     "commercial": "commercial",
     "declining": "declining",
@@ -2508,7 +2519,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 102
+}  # 103
 
 recognized_placenames = {
     "administrative region/Occitanie": {"article": "", "display": "administrative region/Occitania"},
