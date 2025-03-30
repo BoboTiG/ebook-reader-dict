@@ -17,8 +17,8 @@
 - When selecting a conjugated verb, **its infinitive version** will be displayed.
 - When a word is the plural form of another, and also a form of a verb, **all versions** are displayed.
 - If a word contains **several pronunciations, or genders**, all are available.
-- **Chemical formulas** are converted to SVG.
-- **Mathematic formulas** are converted to SVG.
+- **Chemical formulas** are beautifuly rendered.
+- **Mathematic formulas** are beautifuly rendered.
 - **Hieroglyphs** are supported.
 - **Tables** are supported.
 
@@ -42,9 +42,15 @@
 
 ## Installation
 
+### Kindle
+
+Copy the dictionary inside the `Documents/dictionaries/` folder on your eBook reader.
+
 ### Kobo
 
 Copy the dictionary inside the `.kobo/custom-dict/` folder on your eBook reader.
+
+---
 
 ## Development
 
