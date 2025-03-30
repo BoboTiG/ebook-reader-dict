@@ -44,7 +44,7 @@
 
 ### Kindle
 
-Copy the dictionary inside the `Documents/dictionaries/` folder on your eBook reader.
+Copy the dictionary inside the `documents/dictionaries/` folder on your eBook reader.
 
 ### Kobo
 
