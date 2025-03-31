@@ -113,7 +113,7 @@ def test_error(craft_urls: Callable[[str, str], str]) -> None:
     craft_urls("fr", "42")
     with patch.object(check_word, "contains", return_value=False):
         assert check_word.main("fr", "42") > 0
-        assert check_word.check_word("42", "fr") > 0
+        assert check_word.check_word("42", "fr", "fr") > 0
 
 
 @responses.activate

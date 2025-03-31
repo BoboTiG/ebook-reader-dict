@@ -12,7 +12,7 @@ import multiprocessing
 import os
 import shutil
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 from functools import partial
 from pathlib import Path
 from time import monotonic
@@ -31,6 +31,7 @@ from .utils import (
     convert_gender,
     convert_pronunciation,
     format_description,
+    guess_locales,
     guess_prefix,
 )
 
@@ -167,7 +168,7 @@ class BaseFormat:
         *,
         include_etymology: bool = True,
     ) -> None:
-        self.locale = locale
+        self.lang_src, self.lang_dst = guess_locales(locale, uniformize=True)
         self.output_dir = output_dir
         self.words = words.copy()
         self.variants = variants.copy()
@@ -184,7 +185,9 @@ class BaseFormat:
 
     def dictionary_file(self, output_file: str) -> Path:
         return self.output_dir / output_file.format(
-            self.locale, "" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX
+            lang_src=self.lang_src,
+            lang_dst=self.lang_dst,
+            etym_suffix="" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX,
         )
 
     def handle_word(self, word: str, words: Words) -> Generator[str]:
@@ -261,15 +264,14 @@ class BaseFormat:
 class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
 
-    output_file = "dicthtml-{0}-{0}{1}.zip"
+    output_file = "dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip"
     template = WORD_TPL_KOBO
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
         self.save()
 
-    @staticmethod
-    def sanitize(locale: str, content: str) -> str:
+    def sanitize(self, content: str) -> str:
         """Sanitize the INSTALL.txt file content."""
         content = content.replace(":arrow_right:", "->")
         content = content.replace("`", '"')
@@ -277,11 +279,11 @@ class KoboFormat(BaseFormat):
         content = content.replace("</sub>", "")
 
         for etym_suffix in {"", constants.NO_ETYMOLOGY_SUFFIX}:
-            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.mobi.zip)", "")
-            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.zip)", "")
-            content = content.replace(f" (dict-{locale}-{locale}{etym_suffix}.df.bz2)", "")
-            content = content.replace(f" (dicthtml-{locale}-{locale}{etym_suffix}.zip)", "")
-            content = content.replace(f" (dictorg-{locale}-{locale}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.mobi.zip)", "")
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.df.bz2)", "")
+            content = content.replace(f" (dicthtml-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dictorg-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
 
         return content
 
@@ -334,12 +336,12 @@ class KoboFormat(BaseFormat):
         final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             # The ZIP's comment will serve as the dictionary signature
-            fh.comment = bytes(wiktionary[self.locale].format(year=date.today().year), "utf-8")
+            fh.comment = bytes(wiktionary[self.lang_src].format(year=date.today().year), "utf-8")
 
             # Unrelated files, just for history
             fh.writestr(
                 constants.ZIP_INSTALL,
-                self.sanitize(self.locale, format_description(self.locale, len(self.words), self.snapshot)),
+                self.sanitize(format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)),
             )
             fh.writestr(constants.ZIP_WORDS_COUNT, str(len(self.words)))
             fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
@@ -387,7 +389,7 @@ class KoboFormat(BaseFormat):
 class DictFileFormat(BaseFormat):
     """Save the data into a *.df* DictFile."""
 
-    output_file = "dict-{0}-{0}{1}.df"
+    output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.df"
     template = WORD_TPL_DICTFILE
 
     def process(self) -> None:
@@ -412,7 +414,7 @@ class DictFileFormatForMobi(DictFileFormat):
 class ConverterFromDictFile(DictFileFormat):
     target_format = ""
     target_suffix = ""
-    final_file = ""  # {0} = locale, {1} etymology-free suffix
+    final_file = ""
     zip_glob_files = "dict-data.*"
     dictfile_format_cls = DictFileFormat
     glossary_options: dict[str, str | bool] = {}
@@ -438,19 +440,21 @@ class ConverterFromDictFile(DictFileFormat):
         glos = Glossary()
         glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
-        glos.setInfo("description", wiktionary[self.locale].format(year=date.today().year))
-        glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
+        glos.setInfo("description", wiktionary[self.lang_src].format(year=date.today().year))
+        glos.setInfo("title", f"Wiktionary {self.lang_src.upper()}-{self.lang_dst.upper()}")
         glos.setInfo("website", constants.GH_REPOS)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()
 
         # Workaround for Esperanto (EO) not being supported by kindlegen
-        if isinstance(self, MobiFormat) and self.locale == "eo":
+        if isinstance(self, MobiFormat):
             # According to https://higherlanguage.com/languages-similar-to-esperanto/,
             # French seems the most similar lang that is available on kindlegen, so French it is.
-            glos.sourceLangName = "French"
-            glos.targetLangName = "French"
+            if self.lang_src == "eo":
+                glos.sourceLangName = "French"
+            if self.lang_dst == "eo":
+                glos.targetLangName = "French"
 
         glos.convert(
             ConvertArgs(
@@ -497,7 +501,7 @@ class DictOrgFormat(ConverterFromDictFile):
 
     target_format = "dict.org"
     target_suffix = "index"
-    final_file = "dictorg-{0}-{0}{1}.zip"
+    final_file = "dictorg-{lang_src}-{lang_dst}{etym_suffix}.zip"
     glossary_options = {"dictzip": True, "install": False}
 
 
@@ -526,7 +530,7 @@ class MobiFormat(ConverterFromDictFile):
 
     target_format = "mobi"
     target_suffix = "mobi"
-    final_file = "dict-{0}-{0}{1}.mobi.zip"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip"
     zip_glob_files = ""  # Will be set in `_compress()`
     dictfile_format_cls = DictFileFormatForMobi
     glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
@@ -544,7 +548,7 @@ class StarDictFormat(ConverterFromDictFile):
 
     target_format = "stardict"
     target_suffix = "ifo"
-    final_file = "dict-{0}-{0}{1}.zip"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.zip"
     glossary_options = {"dictzip": True}
 
 
@@ -572,7 +576,7 @@ def run_mobi_formatter(
     To do this, we delete words using the least-used characters until we meet this condition.
     """
 
-    if locale in {"en", "fr", "fro"}:
+    if locale.startswith(("en", "fr")):
 
         def all_chars(word: str, details: Word) -> set[str]:
             chars = set(word)
@@ -696,7 +700,10 @@ def distribute_workload(
 
 def main(locale: str) -> int:
     """Entry point."""
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+
+    _, lang_dst = guess_locales(locale)
+
+    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
     file = get_latest_json_file(output_dir)
     if not file:
         log.error("No dump found. Run with --render first ... ")
@@ -718,5 +725,5 @@ def main(locale: str) -> int:
         distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology)
         run_mobi_formatter(*args, include_etymology=include_etymology)
 
-    log.info("Convert done in %d sec!", monotonic() - start)
+    log.info("Convert done in %s!", timedelta(seconds=monotonic() - start))
     return 0

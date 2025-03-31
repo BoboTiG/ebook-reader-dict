@@ -7,12 +7,14 @@ import logging
 import os
 import re
 from collections import defaultdict
+from datetime import timedelta
 from pathlib import Path
 from time import monotonic
 from typing import TYPE_CHECKING
 from xml.sax.saxutils import unescape
 
 from .lang import head_sections
+from .utils import guess_locales
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Generator, Iterator
@@ -67,7 +69,7 @@ def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: dict[str, str] = defaultdict(str)
 
-    log.info("Processing %s ...", file)
+    log.info("Processing %s for destination lang %r ...", file, locale)
 
     if locale == "de":
         # It is not possible to use a regexp matcher
@@ -87,13 +89,17 @@ def process(file: Path, locale: str) -> dict[str, str]:
     return words
 
 
-def save(snapshot: str, words: dict[str, str], output_dir: Path) -> None:
+def save(output_file: Path, words: dict[str, str]) -> None:
     """Persist data."""
-    raw_data = output_dir / f"data_wikicode-{snapshot}.json"
-    with raw_data.open(mode="w", encoding="utf-8") as fh:
+    if not words:
+        log.warning("No words to save.")
+        return
+
+    output_file.parent.mkdir(exist_ok=True, parents=True)
+    with output_file.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
+    log.info("Saved %s words into %s", f"{len(words):,}", output_file)
 
 
 def get_latest_xml_file(output_dir: Path) -> Path | None:
@@ -105,7 +111,9 @@ def get_latest_xml_file(output_dir: Path) -> Path | None:
 def main(locale: str) -> int:
     """Entry point."""
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+    lang_src, lang_dst = guess_locales(locale)
+
+    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_src
     file = get_latest_xml_file(output_dir)
     if not file:
         log.error("No dump found. Run with --download first ... ")
@@ -113,9 +121,10 @@ def main(locale: str) -> int:
 
     start = monotonic()
     date = file.stem.split("-")[1]
-    output = output_dir / f"data_wikicode-{date}.json"
+    output = output_dir.parent / lang_dst / f"data_wikicode-{date}.json"
     if not output.is_file():
-        words = process(file, locale)
-        save(date, words, output_dir)
-    log.info("Parse done into %s in %d seconds!", output, monotonic() - start)
+        words = process(file, lang_dst)
+        save(output, words)
+
+    log.info("Parse done in %s!", timedelta(seconds=monotonic() - start))
     return 0

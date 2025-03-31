@@ -882,24 +882,24 @@ def last_template_handler(
     if tpl == "emploi":
         return term(capitalize(parts[0]))
 
-    if tpl == "fr-verbe-flexion":
+    if tpl == f"{locale}-verbe-flexion":
         return data.get("1", parts[0] if parts else "")
 
-    if tpl.startswith(("fr-accord-rég", "fr-rég")):
+    if tpl.startswith((f"{locale}-accord-rég", f"{locale}-rég")):
         if not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s")
         if data["inv"]:
             singular += f" {data['inv']}"
         return singular
 
-    if tpl.startswith("fr-accord-"):
-        if tpl.startswith("fr-accord-cons"):
+    if tpl.startswith(f"{locale}-accord-"):
+        if tpl.startswith(f"{locale}-accord-cons"):
             singular = data["ms"] or ""
-        elif tpl.startswith("fr-accord-comp"):
+        elif tpl.startswith(f"{locale}-accord-comp"):
             singular = "-".join(parts[: len(parts) // 2])
         elif not (singular := data["s"] or data["m"] or data["ms"]):
             singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
-            if tpl == "fr-accord-in" and singular == word.rstrip("s"):
+            if tpl == f"{locale}-accord-in" and singular == word.rstrip("s"):
                 singular = singular.removesuffix("ne" if data["deux_n"] else "e")
         if data["inv"]:
             singular += f" {data['inv']}"

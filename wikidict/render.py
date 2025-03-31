@@ -9,6 +9,7 @@ import os
 import re
 from collections import defaultdict
 from contextlib import suppress
+from datetime import timedelta
 from functools import partial
 from itertools import chain
 from pathlib import Path
@@ -35,7 +36,7 @@ from .lang import (
 from .namespaces import namespaces
 from .stubs import Word
 from .user_functions import unique
-from .utils import check_for_missing_templates, process_templates, table2html
+from .utils import check_for_missing_templates, guess_locales, process_templates, table2html
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -822,7 +823,9 @@ def get_latest_json_file(output_dir: Path) -> Path | None:
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+    _, lang_dst = guess_locales(locale)
+
+    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
     file = get_latest_json_file(output_dir)
     if not file:
         log.error("No dump found. Run with --parse first ... ")
@@ -833,12 +836,12 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
 
     workers = workers or multiprocessing.cpu_count()
     start = monotonic()
-    words = render(in_words, locale, workers)
+    words = render(in_words, lang_dst, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
 
     date = file.stem.split("-")[1]
     save(date, words, output_dir)
 
-    log.info("Render done in %d sec!", monotonic() - start)
+    log.info("Render done in %s!", timedelta(seconds=monotonic() - start))
     return 0

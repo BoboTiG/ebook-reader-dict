@@ -6,6 +6,7 @@ import bz2
 import logging
 import os
 import re
+from datetime import timedelta
 from pathlib import Path
 from time import monotonic
 from typing import TYPE_CHECKING
@@ -14,6 +15,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from .constants import BASE_URL, DUMP_URL
+from .utils import guess_locales
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -30,11 +32,11 @@ def callback_progress(text: str, done: int, last: bool) -> None:
 def decompress(file: Path, callback: Callable[[str, int, bool], None]) -> Path:
     """Decompress a BZ2 file."""
     output = file.with_suffix(file.suffix.replace(".bz2", ""))
+    msg = f"Uncompressing into {output}"
+    log.info(msg)
+
     if output.is_file():
         return output
-
-    msg = f"Uncompressing into {output.name}"
-    log.info(msg)
 
     comp = bz2.BZ2Decompressor()
     with file.open("rb") as fi, output.open(mode="wb") as fo:
@@ -55,9 +57,7 @@ def fetch_snapshots(locale: str) -> list[str]:
     if forced_snapshot := os.environ.get("FORCE_SNAPSHOT"):
         return [forced_snapshot]
 
-    download_locale = "fr" if locale == "fro" else locale
-    url = BASE_URL.format(download_locale)
-    with requests.get(url) as req:
+    with requests.get(BASE_URL.format(locale)) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
@@ -66,15 +66,14 @@ def fetch_pages(date: str, locale: str, output_dir: Path, *, callback: Callable[
     """Download all pages, current versions only.
     Return the path of the XML file BZ2 compressed.
     """
+    url = DUMP_URL.format(locale, date)
     output_xml = output_dir / f"pages-{date}.xml"
     output = output_dir / f"pages-{date}.xml.bz2"
+    msg = f"Fetching {url} into {output}"
+    log.info(msg)
+
     if output.is_file() or output_xml.is_file():
         return output
-
-    download_locale = "fr" if locale == "fro" else locale
-    url = DUMP_URL.format(download_locale, date)
-    msg = f"Fetching {url}"
-    log.info(msg)
 
     with output.open(mode="wb") as fh, requests.get(url, stream=True) as req:
         req.raise_for_status()
@@ -90,19 +89,21 @@ def fetch_pages(date: str, locale: str, output_dir: Path, *, callback: Callable[
 def main(locale: str) -> int:
     """Entry point."""
 
+    lang_src, _ = guess_locales(locale)
+
     # Ensure the folder exists
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
+    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_src
     output_dir.mkdir(exist_ok=True, parents=True)
 
     start = monotonic()
 
     # Get the snapshot to handle
-    snapshots = fetch_snapshots(locale)
+    snapshots = fetch_snapshots(lang_src)
 
     # Fetch and uncompress the snapshot file
     for snapshot in snapshots[::-1]:
         try:
-            file = fetch_pages(snapshot, locale, output_dir, callback=callback_progress)
+            file = fetch_pages(snapshot, lang_src, output_dir, callback=callback_progress)
             break
         except HTTPError as exc:
             (output_dir / f"pages-{snapshot}.xml.bz2").unlink(missing_ok=True)
@@ -116,5 +117,5 @@ def main(locale: str) -> int:
 
     decompress(file, callback_progress)
 
-    log.info("Retrieval done in %d seconds!", monotonic() - start)
+    log.info("Retrieval done in %s!", timedelta(seconds=monotonic() - start))
     return 0

@@ -10,22 +10,21 @@ import requests
 
 from .render import parse_word
 from .user_functions import int_to_roman
-from .utils import check_for_missing_templates, convert_gender, convert_pronunciation, get_random_word
+from .utils import check_for_missing_templates, convert_gender, convert_pronunciation, get_random_word, guess_locales
 
 if TYPE_CHECKING:
     from .stubs import Word
 
 
-def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
+def get_word(word: str, lang_src: str, lang_dst: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
-    download_locale = "fr" if locale == "fro" else locale
-    url = f"https://{download_locale}.wiktionary.org/w/index.php?title={word}&action=raw"
+    url = f"https://{lang_src}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
-    return parse_word(word, code, locale, force=True, missed_templates=missed_templates)
+    return parse_word(word, code, lang_dst, force=True, missed_templates=missed_templates)
 
 
-def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
+def get_and_parse_word(word: str, lang_src: str, lang_dst: str, *, raw: bool = False) -> None:
     """Get a *word* wikicode, parse it and print it."""
 
     def strip_html(text: str) -> str:
@@ -44,7 +43,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         return text
 
     missed_templates: list[tuple[str, str]] = []
-    details = get_word(word, locale, missed_templates=missed_templates)
+    details = get_word(word, lang_src, lang_dst, missed_templates=missed_templates)
     print(
         word,
         convert_pronunciation(details.pronunciations).lstrip(),
@@ -93,9 +92,11 @@ def set_output(locale: str, word: str) -> None:
 def main(locale: str, word: str, *, raw: bool = False) -> int:
     """Entry point."""
 
-    # If *word* is empty, get a random word
-    word = word or get_random_word(locale)
+    lang_src, lang_dst = guess_locales(locale, use_log=False)
 
-    set_output(locale, word)
-    get_and_parse_word(word, locale, raw=raw)
+    # If *word* is empty, get a random word
+    word = word or get_random_word(lang_src)
+
+    set_output(lang_dst, word)
+    get_and_parse_word(word, lang_src, lang_dst, raw=raw)
     return 0

@@ -116,8 +116,7 @@ def convert_pronunciation(pronunciations: list[str]) -> str:
 
 def get_random_word(locale: str) -> str:
     """Retrieve a random word."""
-    download_locale = "fr" if locale == "fro" else locale
-    url = RANDOM_WORD_URL.format(locale=download_locale)
+    url = RANDOM_WORD_URL.format(locale=locale)
     while True:
         with requests.get(url) as req:
             word = str(req.json()["query"]["random"][0]["title"])
@@ -132,11 +131,51 @@ def get_random_word(locale: str) -> str:
     return word
 
 
-def format_description(locale: str, words: int, snapshot: str) -> str:
+def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False) -> tuple[str, str]:
+    """
+    >>> guess_locales("fr")
+    ('fr', 'fr')
+    >>> guess_locales("fr", uniformize=True)
+    ('fr', 'fr')
+    >>> guess_locales("fro")
+    ('fr', 'fro')
+    >>> guess_locales("fro", uniformize=True)
+    ('fro', 'fro')
+    >>> guess_locales("fr:fro")
+    ('fr', 'fro')
+    >>> guess_locales("fr:fro", uniformize=True)
+    ('fro', 'fro')
+    >>> guess_locales("fr:it", uniformize=True)
+    ('fr', 'it')
+    """
+    if ":" in locale:
+        # Example with "fr:fro" → source is FR, destination is FRO
+        # because FRO is part of the FR Wiktionary
+        lang_src, lang_dst = locale.lower().split(":", 1)
+    else:
+        lang_dst = locale.lower()
+        lang_src = {"fro": "fr"}.get(lang_dst, lang_dst)
+
+    if uniformize:
+        lang_src = {"fro": "fro"}.get(lang_dst, lang_src)
+
+    if use_log:
+        log.info(
+            "Determined source lang %r, and destination lang %r, from %s (%s)",
+            lang_src,
+            lang_dst,
+            f"{locale=}",
+            f"{uniformize=}",
+        )
+
+    return lang_src, lang_dst
+
+
+def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) -> str:
     """Generate the release description."""
 
     # Format the words count
-    words_count = f"{words:,}".replace(",", thousands_separator[locale])
+    words_count = f"{words:,}".replace(",", thousands_separator[lang_src])
 
     # Format the snapshot's date
     dump_date = f"{snapshot[:4]}-{snapshot[4:6]}-{snapshot[6:8]}"
@@ -148,11 +187,11 @@ def format_description(locale: str, words: int, snapshot: str) -> str:
         obj = _links_etym_free if etym_suffix else _links_full
         obj.update(
             {
-                "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.df.bz2)",
-                "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(locale, etym_suffix)}) (dicthtml-{locale}-{locale}{etym_suffix}.zip)",
-                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(locale, etym_suffix)}) (dictorg-{locale}-{locale}{etym_suffix}.zip)",
-                "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.mobi.zip)",
-                "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(locale, etym_suffix)}) (dict-{locale}-{locale}{etym_suffix}.zip)",
+                "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.df.bz2)",
+                "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(lang_src, lang_dst, etym_suffix)}) (dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip)",
+                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(lang_src, lang_dst, etym_suffix)}) (dictorg-{lang_dst}-{lang_src}{etym_suffix}.zip)",
+                "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip)",
+                "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.zip)",
             }
         )
     download_links_full = "\n".join(sorted(_links_full.values()))
@@ -161,7 +200,7 @@ def format_description(locale: str, words: int, snapshot: str) -> str:
     # Format the creation's date
     creation_date = NOW.isoformat()
 
-    return release_description[locale].format(**locals())
+    return release_description[lang_src].format(**locals())
 
 
 def guess_prefix(word: str) -> str:
