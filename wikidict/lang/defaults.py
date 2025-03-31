@@ -134,3 +134,7 @@ def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
         return parts[1]
     except IndexError:
         return parts[0] if parts else ""
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    return code

@@ -992,3 +992,73 @@ def last_template_handler(
 
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Page_au_hasard
 random_word_url = "http://tools.wmflabs.org/anagrimes/hasard.php?langue=fr"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    """
+    >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
+    ' Qui a rapport avec un type de [[discours]].'
+
+    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
+    '# {{flexion|pressant}}'
+    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
+    '# {{flexion|anisophylle}}'
+    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
+    '# {{flexion|antiproton}}'
+
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
+    '# {{fr-verbe-flexion|venir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
+    '# {{fr-verbe-flexion|pouvoir}}'
+    >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
+    "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
+    """
+    # <li value="2"> → ''
+    code = re.sub(r"<li [^>]+>", "", code)
+
+    # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
+    code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
+
+    # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
+    code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
+
+    # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
+    code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
+
+    # Enhance name variants support
+    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég}}`
+    forms = "|".join(
+        [
+            "féminin de",
+            "féminin pluriel",
+            "féminin singulier",
+            "masculin et féminin pluriel",
+            "masculin ou féminin pluriel",
+            "masculin pluriel",
+            "pluriel d",
+            "pluriel habituel",
+            "pluriel inhabituel",
+        ]
+    )
+    code = re.sub(
+        rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # Enhance verbs variants support
+    # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
+    code = re.sub(
+        r"^^#\s*'+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
+        rf"# {{{{{locale}-verbe-flexion|\1}}}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
+    return re.sub(
+        r"^^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
+        rf"# {{{{{locale}-verbe-flexion|\1}}}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )

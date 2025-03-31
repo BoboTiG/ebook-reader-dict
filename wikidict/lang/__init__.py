@@ -97,3 +97,6 @@ last_template_handler = _populate("last_template_handler")
 
 # URL to fetch a random word
 random_word_url = _populate("random_word_url")
+
+# Function to adapt the word wikicode before rendering
+adjust_wikicode = _populate("adjust_wikicode")

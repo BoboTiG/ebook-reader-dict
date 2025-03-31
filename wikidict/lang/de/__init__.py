@@ -304,3 +304,13 @@ def last_template_handler(
 
 
 random_word_url = "https://de.wiktionary.org/wiki/Spezial:Zuf%C3%A4llige_Stammseite"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # {{Bedeutungen}} → === {{Bedeutungen}} ===
+    code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # Definition lists are not well supported by the parser, replace them by numbered lists
+    # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
+    #       contains an empty item.
+    return re.sub(r":\[\d+\][ ]*", "# ", code)

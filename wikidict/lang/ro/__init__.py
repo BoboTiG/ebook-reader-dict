@@ -260,3 +260,46 @@ def last_template_handler(
 
 
 random_word_url = "https://ro.wiktionary.org/wiki/Special:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    """ """
+    if locale == "ro":
+        locale = "ron"
+
+    # {{-avv-|ANY|ANY}} → === {{avv|ANY|ANY}} ===
+    code = re.sub(
+        r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
+        r"=== {{\1|\2|\3}} ===",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # Try to convert old Wikicode
+    if "==Romanian==" in code:
+        # ==Romanian== → == {{limba|ron}} ==
+        code = code.replace("==Romanian==", "== {{limba|ron}} ==")
+
+        # ===Adjective=== → === {{Adjective}} ===
+        code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # ===Verb tranzitiv=== → === {{Verb tranzitiv}} ===
+    code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # Hack for a fake variants support because RO doesn't use templates most of the time
+    # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{forma de feminin singular pentru|frumos}}`
+    code = re.sub(
+        r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
+        r"\1{{\2|\3}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # {{-avv-|ron}} → === {{avv}} ===
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-}} → === {{avv}} ===
+    return re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)

@@ -309,3 +309,27 @@ def last_template_handler(
 
 
 random_word_url = "https://eo.wiktionary.org/wiki/Speciala%C4%B5o:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # Wipe out {{Deklinacio-eo}}
+    code = code.replace("{{Deklinacio-eo}}", "")
+
+    # Variants
+    # {{form-eo}} → # {{form-eo}}
+    code = code.replace("{{form-eo}}", "# {{form-eo}}")
+
+    # {{xxx}} → ==== {{xxx}} ====
+    # {{xx-x}} → ==== {{xx-x}} ====
+    code = re.sub(r"^(\{\{[\w\-]+\}\})", r"==== \1 ====", code, flags=re.MULTILINE)
+
+    # ===={{Tradukoj}}==== → =={{Tradukoj}}==
+    code = re.sub(
+        r"====\s*(\{\{(?:Ekzemploj|Derivaĵoj|Referencoj|Sinonimoj|Tradukoj|Vortfaradoj|trad-\w+)\}\})\s*====",
+        r"== \1 ==",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # Easier pronunciation
+    return re.sub(r"==== {{Vorterseparo}} ====\s*:(.+)\s*", r"\n{{PRON|`\1`}}\n", code, flags=re.MULTILINE)

@@ -281,3 +281,17 @@ def last_template_handler(
 
 
 random_word_url = "https://no.wiktionary.org/wiki/Spesial:Tilfeldig_rotside"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    """
+    >>> adjust_wikicode("----", "no")
+    ''
+
+    >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
+    ''
+    """
+    code = code.replace("----", "")
+
+    # <includeonly>...</includeonly> → ''
+    return re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)

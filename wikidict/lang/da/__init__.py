@@ -337,3 +337,36 @@ def last_template_handler(
 
 
 random_word_url = "https://da.wiktionary.org/wiki/Speciel:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    r"""
+    >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
+    ''
+    """
+    code = code.replace("----", "")
+
+    # {{(}} .* {{)}}
+    code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
+
+    # {{=da=}} → =={{da}}==
+    code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
+    # ===dansk=== → =={{da}}==
+    code = re.sub(r"=+\s*[Dd]ansk\s*=+", r"=={{da}}==", code, flags=re.MULTILINE)
+
+    # Transform sub-locales into their own section to prevent mixing stuff
+    # {{-da-}} → =={{da}}==
+    # {{-mul-}} → =={{mul}}==
+    # {{-no-}} → =={{no}}==
+    # {{-sv-}} → =={{sv}}==
+    code = re.sub(r"\{\{-((?:da|mul|no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
+    # {{-avv-|it}} → === {{avv}} ===
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-}} → === {{avv}} ===
+    return re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)

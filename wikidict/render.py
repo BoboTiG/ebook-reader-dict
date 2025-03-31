@@ -19,20 +19,7 @@ from typing import TYPE_CHECKING, cast
 import wikitextparser as wtp
 import wikitextparser._spans
 
-from .lang import (
-    definitions_to_ignore,
-    etyl_section,
-    find_genders,
-    find_pronunciations,
-    head_sections,
-    section_level,
-    section_patterns,
-    section_sublevels,
-    sections,
-    sublist_patterns,
-    variant_templates,
-    variant_titles,
-)
+from . import lang
 from .namespaces import namespaces
 from .stubs import Word
 from .user_functions import unique
@@ -131,11 +118,11 @@ def find_section_definitions(
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
-    if lists := section.get_lists(pattern=section_patterns[locale]):
+    if lists := section.get_lists(pattern=lang.section_patterns[locale]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
-                if any(ignore_me in code.lower() for ignore_me in definitions_to_ignore[locale]):
+                if any(ignore_me in code.lower() for ignore_me in lang.definitions_to_ignore[locale]):
                     continue
 
                 # Transform and clean the Wikicode
@@ -150,7 +137,7 @@ def find_section_definitions(
 
                 # ... And its eventual sub-definitions
                 subdefinitions: list[SubDefinitions] = []
-                for sublist in a_list.sublists(i=idx, pattern=sublist_patterns[locale]):
+                for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[locale]):
                     for idx2, subcode in enumerate(sublist.items):
                         subdefinition = process_templates(word, subcode, locale, missed_templates=missed_templates)
                         if not subdefinition:
@@ -158,7 +145,7 @@ def find_section_definitions(
 
                         subdefinitions.append(subdefinition)
                         subsubdefinitions: list[str] = []
-                        for subsublist in sublist.sublists(i=idx2, pattern=sublist_patterns[locale]):
+                        for subsublist in sublist.sublists(i=idx2, pattern=lang.sublist_patterns[locale]):
                             for subsubcode in subsublist.items:
                                 if subsubdefinition := process_templates(
                                     word,
@@ -215,7 +202,7 @@ def find_etymology(
             tableindex = 0
             for section in parsed_section.get_lists():
                 for idx, section_item in enumerate(section.items):
-                    if any(ignore_me in section_item.lower() for ignore_me in definitions_to_ignore[locale]):
+                    if any(ignore_me in section_item.lower() for ignore_me in lang.definitions_to_ignore[locale]):
                         continue
                     if section_item == ' {| class="wikitable"':
                         phrase = table2html(word, locale, tables[tableindex])
@@ -254,7 +241,7 @@ def find_etymology(
 
 def _find_genders(top_sections: list[wtp.Section], locale: str) -> list[str]:
     """Find the genders."""
-    func: Callable[[str, str], list[str]] = find_genders[locale]
+    func: Callable[[str, str], list[str]] = lang.find_genders[locale]
     for top_section in top_sections:
         if result := func(top_section.contents, locale):
             return result
@@ -264,7 +251,7 @@ def _find_genders(top_sections: list[wtp.Section], locale: str) -> list[str]:
 def _find_pronunciations(top_sections: list[wtp.Section], locale: str) -> list[str]:
     """Find pronunciations."""
     results = []
-    func = find_pronunciations[locale]
+    func = lang.find_pronunciations[locale]
     for top_section in top_sections:
         if result := func(top_section.contents, locale):
             results.extend(result)
@@ -275,12 +262,12 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
-    level = section_level[locale]
+    level = lang.section_level[locale]
 
     # Add fake section for etymology if in the leading part
     if locale == "ca":
         etyl_data = etyl_data_section = leading_lines = ""
-        etyl_l_sections = etyl_section[locale]
+        etyl_l_sections = lang.etyl_section[locale]
 
         leading_part = parsed.get_sections(include_subsections=False, level=level)
         if leading_part:
@@ -310,14 +297,14 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(section.title).startswith(head_sections[locale])
+        if section_title(section.title).startswith(lang.head_sections[locale])
     ]
 
     # Get _all_ sections without any filtering
     all_sections.extend(
         (section.title.strip(), section)
         for top_section in top_sections
-        for sublevel in section_sublevels[locale]
+        for sublevel in lang.section_sublevels[locale]
         for section in top_section.get_sections(include_subsections=False, level=sublevel)
     )
 
@@ -327,7 +314,7 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
 def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
-    wanted = sections[locale]
+    wanted = lang.sections[locale]
     top_sections, all_sections = find_all_sections(code, locale)
     for title, section in all_sections:
         title = title.lower()
@@ -378,13 +365,6 @@ def add_potential_variant(
 def adjust_wikicode(code: str, locale: str) -> str:
     r"""Sometimes we need to adapt the Wikicode.
 
-    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}', "en")
-    ''
-    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}', "en")
-    '{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}'
-    >>> adjust_wikicode("<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>", "en")
-    '<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>'
-
     >>> adjust_wikicode("[[Fichier:Blason ville fr Petit-Bersac 24.svg|vignette|120px|'''Base''' d’or ''(sens héraldique)'']][[something|else]]", "fr")
     '[[something|else]]'
     >>> adjust_wikicode("[[File:Sarcoscypha_coccinea,_Salles-la-Source_(Matthieu_Gauvain).JPG|vignette|Pézize écarlate]][[something|else]]", "en")
@@ -408,51 +388,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("[[en:propedeutici]]", "it")
     ''
 
-    >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
-    ''
-
-    >>> adjust_wikicode("----", "no")
-    ''
-
     >>> adjust_wikicode("<!-- {{sco}} -->", "fr")
     ''
     >>> adjust_wikicode("<!--<i>sco</i> -->", "fr")
     ''
     >>> adjust_wikicode("<!--\nsco\n-->", "it")
     ''
-
-    >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
-    ' Qui a rapport avec un type de [[discours]].'
-
-    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
-    '# {{flexion|pressant}}'
-    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
-    '# {{flexion|anisophylle}}'
-    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
-    '# {{flexion|antiproton}}'
-
-    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
-    '# {{fr-verbe-flexion|venir}}'
-    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
-    '# {{fr-verbe-flexion|pouvoir}}'
-    >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
-    "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
-
-    >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
-    ''
-
-    >>> adjust_wikicode("#participio presente di [[amare]]", "it")
-    '# {{flexion|amare}}'
-    >>> adjust_wikicode("#participio passato di [[amare]]", "it")
-    '# {{flexion|amare}}'
-    >>> adjust_wikicode("# participio presente di [[amare]]", "it")
-    '# {{flexion|amare}}'
-    >>> adjust_wikicode("#2ª pers. singolare indicativo presente del verbo [[amare]]", "it")
-    '# {{flexion|amare}}'
-    >>> adjust_wikicode("# {{3}} singolare imperativo presente del verbo [[amare]]", "it")
-    '# {{flexion|amare}}'
-    >>> adjust_wikicode("# {{1}}, 2ª pers. e {{3}} singolare congiuntivo presente del verbo [[amare]]", "it")
-    '# {{flexion|amare}}'
     """
 
     # Namespaces (moved from `utils.clean()` to be able to filter on multiple lines)
@@ -495,200 +436,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # {{!}} → "|"
     # code = code.replace("{{!}}", "|")
 
-    if locale == "da":
-        code = code.replace("----", "")
-
-        # {{(}} .* {{)}}
-        code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
-
-        # {{=da=}} → =={{da}}==
-        code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
-
-        # ===dansk=== → =={{da}}==
-        code = re.sub(r"=+\s*[Dd]ansk\s*=+", r"=={{da}}==", code, flags=re.MULTILINE)
-
-        # Transform sub-locales into their own section to prevent mixing stuff
-        # {{-da-}} → =={{da}}==
-        # {{-mul-}} → =={{mul}}==
-        # {{-no-}} → =={{no}}==
-        # {{-sv-}} → =={{sv}}==
-        code = re.sub(r"\{\{-((?:da|mul|no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
-
-    elif locale == "de":
-        # {{Bedeutungen}} → === {{Bedeutungen}} ===
-        code = re.sub(r"^\{\{(.+)\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # Definition lists are not well supported by the parser, replace them by numbered lists
-        # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
-        #       contains an empty item.
-        code = re.sub(r":\[\d+\][ ]*", "# ", code)
-
-    elif locale == "en":
-        # Remove tables (cf issue #2073)
-        code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
-
-    elif locale == "eo":
-        # Wipe out {{Deklinacio-eo}}
-        code = code.replace("{{Deklinacio-eo}}", "")
-
-        # Variants
-        # {{form-eo}} → # {{form-eo}}
-        code = code.replace("{{form-eo}}", "# {{form-eo}}")
-
-        # {{xxx}} → ==== {{xxx}} ====
-        # {{xx-x}} → ==== {{xx-x}} ====
-        code = re.sub(r"^(\{\{[\w\-]+\}\})", r"==== \1 ====", code, flags=re.MULTILINE)
-
-        # ===={{Tradukoj}}==== → =={{Tradukoj}}==
-        code = re.sub(
-            r"====\s*(\{\{(?:Ekzemploj|Derivaĵoj|Referencoj|Sinonimoj|Tradukoj|Vortfaradoj|trad-\w+)\}\})\s*====",
-            r"== \1 ==",
-            code,
-            flags=re.MULTILINE,
-        )
-
-        # Easier pronunciation
-        code = re.sub(r"==== {{Vorterseparo}} ====\s*:(.+)\s*", r"\n{{PRON|`\1`}}\n", code, flags=re.MULTILINE)
-
-    elif locale == "es":
-        # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
-        code = re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
-
-    elif locale in {"fr", "fro"}:
-        # <li value="2"> → ''
-        code = re.sub(r"<li [^>]+>", "", code)
-
-        # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
-        code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
-
-        # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
-        code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
-
-        # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
-        code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
-
-        # Enhance name variants support
-        # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég}}`
-        forms = "|".join(
-            [
-                "féminin de",
-                "féminin pluriel",
-                "féminin singulier",
-                "masculin et féminin pluriel",
-                "masculin ou féminin pluriel",
-                "masculin pluriel",
-                "pluriel d",
-                "pluriel habituel",
-                "pluriel inhabituel",
-            ]
-        )
-        code = re.sub(
-            rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
-            r"# {{flexion|\1}}",
-            code,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
-
-        # Enhance verbs variants support
-        # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
-        code = re.sub(
-            r"^^#\s*'+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
-            rf"# {{{{{locale}-verbe-flexion|\1}}}}",
-            code,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
-        # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
-        code = re.sub(
-            r"^^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
-            rf"# {{{{{locale}-verbe-flexion|\1}}}}",
-            code,
-            flags=re.IGNORECASE | re.MULTILINE,
-        )
-
-    elif locale == "it":
-        # [[w:A|B]] → [[A|B]]
-        code = code.replace("[[w:", "[[")
-
-        # [[en:foo]] → ''
-        code = re.sub(r"(\[\[\w+:\w+\]\])", "", code)
-
-        # Hack for a fake variants to support more of them
-
-        # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
-        code = re.sub(
-            r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]",
-            r"# {{flexion|\1}}",
-            code,
-            flags=re.MULTILINE | re.IGNORECASE,
-        )
-
-        # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
-        code = re.sub(r"^#\s?.+(?:singolare|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
-
-        # `# participio presente di [[amare]] → `{{flexion|amare}}`
-        # `# participio passato di [[amare]] → `{{flexion|amare}}`
-        code = re.sub(
-            r"^#\s?participio (?:passato|presente) di \[\[([^\]]+)\]\]",
-            r"# {{flexion|\1}}",
-            code,
-            flags=re.MULTILINE,
-        )
-
-        # {{-verb form-}} → === {{verb form}} ===
-        code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-    elif locale == "no":
-        code = code.replace("----", "")
-
-        # <includeonly>...</includeonly> → ''
-        code = re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)
-
-    elif locale == "ro":
-        locale = "ron"
-
-        # {{-avv-|ANY|ANY}} → === {{avv|ANY|ANY}} ===
-        code = re.sub(
-            r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
-            r"=== {{\1|\2|\3}} ===",
-            code,
-            flags=re.MULTILINE,
-        )
-
-        # Try to convert old Wikicode
-        if "==Romanian==" in code:
-            # ==Romanian== → == {{limba|ron}} ==
-            code = code.replace("==Romanian==", "== {{limba|ron}} ==")
-
-            # ===Adjective=== → === {{Adjective}} ===
-            code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # ===Verb tranzitiv=== → === {{Verb tranzitiv}} ===
-        code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # Hack for a fake variants support because RO doesn't use templates most of the time
-        # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{forma de feminin singular pentru|frumos}}`
-        code = re.sub(
-            r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
-            r"\1{{\2|\3}}",
-            code,
-            flags=re.MULTILINE,
-        )
-
-    elif locale == "ru":
-        # Workaround to prevent "t:=" to be reduced to "t"
-        code = code.replace("{{t:=|", "{{_t_|")
-
-    if locale in {"da", "it", "ron"}:
-        # {{-avv-|it}} → === {{avv}} ===
-        code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-        # {{-avv-|ANY}} → === {{avv|ANY}} ===
-        code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
-
-        # {{-avv-}} → === {{avv}} ===
-        code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-    return code
+    func: Callable[[str, str], str] = lang.adjust_wikicode[locale]
+    return func(code, locale)
 
 
 def parse_word(
@@ -716,7 +465,7 @@ def parse_word(
         for top in top_sections:
             etymology.extend(find_etymology(word, locale, top, missed_templates=missed_templates))
     elif parsed_sections:
-        for section in etyl_section[locale]:
+        for section in lang.etyl_section[locale]:
             if not parsed_sections:
                 break
             for etyl_data in parsed_sections.pop(section, []):
@@ -743,8 +492,8 @@ def parse_word(
         genders = _find_genders(top_sections, locale)
 
     # Variants
-    if parsed_sections and (interesting_titles := variant_titles[locale]):
-        interesting_templates = variant_templates[locale]
+    if parsed_sections and (interesting_titles := lang.variant_titles[locale]):
+        interesting_templates = lang.variant_templates[locale]
         for title, parsed_section in parsed_sections.items():
             if not title.startswith(interesting_titles):
                 continue
@@ -825,7 +574,7 @@ def get_latest_json_file(output_dir: Path) -> Path | None:
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
-    _, lang_dst = guess_locales(locale)
+    lang_src, lang_dst = guess_locales(locale, uniformize=True)
 
     output_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
     file = get_latest_json_file(output_dir)
@@ -838,7 +587,7 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
 
     workers = workers or multiprocessing.cpu_count()
     start = monotonic()
-    words = render(in_words, lang_dst, workers)
+    words = render(in_words, lang_src, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
 

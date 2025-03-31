@@ -244,3 +244,8 @@ def last_template_handler(
 
 
 random_word_url = "https://ru.wiktionary.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # Workaround to prevent "t:=" to be reduced to "t"
+    return code.replace("{{t:=|", "{{_t_|")
