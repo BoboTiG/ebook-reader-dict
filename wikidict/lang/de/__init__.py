@@ -233,19 +233,16 @@ def find_genders(
     return unique(pattern.findall(code))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{Lautschrift\|([^}]+)}"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "de")
     []
-    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}")
+    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}", "de")
     ['[ˈʁɪndɐˌsteːk]']
-    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}")
+    >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}", "de")
     ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
     """
+    pattern = re.compile(r"{Lautschrift\|([^}]+)}")
     return [f"[{p}]" for p in unique(pattern.findall(code))]
 
 

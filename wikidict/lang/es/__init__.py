@@ -228,25 +228,24 @@ Versión sin etimología:
 wiktionary = "Wikcionario (ɔ) {year}"
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern1: re.Pattern[str] = re.compile(r"fone=([^}\|\s]+)"),
-    pattern2: re.Pattern[str] = re.compile(r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "es")
     []
-    >>> find_pronunciations("{{pron-graf|fone=ˈa.t͡ʃo}}")
+    >>> find_pronunciations("{{pron-graf|fone=ˈa.t͡ʃo}}", "es")
     ['[ˈa.t͡ʃo]']
-    >>> find_pronunciations("{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}")
+    >>> find_pronunciations("{{pron-graf|pron=seseo|altpron=No seseante|fone=ˈgɾa.θjas|2pron=seseo|alt2pron=Seseante|2fone=ˈgɾa.sjas|audio=Gracias (español).ogg}}", "es")
     ['[ˈgɾa.θjas]', '[ˈgɾa.sjas]']
-    >>> find_pronunciations("{{pronunciación|[ ˈrwe.ɰo ]}}")
+    >>> find_pronunciations("{{pronunciación|[ ˈrwe.ɰo ]}}", "es")
     ['[ˈrwe.ɰo]']
-    >>> find_pronunciations("{{pronunciación|[ los ] o [ lɔʰ ]<ref>[l.htm l.htm] C</ref>}}")
+    >>> find_pronunciations("{{pronunciación|[ los ] o [ lɔʰ ]<ref>[l.htm l.htm] C</ref>}}", "es")
     ['[los]', '[lɔʰ]']
     """
-    pattern = pattern2 if "{pronunciación|" in code else pattern1
+    pattern = re.compile(
+        r"{pronunciación\|\[\s*([^}\|\s]+)\s*\](?:.*\[\s*([^}\|\s]+)\s*\])*"
+        if "{pronunciación|" in code
+        else r"fone=([^}\|\s]+)"
+    )
     return [f"[{p}]" for p in unique(flatten(pattern.findall(code)))]
 
 

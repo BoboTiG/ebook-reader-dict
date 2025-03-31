@@ -168,21 +168,18 @@ Etymology-Free Version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}|]+)}?\|?"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "sv")
     []
-    >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}", "sv")
     ['/eːn/, /ɛn/, /en/']
-    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}", "sv")
     ['/en/']
-    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}", "sv")
     ['/ɛn/']
     """
+    pattern = re.compile(rf"\{{uttal\|{locale}\|(?:[^\|]+\|)?ipa=([^}}|]+)}}?\|?")
     return [f"/{p}/" for p in unique(pattern.findall(code))]
 
 

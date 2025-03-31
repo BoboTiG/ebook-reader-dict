@@ -205,17 +205,14 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"\{\{IPA(?:\|(.*?))?\|lang=da\}\}"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "da")
     []
-    >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}")
+    >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}", "da")
     ['/bɛ̜ːˀ/']
     """
+    pattern = re.compile(rf"\{{\{{IPA(?:\|(.*?))?\|lang={locale}\}}\}}")
     return [item for sublist in (re.findall(pattern, code) or []) for item in sublist.split("|") if item]
 
 

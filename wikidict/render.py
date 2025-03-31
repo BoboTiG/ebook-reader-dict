@@ -260,11 +260,12 @@ def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[st
     return []
 
 
-def _find_pronunciations(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
+def _find_pronunciations(top_sections: list[wtp.Section], locale: str) -> list[str]:
     """Find pronunciations."""
     results = []
+    func = find_pronunciations[locale]
     for top_section in top_sections:
-        if result := func(top_section.contents):
+        if result := func(top_section.contents, locale):
             results.extend(result)
     return sorted(unique(results))
 
@@ -737,7 +738,7 @@ def parse_word(
         definitions = []
 
     if definitions or force:
-        prons = _find_pronunciations(top_sections, find_pronunciations[locale])
+        prons = _find_pronunciations(top_sections, locale)
         genders = _find_genders(top_sections, find_genders[locale])
 
     # Variants

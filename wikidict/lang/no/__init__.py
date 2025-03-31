@@ -198,21 +198,18 @@ def find_genders(
     return unique(flatten(pattern.findall(code)))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{{\s*IPA\s*\|[^\}]*}}"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "no")
     []
-    >>> find_pronunciations("{{IPA|/ɡrœn/|[grøn:]|språk=no}}")
+    >>> find_pronunciations("{{IPA|/ɡrœn/|[grøn:]|språk=no}}", "no")
     ['/ɡrœn/', '[grøn:]']
-    >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}")
+    >>> find_pronunciations("{{IPA|[anomali:´]|språk=no}}", "no")
     ['[anomali:´]']
-    >>> find_pronunciations("{{IPA|['klɑɾ]||['kɽɑɾ] (tykk ''L'' (østnorsk)|språk=no}}")
+    >>> find_pronunciations("{{IPA|['klɑɾ]||['kɽɑɾ] (tykk ''L'' (østnorsk)|språk=no}}", "no")
     ["['klɑɾ]"]
     """
+    pattern = re.compile(r"{{\s*IPA\s*\|[^\}]*}}")
     result: list[str] = []
     for f in pattern.findall(code):
         fsplit = f.split("|")

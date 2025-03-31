@@ -264,28 +264,25 @@ def find_genders(
     return unique(pattern.findall(code))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern1: re.Pattern[str] = re.compile(r"\{\{PRON\|`([^`]+)`"),
-    pattern2: re.Pattern[str] = re.compile(r"\{\{IFA\|([^}]+)}}"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "eo")
     []
-    >>> find_pronunciations("{{PRON|`luk/o.`}}")
+    >>> find_pronunciations("{{PRON|`luk/o.`}}", "eo")
     ['luk/o']
-    >>> find_pronunciations("{{PRON|`[[advent]]•[[o]]`}}")
+    >>> find_pronunciations("{{PRON|`[[advent]]•[[o]]`}}", "eo")
     ['advent•o']
-    >>> find_pronunciations("{{PRON|`{{radi|vultur}} + o`}}")
+    >>> find_pronunciations("{{PRON|`{{radi|vultur}} + o`}}", "eo")
     ['vultur + o']
-    >>> find_pronunciations("{{PRON|` {{radi|dekstr}} + {{fina|a}}`}}")
+    >>> find_pronunciations("{{PRON|` {{radi|dekstr}} + {{fina|a}}`}}", "eo")
     ['dekstr + a']
-    >>> find_pronunciations("{{IFA|/vitpunkto/}}")
+    >>> find_pronunciations("{{IFA|/vitpunkto/}}", "eo")
     ['/vitpunkto/']
     """
     from ...utils import process_templates
 
+    pattern1 = re.compile(r"\{\{PRON\|`([^`]+)`")
+    pattern2 = re.compile(r"\{\{IFA\|([^}]+)}}")
     return [
         process_templates("", match.rstrip("."), "eo")
         for match in pattern1.findall(code) or pattern2.findall(code) or []

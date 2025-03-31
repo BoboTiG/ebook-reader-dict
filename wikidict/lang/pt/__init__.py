@@ -255,19 +255,16 @@ def find_genders(
     return unique(pattern.findall(code))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{AFI\|(/[^/]+/)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "pt")
     []
-    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/}}")
+    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/}}", "pt")
     ['/pɾe.ˈno.me̝/']
-    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}")
+    >>> find_pronunciations("{{AFI|/pɾe.ˈno.me̝/|lang=pt}}", "pt")
     ['/pɾe.ˈno.me̝/']
     """
+    pattern = re.compile(r"{AFI\|(/[^/]+/)")
     return unique(pattern.findall(code))
 
 

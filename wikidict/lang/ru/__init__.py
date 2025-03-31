@@ -105,18 +105,15 @@ def find_genders(
     return unique(flatten(pattern.findall(code)))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "ru")
     []
     >>> # Expected behaviour after #1376: ['[strɐˈnʲit͡sə]']
-    >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}")
+    >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}", "ru")
     ['страни']
     """
+    pattern = re.compile(rf"(?:transcriptions-{locale}.)(\w*)")
     return unique(pattern.findall(code))
 
 

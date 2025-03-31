@@ -162,23 +162,20 @@ def find_genders(
     return unique(pattern.findall(code))
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{\s*ca-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "ca")
     []
-    >>> find_pronunciations("{{ca-pron|/as/}}")
+    >>> find_pronunciations("{{ca-pron|/as/}}", "ca")
     ['/as/']
-    >>> find_pronunciations("{{ca-pron|or=/əɫ/}}")
+    >>> find_pronunciations("{{ca-pron|or=/əɫ/}}", "ca")
     ['/əɫ/']
-    >>> find_pronunciations("{{ca-pron|or=/əɫ/|occ=/eɫ/}}")
+    >>> find_pronunciations("{{ca-pron|or=/əɫ/|occ=/eɫ/}}", "ca")
     ['/əɫ/']
-    >>> find_pronunciations("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}")
+    >>> find_pronunciations("{{ca-pron|q=àton|or=/əɫ/|occ=/eɫ/|rima=}}", "ca")
     ['/əɫ/']
     """
+    pattern = re.compile(rf"\{{\{{\s*{locale}-pron\s*\|(?:q=\S*\|)?(?:\s*or\s*=\s*)?(/[^/]+/)")
     return unique(pattern.findall(code))
 
 

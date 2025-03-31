@@ -49,11 +49,7 @@ def find_genders(
     return []
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r""),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """Function used to find pronunciations within `code`."""
     return []
 

@@ -243,21 +243,18 @@ def find_genders(
     ]
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{ΔΦΑ(?:\|γλ=el)?(?:\|el)?\|([^}\|]+)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "el")
     []
-    >>> find_pronunciations("{{ΔΦΑ|tɾeˈlos|γλ=el}}")
+    >>> find_pronunciations("{{ΔΦΑ|tɾeˈlos|γλ=el}}", "el")
     ['/tɾeˈlos/']
-    >>> find_pronunciations("{{ΔΦΑ|γλ=el|ˈni.xta}}")
+    >>> find_pronunciations("{{ΔΦΑ|γλ=el|ˈni.xta}}", "el")
     ['/ˈni.xta/']
-    >>> find_pronunciations("{{ΔΦΑ|el|ˈni.ði.mos}}")
+    >>> find_pronunciations("{{ΔΦΑ|el|ˈni.ði.mos}}", "el")
     ['/ˈni.ði.mos/']
     """
+    pattern = re.compile(rf"\{{ΔΦΑ(?:\|γλ={locale})?(?:\|{locale})?\|([^}}\|]+)")
     return [f"/{p}/" for p in unique(pattern.findall(code))]
 
 

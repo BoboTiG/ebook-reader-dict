@@ -269,25 +269,22 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{IPA\|en\|(/[^/]+/)(?:\|(/[^/]+/))*"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "en")
     []
-    >>> find_pronunciations("{{IPA|en|/ʌs/}}")
+    >>> find_pronunciations("{{IPA|en|/ʌs/}}", "en")
     ['/ʌs/']
-    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌs/}}")
+    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌs/}}", "en")
     ['/ʌs/']
-    >>> find_pronunciations("{{IPA|en|/ʌs/}} {{IPA|en|/ʌs/}}")
+    >>> find_pronunciations("{{IPA|en|/ʌs/}} {{IPA|en|/ʌs/}}", "en")
     ['/ʌs/']
-    >>> find_pronunciations("{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}")
+    >>> find_pronunciations("{{IPA|en|/ʌs/}}, {{IPA|en|/ʌz/}}", "en")
     ['/ʌs/', '/ʌz/']
-    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌz/}}")
+    >>> find_pronunciations("{{IPA|en|/ʌs/|/ʌz/}}", "en")
     ['/ʌs/', '/ʌz/']
     """
+    pattern = re.compile(rf"\{{IPA\|{locale}\|(/[^/]+/)(?:\|(/[^/]+/))*")
     return unique(flatten(pattern.findall(code)))
 
 

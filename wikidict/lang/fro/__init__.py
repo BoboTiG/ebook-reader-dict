@@ -20,6 +20,7 @@ templates_other = fr.templates_other
 etyl_section = fr.etyl_section
 release_description = fr.release_description
 wiktionary = fr.wiktionary
+find_pronunciations = fr.find_pronunciations
 last_template_handler = fr.last_template_handler
 
 
@@ -37,19 +38,3 @@ def find_genders(
     ['msing']
     """
     return fr.find_genders(code, pattern=pattern)
-
-
-def find_pronunciations(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{pron(?:\|lang=fro)?\|([^}\|]+)"),
-) -> list[str]:
-    """
-    >>> find_pronunciations("")
-    []
-    >>> find_pronunciations("{{pron|ɑ|fro}}")
-    ['\\\\ɑ\\\\']
-    >>> find_pronunciations("{{pron|ɑ|fro}}, {{pron|a|fro}}")
-    ['\\\\ɑ\\\\', '\\\\a\\\\']
-    """
-    return fr.find_pronunciations(code, pattern=pattern)
