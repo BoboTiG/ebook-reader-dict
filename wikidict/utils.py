@@ -583,7 +583,11 @@ def formula_to_svg(formula: str, *, cat: str = "tex") -> str:
 
 
 def convert_chem(match: str | re.Match[str], word: str) -> str:
-    """Convert chemistry symbols to a base64 encoded GIF file."""
+    """Convert chemistry symbols to a base64 encoded GIF file.
+
+    >>> convert_chem("<chem>foo</chem>", "foo")
+    '<chem>foo</chem>'
+    """
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     if "<chem>" in formula or "</chem>" in formula:
         return formula
@@ -601,7 +605,11 @@ def convert_hiero(match: str | re.Match[str], word: str) -> str:
 
 
 def convert_math(match: str | re.Match[str], word: str) -> str:
-    """Convert mathematics symbols to a base64 encoded GIF file."""
+    """Convert mathematics symbols to a base64 encoded GIF file.
+
+    >>> convert_math("<math>foo</math>", "foo")
+    '<math>foo</math>'
+    """
     formula: str = (match.group(1) if isinstance(match, re.Match) else match).strip()
     if "<math>" in formula or "</math>" in formula:
         return formula
