@@ -51,7 +51,7 @@ import sys
 from docopt import docopt
 
 
-def main() -> int:  # pragma: nocover
+def main() -> int:
     """Main entry point."""
     logging.basicConfig(level=logging.DEBUG if "DEBUG" in os.environ else logging.INFO)
 
@@ -129,5 +129,5 @@ def main() -> int:  # pragma: nocover
     return 0
 
 
-if __name__ == "__main__":  # pragma: nocover
+if __name__ == "__main__":
     sys.exit(main())

@@ -182,7 +182,7 @@ en_arabe = {
 }
 
 
-def arabiser(texte: str) -> str:  # pragma: no cover
+def arabiser(texte: str) -> str:
     """
     >>> arabiser("rajulâã")
     'رَجُلَاًا'
@@ -628,14 +628,14 @@ def arabiser(texte: str) -> str:  # pragma: no cover
     return unicodedata.normalize("NFC", transcription)
 
 
-def est_voyelle(char: str) -> bool:  # pragma: no cover
+def est_voyelle(char: str) -> bool:
     """La voyelle peut être tout ce qui permet à une consonne d'être une
     initiale de syllabe : courte ou longue, tanwîn, ou ta marbuta.
     """
     return char in "aeiuâîûãĩũ@ñõ"
 
 
-def nature(scheme: str, position: int) -> str:  # pragma: no cover
+def nature(scheme: str, position: int) -> str:
     """
     Renvoit la nature de la lettre du schème=scheme située à la position=position (retranscrit par `char` ici).
     Ce peut être :
@@ -695,7 +695,7 @@ def nature(scheme: str, position: int) -> str:  # pragma: no cover
     return f"i{nature(scheme, position + 1)[1]}"
 
 
-def appliquer(scheme: str, racine: str, *, var: str = "") -> str:  # pragma: no cover
+def appliquer(scheme: str, racine: str, *, var: str = "") -> str:
     if not var:  # ne dit rien
         # from .racines_arabes import racines_arabes
         if scheme == "ar-*i*â*ũ":

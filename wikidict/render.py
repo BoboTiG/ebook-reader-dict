@@ -776,7 +776,7 @@ def render_word(
         details = parse_word(word, code, locale, missed_templates=missed_templates)
     except KeyboardInterrupt:
         pass
-    except Exception:  # pragma: nocover
+    except Exception:
         log.exception("ERROR with %r", word)
     else:
         if details.etymology or details.definitions or details.variants:

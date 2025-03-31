@@ -40,7 +40,7 @@ def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None]:
     yield
 
     warnings = []
-    for warning in recwarn:  # pragma: no cover
+    for warning in recwarn:
         message = str(warning.message)
         warn = f"{warning.filename}:{warning.lineno} {message}"
         print(warn, file=sys.stderr)

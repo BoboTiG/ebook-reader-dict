@@ -240,7 +240,7 @@ class BaseFormat:
                 variants=sorted(variants, key=lambda s: (len(s), s)),
             )
 
-    def process(self) -> None:  # pragma: nocover
+    def process(self) -> None:
         raise NotImplementedError()
 
     @staticmethod
@@ -420,7 +420,7 @@ class ConverterFromDictFile(DictFileFormat):
     def _patch_gc(self) -> None:
         """Bypass performances issues when calling PyGlossary from Python."""
 
-        def noop_gc_collect() -> None:  # pragma: nocover
+        def noop_gc_collect() -> None:
             pass
 
         gc.collect = noop_gc_collect  # type: ignore[assignment]
