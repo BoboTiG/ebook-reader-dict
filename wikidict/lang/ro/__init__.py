@@ -201,19 +201,16 @@ Versiune fără etimologie:
 wiktionary = "Wikționar (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"gen={{([fmsingp]+)(?: \?\|)*}"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "ro")
     []
-    >>> find_genders("{{substantiv-ron|gen={{m}}|nom-sg=câine|nom-pl=câini")
+    >>> find_genders("{{substantiv-ron|gen={{m}}|nom-sg=câine|nom-pl=câini", "ro")
     ['m']
-    >>> find_genders("{{substantiv-ron|gen={{n}}}}")
+    >>> find_genders("{{substantiv-ron|gen={{n}}}}", "ro")
     ['n']
     """
+    pattern = re.compile(r"gen={{([fmsingp]+)(?: \?\|)*}")
     return unique(flatten(pattern.findall(code)))
 
 

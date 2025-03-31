@@ -212,17 +212,14 @@ Versione senza etimologia:
 wiktionary = "Wikizionario (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "it")
     []
-    >>> find_genders("{{Pn}} ''m sing''")
+    >>> find_genders("{{Pn}} ''m sing''", "it")
     ['m']
     """
+    pattern = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''")
     return unique(pattern.findall(code))
 
 

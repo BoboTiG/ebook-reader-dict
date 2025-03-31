@@ -146,19 +146,16 @@ Versió sense etimologia:
 wiktionary = "Viccionari (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{ca-\w+\|([fm]+)"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "ca")
     []
-    >>> find_genders("{{ca-nom|m}}")
+    >>> find_genders("{{ca-nom|m}}", "ca")
     ['m']
-    >>> find_genders("{{ca-nom|m}} {{ca-nom|m}}")
+    >>> find_genders("{{ca-nom|m}} {{ca-nom|m}}", "ca")
     ['m']
     """
+    pattern = re.compile(rf"\{{{locale}-\w+\|([fm]+)")
     return unique(pattern.findall(code))
 
 

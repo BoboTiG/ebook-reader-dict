@@ -239,19 +239,16 @@ Etymology-free version:
 wiktionary = "Wikcionário (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{([fm]+)}"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "pt")
     []
-    >>> find_genders("{{oxítona|ca|brum}}, {{mf}}")
+    >>> find_genders("{{oxítona|ca|brum}}, {{mf}}", "pt")
     ['mf']
-    >>> find_genders("'''COPOM''', {{m}}")
+    >>> find_genders("'''COPOM''', {{m}}", "pt")
     ['m']
     """
+    pattern = re.compile(r"{([fm]+)}")
     return unique(pattern.findall(code))
 
 

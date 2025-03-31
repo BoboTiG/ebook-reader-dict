@@ -1,7 +1,5 @@
 """Old French language."""
 
-import re
-
 from .. import fr
 
 section_patterns = fr.section_patterns
@@ -20,21 +18,6 @@ templates_other = fr.templates_other
 etyl_section = fr.etyl_section
 release_description = fr.release_description
 wiktionary = fr.wiktionary
+find_genders = fr.find_genders
 find_pronunciations = fr.find_pronunciations
 last_template_handler = fr.last_template_handler
-
-
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fro)*}"),
-) -> list[str]:
-    """
-    >>> find_genders("")
-    []
-    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fro}} {{f}}")
-    ['f']
-    >>> find_genders("'''42''' {{msing}}")
-    ['msing']
-    """
-    return fr.find_genders(code, pattern=pattern)

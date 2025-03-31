@@ -252,10 +252,11 @@ def find_etymology(
     ]
 
 
-def _find_genders(top_sections: list[wtp.Section], func: Callable[[str], list[str]]) -> list[str]:
+def _find_genders(top_sections: list[wtp.Section], locale: str) -> list[str]:
     """Find the genders."""
+    func: Callable[[str, str], list[str]] = find_genders[locale]
     for top_section in top_sections:
-        if result := func(top_section.contents):
+        if result := func(top_section.contents, locale):
             return result
     return []
 
@@ -739,7 +740,7 @@ def parse_word(
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, locale)
-        genders = _find_genders(top_sections, find_genders[locale])
+        genders = _find_genders(top_sections, locale)
 
     # Variants
     if parsed_sections and (interesting_titles := variant_titles[locale]):

@@ -90,18 +90,15 @@ release_description = """\
 wiktionary = "Викисловарь (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "ru")
     []
-    >>> find_genders("{{сущ ru f ina 5a|основа=страни́ц|слоги={{по-слогам|стра|ни́|ца}}}}")
+    >>> find_genders("{{сущ ru f ina 5a|основа=страни́ц|слоги={{по-слогам|стра|ни́|ца}}}}", "ru")
     ['f']
     """
     # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
+    pattern: re.Pattern[str] = re.compile(rf"(?:\{{сущ.{locale}.)([fmnмжс])|(?:\{{сущ.{locale}.*\|)([fmnмжс])")
     return unique(flatten(pattern.findall(code)))
 
 

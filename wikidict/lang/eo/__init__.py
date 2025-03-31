@@ -250,17 +250,14 @@ Etimologio-libera versio:
 wiktionary = "Vikivortaro (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{g\|(\w+)"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "eo")
     []
-    >>> find_genders("{{g|m}}")
+    >>> find_genders("{{g|m}}", "eo")
     ['m']
     """
+    pattern = re.compile(r"{g\|(\w+)")
     return unique(pattern.findall(code))
 
 

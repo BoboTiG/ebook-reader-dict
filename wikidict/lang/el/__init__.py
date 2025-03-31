@@ -213,28 +213,25 @@ _genders = {
 }
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{{([^{}]*)}}"),
-    line_pattern: str = "'''{{PAGENAME}}''' ",
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "el")
     []
-    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}")
+    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}", "el")
     ['αρσενικό ή θηλυκό']
-    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}, {{ακλ|αθ}}")
+    >>> find_genders("'''{{PAGENAME}}''' {{αθ}}, {{ακλ|αθ}}", "el")
     ['αρσενικό ή θηλυκό', 'άκλιτο']
-    >>> find_genders("'''{{PAGENAME}}''' {{ακλ|αθ}}, {{αθ}}")
+    >>> find_genders("'''{{PAGENAME}}''' {{ακλ|αθ}}, {{αθ}}", "el")
     ['άκλιτο', 'αρσενικό ή θηλυκό']
-    >>> find_genders("'''{{PAGENAME}}''' {{θο}} {{ακλ}}")
+    >>> find_genders("'''{{PAGENAME}}''' {{θο}} {{ακλ}}", "el")
     ['θηλυκό ή ουδέτερο', 'άκλιτο']
-    >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}")
+    >>> find_genders("'''{{PAGENAME}}''' {{αο}} {{ακλ}} {{ακρ}}", "el")
     ['αρσενικό ή ουδέτερο', 'άκλιτο', 'ακρωνύμιο']
-    >>> find_genders("'''{{PAGENAME}}''' {{α}} ({{ετ|ιδιωματικό|0=-}}, Κάλυμνος)")
+    >>> find_genders("'''{{PAGENAME}}''' {{α}} ({{ετ|ιδιωματικό|0=-}}, Κάλυμνος)", "el")
     ['αρσενικό']
     """
+    pattern = re.compile(r"{{([^{}]*)}}")
+    line_pattern = "'''{{PAGENAME}}''' "
     return [
         g
         for line in code.splitlines()

@@ -178,23 +178,20 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{{n[bon]-sub\|(\w+)}}"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "no")
     []
-    >>> find_genders("{{no-sub|m}}")
+    >>> find_genders("{{no-sub|m}}", "no")
     ['m']
-    >>> find_genders("{{no-sub|mf}}")
+    >>> find_genders("{{no-sub|mf}}", "no")
     ['mf']
-    >>> find_genders("{{nn-sub|f}}")
+    >>> find_genders("{{nn-sub|f}}", "no")
     ['f']
-    >>> find_genders("{{nb-sub|m}}")
+    >>> find_genders("{{nb-sub|m}}", "no")
     ['m']
     """
+    pattern = re.compile(r"{{n[bon]-sub\|(\w+)}}")
     return unique(flatten(pattern.findall(code)))
 
 

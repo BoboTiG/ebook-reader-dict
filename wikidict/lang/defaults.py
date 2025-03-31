@@ -1,7 +1,6 @@
 """Defaults values for locales without specific needs."""
 
 import logging
-import re
 from collections import defaultdict
 
 log = logging.getLogger(__name__)
@@ -40,11 +39,7 @@ templates_multi: dict[str, str] = {}
 templates_other: dict[str, str] = {}
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r""),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """Function used to find genders within `code`."""
     return []
 

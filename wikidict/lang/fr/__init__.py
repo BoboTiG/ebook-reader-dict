@@ -568,19 +568,16 @@ Version sans étymologies :
 wiktionary = "Wiktionnaire (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    *,
-    pattern: re.Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "fr")
     []
-    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}")
+    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}", "fr")
     ['f']
-    >>> find_genders("'''42''' {{msing}}")
+    >>> find_genders("'''42''' {{msing}}", "fr")
     ['msing']
     """
+    pattern = re.compile(rf"\{{([fmsingp]+)(?: \?\|{locale})*}}")
     return unique(flatten(pattern.findall(code)))
 
 
