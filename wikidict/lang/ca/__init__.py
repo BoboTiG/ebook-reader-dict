@@ -415,3 +415,6 @@ def last_template_handler(
         return lang.capitalize()
 
     return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
+
+
+random_word_url = "https://ca.wiktionary.org/wiki/Especial:RandomRootpage"

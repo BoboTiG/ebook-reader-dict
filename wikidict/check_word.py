@@ -466,6 +466,6 @@ def main(locale: str, word: str) -> int:
     lang_src, lang_dst = guess_locales(locale, use_log=False)
 
     # If *word* is empty, get a random word
-    word = word or get_random_word(lang_src)
+    word = word or get_random_word(lang_dst)
 
     return check_word(word, lang_src, lang_dst)

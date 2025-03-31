@@ -95,7 +95,7 @@ def main(locale: str, word: str, *, raw: bool = False) -> int:
     lang_src, lang_dst = guess_locales(locale, use_log=False)
 
     # If *word* is empty, get a random word
-    word = word or get_random_word(lang_src)
+    word = word or get_random_word(lang_dst)
 
     set_output(lang_dst, word)
     get_and_parse_word(word, lang_src, lang_dst, raw=raw)

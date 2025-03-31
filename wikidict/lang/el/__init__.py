@@ -693,3 +693,6 @@ def last_template_handler(
         return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
+
+
+random_word_url = "https://el.wiktionary.org/wiki/%CE%95%CE%B9%CE%B4%CE%B9%CE%BA%CF%8C:RandomRootpage"

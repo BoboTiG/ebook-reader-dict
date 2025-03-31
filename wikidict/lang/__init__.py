@@ -97,3 +97,6 @@ find_pronunciations = _populate("find_pronunciations")
 # When a template is not handled by any previous template handlers,
 # this function will be called with *parts* as argument.
 last_template_handler = _populate("last_template_handler")
+
+# URL to fetch a random word
+random_word_url = _populate("random_word_url")

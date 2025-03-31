@@ -416,3 +416,7 @@ def last_template_handler(
         return f"{italic(capitalize(tpl))} {strong(parts[1])}"
     except IndexError:
         return capitalize(tpl)
+
+
+# https://en.wiktionary.org/wiki/Wiktionary:Random_page
+random_word_url = "https://en.wiktionary.org/wiki/Special:RandomInCategory/English_lemmas#English"

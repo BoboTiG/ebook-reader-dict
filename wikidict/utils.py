@@ -22,7 +22,6 @@ from .constants import (
     DOWNLOAD_URL_MOBI,
     DOWNLOAD_URL_STARDICT,
     NO_ETYMOLOGY_SUFFIX,
-    RANDOM_WORD_URL,
     WIKIMEDIA_HEADERS,
     WIKIMEDIA_URL_MATH_CHECK,
     WIKIMEDIA_URL_MATH_RENDER,
@@ -30,6 +29,7 @@ from .constants import (
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
+    random_word_url,
     release_description,
     templates_ignored,
     templates_italic,
@@ -116,11 +116,12 @@ def convert_pronunciation(pronunciations: list[str]) -> str:
 
 def get_random_word(locale: str) -> str:
     """Retrieve a random word."""
-    url = RANDOM_WORD_URL.format(locale=locale)
+    url = random_word_url[locale]
+
     while True:
         with requests.get(url) as req:
-            word = str(req.json()["query"]["random"][0]["title"])
-            if ":" not in word and "/" not in word:
+            word: str = re.findall(r'<span class="mw-page-title-main">([^<]+)</span>', req.text)[0]
+            if word and ":" not in word and "/" not in word:
                 break
             log.info(f"Got {word=}, trying a new one instead.")
 

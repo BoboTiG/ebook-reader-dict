@@ -1,4 +1,3 @@
-import json
 from collections.abc import Callable
 from typing import Any
 from unittest.mock import patch
@@ -9,7 +8,7 @@ from requests.exceptions import RequestException
 from requests.models import Response
 
 from wikidict import check_word, utils
-from wikidict.constants import RANDOM_WORD_URL
+from wikidict.lang import random_word_url
 
 # Word used in test_filter_html()
 WORD = {
@@ -74,14 +73,8 @@ def test_get_random_word() -> None:
 
 @responses.activate
 def test_get_random_word_unwanted_word() -> None:
-    url = RANDOM_WORD_URL.format(locale="fr")
-    body = json.dumps(
-        {
-            "batchcomplete": "",
-            "continue": {"rncontinue": "0.253004461407|0.253004584597|700767|0", "continue": "-||"},
-            "query": {"random": [{"id": 670277, "ns": 0, "title": "WORD"}]},
-        }
-    )
+    url = random_word_url["fr"]
+    body = '<span class="mw-page-title-main">WORD</span>'
     word = "désiré"
 
     responses.add(responses.GET, url=url, body=body.replace("WORD", "Conjugaison:tchèque/srovnat"))

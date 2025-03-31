@@ -301,3 +301,6 @@ def last_template_handler(
         return variant.split("#", 1)[0]
 
     return default(template, locale, word=word, missed_templates=missed_templates)
+
+
+random_word_url = "https://de.wiktionary.org/wiki/Spezial:Zuf%C3%A4llige_Stammseite"

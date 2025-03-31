@@ -21,3 +21,6 @@ wiktionary = fr.wiktionary
 find_genders = fr.find_genders
 find_pronunciations = fr.find_pronunciations
 last_template_handler = fr.last_template_handler
+
+# https://fr.wiktionary.org/wiki/Wiktionnaire:Page_au_hasard
+random_word_url = "http://tools.wmflabs.org/anagrimes/hasard.php?langue=fro"

@@ -257,3 +257,6 @@ def last_template_handler(
 
     # Given the tiny number of used templates, it's easier to raise an error instead of relying on the default handler
     raise ValueError(f"Unhandled {template=} {word=}")
+
+
+random_word_url = "https://ro.wiktionary.org/wiki/Special:RandomRootpage"

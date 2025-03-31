@@ -988,3 +988,7 @@ def last_template_handler(
         return term(context)
 
     return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
+
+
+# https://fr.wiktionary.org/wiki/Wiktionnaire:Page_au_hasard
+random_word_url = "http://tools.wmflabs.org/anagrimes/hasard.php?langue=fr"
