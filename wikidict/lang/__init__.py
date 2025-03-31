@@ -2,28 +2,25 @@
 
 from importlib import import_module
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any
 
 from . import defaults
 
-ALL_LOCALES = {
+_ALL_LOCALES = {
     locale.name: import_module(f"wikidict.lang.{locale.name}")
     for locale in sorted(Path(__file__).parent.glob("*"))
     if locale.is_dir() and bool(list(locale.glob("*.py", case_sensitive=True)))
 }
 
-Arg = TypeVar("Arg")
-PopulatedDict = dict[str, Any]
 
-
-def _populate(attr: str) -> PopulatedDict:
+def _populate(attr: str) -> dict[str, Any]:
     """
     Create a dict for all locales pointing to the appropriate attribute.
     Fallback to `defaults`.
     """
     return {
         locale.__name__.split(".")[-1]: getattr(locale, attr) if hasattr(locale, attr) else getattr(defaults, attr)
-        for locale in ALL_LOCALES.values()
+        for locale in _ALL_LOCALES.values()
     }
 
 

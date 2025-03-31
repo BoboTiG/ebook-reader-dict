@@ -590,7 +590,7 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     >>> find_pronunciations("{{pron|ɑ|fr}}, {{pron|a|fr}}", "fr")
     ['\\\\ɑ\\\\', '\\\\a\\\\']
     """
-    pattern: re.Pattern[str] = re.compile(rf"\{{pron(?:\|lang={locale})?\|([^}}\|]+)")
+    pattern = re.compile(rf"\{{pron(?:\|lang={locale})?\|([^}}\|]+)")
     if not (match := pattern.search(code)):
         return []
 
