@@ -576,51 +576,53 @@ def run_mobi_formatter(
     To do this, we delete words using the least-used characters until we meet this condition.
     """
 
-    if locale.startswith(("en", "fr")):
+    def all_chars(word: str, details: Word) -> set[str]:
+        chars = set(word)
+        if definitions := details.definitions:
+            if isinstance(definitions, str):
+                chars.update(definitions)
+            elif isinstance(definitions, tuple):
+                chars.update(flatten(definitions))
+        if etymology := details.etymology:
+            if isinstance(etymology, str):
+                chars.update(etymology)
+            elif isinstance(etymology, tuple):
+                chars.update(flatten(etymology))
+        return chars
 
-        def all_chars(word: str, details: Word) -> set[str]:
-            chars = set(word)
-            if definitions := details.definitions:
-                if isinstance(definitions, str):
-                    chars.update(definitions)
-                elif isinstance(definitions, tuple):
-                    chars.update(flatten(definitions))
-            if etymology := details.etymology:
-                if isinstance(etymology, str):
-                    chars.update(etymology)
-                elif isinstance(etymology, tuple):
-                    chars.update(flatten(etymology))
-            return chars
+    stats = defaultdict(list)
+    for word, details in words.items():
+        for char in all_chars(word, details):
+            stats[char].append(word)
 
-        stats = defaultdict(list)
-        for word, details in words.items():
-            for char in all_chars(word, details):
-                stats[char].append(word)
+    if locale.startswith(("en", "fr")) and len(stats) > 256:
+        new_words = words.copy()
+        threshold = 1
+        while len(stats) > 256:
+            log.info("[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
+            for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
+                if len(related_words) == threshold:
+                    for w in related_words:
+                        new_words.pop(w, None)
+                    stats.pop(char)
+                if len(stats) <= 256:
+                    break
+            threshold += 1
 
-        if len(stats) > 256:
-            new_words = words.copy()
-            threshold = 1
-            while len(stats) > 256:
-                log.info(
-                    "[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats)
-                )
-                for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
-                    if len(related_words) == threshold:
-                        for w in related_words:
-                            new_words.pop(w, None)
-                        stats.pop(char)
-                    if len(stats) <= 256:
-                        break
-                threshold += 1
-
-            log.info(
-                "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
-                f"{len(words) - len(new_words):,}",
-                f"{len(new_words):,}",
-                len(stats),
-            )
-            words = new_words
-            variants = make_variants(words)
+        log.info(
+            "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            f"{len(words) - len(new_words):,}",
+            f"{len(new_words):,}",
+            len(stats),
+        )
+        words = new_words
+        variants = make_variants(words)
+    else:
+        log.info(
+            "[Mobi] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            f"{len(words):,}",
+            len(stats),
+        )
 
     args = (locale, output_dir, words, variants, file.stem.split("-")[-1])
     run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
