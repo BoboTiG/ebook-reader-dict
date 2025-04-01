@@ -1325,6 +1325,7 @@ langs = {
     "twf": "Taos",
     "twu": "Termanu",
     "txb": "Tocariano B",
+    "txg": "Tangute",
     "txh": "Trácio",
     "txn": "Tarangan Ocidental",
     "txu": "Mẽbêngôkre",
@@ -1490,5 +1491,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,485
+}  # 1,486
 # END

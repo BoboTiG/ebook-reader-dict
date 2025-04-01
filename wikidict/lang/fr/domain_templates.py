@@ -269,7 +269,6 @@ domain_templates = {
     "pâtisseries": "Pâtisserie",
     "pélicans": "Ornithologie",
     "péninsules": "Géographie",
-    "périodes": "Géologie",
     "pêches": "Botanique",
     "quartiers": "Toponyme",
     "questions rhétoriques": "Questions rhétoriques",
@@ -349,5 +348,5 @@ domain_templates = {
     "états": "État",
     "étoiles": "Astronomie",
     "îles": "Géographie",
-}  # 344
+}  # 343
 # END
