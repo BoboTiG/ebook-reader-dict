@@ -263,7 +263,31 @@ random_word_url = "https://ro.wiktionary.org/wiki/Special:RandomRootpage"
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
-    """ """
+    """
+    >>> adjust_wikicode("{{-avv-|ANY|ANY}}", "ro")
+    '=== {{avv|ANY|ANY}} ==='
+
+    >>> adjust_wikicode("==Romanian==", "ro")
+    '== {{limba|ron}} =='
+
+    >>> adjust_wikicode("==Romanian==\\n===Adjective===", "ro")
+    '== {{limba|ron}} ==\\n=== {{Adjective}} ==='
+
+    >>> adjust_wikicode("====Verb tranzitiv====", "ro")
+    '=== {{Verb tranzitiv}} ==='
+
+    >>> adjust_wikicode("#''forma de feminin singular pentru'' [[frumos]].", "ro")
+    '#{{forma de feminin singular pentru|frumos}}'
+
+    >>> adjust_wikicode("{{-avv-|ron}}", "ro")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("{{-avv-|ANY}}", "ro")
+    '=== {{avv|ANY}} ==='
+
+    >>> adjust_wikicode("{{-avv-}}", "ro")
+    '=== {{avv}} ==='
+    """
     if locale == "ro":
         locale = "ron"
 
@@ -283,7 +307,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
         # ===Adjective=== → === {{Adjective}} ===
         code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-    # ===Verb tranzitiv=== → === {{Verb tranzitiv}} ===
+    # ====Verb tranzitiv==== → === {{Verb tranzitiv}} ===
     code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     # Hack for a fake variants support because RO doesn't use templates most of the time

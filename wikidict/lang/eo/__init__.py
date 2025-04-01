@@ -312,18 +312,37 @@ random_word_url = "https://eo.wiktionary.org/wiki/Speciala%C4%B5o:RandomRootpage
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    """
+    >>> adjust_wikicode("{{Deklinacio-eo}}", "eo")
+    ''
+
+    >>> adjust_wikicode("{{form-eo}}", "eo")
+    '# {{form-eo}}'
+
+    >>> adjust_wikicode("{{xxx}}", "eo")
+    '==== {{xxx}} ===='
+    >>> adjust_wikicode("{{xx-x}}", "eo")
+    '==== {{xx-x}} ===='
+    >>> adjust_wikicode("===={{Tradukoj}}====", "eo")
+    '== {{Tradukoj}} =='
+
+    >>> adjust_wikicode("{{Vorterseparo}}:{{radi|tret}} + {{fina|i}}", "eo")
+    '\\n{{PRON|`{{radi|tret}} + {{fina|i}}`}}\\n'
+    >>> adjust_wikicode("{{Vorterseparo}}\\n:{{radi|tret}} + {{fina|i}}", "eo")
+    '\\n{{PRON|`{{radi|tret}} + {{fina|i}}`}}\\n'
+    """
     # Wipe out {{Deklinacio-eo}}
-    code = code.replace("{{Deklinacio-eo}}", "")
+    code = code.replace(f"{{{{Deklinacio-{locale}}}}}", "")
 
     # Variants
     # {{form-eo}} → # {{form-eo}}
-    code = code.replace("{{form-eo}}", "# {{form-eo}}")
+    code = code.replace(f"{{{{form-{locale}}}}}", f"# {{{{form-{locale}}}}}")
 
     # {{xxx}} → ==== {{xxx}} ====
     # {{xx-x}} → ==== {{xx-x}} ====
     code = re.sub(r"^(\{\{[\w\-]+\}\})", r"==== \1 ====", code, flags=re.MULTILINE)
 
-    # ===={{Tradukoj}}==== → =={{Tradukoj}}==
+    # ===={{Tradukoj}}==== → == {{Tradukoj}} ==
     code = re.sub(
         r"====\s*(\{\{(?:Ekzemploj|Derivaĵoj|Referencoj|Sinonimoj|Tradukoj|Vortfaradoj|trad-\w+)\}\})\s*====",
         r"== \1 ==",

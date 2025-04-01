@@ -330,6 +330,12 @@ random_word_url = "https://it.wiktionary.org/wiki/Speciale:RandomRootpage"
 
 def adjust_wikicode(code: str, locale: str) -> str:
     """
+    >>> adjust_wikicode("[[w:A|B]]", "it")
+    '[[A|B]]'
+
+    >>> adjust_wikicode("[[en:foo]]", "it")
+    ''
+
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
     >>> adjust_wikicode("#participio passato di [[amare]]", "it")
@@ -342,6 +348,18 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|amare}}'
     >>> adjust_wikicode("# {{1}}, 2ª pers. e {{3}} singolare congiuntivo presente del verbo [[amare]]", "it")
     '# {{flexion|amare}}'
+
+    >>> adjust_wikicode("{{-verb form-}}", "it")
+    '=== {{verb form}} ==='
+
+    >>> adjust_wikicode("{{-avv-|it}}", "it")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("{{-avv-|ANY}}", "it")
+    '=== {{avv|ANY}} ==='
+
+    >>> adjust_wikicode("{{-avv-}}", "it")
+    '=== {{avv}} ==='
     """
     # [[w:A|B]] → [[A|B]]
     code = code.replace("[[w:", "[[")

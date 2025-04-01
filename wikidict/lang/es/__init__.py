@@ -362,6 +362,9 @@ random_word_url = "https://es.wiktionary.org/wiki/Especial:Aleatorio_en_categor%
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
-    """ """
+    """
+    >>> adjust_wikicode("{{ES|xxx|núm=1}}", "es")
+    '== {{lengua|es}} =='
+    """
     # {{ES|xxx|núm=n}} → == {{lengua|es}} ==
-    return re.sub(r"^\{\{ES\|.+\}\}", r"== {{lengua|es}} ==", code, flags=re.MULTILINE)
+    return re.sub(rf"^\{{\{{{locale.upper()}\|.+}}}}", rf"== {{{{lengua|{locale}}}}} ==", code, flags=re.MULTILINE)

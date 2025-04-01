@@ -423,13 +423,13 @@ random_word_url = "https://en.wiktionary.org/wiki/Special:RandomInCategory/Engli
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
-    r"""
-    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}', "en")
+    """
+    >>> adjust_wikicode('{| class="floatright"\\n|-\\n| {{PIE word|en|h₁eǵʰs}}\\n| {{PIE word|en|ḱóm}}\\n|}', "en")
     ''
-    >>> adjust_wikicode('{| class="floatright"\n|-\n| {{PIE word|en|h₁eǵʰs}}\n| {{PIE word|en|ḱóm}}\n|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}', "en")
+    >>> adjust_wikicode('{| class="floatright"\\n|-\\n| {{PIE word|en|h₁eǵʰs}}\\n| {{PIE word|en|ḱóm}}\\n|}{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}', "en")
     '{{root|en|ine-pro|*(s)ker-|id=cut|*h₃reǵ-}}'
-    >>> adjust_wikicode("<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>", "en")
-    '<math>\\frac{|AP|}{|BP|} = \\frac{|AC|}{|BC|}</math>'
+    >>> adjust_wikicode("<math>\\\\frac{|AP|}{|BP|} = \\\\frac{|AC|}{|BC|}</math>", "en")
+    '<math>\\\\frac{|AP|}{|BP|} = \\\\frac{|AC|}{|BC|}</math>'
     """
     # Remove tables (cf issue #2073)
     return re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
