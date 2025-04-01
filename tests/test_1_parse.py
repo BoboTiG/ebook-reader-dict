@@ -4,6 +4,8 @@ from collections.abc import Callable
 from pathlib import Path
 from unittest.mock import patch
 
+import pytest
+
 from wikidict import parse
 
 
@@ -195,3 +197,36 @@ def test_parse_word_with_templates_lowercased(tmp_path: Path) -> None:
     )
 
     assert "restaurang" in parse.process(file, "sv")
+
+
+@pytest.mark.parametrize(
+    "locale, lang_src, lang_dst",
+    [
+        ("fr", "fr", "fr"),
+        ("fro", "fro", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
+    ],
+)
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    source_dir = tmp_path
+    pages = Path(f"pages-{snapshot}.xml")
+    words: dict[str, str] = {}
+
+    with (
+        patch.object(parse, "get_source_dir") as mocked_gsd,
+        patch.object(parse, "get_latest_xml_file") as mocked_glxf,
+        patch.object(parse, "process") as mocked_p,
+        patch.object(parse, "save") as mocked_s,
+    ):
+        mocked_glxf.return_value = pages
+        mocked_gsd.return_value = source_dir
+        mocked_p.return_value = words
+
+        parse.main(locale)
+        mocked_gsd.assert_called_once_with(lang_src)
+        mocked_glxf.assert_called_once_with(source_dir)
+        mocked_p.assert_called_once_with(pages, locale)
+        mocked_s.assert_called_once_with(parse.get_output_file(source_dir, lang_src, lang_dst, snapshot), words)

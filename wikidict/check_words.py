@@ -1,26 +1,23 @@
 """Get and render N words; then compare with the rendering done on the Wiktionary to catch errors."""
 
 import logging
-import os
 import random
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from pathlib import Path
 
-from . import check_word, render
-from .utils import check_for_missing_templates, guess_locales
+from . import check_word, render, utils
 
 log = logging.getLogger(__name__)
 
 
 def local_check(
     word: str,
-    lang_src: str,
-    lang_dst: str,
+    locale: str,
     *,
     missed_templates: list[tuple[str, str]] | None = None,
 ) -> int:
-    return check_word.check_word(word, lang_src, lang_dst, standalone=False, missed_templates=missed_templates)
+    return check_word.check_word(word, locale, standalone=False, missed_templates=missed_templates)
 
 
 def get_words_to_tackle(
@@ -36,8 +33,9 @@ def get_words_to_tackle(
     if input_file:
         words = Path(input_file).read_text().splitlines()
     else:
-        output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-        if not (file := render.get_latest_json_file(output_dir)):
+        lang_src, lang_dst = utils.guess_locales(locale)
+        source_dir = render.get_source_dir(lang_src)
+        if not (file := render.get_latest_json_file(source_dir, lang_dst)):
             log.error("No dump found. Run with --parse first ... ")
             return []
 
@@ -67,20 +65,18 @@ def get_words_to_tackle(
 def main(locale: str, count: int, is_random: bool, offset: str, input_file: str) -> int:
     """Entry point."""
 
-    lang_src, lang_dst = guess_locales(locale)
-
-    words = get_words_to_tackle(lang_src, count=count, is_random=is_random, offset=offset, input_file=input_file)
+    words = get_words_to_tackle(locale, count=count, is_random=is_random, offset=offset, input_file=input_file)
     missed_templates: list[tuple[str, str]] = []
 
     with ThreadPoolExecutor(max_workers=10) as pool:
         err = pool.map(
-            partial(local_check, lang_src=lang_src, lang_dst=lang_dst, missed_templates=missed_templates),
+            partial(local_check, locale=locale, missed_templates=missed_templates),
             words,
         )
 
     if errors := sum(err):
         log.warning("TOTAL Errors: %s", f"{errors:,}")
 
-    check_for_missing_templates(missed_templates)
+    utils.check_for_missing_templates(missed_templates)
 
     return errors

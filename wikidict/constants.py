@@ -32,3 +32,8 @@ NO_ETYMOLOGY_SUFFIX = "-noetym"
 ZIP_INSTALL = "INSTALL.txt"
 ZIP_WORDS_COUNT = "words.count"
 ZIP_WORDS_SNAPSHOT = "words.snapshot"
+
+# Locales relations
+# Example with FRO (Old French) that uses the FR (French) Wiktionary dump as source.
+# Syntax: "locale": "origin locale"
+LOCALE_ORIGIN = {"fro": "fr"}

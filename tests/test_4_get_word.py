@@ -42,7 +42,7 @@ def test_word_not_found() -> None:
     ],
 )
 def test_locale_pronunciations(locale: str, word: str, pronunciations: list[str]) -> None:
-    details = get_word.get_word(word, locale, locale)
+    details = get_word.get_word(word, locale)
     assert details.pronunciations == pronunciations
 
 
@@ -55,5 +55,5 @@ def test_locale_pronunciations(locale: str, word: str, pronunciations: list[str]
     ],
 )
 def test_locale_etymologies(locale: str, word: str, etymology_len: int) -> None:
-    details = get_word.get_word(word, locale, locale)
+    details = get_word.get_word(word, locale)
     assert len(details.etymology) == etymology_len

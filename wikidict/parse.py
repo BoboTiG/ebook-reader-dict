@@ -13,8 +13,7 @@ from time import monotonic
 from typing import TYPE_CHECKING
 from xml.sax.saxutils import unescape
 
-from .lang import head_sections
-from .utils import guess_locales
+from . import lang, utils
 
 if TYPE_CHECKING:
     from collections.abc import Callable, Generator, Iterator
@@ -68,16 +67,17 @@ def xml_parse_element(element: str, head_sections_matcher: Callable[[str], Itera
 def process(file: Path, locale: str) -> dict[str, str]:
     """Process the big XML file and retain only information we are interested in."""
     words: dict[str, str] = defaultdict(str)
+    lang_src, lang_dst = utils.guess_locales(locale, use_log=False)
 
-    log.info("Processing %s for destination lang %r ...", file, locale)
+    log.info("Processing %s for destination lang %r ...", file, lang_dst)
 
-    if locale == "de":
+    if lang_src == "de":
         # It is not possible to use a regexp matcher
         def head_sections_matcher(wikicode: str) -> Iterator[str]:
-            return (s for s in head_sections[locale] if s in wikicode.lower())
+            return (s for s in lang.head_sections[lang_dst] if s in wikicode.lower())
     else:
         head_sections_matcher = re.compile(
-            rf"^=*\s*(?:{'|'.join(hs.replace('{', r'\{').replace('|', r'\|') for hs in head_sections[locale])})",
+            rf"^=*\s*(?:{'|'.join(hs.replace('{', r'\{').replace('|', r'\|') for hs in lang.head_sections[lang_dst])})",
             flags=re.IGNORECASE | re.MULTILINE,
         ).finditer  # type: ignore[assignment]
 
@@ -89,41 +89,49 @@ def process(file: Path, locale: str) -> dict[str, str]:
     return words
 
 
-def save(output_file: Path, words: dict[str, str]) -> None:
+def save(output: Path, words: dict[str, str]) -> None:
     """Persist data."""
     if not words:
         log.warning("No words to save.")
         return
 
-    output_file.parent.mkdir(exist_ok=True, parents=True)
-    with output_file.open(mode="w", encoding="utf-8") as fh:
+    output.parent.mkdir(exist_ok=True, parents=True)
+    with output.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
 
-    log.info("Saved %s words into %s", f"{len(words):,}", output_file)
+    log.info("Saved %s words into %s", f"{len(words):,}", output)
 
 
-def get_latest_xml_file(output_dir: Path) -> Path | None:
+def get_latest_xml_file(source_dir: Path) -> Path | None:
     """Get the name of the last pages-*.xml file."""
-    files = list(output_dir.glob("pages-*.xml"))
+    files = list(source_dir.glob(f"pages-{'[0-9]' * 8}.xml"))
     return sorted(files)[-1] if files else None
+
+
+def get_source_dir(locale: str) -> Path:
+    return Path(os.getenv("CWD", "")) / "data" / locale
+
+
+def get_output_file(source_dir: Path, lang_src: str, lang_dst: str, snapshot: str) -> Path:
+    return source_dir.parent / lang_dst / f"data_wikicode-{lang_src}-{snapshot}.json"
 
 
 def main(locale: str) -> int:
     """Entry point."""
 
-    lang_src, lang_dst = guess_locales(locale)
+    start = monotonic()
+    lang_src, lang_dst = utils.guess_locales(locale)
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_src
-    file = get_latest_xml_file(output_dir)
-    if not file:
+    source_dir = get_source_dir(lang_src)
+    if not (input_file := get_latest_xml_file(source_dir)):
         log.error("No dump found. Run with --download first ... ")
         return 1
 
-    start = monotonic()
-    date = file.stem.split("-")[1]
-    output = output_dir.parent / lang_dst / f"data_wikicode-{date}.json"
-    if not output.is_file():
-        words = process(file, lang_dst)
+    output = get_output_file(source_dir, lang_src, lang_dst, input_file.stem.split("-")[-1])
+    if output.is_file():
+        log.info("Already parsed into %s", output)
+    else:
+        words = process(input_file, locale)
         save(output, words)
 
     log.info("Parse done in %s!", timedelta(seconds=monotonic() - start))

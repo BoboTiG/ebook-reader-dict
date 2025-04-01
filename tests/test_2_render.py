@@ -66,7 +66,7 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
         ":;a: vocablo que titula un artículo de diccionario.\n\n\n"
         ":;b: artículo de un diccionario, enciclopedia u obra de referencia."
     )
-    definitions = render.find_section_definitions("Bahamas", section, "es")
+    definitions = render.find_section_definitions("Bahamas", section, "es", "es")
     assert definitions == [
         "archipiélago de 2&nbsp;000 peñascos.",
         "países: país ubicado en el archipiélago anterior.",
@@ -150,3 +150,39 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
             variants=[],
         ),
     }
+
+
+@pytest.mark.parametrize(
+    "locale, lang_src, lang_dst",
+    [
+        ("fr", "fr", "fr"),
+        ("fro", "fro", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
+    ],
+)
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    source_dir = tmp_path
+    pages = Path(f"data_wikicode-{lang_dst}-{snapshot}.json")
+    words: dict[str, str] = {"a": "b"}
+
+    with (
+        patch.object(render, "get_source_dir") as mocked_gsd,
+        patch.object(render, "get_latest_json_file") as mocked_gljf,
+        patch.object(render, "load") as mocked_l,
+        patch.object(render, "render") as mocked_r,
+        patch.object(render, "save") as mocked_s,
+    ):
+        mocked_gljf.return_value = pages
+        mocked_gsd.return_value = source_dir
+        mocked_l.return_value = words
+        mocked_r.return_value = words
+
+        render.main(locale, workers=1)
+        mocked_gsd.assert_called_once_with(lang_dst)
+        mocked_gljf.assert_called_once_with(source_dir, lang_src)
+        mocked_l.assert_called_once_with(pages)
+        mocked_r.assert_called_once_with(words, locale, 1)
+        mocked_s.assert_called_once_with(render.get_output_file(source_dir, lang_src, lang_dst, snapshot), words)

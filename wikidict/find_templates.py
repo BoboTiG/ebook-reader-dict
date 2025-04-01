@@ -6,30 +6,29 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-from .lang import sections
-from .render import adjust_wikicode, find_all_sections, find_sections, get_latest_json_file, load
+from . import lang, render, utils
 
 log = logging.getLogger(__name__)
 
 
-def find_titles(code: str, locale: str) -> list[str]:
+def find_titles(code: str, lang_src: str, lang_dst: str) -> list[str]:
     """Find the correct section(s) holding the current locale definition(s)."""
-    _, all_sections = find_all_sections(code, locale)
+    _, all_sections = render.find_all_sections(code, lang_src, lang_dst)
     return [title for title, _ in all_sections]
 
 
-def find_templates(in_words: dict[str, str], locale: str) -> None:
+def find_templates(in_words: dict[str, str], lang_src: str, lang_dst: str) -> None:
     found_sections = defaultdict(list)
     templates: dict[str, str] = {}
-    locale_sections = sections[locale]
+    locale_sections = lang.sections[lang_dst]
     for in_word, code in in_words.items():
-        if locale == "da":
-            code = adjust_wikicode(code, locale)
+        if lang_src == "da":
+            code = render.adjust_wikicode(code, lang_dst)
 
-        for title in find_titles(code, locale):
+        for title in find_titles(code, lang_src, lang_dst):
             found_sections[title].append(in_word)
 
-        _, parsed_sections = find_sections(code, locale)
+        _, parsed_sections = render.find_sections(code, lang_src, lang_dst)
         defs = "\n".join(str(s) for s in parsed_sections.values())
         for template in re.findall(r"({{[^{}]*}})", defs):
             if template.startswith(locale_sections):
@@ -65,15 +64,16 @@ def find_templates(in_words: dict[str, str], locale: str) -> None:
 def main(locale: str) -> int:
     """Entry point."""
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    file = get_latest_json_file(output_dir)
-    if not file:
+    lang_src, lang_dst = utils.guess_locales(locale)
+
+    source_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
+    if not (file := render.get_latest_json_file(source_dir, lang_src)):
         log.error("No dump found. Run with --parse first ... ")
         return 1
 
     log.info("Loading %s ...", file)
-    in_words: dict[str, str] = load(file)
+    in_words = render.load(file)
 
     log.info("Working, please be patient ...")
-    find_templates(in_words, locale)
+    find_templates(in_words, lang_src, lang_dst)
     return 0

@@ -15,9 +15,9 @@ import requests
 from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning, NavigableString
 from requests.exceptions import RequestException
 
+from . import utils
 from .render import parse_word
 from .user_functions import color, int_to_roman
-from .utils import check_for_missing_templates, get_random_word, guess_locales
 
 if TYPE_CHECKING:
     from collections.abc import Iterator
@@ -358,7 +358,7 @@ def get_text(html: str) -> str:
 
 def craft_url(word: str, locale: str, *, raw: bool = False) -> str:
     """Craft the *word* URL for the given *locale*."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
+    url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={urllib.parse.quote(word)}"
     if raw:
         url += "&action=raw"
     return url
@@ -389,24 +389,23 @@ def get_url_content(url: str) -> str:
     raise RuntimeError(f"Sorry, too many tries for {url!r}")
 
 
-def get_word(word: str, lang_src: str, lang_dst: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
+def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
-    url = craft_url(word, lang_src, raw=True)
+    url = craft_url(word, utils.guess_lang_origin(locale), raw=True)
     html = get_url_content(url)
-    return parse_word(word, html, lang_dst, missed_templates=missed_templates)
+    return parse_word(word, html, locale, missed_templates=missed_templates)
 
 
-def get_wiktionary_page(word: str, lang_src: str, lang_dst: str) -> str:
+def get_wiktionary_page(word: str, locale: str) -> str:
     """Get a *word* HTML."""
-    url = craft_url(word, lang_src)
+    url = craft_url(word, locale)
     html = get_url_content(url)
-    return filter_html(html, lang_dst)
+    return filter_html(html, locale)
 
 
 def check_word(
     word: str,
-    lang_src: str,
-    lang_dst: str,
+    locale: str,
     *,
     standalone: bool = True,
     missed_templates: list[tuple[str, str]] | None = None,
@@ -417,12 +416,12 @@ def check_word(
     if missed_templates is None:
         missed_templates = []
 
-    details = get_word(word, lang_src, lang_dst, missed_templates=missed_templates)
+    details = get_word(word, locale, missed_templates=missed_templates)
 
     if not details.etymology and not details.definitions:
         return 0
 
-    text = get_wiktionary_page(word, lang_src, lang_dst)
+    text = get_wiktionary_page(word, locale)
 
     if details.etymology:
         for etymology in details.etymology:
@@ -455,7 +454,7 @@ def check_word(
         log.debug("[%s] - OK", word)
 
     if standalone:
-        errors += int(check_for_missing_templates(missed_templates))
+        errors += int(utils.check_for_missing_templates(missed_templates))
 
     return errors
 
@@ -463,9 +462,9 @@ def check_word(
 def main(locale: str, word: str) -> int:
     """Entry point."""
 
-    lang_src, lang_dst = guess_locales(locale, use_log=False)
+    _, lang_dst = utils.guess_locales(locale, use_log=False)
 
     # If *word* is empty, get a random word
-    word = word or get_random_word(lang_dst)
+    word = word or utils.get_random_word(lang_dst)
 
-    return check_word(word, lang_src, lang_dst)
+    return check_word(word, locale)

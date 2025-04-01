@@ -19,11 +19,10 @@ from typing import TYPE_CHECKING, cast
 import wikitextparser as wtp
 import wikitextparser._spans
 
-from . import lang
+from . import lang, utils
 from .namespaces import namespaces
 from .stubs import Word
 from .user_functions import unique
-from .utils import check_for_missing_templates, guess_locales, process_templates, table2html
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -62,14 +61,15 @@ log = logging.getLogger(__name__)
 def find_definitions(
     word: str,
     parsed_sections: Sections,
-    locale: str,
+    lang_src: str,
+    lang_dst: str,
     *,
     missed_templates: list[tuple[str, str]] | None = None,
 ) -> list[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
-            find_section_definitions(word, section, locale, missed_templates=missed_templates)
+            find_section_definitions(word, section, lang_src, lang_dst, missed_templates=missed_templates)
             for sections in parsed_sections.values()
             for section in sections
         )
@@ -105,28 +105,29 @@ def es_replace_defs_list_with_numbered_lists(
 def find_section_definitions(
     word: str,
     section: wtp.Section,
-    locale: str,
+    lang_src: str,
+    lang_dst: str,
     *,
     missed_templates: list[tuple[str, str]] | None = None,
 ) -> list[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: list[Definitions] = []
 
-    if locale == "es":
+    if lang_src == "es":
         if section.title.strip().lower().startswith(("forma adjetiva", "forma verbal")):
             return definitions
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
-    if lists := section.get_lists(pattern=lang.section_patterns[locale]):
+    if lists := section.get_lists(pattern=lang.section_patterns[lang_dst]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
-                if any(ignore_me in code.lower() for ignore_me in lang.definitions_to_ignore[locale]):
+                if any(ignore_me in code.lower() for ignore_me in lang.definitions_to_ignore[lang_dst]):
                     continue
 
                 # Transform and clean the Wikicode
-                definition = process_templates(word, code, locale, missed_templates=missed_templates)
+                definition = utils.process_templates(word, code, lang_dst, missed_templates=missed_templates)
 
                 # Skip empty definitions
                 if not definition:
@@ -137,20 +138,22 @@ def find_section_definitions(
 
                 # ... And its eventual sub-definitions
                 subdefinitions: list[SubDefinitions] = []
-                for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[locale]):
+                for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[lang_dst]):
                     for idx2, subcode in enumerate(sublist.items):
-                        subdefinition = process_templates(word, subcode, locale, missed_templates=missed_templates)
+                        subdefinition = utils.process_templates(
+                            word, subcode, lang_dst, missed_templates=missed_templates
+                        )
                         if not subdefinition:
                             continue
 
                         subdefinitions.append(subdefinition)
                         subsubdefinitions: list[str] = []
-                        for subsublist in sublist.sublists(i=idx2, pattern=lang.sublist_patterns[locale]):
+                        for subsublist in sublist.sublists(i=idx2, pattern=lang.sublist_patterns[lang_dst]):
                             for subsubcode in subsublist.items:
-                                if subsubdefinition := process_templates(
+                                if subsubdefinition := utils.process_templates(
                                     word,
                                     subsubcode,
-                                    locale,
+                                    lang_dst,
                                     missed_templates=missed_templates,
                                 ):
                                     subsubdefinitions.append(subsubdefinition)
@@ -164,7 +167,8 @@ def find_section_definitions(
 
 def find_etymology(
     word: str,
-    locale: str,
+    lang_src: str,
+    lang_dst: str,
     parsed_section: wtp.Section,
     *,
     missed_templates: list[tuple[str, str]] | None = None,
@@ -182,8 +186,7 @@ def find_etymology(
                 items = [item for item in items if not item.lstrip().lower().startswith(skip)]
         return items
 
-    items = [parsed_section.contents]
-    match locale:
+    match lang_src:
         case "da":
             items = get_items(("#", ":"))
         case "de":
@@ -202,20 +205,20 @@ def find_etymology(
             tableindex = 0
             for section in parsed_section.get_lists():
                 for idx, section_item in enumerate(section.items):
-                    if any(ignore_me in section_item.lower() for ignore_me in lang.definitions_to_ignore[locale]):
+                    if any(ignore_me in section_item.lower() for ignore_me in lang.definitions_to_ignore[lang_dst]):
                         continue
                     if section_item == ' {| class="wikitable"':
-                        phrase = table2html(word, locale, tables[tableindex])
+                        phrase = utils.table2html(word, lang_dst, tables[tableindex])
                         definitions.append(phrase)
                         tableindex += 1
                     else:
                         definitions.append(
-                            process_templates(word, section_item, locale, missed_templates=missed_templates)
+                            utils.process_templates(word, section_item, lang_dst, missed_templates=missed_templates)
                         )
                         subdefinitions: list[SubDefinitions] = []
                         for sublist in section.sublists(i=idx):
                             subdefinitions.extend(
-                                process_templates(word, subcode, locale, missed_templates=missed_templates)
+                                utils.process_templates(word, subcode, lang_dst, missed_templates=missed_templates)
                                 for subcode in sublist.items
                             )
                         if subdefinitions:
@@ -231,43 +234,47 @@ def find_etymology(
             items = get_items(("",), skip=("=== {{etimologie",))
         case "sv":
             items = re.findall(r"{{etymologi\|(.+)}}\s", parsed_section.contents)
+        case _:
+            items = [parsed_section.contents]
 
     return [
         etyl
         for item in items
-        if (etyl := process_templates(word, item, locale, missed_templates=missed_templates)) and len(etyl) > 1
+        if (etyl := utils.process_templates(word, item, lang_dst, missed_templates=missed_templates)) and len(etyl) > 1
     ]
 
 
-def _find_genders(top_sections: list[wtp.Section], locale: str) -> list[str]:
+def _find_genders(top_sections: list[wtp.Section], lang_src: str, lang_dst: str) -> list[str]:
     """Find the genders."""
-    func: Callable[[str, str], list[str]] = lang.find_genders[locale]
+    func: Callable[[str, str], list[str]] = lang.find_genders[lang_src]
     for top_section in top_sections:
-        if result := func(top_section.contents, locale):
+        if result := func(top_section.contents, lang_dst):
             return result
     return []
 
 
-def _find_pronunciations(top_sections: list[wtp.Section], locale: str) -> list[str]:
+def _find_pronunciations(top_sections: list[wtp.Section], lang_src: str, lang_dst: str) -> list[str]:
     """Find pronunciations."""
     results = []
-    func = lang.find_pronunciations[locale]
+    func = lang.find_pronunciations[lang_src]
     for top_section in top_sections:
-        if result := func(top_section.contents, locale):
+        if result := func(top_section.contents, lang_dst):
             results.extend(result)
     return sorted(unique(results))
 
 
-def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[tuple[str, wtp.Section]]]:
+def find_all_sections(
+    code: str, lang_src: str, lang_dst: str
+) -> tuple[list[wtp.Section], list[tuple[str, wtp.Section]]]:
     """Find all sections holding definitions."""
     parsed = wtp.parse(code)
     all_sections = []
-    level = lang.section_level[locale]
+    level = lang.section_level[lang_dst]
 
     # Add fake section for etymology if in the leading part
-    if locale == "ca":
+    if lang_src == "ca":
         etyl_data = etyl_data_section = leading_lines = ""
-        etyl_l_sections = lang.etyl_section[locale]
+        etyl_l_sections = lang.etyl_section[lang_dst]
 
         leading_part = parsed.get_sections(include_subsections=False, level=level)
         if leading_part:
@@ -289,7 +296,7 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
             )
 
     def section_title(title: str) -> str:
-        if locale == "de":
+        if lang_src == "de":
             title = title.split("(")[-1].strip(" )")
         return title.replace(" ", "").lower().strip() if title else ""
 
@@ -297,25 +304,25 @@ def find_all_sections(code: str, locale: str) -> tuple[list[wtp.Section], list[t
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(section.title).startswith(lang.head_sections[locale])
+        if section_title(section.title).startswith(lang.head_sections[lang_dst])
     ]
 
     # Get _all_ sections without any filtering
     all_sections.extend(
         (section.title.strip(), section)
         for top_section in top_sections
-        for sublevel in lang.section_sublevels[locale]
+        for sublevel in lang.section_sublevels[lang_dst]
         for section in top_section.get_sections(include_subsections=False, level=sublevel)
     )
 
     return top_sections, all_sections
 
 
-def find_sections(code: str, locale: str) -> tuple[list[wtp.Section], Sections]:
+def find_sections(code: str, lang_src: str, lang_dst: str) -> tuple[list[wtp.Section], Sections]:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
-    wanted = lang.sections[locale]
-    top_sections, all_sections = find_all_sections(code, locale)
+    wanted = lang.sections[lang_dst]
+    top_sections, all_sections = find_all_sections(code, lang_src, lang_dst)
     for title, section in all_sections:
         title = title.lower()
         # Filter on interesting sections
@@ -349,7 +356,7 @@ def add_potential_variant(
     >>> variants_lst
     ['19e']
     """
-    if (variant := process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
+    if (variant := utils.process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
         # Example of false positive we try to prevent in the condition:
         #    [DE] word="Halles (Saale)" variant="Halle (Saale)"
         #    [EN] word="401(k)s"        variant="401(k)"
@@ -451,49 +458,51 @@ def parse_word(
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and gender guessing.
     It is disabled by default to speed-up the overall process, but enabled when
-    called from get_and_parse_word().
+    called from `get_word.get_and_parse_word()`.
     """
-    code = adjust_wikicode(code, locale)
-    top_sections, parsed_sections = find_sections(code, locale)
+    lang_src, lang_dst = utils.guess_locales(locale, use_log=False, uniformize=True)
+
+    code = adjust_wikicode(code, lang_dst)
+    top_sections, parsed_sections = find_sections(code, lang_src, lang_dst)
     prons = []
     genders = []
     etymology = []
     variants: list[str] = []
 
     # Etymology
-    if locale == "sv":
+    if lang_src == "sv":
         for top in top_sections:
-            etymology.extend(find_etymology(word, locale, top, missed_templates=missed_templates))
+            etymology.extend(find_etymology(word, lang_src, lang_dst, top, missed_templates=missed_templates))
     elif parsed_sections:
-        for section in lang.etyl_section[locale]:
-            if not parsed_sections:
-                break
+        for section in lang.etyl_section[lang_dst]:
+            # if not parsed_sections:
+            #     break
             for etyl_data in parsed_sections.pop(section, []):
-                etymology.extend(find_etymology(word, locale, etyl_data, missed_templates=missed_templates))
+                etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, missed_templates=missed_templates))
 
     # Definitions
     if parsed_sections:
-        definitions = find_definitions(word, parsed_sections, locale, missed_templates=missed_templates)
-    elif locale in {"no", "pt"}:
+        definitions = find_definitions(word, parsed_sections, lang_src, lang_dst, missed_templates=missed_templates)
+    elif lang_src in {"no", "pt"}:
         # Some words have no head sections but only a list of definitions at the root of the "top" section
         marker = {
             "no": "===",
             "pt": "==",
-        }[locale]
+        }[lang_src]
         for top in top_sections:
             contents = top.contents
             top.contents = contents[: contents.find(marker)]
-        definitions = find_definitions(word, {"top": top_sections}, locale)
+        definitions = find_definitions(word, {"top": top_sections}, lang_src, lang_dst)
     else:
         definitions = []
 
     if definitions or force:
-        prons = _find_pronunciations(top_sections, locale)
-        genders = _find_genders(top_sections, locale)
+        prons = _find_pronunciations(top_sections, lang_src, lang_dst)
+        genders = _find_genders(top_sections, lang_src, lang_dst)
 
     # Variants
-    if parsed_sections and (interesting_titles := lang.variant_titles[locale]):
-        interesting_templates = lang.variant_templates[locale]
+    if parsed_sections and (interesting_titles := lang.variant_titles[lang_dst]):
+        interesting_templates = lang.variant_templates[lang_dst]
         for title, parsed_section in parsed_sections.items():
             if not title.startswith(interesting_titles):
                 continue
@@ -501,7 +510,7 @@ def parse_word(
                 for tpl in parsed.templates:
                     tpl = str(tpl)
                     if tpl.startswith(interesting_templates):
-                        add_potential_variant(word, tpl, locale, variants)
+                        add_potential_variant(word, tpl, lang_dst, variants)
         if variants:
             variants = sorted(set(variants))
 
@@ -552,47 +561,53 @@ def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
             in_words.items(),
         )
 
-    check_for_missing_templates(list(missed_templates))
+    utils.check_for_missing_templates(list(missed_templates))
 
     return results.copy()
 
 
-def save(snapshot: str, words: Words, output_dir: Path) -> None:
+def save(output: Path, words: Words) -> None:
     """Persist data."""
-    raw_data = output_dir / f"data-{snapshot}.json"
-    with raw_data.open(mode="w", encoding="utf-8") as fh:
+    with output.open(mode="w", encoding="utf-8") as fh:
         json.dump(words, fh, indent=4, sort_keys=True)
-    log.info("Saved %s words into %s", f"{len(words):,}", raw_data)
+    log.info("Saved %s words into %s", f"{len(words):,}", output)
 
 
-def get_latest_json_file(output_dir: Path) -> Path | None:
+def get_latest_json_file(source_dir: Path, locale: str) -> Path | None:
     """Get the name of the last data_wikicode-*.json file."""
-    files = list(output_dir.glob("data_wikicode-*.json"))
+    files = list(source_dir.glob(f"data_wikicode-{locale}-{'[0-9]' * 8}.json"))
     return sorted(files)[-1] if files else None
+
+
+def get_source_dir(locale: str) -> Path:
+    return Path(os.getenv("CWD", "")) / "data" / locale
+
+
+def get_output_file(source_dir: Path, lang_src: str, lang_dst: str, snapshot: str) -> Path:
+    return source_dir.parent / lang_dst / f"data-{lang_src}-{snapshot}.json"
 
 
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
-    lang_src, lang_dst = guess_locales(locale, uniformize=True)
+    start = monotonic()
+    lang_src, lang_dst = utils.guess_locales(locale)
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
-    file = get_latest_json_file(output_dir)
-    if not file:
+    source_dir = get_source_dir(lang_dst)
+    if not (input_file := get_latest_json_file(source_dir, lang_src)):
         log.error("No dump found. Run with --parse first ... ")
         return 1
 
-    log.info("Loading %s ...", file)
-    in_words: dict[str, str] = load(file)
+    log.info("Loading %s ...", input_file)
+    in_words: dict[str, str] = load(input_file)
 
     workers = workers or multiprocessing.cpu_count()
-    start = monotonic()
-    words = render(in_words, lang_src, workers)
+    words = render(in_words, locale, workers)
     if not words:
         raise ValueError("Empty dictionary?!")
 
-    date = file.stem.split("-")[1]
-    save(date, words, output_dir)
+    output = get_output_file(source_dir, lang_src, lang_dst, input_file.stem.split("-")[-1])
+    save(output, words)
 
     log.info("Render done in %s!", timedelta(seconds=monotonic() - start))
     return 0

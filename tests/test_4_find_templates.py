@@ -8,13 +8,13 @@ def test_simple() -> None:
 
 
 def test_no_json_file() -> None:
-    with patch.object(find_templates, "get_latest_json_file", return_value=None):
+    with patch("wikidict.render.get_latest_json_file", return_value=None):
         assert find_templates.main("fr") == 1
 
 
 def test_no_sections() -> None:
     words = {"foo": ""}
-    find_templates.find_templates(words, "fr")
+    find_templates.find_templates(words, "fr", "fr")
 
 
 def test_no_templates() -> None:
@@ -26,4 +26,4 @@ def test_no_templates() -> None:
 """.splitlines()
     ).strip()
     words = {"foo": code}
-    find_templates.find_templates(words, "fr")
+    find_templates.find_templates(words, "fr", "fr")

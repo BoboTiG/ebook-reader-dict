@@ -622,7 +622,7 @@ def run_mobi_formatter(
             words = new_words
             variants = make_variants(words)
 
-    args = (locale, output_dir, words, variants, file.stem.split("-")[1])
+    args = (locale, output_dir, words, variants, file.stem.split("-")[-1])
     run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
     run_formatter(MobiFormat, *args, include_etymology=include_etymology)
 
@@ -659,6 +659,7 @@ def load(file: Path) -> Words:
 
 def make_variants(words: Words) -> Variants:
     """Group word by variant."""
+    log.info("Creating variants ...")
     variants: Variants = defaultdict(list)
     for word, details in words.items():
         for variant in details.variants:
@@ -666,9 +667,9 @@ def make_variants(words: Words) -> Variants:
     return variants
 
 
-def get_latest_json_file(output_dir: Path) -> Path | None:
+def get_latest_json_file(source_dir: Path, locale: str) -> Path | None:
     """Get the name of the last data-*.json file."""
-    files = list(output_dir.glob("data-*.json"))
+    files = list(source_dir.glob(f"data-{locale}-{'[0-9]' * 8}.json"))
     return sorted(files)[-1] if files else None
 
 
@@ -691,7 +692,7 @@ def distribute_workload(
                 output_dir=output_dir,
                 words=words,
                 variants=variants,
-                snapshot=file.stem.split("-")[1],
+                snapshot=file.stem.split("-")[-1],
                 include_etymology=include_etymology,
             ),
             formatters,
@@ -701,20 +702,19 @@ def distribute_workload(
 def main(locale: str) -> int:
     """Entry point."""
 
-    _, lang_dst = guess_locales(locale)
+    lang_src, lang_dst = guess_locales(locale)
 
-    output_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
-    file = get_latest_json_file(output_dir)
-    if not file:
+    source_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
+    if not (input_file := get_latest_json_file(source_dir, lang_src)):
         log.error("No dump found. Run with --render first ... ")
         return 1
 
     # Get all words from the database
-    words: Words = load(file)
+    words: Words = load(input_file)
     variants: Variants = make_variants(words)
 
     # And run formatters, distributing the workload
-    args = (output_dir, file, locale, words, variants)
+    args = (source_dir, input_file, locale, words, variants)
 
     # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
     multiprocessing.set_start_method("spawn", force=True)

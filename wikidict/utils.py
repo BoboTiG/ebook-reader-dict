@@ -21,6 +21,7 @@ from .constants import (
     DOWNLOAD_URL_KOBO,
     DOWNLOAD_URL_MOBI,
     DOWNLOAD_URL_STARDICT,
+    LOCALE_ORIGIN,
     NO_ETYMOLOGY_SUFFIX,
     WIKIMEDIA_HEADERS,
     WIKIMEDIA_URL_MATH_CHECK,
@@ -132,6 +133,25 @@ def get_random_word(locale: str) -> str:
     return word
 
 
+def guess_lang_origin(locale: str) -> str:
+    """
+    Determine the lang origin from a locale.
+
+    >>> guess_lang_origin("fr")
+    'fr'
+    >>> guess_lang_origin("fro")
+    'fr'
+    >>> guess_lang_origin("fr:it")
+    'fr'
+    >>> guess_lang_origin("it:fr")
+    'it'
+    """
+    if ":" in locale:
+        # `fr:fro` → source is FR
+        return locale.lower().split(":", 1)[0]
+    return LOCALE_ORIGIN.get(locale, locale)
+
+
 def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False) -> tuple[str, str]:
     """
     >>> guess_locales("fr")
@@ -139,7 +159,7 @@ def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False
     >>> guess_locales("fr", uniformize=True)
     ('fr', 'fr')
     >>> guess_locales("fro")
-    ('fr', 'fro')
+    ('fro', 'fro')
     >>> guess_locales("fro", uniformize=True)
     ('fro', 'fro')
     >>> guess_locales("fr:fro")
@@ -152,10 +172,9 @@ def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False
     if ":" in locale:
         # Example with "fr:fro" → source is FR, destination is FRO
         # because FRO is part of the FR Wiktionary
-        lang_src, lang_dst = locale.lower().split(":", 1)
+        lang_src, lang_dst = locale.split(":", 1)
     else:
-        lang_dst = locale.lower()
-        lang_src = {"fro": "fr"}.get(lang_dst, lang_dst)
+        lang_src = lang_dst = locale
 
     if uniformize:
         lang_src = {"fro": "fro"}.get(lang_dst, lang_src)
