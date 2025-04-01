@@ -219,6 +219,7 @@ templates_italic = {
     "Canton de La Mure": "Canton de La Mure",
     "dénombrable": "Dénombrable",
     "diaéthique": "Variations diaéthiques",
+    "enclise": "Enclise",
     "ex-rare": "Extrêmement rare",
     "extrêmement_rare": "Extrêmement rare",
     "énallages": "Énallage",
