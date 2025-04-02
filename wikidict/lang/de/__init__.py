@@ -307,6 +307,7 @@ random_word_url = "https://de.wiktionary.org/wiki/Spezial:Zuf%C3%A4llige_Stammse
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode("{{Bedeutungen}}\\n:[1] \\n\\n{{Herkunft}}\\n:[[Abkürzung]] von [[Sturmkanone]]", "de")
     '=== {{Bedeutungen}} ===\\n# \\n\\n=== {{Herkunft}} ===\\n:[[Abkürzung]] von [[Sturmkanone]]'
@@ -319,4 +320,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Definition lists are not well supported by the parser, replace them by numbered lists.
     # Note: using `[ ]*` rather than `\s*` to bypass issues when a section above another one
     #       contains an empty item.
-    return re.sub(r":\[\d+\][ ]*", "# ", code)
+    code = re.sub(r":\[\d+\][ ]*", "# ", code)
+
+    return code

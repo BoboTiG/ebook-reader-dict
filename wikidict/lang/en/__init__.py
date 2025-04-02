@@ -423,6 +423,7 @@ random_word_url = "https://en.wiktionary.org/wiki/Special:RandomInCategory/Engli
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode('{| class="floatright"\\n|-\\n| {{PIE word|en|h₁eǵʰs}}\\n| {{PIE word|en|ḱóm}}\\n|}', "en")
     ''
@@ -432,4 +433,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '<math>\\\\frac{|AP|}{|BP|} = \\\\frac{|AC|}{|BC|}</math>'
     """
     # Remove tables (cf issue #2073)
-    return re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
+    code = re.sub(r"^\{\|.*?\|\}", "", code, flags=re.DOTALL | re.MULTILINE)
+
+    return code

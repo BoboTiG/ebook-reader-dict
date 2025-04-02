@@ -993,6 +993,7 @@ random_word_url = "http://tools.wmflabs.org/anagrimes/hasard.php?langue=fr"
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
     ' Qui a rapport avec un type de [[discours]].'
@@ -1026,7 +1027,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
     code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
 
-    if not locale.startswith("fr"):
+    if locale != "fr":
         return code
 
     # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
@@ -1066,9 +1067,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
         flags=re.IGNORECASE | re.MULTILINE,
     )
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
-    return re.sub(
+    code = re.sub(
         r"^^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
         rf"# {{{{{locale}-verbe-flexion|\1}}}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
+
+    return code

@@ -329,12 +329,28 @@ random_word_url = "https://it.wiktionary.org/wiki/Speciale:RandomRootpage"
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode("[[w:A|B]]", "it")
     '[[A|B]]'
 
     >>> adjust_wikicode("[[en:foo]]", "it")
     ''
+
+    >>> adjust_wikicode("{{-verb form-}}", "it")
+    '=== {{verb form}} ==='
+
+    >>> adjust_wikicode("{{-avv-|it}}", "it")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("{{-avv-|ANY}}", "it")
+    '=== {{avv|ANY}} ==='
+
+    >>> adjust_wikicode("{{-avv-}}", "it")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("# plurale di [[-ectomia]]", "it")
+    '# {{flexion|-ectomia}}'
 
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
@@ -348,24 +364,27 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|amare}}'
     >>> adjust_wikicode("# {{1}}, 2ª pers. e {{3}} singolare congiuntivo presente del verbo [[amare]]", "it")
     '# {{flexion|amare}}'
-
-    >>> adjust_wikicode("{{-verb form-}}", "it")
-    '=== {{verb form}} ==='
-
-    >>> adjust_wikicode("{{-avv-|it}}", "it")
-    '=== {{avv}} ==='
-
-    >>> adjust_wikicode("{{-avv-|ANY}}", "it")
-    '=== {{avv|ANY}} ==='
-
-    >>> adjust_wikicode("{{-avv-}}", "it")
-    '=== {{avv}} ==='
     """
     # [[w:A|B]] → [[A|B]]
     code = code.replace("[[w:", "[[")
 
     # [[en:foo]] → ''
     code = re.sub(r"(\[\[\w+:\w+\]\])", "", code)
+
+    # {{-verb form-}} → === {{verb form}} ===
+    code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|it}} → === {{avv}} ===
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-}} → === {{avv}} ===
+    code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    if locale != "it":
+        return code
 
     # Hack for a fake variants to support more of them
 
@@ -389,14 +408,4 @@ def adjust_wikicode(code: str, locale: str) -> str:
         flags=re.MULTILINE,
     )
 
-    # {{-verb form-}} → === {{verb form}} ===
-    code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-    # {{-avv-|it}} → === {{avv}} ===
-    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
-
-    # {{-avv-|ANY}} → === {{avv|ANY}} ===
-    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
-
-    # {{-avv-}} → === {{avv}} ===
-    return re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    return code

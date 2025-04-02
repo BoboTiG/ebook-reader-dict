@@ -312,6 +312,7 @@ random_word_url = "https://eo.wiktionary.org/wiki/Speciala%C4%B5o:RandomRootpage
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode("{{Deklinacio-eo}}", "eo")
     ''
@@ -351,4 +352,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
 
     # Easier pronunciation
-    return re.sub(r"==== {{Vorterseparo}} ====\s*:(.+)\s*", r"\n{{PRON|`\1`}}\n", code, flags=re.MULTILINE)
+    code = re.sub(r"==== {{Vorterseparo}} ====\s*:(.+)\s*", r"\n{{PRON|`\1`}}\n", code, flags=re.MULTILINE)
+
+    return code

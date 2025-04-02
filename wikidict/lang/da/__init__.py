@@ -340,6 +340,7 @@ random_word_url = "https://da.wiktionary.org/wiki/Speciel:RandomRootpage"
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     r"""
     >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
     ''
@@ -386,4 +387,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
     # {{-avv-}} → === {{avv}} ===
-    return re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    return code

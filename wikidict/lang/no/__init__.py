@@ -284,6 +284,7 @@ random_word_url = "https://no.wiktionary.org/wiki/Spesial:Tilfeldig_rotside"
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode("----", "no")
     ''
@@ -294,4 +295,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = code.replace("----", "")
 
     # <includeonly>...</includeonly> → ''
-    return re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)
+    code = re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)
+
+    return code

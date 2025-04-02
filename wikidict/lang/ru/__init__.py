@@ -247,9 +247,12 @@ random_word_url = "https://ru.wiktionary.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5
 
 
 def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
     """
     >>> adjust_wikicode("{{t:=|же}}", "ru")
     '{{_t_|же}}'
     """
     # Workaround to prevent "t:=" to be reduced to "t"
-    return code.replace("{{t:=|", "{{_t_|")
+    code = code.replace("{{t:=|", "{{_t_|")
+
+    return code
