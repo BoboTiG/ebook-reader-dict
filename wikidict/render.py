@@ -601,7 +601,7 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     log.info("Loading %s ...", input_file)
     in_words: dict[str, str] = load(input_file)
 
-    log.info("rendering ...")
+    log.info("Rendering ...")
     workers = workers or multiprocessing.cpu_count()
     words = render(in_words, locale, workers)
     if not words:

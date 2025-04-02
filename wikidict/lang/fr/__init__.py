@@ -1000,14 +1000,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
     ' Qui a rapport avec un type de [[discours]].'
 
+    >>> adjust_wikicode("{{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}", "fr")
+    '# {{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}'
+
     >>> adjust_wikicode("== {{caractère}} ==", "fr")
     '== {{caractère}} ==\\n=== {{s|caractère}} ==='
 
     >>> adjust_wikicode("=== {{s|caractère}} ===\\n{{hangeul unicode}}", "fr")
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
-
-    >>> adjust_wikicode("{{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}", "fr")
-    '# {{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}'
 
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{flexion|pressant}}'
@@ -1026,14 +1026,17 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # <li value="2"> → ''
     code = re.sub(r"<li [^>]+>", "", code)
 
+    # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
+    code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
+
+    if not locale.startswith("fr"):
+        return code
+
     # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
     code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
 
     # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
     code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
-
-    # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
-    code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
 
     # Enhance name variants support
     # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég}}`

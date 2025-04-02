@@ -533,7 +533,11 @@ class MobiFormat(ConverterFromDictFile):
     final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip"
     zip_glob_files = ""  # Will be set in `_compress()`
     dictfile_format_cls = DictFileFormatForMobi
-    glossary_options = {"cover_path": str(COVER_FILE), "keep": True, "kindlegen_path": str(KINDLEGEN_FILE)}
+    glossary_options = {
+        "cover_path": str(COVER_FILE),
+        "keep": True,
+        "kindlegen_path": str(KINDLEGEN_FILE),
+    }
 
     def _compress(self) -> Path:
         # Move the relevant file at the top-level data folder, and rename it for more accuracy
@@ -591,7 +595,11 @@ def run_mobi_formatter(
         return chars
 
     stats = defaultdict(list)
-    for word, details in words.items():
+    for word, details in words.copy().items():
+        if len(word) > 127:
+            log.info("Discarded word too long: %r", word)
+            words.pop(word)
+            continue
         for char in all_chars(word, details):
             stats[char].append(word)
 
@@ -666,6 +674,7 @@ def make_variants(words: Words) -> Variants:
     for word, details in words.items():
         for variant in details.variants:
             variants[variant].append(word)
+    log.info("Created %s variants", f"{len(variants):,}")
     return variants
 
 
