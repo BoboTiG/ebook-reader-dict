@@ -587,7 +587,7 @@ def run_mobi_formatter(
     stats = defaultdict(list)
     for word, details in words.copy().items():
         if len(word) > 127:
-            log.info("Discarded word too long: %r", word)
+            log.info("[Mobi] Discarded word too long: %r", word)
             words.pop(word)
             continue
         for char in all_chars(word, details):
