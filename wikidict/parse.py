@@ -121,6 +121,7 @@ def main(locale: str) -> int:
 
     start = monotonic()
     lang_src, lang_dst = utils.guess_locales(locale)
+    lang_src = utils.guess_lang_origin(lang_src)
 
     source_dir = get_source_dir(lang_src)
     if not (input_file := get_latest_xml_file(source_dir)):

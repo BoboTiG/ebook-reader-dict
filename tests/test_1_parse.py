@@ -203,7 +203,7 @@ def test_parse_word_with_templates_lowercased(tmp_path: Path) -> None:
     "locale, lang_src, lang_dst",
     [
         ("fr", "fr", "fr"),
-        ("fro", "fro", "fro"),
+        ("fro", "fr", "fro"),
         ("fr:fro", "fr", "fro"),
         ("fr:it", "fr", "it"),
         ("it:fr", "it", "fr"),
