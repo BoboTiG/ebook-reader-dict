@@ -587,13 +587,14 @@ def run_mobi_formatter(
     stats = defaultdict(list)
     for word, details in words.copy().items():
         if len(word) > 127:
-            log.info("[Mobi] Discarded word too long: %r", word)
-            words.pop(word)
-            continue
+            log.info("[Mobi] Truncated word too long: %r", word)
+            truncated = word[:127]
+            words[truncated] = words.pop(word)
+            word = truncated
         for char in all_chars(word, details):
             stats[char].append(word)
 
-    if locale in {"en", "fr"} and len(stats) > 256:
+    if utils.guess_lang_origin(locale) in {"en", "fr"} and len(stats) > 256:
         new_words = words.copy()
         threshold = 1
         while len(stats) > 256:
