@@ -17,9 +17,6 @@ thousands_separator = " "
 
 # Titre des sections qui sont intéressantes à analyser.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_sections_de_types_de_mots
-# Pour récupérer la liste complète des sections :
-#     python -m wikidict fr --find-templates
-# Ensuite il faudra purger la liste et il restera les sections ci-dessous.
 section_patterns = ("#", r"\*")
 head_sections = ("{{langue|fr}}", "{{langue|conv}}", "{{caractère}}")
 etyl_section = ("{{s|étymologie}}",)

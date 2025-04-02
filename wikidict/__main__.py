@@ -8,7 +8,6 @@ Usage:
     wikidict LOCALE --parse
     wikidict LOCALE --render [--workers=N]
     wikidict LOCALE --convert
-    wikidict LOCALE --find-templates
     wikidict LOCALE --check-words [--random] [--count=N] [--offset=M] [--input=FILENAME]
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
@@ -27,7 +26,6 @@ Options:
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
                                 - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dictorg-$LOCALE-$LOCALE.zip": DICT.org format.
-  --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
                             --random            Randomly if --random
                             --count=N           If -1 check all words [default: 100]
@@ -76,11 +74,6 @@ def main() -> int:
         from . import convert
 
         return convert.main(args["LOCALE"])
-
-    if args["--find-templates"]:
-        from . import find_templates
-
-        return find_templates.main(args["LOCALE"])
 
     if args["--check-word"] is not None:
         from . import check_word
