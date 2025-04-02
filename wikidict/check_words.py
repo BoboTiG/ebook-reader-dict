@@ -34,8 +34,8 @@ def get_words_to_tackle(
         words = Path(input_file).read_text().splitlines()
     else:
         lang_src, lang_dst = utils.guess_locales(locale)
-        source_dir = render.get_source_dir(lang_src)
-        if not (file := render.get_latest_json_file(source_dir, lang_dst)):
+        source_dir = render.get_source_dir(lang_src, lang_dst)
+        if not (file := render.get_latest_json_file(source_dir)):
             log.error("No dump found. Run with --parse first ... ")
             return []
 

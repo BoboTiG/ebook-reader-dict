@@ -318,7 +318,7 @@ def find_all_sections(
     return top_sections, all_sections
 
 
-def find_sections(code: str, lang_src: str, lang_dst: str) -> tuple[list[wtp.Section], Sections]:
+def find_sections(word: str, code: str, lang_src: str, lang_dst: str) -> tuple[list[wtp.Section], Sections]:
     """Find the correct section(s) holding the current locale definition(s)."""
     ret = defaultdict(list)
     wanted = lang.sections[lang_dst]
@@ -329,7 +329,7 @@ def find_sections(code: str, lang_src: str, lang_dst: str) -> tuple[list[wtp.Sec
         if title.startswith(wanted):
             ret[title].append(section)
         elif DEBUG_SECTIONS == "1":
-            print(f"Title section rejected: {title!r}", flush=True)
+            print(f"Title section rejected: {title!r} {word=}", flush=True)
         elif DEBUG_SECTIONS == title:
             assert 0  # Break the rendering to report the word as an error and be able to look into it
     return top_sections, ret
@@ -460,10 +460,10 @@ def parse_word(
     It is disabled by default to speed-up the overall process, but enabled when
     called from `get_word.get_and_parse_word()`.
     """
-    lang_src, lang_dst = utils.guess_locales(locale, use_log=False, uniformize=True)
+    lang_src, lang_dst = utils.guess_locales(locale, use_log=False)
 
     code = adjust_wikicode(code, lang_dst)
-    top_sections, parsed_sections = find_sections(code, lang_src, lang_dst)
+    top_sections, parsed_sections = find_sections(word, code, lang_src, lang_dst)
     prons = []
     genders = []
     etymology = []
@@ -573,18 +573,18 @@ def save(output: Path, words: Words) -> None:
     log.info("Saved %s words into %s", f"{len(words):,}", output)
 
 
-def get_latest_json_file(source_dir: Path, locale: str) -> Path | None:
+def get_latest_json_file(source_dir: Path) -> Path | None:
     """Get the name of the last data_wikicode-*.json file."""
-    files = list(source_dir.glob(f"data_wikicode-{locale}-{'[0-9]' * 8}.json"))
+    files = list(source_dir.glob(f"data_wikicode-{'[0-9]' * 8}.json"))
     return sorted(files)[-1] if files else None
 
 
-def get_source_dir(locale: str) -> Path:
-    return Path(os.getenv("CWD", "")) / "data" / locale
+def get_source_dir(lang_src: str, lang_dst: str) -> Path:
+    return Path(os.getenv("CWD", "")) / "data" / lang_src / lang_dst
 
 
-def get_output_file(source_dir: Path, lang_src: str, lang_dst: str, snapshot: str) -> Path:
-    return source_dir.parent / lang_dst / f"data-{lang_src}-{snapshot}.json"
+def get_output_file(source_dir: Path, snapshot: str) -> Path:
+    return source_dir / f"data-{snapshot}.json"
 
 
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
@@ -593,8 +593,8 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     start = monotonic()
     lang_src, lang_dst = utils.guess_locales(locale)
 
-    source_dir = get_source_dir(lang_dst)
-    if not (input_file := get_latest_json_file(source_dir, lang_src)):
+    source_dir = get_source_dir(lang_src, lang_dst)
+    if not (input_file := get_latest_json_file(source_dir)):
         log.error("No dump found. Run with --parse first ... ")
         return 1
 
@@ -607,7 +607,7 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     if not words:
         raise ValueError("Empty dictionary?!")
 
-    output = get_output_file(source_dir, lang_src, lang_dst, input_file.stem.split("-")[-1])
+    output = get_output_file(source_dir, input_file.stem.split("-")[-1])
     save(output, words)
 
     log.info("Render done in %s!", timedelta(seconds=monotonic() - start))

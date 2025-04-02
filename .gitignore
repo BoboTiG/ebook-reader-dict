@@ -11,10 +11,7 @@ dict-data.*
 sections.txt
 templates.txt
 /data/
-tests/data/*/dict-data.*
-tests/data/*/stardict/
-tests/data/*/res
-tests/data/*/tmp
+tests/data/*/*/
 
 # Project stuff - update-bot.py
 apicache-py3

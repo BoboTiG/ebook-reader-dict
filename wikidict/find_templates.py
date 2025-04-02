@@ -66,8 +66,8 @@ def main(locale: str) -> int:
 
     lang_src, lang_dst = utils.guess_locales(locale)
 
-    source_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
-    if not (file := render.get_latest_json_file(source_dir, lang_src)):
+    source_dir = Path(os.getenv("CWD", "")) / "data" / lang_src / lang_dst
+    if not (file := render.get_latest_json_file(source_dir)):
         log.error("No dump found. Run with --parse first ... ")
         return 1
 

@@ -113,7 +113,7 @@ def get_source_dir(locale: str) -> Path:
 
 
 def get_output_file(source_dir: Path, lang_src: str, lang_dst: str, snapshot: str) -> Path:
-    return source_dir.parent / lang_dst / f"data_wikicode-{lang_src}-{snapshot}.json"
+    return source_dir.parent / lang_src / lang_dst / f"data_wikicode-{snapshot}.json"
 
 
 def main(locale: str) -> int:
@@ -121,7 +121,6 @@ def main(locale: str) -> int:
 
     start = monotonic()
     lang_src, lang_dst = utils.guess_locales(locale)
-    lang_src = utils.guess_lang_origin(lang_src)
 
     source_dir = get_source_dir(lang_src)
     if not (input_file := get_latest_xml_file(source_dir)):

@@ -152,22 +152,18 @@ def guess_lang_origin(locale: str) -> str:
     return LOCALE_ORIGIN.get(locale, locale)
 
 
-def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False) -> tuple[str, str]:
+def guess_locales(locale: str, *, use_log: bool = True) -> tuple[str, str]:
     """
     >>> guess_locales("fr")
     ('fr', 'fr')
-    >>> guess_locales("fr", uniformize=True)
-    ('fr', 'fr')
     >>> guess_locales("fro")
-    ('fro', 'fro')
-    >>> guess_locales("fro", uniformize=True)
-    ('fro', 'fro')
+    ('fr', 'fro')
     >>> guess_locales("fr:fro")
     ('fr', 'fro')
-    >>> guess_locales("fr:fro", uniformize=True)
-    ('fro', 'fro')
-    >>> guess_locales("fr:it", uniformize=True)
+    >>> guess_locales("fr:it")
     ('fr', 'it')
+    >>> guess_locales("it:fr")
+    ('it', 'fr')
     """
     if ":" in locale:
         # Example with "fr:fro" → source is FR, destination is FRO
@@ -176,16 +172,14 @@ def guess_locales(locale: str, *, use_log: bool = True, uniformize: bool = False
     else:
         lang_src = lang_dst = locale
 
-    if uniformize:
-        lang_src = {"fro": "fro"}.get(lang_dst, lang_src)
+    lang_src = guess_lang_origin(lang_src)
 
     if use_log:
         log.info(
-            "Determined source lang %r, and destination lang %r, from %s (%s)",
+            "Determined source lang %r, and destination lang %r, from %s",
             lang_src,
             lang_dst,
             f"{locale=}",
-            f"{uniformize=}",
         )
 
     return lang_src, lang_dst
@@ -209,7 +203,7 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
             {
                 "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.df.bz2)",
                 "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(lang_src, lang_dst, etym_suffix)}) (dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip)",
-                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(lang_src, lang_dst, etym_suffix)}) (dictorg-{lang_dst}-{lang_src}{etym_suffix}.zip)",
+                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(lang_src, lang_dst, etym_suffix)}) (dictorg-{lang_src}-{lang_dst}{etym_suffix}.zip)",
                 "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip)",
                 "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.zip)",
             }

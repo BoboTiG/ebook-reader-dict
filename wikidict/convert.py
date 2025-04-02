@@ -9,7 +9,6 @@ import hashlib
 import json
 import logging
 import multiprocessing
-import os
 import shutil
 from collections import defaultdict
 from datetime import date, timedelta
@@ -23,17 +22,8 @@ from jinja2 import Template
 from marisa_trie import Trie
 from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
-from . import constants
-from .lang import wiktionary
+from . import constants, lang, render, user_functions, utils
 from .stubs import Word
-from .user_functions import flatten
-from .utils import (
-    convert_gender,
-    convert_pronunciation,
-    format_description,
-    guess_locales,
-    guess_prefix,
-)
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -168,7 +158,7 @@ class BaseFormat:
         *,
         include_etymology: bool = True,
     ) -> None:
-        self.lang_src, self.lang_dst = guess_locales(locale, uniformize=True)
+        self.lang_src, self.lang_dst = utils.guess_locales(locale)
         self.output_dir = output_dir
         self.words = words.copy()
         self.variants = variants.copy()
@@ -193,9 +183,9 @@ class BaseFormat:
     def handle_word(self, word: str, words: Words) -> Generator[str]:
         details = words[word]
         current_words = {word: details}
-        word_group_prefix = guess_prefix(word)
+        word_group_prefix = utils.guess_prefix(word)
 
-        if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
+        if details.variants and any(utils.guess_prefix(variant) != word_group_prefix for variant in details.variants):
             # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
             # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
             # As a workaround, we yield as many words as there are variants but under the word "suis": at the end, we will have 3 words:
@@ -221,11 +211,11 @@ class BaseFormat:
                 # Filter out variants:
                 #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
                 #   - with a different prefix that their word
-                current_word_group_prefix = guess_prefix(current_word)
+                current_word_group_prefix = utils.guess_prefix(current_word)
                 variants = [
                     variant
                     for variant in variants
-                    if variant != word and guess_prefix(variant) == current_word_group_prefix
+                    if variant != word and utils.guess_prefix(variant) == current_word_group_prefix
                 ]
 
                 if isinstance(self, KoboFormat):
@@ -237,8 +227,8 @@ class BaseFormat:
                 word=word,
                 current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
                 definitions=current_details.definitions,
-                pronunciation=convert_pronunciation(current_details.pronunciations),
-                gender=convert_gender(current_details.genders),
+                pronunciation=utils.convert_pronunciation(current_details.pronunciations),
+                gender=utils.convert_gender(current_details.genders),
                 etymologies=current_details.etymology if self.include_etymology else [],
                 variants=sorted(variants, key=lambda s: (len(s), s)),
             )
@@ -300,7 +290,7 @@ class KoboFormat(BaseFormat):
         """Group word by prefix."""
         groups: Groups = defaultdict(dict)
         for word, details in words.items():
-            groups[guess_prefix(word)][word] = details
+            groups[utils.guess_prefix(word)][word] = details
         return groups
 
     def save(self) -> None:  # sourcery skip: extract-method
@@ -336,12 +326,12 @@ class KoboFormat(BaseFormat):
         final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             # The ZIP's comment will serve as the dictionary signature
-            fh.comment = bytes(wiktionary[self.lang_src].format(year=date.today().year), "utf-8")
+            fh.comment = bytes(lang.wiktionary[self.lang_src].format(year=date.today().year), "utf-8")
 
             # Unrelated files, just for history
             fh.writestr(
                 constants.ZIP_INSTALL,
-                self.sanitize(format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)),
+                self.sanitize(utils.format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)),
             )
             fh.writestr(constants.ZIP_WORDS_COUNT, str(len(self.words)))
             fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
@@ -440,7 +430,7 @@ class ConverterFromDictFile(DictFileFormat):
         glos = Glossary()
         glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
-        glos.setInfo("description", wiktionary[self.lang_src].format(year=date.today().year))
+        glos.setInfo("description", lang.wiktionary[self.lang_src].format(year=date.today().year))
         glos.setInfo("title", f"Wiktionary {self.lang_src.upper()}-{self.lang_dst.upper()}")
         glos.setInfo("website", constants.GH_REPOS)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
@@ -586,12 +576,12 @@ def run_mobi_formatter(
             if isinstance(definitions, str):
                 chars.update(definitions)
             elif isinstance(definitions, tuple):
-                chars.update(flatten(definitions))
+                chars.update(user_functions.flatten(definitions))
         if etymology := details.etymology:
             if isinstance(etymology, str):
                 chars.update(etymology)
             elif isinstance(etymology, tuple):
-                chars.update(flatten(etymology))
+                chars.update(user_functions.flatten(etymology))
         return chars
 
     stats = defaultdict(list)
@@ -678,12 +668,6 @@ def make_variants(words: Words) -> Variants:
     return variants
 
 
-def get_latest_json_file(source_dir: Path, locale: str) -> Path | None:
-    """Get the name of the last data-*.json file."""
-    files = list(source_dir.glob(f"data-{locale}-{'[0-9]' * 8}.json"))
-    return sorted(files)[-1] if files else None
-
-
 def distribute_workload(
     formatters: list[type[BaseFormat]],
     output_dir: Path,
@@ -710,13 +694,19 @@ def distribute_workload(
         )
 
 
+def get_latest_json_file(source_dir: Path) -> Path | None:
+    """Get the name of the last data-*.json file."""
+    files = list(source_dir.glob(f"data-{'[0-9]' * 8}.json"))
+    return sorted(files)[-1] if files else None
+
+
 def main(locale: str) -> int:
     """Entry point."""
 
-    lang_src, lang_dst = guess_locales(locale)
+    lang_src, lang_dst = utils.guess_locales(locale)
 
-    source_dir = Path(os.getenv("CWD", "")) / "data" / lang_dst
-    if not (input_file := get_latest_json_file(source_dir, lang_src)):
+    source_dir = render.get_source_dir(lang_src, lang_dst)
+    if not (input_file := get_latest_json_file(source_dir)):
         log.error("No dump found. Run with --render first ... ")
         return 1
 
@@ -725,7 +715,9 @@ def main(locale: str) -> int:
     variants: Variants = make_variants(words)
 
     # And run formatters, distributing the workload
-    args = (source_dir, input_file, locale, words, variants)
+    output_dir = source_dir / "output"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    args = (output_dir, input_file, locale, words, variants)
 
     # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
     multiprocessing.set_start_method("spawn", force=True)

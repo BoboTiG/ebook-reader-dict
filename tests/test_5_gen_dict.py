@@ -15,10 +15,14 @@ from wikidict import gen_dict
         ("fr", "logiciel"),  # Single word
         ("fr", "base,logiciel"),  # Multiple words
         ("fr", "cercle unité"),  # Accentued word + space
+        ("fro", "pui"),  # Sublang alone
+        ("fr:fr", "logiciel"),  # Sublang falsy
+        ("fr:fro", "pui"),  # Sublang
+        ("fr:it", "glielo"),  # Another lang
+        ("it:fr", "dodo"),  # Another lang
     ],
 )
-@pytest.mark.parametrize("format", ["kobo", "stardict", "dictorg"])
-def test_gen_dict(locale: str, words: str, format: str, tmp_path: Path) -> None:
+def test_gen_dict(locale: str, words: str, tmp_path: Path) -> None:
     with patch.dict(os.environ, {"CWD": str(tmp_path)}):
-        res = gen_dict.main(locale, words, str(uuid4()), format=format)
-    assert res == 0
+        for format in ["dictorg", "kobo", "mobi", "stardict"]:
+            assert gen_dict.main(locale, words, str(uuid4()), format=format) == 0

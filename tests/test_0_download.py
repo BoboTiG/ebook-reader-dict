@@ -3,6 +3,7 @@ import os
 import re
 from collections.abc import Callable
 from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 import responses
@@ -157,3 +158,43 @@ def test_progress_callback(caplog: pytest.LogCaptureFixture) -> None:
 
     assert caplog.records[0].getMessage() == "Some text: 43,008 bytes"
     assert caplog.records[1].getMessage() == "Some text: OK [43,008 bytes]"
+
+
+@pytest.mark.parametrize(
+    "locale, lang_src, lang_dst",
+    [
+        ("fr", "fr", "fr"),
+        ("fro", "fr", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
+    ],
+)
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    pages_compressed = Path(f"pages-{snapshot}.xml.bz2")
+    pages_uncompressed = Path(f"pages-{snapshot}.xml")
+
+    with patch.dict("os.environ", {"CWD": str(tmp_path), "FORCE_SNAPSHOT": snapshot}):
+        assert download.fetch_snapshots(lang_src) == [snapshot]
+
+        output_compressed = download.get_output_file_compressed(lang_src, snapshot)
+        assert output_compressed == tmp_path / "data" / lang_src / pages_compressed
+
+        output_uncompressed = download.get_output_file_uncompressed(output_compressed)
+        assert output_uncompressed == tmp_path / "data" / lang_src / pages_uncompressed
+
+        with (
+            patch.object(download, "get_output_file_compressed") as mocked_gofc,
+            patch.object(download, "get_output_file_uncompressed") as mocked_gofu,
+            patch.object(download, "fetch_pages") as mocked_fp,
+            patch.object(download, "decompress") as mocked_d,
+        ):
+            mocked_gofc.return_value = pages_compressed
+            mocked_gofu.return_value = pages_uncompressed
+
+            download.main(locale)
+            mocked_gofc.assert_called_once_with(lang_src, snapshot)
+            mocked_gofu.assert_called_once_with(pages_compressed)
+            mocked_fp.assert_called_once_with(snapshot, lang_src, pages_compressed, callback=download.callback_progress)
+            mocked_d.assert_called_once_with(pages_compressed, pages_uncompressed, download.callback_progress)

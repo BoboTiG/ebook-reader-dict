@@ -7,7 +7,7 @@ import pytest
 
 from wikidict import constants, convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
-from wikidict.stubs import Word
+from wikidict.stubs import Variants, Word, Words
 
 EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
 
@@ -75,7 +75,7 @@ def test_simple() -> None:
     assert convert.main("fr") == 0
 
     # Check for all dictionaries
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr" / "output"
 
     # DictFile
     assert (output_dir / "dict-fr-fr.df").is_file()
@@ -200,7 +200,7 @@ def test_no_json_file() -> None:
     ],
 )
 def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
         formatter,
@@ -235,7 +235,7 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
     ]
 )
 def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     convert.run_formatter(
         formatter,
         "fr",
@@ -286,7 +286,7 @@ def test_word_rendering(
     include_etymology: bool,
     expected: str,
 ) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     cls = formatter(
         "fr",
         output_dir,
@@ -437,3 +437,46 @@ def test_df_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     assert not gastado
     assert "& gastada" in gastar
     assert "& gastado" in gastar
+
+
+@pytest.mark.parametrize(
+    "locale, lang_src, lang_dst",
+    [
+        ("fr", "fr", "fr"),
+        ("fro", "fr", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
+    ],
+)
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    pages = Path(f"data-{snapshot}.json")
+    words: Words = {}
+    variants: Variants = {}
+
+    with (
+        patch.dict("os.environ", {"CWD": str(tmp_path)}),
+        patch.object(convert, "get_latest_json_file") as mocked_gljf,
+        patch.object(convert, "load") as mocked_l,
+        patch.object(convert, "make_variants") as mocked_mv,
+        patch.object(convert, "distribute_workload") as mocked_dw,
+        patch.object(convert, "run_mobi_formatter") as mocked_rmf,
+    ):
+        mocked_gljf.return_value = pages
+        mocked_l.return_value = words
+        mocked_mv.return_value = variants
+        source_dir = tmp_path / "data" / lang_src / lang_dst
+
+        convert.main(locale)
+        mocked_gljf.assert_called_once_with(source_dir)
+        mocked_l.assert_called_once_with(pages)
+        mocked_mv.assert_called_once_with(words)
+
+        args = (source_dir / "output", pages, locale, words, variants)
+        for include_etymology in [False, True]:
+            mocked_dw.assert_any_call(convert.get_primary_formatters(), *args, include_etymology=include_etymology)
+            mocked_dw.assert_any_call(convert.get_secondary_formatters(), *args, include_etymology=False)
+            mocked_rmf.assert_any_call(*args, include_etymology=False)
+        mocked_dw.call_count == 4
+        mocked_rmf.call_count == 2

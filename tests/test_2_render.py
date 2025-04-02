@@ -156,7 +156,7 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
     "locale, lang_src, lang_dst",
     [
         ("fr", "fr", "fr"),
-        ("fro", "fro", "fro"),
+        ("fro", "fr", "fro"),
         ("fr:fro", "fr", "fro"),
         ("fr:it", "fr", "it"),
         ("it:fr", "it", "fr"),
@@ -164,25 +164,28 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
 )
 def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
     snapshot = "20250401"
-    source_dir = tmp_path
-    pages = Path(f"data_wikicode-{lang_dst}-{snapshot}.json")
+    pages = Path(f"data_wikicode-{snapshot}.json")
     words: dict[str, str] = {"a": "b"}
 
-    with (
-        patch.object(render, "get_source_dir") as mocked_gsd,
-        patch.object(render, "get_latest_json_file") as mocked_gljf,
-        patch.object(render, "load") as mocked_l,
-        patch.object(render, "render") as mocked_r,
-        patch.object(render, "save") as mocked_s,
-    ):
-        mocked_gljf.return_value = pages
-        mocked_gsd.return_value = source_dir
-        mocked_l.return_value = words
-        mocked_r.return_value = words
+    with patch.dict("os.environ", {"CWD": str(tmp_path)}):
+        source_dir = render.get_source_dir(lang_src, lang_dst)
+        assert source_dir == tmp_path / "data" / lang_src / lang_dst
 
-        render.main(locale, workers=1)
-        mocked_gsd.assert_called_once_with(lang_dst)
-        mocked_gljf.assert_called_once_with(source_dir, lang_src)
-        mocked_l.assert_called_once_with(pages)
-        mocked_r.assert_called_once_with(words, locale, 1)
-        mocked_s.assert_called_once_with(render.get_output_file(source_dir, lang_src, lang_dst, snapshot), words)
+        output_file = render.get_output_file(source_dir, snapshot)
+        assert output_file == source_dir / f"data-{snapshot}.json"
+
+        with (
+            patch.object(render, "get_latest_json_file") as mocked_gljf,
+            patch.object(render, "load") as mocked_l,
+            patch.object(render, "render") as mocked_r,
+            patch.object(render, "save") as mocked_s,
+        ):
+            mocked_gljf.return_value = pages
+            mocked_l.return_value = words
+            mocked_r.return_value = words
+
+            render.main(locale, workers=1)
+            mocked_gljf.assert_called_once_with(source_dir)
+            mocked_l.assert_called_once_with(pages)
+            mocked_r.assert_called_once_with(words, locale, 1)
+            mocked_s.assert_called_once_with(output_file, words)
