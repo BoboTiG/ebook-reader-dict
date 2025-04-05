@@ -121,10 +121,12 @@ def get_random_word(locale: str) -> str:
 
     while True:
         with requests.get(url) as req:
-            word: str = re.findall(r'<span class="mw-page-title-main">([^<]+)</span>', req.text)[0]
-            if word and ":" not in word and "/" not in word:
-                break
-            log.info(f"Got {word=}, trying a new one instead.")
+            if match := re.findall(r'<span class="mw-page-title-main">([^<]+)</span>', req.text):
+                word: str = match[0]
+                if ":" not in word and "/" not in word:
+                    break
+                log.info(f"Got {word=}, trying a new one instead ...")
+            log.info("Got no match, trying again ...")
 
     if "CI" in os.environ:
         with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
