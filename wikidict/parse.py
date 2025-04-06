@@ -108,12 +108,12 @@ def get_latest_xml_file(source_dir: Path) -> Path | None:
     return sorted(files)[-1] if files else None
 
 
-def get_source_dir(locale: str) -> Path:
-    return Path(os.getenv("CWD", "")) / "data" / locale
+def get_source_dir(lang_src: str) -> Path:
+    return Path(os.getenv("CWD", "")) / "data" / lang_src
 
 
 def get_output_file(source_dir: Path, lang_src: str, lang_dst: str, snapshot: str) -> Path:
-    return source_dir.parent / lang_src / lang_dst / f"data_wikicode-{snapshot}.json"
+    return source_dir.parent / lang_dst / lang_src / f"data_wikicode-{snapshot}.json"
 
 
 def main(locale: str) -> int:

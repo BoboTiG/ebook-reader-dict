@@ -466,7 +466,7 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
         mocked_gljf.return_value = pages
         mocked_l.return_value = words
         mocked_mv.return_value = variants
-        source_dir = tmp_path / "data" / lang_src / lang_dst
+        source_dir = tmp_path / "data" / lang_dst / lang_src
 
         convert.main(locale)
         mocked_gljf.assert_called_once_with(source_dir)

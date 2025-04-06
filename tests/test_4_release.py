@@ -69,7 +69,7 @@ Versione senza etimologia:
 def test_main(locale: str, lang_src: str, lang_dst: str, tmp_path: Path, capsys: pytest.CaptureFixture[Any]) -> None:
     with patch.dict("os.environ", {"CWD": str(tmp_path)}):
         source_dir = render.get_source_dir(lang_src, lang_dst)
-        assert source_dir == tmp_path / "data" / lang_src / lang_dst
+        assert source_dir == tmp_path / "data" / lang_dst / lang_src
 
         source_file = release.get_source_file(source_dir, lang_src, lang_dst)
         assert source_file == source_dir / "output" / f"dicthtml-{lang_src}-{lang_dst}.zip"

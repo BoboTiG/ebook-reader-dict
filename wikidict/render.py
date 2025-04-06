@@ -580,7 +580,7 @@ def get_latest_json_file(source_dir: Path) -> Path | None:
 
 
 def get_source_dir(lang_src: str, lang_dst: str) -> Path:
-    return Path(os.getenv("CWD", "")) / "data" / lang_src / lang_dst
+    return Path(os.getenv("CWD", "")) / "data" / lang_dst / lang_src
 
 
 def get_output_file(source_dir: Path, snapshot: str) -> Path:

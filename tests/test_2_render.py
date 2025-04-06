@@ -169,7 +169,7 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
 
     with patch.dict("os.environ", {"CWD": str(tmp_path)}):
         source_dir = render.get_source_dir(lang_src, lang_dst)
-        assert source_dir == tmp_path / "data" / lang_src / lang_dst
+        assert source_dir == tmp_path / "data" / lang_dst / lang_src
 
         output_file = render.get_output_file(source_dir, snapshot)
         assert output_file == source_dir / f"data-{snapshot}.json"
