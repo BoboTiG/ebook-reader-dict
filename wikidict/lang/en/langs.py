@@ -7558,6 +7558,9 @@ langs = {
     "sit-cln": "Cai-Long",
     "sit-dhi": "Dhimalish",
     "sit-ebo": "East Bodish",
+    "sit-egy": "East rGyalrongic",
+    "sit-ers": "Ersuic",
+    "sit-ers-pro": "Proto-Ersuic",
     "sit-gma": "Greater Magaric",
     "sit-gsi": "Greater Siangic",
     "sit-hrs": "Hrusish",
@@ -7595,6 +7598,7 @@ langs = {
     "sit-mnz": "Mondzish",
     "sit-mru": "Mruic",
     "sit-nas": "Naish",
+    "sit-nas-pro": "Proto-Naish",
     "sit-nax": "Naic",
     "sit-nba": "Northern Bai",
     "sit-new": "Newaric",
@@ -7614,10 +7618,12 @@ langs = {
     "sit-tja": "Tujia",
     "sit-tma": "Tangkhul-Maring",
     "sit-tng": "Tangkhulic",
+    "sit-tng-pro": "Proto-Tangkhulic",
     "sit-tno": "Tangsa-Nocte",
     "sit-tos": "Tosu",
     "sit-tsh": "Tshobdun",
     "sit-tsk": "Tshangla",
+    "sit-wgy": "West rGyalrongic",
     "sit-whm": "West Himalayish",
     "sit-zbu": "Zbu",
     "sit-zem": "Zeme",
@@ -9870,7 +9876,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,865
+}  # 9,871
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

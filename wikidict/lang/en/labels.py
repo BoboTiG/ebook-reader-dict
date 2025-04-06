@@ -1176,6 +1176,7 @@ labels = {
     "clothing": "clothing",
     "cloud computing": "cloud computing",
     "coarse": "vulgar",
+    "cockfighting": "cockfighting",
     "coenzyme": "biochemistry",
     "cognate object": "with cognate object",
     "collectible card games": "collectible card games",
@@ -2629,7 +2630,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,624
+}  # 2,625
 
 syntaxes = {
     "&": {
