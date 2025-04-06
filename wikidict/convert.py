@@ -173,6 +173,18 @@ class BaseFormat:
             f"{len(variants):,}",
         )
 
+    @property
+    def description(self) -> str:
+        return lang.wiktionary[self.lang_src].format(year=date.today().year)
+
+    @property
+    def title(self) -> str:
+        return constants.TITLE.format(constants.PROJECT, self.lang_src.upper(), self.lang_dst.upper())
+
+    @property
+    def website(self) -> str:
+        return constants.GH_REPOS
+
     def dictionary_file(self, output_file: str) -> Path:
         return self.output_dir / output_file.format(
             lang_src=self.lang_src,
@@ -254,6 +266,7 @@ class BaseFormat:
 class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
 
+    add_install = True
     output_file = "dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip"
     template = WORD_TPL_KOBO
 
@@ -326,13 +339,16 @@ class KoboFormat(BaseFormat):
         final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
             # The ZIP's comment will serve as the dictionary signature
-            fh.comment = bytes(lang.wiktionary[self.lang_src].format(year=date.today().year), "utf-8")
+            fh.comment = bytes(self.description, "utf-8")
 
             # Unrelated files, just for history
-            fh.writestr(
-                constants.ZIP_INSTALL,
-                self.sanitize(utils.format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)),
-            )
+            if self.add_install:
+                fh.writestr(
+                    constants.ZIP_INSTALL,
+                    self.sanitize(
+                        utils.format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)
+                    ),
+                )
             fh.writestr(constants.ZIP_WORDS_COUNT, str(len(self.words)))
             fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
 
@@ -345,12 +361,7 @@ class KoboFormat(BaseFormat):
 
         self.summary(final_file)
 
-    def save_html(
-        self,
-        name: str,
-        words: Words,
-        output_dir: Path,
-    ) -> Path:
+    def save_html(self, name: str, words: Words, output_dir: Path) -> Path:
         """Generate individual HTML files.
 
         Content of the HTML file:
@@ -430,9 +441,9 @@ class ConverterFromDictFile(DictFileFormat):
         glos = Glossary()
         glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
-        glos.setInfo("description", lang.wiktionary[self.lang_src].format(year=date.today().year))
-        glos.setInfo("title", f"Wiktionary {self.lang_src.upper()}-{self.lang_dst.upper()}")
-        glos.setInfo("website", constants.GH_REPOS)
+        glos.setInfo("description", self.description)
+        glos.setInfo("title", self.title)
+        glos.setInfo("website", self.website)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
         self.output_dir_tmp.mkdir()

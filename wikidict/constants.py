@@ -1,5 +1,12 @@
 """Shared constants."""
 
+# Dictionaries metadata
+PROJECT = "Wiktionary"
+# {0}: project
+# {1}: lang source
+# {2}: lang destination
+TITLE = "{0} {1}-{2}"
+
 # Wiktionary dump URL
 # {0}: lang source
 # {1}: dump date
