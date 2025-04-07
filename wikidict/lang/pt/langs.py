@@ -526,6 +526,7 @@ langs = {
     "irn": "Irantxe",
     "is": "Islandês",
     "ist": "Istriota",
+    "isv": "Intereslavo",
     "it": "Italiano",
     "itc-pro": "Protoitálico",
     "itl": "Itelmen",
@@ -1491,5 +1492,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,486
+}  # 1,487
 # END
