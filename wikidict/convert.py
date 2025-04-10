@@ -636,7 +636,10 @@ def run_mobi_formatter(
 
     args = (locale, output_dir, words, variants, file.stem.split("-")[-1])
     run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
-    run_formatter(MobiFormat, *args, include_etymology=include_etymology)
+    try:
+        run_formatter(MobiFormat, *args, include_etymology=include_etymology)
+    except Exception:
+        log.exception("Error with the Mobi conversion")
 
 
 def run_formatter(
