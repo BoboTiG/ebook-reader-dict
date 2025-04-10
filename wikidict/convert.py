@@ -442,17 +442,22 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("website", self.website)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
-        self.output_dir_tmp.mkdir()
+        lang_src = self.lang_src
+        lang_dst = self.lang_dst
 
         # Workaround for Esperanto (EO) not being supported by kindlegen
         if isinstance(self, MobiFormat):
             # According to https://higherlanguage.com/languages-similar-to-esperanto/,
             # French seems the most similar lang that is available on kindlegen, so French it is.
-            if self.lang_src == "eo":
-                glos.sourceLangName = "French"
-            if self.lang_dst == "eo":
-                glos.targetLangName = "French"
+            if lang_src == "eo":
+                lang_src = "fr"
+            if lang_dst == "eo":
+                lang_dst = "fr"
 
+        glos.sourceLangName = lang_src
+        glos.targetLangName = lang_dst
+
+        self.output_dir_tmp.mkdir()
         glos.convert(
             ConvertArgs(
                 inputFilename=str(self.dictionary_file(self.dictfile_format_cls.output_file)),
