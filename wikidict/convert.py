@@ -136,10 +136,6 @@ WORD_TPL_DICTFILE = Template(
 """
 )
 
-# Mobi
-COVER_FILE = Path(__file__).parent.parent / "cover.png"
-KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
-
 log = logging.getLogger(__name__)
 
 
@@ -535,9 +531,9 @@ class MobiFormat(ConverterFromDictFile):
     zip_glob_files = ""  # Will be set in `_compress()`
     dictfile_format_cls = DictFileFormatForMobi
     glossary_options = {
-        "cover_path": str(COVER_FILE),
+        "cover_path": str(constants.COVER_FILE),
         "keep": True,
-        "kindlegen_path": str(KINDLEGEN_FILE),
+        "kindlegen_path": str(constants.KINDLEGEN_FILE),
     }
 
     def _compress(self) -> Path:

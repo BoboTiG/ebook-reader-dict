@@ -1,5 +1,7 @@
 """Shared constants."""
 
+from pathlib import Path
+
 # Dictionaries metadata
 PROJECT = "Wiktionary"
 # {0}: project
@@ -44,3 +46,7 @@ ZIP_WORDS_SNAPSHOT = "words.snapshot"
 # Example with FRO (Old French) that uses the FR (French) Wiktionary dump as source.
 # Syntax: "locale": "origin locale"
 LOCALE_ORIGIN = {"fro": "fr"}
+
+# Mobi
+COVER_FILE = Path(__file__).parent / "cover.png"
+KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
