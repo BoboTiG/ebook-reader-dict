@@ -15,9 +15,9 @@ def local_check(
     word: str,
     locale: str,
     *,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> int:
-    return check_word.check_word(word, locale, standalone=False, missed_templates=missed_templates)
+    return check_word.check_word(word, locale, standalone=False, all_templates=all_templates)
 
 
 def get_words_to_tackle(
@@ -66,17 +66,17 @@ def main(locale: str, count: int, is_random: bool, offset: str, input_file: str)
     """Entry point."""
 
     words = get_words_to_tackle(locale, count=count, is_random=is_random, offset=offset, input_file=input_file)
-    missed_templates: list[tuple[str, str]] = []
+    all_templates: list[tuple[str, str, str]] = []
 
     with ThreadPoolExecutor(max_workers=10) as pool:
         err = pool.map(
-            partial(local_check, locale=locale, missed_templates=missed_templates),
+            partial(local_check, locale=locale, all_templates=all_templates),
             words,
         )
 
     if errors := sum(err):
         log.warning("TOTAL Errors: %s", f"{errors:,}")
 
-    utils.check_for_missing_templates(missed_templates)
+    utils.check_for_missing_templates(all_templates)
 
     return errors

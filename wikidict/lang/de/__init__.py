@@ -248,7 +248,7 @@ def last_template_handler(
     locale: str,
     *,
     word: str = "",
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
@@ -300,7 +300,7 @@ def last_template_handler(
         variant = data["1"] or data["Verb"] or parts[0]
         return variant.split("#", 1)[0]
 
-    return default(template, locale, word=word, missed_templates=missed_templates)
+    return default(template, locale, word=word, all_templates=all_templates)
 
 
 random_word_url = "https://de.wiktionary.org/wiki/Spezial:Zuf%C3%A4llige_Stammseite"

@@ -119,7 +119,7 @@ def last_template_handler(
     locale: str,
     *,
     word: str = "",
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
@@ -240,7 +240,7 @@ def last_template_handler(
     if lang := langs.get(tpl):
         return lang
 
-    return defaults.last_template_handler(template, locale, word=word, missed_templates=missed_templates)
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 
 
 random_word_url = "https://ru.wiktionary.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RandomRootpage"

@@ -16,12 +16,12 @@ if TYPE_CHECKING:
     from .stubs import Word
 
 
-def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
+def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
     with requests.get(url) as req:
         code = req.text
-    return parse_word(word, code, locale, force=True, missed_templates=missed_templates)
+    return parse_word(word, code, locale, force=True, all_templates=all_templates)
 
 
 def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
@@ -42,8 +42,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         text = text.replace(" .", ".")
         return text
 
-    missed_templates: list[tuple[str, str]] = []
-    details = get_word(word, locale, missed_templates=missed_templates)
+    all_templates: list[tuple[str, str, str]] = []
+    details = get_word(word, locale, all_templates=all_templates)
     print(
         word,
         utils.convert_pronunciation(details.pronunciations).lstrip(),
@@ -79,7 +79,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
-    utils.check_for_missing_templates(missed_templates)
+    utils.check_for_missing_templates(all_templates)
 
 
 def set_output(locale: str, word: str) -> None:

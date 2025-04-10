@@ -64,12 +64,12 @@ def find_definitions(
     lang_src: str,
     lang_dst: str,
     *,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> list[Definitions]:
     """Find all definitions, without eventual subtext."""
     definitions = list(
         chain.from_iterable(
-            find_section_definitions(word, section, lang_src, lang_dst, missed_templates=missed_templates)
+            find_section_definitions(word, section, lang_src, lang_dst, all_templates=all_templates)
             for sections in parsed_sections.values()
             for section in sections
         )
@@ -108,7 +108,7 @@ def find_section_definitions(
     lang_src: str,
     lang_dst: str,
     *,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> list[Definitions]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
     definitions: list[Definitions] = []
@@ -127,7 +127,7 @@ def find_section_definitions(
                     continue
 
                 # Transform and clean the Wikicode
-                definition = utils.process_templates(word, code, lang_dst, missed_templates=missed_templates)
+                definition = utils.process_templates(word, code, lang_dst, all_templates=all_templates)
 
                 # Skip empty definitions
                 if not definition:
@@ -140,9 +140,7 @@ def find_section_definitions(
                 subdefinitions: list[SubDefinitions] = []
                 for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[lang_dst]):
                     for idx2, subcode in enumerate(sublist.items):
-                        subdefinition = utils.process_templates(
-                            word, subcode, lang_dst, missed_templates=missed_templates
-                        )
+                        subdefinition = utils.process_templates(word, subcode, lang_dst, all_templates=all_templates)
                         if not subdefinition:
                             continue
 
@@ -154,7 +152,7 @@ def find_section_definitions(
                                     word,
                                     subsubcode,
                                     lang_dst,
-                                    missed_templates=missed_templates,
+                                    all_templates=all_templates,
                                 ):
                                     subsubdefinitions.append(subsubdefinition)
                         if subsubdefinitions:
@@ -171,7 +169,7 @@ def find_etymology(
     lang_dst: str,
     parsed_section: wtp.Section,
     *,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> list[Definitions]:
     """Find the etymology."""
 
@@ -213,12 +211,12 @@ def find_etymology(
                         tableindex += 1
                     else:
                         definitions.append(
-                            utils.process_templates(word, section_item, lang_dst, missed_templates=missed_templates)
+                            utils.process_templates(word, section_item, lang_dst, all_templates=all_templates)
                         )
                         subdefinitions: list[SubDefinitions] = []
                         for sublist in section.sublists(i=idx):
                             subdefinitions.extend(
-                                utils.process_templates(word, subcode, lang_dst, missed_templates=missed_templates)
+                                utils.process_templates(word, subcode, lang_dst, all_templates=all_templates)
                                 for subcode in sublist.items
                             )
                         if subdefinitions:
@@ -240,7 +238,7 @@ def find_etymology(
     return [
         etyl
         for item in items
-        if (etyl := utils.process_templates(word, item, lang_dst, missed_templates=missed_templates)) and len(etyl) > 1
+        if (etyl := utils.process_templates(word, item, lang_dst, all_templates=all_templates)) and len(etyl) > 1
     ]
 
 
@@ -453,7 +451,7 @@ def parse_word(
     locale: str,
     *,
     force: bool = False,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> Word:
     """Parse *code* Wikicode to find word details.
     *force* can be set to True to force the pronunciation and gender guessing.
@@ -472,17 +470,17 @@ def parse_word(
     # Etymology
     if lang_src == "sv":
         for top in top_sections:
-            etymology.extend(find_etymology(word, lang_src, lang_dst, top, missed_templates=missed_templates))
+            etymology.extend(find_etymology(word, lang_src, lang_dst, top, all_templates=all_templates))
     elif parsed_sections:
         for section in lang.etyl_section[lang_dst]:
             # if not parsed_sections:
             #     break
             for etyl_data in parsed_sections.pop(section, []):
-                etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, missed_templates=missed_templates))
+                etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, all_templates=all_templates))
 
     # Definitions
     if parsed_sections:
-        definitions = find_definitions(word, parsed_sections, lang_src, lang_dst, missed_templates=missed_templates)
+        definitions = find_definitions(word, parsed_sections, lang_src, lang_dst, all_templates=all_templates)
     elif lang_src in {"no", "pt"}:
         # Some words have no head sections but only a list of definitions at the root of the "top" section
         marker = {
@@ -530,11 +528,11 @@ def render_word(
     words: Words,
     locale: str,
     *,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> Word | None:
     word, code = w
     try:
-        details = parse_word(word, code, locale, missed_templates=missed_templates)
+        details = parse_word(word, code, locale, all_templates=all_templates)
     except KeyboardInterrupt:
         pass
     except Exception:
@@ -553,15 +551,15 @@ def render_word(
 def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
     manager = multiprocessing.Manager()
     results: Words = cast(dict[str, Word], manager.dict())
-    missed_templates: list[tuple[str, str]] = cast(list[tuple[str, str]], manager.list())
+    all_templates: list[tuple[str, str, str]] = cast(list[tuple[str, str, str]], manager.list())
 
     with suppress(KeyboardInterrupt), multiprocessing.Pool(processes=workers) as pool:
         pool.map(
-            partial(render_word, words=results, locale=locale, missed_templates=missed_templates),
+            partial(render_word, words=results, locale=locale, all_templates=all_templates),
             in_words.items(),
         )
 
-    utils.check_for_missing_templates(list(missed_templates))
+    utils.check_for_missing_templates(list(all_templates))
 
     return results.copy()
 

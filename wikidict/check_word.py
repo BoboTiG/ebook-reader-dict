@@ -389,11 +389,11 @@ def get_url_content(url: str) -> str:
     raise RuntimeError(f"Sorry, too many tries for {url!r}")
 
 
-def get_word(word: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> Word:
+def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = craft_url(word, utils.guess_lang_origin(locale), raw=True)
     html = get_url_content(url)
-    return parse_word(word, html, locale, missed_templates=missed_templates)
+    return parse_word(word, html, locale, all_templates=all_templates)
 
 
 def get_wiktionary_page(word: str, locale: str) -> str:
@@ -408,15 +408,15 @@ def check_word(
     locale: str,
     *,
     standalone: bool = True,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> int:
     errors = 0
     results: list[str] = []
 
-    if missed_templates is None:
-        missed_templates = []
+    if all_templates is None:
+        all_templates = []
 
-    details = get_word(word, locale, missed_templates=missed_templates)
+    details = get_word(word, locale, all_templates=all_templates)
 
     if not details.etymology and not details.definitions:
         return 0
@@ -454,7 +454,7 @@ def check_word(
         log.debug("[%s] - OK", word)
 
     if standalone:
-        errors += int(utils.check_for_missing_templates(missed_templates))
+        errors += int(utils.check_for_missing_templates(all_templates))
 
     return errors
 

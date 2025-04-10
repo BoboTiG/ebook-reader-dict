@@ -74,15 +74,20 @@ CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
 log = logging.getLogger(__name__)
 
 
-def check_for_missing_templates(missed_templates: list[tuple[str, str]]) -> bool:
-    if not missed_templates:
-        return False
-
+def check_for_missing_templates(all_templates: list[tuple[str, str, str]]) -> bool:
     missings_counts: dict[str, int] = defaultdict(int)
     missings: dict[str, set[str]] = defaultdict(set)
-    for tpl, word in missed_templates:
-        missings_counts[tpl] += 1
-        missings[tpl].add(word)
+    unique_templates: set[str] = set()
+    for tpl, word, status in all_templates:
+        unique_templates.add(tpl)
+        if status == "missed":
+            missings_counts[tpl] += 1
+            missings[tpl].add(word)
+
+    log.info("Total templates count: %s", f"{len(unique_templates):,}")
+    if not missings:
+        return False
+
     for tpl, _ in sorted(missings_counts.items(), key=lambda x: x[1], reverse=True):
         words = sorted(missings[tpl])
         log.warning(
@@ -523,7 +528,7 @@ def process_templates(
     locale: str,
     *,
     callback: Callable[[str], str] = clean,
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> str:
     r"""Process all templates.
 
@@ -575,7 +580,7 @@ def process_templates(
             if tpl in SPECIAL_TEMPLATES:
                 text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
             # Transform the template
-            text = text.replace(tpl, transform(word, tpl[2:-2], locale, missed_templates=missed_templates))
+            text = text.replace(tpl, transform(word, tpl[2:-2], locale, all_templates=all_templates))
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
@@ -690,7 +695,7 @@ def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
     return phrase
 
 
-def transform(word: str, template: str, locale: str, *, missed_templates: list[tuple[str, str]] | None = None) -> str:
+def transform(word: str, template: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
@@ -727,6 +732,9 @@ def transform(word: str, template: str, locale: str, *, missed_templates: list[t
     parts = [p.strip("\u200e") for p in parts]  # Left-to-right mark
     tpl = parts[0]
 
+    if all_templates:
+        all_templates.append((tpl, word, "check"))
+
     # {{formatnum:-1000000}}
     if ":" in tpl and tpl not in (
         "R:TLFi",
@@ -762,4 +770,4 @@ def transform(word: str, template: str, locale: str, *, missed_templates: list[t
     if len(parts) == 1 and (transformer := templates_italic[locale].get(tpl)) is not None:
         return term(transformer)  # noqa: F405
 
-    return str(last_template_handler[locale](parts, locale, word=word, missed_templates=missed_templates))
+    return str(last_template_handler[locale](parts, locale, word=word, all_templates=all_templates))

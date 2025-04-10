@@ -54,7 +54,7 @@ def last_template_handler(
     locale: str,
     *,
     word: str = "",
-    missed_templates: list[tuple[str, str]] | None = None,
+    all_templates: list[tuple[str, str, str]] | None = None,
 ) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
@@ -101,8 +101,8 @@ def last_template_handler(
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    if missed_templates is not None:
-        missed_templates.append((tpl, word))
+    if all_templates is not None:
+        all_templates.append((tpl, word, "missed"))
 
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
