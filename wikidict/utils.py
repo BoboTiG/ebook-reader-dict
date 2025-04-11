@@ -732,7 +732,7 @@ def transform(word: str, template: str, locale: str, *, all_templates: list[tupl
     parts = [p.strip("\u200e") for p in parts]  # Left-to-right mark
     tpl = parts[0]
 
-    if all_templates:
+    if all_templates is not None:
         all_templates.append((tpl, word, "check"))
 
     # {{formatnum:-1000000}}
