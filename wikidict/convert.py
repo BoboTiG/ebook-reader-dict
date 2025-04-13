@@ -389,6 +389,12 @@ class DictFileFormat(BaseFormat):
     output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.df"
     template = WORD_TPL_DICTFILE
 
+    def get_glossary_lang_dst(self) -> str:
+        return self.lang_dst
+
+    def get_glossary_lang_src(self) -> str:
+        return self.lang_src
+
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
         with file.open(mode="w", encoding="utf-8") as fh:
@@ -442,20 +448,8 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("website", self.website)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
-        lang_src = self.lang_src
-        lang_dst = self.lang_dst
-
-        # Workaround for Esperanto (EO) not being supported by kindlegen
-        if isinstance(self, MobiFormat):
-            # According to https://higherlanguage.com/languages-similar-to-esperanto/,
-            # French seems the most similar lang that is available on kindlegen, so French it is.
-            if lang_src == "eo":
-                lang_src = "fr"
-            if lang_dst == "eo":
-                lang_dst = "fr"
-
-        glos.sourceLangName = lang_src
-        glos.targetLangName = lang_dst
+        glos.sourceLangName = self.get_glossary_lang_src()
+        glos.targetLangName = self.get_glossary_lang_dst()
 
         self.output_dir_tmp.mkdir()
         glos.convert(
@@ -540,6 +534,22 @@ class MobiFormat(ConverterFromDictFile):
         "keep": True,
         "kindlegen_path": str(constants.KINDLEGEN_FILE),
     }
+
+    def get_glossary_lang_dst(self) -> str:
+        """
+        Workaround for Esperanto (EO) not being supported by kindlegen.
+        According to https://higherlanguage.com/languages-similar-to-esperanto/,
+        French seems the most similar lang that is available on kindlegen, so French it is.
+        """
+        return "fr" if self.lang_dst == "eo" else self.lang_dst
+
+    def get_glossary_lang_src(self) -> str:
+        """
+        Workaround for Esperanto (EO) not being supported by kindlegen.
+        According to https://higherlanguage.com/languages-similar-to-esperanto/,
+        French seems the most similar lang that is available on kindlegen, so French it is.
+        """
+        return "fr" if self.lang_src == "eo" else self.lang_src
 
     def _compress(self) -> Path:
         # Move the relevant file at the top-level data folder, and rename it for more accuracy
