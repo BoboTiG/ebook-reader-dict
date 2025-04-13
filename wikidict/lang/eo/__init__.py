@@ -281,7 +281,7 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     pattern1 = re.compile(r"\{\{PRON\|`([^`]+)`")
     pattern2 = re.compile(r"\{\{IFA\|([^}]+)}}")
     return [
-        process_templates("", match.rstrip("."), "eo")
+        process_templates("", match.rstrip("."), locale)
         for match in pattern1.findall(code) or pattern2.findall(code) or []
     ]
 
