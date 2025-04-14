@@ -789,7 +789,9 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     """
     labels = {
         "adj": "Adjectif",
+        "adj-indéf": "Adjectif indéfini",
         "adj-pos": "Adjectif possessif",
+        "adjectif indéfini": "Adjectif indéfini",
         "adjectif numéral": "Adjectif numéral",
         "adjectif possessif": "Adjectif possessif",
         "adjectif": "Adjectif",
@@ -797,6 +799,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "adverbe": "Adverbe",
         "art": "Article",
         "art-déf": "Article défini",
+        "article défini": "Article défini",
         "article indéfini": "Article indéfini",
         "conj": "Conjonction",
         "conjonction": "Conjonction",
@@ -815,6 +818,8 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "onoma": "Onomatopée",
         "onomatopée": "Onomatopée",
         "part": "Particule",
+        "particule": "Particule",
+        "phrase": "Locution-phrase",
         "préf": "Préfixe",
         "prénom": "Prénom",
         "prép": "Préposition",
