@@ -163,7 +163,7 @@ def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
         match current_type:
             case "":
                 pass
-            case "C" | "F" | "S":
+            case "C" | "D" | "F" | "S":
                 part = tags.get(part, part)
             case "G" | "T":
                 part = tags.get(part.removesuffix("."), part)
