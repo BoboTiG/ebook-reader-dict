@@ -795,6 +795,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "adjectif": "Adjectif",
         "adv": "Adverbe",
         "adverbe": "Adverbe",
+        "art": "Article",
         "art-déf": "Article défini",
         "article indéfini": "Article indéfini",
         "conj": "Conjonction",
