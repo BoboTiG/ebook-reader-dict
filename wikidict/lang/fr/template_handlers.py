@@ -836,8 +836,11 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     """
     >>> render_lang("Lang", ["la", "sine qua non"], defaultdict(str, {"sens": "sans quoi non"}))
     '<i>sine qua non</i> («&nbsp;sans quoi non&nbsp;»)'
+    >>> render_lang("Lang", [], defaultdict(str, {"texte": "sine qua non", "sens": "sans quoi non"}))
+    '<i>sine qua non</i> («&nbsp;sans quoi non&nbsp;»)'
     """
-    parts.pop(0)  # language
+    if parts:
+        parts.pop(0)  # language
     texte = data["texte"] or data["2"] or (parts.pop(0) if parts else "")
     tr = data["tr"] or data["3"] or (parts.pop(0) if parts else "")
     sens = data["sens"] or data["4"] or (parts.pop(0) if parts else "")
