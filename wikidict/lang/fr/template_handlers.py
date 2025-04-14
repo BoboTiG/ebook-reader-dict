@@ -1327,8 +1327,10 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '<i>(Arbres)</i>'
     >>> render_term("terme", [], defaultdict(str, {"1": "tératologie"}))
     '<i>(Tératologie)</i>'
+    >>> render_term("terme", [], defaultdict(str, {"cat": "Saisons"}))
+    ''
     """
-    return term(capitalize(data["libellé"] or data["1"] or parts[0]))
+    return term(capitalize(data["libellé"] or data["1"] or (parts[0] if parts else "")))
 
 
 def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
