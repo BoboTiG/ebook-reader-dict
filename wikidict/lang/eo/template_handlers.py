@@ -1,6 +1,7 @@
 from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, small, strong, superscript, term
+from .dialects import dialects
 from .langs import langs
 from .tags import tags
 
@@ -145,6 +146,8 @@ def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
     '<i>(transitiva)</i>'
     >>> render_k("k", ["eo", "G: VIT.-", '% kun prepozicio "pri"', "% eĉ-", "VTR.", "C: % celante senvivaĵon aŭ abstraktaĵon"], defaultdict(str))
     '<i>(netransitiva kun prepozicio "pri"; eĉ transitiva; celante senvivaĵon aŭ abstraktaĵon)</i>'
+    >>> render_k("k", ["eo", "D: qebe"], defaultdict(str))
+    '<i>(kvebeka)</i>'
     """
     raw_themes = []
     current_type = ""
@@ -163,8 +166,10 @@ def render_k(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
         match current_type:
             case "":
                 pass
-            case "C" | "D" | "F" | "S":
+            case "C" | "F" | "S":
                 part = tags.get(part, part)
+            case "D":
+                part = dialects.get(part.removesuffix("."), part)
             case "G" | "T":
                 part = tags.get(part.removesuffix("."), part)
             case _:
