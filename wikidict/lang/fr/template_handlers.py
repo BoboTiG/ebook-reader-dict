@@ -811,6 +811,7 @@ def render_lae(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         "nom-pr": "Nom propre",
         "nom propre": "Nom propre",
         "num": "Numéral",
+        "onom": "Onomatopée",
         "onoma": "Onomatopée",
         "onomatopée": "Onomatopée",
         "part": "Particule",
