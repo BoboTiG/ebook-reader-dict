@@ -24,21 +24,20 @@
 
 ## Downloads
 
-1. <small>`[CA]`</small> [Catalan](../../releases/tag/ca)
-1. <small>`[DA]`</small> [Danish](../../releases/tag/da)
-1. <small>`[DE]`</small> [German](../../releases/tag/de)
-1. <small>`[EL]`</small> [Greek](../../releases/tag/el)
-1. <small>`[EN]`</small> [English](../../releases/tag/en)
-1. <small>`[EO]`</small> [Esperanto](../../releases/tag/eo)
-1. <small>`[ES]`</small> [Spanish](../../releases/tag/es)
-1. <small>`[FR]`</small> [French](../../releases/tag/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-1. <small>`[FRO]`</small> [Old French](../../releases/tag/fro)
-1. <small>`[IT]`</small> [Italian](../../releases/tag/it)
-1. <small>`[NO]`</small> [Norway](../../releases/tag/no)
-1. <small>`[PT]`</small> [Portuguese](../../releases/tag/pt)
-1. <small>`[RO]`</small> [Romanian](../../releases/tag/ro)
-1. <small>`[RU]`</small> [Russian](../../releases/tag/ru)
-1. <small>`[SV]`</small> [Swedish](../../releases/tag/sv)
+1. <small>`[CA]`</small> [Catalan](https://www.reader-dict.com/ca/download/ca)
+1. <small>`[DA]`</small> [Danish](https://www.reader-dict.com/da/download/da)
+1. <small>`[DE]`</small> [German](https://www.reader-dict.com/de/download/de)
+1. <small>`[EL]`</small> [Greek](https://www.reader-dict.com/el/download/el)
+1. <small>`[EN]`</small> [English](https://www.reader-dict.com/en/download/en)
+1. <small>`[EO]`</small> [Esperanto](https://www.reader-dict.com/eo/download/eo)
+1. <small>`[ES]`</small> [Spanish](https://www.reader-dict.com/es/download/es)
+1. <small>`[FR]`</small> [French](https://www.reader-dict.com/fr/download/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[IT]`</small> [Italian](https://www.reader-dict.com/it/download/it)
+1. <small>`[NO]`</small> [Norway](https://www.reader-dict.com/no/download/no)
+1. <small>`[PT]`</small> [Portuguese](https://www.reader-dict.com/pt/download/pt)
+1. <small>`[RO]`</small> [Romanian](https://www.reader-dict.com/ro/download/ro)
+1. <small>`[RU]`</small> [Russian](https://www.reader-dict.com/ru/download/ru)
+1. <small>`[SV]`</small> [Swedish](https://www.reader-dict.com/sv/download/sv)
 
 ## Installation
 
