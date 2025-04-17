@@ -182,6 +182,7 @@ templates_ignored = (
     "source",
     "Source-wikt",
     "source-w",
+    "tableau han",
     "trad",
     "trad-exe",
     "trier",
