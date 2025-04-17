@@ -239,6 +239,9 @@ def last_template_handler(
         >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
         '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
 
+        >>> last_template_handler(["da-adj", "påståeligt", "påståelige"], "da", word="påståelig")
+        'påståelig (<i>intetkøn</i> påståeligt, <i>flertal og bestemt ental attributiv</i> påståelige)'
+
         >>> last_template_handler(["compound", "hjemme", "værn", "langa=da"], "da")
         'hjemme + værn'
         >>> last_template_handler(["com", "hjemme", "værn", "langa=da"], "da")
@@ -289,6 +292,9 @@ def last_template_handler(
 
     if tpl in {"abbreviation of", "abbr of"}:
         return f"{italic('Forkortelse af')} {strong(parts[-1])}"
+
+    if tpl == "da-adj":
+        return f"{word} (<i>intetkøn</i> {parts[0]}, <i>flertal og bestemt ental attributiv</i> {parts[1]})"
 
     if tpl in {"compound", "com"}:
         return concat(parts, " + ")
