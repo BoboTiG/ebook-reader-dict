@@ -48,6 +48,10 @@ Copy the dictionary inside the `documents/dictionaries/` folder on your eBook re
 
 Copy the dictionary inside the `.kobo/custom-dict/` folder on your eBook reader.
 
+### KOReader
+
+Download a dictionary in StarDict format and copy it inside the `koreader/data/dict/` folder on your eBook reader.
+
 ---
 
 ## Development
