@@ -139,7 +139,7 @@ templates_multi = {
     # {{cognados|tonina}}
     "cognados": "f\"{strong('Cognado:')} {parts[1]}\"",
     # {{color|#DDB88E|espacio=6}}
-    "color": "color([p for p in parts if '=' not in p][1] if len(parts) > 1 else '#000000')",
+    "color": "color(c[0] if (c := [p for p in parts[1:] if '=' not in p]) else  '#ffffff')",
     # {{contexto|Educación}}
     "contexto": "term(lookup_italic(parts[-1], 'es'))",
     # {{coord|04|39|N|74|03|O|type:country}}

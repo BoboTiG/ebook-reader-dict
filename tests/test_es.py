@@ -270,6 +270,8 @@ def test_parse_word(
             "Que pertenece o concierne al chamán o al chamanismo",
         ),
         ("{{año de documentación|1250}}", "Uso atestiguado desde 1250"),
+        ("{{color|#DDB88E|espacio=6}}", "[RGB #DDB88E]"),
+        ("{{color|leng=es}}", "[RGB #FFFFFF]"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),

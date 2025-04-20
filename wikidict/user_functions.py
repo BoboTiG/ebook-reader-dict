@@ -117,8 +117,10 @@ def color(rgb: str) -> str:
 
         >>> color("#B0F2B6")
         '[RGB #B0F2B6]'
+        >>> color("#ffffff")
+        '[RGB #FFFFFF]'
     """
-    return f"[RGB {rgb}]"
+    return f"[RGB {rgb.upper()}]"
 
 
 def concat(
