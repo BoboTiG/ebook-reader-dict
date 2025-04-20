@@ -251,6 +251,8 @@ def last_template_handler(
         'fransk'
         >>> last_template_handler(["etyl", "non", "da"], "da")
         'oldnordisk'
+        >>> last_template_handler(["etyl", "cmn", "pt"], "da")
+        'kinesisk'
 
         >>> last_template_handler(["initialism of", "lang=da", "København"], "da")
         '<i>Initialforkortelse af</i> <b>København</b>'
