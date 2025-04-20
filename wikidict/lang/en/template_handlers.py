@@ -129,15 +129,16 @@ def join_names(
             if not var_text and var_alias_key:
                 var_text = data[var_alias_key]
             if var_text:
-                if include_langname and ":" in var_text:
-                    data_split = var_text.split(":")
-                    text = f"{langs[data_split[0]]} {data_split[1]}"
-                    if trans := transliterate(data_split[0], data_split[1]):
-                        text += f" ({trans})"
-                    var_a.append(text)
-                else:
-                    langnametext = "English " if include_langname else ""
-                    var_a.append(langnametext + prefix + var_text + suffix)
+                for origins in var_text.split(","):
+                    if include_langname and ":" in origins:
+                        data_split = origins.split(":")
+                        text = f"{langs[data_split[0]]} {data_split[1]}"
+                        if trans := transliterate(data_split[0], data_split[1]):
+                            text += f" ({trans})"
+                        var_a.append(text)
+                    else:
+                        langnametext = "English " if include_langname else ""
+                        var_a.append(langnametext + prefix + origins + suffix)
     return concat(var_a, ", ", last_sep=last_sep) if var_a else ""
 
 
@@ -599,46 +600,45 @@ def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str))
-    '<i>A male given name</i>'
+    '<i>a male given name</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"or":"female", "A":"A Japanese"}))
     '<i>A Japanese male or female given name</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Spanish", "from2":"Portuguese", "from3":"French"}))
-    '<i>A male given name from Spanish, Portuguese or French</i>'
+    '<i>a male given name from Spanish, Portuguese or French</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"la:Patricius<t:patrician>"}))
-    '<i>A male given name from Latin Patricius (“patrician”)</i>'
+    '<i>a male given name from Latin Patricius (“patrician”)</i>'
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"place names", "usage":"modern", "var":"Savannah"}))
-    '<i>A female given name transferred from the place name, of modern usage, variant of Savannah</i>'
-    >>> render_given_name("given name", ["da" , "male"], defaultdict(str, {"eq":"Bertram", "eq2":"fr:Bertrand"}))
-    '<i>A male given name, equivalent to English Bertram and French Bertrand</i>'
+    '<i>a female given name transferred from the place name, of modern usage, variant of Savannah</i>'
+    >>> render_given_name("given name", ["da" , "male"], defaultdict(str, {"eq":"Bertram,fr:Bertrand"}))
+    '<i>a male given name, equivalent to English Bertram or French Bertrand</i>'
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"Hebrew", "m":"Daniel", "f":"Daniela"}))
-    '<i>A female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
-    >>> render_given_name("given name", ["lv" , "male"], defaultdict(str, {"from":"Slavic languages", "eq":"pl:Władysław", "eq2":"cs:Vladislav", "eq3":"ru:Владисла́в"}))
-    '<i>A male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav and Russian Владисла́в (Vladislav)</i>'
+    '<i>a female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
+    >>> render_given_name("given name", ["lv" , "male"], defaultdict(str, {"from":"Slavic languages", "eq":"pl:Władysław,cs:Vladislav,ru:Владисла́в"}))
+    '<i>a male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav or Russian Владисла́в (Vladislav)</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Germanic languages", "from2":"surnames"}))
-    '<i>A male given name from the Germanic languages or transferred from the surname</i>'
+    '<i>a male given name from the Germanic languages or transferred from the surname</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"coinages", "var":"Cheryl", "var2":"Shirley"}))
-    '<i>A female given name originating as a coinage, variant of Cheryl or Shirley</i>'
+    '<i>a female given name originating as a coinage, variant of Cheryl or Shirley</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"dim":"Mohammed", "dim2":"Moses", "dim3":"Maurice"}))
-    '<i>A diminutive of the male given names Mohammed, Moses or Maurice</i>'
+    '<i>a diminutive of the male given names Mohammed, Moses or Maurice</i>'
     >>> render_given_name("given name", ["en", "male", ], defaultdict(str, {"dim":"Mohammed"}))
-    '<i>A diminutive of the male given name Mohammed</i>'
+    '<i>a diminutive of the male given name Mohammed</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"diminutive":"Florence", "diminutive2":"Flora"}))
-    '<i>A diminutive of the female given names Florence or Flora</i>'
+    '<i>a diminutive of the female given names Florence or Flora</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"Hindi", "meaning":"patience"}))
-    '<i>A male given name from Hindi, meaning "patience"</i>'
+    '<i>a male given name from Hindi, meaning "patience"</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"Danish < grc:Αἰκατερῑ́νη", "var": "Karen"}))
-    '<i>A female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
+    '<i>a female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"la:Gabriēl < grc:Γαβρῑήλ < hbo:גַּבְרִיאֵל<tr:gaḇrīʾḗl><t:God is my strong man>"}))
-    '<i>A male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל (<i>gaḇrīʾḗl</i>, “God is my strong man”)]</i>'
+    '<i>a male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל (<i>gaḇrīʾḗl</i>, “God is my strong man”)]</i>'
     >>> render_given_name("given name", ["da", "male"], defaultdict(str, {"usage":"traditionally popular", "eq": "Nicholas", "from":"la:Nīcolāī<pos:genitive>", "from2":"ru:Никола́й"}))
-    '<i>A male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
+    '<i>a male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
 
     """
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
     gender += f" or {data['or']}" if data["or"] else ""
-    art = data["A"] or "A"
-    phrase = f"{art} "
+    phrase = f"{data['A'] or 'a'} "
     dimtext = join_names(data, "dim", " or ", include_langname=False, key_alias="diminutive")
     phrase += "diminutive of the " if dimtext else ""
     phrase += f"{gender} given name"
@@ -723,7 +723,7 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *
         phrase += f", masculine equivalent {mtext}"
     if ftext := join_names(data, "f", " and "):
         phrase += f", feminine equivalent {ftext}"
-    if eqext := join_names(data, "eq", " and ", include_langname=True):
+    if eqext := join_names(data, "eq", " or ", include_langname=True):
         phrase += f", equivalent to {eqext}"
 
     return italic(phrase)
