@@ -152,7 +152,7 @@ templates_multi = {
     "DRAE": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     "DRAE2001": 'f"«{word}», <i>Diccionario de la lengua española (2001)</i>, 22.ª ed., Madrid: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa."',
     # {{etimología2|de [[hocicar]]}}
-    "etimología2": "parts[1] if (len(parts) > 1 and parts[1] != '...') else ''",
+    "etimología2": "next((p for p in parts[1:] if p != '...' and 'leng=' not in p), '')",
     # {{impropia|Utilizado para especificar...}}
     "impropia": "italic(parts[1])",
     # {{interjección|es}}
