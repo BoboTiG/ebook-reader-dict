@@ -87,6 +87,7 @@ langs = {
     "ell": "græsk",
     "en": "engelsk",
     "eng": "engelsk",
+    "enm": "middelengelsk",
     "eo": "esperanto",
     "epo": "esperanto",
     "es": "spansk",
@@ -379,5 +380,5 @@ langs = {
     "zu": "zulu",
     "zul": "zulu",
     "zza": "zazaki",
-}  # 395
+}  # 396
 # END
