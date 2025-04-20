@@ -24,15 +24,25 @@ articulos: dict[str, str] = {
 }
 
 catgrams: dict[str, dict[str, str]] = {
+    "adjetivo": {
+        "sg": "adjetivo",
+        "gen": "m",
+        "adj_f_sg": "adjetiva",
+    },
+    "pronombre": {
+        "sg": "pronombre",
+        "gen": "m",
+        "adj_f_sg": "pronombre",
+    },
     "sustantivo": {
         "sg": "sustantivo",
         "gen": "m",
         "adj_f_sg": "sustantiva",
     },
-    "adjetivo": {
-        "sg": "adjetivo",
+    "verbo": {
+        "sg": "verbo",
         "gen": "m",
-        "adj_f_sg": "adjetiva",
+        "adj_f_sg": "verbo",
     },
 }
 
@@ -182,6 +192,8 @@ def render_contraccion(tpl: str, parts: list[str], data: defaultdict[str, str], 
     '<i>Contracción de</i> de <i>y</i> ellas'
     >>> render_contraccion("contracción", ["mi", "hija", "adjetivo", "sustantivo"], defaultdict(str, {"leng": "es"}))
     '<i>Contracción del adjetivo</i> mi <i>y el sustantivo</i> hija'
+    >>> render_contraccion("contracción", ["give", "me", "verbo", "pronombre"], defaultdict(str, {"leng": "en"}))
+    '<i>Contracción del verbo</i> give <i>y el pronombre</i> me'
     """
     typo1 = data["typo1"] or parts[2] if len(parts) > 2 else ""
     typo2 = data["typo2"] or parts[3] if len(parts) > 3 else ""
