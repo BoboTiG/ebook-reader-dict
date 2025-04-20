@@ -229,9 +229,11 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     []
     >>> find_pronunciations("{{IPA|/kondiˈvidere/}}", "it")
     ['/kondiˈvidere/']
+    >>> find_pronunciations("{{IPA|/əˈtʃì:vəb<sup>lə</sup>/}}", "it")
+    ['/əˈtʃì:vəb<sup>lə</sup>/']
     """
-    pattern = re.compile(r"{IPA\|(/[^/]+/)")
-    return unique(pattern.findall(code))
+    pattern = re.compile(r"{IPA\|(/(.+)/)}")
+    return [prons[0][0]] if (prons := pattern.findall(code)) else []
 
 
 def last_template_handler(
