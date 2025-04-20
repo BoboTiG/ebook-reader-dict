@@ -71,10 +71,12 @@ def transliterate(text: str, locale: str = "") -> str:
     """
     >>> transliterate("Υ")
     'I'
+    >>> transliterate("υφαντής")
+    'ifandis'
     """
     acute = "\u0301"
     diaeresis = "\u0308"
-    vowels = f"αΑεΕηΗιΙυΥοΟωΩ{acute}{diaeresis}"
+    vowels = rf"[αΑεΕηΗιΙυΥοΟωΩ{acute}{diaeresis}]"
 
     contain = re.search
     sub = re.sub
@@ -82,63 +84,106 @@ def transliterate(text: str, locale: str = "") -> str:
     text = unicodedata.normalize("NFD", text.strip())
     text = text.replace(f"{acute}{diaeresis}", f"{diaeresis}{acute}")
 
-    text = sub(r"([βκπτ])\1", r"\1", text)
-    text = sub(r"(.?)γ[ιΙ]", lambda m: "i" if m[1] in {"", " ", "-"} else m[0], text)
+    # no dobles ββ, κκ, ππ, ττ
+    text = sub(r"([βκπτ])([βκπτ])", lambda m: m[1] if m[1] == m[2] else m[0], text)
+
+    # γι (inicial) > i
+    def matcher(m: re.Match[str]) -> str:
+        before, current = m.groups()
+        if before in {"", " ", "-"}:
+            return "I" if current == "Γι" else "i"
+        return m[0]
+
+    text = sub(r"(.?)([γΓ]ι)", matcher, text)
+
+    # γγ > ng(u)
     text = sub(r"γγ(.)", lambda m: ("ngu" if contain(r"[ει]", m[1]) else "ng") + m[1], text)
-    text = sub(
-        r"(.?)γ[κΚ](.)",
-        lambda m: m[1] + ("Ng" if m[2].isupper() else "ng") + ("u" + m[3] if contain(r"[ει]", m[3]) else m[3]),
-        text,
-    )
+
+    # γκ (inicial, medial) > (n)g(u)
+    def matcher2(m: re.Match[str]) -> str:
+        before, gamma, following = m.groups()
+        ucase = gamma == "Γ"
+        cons = "G" if ucase else "g"
+        if before not in {"", " ", "-"}:
+            cons = "Ng" if ucase else "ng"
+        if contain(r"[ει]", following):
+            return f"{before}{cons}u{following}"
+        return f"{before}{cons}{following}"
+
+    text = sub(r"(.?)([γΓ])κ(.)", matcher2, text)
+
     text = sub(r"γ([ξχ])", r"n\1", text)
     text = text.replace("μβ", "mb")
-    text = sub(
-        r"(.?)μ[πΠ]",
-        lambda m: (
-            m[1] + ("B" if m[2].isupper() else "b") if m[1] in {"", " ", "-"} or not contain(vowels, m[1]) else "mb"
-        ),
-        text,
-    )
-    text = sub(
-        r"(.?)ν[τΤ](.?)",
-        lambda m: (
-            m[1] + ("D" if m[2].isupper() else "d") + m[3]
-            if m[1] in {"", " ", "-"} or not contain(vowels, m[1])
-            else f"nd{m[3]}"
-            if m[3] != "ζ"
-            else m[0]
-        ),
-        text,
-    )
-    text = sub(
-        r"(.?)σ(.?)",
-        lambda m: f"{m[1]}ss{m[2]}" if contain(vowels, m[1]) and contain(vowels, m[2]) else m[0],
-        text,
-    )
-    text = sub(
-        r"([αεοΑΕΟ])ι(.?)",
-        lambda m: {"α": "e", "Α": "E", "ε": "i", "Ε": "I", "ο": "i", "Ο": "I"}[m[1]] + m[2]
-        if m[2] != diaeresis
-        else m[0],
-        text,
-    )
-    text = sub(r"([αεΑΕ])υ(.?)", lambda m: f"{tt[ord(m[1])]}v" + m[2] if m[2] != diaeresis else m[0], text)
+
+    # μπ (inicial o rere consonant, medial) > (m)b
+    def matcher3(m: re.Match[str]) -> str:
+        before, mi = m.groups()
+        ucase = mi == "Μ"
+        if before in {"", " ", "-"} or not contain(vowels, before):
+            return f"{before}{'B' if ucase else 'b'}"
+        return f"{before}mb"
+
+    text = sub(r"(.?)([μΜ])π", matcher3, text)
+
+    # ντ (inicial o rere consonant, medial) > (n)d, excepte τζ > tz
+    def matcher4(m: re.Match[str]) -> str:
+        before, ni, following = m.groups()
+        ucase = ni == "Ν"
+        if before in {"", " ", "-"} or not contain(vowels, before):
+            return f"{before}{'D' if ucase else 'd'}{following}"
+        return f"{before}nd{following}" if following != "ζ" else m[0]
+
+    text = sub(r"(.?)([νΝ])τ(.?)", matcher4, text)
+
+    # ss entre vocals
+    def matcher5(m: re.Match[str]) -> str:
+        before, following = m.groups()
+        if contain(vowels, before) and contain(vowels, following):
+            return f"{before}ss{following}"
+        return m[0]
+
+    text = sub(r"(.?)σ(.?)", matcher5, text)
+
+    # αι > e, ει > i, οι > i, excepte ϊ
+    def matcher6(m: re.Match[str]) -> str:
+        vowel, following = m.groups()
+        if following != diaeresis:
+            tr = str.maketrans({"α": "e", "Α": "E", "ε": "i", "Ε": "I", "ο": "i", "Ο": "I"})
+            return f"{vowel.translate(tr)}{following}"
+        return m[0]
+
+    text = sub(r"([αεοΑΕΟ])ι(.?)", matcher6, text)
+
+    # αυ > av, ευ > ev, excepte ϋ
+    def matcher7(m: re.Match[str]) -> str:
+        vowel, following = m.groups()
+        return f"{tt[ord(vowel)]}v{following}" if following != diaeresis else m[0]
+
+    text = sub(r"([αεΑΕ])υ(.?)", matcher7, text)
+
     text = sub(r"([αεοωΑΕΟΩ])η", lambda m: f"{tt[ord(m[1])]}i{diaeresis}", text)
+
     text = sub(r"([οΟ])υ", lambda m: "u" if m[1] == "ο" else "U", text)
-    text = text.translate(tt).replace("ll", "l·l").replace(diaeresis, "")
 
-    latin = unicodedata.normalize("NFC", text).replace("á", "à").replace("Á", "À")
+    text = text.translate(tt)
+    text = text.replace("ll", "l·l")
 
-    if len(sil := latin.split("·")) == 1:
+    # regles d'accentuació en català
+    text = text.replace(diaeresis, "")
+
+    latin = unicodedata.normalize("NFC", text)
+    text = text.replace("á", "à").replace("Á", "À")
+
+    if len(sil := latin.split("·")) == 1:  # monosíl·laba sense accent
         latin = text.replace(acute, "")
-    elif (
-        contain(r"[ÀàÉéÍíÓóÚú]", sil[-1]) and not contain(r"[àéíóú]s?$", latin) and not contain(r"[éí]n$", latin)
-    ) or (
-        contain(r"[ÀàÉéÍíÓóÚú]", sil[-2])
-        and (contain(r"[aeiou]s?$", text) or contain(r"[ei]n$", text))
-        and not contain(r"[aeiou][iu]$", text)
-    ):
-        text = sub(rf"([aeoiu][iu]){acute}", rf"\1{diaeresis}", text)
-        latin = text.replace(f"gui{diaeresis}", "gui").replace(acute, "")
+    elif contain(r"[ÀàÉéÍíÓóÚú]", sil[-1]):  # aguda
+        if not (contain(r"[àéíóú]s?$", latin) or contain(r"[éí]n$", latin)):
+            text = sub(rf"([aeoiu][iu]){acute}", rf"\1{diaeresis}", text)
+            latin = text.replace(f"gui{diaeresis}", "gui").replace(acute, "")
+    elif contain(r"[ÀàÉéÍíÓóÚú]", sil[-1]):  # plana
+        if contain(r"[aeiou]s?$", text) or contain(r"[ei]n$", text):
+            if not contain(r"[aeiou][iu]$", text):
+                text = sub(rf"([aeoiu][iu]){acute}", rf"\1{diaeresis}", text)
+                latin = text.replace(f"gui{diaeresis}", "gui").replace(acute, "")
 
     return latin
