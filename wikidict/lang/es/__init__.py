@@ -62,9 +62,6 @@ variant_templates = (
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
     *variant_templates,
-    "antropónimo femenino",
-    "antropónimo masculino",
-    "apellido",
     "definición imprecisa",
     "f.adj2",
     "f.s.p",
@@ -87,12 +84,10 @@ templates_ignored = (
     "dicvisdesc",
     "ejemplo",
     "ejemplo requerido",
-    "elemento químico",
     "FEN",
     "inflect.es.sust.invariante",
     "mapa",
     "marcar sin referencias",
-    "parónimo",
     "picdic",
     "picdiclabel",
     "préstamo",
@@ -198,7 +193,10 @@ templates_multi = {
 lowercase_italic = ("Rural", "Jergal", "Lunfardismo")
 
 templates_other = {
+    "apellido": "<i>Apellido</i>",
     "antropónimo ambiguo": "<i>Nombre de pila tanto de mujer como de varón</i>",
+    "antropónimo femenino": "<i>Nombre de pila de mujer</i>",
+    "antropónimo masculino": "<i>Nombre de pila de varón</i>",
     "onomatopeya": "Onomatopeya",
     "sigla": "Sigla",
     "suma de partes": "<i>Se utiliza como la suma de las partes: consulte las entradas de cada término por separado</i>",
