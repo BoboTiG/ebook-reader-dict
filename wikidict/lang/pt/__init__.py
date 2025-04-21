@@ -289,6 +289,8 @@ def last_template_handler(
 
         >>> last_template_handler(["xlatio", "it", "chimica", "f."], "pt")
         'chimica f.'
+        >>> last_template_handler(["xlatio", "cu", "крикъ"], "pt")
+        'крикъ'
     """
     from .. import defaults
     from .codelangs import codelangs
@@ -306,7 +308,7 @@ def last_template_handler(
         case "etm":
             return langs[parts[0]].lower()
         case "xlatio":
-            return f"{parts[1]} {parts[2]}"
+            return " ".join(parts[1:])
 
     # This is a country in the current locale
     if lang := langs.get(tpl):
