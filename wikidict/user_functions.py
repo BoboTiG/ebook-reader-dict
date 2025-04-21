@@ -388,7 +388,7 @@ def number(number: str, fsep: str, tsep: str) -> str:
     number = number.replace("−", "-")
 
     # Keep that value to restore leading zeros that would be lost with the int/float conversion
-    digits_count = sum(1 for c in number if c.isdigit())
+    digits_count = sum(bool(c.isdigit()) for c in number)
 
     # Convert
     try:
@@ -558,9 +558,7 @@ def term(text: str) -> str:
     """
     if not text:
         return ""
-    if text.startswith("<i>("):
-        return text
-    return italic(parenthesis(text))
+    return text if text.startswith("<i>(") else italic(parenthesis(text))
 
 
 def underline(text: str) -> str:
