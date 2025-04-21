@@ -1263,7 +1263,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str))
     'A village in Fulton County, Illinois'
     >>> render_place("place", ["en", "city/county seat", "co/Lamar County", "s/Texas"], defaultdict(str))
-    'A city, the county seat of Lamar County, Texas'
+    'A city, a county seat of Lamar County, Texas'
     >>> render_place("place", ["en", "small town/and/unincorporated community"], defaultdict(str))
     'A small town and unincorporated community'
     >>> render_place("place", ["en", "town", "s/New York", ";", "named after Paris"], defaultdict(str))
@@ -1318,7 +1318,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                     phrase += " " + s["display"]
                     no_article = False
                     if j == len(subparts) - 1:
-                        phrase += f" {s['preposition']} " if parts and parts[0] != "in" else ""
+                        phrase += f" {s.get('preposition') or 'in'} " if parts and parts[0] != "in" else ""
                     else:
                         phrase += ", "
                 else:

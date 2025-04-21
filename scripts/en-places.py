@@ -4,7 +4,7 @@ url = "https://en.wiktionary.org/wiki/Template:place"
 soup = get_soup(url)
 tables = soup.find_all("table", "wikitable")
 
-columns = ["placetype", "article", "display", "preposition", "aliases"]
+columns = ["placetype", "fallback", "article", "display", "preposition", "aliases", "formertype", "should_categorize"]
 placetypes = {}
 print("recognized_placetypes = {")
 body = tables[0].find("tbody")
