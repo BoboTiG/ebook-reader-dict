@@ -1165,6 +1165,7 @@ langs = {
     "shn": "Shan",
     "shy": "Tachawit",
     "si": "Cingalês",
+    "sid": "Sidama",
     "sij": "Numbami",
     "simple": "Inglês Simples",
     "sino": "Caractere sino-japonês",
@@ -1492,5 +1493,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,487
+}  # 1,488
 # END

@@ -11,6 +11,7 @@ regions = {
     "AE": "Émirats arabes unis",
     "AL": "Albanie",
     "AM": "Amérique latine",
+    "AQ": "Antarctique",
     "AR": "Argentine",
     "AT": "Autriche",
     "AU": "Australie",
@@ -49,6 +50,7 @@ regions = {
     "Angola": "Angola",
     "Anguilla": "Anguilla",
     "Anjou": "Anjou",
+    "Antarctique": "Antarctique",
     "Antigua-et-Barbuda": "Antigua-et-Barbuda",
     "Antilles": "Antilles",
     "Aquitaine": "Aquitaine",
@@ -832,5 +834,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 827
+}  # 829
 # END

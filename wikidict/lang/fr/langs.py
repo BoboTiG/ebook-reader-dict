@@ -1374,6 +1374,8 @@ langs = {
     "dif": "dieri",
     "dig": "digo",
     "dih": "kumiai",
+    "dih-ipai": "ipai",
+    "dih-tipai": "tipai",
     "dii": "dimbong",
     "dij": "dai",
     "dik": "dinka du Sud-Ouest",
@@ -2405,7 +2407,7 @@ langs = {
     "jos": "langue des signes jordanienne",
     "jow": "jowulu",
     "jpr": "judéo-persan",
-    "jpx": "langues japonaises",
+    "jpx": "langues japoniques",
     "jra": "jaraï",
     "jrb": "judéo-arabe",
     "jua": "júma",
@@ -6112,6 +6114,7 @@ langs = {
     "xdk": "dharug",
     "xdm": "édomite",
     "xdo": "kwandu",
+    "xdq": "kaïtag",
     "xdy": "malais dayak",
     "xeb": "éblaïte",
     "xed": "hdi",
@@ -6601,5 +6604,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,596
+}  # 6,599
 # END

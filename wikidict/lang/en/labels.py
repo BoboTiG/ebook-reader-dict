@@ -822,6 +822,9 @@ labels = {
     "Thailand": "Thailand",
     "Thieves' Cant": "thieves' cant",
     "Thieves' cant": "thieves' cant",
+    "Thracian deity": "Thracian religion",
+    "Thracian god": "Thracian religion",
+    "Thracian goddess": "Thracian religion",
     "Tibetan Buddhism": "Tibetan Buddhism",
     "TikTok aesthetic": "TikTok aesthetic",
     "Tobago": "Trinidad and Tobago",
@@ -1207,6 +1210,7 @@ labels = {
     "complex analysis": "complex analysis",
     "compsci": "computer science",
     "comptheory": "computing theory",
+    "computability theory": "computing theory",
     "computational linguistics": "computational linguistics",
     "computer": "computing",
     "computer chess": "computer chess",
@@ -2630,7 +2634,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,625
+}  # 2,629
 
 syntaxes = {
     "&": {

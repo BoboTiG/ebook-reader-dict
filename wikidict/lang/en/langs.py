@@ -737,6 +737,7 @@ langs = {
     "azc-nah-pro": "Proto-Nahuan",
     "azc-num": "Numic",
     "azc-num-pro": "Proto-Numic",
+    "azc-pim": "Piman",
     "azc-pro": "Proto-Uto-Aztecan",
     "azc-tak": "Takic",
     "azc-tak-pro": "Proto-Takic",
@@ -5836,7 +5837,7 @@ langs = {
     "niy": "Ngiti",
     "niz": "Ningil",
     "nja": "Nzanyi",
-    "njb": "Nocte Naga",
+    "njb": "Nocte",
     "njh": "Lotha Naga",
     "nji": "Gudanji",
     "njj": "Njen",
@@ -6440,7 +6441,7 @@ langs = {
     "pbr": "Pangwa",
     "pbs": "Central Pame",
     "pbv": "Pnar",
-    "pby": "Pyu",
+    "pby": "Pyu (New Guinea)",
     "pca": "Santa Inés Ahuatempan Popoloca",
     "pcb": "Pear",
     "pcc": "Bouyei",
@@ -6845,7 +6846,7 @@ langs = {
     "pyn": "Poyanáwa",
     "pys": "Paraguayan Sign Language",
     "pyu": "Puyuma",
-    "pyx": "Tircul",
+    "pyx": "Pyu (Myanmar)",
     "pyy": "Pyen",
     "pzh": "Pazeh",
     "pzn": "Para Naga",
@@ -7546,7 +7547,8 @@ langs = {
     "sir": "Siri",
     "sis": "Siuslaw",
     "sit": "Sino-Tibetan",
-    "sit-aao": "Ao",
+    "sit-aao": "Central Naga",
+    "sit-aao-pro": "Proto-Central Naga",
     "sit-alm": "Almora",
     "sit-bai": "Bai",
     "sit-bai-pro": "Proto-Bai",
@@ -8175,7 +8177,6 @@ langs = {
     "tgx": "Tagish",
     "tgy": "Togoyo",
     "th": "Thai",
-    "th-new": "Hacked Thai",
     "thc": "Tai Hang Tong",
     "thd": "Kuuk Thaayorre",
     "the": "Chitwania Tharu",
@@ -9877,7 +9878,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,872
+}  # 9,873
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
