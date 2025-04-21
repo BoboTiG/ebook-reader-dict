@@ -13,7 +13,7 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 section_level = 1
 section_sublevels = (3, 4)
-head_sections = "{{-ru-}}"
+head_sections = ("{{-ru-}}",)
 etyl_section = ("этимология",)
 sections = (
     *etyl_section,
