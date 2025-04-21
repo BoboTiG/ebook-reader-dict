@@ -275,14 +275,19 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     ['dekstr + a']
     >>> find_pronunciations("{{IFA|/vitpunkto/}}", "eo")
     ['/vitpunkto/']
+    >>> find_pronunciations("{{IFA|nenk=1|ˈbɛʁɡŋ̩}}", "eo")
+    ['ˈbɛʁɡŋ̩']
     """
     from ...utils import process_templates
 
-    pattern1 = re.compile(r"\{\{PRON\|`([^`]+)`")
-    pattern2 = re.compile(r"\{\{IFA\|([^}]+)}}")
+    if prons := [
+        process_templates("", match.rstrip("."), locale) for match in re.findall(r"\{\{PRON\|`([^`]+)`", code)
+    ]:
+        return prons
+
     return [
-        process_templates("", match.rstrip("."), locale)
-        for match in pattern1.findall(code) or pattern2.findall(code) or []
+        process_templates("", match.rstrip(".").split("|")[-1], locale)
+        for match in re.findall(r"\{\{IFA\|([^}]+)}}", code)
     ]
 
 
