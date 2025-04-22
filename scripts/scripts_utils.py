@@ -13,6 +13,7 @@ def get_content(url: str, *, max_retries: int = 5, sleep_time: int = 5, as_json:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:
+        print(f"GET {url!r} (try {retry + 1}) ... ", flush=True)
         try:
             with requests.get(url, timeout=10) as req:
                 req.raise_for_status()
