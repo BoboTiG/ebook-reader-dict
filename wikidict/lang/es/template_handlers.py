@@ -350,8 +350,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
     >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
     'De <i>átomo</i> y el sufijo <i>-ico</i>'
-    >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
-    'De <i>átomo</i> y el sufijo <i>-ico</i>'
+    >>> render_etimologia("etimología", ["sufijo", "mantener", "-ncia"], defaultdict(str))
+    'De <i>mantener</i> y el sufijo <i>-ncia</i>'
     >>> render_etimologia("etimología", ["sufijo", "ferrojo", "ar"], defaultdict(str, {"tr":"anticuado por cerrojo e influido por fierro"}))
     'De <i>ferrojo</i> (<i>anticuado por cerrojo e influido por fierro</i>) y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["sufijo", "espumar", "ero"], defaultdict(str, {"alt":"espumado", "alt2":"era"}))
@@ -362,12 +362,22 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'De <i>bullicio</i> ("bullicio") y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
+    >>> render_etimologia("etimología", ["prefijo", "a-", "contecer"], defaultdict(str))
+    'Del prefijo <i>a-</i> y <i>contecer</i>'
     >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
     'Incierta'
     >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
     'Epónimo de la ciudad alemana de Berlín'
     >>> render_etimologia("etimología", ["endo", "chocoano"], defaultdict(str))
     'De <i>chocoano</i>'
+    >>> render_etimologia("etimología", ["dimi", "cata"], defaultdict(str))
+    'Diminutivo de <i>cata</i>'
+    >>> render_etimologia("etimología", ["marca", "Chapadur"], defaultdict(str))
+    'De la marca registrada <i>Chapadur</i>®'
+    >>> render_etimologia("etimología", ["véase", "toto"], defaultdict(str))
+    'Véase <i>toto</i>'
+    >>> render_etimologia("etimología", ["masculino", "fonomímica"], defaultdict(str))
+    'De <i>fonomímica</i> y el sufijo flexivo -o para el masculino'
     """
 
     def call_l_single_part(part: str, index: int) -> str:
@@ -390,7 +400,6 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
         return ""
 
     glue = data.get("e", "y")
-    suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "-"
     word = data.get("alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1]))
     phrase = ""
 
@@ -448,7 +457,10 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
             localphrase = call_l_single_part(part, index)
             phrase += f", {localphrase}"
             index = index + 1
+        suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "" if parts[-1].startswith("-") else "-"
         phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
+    elif cat == "dimi":
+        phrase = f"Diminutivo de {italic(parts[0])}"
     elif cat == "endo":
         phrase = f"De {italic(parts[0])}"
     elif cat in {"epónimo", "EPON"}:
@@ -480,6 +492,10 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
         phrase = f"Alteración fonética de {call_l_single_part(parts[0], 1)}"
     elif cat in ("onomatopeya", "onomatopéyico", "onomatopéyica", "ONOM"):
         phrase = "Onomatopéyica"
+    elif cat == "marca":
+        phrase = f"De la marca registrada {italic(parts[0])}®"
+    elif cat == "masculino":
+        phrase = f"De {italic(parts[0])} y el sufijo flexivo -o para el masculino"
     elif cat == "plural":
         plural = "-s" if len(parts) == 1 else parts[-1]
         data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
@@ -489,13 +505,10 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
         texto_prefijo = data.get("texto-prefijo", "prefijo")
         phrase = f"Del {texto_prefijo} "
         part = parts.pop(0)
-        phrase += render_l(
-            "l+",
-            [
-                (data["diacrítico"] or data["alt"] or part) + "-",
-            ],
-            data,
-        )
+        prefix = data["diacrítico"] or data["alt"] or part
+        if not prefix.endswith("-"):
+            prefix += "-"
+        phrase += render_l("l+", [prefix], data)
         if parts:
             phrase += f" {glue}"
             phrase += f" {call_l_single_part(parts.pop(0), 2)}"
@@ -512,6 +525,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
         word2 = data["diacrítico2"] or data["alt2"] or (parts[1] if len(parts) > 1 else "")
         phrase1 = render_l("l+", [word], data)
+        suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "" if word2.startswith("-") else "-"
         phrase2 = render_l(
             "l+",
             [suffix + word2],
@@ -526,6 +540,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
             ),
         )
         phrase = f"De {phrase1} y el {texto_sufijo} {phrase2}"
+    elif cat == "véase":
+        phrase = f"Véase {italic(parts[0])}"
     elif parts:
         phrase = f"Del {normalizar_nombre(cat)} " if cat else ""
         parts.insert(0, cat)
