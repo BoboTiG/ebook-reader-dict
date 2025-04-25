@@ -1,3 +1,4 @@
+import logging
 import os
 import subprocess
 import sys
@@ -110,6 +111,7 @@ def set_output(errors: int) -> None:
 
 def main() -> int:
     """Entry point."""
+    logging.basicConfig(filename="scripts.log", filemode="w", level=logging.INFO)
     errors: dict[str, str] = {}
     tasks = [(script, file, errors) for script, file in FILES.items()]
 
