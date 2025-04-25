@@ -342,28 +342,24 @@ def add_potential_variant(
     repl: Callable[[str, str], str] = re.compile(r"(</?[^>]+>)").sub,
 ) -> None:
     """
-    Ensure a variant identical to the word is not taken into account:
-    >>> variants_lst = []
-    >>> add_potential_variant("19e", "{{fr-rég|diz.nœ.vjɛm|s=19{{e}}|p=19{{e|es}}}}", "fr", variants_lst)
-    >>> variants_lst
-    []
-
-    Ensure HTML tags are stripped from variants:
-    >>> variants_lst = []
-    >>> add_potential_variant("19es", "{{fr-rég|diz.nœ.vjɛm|s=19{{e}}|p=19{{e|es}}}}", "fr", variants_lst)
-    >>> variants_lst
-    ['19e']
+    Insert a cleaned variant into *variants* (if it is not identical to
+    *word* and not already present).  Handles the special
+    __VARIANT_BASE__/__VARIANT_TEXT__ marker and strips basic HTML/markup.
     """
-    if (variant := utils.process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
-        # Example of false positive we try to prevent in the condition:
-        #    [DE] word="Halles (Saale)" variant="Halle (Saale)"
-        #    [EN] word="401(k)s"        variant="401(k)"
-        if (
-            any(char in variant_cleaned for char in "<>|={}")
-            or any(char in variant_cleaned for char in "()")
-            and all(char not in word for char in "()")
-        ):
-            log.warning(f"Potential variant issue: {variant=} → {variant_cleaned=} for {word=}")
+    variant_raw = utils.process_templates(word, tpl, locale)
+    if not variant_raw:
+        return
+
+    # Special marker → keep only the base-form part
+    if variant_raw.startswith("__VARIANT_BASE__"):
+        variant_cleaned = (
+            variant_raw.split("__VARIANT_TEXT__")[0]
+            .replace("__VARIANT_BASE__", "")
+        )
+    else:
+        variant_cleaned = repl("", variant_raw)        # strip HTML tags
+
+    if variant_cleaned and variant_cleaned != word and variant_cleaned not in variants:
         variants.append(variant_cleaned)
 
 
@@ -445,6 +441,37 @@ def adjust_wikicode(code: str, locale: str) -> str:
     return func(code, locale)
 
 
+def process_variant_markers(definition: str, variants: list[str]) -> str:
+    """Process special markers used to indicate variants.
+    
+    >>> process_variant_markers("Normal definition", [])
+    'Normal definition'
+    >>> variants = []
+    >>> result = process_variant_markers("__VARIANT_BASE__base__VARIANT_TEXT__Description", variants)
+    >>> result
+    'Description'
+    >>> variants
+    ['base']
+    """
+    # Check if this is a special variant marker
+    if isinstance(definition, str) and definition.startswith("__VARIANT_BASE__"):
+        # Extract the base form and variant text
+        parts = definition.split("__VARIANT_TEXT__")
+        if len(parts) == 2:
+            base_form = parts[0].replace("__VARIANT_BASE__", "")
+            variant_text = parts[1]
+            
+            # Add the base form to variants, if not already there
+            if base_form not in variants:
+                variants.append(base_form)
+            
+            # Return just the variant text
+            return variant_text
+    
+    # Not a variant marker, return the original definition
+    return definition
+
+
 def parse_word(
     word: str,
     code: str,
@@ -498,6 +525,29 @@ def parse_word(
         prons = _find_pronunciations(top_sections, lang_src, lang_dst)
         genders = _find_genders(top_sections, lang_src, lang_dst)
 
+    # Process definitions for special variant markers
+    processed_definitions = []
+    for definition in definitions:
+        if isinstance(definition, str):
+            processed_definitions.append(process_variant_markers(definition, variants))
+        elif isinstance(definition, tuple):
+            processed_subdefs = []
+            for subdef in definition:
+                if isinstance(subdef, str):
+                    processed_subdefs.append(process_variant_markers(subdef, variants))
+                elif isinstance(subdef, tuple):
+                    processed_subsubdefs = []
+                    for subsubdef in subdef:
+                        processed_subsubdefs.append(process_variant_markers(subsubdef, variants))
+                    processed_subdefs.append(tuple(processed_subsubdefs))
+                else:
+                    processed_subdefs.append(subdef)
+            processed_definitions.append(tuple(processed_subdefs))
+        else:
+            processed_definitions.append(definition)
+    
+    definitions = processed_definitions
+
     # Variants
     if parsed_sections and (interesting_titles := lang.variant_titles[lang_dst]):
         interesting_templates = lang.variant_templates[lang_dst]
@@ -506,11 +556,15 @@ def parse_word(
                 continue
             for parsed in parsed_section:
                 for tpl in parsed.templates:
-                    tpl = str(tpl)
-                    if tpl.startswith(interesting_templates):
-                        add_potential_variant(word, tpl, lang_dst, variants)
+                    tpl_str = str(tpl)
+                    if tpl_str.startswith(interesting_templates):
+                        # Skip if the template starts with a special marker - it's already been processed
+                        if "__VARIANT_BASE__" not in tpl_str:
+                            add_potential_variant(word, tpl_str, lang_dst, variants)
+                            
         if variants:
-            variants = sorted(set(variants))
+            # Sort and deduplicate
+            variants = sorted(list(set(variants)))
 
     return Word(prons, genders, etymology, definitions, variants)
 

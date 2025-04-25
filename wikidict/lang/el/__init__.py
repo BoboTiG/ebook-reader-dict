@@ -21,6 +21,7 @@ section_patterns = ("#", r"\*")
 sections = (
     *head_sections,
     *etyl_section,
+    "{{μορφή ουσιαστικού|el}}",
     "{{ουσιαστικό}",
     "{{ουσιαστικό|el}",
     "{{ρήμα}",
@@ -65,6 +66,8 @@ variant_templates = (
     "{{infl",
     "{{θηλ του",
     "{{κλ|",
+    "{{πτώσειςΟΑΚπλ",
+    "{{ουδ του-πτώσειςΟΑΚεν",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -407,6 +410,24 @@ def last_template_handler(
         >>> last_template_handler(["πρόσφ", "μαλλί", ".1=μαλλ(ί)", "-ης"], "el")
         'μαλλ(ί) + -ης'
 
+        >>> last_template_handler(["πτώσειςΟΑΚπλ", "προικιό"], "el")
+        '__VARIANT_BASE__προικιό__VARIANT_TEXT__πληθυντικός του <b>προικιό</b>'
+
+        >>> last_template_handler(["ουδ του-πτώσειςΟΑΚεν", "επίπεδος"], "el")
+        '__VARIANT_BASE__επίπεδος__VARIANT_TEXT__ουδέτερο του <b>επίπεδος</b>'
+
+        >>> last_template_handler(["θηλ του", "λέξη"], "el")
+        '__VARIANT_BASE__λέξη__VARIANT_TEXT__θηλυκό του <b>λέξη</b>'
+        
+        >>> last_template_handler(["θηλ του-πτώσειςΟΑΚεν", "γκαντέμης"], "el")
+        '__VARIANT_BASE__γκαντέμης__VARIANT_TEXT__θηλυκό του <b>γκαντέμης</b>'
+
+        >>> last_template_handler(["infl", "grc", "ε=απρ", "χ=ενε", "γίγνομαι"], "el")
+        'γίγνομαι'
+
+        >>> last_template_handler(["κλ", "", "σχολείο", "π=γ", "α=π"], "el")
+        'σχολείο'
+
         >>> last_template_handler(["αρχ"], "el")
         '<i>αρχαία ελληνική</i>'
         >>> last_template_handler(["αρχ", "ὅπου"], "el")
@@ -436,18 +457,6 @@ def last_template_handler(
         '↷ <i>νέα ελληνικά:</i> πάρτι'
         >>> last_template_handler(["απόγ", "σύμβολο=δαν"], "el")
         '↷'
-
-        #
-        # Variants
-        #
-        >>> last_template_handler(["infl", "grc", "ε=απρ", "χ=ενε", "γίγνομαι"], "el")
-        'γίγνομαι'
-        >>> last_template_handler(["θηλ του", "λέξη"], "el")
-        'λέξη'
-        >>> last_template_handler(["θηλ του-πτώσειςΟΑΚεν", "γκαντέμης"], "el")
-        'γκαντέμης'
-        >>> last_template_handler(["κλ", "", "σχολείο", "π=γ", "α=π"], "el")
-        'σχολείο'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -458,6 +467,26 @@ def last_template_handler(
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "πτώσειςΟΑΚπλ":
+        if parts:
+            return f"__VARIANT_BASE__{parts[0]}__VARIANT_TEXT__πληθυντικός του {strong(parts[0])}"
+        return ""
+
+    if tpl == "ουδ του-πτώσειςΟΑΚεν":
+        if parts:
+            return f"__VARIANT_BASE__{parts[0]}__VARIANT_TEXT__ουδέτερο του {strong(parts[0])}"
+        return ""
+
+    if tpl == "θηλ του":
+        if parts:
+            return f"__VARIANT_BASE__{parts[0]}__VARIANT_TEXT__θηλυκό του {strong(parts[0])}"
+        return ""
+
+    if tpl == "θηλ του-πτώσειςΟΑΚεν":
+        if parts:
+            return f"__VARIANT_BASE__{parts[0]}__VARIANT_TEXT__θηλυκό του {strong(parts[0])}"
+        return ""
 
     if tpl == "γραφή του":
         if len(parts) == 1:
@@ -687,10 +716,13 @@ def last_template_handler(
         return str(lang["name"])
 
     #
-    # Variants
+    # Variants  (infl, κλ and similar)
     #
     if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του")):
-        return parts[-1]
+        for p in reversed(parts):
+            if p and "=" not in p:
+                return p
+        return ""
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 
