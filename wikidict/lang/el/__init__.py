@@ -57,6 +57,14 @@ sections = (
     "{{παροιμία|el}",
     "{{πρόθημα}",
     "{{πρόθημα|el}",
+    "{{μορφή ουσιαστικού}",
+    "{{μορφή ουσιαστικού|el}",
+    "{{μορφή ρήματος}",
+    "{{μορφή ρήματος|el}",
+    "{{μορφή επιθέτου}",
+    "{{μορφή επιθέτου|el}",
+    "{{εκφράσεις}",
+    "{{εκφράσεις|el}",
 )
 
 # Variants
@@ -65,6 +73,7 @@ variant_templates = (
     "{{infl",
     "{{θηλ του",
     "{{κλ|",
+    "{{πτώσειςΟΑΚπλ",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
@@ -448,6 +457,8 @@ def last_template_handler(
         'γκαντέμης'
         >>> last_template_handler(["κλ", "", "σχολείο", "π=γ", "α=π"], "el")
         'σχολείο'
+        >>> last_template_handler(["πτώσειςΟΑΚπλ", "", "σχολείο", "π=γ", "α=π"], "el")
+        'σχολείο'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -689,7 +700,7 @@ def last_template_handler(
     #
     # Variants
     #
-    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του")):
+    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του", "πτώσειςΟΑΚπλ")):
         return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
