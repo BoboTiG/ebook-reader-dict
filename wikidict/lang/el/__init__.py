@@ -72,6 +72,7 @@ variant_titles = sections
 variant_templates = (
     "{{infl",
     "{{θηλ του",
+    "{{ουδ του",
     "{{κλ|",
     "{{πτώσειςΟΑΚπλ",
 )
@@ -700,7 +701,7 @@ def last_template_handler(
     #
     # Variants
     #
-    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του", "πτώσειςΟΑΚπλ")):
+    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του", "πτώσειςΟΑΚπλ", "ουδ του")):
         return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
