@@ -248,8 +248,10 @@ def render_caractere_unicode(tpl: str, parts: list[str], data: defaultdict[str, 
     'Unicode : U+266D'
     >>> render_caractere_unicode("caractère Unicode", ["à"], defaultdict(str, {"texte": "Code :"}))
     'Code : U+00E0'
+    >>> render_caractere_unicode("caractère Unicode", [], defaultdict(str), word="🪐")
+    'Unicode : U+1FA90'
     """
-    char = parts[0]
+    char = parts[0] if parts else word
     if len(char) == 4:
         encoded = [f"U+{char}"]
     else:
