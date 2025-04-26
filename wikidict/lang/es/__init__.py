@@ -84,6 +84,7 @@ templates_ignored = (
     "dicvisdesc",
     "ejemplo",
     "ejemplo requerido",
+    "elemento químico",
     "FEN",
     "inflect.es.sust.invariante",
     "mapa",
@@ -98,6 +99,7 @@ templates_ignored = (
     "revisión",
     "sin referencias",
     "t",
+    "tabla-cardinal",
     "uso",
 )
 
