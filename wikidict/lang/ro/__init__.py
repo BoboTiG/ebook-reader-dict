@@ -75,6 +75,7 @@ forma_de = (
     "forma de feminin singular nehotărât pentru",
     "forma de feminin singular pentru",
     "forma de feminin și neutru plural pentru",
+    "forma de feminin și plural pentru",
     "forma de genitiv dativ singular pentru",
     "forma de genitiv singular articulat pentru",
     "forma de genitiv-dativ plural articulat pentru",
@@ -280,6 +281,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("{{-avv-}}", "ro")
     '=== {{avv}} ==='
 
+    >>> adjust_wikicode("{{-nume propriu-}}", "ro")
+    '=== {{nume propriu}} ==='
+
     >>> adjust_wikicode("==Romanian==", "ro")
     '== {{limba|ron}} =='
 
@@ -310,7 +314,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
     # {{-avv-}} → === {{avv}} ===
-    code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    # {{-nume propriu-}} → === {{nume propriu}} ===
+    code = re.sub(r"^\{\{-([\w ]+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     if locale != "ron":
         return code
