@@ -12,6 +12,8 @@ def render_bor(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     """
     >>> render_bor("bor", ["fr", "en", "Européen"], defaultdict(str))
     '(άμεσο δάνειο) <i>γαλλική</i> Européen'
+    >>> render_bor("bor", ["pt", "en", "China"], defaultdict(str, {"τύπος": "τόπος"}))
+    '(άμεσο δάνειο) <i>πορτογαλική</i> China'
     """
     return f"(άμεσο δάνειο) {get_lang(parts.pop(0))} {parts[1]}"
 

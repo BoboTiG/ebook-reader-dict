@@ -175,6 +175,12 @@ templates_multi: dict[str, str] = {
     "οπλ": "italic('ουδέτερο, μόνο στον πληθυντικό')",
     # {{wsp|Eruca}}
     "wsp": "parts[-1]",
+    # {{υπερθ|aa|bb}}
+    "υπερθ": "f\"{italic('υπερθετικός βαθμός του')} {strong(parts[1])}\"",
+    # {{συγκρ|aa|bb}}
+    "συγκρ": "f\"{italic('συγκριτικός βαθμός του')} {strong(parts[1])}\"",
+    # {{πληθ του|aa|bb}}
+    "πληθ του": "f\"{italic('πληθυντικός αριθμός του')} {strong(parts[1])}\"",
 }
 # Alias
 templates_multi["ουδ_του"] = templates_multi["ουδ του"]
