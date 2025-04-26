@@ -86,6 +86,13 @@ definitions_to_ignore = (
     "{{εκφράσεις",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "θρησκεία": "θρησκεία",
+    "κρητ": "κρητικά",
+}
+templates_italic["θρησκ"] = templates_italic["θρησκεία"]
+
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "audio",
