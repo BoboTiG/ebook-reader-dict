@@ -4,6 +4,26 @@ from ...user_functions import concat, extract_keywords_from, italic, parenthesis
 from .langs import langs
 
 
+def get_lang(lang: str) -> str:
+    return italic(langs[lang]["frm"])
+
+
+def render_bor(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_bor("bor", ["fr", "en", "Européen"], defaultdict(str))
+    '(άμεσο δάνειο) <i>γαλλική</i> Européen'
+    """
+    return f"(άμεσο δάνειο) {get_lang(parts.pop(0))} {parts[1]}"
+
+
+def render_inh(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_inh("inh", ["ang", "en"], defaultdict(str))
+    '<i>αγγλοσαξονική</i>'
+    """
+    return get_lang(parts[0])
+
+
 def render_π(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_π("π", ["λέξη"], defaultdict(str))
@@ -349,6 +369,8 @@ def render_πλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
 
 template_mapping = {
+    "bor": render_bor,
+    "inh": render_inh,
     "π": render_π,
     "p": render_π,
     "βλ": render_βλ,
