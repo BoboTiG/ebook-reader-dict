@@ -300,8 +300,6 @@ templates_multi = {
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
     "Braille": "parts[1]",
-    # {{caractère Unicode|266D}}
-    "caractère Unicode": 'f"Unicode : U+{parts[1]}"',
     # {{chiffre romain|15}}
     "chiffre romain": "int_to_roman(int(parts[1]))",
     # {{comparatif de|bien|fr|adv}}

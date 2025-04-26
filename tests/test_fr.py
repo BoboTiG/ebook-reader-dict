@@ -507,7 +507,6 @@ def test_parse_word(
         ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
         ("{{attestation pays de Retz}}", "<i>(Pays de Retz)</i>"),
-        ("{{caractère Unicode|266D}}", "Unicode : U+266D"),
         ("{{chiffre romain|15}}", "XV"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "#B0F2B6"),

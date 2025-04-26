@@ -238,6 +238,25 @@ def render_au_masculin(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return term(phrase)
 
 
+def render_caractere_unicode(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_caractere_unicode("caractère Unicode", ["à"], defaultdict(str))
+    'Unicode : U+00E0'
+    >>> render_caractere_unicode("caractère Unicode", ["a̋"], defaultdict(str))
+    'Unicode : U+0061 U+030B'
+    >>> render_caractere_unicode("caractère Unicode", ["266D"], defaultdict(str))
+    'Unicode : U+266D'
+    >>> render_caractere_unicode("caractère Unicode", ["à"], defaultdict(str, {"texte": "Code :"}))
+    'Code : U+00E0'
+    """
+    char = parts[0]
+    if len(char) == 4:
+        encoded = [f"U+{char}"]
+    else:
+        encoded = [f"U+{hex(ord(c)).upper()[2:].rjust(4, '0')}" for c in char]
+    return f"{data['texte'] or 'Unicode :'} {' '.join(encoded)}"
+
+
 def render_cf(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cf("cf", [], defaultdict(str))
@@ -1537,6 +1556,7 @@ template_mapping = {
     "au masculin": render_au_masculin,
     "C": render_contexte,
     "calque": render_etyl,
+    "caractère Unicode": render_caractere_unicode,
     "cf": render_cf,
     "chunom": render_sinogram_noimg,
     "cit_réf": render_cit_ref,
