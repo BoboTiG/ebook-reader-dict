@@ -5,17 +5,22 @@ from .langs import langs
 
 
 def get_lang(lang: str) -> str:
-    return italic(langs[lang]["frm"])
+    return italic(str(langs[lang]["frm"]))
 
 
 def render_bor(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_bor("bor", ["fr", "en"], defaultdict(str))
+    '(άμεσο δάνειο) <i>γαλλική</i>'
     >>> render_bor("bor", ["fr", "en", "Européen"], defaultdict(str))
     '(άμεσο δάνειο) <i>γαλλική</i> Européen'
     >>> render_bor("bor", ["pt", "en", "China"], defaultdict(str, {"τύπος": "τόπος"}))
     '(άμεσο δάνειο) <i>πορτογαλική</i> China'
     """
-    return f"(άμεσο δάνειο) {get_lang(parts.pop(0))} {parts[1]}"
+    text = f"(άμεσο δάνειο) {get_lang(parts.pop(0))}"
+    if len(parts) > 1:
+        text += f" {parts[1]}"
+    return text
 
 
 def render_inh(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
