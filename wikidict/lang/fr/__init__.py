@@ -97,7 +97,7 @@ variant_titles = (
     *[f"{{{{s|{section}|fr|num={idx}|flexion" for idx, section in enumerate(["adjectif", "nom"], 1)],
 )
 variant_templates = (
-    "{{flexion",
+    "{{__variant__",
     "{{fr-accord-",
     "{{fr-rég",
     "{{fr-verbe-flexion",
@@ -105,7 +105,6 @@ variant_templates = (
 
 # Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
 definitions_to_ignore = (
-    *variant_templates,
     "eo-excl-étyl",
     "Gallica",
     "{doute",
@@ -128,6 +127,7 @@ definitions_to_ignore = (
 # Modèle à ignorer : le texte sera supprimé.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les/Bandeaux
 templates_ignored = (
+    "__variant__",
     "*",
     ",",
     "?",
@@ -603,6 +603,7 @@ def last_template_handler(
     *,
     word: str = "",
     all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
 ) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
@@ -642,61 +643,6 @@ def last_template_handler(
         '<i>(Au passif)</i>'
         >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
         '<i>(Au passif)</i>'
-
-        >>> last_template_handler(["fr-accord-ain", "a.me.ʁi.k"], "fr", word="américain")
-        'américain'
-        >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
-        'chameau de Bactriane'
-        >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
-        'optionnel'
-        >>> last_template_handler(["fr-accord-en", "bu.le.", "ms=booléen"], "fr")
-        'booléen'
-        >>> last_template_handler(["fr-accord-er", "bouch", "bu.ʃ", "ms=boucher"], "fr")
-        'boucher'
-        >>> last_template_handler(["fr-accord-et", "kɔ.k", "ms=coquet"], "fr")
-        'coquet'
-        >>> last_template_handler(["fr-accord-eux", "malheur", "ma.lœ.ʁ"], "fr")
-        'malheureux'
-        >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
-        'putatif'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinnes")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouins")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinne")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-ind", "m=chacun", "pm=ʃa.kœ̃", "pf=ʃa.kyn"], "fr", word="chacune")
-        'chacun'
-        >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
-        'animal'
-        >>> last_template_handler(["fr-accord-oin", "pron=sɑ̃.ta.lw"], "fr", word="santaloines")
-        'santaloine'
-        >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
-        'aïeul'
-        >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
-        'attaché de presse'
-        >>> last_template_handler(["fr-accord-comp-mf", "capital", "p1=capitaux", "risque", "ka.pi.tal", "pp1=ka.pi.to", "ʁisk"], "fr")
-        'capital-risque'
-        >>> last_template_handler(["fr-accord-cons", "ɑ̃.da.lu", "z", "s", "ms=andalou"], "fr")
-        'andalou'
-        >>> last_template_handler(["fr-accord-cons", "ɑ̃.da.lu", "z", "s"], "fr")
-        ''
-        >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
-        'carotte'
-        >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
-        'ru'
-        >>> last_template_handler(["fr-rég", "ɔm d‿a.fɛʁ", "s=homme", "inv=d’affaires"], "fr", word="hommes d’affaires")
-        'homme d’affaires'
-        >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
-        'colliger'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
-        'couvrir'
-        >>> last_template_handler(["fr-verbe-flexion", "impers=oui", "revenir", "ind.i.3s=oui"], "fr")
-        'revenir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "'=oui", "ind.i.1s=oui", "ind.i.2s=oui", "avoir"], "fr")
-        'avoir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
-        'dire'
 
         >>> last_template_handler(["R:TLFi"], "fr", word="pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
@@ -824,6 +770,11 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    if variant_only:
+        tpl, *rest = template
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *rest])
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
@@ -872,29 +823,6 @@ def last_template_handler(
 
     if tpl == "emploi":
         return term(capitalize(parts[0]))
-
-    if tpl == f"{locale}-verbe-flexion":
-        return data.get("1", parts[0] if parts else "")
-
-    if tpl.startswith((f"{locale}-accord-rég", f"{locale}-rég")):
-        if not (singular := data["s"] or data["m"] or data["ms"]):
-            singular = word.rstrip("s")
-        if data["inv"]:
-            singular += f" {data['inv']}"
-        return singular
-
-    if tpl.startswith(f"{locale}-accord-"):
-        if tpl.startswith(f"{locale}-accord-cons"):
-            singular = data["ms"] or ""
-        elif tpl.startswith(f"{locale}-accord-comp"):
-            singular = "-".join(parts[: len(parts) // 2])
-        elif not (singular := data["s"] or data["m"] or data["ms"]):
-            singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
-            if tpl == f"{locale}-accord-in" and singular == word.rstrip("s"):
-                singular = singular.removesuffix("ne" if data["deux_n"] else "e")
-        if data["inv"]:
-            singular += f" {data['inv']}"
-        return singular
 
     if tpl == "Légifrance":
         return data["texte"]
@@ -984,6 +912,14 @@ def last_template_handler(
     if context := lookup_italic(tpl, locale, empty_default=True):
         return term(context)
 
+    #
+    # For variants
+    #
+
+    if tpl.startswith((f"{locale}-verbe-flexion", f"{locale}-accord", f"{locale}-rég")):
+        # We do not want to keep those templates as they is a table
+        return ""
+
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 
 
@@ -1007,16 +943,16 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
 
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
-    '# {{flexion|pressant}}'
+    "# ''Féminin singulier de l’[[adjectif]]'' [[pressant]].{{__variant__|pressant}}"
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
-    '# {{flexion|anisophylle}}'
+    "# ''Pluriel de ''[[anisophylle]]''.''{{__variant__|anisophylle}}"
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
-    '# {{flexion|antiproton}}'
+    "# ''Pluriel de'' [[antiproton#fr|antiproton]].{{__variant__|antiproton}}"
 
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
-    '# {{fr-verbe-flexion|venir}}'
+    "# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].{{__variant__|venir}}"
     >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
-    '# {{fr-verbe-flexion|pouvoir}}'
+    "# ''Participe passé masculin singulier du verbe'' [[pouvoir]].{{__variant__|pouvoir}}"
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
     """
@@ -1035,40 +971,40 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
     code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
 
-    # Enhance name variants support
-    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég}}`
+    #
+    # For variants
+    #
+
+    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
+    code = re.sub(
+        r"^^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"# \1{{__variant__|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég|anisophylle}}`
     forms = "|".join(
         [
             "féminin de",
-            "féminin pluriel",
-            "féminin singulier",
             "masculin et féminin pluriel",
             "masculin ou féminin pluriel",
-            "masculin pluriel",
             "pluriel d",
             "pluriel habituel",
             "pluriel inhabituel",
         ]
     )
     code = re.sub(
-        rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
-        r"# {{flexion|\1}}",
+        rf"^#\s*('+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
+        r"# \1{{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
-    # Enhance verbs variants support
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
     code = re.sub(
-        r"^^#\s*'+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
-        rf"# {{{{{locale}-verbe-flexion|\1}}}}",
-        code,
-        flags=re.IGNORECASE | re.MULTILINE,
-    )
-    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
-    code = re.sub(
-        r"^^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*",
-        rf"# {{{{{locale}-verbe-flexion|\1}}}}",
+        r"^^#\s*('+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"# \1{{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )

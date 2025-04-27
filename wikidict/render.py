@@ -354,7 +354,9 @@ def add_potential_variant(
     >>> variants_lst
     ['19e']
     """
-    if (variant := utils.process_templates(word, tpl, locale)) and (variant_cleaned := repl("", variant)) != word:
+    if (variant := utils.process_templates(word, tpl, locale, variant_only=True)) and (
+        variant_cleaned := repl("", variant)
+    ) != word:
         # Example of false positive we try to prevent in the condition:
         #    [DE] word="Halles (Saale)" variant="Halle (Saale)"
         #    [EN] word="401(k)s"        variant="401(k)"

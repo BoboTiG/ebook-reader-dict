@@ -255,6 +255,7 @@ def last_template_handler(
     *,
     word: str = "",
     all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
 ) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.

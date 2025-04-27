@@ -533,6 +533,7 @@ def process_templates(
     *,
     callback: Callable[[str], str] = clean,
     all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
 ) -> str:
     r"""Process all templates.
 
@@ -584,7 +585,16 @@ def process_templates(
             if tpl in SPECIAL_TEMPLATES:
                 text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
             # Transform the template
-            text = text.replace(tpl, transform(word, tpl[2:-2], locale, all_templates=all_templates))
+            text = text.replace(
+                tpl,
+                transform(
+                    word,
+                    tpl[2:-2],
+                    locale,
+                    all_templates=all_templates,
+                    variant_only=variant_only,
+                ),
+            )
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
@@ -700,7 +710,14 @@ def table2html(word: str, locale: str, table: wikitextparser.Table) -> str:
     return phrase
 
 
-def transform(word: str, template: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> str:
+def transform(
+    word: str,
+    template: str,
+    locale: str,
+    *,
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """Convert the data from the *template" template.
     This function also checks for template style.
 
@@ -775,4 +792,12 @@ def transform(word: str, template: str, locale: str, *, all_templates: list[tupl
     if len(parts) == 1 and (transformer := templates_italic[locale].get(tpl)) is not None:
         return term(transformer)  # noqa: F405
 
-    return str(last_template_handler[locale](parts, locale, word=word, all_templates=all_templates))
+    return str(
+        last_template_handler[locale](
+            parts,
+            locale,
+            word=word,
+            all_templates=all_templates,
+            variant_only=variant_only,
+        )
+    )
