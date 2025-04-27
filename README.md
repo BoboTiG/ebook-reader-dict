@@ -21,6 +21,10 @@
 - **Hieroglyphs** are supported.
 - **Tables** are supported.
 
+## Special
+
+Found [bilingual dictionaries](https://www.reader-dict.com), and [all-to-lang dictionaries](https://www.reader-dict.com).
+
 ## Downloads
 
 1. <small>`[CA]`</small> [Catalan](https://www.reader-dict.com/ca/download/ca)
