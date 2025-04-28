@@ -34,7 +34,22 @@ variant_templates = ("{{прич.",)
 definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
 
 # Some definitions are not good to keep (plural, gender, ... )
-templates_ignored = ("??", "gb", "etym-lang", "L", "Lacuna", "l", "lacuna", "unfinished", "семантика", "пример")
+templates_ignored = (
+    "??",
+    "gb",
+    "etym-lang",
+    "improve",
+    "L",
+    "Lacuna",
+    "l",
+    "lacuna",
+    "unfinished",
+    "семантика",
+    "пример",
+    "помета.",
+    "Категория",
+    "длина слова",
+)
 
 # Templates more complex to manage.
 templates_multi = {
