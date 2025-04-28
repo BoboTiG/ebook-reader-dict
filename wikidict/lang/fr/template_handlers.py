@@ -1822,7 +1822,7 @@ template_mapping = {
     "ws": render_wikisource,
     "zh-lien": render_zh_lien,
     #
-    # For variants
+    # Variants
     #
     "__variant__": render_variant,
     "__variant__fr-accord-ain": render_variant,

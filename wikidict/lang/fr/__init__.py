@@ -442,7 +442,7 @@ templates_multi = {
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
     #
-    # For variants
+    # Variants
     #
     # {{flexion|foo}}
     "flexion": "parts[-1]",
@@ -913,7 +913,7 @@ def last_template_handler(
         return term(context)
 
     #
-    # For variants
+    # Variants
     #
 
     if tpl.startswith((f"{locale}-verbe-flexion", f"{locale}-accord", f"{locale}-rég")):
@@ -972,7 +972,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
 
     #
-    # For variants
+    # Variants
     #
 
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`

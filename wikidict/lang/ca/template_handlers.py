@@ -142,6 +142,134 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase
 
 
+def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_forma("forma-a", ["ca", "-itzar"], defaultdict(str))
+    '<i>Format alternativa de</i> <b>-itzar</b>'
+    >>> render_forma("forma-augm", ["ca", "al·lot"], defaultdict(str, {"t": "xicotot"}))
+    '<i>Format augmentativa de</i> <b>al·lot</b> («xicotot»)'
+    >>> render_forma("forma-dim", ["ca", "amic"], defaultdict(str))
+    '<i>Format diminutiva de</i> <b>amic</b>'
+    >>> render_forma("forma-f", ["ca", "-à"], defaultdict(str))
+    '<i>Format femenina de</i> <b>-à</b>'
+    >>> render_forma("forma-inc", ["ca", "garantir"], defaultdict(str))
+    '<i>Format incorrecta de</i> <b>garantir</b>'
+    >>> render_forma("forma-p", ["ca", "-alla"], defaultdict(str))
+    '<i>Format plural de</i> <b>-alla</b>'
+    >>> render_forma("forma-pron", ["ca", "conxavar"], defaultdict(str))
+    '<i>Format pronominal de</i> <b>conxavar</b>'
+    >>> render_forma("forma-super", ["ca", "alt"], defaultdict(str))
+    '<i>Format superlativa de</i> <b>alt</b>'
+    """
+    fmt = {
+        "a": "alternativa",
+        "augm": "augmentativa",
+        "dim": "diminutiva",
+        "f": "femenina",
+        "inc": "incorrecta",
+        "p": "plural",
+        "pron": "pronominal",
+        "super": "superlativa",
+    }[tpl.split("-")[-1]]
+    text = italic(f"Format {fmt} de")
+    text += f" {strong(parts[-1])}"
+    if t := data["t"]:
+        text += f" («{t}»)"
+    return text
+
+
+def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_forma_conj("forma-conj", ["ca", "abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
+    >>> render_forma_conj("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
+    >>> render_forma_conj("ca-forma-conj", ["-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
+    '<i>Tercera persona plural (ells, elles, vostès) del futur gerundi de</i> <b>-ar</b>'
+    >>> render_forma_conj("ca-forma-conj", ["botre", "2", "imp"], defaultdict(str), word="bot")
+    "<i>Segona persona del singular (tu) de l'imperatiu del verb</i> <b>botre</b>"
+    """
+    if tpl == "forma-conj":
+        parts.pop(0)  # Remove the lang
+
+    if len(parts) > 4:
+        raise ValueError("aïe")
+
+    try:
+        base, persona_num, temps, mode = parts
+    except ValueError:
+        base, persona_num, mode = parts
+        temps = ""
+
+    persona = {
+        "1": "Primera persona del singular",
+        "2": "Segona persona del singular",
+        "3": "Tercera persona del singular",
+        "4": "Primera persona plural",
+        "5": "Segona persona plural",
+        "6": "Tercera persona plural",
+    }[persona_num]
+    persona_pron = {
+        "1": "jo",
+        "2": "tu",
+        "3": "ell, ella, vostè",
+        "4": "nosaltres",
+        "5": "vosaltres, vós",
+        "6": "ells, elles, vostès",
+    }[persona_num]
+    mode = {
+        "ger": "gerundi",
+        "imp": "imperatiu",
+        "ind": "indicatiu",
+        "inf": "infinitiu",
+        "part": "participi",
+        "pron": "pronominal",
+        "subj": "subjuntiu",
+    }[mode]
+
+    if temps:
+        temps = {
+            "cond": "condicional",
+            "fut": "futur",
+            "imp": "imperfet",
+            "imperf": "imperfet",
+            "pres": "present",
+            "pret": "passat",
+            "pretèrit": "passat",
+            "pass": "passat",
+        }[temps]
+        art_temps = " d'" if temps.startswith("i") else " del "
+        art_mode = "d'" if mode.startswith("i") else ""
+        mode += " de"
+    else:
+        art_temps = ""
+        art_mode = "de l'" if mode.startswith("i") else "del "
+        mode += " del verb"
+
+    # nombre = "singular" if int(parts[1]) < 4 else "plural"
+    # nombre = {
+    #     "s": "singular",
+    #     "sg": "singular",
+    #     "sing": "singular",
+    #     "singular": "singular",
+    #     "p": "plural",
+    #     "pl": "plural",
+    #     "plural": "plural",
+    # }.get(parts[4], "singular")
+
+    # gen = {
+    #     "f": "femení",
+    #     "fem": "femení",
+    #     "femení": "femení",
+    #     "m": "masculí",
+    #     "masc": "masculí",
+    #     "masculí": "masculí",
+    # }.get(parts[5], "")
+
+    text = italic(f"{persona} ({persona_pron}){art_temps}{temps} {art_mode}{mode}")
+    return f"{text} {strong(base)}"
+
+
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
@@ -283,15 +411,44 @@ def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return phrase
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    'abacallanar'
+    >>> render_variant("forma-f", ["ca", "-à"], defaultdict(str), word="-ana")
+    '-à'
+    >>> render_variant("forma-p", ["ca", "-alla"], defaultdict(str), word="-alles")
+    '-alla'
+    """
+    return parts[0 if "forma-conj" in tpl else -1]
+
+
 template_mapping = {
+    "ca-forma-conj": render_forma_conj,
     "cognom": render_cognom,
     "comp": render_comp,
+    "forma-a": render_forma,
+    "forma-augm": render_forma,
+    "forma-conj": render_forma_conj,
+    "forma-dim": render_forma,
+    "forma-f": render_forma,
+    "forma-inc": render_forma,
+    "forma-p": render_forma,
+    "forma-pron": render_forma,
+    "forma-super": render_forma,
     "g": render_g,
     "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
     "prenom": render_prenom,
     "sigles de": render_sigles_de,
+    #
+    # Variants
+    #
+    "__variant__ca-forma-conj": render_variant,
+    "__variant__forma-conj": render_variant,
+    "__variant__forma-f": render_variant,
+    "__variant__forma-p": render_variant,
 }
 
 

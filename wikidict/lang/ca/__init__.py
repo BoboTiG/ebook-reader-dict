@@ -42,28 +42,19 @@ sections = (
     "verb",
 )
 
-# Variants
+# Variants                                                                                  │    │
 variant_titles = sections
 variant_templates = (
     "{{ca-forma-conj",
-    "{{forma-",
-    "{{sinònim",
+    "{{forma-conj",
+    "{{forma-f",
+    "{{forma-p",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    *[variant.lstrip("{") for variant in variant_templates],
     "ex-cit",
     "ex-us",
-    "forma-a",
-    "forma-augm",
-    "forma-conj",
-    "forma-dim",
-    "forma-f",
-    "forma-inc",
-    "forma-p",
-    "forma-pron",
-    "forma-super",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -101,24 +92,6 @@ templates_multi = {
     "q": "term(concat(parts[1:], ', '))",
     # {{romanes|XIX}}
     "romanes": "small_caps(parts[-1].lower())",
-    #
-    # Variants
-    #
-    # {{ca-forma-conj|domdar|part|f|p}}
-    "ca-forma-conj": "parts[1]",
-    "forma-conj": "parts[1]",
-    # {{forma-|ca|Bielorússia}}
-    # {{forma-XXX|ca|Bielorússia}}
-    "forma-": "parts[2]",
-    "forma-a": "parts[2]",
-    "forma-augm": "parts[2]",
-    "forma-dim": "parts[2]",
-    "forma-f": "parts[2]",
-    "forma-inc": "parts[2]",
-    "forma-p": "parts[2]",
-    "forma-pron": "parts[2]",
-    "forma-super": "parts[2]",
-    "sinònim": "parts[2]",
 }
 
 
@@ -305,6 +278,11 @@ def last_template_handler(
     from .langs import grups, langs
     from .template_handlers import lookup_template, render_template
 
+    if variant_only:
+        tpl, *rest = template
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *rest])
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
@@ -400,6 +378,13 @@ def last_template_handler(
 
     if tpl == "calc":
         return f"{italic(parts[-1])}{parse_other_parameters(parts[0], parts[-1])}"
+
+    if tpl == "sinònim":
+        # text = {sinònim|mul|Miathyria|glossa=gènere de libèl·lules}}
+        text = f"{italic('sinònim de')} {strong(parts[1])}"
+        if glossa := data["glossa"]:
+            text += f" («{glossa}»)"
+        return text
 
     if tpl == "trad":
         src = data["sc"] or parts.pop(0)
