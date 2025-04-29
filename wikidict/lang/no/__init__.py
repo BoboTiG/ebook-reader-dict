@@ -289,12 +289,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("----", "no")
     ''
 
-    >>> adjust_wikicode("<includeonly>{{rfscript|und|sc=Deva}}, </includeonly>", "no")
+    >>> adjust_wikicode("<includeonly>\\n{{rfscript|und|sc=Deva}}, <br /></includeonly>", "no")
     ''
     """
     code = code.replace("----", "")
 
     # <includeonly>...</includeonly> → ''
-    code = re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.MULTILINE)
+    code = re.sub(r"(<includeonly>.+</includeonly>)", "", code, flags=re.DOTALL | re.MULTILINE)
 
     return code
