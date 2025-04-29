@@ -1278,6 +1278,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A city in Georgia, United States'
     >>> render_place("place", ["en", "river", "in", "England", ", forming the boundary between", "co/Derbyshire", "and", "co/Staffordshire"], defaultdict(str))
     'A river in England, forming the boundary between Derbyshire and Staffordshire'
+    >>> render_place("place", ["en", "barangay", "mun/Hilongos", "p/Leyte", "c/Philippines"], defaultdict(str))
+    'A barangay of Hilongos, Leyte, Philippines'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
@@ -1313,12 +1315,15 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                     subpart = placetypes_aliases.get(subpart, subpart)
                     s = recognized_placetypes.get(subpart, {})
                 if s:
+                    if not (preposition := s.get("preposition")):
+                        s_fallback = recognized_placetypes.get(s["fallback"], {})
+                        preposition = s_fallback.get("preposition")
                     phrase += "" if no_article else s["article"]
                     phrase += f" {qualifier}" if qualifier else ""
                     phrase += " " + s["display"]
                     no_article = False
                     if j == len(subparts) - 1:
-                        phrase += f" {s.get('preposition') or 'in'} " if parts and parts[0] != "in" else ""
+                        phrase += f" {preposition or 'in'} " if parts and parts[0] != "in" else ""
                     else:
                         phrase += ", "
                 else:
