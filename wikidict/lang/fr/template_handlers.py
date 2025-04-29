@@ -515,6 +515,23 @@ def render_compose_double_flexion(tpl: str, parts: list[str], data: defaultdict[
     return f"{phrase}."
 
 
+def render_composé_neutre(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_composé_neutre("composé neutre", ["agenré", "-æ"], defaultdict(str, {"lang": "fr", "mot2": "agenrée"}))
+    'composé de <i>agenré</i>&thinsp;/&thinsp;<i>agenrée</i> et du suffixe <i>-æ</i>, marqueur de genre neutre.'
+    >>> render_composé_neutre("composé neutre", ["agenré", "-æ"], defaultdict(str, {"lang": "fr", "mot2": "agenrée", "f": "1", "m": "1"}))
+    'Composée de <i>agenré</i>&thinsp;/&thinsp;<i>agenrée</i> et du suffixe <i>-æ</i>, marqueur de genre neutre.'
+    """
+    phrase = "Composé" if data["m"] == "1" else "composé"
+    if data["f"] == "1":
+        phrase += "e"
+    phrase += f" de {italic(parts[0])}"
+    if mot2 := data["mot2"]:
+        phrase += f"&thinsp;/&thinsp;{italic(mot2)}"
+    phrase += f" et du suffixe {italic(parts[1])}"
+    return f"{phrase}, marqueur de genre neutre."
+
+
 def render_cs(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cs("CS", [], defaultdict(str, {"char": " 黶 ", "c1": " 厭 ", "c2": " 黑 ", "sens": "tache noire sur la peau, gain de beauté "}))
@@ -1570,6 +1587,7 @@ template_mapping = {
     "composé de": render_compose_de,
     "composé_de": render_compose_de,
     "composé double-flexion": render_compose_double_flexion,
+    "composé neutre": render_composé_neutre,
     "CS": render_cs,
     "date": render_date,
     "deet": render_compose_de,
