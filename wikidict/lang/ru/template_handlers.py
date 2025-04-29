@@ -46,8 +46,8 @@ def render_сэ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         texts.append(slang)
     if parts:
         texts.append(parts.pop(0))
-        if parts:
-            texts.append(f"‘{parts[0]}’")
+    if parts:
+        texts.append(f"‘{parts[0]}’")
     if т := data["т"]:
         texts.append(f"({т})")
     return " ".join(texts)
@@ -123,10 +123,10 @@ def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
     >>> render_t("t", ["ja", "会館"], defaultdict(str, {"tr": "kaikan"}))
     '会館 <sup>(ja)</sup> (kaikan)'
     """
-    text = f"{parts[1]} {superscript('(' + parts[0] + ')')}"
+    text = f"{parts[1]} {superscript(f'({parts[0]})')}"
     if len(parts) > 2:
         gender = {"f": "ж", "m": "M"}[parts[2]]
-        text += f" {italic(gender + '.')}"
+        text += f" {italic(f'{gender}.')}"
     if trans := data["tr"]:
         text += f" ({trans})"
     return text
@@ -236,6 +236,17 @@ def render_морфема(tpl: str, parts: list[str], data: defaultdict[str, str
     return text
 
 
+def render_отчество(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_отчество("отчество", ["Август", "ж", "ru"], defaultdict(str))
+    'женское отчество от имени Август'
+    >>> render_отчество("отчество", ["Август", "м", "ru"], defaultdict(str))
+    'мужское отчество от имени Август'
+    """
+    text = "мужское" if parts[1] == "м" else "женское"
+    return f"{text} отчество от имени {parts[0]}"
+
+
 template_mapping = {
     "lang": render_lang,
     "lang2": render_lang,
@@ -252,6 +263,7 @@ template_mapping = {
     "дат": render_дат,
     "действие": render_действие,
     "морфема": render_морфема,
+    "отчество": render_отчество,
 }
 
 
