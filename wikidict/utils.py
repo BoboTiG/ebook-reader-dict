@@ -390,6 +390,8 @@ def clean(text: str) -> str:
         ''
         >>> clean("<nowiki/>")
         ''
+        >>> clean("<nowiki>«</nowiki>")
+        '«'
         >>> clean("foo|anticuado por [[cerrojo]] e influido por [[fierro]] [http://books.google.es/books?id=or7_PqeALCMC&pg=PA21&dq=%22ferrojo%22]|yeah")
         'foo|anticuado por cerrojo e influido por fierro |yeah'
         >>> clean("<<country>>")
@@ -456,6 +458,8 @@ def clean(text: str) -> str:
 
     # <nowiki/> → ''
     text = text.replace("<nowiki/>", "")
+    # <nowiki>»</nowiki> → '»'
+    text = sub("<nowiki>([^<]+)</nowiki>", r"\1", text)
 
     # <gallery>
     text = sub(r"<gallery>[\s\S]*?</gallery>", "", text)
