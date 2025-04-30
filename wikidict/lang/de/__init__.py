@@ -263,17 +263,6 @@ def last_template_handler(
     'französisch:'
     >>> last_template_handler(["fr"], "de")
     'Französisch'
-
-    >>> last_template_handler(["Grundformverweis Konj", "tragen"], "de")
-    'tragen'
-    >>> last_template_handler(["Grundformverweis Dekl", "Abschnitt=Substantiv, m", "Maser"], "de")
-    'Maser'
-    >>> last_template_handler(["Grundformverweis Partizipform", "Verb=abbrühen", "Partizip=abgebrüht"], "de")
-    'abbrühen'
-    >>> last_template_handler(["Grundformverweis Konj", "1=bereiten", "Abschnitt=Verb.2C_unregelm.C3.A4.C3.9Fig"], "de")
-    'bereiten'
-    >>> last_template_handler(["Grundformverweis Dekl", "safe#safe_(Deutsch)", "safe"], "de")
-    'safe'
     """
     from ...user_functions import extract_keywords_from, italic
     from ..defaults import last_template_handler as default
@@ -281,11 +270,16 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    if variant_only:
+        tpl, *rest = template
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *rest])
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
     tpl, *parts = template
-    data = extract_keywords_from(parts)
+    extract_keywords_from(parts)
 
     if lang_adj := lang_adjs.get(tpl):
         return f"{lang_adj}{parts[0] if parts else ''}"
@@ -295,11 +289,6 @@ def last_template_handler(
 
     if markierung := templates_markierung.get(tpl):
         return italic(f"{markierung}{parts[0] if parts else ''}")
-
-    # note: this should be used for variants only
-    if tpl.startswith(("Grundformverweis ", "Alte Schreibweise")):
-        variant = data["1"] or data["Verb"] or parts[0]
-        return variant.split("#", 1)[0]
 
     return default(template, locale, word=word, all_templates=all_templates)
 
