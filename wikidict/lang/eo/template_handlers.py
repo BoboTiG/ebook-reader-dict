@@ -19,7 +19,7 @@ def render_deveno3(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     lang = parts.pop(0)
     phrase = f'la {langs[lang]} vorto " {strong(parts.pop(0))} "'
     if lang != "grc":
-        phrase += f" {superscript('→ ' + lang)}"
+        phrase += f" {superscript(f'→ {lang}')}"
     if (sg := data["sg"]) not in {"", "-"}:
         phrase += f" (= {sg})"
     return phrase
@@ -59,7 +59,7 @@ def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
         phrase += f" {italic(ts)}"
 
     if special := data["not"]:
-        phrase += f" {small('(' + special + ')')}"
+        phrase += f" {small(f'({special})')}"
 
     return phrase
 
@@ -78,22 +78,26 @@ def render_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     >>> render_form("form-eo", [], defaultdict(str), word="inexistant")
     'inexistant'
     """
-    for suffix, last_char in [
-        ("on", "o"),
-        ("oj", "o"),
-        ("ojn", "o"),
-        ("an", "a"),
-        ("aj", "a"),
-        ("ajn", "a"),
-        ("as", "i"),
-        ("is", "i"),
-        ("os", "i"),
-        ("us", "i"),
-        ("u", "i"),
-    ]:
-        if word.endswith(suffix):
-            return f"{word.removesuffix(suffix)}{last_char}"
-    return word
+    return next(
+        (
+            f"{word.removesuffix(suffix)}{last_char}"
+            for suffix, last_char in [
+                ("on", "o"),
+                ("oj", "o"),
+                ("ojn", "o"),
+                ("an", "a"),
+                ("aj", "a"),
+                ("ajn", "a"),
+                ("as", "i"),
+                ("is", "i"),
+                ("os", "i"),
+                ("us", "i"),
+                ("u", "i"),
+            ]
+            if word.endswith(suffix)
+        ),
+        word,
+    )
 
 
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -210,12 +214,12 @@ def render_t(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
     lang = parts.pop(0)
     phrase = parts.pop(0)
     if lang != "grc":
-        phrase += f" {superscript('→ ' + lang)}"
+        phrase += f" {superscript(f'→ {lang}')}"
     if parts:
         phrase += f" {render_g('g', [parts.pop(0)], defaultdict(), word=word)}"
 
     if other := data["sa"]:
-        phrase += f" aŭ {other} {superscript('→ ' + lang)}"
+        phrase += f" aŭ {other} {superscript(f'→ {lang}')}"
         if trans := data["ts"]:
             phrase += f" {italic(trans)}"
     else:
