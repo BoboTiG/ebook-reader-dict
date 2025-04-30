@@ -181,6 +181,8 @@ templates_multi: dict[str, str] = {
     "συγκρ": "f\"{italic('συγκριτικός βαθμός του')} {strong(parts[1])}\"",
     # {{πληθ του|aa|bb}}
     "πληθ του": "f\"{italic('πληθυντικός αριθμός του')} {strong(parts[1])}\"",
+    # {{πτώσηΓεν|δρόμος}}
+    "πτώσηΓεν": "f\"{italic('γενική ενικού')} του {strong(parts[1])}\"",
 }
 # Alias
 templates_multi["ουδ_του"] = templates_multi["ουδ του"]
