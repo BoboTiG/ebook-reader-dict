@@ -202,6 +202,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 
     >>> render_etym("κλη", ["en", "el", "skyscraper"], defaultdict(str))
     '(κληρονομημένο) <i>αγγλική</i> skyscraper'
+    >>> render_etym("κλη", ["", "σκαμνί"], defaultdict(str, {"π": "οακ", "α": "εν"}))
+    '(κληρονομημένο)'
 
     >>> render_etym("σμσδ", ["fr", "el", "-gène"], defaultdict(str))
     '(σημασιολογικό δάνειο) <i>γαλλική</i> -gène'
@@ -240,7 +242,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
                 phrase += f" {italic('τη')}"
 
     if parts:
-        phrase = f"{phrase} {italic(str(langs[parts.pop(0)][key]))}"
+        if ln := parts.pop(0):
+            phrase = f"{phrase} {italic(str(langs[ln][key]))}"
     if parts:
         parts.pop(0)  # Remove the lang
     if parts:
@@ -390,6 +393,164 @@ def render_ρημ_τύπος(tpl: str, parts: list[str], data: defaultdict[str, 
     return f"{italic(text)} {strong(parts[3 if len(parts) > 3 else 1])}"
 
 
+def render_ουδ_του(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ουδ_του("ουδ του", ["επίπεδος"], defaultdict(str))
+    '<i>ουδέτερο</i> του <b>επίπεδος</b>'
+    >>> render_ουδ_του("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str))
+    '<i>ονομαστική, αιτιατική και κλητική ενικού, ουδέτερου γένους</i> του <b>επίπεδος</b>'
+    >>> render_ουδ_του("ουδ του-πτώσειςΟΑΚπλ", ["-άδικος"], defaultdict(str))
+    '<i>ονομαστική, αιτιατική και κλητική πληθυντικού, ουδέτερου γένους</i> του <b>-άδικος</b>'
+    >>> render_ουδ_του("ουδ του-πτώσηΓεν", ["έβδομου"], defaultdict(str))
+    '<i>γενική ενικού, ουδέτερου γένους</i> του <b>έβδομου</b>'
+    >>> render_ουδ_του("ουδ του-πτώσηΓπλ", ["έβδομος"], defaultdict(str))
+    '<i>γενική πληθυντικού, ουδέτερου γένους</i> του <b>έβδομος</b>'
+
+    >>> render_ουδ_του("αρσ του", ["απολωλός"], defaultdict(str))
+    '<i>αρσενικό</i> του <b>απολωλός</b>'
+    >>> render_ουδ_του("αρσ του-πτώσηΓεν", ["έβδομος"], defaultdict(str))
+    '<i>γενική ενικού, αρσενικού γένους</i> του <b>έβδομος</b>'
+    >>> render_ουδ_του("αρσ του-πτώσηΓπλ", ["έβδομος"], defaultdict(str))
+    '<i>γενική πληθυντικού, αρσενικού γένους</i> του <b>έβδομος</b>'
+    >>> render_ουδ_του("αρσ του-πτώσηΑεν", ["έκνομος"], defaultdict(str))
+    '<i>αιτιατική ενικού, αρσενικού γένους</i> του <b>έκνομος</b>'
+    """
+    match tpl.replace(" ", "_"):
+        case "ουδ_του":
+            text = "ουδέτερο"
+        case "ουδ_του-πτώσειςΟΑΚεν":
+            text = "ονομαστική, αιτιατική και κλητική ενικού, ουδέτερου γένους"
+        case "ουδ_του-πτώσειςΟΑΚπλ":
+            text = "ονομαστική, αιτιατική και κλητική πληθυντικού, ουδέτερου γένους"
+        case "ουδ_του-πτώσηΓεν":
+            text = "γενική ενικού, ουδέτερου γένους"
+        case "ουδ_του-πτώσηΓπλ":
+            text = "γενική πληθυντικού, ουδέτερου γένους"
+
+        case "αρσ_του":
+            text = "αρσενικό"
+        case "αρσ_του-πτώσηΓεν":
+            text = "γενική ενικού, αρσενικού γένους"
+        case "αρσ_του-πτώσηΓπλ":
+            text = "γενική πληθυντικού, αρσενικού γένους"
+        case "αρσ_του-πτώσηΑεν":
+            text = "αιτιατική ενικού, αρσενικού γένους"
+        case _:
+            raise ValueError(f"Unhandled 'ουδ του' {tpl =}")
+    return f"{italic(text)} του {strong(parts[0])}"
+
+
+def render_πτώσειςΟΑΚπλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσειςΟΑΚπλ("πτώσειςΟΑΚπλ", ["Ελληνούπολη"], defaultdict(str))
+    '<i>ονομαστική, αιτιατική και κλητική πληθυντικού</i> του <b>Ελληνούπολη</b>'
+    """
+    return f"{italic('ονομαστική, αιτιατική και κλητική πληθυντικού')} του {strong(parts[0])}"
+
+
+def render_πτώσηΓπλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσηΓπλ("πτώσηΓπλ", ["Γαία"], defaultdict(str))
+    '<i>γενική πληθυντικού</i> του <b>Γαία</b>'
+    """
+    return f"{italic('γενική πληθυντικού')} του {strong(parts[0])}"
+
+
+def render_πτώσηΑπλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσηΑπλ("πτώσηΑπλ", ["Δημητρός"], defaultdict(str))
+    '<i>αιτιατική πληθυντικού</i> του <b>Δημητρός</b>'
+    """
+    return f"{italic('αιτιατική πληθυντικού')} του {strong(parts[0])}"
+
+
+def render_πτώσηΚεν(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσηΚεν("πτώσηΚεν", ["Ίκαρος"], defaultdict(str))
+    '<i>ονομαστική και κλητική πληθυντικού</i> του <b>Ίκαρος</b>'
+    """
+    return f"{italic('ονομαστική και κλητική πληθυντικού')} του {strong(parts[0])}"
+
+
+def render_πτώσειςΟΚπλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσειςΟΚπλ("πτώσειςΟΚπλ", ["Ίκαρος"], defaultdict(str))
+    '<i>γενική πληθυντικού</i> του <b>Ίκαρος</b>'
+    """
+    return f"{italic('γενική πληθυντικού')} του {strong(parts[0])}"
+
+
+def render_πτώσηΑεν(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_πτώσηΑεν("πτώσηΑεν", ["επίπεδος"], defaultdict(str))
+    '<i>αιτιατική ενικού</i> του <b>επίπεδος</b>'
+    """
+    return f"{italic('αιτιατική ενικού')} του {strong(parts[0])}"
+
+
+def render_θηλ_του(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_θηλ_του("θηλ του", ["τσιγγάνος"], defaultdict(str))
+    '<i>θηλυκό</i> του <b>τσιγγάνος</b>'
+    >>> render_θηλ_του("θηλ_του-πτώσειςΟΑΚεν", ["Αθηναϊκός"], defaultdict(str))
+    '<i>ονομαστική, αιτιατική και κλητική ενικού, θηλυκού γένους</i> του <b>Αθηναϊκός</b>'
+    >>> render_θηλ_του("θηλ του-πτώσηΓπλ", ["έβδομος"], defaultdict(str))
+    '<i>γενική πληθυντικού, θηλυκού γένους</i> του <b>έβδομος</b>'
+    >>> render_θηλ_του("θηλ του-πτώσειςΟΑΚπλ", ["έγγαμος"], defaultdict(str))
+    '<i>ονομαστική, αιτιατική και κλητική πληθυντικού, θηλυκού γένους</i> του <b>έγγαμος</b>'
+    >>> render_θηλ_του("θηλ του-πτώσηΓεν", ["έγγαμος"], defaultdict(str))
+    '<i>γενική ενικού, θηλυκού γένους</i> του <b>έγγαμος</b>'
+    >>> render_θηλ_του("θηλ του-πτώσειςΟΚεν", ["ξένος"], defaultdict(str))
+    '<i>ονομαστική και κλητική ενικού, θηλυκού γένους</i> του <b>ξένος</b>'
+    """
+    match tpl.replace(" ", "_"):
+        case "θηλ_του":
+            text = "θηλυκό"
+        case "θηλ_του-πτώσειςΟΑΚεν":
+            text = "ονομαστική, αιτιατική και κλητική ενικού, θηλυκού γένους"
+        case "θηλ_του-πτώσηΓπλ":
+            text = "γενική πληθυντικού, θηλυκού γένους"
+        case "θηλ_του-πτώσειςΟΑΚπλ":
+            text = "ονομαστική, αιτιατική και κλητική πληθυντικού, θηλυκού γένους"
+        case "θηλ_του-πτώσηΓεν":
+            text = "γενική ενικού, θηλυκού γένους"
+        case "θηλ_του-πτώσειςΟΚεν":
+            text = "ονομαστική και κλητική ενικού, θηλυκού γένους"
+        case _:
+            raise ValueError(f"Unhandled 'θηλ του' {tpl =}")
+    return f"{italic(text)} του {strong(parts[0])}"
+
+
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
+    'επίπεδος'
+    >>> render_variant("ουδ του-πτώσειςΟΑΚπλ", ["-άδικος"], defaultdict(str), word="-άδικο")
+    '-άδικος'
+    >>> render_variant("ουδ του-πτώσηΓεν", ["έβδομος"], defaultdict(str), word="έβδομου")
+    'έβδομος'
+    >>> render_variant("ουδ του-πτώσηΓπλ", ["έβδομος"], defaultdict(str), word="έβδομου")
+    'έβδομος'
+
+    >>> render_variant("αρσ του-πτώσηΓεν", ["έβδομος"], defaultdict(str), word="έβδομου")
+    'έβδομος'
+    >>> render_variant("αρσ του-πτώσηΓπλ", ["έβδομος"], defaultdict(str), word="έβδομων")
+    'έβδομος'
+
+    >>> render_variant("πτώσειςΟΑΚπλ", ["Ελληνούπολη"], defaultdict(str), word="Ελληνουπόλεις")
+    'Ελληνούπολη'
+
+    >>> render_variant("πτώσηΑεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
+    'επίπεδος'
+
+    >>> render_variant("θηλ του", ["τσιγγάνος"], defaultdict(str), word="τσιγγάνα")
+    'τσιγγάνος'
+    >>> render_variant("θηλ του-πτώσειςΟΑΚπλ", ["έγγαμος"], defaultdict(str), word="έγγαμες")
+    'έγγαμος'
+    """
+    return parts[-1]
+
+
 template_mapping = {
     "bor": render_bor,
     "inh": render_inh,
@@ -412,6 +573,87 @@ template_mapping = {
     "γραπτήεμφ": render_γραπτήεμφ,
     "πλ": render_πλ,
     "ρημ τύπος": render_ρημ_τύπος,
+    "ρημ_τύπος": render_ρημ_τύπος,
+    "θηλ του": render_θηλ_του,
+    "θηλ_του": render_θηλ_του,
+    "θηλ του-πτώσειςΟΑΚεν": render_θηλ_του,
+    "θηλ_του-πτώσειςΟΑΚεν": render_θηλ_του,
+    "θηλ του-πτώσηΓπλ": render_θηλ_του,
+    "θηλ_του-πτώσηΓπλ": render_θηλ_του,
+    "θηλ του-πτώσειςΟΑΚπλ": render_θηλ_του,
+    "θηλ_του-πτώσειςΟΑΚπλ": render_θηλ_του,
+    "θηλ του-πτώσηΓεν": render_θηλ_του,
+    "θηλ_του-πτώσηΓεν": render_θηλ_του,
+    "θηλ του-πτώσειςΟΚεν": render_θηλ_του,
+    "θηλ_του-πτώσειςΟΚεν": render_θηλ_του,
+    "ουδ του": render_ουδ_του,
+    "ουδ_του": render_ουδ_του,
+    "ουδ του-πτώσειςΟΑΚεν": render_ουδ_του,
+    "ουδ_του-πτώσειςΟΑΚεν": render_ουδ_του,
+    "ουδ του-πτώσειςΟΑΚπλ": render_ουδ_του,
+    "ουδ_του-πτώσειςΟΑΚπλ": render_ουδ_του,
+    "ουδ του-πτώσηΓεν": render_ουδ_του,
+    "ουδ_του-πτώσηΓεν": render_ουδ_του,
+    "ουδ του-πτώσηΓπλ": render_ουδ_του,
+    "ουδ_του-πτώσηΓπλ": render_ουδ_του,
+    "αρσ του": render_ουδ_του,
+    "αρσ_του": render_ουδ_του,
+    "αρσ του-πτώσηΓεν": render_ουδ_του,
+    "αρσ_του-πτώσηΓεν": render_ουδ_του,
+    "αρσ του-πτώσηΓπλ": render_ουδ_του,
+    "αρσ_του-πτώσηΓπλ": render_ουδ_του,
+    "αρσ του-πτώσηΑεν": render_ουδ_του,
+    "αρσ_του-πτώσηΑεν": render_ουδ_του,
+    "πτώσειςΟΑΚπλ": render_πτώσειςΟΑΚπλ,
+    "πτώσειςΟΚπλ": render_πτώσειςΟΚπλ,
+    "πτώσηΑπλ": render_πτώσηΑπλ,
+    "πτώσηΓπλ": render_πτώσηΓπλ,
+    "πτώσηΚεν": render_πτώσηΓπλ,
+    "πτώσηΑεν": render_πτώσηΑεν,
+    #
+    # Variants
+    #
+    # έκνομο
+    "__variant__ρημ τύπος": render_variant,
+    "__variant__ρημ_τύπος": render_variant,
+    "__variant__θηλ του": render_variant,
+    "__variant__θηλ_του": render_variant,
+    "__variant__θηλ του-πτώσειςΟΑΚεν": render_variant,
+    "__variant__θηλ_του-πτώσειςΟΑΚεν": render_variant,
+    "__variant__θηλ του-πτώσηΓπλ": render_variant,
+    "__variant__θηλ_του-πτώσηΓπλ": render_variant,
+    "__variant__θηλ του-πτώσειςΟΑΚπλ": render_variant,
+    "__variant__θηλ_του-πτώσειςΟΑΚπλ": render_variant,
+    "__variant__θηλ του-πτώσηΓεν": render_variant,
+    "__variant__θηλ_του-πτώσηΓεν": render_variant,
+    "__variant__θηλ του-πτώσειςΟΚεν": render_variant,
+    "__variant__θηλ_του-πτώσειςΟΚεν": render_variant,
+    "__variant__ουδ του": render_variant,
+    "__variant__ουδ_του": render_variant,
+    "__variant__ουδ του-πτώσειςΟΑΚεν": render_variant,
+    "__variant__ουδ_του-πτώσειςΟΑΚεν": render_variant,
+    "__variant__ουδ του-πτώσειςΟΑΚπλ": render_variant,
+    "__variant__ουδ_του-πτώσειςΟΑΚπλ": render_variant,
+    "__variant__ουδ του-πτώσηΓπλ": render_variant,
+    "__variant__ουδ_του-πτώσηΓπλ": render_variant,
+    "__variant__ουδ του-πτώσηΓεν": render_variant,
+    "__variant__ουδ_του-πτώσηΓεν": render_variant,
+    "__variant__αρσ του": render_variant,
+    "__variant__αρσ_του": render_variant,
+    "__variant__αρσ του-πτώσηΓεν": render_variant,
+    "__variant__αρσ_του-πτώσηΓεν": render_variant,
+    "__variant__αρσ του-πτώσηΓπλ": render_variant,
+    "__variant__αρσ_του-πτώσηΓπλ": render_variant,
+    "__variant__αρσ του-πτώσηΑεν": render_variant,
+    "__variant__αρσ_του-πτώσηΑεν": render_variant,
+    "__variant__πτώσειςΟΑΚπλ": render_variant,
+    "__variant__πτώσειςΟΚπλ": render_variant,
+    "__variant__πτώσηΑπλ": render_variant,
+    "__variant__πτώσηΓπλ": render_variant,
+    "__variant__πτώσηΑεν": render_variant,
+    "__variant__πτώσηΚεν": render_variant,
+    "__variant__κλ": render_variant,
+    "__variant__infl": render_variant,
 }
 
 

@@ -22,49 +22,53 @@ sections = (
     *head_sections,
     *etyl_section,
     "{{ουσιαστικό}",
-    "{{ουσιαστικό|el}",
+    "{{ουσιαστικό|",
     "{{ρήμα}",
-    "{{ρήμα|el}",
+    "{{ρήμα|",
     "{{επίθετο}",
-    "{{επίθετο|el}",
+    "{{επίθετο|",
     "{{επίρρημα}",
-    "{{επίρρημα|el}",
+    "{{επίρρημα|",
     "{{επίθημα}",
-    "{{επίθημα|el}",
+    "{{επίθημα|",
     "{{σύνδεσμος}",
-    "{{σύνδεσμος|el}",
+    "{{σύνδεσμος|",
     "{{συντομομορφή}",
-    "{{συντομομορφή|el}",
+    "{{συντομομορφή|",
     "{{αριθμητικό}",
-    "{{αριθμητικό|el}",
+    "{{αριθμητικό|",
     "{{άρθρο}",
-    "{{άρθρο|el}",
+    "{{άρθρο|",
     "{{μετοχή}",
-    "{{μετοχή|el}",
+    "{{μετοχή|",
     "{{μόριο}",
-    "{{μόριο|el}",
+    "{{μόριο|",
     "{{αντωνυμία}",
-    "{{αντωνυμία|el}",
+    "{{αντωνυμία|",
     "{{επιφώνημα}",
-    "{{επιφώνημα|el}",
+    "{{επιφώνημα|",
+    "{{κύριο όνομα}",
+    "{{κύριο όνομα|",
     "{{ρηματική έκφραση}",
+    "{{ρηματική έκφραση|",
     "{{επιρρηματική έκφραση}",
+    "{{επιρρηματική έκφραση|",
     "{{φράση}",
-    "{{φράση|el}",
+    "{{φράση|",
     "{{έκφραση}",
-    "{{έκφραση|el}",
+    "{{έκφραση|",
     "{{παροιμία}",
-    "{{παροιμία|el}",
+    "{{παροιμία|",
     "{{πρόθημα}",
-    "{{πρόθημα|el}",
+    "{{πρόθημα|",
     "{{μορφή ουσιαστικού}",
-    "{{μορφή ουσιαστικού|el}",
+    "{{μορφή ουσιαστικού|",
     "{{μορφή ρήματος}",
-    "{{μορφή ρήματος|el}",
+    "{{μορφή ρήματος|",
     "{{μορφή επιθέτου}",
-    "{{μορφή επιθέτου|el}",
+    "{{μορφή επιθέτου|",
     "{{εκφράσεις}",
-    "{{εκφράσεις|el}",
+    "{{εκφράσεις|",
 )
 
 # Variants
@@ -72,26 +76,29 @@ variant_titles = sections
 variant_templates = (
     "{{infl",
     "{{θηλ του",
+    "{{θηλ_του",
     "{{ουδ του",
+    "{{ουδ_του",
+    "{{αρσ του",
+    "{{αρσ_του",
     "{{κλ|",
     "{{πτώσειςΟΑΚπλ",
+    "{{πτώσηΑεν",
+    "{{ρημ τύπος",
+    "{{ρημ_τύπος",
+    "{{πτώσηΓπλ",
+    "{{πτώσειςΟΚπλ",
+    "{{πτώσηΑπλ",
+    "{{πτώσηΚεν",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    *variant_templates,
     "{{μορφή ουσιαστικού",
     "{{μορφή ρήματος",
     "{{μορφή επιθέτου}",
     "{{εκφράσεις",
 )
-
-# Templates that will be completed/replaced using italic style.
-templates_italic = {
-    "θρησκεία": "θρησκεία",
-    "κρητ": "κρητικά",
-}
-templates_italic["θρησκ"] = templates_italic["θρησκεία"]
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
@@ -126,6 +133,16 @@ templates_ignored = (
     "wlogo",
 )
 
+# Templates that will be completed/replaced using italic style.
+templates_italic = {
+    "θρησκεία": "θρησκεία",
+    "κρητ": "κρητικά",
+    "α": "αρσενικό",
+    "ο": "ουδέτερο",
+    "λαϊκ": "λαϊκότροπο",
+}
+templates_italic["θρησκ"] = templates_italic["θρησκεία"]
+
 # Templates more complex to manage.
 templates_multi: dict[str, str] = {
     # {{IPAchar|/ˈsɛləteɪp/}}
@@ -142,8 +159,6 @@ templates_multi: dict[str, str] = {
     "ιε": "italic('πρωτοϊνδοευρωπαϊκή ρίζα')",
     # {{νε}}
     "νε": "italic('νέα ελληνική')",
-    # {{ουδ του|λέξη}}
-    "ουδ του": "italic('ουδέτερο του') + ' ' + strong(parts[1])",
     # {{αιτ}}
     "αιτ": "italic(strong('αιτιατική'))",
     # {{λ2||τοπωνύμιο|τοπωνύμια}}
@@ -185,20 +200,21 @@ templates_multi: dict[str, str] = {
     "πτώσηΓεν": "f\"{italic('γενική ενικού')} του {strong(parts[1])}\"",
 }
 # Alias
-templates_multi["ουδ_του"] = templates_multi["ουδ του"]
 templates_multi["Wspecies"] = templates_multi["wsp"]
 templates_multi["Wikispecies"] = templates_multi["wsp"]
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
     "*": "*",
+    "θ": "<i>θηλυκό</i>",
     "gag": "γκαγκαούζ",
     "odt": "παλαιά ολλανδικά",
     "orv": "αρχαία ανατολική σλαβική γλώσσα",
     "osp": "παλαιά ισπανική",
     "oty": "αρχαία ταμίλ",
-    "λαϊκ": "(<i>λαϊκότροπο</i>)",
+    "παρωχ-ονομαΑ": "ανδρικό όνομα",
 }
+templates_other["ονομαΑ"] = templates_other["παρωχ-ονομαΑ"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
@@ -463,23 +479,26 @@ def last_template_handler(
         >>> last_template_handler(["απόγ", "σύμβολο=δαν"], "el")
         '↷'
 
-        #
-        # Variants
-        #
-        >>> last_template_handler(["infl", "grc", "ε=απρ", "χ=ενε", "γίγνομαι"], "el")
-        'γίγνομαι'
-        >>> last_template_handler(["θηλ του", "λέξη"], "el")
-        'λέξη'
-        >>> last_template_handler(["θηλ του-πτώσειςΟΑΚεν", "γκαντέμης"], "el")
-        'γκαντέμης'
-        >>> last_template_handler(["κλ", "", "σχολείο", "π=γ", "α=π"], "el")
-        'σχολείο'
-        >>> last_template_handler(["πτώσειςΟΑΚπλ", "", "σχολείο", "π=γ", "α=π"], "el")
-        'σχολείο'
+        >>> last_template_handler(["μονο"], "el")
+        '<i>μονοτονική γραφή</i>:'
+        >>> last_template_handler(["μονο", "ἀπολωλώς"], "el")
+        '<i>μονοτονική γραφή της λέξης</i> <b>ἀπολωλώς</b>'
+
+        >>> last_template_handler(["μεγεθ"], "el")
+        '<i>(μεγεθυντικό)</i>'
+        >>> last_template_handler(["μεγεθ", "φωνή"], "el")
+        '<i>μεγεθυντικό του</i> <b>φωνή</b>'
+        >>> last_template_handler(["μεγεθ", "τύπος=φωνή"], "el")
+        '<i>μεγεθυντικό του</i> <b>φωνή</b>'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
     from .template_handlers import lookup_template, render_template
+
+    if variant_only:
+        tpl, *rest = template
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *rest])
 
     if lookup_template(template[0]):
         return render_template(word, template)
@@ -495,8 +514,8 @@ def last_template_handler(
     if tpl in {"λδδ", "dlbor"}:
         phrase = "" if data["0"] else "(διαχρονικό δάνειο) "
         phrase += text_language(parts[0], args=data)
-        if rest := data["1"] or parts[-1] if len(parts) > 2 else "":
-            phrase += f" {rest}"
+        if rest_ := data["1"] or parts[-1] if len(parts) > 2 else "":
+            phrase += f" {rest_}"
         return phrase
 
     if tpl in {"λ", "l", "link"}:
@@ -544,6 +563,16 @@ def last_template_handler(
     if tpl == "λόγιο":
         data["label"] = tpl
         return labels_output("", args=data)
+
+    if tpl == "μονο":
+        if not parts:
+            return f"{italic('μονοτονική γραφή')}:"
+        return f"{italic('μονοτονική γραφή της λέξης')} {strong(parts[0])}"
+
+    if tpl == "μεγεθ":
+        if not parts and not data["τύπος"]:
+            return f"{term('μεγεθυντικό')}"
+        return f"{italic('μεγεθυντικό του')} {strong(data['τύπος'] or parts[0])}"
 
     if text := {
         "λενδ": "λόγιο ενδογενές δάνειο",
@@ -713,12 +742,6 @@ def last_template_handler(
     # This is a country in the current locale
     if lang := langs.get(tpl):
         return str(lang["name"])
-
-    #
-    # Variants
-    #
-    if tpl.startswith(("infl", "κλ", "θηλ του", "θηλ_του", "πτώσειςΟΑΚπλ", "ουδ του")):
-        return parts[-1]
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 
