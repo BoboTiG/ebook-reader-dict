@@ -1,3 +1,4 @@
+import contextlib
 import re
 from collections import defaultdict
 from typing import TypedDict
@@ -233,7 +234,7 @@ def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
     def ordinal(n: str) -> str:
         suffix = "th"
-        try:
+        with contextlib.suppress(ValueError):
             x = int(n)
             mod10 = x % 10
             mod100 = x % 100
@@ -243,8 +244,6 @@ def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
                 suffix = "nd"
             elif mod10 == 3 and mod100 != 13:
                 suffix = "rd"
-        except ValueError:
-            pass
         return f"{n}{suffix}"
 
     if len(parts) > 1:
@@ -1125,7 +1124,7 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
         value = value.rstrip(">")
         match kind:
             case "eq":
-                text += f", {italic('equivalent to ' + value)}"
+                text += f", {italic(f'equivalent to {value}')}"
             case "t":
                 text += f" ({transliterated}“{italic(value)}”)"
             case "tr":
@@ -1136,7 +1135,7 @@ def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str]
         text += f" ({italic(transliterated)})"
 
     if eq := data["eq"]:
-        text += f", {italic('equivalent to ' + eq)}"
+        text += f", {italic(f'equivalent to {eq}')}"
 
     if parts:
         text += f" {italic('or')} {strong(parts[0])}"
@@ -1372,9 +1371,7 @@ def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     parts.pop(0)  # language
     prefix = data["2"] or (parts.pop(0) if parts else "")
     unit = data["3"] or (parts.pop(0) if parts else "")
-    category = data["4"] or (parts.pop(0) if parts else "")
-    if not category:
-        category = unit_to_type.get(unit, "")
+    category = data["4"] or (parts.pop(0) if parts else "") or unit_to_type.get(unit, "")
     exp = prefix_to_exp.get(prefix, "")
     s_end = "" if unit.endswith("z") or unit.endswith("s") else "s"
     phrase = f"({italic('metrology')}) An SI unit of {category} equal to 10{superscript(exp)} {unit}{s_end}."
