@@ -1224,6 +1224,7 @@ langs = {
     "suf": "Tarpia",
     "suj": "Shubi",
     "sux": "Sumério",
+    "suy": "Suyá",
     "sv": "Sueco",
     "sva": "Svan",
     "sw": "Suaíli",
@@ -1493,5 +1494,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,488
+}  # 1,489
 # END

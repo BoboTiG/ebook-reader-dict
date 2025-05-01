@@ -3923,6 +3923,7 @@ langs = {
     "nna": "nyangumarta",
     "nnb": "kinande",
     "nnc": "nancere",
+    "nnd": "ambae de l’Ouest",
     "nne": "ngandyera",
     "nnf": "ngaing",
     "nng": "maring naga",
@@ -6604,5 +6605,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,599
+}  # 6,600
 # END

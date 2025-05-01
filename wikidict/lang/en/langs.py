@@ -2448,6 +2448,9 @@ langs = {
     "eri": "Ogea",
     "erk": "South Efate",
     "ero": "Horpa",
+    "ero-gsz": "Geshiza",
+    "ero-nya": "Nyagrong Minyag",
+    "ero-tau": "Stau",
     "err": "Erre",
     "ers": "Ersu",
     "ert": "Eritai",
@@ -3368,8 +3371,8 @@ langs = {
     "inc-kas": "Kashmiric",
     "inc-kho": "Kholosi",
     "inc-koh": "Kohistani",
-    "inc-krn": "KRNB lects",
-    "inc-krn-pro": "Proto-Kamta",
+    "inc-krd": "KRDS lects",
+    "inc-krd-pro": "Proto-Kamta",
     "inc-kun": "Kunar",
     "inc-mas": "Middle Assamese",
     "inc-mbn": "Middle Bengali",
@@ -8384,6 +8387,7 @@ langs = {
     "tpu": "Tampuan",
     "tpv": "Tanapag",
     "tpw": "Old Tupi",
+    "tpw-lga": "Língua Geral Amazônica",
     "tpx": "Acatepec Me'phaa",
     "tpy": "Trumai",
     "tpz": "Tinputz",
@@ -9878,7 +9882,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,873
+}  # 9,877
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
