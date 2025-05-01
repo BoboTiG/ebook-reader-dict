@@ -1350,10 +1350,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                 phrase += place
             if is_administrative:
                 phrase += f" {kind.split(' ')[-1]}"
-            elif "district" in kind:
-                phrase += " district"
-            elif "parish" in kind:
-                phrase += " parish"
+            elif kind in {"district", "parish"}:
+                phrase += f" {kind}"
         elif part == ";":
             phrase += "; "
         else:
