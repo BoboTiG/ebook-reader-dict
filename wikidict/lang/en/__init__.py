@@ -24,9 +24,11 @@ sections = (
     "contraction",
     "determiner",
     "interjection",
+    "letter",
     "noun",
     "numeral",
     "particle",
+    "punctuation mark",
     "prefix",
     "preposition",
     "pronoun",
@@ -42,30 +44,12 @@ variant_titles = (
     "verb",
 )
 variant_templates = (
-    "{{en-ing",
-    "{{en-ipl",
-    "{{en-irregular",
-    "{{en-past",
-    "{{en-simple",
-    "{{en-superlative",
-    "{{en-third",
-    "{{en-tpso",
     "{{infl of",
     "{{plural of",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    *[variant.lstrip("{") for variant in variant_templates],
-    "en-irregular plural of",
-    "en-past of",
-    "en-simple past of",
-    "en-superlative of",
-    "en-third-person singular of",
-    "en-third person singular of",
-    "en-third-person_singular_of",
-    "rfdef",
-)
+definitions_to_ignore = ("rfdef",)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
@@ -74,6 +58,8 @@ templates_ignored = (
     "c",
     "C",
     "cln",
+    "col-bottom",
+    "col-top",
     "dercat",
     "elements",
     "etymid",
@@ -105,6 +91,7 @@ templates_ignored = (
     "senseid",
     "senseno",
     "seeCites",
+    "sid",
     "swp",
     "tea room",
     "tea room sense",
@@ -142,6 +129,8 @@ templates_multi = {
     "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",
     # {{en-archaic second-person singular past of|term}}
     "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",
+    # {{en-superlative of|Brummie}}
+    "en-superlative of": "f\"{italic('superlative form of')} {strong(parts[1])}: most {parts[1]}\"",
     # {{gl|liquid H<sub>2</sub>O}}
     "gl": "parenthesis(parts[1])",
     # {{gloss|liquid H<sub>2</sub>O}}
@@ -151,7 +140,9 @@ templates_multi = {
     # {{i|Used only ...}}
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
-    "IPAfont": 'f"⟨{parts[1]}⟩"',
+    "IPAfont": "f\"⟨{parts[1].strip('⟨⟩')}⟩\"",
+    # {{italic|Love Island}}
+    "italic": "italic(parts[1])",
     # {{lang|fr|texte}}
     "lang": "parts[-1]",
     # {{Latn-def|en|name|O|o}}
@@ -161,6 +152,8 @@ templates_multi = {
     # {{monospace|#!}}
     "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
+    # {{morse code for|M}}
+    "morse code for": "f\"{italic('Visual rendering of Morse code for')} {strong(parts[1])}.\"",
     # {{n-g|Definite grammatical ...}}
     "n-g": "italic(parts[-1].lstrip('1='))",
     # {{n-g-lite|Definite grammatical ...}}
@@ -183,6 +176,8 @@ templates_multi = {
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{nowrap|1=[ ...=C=C=C=... ]}}
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
+    # {{|&thinsp;𝼊&thinsp;}}
+    "orthography": "f'⟨{parts[1]}⟩'",
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{q-lite|Used only ...}}
@@ -215,34 +210,13 @@ templates_multi = {
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
-    #
-    # Variants
-    #
-    # {{en-ing form of|term}}
-    "en-ing form of": "parts[1]",
-    # {{en-simple past of|term}}
-    "en-simple past of": "parts[1]",
-    # {{en-irregular plural of|term}}
-    "en-irregular plural of": "parts[1]",
-    "en-ipl": "parts[1]",
-    # {{en-past of|term}}
-    "en-past of": "parts[1]",
-    # {{en-superlative of|term}}
-    "en-superlative of": "parts[1]",
-    # {{en-tpso|term}}
-    "en-tpso": "parts[1]",
-    # {{en-third-person singular of|term}}
-    "en-third-person singular of": "parts[1]",
-    # {{en-third-person_singular_of|term}}
-    "en-third-person_singular_of": "parts[1]",
-    # {{en-third person singular of|term}}
-    "en-third person singular of": "parts[1]",
-    # {{plural of|en|human}}
-    "plural of": "parts[2]",
 }
+templates_multi["angbr"] = templates_multi["IPAfont"]
+templates_multi["angbr IPA"] = templates_multi["IPAfont"]
+templates_multi["orthography"] = templates_multi["IPAfont"]
 
 # Templates that will be completed/replaced using custom text.
-templates_other = {"nbsp": "&nbsp;"}
+templates_other = {",": ",", "nbsp": "&nbsp;"}
 
 
 # Release content on GitHub
@@ -301,6 +275,8 @@ def last_template_handler(
 
         >>> last_template_handler(["alternative form of", "enm" , "theen"], "en")
         '<i>Alternative form of</i> <b>theen</b>'
+        >>> last_template_handler(["alternative form of", "enm" , "theen", "dot=;"], "en")
+        '<i>Alternative form of</i> <b>theen</b>;'
         >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
         '<i>Alternative form of</i> <b>a</b> (indefinite article)'
         >>> last_template_handler(["alt form", "enm" , "worth", "t=to become"], "en")
@@ -335,30 +311,24 @@ def last_template_handler(
 
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
-
-        #
-        # Variants
-        #
-        >>> last_template_handler(["infl of", "en", "cling", "", "ing-form"], "en")
-        'cling'
-        >>> last_template_handler(["infl of", "1=en", "2=cling", "3=", "4=ing-form"], "en")
-        'cling'
-
     """
 
     from ...user_functions import capitalize, chinese, extract_keywords_from, italic, strong
+    from .. import defaults
     from .form_of import form_of_templates
     from .langs import langs
     from .template_handlers import gloss_tr_poss, join_names, lookup_template, render_template
+
+    if variant_only:
+        tpl, *rest = template
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *rest])
 
     if lookup_template(template[0]):
         return render_template(word, template)
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
-
-    if tpl == "infl of":
-        return data["2"] or parts[1]
 
     if tpl in form_of_templates:
         template_model = form_of_templates[tpl]
@@ -403,20 +373,16 @@ def last_template_handler(
         phrase += gloss_tr_poss(data, gloss)
         if ender:
             phrase += ender
-        if template_model["dot"]:
-            if data["dot"]:
-                phrase += data["dot"]
-            elif data["nodot"] not in ("1", "y", "yes"):
-                phrase += "."
+        if data["dot"]:
+            phrase += data["dot"]
+        elif template_model["dot"] and data["nodot"] not in ("1", "y", "yes"):
+            phrase += "."
         return phrase
 
     if tpl in ("zh-l", "zh-m"):
         return chinese(parts, data)
 
-    try:
-        return f"{italic(capitalize(tpl))} {strong(parts[1])}"
-    except IndexError:
-        return capitalize(tpl)
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 
 
 # https://en.wiktionary.org/wiki/Wiktionary:Random_page

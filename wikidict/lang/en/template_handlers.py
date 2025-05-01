@@ -385,6 +385,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'Old French'
     >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
     'translingual <i>Jaborosa parviflora</i>'
+    >>> render_foreign_derivation("der+", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
+    'Derived from translingual <i>Jaborosa parviflora</i>'
     >>> render_foreign_derivation("etyl", ["enm", "en"], defaultdict(str))
     'Middle English'
     >>> render_foreign_derivation("etyl", ["grc"], defaultdict(str))
@@ -520,6 +522,8 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
             starter = "borrowed from "
         elif tpl in {"calque", "cal", "clq"}:
             starter = "calque of "
+        if tpl in {"der+"}:
+            starter = "derived from "
         elif tpl in {"inh+"}:
             starter = "inherited from "
         elif tpl in {"partial calque", "pcal"}:
@@ -599,45 +603,45 @@ def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str))
-    '<i>a male given name</i>'
-    >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"or":"female", "A":"A Japanese"}))
-    '<i>A Japanese male or female given name</i>'
+    '<i>A male given name</i>'
+    >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"or":"female", "A":"a Japanese"}))
+    '<i>a Japanese male or female given name</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Spanish", "from2":"Portuguese", "from3":"French"}))
-    '<i>a male given name from Spanish, Portuguese or French</i>'
+    '<i>A male given name from Spanish, Portuguese or French</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"la:Patricius<t:patrician>"}))
-    '<i>a male given name from Latin Patricius (“patrician”)</i>'
+    '<i>A male given name from Latin Patricius (“patrician”)</i>'
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"place names", "usage":"modern", "var":"Savannah"}))
-    '<i>a female given name transferred from the place name, of modern usage, variant of Savannah</i>'
+    '<i>A female given name transferred from the place name, of modern usage, variant of Savannah</i>'
     >>> render_given_name("given name", ["da" , "male"], defaultdict(str, {"eq":"Bertram,fr:Bertrand"}))
-    '<i>a male given name, equivalent to English Bertram or French Bertrand</i>'
+    '<i>A male given name, equivalent to English Bertram or French Bertrand</i>'
     >>> render_given_name("given name", ["en" , "female"], defaultdict(str, {"from":"Hebrew", "m":"Daniel", "f":"Daniela"}))
-    '<i>a female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
+    '<i>A female given name from Hebrew, masculine equivalent Daniel, feminine equivalent Daniela</i>'
     >>> render_given_name("given name", ["lv" , "male"], defaultdict(str, {"from":"Slavic languages", "eq":"pl:Władysław,cs:Vladislav,ru:Владисла́в"}))
-    '<i>a male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav or Russian Владисла́в (Vladislav)</i>'
+    '<i>A male given name from the Slavic languages, equivalent to Polish Władysław, Czech Vladislav or Russian Владисла́в (Vladislav)</i>'
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str, {"from":"Germanic languages", "from2":"surnames"}))
-    '<i>a male given name from the Germanic languages or transferred from the surname</i>'
+    '<i>A male given name from the Germanic languages or transferred from the surname</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"coinages", "var":"Cheryl", "var2":"Shirley"}))
-    '<i>a female given name originating as a coinage, variant of Cheryl or Shirley</i>'
+    '<i>A female given name originating as a coinage, variant of Cheryl or Shirley</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"dim":"Mohammed", "dim2":"Moses", "dim3":"Maurice"}))
-    '<i>a diminutive of the male given names Mohammed, Moses or Maurice</i>'
+    '<i>A diminutive of the male given names Mohammed, Moses or Maurice</i>'
     >>> render_given_name("given name", ["en", "male", ], defaultdict(str, {"dim":"Mohammed"}))
-    '<i>a diminutive of the male given name Mohammed</i>'
+    '<i>A diminutive of the male given name Mohammed</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"diminutive":"Florence", "diminutive2":"Flora"}))
-    '<i>a diminutive of the female given names Florence or Flora</i>'
+    '<i>A diminutive of the female given names Florence or Flora</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"Hindi", "meaning":"patience"}))
-    '<i>a male given name from Hindi, meaning "patience"</i>'
+    '<i>A male given name from Hindi, meaning "patience"</i>'
     >>> render_given_name("given name", ["en", "female"], defaultdict(str, {"from":"Danish < grc:Αἰκατερῑ́νη", "var": "Karen"}))
-    '<i>a female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
+    '<i>A female given name from Danish [in turn from Ancient Greek Αἰκατερῑ́νη], variant of Karen</i>'
     >>> render_given_name("given name", ["en", "male"], defaultdict(str, {"from":"la:Gabriēl < grc:Γαβρῑήλ < hbo:גַּבְרִיאֵל<tr:gaḇrīʾḗl><t:God is my strong man>"}))
-    '<i>a male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל (<i>gaḇrīʾḗl</i>, “God is my strong man”)]</i>'
+    '<i>A male given name from Latin Gabriēl [in turn from Ancient Greek Γαβρῑήλ, in turn from Biblical Hebrew גַּבְרִיאֵל (<i>gaḇrīʾḗl</i>, “God is my strong man”)]</i>'
     >>> render_given_name("given name", ["da", "male"], defaultdict(str, {"usage":"traditionally popular", "eq": "Nicholas", "from":"la:Nīcolāī<pos:genitive>", "from2":"ru:Никола́й"}))
-    '<i>a male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
+    '<i>A male given name from Latin Nīcolāī (genitive) or Russian Никола́й, of traditionally popular usage, equivalent to English Nicholas</i>'
 
     """
     parts.pop(0)  # language
     gender = data["gender"] or (parts.pop(0) if parts else "")
     gender += f" or {data['or']}" if data["or"] else ""
-    phrase = f"{data['A'] or 'a'} "
+    phrase = f"{data['A'] or 'A'} "
     dimtext = join_names(data, "dim", " or ", include_langname=False, key_alias="diminutive")
     phrase += "diminutive of the " if dimtext else ""
     phrase += f"{gender} given name"
@@ -945,6 +949,8 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
     >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
     '<i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
+    >>> render_morphology("com+", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
+    'Compound of <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
 
     >>> render_morphology("blend", ["he", "תַּשְׁבֵּץ", "חֵץ"], defaultdict(str, {"tr1":"tashbéts", "t1":"crossword", "t2":"arrow", "tr2":"chets"}))
     'Blend of <i>תַּשְׁבֵּץ</i> (<i>tashbéts</i>, “crossword”)&nbsp;+&nbsp;<i>חֵץ</i> (<i>chets</i>, “arrow”)'
@@ -1002,6 +1008,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "con",
         "confix",
         "com",
+        "com+",
         "compound",
         "blend",
         "blend of",
@@ -1011,7 +1018,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
         tpl = "doublet"
     with_start_text = ["doublet", "piecewise doublet", "blend", "blend of"]
     parts.pop(0)  # language code
-    phrase = ""
+    phrase = "Compound of " if tpl == "com+" else ""
     if data["notext"] != "1" and tpl in with_start_text:
         starter = tpl
         if parts:
@@ -1261,6 +1268,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A country; modern Iraq'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str))
     'A village in Fulton County, Illinois'
+    >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str, {"a": "a"}))
+    'a village in Fulton County, Illinois'
     >>> render_place("place", ["en", "city/county seat", "co/Lamar County", "s/Texas"], defaultdict(str))
     'A city, a county seat of Lamar County, Texas'
     >>> render_place("place", ["en", "small town/and/unincorporated community"], defaultdict(str))
@@ -1285,6 +1294,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A barangay of Hilongos, Leyte, Philippines'
     >>> render_place("place", ["en", "hamlet", "par/South Leigh and High Cogges", "dist/West Oxfordshire", "co/Oxfordshire", "cc/England"], defaultdict(str))
     'A hamlet in South Leigh and High Cogges parish, West Oxfordshire district, Oxfordshire, England'
+    >>> render_place("place", ["en", "village/and/cpar", "in", "uauth/Central Bedfordshire", "co/Bedfordshire", "cc/England"], defaultdict(str))
+    'A village and civil parish in  Central Bedfordshire district, Bedfordshire, England'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
@@ -1298,8 +1309,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
             phrase += f" {part}"
             phrase += " " if part == "in" else ""
             previous_rawpart = True
-            continue
-        if i == 1:
+        elif i == 1:
             no_article = False
             for j, subpart in enumerate(subparts):
                 if subpart == "and":
@@ -1323,7 +1333,11 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                     if not (preposition := s.get("preposition")):
                         s_fallback = recognized_placetypes.get(s["fallback"], {})
                         preposition = s_fallback.get("preposition")
-                    phrase += "" if no_article else s["article"]
+                    if j == 0:
+                        article = data["a"] or s["article"].upper()
+                    else:
+                        article = "" if no_article else s["article"]
+                    phrase += article
                     phrase += f" {qualifier}" if qualifier else ""
                     phrase += " " + s["display"]
                     no_article = False
@@ -1336,7 +1350,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         elif len(subparts) > 1:
             phrase += ", " if i > 2 and not previous_rawpart else ""
             phrase += " " if previous_rawpart else ""
-            kind, place = subparts
+            kind, *places = subparts
+            place = "/".join(places)
             kind = placetypes_aliases.get(kind, kind)
             placename_key = f"{kind}/{place}"
             is_administrative = "administrative" in kind
@@ -1352,6 +1367,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                 phrase += f" {kind.split(' ')[-1]}"
             elif kind in {"district", "parish"}:
                 phrase += f" {kind}"
+            elif kind == "unitary authority":
+                phrase += " district"
         elif part == ";":
             phrase += "; "
         else:
@@ -1362,7 +1379,38 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
             phrase += f"; modern {data[modern_key]}"
         previous_rawpart = len(subparts) == 1 and i > 1
         i += 1
-    return capitalize(phrase)
+    return phrase
+
+
+def render_plural_of(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_plural_of("plural of", ["en", "woman"], defaultdict(str))
+    '<i>plural of</i> <b>woman</b>'
+    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR", "ts": "TS"}))
+    '<i>plural of</i> <b>Madame</b> (<i>TR</i> /<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
+    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR"}))
+    '<i>plural of</i> <b>Madame</b> (<i>TR</i>, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
+    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "ts": "TS"}))
+    '<i>plural of</i> <b>Madame</b> (/<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
+    """
+    text = f"{italic('plural of')} {strong(parts[1])}"
+
+    more: list[str] = []
+    more_a: list[str] = []
+    if tr := data["tr"]:
+        more_a.append(f"{italic(tr)}")
+    if ts := data["ts"]:
+        more_a.append(f"/{italic(ts)}/")
+    if more_a:
+        more.append(" ".join(more_a))
+
+    if t := data["t"]:
+        more.append(f"“{t}”")
+
+    if more:
+        text += f" ({', '.join(more)})"
+
+    return text
 
 
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1531,6 +1579,25 @@ def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         return "Unknown"
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str), word="humans")
+    'human'
+    >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str, {"1": "en", "2": "human", "3": "", "4": "s-verb-form"}), word="humans")
+    'human'
+
+    >>> render_variant("plural of", ["en", "woman"], defaultdict(str), word="women")
+    'woman'
+    >>> render_variant("plural of", ["en", "woman"], defaultdict(str, {"t": "some precious information"}), word="women")
+    ''
+    """
+    # {{plural of|t=...}} contains valuable information, it would be a waste redirecting to a variant
+    if tpl.endswith("plural of") and data["t"]:
+        return ""
+
+    return data["2"] or parts[1]
+
+
 def render_vern(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_vern("vern", ["Pacific cod"], defaultdict(str))
@@ -1583,11 +1650,13 @@ template_mapping = {
     "contr": render_contraction,
     "contraction": render_contraction,
     "com": render_morphology,
+    "com+": render_morphology,
     "compound": render_morphology,
     "con": render_morphology,
     "confix": render_morphology,
     "dbt": render_morphology,
     "der": render_foreign_derivation,
+    "der+": render_foreign_derivation,
     "der-lite": render_foreign_derivation,
     "derived": render_foreign_derivation,
     "doublet": render_morphology,
@@ -1639,6 +1708,7 @@ template_mapping = {
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
+    "plural of": render_plural_of,
     "post": render_dating,
     "p.": render_dating,
     "pre": render_morphology,
@@ -1659,8 +1729,11 @@ template_mapping = {
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
     "taxon": render_taxon,
+    "term-label": render_label,
+    "tlb": render_label,
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,
+    "U": render_cap,
     "ubor": render_foreign_derivation,
     "uder": render_foreign_derivation,
     "unadapted borrowing": render_foreign_derivation,
@@ -1671,6 +1744,30 @@ template_mapping = {
     "vern": render_vern,
     "vernacular": render_vern,
     "w": defaults.render_wikilink,
+    #
+    # Variants
+    #
+    "__variant__infl of": render_variant,
+    "__variant__plural of": render_variant,
+    # {{en-ing form of|term}}
+    # "en-ing form of": "parts[1]",
+    # # {{en-simple past of|term}}
+    # "en-simple past of": "parts[1]",
+    # # {{en-irregular plural of|term}}
+    # "en-irregular plural of": "parts[1]",
+    # "en-ipl": "parts[1]",
+    # # {{en-past of|term}}
+    # "en-past of": "parts[1]",
+    # # {{en-superlative of|term}}
+    # "en-superlative of": "parts[1]",
+    # # {{en-tpso|term}}
+    # "en-tpso": "parts[1]",
+    # # {{en-third-person singular of|term}}
+    # "en-third-person singular of": "parts[1]",
+    # # {{en-third-person_singular_of|term}}
+    # "en-third-person_singular_of": "parts[1]",
+    # # {{en-third person singular of|term}}
+    # "en-third person singular of": "parts[1]",
 }
 
 
