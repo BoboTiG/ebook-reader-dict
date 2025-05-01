@@ -109,8 +109,9 @@ def main() -> int:
     total = len(FILES)
     tasks = [(script, file, errors, idx, total) for idx, (script, file) in enumerate(FILES.items(), 1)]
 
-    if processes := os.getenv("MAX_PROCESS"):
-        processes = int(processes)
+    processes: int | None = None
+    if "MAX_PROCESS" in os.environ:
+        processes = int(os.environ["MAX_PROCESS"])
     elif "CI" in os.environ:
         processes = 2
 
