@@ -4,7 +4,6 @@ import subprocess
 import sys
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
-from time import sleep
 
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
 from ruff_api import FormatOptions, format_string
@@ -97,37 +96,34 @@ def process_script(script: str, file: str, errors: dict[str, str]) -> None:
     else:
         print(f"Processed {script} with success.", flush=True)
 
-    if "CI" in os.environ:
-        # Relax
-        sleep(5)
-
 
 def set_output(errors: int) -> None:
     """It is very specific to GitHub Actions."""
-    if "CI" in os.environ:
-        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
-            fh.write(f"errors={errors}\n".encode())
+    with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+        fh.write(f"errors={errors}\n".encode())
 
 
 def main() -> int:
     """Entry point."""
     logging.basicConfig(filename="scripts.log", filemode="w", level=logging.INFO)
     errors: dict[str, str] = {}
-    tasks = [(script, file, errors) for script, file in FILES.items()]
 
-    with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 2)) as pool:
-        for _ in pool.starmap(process_script, tasks):
-            pass
+    if "CI" in os.environ:
+        for script, file in FILES.items():
+            process_script(script, file, errors)
+        set_output(len(errors))
+    else:
+        tasks = [(script, file, errors) for script, file in FILES.items()]
+        with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 2)) as pool:
+            for _ in pool.starmap(process_script, tasks):
+                pass
 
-    set_output(len(errors))
+    for script, error in errors.items():
+        print(f" !! {script}")
+        print(error)
+        print()
 
-    if errors:
-        for script, error in errors.items():
-            print(f" !! {script}")
-            print(error)
-            print()
-
-    return 0
+    return len(errors)
 
 
 if __name__ == "__main__":
