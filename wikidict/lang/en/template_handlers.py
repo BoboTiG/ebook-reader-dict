@@ -1269,6 +1269,10 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A town in New York; named after Paris'
     >>> render_place("place", ["en", "s"], defaultdict(str))
     'A state'
+    >>> render_place("place", ["en", "state", "overseas territory/United States Virgin Islands"], defaultdict(str))
+    'A state of the United States Virgin Islands'
+    >>> render_place("place", ["en", "state", "administrative region/Réunion"], defaultdict(str))
+    'A state of the Réunion region'
     >>> render_place("place", ["en", "state", "c/USA"], defaultdict(str))
     'A state of the United States'
     >>> render_place("place", ["en", "city", "c/Republic of Ireland"], defaultdict(str))
@@ -1279,6 +1283,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A river in England, forming the boundary between Derbyshire and Staffordshire'
     >>> render_place("place", ["en", "barangay", "mun/Hilongos", "p/Leyte", "c/Philippines"], defaultdict(str))
     'A barangay of Hilongos, Leyte, Philippines'
+    >>> render_place("place", ["en", "hamlet", "par/South Leigh and High Cogges", "dist/West Oxfordshire", "co/Oxfordshire", "cc/England"], defaultdict(str))
+    'A hamlet in South Leigh and High Cogges parish, West Oxfordshire district, Oxfordshire, England'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
@@ -1330,22 +1336,24 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         elif len(subparts) > 1:
             phrase += ", " if i > 2 and not previous_rawpart else ""
             phrase += " " if previous_rawpart else ""
-            subpart = subparts[0]
-            subpart = placetypes_aliases.get(subpart, subpart)
-            placename_key = f"{subpart}/{subparts[1]}"
-            placename = recognized_placenames.get(placename_key, {})
-            if placename and placename["display"] and placename["display"] in recognized_placenames:
-                placename_key = placename["display"]
-                placename = recognized_placenames[placename_key]
-            if placename:
-                if placename["article"] and i < 3:
-                    phrase += placename["article"] + " "
-                if placename["display"]:
-                    phrase += placename["display"].split("/")[1]
-                else:
-                    phrase += placename_key.split("/")[1]
+            kind, place = subparts
+            kind = placetypes_aliases.get(kind, kind)
+            placename_key = f"{kind}/{place}"
+            is_administrative = "administrative" in kind
+            if is_administrative:
+                phrase += "the "
+            if recognized_placename := recognized_placenames.get(placename_key):
+                if i < 3 and (article := recognized_placename["article"]):
+                    phrase += f"{article} "
+                phrase += recognized_placename["display"]
             else:
-                phrase += subparts[1]
+                phrase += place
+            if is_administrative:
+                phrase += f" {kind.split(' ')[-1]}"
+            elif "district" in kind:
+                phrase += " district"
+            elif "parish" in kind:
+                phrase += " parish"
         elif part == ";":
             phrase += "; "
         else:

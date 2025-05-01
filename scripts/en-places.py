@@ -1,3 +1,5 @@
+import re
+
 from scripts_utils import get_soup
 
 url = "https://en.wiktionary.org/wiki/Template:place"
@@ -55,12 +57,15 @@ count = 0
 print("recognized_placenames = {")
 for tr in trs:
     tds = tr.find_all("td")
-    place = tds[0].text
-    article = tds[1].text
-    display = tds[2].text
-    if display == "(same)":
-        display = ""
-    if article or display:
-        print(f'    "{place}": {{"article": "{article}", "display": "{display}"}},')
-        count += 1
+    # placename, key, display+category aliases, Category-only aliases, Container, Recognized subdivisions
+    placename = tds[0].text
+    key = tds[1].text
+    article = m[0] if (m := re.findall(r"^\(([^)]+)\)", key)) else ""
+    kind, display = placename.split("/", 1)
+    if article:
+        print(f'    "{placename}": {{"article": "{article}", "display": "{display}"}},')
+    if aliases := tds[2].text:
+        for alias in aliases.split(", "):
+            print(f'    "{kind}/{alias}": {{"article": "{article}", "display": "{display}"}},')
+    count += 1
 print(f"}}  # {count:,}")
