@@ -22,16 +22,16 @@ def process_category_page(url: str, results: dict[str, str]) -> str:
             template_url = ROOT + li.find("a").get("href")
             process_category_page(template_url, results)
 
-    content_div = soup.find(id="mw-pages")
-    lis = content_div.find_all("li")
-    for li in lis:
+    for li in soup.find(id="mw-pages").find_all("li"):
+        if "/" in (template_name := li.text.split(":")[1]):
+            continue
+
         template_url = ROOT + li.find("a").get("href")
-        template_name = li.text.split(":")[1]
         template_soup = get_soup(template_url)
         parser_output = template_soup.find("span", {"class": ["term", "texte"]})
         rendering = parser_output.text
         if template_name and rendering:
-            results[template_name] = rendering.strip("()")
+            results[template_name] = rendering[1:-1]
 
     return nextpage
 

@@ -17,18 +17,19 @@ def process_regions_page(url: str, results: dict[str, str]) -> str:
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT + last_link.get("href")
 
-    content_div = soup.find("div", "mw-category-generated")
-    lis = content_div.find_all("li")
-    for li in lis:
+    for li in soup.find("div", "mw-category-generated").find_all("li"):
+        if "/" in (template_name := li.text):
+            continue
+
         template_url = ROOT + li.find("a").get("href")
-        template_name = li.text
         if ":" in template_name:
             template_name = template_name.split(":")[1]
             template_soup = get_soup(template_url)
             if region := template_soup.find("section", {"id": ["mwAQ"]}).find("i"):
-                results[template_name] = region.text.strip("()")
+                results[template_name] = region.text[1:-1]
         else:
             process_regions_page(template_url, results)
+
     return nextpage
 
 
