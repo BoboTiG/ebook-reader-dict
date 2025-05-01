@@ -623,17 +623,18 @@ def render_formula(formula: str, *, cat: str = "tex", output_format: str = "svg"
         formula = f"\\ce{{{formula}}}"
 
     headers = WIKIMEDIA_HEADERS
+    session = requests.Session()
 
     # 1. Get the formula hash (type can be tex, inline-tex, or chem)
     url_hash = WIKIMEDIA_URL_MATH_CHECK.format(type=cat)
-    with requests.post(url_hash, headers=headers, json={"q": formula}) as req:
+    with session.post(url_hash, headers=headers, json={"q": formula}) as req:
         res = req.json()
         assert res["success"]
         formula_hash = req.headers["x-resource-location"]
 
     # 2. Get the rendered formula (format can be svg, mml, or png)
     url_render = WIKIMEDIA_URL_MATH_RENDER.format(format=output_format, hash=formula_hash)
-    with requests.get(url_render, headers=headers) as req:
+    with session.get(url_render, headers=headers) as req:
         return req.text
 
 

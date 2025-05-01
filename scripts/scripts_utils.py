@@ -8,13 +8,15 @@ from requests.exceptions import HTTPError, RequestException
 
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
+SESSION = requests.Session()
+
 
 def get_content(url: str, *, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | dict[str, Any]:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:
         try:
-            with requests.get(url, timeout=10) as req:
+            with SESSION.get(url, timeout=10) as req:
                 req.raise_for_status()
                 return req.json() if as_json else req.text
         except TimeoutError:
