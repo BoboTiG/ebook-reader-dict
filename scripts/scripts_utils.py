@@ -1,4 +1,3 @@
-import logging
 import warnings
 from time import sleep
 from typing import Any
@@ -8,14 +7,12 @@ from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning
 from requests.exceptions import HTTPError, RequestException
 
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
-log = logging.getLogger(__name__)
 
 
 def get_content(url: str, *, max_retries: int = 5, sleep_time: int = 5, as_json: bool = False) -> str | dict[str, Any]:
     """Fetch given *url* content with retries mechanism."""
     retry = 0
     while retry < max_retries:
-        log.info(f"GET {url!r} (try {retry + 1}) ... ")
         try:
             with requests.get(url, timeout=10) as req:
                 req.raise_for_status()

@@ -1,4 +1,3 @@
-import logging
 import os
 import subprocess
 import sys
@@ -87,36 +86,39 @@ def replace(file: str, data: str) -> None:
     path.write_text(new_content)
 
 
-def process_script(script: str, file: str, errors: dict[str, str]) -> None:
+def process_script(script: str, file: str, errors: dict[str, str], idx: int, total: int) -> None:
     """Process one script."""
     try:
-        replace(file, subprocess.check_output(["python", f"scripts/{script}"], text=True))
+        replace(file, subprocess.check_output([sys.executable, f"scripts/{script}"], text=True))
     except Exception as exc:
         errors[script] = str(exc)
     else:
-        print(f"Processed {script} with success.", flush=True)
+        print(f"[{idx}/{total}] Processed {script} with success.", flush=True)
 
 
 def set_output(errors: int) -> None:
     """It is very specific to GitHub Actions."""
-    with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
-        fh.write(f"errors={errors}\n".encode())
+    if "CI" in os.environ:
+        with open(os.environ["GITHUB_OUTPUT"], "ab") as fh:
+            fh.write(f"errors={errors}\n".encode())
 
 
 def main() -> int:
     """Entry point."""
-    logging.basicConfig(filename="scripts.log", filemode="w", level=logging.INFO)
     errors: dict[str, str] = {}
+    total = len(FILES)
+    tasks = [(script, file, errors, idx, total) for idx, (script, file) in enumerate(FILES.items(), 1)]
 
-    if "CI" in os.environ:
-        for script, file in FILES.items():
-            process_script(script, file, errors)
-        set_output(len(errors))
-    else:
-        tasks = [(script, file, errors) for script, file in FILES.items()]
-        with ThreadPool(processes=int(os.getenv("MAX_PROCESS") or 2)) as pool:
-            for _ in pool.starmap(process_script, tasks):
-                pass
+    if processes := os.getenv("MAX_PROCESS"):
+        processes = int(processes)
+    elif "CI" in os.environ:
+        processes = 2
+
+    with ThreadPool(processes=processes) as pool:
+        for _ in pool.starmap(process_script, tasks):
+            pass
+
+    set_output(len(errors))
 
     for script, error in errors.items():
         print(f" !! {script}")
