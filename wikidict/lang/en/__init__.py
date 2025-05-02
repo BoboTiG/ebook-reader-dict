@@ -55,6 +55,8 @@ definitions_to_ignore = ("rfdef",)
 templates_ignored = (
     "anchor",
     "attention",
+    "attn",
+    "pedia",
     "c",
     "C",
     "cln",
@@ -115,6 +117,8 @@ templates_italic = {
 templates_multi = {
     # {{1|interactive}}
     "1": "capitalize(parts[-1])",
+    # {{abbrev|en|goodbye}}
+    "abbrev": 'f"Abbreviation of {italic(parts[-1])}"',
     # {{C.|21|st}}
     "C.": "parts[1] + (parts[2] if len(parts) > 2 else 'th') + f' c.'",
     # {{circa2|1850s}}
@@ -202,6 +206,8 @@ templates_multi = {
     "smallcaps": "small_caps(parts[1])",
     # {{smc|ce}}
     "smc": "small_caps(parts[1])",
+    # {{staco|Airport station (MTR)|Airport|Hong Kong}}
+    "staco": 'f"<i>(rail transport) The station code of</i> <b>{parts[2] or parts[1]}</b> <i>in {parts[3]}</i>."',
     # {{sub|KI}}
     "sub": "subscript(parts[1])",
     # {{sup|KI}}

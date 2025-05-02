@@ -254,6 +254,29 @@ def render_century(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return small(f"[{phrase}]")
 
 
+def render_chemical_symbol(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_chemical_symbol("chemical symbol", ["calcium"], defaultdict(str))
+    '<i>(chemistry) Chemical symbol for</i> <b>calcium</b>.'
+    >>> render_chemical_symbol("chemical symbol", ["unnilquadium"], defaultdict(str, {"sys": "1"}))
+    '<i>(chemistry) Systematic chemical symbol for</i> <b>unnilquadium</b>.'
+    >>> render_chemical_symbol("chemical symbol", ["unnilquadium", "rutherfordium"], defaultdict(str, {"sys": "1"}))
+    '<i>(chemistry) Systematic chemical symbol for</i> <b>unnilquadium</b>, now named <b>rutherfordium</b>.'
+    >>> render_chemical_symbol("chemical symbol", ["copernicium"], defaultdict(str, {"obs": "1"}))
+    '<i>(chemistry, obsolete) Obsolete chemical symbol for</i> <b>copernicium</b>.'
+    """
+    if data["obs"] == "1":
+        text = "(chemistry, obsolete) Obsolete chemical symbol for"
+    elif data["sys"] == "1":
+        text = "(chemistry) Systematic chemical symbol for"
+    else:
+        text = "(chemistry) Chemical symbol for"
+    text = f"{italic(text)} {strong(parts.pop(0))}"
+    if parts:
+        text += f", now named {strong(parts.pop(0))}"
+    return f"{text}."
+
+
 def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_clipping("clipping", ["en", "automobile"], defaultdict(str))
@@ -1640,6 +1663,7 @@ template_mapping = {
     "CE": render_bce,
     "circa": render_dating,
     "c.": render_dating,
+    "chemical symbol": render_chemical_symbol,
     "clipping": render_clipping,
     "clq": render_foreign_derivation,
     "cog": render_foreign_derivation,
