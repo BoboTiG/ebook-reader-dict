@@ -1,0 +1,35 @@
+{{also|acanthis}}
+==Translingual==
+[[File:Carduelis flammea Oulu 20120409b.JPG|thumb|{{taxfmt|Acanthis flammea|species}}<br>([[common redpoll]])]]
+
+===Etymology===
+{{root|mul|ine-pro|*h₂eḱ-|*h₂endʰ-}}
+See {{pedia|Acanthis (mythology)}}
+
+===Proper noun===
+{{taxoninfl|i=1|g=f}}
+
+# {{taxon|genus|family|Fringillidae|[[redpoll]]s, of northern woodlands, formerly included in ''[[Carduelis]]''}}
+
+====Hypernyms====
+* {{sense|genus}} {{Fringillidae Hypernyms}}; {{taxfmt|Carduelinae|subfamily}}&nbsp;- subfamily; {{taxlink|Carduelini|tribe}}&nbsp;- tribe
+
+====Hyponyms====
+* {{sense|genus}} {{taxfmt|Acanthis flammea|species}} ([[common redpoll]])&nbsp;– type species; {{taxlink|Acanthis cabaret|species}} ([[lesser redpoll]]), {{taxfmt|Acanthis hornemanni|species}} ({{vern|Arctic redpoll}})&nbsp;– other species
+
+====Coordinate terms====
+* {{sense|genus}} {{taxfmt|Loxia|genus}} ([[crossbill]]s)
+
+====Derived terms====
+* {{taxfmt|Acanthidops|genus}}
+
+===References===
+* {{pedia|Redpoll}}
+* {{specieslite|i=1}}
+* {{comcatlite|i=1}}
+* {{R:WoRMS|}}
+* {{R:ITIS|179237}}
+* {{R:EOL|45510340}}
+* {{R:NCBI|37604}}
+* {{R:Boyd|29|Fringillidae}}
+* {{R:Fossilworks|369430}}

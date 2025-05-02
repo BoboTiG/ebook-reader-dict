@@ -249,6 +249,17 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
+def find_genders(code: str, locale: str) -> list[str]:
+    """
+    >>> find_genders("", "en")
+    []
+    >>> find_genders("{{taxoninfl|i=1|g=f}}", "en")
+    ['f']
+    """
+    pattern = re.compile(r"{taxoninfl\|(?:i=\d+\|)?g=(\w+).*")
+    return unique(flatten(pattern.findall(code)))
+
+
 def find_pronunciations(code: str, locale: str) -> list[str]:
     """
     >>> find_pronunciations("", "en")

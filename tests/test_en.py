@@ -8,11 +8,12 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "ab",
             ["/æb/"],
+            [],
             [],
             [
                 "(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.",
@@ -27,8 +28,19 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "Acanthis",
+            [],
+            ["f"],
+            ["See"],
+            [
+                "A taxonomic genus within the family Fringillidae&nbsp;– redpolls, of northern woodlands, formerly included in <i>Carduelis</i>.",
+            ],
+            [],
+        ),
+        (
             "cum",
             ["/kʊm/", "/kʌm/"],
+            [],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
                 "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or which has changed from one to another.</i>",
@@ -46,6 +58,7 @@ from wikidict.utils import process_templates
         (
             "efficient",
             ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
+            [],
             [
                 "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <i>effect</i>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."
             ],
@@ -62,6 +75,7 @@ from wikidict.utils import process_templates
             "humans",
             [],
             [],
+            [],
             [
                 "<i>plural of</i> <b>human</b>",
                 "<i>inflection of:</i> <b>human</b> (“s-verb-form”)",
@@ -71,6 +85,7 @@ from wikidict.utils import process_templates
         (
             "it's",
             ["/ɪts/"],
+            [],
             ["Contraction of ‘it is’, ‘it has’ or 'it was'."],
             [
                 "<i>Contraction of</i> <b>it is</b>.",
@@ -85,6 +100,7 @@ from wikidict.utils import process_templates
         (
             "Mars",
             ["/maɹs/", "/mɑ˞s/", "/ˈmɑɹz/", "/ˈmɑːz/"],
+            [],
             [
                 "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>."
             ],
@@ -100,10 +116,11 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("memoized", [], [], ["<i>inflection of:</i> <b>memoize</b> (“ed-form”)"], ["memoize"]),
+        ("memoized", [], [], [], ["<i>inflection of:</i> <b>memoize</b> (“ed-form”)"], ["memoize"]),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
+            [],
             [
                 "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",
             ],
@@ -121,6 +138,7 @@ from wikidict.utils import process_templates
         (
             "someone",
             ["/ˈsʌmwʌn/"],
+            [],
             [
                 "From Middle English <i>sum on</i>, <i>sum one</i>, <i>sum oon</i>, equivalent to <i>some</i>&nbsp;+&nbsp;<i>one</i>.",
             ],
@@ -134,6 +152,7 @@ from wikidict.utils import process_templates
         (
             "scourge",
             ["/skɜɹd͡ʒ/", "/skɜːd͡ʒ/"],
+            [],
             [
                 "From Middle English <i>scourge</i> (“a lash, whip, scourge; affliction, calamity; person who causes affliction or calamity; shoot of a vine”), and then either:",
             ],
@@ -157,6 +176,7 @@ from wikidict.utils import process_templates
         (
             "the",
             ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
+            [],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>pl</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",
@@ -193,6 +213,7 @@ from wikidict.utils import process_templates
         (
             "um",
             ["/ʌm/"],
+            [],
             ["Onomatopoeic."],
             [
                 "micrometer; variant of μm used when the character μ is unavailable",
@@ -208,6 +229,7 @@ from wikidict.utils import process_templates
         (
             "us",
             ["/əs/", "/əz/", "/ʊs/", "/ʌs/", "/ʌz/"],
+            [],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). The compensatory lengthening was lost in Middle English due to the word being unstressed while being used. Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",
             ],
@@ -238,6 +260,7 @@ from wikidict.utils import process_templates
                 "/ˈwɔːtəɹ/",
                 "/ˈwʊtəɹ/",
             ],
+            [],
             [
                 "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",
                 "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",
@@ -284,6 +307,7 @@ from wikidict.utils import process_templates
         (
             "word",
             ["/wəɹd/", "/wɜːd/", "/wɝd/"],
+            [],
             [
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."
             ],
@@ -330,6 +354,7 @@ from wikidict.utils import process_templates
 def test_parse_word(
     word: str,
     pronunciations: list[str],
+    genders: list[str],
     etymology: list[Definitions],
     definitions: list[Definitions],
     variants: list[str],
@@ -339,6 +364,7 @@ def test_parse_word(
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
     assert pronunciations == details.pronunciations
+    assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
     assert variants == details.variants
