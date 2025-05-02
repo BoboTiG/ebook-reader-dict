@@ -1475,12 +1475,15 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     """
     >>> render_si_unit_abb("SI-unit-abb", ["femto", "mole", "amount of substance"], defaultdict(str))
     '(<i>metrology</i>) <i>Symbol for</i> <b>femtomole</b>, an SI unit of amount of substance equal to 10<sup>-15</sup> moles'
+    >>> render_si_unit_abb("SI-unit-abbnp", ["exa", "hertz", "frequency"], defaultdict(str))
+    '(<i>metrology</i>) <i>Symbol for</i> <b>exahertz</b>, an SI unit of frequency equal to 10<sup>18</sup> hertz'
     """
     prefix = data["1"] or (parts.pop(0) if parts else "")
     unit = data["2"] or (parts.pop(0) if parts else "")
     category = data["3"] or (parts.pop(0) if parts else "")
     exp = prefix_to_exp.get(prefix, "")
-    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}s"
+    plural = "" if tpl.endswith("np") else "s"
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}{plural}"
 
 
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1743,6 +1746,7 @@ template_mapping = {
     "SI-unit": render_si_unit,
     "SI-unit-2": render_si_unit_2,
     "SI-unit-abb": render_si_unit_abb,
+    "SI-unit-abbnp": render_si_unit_abb,
     "SI-unit-np": render_si_unit,
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
