@@ -47,8 +47,8 @@ variant_titles = sections
 variant_templates = (
     "{{ca-forma-conj",
     "{{forma-conj",
-    "{{forma-f",
-    "{{forma-p",
+    "{{forma-f|",
+    "{{forma-p|",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
