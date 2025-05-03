@@ -180,14 +180,37 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
 
 def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_forma_conj("forma-conj", ["ca", "abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
-    "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
     >>> render_forma_conj("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
     "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    "<i>Primera persona singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
+
     >>> render_forma_conj("ca-forma-conj", ["-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
+    '<i>Gerundi del verb</i> <b>-ar</b>'
+    >>> render_forma_conj("ca-forma-conj", ["-ar", "ger"], defaultdict(str), word="-am")
+    '<i>Gerundi del verb</i> <b>-ar</b>'
+    >>> render_forma_conj("forma-conj", ["ca", "-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
     '<i>Tercera persona plural (ells, elles, vostès) del futur gerundi de</i> <b>-ar</b>'
+
     >>> render_forma_conj("ca-forma-conj", ["botre", "2", "imp"], defaultdict(str), word="bot")
     "<i>Segona persona del singular (tu) de l'imperatiu del verb</i> <b>botre</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "botre", "2", "imp"], defaultdict(str), word="bot")
+    "<i>Segona persona singular (tu) de l'imperatiu de</i> <b>botre</b>"
+
+    >>> render_forma_conj("ca-forma-conj", ["afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
+    '<i>Tercera persona del plural (ells, elles, vostès) del passat simple de</i> <b>afiblar</b>'
+    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
+    '<i>Tercera persona plural (ells, elles, vostès) del passat de</i> <b>afiblar</b>'
+
+    >>> render_forma_conj("ca-forma-conj", ["afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
+    "<i>Tercera persona del plural (ells, elles, vostès) d'imperfet subjuntiu del verb</i> <b>afiblar</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
+    "<i>Tercera persona plural (ells, elles, vostès) d'imperfet subjuntiu de</i> <b>afiblar</b>"
+
+    >>> render_forma_conj("ca-forma-conj", ["balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
+    '<i>Participi masculí plural del verb</i> <b>balmar-se</b>'
+    >>> render_forma_conj("forma-conj", ["ca", "balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
+    '<i>Participi masculí plural de</i> <b>balmar-se</b>'
     """
     if tpl == "forma-conj":
         parts.pop(0)  # Remove the lang
@@ -198,16 +221,25 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
     try:
         base, persona_num, temps, mode = parts
     except ValueError:
-        base, persona_num, mode = parts
         temps = ""
+        try:
+            base, persona_num, mode = parts
+        except ValueError:
+            base, mode = parts
+            persona_num = "1"
 
+    if tpl == "ca-forma-conj" and mode == "ger":
+        return f"{italic('Gerundi del verb')} {strong(base)}"
+
+    art_persona = "del " if tpl == "ca-forma-conj" else ""
     persona = {
-        "1": "Primera persona del singular",
-        "2": "Segona persona del singular",
-        "3": "Tercera persona del singular",
-        "4": "Primera persona plural",
-        "5": "Segona persona plural",
-        "6": "Tercera persona plural",
+        "1": f"Primera persona {art_persona}singular",
+        "2": f"Segona persona {art_persona}singular",
+        "3": f"Tercera persona {art_persona}singular",
+        "4": f"Primera persona {art_persona}plural",
+        "5": f"Segona persona {art_persona}plural",
+        "6": f"Tercera persona {art_persona}plural",
+        "part": "Participi masculí plural",
     }[persona_num]
     persona_pron = {
         "1": "jo",
@@ -216,23 +248,40 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "4": "nosaltres",
         "5": "vosaltres, vós",
         "6": "ells, elles, vostès",
+        "part": "",
     }[persona_num]
     mode = {
+        "cond": "condicional",
         "ger": "gerundi",
+        "fut": "futur",
         "imp": "imperatiu",
         "ind": "indicatiu",
         "inf": "infinitiu",
+        "p": "plural",
         "part": "participi",
+        "pass": "passat simple" if tpl == "ca-forma-conj" else "passat",
+        "pl": "plural",
+        "plural": "plural",
         "pron": "pronominal",
+        "s": "singular",
+        "sg": "singular",
+        "sing": "singular",
+        "singular": "singular",
         "subj": "subjuntiu",
     }[mode]
 
     if temps:
         temps = {
             "cond": "condicional",
+            "f": "femení",
+            "fem": "femení",
+            "femení": "femení",
             "fut": "futur",
             "imp": "imperfet",
             "imperf": "imperfet",
+            "m": "masculí",
+            "masc": "masculí",
+            "masculí": "masculí",
             "pres": "present",
             "pret": "passat",
             "pretèrit": "passat",
@@ -240,34 +289,18 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         }[temps]
         art_temps = " d'" if temps.startswith("i") else " del "
         art_mode = "d'" if mode.startswith("i") else ""
-        mode += " de"
+        mode += " del verb" if tpl == "ca-forma-conj" and mode != "indicatiu" else " de"
     else:
         art_temps = ""
         art_mode = "de l'" if mode.startswith("i") else "del "
-        mode += " del verb"
+        mode += " del verb" if tpl == "ca-forma-conj" and mode not in {"indicatiu", "passat simple"} else " de"
 
-    # nombre = "singular" if int(parts[1]) < 4 else "plural"
-    # nombre = {
-    #     "s": "singular",
-    #     "sg": "singular",
-    #     "sing": "singular",
-    #     "singular": "singular",
-    #     "p": "plural",
-    #     "pl": "plural",
-    #     "plural": "plural",
-    # }.get(parts[4], "singular")
-
-    # gen = {
-    #     "f": "femení",
-    #     "fem": "femení",
-    #     "femení": "femení",
-    #     "m": "masculí",
-    #     "masc": "masculí",
-    #     "masculí": "masculí",
-    # }.get(parts[5], "")
-
-    text = italic(f"{persona} ({persona_pron}){art_temps}{temps} {art_mode}{mode}")
-    return f"{text} {strong(base)}"
+    text = persona
+    if persona_num != "part":
+        text += f" ({persona_pron}){art_temps}{temps} {art_mode}{mode}"
+    else:
+        text += " del verb" if tpl == "ca-forma-conj" else " de"
+    return f"{italic(text)} {strong(base)}"
 
 
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
