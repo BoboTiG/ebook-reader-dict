@@ -129,6 +129,7 @@ def get_random_word(locale: str) -> str:
             if match := re.findall(r'<span class="mw-page-title-main">([^<]+)</span>', req.text):
                 word: str = match[0]
                 if ":" not in word and "/" not in word:
+                    log.info(f"Got random: {word!r}")
                     break
                 log.info(f"Got {word=}, trying a new one instead ...")
             log.info("Got no match, trying again ...")
