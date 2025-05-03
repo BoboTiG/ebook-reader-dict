@@ -142,6 +142,17 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase
 
 
+def render_forma_(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_forma_("forma-", ["diminutiva", "it", "bastone"], defaultdict(str))
+    '<i>forma diminutiva de</i> <b>bastone</b>'
+    >>> render_forma_("forma-", ["diminutiva", "it", "bastone"], defaultdict(str, {"alt": "foo"}))
+    '<i>forma diminutiva de</i> <b>foo</b>'
+    """
+    text = f"forma {parts[0]} de"
+    return f"{italic(text)} {strong(data['alt'] or parts[2])}"
+
+
 def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_forma("forma-a", ["ca", "-itzar"], defaultdict(str))
@@ -460,6 +471,7 @@ template_mapping = {
     "ca-forma-conj": render_forma_conj,
     "cognom": render_cognom,
     "comp": render_comp,
+    "forma-": render_forma_,
     "forma-a": render_forma,
     "forma-augm": render_forma,
     "forma-conj": render_forma_conj,
