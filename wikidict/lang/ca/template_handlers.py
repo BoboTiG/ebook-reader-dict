@@ -156,21 +156,21 @@ def render_forma_(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
 def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_forma("forma-a", ["ca", "-itzar"], defaultdict(str))
-    '<i>Format alternativa de</i> <b>-itzar</b>'
+    '<i>Forma alternativa de</i> <b>-itzar</b>'
     >>> render_forma("forma-augm", ["ca", "al·lot"], defaultdict(str, {"t": "xicotot"}))
-    '<i>Format augmentativa de</i> <b>al·lot</b> («xicotot»)'
+    '<i>Forma augmentativa de</i> <b>al·lot</b> («xicotot»)'
     >>> render_forma("forma-dim", ["ca", "amic"], defaultdict(str))
-    '<i>Format diminutiva de</i> <b>amic</b>'
+    '<i>Forma diminutiva de</i> <b>amic</b>'
     >>> render_forma("forma-f", ["ca", "-à"], defaultdict(str))
-    '<i>Format femenina de</i> <b>-à</b>'
+    '<i>Forma femenina de</i> <b>-à</b>'
     >>> render_forma("forma-inc", ["ca", "garantir"], defaultdict(str))
-    '<i>Format incorrecta de</i> <b>garantir</b>'
+    '<i>Forma incorrecta de</i> <b>garantir</b>'
     >>> render_forma("forma-p", ["ca", "-alla"], defaultdict(str))
-    '<i>Format plural de</i> <b>-alla</b>'
+    '<i>Forma plural de</i> <b>-alla</b>'
     >>> render_forma("forma-pron", ["ca", "conxavar"], defaultdict(str))
-    '<i>Format pronominal de</i> <b>conxavar</b>'
+    '<i>Forma pronominal de</i> <b>conxavar</b>'
     >>> render_forma("forma-super", ["ca", "alt"], defaultdict(str))
-    '<i>Format superlativa de</i> <b>alt</b>'
+    '<i>Forma superlativa de</i> <b>alt</b>'
     """
     fmt = {
         "a": "alternativa",
@@ -182,7 +182,7 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         "pron": "pronominal",
         "super": "superlativa",
     }[tpl.split("-")[-1]]
-    text = italic(f"Format {fmt} de")
+    text = italic(f"Forma {fmt} de")
     text += f" {strong(parts[-1])}"
     if t := data["t"]:
         text += f" («{t}»)"
