@@ -21,7 +21,7 @@
 
 ## Special
 
-Found [bilingual dictionaries](https://www.reader-dict.com), and [all-to-lang dictionaries](https://www.reader-dict.com).
+Find [bilingual dictionaries](https://www.reader-dict.com), and [all-to-lang dictionaries](https://www.reader-dict.com).
 
 ## Downloads
 
