@@ -1547,6 +1547,8 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     'santaloine'
     >>> render_variant("fr-accord-ol", [], defaultdict(str), word="palmassolles")
     'palmassol'
+    >>> render_variant("fr-accord-ol", [], defaultdict(str, {"ms": "martin"}), word="martinols")
+    'martinol'
     >>> render_variant("fr-accord-on", [""], defaultdict(str), word="ambellon")
     'ambellon'
     >>> render_variant("fr-accord-ot", ["", "t"], defaultdict(str, {"s": "Grammoniot"}), word="ambellon")
@@ -1610,7 +1612,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
                 return word.removesuffix("e")
             if word.endswith("es"):
                 return word.removesuffix("es")
-            return f"{parts[0]}{suffix}"
+            return f"{data['ms'] or parts[0]}{suffix}"
 
     if "-rég" in tpl:
         if not (singular := data["s"] or data["m"] or data["ms"]):
