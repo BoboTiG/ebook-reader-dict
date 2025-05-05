@@ -1581,7 +1581,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         return parts[0]
 
     if "-verbe-flexion" in tpl:
-        return data["1"] or parts[0]
+        return data["1"] or (parts[0] if parts else "")
 
     if tpl.endswith("-ail"):
         suffix = tpl.split("-")[-1]
