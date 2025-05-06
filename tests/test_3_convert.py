@@ -95,6 +95,12 @@ def test_simple() -> None:
     assert (output_dir / "dictorg-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dictorg-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
+    # EPUB-2
+    assert (output_dir / "dict-fr-fr.epub").is_file()
+    assert (output_dir / f"dict-fr-fr.epub.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.epub").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.epub.{ASSET_CHECKSUM_ALGO}").is_file()
+
     # Kobo
     assert (output_dir / "dicthtml-fr-fr-noetym.zip").is_file()
     assert (output_dir / f"dicthtml-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
@@ -222,8 +228,8 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
         (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
         (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
-        (convert.MobiFormat, "dict-fr-fr.mobi", True),
-        (convert.MobiFormat, "dict-fr-fr-noetym.mobi", False),
+        (convert.EPUB2Format, "dict-fr-fr.epub", True),
+        (convert.EPUB2Format, "dict-fr-fr-noetym.epub", False),
         (convert.StarDictFormat, "dict-fr-fr.zip", True),
         (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
     ],
@@ -235,6 +241,35 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
     ]
 )
 def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
+    convert.run_formatter(
+        formatter,
+        "fr",
+        output_dir,
+        {},
+        {},
+        "20201218",
+        include_etymology=include_etymology,
+    )
+    assert (output_dir / filename).is_file()
+
+
+@pytest.mark.parametrize(
+    "formatter, filename, include_etymology",
+    [
+        (convert.MobiFormat, "dict-fr-fr.mobi", True),
+        (convert.MobiFormat, "dict-fr-fr-noetym.mobi", False),
+    ],
+)
+@pytest.mark.dependency(
+    depends=[
+        "test_generate_primary_dict[DictFileFormat-dict-fr-fr.df]",
+        "test_generate_primary_dict[DictFileFormat-dict-fr-fr-noetym.df]",
+        "test_generate_secondary_dict[EPUB2Format-dict-fr-fr.epub]",
+        "test_generate_secondary_dict[EPUB2Format-dict-fr-fr-noetym.epub]",
+    ]
+)
+def test_generate_tiercary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
     output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     convert.run_formatter(
         formatter,
@@ -461,7 +496,6 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
         patch.object(convert, "load") as mocked_l,
         patch.object(convert, "make_variants") as mocked_mv,
         patch.object(convert, "distribute_workload") as mocked_dw,
-        patch.object(convert, "run_mobi_formatter") as mocked_rmf,
     ):
         mocked_gljf.return_value = pages
         mocked_l.return_value = words
@@ -476,7 +510,11 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
         args = (source_dir / "output", pages, locale, words, variants)
         for include_etymology in [False, True]:
             mocked_dw.assert_any_call(convert.get_primary_formatters(), *args, include_etymology=include_etymology)
-            mocked_dw.assert_any_call(convert.get_secondary_formatters(), *args, include_etymology=False)
-            mocked_rmf.assert_any_call(*args, include_etymology=False)
-        mocked_dw.call_count == 4
-        mocked_rmf.call_count == 2
+            mocked_dw.assert_any_call(
+                convert.get_secondary_formatters(),
+                *args,
+                include_etymology=include_etymology,
+                processes=1,
+            )
+            mocked_dw.assert_any_call(convert.get_tiercary_formatters(), *args, include_etymology=include_etymology)
+        mocked_dw.call_count == 6

@@ -1,5 +1,7 @@
 """Shared constants."""
 
+import os
+import shutil
 from pathlib import Path
 
 import requests
@@ -51,7 +53,7 @@ LOCALE_ORIGIN = {"fro": "fr"}
 
 # Mobi
 COVER_FILE = Path(__file__).parent / "cover.png"
-KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
+EBOOK_CONVERT_BIN = str(shutil.which("ebook-convert") or os.getenv("EBOOK_CONVERT_BIN", ""))
 
 # HTTP requests
 SESSION = requests.Session()

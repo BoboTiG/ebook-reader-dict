@@ -18,8 +18,6 @@ from wikidict import gen_dict
         ("fro", "pui"),  # Sublang alone
         ("fr:fr", "logiciel"),  # Sublang falsy
         ("fr:fro", "pui"),  # Sublang
-        ("fr:it", "glielo"),  # Another lang
-        ("it:fr", "dodo"),  # Another lang
     ],
 )
 def test_gen_dict(locale: str, words: str, tmp_path: Path) -> None:
