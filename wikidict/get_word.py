@@ -6,9 +6,7 @@ import os
 import re
 from typing import TYPE_CHECKING
 
-import requests
-
-from . import utils
+from . import constants, utils
 from .render import parse_word
 from .user_functions import int_to_roman
 
@@ -19,7 +17,7 @@ if TYPE_CHECKING:
 def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
-    with requests.get(url) as req:
+    with constants.SESSION.get(url) as req:
         code = req.text
     return parse_word(word, code, locale, force=True, all_templates=all_templates)
 

@@ -11,22 +11,9 @@ from functools import partial
 from typing import TYPE_CHECKING
 
 import regex
-import requests
 import wikitextparser
 
-from . import svg
-from .constants import (
-    DOWNLOAD_URL_DICTFILE,
-    DOWNLOAD_URL_DICTORGFILE,
-    DOWNLOAD_URL_KOBO,
-    DOWNLOAD_URL_MOBI,
-    DOWNLOAD_URL_STARDICT,
-    LOCALE_ORIGIN,
-    NO_ETYMOLOGY_SUFFIX,
-    WIKIMEDIA_HEADERS,
-    WIKIMEDIA_URL_MATH_CHECK,
-    WIKIMEDIA_URL_MATH_RENDER,
-)
+from . import constants, svg
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
@@ -125,7 +112,7 @@ def get_random_word(locale: str) -> str:
     url = random_word_url[locale]
 
     while True:
-        with requests.get(url) as req:
+        with constants.SESSION.get(url) as req:
             if match := re.findall(r'<span class="mw-page-title-main">([^<]+)</span>', req.text):
                 word: str = match[0]
                 if ":" not in word and "/" not in word:
@@ -157,7 +144,7 @@ def guess_lang_origin(locale: str) -> str:
     if ":" in locale:
         # `fr:fro` → source is FR
         return locale.lower().split(":", 1)[0]
-    return LOCALE_ORIGIN.get(locale, locale)
+    return constants.LOCALE_ORIGIN.get(locale, locale)
 
 
 def guess_locales(locale: str, *, use_log: bool = True) -> tuple[str, str]:
@@ -205,15 +192,15 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
     # Format download links
     _links_full: dict[str, str] = {}
     _links_etym_free: dict[str, str] = {}
-    for etym_suffix in {"", NO_ETYMOLOGY_SUFFIX}:
+    for etym_suffix in {"", constants.NO_ETYMOLOGY_SUFFIX}:
         obj = _links_etym_free if etym_suffix else _links_full
         obj.update(
             {
-                "dictfile": f"- [DictFile]({DOWNLOAD_URL_DICTFILE.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.df.bz2)",
-                "dicthtml": f"- [Kobo]({DOWNLOAD_URL_KOBO.format(lang_src, lang_dst, etym_suffix)}) (dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip)",
-                "dictorg": f"- [DICT.org]({DOWNLOAD_URL_DICTORGFILE.format(lang_src, lang_dst, etym_suffix)}) (dictorg-{lang_src}-{lang_dst}{etym_suffix}.zip)",
-                "mobi": f"- [Kindle]({DOWNLOAD_URL_MOBI.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip)",
-                "stardict": f"- [StarDict]({DOWNLOAD_URL_STARDICT.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.zip)",
+                "dictfile": f"- [DictFile]({constants.DOWNLOAD_URL_DICTFILE.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.df.bz2)",
+                "dicthtml": f"- [Kobo]({constants.DOWNLOAD_URL_KOBO.format(lang_src, lang_dst, etym_suffix)}) (dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip)",
+                "dictorg": f"- [DICT.org]({constants.DOWNLOAD_URL_DICTORGFILE.format(lang_src, lang_dst, etym_suffix)}) (dictorg-{lang_src}-{lang_dst}{etym_suffix}.zip)",
+                "mobi": f"- [Kindle]({constants.DOWNLOAD_URL_MOBI.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip)",
+                "stardict": f"- [StarDict]({constants.DOWNLOAD_URL_STARDICT.format(lang_src, lang_dst, etym_suffix)}) (dict-{lang_src}-{lang_dst}{etym_suffix}.zip)",
             }
         )
     download_links_full = "\n".join(sorted(_links_full.values()))
@@ -633,19 +620,18 @@ def render_formula(formula: str, *, cat: str = "tex", output_format: str = "svg"
     if cat == "chem":
         formula = f"\\ce{{{formula}}}"
 
-    headers = WIKIMEDIA_HEADERS
-    session = requests.Session()
+    headers = constants.WIKIMEDIA_HEADERS
 
     # 1. Get the formula hash (type can be tex, inline-tex, or chem)
-    url_hash = WIKIMEDIA_URL_MATH_CHECK.format(type=cat)
-    with session.post(url_hash, headers=headers, json={"q": formula}) as req:
+    url_hash = constants.WIKIMEDIA_URL_MATH_CHECK.format(type=cat)
+    with constants.SESSION.post(url_hash, headers=headers, json={"q": formula}) as req:
         res = req.json()
         assert res["success"]
         formula_hash = req.headers["x-resource-location"]
 
     # 2. Get the rendered formula (format can be svg, mml, or png)
-    url_render = WIKIMEDIA_URL_MATH_RENDER.format(format=output_format, hash=formula_hash)
-    with session.get(url_render, headers=headers) as req:
+    url_render = constants.WIKIMEDIA_URL_MATH_RENDER.format(format=output_format, hash=formula_hash)
+    with constants.SESSION.get(url_render, headers=headers) as req:
         return req.text
 
 

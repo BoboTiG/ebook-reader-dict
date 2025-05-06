@@ -11,7 +11,6 @@ from pathlib import Path
 from time import monotonic
 from typing import TYPE_CHECKING
 
-import requests
 from requests.exceptions import HTTPError
 
 from . import constants, utils
@@ -20,7 +19,6 @@ if TYPE_CHECKING:
     from collections.abc import Callable
 
 log = logging.getLogger(__name__)
-SESSION = requests.Session()
 
 
 def callback_progress(text: str, done: int, last: bool) -> None:
@@ -55,7 +53,7 @@ def fetch_snapshots(locale: str) -> list[str]:
     if forced_snapshot := os.environ.get("FORCE_SNAPSHOT"):
         return [forced_snapshot]
 
-    with SESSION.get(constants.BASE_URL.format(locale)) as req:
+    with constants.SESSION.get(constants.BASE_URL.format(locale)) as req:
         req.raise_for_status()
         return sorted(re.findall(r'href="(\d+)/"', req.text))
 
@@ -71,7 +69,7 @@ def fetch_pages(date: str, locale: str, output: Path, *, callback: Callable[[str
     if output.is_file():
         return
 
-    with SESSION.get(url, stream=True) as req:
+    with constants.SESSION.get(url, stream=True) as req:
         req.raise_for_status()
 
         # Ensure the folder exists

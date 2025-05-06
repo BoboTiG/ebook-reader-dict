@@ -1,8 +1,8 @@
 from collections import defaultdict
 
-import requests
 from bs4 import BeautifulSoup
 
+from ... import constants
 from ...user_functions import extract_keywords_from, italic, superscript
 from .. import defaults
 from .langs_short import langs_short
@@ -15,7 +15,7 @@ def get_etymology(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     if not parts or not (etyl := parts[0].split("|")[0]):
         return ""
     url = f"https://ru.wiktionary.org/wiki/Шаблон:{tpl}:{etyl}"
-    page = requests.get(url).content
+    page = constants.SESSION.get(url).content
     soup = BeautifulSoup(page, features="html.parser")
     content = soup.find("div", class_="mw-parser-output")
     return str(content.getText())

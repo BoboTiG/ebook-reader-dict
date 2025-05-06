@@ -11,11 +11,10 @@ from functools import partial
 from time import sleep
 from typing import TYPE_CHECKING
 
-import requests
 from bs4 import BeautifulSoup, MarkupResemblesLocatorWarning, NavigableString
 from requests.exceptions import RequestException
 
-from . import utils
+from . import constants, utils
 from .render import parse_word
 from .user_functions import color, int_to_roman
 
@@ -369,7 +368,7 @@ def get_url_content(url: str) -> str:
     retry = 0
     while retry < MAX_RETRIES:
         try:
-            with requests.get(url, timeout=10) as req:
+            with constants.SESSION.get(url, timeout=10) as req:
                 req.raise_for_status()
                 return req.text
         except TimeoutError:

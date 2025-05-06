@@ -2,6 +2,8 @@
 
 from pathlib import Path
 
+import requests
+
 # Dictionaries metadata
 PROJECT = "Wiktionary"
 # {0}: project
@@ -50,3 +52,6 @@ LOCALE_ORIGIN = {"fro": "fr"}
 # Mobi
 COVER_FILE = Path(__file__).parent / "cover.png"
 KINDLEGEN_FILE = Path.home() / ".local" / "bin" / "kindlegen"
+
+# HTTP requests
+SESSION = requests.Session()
