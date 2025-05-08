@@ -214,9 +214,9 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
     '<i>Tercera persona plural (ells, elles, vostès) del passat de</i> <b>afiblar</b>'
 
     >>> render_forma_conj("ca-forma-conj", ["afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
-    "<i>Tercera persona del plural (ells, elles, vostès) d'imperfet subjuntiu del verb</i> <b>afiblar</b>"
+    "<i>Tercera persona del plural (ells, elles, vostès) d'imperfet subjunctiu del verb</i> <b>afiblar</b>"
     >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
-    "<i>Tercera persona plural (ells, elles, vostès) d'imperfet subjuntiu de</i> <b>afiblar</b>"
+    "<i>Tercera persona plural (ells, elles, vostès) d'imperfet subjunctiu de</i> <b>afiblar</b>"
 
     >>> render_forma_conj("ca-forma-conj", ["balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
     '<i>Participi masculí plural del verb</i> <b>balmar-se</b>'
@@ -268,6 +268,7 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "imp": "imperatiu",
         "ind": "indicatiu",
         "inf": "infinitiu",
+        "infinitiu": "infinitiu",
         "p": "plural",
         "part": "participi",
         "pass": "passat simple" if tpl == "ca-forma-conj" else "passat",
@@ -278,9 +279,11 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "pron": "pronominal",
         "s": "singular",
         "sg": "singular",
+        "simple": "simple",
         "sing": "singular",
         "singular": "singular",
-        "subj": "subjuntiu",
+        "subj": "subjunctiu",
+        "subjunctiu": "subjunctiu",
     }[mode]
 
     if temps:
