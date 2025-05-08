@@ -183,7 +183,7 @@ templates_multi = {
     # {{variante obsoleta|hambre}}
     "variante obsoleta": "f\"{italic('Variante obsoleta de')} {parts[1]}\"",
     # {{variante rara|pecuniario}}
-    "variante rara": "f\"{italic('Variante rara de')} {parts[1]}\"",
+    "variante rara": "f\"{italic('Variante poco usada de')} {parts[1]}\"",
     # {{variante subestándar|-mos}}
     "variante subestándar": "f\"{italic('Variante subestándar de')} {parts[1]}\"",
     # {{versalita|xx}}
