@@ -56,7 +56,7 @@ jobs:
       - name: Unit tests
         run: python -Wd -m pytest tests --doctest-modules wikidict
         env:
-          EBOOK_CONVERT_BIN: $(pwd)/ebook-convert
+          EBOOK_CONVERT_BIN: ./ebook-convert
  
   automerge:
     runs-on: ubuntu-latest
