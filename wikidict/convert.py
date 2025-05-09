@@ -135,6 +135,56 @@ WORD_TPL_DICTFILE = Template(
 {%- endif -%}</html>
 """
 )
+# XDXF-related dictionaries
+# Source: https://github.com/soshial/xdxf_makedict/blob/master/dict_samples/rev34.xml
+WORD_TPL_XDXF = Template(
+    """\
+<ar>
+    <k>{{ word }}</k>
+    <def>
+        {%- if pronunciation or gender %}
+            <gr>{{ pronunciation }}{{ gender }}</gr>
+        {%- endif %}
+        <deftext>
+            {%- for definition in definitions -%}
+                {%- if definition is string -%}
+                    <li>{{ definition }}</li>
+                {%- else -%}
+                    <ol style="list-style-type:lower-alpha">
+                        {%- for sub_def in definition -%}
+                            {%- if sub_def is string -%}
+                                <li>{{ sub_def }}</li>
+                            {%- else -%}
+                                <ol style="list-style-type:lower-roman">
+                                    {%- for sub_sub_def in sub_def -%}
+                                        <li>{{ sub_sub_def }}</li>
+                                    {%- endfor -%}
+                                </ol>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </ol>
+                {%- endif -%}
+            {%- endfor -%}
+        <deftext>
+        {%- if etymologies -%}
+            <etm>
+                {%- for etymology in etymologies -%}
+                    {%- if etymology is string -%}
+                        <p>{{ etymology }}</p>
+                    {%- else -%}
+                        <ol>
+                            {%- for sub_etymology in etymology -%}
+                                <li>{{ sub_etymology }}</li>
+                            {%- endfor -%}
+                        </ol>
+                    {%- endif -%}
+                {%- endfor -%}
+            </etm>
+        {%- endif -%}
+    </def>
+</ar>
+"""
+)
 
 log = logging.getLogger(__name__)
 
@@ -168,6 +218,18 @@ class BaseFormat:
             f"{len(words):,}",
             f"{len(variants):,}",
         )
+
+    @property
+    def created(self) -> str:
+        return f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}"
+    
+    @property
+    def lang_destination(self) -> str:
+        return self.lang_dst
+    
+    @property
+    def lang_source(self) -> str:
+        return self.lang_src
 
     @property
     def description(self) -> str:
@@ -257,6 +319,31 @@ class BaseFormat:
     def summary(self, file: Path) -> None:
         log.info("[%s] Generated %s (%s bytes)", type(self).__name__, file.name, f"{file.stat().st_size:,}")
         self.compute_checksum(file)
+
+
+class DictFileFormat(BaseFormat):
+    """Save the data into a *.df* DictFile."""
+
+    output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.df"
+    template = WORD_TPL_DICTFILE
+
+    def get_glossary_lang_dst(self) -> str:
+        return self.lang_dst
+
+    def get_glossary_lang_src(self) -> str:
+        return self.lang_src
+
+    def process(self) -> None:
+        file = self.dictionary_file(self.output_file)
+        with file.open(mode="w", encoding="utf-8") as fh:
+            for word in self.words:
+                fh.writelines(self.handle_word(word, self.words))
+
+        self.summary(file)
+
+    @staticmethod
+    def render_word(template: Template, **kwargs: Any) -> str:
+        return template.render(**kwargs) + "\n\n"
 
 
 class KoboFormat(BaseFormat):
@@ -383,23 +470,35 @@ class KoboFormat(BaseFormat):
         return output
 
 
-class DictFileFormat(BaseFormat):
-    """Save the data into a *.df* DictFile."""
+class XDXFFormat(BaseFormat):
+    """Save the data into a *.xdxf* XDXF file."""
 
-    output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.df"
-    template = WORD_TPL_DICTFILE
-
-    def get_glossary_lang_dst(self) -> str:
-        return self.lang_dst
-
-    def get_glossary_lang_src(self) -> str:
-        return self.lang_src
+    output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.xdxf"
+    template = WORD_TPL_XDXF
 
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
+        metadata = f"""\
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xdxf SYSTEM "xdxf_strict.dtd">
+<xdxf revision="034">
+    <meta_info>
+        <languages>
+            <from xml:lang="{self.lang_source}"/>
+            <to xml:lang="{self.lang_destination}"/>
+        </languages>
+        <title>{self.title}</title>
+        <full_title>{self.title}</full_title>
+        <description>{self.description}</description>
+        <creation_date>{self.created}</creation_date>
+    </meta_info>
+    <lexicon>
+"""
         with file.open(mode="w", encoding="utf-8") as fh:
+            fh.write(metadata)
             for word in self.words:
                 fh.writelines(self.handle_word(word, self.words))
+            fh.write("</lexicon></xdxf>")
 
         self.summary(file)
 
@@ -446,7 +545,7 @@ class ConverterFromDictFile(DictFileFormat):
         glos.setInfo("description", self.description)
         glos.setInfo("title", self.title)
         glos.setInfo("website", self.website)
-        glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
+        glos.setInfo("date", self.created)
 
         glos.sourceLangName = self.get_glossary_lang_src()
         glos.targetLangName = self.get_glossary_lang_dst()
@@ -559,6 +658,14 @@ class MobiFormat(ConverterFromDictFile):
         return super()._compress()
 
 
+class PocketFormat(ConverterFromDictFile):
+    """Save the data into a PocketDict file."""
+
+    target_format = "pocketdic"
+    target_suffix = "dic"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.dic.zip"
+
+
 class StarDictFormat(ConverterFromDictFile):
     """Save the data into a StarDict file."""
 
@@ -569,12 +676,13 @@ class StarDictFormat(ConverterFromDictFile):
 
 
 def get_primary_formatters() -> list[type[BaseFormat]]:
-    return [KoboFormat, DictFileFormat]
+    return [XDXFFormat]
+    return [DictFileFormat, KoboFormat, XDXFFormat]
 
 
 def get_secondary_formatters() -> list[type[BaseFormat]]:
     """Formatters that require files generated by `get_primary_formatters()`."""
-    return [BZ2DictFileFormat, DictOrgFormat, StarDictFormat]
+    return [BZ2DictFileFormat, DictOrgFormat, PocketFormat, StarDictFormat]
 
 
 def run_mobi_formatter(
@@ -751,8 +859,8 @@ def main(locale: str) -> int:
     start = monotonic()
     for include_etymology in [False, True]:
         distribute_workload(get_primary_formatters(), *args, include_etymology=include_etymology)
-        distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology)
-        run_mobi_formatter(*args, include_etymology=include_etymology)
+        # distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology)
+        # run_mobi_formatter(*args, include_etymology=include_etymology)
 
     log.info("Convert done in %s!", timedelta(seconds=monotonic() - start))
     return 0
