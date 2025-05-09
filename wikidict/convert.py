@@ -10,19 +10,21 @@ import json
 import logging
 import multiprocessing
 import shutil
+import subprocess
 from collections import defaultdict
 from datetime import date, timedelta
 from functools import partial
 from pathlib import Path
 from time import monotonic
 from typing import TYPE_CHECKING
+from uuid import uuid4
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from jinja2 import Template
 from marisa_trie import Trie
 from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
-from . import constants, lang, render, user_functions, utils
+from . import constants, lang, render, utils
 from .stubs import Word
 
 if TYPE_CHECKING:
@@ -408,18 +410,11 @@ class DictFileFormat(BaseFormat):
         return template.render(**kwargs) + "\n\n"
 
 
-class DictFileFormatForMobi(DictFileFormat):
-    """Save the data into a *.df* DictFile."""
-
-    output_file = f"altered-{DictFileFormat.output_file}"
-
-
 class ConverterFromDictFile(DictFileFormat):
     target_format = ""
     target_suffix = ""
     final_file = ""
     zip_glob_files = "dict-data.*"
-    dictfile_format_cls = DictFileFormat
     glossary_options: dict[str, str | bool] = {}
 
     def _patch_gc(self) -> None:
@@ -454,7 +449,7 @@ class ConverterFromDictFile(DictFileFormat):
         self.output_dir_tmp.mkdir()
         glos.convert(
             ConvertArgs(
-                inputFilename=str(self.dictionary_file(self.dictfile_format_cls.output_file)),
+                inputFilename=str(self.dictionary_file(DictFileFormat.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
                 sqlite=True,
@@ -501,62 +496,71 @@ class DictOrgFormat(ConverterFromDictFile):
     glossary_options = {"dictzip": True, "install": False}
 
 
+class EPUB2Format(ConverterFromDictFile):
+    """Save the data into a EPUB-2 file."""
+
+    target_format = "epub2"
+    target_suffix = "epub"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.epub"
+    glossary_options = {"cover_path": str(constants.COVER_FILE)}
+
+    def _compress(self) -> Path:
+        """Skip the compression."""
+        file = self.output_dir_tmp / f"dict-data.{self.target_suffix}"
+        return file.rename(self.dictionary_file(self.final_file))
+
+
 class MobiFormat(ConverterFromDictFile):
-    """Save the data into a Mobi file.
-
-    Incompatibility issues:
-
-    1) No support for multiple HTML tags, they will be ignored:
-
-        Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
-
-    2) Most locales are not fully supported:
-
-        Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
-
-    3) Greek (EL), and Russian (RU), locales might be incorrectly displayed:
-
-        Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
-
-    4) Embedded GIF/SVG codes are extracted to their own files, but it's not clear where they are located, so there are no images for now:
-
-        Warning(prcgen):W14010: media file not found /.../mobi/dict-data.mobi/OEBPS/XXX.gif
-
-    """
+    """Save the data into a Mobi file."""
 
     target_format = "mobi"
     target_suffix = "mobi"
     final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip"
-    zip_glob_files = ""  # Will be set in `_compress()`
-    dictfile_format_cls = DictFileFormatForMobi
-    glossary_options = {
-        "cover_path": str(constants.COVER_FILE),
-        "keep": True,
-        "kindlegen_path": str(constants.KINDLEGEN_FILE),
-    }
 
-    def get_glossary_lang_dst(self) -> str:
-        """
-        Workaround for Esperanto (EO) not being supported by kindlegen.
-        According to https://higherlanguage.com/languages-similar-to-esperanto/,
-        French seems the most similar lang that is available on kindlegen, so French it is.
-        """
-        return "fr" if self.lang_dst == "eo" else self.lang_dst
-
-    def get_glossary_lang_src(self) -> str:
-        """
-        Workaround for Esperanto (EO) not being supported by kindlegen.
-        According to https://higherlanguage.com/languages-similar-to-esperanto/,
-        French seems the most similar lang that is available on kindlegen, so French it is.
-        """
-        return "fr" if self.lang_src == "eo" else self.lang_src
+    def _convert(self) -> None:
+        opf_data = f"""\
+<metadata>
+    <dc-metadata xmlns:dc="http://purl.org/metadata/dublin_core" xmlns:oebpackage="http://openebook.org/namespaces/oeb-package/1.0/">
+        <dc:creator opf:role="aut">{self.website}</dc:creator>
+        <dc:date opf:event="creation">{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}</dc:date>
+        <dc:description>{self.description}</dc:description>
+        <dc:language>{self.get_glossary_lang_src()}</dc:language>
+        <dc:rights>{self.description}</dc:rights>
+        <dc:publisher>{self.website}</dc:publisher>
+        <dc:subject BASICCode="REF008000">Dictionaries</dc:subject>
+        <dc:title>{self.title}</dc:title>
+    </dc-metadata>
+    <x-metadata>
+        <output encoding="utf-8"></output>
+        <DictionaryInLanguage>{self.get_glossary_lang_src()}</DictionaryInLanguage>
+        <DictionaryOutLanguage>{self.get_glossary_lang_dst()}</DictionaryOutLanguage>
+    </x-metadata>
+</metadata>
+"""
+        opf = Path("/") / "tmp" / f"{uuid4()}.opf"
+        opf.write_text(opf_data)
+        log.info("OPF metadata injected:\n%s", opf_data)
+        subprocess.check_call(
+            [
+                constants.EBOOK_CONVERT_BIN,
+                self.dictionary_file(EPUB2Format.final_file),
+                self.dictionary_file(self.final_file.removesuffix(".zip")),
+                "--insert-metadata",
+                "--mobi-file-type=old",
+                "--prefer-metadata-cover",
+                "--rating=5",
+                f"--from-opf={opf}",
+                f"--book-producer={self.website}",
+                f"--tags=dictionary,{self.lang_src},{self.lang_dst}",
+            ]
+        )
 
     def _compress(self) -> Path:
-        # Move the relevant file at the top-level data folder, and rename it for more accuracy
-        src = self.output_dir_tmp / f"dict-data.{self.target_suffix}" / "OEBPS" / f"content.{self.target_suffix}"
-        file = src.rename(self.dictionary_file(self.final_file.removesuffix(".zip")))
-        self.zip_glob_files = f"../{file.name}"
-        return super()._compress()
+        final_file = self.dictionary_file(self.final_file)
+        file = self.dictionary_file(self.final_file.removesuffix(".zip"))
+        with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
+            fh.write(file, arcname=file.name)
+        return final_file
 
 
 class StarDictFormat(ConverterFromDictFile):
@@ -574,83 +578,12 @@ def get_primary_formatters() -> list[type[BaseFormat]]:
 
 def get_secondary_formatters() -> list[type[BaseFormat]]:
     """Formatters that require files generated by `get_primary_formatters()`."""
-    return [BZ2DictFileFormat, DictOrgFormat, StarDictFormat]
+    return [BZ2DictFileFormat, DictOrgFormat, EPUB2Format, StarDictFormat]
 
 
-def run_mobi_formatter(
-    output_dir: Path,
-    file: Path,
-    locale: str,
-    words: Words,
-    variants: Variants,
-    *,
-    include_etymology: bool = True,
-) -> None:
-    """Mobi formatter.
-
-    For multiple languages, we need to delete words if the total number of unique unicode characters is greater than 256.
-    To do this, we delete words using the least-used characters until we meet this condition.
-    """
-
-    def all_chars(word: str, details: Word) -> set[str]:
-        chars = set(word)
-        if definitions := details.definitions:
-            if isinstance(definitions, str):
-                chars.update(definitions)
-            elif isinstance(definitions, tuple):
-                chars.update(user_functions.flatten(definitions))
-        if etymology := details.etymology:
-            if isinstance(etymology, str):
-                chars.update(etymology)
-            elif isinstance(etymology, tuple):
-                chars.update(user_functions.flatten(etymology))
-        return chars
-
-    stats = defaultdict(list)
-    for word, details in words.copy().items():
-        if len(word) > 127:
-            log.info("[Mobi] Truncated word too long: %r", word)
-            truncated = word[:127]
-            words[truncated] = words.pop(word)
-            word = truncated
-        for char in all_chars(word, details):
-            stats[char].append(word)
-
-    if utils.guess_lang_origin(locale) in {"en", "fr"} and len(stats) > 256:
-        new_words = words.copy()
-        threshold = 1
-        while len(stats) > 256:
-            log.info("[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
-            for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
-                if len(related_words) == threshold:
-                    for w in related_words:
-                        new_words.pop(w, None)
-                    stats.pop(char)
-                if len(stats) <= 256:
-                    break
-            threshold += 1
-
-        log.info(
-            "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
-            f"{len(words) - len(new_words):,}",
-            f"{len(new_words):,}",
-            len(stats),
-        )
-        words = new_words
-        variants = make_variants(words)
-    else:
-        log.info(
-            "[Mobi] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
-            f"{len(words):,}",
-            len(stats),
-        )
-
-    args = (locale, output_dir, words, variants, file.stem.split("-")[-1])
-    run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
-    try:
-        run_formatter(MobiFormat, *args, include_etymology=include_etymology)
-    except Exception:
-        log.exception("Error with the Mobi conversion")
+def get_tiercary_formatters() -> list[type[BaseFormat]]:
+    """Formatters that require files generated by `get_secondary_formatters()`."""
+    return [MobiFormat]
 
 
 def run_formatter(
@@ -703,9 +636,10 @@ def distribute_workload(
     variants: Variants,
     *,
     include_etymology: bool = True,
+    processes: int = 0,
 ) -> None:
     """Run formatters in parallel."""
-    with multiprocessing.Pool(len(formatters)) as pool:
+    with multiprocessing.Pool(processes or len(formatters)) as pool:
         pool.map(
             partial(
                 run_formatter,
@@ -751,8 +685,10 @@ def main(locale: str) -> int:
     start = monotonic()
     for include_etymology in [False, True]:
         distribute_workload(get_primary_formatters(), *args, include_etymology=include_etymology)
-        distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology)
-        run_mobi_formatter(*args, include_etymology=include_etymology)
+        # Force using only one process because EPUB, and StarDict, formatters will use the same underlying SQLite database,
+        # and writing to it from both will fail.
+        distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology, processes=1)
+        distribute_workload(get_tiercary_formatters(), *args, include_etymology=include_etymology)
 
     log.info("Convert done in %s!", timedelta(seconds=monotonic() - start))
     return 0
