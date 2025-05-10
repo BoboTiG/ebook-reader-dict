@@ -189,7 +189,25 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return text
 
 
-def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+PERSONA_PRONS = {
+    "1": "jo",
+    "2": "tu",
+    "3": "ell, ella, vostè",
+    "4": "nosaltres",
+    "5": "vosaltres, vós",
+    "6": "ells, elles, vostès",
+    "part": "",
+}
+
+
+def render_forma_conj(
+    tpl: str,
+    parts: list[str],
+    data: defaultdict[str, str],
+    *,
+    word: str = "",
+    persona_prons: dict[str, str] = PERSONA_PRONS,
+) -> str:
     """
     >>> render_forma_conj("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
     "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
@@ -223,7 +241,7 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_forma_conj("forma-conj", ["ca", "balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
     '<i>Participi masculí plural de</i> <b>balmar-se</b>'
     """
-    if tpl == "forma-conj":
+    if not (is_locale_specific := tpl != "forma-conj"):
         parts.pop(0)  # Remove the lang
 
     if len(parts) > 4:
@@ -239,10 +257,10 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
             base, mode = parts
             persona_num = "1"
 
-    if tpl == "ca-forma-conj" and mode == "ger":
+    if is_locale_specific and mode == "ger":
         return f"{italic('Gerundi del verb')} {strong(base)}"
 
-    art_persona = "del " if tpl == "ca-forma-conj" else ""
+    art_persona = "del " if is_locale_specific else ""
     persona = {
         "1": f"Primera persona {art_persona}singular",
         "2": f"Segona persona {art_persona}singular",
@@ -252,15 +270,7 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "6": f"Tercera persona {art_persona}plural",
         "part": "Participi masculí plural",
     }[persona_num]
-    persona_pron = {
-        "1": "jo",
-        "2": "tu",
-        "3": "ell, ella, vostè",
-        "4": "nosaltres",
-        "5": "vosaltres, vós",
-        "6": "ells, elles, vostès",
-        "part": "",
-    }[persona_num]
+    persona_pron = persona_prons[persona_num]
     mode = {
         "cond": "condicional",
         "ger": "gerundi",
@@ -271,8 +281,8 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "infinitiu": "infinitiu",
         "p": "plural",
         "part": "participi",
-        "pass": "passat simple" if tpl == "ca-forma-conj" else "passat",
-        "passat": "passat simple" if tpl == "ca-forma-conj" else "passat",
+        "pass": "passat simple" if is_locale_specific else "passat",
+        "passat": "passat simple" if is_locale_specific else "passat",
         "pl": "plural",
         "plural": "plural",
         "pres": "present",
@@ -305,17 +315,17 @@ def render_forma_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *
         }[temps]
         art_temps = " d'" if temps.startswith("i") else " del "
         art_mode = "d'" if mode.startswith("i") else ""
-        mode += " del verb" if tpl == "ca-forma-conj" and mode != "indicatiu" else " de"
+        mode += " del verb" if is_locale_specific and mode != "indicatiu" else " de"
     else:
         art_temps = ""
         art_mode = "de l'" if mode.startswith("i") else "del "
-        mode += " del verb" if tpl == "ca-forma-conj" and mode not in {"indicatiu", "passat simple"} else " de"
+        mode += " del verb" if is_locale_specific and mode not in {"indicatiu", "passat simple"} else " de"
 
     text = persona
     if persona_num != "part":
         text += f" ({persona_pron}){art_temps}{temps} {art_mode}{mode}"
     else:
-        text += " del verb" if tpl == "ca-forma-conj" else " de"
+        text += " del verb" if is_locale_specific else " de"
     return f"{italic(text)} {strong(base)}"
 
 
@@ -509,4 +519,4 @@ def lookup_template(tpl: str) -> bool:
 def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return template_mapping[tpl](tpl, parts, data, word=word)
+    return str(template_mapping[tpl](tpl, parts, data, word=word))  # type: ignore[operator]
