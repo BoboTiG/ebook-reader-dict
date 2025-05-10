@@ -340,6 +340,23 @@ def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return f"{italic(init)} {strong(start)}" + (f" {end}" if end else "") + ","
 
 
+def render_deverbal(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_deverbal("deverbal", [], defaultdict(str))
+    'Deverbal'
+    >>> render_deverbal("deverbal", ["fr", "accorder"], defaultdict(str))
+    'Deverbal from <i>accorder</i>'
+    >>> render_deverbal("deverbal", ["it", "sguardare", "", "to look at"], defaultdict(str, {"nocap": "1"}))
+    'deverbal from <i>sguardare</i> (“to look at”)'
+    """
+    text = "deverbal" if data["nocap"] == "1" else "Deverbal"
+    if len(parts) > 1:
+        text += f" from {italic(parts[1])}"
+        if len(parts) > 3:
+            text += f" (“{parts[3]}”)"
+    return text
+
+
 def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etydate("etydate", ["1880"], defaultdict(str))
@@ -1686,6 +1703,7 @@ template_mapping = {
     "der+": render_foreign_derivation,
     "der-lite": render_foreign_derivation,
     "derived": render_foreign_derivation,
+    "deverbal": render_deverbal,
     "doublet": render_morphology,
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,

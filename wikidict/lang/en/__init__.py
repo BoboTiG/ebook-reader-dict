@@ -56,12 +56,13 @@ templates_ignored = (
     "anchor",
     "attention",
     "attn",
-    "pedia",
     "c",
     "C",
+    "cite-book",
     "cln",
     "col-bottom",
     "col-top",
+    "commonscat",
     "dercat",
     "elements",
     "etymid",
@@ -71,15 +72,19 @@ templates_ignored = (
     "Image requested",
     "lena",
     "multiple images",
+    "nonlemma",
     "+obj",
+    "pedia",
     "PIE word",
     "picdic",
     "picdicimg",
     "picdiclabel",
+    "ref",
     "refn",
     "rel-bottom",
     "rel-top",
     "rfc-sense",
+    "rfclarify",
     "rfd-redundant",
     "rfd-sense",
     "rfe",
@@ -89,6 +94,7 @@ templates_ignored = (
     "rfv-etym",
     "rfv-sense",
     "root",
+    "see desc",
     "slim-wikipedia",
     "senseid",
     "senseno",
@@ -99,6 +105,7 @@ templates_ignored = (
     "tea room sense",
     "thub",
     "top",
+    "topic",
     "topics",
     "translation only",
     "was wotd",
@@ -125,6 +132,7 @@ templates_multi = {
     "C.": "parts[1] + (parts[2] if len(parts) > 2 else 'th') + f' c.'",
     # {{circa2|1850s}}
     "circa2": "italic('circa' if 'short=yes' not in parts and 'short=1' not in parts else 'c.') + f' {parts[1]}'",
+    "color panel": "color(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
     # {{en-archaic third-person singular of|term}}
@@ -176,6 +184,7 @@ templates_multi = {
     "ngd": "italic(parts[-1].lstrip('1='))",
     # {{nobr|1=[ ...=C=C=C=... ]}}
     "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
+    "nominalization": 'f"Nominalization of {italic(parts[-1])}"',
     # {{non gloss|Definite grammatical ...}}
     "non gloss": "italic(parts[-1].lstrip('1='))",
     # {{non-gloss|Definite grammatical ...}}
@@ -228,6 +237,7 @@ templates_multi = {
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
 templates_multi["lg"] = templates_multi["glossary"]
+templates_multi["nom"] = templates_multi["nominalization"]
 templates_multi["orthography"] = templates_multi["IPAfont"]
 
 # Templates that will be completed/replaced using custom text.
@@ -235,6 +245,7 @@ templates_other = {
     ",": ",",
     "nbsp": "&nbsp;",
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",
+    "internationalism": "Internationalism",
 }
 
 
