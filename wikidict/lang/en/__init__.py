@@ -94,6 +94,7 @@ templates_ignored = (
     "rfv-etym",
     "rfv-sense",
     "root",
+    "see",
     "see desc",
     "slim-wikipedia",
     "senseid",
@@ -145,6 +146,8 @@ templates_multi = {
     "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",
     # {{en-superlative of|Brummie}}
     "en-superlative of": "f\"{italic('superlative form of')} {strong(parts[1])}: most {parts[1]}\"",
+    # {{from|en|-er|id=Oxford}}
+    "from": "parts[2]",
     # {{gl|liquid H<sub>2</sub>O}}
     "gl": "parenthesis(parts[1])",
     # {{gloss|liquid H<sub>2</sub>O}}
@@ -157,16 +160,16 @@ templates_multi = {
     "IPAfont": "f\"⟨{parts[1].strip('⟨⟩')}⟩\"",
     # {{italic|Love Island}}
     "italic": "italic(parts[1])",
+    # {{ja-def|茨城}}
+    "ja-def": 'f"{parts[1]}:"',
     # {{lang|fr|texte}}
     "lang": "parts[-1]",
-    # {{Latn-def|en|name|O|o}}
-    "Latn-def": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
-    # {{Latn-def-lite|en|name|O|o}}
-    "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
     # {{less common spelling of|en|African-like}
     "less common spelling of": 'f"<i>rare spelling of</i> <b>{parts[-1]}</b>"',
     # {{lit|eagle killer}}
     "lit": 'f"Literally, “{parts[1]}”"',
+    # {{mention-gloss|silver-bearing}}
+    "mention-gloss": 'f"“{parts[-1]}”"',
     # {{monospace|#!}}
     "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
@@ -213,10 +216,14 @@ templates_multi = {
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier-lite|Used only ...}}
     "qualifier-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{Runr-def|ᛗ}}
+    "Runr-def": 'f"The Runic character {parts[1]}."',
     # {{s|foo}}
     "s": "f'{parenthesis(italic(parts[1]))} :'",
     # {{sense|foo}}
     "sense": "f'{parenthesis(italic(parts[1]))} :'",
+    # {{shitgibbon|en|arse|muncher}}
+    "shitgibbon": 'f"Shitgibbon compound of {italic(parts[2])} + {italic(parts[3])}"',
     # {{small caps|ce}}
     "small caps": "small_caps(parts[1])",
     # {{smallcaps|ce}}
@@ -237,6 +244,7 @@ templates_multi = {
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
 templates_multi["lg"] = templates_multi["glossary"]
+templates_multi["m-g"] = templates_multi["mention-gloss"]
 templates_multi["nom"] = templates_multi["nominalization"]
 templates_multi["orthography"] = templates_multi["IPAfont"]
 
@@ -245,6 +253,7 @@ templates_other = {
     ",": ",",
     "nbsp": "&nbsp;",
     "Brai-ety": "Invented by Louis Braille, braille cells were arranged in numerical order and assigned to the letters of the French alphabet. Most braille alphabets follow this assignment for the 26 letters of the basic Latin alphabet or, in non-Latin scripts, for the transliterations of those letters. In such alphabets, the first ten braille letters (the first decade: ⠁⠃⠉⠙⠑⠋⠛⠓⠊⠚) are assigned to the Latin letters A to J and to the digits 1 to 9 and 0. (Apart from '2', the even digits all have three dots: ⠃⠙⠋⠓⠚.)<br/><br/>The letters of the first decade are those cells with at least one dot in the top row and at least one in the left column, but none in the bottom row.  The next decade repeat the pattern with the addition of a dot at the lower left, the third decade with two dots in the bottom row, and the fourth with a dot on the bottom right. The fifth decade is like the first, but shifted downward one row. The first decade is supplemented by the two characters with dots in the right column and none in the bottom row, and that supplement is propagated to the other decades using the generation rules above. Finally, there are four characters with no dots in the top two rows. Many languages that use braille letters beyond the 26 of the basic Latin alphabet follow an approximation of the English or French values for additional letters.",
+    "epi-def": "<i>Used as a specific epithet</i>",
     "internationalism": "Internationalism",
 }
 

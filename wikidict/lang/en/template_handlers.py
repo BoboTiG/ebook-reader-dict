@@ -3,6 +3,8 @@ import re
 from collections import defaultdict
 from typing import TypedDict
 
+from num2words import num2words
+
 from ...transliterator import transliterate
 from ...user_functions import (
     capitalize,
@@ -179,7 +181,8 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
     if p and starter:
         starter += " of"
     phrase = starter if data["nocap"] else starter.capitalize()
-    phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
+    if p != "-":
+        phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
     phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
     return phrase
 
@@ -281,6 +284,8 @@ def render_clipping(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     """
     >>> render_clipping("clipping", ["en", "automobile"], defaultdict(str))
     'Clipping of <i>automobile</i>'
+    >>> render_clipping("clipping", ["en", "-"], defaultdict(str))
+    'Clipping of'
     >>> render_clipping("clipping", ["fr", "métropolitain"], defaultdict(str, {"notext": "1"}))
     '<i>métropolitain</i>'
     >>> render_clipping("clipping", ["ru", "ку́бовый краси́тель"], defaultdict(str, {"t": "vat dye", "nocap": "1"}))
@@ -322,6 +327,49 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_contraction(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     return misc_variant("contraction", tpl, parts, data, word=word)
+
+
+def render_lang_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    lang_src = parts.pop(0)
+    match what := parts.pop(0):
+        case "name":
+            text = italic(f"The {what} of the {data['sc']}script letter")
+        case "letter":
+            if parts and (number := parts[0]).isdigit():
+                text = italic(
+                    f"The {num2words(number, lang='en', to='ordinal')} letter of the {langs[lang_src]} alphabet, written in the {data['sc'].removesuffix('-')} script"
+                )
+            else:
+                text = italic(f"A {what} of the {data['sc']}script")
+        case _:
+            raise ValueError(f"Unhandled {tpl!r} {what=}")
+
+    if len(parts) > 1:
+        text += f" {strong(parts[0])} / {strong(parts[1])}"
+
+    return f"{text}{'' if data['nodot'] else '.'}"
+
+
+def render_cyrl_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_cyrl_def("Cyrl-def", ["en", "name", "Ԫ", "ԫ"], defaultdict(str, {"sc": "Cyrl"}))
+    '<i>The name of the Cyrillic script letter</i> <b>Ԫ</b> / <b>ԫ</b>.'
+    >>> render_cyrl_def("Cyrl-def", ["mul", "letter"], defaultdict(str, {"sc": "Cyrl", "nodot": "1"}))
+    '<i>A letter of the Cyrillic script</i>'
+    """
+    data["sc"] = "Cyrillic "
+    return render_lang_def(tpl, parts, data, word=word)
+
+
+def render_latn_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_latn_def("Latn-def", ["en", "name", "M", "m"], defaultdict(str))
+    '<i>The name of the Latin-script letter</i> <b>M</b> / <b>m</b>.'
+    >>> render_latn_def("Latn-def", ["en", "letter", "1"], defaultdict(str))
+    '<i>The first letter of the English alphabet, written in the Latin script</i>.'
+    """
+    data["sc"] = "Latin-"
+    return render_lang_def(tpl, parts, data, word=word)
 
 
 def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -525,6 +573,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     mentions = (
         "back-formation",
         "back-form",
+        "backform",
         "bf",
         "l",
         "l-lite",
@@ -582,7 +631,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
             starter = "phono-semantic matching of "
         elif tpl in {"transliteration", "translit"}:
             starter = "transliteration of "
-        elif tpl in {"back-formation", "back-form", "bf"}:
+        elif tpl in {"back-formation", "backformation", "back-form", "backform", "bf"}:
             starter = "back-formation"
             if parts:
                 starter += " from"
@@ -772,9 +821,26 @@ def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return italic(phrase)
 
 
+def render_han_simp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_han_simp("Han simp", ["請"], defaultdict(str, {"f": "言", "t": "讠"}))
+    'Simplified from 請 (言 → 讠)'
+    >>> render_han_simp("Han simp", ["讀"], defaultdict(str, {"f": "言", "t": "讠", "f2": "賣", "t2": "卖"}))
+    'Simplified from 讀 (言 → 讠 and 賣 → 卖)'
+    """
+    if data["a"]:
+        assert 0
+    text = ("s" if data["nocap"] else "S") + f"implified from {parts[0]} ("
+    if f1 := data["f"]:
+        text += f"{f1} → {data['t']}"
+    if f2 := data["f2"]:
+        text += f" and {f2} → {data['t2']}"
+    return f"{text})"
+
+
 def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str, {}))
+    >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str))
     '<i>A male given name of historical usage, notably borne by Saint Abundius, an early Christian bishop</i>'
     >>> render_historical_given_name("historical given name", ["en" , "male"], defaultdict(str, {"eq": "John", "A":""}))
     '<i>male given name of historical usage, equivalent to English <b>John</b></i>'
@@ -795,9 +861,9 @@ def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[s
 
 def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_ipa_char("historical given name", ["[tʃ]"], defaultdict(str, {}))
+    >>> render_ipa_char("historical given name", ["[tʃ]"], defaultdict(str))
     '[tʃ]'
-    >>> render_ipa_char("historical given name", ["[tʃ]", "[ts]"], defaultdict(str, {}))
+    >>> render_ipa_char("historical given name", ["[tʃ]", "[ts]"], defaultdict(str))
     '[tʃ], [ts]'
     """
     return concat(parts, ", ")
@@ -805,19 +871,19 @@ def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
 
 def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_iso_639("ISO 639", [], defaultdict(str, {}), word="ysr")
+    >>> render_iso_639("ISO 639", [], defaultdict(str), word="ysr")
     '<i>(international standards) language code for</i> <b>Sirenik</b>.'
-    >>> render_iso_639("ISO 639", ["ja"], defaultdict(str, {}))
+    >>> render_iso_639("ISO 639", ["ja"], defaultdict(str))
     'ISO 639-1 code <b>ja</b>'
-    >>> render_iso_639("ISO 639", ["", "crk"], defaultdict(str, {}))
+    >>> render_iso_639("ISO 639", ["", "crk"], defaultdict(str))
     'ISO 639-2 code <b>crk</b>'
-    >>> render_iso_639("ISO 639", ["", "", "zho"], defaultdict(str, {}))
+    >>> render_iso_639("ISO 639", ["", "", "zho"], defaultdict(str))
     'ISO 639-3 code <b>zho</b>'
     >>> render_iso_639("ISO 639", ["zh", "", "zho"], defaultdict(str, {"ref": "1"}))
     'ISO 639-1 code <b>zh</b>, ISO 639-3 code <b>zho</b>'
-    >>> render_iso_639("ISO 639", ["3", "Ambonese Malay"], defaultdict(str, {}))
+    >>> render_iso_639("ISO 639", ["3", "Ambonese Malay"], defaultdict(str))
     '(<i>international standards</i>) <i>ISO 639-3 language code for</i> <b>Ambonese Malay</b>.'
-    >>> render_iso_639("ISO 639", ["1"], defaultdict(str, {}), word="ab")
+    >>> render_iso_639("ISO 639", ["1"], defaultdict(str), word="ab")
     '(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.'
     >>> render_iso_639("ISO 639", ["3", "Asa language", "Asa"], defaultdict(str, {"obs": "1"}), word="aam")
     '(<i>international standards, obsolete</i>) <i>Former ISO 639-3 language code for</i> <b>Asa</b>.'
@@ -840,11 +906,11 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str, {}))
+    >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str))
     '縄抜け'
-    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ"], defaultdict(str, {}))
+    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ"], defaultdict(str))
     '縄抜け (なわぬけ)'
-    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ", "nawanuke"], defaultdict(str, {}))
+    >>> render_ja_l("ja-l", ["縄抜け", "なわぬけ", "nawanuke"], defaultdict(str))
     '縄抜け (なわぬけ, <i>nawanuke</i>)'
     """
     text = parts.pop(0)
@@ -1336,6 +1402,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A hamlet in South Leigh and High Cogges parish, West Oxfordshire district, Oxfordshire, England'
     >>> render_place("place", ["en", "village/and/cpar", "in", "uauth/Central Bedfordshire", "co/Bedfordshire", "cc/England"], defaultdict(str))
     'A village and civil parish in  Central Bedfordshire district, Bedfordshire, England'
+    >>> render_place("place", ["en", "prefecture", "c/Japan"], defaultdict(str, {"capital": "Mito"}))
+    'A prefecture of Japan. Capital: Mito'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
@@ -1405,7 +1473,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                 phrase += place
             if is_administrative:
                 phrase += f" {kind.split(' ')[-1]}"
-            elif kind in {"district", "parish"}:
+            elif kind in {"department", "district", "parish"}:
                 phrase += f" {kind}"
             elif kind == "unitary authority":
                 phrase += " district"
@@ -1419,6 +1487,10 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
             phrase += f"; modern {data[modern_key]}"
         previous_rawpart = len(subparts) == 1 and i > 1
         i += 1
+
+    if capital := data["capital"]:
+        phrase += f". Capital: {capital}"
+
     return phrase
 
 
@@ -1578,9 +1650,9 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_taxon("taxon", ["genus", "family", "Elephantidae"], defaultdict(str, {}))
+    >>> render_taxon("taxon", ["genus", "family", "Elephantidae"], defaultdict(str))
     'A taxonomic genus within the family Elephantidae.'
-    >>> render_taxon("taxon", ["genus", "family", "Elephantidae", "mammoth"], defaultdict(str, {}))
+    >>> render_taxon("taxon", ["genus", "family", "Elephantidae", "mammoth"], defaultdict(str))
     'A taxonomic genus within the family Elephantidae&nbsp;– mammoth.'
     """
     text = f"A taxonomic {parts[0]} within the {parts[1]} {parts[2]}"
@@ -1662,6 +1734,8 @@ template_mapping = {
     "affix": render_morphology,
     "ante": render_dating,
     "a.": render_dating,
+    "backform": render_foreign_derivation,
+    "backformation": render_foreign_derivation,
     "back-form": render_foreign_derivation,
     "back-formation": render_foreign_derivation,
     "B.C.E.": render_bce,
@@ -1684,6 +1758,7 @@ template_mapping = {
     "circa": render_dating,
     "c.": render_dating,
     "chemical symbol": render_chemical_symbol,
+    "clip": render_clipping,
     "clipping": render_clipping,
     "clq": render_foreign_derivation,
     "cog": render_foreign_derivation,
@@ -1698,6 +1773,7 @@ template_mapping = {
     "compound": render_morphology,
     "con": render_morphology,
     "confix": render_morphology,
+    "Cyrl-def": render_cyrl_def,
     "dbt": render_morphology,
     "der": render_foreign_derivation,
     "der+": render_foreign_derivation,
@@ -1709,6 +1785,7 @@ template_mapping = {
     "etyl": render_foreign_derivation,
     "frac": render_frac,
     "given name": render_given_name,
+    "Han simp": render_han_simp,
     "historical given name": render_historical_given_name,
     "ic": render_ipa_char,
     "IPAchar": render_ipa_char,
@@ -1723,6 +1800,8 @@ template_mapping = {
     "l-lite": render_foreign_derivation,
     "label": render_label,
     "langname-mention": render_foreign_derivation,
+    "Latn-def": render_latn_def,
+    "Latn-def-lite": render_latn_def,
     "lb": render_label,
     "lbl": render_label,
     "lbor": render_foreign_derivation,

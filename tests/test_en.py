@@ -395,7 +395,6 @@ def test_parse_word(
         ("{{glossary|inflected|Inflected}}", "Inflected"),
         ("{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}", "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>"),
         ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
-        ("{{Latn-def|en|name|O|o}}", "<i>The name of the Latin-script letter</i> <b>O</b>."),
         ("{{lit|eagle killer}}", "Literally, “eagle killer”"),
         ("{{mono|#!}}", '<span style="font-family:monospace">#!</span>'),
         ("{{monospace|#!}}", '<span style="font-family:monospace">#!</span>'),
