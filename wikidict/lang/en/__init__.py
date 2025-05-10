@@ -157,6 +157,8 @@ templates_multi = {
     "Latn-def-lite": "f'{italic(\"The name of the Latin-script letter\")} {strong(parts[3])}.' if parts[2] == 'name' else ''",
     # {{less common spelling of|en|African-like}
     "less common spelling of": 'f"<i>rare spelling of</i> <b>{parts[-1]}</b>"',
+    # {{lit|eagle killer}}
+    "lit": 'f"Literally, “{parts[1]}”"',
     # {{monospace|#!}}
     "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
     "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
