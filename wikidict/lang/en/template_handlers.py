@@ -572,6 +572,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
 
     mentions = (
         "back-formation",
+        "backformation",
         "back-form",
         "backform",
         "bf",
