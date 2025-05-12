@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from ...user_functions import concat, extract_keywords_from, italic, strong, term
+from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
 from . import general
 from .labels import label_syntaxes, labels
 from .langs import langs
@@ -189,61 +189,40 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return text
 
 
-PERSONA_PRONS = {
-    "1": "jo",
-    "2": "tu",
-    "3": "ell, ella, vostè",
-    "4": "nosaltres",
-    "5": "vosaltres, vós",
-    "6": "ells, elles, vostès",
-    "part": "",
-}
+PERSONA_PRONS = [
+    "jo",
+    "tu",
+    "ell, ella, vostè",
+    "nosaltres",
+    "vosaltres, vós",
+    "ells, elles, vostès",
+]
 
 
-def render_forma_conj(
+def render_ca_forma_conj(
     tpl: str,
     parts: list[str],
     data: defaultdict[str, str],
     *,
     word: str = "",
-    persona_prons: dict[str, str] = PERSONA_PRONS,
+    persona_prons: list[str] = PERSONA_PRONS,
 ) -> str:
     """
-    >>> render_forma_conj("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    >>> render_ca_forma_conj("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
     "<i>Primera persona del singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
-    >>> render_forma_conj("forma-conj", ["ca", "abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
-    "<i>Primera persona singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
-
-    >>> render_forma_conj("ca-forma-conj", ["-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
+    >>> render_ca_forma_conj("ca-forma-conj", ["-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
     '<i>Gerundi del verb</i> <b>-ar</b>'
-    >>> render_forma_conj("ca-forma-conj", ["-ar", "ger"], defaultdict(str), word="-am")
+    >>> render_ca_forma_conj("ca-forma-conj", ["-ar", "ger"], defaultdict(str), word="-am")
     '<i>Gerundi del verb</i> <b>-ar</b>'
-    >>> render_forma_conj("forma-conj", ["ca", "-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
-    '<i>Tercera persona plural (ells, elles, vostès) del futur gerundi de</i> <b>-ar</b>'
-
-    >>> render_forma_conj("ca-forma-conj", ["botre", "2", "imp"], defaultdict(str), word="bot")
+    >>> render_ca_forma_conj("ca-forma-conj", ["botre", "2", "imp"], defaultdict(str), word="bot")
     "<i>Segona persona del singular (tu) de l'imperatiu del verb</i> <b>botre</b>"
-    >>> render_forma_conj("forma-conj", ["ca", "botre", "2", "imp"], defaultdict(str), word="bot")
-    "<i>Segona persona singular (tu) de l'imperatiu de</i> <b>botre</b>"
-
-    >>> render_forma_conj("ca-forma-conj", ["afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
+    >>> render_ca_forma_conj("ca-forma-conj", ["afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
     '<i>Tercera persona del plural (ells, elles, vostès) del passat simple de</i> <b>afiblar</b>'
-    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
-    '<i>Tercera persona plural (ells, elles, vostès) del passat de</i> <b>afiblar</b>'
-
-    >>> render_forma_conj("ca-forma-conj", ["afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
+    >>> render_ca_forma_conj("ca-forma-conj", ["afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
     "<i>Tercera persona del plural (ells, elles, vostès) d'imperfet subjunctiu del verb</i> <b>afiblar</b>"
-    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
-    "<i>Tercera persona plural (ells, elles, vostès) d'imperfet subjunctiu de</i> <b>afiblar</b>"
-
-    >>> render_forma_conj("ca-forma-conj", ["balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
+    >>> render_ca_forma_conj("ca-forma-conj", ["balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
     '<i>Participi masculí plural del verb</i> <b>balmar-se</b>'
-    >>> render_forma_conj("forma-conj", ["ca", "balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
-    '<i>Participi masculí plural de</i> <b>balmar-se</b>'
     """
-    if not (is_locale_specific := tpl != "forma-conj"):
-        parts.pop(0)  # Remove the lang
-
     if len(parts) > 4:
         raise ValueError("aïe")
 
@@ -257,10 +236,10 @@ def render_forma_conj(
             base, mode = parts
             persona_num = "1"
 
-    if is_locale_specific and mode == "ger":
+    if mode == "ger":
         return f"{italic('Gerundi del verb')} {strong(base)}"
 
-    art_persona = "del " if is_locale_specific else ""
+    art_persona = "del "
     persona = {
         "1": f"Primera persona {art_persona}singular",
         "2": f"Segona persona {art_persona}singular",
@@ -270,7 +249,8 @@ def render_forma_conj(
         "6": f"Tercera persona {art_persona}plural",
         "part": "Participi masculí plural",
     }[persona_num]
-    persona_pron = persona_prons[persona_num]
+    if persona_num.isdigit():
+        persona_pron = persona_prons[int(persona_num) - 1]
     mode = {
         "cond": "condicional",
         "ger": "gerundi",
@@ -281,8 +261,8 @@ def render_forma_conj(
         "infinitiu": "infinitiu",
         "p": "plural",
         "part": "participi",
-        "pass": "passat simple" if is_locale_specific else "passat",
-        "passat": "passat simple" if is_locale_specific else "passat",
+        "pass": "passat simple",
+        "passat": "passat simple",
         "pl": "plural",
         "plural": "plural",
         "pres": "present",
@@ -315,18 +295,134 @@ def render_forma_conj(
         }[temps]
         art_temps = " d'" if temps.startswith("i") else " del "
         art_mode = "d'" if mode.startswith("i") else ""
-        mode += " del verb" if is_locale_specific and mode != "indicatiu" else " de"
+        mode += " del verb" if mode != "indicatiu" else " de"
     else:
         art_temps = ""
         art_mode = "de l'" if mode.startswith("i") else "del "
-        mode += " del verb" if is_locale_specific and mode not in {"indicatiu", "passat simple"} else " de"
+        mode += " del verb" if mode not in {"indicatiu", "passat simple"} else " de"
 
     text = persona
     if persona_num != "part":
         text += f" ({persona_pron}){art_temps}{temps} {art_mode}{mode}"
     else:
-        text += " del verb" if is_locale_specific else " de"
+        text += " del verb"
     return f"{italic(text)} {strong(base)}"
+
+
+def render_forma_conj(
+    tpl: str,
+    parts: list[str],
+    data: defaultdict[str, str],
+    *,
+    word: str = "",
+    persona_prons: list[str] = PERSONA_PRONS,
+) -> str:
+    """
+    >>> render_forma_conj("forma-conj", ["ca", "abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    "<i>Primera persona singular (jo) del present d'indicatiu de</i> <b>abacallanar</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "-ar", "6", "fut", "ger"], defaultdict(str), word="-am")
+    '<i>Tercera persona plural (ells, elles, vostès) del futur gerundi de</i> <b>-ar</b>'
+    >>> render_forma_conj("forma-conj", ["ca", "botre", "2", "imp"], defaultdict(str), word="bot")
+    "<i>Segona persona singular (tu) de l'imperatiu de</i> <b>botre</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "pass"], defaultdict(str), word="afiblaren")
+    '<i>Tercera persona plural (ells, elles, vostès) del passat de</i> <b>afiblar</b>'
+    >>> render_forma_conj("forma-conj", ["ca", "afiblar", "6", "imperf", "subj"], defaultdict(str), word="afiblaren")
+    "<i>Tercera persona plural (ells, elles, vostès) de l'imperfet de subjuntiu de</i> <b>afiblar</b>"
+    >>> render_forma_conj("forma-conj", ["ca", "balmar-se", "part", "m", "p"], defaultdict(str), word="balmats")
+    '<i>Participi masculí plural de</i> <b>balmar-se</b>'
+    """
+    # Source: https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:forma_flexionada&oldid=2353600
+    inflection_tags = {
+        # Gender
+        "m": "masculí",
+        "f": "femení",
+        "n": "neutre",
+        "c": "comú",
+        # Number
+        "s": "singular",
+        "p": "plural",
+        "d": "dual",
+        # Gender and number
+        "ms": "masculí singular",
+        "mp": "masculí plural",
+        "fs": "femení singular",
+        "fp": "femení plural",
+        "ns": "neutre singular",
+        "np": "neutre plural",
+        # State
+        "def": "definit",
+        "indef": "indefinit",
+        # Declension
+        "abl": "ablatiu",
+        "abs": "absolutiu",
+        "ac": "acusatiu",
+        "al·l": "al·latiu",
+        "aldir": "al·latiu direccional",
+        "ben": "benefactiu",
+        "caus": "causal",
+        "com": "comitatiu",
+        "dat": "datiu",
+        "erg": "ergatiu",
+        "gen": "genitiu",
+        "genloc": "genitiu locatiu",
+        "iness": "inessiu",
+        "instr": "instrumental",
+        "loc": "locatiu",
+        "nom": "nominatiu",
+        "partt": "partitiu",
+        "prol": "prolatiu",
+        "term": "terminatiu",
+        "voc": "vocatiu",
+        # Conjugation
+        # Person
+        "1": "primera persona singular",
+        "2": "segona persona singular",
+        "3": "tercera persona singular",
+        "4": "primera persona plural",
+        "5": "segona persona plural",
+        "6": "tercera persona plural",
+        # Tense
+        "pres": "del present",
+        "imperf": "de l'imperfet",
+        "perf": "del perfet",
+        "pret": "del pretèrit",
+        "pass": "del passat",
+        "fut": "del futur",
+        "cond": "del condicional",
+        # Mood
+        "imp": "de l'imperatiu",
+        "ind": "d'indicatiu",
+        "subj": "de subjuntiu",
+        # Voice
+        "act": "actiu",
+        "pas": "passiu",
+        # Impersonals
+        "inf": "infinitiu",
+        "part": "participi",
+        "ger": "gerundi",
+    }
+
+    inflections = []
+    i = 2
+    infl = parts[i] if len(parts) >= i else "forma declinada"
+
+    while True:
+        inflections.append(inflection_tags.get(infl, infl))
+        try:
+            person = int(infl)
+        except ValueError:
+            pass
+        else:
+            if person < 7:
+                inflections.append(f"({persona_prons[person - 1]})")
+
+        i += 1
+        try:
+            infl = parts[i]
+        except IndexError:
+            break
+
+    return f"{italic(f'{capitalize(" ".join(inflections))} de')} {strong(parts[1])}"
 
 
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -483,7 +579,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 
 template_mapping = {
-    "ca-forma-conj": render_forma_conj,
+    "ca-forma-conj": render_ca_forma_conj,
     "cognom": render_cognom,
     "comp": render_comp,
     "forma-": render_forma_,
