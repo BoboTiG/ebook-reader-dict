@@ -1211,6 +1211,39 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return phrase
 
 
+def _render_morse_code(part: str, data: defaultdict[str, str], suffix: str) -> str:
+    text = f"{italic(f'Visual rendering of Morse code {suffix}')} {strong(part)}"
+    if gloss := data["gloss"]:
+        text += f" (“{gloss}”)"
+    return f"{text}."
+
+
+def render_morse_code_abbreviation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_morse_code_abbreviation("morse code abbreviation", ["AGN"], defaultdict(str))
+    '<i>Visual rendering of Morse code abbreviation</i> <b>AGN</b>.'
+    """
+    return _render_morse_code(parts[0], data, "abbreviation")
+
+
+def render_morse_code_for(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_morse_code_for("morse code for", ["M"], defaultdict(str))
+    '<i>Visual rendering of Morse code for</i> <b>M</b>.'
+    >>> render_morse_code_for("morse code for", ["="], defaultdict(str, {"gloss": "equal sign"}))
+    '<i>Visual rendering of Morse code for</i> <b>=</b> (“equal sign”).'
+    """
+    return _render_morse_code(parts[0], data, "for")
+
+
+def render_morse_code_prosign(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_morse_code_prosign("morse code prosign", ["SOS"], defaultdict(str))
+    '<i>Visual rendering of Morse code prosign</i> <b>SOS</b>.'
+    """
+    return _render_morse_code(parts[0], data, "prosign")
+
+
 def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_name_translit("name translit", ["en", "ka", "შევარდნაძე"], defaultdict(str, {"type":"surname"}))
@@ -1689,6 +1722,19 @@ def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return misc_variant_no_term("uncertain", tpl, parts, data, word=word)
 
 
+def render_univerbation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_univerbation("univerbation", ["en"], defaultdict(str, {"nocap": "1"}))
+    'univerbation'
+    >>> render_univerbation("univerbation", ["en", "be", "gone"], defaultdict(str))
+    'Univerbation of <i>be</i> + <i>gone</i>'
+    """
+    text = ("u" if data["nocap"] == "1" else "U") + "niverbation"
+    if words := [italic(p) for p in parts[1:]]:
+        text += " of "
+    return f"{text}{concat(words, sep=' + ')}"
+
+
 def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_unknown("unk", ["en"], defaultdict(str, { "notext":"1", "nocap":"1"}))
@@ -1830,6 +1876,9 @@ template_mapping = {
     "m+": render_foreign_derivation,
     "m-lite": render_foreign_derivation,
     "mention": render_foreign_derivation,
+    "morse code abbreviation": render_morse_code_abbreviation,
+    "morse code for": render_morse_code_for,
+    "morse code prosign": render_morse_code_prosign,
     "name translit": render_name_translit,
     "named-after": render_named_after,
     "nb...": render_nb,
@@ -1882,6 +1931,8 @@ template_mapping = {
     "unadapted borrowing": render_foreign_derivation,
     "unc": render_uncertain,
     "uncertain": render_uncertain,
+    "univ": render_univerbation,
+    "univerbation": render_univerbation,
     "unk": render_unknown,
     "unknown": render_unknown,
     "vern": render_vern,
