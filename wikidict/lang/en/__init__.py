@@ -79,6 +79,7 @@ templates_ignored = (
     "picdic",
     "picdicimg",
     "picdiclabel",
+    "R",
     "ref",
     "refn",
     "rel-bottom",
