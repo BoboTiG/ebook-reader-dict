@@ -671,6 +671,19 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     return phrase.lstrip()
 
 
+def render_fa_sp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_fa_sp("fa sp", ["en", "SH"], defaultdict(str, {"id": "self-harm", "t": "self-harm"}))
+    '<i>Filter-avoidance spelling of</i> <b>SH</b> (“self-harm”).'
+    """
+    text = italic(("f" if data["nocap"] == "1" else "F") + "ilter-avoidance spelling of")
+    text += f" {strong(parts[1])}"
+    if t := data["t"]:
+        text += f" (“{t}”)"
+    dot = "" if data["nodot"] == "1" else (data["dot"] or ".")
+    return f"{text}{dot}"
+
+
 def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_frac("frac", ["39", "47", "127"], defaultdict(str))
@@ -1786,6 +1799,8 @@ template_mapping = {
     "doublet": render_morphology,
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,
+    "fa sp": render_fa_sp,
+    "filter-avoidance spelling of": render_fa_sp,
     "frac": render_frac,
     "given name": render_given_name,
     "Han simp": render_han_simp,
@@ -1877,25 +1892,6 @@ template_mapping = {
     #
     "__variant__infl of": render_variant,
     "__variant__plural of": render_variant,
-    # {{en-ing form of|term}}
-    # "en-ing form of": "parts[1]",
-    # # {{en-simple past of|term}}
-    # "en-simple past of": "parts[1]",
-    # # {{en-irregular plural of|term}}
-    # "en-irregular plural of": "parts[1]",
-    # "en-ipl": "parts[1]",
-    # # {{en-past of|term}}
-    # "en-past of": "parts[1]",
-    # # {{en-superlative of|term}}
-    # "en-superlative of": "parts[1]",
-    # # {{en-tpso|term}}
-    # "en-tpso": "parts[1]",
-    # # {{en-third-person singular of|term}}
-    # "en-third-person singular of": "parts[1]",
-    # # {{en-third-person_singular_of|term}}
-    # "en-third-person_singular_of": "parts[1]",
-    # # {{en-third person singular of|term}}
-    # "en-third person singular of": "parts[1]",
 }
 
 
