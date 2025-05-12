@@ -1499,6 +1499,8 @@ def render_plural_of(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     """
     >>> render_plural_of("plural of", ["en", "woman"], defaultdict(str))
     '<i>plural of</i> <b>woman</b>'
+    >>> render_plural_of("plural of", [], defaultdict(str, {"1": "en", "2": "woman"}))
+    '<i>plural of</i> <b>woman</b>'
     >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR", "ts": "TS"}))
     '<i>plural of</i> <b>Madame</b> (<i>TR</i> /<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
     >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR"}))
@@ -1506,7 +1508,7 @@ def render_plural_of(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "ts": "TS"}))
     '<i>plural of</i> <b>Madame</b> (/<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
     """
-    text = f"{italic('plural of')} {strong(parts[1])}"
+    text = f"{italic('plural of')} {strong(data['2'] or parts[1])}"
 
     more: list[str] = []
     more_a: list[str] = []
