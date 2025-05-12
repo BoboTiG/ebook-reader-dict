@@ -182,7 +182,7 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         "pron": "pronominal",
         "super": "superlativa",
     }[tpl.split("-")[-1]]
-    text = italic(f"Forma {fmt} de")
+    text = italic(("F" if parts[0] == "ca" else "f") + f"orma {fmt} de")
     text += f" {strong(parts[-1])}"
     if t := data["t"]:
         text += f" («{t}»)"
