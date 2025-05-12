@@ -48,10 +48,6 @@ variant_templates = (
     "{{Tabs",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
-
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "Clear",
@@ -181,11 +177,6 @@ templates_multi: dict[str, str] = {
     # {{Yprb}}
     "Yprb": "small(f'({italic(\"per iperbole\")})')",
     "yprb": "small(f'({italic(\"per iperbole\")})')",
-    #
-    # Variants
-    #
-    # {{flexion|term}}
-    "flexion": "parts[1]",
 }
 
 # Release content on GitHub
@@ -273,25 +264,32 @@ def last_template_handler(
 
         >>> last_template_handler(["Sup2", "assoluto", "f sing", "it"], "it", word="massima")
         'superlativo assoluto, femminile singolare di'
-
-        >>> last_template_handler(["Tabs", "muratore", "muratori", "muratrice", "muratore", "f2=muratora", "fp2=muratrici"], "it")
-        'muratore'
-        >>> last_template_handler(["Tabs", "f=tradotta", "m=tradotto", "mp=tradotti", "fp=tradotte"], "it")
-        'tradotto'
     """
-    from ...user_functions import extract_keywords_from, italic, parenthesis, strong
+    from ...user_functions import italic, parenthesis, strong
     from .. import defaults
     from .codelangs import codelangs
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
-    data = extract_keywords_from(parts)
     tpl = tpl.lower()
+
+    if variant_only:
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *parts])
+    elif locale == "it" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
 
     if tpl == "fonte":
         match parts[0]:
             case "trec":
                 return "AA.VV., <i>Vocabolario Treccani</i> edizione online su <i>treccani.it</i>, Istituto dell'Enciclopedia Italiana"
+            case _:
+                raise ValueError(f"Unhandled fonte: {parts[0]!r}")
 
     if tpl == "linkf":
         return parenthesis(
@@ -312,12 +310,8 @@ def last_template_handler(
             "f pl": "femminile plurale",
             "m sing": "maschile singolare",
             "m pl": "maschile plurale",
-        }.get(parts[1])
+        }[parts[1]]
         return f"superlativo {parts[0]}, {gender} di"
-
-    # Variants
-    if tpl == "tabs":
-        return data["m"] or parts[0]
 
     # This is a country in the current locale
     if codelang := codelangs.get(tpl):
@@ -354,6 +348,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("# plurale di [[-ectomia]]", "it")
     '# {{flexion|-ectomia}}'
+    >>> adjust_wikicode("# plurale di [[-ectomia]]", "fr")
+    '# plurale di [[-ectomia]]{{flexion|-ectomia}}'
 
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
@@ -386,27 +382,24 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # {{-avv-}} → === {{avv}} ===
     code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-    if locale != "it":
-        return code
-
-    # Hack for a fake variants to support more of them
+    #
+    # Variants
+    #
 
     # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
-    code = re.sub(
-        r"^#\s?(?:femminile|plurale).+\[\[([^\]]+)\]\]",
-        r"# {{flexion|\1}}",
-        code,
-        flags=re.MULTILINE | re.IGNORECASE,
-    )
-
     # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
-    code = re.sub(r"^#\s?.+(?:singolare|plurale).+\[\[([^\]]+)\]\]", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+    code = re.sub(
+        r"^#\s*(.+(?:femminile|singolare|plurale).+\[\[([^\]]+)\]\])",
+        r"# {{flexion|\2}}" if locale == "it" else r"#\1{{flexion|\2}}",
+        code,
+        flags=re.MULTILINE,
+    )
 
     # `# participio presente di [[amare]] → `{{flexion|amare}}`
     # `# participio passato di [[amare]] → `{{flexion|amare}}`
     code = re.sub(
-        r"^#\s?participio (?:passato|presente) di \[\[([^\]]+)\]\]",
-        r"# {{flexion|\1}}",
+        r"^#\s*(participio (?:passato|presente) di \[\[([^\]]+)\]\])",
+        r"# {{flexion|\2}}" if locale == "it" else r"# \1{{flexion|\2}}",
         code,
         flags=re.MULTILINE,
     )

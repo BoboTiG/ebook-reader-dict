@@ -48,24 +48,16 @@ variant_titles = (
 )
 variant_templates = (
     "{{enclítico",
-    "{{infinitivo",
-    "{{forma adjetivo",
-    "{{forma adjetivo 2",
-    "{{forma participio",
-    "{{forma pronombre",
-    "{{forma verbo",
-    "{{f.v",
+    "{{forma ",
+    "{{f.",
     "{{gerundio",
+    "{{infinitivo",
     "{{participio",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
 definitions_to_ignore = (
-    *variant_templates,
     "definición imprecisa",
-    "f.adj2",
-    "f.s.p",
-    "f.v",
     "marcar sin referencias",
 )
 
@@ -272,9 +264,6 @@ def last_template_handler(
         '<i>(Adjetivo de verbo, rondar, ronda)</i>'
         >>> last_template_handler(["csem", "leng=es", "derecho", "deporte"], "es")
         '<i>(Derecho, deporte)</i>'
-
-        >>> last_template_handler(["forma participio", "apropiado", "femenino"], "es")
-        'apropiado'
     """
     from ...user_functions import (
         capitalize,
@@ -287,10 +276,18 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    tpl, *parts = template
+
+    if variant_only:
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *parts])
+    elif locale == "es" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    tpl, *parts = template
     data = extract_keywords_from(parts)
 
     if tpl == "csem":
@@ -340,21 +337,6 @@ def last_template_handler(
 
     if lang := langs.get(template[0]):
         return capitalize(lang)
-
-    # note: this should be used for variants only
-    if tpl in (
-        "enclítico",
-        "infinitivo",
-        "forma adjetivo",
-        "forma adjetivo 2",
-        "forma participio",
-        "forma pronombre",
-        "forma verbo",
-        "f.v",
-        "gerundio",
-        "participio",
-    ):
-        return parts[0]
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 

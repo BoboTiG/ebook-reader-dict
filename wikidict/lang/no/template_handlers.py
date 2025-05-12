@@ -136,6 +136,16 @@ def render_ursprak(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("bøyingsform", ["no", "verb", "uttrykke"], defaultdict(str))
+    'uttrykke'
+    >>> render_variant("no-adj-bøyningsform", ["b", "vis"], defaultdict(str, {"nb": "ja", "nrm": "ja", "nn": "ja"}))
+    'vis'
+    """
+    return parts[-1]
+
+
 template_mapping = {
     "avledet": render_avledet,
     "lånt": render_lant,
@@ -145,6 +155,14 @@ template_mapping = {
     "Sammensatt": render_sammensetning,
     "term": render_term,
     "urspråk": render_ursprak,
+    #
+    # Variants
+    #
+    "__variant__bøyingsform": render_variant,
+    "__variant__no-adj-bøyningsform": render_variant,
+    "__variant__no-sub-bøyningsform": render_variant,
+    "__variant__no-verb-bøyningsform": render_variant,
+    "__variant__no-verbform av": render_variant,
 }
 
 

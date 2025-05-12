@@ -1899,7 +1899,7 @@ template_mapping = {
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
-    "plural of": render_plural_of,
+    # "plural of": render_plural_of,
     "post": render_dating,
     "p.": render_dating,
     "pre": render_morphology,

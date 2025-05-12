@@ -770,15 +770,18 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    tpl, *parts = template
+
     if variant_only:
-        tpl, *rest = template
         tpl = f"__variant__{tpl}"
-        template = tuple([tpl, *rest])
+        template = tuple([tpl, *parts])
+    elif locale == "fr" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
 
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    tpl, *parts = template
     data = extract_keywords_from(parts)
 
     if tpl.startswith("Citation/"):
@@ -943,15 +946,25 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
 
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
+    '# {{__variant__|pressant}}'
+    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "en")
     "# ''Féminin singulier de l’[[adjectif]]'' [[pressant]].{{__variant__|pressant}}"
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
+    '# {{__variant__|anisophylle}}'
+    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "en")
     "# ''Pluriel de ''[[anisophylle]]''.''{{__variant__|anisophylle}}"
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
+    '# {{__variant__|antiproton}}'
+    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "en")
     "# ''Pluriel de'' [[antiproton#fr|antiproton]].{{__variant__|antiproton}}"
 
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
+    '# {{__variant__|venir}}'
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "en")
     "# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].{{__variant__|venir}}"
     >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
+    '# {{__variant__|pouvoir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "en")
     "# ''Participe passé masculin singulier du verbe'' [[pouvoir]].{{__variant__|pouvoir}}"
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
@@ -961,9 +974,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
     code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
-
-    if locale != "fr":
-        return code
 
     # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
     code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
@@ -975,15 +985,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Variants
     #
 
-    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {fr-verbe-flexion|pouvoir}}`
+    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {__variant__|pouvoir}}`
     code = re.sub(
-        r"^^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
-        r"# \1{{__variant__|\2}}",
+        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
-    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{fr-rég|anisophylle}}`
+    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{__variant__|anisophylle}}`
     forms = "|".join(
         [
             "féminin de",
@@ -996,15 +1006,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
     code = re.sub(
         rf"^#\s*('+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
-        r"# \1{{__variant__|\2}}",
+        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
-    # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {fr-verbe-flexion|venir}}`
+    # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {__variant__|venir}}`
     code = re.sub(
-        r"^^#\s*('+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
-        r"# \1{{__variant__|\2}}",
+        r"^#\s*('+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )

@@ -68,19 +68,19 @@ def test_simple(craft_urls: Callable[[str, str], str]) -> None:
 
 @pytest.mark.webtest
 def test_get_random_word() -> None:
-    assert check_word.main("fr", "") == 0
+    assert check_word.main("en", "") == 0
 
 
 @responses.activate
 def test_get_random_word_unwanted_word() -> None:
-    url = random_word_url["fr"]
+    url = random_word_url["en"]
     body = '<span class="mw-page-title-main">WORD</span>'
     word = "désiré"
 
     responses.add(responses.GET, url=url, body=body.replace("WORD", "Conjugaison:tchèque/srovnat"))
     responses.add(responses.GET, url=url, body=body.replace("WORD", "tchèque/srovnat"))
     responses.add(responses.GET, url=url, body=body.replace("WORD", word))
-    assert utils.get_random_word("fr") == word
+    assert utils.get_random_word("en") == word
 
 
 @responses.activate

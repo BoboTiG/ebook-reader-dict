@@ -87,9 +87,6 @@ sections = (
 variant_titles = sections
 variant_templates = ("{{form-eo}}",)
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "?",
@@ -258,14 +255,17 @@ def last_template_handler(
     all_templates: list[tuple[str, str, str]] | None = None,
     variant_only: bool = False,
 ) -> str:
-    """
-    Will be called in utils.py::transform() when all template handlers were not used.
-
-        >>> last_template_handler(["form-eo"], "eo", word="surdaj")
-        'surda'
-    """
     from .. import defaults
     from .template_handlers import lookup_template, render_template
+
+    tpl, *parts = template
+
+    if variant_only:
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *parts])
+    elif locale == "eo" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
 
     if lookup_template(template[0]):
         return render_template(word, template)

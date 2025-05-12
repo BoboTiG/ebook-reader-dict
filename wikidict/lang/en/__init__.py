@@ -379,15 +379,18 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import gloss_tr_poss, join_names, lookup_template, render_template
 
+    tpl, *parts = template
+
     if variant_only:
-        tpl, *rest = template
         tpl = f"__variant__{tpl}"
-        template = tuple([tpl, *rest])
+        template = tuple([tpl, *parts])
+    elif locale == "en" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
 
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    tpl, *parts = template
     data = extract_keywords_from(parts)
 
     if tpl in form_of_templates:

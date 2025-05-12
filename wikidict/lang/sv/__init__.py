@@ -46,9 +46,6 @@ variant_templates = (
     "{{böjning",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
-
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "?",
@@ -108,11 +105,6 @@ templates_multi = {
     "u": "italic('u')",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
-    #
-    # Variants
-    #
-    # {{böjning|sv|subst|boll}}
-    "böjning": "parts[-1]",
 }
 
 # Templates that will be completed/replaced using custom style.
@@ -197,21 +189,6 @@ def last_template_handler(
         >>> last_template_handler(["foo"], "sv")
         '##opendoublecurly##foo##closedoublecurly##'
 
-        >>> last_template_handler(["avledning", "sv", "tråkig"], "sv")
-        'tråkig'
-        >>> last_template_handler(["avledning", "sv", "seende", "adj"], "sv")
-        'seende'
-        >>> last_template_handler(["avledning", "sv", "mälta", "ordform=prespart"], "sv")
-        'mälta'
-        >>> last_template_handler(["avledning", "sv", "lada", "partikel=till", "ordform=perfpart"], "sv")
-        'tillada'
-        >>> last_template_handler(["avledning", "sv", "rikta", "partikel=in", "ordform=prespart"], "sv")
-        'inrikta'
-        >>> last_template_handler(["avledning", "sv", "beriktiga", "verb"], "sv")
-        'beriktiga'
-        >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
-        'bero'
-
         >>> last_template_handler(["belagt", "sv", "2025"], "sv")
         'Belagt i språket sedan 2025.'
         >>> last_template_handler(["belagt", "sv", "2025", "n"], "sv")
@@ -260,9 +237,21 @@ def last_template_handler(
     from ...user_functions import extract_keywords_from, italic, strong, term
     from .. import defaults
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
     from .transliterator import transliterate
 
     tpl, *parts = template
+
+    if variant_only:
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *parts])
+    elif locale == "sv" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
+
     data = extract_keywords_from(parts)
 
     if tpl == "avledning":

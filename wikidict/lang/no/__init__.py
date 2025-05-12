@@ -52,9 +52,6 @@ variant_templates = (
 )
 
 # Templates to ignore: the text will be deleted.
-definitions_to_ignore = (*[variant.lstrip("{") for variant in variant_templates],)
-
-# Templates to ignore: the text will be deleted.
 templates_ignored = (
     "?",
     "#ifeq",
@@ -128,19 +125,6 @@ templates_multi = {
     "tidligere skrivemåte": "f\"{italic('tidligere skriveform av')} {strong(parts[-1])}\"",
     # {{vokabular|overført}}
     "vokabular": "term(parts[1])",
-    #
-    # Variants
-    #
-    # {{bøyingsform|no|verb|uttrykke}}
-    "bøyingsform": "parts[-1]",
-    # {{no-adj-bøyningsform|b|vis|nb=ja|nrm=ja|nn=ja}}
-    "no-adj-bøyningsform": "parts[2]",
-    # {{no-verbform av|imperativ|børste|nb=ja}}
-    "no-verbform av": "parts[2]",
-    # {{no-sub-bøyningsform|be|funn|nb=ja|nrm=ja|nn=ja}}
-    "no-sub-bøyningsform": "parts[2]",
-    # {{no-verb-bøyningsform|pret|finne|nb=ja|nrm=ja}}
-    "no-verb-bøyningsform": "parts[2]",
 }
 
 # Templates that will be completed/replaced using custom text.
@@ -260,10 +244,18 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    tpl, *parts = template
+
+    if variant_only:
+        tpl = f"__variant__{tpl}"
+        template = tuple([tpl, *parts])
+    elif locale == "no" and lookup_template(f"__variant__{tpl}"):
+        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        return ""
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    tpl, *parts = template
     extract_keywords_from(parts)
 
     match tpl:

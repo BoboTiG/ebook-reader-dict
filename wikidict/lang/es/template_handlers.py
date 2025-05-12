@@ -842,6 +842,14 @@ def render_variantes(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return f"{strong(starter)} {concat(a_phrase, ', ')}"
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("forma participio", ["apropiado", "femenino"], defaultdict(str))
+    'apropiado'
+    """
+    return parts[0]
+
+
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "AFI": render_afi,
@@ -857,9 +865,9 @@ template_mapping = {
     "etim": render_etim,
     "etimología": render_etimologia,
     "forma": render_forma,
-    "forma diminutivo": render_aumentativo,
-    "forma sustantivo": render_forma,
-    "forma sustantivo plural": render_forma,
+    # "forma diminutivo": render_aumentativo,
+    # "forma sustantivo": render_forma,
+    # "forma sustantivo plural": render_forma,
     "gentilicio": render_gentilicio,
     "gentilicio1": render_gentilicio,
     "gentilicio2": render_gentilicio2,
@@ -883,6 +891,25 @@ template_mapping = {
     "sustantivo de verbo": render_sustantivo_de,
     "variante": render_variante,
     "variantes": render_variantes,
+    #
+    # Variants
+    #
+    "__variant__enclítico": render_variant,
+    "__variant__f.adj2": render_variant,
+    "__variant__f.s.p": render_variant,
+    "__variant__forma adjetiva": render_variant,
+    "__variant__forma adjetivo": render_variant,
+    "__variant__forma adjetivo 2": render_variant,
+    "__variant__forma diminutivo": render_variant,
+    "__variant__forma participio": render_variant,
+    "__variant__forma pronombre": render_variant,
+    "__variant__forma sustantivo": render_variant,
+    "__variant__forma sustantivo plural": render_variant,
+    "__variant__forma verbo": render_variant,
+    "__variant__f.v": render_variant,
+    "__variant__gerundio": render_variant,
+    "__variant__infinitivo": render_variant,
+    "__variant__participio": render_variant,
 }
 
 

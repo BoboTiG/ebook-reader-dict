@@ -575,17 +575,17 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 
 template_mapping = {
-    "ca-forma-conj": render_ca_forma_conj,
+    # "ca-forma-conj": render_ca_forma_conj,
     "cognom": render_cognom,
     "comp": render_comp,
     "forma-": render_forma_,
     "forma-a": render_forma,
     "forma-augm": render_forma,
-    "forma-conj": render_forma_conj,
+    # "forma-conj": render_forma_conj,
     "forma-dim": render_forma,
-    "forma-f": render_forma,
+    # "forma-f": render_forma,
     "forma-inc": render_forma,
-    "forma-p": render_forma,
+    # "forma-p": render_forma,
     "forma-pron": render_forma,
     "forma-super": render_forma,
     "g": render_g,
@@ -611,4 +611,4 @@ def lookup_template(tpl: str) -> bool:
 def render_template(word: str, template: tuple[str, ...]) -> str:
     tpl, *parts = template
     data = extract_keywords_from(parts)
-    return str(template_mapping[tpl](tpl, parts, data, word=word))  # type: ignore[operator]
+    return template_mapping[tpl](tpl, parts, data, word=word)

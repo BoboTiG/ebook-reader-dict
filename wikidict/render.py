@@ -58,6 +58,13 @@ DEBUG_EMPTY_WORDS = "DEBUG_EMPTY_WORDS" in os.environ
 log = logging.getLogger(__name__)
 
 
+def get_ignored_terms(lang_src: str, lang_dst: str) -> set[str]:
+    ignored_terms = set(lang.definitions_to_ignore[lang_dst])
+    if lang_src == lang_dst:
+        ignored_terms.update(lang.variant_templates[lang_dst])
+    return ignored_terms
+
+
 def find_definitions(
     word: str,
     parsed_sections: Sections,
@@ -119,11 +126,13 @@ def find_section_definitions(
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
+    ignored_terms = get_ignored_terms(lang_src, lang_dst)
+
     if lists := section.get_lists(pattern=lang.section_patterns[lang_dst]):
         for a_list in lists:
             for idx, code in enumerate(a_list.items):
                 # Ignore some patterns
-                if any(ignore_me in code.lower() for ignore_me in lang.definitions_to_ignore[lang_dst]):
+                if any(ignore_me in code.lower() for ignore_me in ignored_terms):
                     continue
 
                 # Transform and clean the Wikicode
@@ -201,9 +210,10 @@ def find_etymology(
             definitions: list[Definitions] = []
             tables = parsed_section.tables
             tableindex = 0
+            ignored_terms = get_ignored_terms(lang_src, lang_dst)
             for section in parsed_section.get_lists():
                 for idx, section_item in enumerate(section.items):
-                    if any(ignore_me in section_item.lower() for ignore_me in lang.definitions_to_ignore[lang_dst]):
+                    if any(ignore_me in section_item.lower() for ignore_me in ignored_terms):
                         continue
                     if section_item == ' {| class="wikitable"':
                         phrase = utils.table2html(word, lang_dst, tables[tableindex])

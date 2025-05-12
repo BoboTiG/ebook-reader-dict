@@ -76,10 +76,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>plural of</i> <b>human</b>",
-                "<i>inflection of:</i> <b>human</b> (“s-verb-form”)",
-            ],
+            [],
             ["human"],
         ),
         (
@@ -116,7 +113,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("memoized", [], [], [], ["<i>inflection of:</i> <b>memoize</b> (“ed-form”)"], ["memoize"]),
+        ("memoized", [], [], [], [], ["memoize"]),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
