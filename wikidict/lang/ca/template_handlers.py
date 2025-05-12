@@ -422,7 +422,11 @@ def render_forma_conj(
         except IndexError:
             break
 
-    return f"{italic(f'{capitalize(" ".join(inflections))} de')} {strong(parts[1])}"
+    res = " ".join(inflections)
+    if parts[0] == "ca":
+        res = capitalize(res)
+
+    return f"{italic(f'{res} de')} {strong(parts[1])}"
 
 
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
