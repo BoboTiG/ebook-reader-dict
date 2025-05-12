@@ -403,24 +403,16 @@ def render_forma_conj(
     }
 
     inflections = []
-    i = 2
-    infl = parts[i] if len(parts) >= i else "forma declinada"
+    infl = parts[2] if len(parts) > 2 else "forma declinada"
 
-    while True:
+    for infl in parts[2:]:
         inflections.append(inflection_tags.get(infl, infl))
         try:
             person = int(infl)
         except ValueError:
             pass
         else:
-            if person < 7:
-                inflections.append(f"({persona_prons[person - 1]})")
-
-        i += 1
-        try:
-            infl = parts[i]
-        except IndexError:
-            break
+            inflections.append(f"({persona_prons[person - 1]})")
 
     res = " ".join(inflections)
     if parts[0] == "ca":
