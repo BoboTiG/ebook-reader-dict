@@ -441,11 +441,6 @@ templates_multi = {
     "WSP": "italic(parts[1]) if len(parts) > 1 else ''",
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
-    #
-    # Variants
-    #
-    # {{flexion|foo}}
-    "flexion": "parts[-1]",
 }
 templates_multi["n°"] = templates_multi["numéro"]
 templates_multi["nº"] = templates_multi["numéro"]
@@ -914,14 +909,6 @@ def last_template_handler(
 
     if context := lookup_italic(tpl, locale, empty_default=True):
         return term(context)
-
-    #
-    # Variants
-    #
-
-    if tpl.startswith((f"{locale}-verbe-flexion", f"{locale}-accord", f"{locale}-rég")):
-        # We do not want to keep those templates as they is a table
-        return ""
 
     return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
 

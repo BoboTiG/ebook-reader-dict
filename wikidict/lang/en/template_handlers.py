@@ -1541,39 +1541,6 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
-def render_plural_of(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_plural_of("plural of", ["en", "woman"], defaultdict(str))
-    '<i>plural of</i> <b>woman</b>'
-    >>> render_plural_of("plural of", [], defaultdict(str, {"1": "en", "2": "woman"}))
-    '<i>plural of</i> <b>woman</b>'
-    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR", "ts": "TS"}))
-    '<i>plural of</i> <b>Madame</b> (<i>TR</i> /<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
-    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "tr": "TR"}))
-    '<i>plural of</i> <b>Madame</b> (<i>TR</i>, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
-    >>> render_plural_of("plural of", ["en", "Madame"], defaultdict(str, {"t": "title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals", "ts": "TS"}))
-    '<i>plural of</i> <b>Madame</b> (/<i>TS</i>/, “title equivalent to Mrs. or Ms., used for French-speaking women and (by custom) certain other individuals”)'
-    """
-    text = f"{italic('plural of')} {strong(data['2'] or parts[1])}"
-
-    more: list[str] = []
-    more_a: list[str] = []
-    if tr := data["tr"]:
-        more_a.append(f"{italic(tr)}")
-    if ts := data["ts"]:
-        more_a.append(f"/{italic(ts)}/")
-    if more_a:
-        more.append(" ".join(more_a))
-
-    if t := data["t"]:
-        more.append(f"“{t}”")
-
-    if more:
-        text += f" ({', '.join(more)})"
-
-    return text
-
-
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
@@ -1899,7 +1866,6 @@ template_mapping = {
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
-    # "plural of": render_plural_of,
     "post": render_dating,
     "p.": render_dating,
     "pre": render_morphology,

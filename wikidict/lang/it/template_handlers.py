@@ -17,7 +17,6 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 
 template_mapping = {
-    # "flexion": lambda *_, **__: "",
     #
     # Variants
     #

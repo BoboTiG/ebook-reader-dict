@@ -123,7 +123,6 @@ forma_de = (
 )
 
 template_mapping = {
-    # **{fd: render_forma_de for fd in forma_de},
     #
     # Variants
     #

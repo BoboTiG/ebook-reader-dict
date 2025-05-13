@@ -64,42 +64,6 @@ def render_elpropra(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return phrase
 
 
-def render_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    Souce: https://eo.wiktionary.org/w/index.php?title=Modulo:meoformo&oldid=1027456
-    Date : 2021-12-19 22:43
-
-    >>> render_form("form-eo", [], defaultdict(str), word="ekamus")
-    'ekami'
-    >>> render_form("form-eo", [], defaultdict(str), word="hispanan")
-    'hispana'
-    >>> render_form("form-eo", [], defaultdict(str), word="surdaj")
-    'surda'
-    >>> render_form("form-eo", [], defaultdict(str), word="inexistant")
-    'inexistant'
-    """
-    return next(
-        (
-            f"{word.removesuffix(suffix)}{last_char}"
-            for suffix, last_char in [
-                ("on", "o"),
-                ("oj", "o"),
-                ("ojn", "o"),
-                ("an", "a"),
-                ("aj", "a"),
-                ("ajn", "a"),
-                ("as", "i"),
-                ("is", "i"),
-                ("os", "i"),
-                ("us", "i"),
-                ("u", "i"),
-            ]
-            if word.endswith(suffix)
-        ),
-        word,
-    )
-
-
 def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_g("g", ["nm"], defaultdict(str))
@@ -270,7 +234,6 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 template_mapping = {
     "deveno3": render_deveno3,
     "elpropra": render_elpropra,
-    # "form-eo": render_form,
     "g": render_g,
     "Hebr": render_hebr,
     "k": render_k,

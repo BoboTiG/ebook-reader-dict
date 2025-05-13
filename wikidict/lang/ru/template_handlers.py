@@ -247,18 +247,6 @@ def render_отчество(tpl: str, parts: list[str], data: defaultdict[str, s
     return f"{text} отчество от имени {parts[0]}"
 
 
-def render_прич(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_прич("прич.", ["синить", "прош"], defaultdict(str))
-    '<i>действ. прич. прош. вр.</i> от синить'
-    >>> render_прич("прич.", ["синить", "прош", "страд"], defaultdict(str))
-    '<i>страд. прич. прош. вр.</i> от синить'
-    """
-    text = f"{parts[2]}." if len(parts) > 2 else "действ."
-    text += " прич. прош. вр."
-    return f"{italic(text)} от {parts[0]}"
-
-
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -278,7 +266,6 @@ template_mapping = {
     "w": defaults.render_wikilink,
     "W": defaults.render_wikilink,
     "этимология": get_etymology,
-    # "прич.": render_прич,
     "значение": get_definition,
     "помета": render_помета,
     "кавычки": render_кавычки,
