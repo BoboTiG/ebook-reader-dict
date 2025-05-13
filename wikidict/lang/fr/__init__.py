@@ -947,25 +947,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{__variant__|pressant}}'
-    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "en")
-    "# ''Féminin singulier de l’[[adjectif]]'' [[pressant]].{{__variant__|pressant}}"
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
     '# {{__variant__|anisophylle}}'
-    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "en")
-    "# ''Pluriel de ''[[anisophylle]]''.''{{__variant__|anisophylle}}"
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
     '# {{__variant__|antiproton}}'
-    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "en")
-    "# ''Pluriel de'' [[antiproton#fr|antiproton]].{{__variant__|antiproton}}"
 
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
     '# {{__variant__|venir}}'
-    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "en")
-    "# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].{{__variant__|venir}}"
     >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
     '# {{__variant__|pouvoir}}'
-    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "en")
-    "# ''Participe passé masculin singulier du verbe'' [[pouvoir]].{{__variant__|pouvoir}}"
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
     """
@@ -988,7 +978,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {__variant__|pouvoir}}`
     code = re.sub(
         r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
-        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
+        r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
@@ -1006,7 +996,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
     code = re.sub(
         rf"^#\s*('+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
-        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
+        r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
@@ -1014,7 +1004,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {__variant__|venir}}`
     code = re.sub(
         r"^#\s*('+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
-        r"# {{__variant__|\2}}" if locale == "fr" else r"# \1{{__variant__|\2}}",
+        r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )

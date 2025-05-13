@@ -348,8 +348,6 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("# plurale di [[-ectomia]]", "it")
     '# {{flexion|-ectomia}}'
-    >>> adjust_wikicode("# plurale di [[-ectomia]]", "fr")
-    '# plurale di [[-ectomia]]{{flexion|-ectomia}}'
 
     >>> adjust_wikicode("#participio presente di [[amare]]", "it")
     '# {{flexion|amare}}'
@@ -390,7 +388,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
     code = re.sub(
         r"^#\s*(.+(?:femminile|singolare|plurale).+\[\[([^\]]+)\]\])",
-        r"# {{flexion|\2}}" if locale == "it" else r"#\1{{flexion|\2}}",
+        r"# {{flexion|\2}}",
         code,
         flags=re.MULTILINE,
     )
@@ -399,7 +397,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# participio passato di [[amare]] → `{{flexion|amare}}`
     code = re.sub(
         r"^#\s*(participio (?:passato|presente) di \[\[([^\]]+)\]\])",
-        r"# {{flexion|\2}}" if locale == "it" else r"# \1{{flexion|\2}}",
+        r"# {{flexion|\2}}",
         code,
         flags=re.MULTILINE,
     )

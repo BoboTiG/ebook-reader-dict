@@ -60,8 +60,7 @@ log = logging.getLogger(__name__)
 
 def get_ignored_terms(lang_src: str, lang_dst: str) -> set[str]:
     ignored_terms = set(lang.definitions_to_ignore[lang_dst])
-    if lang_src == lang_dst:
-        ignored_terms.update(lang.variant_templates[lang_dst])
+    ignored_terms.update(lang.variant_templates[lang_dst])
     return ignored_terms
 
 
