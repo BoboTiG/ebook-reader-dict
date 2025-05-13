@@ -393,6 +393,20 @@ def render_ρημ_τύπος(tpl: str, parts: list[str], data: defaultdict[str, 
     return f"{italic(text)} {strong(parts[3 if len(parts) > 3 else 1])}"
 
 
+def render_επώνυμο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_επώνυμο("επώνυμο", [], defaultdict(str))
+    '<i>επώνυμο</i>'
+    >>> render_επώνυμο("επώνυμο", ["el"], defaultdict(str))
+    '<i>επώνυμο</i>'
+    >>> render_επώνυμο("επώνυμο", ["el", "α"], defaultdict(str))
+    '<i>ανδρικό επώνυμο</i>'
+    """
+    text = {"α": "ανδρικό "}[parts[1]] if len(parts) > 1 else ""
+    text += "επώνυμο"
+    return italic(text)
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -446,6 +460,7 @@ template_mapping = {
     "πλ": render_πλ,
     "ρημ τύπος": render_ρημ_τύπος,
     "ρημ_τύπος": render_ρημ_τύπος,
+    "επώνυμο": render_επώνυμο,
     #
     # Variants
     #
