@@ -308,10 +308,11 @@ def find_all_sections(
         return title.replace(" ", "").lower().strip() if title else ""
 
     # Get interesting top sections
+    head_sections = tuple(hs.replace(" ", "") for hs in lang.head_sections[lang_dst])
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(section.title).startswith(lang.head_sections[lang_dst])
+        if section_title(section.title).startswith(head_sections)
     ]
 
     # Get _all_ sections without any filtering
