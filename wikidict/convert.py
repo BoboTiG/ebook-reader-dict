@@ -9,6 +9,7 @@ import hashlib
 import json
 import logging
 import multiprocessing
+import os
 import shutil
 from collections import defaultdict
 from datetime import date, timedelta
@@ -439,9 +440,18 @@ class ConverterFromDictFile(DictFileFormat):
 
     def _convert(self) -> None:
         """Convert the DictFile to the target format."""
+        # We do not want to use temporary SQLite databases. Without them:
+        #   - that's faster;
+        #   - it prevents concurrent access issues from secondary formatters;
+        #   - and it reduces I/O on the machine.
+        os.environ["NO_SQLITE"] = "1"
+
         Glossary.init()
         glos = Glossary()
-        glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
+        glos.config = {
+            "auto_sqlite": False,
+            "cleanup": False,  # Prevent deleting temporary image files (~/.cache/pyglossary/DICT/FILE.gif)
+        }
 
         if isinstance(self, StarDictFormat):
             # We do not want to compress the `.syn` file as it does not work everywhere, see issue #2407)
@@ -461,7 +471,6 @@ class ConverterFromDictFile(DictFileFormat):
                 inputFilename=str(self.dictionary_file(self.dictfile_format_cls.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
-                sqlite=True,
             )
         )
 
