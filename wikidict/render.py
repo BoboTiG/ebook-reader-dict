@@ -363,6 +363,18 @@ def add_potential_variant(
     >>> add_potential_variant("19es", "{{fr-rég|diz.nœ.vjɛm|s=19{{e}}|p=19{{e|es}}}}", "fr", variants_lst)
     >>> variants_lst
     ['19e']
+
+    Ensure false positives are taken into account:
+    >>> variants_lst = []
+    >>> add_potential_variant("401(k)s", "{{fr-rég|401(k)s}}", "fr", variants_lst)
+    >>> variants_lst
+    ['401(k)']
+
+    Ensure wrongly parsed variants are not taken into account:
+    >>> variants_lst = []
+    >>> add_potential_variant("Ires", "{{fr-accord-mixte|ms=Ier{{!}}I{{er}}}}", "fr", variants_lst)
+    >>> variants_lst
+    []
     """
     if (variant := utils.process_templates(word, tpl, locale, variant_only=True)) and (
         variant_cleaned := repl("", variant)
@@ -376,6 +388,7 @@ def add_potential_variant(
             and all(char not in word for char in "()")
         ):
             log.warning(f"Potential variant issue: {variant=} → {variant_cleaned=} for {word=}")
+            return
         variants.append(variant_cleaned)
 
 
