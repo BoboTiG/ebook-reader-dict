@@ -174,7 +174,7 @@ def test_simple() -> None:
             "dict-data.dict.dz",
             "dict-data.idx",
             "dict-data.ifo",
-            "dict-data.syn.dz",
+            "dict-data.syn",
             "res/db28a816.gif",
         ]
         assert sorted(fh.namelist()) == expected

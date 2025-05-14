@@ -443,6 +443,10 @@ class ConverterFromDictFile(DictFileFormat):
         glos = Glossary()
         glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
 
+        if isinstance(self, StarDictFormat):
+            # We do not want to compress the `.syn` file as it does not work everywhere, see issue #2407)
+            glos.plugins["Stardict"].writerClass.dictzipSynFile = False
+
         glos.setInfo("description", self.description)
         glos.setInfo("title", self.title)
         glos.setInfo("website", self.website)
