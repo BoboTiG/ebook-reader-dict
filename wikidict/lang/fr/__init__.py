@@ -933,6 +933,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("=== {{s|caractère}} ===\\n{{hangeul unicode}}", "fr")
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
 
+    >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
+    '# {{__variant__|{{lien|terne|fr}}}}'
+
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{__variant__|pressant}}'
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
@@ -940,9 +943,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
     '# {{__variant__|antiproton}}'
 
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir#fr|venir]].", "fr")
+    '# {{__variant__|venir}}'
     >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
     '# {{__variant__|venir}}'
     >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
+    '# {{__variant__|pouvoir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir#fr|pouvoir]].", "fr")
     '# {{__variant__|pouvoir}}'
     >>> adjust_wikicode("# ''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].", "fr")
     '# {{__variant__|manger}}'
@@ -965,9 +972,17 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Variants
     #
 
+    # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {__variant__|{{lien|terne|fr}}}}`
+    code = re.sub(
+        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*(\{\{[^}]+}}).*)",
+        r"# {{__variant__|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {__variant__|pouvoir}}`
     code = re.sub(
-        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
         r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -994,7 +1009,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {__variant__|venir}}`
     # `''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].` → `# {__variant__|manger}}`
     code = re.sub(
-        r"^#\s*('+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"^#\s*('+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
         r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
