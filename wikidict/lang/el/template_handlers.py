@@ -439,6 +439,8 @@ template_mapping = {
     "__variant__ρημ_τύπος": render_variant,
     "__variant__θηλ του": render_variant,
     "__variant__θηλ_του": render_variant,
+    "__variant__θηλυκό του": render_variant,
+    "__variant__θηλυκό_του": render_variant,
     "__variant__θηλ του-πτώσειςΟΑΚεν": render_variant,
     "__variant__θηλ_του-πτώσειςΟΑΚεν": render_variant,
     "__variant__θηλ του-πτώσηΓπλ": render_variant,
