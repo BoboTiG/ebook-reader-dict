@@ -495,6 +495,9 @@ def last_template_handler(
         '<i>μεγεθυντικό του</i> <b>φωνή</b>'
         >>> last_template_handler(["μεγεθ", "τύπος=φωνή"], "el")
         '<i>μεγεθυντικό του</i> <b>φωνή</b>'
+
+        >>> last_template_handler(["αιτ του", "abako", "eo"], "el")
+        '<i>αιτιατική</i> του <b>abako</b>'
     """
     from ...user_functions import concat, extract_keywords_from, italic, strong, term
     from .. import defaults
@@ -600,6 +603,13 @@ def last_template_handler(
         if not data["0"]:
             text += ":"
         return text
+
+    if text := {
+        "αιτ του": "αιτιατική",
+        "αιτ_του": "αιτιατική",
+        "αιτιατική του": "αιτιατική",
+    }.get(tpl, ""):
+        return f"{italic(text)} του {strong(parts[0])}"
 
     if text := {
         "αρχ": "αρχαία ελληνική",
