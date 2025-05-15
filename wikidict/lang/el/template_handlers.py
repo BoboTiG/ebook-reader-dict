@@ -378,21 +378,6 @@ def render_πλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return f"{italic('πληθυντικός αριθμός του')} {strong(parts[0])}"
 
 
-def render_ρημ_τύπος(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_ρημ_τύπος("ρημ τύπος", ["α' ενικό υποτακτικής παρακειμένου", "στραβώνω"], defaultdict(str))
-    "<i>α' ενικό υποτακτικής παρακειμένου του ρήματος</i> <b>στραβώνω</b>"
-    >>> render_ρημ_τύπος("ρημ τύπος", ["μπλαμπλα", "τιμάω", "el"], defaultdict(str))
-    '<i>μπλαμπλα του ρήματος</i> <b>τιμάω</b>'
-    >>> render_ρημ_τύπος("ρημ τύπος", ["μπλαμπλα", "τιμάω", "grc", "τιμάω / τιμῶ"], defaultdict(str))
-    '<i>μπλαμπλα του ρήματος</i> <b>τιμάω / τιμῶ</b>'
-    >>> render_ρημ_τύπος("ρημ τύπος", ["α' ενικό πρόσωπο αορίστου", "αγαπώ", "", "αγαπάω"], defaultdict(str))
-    "<i>α' ενικό πρόσωπο αορίστου του ρήματος</i> <b>αγαπάω</b>"
-    """
-    text = f"{parts[0]} του ρήματος"
-    return f"{italic(text)} {strong(parts[3 if len(parts) > 3 else 1])}"
-
-
 def render_επώνυμο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_επώνυμο("επώνυμο", [], defaultdict(str))
@@ -458,8 +443,6 @@ template_mapping = {
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
     "πλ": render_πλ,
-    "ρημ τύπος": render_ρημ_τύπος,
-    "ρημ_τύπος": render_ρημ_τύπος,
     "επώνυμο": render_επώνυμο,
     #
     # Variants
