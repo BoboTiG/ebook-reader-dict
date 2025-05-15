@@ -1579,7 +1579,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     'dire'
 
     """
-    if tpl.endswith("flexion"):
+    if tpl.endswith(("flexion", "lien")):
         return data["1"] or (parts[0] if parts else "")
 
     if tpl.endswith("-ail"):
@@ -1857,6 +1857,7 @@ template_mapping = {
     "__variant__fr-rég-x": render_variant,
     "__variant__fr-verbe-flexion": render_variant,
     "__variant__flexion": render_variant,
+    "__variant__lien": render_variant,
 }
 
 
