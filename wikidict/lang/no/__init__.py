@@ -246,11 +246,12 @@ def last_template_handler(
 
     tpl, *parts = template
 
+    tpl_variant = f"__variant__{tpl}"
     if variant_only:
-        tpl = f"__variant__{tpl}"
-        template = tuple([tpl, *parts])
-    elif locale == "no" and lookup_template(f"__variant__{tpl}"):
-        # We are fetching the output of a variant template for the original lang, we do not want to keep it
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
         return ""
 
     if lookup_template(template[0]):
