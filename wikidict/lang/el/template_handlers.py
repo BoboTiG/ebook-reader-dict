@@ -436,6 +436,7 @@ template_mapping = {
     "μτφδ": render_etym,
     "μεγ": render_μεγ,
     "υπο": render_υπο,
+    "ετυμ-υποκ": render_υπο,
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
     "ουσεπ θ": render_ουσεπ,
