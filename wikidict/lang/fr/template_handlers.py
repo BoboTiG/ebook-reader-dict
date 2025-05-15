@@ -1482,7 +1482,7 @@ def render_unite(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
 
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_variant("__variant__", ["foo"], defaultdict(str))
+    >>> render_variant("flexion", ["foo"], defaultdict(str))
     'foo'
 
     >>> render_variant("fr-accord-ain", ["a.me.ʁi.k"], defaultdict(str), word="américain")
@@ -1579,10 +1579,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     'dire'
 
     """
-    if tpl == "__variant__":
-        return parts[0]
-
-    if "-verbe-flexion" in tpl:
+    if tpl.endswith("flexion"):
         return data["1"] or (parts[0] if parts else "")
 
     if tpl.endswith("-ail"):
@@ -1826,7 +1823,6 @@ template_mapping = {
     #
     # Variants
     #
-    "__variant__": render_variant,
     "__variant__fr-accord-ain": render_variant,
     "__variant__fr-accord-al": render_variant,
     "__variant__fr-accord-an": render_variant,
@@ -1860,6 +1856,7 @@ template_mapping = {
     "__variant__fr-rég-al": render_variant,
     "__variant__fr-rég-x": render_variant,
     "__variant__fr-verbe-flexion": render_variant,
+    "__variant__flexion": render_variant,
 }
 
 
