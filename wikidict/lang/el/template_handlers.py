@@ -444,6 +444,7 @@ template_mapping = {
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
     "πλ": render_πλ,
+    "πληθυντικός του": render_πλ,
     "επώνυμο": render_επώνυμο,
     #
     # Variants
