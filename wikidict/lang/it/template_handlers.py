@@ -5,7 +5,7 @@ from ...user_functions import extract_keywords_from
 
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_variant("__variant__", ["foo"], defaultdict(str))
+    >>> render_variant("flexion", ["foo"], defaultdict(str))
     'foo'
 
     >>> render_variant("tabs", ["muratore", "muratori", "muratrice", "muratore"], defaultdict(str, {"f2": "muratora", "fp2": "muratrici"}))
