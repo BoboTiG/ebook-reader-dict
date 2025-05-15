@@ -294,10 +294,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     'Del prefijo <i>des-</i>, <i>garra</i> y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["confijo", "en", "furia", "ecer"], defaultdict(str, {"tr2":"ira, cólera"}))
     'Del prefijo <i>en-</i>, <i>furia</i> (<i>ira, cólera</i>) y el sufijo <i>-ecer</i>'
-    >>> render_etimologia("etimología", ["epónimo"], defaultdict(str))
-    'Epónimo'
     >>> render_etimologia("etimología", ["epónimo", "de Adelita, protagonista de un corrido mexicano"], defaultdict(str))
-    'Epónimo de Adelita, protagonista de un corrido mexicano'
+    'Epónimo: de Adelita, protagonista de un corrido mexicano'
     >>> render_etimologia("etimología", ["femenino", "topógrafo"], defaultdict(str))
     'De <i>topógrafo</i> y el sufijo flexivo <i>-a</i> para el femenino'
     >>> render_etimologia("etimología", ["femenino", "Jesús", "a"], defaultdict(str))
@@ -367,7 +365,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
     'Incierta'
     >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
-    'Epónimo de la ciudad alemana de Berlín'
+    'Epónimo: de la ciudad alemana de Berlín'
     >>> render_etimologia("etimología", ["endo", "chocoano"], defaultdict(str))
     'De <i>chocoano</i>'
     >>> render_etimologia("etimología", ["dimi", "cata"], defaultdict(str))
@@ -464,7 +462,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     elif cat == "endo":
         phrase = f"De {italic(parts[0])}"
     elif cat in {"epónimo", "EPON"}:
-        phrase = "Epónimo"
+        phrase = "Epónimo:"
         if parts:
             phrase += f" {parts[-1]}"
     elif cat in ("incierta", "incierto", "INC"):
