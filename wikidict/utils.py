@@ -550,6 +550,11 @@ def process_templates(
         >>> process_templates("tasse", "<i>س tas'</i>", "fr")
         "س tas'"
 
+        >>> process_templates("foo", "{{flexion|{{lien|terne|fr}}}}", "fr", variant_only=True)
+        'terne'
+        >>> process_templates("foo", "{{flexion|terne}}", "fr", variant_only=True)
+        'terne'
+
     """
 
     sub = re.sub
@@ -565,24 +570,34 @@ def process_templates(
     # {{foo|{{bar|lang|{{baz|args}}}}|123}}
 
     # Handle all templates
-    while "there are templates":
-        templates = set(re.findall(r"({{[^{}]*}})", text))
-        if not templates:
-            break
+    templates = re.findall(r"({{[^{}]*}})", text)
+    last_template_idx = text.count("{{")
+    current_template_idx = 0
+
+    while templates:
         for tpl in templates:
             if tpl in SPECIAL_TEMPLATES:
                 text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
-            # Transform the template
-            text = text.replace(
-                tpl,
-                transform(
-                    word,
-                    tpl[2:-2],
-                    locale,
-                    all_templates=all_templates,
-                    variant_only=variant_only,
-                ),
-            )
+            else:
+                # Transform the template
+                text = text.replace(
+                    tpl,
+                    transform(
+                        word,
+                        tpl[2:-2],
+                        locale,
+                        all_templates=all_templates,
+                        # `variant_only` is True only when:
+                        #   1. It is predefined;
+                        #   2. And it is the last template in nested templates.
+                        # Ex: [FR] `{{flexion|{{lien|foo}}}}` where:
+                        #   - `lien` should be handled normaly;
+                        #   - while `flexion` should be handled as variant-specific.
+                        variant_only=variant_only and current_template_idx == last_template_idx - 1,
+                    ),
+                )
+        current_template_idx += len(templates)
+        templates = re.findall(r"({{[^{}]*}})", text)
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
