@@ -392,6 +392,10 @@ def last_template_handler(
         'ἡδύς'
         >>> last_template_handler(["λ"], "el", word="Ινδία")
         'Ινδία'
+        >>> last_template_handler(["λ", "", "grc"], "el", word="Ινδία")
+        'Ινδία'
+        >>> last_template_handler(["λ", "", "", "κάτι"], "el", word="Ινδία")
+        'κάτι'
         >>> last_template_handler(["l", "Иваново", "ru", "lang=4", "tnl=Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας"], "el")
         '<i>ρωσική</i> Иваново (Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας)'
         >>> last_template_handler(["l", "acur", "tr=", "lang=4"], "el")
@@ -525,7 +529,17 @@ def last_template_handler(
         text = ""
         if data["lang"]:
             text += f"{text_language(parts[1]) if len(parts) > 1 else italic('νέα ελληνική')} "
-        text += parts[0] if parts else word
+
+        empty_parts = len([p for p in parts if not p])
+        if empty_parts == 1:
+            text += word
+        elif empty_parts == 2:
+            text += parts[2]
+        elif parts:
+            text += parts[0]
+        else:
+            text += word
+
         if tnl := data["tnl"]:
             text += f" ({tnl})"
         return text
