@@ -474,6 +474,7 @@ template_mapping = {
     "__variant__πτώσηΑεν": render_variant,
     "__variant__πτώσηΚεν": render_variant,
     "__variant__κλ": render_variant,
+    "__variant__πληθυντικός του": render_variant,
     "__variant__infl": render_variant,
 }
 
