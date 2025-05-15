@@ -944,6 +944,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{__variant__|venir}}'
     >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
     '# {{__variant__|pouvoir}}'
+    >>> adjust_wikicode("# ''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].", "fr")
+    '# {{__variant__|manger}}'
     >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
     "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
     """
@@ -990,8 +992,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     )
 
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {__variant__|venir}}`
+    # `''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].` → `# {__variant__|manger}}`
     code = re.sub(
-        r"^#\s*('+(?:(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
+        r"^#\s*('+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]]+)]].*)",
         r"# {{__variant__|\2}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
