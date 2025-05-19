@@ -159,6 +159,7 @@ template_mapping = {
     # Variants
     #
     "__variant__bøyingsform": render_variant,
+    "__variant__bøyningsform": render_variant,
     "__variant__no-adj-bøyningsform": render_variant,
     "__variant__no-sub-bøyningsform": render_variant,
     "__variant__no-verb-bøyningsform": render_variant,

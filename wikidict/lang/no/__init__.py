@@ -45,6 +45,7 @@ sections = (
 variant_titles = tuple(section for section in sections if section not in etyl_section)
 variant_templates = (
     "{{bøyingsform",
+    "{{bøyningsform",
     "{{no-adj-bøyningsform",
     "{{no-sub-bøyningsform",
     "{{no-verbform av",
@@ -95,8 +96,6 @@ templates_italic = {
 templates_multi = {
     # {{alternativ skrivemåte|be}}
     "alternativ skrivemåte": "f\"{italic('alternativ skrivemåte av')} {strong(parts[-1])}\"",
-    # {{bøyningsform|no|sub|korp}}
-    "bøyningsform": "f\"{italic('bøyningsform av')} {strong(parts[-1])}\"",
     # {{feilstaving av|førstvoterende|språk=no}}
     "feilstaving av": 'f"Feilstaving av {parts[1]}."',
     # {{l|lt|duktė}}

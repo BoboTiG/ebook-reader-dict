@@ -266,10 +266,6 @@ def test_parse_word(
     [
         ("{{alternativ skrivemåte|be}}", "<i>alternativ skrivemåte av</i> <b>be</b>"),
         (
-            "{{bøyningsform|no|sub|korp}}",
-            "<i>bøyningsform av</i> <b>korp</b>",
-        ),
-        (
             "{{feilstaving av|førstvoterende|språk=no}}",
             "Feilstaving av førstvoterende.",
         ),
