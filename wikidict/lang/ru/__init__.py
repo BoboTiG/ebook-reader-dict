@@ -65,6 +65,8 @@ templates_multi = {
     "марр": 'f"‘{parts[1]}’"',
     # {{этим-2|{{lang|en|AI|ИИ}}|{{lang|en|artificial intelligence|искусственный интеллект}}|[[тренер]]|{{lang|en|trainer|тренер}}}}
     "этим-2": "f\"{parts[1]} + {parts[3] if len(parts) > 3 else ''}\"",
+    # {{дееприч.|сфотать}}
+    "дееприч.": 'f"<i>дееприч.</i> от {parts[1]}"',
 }
 
 # Templates that will be completed/replaced using custom text.
