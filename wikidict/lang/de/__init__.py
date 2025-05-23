@@ -234,12 +234,14 @@ def find_pronunciations(code: str, locale: str) -> list[str]:
     """
     >>> find_pronunciations("", "de")
     []
+    >>> find_pronunciations(":{{IPA}} {{Lautschrift||spr=de}}", "de")
+    []
     >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}", "de")
     ['[ˈʁɪndɐˌsteːk]']
     >>> find_pronunciations(":{{IPA}} {{Lautschrift|ˈʁɪndɐˌsteːk}}, {{Lautschrift|ˈʁɪndɐˌʃteːk}}, {{Lautschrift|ˈʁɪndɐˌsteɪ̯k}}", "de")
     ['[ˈʁɪndɐˌsteːk]', '[ˈʁɪndɐˌʃteːk]', '[ˈʁɪndɐˌsteɪ̯k]']
     """
-    pattern = re.compile(r"{Lautschrift\|([^}]+)}")
+    pattern = re.compile(r"{Lautschrift\|([^=}]+)}")
     return [f"[{p}]" for p in unique(pattern.findall(code))]
 
 
