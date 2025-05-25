@@ -54,6 +54,9 @@ templates_multi = {
     '"': 'f"„{parts[1]}“"',
     # {{===|Атлант}}
     "===": 'f"то же, что {parts[1]}"',
+    # {{aslinks|время, времечко; временами, временно (во избежание); время от времени|,;|1}}
+    # {{aslinks|выезжать#I}}
+    "aslinks": "parts[1].split('#', 1)[0]",
     # {{wikiref|совершенный вид}}
     "wikiref": "parts[-1]",
     # {{кс|Унбегаун, с. 44}}
@@ -66,7 +69,7 @@ templates_multi = {
     # {{этим-2|{{lang|en|AI|ИИ}}|{{lang|en|artificial intelligence|искусственный интеллект}}|[[тренер]]|{{lang|en|trainer|тренер}}}}
     "этим-2": "f\"{parts[1]} + {parts[3] if len(parts) > 3 else ''}\"",
     # {{дееприч.|сфотать}}
-    "дееприч.": 'f"<i>дееприч.</i> от {parts[1]}"',
+    "дееприч.": "f\"<i>дееприч.</i> от {parts[1] if len(parts) > 1 else ''}\"",
 }
 
 # Templates that will be completed/replaced using custom text.

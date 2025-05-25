@@ -247,6 +247,27 @@ def render_отчество(tpl: str, parts: list[str], data: defaultdict[str, s
     return f"{text} отчество от имени {parts[0]}"
 
 
+def render_через(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_через("через", ["гл", "выезжать"], defaultdict(str))
+    'от глагола <i>выезжать</i>'
+    """
+    text = {
+        "гл": "глагола",
+        "сущ": "существительное",
+        "прил": "прилагательное",
+        "нар": "наречие",
+        "числ": "числительное",
+        "мест": "местоимение",
+        "прич": "причастие",
+        "топоним": "топоним",
+        "межд": "междометие",
+        "звукоподражание": "звукоподражание",
+        "имя": "имя",
+    }[parts[0]]
+    return f"от {text} {italic(parts[1])}"
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -276,6 +297,7 @@ template_mapping = {
     "действие": render_действие,
     "морфема": render_морфема,
     "отчество": render_отчество,
+    "через": render_через,
     #
     # Variants
     #
