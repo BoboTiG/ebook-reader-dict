@@ -366,37 +366,6 @@ def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str,
     return text if data["0"] or data["nostyle"] else f"({italic(text)})"
 
 
-def render_επώνυμο(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_επώνυμο("επώνυμο", [], defaultdict(str))
-    'επώνυμο (<i>ανδρικό ή γυναικείο</i>)'
-    >>> render_επώνυμο("επώνυμο", ["el"], defaultdict(str))
-    'επώνυμο (<i>ανδρικό ή γυναικείο</i>)'
-    >>> render_επώνυμο("επώνυμο", ["el", "α"], defaultdict(str))
-    'ανδρικό επώνυμο'
-    >>> render_επώνυμο("επώνυμο", ["", "α", "όπουλος"], defaultdict(str, {"πρ": "Δημο"}))
-    'ανδρικό επώνυμο'
-    >>> render_επώνυμο("επώνυμο", ["el", "α"], defaultdict(str, {"t": "something"}))
-    'ανδρικό επώνυμο, something'
-    >>> render_επώνυμο("επώνυμο", ["el", "θ"], defaultdict(str))
-    'γυναικείο επώνυμο'
-    >>> render_επώνυμο("επώνυμο", ["el", "αθ"], defaultdict(str))
-    'επώνυμο (<i>ανδρικό ή γυναικείο</i>)'
-    """
-    match data["2"] or data["φύλο"] or data["sex"] or parts[1] if len(parts) > 1 else "":
-        case "α" | "Α" | "m" | "masc":
-            text = "ανδρικό επώνυμο"
-        case "γ" | "θ" | "Γ" | "Θ" | "f" | "fem":
-            text = "γυναικείο επώνυμο"
-        case _:
-            text = f"επώνυμο ({italic('ανδρικό ή γυναικείο')})"
-
-    if t := data["t"] or data["μτφ"]:
-        text += f", {t}"
-
-    return text
-
-
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -448,7 +417,6 @@ template_mapping = {
     "ουσεπ α": render_ουσεπ,
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
-    "επώνυμο": render_επώνυμο,
     #
     # Variants
     #
