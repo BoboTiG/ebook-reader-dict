@@ -92,6 +92,7 @@ templates_ignored = (
     "sin referencias",
     "t",
     "tabla-cardinal",
+    "tabla-ordinal",
     "uso",
 )
 
