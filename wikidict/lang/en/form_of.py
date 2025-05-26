@@ -170,11 +170,11 @@ form_of_templates = {
         "dot": False,
     },
     "augmentative of": {
-        "text": "Augmentative of",
+        "text": "augmentative of",
         "dot": False,
     },
     "aug of": {
-        "text": "Augmentative of",
+        "text": "augmentative of",
         "dot": False,
     },
     "broad form of": {

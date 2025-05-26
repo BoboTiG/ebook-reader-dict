@@ -229,6 +229,7 @@ langs = {
     "cab": "Garifuna",
     "cac": "Chuj",
     "cad": "Caddo",
+    "cag": "Nivaclé",
     "cak": "Caqchiquel",
     "cal": "Caroliniano",
     "caq": "Car Nicobarês",
@@ -1494,5 +1495,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,489
+}  # 1,490
 # END

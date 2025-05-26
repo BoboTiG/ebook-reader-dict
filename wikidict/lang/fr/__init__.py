@@ -233,6 +233,7 @@ templates_italic = {
     "marque déposée": "Marque commerciale",
     "militant": "Vocabulaire militant",
     "métaphore": "Sens figuré",
+    "Morvan": "Morvan",
     "nom collectif": "Nom collectif",
     "noms de domaine": "Internet",
     "nom-déposé": "Marque commerciale",
@@ -249,6 +250,7 @@ templates_italic = {
     "réfléchi": "Réfléchi",
     "réflexif": "Réfléchi",
     "RSS-URSS": "Histoire, Communisme, URSS",
+    "Seine-Saint-Denis": "Seine-Saint-Denis",
     "sens propre": "Sens propre",
     "spécifiquement": "Spécifiquement",
     "transitif": "Transitif",
@@ -256,6 +258,7 @@ templates_italic = {
     "tradit": "orthographe traditionnelle",
     "très familier": "Très familier",
     "très très rare": "Très très rare",
+    "Val-de-Marne": "Val-de-Marne",
 }
 templates_italic["intrans"] = templates_italic["intransitif"]
 templates_italic["m-cour"] = templates_italic["moins courant"]
@@ -517,6 +520,7 @@ templates_other = {
     "pré": "<i>prétérit</i>",
     "prés": "<i>présent</i>",
     "prnl": "<i>pronominal</i>",
+    "que": "quechua",
     "s": "<i>singulier</i>",
     "sic": "<small>[sic]</small>",
     "singulare tantum": "<i>au singulier uniquement</i>",

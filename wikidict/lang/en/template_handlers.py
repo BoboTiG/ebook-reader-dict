@@ -1424,7 +1424,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str, {"a": "a"}))
     'a village in Fulton County, Illinois'
     >>> render_place("place", ["en", "city/county seat", "co/Lamar County", "s/Texas"], defaultdict(str))
-    'A city, a county seat of Lamar County, Texas'
+    'A city, the county seat of Lamar County, Texas'
     >>> render_place("place", ["en", "small town/and/unincorporated community"], defaultdict(str))
     'A small town and unincorporated community'
     >>> render_place("place", ["en", "town", "s/New York", ";", "named after Paris"], defaultdict(str))

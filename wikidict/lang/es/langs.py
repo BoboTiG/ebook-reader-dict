@@ -6830,7 +6830,7 @@ langs = {
     "tlm": "tolomako",
     "tln": "talondo'",
     "tlo": "talodi",
-    "tlp": "totonaco de Filomena Mata",
+    "tlp": "totonaco de Filomeno Mata",
     "tlq": "tai loi",
     "tlr": "talise",
     "tls": "tambotalo",
@@ -6904,7 +6904,8 @@ langs = {
     "top": "totonaco de Papantla",
     "toq": "toposa",
     "tor": "banda togbo-vara",
-    "tos": "totonaco tepehua alto",
+    "tos": "totonaco de la sierra",
+    "tot": "totonaco (macrolengua)",
     "tou": "tho",
     "tov": "alto taromi",
     "tow": "jemez",
@@ -6940,7 +6941,7 @@ langs = {
     "tqp": "tomoip",
     "tqq": "tunni",
     "tqr": "torona",
-    "tqt": "totonaco tepehua occidental",
+    "tqt": "totonaco de Ozumatlán",
     "tqu": "tetepare",
     "tqw": "tónkawa",
     "tr": "turco",
@@ -8277,5 +8278,5 @@ langs = {
     "zxx": "---n/a---",
     "zyp": "chin zyphe",
     "zza": "zazaki",
-}  # 8,272
+}  # 8,273
 # END

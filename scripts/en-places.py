@@ -22,7 +22,10 @@ for tr in trs:
         placetypes[placetype] = tds
         print(f'    "{placetype}": {{')
         for key in tds:
-            print(f'        "{key}": "{tds[key]}",')
+            value = tds[key]
+            if key == "article" and value.startswith("["):
+                value = ""
+            print(f'        "{key}": "{value}",')
         print("    },")
         for alias in sorted(aliases):
             if alias := alias.strip():

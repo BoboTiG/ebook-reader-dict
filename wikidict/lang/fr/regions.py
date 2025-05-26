@@ -24,7 +24,9 @@ regions = {
     "Adinkerke": "Adinkerke",
     "Afghanistan": "Afghanistan",
     "Afrique": "Afrique",
+    "Afrique de l’Est": "Afrique de l’Est",
     "Afrique de l’Ouest": "Afrique de l’Ouest",
+    "Afrique du Nord": "Afrique du Nord",
     "Afrique du Sud": "Afrique du Sud",
     "Aidone": "Aidone",
     "Ain": "Ain",
@@ -597,6 +599,7 @@ regions = {
     "Picardie": "Picardie",
     "Picerno": "Picerno",
     "Pignola": "Pignola",
+    "Pilat": "Pilat",
     "Pinu": "Pinu",
     "Piémont": "Piémont",
     "Poggiardo": "Poggiardo",
@@ -771,6 +774,7 @@ regions = {
     "Ukraine": "Ukraine",
     "Ulster": "Ulster",
     "Uruguay": "Uruguay",
+    "Ururi": "Ururi",
     "VE": "Venezuela",
     "Val de Saône": "Val de Saône",
     "Val d’Aoste": "Val d’Aoste",
@@ -816,6 +820,7 @@ regions = {
     "Zaria": "Zaria",
     "Zimbabwe": "Zimbabwe",
     "badiais": "Badiais",
+    "ex-RDA": "ex-RDA",
     "jersiais": "Jersiais",
     "leccese-multi": "4 communes ou plus",
     "lyonnais": "Lyonnais",
@@ -848,5 +853,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 843
+}  # 848
 # END

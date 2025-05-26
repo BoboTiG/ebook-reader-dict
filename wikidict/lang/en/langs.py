@@ -6656,6 +6656,7 @@ langs = {
     "poz-bnn": "North Bornean",
     "poz-bre": "East Barito",
     "poz-brw": "West Barito",
+    "poz-bss": "Bali-Sasak-Sumbawa",
     "poz-btk": "Bungku-Tolaki",
     "poz-btk-pro": "Proto-Bungku-Tolaki",
     "poz-cet": "Central-Eastern Malayo-Polynesian",
@@ -7590,6 +7591,7 @@ langs = {
     "sit-kir": "Kiranti",
     "sit-kiw": "Western Kiranti",
     "sit-kon": "Konyak",
+    "sit-kon-pro": "Proto-Northern Naga",
     "sit-kyk": "Kyirong-Kagate",
     "sit-lab": "Ladakhi-Balti",
     "sit-las": "Lahuli-Spiti",
@@ -8038,6 +8040,7 @@ langs = {
     "tbq-bkj": "Sal",
     "tbq-blg": "Bailang",
     "tbq-brm": "Burmish",
+    "tbq-brm-pro": "Proto-Burmish",
     "tbq-buq": "Burmo-Qiangic",
     "tbq-drp": "Downriver Phula",
     "tbq-gkh": "Gokhy",
@@ -8180,6 +8183,9 @@ langs = {
     "tgx": "Tagish",
     "tgy": "Togoyo",
     "th": "Thai",
+    "th-ayu": "Ayutthaya Old Thai",
+    "th-old": "Old Thai",
+    "th-suk": "Sukhothai Old Thai",
     "thc": "Tai Hang Tong",
     "thd": "Kuuk Thaayorre",
     "the": "Chitwania Tharu",
@@ -9768,12 +9774,12 @@ langs = {
     "zkv": "Krevinian",
     "zkz": "Khazar",
     "zle": "East Slavic",
+    "zle-mbe": "Middle Belarusian",
     "zle-mru": "Middle Russian",
-    "zle-obe": "Old Belarusian",
+    "zle-muk": "Middle Ukrainian",
     "zle-ono": "Old Novgorodian",
     "zle-ops": "Old Pskovian",
     "zle-ort": "Old Ruthenian",
-    "zle-ouk": "Old Ukrainian",
     "zls": "South Slavic",
     "zls-chs": "Church Slavonic",
     "zlw": "West Slavic",
@@ -9882,7 +9888,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,877
+}  # 9,883
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
