@@ -679,6 +679,21 @@ def render_etym_chinoise(tpl: str, parts: list[str], data: defaultdict[str, str]
     return data["sens"] or data["composition"] or data["explication"]
 
 
+def render_hypercorrection(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_hypercorrection("hypercorrection", ["fr"], defaultdict(str))
+    'hypercorrection'
+    >>> render_hypercorrection("hypercorrection", ["en", "la"], defaultdict(str, {"de": "stilus"}))
+    'hypercorrection de <i>stilus</i>'
+    >>> render_hypercorrection("hypercorrection", ["en", "la"], defaultdict(str, {"de": "stilus", "m": "1"}))
+    'Hypercorrection de <i>stilus</i>'
+    """
+    texte = f"{'H' if data['m'] == '1' else 'h'}ypercorrection"
+    if de := (data["texte"] or data["de"]):
+        texte += f" de {italic(de)}"
+    return texte
+
+
 def render_ko_pron(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ko_pron("ko-pron", ["서울"], defaultdict(str))
@@ -1756,6 +1771,7 @@ template_mapping = {
     "Etymologie graphique chinoise": render_etym_chinoise,
     "forme reconstruite": render_recons,
     "hangeul unicode": render_ko_translit,
+    "hypercorrection": render_hypercorrection,
     "ko-pron": render_ko_pron,
     "ko-translit": render_ko_translit,
     "la-verb": render_la_verb,
