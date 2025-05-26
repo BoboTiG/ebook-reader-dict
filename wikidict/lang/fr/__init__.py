@@ -149,6 +149,7 @@ templates_ignored = (
     "casse",
     "casse/géorgien",
     "clé de tri",
+    "citation bloc",
     "composition",
     "couleurN",
     "créer-séparément",
