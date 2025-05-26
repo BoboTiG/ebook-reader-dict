@@ -136,6 +136,9 @@ templates_italic = {
     "α": "αρσενικό",
     "ο": "ουδέτερο",
     "λαϊκ": "λαϊκότροπο",
+    "προφορ": "προφορικό",
+    "ηχομ": "ηχομιμητική λέξη",
+    "κυπρ": "κυπριακά",
 }
 templates_italic["θρησκ"] = templates_italic["θρησκεία"]
 
@@ -145,6 +148,8 @@ templates_multi: dict[str, str] = {
     "IPAchar": "parts[1]",
     # {{IPAstyle|ˈɑɹ.kən.sɔ}}
     "IPAstyle": "parts[1]",
+    # {{nobr|[[-ηρός]], -ηρά, -ηρόν}}
+    "nobr": "parts[-1]",
     # {{resize|Βικιλεξικό|140}}
     "resize": "f'<span style=\"font-size:{parts[2]}%;\">{parts[1]}</span>'",
     # {{uni-script|ΛVΛV}}
@@ -194,6 +199,10 @@ templates_multi: dict[str, str] = {
     "πληθ του": "f\"{italic('πληθυντικός αριθμός του')} {strong(parts[1])}\"",
     # {{πτώσηΓεν|δρόμος}}
     "πτώσηΓεν": "f\"{italic('γενική ενικού')} του {strong(parts[1])}\"",
+    # {{πρώτη γραπτή εμφάνιση|1792}}
+    "πρώτη γραπτή εμφάνιση": "term(f'μαρτυρείται από το {parts[1]}')",
+    # {{υποκ|αβγό}
+    "υποκ": "f'<i>υποκοριστικό του</> {parts[1]}'",
 }
 # Alias
 templates_multi["Wspecies"] = templates_multi["wsp"]
