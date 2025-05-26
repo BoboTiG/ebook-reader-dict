@@ -11,8 +11,42 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 section_patterns = ("#", r"\*")
 section_sublevels = (3, 4)
-head_sections = ("{{da}}", "{{=da=}}", "{{-da-}}", "dansk", "{{mul}}", "{{=mul=}}", "{{-mul-}}")
+head_sections = ("{{da}}", "{{=da=}}", "{{-da-}}", "dansk", "interlingue", "{{mul}}", "{{=mul=}}", "{{-mul-}}")
 etyl_section = ("{{etym}}", "{{etym2}}", "etymologi", "etymologi 1", "etymologi 2", "etymologi 3", "etymologi 4")
+core_sections = (
+    "{{abbr",
+    "{{abr",
+    "{{adj",
+    "{{adv",
+    "{{afl",
+    "{{art",
+    "{{car-num",
+    "{{conj",
+    "{{dem-pronom",
+    "{{end",
+    "{{expr",
+    "{{frase",
+    "{{interj",
+    "{{lyd",
+    "{{noun",
+    "{{num",
+    "{{part",
+    "{{pers-pronom",
+    "{{phr",
+    "{{pp",
+    "{{pref",
+    "{{prep",
+    "{{pron",
+    "{{prop",
+    "{{prov",
+    "{{seq-num",
+    "{{sætning",
+    "{{suf",
+    "{{symb",
+    "{{ubest-pronon",
+    "{{verb",
+)
+
 sections = (
     *etyl_section,
     "-adj-",
@@ -45,41 +79,10 @@ sections = (
     "ubestemt talord",
     "udtryk",
     "verbum",
-    "{{abbr}",
-    "{{abr}",
-    "{{abr|mul}",
-    "{{adj}",
-    "{{adv}",
-    "{{afl}",
-    "{{art}",
-    "{{car-num}",
-    "{{car-num|mul}",
-    "{{conj}",
-    "{{dem-pronom}",
-    "{{end}",
-    "{{expr}",
-    "{{frase}",
-    "{{interj}",
-    "{{lyd}",
-    "{{noun}",
-    "{{noun2}",
-    "{{num}",
-    "{{part}",
-    "{{pers-pronom}",
-    "{{phr}",
-    "{{pp}",
-    "{{pref}",
-    "{{prep}",
-    "{{pron}",
-    "{{prop}",
-    "{{prov}",
-    "{{seq-num}",
-    "{{sætning}",
-    "{{suf}",
-    "{{symb}",
-    "{{symb|mul}",
-    "{{ubest-pronon}",
-    "{{verb}",
+    *[f"{section}}}" for section in core_sections],
+    *[f"{section}|da|" for section in core_sections],
+    *[f"{section}|da}}" for section in core_sections],
+    *[f"{section}|mul" for section in core_sections],
 )
 
 # Templates to ignore: the text will be deleted.
@@ -380,14 +383,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     # ===dansk=== → =={{da}}==
-    code = re.sub(rf"=+\s*{locale}\w+\s*=+", rf"=={{{{{locale}}}}}==", code, flags=re.IGNORECASE | re.MULTILINE)
+    code = re.sub(rf"==+\s*(\w+)\s*=+", r"=={{\1}}}==", code, flags=re.IGNORECASE | re.MULTILINE)
 
     # Transform sub-locales into their own section to prevent mixing stuff
     # {{-da-}} → =={{da}}==
     # {{-mul-}} → =={{mul}}==
-    # {{-no-}} → =={{no}}==
-    # {{-sv-}} → =={{sv}}==
-    code = re.sub(r"\{\{-((?:da|mul|no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+    code = re.sub(r"\{\{-([^-]+)-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     # {{-avv-|da}} → === {{avv}} ===
     code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
@@ -398,4 +399,5 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # {{-avv-}} → === {{avv}} ===
     code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
+    print(repr(code))
     return code
