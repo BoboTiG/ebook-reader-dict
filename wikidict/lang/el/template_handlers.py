@@ -402,9 +402,13 @@ def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     '(απόδοση) <i>γαλλική</i>'
     >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str))
     '(απόδοση) <i>γαλλική</i> Gargamel'
+    >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str))
+    '(οπτικό δάνειο) <i>γαλλική</i> Gargamel'
 
     >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
     'απόδοση για <i>τη γαλλική</i> Gargamel'
+    >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
+    'οπτικό δάνειο από <i>τη γαλλική</i> Gargamel'
 
     >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str, {"notext": "1"}))
     '<i>γαλλική</i>'
@@ -417,10 +421,10 @@ def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     text = ""
     lang_key = "frm"
     if data["notext"] != "1":
-        text = "απόδοση"
+        text = "απόδοση" if tpl == "απόδ" else "οπτικό δάνειο"
         if data["text"] == "1":
             lang_key = "apo"
-            text += " για "
+            text += " για " if tpl == "απόδ" else " από "
         else:
             text = f"({text}) "
     text += italic(str(lang[lang_key]))
@@ -484,6 +488,7 @@ template_mapping = {
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
     "απόδ": render_απόδ,
+    "οπτδ": render_απόδ,
     #
     # Variants
     #
