@@ -29,7 +29,7 @@ if TYPE_CHECKING:
 warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 
 # Remove all kind of spaces and some unicode characters
-_replace_noisy_chars = re.compile(r"[\s\u200b\u200e]").sub
+_replace_noisy_chars = re.compile(r"[\s\u200a\u200b\u200e]").sub
 no_spaces = partial(_replace_noisy_chars, "")
 
 # Retry mechanism
@@ -61,7 +61,7 @@ def check_mute(wiktionary_text: str, parsed_html: str, category: str) -> str:
 
 
 def check(wiktionary_text: str, parsed_html: str, category: str) -> int:
-    """Run checks and return the error count to increment."""
+    """Run checks and return the error count to increment. Used in tests only."""
     results = check_mute(wiktionary_text, parsed_html, category)
     log.error("Diff:\n%s", results)
     return bool(results)
