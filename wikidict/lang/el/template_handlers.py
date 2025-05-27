@@ -23,6 +23,36 @@ def render_bor(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     return text
 
 
+def render_ety(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ety("ety", ["ru", "el"], defaultdict(str))
+    '<i>ρωσική</i>'
+    >>> render_ety("ety", ["ru", "el", "Акопян"], defaultdict(str))
+    '<i>ρωσική</i> Акопян'
+    >>> render_ety("ety", ["ru", "el", "Акопян"], defaultdict(str, {"tr": "Akopján", "t": "Ακοπιάν", "τύπος": "επώνυμο"}))
+    '<i>ρωσική</i> Акопян (Akopján, Ακοπιάν)'
+    >>> render_ety("ety", ["ru", "el", "Акопян"], defaultdict(str, {"tnl": "Χακομπιάν, Ακοπιάν"}))
+    '<i>ρωσική</i> Акопян (Χακομπιάν, Ακοπιάν)'
+    """
+    text = italic(str(langs[parts.pop(0)]["frm"]))
+    parts.pop(0)  # Remove the other lang
+
+    if parts:
+        text += f" {parts[0]}"
+
+        more: list[str] = []
+        if tr := data["tr"]:
+            more.append(tr)
+        if t := data["t"]:
+            more.append(t)
+        if tnl := data["tnl"]:
+            more.append(tnl)
+        if more:
+            text += f" ({', '.join(more)})"
+
+    return text
+
+
 def render_inh(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_inh("inh", ["ang", "en"], defaultdict(str))
@@ -432,6 +462,8 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 template_mapping = {
     "bor": render_bor,
+    "ety": render_ety,
+    "ετυ": render_ety,
     "inh": render_inh,
     "π": render_π,
     "p": render_π,
