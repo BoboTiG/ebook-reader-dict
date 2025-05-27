@@ -458,6 +458,34 @@ def render_τ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: 
     return text
 
 
+def render_επιθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+
+    >>> render_επιθ("επιθ", [], defaultdict(str))
+    '(<i>επιθετικοποιημένο</i>)'
+    >>> render_επιθ("επιθ", [], defaultdict(str, {"μτχ": "1"}))
+    '(<i>επιθετικοποιημένη μετοχή</i>)'
+    >>> render_επιθ("επιθ", [], defaultdict(str, {"ως": "1"}))
+    '(<i>ως επίθετο</i>)'
+    >>> render_επιθ("επιθ", [], defaultdict(str, {"λειτ": "1"}))
+    '(<i>σε επιθετική λειτουργία</i>)'
+    >>> render_επιθ("επιθ", [], defaultdict(str, {"0": "-"}))
+    '<i>επιθετικοποιημένο</i>'
+    """
+    if data["μτχ"]:
+        text = "επιθετικοποιημένη μετοχή"
+    elif data["ως"]:
+        text = "ως επίθετο"
+    elif data["λειτ"]:
+        text = "σε επιθετική λειτουργία"
+    else:
+        text = "επιθετικοποιημένο"
+    text = italic(text)
+    if data["0"] != "-":
+        text = parenthesis(text)
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -515,6 +543,7 @@ template_mapping = {
     "οπτδ": render_απόδ,
     "φων": render_απόδ,
     "τ": render_τ,
+    "επιθ": render_επιθ,
     #
     # Variants
     #
