@@ -404,11 +404,15 @@ def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     '(απόδοση) <i>γαλλική</i> Gargamel'
     >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str))
     '(οπτικό δάνειο) <i>γαλλική</i> Gargamel'
+    >>> render_απόδ("φων", ["fr", "el", "Gargamel"], defaultdict(str))
+    '(φωνητική απόδοση) <i>γαλλική</i> Gargamel'
 
     >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
     'απόδοση για <i>τη γαλλική</i> Gargamel'
     >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
     'οπτικό δάνειο από <i>τη γαλλική</i> Gargamel'
+    >>> render_απόδ("φων", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
+    'φωνητική απόδοση για <i>τη γαλλική</i> Gargamel'
 
     >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str, {"notext": "1"}))
     '<i>γαλλική</i>'
@@ -421,10 +425,10 @@ def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     text = ""
     lang_key = "frm"
     if data["notext"] != "1":
-        text = "απόδοση" if tpl == "απόδ" else "οπτικό δάνειο"
+        text = "απόδοση" if tpl == "απόδ" else "οπτικό δάνειο" if tpl == "οπτδ" else "φωνητική απόδοση"
         if data["text"] == "1":
             lang_key = "apo"
-            text += " για " if tpl == "απόδ" else " από "
+            text += " για " if tpl in {"απόδ", "φων"} else " από "
         else:
             text = f"({text}) "
     text += italic(str(lang[lang_key]))
@@ -489,6 +493,7 @@ template_mapping = {
     "γραπτήεμφ": render_γραπτήεμφ,
     "απόδ": render_απόδ,
     "οπτδ": render_απόδ,
+    "φων": render_απόδ,
     #
     # Variants
     #
