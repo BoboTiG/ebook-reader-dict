@@ -460,7 +460,6 @@ def render_τ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: 
 
 def render_επιθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-
     >>> render_επιθ("επιθ", [], defaultdict(str))
     '(<i>επιθετικοποιημένο</i>)'
     >>> render_επιθ("επιθ", [], defaultdict(str, {"μτχ": "1"}))
@@ -484,6 +483,18 @@ def render_επιθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     if data["0"] != "-":
         text = parenthesis(text)
     return text
+
+
+def render_υποκ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_υποκ("υποκ", [], defaultdict(str))
+    '(<i>υποκοριστικό</i>)'
+    >>> render_υποκ("υποκ", ["αβγό"], defaultdict(str))
+    '<i>υποκοριστικό του</i> αβγό'
+    """
+    if parts:
+        return f"<i>υποκοριστικό του</i> {parts[0]}"
+    return "(<i>υποκοριστικό</i>)"
 
 
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -549,6 +560,7 @@ template_mapping = {
     "φων": render_απόδ,
     "τ": render_τ,
     "επιθ": render_επιθ,
+    "υποκ": render_υποκ,
     #
     # Variants
     #

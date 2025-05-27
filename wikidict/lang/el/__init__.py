@@ -203,8 +203,6 @@ templates_multi: dict[str, str] = {
     "πτώσηΓεν": "f\"{italic('γενική ενικού')} του {strong(parts[1])}\"",
     # {{πρώτη γραπτή εμφάνιση|1792}}
     "πρώτη γραπτή εμφάνιση": "term(f'μαρτυρείται από το {parts[1]}')",
-    # {{υποκ|αβγό}
-    "υποκ": "f'<i>υποκοριστικό του</> {parts[1]}'",
 }
 # Alias
 templates_multi["Wspecies"] = templates_multi["wsp"]
