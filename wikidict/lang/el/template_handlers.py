@@ -366,6 +366,40 @@ def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str,
     return text if data["0"] or data["nostyle"] else f"({italic(text)})"
 
 
+def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str))
+    '(απόδοση) <i>γαλλική</i>'
+    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str))
+    '(απόδοση) <i>γαλλική</i> Gargamel'
+
+    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
+    'απόδοση για <i>τη γαλλική</i> Gargamel'
+
+    >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str, {"notext": "1"}))
+    '<i>γαλλική</i>'
+    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"notext": "1"}))
+    '<i>γαλλική</i> Gargamel'
+    """
+    lang = langs[parts.pop(0)]
+    parts.pop(0)  # Remove the source lang
+
+    text = ""
+    lang_key = "frm"
+    if data["notext"] != "1":
+        text = "απόδοση"
+        if data["text"] == "1":
+            lang_key = "apo"
+            text += " για "
+        else:
+            text = f"({text}) "
+    text += italic(str(lang[lang_key]))
+
+    if parts:
+        text += f" {parts[0]}"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -417,6 +451,7 @@ template_mapping = {
     "ουσεπ α": render_ουσεπ,
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
+    "απόδ": render_απόδ,
     #
     # Variants
     #
