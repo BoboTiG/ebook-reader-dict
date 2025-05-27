@@ -438,6 +438,26 @@ def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return text
 
 
+def render_τ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_τ("τ", ["en"], defaultdict(str), word="FUBAR")
+    'FUBAR <small><sup>(en)</sup></small>'
+    >>> render_τ("τ", ["en", "FUBAR"], defaultdict(str))
+    'FUBAR <small><sup>(en)</sup></small>'
+    >>> render_τ("τ", ["en", "FUBAR"], defaultdict(str, {"alt": "alt"}))
+    'alt <small><sup>(en)</sup></small>'
+    >>> render_τ("τ", ["en", "FUBAR"], defaultdict(str, {"show": "show"}))
+    'show <small><sup>(en)</sup></small>'
+    >>> render_τ("τ", ["en", "FUBAR"], defaultdict(str, {"tr": "tr"}))
+    'FUBAR <small><sup>(en)</sup></small> (tr)'
+    """
+    text = data["alt"] or data["show"] or (parts[1] if len(parts) > 1 else word)
+    text += f" <small><sup>({parts[0]})</sup></small>"
+    if tr := data["tr"]:
+        text += f" ({tr})"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -494,6 +514,7 @@ template_mapping = {
     "απόδ": render_απόδ,
     "οπτδ": render_απόδ,
     "φων": render_απόδ,
+    "τ": render_τ,
     #
     # Variants
     #
