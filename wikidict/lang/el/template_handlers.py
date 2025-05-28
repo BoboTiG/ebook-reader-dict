@@ -512,6 +512,18 @@ def render_υποκ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return "(<i>υποκοριστικό</i>)"
 
 
+def render_επικ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_επικ("επικ", [], defaultdict(str))
+    '<i>επικός τύπος</i>'
+    >>> render_επικ("επικ", ["καταμύω"], defaultdict(str))
+    '<i>επικός τύπος του</i> καταμύω'
+    """
+    if parts:
+        return f"<i>επικός τύπος του</i> {parts[0]}"
+    return "<i>επικός τύπος</i>"
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -578,6 +590,7 @@ template_mapping = {
     "υποκ": render_υποκ,
     "άγν": render_άγν,
     "αγν": render_άγν,
+    "επικ": render_επικ,
     #
     # Variants
     #
