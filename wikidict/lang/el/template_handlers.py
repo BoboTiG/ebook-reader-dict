@@ -396,28 +396,12 @@ def render_γραπτήεμφ(tpl: str, parts: list[str], data: defaultdict[str,
     return text if data["0"] or data["nostyle"] else f"({italic(text)})"
 
 
-def render_απόδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+def render_οπτδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str))
-    '(απόδοση) <i>γαλλική</i>'
-    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str))
-    '(απόδοση) <i>γαλλική</i> Gargamel'
-    >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str))
-    '(οπτικό δάνειο) <i>γαλλική</i> Gargamel'
-    >>> render_απόδ("φων", ["fr", "el", "Gargamel"], defaultdict(str))
-    '(φωνητική απόδοση) <i>γαλλική</i> Gargamel'
-
-    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
-    'απόδοση για <i>τη γαλλική</i> Gargamel'
-    >>> render_απόδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
+    >>> render_οπτδ("οπτδ", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
     'οπτικό δάνειο από <i>τη γαλλική</i> Gargamel'
-    >>> render_απόδ("φων", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
+    >>> render_οπτδ("φων", ["fr", "el", "Gargamel"], defaultdict(str, {"text": "1"}))
     'φωνητική απόδοση για <i>τη γαλλική</i> Gargamel'
-
-    >>> render_απόδ("απόδ", ["fr", "el"], defaultdict(str, {"notext": "1"}))
-    '<i>γαλλική</i>'
-    >>> render_απόδ("απόδ", ["fr", "el", "Gargamel"], defaultdict(str, {"notext": "1"}))
-    '<i>γαλλική</i> Gargamel'
     """
     lang = langs[parts.pop(0)]
     parts.pop(0)  # Remove the source lang
@@ -524,6 +508,17 @@ def render_επικ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return "<i>επικός τύπος</i>"
 
 
+def render_αποδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_αποδ("αποδ", ["he", "el", "דניּאל"], defaultdict(str, {"tr": "daniyél", "τύπος": "όνομα"}))
+    '(απόδοση) <i>εβραϊκή</i> דניּאל (daniyél)'
+    """
+    text = f"(απόδοση) {italic(str(langs[parts[0]]['frm']))} {parts[2]}"
+    if tr := data["tr"]:
+        text += f" ({tr})"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -582,15 +577,16 @@ template_mapping = {
     "ουσεπ α": render_ουσεπ,
     "ουσεπ ο": render_ουσεπ,
     "γραπτήεμφ": render_γραπτήεμφ,
-    "απόδ": render_απόδ,
-    "οπτδ": render_απόδ,
-    "φων": render_απόδ,
+    "οπτδ": render_οπτδ,
+    "φων": render_οπτδ,
     "τ": render_τ,
     "επιθ": render_επιθ,
     "υποκ": render_υποκ,
     "άγν": render_άγν,
     "αγν": render_άγν,
     "επικ": render_επικ,
+    "αποδ": render_αποδ,
+    "απόδ": render_αποδ,
     #
     # Variants
     #
