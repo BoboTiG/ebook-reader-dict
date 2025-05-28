@@ -144,8 +144,10 @@ templates_italic = {
     "προφορ": "προφορικό",
     "ηχομ": "ηχομιμητική λέξη",
     "κυπρ": "κυπριακά",
+    "καθ": "καθαρεύουσα",
 }
 templates_italic["θρησκ"] = templates_italic["θρησκεία"]
+templates_italic["καθ αρχ"] = templates_italic["καθ"]
 
 # Templates more complex to manage.
 templates_multi: dict[str, str] = {
