@@ -553,6 +553,30 @@ def render_ελνστκ(tpl: str, parts: list[str], data: defaultdict[str, str],
     return text
 
 
+def render_προέλ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_προέλ("προέλ", ["fr"], defaultdict(str))
+    '<i>γαλλικής προέλευσης</i>'
+    >>> render_προέλ("προέλ", ["tr", "fr"], defaultdict(str))
+    '<i>τουρκικής προέλευσης γαλλικό</i>'
+    >>> render_προέλ("προέλ", ["", "fr"], defaultdict(str))
+    '<i>γαλλικό</i>'
+    """
+    text = ""
+    lang1 = parts.pop(0)
+    if parts:
+        lang2 = parts[0]
+        if lang1:
+            text = f"{langs[lang1]['from']} {langs[lang2]['name']}"
+        else:
+            text = str(langs[lang2]["name"])
+        # It seems the last letter of the lang name is always changed to "ό"
+        text = f"{text[:-1]}ό"
+    else:
+        text = str(langs[lang1]["from"])
+    return italic(text)
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -623,6 +647,7 @@ template_mapping = {
     "αποδ": render_αποδ,
     "απόδ": render_αποδ,
     "ελνστκ": render_ελνστκ,
+    "προέλ": render_προέλ,
     #
     # Variants
     #
