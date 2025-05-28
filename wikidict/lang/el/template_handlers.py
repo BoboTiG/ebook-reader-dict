@@ -255,7 +255,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         else "άμεσο δάνειο"
         if tpl == "δαν"
         else "λόγιο δάνειο"
-        if tpl == "λδαν"
+        if tpl in {"λδαν", "lbor"}
         else "κληρονομημένο"
         if tpl == "κλη"
         else "σημασιολογικό δάνειο"
@@ -601,6 +601,7 @@ template_mapping = {
     "κλη": render_etym,
     "δαν": render_etym,
     "λδαν": render_etym,
+    "lbor": render_etym,
     "μτφδ": render_etym,
     "μεγ": render_μεγ,
     "υπο": render_υπο,
