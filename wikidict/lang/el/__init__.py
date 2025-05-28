@@ -85,6 +85,7 @@ variant_templates = (
     "{{πτώσηΚεν",
     "{{πληθ_του",
     "{{απαρ",
+    "{{πλ|",
 )
 
 # Some definitions are not good to keep (plural, gender, ... )
