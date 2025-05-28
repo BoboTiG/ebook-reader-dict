@@ -69,7 +69,11 @@ def render_π(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: 
     'επ'
     >>> render_π("π", ["-ism", "en", "imsss"], defaultdict(str))
     'imsss'
+    >>> render_π("π", ["-ism", "en", "imsss"], defaultdict(str, {"000": "-"}))
+    ''
     """
+    if data["000"] == "-":
+        return ""
     return data[".1"] or parts[2 if len(parts) == 3 else 0]
 
 
