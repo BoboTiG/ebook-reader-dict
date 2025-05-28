@@ -458,6 +458,21 @@ def render_τ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: 
     return text
 
 
+def render_άγν(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_άγν("άγν", [], defaultdict(str))
+    '<i>άγνωστης ετυμολογίας</i>'
+    >>> render_άγν("άγν", ["en", "αβεβ"], defaultdict(str))
+    '<i>αβέβαιης ετυμολογίας</i>'
+    >>> render_άγν("άγν", ["en", "αβεβ"], defaultdict(str, {"0": "-"}))
+    'αβέβαιης ετυμολογίας'
+    """
+    text = "αβέβαιης ετυμολογίας" if parts else "άγνωστης ετυμολογίας"
+    if data["0"] != "-":
+        text = italic(text)
+    return text
+
+
 def render_επιθ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_επιθ("επιθ", [], defaultdict(str))
@@ -561,6 +576,7 @@ template_mapping = {
     "τ": render_τ,
     "επιθ": render_επιθ,
     "υποκ": render_υποκ,
+    "άγν": render_άγν,
     #
     # Variants
     #
