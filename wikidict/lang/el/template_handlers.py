@@ -218,9 +218,9 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     >>> render_etym("μτφδ", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
     '(μεταφραστικό δάνειο) <i>αγγλική</i> skyscraper'
     >>> render_etym("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"text": "1"}))
-    'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
+    'μεταφραστικό δάνειο από <i>τη γαλλική</i> -culture'
     >>> render_etym("μτφδ", ["fr", "el", "-culture"], defaultdict(str, {"κειμ": "1"}))
-    'μεταφραστικό δάνειο από <i>τη</i> <i>γαλλική</i> -culture'
+    'μεταφραστικό δάνειο από <i>τη γαλλική</i> -culture'
 
     >>> render_etym("δαν", ["en", "el", "skyscraper"], defaultdict(str, {"00": "-"}))
     '(άμεσο δάνειο) <i>αγγλική</i> skyscraper'
@@ -270,7 +270,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             phrase = f"({phrase})"
         else:
             phrase += " από"
-            if tpl == "σμσδ":
+            if tpl in {"σμσδ", "μτφδ"}:
                 key = "apo"
             else:
                 phrase += f" {italic('τη')}"
@@ -283,7 +283,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     if parts:
         phrase += f" {parts[-1]}"
 
-    if tnl := (data["tnl"] or data["tr"]):
+    if tnl := (data["tnl"] or data["tr"] or data["t"]):
         phrase += f" ({tnl})"
 
     return phrase.strip()
@@ -413,10 +413,10 @@ def render_οπτδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     text = ""
     lang_key = "frm"
     if data["notext"] != "1":
-        text = "απόδοση" if tpl == "απόδ" else "οπτικό δάνειο" if tpl == "οπτδ" else "φωνητική απόδοση"
+        text = "οπτικό δάνειο" if tpl == "οπτδ" else "φωνητική απόδοση"
         if data["text"] == "1":
             lang_key = "apo"
-            text += " για " if tpl in {"απόδ", "φων"} else " από "
+            text += " για " if tpl == "φων" else " από "
         else:
             text = f"({text}) "
     text += italic(str(lang[lang_key]))
@@ -516,8 +516,24 @@ def render_αποδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     """
     >>> render_αποδ("αποδ", ["he", "el", "דניּאל"], defaultdict(str, {"tr": "daniyél", "τύπος": "όνομα"}))
     '(απόδοση) <i>εβραϊκή</i> דניּאל (daniyél)'
+    >>> render_αποδ("αποδ", ["mul", "el"], defaultdict(str, {"text": "1"}))
+    'απόδοση για <i>διαγλωσσικούς όρους</i>'
+    >>> render_αποδ("αποδ", ["mul", "el"], defaultdict(str, {"notext": "1"}))
+    '<i>διαγλωσσική ορολογία</i>'
     """
-    text = f"(απόδοση) {italic(str(langs[parts[0]]['frm']))} {parts[2]}"
+    if data["notext"] == "1":
+        return italic(str(langs[parts[0]]["frm"]))
+
+    text = "απόδοση"
+    if data["text"] == "1":
+        text += " για"
+        lang_key = "apo"
+    else:
+        text = parenthesis(text)
+        lang_key = "frm"
+    text += f" {italic(str(langs[parts[0]][lang_key]))}"
+    if len(parts) > 2:
+        text += f" {parts[2]}"
     if tr := data["tr"]:
         text += f" ({tr})"
     return text
@@ -535,17 +551,19 @@ def render_ελνστκ(tpl: str, parts: list[str], data: defaultdict[str, str],
     >>> render_ελνστκ("ελνστκ", [], defaultdict(str, {"0": "-"}))
     '<i>ελληνιστική κοινή</i>'
     """
+    text = "ελληνιστική κοινή"
     if parts:
-        match parts[0]:
-            case "οψ" | "όψιμη":
+        match part := parts[0]:
+            case "οψ" | "όψ" | "όψιμη":
                 text = "όψιμη ελληνιστική κοινή"
             case "όψ σημ" | "οψ σημ":
                 text = "όψιμη ελληνιστική σημασία"
             case "σημ" | "σημασία":
                 text = "ελληνιστική σημασία"
-
-    else:
-        text = "ελληνιστική κοινή"
+            case "συνταγματικός":
+                pass
+            case _:
+                raise ValueError(f"Unhandled ελνστκ {part!r}")
 
     text = italic(text)
     if data["0"] != "-":

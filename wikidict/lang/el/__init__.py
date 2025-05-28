@@ -127,6 +127,7 @@ templates_ignored = (
     "χρειάζεται προσοχή",
     "χρειάζεται τεκμηρίωση",
     "λείπει η μετάφραση",
+    "χρειάζεται",
     "clear",
     "πολυτ γραφή",
     "ονομαΓ",
@@ -233,6 +234,7 @@ templates_other = {
     "απόγονοι2": "ΑΠΟΓΟΝΟΙ:",
     "τοπ": "<b><i>τοπική</i></b>",
     "πχ": "⮡",
+    "μορφολογικά": "Μορφολογικά αναλύεται σε",
 }
 templates_other["ονομαΑ"] = templates_other["παρωχ-ονομαΑ"]
 
@@ -350,31 +352,31 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
     mytext = ""
 
     label = args.get("label") or args.get("topic") or args.get("ετικέτα") or ""
-
-    alias = ""
-    if label in aliases:
-        alias = label
-        label = aliases[alias]
+    label = aliases.get(label, label)
 
     text = text_in or args["1"]
-    term = args["όρος"] or args["term"] or ""
-    show = args["εμφ"] or args["show"] or ""
-    noparenthesis = args["0"]
+    term = args["όρος"] or args["term"]
+    show = args["εμφ"] or args["show"]
+    noparenthesis = args["0"] == "-"
     if not label or label is None:
         return ""
     nodisplay = args["nodisplay"] or args["000"]
 
+    # Special cases (look for the "special" term in https://el.wiktionary.org/wiki/Module:labels/data)
+    special = {"αφετικός", "περικοπή", "συμφυρμός"}
+
     if not nodisplay:
-        if term != "":
+        if term:
             mytext = term
-        elif text != "":
+        elif text:
             mytext = text
-        elif all_labels := data.get(label):
+        else:
+            all_labels = data[label]
             if isinstance(all_labels, list):
                 all_labels = all_labels[0]
             if all_labels.get("link") not in {None, "πατρότητα"}:
-                mytext = show or f"{italic(all_labels['linkshow'])}"
-        mytext = mytext if noparenthesis else f"({mytext})"
+                mytext = show or f"{italic(all_labels['link' if label in special and noparenthesis else 'linkshow'])}"
+        mytext = mytext if noparenthesis or label in special else f"({mytext})"
     return mytext
 
 
@@ -420,15 +422,21 @@ def last_template_handler(
         '<i>ρωσική</i> Иваново (Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας)'
         >>> last_template_handler(["l", "acur", "tr=", "lang=4"], "el")
         '<i>νέα ελληνική</i> acur'
+        >>> last_template_handler(["l", "inspection", "fr", "d'inspection"], "el")
+        "d'inspection"
 
         >>> last_template_handler(["ετ"], "el")
         ''
+        >>> last_template_handler(["ετ", "περικοπή"], "el")
+        '<i>περικοπή του</i>'
+        >>> last_template_handler(["ετ", "περικοπή", "0=-"], "el")
+        '<i>περικοπή</i>'
         >>> last_template_handler(["ετ", "ιατρική"], "el")
         '(<i>ιατρική</i>)'
         >>> last_template_handler(["ετ", "ιατρική", "0=-"], "el")
         '<i>ιατρική</i>'
         >>> last_template_handler(["ετ", "ιατρική", "en"], "el")
-        '<i>ιατρική</i>'
+        '(<i>ιατρική</i>)'
         >>> last_template_handler(["ετ", "ιατρική", "", "ιατρικών όρων", "0=-"], "el")
         'ιατρικών όρων'
 
@@ -559,10 +567,10 @@ def last_template_handler(
         empty_parts = len([p for p in parts if not p])
         if empty_parts == 1:
             text += word
-        elif empty_parts == 2:
+        elif empty_parts >= 2:
             text += parts[2]
         elif parts:
-            text += parts[0]
+            text += parts[0] if parts[-1] in langs else parts[-1]
         else:
             text += word
 
@@ -585,11 +593,6 @@ def last_template_handler(
         else:
             data["label"] = parts[2]
             data["text"] = parts[2]
-
-        # No parenthesis when more than one part (non-Greek words)
-        if len(parts) > 1 and "0" not in data:
-            data["0"] = "-"
-
         return labels_output(data.get("text", ""), args=data)
 
     if tpl == "ετικ":
@@ -725,7 +728,6 @@ def last_template_handler(
         "προφορικό": "προφορικό",
         "μεταβατικό": "μεταβατικό",
         "μεταφορικά": "μεταφορικά",
-        "μορφολογικά": "μορφολογικά",
         "νεολογισμός": "νεολογισμός",
         "οικείο": "οικείο",
         "όνομα": "όνομα",
@@ -758,7 +760,6 @@ def last_template_handler(
         "υστερο la": "υστερολατινική",
         "δημ la": "δημώδης λατινική",
         "αντιδάνειο": "αντιδάνειο",
-        "χρειάζεται": "χρειάζεται",
         "συνων": "συνώνυμα",
         "συνών": "συνώνυμα",
         "ποιητ": "ποιητικός τύπος",
