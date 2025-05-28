@@ -577,6 +577,7 @@ template_mapping = {
     "επιθ": render_επιθ,
     "υποκ": render_υποκ,
     "άγν": render_άγν,
+    "αγν": render_άγν,
     #
     # Variants
     #
