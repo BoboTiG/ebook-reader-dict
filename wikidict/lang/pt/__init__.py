@@ -15,7 +15,7 @@ thousands_separator = " "
 section_patterns = ("#", r"\*", ":#")
 section_level = 1
 section_sublevels = (2,)
-head_sections = ("{{-pt-}}", "{{-mult-}}")
+head_sections = ("{{-pt-}}", "{{-mult-}}", "{{-ia-}}")
 etyl_section = ("{{etimologia|pt}}", "{{etimologia|mult}}", "etimologia")
 _sections = [
     "abreviação",
