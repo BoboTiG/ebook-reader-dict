@@ -169,6 +169,8 @@ templates_multi: dict[str, str] = {
     "λ2": "parts[-1]",
     # {{β|lang=fr|Motosacoche}}
     "β": "parts[-1]",
+    # {{β|Βίβλος Χρονική}}
+    "βθ": "parts[-1]",
     # {{θηλ ισσα|Αβαριτσιώτης|Αβαριτσιώτ(ης)}}
     "θηλ ισσα": 'f"{parts[-1]} + κατάληξη θηλυκού -ισσα"',
     # {{θηλ τρια|διευθυντής|διευθυντ(ής)}}
@@ -206,6 +208,7 @@ templates_multi: dict[str, str] = {
     "πρώτη γραπτή εμφάνιση": "term(f'μαρτυρείται από το {parts[1]}')",
 }
 # Alias
+templates_multi["s"] = templates_multi["βθ"]
 templates_multi["Wspecies"] = templates_multi["wsp"]
 templates_multi["Wikispecies"] = templates_multi["wsp"]
 
