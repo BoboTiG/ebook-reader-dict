@@ -190,6 +190,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             '<span style="text-align:left;"><span class="ext-phonos"><span><a><span></span><span></span><span></span></a></span><sup><a>ⓘ</a></sup></span></span>&nbsp;<span><sup></sup></span>',
             "",
         ],
+        # EL - documentation needed
+        [
+            "el",
+            '<sup about="#mwt5" typeof="mw:Transclusion" id="mwDg" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;χρειάζεται τεκμηρίωση&quot;,&quot;href&quot;:&quot;./Πρότυπο:χρειάζεται_τεκμηρίωση&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}">(<span style="color: red; --darkreader-inline-color: var(--darkreader-text-ff0000, #c54035);" data-darkreader-inline-color="">Χρειάζεται<span typeof="mw:Entity">&nbsp;</span>τεκμηρίωση…</span>)</sup><link rel="mw:PageProp/Category" href="./Κατηγορία:Σελίδες_για_τεκμηρίωση" about="#mwt5" id="mwDw"> ',
+            "",
+        ],
         # ES - 2 Historia. --> (Historia)
         [
             "es",

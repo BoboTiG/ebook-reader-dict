@@ -166,7 +166,7 @@ def filter_html(html: str, locale: str) -> str:
                 tag.parent.decompose()
 
         for tag in find_all("sup"):
-            if (id_ := str(tag.get("id", ""))) and id_.startswith("cite_"):
+            if (id_ := str(tag.get("id", ""))) and id_.startswith(("cite_", "mwDg")):
                 tag.decompose()
 
     elif locale == "en":
