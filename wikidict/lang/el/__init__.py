@@ -152,6 +152,7 @@ templates_italic["καθ αρχ"] = templates_italic["καθ"]
 
 # Templates more complex to manage.
 templates_multi: dict[str, str] = {
+    "enWIKT": "f'{parts[-1] if len(parts) > 1 else word} στο αγγλικό Βικιλεξικό'",
     # {{IPAchar|/ˈsɛləteɪp/}}
     "IPAchar": "parts[1]",
     # {{IPAstyle|ˈɑɹ.kən.sɔ}}
