@@ -452,6 +452,8 @@ def last_template_handler(
         ''
         >>> last_template_handler(["ετυμ", "ar", "el", "آجُرّ", "tr=ʾājurr"], "el")
         '<i>αραβική</i> آجُرّ (ʾājurr)'
+        >>> last_template_handler(["der", "sa", "el","बलि-द्वीप", "tr=bali-dvīpa", "tnl=νησιά προσφορών"], "el")
+        '<i>σανσκριτική</i> बलि-द्वीप (bali-dvīpa, νησιά προσφορών)'
 
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
@@ -593,12 +595,17 @@ def last_template_handler(
     if tpl == "ετικ":
         return f"({', '.join(italic(aliases.get(part, part)) for part in parts)})"
 
-    if tpl == "ετυμ":
+    if tpl in {"ετυμ", "der"}:
         text = text_language(parts[0])
         if len(parts) > 2:
             text += f" {parts[2]}"
+        more: list[str] = []
         if tr := data["tr"]:
-            text += f" ({tr})"
+            more.append(tr)
+        if tnl := data["tnl"]:
+            more.append(tnl)
+        if more:
+            text += f" ({', '.join(more)})"
         return text
 
     if tpl == "λόγιο":
