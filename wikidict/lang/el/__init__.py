@@ -593,7 +593,7 @@ def last_template_handler(
         else:
             data["label"] = parts[2]
             data["text"] = parts[2]
-        return labels_output(data.get("text", ""), args=data)
+        return labels_output(data["text"], args=data)
 
     if tpl == "ετικ":
         return f"({', '.join(italic(aliases.get(part, part)) for part in parts)})"
