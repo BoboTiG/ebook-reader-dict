@@ -523,6 +523,36 @@ def render_αποδ(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return text
 
 
+def render_ελνστκ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ελνστκ("ελνστκ", [], defaultdict(str))
+    '(<i>ελληνιστική κοινή</i>)'
+    >>> render_ελνστκ("ελνστκ", ["οψ"], defaultdict(str))
+    '(<i>όψιμη ελληνιστική κοινή</i>)'
+    >>> render_ελνστκ("ελνστκ", ["σημασία"], defaultdict(str))
+    '(<i>ελληνιστική σημασία</i>)'
+
+    >>> render_ελνστκ("ελνστκ", [], defaultdict(str, {"0": "-"}))
+    '<i>ελληνιστική κοινή</i>'
+    """
+    if parts:
+        match parts[0]:
+            case "οψ" | "όψιμη":
+                text = "όψιμη ελληνιστική κοινή"
+            case "όψ σημ" | "οψ σημ":
+                text = "όψιμη ελληνιστική σημασία"
+            case "σημ" | "σημασία":
+                text = "ελληνιστική σημασία"
+
+    else:
+        text = "ελληνιστική κοινή"
+
+    text = italic(text)
+    if data["0"] != "-":
+        text = parenthesis(text)
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -591,6 +621,7 @@ template_mapping = {
     "επικ": render_επικ,
     "αποδ": render_αποδ,
     "απόδ": render_αποδ,
+    "ελνστκ": render_ελνστκ,
     #
     # Variants
     #
