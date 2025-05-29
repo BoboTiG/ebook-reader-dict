@@ -262,6 +262,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         if tpl == "κλη"
         else "σημασιολογικό δάνειο"
         if tpl == "σμσδ"
+        else "ορθογραφικό δάνειο"
+        if tpl == "ορθδ"
         else ""
     )
     key = "frm"
@@ -272,7 +274,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             phrase = f"({phrase})"
         else:
             phrase += " από"
-            if tpl in {"σμσδ", "μτφδ"}:
+            if tpl in {"σμσδ", "μτφδ", "ορθδ"}:
                 key = "apo"
             else:
                 phrase += f" {italic('την' if tpl == 'κλη' else 'τη')}"
@@ -696,6 +698,7 @@ template_mapping = {
     "προέλ": render_προέλ,
     "ΔΦΑ": render_ΔΦΑ,
     "ταξ": render_ταξ,
+    "ορθδ": render_etym,
     #
     # Variants
     #
