@@ -88,7 +88,7 @@ variant_templates = (
     "{{πλ|",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore = (
     "{{μορφή ουσιαστικού",
     "{{μορφή ρήματος",

@@ -45,7 +45,7 @@ variant_titles: dict[str, tuple[str, ...]] = _populate("variant_titles")
 # Template names considered interesting to look variants into
 variant_templates: dict[str, tuple[str, ...]] = _populate("variant_templates")
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore: dict[str, tuple[str, ...]] = _populate("definitions_to_ignore")
 
 # Templates replacements: wikicode -> text conversion

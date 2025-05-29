@@ -51,7 +51,7 @@ variant_templates = (
     "{{forma-p|",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore = (
     "ex-cit",
     "ex-us",

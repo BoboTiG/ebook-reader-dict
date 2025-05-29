@@ -103,7 +103,7 @@ variant_templates = (
     "{{flexion",
 )
 
-# Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
+# Certaines définitions ne sont pas intéressantes à garder
 definitions_to_ignore = (
     "eo-excl-étyl",
     "Gallica",

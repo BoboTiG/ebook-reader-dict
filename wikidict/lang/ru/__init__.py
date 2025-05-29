@@ -30,7 +30,7 @@ sections = (
 variant_titles = ("значение",)
 variant_templates = ("{{прич.",)
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 templates_ignored = (
     "??",
     "gb",

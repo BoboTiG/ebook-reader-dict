@@ -48,7 +48,7 @@ variant_templates = (
     "{{plural of",
 )
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore = ("rfdef",)
 
 # Templates to ignore: the text will be deleted.

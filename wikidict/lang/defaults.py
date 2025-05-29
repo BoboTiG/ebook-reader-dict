@@ -23,7 +23,7 @@ etyl_section = ("",)
 variant_titles: tuple[str, ...] = ()
 variant_templates: tuple[str, ...] = ()
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore: tuple[str, ...] = ()
 
 # Templates to ignore: the text will be deleted.
