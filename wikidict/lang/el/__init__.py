@@ -5,6 +5,7 @@ from collections import defaultdict
 
 from ...user_functions import italic, unique
 from .aliases import aliases
+from .labels import labels
 from .langs import langs
 
 # Float number separator
@@ -97,11 +98,13 @@ definitions_to_ignore = (
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "!",
     "anchor",
     "ARchar",
     "audio",
     "cat",
     "cf",
+    "clear",
     "el-κλίσ",
     "el-κλίση-'ναός'",
     "el-κλίσ-'μανάβης'",
@@ -111,13 +114,15 @@ templates_ignored = (
     "el-κλίση-'όμορφος'",
     "el-κλίσ-'ναύτης'",
     "el-κλίσ-'ωραίος'",
-    "!",
+    "el-ρήμα",
+    "ety+",
     "R:TELETERM",
+    "wlogo",
+    "ΒΠ",
     "κλείδα-ελλ",
     "λείπει η ετυμολογία",
     "περίοδος",
     "από",
-    "ety+",
     "ετυ+",
     "λείπει ο ορισμός",
     "Βικιπαίδεια",
@@ -128,25 +133,24 @@ templates_ignored = (
     "χρειάζεται τεκμηρίωση",
     "λείπει η μετάφραση",
     "χρειάζεται",
-    "clear",
     "πολυτ γραφή",
     "ονομαΓ",
     "παρωχ-ονομαΓ",
     "επώνυμο",
-    "wlogo",
+    "ζητ",
 )
 
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     "θρησκεία": "θρησκεία",
     "κρητ": "κρητικά",
-    "α": "αρσενικό",
-    "ο": "ουδέτερο",
     "λαϊκ": "λαϊκότροπο",
     "προφορ": "προφορικό",
     "ηχομ": "ηχομιμητική λέξη",
     "κυπρ": "κυπριακά",
     "καθ": "καθαρεύουσα",
+    "ουσιαστικοπ": "ουσιαστικοποιημένο",
+    "ικαρ": "ικαριώτικα",
 }
 templates_italic["θρησκ"] = templates_italic["θρησκεία"]
 templates_italic["καθ αρχ"] = templates_italic["καθ"]
@@ -215,11 +219,17 @@ templates_multi: dict[str, str] = {
     "πρώτη γραπτή εμφάνιση": "term(f'μαρτυρείται από το {parts[1]}')",
     # {{συλλ|Σαβ|βα|το|κύ|ρια|κο}}
     "συλλ": "f'<i>τυπογραφικός συλλαβισμός:</i> {concat(parts[1:], '‐')}'",
+    # {{ύφος|λαϊκότροπος|λαϊκότροπο}}
+    "ύφος": "parenthesis(parts[1])",
+    # {{συντμ του|κατά την ταπεινή μου γνώμη}}
+    "συντμ του": "f'σύντμηση του {parts[1]}'",
 }
 # Alias
+templates_multi["l2"] = templates_multi["λ2"]
 templates_multi["s"] = templates_multi["βθ"]
 templates_multi["Wspecies"] = templates_multi["wsp"]
 templates_multi["Wikispecies"] = templates_multi["wsp"]
+templates_multi["συντμ_του"] = templates_multi["συντμ του"]
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
@@ -233,10 +243,15 @@ templates_other = {
     "παρωχ-ονομαΑ": "ανδρικό όνομα",
     "απόγονοι2": "ΑΠΟΓΟΝΟΙ:",
     "τοπ": "<b><i>τοπική</i></b>",
+    "θπλ": "<i>θηλυκό, μόνο στον πληθυντικό</i>",
+    "μορφ": "<i>άλλες μορφές:</i>",
     "πχ": "⮡",
     "μορφολογικά": "Μορφολογικά αναλύεται σε",
+    "πληθυντικός": "<b><i>πληθυντικός</i></b>",
+    "ποιητ": "ποιητικός τύπος",
 }
 templates_other["ονομαΑ"] = templates_other["παρωχ-ονομαΑ"]
+templates_other["πληθ"] = templates_other["πληθυντικός"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el
@@ -347,8 +362,6 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
     """
     from https://el.wiktionary.org/w/index.php?title=Module:labels&oldid=5634715
     """
-    from .labels import labels as data
-
     mytext = ""
 
     label = args.get("label") or args.get("topic") or args.get("ετικέτα") or ""
@@ -357,7 +370,7 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
     text = text_in or args["1"]
     term = args["όρος"] or args["term"]
     show = args["εμφ"] or args["show"]
-    noparenthesis = args["0"] == "-"
+    noparenthesis = args["0"]
     if not label or label is None:
         return ""
     nodisplay = args["nodisplay"] or args["000"]
@@ -371,11 +384,9 @@ def labels_output(text_in: str, *, args: dict[str, str] = defaultdict(str)) -> s
         elif text:
             mytext = text
         else:
-            all_labels = data[label]
-            if isinstance(all_labels, list):
-                all_labels = all_labels[0]
-            if all_labels.get("link") not in {None, "πατρότητα"}:
-                mytext = show or f"{italic(all_labels['link' if label in special and noparenthesis else 'linkshow'])}"
+            label_info = labels[label]
+            if label_info.get("link") not in {None, "πατρότητα"}:
+                mytext = show or f"{italic(label_info['link' if label in special and noparenthesis else 'linkshow'])}"
         mytext = mytext if noparenthesis or label in special else f"({mytext})"
     return mytext
 
@@ -418,6 +429,8 @@ def last_template_handler(
         'Ινδία'
         >>> last_template_handler(["λ", "", "", "κάτι"], "el", word="Ινδία")
         'κάτι'
+        >>> last_template_handler(["λ", "κοινωνών", "grc", "t=σύντροφος"], "el")
+        'κοινωνών (σύντροφος)'
         >>> last_template_handler(["l", "Иваново", "ru", "lang=4", "tnl=Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας"], "el")
         '<i>ρωσική</i> Иваново (Ιβάνοβο -του Ιβάν-, πόλη της Ρωσίας)'
         >>> last_template_handler(["l", "acur", "tr=", "lang=4"], "el")
@@ -502,7 +515,7 @@ def last_template_handler(
         '<i>άλλη μορφή του</i> <b>αγάρ</b>'
 
         >>> last_template_handler(["ετικ", "γαστρονομία", "τρόφιμα", "γλυκά"], "el")
-        '(<i>γαστρονομία</i>, <i>τρόφιμα</i>, <i>γλυκό</i>)'
+        '(<i>γαστρονομία</i>, <i>τρόφιμο</i>, <i>γλυκό</i>)'
         >>> last_template_handler(["ετικ", "βιολ", "ιατρ"], "el")
         '(<i>βιολογία</i>, <i>ιατρική</i>)'
 
@@ -522,8 +535,20 @@ def last_template_handler(
         '<i>(μεγεθυντικό)</i>'
         >>> last_template_handler(["μεγεθ", "φωνή"], "el")
         '<i>μεγεθυντικό του</i> <b>φωνή</b>'
-        >>> last_template_handler(["μεγεθ", "τύπος=φωνή"], "el")
-        '<i>μεγεθυντικό του</i> <b>φωνή</b>'
+
+        >>> last_template_handler(["βλ αρχαία κλίση"], "el")
+        '(<i>κλιτικοί τύποι από την αρχαία κλίση</i>)'
+        >>> last_template_handler(["βλ αρχαία κλίση", "ἄρχων"], "el")
+        '(<i>κλιτικοί τύποι από την αρχαία κλίση στο</i> ἄρχων)'
+        >>> last_template_handler(["βλ αρχαία κλίση", "ἄρχων", "0=-"], "el")
+        '<i>κλιτικοί τύποι από την αρχαία κλίση στο</i> ἄρχων'
+
+        >>> last_template_handler(["ιων"], "el")
+        '<i>ιωνικός τύπος</i>'
+        >>> last_template_handler(["ιων", "foo"], "el")
+        '<i>ιωνικός τύπος του</i> <b>foo</b>'
+        >>> last_template_handler(["ιων", "-"], "el")
+        '<i>ιωνικός</i>'
 
         >>> last_template_handler(["αιτ του", "abako", "eo"], "el")
         '<i>αιτιατική</i> του <b>abako</b>'
@@ -574,7 +599,7 @@ def last_template_handler(
         else:
             text += word
 
-        if tnl := data["tnl"]:
+        if tnl := data["tnl"] or data["t"]:
             text += f" ({tnl})"
         return text
 
@@ -596,7 +621,7 @@ def last_template_handler(
         return labels_output(data["text"], args=data)
 
     if tpl == "ετικ":
-        return f"({', '.join(italic(aliases.get(part, part)) for part in parts)})"
+        return f"({', '.join(italic(labels[aliases.get(part, part)]['linkshow']) for part in parts)})"
 
     if tpl in {"ετυμ", "der"}:
         text = text_language(parts[0])
@@ -621,9 +646,39 @@ def last_template_handler(
         return f"{italic('μονοτονική γραφή της λέξης')} {strong(parts[0])}"
 
     if tpl == "μεγεθ":
-        if not parts and not data["τύπος"]:
-            return f"{term('μεγεθυντικό')}"
-        return f"{italic('μεγεθυντικό του')} {strong(data['τύπος'] or parts[0])}"
+        if not parts:
+            return term("μεγεθυντικό")
+        return f"{italic('μεγεθυντικό του')} {strong(parts[0])}"
+
+    if text := {
+        "σνρ": "συνηρημένη μορφή",
+    }.get(tpl, ""):
+        if not parts:
+            return italic(text)
+        return f"{italic(f'{text} του')} {parts[0]}"
+
+    if tpl == "βλ αρχαία κλίση":
+        text = "κλιτικοί τύποι από την αρχαία κλίση"
+        if parts:
+            text = italic(f"{text} στο")
+            text += f" {parts[0]}"
+        else:
+            text = italic(text)
+        return text if data["0"] else f"({text})"
+
+    if text := {
+        "ιων": "ιωνικός τύπος",
+        "αιολ": "αιολικός τύπος",
+        "λοκ": "λοκρικός τύπος",
+        "αττ": "αττικός τύπος",
+        "δωρ": "δωρικός τύπος",
+        "κρητ αρχ": "κρητικός τύπος",
+    }.get(tpl, ""):
+        if not parts:
+            return italic(text)
+        if (part := parts[0]) == "-":
+            return italic(text.removesuffix(" τύπος"))
+        return f"{italic(f'{text} του')} {strong(part)}"
 
     if text := {
         "λενδ": "λόγιο ενδογενές δάνειο",
@@ -637,6 +692,7 @@ def last_template_handler(
         "αιτ του": "αιτιατική",
         "αιτ_του": "αιτιατική",
         "αιτιατική του": "αιτιατική",
+        "ουδέτερο του": "ουδέτερο",
     }.get(tpl, ""):
         return f"{italic(text)} του {strong(parts[0])}"
 
@@ -650,23 +706,12 @@ def last_template_handler(
         return phrase
 
     if text := {
-        "γραπτηεμφ": f"η λέξη μαρτυρείται από το {parts[0] if parts else ''}",
-        "μτφρ": "μεταφορικά",
-        "κτεπε": "κατʼ επέκταση",
-        "μτβ": "μεταβατικό",
-        "αμτβ": "αμετάβατο",
-        "ουσ": "ουσιαστικοποιημένο",
-        "νεολ": "νεολογισμός",
-        "μπφ": "μέση-παθητική φωνή του ρήματος",
-        "μτβ+αμτβ": "μεταβατικό και αμετάβατο",
-        "μτγν": "ελληνιστική",
-        "μτγρ": "μεταγραφή",
+        "μτχεε": "μετοχή ενεργητικού ενεστώτα",
         "μτχα": "μετοχή παθητικού αορίστου",
         "μτχπα": "μετοχή παθητικού αορίστου",
         "μτχε": "μετοχή παθητικού ενεστώτα",
         "μτχπε": "μετοχή παθητικού ενεστώτα",
         "μτχεα": "μετοχή ενεργητικού αορίστου",
-        "μτχεε": "μετοχή ενεργητικού ενεστώτα",
         "μτχεμ": "μετοχή ενεργητικού μέλλοντα",
         "μτχεπ": "μετοχή ενεργητικού παρακειμένου",
         "μτχμα": "μετοχή μέσου αορίστου",
@@ -676,6 +721,25 @@ def last_template_handler(
         "μτχππ": "μετοχή παθητικού παρακειμένου",
         "μτχππαναδ": "μετοχή παθητικού παρακειμένου",
         "μτχχρ": "μετοχή παθητικού παρακειμένου",
+        "γερουνδιακ": "γερουνδιακό",
+    }.get(tpl, ""):
+        phrase = italic(text)
+        if parts:
+            phrase += f" του ρήματος {strong(parts[0])}"
+        return phrase
+
+    if text := {
+        "γραπτηεμφ": f"η λέξη μαρτυρείται από το {parts[0] if parts else ''}",
+        "μτφρ": "μεταφορικά",
+        "κτεπε": "κατ’ επέκταση",
+        "μτβ": "μεταβατικό",
+        "αμτβ": "αμετάβατο",
+        "ουσ": "ουσιαστικοποιημένο",
+        "νεολ": "νεολογισμός",
+        "μπφ": "μέση-παθητική φωνή του ρήματος",
+        "μτβ+αμτβ": "μεταβατικό και αμετάβατο",
+        "μτγν": "ελληνιστική",
+        "μτγρ": "μεταγραφή",
         "μυθολ": "μυθολογία",
         "παρετυμολογία": "παρετυμολογία",
         "συνηθ": "πιο συνηθισμένο",
@@ -735,19 +799,17 @@ def last_template_handler(
         "παράθεμα": "παράθεμα",
         "παρωχημένο": "παρωχημένο",
         "αρχαιοπρ": "αρχαιοπρεπές",
-        "αττ": "αττικός τύπος",
         "συνεκδοχικά": "συνεκδοχικά",
         "ταυτόσημα": "ταυτόσημα",
         "δημοτ": "δημοτική",
-        "δωρ": "δωρικός τύπος",
         "χυδ": "χυδαίο",
         "US": "ΗΠΑ",
         "ΗΠΑ": "ΗΠΑ",
         "UK": "ΗΒ",
         "USA": "ΗΠΑ",
         "λογοτ": "λογοτεχνικό",
-        "λοκ": "λοκρικός τύπος",
         "ανθρωπολ": "ανθρωπολογία",
+        "αντιδάνειο": "αντιδάνειο",
     }.get(tpl, ""):
         return text if data["0"] else term(text)
 
@@ -755,14 +817,17 @@ def last_template_handler(
         "αθ": "αρσενικό ή θηλυκό",
         "ταυτ": "ταυτόσημα",
         "αναδρομικός": "αναδρομικός σχηματισμός",
-        "κρητ αρχ": "κρητικός τύπος",
         "λατ": "λατινικά",
         "υστερο la": "υστερολατινική",
         "δημ la": "δημώδης λατινική",
-        "αντιδάνειο": "αντιδάνειο",
         "συνων": "συνώνυμα",
         "συνών": "συνώνυμα",
-        "ποιητ": "ποιητικός τύπος",
+        "ακλ": "άκλιτο",
+        "ακρ": "ακρωνύμιο",
+        "α": "αρσενικό",
+        "ο": "ουδέτερο",
+        "αρκτ": "αρκτικόλεξο",
+        "συντ": "συντομογραφία",
     }.get(tpl, ""):
         return text if data["0"] else italic(text)
 

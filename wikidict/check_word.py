@@ -165,6 +165,11 @@ def filter_html(html: str, locale: str) -> str:
             if tag.parent:
                 tag.parent.decompose()
 
+        # Wikipedia link
+        for tag in find_all("span", {"id": "mwDQ"}):
+            if "ΒΠ" in str(tag.get("data-mw")):
+                tag.decompose()
+
         for tag in find_all("sup"):
             if (id_ := str(tag.get("id", ""))) and id_.startswith(("cite_", "mwDg")):
                 tag.decompose()

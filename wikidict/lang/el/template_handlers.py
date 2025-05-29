@@ -238,6 +238,8 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     '(κληρονομημένο) <i>αγγλική</i> skyscraper'
     >>> render_etym("κλη", ["", "σκαμνί"], defaultdict(str, {"π": "οακ", "α": "εν"}))
     '(κληρονομημένο)'
+    >>> render_etym("κλη", ["en", "el", "skyscraper"], defaultdict(str, {"text": "1"}))
+    'κληρονομημένο από <i>την</i> <i>αγγλική</i> skyscraper'
 
     >>> render_etym("σμσδ", ["fr", "el", "-gène"], defaultdict(str))
     '(σημασιολογικό δάνειο) <i>γαλλική</i> -gène'
@@ -273,7 +275,7 @@ def render_etym(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             if tpl in {"σμσδ", "μτφδ"}:
                 key = "apo"
             else:
-                phrase += f" {italic('τη')}"
+                phrase += f" {italic('την' if tpl == 'κλη' else 'τη')}"
 
     if parts:
         if ln := parts.pop(0):
@@ -595,6 +597,31 @@ def render_προέλ(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return italic(text)
 
 
+def render_ΔΦΑ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ΔΦΑ("ΔΦΑ", ["as.tʁa.kɑ̃"], defaultdict(str))
+    ''
+    >>> render_ΔΦΑ("ΔΦΑ", ["fr", "as.tʁa.kɑ̃"], defaultdict(str))
+    'ΔΦΑ : /as.tʁa.kɑ̃/'
+    """
+    if len(parts) < 2:
+        return ""
+    return f"ΔΦΑ : /{parts[1]}/"
+
+
+def render_ταξ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ταξ("ταξ", [""], defaultdict(str))
+    '<i>ταξινομικός όρος -</i>'
+    >>> render_ταξ("ταξ", ["", "ζ", "γένος"], defaultdict(str))
+    '<i>ταξινομικός όρος - γένος:</i>'
+    """
+    text = "ταξινομικός όρος -"
+    if len(parts) > 2:
+        text += f" {parts[2]}:"
+    return italic(text)
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -657,6 +684,7 @@ template_mapping = {
     "οπτδ": render_οπτδ,
     "φων": render_οπτδ,
     "τ": render_τ,
+    "t": render_τ,
     "επιθ": render_επιθ,
     "υποκ": render_υποκ,
     "άγν": render_άγν,
@@ -666,6 +694,8 @@ template_mapping = {
     "απόδ": render_αποδ,
     "ελνστκ": render_ελνστκ,
     "προέλ": render_προέλ,
+    "ΔΦΑ": render_ΔΦΑ,
+    "ταξ": render_ταξ,
     #
     # Variants
     #
