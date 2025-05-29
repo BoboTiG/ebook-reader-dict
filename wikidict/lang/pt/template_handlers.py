@@ -270,6 +270,14 @@ def render_trad(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("flexion", ["ensimesmar"], defaultdict(str))
+    'ensimesmar'
+    """
+    return parts[0]
+
+
 template_mapping = {
     "+info": render_plus_info,
     "escopo": render_escopo,
@@ -285,6 +293,10 @@ template_mapping = {
     "PBPE": render_pbpe_pepb,
     "PEPB": render_pbpe_pepb,
     "trad": render_trad,
+    #
+    # Variants
+    #
+    "__variant__flexion": render_variant,
 }
 
 

@@ -1,0 +1,42 @@
+={{-pt-}}=
+==Adjetivo==
+*{{f}} de [[objetivo]]
+===Variante ortográfica===
+* {{escopo2|Anterior ao AO 1990}}  [[objectiva]]
+===Tradução===
+{{tradini}}
+* {{trad|es|objetiva}}
+{{tradmeio}}
+{{tradfim}}
+==Forma verbal==
+{{paroxítona|ob|je|ti|va}} 
+#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[objetivar]]'''
+===Variante ortográfica===
+* {{escopo2|Anterior ao AO 1990}}  [[objectiva]]
+
+==Substantivo==
+{{paroxítona|ob|je|ti|va}} {{f}}
+#[[lente]] ou [[sistema]] de lentes de uma [[máquina]] [[fotográfica]]
+#lente  que está voltada para o objeto que se quer ver ou examinar
+===Variante ortográfica===
+* {{escopo2|Anterior ao AO 1990}}  [[objectiva]]
+
+===Tradução===
+{{tradini}}
+* {{trad|en|lens}}
+{{tradmeio}}
+* {{trad|mwl|oubjetiba|oujetiba}}
+{{tradfim}}
+
+===Termos derivados===
+{{verTambém.Ini}}
+* {{link idioma|objetivação|pt}}
+{{verTambém.NovaColuna}}
+* {{link idioma|objetivamente|pt}}
+{{verTambém.NovaColuna}}
+* {{link idioma|objetivo|pt}}
+{{verTambém.Fim}}
+
+[[Categoria:Adjetivo (Português)]]
+[[Categoria:Forma verbal (Português)]]
+[[Categoria:Substantivo (Português)]]

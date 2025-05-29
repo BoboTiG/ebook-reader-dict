@@ -85,7 +85,11 @@ _sections.extend(f"{{{{{s}" for s in _sections.copy())
 _sections.extend(etyl_section)
 sections = tuple(_sections)
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Variantes
+variant_titles = sections
+variant_templates = ("{{flexion",)
+
+# Some definitions are not good to keep
 definitions_to_ignore = ("peçodef",)
 
 # Templates to ignore: the text will be deleted.
@@ -298,10 +302,18 @@ def last_template_handler(
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    tpl, *parts = template
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
     if lookup_template(template[0]):
         return render_template(word, template)
-
-    tpl, *parts = template
 
     match tpl:
         case "codelang":
@@ -328,11 +340,38 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '=={{Substantivo 1|pt}}=='
     >>> adjust_wikicode("==Substantivo<sup>2</sup>==", "pt")
     '=={{Substantivo 2}}=='
+
+    >>> adjust_wikicode("# [[plural]] [[de]] '''[[anão]]'''", "pt")
+    '# {{flexion|anão}}'
+    >>> adjust_wikicode("# plural de [[anão]]", "pt")
+    '# {{flexion|anão}}'
+
+    >>> adjust_wikicode("# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''", "pt")
+    '# {{flexion|ensimesmar}}'
+    >>> adjust_wikicode("#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''", "pt")
+    '# {{flexion|ensimesmar}}'
     """
     # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
     code = re.sub(r"==\s*\{\{Substantivo\|(\w+)\}\}\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \2|\1}}==", code)
 
     # `==Substantivo<sup>2</sup>==` → `=={{Substantivo 2}}==`
     code = re.sub(r"==\s*Substantivo\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \1}}==", code)
+
+    #
+    # Variants
+    #
+
+    # `# [[plural]] [[de]] '''[[anão]]'''` → `# {{flexion|anão}}`
+    # `# plural de [[anão]]` → `# {{flexion|anão}}`
+    code = re.sub(r"^#\s*\[*plural.+'*\[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+
+    # `# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
+    # `#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
+    code = re.sub(
+        r"^#\s*\[\[.+ do \[\[.+ do \[\[.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
 
     return code

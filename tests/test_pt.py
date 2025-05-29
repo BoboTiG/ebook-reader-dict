@@ -57,6 +57,7 @@ from wikidict.utils import process_templates
             ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
             [],
         ),
+        ("anões", [], [], [], [], ["anão"]),
         (
             "baiano",
             [],
@@ -105,6 +106,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
+        ("ensimesmariam", [], [], [], [], ["ensimesmar"]),
         (
             "etc",
             [],
@@ -178,6 +180,18 @@ from wikidict.utils import process_templates
             [],
             ["fazer a nomenclatura de"],
             [],
+        ),
+        (
+            "objetiva",
+            [],
+            ["f"],
+            [],
+            [
+                "<i>feminino</i> de objetivo",
+                "lente ou sistema de lentes de uma máquina fotográfica",
+                "lente que está voltada para o objeto que se quer ver ou examinar",
+            ],
+            ["objetivar"],
         ),
         (
             "para",
