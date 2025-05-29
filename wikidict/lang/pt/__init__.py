@@ -341,6 +341,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("==Substantivo<sup>2</sup>==", "pt")
     '=={{Substantivo 2}}=='
 
+    >>> adjust_wikicode('#<li value="2"> [[toca]], [[covil]]', "pt")
+    '# [[toca]], [[covil]]'
+
     >>> adjust_wikicode("# [[plural]] [[de]] '''[[anão]]'''", "pt")
     '# {{flexion|anão}}'
     >>> adjust_wikicode("# plural de [[anão]]", "pt")
@@ -356,6 +359,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     # `==Substantivo<sup>2</sup>==` → `=={{Substantivo 2}}==`
     code = re.sub(r"==\s*Substantivo\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \1}}==", code)
+
+    # <li value="2"> → ''
+    code = re.sub(r"<li [^>]+>", "", code)
 
     #
     # Variants
