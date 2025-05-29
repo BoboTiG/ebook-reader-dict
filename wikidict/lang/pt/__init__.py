@@ -319,3 +319,20 @@ def last_template_handler(
 
 
 random_word_url = "https://pt.wiktionary.org/wiki/Especial:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
+    """
+    >>> adjust_wikicode("=={{Substantivo|pt}}<sup>1</sup>==", "pt")
+    '=={{Substantivo 1|pt}}=='
+    >>> adjust_wikicode("==Substantivo<sup>2</sup>==", "pt")
+    '=={{Substantivo 2}}=='
+    """
+    # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
+    code = re.sub(r"==\s*\{\{Substantivo\|(\w+)\}\}\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \2|\1}}==", code)
+
+    # `==Substantivo<sup>2</sup>==` → `=={{Substantivo 2}}==`
+    code = re.sub(r"==\s*Substantivo\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \1}}==", code)
+
+    return code
