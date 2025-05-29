@@ -161,6 +161,9 @@ class BaseFormat:
         self.variants = variants.copy()
         self.snapshot = snapshot
         self.include_etymology = include_etymology
+        self.start = monotonic()
+        self.words_count = 0
+        self.variants_count = 0
 
         logging.basicConfig(level=logging.INFO)
         log.info(
@@ -192,9 +195,10 @@ class BaseFormat:
     def handle_word(self, word: str, words: Words) -> Generator[str]:
         details = words[word]
         current_words = {word: details}
-        word_group_prefix = utils.guess_prefix(word)
+        guess_prefix = utils.guess_prefix
+        word_group_prefix = guess_prefix(word)
 
-        if details.variants and any(utils.guess_prefix(variant) != word_group_prefix for variant in details.variants):
+        if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
             # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
             # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
             # As a workaround, we yield as many words as there are variants but under the word "suis": at the end, we will have 3 words:
@@ -205,41 +209,54 @@ class BaseFormat:
                 if root := self.words.get(variant):
                     current_words[variant] = root
 
+        all_variants = self.variants
         for current_word, current_details in sorted(current_words.items()):
             if not current_details.definitions:
                 continue
 
-            if variants := self.variants.get(current_word, []):
+            if variants := all_variants.get(current_word, []):
                 # Add variants of empty* variant, only 1 redirection:
                 #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
                 # Note: the process works backward: from gastar up to gastado up to gastada.
-                for variant in variants.copy():
-                    if (wv := words.get(variant)) and not wv.definitions:
-                        variants.extend(self.variants.get(variant, []))
+                # Note: enabling only on ES until we find a use case on another locale because
+                #       it is a huge performance hit for dictionaries with lot of variants.
+                if self.lang_src == "es":
+                    for variant in [*variants]:
+                        if (
+                            (wv := words.get(variant))
+                            and not wv.definitions
+                            and (new_variants := all_variants.get(variant))
+                        ):
+                            variants.extend(new_variants)
 
                 # Filter out variants:
                 #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
                 #   - with a different prefix that their word
-                current_word_group_prefix = utils.guess_prefix(current_word)
+                current_word_group_prefix = guess_prefix(current_word)
                 variants = [
                     variant
                     for variant in variants
-                    if variant != word and utils.guess_prefix(variant) == current_word_group_prefix
+                    if variant != word and guess_prefix(variant) == current_word_group_prefix
                 ]
 
                 if isinstance(self, KoboFormat):
                     # Variant must be normalized by trimming whitespace and lowercasing it
                     variants = [variant.lower().strip() for variant in variants]
 
+            self.words_count += 1
+            self.variants_count += len(variants)
+
             yield self.render_word(
                 self.template,
                 word=word,
                 current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
                 definitions=current_details.definitions,
-                pronunciation=utils.convert_pronunciation(current_details.pronunciations),
-                gender=utils.convert_gender(current_details.genders),
+                pronunciation=utils.convert_pronunciation(current_details.pronunciations)
+                if current_details.pronunciations
+                else "",
+                gender=utils.convert_gender(current_details.genders) if current_details.genders else "",
                 etymologies=current_details.etymology if self.include_etymology else [],
-                variants=sorted(variants, key=lambda s: (len(s), s)),
+                variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
             )
 
     def process(self) -> None:
@@ -256,7 +273,23 @@ class BaseFormat:
         log.info("[%s] Crafted %s (%s)", type(self).__name__, checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        log.info("[%s] Generated %s (%s bytes)", type(self).__name__, file.name, f"{file.stat().st_size:,}")
+        if type(self).__name__ in {KoboFormat.__name__, DictFileFormat.__name__}:
+            log.info(
+                "[%s] Effective words + variants: %s + %s => %s",
+                type(self).__name__,
+                f"{self.words_count:,}",
+                f"{self.variants_count:,}",
+                f"{self.words_count + self.variants_count:,}",
+            )
+            log.info("[%s] utils.guess_prefix() %s", type(self).__name__, utils.guess_prefix.cache_info())
+
+        log.info(
+            "[%s] Generated %s (%s bytes) in %s",
+            type(self).__name__,
+            file.name,
+            f"{file.stat().st_size:,}",
+            timedelta(seconds=monotonic() - self.start),
+        )
         self.compute_checksum(file)
 
 
@@ -327,7 +360,7 @@ class KoboFormat(BaseFormat):
         wordlist: list[str] = []
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, tmp_dir))
-            wordlist.extend(words.keys())
+            wordlist.extend(word for word, details in words.items() if details.definitions)
 
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, tmp_dir))
@@ -346,7 +379,7 @@ class KoboFormat(BaseFormat):
                         utils.format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)
                     ),
                 )
-            fh.writestr(constants.ZIP_WORDS_COUNT, str(len(self.words)))
+            fh.writestr(constants.ZIP_WORDS_COUNT, str(self.words_count + self.variants_count))
             fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
 
             for file in to_compress:
@@ -372,14 +405,13 @@ class KoboFormat(BaseFormat):
 
         # Save to uncompressed HTML
         raw_output = output_dir / f"{name}.raw.html"
-        with raw_output.open(mode="w", encoding="utf-8") as fh:
-            for word in words:
-                fh.writelines(self.handle_word(word, words))
+        data = "".join(line for word in words for line in self.handle_word(word, words))
+        raw_output.write_text(data, encoding="utf-8")
 
         # Compress the HTML with gzip
         output = output_dir / f"{name}.html"
         with raw_output.open(mode="rb") as fi, gzip.open(output, mode="wb") as fo:
-            fo.writelines(fi)
+            fo.write(fi.read())
 
         return output
 
@@ -398,9 +430,8 @@ class DictFileFormat(BaseFormat):
 
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
-        with file.open(mode="w", encoding="utf-8") as fh:
-            for word in self.words:
-                fh.writelines(self.handle_word(word, self.words))
+        data = "".join(line for word in self.words for line in self.handle_word(word, self.words))
+        file.write_text(data, encoding="utf-8")
 
         self.summary(file)
 

@@ -7,7 +7,7 @@ import os
 import re
 from collections import defaultdict, namedtuple
 from datetime import UTC, datetime
-from functools import partial
+from functools import cache, partial
 from typing import TYPE_CHECKING
 
 import regex
@@ -219,6 +219,7 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
     return release_description[lang_src].format(**locals())
 
 
+@cache
 def guess_prefix(word: str) -> str:
     """Determine the word prefix for the given *word*.
 
