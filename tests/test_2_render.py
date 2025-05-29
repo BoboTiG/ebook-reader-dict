@@ -79,7 +79,8 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
 
 
 @pytest.mark.parametrize("workers", [1, 2, 3])
-def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> None:
+@pytest.mark.parametrize("keep_unfinished", [True, False])
+def test_missing_templates(keep_unfinished: bool, workers: int, caplog: pytest.LogCaptureFixture) -> None:
     """Ensure the "missing templates" feature is working."""
 
     # Craft wikicode with unsupported templates
@@ -108,11 +109,16 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
     }
 
     # Render
-    words = render.render(in_words, "fr", workers)
+    if keep_unfinished:
+        with patch.object(render.utils, "KEEP_UNFINISHED", True):
+            words = render.render(in_words, "fr", workers)
+    else:
+        words = render.render(in_words, "fr", workers)
 
     # Check warnings
     warnings = [record.getMessage() for record in caplog.get_records("call") if record.levelno == logging.WARNING]
-    assert warnings == [
+    assert len([w for w in warnings if "Skipped" in w]) == 0 if keep_unfinished else 3
+    assert [w for w in warnings if "Skipped" not in w] == [
         "Missing `unknown-1` template support (3 times), example in: `a`, `b`, `c`",
         "Missing `unknown-3` template support (2 times), example in: `a`, `c`",
         "Missing `unknown-2` template support (1 times), example in: `a`",
@@ -120,6 +126,10 @@ def test_missing_templates(workers: int, caplog: pytest.LogCaptureFixture) -> No
     ]
 
     # Check words
+    if not keep_unfinished:
+        assert not words
+        return
+
     assert words == {
         "a": Word(
             pronunciations=[],

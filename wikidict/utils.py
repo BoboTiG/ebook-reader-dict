@@ -54,9 +54,11 @@ SPECIAL_TEMPLATES = {
     "{{=}}": Template("##equal##!##equal##", "="),
 }
 
-# subtitution for double curly parenthesis
+# Subtitution for double curly parenthesis
 OPEN_DOUBLE_CURLY = "##opendoublecurly##"
 CLOSE_DOUBLE_CURLY = "##closedoublecurly##"
+
+KEEP_UNFINISHED = os.getenv("KEEP_UNFINISHED", "0") == "1"
 
 log = logging.getLogger(__name__)
 
@@ -64,14 +66,19 @@ log = logging.getLogger(__name__)
 def check_for_missing_templates(all_templates: list[tuple[str, str, str]]) -> bool:
     missings_counts: dict[str, int] = defaultdict(int)
     missings: dict[str, set[str]] = defaultdict(set)
+    skipped: set[str] = set()
     unique_templates: set[str] = set()
     for tpl, word, status in all_templates:
         unique_templates.add(tpl)
         if status == "missed":
             missings_counts[tpl] += 1
             missings[tpl].add(word)
+        elif status == "skipped" and word not in skipped:
+            log.warning("Skipped: %r", word)
+            skipped.add(word)
 
     log.info("Total templates count: %s", f"{len(unique_templates):,}")
+
     if not missings:
         return False
 
@@ -530,9 +537,9 @@ def process_templates(
         >>> process_templates("foo", "{{}}", "fr")
         ''
         >>> process_templates("foo", "{{unknown}}", "fr")
-        '{{unknown}}'
+        ''
         >>> process_templates("foo", "{{foo|{{bar}}|123}}", "fr")
-        '{{foo}}'
+        ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
         >>> process_templates("EPR=ER", "{{alternative form of|mul|ER{{=}}EPR}}", "en")
@@ -617,6 +624,11 @@ def process_templates(
     # Remove extra spaces (it happens when a template is ignored for instance)
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
+
+    if not KEEP_UNFINISHED and "{{" in text:
+        if all_templates:
+            all_templates.append(("", word, "skipped"))
+        return ""
 
     return text.strip()
 
