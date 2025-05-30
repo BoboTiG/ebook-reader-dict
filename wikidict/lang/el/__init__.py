@@ -87,7 +87,6 @@ variant_templates = (
     "{{πληθ_του",
     "{{απαρ",
     "{{πλ|",
-    "{{ενεργ",
 )
 
 # Some definitions are not good to keep

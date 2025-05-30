@@ -647,6 +647,19 @@ def render_γραφή(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return italic(f"{text} χαρακτήρες:")
 
 
+def render_ενεργ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ενεργ("ενεργ", [], defaultdict(str))
+    '<i>ενεργητική φωνή</i>'
+    >>> render_ενεργ("ενεργ", ["αἱρέομαι"], defaultdict(str))
+    '<i>ενεργητική φωνή</i> του ρήματος αἱρέομαι'
+    """
+    text = "<i>ενεργητική φωνή</i>"
+    if parts:
+        text += f" του ρήματος {parts[0]}"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -724,6 +737,7 @@ template_mapping = {
     "ταξ": render_ταξ,
     "ορθδ": render_etym,
     "γραφή": render_γραφή,
+    "ενεργ": render_ενεργ,
     #
     # Variants
     #
@@ -772,7 +786,6 @@ template_mapping = {
     "__variant__πληθυντικός του": render_variant,
     "__variant__απαρ": render_variant,
     "__variant__πλ": render_variant,
-    "__variant__ενεργ": render_variant,
     "__variant__infl": render_variant,
 }
 
