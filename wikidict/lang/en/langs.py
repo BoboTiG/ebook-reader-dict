@@ -2831,6 +2831,7 @@ langs = {
     "gmv": "Gamo",
     "gmw": "West Germanic",
     "gmw-afr": "Anglo-Frisian",
+    "gmw-afr-pro": "Proto-Anglo-Frisian",
     "gmw-ang": "Anglic",
     "gmw-bgh": "Bergish",
     "gmw-cfr": "Central Franconian",
@@ -2844,6 +2845,8 @@ langs = {
     "gmw-jdt": "Jersey Dutch",
     "gmw-lgm": "Low German",
     "gmw-msc": "Middle Scots",
+    "gmw-nsg": "North Sea Germanic",
+    "gmw-nsg-pro": "Proto-North Sea Germanic",
     "gmw-pro": "Proto-West Germanic",
     "gmw-rfr": "Rhine Franconian",
     "gmw-stm": "Sathmar Swabian",
@@ -9888,7 +9891,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,883
+}  # 9,886
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

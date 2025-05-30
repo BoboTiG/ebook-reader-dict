@@ -8185,14 +8185,13 @@ racines_schemes_arabes = {
         "ar-a**a*a": "être vaste",
         "ar-a**â*ũ": "{{p}} vastes",
         "ar-ma**a*a": "souhaiter la bienvenue",
-        "ar-ma**a*ã": "largement",
         "ar-ma**a*ũ": "espace large",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
         "ar-ta**â*ũ": "bon accueil",
         "ar-ta*a*²a*a": "accueillir",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 28
     "ar-rWH": {
         "aa_sens": "souffler",
         "ar-***ũ": "",
@@ -8855,6 +8854,34 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 27
+    "ar-sds": {
+        "aa_sens": "six",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-i": "être le sixième",
+        "ar-*a*a*a-u": "prélever le sixième",
+        "ar-*a*a*ũ": "chameau de sept ans",
+        "ar-*a*²a*a": "rendre hexagonal",
+        "ar-*a*î*ũ": "de six",
+        "ar-*i**ũ": "abreuver au sixième jour",
+        "ar-*ta*a*a": "",
+        "ar-*u**ũ": "un sixième",
+        "ar-*u*u*ũ": "un sixième",
+        "ar-*u*â*iy²@ũ": "{{f}} âgée de six ans",
+        "ar-*u*â*iy²ũ": "long de six",
+        "ar-*u*â*ũ": "six",
+        "ar-*u*û*ũ": "indigo",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} sixième",
+        "ar-*â*i*ũ": "sixième",
+        "ar-a**a*a": "être six",
+        "ar-mu*a*²a*ũ": "hexagonal",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "formant des hexagones",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 26
     "ar-sfr": {
         "aa_sens": "expédier, balayer",
         "ar-***ũ": "",
@@ -9138,6 +9165,23 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "vieillir",
         "ar-ta*â*a*a": "",
     },  # 14
+    "ar-stt": {
+        "aa_sens": "six",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-u": "",
+        "ar-*a*²a*a": "",
+        "ar-*i**@ũ": "{{m}} six",
+        "ar-*i**ũ": "{{f}} six",
+        "ar-*ta*a*a": "",
+        "ar-*â**ũ": "sixième",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 15
     "ar-swd": {
         "aa_sens": "chef",
         "ar-***ũ": "",
@@ -10308,5 +10352,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 351
+}  # 353
 # END

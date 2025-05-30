@@ -31,6 +31,7 @@ regions = {
     "Aidone": "Aidone",
     "Ain": "Ain",
     "Aisne": "Aisne",
+    "Alava": "Alava",
     "Albanie": "Albanie",
     "Alessano": "Alessano",
     "Alexandrie": "Alexandrie",
@@ -853,5 +854,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 848
+}  # 849
 # END
