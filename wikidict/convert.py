@@ -134,6 +134,8 @@ WORD_TPL_DICTFILE = Template(
     {%- endfor -%}
     <br/>
 {%- endif -%}</html>
+
+
 """
 )
 
@@ -437,7 +439,7 @@ class DictFileFormat(BaseFormat):
 
     @staticmethod
     def render_word(template: Template, **kwargs: Any) -> str:
-        return template.render(**kwargs) + "\n\n"
+        return template.render(**kwargs)
 
 
 class DictFileFormatForMobi(DictFileFormat):

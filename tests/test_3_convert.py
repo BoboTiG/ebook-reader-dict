@@ -404,6 +404,44 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
 
 
+def test_df_format(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("fr", tmp_path, words, variants, "20250323")
+    formatter.process()
+    output = formatter.dictionary_file(formatter.output_file)
+
+    assert (
+        output.read_text(encoding="utf-8")
+        == r"""@ estre
+: \ɛtʁ\
+<html><ol><li>Définition de 'estre'.</li></ol></html>
+
+@ être
+: \ɛtʁ\ <i>m</i>.
+<html><ol><li>Définition de 'être'.</li></ol></html>
+
+@ suis
+: <b>estre</b> \ɛtʁ\
+<html><ol><li>Définition de 'estre'.</li></ol></html>
+
+@ suis
+: <b>suivre</b> \sɥivʁ\
+<html><ol><li>Définition de 'suivre'.</li></ol></html>
+
+@ suis
+: <b>être</b> \ɛtʁ\ <i>m</i>.
+<html><ol><li>Définition de 'être'.</li></ol></html>
+
+@ suivre
+: \sɥivʁ\
+& suis
+<html><ol><li>Définition de 'suivre'.</li></ol></html>
+
+"""
+    )
+
+
 def test_df_format_variants_different_prefix(tmp_path: Path) -> None:
     words = WORDS_VARIANTS_FR
     variants = convert.make_variants(words)
