@@ -251,6 +251,8 @@ def render_через(tpl: str, parts: list[str], data: defaultdict[str, str], *
     """
     >>> render_через("через", ["гл", "выезжать"], defaultdict(str))
     'от глагола <i>выезжать</i>'
+    >>> render_через("через", ["en", "Naomi"], defaultdict(str))
+    'от en <i>Naomi</i>'
     """
     text = {
         "гл": "глагола",
@@ -264,7 +266,7 @@ def render_через(tpl: str, parts: list[str], data: defaultdict[str, str], *
         "межд": "междометие",
         "звукоподражание": "звукоподражание",
         "имя": "имя",
-    }[parts[0]]
+    }.get(parts[0], parts[0])
     return f"от {text} {italic(parts[1])}"
 
 
