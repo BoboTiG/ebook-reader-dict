@@ -621,7 +621,7 @@ def last_template_handler(
         return labels_output(data["text"], args=data)
 
     if tpl == "ετικ":
-        return f"({', '.join(italic(labels[aliases.get(part, part)]['linkshow']) for part in parts)})"
+        return f"({', '.join(italic(labels[aliases.get(part, part)]['linkshow']) for part in parts if part)})"
 
     if tpl in {"ετυμ", "der"}:
         text = text_language(parts[0])
