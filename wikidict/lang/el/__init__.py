@@ -87,6 +87,7 @@ variant_templates = (
     "{{πληθ_του",
     "{{απαρ",
     "{{πλ|",
+    "{{ενεργ",
 )
 
 # Some definitions are not good to keep
@@ -114,11 +115,13 @@ templates_ignored = (
     "el-κλίση-'όμορφος'",
     "el-κλίσ-'ναύτης'",
     "el-κλίσ-'ωραίος'",
+    "el-κλίση-'νίκη'",
     "el-ρήμα",
     "ety+",
     "R:TELETERM",
     "wlogo",
     "ΒΠ",
+    "ΠΘ",
     "κλείδα-ελλ",
     "λείπει η ετυμολογία",
     "περίοδος",
@@ -127,6 +130,9 @@ templates_ignored = (
     "λείπει ο ορισμός",
     "Βικιπαίδεια",
     "βλ συζ",
+    "π-κατ",
+    "βλ κατ",
+    "κατ",
     "λείπει η κλίση",
     "χρειάζεται παράθεμα",
     "χρειάζεται προσοχή",
@@ -151,6 +157,7 @@ templates_italic = {
     "καθ": "καθαρεύουσα",
     "ουσιαστικοπ": "ουσιαστικοποιημένο",
     "ικαρ": "ικαριώτικα",
+    "μεταλ": "μεταλλουργία",
 }
 templates_italic["θρησκ"] = templates_italic["θρησκεία"]
 templates_italic["καθ αρχ"] = templates_italic["καθ"]
@@ -223,6 +230,8 @@ templates_multi: dict[str, str] = {
     "ύφος": "parenthesis(parts[1])",
     # {{συντμ του|κατά την ταπεινή μου γνώμη}}
     "συντμ του": "f'σύντμηση του {parts[1]}'",
+    # {{θηλ ά|Σμυρνιός|Σμυρνι(ός)}}
+    "θηλ ά": "f'{parts[-1]} + κατάληξη θηλυκού -ά'",
 }
 # Alias
 templates_multi["l2"] = templates_multi["λ2"]
@@ -248,10 +257,15 @@ templates_other = {
     "πχ": "⮡",
     "μορφολογικά": "Μορφολογικά αναλύεται σε",
     "πληθυντικός": "<b><i>πληθυντικός</i></b>",
+    "γεν": "<b><i>γενική</i></b>",
     "ποιητ": "ποιητικός τύπος",
+    "πολυτ γραφή": "<i>πολυτονική γραφή:</i>",
+    "βιβ": "⌘",
 }
+templates_other["bib"] = templates_other["βιβ"]
 templates_other["ονομαΑ"] = templates_other["παρωχ-ονομαΑ"]
 templates_other["πληθ"] = templates_other["πληθυντικός"]
+templates_other["πολυ"] = templates_other["πολυτ γραφή"]
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/el

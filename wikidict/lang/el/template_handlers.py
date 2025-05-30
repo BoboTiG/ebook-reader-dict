@@ -624,6 +624,29 @@ def render_ταξ(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return italic(text)
 
 
+def render_γραφή(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_γραφή("γραφή", [], defaultdict(str))
+    ''
+    >>> render_γραφή("γραφή", ["λατ"], defaultdict(str))
+    '<i>λατινικοί χαρακτήρες:</i>'
+    """
+    if not parts:
+        return ""
+    match part := parts[0]:
+        case "αρα":
+            text = "αραβικοί"
+        case "ελλ":
+            text = "ελληνικοί"
+        case "κυρ":
+            text = "κυριλλικοί"
+        case "λατ":
+            text = "λατινικοί"
+        case _:
+            raise ValueError(f"Unhandled γραφή {part=}")
+    return italic(f"{text} χαρακτήρες:")
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -676,6 +699,7 @@ template_mapping = {
     "μτφδ": render_etym,
     "μεγ": render_μεγ,
     "υπο": render_υπο,
+    "dim": render_υπο,
     "ετυμ-υποκ": render_υπο,
     "ελνστ": render_ελνστ,
     "παθ": render_παθ,
@@ -699,6 +723,7 @@ template_mapping = {
     "ΔΦΑ": render_ΔΦΑ,
     "ταξ": render_ταξ,
     "ορθδ": render_etym,
+    "γραφή": render_γραφή,
     #
     # Variants
     #
@@ -747,6 +772,7 @@ template_mapping = {
     "__variant__πληθυντικός του": render_variant,
     "__variant__απαρ": render_variant,
     "__variant__πλ": render_variant,
+    "__variant__ενεργ": render_variant,
     "__variant__infl": render_variant,
 }
 
