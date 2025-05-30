@@ -46,6 +46,7 @@ templates_ignored = (
     "помета.",
     "Категория",
     "длина слова",
+    "из",
 )
 
 # Templates more complex to manage.
