@@ -563,7 +563,7 @@ def render_word(
     except Exception:
         log.exception("ERROR with %r", word)
     else:
-        if details.etymology or details.definitions or details.variants:
+        if details.definitions or details.variants:
             words[word] = details
             return details
 
