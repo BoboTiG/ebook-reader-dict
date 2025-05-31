@@ -738,7 +738,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     >>> render_variant("απαρ", ["ενεστώτα", "miror", "en", "foo"], defaultdict(str), word="Μιρέλλα")
     'miror'
     """
-    return parts[1] if tpl == "απαρ" else parts[-1]
+    return parts[1] if tpl == "απαρ" else parts[-1] if parts else word
 
 
 template_mapping = {
