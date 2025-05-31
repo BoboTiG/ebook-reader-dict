@@ -673,9 +673,11 @@ def render_τόπος(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     >>> render_τόπος("τόπος", ["", "αεροδρόμιο", "Ελλάδα"], defaultdict(str))
     'αεροδρόμιο της Ελλάδας'
+    >>> render_τόπος("τόπος", ["el", "", "Ελλάδα"], defaultdict(str, {"0": "-"}))
+    'τοπωνύμιο'
     """
-    # Source: https://el.wiktionary.org/w/index.php?title=Module:auto_cat&oldid=7085317
-    topos = parts[1]
+    # Source: https://el.wiktionary.org/w/index.php?title=Module:topos&oldid=6912182
+    topos = parts[1] or "τοπωνύμιο"
 
     area = parts[2] if len(parts) > 2 else ""
     area_show = data["area_show"] or data["πού_εμφ"] or data["που_εμφ"]
