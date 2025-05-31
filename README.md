@@ -141,21 +141,10 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Stars ✨
 
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="
-      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date&theme=dark
-    "
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="
-      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date
-    "
-  />
-  <img
-    alt="Star History Chart"
-    src="https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date"
-  />
-</picture>
+<a href="https://star-history.com/#BoboTiG/ebook-reader-dict&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date" />
+  </picture>
+</a>
