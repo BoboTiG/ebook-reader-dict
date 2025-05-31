@@ -244,11 +244,18 @@ def find_etymology(
         case _:
             items = [parsed_section.contents]
 
-    return [
+    etyms = [
         etyl
         for item in items
         if (etyl := utils.process_templates(word, item, lang_dst, all_templates=all_templates)) and len(etyl) > 1
     ]
+
+    # Do not keep incomplete etymologies
+    if lang_src in {"el", "ru"}:
+        useless = {"el": f"<b>{word}</b> &lt;", "ru": "Происходит от"}.get(lang_src)
+        etyms = [etym for etym in etyms if etym != useless]
+
+    return etyms  # type: ignore[return-value]
 
 
 def _find_genders(top_sections: list[wtp.Section], lang_src: str, lang_dst: str) -> list[str]:
