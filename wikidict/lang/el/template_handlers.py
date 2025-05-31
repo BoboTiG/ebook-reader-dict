@@ -163,6 +163,8 @@ def render_υπο(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     'βουν(ό) + <i>υποκοριστικό επίθημα</i> -αλάκι'
     >>> render_υπο("μεγ", ["βουνό", "αλάκι"], defaultdict(str, {"4": "βουν(ό)"}))
     'βουν(ό) + <i>υποκοριστικό επίθημα</i> -αλάκι'
+    >>> render_υπο("μεγ", ["κουτάβι", "", "κουτάβ(ι)"], defaultdict(str), word="κουταβάκι")
+    'κουτάβ(ι) + <i>υποκοριστικό επίθημα</i> -άκι'
     """
     if data["4"]:
         parts[0] = data["4"]
@@ -175,6 +177,10 @@ def render_υπο(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     except ValueError:
         if parts:
             prefix = parts[0]
+
+    if not suffix and len(parts) > 2:
+        prefix = parts[2]
+        suffix = word[len(prefix.split("(", 1)[0]) :]
 
     return f"{prefix} + {italic('υποκοριστικό επίθημα')} -{suffix}"
 
