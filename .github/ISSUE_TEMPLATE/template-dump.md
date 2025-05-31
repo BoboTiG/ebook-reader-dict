@@ -5,7 +5,6 @@ title: '🥮 Issues found in the `2025-MM-DD` dump'
 labels:
   - dump
   - 'locale:English'
-  - 'locale:Greek'
   - 'locale:Russian'
 assignees: ''
 
@@ -31,7 +30,7 @@ assignees: ''
 
 ## EL
 
-- Unhandled templates count: N (📈 +N since `2025-MM-DD` dump | 📉 -N since `2025-MM-DD` dump)
+- [ ] 
 
 ## EN
 

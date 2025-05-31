@@ -68,6 +68,8 @@ sections = (
     "{{παροιμία|",
     "{{πρόθημα}",
     "{{πρόθημα|",
+    "{{πολυλεκτικός όρος}",
+    "{{πολυλεκτικός όρος|",
 )
 
 # Variants
@@ -95,6 +97,8 @@ variant_templates = (
     "{{πληθ_του",
     "{{απαρ",
     "{{πλ|",
+    "{{πτώσειςΓΑΚεν",
+    "{{πτώσειςΟΑΚεν",
 )
 
 # Some definitions are not good to keep
@@ -114,15 +118,18 @@ templates_ignored = (
     "cf",
     "clear",
     "el-κλίσ",
-    "el-κλίση-'ναός'",
     "el-κλίσ-'μανάβης'",
+    "el-κλίσ-'ναύτης'",
+    "el-κλίσ-'ωραίος'",
+    "el-κλίση-'ναός'",
     "el-κλίση-'γιατρός'",
     "el-κλίση-'σοφία'",
     "el-κλίση-'παιδί'",
     "el-κλίση-'όμορφος'",
-    "el-κλίσ-'ναύτης'",
-    "el-κλίσ-'ωραίος'",
     "el-κλίση-'νίκη'",
+    "el-κλίση-'ναύτης'",
+    "el-κλίση-'μανάβης'",
+    "el-κλίση-'ωραίος'",
     "el-ρήμα",
     "ety+",
     "R:TELETERM",
@@ -130,6 +137,7 @@ templates_ignored = (
     "ΒΠ",
     "ΠΘ",
     "κλείδα-ελλ",
+    "επέκταση-ετυ",
     "λείπει η ετυμολογία",
     "περίοδος",
     "από",
@@ -151,6 +159,7 @@ templates_ignored = (
     "παρωχ-ονομαΓ",
     "επώνυμο",
     "ζητ",
+    "ήχος",
 )
 
 # Templates that will be completed/replaced using italic style.
@@ -165,6 +174,11 @@ templates_italic = {
     "ουσιαστικοπ": "ουσιαστικοποιημένο",
     "ικαρ": "ικαριώτικα",
     "μεταλ": "μεταλλουργία",
+    "ορθοπ": "ορθοπαιδική",
+    "καππαδ": "καππαδοκικά",
+    "κόμπ": "κόμπος",
+    "μτβ-αμτβ": "μεταβατικό και αμετάβατο",
+    "συνθ βιολ": "συνθετική βιολογία",
 }
 templates_italic["θρησκ"] = templates_italic["θρησκεία"]
 templates_italic["καθ αρχ"] = templates_italic["καθ"]
@@ -239,6 +253,14 @@ templates_multi: dict[str, str] = {
     "συντμ του": "f'σύντμηση του {parts[1]}'",
     # {{θηλ ά|Σμυρνιός|Σμυρνι(ός)}}
     "θηλ ά": "f'{parts[-1]} + κατάληξη θηλυκού -ά'",
+    # {{λατιν|Histonium}}
+    "λατιν": "f'(<i>λατινική γραφή: {parts[0]}</i>)'",
+    # {{vertical-lr|ᠮᠣᠩᠭᠤᠯ}}
+    "vertical-lr": "f'<span style=\"writing-mode:vertical-lr\">{parts[-1]}</span>'",
+    # {{φόντο|βεβαιόω}}
+    "φόντο": "parts[-1]",
+    # {{χρωμ|b80049}}
+    "χρωμ": "color(parts[-1])",
 }
 # Alias
 templates_multi["l2"] = templates_multi["λ2"]
@@ -251,11 +273,14 @@ templates_multi["συντμ_του"] = templates_multi["συντμ του"]
 templates_other = {
     "*": "*",
     "θ": "<i>θηλυκό</i>",
+    "θο": "<i>θηλυκό ή ουδέτερο</i>",
     "gag": "γκαγκαούζ",
     "odt": "παλαιά ολλανδικά",
     "orv": "αρχαία ανατολική σλαβική γλώσσα",
     "osp": "παλαιά ισπανική",
     "oty": "αρχαία ταμίλ",
+    "άκλ": "<i>άκλιτο</i>",
+    "απόγονοι": "Απόγονοι",
     "παρωχ-ονομαΑ": "ανδρικό όνομα",
     "απόγονοι2": "ΑΠΟΓΟΝΟΙ:",
     "τοπ": "<b><i>τοπική</i></b>",
@@ -267,9 +292,17 @@ templates_other = {
     "γεν": "<b><i>γενική</i></b>",
     "ποιητ": "ποιητικός τύπος",
     "πολυτ γραφή": "<i>πολυτονική γραφή:</i>",
+    "ροδέλα": "<i>ροδέλα</i>",
     "βιβ": "⌘",
+    "αντων": "≠ <i>αντώνυμα:</i>",
+    "βοιωτ": "<i>βοιωτικός τύπος</i>",
+    "προφορά": "Προφορά",
+    # It would require to support full transliterations, but as this template is used only once in Κνωσός, lets cheat!
+    # cf. https://el.wiktionary.org/wiki/Module:Linb-translit/data
+    "gmy-tr": "𐀒𐀜𐀰 (ko-no-so)",
 }
 templates_other["bib"] = templates_other["βιβ"]
+templates_other["f"] = templates_other["θ"]
 templates_other["ονομαΑ"] = templates_other["παρωχ-ονομαΑ"]
 templates_other["πληθ"] = templates_other["πληθυντικός"]
 templates_other["πολυ"] = templates_other["πολυτ γραφή"]

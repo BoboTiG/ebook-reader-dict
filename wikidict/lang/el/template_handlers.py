@@ -786,6 +786,8 @@ template_mapping = {
     "__variant__πληθυντικός του": render_variant,
     "__variant__απαρ": render_variant,
     "__variant__πλ": render_variant,
+    "__variant__πτώσειςΓΑΚεν": render_variant,
+    "__variant__πτώσειςΟΑΚεν": render_variant,
     "__variant__infl": render_variant,
 }
 
