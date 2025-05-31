@@ -76,7 +76,7 @@ from wikidict.utils import process_templates
             "muratrici",
             [],
             [],
-            ["vedi muratore"],
+            [],
             [],
             ["muratore"],
         ),

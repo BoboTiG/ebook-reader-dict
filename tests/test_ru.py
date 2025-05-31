@@ -29,7 +29,7 @@ from wikidict.utils import process_templates
             "неволящий",
             [],
             [],
-            ["Происходит от"],
+            [],
             [],
             ["неволить"],
         ),

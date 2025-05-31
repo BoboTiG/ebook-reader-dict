@@ -446,9 +446,7 @@ from wikidict.utils import process_templates
             "suis",
             ["\\sɥi\\"],
             [],
-            [
-                "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>)."
-            ],
+            [],
             [],
             ["suivre", "être"],
         ),

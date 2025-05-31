@@ -88,7 +88,7 @@ from wikidict.utils import process_templates
             "Teodoriko",
             [],
             ["m"],
-            ["El la itala."],
+            [],
             [],
             [],
         ),

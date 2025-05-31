@@ -13,7 +13,7 @@ from wikidict.utils import process_templates
         (
             "aventurierul",
             ["/a.ven.tu.riˈe.rul/"],
-            ["Din <i>aventurier</i>."],
+            [],
             [],
             ["aventurier"],
         ),
@@ -60,7 +60,7 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("frumoasă", ["/fru'mo̯a.sə/"], ["Din <i>frumos</i>."], [], ["frumos"]),
+        ("frumoasă", ["/fru'mo̯a.sə/"], [], [], ["frumos"]),
         ("frumoși", ["[fruˈmoʃʲ]"], [], [], ["frumos"]),
         (
             "paronim",
@@ -88,7 +88,7 @@ from wikidict.utils import process_templates
             ["simbol pentru megahertz"],
             [],
         ),
-        ("portocale", ["/por.toˈka.le/"], ["Din <i>portocală</i>."], [], ["portocală"]),
+        ("portocale", ["/por.toˈka.le/"], [], [], ["portocală"]),
         (
             "temperatură",
             ["/tem.pe.raˈtu.rə/"],

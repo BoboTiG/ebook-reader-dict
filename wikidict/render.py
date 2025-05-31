@@ -490,28 +490,20 @@ def parse_word(
     prons = []
     genders = []
     etymology = []
+    etymology_sections = []
     variants: list[str] = []
 
-    # Etymology
-    if lang_src == "sv":
-        for top in top_sections:
-            etymology.extend(find_etymology(word, lang_src, lang_dst, top, all_templates=all_templates))
-    elif parsed_sections:
+    # Etymology (pre-select sections)
+    if lang_src != "sv" and parsed_sections:
         for section in lang.etyl_section[lang_dst]:
-            # if not parsed_sections:
-            #     break
             for etyl_data in parsed_sections.pop(section, []):
-                etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, all_templates=all_templates))
+                etymology_sections.append(etyl_data)
 
     # Definitions
     if parsed_sections:
         definitions = find_definitions(word, parsed_sections, lang_src, lang_dst, all_templates=all_templates)
-    elif lang_src in {"no", "pt"}:
+    elif marker := {"no": "===", "pt": "=="}.get(lang_src):
         # Some words have no head sections but only a list of definitions at the root of the "top" section
-        marker = {
-            "no": "===",
-            "pt": "==",
-        }[lang_src]
         for top in top_sections:
             contents = top.contents
             top.contents = contents[: contents.find(marker)]
@@ -522,6 +514,15 @@ def parse_word(
     if definitions or force:
         prons = _find_pronunciations(top_sections, lang_src, lang_dst)
         genders = _find_genders(top_sections, lang_src, lang_dst)
+
+    # Etymology
+    if definitions:
+        if lang_src == "sv":
+            for top in top_sections:
+                etymology.extend(find_etymology(word, lang_src, lang_dst, top, all_templates=all_templates))
+        elif etymology_sections:
+            for etyl_data in etymology_sections:
+                etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, all_templates=all_templates))
 
     # Variants
     if parsed_sections and (interesting_titles := lang.variant_titles[lang_dst]):

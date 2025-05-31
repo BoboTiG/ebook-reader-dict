@@ -148,9 +148,7 @@ from wikidict.utils import process_templates
         (
             "Guyana",
             [],
-            [
-                "<i>(Países)</i>: País ubicado al noreste de Sudamérica. Limita al oeste con Venezuela, al norte con el océano Atlántico, al este con Surinam y al sur Brasil.",
-            ],
+            [],
             [],
             [],
         ),
