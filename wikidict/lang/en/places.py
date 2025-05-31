@@ -4771,5 +4771,5 @@ recognized_placenames = {
     "voivodeship/Świętokrzyskie Voivodeship": {"article": "", "display": "Holy Cross Voivodeship"},
     "voivodeship/Łódź": {"article": "", "display": "Lodz"},
     "voivodeship/Łódź Voivodeship": {"article": "", "display": "Lodz Voivodeship"},
-}  # 3,246
+}  # 323
 # END

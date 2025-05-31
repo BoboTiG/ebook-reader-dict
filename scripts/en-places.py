@@ -67,8 +67,9 @@ for tr in trs:
     kind, display = placename.split("/", 1)
     if article:
         print(f'    "{placename}": {{"article": "{article}", "display": "{display}"}},')
+        count += 1
     if aliases := tds[2].text:
         for alias in aliases.split(", "):
             print(f'    "{kind}/{alias}": {{"article": "{article}", "display": "{display}"}},')
-    count += 1
+            count += 1
 print(f"}}  # {count:,}")
