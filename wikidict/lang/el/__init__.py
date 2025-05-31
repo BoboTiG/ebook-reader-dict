@@ -163,6 +163,7 @@ templates_ignored = (
     "επώνυμο",
     "ζητ",
     "ήχος",
+    "Π",
 )
 
 # Templates that will be completed/replaced using italic style.
