@@ -422,7 +422,7 @@ def check_word(
 
     details = get_word(word, locale, all_templates=all_templates)
 
-    if not details.etymology and not details.definitions:
+    if not details.definitions:
         return 0
 
     text = get_wiktionary_page(word, locale)

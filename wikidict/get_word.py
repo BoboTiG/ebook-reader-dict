@@ -65,7 +65,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
             print(f"{index}.".rjust(4), strip_html(definition))
             index = index + 1
 
-    if details.etymology:
+    if details.definitions and details.etymology:
         print("\n")
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
