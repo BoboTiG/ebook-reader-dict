@@ -19,6 +19,8 @@ FILES = {
     "el-aliases.py": "wikidict/lang/el/aliases.py",
     "el-labels.py": "wikidict/lang/el/labels.py",
     "el-langs.py": "wikidict/lang/el/langs.py",
+    "el-topos-kind.py": "wikidict/lang/el/topos/kind.py",
+    "el-topos-where.py": "wikidict/lang/el/topos/where.py",
     "en-labels.py": "wikidict/lang/en/labels.py",
     "en-langs.py": "wikidict/lang/en/langs.py",
     "en-places.py": "wikidict/lang/en/places.py",

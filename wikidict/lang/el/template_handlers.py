@@ -2,6 +2,8 @@ from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, parenthesis, strong
 from .langs import langs
+from .topos.kind import kind
+from .topos.where import where
 
 
 def get_lang(lang: str) -> str:
@@ -660,6 +662,54 @@ def render_ενεργ(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return text
 
 
+def render_τόπος(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_τόπος("τόπος", ["el", "αρχαία πόλη", "Τουρκία"], defaultdict(str))
+    'αρχαία πόλη της Τουρκίας'
+    >>> render_τόπος("τόπος", ["el", "αρχαία πόλη", "Τουρκία"], defaultdict(str, {"0": "-"}))
+    'αρχαία πόλη'
+    >>> render_τόπος("τόπος", ["el", "αρχαία πόλη", "Τουρκία"], defaultdict(str, {"000": "-"}))
+    ''
+
+    >>> render_τόπος("τόπος", ["", "αεροδρόμιο", "Ελλάδα"], defaultdict(str))
+    'αεροδρόμιο της Ελλάδας'
+    """
+    # Source: https://el.wiktionary.org/w/index.php?title=Module:auto_cat&oldid=7085317
+    topos = parts[1]
+
+    area = parts[2] if len(parts) > 2 else ""
+    area_show = data["area_show"] or data["πού_εμφ"] or data["που_εμφ"]
+    area_show_not = data["0"]
+    nodisplay = data["nodisplay"] or data["000"]
+    show = data["show"] or data["εμφ"]
+    plural = data["pl"] or data["πλ"]
+
+    if nodisplay:
+        return ""
+
+    if show:
+        if plural:
+            output = kind[topos]["word_pl"]
+        else:
+            output = show
+    else:
+        if plural:
+            output = kind[topos]["word_pl"]
+        else:
+            output = kind[topos]["word"]
+
+    if (label := data["ετικ"]) == "1":
+        output = f"(<i>{output}</i>)"
+    elif label == "+":
+        output = f"(<i>τοπωνύμιο, {output}</i>)"
+    elif area and (area_show == "0" or not area_show_not):
+        output = f"{output} {where[area]}"
+    if label == "τοπ":
+        output = f"(<i>τοπωνύμιο</i>) {output}"
+
+    return output
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("ουδ του-πτώσειςΟΑΚεν", ["επίπεδος"], defaultdict(str), word="επίπεδο")
@@ -738,6 +788,7 @@ template_mapping = {
     "ορθδ": render_etym,
     "γραφή": render_γραφή,
     "ενεργ": render_ενεργ,
+    "τόπος": render_τόπος,
     #
     # Variants
     #
