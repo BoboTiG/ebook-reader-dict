@@ -61,7 +61,7 @@ log = logging.getLogger(__name__)
 def get_ignored_terms(lang_src: str, lang_dst: str) -> set[str]:
     ignored_terms = set(lang.definitions_to_ignore[lang_dst])
     ignored_terms.update(lang.variant_templates[lang_dst])
-    return ignored_terms
+    return {term.lower() for term in ignored_terms}
 
 
 def find_definitions(
