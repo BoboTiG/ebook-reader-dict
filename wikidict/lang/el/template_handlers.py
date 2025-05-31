@@ -688,15 +688,9 @@ def render_τόπος(tpl: str, parts: list[str], data: defaultdict[str, str], *
         return ""
 
     if show:
-        if plural:
-            output = kind[topos]["word_pl"]
-        else:
-            output = show
+        output = kind[topos]["word_pl"] if plural else show
     else:
-        if plural:
-            output = kind[topos]["word_pl"]
-        else:
-            output = kind[topos]["word"]
+        output = kind[topos]["word_pl" if plural else "word"]
 
     if (label := data["ετικ"]) == "1":
         output = f"(<i>{output}</i>)"
