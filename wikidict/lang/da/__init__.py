@@ -399,11 +399,11 @@ def adjust_wikicode(
     >>> adjust_wikicode("# Flertal af [[tale]]: [[ui]].", "da")
     '# {{flexion|tale}}'
 
-    >>> adjust_wikicode("# {{flertal af}} [[tale]]", "en")
+    >>> adjust_wikicode("# {{flertal af}} [[tale]]", "da")
     '# {{flexion|tale}}'
-    >>> adjust_wikicode("# {{flertal af}} '''[[tale]]'''", "en")
+    >>> adjust_wikicode("# {{flertal af}} '''[[tale]]'''", "da")
     '# {{flexion|tale}}'
-    >>> adjust_wikicode("# {{flertal af}} {{l|da|tale}}", "en")
+    >>> adjust_wikicode("# {{flertal af}} {{l|da|tale}}", "da")
     '# {{flexion|{{l|da|tale}}}}'
     """
     code = code.replace("----", "")
