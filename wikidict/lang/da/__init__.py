@@ -13,7 +13,20 @@ thousands_separator = " "
 # Markers for sections that contain interesting text to analyse.
 section_patterns = ("#", r"\*")
 section_sublevels = (3, 4)
-head_sections = ("{{da}}", "{{=da=}}", "{{-da-}}", "dansk", "{{mul}}", "{{=mul=}}", "{{-mul-}}")
+head_sections = (
+    "{{da}}",
+    "{{=da=}}",
+    "{{-da-}}",
+    "dansk",
+    "{{ia}}",
+    "{{=ia=}}",
+    "{{-ia-}}",
+    "interlingue",
+    "{{mul}}",
+    "{{=mul=}}",
+    "{{-mul-}}",
+    "tværsprogligt",
+)
 etyl_section = ("{{etym}}", "{{etym2}}", "etymologi", "etymologi 1", "etymologi 2", "etymologi 3", "etymologi 4")
 sections = (
     *etyl_section,
