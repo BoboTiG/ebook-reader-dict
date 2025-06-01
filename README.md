@@ -21,7 +21,7 @@
 
 ## Special
 
-Find [bilingual dictionaries](https://www.reader-dict.com), and [all-to-lang dictionaries](https://www.reader-dict.com).
+Find [bilingual dictionaries](https://www.reader-dict.com), and [universal dictionaries](https://www.reader-dict.com).
 
 ## Downloads
 
@@ -33,6 +33,7 @@ Find [bilingual dictionaries](https://www.reader-dict.com), and [all-to-lang dic
 1. <small>`[EO]`</small> [Esperanto](https://www.reader-dict.com/eo/download/eo)
 1. <small>`[ES]`</small> [Spanish](https://www.reader-dict.com/es/download/es)
 1. <small>`[FR]`</small> [French](https://www.reader-dict.com/fr/download/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[FRO]`</small> [Old French](https://www.reader-dict.com/fr/download/fr#fro-fr)
 1. <small>`[IT]`</small> [Italian](https://www.reader-dict.com/it/download/it)
 1. <small>`[NO]`</small> [Norway](https://www.reader-dict.com/no/download/no)
 1. <small>`[PT]`</small> [Portuguese](https://www.reader-dict.com/pt/download/pt)
