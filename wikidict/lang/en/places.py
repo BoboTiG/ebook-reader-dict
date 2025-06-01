@@ -1133,14 +1133,6 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "Crown colony": {
-        "fallback": "crown colony",
-        "article": "a",
-        "display": "Crown colony",
-        "preposition": "",
-        "formertype": "",
-        "should_categorize": "",
-    },
     "crown colony": {
         "fallback": "colony",
         "article": "a",
@@ -1149,10 +1141,10 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "crown dependency": {
-        "fallback": "dependent territory",
+    "Crown colony": {
+        "fallback": "crown colony",
         "article": "a",
-        "display": "crown dependency",
+        "display": "Crown colony",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -1161,6 +1153,14 @@ recognized_placetypes = {
         "fallback": "dependent territory",
         "article": "a",
         "display": "Crown dependency",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "crown dependency": {
+        "fallback": "dependent territory",
+        "article": "a",
+        "display": "crown dependency",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -2901,6 +2901,14 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
+    "oblasts and autonomous republics!": {
+        "fallback": "",
+        "article": "",
+        "display": "names of oblasts and autonomous republics",
+        "preposition": "",
+        "formertype": "subpolity",
+        "should_categorize": "",
+    },
     "ocean": {
         "fallback": "",
         "article": "an",
@@ -3421,6 +3429,14 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "rural hromada": {
+        "fallback": "hromada",
+        "article": "a",
+        "display": "rural hromada",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "rural municipality": {
         "fallback": "municipality",
         "article": "a",
@@ -3513,6 +3529,14 @@ recognized_placetypes = {
         "fallback": "village",
         "article": "a",
         "display": "settlement",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "settlement hromada": {
+        "fallback": "hromada",
+        "article": "a",
+        "display": "settlement hromada",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -3753,6 +3777,14 @@ recognized_placetypes = {
         "fallback": "geographic region",
         "article": "a",
         "display": "strip of land",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "sub-metropolitan city": {
+        "fallback": "city",
+        "article": "a",
+        "display": "sub-metropolitan city",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -4101,6 +4133,14 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "urban hromada": {
+        "fallback": "hromada",
+        "article": "an",
+        "display": "urban hromada",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "urban township": {
         "fallback": "township",
         "article": "an",
@@ -4197,7 +4237,7 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
-}  # 524
+}  # 529
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -4293,6 +4333,8 @@ placetypes_aliases = {
     "sub-prefecture-level city": "sub-prefectural city",
     "sub-provincial city": "subprovincial city",
     "sub-provincial district": "subprovincial district",
+    "submet city": "sub-metropolitan city",
+    "submetropolitan city": "sub-metropolitan city",
     "terr": "territory",
     "terrauth": "territorial authority",
     "twp": "township",
@@ -4305,7 +4347,7 @@ placetypes_aliases = {
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 105
+}  # 107
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -4593,6 +4635,8 @@ recognized_placenames = {
     "municipality/Hai Phong": {"article": "", "display": "Haiphong"},
     "municipality/Huế": {"article": "", "display": "Hue"},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": "Jewish Autonomous Oblast"},
+    "oblast/Zaporizhia": {"article": "", "display": "Zaporizhzhia"},
+    "oblast/Zaporizhia Oblast": {"article": "", "display": "Zaporizhzhia Oblast"},
     "okrug/Chukotka Autonomous Okrug": {"article": "the", "display": "Chukotka Autonomous Okrug"},
     "okrug/Khanty-Mansi Autonomous Okrug": {"article": "the", "display": "Khanty-Mansi Autonomous Okrug"},
     "okrug/Nenets Autonomous Okrug": {"article": "the", "display": "Nenets Autonomous Okrug"},
@@ -4771,5 +4815,5 @@ recognized_placenames = {
     "voivodeship/Świętokrzyskie Voivodeship": {"article": "", "display": "Holy Cross Voivodeship"},
     "voivodeship/Łódź": {"article": "", "display": "Lodz"},
     "voivodeship/Łódź Voivodeship": {"article": "", "display": "Lodz Voivodeship"},
-}  # 323
+}  # 325
 # END

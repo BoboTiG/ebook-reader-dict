@@ -1116,6 +1116,7 @@ langs = {
     "roa-la": "Latim Antigo",
     "roa-nor": "Normando",
     "roa-oca": "Catalão Medieval",
+    "roa-ole": "Leonês Antigo",
     "roa-opt": "Galego-Português Antigo",
     "roa-tal": "Talian",
     "roa-tara": "Tarantino",
@@ -1495,5 +1496,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,490
+}  # 1,491
 # END

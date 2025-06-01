@@ -2113,6 +2113,7 @@ labels = {
     "percussion instruments": "music",
     "perfect": "perfect",
     "perfective": "perfective",
+    "perfumery": "perfumery",
     "pesapallo": "pesäpallo",
     "pesäpallo": "pesäpallo",
     "petrochemistry": "petrochemistry",
@@ -2651,7 +2652,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,646
+}  # 2,647
 
 syntaxes = {
     "&": {
