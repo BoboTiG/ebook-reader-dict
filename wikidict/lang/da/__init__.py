@@ -129,17 +129,6 @@ templates_multi = {
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
     "data": "'(' + italic('data') + ')'",
-    # {{da-adj-N}}
-    "da-adj-1": "italic('intetkønsform af')",
-    "da-adj-2": "italic('bestemt og flertal af')",
-    # {{da-noun-N}}
-    "da-noun-1": "italic('bestemt entalsform af')",
-    "da-noun-2": "italic('ubestemt flertalsform af')",
-    "da-noun-3": "italic('bestemt flertalsform af')",
-    "da-noun-4": "italic('genitiv ubestemt entalsform af')",
-    "da-noun-5": "italic('genitiv bestemt entalsform af')",
-    "da-noun-6": "italic('genitiv ubestemt flertalsform af')",
-    "da-noun-7": "italic('genitiv bestemt flertalsform af')",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
     # {{forældet stavemåde af}}
@@ -158,8 +147,6 @@ templates_multi = {
     "only in": "italic('bruges kun i frasen')",
     # {{p}}
     "p": "italic('flertal')",
-    # {{præteritum participium af}}
-    "præteritum participium af": "italic('præteritum participium af')",
     # {{stavefejl for}}
     "stavefejl for": "italic('stavefejl for')",
     # {{trad|en|limnology}}
@@ -351,8 +338,34 @@ def last_template_handler(
 
 random_word_url = "https://da.wiktionary.org/wiki/Speciel:RandomRootpage"
 
+ALL_FORMS = [
+    "da-adj-1",
+    "da-adj-2",
+    "da-noun-1",
+    "da-noun-2",
+    "da-noun-",
+    "da-noun-3",
+    "da-noun-4",
+    "da-noun-5",
+    "da-noun-6",
+    "da-noun-7",
+    "flertal af",
+    "genitivform af",
+    "genitiv ental ubestemt af",
+    "genitiv ubestemt entalsform af",
+    "nutid af",
+    "pluralis af",
+    "præteritum participium af",
+]
 
-def adjust_wikicode(code: str, locale: str, *, all_langs: str = "|".join(langs)) -> str:
+
+def adjust_wikicode(
+    code: str,
+    locale: str,
+    *,
+    all_langs: str = "|".join(langs),
+    forms: str = "|".join(ALL_FORMS),
+) -> str:
     # sourcery skip: inline-immediately-returned-variable
     r"""
     >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
@@ -375,14 +388,23 @@ def adjust_wikicode(code: str, locale: str, *, all_langs: str = "|".join(langs))
     >>> adjust_wikicode("{{-avv-}}", "da")
     '=== {{avv}} ==='
 
+    >>> adjust_wikicode("#Pluralis af [[tale]]", "da")
+    '# {{flexion|tale}}'
     >>> adjust_wikicode("#Pluralis af [[tale|tale]]", "da")
     '# {{flexion|tale}}'
     >>> adjust_wikicode("#Pluralis af [[tale#Substantiv|tale]]", "da")
     '# {{flexion|tale}}'
     >>> adjust_wikicode("# Nutid af [[tale#Verbum|tale]]", "da")
     '# {{flexion|tale}}'
-    >>> adjust_wikicode("# Flertal af [[grand-maman]]: [[bedstemor]].", "da")
-    '# {{flexion|grand-maman}}'
+    >>> adjust_wikicode("# Flertal af [[tale]]: [[ui]].", "da")
+    '# {{flexion|tale}}'
+
+    >>> adjust_wikicode("# {{flertal af}} [[tale]]", "en")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# {{flertal af}} '''[[tale]]'''", "en")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# {{flertal af}} {{l|da|tale}}", "en")
+    '# {{flexion|{{l|da|tale}}}}'
     """
     code = code.replace("----", "")
 
@@ -413,19 +435,25 @@ def adjust_wikicode(code: str, locale: str, *, all_langs: str = "|".join(langs))
     # Variants
     #
 
-    # `#Pluralis af [[tale#Substantiv|tale]]` → `# {{flexion|tale}}`
-    forms = "|".join(
-        [
-            "flertal",
-            "genitivsform",
-            "genitiv ental ubestemt",
-            "genitiv ubestemt entalsform",
-            "nutid",
-            "pluralis",
-        ]
-    )
+    # `# Pluralis af [[tale#Substantiv|tale]]` → `# {{flexion|tale}}`
     code = re.sub(
-        rf"^#\s*(?:{forms})\s+af\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
+        rf"^#\s*(?:{forms})\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# {{flertal af}} '''[[tale]]'''` → `# {{flexion|tale}}`
+    code = re.sub(
+        rf"^#\s*\{{\{{(?:{forms})\}}\}} '*\[\[([^\]]+).*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# {{flertal af}} {{l|da|tale}}` → `# {{flexion|tale}}`
+    code = re.sub(
+        rf"^#.*\{{\{{(?:{forms})\}}\}}\s+(\{{\{{[^}}]+\}}\}}).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
