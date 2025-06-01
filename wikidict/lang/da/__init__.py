@@ -82,6 +82,10 @@ sections = (
     "{{verb}",
 )
 
+# Variantes
+variant_titles = sections
+variant_templates = ("{{flexion",)
+
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
     "da-car-numbers",
@@ -289,8 +293,21 @@ def last_template_handler(
     from ...user_functions import capitalize, concat, extract_keywords_from, italic, lookup_italic, strong, term
     from .. import defaults
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
+
     data = extract_keywords_from(parts)
 
     if tpl in {"abbreviation of", "abbr of"}:
@@ -370,6 +387,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("{{-avv-}}", "da")
     '=== {{avv}} ==='
+
+    >>> adjust_wikicode("#Pluralis af [[tale|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("#Pluralis af [[tale#Substantiv|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# Nutid af [[tale#Verbum|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# Flertal af [[grand-maman]]: [[bedstemor]].", "da")
+    '# {{flexion|grand-maman}}'
     """
     code = code.replace("----", "")
 
@@ -397,5 +423,18 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     # {{-avv-}} → === {{avv}} ===
     code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    #
+    # Variants
+    #
+
+    # `#Pluralis af [[tale#Substantiv|tale]]` → `# {{flexion|tale}}`
+    forms = "|".join(["flertal", "nutid", "pluralis"])
+    code = re.sub(
+        rf"^#\s*((?:{forms})\s+af\s+\[\[([^\]#|]+)(?:[#|].+)?]].*)",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
 
     return code

@@ -30,8 +30,8 @@ from wikidict.utils import process_templates
             "disse",
             [],
             [],
-            ["Flertal af denne", "ikke noget"],
-            [],
+            ["ikke noget"],
+            ["denne"],
         ),
         (
             "et",
