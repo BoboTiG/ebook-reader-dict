@@ -39,6 +39,7 @@ sections = (
     "prœposition",
     "proposition",
     "proprium",
+    "sammentrækning",
     "sætning",
     "substantiv",
     "symbol",
@@ -57,6 +58,7 @@ sections = (
     "{{car-num}",
     "{{car-num|mul}",
     "{{conj}",
+    "{{contr}}",
     "{{dem-pronom}",
     "{{end}",
     "{{expr}",
@@ -415,16 +417,16 @@ def adjust_wikicode(code: str, locale: str, *, all_langs: str = "|".join(langs))
     forms = "|".join(
         [
             "flertal",
-            "genitivsform af",
-            "genitiv ental ubestemt af",
-            "genitiv ubestemt entalsform af",
+            "genitivsform",
+            "genitiv ental ubestemt",
+            "genitiv ubestemt entalsform",
             "nutid",
             "pluralis",
         ]
     )
     code = re.sub(
-        rf"^#\s*((?:{forms})\s+af\s+\[\[([^\]#|]+)(?:[#|].+)?]].*)",
-        r"# {{flexion|\2}}",
+        rf"^#\s*(?:{forms})\s+af\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
+        r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
