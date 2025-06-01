@@ -2,6 +2,8 @@
 
 import re
 
+from .langs import langs
+
 # Float number separator
 float_separator = ","
 
@@ -365,7 +367,7 @@ def last_template_handler(
 random_word_url = "https://da.wiktionary.org/wiki/Speciel:RandomRootpage"
 
 
-def adjust_wikicode(code: str, locale: str) -> str:
+def adjust_wikicode(code: str, locale: str, *, all_langs: str = "|".join(langs)) -> str:
     # sourcery skip: inline-immediately-returned-variable
     r"""
     >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
@@ -411,9 +413,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Transform sub-locales into their own section to prevent mixing stuff
     # {{-da-}} → =={{da}}==
     # {{-mul-}} → =={{mul}}==
-    # {{-no-}} → =={{no}}==
-    # {{-sv-}} → =={{sv}}==
-    code = re.sub(r"\{\{-((?:da|mul|no|sv))-\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+    code = re.sub(rf"\{{\{{-({all_langs})-\}}\}}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     # {{-avv-|da}} → === {{avv}} ===
     code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
