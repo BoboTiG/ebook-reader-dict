@@ -376,7 +376,8 @@ def adjust_wikicode(
     code: str,
     locale: str,
     *,
-    all_langs: str = "|".join(langs),
+    all_langs_iso: str = "|".join(langs),
+    all_langs_name: str = "|".join(langs.values()),
     forms: str = "|".join(ALL_FORMS),
 ) -> str:
     # sourcery skip: inline-immediately-returned-variable
@@ -389,8 +390,10 @@ def adjust_wikicode(
 
     >>> adjust_wikicode("===dansk===", "da")
     '=={{da}}=='
+    >>> adjust_wikicode("===Engelsk===", "da")
+    '=={{en}}=='
     >>> adjust_wikicode("===Foo===", "fo")
-    '=={{fo}}=='
+    '===Foo==='
 
     >>> adjust_wikicode("{{-avv-|da}}", "da")
     '=== {{avv}} ==='
@@ -428,12 +431,17 @@ def adjust_wikicode(
     code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     # ===dansk=== → =={{da}}==
-    code = re.sub(rf"=+\s*{locale}\w+\s*=+", rf"=={{{{{locale}}}}}==", code, flags=re.IGNORECASE | re.MULTILINE)
+    code = re.sub(
+        rf"=+\s*({all_langs_name})\s*=+",
+        lambda m: f"=={{{{{next(iso for iso, name in langs.items() if m[1].lower() == name)}}}}}==",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
 
     # Transform sub-locales into their own section to prevent mixing stuff
     # {{-da-}} → =={{da}}==
     # {{-mul-}} → =={{mul}}==
-    code = re.sub(rf"\{{\{{-({all_langs})-\}}\}}", r"=={{\1}}==", code, flags=re.MULTILINE)
+    code = re.sub(rf"\{{\{{-({all_langs_iso})-\}}\}}", r"=={{\1}}==", code, flags=re.MULTILINE)
 
     # {{-avv-|da}} → === {{avv}} ===
     code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
