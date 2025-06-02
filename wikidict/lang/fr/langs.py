@@ -3449,7 +3449,7 @@ langs = {
     "mle": "manambu",
     "mlf": "mal",
     "mlh": "mape",
-    "mlj": "milju",
+    "mlj": "miltu",
     "mlk": "ilwana",
     "mll": "malua bay",
     "mlm": "mulam",
@@ -4626,6 +4626,7 @@ langs = {
     "proto-otomi": "proto-otomi",
     "proto-ougrien": "proto-ougrien",
     "proto-ouralien": "proto-ouralien",
+    "proto-pacifique central": "proto-pacifique central",
     "proto-palaungique": "proto-palaungique",
     "proto-pama-nyungan": "proto-pama-nyungan",
     "proto-paman": "proto-paman",
@@ -6702,5 +6703,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,697
+}  # 6,698
 # END

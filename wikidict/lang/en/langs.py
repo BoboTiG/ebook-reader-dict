@@ -9135,6 +9135,7 @@ langs = {
     "xdc": "Dacian",
     "xdk": "Dharug",
     "xdm": "Edomite",
+    "xdq": "Kaitag",
     "xdy": "Malayic Dayak",
     "xeb": "Eblaite",
     "xed": "Hdi",
@@ -9891,7 +9892,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,886
+}  # 9,887
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

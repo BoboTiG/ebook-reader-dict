@@ -372,6 +372,7 @@ langs = {
     "xcl": "oldarmensk",
     "xho": "xhosa",
     "xls": "lusitansk",
+    "xno": "anglo-normannisk",
     "yi": "jiddisch",
     "yid": "jiddisch",
     "zai": "landtangezapotekansk",
@@ -380,5 +381,5 @@ langs = {
     "zu": "zulu",
     "zul": "zulu",
     "zza": "zazaki",
-}  # 396
+}  # 397
 # END

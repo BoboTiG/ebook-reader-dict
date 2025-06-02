@@ -286,7 +286,7 @@ recognized_placetypes = {
         "should_categorize": "",
     },
     "administrative center": {
-        "fallback": "administrative centre",
+        "fallback": "non-city capital",
         "article": "the",
         "display": "administrative center",
         "preposition": "",
@@ -294,11 +294,11 @@ recognized_placetypes = {
         "should_categorize": "",
     },
     "administrative centre": {
-        "fallback": "",
+        "fallback": "administrative center",
         "article": "the",
         "display": "administrative centre",
-        "preposition": "of",
-        "formertype": "capital",
+        "preposition": "",
+        "formertype": "",
         "should_categorize": "",
     },
     "administrative county": {
@@ -2207,8 +2207,8 @@ recognized_placetypes = {
     },
     "hromada": {
         "fallback": "",
-        "article": "a",
-        "display": "hromada",
+        "article": "",
+        "display": "(internal use only)",
         "preposition": "of",
         "formertype": "subpolity",
         "should_categorize": "",
@@ -4319,6 +4319,7 @@ placetypes_aliases = {
     "rcomun": "regional county municipality",
     "rdist": "regional district",
     "rep": "republic",
+    "rhrom": "rural hromada",
     "riv": "river",
     "rmun": "regional municipality",
     "robor": "royal borough",
@@ -4327,6 +4328,7 @@ placetypes_aliases = {
     "rurmun": "rural municipality",
     "s": "state",
     "sar": "special administrative region",
+    "shrom": "settlement hromada",
     "spref": "subprefecture",
     "sprefcity": "sub-prefectural city",
     "sprovcity": "subprovincial city",
@@ -4342,12 +4344,13 @@ placetypes_aliases = {
     "uauth": "unitary authority",
     "ucomm": "unincorporated community",
     "udist": "unitary district",
+    "uhrom": "urban hromada",
     "uterr": "union territory",
     "utwpmun": "united township municipality",
     "val": "valley",
     "voi": "voivodeship",
     "wcomm": "Welsh community",
-}  # 107
+}  # 110
 
 recognized_qualifiers = {
     "abandoned": "abandoned",
@@ -4635,6 +4638,10 @@ recognized_placenames = {
     "municipality/Hai Phong": {"article": "", "display": "Haiphong"},
     "municipality/Huế": {"article": "", "display": "Hue"},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": "Jewish Autonomous Oblast"},
+    "oblast/Kiev": {"article": "", "display": "Kyiv"},
+    "oblast/Kiev Oblast": {"article": "", "display": "Kyiv Oblast"},
+    "oblast/Odessa": {"article": "", "display": "Odesa"},
+    "oblast/Odessa Oblast": {"article": "", "display": "Odesa Oblast"},
     "oblast/Zaporizhia": {"article": "", "display": "Zaporizhzhia"},
     "oblast/Zaporizhia Oblast": {"article": "", "display": "Zaporizhzhia Oblast"},
     "okrug/Chukotka Autonomous Okrug": {"article": "the", "display": "Chukotka Autonomous Okrug"},
@@ -4815,5 +4822,5 @@ recognized_placenames = {
     "voivodeship/Świętokrzyskie Voivodeship": {"article": "", "display": "Holy Cross Voivodeship"},
     "voivodeship/Łódź": {"article": "", "display": "Lodz"},
     "voivodeship/Łódź Voivodeship": {"article": "", "display": "Lodz Voivodeship"},
-}  # 325
+}  # 329
 # END
