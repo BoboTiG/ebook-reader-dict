@@ -8,7 +8,7 @@ from ...user_functions import (
 from .langs import langs
 
 
-def render_avledet(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_avledet(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_avledet("avledet", ["gml", "no", "abbedie"], defaultdict(str))
     'middelnedertysk <i>abbedie</i>'
@@ -35,7 +35,7 @@ def render_avledet(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
-def render_lant(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lant("lånt", ["en", "no", "latte"], defaultdict(str))
     'engelsk <i>latte</i>'
@@ -62,7 +62,7 @@ def render_lant(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_sammensetning(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_sammensetning(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sammensetning("sammensetning", ["bonde", "vett"], defaultdict(str))
     '<i>bonde</i> + <i>vett</i>'
@@ -72,16 +72,14 @@ def render_sammensetning(tpl: str, parts: list[str], data: defaultdict[str, str]
     '<i>Achter</i> («åtter») + <i>Bahn</i> («bane»)'
     """
     phrase_parts = []
-    i = 1
-    for part in parts:
+    for i, part in enumerate(parts, start=1):
         trindex = f"tr{i}"
         tr = data[trindex]
         phrase_parts.append(f"{italic(part)}" + (f" («{tr}»)" if tr else ""))
-        i += 1
     return concat(phrase_parts, " + ")
 
 
-def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_term("term", ["ord"], defaultdict(str))
     '<i>ord</i>'
@@ -100,10 +98,8 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     >>> render_term("term", ["ord#Verb", "word"], defaultdict(str))
     '<i>word</i>'
     """
-    term = ""
     phrase = ""
-    if len(parts) > 1:
-        term = parts[1]
+    term = parts[1] if len(parts) > 1 else ""
     term = term or parts[0]
     phrase = term if data["sc"] else italic(term)
 
@@ -120,7 +116,7 @@ def render_term(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_ursprak(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_ursprak(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ursprak("proto", ["indoeuropeisk", "klek-", "", "kleg-", "å rope/skrike"], defaultdict(str))
     'urindoeuropeisk *klek-, *kleg- («å rope/skrike»)'
@@ -140,6 +136,16 @@ def render_ursprak(tpl: str, parts: list[str], data: defaultdict[str, str], word
     return phrase
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("bøyingsform", ["no", "verb", "uttrykke"], defaultdict(str))
+    'uttrykke'
+    >>> render_variant("no-adj-bøyningsform", ["b", "vis"], defaultdict(str, {"nb": "ja", "nrm": "ja", "nn": "ja"}))
+    'vis'
+    """
+    return parts[-1]
+
+
 template_mapping = {
     "avledet": render_avledet,
     "lånt": render_lant,
@@ -149,6 +155,15 @@ template_mapping = {
     "Sammensatt": render_sammensetning,
     "term": render_term,
     "urspråk": render_ursprak,
+    #
+    # Variants
+    #
+    "__variant__bøyingsform": render_variant,
+    "__variant__bøyningsform": render_variant,
+    "__variant__no-adj-bøyningsform": render_variant,
+    "__variant__no-sub-bøyningsform": render_variant,
+    "__variant__no-verb-bøyningsform": render_variant,
+    "__variant__no-verbform av": render_variant,
 }
 
 

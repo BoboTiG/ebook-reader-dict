@@ -1,3 +1,13 @@
+[tool.coverage.report]
+exclude_also = [
+    "except Exception:",
+    "except KeyboardInterrupt:",
+    'if "CI" in os.environ:',
+    "if DEBUG_",
+    'if __name__ == "__main__":',
+    "if TYPE_CHECKING:",
+]
+
 [tool.mypy]
 # Ensure we know what we do
 warn_redundant_casts = true
@@ -44,7 +54,7 @@ exclude = [
 ]
 line-length = 120
 indent-width = 4
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.lint]
 fixable = ["ALL"]

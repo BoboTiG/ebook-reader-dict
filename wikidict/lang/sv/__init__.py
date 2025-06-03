@@ -2,57 +2,48 @@
 
 import re
 
-from ...user_functions import uniq
+from ...user_functions import unique
 
 # Float number separator
 float_separator = ","
 
-# Thousads separator
+# Thousands separator
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 # https://sv.wiktionary.org/wiki/Wiktionary:Stilguide#Ordklassrubriken
-head_sections = ("==Svenska==", "svenska")
+head_sections = ("svenska",)
 sections = (
-    "Adjektiv",
-    "Adverb",
-    "Affix",
-    "Artikel",
-    "Efterled",
-    "Förkortning",
-    "Förled",
-    "Interjektion",
-    "Konjunktion",
-    "Possessivt pronomen",
-    "Postposition",
-    "Prefix",
-    "Preposition",
-    "Pronomen",
-    "Substantiv",
-    "Suffix",
-    "Verb",
-    "Verbpartikel",
+    "adjektiv",
+    "adverb",
+    "affix",
+    "artikel",
+    "efterled",
+    "förkortning",
+    "förled",
+    "interjektion",
+    "konjunktion",
+    "possessivt pronomen",
+    "postposition",
+    "prefix",
+    "preposition",
+    "pronomen",
+    "substantiv",
+    "suffix",
+    "verb",
+    "verbpartikel",
 )
 
 # Variants
 variant_titles = (
-    "Adjektiv",
-    "Adverb",
-    "Substantiv",
-    "Verb",
+    "adjektiv",
+    "adverb",
+    "substantiv",
+    "verb",
 )
 variant_templates = (
     "{{avledning",
     "{{böjning",
-)
-
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # For variants
-    #
-    "avledning",
-    "böjning",
 )
 
 # Templates to ignore: the text will be deleted.
@@ -60,6 +51,8 @@ templates_ignored = (
     "?",
     "citat",
     "inget uppslag",
+    "fakta",
+    "källa-so",
     "konstr",
     "struktur",
     "sv-adj-alt-okomp",
@@ -74,14 +67,28 @@ templates_italic = {
 
 # Templates more complex to manage.
 templates_multi = {
+    # {{f}}
+    "f": "italic('f')",
     # {{färg|#80FF80|light green}}
     "färg": "color(parts[1])",
+    # {{fpl}}
+    "fpl": "italic('f pl')",
+    # {{ipa|/f/}}
+    "ipa": "parts[-1]",
+    # {{länk|sv|alfa, beta}}
+    "länk": "parts[-1]",
+    # {{länk-ar|عَنَى}}
+    "länk-ar": "parts[-1]",
     # {{länka|etansyra}}
     "länka": "parts[1]",
     # {{led|sv|f|gata}}
     "led": "italic(('förled' if parts[2] == 'f' else 'efterled') + ' tillhörigt ordet') + ' ' + parts[-1]",
+    # {{m}}
+    "m": "italic('m')",
     # {{n}}
     "n": "italic('n')",
+    # {{npl}}
+    "npl": "italic('n pl')",
     # {{ö|en|test}}
     "ö": "parts[-1]",
     # {{ö+|en|test}}
@@ -90,17 +97,19 @@ templates_multi = {
     "ö-inte": "f\"{strong('inte')} {italic(strike(parts[-1]))}\"",
     # {{övrigatecken|kolon|:}}
     "övrigatecken": 'f\'"<code>{parts[-1].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</code>"\'',
+    # {{övrigauppslagsord|n:te}}
+    "övrigauppslagsord": "parts[-1]",
+    # {{p}}
+    "p": "italic('pl')",
+    # {{u}}
+    "u": "italic('u')",
     # {{uttal|sv|ipa=mɪn}}
     "uttal": "f\"{strong('uttal:')} /{parts[-1].lstrip('ipa=')}/\"",
-    #
-    # For variants
-    #
-    # {{böjning|sv|subst|boll}}
-    "böjning": "parts[-1]",
 }
 
 # Templates that will be completed/replaced using custom style.
 templates_other = {
+    "=": "=",
     "dödform": "†",
 }
 
@@ -130,6 +139,11 @@ _gammalstavning = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/sv
 release_description = """\
+### 🌟 För att kunna uppdateras regelbundet behöver detta projekt stöd; [klicka här](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) för att donera. 🌟
+
+<br/>
+
+
 Ord räknas: {words_count}
 Dumpa Wiktionary: {dump_date}
 
@@ -146,44 +160,41 @@ Etymology-Free Version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"{uttal\|sv\|(?:[^\|]+\|)?ipa=([^}|]+)}?\|?"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "sv")
     []
-    >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=eːn/, /ɛn/, /en}}", "sv")
     ['/eːn/, /ɛn/, /en/']
-    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=en|uttalslänk=-|tagg=vissa dialekter}}", "sv")
     ['/en/']
-    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}")
+    >>> find_pronunciations("{{uttal|sv|ipa=ɛn|uttalslänk=-}}", "sv")
     ['/ɛn/']
     """
-    return [f"/{p}/" for p in uniq(pattern.findall(code))]
+    pattern = re.compile(rf"\{{uttal\|{locale}\|(?:[^\|]+\|)?ipa=([^}}|]+)}}?\|?")
+    return [f"/{p}/" for p in unique(pattern.findall(code))]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["foo"], "sv")
         '##opendoublecurly##foo##closedoublecurly##'
 
-        >>> last_template_handler(["avledning", "sv", "tråkig"], "sv")
-        'tråkig'
-        >>> last_template_handler(["avledning", "sv", "seende", "adj"], "sv")
-        'seende'
-        >>> last_template_handler(["avledning", "sv", "mälta", "ordform=prespart"], "sv")
-        'mälta'
-        >>> last_template_handler(["avledning", "sv", "lada", "partikel=till", "ordform=perfpart"], "sv")
-        'tillada'
-        >>> last_template_handler(["avledning", "sv", "rikta", "partikel=in", "ordform=prespart"], "sv")
-        'inrikta'
-        >>> last_template_handler(["avledning", "sv", "beriktiga", "verb"], "sv")
-        'beriktiga'
-        >>> last_template_handler(["avledning", "sv", "bero", "prespart"], "sv")
-        'bero'
+        >>> last_template_handler(["belagt", "sv", "2025"], "sv")
+        'Belagt i språket sedan 2025.'
+        >>> last_template_handler(["belagt", "sv", "2025", "n"], "sv")
+        'belagt i språket sedan 2025'
+        >>> last_template_handler(["belagt", "sv", "2025", "nt"], "sv")
+        'belagt i språket sedan 2025-talet'
 
         >>> last_template_handler(["gammalstavning", "sv", "fv", "brev"], "sv")
         '<i>(ålderdomligt) genom stavningsreformen 1906 ersatt av</i> brev'
@@ -191,6 +202,18 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         '<i>(ålderdomligt) ersatt av</i> Dalarna'
         >>> last_template_handler(["gammalstavning", "ejtagg=1", "sv", "fv", "övergiva"], "sv")
         '<i>genom stavningsreformen 1906 ersatt av</i> övergiva'
+
+        >>> last_template_handler(["härledning", "sv", "gmq-fsv", "nokot sin, nokon sin"], "sv")
+        'fornsvenska <i>nokot sin, nokon sin</i>'
+        >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "kapplöpningsbana, rännarbana"], "sv")
+        'klassisk grekiska <i>ἱππόδρομος</i> (”kapplöpningsbana, rännarbana”)'
+        >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "tr=hippodromos", "kapplöpningsbana, rännarbana"], "sv")
+        'klassisk grekiska <i>ἱππόδρομος</i> (<i>hippodromos</i>, ”kapplöpningsbana, rännarbana”)'
+
+        >>> last_template_handler(["kognat", "en", "hippodrome"], "sv")
+        'engelska <i>hippodrome</i>'
+        >>> last_template_handler(["kognat", "gmq-bot", "tíðend"], "sv")
+        'okänt språk <i>tíðend</i>'
 
         >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
@@ -207,11 +230,29 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["tagg", "bildligt", "reflexivt"], "sv", word="etsa")
         '<i>(bildligt, reflexivt: <b>etsa sig</b>)</i>'
 
+        >>> last_template_handler(["tr", "ru", "Пётр Ильи́ч Чайко́вский"], "sv")
+        'Pjotr Iljítj Tjajkóvskij'
+
     """
     from ...user_functions import extract_keywords_from, italic, strong, term
     from .. import defaults
+    from .langs import langs
+    from .template_handlers import lookup_template, render_template
+    from .transliterator import transliterate
 
     tpl, *parts = template
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
+
     data = extract_keywords_from(parts)
 
     if tpl == "avledning":
@@ -222,10 +263,37 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             return re.sub(r"(.)(?:\1){2,}", r"\1\1", f"{data['partikel']}{parts[-1]}")
         return parts[-1]
 
+    if tpl == "belagt":
+        year = parts[1]
+        if len(parts) > 2:
+            first_letter = "b"
+            suffix = "-talet" if "t" in parts[2] else ""
+        else:
+            first_letter = "B"
+            suffix = "."
+        return f"{first_letter}elagt i språket sedan {year}{suffix}"
+
     if tpl == "gammalstavning":
         phrase = "" if data["ejtagg"] == "1" else "(ålderdomligt) "
         cat = f"{phrase}{_gammalstavning.get(parts[1], '')} ersatt av"
         return f"{italic(cat)} {parts[-1]}".replace("  ", " ")
+
+    if tpl == "härledning":
+        parts.pop(0)  # Remove the source lang
+        phrase = langs[parts.pop(0)]
+        phrase += f" {italic(parts.pop(0))}"
+        if (tr := data["tr"]) or parts:
+            phrase += " ("
+            if tr:
+                phrase += italic(tr)
+            if parts:
+                phrase += ", " if tr else ""
+                phrase += f"”{parts.pop(0)}”"
+            phrase += ")"
+        return phrase
+
+    if tpl == "kognat":
+        return f"{langs[parts[0]]} {italic(parts[1])}"
 
     if tpl == "tagg":
         words = [
@@ -236,4 +304,10 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             words.append(data["text"])
         return term(", ".join(words))
 
-    return defaults.last_template_handler(template, locale, word=word)
+    if tpl == "tr":
+        return transliterate(parts[0], parts[1])
+
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
+
+
+random_word_url = "https://sv.wiktionary.org/wiki/Special:RandomRootpage"

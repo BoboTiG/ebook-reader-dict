@@ -1,7 +1,6 @@
 """Defaults values for locales without specific needs."""
 
 import logging
-import re
 from collections import defaultdict
 
 log = logging.getLogger(__name__)
@@ -9,12 +8,12 @@ log = logging.getLogger(__name__)
 # Float number separator
 float_separator = ""
 
-# Thousads separator
+# Thousands separator
 thousands_separator = ""
 
 # Markers for sections that contain interesting text to analyse.
-section_patterns = (r"\#",)
-sublist_patterns = (r"\#",)
+section_patterns = ("#",)
+sublist_patterns = ("#",)
 section_level = 2
 section_sublevels = (3,)
 head_sections = ("",)
@@ -24,7 +23,7 @@ etyl_section = ("",)
 variant_titles: tuple[str, ...] = ()
 variant_templates: tuple[str, ...] = ()
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore: tuple[str, ...] = ()
 
 # Templates to ignore: the text will be deleted.
@@ -40,25 +39,33 @@ templates_multi: dict[str, str] = {}
 templates_other: dict[str, str] = {}
 
 
-def find_genders(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r""),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """Function used to find genders within `code`."""
     return []
 
 
-def find_pronunciations(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r""),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """Function used to find pronunciations within `code`."""
     return []
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
+
+        >>> last_template_handler(["formatnum", "42000"], "es")
+        '42 000'
+        >>> last_template_handler(["formatnum", "42000"], "it")
+        '42 000'
+        >>> last_template_handler(["formatnum", "42000"], "no")
+        '42 000'
 
         >>> last_template_handler(["transliterator", "ar", "سم"], "fr")
         'sm'
@@ -66,10 +73,19 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'zb'
     """
     from ..transliterator import transliterate
-    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, term
+    from ..user_functions import capitalize, extract_keywords_from, lookup_italic, number, term
 
     tpl, *parts = template
     data = extract_keywords_from(parts)
+
+    if tpl == "BASEPAGENAME":
+        return word
+
+    if tpl == "formatnum":
+        from . import float_separator as locale_aware_fs
+        from . import thousands_separator as locale_aware_ts
+
+        return number(parts[0], locale_aware_fs[locale], locale_aware_ts[locale])
 
     if tpl == "w":
         return render_wikilink(tpl, parts, data)
@@ -80,27 +96,21 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         text = parts[1] if len(parts) == 2 else word
         return transliterate(lang, text)
 
-    # {{tpl|item}} -> <i>(Templatet gf)</i>
-    if len(template) == 2:
-        return term(capitalize(lookup_italic(tpl, locale)))
+    if tpl == "!":
+        return "|"
 
     if italic := lookup_italic(tpl, locale, empty_default=True):
         return term(capitalize(italic))
 
-    # {{tpl|item1|item2|...}} -> ''
-    if len(template) > 2:
-        from ..render import MISSING_TEMPLATES
+    if all_templates is not None:
+        all_templates.append((tpl, word, "missed"))
 
-        MISSING_TEMPLATES.append((tpl, word))
-        return ""
-
-    # {{template}}
     from ..utils import CLOSE_DOUBLE_CURLY, OPEN_DOUBLE_CURLY
 
     return f"{OPEN_DOUBLE_CURLY}{tpl}{CLOSE_DOUBLE_CURLY}"
 
 
-def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_wikilink("w", [], defaultdict(str))
     ''
@@ -114,12 +124,18 @@ def render_wikilink(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     "Pavel Vladimirovitch <span style='font-variant:small-caps'>Ieremeïev</span>"
     >>> render_wikilink("w", ["mitrospin obscur 0", "mitrospin obscur 1", "(''Mitrospingus cassinii'')"], defaultdict(str))
     'mitrospin obscur 1'
+    >>> render_wikilink("W", ["Nomenclature de l'UICPA"], defaultdict(str, {"dif": "Nom UICPA"}))
+    "Nomenclature de l'UICPA"
     """
     # Possible imbricated templates: {{w| {{pc|foo bar}} }}
-    if wiki_data := {k: v for k, v in data.items() if k != "lang"}:
+    if wiki_data := {k: v for k, v in data.items() if k not in ("lang", "dif")}:
         return "".join(f"{k}={v}" for k, v in wiki_data.items())
 
     try:
         return parts[1]
     except IndexError:
         return parts[0] if parts else ""
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    return code

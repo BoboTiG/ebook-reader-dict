@@ -6,7 +6,7 @@ from scripts_utils import get_soup
 def read_all_lines_etym(lines: list[str]) -> dict[str, dict[str, str]]:
     # remove aliases
     lua_code = "\n".join(lines)
-    lua_code = re.sub(r"aliases\s*=\s*{([^}]*)}", "", lua_code, 0, re.MULTILINE | re.DOTALL)
+    lua_code = re.sub(r"aliases\s*=\s*{([^}]*)}", "", lua_code, count=0, flags=re.MULTILINE | re.DOTALL)
     lines = lua_code.split("\n")
 
     pattern = re.compile(r"(\w*)\s*=\s*([{|\"].*[}|\"])")
@@ -27,7 +27,7 @@ def read_all_lines_etym(lines: list[str]) -> dict[str, dict[str, str]]:
             continue
         if in_comment:
             continue
-        if line.startswith(("--", "return")):
+        if line.startswith(("--", "return", "end", "local function")):
             continue
         remove_words = ("nil,", "ancestral_to_parent", "remove_diacritics", "remove_exceptions", "m_langdata")
         if any(word in line for word in remove_words):
@@ -75,7 +75,7 @@ def read_all_lines_lang(lines: list[str]) -> dict[str, str]:
 def get_content(url: str) -> list[str]:
     soup = get_soup(url)
     content_div = soup.find("div", "mw-parser-output")
-    content_div = content_div.findChild("div", {"class": "mw-highlight"}, recursive=False)
+    content_div = content_div.find("div", {"class": "mw-highlight"}, recursive=False)
     return str(content_div.text).split("\n")
 
 

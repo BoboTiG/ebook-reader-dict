@@ -1,0 +1,9 @@
+={{-pt-}}=
+==Verbal==
+{{oxítona|no|men|cla|tu|rar}}
+# fazer a [[nomenclatura]] de
+
+===Conjugação===
+{{conj/pt|nomenclatur|ar}}
+
+[[Categoria:Verbo (Português)]]

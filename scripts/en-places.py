@@ -1,10 +1,12 @@
+import re
+
 from scripts_utils import get_soup
 
 url = "https://en.wiktionary.org/wiki/Template:place"
 soup = get_soup(url)
 tables = soup.find_all("table", "wikitable")
 
-columns = ["placetype", "article", "display", "preposition", "aliases"]
+columns = ["placetype", "fallback", "article", "display", "preposition", "aliases", "formertype", "should_categorize"]
 placetypes = {}
 print("recognized_placetypes = {")
 body = tables[0].find("tbody")
@@ -20,7 +22,10 @@ for tr in trs:
         placetypes[placetype] = tds
         print(f'    "{placetype}": {{')
         for key in tds:
-            print(f'        "{key}": "{tds[key]}",')
+            value = tds[key]
+            if key == "article" and value.startswith("["):
+                value = ""
+            print(f'        "{key}": "{value}",')
         print("    },")
         for alias in sorted(aliases):
             if alias := alias.strip():
@@ -55,12 +60,16 @@ count = 0
 print("recognized_placenames = {")
 for tr in trs:
     tds = tr.find_all("td")
-    place = tds[0].text
-    article = tds[1].text
-    display = tds[2].text
-    if display == "(same)":
-        display = ""
-    if article or display:
-        print(f'    "{place}": {{"article": "{article}", "display": "{display}"}},')
+    # placename, key, display+category aliases, Category-only aliases, Container, Recognized subdivisions
+    placename = tds[0].text
+    key = tds[1].text
+    article = m[0] if (m := re.findall(r"^\(([^)]+)\)", key)) else ""
+    kind, display = placename.split("/", 1)
+    if article:
+        print(f'    "{placename}": {{"article": "{article}", "display": "{display}"}},')
         count += 1
+    if aliases := tds[2].text:
+        for alias in aliases.split(", "):
+            print(f'    "{kind}/{alias}": {{"article": "{article}", "display": "{display}"}},')
+            count += 1
 print(f"}}  # {count:,}")

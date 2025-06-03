@@ -199,7 +199,7 @@ langs = {
     "gan": "Gan",
     "gay": "Gayo",
     "gcf": "Guadeloupe-Kreolisch",
-    "gcr": "Französisch-Guayana-Kreolisch",
+    "gcr": "Französisch-Guayanisches Kreol",
     "gd": "Schottisch-Gälisch",
     "gdq": "Mehri",
     "gem": "Urgermanisch",
@@ -470,6 +470,7 @@ langs = {
     "phn": "Phönizisch",
     "pi": "Pali",
     "pih": "Pitkern",
+    "pim": "Powhatan",
     "pis": "Pijin",
     "pkp": "Pukapuka",
     "pl": "Polnisch",
@@ -674,6 +675,7 @@ langs = {
     "xur": "Urartäisch",
     "xve": "Venetisch",
     "xvo": "Volskisch",
+    "xvs": "Vestinisch",
     "yak": "Yakima",
     "yaq": "Yaqui",
     "yi": "Jiddisch",
@@ -691,5 +693,5 @@ langs = {
     "zh-tw": "Chinesisch (traditionell)",
     "zu": "isiZulu",
     "zza": "Zazaki",
-}  # 686
+}  # 688
 # END

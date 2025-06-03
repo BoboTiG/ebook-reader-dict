@@ -1,34 +1,68 @@
 # eBook Reader Dictionaries
 
-[![Update dictionaries](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-updates.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-updates.yml)
-[![Update local-specific data](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/auto-update-data.yml)
 [![Word of the day](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml/badge.svg)](https://github.com/BoboTiG/ebook-reader-dict/actions/workflows/daily.yml)
-[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-1. <small>`[CA]`</small> [Catalan](docs/ca/README.md)
-1. <small>`[DA]`</small> [Danish](docs/da/README.md)
-1. <small>`[DE]`</small> [German](docs/de/README.md)
-1. <small>`[EL]`</small> [Greek](docs/el/README.md)
-1. <small>`[EN]`</small> [English](docs/en/README.md)
-1. <small>`[ES]`</small> [Spanish](docs/es/README.md)
-1. <small>`[FR]`</small> [French](docs/fr/README.md) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
-1. <small>`[IT]`</small> [Italian](docs/it/README.md)
-1. <small>`[NO]`</small> [Norway](docs/el/README.md)
-1. <small>`[PT]`</small> [Portuguese](docs/pt/README.md)
-1. <small>`[RO]`</small> [Romanian](docs/ro/README.md)
-1. <small>`[RU]`</small> [Russian](docs/ru/README.md)
-1. <small>`[SV]`</small> [Swedish](docs/sv/README.md)
+<br/>
 
-## Users
+### 🌟 In order to be regularly updated, this project needs support; [click here](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) to donate. 🌟
 
-- [all] [AUR packages](https://aur.archlinux.org/packages?O=0&SeB=nd&K=stardict-bobotig&outdated=&SB=p&SO=d&PP=50&submit=Go) by [Raffaele Mancuso @raffaem](https://github.com/raffaem)
+<br/>
+
+## Features
+
+- When selecting a plural word, **its singular form** will be displayed.
+- When selecting a conjugated verb, **its infinitive version** will be displayed.
+- When a word is the plural form of another, and also a form of a verb, **all versions** are displayed.
+- If a word contains **several pronunciations, or genders**, all are available.
+- **Chemical formulas** are beautifuly rendered.
+- **Mathematic formulas** are beautifuly rendered.
+- **Hieroglyphs** are supported.
+- **Tables** are supported.
+
+## Special
+
+Find [bilingual dictionaries](https://www.reader-dict.com), and [universal dictionaries](https://www.reader-dict.com).
+
+## Downloads
+
+1. <small>`[CA]`</small> [Catalan](https://www.reader-dict.com/ca/download/ca)
+1. <small>`[DA]`</small> [Danish](https://www.reader-dict.com/da/download/da)
+1. <small>`[DE]`</small> [German](https://www.reader-dict.com/de/download/de)
+1. <small>`[EL]`</small> [Greek](https://www.reader-dict.com/el/download/el)
+1. <small>`[EN]`</small> [English](https://www.reader-dict.com/en/download/en)
+1. <small>`[EO]`</small> [Esperanto](https://www.reader-dict.com/eo/download/eo)
+1. <small>`[ES]`</small> [Spanish](https://www.reader-dict.com/es/download/es)
+1. <small>`[FR]`</small> [French](https://www.reader-dict.com/fr/download/fr) ([news](https://www.mobileread.com/forums/showthread.php?t=330223&page=2))
+1. <small>`[FRO]`</small> [Old French](https://www.reader-dict.com/fr#fro-fr)
+1. <small>`[IT]`</small> [Italian](https://www.reader-dict.com/it/download/it)
+1. <small>`[NO]`</small> [Norway](https://www.reader-dict.com/no/download/no)
+1. <small>`[PT]`</small> [Portuguese](https://www.reader-dict.com/pt/download/pt)
+1. <small>`[RO]`</small> [Romanian](https://www.reader-dict.com/ro/download/ro)
+1. <small>`[RU]`</small> [Russian](https://www.reader-dict.com/ru/download/ru)
+1. <small>`[SV]`</small> [Swedish](https://www.reader-dict.com/sv/download/sv)
+
+## Installation
+
+### Kindle
+
+Copy the dictionary inside the `documents/dictionaries/` folder on your eBook reader.
+
+### Kobo
+
+Copy the dictionary inside the `.kobo/custom-dict/` folder on your eBook reader.
+
+### KOReader
+
+Download a dictionary in StarDict format, unzip it into the `koreader/data/dict/` folder on your eBook reader. If you want multiple dictionaries you have to create directories in `koreader/data/dict/` for all your dictionaries and unzip the dictionaries into this folders.
+
+---
 
 ## Development
 
 Set up a virtual environment:
 
 ```bash
-python3.12 -m venv venv
+python3.13 -m venv venv
 
 # For Linux and Mac users
 . venv/bin/activate
@@ -63,7 +97,7 @@ Run linters, and quality checkers, before submitting a pull-request:
 ## Contributors 💖
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks go to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -93,6 +127,8 @@ Thanks go to these wonderful people ([emoji key](https://allcontributors.org/doc
       <td align="center" valign="top" width="16.66%"><a href="http://blog.yue-dongchen.xyz"><img src="https://avatars.githubusercontent.com/u/38829129?v=4?s=100" width="100px;" alt="Dongchen Yue &#124; 岳东辰"/><br /><sub><b>Dongchen Yue &#124; 岳东辰</b></sub></a><br /><a href="#translation-yue-dongchen" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="16.66%"><a href="https://larssonjohan.com"><img src="https://avatars.githubusercontent.com/u/13087841?v=4?s=100" width="100px;" alt="Johan Larsson"/><br /><sub><b>Johan Larsson</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=jolars" title="Code">💻</a></td>
       <td align="center" valign="top" width="16.66%"><a href="https://github.com/kyxap"><img src="https://avatars.githubusercontent.com/u/3080529?v=4?s=100" width="100px;" alt="kyxap"/><br /><sub><b>kyxap</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=kyxap" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/Baitur5"><img src="https://avatars.githubusercontent.com/u/73650784?v=4?s=100" width="100px;" alt="Baitur Ulukbekov"/><br /><sub><b>Baitur Ulukbekov</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=Baitur5" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="16.66%"><a href="https://github.com/StillerHarpo"><img src="https://avatars.githubusercontent.com/u/25526706?v=4?s=100" width="100px;" alt="Florian Engel"/><br /><sub><b>Florian Engel</b></sub></a><br /><a href="https://github.com/BoboTiG/ebook-reader-dict/commits?author=StillerHarpo" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
@@ -106,21 +142,10 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Stars ✨
 
-<picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="
-      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date&theme=dark
-    "
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="
-      https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date
-    "
-  />
-  <img
-    alt="Star History Chart"
-    src="https://api.star-history.com/svg?repos=BoboTIG/ebook-reader-dict&type=Date"
-  />
-</picture>
+<a href="https://star-history.com/#BoboTiG/ebook-reader-dict&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=BoboTiG/ebook-reader-dict&type=Date" />
+  </picture>
+</a>

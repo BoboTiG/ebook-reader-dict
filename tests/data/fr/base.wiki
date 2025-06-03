@@ -79,7 +79,7 @@
 # {{lexique|politique|fr}} Ensemble des électeurs, des soutiens d’un politique ou d’un parti.
 #* {{exemple | lang=fr
  | Ainsi Trump parlait-il à sa '''base''' quand il a joué la carte du « retour au boulot pour Pâques ». Tout comme il essayait de convaincre Wall Street et les grandes entreprises que le « business as usual » n’était pas loin.
- | source={{Lien web |auteur=Douglas Kennedy |url=https://www.lemonde.fr/idees/article/2020/04/01/douglas-kennedy-le-capitalisme-americain-s-effondrera-t-il-comme-un-chateau-de-cartes-quand-le-covid-19-sera-dompte_6035109_3232.html |titre=Douglas Kennedy : « Le capitalisme américain s’effondrera-t-il comme un château de cartes quand le Covid-19 sera dompté ? » |éditeur=''Le Monde'' |en ligne le=1{{er}} avril 2020}}}}
+ | source={{Lien web |auteur=Douglas Kennedy |url=https://www.lemonde.fr/idees/article/2020/04/01/douglas-kennedy-le-capitalisme-americain-s-effondrera-t-il-comme-un-chateau-de-cartes-quand-le-covid-19-sera-dompte_6035109_3232.html |titre=Douglas Kennedy : « Le capitalisme américain s’effondrera-t-il comme un château de cartes quand le Covid-19 sera dompté ? » |éditeur=''Le Monde'' |en ligne le={{1er|avril}} 2020}}}}
 # {{figuré|fr}} Ce qui est le [[principe]], la [[donnée]] [[fondamental]]e d’une [[chose]] ou ce sur quoi elle [[reposer|repose]].
 #* {{exemple | lang=fr
  | Ray, Montius, Scheuchzer, Micheli se sont les premiers occupés de l’''Agrostographie''. Tous ont à peu près suivi le même plan, et travaillé d’après les mêmes principes et sur les mêmes '''bases'''.
@@ -360,6 +360,12 @@
 * {{Vikidia}}
 * {{WP|3=en}}
 
+== {{langue|br}} ==
+=== {{S|verbe|br|flexion}} ===
+{{br-forme-mut|base}}
+'''base''' {{pron|ˈba.sːe|br}}
+# ''Troisième personne du singulier de l’imparfait de l’indicatif du verbe'' {{lien|basañ|br}}/{{lien|basiñ|br}}.
+
 == {{langue|es}} ==
 
 === {{S|étymologie}} ===
@@ -481,6 +487,7 @@
 
 === {{S|prononciation}} ===
 * {{écouter|Monopoli (Italie)||lang=it|audio=LL-Q652 (ita)-XANA000-base.wav}}
+* {{écouter|Italie||lang=it|audio=LL-Q652 (ita)-Ciampix-base.wav}}
 
 === {{S|anagrammes}} ===
 {{voir anagrammes|it}}

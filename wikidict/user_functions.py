@@ -71,7 +71,7 @@ def chimy(composition: list[str]) -> str:
     return phrase
 
 
-def chinese(parts: list[str], data: defaultdict[str, str], laquo: str = "“", raquo: str = "”") -> str:
+def chinese(parts: list[str], data: defaultdict[str, str], *, laquo: str = "“", raquo: str = "”") -> str:
     """
     Format Chinese word or sentence.
 
@@ -117,13 +117,16 @@ def color(rgb: str) -> str:
 
         >>> color("#B0F2B6")
         '[RGB #B0F2B6]'
+        >>> color("#ffffff")
+        '[RGB #FFFFFF]'
     """
-    return f"[RGB {rgb}]"
+    return f"[RGB {rgb.upper()}]"
 
 
 def concat(
     parts: list[str],
-    sep: str = "",
+    sep: str,
+    *,
     last_sep: str | None = None,
     indexes: list[int] | None = None,
     skip: str | None = None,
@@ -136,25 +139,25 @@ def concat(
     *sep* become a single space.
     It allowes to filter out some parts while keeping others.
 
-        >>> concat(["92", "%"])
+        >>> concat(["92", "%"], "")
         '92%'
-        >>> concat(["O", "M", "G"], sep="!")
+        >>> concat(["O", "M", "G"], "!")
         'O!M!G'
-        >>> concat(["sport"], sep=" ", indexes=[0, 2])
+        >>> concat(["sport"], " ", indexes=[0, 2])
         'sport'
-        >>> concat(["sport", "fr", "collectif"], sep=" ", indexes=[0, 2])
+        >>> concat(["sport", "fr", "collectif"], " ", indexes=[0, 2])
         'sport collectif'
-        >>> concat(["marca", "ca", "antigament", "_", "en plural"], sep=" ", indexes=[2, 3, 4, 5], skip="_")
+        >>> concat(["marca", "ca", "antigament", "_", "en plural"], " ", indexes=[2, 3, 4, 5], skip="_")
         'antigament en plural'
-        >>> concat(["antigament", "_", "en plural"], sep=",", skip="_")
+        >>> concat(["antigament", "_", "en plural"], ",", skip="_")
         'antigament en plural'
-        >>> concat(["Arte", "", ""], sep=" e ")
+        >>> concat(["Arte", "", ""], " e ")
         'Arte'
-        >>> concat(["Mathématique", "Physique", "Chimie"], sep=", ", last_sep=" et ")
+        >>> concat(["Mathématique", "Physique", "Chimie"], ", ", last_sep=" et ")
         'Mathématique, Physique et Chimie'
-        >>> concat(["Physique", "Chimie"], sep=", ", last_sep=" et ")
+        >>> concat(["Physique", "Chimie"], ", ", last_sep=" et ")
         'Physique et Chimie'
-        >>> concat(["Physique"], sep=", ", last_sep=" et ")
+        >>> concat(["Physique"], ", ", last_sep=" et ")
         'Physique'
     """
     if indexes:
@@ -172,7 +175,7 @@ def concat(
     return sep.join(r[:-1]) + last_sep + r[-1] if r else ""
 
 
-def coord(raw_values: list[str], locale: str = "en") -> str:
+def coord(raw_values: list[str], *, locale: str = "en") -> str:
     """
     Format lon/lat coordinates.
 
@@ -316,11 +319,15 @@ def italic(text: str) -> str:
 
         >>> italic("foo")
         '<i>foo</i>'
+        >>> italic("<i>foo</i>")
+        '<i>foo</i>'
     """
+    if text.startswith("<i>") and text.endswith("</i>"):
+        return text
     return f"<i>{text}</i>"
 
 
-def lookup_italic(tpl: str, locale: str, empty_default: bool = False) -> str:
+def lookup_italic(tpl: str, locale: str, *, empty_default: bool = False) -> str:
     """
     Find the *tpl* from the *templates_italic* table of the given *locale*.
 
@@ -328,8 +335,6 @@ def lookup_italic(tpl: str, locale: str, empty_default: bool = False) -> str:
 
         >>> lookup_italic("", "fr")
         ''
-        >>> lookup_italic("absol", "fr")
-        'Absolument'
         >>> lookup_italic("inexistant", "fr")
         'inexistant'
         >>> lookup_italic("alagoas", "pt")
@@ -383,7 +388,7 @@ def number(number: str, fsep: str, tsep: str) -> str:
     number = number.replace("−", "-")
 
     # Keep that value to restore leading zeros that would be lost with the int/float conversion
-    digits_count = sum(1 for c in number if c.isdigit())
+    digits_count = sum(bool(c.isdigit()) for c in number)
 
     # Convert
     try:
@@ -463,7 +468,7 @@ def sentence(parts: list[str]) -> str:
         >>> sentence(["comparatif de", "bien", "fr", "adv"])
         'Comparatif de bien'
     """
-    return capitalize(concat(parts, sep=" ", indexes=[0, 1]))
+    return capitalize(concat(parts, " ", indexes=[0, 1]))
 
 
 def small(text: str) -> str:
@@ -553,9 +558,7 @@ def term(text: str) -> str:
     """
     if not text:
         return ""
-    if text.startswith("<i>("):
-        return text
-    return italic(parenthesis(text))
+    return text if text.startswith("<i>(") else italic(parenthesis(text))
 
 
 def underline(text: str) -> str:
@@ -568,11 +571,11 @@ def underline(text: str) -> str:
     return f"<u>{text}</u>"
 
 
-def uniq(seq: list[str]) -> list[str]:
+def unique(seq: list[str]) -> list[str]:
     """
     Return *seq* without duplicates.
 
-        >>> uniq(["foo", "foo"])
+        >>> unique(["foo", "foo"])
         ['foo']
     """
     res: list[str] = []
@@ -608,5 +611,5 @@ __all__ = (
     "superscript",
     "term",
     "underline",
-    "uniq",
+    "unique",
 )

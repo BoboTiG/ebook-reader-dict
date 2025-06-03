@@ -1,6 +1,6 @@
 import re
 
-from scripts_utils import get_soup
+from scripts_utils import get_content
 
 
 def extract_dict_parts(
@@ -42,30 +42,32 @@ def add_missing_langs() -> str:
     return """
 
 # Langues oubliées
-l['bas latin'] = { 'nom': 'bas latin' }  # 2020-07-19
-l['deu'] = { 'nom': 'allemand' }  # 2020-05-19
-l['ell'] = { 'nom': 'grec' }  # 2020-05-19
-l['eus'] = { 'nom': 'basque' }  # 2020-05-19
-l['gallo-roman'] = { 'nom': 'gallo-roman' }  # 2021-01-24
-l['ind'] = { 'nom': 'indonésien' }  # 2020-05-19
-l['latin archaïque'] = { 'nom': 'latin archaïque' }  # 2021-01-24
-l['latin classique'] = { 'nom': 'latin classique' }  # 2020-07-19
-l['latin contemporain'] = { 'nom': 'latin contemporain' }  # 2021-01-24
-l['latin ecclésiastique'] = { 'nom': 'latin ecclésiastique' }  # 2020-07-20
-l['latin humaniste'] = { 'nom': 'latin humaniste' }  # 2021-01-24
-l['latin impérial'] = { 'nom': 'latin impérial' }  # 2020-07-20
-l['latin médiéval'] = { 'nom': 'latin médiéval' }  # 2020-07-20
-l['latin populaire'] = { 'nom': 'latin populaire' }  # 2020-07-20
-l['lat pop'] = { 'nom': 'latin populaire' }  # 2020-11-03
-l['latin tardif'] = { 'nom': 'latin tardif' }  # 2020-07-20
-l['latin vulgaire'] = { 'nom': 'latin vulgaire' }  # 2020-07-20
-l['latin néolatin'] = { 'nom': 'latin néolatin' }  # 2021-01-24
+l['bas latin'] = { 'name': 'bas latin' }  # 2020-07-19
+l['deu'] = { 'name': 'allemand' }  # 2020-05-19
+l['ell'] = { 'name': 'grec' }  # 2020-05-19
+l['eus'] = { 'name': 'basque' }  # 2020-05-19
+l['gallo-roman'] = { 'name': 'gallo-roman' }  # 2021-01-24
+l['ind'] = { 'name': 'indonésien' }  # 2020-05-19
+l['latin archaïque'] = { 'name': 'latin archaïque' }  # 2021-01-24
+l['latin classique'] = { 'name': 'latin classique' }  # 2020-07-19
+l['latin contemporain'] = { 'name': 'latin contemporain' }  # 2021-01-24
+l['latin ecclésiastique'] = { 'name': 'latin ecclésiastique' }  # 2020-07-20
+l['latin humaniste'] = { 'name': 'latin humaniste' }  # 2021-01-24
+l['latin impérial'] = { 'name': 'latin impérial' }  # 2020-07-20
+l['latin médiéval'] = { 'name': 'latin médiéval' }  # 2020-07-20
+l['latin populaire'] = { 'name': 'latin populaire' }  # 2020-07-20
+l['lat pop'] = { 'name': 'latin populaire' }  # 2020-11-03
+l['latin tardif'] = { 'name': 'latin tardif' }  # 2020-07-20
+l['latin vulgaire'] = { 'name': 'latin vulgaire' }  # 2020-07-20
+l['latin néolatin'] = { 'name': 'latin néolatin' }  # 2021-01-24
 # Fin langues oubliées
 """
 
 
-soup = get_soup("https://fr.wiktionary.org/wiki/Module:langues/data")
-code = soup.find("pre", {"class": "mw-code"}).text.replace("--", "#").replace("true", "True").split("\n")
+code = get_content("https://fr.wiktionary.org/wiki/Module:langues/data?action=raw")
+code = code.replace("--", "#").replace("true", "True")
+code = re.sub(r"aliasOf\(('[^']+')\)", r"l[\1]", code)
+code = code.split("\n")
 
 script = "l = {}\n"
 script += extract_dict_parts(code, "# Langues", "# Fin langues")
@@ -78,5 +80,5 @@ script += add_missing_langs()
 exec(script)
 print("langs = {")
 for key, value in sorted(l.items()):  # type: ignore[name-defined] # noqa: F821
-    print(f'    "{key}": "{value["nom"]}",')
+    print(f'    "{key}": "{value["name"]}",')
 print(f"}}  # {len(l):,}")  # type: ignore[name-defined] # noqa: F821

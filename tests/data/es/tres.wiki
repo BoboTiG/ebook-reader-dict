@@ -8,6 +8,7 @@
 {{etimología|osp|tres|tres}}, este {{etim|la|tres}}, y este {{etim|ine-pro|*tréyes}}. Cognado del ladino {{l+|lad|tres}}.
 
 ==== {{adjetivo cardinal|es}} indeclinable ====
+{{tabla-cardinal|3|ord=tercero|nprev=2|nsig=4|r=III|prev=dos|sig=cuatro}}
 {{inflect.es.adj.invariante}}
 [[Categoría:ES:Adjetivos indeclinables]]
 ;1: {{plm|dos}} y [[uno]].
@@ -247,7 +248,7 @@
 === Etimología 2 ===
 {{etimología|leng=roa-oca|la|trans|alt=trāns|del otro lado}}.
 
-==== {{adverbio|roa-oca}} ====
+==== {{adverbio de cantidad|roa-oca}} ====
 ;1: {{plm|muy}}.<ref name="iec" />
 
 == {{lengua|mcm}} ==
@@ -274,7 +275,7 @@
 === Etimología 1 ===
 {{etimología|leng=fr|es|tres}}.
 
-==== {{sustantivo masculino|fr}} ====
+==== {{sustantivo masculino|fr}} invariable ====
 {{inflect.fr.sust.invariante}}
 ;1 {{csem|instrumentos musicales|leng=fr}}: {{plm}}.
 
@@ -285,7 +286,7 @@
 {{pron-graf|leng=frm}}
 
 === Etimología 1 ===
-==== {{adverbio|frm}} ====
+==== {{adverbio de cantidad|frm}} ====
 ;1: {{grafía|leng=frm|trés}}.
 
 == {{lengua|roa-opt}} ==
@@ -337,7 +338,7 @@
 {{numeral latino|antes1=duo|antes2=II|siga1=quattuor|siga2=IV|Título=III|card=trēs|ord={{l*|la|tertius}}|adv={{l*|la|ter}}|dist={{l*|la|terni|ternī}}, {{l*|la|trini|trīnī}}}}
 
 === Etimología 1 ===
-{{etimología|leng=la|itc-pro|*trejes}}, y este {{etim|leng=la|ine-pro|ine=x}}.<ref name="vaan">{{DeVaan|628-29}}</ref> Compárese el sánscrito {{l+|sa|त्रयं|tr=tráya}}, el griego antiguo {{l+|grc|τρεῖς|tr=treis}} y el gótico {{l+|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}.<ref name="vaan" />
+{{etimología|leng=la|itc-pro|*trejes}}, y este {{etim|leng=la|ine-pro|*tréyes|ine=x}}.<ref name="vaan">{{DeVaan|628-29}}</ref> Compárese el sánscrito {{l+|sa|त्रयं|tr=tráya}}, el griego antiguo {{l+|grc|τρεῖς|tr=treis}} y el gótico {{l+|got|𐌸𐍂𐌴𐌹𐍃|tr=þreis}}.<ref name="vaan" />
 
 ==== {{adjetivo cardinal|la}} ====
 {{inflect.la.adj.3.2|tr|singular=no|voc=no}}

@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+from ...transliterator import transliterate
 from ...user_functions import extract_keywords_from, italic, strong
 from .abk import abk
 
@@ -85,8 +86,275 @@ bibel_names = {
     "Offb": "Offenbarung",
 }
 
+VORSILBE_DATA = [
+    (
+        14,
+        {
+            "hintereinander",
+        },
+    ),
+    (
+        13,
+        {
+            "durcheinander",
+            "gegeneinander",
+            "nebeneinander",
+            "untereinander",
+            "widereinander",
+        },
+    ),
+    (
+        12,
+        {
+            "übereinander",
+        },
+    ),
+    (
+        11,
+        {
+            "aufeinander",
+            "auseinander",
+            "beieinander",
+            "miteinander",
+            "voneinander",
+        },
+    ),
+    (
+        10,
+        {
+            "aneinander",
+            "dazwischen",
+            "hintenüber",
+            "ineinander",
+            "zueinander",
+        },
+    ),
+    (
+        9,
+        {
+            "gegenüber",
+            "hernieder",
+            "hinterher",
+        },
+    ),
+    (
+        8,
+        {
+            "aufwärts",
+            "beiseite",
+            "dahinter",
+            "drauflos",
+            "einwärts",
+            "entgegen",
+            "herunter",
+            "hindurch",
+            "hinunter",
+            "vornüber",
+            "vorwärts",
+            "zunichte",
+            "zusammen",
+            "zwischen",
+        },
+    ),
+    (
+        7,
+        {
+            "abwärts",
+            "dagegen",
+            "daneben",
+            "darüber",
+            "entlang",
+            "entzwei",
+            "fürlieb",
+            "herüber",
+            "hierher",
+            "hinüber",
+            "instand",
+            "schwarz",
+            "trocken",
+            "überein",
+            "vorüber",
+            "zurecht",
+            "zuwider",
+        },
+    ),
+    (
+        6,
+        {
+            "bereit",
+            "einher",
+            "falsch",
+            "fertig",
+            "gerade",
+            "gleich",
+            "herauf",
+            "heraus",
+            "herbei",
+            "herein",
+            "hervor",
+            "hinauf",
+            "hinaus",
+            "hinein",
+            "hintan",
+            "hinter",
+            "hinweg",
+            "kaputt",
+            "nieder",
+            "runter",
+            "scharf",
+            "schief",
+            "schutz",
+            "voraus",
+            "vorbei",
+            "vorher",
+            "vorweg",
+            "weiter",
+            "wieder",
+            "zugute",
+            "zurück",
+        },
+    ),
+    (
+        5,
+        {
+            "abhin",
+            "anhin",
+            "bauch",
+            "bevor",
+            "blond",
+            "breit",
+            "dabei",
+            "dafür",
+            "daher",
+            "dahin",
+            "daran",
+            "davon",
+            "davor",
+            "dicht",
+            "drauf",
+            "drein",
+            "durch",
+            "empor",
+            "flach",
+            "flott",
+            "fremd",
+            "gegen",
+            "glatt",
+            "herab",
+            "heran",
+            "herum",
+            "hinab",
+            "hinan",
+            "hinzu",
+            "klein",
+            "krank",
+            "näher",
+            "offen",
+            "reich",
+            "rüber",
+            "schön",
+            "still",
+            "übrig",
+            "umher",
+            "umhin",
+            "unter",
+            "voran",
+            "weich",
+            "wider",
+            "zuvor",
+        },
+    ),
+    (
+        4,
+        {
+            "acht",
+            "blau",
+            "bloß",
+            "dazu",
+            "dort",
+            "dran",
+            "fehl",
+            "feil",
+            "fein",
+            "fern",
+            "fest",
+            "fort",
+            "frei",
+            "gelb",
+            "groß",
+            "grün",
+            "heim",
+            "hier",
+            "hoch",
+            "kahl",
+            "kalt",
+            "klar",
+            "kurz",
+            "lieb",
+            "leer",
+            "mies",
+            "miss",
+            "nach",
+            "nahe",
+            "nass",
+            "quer",
+            "raus",
+            "rein",
+            "rück",
+            "satt",
+            "seil",
+            "übel",
+            "über",
+            "voll",
+            "wach",
+            "wahr",
+            "warm",
+            "weis",
+            "weiß",
+            "wert",
+            "wohl",
+        },
+    ),
+    (
+        3,
+        {
+            "auf",
+            "aus",
+            "bei",
+            "dar",
+            "ein",
+            "ent",
+            "gut",
+            "her",
+            "hin",
+            "los",
+            "mit",
+            "out",
+            "rum",
+            "tot",
+            "ver",
+            "vor",
+            "weg",
+            "zer",
+        },
+    ),
+    (
+        2,
+        {
+            "ab",
+            "an",
+            "be",
+            "da",
+            "er",
+            "re",
+            "um",
+            "zu",
+        },
+    ),
+]
 
-def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+
+def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bibel("Bibel", ["Mt", "1", "1"], defaultdict(str))
     'Matthäus 1,1'
@@ -104,7 +372,7 @@ def render_bibel(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return phrase
 
 
-def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_lang("Hebr", ["בַּיִת כְּנֶסֶת"], defaultdict(str))
     'בַּיִת כְּנֶסֶת'
@@ -150,7 +418,7 @@ def render_foreign_lang(tpl: str, parts: list[str], data: defaultdict[str, str],
     return phrase
 
 
-def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_lang_simple("Arab", ["أَحْمَدُ بْنُ حَنْبَلٍ"], defaultdict(str))
     'أَحْمَدُ بْنُ حَنْبَلٍ'
@@ -168,6 +436,25 @@ def render_foreign_lang_simple(tpl: str, parts: list[str], data: defaultdict[str
     if data["b"]:
         phrase += f" ‚{data['b']}‘"
     return phrase
+
+
+def render_grundformverweis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_grundformverweis("Grundformverweis Dekl", ["profilierend"], defaultdict(str), word="profilierende")
+    '<b>profilierende</b> ist eine flektierte Form von <b>profilierend</b>.'
+    >>> render_grundformverweis("Grundformverweis Konj", ["rauspumpen"], defaultdict(str), word="pumpt raus")
+    '<b>pumpt raus</b> ist eine flektierte Form von <b>rauspumpen</b>.'
+    >>> render_grundformverweis("Grundformverweis Partizipform", [], defaultdict(str, {"Verb": "ansprechen", "Partizip": "angesprochen"}), word="angesprochenen")
+    '<b>angesprochenen</b> ist eine flektierte Form von <i>angesprochen</i>, einem Partizip des Verbs <b>ansprechen</b>.'
+    """
+    match kind := tpl.split(" ", 1)[1]:
+        case "Dekl" | "Konj":
+            text = f"{strong(word)} ist eine flektierte Form von {strong(parts[0])}."
+        case "Partizipform":
+            text = f"{strong(word)} ist eine flektierte Form von {italic(data['Partizip'])}, einem Partizip des Verbs {strong(data['Verb'])}."
+        case _:
+            raise ValueError(f"Unhandled Grundformverweis {kind =}")
+    return text
 
 
 no_commas = (
@@ -227,7 +514,7 @@ no_commas = (
 )
 
 
-def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_K("K", ["Sport"], defaultdict(str))
     '<i>Sport:</i>'
@@ -280,7 +567,7 @@ def render_K(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     return italic(f"{phrase}{ft}:")
 
 
-def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ref_dejure("Ref-dejure", ["", "54", "InsO"], defaultdict(str))
     '54 InsO'
@@ -336,7 +623,7 @@ def render_ref_dejure(tpl: str, parts: list[str], data: defaultdict[str, str], w
             assert 0, parts
 
 
-def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_lit_bahlow("Lit-Bahlow", ["Namenlexikon"], defaultdict(str, {"V": "Gondrom"}))
     'Hans Bahlow: <i>Deutsches Namenlexikon</i>. Familien- und Vornamen nach Ursprung und Sinn erklärt. Gondrom Verlag, Bindlach 1991, 1993, 2004, ISBN 3-8112-0294-4'
@@ -374,7 +661,15 @@ def render_lit_bahlow(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return render_literatur("Literatur", [], defaultdict(str, kwargs))
 
 
-def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_lit_linnartz(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_lit_linnartz("Lit-Linnartz", ["Unsere Familiennamen"], defaultdict(str, {"A": "1", "B": "1"}))
+    'Kaspar Linnartz: <i>Unsere Familiennamen</i>. Zehntausend Berufsnamen im Abc erklärt. 1. Auflage. Band 1, Ferdinand Dümmler Verlag, Bonn und Berlin 1936'
+    """
+    return f"Kaspar Linnartz: {italic(parts[0])}. Zehntausend Berufsnamen im Abc erklärt. {data['A']}. Auflage. Band {data['B']}, Ferdinand Dümmler Verlag, Bonn und Berlin 1936"
+
+
+def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_literatur("Literatur", [], defaultdict(str, {"Autor": "Max Mustermann", "Titel": "Aspekte modernen Wikipädisierens", "Herausgeber": "Bernd Beispiel", "Sammelwerk": "Soziologie der Wikipädianer", "Verlag": "Wikipedia-Press", "Ort": "Musterstadt", "Jahr": "2003", "ISBN": "978-3-9801412-1-5", "Seiten": "213–278"}))
     'Max Mustermann: <i>Aspekte modernen Wikipädisierens</i>. In: Bernd Beispiel (Herausgeber): <i>Soziologie der Wikipädianer</i>. Wikipedia-Press, Musterstadt 2003, ISBN 978-3-9801412-1-5, Seite 213–278'
@@ -443,21 +738,23 @@ def render_literatur(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return phrase.strip(" ,").removeprefix("In: ")
 
 
-def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Ut(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Ut("Üt", ["grc", "διάλογος", "diálogos"], defaultdict(str))
     '<i>διάλογος (diálogos)</i>'
     >>> render_Ut("Üt", ["grc", "διαλέγομαι", "dialégesthai", "διαλέγεσθαι"], defaultdict(str))
     '<i>διαλέγεσθαι (dialégesthai)</i>'
+    >>> render_Ut("Üt", ["bg", "карам велосипед"], defaultdict(str))
+    '<i>карам велосипед (karam velosiped)</i>'
     """
-    parts.pop(0)  # language
+    lang = parts.pop(0)
     phrase = parts[0] if len(parts) < 3 else parts[2]
-    if len(parts) > 1:
-        phrase += f" ({parts[1]})"
+
+    phrase += f" ({parts[1] if len(parts) > 1 else transliterate(lang, parts[0])})"
     return italic(phrase)
 
 
-def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Uxx4("Üxx4", ["ar", "مسجد"], defaultdict(str, {"v":"مَسْجِد", "d":"masğid", "b":"Moschee"}))
     'مَسْجِد (DMG: masğid) ‚Moschee‘'
@@ -496,12 +793,172 @@ def render_Uxx4(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return phrase
 
 
-def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_Uxx5(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_Uxx5("Üxx5", ["grc", "anḗr, andrós", "ἀνήρ, ἀνδρός", "ἀνήρ"], defaultdict(str))
     'ἀνήρ, ἀνδρός (anḗr, andrós)'
     """
     return f"{parts[2]} ({parts[1]})"
+
+
+def vorsilbe(verb: str) -> str:
+    """
+    Source: https://de.wiktionary.org/w/index.php?title=Modul:Verb&oldid=10212947#L-123 (2025-01-30 21:13)
+
+    >>> vorsilbe("")  # slang >= 14
+    ''
+    >>> vorsilbe("nebeneinanderstehen")  # slang >= 13
+    'nebeneinander'
+    >>> vorsilbe("übereinanderlegen")  # slang >= 12
+    'übereinander'
+    >>> vorsilbe("auseinanderbrechen")  # slang >= 11
+    'auseinander'
+    >>> vorsilbe("zueinanderstehen")  # slang >= 10
+    'zueinander'
+    >>> vorsilbe("gegenüberliegen")  # slang >= 9
+    'gegenüber'
+    >>> vorsilbe("vornüberfallen")  # slang >= 8
+    'vornüber'
+    >>> vorsilbe("schwarzmalen")  # slang >= 7
+    'schwarz'
+    >>> vorsilbe("hineintun")  # slang >= 6
+    'hinein'
+    >>> vorsilbe("übriglassen")  # slang >= 5
+    'übrig'
+    >>> vorsilbe("überzählen")  # slang >= 4
+    'über'
+    >>> vorsilbe("verbeugen")  # slang >= 3
+    'ver'
+    >>> vorsilbe("abfotografieren")  # slang >= 2
+    'ab'
+    >>> vorsilbe("bankrottieren")  # no slang condition taken
+    'bankrottieren'
+    """
+    length = len(verb)
+    slang = 0
+    prefix = ""
+
+    if verb.endswith("tun"):
+        slang = length - 3
+    elif length >= 7:
+        slang = length - 4
+
+    for prefix_len, prefixes in VORSILBE_DATA:
+        if slang >= prefix_len and (prefix := verb[:prefix_len]) in prefixes:
+            if prefix_len == 14:
+                # TODO: remove when a use case is found and a doctest is added
+                assert 0, f"slang >= {prefix_len}"
+            return prefix
+
+    return verb
+
+
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("Alte Schreibweise", ["dass", "Reform 1996"], defaultdict(str), word="daß")
+    'dass'
+    >>> render_variant("Grundformverweis Dekl", ["profilierend"], defaultdict(str), word="profilierende")
+    'profilierend'
+    >>> render_variant("Grundformverweis Konj", ["rauspumpen"], defaultdict(str), word="pumpt raus")
+    'rauspumpen'
+    >>> render_variant("Grundformverweis Konj", [], defaultdict(str, {"1": "rauspumpen"}), word="pumpt raus")
+    'rauspumpen'
+    >>> render_variant("Grundformverweis Konj", ["rauspumpen#rauspumpen_(Deutsch)"], defaultdict(str), word="pumpt raus")
+    'rauspumpen'
+    >>> render_variant("Grundformverweis Partizipform", [], defaultdict(str, {"Verb": "ansprechen", "Partizip": "angesprochen"}), word="angesprochenen")
+    'ansprechen'
+    """
+    variant = data["1"] or data["Verb"] or parts[0]
+    return variant.split("#", 1)[0]
+
+
+def render_verbherkunft(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str), word="anflunkern")
+    'gebildet aus dem Verbzusatz <i>an</i> und dem Verb <i>flunkern</i>'
+
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Adjektiv", "V": "allein"}), word="alleinstehen")
+    'gebildet aus dem Adjektiv <i>allein</i> als Verbzusatz und dem Verb <i>stehen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Substantiv", "V": "Kopf"}), word="kopfstehen")
+    'gebildet aus dem Substantiv <i>Kopf</i> als Verbzusatz und dem Verb <i>stehen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Partikel"}), word="abaasen")
+    'gebildet aus der Partikel <i>ab</i> als Verbzusatz und dem Verb <i>aasen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Adverb"}), word="antragen")
+    'gebildet aus der Partikel <i>an</i> als Verbzusatz und dem Verb <i>tragen</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"W": "Präposition"}), word="abflauen")
+    'gebildet aus der Partikel <i>ab</i> als Verbzusatz und dem Verb <i>flauen</i>'
+
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"2": "u"}), word="beruhen")
+    'Derivation (Ableitung) zum Verb <i>ruhen</i> mit dem Derivatem (Ableitungsmorphem) <i>be-</i>'
+    >>> render_verbherkunft("Verbherkunft", [], defaultdict(str, {"2": "u", "V": "de"}), word="defragmentieren")
+    'Derivation (Ableitung) zum Verb <i>fragmentieren</i> mit dem Derivatem (Ableitungsmorphem) <i>de-</i>'
+    """
+    art = data["2"] or (parts[0] if parts else "t")
+    wortart = data["W"]
+    vorspann = data["V"]
+    ableitung = data["A"]
+    wortart2 = data["W2"]
+    strlen = len(word)
+    retp = ""
+    partikel = ""
+    dativ = "dem "
+
+    partikel = vorspann if (vorspann and vorspann >= "A") else vorsilbe(word)
+    vlen = len(partikel)
+    verbname = word[vlen:strlen]
+
+    if art == "t":
+        retp += "gebildet aus "
+        if wortart:
+            if wortart in {"Präposition", "Adverb"}:
+                wortart = "Partikel"
+                dativ = "der "
+            elif wortart in {"Partikel", "Partikelverb", "Interjektion"}:
+                dativ = "der "
+            retp += f"{dativ}{wortart} "
+            retp += f"{italic(partikel)} als Verbzusatz"
+        else:
+            retp += f"dem Verbzusatz {italic(partikel)}"
+
+        if wortart2:  # fiktives Verb
+            retp += f" und der Ableitung zum {wortart2} "
+            retp += f"{italic(ableitung)} durch Konversion"
+        else:
+            retp += f" und dem Verb {italic(verbname)}"
+    elif art == "u":
+        if not vorspann and ableitung:
+            vorspann = ableitung
+            vlen = len(vorspann)
+            verbname = word[vlen:strlen]
+
+        retp = "Derivation (Ableitung) "
+        retp += (
+            f"zum {wortart} {italic(ableitung)} mit "
+            if wortart in {"Adjektiv", "Substantiv", "Verb"}
+            else f"zum Verb {italic(verbname)} mit "
+        )
+        retp += "dem Derivatem (Ableitungsmorphem) "
+
+        if verbname == "eln":
+            retp += "-el und der Flexionsendung -n"
+        elif verbname in {"en", "n"}:
+            retp = "Derivation (Ableitung) "
+            retp += f"vom {wortart} {italic(ableitung)} durch Konversion "
+            retp += f"mit der Flexionsendung {italic(f'-{verbname}')}"
+        elif verbname == "ifizieren":
+            retp += "-ifizier und der Flexionsendung -en"
+        elif verbname == "isieren":
+            retp += "-isier und der Flexionsendung -en"
+        elif verbname == "ieren":
+            retp += "-ier und der Flexionsendung -en"
+        else:
+            if ableitung and word[:vlen].lower() == ableitung.lower():
+                retp = f"untrennbare Zusammensetzung aus {dativ}"
+                retp += f"{wortart} {italic(vorspann)} und dem Verb {italic(verbname)}"
+            else:
+                retp += italic(f"{partikel}-")
+
+    return retp
 
 
 template_mapping = {
@@ -511,6 +968,7 @@ template_mapping = {
     "Hebr": render_foreign_lang,
     "K": render_K,
     "Lit-Bahlow": render_lit_bahlow,
+    "Lit-Linnartz": render_lit_linnartz,
     "Literatur": render_literatur,
     "Paschto": render_foreign_lang,
     "Ref-dejure": render_ref_dejure,
@@ -521,6 +979,14 @@ template_mapping = {
     "Üxx4": render_Uxx4,
     "Üxx4?": render_Uxx4,
     "Üxx5": render_Uxx5,
+    "Verbherkunft": render_verbherkunft,
+    #
+    # Variants
+    #
+    "__variant__Alte Schreibweise": render_variant,
+    "__variant__Grundformverweis Dekl": render_variant,
+    "__variant__Grundformverweis Konj": render_variant,
+    "__variant__Grundformverweis Partizipform": render_variant,
 }
 
 

@@ -11,6 +11,20 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "brillantino",
+            [],
+            ["m"],
+            [
+                "da brillare",
+                "vedi brillantare",
+            ],
+            [
+                "piccolo foglietto di materiale lucido e riflettente usato come ornamento per abiti",
+                "<small>(<i>per estensione</i>)</small> glitter",
+            ],
+            ["brillantare"],
+        ),
+        (
             "condividere",
             ["/kondiˈvidere/"],
             [],
@@ -49,10 +63,20 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "modalità Goblin",
+            ["/modali'ta 'go blin/"],
+            ["f"],
+            [],
+            [
+                "modalità Goblin, oppure in modalità Goblin è un tipo di comportamento autoindulgente, pigro, sciatto o avido, che rifiuta le norme o le aspettative sociali. Questo comportamento si deve anche all'influsso del covid nell'ambiente fisico sulla mente e la socialità delle persone"
+            ],
+            [],
+        ),
+        (
             "muratrici",
             [],
             [],
-            ["vedi muratore"],
+            [],
             [],
             ["muratore"],
         ),
@@ -82,10 +106,6 @@ def test_parse_word(
     [
         ("{{etim-link|a}}", "vedi a"),
         ("{{Etim-link|a|b|c}}", "vedi b"),
-        (
-            "{{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}",
-            "muratore",
-        ),
         ("{{Vd|mamma}}", "vedi mamma"),
     ],
 )

@@ -5,29 +5,36 @@ from zipfile import ZipFile
 
 import pytest
 
-from wikidict import convert
+from wikidict import constants, convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
-from wikidict.stubs import Word
+from wikidict.stubs import Variants, Word, Words
 
-EXPECTED_INSTALL_TXT_FR = """Nombre de mots : 42
+EXPECTED_INSTALL_TXT_FR = """### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
+
+<br/>
+
+
+Nombre de mots : 46
 Export Wiktionnaire : 2020-12-17
 
 Version complète :
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.mobi.zip)
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr.zip)
 
 Version sans étymologies :
+- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
+- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
+- [Kindle](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.mobi.zip)
 - [Kobo](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dicthtml-fr-fr-noetym.zip)
 - [StarDict](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.zip)
-- [DictFile](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dict-fr-fr-noetym.df.bz2)
-- [DICT.org](https://github.com/BoboTiG/ebook-reader-dict/releases/download/fr/dictorg-fr-fr-noetym.zip)
 
 Mis à jour le"""
 
 WORDS = {
-    "empty": Word.empty(),
+    "empty": Word([], [], [], [], []),
     "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
     "foos": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]),
     "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
@@ -68,7 +75,7 @@ def test_simple() -> None:
     assert convert.main("fr") == 0
 
     # Check for all dictionaries
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr" / "output"
 
     # DictFile
     assert (output_dir / "dict-fr-fr.df").is_file()
@@ -81,12 +88,6 @@ def test_simple() -> None:
     assert (output_dir / f"dict-fr-fr.df.bz2.{ASSET_CHECKSUM_ALGO}").is_file()
     assert (output_dir / "dict-fr-fr-noetym.df.bz2").is_file()
     assert (output_dir / f"dict-fr-fr-noetym.df.bz2.{ASSET_CHECKSUM_ALGO}").is_file()
-
-    # StarDict
-    assert (output_dir / "dict-fr-fr.zip").is_file()
-    assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
-    assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
-    assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # DICT.org
     assert (output_dir / "dictorg-fr-fr.zip").is_file()
@@ -101,11 +102,24 @@ def test_simple() -> None:
     assert dicthtml.is_file()
     assert (output_dir / f"dicthtml-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
+    # Mobi
+    assert (output_dir / "dict-fr-fr.mobi.zip").is_file()
+    assert (output_dir / f"dict-fr-fr.mobi.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.mobi.zip").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.mobi.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
+    # StarDict
+    stardict = output_dir / "dict-fr-fr.zip"
+    assert stardict.is_file()
+    assert (output_dir / f"dict-fr-fr.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+    assert (output_dir / "dict-fr-fr-noetym.zip").is_file()
+    assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
+
     # Check the Kobo ZIP content
     with ZipFile(dicthtml) as fh:
         expected = [
             "11.html",
-            "INSTALL.txt",
+            constants.ZIP_INSTALL,
             "aa.html",
             "ac.html",
             "ba.html",
@@ -113,6 +127,7 @@ def test_simple() -> None:
             "ch.html",
             "co.html",
             "de.html",
+            "dj.html",
             "du.html",
             "ef.html",
             "em.html",
@@ -134,9 +149,10 @@ def test_simple() -> None:
             "su.html",
             "te.html",
             "tu.html",
+            "ve.html",
             "words",
-            "words.count",
-            "words.snapshot",
+            constants.ZIP_WORDS_COUNT,
+            constants.ZIP_WORDS_SNAPSHOT,
             "ép.html",
             "œc.html",
             "πa.html",
@@ -148,9 +164,24 @@ def test_simple() -> None:
         assert errors is None
 
         # Check content of INSTALL.txt
-        install_txt = fh.read("INSTALL.txt").decode()
+        install_txt = fh.read(constants.ZIP_INSTALL).decode()
         print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
+
+    # Check the StarDict ZIP content
+    with ZipFile(stardict) as fh:
+        expected = [
+            "dict-data.dict.dz",
+            "dict-data.idx",
+            "dict-data.ifo",
+            "dict-data.syn",
+            "res/db28a816.gif",
+        ]
+        assert sorted(fh.namelist()) == expected
+
+        # testfile returns the name of the first corrupt file, or None
+        errors = fh.testzip()
+        assert errors is None
 
 
 def test_no_json_file() -> None:
@@ -169,7 +200,7 @@ def test_no_json_file() -> None:
     ],
 )
 def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     variants = convert.make_variants(WORDS)
     convert.run_formatter(
         formatter,
@@ -187,12 +218,14 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
 @pytest.mark.parametrize(
     "formatter, filename, include_etymology",
     [
-        (convert.StarDictFormat, "dict-fr-fr.zip", True),
-        (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
         (convert.BZ2DictFileFormat, "dict-fr-fr.df.bz2", True),
         (convert.BZ2DictFileFormat, "dict-fr-fr-noetym.df.bz2", False),
         (convert.DictOrgFormat, "dictorg-fr-fr.zip", True),
         (convert.DictOrgFormat, "dictorg-fr-fr-noetym.zip", False),
+        (convert.MobiFormat, "dict-fr-fr.mobi", True),
+        (convert.MobiFormat, "dict-fr-fr-noetym.mobi", False),
+        (convert.StarDictFormat, "dict-fr-fr.zip", True),
+        (convert.StarDictFormat, "dict-fr-fr-noetym.zip", False),
     ],
 )
 @pytest.mark.dependency(
@@ -202,7 +235,7 @@ def test_generate_primary_dict(formatter: type[convert.BaseFormat], filename: st
     ]
 )
 def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: str, include_etymology: bool) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     convert.run_formatter(
         formatter,
         "fr",
@@ -223,7 +256,7 @@ FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
 """
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
-:  pron  <i>gender</i>.
+: pron <i>gender</i>.
 & Multiple Etymology
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
 
@@ -231,7 +264,7 @@ FORMATTED_WORD_DICTFILE = """\
 """
 FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
-:  pron  <i>gender</i>.
+: pron <i>gender</i>.
 & Multiple Etymology
 <html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
@@ -253,7 +286,7 @@ def test_word_rendering(
     include_etymology: bool,
     expected: str,
 ) -> None:
-    output_dir = Path(os.environ["CWD"]) / "data" / "fr"
+    output_dir = Path(os.environ["CWD"]) / "data" / "fr" / "fr"
     cls = formatter(
         "fr",
         output_dir,
@@ -263,6 +296,225 @@ def test_word_rendering(
         include_etymology=include_etymology,
     )
 
-    kwargs = {"name": "mu", "words": WORDS} if isinstance(cls, convert.KoboFormat) else {}
-    content = next(cls.handle_word("Multiple Etymologies", WORDS["Multiple Etymologies"], **kwargs))
+    content = next(cls.handle_word("Multiple Etymologies", WORDS))
     assert content == expected
+
+
+WORDS_VARIANTS_FR = words = {
+    "estre": Word(
+        pronunciations=["\\ɛtʁ\\"],
+        genders=[],
+        etymology=[],
+        definitions=["Définition de 'estre'."],
+        variants=[],
+    ),
+    "être": Word(
+        pronunciations=["\\ɛtʁ\\"],
+        genders=["m"],
+        etymology=[],
+        definitions=[
+            "Définition de 'être'.",
+        ],
+        variants=[],
+    ),
+    "suis": Word(
+        pronunciations=["\\sɥi\\"],
+        genders=[],
+        etymology=[],
+        definitions=[],
+        variants=["suivre", "être", "estre"],
+    ),
+    "suivre": Word(
+        pronunciations=["\\sɥivʁ\\"],
+        genders=[],
+        etymology=[],
+        definitions=["Définition de 'suivre'."],
+        variants=[],
+    ),
+}
+WORDS_VARIANTS_ES = {
+    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastada"]),
+    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastado"]),
+    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastar"]),
+    "gastar": Word(
+        pronunciations=[],
+        genders=[],
+        etymology=[],
+        definitions=["Definition of 'gastar'."],
+        variants=[],
+    ),
+}
+
+
+def test_make_variants() -> None:
+    assert convert.make_variants(WORDS_VARIANTS_FR) == {"suivre": ["suis"], "estre": ["suis"], "être": ["suis"]}
+    assert convert.make_variants(WORDS_VARIANTS_ES) == {
+        "gastada": ["gastadan"],
+        "gastado": ["gastada"],
+        "gastar": ["gastado"],
+    }
+
+
+def test_kobo_format_variants_different_prefix(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    formatter = convert.KoboFormat("fr", tmp_path, words, variants, "20250322")
+
+    assert formatter.make_groups(words) == {
+        "es": {"estre": words["estre"]},
+        "êt": {"être": words["être"]},
+        "su": {"suis": words["suis"], "suivre": words["suivre"]},
+    }
+
+    estre = "".join(formatter.handle_word("estre", words))
+    être = "".join(formatter.handle_word("être", words))
+    suis = "".join(formatter.handle_word("suis", words))
+    suivre = "".join(formatter.handle_word("suivre", words))
+    assert suis.count('<a name="suis"/>') == 3
+    assert "<b>estre</b>" in suis
+    assert "<b>suivre</b>" in suis
+    assert "<b>être</b>" in suis
+    assert "variant" not in estre  # Because group prefixes are differents
+    assert "variant" not in suis  # Because variant == word
+    assert "variant" not in être  # Because group prefixes are differents
+    assert '<var><variant name="suis"/></var>' in suivre  # Because group prefixes are the same
+
+
+def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES
+    variants = convert.make_variants(words)
+    formatter = convert.KoboFormat("es", tmp_path, words, variants, "20250322")
+
+    assert formatter.make_groups(words) == {
+        "ga": {
+            "gastada": words["gastada"],
+            "gastadan": words["gastadan"],
+            "gastado": words["gastado"],
+            "gastar": words["gastar"],
+        }
+    }
+
+    gastadan = "".join(formatter.handle_word("gastadan", words))
+    gastada = "".join(formatter.handle_word("gastada", words))
+    gastado = "".join(formatter.handle_word("gastado", words))
+    gastar = "".join(formatter.handle_word("gastar", words))
+    assert not gastadan
+    assert not gastada
+    assert not gastado
+    assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
+
+
+def test_df_format(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("fr", tmp_path, words, variants, "20250323")
+    formatter.process()
+    output = formatter.dictionary_file(formatter.output_file)
+
+    assert (
+        output.read_text(encoding="utf-8")
+        == r"""@ estre
+: \ɛtʁ\
+<html><ol><li>Définition de 'estre'.</li></ol></html>
+
+@ être
+: \ɛtʁ\ <i>m</i>.
+<html><ol><li>Définition de 'être'.</li></ol></html>
+
+@ suis
+: <b>estre</b> \ɛtʁ\
+<html><ol><li>Définition de 'estre'.</li></ol></html>
+
+@ suis
+: <b>suivre</b> \sɥivʁ\
+<html><ol><li>Définition de 'suivre'.</li></ol></html>
+
+@ suis
+: <b>être</b> \ɛtʁ\ <i>m</i>.
+<html><ol><li>Définition de 'être'.</li></ol></html>
+
+@ suivre
+: \sɥivʁ\
+& suis
+<html><ol><li>Définition de 'suivre'.</li></ol></html>
+
+"""
+    )
+
+
+def test_df_format_variants_different_prefix(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_FR
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("fr", tmp_path, words, variants, "20250323")
+
+    estre = "".join(formatter.handle_word("estre", words))
+    être = "".join(formatter.handle_word("être", words))
+    suis = "".join(formatter.handle_word("suis", words))
+    suivre = "".join(formatter.handle_word("suivre", words))
+    assert suis.count("@ suis") == 3
+    assert ": <b>estre</b>" in suis
+    assert ": <b>suivre</b>" in suis
+    assert ": <b>être</b>" in suis
+    assert "&" not in estre  # Because group prefixes are differents
+    assert "&" not in suis  # Because variant == word
+    assert "&" not in être  # Because group prefixes are differents
+    assert "& suis" in suivre  # Because group prefixes are the same
+
+
+def test_df_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES
+    variants = convert.make_variants(words)
+    formatter = convert.DictFileFormat("es", tmp_path, words, variants, "20250323")
+
+    gastadan = "".join(formatter.handle_word("gastadan", words))
+    gastada = "".join(formatter.handle_word("gastada", words))
+    gastado = "".join(formatter.handle_word("gastado", words))
+    gastar = "".join(formatter.handle_word("gastar", words))
+    assert not gastadan
+    assert not gastada
+    assert not gastado
+    assert "& gastada" in gastar
+    assert "& gastado" in gastar
+
+
+@pytest.mark.parametrize(
+    "locale, lang_src, lang_dst",
+    [
+        ("fr", "fr", "fr"),
+        ("fro", "fr", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
+    ],
+)
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    pages = Path(f"data-{snapshot}.json")
+    words: Words = {}
+    variants: Variants = {}
+
+    with (
+        patch.dict("os.environ", {"CWD": str(tmp_path)}),
+        patch.object(convert, "get_latest_json_file") as mocked_gljf,
+        patch.object(convert, "load") as mocked_l,
+        patch.object(convert, "make_variants") as mocked_mv,
+        patch.object(convert, "distribute_workload") as mocked_dw,
+        patch.object(convert, "run_mobi_formatter") as mocked_rmf,
+    ):
+        mocked_gljf.return_value = pages
+        mocked_l.return_value = words
+        mocked_mv.return_value = variants
+        source_dir = tmp_path / "data" / lang_dst / lang_src
+
+        convert.main(locale)
+        mocked_gljf.assert_called_once_with(source_dir)
+        mocked_l.assert_called_once_with(pages)
+        mocked_mv.assert_called_once_with(words)
+
+        args = (source_dir / "output", pages, locale, words, variants)
+        for include_etymology in [False, True]:
+            mocked_dw.assert_any_call(convert.get_primary_formatters(), *args, include_etymology=include_etymology)
+            mocked_dw.assert_any_call(convert.get_secondary_formatters(), *args, include_etymology=False)
+            mocked_rmf.assert_any_call(*args, include_etymology=False)
+        mocked_dw.call_count == 4
+        mocked_rmf.call_count == 2

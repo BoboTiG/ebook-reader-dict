@@ -1,0 +1,11 @@
+{{=da=}}
+{{-dem-pronom-|da}}
+{{pn}}
+# Flertal af [[denne]]
+{{-trans-}}
+* {{en}}: {{trad|en|these}}
+* {{de}}: {{trad|de|diese}}
+{{-noun-|da}}
+{{pn}}
+# ikke noget
+#: ''ikke en disse''

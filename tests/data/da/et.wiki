@@ -1,0 +1,30 @@
+{{=da=}}
+{{-art-|da}}
+{{pn}}
+#intetkøn af [[en]]
+#:''[[jeg|Jeg]] [[ønske]]r [[mig]] [[et]] [[skib]]''
+
+{{=et=}}
+{{-conj-|et}}
+{{pn}}
+#[[at]]
+
+{{=fr=}}
+{{-conj-|fr}}
+{{pn}}
+#[[og]]
+{{-rel-}}
+# et .. et.
+#* [[såvel]] .. [[som]].
+
+
+{{=la=}}
+{{-conj-|la}}
+{{pn}}
+#[[og]]
+
+{{=tr=}}
+{{-noun-|tr}}
+{{pn}}
+# [[kød]]
+[[Kategori:Mad på tyrkisk]]

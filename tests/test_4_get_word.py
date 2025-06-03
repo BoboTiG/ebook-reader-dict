@@ -11,7 +11,7 @@ def test_simple() -> None:
 
 @pytest.mark.webtest
 def test_get_random_word() -> None:
-    assert get_word.main("fr", "") == 0
+    assert get_word.main("en", "") == 0
 
 
 @pytest.mark.webtest

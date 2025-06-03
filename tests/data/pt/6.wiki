@@ -1,0 +1,22 @@
+{{caracteres info|hex=0036|nome=DIGIT SIX|morse=-....|anterior=5|próximo=7}}
+
+={{-pt-}}=
+==Forma de pronome==
+'''6'''
+# {{escopo|pt|Internetês}} [[cês]]
+
+[[Categoria:Forma de pronome (Português)]]
+
+
+={{-mult-}}=
+=={{Símbolo|mult}}==
+'''6'''
+# [[algarismo]] [[indo-arábico]] que representa o [[numeral]] [[seis]]
+
+==Ver também==
+===No Wikcionário===
+{{Algarismos indo-arábicos}}
+{{números indo-arábicos}}
+
+[[Categoria:Algarismo indo-arábico]]
+[[Categoria:Numeral cardinal (Multilíngue)|# 000006]]

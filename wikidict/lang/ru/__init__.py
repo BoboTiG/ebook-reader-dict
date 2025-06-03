@@ -2,61 +2,96 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 
 # Float number separator
 float_separator = ","
 
-# Thousads separator
+# Thousands separator
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
 section_level = 1
 section_sublevels = (3, 4)
-head_sections = "{{-ru-}}"
-etyl_section = ("Этимология",)
+head_sections = ("{{-ru-}}",)
+etyl_section = ("этимология",)
 sections = (
     *etyl_section,
-    "Значение",
-    "Семантические свойства",
-    "{{Значение}}",
-    "{{Семантические свойства}}",
-    "Морфологические и синтаксические свойства",
-    "Как самостоятельный глагол",  # for verbs with aux
-    "В значении вспомогательного глагола или связки",  # for verbs with aux
+    "значение",
+    "{{значение}}",
+    "семантические свойства",
+    "{{семантические свойства}}",
+    "морфологические и синтаксические свойства",
+    "как самостоятельный глагол",  # for verbs with aux
+    "в значении вспомогательного глагола или связки",  # for verbs with aux
 )
 
 # Variants
-variant_titles = ("Значение",)
+variant_titles = ("значение",)
 variant_templates = ("{{прич.",)
 
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # For variants
-    #
-    "прич.",
+# Some definitions are not good to keep
+templates_ignored = (
+    "??",
+    "gb",
+    "etym-lang",
+    "improve",
+    "L",
+    "Lacuna",
+    "l",
+    "lacuna",
+    "unfinished",
+    "семантика",
+    "пример",
+    "помета.",
+    "Категория",
+    "длина слова",
+    "из",
 )
-
-# Some definitions are not good to keep (plural, gender, ... )
-templates_ignored = ("unfinished", "семантика", "пример")
 
 # Templates more complex to manage.
 templates_multi = {
-    # {{зоол.|ru}}
-    "зоол.": "italic('зоол.')",
-    # {{сленг|ru}}
-    "сленг": "italic('сленг')",
-    #
-    # For variants
-    #
-    "прич.": "parts[1]",
+    # {{"|Сработать по Шеремету}}
+    '"': 'f"„{parts[1]}“"',
+    # {{===|Атлант}}
+    "===": 'f"то же, что {parts[1]}"',
+    # {{aslinks|время, времечко; временами, временно (во избежание); время от времени|,;|1}}
+    # {{aslinks|выезжать#I}}
+    "aslinks": "parts[1].split('#', 1)[0]",
+    # {{wikiref|совершенный вид}}
+    "wikiref": "parts[-1]",
+    # {{кс|Унбегаун, с. 44}}
+    "кс": 'f"[{parts[1]}]"',
+    # {{t:=|поисковая оптимизация}} →  {{_t_|поисковая оптимизация}} (converted in `render.adjust_wikicode()`)
+    "_t_": 'f"то же, что {parts[1]}"',
+    "страд.": "italic('страд.') + ' к' + ((' ' + parts[1]) if len(parts) > 1 else '')",
+    # {{марр|значение слова или выражения}}
+    "марр": 'f"‘{parts[1]}’"',
+    # {{этим-2|{{lang|en|AI|ИИ}}|{{lang|en|artificial intelligence|искусственный интеллект}}|[[тренер]]|{{lang|en|trainer|тренер}}}}
+    "этим-2": "f\"{parts[1]} + {parts[3] if len(parts) > 3 else ''}\"",
+    # {{дееприч.|сфотать}}
+    "дееприч.": "f\"<i>дееприч.</i> от {parts[1] if len(parts) > 1 else ''}\"",
+}
+
+# Templates that will be completed/replaced using custom text.
+templates_other = {
+    "?": "<small>?</small>",
+    "-": "—",
+    "--": "—",
+    "Ф": "<small>Использованы данные словаря М. Фасмера</small>",
+    "Нужен перевод": "<b>Значение этого слова или выражения пока не указано.</b> Вы можете предложить свой вариант.",
+    "советск.": "<i>советск.</i>",
 }
 
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/ru
 release_description = """\
+### 🌟 Для того чтобы этот проект регулярно обновлялся, ему необходима поддержка; [нажмите здесь](https://github.com/BoboTiG/ebook-reader-dict/issues/2339), чтобы сделать пожертвование. 🌟
+
+<br/>
+
+
 Количество слов : {words_count}
 Экспорт Викисловаря : {dump_date}
 
@@ -73,35 +108,38 @@ release_description = """\
 wiktionary = "Викисловарь (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"(?:{сущ.ru.)([fmnмжс])|(?:{сущ.ru.*\|)([fmnмжс])"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "ru")
     []
-    >>> find_genders("{{сущ ru f ina 5a|основа=страни́ц|слоги={{по-слогам|стра|ни́|ца}}}}")
+    >>> find_genders("{{сущ ru f ina 5a|основа=страни́ц|слоги={{по-слогам|стра|ни́|ца}}}}", "ru")
     ['f']
     """
     # https://ru.wiktionary.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:%D1%81%D1%83%D1%89-ru
-    return uniq(flatten(pattern.findall(code)))
+    pattern: re.Pattern[str] = re.compile(rf"(?:\{{сущ.{locale}.)([fmnмжс])|(?:\{{сущ.{locale}.*\|)([fmnмжс])")
+    return unique(flatten(pattern.findall(code)))
 
 
-def find_pronunciations(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"(?:transcriptions-ru.)(\w*)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "ru")
     []
     >>> # Expected behaviour after #1376: ['[strɐˈnʲit͡sə]']
-    >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}")
+    >>> find_pronunciations("{{transcriptions-ru|страни́ца|страни́цы|Ru-страница.ogg}}", "ru")
     ['страни']
     """
-    return uniq(pattern.findall(code))
+    pattern = re.compile(rf"(?:transcriptions-{locale}.)(\w*)")
+    return unique(pattern.findall(code))
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -110,20 +148,124 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["выдел", "foo"], "ru")
         'foo'
+
+        >>> last_template_handler(["аббр.", "ru"], "ru")
+        '<i>сокр.</i>'
+        >>> last_template_handler(["аббр.", "ru", "Свободная демократическая партия", "без ссылки=1"], "ru")
+        '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
+        >>> last_template_handler(["аббр.", "ru", "Свободная демократическая партия", "без ссылки=1", ""], "ru")
+        '<i>сокр.</i> от <i>Свободная демократическая партия</i>'
+
+        >>> last_template_handler(["рег."], "ru")
+        '<i>рег.</i>'
+        >>> last_template_handler(["рег.", "Латвия"], "ru")
+        '<i>рег. (Латвия)</i>'
+
+        >>> last_template_handler(["свойство", "абелев"], "ru")
+        'свойство по значению прилагательного <i>абелев</i>'
+        >>> last_template_handler(["свойство", "погнутый", "состояние=1"], "ru")
+        'свойство или состояние по значению прилагательного <i>погнутый</i>'
+
+        >>> last_template_handler(["нареч.", "адекватный"], "ru")
+        'наречие к <i>адекватный</i>'
+        >>> last_template_handler(["наречие", "адекватный", "в соответствии с чем-либо"], "ru")
+        'наречие к <i>адекватный</i>; в соответствии с чем-либо'
+
+        # Labels
+        >>> last_template_handler(["зоол.", "ru"], "ru")
+        '<i>зоол.</i>'
+        >>> last_template_handler(["сленг", "ru"], "ru")
+        '<i>сленг</i>'
+        >>> last_template_handler(["гипокор.", "ru", "Александр"], "ru")
+        '<i>гипокор.</i> к Александр'
+        >>> last_template_handler(["эррат.", "ru", "Александр"], "ru")
+        '<i>эррат.</i> от Александр'
+        >>> last_template_handler(["умласк."], "ru")
+        '<i>уменьш.-ласк.</i>'
+
+        >>> last_template_handler(["Унбегаун"], "ru")
+        '<i>Унбегаун Б.-О.</i> Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3.'
+        >>> last_template_handler(["Унбегаун", "сокр=1"], "ru")
+        'Унбегаун'
+
     """
+    from ...user_functions import extract_keywords_from, italic
     from .. import defaults
+    from .labels import labels
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
 
-    if lookup_template(tpl):
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
         return render_template(word, template)
+
+    data = extract_keywords_from(parts)
+
+    if tpl == "рег.":
+        text = tpl
+        if parts:
+            text += f" ({parts[0]})"
+        return italic(text)
+
+    if tpl == "аббр.":
+        text = italic("сокр.")
+        if len(parts) > 1:
+            text += f" от {italic(parts[1])}"
+        return text
 
     if tpl == "выдел":
         return parts[0]
 
+    if tpl in {"наречие", "нареч."}:
+        text = f"наречие к {italic(parts[0])}"
+        if len(parts) > 1:
+            text += f"; {parts[1]}"
+        return text
+
+    if tpl == "свойство":
+        text = tpl
+        if data["состояние"] == "1":
+            text += " или состояние"
+        return f"{text} по значению прилагательного {italic(parts[0])}"
+
+    if tpl == "Унбегаун":
+        if data["сокр"] == "1":
+            return tpl
+        return f"{italic(f'{tpl} Б.-О.')} Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3."
+
+    if label := labels.get(tpl):
+        if tpl == "умласк.":
+            label = "уменьш.-ласк."
+        text = italic(label)
+        if len(parts) > 1:
+            text += f" {'от' if tpl == 'эррат.' else 'к'} {parts[-1]}"
+        return text
+
     if lang := langs.get(tpl):
         return lang
 
-    return defaults.last_template_handler(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
+
+
+random_word_url = "https://ru.wiktionary.org/wiki/%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
+    """
+    >>> adjust_wikicode("{{t:=|же}}", "ru")
+    '{{_t_|же}}'
+    """
+    # Workaround to prevent "t:=" to be reduced to "t"
+    code = code.replace("{{t:=|", "{{_t_|")
+
+    return code

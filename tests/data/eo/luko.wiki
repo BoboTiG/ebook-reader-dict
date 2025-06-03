@@ -1,0 +1,55 @@
+=={{Lingvo|eo}}==
+{{8}}
+==={{Vortospeco|substantivo|eo}}===
+
+{{Deklinacio-eo}}
+
+{{Deveno}}
+:el la germana ''[[Luke]]''
+
+{{Vorterseparo}}
+:luk/o.
+
+===={{Signifoj}}====
+:Aperturo:
+:[1] ordinare vitrita aŭ kradita, en tegmento, plafono aŭ kelo, por enlasi lumon: ''mansarda luko''.
+:[2] fermebla per pordo aŭ tabuloj, en la ferdeko de ŝipo, por ebligi penetron en la holdon (pli precize: holdluko).
+:[3] fermita per kovrilo el giso, kiu en la strato, sur trotuaro ks ebligas al metiisto malsupreniri en kloakon, aŭ subteran galerion.
+
+{{Sinonimoj}}
+:[1] lumluko, bovokulo, vazistaso.
+
+{{Derivaĵoj}}
+:[1]
+
+{{Derivaĵoj}}
+:[[luketo]]. Malgranda luko en pordo tra kiu oni povas ekvidi la personon, kiu sonoris.
+:[[lumluko]]. luko 1.
+
+===={{Tradukoj}}====
+{{trad-eko}}
+*angla: [1] {{t|en|bull's eye}}, {{t|en|porthole}}, port hole
+*franca: [1] {{t|fr|lucarne}} {{g|f}}, {{t|fr|sabord}} {{g|m}}
+*germana: [1] {{t|de|Bullauge}} {{g|n}}, {{t|de|Dachfenster}}, {{t|de|Deckenfenster}}, {{t|de|Mansardenfenster}}, {{t|de|Luke}}, {{t|de|Dachluke}}
+*malaltgermana: [1] {{t|nds|Bulloog}}
+*pola: [1] {{t|pl|bulaj}} {{g|m}}, {{t|pl|iluminator}} {{g|m}}, {{t|pl|świetlik}} {{g|m}}
+{{trad-mezo}}
+*portugala: [1] {{t|pt|vigia}} {{g|f}}
+*hispana: [1] {{t|es|ojo de buey}}, {{t|es|escudilla}}
+*sveda: [1] {{t|sv|ventil}}, {{t|sv|oxöga}} (veraltet), {{t|sv|fönsterventil}} {{g|u}}
+
+{{trad-fino}}
+
+{{Referencoj}}
+{{vikipedio|luko}}
+* {{ref-ReVo|luko}}
+* {{ref-PIV}}
+* {{ref-Tato|eo}}
+* {{ref-Simpla Vortaro|luko}}
+
+{{Fontoj}}
+
+{{Similaĵoj}}
+:
+
+[[Kategorio:Dubinda (Esperanto)]]

@@ -1,0 +1,10 @@
+== {{langue|fr}} ==
+=== {{S|verbe|fr|flexion}} ===
+'''venoient''' {{pron||fr}}
+# ''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').
+#* {{exemple | lang=fr
+ | Ils trouvèrent nos bons Chrétiens et Néophites, lors qu’ils '''venoient''' de décabaner pour enfoncer davantage dans les bois, et qu’ils étoient chargez de femmes, d’enfans et de bagage; ce qui ne leur donna pas le loisir de se mettre en défense.
+ | source=''Marie de l’Incarnation Ursuline, ''Correspondance'', Abbaye Saint-Pierre de Solesmes, 1971, page 325}}
+
+=== {{S|anagrammes}} ===
+{{voir anagrammes|fr}}

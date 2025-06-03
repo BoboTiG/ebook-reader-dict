@@ -1,0 +1,71 @@
+{{vezi|lama|láma|lǎma|lamă}}
+=={{limba|conv}}==
+{{-nume taxonomic-|conv}}
+'''''Lama'''''
+#(''zool.'') [[gen]] de [[animal]]e din [[familie|familia]] ''[[Camelidae]]''; (''spec.'') [[lamă]], [[guanaco]]
+{{-hipo-}}
+* ''[[w:Lama glama|Lama glama]]''
+* ''[[w:Lama guanicoe|Lama guanicoe]]''
+
+{{alta}}
+
+=={{limba|deu}}==
+{{cuv|de}}
+{{-etimologie-}}
+Din spaniolă ''[[llama]]'' < limba quechua ''[[llama]]''.
+
+Pentru al doilea înțeles al cuvântului, probabil sub influența adjectivului ''[[lahm]]''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/ˈlaːmaː/}}
+{{-substantiv-|deu}}
+{{substantiv-deu
+|gen={{n}}
+|nom-sg=das Lama
+|nom-pl=die Lamas
+|akk-sg=das Lama
+|akk-pl=die Lamas
+|dat-sg=dem Lama
+|dat-pl=den Lamas
+|gen-sg=des Lamas
+|gen-pl=der Lamas
+}}
+#(''zool.'') [[lamă]]
+#:''Es gibt zwei bis drei Arten von '''Lamas'''.''
+#(''fam.'') ([[om]]) [[stângaci]], [[neîndemânatic]]
+#(''fam.'') [[persoană]] care [[scuipa|scuipă]] [[când]] [[vorbi|vorbește]]
+{{-sin-}}
+*'''1:''' (zool.) [[Neuweltkamel]]
+{{-apr-}}
+* [[Kamel]]
+===Vezi și===
+* [[Alpaka]]
+* [[Guanako]]
+{{-etimologie-}}
+Din limba tibetană [[བླ་མ]] (bla-ma).
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/ˈlaːmaː/}}
+{{-substantiv-|deu}}
+{{substantiv-deu
+|gen={{m}}
+|nom-sg=der Lama
+|nom-pl=die Lamas
+|akk-sg=den Lama
+|akk-pl=die Lamas
+|dat-sg=dem Lama
+|dat-pl=den Lamas
+|gen-sg=des Lamas
+|gen-pl=der Lamas
+}}
+#(''rel.'') [[lama]]
+{{-sin-}}
+* (rel.) [[Guru]]
+{{-deriv-}}
+* [[Lamaismus]]
+===Referințe===
+* [http://www.dwds.de/ DWDS]
+* [http://en.wiktionary.org/wiki/ Wiktionary]
+* [http://de.wiktionary.org/wiki/ Wiktionary]
+[[Categorie:Mamifere în germană]]
+[[Categorie:Camelide în germană]]
+[[Categorie:Profesiuni în germană]]
+[[Categorie:Budism în germană]]

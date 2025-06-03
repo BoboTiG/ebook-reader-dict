@@ -2,7 +2,7 @@
 
 import re
 
-from ...user_functions import uniq
+from ...user_functions import unique
 
 # Float number separator
 float_separator = ","
@@ -23,6 +23,7 @@ sections = (
     "{{art}",
     "{{cong}",
     "{{inter}",
+    "{{loc nom}",
     "{{nome}",
     "{{pref}",
     "{{Pn}",
@@ -32,33 +33,20 @@ sections = (
     "{{sost}",
     "{{sost form}",
     "{{verb}",
+    "{{verb form}",
 )
 
 # Variants
 variant_titles = (
     "{{agg form",
-    "{{sost form",
+    "{{sost",
     "{{suff",
+    "{{verb form",
 )
 variant_templates = (
-    "{{femminile di",
-    "{{femminile plurale di",
-    "{{plurale di",
+    "{{flexion",
     "{{Tabs",
 )
-
-# Some definitions are not good to keep (plural, gender, ... )
-definitions_to_ignore = (
-    #
-    # For variants
-    #
-    "femminile alternativo di",
-    "femminile di",
-    "femminile plurale alternativo di",
-    "plurale femminile di",
-    "plurale di",
-)
-
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
@@ -70,6 +58,7 @@ templates_ignored = (
     "Nodef",
     "Noetim",
     "Noref",
+    "Riflessivo",
     "Trad1",
     "Trad2",
 )
@@ -188,22 +177,16 @@ templates_multi: dict[str, str] = {
     # {{Yprb}}
     "Yprb": "small(f'({italic(\"per iperbole\")})')",
     "yprb": "small(f'({italic(\"per iperbole\")})')",
-    #
-    # For variants
-    #
-    # {{femminile di|term}}
-    "femminile di": "parts[1]",
-    # {{femminile plurale di|term}}
-    "femminile plurale di": "parts[1]",
-    # {{plurale di|term}}
-    "plurale di": "parts[1]",
-    # {{Tabs|muratore|muratori|muratrice|muratore|f2=muratora|fp2=muratrici}}
-    "Tabs": "parts[1]",
 }
 
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/it
 release_description = """\
+### 🌟 Per poter essere aggiornato regolarmente, questo progetto ha bisogno di sostegno; [cliccare qui](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) per fare una donazione. 🌟
+
+<br/>
+
+
 Numero di parole: {words_count}
 Export Wiktionary: {dump_date}
 
@@ -220,33 +203,38 @@ Versione senza etimologia:
 wiktionary = "Wikizionario (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "it")
     []
-    >>> find_genders("{{Pn}} ''m sing''")
+    >>> find_genders("{{Pn}} ''m sing''", "it")
     ['m']
     """
-    return uniq(pattern.findall(code))
+    pattern = re.compile(r"{{Pn\|?w?}} ''([fm])[singvol ]*''")
+    return unique(pattern.findall(code))
 
 
-def find_pronunciations(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"{IPA\|(/[^/]+/)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "it")
     []
-    >>> find_pronunciations("{{IPA|/kondiˈvidere/}}")
+    >>> find_pronunciations("{{IPA|/kondiˈvidere/}}", "it")
     ['/kondiˈvidere/']
+    >>> find_pronunciations("{{IPA|/əˈtʃì:vəb<sup>lə</sup>/}}", "it")
+    ['/əˈtʃì:vəb<sup>lə</sup>/']
     """
-    return uniq(pattern.findall(code))
+    pattern = re.compile(r"{IPA\|(/(.+)/)}")
+    return [prons[0][0]] if (prons := pattern.findall(code)) else []
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
@@ -276,15 +264,33 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["Sup2", "assoluto", "f sing", "it"], "it", word="massima")
         'superlativo assoluto, femminile singolare di'
-
     """
     from ...user_functions import italic, parenthesis, strong
     from .. import defaults
     from .codelangs import codelangs
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
     tpl = tpl.lower()
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
+
+    if tpl == "fonte":
+        match parts[0]:
+            case "trec":
+                return "AA.VV., <i>Vocabolario Treccani</i> edizione online su <i>treccani.it</i>, Istituto dell'Enciclopedia Italiana"
+            case _:
+                raise ValueError(f"Unhandled fonte: {parts[0]!r}")
 
     if tpl == "linkf":
         return parenthesis(
@@ -305,13 +311,96 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
             "f pl": "femminile plurale",
             "m sing": "maschile singolare",
             "m pl": "maschile plurale",
-        }.get(parts[1])
+        }[parts[1]]
         return f"superlativo {parts[0]}, {gender} di"
 
     # This is a country in the current locale
-    if codelang := codelangs.get(tpl, ""):
+    if codelang := codelangs.get(tpl):
         return codelang
-    if lang := langs.get(tpl, ""):
+    if lang := langs.get(tpl):
         return lang
 
-    return defaults.last_template_handler(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
+
+
+random_word_url = "https://it.wiktionary.org/wiki/Speciale:RandomRootpage"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
+    """
+    >>> adjust_wikicode("[[w:A|B]]", "it")
+    '[[A|B]]'
+
+    >>> adjust_wikicode("[[en:foo]]", "it")
+    ''
+
+    >>> adjust_wikicode("{{-verb form-}}", "it")
+    '=== {{verb form}} ==='
+
+    >>> adjust_wikicode("{{-avv-|it}}", "it")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("{{-avv-|ANY}}", "it")
+    '=== {{avv|ANY}} ==='
+
+    >>> adjust_wikicode("{{-avv-}}", "it")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("# plurale di [[-ectomia]]", "it")
+    '# {{flexion|-ectomia}}'
+
+    >>> adjust_wikicode("#participio presente di [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("#participio passato di [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("# participio presente di [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("#2ª pers. singolare indicativo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("# {{3}} singolare imperativo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
+    >>> adjust_wikicode("# {{1}}, 2ª pers. e {{3}} singolare congiuntivo presente del verbo [[amare]]", "it")
+    '# {{flexion|amare}}'
+    """
+    # [[w:A|B]] → [[A|B]]
+    code = code.replace("[[w:", "[[")
+
+    # [[en:foo]] → ''
+    code = re.sub(r"(\[\[\w+:\w+\]\])", "", code)
+
+    # {{-verb form-}} → === {{verb form}} ===
+    code = re.sub(r"^\{\{-(.+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|it}} → === {{avv}} ===
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-}} → === {{avv}} ===
+    code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    #
+    # Variants
+    #
+
+    # `# plurale di [[-ectomia]]` → `{{flexion|-ectomia}}`
+    # `# terza persona plurale del congiuntivo presente di [[brillantare]]` → `{{flexion|brillantare}}`
+    code = re.sub(
+        r"^#\s*(.+(?:femminile|singolare|plurale).+\[\[([^\]]+)\]\])",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # `# participio presente di [[amare]] → `{{flexion|amare}}`
+    # `# participio passato di [[amare]] → `{{flexion|amare}}`
+    code = re.sub(
+        r"^#\s*(participio (?:passato|presente) di \[\[([^\]]+)\]\])",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    return code

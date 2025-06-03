@@ -1,0 +1,5 @@
+{{Ajutor|Traduceri în alte limbi}}
+=={{limba|conv}}==
+{{-simbol-|conv}}
+'''MHz'''
+#[[simbol]] pentru [[megahertz]]

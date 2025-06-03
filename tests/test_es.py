@@ -44,8 +44,13 @@ from wikidict.utils import process_templates
             [],
             ["Del occitano <i>cartel</i>."],
             [
-                "Lámina que se expone para dar información mediante palabras o imágenes.",
+                "Lámina en donde se imprime algún mensaje, ya sea con palabras, símbolos o imágenes, y se deja a la vista para difundir información.",
+                "<i>(Política)</i>: Escrito anónimo que se fija sobre un cartel y se deja en un lugar público con mensajes satíricos hacia algún político.",
+                "Escrito que se fija sobre un cartel en un lugar público, en donde se invita a otra persona a una contienda.",
+                "Escrito que se fija sobre un cartel en un lugar público, en donde se extorsiona al enemigo en una negociación, por ejemplo, en lo que respecta a la liberación de prisioneros.",
                 "Prestigio.",
+                "<i>(Pesca)</i>: Red que se usa para la pesca de la sardina.",
+                "<i>Variante de</i> cártel.",
             ],
             [],
         ),
@@ -141,6 +146,13 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "Guyana",
+            [],
+            [],
+            [],
+            [],
+        ),
+        (
             "hasta",
             [],
             [
@@ -160,7 +172,7 @@ from wikidict.utils import process_templates
         (
             "hocico",
             [],
-            ["Del endo <i>hocicar</i>."],
+            ["De <i>hocicar</i>."],
             [
                 "<i>(Zootomía)</i>: Parte más o menos prolongada de la cabeza de algunos animales en que están la boca y las narices.",
                 "<i>(Anatomía)</i>: Hocico de una persona cuando tiene muy abultados los labios.",
@@ -219,9 +231,9 @@ from wikidict.utils import process_templates
         (
             "zzz",
             [],
-            [],
+            ["Onomatopéyica."],
             [
-                "Onomatopeya que representa el sonido del ronquido. Se usa para indicar que alguien está dormido.",
+                "Onomatopeya que representa el sonido de la respiración durante el sueño. Se usa para indicar que alguien está dormido.",
             ],
             [],
         ),
@@ -255,14 +267,16 @@ def test_parse_word(
             "{{adjetivo de sustantivo|chamán o al chamanismo|al}}",
             "Que pertenece o concierne al chamán o al chamanismo",
         ),
+        ("{{año de documentación|1250}}", "Uso atestiguado desde 1250"),
+        ("{{color|#DDB88E|espacio=6}}", "[RGB #DDB88E]"),
+        ("{{color|leng=es}}", "[RGB #FFFFFF]"),
         ("{{contexto|Educación}}", "<i>(Educación)</i>"),
         ("{{coord|04|39|N|74|03|O|type:country}}", "04°39′N 74°03′O"),
         ("{{diminutivo|historia}}", "<i>Diminutivo de</i> historia"),
         ("{{etimología2}}", ""),
         ("{{etimología2|...}}", ""),
+        ("{{etimología2|leng=es|alteración del más antiguo}}", "alteración del más antiguo"),
         ("{{etimología2|alteración del más antiguo}}", "alteración del más antiguo"),
-        ("{{forma diminutivo|leng=es|cuchara}}", "<i>Diminutivo de</i> cuchara"),
-        ("{{formatnum:22905}}", "22 905"),
         (
             "{{impropia|Utilizado para especificar...}}",
             "<i>Utilizado para especificar...</i>",
@@ -285,6 +299,8 @@ def test_parse_word(
             "<i>Variante anticuada de</i> diezmo",
         ),
         ("{{variante obsoleta|hambre}}", "<i>Variante obsoleta de</i> hambre"),
+        ("{{variante rara|pecuniario}}", "<i>Variante poco usada de</i> pecuniario"),
+        ("{{variante subestándar|-mos}}", "<i>Variante subestándar de</i> -mos"),
         ("{{verde|*exfollare}}", "<i>*exfollare</i>"),
     ],
 )

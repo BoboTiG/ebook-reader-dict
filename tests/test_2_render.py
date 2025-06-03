@@ -1,3 +1,4 @@
+import logging
 from collections.abc import Callable
 from pathlib import Path
 from unittest.mock import patch
@@ -6,7 +7,7 @@ import pytest
 from wikitextparser import Section
 
 from wikidict import render
-from wikidict.stubs import Word, Words
+from wikidict.stubs import Word
 
 
 def test_simple() -> None:
@@ -29,25 +30,18 @@ def test_empty_json_file(tmp_path: Path) -> None:
 
 
 def test_render_word(page: Callable[[str, str], str]) -> None:
-    word = ["π", page("π", "fr")]
-    words: Words = {}
-    render.render_word(word, words, "fr")
-    assert words["π"]
+    assert render.render_word(["π", page("π", "fr")], {}, "fr")
 
 
 def test_render_word_sv_with_almost_empty_definition(page: Callable[[str, str], str]) -> None:
-    word = ["Götet", page("Götet", "sv")]
-    words: Words = {}
-    render.render_word(word, words, "sv")
-    assert words["Götet"]
+    assert render.render_word(["Götet", page("Götet", "sv")], {}, "sv")
 
 
 def test_render_word_with_empty_subdefinition(page: Callable[[str, str], str]) -> None:
-    words: Words = {}
-    render.render_word(["test", page("tests-definitions", "fr")], words, "fr")
-    word: Word = words["test"]
+    details = render.render_word(["test", page("tests-definitions", "fr")], {}, "fr")
+    assert details
 
-    defs = word.definitions
+    defs = details.definitions
     assert len(defs) == 2
     assert isinstance(defs[0], str)
     assert isinstance(defs[1], tuple)
@@ -72,7 +66,7 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
         ":;a: vocablo que titula un artículo de diccionario.\n\n\n"
         ":;b: artículo de un diccionario, enciclopedia u obra de referencia."
     )
-    definitions = render.find_section_definitions("Bahamas", section, "es")
+    definitions = render.find_section_definitions("Bahamas", section, "es", "es")
     assert definitions == [
         "archipiélago de 2&nbsp;000 peñascos.",
         "países: país ubicado en el archipiélago anterior.",
@@ -84,35 +78,124 @@ def test_find_section_definitions_and_es_replace_defs_list_with_numbered_lists()
     ]
 
 
+@pytest.mark.parametrize("workers", [1, 2, 3])
+@pytest.mark.parametrize("keep_unfinished", [True, False])
+def test_missing_templates(keep_unfinished: bool, workers: int, caplog: pytest.LogCaptureFixture) -> None:
+    """Ensure the "missing templates" feature is working."""
+
+    # Craft wikicode with unsupported templates
+    in_words = {
+        "a": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''a'''
+# Première [[lettre]] et première [[voyelle]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0061}}.
+# [[chiffre|Chiffre]] [[hexadécimal]] [[dix]] (minuscule) {{unknown-2|foo|bar|lang=hex}}.
+# {{unknown-3}}
+""",
+        "b": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''b'''
+# Deuxième [[lettre]] et première [[consonne]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0062}}.
+""",
+        "c": """
+== {{langue|fr}} ==
+=== {{S|lettre|fr}} ===
+'''c'''
+# Troisième [[lettre]] et deuxième [[consonne]] de l’[[alphabet latin]] ([[minuscule]]). {{unknown-1|0063}}.
+# {{unknown-3}}
+""",
+    }
+
+    # Render
+    if keep_unfinished:
+        with patch.object(render.utils, "KEEP_UNFINISHED", True):
+            words = render.render(in_words, "fr", workers)
+    else:
+        words = render.render(in_words, "fr", workers)
+
+    # Check warnings
+    warnings = [record.getMessage() for record in caplog.get_records("call") if record.levelno == logging.WARNING]
+    assert len([w for w in warnings if "Skipped" in w]) == 0 if keep_unfinished else 3
+    assert [w for w in warnings if "Skipped" not in w] == [
+        "Missing `unknown-1` template support (3 times), example in: `a`, `b`, `c`",
+        "Missing `unknown-3` template support (2 times), example in: `a`, `c`",
+        "Missing `unknown-2` template support (1 times), example in: `a`",
+        "Unhandled templates count: 3",
+    ]
+
+    # Check words
+    if not keep_unfinished:
+        assert not words
+        return
+
+    assert words == {
+        "a": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=[
+                "Première lettre et première voyelle de l’alphabet latin (minuscule). {{unknown-1}}.",
+                "Chiffre hexadécimal dix (minuscule) {{unknown-2}}.",
+                "{{unknown-3}}",
+            ],
+            variants=[],
+        ),
+        "b": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=["Deuxième lettre et première consonne de l’alphabet latin (minuscule). {{unknown-1}}."],
+            variants=[],
+        ),
+        "c": Word(
+            pronunciations=[],
+            genders=[],
+            etymology=[],
+            definitions=[
+                "Troisième lettre et deuxième consonne de l’alphabet latin (minuscule). {{unknown-1}}.",
+                "{{unknown-3}}",
+            ],
+            variants=[],
+        ),
+    }
+
+
 @pytest.mark.parametrize(
-    "locale, code, expected",
+    "locale, lang_src, lang_dst",
     [
-        (
-            "de",
-            "{{Bedeutungen}}\n:[1] \n\n{{Herkunft}}\n:[[Abkürzung]] von [[Sturmkanone]]",
-            "=== {{Bedeutungen}} ===\n# \n\n=== {{Herkunft}} ===\n:[[Abkürzung]] von [[Sturmkanone]]",
-        ),
-        (
-            "de",
-            "{{Bedeutungen}}\n:[1] {{K|Handwerk|Architektur|ft=[[defektives Verb{{!}}defektiv]]}}",
-            "=== {{Bedeutungen}} ===\n# {{K|Handwerk|Architektur|ft=[[defektives Verb|defektiv]]}}",
-        ),
-        (
-            "it",
-            "== {{-it-}} ==\n{{-agg form-|it}}",
-            "== {{-it-}} ==\n=== {{agg form}} ===",
-        ),
-        (
-            "it",
-            "== {{-it-}} ==\n{{-agg form-|fr}}",
-            "== {{-it-}} ==\n=== {{agg form|fr}} ===",
-        ),
-        (
-            "it",
-            "== {{-it-}} ==\n{{-etim-}}\n{{Vd|nero{{!}}nero}}",
-            "== {{-it-}} ==\n=== {{etim}} ===\n{{Vd|nero|nero}}",
-        ),
+        ("fr", "fr", "fr"),
+        ("fro", "fr", "fro"),
+        ("fr:fro", "fr", "fro"),
+        ("fr:it", "fr", "it"),
+        ("it:fr", "it", "fr"),
     ],
 )
-def test_adjust_wikicode(locale: str, code: str, expected: str) -> None:
-    assert render.adjust_wikicode(code, locale) == expected
+def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> None:
+    snapshot = "20250401"
+    pages = Path(f"data_wikicode-{snapshot}.json")
+    words: dict[str, str] = {"a": "b"}
+
+    with patch.dict("os.environ", {"CWD": str(tmp_path)}):
+        source_dir = render.get_source_dir(lang_src, lang_dst)
+        assert source_dir == tmp_path / "data" / lang_dst / lang_src
+
+        output_file = render.get_output_file(source_dir, snapshot)
+        assert output_file == source_dir / f"data-{snapshot}.json"
+
+        with (
+            patch.object(render, "get_latest_json_file") as mocked_gljf,
+            patch.object(render, "load") as mocked_l,
+            patch.object(render, "render") as mocked_r,
+            patch.object(render, "save") as mocked_s,
+        ):
+            mocked_gljf.return_value = pages
+            mocked_l.return_value = words
+            mocked_r.return_value = words
+
+            render.main(locale, workers=1)
+            mocked_gljf.assert_called_once_with(source_dir)
+            mocked_l.assert_called_once_with(pages)
+            mocked_r.assert_called_once_with(words, locale, 1)
+            mocked_s.assert_called_once_with(output_file, words)

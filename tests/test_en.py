@@ -8,11 +8,12 @@ from wikidict.utils import process_templates
 
 
 @pytest.mark.parametrize(
-    "word, pronunciations, etymology, definitions, variants",
+    "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
             "ab",
             ["/æb/"],
+            [],
             [],
             [
                 "(<i>international standards</i>) <i>ISO 639-1 language code for</i> <b>Abkhaz</b>.",
@@ -27,11 +28,22 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "Acanthis",
+            [],
+            ["f"],
+            ["See"],
+            [
+                "A taxonomic genus within the family Fringillidae&nbsp;– redpolls, of northern woodlands, formerly included in <i>Carduelis</i>.",
+            ],
+            [],
+        ),
+        (
             "cum",
             ["/kʊm/", "/kʌm/"],
+            [],
             ["Learned borrowing from Latin <i>cum</i> (“with”)."],
             [
-                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.</i>",
+                "<i>Used in indicating a thing or person which has two or more roles, functions, or natures, or which has changed from one to another.</i>",
                 "<i>(colloquial, often vulgar)</i> Semen.",
                 "<i>(colloquial, often vulgar)</i> Female ejaculatory discharge.",
                 "<i>(colloquial, often vulgar)</i> An ejaculation.",
@@ -46,6 +58,7 @@ from wikidict.utils import process_templates
         (
             "efficient",
             ["/əˈfɪʃənt/", "/ɪˈfɪʃənt/"],
+            [],
             [
                 "1398, “making,” from Old French, from Latin <i>efficientem</i>, nominative <i>efficiēns</i>, participle of <i>efficere</i> (“work out, accomplish”) (see <i>effect</i>). Meaning “productive, skilled” is from 1787. <i>Efficiency apartment</i> is first recorded 1930, American English."
             ],
@@ -58,10 +71,18 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("humans", [], [], [], ["human"]),
+        (
+            "humans",
+            [],
+            [],
+            [],
+            [],
+            ["human"],
+        ),
         (
             "it's",
             ["/ɪts/"],
+            [],
             ["Contraction of ‘it is’, ‘it has’ or 'it was'."],
             [
                 "<i>Contraction of</i> <b>it is</b>.",
@@ -76,6 +97,7 @@ from wikidict.utils import process_templates
         (
             "Mars",
             ["/maɹs/", "/mɑ˞s/", "/ˈmɑɹz/", "/ˈmɑːz/"],
+            [],
             [
                 "From Middle English <i>Mars</i>, from Latin <i>Mārs</i> (“god of war”), from older Latin (older than 75 <small>B.C.E.</small>) <i>Māvors</i>."
             ],
@@ -83,7 +105,7 @@ from wikidict.utils import process_templates
                 "<i>(astronomy)</i> The fourth planet in the solar system. Symbol: <b>♂</b>",
                 "<i>(Roman mythology)</i> The Roman god of war.",
                 "<i>(poetic)</i> War; a personification of war.",
-                "The Mars bar, a brand of chocolate bar with caramel and nougat filling.",
+                "<i>Short for</i> <b>Mars bar</b>, a brand of chocolate bar with caramel and nougat filling.",
                 "A village in Semenivka, Novhorod-Siverskyi, Chernihiv, Ukraine",
                 "<i>(heraldry, rare)</i> Gules (red), in the postmedieval practice of blazoning the tinctures of certain sovereigns' (especially British monarchs') coats as planets.",
                 "<i>(obsolete, alchemy, chemistry)</i> Iron.",
@@ -91,10 +113,11 @@ from wikidict.utils import process_templates
             ],
             [],
         ),
-        ("memoized", [], [], [], ["memoize"]),
+        ("memoized", [], [], [], [], ["memoize"]),
         (
             "portmanteau",
             ["/pɔːtˈmæn.təʊ/", "/pɔːɹtˈmæntoʊ/", "/ˌpɔːɹtmænˈtoʊ/"],
+            [],
             [
                 "From Middle French <i>portemanteau</i> (“coat stand”), from <i>porte</i> (“carries”, third-person singular present indicative of <i>porter</i> (“to carry”))&nbsp;+&nbsp;<i>manteau</i> (“coat”).",
             ],
@@ -112,6 +135,7 @@ from wikidict.utils import process_templates
         (
             "someone",
             ["/ˈsʌmwʌn/"],
+            [],
             [
                 "From Middle English <i>sum on</i>, <i>sum one</i>, <i>sum oon</i>, equivalent to <i>some</i>&nbsp;+&nbsp;<i>one</i>.",
             ],
@@ -125,6 +149,7 @@ from wikidict.utils import process_templates
         (
             "scourge",
             ["/skɜɹd͡ʒ/", "/skɜːd͡ʒ/"],
+            [],
             [
                 "From Middle English <i>scourge</i> (“a lash, whip, scourge; affliction, calamity; person who causes affliction or calamity; shoot of a vine”), and then either:",
             ],
@@ -148,10 +173,11 @@ from wikidict.utils import process_templates
         (
             "the",
             ["/ði/", "/ðə/", "/ðɪ/", "/ˈðiː/", "/ˈðʌ/"],
+            [],
             [
                 "From Middle English <i>þe</i>, from Old English <i>þē</i> <i>m</i> (“the, that”, demonstrative pronoun), a late variant of <i>sē</i>, the <i>s-</i> (which occurred in the masculine and feminine nominative singular only) having been replaced by the <i>þ-</i> from the oblique stem.",
                 "Originally neutral nominative, in Middle English it superseded all previous Old English nominative forms (<i>sē</i> <i>m</i>, <i>sēo</i> <i>f</i>, <i>þæt</i> <i>n</i>, <i>þā</i> <i>pl</i>); <i>sē</i> is from Proto-West Germanic <i>*siz</i>, from Proto-Germanic <i>*sa</i>, ultimately from Proto-Indo-European <i>*só</i>.",
-                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>sá</i> (“the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",
+                "Cognate with Saterland Frisian <i>die</i> (“the”), West Frisian <i>de</i> (“the”), Dutch <i>de</i> (“the”), German Low German <i>de</i> (“the”), German <i>der</i> (“the”), Danish <i>de</i> (“the”), Swedish <i>de</i> (“the”), Icelandic <i>sá</i> (“that”) within Germanic and with Sanskrit <i>स</i> (<i>sá</i>, “the, that”), Ancient Greek <i>ὁ</i> (“the”), Tocharian B <i>se</i> (“this”) among other Indo-European languages.",
             ],
             [
                 "<i>Used before a noun phrase, including a simple noun</i>",
@@ -170,7 +196,7 @@ from wikidict.utils import process_templates
                 (
                     "<i>Added to a superlative or an ordinal number to make it into a substantive.</i> <small>[from 9th c.]</small>",
                     "<i>Used before an adjective, indicating all things (especially persons) described by that adjective.</i> <small>[from 9th c.]</small>",
-                    "<i>Used before an demonym to refer to people of a given country collectively.</i>",
+                    "<i>Used before a demonym to refer to people of a given country collectively.</i>",
                 ),
                 "<i>With a comparative or with <i>more</i> and a verb phrase, establishes a correlation with one or more other such comparatives.</i>",
                 "<i>With a comparative, and often with <i>for it</i>, indicates a result more like said comparative. This can be negated with <i>none</i>.</i>",
@@ -183,7 +209,8 @@ from wikidict.utils import process_templates
         ),
         (
             "um",
-            ["/əːm/", "/ʌm/"],
+            ["/ʌm/"],
+            [],
             ["Onomatopoeic."],
             [
                 "micrometer; variant of μm used when the character μ is unavailable",
@@ -192,7 +219,6 @@ from wikidict.utils import process_templates
                 "<i>(US)</i> <i>An expression to forcefully call attention to something wrong.</i>",
                 "<i>(UK, childish)</i> An expression of shocked disapproval used by a child who witnesses forbidden behavior.",
                 "<i>(intransitive)</i> To make the <i>um</i> sound to express uncertainty or hesitancy.",
-                "<i>Alternative form of</i> <b>umbe</b>",
                 "<i>(dated, sometimes humorous, often offensive)</i> <i>An undifferentiated determiner or article; a miscellaneous linking word, or filler with nonspecific meaning; representation of broken English stereotypically or comically attributed to Native Americans.</i>",
             ],
             [],
@@ -200,6 +226,7 @@ from wikidict.utils import process_templates
         (
             "us",
             ["/əs/", "/əz/", "/ʊs/", "/ʌs/", "/ʌz/"],
+            [],
             [
                 "From Middle English <i>us</i>, from Old English <i>ūs</i> (“us”, dative personal pronoun), from Proto-Germanic <i>*uns</i> (“us”), from Proto-Indo-European <i>*ne-</i>, <i>*nō-</i>, <i>*n-ge-</i>, <i>*n̥smé</i> (“us”). The compensatory lengthening was lost in Middle English due to the word being unstressed while being used. Cognate with Saterland Frisian <i>uus</i> (“us”), West Frisian <i>us</i>, <i>ús</i> (“us”), Low German <i>us</i> (“us”), Dutch <i>ons</i> (“us”), German <i>uns</i> (“us”), Danish <i>os</i> (“us”), Latin <i>nōs</i> (“we, us”).",
             ],
@@ -230,8 +257,9 @@ from wikidict.utils import process_templates
                 "/ˈwɔːtəɹ/",
                 "/ˈwʊtəɹ/",
             ],
+            [],
             [
-                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”). The development of the /ɔː/ vowel instead of expected */weɪtə(r)/ is irregular and has not been conclusively explained (compare father).",
+                "From Middle English <i>water</i>, from Old English <i>wæter</i> (“water”), from Proto-West Germanic <i>*watar</i>, from Proto-Germanic <i>*watōr</i> (“water”), from Proto-Indo-European <i>*wódr̥</i> (“water”).",
                 "Cognate with cf, North Frisian <i>weeter</i> (“water”), Saterland Frisian <i>Woater</i> (“water”), West Frisian <i>wetter</i> (“water”), Dutch <i>water</i> (“water”), Low German <i>Water</i> (“water”), German <i>Wasser</i>, Old Norse <i>vatn</i> (Swedish <i>vatten</i> (“water”), Danish <i>vand</i> (“water”), Norwegian Bokmål <i>vann</i> (“water”), Norwegian Nynorsk and Icelandic <i>vatn</i> (“water”), Old Irish <i>coin fodorne</i> (“otters”, literally “water-dogs”), Latin <i>unda</i> (“wave”), Lithuanian <i>vanduõ</i> (“water”), Russian <i>вода́</i> (<i>voda</i>, “water”), Albanian <i>ujë</i> (“water”), Ancient Greek <i>ὕδωρ</i> (“water”), Armenian <i>գետ</i> (<i>get</i>, “river”), Sanskrit <i>उदन्</i> (<i>udán</i>, “wave, water”), Hittite <i>𒉿𒀀𒋻</i> (<i>wa-a-tar</i>).",
             ],
             [
@@ -275,7 +303,8 @@ from wikidict.utils import process_templates
         ),
         (
             "word",
-            ["/wɜːd/", "/wɝd/"],
+            ["/wəɹd/", "/wɜːd/", "/wɝd/"],
+            [],
             [
                 "From Middle English <i>word</i>, from Old English <i>word</i>, from Proto-West Germanic <i>*word</i>, from Proto-Germanic <i>*wurdą</i>, from Proto-Indo-European <i>*wr̥dʰh₁om</i>. Doublet of <i>verb</i> and <i>verve</i>; further related to <i>vrata</i>."
             ],
@@ -322,6 +351,7 @@ from wikidict.utils import process_templates
 def test_parse_word(
     word: str,
     pronunciations: list[str],
+    genders: list[str],
     etymology: list[Definitions],
     definitions: list[Definitions],
     variants: list[str],
@@ -331,6 +361,7 @@ def test_parse_word(
     code = page(word, "en")
     details = parse_word(word, code, "en", force=True)
     assert pronunciations == details.pronunciations
+    assert genders == details.genders
     assert etymology == details.etymology
     assert definitions == details.definitions
     assert variants == details.variants
@@ -361,7 +392,7 @@ def test_parse_word(
         ("{{glossary|inflected|Inflected}}", "Inflected"),
         ("{{initialism of|en|Inuit Qaujimajatuqangit|nodot=1}}", "<i>Initialism of</i> <b>Inuit Qaujimajatuqangit</b>"),
         ("{{IPAfont|ʌ}}", "⟨ʌ⟩"),
-        ("{{Latn-def|en|name|O|o}}", "<i>The name of the Latin-script letter</i> <b>O</b>."),
+        ("{{lit|eagle killer}}", "Literally, “eagle killer”"),
         ("{{mono|#!}}", '<span style="font-family:monospace">#!</span>'),
         ("{{monospace|#!}}", '<span style="font-family:monospace">#!</span>'),
         ("{{n-g|Definite grammatical}}", "<i>Definite grammatical</i>"),

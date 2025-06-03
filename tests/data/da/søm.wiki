@@ -1,0 +1,39 @@
+{{=da=}}
+===Etymologi 1===
+Fra oldnordisk [[saumr]], fra [[sýja]] (''at sy'').
+====Substantiv====
+{{infl|da|noun|g=c}}
+# [[sammensyning]]
+{{-decl-}}
+{{da-noun-infl|stem=sømm|en|e}}
+{{-trans-}}
+{{top}}
+* {{en}}: {{t|en|seam}}
+* {{nl}}: {{t|nl|zoom}}
+{{midt}}
+* {{sv}}: {{t|sv|söm}}
+*{{O|de|Saum|m}}
+{{bund}}
+
+===Etymologi 2===
+Fra oldnordisk [[saumr]] {{m}}.
+
+====Substantiv====
+{{infl|da|noun|g=n}}
+# [[spids]] [[metal]]pind med et [[hoved]], beregnet til at [[sammenføje]] træstykker til [[hinanden]]
+{{-rel-}}
+* [[partisansøm]]
+{{-decl-}}
+{{da-noun-infl|stem=sømm|et}}
+{{-trans-}}
+{{top}}
+*{{O|en|nail}}
+*{{O|fr|clou|m}}
+*{{O|nl|spijker}}
+{{midt}}
+* {{sv}}: {{t|sv|spik|c}}, {{t|sv|söm|c}}
+*{{O|cs|hřebík|m}}
+*{{O|de|Nagel|m}}
+{{bund}}
+{{-ref-}}
+*{{DDO}}

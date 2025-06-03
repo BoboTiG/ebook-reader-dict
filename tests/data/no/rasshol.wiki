@@ -1,0 +1,32 @@
+==Norsk==
+===Substantiv===
+{{nn-sub|n}}
+
+# [[anus]]; brukt som [[skjellsord]]
+
+====Andre former====
+{{andre former|rasshòl|nn=ja|nb=nei|nrm=nei}}
+{{andre former|rasshull|nb=ja|nrm=ja}}
+{{andre former|rasshøl|nb=ja|nrm=nei}}
+
+====Uttale====
+{{uttale mangler|språk=no}}
+{{lydfil mangler|språk=no}}
+
+====Grammatikk====
+{{nn-sub-n1}}
+
+====Oversettelser====
+{{overs-topp}}
+* {{overs|en|asshole}}
+{{overs-bunn}}
+
+===Interjeksjon===
+{{infl|no|inter}}
+
+# {{kontekst|brukt som skjellsord|språk=no}} [[utropsord]] med samme betydning som substantivet
+
+[[Kategori:no:Skjellsord]]
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}

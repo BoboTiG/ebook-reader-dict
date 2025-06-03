@@ -1,0 +1,24 @@
+{{Vorto de la semajno|45|2011}}{{Vorto de la semajno|45|2012}}{{Vorto de la semajno|45|2013}}
+
+=={{Lingvo|eo}}==
+
+==={{Vortospeco|substantivo|eo}}===
+{{Deklinacio-eo}}
+{{bildodek|Almeria Alcazaba (fcm).jpg|'''alkazabo''' de Almería}}
+
+{{Deveno}}
+: el la [[andalus-araba]] ''[[alqaṣába]]'', kaj tiu ĉi el la klasika [[araba]] ''[[qaṣabah]]'', [[قصبة]]
+
+===={{Signifoj}}====
+# {{k|eo|F: historio|arkitekturo|militado}} fortikita konstruaĵaro; [[citadelo]] [[aŭ]] [[palaco]] [[de]] [[araba]] [[ĉefo]] en [[Nord-Afriko]] kaj [[Suda-Hispanio]] <ref>[http://vortaro.net/#Alkazabo Alkazabo en vortaro.net]</ref>
+
+===={{Tradukoj}}====
+{{trad-eko}}
+* franca: {{t|fr|alcazaba|f}}, {{t|fr|citadelle|f}}, casbah
+* germana: {{t|de|Alcazaba|f}}, {{t|de|Festung|f}}
+{{trad-mezo}}
+* hispana: {{t|es|alcazaba|f}}
+* itala: {{t|it|alcazaba|f}}, {{t|it|cittadella|f}}
+{{trad-fino}}
+
+{{Referencoj}}

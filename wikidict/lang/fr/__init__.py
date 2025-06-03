@@ -2,9 +2,10 @@
 
 import re
 
-from ...user_functions import flatten, uniq
+from ...user_functions import flatten, unique
 from .ar_pronunciation import toIPA
 from .arabiser import appliquer, arabiser
+from .contexts import contexts
 from .domain_templates import domain_templates
 from .regions import regions
 
@@ -16,133 +17,96 @@ thousands_separator = " "
 
 # Titre des sections qui sont intéressantes à analyser.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_des_sections_de_types_de_mots
-# Pour récupérer la liste complète des sections :
-#     python -m wikidict fr --find-templates
-# Ensuite il faudra purger la liste et il restera les sections ci-dessous.
-head_sections = ("{{langue|fr}}", "{{langue|conv}}")
-etyl_section = ("{{S|étymologie}}",)
+section_patterns = ("#", r"\*")
+head_sections = ("{{langue|fr}}", "{{langue|conv}}", "{{caractère}}")
+etyl_section = ("{{s|étymologie}}",)
+
+core_sections = [
+    "abréviations",
+    "adjectif démonstratif",
+    "adjectif exclamatif",
+    "adjectif indéfini",
+    "adjectif interrogatif",
+    "adjectif numéral",
+    "adjectif possessif",
+    "adjectif relatif",
+    "adjectif",
+    "adj",
+    "adverbe interrogatif",
+    "adverbe relatif",
+    "adverbe",
+    "article",
+    "article défini",
+    "article indéfini",
+    "article partitif",
+    "conjonction de coordination",
+    "conjonction",
+    "déterminant démonstratif",
+    "erreur",
+    "infixe",
+    "interfixe",
+    "interjection",
+    "lettre",
+    "locution-phrase",
+    "locution phrase",
+    "nom commun",
+    "nom de famille",
+    "nom propre",
+    "nom scientifique",
+    "nom",
+    "numéral",
+    "onomatopée",
+    "onomatopée",
+    "particule",
+    "phrase",
+    "postposition",
+    "pronom démonstratif",
+    "pronom indéfini",
+    "pronom interrogatif",
+    "pronom personnel",
+    "pronom possessif",
+    "pronom relatif",
+    "pronom",
+    "proverbe",
+    "préfixe",
+    "prénom",
+    "préposition",
+    "pronom indéfini",
+    "pronom personnel",
+    "pronom relatif",
+    "substantif",
+    "suffixe",
+    "symbole",
+    "variante typographique",
+    "vocabulaire",
+    "verbe",
+]
 sections = (
-    "{{S|abréviations}",
-    "{{S|adjectif démonstratif|fr|",
-    "{{S|adjectif démonstratif|fr}",
-    "{{S|adjectif exclamatif|fr|",
-    "{{S|adjectif exclamatif|fr}",
-    "{{S|adjectif indéfini|fr|",
-    "{{S|adjectif indéfini|fr}",
-    "{{S|adjectif interrogatif|fr|",
-    "{{S|adjectif interrogatif|fr}",
-    "{{S|adjectif numéral|fr|",
-    "{{S|adjectif numéral|fr}",
-    "{{S|adjectif possessif|fr|",
-    "{{S|adjectif possessif|fr}",
-    "{{S|adjectif relatif|fr}",
-    "{{S|adjectif|conv",
-    "{{S|adjectif|fr|",
-    "{{S|adjectif|fr}",
-    "{{S|adj|fr|",
-    "{{S|adj|fr}",
-    "{{S|adverbe interrogatif|fr}",
-    "{{S|adverbe relatif|fr}",
-    "{{S|adverbe|conv",
-    "{{S|adverbe|fr|",
-    "{{S|adverbe|fr}",
-    "{{S|article défini|fr|",
-    "{{S|article défini|fr}",
-    "{{S|article indéfini|fr|",
-    "{{S|article indéfini|fr}",
-    "{{S|article partitif|fr|",
-    "{{S|article partitif|fr}",
-    "{{S|conjonction de coordination|fr}",
-    "{{S|conjonction|fr|",
-    "{{S|conjonction|fr}",
-    "{{S|erreur|fr|",
-    "{{S|erreur|fr}",
     *etyl_section,
-    "{{S|interfixe|fr}",
-    "{{S|interjection|fr|",
-    "{{S|interjection|fr}",
-    "{{S|lettre|fr}",
-    "{{S|locution-phrase|fr|",
-    "{{S|locution-phrase|fr}",
-    "{{S|nom commun|fr|",
-    "{{S|nom commun|fr}",
-    "{{S|nom de famille|fr|",
-    "{{S|nom de famille|fr}",
-    "{{S|nom propre|fr|",
-    "{{S|nom propre|fr}",
-    "{{S|nom scientifique|",
-    "{{S|nom|conv",
-    "{{S|nom|fr|",
-    "{{S|nom|fr}",
-    "{{S|numéral|conv",
-    "{{S|onomatopée|fr}",
-    "{{S|particule|fr}",
-    "{{S|postposition|fr}",
-    "{{S|pronom démonstratif|fr|",
-    "{{S|pronom démonstratif|fr}",
-    "{{S|pronom indéfini|fr|",
-    "{{S|pronom indéfini|fr}",
-    "{{S|pronom interrogatif|fr|",
-    "{{S|pronom interrogatif|fr}",
-    "{{S|pronom personnel|fr|",
-    "{{S|pronom personnel|fr}",
-    "{{S|pronom possessif|fr|",
-    "{{S|pronom possessif|fr}",
-    "{{S|pronom relatif|fr|",
-    "{{S|pronom relatif|fr}",
-    "{{S|pronom|fr|",
-    "{{S|pronom|fr}",
-    "{{S|préfixe|conv",
-    "{{S|préfixe|fr|",
-    "{{S|préfixe|fr}",
-    "{{S|préposition|fr|",
-    "{{S|préposition|fr}",
-    "{{S|pronom indéfini|fr}",
-    "{{S|pronom indéfini|fr|",
-    "{{S|substantif|fr}",
-    "{{S|suffixe|conv",
-    "{{S|suffixe|fr|",
-    "{{S|suffixe|fr}",
-    "{{S|symbole|conv",
-    "{{S|symbole|fr|",
-    "{{S|symbole|fr}",
-    "{{S|variante typographique|fr|",
-    "{{S|variante typographique|fr}",
-    "{{S|verbe|fr|loc",
-    "{{S|verbe|fr|num",
-    "{{S|verbe|fr}",
-    "{{S|verbe|fr|flexion",
+    *[f"{{{{s|{section}|conv" for section in core_sections],
+    *[f"{{{{s|{section}|fr|" for section in core_sections],
+    *[f"{{{{s|{section}|fr}}" for section in core_sections],
+    *[f"{{{{s|{section}|num" for section in core_sections],
+    "{{s|caractère}",
 )
 
 # Variantes
 variant_titles = (
-    "{{S|adjectif|fr}",
-    "{{S|adjectif|fr|flexion",
-    "{{S|pronom indéfini|fr|flexion",
-    "{{S|nom|fr|flexion",
-    "{{S|verbe|fr|flexion",
+    *[f"{{{{s|{section}|fr}}" for section in core_sections],
+    *[f"{{{{s|{section}|fr|flexion" for section in core_sections],
+    *[f"{{{{s|{section}|fr|num={idx}|flexion" for idx, section in enumerate(["adjectif", "nom"], 1)],
 )
 variant_templates = (
     "{{fr-accord-",
     "{{fr-rég",
     "{{fr-verbe-flexion",
+    "{{flexion",
 )
 
-# Certaines définitions ne sont pas intéressantes à garder (pluriel, genre, ...)
+# Certaines définitions ne sont pas intéressantes à garder
 definitions_to_ignore = (
-    "habitante",
-    "masculin pluriel",
-    "féminin pluriel",
-    "''féminin de''",
-    "féminin singulier",
-    "masculin et féminin pluriel",
-    "masculin ou féminin pluriel",
-    "pluriel d",
-    "pluriel habituel",
-    "pluriel inhabituel",
-    "''pluriel''",
-    "{exemple|",
-    # Modèles spéciaux
+    "eo-excl-étyl",
+    "Gallica",
     "{doute",
     "{ébauche",
     "{ébauche-déc",
@@ -157,6 +121,7 @@ definitions_to_ignore = (
     "{ébauche-trad-exe",
     "{ébauche-trans",
     "{ébauche2-exe",
+    "{exemple|",
 )
 
 # Modèle à ignorer : le texte sera supprimé.
@@ -165,21 +130,47 @@ templates_ignored = (
     "*",
     ",",
     "?",
+    "???",
+    "ACC-animaux",
+    "ACC-tiges célestes",
+    "ACC-mains",
+    "ACC-branches terrestres",
+    "ACC-hommes",
+    "ACC-coiffures",
+    "ACC-vases",
+    "ACC-paires",
+    "ACC亠&囗",
     "Article",
     "article",
     "Accord des couleurs",
+    "alphabet chinois",
     "ancre",
+    "car-tracé",
+    "casse",
+    "casse/géorgien",
+    "clé de tri",
+    "citation bloc",
+    "composition",
     "couleurN",
     "créer-séparément",
     "désabrévier",
     "ébauche-déf",
     "ébauche-étym",
     "ébauche-exe",
+    "écouter",
+    "étymologie-chinoise-SVG",
     "exemple",
+    "fr-inv",
+    "Gallica",
+    "ja-mot",
     "ibid",
     "Import",
+    "lettre",
+    "lettre tifinaghe",
+    "Lien 639-3",
     "lire en ligne",
     "Modèle",
+    "mot-inv",
     "Ouvrage",
     "ouvrage",
     "périodique",
@@ -187,10 +178,15 @@ templates_ignored = (
     "R",
     "RÉF",
     "réf",
+    "sens écriture",
     "source",
     "Source-wikt",
+    "source-w",
+    "tableau han",
+    "trad",
     "trad-exe",
     "trier",
+    "User",
     "vérifier",
     "voir",
     "voir-conj",
@@ -199,280 +195,81 @@ templates_ignored = (
 # Modèles qui seront remplacés par du texte italique.
 # https://fr.wiktionary.org/wiki/Wiktionnaire:Liste_de_tous_les_mod%C3%A8les
 templates_italic = {
+    **contexts,
     **domain_templates,
     **regions,
-    "Afghanistan": "Afghanistan",
-    "Rwanda": "Rwanda",
-    "absol": "Absolument",
-    "absolument": "Absolument",
     "adj-indéf-avec-de": "Avec de",
-    "admin": "Administration",
-    "aéro": "Aéronautique",
-    "agri": "Agriculture",
-    "analogie": "Par analogie",
-    "angl": "Anglicisme",
-    "anat": "Anatomie",
-    "antiq": "Antiquité",
+    "adverbe de lieu": "adverbe de lieu",
+    "adverbe de manière": "adverbe de manière",
+    "adverbe de quantité": "adverbe de quantité",
+    "adverbe de temps": "adverbe de temps",
     "apposition": "En apposition",
-    "arch": "Archaïsme",
-    "archaïque": "Archaïsme",
-    "archaïsme": "Archaïsme",
-    "archi": "Architecture",
-    "Argadz": "Argot des Gadz’Arts",
+    "argot de la Famille": "Argot de la Famille",
+    "argot de l’université Paris-Cité": "Argot de l’université Paris-Cité",
     "argot internet": "Argot Internet",
-    "argot typographes": "Argot des typographes",
-    "argot voleurs": "Argot des voleurs",
-    "astron": "Astronomie",
-    "au féminin": "Au féminin",
+    "argot Internet": "Argot Internet",
+    "argot militaire": "Argot militaire",
+    "argot poilu": "Argot poilu",
+    "argot polytechnicien": "Argot polytechnicien",
+    "attestation pays de Retz": "Pays de Retz",
     "au figuré": "Sens figuré",
-    "au pluriel": "Au pluriel",
-    "au singulier": "Au singulier",
-    "audiovi": "Audiovisuel",
-    "auto": "Automobile",
-    "automo": "Automobile",
     "avant 1835": "Archaïque, orthographe d’avant 1835",
-    "BD": "Bande dessinée",
-    "BDD": "Bases de données",
-    "bdd": "Bases de données",
-    "bioch": "Biochimie",
-    "biol": "Biologie",
-    "b-m-cour": "Beaucoup moins courant",
-    "beaucoup moins courant": "Beaucoup moins courant",
-    "beaucoup plus courant": "Beaucoup plus courant",
-    "botan": "Botanique",
-    "bot.": "Botanique",
-    "Bruxelles": "Brusseleer",
-    "cartes": "Cartes à jouer",
-    "catholicisme": "Christianisme",
-    "chim": "Chimie",
-    "chir": "Chirurgie",
-    "ciné": "Cinéma",
-    "cuis": "Cuisine",
-    "comm": "Commerce",
-    "composants": "Électronique",
-    "compta": "Comptabilité",
-    "constr": "Construction",
-    "cour": "Courant",
-    "courant": "Courant",
-    "cours d'eau": "Géographie",
-    "cout": "Couture",
-    "critiqué": "Usage critiqué",
-    "cycl": "Cyclisme",
-    "dermatol": "Dermatologie",
-    "déris": "Par dérision",
-    "dérision": "Par dérision",
-    "désuet": "Désuet",
-    "détroit": "Géographie",
-    "diaéthique": "Variation diaéthique",
-    "didact": "Didactique",
-    "diplo": "Diplomatie",
-    "élec": "Électricité",
-    "en particulier": "En particulier",
-    "enclit": "Enclitique",
-    "enfantin": "Langage enfantin",
-    "entomol": "Entomologie",
-    "euph": "Par euphémisme",
-    "euphém": "Par euphémisme",
-    "euphémisme": "Par euphémisme",
+    "Canton de La Mure": "Canton de La Mure",
+    "dénombrable": "Dénombrable",
+    "diaéthique": "Variations diaéthiques",
+    "enclise": "Enclise",
     "ex-rare": "Extrêmement rare",
-    "exag": "Par hyperbole",
-    "exagération": "Par hyperbole",
     "extrêmement_rare": "Extrêmement rare",
-    "écolo": "Écologie",
-    "écon": "Économie",
-    "éduc": "Éducation",
     "énallages": "Énallage",
-    "énergie": "Industrie de l’énergie",
-    "épithète": "Employé comme épithète",
-    "familier": "Familier",
-    "ferro": "Chemin de fer",
-    "ferroviaire": "Chemin de fer",
-    "figure": "Rhétorique",
     "figuré": "Sens figuré",
-    "finan": "Finance",
-    "finances": "Finance",
-    "fonderie": "Métallurgie",
-    "formel": "Soutenu",
-    "fortification": "Architecture",
-    "gastronomie": "Cuisine",
-    "généralement": "Généralement",
     "génériquement": "Génériquement",
-    "germ": "Germanisme",
-    "graphe": "Théorie des graphes",
-    "géog": "Géographie",
-    "géol": "Géologie",
-    "géom": "Géométrie",
-    "géoph": "Géophysique",
-    "habil": "Habillement",
-    "hérald": "Héraldique",
-    "hippisme": "Sports hippiques",
-    "hist": "Histoire",
-    "horlog": "Horlogerie",
-    "humour": "Par plaisanterie",
-    "hyperb": "Par hyperbole",
-    "hyperbole": "Par hyperbole",
     "idiom": "Idiotisme",
     "idiomatique": "Sens figuré",
     "idiomatisme": "Idiotisme",
-    "impersonnel": "Impersonnel",
-    "impr": "Imprimerie",
-    "improprement": "Usage critiqué",
-    "indén": "Indénombrable",
-    "indus": "Industrie",
-    "info": "Informatique",
-    "injur": "Injurieux",
-    "injurieux": "Injurieux",
-    "intrans": "Intransitif",
     "intransitif": "Intransitif",
-    "iron": "Ironique",
-    "ironie": "Ironique",
-    "jardi": "Jardinage",
-    "juri": "Droit",
-    "jurisprudence": "Droit",
-    "just": "Justice",
-    "ling": "Linguistique",
-    "litote": "Par litote",
-    "litt": "Littéraire",
-    "locutions latines": "Latinisme",
-    "logi": "Logique",
+    "langage SMS": "Langage SMS",
     "louchébem": "Louchébem",
-    "légis": "Droit",
-    "m-cour": "Moins courant",
-    "moins courant": "Moins courant",
-    "maçon": "Maçonnerie",
-    "maladie": "Nosologie",
-    "manège": "Équitation",
     "marque": "Marque commerciale",
     "marque commerciale": "Marque commerciale",
     "marque déposée": "Marque commerciale",
-    "math": "Mathématiques",
-    "méc": "Mécanique",
-    "médecine non conv": "Médecine non conventionnelle",
-    "mélio": "Mélioratif",
-    "menu": "Menuiserie",
-    "mercatique": "Marketing",
-    "métrol": "Métrologie",
-    "mili": "Militaire",
     "militant": "Vocabulaire militant",
-    "minér": "Minéralogie",
-    "musi": "Musique",
-    "mythol": "Mythologie",
-    "méca": "Mécanique",
-    "méde": "Médecine",
-    "métal": "Métallurgie",
-    "métaph": "Sens figuré",
     "métaphore": "Sens figuré",
-    "météo": "Météorologie",
-    "météorol": "Météorologie",
-    "méton": "Par métonymie",
-    "métonymie": "Par métonymie",
-    "moderne": "Moderne",
-    "muscle": "Anatomie",
-    "neurol": "Neurologie",
-    "noms de domaine": "Informatique",
-    "nom-coll": "Nom collectif",
+    "Morvan": "Morvan",
+    "nom collectif": "Nom collectif",
+    "noms de domaine": "Internet",
     "nom-déposé": "Marque commerciale",
-    "nucl": "Nucléaire",
-    "numis": "Numismatique",
-    "néol": "Néologisme",
-    "néologisme": "Néologisme",
-    "obsolète": "désuet",
-    "oenol": "Œnologie",
-    "opti": "Optique",
-    "ornithol": "Ornithologie",
+    "Nouvelle-Angleterre": "Nouvelle-Angleterre",
     "ortho1990": "orthographe rectifiée de 1990",
-    "POO": "Programmation orientée objet",
-    "p-us": "Peu usité",
-    "p us": "Peu usité",
-    "paléogr": "Paléographie",
-    "par analogie": "Par analogie",
-    "par euphémisme": "Par euphémisme",
-    "par ext": "Par extension",
-    "par extension": "Par extension",
-    "par hyperbole": "Par hyperbole",
+    "Ortograf altêrnativ": "Ortograf altêrnativ",
+    "oxymore": "Oxymore",
     "par litote": "Par litote",
-    "par métonymie": "Par métonymie",
-    "par plaisanterie": "Par plaisanterie",
+    "par troponymie": "Par troponymie",
     "parler bellifontain": "Parler bellifontain",
-    "part": "En particulier",
-    "partic": "En particulier",
-    "particulier": "En particulier",
-    "pathologie": "Nosologie",
     "pâtes": "Cuisine",
-    "pêch": "Pêche",
-    "péj": "Péjoratif",
-    "philo": "Philosophie",
-    "photo": "Photographie",
-    "phys": "Physique",
-    "pl-cour": "Plus courant",
-    "plus courant": "Plus courant",
-    "plais": "Par plaisanterie",
-    "plaisanterie": "Par plaisanterie",
-    "plus rare": "Plus rare",
-    "poés": "Poésie",
-    "poét": "Poétique",
-    "polit": "Politique",
-    "popu": "Populaire",
-    "presse": "Journalisme",
-    "procédure": "Justice",
-    "prog": "Programmation informatique",
-    "programmation": "Programmation informatique",
-    "pronl": "Pronominal",
-    "pronominal": "Pronominal",
-    "propre": "Sens propre",
-    "propriété": "Droit",
-    "propulsion": "Propulsion spatiale",
-    "prov": "Proverbial",
-    "psychia": "Psychiatrie",
-    "psychol": "Psychologie",
-    "reli": "Religion",
+    "pyrologie": "pyrologie",
     "réciproque2": "Réciproque",
     "réfléchi": "Réfléchi",
     "réflexif": "Réfléchi",
-    "réseaux": "Réseaux informatiques",
-    "sci-fi": "Science-fiction",
-    "scol": "Éducation",
-    "scolaire": "Éducation",
+    "RSS-URSS": "Histoire, Communisme, URSS",
+    "Seine-Saint-Denis": "Seine-Saint-Denis",
     "sens propre": "Sens propre",
-    "sexe": "Sexualité",
-    "SMS": "Langage SMS",
-    "sociol": "Sociologie",
-    "sout": "Soutenu",
-    "spéc": "Spécialement",
-    "spécialement": "Spécialement",
     "spécifiquement": "Spécifiquement",
-    "stat": "Statistiques",
-    "sylv": "Sylviculture",
-    "tech": "Technique",
-    "technol": "Technologie",
-    "temps": "Chronologie",
-    "text": "Textile",
-    "théât": "Théâtre",
-    "théol": "Théologie",
-    "télécom": "Télécommunications",
-    "tr-fam": "Très familier",
-    "trans": "Transitif",
-    "transit": "Transitif",
     "transitif": "Transitif",
-    "transports": "Transport",
+    "transitif indir": "Transitif indirect",
     "tradit": "orthographe traditionnelle",
-    "très-rare": "Très rare",
-    "très très rare": "Extrêmement rare",
-    "typo": "Typographie",
-    "typog": "Typographie",
-    "télé": "Audiovisuel",
-    "un os": "Anatomie",
-    "un_os": "Anatomie",
-    "vieilli": "Vieilli",
-    "vieux": "Vieilli",
-    "vélo": "Cyclisme",
-    "verlan": "Verlan",
-    "vête": "Habillement",
-    "volley": "Volley-ball",
-    "vulg": "Vulgaire",
-    "zool": "Zoologie",
-    "zootechnie": "Zoologie",
+    "très familier": "Très familier",
+    "très très rare": "Très très rare",
+    "Val-de-Marne": "Val-de-Marne",
 }
+templates_italic["intrans"] = templates_italic["intransitif"]
+templates_italic["m-cour"] = templates_italic["moins courant"]
+templates_italic["un_os"] = templates_italic["un os"]
+templates_italic["popu"] = templates_italic["populaire"]
+templates_italic["prov"] = templates_italic["proverbial"]
+templates_italic["RSSA-URSS"] = templates_italic["RSS-URSS"]
+templates_italic["SMS"] = templates_italic["langage SMS"]
+templates_italic["trans"] = templates_italic["transitif"]
+templates_italic["vieux"] = templates_italic["vieilli"]
 
 # Modèles un peu plus complexes à gérer, leur prise en charge demande plus de travail.
 # Le code de droite sera passer à une fonction qui l'exécutera. Il est possible d'utiliser
@@ -488,6 +285,8 @@ templates_italic = {
 #
 # L'accès à *tpl* et *parts* permet ensuite de modifier assez aisément le résultat souhaité.
 templates_multi = {
+    # {{+|函}}
+    "+": "parts[1]",
     # {{1|Descendant}}
     "1": "parts[1]",
     # {{1er}}
@@ -496,10 +295,16 @@ templates_multi = {
     # {{1re}}
     # {{1re|fois}}
     "1re": "f\"1{superscript('re')}{'&nbsp;' + parts[1] if len(parts) > 1 else ''}\"",
+    # {{2e|edition}}
+    **{f"{idx}e": f"f\"{idx}<sup>e</sup>{{'&nbsp;' + parts[1] if len(parts) > 1 else ''}}\"" for idx in range(2, 13)},
+    # {{abréviation discrète|C{{e|ie}}|Compagnie}}
+    "abréviation discrète": "parts[1]",
     # {{Arabe|ن و ق}}
     "Arab": "parts[1] if len(parts) > 1 else 'arabe'",
     "Arabe": "parts[1] if len(parts) > 1 else 'arabe'",
     "Braille": "parts[1]",
+    # {{chiffre romain|15}}
+    "chiffre romain": "int_to_roman(int(parts[1]))",
     # {{comparatif de|bien|fr|adv}}
     "comparatif de": "sentence(parts)",
     # {{circa|1150}}
@@ -533,18 +338,14 @@ templates_multi = {
     "exp": "superscript(parts[1] if len(parts) > 1 else 'e')",
     # {{#expr: 2 ^ 30}}
     "#expr": "eval_expr(parts[1])",
-    # {{formatnum:-1000000}}
-    "formatnum": f'number(parts[1], "{float_separator}", "{thousands_separator}")',
     # {{forme pronominale|mutiner}}
     "forme pronominale": 'f"{capitalize(tpl)} de {parts[1]}"',
-    # {{fr-accord-comp|aigre|doux|...}
-    "fr-accord-comp": 'f"{parts[1]}-{parts[2]}"',
-    # {{fr-accord-comp-mf|eau|de-vie|...}
-    "fr-accord-comp-mf": 'f"{parts[1]}-{parts[2]}"',
     # {{fr-accord-oux|d|d}}
     "fr-accord-oux": "parts[1] + 'oux'",
     # {{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}
     "fr-accord-t-avant1835": "parts[1]",
+    # {{généralement singulier|fr}}
+    "généralement singulier": "'Ce terme est généralement utilisé au singulier.'",
     # {{graphie|u}}
     "graphie": 'f"‹&nbsp;{parts[1]}&nbsp;›"',
     # {{Ier}}
@@ -563,12 +364,14 @@ templates_multi = {
     # {{info lex|équitation|sport|lang=fr}}
     "info lex": "term(', '.join(capitalize(part) for part in parts[1:] if '=' not in part))",
     # {{ISBN|978-1-23-456789-7|2-876-54301-X}}
-    "ISBN": "'ISBN ' + concat(parts[1:], sep=', ', last_sep=' et ')",
+    "ISBN": "'ISBN ' + concat(parts[1:], ', ', last_sep=' et ')",
     # {{Lang-ar||[[نهر ابراهيم]]|100}}
     "Lang-ar": "parts[2]",
     # {{lexique|philosophie|fr}}
     # {{lexique|philosophie|sport|fr}}
     "lexique": "term(', '.join(capitalize(p) for p in [a for a in parts if '=' not in a][1:-1]))",
+    # {{littéral|système de positionnement mondial}}
+    "littéral": "f'Littéralement « {parts[1]} ».'",
     # {{localités|fr|d’Espagne}}
     "localités": "term('Géographie')",
     # {{Mme}}
@@ -582,7 +385,8 @@ templates_multi = {
     "nombre romain": "int_to_roman(int(parts[1]))",
     # {{numéro}}
     "numéro": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
-    "n°": 'f\'n{superscript("o")}{parts[1] if len(parts) > 1 else ""}\'',
+    # {{numéros|111-112}}
+    "numéros": 'f\'n{superscript("os")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
     # {{Pas clair|...}}
@@ -611,14 +415,13 @@ templates_multi = {
     "RFC": "sentence(parts)",
     # {{région}}
     # {{région|Lorraine et Dauphiné}}
-    "régio": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "région": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "régional": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
-    "régionalisme": "term(parts[1] if len(parts) > 1 else 'Régionalisme')",
+    "régionalisme": "term(parts[1] if len(parts) > 1 and '=' not in parts[1] else 'Régionalisme')",
     # {{re}}
     "re": "superscript(parts[1] if len(parts) > 1 else 're')",
     # {{registre|traditionnellement}}
     "registre": "italic(f\"({capitalize(parts[1])})\") if len(parts) > 1 else ''",
+    # {{ruby|泡盛|あわもり}}
+    "ruby": "f'<ruby>{parts[1]}<rt>{parts[2]}</rt></ruby>'",
     # {{smcp|Dupont}}
     "smcp": "small_caps(parts[1])",
     # {{SIC}}
@@ -629,14 +432,9 @@ templates_multi = {
     "souligner": "underline(parts[1])",
     # {{sport|fr}}
     # {{sport|fr|collectifs}}
-    "sport": "term(capitalize(concat(parts, sep=' ', indexes=[0, 2])))",
-    # {{substantivation de|mettre en exergue}}
-    "substantivation de": 'f"Substantivation de {italic(parts[1])}"',
+    "sport": "term(capitalize(concat(parts, ' ', indexes=[0, 2])))",
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
-    # {{trad+|conv|Sitophilus granarius}}
-    "trad+": "parts[2]",
-    "trad-": "parts[2]",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
@@ -647,6 +445,12 @@ templates_multi = {
     # 1,23{{x10|9}}
     "x10": "f'×10{superscript(parts[1])}' if len(parts) > 1 else '×10'",
 }
+templates_multi["n°"] = templates_multi["numéro"]
+templates_multi["nº"] = templates_multi["numéro"]
+templates_multi["NO"] = templates_multi["numéro"]
+templates_multi["régio"] = templates_multi["régionalisme"]
+templates_multi["région"] = templates_multi["régionalisme"]
+templates_multi["régional"] = templates_multi["régionalisme"]
 
 # Modèles qui seront remplacés par du texte personnalisé.
 templates_other = {
@@ -659,9 +463,10 @@ templates_other = {
     "au pluriel uniquement": "<i>au pluriel uniquement</i>",
     "avJC": "av. J.-C.",
     "c": "<i>commun</i>",
+    "C°": 'C<sup style="font-size:83.33%;line-height:1;">o</sup>',
     "collectif": "<i>collectif</i>",
     "commun": "<i>commun</i>",
-    "convention verbe grc": "<b>Note&nbsp;:</b> Par convention, les verbes grecs anciens sont désignés par la 1<sup>re</sup> personne du singulier du présent de l’indicatif actif.",
+    "convention verbe grc": "<b>Note&nbsp;:</b> Les verbes en grec ancien, d’après l’usage admis dans tous les dictionnaires, sont donnés à la première personne du présent de l’indicatif.",
     "dépendant": "<i>dépendant</i>",
     "déterminé": "déterminé",
     "f": "<i>féminin</i>",
@@ -680,6 +485,7 @@ templates_other = {
     "h muet": "<sup>(h muet)</sup>",
     "i": "<i>intransitif</i>",
     "impers": "<i>impersonnel</i>",
+    "improprement": "<i>(Usage critiqué)</i>",
     "indéterminé": "indéterminé",
     "invar": "<i>invariable</i>",
     "invariable": "<i>invariable</i>",
@@ -700,6 +506,7 @@ templates_other = {
     "non standard": "⚠ Il s’agit d’un terme utilisé qui n’est pas d’un usage standard.",
     "nombre ?": "Nombre à préciser",
     "note": "<b>Note&nbsp;:</b>",
+    "notes": "<b>Notes&nbsp;:</b>",
     "note-fr-féminin-homme": "<i>Ce mot féminin n’a pas de masculin correspondant, et il peut désigner des hommes.</i>",
     "note-fr-masculin-femme": "<i>Ce mot masculin n'a pas de féminin correspondant, et il peut désigner des femmes.</i>",
     "note-gentilé": "Ce mot est un gentilé. Un gentilé désigne les habitants d’un lieu, les personnes qui en sont originaires ou qui le représentent (par exemple, les membres d’une équipe sportive).",
@@ -714,7 +521,10 @@ templates_other = {
     "pré": "<i>prétérit</i>",
     "prés": "<i>présent</i>",
     "prnl": "<i>pronominal</i>",
+    "que": "quechua",
     "s": "<i>singulier</i>",
+    "sic": "<small>[sic]</small>",
+    "singulare tantum": "<i>au singulier uniquement</i>",
     "sp": "<i>singulier et pluriel identiques</i>",
     "sp ?": "<i>singulier et pluriel identiques ou différenciés (l’usage hésite)</i>",
     "R:Larousse2vol1922": "<i>Larousse universel en 2 volumes</i>, 1922",
@@ -733,6 +543,11 @@ templates_other = {
 # Contenu de la release sur GitHub :
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/fr
 release_description = """\
+### 🌟 Afin d'être régulièrement mis à jour, ce projet a besoin de soutien ; [cliquez ici](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) pour faire un don. 🌟
+
+<br/>
+
+
 Nombre de mots : {words_count}
 Export Wiktionnaire : {dump_date}
 
@@ -749,43 +564,46 @@ Version sans étymologies :
 wiktionary = "Wiktionnaire (ɔ) {year}"
 
 
-def find_genders(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"{([fmsingp]+)(?: \?\|fr)*}"),
-) -> list[str]:
+def find_genders(code: str, locale: str) -> list[str]:
     """
-    >>> find_genders("")
+    >>> find_genders("", "fr")
     []
-    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}")
+    >>> find_genders("'''-eresse''' {{pron|(ə).ʁɛs|fr}} {{f}}", "fr")
     ['f']
-    >>> find_genders("'''42''' {{msing}}")
+    >>> find_genders("'''42''' {{msing}}", "fr")
     ['msing']
     """
-    return uniq(flatten(pattern.findall(code)))
+    pattern = re.compile(rf"\{{([fmsingp]+)(?: \?\|{locale})*}}")
+    return unique(flatten(pattern.findall(code)))
 
 
-def find_pronunciations(
-    code: str,
-    pattern: re.Pattern[str] = re.compile(r"{pron(?:\|lang=fr)?\|([^}\|]+)"),
-) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "fr")
     []
-    >>> find_pronunciations("{{pron|ɑ|fr}}")
+    >>> find_pronunciations("{{pron|ɑ|fr}}", "fr")
     ['\\\\ɑ\\\\']
-    >>> find_pronunciations("{{pron|ɑ|fr}}, {{pron|a|fr}}")
+    >>> find_pronunciations("{{pron|ɑ|fr}}, {{pron|a|fr}}", "fr")
     ['\\\\ɑ\\\\', '\\\\a\\\\']
     """
+    pattern = re.compile(rf"\{{pron(?:\|lang={locale})?\|([^}}\|]+)")
     if not (match := pattern.search(code)):
         return []
 
     # There is at least one match, we need to get whole line
     # in order to be able to find multiple pronunciations
     line = code[match.start() : code.find("\n", match.start())]
-    return [f"\\{p}\\" for p in uniq(pattern.findall(line))]
+    return [f"\\{p}\\" for p in unique(pattern.findall(line))]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -807,11 +625,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         ''
 
         >>> last_template_handler(["diminutif", "fr"], "fr")
-        '<i>(diminutif)</i>'
+        '<i>(Diminutif)</i>'
         >>> last_template_handler(["diminutif", "fr", "m=1"], "fr")
         '<i>(Diminutif)</i>'
         >>> last_template_handler(["diminutif", "fr", "de=balle"], "fr")
-        'diminutif de <i>balle</i>'
+        'Diminutif de <i>balle</i>'
 
         >>> last_template_handler(["ellipse"], "fr")
         '<i>(Par ellipse)</i>'
@@ -825,60 +643,11 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["emploi", "au passif", "fr"], "fr")
         '<i>(Au passif)</i>'
 
-        >>> last_template_handler(["fr-accord-ain", "a.me.ʁi.k"], "fr", word="américain")
-        'américain'
-        >>> last_template_handler(["fr-accord-eau", "cham", "ʃa.m", "inv=de Bactriane", "pinv=.də.bak.tʁi.jan"], "fr")
-        'chameau de Bactriane'
-        >>> last_template_handler(["fr-accord-el", "ɔp.sjɔ.n", "ms=optionnel"], "fr")
-        'optionnel'
-        >>> last_template_handler(["fr-accord-en", "bu.le.", "ms=booléen"], "fr")
-        'booléen'
-        >>> last_template_handler(["fr-accord-er", "bouch", "bu.ʃ", "ms=boucher"], "fr")
-        'boucher'
-        >>> last_template_handler(["fr-accord-et", "kɔ.k", "ms=coquet"], "fr")
-        'coquet'
-        >>> last_template_handler(["fr-accord-eux", "malheur", "ma.lœ.ʁ"], "fr")
-        'malheureux'
-        >>> last_template_handler(["fr-accord-f", "putati", "py.ta.ti"], "fr")
-        'putatif'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinnes")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouins")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-in", "ma.lw", "deux_n=1"], "fr", word="mallouinne")
-        'mallouin'
-        >>> last_template_handler(["fr-accord-ind", "m=chacun", "pm=ʃa.kœ̃", "pf=ʃa.kyn"], "fr", word="chacune")
-        'chacun'
-        >>> last_template_handler(["fr-accord-mf-al", "anim", "a.ni.m"], "fr")
-        'animal'
-        >>> last_template_handler(["fr-accord-oin", "pron=sɑ̃.ta.lw"], "fr", word="santaloines")
-        'santaloine'
-        >>> last_template_handler(["fr-accord-rég", "ka.ʁɔt"], "fr", word="aïeuls")
-        'aïeul'
-        >>> last_template_handler(["fr-accord-rég", "a.ta.ʃe də pʁɛs", "ms=attaché", "inv=de presse"], "fr")
-        'attaché de presse'
-        >>> last_template_handler(["fr-rég", "ka.ʁɔt"], "fr", word="carottes")
-        'carotte'
-        >>> last_template_handler(["fr-rég", "ʁy", "s=ru"], "fr")
-        'ru'
-        >>> last_template_handler(["fr-rég", "ɔm d‿a.fɛʁ", "s=homme", "inv=d’affaires"], "fr", word="hommes d’affaires")
-        'homme d’affaires'
-        >>> last_template_handler(["fr-verbe-flexion", "colliger", "ind.i.3s=oui"], "fr")
-        'colliger'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "couvrir", "ind.i.3s=oui"], "fr")
-        'couvrir'
-        >>> last_template_handler(["fr-verbe-flexion", "impers=oui", "revenir", "ind.i.3s=oui"], "fr")
-        'revenir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "'=oui", "ind.i.1s=oui", "ind.i.2s=oui", "avoir"], "fr")
-        'avoir'
-        >>> last_template_handler(["fr-verbe-flexion", "grp=3", "1=dire", "imp.p.2p=oui", "ind.p.2p=oui", "ppfp=oui"], "fr")
-        'dire'
-
-        >>> last_template_handler(["R:TLFi"], "fr", "pedzouille")
+        >>> last_template_handler(["R:TLFi"], "fr", word="pedzouille")
         '«&nbsp;pedzouille&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:TLFi", "pomme"], "fr", "pedzouille")
+        >>> last_template_handler(["R:TLFi", "pomme"], "fr", word="pedzouille")
         '«&nbsp;pomme&nbsp;», dans <i>TLFi, Le Trésor de la langue française informatisé</i>, 1971–1994'
-        >>> last_template_handler(["R:DAF6", "pomme"], "fr", "pedzouille")
+        >>> last_template_handler(["R:DAF6", "pomme"], "fr", word="pedzouille")
         '«&nbsp;pomme&nbsp;», dans <i>Dictionnaire de l’Académie française, sixième édition</i>, 1832-1835'
 
         >>> last_template_handler(["Légifrance", "base=CPP", "numéro=230-45", "texte=article 230-45"], "fr")
@@ -955,6 +724,14 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["langue", "gcr"], "fr")
         'Créole guyanais'
 
+        >>> last_template_handler(["nucléide", "106", "48", "Cd"], "fr")
+        '<span style="white-space:nowrap;"><span style="display:inline-block;margin-bottom:-0.3em;vertical-align:-0.4em;line-height:1.2em;font-size:85%;text-align:right;">106<br>48</span>Cd</span>'
+
+        >>> last_template_handler(["par analogie"], "fr")
+        '<i>(Par analogie)</i>'
+        >>> last_template_handler(["par analogie", "de=forme"], "fr")
+        '<i>(Par analogie de forme)</i>'
+
         >>> last_template_handler(["rouge", "un texte"], "fr")
         '<span style="color:red">un texte</span>'
         >>> last_template_handler(["rouge", "texte=un texte"], "fr")
@@ -964,7 +741,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
         >>> last_template_handler(["wp"], "fr")
         'sur l’encyclopédie Wikipédia'
-        >>> last_template_handler(["wp"], "fr", "word")
+        >>> last_template_handler(["wp"], "fr", word="word")
         'word sur l’encyclopédie Wikipédia'
         >>> last_template_handler(["wp","Sarcoscypha coccinea"], "fr")
         'Sarcoscypha coccinea sur l’encyclopédie Wikipédia'
@@ -984,6 +761,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         chinese,
         extract_keywords_from,
         italic,
+        lookup_italic,
         person,
         term,
     )
@@ -991,10 +769,19 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     from .langs import langs
     from .template_handlers import lookup_template, render_template
 
+    tpl, *parts = template
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
     if lookup_template(template[0]):
         return render_template(word, template)
 
-    tpl, *parts = template
     data = extract_keywords_from(parts)
 
     if tpl.startswith("Citation/"):
@@ -1018,7 +805,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return next((code for code, l10n in langs.items() if l10n == code_lang), "")
 
     if tpl == "diminutif":
-        phrase = "Diminutif" if data["m"] in ("1", "oui") else "diminutif"
+        # sic see : https://fr.wiktionary.org/w/index.php?title=Mod%C3%A8le:diminutif&oldid=36661983
+        phrase = "Diminutif" if data["m"] in ("1", "oui") else "Diminutif"
         if data["de"]:
             phrase += f" de {italic(data['de'])}"
         else:
@@ -1026,7 +814,7 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         return phrase
 
     if tpl in ("ellipse", "par ellipse"):
-        return f'{italic("(Ellipse de")} {data["de"]}{italic(")")}' if data["de"] else term("Par ellipse")
+        return f"{italic('(Ellipse de')} {data['de']}{italic(')')}" if data["de"] else term("Par ellipse")
 
     if tpl == "R:DAF6":
         w = parts[0] if parts else word
@@ -1038,25 +826,6 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "emploi":
         return term(capitalize(parts[0]))
-
-    if tpl == "fr-verbe-flexion":
-        return data.get("1", parts[0] if parts else "")
-
-    if tpl.startswith(("fr-accord-rég", "fr-rég")):
-        if not (singular := data["s"] or data["m"] or data["ms"]):
-            singular = word.rstrip("s")
-        if data["inv"]:
-            singular += f" {data['inv']}"
-        return singular
-
-    if tpl.startswith("fr-accord-"):
-        if not (singular := data["s"] or data["m"] or data["ms"]):
-            singular = word.rstrip("s") if len(parts) < 2 else f"{parts[0]}{tpl.split('-')[-1]}"
-            if tpl == "fr-accord-in" and singular == word.rstrip("s"):
-                singular = singular.removesuffix("ne" if data["deux_n"] else "e")
-        if data["inv"]:
-            singular += f" {data['inv']}"
-        return singular
 
     if tpl == "Légifrance":
         return data["texte"]
@@ -1104,7 +873,20 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
 
     if tpl == "ar-terme":
         arab = arabiser(parts[0])
-        return f"{arab} ({italic(parts[0])}) /{toIPA(arab)}/"
+        return f"{arab} ({italic(parts[0])}) /{toIPA(arabic=arab)}/"
+
+    if tpl == "nucléide":
+        return (
+            '<span style="white-space:nowrap;"><span style="display:inline-block;margin-bottom:-0.3em;'
+            'vertical-align:-0.4em;line-height:1.2em;font-size:85%;text-align:right;">'
+            f"{parts[0]}<br>{parts[1]}</span>{parts[2]}</span>"
+        )
+
+    if tpl == "par analogie":
+        text = "Par analogie"
+        if de := data["de"]:
+            text += f" de {de}"
+        return term(text)
 
     if tpl == "rouge":
         prefix_style = "background-" if data["fond"] == "1" else ""
@@ -1130,4 +912,111 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if lang := langs.get(tpl):
         return lang
 
-    return defaults.last_template_handler(template, locale, word=word)
+    if context := lookup_italic(tpl, locale, empty_default=True):
+        return term(context)
+
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
+
+
+# https://fr.wiktionary.org/wiki/Wiktionnaire:Page_au_hasard
+random_word_url = "http://tools.wmflabs.org/anagrimes/hasard.php?langue=fr"
+
+
+def adjust_wikicode(code: str, locale: str) -> str:
+    # sourcery skip: inline-immediately-returned-variable
+    """
+    >>> adjust_wikicode('<li value="2"> Qui a rapport avec un type de [[discours]].', "fr")
+    ' Qui a rapport avec un type de [[discours]].'
+
+    >>> adjust_wikicode("{{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}", "fr")
+    '# {{sinogram-noimg|它|\\nclefhz1=宀|clefhz2=2|\\nnbthz1=1-5|nbthz2=5|\\nm4chz1=3|m4chz2=3071<sub>1</sub>|\\nunihz=5B83|\\ngbhz1= |gbhz2=-|\\nb5hz1=A1|b5hz2=A5A6|\\ncjhz1=J|cjhz2=十心|cjhz3=JP}}'
+
+    >>> adjust_wikicode("== {{caractère}} ==", "fr")
+    '== {{caractère}} ==\\n=== {{s|caractère}} ==='
+
+    >>> adjust_wikicode("=== {{s|caractère}} ===\\n{{hangeul unicode}}", "fr")
+    '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
+
+    >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
+    '# {{flexion|{{lien|terne|fr}}}}'
+
+    >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
+    '# {{flexion|pressant}}'
+    >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
+    '# {{flexion|anisophylle}}'
+    >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
+    '# {{flexion|antiproton}}'
+
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir#fr|venir]].", "fr")
+    '# {{flexion|venir}}'
+    >>> adjust_wikicode("# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].", "fr")
+    '# {{flexion|venir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir]].", "fr")
+    '# {{flexion|pouvoir}}'
+    >>> adjust_wikicode("# ''Participe passé masculin singulier du verbe'' [[pouvoir#fr|pouvoir]].", "fr")
+    '# {{flexion|pouvoir}}'
+    >>> adjust_wikicode("# ''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].", "fr")
+    '# {{flexion|manger}}'
+    >>> adjust_wikicode("#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'').", "fr")
+    "#''Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]] (on écrit maintenant ''[[venaient]]'')."
+    """
+    # <li value="2"> → ''
+    code = re.sub(r"<li [^>]+>", "", code)
+
+    # {{sinogram-noimg|... → '# {{sinogram-noimg|...'
+    code = re.sub(r"^\{\{sinogram-noimg", "# {{sinogram-noimg", code, flags=re.MULTILINE)
+
+    # == {{caractère}} == → '== {{caractère}} ==\n=== {{s|caractère}} ==='
+    code = re.sub(r"(==\s*{{caractère}}\s*==)", r"\1\n=== {{s|caractère}} ===", code)
+
+    # === {{s|caractère}} ===\n{{hangeul unicode}} → '=== {{s|caractère}} ===\n# {{hangeul unicode}}'
+    code = re.sub(r"=== \{\{s\|caractère}} ===\n\s*\{\{", "=== {{s|caractère}} ===\n# {{", code, flags=re.MULTILINE)
+
+    #
+    # Variants
+    #
+
+    # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {flexion|{{lien|terne|fr}}}}`
+    code = re.sub(
+        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*(\{\{[^}]+}}).*)",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
+    code = re.sub(
+        r"^#\s*('+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# ''Pluriel de ''[[anisophylle]]''.''` → `# {{flexion|anisophylle}}`
+    forms = "|".join(
+        [
+            "féminin de",
+            "masculin et féminin pluriel",
+            "masculin ou féminin pluriel",
+            "pluriel d",
+            "pluriel habituel",
+            "pluriel inhabituel",
+        ]
+    )
+    code = re.sub(
+        rf"^#\s*('+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {flexion|venir}}`
+    # `''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].` → `# {flexion|manger}}`
+    code = re.sub(
+        r"^#\s*('+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*)",
+        r"# {{flexion|\2}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    return code

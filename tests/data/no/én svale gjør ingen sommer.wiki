@@ -1,0 +1,40 @@
+==Norsk==
+===Ordtak===
+{{no-ordtak}}
+[[Kategori:Ordtak med dyr]]
+
+# Det at noen har vært observert én gang betyr ikke at det er en regel eller et sikkert tegn
+
+====Andre former====
+{{andre former|ei svale gjer ingen sumar|nn=ja}}
+{{andre former|ei svale gjer ingen sommar|nn=ja}}
+
+====Etymologi====
+{{etymologi mangler|språk=no}}
+
+====Uttale====
+{{uttale mangler|språk=no}}
+{{lydfil mangler|språk=no}}
+
+====Oversettelser====
+{{overs-topp|at noe forekommer en enkelt gang er ikke nok til å skape en forandring}}
+* {{overs-mangler|da}}
+* {{overs|en|one swallow does not a summer make}},  {{o|en|one swallow does not make a summer}}
+* {{overs|fi|ei yksi pääsky kesää tee}}
+* {{overs|fr|une hirondelle ne fait pas le printemps}}
+* {{overs|it|una rondine non fa primavera}}
+* {{overs|la|una hirundo non facit ver}}
+{{overs-midt}}
+* {{overs|nl|één zwaluw maakt nog geen zomer}}, {{o|nl|één zwaluw maakt de lente niet}}
+* {{overs|pt|uma andorinha só não faz verão}}, {{o|pt|uma andorinha não faz verão}}
+* {{overs|ru|пе́рвая ла́сточка весны́ не де́лает|sc=Cyrl|tr=pérvaja lástočka vesný ne délajet}}
+* {{overs|es|una golondrina no hace verano}}
+* {{overs|sv|en svala gör ingen sommar}}
+* {{overs|de|eine Schwalbe macht noch keinen Sommer}}, {{o|de|einmal ist keinmal}}
+{{overs-bunn}}
+
+{{DEFAULTSORT:en svale gjør ingen sommer}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB}}

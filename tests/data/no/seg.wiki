@@ -1,0 +1,46 @@
+==Norsk==
+===Pronomen===
+{{no-pron}}
+# [[refleksivt]] pronomen, tredje person entall og flertall
+#:{{eksempel|no|Han skyndte '''seg''' til bussen.}}
+#:{{eksempel|no|De bestemte '''seg''' for å vente.}}
+
+====Etymologi====
+Av {{etyl|non|no}} {{term|sik|||språk=non}}.<ref>{{R:Bokmålsordboka-Nynorskordboka}}</ref>
+
+[[Kategori:Refleksive pronomen i norsk]]
+
+====Uttale====
+* {{lyd|No-seg.ogg|språk=no}} 
+
+====Grammatikk====
+Det refleksive pronomenet blir brukt som [[objekt]] istedenfor [[personlig|personlige]] pronomen i tredje person når objektet viser til det samme som [[subjekt|subjektet]] i setningen. 
+{{Pron-alle-generisk|refleksivt||seg|sin|si|sitt|sine}}
+
+=====Eksempler=====
+* Wergeland ønsket [[seg]] et embete. (Objektet, [[seg]], viser til Wergeland, subjektet.)
+* Kongen gav [[ham]] et embete. (Objektet, [[ham]], viser ikke til subjektet som er kongen.)
+* [[ho|Ho]] lauga [[seg]]. (Ho lauga seg sjølv.)
+* Ho lauga [[henne]]. (Ho lauga ei anna.)
+
+====Oversettelser====
+{{overs-topp|Refleksivt pronomen}}
+* {{overs|da|sig}}
+* {{overs|fr|se}}
+* {{overs|pt|si|m|f|p}},  {{o|pt|si|m|f}},  {{o|pt|ele|m}},  {{o|pt|ela|f}},  {{o|pt|eles|m|p}},  {{o|pt|elas|f|p}}
+{{overs-midt}}
+* {{overs|es|se}}
+* {{overs|sv|sig}}, {{o|sv|sej}}
+* {{overs|de|sich}}
+{{overs-bunn}}
+
+===Referanser===
+{{reflist}}
+
+[[Kategori:100 vanligste ord i norsk]]
+
+----
+==Svensk==
+===Adjektiv===
+{{sv-adj|segare|segast}}
+# [[seig]]

@@ -1,42 +1,60 @@
-# From https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:ca-general&oldid=2255269 24/02/2024
+"""
+Python conversion of the ca-general module.
+Link:
+  - https://ca.wiktionary.org/wiki/M%C3%B2dul:ca-general
+
+Current version from 2025-01-22 18:04
+  - https://ca.wiktionary.org/w/index.php?title=M%C3%B2dul:ca-general&oldid=2445064
+"""
 
 import re
+import sys
+
+# Lua `%l` regex match pattern equivalent.
+# Source: https://stackoverflow.com/a/68432752/1117028
+LOWER_CHARS = "".join([char for i in range(sys.maxunicode) if (char := chr(i)).islower()])
 
 
 def cal_apostrofar(text: str) -> bool:
+    """
+    >>> cal_apostrofar("islandès")
+    True
+    >>> cal_apostrofar("llatí")
+    False
+    """
     apostrophize = {
         "hakk": False,
         "haus": False,
-        "hawa": False,  # h consonant (hakka, haussa, hawaià)
+        "hawa": False,
         "hia": False,
         "hie": False,
         "hio": False,
-        "hui": False,  # vocal consonant
+        "hui": False,
         "uig": True,
-        "uix": True,  # excepció per u vocal
+        "uix": True,
         "ha": True,
         "he": True,
         "hi": True,
         "hí": True,
         "ho": True,
         "hu": True,
-        "hy": True,  # excepte anteriors
+        "hy": True,
         "ia": False,
         "ià": False,
         "ie": False,
         "io": False,
-        "iu": False,  # i consonant
+        "iu": False,
         "ua": False,
         "ue": False,
         "ui": False,
         "uí": False,
         "uï": False,
-        "uo": False,  # u consonant
+        "uo": False,
         "ya": False,
         "ye": False,
         "yi": False,
         "yo": False,
-        "yu": False,  # y consonant
+        "yu": False,
         "a": True,
         "à": True,
         "e": True,
@@ -51,154 +69,127 @@ def cal_apostrofar(text: str) -> bool:
         "ó": True,
         "u": True,
         "ú": True,
-        "ü": True,  # excepte anteriors
+        "ü": True,
     }
-    for i in range(4, 0, -1):
-        apostrophized = apostrophize.get(text[:i])
-        if apostrophized is not None:
-            return True
-    return False
+    return any(text[:i] in apostrophize for i in range(4, 0, -1))
 
 
 def sil(mot: str) -> str:
-    if mot == "" or mot is None:
-        mot = "Example"  # Example string as fallback
-    sil = mot.lower()
+    sub = re.sub
+
+    _sil = mot.lower()
 
     # Prefixes that break rules
-    initial = sil[0]
-    if initial == "a":
-        sil = re.sub("^anae", "0200", sil)  # an-
-        sil = re.sub("^anafro", "020110", sil)
-        sil = re.sub("^an[aà]l[fg]", "02021", sil)
-        sil = re.sub("^an[aà]r([cq])", r"0202\1", sil)
-        sil = re.sub("^anè", "020", sil)
-        sil = re.sub("^ane([nprs])", r"020\1", sil)
-        sil = re.sub("^an[uú]r", "020r", sil)
-        sil = re.sub("^autoi([mn])", r"02100\1", sil)  # auto-
-    elif initial == "b":
-        sil = re.sub("^bena([aàeèéií])", r"1010\1", sil)
-        sil = re.sub("^bena([a-z])", r"1020\1", sil)  # ben-
-        sil = re.sub("^bene([ns][a-z])", r"1020\1", sil)
-        sil = re.sub("^bes[aà]v", "10201", sil)  # bes-
-        sil = re.sub("^beson", "10202", sil)
-        sil = re.sub("^bisan", "10202", sil)  # bis-
-    elif initial == "c":
-        sil = re.sub("^coin", "1002", sil)  # co-
-        sil = re.sub("^con[ou][nr]", "10202", sil)  # con-
-        sil = re.sub("^contrai", "1021100", sil)  # contra-
-    elif initial == "d":
-        sil = re.sub("^des([aeiouú])", "102\\1", sil)  # des- with pending exceptions
-    elif initial == "e":
-        sil = re.sub("^enanti", "010210", sil)  # enantio-
-        sil = re.sub("^en[oò]([flt])", "010\\1", sil)  # eno-
-        sil = re.sub("^enorm", "01021", sil)
-        sil = re.sub("^en[aoò]", "020", sil)  # en-, except previous
-        sil = re.sub("^exa([bclnrs])", "020\\1", sil)  # ex-
-        sil = re.sub("^exo([rs][^cdrpqt])", "020\\1", sil)
-    elif initial == "h":
-        sil = re.sub("^hiper[ae]", "101020", sil)  # hiper-
-    elif initial == "i":
-        sil = re.sub("^inani[ct]", "010101", sil)
-        sil = re.sub("^inefa", "01010", sil)
-        sil = re.sub("^in[eè]p", "0102", sil)
-        sil = re.sub("^in[eè]r([^ru])", "0102\\1", sil)
-        sil = re.sub("^ino[cs][ei]", "01010", sil)
-        sil = re.sub("^in[aeèoò]", "020", sil)  # in-, except previous
-        sil = re.sub("^ini([gmn])", "020\\1", sil)
-        sil = re.sub("^in[uú]([rst])", "020\\1", sil)
-        sil = re.sub("^infra[iu]", "021100", sil)  # infra-
-        sil = re.sub("^inter[ao]([^p])", "021020\\1", sil)  # inter
-        sil = re.sub("^interest", "02102021", sil)
-        sil = re.sub("^intra[iu]", "021100", sil)  # intra-
-    elif initial == "m":
-        sil = re.sub("^m[ai]cro[iu]", "101100", sil)  # macro-, micro-
-    elif initial == "n":
-        sil = re.sub("^nosal", "10202", sil)
-    elif initial == "p":
-        sil = re.sub("^pana([frt][rate][^a])", "1020\\1", sil)  # pan-
-        sil = re.sub("^panamer", "1020101", sil)
-        sil = re.sub("^panisl", "102021", sil)
-        sil = re.sub("^panòpt", "102021", sil)
-        sil = re.sub("^posta[bcl]([^$])", "102202\\1", sil)  # post-
-        sil = re.sub("^postes([^$])", "102202\\1", sil)
-        sil = re.sub("^post[io][mp]", "102202", sil)
-        sil = re.sub("^post[^aàeèéioòóu]", "10221", sil)
-        sil = re.sub("^pr[eo]i([^x])", "1100\\1", sil)  # pre-, pro-
-    elif initial == "r":
-        sil = re.sub("^rein[ae]", "10210", sil)
-        sil = re.sub("^rei([^aegx])", "100\\1", sil)  # re-
-        sil = re.sub("^reun", "1001", sil)
-    elif initial == "s":
-        sil = re.sub("^sots[ai]", "10220", sil)  # sots-
-        sil = re.sub("^sub([aàíour])", "102\\1", sil)  # sub-
-        sil = re.sub("^sub[eè]([^r])", "1020\\1", sil)
-        sil = re.sub("^subl[iu][nt]", "102101", sil)
-    elif initial == "t":
-        sil = re.sub("^trans[aeou]", "110220", sil)  # trans-
-    elif initial == "u":
-        sil = re.sub("^ultra[iu]", "021100", sil)  # ultra-
-    elif initial == "v":
-        sil = re.sub("^vosal", "10202", sil)
+    match _sil[0]:
+        case "a":
+            _sil = sub(r"^anae", "0200", _sil)
+            _sil = sub(r"^anafro", "020110", _sil)
+            _sil = sub(r"^an[aà]l[fg]", "02021", _sil)
+            _sil = sub(r"^an[aà]r([cq])", r"0202\1", _sil)
+            _sil = sub(r"^ane([npr])", r"020\1", _sil)
+            _sil = sub(r"^an[uú]r", "020r", _sil)
+            _sil = sub(r"^autoi([mn])", r"02100\1", _sil)
+        case "b":
+            _sil = sub(rf"^bena([{LOWER_CHARS}]+è)", r"1010\1", _sil)
+            _sil = sub(rf"^bena([{LOWER_CHARS}])", r"1020\1", _sil)
+            _sil = sub(rf"^bene([ns][{LOWER_CHARS}])", r"1020\1", _sil)
+            _sil = sub(r"^bisan", "10202", _sil)
+        case "c":
+            _sil = sub(r"^coin", "1002", _sil)
+        case "d":
+            _sil = sub(r"^des([aeoú])", r"102\1", _sil)
+        case "e":
+            _sil = sub(r"^enanti", "010210", _sil)
+            _sil = sub(r"^en[oò]([flt])", r"010\1", _sil)
+            _sil = sub(r"^enorm", "01021", _sil)
+            _sil = sub(r"^en[aoò]", "020", _sil)
+            _sil = sub(r"^exa([bclnrs])", r"020\1", _sil)
+            _sil = sub(r"^exo([rs][^cdrpqt])", r"020\1", _sil)
+        case "h":
+            _sil = sub(r"^hiper[ae]", "101020", _sil)
+        case "i":
+            _sil = sub(r"^inaug", "01021", _sil)
+            _sil = sub(r"^ini([^gmn])", r"010\1", _sil)
+            _sil = sub(r"^inocul", "01010l", _sil)
+            _sil = sub(r"^in[uú]([^rst])", r"010\1", _sil)
+            _sil = sub(r"^in[aeèioòuú]", "020", _sil)
+            _sil = sub(r"^infra[iu]", "021100", _sil)
+            _sil = sub(r"^inter[ao]([^p])", r"021020\1", _sil)
+            _sil = sub(r"^interest", "02102021", _sil)
+            _sil = sub(r"^intra[iu]", "021100", _sil)
+        case "m":
+            _sil = sub(r"^m[ai]cro[iu]", "101100", _sil)
+        case "n":
+            _sil = sub(r"^nosal", "10202", _sil)
+        case "p":
+            _sil = sub(r"^peral", "10202", _sil)
+        case "r":
+            _sil = sub(r"^rein[ae]", "10210", _sil)
+            _sil = sub(r"^rei([^aegx])([^$])", r"100\1\2", _sil)
+            _sil = sub(r"^reun", "1001", _sil)
+        case "s":
+            _sil = sub(r"^sots[ai]", "10220", _sil)
+            _sil = sub(r"^sub([aàír])", r"102\1", _sil)
+            _sil = sub(r"^sub[eè]([^r])", r"1020\1", _sil)
+        case "t":
+            _sil = sub(r"^trans[aou]", "110220", _sil)
 
     # Diphthongs with rising movement
-    sil = re.sub("[qg][uü][aàeèéiíïoòóuúü]", "110", sil)
-    sil = re.sub("[aàeèéiíïoòóuúü][iu][aàeèéiíïoòóuúü]", "010", sil)
-    sil = re.sub("^i[oò]ni(.)", r"0010\1", sil)  # Exception for derivatives of ió
-    sil = re.sub(r"^(h?)[iu][aàeèéioòóu]", r"\1110", sil)
+    _sil = sub(r"[qg][uü][aàeèéiíïoòóuúü]", "110", _sil)
+    _sil = sub(r"[aàeèéiíïoòóuúü][iu][aàeèéiíïoòóuúü]", "010", _sil)
+    _sil = sub(r"^i[oò]ni(.)", r"0010\1", _sil)
+    _sil = sub(r"^(h?)[iu][aàeèéioòóu]", r"\1110", _sil)
 
     # Suffixes and endings with diaeresis savings
-    sil = re.sub("[aeou]ir$", "002", sil)  # -ir infinitives
-    sil = re.sub("[aeou]int$", "0022", sil)  # gerunds
-    sil = re.sub("[aeou]ir[éà]$", "0010", sil)  # future
-    sil = re.sub("[aeou]iràs$", "00102", sil)  # future
-    sil = re.sub("[aeou]ire[mu]$", "00102", sil)  # future
-    sil = re.sub("[aeou]iran$", "00102", sil)  # future
-    sil = re.sub("[aeou]iria$", "00100", sil)  # condicional
-    sil = re.sub("[aeou]irie[sn]$", "001002", sil)  # condicional
-    sil = re.sub("[0iu]um(s?)$", "002\\1", sil)  # llatinismes
-    sil = re.sub("[0aeiou]isme(s?)$", "00210\\1", sil)  # -isme
-    sil = re.sub("[0aeiou]ist([ae]s?)$", "0021\\1", sil)  # -ista
+    _sil = sub(r"[aeou]ir$", "002", _sil)
+    _sil = sub(r"[aeou]int$", "0022", _sil)
+    _sil = sub(r"[aeou]ir[éà]$", "0010", _sil)
+    _sil = sub(r"[aeou]iràs$", "00102", _sil)
+    _sil = sub(r"[aeou]ire[mu]$", "00102", _sil)
+    _sil = sub(r"[aeou]iran$", "00102", _sil)
+    _sil = sub(r"[aeou]iria$", "00100", _sil)
+    _sil = sub(r"[aeou]irie[sn]$", "001002", _sil)
+    _sil = sub(r"[0iu]um(s?)$", r"002\1", _sil)
+    _sil = sub(r"[0aeiou]isme(s?)$", r"00210\1", _sil)
+    _sil = sub(r"[0aeiou]ist([ae]s?)$", r"0021\1", _sil)
 
     # Diphthongs with decreasing movement
-    sil = re.sub("[0aàeèéioòóuúü][u]", "02", sil)
-    sil = re.sub("[0aàeèéoòóuúü][i]", "02", sil)
-    sil = re.sub("ii$", "02", sil)  # Only at the end of a word, not with a prefix
+    _sil = sub(r"[0aàeèéioòóu][u]", "02", _sil)
+    _sil = sub(r"[0aàeèéoòóuúü][i]", "02", _sil)
+    _sil = sub(r"ii$", "02", _sil)
 
     # Vowel nuclei
-    sil = re.sub("[aàeèéiíïoòóuúü]", "0", sil)
+    _sil = sub(r"[aàeèéiíïoòóuúü]", "0", _sil)
 
     # Final codes
-    sil = re.sub(r"[a-z]$", "2", sil)
-    sil = re.sub(r"[a-z]2$", "22", sil)
-    sil = re.sub(r"[a-z]22$", "222", sil)
+    _sil = sub(rf"[{LOWER_CHARS}]$", "2", _sil)
+    _sil = sub(rf"[{LOWER_CHARS}]2$", "22", _sil)
+    _sil = sub(rf"[{LOWER_CHARS}]22$", "222", _sil)
 
     # Opening movements
-    sil = re.sub(r"^[a-z]", "1", sil)
-    sil = re.sub(r"^1[a-z]", "11", sil)
-    sil = re.sub(r"^11[a-z]", "111", sil)
-    sil = re.sub("ll0", "110", sil)
-    sil = re.sub("ny0", "110", sil)
-    sil = re.sub("kh0", "110", sil)
-    sil = re.sub("[ptcfbdg]r", "11", sil)
-    sil = re.sub("[pcfbg]l", "11", sil)
-    sil = re.sub(r"[a-z]0", "10", sil)
-    sil = re.sub("[çñ]0", "10", sil)  # [a-z] does not include ç, ñ
+    _sil = sub(rf"^[{LOWER_CHARS}]", "1", _sil)
+    _sil = sub(rf"^1[{LOWER_CHARS}]", "11", _sil)
+    _sil = sub(rf"^11[{LOWER_CHARS}]", "111", _sil)
+    _sil = _sil.replace("ll0", "110").replace("ny0", "110").replace("kh0", "110")
+    _sil = sub(r"[ptcfbdg]r", "11", _sil)
+    _sil = sub(r"[pcfbg]l", "11", _sil)
+    _sil = sub(rf"[{LOWER_CHARS}]0", "10", _sil)
 
     # Inner codes
-    sil = re.sub(r"[ps][a-z1]", "21", sil)
-    sil = re.sub(r"[a-z]([12])", r"2\1", sil)
+    _sil = sub(rf"[ps][{LOWER_CHARS}1]", "21", _sil)
+    _sil = sub(rf"[{LOWER_CHARS}]([12])", r"2\1", _sil)
 
     # Separation of syllables
-    anterior, actual = "", ""
+    anterior = actual = ""
     mot_sep = []
     for i in range(len(mot)):
-        actual = sil[i]
-        if (actual in ["0", "1"]) and (anterior in ["0", "2"]):
+        actual = _sil[i]
+        if actual in {"0", "1"} and anterior in {"0", "2"}:
             mot_sep.append("·")
         if actual == "-":
             mot_sep.append("·")
         else:
             mot_sep.append(mot[i])
         anterior = actual
+
     return "".join(mot_sep)

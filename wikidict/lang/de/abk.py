@@ -35,6 +35,7 @@ abk = {
     "alemann.": "alemannisch",
     "allg.": "allgemein",
     "alltagsspr.": "alltagssprachlich",
+    "altlat.": "altlateinisch",
     "amtsspr.": "amtssprachlich",
     "attr.": "attributiv",
     "bair.": "bairisch",
@@ -82,7 +83,7 @@ abk = {
     "metaphor.": "metaphorisch",
     "meton.": "metonymisch",
     "mitteld.": "mitteldeutsch",
-    "mlat.": "mittellateinisch",
+    "mlat.": "mittell^ateinisch",
     "mundartl.": "mundartlich",
     "nDu.": "nur Dual",
     "nPl.": "nur Plural",
@@ -137,5 +138,5 @@ abk = {
     "österr.": "österreichisch",
     "österreichisch": "österreichisch",
     "übertr.": "übertragen",
-}  # 132
+}  # 133
 # END

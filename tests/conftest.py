@@ -34,13 +34,13 @@ PAGE_XML = """
 
 
 @pytest.fixture(autouse=True)
-def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None, None, None]:
+def no_warnings(recwarn: pytest.WarningsRecorder) -> Generator[None]:
     """Fail on warning."""
 
     yield
 
     warnings = []
-    for warning in recwarn:  # pragma: no cover
+    for warning in recwarn:
         message = str(warning.message)
         warn = f"{warning.filename}:{warning.lineno} {message}"
         print(warn, file=sys.stderr)
@@ -70,7 +70,7 @@ def craft_data() -> Callable[[str], bytes]:
 
 @pytest.fixture(scope="session")
 def page() -> Callable[[str, str], str]:
-    """Return the Wikicode of a word stored into "data/$LOCALE/word.wiki"."""
+    """Return the Wikicode of a word stored into "data/LOCALE/WORD.wiki"."""
 
     def _page(word: str, locale: str) -> str:
         data = Path(os.environ["CWD"]) / "data" / locale

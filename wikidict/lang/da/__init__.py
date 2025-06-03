@@ -2,44 +2,106 @@
 
 import re
 
+from .langs import langs
+
 # Float number separator
 float_separator = ","
 
-# Thousads separator
+# Thousands separator
 thousands_separator = " "
 
 # Markers for sections that contain interesting text to analyse.
-head_sections = ("{{da}}", "dansk", "{{=da=}}")
-etyl_section = ("{{etym}}", "Etymologi")
+section_patterns = ("#", r"\*")
+section_sublevels = (3, 4)
+head_sections = (
+    "{{da}}",
+    "{{=da=}}",
+    "{{-da-}}",
+    "dansk",
+    "{{ia}}",
+    "{{=ia=}}",
+    "{{-ia-}}",
+    "interlingue",
+    "{{mul}}",
+    "{{=mul=}}",
+    "{{-mul-}}",
+    "tværsprogligt",
+)
+etyl_section = ("{{etym}}", "{{etym2}}", "etymologi", "etymologi 1", "etymologi 2", "etymologi 3", "etymologi 4")
 sections = (
     *etyl_section,
-    "Adjektiv",
-    "Adverbium",
-    "Konjugation",
-    "Lydord",
-    "Personligt prononmen",
-    "Possessivt prononmen",
-    "Pronomen",
-    "Prœposition",
-    "Proposition",
-    "Substantiv",
-    "Ubestemt prononmen",
-    "Verbum",
-    "{{abbr}}",
-    "{{abr}}",
-    "{{adj}}",
-    "{{adv}}",
-    "{{afl}}",
-    "{{conj}}",
-    "{{interj}}",
-    "{{noun}}",
-    "{{prep}}",
-    "{{pron}}",
-    "{{prop}}",
-    "{{verb}}",
-    "{{car-num}}",
     "-adj-",
+    "adjektiv",
+    "adverbium",
+    "bogstav",
+    "fast udtryk",
+    "formelt subjekt",
+    "interfiks",
+    "interjektion",
+    "konjugation",
+    "lydord",
+    "noun",
+    "pronomen",
+    "personligt prononmen",
+    "possessivt prononmen",
+    "possessivt pronomen",
+    "possessivt pronomen (ejestedord)",
+    "possessivt pronomenpossessivt pronomen (ejestedord)præfiks",
+    "prefix",
+    "pronomen",
+    "prœposition",
+    "proposition",
+    "proprium",
+    "sammentrækning",
+    "sætning",
+    "substantiv",
+    "symbol",
+    "ubestemt prononmen",
+    "ubestemt pronomen",
+    "ubestemt talord",
+    "udtryk",
+    "verbum",
+    "{{abbr}",
+    "{{abr}",
+    "{{abr|mul}",
+    "{{adj}",
+    "{{adv}",
+    "{{afl}",
+    "{{art}",
+    "{{car-num}",
+    "{{car-num|mul}",
+    "{{conj}",
+    "{{contr}}",
+    "{{dem-pronom}",
+    "{{end}",
+    "{{expr}",
+    "{{frase}",
+    "{{interj}",
+    "{{lyd}",
+    "{{noun}",
+    "{{noun2}",
+    "{{num}",
+    "{{part}",
+    "{{pers-pronom}",
+    "{{phr}",
+    "{{pp}",
+    "{{pref}",
+    "{{prep}",
+    "{{pron}",
+    "{{prop}",
+    "{{prov}",
+    "{{seq-num}",
+    "{{sætning}",
+    "{{suf}",
+    "{{symb}",
+    "{{symb|mul}",
+    "{{ubest-pronon}",
+    "{{verb}",
 )
+
+# Variantes
+variant_titles = sections
+variant_templates = ("{{alternativ stavemåde af", "{{form of", "{{flexion", "{{imperativ af", "{{imperativ form af")
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
@@ -50,8 +112,11 @@ templates_ignored = (
     "definition mangler",
     "dm",
     "infl",
+    "IPA",
     "Personlige pronominer på dansk",
+    "Possessive pronominer på dansk",
     "pn",
+    "rfe",
     "-syn-",
     "wikipedia",
     "Wikipedia",
@@ -63,53 +128,40 @@ templates_italic = {
     "geologi": "geologi",
     "grøntsag": "grøntsag",
     "internet": "internet",
+    "patologi": "patologi",
     "plante": "plante",
+    "skeleton": "anatomi",
 }
 
 templates_multi = {
-    # {{alternativ stavemåde af|}}
-    "alternativ stavemåde af": "italic(parts[0]) + ' ' + strong(parts[1])",
+    # {{archaic form of|}}
+    "archaic form of": "italic('forældet form af')",
     # {{c}}
     "c": "italic('fælleskøn')",
     # {{confix|cysto|itis|lang=da}}
     "confix": "parts[1] + '- + -' + parts[2]",
     # {{data}}
     "data": "'(' + italic('data') + ')'",
-    # {{da-adj-N}}
-    "da-adj-1": "italic('intetkønsform af')",
-    "da-adj-2": "italic('bestemt og flertal af')",
-    # {{da-noun-N}}
-    "da-noun-1": "italic('bestemt entalsform af')",
-    "da-noun-2": "italic('ubestemt flertalsform af')",
-    "da-noun-3": "italic('bestemt flertalsform af')",
-    "da-noun-4": "italic('genitiv ubestemt entalsform af')",
-    "da-noun-5": "italic('genitiv bestemt entalsform af')",
-    "da-noun-6": "italic('genitiv ubestemt flertalsform af')",
-    "da-noun-7": "italic('genitiv bestemt flertalsform af')",
     # {{dublet af|da|boulevard}}
     "dublet af": "'dublet af ' + strong(parts[-1])",
-    # {{flertal af}}
-    "flertal af": "italic('flertalsform af')",
-    # {{form of|imperative form|bjerge|lang=da}}
-    "form of": "italic(capitalize(parts[1]) + ' af') + ' ' + strong(parts[2])",
+    # {{forældet stavemåde af}}
+    "forældet stavemåde af": "italic('forældet stavemåde af')",
     # {{fysik}}
     "fysik": "'(' + italic('fysik') + ')'",
-    # {{genitivsform af}}
-    "genitivform af": "italic('genitivform af')",
-    # {{genitivsform af}}
-    "genitivsform af": "italic('genitivform af')",
-    # {{imperativ af}}
-    "imperativ af": "italic('imperativ af')",
     # {{l|da|USA}}
     "l": "parts[-1]",
     # {{label|militær|våben}}
     "label": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
+    # {{m}}
+    "m": "italic('hankøn')",
     # {{n}}
     "n": "italic('intetkøn')",
+    # {{only in}}
+    "only in": "italic('bruges kun i frasen')",
     # {{p}}
     "p": "italic('flertal')",
-    # {{præteritum participium af}}
-    "præteritum participium af": "italic('præteritum participium af')",
+    # {{stavefejl for}}
+    "stavefejl for": "italic('stavefejl for')",
     # {{trad|en|limnology}}
     "trad": "parts[-1] + superscript('(' + parts[1] + ')')",
     # {{URchar|الكحل}}
@@ -123,6 +175,11 @@ templates_multi = {
 # Release content on GitHub
 # https://github.com/BoboTiG/ebook-reader-dict/releases/tag/da
 release_description = """\
+### 🌟 For at kunne blive opdateret regelmæssigt har dette projekt brug for støtte; [klik her](https://github.com/BoboTiG/ebook-reader-dict/issues/2339) for at donere. 🌟
+
+<br/>
+
+
 Ordtælling: {words_count}
 Dump Wiktionary: {dump_date}
 
@@ -139,20 +196,25 @@ Etymology-free version:
 wiktionary = "Wiktionary (ɔ) {year}"
 
 
-def find_pronunciations(code: str) -> list[str]:
+def find_pronunciations(code: str, locale: str) -> list[str]:
     """
-    >>> find_pronunciations("")
+    >>> find_pronunciations("", "da")
     []
-    >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}")
+    >>> find_pronunciations("{{IPA|/bɛ̜ːˀ/|lang=da}}", "da")
     ['/bɛ̜ːˀ/']
     """
-    pattern = re.compile(r"\{\{IPA(?:\|(.*?))?\|lang=da\}\}", flags=re.MULTILINE)
-    matches = re.findall(pattern, code) or []
-
-    return [item for sublist in matches for item in sublist.split("|") if item]
+    pattern = re.compile(rf"\{{\{{IPA(?:\|(.*?))?\|lang={locale}\}}\}}")
+    return [item for sublist in (re.findall(pattern, code) or []) for item in sublist.split("|") if item]
 
 
-def last_template_handler(template: tuple[str, ...], locale: str, word: str = "") -> str:
+def last_template_handler(
+    template: tuple[str, ...],
+    locale: str,
+    *,
+    word: str = "",
+    all_templates: list[tuple[str, str, str]] | None = None,
+    variant_only: bool = False,
+) -> str:
     """
     Will be called in utils.py::transform() when all template handlers were not used.
 
@@ -161,10 +223,16 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["unknown"], "da")
         '##opendoublecurly##unknown##closedoublecurly##'
 
+        >>> last_template_handler(["skeleton"], "da")
+        '<i>(anatomi)</i>'
+
         >>> last_template_handler(["abbreviation of", "lang=da", "pansret mandskabsvogn"], "da")
         '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
         >>> last_template_handler(["abbr of", "pansret mandskabsvogn", "lang=da"], "da")
         '<i>Forkortelse af</i> <b>pansret mandskabsvogn</b>'
+
+        >>> last_template_handler(["da-adj", "påståeligt", "påståelige"], "da", word="påståelig")
+        'påståelig (<i>intetkøn</i> påståeligt, <i>flertal og bestemt ental attributiv</i> påståelige)'
 
         >>> last_template_handler(["compound", "hjemme", "værn", "langa=da"], "da")
         'hjemme + værn'
@@ -175,6 +243,8 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         'fransk'
         >>> last_template_handler(["etyl", "non", "da"], "da")
         'oldnordisk'
+        >>> last_template_handler(["etyl", "cmn", "pt"], "da")
+        'kinesisk'
 
         >>> last_template_handler(["initialism of", "lang=da", "København"], "da")
         '<i>Initialforkortelse af</i> <b>København</b>'
@@ -207,18 +277,34 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
         >>> last_template_handler(["u", "en", "-ing", ""], "da")
         '<i>-ing</i>'
     """
-    from ...user_functions import capitalize, concat, extract_keywords_from, italic, strong, term
+    from ...user_functions import capitalize, concat, extract_keywords_from, italic, lookup_italic, strong, term
     from .. import defaults
     from .langs import langs
+    from .template_handlers import lookup_template, render_template
 
     tpl, *parts = template
+
+    tpl_variant = f"__variant__{tpl}"
+    if variant_only:
+        tpl = tpl_variant
+        template = tuple([tpl_variant, *parts])
+    elif lookup_template(tpl_variant):
+        # We are fetching the output of a variant template, we do not want to keep it
+        return ""
+
+    if lookup_template(template[0]):
+        return render_template(word, template)
+
     data = extract_keywords_from(parts)
 
     if tpl in {"abbreviation of", "abbr of"}:
         return f"{italic('Forkortelse af')} {strong(parts[-1])}"
 
+    if tpl == "da-adj":
+        return f"{word} (<i>intetkøn</i> {parts[0]}, <i>flertal og bestemt ental attributiv</i> {parts[1]})"
+
     if tpl in {"compound", "com"}:
-        return concat(parts, sep=" + ")
+        return concat(parts, " + ")
 
     if tpl == "etyl":
         return langs[parts[0]]
@@ -254,7 +340,144 @@ def last_template_handler(template: tuple[str, ...], locale: str, word: str = ""
     if len(parts) == 1:
         return term(tpl)
 
+    if label := lookup_italic(tpl, locale, empty_default=True):
+        return term(label)
+
     if not parts and (lang := langs.get(tpl)):
         return capitalize(lang)
 
-    return defaults.last_template_handler(template, locale, word=word)
+    return defaults.last_template_handler(template, locale, word=word, all_templates=all_templates)
+
+
+random_word_url = "https://da.wiktionary.org/wiki/Speciel:RandomRootpage"
+
+ALL_FORMS = [
+    "da-adj-1",
+    "da-adj-2",
+    "da-noun-1",
+    "da-noun-2",
+    "da-noun-",
+    "da-noun-3",
+    "da-noun-4",
+    "da-noun-5",
+    "da-noun-6",
+    "da-noun-7",
+    "flertal af",
+    "genitivform af",
+    "genitiv ental ubestemt af",
+    "genitiv ubestemt entalsform af",
+    "nutid af",
+    "pluralis af",
+    "præteritum participium af",
+]
+
+
+def adjust_wikicode(
+    code: str,
+    locale: str,
+    *,
+    all_langs_iso: str = "|".join(langs),
+    all_langs_name: str = "|".join(langs.values()),
+    forms: str = "|".join(ALL_FORMS),
+) -> str:
+    # sourcery skip: inline-immediately-returned-variable
+    r"""
+    >>> adjust_wikicode("{{(}}\n* {{en}}: {{trad|en|limnology}}\n{{)}}", "da")
+    ''
+
+    >>> adjust_wikicode("{{=da=}}", "da")
+    '=={{da}}=='
+
+    >>> adjust_wikicode("===dansk===", "da")
+    '=={{da}}=='
+    >>> adjust_wikicode("===Engelsk===", "da")
+    '=={{en}}=='
+    >>> adjust_wikicode("===Foo===", "fo")
+    '===Foo==='
+
+    >>> adjust_wikicode("{{-avv-|da}}", "da")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("{{-avv-|ANY}}", "da")
+    '=== {{avv|ANY}} ==='
+
+    >>> adjust_wikicode("{{-avv-}}", "da")
+    '=== {{avv}} ==='
+
+    >>> adjust_wikicode("#Pluralis af [[tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("#Pluralis af [[tale|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("#Pluralis af [[tale#Substantiv|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# Nutid af [[tale#Verbum|tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# Flertal af [[tale]]: [[ui]].", "da")
+    '# {{flexion|tale}}'
+
+    >>> adjust_wikicode("# {{flertal af}} [[tale]]", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# {{flertal af}} '''[[tale]]'''", "da")
+    '# {{flexion|tale}}'
+    >>> adjust_wikicode("# {{flertal af}} {{l|da|tale}}", "da")
+    '# {{flexion|{{l|da|tale}}}}'
+    """
+    code = code.replace("----", "")
+
+    # {{(}} .* {{)}}
+    code = re.sub(r"\{\{\(\}\}(.+)\{\{\)\}\}", "", code, flags=re.DOTALL | re.MULTILINE)
+
+    # {{=da=}} → =={{da}}==
+    code = re.sub(r"\{\{=(\w+)=\}\}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
+    # ===dansk=== → =={{da}}==
+    code = re.sub(
+        rf"=+\s*({all_langs_name})\s*=+",
+        lambda m: f"=={{{{{next(iso for iso, name in langs.items() if m[1].lower() == name)}}}}}==",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # Transform sub-locales into their own section to prevent mixing stuff
+    # {{-da-}} → =={{da}}==
+    # {{-mul-}} → =={{mul}}==
+    code = re.sub(rf"\{{\{{-({all_langs_iso})-\}}\}}", r"=={{\1}}==", code, flags=re.MULTILINE)
+
+    # {{-avv-|da}} → === {{avv}} ===
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
+
+    # {{-avv-}} → === {{avv}} ===
+    code = re.sub(r"^\{\{-(\w+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+
+    #
+    # Variants
+    #
+
+    # `# Pluralis af [[tale#Substantiv|tale]]` → `# {{flexion|tale}}`
+    code = re.sub(
+        rf"^#\s*(?:{forms})\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# {{flertal af}} '''[[tale]]'''` → `# {{flexion|tale}}`
+    code = re.sub(
+        rf"^#\s*\{{\{{(?:{forms})\}}\}} '*\[\[([^\]]+).*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    # `# {{flertal af}} {{l|da|tale}}` → `# {{flexion|tale}}`
+    code = re.sub(
+        rf"^#.*\{{\{{(?:{forms})\}}\}}\s+(\{{\{{[^}}]+\}}\}}).*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    return code

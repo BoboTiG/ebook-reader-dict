@@ -1,25 +1,28 @@
 """Get and render a word."""
 
+from __future__ import annotations
+
 import os
 import re
+from typing import TYPE_CHECKING
 
-import requests
-
+from . import constants, utils
 from .render import parse_word
-from .stubs import Word
 from .user_functions import int_to_roman
-from .utils import check_for_missing_templates, convert_gender, convert_pronunciation, get_random_word
+
+if TYPE_CHECKING:
+    from .stubs import Word
 
 
-def get_word(word: str, locale: str) -> Word:
+def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
-    url = f"https://{locale}.wiktionary.org/w/index.php?title={word}&action=raw"
-    with requests.get(url) as req:
+    url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
+    with constants.SESSION.get(url) as req:
         code = req.text
-    return parse_word(word, code, locale, force=True)
+    return parse_word(word, code, locale, force=True, all_templates=all_templates)
 
 
-def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
+def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     """Get a *word* wikicode, parse it and print it."""
 
     def strip_html(text: str) -> str:
@@ -37,11 +40,12 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
         text = text.replace(" .", ".")
         return text
 
-    details = get_word(word, locale)
+    all_templates: list[tuple[str, str, str]] = []
+    details = get_word(word, locale, all_templates=all_templates)
     print(
         word,
-        convert_pronunciation(details.pronunciations).lstrip(),
-        strip_html(convert_gender(details.genders).lstrip()),
+        utils.convert_pronunciation(details.pronunciations).lstrip(),
+        strip_html(utils.convert_gender(details.genders).lstrip()),
         "\n",
     )
 
@@ -61,7 +65,7 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
             print(f"{index}.".rjust(4), strip_html(definition))
             index = index + 1
 
-    if details.etymology:
+    if details.definitions and details.etymology:
         print("\n")
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
@@ -73,6 +77,8 @@ def get_and_parse_word(word: str, locale: str, raw: bool = False) -> None:
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
+    utils.check_for_missing_templates(all_templates)
+
 
 def set_output(locale: str, word: str) -> None:
     """It is very specific to GitHub Actions, and will set the job summary with helpful information."""
@@ -81,13 +87,14 @@ def set_output(locale: str, word: str) -> None:
             fh.write(f"[{locale.upper()}] {word!r}\n".encode())
 
 
-def main(locale: str, word: str, raw: bool = False) -> int:
+def main(locale: str, word: str, *, raw: bool = False) -> int:
     """Entry point."""
 
+    _, lang_dst = utils.guess_locales(locale, use_log=False)
+
     # If *word* is empty, get a random word
-    word = word or get_random_word(locale)
+    word = word or utils.get_random_word(lang_dst)
 
     set_output(locale, word)
-    get_and_parse_word(word, locale, raw)
-    check_for_missing_templates()
+    get_and_parse_word(word, locale, raw=raw)
     return 0

@@ -1,0 +1,30 @@
+{{se også|bar|bär|Bär}}
+==Norsk==
+===Suffiks===
+{{no-suff}}
+
+# [[suffiks]] som lager [[adjektiv]] av [[substantiv]] (''[[fruktbar]]''), [[verb]] (''[[sammenlignbar]]'') og [[adjektiv]] (''[[åpenbar]]'')
+
+====Etymologi====
+Fra {{opphav|nedertysk}}, egentlig «bærende»
+
+====Se også====
+*[[:Kategori:Ord i norsk dannet av suffikset «-bar»]]
+
+====Oversettelser====
+{{overs-topp|suffisk som lager adjektiv av substantiv, verb eller adjektiv}}
+*{{overs|en|-able}}
+*{{overs|fr|-able}}
+{{overs-midt}}
+*{{overs|sv|-bar}}
+*{{overs|de|-bar}}
+{{overs-bunn}}
+
+==Tysk==
+===Suffiks===
+{{infl|de|suffiks}}
+
+# [[suffiks]] som lager [[adjektiv]] av [[substantiv]] - som ''[[fruchtbar]]'' («fruktbar») - og [[verb]] - som ''[[vergleichbar]]'' («sammenlignbar» )
+
+====Se også====
+*[[:Kategori:Ord i tysk som er dannet av suffikset «-bar»]]

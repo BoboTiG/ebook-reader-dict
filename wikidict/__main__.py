@@ -8,7 +8,6 @@ Usage:
     wikidict LOCALE --parse
     wikidict LOCALE --render [--workers=N]
     wikidict LOCALE --convert
-    wikidict LOCALE --find-templates
     wikidict LOCALE --check-words [--random] [--count=N] [--offset=M] [--input=FILENAME]
     wikidict LOCALE --check-word=WORD
     wikidict LOCALE --get-word=WORD [--raw]
@@ -22,11 +21,11 @@ Options:
                             --workers=N         Set the number of multiprocessing workers,
                                                 defaults to the number of CPU in the system.
   --convert                 Convert rendered data to working dictionaries into several files:
-                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.df.bz2": DictFile format.
+                                - "data/$LOCALE/dict-$LOCALE-$LOCALE.mobi": Kindle format.
                                 - "data/$LOCALE/dict-$LOCALE-$LOCALE.zip": StarDict format.
+                                - "data/$LOCALE/dicthtml-$LOCALE-$LOCALE.zip": Kobo format.
                                 - "data/$LOCALE/dictorg-$LOCALE-$LOCALE.zip": DICT.org format.
-  --find-templates          DEBUG: Find all templates in use.
   --check-words             Render words, then compare with the rendering done on the Wiktionary to catch errors.
                             --random            Randomly if --random
                             --count=N           If -1 check all words [default: 100]
@@ -37,7 +36,7 @@ Options:
   --gen-dict=WORDS          DEBUG: Generate dictionary for specific words. Pass multiple words
                             separated with a comma: WORD1,WORD2,WORD3,...
                             The generated filename can be tweaked via the --output=FILENAME argument.
-                            --format=FORMAT     Format can be "kobo", "stardict", "dictorg" [default: kobo]
+                            --format=FORMAT     Format can be dictorg, kobo, mobi, stardict [default: kobo]
   --release                 DEV: Generate the description of a GitHub release.
 
 If no argument given, --download, --parse, --render, and --convert will be done automatically.
@@ -50,7 +49,7 @@ import sys
 from docopt import docopt
 
 
-def main() -> int:  # pragma: nocover
+def main() -> int:
     """Main entry point."""
     logging.basicConfig(level=logging.DEBUG if "DEBUG" in os.environ else logging.INFO)
 
@@ -75,11 +74,6 @@ def main() -> int:  # pragma: nocover
         from . import convert
 
         return convert.main(args["LOCALE"])
-
-    if args["--find-templates"]:
-        from . import find_templates
-
-        return find_templates.main(args["LOCALE"])
 
     if args["--check-word"] is not None:
         from . import check_word
@@ -128,5 +122,5 @@ def main() -> int:  # pragma: nocover
     return 0
 
 
-if __name__ == "__main__":  # pragma: nocover
+if __name__ == "__main__":
     sys.exit(main())

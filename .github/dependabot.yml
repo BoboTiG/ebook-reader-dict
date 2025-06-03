@@ -4,7 +4,7 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
     assignees:
       - BoboTiG
 
@@ -12,9 +12,8 @@ updates:
   - package-ecosystem: pip
     directory: /
     schedule:
-      interval: daily
+      interval: weekly
     assignees:
       - BoboTiG
     labels:
-      - automerge
       - dependencies

@@ -1,0 +1,22 @@
+== {{langue|fr}} ==
+=== {{S|étymologie}} ===
+: {{ébauche-étym|fr}}
+
+=== {{S|nom|fr}} ===
+{{fr-rég|dʒɛd}}
+[[Fichier:Pilastro-djed in feience, prov. sconosciuta 01.JPG|vignette|Amulette en forme de '''djed''' conservée à Milan.]]
+'''djed''' {{pron|dʒɛd|fr}} {{m}}
+# {{lexique|archéologie|fr}} Objet sculpté et peint de l’Égypte ancienne datant de la période thinite dont le sens reste discuté. <hiero>R11</hiero>
+#* {{exemple|lang=fr}}
+
+==== {{S|variantes}} ====
+* [[zed]] (ancienne appellation)
+
+==== {{S|traductions}} ====
+{{trad-début}}
+* {{T|de}} : {{trad-|de|Djed-Pfeiler}}
+* {{T|en}} : {{trad+|en|djed}}
+{{trad-fin}}
+
+=== {{S|voir aussi}} ===
+* {{WP|pilier Djed}}

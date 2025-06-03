@@ -7,13 +7,13 @@
 ====Pronunciation====
 * {{IPA|en|/kʌm/|/kʊm/}}<ref name="lexico">{{R:Lexico}}</ref><ref name="dictionary">{{R:Dictionary.com}}</ref><ref name="mw">{{R:MWO}}</ref>
 * {{audio|en|en-uk-cum.ogg|a=UK}}
-* {{audio|en|en-us-cum.ogg|a=US}}
+* {{audio|en|en-us-come.ogg|a=GA}}
 * {{rhymes|en|ʌm|ʊm|s=1}}
 
 ====Preposition====
 {{en-prep}}
 
-# {{non-gloss|Used in indicating a thing or person which has two or more roles, functions, or natures, or a which has changed from one to another.}}
+# {{non-gloss|Used in indicating a thing or person which has two or more roles, functions, or natures, or which has changed from one to another.}}
 #: {{ux|en|He built a bus-'''cum'''-greenhouse that made a bold statement, but the plants in it didn't live very long.}}
 #: {{ux|en|But instead of being a salesperson '''cum''' barista '''cum''' waitress merely serving the wordsmiths, I'm one of them, reading her latest baby out loud.}}
 #* {{quote-book|en|year=1926-1950|author=w:George Bernard Shaw|title=Collected Letters: 1926-1950|url=http://books.google.com/books?id=UF08AAAAIAAJ|publisher=University of California/Viking|year_published=1985|page=31|passage=He is too good an actor to need that sort of tomfoolery: the effect will be far better if he is a credible mining camp elder-'''cum'''-publican.}}
@@ -29,7 +29,7 @@ Also used in some British place names and [[civil parish]] names, see table belo
 =====Translations=====
 {{trans-top}}
 * Chinese:
-*: Mandarin: {{t+|cmn|兼|tr=jiān}}
+*: Mandarin: {{t+|cmn|兼|tr=jiān}}, {{t+|cmn|暨}}
 * French: {{t+|fr|soit}}
 * Italian: {{t+|it|trattino|m}}
 * Japanese: {{t+|ja|兼|tr=けん, ken}}
@@ -51,7 +51,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 ====Noun====
 {{en-noun|-}}
 
-# {{lb|en|colloquial|often|_|vulgar}} [[semen|Semen]].
+# {{senseid|en|semen}}{{lb|en|colloquial|often|_|vulgar}} [[semen|Semen]].
 #: {{syn|en|jizz|spunk|q2=chiefly UK|spooge|q3=US|nut|skeet|junk|Thesaurus:semen}}
 #* {{quote-book|en|author=w:John Rechy|title=The Sexual Outlaw|year=1977|publisher=Dell|location=New York|page=73|pageurl=https://archive.org/details/sexualoutlawdocu00rech/page/73/mode/1up|isbn=978-0-440-17667-1|passage=Jim descends into the murky tunnel; the faint odor of '''cum''' permeates the air.}}
 #* {{quote-journal|en|date=24 Dec 89|volume=17|number=24|journal=Gay Community News|page=9|author=Read Weaver|title=Queers For Years|text=Licking a friend's '''cum''' off another friend's belly.}}
@@ -79,6 +79,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 |cumsock
 |cumbucket
 |cum catcher
+|cum cow
 |cum gutters
 |cum guzzler
 |cum receptacle
@@ -123,7 +124,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Norwegian: {{t|no|sperm|m}}, {{t|no|sæd|m}}
 * Polish: {{t+|pl|sperma|f}}, {{t+|pl|nasienie|n}}, {{t+|pl|spust|m}}
 * Portuguese: {{t+|pt|esperma|f}}, {{t+|pt|gozo|m}}, {{t+|pt|porra|f}}, {{t+|pt|leite|m}}
-* Romanian: {{t+|ro|sloboz|n}}
+* Romanian: {{t+|ro|sloboz|n}}, {{t|ro|smecleu|n}}
 * Russian: {{t+|ru|се́мя}}, {{t+|ru|спе́рма}}, {{t+|ru|молофья́|f}} {{qualifier|vulgar}}, {{t+|ru|конча́|f}} {{qualifier|vulgar}}, {{t+|ru|малафья́|f}} {{qualifier|vulgar}}
 * Serbo-Croatian: {{t|sh|svršotina|f}}, {{t|sh|svrš|m}}
 * Sicilian: {{t|scn|sburru|m}}, {{t|scn|ogghiu di sbrigghiu|m}}, {{t|scn|spacchiu|m}}
@@ -140,7 +141,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 * Chinese:
 *: Mandarin: {{t+|cmn|潮吹|tr=cháochuī}}, {{t+|cmn|淫水|tr=yǐnshuǐ}}, {{qualifier|slang}} {{t+|cmn|出水|tr=chūshuǐ}}
 * Finnish: {{t|fi|pilluneste}}, {{t|fi|pillumehu}}
-* Japanese: {{t|ja|潮吹き|tr=しおふき, shiofuki}}
+* Japanese: {{t+|ja|潮吹き|tr=しおふき, shiofuki}}
 * Portuguese: {{t+|pt|gozo|m}}
 * Sicilian: {{t|scn|spacchiu|m}}
 * Spanish: {{t+|es|corrida|f}}
@@ -158,7 +159,7 @@ Variant of {{m|en|come}}, attested (in the basic sense "come, move from further 
 # {{lb|en|slang|often|_|vulgar}} To have an [[orgasm]], to feel the sensation of an [[orgasm]].
 #: {{syn|en|climax}}
 #: {{rfex|en}}
-# {{lb|en|slang|often|_|vulgar}} To [[ejaculate]].
+# {{senseid|en|to ejaculate}}{{lb|en|slang|often|_|vulgar}} To [[ejaculate]].
 #: {{syn|en|Thesaurus:ejaculate}}
 #* {{quote-av|en|date=1997-07-14|episode=Visits, Conjugal, and Otherwise|title=[[w:Oz (TV series)|Oz]]|season=1|number=2|actor=Harold Perrineau|role=Augustus Hill|passage=I got no sensation down there, so I don't know when I'm hard, I don't know when I '''cum'''. My wife's gotta tell me.}}
 #* {{quote-song|en|year=2019|title=All Humans Too Late|artist=w:Kae Tempest|album=The Book of Traps and Lessons|passage=Sucking on pork ribs and summoning pornography / So that we can '''cum''' when we fuck / Our partners don’t know us / Our families are strangers}}
@@ -202,7 +203,7 @@ The past tense and past participle variant ''cummed'' is used when the verb is f
 * Malagasy: {{t|mg|mitsitsitra}}, {{t+|mg|mitsitra}}
 * Norwegian: {{t|no|ejakulere}}, {{t|no|sæde}}
 * Polish: {{t|pl|wytryskiwać}}, {{t+|pl|dochodzić|impf}}, {{t+|pl|dojść|pf}}
-* Portuguese: {{t+|pt|ejacular}}, {{t+|pt|gozar}}, {{t+|pt|esporrar}}
+* Portuguese: {{t+|pt|ejacular}}, {{t+|pt|gozar}}, {{t+|pt|esporrar}}, {{t|pt|[[vir|vir-se]]}}
 * Romanian: {{t+|ro|slobozi}}, {{t|ro|își [[da drumul]]}}
 * Russian: {{t+|ru|конча́ть|impf}}, {{t+|ru|ко́нчить|pf}}, {{t+|ru|эякули́ровать|}} {{qualifier|impf or pf}}
 * Serbo-Croatian: {{t+|sh|svršiti}}
@@ -269,6 +270,16 @@ From {{inh|rup|VL.|*quomo}}, from {{inh|rup|la|quōmodo}}.
 # to [[kiss]]
 # to [[smell]] (something)
 
+==Galician==
+
+===Noun===
+{{head|gl|contraction|g=m|feminine|cumha|or|cuma|masculine plural|cums|feminine plural|cumhas|or|cumas}}
+
+# {{gl-reinteg sp|cun}}
+
+===References===
+* {{R:gl:Estraviz}}
+
 ==Irish==
 
 ===Etymology===
@@ -311,7 +322,7 @@ From {{inh|ga|sga|cummaid|t=fashions, shapes, composes, determines; makes, creat
 
 ===Etymology 1===
 {{etymon|la|id=with|inh|itc-ola>com>with}}
-From {{inh|la|itc-ola|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}, {{cog|gem-pro|*hansō}}. More at '''[[Hanse]]'''.
+From {{inh|la|itc-ola|com}}, from {{inh|la|itc-pro|*kom}}, from {{inh|la|ine-pro|*ḱóm||next to, at, with, along}}. Cognate with {{cog|gem-pro|*ga-||co-}}, {{cog|sla-pro|*sъ(n)||with}}.
 
 The ablative is from the PIE comitative-instrumental.
 

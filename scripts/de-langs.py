@@ -17,19 +17,19 @@ def process_page(page_url: str, languages: dict[str, str]) -> str:
         nextpage = ROOT_URL + last_link.get("href")
 
     content = soup.find("div", {"class": "mw-category"})
-    lis = content.findAll("li")
+    lis = content.find_all("li")
     for li in lis:
         link = li.find("a")["href"]
         li_url = ROOT_URL + link
         key = li.text.split(":")[1]
         sub_soup = get_soup(li_url)
-        content = sub_soup.find("div", {"class": "mw-parser-output"}).find("p", recursive=False)
+        content = sub_soup.find("div", {"class": "mw-parser-output"}).find("p")
         value = content.text.strip()
         languages[key] = value
         a_url = ALIAS_URL.format(li.text)
         soup_alias = get_soup(a_url)
         if ul_alias := soup_alias.find("ul", {"id": "mw-whatlinkshere-list"}):
-            for alias_li in ul_alias.findAll("li"):
+            for alias_li in ul_alias.find_all("li"):
                 alias_text = alias_li.find("a").text
                 alias_key = alias_text.split(":")[1]
                 languages[alias_key] = value

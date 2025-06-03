@@ -1,25 +1,51 @@
 from collections import defaultdict
 
 from ...user_functions import concat, extract_keywords_from, italic, strong, term
-from .general import cal_apostrofar
+from . import general
 from .labels import label_syntaxes, labels
 from .langs import langs
+from .transliterator import transliterate
 
 
-def parse_index_parameters(data: defaultdict[str, str], i: int) -> str:
+def parse_index_parameters(word: str, data: defaultdict[str, str], i: int) -> str:
     toadd = []
+
     if tr := data.get(f"tr{i}", ""):
         toadd.append(italic(tr))
+    elif word and (tr := transliterate(data["lang1"], word)):
+        toadd.append(italic(tr))
+
     if t := data.get(f"t{i}", ""):
         toadd.append(f"«{t}»")
     if pos := data.get(f"pos{i}", ""):
         toadd.append(pos)
     if lit := data.get(f"lit{i}", ""):
         toadd.append(f"literalment «{lit}»")
+
     return f" ({concat(toadd, ', ')})" if toadd else ""
 
 
-def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_cognom(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_cognom("cognom", [], defaultdict(str))
+    '<i>Cognom</i>'
+    >>> render_cognom("cognom", ["en", "patronímic"], defaultdict(str))
+    '<i>Cognom d’origen patronímic</i>'
+    >>> render_cognom("cognom", ["es"], defaultdict(str, {"eq": "Llopis"}))
+    '<i>Cognom, equivalent al català Llopis.</i>'
+    >>> render_cognom("cognom", ["es"], defaultdict(str, {"eq": "Llopis", "punt": ","}))
+    '<i>Cognom, equivalent al català Llopis,</i>'
+    """
+    phrase = tpl.title()
+    if len(parts) > 1:
+        phrase += f" d’origen {parts[-1]}"
+    if eq := data["eq"]:
+        phrase += f", equivalent al català {eq}"
+        phrase += data["punt"] or "."
+    return italic(phrase)
+
+
+def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_comp("comp", ["ca", "cap", "vespre"], defaultdict(str))
     '<i>cap</i> i <i>vespre</i>'
@@ -33,17 +59,30 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     '<i>argila</i> i la desinència <i>-ar</i>'
     >>> render_comp("comp", ["ca", "xocar", "+Ø"], defaultdict(str))
     '<i>xocar</i> i la desinència <i>Ø</i>'
-    >>> render_comp("comp", ["ca", "metro-", "-nom"], {"t1": "mesura"})
+    >>> render_comp("comp", ["ca", "metro-", "-nom"], defaultdict(str, {"t1": "mesura"}))
     'prefix <i>metro-</i> («mesura») i el sufix <i>-nom</i>'
-    >>> render_comp("comp", ["ca", "mini-", "pequenas"], {"lang2": "es", "t2": "PIMER"})
+    >>> render_comp("comp", ["ca", "mini-", "pequenas"], defaultdict(str, {"lang2": "es", "t2": "PIMER"}))
     'prefix <i>mini-</i> i el castellà <i>pequenas</i> («PIMER»)'
-    >>> render_comp("comp", ["ca", "Birma", "-ia"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "Birma", "-ia"], defaultdict(str, {"lang1": "en"}))
     'anglès <i>Birma</i> i el sufix <i>-ia</i>'
-    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], {"lang1": "en"})
+    >>> render_comp("comp", ["ca", "a-", "casa", "-at"], defaultdict(str, {"lang1": "en"}))
     'prefix <i>a-</i>, <i>casa</i> i el sufix <i>-at</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt1": "germen, -inis", "lang1": "la"}))
+    'llatí <i>germen, -inis</i> i el sufix <i>-al</i>'
+    >>> render_comp("comp", ["ca", "germen", "-al"], defaultdict(str, {"alt2": "-al, -inis", "lang1": "la"}))
+    'llatí <i>germen</i> i el sufix <i>-al, -inis</i>'
+    >>> render_comp("comp", ["ca", "κώδεια", "-ina"], defaultdict(str, {"lang1": "grc", "t1": "calze de la rosella"}))
+    'grec antic <i>κώδεια</i> (<i>kṓdeia</i>, «calze de la rosella») i el sufix <i>-ina</i>'
+    >>> render_comp("comp", ["ca", "glico-", "raqui-", "-ia"], defaultdict(str))
+    'prefix <i>glico-</i>, el prefix <i>raqui-</i> i el sufix <i>-ia</i>'
     """
 
-    def value(word: str, standalone: bool = False) -> str:
+    prefix_count = 0
+
+    def value(word: str, *, standalone: bool = False) -> str:
+        nonlocal prefix_count
+        prefix_count += 1
+
         prefix = ""
         if word.startswith("-"):
             if standalone:
@@ -51,84 +90,106 @@ def render_comp(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
             else:
                 prefix = "l'infix " if word.endswith("-") else "el sufix "
         elif word.endswith("-"):
-            prefix = "prefix "
+            prefix = "prefix " if prefix_count == 1 else "el prefix "
         elif word.startswith("+"):
             prefix = "desinència " if standalone else "la desinència "
             if any(x in word for x in ["Ø", "0", "∅", "⌀", "ø"]):
                 word = "Ø"
             word = word.replace("+", "-")
+
         return f"{prefix}{italic(word)}"
 
     parts.pop(0)  # Remove the lang
 
-    word1 = parts.pop(0)
+    word1 = data["alt1"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = value(word1, standalone=True)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
         return phrase
 
-    word2 = parts.pop(0)
+    word2 = data["alt2"] or parts[0]
+    parts.pop(0)
     if not parts:
         phrase = ""
-        if "lang1" in data:
-            phrase = f"{langs[data['lang1']]} "
+        if lang1 := data["lang1"]:
+            phrase = f"{langs[lang1]} "
         phrase += value(word1)
-        if others := parse_index_parameters(data, 1):
+        if others := parse_index_parameters(word1, data, 1):
             phrase += others
-        if "lang2" in data:
-            lang2 = langs[data["lang2"]]
-            phrase += " i l'" if cal_apostrofar(lang2) else " i el "
-            phrase += f"{lang2} {value(word2)}"
+        if lang2 := data["lang2"]:
+            lang = langs[lang2]
+            phrase += " i l'" if general.cal_apostrofar(lang) else " i el "
+            phrase += f"{lang} {value(word2)}"
         else:
             phrase += f" i {value(word2)}"
-        if others2 := parse_index_parameters(data, 2):
+        if others2 := parse_index_parameters("", data, 2):
             phrase += others2
         return phrase
 
     word3 = parts.pop(0) if parts else ""
     phrase = value(word1)
-    if others := parse_index_parameters(data, 1):
+    if others := parse_index_parameters(word1, data, 1):
         phrase += others
     phrase += f", {value(word2)}"
-    if others2 := parse_index_parameters(data, 2):
+    if others2 := parse_index_parameters("", data, 2):
         phrase += others2
     phrase += f" i {value(word3)}"
-    if others3 := parse_index_parameters(data, 3):
+    if others3 := parse_index_parameters("", data, 3):
         phrase += others3
+
     return phrase
 
 
-def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_forma_(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_forma("forma-", ["augmentativa", "ca", "Candelera"], defaultdict(str))
-    '<i>forma augmentativa de</i> <b>Candelera</b>'
-    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str))
-    '<i>forma alternativa de</i> <b>Candelera</b>'
-    >>> render_forma("forma-a", ["ca", "Candelera"], defaultdict(str, {"alt": "la Candelera"}))
-    '<i>forma alternativa de</i> <b>la Candelera</b>'
-    >>> render_forma("forma-a", ["mul", "I"], defaultdict(str, {"glossa": "1 en números romans"}))
-    '<i>forma alternativa de</i> <b>I</b> («1 en números romans»)'
-    >>> render_forma("sinònim", ["mul", "Miathyria"], defaultdict(str, {"glossa": "gènere de libèl·lules"}))
-    '<i>Sinònim de</i> <b>Miathyria</b> («gènere de libèl·lules»)'
+    >>> render_forma_("forma-", ["diminutiva", "it", "bastone"], defaultdict(str))
+    '<i>forma diminutiva de</i> <b>bastone</b>'
+    >>> render_forma_("forma-", ["diminutiva", "it", "bastone"], defaultdict(str, {"alt": "foo"}))
+    '<i>forma diminutiva de</i> <b>foo</b>'
     """
-    formas = {
-        "forma-a": "forma alternativa de",
-        "forma-augm": "forma augmentativa de",
-        "forma-dim": "forma diminutiva de",
-        "forma-inc": "forma incorrecta de",
-        "forma-pron": "forma pronominal de",
-        "forma-super": "forma superlativa de",
-        "sinònim": "Sinònim de",
-    }
-    forma = formas.get(tpl, f"forma {parts[0]} de")
-    phrase = f"{italic(forma)} {strong(data['alt'] or parts[-1])}"
-    if data["glossa"]:
-        phrase += f" («{data['glossa']}»)"
-    return phrase
+    text = f"forma {parts[0]} de"
+    return f"{italic(text)} {strong(data['alt'] or parts[2])}"
 
 
-def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_forma("forma-a", ["ca", "-itzar"], defaultdict(str))
+    '<i>Forma alternativa de</i> <b>-itzar</b>'
+    >>> render_forma("forma-augm", ["ca", "al·lot"], defaultdict(str, {"t": "xicotot"}))
+    '<i>Forma augmentativa de</i> <b>al·lot</b> («xicotot»)'
+    >>> render_forma("forma-dim", ["ca", "amic"], defaultdict(str))
+    '<i>Forma diminutiva de</i> <b>amic</b>'
+    >>> render_forma("forma-f", ["ca", "-à"], defaultdict(str))
+    '<i>Forma femenina de</i> <b>-à</b>'
+    >>> render_forma("forma-inc", ["ca", "garantir"], defaultdict(str))
+    '<i>Forma incorrecta de</i> <b>garantir</b>'
+    >>> render_forma("forma-p", ["ca", "-alla"], defaultdict(str))
+    '<i>Forma plural de</i> <b>-alla</b>'
+    >>> render_forma("forma-pron", ["ca", "conxavar"], defaultdict(str))
+    '<i>Forma pronominal de</i> <b>conxavar</b>'
+    >>> render_forma("forma-super", ["ca", "alt"], defaultdict(str))
+    '<i>Forma superlativa de</i> <b>alt</b>'
+    """
+    fmt = {
+        "a": "alternativa",
+        "augm": "augmentativa",
+        "dim": "diminutiva",
+        "f": "femenina",
+        "inc": "incorrecta",
+        "p": "plural",
+        "pron": "pronominal",
+        "super": "superlativa",
+    }[tpl.split("-")[-1]]
+    text = italic(("F" if parts[0] == "ca" else "f") + f"orma {fmt} de")
+    text += f" {strong(parts[-1])}"
+    if t := data["t"]:
+        text += f" («{t}»)"
+    return text
+
+
+def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_g("g", ["m"], defaultdict(str))
     'm.'
@@ -174,11 +235,11 @@ def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     }
     return concat(
         [f"{specs[part.split('-')[0]]} {specs[part.split('-')[1]]}" if "-" in part else specs[part] for part in parts],
-        sep=", ",
+        ", ",
     )
 
 
-def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_grafia("grafia", ["ca", "obsoleta des del 2016", "adeu"], defaultdict(str))
     '<i>Grafia obsoleta des del 2016 de</i> adeu.'
@@ -196,7 +257,7 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     return result
 
 
-def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_label("marca", ["ca", "castells"], defaultdict(str))
     '<i>(argot casteller)</i>'
@@ -235,7 +296,28 @@ def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
     return term(res.strip())
 
 
-def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_prenom(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_prenom("prenom", ["ca", "m"], defaultdict(str))
+    '<i>Prenom masculí</i>'
+    >>> render_prenom("prenom", ["ca", "m"], defaultdict(str, {"hip": "Francesc"}))
+    '<i>Prenom masculí hipocorístic de Francesc</i>'
+    >>> render_prenom("prenom", ["fr", "f"], defaultdict(str, {"eq": "Maria"}))
+    '<i>Prenom femení, equivalent al català Maria.</i>'
+    >>> render_prenom("prenom", ["fr", "f"], defaultdict(str, {"eq": "Maria", "punt": ","}))
+    '<i>Prenom femení, equivalent al català Maria,</i>'
+    """
+    gender = {"f": "femení", "m": "masculí", "mf": "masculí i femení"}
+    phrase = f"{tpl.title()} {gender[parts[1]]}"
+    if hip := data["hip"]:
+        phrase += f" hipocorístic de {hip}"
+    if eq := data["eq"]:
+        phrase += f", equivalent al català {eq}"
+        phrase += data["punt"] or "."
+    return italic(phrase)
+
+
+def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sigles_de("sigles de", ["ca", "Organització del Tractat de l'Atlàntic Nord"], defaultdict(str))
     "<i>Sigles de</i> <b>Organització del Tractat de l'Atlàntic Nord</b>"
@@ -248,9 +330,22 @@ def render_sigles_de(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return phrase
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("ca-forma-conj", ["abacallanar", "1", "pres", "ind"], defaultdict(str), word="abacallan")
+    'abacallanar'
+    >>> render_variant("forma-f", ["ca", "-à"], defaultdict(str), word="-ana")
+    '-à'
+    >>> render_variant("forma-p", ["ca", "-alla"], defaultdict(str), word="-alles")
+    '-alla'
+    """
+    return parts[0 if "forma-conj" in tpl else -1]
+
+
 template_mapping = {
+    "cognom": render_cognom,
     "comp": render_comp,
-    "forma-": render_forma,
+    "forma-": render_forma_,
     "forma-a": render_forma,
     "forma-augm": render_forma,
     "forma-dim": render_forma,
@@ -261,8 +356,15 @@ template_mapping = {
     "grafia": render_grafia,
     "marca": render_label,
     "marca-nocat": render_label,
+    "prenom": render_prenom,
     "sigles de": render_sigles_de,
-    "sinònim": render_forma,
+    #
+    # Variants
+    #
+    "__variant__ca-forma-conj": render_variant,
+    "__variant__forma-conj": render_variant,
+    "__variant__forma-f": render_variant,
+    "__variant__forma-p": render_variant,
 }
 
 

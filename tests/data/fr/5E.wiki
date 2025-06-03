@@ -1,0 +1,21 @@
+{{voir|5e}}
+
+== {{langue|conv}} ==
+
+=== {{S|symbole|conv}} ===
+* Code {{lien|AITA|fr}} de la compagnie d’aviation {{lien|SGA Airlines|fr}} ''({{lang|en|Siam General Aviation Company Limited}}'', {{lang|th|บริษัท สยาม เจนเนอรัล เอวิเอชั่น จำกัด}}).
+
+== {{langue|en}} ==
+
+=== {{S|étymologie}} ===
+: {{laé|en|nom}} Abréviation de ''5° {{lien|East|en}}''.
+: {{laé|en|nom propre}} {{date|2014}} Abréviation de ''{{lien|fifth|en}} {{lien|edition|en}}'' (« cinquième édition »).
+
+=== {{S|nom|en}} ===
+'''5E''' {{pron||en}} {{sigle|en}}
+# {{lexique|géographie|en}} {{lien|méridien|fr|dif=Méridien}} situé à {{unité|5|[[°]]}} de {{lien|longitude|fr}} {{lien|est|fr|nom}}.
+#* {{exemple|lang=en}}
+
+=== {{S|nom propre|en}} ===
+'''5E''' {{pron|ˈfaɪv ˈiː|en}} {{sigle|en}}
+# {{lexique|jeux de rôle|en}} Cinquième édition du jeu de rôle sur table ''{{w|Donjons et Dragons}}''.

@@ -1,0 +1,70 @@
+{{wikipedia}}
+=={{limba|ron}}==
+{{-etimologie-}}
+Din franceză ''[[température]]'' < latină ''[[temperatura]]''.
+{{-pronunție-}}
+* {{AFI}}: {{AFI|/tem.pe.raˈtu.rə/}}
+{{-substantiv-|ron}}
+{{substantiv-ron
+|gen={{f}}
+|nom-sg=temperatură
+|nom-pl=temperaturi
+|art-sg=temperatura
+|art-pl=temperaturile
+|dat-sg=temperaturii
+|dat-pl=temperaturilor
+|voc-sg=temperatură
+|voc-pl=temperaturilor
+}}
+#[[grad]]ul, [[stare]]a de [[căldură]] a unui [[mediu]], a unui [[corp]] etc.
+#:''A se păstra la o '''temperatură''' de maxim 5 grade [[Celsius]].''
+#[[stare]] [[fiziologic]]ă [[constant]]ă a [[corp]]ului [[animal]], [[reprezenta|reprezentând]] [[echilibru]]l dintre [[căldură|căldura]] [[produs]]ă și cea [[pierdut]]ă.
+#[[grad]]ul de [[căldură]] [[ridicat]]ă a [[corp]]ului [[omenesc]], [[reprezenta|reprezentând]] un [[simptom]] [[patologic]]; [[fierbințeală]], [[febră]].
+#:''Ai '''temperatură'''; cred că ai răcit.''
+{{-apr-}}
+*[[fierbinte]]
+*[[cald]]
+*[[călduț]]
+*[[rece]]
+*[[febră]]
+{{-comp-}}
+* [[temperatură absolută]]
+* [[temperatura camerei]]
+====Unități====
+*Metric ([[Sistemul Internațional]]): grad [[Celsius]]/[[centigrade]] (°C), [[kelvin]] (K).
+*Imperial: grade [[Fahrenheit]] (°F), grade [[Rankine]] (°R).
+{{-trans-}}
+{{(|măsură a noțiunii termice}}
+* {{cat}}: {{trad|ca|temperatura}} {{f}}
+* {{eng}}: {{trad|en|temperature}}
+* {{epo}}: {{trad|eo|temperaturo}}
+* {{fin}}: {{trad|fi|lämpötila}}
+* {{fra}}: {{trad|fr|température}}
+* {{deu}}: {{trad|de|Temperatur}}
+* {{ind}}: {{trad|id|temperatur}}, {{trad|id|suhu}}
+* {{ina}}: {{trad|ia|temperatura}}
+{{-}}
+* {{ita}}: {{trad|it|temperatura}} {{f}}
+* {{jpn}}: {{trad|ja|気温|(きおん, kion) (''despre vreme'')}}, {{trad|ja|温度|(おんど, ondo) (''altfel'')}}
+* {{nld}}: {{trad|nl|temperatuur}} {{m}}, {{trad|nl|kamertemperatuur| (3)}}
+* {{pol}}: {{trad|pl|temperatura}} {{f}}
+* {{por}}: {{trad|pt|temperatura}} {{f}}
+* {{spa}}: {{trad|es|temperatura}} {{f}}
+{{)}}
+{{(|febră}}
+* {{rup}}: {{trad|rup|h'avrã}}
+* {{cat}}: {{trad|ca|febre}} {{f}}
+* {{eng}}: {{trad|en|fever}}
+* {{epo}}: {{trad|eo|febro}}
+* {{fin}}: {{trad|fi|kuume}}
+* {{deu}}: {{trad|de|Fieber}} {{f}}
+{{-}}
+* {{ita}}: {{trad|it|febbre}} {{f}}
+* {{ina}}: {{trad|ia|febre}}
+* {{pol}}: {{trad|pl|gorączka}} {{f}}
+* {{por}}: {{trad|pt|febre}}
+* {{spa}}: {{trad|es|fiebre}} {{f}}
+* {{nld}}: {{trad|nl|koorts}}
+{{)}}
+===Referințe===
+* DEX '98 via [http://dexonline.ro/ DEX online]

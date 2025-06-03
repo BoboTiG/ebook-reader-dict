@@ -24,15 +24,25 @@ articulos: dict[str, str] = {
 }
 
 catgrams: dict[str, dict[str, str]] = {
+    "adjetivo": {
+        "sg": "adjetivo",
+        "gen": "m",
+        "adj_f_sg": "adjetiva",
+    },
+    "pronombre": {
+        "sg": "pronombre",
+        "gen": "m",
+        "adj_f_sg": "pronombre",
+    },
     "sustantivo": {
         "sg": "sustantivo",
         "gen": "m",
         "adj_f_sg": "sustantiva",
     },
-    "adjetivo": {
-        "sg": "adjetivo",
+    "verbo": {
+        "sg": "verbo",
         "gen": "m",
-        "adj_f_sg": "adjetiva",
+        "adj_f_sg": "verbo",
     },
 }
 
@@ -60,7 +70,7 @@ def normalizar_nombre(to_normalize: str) -> str:
     return langs.get(to_normalize, to_normalize)
 
 
-def render_adjetivo_de_verbo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_adjetivo_de_verbo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_adjetivo_de_verbo("adjetivo de verbo", ["gorjear", "gorjea"], defaultdict(str))
     'Que gorjea'
@@ -75,7 +85,7 @@ def render_adjetivo_de_verbo(tpl: str, parts: list[str], data: defaultdict[str, 
     return result
 
 
-def render_nimo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_nimo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_nimo("antónimo", ["estatal", "público"], defaultdict(str))
     'Antónimos: estatal, público'
@@ -94,17 +104,17 @@ def render_nimo(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return result
 
 
-def render_afi(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_afi(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_afi("AFI", ["/oː/", "/aː/"], defaultdict(str))
     '/oː/, /aː/ <small>(AFI)</small>'
     >>> render_afi("IPA", ["/oː/"], defaultdict(str))
     '/oː/ <small>(AFI)</small>'
     """
-    return concat(parts, ", ") + f' {small("(AFI)")}'
+    return concat(parts, ", ") + f" {small('(AFI)')}"
 
 
-def render_aumentativo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_aumentativo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_aumentativo("aumentativo", ["perro"], defaultdict(str))
     '<i>Aumentativo de</i> perro'
@@ -129,7 +139,7 @@ def render_aumentativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_adverbio_de_adjetivo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_adverbio_de_adjetivo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_adverbio_de_adjetivo("adverbio_de_adjetivo", ["accidental"], defaultdict(str))
     'De un modo accidental'
@@ -141,11 +151,11 @@ def render_adverbio_de_adjetivo(tpl: str, parts: list[str], data: defaultdict[st
     result = ""
     if parts:
         result += "De un modo "
-    result += concat(parts, ", ", " o ")
+    result += concat(parts, ", ", last_sep=" o ")
     return result
 
 
-def render_adverbio_de_sustantivo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_adverbio_de_sustantivo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_adverbio_de_sustantivo("adverbio de sustantivo", ["escabrosidad"], defaultdict(str))
     'Con escabrosidad'
@@ -153,11 +163,11 @@ def render_adverbio_de_sustantivo(tpl: str, parts: list[str], data: defaultdict[
     result = ""
     if parts:
         result += "Con "
-    result += concat(parts, ", ", " o ")
+    result += concat(parts, ", ", last_sep=" o ")
     return result
 
 
-def render_comparativo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_comparativo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_comparativo("comparativo", ["bueno", "es"], defaultdict(str, {"irr": "s"}))
     '<i>Comparativo irregular de</i> bueno'
@@ -167,7 +177,7 @@ def render_comparativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     word = parts[0] if parts else ""
     start = "Comparativo"
     if data["tipo"]:
-        start += f' {data["tipo"]}'
+        start += f" {data['tipo']}"
     if data["i"] or data["irr"] or data["irreg"] or data["irregular"]:
         start += " irregular"
     start += " de"
@@ -176,12 +186,14 @@ def render_comparativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_contraccion(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_contraccion(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_contraccion("contracción", ["de", "ellas"], defaultdict(str, {"leng": "es"}))
     '<i>Contracción de</i> de <i>y</i> ellas'
     >>> render_contraccion("contracción", ["mi", "hija", "adjetivo", "sustantivo"], defaultdict(str, {"leng": "es"}))
     '<i>Contracción del adjetivo</i> mi <i>y el sustantivo</i> hija'
+    >>> render_contraccion("contracción", ["give", "me", "verbo", "pronombre"], defaultdict(str, {"leng": "en"}))
+    '<i>Contracción del verbo</i> give <i>y el pronombre</i> me'
     """
     typo1 = data["typo1"] or parts[2] if len(parts) > 2 else ""
     typo2 = data["typo2"] or parts[3] if len(parts) > 3 else ""
@@ -196,7 +208,39 @@ def render_contraccion(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return phrase
 
 
-def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_dle(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_dle("DLE", [], defaultdict(str), word="raulí")
+    '«raulí» en <i>Diccionario de la lengua española</i>. Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. 23.ª ed, Madrid, 2014.'
+    >>> render_dle("DLE", ["titulo"], defaultdict(str, {"fc" : "2024-10-23"}), word="raulí")
+    '«titulo» en <i>Diccionario de la lengua española</i>. Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. 23.ª ed, Madrid, 2014. Consultado: 23 oct 2024.'
+    """
+    phrase = (
+        f"«{parts[0] if parts else word}» en {italic('Diccionario de la lengua española')}. "
+        "Editorial: Real Academia Española, Asociación de Academias de la Lengua Española y Espasa. "
+        "23.ª ed, Madrid, 2014."
+    )
+    if consulted := data["fc"]:
+        year, month, day = consulted.split("-")
+        month = {
+            "01": "ene",
+            "02": "feb",
+            "03": "mar",
+            "04": "abr",
+            "05": "may",
+            "06": "jun",
+            "07": "jul",
+            "08": "ago",
+            "09": "set",
+            "10": "oct",
+            "11": "noc",
+            "12": "dic",
+        }[month]
+        phrase += f" Consultado: {day} {month} {year}."
+    return phrase
+
+
+def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etim("etim", ["la", "folia"], defaultdict(str))
     'del latín <i>folia</i>'
@@ -228,7 +272,7 @@ def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], word: s
     return result
 
 
-def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_etimologia("etimología", [], defaultdict(str))
     ''
@@ -250,16 +294,16 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     'Del prefijo <i>des-</i>, <i>garra</i> y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["confijo", "en", "furia", "ecer"], defaultdict(str, {"tr2":"ira, cólera"}))
     'Del prefijo <i>en-</i>, <i>furia</i> (<i>ira, cólera</i>) y el sufijo <i>-ecer</i>'
-    >>> render_etimologia("etimología", ["epónimo"], defaultdict(str))
-    'Epónimo'
     >>> render_etimologia("etimología", ["epónimo", "de Adelita, protagonista de un corrido mexicano"], defaultdict(str))
-    'Epónimo de Adelita, protagonista de un corrido mexicano'
+    'Epónimo: de Adelita, protagonista de un corrido mexicano'
     >>> render_etimologia("etimología", ["femenino", "topógrafo"], defaultdict(str))
     'De <i>topógrafo</i> y el sufijo flexivo <i>-a</i> para el femenino'
     >>> render_etimologia("etimología", ["femenino", "Jesús", "a"], defaultdict(str))
     'De <i>Jesús</i> y el sufijo flexivo <i>a</i> para el femenino'
     >>> render_etimologia("etimología", ["metátesis", "rigoroso"], defaultdict(str))
     'Por metátesis de <i>rigoroso</i>'
+    >>> render_etimologia("etimología", ["fone", "-mos"], defaultdict(str))
+    'Alteración fonética de <i>-mos</i>'
     >>> render_etimologia("etimología", ["fonética", "empeller"], defaultdict(str))
     'Por alteración fonética de <i>empeller</i>'
     >>> render_etimologia("etimología", ["japonés", "片仮名"], defaultdict(str, {"transcripción":"カタカナ, katakana"}))
@@ -295,17 +339,17 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     >>> render_etimologia("etimología", ["plural", "vacación", "-es"], defaultdict(str))
     'De <i>vacación</i> y el sufijo flexivo <i>-es</i>'
     >>> render_etimologia("etimología", ["pronominal", "agrupar"], defaultdict(str))
-    'De <i>agrupar</i>, con el pronombre reflexivo átono'
+    'De <i>agrupar</i> con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["pronominal", "espinar"], defaultdict(str, {"num": "1"}))
-    'De <i>espinar<sub>1</sub></i>, con el pronombre reflexivo átono'
+    'De <i>espinar<sub>1</sub></i> con el pronombre reflexivo átono'
     >>> render_etimologia("etimología", ["regresiva", "controvertido"], defaultdict(str))
     'Por derivación regresiva de <i>controvertido</i>'
     >>> render_etimologia("etimología", ["sánscrito", "गुरू", "maestro"], defaultdict(str, {"transcripción":"gūru"}))
     'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
     >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
     'De <i>átomo</i> y el sufijo <i>-ico</i>'
-    >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
-    'De <i>átomo</i> y el sufijo <i>-ico</i>'
+    >>> render_etimologia("etimología", ["sufijo", "mantener", "-ncia"], defaultdict(str))
+    'De <i>mantener</i> y el sufijo <i>-ncia</i>'
     >>> render_etimologia("etimología", ["sufijo", "ferrojo", "ar"], defaultdict(str, {"tr":"anticuado por cerrojo e influido por fierro"}))
     'De <i>ferrojo</i> (<i>anticuado por cerrojo e influido por fierro</i>) y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["sufijo", "espumar", "ero"], defaultdict(str, {"alt":"espumado", "alt2":"era"}))
@@ -316,10 +360,22 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     'De <i>bullicio</i> ("bullicio") y el sufijo <i>-ar</i>'
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
+    >>> render_etimologia("etimología", ["prefijo", "a-", "contecer"], defaultdict(str))
+    'Del prefijo <i>a-</i> y <i>contecer</i>'
     >>> render_etimologia("etimología", ["incierta"], defaultdict(str))
     'Incierta'
     >>> render_etimologia("etimología", ["EPON", "de la ciudad alemana de Berlín"], defaultdict(str))
-    'Epónimo de la ciudad alemana de Berlín'
+    'Epónimo: de la ciudad alemana de Berlín'
+    >>> render_etimologia("etimología", ["endo", "chocoano"], defaultdict(str))
+    'De <i>chocoano</i>'
+    >>> render_etimologia("etimología", ["dimi", "cata"], defaultdict(str))
+    'Diminutivo de <i>cata</i>'
+    >>> render_etimologia("etimología", ["marca", "Chapadur"], defaultdict(str))
+    'De la marca registrada <i>Chapadur</i>®'
+    >>> render_etimologia("etimología", ["véase", "toto"], defaultdict(str))
+    'Véase <i>toto</i>'
+    >>> render_etimologia("etimología", ["masculino", "fonomímica"], defaultdict(str))
+    'De <i>fonomímica</i> y el sufijo flexivo -o para el masculino'
     """
 
     def call_l_single_part(part: str, index: int) -> str:
@@ -342,8 +398,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
         return ""
 
     glue = data.get("e", "y")
-    suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "-"
     word = data.get("alt", data.get("diacrítico", parts[1] if len(parts) > 1 else parts[-1]))
+    phrase = ""
 
     cat = parts.pop(0)
     if cat in (
@@ -358,8 +414,9 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     ):
         phrase = "Acortamiento"
         phrase += f" {data['nota']}" if data["nota"] else ""
-        phrase += " de "
-        phrase += call_l_single_part(parts[0], 1)
+        if parts:
+            phrase += " de "
+            phrase += call_l_single_part(parts[0], 1)
     elif cat in ("calco", "CALC"):
         phrase = (data["por"] or "Por") + " calco"
         phrase += f" {data['nota']}" if data["nota"] else ""
@@ -381,33 +438,31 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
                 },
             ),
         )
-
     elif cat in ("compuesto", "compuesta", "COMP"):
         phrase = capitalize(data["otro"] or "compuesto") + " de "
         phrase += concat(
             list(map(call_l_single_part, parts, range(1, len(parts) + 1))),
             ", ",
-            f" {glue} ",
+            last_sep=f" {glue} ",
         )
     elif cat in ("confijo", "circunfijo", "CIRCUNF", "CONF"):
         texto_prefijo = data.get("texto-prefijo", "prefijo")
         phrase = f"Del {texto_prefijo} "
         part = parts.pop(0)
-        phrase += render_l(
-            "l+",
-            [
-                (data["diacrítico"] or data["alt"] or part) + "-",
-            ],
-            data,
-        )
+        phrase += render_l("l+", [f"{data['diacrítico'] or data['alt'] or part}-"], data)
         index = 2
         for part in parts[:-1]:
             localphrase = call_l_single_part(part, index)
             phrase += f", {localphrase}"
             index = index + 1
+        suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "" if parts[-1].startswith("-") else "-"
         phrase += f" y el sufijo {call_l_single_part(suffix + parts[-1], index)}"
+    elif cat == "dimi":
+        phrase = f"Diminutivo de {italic(parts[0])}"
+    elif cat == "endo":
+        phrase = f"De {italic(parts[0])}"
     elif cat in {"epónimo", "EPON"}:
-        phrase = "Epónimo"
+        phrase = "Epónimo:"
         if parts:
             phrase += f" {parts[-1]}"
     elif cat in ("incierta", "incierto", "INC"):
@@ -431,8 +486,14 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
     ):
         nota = f" {data['nota']}" if data["nota"] else ""
         phrase = f"Por alteración fonética{nota} de {call_l_single_part(parts[0], 1)}"
+    elif cat == "fone":
+        phrase = f"Alteración fonética de {call_l_single_part(parts[0], 1)}"
     elif cat in ("onomatopeya", "onomatopéyico", "onomatopéyica", "ONOM"):
         phrase = "Onomatopéyica"
+    elif cat == "marca":
+        phrase = f"De la marca registrada {italic(parts[0])}®"
+    elif cat == "masculino":
+        phrase = f"De {italic(parts[0])} y el sufijo flexivo -o para el masculino"
     elif cat == "plural":
         plural = "-s" if len(parts) == 1 else parts[-1]
         data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
@@ -442,20 +503,17 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
         texto_prefijo = data.get("texto-prefijo", "prefijo")
         phrase = f"Del {texto_prefijo} "
         part = parts.pop(0)
-        phrase += render_l(
-            "l+",
-            [
-                (data["diacrítico"] or data["alt"] or part) + "-",
-            ],
-            data,
-        )
+        prefix = data["diacrítico"] or data["alt"] or part
+        if not prefix.endswith("-"):
+            prefix += "-"
+        phrase += render_l("l+", [prefix], data)
         if parts:
             phrase += f" {glue}"
             phrase += f" {call_l_single_part(parts.pop(0), 2)}"
     elif cat == "pronominal":
         data["alt"] = data["diacrítico"] or data["alt"] or parts[0]
         phrase1 = render_l("l+", [parts[0]], data)
-        phrase = f"De {phrase1}, con el pronombre reflexivo átono"
+        phrase = f"De {phrase1} con el pronombre reflexivo átono"
     elif cat in ("derivación regresiva", "regresiva", "REG"):
         phrase = "Por derivación regresiva de "
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
@@ -465,6 +523,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
         word = data["diacrítico"] or data["alt"] or (parts[0] if parts else "")
         word2 = data["diacrítico2"] or data["alt2"] or (parts[1] if len(parts) > 1 else "")
         phrase1 = render_l("l+", [word], data)
+        suffix = "-́" if data.get("tilde", "") in ("sí", "s", "x") else "" if word2.startswith("-") else "-"
         phrase2 = render_l(
             "l+",
             [suffix + word2],
@@ -479,6 +538,8 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
             ),
         )
         phrase = f"De {phrase1} y el {texto_sufijo} {phrase2}"
+    elif cat == "véase":
+        phrase = f"Véase {italic(parts[0])}"
     elif parts:
         phrase = f"Del {normalizar_nombre(cat)} " if cat else ""
         parts.insert(0, cat)
@@ -510,15 +571,12 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], w
             index = index + 1
 
         if phrase_array:
-            phrase += concat(phrase_array, ", ", f" {glue} ")
-
-    else:
-        phrase = ""
+            phrase += concat(phrase_array, ", ", last_sep=f" {glue} ")
 
     return phrase
 
 
-def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_forma("forma", ["-acho", "Forma del femenino de"], defaultdict(str))
     '<i>Forma del femenino de</i> -acho'
@@ -540,11 +598,11 @@ def render_forma(tpl: str, parts: list[str], data: defaultdict[str, str], word: 
         start = f"Forma del {concat([caso, numero, genero], ' ')} de"
     phrase = f"{italic(capitalize(start))} {parts[0]}"
     if data["texto_pos"]:
-        phrase += f'{data["texto_pos"]}'
+        phrase += f"{data['texto_pos']}"
     return phrase
 
 
-def render_gentilicio(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_gentilicio(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_gentilicio("gentilicio", ["Alemania"], defaultdict(str))
     'Originario, relativo a, o propio de Alemania'
@@ -554,7 +612,7 @@ def render_gentilicio(tpl: str, parts: list[str], data: defaultdict[str, str], w
     return f"Originario, relativo a, o propio {'del' if data['contracción'] else 'de'} {parts[0]}"
 
 
-def render_gentilicio2(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_gentilicio2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_gentilicio2("gentilicio2", ["Alemania"], defaultdict(str))
     'Persona originaria de Alemania'
@@ -564,7 +622,7 @@ def render_gentilicio2(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return f"Persona originaria {data['contracción'] or 'de'} {parts[0]}"
 
 
-def render_gentilicio3(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_gentilicio3(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_gentilicio3("gentilicio3", ["Alemania"], defaultdict(str))
     'Mujer originaria de Alemania'
@@ -574,7 +632,7 @@ def render_gentilicio3(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return f"Mujer {data['adjetivo'] or 'originaria'} {data['contracción'] or 'de'} {parts[0]}"
 
 
-def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_grafia("grafía", ["psicológico"], defaultdict(str))
     '<i>Grafía alternativa de</i> psicológico'
@@ -584,6 +642,8 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word:
     '<i>Grafía obsoleta de</i> asta'
     >>> render_grafia("grafía rara", ["exudar"], defaultdict(str))
     '<i>Grafía poco usada de</i> exudar'
+    >>> render_grafia("grafía subestándar", ["ah re"], defaultdict(str))
+    '<i>Grafía subestándar de</i> ah re'
     >>> render_grafia("grafía", ["psicológico"], defaultdict(str, {"texto": "Grafía rara de", "texto_pos": "(por ejemplo)"}))
     '<i>Grafía rara de</i> psicológico <i>(por ejemplo)</i>'
     """
@@ -593,21 +653,25 @@ def render_grafia(tpl: str, parts: list[str], data: defaultdict[str, str], word:
         start = "Grafía"
         if tpl in {"grafía", "grafia"}:
             start += " alternativa "
+        elif tpl == "grafía anticuada":
+            start += " anticuada "
         elif tpl == "grafía informal":
             start += " informal "
         elif tpl == "grafía obsoleta":
             start += " obsoleta "
         elif tpl == "grafía rara":
             start += " poco usada "
+        elif tpl == "grafía subestándar":
+            start += " subestándar "
         start += "de"
     phrase = f"{italic(start)} "
     phrase += render_l("l", [data["alt"] or parts[0]], data)
     if data["texto_pos"]:
-        phrase += f' {italic(data["texto_pos"])}'
+        phrase += f" {italic(data['texto_pos'])}"
     return phrase
 
 
-def render_hipocoristico(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_hipocoristico(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_hipocoristico("hipocorístico", ["Antonio"], defaultdict(str))
     '<i>Hipocorístico de</i> Antonio'
@@ -620,7 +684,7 @@ def render_hipocoristico(tpl: str, parts: list[str], data: defaultdict[str, str]
     return phrase
 
 
-def render_l(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_l("l+", ["la", "impello", "impellō, impellere"], defaultdict(str, {"glosa":"empujar"}))
     '<i>impellō, impellere</i> ("empujar")'
@@ -653,7 +717,7 @@ def render_l(tpl: str, parts: list[str], data: defaultdict[str, str], word: str 
     return phrase
 
 
-def render_prep_conj(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_prep_conj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_prep_conj("preposición conjugada", ["con", "primera", "singular"], defaultdict(str))
     '<i>Forma combinada de la preposición</i> con <i>y el pronombre personal de primera persona singular</i>'
@@ -669,7 +733,7 @@ def render_prep_conj(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     )
 
 
-def render_superlativo(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_superlativo(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_superlativo("superlativo", ["abundante"], defaultdict(str))
     '<i>Superlativo de</i> abundante:&nbsp;sumamente abundante'
@@ -697,13 +761,13 @@ def render_superlativo(tpl: str, parts: list[str], data: defaultdict[str, str], 
     if data["glosa"]:
         local_phrase.append(f'"{data["glosa"]}"')
     if local_phrase:
-        phrase += f' ({concat(local_phrase, ", ")})'
+        phrase += f" ({concat(local_phrase, ', ')})"
     if not data["def"] and not parts:
         phrase += f":&nbsp;sumamente {word}"
     return phrase
 
 
-def render_sustantivo_de(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_sustantivo_de(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_sustantivo_de("sustantivo de verbo", ["circular"], defaultdict(str))
     'Acción o efecto de circular'
@@ -739,7 +803,7 @@ def render_sustantivo_de(tpl: str, parts: list[str], data: defaultdict[str, str]
     return phrase
 
 
-def render_variante(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_variante(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variante("variante", ["atiesar"], defaultdict(str))
     '<i>Variante de</i> atiesar'
@@ -750,7 +814,7 @@ def render_variante(tpl: str, parts: list[str], data: defaultdict[str, str], wor
     return f"{italic(capitalize(sentence))} " + render_l("l", [parts[0]], data)
 
 
-def render_variantes(tpl: str, parts: list[str], data: defaultdict[str, str], word: str = "") -> str:
+def render_variantes(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variantes("variantes", ["acrótera", "acroteria"], defaultdict(str))
     '<b>Variantes:</b> acrótera, acroteria'
@@ -776,6 +840,14 @@ def render_variantes(tpl: str, parts: list[str], data: defaultdict[str, str], wo
     return f"{strong(starter)} {concat(a_phrase, ', ')}"
 
 
+def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_variant("forma participio", ["apropiado", "femenino"], defaultdict(str))
+    'apropiado'
+    """
+    return parts[0]
+
+
 template_mapping = {
     "adjetivo de verbo": render_adjetivo_de_verbo,
     "AFI": render_afi,
@@ -787,21 +859,21 @@ template_mapping = {
     "comparativo": render_comparativo,
     "contracción": render_contraccion,
     "diminutivo": render_aumentativo,
+    "DLE": render_dle,
     "etim": render_etim,
     "etimología": render_etimologia,
     "forma": render_forma,
-    "forma diminutivo": render_aumentativo,
-    "forma sustantivo": render_forma,
-    "forma sustantivo plural": render_forma,
     "gentilicio": render_gentilicio,
     "gentilicio1": render_gentilicio,
     "gentilicio2": render_gentilicio2,
     "gentilicio3": render_gentilicio3,
     "grafia": render_grafia,
     "grafía": render_grafia,
+    "grafía anticuada": render_grafia,
     "grafía informal": render_grafia,
     "grafía obsoleta": render_grafia,
     "grafía rara": render_grafia,
+    "grafía subestándar": render_grafia,
     "hipocorístico": render_hipocoristico,
     "IPA": render_afi,
     "l": render_l,
@@ -814,6 +886,25 @@ template_mapping = {
     "sustantivo de verbo": render_sustantivo_de,
     "variante": render_variante,
     "variantes": render_variantes,
+    #
+    # Variants
+    #
+    "__variant__enclítico": render_variant,
+    "__variant__f.adj2": render_variant,
+    "__variant__f.s.p": render_variant,
+    "__variant__forma adjetiva": render_variant,
+    "__variant__forma adjetivo": render_variant,
+    "__variant__forma adjetivo 2": render_variant,
+    "__variant__forma diminutivo": render_variant,
+    "__variant__forma participio": render_variant,
+    "__variant__forma pronombre": render_variant,
+    "__variant__forma sustantivo": render_variant,
+    "__variant__forma sustantivo plural": render_variant,
+    "__variant__forma verbo": render_variant,
+    "__variant__f.v": render_variant,
+    "__variant__gerundio": render_variant,
+    "__variant__infinitivo": render_variant,
+    "__variant__participio": render_variant,
 }
 
 

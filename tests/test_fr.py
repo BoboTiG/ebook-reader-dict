@@ -11,6 +11,16 @@ from wikidict.utils import process_templates
     "word, pronunciations, genders, etymology, definitions, variants",
     [
         (
+            "5E",
+            [],
+            [],
+            [],
+            [
+                "Code AITA de la compagnie d’aviation SGA Airlines <i>(<i>Siam General Aviation Company Limited</i></i>, <i>บริษัท สยาม เจนเนอรัล เอวิเอชั่น จำกัด</i>).",
+            ],
+            [],
+        ),
+        (
             "-eresse",
             ["\\(ə).ʁɛs\\"],
             ["f"],
@@ -36,6 +46,8 @@ from wikidict.utils import process_templates
                 "<i>(Symbole 6)</i> Abréviation de <i>accélération</i>.",
             ],
             [
+                "Première lettre et première voyelle de l’alphabet latin (minuscule). Unicode : U+0061.",
+                "Chiffre hexadécimal dix (minuscule).",
                 r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",
                 "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe <b>atto-</b> (&times;10<sup>&minus;18</sup>).",
                 "<i>(Métrologie)</i> Symbole de l’<b>are</b>, une unité de mesure de surface en dehors SI. Elle prend souvent le préfixe h pour former ha (hectare).",
@@ -55,6 +67,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [
+                "Lettre minuscule grecque pi. Seizième lettre et onzième consonne de l’alphabet grec. Unicode : U+03C0.",
                 "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",
                 "<i>(Bases de données)</i> Symbole de la projection.",
             ],
@@ -111,7 +124,9 @@ from wikidict.utils import process_templates
             [
                 "Ayant dans le passé la forme « -als », au cours du XII<sup>e</sup> siècle, le « l » précédant une autre consonne se modifia en « u », comme dans « colp – coup, altre – autre ». Étant suivi d'une consonne uniquement au pluriel, la terminaison « -als » pris la forme de « aus ». Le « x » provient des manuscrits, qui étaient extrêmement chers à l'époque, il va de soi qu'on voulut y mettre le plus de texte possible. S'inspirant du latin où « us » s'écrivait « x », on obtint ainsi la forme « -ax ». Le « u » vient s'ajouter plus tard pour s'accorder à la prononciation [o]."
             ],
-            [],
+            [
+                "<i>Forme courante du pluriel de</i> -al.",
+            ],
             [],
         ),
         (
@@ -406,7 +421,9 @@ from wikidict.utils import process_templates
             ["\\sa.pʁis.ti\\"],
             [],
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
-            ["Pour marquer l’étonnement ou l'énervement."],
+            [
+                "<i>(Populaire)</i> <i>(Familier)</i> <i>(Par euphémisme)</i> <i>(Vieilli)</i> Pour marquer l’étonnement ou l'énervement."
+            ],
             [],
         ),
         (
@@ -429,9 +446,7 @@ from wikidict.utils import process_templates
             "suis",
             ["\\sɥi\\"],
             [],
-            [
-                "<i>(Forme de verbe 1)</i> De l’ancien français <i>suis</i> (forme du verbe <i>estre</i>), lui-même issu du latin <i>sum</i> (forme du verbe <i>esse</i>)."
-            ],
+            [],
             [],
             ["suivre", "être"],
         ),
@@ -443,6 +458,16 @@ from wikidict.utils import process_templates
                 "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."
             ],
             ["Nom de famille."],
+            [],
+        ),
+        (
+            "venoient",
+            [],
+            [],
+            [],
+            [
+                "<i>Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe</i> venir (on écrit maintenant <i>venaient</i>)."
+            ],
             [],
         ),
     ],
@@ -472,17 +497,22 @@ def test_parse_word(
         ("{{1|Descendant}}", "Descendant"),
         ("{{1er}}", "1<sup>er</sup>"),
         ("{{1er|mai}}", "1<sup>er</sup>&nbsp;mai"),
-        ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{1re}}", "1<sup>re</sup>"),
+        ("{{2e}}", "2<sup>e</sup>"),
+        ("{{2e|édition}}", "2<sup>e</sup>&nbsp;édition"),
+        ("{{12e}}", "12<sup>e</sup>"),
+        ("{{abréviation discrète|C{{e|ie}}|Compagnie}}", "C<sup>ie</sup>"),
+        ("{{adj-indéf-avec-de}}", "<i>(Avec de)</i>"),
         ("{{ancre|sens_sexe}}", ""),
+        ("{{attestation pays de Retz}}", "<i>(Pays de Retz)</i>"),
+        ("{{chiffre romain|15}}", "XV"),
         ("{{circa|1150}}", "<i>(c. 1150)</i>"),
         ("{{couleur|#B0F2B6}}", "#B0F2B6"),
-        ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
-        ("{{cours d'eau|fr|de France}}", "<i>(Géographie)</i>"),
+        ("{{cours d'eau|fr|de France}}", "<i>(Cours d’eau)</i>"),
         ("{{dénominal de|affection|fr}}", "Dénominal de <i>affection</i>"),
         ("{{détroit|fr}}", "<i>(Géographie)</i>"),
         ("{{déverbal de|haler|fr}}", "Déverbal de <i>haler</i>"),
-        ("{{diaéthique|fr}}", "<i>(Variation diaéthique)</i>"),
+        ("{{diaéthique|fr}}", "<i>(Variations diaéthiques)</i>"),
         ("du XX{{e}} siècle", "du XX<sup>e</sup> siècle"),
         ("M{{e|me}}", "M<sup>me</sup>"),
         ("du XX{{ème}} siècle", "du XX<sup>e</sup> siècle"),
@@ -501,8 +531,6 @@ def test_parse_word(
         ("{{FR|fr}}", "<i>(France)</i>"),
         ("{{familier|fr|nocat=1}}", "<i>(Familier)</i>"),
         ("{{fr-accord-oux|d|d}}", "doux"),
-        ("{{fr-accord-comp|aigre|doux|...}}", "aigre-doux"),
-        ("{{fr-accord-comp-mf|eau|de-vie|...}}", "eau-de-vie"),
         ("{{fr-accord-t-avant1835|abondan|a.bɔ̃.dɑ̃}}", "abondan"),
         ("{{graphie|u}}", "‹&nbsp;u&nbsp;›"),
         ("{{lang|en|other rank}}", "<i>other rank</i>"),
@@ -512,7 +540,6 @@ def test_parse_word(
         ("{{lexique|philosophie|sport|fr}}", "<i>(Philosophie, Sport)</i>"),
         ("{{lien|étrange|fr}}", "étrange"),
         ("{{lien|D{{e}}}}", "D<sup>e</sup>"),
-        ("{{ling|fr}}", "<i>(Linguistique)</i>"),
         ("{{in|5}}", "<sub>5</sub>"),
         ("{{incise|texte placé en incise}}", "— texte placé en incise —"),
         ("{{incise|texte placé en incise|stop}}", "— texte placé en incise"),
@@ -535,10 +562,6 @@ def test_parse_word(
         ("{{nobr|1=ℶ₀ = ℵ₀}}", "ℶ₀&nbsp;=&nbsp;ℵ₀"),
         ("{{nobr|a {{!}} b}}", "a&nbsp;|&nbsp;b"),
         ("{{nombre romain|12}}", "XII"),
-        (
-            "{{par ext}} ou {{figuré|fr}}",
-            "<i>(Par extension)</i> ou <i>(Sens figuré)</i>",
-        ),
         ("{{Pas clair}}", "<small>&nbsp;</small><sup><i><b>Pas clair</b></i></sup>"),
         (
             "{{Pas clair|Les seigneurs du Moyen Âge pouvaient « [[battre monnaie]] »}}",
@@ -547,12 +570,13 @@ def test_parse_word(
         ("{{phon|tɛs.tjɔ̃}}", "<b>[tɛs.tjɔ̃]</b>"),
         ("{{phon|na.t͡ʃe|fr}}", "<b>[na.t͡ʃe]</b>"),
         ("{{plans d’eau|fr|d’Afrique|cat=Lacs}}", "<i>(Géographie)</i>"),
-        ("{{région}}", "<i>(Régionalisme)</i>"),
         (
             "{{R:Tosti|Turgeon}}",
             "«&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>",
         ),
+        ("{{région}}", "<i>(Régionalisme)</i>"),
         ("{{région|Lorraine et Dauphiné}}", "<i>(Lorraine et Dauphiné)</i>"),
+        ("{{régionalisme|lang=fr}}", "<i>(Régionalisme)</i>"),
         ("{{régionalisme}}", "<i>(Régionalisme)</i>"),
         ("{{régionalisme|Bretagne|fr}}", "<i>(Bretagne)</i>"),
         ("{{numéro}}", "n<sup>o</sup>"),
@@ -569,14 +593,13 @@ def test_parse_word(
         ),
         ("{{réf}}", ""),
         ("{{registre|traditionnellement}}", "<i>(Traditionnellement)</i>"),
+        ("{{ruby|泡盛|あわもり}}", "<ruby>泡盛<rt>あわもり</rt></ruby>"),
         ("{{SIC}}", "<sup>[sic]</sup>"),
         ("{{sic !|Bevatron}}", "<sup>[sic : Bevatron]</sup>"),
         ("{{smo}}", "samoan"),
         ("{{souligner|r}}espiratory", "<u>r</u>espiratory"),
         ("{{sport}}", "<i>(Sport)</i>"),
         ("{{sport|fr|collectif}}", "<i>(Sport collectif)</i>"),
-        ("{{trad+|conv|Sitophilus granarius}}", "Sitophilus granarius"),
-        ("{{trad-|la|fiducia}}", "fiducia"),
         ("{{wd|Q30092597|Frederick H. Pough}}", "Frederick H. Pough"),
         ("{{wsp|Panthera pardus|Panthera pardus}}", "Panthera pardus"),
         ("{{wsp|Brassicaceae}}", "Brassicaceae"),

@@ -1,37 +1,38 @@
 """Convert rendered data to working dictionaries."""
 
+from __future__ import annotations
+
 import bz2
 import gc
 import gzip
 import hashlib
 import json
 import logging
+import multiprocessing
 import os
 import shutil
 from collections import defaultdict
-from collections.abc import Generator
-from datetime import date
+from datetime import date, timedelta
 from functools import partial
-from multiprocessing import Pool
 from pathlib import Path
-from typing import Any
+from time import monotonic
+from typing import TYPE_CHECKING
 from zipfile import ZIP_DEFLATED, ZipFile
 
 from jinja2 import Template
 from marisa_trie import Trie
 from pyglossary.glossary_v2 import ConvertArgs, Glossary
 
-from .constants import ASSET_CHECKSUM_ALGO, GH_REPOS, NO_ETYMOLOGY_SUFFIX
-from .lang import wiktionary
-from .stubs import Groups, Variants, Word, Words
-from .utils import (
-    convert_gender,
-    convert_pronunciation,
-    format_description,
-    guess_prefix,
-)
+from . import constants, lang, render, user_functions, utils
+from .stubs import Word
 
-# Kobo-related dictionnaries
+if TYPE_CHECKING:
+    from collections.abc import Generator
+    from typing import Any
+
+    from .stubs import Groups, Variants, Words
+
+# Kobo-related dictionaries
 WORD_TPL_KOBO = Template(
     """\
 <w>
@@ -76,18 +77,24 @@ WORD_TPL_KOBO = Template(
         {% endif %}
     </p>
     {% if variants %}
-        {{ variants }}
+        <var>
+        {%- for variant in variants -%}
+            <variant name="{{ variant }}"/>
+        {%- endfor -%}
+        </var>
     {% endif %}
 </w>
 """
 )
 
-# DictFile-related dictionnaries
+# DictFile-related dictionaries
+# Source: https://pgaskin.net/dictutil/dictgen/#dictfile-format
+# Source: https://github.com/hunspell/hunspell/blob/ecc6dbb52025bdf3a766429988e64190d912765f/man/hunspell.1#L93-L139 (for later, in case of issues with other sub-formats)
 WORD_TPL_DICTFILE = Template(
     """\
 @ {{ word }}
-{%- if pronunciation or gender %}
-: {{ pronunciation }} {{ gender }}
+{%- if current_word or pronunciation or gender %}
+: {%- if current_word %} <b>{{ current_word }}</b>{%- endif -%}{{ pronunciation }}{{ gender }}
 {%- endif %}
 {%- for variant in variants %}
 & {{ variant }}
@@ -127,9 +134,10 @@ WORD_TPL_DICTFILE = Template(
     {%- endfor -%}
     <br/>
 {%- endif -%}</html>
+
+
 """
 )
-
 
 log = logging.getLogger(__name__)
 
@@ -137,14 +145,7 @@ log = logging.getLogger(__name__)
 class BaseFormat:
     """Base class for all dictionaries."""
 
-    __slots__ = {
-        "locale",
-        "output_dir",
-        "snapshot",
-        "words",
-        "variants",
-        "include_etymology",
-    }
+    template = Template("")  # To be set by subclasses
 
     def __init__(
         self,
@@ -153,74 +154,173 @@ class BaseFormat:
         words: Words,
         variants: Variants,
         snapshot: str,
+        *,
         include_etymology: bool = True,
     ) -> None:
-        self.locale = locale
+        self.lang_src, self.lang_dst = utils.guess_locales(locale)
         self.output_dir = output_dir
-        self.words = words
-        self.variants = variants
+        self.words = words.copy()
+        self.variants = variants.copy()
         self.snapshot = snapshot
         self.include_etymology = include_etymology
+        self.start = monotonic()
+        self.words_count = 0
+        self.variants_count = 0
 
-    def dictionnary_file(self, output_file: str) -> Path:
-        file = self.output_dir / output_file.format(locale=self.locale)
-        if not self.include_etymology:
-            file = file.with_stem(f"{file.stem}{NO_ETYMOLOGY_SUFFIX}")
-        return file
+        logging.basicConfig(level=logging.INFO)
+        log.info(
+            "[%s] Starting the conversion with %s words, and %s variants ...",
+            type(self).__name__,
+            f"{len(words):,}",
+            f"{len(variants):,}",
+        )
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:  # pragma: nocover
-        raise NotImplementedError()
+    @property
+    def description(self) -> str:
+        return lang.wiktionary[self.lang_src].format(year=date.today().year)
 
-    def process(self) -> None:  # pragma: nocover
+    @property
+    def title(self) -> str:
+        return constants.TITLE.format(constants.PROJECT, self.lang_src.upper(), self.lang_dst.upper())
+
+    @property
+    def website(self) -> str:
+        return constants.GH_REPOS
+
+    def dictionary_file(self, output_file: str) -> Path:
+        return self.output_dir / output_file.format(
+            lang_src=self.lang_src,
+            lang_dst=self.lang_dst,
+            etym_suffix="" if self.include_etymology else constants.NO_ETYMOLOGY_SUFFIX,
+        )
+
+    def handle_word(self, word: str, words: Words) -> Generator[str]:
+        details = words[word]
+        current_words = {word: details}
+        guess_prefix = utils.guess_prefix
+        word_group_prefix = guess_prefix(word)
+
+        if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
+            # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
+            # An example in FR, where "suis" (verb flexion) is a variant of both "ếtre" & "suivre": "suis" & "être" are quite differents.
+            # As a workaround, we yield as many words as there are variants but under the word "suis": at the end, we will have 3 words:
+            #   - "suis" with the content "suis" (itself)
+            #   - "suis" with the content "être"
+            #   - "suis" with the content "suivre"
+            for variant in details.variants:
+                if root := self.words.get(variant):
+                    current_words[variant] = root
+
+        all_variants = self.variants
+        for current_word, current_details in sorted(current_words.items()):
+            if not current_details.definitions:
+                continue
+
+            if variants := all_variants.get(current_word, []):
+                # Add variants of empty* variant, only 1 redirection:
+                #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
+                # Note: the process works backward: from gastar up to gastado up to gastada.
+                # Note: enabling only on ES until we find a use case on another locale because
+                #       it is a huge performance hit for dictionaries with lot of variants.
+                if self.lang_src == "es":
+                    for variant in [*variants]:
+                        if (
+                            (wv := words.get(variant))
+                            and not wv.definitions
+                            and (new_variants := all_variants.get(variant))
+                        ):
+                            variants.extend(new_variants)
+
+                # Filter out variants:
+                #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
+                #   - with a different prefix that their word
+                current_word_group_prefix = guess_prefix(current_word)
+                variants = [
+                    variant
+                    for variant in variants
+                    if variant != word and guess_prefix(variant) == current_word_group_prefix
+                ]
+
+                if isinstance(self, KoboFormat):
+                    # Variant must be normalized by trimming whitespace and lowercasing it
+                    variants = [variant.lower().strip() for variant in variants]
+
+            self.words_count += 1
+            self.variants_count += len(variants)
+
+            yield self.render_word(
+                self.template,
+                word=word,
+                current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
+                definitions=current_details.definitions,
+                pronunciation=utils.convert_pronunciation(current_details.pronunciations)
+                if current_details.pronunciations
+                else "",
+                gender=utils.convert_gender(current_details.genders) if current_details.genders else "",
+                etymologies=current_details.etymology if self.include_etymology else [],
+                variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
+            )
+
+    def process(self) -> None:
         raise NotImplementedError()
 
     @staticmethod
     def render_word(template: Template, **kwargs: Any) -> str:
         return "".join(line.strip() for line in template.render(**kwargs).splitlines()) + "\n"
 
-    @staticmethod
-    def compute_checksum(file: Path) -> None:
-        checksum = hashlib.new(ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
-        checksum_file = file.with_suffix(f"{file.suffix}.{ASSET_CHECKSUM_ALGO}")
+    def compute_checksum(self, file: Path) -> None:
+        checksum = hashlib.new(constants.ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
+        checksum_file = file.with_suffix(f"{file.suffix}.{constants.ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        log.info("Crafted %s (%s)", checksum_file.name, checksum)
+        log.info("[%s] Crafted %s (%s)", type(self).__name__, checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
-        log.info("Generated %s (%d bytes)", file.name, file.stat().st_size)
+        if type(self).__name__ in {KoboFormat.__name__, DictFileFormat.__name__}:
+            log.info(
+                "[%s] Effective words + variants: %s + %s => %s",
+                type(self).__name__,
+                f"{self.words_count:,}",
+                f"{self.variants_count:,}",
+                f"{self.words_count + self.variants_count:,}",
+            )
+            log.info("[%s] utils.guess_prefix() %s", type(self).__name__, utils.guess_prefix.cache_info())
+
+        log.info(
+            "[%s] Generated %s (%s bytes) in %s",
+            type(self).__name__,
+            file.name,
+            f"{file.stat().st_size:,}",
+            timedelta(seconds=monotonic() - self.start),
+        )
         self.compute_checksum(file)
 
 
 class KoboFormat(BaseFormat):
     """Save the data into Kobo-specific ZIP file."""
 
-    output_file = "dicthtml-{locale}-{locale}.zip"
+    add_install = True
+    output_file = "dicthtml-{lang_src}-{lang_dst}{etym_suffix}.zip"
+    template = WORD_TPL_KOBO
 
     def process(self) -> None:
         self.groups = self.make_groups(self.words)
         self.save()
 
-    @staticmethod
-    def create_install(locale: str, output_dir: Path) -> Path:
-        """Generate the INSTALL.txt file."""
-        release = format_description(locale, output_dir)
+    def sanitize(self, content: str) -> str:
+        """Sanitize the INSTALL.txt file content."""
+        content = content.replace(":arrow_right:", "->")
+        content = content.replace("`", '"')
+        content = content.replace("<sub>", "")
+        content = content.replace("</sub>", "")
 
-        # Sanitization
-        release = release.replace(":arrow_right:", "->")
-        release = release.replace(f" (dicthtml-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}.df.bz2)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}.zip)", "")
-        release = release.replace(f" (dicthtml-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace(f" (dict-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.df.bz2)", "")
-        release = release.replace(f" (dictorg-{locale}-{locale}{NO_ETYMOLOGY_SUFFIX}.zip)", "")
-        release = release.replace("`", '"')
-        release = release.replace("<sub>", "")
-        release = release.replace("</sub>", "")
+        for etym_suffix in {"", constants.NO_ETYMOLOGY_SUFFIX}:
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.mobi.zip)", "")
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dict-{self.lang_src}-{self.lang_dst}{etym_suffix}.df.bz2)", "")
+            content = content.replace(f" (dicthtml-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
+            content = content.replace(f" (dictorg-{self.lang_src}-{self.lang_dst}{etym_suffix}.zip)", "")
 
-        file = output_dir / "INSTALL.txt"
-        file.write_text(release)
-        return file
+        return content
 
     @staticmethod
     def craft_index(wordlist: list[str], output_dir: Path) -> Path:
@@ -235,82 +335,12 @@ class KoboFormat(BaseFormat):
         """Group word by prefix."""
         groups: Groups = defaultdict(dict)
         for word, details in words.items():
-            groups[guess_prefix(word)][word] = details
+            groups[utils.guess_prefix(word)][word] = details
         return groups
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
-        name: str = kwargs["name"]
-        words: Words = kwargs["words"]
-        current_words: Words = {word: details}
-
-        # use variant definitions for a word if one variant prefix is different
-        # "suis" listed with the definitions of "être" and "suivre"
-        if details.variants:
-            found_different_prefix = False
-            for variant in details.variants:
-                if guess_prefix(variant) != name:
-                    if root_details := self.words.get(variant):
-                        found_different_prefix = True
-                        break
-            variants_words = {}
-            # if we found one variant, then list them all
-            if found_different_prefix:
-                for variant in details.variants:
-                    if root_details := self.words.get(variant):
-                        variants_words[variant] = root_details
-            if word.endswith("s"):  # crude detection of plural
-                singular = word[:-1]
-                maybe_noun = self.words.get(singular)  # do we have the singular?
-                # make sure we are not redirecting to a verb (je mange, tu manges)
-                # verb form is also a singular noun
-                if isinstance(maybe_noun, Word) and not maybe_noun.variants:
-                    variants_words[singular] = maybe_noun
-                    for variant in details.variants:
-                        if maybe_verb := self.words.get(variant):
-                            variants_words[variant] = maybe_verb
-            if variants_words:
-                current_words = variants_words
-
-        # write to file
-        for current_word, current_details in current_words.items():
-            if not current_details.definitions:
-                continue
-
-            variants = ""
-            if word_variants := self.variants.get(word, []):
-                # add variants of empty* variant, only 1 redirection...
-                # gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
-                for v in word_variants.copy():
-                    wv: Word = words.get(v, Word.empty())
-                    if wv and not wv.definitions:
-                        for vv in self.variants.get(v, []):
-                            word_variants.append(vv)
-                word_variants.sort(key=lambda s: (len(s), s))
-                variants = "<var>"
-                for v in word_variants:
-                    # no variant with different prefix
-                    v = v.lower().strip()
-                    if guess_prefix(v) == name:
-                        variants += f'<variant name="{v}"/>'
-                variants += "</var>"
-            # no empty var tag
-            if len(variants) < 15:
-                variants = ""
-
-            yield self.render_word(
-                WORD_TPL_KOBO,
-                word=word,
-                current_word=current_word,
-                definitions=current_details.definitions,
-                pronunciation=convert_pronunciation(current_details.pronunciations),
-                gender=convert_gender(current_details.genders),
-                etymologies=current_details.etymology if self.include_etymology else [],
-                variants=variants,
-            )
-
-    def save(self) -> None:
+    def save(self) -> None:  # sourcery skip: extract-method
         """
-        Format of resulting dicthtml-LOCALE.zip:
+        Format of resulting dicthtml-LOCALE-LOCALE.zip:
 
             aa.html
             ab.html
@@ -326,37 +356,34 @@ class KoboFormat(BaseFormat):
         tmp_dir.mkdir()
 
         # Files to add to the final archive
-        to_compress = []
+        to_compress: list[Path] = []
 
         # First, create individual HTML files
         wordlist: list[str] = []
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, tmp_dir))
-            wordlist.extend(words.keys())
+            wordlist.extend(word for word, details in words.items() if details.definitions)
 
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, tmp_dir))
 
-        # Add unrelated files, just for history
-        words_count = self.output_dir / "words.count"
-        words_snapshot = self.output_dir / "words.snapshot"
-        words_count.write_text(str(len(wordlist)))
-        words_snapshot.write_text(self.snapshot)
-        to_compress.extend(
-            (
-                words_count,
-                words_snapshot,
-                self.create_install(self.locale, self.output_dir),
-            )
-        )
-
-        # Pretty print the source
-        source = wiktionary[self.locale].format(year=date.today().year)
-
         # Finally, create the ZIP
-        final_file = self.dictionnary_file(self.output_file)
+        final_file = self.dictionary_file(self.output_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            fh.comment = bytes(source, "utf-8")
+            # The ZIP's comment will serve as the dictionary signature
+            fh.comment = bytes(self.description, "utf-8")
+
+            # Unrelated files, just for history
+            if self.add_install:
+                fh.writestr(
+                    constants.ZIP_INSTALL,
+                    self.sanitize(
+                        utils.format_description(self.lang_src, self.lang_dst, len(self.words), self.snapshot)
+                    ),
+                )
+            fh.writestr(constants.ZIP_WORDS_COUNT, str(self.words_count + self.variants_count))
+            fh.writestr(constants.ZIP_WORDS_SNAPSHOT, self.snapshot)
+
             for file in to_compress:
                 fh.write(file, arcname=file.name)
 
@@ -366,12 +393,7 @@ class KoboFormat(BaseFormat):
 
         self.summary(final_file)
 
-    def save_html(
-        self,
-        name: str,
-        words: Words,
-        output_dir: Path,
-    ) -> Path:
+    def save_html(self, name: str, words: Words, output_dir: Path) -> Path:
         """Generate individual HTML files.
 
         Content of the HTML file:
@@ -385,14 +407,13 @@ class KoboFormat(BaseFormat):
 
         # Save to uncompressed HTML
         raw_output = output_dir / f"{name}.raw.html"
-        with raw_output.open(mode="w", encoding="utf-8") as fh:
-            for word, details in words.items():
-                fh.writelines(self.handle_word(word, details, name=name, words=words))
+        data = "".join(line for word in words for line in self.handle_word(word, words))
+        raw_output.write_text(data, encoding="utf-8")
 
         # Compress the HTML with gzip
         output = output_dir / f"{name}.html"
         with raw_output.open(mode="rb") as fi, gzip.open(output, mode="wb") as fo:
-            fo.writelines(fi)
+            fo.write(fi.read())
 
         return output
 
@@ -400,43 +421,45 @@ class KoboFormat(BaseFormat):
 class DictFileFormat(BaseFormat):
     """Save the data into a *.df* DictFile."""
 
-    output_file = "dict-{locale}-{locale}.df"
+    output_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.df"
+    template = WORD_TPL_DICTFILE
 
-    def handle_word(self, word: str, details: Word, **kwargs: Any) -> Generator[str, None, None]:
-        if details.definitions:
-            yield self.render_word(
-                WORD_TPL_DICTFILE,
-                word=word,
-                definitions=details.definitions,
-                pronunciation=convert_pronunciation(details.pronunciations),
-                gender=convert_gender(details.genders),
-                etymologies=details.etymology if self.include_etymology else [],
-                variants=self.variants.get(word, []),
-            )
+    def get_glossary_lang_dst(self) -> str:
+        return self.lang_dst
+
+    def get_glossary_lang_src(self) -> str:
+        return self.lang_src
 
     def process(self) -> None:
-        file = self.dictionnary_file(self.output_file)
-        with file.open(mode="w", encoding="utf-8") as fh:
-            for word, details in self.words.items():
-                fh.writelines(self.handle_word(word, details))
+        file = self.dictionary_file(self.output_file)
+        data = "".join(line for word in self.words for line in self.handle_word(word, self.words))
+        file.write_text(data, encoding="utf-8")
 
         self.summary(file)
 
     @staticmethod
     def render_word(template: Template, **kwargs: Any) -> str:
-        return template.render(**kwargs) + "\n\n"
+        return template.render(**kwargs)
+
+
+class DictFileFormatForMobi(DictFileFormat):
+    """Save the data into a *.df* DictFile."""
+
+    output_file = f"altered-{DictFileFormat.output_file}"
 
 
 class ConverterFromDictFile(DictFileFormat):
     target_format = ""
     target_suffix = ""
     final_file = ""
+    zip_glob_files = "dict-data.*"
+    dictfile_format_cls = DictFileFormat
     glossary_options: dict[str, str | bool] = {}
 
     def _patch_gc(self) -> None:
         """Bypass performances issues when calling PyGlossary from Python."""
 
-        def noop_gc_collect() -> None:  # pragma: nocover
+        def noop_gc_collect() -> None:
             pass
 
         gc.collect = noop_gc_collect  # type: ignore[assignment]
@@ -450,43 +473,79 @@ class ConverterFromDictFile(DictFileFormat):
 
     def _convert(self) -> None:
         """Convert the DictFile to the target format."""
+        # We do not want to use temporary SQLite databases. Without them:
+        #   - that's faster;
+        #   - it prevents concurrent access issues from secondary formatters;
+        #   - and it reduces I/O on the machine.
+        os.environ["NO_SQLITE"] = "1"
+
         Glossary.init()
         glos = Glossary()
-        glos.config = {"cleanup": False}  # Prevent deleting temporary SQLite files
+        glos.config = {
+            "auto_sqlite": False,
+            "cleanup": False,  # Prevent deleting temporary image files (~/.cache/pyglossary/DICT/FILE.gif)
+        }
 
-        glos.setInfo("description", wiktionary[self.locale].format(year=date.today().year))
-        glos.setInfo("title", f"Wiktionary {self.locale.upper()}-{self.locale.upper()}")
-        glos.setInfo("website", GH_REPOS)
+        if isinstance(self, StarDictFormat):
+            writer_cls = glos.plugins["Stardict"].writerClass
+
+            # We do not want to compress the `.syn` file as it does not work everywhere (see issue #2407)
+            writer_cls.dictzipSynFile = False
+
+            # Do not append extra data to the book name
+            def get_bookname(cls) -> str:  # type: ignore[no-untyped-def]
+                bookname = str(cls._glos.getInfo("name"))
+                log.info("bookname: %s", bookname)
+                return bookname
+
+            writer_cls.getBookname = get_bookname
+
+        glos.setInfo("description", self.description)
+        glos.setInfo("title", self.title)
+        glos.setInfo("website", self.website)
         glos.setInfo("date", f"{self.snapshot[:4]}-{self.snapshot[4:6]}-{self.snapshot[6:8]}")
 
+        glos.sourceLangName = self.get_glossary_lang_src()
+        glos.targetLangName = self.get_glossary_lang_dst()
+
         self.output_dir_tmp.mkdir()
-        assert glos.convert(
+        glos.convert(
             ConvertArgs(
-                str(self.dictionnary_file(DictFileFormat.output_file)),
+                inputFilename=str(self.dictionary_file(self.dictfile_format_cls.output_file)),
                 outputFilename=str(self.output_dir_tmp / f"dict-data.{self.target_suffix}"),
                 writeOptions=self.glossary_options,
-                sqlite=True,
             )
-        ), "Conversion failed!"
+        )
 
-    def process(self) -> None:
-        self._cleanup()
-        self._patch_gc()
-        self._convert()
-
-        final_file = self.dictionnary_file(self.final_file)
+    def _compress(self) -> Path:
+        final_file = self.dictionary_file(self.final_file)
         with ZipFile(final_file, mode="w", compression=ZIP_DEFLATED) as fh:
-            for file in self.output_dir_tmp.glob("dict-data.*"):
+            for file in self.output_dir_tmp.glob(self.zip_glob_files):
                 fh.write(file, arcname=file.name)
 
-            for entry in self.output_dir.glob("res/*"):
+            for entry in (self.output_dir / self.target_format).glob("res/*"):
                 fh.write(entry, arcname=f"res/{entry.name}")
 
             # Check the ZIP validity
             # testzip() returns the name of the first corrupt file, or None
             assert fh.testzip() is None, fh.testzip()
 
+        return final_file
+
+    def process(self) -> None:
+        self._cleanup()
+        self._patch_gc()
+        self._convert()
+        final_file = self._compress()
         self.summary(final_file)
+
+
+class BZ2DictFileFormat(BaseFormat):
+    def process(self) -> None:
+        df_file = self.dictionary_file(DictFileFormat.output_file)
+        bz2_file = df_file.with_suffix(".df.bz2")
+        bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
+        return self.summary(bz2_file)
 
 
 class DictOrgFormat(ConverterFromDictFile):
@@ -494,8 +553,66 @@ class DictOrgFormat(ConverterFromDictFile):
 
     target_format = "dict.org"
     target_suffix = "index"
-    final_file = "dictorg-{locale}-{locale}.zip"
+    final_file = "dictorg-{lang_src}-{lang_dst}{etym_suffix}.zip"
     glossary_options = {"dictzip": True, "install": False}
+
+
+class MobiFormat(ConverterFromDictFile):
+    """Save the data into a Mobi file.
+
+    Incompatibility issues:
+
+    1) No support for multiple HTML tags, they will be ignored:
+
+        Warning(inputpreprocessor):W29007: Rejected unknown tag: <bdi>
+
+    2) Most locales are not fully supported:
+
+        Warning(index build):W15008: language not supported. Using default phonetics for spellchecker: english.
+
+    3) Greek (EL), and Russian (RU), locales might be incorrectly displayed:
+
+        Error(core):E1008: Failed conversion to unicode. The resulting string may contain wrong characters.
+
+    4) Embedded GIF/SVG codes are extracted to their own files, but it's not clear where they are located, so there are no images for now:
+
+        Warning(prcgen):W14010: media file not found /.../mobi/dict-data.mobi/OEBPS/XXX.gif
+
+    """
+
+    target_format = "mobi"
+    target_suffix = "mobi"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.mobi.zip"
+    zip_glob_files = ""  # Will be set in `_compress()`
+    dictfile_format_cls = DictFileFormatForMobi
+    glossary_options = {
+        "cover_path": str(constants.COVER_FILE),
+        "keep": True,
+        "kindlegen_path": str(constants.KINDLEGEN_FILE),
+    }
+
+    def get_glossary_lang_dst(self) -> str:
+        """
+        Workaround for Esperanto (EO) not being supported by kindlegen.
+        According to https://higherlanguage.com/languages-similar-to-esperanto/,
+        French seems the most similar lang that is available on kindlegen, so French it is.
+        """
+        return "fr" if self.lang_dst == "eo" else self.lang_dst
+
+    def get_glossary_lang_src(self) -> str:
+        """
+        Workaround for Esperanto (EO) not being supported by kindlegen.
+        According to https://higherlanguage.com/languages-similar-to-esperanto/,
+        French seems the most similar lang that is available on kindlegen, so French it is.
+        """
+        return "fr" if self.lang_src == "eo" else self.lang_src
+
+    def _compress(self) -> Path:
+        # Move the relevant file at the top-level data folder, and rename it for more accuracy
+        src = self.output_dir_tmp / f"dict-data.{self.target_suffix}" / "OEBPS" / f"content.{self.target_suffix}"
+        file = src.rename(self.dictionary_file(self.final_file.removesuffix(".zip")))
+        self.zip_glob_files = f"../{file.name}"
+        return super()._compress()
 
 
 class StarDictFormat(ConverterFromDictFile):
@@ -503,25 +620,93 @@ class StarDictFormat(ConverterFromDictFile):
 
     target_format = "stardict"
     target_suffix = "ifo"
-    final_file = "dict-{locale}-{locale}.zip"
+    final_file = "dict-{lang_src}-{lang_dst}{etym_suffix}.zip"
     glossary_options = {"dictzip": True}
 
 
-class BZ2DictFileFormat(BaseFormat):
-    def process(self) -> None:
-        df_file = self.dictionnary_file(DictFileFormat.output_file)
-        bz2_file = df_file.with_suffix(".df.bz2")
-        bz2_file.write_bytes(bz2.compress(df_file.read_bytes()))
-        return self.summary(bz2_file)
-
-
-def get_primary_formaters() -> list[type[BaseFormat]]:
+def get_primary_formatters() -> list[type[BaseFormat]]:
     return [KoboFormat, DictFileFormat]
 
 
-def get_secondary_formaters() -> list[type[BaseFormat]]:
-    """Formaters that require files generated by `get_primary_formaters()`."""
-    return [StarDictFormat, BZ2DictFileFormat, DictOrgFormat]
+def get_secondary_formatters() -> list[type[BaseFormat]]:
+    """Formatters that require files generated by `get_primary_formatters()`."""
+    return [BZ2DictFileFormat, DictOrgFormat, StarDictFormat]
+
+
+def run_mobi_formatter(
+    output_dir: Path,
+    file: Path,
+    locale: str,
+    words: Words,
+    variants: Variants,
+    *,
+    include_etymology: bool = True,
+) -> None:
+    """Mobi formatter.
+
+    For multiple languages, we need to delete words if the total number of unique unicode characters is greater than 256.
+    To do this, we delete words using the least-used characters until we meet this condition.
+    """
+
+    def all_chars(word: str, details: Word) -> set[str]:
+        chars = set(word)
+        if definitions := details.definitions:
+            if isinstance(definitions, str):
+                chars.update(definitions)
+            elif isinstance(definitions, tuple):
+                chars.update(user_functions.flatten(definitions))
+        if etymology := details.etymology:
+            if isinstance(etymology, str):
+                chars.update(etymology)
+            elif isinstance(etymology, tuple):
+                chars.update(user_functions.flatten(etymology))
+        return chars
+
+    stats = defaultdict(list)
+    for word, details in words.copy().items():
+        if len(word) > 127:
+            log.info("[Mobi] Truncated word too long: %r", word)
+            truncated = word[:127]
+            words[truncated] = words.pop(word)
+            word = truncated
+        for char in all_chars(word, details):
+            stats[char].append(word)
+
+    if utils.guess_lang_origin(locale) in {"en", "fr"} and len(stats) > 256:
+        new_words = words.copy()
+        threshold = 1
+        while len(stats) > 256:
+            log.info("[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
+            for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
+                if len(related_words) == threshold:
+                    for w in related_words:
+                        new_words.pop(w, None)
+                    stats.pop(char)
+                if len(stats) <= 256:
+                    break
+            threshold += 1
+
+        log.info(
+            "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            f"{len(words) - len(new_words):,}",
+            f"{len(new_words):,}",
+            len(stats),
+        )
+        words = new_words
+        variants = make_variants(words)
+    else:
+        log.info(
+            "[Mobi] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            f"{len(words):,}",
+            len(stats),
+        )
+
+    args = (locale, output_dir, words, variants, file.stem.split("-")[-1])
+    run_formatter(DictFileFormatForMobi, *args, include_etymology=include_etymology)
+    try:
+        run_formatter(MobiFormat, *args, include_etymology=include_etymology)
+    except Exception:
+        log.exception("Error with the Mobi conversion")
 
 
 def run_formatter(
@@ -531,9 +716,10 @@ def run_formatter(
     words: Words,
     variants: Variants,
     snapshot: str,
+    *,
     include_etymology: bool = True,
 ) -> None:
-    formater = cls(
+    formatter = cls(
         locale,
         output_dir,
         words,
@@ -541,7 +727,7 @@ def run_formatter(
         snapshot,
         include_etymology=include_etymology,
     )
-    formater.process()
+    formatter.process()
 
 
 def load(file: Path) -> Words:
@@ -555,32 +741,27 @@ def load(file: Path) -> Words:
 
 def make_variants(words: Words) -> Variants:
     """Group word by variant."""
+    log.info("Creating variants ...")
     variants: Variants = defaultdict(list)
     for word, details in words.items():
-        # Variant must be normalized by trimming whitespace and lowercasing it.
         for variant in details.variants:
-            if variant:
-                variants[variant].append(word)
+            variants[variant].append(word)
+    log.info("Created %s variants", f"{len(variants):,}")
     return variants
 
 
-def get_latest_json_file(output_dir: Path) -> Path | None:
-    """Get the name of the last data-*.json file."""
-    files = list(output_dir.glob("data-*.json"))
-    return sorted(files)[-1] if files else None
-
-
 def distribute_workload(
-    formaters: list[type[BaseFormat]],
+    formatters: list[type[BaseFormat]],
     output_dir: Path,
     file: Path,
     locale: str,
     words: Words,
     variants: Variants,
+    *,
     include_etymology: bool = True,
 ) -> None:
-    """Run formaters in parallel."""
-    with Pool(len(formaters)) as pool:
+    """Run formatters in parallel."""
+    with multiprocessing.Pool(len(formatters)) as pool:
         pool.map(
             partial(
                 run_formatter,
@@ -588,29 +769,46 @@ def distribute_workload(
                 output_dir=output_dir,
                 words=words,
                 variants=variants,
-                snapshot=file.stem.split("-")[1],
+                snapshot=file.stem.split("-")[-1],
                 include_etymology=include_etymology,
             ),
-            formaters,
+            formatters,
         )
+
+
+def get_latest_json_file(source_dir: Path) -> Path | None:
+    """Get the name of the last data-*.json file."""
+    files = list(source_dir.glob(f"data-{'[0-9]' * 8}.json"))
+    return sorted(files)[-1] if files else None
 
 
 def main(locale: str) -> int:
     """Entry point."""
-    output_dir = Path(os.getenv("CWD", "")) / "data" / locale
-    file = get_latest_json_file(output_dir)
-    if not file:
+
+    lang_src, lang_dst = utils.guess_locales(locale)
+
+    source_dir = render.get_source_dir(lang_src, lang_dst)
+    if not (input_file := get_latest_json_file(source_dir)):
         log.error("No dump found. Run with --render first ... ")
         return 1
 
     # Get all words from the database
-    words: Words = load(file)
+    words: Words = load(input_file)
     variants: Variants = make_variants(words)
 
-    # And run formaters, distributing the workload
-    args = (output_dir, file, locale, words, variants)
-    distribute_workload(get_primary_formaters(), *args)
-    distribute_workload(get_secondary_formaters(), *args)
-    distribute_workload(get_primary_formaters(), *args, include_etymology=False)
-    distribute_workload(get_secondary_formaters(), *args, include_etymology=False)
+    # And run formatters, distributing the workload
+    output_dir = source_dir / "output"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    args = (output_dir, input_file, locale, words, variants)
+
+    # Force not using `fork()` on GNU/Linux to prevent deadlocks on "slow" machines (see issue #2333)
+    multiprocessing.set_start_method("spawn", force=True)
+
+    start = monotonic()
+    for include_etymology in [False, True]:
+        distribute_workload(get_primary_formatters(), *args, include_etymology=include_etymology)
+        distribute_workload(get_secondary_formatters(), *args, include_etymology=include_etymology)
+        run_mobi_formatter(*args, include_etymology=include_etymology)
+
+    log.info("Convert done in %s!", timedelta(seconds=monotonic() - start))
     return 0

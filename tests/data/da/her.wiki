@@ -1,0 +1,57 @@
+{{=da=}}
+{{-pronun-}}
+*{{IPA|/hɛːˀɒ̯/|lang=da}}
+{{-adv-|da}}
+{{pn}}
+# Stedet hvor vi er nu. Vores placering.
+# (''[[radiokommunikation]], [[radiotelefoni]]'') Dette opkalder stammer fra denne opkalder
+{{-syn-}}
+*her er
+{{-trans-}}
+{{trans-top|Stedet hvor vi er nu}}
+* {{en}}: {{t|en|here}}
+* {{fr}}: {{t|fr|ici}}
+* {{nl}}: {{t|nl|hier}}
+* {{zh}}: {{t|zh|这里}} (zhèlǐ), {{t|zh|这兒}} (zhè+ér=zhèr)
+{{trans-mid}}
+* {{O|pt|aqui}}
+* {{O|es|aquí}}
+* {{de}}: {{t|de|hier}}
+{{trans-bottom}}
+===Formelt subjekt===
+{{pn}}
+# [[bruge]]s som [[upersonlig]]t [[subjekt]], [[referere]]r [[ofte]] [[fremad]] eller [[tilbage]] til et andet [[led]] i [[sætning]]en.
+[[Kategori:Formelle subjekter på dansk]]
+{{-ref-}}
+*{{DDO}}
+{{=en=}}
+{{Personlige pronominer på engelsk}}
+{{-pronun-}}
+*{{IPA|/hɜ:ʳ/|lang=en}}
+{{-pers-pronom-|en}}
+{{pn}}
+#[[hende]]
+#:''Give '''her''' a gift card.''
+#::''Giv '''hende''' et gavekort.''
+===Possessivt pronomen (Ejestedord)===
+{{pn}}
+#Tredje person feminin ental; [[hendes]].
+#:''I like '''her''' styling.''
+#::''Jeg kan lide '''hendes''' styling.''
+{{-ref-}}
+*{{Oxford Dictionaries}}
+[[Kategori:Possessive pronominer på engelsk]]
+
+{{=de=}}
+{{-etym-}}
+Fra {{etyl|goh|de}} {{term|hera|lang=goh}}.<ref>{{DWDS}}</ref>
+{{-pronun-}}
+*{{IPA|/he:ɐ̯/|lang=de}}
+{{-adv-|de}}
+{{pn}}
+#{{stedsbiord|tysk}} derfra til her
+#:''Wo kommst du '''her'''?''
+#::''Hvor kommer du fra?''
+{{-ant-}}
+*[[hin]]
+{{-ref-}}

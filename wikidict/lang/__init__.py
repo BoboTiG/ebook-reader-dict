@@ -2,35 +2,32 @@
 
 from importlib import import_module
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any
 
 from . import defaults
 
-ALL_LOCALES = {
+_ALL_LOCALES = {
     locale.name: import_module(f"wikidict.lang.{locale.name}")
     for locale in sorted(Path(__file__).parent.glob("*"))
-    if locale.is_dir() and locale.name != "__pycache__"
+    if locale.is_dir() and bool(list(locale.glob("*.py", case_sensitive=True)))
 }
 
-Arg = TypeVar("Arg")
-PopulatedDict = dict[str, Any]
 
-
-def _populate(attr: str) -> PopulatedDict:
+def _populate(attr: str) -> dict[str, Any]:
     """
     Create a dict for all locales pointing to the appropriate attribute.
     Fallback to `defaults`.
     """
     return {
         locale.__name__.split(".")[-1]: getattr(locale, attr) if hasattr(locale, attr) else getattr(defaults, attr)
-        for locale in ALL_LOCALES.values()
+        for locale in _ALL_LOCALES.values()
     }
 
 
 # Float number separator
 float_separator: dict[str, str] = _populate("float_separator")
 
-# Thousads separator
+# Thousands separator
 thousands_separator: dict[str, str] = _populate("thousands_separator")
 
 # Markers for sections that contain interesting text to analyse.
@@ -48,7 +45,7 @@ variant_titles: dict[str, tuple[str, ...]] = _populate("variant_titles")
 # Template names considered interesting to look variants into
 variant_templates: dict[str, tuple[str, ...]] = _populate("variant_templates")
 
-# Some definitions are not good to keep (plural, gender, ... )
+# Some definitions are not good to keep
 definitions_to_ignore: dict[str, tuple[str, ...]] = _populate("definitions_to_ignore")
 
 # Templates replacements: wikicode -> text conversion
@@ -97,3 +94,9 @@ find_pronunciations = _populate("find_pronunciations")
 # When a template is not handled by any previous template handlers,
 # this function will be called with *parts* as argument.
 last_template_handler = _populate("last_template_handler")
+
+# URL to fetch a random word
+random_word_url = _populate("random_word_url")
+
+# Function to adapt the word wikicode before rendering
+adjust_wikicode = _populate("adjust_wikicode")

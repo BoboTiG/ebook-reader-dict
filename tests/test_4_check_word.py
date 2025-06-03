@@ -7,13 +7,15 @@ import responses
 from requests.exceptions import RequestException
 from requests.models import Response
 
-from wikidict import check_word
+from wikidict import check_word, utils
+from wikidict.lang import random_word_url
 
 # Word used in test_filter_html()
 WORD = {
     "ca": "pelegrí",
     "de": "volley",
     "en": "42",
+    "el": "σελοτέιπ",
     "es": "buena",
     "fr": "42",
     "it": "Upupidi",
@@ -66,7 +68,19 @@ def test_simple(craft_urls: Callable[[str, str], str]) -> None:
 
 @pytest.mark.webtest
 def test_get_random_word() -> None:
-    assert check_word.main("fr", "") == 0
+    assert check_word.main("en", "") == 0
+
+
+@responses.activate
+def test_get_random_word_unwanted_word() -> None:
+    url = random_word_url["en"]
+    body = '<span class="mw-page-title-main">WORD</span>'
+    word = "désiré"
+
+    responses.add(responses.GET, url=url, body=body.replace("WORD", "Conjugaison:tchèque/srovnat"))
+    responses.add(responses.GET, url=url, body=body.replace("WORD", "tchèque/srovnat"))
+    responses.add(responses.GET, url=url, body=body.replace("WORD", word))
+    assert utils.get_random_word("en") == word
 
 
 @responses.activate
@@ -168,6 +182,24 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
         [
             "en",
             '<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>',
+            "",
+        ],
+        # EL - {{audio}} template
+        [
+            "el",
+            '<span style="text-align:left;"><span class="ext-phonos"><span><a><span></span><span></span><span></span></a></span><sup><a>ⓘ</a></sup></span></span>&nbsp;<span><sup></sup></span>',
+            "",
+        ],
+        # EL - documentation needed
+        [
+            "el",
+            '<sup about="#mwt5" typeof="mw:Transclusion" id="mwDg" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;χρειάζεται τεκμηρίωση&quot;,&quot;href&quot;:&quot;./Πρότυπο:χρειάζεται_τεκμηρίωση&quot;},&quot;params&quot;:{},&quot;i&quot;:0}}]}">(<span style="color: red; --darkreader-inline-color: var(--darkreader-text-ff0000, #c54035);" data-darkreader-inline-color="">Χρειάζεται<span typeof="mw:Entity">&nbsp;</span>τεκμηρίωση…</span>)</sup><link rel="mw:PageProp/Category" href="./Κατηγορία:Σελίδες_για_τεκμηρίωση" about="#mwt5" id="mwDw">',
+            "",
+        ],
+        # EL - Wikipedia link
+        [
+            "el",
+            '<span style="background:#f7f7f7;" about="#mwt5" typeof="mw:Transclusion" id="mwDQ" data-mw="{&quot;parts&quot;:[{&quot;template&quot;:{&quot;target&quot;:{&quot;wt&quot;:&quot;ΒΠ&quot;,&quot;href&quot;:&quot;./Πρότυπο:ΒΠ&quot;},&quot;params&quot;:{&quot;0&quot;:{&quot;wt&quot;:&quot;-&quot;},&quot;1&quot;:{&quot;wt&quot;:&quot;Οργάνωση Χ&quot;},&quot;2&quot;:{&quot;wt&quot;:&quot;Οργάνωση Χ&quot;}},&quot;i&quot;:0}}]}"><a rel="mw:WikiLink/Interwiki" href="https://el.wikipedia.org/wiki/Οργάνωση%20Χ" title="w:Οργάνωση Χ" class="extiw">Οργάνωση Χ</a>  στη <span style="white-space:nowrap"><a rel="mw:WikiLink/Interwiki" href="https://el.wikipedia.org/wiki/Κύρια_Σελίδα" title="w:Κύρια Σελίδα" class="extiw"><span title="Λήμμα στη Βικιπαίδεια"> <span style="color:#000000;">Βικιπαίδεια<span typeof="mw:Entity">&nbsp;</span></span></span></a><span typeof="mw:File" data-mw="{&quot;caption&quot;:&quot;Λήμμα στη Βικιπαίδεια&quot;}"><a href="//el.wiktionary.org/wiki/w:Κύρια_Σελίδα" title="Λήμμα στη Βικιπαίδεια"><img alt="Λήμμα στη Βικιπαίδεια" resource="//el.wiktionary.org/wiki/Αρχείο:Wikipedia-logo-v2.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/20px-Wikipedia-logo-v2.svg.png" decoding="async" data-file-width="103" data-file-height="94" data-file-type="drawing" height="14" width="15" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/40px-Wikipedia-logo-v2.svg.png 2x" class="mw-file-element"></a></span></span></span>',
             "",
         ],
         # ES - 2 Historia. --> (Historia)
@@ -379,6 +411,12 @@ def test_no_definition_nor_etymology(craft_urls: Callable[[str, str], str]) -> N
             "it",
             '(<img alt="Wikispecies" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" decoding="async" title="Wikispecies" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" data-file-width="125" data-file-height="177" width="20" height="28"> <b><a href="https://species.wikimedia.org/wiki/Aegypiinae" class="extiw" title="wikispecies:Aegypiinae">tassonomia</a></b>);',
             ";",
+        ],
+        # IT - Wikispecies (without next siblings)
+        [
+            "it",
+            '<img alt="Wikispecies" class="mw-file-element" data-file-height="177" data-file-width="125" decoding="async" height="28" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/20px-WikiSpecies.svg.png" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/30px-WikiSpecies.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/WikiSpecies.svg/40px-WikiSpecies.svg.png 2x" width="20"/>',
+            "",
         ],
         # PT - superscript locales
         [

@@ -1,0 +1,110 @@
+{{se også|-et}}
+==Norsk==
+===Artikkel===
+{{infl|nb|artikkel}}
+# artikkel for substantiv i ubestemt entall, av intetkjønn
+* '''et''' hus
+
+====Andre former====
+*{{andre former|eit|nn=ja|nb=nei|nrm=nei}}
+
+====Etymologi====
+{{etymologi mangler|språk=no}}
+
+====Uttale====
+{{lyd|no-et.ogg|Lyd (Dialekt: Oslo)}}
+
+====Grammatikk====
+* {{norm|nb=ja}}: [[en]], [[ei]], [[et]]
+* {{norm|nrm=ja}}: [[en]], ([[ei]]), [[et]]
+* {{norm|nn=ja}}: [[ein]], [[ei]], [[eit]]
+
+====Oversettelser====
+{{overs-se|ubestemt artikkel entall|[[en]] / [[ein]]}}
+
+[[Kategori:100 vanligste ord i norsk]]
+
+===Verb===
+'''{{PAGENAME}}''' {{norm|nb=ja|nrm=ja|nn=ja}}
+
+#{{no-verb-bøyningsform|imp|ete|nb=ja|nn=ja}}
+
+
+
+----
+
+==Dansk==
+===Artikkel===
+{{infl|da|artikkel}}
+
+#{{l|no|et}}; artikkel for substantiv i ubestemt entall, av intetkjønn
+
+====Se også====
+*{{l|da|en}}
+
+
+==Flerspråklig==
+===Forkortelse===
+'''et'''
+
+#Den offisielle [[:w:Liste over ISO 639-1-koder|ISO 639-1]]-språkkoden for '''[[estisk]]'''.
+# ''Forkortelse for'' etasje
+
+[[Kategori:ISO 639-1]]
+====Synonymer====
+*[[est]] (ISO 639-2, ISO 639-3)
+
+
+----
+
+==Fransk==
+===Konjunksjon===
+{{infl|fr|konj}}
+# [[og]]
+
+====Etymologi====
+{{opphav|latin|språk=fr}}
+
+====Uttale====
+* {{IPA|/e/|språk=fr}}
+* {{SAMPA|/e/|språk=fr}}
+
+====Homonymer====
+* {{IPA|/e/|språk=fr}}
+** [[ai]], [[ait]] &rarr; se ''[[avoir]]''
+** [[eh]]!
+** [[ais]]
+
+* {{IPA|/ɛ/|språk=fr}}
+** [[haie]]
+** [[es]], [[est]] &rarr; se ''[[être]]''
+
+==Karakalpakisk==
+===Substantiv===
+{{kaa-sub}}
+# [[kjøtt]]
+
+====Synonymer====
+* [[gósh]]
+
+====Beslektede termer====
+[[etli]]
+
+==Krimtatarisk==
+===Substantiv===
+{{crh-sub}}
+# [[kjøtt]]
+
+====Beslektede termer====
+[[etli]]
+
+==Turkmensk==
+===Substantiv===
+{{tk-sub}}
+# [[kjøtt]]
+
+====Grammatikk====
+{{tk-sub-bøyning|et|etiň|ete|eti|etde|etden|etler|etleriň|etlere|etleri|etlerde|etlerden}}
+
+====Beslektede termer====
+[[etli]]

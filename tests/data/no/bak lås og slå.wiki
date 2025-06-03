@@ -1,0 +1,25 @@
+==Norsk==
+===Frase===
+{{no-frase}}
+
+# {{kontekst|om straffedømt|språk=no}} [[i fengsel]]
+#: ''Den mistenkte ble satt bak '''lås og slå'''.''
+
+====Oversettelser====
+{{overs-topp|i fengsel}}
+* {{overs|da|bag tremmer}}
+* {{overs|en|behind bars}}
+* {{overs|fi|telkien takana}}, {{o|fi|kalterien takana}}, {{o|fi|vankilassa}}
+* {{overs|fr|derrière les barreaux}}
+* {{overs|it|dietro le sbarre}}
+{{overs-midt}}
+* {{overs|nl|achter de tralies}}
+* {{overs|ru|за решёткой|sc=Cyrl|tr=za rešótkoj}}
+* {{overs|es|entre rejas}}
+* {{overs|sv|bakom lås och bom}}
+* {{overs|de|hinter Gitter}}
+{{overs-bunn}}
+
+===Referanser===
+* {{R:Bokmålsordboka-Nynorskordboka}}
+* {{R:NAOB|slå}}

@@ -52,7 +52,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ['Element que entra en la composició de paraules amb el sentit de "vida".'],
+            ["Element que entra en la composició de paraules amb el sentit de <i>vida</i>."],
             [],
         ),
         (
@@ -141,6 +141,7 @@ from wikidict.utils import process_templates
                     "Castell de Vernet, municipi del Conflent.",
                     "El Castell de Vilamalefa, municipi de l’Alt Millars.",
                 ),
+                "<i>Cognom d’origen d’habitatge</i>",
             ],
             [],
         ),
@@ -149,7 +150,7 @@ from wikidict.utils import process_templates
             [],
             ["m"],
             [
-                "D’origen incert, paral·lel al de <i>Catalunya</i>, segle XII. Potser de <i>*catelanos</i>, metàtesi del llatí <i>Lacetanōs</i>, acusatiu de <i>Lacetani</i> («lacetans»), poble ibèric de la regió central de Catalunya i que podria relacionar-se amb la menció de Ptolomeu dels <i>Καστελανοι</i> o <i>Κατελανοι</i>. Vegeu més informació a <i>Catalunya</i>.",
+                "D’origen incert, paral·lel al de <i>Catalunya</i>, segle XII. Potser de <i>*catelanos</i>, metàtesi del llatí <i>Lacetanōs</i>, acusatiu de <i>Lacetani</i> («lacetans»), poble ibèric de la regió central de Catalunya i que podria relacionar-se amb la menció de Ptolomeu dels Καστελανοι (<i>Kastelanoi</i>) o Κατελανοι (<i>Katelanoi</i>). Vegeu més informació a <i>Catalunya</i>.",
             ],
             [
                 "Relatiu o pertanyent a Catalunya, als seus habitants o a la llengua catalana.",
@@ -211,8 +212,9 @@ from wikidict.utils import process_templates
                 "<i>Article determinat masculí singular que serveix per actualitzar i concretar el contingut del substantiu que acompanya.</i>",
                 'Acusatiu del masculí singular del pronom personal "ell".',
                 'Substitueix el complement directe quan aquest porta l\'article "el".',
+                "<i>(obsolet)</i> <i>Forma alternativa de</i> <b>ela</b>",
             ],
-            ["ela"],
+            [],
         ),
         (
             "expertes",
@@ -227,13 +229,20 @@ from wikidict.utils import process_templates
             "hivernacle",
             [],
             ["m"],
-            ["Del llatí <i>hibernaculum</i>."],
+            ["Del llatí <i>hībernāculum</i>, de <i>hībernō</i> («hivernar»)."],
             ["Cobert per a protegir plantes del vent o del fred extrem."],
             [],
         ),
         ("Mn.", [], [], [], ["mossèn com a tractament davant el nom"], []),
         ("PMF", [], [], [], ["<i>Sigles de</i> <b>preguntes més freqüents</b>"], []),
-        ("pen", [], [], [], [], ["penar"]),
+        (
+            "pen",
+            [],
+            [],
+            [],
+            [],
+            ["penar"],
+        ),
         (
             "si",
             [],
@@ -241,6 +250,7 @@ from wikidict.utils import process_templates
             [],
             [
                 "Codi de llengua ISO 639-1 del singalès.",
+                "<i>Nexe condicional que introdueix un supòsit, una premissa.</i>",
                 "Cavitat interna del cos.",
                 "<i>(per extensió)</i> Part interna d'una cosa.",
                 "Setena nota musical de l'escala.",

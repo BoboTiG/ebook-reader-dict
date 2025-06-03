@@ -72,6 +72,7 @@ lang_adjs = {
     "ofs.": "altfriesisch",
     "osx.": "altsächsisch",
     "owen.": "altsorbisch",
+    "pl.": "polnisch",
     "pt.": "portugiesisch",
     "ru.": "russisch",
     "schweiz.": "schweizerisch",
@@ -83,8 +84,9 @@ lang_adjs = {
     "th.": "thailändisch",
     "tr.": "türkisch",
     "wen.": "sorbisch",
+    "xvs.": "vestinisch",
     "österr.": "österreichisch",
-}  # 79
+}  # 81
 # END
 
 lang_adjs["germ."] = "germanisch"

@@ -15,16 +15,23 @@ def process_category_page(url: str, results: dict[str, str]) -> str:
     if NEXTPAGE_TEXT == last_link.text:
         nextpage = ROOT + last_link.get("href")
 
-    content_div = soup.find("div", "mw-category-generated")
-    lis = content_div.find_all("li")
-    for li in lis:
+    content_div = soup.find(id="mw-subcategories")
+    if content_div:
+        lis = content_div.find_all("li")
+        for li in lis:
+            template_url = ROOT + li.find("a").get("href")
+            process_category_page(template_url, results)
+
+    for li in soup.find(id="mw-pages").find_all("li"):
+        if "/" in (template_name := li.text.split(":")[1]):
+            continue
+
         template_url = ROOT + li.find("a").get("href")
-        template_name = li.text.split(":")[1]
         template_soup = get_soup(template_url)
         parser_output = template_soup.find("span", {"class": ["term", "texte"]})
         rendering = parser_output.text
         if template_name and rendering:
-            results[template_name] = rendering.strip("()")
+            results[template_name] = rendering[1:-1]
 
     return nextpage
 
