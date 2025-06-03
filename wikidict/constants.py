@@ -15,7 +15,7 @@ TITLE = "{0} {1}-{2}"
 # {0}: lang source
 # {1}: dump date
 BASE_URL = "https://dumps.wikimedia.org/{0}wiktionary"
-DUMP_URL = f"{BASE_URL}/{{1}}/{{0}}wiktionary-{{1}}-pages-meta-current.xml.bz2"
+DUMP_URL = f"{BASE_URL}/{{1}}/{{0}}wiktionary-{{1}}-pages-articles.xml.bz2"
 
 # GitHub stuff
 # {0}: lang source
