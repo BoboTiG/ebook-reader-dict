@@ -37,7 +37,7 @@ def add_missing_langs() -> str:
     """
     Those langs are not yet part of the dict.
     Might be reduced to zero when available on the Wiktionary.
-    For the latin ones see https://fr.wiktionary.org/wiki/Module:%C3%A9tymologie#L-120
+    For the latin ones see https://fr.wiktionary.org/w/index.php?title=Module:%C3%A9tymologie&oldid=38216618#L-163--L-175
     """
     return """
 

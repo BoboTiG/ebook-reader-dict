@@ -190,6 +190,7 @@ templates_ignored = (
     "vérifier",
     "voir",
     "voir-conj",
+    "Wikisource",
 )
 
 # Modèles qui seront remplacés par du texte italique.
@@ -239,6 +240,7 @@ templates_italic = {
     "noms de domaine": "Internet",
     "nom-déposé": "Marque commerciale",
     "Nouvelle-Angleterre": "Nouvelle-Angleterre",
+    "oc-norme mistralienne": "graphie mistralienne",
     "ortho1990": "orthographe rectifiée de 1990",
     "Ortograf altêrnativ": "Ortograf altêrnativ",
     "oxymore": "Oxymore",
@@ -260,6 +262,7 @@ templates_italic = {
     "très familier": "Très familier",
     "très très rare": "Très très rare",
     "Val-de-Marne": "Val-de-Marne",
+    "Vitry-sur-Seine": "Vitry-sur-Seine",
 }
 templates_italic["intrans"] = templates_italic["intransitif"]
 templates_italic["m-cour"] = templates_italic["moins courant"]
