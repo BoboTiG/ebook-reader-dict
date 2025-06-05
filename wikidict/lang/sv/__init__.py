@@ -306,10 +306,7 @@ def last_template_handler(
         return phrase
 
     if tpl == "tagg":
-        words = [
-            f"{part}: {strong(f'{word} sig')}" if part == "reflexivt" else part
-            for part in filter(lambda p: bool(p), parts)
-        ]
+        words = [f"{part}: {strong(f'{word} sig')}" if part == "reflexivt" else part for part in parts if part]
         if data["text"]:
             words.append(data["text"])
         return term(", ".join(words))
