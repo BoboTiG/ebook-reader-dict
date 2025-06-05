@@ -578,11 +578,9 @@ def process_templates(
     # {{foo|{{bar|lang|{{baz|args}}}}|123}}
 
     # Handle all templates
-    templates = re.findall(r"({{[^{}]*}})", text)
     last_template_idx = text.count("{{")
     current_template_idx = 0
-
-    while templates:
+    while templates := re.findall(r"({{[^{}]*}})", text):
         for tpl in templates:
             if tpl in SPECIAL_TEMPLATES:
                 text = text.replace(tpl, SPECIAL_TEMPLATES[tpl].placeholder)
@@ -605,7 +603,6 @@ def process_templates(
                     ),
                 )
         current_template_idx += len(templates)
-        templates = re.findall(r"({{[^{}]*}})", text)
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
