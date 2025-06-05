@@ -206,9 +206,9 @@ def last_template_handler(
         >>> last_template_handler(["härledning", "sv", "gmq-fsv", "nokot sin, nokon sin"], "sv")
         'fornsvenska <i>nokot sin, nokon sin</i>'
         >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "kapplöpningsbana, rännarbana"], "sv")
-        'klassisk grekiska <i>ἱππόδρομος</i> (”kapplöpningsbana, rännarbana”)'
+        'grekiska <i>ἱππόδρομος</i> (”kapplöpningsbana, rännarbana”)'
         >>> last_template_handler(["härledning", "sv", "grc", "ἱππόδρομος", "tr=hippodromos", "kapplöpningsbana, rännarbana"], "sv")
-        'klassisk grekiska <i>ἱππόδρομος</i> (<i>hippodromos</i>, ”kapplöpningsbana, rännarbana”)'
+        'grekiska <i>ἱππόδρομος</i> (<i>hippodromos</i>, ”kapplöpningsbana, rännarbana”)'
 
         >>> last_template_handler(["kognat", "en", "hippodrome"], "sv")
         'engelska <i>hippodrome</i>'
@@ -280,7 +280,9 @@ def last_template_handler(
 
     if tpl == "härledning":
         parts.pop(0)  # Remove the source lang
-        phrase = langs[parts.pop(0)]
+        lang = parts.pop(0)
+        # Special cases (https://sv.wiktionary.org/w/index.php?title=Modul:h%C3%A4rledning&oldid=3932208#L-36--L-44)
+        phrase = {"grc": "grekiska", "gd": "gäliska", "el": "nygrekiska", "la": "latinska"}.get(lang) or langs[lang]
         phrase += f" {italic(parts.pop(0))}"
         if (tr := data["tr"]) or parts:
             phrase += " ("
