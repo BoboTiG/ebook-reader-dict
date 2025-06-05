@@ -240,7 +240,7 @@ def find_etymology(
         case "ro":
             items = get_items(("",), skip=("=== {{etimologie",))
         case "sv":
-            items = re.findall(r"{{etymologi\|(.+)}}\s", parsed_section.contents)
+            items = re.findall(r"{{etymologi\|(.+)}}", parsed_section.contents)
         case _:
             items = [parsed_section.contents]
 
