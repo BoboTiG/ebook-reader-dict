@@ -214,6 +214,8 @@ def last_template_handler(
         'engelska <i>hippodrome</i>'
         >>> last_template_handler(["kognat", "gmq-bot", "tíðend"], "sv")
         'okänt språk <i>tíðend</i>'
+        >>> last_template_handler(["kognat", "grc", "μηχανή", "verktyg"], "sv")
+        'grekiska <i>μηχανή</i> (”verktyg”)'
 
         >>> last_template_handler(["tagg", "historia", ""], "sv")
         '<i>(historia)</i>'
@@ -295,7 +297,13 @@ def last_template_handler(
         return phrase
 
     if tpl == "kognat":
-        return f"{langs[parts[0]]} {italic(parts[1])}"
+        lang = parts.pop(0)
+        # Special cases (https://sv.wiktionary.org/w/index.php?title=Mall:kognat&oldid=3521836#Observera)
+        phrase = {"grc": "grekiska", "gd": "gäliska", "el": "nygrekiska", "la": "latinska"}.get(lang) or langs[lang]
+        phrase += f" {italic(parts.pop(0))}"
+        if parts:
+            phrase += f" (”{parts[0]}”)"
+        return phrase
 
     if tpl == "tagg":
         words = [
