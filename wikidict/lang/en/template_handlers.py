@@ -1419,6 +1419,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A country in the Middle East'
     >>> render_place("place", ["en", "A country"], defaultdict(str, {"modern":"Iraq"}))
     'A country; modern Iraq'
+    >>> render_place("place", ["en", "island", "regency/Pandeglang", "province/Banten", "c/Indonesia"], defaultdict(str))
+    'An island in Pandeglang, Banten, Indonesia'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str))
     'A village in Fulton County, Illinois'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str, {"a": "a"}))
@@ -1492,7 +1494,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
                         s_fallback = recognized_placetypes.get(s["fallback"], {})
                         preposition = s_fallback.get("preposition")
                     if j == 0:
-                        article = data["a"] or s["article"].upper()
+                        article = data["a"] or s["article"].title()
                     else:
                         article = "" if no_article else s["article"]
                     phrase += article
