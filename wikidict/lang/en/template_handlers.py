@@ -1451,11 +1451,14 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A village and civil parish in  Central Bedfordshire district, Bedfordshire, England'
     >>> render_place("place", ["en", "prefecture", "c/Japan"], defaultdict(str, {"capital": "Mito"}))
     'A prefecture of Japan. Capital: Mito'
+    >>> render_place("place", ["en", "suburban area", "in", "par/New Milton", "dist/New Forest", "co/Hampshire", "cc/England", "formerly a village named", "x/Milton"], defaultdict(str))
+    'A suburban area in  New Milton parish, New Forest district, Hampshire, England, formerly a village named Milton'
     """
     parts.pop(0)  # Remove the language
     phrase = ""
     i = 1
     previous_rawpart = False
+    last = next((part for part in parts[::-1] if "/" not in part), "")
     while parts:
         si = str(i)
         part = parts.pop(0)
@@ -1527,6 +1530,8 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
         elif part == ";":
             phrase += "; "
         else:
+            if part == last and not phrase.endswith(("; ", ", ")):
+                phrase += ", "
             phrase += part
 
         modern_key = "modern" + "" if i == 1 else si
