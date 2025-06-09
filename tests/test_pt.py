@@ -118,6 +118,16 @@ from wikidict.utils import process_templates
             [],
         ),
         (
+            "galium",
+            [],
+            [],
+            [
+                "Do nome do gênero ao que pertence a planta, <i>Galium</i>. Pelo grego γάλιον, (galion), (planta galião, <i>G. verum</i>), de γάλα, (gala), (leite, por ser usada para coalhar o leite)."
+            ],
+            ["planta do gênero <i>Galium</i>. De entre elas o amor-de-hortelão, (<i>G. aparine</i>)"],
+            [],
+        ),
+        (
             "giro-",
             [],
             [],

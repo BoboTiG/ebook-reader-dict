@@ -504,7 +504,7 @@ def parse_word(
     if lang_src != "sv" and parsed_sections:
         for section in lang.etyl_section[lang_dst]:
             for etyl_data in parsed_sections.pop(section, []):
-                etymology_sections.append(etyl_data)
+                etymology_sections.append(wtp.Section(etyl_data.__str__()))
 
     # Definitions
     if parsed_sections:

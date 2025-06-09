@@ -1,0 +1,16 @@
+{{confundir|gálio|gallium}}
+
+={{-pt-}}=
+{{flex.pt|ms=galium|mp=galiuns}}
+{{paroxítona|ga|lium}}
+# planta do gênero ''[[wikispecies:Galium|Galium]]''. De entre elas o [[amor-de-hortelão]], (''[[wikispecies:Galium aparine|G. aparine]]'')
+
+=={{etimologia|pt}}==
+: Do nome do gênero ao que pertence a planta, ''[[wikispecies:Galium|Galium]]''. Pelo grego γάλιον, (galion), (planta [[galião]], ''[[wikispecies:Galium verum|G. verum]]''), de γάλα, (gala), ([[leite]], por ser usada para [[coalhar]] o leite).
+
+==Ver também==
+===Na Wikipédia===
+* [https://pt.wikipedia.org/wiki/Galium galium]
+
+[[Categoria:Substantivo (Português)]]
+[[Categoria:Botânica (Português)]]
