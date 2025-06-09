@@ -8825,6 +8825,40 @@ racines_schemes_arabes = {
         "ar-***ũ": "",
         "ar-*a*a*ânũ": "voyage",
     },  # 3
+    "ar-sb3": {
+        "aa_sens": "sept / assaillir",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "{{m}} sept",
+        "ar-*a**ûna": "septante",
+        "ar-*a**ũ": "{{f}} sept",
+        "ar-*a*a*a-a": "être sept",
+        "ar-*a*a*ũ": "bête féroce",
+        "ar-*a*u*@ũ": "{{f}} bête féroce",
+        "ar-*a*u*ũ": "bête féroce",
+        "ar-*a*²a*a": "diviser en sept",
+        "ar-*a*î*ũ": "septième partie",
+        "ar-*i**ũ": "intervalle de sept",
+        "ar-*i*â*ũ": "{{p}} bêtes féroces",
+        "ar-*ta*a*a": "voler",
+        "ar-*u**ũ": "septième partie",
+        "ar-*u*â*iy²ũ": "chameau énorme",
+        "ar-*u*û*ũ": "semaine",
+        "ar-*â*a*a": "assaillir",
+        "ar-*â*i*ũ": "septième",
+        "ar-a**a*a": "former sept",
+        "ar-a**u*ũ": "{{p}} bêtes féroces",
+        "ar-a*â*î*u": "{{p}} semaines",
+        "ar-ma**a*@ũ": "pays de bêtes féroces",
+        "ar-ma**û*@ũ": "{{f}} victime de fauves",
+        "ar-ma**û*ũ": "victime de fauves",
+        "ar-mu**a*ũ": "négligé",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+        "ar-u**û*ũ": "semaine",
+    },  # 32
     "ar-sbt": {
         "aa_sens": "repos ; étaler",
         "ar-**a*²a": "",
@@ -10352,5 +10386,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 353
+}  # 354
 # END

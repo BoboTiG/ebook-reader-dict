@@ -482,6 +482,7 @@ regions = {
     "Messine": "Messine",
     "Meuse": "Meuse",
     "Mexique": "Mexique",
+    "Michigan": "Michigan",
     "Micronésie": "Micronésie",
     "Midi": "Midi de la France",
     "Midi toulousain": "Midi toulousain",
@@ -854,5 +855,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 849
+}  # 850
 # END
