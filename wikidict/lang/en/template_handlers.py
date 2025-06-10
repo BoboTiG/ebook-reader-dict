@@ -462,6 +462,86 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_demonym_noun("demonym-noun", ["it", "w:Abatemarco"], defaultdict(str))
+    'native or inhabitant of Abatemarco'
+    >>> render_demonym_noun("demonym-noun", ["it", "w:Abatemarco"], defaultdict(str, {"g": "m"}))
+    'native or inhabitant of Abatemarco (<i>usually male</i>)'
+    >>> render_demonym_noun("demonym-noun", ["it", "Abdera"], defaultdict(str, {"t": "Abderite"}))
+    'Abderite (native or inhabitant of Abdera)'
+    >>> render_demonym_noun("demonym-noun", ["it", "Alexandria in Egypt"], defaultdict(str, {"t": "Alexandrian", "t2": "Alexandrine"}))
+    'Alexandrian, Alexandrine (native or inhabitant of Alexandria in Egypt)'
+    >>> render_demonym_noun("demonym-noun", ["it", "Alghero<qq:in Sardinia>"], defaultdict(str, {"t": "Algherese"}))
+    'Algherese (native or inhabitant of Alghero (<i>in Sardinia</i>))'
+    >>> render_demonym_noun("demonym-noun", ["it", "America", "the Americas", "the United States"], defaultdict(str, {"g": "f", "t": "American"}))
+    'female American (female native or inhabitant of America, the Americas or the United States)'
+    >>> render_demonym_noun("demonym-noun", ["it", "Latin America"], defaultdict(str, {"t": "Latina", "g": "f", "gloss_is_gendered": "true"}))
+    'Latina (female native or inhabitant of Latin America)'
+    >>> render_demonym_noun("demonym-noun", ["es", "San Juan<t:capital of Puerto Rico>", "San Juan<t:city in Cuba>", "w:San Juan de los Morros<t:capital of the state of Guárico, Venezuela>", "w:San Juan de la Maguana<t:city or province of the Dominican Republic>"], defaultdict(str, {"t": "Sanjuanero", "g": "m"}))
+    'Sanjuanero (native or inhabitant of San Juan (capital of Puerto Rico); San Juan (city in Cuba); San Juan de los Morros (capital of the state of Guárico, Venezuela); or San Juan de la Maguana (city or province of the Dominican Republic)) (<i>usually male</i>)'
+
+    >>> render_demonym_noun("demonym-noun", ["en", "the <<city:pref/Adelaide>>, <<s/South Australia>>", "<<c/Germany>>"], defaultdict(str))
+    'A native or inhabitant of the city of Adelaide, South Australia, Germany.'
+    """
+    is_female = data["g"] == "f"
+    skip_female_prefix = data["gloss_is_gendered"]
+    has_parenthesis = bool(data["t"])
+    a_person = any("<<" in part for part in parts[1:])
+
+    if is_female:
+        del data["g"]
+
+    phrase = "A " if a_person else ""
+    if is_female and not skip_female_prefix:
+        phrase += "female "
+    if t1 := data["t"]:
+        phrase += t1
+        for idx in range(2, 16):
+            if t := data[f"t{idx}"]:
+                phrase += f", {t}"
+            else:
+                break
+        phrase += " ("
+    if is_female:
+        phrase += "female "
+    phrase += "native or inhabitant of "
+    sep, last_sep = (
+        (", ", ", ")
+        if a_person
+        else ("; ", "; or ")
+        if any("<t:" in part or "<w:" in part for part in parts[1:])
+        else (", ", " or ")
+    )
+    phrase += concat(
+        [
+            part.replace(">", "</i>)").replace("<qq:", " (<i>")
+            if "<qq:" in part
+            else part.replace("<<city:pref/", "city of ").replace("<<c/", "").replace("<<s/", "").replace(">>", "")
+            if "<<" in part
+            else part.replace("<t:", " (").replace(">", ")").replace("w:", "")
+            for part in parts[1:]
+        ],
+        sep,
+        last_sep=last_sep,
+    )
+
+    if re.search(r"<+\w+:", phrase):
+        assert 0, f"Missing special place handling for demonym-noun: {parts}"
+
+    if has_parenthesis:
+        phrase += ")"
+
+    if g := data["g"]:
+        gender = {"m": "male"}[g]
+        phrase += f" (<i>usually {gender}</i>)"
+
+    if a_person:
+        phrase += "."
+
+    return phrase
+
+
 def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
@@ -1982,6 +2062,7 @@ template_mapping = {
     "confix": render_morphology,
     "Cyrl-def": render_cyrl_def,
     "dbt": render_morphology,
+    "demonym-noun": render_demonym_noun,
     "der": render_foreign_derivation,
     "der+": render_foreign_derivation,
     "der-lite": render_foreign_derivation,

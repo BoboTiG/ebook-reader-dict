@@ -510,7 +510,7 @@ def clean(text: str) -> str:
     # <<bar>> → foo
     # <<foo/bar>> → bar
     text = sub(r"<<([^/>]+)>>", "\\1", text)
-    text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
+    # text = sub(r"<<(?:[^/>]+)/([^>]+)>>", "\\1", text)
 
     # Convert single "< ", and " >" to HTML quotes
     text = text.replace("< ", "&lt; ").replace(" >", " &gt;")
