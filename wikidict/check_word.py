@@ -218,27 +218,27 @@ def filter_html(html: str, locale: str) -> str:
         for tag in find_all("a", {"class": "external autonumber"}):
             tag.decompose()
 
-        dts = find_all("dt")
-        for dt in dts:
-            dt_array = dt.text.split(" ", 1)
-            if len(dt_array) == 2:
-                dt.string = f"{dt_array[0]} "
-                # 2 Historia. --> (Historia):
-                if "." in dt_array[1]:
-                    dt_array_dot = dt_array[1].split(".")
-                    for da in dt_array_dot[:-1]:
-                        dt.string += f"({da})"
-                    dt.string += f" {dt_array_dot[-1]}:"
-                elif dt.parent:
-                    # Duplicate the definition to cope with both cases above
-                    newdt = copy.copy(dt)
-                    dt.parent.append(newdt)
-                    if dd := dt.find_next_sibling("dd"):
-                        dt.parent.append(copy.copy(dd))
-                    # 2 Selva de Bohemia: --> Selva de Bohemia:
-                    newdt.string = dt.string + dt_array[1] + ":"
-                    # 2 Coloquial: --> (Coloquial):
-                    dt.string += f"({dt_array[1]}):"
+        for dt in find_all("dt"):
+            if len(dt_array := dt.text.split(" ", 1)) != 2:
+                continue
+
+            dt.string = f"{dt_array[0]} "
+            # 2 Historia. --> (Historia):
+            if "." in dt_array[1]:
+                dt_array_dot = dt_array[1].split(".")
+                for da in dt_array_dot[:-1]:
+                    dt.string = f"{dt.string}({da})"
+                dt.string = f"{dt.string} {dt_array_dot[-1]}:"
+            elif dt.parent:
+                # Duplicate the definition to cope with both cases above
+                newdt = copy.copy(dt)
+                dt.parent.append(newdt)
+                if dd := dt.find_next_sibling("dd"):
+                    dt.parent.append(copy.copy(dd))
+                # 2 Selva de Bohemia: --> Selva de Bohemia:
+                newdt.string = f"{dt.string}{dt_array[1]}:"
+                # 2 Coloquial: --> (Coloquial):
+                dt.string = f"{dt.string}({dt_array[1]}):"
 
     elif locale in {"fr", "fro"}:
         # Filter out refnec tags

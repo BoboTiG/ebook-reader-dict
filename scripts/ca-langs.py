@@ -42,8 +42,8 @@ for line in lines:
             groups.append(iso)
 
 print("langs = {")
-for iso, lang in sorted(languages.items()):
-    print(f'    "{iso}": "{lang}",')
+for iso, language in sorted(languages.items()):
+    print(f'    "{iso}": "{language}",')
 print(f"}}  # {len(languages):,}")
 print()
 print("grups = [")
