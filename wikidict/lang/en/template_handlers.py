@@ -918,6 +918,38 @@ def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return ", ".join([f"ISO 639-{idx} code {strong(part)}" for idx, part in enumerate(parts, 1) if part])
 
 
+def render_iso_3166(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_iso_3166("ISO 3166", ["1", "3", "Aruba"], defaultdict(str, {"from": "1986"}), word="ABW")
+    '(<i>international standards</i>) <i>ISO 3166-1 alpha-3 country code for</i> <b>Aruba</b> <i>since 1986</i>.'
+    >>> render_iso_3166("ISO 3166", ["1", "2", "Ascension Island"], defaultdict(str, {"obs": "1"}), word="AC")
+    '(<i>international standards, obsolete</i>) <i>Former ISO 3166-1 alpha-2 country code for</i> <b>Ascension Island</b>.'
+    >>> render_iso_3166("ISO 3166", ["1", "2", "Ascension Island"], defaultdict(str, {"exr": "1"}), word="AC")
+    '(<i>international standards</i>) <i>Exceptionally reserved ISO 3166-1 alpha-2 country code for</i> <b>Ascension Island</b>.'
+    >>> render_iso_3166("ISO 3166", ["1", "2", "Ascension Island"], defaultdict(str, {"inr": "1"}), word="AC")
+    '(<i>international standards</i>) <i>Indeterminately reserved ISO 3166-1 alpha-2 country code for</i> <b>Ascension Island</b>.'
+    """
+    phrase = "(<i>international standards"
+    if data["obs"]:
+        phrase += ", obsolete"
+    phrase += "</i>) <i>"
+
+    if data["exr"]:
+        phrase += "Exceptionally reserved "
+    elif data["inr"]:
+        phrase += "Indeterminately reserved "
+    elif data["obs"]:
+        phrase += "Former "
+    phrase += f"{tpl}-{parts[0]} alpha-{parts[1]} country code for</i> "
+
+    phrase += strong(parts[-1] if len(parts) > 1 else langs[word])
+
+    if since := data["from"]:
+        phrase += f" <i>since {since}</i>"
+
+    return f"{phrase}."
+
+
 def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str))
@@ -1829,6 +1861,7 @@ template_mapping = {
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "ISO 639": render_iso_639,
+    "ISO 3166": render_iso_3166,
     "inh": render_foreign_derivation,
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
