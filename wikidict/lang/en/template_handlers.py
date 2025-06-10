@@ -950,6 +950,74 @@ def render_iso_3166(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return f"{phrase}."
 
 
+def render_iso_4217(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_iso_4217("ISO 4217", ["Cardano (blockchain platform)"], defaultdict(str))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano (blockchain platform)</b>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano (blockchain platform)", "Cardano"], defaultdict(str))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano (blockchain platform)", "Cardano", "detail"], defaultdict(str))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b><i>; detail</i>.'
+
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"unoff": "1", "crypto": "1"}))
+    '(<i>international standards</i>) <i>Unofficial non-ISO 4217 currency code for the cryptocurrency</i> <b>Cardano</b>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"fund": "1"}))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b><i>; a unit of account</i>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"hist": "1"}))
+    '(<i>international standards, historical</i>) <i>ISO 4217 currency code for the former</i> <b>Cardano</b>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano (blockchain platform)", "Cardano"], defaultdict(str, {"res": "1"}))
+    '(<i>international standards</i>) <i>Reserved ISO 4217 currency code for the</i> <i>Cardano (blockchain platform)</i>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"obs": "1"}))
+    '(<i>international standards, obsolete</i>) <i>Former ISO 4217 currency code for the</i> <b>Cardano</b>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"from": "1986"}))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b><i>; a currency used since 1986</i>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"to": "1986"}))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b><i>; a currency used until 1986</i>.'
+    >>> render_iso_4217("ISO 4217", ["Cardano"], defaultdict(str, {"from": "1869", "to": "1986"}))
+    '(<i>international standards</i>) <i>ISO 4217 currency code for the</i> <b>Cardano</b><i>; a currency used from 1869 to 1986</i>.'
+    """
+    phrase = "(<i>international standards"
+    if data["hist"]:
+        phrase += ", historical"
+    if data["obs"]:
+        phrase += ", obsolete"
+    phrase += "</i>) <i>"
+
+    if data["res"]:
+        phrase += "Reserved "
+    elif data["obs"]:
+        phrase += "Former "
+    elif data["unoff"]:
+        phrase += "Unofficial non-"
+    phrase += f"{tpl} currency code for the"
+    if data["hist"]:
+        phrase += " former"
+    if data["crypto"]:
+        phrase += " cryptocurrency"
+    phrase += "</i> "
+
+    if data["res"]:
+        phrase += italic(parts[0])
+    else:
+        phrase += strong(parts[1 if len(parts) > 1 else 0])
+
+    kind = "unit of account" if data["fund"] else "currency"
+    if from_ := data["from"]:
+        if to_ := data["to"]:
+            phrase += f"<i>; a {kind} used from {from_} to {to_}</i>"
+        else:
+            phrase += f"<i>; a {kind} used since {from_}</i>"
+    elif to_ := data["to"]:
+        phrase += f"<i>; a {kind} used until {to_}</i>"
+    elif data["fund"]:
+        phrase += f"<i>; a {kind}</i>"
+
+    if len(parts) > 2:
+        phrase += f"<i>; {parts[2]}</i>"
+
+    return f"{phrase}."
+
+
 def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ja_l("ja-l", ["縄抜け"], defaultdict(str))
@@ -1862,6 +1930,7 @@ template_mapping = {
     "ipachar": render_ipa_char,
     "ISO 639": render_iso_639,
     "ISO 3166": render_iso_3166,
+    "ISO 4217": render_iso_4217,
     "inh": render_foreign_derivation,
     "inh-lite": render_foreign_derivation,
     "inh+": render_foreign_derivation,
