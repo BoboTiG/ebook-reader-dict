@@ -945,6 +945,15 @@ def render_iso_216(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     )
 
 
+def render_iso_217(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_iso_217("ISO 217", ["1189", "1682"], defaultdict(str, {"untrimmed": "1"}))
+    '(<i>international standards</i>) ISO 217 standard untrimmed paper size of 1189 mm × 1682 mm (46.81 in × 66.22 in), with a surface area of 2 m² (21.53 sq ft).'
+    """
+    data["untrimmed"] = "1"
+    return render_iso_216(tpl, parts, data, word=word)
+
+
 def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_iso_639("ISO 639", [], defaultdict(str), word="ysr")
@@ -1991,6 +2000,7 @@ template_mapping = {
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "ISO 216": render_iso_216,
+    "ISO 217": render_iso_217,
     "ISO 269": render_iso_216,
     "ISO 639": render_iso_639,
     "ISO 3166": render_iso_3166,
