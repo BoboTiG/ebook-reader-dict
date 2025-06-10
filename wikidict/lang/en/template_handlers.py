@@ -462,6 +462,68 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def render_demonym_adj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_demonym_adj("demonym-adj", ["en", "Tucson"], defaultdict(str))
+    'Of, from or relating to Tucson.'
+    >>> render_demonym_adj("demonym-adj", ["en", "Tucson"], defaultdict(str, {"nocap": "1", "nodot": "1"}))
+    'of, from or relating to Tucson'
+    >>> render_demonym_adj("demonym-adj", ["it", "w:Abatemarco"], defaultdict(str))
+    'of, from or relating to Abatemarco'
+
+    >>> render_demonym_adj("demonym-adj", ["en", "Alexandria<t:city in Egypt>", "Alexandria<t:city in Virginia, USA>"], defaultdict(str))
+    'Of, from or relating to Alexandria (city in Egypt) or Alexandria (city in Virginia, USA).'
+    >>> render_demonym_adj("demonym-adj", ["it", "Alexandria in Egypt"], defaultdict(str, {"t": "Alexandrian", "t2": "Alexandrine"}))
+    'Alexandrian, Alexandrine (of, from or relating to Alexandria in Egypt)'
+    >>> render_demonym_adj("demonym-adj", ["es", "Linares, Colombia", "w:Linares, Jaén", "w:Linares de la Sierra", "w:Linares de Mora", "w:Linares de Riofrío", "w:Linares, Nuevo León"], defaultdict(str))
+    'of, from or relating to Linares, Colombia; Linares, Jaén; Linares de la Sierra; Linares de Mora; Linares de Riofrío; or Linares, Nuevo León'
+    """
+    is_english = parts[0] == "en"
+    has_parenthesis = bool(data["t"])
+
+    phrase = ""
+    if t1 := data["t"]:
+        phrase += t1
+        for idx in range(2, 16):
+            if t := data[f"t{idx}"]:
+                phrase += f", {t}"
+            else:
+                break
+        phrase += " ("
+    phrase += "o" if data["nocap"] or not is_english else "O"
+    phrase += "f, from or relating to "
+    sep, last_sep = (
+        (" or ", " or ")
+        if len(parts[1:]) == 2
+        else ("; ", "; or ")
+        if any("t:" in part or "w:" in part for part in parts[1:])
+        else (", ", " or ")
+    )
+    phrase += concat(
+        [
+            part.replace(">", "</i>)").replace("<qq:", " (<i>")
+            if "<qq:" in part
+            else part.replace("<<city:pref/", "city of ").replace("<<c/", "").replace("<<s/", "").replace(">>", "")
+            if "<<" in part
+            else part.replace("<t:", " (").replace(">", ")").replace("w:", "")
+            for part in parts[1:]
+        ],
+        sep,
+        last_sep=last_sep,
+    )
+
+    if re.search(r"<+\w+:", phrase):
+        assert 0, f"Missing special place handling for demonym-adj: {parts}"
+
+    if has_parenthesis:
+        phrase += ")"
+
+    if is_english and not data["nodot"]:
+        phrase += "."
+
+    return phrase
+
+
 def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_demonym_noun("demonym-noun", ["it", "w:Abatemarco"], defaultdict(str))
@@ -2062,6 +2124,7 @@ template_mapping = {
     "confix": render_morphology,
     "Cyrl-def": render_cyrl_def,
     "dbt": render_morphology,
+    "demonym-adj": render_demonym_adj,
     "demonym-noun": render_demonym_noun,
     "der": render_foreign_derivation,
     "der+": render_foreign_derivation,
