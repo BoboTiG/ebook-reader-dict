@@ -1,4 +1,5 @@
 import contextlib
+import math
 import re
 from collections import defaultdict
 from typing import TypedDict
@@ -881,6 +882,67 @@ def render_ipa_char(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     '[tʃ], [ts]'
     """
     return concat(parts, ", ")
+
+
+def render_iso_216(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_iso_216("ISO 216", ["1189", "1682"], defaultdict(str))
+    '(<i>international standards</i>) ISO 216 standard paper size of 1189 mm × 1682 mm (46.81 in × 66.22 in), with a surface area of 2 m² (21.53 sq ft).'
+    >>> render_iso_216("ISO 216", ["1189", "1682"], defaultdict(str, {"env": "1"}))
+    '(<i>international standards</i>) ISO 216 standard envelope size of 1189 mm × 1682 mm (46.81 in × 66.22 in), with a surface area of 2 m² (21.53 sq ft).'
+    >>> render_iso_216("ISO 216", ["1189", "1682"], defaultdict(str, {"untrimmed": "1"}))
+    '(<i>international standards</i>) ISO 216 standard untrimmed paper size of 1189 mm × 1682 mm (46.81 in × 66.22 in), with a surface area of 2 m² (21.53 sq ft).'
+    """
+    width_mm = float(parts[0])
+    height_mm = float(parts[1])
+
+    if data["env"]:
+        paper_type = "envelope"
+    elif data["untrimmed"]:
+        paper_type = "untrimmed paper"
+    else:
+        paper_type = "paper"
+
+    # Dimensions in inches
+    width_in = round(width_mm / 25.4, 2)
+    height_in = round(height_mm / 25.4, 2)
+
+    # Surface area in m² or cm²
+    area_m2 = width_mm * height_mm / 1_000_000
+    area_cm2 = width_mm * height_mm / 100
+
+    def no_trailing_zeros(v: float) -> str:
+        return str(v).rstrip("0").rstrip(".")
+
+    # Decide between m² and cm²
+    if area_m2 > 0.1:
+        # Number of significant digits, at least 2
+        sig_digits = math.ceil(-math.log10(area_m2)) + 2 if area_m2 < 1 else 2
+        area_value = round(area_m2, sig_digits)
+        area_str = f"{no_trailing_zeros(area_value)} m²"
+    else:
+        sig_digits = math.ceil(-math.log10(area_cm2)) + 2 if area_cm2 < 1 else 2
+        area_value = round(area_cm2, sig_digits)
+        area_str = f"{no_trailing_zeros(area_value)} cm²"
+
+    # Surface area in sq ft or sq in
+    area_ft2 = width_mm * height_mm / 92903.04
+    area_in2 = width_mm * height_mm / 645.16
+    if area_ft2 > 1:
+        sig_digits = math.ceil(-math.log10(area_ft2)) + 2 if area_ft2 < 10 else 2
+        imperial_area_value = round(area_ft2, sig_digits)
+        imperial_area_str = f"{no_trailing_zeros(imperial_area_value)} sq ft"
+    else:
+        sig_digits = math.ceil(-math.log10(area_in2)) + 2 if area_in2 < 10 else 2
+        imperial_area_value = round(area_in2, sig_digits)
+        imperial_area_str = f"{no_trailing_zeros(imperial_area_value)} sq in"
+
+    return (
+        f"(<i>international standards</i>) {tpl} standard {paper_type} size of "
+        f"{no_trailing_zeros(width_mm)} mm × {no_trailing_zeros(height_mm)} mm "
+        f"({width_in} in × {height_in} in), with a surface area of "
+        f"{area_str} ({imperial_area_str})."
+    )
 
 
 def render_iso_639(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1928,6 +1990,7 @@ template_mapping = {
     "ic": render_ipa_char,
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
+    "ISO 216": render_iso_216,
     "ISO 639": render_iso_639,
     "ISO 3166": render_iso_3166,
     "ISO 4217": render_iso_4217,
