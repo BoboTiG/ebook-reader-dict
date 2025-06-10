@@ -1991,6 +1991,7 @@ template_mapping = {
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "ISO 216": render_iso_216,
+    "ISO 269": render_iso_216,
     "ISO 639": render_iso_639,
     "ISO 3166": render_iso_3166,
     "ISO 4217": render_iso_4217,
