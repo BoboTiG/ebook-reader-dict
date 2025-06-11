@@ -7,8 +7,10 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     """
     >>> render_variant("böjning", ["sv", "subst", "boll"], defaultdict(str))
     'boll'
+    >>> render_variant("avledning", ["sv", "abnorm", "adj"], defaultdict(str))
+    'abnorm'
     """
-    return parts[-1]
+    return parts[1 if tpl.endswith("avledning") else -1]
 
 
 template_mapping = {
