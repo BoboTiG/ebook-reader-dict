@@ -759,9 +759,6 @@ def transform(
         >>> assert len(transform("foo", "CURRENTHOUR", "fr")) == 2
         >>> assert len(transform("foo", "CURRENTWEEK", "fr")) in (1, 2)
         >>> assert len(transform("foo", "CURRENTTIMESTAMP", "fr")) == 14
-
-        >>> transform("archi-sénéchale", "u|Urhixidur", "fr")
-        'Urhixidur'
     """
 
     parts_raw = template.split("|")
@@ -794,9 +791,6 @@ def transform(
         return MAGIC_WORDS[tpl]
     elif tpl == "PAGENAME" or (tpl == "w" and len(parts) == 1):
         return word.replace("_", " ")
-
-    if tpl == "u":
-        return parts[1]
 
     # Apply transformations
     # Note: using `is not None` below to allow templates returning an empty string.

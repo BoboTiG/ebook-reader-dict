@@ -245,6 +245,8 @@ templates_multi = {
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
+    # {{u|User}}
+    "u": "parts[1]",
 }
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
