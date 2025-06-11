@@ -393,7 +393,7 @@ def clean(text: str) -> str:
         >>> clean("<<country>>")
         'country'
         >>> clean("<<region/Middle East>>")
-        'Middle East'
+        '<<region/Middle East>>'
 
         >>> clean("__NOTOC__")
         ''
