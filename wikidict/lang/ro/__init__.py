@@ -56,7 +56,7 @@ sections = (
 variant_titles = tuple(section for section in sections if section not in etyl_section)
 variant_templates = (
     "{{adj form of",
-    "{{forma de",
+    "{{flexion",
 )
 
 # Templates more complex to manage.
@@ -183,47 +183,42 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '== {{limba|ron}} ==\\n=== {{Adjective}} ==='
 
     >>> adjust_wikicode("#''forma de feminin singular pentru'' [[frumos]].", "ro")
-    '#{{forma de feminin singular pentru|frumos}}'
+    '# {{flexion|frumos}}'
     """
     if locale == "ro":
         locale = "ron"
 
-    # {{-avv-|ANY|ANY}} → === {{avv|ANY|ANY}} ===
-    code = re.sub(
-        r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}",
-        r"=== {{\1|\2|\3}} ===",
-        code,
-        flags=re.MULTILINE,
-    )
+    # `{{-avv-|ANY|ANY}}` → === `{{avv|ANY|ANY}} ===`
+    code = re.sub(r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}", r"=== {{\1|\2|\3}} ===", code, flags=re.MULTILINE)
 
-    # ====Verb tranzitiv==== → === {{Verb tranzitiv}} ===
-    code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    # `====Verb tranzitiv====` → `=== {{Verb tranzitiv}} ===`
+    code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code)
 
-    # {{-avv-|ron}} → === {{avv}} ===
+    # `{{-avv-|ron}}` → `=== {{avv}} ===`
     code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-    # {{-avv-|ANY}} → === {{avv|ANY}} ===
+    # `{{-avv-|ANY}}` → `=== {{avv|ANY}} ===`
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
 
-    # {{-avv-}} → === {{avv}} ===
-    # {{-nume propriu-}} → === {{nume propriu}} ===
+    # `{{-avv-}}` → `=== {{avv}} ===`
+    # `{{-nume propriu-}}` → `=== {{nume propriu}} ===`
     code = re.sub(r"^\{\{-([\w ]+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
-    # Hack for a fake variants support because RO doesn't use templates most of the time
-    # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{forma de feminin singular pentru|frumos}}`
-    code = re.sub(
-        r"^(#\s?)'+(forma de [^']+)'+\s*'*\[\[([^\]]+)\]\]'*\.?",
-        r"\1{{\2|\3}}",
-        code,
-        flags=re.MULTILINE,
-    )
-
     # Try to convert old Wikicode
+    # TODO: do it for all langs
+    # TODO: support spaces
     if "==Romanian==" in code:
-        # ==Romanian== → == {{limba|ron}} ==
+        # `==Romanian==` → `== {{limba|ron}} ==`
         code = code.replace("==Romanian==", "== {{limba|ron}} ==")
 
-        # ===Adjective=== → === {{Adjective}} ===
-        code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+        # `===Adjective===` → `=== {{Adjective}} ===`
+        code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code)
+
+    #
+    # Variants
+    #
+
+    # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{flexion|frumos}}`
+    code = re.sub(r"^#\s*'+forma de [^']+'+\s*'*\[\[([^\]]+)\]\]'*\.?", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
 
     return code
