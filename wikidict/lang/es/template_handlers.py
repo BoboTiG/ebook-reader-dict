@@ -844,8 +844,10 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     """
     >>> render_variant("forma participio", ["apropiado", "femenino"], defaultdict(str))
     'apropiado'
+    >>> render_variant("forma participio", ["gastado", "femenino"], defaultdict(str, {"v": "gastar"}))
+    'gastar'
     """
-    return parts[0]
+    return data["v"] or parts[0]
 
 
 template_mapping = {

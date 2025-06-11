@@ -109,7 +109,7 @@ from wikidict.utils import process_templates
                 "Castigo con golpes; tunda, zurra, pela.",
                 "Información que se recibe en un mensaje o proceso de recibirla.",
             ],
-            ["entrado"],
+            ["entrar"],
         ),
         (
             "extenuado",
