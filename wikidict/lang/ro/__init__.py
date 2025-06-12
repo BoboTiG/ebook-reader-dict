@@ -167,6 +167,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("{{-avv-|ron}}", "ro")
     '=== {{avv}} ==='
+    >>> adjust_wikicode("{{-avv-|ro}}", "ro")
+    '=== {{avv}} ==='
 
     >>> adjust_wikicode("{{-avv-|ANY}}", "ro")
     '=== {{avv|ANY}} ==='
@@ -195,7 +197,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code)
 
     # `{{-avv-|ron}}` → `=== {{avv}} ===`
-    code = re.sub(rf"^\{{\{{-(.+)-\|{locale_3_chars}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    code = re.sub(rf"^\{{\{{-(.+)-\|({locale}|{locale_3_chars})\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     # `{{-avv-|ANY}}` → `=== {{avv|ANY}} ===`
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
