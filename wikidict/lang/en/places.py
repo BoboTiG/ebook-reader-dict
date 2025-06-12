@@ -1133,6 +1133,14 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "creek": {
+        "fallback": "stream",
+        "article": "a",
+        "display": "creek",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "crown colony": {
         "fallback": "colony",
         "article": "a",
@@ -1293,6 +1301,14 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "yes",
     },
+    "DEROGATORY_NAME_FOR metropolitan city": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "DEROGATORY_NAME_FOR place": {
         "fallback": "",
         "article": "",
@@ -1301,7 +1317,23 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "yes",
     },
+    "DEROGATORY_NAME_FOR prefecture-level city": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "DEROGATORY_NAME_FOR state": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "DEROGATORY_NAME_FOR town": {
         "fallback": "",
         "article": "",
         "display": "(internal use only)",
@@ -1973,7 +2005,23 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "yes",
     },
+    "FORMER_NICKNAME_FOR metropolitan city": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "FORMER_NICKNAME_FOR place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "FORMER_NICKNAME_FOR prefecture-level city": {
         "fallback": "",
         "article": "",
         "display": "(internal use only)",
@@ -2965,7 +3013,23 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "yes",
     },
+    "NICKNAME_FOR metropolitan city": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "NICKNAME_FOR place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "NICKNAME_FOR prefecture-level city": {
         "fallback": "",
         "article": "",
         "display": "(internal use only)",
@@ -3125,6 +3189,22 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "official nicknames for places!": {
+        "fallback": "",
+        "article": "",
+        "display": "official nicknames for places",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "official nicknames for states!": {
+        "fallback": "",
+        "article": "",
+        "display": "official nicknames for states",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "OFFICIAL_NAME_OF country": {
         "fallback": "",
         "article": "",
@@ -3150,6 +3230,22 @@ recognized_placetypes = {
         "should_categorize": "yes",
     },
     "OFFICIAL_NAME_OF place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "OFFICIAL_NICKNAME_FOR place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "OFFICIAL_NICKNAME_FOR state": {
         "fallback": "",
         "article": "",
         "display": "(internal use only)",
@@ -4437,7 +4533,7 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
-}  # 554
+}  # 566
 
 placetypes_aliases = {
     "CDP": "census-designated place",
@@ -4746,6 +4842,7 @@ recognized_placenames = {
     "city/Teheran": {"article": "", "display": "Tehran"},
     "city/Torreon": {"article": "", "display": "Torreón"},
     "city/Ulan Bator": {"article": "", "display": "Ulaanbaatar"},
+    "city/Ulankhad": {"article": "", "display": "Ulanhad"},
     "city/Vitoria": {"article": "", "display": "Vitória"},
     "city/Washington": {"article": "", "display": "Washington"},
     "city/Washington D.C.": {"article": "", "display": "Washington"},
@@ -4872,6 +4969,7 @@ recognized_placenames = {
     "overseas territory/U.S. Virgin Islands": {"article": "the", "display": "United States Virgin Islands"},
     "overseas territory/US Virgin Islands": {"article": "the", "display": "United States Virgin Islands"},
     "planet/Earth": {"article": "the", "display": "Earth"},
+    "prefecture-level city/Ulankhad": {"article": "", "display": "Ulanhad"},
     "prefecture-level city/Urumqi": {"article": "", "display": "Ürümqi"},
     "prefecture/Hyogo": {"article": "", "display": "Hyōgo"},
     "prefecture/Hyogo Prefecture": {"article": "", "display": "Hyōgo Prefecture"},
@@ -5023,5 +5121,5 @@ recognized_placenames = {
     "voivodeship/Świętokrzyskie Voivodeship": {"article": "", "display": "Holy Cross Voivodeship"},
     "voivodeship/Łódź": {"article": "", "display": "Lodz"},
     "voivodeship/Łódź Voivodeship": {"article": "", "display": "Lodz Voivodeship"},
-}  # 329
+}  # 331
 # END

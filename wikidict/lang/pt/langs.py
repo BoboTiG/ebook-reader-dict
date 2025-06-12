@@ -23,6 +23,7 @@ langs = {
     "abx": "Inabaknon",
     "ace": "Acenês",
     "acf": "Crioulo de Santa Lúcia",
+    "acn": "Achang",
     "acr": "Achi",
     "act": "Achteroequês",
     "adl": "Gallong",
@@ -1496,5 +1497,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,491
+}  # 1,492
 # END

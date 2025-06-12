@@ -547,7 +547,7 @@ langs = {
     "bbw": "baba",
     "bca": "bai central",
     "bcb": "baïnouk-samik",
-    "bcc": "baloutchi du Sud",
+    "bcc": "baloutche du Sud",
     "bcd": "babar du Nord",
     "bce": "mengambo",
     "bcf": "bamu",
@@ -645,6 +645,8 @@ langs = {
     "bgg": "bugun",
     "bgj": "bangolan",
     "bgk": "khabit",
+    "bgn": "baloutche de l’Ouest",
+    "bgp": "baloutche de l’Est",
     "bgr": "bawm",
     "bgt": "bughotu",
     "bgu": "mbongno",
@@ -5258,6 +5260,7 @@ langs = {
     "son": "langues songhaïes",
     "sonqor": "sonqor",
     "soo": "songo",
+    "sop": "kisongye",
     "soq": "kanasi",
     "sor": "somrai",
     "sorbung": "sorbung",
@@ -6166,6 +6169,7 @@ langs = {
     "wlr": "wailapa",
     "wls": "wallisien",
     "wlv": "wichí lhamtés vejoz",
+    "wly": "waling",
     "wmb": "wambaya",
     "wmc": "wamas",
     "wmd": "mamaindé",
@@ -6789,5 +6793,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 6,784
+}  # 6,788
 # END
