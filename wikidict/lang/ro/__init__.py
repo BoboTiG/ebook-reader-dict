@@ -187,6 +187,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("#''forma de feminin singular pentru'' [[frumos]].", "ro")
     '# {{flexion|frumos}}'
+    >>> adjust_wikicode("#''formă alternativă pentru'' [[fântânioară]].", "ro")
+    '# {{flexion|fântânioară}}'
     """
     locale_3_chars, lang_name = langs[locale]
 
@@ -219,6 +221,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
     #
 
     # `#''forma de feminin singular pentru'' [[frumos]].` → `# {{flexion|frumos}}`
-    code = re.sub(r"^#\s*'+forma de [^']+'+\s*'*\[\[([^\]]+)\]\]'*\.?", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+    # `#''formă alternativă pentru'' [[fântânioară]].` → `# {{flexion|fântânioară}}`
+    code = re.sub(
+        r"^#\s*'+(?:forma de|formă) [^']+'+\s*'*\[\[([^\]]+)\]\]'*\.?",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
 
     return code
