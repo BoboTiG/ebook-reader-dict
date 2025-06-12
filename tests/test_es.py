@@ -23,7 +23,7 @@ from wikidict.utils import process_templates
             "bicicleta",
             [],
             [
-                'Del francés <i>bicyclette</i> y este diminutivo del francés <i>bicycle</i>, formado sobre el modelo del francés <i>tricycle</i>, del latín <i>bis</i>) y <i>-cycle</i> ( del latín <i>cyclus</i>, del griego <i>κύκλος</i> (<i>kýklos</i>, "círculo; rueda")).'
+                "Del francés <i>bicyclette</i> y este diminutivo del francés <i>bicycle</i>, formado sobre el modelo del francés <i>tricycle</i>, del latín <i>bis</i>) y <i>-cycle</i> ( del latín <i>cyclus</i>, del griego <i>κύκλος</i> (<i>kýklos</i>, 'círculo; rueda'))."
             ],
             [
                 "<i>(Vehículos, ciclismo)</i>: Vehículo, comúnmente de dos ruedas iguales, propulsado mediante la aplicación de la fuerza de las piernas sobre los pedales que la transmiten hacia los piñones y una cadena moviendo la rueda trasera."
@@ -58,7 +58,7 @@ from wikidict.utils import process_templates
             "comer",
             [],
             [
-                'Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ("con") y <i>edō</i> ("comer").'
+                "Del latín <i>comedĕre</i>, infinitivo del latín <i>comedo</i>, formado a partir <i>cum</i> ('con') y <i>edō</i> ('comer')."
             ],
             [
                 "Ingerir o tomar alimentos.",
@@ -125,7 +125,7 @@ from wikidict.utils import process_templates
             "futuro",
             ["[fuˈtu.ɾo]"],
             [
-                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> ("ser"), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'
+                'Del latín <i>futūrus</i>, participio activo futuro irregular de <i>esse</i> (\'ser\'), y este el protoindoeuropeo <i>*bhū-</i>, <i>*bʰew-</i> ("existir", "llegar a ser").'
             ],
             [
                 "Que está aún por ocurrir o hacerse efectivo.",
@@ -156,7 +156,7 @@ from wikidict.utils import process_templates
             "hasta",
             [],
             [
-                'Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ("a") <i>ista</i> ("esta").',
+                "Del castellano antiguo <i>fasta</i>, del castellano antiguo <i>hata</i>, <i>fata</i>, del árabe حتى (<i>ḥattā</i>), influido por el latín <i>ad</i> ('a') <i>ista</i> ('esta').",
             ],
             [
                 "Preposición que indica el fin o término de una actividad, sea en sentido locativo, cronológico o cuantitativo.",

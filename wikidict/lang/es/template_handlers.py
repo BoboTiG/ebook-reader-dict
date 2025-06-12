@@ -247,9 +247,9 @@ def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     >>> render_etim("etim", ["grc", "φάσηλος"], defaultdict(str, {"tr": "phásēlos"}))
     'del griego antiguo <i>φάσηλος</i> (<i>phásēlos</i>)'
     >>> render_etim("etim", ["ar", "كنية"], defaultdict(str, {"tr": "kunyah", "glosa":"sobrenombre", "glosa-alt": "sobrenombre honorífico"}))
-    'del árabe <i>كنية</i> (<i>kunyah</i>, "sobrenombre honorífico")'
+    "del árabe <i>كنية</i> (<i>kunyah</i>, 'sobrenombre honorífico')"
     >>> render_etim("etim", ["grc", "ἱδρώς", "sudor"], defaultdict(str))
-    'del griego antiguo <i>ἱδρώς</i> ("sudor")'
+    "del griego antiguo <i>ἱδρώς</i> ('sudor')"
     """
     result = f"del {normalizar_nombre(parts[0])}"
     lplus = render_l(
@@ -311,27 +311,27 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_etimologia("etimología", ["la", "incertus"], defaultdict(str))
     'Del latín <i>incertus</i>'
     >>> render_etimologia("etimología", ["la", "piscis", "pez"], defaultdict(str))
-    'Del latín <i>piscis</i> ("pez")'
+    "Del latín <i>piscis</i> ('pez')"
     >>> render_etimologia("etimología", ["la", "-aceus"], defaultdict(str, {"alt":"-acĕus"}))
     'Del latín <i>-acĕus</i>'
     >>> render_etimologia("etimología", ["la", "illos"], defaultdict(str, {"diacrítico":"illōs", "sig":"no"}))
     'Del latín <i>illōs</i>'
     >>> render_etimologia("etimología", ["la", "villus", "vello"], defaultdict(str))
-    'Del latín <i>villus</i> ("vello")'
+    "Del latín <i>villus</i> ('vello')"
     >>> render_etimologia("etimología", ["la", "villus", "vello", ""], defaultdict(str))
-    'Del latín <i>villus</i> ("vello")'
+    "Del latín <i>villus</i> ('vello')"
     >>> render_etimologia("etimología", ["bajo latín", "capitanus", "principal"], defaultdict(str))
-    'Del bajo latín <i>capitanus</i> ("principal")'
+    "Del bajo latín <i>capitanus</i> ('principal')"
     >>> render_etimologia("etimología", ["osp", "fasta"], defaultdict(str))
     'Del castellano antiguo <i>fasta</i>'
     >>> render_etimologia("etimología", ["grc", "ἄκανθα", "espina", "grc","πτερύγιον", "aleta"], defaultdict(str, {"tr":"akntha", "tr2": "pterúgion"}))
-    'Del griego antiguo <i>ἄκανθα</i> (<i>akntha</i>, "espina") y <i>πτερύγιον</i> (<i>pterúgion</i>, "aleta")'
+    "Del griego antiguo <i>ἄκανθα</i> (<i>akntha</i>, 'espina') y <i>πτερύγιον</i> (<i>pterúgion</i>, 'aleta')"
     >>> render_etimologia("etimología", ["osp", "foja", "", "osp","foia"], defaultdict(str))
     'Del castellano antiguo <i>foja</i> y <i>foia</i>'
     >>> render_etimologia("etimología", ["osp", "foja", "", "la","sed"], defaultdict(str))
     'Del castellano antiguo <i>foja</i> y el latín <i>sed</i>'
     >>> render_etimologia("etimología", ["rmq", "lumí", "concubina"], defaultdict(str, {"glosa-alt":"concubina, manceba, querida"}))
-    'Del caló <i>lumí</i> ("concubina, manceba, querida")'
+    "Del caló <i>lumí</i> ('concubina, manceba, querida')"
     >>> render_etimologia("etimología", ["ONOM"], defaultdict(str))
     'Onomatopéyica'
     >>> render_etimologia("etimología", ["plural", "vista"], defaultdict(str))
@@ -345,7 +345,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_etimologia("etimología", ["regresiva", "controvertido"], defaultdict(str))
     'Por derivación regresiva de <i>controvertido</i>'
     >>> render_etimologia("etimología", ["sánscrito", "गुरू", "maestro"], defaultdict(str, {"transcripción":"gūru"}))
-    'Del sánscrito <i>गुरू</i> (<i>gūru</i>, "maestro")'
+    "Del sánscrito <i>गुरू</i> (<i>gūru</i>, 'maestro')"
     >>> render_etimologia("etimología", ["sufijo", "átomo", "ico"], defaultdict(str))
     'De <i>átomo</i> y el sufijo <i>-ico</i>'
     >>> render_etimologia("etimología", ["sufijo", "mantener", "-ncia"], defaultdict(str))
@@ -357,7 +357,7 @@ def render_etimologia(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_etimologia("etimología", ["sufijo", "héroe", "ficar"], defaultdict(str, {"tr2":"en su variante -ificar"}))
     'De <i>héroe</i> y el sufijo <i>-ficar</i> (<i>en su variante -ificar</i>)'
     >>> render_etimologia("etimología", ["sufijo", "bullicio", "ar"], defaultdict(str, {"glosa":"bullicio"}))
-    'De <i>bullicio</i> ("bullicio") y el sufijo <i>-ar</i>'
+    "De <i>bullicio</i> ('bullicio') y el sufijo <i>-ar</i>"
     >>> render_etimologia("etimología", ["prefijo", "a", "contecer"], defaultdict(str))
     'Del prefijo <i>a-</i> y <i>contecer</i>'
     >>> render_etimologia("etimología", ["prefijo", "a-", "contecer"], defaultdict(str))
@@ -687,9 +687,9 @@ def render_hipocoristico(tpl: str, parts: list[str], data: defaultdict[str, str]
 def render_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_l("l+", ["la", "impello", "impellō, impellere"], defaultdict(str, {"glosa":"empujar"}))
-    '<i>impellō, impellere</i> ("empujar")'
+    "<i>impellō, impellere</i> ('empujar')"
     >>> render_l("l+", ["grc", "ἀράχνη"], defaultdict(str, {"tr":"aráchnē", "glosa":"araña"}))
-    '<i>ἀράχνη</i> (<i>aráchnē</i>, "araña")'
+    "<i>ἀράχνη</i> (<i>aráchnē</i>, 'araña')"
     >>> render_l("l+", ["ar", "حتى"], defaultdict(str, {"tr":"ḥatta"}))
     '<i>حتى</i> (<i>ḥatta</i>)'
     >>> render_l("l+", ["es", "morro"], defaultdict(str, {"num":"2"}))
@@ -711,7 +711,7 @@ def render_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: s
         if glosa:
             if trans:
                 phrase += ", "
-            phrase += f'"{glosa}"'
+            phrase += f"'{glosa}'"
         phrase += ")"
 
     return phrase
