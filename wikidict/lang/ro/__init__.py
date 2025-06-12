@@ -3,6 +3,7 @@
 import re
 
 from ...user_functions import flatten, unique
+from .langs import langs
 
 # Float number separator
 float_separator = ","
@@ -185,8 +186,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("#''forma de feminin singular pentru'' [[frumos]].", "ro")
     '# {{flexion|frumos}}'
     """
-    if locale == "ro":
-        locale = "ron"
+    locale_3_chars, lang_name = langs[locale]
 
     # `{{-avv-|ANY|ANY}}` → === `{{avv|ANY|ANY}} ===`
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\|(\w+)\}\}", r"=== {{\1|\2|\3}} ===", code, flags=re.MULTILINE)
@@ -195,7 +195,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"====([^=]+)====", r"=== {{\1}} ===", code)
 
     # `{{-avv-|ron}}` → `=== {{avv}} ===`
-    code = re.sub(rf"^\{{\{{-(.+)-\|{locale}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
+    code = re.sub(rf"^\{{\{{-(.+)-\|{locale_3_chars}\}}\}}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     # `{{-avv-|ANY}}` → `=== {{avv|ANY}} ===`
     code = re.sub(r"^\{\{-(.+)-\|(\w+)\}\}", r"=== {{\1|\2}} ===", code, flags=re.MULTILINE)
@@ -205,11 +205,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     code = re.sub(r"^\{\{-([\w ]+)-\}\}", r"=== {{\1}} ===", code, flags=re.MULTILINE)
 
     # Try to convert old Wikicode
-    # TODO: do it for all langs
-    # TODO: support spaces
-    if "==Romanian==" in code:
+    if f"=={lang_name}==" in code:
         # `==Romanian==` → `== {{limba|ron}} ==`
-        code = code.replace("==Romanian==", "== {{limba|ron}} ==")
+        code = code.replace(f"=={lang_name}==", f"== {{{{limba|{locale_3_chars}}}}} ==")
 
         # `===Adjective===` → `=== {{Adjective}} ===`
         code = re.sub(r"===(\w+)===", r"=== {{\1}} ===", code)
