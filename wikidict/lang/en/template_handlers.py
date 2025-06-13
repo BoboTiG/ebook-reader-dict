@@ -491,8 +491,8 @@ def alter_demonym_parts(parts: list[str]) -> list[str]:
         if "<qq:" in part:
             part = re.sub(r"(\w+)<qq:([^>]+)>", r"\1 (<i>\2</i>)", part)
             has_changed = True
-        if "<t:" in part:
-            part = re.sub(r"<t:([^>]+)>", r" (\1)", part)
+        if "<t:" in part or "<gloss:" in part:
+            part = re.sub(r"<(?:t|gloss):([^>]+)>", r" (\1)", part)
             has_changed = True
 
         if "w:" in part:
@@ -528,6 +528,8 @@ def render_demonym_adj(tpl: str, parts: list[str], data: defaultdict[str, str], 
     'Of, from or relating to the region of Karelia, politically split between the administrative regions of North Karelia, South Karelia and here, Finland and the Republic of Karelia, Russia.'
     >>> render_demonym_adj("demonym-adj", ["en", "the <<r:pref/Frisia>>: Either West Frisia (the Dutch <<p:also:pref/Friesland>>); North Frisia (in the German <<s:pref:also/Schleswig-Holstein>>, near the Danish border); or East Frisia (in the German <<s:pref:also/Lower Saxony>>, near the Dutch border)"], defaultdict(str))
     'Of, from or relating to the region of Frisia: Either West Frisia (the Dutch province of Friesland); North Frisia (in the German state of Schleswig-Holstein, near the Danish border); or East Frisia (in the German state of Lower Saxony, near the Dutch border).'
+    >>> render_demonym_adj("demonym-adj", ["it", "Sanremo<gloss:town in Liguria>"], defaultdict(str))
+    'of, from or relating to Sanremo (town in Liguria)'
     """
     is_english = parts[0] == "en"
     has_parenthesis = bool(data["t"])
