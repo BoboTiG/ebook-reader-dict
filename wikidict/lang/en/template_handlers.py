@@ -467,18 +467,22 @@ def alter_demonym_parts(parts: list[str]) -> list[str]:
         kind, pos, place = match.groups()
 
         kind = placetypes_aliases.get(kind, kind)
+        prep = recognized_placetypes[kind.lower()]["preposition"] or "of"
         if pos.istitle():
             kind = kind.title()
         as_prefix = pos.lower() == "pref"
+        multiple_places = "," in place
 
-        if as_prefix:
-            return f"{kind} {recognized_placetypes[kind.lower()]['preposition'] or 'of'} {place}"
-        return f"{place} {kind}"
+        if multiple_places:
+            kind += "s"
+            place = concat(place.split(","), ", ", last_sep=" and ")
+
+        return f"{kind} {prep} {place}" if as_prefix else f"{place} {kind}"
 
     for idx, part in enumerate(parts.copy()):
         has_changed = False
         if "<<" in part:
-            part = re.sub(r"<<(\w+):(\w+)/([^>]+)>>", rpl, part)
+            part = re.sub(r"<<(\w+)(?::also)?:(\w+)(?::also)?/([^>]+)>>", rpl, part)
             has_changed = True
 
         if "<q:" in part:
@@ -520,6 +524,10 @@ def render_demonym_adj(tpl: str, parts: list[str], data: defaultdict[str, str], 
     'Alexandrian, Alexandrine (of, from or relating to Alexandria in Egypt)'
     >>> render_demonym_adj("demonym-adj", ["es", "Linares, Colombia", "w:Linares, Jaén", "w:Linares de la Sierra", "w:Linares de Mora", "w:Linares de Riofrío", "w:Linares, Nuevo León"], defaultdict(str))
     'of, from or relating to Linares, Colombia; Linares, Jaén; Linares de la Sierra; Linares de Mora; Linares de Riofrío; or Linares, Nuevo León'
+    >>> render_demonym_adj("demonym-adj", ["en", "the <<r:pref/Karelia>>, politically split between the <<adr:pref/North Karelia,South Karelia,here>>, <<c/Finland>> and the <<rep:Pref:also/Karelia>>, <<c/Russia>>"], defaultdict(str))
+    'Of, from or relating to the region of Karelia, politically split between the administrative regions of North Karelia, South Karelia and here, Finland and the Republic of Karelia, Russia.'
+    >>> render_demonym_adj("demonym-adj", ["en", "the <<r:pref/Frisia>>: Either West Frisia (the Dutch <<p:also:pref/Friesland>>); North Frisia (in the German <<s:pref:also/Schleswig-Holstein>>, near the Danish border); or East Frisia (in the German <<s:pref:also/Lower Saxony>>, near the Dutch border)"], defaultdict(str))
+    'Of, from or relating to the region of Frisia: Either West Frisia (the Dutch province of Friesland); North Frisia (in the German state of Schleswig-Holstein, near the Danish border); or East Frisia (in the German state of Lower Saxony, near the Dutch border).'
     """
     is_english = parts[0] == "en"
     has_parenthesis = bool(data["t"])
