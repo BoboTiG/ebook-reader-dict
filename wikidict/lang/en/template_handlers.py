@@ -546,6 +546,7 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     >>> render_demonym_noun("demonym-noun", ["en", "the <<city:pref/Adelaide>>, <<s/South Australia>>", "<<c/Germany>>"], defaultdict(str))
     'A native or inhabitant of the city of Adelaide, South Australia, Germany.'
     """
+    is_english = parts[0] == "en"
     is_female = data["g"] == "f"
     skip_female_prefix = data["gloss_is_gendered"]
     has_parenthesis = bool(data["t"])
@@ -598,7 +599,7 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
         gender = {"m": "male"}[g]
         phrase += f" (<i>usually {gender}</i>)"
 
-    if a_person:
+    if is_english and not data["nodot"]:
         phrase += "."
 
     return phrase
