@@ -179,7 +179,11 @@ def find_etymology(
     *,
     all_templates: list[tuple[str, str, str]] | None = None,
 ) -> list[Definitions]:
-    """Find the etymology."""
+    """Find the etymology.
+
+    >>> find_etymology("Artur", "sv", "sv", wtp.Section("==Svenska==\\n===Substantiv===\\n#:{{etymologi|Denna namnform kom till Sverige som namn via {{härledning|sv|la|Arthurus, Arturus}}, möjligen av kymriska ''[[arth]]'' (\\"björn\\"), av {{härledning|sv|cel-uce|*artos|björn}}.\\nParallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, ''[[Arnþor]]'' (\\"Arntor\\"), sammansatt av ''Ar(i)n-'' (\\"örn\\") och ''‑tor'' (\\"dunder, åska\\").}}"))
+    ['Denna namnform kom till Sverige som namn via latinska <i>Arthurus, Arturus</i>, möjligen av kymriska <i>arth</i> ("björn"), av urkeltiska <i>*artos</i> (”björn”).Parallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, <i>Arnþor</i> ("Arntor"), sammansatt av <i>Ar(i)n-</i> ("örn") och <i>‑tor</i> ("dunder, åska").']
+    """
 
     def get_items(patterns: tuple[str, ...], *, skip: tuple[str, ...] | None = None) -> list[str]:
         items: list[str]
@@ -240,7 +244,10 @@ def find_etymology(
         case "ro":
             items = get_items(("",), skip=("=== {{etimologie",))
         case "sv":
-            items = re.findall(r"{{etymologi\|(.+)}}", parsed_section.contents)
+            # Remove the leading template name, and trailing `}}`
+            items = [
+                tpl.__str__()[len("{{etymologi|") : -2] for tpl in parsed_section.templates if tpl.name == "etymologi"
+            ]
         case _:
             items = [parsed_section.contents]
 
