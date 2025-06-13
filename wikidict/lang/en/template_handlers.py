@@ -462,6 +462,49 @@ def render_etydate(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def alter_demonym_parts(parts: list[str]) -> list[str]:
+    def rpl(match: re.Match[str]) -> str:
+        kind, pos, place = match.groups()
+
+        kind = placetypes_aliases.get(kind, kind)
+        if pos.istitle():
+            kind = kind.title()
+        as_prefix = pos.lower() == "pref"
+
+        if as_prefix:
+            return f"{kind} {recognized_placetypes[kind.lower()]['preposition'] or 'of'} {place}"
+        return f"{place} {kind}"
+
+    for idx, part in enumerate(parts.copy()):
+        has_changed = False
+        if "<<" in part:
+            part = re.sub(r"<<(\w+):(\w+)/([^>]+)>>", rpl, part)
+            has_changed = True
+
+        if "<q:" in part:
+            part = re.sub(r"(\w+)<q:([^>]+)>", r"(<i>\2</i>) \1", part)
+            has_changed = True
+        if "<qq:" in part:
+            part = re.sub(r"(\w+)<qq:([^>]+)>", r"\1 (<i>\2</i>)", part)
+            has_changed = True
+        if "<t:" in part:
+            part = re.sub(r"<t:([^>]+)>", r" (\1)", part)
+            has_changed = True
+
+        if "w:" in part:
+            part = part.replace("w:", "")
+            has_changed = True
+
+        if "<<" in part:
+            part = re.sub(r"<<\w/([^>]+)>>", r"\1", part)
+            has_changed = True
+
+        if has_changed:
+            parts[idx] = part
+
+    return parts
+
+
 def render_demonym_adj(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_demonym_adj("demonym-adj", ["en", "Tucson"], defaultdict(str))
@@ -499,18 +542,8 @@ def render_demonym_adj(tpl: str, parts: list[str], data: defaultdict[str, str], 
         if any("t:" in part or "w:" in part for part in parts[1:])
         else (", ", " or ")
     )
-    phrase += concat(
-        [
-            part.replace(">", "</i>)").replace("<qq:", " (<i>")
-            if "<qq:" in part
-            else part.replace("<<city:pref/", "city of ").replace("<<c/", "").replace("<<s/", "").replace(">>", "")
-            if "<<" in part
-            else part.replace("<t:", " (").replace(">", ")").replace("w:", "")
-            for part in parts[1:]
-        ],
-        sep,
-        last_sep=last_sep,
-    )
+    parts = alter_demonym_parts(parts)
+    phrase += concat(parts[1:], sep, last_sep=last_sep)
 
     if re.search(r"<+\w+:", phrase):
         assert 0, f"Missing special place handling for demonym-adj: {parts}"
@@ -545,6 +578,8 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
 
     >>> render_demonym_noun("demonym-noun", ["en", "the <<city:pref/Adelaide>>, <<s/South Australia>>", "<<c/Germany>>"], defaultdict(str))
     'A native or inhabitant of the city of Adelaide, South Australia, Germany.'
+    >>> render_demonym_noun("demonym-noun", ["en", "the <<p:Pref/Quebec>>, <<c/Canada>>"], defaultdict(str))
+    'A native or inhabitant of the Province of Quebec, Canada.'
     """
     is_english = parts[0] == "en"
     is_female = data["g"] == "f"
@@ -575,18 +610,8 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
         if any("<t:" in part or "<w:" in part for part in parts[1:])
         else (", ", " or ")
     )
-    phrase += concat(
-        [
-            part.replace(">", "</i>)").replace("<qq:", " (<i>")
-            if "<qq:" in part
-            else part.replace("<<city:pref/", "city of ").replace("<<c/", "").replace("<<s/", "").replace(">>", "")
-            if "<<" in part
-            else part.replace("<t:", " (").replace(">", ")").replace("w:", "")
-            for part in parts[1:]
-        ],
-        sep,
-        last_sep=last_sep,
-    )
+    parts = alter_demonym_parts(parts)
+    phrase += concat(parts[1:], sep, last_sep=last_sep)
 
     if re.search(r"<+\w+:", phrase):
         assert 0, f"Missing special place handling for demonym-noun: {parts}"
@@ -594,9 +619,8 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     if has_parenthesis:
         phrase += ")"
 
-    if g := data["g"]:
-        gender = {"m": "male"}[g]
-        phrase += f" (<i>usually {gender}</i>)"
+    if data["g"] == "m":
+        phrase += " (<i>usually male</i>)"
 
     if is_english and not data["nodot"]:
         phrase += "."
