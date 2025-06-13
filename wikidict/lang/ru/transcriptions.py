@@ -12,11 +12,13 @@ import re
 import unicodedata
 from collections.abc import Callable
 
+import regex
+
 
 # apply rsub() repeatedly until no change
 def sub_repeatedly(pattern: str, repl: str, text: str) -> str:
     while True:
-        if (new_text := re.sub(pattern, repl, text)) == text:
+        if (new_text := re.sub(pattern, repl, text, count=1)) == text:
             return text
         text = new_text
 
@@ -165,22 +167,27 @@ perm_syl_onset = {
     "šč",
 }
 
+
 # FIXME: Consider changing ӂ internally to ʑ to match ɕ (it is used externally
 # in e.g. дроӂӂи (pronunciation spelling of дрожжи)
-translit_conv = {
-    "c": "t͡s",
-    "č": "t͡ɕ",
-    "ĉ": "t͡ʂ",
-    "g": "ɡ",
-    "ĝ": "d͡ʐ",
-    "ĵ": "d͡z",
-    "ǰ": "d͡ʑ",
-    "ӂ": "ʑ",
-    "š": "ʂ",
-    "ž": "ʐ",
-}
+def translit_conv(match: re.Match[str]) -> str:
+    return {
+        "c": "t͡s",
+        "č": "t͡ɕ",
+        "ĉ": "t͡ʂ",
+        "g": "ɡ",
+        "ĝ": "d͡ʐ",
+        "ĵ": "d͡z",
+        "ǰ": "d͡ʑ",
+        "ӂ": "ʑ",
+        "š": "ʂ",
+        "ž": "ʐ",
+    }[match[1]]
 
-translit_conv_j = {"cʲ": "tʲ͡sʲ", "ĵʲ": "dʲ͡zʲ"}
+
+def translit_conv_j(match: re.Match[str]) -> str:
+    return {"cʲ": "tʲ͡sʲ", "ĵʲ": "dʲ͡zʲ"}[match[0]]
+
 
 allophones = {
     "a": "aɐə",
@@ -648,13 +655,15 @@ def phon_respelling(text: str) -> str:
 # For use with {{ru-IPA|adj=+.}}; rewrite adjectival endings to the form
 # used for phonetic respelling
 def adj_respelling(text: str) -> str:
+    sub = re.sub
+
     # ого, его, аго (pre-reform spelling), with optional accent on either
     # vowel, optionally with reflexive -ся suffix, at end of phrase or end
     # of word followed by space or hyphen
-    text = re.sub(rf"(.[аое]́?)го({AC}?)$", r"\1во\2", text)
-    text = re.sub(rf"(.[аое]́?)го({AC}?ся)$", r"\1во\2", text)
-    text = re.sub(rf"(.[аое]́?)го{AC}?[ \-])", r"\1во\2", text)
-    return re.sub(rf"(.[аое]́?)го({AC}?ся[ \-])", r"\1во\2", text)
+    text = sub(rf"(.[аое]́?)го({AC}?)$", r"\1во\2", text)
+    text = sub(rf"(.[аое]́?)го({AC}?ся)$", r"\1во\2", text)
+    text = sub(rf"(.[аое]́?)го{AC}?[ \-])", r"\1во\2", text)
+    return sub(rf"(.[аое]́?)го({AC}?ся[ \-])", r"\1во\2", text)
 
 
 def decompose(text: str) -> str:
@@ -673,10 +682,12 @@ def is_monosyllabic(word: str) -> bool:
 # export.apply_tr_fixes() have been applied. Called from {{ru-IPA}}.
 # INCLUDE_MONOSYLLABIC_JO_ACCENT is as in export.tr().
 def tr_after_fixes(text: str, include_monosyllabic_jo_accent: bool) -> str:
+    sub = re.sub
+
     # Remove word-final hard sign, either utterance-finally or followed by
     # a non-letter character such as space, comma, period, hyphen, etc.
-    text = re.sub(r"[Ъъ]$", "", text)
-    text = re.sub(r"\A[Ъъ](.+)", r"\1", text)
+    text = sub(r"[Ъъ]$", "", text)
+    text = sub(r"\A[Ъъ](.+)", r"\1", text)
 
     # the if-statement below isn't necessary but may speed things up,
     # particularly when include_monosyllabic_jo_accent isn't set, in that
@@ -690,15 +701,15 @@ def tr_after_fixes(text: str, include_monosyllabic_jo_accent: bool) -> str:
         # when INCLUDE_MONOSYLLABIC_JO_ACCENT isn't set, so we don't add the
         # accent mark that we would otherwise include.
         if not include_monosyllabic_jo_accent and is_monosyllabic(text):
-            text = re.sub(r"([жшчщЖШЧЩ])ё", r"\1o", text)
+            text = sub(r"([жшчщЖШЧЩ])ё", r"\1o", text)
             text = text.replace("ё", "jo")
             text = text.replace("Ё", "Jo")
         else:
-            text = re.sub(r"([жшчщЖШЧЩ])ё", r"\1ó", text)
+            text = sub(r"([жшчщЖШЧЩ])ё", r"\1ó", text)
             # conversion of remaining ё will occur as a result of 'tab'.
 
     # ю after ж and ш becomes u (e.g. брошюра, жюри)
-    text = re.sub(r"([жшЖШ])ю", r"\1u", text)
+    text = sub(r"([жшЖШ])ю", r"\1u", text)
 
     # the if-statement below isn't necessary but may speed things up in that
     # in the majority of cases where the letters below don't occur, we avoid
@@ -710,7 +721,7 @@ def tr_after_fixes(text: str, include_monosyllabic_jo_accent: bool) -> str:
         text = re.compile(r"(\s-)([ЕеѢѣЭэ])").sub(lambda match: match[1] + map_to_plain_e_map[match[2]], text)
         # don't get confused by single quote or parens between consonant and е;
         # e.g. Б'''ез''', американ(ец)
-        text = re.compile(rf"({consonants}['\(\)]*)([ЕеѢѣЭэ])").sub(
+        text = re.compile(rf"({consonants}['()]*)([ЕеѢѣЭэ])").sub(
             lambda match: match[1] + map_to_plain_e_map[match[2]], text
         )
 
@@ -729,150 +740,152 @@ def apply_tr_fixes(text: str) -> tuple[str, str]:
     # decompose composed grave characters before we convert Cyrillic е to Latin e or je
     text = translate(text, decompose_grave_map)
 
+    sub = re.sub
+
     origtext = text
     # the second half of the if-statement below is an optimization; see above.
     if "го" in text:
         # handle много
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Мм]но[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle немного, намного
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Нн][еа]мно[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle ненамного
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Нн]енамно[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle до́рого [short form of дорогой, adverb]
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Дд]о[\204\129\204\128]?ро)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle недо́рого [short form of недорогой, adverb]
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Нн]едо[\204\129\204\128]?ро)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle задо́рого [short form of недорогой, adverb]
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Зз]адо[\204\129\204\128]?ро)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle незадо́рого [short form of недорогой, adverb]
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Зз]анедо[\204\129\204\128]?ро)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle стро́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Сс]тро[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle на́строго
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Нн]а[\204\129\204\128]?стро)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle нестро́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Нн]естро[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle убо́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Уу]бо[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle поло́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Пп]оло[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle длинноно́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Дд]линноно[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle коротконо́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Кк]оротконо[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle кривоно́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Кк]ривоно[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle колчено́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Кк]олчено[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle отло́го
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Оо]тло[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle пе́го [short form of пе́гий "piebald"]
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Пп]е[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle лого, сого, ого
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([лсЛС]?[Оо][\204\129\204\128]?)г(о[\204\129\204\128]?)\f[^\a\204\129\204\128]",
             r"\1" + TEMP_G + "\2",
             text,
         )
         # handle Того, То́го (but not того or Того́, which have /v/)
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Тт]о[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle лего
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Лл]е[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle игого, огого; note, we substitute TEMP_G for both г's
         # because otherwise the ого- at the beginning gets converted to ово
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([ИиОо])гог(о[\204\129\204\128]?)\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о{TEMP_G}\2",
             text,
         )
         # handle Диего
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Дд]ие[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
         )
         # handle слого-
-        text = re.sub(
+        text = sub(
             r"\f[\a\204\129\204\128]([Сс]ло[\204\129\204\128]?)го\f[^\a\204\129\204\128]",
             rf"\1{TEMP_G}о",
             text,
@@ -895,13 +908,13 @@ def apply_tr_fixes(text: str) -> tuple[str, str]:
         )
 
         # handle сегодня
-        text = re.sub(r"\f[\a\204\129\204\128]([Сс]е)г(о[\204\129\204\128]?дня)\f[^\a\204\129\204\128]", r"\1в\2", text)
+        text = sub(r"\f[\a\204\129\204\128]([Сс]е)г(о[\204\129\204\128]?дня)\f[^\a\204\129\204\128]", r"\1в\2", text)
 
         # handle сегодняшн-
-        text = re.sub(r"\f[\a\204\129\204\128]([Сс]е)г(о[\204\129\204\128]?дняшн)", r"\1в\2", text)
+        text = sub(r"\f[\a\204\129\204\128]([Сс]е)г(о[\204\129\204\128]?дняшн)", r"\1в\2", text)
 
         # replace TEMP_G with g; must be done after the -go -> -vo changes
-        text = re.sub(TEMP_G, "г", text)
+        text = sub(TEMP_G, "г", text)
 
     # the second half of the if-statement below is an optimization; see above.
     if "то" in text:
@@ -915,9 +928,9 @@ def apply_tr_fixes(text: str) -> tuple[str, str]:
             lambda match: ch2sh[match[1]] + match[2], text
         )
         # Handle ничто
-        text = re.sub(r"\f[\a\204\129\204\128]([Нн]и)ч(то[\204\129\204\128]?)\f[^\a\204\129\204\128]", r"\1ш\2", text)
+        text = sub(r"\f[\a\204\129\204\128]([Нн]и)ч(то[\204\129\204\128]?)\f[^\a\204\129\204\128]", r"\1ш\2", text)
 
-    text = re.sub(r"([МмЛл][яеё][\204\129\204\128]?)г([кч])", r"\1х\2", text)
+    text = sub(r"([МмЛл][яеё][\204\129\204\128]?)г([кч])", r"\1х\2", text)
 
     return origtext, text
 
@@ -952,12 +965,6 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     #         if p == "":
     #             pos[i] = "def"
 
-    # Verify that pos (or each part of multipart pos) is recognized
-    if not all(final_e.get(p) for p in ([pos] if isinstance(pos, str) else pos)):
-        raise ValueError(
-            f"Unrecognized part of speech {pos!r}: Should be n/noun/neut, a/adj, c/com, pre, dat, adv, inv, voc, v/verb, pro, hi/high, mid, lo/low/schwa or omitted"
-        )
-
     text = text.lower()
     text = text.replace("``", DUBGR)
     text = text.replace("`", GR)
@@ -965,11 +972,14 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     text = text.replace("^", CFLEX)
     text = text.replace(DUBGR, CFLEX)
 
+    sub = re.sub
+    sub2 = regex.sub
+
     # translit doesn't always convert э to ɛ (depends on whether a consonant precedes), so: it ourselves before translit
     text = text.replace("э", "ɛ")
     # vowel + йе should have double jj, but the translit module will translit
     # it the same as vowel + е, so: it ourselves before translit
-    text = re.sub(rf"([{vowel}]{opt_accent})й([еѐ])", r"\1йй\2", text)
+    text = sub(rf"([{vowel}]{opt_accent})й([еѐ])", r"\1йй\2", text)
     # transliterate and decompose Latin vowels with accents, recomposing
     # certain key combinations; don't include accent on monosyllabic ё, so
     # that we end up without an accent on such words
@@ -979,10 +989,10 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     text = text.replace("ě̈", f"jo{AC}")
     text = text.replace("ě", "e")
     # handle sequences of accents (esp from ё with secondary/tertiary stress)
-    text = re.sub(f"{accents}+({accents})", r"\1", text)
+    text = sub(f"{accents}+({accents})", r"\1", text)
 
     # canonicalize multiple spaces
-    text = re.sub(r"\s+", " ", text)
+    text = sub(r"\s+", " ", text)
 
     # Add primary stress to single-syllable words preceded or followed by
     # unstressed particle or preposition. Add "tertiary" stress to remaining
@@ -1025,7 +1035,7 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             )
             and
             # 2. must be one syllable;
-            len(re.sub(rf"[^{vow}]", "", word[i])) == 1
+            len(sub(rf"[^{vow}]", "", word[i])) == 1
             and
             # 3. must not have any accents (including dot-above, forcing reduction);
             not re.search(accents, word[i])
@@ -1066,10 +1076,10 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
                 and word[i + 2] in accentless["posthyphen"]
             ):
                 # 1. add primary stress if preceded or followed by an accentless word,
-                word[i] = re.sub(vowels_c, rf"\1{AC}", word[i])
+                word[i] = sub(vowels_c, rf"\1{AC}", word[i])
             else:
                 # 2. else add tertiary stress
-                word[i] = re.sub(vowels_c, rf"\1{CFLEX}", word[i])
+                word[i] = sub(vowels_c, rf"\1{CFLEX}", word[i])
 
     # make unaccented prepositions and particles liaise with the following or
     # preceding word
@@ -1082,11 +1092,11 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             word[i - 1] = "‿"
 
     # rejoin words, convert hyphens to spaces and eliminate stray spaces resulting from this
-    text = re.sub(r"[\-\s]+", " ", "".join(word))
+    text = sub(r"[\-\s]+", " ", "".join(word))
     text = text.strip()
 
     # convert commas and en/en dashes to IPA foot boundaries
-    text = re.sub(r"\s*[,–—]\s*", " | ", text)
+    text = sub(r"\s*[,–—]\s*", " | ", text)
 
     # add a ⁀ at the beginning and end of every word and at close juncture
     # boundaries; we will remove this later but it makes it easier to:
@@ -1104,16 +1114,16 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     # (do this before the change below adding tertiary stress to final
     # palatal о):
     # (1) Non-palatal [ou] after always-hard шж (e.g. in брошю́ра, жю́ри) despite the spelling (FIXME, should this also affect [a]?)
-    text = re.sub(r"([šž])j([ou])", r"\1\2", text)
+    text = sub(r"([šž])j([ou])", r"\1\2", text)
     # (2) Palatal [aou] after always-soft щчӂ and voiced variant ǰ (NOTE: this happens before the change šč -> ɕː in phon_respellings)
-    text = re.sub(r"([čǰӂ])([aou])", r"\1j\2", text)
+    text = sub(r"([čǰӂ])([aou])", r"\1j\2", text)
     # (3) ьо is pronounced as ьйо, i.e. like (possibly unstressed) ьё, e.g. in Асунсьо́н
     text = text.replace("ʹo", "ʹjo")
 
     # add tertiary stress to some final -о (this needs to be done before
     # eliminating dot-above, after adding ⁀, after adding /j/ before palatal о):
     # (1) after vowels, e.g. То́кио
-    text = re.sub(rf"({vowels}{accents}?o)⁀", rf"\1{CFLEX}⁀", text)
+    text = sub(rf"({vowels}{accents}?o)⁀", rf"\1{CFLEX}⁀", text)
     # (2) when palatal, e.g. ра́нчо, га́учо, ма́чо, Ога́йо
     text = text.replace("jo⁀", f"jo{CFLEX}⁀")
 
@@ -1125,13 +1135,13 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     if DOTBELOW in text:
         raise ValueError("Dot-below accent can only be placed on я or palatal а")
 
-    text = re.sub(rf"(.[aoe]́?)go({AC}?)⁀", r"\1vo\2⁀", text) if adj else text
-    text = re.sub(rf"(.[aoe]́?)go({AC}?)sja⁀", r"\1vo\2sja⁀", text) if adj else text
+    text = sub(rf"(.[aoe]́?)go({AC}?)⁀", r"\1vo\2⁀", text) if adj else text
+    text = sub(rf"(.[aoe]́?)go({AC}?)sja⁀", r"\1vo\2sja⁀", text) if adj else text
 
     # phonetic respellings
     for pattern, repl in phon_respellings.items():
         if isinstance(repl, str):
-            text = re.sub(pattern, repl, text)
+            text = sub(pattern, repl, text)
         else:
             text = re.compile(pattern).sub(repl, text)
 
@@ -1158,20 +1168,17 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         text = new_text
 
     # re-notate orthographic geminate consonants
-    text = re.sub(rf"([^{vow}.\-_])\1", r"\1ː", text)
-    text = re.sub(rf"([^{vow}.\-_])\(\1\)", r"\1(ː)", text)
+    text = sub2(rf"([^{vow}.\-_])\1", r"\1ː", text)
+    text = sub2(rf"([^{vow}.\-_])\(\1\)", r"\1(ː)", text)
 
     # rewrite iotated vowels
     text = re.compile(r"(j[\(ːˑ\)]*)([aeou])").sub(lambda match: match[1] + iotating[match[2]], text)
 
     # eliminate j after consonant and before iotated vowel (including semi-reduced ạ)
-    text = re.sub(rf"([^{vow}{acc}ʹʺ‿⁀ ]/?)j([äạëöü])", r"\1\2", text)
+    text = sub(rf"([^{vow}{acc}ʹʺ‿⁀ ]/?)j([äạëöü])", r"\1\2", text)
 
     # split by word and process each word
     word = text.split(" ")
-
-    if isinstance(pos, list) and len(pos) != len(word):
-        raise ValueError(f"Number of parts of speech ({len(pos)}) should match number of combined words ({len(word)})")
 
     for pron in word:
         # Check for gemination at prefix boundaries; if so, convert the
@@ -1182,8 +1189,8 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         # for geminate_pref).
         if "ː" in pron:
             orig_pron = orig_word[i]
-            deac = re.sub(accents, "", pron)
-            orig_deac = re.sub(accents, "", orig_pron)
+            deac = sub(accents, "", pron)
+            orig_deac = sub(accents, "", orig_pron)
             for newspell, oldspell in geminate_pref.items():
                 # FIXME! The re.sub below will be incorrect if there is
                 # gemination in a joined preposition or particle
@@ -1193,7 +1200,7 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
                     or re.search(f"⁀ne{oldspell}", orig_deac)
                     and re.search(f"⁀ne{newspell}", deac)
                 ):
-                    pron = re.sub(r"(⁀[^‿⁀ː]*)ː", r"\1ˑ", pron)
+                    pron = sub(r"(⁀[^‿⁀ː]*)ː", r"\1ˑ", pron)
 
         # degemination, optional gemination
         if gem == "y":
@@ -1203,13 +1210,13 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             pron = pron.replace("ˑ", "ː")
         elif gem == "o":
             # make geminates optional, except for ɕӂ, also ignore left paren in (ː) sequence
-            pron = re.sub(r"([^ɕӂ\(\)])[ːˑ]", r"\1(ː)", pron)
+            pron = sub(r"([^ɕӂ()])[ːˑ]", r"\1(ː)", pron)
         elif gem == "n":
             # remove gemination, except for ɕӂ
-            pron = re.sub(r"([^ɕӂ\(\)])[ːˑ]", r"\1", pron)
+            pron = sub(r"([^ɕӂ()])[ːˑ]", r"\1", pron)
         else:
             # degeminate l's
-            pron = re.sub(r"(l)ː", r"\1", pron)
+            pron = sub(r"(l)ː", r"\1", pron)
             # preserve gemination between vowels immediately after the stress,
             # special gemination symbol ˑ also remains, ɕӂ remain geminated,
             # žn remain geminated between vowels even not immediately after
@@ -1220,7 +1227,7 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             #: removing remaining ː not after ɕӂ and left paren;:
             # various subs repeatedly in case of multiple geminations in a word
             # 1. immediately after the stress
-            pron = sub_repeatedly(rf"({vowels}{accents}[^ɕӂ\(\)])ː({vowels})", r"\1ˑ\2", pron)
+            pron = sub_repeatedly(rf"({vowels}{accents}[^ɕӂ()])ː({vowels})", r"\1ˑ\2", pron)
 
             # 2. remaining geminate n after the stress between vowels
             pron = sub_repeatedly(rf"({AC}.-{vowels}{accents}?n)ː({vowels})", r"\1(ː)\2", pron)
@@ -1229,10 +1236,10 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             pron = sub_repeatedly(rf"({vowels}{accents}?[žn])ː({vowels})", r"\1ˑ\2", pron)
 
             # 4. ssk (and zsk, already normalized) immediately after the stress
-            pron = re.sub(rf"({vowels}{accents}[^{vow}]*s)ː(k)", r"\1ˑ\2", pron)
+            pron = sub(rf"({vowels}{accents}[^{vow}]*s)ː(k)", r"\1ˑ\2", pron)
 
             # 5. eliminate remaining gemination, except for ɕː and ӂː
-            pron = re.sub(r"([^ɕӂ\(\)])ː", r"\1", pron)
+            pron = sub(r"([^ɕӂ()])ː", r"\1", pron)
 
             # 6. convert special gemination symbol ˑ to regular gemination
             pron = pron.replace("ˑ", "ː")
@@ -1242,24 +1249,24 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         pron = pron.replace("ʹi", "ʹji")
 
         # 2. insert glottal stop after hard sign if required
-        pron = re.sub(r"ʺ([aɛiouy])", r"ʔ\1", pron)
+        pron = sub(r"ʺ([aɛiouy])", r"ʔ\1", pron)
 
         # 3. (ь) indicating optional palatalization
         pron = pron.replace(r"\(ʹ\)", "⁽ʲ⁾")
 
         # 4. assimilative palatalization of consonants when followed by
         #    front vowels or soft sign
-        pron = re.sub(r"([mnpbtdkgfvszxɣrl])([ː()]*[eiäạëöüʹ])", r"\1ʲ\2", pron)
-        pron = re.sub(r"([cĵ])([ː()]*[äạöüʹ])", r"\1ʲ\2", pron)
+        pron = sub(r"([mnpbtdkgfvszxɣrl])([ː()]*[eiäạëöüʹ])", r"\1ʲ\2", pron)
+        pron = sub(r"([cĵ])([ː()]*[äạöüʹ])", r"\1ʲ\2", pron)
 
         # 5. remove hard and soft signs
-        pron = re.sub(r"[ʹʺ]", "", pron)
+        pron = sub(r"[ʹʺ]", "", pron)
 
         # reduction of unstressed word-final -я, -е; but special-case
         # unstressed не, же. Final -я always becomes [ə]; final -е may
         # become [ə],e],ɪ] or [ɨ] depending on the part of speech and
         # the preceding consonants/vowels.
-        pron = re.sub(r"[äạ]⁀", "ə⁀", pron)
+        pron = sub(r"[äạ]⁀", "ə⁀", pron)
         pron = pron.replace("⁀nʲe⁀", "⁀nʲi⁀")
         pron = pron.replace("⁀že⁀", "⁀žy⁀")
 
@@ -1309,9 +1316,9 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         # has highly broken retraction code for vowel + [шжц] + е (but
         # not with accent on vowel!) before it that causes final -е in
         # this circumstance to become [ɨ], and a special hack for кое-.
-        # pron = re.sub(rf"{vowels_c}([cĵšžĉĝ][ː()]*)[eë]", r'\1\2ɛ', pron)
-        # pron = re.sub(rf"⁀ko({accents})jë⁀", r'⁀ko\1ji⁀', pron)
-        # pron = re.sub(r'[eë]⁀', 'ə⁀', pron)
+        # pron = sub(rf"{vowels_c}([cĵšžĉĝ][ː()]*)[eë]", r'\1\2ɛ', pron)
+        # pron = sub(rf"⁀ko({accents})jë⁀", r'⁀ko\1ji⁀', pron)
+        # pron = sub(r'[eë]⁀', 'ə⁀', pron)
 
         # retraction of е and и after цшж
         pron = re.compile(r"([cĵšžĉĝ][ː()]*)([ei])").sub(lambda match: match[1] + retracting[match[2]], pron)
@@ -1319,16 +1326,16 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         # syllabify, inserting @ at syllable boundaries
 
         # 1. insert @ after each vowel
-        pron = re.sub(rf"({vowels}{accents}?)", r"\1@", pron)
+        pron = sub(rf"({vowels}{accents}?)", r"\1@", pron)
 
         # 2. eliminate word-final @
-        pron = re.sub(r"@+⁀$", "⁀", pron)
+        pron = sub(r"@+⁀$", "⁀", pron)
 
         # 3. move @ forward directly before any ‿⁀, as long as at least one consonant follows that; we will move it across ‿⁀ later
-        pron = re.sub(rf"@([^@{vow}{acc}]*)([‿⁀]+[^‿⁀@{vow}{acc}])", r"\1@\2", pron)
+        pron = sub(rf"@([^@{vow}{acc}]*)([‿⁀]+[^‿⁀@{vow}{acc}])", r"\1@\2", pron)
 
         # 4. in a consonant cluster, move @ forward so it's before the last consonant
-        pron = re.sub(rf"@([^‿⁀@{vow}{acc}]*)([^‿⁀@{vow}{acc}ːˑ()ʲ]ʲ?[ːˑ()]*‿?[{vow}{acc}])", r"\1@\2", pron)
+        pron = sub(rf"@([^‿⁀@{vow}{acc}]*)([^‿⁀@{vow}{acc}ːˑ()ʲ]ʲ?[ːˑ()]*‿?[{vow}{acc}])", r"\1@\2", pron)
 
         # 5. move @ backward if in the middle of a "permanent onset" cluster,
         #   e.g. sk, str, that comes before a vowel, putting the @ before
@@ -1352,19 +1359,19 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             )
 
         # 7. remove @ followed by a final consonant cluster
-        pron = re.sub(rf"@([^‿⁀@{vow}]+⁀)$", r"\1", pron)
+        pron = sub(rf"@([^‿⁀@{vow}]+⁀)$", r"\1", pron)
 
         # 8. remove @ preceded by an initial consonant cluster (should only happen when / is inserted by user or in цз, чж sequences)
-        pron = re.sub(rf"^(⁀[^‿⁀@{vow}]+)@", r"\1", pron)
+        pron = sub(rf"^(⁀[^‿⁀@{vow}]+)@", r"\1", pron)
 
         # 9. make sure @ isn't directly before linking ‿⁀
-        pron = re.sub(r"@([‿⁀]+)", r"\1@", pron)
+        pron = sub(r"@([‿⁀]+)", r"\1@", pron)
 
         # handle word-initial unstressed o and a; note, vowels always
         # followed by at least one char because of word-final ⁀
         #: after syllabification because syllabification doesn't know
         # about ɐ as a vowel
-        pron = re.sub(rf"^⁀[ao]([^{acc}])", r"⁀ɐ\1", pron)
+        pron = sub(rf"^⁀[ao]([^{acc}])", r"⁀ɐ\1", pron, flags=re.MULTILINE)
 
         # split by syllable
         syllable = pron.split("@")
@@ -1380,8 +1387,8 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
                 # convert acute/grave/circumflex accent to appropriate
                 # IPA marker of primary/secondary/unmarked stress
                 alnum = 0
-                syl = re.sub(r"(.*)́", r"ˈ\1", syl)
-                syl = re.sub(r"(.*)̀", r"ˌ\1", syl)
+                syl = sub(r"(.*)́", r"ˈ\1", syl)
+                syl = sub(r"(.*)̀", r"ˌ\1", syl)
                 syl = syl.replace(CFLEX, "")
             elif stress[j + 1]:
                 alnum = 1
@@ -1394,7 +1401,7 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
         pron = "".join(syl_conv)
 
         # Optional (j) before ɪ, which is always unstressed
-        pron = re.sub(rf"([{ipa_vow}])jɪ", r"\1(j)ɪ", pron)
+        pron = sub(rf"([{ipa_vow}])jɪ", r"\1(j)ɪ", pron)
 
         # consonant assimilative palatalization of tn/dn/sn/zn, depending on whether [rl] precedes
         def matcher2(match: re.Match[str]) -> str:
@@ -1422,24 +1429,23 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
             pron = new_pron
 
         # further assimilation before alveolopalatals
-        pron = re.sub(r"n([ː()ˈˌ]*)([čǰɕӂ])", r"nʲ\1\2", pron)
+        pron = sub(r"n([ː()ˈˌ]*)([čǰɕӂ])", r"nʲ\1\2", pron)
 
         # optional palatal assimilation of вп, вб only word-initially
-        pron = re.sub(r"⁀([ː()ˈˌ]*[fv])([ː()ˈˌ]*[pb]ʲ)", r"⁀\1⁽ʲ⁾\2", pron)
+        pron = sub(r"⁀([ː()ˈˌ]*[fv])([ː()ˈˌ]*[pb]ʲ)", r"⁀\1⁽ʲ⁾\2", pron)
 
         # optional palatal assimilation of бв but not in обв-
-        pron = re.sub(r"b([ː()ˈˌ]*vʲ)", r"b⁽ʲ⁾\1", pron)
+        pron = sub(r"b([ː()ˈˌ]*vʲ)", r"b⁽ʲ⁾\1", pron)
         if re.search(rf"⁀o{accents}?bv", word[i]):
             # ə in case of a word with a preceding preposition
-            pron = re.sub(r"⁀([ː()ˈˌ]*[ɐəo][ː()ˈˌ]*)b⁽ʲ⁾([ː()ˈˌ]*vʲ)", r"⁀\1b\2", pron)
+            pron = sub(r"⁀([ː()ˈˌ]*[ɐəo][ː()ˈˌ]*)b⁽ʲ⁾([ː()ˈˌ]*vʲ)", r"⁀\1b\2", pron)
 
         if re.search(r"ls[äạ]⁀", word[i]):
             pron = pron.replace("lsʲə⁀", "ls⁽ʲ⁾ə⁀")
 
         word[i] = pron
 
-    text = " ".join(word)
-    text = "[" + text + "]"
+    text = f"[{' '.join(word)}]"
 
     # Front a and u between soft consonants. If between a soft and
     # optionally soft consonant (should only occur in that order, shouldn't
@@ -1448,7 +1454,7 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
     # happen to be multiple optionally fronted a's and u's to avoid
     # excessive numbers of possibilities (and it simplifies the code).
     # 1. First, temporarily add soft symbol to inherently soft consonants.
-    text = re.sub(r"([čǰɕӂj])", r"\1ʲ", text)
+    text = sub(r"([čǰɕӂj])", r"\1ʲ", text)
 
     # 2. Handle case of [au] between two soft consonants
     text = re.compile(r"(ʲ[ː()]*)([auʊ])([ˈˌ]?.ʲ)").sub(lambda match: match[1] + fronting[match[2]] + match[3], text)
@@ -1460,32 +1466,30 @@ def ipa(text: str, adj: str, gem: str, pos: str) -> str:
 
     # 4. Handle case of [au] between soft and optionally soft consonant
     if re.search(r"ʲ[ː()]*[auʊ][ˈˌ]?.⁽ʲ⁾", text):
-        opt_hard = re.sub(r"(ʲ[ː()]*)([auʊ])([ˈˌ]?.)⁽ʲ⁾", r"\1\2\3", text)
+        opt_hard = sub(r"(ʲ[ː()]*)([auʊ])([ˈˌ]?.)⁽ʲ⁾", r"\1\2\3", text)
         opt_soft = re.compile(r"(ʲ[ː()]*)([auʊ])([ˈˌ]?.)⁽ʲ⁾").sub(
             lambda match: match[1] + fronting[match[2]] + match[3] + "ʲ", text
         )
         text = f"{opt_hard}, {opt_soft}"
 
     # 5. Undo addition of soft symbol to inherently soft consonants.
-    text = re.sub(r"([čǰɕӂj])ʲ", r"\1", text)
+    text = sub(r"([čǰɕӂj])ʲ", r"\1", text)
 
     # convert special symbols to IPA
-    text = translate(text, translit_conv_j)
-    # text = re.sub(r"[cĵ]ʲ", translit_conv_j, text)
-    # text = re.sub(r"[cčgĉĝĵǰšžɕӂ]", translit_conv, text)
-    text = translate(text, translit_conv)
+    text = sub(r"[cĵ]ʲ", translit_conv_j, text)
+    text = sub(r"[cčgĉĝĵǰšžɕӂ]", translit_conv, text)
 
     # Assimilation involving hiatus of ɐ and ə
-    text = re.sub(r"ə([‿⁀]*)[ɐə]", r"ɐ\1ɐ", text)
+    text = sub(r"ə([‿⁀]*)[ɐə]", r"ɐ\1ɐ", text)
 
     # eliminate ⁀ symbol at word boundaries
     # eliminate _ symbol that prevents assimilations
-    text = re.sub(r"[⁀_]", "", text)
-    text = re.sub(r"j([^aæeiɵuʉ])", r"ɪ̯\1", text)
-    text = re.sub(r"j$", "ɪ̯", text)
-    text = re.sub(r"l([^ʲ])", r"ɫ\1", text)
-    text = re.sub(r"l$", "ɫ", text)
-    text = re.sub(r"([aæə])[()]ɪ̯[()]ɪsʲ$", r"\1ɪ̯əsʲ", text)
+    text = sub(r"[⁀_]", "", text)
+    text = sub(r"j([^aæeiɵuʉ])", r"ɪ̯\1", text)
+    text = sub(r"j$", "ɪ̯", text)
+    text = sub(r"l([^ʲ])", r"ɫ\1", text)
+    text = sub(r"l$", "ɫ", text)
+    text = sub(r"([aæə])[()]ɪ̯[()]ɪsʲ$", r"\1ɪ̯əsʲ", text)
 
     return text
 
