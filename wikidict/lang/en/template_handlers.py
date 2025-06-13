@@ -550,12 +550,11 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     is_female = data["g"] == "f"
     skip_female_prefix = data["gloss_is_gendered"]
     has_parenthesis = bool(data["t"])
-    a_person = any("<<" in part for part in parts[1:])
 
     if is_female:
         del data["g"]
 
-    phrase = "A " if a_person else ""
+    phrase = "A " if is_english else ""
     if is_female and not skip_female_prefix:
         phrase += "female "
     if t1 := data["t"]:
@@ -571,7 +570,7 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     phrase += "native or inhabitant of "
     sep, last_sep = (
         (", ", ", ")
-        if a_person
+        if is_english
         else ("; ", "; or ")
         if any("<t:" in part or "<w:" in part for part in parts[1:])
         else (", ", " or ")
