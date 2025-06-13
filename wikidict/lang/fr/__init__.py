@@ -438,6 +438,8 @@ templates_multi = {
     "sport": "term(capitalize(concat(parts, ' ', indexes=[0, 2])))",
     # {{superlatif de|petit|fr}}
     "superlatif de": "sentence(parts)",
+    # {{u|User}}
+    "u": "parts[1]",
     # {{wd|Q30092597|Frederick H. Pough}}
     "wd": "parts[2] if len(parts) == 3 else ''",
     # {{wsp|Panthera pardus|''Panthera pardus''}}
