@@ -165,7 +165,7 @@ class BaseFormat:
         self.start = monotonic()
         self.words_count = 0
         self.variants_count = 0
-        self.id = f"{type(self).__name__} {self.lang_src.upper()}-{self.lang_dst.upper()}"
+        self.id = f"{type(self).__name__} {self.lang_src.upper()}-{self.lang_dst.upper()} {'' if include_etymology else 'no'}etym"
 
         logging.basicConfig(level=logging.INFO)
         log.info(
@@ -290,6 +290,13 @@ class BaseFormat:
             timedelta(seconds=monotonic() - self.start),
         )
         self.compute_checksum(file)
+
+        log.info(
+            "[%s] Finished the conversion with %s words, and %s variants, as expected.",
+            self.id,
+            f"{len(self.words):,}",
+            f"{len(self.variants):,}",
+        )
 
 
 class KoboFormat(BaseFormat):
