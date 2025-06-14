@@ -259,8 +259,8 @@ def find_etymology(
 
     # Do not keep incomplete etymologies
     if lang_src in {"el", "ru"}:
-        useless = {"el": f"<b>{word}</b> &lt;", "ru": "Происходит от"}.get(lang_src)
-        etyms = [etym for etym in etyms if etym != useless]
+        useless = {"el": {f"<b>{word}</b> &lt;"}, "ru": {"??", "От", "Происходит от"}}.get(lang_src, set())
+        etyms = [etym for etym in etyms if etym not in useless]
 
     return etyms  # type: ignore[return-value]
 
