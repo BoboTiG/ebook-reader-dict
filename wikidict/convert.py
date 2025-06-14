@@ -12,6 +12,7 @@ import multiprocessing
 import os
 import shutil
 from collections import defaultdict
+from copy import deepcopy
 from datetime import date, timedelta
 from functools import partial
 from pathlib import Path
@@ -157,8 +158,8 @@ class BaseFormat:
     ) -> None:
         self.lang_src, self.lang_dst = utils.guess_locales(locale)
         self.output_dir = output_dir
-        self.words = words.copy()
-        self.variants = variants.copy()
+        self.words = words
+        self.variants = variants
         self.snapshot = snapshot
         self.include_etymology = include_etymology
         self.start = monotonic()
@@ -194,11 +195,10 @@ class BaseFormat:
         )
 
     def handle_word(self, word: str, words: Words) -> Generator[str]:
-        details = words[word]
+        details = deepcopy(words[word])
         current_words = {word: details}
         guess_prefix = utils.guess_prefix
         word_group_prefix = guess_prefix(word)
-        word_is_part_of_the_dict = False
 
         if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
             # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
@@ -211,12 +211,12 @@ class BaseFormat:
                 if root := self.words.get(variant):
                     current_words[variant] = root
 
-        all_variants = self.variants
         for current_word, current_details in sorted(current_words.items()):
             if not current_details.definitions:
                 continue
 
-            if variants := all_variants.get(current_word, []):
+            all_variants = self.variants
+            if variants := deepcopy(all_variants.get(current_word, [])):
                 # Add variants of empty* variant, only 1 redirection:
                 #   [ES] gastada* -> gastado* -> gastar --> (gastada, gastado) -> gastar
                 # Note: the process works backward: from gastar up to gastado up to gastada.
@@ -226,7 +226,7 @@ class BaseFormat:
                         and not wv.definitions
                         and (new_variants := all_variants.get(variant))
                     ):
-                        variants.extend(new_variant for new_variant in new_variants if new_variant != current_word)
+                        variants.extend(new_variants)
 
                 # Filter out variants:
                 #   - variants being identical to the word (it happens when altering `current_words`, cf [***])
@@ -235,16 +235,15 @@ class BaseFormat:
                 variants = [
                     variant
                     for variant in variants
-                    if variant != word and guess_prefix(variant) == current_word_group_prefix
+                    if variant != word
+                    and variant != current_word
+                    and guess_prefix(variant) == current_word_group_prefix
                 ]
 
                 if isinstance(self, KoboFormat):
                     # Variant must be normalized by trimming whitespace and lowercasing it
                     variants = [variant.lower().strip() for variant in variants]
 
-                self.variants_count += len(variants)
-
-            word_is_part_of_the_dict = True
             yield self.render_word(
                 self.template,
                 word=word,
@@ -258,14 +257,12 @@ class BaseFormat:
                 variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
             )
 
-        if word_is_part_of_the_dict:
-            self.words_count += 1
-
     def process(self) -> None:
         raise NotImplementedError()
 
-    @staticmethod
-    def render_word(template: Template, **kwargs: Any) -> str:
+    def render_word(self, template: Template, **kwargs: Any) -> str:
+        self.variants_count += len(kwargs["variants"])
+        self.words_count += 1
         return template.render(**kwargs)
 
     def compute_checksum(self, file: Path) -> None:
@@ -407,7 +404,7 @@ class KoboFormat(BaseFormat):
 
         # Save to uncompressed HTML
         raw_output = output_dir / f"{name}.raw.html"
-        data = "".join(line for word in words for line in self.handle_word(word, words))
+        data = "".join(line for word in words for line in self.handle_word(word, self.words))
         raw_output.write_text(data, encoding="utf-8")
 
         # Compress the HTML with gzip
@@ -432,7 +429,8 @@ class DictFileFormat(BaseFormat):
 
     def process(self) -> None:
         file = self.dictionary_file(self.output_file)
-        data = "".join(line for word in self.words for line in self.handle_word(word, self.words))
+        words = self.words
+        data = "".join(formatted_word for word in words for formatted_word in self.handle_word(word, words))
         file.write_text(data, encoding="utf-8")
 
         self.summary(file)
