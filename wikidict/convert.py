@@ -35,56 +35,54 @@ if TYPE_CHECKING:
 # Kobo-related dictionaries
 WORD_TPL_KOBO = Template(
     """\
-<w>
-    <p>
-        <a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}
-        <br/>
-        <br/>
-        <ol>
-            {% for definition in definitions %}
-                {% if definition is string %}
-                    <li>{{ definition }}</li>
-                {% else %}
-                    <ol style="list-style-type:lower-alpha">
-                        {% for sub_def in definition %}
-                            {% if sub_def is string %}
-                                <li>{{ sub_def }}</li>
-                            {% else %}
-                                <ol style="list-style-type:lower-roman">
-                                    {% for sub_sub_def in sub_def %}
-                                        <li>{{ sub_sub_def }}</li>
-                                    {% endfor %}
-                                </ol>
-                            {% endif %}
-                        {% endfor %}
-                    </ol>
-                {% endif %}
-            {% endfor %}
-        </ol>
-        {% if etymologies %}
-            {% for etymology in etymologies %}
-                {% if etymology is string %}
-                    <p>{{ etymology }}</p>
-                {% else %}
-                    <ol>
-                        {% for sub_etymology in etymology %}
-                            <li>{{ sub_etymology }}</li>
-                        {% endfor %}
-                    </ol>
-                {% endif %}
-            {% endfor %}
-            <br/>
-        {% endif %}
-    </p>
-    {% if variants %}
-        <var>
-        {%- for variant in variants -%}
-            <variant name="{{ variant }}"/>
+<w><p><a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/><ol>
+{%- for definition in definitions -%}
+    {%- if definition is string -%}
+        <li>{{ definition }}</li>
+    {%- else -%}
+        <ol style="list-style-type:lower-alpha">
+        {%- for sub_def in definition -%}
+            {%- if sub_def is string -%}
+                <li>{{ sub_def }}</li>
+            {%- else -%}
+                <ol style="list-style-type:lower-roman">
+                    {%- for sub_sub_def in sub_def -%}
+                        <li>{{ sub_sub_def }}</li>
+                    {%- endfor -%}
+                </ol>
+            {%- endif -%}
         {%- endfor -%}
-        </var>
-    {% endif %}
+        </ol>
+    {%- endif -%}
+{%- endfor -%}
+</ol>
+{%- if etymologies -%}
+    {%- for etymology in etymologies -%}
+        {%- if etymology is string -%}
+            <p>{{ etymology }}</p>
+        {%- else -%}
+            <ol>
+            {%- for sub_etymology in etymology -%}
+                <li>{{ sub_etymology }}</li>
+            {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+    <br/>
+{%- endif -%}
+</p>
+{%- if variants -%}
+    <var>
+    {%- for variant in variants -%}
+        <variant name="{{ variant }}"/>
+    {%- endfor -%}
+    </var>
+{%- endif -%}
 </w>
-"""
+""",
+    trim_blocks=True,
+    lstrip_blocks=True,
+    keep_trailing_newline=True,
 )
 
 # DictFile-related dictionaries
@@ -199,6 +197,7 @@ class BaseFormat:
         current_words = {word: details}
         guess_prefix = utils.guess_prefix
         word_group_prefix = guess_prefix(word)
+        word_is_part_of_the_dict = False
 
         if details.variants and any(guess_prefix(variant) != word_group_prefix for variant in details.variants):
             # [***] Variants are more like typos, or misses, and so devices expect word & variants to start with same letters, at least.
@@ -242,9 +241,9 @@ class BaseFormat:
                     # Variant must be normalized by trimming whitespace and lowercasing it
                     variants = [variant.lower().strip() for variant in variants]
 
-            self.words_count += 1
-            self.variants_count += len(variants)
+                self.variants_count += len(variants)
 
+            word_is_part_of_the_dict = True
             yield self.render_word(
                 self.template,
                 word=word,
@@ -258,12 +257,15 @@ class BaseFormat:
                 variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
             )
 
+        if word_is_part_of_the_dict:
+            self.words_count += 1
+
     def process(self) -> None:
         raise NotImplementedError()
 
     @staticmethod
     def render_word(template: Template, **kwargs: Any) -> str:
-        return "".join(line.strip() for line in template.render(**kwargs).splitlines()) + "\n"
+        return template.render(**kwargs)
 
     def compute_checksum(self, file: Path) -> None:
         checksum = hashlib.new(constants.ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
@@ -359,7 +361,7 @@ class KoboFormat(BaseFormat):
         wordlist: list[str] = []
         for prefix, words in self.groups.items():
             to_compress.append(self.save_html(prefix, words, tmp_dir))
-            wordlist.extend(word for word, details in words.items() if details.definitions)
+            wordlist.extend(words.keys())
 
         # Then create the special "words" file
         to_compress.append(self.craft_index(wordlist, tmp_dir))
@@ -433,10 +435,6 @@ class DictFileFormat(BaseFormat):
         file.write_text(data, encoding="utf-8")
 
         self.summary(file)
-
-    @staticmethod
-    def render_word(template: Template, **kwargs: Any) -> str:
-        return template.render(**kwargs)
 
 
 class DictFileFormatForMobi(DictFileFormat):
