@@ -164,11 +164,12 @@ class BaseFormat:
         self.start = monotonic()
         self.words_count = 0
         self.variants_count = 0
+        self.id = f"{type(self).__name__} {self.lang_src.upper()}-{self.lang_dst.upper()}"
 
         logging.basicConfig(level=logging.INFO)
         log.info(
             "[%s] Starting the conversion with %s words, and %s variants ...",
-            type(self).__name__,
+            self.id,
             f"{len(words):,}",
             f"{len(variants):,}",
         )
@@ -271,22 +272,22 @@ class BaseFormat:
         checksum = hashlib.new(constants.ASSET_CHECKSUM_ALGO, file.read_bytes()).hexdigest()
         checksum_file = file.with_suffix(f"{file.suffix}.{constants.ASSET_CHECKSUM_ALGO}")
         checksum_file.write_text(f"{checksum} {file.name}")
-        log.info("[%s] Crafted %s (%s)", type(self).__name__, checksum_file.name, checksum)
+        log.info("[%s] Crafted %s (%s)", self.id, checksum_file.name, checksum)
 
     def summary(self, file: Path) -> None:
         if type(self).__name__ in {KoboFormat.__name__, DictFileFormat.__name__}:
             log.info(
                 "[%s] Effective words + variants: %s + %s => %s",
-                type(self).__name__,
+                self.id,
                 f"{self.words_count:,}",
                 f"{self.variants_count:,}",
                 f"{self.words_count + self.variants_count:,}",
             )
-            log.info("[%s] utils.guess_prefix() %s", type(self).__name__, utils.guess_prefix.cache_info())
+            log.info("[%s] utils.guess_prefix() %s", self.id, utils.guess_prefix.cache_info())
 
         log.info(
             "[%s] Generated %s (%s bytes) in %s",
-            type(self).__name__,
+            self.id,
             file.name,
             f"{file.stat().st_size:,}",
             timedelta(seconds=monotonic() - self.start),
@@ -660,7 +661,7 @@ def run_mobi_formatter(
     stats = defaultdict(list)
     for word, details in words.copy().items():
         if len(word) > 127:
-            log.info("[Mobi] Truncated word too long: %r", word)
+            log.info("[Mobi %s] Truncated word too long: %r", locale.upper(), word)
             truncated = word[:127]
             words[truncated] = words.pop(word)
             word = truncated
@@ -671,7 +672,12 @@ def run_mobi_formatter(
         new_words = words.copy()
         threshold = 1
         while len(stats) > 256:
-            log.info("[Mobi] Removing words with unique characters count at %d (total is %d)", threshold, len(stats))
+            log.info(
+                "[Mobi %s] Removing words with unique characters count at %d (total is %d)",
+                locale.upper(),
+                threshold,
+                len(stats),
+            )
             for char, related_words in sorted(stats.copy().items(), key=lambda v: (char, len(v[1]))):
                 if len(related_words) == threshold:
                     for w in related_words:
@@ -682,7 +688,8 @@ def run_mobi_formatter(
             threshold += 1
 
         log.info(
-            "[Mobi] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            "[Mobi %s] Removed %s words from .mobi (total words count is %s, unique characters count is %d)",
+            locale.upper(),
             f"{len(words) - len(new_words):,}",
             f"{len(new_words):,}",
             len(stats),
@@ -691,7 +698,8 @@ def run_mobi_formatter(
         variants = make_variants(words)
     else:
         log.info(
-            "[Mobi] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            "[Mobi %s] Untouched words for .mobi (total words count is %s, unique characters count is %d)",
+            locale.upper(),
             f"{len(words):,}",
             len(stats),
         )
@@ -701,7 +709,7 @@ def run_mobi_formatter(
     try:
         run_formatter(MobiFormat, *args, include_etymology=include_etymology)
     except Exception:
-        log.exception("Error with the Mobi conversion")
+        log.exception("[Mobi %s] Error with the Mobi conversion", locale.upper())
 
 
 def run_formatter(
