@@ -217,7 +217,7 @@ def last_template_handler(
             text += f" ({parts[0]})"
         return italic(text)
 
-    if tpl == "аббр.":
+    if tpl in {"аббр.", "сокр."}:
         text = italic("сокр.")
         if len(parts) > 1:
             text += f" от {italic(parts[1])}"
