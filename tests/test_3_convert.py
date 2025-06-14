@@ -4,6 +4,7 @@ from unittest.mock import patch
 from zipfile import ZipFile
 
 import pytest
+from marisa_trie import Trie
 
 from wikidict import constants, convert
 from wikidict.constants import ASSET_CHECKSUM_ALGO
@@ -116,48 +117,96 @@ def test_simple() -> None:
     assert (output_dir / f"dict-fr-fr-noetym.zip.{ASSET_CHECKSUM_ALGO}").is_file()
 
     # Check the Kobo ZIP content
+    expected_files = [
+        "11.html",
+        constants.ZIP_INSTALL,
+        "aa.html",
+        "ac.html",
+        "ba.html",
+        "bo.html",
+        "ch.html",
+        "co.html",
+        "de.html",
+        "dj.html",
+        "du.html",
+        "ef.html",
+        "em.html",
+        "en.html",
+        "ge.html",
+        "gr.html",
+        "gè.html",
+        "ic.html",
+        "ko.html",
+        "mi.html",
+        "mu.html",
+        "na.html",
+        "pi.html",
+        "pr.html",
+        "ra.html",
+        "sa.html",
+        "si.html",
+        "sl.html",
+        "su.html",
+        "te.html",
+        "tu.html",
+        "ve.html",
+        "words",
+        constants.ZIP_WORDS_COUNT,
+        constants.ZIP_WORDS_SNAPSHOT,
+        "ép.html",
+        "œc.html",
+        "πa.html",
+    ]
+    expected_trie_keys = [
+        "-aux",
+        "-eresse",
+        "42",
+        "5E",
+        "Bogotanais",
+        "DES",
+        "Slovène",
+        "Turgeon",
+        "a",
+        "accueil",
+        "acrologie",
+        "barbe à papa",
+        "base",
+        "bath",
+        "chacune",
+        "colligeait",
+        "colliger",
+        "corollaires",
+        "corps portant",
+        "djed",
+        "dubitatif",
+        "effluve",
+        "employer",
+        "en",
+        "encyclopædie",
+        "geler",
+        "greffier",
+        "gèlent",
+        "ich",
+        "koro",
+        "minute",
+        "minuter",
+        "minutes",
+        "mutiner",
+        "naguère",
+        "pinyin",
+        "précepte",
+        "rance",
+        "sapristi",
+        "silicone",
+        "suis",
+        "tests-definitions",
+        "venoient",
+        "éperon",
+        "œcuménique",
+        "π",
+    ]
     with ZipFile(dicthtml) as fh:
-        expected = [
-            "11.html",
-            constants.ZIP_INSTALL,
-            "aa.html",
-            "ac.html",
-            "ba.html",
-            "bo.html",
-            "ch.html",
-            "co.html",
-            "de.html",
-            "dj.html",
-            "du.html",
-            "ef.html",
-            "em.html",
-            "en.html",
-            "ge.html",
-            "gr.html",
-            "gè.html",
-            "ic.html",
-            "ko.html",
-            "mi.html",
-            "mu.html",
-            "na.html",
-            "pi.html",
-            "pr.html",
-            "ra.html",
-            "sa.html",
-            "si.html",
-            "sl.html",
-            "su.html",
-            "te.html",
-            "tu.html",
-            "ve.html",
-            "words",
-            constants.ZIP_WORDS_COUNT,
-            constants.ZIP_WORDS_SNAPSHOT,
-            "ép.html",
-            "œc.html",
-            "πa.html",
-        ]
-        assert sorted(fh.namelist()) == expected
+        assert sorted(fh.namelist()) == expected_files
 
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
@@ -168,16 +217,21 @@ def test_simple() -> None:
         print(install_txt)
         assert install_txt.startswith(EXPECTED_INSTALL_TXT_FR)
 
+        # Check the trie
+        trie = Trie()
+        trie.map(fh.read("words"))
+        assert sorted(trie.keys()) == expected_trie_keys
+
     # Check the StarDict ZIP content
+    expected_files = [
+        "dict-data.dict.dz",
+        "dict-data.idx",
+        "dict-data.ifo",
+        "dict-data.syn",
+        "res/db28a816.gif",
+    ]
     with ZipFile(stardict) as fh:
-        expected = [
-            "dict-data.dict.dz",
-            "dict-data.idx",
-            "dict-data.ifo",
-            "dict-data.syn",
-            "res/db28a816.gif",
-        ]
-        assert sorted(fh.namelist()) == expected
+        assert sorted(fh.namelist()) == expected_files
 
         # testfile returns the name of the first corrupt file, or None
         errors = fh.testzip()
