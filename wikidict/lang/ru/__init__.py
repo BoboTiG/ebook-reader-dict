@@ -36,6 +36,7 @@ templates_ignored = (
     "gb",
     "etym-lang",
     "improve",
+    "КЭС-2",
     "L",
     "Lacuna",
     "l",
@@ -79,6 +80,8 @@ templates_multi = {
     "отн.": "f'относящийся к {parts[-1]}, связанный с ним'",
     # {{однокр.|глядеть}}
     "однокр.": "f'<i>однокр.</i> к {parts[1]}'",
+    # {{нкря|Неограниченные возможности|b4kB6}}
+    "нкря": "parts[1]",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
@@ -98,7 +101,9 @@ templates_other = {
     "мн.ч.": "<i>мн. ч.</i>",
     "мн. ч.": "<i>мн. ч.</i>",
     "телеком.": "<i>телеком.</i>",
+    "итд": "и т. д.",
     "фотогр. жарг.": "<i>фотогр. жарг.</i>",
+    "Даль": "<small>[Даль]</small>",
 }
 
 
@@ -194,6 +199,8 @@ def last_template_handler(
         '<i>зоол.</i>'
         >>> last_template_handler(["сленг", "ru"], "ru")
         '<i>сленг</i>'
+        >>> last_template_handler(["сленг.", "ru"], "ru")
+        '<i>сленг</i>'
         >>> last_template_handler(["гипокор.", "ru", "Александр"], "ru")
         '<i>гипокор.</i> к Александр'
         >>> last_template_handler(["эррат.", "ru", "Александр"], "ru")
@@ -228,7 +235,7 @@ def last_template_handler(
 
     data = extract_keywords_from(parts)
 
-    if tpl in {"рег.", "обл."}:
+    if tpl in {"рег.", "обл.", "местн."}:
         text = "рег."
         if parts:
             text += f" ({parts[0]})"
@@ -260,7 +267,7 @@ def last_template_handler(
             return tpl
         return f"{italic(f'{tpl} Б.-О.')} Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3."
 
-    if label := labels.get(tpl):
+    if label := (labels.get(tpl) or labels.get(tpl.rstrip("."))):
         if tpl == "умласк.":
             label = "уменьш.-ласк."
         text = italic(label)
