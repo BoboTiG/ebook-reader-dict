@@ -80,6 +80,8 @@ templates_multi = {
     "отн.": "f'относящийся к {parts[-1]}, связанный с ним'",
     # {{нкря|Неограниченные возможности|b4kB6}}
     "нкря": "parts[1]",
+    # {{прежде|Камбоджа}}
+    "прежде": "f'прежнее название {parts[0]}'",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
