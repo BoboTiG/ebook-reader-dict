@@ -270,6 +270,19 @@ def render_через(tpl: str, parts: list[str], data: defaultdict[str, str], *
     return f"от {text} {italic(parts[1])}"
 
 
+def render_однокр(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_однокр("однокр.", [], defaultdict(str))
+    '<i>однокр.</i>'
+    >>> render_однокр("однокр.", ["глядеть"], defaultdict(str))
+    '<i>однокр.</i> к глядеть'
+    """
+    text = "<i>однокр.</i>"
+    if parts:
+        text += f" к {parts[0]}"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -300,6 +313,7 @@ template_mapping = {
     "морфема": render_морфема,
     "отчество": render_отчество,
     "через": render_через,
+    "однокр.": render_однокр,
     #
     # Variants
     #
