@@ -86,6 +86,8 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     'зачин нем. Fahne add, add2 «знамя, знамя2, знамя3» (comment)'
     >>> render_lang("lang", ["de", "Fahne", "знамя"], defaultdict(str, {"скр": "1"}))
     'Fahne «знамя»'
+    >>> render_lang("lang", ["de", "Fahne", ""], defaultdict(str, {"скр": "1"}))
+    'Fahne'
     >>> render_lang("lang", ["ru", "зна́мя"], defaultdict(str, {}))
     'русск. зна́мя'
     >>> render_lang("lang", ["el"], defaultdict(str, {}))
@@ -105,7 +107,7 @@ def render_lang(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
         text += f" {add}"
     if add := data["add2"]:
         text += f" {add}"
-    if parts:
+    if parts := [p for p in parts if p]:
         text += f" «{', '.join(parts)}»"
     if comment := data["comment"]:
         text += f" ({comment})"

@@ -119,6 +119,7 @@ def test_parse_word(
             "{{этим-2|{{lang|en|AI|ИИ}}|{{lang|en|artificial intelligence|искусственный интеллект}}|[[тренер]]|{{lang|en|trainer|тренер}}}}",
             "англ. AI «ИИ» + тренер",
         ),
+        ("{{аффиксы|жить|в-|-ся}}", "жить с добавлением в-, -ся, далее"),
     ],
 )
 def test_process_templates(wikicode: str, expected: str) -> None:

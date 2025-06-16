@@ -82,6 +82,10 @@ templates_multi = {
     "нкря": "parts[1]",
     # {{прежде|Камбоджа}}
     "прежде": "f'прежнее название {parts[0]}'",
+    # {{razr|Кудряш}}
+    "razr": "f'<span style=\"letter-spacing:0.2em;margin-right:-0.2em;\">{parts[1]}<span>'",
+    # {{аффиксы|жить|в-|-ся}}
+    "аффиксы": "f'{parts[1]} с добавлением {\", \".join(parts[2:])}, далее '",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
@@ -104,6 +108,7 @@ templates_other = {
     "итд": "и т. д.",
     "фотогр. жарг.": "<i>фотогр. жарг.</i>",
     "Даль": "<small>[Даль]</small>",
+    "СРНГ": "<small>[СРНГ]</small>",
 }
 
 
