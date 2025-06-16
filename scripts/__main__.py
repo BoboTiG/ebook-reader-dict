@@ -1,8 +1,10 @@
 import os
 import subprocess
 import sys
+from datetime import timedelta
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
+from time import monotonic
 
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
 from ruff_api import FormatOptions, format_string
@@ -117,6 +119,7 @@ def main() -> int:
     elif "CI" in os.environ:
         processes = 2
 
+    start = monotonic()
     with ThreadPool(processes=processes) as pool:
         for _ in pool.starmap(process_script, tasks):
             pass
@@ -128,6 +131,8 @@ def main() -> int:
         print(error)
         print()
 
+    elapsed = timedelta(seconds=monotonic() - start)
+    print(f"Scripts synchronized in {elapsed}!")
     return len(errors)
 
 
