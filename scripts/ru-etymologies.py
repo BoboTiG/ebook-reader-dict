@@ -1,14 +1,13 @@
 import contextlib
-import os
 import sys
 import threading
+import time
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
 
 import requests
 from scripts_utils import get_soup
 
-FINISH_THE_JOB = os.getenv("CONTINUE") == "1"
 LOCK = threading.Lock()
 ROOT_URL = "https://ru.wiktionary.org"
 START_URL = f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии"
@@ -28,7 +27,7 @@ def process_page(page_url: str, etymologies: dict[str, str]) -> str:
         if (text := li.text).count(":") < 2:
             continue
 
-        if (key := text.split(":")[2]) in etymologies and FINISH_THE_JOB:
+        if (key := text.split(":")[2]) in etymologies:
             continue
 
         link = li.find("a")["href"]
@@ -38,13 +37,9 @@ def process_page(page_url: str, etymologies: dict[str, str]) -> str:
 
 
 def get_current_etymologies() -> dict[str, str]:
-    if not FINISH_THE_JOB:
-        return {}
-
     sys.path.insert(0, str(Path(__file__).parent.parent))
     from wikidict.lang.ru.etymologies import etymologies
 
-    assert etymologies
     return etymologies
 
 
@@ -52,13 +47,13 @@ next_page_url = START_URL
 etymologies = get_current_etymologies()
 
 # Get all URL to download
-with contextlib.suppress(requests.exceptions.HTTPError):
-    while next_page_url:
-        next_page_url = process_page(next_page_url, etymologies)
-    # Process additional pages
-    process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии_сложных_слов", etymologies)
-    process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии/gem-pro", etymologies)
-    process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии/trk-pro", etymologies)
+while next_page_url:
+    next_page_url = process_page(next_page_url, etymologies)
+
+# Process additional pages
+process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии_сложных_слов", etymologies)
+process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии/gem-pro", etymologies)
+process_page(f"{ROOT_URL}/wiki/Категория:Шаблоны_этимологии/trk-pro", etymologies)
 
 
 def download(key: str, url: str) -> None:
@@ -73,8 +68,16 @@ def download(key: str, url: str) -> None:
         etymologies[key] = content.text.strip()
 
 
-with contextlib.suppress(requests.exceptions.HTTPError), ThreadPool() as pool:
-    pool.starmap(download, etymologies.items())
+with ThreadPool() as pool:
+    iteration = 1
+    while iteration < 5:
+        with contextlib.suppress(requests.exceptions.HTTPError):
+            pool.starmap(download, etymologies.items())
+        if any(value.startswith("http") for value in etymologies.values()):
+            time.sleep(5)
+        else:
+            break
+        iteration += 1
 
 print("etymologies = {")
 for key, value in sorted(etymologies.items()):

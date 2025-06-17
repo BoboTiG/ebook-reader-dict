@@ -9,8 +9,6 @@ from time import monotonic
 # TODO: Use the official API after https://github.com/astral-sh/ruff/issues/659 is done
 from ruff_api import FormatOptions, format_string
 
-FINISH_THE_JOB = os.getenv("CONTINUE") == "1"
-
 FILES = {
     "all-namespaces.py": "wikidict/namespaces.py",
     "ca-labels.py": "wikidict/lang/ca/labels.py",
@@ -48,16 +46,11 @@ FILES = {
     "pt-gramatica.py": "wikidict/lang/pt/gramatica.py",
     "pt-langs.py": "wikidict/lang/pt/langs.py",
     "ru-labels.py": "wikidict/lang/ru/labels.py",
+    "ru-etymologies.py": "wikidict/lang/ru/etymologies.py",
     "ru-langs.py": "wikidict/lang/ru/langs.py",
     "ru-langs-short.py": "wikidict/lang/ru/langs_short.py",
     "sv-langs.py": "wikidict/lang/sv/langs.py",
 }
-
-if FINISH_THE_JOB:
-    FILES = {
-        # Too big, run it from time to time only
-        "ru-etymologies.py": "wikidict/lang/ru/etymologies.py",
-    }
 
 # En error will be raised when the percentage of deletions from the new content
 # compared to the original content is higher than this percent.
