@@ -2095,7 +2095,7 @@ labels = {
     "parasitology": "parasitology",
     "part of speech": "grammar",
     "participle": "participle",
-    "particle": "physics",
+    "particle": "particle physics",
     "particle physics": "particle physics",
     "particularly": "particularly",
     "partitive verb": "transitive, usually atelic",
@@ -2264,6 +2264,7 @@ labels = {
     "regal": "royal",
     "regex": "regular expressions",
     "regional": "regional",
+    "regionally": "regional",
     "regular expressions": "regular expressions",
     "relational": "relational",
     "relatively": "relatively",
@@ -2652,7 +2653,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,647
+}  # 2,648
 
 syntaxes = {
     "&": {

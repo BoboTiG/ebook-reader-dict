@@ -507,7 +507,7 @@ langs = {
     "ig": "Ibo",
     "igs": "Glosa",
     "ii": "Yi",
-    "iir-pro": "Protoindo-iraniano",
+    "iir-pro": "Protoindoiraniano",
     "ik": "Inupiaque",
     "ikt": "Inuinnaqtun",
     "ikz": "Ikizo",
@@ -515,7 +515,6 @@ langs = {
     "ilo": "Ilocano",
     "ilu": "Iliun",
     "ilw": "Talur",
-    "inc-pro": "Protoindo-ariano",
     "ine": "Indo-europeu",
     "ine-bsl-pro": "Protobalto-eslávico",
     "ine-pro": "Protoindo-europeu",
@@ -1497,5 +1496,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,492
+}  # 1,491
 # END

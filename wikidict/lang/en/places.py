@@ -4692,6 +4692,7 @@ recognized_qualifiers = {
     "landlocked": "landlocked",
     "large": "large",
     "left": "left",
+    "legendary": "legendary",
     "limestone": "limestone",
     "logging": "logging",
     "long": "long",
@@ -4754,7 +4755,7 @@ recognized_qualifiers = {
     "west": "west",
     "western": "western",
     "winter": "winter",
-}  # 104
+}  # 105
 
 recognized_placenames = {
     "administrative territory/Azad Jammu and Kashmir": {"article": "", "display": "Azad Kashmir"},
@@ -4823,6 +4824,7 @@ recognized_placenames = {
     "city/Mwanza City": {"article": "", "display": "Mwanza"},
     "city/Merida": {"article": "", "display": "Mérida"},
     "city/Ndjamena": {"article": "", "display": "N'Djamena"},
+    "city/New Taipei": {"article": "", "display": "New Taipei City"},
     "city/Pimpri Chinchwad": {"article": "", "display": "Pimpri-Chinchwad"},
     "city/Oporto": {"article": "", "display": "Porto"},
     "city/Poznan": {"article": "", "display": "Poznań"},
@@ -4935,6 +4937,7 @@ recognized_placenames = {
     "municipality/Danang": {"article": "", "display": "Da Nang"},
     "municipality/Hai Phong": {"article": "", "display": "Haiphong"},
     "municipality/Huế": {"article": "", "display": "Hue"},
+    "municipality/New Taipei": {"article": "", "display": "New Taipei City"},
     "oblast/Jewish Autonomous Oblast": {"article": "the", "display": "Jewish Autonomous Oblast"},
     "oblast/Kiev": {"article": "", "display": "Kyiv"},
     "oblast/Kiev Oblast": {"article": "", "display": "Kyiv Oblast"},
@@ -5062,6 +5065,7 @@ recognized_placenames = {
     "republic/Yakutiya (display as Yakutia)": {"article": "", "display": "Sakha"},
     "republic/Tyva": {"article": "", "display": "Tuva"},
     "republic/Tyva Republic (display as Tuva Republic)": {"article": "", "display": "Tuva"},
+    "special municipality/New Taipei": {"article": "", "display": "New Taipei City"},
     "state/Federal Capital Territory": {"article": "the", "display": "Federal Capital Territory"},
     "state/Mecklenburg-Western Pomerania": {"article": "", "display": "Mecklenburg-Vorpommern"},
     "state/Michoacan": {"article": "", "display": "Michoacán"},
@@ -5121,5 +5125,5 @@ recognized_placenames = {
     "voivodeship/Świętokrzyskie Voivodeship": {"article": "", "display": "Holy Cross Voivodeship"},
     "voivodeship/Łódź": {"article": "", "display": "Lodz"},
     "voivodeship/Łódź Voivodeship": {"article": "", "display": "Lodz Voivodeship"},
-}  # 331
+}  # 334
 # END

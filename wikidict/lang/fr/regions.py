@@ -631,6 +631,7 @@ regions = {
     "RDCongo": "Congo-Kinshasa",
     "RS": "Serbie",
     "RTCN": "Chypre du Nord",
+    "RU": "Russie",
     "RU-SE": "Ossétie du Nord",
     "Ramerupt": "Ramerupt",
     "Ramonchamp": "Ramonchamp",
@@ -855,5 +856,5 @@ regions = {
     "Îles Salomon": "Îles Salomon",
     "Îles d’Aran": "Îles d'Aran",
     "Îles-de-la-Madeleine": "Îles-de-la-Madeleine",
-}  # 850
+}  # 851
 # END
