@@ -48,6 +48,7 @@ templates_ignored = (
     "Категория",
     "длина слова",
     "из",
+    "Шанский",
 )
 
 # Templates more complex to manage.
@@ -86,30 +87,58 @@ templates_multi = {
     "razr": "f'<span style=\"letter-spacing:0.2em;margin-right:-0.2em;\">{parts[1]}<span>'",
     # {{аффиксы|жить|в-|-ся}}
     "аффиксы": "f'{parts[1]} с добавлением {\", \".join(parts[2:])}, далее '",
+    # {{fonts|Πίστιος}}
+    "fonts": "parts[1]",
+    # {{Cyrs|аблъко}}
+    "Cyrs": "parts[1]",
+    # {{^|183}}
+    "^": "f'<sup>{parts[1]}</sup>'",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
+templates_multi["Script/Slavonic"] = templates_multi["Cyrs"]
 templates_multi["то же"] = templates_multi["="]
+templates_multi["ссылки"] = templates_multi["aslinks"]
 
 # Templates that will be completed/replaced using custom text.
 templates_other = {
     "?": "<small>?</small>",
     "-": "—",
     "--": "—",
+    "f": "<i>ж.</i>",
+    "nobr": "&nbsp;",
     "Ф": "<small>Использованы данные словаря М. Фасмера</small>",
     "Нужен перевод": "<b>Значение этого слова или выражения пока не указано.</b> Вы можете предложить свой вариант.",
     "советск.": "<i>советск.</i>",
     "итп": "и т. п.",
-    "мн": "<i>мн. ч.</i>",
-    "мн.": "<i>мн. ч.</i>",
-    "мн.ч.": "<i>мн. ч.</i>",
     "мн. ч.": "<i>мн. ч.</i>",
     "телеком.": "<i>телеком.</i>",
     "итд": "и т. д.",
     "фотогр. жарг.": "<i>фотогр. жарг.</i>",
+    "букв.": "<i>букв.</i>",
+    "воен. жарг.": "<i>воен. жарг.</i>",
+    "жарг. комп. игр.": "<i>жарг. комп. игр.</i>",
+    "жарг. нарк.": "<i>жарг. нарк.</i>",
+    "метоним.": "<i>метоним.</i>",
+    "животн.": "<i>животн.</i>",
+    "гидротехн.": "<i>гидротехн.</i>",
+    "жарг. аним.": "<i>жарг. аним.</i>",
+    "ислам.": "<i>ислам.</i>",
+    "стомат.": "<i>стомат.</i>",
+    "ж.-д.": "<i>ж.-д.</i>",
+    "конев.": "<i>конев.</i>",
     "Даль": "<small>[Даль]</small>",
     "СРНГ": "<small>[СРНГ]</small>",
+    "по": "Норвежский<sub>no</sub>",
+    "сравни": "cp.",
 }
+templates_other["мн"] = templates_other["мн. ч."]
+templates_other["мн."] = templates_other["мн. ч."]
+templates_other["мн.ч."] = templates_other["мн. ч."]
+templates_other["ЖД"] = templates_other["ж.-д."]
+templates_other["комп. игр. жарг."] = templates_other["жарг. комп. игр."]
+templates_other["нарк."] = templates_other["жарг. нарк."]
+templates_other["ж."] = templates_other["f"]
 
 
 # Release content on GitHub
@@ -217,7 +246,6 @@ def last_template_handler(
         '<i>Унбегаун Б.-О.</i> Русские фамилии. — М. : Прогресс, 1989. — 443 с. — ISBN 5-01-001045-3.'
         >>> last_template_handler(["Унбегаун", "сокр=1"], "ru")
         'Унбегаун'
-
     """
     from ...user_functions import extract_keywords_from, italic
     from .. import defaults

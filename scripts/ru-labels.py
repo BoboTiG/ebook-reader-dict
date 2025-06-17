@@ -15,6 +15,9 @@ for line in content.splitlines():
 
 # Missing aliases
 labels["субст."] = labels["субстантивир."]
+labels["адъект."] = labels["адъектив."]
+labels["библ."] = labels["библейск."]
+labels["ген."] = labels["генет."]
 
 print("labels = {")
 for key, value in sorted(labels.items()):
