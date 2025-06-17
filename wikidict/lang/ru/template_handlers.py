@@ -303,6 +303,19 @@ def render_однокр(tpl: str, parts: list[str], data: defaultdict[str, str],
     return text
 
 
+def render_прист_СИ(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_прист_СИ("прист-СИ", ["д", "18"], defaultdict(str))
+    'дольной единицы измерения, составляющей 1/10<sup>18</sup> от исходной единицы'
+    >>> render_прист_СИ("прист-СИ", ["к", "18"], defaultdict(str))
+    'кратной единицы измерения, составляющей 10<sup>18</sup> от исходной единицы'
+    """
+    text = ("дольной" if parts[0] == "д" else "кратной") + " единицы измерения, составляющей "
+    text += f"1/10<sup>{parts[1]}</sup>" if parts[0] == "д" else f"10<sup>{parts[1]}</sup>"
+    text += " от исходной единицы"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -334,6 +347,7 @@ template_mapping = {
     "отчество": render_отчество,
     "через": render_через,
     "однокр.": render_однокр,
+    "прист-СИ": render_прист_СИ,
     #
     # Variants
     #

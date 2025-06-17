@@ -33,14 +33,17 @@ variant_templates = ("{{прич.",)
 # Some definitions are not good to keep
 templates_ignored = (
     "??",
-    "gb",
+    "DEFAULTSORT",
     "etym-lang",
+    "gb",
     "improve",
     "КЭС-2",
     "L",
-    "Lacuna",
     "l",
+    "Lacuna",
     "lacuna",
+    "ngram ru",
+    "OED",
     "unfinished",
     "семантика",
     "пример",
@@ -57,9 +60,27 @@ templates_multi = {
     '"': 'f"„{parts[1]}“"',
     # {{=|Атлант}}
     "=": 'f"то же, что {parts[1]}"',
+    # {{^|183}}
+    "^": "f'<sup>{parts[1]}</sup>'",
     # {{aslinks|время, времечко; временами, временно (во избежание); время от времени|,;|1}}
     # {{aslinks|выезжать#I}}
     "aslinks": "parts[1].split('#', 1)[0]",
+    # {{comment|РФ|Российская Федерация|Россия}}
+    "comment": "f'{parts[1]}&nbsp;({parts[-1]})'",
+    # {{Cyrs|аблъко}}
+    "Cyrs": "parts[1]",
+    # {{razr|Кудряш}}
+    "razr": "f'<span style=\"letter-spacing:0.2em;margin-right:-0.2em;\">{parts[1]}<span>'",
+    # {{fonts|Πίστιος}}
+    "fonts": "parts[1]",
+    # {{red|♦}}
+    "red": "f'<span style=\"color:red;\">{parts[1]}</span>'",
+    # {{sla-pro|*desnъ}}
+    "sla-pro": "f'праслав. {parts[1]}'",
+    # {{verb-dir|verb}}
+    "verb-dir": "f'(о движении, совершаемом однократно или в определённом направлении, в отличие от сходного по смыслу гл. {parts[1]})'",
+    # {{verb-dir-n|verb}}
+    "verb-dir-n": "f'(о движении, совершаемом неоднократно или не в определённом направлении, в отличие от сходного по смыслу гл. {parts[1]})'",
     # {{wikiref|совершенный вид}}
     "wikiref": "parts[-1]",
     # {{кс|Унбегаун, с. 44}}
@@ -83,20 +104,15 @@ templates_multi = {
     "нкря": "parts[1]",
     # {{прежде|Камбоджа}}
     "прежде": "f'прежнее название {parts[0]}'",
-    # {{razr|Кудряш}}
-    "razr": "f'<span style=\"letter-spacing:0.2em;margin-right:-0.2em;\">{parts[1]}<span>'",
     # {{аффиксы|жить|в-|-ся}}
     "аффиксы": "f'{parts[1]} с добавлением {\", \".join(parts[2:])}, далее '",
-    # {{fonts|Πίστιος}}
-    "fonts": "parts[1]",
-    # {{Cyrs|аблъко}}
-    "Cyrs": "parts[1]",
-    # {{^|183}}
-    "^": "f'<sup>{parts[1]}</sup>'",
+    # {{результат|lang=ru|блевать}}
+    "результат": "f'результат действия по знач. гл. {next(p for p in parts[1:] if \"=\" not in p)}'",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
 templates_multi["Script/Slavonic"] = templates_multi["Cyrs"]
+templates_multi["script/Slavonic"] = templates_multi["Cyrs"]
 templates_multi["то же"] = templates_multi["="]
 templates_multi["ссылки"] = templates_multi["aslinks"]
 
@@ -105,12 +121,16 @@ templates_other = {
     "?": "<small>?</small>",
     "-": "—",
     "--": "—",
+    "--+": "→",
     "f": "<i>ж.</i>",
+    "m": "<i>м.</i>",
+    "n": "<i>cp.</i>",
     "nobr": "&nbsp;",
     "Ф": "<small>Использованы данные словаря М. Фасмера</small>",
     "Нужен перевод": "<b>Значение этого слова или выражения пока не указано.</b> Вы можете предложить свой вариант.",
     "советск.": "<i>советск.</i>",
     "итп": "и т. п.",
+    "втч": "в т. ч.",
     "мн. ч.": "<i>мн. ч.</i>",
     "телеком.": "<i>телеком.</i>",
     "итд": "и т. д.",
@@ -127,10 +147,25 @@ templates_other = {
     "стомат.": "<i>стомат.</i>",
     "ж.-д.": "<i>ж.-д.</i>",
     "конев.": "<i>конев.</i>",
+    "пчел.": "<i>пчел.</i>",
+    "винод.": "<i>винод.</i>",
+    "эл.-техн.": "<i>эл.-техн.</i>",
+    "несов.": "<i>несов.</i>",
+    "сов.": "<i>сов.</i>",
+    "арест.": "<i>арест.</i>",
+    "гистол.": "<i>гистол.</i>",
+    "частич.": "<i>частич.</i>",
+    "радиоэл.": "<i>радиоэл.</i>",
+    "с.-х.": "<i>с.-х.</i>",
+    "жарг. ЛГБТК+": "<i>жарг. ЛГБТК+</i>",
+    "спорт. жарг.": "<i>спорт. жарг.</i>",
+    "филос.": "<i>филос.</i>",
+    "патет.": "<i>патет.</i>",
+    "радио.": "<i>радио.</i>",
     "Даль": "<small>[Даль]</small>",
     "СРНГ": "<small>[СРНГ]</small>",
     "по": "Норвежский<sub>no</sub>",
-    "сравни": "cp.",
+    "звукоподр": "звукоподражательное",
 }
 templates_other["мн"] = templates_other["мн. ч."]
 templates_other["мн."] = templates_other["мн. ч."]
@@ -139,6 +174,11 @@ templates_other["ЖД"] = templates_other["ж.-д."]
 templates_other["комп. игр. жарг."] = templates_other["жарг. комп. игр."]
 templates_other["нарк."] = templates_other["жарг. нарк."]
 templates_other["ж."] = templates_other["f"]
+templates_other["электр."] = templates_other["эл.-техн."]
+templates_other["жарг. ЛГБТ"] = templates_other["жарг. ЛГБТК+"]
+templates_other["жсравни"] = templates_other["n"]
+templates_other["сельхоз."] = templates_other["с.-х."]
+templates_other["философ."] = templates_other["филос."]
 
 
 # Release content on GitHub
