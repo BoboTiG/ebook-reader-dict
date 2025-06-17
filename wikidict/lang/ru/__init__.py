@@ -44,7 +44,11 @@ templates_ignored = (
     "lacuna",
     "ngram ru",
     "OED",
+    "offensive",
+    "offensive-inline",
     "unfinished",
+    "wikipedia",
+    "Цитата",
     "семантика",
     "пример",
     "помета.",
@@ -52,6 +56,13 @@ templates_ignored = (
     "длина слова",
     "из",
     "Шанский",
+    "Виноградов",
+    "русские приставки",
+    "Крылов",
+    "перев-блок",
+    "Аникин",
+    "Ушаков1940",
+    "Крысин",
 )
 
 # Templates more complex to manage.
@@ -108,13 +119,21 @@ templates_multi = {
     "аффиксы": "f'{parts[1]} с добавлением {\", \".join(parts[2:])}, далее '",
     # {{результат|lang=ru|блевать}}
     "результат": "f'результат действия по знач. гл. {next(p for p in parts[1:] if \"=\" not in p)}'",
+    # {{праиндоеврокорень|foo}}
+    "праиндоеврокорень": "f'происходит от праиндоевропейского корня {parts[1]}'",
+    # {{шаблон|wikify}}
+    "Шаблон": "parts[1]",
+    # {{числ.|42}}
+    "числ.": "f'ппорядковое числительное к {parts[1]}'",
 }
 templates_multi["&quot;"] = templates_multi['"']
 templates_multi["==="] = templates_multi["="]
 templates_multi["Script/Slavonic"] = templates_multi["Cyrs"]
 templates_multi["script/Slavonic"] = templates_multi["Cyrs"]
+templates_multi["template"] = templates_multi["Шаблон"]
 templates_multi["то же"] = templates_multi["="]
 templates_multi["ссылки"] = templates_multi["aslinks"]
+templates_multi["ш"] = templates_multi["Шаблон"]
 
 # Templates that will be completed/replaced using custom text.
 templates_other = {
@@ -137,6 +156,7 @@ templates_other = {
     "фотогр. жарг.": "<i>фотогр. жарг.</i>",
     "букв.": "<i>букв.</i>",
     "воен. жарг.": "<i>воен. жарг.</i>",
+    "скорн.": "<i>скорн.</i>",
     "жарг. комп. игр.": "<i>жарг. комп. игр.</i>",
     "жарг. нарк.": "<i>жарг. нарк.</i>",
     "метоним.": "<i>метоним.</i>",
@@ -162,11 +182,36 @@ templates_other = {
     "филос.": "<i>филос.</i>",
     "патет.": "<i>патет.</i>",
     "радио.": "<i>радио.</i>",
+    "бизн.": "<i>бизн.</i>",
+    "экспр.": "<i>экспр.</i>",
+    "экзот.": "<i>экзот.</i>",
+    "неуп.": "<i>энеуп.</i>",
+    "палеонт.": "<i>палеонт.</i>",
+    "журн.": "<i>журн.</i>",
+    "лимн.": "<i>лимн.</i>",
+    "транс.": "<i>транс.</i>",
+    "кожев.": "<i>кожев.</i>",
+    "возвр.": "<i>возвр.</i>",
+    "педагог.": "<i>педагог.</i>",
+    "шашечн.": "<i>шашечн.</i>",
+    "тур.": "<i>тур.</i>",
+    "смягчит.": "<i>смягчит.</i>",
+    "кинемат. жарг.": "<i>кинемат. жарг.</i>",
+    "вексил.": "<i>вексил.</i>",
+    "техн. жарг.": "<i>техн. жарг.</i>",
+    "растен.": "<i>растен.</i>",
     "Даль": "<small>[Даль]</small>",
     "СРНГ": "<small>[СРНГ]</small>",
+    "ССРЛЯ-2": "<small>[ССРЛЯ]</small>",
+    "НКРЯ": "<small>[НКРЯ]</small>",
+    "Академия": "<small>[Академия]</small>",
     "по": "Норвежский<sub>no</sub>",
     "звукоподр": "звукоподражательное",
+    "прагерм": "прагерм., от которой в числе прочего произошли:",
+    "общеслав": "общеслав. формы",
 }
+templates_other["ср."] = templates_other["n"]
+templates_other["м."] = templates_other["m"]
 templates_other["мн"] = templates_other["мн. ч."]
 templates_other["мн."] = templates_other["мн. ч."]
 templates_other["мн.ч."] = templates_other["мн. ч."]
@@ -176,9 +221,15 @@ templates_other["нарк."] = templates_other["жарг. нарк."]
 templates_other["ж."] = templates_other["f"]
 templates_other["электр."] = templates_other["эл.-техн."]
 templates_other["жарг. ЛГБТ"] = templates_other["жарг. ЛГБТК+"]
+templates_other["жарг. гом."] = templates_other["жарг. ЛГБТК+"]
 templates_other["жсравни"] = templates_other["n"]
 templates_other["сельхоз."] = templates_other["с.-х."]
 templates_other["философ."] = templates_other["филос."]
+templates_other["экспресс."] = templates_other["экспр."]
+templates_other["палеонтол."] = templates_other["палеонт."]
+templates_other["част."] = templates_other["частич."]
+templates_other["аним. жарг."] = templates_other["жарг. аним."]
+templates_other["тех. жарг."] = templates_other["техн. жарг."]
 
 
 # Release content on GitHub
