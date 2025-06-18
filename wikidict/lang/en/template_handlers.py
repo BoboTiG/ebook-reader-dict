@@ -2081,6 +2081,9 @@ def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
+    >>> render_variant("en-archaic third-person singular of", ["verb"], defaultdict(str))
+    'verb'
+
     >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str), word="humans")
     'human'
     >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str, {"1": "en", "2": "human", "3": "", "4": "s-verb-form"}), word="humans")
@@ -2091,6 +2094,9 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     >>> render_variant("plural of", ["en", "woman"], defaultdict(str, {"t": "some precious information"}), word="women")
     ''
     """
+    if "en-archaic" in tpl:
+        return parts[0]
+
     # {{plural of|t=...}} contains valuable information, it would be a waste redirecting to a variant
     if data["t"]:
         return ""

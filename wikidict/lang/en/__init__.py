@@ -53,6 +53,7 @@ variant_templates = (
     "{{altform",
     "{{alt form of",
     "{{alternative plural of",
+    "{{en-archaic",
     "{{female equivalent of",
     "{{feminine equivalent of",
     "{{femeq",
@@ -180,14 +181,8 @@ templates_multi = {
     "color panel": "color(parts[-1])",
     # {{defdate|from 15th c.}}
     "defdate": "small('[' + parts[1] + (f'–{parts[2]}' if len(parts) > 2 else '') + ']')",
-    # {{en-archaic third-person singular of|term}}
-    "en-archaic third-person singular of": "italic('(archaic) third-person singular simple present indicative form of') + f' {strong(parts[1])}'",
     # {{en-comparative of|term}}
     "en-comparative of": "italic('comparative form of') + f' {strong(parts[1])}' + ': more ' + parts[1]",
-    # {{en-archaic second-person singular of|term}}
-    "en-archaic second-person singular of": "italic('(archaic) second-person singular simple present form of') + f' {strong(parts[1])}'",
-    # {{en-archaic second-person singular past of|term}}
-    "en-archaic second-person singular past of": "italic('(archaic) second-person singular simple past form of') + f' {strong(parts[1])}'",
     # {{en-superlative of|Brummie}}
     "en-superlative of": "f\"{italic('superlative form of')} {strong(parts[1])}: most {parts[1]}\"",
     # {{from|en|-er|id=Oxford}}
@@ -427,15 +422,8 @@ def last_template_handler(
         lang = data["1"] or (parts.pop(0) if parts else "")
         word = data["2"] or (parts.pop(0) if parts else "")
 
-        # form is the only one to be a bit different
-        if tpl == "form of":
-            starter = f"{word} of" if word else "form of"
-            word = data["3"] or (parts.pop(0) if parts else "")
-            text = data["4"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["gloss"] or data["5"] or (parts.pop(0) if parts else "")
-        else:
-            text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
-            gloss = data["t"] or data["gloss"] or data["4"] or (parts.pop(0) if parts else "")
+        text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
+        gloss = data["t"] or data["gloss"] or data["4"] or (parts.pop(0) if parts else "")
         word = text or word
         if word.startswith("w:"):
             word = word[2:]
