@@ -2091,15 +2091,9 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
     >>> render_variant("plural of", ["en", "woman"], defaultdict(str), word="women")
     'woman'
-    >>> render_variant("plural of", ["en", "woman"], defaultdict(str, {"t": "some precious information"}), word="women")
-    ''
     """
     if "en-archaic" in tpl:
         return parts[0]
-
-    # {{plural of|t=...}} contains valuable information, it would be a waste redirecting to a variant
-    if data["t"]:
-        return ""
 
     return data["2"] or parts[1]
 

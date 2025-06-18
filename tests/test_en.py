@@ -341,7 +341,7 @@ from wikidict.utils import process_templates
                 '<i>(slang)</i> Truth, indeed, that is the truth! The shortened form of the statement "My word is my bond."',
                 "<i>(slang, emphatic, stereotypically, African-American Vernacular)</i> An abbreviated form of <i>word up</i>; a statement of the acknowledgment of fact with a hint of nonchalant approval.",
             ],
-            [],
+            ["worth"],
         ),
     ],
 )
