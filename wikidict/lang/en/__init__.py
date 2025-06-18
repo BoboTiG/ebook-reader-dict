@@ -41,6 +41,7 @@ sections = (
 # Variants
 variant_titles = (
     "noun",
+    "pronoun",
     "verb",
 )
 variant_templates = (
