@@ -2092,7 +2092,7 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     ''
     """
     # {{plural of|t=...}} contains valuable information, it would be a waste redirecting to a variant
-    if tpl.endswith("plural of") and data["t"]:
+    if data["t"]:
         return ""
 
     return data["2"] or parts[1]
