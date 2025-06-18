@@ -39,11 +39,7 @@ sections = (
 )
 
 # Variants
-variant_titles = (
-    "noun",
-    "pronoun",
-    "verb",
-)
+variant_titles = sections
 variant_templates = (
     "{{active participle of",
     "{{adj form of",
