@@ -44,8 +44,45 @@ variant_titles = (
     "verb",
 )
 variant_templates = (
+    "{{active participle of",
+    "{{adj form of",
+    "{{agent noun of",
+    "{{an of",
+    "{{alternative form of",
+    "{{alt form",
+    "{{altform",
+    "{{alt form of",
+    "{{alternative plural of",
+    "{{female equivalent of",
+    "{{feminine equivalent of",
+    "{{femeq",
+    "{{feminine of",
+    "{{feminine plural of",
+    "{{feminine plural past participle of",
+    "{{feminine singular of",
+    "{{feminine singular past participle of",
+    "{{form of",
+    "{{gerund of",
+    "{{imperfective form of",
+    "{{inflection of",
     "{{infl of",
+    "{{masculine plural of",
+    "{{masculine plural past participle of",
+    "{{neuter plural of",
+    "{{neuter singular past participle of",
+    "{{noun form of",
+    "{{participle of",
+    "{{passive of",
+    "{{passive participle of",
+    "{{past participle form of",
+    "{{past participle of",
+    "{{perfective form of",
     "{{plural of",
+    "{{plural",
+    "{{present participle of",
+    "{{reflexive of",
+    "{{verbal noun of",
+    "{{verb form of",
 )
 
 # Some definitions are not good to keep
@@ -334,18 +371,6 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["alternative form of", "enm" , "theen"], "en")
-        '<i>Alternative form of</i> <b>theen</b>'
-        >>> last_template_handler(["alternative form of", "enm" , "theen", "dot=;"], "en")
-        '<i>Alternative form of</i> <b>theen</b>;'
-        >>> last_template_handler(["alt form", "enm" , "a", "pos=indefinite article"], "en")
-        '<i>Alternative form of</i> <b>a</b> (indefinite article)'
-        >>> last_template_handler(["alt form", "enm" , "worth", "t=to become"], "en")
-        '<i>Alternative form of</i> <b>worth</b> (“to become”)'
-        >>> last_template_handler(["alt form", "en" , "ess", "nodot=1"], "en")
-        '<i>Alternative form of</i> <b>ess</b>'
-        >>> last_template_handler(["alt form", "en" , "a", "b", "t=t", "ts=ts", "tr=tr", "pos=pos", "from=from", "from2=from2", "lit=lit"], "en")
-        '<i>From and from2 form of</i> <b>b</b> (<i>tr</i> /ts/, “t”, pos, literally “lit”)'
         >>> last_template_handler(["eye dialect of", "en" , "ye", "t=t", "from=from", "from2=from2"], "en")
         '<i>Eye dialect spelling of</i> <b>ye</b> (“t”)<i>, representing from and from2 English</i>.'
         >>> last_template_handler(["alternative spelling of", "en" , "ye", "from=from", "from2=from2"], "en")
