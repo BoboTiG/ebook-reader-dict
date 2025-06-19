@@ -1932,6 +1932,36 @@ racines_schemes_arabes = {
     "ar-FlF": {
         "aa_sens": "relatif au chiffre [[trois]]",
     },  # 1
+    "ar-Fmn": {
+        "aa_sens": "huit, précieux",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-i": "être huitième",
+        "ar-*a*a*a-u": "prendre le huitième",
+        "ar-*a*a*ũ": "prix",
+        "ar-*a*²a*a": "porter à huit",
+        "ar-*a*â*iy@ũ": "{{m}} huit",
+        "ar-*a*â*iyũ": "{{f}} huit",
+        "ar-*a*â*ûna": "quatre-vingt",
+        "ar-*a*î*ũ": "précieux",
+        "ar-*ta*a*a": "",
+        "ar-*u**ũ": "huitième partie",
+        "ar-*u*u*ũ": "huitième partie",
+        "ar-*â*a*a": "",
+        "ar-*â*i*@ũ": "{{f}} 8ème",
+        "ar-*â*i*ũ": "8ème",
+        "ar-a**a*a": "être huit",
+        "ar-a**a*u": "plus cher",
+        "ar-a**i*@ũ": "{{p}} prix",
+        "ar-a**u*ũ": "{{p}} prix",
+        "ar-a**â*ũ": "{{p}} prix",
+        "ar-mu*a*²a*@ũ": "{{f}} octuple",
+        "ar-mu*a*²a*ũ": "octuple",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*a*²u*ũ": "huitaine",
+        "ar-ta*â*a*a": "",
+    },  # 28
     "ar-FnW": {
         "aa_sens": "plier en deux",
         "ar-*a**iy²@ũ": "dualisme",
@@ -9536,6 +9566,27 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "abandonner",
     },  # 21
+    "ar-ts3": {
+        "aa_sens": "neuf",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a*a*a-i": "faire le neuvième",
+        "ar-*a*²a*a": "",
+        "ar-*a*î*ũ": "neuvième partie",
+        "ar-*i**@ũ": "{{m}} neuf",
+        "ar-*i**ûna": "quatre vingt dix",
+        "ar-*i**ũ": "{{f}} neuf",
+        "ar-*ta*a*a": "",
+        "ar-*u**ũ": "neuvième partie",
+        "ar-*u*a*ũ": "les trois jours",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "9ème",
+        "ar-a**a*a": "faire le neuvième",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 19
     "ar-tys": {
         "aa_sens": "bouc",
         "ar-***ũ": "",
@@ -10428,5 +10479,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 355
+}  # 357
 # END

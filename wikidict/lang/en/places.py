@@ -413,6 +413,22 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "archaic forms of places!": {
+        "fallback": "",
+        "article": "",
+        "display": "archaic}} forms of names of places",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "ARCHAIC_FORM_OF place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "archipelago": {
         "fallback": "island",
         "article": "an",
@@ -1157,18 +1173,18 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "Crown dependency": {
-        "fallback": "dependent territory",
-        "article": "a",
-        "display": "Crown dependency",
-        "preposition": "",
-        "formertype": "",
-        "should_categorize": "",
-    },
     "crown dependency": {
         "fallback": "dependent territory",
         "article": "a",
         "display": "crown dependency",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "Crown dependency": {
+        "fallback": "dependent territory",
+        "article": "a",
+        "display": "Crown dependency",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -1188,6 +1204,22 @@ recognized_placetypes = {
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
+    },
+    "dated forms of places!": {
+        "fallback": "",
+        "article": "",
+        "display": "dated}} forms of names of places",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "DATED_FORM_OF place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
     },
     "delegation": {
         "fallback": "",
@@ -3149,6 +3181,22 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
+    "obsolete forms of places!": {
+        "fallback": "",
+        "article": "",
+        "display": "obsolete}} forms of names of places",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "OBSOLETE_FORM_OF place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
     "ocean": {
         "fallback": "",
         "article": "an",
@@ -4533,7 +4581,7 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
-}  # 566
+}  # 572
 
 placetypes_aliases = {
     "CDP": "census-designated place",
