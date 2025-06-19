@@ -623,7 +623,7 @@ def process_templates(
     text = sub(r"\s{2,}", " ", text)
     text = sub(r"\s{1,}\.", ".", text)
 
-    if not KEEP_UNFINISHED and "{{" in text:
+    if not KEEP_UNFINISHED and ("{{" in text or "}}" in text):
         if all_templates:
             all_templates.append(("", word, "skipped"))
         return ""
