@@ -1495,8 +1495,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     i = 1
     parsed_parts = []
-    keep_parsing = True
-    while keep_parsing:
+    while True:
         p_dic = defaultdict(str)
         si = str(i)
         chunk = parts.pop(0) if parts else ""
@@ -1514,7 +1513,7 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
             p_dic["chunk"] = chunk
             p_dic["lang"] = lang
         if not chunk and not p_dic["tr"] and not p_dic["ts"] and not parts:
-            keep_parsing = False
+            break
         else:
             parsed_parts.append(p_dic)
         i += 1
