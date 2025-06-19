@@ -1414,8 +1414,8 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     >>> render_morphology("compound", ["fy", "fier", "lj"], defaultdict(str, {"t1":"far", "t2":"leap", "pos1":"adj", "pos2":"v"}))
     '<i>fier</i> (“far”, adj)&nbsp;+&nbsp;<i>lj</i> (“leap”, v)'
-    >>> render_morphology("compound", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
-    '<i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
+    >>> render_morphology("compound", ["en", "en:where", "as"], defaultdict(str, {"gloss2":"that"}))
+    'English <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
     >>> render_morphology("com+", ["en", "where", "as"], defaultdict(str, {"gloss2":"that"}))
     'Compound of <i>where</i>&nbsp;+&nbsp;<i>as</i> (“that”)'
 
@@ -1509,6 +1509,10 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
         p_dic["pos"] = data[f"pos{si}"]
         p_dic["lit"] = data[f"lit{si}"]
         p_dic["lang"] = data[f"lang{si}"]
+        if ":" in chunk:
+            lang, chunk = chunk.split(":", 1)
+            p_dic["chunk"] = chunk
+            p_dic["lang"] = lang
         if not chunk and not p_dic["tr"] and not p_dic["ts"] and not parts:
             keep_parsing = False
         else:
