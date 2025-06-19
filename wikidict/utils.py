@@ -543,8 +543,8 @@ def process_templates(
         ''
         >>> process_templates("foo", "{{fchim|OH|2|{{!}}OH|2}}", "fr")
         'OH<sub>2</sub>|OH<sub>2</sub>'
-        >>> process_templates("EPR=ER", "{{alternative form of|mul|ER{{=}}EPR}}", "en")
-        '<i>Alternative form of</i> <b>ER=EPR</b>'
+        >>> process_templates("EPR=ER", "{{fchim|ER{{=}}EPR}}", "fr")
+        'ER=EPR'
 
         >>> process_templates("octonion", " <math>V^n</math>", "fr")  # doctest: +ELLIPSIS
         '<svg ...'
