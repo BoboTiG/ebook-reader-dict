@@ -232,8 +232,6 @@ templates_multi = {
     "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{nowrap|1=[ ...=C=C=C=... ]}}
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
-    # {{only used in|en|Alexandrian limp}}
-    "only used in": 'f"<i>Only used in</i> <b>{parts[-1]}</b>"',
     # {{|&thinsp;𝼊&thinsp;}}
     "orthography": "f'⟨{parts[1]}⟩'",
     # {{q|Used only ...}}
@@ -282,7 +280,6 @@ templates_multi["defdt"] = templates_multi["defdate"]
 templates_multi["lg"] = templates_multi["glossary"]
 templates_multi["m-g"] = templates_multi["mention-gloss"]
 templates_multi["nom"] = templates_multi["nominalization"]
-templates_multi["only in"] = templates_multi["only used in"]
 templates_multi["orthography"] = templates_multi["IPAfont"]
 
 # Templates that will be completed/replaced using custom text.

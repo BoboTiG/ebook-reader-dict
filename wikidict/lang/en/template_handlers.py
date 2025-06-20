@@ -1741,6 +1741,19 @@ def render_nuclide(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def render_only_used_in(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_only_used_in("only used in", ["en", "Alexandrian limp"], defaultdict(str))
+    '<i>Only used in</i> <b>Alexandrian limp</b>'
+    >>> render_only_used_in("only used in", ["en", "Alexandrian limp"], defaultdict(str, {"t": "foo"}))
+    '<i>Only used in</i> <b>Alexandrian limp</b> (“foo”)'
+    """
+    text = f"<i>Only used in</i> <b>{parts[-1]}</b>"
+    if t := data["t"]:
+        text += f" (“{t}”)"
+    return text
+
+
 def render_onomatopoeic(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_onomatopoeic("onom", ["en"], defaultdict(str))
@@ -2221,6 +2234,8 @@ template_mapping = {
     "noncognate": render_foreign_derivation,
     "nuclide": render_nuclide,
     "obor": render_foreign_derivation,
+    "only in": render_only_used_in,
+    "only used in": render_only_used_in,
     "onom": render_onomatopoeic,
     "onomatopeic": render_onomatopoeic,
     "onomatopoeia": render_onomatopoeic,
