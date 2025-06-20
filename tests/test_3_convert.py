@@ -570,5 +570,5 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
             mocked_dw.assert_any_call(convert.get_primary_formatters(), *args, include_etymology=include_etymology)
             mocked_dw.assert_any_call(convert.get_secondary_formatters(), *args, include_etymology=False)
             mocked_rmf.assert_any_call(*args, include_etymology=False)
-        mocked_dw.call_count == 4
-        mocked_rmf.call_count == 2
+        assert mocked_dw.call_count == 4
+        assert mocked_rmf.call_count == 2
