@@ -5,6 +5,7 @@ from __future__ import annotations
 import logging
 import os
 import re
+import unicodedata
 from collections import defaultdict, namedtuple
 from datetime import UTC, datetime
 from functools import cache, partial
@@ -220,6 +221,12 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
 
 
 @cache
+def is_cyrillic(c: str) -> bool:
+    """Check if a character is Cyrillic."""
+    return "CYRILLIC" in unicodedata.name(c, "")
+
+
+@cache
 def guess_prefix(word: str) -> str:
     """Determine the word prefix for the given *word*.
 
@@ -246,6 +253,12 @@ def guess_prefix(word: str) -> str:
 
         >>> guess_prefix("test")
         'te'
+        >>> guess_prefix("a-")
+        '11'
+        >>> guess_prefix("-an")
+        '11'
+        >>> guess_prefix("GB")
+        'gb'
         >>> guess_prefix("a")
         'aa'
         >>> guess_prefix("aa")
@@ -254,12 +267,30 @@ def guess_prefix(word: str) -> str:
         'aa'
         >>> guess_prefix("Èe")
         'èe'
+        >>> guess_prefix("Ȅe")
+        'ȅe'
+        >>> guess_prefix("eȄ")
+        'eȅ'
+        >>> guess_prefix("Ȅ!")
+        '11'
+        >>> guess_prefix("ébahir")
+        'éb'
+        >>> guess_prefix("kébab")
+        'ké'
+        >>> guess_prefix("aérer")
+        'aé'
+        >>> guess_prefix("living-room")
+        'li'
         >>> guess_prefix("multiple words")
         'mu'
         >>> guess_prefix("àççèñts")
         'àç'
         >>> guess_prefix("à")
         'àa'
+        >>> guess_prefix("a1")
+        '11'
+        >>> guess_prefix("ô")
+        'ôa'
         >>> guess_prefix("ç")
         'ça'
         >>> guess_prefix("")
@@ -268,20 +299,66 @@ def guess_prefix(word: str) -> str:
         '11'
         >>> guess_prefix(" x")
         'xa'
+        >>> guess_prefix("x ")
+        'xa'
+        >>> guess_prefix(" xx")
+        'xa'
+        >>> guess_prefix(" ")
+        '11'
+        >>> guess_prefix("  ")
+        '11'
+        >>> guess_prefix("   ")
+        '11'
+        >>> guess_prefix("\t\t")
+        '11'
+        >>> guess_prefix("\t\t\t")
+        '11'
+        >>> guess_prefix("  x")
+        '11'
+        >>> guess_prefix("  xy")
+        '11'
+        >>> guess_prefix("  xyz")
+        '11'
+        >>> guess_prefix("x z")
+        'xa'
         >>> guess_prefix(" 123")
         '11'
         >>> guess_prefix("42")
         '11'
         >>> guess_prefix("x 23")
         'xa'
+        >>> guess_prefix("д")
+        'д'
+        >>> guess_prefix(" д")
+        'д'
+        >>> guess_prefix("д ")
+        'д'
+        >>> guess_prefix(" дд")
+        'д'
+        >>> guess_prefix("aд")
+        'aд'
+        >>> guess_prefix("дa")
+        'дa'
+        >>> guess_prefix("aдa")
+        'aд'
         >>> guess_prefix("дaд")
         'дa'
         >>> guess_prefix("未未")
-        '11'
+        '未未'
         >>> guess_prefix("未")
+        '未a'
+        >>> guess_prefix("  未")
         '11'
         >>> guess_prefix(" 未")
-        '11'
+        '未a'
+        >>> guess_prefix("x未")
+        'x未'
+        >>> guess_prefix("未x")
+        '未x'
+        >>> guess_prefix("xy未")
+        'xy'
+        >>> guess_prefix("还没")
+        '还没'
         >>> guess_prefix(".vi")
         '11'
         >>> guess_prefix("/aba")
@@ -293,12 +370,77 @@ def guess_prefix(word: str) -> str:
         >>> guess_prefix("°GL")
         '11'
         >>> guess_prefix("وهيبة")
+        'وه'
+        >>> guess_prefix("!")
         '11'
+        >>> guess_prefix("!!")
+        '11'
+        >>> guess_prefix("!!!")
+        '11'
+        >>> guess_prefix("x!")
+        '11'
+        >>> guess_prefix("x!!")
+        '11'
+        >>> guess_prefix("xx!")
+        'xx'
+        >>> guess_prefix("xxx!")
+        'xx'
+        >>> guess_prefix("  !")
+        '11'
+        >>> guess_prefix(" !!")
+        '11'
+        >>> guess_prefix(" !!!")
+        '11'
+        >>> guess_prefix(" !")
+        '11'
+        >>> guess_prefix("  !!")
+        '11'
+        >>> guess_prefix("   !!!")
+        '11'
+        >>> guess_prefix(" x!")
+        'xa'
+        >>> guess_prefix(" x!!")
+        'xa'
+        >>> guess_prefix(" xx!")
+        'xa'
+        >>> guess_prefix(" xxx!")
+        'xa'
+        >>> guess_prefix("x\\x00y")
+        'xa'
+        >>> guess_prefix("\\x00xy")
+        '11'
+
+        Japanese seems unreliable as of now:
+        https://github.com/pgaskin/dictutil/blob/6708cff9a06dbd088ec2267a2314028a9a00b5a7/kobodict/util_test.go#L47-L51
+        >>> guess_prefix("あ")
+        'あa'
+        >>> guess_prefix("アークとう")
+        'アー'
     """
-    prefix = word.strip()[:2].lower().strip()
-    if not prefix or prefix[0].isnumeric():
+    pfx = list(word)
+    for i, c in enumerate(pfx):
+        if i >= 2 or c == "\x00":
+            pfx = pfx[:i]
+            break
+        pfx[i] = c.lower()
+
+    # Trim left
+    while pfx and pfx[0].isspace():
+        pfx = pfx[1:]
+    # Trim right
+    while pfx and pfx[-1].isspace():
+        pfx = pfx[:-1]
+
+    if not pfx:
         return "11"
-    return prefix.ljust(2, "a") if all(c.isalpha() and c.islower() for c in prefix) else "11"
+
+    if not is_cyrillic(pfx[0]):
+        while len(pfx) < 2:
+            pfx.append("a")
+        if not (pfx[0].isalpha() and pfx[1].isalpha()):
+            return "11"
+
+    return "".join(pfx)
 
 
 def clean(text: str) -> str:
