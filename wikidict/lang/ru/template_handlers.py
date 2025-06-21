@@ -316,6 +316,17 @@ def render_прист_СИ(tpl: str, parts: list[str], data: defaultdict[str, st
     return text
 
 
+def render_хим_элем(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_хим_элем("хим-элем", ["89", "Ac", "радиоактивный металл"], defaultdict(str))
+    '<i>хим.</i> химический элемент с атомным номером 89, обозначается химическим символом Ac, радиоактивный металл'
+    """
+    text = f"<i>хим.</i> химический элемент с атомным номером {parts.pop(0)}, обозначается химическим символом {parts.pop(0)}"
+    if parts:
+        text += f", {parts[0]}"
+    return text
+
+
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_variant("прич.", ["зыбить"], defaultdict(str))
@@ -348,6 +359,7 @@ template_mapping = {
     "через": render_через,
     "однокр.": render_однокр,
     "прист-СИ": render_прист_СИ,
+    "хим-элем": render_хим_элем,
     #
     # Variants
     #
