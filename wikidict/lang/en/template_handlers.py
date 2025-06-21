@@ -1,4 +1,3 @@
-import builtins
 import contextlib
 import math
 import re
@@ -2057,22 +2056,15 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     Single senseid case: https://en.wiktionary.org/wiki/Afrika
     Multiple senseid case: https://en.wiktionary.org/wiki/Macao
     """
-    source = parts[1]
-    sense_id = data["id"]
-
-    if not (file := getattr(builtins, "render_input_file", None)):
-        # We hit this code path when using --check-word, and --get-word
-        lang_src, _ = builtins.render_locales  # type: ignore[attr-defined]
-
-        from ... import render
-
-        source_dir = render.get_source_dir(lang_src, lang_src)
-        file = render.get_latest_json_file(source_dir)
-
     import subprocess
 
-    from ... import utils
+    from ... import render, utils
 
+    source_dir = render.get_source_dir("en", "en")
+    file = render.get_latest_json_file(source_dir)
+
+    source = parts[1]
+    sense_id = data["id"]
     definitions: list[str] = []
 
     for sid in sense_id.split(","):
@@ -2097,7 +2089,8 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
         definition = definition.split(".", 1)[0]
         definitions.append(definition)
 
-    return "\n".join(definitions)
+    text = "" if parts[0] == "en" else f"{source} "
+    return f"{text}{'\n'.join(definitions)}"
 
 
 def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
