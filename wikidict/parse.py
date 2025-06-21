@@ -97,7 +97,7 @@ def save(output: Path, words: dict[str, str]) -> None:
 
     output.parent.mkdir(exist_ok=True, parents=True)
     with output.open(mode="w", encoding="utf-8") as fh:
-        json.dump(words, fh, indent=4, sort_keys=True)
+        json.dump(words, fh, ensure_ascii=False, indent=4, sort_keys=True)
 
     log.info("Saved %s words into %s", f"{len(words):,}", output)
 

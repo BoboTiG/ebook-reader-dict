@@ -1,3 +1,4 @@
+import builtins
 import contextlib
 import math
 import re
@@ -2049,6 +2050,56 @@ def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return f"{text}."
 
 
+def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    This template is special as it needs to look for another word's specific definition (targeted with the `{{senseid}} template`).
+
+    Single senseid case: https://en.wiktionary.org/wiki/Afrika
+    Multiple senseid case: https://en.wiktionary.org/wiki/Macao
+    """
+    source = parts[1]
+    sense_id = data["id"]
+
+    if not (file := getattr(builtins, "render_input_file", None)):
+        # We hit this code path when using --check-word, and --get-word
+        lang_src, lang_dst = builtins.render_locales  # type: ignore[attr-defined]
+
+        from ... import render
+
+        source_dir = render.get_source_dir(lang_src, lang_dst)
+        file = render.get_latest_json_file(source_dir)
+
+    import subprocess
+
+    from ... import utils
+
+    definitions: list[str] = []
+
+    for sid in sense_id.split(","):
+        output = subprocess.check_output(
+            ["/bin/fgrep", f'"{source}": "', str(file)],
+            env={"LC_ALL": "C"},
+            text=True,
+            encoding="unicode_escape",
+        )
+        pattern = re.compile(rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}")
+        definition = next(line.strip() for line in output.splitlines() if pattern.search(line))
+        definition = pattern.sub("", definition)
+
+        # At this point, the definition is something like `{{place|...}}`, and if the `tcl=` arg is used, we need to alter template arguments
+        if "tcl=" in definition:
+            place_arg = re.search(r"\{\{place\|(\w+)", definition)[1]  # type: ignore[index]
+            tcl_args = re.search(r"tcl=([^}]+)\}\}", definition)[1].split(";;")  # type: ignore[index]
+            definition = f"{{{{place|{place_arg}|{'|'.join(tcl_args)}}}}}"
+
+        definition = re.sub(r"<<\w+/([^>]+)>>", r"\1", definition)
+        definition = utils.process_templates(word, definition, "en")
+        definition = definition.split(".", 1)[0]
+        definitions.append(definition)
+
+    return "\n".join(definitions)
+
+
 def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_uncertain("unc", ["en"], defaultdict(str))
@@ -2268,8 +2319,10 @@ template_mapping = {
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
     "taxon": render_taxon,
+    "tcl": render_transclude,
     "term-label": render_label,
     "tlb": render_label,
+    "transclude": render_transclude,
     "translit": render_foreign_derivation,
     "transliteration": render_foreign_derivation,
     "U": render_cap,

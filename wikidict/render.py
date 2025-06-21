@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import builtins
 import json
 import logging
 import multiprocessing
@@ -500,6 +501,7 @@ def parse_word(
     called from `get_word.get_and_parse_word()`.
     """
     lang_src, lang_dst = utils.guess_locales(locale, use_log=False)
+    builtins.render_locales = lang_src, lang_dst  # type: ignore[attr-defined]
 
     code = adjust_wikicode(code, lang_dst)
     top_sections, parsed_sections = find_sections(word, code, lang_src, lang_dst)
@@ -609,14 +611,18 @@ def render(in_words: dict[str, str], locale: str, workers: int) -> Words:
 def save(output: Path, words: Words) -> None:
     """Persist data."""
     with output.open(mode="w", encoding="utf-8") as fh:
-        json.dump(words, fh, indent=4, sort_keys=True)
+        json.dump(words, fh, ensure_ascii=False, indent=4, sort_keys=True)
     log.info("Saved %s words into %s", f"{len(words):,}", output)
 
 
 def get_latest_json_file(source_dir: Path) -> Path | None:
     """Get the name of the last data_wikicode-*.json file."""
-    files = list(source_dir.glob(f"data_wikicode-{'[0-9]' * 8}.json"))
-    return sorted(files)[-1] if files else None
+    if not (files := list(source_dir.glob(f"data_wikicode-{'[0-9]' * 8}.json"))):
+        return None
+
+    file = sorted(files)[-1]
+    builtins.render_input_file = file  # type: ignore[attr-defined]
+    return file
 
 
 def get_source_dir(lang_src: str, lang_dst: str) -> Path:
