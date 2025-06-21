@@ -743,6 +743,7 @@ labels = {
     "Silesia": "Silesia",
     "Singapore": "Singapore",
     "Singaporean": "Singapore",
+    "Singaporean politics": "Singaporean politics",
     "Singlish": "Singlish",
     "Sirius-serious": "''mirror''–''nearer'' merger",
     "Skanian": "Scania",
@@ -2653,7 +2654,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,648
+}  # 2,649
 
 syntaxes = {
     "&": {

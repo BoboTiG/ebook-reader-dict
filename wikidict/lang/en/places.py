@@ -877,6 +877,22 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "yes",
     },
+    "CLIPPING_OF place": {
+        "fallback": "",
+        "article": "",
+        "display": "(internal use only)",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "yes",
+    },
+    "clippings of places!": {
+        "fallback": "",
+        "article": "",
+        "display": "clipping|clippings}} of names of places",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "co-capital": {
         "fallback": "capital city",
         "article": "the",
@@ -1157,14 +1173,6 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "crown colony": {
-        "fallback": "colony",
-        "article": "a",
-        "display": "crown colony",
-        "preposition": "",
-        "formertype": "",
-        "should_categorize": "",
-    },
     "Crown colony": {
         "fallback": "crown colony",
         "article": "a",
@@ -1173,10 +1181,10 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "crown dependency": {
-        "fallback": "dependent territory",
+    "crown colony": {
+        "fallback": "colony",
         "article": "a",
-        "display": "crown dependency",
+        "display": "crown colony",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -1185,6 +1193,14 @@ recognized_placetypes = {
         "fallback": "dependent territory",
         "article": "a",
         "display": "Crown dependency",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "crown dependency": {
+        "fallback": "dependent territory",
+        "article": "a",
+        "display": "crown dependency",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -1512,7 +1528,7 @@ recognized_placetypes = {
     "ellipses of places!": {
         "fallback": "",
         "article": "",
-        "display": "ellipses of names of places",
+        "display": "ellipsis|ellipses}} of names of places",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -4581,7 +4597,7 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
-}  # 572
+}  # 574
 
 placetypes_aliases = {
     "CDP": "census-designated place",

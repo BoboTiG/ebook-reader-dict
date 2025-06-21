@@ -6,24 +6,24 @@ Auto-generated with `python -m scripts`.
 # START
 form_of_templates = {
     "abbreviation of": {
-        "text": "Abbreviation of",
-        "dot": True,
+        "text": "abbreviation of",
+        "dot": False,
     },
     "abbr of": {
-        "text": "Abbreviation of",
-        "dot": True,
+        "text": "abbreviation of",
+        "dot": False,
     },
     "abbrev of": {
-        "text": "Abbreviation of",
-        "dot": True,
+        "text": "abbreviation of",
+        "dot": False,
     },
     "abstract noun of": {
         "text": "abstract noun of",
         "dot": False,
     },
     "acronym of": {
-        "text": "Acronym of",
-        "dot": True,
+        "text": "acronym of",
+        "dot": False,
     },
     "active participle of": {
         "text": "active participle of",
@@ -138,32 +138,24 @@ form_of_templates = {
         "dot": False,
     },
     "archaic form of": {
-        "text": "Archaic form of",
-        "dot": True,
+        "text": "archaic form of",
+        "dot": False,
     },
     "arch form": {
-        "text": "Archaic form of",
-        "dot": True,
-    },
-    "archaic inflection of": {
-        "text": "Archaic form of",
-        "dot": True,
+        "text": "archaic form of",
+        "dot": False,
     },
     "archaic spelling of": {
-        "text": "Archaic spelling of",
-        "dot": True,
+        "text": "archaic spelling of",
+        "dot": False,
     },
-    "arc sp": {
-        "text": "Archaic spelling of",
-        "dot": True,
-    },
-    "archaic sp": {
-        "text": "Archaic spelling of",
-        "dot": True,
+    "arch sp": {
+        "text": "archaic spelling of",
+        "dot": False,
     },
     "aspirate mutation of": {
-        "text": "Aspirate mutation of",
-        "dot": True,
+        "text": "aspirate mutation of",
+        "dot": False,
     },
     "attributive form of": {
         "text": "attributive form of",
@@ -186,12 +178,12 @@ form_of_templates = {
         "dot": False,
     },
     "clipping of": {
-        "text": "Clipping of",
-        "dot": True,
+        "text": "clipping of",
+        "dot": False,
     },
     "clip of": {
-        "text": "Clipping of",
-        "dot": True,
+        "text": "clipping of",
+        "dot": False,
     },
     "combining form of": {
         "text": "Combining form of",
@@ -218,32 +210,32 @@ form_of_templates = {
         "dot": False,
     },
     "contraction of": {
-        "text": "Contraction of",
-        "dot": True,
+        "text": "contraction of",
+        "dot": False,
     },
     "contr of": {
-        "text": "Contraction of",
-        "dot": True,
+        "text": "contraction of",
+        "dot": False,
     },
     "dated form of": {
-        "text": "Dated form of",
-        "dot": True,
+        "text": "dated form of",
+        "dot": False,
     },
     "dated form": {
-        "text": "Dated form of",
-        "dot": True,
+        "text": "dated form of",
+        "dot": False,
     },
     "dated spelling of": {
-        "text": "Dated spelling of",
-        "dot": True,
+        "text": "dated spelling of",
+        "dot": False,
     },
     "dated sp": {
-        "text": "Dated spelling of",
-        "dot": True,
+        "text": "dated spelling of",
+        "dot": False,
     },
     "deliberate misspelling of": {
-        "text": "Deliberate misspelling of",
-        "dot": True,
+        "text": "deliberate misspelling of",
+        "dot": False,
     },
     "diminutive of": {
         "text": "diminutive of",
@@ -254,20 +246,20 @@ form_of_templates = {
         "dot": False,
     },
     "eclipsis of": {
-        "text": "Eclipsed form of",
-        "dot": True,
+        "text": "eclipsed form of",
+        "dot": False,
     },
     "eggcorn of": {
-        "text": "Eggcorn of",
-        "dot": True,
+        "text": "eggcorn of",
+        "dot": False,
     },
     "ellipsis of": {
-        "text": "Ellipsis of",
+        "text": "ellipsis of",
         "dot": False,
     },
     "elongated form of": {
-        "text": "Elongated form of",
-        "dot": True,
+        "text": "elongated form of",
+        "dot": False,
     },
     "endearing diminutive of": {
         "text": "endearing diminutive of",
@@ -278,20 +270,16 @@ form_of_templates = {
         "dot": False,
     },
     "euphemistic form of": {
-        "text": "Euphemistic form of",
-        "dot": True,
+        "text": "euphemistic form of",
+        "dot": False,
     },
     "euph form": {
-        "text": "Euphemistic form of",
-        "dot": True,
-    },
-    "euphemism of": {
-        "text": "Euphemistic form of",
-        "dot": True,
+        "text": "euphemistic form of",
+        "dot": False,
     },
     "eye dialect of": {
-        "text": "Eye dialect spelling of",
-        "dot": True,
+        "text": "eye dialect spelling of",
+        "dot": False,
     },
     "female equivalent of": {
         "text": "female equivalent of",
@@ -330,7 +318,7 @@ form_of_templates = {
         "dot": False,
     },
     "former name of": {
-        "text": "Former name of",
+        "text": "former name of",
         "dot": True,
     },
     "frequentative of": {
@@ -346,8 +334,8 @@ form_of_templates = {
         "dot": False,
     },
     "hard mutation of": {
-        "text": "Hard mutation of",
-        "dot": True,
+        "text": "hard mutation of",
+        "dot": False,
     },
     "harmonic variant of": {
         "text": "harmonic variant of",
@@ -378,36 +366,36 @@ form_of_templates = {
         "dot": False,
     },
     "informal form of": {
-        "text": "Informal form of",
-        "dot": True,
+        "text": "informal form of",
+        "dot": False,
     },
     "inf form": {
-        "text": "Informal form of",
-        "dot": True,
+        "text": "informal form of",
+        "dot": False,
     },
     "informal spelling of": {
-        "text": "Informal spelling of",
-        "dot": True,
+        "text": "informal spelling of",
+        "dot": False,
     },
     "initialism of": {
-        "text": "Initialism of",
-        "dot": True,
+        "text": "initialism of",
+        "dot": False,
     },
     "init of": {
-        "text": "Initialism of",
-        "dot": True,
+        "text": "initialism of",
+        "dot": False,
     },
     "iterative of": {
         "text": "iterative of",
         "dot": False,
     },
     "lenition of": {
-        "text": "Lenited form of",
-        "dot": True,
+        "text": "lenited form of",
+        "dot": False,
     },
     "literary form of": {
         "text": "literary form of",
-        "dot": True,
+        "dot": False,
     },
     "masculine noun of": {
         "text": "masculine equivalent of",
@@ -437,25 +425,21 @@ form_of_templates = {
         "text": "Misconstruction of",
         "dot": False,
     },
-    "misromanization of": {
-        "text": "Misromanization of",
-        "dot": True,
-    },
     "misspelling of": {
-        "text": "Misspelling of",
-        "dot": True,
+        "text": "misspelling of",
+        "dot": False,
     },
     "missp": {
-        "text": "Misspelling of",
-        "dot": True,
+        "text": "misspelling of",
+        "dot": False,
     },
     "mixed mutation of": {
-        "text": "Mixed mutation of",
-        "dot": True,
+        "text": "mixed mutation of",
+        "dot": False,
     },
     "nasal mutation of": {
-        "text": "Nasal mutation of",
-        "dot": True,
+        "text": "nasal mutation of",
+        "dot": False,
     },
     "negative of": {
         "text": "negative form of",
@@ -474,8 +458,8 @@ form_of_templates = {
         "dot": False,
     },
     "nomen sacrum form of": {
-        "text": "Nomen sacrum form of",
-        "dot": True,
+        "text": "nomen sacrum form of",
+        "dot": False,
     },
     "nominalization of": {
         "text": "nominalization of",
@@ -486,20 +470,20 @@ form_of_templates = {
         "dot": False,
     },
     "nonstandard form of": {
-        "text": "Nonstandard form of",
-        "dot": True,
+        "text": "nonstandard form of",
+        "dot": False,
     },
     "nstd form": {
-        "text": "Nonstandard form of",
-        "dot": True,
+        "text": "nonstandard form of",
+        "dot": False,
     },
     "nonstandard spelling of": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
+        "text": "nonstandard spelling of",
+        "dot": False,
     },
     "nstd sp": {
-        "text": "Nonstandard spelling of",
-        "dot": True,
+        "text": "nonstandard spelling of",
+        "dot": False,
     },
     "noun form of": {
         "text": "inflection of:",
@@ -510,27 +494,27 @@ form_of_templates = {
         "dot": False,
     },
     "obsolete form of": {
-        "text": "Obsolete form of",
-        "dot": True,
+        "text": "obsolete form of",
+        "dot": False,
     },
     "obs form": {
-        "text": "Obsolete form of",
-        "dot": True,
+        "text": "obsolete form of",
+        "dot": False,
     },
     "obs form of": {
-        "text": "Obsolete form of",
-        "dot": True,
+        "text": "obsolete form of",
+        "dot": False,
     },
     "obsolete spelling of": {
-        "text": "Obsolete spelling of",
+        "text": "obsolete spelling of",
         "dot": False,
     },
     "obs sp": {
-        "text": "Obsolete spelling of",
+        "text": "obsolete spelling of",
         "dot": False,
     },
     "obs sp of": {
-        "text": "Obsolete spelling of",
+        "text": "obsolete spelling of",
         "dot": False,
     },
     "obsolete typography of": {
@@ -539,6 +523,14 @@ form_of_templates = {
     },
     "obs typ": {
         "text": "obsolete typography of",
+        "dot": False,
+    },
+    "only used in": {
+        "text": "only used in",
+        "dot": False,
+    },
+    "only in": {
+        "text": "only used in",
         "dot": False,
     },
     "participle of": {
@@ -582,40 +574,40 @@ form_of_templates = {
         "dot": False,
     },
     "pronunciation spelling of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
+        "text": "pronunciation spelling of",
+        "dot": False,
     },
     "pron spelling of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
+        "text": "pronunciation spelling of",
+        "dot": False,
     },
     "pron sp of": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
+        "text": "pronunciation spelling of",
+        "dot": False,
     },
     "pron sp": {
-        "text": "Pronunciation spelling of",
-        "dot": True,
+        "text": "pronunciation spelling of",
+        "dot": False,
     },
     "pronunciation variant of": {
-        "text": "Pronunciation variant of",
-        "dot": True,
+        "text": "pronunciation variant of",
+        "dot": False,
     },
     "rare form of": {
-        "text": "Rare form of",
-        "dot": True,
+        "text": "rare form of",
+        "dot": False,
     },
     "rare form": {
-        "text": "Rare form of",
-        "dot": True,
+        "text": "rare form of",
+        "dot": False,
     },
     "rare spelling of": {
-        "text": "Rare spelling of",
-        "dot": True,
+        "text": "rare spelling of",
+        "dot": False,
     },
     "rare sp": {
-        "text": "Rare spelling of",
-        "dot": True,
+        "text": "rare spelling of",
+        "dot": False,
     },
     "reflexive of": {
         "text": "reflexive of",
@@ -638,28 +630,12 @@ form_of_templates = {
         "dot": False,
     },
     "scribal abbreviation of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
+        "text": "scribal abbreviation of",
+        "dot": False,
     },
     "scrib of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scrib abbr of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scrib abbrev of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scribal abbr of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
-    },
-    "scribal abbrev of": {
-        "text": "Scribal abbreviation of",
-        "dot": True,
+        "text": "scribal abbreviation of",
+        "dot": False,
     },
     "short for": {
         "text": "Short for",
@@ -674,24 +650,24 @@ form_of_templates = {
         "dot": False,
     },
     "soft mutation of": {
-        "text": "Soft mutation of",
-        "dot": True,
+        "text": "soft mutation of",
+        "dot": False,
     },
     "spelling of": {
         "text": "{{{2}}} spelling of",
         "dot": False,
     },
     "standard form of": {
-        "text": "Standard form of",
-        "dot": True,
+        "text": "standard form of",
+        "dot": False,
     },
     "standard spelling of": {
-        "text": "Standard spelling of",
-        "dot": True,
+        "text": "standard spelling of",
+        "dot": False,
     },
     "stand sp": {
-        "text": "Standard spelling of",
-        "dot": True,
+        "text": "standard spelling of",
+        "dot": False,
     },
     "superlative of": {
         "text": "superlative degree of",
@@ -702,12 +678,20 @@ form_of_templates = {
         "dot": False,
     },
     "superseded spelling of": {
-        "text": "Superseded spelling of",
-        "dot": True,
+        "text": "superseded spelling of",
+        "dot": False,
     },
     "sup sp": {
-        "text": "Superseded spelling of",
-        "dot": True,
+        "text": "superseded spelling of",
+        "dot": False,
+    },
+    "syllabic abbreviation of": {
+        "text": "syllabic abbreviation of",
+        "dot": False,
+    },
+    "sylabbr of": {
+        "text": "syllabic abbreviation of",
+        "dot": False,
     },
     "syncopic form of": {
         "text": "Syncopic form of",
@@ -726,20 +710,20 @@ form_of_templates = {
         "dot": False,
     },
     "uncommon form of": {
-        "text": "Uncommon form of",
-        "dot": True,
+        "text": "uncommon form of",
+        "dot": False,
     },
     "uncom form": {
-        "text": "Uncommon form of",
-        "dot": True,
+        "text": "uncommon form of",
+        "dot": False,
     },
     "uncommon spelling of": {
-        "text": "Uncommon spelling of",
-        "dot": True,
+        "text": "uncommon spelling of",
+        "dot": False,
     },
     "uncom sp": {
-        "text": "Uncommon spelling of",
-        "dot": True,
+        "text": "uncommon spelling of",
+        "dot": False,
     },
     "verbal noun of": {
         "text": "verbal noun of",
@@ -749,7 +733,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 186
+}  # 182
 # END
 
 

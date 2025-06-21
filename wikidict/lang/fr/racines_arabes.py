@@ -1934,13 +1934,13 @@ racines_schemes_arabes = {
     },  # 1
     "ar-Fmn": {
         "aa_sens": "huit, précieux",
+        "ar-***ũ": "",
         "ar-**a*²a": "",
+        "ar-*a**ũ": "taxe au huitième",
         "ar-*a*a*a-i": "être huitième",
         "ar-*a*a*a-u": "prendre le huitième",
         "ar-*a*a*ũ": "prix",
         "ar-*a*²a*a": "porter à huit",
-        "ar-*a*â*iy@ũ": "{{m}} huit",
-        "ar-*a*â*iyũ": "{{f}} huit",
         "ar-*a*â*ûna": "quatre-vingt",
         "ar-*a*î*ũ": "précieux",
         "ar-*ta*a*a": "",
