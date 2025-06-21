@@ -9,7 +9,7 @@ langs = {
     "ab": "abkhaz",
     "abe": "abenaki",
     "abq": "abazí",
-    "abs": "malai d",
+    "abs": "malai d'Ambon",
     "ace": "atjeh",
     "ach": "acoli",
     "ada": "adangme",
@@ -31,6 +31,7 @@ langs = {
     "aln": "albanès geg",
     "alp": "alune",
     "alt": "altaic meridional",
+    "alu": "'are'are",
     "am": "amhàric",
     "amk": "ambai",
     "an": "aragonès",
@@ -511,7 +512,7 @@ langs = {
     "nog": "nogai",
     "non": "nòrdic antic",
     "nov": "novial",
-    "nqo": "n",
+    "nqo": "n'ko",
     "nr": "ndebele meridional",
     "nrf": "normand",
     "nso": "sotho septentrional",
@@ -652,7 +653,7 @@ langs = {
     "sma": "sami meridional",
     "smj": "sami de Lule",
     "smk": "bolinao",
-    "smn": "sami d",
+    "smn": "sami d'Inari",
     "sms": "sami skolt",
     "sn": "shona",
     "snk": "soninke",
@@ -716,7 +717,7 @@ langs = {
     "tpn": "tupinamba",
     "tpw": "tupí clàssic",
     "tr": "turc",
-    "trk-oat": "turc antic d",
+    "trk-oat": "turc antic d'Anatòlia",
     "trk-pro": "prototurquès",
     "trv": "taroko",
     "ts": "tsonga",
@@ -809,7 +810,7 @@ langs = {
     "zun": "zuni",
     "zxx": "sense contingut lingüístic",
     "zza": "zazaki",
-}  # 804
+}  # 805
 
 grups = [
     "cel",
