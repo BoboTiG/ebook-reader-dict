@@ -2062,11 +2062,11 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     if not (file := getattr(builtins, "render_input_file", None)):
         # We hit this code path when using --check-word, and --get-word
-        lang_src, lang_dst = builtins.render_locales  # type: ignore[attr-defined]
+        lang_src, _ = builtins.render_locales  # type: ignore[attr-defined]
 
         from ... import render
 
-        source_dir = render.get_source_dir(lang_src, lang_dst)
+        source_dir = render.get_source_dir(lang_src, lang_src)
         file = render.get_latest_json_file(source_dir)
 
     import subprocess
