@@ -101,6 +101,7 @@ templates_ignored = (
     "col-bottom",
     "col-top",
     "commonscat",
+    "def-uncertain",
     "dercat",
     "elements",
     "etymid",
