@@ -84,6 +84,8 @@ def process(file: Path, locale: str) -> dict[str, str]:
     for element in xml_iter_parse(file):
         word, code = xml_parse_element(element, head_sections_matcher)
         if word and code:
+            if lang_dst == "en" and word[:19] == "Unsupported titles/":
+                continue
             words[unescape(word)] = unescape(code)
 
     return words
