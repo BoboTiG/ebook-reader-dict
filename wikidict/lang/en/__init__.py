@@ -101,6 +101,7 @@ templates_ignored = (
     "col-bottom",
     "col-top",
     "commonscat",
+    "def-unc",
     "def-uncertain",
     "dercat",
     "elements",
