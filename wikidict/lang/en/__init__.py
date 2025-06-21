@@ -361,28 +361,28 @@ def last_template_handler(
     Will be call in utils.py::transform() when all template handlers were not used.
 
         >>> last_template_handler(["eye dialect of", "en" , "ye", "t=t", "from=from", "from2=from2"], "en")
-        '<i>Eye dialect spelling of</i> <b>ye</b> (“t”)<i>, representing from and from2 English</i>.'
+        '<i>Eye dialect spelling of</i> <b>ye</b> (“t”)<i>, representing from and from2 English</i>'
         >>> last_template_handler(["alternative spelling of", "en" , "ye", "from=from", "from2=from2"], "en")
         '<i>From and from2 spelling of</i> <b>ye</b>'
 
         >>> last_template_handler(["initialism of", "en", "w:Shockwave Flash"], "en")
-        '<i>Initialism of</i> <b>Shockwave Flash</b>.'
+        '<i>Initialism of</i> <b>Shockwave Flash</b>'
         >>> last_template_handler(["initialism of", "en", "optical character reader", "dot=&nbsp;(the scanning device)"], "en")
         '<i>Initialism of</i> <b>optical character reader</b>&nbsp;(the scanning device)'
         >>> last_template_handler(["init of", "en", "optical character reader", "tr=tr", "t=t", "ts=ts"], "en")
-        '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> /ts/, “t”).'
+        '<i>Initialism of</i> <b>optical character reader</b> (<i>tr</i> /ts/, “t”)'
         >>> last_template_handler(["init of", "en", "OCR", "optical character reader", "nodot=1", "nocap=1"], "en")
         '<i>initialism of</i> <b>optical character reader</b>'
 
         >>> last_template_handler(["standard spelling of", "en", "from=Irish English", "Irish Traveller"], "en")
-        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>.'
+        '<i>Irish English standard spelling of</i> <b>Irish Traveller</b>'
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
-        '<i>Standard spelling of</i> <b>enroll</b>.'
+        '<i>Standard spelling of</i> <b>enroll</b>'
         >>> last_template_handler(["cens sp", "en", "bitch"], "en")
         '<i>Censored spelling of</i> <b>bitch</b>.'
 
         >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
-        '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>.'
+        '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>'
 
         >>> last_template_handler(["zh-m", "痟", "tr=siáu", "mad"], "en")
         '痟 (<i>siáu</i>, “mad”)'
@@ -439,15 +439,15 @@ def last_template_handler(
                 starter = f"{fromtext} {from_suffix}"
                 starter = capitalize(starter) if cap else starter
 
-        starter = starter[0].lower() + starter[1:] if data["nocap"] == "1" else starter
+        starter = starter[0].lower() + starter[1:] if data["nocap"] else capitalize(starter)
         phrase = italic(starter)
         phrase += f" {strong(word)}"
         phrase += gloss_tr_poss(data, gloss)
         if ender:
             phrase += ender
-        if data["dot"]:
-            phrase += data["dot"]
-        elif template_model["dot"] and data["nodot"] not in ("1", "y", "yes"):
+        if dot := data["dot"]:
+            phrase += dot
+        elif template_model["dot"] and not data["nodot"]:
             phrase += "."
         return phrase
 
