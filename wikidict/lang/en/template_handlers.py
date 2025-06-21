@@ -2089,8 +2089,10 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
         definition = definition.split(".", 1)[0]
         definitions.append(definition)
 
-    text = "" if parts[0] == "en" else f"{source} "
-    return f"{text}{'\n'.join(definitions)}"
+    if parts[0] == "en":
+        return "\n".join(definitions)
+
+    return f"{source} ({'\n'.join(definitions)})"
 
 
 def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
