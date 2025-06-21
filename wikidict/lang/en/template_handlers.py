@@ -1963,6 +1963,21 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}{plural}"
 
 
+def render_spelling_pronunciation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_spelling_pronunciation("spelling pronunciation", ["en"], defaultdict(str))
+    'Spelling pronunciation'
+    >>> render_spelling_pronunciation("spelling pronunciation", ["en"], defaultdict(str, {"title": "Title"}))
+    'Title'
+    >>> render_spelling_pronunciation("spelling pronunciation", ["en"], defaultdict(str, {"nocap": "1"}))
+    'spelling pronunciation'
+    """
+    if data["notext"]:
+        return ""
+    text = data["title"] or tpl
+    return text if data["nocap"] else capitalize(text)
+
+
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
@@ -2307,6 +2322,7 @@ template_mapping = {
     "SI-unit-np": render_si_unit,
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
+    "spelling pronunciation": render_spelling_pronunciation,
     "suf": render_morphology,
     "suffix": render_morphology,
     "surf": render_surface_analysis,
