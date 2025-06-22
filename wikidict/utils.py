@@ -436,9 +436,9 @@ def guess_prefix(word: str) -> str:
     prefix = prefix.strip()
 
     # Special lowercasing: handle Turkish 'İ' (U+0130) to 'i'.
-    # Turkish 'İ' (U+0130) lowercases to 'i̇' (i + combining dot above), but the Kobo converts it to 'i'.
+    # Turkish 'İ' (U+0130) lowercases to 'i̇' (i + combining dot above), but Kobo and Go convert it to 'i'.
     # So we manually convert 'İ' to 'i'.
-    if not (prefix := "".join(("i" if char == "\u0130" else char.lower()) for char in prefix)):
+    if not (prefix := "".join("i" if char == "\u0130" else char.lower() for char in prefix)):
         return "11"
 
     if is_cyrillic(prefix[0]):
@@ -447,10 +447,7 @@ def guess_prefix(word: str) -> str:
     if len(prefix) < 2:
         prefix += "a"
 
-    if prefix.isalpha():
-        return prefix
-
-    return "11"
+    return prefix if prefix.isalpha() else "11"
 
 
 def clean(text: str) -> str:
