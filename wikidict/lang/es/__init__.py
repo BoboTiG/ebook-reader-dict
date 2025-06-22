@@ -71,6 +71,7 @@ templates_ignored = (
     "citarequerida",
     "clear",
     "definición",
+    "DEM",
     "definición imprecisa",
     "dicvis",
     "dicvisdesc",
