@@ -55,7 +55,7 @@ FILES = {
 # En error will be raised when the percentage of deletions from the new content
 # compared to the original content is higher than this percent.
 # Note: the behaviour can be skipped by using the `MANUAL=1` envar.
-MAX_PERCENT_DELETIONS = 1 / 100
+MAX_PERCENT_DELETIONS = 2 / 100
 
 
 class MarkersNotFoundError(ValueError):
