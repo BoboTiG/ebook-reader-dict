@@ -177,6 +177,8 @@ def last_template_handler(
         'υ'
         >>> last_template_handler(["e", "el", "δ"], "ca")
         'δ (<i>d</i>)'
+        >>> last_template_handler(["l", "egy", "wšbtj"], "ca")
+        'wšbtj'
 
         >>> last_template_handler(["epònim", "ca", "w=Niels Henrik Abel"], "ca")
         'Niels Henrik Abel'
@@ -346,7 +348,7 @@ def last_template_handler(
     if tpl == "epònim":
         return parts[1] if len(parts) > 1 else (data["w"] if "w" in data else "")
 
-    if tpl == "e":
+    if tpl in {"e", "l"}:
         return f"{parts[-1]}{parse_other_parameters(parts[0], parts[1])}"
 
     if tpl in ("del-lang", "Del-lang") and (len(parts) <= 2 or parts[2] == "-"):
