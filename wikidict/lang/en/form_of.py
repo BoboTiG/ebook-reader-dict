@@ -37,10 +37,6 @@ form_of_templates = {
         "text": "agent noun of",
         "dot": False,
     },
-    "an of": {
-        "text": "agent noun of",
-        "dot": False,
-    },
     "alternative case form of": {
         "text": "Alternative letter-case form of",
         "dot": False,
@@ -126,6 +122,10 @@ form_of_templates = {
         "dot": False,
     },
     "aphetic form of": {
+        "text": "Aphetic form of",
+        "dot": False,
+    },
+    "procopic form of": {
         "text": "Aphetic form of",
         "dot": False,
     },
@@ -319,7 +319,7 @@ form_of_templates = {
     },
     "former name of": {
         "text": "former name of",
-        "dot": True,
+        "dot": False,
     },
     "frequentative of": {
         "text": "frequentative of",
@@ -554,7 +554,7 @@ form_of_templates = {
         "dot": False,
     },
     "pejorative of": {
-        "text": "Pejorative of",
+        "text": "pejorative of",
         "dot": False,
     },
     "perfective form of": {
@@ -618,10 +618,6 @@ form_of_templates = {
         "dot": False,
     },
     "romanization of": {
-        "text": "Romanization of",
-        "dot": False,
-    },
-    "romanization": {
         "text": "Romanization of",
         "dot": False,
     },
@@ -698,11 +694,11 @@ form_of_templates = {
         "dot": False,
     },
     "synonym of": {
-        "text": "Synonym of",
+        "text": "synonym of",
         "dot": False,
     },
     "syn of": {
-        "text": "Synonym of",
+        "text": "synonym of",
         "dot": False,
     },
     "t-prothesis of": {
@@ -733,7 +729,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 182
+}  # 181
 # END
 
 
