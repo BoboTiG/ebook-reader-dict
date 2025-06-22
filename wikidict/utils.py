@@ -5,7 +5,6 @@ from __future__ import annotations
 import logging
 import os
 import re
-import unicodedata
 from collections import defaultdict, namedtuple
 from datetime import UTC, datetime
 from functools import cache, partial
@@ -221,9 +220,15 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
 
 
 @cache
-def is_cyrillic(c: str) -> bool:
+def is_cyrillic(char: str) -> bool:
     """Check if a character is Cyrillic."""
-    return "CYRILLIC" in unicodedata.name(c, "")
+    return (
+        "\u0400" <= char <= "\u04ff"  # Cyrillic
+        or "\u0500" <= char <= "\u052f"  # Cyrillic Supplement
+        or "\u2de0" <= char <= "\u2dff"  # Cyrillic Extended-A
+        or "\ua640" <= char <= "\ua69f"  # Cyrillic Extended-B
+        or "\u1c80" <= char <= "\u1c8f"  # Cyrillic Extended-C
+    )
 
 
 @cache
@@ -233,6 +238,8 @@ def guess_prefix(word: str) -> str:
     Inspiration: https://github.com/pettarin/penelope/blob/master/penelope/prefix_kobo.py#L16
     Inspiration: https://pgaskin.net/dictutil/dicthtml/prefixes.html
     Inspiration: me ᕦ(ò_óˇ)ᕤ
+
+    Converted from https://github.com/pgaskin/dictutil/blob/v0.3.2/kobodict/util.go#L44.
 
     Note: for words like "°GL", the Kobo will first check "11.html" and then "gl.html",
           so to speed-up the lookup, let's store such words into "11.html".
@@ -410,6 +417,10 @@ def guess_prefix(word: str) -> str:
         >>> guess_prefix("\\x00xy")
         '11'
 
+        Past problematic cases:
+        >>> guess_prefix("İslahiye")
+        'is'
+
         Japanese seems unreliable as of now:
         https://github.com/pgaskin/dictutil/blob/6708cff9a06dbd088ec2267a2314028a9a00b5a7/kobodict/util_test.go#L47-L51
         >>> guess_prefix("あ")
@@ -417,30 +428,29 @@ def guess_prefix(word: str) -> str:
         >>> guess_prefix("アークとう")
         'アー'
     """
-    pfx = list(word)
-    for i, c in enumerate(pfx):
-        if i >= 2 or c == "\x00":
-            pfx = pfx[:i]
-            break
-        pfx[i] = c.lower()
+    if "\x00" in (prefix := word):
+        prefix = prefix.split("\x00", 1)[0]
 
-    # Trim left
-    while pfx and pfx[0].isspace():
-        pfx = pfx[1:]
-    # Trim right
-    while pfx and pfx[-1].isspace():
-        pfx = pfx[:-1]
+    if len(prefix) > 2:
+        prefix = prefix[:2]
+    prefix = prefix.strip()
 
-    if not pfx:
+    # Special lowercasing: handle Turkish 'İ' (U+0130) to 'i'.
+    # Turkish 'İ' (U+0130) lowercases to 'i̇' (i + combining dot above), but the Kobo converts it to 'i'.
+    # So we manually convert 'İ' to 'i'.
+    if not (prefix := "".join(("i" if char == "\u0130" else char.lower()) for char in prefix)):
         return "11"
 
-    if not is_cyrillic(pfx[0]):
-        while len(pfx) < 2:
-            pfx.append("a")
-        if not (pfx[0].isalpha() and pfx[1].isalpha()):
-            return "11"
+    if is_cyrillic(prefix[0]):
+        return prefix
 
-    return "".join(pfx)
+    if len(prefix) < 2:
+        prefix += "a"
+
+    if prefix.isalpha():
+        return prefix
+
+    return "11"
 
 
 def clean(text: str) -> str:
