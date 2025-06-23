@@ -51,6 +51,10 @@ MAGIC_WORDS = {
 Template = namedtuple("Template", "placeholder value")
 SPECIAL_TEMPLATES = {
     "{{!}}": Template("##pipe##!##pipe##", "|"),
+    "{{!(}}": Template("##pipe##!(##pipe##", "&#91;"),
+    "{{)!}}": Template("##pipe##)!##pipe##", "&#93;"),
+    "{{(}}": Template("##pipe##!{##pipe##", "&#123;"),
+    "{{)}}": Template("##pipe##}!##pipe##", "&#125;"),
     "{{=}}": Template("##equal##!##equal##", "="),
 }
 
@@ -755,6 +759,9 @@ def process_templates(
 
     for tpl in SPECIAL_TEMPLATES.values():
         text = text.replace(tpl.placeholder, tpl.value)
+
+    for tpl in re.findall(r"({{[^{}]*}})", text):
+        text = text.replace(tpl, transform(word, tpl[2:-2], locale, all_templates=all_templates))
 
     text = text.replace(OPEN_DOUBLE_CURLY, "{{")
     text = text.replace(CLOSE_DOUBLE_CURLY, "}}")
