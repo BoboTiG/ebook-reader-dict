@@ -506,14 +506,15 @@ def parse_word(
     prons = []
     genders = []
     etymology = []
-    etymology_sections = []
+    etymology_sections: list[wtp.Section] = []
     variants: list[str] = []
 
     # Etymology (pre-select sections)
     if lang_src != "sv" and parsed_sections:
         for section in lang.etyl_section[lang_dst]:
-            for etyl_data in parsed_sections.pop(section, []):
-                etymology_sections.append(wtp.Section(etyl_data.__str__()))
+            etymology_sections.extend(
+                wtp.Section(etyl_data.__str__()) for etyl_data in parsed_sections.pop(section, [])
+            )
 
     # Definitions
     if parsed_sections:
