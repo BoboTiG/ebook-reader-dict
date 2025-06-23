@@ -13,6 +13,7 @@ from ...user_functions import (
     extract_keywords_from,
     italic,
     lookup_italic,
+    ruby,
     small,
     strong,
     superscript,
@@ -1029,6 +1030,15 @@ def render_han_simp(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     return f"{text})"
 
 
+def render_he_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_he_l("he-l", ["הר מגידו"], defaultdict(str, {"dwv": "הַר מְגִדּוֹ", "tr": "har megiddo"}))
+    'הר מגידו (<i>har megiddo</i>)'
+    """
+    parts.insert(0, "he")
+    return render_foreign_derivation("l", parts, data, word=word)
+
+
 def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_historical_given_name("historical given name", ["en" , "male", "Saint Abundius, an early Christian bishop"], defaultdict(str))
@@ -1280,6 +1290,86 @@ def render_ja_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
             text += f" ({parts[0]})"
         else:
             text += f" ({parts[0]}, {italic(parts[1])})"
+    return text
+
+
+def render_ja_r(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ja_r("ja-l", ["羨ましい"], defaultdict(str))
+    '羨ましい'
+    >>> render_ja_r("ja-l", ["羨ましい", "うらやましい"], defaultdict(str))
+    '<ruby>羨ましい<rt>うらやましい</rt></ruby>'
+    >>> render_ja_r("ja-l", ["羨ましい", "うらやましい", "a"], defaultdict(str, {"lit": "lit"}))
+    '<ruby>羨ましい<rt>うらやましい</rt></ruby> (“a”, literally “lit”)'
+    >>> render_ja_r("ja-l", ["羨ましい", "", "a"], defaultdict(str, {"lit": "lit"}))
+    '羨ましい (“a”, literally “lit”)'
+
+    >>> render_ja_r("ja-l", ["任天堂", "^ニンテンドー"], defaultdict(str))
+    '<ruby>任天堂<rt>ニンテンドー</rt></ruby>'
+
+    >>> render_ja_r("ja-l", ["物%の%哀れ", "もの %の% あわれ"], defaultdict(str))
+    '<ruby>物<rt>もの</rt></ruby>の<ruby>哀れ<rt>あわれ</rt></ruby>'
+    >>> render_ja_r("ja-l", ["物 の 哀れ", "もの の あわれ"], defaultdict(str))
+    '<ruby>物<rt>もの</rt></ruby>の<ruby>哀れ<rt>あわれ</rt></ruby>'
+    """
+    if len(parts) == 1 or not parts[1]:
+        text = parts[0]
+    else:
+        parts[1] = parts[1].removeprefix("^")
+
+        if sep := "%" if "%" in parts[0] else " " if " " in parts[0] else "":
+            texts = [part.strip() for part in parts[0].split(sep)]
+            tops = [part.strip() for part in parts[1].split(sep)]
+            text = "".join(t if t == p else ruby(t, p) for t, p in zip(texts, tops))
+        else:
+            text = ruby(parts[0], parts[1])
+
+    more: list[str] = []
+    if len(parts) > 2:
+        more.append(f"“{parts[2]}”")
+    if lit := data["lit"]:
+        more.append(f"literally “{lit}”")
+    if more:
+        text += f" ({', '.join(more)})"
+
+    return text
+
+
+def render_ko_inline(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ko_inline("ko-l", ["한국어"], defaultdict(str))
+    '한국어'
+    >>> render_ko_inline("ko-l", ["한국어", "a"], defaultdict(str))
+    '한국어 (<i>a</i>)'
+    >>> render_ko_inline("ko-l", ["한국어", "a", "b"], defaultdict(str))
+    '한국어 (<i>a</i>, “b”)'
+    >>> render_ko_inline("ko-l", ["한국어", "a", "b", "c"], defaultdict(str))
+    '한국어 (<i>a</i>, “b”)'
+    >>> render_ko_inline("ko-l", ["한국어", "a", "b", "c", "d"], defaultdict(str))
+    '한국어 (<i>a</i>, “b”) (<i>d</i>)'
+    >>> render_ko_inline("ko-l", ["한국어", "a", "b", "c", "d", "e"], defaultdict(str))
+    '한국어 (<i>a</i>, “b”) (<i>d</i>)'
+    """
+    # TODO: should be improved with transliteration
+    text = f"{parts.pop(0)}"
+    if parts:
+        text += f" (<i>{parts.pop(0)}</i>"
+        if parts:
+            text += f", “{parts.pop(0)}”"
+        text += f") (<i>{parts[1]}</i>)" if len(parts) > 1 else ")"
+    return text
+
+
+def render_ltc_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ltc_l("ltc-l", ["螺貝"], defaultdict(str))
+    '螺貝'
+    >>> render_ltc_l("ltc-l", ["螺貝", "shell; conch; conch trumpet"], defaultdict(str))
+    '螺貝 (“shell; conch; conch trumpet”)'
+    """
+    text = parts.pop(0)
+    if parts:
+        text += f" (“{concat(parts, ', ')}”)"
     return text
 
 
@@ -1594,6 +1684,36 @@ def render_morse_code_prosign(tpl: str, parts: list[str], data: defaultdict[str,
     return _render_morse_code(parts[0], data, "prosign")
 
 
+def render_mul_cjk_stroke_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_mul_cjk_stroke_def("mul-cjk stroke-def", ["p"], defaultdict(str))
+    '(<i>Chinese calligraphy</i>) The stroke {{m|mul|撇||left-falling}}.'
+    >>> render_mul_cjk_stroke_def("mul-cjk stroke-def", ["h", "z", "t"], defaultdict(str))
+    '(<i>Chinese calligraphy</i>) The stroke combination {{m|mul|橫||horizontal}} + {{m|mul|折||bent}} + {{m|mul|提||rising}}.'
+    """
+    # Source: https://en.wiktionary.org/w/index.php?title=Template:mul-cjk_stroke-def/char_def&oldid=40839292
+    strokes = {
+        "b": "{{m|mul|扁||flat}}",
+        "d": "{{m|mul|點||dot}}",
+        "g": "{{m|mul|鉤||hook}}",
+        "h": "{{m|mul|橫||horizontal}}",
+        "n": "{{m|mul|捺||right-falling}}",
+        "p": "{{m|mul|撇||left-falling}}",
+        "q": "{{m|mul|圈||circle}}",
+        "s": "{{m|mul|豎||vertical}}",
+        "t": "{{m|mul|提||rising}}",
+        "w": "{{m|mul|彎||curved}}",
+        "x": "{{m|mul|斜||slant}}",
+        "z": "{{m|mul|折||bent}}",
+    }
+
+    text = "(<i>Chinese calligraphy</i>) The stroke "
+    if len(parts) > 1:
+        text += "combination "
+    text += concat([strokes[part] for part in parts], " + ")
+    return f"{text}."
+
+
 def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_name_translit("name translit", ["en", "ka", "შევარდნაძე"], defaultdict(str, {"type":"surname"}))
@@ -1741,6 +1861,20 @@ def render_nuclide(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return phrase
 
 
+def render_och_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_och_l("och-l", ["覺"], defaultdict(str))
+    '覺 (OC)'
+    >>> render_och_l("och-l", ["覺", "to awake, get insight"], defaultdict(str))
+    '覺 (OC, “to awake, get insight”)'
+    """
+    # TODO: should be improved with transliteration
+    text = f"{parts.pop(0)} (OC"
+    if parts:
+        text += f", “{parts[0]}”"
+    return f"{text})"
+
+
 def render_only_used_in(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_only_used_in("only used in", ["en", "Alexandrian limp"], defaultdict(str))
@@ -1776,6 +1910,31 @@ def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     'bar'
     """
     return data["disp"] or parts[0]
+
+
+def render_phonetic_alphabet(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_phonetic_alphabet("phonetic-alphabet", ["A"], defaultdict(str, {"NATO/ICAO": "1", "ITU/IMO": "1"}))
+    '{{lb|mul|international standards}} <i>NATO, ICAO, ITU & IMO radiotelephony clear code (spelling-alphabet name) for the letter</i> <b>A</b>.'
+    """
+    standards: list[str] = []
+    if data["NATO/ICAO"]:
+        standards.extend(("NATO", "ICAO"))
+    if data["ITU/IMO"]:
+        standards.extend(("ITU", "IMO"))
+    standards_str = concat(standards, ", ", last_sep=" & ")
+
+    label = "{{lb|mul|international standards}}"
+    ng = f"{standards_str} radiotelephony clear code (spelling-alphabet name)"
+
+    if data["word"]:
+        for_what = ""
+    elif data["num"]:
+        for_what = "the digit"
+    else:
+        for_what = "the letter"
+
+    return f"{label} <i>{ng} for {for_what}</i> <b>{parts[0]}</b>."
 
 
 def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2187,6 +2346,19 @@ def render_vern(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return parts[-1] + data["pl"]
 
 
+def render_vi_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_vi_l("vi-l", ["bánh"], defaultdict(str))
+    'bánh'
+    >>> render_vi_l("vi-l", ["bánh", "𨋣"], defaultdict(str))
+    'bánh (𨋣)'
+    """
+    text = parts.pop(0)
+    if parts:
+        text += f" {parts[0]}"
+    return text
+
+
 template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
@@ -2267,6 +2439,9 @@ template_mapping = {
     "inh+": render_foreign_derivation,
     "inherited": render_foreign_derivation,
     "ja-l": render_ja_l,
+    "ja-r": render_ja_r,
+    "ko-inline": render_ko_inline,
+    "ko-l": render_ko_inline,
     "l": render_foreign_derivation,
     "l-lite": render_foreign_derivation,
     "label": render_label,
@@ -2279,6 +2454,7 @@ template_mapping = {
     "learned borrowing": render_foreign_derivation,
     "link": render_foreign_derivation,
     "ll": render_foreign_derivation,
+    "ltc-l": render_ltc_l,
     "m": render_foreign_derivation,
     "m+": render_foreign_derivation,
     "m-lite": render_foreign_derivation,
@@ -2286,6 +2462,7 @@ template_mapping = {
     "morse code abbreviation": render_morse_code_abbreviation,
     "morse code for": render_morse_code_for,
     "morse code prosign": render_morse_code_prosign,
+    "mul-cjk stroke-def": render_mul_cjk_stroke_def,
     "name translit": render_name_translit,
     "named-after": render_named_after,
     "nb...": render_nb,
@@ -2295,6 +2472,8 @@ template_mapping = {
     "noncognate": render_foreign_derivation,
     "nuclide": render_nuclide,
     "obor": render_foreign_derivation,
+    "och-l": render_och_l,
+    "he-l": render_he_l,
     "only in": render_only_used_in,
     "only used in": render_only_used_in,
     "onom": render_onomatopoeic,
@@ -2305,6 +2484,7 @@ template_mapping = {
     "partial calque": render_foreign_derivation,
     "pcal": render_foreign_derivation,
     "pedlink": render_pedlink,
+    "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
     "place": render_place,
@@ -2348,6 +2528,7 @@ template_mapping = {
     "unknown": render_unknown,
     "vern": render_vern,
     "vernacular": render_vern,
+    "vi-l": render_vi_l,
     "w": defaults.render_wikilink,
     #
     # Variants
