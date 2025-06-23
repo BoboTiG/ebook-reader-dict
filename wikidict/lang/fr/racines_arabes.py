@@ -1958,7 +1958,7 @@ racines_schemes_arabes = {
         "ar-mu*a*²a*ũ": "octuple",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "",
-        "ar-ta*a*²a*a": "",
+        "ar-ta*a*²a*a": "se faire huit",
         "ar-ta*a*²u*ũ": "huitaine",
         "ar-ta*â*a*a": "",
     },  # 28

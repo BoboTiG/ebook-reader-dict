@@ -2405,7 +2405,7 @@ langs = {
     "guq": "aché",
     "gur": "farefare",
     "gus": "lengua de señas guineana",
-    "gut": "guatuso",
+    "gut": "malecu",
     "guu": "yanomamö",
     "guw": "gun",
     "gux": "gurmanchema",
