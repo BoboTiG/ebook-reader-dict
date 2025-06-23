@@ -2355,7 +2355,7 @@ def render_vi_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     """
     text = parts.pop(0)
     if parts:
-        text += f" {parts[0]}"
+        text += f" ({parts[0]})"
     return text
 
 
