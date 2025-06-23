@@ -88,13 +88,16 @@ definitions_to_ignore = ("rfdef",)
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
+    "#tag",
     "anchor",
+    "Anchor",
     "attention",
     "attn",
     "box-bottom",
     "box-top",
     "c",
     "C",
+    "cite-av",
     "cite-book",
     "cln",
     "col",
@@ -130,6 +133,7 @@ templates_ignored = (
     "rfclarify",
     "rfd-redundant",
     "rfd-sense",
+    "rfdate",
     "rfe",
     "rfeq",
     "rfex",
@@ -154,6 +158,7 @@ templates_ignored = (
     "topics",
     "translation only",
     "was wotd",
+    "wikidata",
     "wikipedia",
     "Wikipedia",
     "wikispecies",
