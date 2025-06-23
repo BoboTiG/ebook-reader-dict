@@ -2342,9 +2342,15 @@ def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
     >>> render_variant("plural of", ["en", "woman"], defaultdict(str), word="women")
     'woman'
+
+    >>> render_variant("form of", ["en", "Alternative (anglicized) spelling", "Wrocław"], defaultdict(str), word="Wroclaw")
+    'Wrocław'
     """
     if "en-archaic" in tpl:
         return parts[0]
+
+    if "form of" in tpl:
+        return parts[-1]
 
     return data["2"] or parts[1]
 
