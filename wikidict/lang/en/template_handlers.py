@@ -208,6 +208,32 @@ def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     return small(text.replace(".", "")) if nodot else small(text)
 
 
+def render_bond_credit_rating(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_bond_credit_rating("bond credit rating", ["a bond is upper-medium grade with low risk of default"], defaultdict(str, {"lt": "1", "s": "1", "f": "1"}))
+    '{{lb|mul|finance}} <i>Long-term bond credit rating by S&P Global Ratings and Fitch Ratings, indicating that a bond is upper-medium grade with low risk of default.</i>'
+    """
+    text = "{{lb|mul|finance}} <i>"
+
+    if data["lt"]:
+        text += "Long-term"
+    if data["st"]:
+        text += "Short-term"
+
+    text += " bond credit rating by"
+
+    agencies: list[str] = []
+    if data["m"]:
+        agencies.append("Moody's Investors Service")
+    if data["s"]:
+        agencies.append("S&P Global Ratings")
+    if data["f"]:
+        agencies.append("Fitch Ratings")
+    text += f" {concat(agencies, ', ', last_sep=' and ')},"
+
+    return f"{text} indicating that {parts[0]}.</i>"
+
+
 def render_cap(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cap("cap", ["beef"], defaultdict(str))
@@ -2244,6 +2270,7 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     Single senseid case: https://en.wiktionary.org/wiki/Afrika
     Multiple senseid case: https://en.wiktionary.org/wiki/Macao
+    No senseid case: https://en.wiktionary.org/wiki/Ionian_Sea
     """
     import subprocess
 
@@ -2263,9 +2290,13 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
             text=True,
             encoding="unicode_escape",
         )
-        pattern = re.compile(rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}")
+        pattern = re.compile(
+            rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
+            if "{{senseid|" in output or "{{sid|" in output
+            else r"#\s*(\{\{place\|.+)"
+        )
         definition = next(line.strip() for line in output.splitlines() if pattern.search(line))
-        definition = pattern.sub("", definition)
+        definition = pattern.sub(r"\1", definition)
 
         # At this point, the definition is something like `{{place|...}}`, and if the `tcl=` arg is used, we need to alter template arguments
         if "tcl=" in definition:
@@ -2400,6 +2431,7 @@ template_mapping = {
     "bf": render_foreign_derivation,
     "blend of": render_morphology,
     "blend": render_morphology,
+    "bond credit rating": render_bond_credit_rating,
     "bor": render_foreign_derivation,
     "bor-lite": render_foreign_derivation,
     "bor+": render_foreign_derivation,
@@ -2509,6 +2541,7 @@ template_mapping = {
     "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
+    "piecewise_doublet": render_morphology,
     "place": render_place,
     "post": render_dating,
     "p.": render_dating,
