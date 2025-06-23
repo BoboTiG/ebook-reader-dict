@@ -15,7 +15,6 @@ from ...user_functions import (
     underline,
 )
 from ...utils import process_special_pipe_template
-from .. import defaults
 from .langs import langs
 
 
@@ -1831,8 +1830,6 @@ template_mapping = {
     "Unité": render_unite,
     "unité": render_unite,
     "univerbation": render_modele_etym,
-    "w": defaults.render_wikilink,
-    "W": defaults.render_wikilink,
     "ws": render_wikisource,
     "zh-lien": render_zh_lien,
     #

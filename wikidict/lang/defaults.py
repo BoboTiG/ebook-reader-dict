@@ -87,7 +87,7 @@ def last_template_handler(
 
         return number(parts[0], locale_aware_fs[locale], locale_aware_ts[locale])
 
-    if tpl == "w":
+    if tpl in {"w", "W"}:
         return render_wikilink(tpl, parts, data)
 
     # Handle the specific {{transliterator}} template (which is a Wiktionary module)

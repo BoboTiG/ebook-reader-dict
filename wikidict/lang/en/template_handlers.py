@@ -19,7 +19,6 @@ from ...user_functions import (
     superscript,
     term,
 )
-from .. import defaults
 from .labels import syntaxes
 from .langs import langs
 from .places import (
@@ -2529,7 +2528,6 @@ template_mapping = {
     "vern": render_vern,
     "vernacular": render_vern,
     "vi-l": render_vi_l,
-    "w": defaults.render_wikilink,
     #
     # Variants
     #

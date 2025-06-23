@@ -2,7 +2,6 @@ from collections import defaultdict
 
 from ...user_functions import extract_keywords_from, italic, superscript
 from ...utils import process_templates
-from .. import defaults
 from .etymologies import etymologies
 from .langs_short import langs_short
 
@@ -343,8 +342,6 @@ template_mapping = {
     "lang": render_lang,
     "lang2": render_lang,
     "t": render_t,
-    "w": defaults.render_wikilink,
-    "W": defaults.render_wikilink,
     "этимология": render_этимология,
     "значение": get_definition,
     "помета": render_помета,
