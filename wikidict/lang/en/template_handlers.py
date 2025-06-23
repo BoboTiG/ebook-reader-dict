@@ -303,15 +303,20 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     'Coined by American scientist Josiah Willard Gibbs in 1881'
     >>> render_coinage("coin", ["en", "Josiah Willard Gibbs"], defaultdict(str, {"alt":"Josiah W. Gibbs", "nationality":"American", "occupation":"scientist"}))
     'Coined by American scientist Josiah W. Gibbs'
-    >>> render_coinage("coin", [], defaultdict(str, {"1":"en", "2":"Charles Rice"}))
-    'Coined by Charles Rice'
+    >>> render_coinage("coin", [], defaultdict(str, {"1":"en", "2":"Charles Rice", "in": "c. 1000"}))
+    'Coined by Charles Rice c. 1000'
+    >>> render_coinage("coin", ["mul", "Q1043"], defaultdict(str, {"exnihilo": "1", "in": "in the 1950s"}))
+    'Coined <i>ex nihilo</i> by Swedish botanist, physician, and zoologist Carl Linnaeus in the 1950s'
     """
     if parts:
         parts.pop(0)  # Remove the language
-    p = data["alt"] or data["2"] or (parts.pop(0) if parts else "unknown") or "unknown"
+
     phrase = ""
     if data["notext"] != "1":
-        starter = "coined by"
+        starter = "coined"
+        if data["exnihilo"]:
+            starter += " <i>ex nihilo</i>"
+        starter += " by"
         phrase = starter if data["nocap"] else starter.capitalize()
         if data["nationality"]:
             phrase += f" {data['nationality']}"
@@ -320,9 +325,20 @@ def render_coinage(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
         if occ := join_names(data, "occ", " and ", include_langname=False, key_alias="occupation"):
             phrase += f" {occ}"
         phrase += " "
-    phrase += f"{p}"
-    if data["in"]:
-        phrase += f" in {data['in']}"
+
+    who = data["alt"] or data["2"] or (parts.pop(0) if parts else "unknown") or "unknown"
+    if who.startswith("Q") and who[1:].isdigit():
+        from . import wikidata
+
+        who = wikidata.COINERS[who]
+
+    phrase += who
+
+    if date := data["in"]:
+        if date.isdigit():
+            phrase += " in"
+        phrase += f" {date}"
+
     return phrase
 
 
@@ -2398,6 +2414,7 @@ template_mapping = {
     "cog-lite": render_foreign_derivation,
     "cognate": render_foreign_derivation,
     "coin": render_coinage,
+    "coined": render_coinage,
     "coinage": render_coinage,
     "contr": render_contraction,
     "contraction": render_contraction,
