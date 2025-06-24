@@ -541,6 +541,11 @@ def parse_word(
             for etyl_data in etymology_sections:
                 etymology.extend(find_etymology(word, lang_src, lang_dst, etyl_data, all_templates=all_templates))
 
+        if etymology:
+            # Remove duplicates
+            seen = set()
+            etymology = [e for e in etymology if not (e in seen or seen.add(e))]  # type: ignore[func-returns-value]
+
     # Variants
     if parsed_sections and (interesting_titles := lang.variant_titles[lang_dst]):
         interesting_templates = lang.variant_templates[lang_dst]
