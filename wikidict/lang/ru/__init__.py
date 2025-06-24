@@ -306,6 +306,8 @@ def last_template_handler(
 
         >>> last_template_handler(["рег."], "ru")
         '<i>рег.</i>'
+        >>> last_template_handler(["рег.", "", "ru"], "ru")
+        '<i>рег.</i>'
         >>> last_template_handler(["рег.", "Латвия"], "ru")
         '<i>рег. (Латвия)</i>'
 
@@ -361,8 +363,8 @@ def last_template_handler(
 
     if tpl in {"рег.", "обл.", "местн."}:
         text = "рег."
-        if parts:
-            text += f" ({parts[0]})"
+        if part := next((p for p in parts if p and p != "ru"), ""):
+            text += f" ({part})"
         return italic(text)
 
     if tpl in {"аббр.", "сокр."}:
