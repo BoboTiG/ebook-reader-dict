@@ -82,7 +82,7 @@ form_of_templates = {
         "dot": False,
     },
     "alternative reconstruction of": {
-        "text": "Alternative reconstruction of",
+        "text": "alternative reconstruction of",
         "dot": False,
     },
     "alternative spelling of": {
@@ -186,11 +186,11 @@ form_of_templates = {
         "dot": False,
     },
     "combining form of": {
-        "text": "Combining form of",
+        "text": "combining form of",
         "dot": False,
     },
     "comb form": {
-        "text": "Combining form of",
+        "text": "combining form of",
         "dot": False,
     },
     "comparative of": {
@@ -533,10 +533,6 @@ form_of_templates = {
         "text": "participle of",
         "dot": False,
     },
-    "passive of": {
-        "text": "passive of",
-        "dot": False,
-    },
     "passive participle of": {
         "text": "passive participle of",
         "dot": False,
@@ -725,7 +721,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 180
+}  # 179
 # END
 
 

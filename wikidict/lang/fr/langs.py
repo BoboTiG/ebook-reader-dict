@@ -3215,6 +3215,7 @@ langs = {
     "kvz": "tsaukambo",
     "kw": "cornique",
     "kwa": "dâw",
+    "kwc": "likwala",
     "kwd": "kwaio",
     "kwe": "kwerba",
     "kwf": "kwara’ae",
@@ -7115,5 +7116,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 7,110
+}  # 7,111
 # END

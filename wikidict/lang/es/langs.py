@@ -1337,7 +1337,7 @@ langs = {
     "chb": "muisca",
     "chc": "catabwa",
     "chd": "tequistlateco alto",
-    "chf": "yoko t'aan",
+    "chf": "yokot'an",
     "chg": "chagatay",
     "chh": "chinukano",
     "chi-pro": "proto-chimaku",
