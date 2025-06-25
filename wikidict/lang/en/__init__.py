@@ -27,6 +27,7 @@ sections = (
     "letter",
     "noun",
     "numeral",
+    "number",
     "particle",
     "punctuation mark",
     "prefix",
