@@ -2020,8 +2020,11 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     'A prefecture of Japan. Capital: Mito'
     >>> render_place("place", ["en", "suburban area", "in", "par/New Milton", "dist/New Forest", "co/Hampshire", "cc/England", "formerly a village named", "x/Milton"], defaultdict(str))
     'A suburban area in  New Milton parish, New Forest district, Hampshire, England, formerly a village named Milton'
+    >>> render_place("place", ["en", "The capital city of <<s/South Carolina>>, and the county seat of <<co/Richland County>>"], defaultdict(str))
+    'The capital city of South Carolina, and the county seat of Richland County'
     """
     parts.pop(0)  # Remove the language
+    parts = [re.sub(r"<<(?:[^/>]+)/([^>]+)>>", r"\1", part) for part in parts]
     phrase = ""
     i = 1
     previous_rawpart = False
