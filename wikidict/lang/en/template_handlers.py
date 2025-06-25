@@ -1093,10 +1093,23 @@ def render_han_simp(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
 def render_he_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_he_l("he-l", ["הר מגידו"], defaultdict(str, {"dwv": "הַר מְגִדּוֹ", "tr": "har megiddo"}))
-    'הר מגידו (<i>har megiddo</i>)'
+    'הר מגידו / הַר מְגִדּוֹ (<i>har megiddo</i>)'
     """
+    if dwv := data["dwv"]:
+        parts[0] += f" / {dwv}"
     parts.insert(0, "he")
     return render_foreign_derivation("l", parts, data, word=word)
+
+
+def render_he_m(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_he_m("he-m", ["צייר"], defaultdict(str, {"dwv": "צַיָּר", "tr": "tsayár"}))
+    '<i>צייר / צַיָּר</i> (<i>tsayár</i>)'
+    """
+    if dwv := data["dwv"]:
+        parts[0] += f" / {dwv}"
+    parts.insert(0, "he")
+    return render_foreign_derivation("m", parts, data, word=word)
 
 
 def render_historical_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2500,6 +2513,8 @@ template_mapping = {
     "frac": render_frac,
     "given name": render_given_name,
     "Han simp": render_han_simp,
+    "he-l": render_he_l,
+    "he-m": render_he_m,
     "historical given name": render_historical_given_name,
     "ic": render_ipa_char,
     "IPAchar": render_ipa_char,
@@ -2549,7 +2564,6 @@ template_mapping = {
     "nuclide": render_nuclide,
     "obor": render_foreign_derivation,
     "och-l": render_och_l,
-    "he-l": render_he_l,
     "only in": render_only_used_in,
     "only used in": render_only_used_in,
     "onom": render_onomatopoeic,
