@@ -63,19 +63,19 @@ form_of_templates = {
     },
     "alternative form of": {
         "text": "alternative form of",
-        "dot": False,
+        "dot": True,
     },
     "alt form": {
         "text": "alternative form of",
-        "dot": False,
+        "dot": True,
     },
     "altform": {
         "text": "alternative form of",
-        "dot": False,
+        "dot": True,
     },
     "alt form of": {
         "text": "alternative form of",
-        "dot": False,
+        "dot": True,
     },
     "alternative plural of": {
         "text": "plural of kilometer",
@@ -83,35 +83,35 @@ form_of_templates = {
     },
     "alternative reconstruction of": {
         "text": "alternative reconstruction of",
-        "dot": False,
+        "dot": True,
     },
     "alternative spelling of": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "alt sp": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "altspell": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "alt spell": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "altsp": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "alt sp of": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "alt spelling of": {
         "text": "alternative spelling of",
-        "dot": False,
+        "dot": True,
     },
     "alternative typography of": {
         "text": "alternative typography of",
@@ -175,6 +175,14 @@ form_of_templates = {
     },
     "causative of": {
         "text": "causative of",
+        "dot": False,
+    },
+    "clipped compound of": {
+        "text": "clipped compound of",
+        "dot": False,
+    },
+    "clipcomp of": {
+        "text": "clipped compound of",
         "dot": False,
     },
     "clipping of": {
@@ -279,7 +287,7 @@ form_of_templates = {
     },
     "eye dialect of": {
         "text": "eye dialect spelling of",
-        "dot": False,
+        "dot": True,
     },
     "female equivalent of": {
         "text": "female equivalent of",
@@ -567,23 +575,23 @@ form_of_templates = {
     },
     "pronunciation spelling of": {
         "text": "pronunciation spelling of",
-        "dot": False,
+        "dot": True,
     },
     "pron spelling of": {
         "text": "pronunciation spelling of",
-        "dot": False,
+        "dot": True,
     },
     "pron sp of": {
         "text": "pronunciation spelling of",
-        "dot": False,
+        "dot": True,
     },
     "pron sp": {
         "text": "pronunciation spelling of",
-        "dot": False,
+        "dot": True,
     },
     "pronunciation variant of": {
         "text": "pronunciation variant of",
-        "dot": False,
+        "dot": True,
     },
     "rare form of": {
         "text": "rare form of",
@@ -626,8 +634,8 @@ form_of_templates = {
         "dot": False,
     },
     "short for": {
-        "text": "Short for",
-        "dot": True,
+        "text": "short for",
+        "dot": False,
     },
     "singular of": {
         "text": "singular of",
@@ -647,15 +655,15 @@ form_of_templates = {
     },
     "standard form of": {
         "text": "standard form of",
-        "dot": False,
+        "dot": True,
     },
     "standard spelling of": {
         "text": "standard spelling of",
-        "dot": False,
+        "dot": True,
     },
     "stand sp": {
         "text": "standard spelling of",
-        "dot": False,
+        "dot": True,
     },
     "superlative of": {
         "text": "superlative degree of",
@@ -721,7 +729,7 @@ form_of_templates = {
         "text": "inflection of:",
         "dot": False,
     },
-}  # 179
+}  # 181
 # END
 
 

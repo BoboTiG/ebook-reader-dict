@@ -249,6 +249,7 @@ labels = {
     "Dobrogea": "Dobruja",
     "Dobruja": "Dobruja",
     "Dobrujan": "Dobruja",
+    "DoggoLingo": "DoggoLingo",
     "Dorset": "Dorset",
     "Drag Race slang": "drag {{glossary|slang}}",
     "Dublin": "Dublin",
@@ -2655,7 +2656,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,650
+}  # 2,651
 
 syntaxes = {
     "&": {
