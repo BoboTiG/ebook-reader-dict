@@ -375,18 +375,29 @@ def render_contraction(tpl: str, parts: list[str], data: defaultdict[str, str], 
 def render_lang_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     lang_src = parts.pop(0)
     match what := parts.pop(0):
-        case "name":
-            text = italic(f"The {what} of the {data['sc']}script letter")
         case "letter":
-            if parts and (number := parts[0]).isdigit():
-                text = italic(
-                    f"The {num2words(number, lang='en', to='ordinal')} letter of the {langs[lang_src]} alphabet, written in the {data['sc'].removesuffix('-')} script"
-                )
+            if parts:
+                number = parts.pop(0)
+                text = f"The {num2words(number, lang='en', to='ordinal')} letter of the {langs[lang_src]} alphabet,"
+                if parts:
+                    text += f" called {strong(parts.pop(0))} and"
+                text += f" written in the {data['sc'].removesuffix('-')} script"
+            elif lang_src == "en":
+                text = f"The {what} of the English alphabet, written in the {data['sc'].removesuffix('-')} script"
             else:
-                text = italic(f"A {what} of the {data['sc']}script")
+                text = f"A {what} of the {data['sc']}script"
+        case "name":
+            text = f"The {what} of the {data['sc']}script letter"
+        case "ordinal":
+            number = num2words(parts.pop(0), lang="en", to="ordinal")
+            text = f"The {what} number {strong(number)}, derived from this letter of the {langs[lang_src]} alphabet,"
+            if parts:
+                text += f" called {strong(parts.pop(0))} and"
+            text += f" written in the {data['sc'].removesuffix('-')} script"
         case _:
             raise ValueError(f"Unhandled {tpl!r} {what=}")
 
+    text = italic(text)
     if len(parts) > 1:
         text += f" {strong(parts[0])} / {strong(parts[1])}"
 
@@ -408,8 +419,16 @@ def render_latn_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     """
     >>> render_latn_def("Latn-def", ["en", "name", "M", "m"], defaultdict(str))
     '<i>The name of the Latin-script letter</i> <b>M</b> / <b>m</b>.'
+    >>> render_latn_def("Latn-def", ["en", "letter"], defaultdict(str))
+    '<i>The letter of the English alphabet, written in the Latin script</i>.'
     >>> render_latn_def("Latn-def", ["en", "letter", "1"], defaultdict(str))
     '<i>The first letter of the English alphabet, written in the Latin script</i>.'
+    >>> render_latn_def("Latn-def", ["en", "letter", "1", "a"], defaultdict(str))
+    '<i>The first letter of the English alphabet, called <b>a</b> and written in the Latin script</i>.'
+    >>> render_latn_def("Latn-def", ["en", "ordinal", "1"], defaultdict(str))
+    '<i>The ordinal number <b>first</b>, derived from this letter of the English alphabet, written in the Latin script</i>.'
+    >>> render_latn_def("Latn-def", ["en", "ordinal", "1", "a"], defaultdict(str))
+    '<i>The ordinal number <b>first</b>, derived from this letter of the English alphabet, called <b>a</b> and written in the Latin script</i>.'
     """
     data["sc"] = "Latin-"
     return render_lang_def(tpl, parts, data, word=word)
