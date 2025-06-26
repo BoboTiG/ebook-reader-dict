@@ -424,6 +424,10 @@ def guess_prefix(word: str) -> str:
         Past problematic cases:
         >>> guess_prefix("İslahiye")
         'is'
+        >>> guess_prefix("б/а")
+        ''
+        >>> guess_prefix("б-p")
+        'б-'
 
         Japanese seems unreliable as of now:
         https://github.com/pgaskin/dictutil/blob/6708cff9a06dbd088ec2267a2314028a9a00b5a7/kobodict/util_test.go#L47-L51
@@ -446,7 +450,7 @@ def guess_prefix(word: str) -> str:
         return "11"
 
     if is_cyrillic(prefix[0]):
-        return prefix
+        return "" if prefix[-1] == "/" else prefix
 
     if len(prefix) < 2:
         prefix += "a"
