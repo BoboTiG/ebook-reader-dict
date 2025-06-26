@@ -191,4 +191,5 @@ form_of_templates = {
 
 # form-of templates not included in the table at https://en.wiktionary.org/wiki/Category:Form-of_templates
 form_of_templates["censored spelling of"] = "Censored spelling of"
-form_of_templates["cens sp"] = "Censored spelling of"
+form_of_templates["cens sp"] = form_of_templates["censored spelling of"]
+form_of_templates["init"] = form_of_templates["initialism of"]
