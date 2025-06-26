@@ -204,6 +204,7 @@ templates_ignored = (
 # Templates that will be completed/replaced using italic style.
 templates_italic = {
     **labels,
+    "gentrade": "Genericized trademark",
 }
 
 # Templates more complex to manage.
