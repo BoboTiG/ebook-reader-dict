@@ -2198,6 +2198,69 @@ def render_si_unit_abb(tpl: str, parts: list[str], data: defaultdict[str, str], 
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)}, an SI unit of {category} equal to 10{superscript(exp)} {unit}{plural}"
 
 
+def render_si_unit_abb2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_si_unit_abb2("SI-unit-abb2", ["exa", "liter", "litre", "fluid measure"], defaultdict(str))
+    '(<i>metrology</i>) <i>Symbol for</i> <b>exaliter</b> (<i>exalitre</i>), an SI unit of fluid measure equal to 10<sup>18</sup> liters (<i>litres</i>).'
+    """
+    prefix = data["1"] or (parts.pop(0) if parts else "")
+    unit = data["2"] or (parts.pop(0) if parts else "")
+    kind = data["3"] or (parts.pop(0) if parts else "")
+    category = data["4"] or (parts.pop(0) if parts else "")
+    match prefix:
+        case "quecto":
+            exp = "&minus;30"
+        case "ronto":
+            exp = "&minus;27"
+        case "yocto":
+            exp = "&minus;24"
+        case "zepto":
+            exp = "&minus;21"
+        case "atto":
+            exp = "&minus;18"
+        case "femto":
+            exp = "&minus;15"
+        case "pico":
+            exp = "&minus;12"
+        case "nano":
+            exp = "&minus;9"
+        case "micro":
+            exp = "&minus;6"
+        case "milli":
+            exp = "&minus;3"
+        case "centi":
+            exp = "&minus;2"
+        case "deci":
+            exp = "&minus;1"
+        case "deca":
+            exp = "1"
+        case "hecto":
+            exp = "2"
+        case "kilo":
+            exp = "3"
+        case "mega":
+            exp = "6"
+        case "giga":
+            exp = "9"
+        case "tera":
+            exp = "12"
+        case "peta":
+            exp = "15"
+        case "exa":
+            exp = "18"
+        case "zetta":
+            exp = "21"
+        case "yotta":
+            exp = "24"
+        case "ronna":
+            exp = "27"
+        case "quetta":
+            exp = "30"
+        case _:
+            exp = "?"
+    return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)} ({italic(prefix + kind)}), an SI unit of {category} equal to 10{superscript(exp)} {unit}s (<i>{kind}s</i>)."
+
+
 def render_spelling_pronunciation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_spelling_pronunciation("spelling pronunciation", ["en"], defaultdict(str))
@@ -2589,6 +2652,7 @@ template_mapping = {
     "SI-unit": render_si_unit,
     "SI-unit-2": render_si_unit_2,
     "SI-unit-abb": render_si_unit_abb,
+    "SI-unit-abb2": render_si_unit_abb2,
     "SI-unit-abbnp": render_si_unit_abb,
     "SI-unit-np": render_si_unit,
     "sl": render_foreign_derivation,
