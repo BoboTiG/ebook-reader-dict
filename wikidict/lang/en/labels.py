@@ -1753,6 +1753,7 @@ labels = {
     "lichenology": "lichenology",
     "limnology": "limnology",
     "linear algebra": "linear algebra",
+    "linguistic": "linguistics",
     "linguistic morphology": "linguistic morphology",
     "linguistics": "linguistics",
     "lipid": "biochemistry",
@@ -2656,7 +2657,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,651
+}  # 2,652
 
 syntaxes = {
     "&": {

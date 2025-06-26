@@ -5254,6 +5254,35 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "se succéder",
     },  # 20
+    "ar-dwr": {
+        "aa_sens": "tourner",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "tour",
+        "ar-*a**iy²ũ": "individu",
+        "ar-*a**ânũ": "rotation",
+        "ar-*a**ũ": "cercle",
+        "ar-*a*a*@ũ": "maison",
+        "ar-*a*a*a-u": "tourner",
+        "ar-*a*a*iy²ũ": "épicier",
+        "ar-*a*a*ũ": "lieu habité",
+        "ar-*a*²a*a": "faire tourner",
+        "ar-*a*²â*@ũ": "cerceau",
+        "ar-*a*²â*iy²ũ": "qui tourne toujours",
+        "ar-*a*²â*ũ": "qui tourne toujours",
+        "ar-*a*â*ũ": "la Caaba",
+        "ar-*i*â*ũ": "pays",
+        "ar-*ta*a*a": "courir autour",
+        "ar-*u*â*ũ": "vertige",
+        "ar-*â*a*a": "soigner",
+        "ar-*âyi3@ũ": "cercle",
+        "ar-*âyi3ũ": "qui entoure",
+        "ar-a**a*a": "faire tourner",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "circuler",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 27
     "ar-f3l": {
         "aa_sens": "action",
         "ar-*a**@ũ": "habitude",
@@ -5776,6 +5805,18 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "être rassemblé, affluer",
         "ar-ta*a*²a*a": "s'attrouper",
     },  # 36
+    "ar-jmhr": {
+        "aa_sens": "rassemblement",
+        "ar-***ũ": "",
+        "ar-*a**a*@ũ": "réunion",
+        "ar-*a**a*a": "réunir",
+        "ar-*a*â*î*iy²@ũ": "état des masses",
+        "ar-*a*â*î*u": "{{p}} multitudes",
+        "ar-*u**û*iy²@ũ": "république",
+        "ar-*u**û*iy²ũ": "populaire",
+        "ar-*u**û*ũ": "multitude",
+        "ar-mu*a**a*ũ": "en monticule",
+    },  # 10
     "ar-jml": {
         "aa_sens": "totalité, beauté ; chameau",
         "ar-**a*²a": "",
@@ -9432,6 +9473,24 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
     },  # 17
+    "ar-tHt": {
+        "aa_sens": "inférieur",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**âniy²ũ": "inférieur",
+        "ar-*a**ũ": "le dessous",
+        "ar-*a*a*a-u": "être à une place inférieure",
+        "ar-*a*²a*a": "",
+        "ar-*ta*a*a": "",
+        "ar-*u*ay*ũ": "un peu au-dessous",
+        "ar-*u*u*ũ": "homme de basse condition",
+        "ar-*â*a*a": "",
+        "ar-a**a*a": "",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 16
     "ar-tXm": {
         "aa_sens": "frontière",
         "ar-*a**ũ": "borne",
@@ -10479,5 +10538,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 357
+}  # 360
 # END
