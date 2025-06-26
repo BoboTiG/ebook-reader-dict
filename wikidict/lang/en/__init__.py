@@ -431,7 +431,7 @@ def last_template_handler(
         >>> last_template_handler(["standard spelling of", "en", "enroll"], "en")
         '<i>Standard spelling of</i> <b>enroll</b>'
         >>> last_template_handler(["cens sp", "en", "bitch"], "en")
-        '<i>Censored spelling of</i> <b>bitch</b>.'
+        '<i>Censored spelling of</i> <b>bitch</b>'
 
         >>> last_template_handler(["pronunciation spelling of", "en", "everything", "from=AAVE"], "en")
         '<i>Pronunciation spelling of</i> <b>everything</b><i>, representing African-American Vernacular English</i>'
@@ -462,8 +462,7 @@ def last_template_handler(
     data = extract_keywords_from(parts)
 
     if tpl in form_of_templates:
-        template_model = form_of_templates[tpl]
-        starter = str(template_model["text"])
+        starter = form_of_templates[tpl]
         ender = ""
         lang = data["1"] or (parts.pop(0) if parts else "")
         word = data["2"] or (parts.pop(0) if parts else "")
@@ -499,8 +498,6 @@ def last_template_handler(
             phrase += ender
         if dot := data["dot"]:
             phrase += dot
-        elif template_model["dot"] and not data["nodot"]:
-            phrase += "."
         return phrase
 
     if tpl in ("zh-l", "zh-m"):
