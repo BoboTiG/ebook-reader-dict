@@ -409,7 +409,7 @@ def last_template_handler(
     """
     Will be call in utils.py::transform() when all template handlers were not used.
 
-        >>> last_template_handler(["eye dialect of", "en" , "ye", "t=t", "from=from", "from2=from2"], "en")
+        >>> last_template_handler(["eye dialect of", "en" , "ye#Etymology 6", "t=t", "from=from", "from2=from2"], "en")
         '<i>Eye dialect spelling of</i> <b>ye</b> (“t”)<i>, representing from and from2 English</i>'
         >>> last_template_handler(["alternative spelling of", "en" , "ye", "from=from", "from2=from2"], "en")
         '<i>From and from2 spelling of</i> <b>ye</b>'
@@ -462,7 +462,7 @@ def last_template_handler(
         starter = form_of_templates[tpl]
         ender = ""
         lang = data["1"] or (parts.pop(0) if parts else "")
-        word = data["2"] or (parts.pop(0) if parts else "")
+        word = (data["2"] or (parts.pop(0) if parts else "")).split("#", 1)[0]
 
         text = data["alt"] or data["3"] or (parts.pop(0) if parts else "")
         gloss = data["t"] or data["gloss"] or data["4"] or (parts.pop(0) if parts else "")
