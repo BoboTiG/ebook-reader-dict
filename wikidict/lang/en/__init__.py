@@ -235,7 +235,7 @@ templates_multi = {
     # {{i|Used only ...}}
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
-    "IPAfont": "f\"⟨{parts[1].strip('⟨⟩')}⟩\"",
+    "IPAfont": "f\"&lsaquo;{parts[1].strip('⟨⟩')}&rsaquo;\"",
     # {{italic|Love Island}}
     "italic": "italic(parts[1])",
     # {{ja-def|茨城}}
@@ -277,7 +277,7 @@ templates_multi = {
     # {{nowrap|1=[ ...=C=C=C=... ]}}
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{|&thinsp;𝼊&thinsp;}}
-    "orthography": "f'⟨{parts[1]}⟩'",
+    "orthography": "f'&lsaquo;{parts[1]}&rsaquo;'",
     # {{q|Used only ...}}
     "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{q-lite|Used only ...}}

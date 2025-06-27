@@ -36,6 +36,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         text = text.replace("&nbsp;", " ")
         text = text.replace("&thinsp;", " ")
         text = text.replace("&times;", "×")
+        text = text.replace("&lsaquo;", "‹")
+        text = text.replace("&rsaquo;", "›")
         text = text.replace(" ,", ",")
         text = text.replace(" .", ".")
         return text
