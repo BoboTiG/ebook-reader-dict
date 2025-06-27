@@ -48,26 +48,32 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         word,
         utils.convert_pronunciation(details.pronunciations).lstrip(),
         strip_html(utils.convert_gender(details.genders).lstrip()),
-        "\n",
     )
 
-    index = 1
-    for definition in details.definitions:
-        if isinstance(definition, tuple):
-            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                if isinstance(subdef, tuple):
-                    for rn, subsubdef in enumerate(subdef, 1):
-                        print(
-                            f"{int_to_roman(rn).lower()}.".rjust(12),
-                            strip_html(subsubdef),
-                        )
-                else:
-                    print(f"{a}.".rjust(8), strip_html(subdef))
-        else:
-            print(f"{index}.".rjust(4), strip_html(definition))
-            index = index + 1
+    for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
+        if not definitions:
+            continue
 
-    if details.definitions and details.etymology:
+        if pos:
+            print("\n", pos)
+
+        index = 1
+        for definition in definitions:
+            if isinstance(definition, tuple):
+                for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                    if isinstance(subdef, tuple):
+                        for rn, subsubdef in enumerate(subdef, 1):
+                            print(
+                                f"{int_to_roman(rn).lower()}.".rjust(12),
+                                strip_html(subsubdef),
+                            )
+                    else:
+                        print(f"{a}.".rjust(8), strip_html(subdef))
+            else:
+                print(f"{index}.".rjust(4), strip_html(definition))
+                index = index + 1
+
+    if details.etymology:
         print("\n")
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
@@ -79,6 +85,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
+    print()
     utils.check_for_missing_templates(all_templates)
 
 

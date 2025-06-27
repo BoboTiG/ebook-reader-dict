@@ -14,7 +14,7 @@ thousands_separator = ","
 # Markers for sections that contain interesting text to analyse.
 head_sections = ("english", "translingual")
 section_sublevels = (4, 3)
-etyl_section = ("etymology", "etymology 1")
+etyl_section = ("etymology", *[f"etymology {idx}" for idx in range(1, 20)])
 sections = (
     *etyl_section,
     "adjective",

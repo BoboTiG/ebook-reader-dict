@@ -13,7 +13,7 @@ from typing import TYPE_CHECKING
 import regex
 import wikitextparser
 
-from . import constants, svg
+from . import constants, part_of_speech, svg
 from .hiero_utils import render_hiero
 from .lang import (
     last_template_handler,
@@ -221,6 +221,24 @@ def format_description(lang_src: str, lang_dst: str, words: int, snapshot: str) 
     creation_date = NOW.isoformat()
 
     return release_description[lang_src].format(**locals())
+
+
+@cache
+def format_pos(locale: str, value: str) -> str:
+    """Properly format the part of speech (POS).
+
+    >>> format_pos("da", "{{pers-pronom 1}}")
+    'Pers-Pronom'
+    >>> format_pos("da", "verb")
+    'Verbum'
+
+    >>> format_pos("fr", "{{s|lettre|fr}}")
+    'Lettre'
+    """
+    for pattern in part_of_speech.PATTERNS.get(locale, []):
+        value = pattern(r"\1", value)
+    value = part_of_speech.MERGE.get(locale, {}).get(value, value)
+    return value.strip().title()
 
 
 @cache
