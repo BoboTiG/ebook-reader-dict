@@ -2021,7 +2021,14 @@ labels = {
     "northwest Ontario": "Northwestern Ontario",
     "northwestern Ontario": "Northwestern Ontario",
     "not Oxford": "non-Oxford British English",
+    "not accusative": "unaccusative",
+    "not animate": "inanimate",
     "not comparable": "not comparable",
+    "not countable": "uncountable",
+    "not definite": "indefinite",
+    "not ergative": "unergative",
+    "not formal": "informal",
+    "not transitive": "intransitive",
     "notcomp": "not comparable",
     "now": "now",
     "nowadays": "now",
@@ -2657,7 +2664,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,652
+}  # 2,659
 
 syntaxes = {
     "&": {

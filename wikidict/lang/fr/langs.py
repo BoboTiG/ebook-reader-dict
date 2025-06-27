@@ -42,7 +42,7 @@ langs = {
     "abg": "abaga",
     "abh": "arabe tadjik",
     "abi": "abidji",
-    "abj": "barakaï",
+    "abj": "aka-bea",
     "abk": "abkhaze",
     "abl": "abung",
     "abm": "abanyom",
@@ -530,7 +530,7 @@ langs = {
     "axb": "abipón",
     "axe": "ayerrerenge",
     "axg": "arara de Mato Grosso",
-    "axk": "yaka (république centrafricaine)",
+    "axk": "yaka (République centrafricaine)",
     "axl": "bas arrernte du Sud",
     "axm": "moyen arménien",
     "axx": "xârâgurè",
@@ -583,6 +583,7 @@ langs = {
     "bah": "créole bahamien",
     "bai": "langues bamilékées",
     "baisha": "baisha",
+    "baj": "barakaï",
     "bak": "bachkir",
     "bal": "baloutche",
     "bala (Chine)": "bala (Chine)",
@@ -2717,7 +2718,7 @@ langs = {
     "ixc": "ixcatèque",
     "ixl": "ixil",
     "iyo": "mesaka",
-    "iyx": "yaka (république du Congo)",
+    "iyx": "yaka (Congo)",
     "izh": "ingrien",
     "izr": "izere",
     "ja": "japonais",
@@ -7145,5 +7146,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 7,140
+}  # 7,141
 # END

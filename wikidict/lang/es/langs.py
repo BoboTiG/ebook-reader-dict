@@ -5366,7 +5366,7 @@ langs = {
     "pah": "tenharim",
     "pai": "pe",
     "pak": "parakanã",
-    "pal": "persa medio",
+    "pal": "pelvi",
     "pam": "pampango",
     "pao": "paiute septentrional",
     "pap": "papiamento",

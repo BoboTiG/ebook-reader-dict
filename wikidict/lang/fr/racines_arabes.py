@@ -5255,7 +5255,7 @@ racines_schemes_arabes = {
         "ar-ta*â*a*a": "se succéder",
     },  # 20
     "ar-dwr": {
-        "aa_sens": "tourner",
+        "aa_sens": "entourer",
         "ar-***ũ": "",
         "ar-**a*²a": "",
         "ar-*a**@ũ": "tour",
@@ -5273,8 +5273,47 @@ racines_schemes_arabes = {
         "ar-*a*â*ũ": "la Caaba",
         "ar-*i*â*ũ": "pays",
         "ar-*ta*a*a": "courir autour",
+        "ar-*u*ay*@ũ": "maisonnette",
+        "ar-*u*²â*@ũ": "cerceau",
         "ar-*u*â*ũ": "vertige",
         "ar-*â*a*a": "soigner",
+        "ar-*âyi3@ũ": "cercle",
+        "ar-*âyi3ũ": "qui entoure",
+        "ar-a**a*@ũ": "administration",
+        "ar-a**a*a": "faire tourner",
+        "ar-a**a*ũ": "{{p}} douars",
+        "ar-ma**a*ũ": "cercle",
+        "ar-ma**u*@ũ": "tabouret",
+        "ar-mu**a*@ũ": "sceau",
+        "ar-mu**a*ũ": "pivot",
+        "ar-mu**i*ũ": "inspecteur",
+        "ar-mu*a*²a*@ũ": "{{f}} ronde",
+        "ar-mu*a*²a*ũ": "rond",
+        "ar-mu*â*a*@ũ": "révolution",
+        "ar-musta**a*ũ": "épi des cheveux",
+        "ar-musta**i*ũ": "circulaire",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "circuler",
+        "ar-sti**â*@ũ": "circonférence",
+        "ar-ta**î*@ũ": "monticule de sable",
+        "ar-ta**î*ũ": "circondérence",
+        "ar-ta*a*²a*a": "",
+        "ar-ta*â*a*a": "",
+    },  # 44
+    "ar-dyr": {
+        "aa_sens": "tourner",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "monticule de sable",
+        "ar-*a**âniy²ũ": "préposé d'un couvent",
+        "ar-*a**ũ": "monastère",
+        "ar-*a*a*@ũ": "maison",
+        "ar-*a*a*a-u": "tourner",
+        "ar-*a*a*iy²ũ": "épicier",
+        "ar-*a*a*ũ": "lieu habité",
+        "ar-*a*²â*@ũ": "cerceau",
+        "ar-*a*²â*ũ": "quelqu'un",
+        "ar-*ta*a*a": "courir autour",
         "ar-*âyi3@ũ": "cercle",
         "ar-*âyi3ũ": "qui entoure",
         "ar-a**a*a": "faire tourner",
@@ -5282,7 +5321,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "circuler",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 27
+    },  # 20
     "ar-f3l": {
         "aa_sens": "action",
         "ar-*a**@ũ": "habitude",
@@ -10538,5 +10577,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 360
+}  # 361
 # END
