@@ -51,12 +51,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     )
 
     for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
-        if not definitions:
-            continue
-
-        if pos:
-            print("\n", pos)
-
+        print("\n", pos)
         index = 1
         for definition in definitions:
             if isinstance(definition, tuple):

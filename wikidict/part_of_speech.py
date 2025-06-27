@@ -1,5 +1,5 @@
 """
-Modifiers used to unifomize, and clean-up, POS (Part Of Speech).
+Modifiers used to uniformize, and clean-up, POS (Part Of Speech).
 """
 
 import re
@@ -10,7 +10,7 @@ PATTERNS = {
         # `{{verbum}}` → `verbum`
         re.compile(r"\{\{([^|}]+).*").sub,
         # `verbum 1` → `verbum`
-        re.compile(r"([^\d]+).*").sub,
+        re.compile(r"([^\d]+)\s+.*").sub,
     ],
     "fr": [
         # `{{s|verbe|fr}}` → `verbe`
@@ -18,7 +18,7 @@ PATTERNS = {
     ],
 }
 
-# Unifomize POS
+# Uniformize POS
 MERGE = {
     "da": {
         "abbr": "forkortelsf",
