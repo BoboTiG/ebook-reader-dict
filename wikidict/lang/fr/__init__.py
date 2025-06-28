@@ -940,9 +940,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
     '# {{flexion|terne}}'
-
+    >>> adjust_wikicode("# ''Féminin (singulier) de'' {{lien|terne|fr}}.", "fr")
+    '# {{flexion|terne}}'
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{flexion|pressant}}'
+    >>> adjust_wikicode("#''Féminin (singulier) de '' [[chacun]].", "fr")
+    '# {{flexion|chacun}}'
     >>> adjust_wikicode("# ''Pluriel de ''[[anisophylle]]''.''", "fr")
     '# {{flexion|anisophylle}}'
     >>> adjust_wikicode("# ''Pluriel de'' [[antiproton#fr|antiproton]].", "fr")
@@ -982,16 +985,18 @@ def adjust_wikicode(code: str, locale: str) -> str:
     #
 
     # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
+    # `# ''Féminin (singulier) de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\{\{lien\|([^\|]+)\|.*",
+        r"^#\s*'+.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{\{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
 
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
+    # `# ''Participe passé masculin (singulier) du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        r"^#\s*'+.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,

@@ -228,7 +228,7 @@ from wikidict.utils import process_templates
             ["\\ʃa.kyn\\"],
             ["s"],
             [],
-            {"Pronom": ["<i>Féminin (singulier) de</i> chacun."]},
+            {},
             ["chacun"],
         ),
         (
