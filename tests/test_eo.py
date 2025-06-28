@@ -15,7 +15,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["<i>(astrologio)</i> zodiaka signo de Virgulino (<i>Virgo</i>)"],
+            {"Signifo": ["<i>(astrologio)</i> zodiaka signo de Virgulino (<i>Virgo</i>)"]},
             [],
         ),
         (
@@ -23,7 +23,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["morto"],
+            {"Signifo": ["morto"]},
             [],
         ),
         (
@@ -31,9 +31,11 @@ from wikidict.utils import process_templates
             [],
             [],
             ["el la andalus-araba <i>alqaṣába</i>, kaj tiu ĉi el la klasika araba <i>qaṣabah</i>, قصبة"],
-            [
-                "<i>(historio; arkitekturo; militado)</i> fortikita konstruaĵaro; citadelo aŭ palaco de araba ĉefo en Nord-Afriko kaj Suda-Hispanio"
-            ],
+            {
+                "Signifo": [
+                    "<i>(historio; arkitekturo; militado)</i> fortikita konstruaĵaro; citadelo aŭ palaco de araba ĉefo en Nord-Afriko kaj Suda-Hispanio"
+                ]
+            },
             [],
         ),
         (
@@ -41,7 +43,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [],
+            {},
             ["ekami"],
         ),
         (
@@ -49,9 +51,11 @@ from wikidict.utils import process_templates
             ["kasked/o"],
             [],
             [],
-            [
-                "Ĉapo kun viziero, civilvesta aŭ uniforma: <i>homoj armitaj en nigraj kaskedetoj; la hotela pordisto levis sian kaskedon.</i>"
-            ],
+            {
+                "Signifo": [
+                    "Ĉapo kun viziero, civilvesta aŭ uniforma: <i>homoj armitaj en nigraj kaskedetoj; la hotela pordisto levis sian kaskedon.</i>"
+                ]
+            },
             [],
         ),
         (
@@ -59,9 +63,11 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>(komputado)</i> maŝino aŭ elektronikaĵo kiu kapablas kalkuli, precipe sen intervenoj de homoj, aŭ rapide trakti, stori, kaj preni larĝajn kvantojn de datumo"
-            ],
+            {
+                "Signifo": [
+                    "<i>(komputado)</i> maŝino aŭ elektronikaĵo kiu kapablas kalkuli, precipe sen intervenoj de homoj, aŭ rapide trakti, stori, kaj preni larĝajn kvantojn de datumo"
+                ]
+            },
             [],
         ),
         (
@@ -69,7 +75,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["De Latino"],
-            ["rilata al Latino."],
+            {"Adjektivo": ["rilata al Latino."]},
             [],
         ),
         (
@@ -77,11 +83,13 @@ from wikidict.utils import process_templates
             ["luk/o"],
             [],
             ["el la germana <i>Luke</i>"],
-            [
-                "ordinare vitrita aŭ kradita, en tegmento, plafono aŭ kelo, por enlasi lumon: <i>mansarda luko</i>.",
-                "fermebla per pordo aŭ tabuloj, en la ferdeko de ŝipo, por ebligi penetron en la holdon (pli precize: holdluko).",
-                "fermita per kovrilo el giso, kiu en la strato, sur trotuaro ks ebligas al metiisto malsupreniri en kloakon, aŭ subteran galerion.",
-            ],
+            {
+                "Signifo": [
+                    "ordinare vitrita aŭ kradita, en tegmento, plafono aŭ kelo, por enlasi lumon: <i>mansarda luko</i>.",
+                    "fermebla per pordo aŭ tabuloj, en la ferdeko de ŝipo, por ebligi penetron en la holdon (pli precize: holdluko).",
+                    "fermita per kovrilo el giso, kiu en la strato, sur trotuaro ks ebligas al metiisto malsupreniri en kloakon, aŭ subteran galerion.",
+                ]
+            },
             [],
         ),
         (
@@ -89,7 +97,7 @@ from wikidict.utils import process_templates
             [],
             ["m"],
             [],
-            [],
+            {},
             [],
         ),
     ],

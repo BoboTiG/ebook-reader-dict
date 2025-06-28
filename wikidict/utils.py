@@ -231,9 +231,36 @@ def format_pos(locale: str, value: str) -> str:
     'Personligt Pronomen'
     >>> format_pos("da", "verb")
     'Verbum'
+    >>> format_pos("da", "verbum")
+    'Verbum'
+
+    >>> format_pos("eo", "{{signifoj}}")
+    'Signifo'
+    >>> format_pos("eo", "{{vortospeco|adverbo, vortgrupo|eo}}")
+    'Adverbo'
+    >>> format_pos("eo", "signifo")
+    'Signifo'
+
+    >>> format_pos("es", "{{verbo transitivo|es|terciopersonal}}")
+    'Verbo'
+    >>> format_pos("es", "{{verbo|es|terciopersonal}}")
+    'Verbo'
+    >>> format_pos("es", "verbo transitivo")
+    'Verbo'
+    >>> format_pos("es", "verbo")
+    'Verbo'
 
     >>> format_pos("fr", "{{s|lettre|fr}}")
     'Lettre'
+    >>> format_pos("fr", "lettre")
+    'Lettre'
+
+    >>> format_pos("it", "{{loc nom}}")
+    'Nome'
+    >>> format_pos("it", "{{nome}}")
+    'Nome'
+    >>> format_pos("it", "nome")
+    'Nome'
     """
     for pattern in part_of_speech.PATTERNS.get(locale, []):
         value = pattern(r"\1", value)

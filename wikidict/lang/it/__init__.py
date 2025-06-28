@@ -26,7 +26,6 @@ sections = (
     "{{loc nom}",
     "{{nome}",
     "{{pref}",
-    "{{Pn}",
     "{{prep}",
     "{{pron poss}",
     "{{suff}",

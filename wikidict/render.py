@@ -80,6 +80,9 @@ def find_definitions(
                 if lang_dst == "en" and pos.startswith("etymology"):
                     # Most of the time, definitions are symbols outside a subsection, like in the "wa" word
                     pos = "symbol"
+                if lang_dst == "es" and pos.startswith("etimología"):
+                    # Well, lets just put those elsewhere
+                    pos = "sustantivo"
                 definitions[utils.format_pos(lang_dst, pos)].extend(pos_defs)
 
     if not definitions:
@@ -638,12 +641,12 @@ def get_output_file(source_dir: Path, snapshot: str) -> Path:
 
 
 def show_pos(words: Words) -> None:
-    text = "\nPOS:"
+    text = "\nPart Of Speech:"
     all_pos: list[str] = []
     for w, details in words.items():
         all_pos.extend(details.definitions.keys())
-    for pos in sorted(set(all_pos)):
-        text += f"\n  - {pos!r}"
+    for count, pos in enumerate(sorted(set(all_pos)), 1):
+        text += f"\n  {str(count).rjust(2)}. {pos!r}"
     log.info(text)
 
 
