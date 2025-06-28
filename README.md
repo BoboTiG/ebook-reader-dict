@@ -21,7 +21,7 @@
 
 ## Special
 
-Find [bilingual dictionaries](https://www.reader-dict.com), and [universal dictionaries](https://www.reader-dict.com).
+Find **bilingual, and universal** dictionaries for more than 170 langs at the next-level project: [Reader Dict](https://www.reader-dict.com).
 
 ## Downloads
 
