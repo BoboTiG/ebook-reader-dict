@@ -2036,6 +2036,7 @@ langs = {
     "de-AT-vie": "Viennese German",
     "de-CH": "Switzerland German",
     "de-bal": "Baltic German",
+    "de-ear": "Early New High German",
     "dec": "Dagik",
     "ded": "Dedua",
     "dee": "Dewoin",
@@ -9892,7 +9893,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,887
+}  # 9,888
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)
