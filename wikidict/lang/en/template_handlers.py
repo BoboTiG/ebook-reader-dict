@@ -2017,7 +2017,7 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     >>> render_place("place", ["en", "A country"], defaultdict(str, {"modern":"Iraq"}))
     'A country; modern Iraq'
     >>> render_place("place", ["en", "island", "regency/Pandeglang", "province/Banten", "c/Indonesia"], defaultdict(str))
-    'An island in Pandeglang, Banten, Indonesia'
+    'An island of Pandeglang, Banten, Indonesia'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str))
     'A village in Fulton County, Illinois'
     >>> render_place("place", ["en", "village", "co/Fulton County", "s/Illinois"], defaultdict(str, {"a": "a"}))

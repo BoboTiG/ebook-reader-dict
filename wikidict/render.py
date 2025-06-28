@@ -80,10 +80,10 @@ def find_definitions(
                 if lang_dst == "en" and pos.startswith("etymology"):
                     # Most of the time, definitions are symbols outside a subsection, like in the "wa" word
                     pos = "symbol"
-                if lang_dst == "es" and pos.startswith("etimología"):
+                elif lang_dst == "es" and pos.startswith("etimología"):
                     # Well, lets just put those elsewhere
                     pos = "sustantivo"
-                if lang_dst == "pt" and pos.startswith("etimologia"):
+                elif lang_dst == "pt" and pos.startswith("etimologia"):
                     # Well, lets just put those elsewhere
                     pos = "substantivo"
                 definitions[utils.format_pos(lang_dst, pos)].extend(pos_defs)
@@ -295,6 +295,13 @@ def _find_pronunciations(top_sections: list[wtp.Section], lang_src: str, lang_ds
     return sorted(unique(results))
 
 
+def section_title(locale: str, section: wtp.Section) -> str:
+    title = section.title
+    if locale == "de":
+        title = title.split("(")[-1].strip(" )")
+    return title.replace(" ", "").lower().strip() if title else ""
+
+
 def find_all_sections(
     code: str, lang_src: str, lang_dst: str
 ) -> tuple[list[wtp.Section], list[tuple[str, wtp.Section]]]:
@@ -327,20 +334,15 @@ def find_all_sections(
                 )
             )
 
-    def section_title(title: str) -> str:
-        if lang_src == "de":
-            title = title.split("(")[-1].strip(" )")
-        return title.replace(" ", "").lower().strip() if title else ""
-
     # Get interesting top sections
     head_sections = tuple(hs.replace(" ", "") for hs in lang.head_sections[lang_dst])
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(section.title).startswith(head_sections)
+        if section_title(lang_src, section).startswith(head_sections)
     ]
 
-    # Get _all_ sections without any filtering
+    # Get all sections without any filtering
     all_sections.extend(
         (section.title.strip(), section)
         for top_section in top_sections

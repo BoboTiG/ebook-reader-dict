@@ -15,9 +15,11 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "Code AITA de la compagnie d’aviation SGA Airlines <i>(<i>Siam General Aviation Company Limited</i></i>, <i>บริษัท สยาม เจนเนอรัล เอวิเอชั่น จำกัด</i>).",
-            ],
+            {
+                "Symbole": [
+                    "Code AITA de la compagnie d’aviation SGA Airlines <i>(<i>Siam General Aviation Company Limited</i></i>, <i>บริษัท สยาม เจนเนอรัล เอวิเอชั่น จำกัด</i>)."
+                ]
+            },
             [],
         ),
         (
@@ -30,9 +32,11 @@ from wikidict.utils import process_templates
                 "Le suffixe a alors été confondu avec <i>-erece</i>, suffixe ancien français féminin de <i>-erez</i>, qui n’a rien laissé en français moderne directement (indirectement, on note <i>couperet</i> et <i>guilleret</i>, issus de confusions avec d’autres suffixes).",
                 "<b>-eresse</b> a été très productif au Moyen Âge mais il subit depuis le XVI<sup>e</sup> siècle la concurrence du suffixe <i>-euse</i> qui l’a presque entièrement remplacé.",
             ],
-            [
-                "Suffixe servant à former des mots féminins.<b>Note&nbsp;:</b> Voir aussi au suffixe <i>-esse</i>.",
-            ],
+            {
+                "Suffixe": [
+                    "Suffixe servant à former des mots féminins.<b>Note&nbsp;:</b> Voir aussi au suffixe <i>-esse</i>."
+                ]
+            },
             [],
         ),
         (
@@ -45,20 +49,28 @@ from wikidict.utils import process_templates
                 "<i>(Symbole 4)</i> <i>(Abréviation)</i> du latin <i><b>a</b>nnum</i> («&nbsp;année&nbsp;»).",
                 "<i>(Symbole 6)</i> Abréviation de <i>accélération</i>.",
             ],
-            [
-                "Première lettre et première voyelle de l’alphabet latin (minuscule). Unicode : U+0061.",
-                "Chiffre hexadécimal dix (minuscule).",
-                r"<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \a\.",
-                "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe <b>atto-</b> (&times;10<sup>&minus;18</sup>).",
-                "<i>(Métrologie)</i> Symbole de l’<b>are</b>, une unité de mesure de surface en dehors SI. Elle prend souvent le préfixe h pour former ha (hectare).",
-                "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’<b>année</b> (365,25 jours de 86,4 ks), du latin <i>annum</i>.",
-                "<i>(Chimie)</i> Symbole de l’activité chimique d’un composant.",
-                "<i>(Physique, Mécanique)</i> Symbole de l’accélération en tant que grandeur physique (uSI : mètre par seconde carré, m/s², m⋅s⁻² ; unité usuelle : g).",
-                "Première lettre et première voyelle de l’alphabet français.",
-                r"Le son \a\ ou \ɑ\ de cette lettre. <b>Note&nbsp;:</b> Le français parisien a perdu la distinction entre les deux.",
-                "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",
-                "<i>(Québec)</i> <i>(Familier)</i> Elle.",
-            ],
+            {
+                "Caractère": [
+                    "Première lettre et première voyelle de l’alphabet latin (minuscule). Unicode : U+0061.",
+                    "Chiffre hexadécimal dix (minuscule).",
+                ],
+                "Lettre": [
+                    "Première lettre et première voyelle de l’alphabet français.",
+                    "Le son \\a\\ ou \\ɑ\\ de cette lettre. <b>Note&nbsp;:</b> Le français parisien a perdu la distinction entre les deux.",
+                ],
+                "Pronom": [
+                    "<i>(Familier)</i> Pronom personnel (indéterminé en genre et en personne : première, deuxième ou troisième).",
+                    "<i>(Québec)</i> <i>(Familier)</i> Elle.",
+                ],
+                "Symbole": [
+                    "<i>(Linguistique)</i> Symbole de l’alphabet phonétique international pour la voyelle (ou vocoïde) ouverte antérieure non arrondie \\a\\.",
+                    "<i>(Métrologie)</i> Symbole du Système international (SI) pour le préfixe <b>atto-</b> (&times;10<sup>&minus;18</sup>).",
+                    "<i>(Métrologie)</i> Symbole de l’<b>are</b>, une unité de mesure de surface en dehors SI. Elle prend souvent le préfixe h pour former ha (hectare).",
+                    "<i>(Métrologie)</i> Symbole (dérivé du système SI) de l’<b>année</b> (365,25 jours de 86,4 ks), du latin <i>annum</i>.",
+                    "<i>(Chimie)</i> Symbole de l’activité chimique d’un composant.",
+                    "<i>(Physique, Mécanique)</i> Symbole de l’accélération en tant que grandeur physique (uSI : mètre par seconde carré, m/s², m⋅s⁻² ; unité usuelle : g).",
+                ],
+            },
             ["avoir"],
         ),
         (
@@ -66,11 +78,15 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "Lettre minuscule grecque pi. Seizième lettre et onzième consonne de l’alphabet grec. Unicode : U+03C0.",
-                "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",
-                "<i>(Bases de données)</i> Symbole de la projection.",
-            ],
+            {
+                "Caractère": [
+                    "Lettre minuscule grecque pi. Seizième lettre et onzième consonne de l’alphabet grec. Unicode : U+03C0."
+                ],
+                "Symbole": [
+                    "<i>(Mathématiques)</i> Symbole représentant le rapport constant entre la circonférence d’un cercle et son diamètre, aussi appelé en français la <i>constante d’Archimède</i>.",
+                    "<i>(Bases de données)</i> Symbole de la projection.",
+                ],
+            },
             [],
         ),
         (
@@ -78,14 +94,18 @@ from wikidict.utils import process_templates
             ["\\ka.ʁɑ̃t.dø\\"],
             ["m", "s"],
             [],
-            [
-                "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",
-                "<i>(Par ellipse)</i> <i>(Dans la plupart des langues)</i> Une année qui se termine par <b>42</b>.",
-                "Quarante-deux.",
-                "<i>(Par ellipse)</i> Une année qui se termine par <b>42</b>.",
-                "<i>(France)</i> <i>(Familier)</i> Habitant du département de la Loire.",
-                "<i>(France)</i> Département de la Loire.",
-            ],
+            {
+                "Nom": [
+                    "Quarante-deux.",
+                    "<i>(Par ellipse)</i> Une année qui se termine par <b>42</b>.",
+                    "<i>(France)</i> <i>(Familier)</i> Habitant du département de la Loire.",
+                ],
+                "Nom Propre": ["<i>(France)</i> Département de la Loire."],
+                "Numéral": [
+                    "Numéral en chiffres arabes du nombre quarante-deux, en notation décimale. Selon la base utilisée, ce numéral peut représenter d’autres nombres. En notation hexadécimale, par exemple, ce numéral représente le nombre soixante-six ; en octal, le nombre trente-quatre.",
+                    "<i>(Par ellipse)</i> <i>(Dans la plupart des langues)</i> Une année qui se termine par <b>42</b>.",
+                ],
+            },
             [],
         ),
         (
@@ -93,13 +113,15 @@ from wikidict.utils import process_templates
             ["\\a.kœj\\"],
             ["m"],
             ["<i>(XII<sup>e</sup> siècle)</i> Déverbal de <i>accueillir</i>."],
-            [
-                "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",
-                "Lieu où sont accueillies les personnes.",
-                "<i>(Vieilli)</i> Fait d’accueillir ou héberger.",
-                "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
-                "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
-            ],
+            {
+                "Nom": [
+                    "Cérémonie ou prestation réservée à un nouvel arrivant, consistant généralement à lui souhaiter la bienvenue et à l’aider dans son intégration ou ses démarches.",
+                    "Lieu où sont accueillies les personnes.",
+                    "<i>(Vieilli)</i> Fait d’accueillir ou héberger.",
+                    "Page d’accès ou d’accueil (lieu ci-dessus) à un site web.",
+                    "Manière dont une œuvre a été acceptée lors de sa sortie par le public et les critiques.",
+                ]
+            },
             [],
         ),
         (
@@ -109,12 +131,14 @@ from wikidict.utils import process_templates
             [
                 "Du grec ancien ἄκρος, <i>akros</i> («&nbsp;extrémité&nbsp;»), voir <i>acro-</i>, avec le suffixe <i>-logie</i>."
             ],
-            [
-                "<i>(Linguistique)</i> <i>(Rare)</i> Système graphique qui consiste à peindre, pour représenter les idées, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le langage ordinaire.",
-                "<i>(Linguistique)</i> <i>(Par extension)</i> <i>(Rare)</i> Se dit lorsque deux termes commencent par la même lettre et qu’ils sont apparentés par le sens.",
-                "<i>(Philosophie)</i> <i>(Très rare)</i> Recherche ou exposition des principes suprêmes, ou du mieux absolu.",
-                "<i>(Sport)</i> Étude ou pratique de l’acrobatie.",
-            ],
+            {
+                "Nom": [
+                    "<i>(Linguistique)</i> <i>(Rare)</i> Système graphique qui consiste à peindre, pour représenter les idées, l’image des objets dont le nom commence par la même lettre que celui par lequel ces idées sont exprimées dans le langage ordinaire.",
+                    "<i>(Linguistique)</i> <i>(Par extension)</i> <i>(Rare)</i> Se dit lorsque deux termes commencent par la même lettre et qu’ils sont apparentés par le sens.",
+                    "<i>(Philosophie)</i> <i>(Très rare)</i> Recherche ou exposition des principes suprêmes, ou du mieux absolu.",
+                    "<i>(Sport)</i> Étude ou pratique de l’acrobatie.",
+                ]
+            },
             [],
         ),
         (
@@ -124,9 +148,7 @@ from wikidict.utils import process_templates
             [
                 "Ayant dans le passé la forme « -als », au cours du XII<sup>e</sup> siècle, le « l » précédant une autre consonne se modifia en « u », comme dans « colp – coup, altre – autre ». Étant suivi d'une consonne uniquement au pluriel, la terminaison « -als » pris la forme de « aus ». Le « x » provient des manuscrits, qui étaient extrêmement chers à l'époque, il va de soi qu'on voulut y mettre le plus de texte possible. S'inspirant du latin où « us » s'écrivait « x », on obtint ainsi la forme « -ax ». Le « u » vient s'ajouter plus tard pour s'accorder à la prononciation [o]."
             ],
-            [
-                "<i>Forme courante du pluriel de</i> -al.",
-            ],
+            {"Suffixe": ["<i>Forme courante du pluriel de</i> -al."]},
             [],
         ),
         (
@@ -136,36 +158,38 @@ from wikidict.utils import process_templates
             [
                 "<i>(Date à préciser)</i> Du latin <i>basis</i> («&nbsp;id.&nbsp;»), du grec ancien βάσις, <i>básis</i> («&nbsp;marche&nbsp;»)."
             ],
-            [
-                "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
-                "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
-                "<i>(Héraldique)</i> Désigne le piédestal d’une colonne surtout quand il est d’un émail différent de la colonne.",
-                "<i>(Mathématiques)</i>",
-                (
-                    "<i>(Géométrie)</i> Surface sur laquelle on conçoit que certains corps solides sont appuyés.",
+            {
+                "Nom": [
+                    "Partie inférieure d’un corps quelconque qui lui sert de soutien.",
+                    "<i>(En particulier)</i> <i>(Architecture)</i> Ce qui soutient le fût de la colonne.",
+                    "<i>(Héraldique)</i> Désigne le piédestal d’une colonne surtout quand il est d’un émail différent de la colonne.",
+                    "<i>(Mathématiques)</i>",
                     (
-                        "<i>(Par extension)</i> Côté du triangle opposé à l’angle qui est regardé comme le sommet.",
-                        "Côté d’une figure géométrique naturellement choisi comme côté principal.",
+                        "<i>(Géométrie)</i> Surface sur laquelle on conçoit que certains corps solides sont appuyés.",
+                        (
+                            "<i>(Par extension)</i> Côté du triangle opposé à l’angle qui est regardé comme le sommet.",
+                            "Côté d’une figure géométrique naturellement choisi comme côté principal.",
+                        ),
+                        "<i>(Algèbre linéaire)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
+                        "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
+                        "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",
                     ),
-                    "<i>(Algèbre linéaire)</i> Famille libre de vecteurs, génératrice d’un espace vectoriel.",
-                    "<i>(Analyse réelle)</i> Nombre réel élevé à une puissance variable.",
-                    "<i>(Arithmétique)</i> Nombre de chiffres utilisé pour dénombrer.",
-                ),
-                "<i>(Par analogie)</i> <i>(Anatomie, Botanique)</i> Côté opposé à la partie la plus pointue d’un organe.",
-                "<i>(Géodésie)</i> Côté initial mesuré directement sur le terrain.",
-                "<i>(Militaire)</i> Ensemble des points de ravitaillement avec lesquels une armée en campagne se tient en relations constantes.",
-                "<i>(Marine)</i> Port de ravitaillement ou de refuge des navires en temps de guerre.",
-                "<i>(Chimie)</i> Toute matière qui a la propriété de réagir aux acides et de les neutraliser, du moins en partie. Solution ayant un pH supérieur à 7.",
-                "<i>(Médecine)</i> Ce qui entre comme ingrédient principal dans un mélange.",
-                "<i>(Génétique)</i> Base nucléique.",
-                "<i>(Télécommunications)</i> Appareil relié à une ligne fixe permettant le fonctionnement de téléphones sans fil à usage domestique.",
-                "<i>(Électronique)</i> Nom d’une des électrodes d’un transistor bipolaire.",
-                "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",
-                "<i>(Sports hippiques)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",
-                "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
-                "<i>(Sens figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",
-                "<i>(Argot)</i> Cocaïne base.",
-            ],
+                    "<i>(Par analogie)</i> <i>(Anatomie, Botanique)</i> Côté opposé à la partie la plus pointue d’un organe.",
+                    "<i>(Géodésie)</i> Côté initial mesuré directement sur le terrain.",
+                    "<i>(Militaire)</i> Ensemble des points de ravitaillement avec lesquels une armée en campagne se tient en relations constantes.",
+                    "<i>(Marine)</i> Port de ravitaillement ou de refuge des navires en temps de guerre.",
+                    "<i>(Chimie)</i> Toute matière qui a la propriété de réagir aux acides et de les neutraliser, du moins en partie. Solution ayant un pH supérieur à 7.",
+                    "<i>(Médecine)</i> Ce qui entre comme ingrédient principal dans un mélange.",
+                    "<i>(Génétique)</i> Base nucléique.",
+                    "<i>(Télécommunications)</i> Appareil relié à une ligne fixe permettant le fonctionnement de téléphones sans fil à usage domestique.",
+                    "<i>(Électronique)</i> Nom d’une des électrodes d’un transistor bipolaire.",
+                    "<i>(Baseball)</i> Une des trois zones où le coureur peut rester sans être mis hors jeu.",
+                    "<i>(Sports hippiques)</i> Cheval ou groupe de chevaux que l’on retient dans toutes ses combinaisons de paris hippiques pour une course donnée, car on estime qu’ils ont de très bonnes chances de figurer parmi les premiers.",
+                    "<i>(Politique)</i> Ensemble des électeurs, des soutiens d’un politique ou d’un parti.",
+                    "<i>(Sens figuré)</i> Ce qui est le principe, la donnée fondamentale d’une chose ou ce sur quoi elle repose.",
+                    "<i>(Argot)</i> Cocaïne base.",
+                ]
+            },
             ["baser"],
         ),
         (
@@ -182,11 +206,13 @@ from wikidict.utils import process_templates
                 "Le nom du papier semble dérivé du sens « beau » plus que du nom de <i>Bath</i>, ville où l’on aurait fabriqué cette sorte de papier.",
                 "(<i>Nom 2</i>) De l’hébreu בת, <i>bat</i>.",
             ],
-            [
-                "<i>(Argot)</i> <i>(Désuet)</i> Super ; bon ; agréable.",
-                "Papier à lettre de provenance anglaise, de belle qualité, qui a joui d’une grande vogue au XIX<sup>e</sup> siècle.",
-                "Mesure des liquides chez les Hébreux, valant 18,08 litres puis plus tard environ 38,88 litres.",
-            ],
+            {
+                "Adjectif": ["<i>(Argot)</i> <i>(Désuet)</i> Super ; bon ; agréable."],
+                "Nom": [
+                    "Papier à lettre de provenance anglaise, de belle qualité, qui a joui d’une grande vogue au XIX<sup>e</sup> siècle.",
+                    "Mesure des liquides chez les Hébreux, valant 18,08 litres puis plus tard environ 38,88 litres.",
+                ],
+            },
             [],
         ),
         (
@@ -194,7 +220,7 @@ from wikidict.utils import process_templates
             ["\\bɔ.ɡɔ.ta.nɛ\\"],
             ["m", "sp"],
             ["Du nom Bogota avec le préfixe -ais."],
-            ["Habitant de Bogota."],
+            {"Nom": ["Habitant de Bogota."]},
             [],
         ),
         (
@@ -202,7 +228,7 @@ from wikidict.utils import process_templates
             ["\\ʃa.kyn\\"],
             ["s"],
             [],
-            ["<i>Féminin (singulier) de</i> chacun."],
+            {"Pronom": ["<i>Féminin (singulier) de</i> chacun."]},
             ["chacun"],
         ),
         (
@@ -210,7 +236,7 @@ from wikidict.utils import process_templates
             ["\\kɔ.li.ʒɛ\\"],
             [],
             [],
-            [],
+            {},
             ["colliger"],
         ),
         (
@@ -218,10 +244,12 @@ from wikidict.utils import process_templates
             ["\\kɔʁ pɔʁ.tɑ̃\\"],
             ["m"],
             ["Locution composée de <i>corps</i> et de <i>portant</i>."],
-            [
-                "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",
-                "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",
-            ],
+            {
+                "Nom": [
+                    "<i>(Astronautique)</i> Aéronef à fuselage porteur, sur lequel la portance est produite par le fuselage, destiné aux usages spatiaux ou hypersoniques, afin de limiter l'effet de traînée ou la surface de friction.",
+                    "<i>(Astronautique)</i> <i>(Aérodynamique)</i> Engin aérospatial possédant, à vitesse hypersonique, une portance qui lui assure une bonne manœuvrabilité lors de la rentrée atmosphérique.",
+                ]
+            },
             [],
         ),
         (
@@ -233,16 +261,20 @@ from wikidict.utils import process_templates
                 "<i>(Nom commun 1)</i> Sigle pour <b>d</b>i<b>é</b>thyl<b>s</b>tilbestrol.",
                 "<i>(Nom commun 2)</i> Sigle.",
             ],
-            [
-                "<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles.",
-                "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à l’importation, est mise à disposition de l’acheteur à bord du navire, au port de destination convenu. Les frais de déchargement sont à la charge de l’acheteur.",
-                "<i>(Biochimie)</i> Diéthylstilbestrol, un œstrogène de synthèse, source de graves complications chez les filles de ses utilisatrices.",
-                "<i>(Québec)</i> Diplôme d’études secondaires, un diplôme obtenu après cinq années d’études secondaires au Québec ; anciennement <i>Certificat d’études secondaires</i> (CES ou CÉS).",
-                "<i>(France)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle médical, pharmaceutique, vétérinaire ou odontologique en France, d’une durée de 3 à 5 ans correspondant à l’Internat.",
-                "<i>(Belgique)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle universitaire en Belgique.",
-                "<i>(France)</i> Diplôme d’études supérieures, un diplôme français.",
-                "<i>(Mathématiques)</i> Décomposition en éléments simples, une méthode de calcul mathématique.",
-            ],
+            {
+                "Adverbe": [
+                    "<i>(Commerce international)</i> Incoterm qui signifie que le vendeur a dûment livré sa marchandise dès lors que celle-ci, dédouanée à l’exportation et non à l’importation, est mise à disposition de l’acheteur à bord du navire, au port de destination convenu. Les frais de déchargement sont à la charge de l’acheteur."
+                ],
+                "Nom": [
+                    "<i>(Biochimie)</i> Diéthylstilbestrol, un œstrogène de synthèse, source de graves complications chez les filles de ses utilisatrices.",
+                    "<i>(Québec)</i> Diplôme d’études secondaires, un diplôme obtenu après cinq années d’études secondaires au Québec ; anciennement <i>Certificat d’études secondaires</i> (CES ou CÉS).",
+                    "<i>(France)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle médical, pharmaceutique, vétérinaire ou odontologique en France, d’une durée de 3 à 5 ans correspondant à l’Internat.",
+                    "<i>(Belgique)</i> Diplôme d’études spécialisées, un diplôme de troisième cycle universitaire en Belgique.",
+                    "<i>(France)</i> Diplôme d’études supérieures, un diplôme français.",
+                    "<i>(Mathématiques)</i> Décomposition en éléments simples, une méthode de calcul mathématique.",
+                ],
+                "Symbole": ["<i>(Aviation)</i> Code AITA de l’aéroport de Desroches, aux Seychelles."],
+            },
             [],
         ),
         (
@@ -250,10 +282,7 @@ from wikidict.utils import process_templates
             ["\\dy.bi.ta.tif\\"],
             [],
             ["Du latin <i>dubitativus</i>."],
-            [
-                "Qui sert à exprimer le doute.",
-                "Qui éprouve un doute.",
-            ],
+            {"Adjectif": ["Qui sert à exprimer le doute.", "Qui éprouve un doute."]},
             [],
         ),
         (
@@ -263,10 +292,12 @@ from wikidict.utils import process_templates
             [
                 "Du latin <i>effluvium</i>, du préfixe <i>ex-</i> indiquant la séparation et de <i>fluxus</i> (« écoulement »)."
             ],
-            [
-                "<i>(Médecine)</i> <i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",
-                "Émanation qui se dégage d’un corps quelconque.",
-            ],
+            {
+                "Nom": [
+                    "<i>(Médecine)</i> <i>(Vieilli)</i> Substances organiques altérées, tenues en suspension dans l’air, principalement aux endroits marécageux, et donnant particulièrement lieu à des fièvres intermittentes, rémittentes et continues.",
+                    "Émanation qui se dégage d’un corps quelconque.",
+                ]
+            },
             ["effluver"],
         ),
         (
@@ -274,11 +305,13 @@ from wikidict.utils import process_templates
             ["\\ɑ̃.plwa.je\\"],
             [],
             ["Du latin <i>implicāre</i> («&nbsp;impliquer&nbsp;»)."],
-            [
-                "Utiliser ; user ; se servir de.",
-                "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",
-                "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
-            ],
+            {
+                "Verbe": [
+                    "Utiliser ; user ; se servir de.",
+                    "<i>(Spécialement)</i> <i>(Grammaire)</i> S’en servir en parlant ou en écrivant, en parlant d'une phrase, d'un mot ou d'une locution.",
+                    "Pourvoir d’une occupation ou d’un travail pour son usage ou pour son profit.",
+                ]
+            },
             [],
         ),
         (
@@ -286,7 +319,7 @@ from wikidict.utils import process_templates
             ["\\ɑ̃.si.klɔ.pe.di\\"],
             ["f"],
             ["→ voir <i>encyclopédie</i>"],
-            ["<i>(Archaïsme)</i> <i>Variante orthographique de</i> encyclopédie."],
+            {"Nom": ["<i>(Archaïsme)</i> <i>Variante orthographique de</i> encyclopédie."]},
             [],
         ),
         (
@@ -296,19 +329,21 @@ from wikidict.utils import process_templates
             [
                 "De l’ancien français <i>esperon</i>, du vieux-francique *<i>sporo</i>\xa0; apparenté notamment, dans les langues germaniques, à l’allemand <i>Sporn</i>, l’anglais <i>spur</i>, le néerlandais <i>spoor</i> et le suédois <i>sporre</i>."
             ],
-            [
-                "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",
-                "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",
-                "<i>(Marine)</i> Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.",
-                "<i>(Maçonnerie)</i>",
-                (
-                    "Sorte de fortification en angle saillant qu’on élève au milieu des courtines, ou devant des portes, pour les défendre.",
-                    "Ouvrage en pointe qui sert à rompre le cours de l’eau, devant les piles des ponts, ou sur les bords des rivières.",
-                    "Tout pilier qu’on construit extérieurement d’un mur de terrasse de distance en distance, et qui se lie avec le corps du mur pour tenir la poussée des terres (Contrefort, anciennement contre-fort).",
-                ),
-                "<i>(Géographie)</i> Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.",
-                "<i>(Héraldique)</i> Meuble représentant l’objet du même nom dans les armoiries. Il est composé d’une branche en métal en U avec une tige au bout de laquelle se trouve une molette à six rais mais le nombre peut varier d'un illustrateur à l’autre. Il est représenté en pal, la molette vers le chef (haut). Dans les représentations anciennes, il est parfois muni d’une sangle en cuir. À rapprocher de molette d’éperon.",
-            ],
+            {
+                "Nom": [
+                    "<i>(Équitation)</i> Pièce de métal à deux branches, qui s’adapte au talon du cavalier et dont l’extrémité pointue ou portant une molette sert à piquer les flancs du cheval pour le stimuler.",
+                    "<i>(Botanique)</i> Prolongement en forme de tube de la corolle ou du calice (ne concerne parfois qu’un pétale ou sépale particulier).",
+                    "<i>(Marine)</i> Partie de la proue d’un bâtiment qui se termine en pointe et qui a plus ou moins de saillie en avant.",
+                    "<i>(Maçonnerie)</i>",
+                    (
+                        "Sorte de fortification en angle saillant qu’on élève au milieu des courtines, ou devant des portes, pour les défendre.",
+                        "Ouvrage en pointe qui sert à rompre le cours de l’eau, devant les piles des ponts, ou sur les bords des rivières.",
+                        "Tout pilier qu’on construit extérieurement d’un mur de terrasse de distance en distance, et qui se lie avec le corps du mur pour tenir la poussée des terres (Contrefort, anciennement contre-fort).",
+                    ),
+                    "<i>(Géographie)</i> Partie d’un contrefort, d’une chaîne de collines ou de montagnes qui se termine en pointe.",
+                    "<i>(Héraldique)</i> Meuble représentant l’objet du même nom dans les armoiries. Il est composé d’une branche en métal en U avec une tige au bout de laquelle se trouve une molette à six rais mais le nombre peut varier d'un illustrateur à l’autre. Il est représenté en pal, la molette vers le chef (haut). Dans les représentations anciennes, il est parfois muni d’une sangle en cuir. À rapprocher de molette d’éperon.",
+                ]
+            },
             [],
         ),
         (
@@ -319,13 +354,15 @@ from wikidict.utils import process_templates
                 "(<i>Nom commun 1</i>) <i>(Date à préciser)</i> Du latin <i>graphiarius</i> («&nbsp;d’écriture, de style, de poinçon&nbsp;») ou dérivé de <i>greffe</i>, avec le suffixe <i>-ier</i>.",
                 "(<i>Nom commun 2</i>) <i>(Date à préciser)</i> Sans doute par jeu de mot avec <i>griffes</i> → voir <i>chat-fourré</i>.",
             ],
-            [
-                "<i>(Droit)</i> Officier public préposé au greffe.",
-                "<i>(Sens figuré)</i> Celui qui prend note et tient le registre de ses notes.",
-                "<i>(Populaire)</i> Chat.",
-                "Sexe de la femme, minou, chatte, etc.",
-                "Poisson-chat commun (poisson).",
-            ],
+            {
+                "Nom": [
+                    "<i>(Droit)</i> Officier public préposé au greffe.",
+                    "<i>(Sens figuré)</i> Celui qui prend note et tient le registre de ses notes.",
+                    "<i>(Populaire)</i> Chat.",
+                    "Sexe de la femme, minou, chatte, etc.",
+                    "Poisson-chat commun (poisson).",
+                ]
+            },
             [],
         ),
         (
@@ -333,7 +370,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."],
+            {"Symbole": ["<i>(Linguistique)</i> Code ISO 639-3 de l’etkywan."]},
             [],
         ),
         (
@@ -341,11 +378,13 @@ from wikidict.utils import process_templates
             ["\\kɔ.ʁo\\"],
             ["m"],
             [],
-            [
-                "Langue tibéto-birmane parlée dans l’Arunachal Pradesh (Inde)",
-                "Langue malayo-polynésienne parlée dans les îles de l'Amirauté (Papouasie-Nouvelle-Guinée)",
-                "Forme d'hystérie de nature sexuelle propre aux humains mâles.",
-            ],
+            {
+                "Nom": [
+                    "Langue tibéto-birmane parlée dans l’Arunachal Pradesh (Inde)",
+                    "Langue malayo-polynésienne parlée dans les îles de l'Amirauté (Papouasie-Nouvelle-Guinée)",
+                    "Forme d'hystérie de nature sexuelle propre aux humains mâles.",
+                ]
+            },
             [],
         ),
         (
@@ -353,11 +392,13 @@ from wikidict.utils import process_templates
             ["\\my.ti.ne\\"],
             [],
             ["Dénominal de <i>mutin</i>."],
-            [
-                "Se porter à la sédition, à la révolte.",
-                "Enfant qui se dépite et manque à l’obéissance.",
-                "<i>(Poétique)</i> …",
-            ],
+            {
+                "Verbe": [
+                    "Se porter à la sédition, à la révolte.",
+                    "Enfant qui se dépite et manque à l’obéissance.",
+                    "<i>(Poétique)</i> …",
+                ]
+            },
             [],
         ),
         (
@@ -367,11 +408,13 @@ from wikidict.utils import process_templates
             [
                 "De <i>il n’y a guère</i> (de temps). À comparer avec le wallon «\xa0nawaire\xa0» (même sens).Voir aussi <i>na</i>."
             ],
-            [
-                "<i>(Désuet)</i> Récemment ; il y a peu.",
-                "<i>(Désuet)</i> Peu de temps auparavant ; auparavant.",
-                "Il y a longtemps. <b>Note&nbsp;:</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",
-            ],
+            {
+                "Adverbe": [
+                    "<i>(Désuet)</i> Récemment ; il y a peu.",
+                    "<i>(Désuet)</i> Peu de temps auparavant ; auparavant.",
+                    "Il y a longtemps. <b>Note&nbsp;:</b> contrairement à l’étymologie qui implique un temps passé récent, l’usage moderne consacre le sens d’un temps antérieur, lointain, révolu.",
+                ]
+            },
             [],
         ),
         (
@@ -382,10 +425,12 @@ from wikidict.utils import process_templates
                 "<i>(Nom 1)</i> (Vers 1950) Du chinois 拼音, <i>pīnyīn</i>, composé de 拼, <i>pīn</i> («&nbsp;épeler&nbsp;») et de 音, <i>yīn</i> («&nbsp;son&nbsp;»).",
                 "<i>(Nom 2)</i> De l’anglais <i>Pinyin</i>.",
             ],
-            [
-                "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",
-                "<i>(Linguistique)</i> Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
-            ],
+            {
+                "Nom": [
+                    "Système de transcription de la langue chinoise, permettant de romaniser les sons des sinogrammes, et d’indiquer le ton utilisé lors de la prononciation.",
+                    "<i>(Linguistique)</i> Langue bantoïde parlée dans la Région du Nord-Ouest au Cameroun.",
+                ]
+            },
             [],
         ),
         (
@@ -395,12 +440,14 @@ from wikidict.utils import process_templates
             [
                 "Emprunté au latin <i>praeceptum</i> («&nbsp;précepte, leçon, règle&nbsp;»), dérivé de <i>praecipere</i> signifiant « prendre avant, prendre le premier » ou encore « recommander », « conseiller », « prescrire »."
             ],
-            [
-                "Règle ; leçon ; enseignement.",
-                "Règle morale ou religieuse.",
-                "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
-                "<i>(Religion)</i> Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
-            ],
+            {
+                "Nom": [
+                    "Règle ; leçon ; enseignement.",
+                    "Règle morale ou religieuse.",
+                    "<i>(Philosophie)</i> Ce qui ne peut pas ne pas être autrement.",
+                    "<i>(Religion)</i> Commandement et, surtout, commandement de Dieu, ou commandement de l’Église, etc.",
+                ]
+            },
             [],
         ),
         (
@@ -408,12 +455,13 @@ from wikidict.utils import process_templates
             ["\\ʁɑ̃s\\"],
             ["mf", "m"],
             ["Du latin <i>rancidus</i> par l’intermédiaire de l’ancien occitan."],
-            [
-                "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",
-                "<i>(Sens figuré)</i> Qui s’est encore envenimé.",
-                "Goût et odeur désagréable, en parlant de corps gras.",
-                "<i>Variante de</i> ranche.",
-            ],
+            {
+                "Adjectif": [
+                    "Se dit des corps gras qui, laissés au contact de l’air, ont pris une odeur forte et un goût désagréable.",
+                    "<i>(Sens figuré)</i> Qui s’est encore envenimé.",
+                ],
+                "Nom": ["Goût et odeur désagréable, en parlant de corps gras.", "<i>Variante de</i> ranche."],
+            },
             ["rancer"],
         ),
         (
@@ -421,9 +469,11 @@ from wikidict.utils import process_templates
             ["\\sa.pʁis.ti\\"],
             [],
             ["Déformation de <i>sacristi</i>, afin de ne pas blasphémer ouvertement."],
-            [
-                "<i>(Populaire)</i> <i>(Familier)</i> <i>(Par euphémisme)</i> <i>(Vieilli)</i> Pour marquer l’étonnement ou l'énervement."
-            ],
+            {
+                "Interjection": [
+                    "<i>(Populaire)</i> <i>(Familier)</i> <i>(Par euphémisme)</i> <i>(Vieilli)</i> Pour marquer l’étonnement ou l'énervement."
+                ]
+            },
             [],
         ),
         (
@@ -433,13 +483,15 @@ from wikidict.utils import process_templates
             [
                 "<i>(1863)</i> De l’allemand <i>Silikon</i>, mot créé par Friedrich Wöhler et, pour les équivalents français du mot allemand, dérivé de <i>silicium</i>, avec le suffixe <i>-one</i>."
             ],
-            [
-                "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (ou siloxane) […-Si-O-Si-O-Si-O-…] dans laquelle des groupes [R] se fixent, sur les atomes de silicium.",
-                "<i>(Par extension)</i> Mastic à base de ce composé et vendu généralement en cartouche.",
-                (
-                    "<i>(Par extension)</i> Nom donné abusivement par le grand public à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa composition.",
-                ),
-            ],
+            {
+                "Nom": [
+                    "<i>(Chimie)</i> Composé inorganique formés d’une chaine silicium-oxygène (ou siloxane) […-Si-O-Si-O-Si-O-…] dans laquelle des groupes [R] se fixent, sur les atomes de silicium.",
+                    "<i>(Par extension)</i> Mastic à base de ce composé et vendu généralement en cartouche.",
+                    (
+                        "<i>(Par extension)</i> Nom donné abusivement par le grand public à toutes sortes de mastics vendu en cartouche et ce indépendamment de sa composition.",
+                    ),
+                ]
+            },
             ["siliconer"],
         ),
         (
@@ -447,7 +499,7 @@ from wikidict.utils import process_templates
             ["\\sɥi\\"],
             [],
             [],
-            [],
+            {},
             ["suivre", "être"],
         ),
         (
@@ -457,7 +509,7 @@ from wikidict.utils import process_templates
             [
                 "Nom en rapport avec l’esturgeon «&nbsp;Turgeon&nbsp;» dans Jean <span style='font-variant:small-caps'>Tosti</span>, <i>Les noms de famille</i>."
             ],
-            ["Nom de famille."],
+            {"Nom": ["Nom de famille."]},
             [],
         ),
         (
@@ -465,9 +517,11 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe</i> venir (on écrit maintenant <i>venaient</i>)."
-            ],
+            {
+                "Verbe": [
+                    "<i>Ancienne forme de la troisième personne du pluriel de l’indicatif imparfait du verbe</i> venir (on écrit maintenant <i>venaient</i>)."
+                ]
+            },
             [],
         ),
     ],

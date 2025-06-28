@@ -101,7 +101,7 @@ from wikidict.utils import process_templates
             [],
             [],
             {
-                "Top": [
+                "Substantiv": [
                     "<i>(anatomi)</i> kroppsdel ved enden av underarmen som gjør mennesker og aper i stand til å gripe",
                     "side",
                     "<i>(kortspill)</i> kortene en spiller sitter med",

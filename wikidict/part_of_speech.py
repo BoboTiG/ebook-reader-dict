@@ -10,7 +10,15 @@ PATTERNS = {
         # `{{verbum}}` → `verbum`
         re.compile(r"\{\{([^|}]+).*").sub,
         # `verbum 1` → `verbum`
-        re.compile(r"([^\d]+)\s+.*").sub,
+        re.compile(r"(.+)\s+\d+.*").sub,
+    ],
+    "de": [
+        # `{{bedeutungen}}` → `bedeutungen`
+        re.compile(r"\{\{([^|}]+).*").sub,
+    ],
+    "el": [
+        # `{{έκφραση|el}}` → `έκφραση`
+        re.compile(r"\{\{([^|}]+).*").sub,
     ],
     "eo": [
         # `{{vortospeco|adverbo, vortgrupo|eo}}` → `adverbo, vortgrupo`
@@ -50,6 +58,12 @@ PATTERNS = {
         re.compile(r"([^\d¹²³<,]+),?\s*.*").sub,
         # `pronome pessoal` → `pronome`
         re.compile(r"(adjetivo|caractere|expressão|expressões|frase|locução|numeral|pronome|verbo)\s+.*").sub,
+    ],
+    "ro": [
+        # `{{nume taxonomic|conv}}` → `nume taxonomic`
+        re.compile(r"\{\{([^|}]+).*").sub,
+        # `verb auxiliar` → `verb`
+        re.compile(r"(locuțiune|numeral|verb)\s+.*").sub,
     ],
 }
 
@@ -94,6 +108,12 @@ MERGE = {
         "ubest-pronon": "ubestemt pronomen",
         "verb": "verbum",
     },
+    "el": {
+        "μορφή επιθέτου": "επιθέτου",
+        "μορφή ουσιαστικού": "ουσιαστικό",
+        "μορφή ρήματος": "ρήμα",
+        "top": "ουσιαστικό",
+    },
     "en": {
         "adverbial phrase": "adverb",
         "prepositional phrase": "preposition",
@@ -120,6 +140,8 @@ MERGE = {
         "conjonction de coordination": "conjonction",
         "locution-phrase": "phrase",
         "locution phrase": "phrase",
+        "nom commun": "nom",
+        "nom de famille": "nom",
         "top": "nom",
     },
     "it": {
@@ -156,5 +178,15 @@ MERGE = {
         "substantivo comum": "substantivo",
         "top": "substantivo",
         "verbal": "verbo",
+    },
+    "ro": {
+        "expr": "expresie",
+        "top": "substantiv",
+    },
+    "sv": {
+        "förkortningar": "förkortning",
+        "prepositionsfras": "preposition",
+        "top": "substantiv",
+        "verbpartikel": "verb",
     },
 }

@@ -229,10 +229,24 @@ def format_pos(locale: str, value: str) -> str:
 
     >>> format_pos("da", "{{pers-pronom 1}}")
     'Personligt Pronomen'
+    >>> format_pos("da", "formelt subjekt")
+    'Formelt Subjekt'
     >>> format_pos("da", "verb")
     'Verbum'
     >>> format_pos("da", "verbum")
     'Verbum'
+
+    >>> format_pos("de", "{{bedeutungen}}")
+    'Bedeutungen'
+    >>> format_pos("de", "{{Bedeutungen}}{{Anker|Dasort}}")
+    'Bedeutungen'
+    >>> format_pos("de", "bedeutungen")
+    'Bedeutungen'
+
+    >>> format_pos("el", "{{έκφραση|el}}")
+    'Έκφραση'
+    >>> format_pos("el", "έκφραση")
+    'Έκφραση'
 
     >>> format_pos("eo", "{{signifoj}}")
     'Signifo'
@@ -285,6 +299,11 @@ def format_pos(locale: str, value: str) -> str:
     'Pronome'
     >>> format_pos("pt", "verbo")
     'Verbo'
+
+    >>> format_pos("ro", "{{verb auxiliar}}")
+    'Verb'
+    >>> format_pos("ro", "verb")
+    'Verb'
     """
     for pattern in part_of_speech.PATTERNS.get(locale, []):
         value = pattern(r"\1", value)
