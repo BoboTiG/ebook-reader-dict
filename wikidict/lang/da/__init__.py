@@ -393,6 +393,8 @@ def adjust_wikicode(
     >>> adjust_wikicode("{{-avv-}}", "da")
     '=== {{avv}} ==='
 
+    >>> adjust_wikicode("*Pluralis af [[tale]]", "da")
+    '# {{flexion|tale}}'
     >>> adjust_wikicode("#Pluralis af [[tale]]", "da")
     '# {{flexion|tale}}'
     >>> adjust_wikicode("#Pluralis af [[tale|tale]]", "da")
@@ -445,9 +447,11 @@ def adjust_wikicode(
     # Variants
     #
 
+    start = rf"^(?:{'|'.join(section_patterns)})\s*"
+
     # `# Pluralis af [[tale#Substantiv|tale]]` → `# {{flexion|tale}}`
     code = re.sub(
-        rf"^#\s*(?:{forms})\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
+        rf"{start}(?:{forms})\s+\[\[([^\]#|]+)(?:[#|].+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -455,7 +459,7 @@ def adjust_wikicode(
 
     # `# {{flertal af}} '''[[tale]]'''` → `# {{flexion|tale}}`
     code = re.sub(
-        rf"^#\s*\{{\{{(?:{forms})\}}\}} '*\[\[([^\]]+).*",
+        rf"{start}\{{\{{(?:{forms})\}}\}} '*\[\[([^\]]+).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -463,7 +467,7 @@ def adjust_wikicode(
 
     # `# {{flertal af}} {{l|da|tale}}` → `# {{flexion|tale}}`
     code = re.sub(
-        rf"^#.*\{{\{{(?:{forms})\}}\}}\s+(\{{\{{[^}}]+\}}\}}).*",
+        rf"{start}.*\{{\{{(?:{forms})\}}\}}\s+(\{{\{{[^}}]+\}}\}}).*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,

@@ -938,9 +938,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("=== {{s|caractère}} ===\\n{{hangeul unicode}}", "fr")
     '=== {{s|caractère}} ===\\n# {{hangeul unicode}}'
 
-    >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
+    >>> adjust_wikicode("* ''Féminin (singulier) de'' {{lien|terne|fr}}.", "fr")
     '# {{flexion|terne}}'
-    >>> adjust_wikicode("# ''Féminin (singulier) de'' {{lien|terne|fr}}.", "fr")
+    >>> adjust_wikicode("# ''Féminin singulier de'' {{lien|terne|fr}}.", "fr")
     '# {{flexion|terne}}'
     >>> adjust_wikicode("#''Féminin singulier de l’[[adjectif]]'' [[pressant]].", "fr")
     '# {{flexion|pressant}}'
@@ -984,10 +984,12 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # Variants
     #
 
+    start = rf"^(?:{'|'.join(section_patterns)})\s*'+"
+
     # `# ''Féminin singulier de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     # `# ''Féminin (singulier) de'' {{lien|terne|fr}}.` → `# {flexion|terne}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{\{lien\|([^\|]+)\|.*",
+        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -996,7 +998,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Participe passé masculin singulier du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
     # `# ''Participe passé masculin (singulier) du verbe'' [[pouvoir]].` → `# {flexion|pouvoir}}`
     code = re.sub(
-        r"^#\s*'+.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}.+(?:(?:masculin|féminin) \(?(?:pluriel|singulier)\)?).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1014,14 +1016,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
         ]
     )
     code = re.sub(
-        rf"^#\s*'+(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}(?:{forms}).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
     # `# ''Pluriel de'' {{lien|anisophylle|fr}}.` → `# {{flexion|anisophylle}}`
     code = re.sub(
-        rf"^#\s*'+(?:{forms}).*'\s*\{{\{{lien\|([^\|]+)\|.*",
+        rf"{start}(?:{forms}).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
@@ -1030,14 +1032,14 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# ''Troisième personne du pluriel de l’indicatif imparfait du verbe'' [[venir]].` → `# {flexion|venir}}`
     # `''Forme de la deuxième personne du singulier de l’impératif [[mange]], de'' [[manger]], employée devant [[en]] et [[y]].` → `# {flexion|manger}}`
     code = re.sub(
-        r"^#\s*'+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
+        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\[\[([^\]#]+)(?:#.+)?]].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
     )
     # `# ''Troisième personne du singulier du subjonctif présent du verbe'' {{lien|venir|fr}}.` → `# {flexion|venir}}`
     code = re.sub(
-        r"^#\s*'+(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{\{lien\|([^\|]+)\|.*",
+        rf"{start}(?:(?:Forme de la )?(?:première|deuxième|troisième) personne du (?:pluriel|singulier)).*'\s*\{{\{{lien\|([^\|]+)\|.*",
         r"# {{flexion|\1}}",
         code,
         flags=re.IGNORECASE | re.MULTILINE,
