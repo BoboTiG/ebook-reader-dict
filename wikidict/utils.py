@@ -252,6 +252,8 @@ def format_pos(locale: str, value: str) -> str:
 
     >>> format_pos("fr", "{{s|lettre|fr}}")
     'Lettre'
+    >>> format_pos("fr", "adjectif démonstratif")
+    'Adjectif'
     >>> format_pos("fr", "lettre")
     'Lettre'
 
@@ -261,6 +263,28 @@ def format_pos(locale: str, value: str) -> str:
     'Nome'
     >>> format_pos("it", "nome")
     'Nome'
+
+    >>> format_pos("no", "verb 1")
+    'Verb'
+    >>> format_pos("no", "egennavn, toponym")
+    'Egennavn'
+    >>> format_pos("no", "verb")
+    'Verb'
+
+    >>> format_pos("pt", "substantivo1")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo 1")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo²")
+    'Substantivo'
+    >>> format_pos("pt", "substantivo <small>''Feminino''</small>")
+    'Substantivo'
+    >>> format_pos("pt", "{{locução substantiva|pt}}<sup><small>2</small></sup>")
+    'Locução'
+    >>> format_pos("pt", "pronome pessoal")
+    'Pronome'
+    >>> format_pos("pt", "verbo")
+    'Verbo'
     """
     for pattern in part_of_speech.PATTERNS.get(locale, []):
         value = pattern(r"\1", value)

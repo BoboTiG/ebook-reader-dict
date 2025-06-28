@@ -27,15 +27,39 @@ PATTERNS = {
     "fr": [
         # `{{s|verbe|fr}}` → `verbe`
         re.compile(r"\{\{s\|([^|}]+).*").sub,
+        # `adjectif démonstratif` → `adjectif`
+        re.compile(r"(adjectif|adverbe|article|déterminant|pronom)\s+.*").sub,
     ],
     "it": [
         # `{{nome}}` → `nome`
         re.compile(r"\{\{([^}]+).*").sub,
     ],
+    "no": [
+        # `verb 1` → `verb`
+        re.compile(r"([^\s,]+),?\s+.*").sub,
+    ],
+    "pt": [
+        # `{{forma de locução substantiva 1|pt}}` → `forma de locução substantiva 1`
+        re.compile(r"\{\{([^|}]+).*").sub,
+        # `forma de locução substantiva 1` → `locução substantiva 1`
+        re.compile(r"forma de (.+)").sub,
+        # `substantivo³` → `substantivo`
+        # `substantivo2` → `substantivo`
+        # `substantivo 2` → `substantivo`
+        # `substantivo <small>''Feminino''</small>` → `substantivo`
+        re.compile(r"([^\d¹²³<,]+),?\s*.*").sub,
+        # `pronome pessoal` → `pronome`
+        re.compile(r"(adjetivo|caractere|expressão|expressões|frase|locução|numeral|pronome|verbo)\s+.*").sub,
+    ],
 }
 
 # Uniformize POS
+# Note: "top" must be defined for every locale: it is the default value when definitions are not under a subsection right below the top section;
+#       and by default we move those definitions to the "noun" POS.
 MERGE = {
+    "ca": {
+        "top": "nom",
+    },
     "da": {
         "abbr": "forkortelsf",
         "abr": "forkortelsf",
@@ -66,12 +90,14 @@ MERGE = {
         "seq-num": "ordenstal",
         "substantivisk ordforbindelse": "substantiv",
         "symb": "symbol",
+        "top": "substantiv",
         "ubest-pronon": "ubestemt pronomen",
         "verb": "verbum",
     },
     "en": {
         "adverbial phrase": "adverb",
         "prepositional phrase": "preposition",
+        "top": "noun",
         "verb form": "verb",
         "verb phrase": "verb",
     },
@@ -84,34 +110,17 @@ MERGE = {
         "signifoj": "signifo",
         "substantiva formo": "substantivo",
         "substantivo, vortgrupo": "substantivo",
+        "top": "substantivo",
         "verba formo": "verbo",
         "verbo, vortgrupo": "verbo",
     },
     "fr": {
         "abréviations": "abréviation",
         "adj": "adjectif",
-        "adjectif démonstratif": "adjectif",
-        "adjectif exclamatif": "adjectif",
-        "adjectif indéfini": "adjectif",
-        "adjectif interrogatif": "adjectif",
-        "adjectif numéral": "adjectif",
-        "adjectif possessif": "adjectif",
-        "adjectif relatif": "adjectif",
-        "adverbe interrogatif": "adverbe",
-        "adverbe relatif": "adverbe",
-        "article défini": "article",
-        "article indéfini": "article",
-        "article partitif": "article",
         "conjonction de coordination": "conjonction",
-        "déterminant démonstratif": "déterminant",
         "locution-phrase": "phrase",
         "locution phrase": "phrase",
-        "pronom démonstratif": "pronom",
-        "pronom indéfini": "pronom",
-        "pronom interrogatif": "pronom",
-        "pronom personnel": "pronom",
-        "pronom possessif": "pronom",
-        "pronom relatif": "pronom",
+        "top": "nom",
     },
     "it": {
         "acron": "abbreviazione",
@@ -128,6 +137,24 @@ MERGE = {
         "sost form": "sostantivo",
         "sost": "sostantivo",
         "suff": "suffisso",
+        "top": "sostantivo",
         "verb form": "verb",
+    },
+    "no": {
+        "forkortelser": "forkortelse",
+        "top": "substantiv",
+    },
+    "pt": {
+        "abreviação": "abreviatura",
+        "acrônimo": "acrónimo",
+        "adjetivo/substantivo": "adjetivo",
+        "expressões": "expressão",
+        "forma verbal": "verbo",
+        "locução substantiva": "substantivo",
+        "pepb": "acrónimo",
+        "siglas": "sigla",
+        "substantivo comum": "substantivo",
+        "top": "substantivo",
+        "verbal": "verbo",
     },
 }

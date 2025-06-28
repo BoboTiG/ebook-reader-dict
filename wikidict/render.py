@@ -83,6 +83,9 @@ def find_definitions(
                 if lang_dst == "es" and pos.startswith("etimología"):
                     # Well, lets just put those elsewhere
                     pos = "sustantivo"
+                if lang_dst == "pt" and pos.startswith("etimologia"):
+                    # Well, lets just put those elsewhere
+                    pos = "substantivo"
                 definitions[utils.format_pos(lang_dst, pos)].extend(pos_defs)
 
     if not definitions:

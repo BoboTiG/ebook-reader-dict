@@ -15,10 +15,10 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>(internetês)</i> cês",
-                "algarismo indo-arábico que representa o numeral seis",
-            ],
+            {
+                "Pronome": ["<i>(internetês)</i> cês"],
+                "Símbolo": ["algarismo indo-arábico que representa o numeral seis"],
+            },
             [],
         ),
         (
@@ -30,23 +30,24 @@ from wikidict.utils import process_templates
                 "De <b>4</b>: da vogal temática da 1ª conjugação latina.",
                 "De <b>5</b>: da desinência do plural neutro latino",
             ],
-            [
-                "desinência nominal feminina",
-                "desinência nominal masculina",
-                "desinência nominal comuns-de-dois",
-                "vogal temática da primeira conjugação portuguesa",
-                "desinência plural masculina em português de latinismos como ultimatum (os "
-                "ultimata), o corpus (os corpora), o genus (os genera) etc.",
-            ],
+            {
+                "Pospositivo": [
+                    "desinência nominal feminina",
+                    "desinência nominal masculina",
+                    "desinência nominal comuns-de-dois",
+                    "vogal temática da primeira conjugação portuguesa",
+                    "desinência plural masculina em português de latinismos como ultimatum (os ultimata), o corpus (os corpora), o genus (os genera) etc.",
+                ]
+            },
             [],
         ),
-        ("ababalhar", [], [], ["De baba."], ["<i>(popular)</i> babar; conspurcar"], []),
+        ("ababalhar", [], [], ["De baba."], {"Verbo": ["<i>(popular)</i> babar; conspurcar"]}, []),
         (
             "alguém",
             ["/aɫ.ˈɡɐ̃j̃/"],
             [],
             ["Do latim <i>alĭquem</i>."],
-            ["pessoa não identificada"],
+            {"Pronome": ["pessoa não identificada"]},
             [],
         ),
         (
@@ -54,20 +55,22 @@ from wikidict.utils import process_templates
             ["/ˈaɫ.ɡu/"],
             [],
             [],
-            ["um pouco, de certo modo", "objeto (não-identificado) de que se fala"],
+            {"Advérbio": ["um pouco, de certo modo"], "Pronome": ["objeto (não-identificado) de que se fala"]},
             [],
         ),
-        ("anões", [], [], [], [], ["anão"]),
+        ("anões", [], [], [], {}, ["anão"]),
         (
             "baiano",
             [],
             [],
             ["Derivado de Bahia, mais o sufixo ano, com perda do H."],
-            [
-                "do Estado da Bahia, Brasil",
-                "natural ou habitante do Estado da Bahia, Brasil",
-                "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",
-            ],
+            {
+                "Adjetivo": ["do Estado da Bahia, Brasil"],
+                "Substantivo": [
+                    "natural ou habitante do Estado da Bahia, Brasil",
+                    "<i>(São Paulo, Brasil, popular, pejorativo e racismo)</i> pessoa que se veste de maneira incomum ou brega; fora da moda",
+                ],
+            },
             [],
         ),
         (
@@ -75,11 +78,10 @@ from wikidict.utils import process_templates
             [],
             ["mf"],
             ["Do latim <i>caprunu</i> “cabra”."],
-            [
-                "<i>(Pecuária)</i> de cabras:",
-                "<i>(Brasil)</i> marido de mulher adúltera",
-                "indica estrondo",
-            ],
+            {
+                "Adjetivo": ["<i>(Pecuária)</i> de cabras:", "<i>(Brasil)</i> marido de mulher adúltera"],
+                "Interjeição": ["indica estrondo"],
+            },
             [],
         ),
         (
@@ -87,10 +89,12 @@ from wikidict.utils import process_templates
             ["/ko.ˈpõ/"],
             ["m"],
             [],
-            [
-                "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
-                "<i>(Brasil)</i> <b>Co</b>mitê de <b>Po</b>lítica <b>M</b>onetária",
-            ],
+            {
+                "Acrónimo": [
+                    "<b>C</b>entro de <b>O</b>perações da <b>Po</b>lícia <b>M</b>ilitar",
+                    "<i>(Brasil)</i> <b>Co</b>mitê de <b>Po</b>lítica <b>M</b>onetária",
+                ]
+            },
             [],
         ),
         (
@@ -98,23 +102,27 @@ from wikidict.utils import process_templates
             ["/dɨ.zɐ.ˈsɛ.tɨ/"],
             [],
             ["Contração do latim vulgar <i>decem</i> + <i>ac</i> + <i>septem</i>."],
-            [
-                "vide dezessete",
-                "o número dezassete (17, XVII)",
-                "nota correspondente a dezassete valores",
-                "pessoa ou coisa que apresenta o número dezassete numa ordenação",
-            ],
+            {
+                "Numeral": ["vide dezessete"],
+                "Substantivo": [
+                    "o número dezassete (17, XVII)",
+                    "nota correspondente a dezassete valores",
+                    "pessoa ou coisa que apresenta o número dezassete numa ordenação",
+                ],
+            },
             [],
         ),
-        ("ensimesmariam", [], [], [], [], ["ensimesmar"]),
+        ("ensimesmariam", [], [], [], {}, ["ensimesmar"]),
         (
             "etc",
             [],
             [],
             [],
-            [
-                'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"',
-            ],
+            {
+                "Abreviatura": [
+                    'abreviação do latim <i>et cetera</i>, que significa "e outros", "e os restantes" e "e outras coisas mais"'
+                ]
+            },
             [],
         ),
         (
@@ -124,7 +132,7 @@ from wikidict.utils import process_templates
             [
                 "Do nome do gênero ao que pertence a planta, <i>Galium</i>. Pelo grego γάλιον, (galion), (planta galião, <i>G. verum</i>), de γάλα, (gala), (leite, por ser usada para coalhar o leite)."
             ],
-            ["planta do gênero <i>Galium</i>. De entre elas o amor-de-hortelão, (<i>G. aparine</i>)"],
+            {"Substantivo": ["planta do gênero <i>Galium</i>. De entre elas o amor-de-hortelão, (<i>G. aparine</i>)"]},
             [],
         ),
         (
@@ -132,10 +140,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Do grego antigo <i>γῦρος</i> (<i>gyros</i>), pelo latim <i>gyrus</i>."],
-            [
-                "círculo",
-                "redondo",
-            ],
+            {"Afixo": ["círculo", "redondo"]},
             [],
         ),
         (
@@ -145,12 +150,14 @@ from wikidict.utils import process_templates
             [
                 "Do grego antigo <i>-ιστεσ</i> (<i>-istes</i>) através do latim <i>-ista</i> através do francês antigo <i>-iste</i>."
             ],
-            [
-                "que segue um princípio",
-                "que é estudioso ou profissional de um assunto",
-                "que usa algo",
-                "que tem uma visão preconceituosa",
-            ],
+            {
+                "Sufixo": [
+                    "que segue um princípio",
+                    "que é estudioso ou profissional de um assunto",
+                    "que usa algo",
+                    "que tem uma visão preconceituosa",
+                ]
+            },
             [],
         ),
         (
@@ -158,7 +165,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["símbolo químico do kurtschatóvio"],
+            {"Substantivo": ["símbolo químico do kurtschatóvio"]},
             [],
         ),
         (
@@ -166,10 +173,12 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Do grego antigo <i>νέος</i>."],
-            [
-                "exprime a ideia de <i>novo</i>",
-                "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",
-            ],
+            {
+                "Prefixo": [
+                    "exprime a ideia de <i>novo</i>",
+                    "<b>Nota:</b> Liga-se por hífen ao morfema seguinte quando este começa por <b>vogal</b>, <b>h</b>, <b>r</b> ou <b>s</b>.",
+                ]
+            },
             [],
         ),
         (
@@ -177,10 +186,12 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "usado por prestador de serviço para informar que não tem dinheiro amiúde que possa servir de troco ao valor pago por cliente",
-                "usado por cliente de serviço para informar que não tem dinheiro amiúde que possa servir de diferença ao valor maior pretendido para devolução pelo prestador de serviço quando este não tem o valor em moeda exato para devolver ao cliente",
-            ],
+            {
+                "Frase": [
+                    "usado por prestador de serviço para informar que não tem dinheiro amiúde que possa servir de troco ao valor pago por cliente",
+                    "usado por cliente de serviço para informar que não tem dinheiro amiúde que possa servir de diferença ao valor maior pretendido para devolução pelo prestador de serviço quando este não tem o valor em moeda exato para devolver ao cliente",
+                ]
+            },
             [],
         ),
         (
@@ -188,7 +199,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["fazer a nomenclatura de"],
+            {"Verbo": ["fazer a nomenclatura de"]},
             [],
         ),
         (
@@ -196,11 +207,13 @@ from wikidict.utils import process_templates
             [],
             ["f"],
             [],
-            [
-                "<i>feminino</i> de objetivo",
-                "lente ou sistema de lentes de uma máquina fotográfica",
-                "lente que está voltada para o objeto que se quer ver ou examinar",
-            ],
+            {
+                "Adjetivo": ["<i>feminino</i> de objetivo"],
+                "Substantivo": [
+                    "lente ou sistema de lentes de uma máquina fotográfica",
+                    "lente que está voltada para o objeto que se quer ver ou examinar",
+                ],
+            },
             ["objetivar"],
         ),
         (
@@ -208,11 +221,13 @@ from wikidict.utils import process_templates
             ["/ˈpɐ.ɾɐ/"],
             [],
             [],
-            [
-                "exprime fim, destino, lugar, tempo, direção etc",
-                "terceira pessoa do singular do presente do indicativo do verbo parar",
-                "segunda pessoa do singular do imperativo do verbo parar",
-            ],
+            {
+                "Preposição": ["exprime fim, destino, lugar, tempo, direção etc"],
+                "Verbo": [
+                    "terceira pessoa do singular do presente do indicativo do verbo parar",
+                    "segunda pessoa do singular do imperativo do verbo parar",
+                ],
+            },
             [],
         ),
         (
@@ -220,12 +235,16 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "diz-se de pessoa de origem do Estado de São Paulo, Brasil",
-                "diz-se de artigo ou objeto do Estado de São Paulo",
-                "pessoa de origem do Estado de São Paulo, Brasil",
-                "artigo ou objeto do Estado de São Paulo",
-            ],
+            {
+                "Adjetivo": [
+                    "diz-se de pessoa de origem do Estado de São Paulo, Brasil",
+                    "diz-se de artigo ou objeto do Estado de São Paulo",
+                ],
+                "Substantivo": [
+                    "pessoa de origem do Estado de São Paulo, Brasil",
+                    "artigo ou objeto do Estado de São Paulo",
+                ],
+            },
             [],
         ),
         (
@@ -233,20 +252,29 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["resolver uma situação difícil ou complicada"],
+            {"Expressão": ["resolver uma situação difícil ou complicada"]},
             [],
         ),
-        ("tenui-", [], [], [], ["variante ortográfica de <b>tenu-</b>"], []),
-        ("tique-taque", [], [], [], ["imitativa do som compassado do mecanismo de um relógio a trabalhar"], []),
+        ("tenui-", [], [], [], {"Antepositivo": ["variante ortográfica de <b>tenu-</b>"]}, []),
+        (
+            "tique-taque",
+            [],
+            [],
+            [],
+            {"Onomatopeia": ["imitativa do som compassado do mecanismo de um relógio a trabalhar"]},
+            [],
+        ),
         (
             "to",
             [],
             [],
             [],
-            [
-                "<i>(antigo)</i> contração do pronome pessoal te com o pronome pessoal ou demonstrativo o",
-                "<i>(Brasil e coloquial)</i> forma aferética (muito comum na linguagem falada) de estou",
-            ],
+            {
+                "Contração": [
+                    "<i>(antigo)</i> contração do pronome pessoal te com o pronome pessoal ou demonstrativo o",
+                    "<i>(Brasil e coloquial)</i> forma aferética (muito comum na linguagem falada) de estou",
+                ]
+            },
             [],
         ),
         (
@@ -254,10 +282,10 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Do Latim <i>una-</i>: <i>una-</i> deu <b>ũa</b> por queda do <b>n</b> com a nasalação do <b>ũ</b>."],
-            ["ortografia antiga de uma"],
+            {"Artigo": ["ortografia antiga de uma"]},
             [],
         ),
-        ("UTC", [], [], [], ["<i>(estrangeirismo)</i> ver TUC"], []),
+        ("UTC", [], [], [], {"Sigla": ["<i>(estrangeirismo)</i> ver TUC"]}, []),
     ],
 )
 def test_parse_word(

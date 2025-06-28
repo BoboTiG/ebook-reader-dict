@@ -18,12 +18,14 @@ from wikidict.utils import process_templates
                 "Fra latin <i>aberrātiō</i> («lindring, avvikelse») , fra <i>aberrō</i> («gå unna/bort, gå vill»), fra <i>ab</i> («bort») + <i>errō</i> («vandre/gå»).",
                 "Se aberrate.",
             ],
-            [
-                "avvik, avvikelse",
-                "<i>(astronomi)</i> avvik i en stjernes avbildede posisjon relativ til dens sanne posisjon.",
-                "<i>(optikk)</i> avbildningsfeil i linser og speil.",
-                "<i>(biologi)</i> endring i et kromosom mens celledeling pågår.",
-            ],
+            {
+                "Substantiv": [
+                    "avvik, avvikelse",
+                    "<i>(astronomi)</i> avvik i en stjernes avbildede posisjon relativ til dens sanne posisjon.",
+                    "<i>(optikk)</i> avbildningsfeil i linser og speil.",
+                    "<i>(biologi)</i> endring i et kromosom mens celledeling pågår.",
+                ]
+            },
             [],
         ),
         (
@@ -31,9 +33,11 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Fra nedertysk, egentlig «bærende»"],
-            [
-                "suffiks som lager adjektiv av substantiv (<i>fruktbar</i>), verb (<i>sammenlignbar</i>) og adjektiv (<i>åpenbar</i>)"
-            ],
+            {
+                "Suffiks": [
+                    "suffiks som lager adjektiv av substantiv (<i>fruktbar</i>), verb (<i>sammenlignbar</i>) og adjektiv (<i>åpenbar</i>)"
+                ]
+            },
             [],
         ),
         (
@@ -41,7 +45,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["<i>(om straffedømt)</i> i fengsel"],
+            {"Frase": ["<i>(om straffedømt)</i> i fengsel"]},
             [],
         ),
         (
@@ -49,12 +53,14 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "begrensende, kun",
-                "Gir dempende effekt",
-                "Gir forsterkende effekt",
-                "Gir en sitatfunksjon, særlig i muntlig språk.",
-            ],
+            {
+                "Adverb": [
+                    "begrensende, kun",
+                    "Gir dempende effekt",
+                    "Gir forsterkende effekt",
+                    "Gir en sitatfunksjon, særlig i muntlig språk.",
+                ]
+            },
             ["bar"],
         ),
         (
@@ -62,7 +68,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["Det at noen har vært observert én gang betyr ikke at det er en regel eller et sikkert tegn"],
+            {"Ordtak": ["Det at noen har vært observert én gang betyr ikke at det er en regel eller et sikkert tegn"]},
             [],
         ),
         (
@@ -70,7 +76,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["artikkel for substantiv i ubestemt entall, av intetkjønn"],
+            {"Artikkel": ["artikkel for substantiv i ubestemt entall, av intetkjønn"]},
             ["ete"],
         ),
         (
@@ -78,7 +84,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [],
+            {},
             ["finne", "funn"],
         ),
         (
@@ -86,7 +92,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["jente"],
+            {"Subjektiv": ["jente"]},
             [],
         ),
         (
@@ -94,11 +100,13 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "<i>(anatomi)</i> kroppsdel ved enden av underarmen som gjør mennesker og aper i stand til å gripe",
-                "side",
-                "<i>(kortspill)</i> kortene en spiller sitter med",
-            ],
+            {
+                "Top": [
+                    "<i>(anatomi)</i> kroppsdel ved enden av underarmen som gjør mennesker og aper i stand til å gripe",
+                    "side",
+                    "<i>(kortspill)</i> kortene en spiller sitter med",
+                ]
+            },
             [],
         ),
         (
@@ -106,7 +114,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["et tettsted i Vardø kommune i Finnmark"],
+            {"Ordklasse": ["et tettsted i Vardø kommune i Finnmark"]},
             [],
         ),
         (
@@ -114,10 +122,12 @@ from wikidict.utils import process_templates
             [],
             ["m"],
             ["Fra <i>konsentrere</i> + -<i>sjon</i>"],
-            [
-                "Det å konsentrere seg; ha stort fokus på noe.",
-                "<i>(kjemi)</i> Andelen stoff i noe; mengde stoff løst pr. enhet.",
-            ],
+            {
+                "Substantiv": [
+                    "Det å konsentrere seg; ha stort fokus på noe.",
+                    "<i>(kjemi)</i> Andelen stoff i noe; mengde stoff løst pr. enhet.",
+                ]
+            },
             [],
         ),
         (
@@ -127,7 +137,7 @@ from wikidict.utils import process_templates
             [
                 "Fra middelalderlatin <i>cocodrillus</i> («krokodille»), fra gammelgresk κροκόδειλος (<i>krokodeilos</i>)"
             ],
-            ["stort reptil, lever i og nær vann. <i>(lat. Crocodylia)</i>"],
+            {"Substantiv": ["stort reptil, lever i og nær vann. <i>(lat. Crocodylia)</i>"]},
             [],
         ),
         (
@@ -135,10 +145,12 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            [
-                "Antyder at noe er på lek, at man later som noe.",
-                "Antyder en sammenligning, brukes ofte som et slags fyllord, særlig i muntlig språk.",
-            ],
+            {
+                "Subjunksjon": [
+                    "Antyder at noe er på lek, at man later som noe.",
+                    "Antyder en sammenligning, brukes ofte som et slags fyllord, særlig i muntlig språk.",
+                ]
+            },
             [],
         ),
         (
@@ -146,7 +158,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["tarvelig, nedrig"],
+            {"Adjektiv": ["tarvelig, nedrig"]},
             ["lump"],
         ),
         (
@@ -154,7 +166,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["<i>initialord for</i> partiet Nasjonal Samling", "<i>initialord for</i> Norsk Standard"],
+            {"Initialord": ["<i>initialord for</i> partiet Nasjonal Samling", "<i>initialord for</i> Norsk Standard"]},
             [],
         ),
         (
@@ -162,10 +174,10 @@ from wikidict.utils import process_templates
             [],
             ["n"],
             [],
-            [
-                "anus; brukt som skjellsord",
-                "<i>(brukt som skjellsord)</i> utropsord med samme betydning som substantivet",
-            ],
+            {
+                "Interjeksjon": ["<i>(brukt som skjellsord)</i> utropsord med samme betydning som substantivet"],
+                "Substantiv": ["anus; brukt som skjellsord"],
+            },
             [],
         ),
         (
@@ -173,7 +185,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Av norrønt <i>sik</i>."],
-            ["refleksivt pronomen, tredje person entall og flertall"],
+            {"Pronomen": ["refleksivt pronomen, tredje person entall og flertall"]},
             [],
         ),
         (
@@ -181,7 +193,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["<i>(idiomatisk)</i> få gjort to ting med én handling"],
+            {"Idiom": ["<i>(idiomatisk)</i> få gjort to ting med én handling"]},
             [],
         ),
         (
@@ -189,7 +201,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["som befinner seg i inngiftet familie"],
+            {"Prefiks": ["som befinner seg i inngiftet familie"]},
             [],
         ),
         (
@@ -197,7 +209,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Fra norrønt <i>tolfti</i>; <i>tolv</i> + -<i>te</i>"],
-            ["ordenstallet til tolv"],
+            {"Tallord": ["ordenstallet til tolv"]},
             [],
         ),
         (
@@ -205,7 +217,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["som ikke har;som mangler"],
+            {"Preposisjon": ["som ikke har;som mangler"]},
             [],
         ),
         (
@@ -213,7 +225,7 @@ from wikidict.utils import process_templates
             [],
             [],
             ["Fra gammeldansk: hwærki/hwærkin via dansk: hverken. Jamfør norrønt: hvárki."],
-            ["danner sammen med eller en konjunksjon som binder sammen to nektinger"],
+            {"Konjunksjon": ["danner sammen med eller en konjunksjon som binder sammen to nektinger"]},
             ["verk"],
         ),
         (
@@ -221,7 +233,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["forkortelse for <i>videregående</i>/<i>videregåande</i>"],
+            {"Forkortelse": ["forkortelse for <i>videregående</i>/<i>videregåande</i>"]},
             [],
         ),
         (
@@ -229,7 +241,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["Norsk mannsnavn"],
+            {"Egennavn": ["Norsk mannsnavn"]},
             [],
         ),
         (
@@ -237,7 +249,7 @@ from wikidict.utils import process_templates
             [],
             [],
             [],
-            ["forkortelse for <i>øre-nese-hals</i>"],
+            {"Forklaring": ["forkortelse for <i>øre-nese-hals</i>"]},
             [],
         ),
     ],
