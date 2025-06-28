@@ -208,13 +208,12 @@ from wikidict.utils import process_templates
             ["f"],
             [],
             {
-                "Adjetivo": ["<i>feminino</i> de objetivo"],
                 "Substantivo": [
                     "lente ou sistema de lentes de uma máquina fotográfica",
                     "lente que está voltada para o objeto que se quer ver ou examinar",
                 ],
             },
-            ["objetivar"],
+            ["objetivar", "objetivo"],
         ),
         (
             "para",

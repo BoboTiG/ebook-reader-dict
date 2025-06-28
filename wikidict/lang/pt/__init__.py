@@ -353,6 +353,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     >>> adjust_wikicode("# plural de [[anão]]", "pt")
     '# {{flexion|anão}}'
 
+    >>> adjust_wikicode("*{{f}} de [[objetivo]]", "pt")
+    '# {{flexion|objetivo}}'
+
     >>> adjust_wikicode("# plural de [[anão]]", "pt")
     '# {{flexion|anão}}'
 
@@ -379,6 +382,9 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# [[plural]] [[de]] '''[[anão]]'''` → `# {{flexion|anão}}`
     # `# plural de [[anão]]` → `# {{flexion|anão}}`
     code = re.sub(rf"{start}\[*plural.+'*\[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+
+    # `# {{f}} de [[objetivo]]` → `# {{flexion|objetivo}}`
+    code = re.sub(rf"{start}\{{\{{f\}}\}} de \[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
 
     # `# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     # `#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
