@@ -339,7 +339,7 @@ def find_all_sections(
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(lang_src, section).startswith(head_sections)
+        if section_title(lang_dst, section).startswith(head_sections)
     ]
 
     # Get all sections without any filtering
@@ -648,7 +648,7 @@ def get_output_file(source_dir: Path, snapshot: str) -> Path:
 def show_pos(words: Words) -> None:
     text = "\nPart Of Speech:"
     all_pos: list[str] = []
-    for w, details in words.items():
+    for details in words.values():
         all_pos.extend(details.definitions.keys())
     for count, pos in enumerate(sorted(set(all_pos)), 1):
         text += f"\n  {str(count).rjust(2)}. {pos!r}"

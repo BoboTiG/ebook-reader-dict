@@ -127,7 +127,12 @@ from wikidict.utils import process_templates
             "tyv",
             [],
             [],
-            {"Substantiv": ["En person, der uretmæssigt tager andre folks ejendele i besiddelse."]},
+            {
+                "Substantiv": ["En person, der uretmæssigt tager andre folks ejendele i besiddelse."],
+                "Udtryk": [
+                    "(når noget bliver gjort uden at nogen får det at vide før det er for sent): Som en <b>tyv</b> om natten."
+                ],
+            },
             [],
         ),
         ("PMV", [], [], {"Substantiv": ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"]}, []),

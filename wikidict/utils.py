@@ -228,7 +228,7 @@ def format_pos(locale: str, value: str) -> str:
     """Properly format the part of speech (POS).
 
     >>> format_pos("da", "{{pers-pronom 1}}")
-    'Personligt Pronomen'
+    'Pronomen'
     >>> format_pos("da", "formelt subjekt")
     'Formelt Subjekt'
     >>> format_pos("da", "verb")
