@@ -266,6 +266,8 @@ templates_multi: dict[str, str] = {
     "φόντο": "parts[-1]",
     # {{χρωμ|b80049}}
     "χρωμ": "color(parts[-1])",
+    # {{έλλ|πολυπαλλόμενο σύμφωνο}}
+    "έλλ": "f'<i>έλλειψη του</i> <b>{parts[1]}</b>'",
 }
 # Alias
 templates_multi["l2"] = templates_multi["λ2"]
