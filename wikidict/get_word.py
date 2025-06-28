@@ -14,6 +14,14 @@ if TYPE_CHECKING:
     from .stubs import Word
 
 
+def bold(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[1m{value}\033[22m"
+
+
+def italic(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[3m{value}\033[23m"
+
+
 def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
@@ -31,6 +39,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
             return repr(text)
         text = text.replace("<br>", "\n")
         text = text.replace("<br/>", "\n")
+        text = re.sub(r"<b>([^<]+)</b>", lambda m: bold(m[1]), text)
+        text = re.sub(r"<i>([^<]+)</i>", lambda m: italic(m[1]), text)
         text = re.sub(r"<[^>]+/?>", "", text)
         text = text.replace("&minus;", "-")
         text = text.replace("&nbsp;", " ")
@@ -48,26 +58,27 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         word,
         utils.convert_pronunciation(details.pronunciations).lstrip(),
         strip_html(utils.convert_gender(details.genders).lstrip()),
-        "\n",
     )
 
-    index = 1
-    for definition in details.definitions:
-        if isinstance(definition, tuple):
-            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                if isinstance(subdef, tuple):
-                    for rn, subsubdef in enumerate(subdef, 1):
-                        print(
-                            f"{int_to_roman(rn).lower()}.".rjust(12),
-                            strip_html(subsubdef),
-                        )
-                else:
-                    print(f"{a}.".rjust(8), strip_html(subdef))
-        else:
-            print(f"{index}.".rjust(4), strip_html(definition))
-            index = index + 1
+    for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
+        print("\n", bold(pos))
+        index = 1
+        for definition in definitions:
+            if isinstance(definition, tuple):
+                for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                    if isinstance(subdef, tuple):
+                        for rn, subsubdef in enumerate(subdef, 1):
+                            print(
+                                f"{int_to_roman(rn).lower()}.".rjust(12),
+                                strip_html(subsubdef),
+                            )
+                    else:
+                        print(f"{a}.".rjust(8), strip_html(subdef))
+            else:
+                print(f"{index}.".rjust(4), strip_html(definition))
+                index = index + 1
 
-    if details.definitions and details.etymology:
+    if details.etymology:
         print("\n")
         for etymology in details.etymology:
             if isinstance(etymology, tuple):
@@ -79,6 +90,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
 
+    print()
     utils.check_for_missing_templates(all_templates)
 
 

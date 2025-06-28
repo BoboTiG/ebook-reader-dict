@@ -14,7 +14,7 @@ from wikidict.utils import process_templates
             "▶",
             [],
             [],
-            ["knap som bruges til at afspille en video, lyd el. musik"],
+            {"Symbol": ["knap som bruges til at afspille en video, lyd el. musik"]},
             [],
         ),
         (
@@ -23,32 +23,36 @@ from wikidict.utils import process_templates
             [
                 "fra latin <i>bacterium</i>, latinisering af græsk <i>bakterion</i> (βακτήριον\xa0- lille stav), diminutiv af <i>baktron</i> (βάκτρον - stav)"
             ],
-            ["(mikrobiologi) en encellet mikroskopisk organisme uden cellekerne"],
+            {"Substantiv": ["(mikrobiologi) en encellet mikroskopisk organisme uden cellekerne"]},
             [],
         ),
         (
             "disse",
             [],
             [],
-            ["ikke noget"],
+            {"Substantiv": ["ikke noget"]},
             ["denne"],
         ),
         (
             "et",
             [],
             [],
-            ["intetkøn af en"],
+            {"Artikel": ["intetkøn af en"]},
             [],
         ),
         (
             "her",
             ["/hɛːˀɒ̯/"],
             [],
-            [
-                "Stedet hvor vi er nu. Vores placering.",
-                "(<i>radiokommunikation, radiotelefoni</i>) Dette opkalder stammer fra denne opkalder",
-                "bruges som upersonligt subjekt, refererer ofte fremad eller tilbage til et andet led i sætningen.",
-            ],
+            {
+                "Adverbium": [
+                    "Stedet hvor vi er nu. Vores placering.",
+                    "(<i>radiokommunikation, radiotelefoni</i>) Dette opkalder stammer fra denne opkalder",
+                ],
+                "Formelt Subjekt": [
+                    "bruges som upersonligt subjekt, refererer ofte fremad eller tilbage til et andet led i sætningen."
+                ],
+            },
             [],
         ),
         (
@@ -57,20 +61,22 @@ from wikidict.utils import process_templates
             [
                 "Menes at stamme fra indoeuropæisk sprog <i>ḱʷn̥tós</i>, fra <i>ḱwṓ</i> og derfra videre til germansk sprog <i>*hundaz</i> og fra oldnordisk hundr."
             ],
-            [
-                "(<i>zoologi</i>): et pattedyr af underarten <i>Canis lupus familiaris</i>.",
-                "(<i>slang</i>): 100 DKK-seddel (bruges ikke i flertal)",
-            ],
+            {
+                "Substantiv": [
+                    "(<i>zoologi</i>): et pattedyr af underarten <i>Canis lupus familiaris</i>.",
+                    "(<i>slang</i>): 100 DKK-seddel (bruges ikke i flertal)",
+                ]
+            },
             [],
         ),
         (
             "godt nytår",
             [],
             [],
-            ["En hilsen der siges omkring den 1. januar."],
+            {"Sætning": ["En hilsen der siges omkring den 1. januar."]},
             [],
         ),
-        ("jørme", [], [], ["vrimle, myldre; sværme"], []),
+        ("jørme", [], [], {"Verbum": ["vrimle, myldre; sværme"]}, []),
         (
             "mus",
             [],
@@ -78,25 +84,27 @@ from wikidict.utils import process_templates
                 "Fra oldnordisk mús.",
                 "Fra engelsk mouse.",
             ],
-            [
-                "(<i>zoologi</i>) pattedyr",
-                "(<i>data</i>) en enhed som tilsluttes computere",
-            ],
+            {"Substantiv": ["(<i>zoologi</i>) pattedyr", "(<i>data</i>) en enhed som tilsluttes computere"]},
             [],
         ),
         (
             "-ør",
             [],
             ["Fra fransk: -eur, af latin -ator."],
-            ["Betegner den, der udfører et arbejde."],
+            {"Endelse": ["Betegner den, der udfører et arbejde."]},
             [],
         ),
-        ("skulle", [], [], ["Er nødt til at gøre. Forpligtet til at gøre."], []),
+        ("skulle", [], [], {"Verbum": ["Er nødt til at gøre. Forpligtet til at gøre."]}, []),
         (
             "søm",
             [],
             ["Fra oldnordisk saumr, fra sýja (<i>at sy</i>).", "Fra oldnordisk saumr <i>hankøn</i>."],
-            ["sammensyning", "spids metalpind med et hoved, beregnet til at sammenføje træstykker til hinanden"],
+            {
+                "Substantiv": [
+                    "sammensyning",
+                    "spids metalpind med et hoved, beregnet til at sammenføje træstykker til hinanden",
+                ]
+            },
             [],
         ),
         (
@@ -105,27 +113,29 @@ from wikidict.utils import process_templates
             [
                 'Indoeuropæisk: *ad (i betydningen: fastsætte, ordne) -> germansk *tila- (i betydningen: mål; jf. tysk: Ziel) -> oldnordisk til. Ordet betyder altså egentlig: "<i>med</i> xxx <i>som mål</i>", hvor xxx kan erstattes af et substantiv (navneord).'
             ],
-            ["Ordet betegner en retning hen imod eller et tilhørsforhold"],
+            {"Præposition": ["Ordet betegner en retning hen imod eller et tilhørsforhold"]},
             [],
         ),
         (
             "tolvte",
             ["/ˈtɔldə/"],
             ["Fra oldnordisk tolfti."],
-            ["nummer tolv i rækken"],
+            {"Ordenstal": ["nummer tolv i rækken"]},
             [],
         ),
         (
             "tyv",
             [],
             [],
-            [
-                "En person, der uretmæssigt tager andre folks ejendele i besiddelse.",
-                "(når noget bliver gjort uden at nogen får det at vide før det er for sent): Som en <b>tyv</b> om natten.",
-            ],
+            {
+                "Substantiv": ["En person, der uretmæssigt tager andre folks ejendele i besiddelse."],
+                "Udtryk": [
+                    "(når noget bliver gjort uden at nogen får det at vide før det er for sent): Som en <b>tyv</b> om natten."
+                ],
+            },
             [],
         ),
-        ("PMV", [], [], ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"], []),
+        ("PMV", [], [], {"Substantiv": ["<i>(militær)</i> <i>Forkortelse af</i> <b>pansret mandskabsvogn</b>"]}, []),
     ],
 )
 def test_parse_word(

@@ -36,27 +36,30 @@ if TYPE_CHECKING:
 # Kobo-related dictionaries
 WORD_TPL_KOBO = Template(
     """\
-<w><p><a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/><ol>
-{%- for definition in definitions -%}
-    {%- if definition is string -%}
-        <li>{{ definition }}</li>
-    {%- else -%}
-        <ol style="list-style-type:lower-alpha">
-        {%- for sub_def in definition -%}
-            {%- if sub_def is string -%}
-                <li>{{ sub_def }}</li>
-            {%- else -%}
-                <ol style="list-style-type:lower-roman">
-                    {%- for sub_sub_def in sub_def -%}
-                        <li>{{ sub_sub_def }}</li>
-                    {%- endfor -%}
-                </ol>
-            {%- endif -%}
-        {%- endfor -%}
-        </ol>
-    {%- endif -%}
+<w><p><a name="{{ word }}"/><b>{{ current_word }}</b>{{ pronunciation }}{{ gender }}<br/><br/>
+{%- for pos, pos_definitions in definitions -%}
+    <b>{{ pos }}</b><ol>
+    {%- for definition in pos_definitions -%}
+        {%- if definition is string -%}
+            <li>{{ definition }}</li>
+        {%- else -%}
+            <ol style="list-style-type:lower-alpha">
+            {%- for sub_def in definition -%}
+                {%- if sub_def is string -%}
+                    <li>{{ sub_def }}</li>
+                {%- else -%}
+                    <ol style="list-style-type:lower-roman">
+                        {%- for sub_sub_def in sub_def -%}
+                            <li>{{ sub_sub_def }}</li>
+                        {%- endfor -%}
+                    </ol>
+                {%- endif -%}
+            {%- endfor -%}
+            </ol>
+        {%- endif -%}
+    {%- endfor -%}
+    </ol>
 {%- endfor -%}
-</ol>
 {%- if etymologies -%}
     {%- for etymology in etymologies -%}
         {%- if etymology is string -%}
@@ -98,8 +101,10 @@ WORD_TPL_DICTFILE = Template(
 {%- for variant in variants %}
 & {{ variant }}
 {%- endfor %}
-<html><ol>
-    {%- for definition in definitions -%}
+<html>
+{%- for pos, pos_definitions in definitions -%}
+    <b>{{ pos }}</b><ol>
+    {%- for definition in pos_definitions -%}
         {%- if definition is string -%}
             <li>{{ definition }}</li>
         {%- else -%}
@@ -118,7 +123,8 @@ WORD_TPL_DICTFILE = Template(
             </ol>
         {%- endif -%}
     {%- endfor -%}
-</ol>
+    </ol>
+{%- endfor -%}
 {%- if etymologies -%}
     {%- for etymology in etymologies -%}
         {%- if etymology is string -%}
@@ -248,7 +254,7 @@ class BaseFormat:
                 self.template,
                 word=word,
                 current_word=(current_word if isinstance(self, KoboFormat) or current_word != word else ""),
-                definitions=current_details.definitions,
+                definitions=current_details.definitions.items(),
                 pronunciation=utils.convert_pronunciation(current_details.pronunciations)
                 if current_details.pronunciations
                 else "",

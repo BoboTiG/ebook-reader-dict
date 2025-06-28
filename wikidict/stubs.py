@@ -2,8 +2,9 @@
 
 from typing import NamedTuple
 
-SubDefinitions = str | tuple[str, ...]
-Definitions = str | tuple[str, ...] | tuple[SubDefinitions, ...]
+SubDefinition = str | tuple[str, ...]
+Definition = str | tuple[str, ...] | tuple[SubDefinition, ...]
+Definitions = dict[str, list[Definition]]
 Parts = tuple[str, ...]
 Variants = dict[str, list[str]]
 
@@ -11,8 +12,8 @@ Variants = dict[str, list[str]]
 class Word(NamedTuple):
     pronunciations: list[str]
     genders: list[str]
-    etymology: list[Definitions]
-    definitions: list[Definitions]
+    etymology: list[Definition]
+    definitions: Definitions
     variants: list[str]
 
 

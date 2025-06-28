@@ -421,10 +421,6 @@ def check_word(
         all_templates = []
 
     details = get_word(word, locale, all_templates=all_templates)
-
-    if not details.definitions:
-        return 0
-
     text = get_wiktionary_page(word, locale)
 
     if details.etymology:
@@ -436,18 +432,18 @@ def check_word(
             elif r := check_mute(text, etymology, "Etymology"):
                 results.append(r)
 
-    for index, definition in enumerate(details.definitions, 1):
-        message = f"Definition n°{index:02d}"
-        if isinstance(definition, tuple):
-            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                if isinstance(subdef, tuple):
-                    for rn, subsubdef in enumerate(subdef, 1):
-                        if r := check_mute(text, subsubdef, f"{message}.{int_to_roman(rn).lower()}"):
-                            results.append(r)
-                elif r := check_mute(text, subdef, f"{message}.{a}"):
-                    results.append(r)
-        elif r := check_mute(text, definition, message):
-            results.append(r)
+    for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
+        for index, definition in enumerate(definitions, 1):
+            if isinstance(definition, tuple):
+                for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                    if isinstance(subdef, tuple):
+                        for rn, subsubdef in enumerate(subdef, 1):
+                            if r := check_mute(text, subsubdef, f"{pos} n°{index:02d}.{int_to_roman(rn).lower()}"):
+                                results.append(r)
+                    elif r := check_mute(text, subdef, f"{pos} n°{index:02d}.{a}"):
+                        results.append(r)
+            elif r := check_mute(text, definition, f"{pos} n°{index:02d}"):
+                results.append(r)
 
     if results:
         errors = len(results)
@@ -458,6 +454,7 @@ def check_word(
         log.debug("[%s] - OK", word)
 
     if standalone:
+        print()
         errors += int(utils.check_for_missing_templates(all_templates))
 
     return errors

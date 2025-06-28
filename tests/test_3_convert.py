@@ -35,38 +35,40 @@ Version sans étymologies :
 Mis à jour le"""
 
 WORDS = {
-    "empty": Word([], [], [], [], []),
-    "foo": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], []),
-    "foos": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1", ("ssdef 1",))], ["baz"]),
-    "baz": Word(["pron"], ["gender"], ["etyl"], ["def 1", ("sdef 1",)], ["foobar"]),
-    "empty1": Word([], [], [], [], ["foo"]),
-    "empty2": Word([], [], [], [], ["empty1"]),
+    "empty": Word([], [], [], {}, []),
+    "foo": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1",)]}, []),
+    "foos": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1", ("ssdef 1",))]}, ["baz"]),
+    "baz": Word(["pron"], ["gender"], ["etyl"], {"Noun": ["def 1", ("sdef 1",)]}, ["foobar"]),
+    "empty1": Word([], [], [], {}, ["foo"]),
+    "empty2": Word([], [], [], {}, ["empty1"]),
     "Multiple Etymologies": Word(
         ["pron"],
         ["gender"],
         ["etyl 1", ("setyl 1",)],
-        ["def 1", ("sdef 1",)],
+        {"Noun": ["def 1", ("sdef 1",)]},
         [],
     ),
     "Multiple Etymology": Word(
         ["pron0"],
         ["gender0"],
         ["etyl0"],
-        ["def 0"],
+        {"Noun": ["def 0"]},
         ["Multiple Etymologies"],
     ),
     "GIF": Word(
         ["pron"],
         ["gender"],
         ["etyl"],
-        [
-            '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
-            ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
-            "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
-            "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
-            "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
-            'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
-        ],
+        {
+            "Noun": [
+                '<img style="height:100%;max-height:0.8em;width:auto;vertical-align:bottom"'
+                ' src="data:image/gif;base64,R0lGODdhNwAZAIEAAAAAAP///wAAAAAAACwAAAAANwAZAE'
+                "AIwwADCAwAAMDAgwgTKlzIUKDBgwUZFnw4cGLDihEvOjSYseFEigQtLhSpsaNGiSdTQgS5kiVG"
+                "lwhJeuRoMuHHkDBH1pT4cKdKmSpjUjT50efGnEWTsuxo9KbQnC1TFp051KhNpUid8tR6EijPkC"
+                "V3en2J9erLoBjRXl1qVS1amTWn6oSK1WfGpnjDQo1q1Wvbs125PgX5l6zctW1JFgas96/FxYwv"
+                'RnQsODHkyXuPDt5aVihYt5pBr9woGrJktmpNfxUYEAA7"/>'
+            ]
+        },
         ["gif"],
     ),
 }
@@ -303,16 +305,16 @@ def test_generate_secondary_dict(formatter: type[convert.BaseFormat], filename: 
 
 
 FORMATTED_WORD_KOBO = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_KOBO_NO_ETYMOLOGY = """\
-<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
+<w><p><a name="Multiple Etymologies"/><b>Multiple Etymologies</b> pron <i>gender</i>.<br/><br/><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></p><var><variant name="multiple etymology"/></var></w>
 """
 FORMATTED_WORD_DICTFILE = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
+<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol><p>etyl 1</p><ol><li>setyl 1</li></ol><br/></html>\
 
 
 """
@@ -320,7 +322,7 @@ FORMATTED_WORD_DICTFILE_NO_ETYMOLOGY = """\
 @ Multiple Etymologies
 : pron <i>gender</i>.
 & Multiple Etymology
-<html><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
+<html><b>Noun</b><ol><li>def 1</li><ol style="list-style-type:lower-alpha"><li>sdef 1</li></ol></ol></html>\
 
 
 """
@@ -359,42 +361,44 @@ WORDS_VARIANTS_FR = words = {
         pronunciations=["\\ɛtʁ\\"],
         genders=[],
         etymology=[],
-        definitions=["Définition de 'estre'."],
+        definitions={"Verbe": ["Définition de 'estre'."]},
         variants=[],
     ),
     "être": Word(
         pronunciations=["\\ɛtʁ\\"],
         genders=["m"],
         etymology=[],
-        definitions=[
-            "Définition de 'être'.",
-        ],
+        definitions={
+            "Verbe": [
+                "Définition de 'être'.",
+            ]
+        },
         variants=[],
     ),
     "suis": Word(
         pronunciations=["\\sɥi\\"],
         genders=[],
         etymology=[],
-        definitions=[],
+        definitions={},
         variants=["suivre", "être", "estre"],
     ),
     "suivre": Word(
         pronunciations=["\\sɥivʁ\\"],
         genders=[],
         etymology=[],
-        definitions=["Définition de 'suivre'."],
+        definitions={"Verbe": ["Définition de 'suivre'."]},
         variants=[],
     ),
 }
 WORDS_VARIANTS_ES = {
-    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastada"]),
-    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastado"]),
-    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions=[], variants=["gastar"]),
+    "gastadan": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastada"]),
+    "gastada": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastado"]),
+    "gastado": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["gastar"]),
     "gastar": Word(
         pronunciations=[],
         genders=[],
         etymology=[],
-        definitions=["Definition of 'gastar'."],
+        definitions={"Verb": ["Definition of 'gastar'."]},
         variants=[],
     ),
 }
@@ -469,28 +473,28 @@ def test_df_format(tmp_path: Path) -> None:
         output.read_text(encoding="utf-8")
         == r"""@ estre
 : \ɛtʁ\
-<html><ol><li>Définition de 'estre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ être
 : \ɛtʁ\ <i>m</i>.
-<html><ol><li>Définition de 'être'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suis
 : <b>estre</b> \ɛtʁ\
-<html><ol><li>Définition de 'estre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'estre'.</li></ol></html>
 
 @ suis
 : <b>suivre</b> \sɥivʁ\
-<html><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
 
 @ suis
 : <b>être</b> \ɛtʁ\ <i>m</i>.
-<html><ol><li>Définition de 'être'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'être'.</li></ol></html>
 
 @ suivre
 : \sɥivʁ\
 & suis
-<html><ol><li>Définition de 'suivre'.</li></ol></html>
+<html><b>Verbe</b><ol><li>Définition de 'suivre'.</li></ol></html>
 
 """
     )

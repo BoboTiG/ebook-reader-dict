@@ -11,7 +11,6 @@ from collections import defaultdict
 from contextlib import suppress
 from datetime import timedelta
 from functools import partial
-from itertools import chain
 from pathlib import Path
 from time import monotonic
 from typing import TYPE_CHECKING, cast
@@ -21,13 +20,13 @@ import wikitextparser._spans
 
 from . import lang, utils
 from .namespaces import namespaces
-from .stubs import Word
+from .stubs import Definition, Definitions, Word
 from .user_functions import unique
 
 if TYPE_CHECKING:
     from collections.abc import Callable
 
-    from .stubs import Definitions, SubDefinitions, Words
+    from .stubs import Definitions, SubDefinition, Words
 
 
 # As stated in wikitextparser._spans.parse_pm_pf_tl():
@@ -71,21 +70,29 @@ def find_definitions(
     lang_dst: str,
     *,
     all_templates: list[tuple[str, str, str]] | None = None,
-) -> list[Definitions]:
+) -> Definitions:
     """Find all definitions, without eventual subtext."""
-    definitions = list(
-        chain.from_iterable(
-            find_section_definitions(word, section, lang_src, lang_dst, all_templates=all_templates)
-            for sections in parsed_sections.values()
-            for section in sections
-        )
-    )
-    if not definitions:
-        return []
+    definitions: Definitions = defaultdict(list)
 
-    # Remove duplicates
-    seen = set()
-    return [d for d in definitions if not (d in seen or seen.add(d))]  # type: ignore[func-returns-value]
+    for pos, sections in parsed_sections.items():
+        for section in sections:
+            if pos_defs := find_section_definitions(word, section, lang_src, lang_dst, all_templates=all_templates):
+                if lang_dst == "en" and pos.startswith("etymology"):
+                    # Most of the time, definitions are symbols outside a subsection, like in the "wa" word
+                    pos = "symbol"
+                elif lang_dst == "es" and pos.startswith("etimología"):
+                    # Well, lets just put those elsewhere
+                    pos = "sustantivo"
+                elif lang_dst == "pt" and pos.startswith("etimologia"):
+                    # Well, lets just put those elsewhere
+                    pos = "substantivo"
+                definitions[utils.format_pos(lang_dst, pos)].extend(pos_defs)
+
+    if not definitions:
+        return {}
+
+    # Sort by part of speech (POS)
+    return {pos: defs for pos, defs in sorted(definitions.items(), key=lambda kv: kv[0])}
 
 
 def es_replace_defs_list_with_numbered_lists(
@@ -115,13 +122,13 @@ def find_section_definitions(
     lang_dst: str,
     *,
     all_templates: list[tuple[str, str, str]] | None = None,
-) -> list[Definitions]:
+) -> list[Definition]:
     """Find definitions from the given *section*, with eventual sub-definitions."""
-    definitions: list[Definitions] = []
+    definitions: list[Definition] = []
 
     if lang_src == "es":
         if section.title.strip().lower().startswith(("forma adjetiva", "forma verbal")):
-            return definitions
+            return []
         if lists := section.get_lists(pattern="[:;]"):
             section.contents = "".join(es_replace_defs_list_with_numbered_lists(lst) for lst in lists)
 
@@ -145,7 +152,7 @@ def find_section_definitions(
                 definitions.append(definition)
 
                 # ... And its eventual sub-definitions
-                subdefinitions: list[SubDefinitions] = []
+                subdefinitions: list[SubDefinition] = []
                 for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[lang_dst]):
                     for idx2, subcode in enumerate(sublist.items):
                         subdefinition = utils.process_templates(word, subcode, lang_dst, all_templates=all_templates)
@@ -178,7 +185,7 @@ def find_etymology(
     parsed_section: wtp.Section,
     *,
     all_templates: list[tuple[str, str, str]] | None = None,
-) -> list[Definitions]:
+) -> list[Definition]:
     """Find the etymology.
 
     >>> find_etymology("Artur", "sv", "sv", wtp.Section("==Svenska==\\n===Substantiv===\\n#:{{etymologi|Denna namnform kom till Sverige som namn via {{härledning|sv|la|Arthurus, Arturus}}, möjligen av kymriska ''[[arth]]'' (\\"björn\\"), av {{härledning|sv|cel-uce|*artos|björn}}.\\nParallellt med det keltiska ursprunget har två andra teorier framförts: antingen av ett romerskt släktnamn (Artorius), och/eller ett nordiskt mansnamn, ''[[Arnþor]]'' (\\"Arntor\\"), sammansatt av ''Ar(i)n-'' (\\"örn\\") och ''‑tor'' (\\"dunder, åska\\").}}"))
@@ -210,7 +217,7 @@ def find_etymology(
         case "es":
             items = get_items((r";\d",), skip=("=== etimología",))
         case "fr" | "fro":
-            definitions: list[Definitions] = []
+            definitions: list[Definition] = []
             tables = parsed_section.tables
             tableindex = 0
             ignored_terms = get_ignored_terms(lang_src, lang_dst)
@@ -226,7 +233,7 @@ def find_etymology(
                         definitions.append(
                             utils.process_templates(word, section_item, lang_dst, all_templates=all_templates)
                         )
-                        subdefinitions: list[SubDefinitions] = []
+                        subdefinitions: list[SubDefinition] = []
                         for sublist in section.sublists(i=idx):
                             subdefinitions.extend(
                                 utils.process_templates(word, subcode, lang_dst, all_templates=all_templates)
@@ -258,10 +265,12 @@ def find_etymology(
     ]
 
     # Do not keep incomplete etymologies
-    if lang_src in {"el", "ru"}:
-        useless = {"el": {f"<b>{word}</b> &lt;"}, "ru": {"??", "От", "От ??", "Происходит от", "Происходит от ??"}}.get(
-            lang_src, set()
-        )
+    if lang_src in {"el", "en", "ru"}:
+        useless = {
+            "el": {f"<b>{word}</b> &lt;"},
+            "en": {"Abbreviations.", "See further at etymology 1."},
+            "ru": {"??", "От", "От ??", "Происходит от", "Происходит от ??"},
+        }.get(lang_src, set())
         etyms = [etym for etym in etyms if etym not in useless]
 
     return etyms  # type: ignore[return-value]
@@ -284,6 +293,13 @@ def _find_pronunciations(top_sections: list[wtp.Section], lang_src: str, lang_ds
         if result := func(top_section.contents, lang_dst):
             results.extend(result)
     return sorted(unique(results))
+
+
+def section_title(locale: str, section: wtp.Section) -> str:
+    title = section.title
+    if locale == "de":
+        title = title.split("(")[-1].strip(" )")
+    return title.replace(" ", "").lower().strip() if title else ""
 
 
 def find_all_sections(
@@ -318,20 +334,15 @@ def find_all_sections(
                 )
             )
 
-    def section_title(title: str) -> str:
-        if lang_src == "de":
-            title = title.split("(")[-1].strip(" )")
-        return title.replace(" ", "").lower().strip() if title else ""
-
     # Get interesting top sections
     head_sections = tuple(hs.replace(" ", "") for hs in lang.head_sections[lang_dst])
     top_sections = [
         section
         for section in parsed.get_sections(level=level)
-        if section_title(section.title).startswith(head_sections)
+        if section_title(lang_dst, section).startswith(head_sections)
     ]
 
-    # Get _all_ sections without any filtering
+    # Get all sections without any filtering
     all_sections.extend(
         (section.title.strip(), section)
         for top_section in top_sections
@@ -526,7 +537,7 @@ def parse_word(
             top.contents = contents[: contents.find(marker)]
         definitions = find_definitions(word, {"top": top_sections}, lang_src, lang_dst)
     else:
-        definitions = []
+        definitions = {}
 
     if definitions or force:
         prons = _find_pronunciations(top_sections, lang_src, lang_dst)
@@ -634,6 +645,16 @@ def get_output_file(source_dir: Path, snapshot: str) -> Path:
     return source_dir / f"data-{snapshot}.json"
 
 
+def show_pos(words: Words) -> None:
+    text = "\nPart Of Speech:"
+    all_pos: list[str] = []
+    for details in words.values():
+        all_pos.extend(details.definitions.keys())
+    for count, pos in enumerate(sorted(set(all_pos)), 1):
+        text += f"\n  {str(count).rjust(2)}. {pos!r}"
+    log.info(text)
+
+
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
@@ -658,4 +679,6 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     save(output, words)
 
     log.info("Render done in %s!", timedelta(seconds=monotonic() - start))
+
+    show_pos(words)
     return 0
