@@ -540,6 +540,8 @@ def last_template_handler(
         >>> last_template_handler(["der", "sa", "el","बलि-द्वीप", "tr=bali-dvīpa", "tnl=νησιά προσφορών"], "el")
         '<i>σανσκριτική</i> बलि-द्वीप (bali-dvīpa, νησιά προσφορών)'
 
+        >>> last_template_handler(["γρ", "πολυπαλλόμενο σύμφωνο", "συνών"], "el")
+        '<i>συνώνυμο του</i> <b>πολυπαλλόμενο σύμφωνο</b>'
         >>> last_template_handler(["γρ", "τραπεζομάντιλο"], "el")
         '<i>άλλη γραφή του</i> <b>τραπεζομάντιλο</b>'
         >>> last_template_handler(["γρ", "ελαιόδενδρο", "μορφή"], "el")
@@ -919,6 +921,7 @@ def last_template_handler(
             "παρωχ": "παρωχημένη γραφή του",
             "σνρ": "συνηρημένη μορφή του",
             "συνων": "συνώνυμο του",
+            "συνών": "συνώνυμο του",
         }.get(desc, desc)
         return f"{italic(desc)} {strong(data['εμφ'] or parts[0])}"
 
