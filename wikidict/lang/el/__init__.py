@@ -537,6 +537,8 @@ def last_template_handler(
         ''
         >>> last_template_handler(["ετυμ", "ar", "el", "آجُرّ", "tr=ʾājurr"], "el")
         '<i>αραβική</i> آجُرّ (ʾājurr)'
+        >>> last_template_handler(["ετυμ", "la", "el", "Civitas Vaticana", "Cīvitās Vāticāna"], "el")
+        '<i>λατινική</i> Cīvitās Vāticāna'
         >>> last_template_handler(["der", "sa", "el","बलि-द्वीप", "tr=bali-dvīpa", "tnl=νησιά προσφορών"], "el")
         '<i>σανσκριτική</i> बलि-द्वीप (bali-dvīpa, νησιά προσφορών)'
 
@@ -692,7 +694,7 @@ def last_template_handler(
     if tpl in {"ετυμ", "der"}:
         text = text_language(parts[0])
         if len(parts) > 2:
-            text += f" {parts[2]}"
+            text += f" {parts[-1]}"
         more: list[str] = []
         if tr := data["tr"]:
             more.append(tr)
