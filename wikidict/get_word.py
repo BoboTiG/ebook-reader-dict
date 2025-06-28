@@ -14,6 +14,14 @@ if TYPE_CHECKING:
     from .stubs import Word
 
 
+def bold(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[1m{value}\033[22m"
+
+
+def italic(value: str) -> str:
+    return value if "NO_COLORS" in os.environ else f"\033[3m{value}\033[23m"
+
+
 def get_word(word: str, locale: str, *, all_templates: list[tuple[str, str, str]] | None = None) -> Word:
     """Get a *word* wikicode and parse it."""
     url = f"https://{utils.guess_lang_origin(locale)}.wiktionary.org/w/index.php?title={word}&action=raw"
@@ -31,6 +39,8 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
             return repr(text)
         text = text.replace("<br>", "\n")
         text = text.replace("<br/>", "\n")
+        text = re.sub(r"<b>([^<]+)</b>", lambda m: bold(m[1]), text)
+        text = re.sub(r"<i>([^<]+)</i>", lambda m: italic(m[1]), text)
         text = re.sub(r"<[^>]+/?>", "", text)
         text = text.replace("&minus;", "-")
         text = text.replace("&nbsp;", " ")
@@ -51,7 +61,7 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
     )
 
     for pos, definitions in sorted(details.definitions.items(), key=lambda kv: kv[0]):
-        print("\n", pos)
+        print("\n", bold(pos))
         index = 1
         for definition in definitions:
             if isinstance(definition, tuple):
