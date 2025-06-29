@@ -10,6 +10,7 @@
 
 ## Features
 
+- **Part of speech** support.
 - When selecting a plural word, **its singular form** will be displayed.
 - When selecting a conjugated verb, **its infinitive version** will be displayed.
 - When a word is the plural form of another, and also a form of a verb, **all versions** are displayed.
