@@ -4905,6 +4905,11 @@ racines_schemes_arabes = {
         "ar-u**u*iy²@ũ": "controverse",
         "ar-u**û*@ũ": "controverse",
     },  # 40
+    "ar-dWr": {
+        "aa_sens": "entourer",
+        "ar-***ũ": "",
+        "ar-*a*a*ânũ": "rotation",
+    },  # 3
     "ar-dXl": {
         "aa_sens": "intérieur ; pénétration ; foncier",
         "ar-**a*²a": "",
@@ -5274,6 +5279,7 @@ racines_schemes_arabes = {
         "ar-*i*â*ũ": "pays",
         "ar-*ta*a*a": "courir autour",
         "ar-*u*ay*@ũ": "maisonnette",
+        "ar-*u*i*a": "avoir le vertige",
         "ar-*u*²â*@ũ": "cerceau",
         "ar-*u*â*ũ": "vertige",
         "ar-*â*a*a": "soigner",
@@ -5299,7 +5305,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "circondérence",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 44
+    },  # 45
     "ar-dyr": {
         "aa_sens": "tourner",
         "ar-***ũ": "",
@@ -10577,5 +10583,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 361
+}  # 362
 # END

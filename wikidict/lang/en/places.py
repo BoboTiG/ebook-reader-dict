@@ -4959,6 +4959,7 @@ recognized_qualifiers = {
     "longest": "longest",
     "low": "low",
     "lowest": "lowest",
+    "main": "main",
     "major": "major",
     "many": "many",
     "maritime": "maritime",
@@ -4971,6 +4972,7 @@ recognized_qualifiers = {
     "modern": "modern",
     "mountainous": "mountainous",
     "mountaintop": "mountaintop",
+    "multiple": "multiple",
     "mythical": "mythical",
     "mythological": "mythological",
     "north": "north",
@@ -4982,6 +4984,7 @@ recognized_qualifiers = {
     "northwest": "northwest",
     "northwestern": "northwestern",
     "northwesternmost": "northwesternmost",
+    "numerous": "numerous",
     "official": "official",
     "only": "only",
     "other": "other",
@@ -5048,7 +5051,7 @@ recognized_qualifiers = {
     "western": "western",
     "westernmost": "westernmost",
     "winter": "winter",
-}  # 158
+}  # 161
 
 recognized_placenames = {
     "administrative territory/Azad Jammu and Kashmir": {"article": "", "display": "Azad Kashmir"},

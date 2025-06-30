@@ -638,7 +638,7 @@ langs = {
     "bcd": "babar du Nord",
     "bce": "mengambo",
     "bcf": "bamu",
-    "bcg": "baga binari",
+    "bcg": "baga pukur",
     "bch": "bariai",
     "bci": "baoulé",
     "bcj": "bardi",
@@ -4798,6 +4798,7 @@ langs = {
     "picuris": "picuris",
     "pid": "piaroa",
     "pidgin anglo-massachusett": "pidgin anglo-massachusett",
+    "pidgin anglo-russe de Solombala": "pidgin anglo-russe de Solombala",
     "pidgin massachusett": "pidgin massachusett",
     "pie": "tompiro",
     "pif": "pingelap",
@@ -7146,5 +7147,5 @@ langs = {
     "zza": "zazaki",
     "zzj": "zhuang de Zuojiang",
     "èque": "èque",
-}  # 7,141
+}  # 7,142
 # END
