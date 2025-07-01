@@ -5266,9 +5266,11 @@ racines_schemes_arabes = {
         "ar-*a**@ũ": "tour",
         "ar-*a**iy²ũ": "individu",
         "ar-*a**ânũ": "rotation",
+        "ar-*a**ã": "autour",
         "ar-*a**ũ": "cercle",
         "ar-*a*a*@ũ": "maison",
         "ar-*a*a*a-u": "tourner",
+        "ar-*a*a*iy²@ũ": "casanière",
         "ar-*a*a*iy²ũ": "épicier",
         "ar-*a*a*ũ": "lieu habité",
         "ar-*a*²a*a": "faire tourner",
@@ -5278,6 +5280,7 @@ racines_schemes_arabes = {
         "ar-*a*â*ũ": "la Caaba",
         "ar-*i*â*ũ": "pays",
         "ar-*ta*a*a": "courir autour",
+        "ar-*u**ũ": "{{p}} maisons",
         "ar-*u*ay*@ũ": "maisonnette",
         "ar-*u*i*a": "avoir le vertige",
         "ar-*u*²â*@ũ": "cerceau",
@@ -5287,7 +5290,7 @@ racines_schemes_arabes = {
         "ar-*âyi3ũ": "qui entoure",
         "ar-a**a*@ũ": "administration",
         "ar-a**a*a": "faire tourner",
-        "ar-a**a*ũ": "{{p}} douars",
+        "ar-a**â*ũ": "{{p}} douars",
         "ar-ma**a*ũ": "cercle",
         "ar-ma**u*@ũ": "tabouret",
         "ar-mu**a*@ũ": "sceau",
@@ -5305,7 +5308,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "circondérence",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 45
+    },  # 48
     "ar-dyr": {
         "aa_sens": "tourner",
         "ar-***ũ": "",
@@ -5319,6 +5322,9 @@ racines_schemes_arabes = {
         "ar-*a*a*ũ": "lieu habité",
         "ar-*a*²â*@ũ": "cerceau",
         "ar-*a*²â*ũ": "quelqu'un",
+        "ar-*i*â*@ũ": "{{p}} maisons",
+        "ar-*i*â*âtũ": "{{p}} maisons",
+        "ar-*i*â*ũ": "{{p}} maisons",
         "ar-*ta*a*a": "courir autour",
         "ar-*âyi3@ũ": "cercle",
         "ar-*âyi3ũ": "qui entoure",
@@ -5327,7 +5333,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "circuler",
         "ar-ta*a*²a*a": "",
         "ar-ta*â*a*a": "",
-    },  # 20
+    },  # 23
     "ar-f3l": {
         "aa_sens": "action",
         "ar-*a**@ũ": "habitude",

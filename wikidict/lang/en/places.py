@@ -669,6 +669,14 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
+    "bridge": {
+        "fallback": "",
+        "article": "a",
+        "display": "bridge",
+        "preposition": "",
+        "formertype": "man-made structure",
+        "should_categorize": "yes",
+    },
     "building": {
         "fallback": "",
         "article": "a",
@@ -1181,18 +1189,18 @@ recognized_placetypes = {
         "formertype": "",
         "should_categorize": "",
     },
-    "crown colony": {
-        "fallback": "colony",
-        "article": "a",
-        "display": "crown colony",
-        "preposition": "",
-        "formertype": "",
-        "should_categorize": "",
-    },
     "Crown colony": {
         "fallback": "crown colony",
         "article": "a",
         "display": "Crown colony",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "crown colony": {
+        "fallback": "colony",
+        "article": "a",
+        "display": "crown colony",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -2549,14 +2557,6 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "yes",
     },
-    "individual buildings!": {
-        "fallback": "",
-        "article": "",
-        "display": "names of houses, libraries and other notable buildings",
-        "preposition": "",
-        "formertype": "",
-        "should_categorize": "",
-    },
     "inland sea": {
         "fallback": "sea",
         "article": "an",
@@ -3085,10 +3085,26 @@ recognized_placetypes = {
         "formertype": "!",
         "should_categorize": "yes",
     },
+    "named bridges!": {
+        "fallback": "",
+        "article": "",
+        "display": "names of notable bridges",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
+    "named buildings!": {
+        "fallback": "",
+        "article": "",
+        "display": "names of notable houses, libraries and other buildings",
+        "preposition": "",
+        "formertype": "",
+        "should_categorize": "",
+    },
     "named roads!": {
         "fallback": "",
         "article": "",
-        "display": "names of roads, highways, trails and similar linear structures",
+        "display": "names of notable roads, highways, trails and similar linear structures",
         "preposition": "",
         "formertype": "",
         "should_categorize": "",
@@ -4773,7 +4789,7 @@ recognized_placetypes = {
         "formertype": "subpolity",
         "should_categorize": "",
     },
-}  # 596
+}  # 598
 
 placetypes_aliases = {
     "CDP": "census-designated place",

@@ -622,6 +622,8 @@ labels = {
     "Oxford City": "Oxford City",
     "Oxford University": "Oxford University",
     "Oxford University slang": "Oxford University {{glossary|slang}}",
+    "Oxford form": "Oxford British English",
+    "Oxford spelling": "Oxford British English",
     "Oxfordshire": "Oxfordshire",
     "Oxon": "Oxford University",
     "Oxon slang": "Oxford University {{glossary|slang}}",
@@ -1701,10 +1703,22 @@ labels = {
     "intransitive": "intransitive",
     "intrusive r": "intrusive ''r''",
     "ironic": "ironic",
+    "isation": "non-Oxford British spelling",
+    "isation form": "non-Oxford British spelling",
+    "isation spelling": "non-Oxford British spelling",
+    "ise": "non-Oxford British spelling",
+    "ise form": "non-Oxford British spelling",
+    "ise spelling": "non-Oxford British spelling",
     "ise-form": "non-Oxford British spelling",
     "islam": "Islam",
     "isotope": "physics",
     "iterative": "iterative",
+    "ization": "American and Oxford British spelling",
+    "ization form": "American and Oxford British spelling",
+    "ization spelling": "American and Oxford British spelling",
+    "ize": "American and Oxford British spelling",
+    "ize form": "American and Oxford British spelling",
+    "ize spelling": "American and Oxford British spelling",
     "ize-form": "American and Oxford British spelling",
     "jazz": "jazz",
     "jewellery": "jewelry",
@@ -2664,7 +2678,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,659
+}  # 2,673
 
 syntaxes = {
     "&": {
