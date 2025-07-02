@@ -371,7 +371,8 @@ class KoboFormat(BaseFormat):
         # First, create individual HTML files
         wordlist: list[str] = []
         for prefix, words in self.groups.items():
-            to_compress.append(self.save_html(prefix, words, tmp_dir))
+            if html := self.save_html(prefix, words, tmp_dir):
+                to_compress.append(html)
             wordlist.extend(words.keys())
 
         # Then create the special "words" file
@@ -403,7 +404,7 @@ class KoboFormat(BaseFormat):
 
         self.summary(final_file)
 
-    def save_html(self, name: str, words: Words, output_dir: Path) -> Path:
+    def save_html(self, name: str, words: Words, output_dir: Path) -> Path | None:
         """Generate individual HTML files.
 
         Content of the HTML file:
@@ -416,8 +417,9 @@ class KoboFormat(BaseFormat):
         """
 
         # Save to uncompressed HTML
+        if not (data := "".join(line for word in words for line in self.handle_word(word, self.words))):
+            return None
         raw_output = output_dir / f"{name}.raw.html"
-        data = "".join(line for word in words for line in self.handle_word(word, self.words))
         raw_output.write_text(data, encoding="utf-8")
 
         # Compress the HTML with gzip
