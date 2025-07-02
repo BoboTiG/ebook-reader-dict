@@ -260,7 +260,7 @@ class BaseFormat:
                 else "",
                 gender=utils.convert_gender(current_details.genders) if current_details.genders else "",
                 etymologies=current_details.etymology if self.include_etymology else [],
-                variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
+                variants=sorted(set(variants), key=lambda s: (len(s), s)) if variants else [],
             )
 
     def process(self) -> None:

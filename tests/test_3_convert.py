@@ -400,6 +400,17 @@ WORDS_VARIANTS_ES = {
         variants=[],
     ),
 }
+WORDS_VARIANTS_ES_2 = {
+    "-foba": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["-fobo"]),
+    "-fobas": Word(pronunciations=[], genders=[], etymology=[], definitions={}, variants=["-foba", "-fobo"]),
+    "-fobo": Word(
+        pronunciations=[],
+        genders=[],
+        etymology=[],
+        definitions={"Suffix": ["-phobe", "-phobic"]},
+        variants=[],
+    ),
+}
 
 
 def test_make_variants() -> None:
@@ -458,6 +469,27 @@ def test_kobo_format_variants_empty_variant_level_1(tmp_path: Path) -> None:
     assert not gastada
     assert not gastado
     assert '<var><variant name="gastada"/><variant name="gastado"/></var>' in gastar
+
+
+def test_kobo_format_variants_duplicates(tmp_path: Path) -> None:
+    words = WORDS_VARIANTS_ES_2
+    variants = convert.make_variants(words)
+    formatter = convert.KoboFormat("es", tmp_path, words, variants, "20250702")
+
+    assert formatter.make_groups(words) == {
+        "11": {
+            "-foba": words["-foba"],
+            "-fobas": words["-fobas"],
+            "-fobo": words["-fobo"],
+        }
+    }
+
+    foba = "".join(formatter.handle_word("-foba", words))
+    fobas = "".join(formatter.handle_word("-fobas", words))
+    fobo = "".join(formatter.handle_word("-fobo", words))
+    assert not foba
+    assert not fobas
+    assert '<var><variant name="-foba"/><variant name="-fobas"/></var>' in fobo
 
 
 def test_df_format(tmp_path: Path) -> None:
