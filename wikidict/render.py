@@ -77,16 +77,16 @@ def find_definitions(
     for pos, sections in parsed_sections.items():
         for section in sections:
             if pos_defs := find_section_definitions(word, section, lang_src, lang_dst, all_templates=all_templates):
-                if lang_dst == "en" and pos.startswith("etymology"):
+                if lang_src == "en" and pos.startswith("etymology"):
                     # Most of the time, definitions are symbols outside a subsection, like in the "wa" word
                     pos = "symbol"
-                elif lang_dst == "es" and pos.startswith("etimología"):
+                elif lang_src == "es" and pos.startswith("etimología"):
                     # Well, lets just put those elsewhere
                     pos = "sustantivo"
-                elif lang_dst == "pt" and pos.startswith("etimologia"):
+                elif lang_src == "pt" and pos.startswith("etimologia"):
                     # Well, lets just put those elsewhere
                     pos = "substantivo"
-                definitions[utils.format_pos(lang_dst, pos)].extend(pos_defs)
+                definitions[utils.format_pos(lang_src, pos)].extend(pos_defs)
 
     if not definitions:
         return {}
