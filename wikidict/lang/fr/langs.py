@@ -1566,7 +1566,7 @@ langs = {
     "cso": "chinantèque de Sochiapam",
     "csp": "ping du Sud",
     "csq": "langue des signes croate",
-    "csr": "lagnue des signes costaricaine",
+    "csr": "langue des signes costaricaine",
     "css": "ohlone du Sud",
     "css-mut": "mutsun",
     "css-rum": "rumsen",

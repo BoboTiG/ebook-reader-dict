@@ -3173,7 +3173,7 @@ langs = {
     "hoe": "Horom",
     "hoh": "Hobyót",
     "hoi": "Holikachuk",
-    "hoj": "Hadothi",
+    "hoj": "Hadoti",
     "hok": "Hokan",
     "hol": "Holu",
     "hom": "Homa",

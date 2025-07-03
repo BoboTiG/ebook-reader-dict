@@ -39,6 +39,7 @@ form_of_templates = {
     "apoc of": "apocopic form of",
     "archaic form of": "archaic form of",
     "arch form": "archaic form of",
+    "archaic form": "archaic form of",
     "archaic spelling of": "archaic spelling of",
     "arch sp": "archaic spelling of",
     "aspirate mutation of": "aspirate mutation of",
@@ -181,11 +182,12 @@ form_of_templates = {
     "t-prothesis of": "t-prothesized form of",
     "uncommon form of": "uncommon form of",
     "uncom form": "uncommon form of",
+    "uncommon form": "uncommon form of",
     "uncommon spelling of": "uncommon spelling of",
     "uncom sp": "uncommon spelling of",
     "verbal noun of": "verbal noun of",
     "verb form of": "inflection of:",
-}  # 180
+}  # 182
 # END
 
 
