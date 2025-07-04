@@ -248,6 +248,11 @@ def format_pos(locale: str, value: str) -> str:
     >>> format_pos("el", "έκφραση")
     'Έκφραση'
 
+    >>> format_pos("en", "proper noun 1")
+    'Proper Noun'
+    >>> format_pos("en", "proper noun")
+    'Proper Noun'
+
     >>> format_pos("eo", "{{signifoj}}")
     'Signifo'
     >>> format_pos("eo", "{{vortospeco|adverbo, vortgrupo|eo}}")

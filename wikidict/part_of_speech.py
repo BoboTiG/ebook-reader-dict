@@ -20,6 +20,10 @@ PATTERNS = {
         # `{{έκφραση|el}}` → `έκφραση`
         re.compile(r"\{\{([^|}]+).*").sub,
     ],
+    "en": [
+        # `proper noun 1` → `proper noun`
+        re.compile(r"(proper noun).+").sub,
+    ],
     "eo": [
         # `{{vortospeco|adverbo, vortgrupo|eo}}` → `adverbo, vortgrupo`
         re.compile(r"\{\{vortospeco\|([^|]+).*").sub,
