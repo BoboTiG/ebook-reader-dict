@@ -144,6 +144,9 @@ WORD_TPL_DICTFILE = Template(
 """
 )
 
+# Threshold before issuing a warning to catch potentially problematic variants
+MAX_VARIANTS = 5
+
 log = logging.getLogger(__name__)
 
 
@@ -250,6 +253,9 @@ class BaseFormat:
                     # Variant must be normalized by trimming whitespace and lowercasing it
                     variants = [variant.lower().strip() for variant in variants]
 
+                if len(variants := list(set(variants))) > MAX_VARIANTS:
+                    log.warning("Word %r has too many variants (%d): %r", current_word, len(variants), variants)
+
             yield self.render_word(
                 self.template,
                 word=word,
@@ -260,7 +266,7 @@ class BaseFormat:
                 else "",
                 gender=utils.convert_gender(current_details.genders) if current_details.genders else "",
                 etymologies=current_details.etymology if self.include_etymology else [],
-                variants=sorted(set(variants), key=lambda s: (len(s), s)) if variants else [],
+                variants=sorted(variants, key=lambda s: (len(s), s)) if variants else [],
             )
 
     def process(self) -> None:
