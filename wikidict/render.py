@@ -268,7 +268,12 @@ def find_etymology(
     if lang_src in {"el", "en", "ru"}:
         useless = {
             "el": {f"<b>{word}</b> &lt;"},
-            "en": {"Abbreviations.", "See further at etymology 1."},
+            "en": {
+                "Abbreviations.",
+                "See further at etymology 1.",
+                "Variant forms.",
+                "Unknown",
+            },
             "ru": {"??", "От", "От ??", "Происходит от", "Происходит от ??"},
         }.get(lang_src, set())
         etyms = [etym for etym in etyms if etym not in useless]
