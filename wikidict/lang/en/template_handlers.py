@@ -2461,24 +2461,26 @@ def render_unknown(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
 
 def render_variant(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_variant("en-archaic third-person singular of", ["verb"], defaultdict(str))
+    >>> render_variant("__variant__en-archaic third-person singular of", ["verb"], defaultdict(str))
     'verb'
 
-    >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str), word="humans")
+    >>> render_variant("__variant__infl of", ["en", "human", "", "s-verb-form"], defaultdict(str), word="humans")
     'human'
-    >>> render_variant("infl of", ["en", "human", "", "s-verb-form"], defaultdict(str, {"1": "en", "2": "human", "3": "", "4": "s-verb-form"}), word="humans")
+    >>> render_variant("__variant__infl of", ["en", "human", "", "s-verb-form"], defaultdict(str, {"1": "en", "2": "human", "3": "", "4": "s-verb-form"}), word="humans")
     'human'
 
-    >>> render_variant("plural of", ["en", "woman"], defaultdict(str), word="women")
+    >>> render_variant("__variant__plural of", ["en", "woman"], defaultdict(str), word="women")
     'woman'
 
-    >>> render_variant("form of", ["en", "Alternative (anglicized) spelling", "Wrocław"], defaultdict(str), word="Wroclaw")
+    >>> render_variant("__variant__form of", ["en", "Alternative (anglicized) spelling", "Wrocław"], defaultdict(str), word="Wroclaw")
     'Wrocław'
+    >>> render_variant("__variant__adj form of", ["en", "Alternative (anglicized) spelling", "Wrocław"], defaultdict(str), word="Wroclaw")
+    'Alternative (anglicized) spelling'
     """
     if "en-archaic" in tpl:
         return parts[0]
 
-    if "form of" in tpl:
+    if "_form of" in tpl:
         return parts[-1]
 
     return data["2"] or parts[1]
