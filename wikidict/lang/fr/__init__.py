@@ -388,6 +388,8 @@ templates_multi = {
     "numéros": 'f\'n{superscript("os")}{parts[1] if len(parts) > 1 else ""}\'',
     # {{o}}
     "o": "superscript('o')",
+    # {{param1ou2|s|ſ}}
+    "param1ou2": "f'{parts[1]} ou {parts[2]}'",
     # {{Pas clair|...}}
     "Pas clair": 'f\'{underline(parts[1]) if len(parts) > 1 else ""}{small("&nbsp;")}{superscript(italic(strong("Pas clair")))}\'',
     # {{petites capitales|Dupont}}
