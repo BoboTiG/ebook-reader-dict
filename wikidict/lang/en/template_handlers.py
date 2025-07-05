@@ -194,6 +194,25 @@ def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdi
     return data.get("title", title if data["nocap"] in ("1", "yes") else capitalize(title))
 
 
+def render_aka(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_aka("aka", [], defaultdict(str))
+    'a.k.a.'
+    >>> render_aka("aka", [], defaultdict(str, {"aka": "1"}))
+    'aka'
+    >>> render_aka("aka", [], defaultdict(str, {"AKA": "1"}))
+    'AKA'
+    >>> render_aka("aka", [], defaultdict(str, {"uc": "1"}))
+    'AKA'
+    """
+    if not data:
+        return "a.k.a."
+    text = "aka"
+    if data["AKA"] or data["uc"]:
+        text = text.upper()
+    return text
+
+
 def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bce("B.C.E.", [], defaultdict(str))
@@ -2518,6 +2537,7 @@ template_mapping = {
     "AD": render_bce,
     "af": render_morphology,
     "affix": render_morphology,
+    "aka": render_aka,
     "ante": render_dating,
     "a.": render_dating,
     "backform": render_foreign_derivation,
