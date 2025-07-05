@@ -226,6 +226,17 @@ def render_aka(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     return text
 
 
+def render_ante2(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ante2("ante2", ["1702"], defaultdict(str))
+    '<i>ante</i> <b>1702</b>'
+    >>> render_ante2("ante2", ["1702"], defaultdict(str, {"short": "yes"}))
+    '<i>a.</i> <b>1702</b>'
+    """
+    init = "a." if data["short"] else "ante"
+    return f"{italic(init)} {strong(parts[0])}"
+
+
 def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bce("B.C.E.", [], defaultdict(str))
@@ -2554,6 +2565,7 @@ template_mapping = {
     "affix": render_morphology,
     "aka": render_aka,
     "ante": render_dating,
+    "ante2": render_ante2,
     "a.": render_dating,
     "backform": render_foreign_derivation,
     "backformation": render_foreign_derivation,
