@@ -236,6 +236,8 @@ templates_multi = {
     "en": "parts[-1]",
     # {{en-comparative of|term}}
     "en-comparative of": "italic('comparative form of') + f' {strong(parts[1])}' + ': more ' + parts[1]",
+    # {{en-obsolete past participle of|baptize}}
+    "en-obsolete past participle of": "f\"{term('obsolete')} <i>past participle of</i> {strong(parts[1])}\"",
     # {{en-superlative of|Brummie}}
     "en-superlative of": "f\"{italic('superlative form of')} {strong(parts[1])}: most {parts[1]}\"",
     # {{from|en|-er|id=Oxford}}
