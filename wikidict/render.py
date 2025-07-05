@@ -650,16 +650,6 @@ def get_output_file(source_dir: Path, snapshot: str) -> Path:
     return source_dir / f"data-{snapshot}.json"
 
 
-def show_pos(words: Words) -> None:
-    text = "\nPart Of Speech:"
-    all_pos: list[str] = []
-    for details in words.values():
-        all_pos.extend(details.definitions.keys())
-    for count, pos in enumerate(sorted(set(all_pos)), 1):
-        text += f"\n  {str(count).rjust(2)}. {pos!r}"
-    log.info(text)
-
-
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
@@ -685,5 +675,4 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
 
     log.info("Render done in %s!", timedelta(seconds=monotonic() - start))
 
-    show_pos(words)
     return 0

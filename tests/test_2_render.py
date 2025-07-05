@@ -1,7 +1,7 @@
 import logging
 from collections.abc import Callable
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from wikitextparser import Section
@@ -188,7 +188,6 @@ def test_sublang(locale: str, lang_src: str, lang_dst: str, tmp_path: Path) -> N
             patch.object(render, "load") as mocked_l,
             patch.object(render, "render") as mocked_r,
             patch.object(render, "save") as mocked_s,
-            patch.object(render, "show_pos", MagicMock()),
         ):
             mocked_gljf.return_value = pages
             mocked_l.return_value = words

@@ -13,6 +13,7 @@ Usage:
     wikidict LOCALE --get-word=WORD [--raw]
     wikidict LOCALE --gen-dict=WORDS --output=FILENAME [--format=FORMAT]
     wikidict LOCALE --release
+    wikidict LOCALE --show-pos
 
 Options:
   --download                Retrieve the latest Wiktionary dump into "data/$LOCALE/pages-$DATE.xml".
@@ -38,8 +39,9 @@ Options:
                             The generated filename can be tweaked via the --output=FILENAME argument.
                             --format=FORMAT     Format can be dictorg, kobo, mobi, stardict [default: kobo]
   --release                 DEV: Generate the description of a GitHub release.
+  --show-pos                Show part of speechs.
 
-If no argument given, --download, --parse, --render, and --convert will be done automatically.
+If no argument given, --download, --parse, --render, --show-pos, and --convert, will be done automatically.
 """
 
 import logging
@@ -111,12 +113,18 @@ def main() -> int:
 
         return release.main(args["LOCALE"])
 
+    if args["--show-pos"]:
+        from . import show_pos
+
+        return show_pos.main(args["LOCALE"])
+
     # Run the whole process by default
-    from . import convert, download, parse, render
+    from . import convert, download, parse, render, show_pos
 
     download.main(args["LOCALE"])
     parse.main(args["LOCALE"])
     render.main(args["LOCALE"])
+    show_pos.main(args["LOCALE"])
     convert.main(args["LOCALE"])
 
     return 0
