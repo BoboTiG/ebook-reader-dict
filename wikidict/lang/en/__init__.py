@@ -316,6 +316,8 @@ templates_multi = {
     "sense": "f'{parenthesis(italic(parts[1]))} :'",
     # {{shitgibbon|en|arse|muncher}}
     "shitgibbon": 'f"Shitgibbon compound of {italic(parts[2])} + {italic(parts[3])}"',
+    # {{small|(kraken)}}
+    "small": "small(parts[1])",
     # {{small caps|ce}}
     "small caps": "small_caps(parts[1])",
     # {{smallcaps|ce}}
