@@ -650,6 +650,11 @@ def get_output_file(source_dir: Path, snapshot: str) -> Path:
     return source_dir / f"data-{snapshot}.json"
 
 
+def hook_after(words: Words) -> None:
+    if not words:
+        raise ValueError("Empty dictionary?!")
+
+
 def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
     """Entry point."""
 
@@ -666,9 +671,7 @@ def main(locale: str, *, workers: int = multiprocessing.cpu_count()) -> int:
 
     log.info("Rendering ...")
     workers = workers or multiprocessing.cpu_count()
-    words = render(in_words, locale, workers)
-    if not words:
-        raise ValueError("Empty dictionary?!")
+    hook_after(words := render(in_words, locale, workers))
 
     output = get_output_file(source_dir, input_file.stem.split("-")[-1])
     save(output, words)
