@@ -345,6 +345,7 @@ templates_multi = {
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
+    "taxlink2": "italic(parts[1])",
     # {{IUPAC-1|alanine}}
     "IUPAC-1": 'f"IUPAC 1-letter symbol for {parts[1]}"',
 }
