@@ -8429,6 +8429,7 @@ langs = {
     "trk-cmn": "Common Turkic",
     "trk-cmn-pro": "Proto-Common Turkic",
     "trk-dkh": "Dukhan",
+    "trk-eog": "Early Old Oghuz",
     "trk-kar": "Karluk",
     "trk-kbu": "Kipchak-Bulgar",
     "trk-kcu": "Kipchak-Cuman",
@@ -9893,7 +9894,7 @@ langs = {
     "zyp": "Zyphe",
     "zza": "Zazaki",
     "zzj": "Zuojiang Zhuang",
-}  # 9,888
+}  # 9,889
 # END
 
 # Missings since 2024-02-28 (see #1999 and keep synced with https://en.wiktionary.org/wiki/Module:languages/data#L-196)

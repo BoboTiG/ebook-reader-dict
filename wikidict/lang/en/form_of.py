@@ -156,6 +156,8 @@ form_of_templates = {
     "rare form": "rare form of",
     "rare spelling of": "rare spelling of",
     "rare sp": "rare spelling of",
+    "rare spelling": "rare spelling of",
+    "rare sp of": "rare spelling of",
     "reflexive of": "reflexive of",
     "rfform": "a form of",
     "romanization of": "romanization of",
@@ -183,11 +185,18 @@ form_of_templates = {
     "uncommon form of": "uncommon form of",
     "uncom form": "uncommon form of",
     "uncommon form": "uncommon form of",
+    "uncom form of": "uncommon form of",
     "uncommon spelling of": "uncommon spelling of",
     "uncom sp": "uncommon spelling of",
+    "uncom sp of": "uncommon spelling of",
+    "uncommon sp": "uncommon spelling of",
+    "uncom spelling": "uncommon spelling of",
+    "uncommon spelling": "uncommon spelling of",
+    "uncommon sp of": "uncommon spelling of",
+    "uncom spelling of": "uncommon spelling of",
     "verbal noun of": "verbal noun of",
     "verb form of": "inflection of:",
-}  # 182
+}  # 191
 # END
 
 

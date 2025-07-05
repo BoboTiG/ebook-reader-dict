@@ -2080,6 +2080,34 @@ racines_schemes_arabes = {
         "ar-*a**â*ũ": "bavard",
         "ar-*a**û*@ũ": "prolifique",
     },  # 7
+    "ar-HSl": {
+        "aa_sens": "arriver",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**ũ": "bouton de fleur",
+        "ar-*a*a*a-i": "avoir lieu",
+        "ar-*a*a*ũ": "grain",
+        "ar-*a*²a*a": "obtenir",
+        "ar-*a*âyi*u": "{{p}} produits nets",
+        "ar-*a*î*@ũ": "produit net",
+        "ar-*aw*a*ũ": "gésier",
+        "ar-*awâ*i*u": "{{p}} qui arrivent",
+        "ar-*ta*a*a": "",
+        "ar-*u*â*@ũ": "balayure",
+        "ar-*u*û*ũ": "évènement",
+        "ar-*â*a*a": "",
+        "ar-*â*i*ũ": "qui arrive",
+        "ar-a**a*a": "fructifier",
+        "ar-ma**û*ũ": "évènement",
+        "ar-mu*a*²i*ũ": "nettoyeur",
+        "ar-muta*a*²i*ũ": "total",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "",
+        "ar-ta**î*ũ": "acquisition",
+        "ar-ta*a*²a*a": "résulter",
+        "ar-ta*a*²u*ũ": "acquisition",
+        "ar-ta*â*a*a": "",
+    },  # 26
     "ar-HSn": {
         "aa_sens": "fortifier ; chaste ; perte",
         "ar-***ũ": "",
@@ -2991,6 +3019,7 @@ racines_schemes_arabes = {
         "ar-*ta*a*a": "",
         "ar-*u**@ũ": "poitrine",
         "ar-*u*a*ũ": "{{p}} poitrines",
+        "ar-*u*û*ũ": "{{p}} poitrines",
         "ar-*â*a*a": "contraindre",
         "ar-*â*i*ũ": "qui revient",
         "ar-a**a*a": "émettre",
@@ -3006,7 +3035,7 @@ racines_schemes_arabes = {
         "ar-ta**î*ũ": "sangle de poitrail",
         "ar-ta*a*²a*a": "avoir la préséance",
         "ar-ta*â*a*a": "",
-    },  # 29
+    },  # 30
     "ar-Sfr": {
         "aa_sens": "jaune ; vide ; sifflet",
         "ar-**a*²a": "être jaune ; être noir",
@@ -10594,5 +10623,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 362
+}  # 363
 # END
