@@ -83,7 +83,7 @@ def find_definitions(
                 elif lang_src == "es" and pos.startswith("etimología"):
                     # Well, lets just put those elsewhere
                     pos = "sustantivo"
-                elif lang_src == "pt" and pos.startswith("etimologia"):
+                elif lang_src == "pt" and "etimologia" in pos:
                     # Well, lets just put those elsewhere
                     pos = "substantivo"
                 definitions[utils.format_pos(lang_src, pos)].extend(pos_defs)
