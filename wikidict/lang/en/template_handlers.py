@@ -19,7 +19,7 @@ from ...user_functions import (
     superscript,
     term,
 )
-from .labels import syntaxes
+from .labels import labels, syntaxes
 from .langs import langs
 from .places import (
     placetypes_aliases,
@@ -192,6 +192,19 @@ def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdi
     if data["notext"] in ("1", "yes"):
         return ""
     return data.get("title", title if data["nocap"] in ("1", "yes") else capitalize(title))
+
+
+def render_accent(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_accent("a", ["en", "ethnology"], defaultdict(str))
+    '<i>(ethnology)</i>'
+    >>> render_accent("a", ["en", "(ethnology)"], defaultdict(str))
+    '<i>(ethnology)</i>'
+    >>> render_accent("a", ["en", "RP"], defaultdict(str))
+    '<i>(Received Pronunciation)</i>'
+    """
+    text = labels.get(parts[-1], parts[-1])
+    return italic(text) if text.startswith("(") else term(text)
 
 
 def render_aka(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2533,6 +2546,8 @@ def render_vi_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
 template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
+    "a": render_accent,
+    "accent": render_accent,
     "A.D.": render_bce,
     "AD": render_bce,
     "af": render_morphology,
