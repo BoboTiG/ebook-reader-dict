@@ -243,6 +243,8 @@ templates_multi = {
     "en-obsolete past participle of": "f\"{term('obsolete')} <i>past participle of</i> {strong(parts[1])}\"",
     # {{en-superlative of|Brummie}}
     "en-superlative of": "f\"{italic('superlative form of')} {strong(parts[1])}: most {parts[1]}\"",
+    # {{en-early modern spelling of|colour}}
+    "en-early modern spelling of": 'f"<i>Early Modern spelling of</i> {strong(parts[1])}"',
     # {{from|en|-er|id=Oxford}}
     "from": "parts[2]",
     # {{gl|liquid H<sub>2</sub>O}}
