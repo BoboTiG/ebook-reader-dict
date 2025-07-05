@@ -284,6 +284,8 @@ templates_multi = {
     "ng-lite": "italic(parts[-1].lstrip('1='))",
     # {{ngd|Definite grammatical ...}}
     "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{noitalic|ふうじん}}
+    "noitalic": "parts[1]",
     # {{nobr|1=[ ...=C=C=C=... ]}}
     "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     "nominalization": 'f"Nominalization of {italic(parts[-1])}"',
@@ -352,6 +354,7 @@ templates_multi["lg"] = templates_multi["glossary"]
 templates_multi["m-g"] = templates_multi["mention-gloss"]
 templates_multi["nom"] = templates_multi["nominalization"]
 templates_multi["orthography"] = templates_multi["IPAfont"]
+templates_multi["upright"] = templates_multi["noitalic"]
 
 # Templates that will be completed/replaced using custom text.
 templates_other = {
