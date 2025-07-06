@@ -1779,6 +1779,7 @@ labels = {
     "litotes": "litotes",
     "litotic": "litotes",
     "litotical": "litotes",
+    "logging": "timber industry",
     "logic": "logic",
     "logical fallacy": "rhetoric",
     "logistics": "logistics",
@@ -1786,6 +1787,8 @@ labels = {
     "loosely": "loosely",
     "lot-cloth split": "''lot''–''cloth'' split",
     "luge": "luge",
+    "lumber": "timber industry",
+    "lumber industry": "timber industry",
     "lutherie": "lutherie",
     "machine learning": "machine learning",
     "machining": "machining",
@@ -2072,6 +2075,7 @@ labels = {
     "offensive": "offensive",
     "officialese": "officialese",
     "often": "often",
+    "oil": "oil industry",
     "oil drilling": "oil industry",
     "oil industry": "oil industry",
     "old-fashioned": "dated",
@@ -2142,6 +2146,8 @@ labels = {
     "pesapallo": "pesäpallo",
     "pesäpallo": "pesäpallo",
     "petrochemistry": "petrochemistry",
+    "petroleum": "oil industry",
+    "petroleum industry": "oil industry",
     "petrology": "petrology",
     "pharmaceutical drug": "pharmacology",
     "pharmaceutical effect": "pharmacology",
@@ -2528,6 +2534,8 @@ labels = {
     "thieves'": "thieves' cant",
     "thieves' cant": "thieves' cant",
     "tiddlywinks": "tiddlywinks",
+    "timber": "timber industry",
+    "timber industry": "timber industry",
     "time": "time",
     "tincture": "heraldry",
     "toe-tow": "''toe''–''tow'' merger",
@@ -2656,6 +2664,7 @@ labels = {
     "with cognate object": "with cognate object",
     "with respect to": "with respect to",
     "women's speech": "women's speech",
+    "wood industry": "timber industry",
     "woodwind instrument": "music",
     "woodwind instruments": "music",
     "woodworking": "woodworking",
@@ -2678,7 +2687,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,673
+}  # 2,682
 
 syntaxes = {
     "&": {
