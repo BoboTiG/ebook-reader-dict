@@ -311,6 +311,7 @@ templates_other = {
     "βοιωτ": "<i>βοιωτικός τύπος</i>",
     "αεν": "<i>αρσενικό, μόνο στον ενικό</i>",
     "προφορά": "Προφορά",
+    "εν": "<i>ενικός</i>",
     # It would require to support full transliterations, but as this template is used only once in Κνωσός, lets cheat!
     # cf. https://el.wiktionary.org/wiki/Module:Linb-translit/data
     "gmy-tr": "𐀒𐀜𐀰 (ko-no-so)",
