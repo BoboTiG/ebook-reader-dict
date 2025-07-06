@@ -370,6 +370,7 @@ templates_other = {
     "internationalism": "Internationalism",
     "nbsp": "&nbsp;",
     "mdash": "&mdash;",
+    "ndash": "&ndash;",
     "sic": "<sup>[<i>sic</i>]</sup>",
 }
 
