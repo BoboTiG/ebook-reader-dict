@@ -2427,6 +2427,7 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     Single senseid case: https://en.wiktionary.org/wiki/Afrika
     Single senseid case with non-ASCII chars: https://en.wiktionary.org/wiki/Divonne
     Multiple senseid case: https://en.wiktionary.org/wiki/Macao
+    Source is in the third argument + senseid in subdefinition: https://en.wiktionary.org/wiki/Peel_Region
     No senseid case: https://en.wiktionary.org/wiki/Ionian_Sea
     {{tcl}} arg with @: https://en.wiktionary.org/wiki/'Sconset
     """
@@ -2437,7 +2438,8 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     source_dir = render.get_source_dir("en", "en")
     file = render.get_latest_json_file(source_dir)
 
-    source_origin = source = parts[1]
+    source_origin = parts[1]
+    source = parts[-1]
     sense_id = data["id"]
     definitions: list[str] = []
 
@@ -2448,9 +2450,9 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
         command = ["/bin/fgrep", f'"{source}": "', str(file)]
         output = subprocess.check_output(command, env={"LC_ALL": "C"}).strip().decode("utf-8")
         pattern = re.compile(
-            rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
+            rf"#+\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
             if "{{senseid|" in output or "{{sid|" in output
-            else r"#\s*(\{\{place\|.+)"
+            else r"#+\s*(\{\{place\|.+)"
         )
         definition = next(line.strip() for line in output.split("\\n") if pattern.search(line))
         definition = pattern.sub(r"\1", definition)
