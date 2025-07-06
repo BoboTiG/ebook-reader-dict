@@ -19,6 +19,7 @@ from ...user_functions import (
     superscript,
     term,
 )
+from .form_of import form_of_templates
 from .labels import labels, syntaxes
 from .langs import langs
 from .places import (
@@ -2405,6 +2406,20 @@ def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return f"{text}."
 
 
+def at_transformer(value: str) -> str:
+    """
+    >>> at_transformer("Siasconset")
+    'Siasconset'
+    >>> at_transformer("@clip of:Siasconset")
+    '<i>Clipping of</i> <b>Siasconset</b>'
+    """
+    if not value.startswith("@"):
+        return value
+    form, text = value[1:].split(":", 1)
+    form = form_of_templates[form]
+    return f"<i>{capitalize(form)}</i> <b>{text}</b>"
+
+
 def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     This template is special as it needs to look for another word's specific definition (targeted with the `{{senseid}} template`).
@@ -2412,6 +2427,7 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     Single senseid case: https://en.wiktionary.org/wiki/Afrika
     Multiple senseid case: https://en.wiktionary.org/wiki/Macao
     No senseid case: https://en.wiktionary.org/wiki/Ionian_Sea
+    {{tcl}} arg with @: https://en.wiktionary.org/wiki/'Sconset
     """
     import subprocess
 
@@ -2420,17 +2436,16 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     source_dir = render.get_source_dir("en", "en")
     file = render.get_latest_json_file(source_dir)
 
-    source = parts[1]
+    source_origin = source = parts[1]
     sense_id = data["id"]
     definitions: list[str] = []
 
+    if ":" in source:
+        source = source.split(":")[-1]
+
     for sid in sense_id.split(","):
-        output = subprocess.check_output(
-            ["/bin/fgrep", f'"{source}": "', str(file)],
-            env={"LC_ALL": "C"},
-            text=True,
-            encoding="unicode_escape",
-        )
+        command = ["/bin/fgrep", f'"{source}": "', str(file)]
+        output = subprocess.check_output(command, env={"LC_ALL": "C"}, text=True, encoding="unicode_escape")
         pattern = re.compile(
             rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
             if "{{senseid|" in output or "{{sid|" in output
@@ -2450,10 +2465,10 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
         definition = definition.split(".", 1)[0]
         definitions.append(definition)
 
-    if parts[0] == "en":
+    if parts[0] == "en" and source_origin[0] != "@":
         return "\n".join(definitions)
 
-    return f"{source} ({'\n'.join(definitions)})"
+    return f"{at_transformer(source_origin)} ({'\n'.join(definitions)})"
 
 
 def render_uncertain(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
