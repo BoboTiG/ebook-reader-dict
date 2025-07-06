@@ -204,4 +204,5 @@ form_of_templates = {
 form_of_templates["censored spelling of"] = "Censored spelling of"
 form_of_templates["cens sp"] = form_of_templates["censored spelling of"]
 form_of_templates["ellip of"] = form_of_templates["ellipsis of"]
+form_of_templates["fmr of"] = form_of_templates["former name of"]
 form_of_templates["init"] = form_of_templates["initialism of"]
