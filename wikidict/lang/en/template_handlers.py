@@ -2425,6 +2425,7 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
     This template is special as it needs to look for another word's specific definition (targeted with the `{{senseid}} template`).
 
     Single senseid case: https://en.wiktionary.org/wiki/Afrika
+    Single senseid case with non-ASCII chars: https://en.wiktionary.org/wiki/Divonne
     Multiple senseid case: https://en.wiktionary.org/wiki/Macao
     No senseid case: https://en.wiktionary.org/wiki/Ionian_Sea
     {{tcl}} arg with @: https://en.wiktionary.org/wiki/'Sconset
@@ -2445,13 +2446,13 @@ def render_transclude(tpl: str, parts: list[str], data: defaultdict[str, str], *
 
     for sid in sense_id.split(","):
         command = ["/bin/fgrep", f'"{source}": "', str(file)]
-        output = subprocess.check_output(command, env={"LC_ALL": "C"}, text=True, encoding="unicode_escape")
+        output = subprocess.check_output(command, env={"LC_ALL": "C"}).strip().decode("utf-8")
         pattern = re.compile(
             rf"#\s*\{{\{{(?:senseid|sid)\|\w+\|{sid}\}}\}}\s*(.+)"
             if "{{senseid|" in output or "{{sid|" in output
             else r"#\s*(\{\{place\|.+)"
         )
-        definition = next(line.strip() for line in output.splitlines() if pattern.search(line))
+        definition = next(line.strip() for line in output.split("\\n") if pattern.search(line))
         definition = pattern.sub(r"\1", definition)
 
         # At this point, the definition is something like `{{place|...}}`, and if the `tcl=` arg is used, we need to alter template arguments
