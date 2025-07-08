@@ -68,28 +68,28 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
         print("\n", bold(pos))
         index = 1
         for definition in definitions:
-            if isinstance(definition, tuple):
-                for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
-                    if isinstance(subdef, tuple):
-                        for rn, subsubdef in enumerate(subdef, 1):
-                            print(
-                                f"{int_to_roman(rn).lower()}.".rjust(12),
-                                strip_html(subsubdef),
-                            )
-                    else:
-                        print(f"{a}.".rjust(8), strip_html(subdef))
-            else:
+            if not isinstance(definition, tuple):
                 print(f"{index}.".rjust(4), strip_html(definition))
                 index = index + 1
+                continue
+
+            for a, subdef in zip("abcdefghijklmopqrstuvwxz", definition):
+                if not isinstance(subdef, tuple):
+                    print(f"{a}.".rjust(8), strip_html(subdef))
+                    continue
+
+                for rn, subsubdef in enumerate(subdef, 1):
+                    print(f"{int_to_roman(rn).lower()}.".rjust(12), strip_html(subsubdef))
 
     if details.etymology:
         print("\n")
         for etymology in details.etymology:
-            if isinstance(etymology, tuple):
-                for i, sub_etymology in enumerate(etymology, 1):
-                    print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
-            else:
+            if not isinstance(etymology, tuple):
                 print(strip_html(etymology))
+                continue
+
+            for i, sub_etymology in enumerate(etymology, 1):
+                print(f"{i}.".rjust(8), strip_html(sub_etymology))  # type: ignore[arg-type]
 
     if details.variants:
         print("\n[variants]", ", ".join(iter(details.variants)))
@@ -100,9 +100,11 @@ def get_and_parse_word(word: str, locale: str, *, raw: bool = False) -> None:
 
 def set_output(locale: str, word: str) -> None:
     """It is very specific to GitHub Actions, and will set the job summary with helpful information."""
-    if "CI" in os.environ:
-        with open(os.environ["GITHUB_STEP_SUMMARY"], "ab") as fh:
-            fh.write(f"[{locale.upper()}] {word!r}\n".encode())
+    if "CI" not in os.environ:
+        return
+
+    with open(os.environ["GITHUB_STEP_SUMMARY"], "ab") as fh:
+        fh.write(f"[{locale.upper()}] {word!r}\n".encode())
 
 
 def main(locale: str, word: str, *, raw: bool = False) -> int:
