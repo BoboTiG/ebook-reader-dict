@@ -505,6 +505,7 @@ langs = {
     "id": "Indonésio",
     "ie": "Interlíngue",
     "ig": "Ibo",
+    "igl": "Igala",
     "igs": "Glosa",
     "ii": "Yi",
     "iir-pro": "Protoindo-iraniano",
@@ -1498,5 +1499,5 @@ langs = {
     "zu": "Zulu",
     "zun": "Zuni",
     "zza": "Zazaki",
-}  # 1,493
+}  # 1,494
 # END

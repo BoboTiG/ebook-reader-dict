@@ -1207,6 +1207,7 @@ labels = {
     "combinatorics": "combinatorics",
     "comedy": "comedy",
     "comics": "comics",
+    "commerce": "commerce",
     "commercial law": "commercial law",
     "common": "common",
     "commonly": "often",
@@ -2687,7 +2688,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,682
+}  # 2,683
 
 syntaxes = {
     "&": {
