@@ -1495,6 +1495,39 @@ racines_schemes_arabes = {
         "ar-ta*a*²a*a": "être évident",
         "ar-ta*â*a*a": "",
     },  # 39
+    "ar-3zz": {
+        "aa_sens": "rare et puissant",
+        "ar-***ũ": "",
+        "ar-**a*²a": "",
+        "ar-*a**@ũ": "petite gazelle",
+        "ar-*a**â'u": "année stérile",
+        "ar-*a**é": "{{f}} précieuse",
+        "ar-*a**ũ": "puissance",
+        "ar-*a*a*a-i": "être précieux",
+        "ar-*a*a*a-u": "avoir le pis étroit",
+        "ar-*a*²a*a": "fortifier",
+        "ar-*a*â*@ũ": "grande considération",
+        "ar-*a*â*ũ": "sol dur",
+        "ar-*a*î*@ũ": "{{f}} chère",
+        "ar-*a*î*ũ": "puissant",
+        "ar-*i**@ũ": "puissance",
+        "ar-*i**ũ": "puissance",
+        "ar-*ta*a*a": "devenir puissant",
+        "ar-*u*ay*iy²ũ": "excellent",
+        "ar-*u*ay*é": "croupe",
+        "ar-*u*û*ũ": "à pis étroit",
+        "ar-*â**ũ": "grand",
+        "ar-*â*a*a": "rivaliser de gloire",
+        "ar-a**a*a": "rendre puissant",
+        "ar-a**a*ũ": "plus rare",
+        "ar-ma**û*@ũ": "difficile à supporter",
+        "ar-mi**â*ũ": "très sérieux",
+        "ar-mu**i*ũ": "qui rend fort",
+        "ar-n*a*a*a": "",
+        "ar-sta**a*a": "faire sentir sa puissance",
+        "ar-ta*a*²a*a": "grandir",
+        "ar-ta*â*a*a": "",
+    },  # 31
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
@@ -10623,5 +10656,5 @@ racines_schemes_arabes = {
         "ar-*a**û*iy²ũ": "d'huile",
         "ar-*a**û*ũ": "{{p}} oliviers",
     },  # 6
-}  # 363
+}  # 364
 # END
