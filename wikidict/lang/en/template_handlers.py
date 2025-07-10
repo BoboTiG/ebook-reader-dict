@@ -2291,6 +2291,14 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_rebracketing(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_rebracketing("rebracketing", ["en", "marathon"], defaultdict(str))
+    'Rebracketing of <i>marathon</i>'
+    """
+    return misc_variant("rebracketing", tpl, parts, data, word=word)
+
+
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
@@ -2817,6 +2825,7 @@ template_mapping = {
     "pre": render_morphology,
     "prefix": render_morphology,
     "psm": render_foreign_derivation,
+    "rebracketing": render_rebracketing,
     "semantic loan": render_foreign_derivation,
     "semi-learned borrowing": render_foreign_derivation,
     "SI-unit": render_si_unit,
