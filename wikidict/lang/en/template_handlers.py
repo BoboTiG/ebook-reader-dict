@@ -238,6 +238,14 @@ def render_ante2(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return f"{italic(init)} {strong(parts[0])}"
 
 
+def render_aphetic_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_aphetic_form("aphetic form", ["en", "Sabrina"], defaultdict(str))
+    'Aphetic form of <i>Sabrina</i>'
+    """
+    return misc_variant("aphetic form", tpl, parts, data, word=word)
+
+
 def render_bce(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_bce("B.C.E.", [], defaultdict(str))
@@ -2662,6 +2670,7 @@ template_mapping = {
     "aka": render_aka,
     "ante": render_dating,
     "ante2": render_ante2,
+    "aphetic form": render_aphetic_form,
     "a.": render_dating,
     "backform": render_foreign_derivation,
     "backformation": render_foreign_derivation,
