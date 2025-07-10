@@ -417,45 +417,104 @@ def render_contraction(tpl: str, parts: list[str], data: defaultdict[str, str], 
 
 
 def render_lang_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    lang_src = parts.pop(0)
-    match what := parts.pop(0):
+    def ordinal_to_word(num: str) -> str:
+        return str(num2words(num, lang="en", to="ordinal"))
+
+    lang = parts.pop(0)
+    alphabet = data["alphabet"]
+    dot = data["dot"]
+    name = data["name"]
+    nodot = data["nodot"]
+    sc = data["sc"]
+    trans = data["tr"]
+
+    match parts.pop(0):
+        case "diacritic":
+            letters = " / ".join(parts[2:])
+            text = f"A diacritical mark of the {sc} script, called {{{{m-self||{name}|tr={trans}}}}} in {langs[lang]}, and found on {letters}"
+            text += dot or "."
+
         case "letter":
+            letter = ""
             if parts:
-                number = parts.pop(0)
-                text = f"The {num2words(number, lang='en', to='ordinal')} letter of the {langs[lang_src]} alphabet,"
-                if parts:
-                    text += f" called {strong(parts.pop(0))} and"
-                text += f" written in the {data['sc'].removesuffix('-')} script"
-            elif lang_src == "en":
-                text = f"The {what} of the English alphabet, written in the {data['sc'].removesuffix('-')} script"
+                if letter := parts.pop(0):
+                    letter = ordinal_to_word(letter)
+            text = "<i>The " if letter or lang != "mul" else "<i>A "
+            if letter:
+                text += f"{letter} "
+            text += "letter of the "
+
+            if alphabet:
+                text += alphabet
+            elif lang == "mul":
+                text += sc.rstrip("-")
+                if not sc.endswith("-"):
+                    text += " "
+                text += "script"
             else:
-                text = f"A {what} of the {data['sc']}script"
-        case "name":
-            text = f"The {what} of the {data['sc']}script letter"
-        case "ordinal":
-            number = num2words(parts.pop(0), lang="en", to="ordinal")
-            text = f"The {what} number {strong(number)}, derived from this letter of the {langs[lang_src]} alphabet,"
+                text += f"{langs[lang]} alphabet"
+
             if parts:
-                text += f" called {strong(parts.pop(0))} and"
-            text += f" written in the {data['sc'].removesuffix('-')} script"
-        case _:
-            raise ValueError(f"Unhandled {tpl!r} {what=}")
+                text += f", called <b>{parts.pop(0)}</b>"
+                if parts:
+                    text += "," if len(parts) > 1 else " or"
+                    text += f" <b>{parts.pop(0)}</b>"
+                    if parts:
+                        text += "," if len(parts) > 1 else " or"
+                        text += f" <b>{parts.pop(0)}</b>"
+                        if parts:
+                            text += f" or <b>{parts.pop(0)}</b>"
 
-    text = italic(text)
-    if len(parts) > 1:
-        text += f" {strong(parts[0])} / {strong(parts[1])}"
+            if lang != "mul":
+                text += f", and written in the {sc.rstrip('-')} script"
+            text += "</i>"
+            if not nodot:
+                text += dot or "."
 
-    return f"{text}{'' if data['nodot'] else '.'}"
+        case "name":
+            text = f"<i>The name of the {sc}"
+            if not sc.endswith("-"):
+                text += " "
+            text += f"script letter</i> <b>{parts.pop(0)}</b>"
+            if parts:
+                text += f" / <b>{parts[0]}</b>"
+            if not nodot:
+                text += dot or "."
+
+        case "ordinal":
+            ord_word = ordinal_to_word(parts.pop(0))
+            text = f"<i>The ordinal number <b>{ord_word}</b>, derived from this letter of the {langs[lang]} alphabet"
+            if parts:
+                text += f", called <b>{parts.pop(0)}</b>"
+                if parts:
+                    text += f" or '{parts.pop(0)}'"
+                    if parts:
+                        text += f" or '{parts.pop(0)}'"
+            text += f", written in the {sc.rstrip('-')} script</i>"
+            text += dot or "."
+
+    return text
 
 
 def render_cyrl_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_cyrl_def("Cyrl-def", ["en", "name", "Ԫ", "ԫ"], defaultdict(str, {"sc": "Cyrl"}))
     '<i>The name of the Cyrillic script letter</i> <b>Ԫ</b> / <b>ԫ</b>.'
+    >>> render_cyrl_def("Cyrl-def", ["mul", "letter"], defaultdict(str))
+    '<i>A letter of the Cyrillic script</i>.'
     >>> render_cyrl_def("Cyrl-def", ["mul", "letter"], defaultdict(str, {"sc": "Cyrl", "nodot": "1"}))
     '<i>A letter of the Cyrillic script</i>'
+    >>> render_cyrl_def("Cyrl-def", ["mul", "letter", "", "zemlya", "zemlja", "zemlia"], defaultdict(str, {"sc": "Cyrs"}))
+    '<i>A letter of the Old Cyrillic script, called <b>zemlya</b>, <b>zemlja</b> or <b>zemlia</b></i>.'
     """
-    data["sc"] = "Cyrillic "
+    sc = data["sc"] or "Cyrillic"
+    if sc == "Cyrl":
+        sc = "Cyrillic"
+    elif sc == "Cyrs":
+        sc = "Old Cyrillic"
+    data["sc"] = sc
+    if data["sc"] not in {"Cyrillic", "Old Cyrillic"}:
+        raise ValueError(f"Unhandled Cyrl-def sc: {data['sc']!r}")
     return render_lang_def(tpl, parts, data, word=word)
 
 
@@ -464,15 +523,15 @@ def render_latn_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, 
     >>> render_latn_def("Latn-def", ["en", "name", "M", "m"], defaultdict(str))
     '<i>The name of the Latin-script letter</i> <b>M</b> / <b>m</b>.'
     >>> render_latn_def("Latn-def", ["en", "letter"], defaultdict(str))
-    '<i>The letter of the English alphabet, written in the Latin script</i>.'
+    '<i>The letter of the English alphabet, and written in the Latin script</i>.'
     >>> render_latn_def("Latn-def", ["en", "letter", "1"], defaultdict(str))
-    '<i>The first letter of the English alphabet, written in the Latin script</i>.'
+    '<i>The first letter of the English alphabet, and written in the Latin script</i>.'
     >>> render_latn_def("Latn-def", ["en", "letter", "1", "a"], defaultdict(str))
-    '<i>The first letter of the English alphabet, called <b>a</b> and written in the Latin script</i>.'
+    '<i>The first letter of the English alphabet, called <b>a</b>, and written in the Latin script</i>.'
     >>> render_latn_def("Latn-def", ["en", "ordinal", "1"], defaultdict(str))
     '<i>The ordinal number <b>first</b>, derived from this letter of the English alphabet, written in the Latin script</i>.'
     >>> render_latn_def("Latn-def", ["en", "ordinal", "1", "a"], defaultdict(str))
-    '<i>The ordinal number <b>first</b>, derived from this letter of the English alphabet, called <b>a</b> and written in the Latin script</i>.'
+    '<i>The ordinal number <b>first</b>, derived from this letter of the English alphabet, called <b>a</b>, written in the Latin script</i>.'
     """
     data["sc"] = "Latin-"
     return render_lang_def(tpl, parts, data, word=word)
