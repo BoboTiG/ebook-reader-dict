@@ -1673,6 +1673,13 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     >>> render_morphology("aff", ["en", "'gram<t:Instagram>", "-er<id:occupation>"], defaultdict(str))
     "<i>'gram</i> and <i>-er</i>"
 
+    >>> render_morphology("infix", ["en", "Mister", "x"], defaultdict(str))
+    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
+    >>> render_morphology("infix", ["en", "Mister", "-x-"], defaultdict(str))
+    '<i>Mister</i>&nbsp;+&nbsp;<i>-x-</i>'
+    >>> render_morphology("infix", ["tl", "bundok", "in"], defaultdict(str, {"t1": "mountain", "t2": "verb infix"}))
+    '<i>bundok</i> (“mountain”)&nbsp;+&nbsp;<i>-in-</i> (“verb infix”)'
+
     >>> render_morphology("suffix", ["en", "do", "ing"], defaultdict(str))
     '<i>do</i>&nbsp;+&nbsp;<i>-ing</i>'
 
@@ -1738,16 +1745,18 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     """
 
     def add_dash(tpl: str, index: int, parts_count: int, chunk: str) -> str:
-        if tpl in {"pre", "prefix", "con", "confix"} and i == 1:
+        if tpl in {"pre", "prefix", "con", "confix"} and index == 1:
             # remove trailing dashes
             chunk = re.sub(r"^([^-]*)-+$", r"\g<1>", chunk)
             chunk += "-"
-        if tpl in {"suf", "suffix"} and i == 2:
+        elif tpl in {"suf", "suffix"} and index == 2:
             chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
             chunk = f"-{chunk}"
-        if tpl in {"con", "confix"} and i == parts_count:
+        elif tpl in {"con", "confix"} and index == parts_count:
             chunk = re.sub(r"^-+([^-]*)$", r"\g<1>", chunk)
             chunk = f"-{chunk}"
+        elif tpl in {"in", "infix"} and index > 1:
+            chunk = f"-{chunk.strip('-')}-"
         return chunk
 
     if not parts:
@@ -1761,21 +1770,25 @@ def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *
     compound = [
         "af",
         "affix",
+        "blend",
+        "blend of",
+        "com",
+        "com+",
+        "compound",
+        "con",
+        "confix",
+        "in",
+        "infix",
         "pre",
         "prefix",
         "suf",
         "suffix",
-        "con",
-        "confix",
-        "com",
-        "com+",
-        "compound",
-        "blend",
-        "blend of",
     ]
+
     # Aliases
     if tpl == "dbt":
         tpl = "doublet"
+
     with_start_text = ["doublet", "piecewise doublet", "blend", "blend of"]
     parts.pop(0)  # language code
     phrase = "Compound of " if tpl == "com+" else ""
@@ -2667,6 +2680,8 @@ template_mapping = {
     "AD": render_bce,
     "af": render_morphology,
     "affix": render_morphology,
+    "in": render_morphology,
+    "infix": render_morphology,
     "aka": render_aka,
     "ante": render_dating,
     "ante2": render_ante2,
