@@ -2436,6 +2436,14 @@ def render_spelling_pronunciation(tpl: str, parts: list[str], data: defaultdict[
     return text if data["nocap"] else capitalize(text)
 
 
+def render_spoonerism(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_spoonerism("spoonerism", ["en", "Walmart"], defaultdict(str))
+    'Spoonerism of <i>Walmart</i>'
+    """
+    return misc_variant("spoonerism", tpl, parts, data, word=word)
+
+
 def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
@@ -2848,6 +2856,8 @@ template_mapping = {
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
     "spelling pronunciation": render_spelling_pronunciation,
+    "spoonerism": render_spoonerism,
+    "spoonerism of": render_spoonerism,
     "suf": render_morphology,
     "suffix": render_morphology,
     "surf": render_surface_analysis,
