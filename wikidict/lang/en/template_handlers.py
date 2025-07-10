@@ -184,7 +184,9 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
         starter += " of"
     phrase = starter if data["nocap"] else starter.capitalize()
     if p != "-":
-        phrase += f" {italic(p)}" if phrase else f"{italic(p)}"
+        if phrase:
+            phrase += " "
+        phrase += italic(p)
     phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
     return phrase
 
@@ -2300,6 +2302,17 @@ def render_place(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return phrase
 
 
+def render_pseudo_acronym_of(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_pseudo_acronym_of("pseudo-acronym of", ["en", "St Cross"], defaultdict(str, {"addl": "i.e. St Cross College, Oxford"}))
+    'Pseudo-acronym of <i>St Cross</i>, <i>i.e. St Cross College, Oxford</i>'
+    """
+    text = misc_variant("pseudo-acronym", tpl, parts, data, word=word)
+    if addl := data["addl"]:
+        text += f", {italic(addl)}"
+    return text
+
+
 def render_rebracketing(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_rebracketing("rebracketing", ["en", "marathon"], defaultdict(str))
@@ -2859,6 +2872,8 @@ template_mapping = {
     "p.": render_dating,
     "pre": render_morphology,
     "prefix": render_morphology,
+    "pseudo-acronym": render_pseudo_acronym_of,
+    "pseudo-acronym of": render_pseudo_acronym_of,
     "psm": render_foreign_derivation,
     "rebracketing": render_rebracketing,
     "reduplication": render_reduplication,
