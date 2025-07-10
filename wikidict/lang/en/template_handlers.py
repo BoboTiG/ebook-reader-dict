@@ -151,8 +151,8 @@ def gloss_tr_poss(data: defaultdict[str, str], gloss: str, *, trans: str = "") -
     local_phrase = []
     phrase = ""
     trts = ""
-    if data["tr"]:
-        trts += f"{italic(data['tr'])}"
+    if (tr := data["tr"]) and tr != "-":
+        trts += f"{italic(tr)}"
     if data["ts"]:
         if trts:
             trts += " "
@@ -754,6 +754,10 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     >>> render_foreign_derivation("der", ["en", "fro", "-"], defaultdict(str))
     'Old French'
     >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
+    'translingual <i>Jaborosa parviflora</i>'
+    >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str, {"tr": "a"}))
+    'translingual <i>Jaborosa parviflora</i> (<i>a</i>)'
+    >>> render_foreign_derivation("der", ["en", "mul", "Jaborosa parviflora"], defaultdict(str, {"tr": "-"}))
     'translingual <i>Jaborosa parviflora</i>'
     >>> render_foreign_derivation("der+", ["en", "mul", "Jaborosa parviflora"], defaultdict(str))
     'Derived from translingual <i>Jaborosa parviflora</i>'
