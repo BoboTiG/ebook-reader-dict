@@ -2299,6 +2299,14 @@ def render_rebracketing(tpl: str, parts: list[str], data: defaultdict[str, str],
     return misc_variant("rebracketing", tpl, parts, data, word=word)
 
 
+def render_reduplication(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_reduplication("reduplication", ["mul", "Boops"], defaultdict(str))
+    'Reduplication of <i>Boops</i>'
+    """
+    return misc_variant("reduplication", tpl, parts, data, word=word)
+
+
 def render_si_unit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_si_unit("SI-unit", ["en", "peta", "second", "time"], defaultdict(str))
@@ -2826,6 +2834,7 @@ template_mapping = {
     "prefix": render_morphology,
     "psm": render_foreign_derivation,
     "rebracketing": render_rebracketing,
+    "reduplication": render_reduplication,
     "semantic loan": render_foreign_derivation,
     "semi-learned borrowing": render_foreign_derivation,
     "SI-unit": render_si_unit,
