@@ -2517,6 +2517,14 @@ def render_surname(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return italic(f"{art} {parts[0]} {tpl}{from_text}") if parts and parts[0] else italic(f"{art} {tpl}{from_text}")
 
 
+def render_syncopic_form(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_syncopic_form("syncopic form", ["en", "babe"], defaultdict(str))
+    'Syncopic form of <i>babe</i>'
+    """
+    return misc_variant("syncopic form", tpl, parts, data, word=word)
+
+
 def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_taxon("taxon", ["genus", "family", "Elephantidae"], defaultdict(str))
@@ -2864,6 +2872,7 @@ template_mapping = {
     "surface analysis": render_surface_analysis,
     "surface etymology": render_surface_analysis,
     "surname": render_surname,
+    "syncopic form": render_syncopic_form,
     "taxon": render_taxon,
     "tcl": render_transclude,
     "term-label": render_label,
