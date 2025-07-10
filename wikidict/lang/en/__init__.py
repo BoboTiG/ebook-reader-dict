@@ -267,8 +267,6 @@ templates_multi = {
     "less common spelling of": 'f"<i>rare spelling of</i> <b>{parts[-1]}</b>"',
     # {{lit|eagle killer}}
     "lit": 'f"Literally, “{parts[1]}”"',
-    # {{m-self|en|a|b}}
-    "m-self": "italic(parts[-1])",
     # {{mention-gloss|silver-bearing}}
     "mention-gloss": 'f"“{parts[-1]}”"',
     # {{monospace|#!}}

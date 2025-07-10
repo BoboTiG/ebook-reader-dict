@@ -1578,6 +1578,21 @@ def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
     return phrase
 
 
+def render_m_self(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_m_self("m-self", ["en", "a", "b"], defaultdict(str))
+    '<i>b</i>'
+    >>> render_m_self("m-self", ["en", "a", "b"], defaultdict(str, {"tr": "c"}))
+    '<i>b</i> (c)'
+    >>> render_m_self("m-self", ["en", "a", "b"], defaultdict(str, {"tr": "-"}))
+    '<i>b</i>'
+    """
+    text = italic(parts[-1])
+    if (tr := data["tr"]) and tr != "-":
+        text += f" ({tr})"
+    return text
+
+
 def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_morphology("affix", ["en"], defaultdict(str, {"alt1":"tisa-","pos1":"unique name","alt2":"-gen-", "t2": "transfer of genetic material (transduced)", "alt3":"-lec-", "t3":"selection and enrichment manipulation", "alt4":"-leu-", "t4":"leukocytes", "alt5":"-cel", "t5":"cellular therapy"}))
@@ -2679,6 +2694,7 @@ template_mapping = {
     "m": render_foreign_derivation,
     "m+": render_foreign_derivation,
     "m-lite": render_foreign_derivation,
+    "m-self": render_m_self,
     "mention": render_foreign_derivation,
     "morse code abbreviation": render_morse_code_abbreviation,
     "morse code for": render_morse_code_for,
