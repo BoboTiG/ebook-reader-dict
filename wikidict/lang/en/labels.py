@@ -1784,6 +1784,7 @@ labels = {
     "logic": "logic",
     "logical fallacy": "rhetoric",
     "logistics": "logistics",
+    "long scale": "long scale",
     "loose": "loosely",
     "loosely": "loosely",
     "lot-cloth split": "''lot''–''cloth'' split",
@@ -2022,6 +2023,7 @@ labels = {
     "non-t-glottalization": "non-''t''-glottalization",
     "non-toe-tow": "non-''toe''–''tow'' merger",
     "non-trap-bath split": "non-''trap''–''bath'' split",
+    "non-triphthong smoothing": "non-triphthong smoothing",
     "non-weak vowel": "non-weak vowel merger",
     "non-weak vowel merger": "non-weak vowel merger",
     "non-wine-whine": "non-''wine''–''whine'' merger",
@@ -2378,6 +2380,7 @@ labels = {
     "shoemaking": "shoemaking",
     "shogi": "shogi",
     "shooting sports": "gun sports",
+    "short scale": "short scale",
     "show-sure": "''show''–''sure'' merger",
     "sigla": "siglum",
     "siglum": "siglum",
@@ -2500,6 +2503,8 @@ labels = {
     "t-glottalization": "''t''-glottalization",
     "table tennis": "table tennis",
     "tales": "used only in tales",
+    "tar-tire": "tar-tire merger",
+    "tar-tire-tower": "tar-tire-tower merger",
     "tarot": "tarot",
     "tax": "taxation",
     "taxation": "taxation",
@@ -2567,6 +2572,7 @@ labels = {
     "travel": "travel",
     "trigonometric function": "trigonometry",
     "trigonometry": "trigonometry",
+    "triphthong smoothing": "triphthong smoothing",
     "trust law": "trust law",
     "tttt": "4chan /lgbt/ {{glossary|slang}}",
     "twitter": "Twitter",
@@ -2688,7 +2694,7 @@ labels = {
     "æ-tensing": "æ-tensing",
     "–": "–",
     "—": "—",
-}  # 2,683
+}  # 2,689
 
 syntaxes = {
     "&": {

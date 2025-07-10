@@ -1523,11 +1523,12 @@ racines_schemes_arabes = {
         "ar-ma**û*@ũ": "difficile à supporter",
         "ar-mi**â*ũ": "très sérieux",
         "ar-mu**i*ũ": "qui rend fort",
+        "ar-mu*â**@ũ": "rivalité",
         "ar-n*a*a*a": "",
         "ar-sta**a*a": "faire sentir sa puissance",
         "ar-ta*a*²a*a": "grandir",
         "ar-ta*â*a*a": "",
-    },  # 31
+    },  # 32
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
