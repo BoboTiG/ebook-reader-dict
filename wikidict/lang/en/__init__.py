@@ -230,6 +230,8 @@ templates_multi = {
     "C.": "parts[1] + (parts[2] if len(parts) > 2 else 'th') + f' c.'",
     # {{caps|discourse}}
     "caps": "parts[-1]",
+    # {{caret notation of|null}}
+    "caret notation of": "f'<i>(computing) The ASCII control character</i> <b>{parts[1]}</b> <i>in caret notation</i>.'",
     # {{circa2|1850s}}
     "circa2": "italic('circa' if 'short=yes' not in parts and 'short=1' not in parts else 'c.') + f' {parts[1]}'",
     "color panel": "color(parts[-1])",
