@@ -822,9 +822,9 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'cod'
 
     >>> render_foreign_derivation("m", ["en", "more"], defaultdict(str))
-    '<i>more</i>'
+    '<b>more</b>'
     >>> render_foreign_derivation("m", ["en", "w:Group of Eight"], defaultdict(str))
-    '<i>Group of Eight</i>'
+    '<b>Group of Eight</b>'
     >>> render_foreign_derivation("m", ["enm", "us"], defaultdict(str))
     '<i>us</i>'
     >>> render_foreign_derivation("m", ["enm", "w:Group of Eight"], defaultdict(str))
@@ -846,11 +846,11 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'Japanese <i>力車</i> (<i>rikisha</i>)'
     """
     # Short path for the {{m|en|WORD}} template
-    if tpl in {"m", "m-lite"} and len(parts) == 2 and parts[0] == "en" and not data:
+    if tpl in {"m", "m-lite"} and len(parts) == 2 and not data:
         word = parts[1]
         if word.startswith("w:"):
             word = word[2:]
-        return italic(word)
+        return strong(word) if parts[0] in {"en", "mul"} else italic(word)
 
     mentions = (
         "back-formation",
