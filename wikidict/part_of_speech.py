@@ -61,7 +61,9 @@ PATTERNS = {
         # `substantivo <small>''Feminino''</small>` → `substantivo`
         re.compile(r"([^\d¹²³<,]+),?\s*.*").sub,
         # `pronome pessoal` → `pronome`
-        re.compile(r"(adjetivo|caractere|expressão|expressões|frase|locução|numeral|pronome|verbo)\s+.*").sub,
+        re.compile(
+            r"(adjetivo|caractere|expressão|expressões|frase|locução|numeral|pronome|substantivo|verbo)\s+.*"
+        ).sub,
     ],
     "ro": [
         # `{{nume taxonomic|conv}}` → `nume taxonomic`
