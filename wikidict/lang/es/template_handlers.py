@@ -250,25 +250,36 @@ def render_etim(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     "del árabe <i>كنية</i> (<i>kunyah</i>, 'sobrenombre honorífico')"
     >>> render_etim("etim", ["grc", "ἱδρώς", "sudor"], defaultdict(str))
     "del griego antiguo <i>ἱδρώς</i> ('sudor')"
+    >>> render_etim("etim", ["acuñado", "Johann A. Wagner"], defaultdict(str))
+    'acuñado por Johann A. Wagner'
+    >>> render_etim("etim", ["grc", "κομψος", "elegante", "grc", "γναθος", "mandíbula", ""], defaultdict(str))
+    "del griego antiguo <i>κομψος</i> ('elegante') y <i>γναθος</i> ('mandíbula')"
     """
-    result = f"del {normalizar_nombre(parts[0])}"
-    lplus = render_l(
-        "l+",
-        [
-            data["diacrítico"] or data["alt"] or (parts[1] if len(parts) > 1 else ""),
-        ],
-        defaultdict(
-            str,
-            {
-                "glosa": data["glosa"] or (parts[2] if len(parts) > 2 else ""),
-                "glosa-alt": data["glosa-alt"],
-                "núm": data["núm"] or data["num"],
-                "tr": data["tr"] or data["transcripción"],
-            },
-        ),
-    )
-    if lplus:
-        result += f" {lplus}"
+    if parts[0] == "acuñado":
+        return f"{parts[0]} por {parts[1]}"
+
+    result = f"del {normalizar_nombre(parts.pop(0))}"
+    more: list[str] = []
+    while parts:
+        lplus = render_l(
+            "l+",
+            [data.pop("diacrítico", "") or data.pop("alt", "") or (parts.pop(0) if parts else "")],
+            defaultdict(
+                str,
+                {
+                    "glosa": data.pop("glosa", "") or (parts.pop(0) if parts else ""),
+                    "glosa-alt": data.pop("glosa-alt", ""),
+                    "núm": data.pop("núm", "") or data.pop("num", ""),
+                    "tr": data.pop("tr", "") or data.pop("transcripción", ""),
+                },
+            ),
+        )
+        if lplus:
+            more.append(lplus)
+        if parts:
+            parts.pop(0)  # Remove the destination lang
+    if more:
+        result += f" {' y '.join(more)}"
     return result
 
 
