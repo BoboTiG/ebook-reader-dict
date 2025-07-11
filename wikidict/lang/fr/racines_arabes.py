@@ -1512,9 +1512,11 @@ racines_schemes_arabes = {
         "ar-*a*î*ũ": "puissant",
         "ar-*i**@ũ": "puissance",
         "ar-*i**ũ": "puissance",
+        "ar-*i*â*ũ": "{{p}} puissants",
         "ar-*ta*a*a": "devenir puissant",
         "ar-*u*ay*iy²ũ": "excellent",
         "ar-*u*ay*é": "croupe",
+        "ar-*u*u*ũ": "{{p}} à pis étroit",
         "ar-*u*û*ũ": "à pis étroit",
         "ar-*â**ũ": "grand",
         "ar-*â*a*a": "rivaliser de gloire",
@@ -1528,7 +1530,7 @@ racines_schemes_arabes = {
         "ar-sta**a*a": "faire sentir sa puissance",
         "ar-ta*a*²a*a": "grandir",
         "ar-ta*â*a*a": "",
-    },  # 32
+    },  # 34
     "ar-Cbb": {
         "aa_sens": "adolescence",
         "ar-***ũ": "",
