@@ -2958,6 +2958,7 @@ template_mapping = {
     "pclq": render_foreign_derivation,
     "pedlink": render_pedlink,
     "pedia": render_pedia,
+    "pedialite": render_pedia,
     "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,
