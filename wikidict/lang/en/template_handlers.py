@@ -2524,7 +2524,13 @@ def render_surface_analysis(tpl: str, parts: list[str], data: defaultdict[str, s
     """
     >>> render_surface_analysis("surf", ["en", "ignore", "-ance"], defaultdict(str))
     'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
+    >>> render_surface_analysis("surf", ["+suf", "en", "ignore", "ance"], defaultdict(str))
+    'By surface analysis, <i>ignore</i>&nbsp;+&nbsp;<i>-ance</i>'
     """
+    if parts[0] == "+suf":
+        parts.remove("+suf")
+        parts[-1] = f"-{parts[-1].lstrip('-')}"
+
     phrase = ("b" if data["nocap"] in ("1", "yes", "y") else "B") + "y surface analysis, "
     phrase += render_morphology("af", parts, data)
     return phrase
