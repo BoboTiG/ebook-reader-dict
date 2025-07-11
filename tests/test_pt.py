@@ -250,6 +250,14 @@ from wikidict.utils import process_templates
             {"Expressão": ["resolver uma situação difícil ou complicada"]},
             [],
         ),
+        (
+            "sublist",
+            [],
+            [],
+            [],
+            {"Adjetivo": ["<b>Romanização</b>", ("<b>Pinyin</b>: duo1 shan1",), "montanhoso"]},
+            [],
+        ),
         ("tenui-", [], [], [], {"Antepositivo": ["variante ortográfica de <b>tenu-</b>"]}, []),
         (
             "tique-taque",

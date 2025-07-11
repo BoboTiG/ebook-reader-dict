@@ -154,6 +154,10 @@ def find_section_definitions(
                 # ... And its eventual sub-definitions
                 subdefinitions: list[SubDefinition] = []
                 for sublist in a_list.sublists(i=idx, pattern=lang.sublist_patterns[lang_dst]):
+                    if lang_src == "pt" and sublist.pattern == r"#\*":
+                        # We want to keep sublists like "## ..." and "** ...", but not "#* ..."
+                        continue
+
                     for idx2, subcode in enumerate(sublist.items):
                         subdefinition = utils.process_templates(word, subcode, lang_dst, all_templates=all_templates)
                         if not subdefinition:
