@@ -187,7 +187,7 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
     if p != "-":
         if phrase:
             phrase += " "
-        phrase += italic(p)
+        phrase += italic(p.split("#", 1)[0])
     phrase += gloss_tr_poss(data, data["t"] or data["gloss"] or "")
     return phrase
 
@@ -2406,7 +2406,7 @@ def render_rebracketing(tpl: str, parts: list[str], data: defaultdict[str, str],
 
 def render_reduplication(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
-    >>> render_reduplication("reduplication", ["mul", "Boops"], defaultdict(str))
+    >>> render_reduplication("reduplication", ["mul", "Boops#Etymology1"], defaultdict(str))
     'Reduplication of <i>Boops</i>'
     """
     return misc_variant("reduplication", tpl, parts, data, word=word)
@@ -2970,6 +2970,7 @@ template_mapping = {
     "pseudo-acronym": render_pseudo_acronym_of,
     "pseudo-acronym of": render_pseudo_acronym_of,
     "psm": render_foreign_derivation,
+    "rdp": render_reduplication,
     "rebracketing": render_rebracketing,
     "reduplication": render_reduplication,
     "semantic loan": render_foreign_derivation,
