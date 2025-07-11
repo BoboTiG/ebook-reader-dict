@@ -256,7 +256,7 @@ templates_multi = {
     # {{i|Used only ...}}
     "i": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{IPAfont|[[ʌ]]}}
-    "IPAfont": "f\"&lsaquo;{parts[1].strip('⟨⟩')}&rsaquo;\"",
+    "IPAfont": "parts[1]",
     # {{italic|Love Island}}
     "italic": "italic(parts[1])",
     # {{ja-def|茨城}}
