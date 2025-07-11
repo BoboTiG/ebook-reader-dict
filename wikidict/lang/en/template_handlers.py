@@ -820,6 +820,28 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     return phrase
 
 
+def render_displaced(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str))
+    'Displaced Old English <i>ēaþmōdlīċe</i>'
+    >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str, {"sl": "1"}))
+    'Displaced <i>ēaþmōdlīċe</i>'
+    >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str, {"by": "1"}))
+    'Displaced by Old English <i>ēaþmōdlīċe</i>'
+    >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str, {"by": "1", "sl": "1"}))
+    'Displaced by <i>ēaþmōdlīċe</i>'
+    >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str, {"t": "abundance, plenty"}))
+    'Displaced Old English <i>ēaþmōdlīċe</i> (“abundance, plenty”)'
+    """
+    text = "Displaced"
+    if data["by"]:
+        text += " by"
+    if not data["sl"]:
+        text += f" {langs[parts[0]]}"
+    gloss = data["t"] or data["gloss"]
+    return f"{text} <i>{parts[-1]}</i>{gloss_tr_poss(data, gloss)}"
+
+
 def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_foreign_derivation("bor", ["en", "ar", "الْعِرَاق", "", "Iraq"], defaultdict(str))
@@ -2826,6 +2848,7 @@ template_mapping = {
     "der-lite": render_foreign_derivation,
     "derived": render_foreign_derivation,
     "deverbal": render_deverbal,
+    "displaced": render_displaced,
     "doublet": render_morphology,
     "etydate": render_etydate,
     "etyl": render_foreign_derivation,
