@@ -358,6 +358,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     >>> adjust_wikicode("# plural de [[anão]]", "pt")
     '# {{flexion|anão}}'
+    >>> adjust_wikicode("# feminino plural de [[sardenho]]", "pt")
+    '# {{flexion|sardenho}}'
 
     >>> adjust_wikicode("# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''", "pt")
     '# {{flexion|ensimesmar}}'
@@ -365,6 +367,11 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|ensimesmar}}'
     >>> adjust_wikicode("#terceira pessoa do singular  do presente indicativo  do verbo [[ensimesmar]]", "pt")
     '# {{flexion|ensimesmar}}'
+    >>> adjust_wikicode("# [[infinitivo pessoal]] da [[terceira pessoa]] do [[plural]] do verbo '''[[acarretar]]'''", "pt")
+    '# {{flexion|acarretar}}'
+
+    >>> adjust_wikicode("# [[particípio]] do verbo '''[[abotecar]]'''", "pt")
+    '# {{flexion|abotecar}}'
     """
     # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
     code = re.sub(r"==\s*\{\{Substantivo\|(\w+)\}\}\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \2|\1}}==", code)
@@ -383,7 +390,13 @@ def adjust_wikicode(code: str, locale: str) -> str:
 
     # `# [[plural]] [[de]] '''[[anão]]'''` → `# {{flexion|anão}}`
     # `# plural de [[anão]]` → `# {{flexion|anão}}`
-    code = re.sub(rf"{start}\[*plural.+'*\[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
+    # `# feminino plural de [[anão]]` → `# {{flexion|anão}}`
+    code = re.sub(
+        rf"{start}\[*(?:feminino)?\s*plural.+'*\[\[([^\]]+)+\].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
 
     # `# {{f}} de [[objetivo]]` → `# {{flexion|objetivo}}`
     code = re.sub(rf"{start}\{{\{{f\}}\}} de \[\[([^\]]+)+\].*", r"# {{flexion|\1}}", code, flags=re.MULTILINE)
@@ -391,7 +404,15 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     # `#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     code = re.sub(
-        rf"{start}\[?\[?.+ do \[?\[?.+ do \[?\[?.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        rf"{start}\[?\[?.+ (?:da|do) \[?\[?.+ do \[?\[?.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        r"# {{flexion|\1}}",
+        code,
+        flags=re.MULTILINE,
+    )
+
+    # `# [[particípio]] do verbo '''[[abotecar]]'''` → `# {{flexion|abotecar}}`
+    code = re.sub(
+        rf"{start}\[?\[?(?:gerúndio|particípio)\]?\]? do \[*verbo\]* '*\[\[([^\]]+)+\].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.MULTILINE,
