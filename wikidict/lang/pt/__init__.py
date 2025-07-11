@@ -363,6 +363,8 @@ def adjust_wikicode(code: str, locale: str) -> str:
     '# {{flexion|ensimesmar}}'
     >>> adjust_wikicode("#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''", "pt")
     '# {{flexion|ensimesmar}}'
+    >>> adjust_wikicode("#terceira pessoa do singular  do presente indicativo  do verbo [[ensimesmar]]", "pt")
+    '# {{flexion|ensimesmar}}'
     """
     # `=={{Substantivo|pt}}<sup>1</sup>==` → `=={{Substantivo 1|pt}}==`
     code = re.sub(r"==\s*\{\{Substantivo\|(\w+)\}\}\s*<sup>(\d)</sup>\s*==", r"=={{Substantivo \2|\1}}==", code)
@@ -389,7 +391,7 @@ def adjust_wikicode(code: str, locale: str) -> str:
     # `# [[terceira pessoa]] do [[plural]] do [[futuro do pretérito]] do verbo '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     # `#[[terceira]] [[pessoa]] do [[singular]]  do [[presente]] [[indicativo]]  do [[verbo]] '''[[ensimesmar]]'''` → `# {{flexion|ensimesmar}}`
     code = re.sub(
-        rf"{start}\[\[.+ do \[\[.+ do \[\[.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
+        rf"{start}\[?\[?.+ do \[?\[?.+ do \[?\[?.+ do \[*verbo\]* '*\[\[([^\]]+)+\].*",
         r"# {{flexion|\1}}",
         code,
         flags=re.MULTILINE,

@@ -222,12 +222,8 @@ from wikidict.utils import process_templates
             [],
             {
                 "Preposição": ["exprime fim, destino, lugar, tempo, direção etc"],
-                "Verbo": [
-                    "terceira pessoa do singular do presente do indicativo do verbo parar",
-                    "segunda pessoa do singular do imperativo do verbo parar",
-                ],
             },
-            [],
+            ["parar"],
         ),
         (
             "paulista",
