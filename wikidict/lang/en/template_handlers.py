@@ -1,6 +1,7 @@
 import contextlib
 import math
 import re
+import unicodedata
 from collections import defaultdict
 from typing import TypedDict
 
@@ -1996,6 +1997,17 @@ def render_mul_cjk_stroke_def(tpl: str, parts: list[str], data: defaultdict[str,
     return f"{text}."
 
 
+def render_mul_domino_def(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_mul_domino_def("mul-domino def", [""], defaultdict(str), word="🀲")
+    '<i>A domino tile, the 0-1</i>.'
+    """
+    # Source: https://en.wiktionary.org/w/index.php?title=Module:mul-domino_def&oldid=78846534
+    name = unicodedata.name(word)  # Example: "DOMINO TILE HORIZONTAL-00-01"
+    _, domino1, domino2 = name.split("-")
+    return f"<i>A domino tile, the {int(domino1)}-{int(domino2)}</i>."
+
+
 def render_name_translit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_name_translit("name translit", ["en", "ka", "შევარდნაძე"], defaultdict(str, {"type":"surname"}))
@@ -2907,6 +2919,7 @@ template_mapping = {
     "morse code for": render_morse_code_for,
     "morse code prosign": render_morse_code_prosign,
     "mul-cjk stroke-def": render_mul_cjk_stroke_def,
+    "mul-domino def": render_mul_domino_def,
     "name translit": render_name_translit,
     "named-after": render_named_after,
     "nb...": render_nb,
