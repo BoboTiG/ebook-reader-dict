@@ -1575,6 +1575,22 @@ def render_ko_inline(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     return text
 
 
+def render_köppen(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_köppen("Köppen", ["tropical rainforest climate"], defaultdict(str))
+    '<i>(climatology) Köppen climate classification for a</i> <b>tropical rainforest climate</b>.'
+    >>> render_köppen("Köppen", ["tropical rainforest climate", "e-substitut", "something else"], defaultdict(str, {"an": "1"}))
+    '<i>(climatology) Köppen climate classification for an</i> <b>e-substitut</b>, also known as a <b>something else</b>.'
+    """
+    text = "<i>(climatology) Köppen climate classification for a"
+    if data["an"]:
+        text += "n"
+    text += f"</i> <b>{parts[1 if len(parts) > 1 else 0]}</b>"
+    if len(parts) > 2:
+        text += f", also known as a <b>{parts[-1]}</b>"
+    return f"{text}."
+
+
 def render_ltc_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_ltc_l("ltc-l", ["螺貝"], defaultdict(str))
@@ -2839,6 +2855,7 @@ template_mapping = {
     "ja-r": render_ja_r,
     "ko-inline": render_ko_inline,
     "ko-l": render_ko_inline,
+    "Köppen": render_köppen,
     "l": render_foreign_derivation,
     "l-lite": render_foreign_derivation,
     "label": render_label,
