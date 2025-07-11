@@ -1073,6 +1073,16 @@ def render_frac(tpl: str, parts: list[str], data: defaultdict[str, str], *, word
     return phrase
 
 
+def render_g(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_g("g", ["m"], defaultdict(str))
+    '<i>m</i>'
+    >>> render_g("g", ["m", "f-p"], defaultdict(str))
+    '<i>m</i> <i>or</i> <i>f pl</i>'
+    """
+    return " <i>or</i> ".join([gender_number_specs(part) for part in parts])
+
+
 def render_given_name(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_given_name("given name", ["en" , "male"], defaultdict(str))
@@ -2806,6 +2816,7 @@ template_mapping = {
     "fa sp": render_fa_sp,
     "filter-avoidance spelling of": render_fa_sp,
     "frac": render_frac,
+    "g": render_g,
     "given name": render_given_name,
     "Han simp": render_han_simp,
     "he-l": render_he_l,
