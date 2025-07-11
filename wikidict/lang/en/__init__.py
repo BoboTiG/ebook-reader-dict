@@ -249,8 +249,6 @@ templates_multi = {
     "en-early modern spelling of": 'f"<i>Early Modern spelling of</i> {strong(parts[1])}"',
     # {{from|en|-er|id=Oxford}}
     "from": "parts[2]",
-    # {{gl|liquid H<sub>2</sub>O}}
-    "gl": "parenthesis(parts[1])",
     # {{gloss|liquid H<sub>2</sub>O}}
     "gloss": "parenthesis(parts[1])",
     # {{glossary|inflected}}
@@ -273,64 +271,31 @@ templates_multi = {
     "mention-gloss": 'f"“{parts[-1]}”"',
     # {{monospace|#!}}
     "mono": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
-    "monospace": "f'<span style=\"font-family:monospace\">{parts[1]}</span>'",
-    # {{n-g|Definite grammatical ...}}
-    "n-g": "italic(parts[-1].lstrip('1='))",
-    # {{n-g-lite|Definite grammatical ...}}
-    "n-g-lite": "italic(parts[-1].lstrip('1='))",
-    # {{ng|Definite grammatical ...}}
-    "ng": "italic(parts[-1].lstrip('1='))",
-    # {{ng-lite|Definite grammatical ...}}
-    "ng-lite": "italic(parts[-1].lstrip('1='))",
-    # {{ngd|Definite grammatical ...}}
-    "ngd": "italic(parts[-1].lstrip('1='))",
+    # {{mul-semaphore for|O}}
+    "mul-semaphore for": "f'<i>Flag semaphore for</i> <b>{parts[-1]}</b>.'",
     # {{noitalic|ふうじん}}
     "noitalic": "parts[1]",
     # {{nobr|1=[ ...=C=C=C=... ]}}
     "nobr": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     "nominalization": 'f"Nominalization of {italic(parts[-1])}"',
     # {{non gloss|Definite grammatical ...}}
-    "non gloss": "italic(parts[-1].lstrip('1='))",
-    # {{non-gloss|Definite grammatical ...}}
     "non-gloss": "italic(parts[-1].lstrip('1='))",
-    # {{non-gloss definition|Definite grammatical ...}}
-    "non-gloss definition": "italic(parts[-1].lstrip('1='))",
-    # {{non gloss definition|Definite grammatical ...}}
-    "non gloss definition": "italic(parts[-1].lstrip('1='))",
     # {{nowrap|1=[ ...=C=C=C=... ]}}
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
     # {{|&thinsp;𝼊&thinsp;}}
     "orthography": "f'&lsaquo;{parts[1]}&rsaquo;'",
-    # {{q|Used only ...}}
-    "q": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{q-lite|Used only ...}}
-    "q-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{qf|Used only ...}}
-    "qf": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{qua|Used only ...}}
-    "qua": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{qual|Used only ...}}
-    "qual": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
-    # {{qualifier-lite|Used only ...}}
-    "qualifier-lite": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{Runr-def|ᛗ}}
     "Runr-def": 'f"The Runic character {parts[1]}."',
-    # {{s|foo}}
-    "s": "f'{parenthesis(italic(parts[1]))} :'",
     # {{sense|foo}}
     "sense": "f'{parenthesis(italic(parts[1]))} :'",
     # {{shitgibbon|en|arse|muncher}}
     "shitgibbon": 'f"Shitgibbon compound of {italic(parts[2])} + {italic(parts[3])}"',
     # {{small|(kraken)}}
     "small": "small(parts[1])",
-    # {{small caps|ce}}
-    "small caps": "small_caps(parts[1])",
     # {{smallcaps|ce}}
     "smallcaps": "small_caps(parts[1])",
-    # {{smc|ce}}
-    "smc": "small_caps(parts[1])",
     # {{speciesabbrev|C|difficile||la}}
     "speciesabbrev": "f'Used, in context, to shorten the name and simplify the pronunciation of a species name with a generic name beginning with {parts[1]} and a specific epithet of {parts[2]}.'",
     # {{staco|Airport station (MTR)|Airport|Hong Kong}}
@@ -345,7 +310,6 @@ templates_multi = {
     "taxfmt": "italic(parts[1])",
     # {{taxlink|Gadus macrocephalus|species|ver=170710}}
     "taxlink": "italic(parts[1])",
-    "taxlink2": "italic(parts[1])",
     # {{IUPAC-1|alanine}}
     "IUPAC-1": 'f"IUPAC 1-letter symbol for {parts[1]}"',
 }
@@ -353,10 +317,31 @@ templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
 templates_multi["datedef"] = templates_multi["defdate"]
 templates_multi["defdt"] = templates_multi["defdate"]
+templates_multi["g"] = templates_multi["gloss"]
 templates_multi["lg"] = templates_multi["glossary"]
 templates_multi["m-g"] = templates_multi["mention-gloss"]
+templates_multi["monospace"] = templates_multi["mono"]
 templates_multi["nom"] = templates_multi["nominalization"]
+templates_multi["n-g"] = templates_multi["non-gloss"]
+templates_multi["n-g-lite"] = templates_multi["non-gloss"]
+templates_multi[""] = templates_multi["non-gloss"]
+templates_multi["ng"] = templates_multi["non-gloss"]
+templates_multi["ng-lite"] = templates_multi["non-gloss"]
+templates_multi["ngd"] = templates_multi["non-gloss"]
+templates_multi["non gloss"] = templates_multi["non-gloss"]
+templates_multi["non-gloss definition"] = templates_multi["non-gloss"]
+templates_multi["non gloss definition"] = templates_multi["non-gloss"]
 templates_multi["orthography"] = templates_multi["IPAfont"]
+templates_multi["q"] = templates_multi["qualifier"]
+templates_multi["q-lite"] = templates_multi["qualifier"]
+templates_multi["qf"] = templates_multi["qualifier"]
+templates_multi["qua"] = templates_multi["qualifier"]
+templates_multi["qual"] = templates_multi["qualifier"]
+templates_multi["qualifier-lite"] = templates_multi["qualifier"]
+templates_multi["s"] = templates_multi["sense"]
+templates_multi["small caps"] = templates_multi["smallcaps"]
+templates_multi["smc"] = templates_multi["smallcaps"]
+templates_multi["taxlink2"] = templates_multi["taxlink"]
 templates_multi["upright"] = templates_multi["noitalic"]
 
 # Templates that will be completed/replaced using custom text.
