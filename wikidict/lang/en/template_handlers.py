@@ -860,8 +860,12 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'Egyptian <i>ḫt n ꜥnḫ</i> (“grain, food”, literally “wood/stick of life”)'
     >>> render_foreign_derivation("cal", ["fr" , "en", "light year"], defaultdict(str, {"alt":"alt", "tr":"tr", "t":"t", "g":"m", "pos":"pos", "lit":"lit"}))
     'Calque of English <i>alt</i> <i>m</i> (<i>tr</i>, “t”, pos, literally “lit”)'
+
     >>> render_foreign_derivation("pcal", ["en" , "de", "Leberwurst"], defaultdict(str, {"nocap":"1"}))
     'partial calque of German <i>Leberwurst</i>'
+    >>> render_foreign_derivation("pclq", ["en" , "zh", "閩中語"], defaultdict(str))
+    'Partial calque of Chinese 閩中語'
+
     >>> render_foreign_derivation("sl", ["en", "ru", "пле́нум", "", "plenary session"], defaultdict(str, {"nocap":"1"}))
     'semantic loan of Russian <i>пле́нум</i> (<i>plenum</i>, “plenary session”)'
     >>> render_foreign_derivation("learned borrowing", ["en", "la", "consanguineus"], defaultdict(str))
@@ -979,7 +983,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
             starter = "derived from "
         elif tpl in {"inh+"}:
             starter = "inherited from "
-        elif tpl in {"partial calque", "pcal"}:
+        elif tpl in {"partial calque", "pcal", "pclq"}:
             starter = "partial calque of "
         elif tpl in {"semantic loan", "sl"}:
             starter = "semantic loan of "
@@ -1022,7 +1026,10 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     if tpl in {"l", "l-lite", "link", "ll"}:
         phrase += f" {word}"
     elif word:
-        phrase += f" {italic(word)}"
+        if starter == "partial calque of " and dst_locale in {"mul", "zh"}:
+            phrase += f" {word}"
+        else:
+            phrase += f" {italic(word)}"
     if data["g"]:
         phrase += f" {gender_number_specs(data['g'])}"
     trans = "" if data["tr"] else transliterate(dst_locale, word)
@@ -2862,6 +2869,7 @@ template_mapping = {
     "orthographic borrowing": render_foreign_derivation,
     "partial calque": render_foreign_derivation,
     "pcal": render_foreign_derivation,
+    "pclq": render_foreign_derivation,
     "pedlink": render_pedlink,
     "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
