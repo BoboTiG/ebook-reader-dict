@@ -2206,6 +2206,22 @@ def render_pedlink(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return data["disp"] or parts[0]
 
 
+def render_pedia(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_pedia("pedia", ["foo#bar", "baz"], defaultdict(str))
+    'baz on Wikipedia.'
+    >>> render_pedia("pedlink", ["foo#bar"], defaultdict(str, {"nodot": "1", "i": "1"}))
+    '<i>foo</i> on Wikipedia'
+    """
+    text = parts[-1].split("#", 1)[0]
+    if data["i"]:
+        text = italic(text)
+    text += " on Wikipedia"
+    if not data["nodot"]:
+        text += "."
+    return text
+
+
 def render_phonetic_alphabet(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_phonetic_alphabet("phonetic-alphabet", ["A"], defaultdict(str, {"NATO/ICAO": "1", "ITU/IMO": "1"}))
@@ -2941,6 +2957,7 @@ template_mapping = {
     "pcal": render_foreign_derivation,
     "pclq": render_foreign_derivation,
     "pedlink": render_pedlink,
+    "pedia": render_pedia,
     "phonetic alphabet": render_phonetic_alphabet,
     "phono-semantic matching": render_foreign_derivation,
     "piecewise doublet": render_morphology,

@@ -36,7 +36,7 @@ from wikidict.utils import process_templates
             "Acanthis",
             [],
             ["f"],
-            ["See"],
+            ["See Acanthis (mythology) on Wikipedia."],
             {
                 "Proper Noun": [
                     "A taxonomic genus within the family Fringillidae&nbsp;– redpolls, of northern woodlands, formerly included in <i>Carduelis</i>."

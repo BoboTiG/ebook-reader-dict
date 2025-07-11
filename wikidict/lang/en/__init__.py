@@ -133,7 +133,6 @@ templates_ignored = (
     "nonlemma",
     "number box",
     "+obj",
-    "pedia",
     "PIE word",
     "picdic",
     "picdicimg",
