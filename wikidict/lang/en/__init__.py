@@ -316,6 +316,7 @@ templates_multi = {
 templates_multi["angbr"] = templates_multi["IPAfont"]
 templates_multi["angbr IPA"] = templates_multi["IPAfont"]
 templates_multi["datedef"] = templates_multi["defdate"]
+templates_multi["def-date"] = templates_multi["defdate"]
 templates_multi["defdt"] = templates_multi["defdate"]
 templates_multi["g"] = templates_multi["gloss"]
 templates_multi["lg"] = templates_multi["glossary"]
