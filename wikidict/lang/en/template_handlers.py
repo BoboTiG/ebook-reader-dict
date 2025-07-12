@@ -1614,7 +1614,7 @@ def render_ko_inline(tpl: str, parts: list[str], data: defaultdict[str, str], *,
     '한국어 (<i>a</i>, “b”) (<i>d</i>)'
     """
     # TODO: should be improved with transliteration
-    text = f"{parts.pop(0)}"
+    text = parts.pop(0)
     if parts:
         text += f" (<i>{parts.pop(0)}</i>"
         if parts:
@@ -2717,6 +2717,20 @@ def render_taxon(tpl: str, parts: list[str], data: defaultdict[str, str], *, wor
     return f"{text}."
 
 
+def render_th_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_th_l("th-l", ["แอร์"], defaultdict(str))
+    'แอร์'
+    >>> render_th_l("th-l", ["แอร์", "air conditioner"], defaultdict(str))
+    'แอร์ (“air conditioner”)'
+    """
+    # TODO: should be improved with transliteration
+    text = parts.pop(0)
+    if parts:
+        text += f" (“{parts.pop(0)}”)"
+    return text
+
+
 def at_transformer(value: str) -> str:
     """
     >>> at_transformer("Siasconset")
@@ -3079,6 +3093,7 @@ template_mapping = {
     "taxon": render_taxon,
     "tcl": render_transclude,
     "term-label": render_label,
+    "th-l": render_th_l,
     "tlb": render_label,
     "transclude": render_transclude,
     "translit": render_foreign_derivation,
