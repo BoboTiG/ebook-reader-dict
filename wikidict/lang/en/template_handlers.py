@@ -2525,6 +2525,14 @@ def render_si_unit_abb2(tpl: str, parts: list[str], data: defaultdict[str, str],
     return f"({italic('metrology')}) {italic('Symbol for')} {strong(prefix + unit)} ({italic(prefix + kind)}), an SI unit of {category} equal to 10{superscript(exp)} {unit}s (<i>{kind}s</i>)."
 
 
+def render_sound_symbolic(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_sound_symbolic("sound-symbolic", ["en"], defaultdict(str, {"title": "expressive"}))
+    'expressive'
+    """
+    return misc_variant_no_term("", tpl, parts, data, word=word)
+
+
 def render_spelling_pronunciation(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_spelling_pronunciation("spelling pronunciation", ["en"], defaultdict(str))
@@ -2984,6 +2992,7 @@ template_mapping = {
     "SI-unit-np": render_si_unit,
     "sl": render_foreign_derivation,
     "slbor": render_foreign_derivation,
+    "sound-symbolic": render_sound_symbolic,
     "spelling pronunciation": render_spelling_pronunciation,
     "spoonerism": render_spoonerism,
     "spoonerism of": render_spoonerism,
