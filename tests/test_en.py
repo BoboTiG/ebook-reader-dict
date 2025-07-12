@@ -443,8 +443,6 @@ def test_parse_word(
             "{{caret notation of|null}}",
             "<i>(computing) The ASCII control character</i> <b>null</b> <i>in caret notation</i>.",
         ),
-        ("{{circa2|1850s}}", "<i>circa</i> 1850s"),
-        ("{{circa2|1955–1956|short=yes}}", "<i>c.</i> 1955–1956"),
         ("{{clipping of|en|yuppie}}", "<i>Clipping of</i> <b>yuppie</b>"),
         ("{{defdate|from 15th c.}}", "<small>[from 15th c.]</small>"),
         ("{{eye dialect of|en|is}}", "<i>Eye dialect spelling of</i> <b>is</b>"),

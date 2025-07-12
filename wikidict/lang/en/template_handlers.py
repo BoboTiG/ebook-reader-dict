@@ -575,6 +575,20 @@ def render_dating(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return f"{italic(init)} {strong(start)}" + (f" {end}" if end else "") + ","
 
 
+def render_dating_full_and_short(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_dating_full_and_short("circa2", ["1880"], defaultdict(str))
+    '<i>circa</i> 1880'
+    >>> render_dating_full_and_short("circa2", ["1880"], defaultdict(str, {"short": "yes"}))
+    '<i>c.</i> 1880'
+    >>> render_dating_full_and_short("post2", ["1880"], defaultdict(str))
+    '<i>post</i> 1880'
+    >>> render_dating_full_and_short("post2", ["1880"], defaultdict(str, {"short": "1"}))
+    '<i>p.</i> 1880'
+    """
+    return f"<i>{f'{tpl[0]}.' if data['short'] else tpl.removesuffix('2')}</i> {parts[0]}"
+
+
 def render_deverbal(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_deverbal("deverbal", [], defaultdict(str))
@@ -2916,6 +2930,7 @@ template_mapping = {
     "C.E.": render_bce,
     "CE": render_bce,
     "circa": render_dating,
+    "circa2": render_dating_full_and_short,
     "c.": render_dating,
     "chemical symbol": render_chemical_symbol,
     "clip": render_clipping,
@@ -3030,6 +3045,7 @@ template_mapping = {
     "piecewise_doublet": render_morphology,
     "place": render_place,
     "post": render_dating,
+    "post2": render_dating_full_and_short,
     "p.": render_dating,
     "pre": render_morphology,
     "prefix": render_morphology,
