@@ -357,6 +357,7 @@ templates_other = {
     "corruption": "corruption",
     "epi-def": "<i>Used as a specific epithet</i>",
     "internationalism": "Internationalism",
+    "LR": "\u200e",
     "nbsp": "&nbsp;",
     "mdash": "&mdash;",
     "ndash": "&ndash;",
