@@ -195,7 +195,10 @@ def misc_variant(start: str, tpl: str, parts: list[str], data: defaultdict[str, 
 def misc_variant_no_term(title: str, tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     if data["notext"]:
         return ""
-    return data.get("title", title if data["nocap"] else capitalize(title))
+    text = data.get("title", title if data["nocap"] else capitalize(title))
+    if data["cap"]:
+        text = capitalize(text)
+    return text
 
 
 def render_accent(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -1730,6 +1733,18 @@ def render_m_self(tpl: str, parts: list[str], data: defaultdict[str, str], *, wo
     return text
 
 
+def render_metathesis(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_metathesis("metathesis", ["en"], defaultdict(str))
+    'metathesis'
+    >>> render_metathesis("metathesis", ["en"], defaultdict(str, {"cap": "1"}))
+    'Metathesis'
+    """
+    if not data["cap"]:
+        data["nocap"] = "1"
+    return misc_variant_no_term("metathesis", tpl, parts, data, word=word)
+
+
 def render_morphology(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_morphology("affix", ["en"], defaultdict(str, {"alt1":"tisa-","pos1":"unique name","alt2":"-gen-", "t2": "transfer of genetic material (transduced)", "alt3":"-lec-", "t3":"selection and enrichment manipulation", "alt4":"-leu-", "t4":"leukocytes", "alt5":"-cel", "t5":"cellular therapy"}))
@@ -2946,6 +2961,7 @@ template_mapping = {
     "m-lite": render_foreign_derivation,
     "m-self": render_m_self,
     "mention": render_foreign_derivation,
+    "metathesis": render_metathesis,
     "morse code abbreviation": render_morse_code_abbreviation,
     "morse code for": render_morse_code_for,
     "morse code prosign": render_morse_code_prosign,
