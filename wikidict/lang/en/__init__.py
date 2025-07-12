@@ -81,7 +81,7 @@ variant_templates = (
 )
 
 # Some definitions are not good to keep
-definitions_to_ignore = ("rfdef",)
+definitions_to_ignore = ("rfdef", "translation hub", "translation only")
 
 # Templates to ignore: the text will be deleted.
 templates_ignored = (
