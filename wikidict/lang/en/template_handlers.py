@@ -1625,19 +1625,6 @@ def render_köppen(tpl: str, parts: list[str], data: defaultdict[str, str], *, w
     return f"{text}."
 
 
-def render_ltc_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
-    """
-    >>> render_ltc_l("ltc-l", ["螺貝"], defaultdict(str))
-    '螺貝'
-    >>> render_ltc_l("ltc-l", ["螺貝", "shell; conch; conch trumpet"], defaultdict(str))
-    '螺貝 (“shell; conch; conch trumpet”)'
-    """
-    text = parts.pop(0)
-    if parts:
-        text += f" (“{concat(parts, ', ')}”)"
-    return text
-
-
 def render_label(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_label("label", ["en" , "Australia", "slang"], defaultdict(str, {"nocat":"1"}))
@@ -1724,6 +1711,43 @@ def render_lit(tpl: str, parts: list[str], data: defaultdict[str, str], *, word:
         endphrase += "."
     phrase += italic(endphrase)
     return phrase
+
+
+def render_ltc_l(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_ltc_l("ltc-l", ["螺貝"], defaultdict(str))
+    '螺貝'
+    >>> render_ltc_l("ltc-l", ["螺貝", "shell; conch; conch trumpet"], defaultdict(str))
+    '螺貝 (“shell; conch; conch trumpet”)'
+    """
+    text = parts.pop(0)
+    if parts:
+        text += f" (“{concat(parts, ', ')}”)"
+    return text
+
+
+def render_lw(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_lw("lw", ["ja", "ラブライブ!"], defaultdict(str))
+    'ラブライブ!'
+    >>> render_lw("lw", ["ja", "ラブライブ!", "ラブライブ！"], defaultdict(str))
+    'ラブライブ！'
+    >>> render_lw("lw", ["ja", "ラブライブ!", "ラブライブ！", "Love Live!"], defaultdict(str, {"pref": "「", "suf": "」"}))
+    '「ラブライブ！」 (“Love Live!”)'
+    """
+    parts.pop(0)  # Remove the lang
+    if len(parts) > 1:
+        text = parts.pop(1)
+        parts.pop(0)  # Remove the useless term
+    else:
+        text = parts.pop(0)
+    if pref := data["pref"]:
+        text = f"{pref}{text}"
+    if suf := data["suf"]:
+        text += suf
+    if parts:
+        text += f" (“{parts[0]}”)"
+    return text
 
 
 def render_m_self(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
@@ -2965,6 +2989,7 @@ template_mapping = {
     "link": render_foreign_derivation,
     "ll": render_foreign_derivation,
     "ltc-l": render_ltc_l,
+    "lw": render_lw,
     "m": render_foreign_derivation,
     "m+": render_foreign_derivation,
     "m-lite": render_foreign_derivation,
