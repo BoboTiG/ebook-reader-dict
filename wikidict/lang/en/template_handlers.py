@@ -824,6 +824,14 @@ def render_demonym_noun(tpl: str, parts: list[str], data: defaultdict[str, str],
     return phrase
 
 
+def render_denominal_verb(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
+    """
+    >>> render_denominal_verb("denominal verb", ["en", "Eskimo kiss"], defaultdict(str))
+    'Denominal verb of <i>Eskimo kiss</i>'
+    """
+    return misc_variant("denominal verb", tpl, parts, data, word=word)
+
+
 def render_displaced(tpl: str, parts: list[str], data: defaultdict[str, str], *, word: str = "") -> str:
     """
     >>> render_displaced("displaced", ["ang", "ēaþmōdlīċe"], defaultdict(str))
@@ -2907,6 +2915,7 @@ template_mapping = {
     "dbt": render_morphology,
     "demonym-adj": render_demonym_adj,
     "demonym-noun": render_demonym_noun,
+    "denominal verb": render_denominal_verb,
     "der": render_foreign_derivation,
     "der+": render_foreign_derivation,
     "der-lite": render_foreign_derivation,
