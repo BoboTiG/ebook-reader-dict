@@ -281,8 +281,8 @@ templates_multi = {
     "non-gloss": "italic(parts[-1].lstrip('1='))",
     # {{nowrap|1=[ ...=C=C=C=... ]}}
     "nowrap": 'f\'<span style="white-space:nowrap">{parts[1].lstrip("1=")}</span>\'',
-    # {{|&thinsp;𝼊&thinsp;}}
-    "orthography": "f'&lsaquo;{parts[1]}&rsaquo;'",
+    # {{orthography|&thinsp;𝼊&thinsp;}}
+    "orthography": "f'⟨{parts[1]}⟩'",
     # {{qualifier|Used only ...}}
     "qualifier": "'(' + concat([italic(p) for p in parts[1:]], ', ') + ')'",
     # {{Runr-def|ᛗ}}
@@ -335,7 +335,7 @@ templates_multi["ngd"] = templates_multi["non-gloss"]
 templates_multi["non gloss"] = templates_multi["non-gloss"]
 templates_multi["non-gloss definition"] = templates_multi["non-gloss"]
 templates_multi["non gloss definition"] = templates_multi["non-gloss"]
-templates_multi["orthography"] = templates_multi["IPAfont"]
+templates_multi["orth"] = templates_multi["orthography"]
 templates_multi["q"] = templates_multi["qualifier"]
 templates_multi["q-lite"] = templates_multi["qualifier"]
 templates_multi["qf"] = templates_multi["qualifier"]
