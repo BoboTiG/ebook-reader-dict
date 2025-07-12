@@ -926,6 +926,12 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     'Orthographic borrowing from Russian <i>СССР</i> (<i>SSSR</i>)'
     >>> render_foreign_derivation("unadapted borrowing", ["en", "ar", "قِيَاس", "", "measurement, analogy"], defaultdict(str))
     'Unadapted borrowing from Arabic <i>قِيَاس</i> (<i>qīās</i>, “measurement, analogy”)'
+
+    >>> render_foreign_derivation("adapted borrowing", ["ajp", "ota", "باشلامق"], defaultdict(str, {"t": "to begin", "tr": "başlamak"}))
+    'Adapted borrowing of Ottoman Turkish باشلامق (<i>başlamak</i>, “to begin”)'
+    >>> render_foreign_derivation("adapted borrowing", ["ajp", "ota", "-"], defaultdict(str))
+    'Adapted borrowing from Ottoman Turkish'
+
     >>> render_foreign_derivation("psm", ["en", "yue", "-"], defaultdict(str))
     'Phono-semantic matching of Cantonese'
     >>> render_foreign_derivation("translit", ["en", "ar", "عَالِيَة"], defaultdict(str))
@@ -1025,6 +1031,10 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     if data["notext"] != "1":
         if tpl in {"bor+"}:
             starter = "borrowed from "
+        elif tpl in {"adapted borrowing", "abor"}:
+            if is_from := bool(parts and parts[0] == "-"):
+                parts.pop(0)
+            starter = "adapted borrowing " + ("from " if is_from else "of ")
         elif tpl in {"calque", "cal", "clq"}:
             starter = "calque of "
         if tpl in {"der+"}:
@@ -1074,7 +1084,7 @@ def render_foreign_derivation(tpl: str, parts: list[str], data: defaultdict[str,
     if tpl in {"l", "l-lite", "link", "ll"}:
         phrase += f" {word}"
     elif word:
-        if starter == "partial calque of " and dst_locale in {"mul", "zh"}:
+        if (starter == "partial calque of " and dst_locale in {"mul", "zh"}) or starter == "adapted borrowing of ":
             phrase += f" {word}"
         else:
             phrase += f" {italic(word)}"
@@ -2908,13 +2918,13 @@ template_mapping = {
     "&lit": render_lit,
     "...": render_nb,
     "a": render_accent,
+    "abor": render_foreign_derivation,
+    "adapted borrowing": render_foreign_derivation,
     "accent": render_accent,
     "A.D.": render_bce,
     "AD": render_bce,
     "af": render_morphology,
     "affix": render_morphology,
-    "in": render_morphology,
-    "infix": render_morphology,
     "aka": render_aka,
     "ante": render_dating,
     "ante2": render_ante2,
@@ -2988,6 +2998,8 @@ template_mapping = {
     "he-m": render_he_m,
     "historical given name": render_historical_given_name,
     "ic": render_ipa_char,
+    "in": render_morphology,
+    "infix": render_morphology,
     "IPAchar": render_ipa_char,
     "ipachar": render_ipa_char,
     "ISO 216": render_iso_216,
